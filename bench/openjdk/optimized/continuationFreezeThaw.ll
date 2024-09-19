@@ -9288,7 +9288,7 @@ _ZN6FreezeI6ConfigIL8oop_kind0E19CardTableBarrierSetEE15try_freeze_fastEv.exit.s
 
 _ZN6FreezeI6ConfigIL8oop_kind0E19CardTableBarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind0E19CardTableBarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind0E19CardTableBarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8
@@ -9339,7 +9339,7 @@ _ZL15freeze_internalI6ConfigIL8oop_kind0E19CardTableBarrierSetEEiP10JavaThreadPl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(33) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(33) %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %63
 
@@ -9392,26 +9392,26 @@ define internal fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapp
 29:                                               ; preds = %28, %._crit_edge.i.i
   %30 = load ptr, ptr %15, align 8
   %.not8.i.i.i.i.i.i = icmp eq ptr %30, %16
-  br i1 %.not8.i.i.i.i.i.i, label %_ZL15num_java_framesR19ContinuationWrapper.argprom.exit.i, label %31
+  br i1 %.not8.i.i.i.i.i.i, label %_ZL15num_java_framesR19ContinuationWrapper.exit.i, label %31
 
 31:                                               ; preds = %29
   store ptr %14, ptr %13, align 8
   store ptr %16, ptr %15, align 8
   store ptr %18, ptr %17, align 8
-  br label %_ZL15num_java_framesR19ContinuationWrapper.argprom.exit.i
+  br label %_ZL15num_java_framesR19ContinuationWrapper.exit.i
 
-_ZL15num_java_framesR19ContinuationWrapper.argprom.exit.i: ; preds = %31, %29
+_ZL15num_java_framesR19ContinuationWrapper.exit.i: ; preds = %31, %29
   %32 = getelementptr inbounds i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   %35 = load ptr, ptr %9, align 8
   br i1 %34, label %_ZN19ContinuationWrapper11SafepointOpC2EP6ThreadRS_.exit.thread.i, label %36
 
-_ZN19ContinuationWrapper11SafepointOpC2EP6ThreadRS_.exit.thread.i: ; preds = %_ZL15num_java_framesR19ContinuationWrapper.argprom.exit.i
+_ZN19ContinuationWrapper11SafepointOpC2EP6ThreadRS_.exit.thread.i: ; preds = %_ZL15num_java_framesR19ContinuationWrapper.exit.i
   tail call void @_ZN11JvmtiExport26continuation_yield_cleanupEP10JavaThreadi(ptr noundef %35, i32 noundef %.05.lcssa.i.i) #16
   unreachable
 
-36:                                               ; preds = %_ZL15num_java_framesR19ContinuationWrapper.argprom.exit.i
+36:                                               ; preds = %_ZL15num_java_framesR19ContinuationWrapper.exit.i
   %37 = getelementptr inbounds i8, ptr %35, i64 808
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 40
@@ -10778,7 +10778,7 @@ _ZN6FreezeI6ConfigIL8oop_kind0E17EpsilonBarrierSetEE15try_freeze_fastEv.exit.sin
 
 _ZN6FreezeI6ConfigIL8oop_kind0E17EpsilonBarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind0E17EpsilonBarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind0E17EpsilonBarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8
@@ -11576,7 +11576,7 @@ _ZN6FreezeI6ConfigIL8oop_kind0E12G1BarrierSetEE15try_freeze_fastEv.exit.sink.spl
 
 _ZN6FreezeI6ConfigIL8oop_kind0E12G1BarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind0E12G1BarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind0E12G1BarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8
@@ -12374,7 +12374,7 @@ _ZN6FreezeI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEE15try_freeze_fastEv.exit.
 
 _ZN6FreezeI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind0E20ShenandoahBarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8
@@ -13172,7 +13172,7 @@ _ZN6FreezeI6ConfigIL8oop_kind0E11XBarrierSetEE15try_freeze_fastEv.exit.sink.spli
 
 _ZN6FreezeI6ConfigIL8oop_kind0E11XBarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind0E11XBarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind0E11XBarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8
@@ -13970,7 +13970,7 @@ _ZN6FreezeI6ConfigIL8oop_kind0E11ZBarrierSetEE15try_freeze_fastEv.exit.sink.spli
 
 _ZN6FreezeI6ConfigIL8oop_kind0E11ZBarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind0E11ZBarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind0E11ZBarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8
@@ -14768,7 +14768,7 @@ _ZN6FreezeI6ConfigIL8oop_kind1E19CardTableBarrierSetEE15try_freeze_fastEv.exit.s
 
 _ZN6FreezeI6ConfigIL8oop_kind1E19CardTableBarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind1E19CardTableBarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind1E19CardTableBarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8
@@ -15566,7 +15566,7 @@ _ZN6FreezeI6ConfigIL8oop_kind1E17EpsilonBarrierSetEE15try_freeze_fastEv.exit.sin
 
 _ZN6FreezeI6ConfigIL8oop_kind1E17EpsilonBarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind1E17EpsilonBarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind1E17EpsilonBarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8
@@ -16364,7 +16364,7 @@ _ZN6FreezeI6ConfigIL8oop_kind1E12G1BarrierSetEE15try_freeze_fastEv.exit.sink.spl
 
 _ZN6FreezeI6ConfigIL8oop_kind1E12G1BarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind1E12G1BarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind1E12G1BarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8
@@ -17162,7 +17162,7 @@ _ZN6FreezeI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEE15try_freeze_fastEv.exit.
 
 _ZN6FreezeI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind1E20ShenandoahBarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8
@@ -17960,7 +17960,7 @@ _ZN6FreezeI6ConfigIL8oop_kind1E11XBarrierSetEE15try_freeze_fastEv.exit.sink.spli
 
 _ZN6FreezeI6ConfigIL8oop_kind1E11XBarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind1E11XBarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind1E11XBarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8
@@ -18758,7 +18758,7 @@ _ZN6FreezeI6ConfigIL8oop_kind1E11ZBarrierSetEE15try_freeze_fastEv.exit.sink.spli
 
 _ZN6FreezeI6ConfigIL8oop_kind1E11ZBarrierSetEE15try_freeze_fastEv.exit: ; preds = %_ZN6FreezeI6ConfigIL8oop_kind1E11ZBarrierSetEE15try_freeze_fastEv.exit.sink.split, %149, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i
   %157 = phi i32 [ 0, %_ZN10FreezeBase29size_if_fast_freeze_availableEv.exit.thread.i ], [ 5, %149 ], [ %156, %_ZN6FreezeI6ConfigIL8oop_kind1E11ZBarrierSetEE15try_freeze_fastEv.exit.sink.split ]
-  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result.retelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
+  call fastcc void @_ZL13freeze_epilogP10JavaThreadR19ContinuationWrapper13freeze_result(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(33) %3, i32 noundef %157)
   store i8 1, ptr %12, align 8
   store i64 3147254228350515902, ptr %11, align 8
   store i64 3147254228350515902, ptr %17, align 8

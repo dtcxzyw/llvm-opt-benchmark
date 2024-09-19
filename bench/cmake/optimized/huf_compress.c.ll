@@ -1115,12 +1115,12 @@ define dso_local noundef i64 @HUF_compressBound(i64 noundef %0) local_unnamed_ad
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i64 @HUF_compress1X_usingCTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #7 {
-  %7 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal.argelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
+  %7 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
   ret i64 %7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @HUF_compress1X_usingCTable_internal.argelim(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
+define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
   %6 = load i64, ptr %4, align 8
   %7 = trunc i64 %6 to i32
   %8 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2569,12 +2569,12 @@ HUF_closeCStream.exit:                            ; preds = %869, %.loopexit, %1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i64 @HUF_compress4X_usingCTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #7 {
-  %7 = tail call fastcc i64 @HUF_compress4X_usingCTable_internal.argelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
+  %7 = tail call fastcc i64 @HUF_compress4X_usingCTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
   ret i64 %7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @HUF_compress4X_usingCTable_internal.argelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
+define internal fastcc i64 @HUF_compress4X_usingCTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #7 {
   %6 = add i64 %3, 3
   %7 = lshr i64 %6, 2
   %8 = getelementptr inbounds i8, ptr %2, i64 %3
@@ -2588,7 +2588,7 @@ define internal fastcc i64 @HUF_compress4X_usingCTable_internal.argelim(ptr noun
   %13 = getelementptr inbounds i8, ptr %0, i64 6
   %14 = ptrtoint ptr %12 to i64
   %gepdiff = add nsw i64 %1, -6
-  %15 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal.argelim(ptr noundef nonnull %13, i64 noundef %gepdiff, ptr noundef %2, i64 noundef %7, ptr noundef %4)
+  %15 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %13, i64 noundef %gepdiff, ptr noundef %2, i64 noundef %7, ptr noundef %4)
   %16 = icmp ult i64 %15, -119
   br i1 %16, label %17, label %59
 
@@ -2604,7 +2604,7 @@ define internal fastcc i64 @HUF_compress4X_usingCTable_internal.argelim(ptr noun
   %22 = getelementptr inbounds i8, ptr %2, i64 %7
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %14, %23
-  %25 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal.argelim(ptr noundef nonnull %21, i64 noundef %24, ptr noundef %22, i64 noundef %7, ptr noundef %4)
+  %25 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %21, i64 noundef %24, ptr noundef %22, i64 noundef %7, ptr noundef %4)
   %26 = icmp ult i64 %25, -119
   br i1 %26, label %27, label %59
 
@@ -2621,7 +2621,7 @@ define internal fastcc i64 @HUF_compress4X_usingCTable_internal.argelim(ptr noun
   %33 = getelementptr inbounds i8, ptr %22, i64 %7
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %14, %34
-  %36 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal.argelim(ptr noundef nonnull %32, i64 noundef %35, ptr noundef %33, i64 noundef %7, ptr noundef %4)
+  %36 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %32, i64 noundef %35, ptr noundef %33, i64 noundef %7, ptr noundef %4)
   %37 = icmp ult i64 %36, -119
   br i1 %37, label %38, label %59
 
@@ -2641,7 +2641,7 @@ define internal fastcc i64 @HUF_compress4X_usingCTable_internal.argelim(ptr noun
   %47 = ptrtoint ptr %8 to i64
   %48 = ptrtoint ptr %44 to i64
   %49 = sub i64 %47, %48
-  %50 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal.argelim(ptr noundef nonnull %43, i64 noundef %46, ptr noundef %44, i64 noundef %49, ptr noundef %4)
+  %50 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %43, i64 noundef %46, ptr noundef %44, i64 noundef %49, ptr noundef %4)
   %51 = icmp ult i64 %50, -119
   br i1 %51, label %52, label %59
 
@@ -2912,7 +2912,7 @@ define internal fastcc i64 @HUF_compress_internal(ptr noundef %0, i64 noundef %1
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = tail call fastcc i64 @HUF_compressCTable_internal.argelim(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef %9)
+  %40 = tail call fastcc i64 @HUF_compressCTable_internal(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef %9)
   br label %138
 
 41:                                               ; preds = %36, %31
@@ -3008,7 +3008,7 @@ HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.
   br label %.thread
 
 85:                                               ; preds = %HUF_validateCTable.exit.thread
-  %86 = call fastcc i64 @HUF_compressCTable_internal.argelim(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef %9)
+  %86 = call fastcc i64 @HUF_compressCTable_internal(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef %9)
   br label %138
 
 .thread:                                          ; preds = %HUF_validateCTable.exit.thread.thread, %66, %HUF_validateCTable.exit.thread
@@ -3097,7 +3097,7 @@ HUF_estimateCompressedSize.exit:                  ; preds = %.lr.ph.i158
   br i1 %or.cond154, label %.thread190, label %HUF_estimateCompressedSize.exit174.thread
 
 HUF_estimateCompressedSize.exit174.thread:        ; preds = %106, %._crit_edge.loopexit.i172
-  %131 = call fastcc i64 @HUF_compressCTable_internal.argelim(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef %9)
+  %131 = call fastcc i64 @HUF_compressCTable_internal(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef %9)
   br label %138
 
 .thread188:                                       ; preds = %104
@@ -3124,7 +3124,7 @@ HUF_estimateCompressedSize.exit174.thread:        ; preds = %106, %._crit_edge.l
   br label %136
 
 136:                                              ; preds = %135, %.thread187
-  %137 = call fastcc i64 @HUF_compressCTable_internal.argelim(ptr noundef %0, ptr noundef %134, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef nonnull %88)
+  %137 = call fastcc i64 @HUF_compressCTable_internal(ptr noundef %0, ptr noundef %134, ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, i32 noundef %6, ptr noundef nonnull %88)
   br label %138
 
 138:                                              ; preds = %.thread188, %.thread185, %93, %.thread, %63, %55, %45, %27, %25, %23, %22, %12, %136, %HUF_estimateCompressedSize.exit174.thread, %85, %61, %39
@@ -3281,7 +3281,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @HUF_compressCTable_internal.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef range(i64 1, 131073) %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef readonly %6) unnamed_addr #7 {
+define internal fastcc i64 @HUF_compressCTable_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef range(i64 1, 131073) %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef readonly %6) unnamed_addr #7 {
   %8 = icmp eq i32 %5, 0
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %1 to i64
@@ -3289,11 +3289,11 @@ define internal fastcc i64 @HUF_compressCTable_internal.argelim(ptr noundef %0, 
   br i1 %8, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal.argelim(ptr noundef %1, i64 noundef %11, ptr noundef %3, i64 noundef %4, ptr noundef %6)
+  %13 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %1, i64 noundef %11, ptr noundef %3, i64 noundef %4, ptr noundef %6)
   br label %16
 
 14:                                               ; preds = %7
-  %15 = tail call fastcc i64 @HUF_compress4X_usingCTable_internal.argelim(ptr noundef %1, i64 noundef %11, ptr noundef %3, i64 noundef %4, ptr noundef %6)
+  %15 = tail call fastcc i64 @HUF_compress4X_usingCTable_internal(ptr noundef %1, i64 noundef %11, ptr noundef %3, i64 noundef %4, ptr noundef %6)
   br label %16
 
 16:                                               ; preds = %14, %12

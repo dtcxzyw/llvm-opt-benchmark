@@ -1365,7 +1365,7 @@ define void @"_ZN364_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$s
   %.val1 = load i64, ptr %6, align 8, !noundef !7
   %.not.i.i = icmp eq i64 %.val1, 0
   %7 = icmp ne ptr %.val, null
-  br i1 %.not.i.i, label %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argprom.exit, label %.split.us.i.i
+  br i1 %.not.i.i, label %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit, label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %2
   tail call void @llvm.assume(i1 %7)
@@ -1379,9 +1379,9 @@ define void @"_ZN364_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$s
   %11 = load double, ptr %10, align 8, !alias.scope !164, !noundef !7
   %12 = fadd double %.sroa.0.12.us.i.i, %11
   %exitcond.not.i.i = icmp eq i64 %9, %.val1
-  br i1 %exitcond.not.i.i, label %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argprom.exit, label %8
+  br i1 %exitcond.not.i.i, label %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit, label %8
 
-_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argprom.exit: ; preds = %8, %2
+_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit: ; preds = %8, %2
   %.us-phi.i.i = phi double [ 0.000000e+00, %2 ], [ %12, %8 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !167
   call fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17hf1987002b8443eb3E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %4, i64 noundef %.val1), !noalias !167
@@ -1395,7 +1395,7 @@ _ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argpr
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !167
   br i1 %.not.i.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argprom.exit
+.lr.ph.i:                                         ; preds = %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit
   tail call void @llvm.assume(i1 %7)
   %13 = icmp ne ptr %.sroa.4.0.copyload.i, null
   tail call void @llvm.assume(i1 %13)
@@ -1404,7 +1404,7 @@ _ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argpr
 .body.i:                                          ; preds = %18
   resume { ptr, i32 } %19
 
-.critedge.i:                                      ; preds = %24, %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argprom.exit
+.critedge.i:                                      ; preds = %24, %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit
   %14 = icmp ne ptr %.sroa.4.0.copyload.i, null
   tail call void @llvm.assume(i1 %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !167
@@ -1414,7 +1414,7 @@ _ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argpr
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %.sroa.6.0.copyload.i, ptr %16, align 8, !noalias !171
   %17 = icmp eq i64 %.sroa.7.0.copyload.i, %.sroa.6.0.copyload.i
-  br i1 %17, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hdfd22009a9b924bdE.argprom.exit", label %20
+  br i1 %17, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hdfd22009a9b924bdE.exit", label %20
 
 18:                                               ; preds = %20
   %19 = landingpad { ptr, i32 }
@@ -1446,7 +1446,7 @@ _ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argpr
   %exitcond.not.i = icmp eq i64 %25, %.val1
   br i1 %exitcond.not.i, label %.critedge.i, label %24
 
-"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hdfd22009a9b924bdE.argprom.exit": ; preds = %.critedge.i
+"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hdfd22009a9b924bdE.exit": ; preds = %.critedge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !167
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -1469,7 +1469,7 @@ define void @"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$s
   %.val13 = load i64, ptr %11, align 8, !noundef !7
   %.not.i.i = icmp eq i64 %.val13, 0
   %12 = icmp ne ptr %.val, null
-  br i1 %.not.i.i, label %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argprom.exit, label %.split.us.i.i
+  br i1 %.not.i.i, label %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit, label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %2
   tail call void @llvm.assume(i1 %12)
@@ -1483,9 +1483,9 @@ define void @"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$s
   %16 = load double, ptr %15, align 8, !alias.scope !183, !noundef !7
   %17 = fadd double %.sroa.0.12.us.i.i, %16
   %exitcond.not.i.i = icmp eq i64 %14, %.val13
-  br i1 %exitcond.not.i.i, label %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argprom.exit, label %13
+  br i1 %exitcond.not.i.i, label %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit, label %13
 
-_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argprom.exit: ; preds = %13, %2
+_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit: ; preds = %13, %2
   %.us-phi.i.i = phi double [ 0.000000e+00, %2 ], [ %17, %13 ]
   %18 = fmul double %.us-phi.i.i, %.us-phi.i.i
   %19 = fadd double %.us-phi.i.i, 1.000000e+00
@@ -1505,7 +1505,7 @@ _ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argpr
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !189
   br i1 %.not.i.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argprom.exit
+.lr.ph.i:                                         ; preds = %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit
   tail call void @llvm.assume(i1 %12)
   %21 = icmp ne ptr %.sroa.4.0.copyload.i, null
   tail call void @llvm.assume(i1 %21)
@@ -1515,7 +1515,7 @@ common.resume:                                    ; preds = %.body, %82, %26
   %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %83, %82 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-.critedge.i:                                      ; preds = %32, %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.argprom.exit
+.critedge.i:                                      ; preds = %32, %_ZN6statrs12distribution9dirichlet9Dirichlet9alpha_sum17ha5ab6f2e4a70456dE.exit
   %22 = icmp ne ptr %.sroa.4.0.copyload.i, null
   tail call void @llvm.assume(i1 %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !189
@@ -1525,7 +1525,7 @@ common.resume:                                    ; preds = %.body, %82, %26
   %24 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %.sroa.6.0.copyload.i, ptr %24, align 8, !noalias !192
   %25 = icmp eq i64 %.sroa.7.0.copyload.i, %.sroa.6.0.copyload.i
-  br i1 %25, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.argprom.exit", label %28
+  br i1 %25, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.exit", label %28
 
 26:                                               ; preds = %28
   %27 = landingpad { ptr, i32 }
@@ -1559,7 +1559,7 @@ common.resume:                                    ; preds = %.body, %82, %26
   %exitcond.not.i = icmp eq i64 %33, %.val13
   br i1 %exitcond.not.i, label %.critedge.i, label %32
 
-"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.argprom.exit": ; preds = %.critedge.i
+"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.exit": ; preds = %.critedge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !204
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !189
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 24
@@ -1572,7 +1572,7 @@ common.resume:                                    ; preds = %.body, %82, %26
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h745c1f7f1ceb76d9E.llvm.7371537965014501254"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, double noundef 0.000000e+00, i64 noundef %41)
           to label %.noexc unwind label %71
 
-.noexc:                                           ; preds = %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.argprom.exit"
+.noexc:                                           ; preds = %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.exit"
   %42 = getelementptr inbounds i8, ptr %5, i64 16
   %43 = load i64, ptr %42, align 8, !noalias !205, !noundef !7
   %44 = icmp eq i64 %43, %41
@@ -1653,7 +1653,7 @@ common.resume:                                    ; preds = %.body, %82, %26
   %exitcond.not.i21 = icmp eq i64 %65, %.sroa.6.0.copyload.i
   br i1 %exitcond.not.i21, label %.loopexit34, label %64
 
-71:                                               ; preds = %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.argprom.exit"
+71:                                               ; preds = %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.exit"
   %72 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1724,18 +1724,18 @@ common.resume:                                    ; preds = %.body, %82, %26
   %.sroa.07.037 = phi i64 [ %84, %.loopexit ], [ 0, %.split36 ]
   %84 = add nuw i64 %.sroa.07.037, 1
   %.not38 = icmp eq i64 %.sroa.07.037, 0
-  br i1 %.not38, label %.loopexit, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i.lr.ph"
+  br i1 %.not38, label %.loopexit, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i.lr.ph"
 
-"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i.lr.ph": ; preds = %.split
+"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i.lr.ph": ; preds = %.split
   call void @llvm.assume(i1 %12)
   %85 = getelementptr double, ptr %.val, i64 %.sroa.07.037
-  br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i"
+  br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i"
 
-"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i.lr.ph", %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit"
-  %.val.i.i = phi ptr [ %.val.i.i46, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i.lr.ph" ], [ %.val.i16.i, %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit" ]
-  %.val4.i.i = phi i64 [ %.val4.i.i43, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i.lr.ph" ], [ %.val4.i14.i, %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit" ]
-  %.val3.i.i = phi i64 [ %.val3.i.i40, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i.lr.ph" ], [ %.val3.i13.i, %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit" ]
-  %.sroa.09.035 = phi i64 [ 0, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i.lr.ph" ], [ %86, %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit" ]
+"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i.lr.ph", %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit"
+  %.val.i.i = phi ptr [ %.val.i.i46, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i.lr.ph" ], [ %.val.i16.i, %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit" ]
+  %.val4.i.i = phi i64 [ %.val4.i.i43, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i.lr.ph" ], [ %.val4.i14.i, %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit" ]
+  %.val3.i.i = phi i64 [ %.val3.i.i40, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i.lr.ph" ], [ %.val3.i13.i, %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit" ]
+  %.sroa.09.035 = phi i64 [ 0, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i.lr.ph" ], [ %86, %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit" ]
   %86 = add nuw i64 %.sroa.09.035, 1
   %87 = load double, ptr %85, align 8, !noalias !233, !noundef !7
   %88 = fneg double %87
@@ -1748,7 +1748,7 @@ common.resume:                                    ; preds = %.body, %82, %26
   %or.cond.i12.i = and i1 %93, %94
   br i1 %or.cond.i12.i, label %"_ZN8nalgebra4base3ops137_$LT$impl$u20$core..ops..index..IndexMut$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$9index_mut17hf25e42010faa6ac2E.exit.i", label %.invoke
 
-"_ZN8nalgebra4base3ops137_$LT$impl$u20$core..ops..index..IndexMut$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$9index_mut17hf25e42010faa6ac2E.exit.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i"
+"_ZN8nalgebra4base3ops137_$LT$impl$u20$core..ops..index..IndexMut$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$9index_mut17hf25e42010faa6ac2E.exit.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i"
   %95 = mul i64 %.val3.i.i, %.sroa.09.035
   %96 = getelementptr double, ptr %.val.i.i, i64 %95
   %97 = getelementptr double, ptr %96, i64 %.sroa.07.037
@@ -1760,8 +1760,8 @@ common.resume:                                    ; preds = %.body, %82, %26
   %or.cond.i15.i = and i1 %98, %99
   br i1 %or.cond.i15.i, label %"_ZN334_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..statistics..traits..VarianceN$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$$GT$8variance28_$u7b$$u7b$closure$u7d$$u7d$17h9fe745d8559b89d4E.exit", label %.invoke
 
-.invoke:                                          ; preds = %"_ZN8nalgebra4base3ops137_$LT$impl$u20$core..ops..index..IndexMut$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$9index_mut17hf25e42010faa6ac2E.exit.i", %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i"
-  %100 = phi ptr [ @anon.506cc9156309edb07427fe3f8fdc614f.25, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i" ], [ @anon.506cc9156309edb07427fe3f8fdc614f.26, %"_ZN8nalgebra4base3ops137_$LT$impl$u20$core..ops..index..IndexMut$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$9index_mut17hf25e42010faa6ac2E.exit.i" ]
+.invoke:                                          ; preds = %"_ZN8nalgebra4base3ops137_$LT$impl$u20$core..ops..index..IndexMut$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$9index_mut17hf25e42010faa6ac2E.exit.i", %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i"
+  %100 = phi ptr [ @anon.506cc9156309edb07427fe3f8fdc614f.25, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i" ], [ @anon.506cc9156309edb07427fe3f8fdc614f.26, %"_ZN8nalgebra4base3ops137_$LT$impl$u20$core..ops..index..IndexMut$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$9index_mut17hf25e42010faa6ac2E.exit.i" ]
   invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.506cc9156309edb07427fe3f8fdc614f.10, i64 noundef 27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %100) #20
           to label %.cont unwind label %82
 
@@ -1775,7 +1775,7 @@ common.resume:                                    ; preds = %.body, %82, %26
   %103 = getelementptr double, ptr %102, i64 %.sroa.09.035
   store double %92, ptr %103, align 8, !noalias !233
   %exitcond.not = icmp eq i64 %86, %.sroa.07.037
-  br i1 %exitcond.not, label %.loopexit, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit.i"
+  br i1 %exitcond.not, label %.loopexit, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit.i"
 
 104:                                              ; preds = %82, %.body
   %105 = landingpad { ptr, i32 }
@@ -2316,8 +2316,8 @@ attributes #23 = { nounwind }
 !28 = distinct !{!28, !29, !"_ZN6statrs12distribution9bernoulli9Bernoulli1p17hbe132004ea676ef0E: argument 0"}
 !29 = distinct !{!29, !"_ZN6statrs12distribution9bernoulli9Bernoulli1p17hbe132004ea676ef0E"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!32 = distinct !{!32, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!31 = distinct !{!31, !32, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!32 = distinct !{!32, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !33 = !{!34}
 !34 = distinct !{!34, !35, !"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf17h768a3c98d1b35a99E: argument 0"}
 !35 = distinct !{!35, !"_ZN111_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf17h768a3c98d1b35a99E"}
@@ -2363,8 +2363,8 @@ attributes #23 = { nounwind }
 !75 = distinct !{!75, !76, !"_ZN132_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$u64$GT$$GT$$GT$4mode17hd72b3194cb9d6e6bE: argument 0"}
 !76 = distinct !{!76, !"_ZN132_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..statistics..traits..Mode$LT$core..option..Option$LT$u64$GT$$GT$$GT$4mode17hd72b3194cb9d6e6bE"}
 !77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!79 = distinct !{!79, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!78 = distinct !{!78, !79, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!79 = distinct !{!79, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !80 = !{!81}
 !81 = distinct !{!81, !82, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911: argument 0"}
 !82 = distinct !{!82, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e55484334486acE.llvm.11173233603740741911"}
@@ -2447,15 +2447,15 @@ attributes #23 = { nounwind }
 !159 = distinct !{!159, !160, !"_ZN4core4iter6traits8iterator8Iterator4fold17hf3dc60a5463c376aE: argument 0"}
 !160 = distinct !{!160, !"_ZN4core4iter6traits8iterator8Iterator4fold17hf3dc60a5463c376aE"}
 !161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!163 = distinct !{!163, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!162 = distinct !{!162, !163, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!163 = distinct !{!163, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !164 = !{!165}
 !165 = distinct !{!165, !166, !"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..Clone$u20$for$u20$f64$GT$5clone17hde178c414cb8a8b4E: argument 0"}
 !166 = distinct !{!166, !"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..Clone$u20$for$u20$f64$GT$5clone17hde178c414cb8a8b4E"}
 !167 = !{!168, !170}
-!168 = distinct !{!168, !169, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hdfd22009a9b924bdE.argprom: argument 0"}
-!169 = distinct !{!169, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hdfd22009a9b924bdE.argprom"}
-!170 = distinct !{!170, !169, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hdfd22009a9b924bdE.argprom: argument 1"}
+!168 = distinct !{!168, !169, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hdfd22009a9b924bdE: argument 0"}
+!169 = distinct !{!169, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hdfd22009a9b924bdE"}
+!170 = distinct !{!170, !169, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hdfd22009a9b924bdE: argument 1"}
 !171 = !{!172, !174, !168, !170}
 !172 = distinct !{!172, !173, !"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$11assume_init17h0e99d19ef4b0eca9E: argument 0"}
 !173 = distinct !{!173, !"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$11assume_init17h0e99d19ef4b0eca9E"}
@@ -2472,11 +2472,11 @@ attributes #23 = { nounwind }
 !184 = distinct !{!184, !185, !"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..Clone$u20$for$u20$f64$GT$5clone17hde178c414cb8a8b4E: argument 0"}
 !185 = distinct !{!185, !"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..Clone$u20$for$u20$f64$GT$5clone17hde178c414cb8a8b4E"}
 !186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.argprom: argument 0"}
-!188 = distinct !{!188, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.argprom"}
+!187 = distinct !{!187, !188, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE: argument 0"}
+!188 = distinct !{!188, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE"}
 !189 = !{!187, !190, !191}
-!190 = distinct !{!190, !188, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.argprom: argument 1"}
-!191 = distinct !{!191, !188, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE.argprom: argument 2"}
+!190 = distinct !{!190, !188, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE: argument 1"}
+!191 = distinct !{!191, !188, !"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$3map17hcd330e5e711a162cE: argument 2"}
 !192 = !{!193, !195, !187, !190, !191}
 !193 = distinct !{!193, !194, !"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$11assume_init17h0e99d19ef4b0eca9E: argument 0"}
 !194 = distinct !{!194, !"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$11assume_init17h0e99d19ef4b0eca9E"}
@@ -2491,8 +2491,8 @@ attributes #23 = { nounwind }
 !203 = distinct !{!203, !"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..Clone$u20$for$u20$f64$GT$5clone17hde178c414cb8a8b4E"}
 !204 = !{!190, !191}
 !205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZN8nalgebra4base12construction200_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$D$C$D$GT$$GT$..Buffer$GT$$GT$13from_diagonal17h34b81d67fd78135cE.argprom: argument 0"}
-!207 = distinct !{!207, !"_ZN8nalgebra4base12construction200_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$D$C$D$GT$$GT$..Buffer$GT$$GT$13from_diagonal17h34b81d67fd78135cE.argprom"}
+!206 = distinct !{!206, !207, !"_ZN8nalgebra4base12construction200_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$D$C$D$GT$$GT$..Buffer$GT$$GT$13from_diagonal17h34b81d67fd78135cE: argument 0"}
+!207 = distinct !{!207, !"_ZN8nalgebra4base12construction200_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$D$C$D$GT$$GT$..Buffer$GT$$GT$13from_diagonal17h34b81d67fd78135cE"}
 !208 = !{!209, !211, !206}
 !209 = distinct !{!209, !210, !"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$22allocate_from_iterator17h15767776e2b9df47E: argument 0"}
 !210 = distinct !{!210, !"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$22allocate_from_iterator17h15767776e2b9df47E"}
@@ -2528,13 +2528,13 @@ attributes #23 = { nounwind }
 !240 = distinct !{!240, !241, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 3"}
 !241 = distinct !{!241, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E"}
 !242 = !{!243}
-!243 = distinct !{!243, !244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE.argprom: argument 2"}
-!244 = distinct !{!244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE.argprom"}
+!243 = distinct !{!243, !244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE: argument 2"}
+!244 = distinct !{!244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE"}
 !245 = !{!246, !248, !249, !243, !250, !251, !252, !240, !253, !255, !256, !257}
-!246 = distinct !{!246, !247, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h3359a44b230df696E.argprom: argument 0"}
-!247 = distinct !{!247, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h3359a44b230df696E.argprom"}
-!248 = distinct !{!248, !244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE.argprom: argument 0"}
-!249 = distinct !{!249, !244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE.argprom: argument 1"}
+!246 = distinct !{!246, !247, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h3359a44b230df696E: argument 0"}
+!247 = distinct !{!247, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h3359a44b230df696E"}
+!248 = distinct !{!248, !244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE: argument 0"}
+!249 = distinct !{!249, !244, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he088ffe175dbb35cE: argument 1"}
 !250 = distinct !{!250, !241, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 0"}
 !251 = distinct !{!251, !241, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 1"}
 !252 = distinct !{!252, !241, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h533b4df020d62c55E: argument 2"}
@@ -2546,9 +2546,9 @@ attributes #23 = { nounwind }
 !258 = !{!243, !240}
 !259 = !{!248, !249, !250, !251, !252, !253, !255, !256, !257}
 !260 = !{!261, !263, !248, !249, !243, !250, !251, !252, !240, !253, !255, !256, !257}
-!261 = distinct !{!261, !262, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE.argprom: argument 0"}
-!262 = distinct !{!262, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE.argprom"}
-!263 = distinct !{!263, !262, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE.argprom: argument 1"}
+!261 = distinct !{!261, !262, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE: argument 0"}
+!262 = distinct !{!262, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE"}
+!263 = distinct !{!263, !262, !"_ZN373_$LT$statrs..distribution..dirichlet..Dirichlet$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$6ln_pdf28_$u7b$$u7b$closure$u7d$$u7d$17h34f52402150fc0ffE: argument 1"}
 !264 = !{!265}
-!265 = distinct !{!265, !266, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!266 = distinct !{!266, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!265 = distinct !{!265, !266, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!266 = distinct !{!266, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}

@@ -1233,8 +1233,8 @@ Abc_TtIsConst1.exit:                              ; preds = %.lr.ph.i204
   %wide.trip.count461 = zext nneg i32 %.1149424 to i64
   br label %.lr.ph.preheader.i.i.us
 
-.lr.ph.preheader.i.i.us:                          ; preds = %.lr.ph.preheader.i.i.us.preheader, %dsc_xor_test.argprom.exit.us
-  %indvars.iv458 = phi i64 [ 0, %.lr.ph.preheader.i.i.us.preheader ], [ %indvars.iv.next459, %dsc_xor_test.argprom.exit.us ]
+.lr.ph.preheader.i.i.us:                          ; preds = %.lr.ph.preheader.i.i.us.preheader, %dsc_xor_test.exit.us
+  %indvars.iv458 = phi i64 [ 0, %.lr.ph.preheader.i.i.us.preheader ], [ %indvars.iv.next459, %dsc_xor_test.exit.us ]
   %172 = getelementptr inbounds [16 x ptr], ptr %7, i64 0, i64 %indvars.iv458
   %173 = load ptr, ptr %172, align 8
   %174 = load ptr, ptr %173, align 8
@@ -1298,9 +1298,9 @@ dsc_and_test.exit.us:                             ; preds = %.lr.ph.i44.i.us
   %197 = getelementptr inbounds i64, ptr %.val170.us, i64 %indvars.iv.i.i227.us
   %198 = load i64, ptr %197, align 8
   %.not.i.i228.us = icmp eq i64 %196, %198
-  br i1 %.not.i.i228.us, label %199, label %dsc_xor_test.argprom.exit.us
+  br i1 %.not.i.i228.us, label %199, label %dsc_xor_test.exit.us
 
-dsc_xor_test.argprom.exit.us:                     ; preds = %.lr.ph.i.i226.us
+dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i226.us
   %indvars.iv.next459 = add nuw nsw i64 %indvars.iv458, 1
   %exitcond462.not = icmp eq i64 %indvars.iv.next459, %wide.trip.count461
   br i1 %exitcond462.not, label %._crit_edge410.split.us, label %.lr.ph.preheader.i.i.us, !llvm.loop !32
@@ -1766,7 +1766,7 @@ dsc_and_test.exit.thread319:                      ; preds = %.lr.ph.i104.i, %cub
   %372 = add nsw i32 %.0146427, 1
   br label %374
 
-._crit_edge410.split.us:                          ; preds = %dsc_xor_test.argprom.exit.us, %165
+._crit_edge410.split.us:                          ; preds = %dsc_xor_test.exit.us, %165
   %373 = add nsw i32 %.1149424, 1
   br label %374
 

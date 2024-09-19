@@ -1652,13 +1652,13 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i: ; preds = %entry
 if.then.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
   %add.ptr3.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %2
-  br label %_ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_12_GLOBAL__N_122ServerCallTracerFilterEvEEJPS5_EEEPT_DpOT0_.argprom.exit.i.i
+  br label %_ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_12_GLOBAL__N_122ServerCallTracerFilterEvEEJPS5_EEEPT_DpOT0_.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i
   %call4.i.i.i.i.i = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 32)
-  br label %_ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_12_GLOBAL__N_122ServerCallTracerFilterEvEEJPS5_EEEPT_DpOT0_.argprom.exit.i.i
+  br label %_ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_12_GLOBAL__N_122ServerCallTracerFilterEvEEJPS5_EEEPT_DpOT0_.exit.i.i
 
-_ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_12_GLOBAL__N_122ServerCallTracerFilterEvEEJPS5_EEEPT_DpOT0_.argprom.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
+_ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_12_GLOBAL__N_122ServerCallTracerFilterEvEEJPS5_EEEPT_DpOT0_.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call4.i.i.i.i.i, %if.else.i.i.i.i.i ]
   %next.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 8
   store ptr null, ptr %next.i.i.i.i.i.i.i, align 8
@@ -1680,11 +1680,11 @@ _ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_12_GL
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_12_GLOBAL__N_122ServerCallTracerFilterEvEEJPS5_EEEPT_DpOT0_.argprom.exit.i.i
+if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_12_GLOBAL__N_122ServerCallTracerFilterEvEEJPS5_EEEPT_DpOT0_.exit.i.i
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.4, i32 noundef 80, ptr noundef nonnull @.str.5) #26
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i.i.i: ; preds = %_ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_12_GLOBAL__N_122ServerCallTracerFilterEvEEJPS5_EEEPT_DpOT0_.argprom.exit.i.i
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i.i.i: ; preds = %_ZN9grpc_core5Arena10ManagedNewINS_21promise_filter_detail11CallWrapperINS_12_GLOBAL__N_122ServerCallTracerFilterEvEEJPS5_EEEPT_DpOT0_.exit.i.i
   %7 = atomicrmw add ptr %6, i64 32 monotonic, align 8
   %add2.i.i.i.i.i.i.i.i = add i64 %7, 32
   %initial_zone_size_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
@@ -1715,16 +1715,16 @@ _ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13Po
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS2_EPNSC_4CallEPSC_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISM_EEvSC_NS_13DebugLocationEEUlvE_EEPNS6_3MapESC_T0_SO_.exit.i.i.i.i.i
   store ptr %retval.0.i.i.i.i.i.i.i.i, ptr %receiver.val.i.i.i, align 8
   %last_map_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %receiver.val.i.i.i, i64 8
-  br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+  br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE12MakeMapToAddIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS2_EPNSC_4CallEPSC_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISM_EEvSC_NS_13DebugLocationEEUlvE_EEPNS6_3MapESC_T0_SO_.exit.i.i.i.i.i
   %last_map_3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %receiver.val.i.i.i, i64 8
   %10 = load ptr, ptr %last_map_3.i.i.i.i.i.i, align 8
   %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %retval.0.i.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
-  br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+  br label %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
 
-_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
+_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %last_map_3.sink.i.i.i.i.i.i = phi ptr [ %last_map_3.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %last_map_.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
   store ptr %retval.0.i.i.i.i.i.i.i.i, ptr %last_map_3.sink.i.i.i.i.i.i, align 8
   %vtable.i10.i.i = load ptr, ptr %args, align 8
@@ -1740,11 +1740,11 @@ _ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBA
   %cmp.not.i.i.i.i.i15.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i.i15.i.i, label %if.then.i.i.i.i.i30.i.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i16.i.i
 
-if.then.i.i.i.i.i30.i.i:                          ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+if.then.i.i.i.i.i30.i.i:                          ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.4, i32 noundef 80, ptr noundef nonnull @.str.5) #26
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i16.i.i: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i16.i.i: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
   %14 = atomicrmw add ptr %13, i64 32 monotonic, align 8
   %add2.i.i.i.i.i.i17.i.i = add i64 %14, 32
   %initial_zone_size_.i.i.i.i.i.i18.i.i = getelementptr inbounds i8, ptr %13, i64 16
@@ -1755,13 +1755,13 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i16.i.i: ; preds = %_ZN9gr
 if.then.i.i.i.i.i.i20.i.i:                        ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i16.i.i
   %add.ptr.i.i.i.i.i.i21.i.i = getelementptr inbounds i8, ptr %13, i64 48
   %add.ptr3.i.i.i.i.i.i22.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i21.i.i, i64 %14
-  br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+  br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
 
 if.else.i.i.i.i.i.i28.i.i:                        ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i16.i.i
   %call4.i.i.i.i.i.i29.i.i = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef 32)
-  br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+  br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
 
-_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i: ; preds = %if.else.i.i.i.i.i.i28.i.i, %if.then.i.i.i.i.i.i20.i.i
+_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i: ; preds = %if.else.i.i.i.i.i.i28.i.i, %if.then.i.i.i.i.i.i20.i.i
   %retval.0.i.i.i.i.i.i23.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i22.i.i, %if.then.i.i.i.i.i.i20.i.i ], [ %call4.i.i.i.i.i.i29.i.i, %if.else.i.i.i.i.i.i28.i.i ]
   %next_.i.i.i.i.i.i.i.i24.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i23.i.i, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i24.i.i, align 8
@@ -1788,11 +1788,11 @@ _ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBA
   %cmp.not.i.i.i.i.i37.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i.i.i37.i.i, label %if.then.i.i.i.i.i54.i.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i38.i.i
 
-if.then.i.i.i.i.i54.i.i:                          ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+if.then.i.i.i.i.i54.i.i:                          ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.4, i32 noundef 80, ptr noundef nonnull @.str.5) #26
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i38.i.i: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i38.i.i: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
   %20 = atomicrmw add ptr %19, i64 32 monotonic, align 8
   %add2.i.i.i.i.i.i39.i.i = add i64 %20, 32
   %initial_zone_size_.i.i.i.i.i.i40.i.i = getelementptr inbounds i8, ptr %19, i64 16
@@ -1803,13 +1803,13 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i38.i.i: ; preds = %_ZN9gr
 if.then.i.i.i.i.i.i42.i.i:                        ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i38.i.i
   %add.ptr.i.i.i.i.i.i43.i.i = getelementptr inbounds i8, ptr %19, i64 48
   %add.ptr3.i.i.i.i.i.i44.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i43.i.i, i64 %20
-  br label %_ZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+  br label %_ZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
 
 if.else.i.i.i.i.i.i52.i.i:                        ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i38.i.i
   %call4.i.i.i.i.i.i53.i.i = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %19, i64 noundef 32)
-  br label %_ZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+  br label %_ZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
 
-_ZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i: ; preds = %if.else.i.i.i.i.i.i52.i.i, %if.then.i.i.i.i.i.i42.i.i
+_ZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i: ; preds = %if.else.i.i.i.i.i.i52.i.i, %if.then.i.i.i.i.i.i42.i.i
   %retval.0.i.i.i.i.i.i45.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i44.i.i, %if.then.i.i.i.i.i.i42.i.i ], [ %call4.i.i.i.i.i.i53.i.i, %if.else.i.i.i.i.i.i52.i.i ]
   %next_.i.i.i.i.i.i.i.i46.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i45.i.i, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i46.i.i, align 8
@@ -1828,11 +1828,11 @@ _ZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOB
   %cmp.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core10GetContextINS_16CallFinalizationEEEPT_v.exit.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.4, i32 noundef 80, ptr noundef nonnull @.str.5) #26
   unreachable
 
-_ZN9grpc_core10GetContextINS_16CallFinalizationEEEPT_v.exit.i.i.i: ; preds = %_ZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.argprom.exit.i.i
+_ZN9grpc_core10GetContextINS_16CallFinalizationEEEPT_v.exit.i.i.i: ; preds = %_ZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceE.exit.i.i
   %25 = load ptr, ptr %0, align 8
   %cmp.not.i.i.i55.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i55.i.i, label %if.then.i.i.i59.i.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i
@@ -1852,13 +1852,13 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i: ; preds = %_ZN9grpc_cor
 if.then.i.i.i.i56.i.i:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 48
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %26
-  br label %_ZZN9grpc_core22MakePromiseBasedFilterINS_12_GLOBAL__N_122ServerCallTracerFilterELNS_14FilterEndpointE1ELh1EEENSt9enable_ifIXsr3std10is_base_ofINS_22ImplementChannelFilterIT_EES6_EE5valueE19grpc_channel_filterE4typeEPKcENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESE_SG_.argprom.argprom.exit
+  br label %_ZZN9grpc_core22MakePromiseBasedFilterINS_12_GLOBAL__N_122ServerCallTracerFilterELNS_14FilterEndpointE1ELh1EEENSt9enable_ifIXsr3std10is_base_ofINS_22ImplementChannelFilterIT_EES6_EE5valueE19grpc_channel_filterE4typeEPKcENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESE_SG_.exit
 
 if.else.i.i.i.i58.i.i:                            ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i
   %call4.i.i.i.i.i.i = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef 32)
-  br label %_ZZN9grpc_core22MakePromiseBasedFilterINS_12_GLOBAL__N_122ServerCallTracerFilterELNS_14FilterEndpointE1ELh1EEENSt9enable_ifIXsr3std10is_base_ofINS_22ImplementChannelFilterIT_EES6_EE5valueE19grpc_channel_filterE4typeEPKcENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESE_SG_.argprom.argprom.exit
+  br label %_ZZN9grpc_core22MakePromiseBasedFilterINS_12_GLOBAL__N_122ServerCallTracerFilterELNS_14FilterEndpointE1ELh1EEENSt9enable_ifIXsr3std10is_base_ofINS_22ImplementChannelFilterIT_EES6_EE5valueE19grpc_channel_filterE4typeEPKcENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESE_SG_.exit
 
-_ZZN9grpc_core22MakePromiseBasedFilterINS_12_GLOBAL__N_122ServerCallTracerFilterELNS_14FilterEndpointE1ELh1EEENSt9enable_ifIXsr3std10is_base_ofINS_22ImplementChannelFilterIT_EES6_EE5valueE19grpc_channel_filterE4typeEPKcENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESE_SG_.argprom.argprom.exit: ; preds = %if.then.i.i.i.i56.i.i, %if.else.i.i.i.i58.i.i
+_ZZN9grpc_core22MakePromiseBasedFilterINS_12_GLOBAL__N_122ServerCallTracerFilterELNS_14FilterEndpointE1ELh1EEENSt9enable_ifIXsr3std10is_base_ofINS_22ImplementChannelFilterIT_EES6_EE5valueE19grpc_channel_filterE4typeEPKcENKUlP20grpc_channel_elementPNS_18CallSpineInterfaceEE_clESE_SG_.exit: ; preds = %if.then.i.i.i.i56.i.i, %if.else.i.i.i.i58.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.then.i.i.i.i56.i.i ], [ %call4.i.i.i.i.i.i, %if.else.i.i.i.i58.i.i ]
   %args1.val.i.i.i.i.i = load ptr, ptr %24, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16CallFinalization13FuncFinalizerIZNS_21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS7_EUlSA_E_EE, i64 16), ptr %retval.0.i.i.i.i.i.i, align 8
@@ -2284,28 +2284,28 @@ _ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call10CallTracerEv.exit.i.i:
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.i, label %_ZZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS5_ENKUlS8_E_clES8_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp.i.i, label %_ZZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS5_ENKUlS8_E_clES8_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call10CallTracerEv.exit.i.i
   %vtable.i.i = load ptr, ptr %2, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 144
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %final_info)
-  br label %_ZZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS5_ENKUlS8_E_clES8_.argprom.argprom.exit
+  br label %_ZZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS5_ENKUlS8_E_clES8_.exit
 
-_ZZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS5_ENKUlS8_E_clES8_.argprom.argprom.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call10CallTracerEv.exit.i.i, %if.end.i.i
+_ZZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS5_ENKUlS8_E_clES8_.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call10CallTracerEv.exit.i.i, %if.end.i.i
   %next_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %next_, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS5_ENKUlS8_E_clES8_.argprom.argprom.exit
+if.then:                                          ; preds = %_ZZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS5_ENKUlS8_E_clES8_.exit
   %vtable = load ptr, ptr %4, align 8
   %5 = load ptr, ptr %vtable, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %final_info)
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %_ZZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS5_ENKUlS8_E_clES8_.argprom.argprom.exit
+if.end:                                           ; preds = %if.then, %_ZZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPS5_ENKUlS8_E_clES8_.exit
   ret void
 }
 
@@ -2633,18 +2633,18 @@ entry:
   %agg.tmp6 = alloca %"class.std::function", align 8
   %0 = load atomic i8, ptr @_ZGVZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_E4call acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.argprom.exit, !prof !84
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.exit, !prof !84
 
 init.check.i:                                     ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_E4call) #24
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.argprom.exit, label %invoke.cont.i
+  br i1 %tobool.not.i, label %_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.exit, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %init.check.i
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_E4call) #24
-  br label %_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.argprom.exit
+  br label %_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.exit
 
-_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.argprom.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
+_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.exit: ; preds = %entry, %init.check.i, %invoke.cont.i
   %2 = getelementptr i8, ptr %call_args, i64 32
   %call_args.val = load ptr, ptr %2, align 8
   %call_args.val.val = load ptr, ptr %call_args.val, align 8
@@ -2657,11 +2657,11 @@ _ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCa
   %cmp.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.argprom.exit
+if.then.i.i.i.i.i:                                ; preds = %_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.exit
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.4, i32 noundef 80, ptr noundef nonnull @.str.5) #26
   unreachable
 
-_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i: ; preds = %_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.argprom.exit
+_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i: ; preds = %_ZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_.exit
   %6 = atomicrmw add ptr %5, i64 32 monotonic, align 8
   %add2.i.i.i.i.i.i = add i64 %6, 32
   %initial_zone_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
@@ -2672,13 +2672,13 @@ _ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i: ; preds = %_ZN9grpc_cor
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 48
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %6
-  br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsE.argprom.argprom.exit
+  br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsE.exit
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i.i.i
   %call4.i.i.i.i.i.i = tail call noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef 32)
-  br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsE.argprom.argprom.exit
+  br label %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsE.exit
 
-_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsE.argprom.argprom.exit: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
+_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call4.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %next_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 8
   store ptr null, ptr %next_.i.i.i.i.i.i.i.i, align 8
@@ -2697,11 +2697,11 @@ _ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBA
   %cmp.not.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i, label %if.then.i.i, label %_ZN9grpc_core10GetContextINS_16CallFinalizationEEEPT_v.exit.i
 
-if.then.i.i:                                      ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsE.argprom.argprom.exit
+if.then.i.i:                                      ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsE.exit
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.4, i32 noundef 80, ptr noundef nonnull @.str.5) #26
   unreachable
 
-_ZN9grpc_core10GetContextINS_16CallFinalizationEEEPT_v.exit.i: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsE.argprom.argprom.exit
+_ZN9grpc_core10GetContextINS_16CallFinalizationEEEPT_v.exit.i: ; preds = %_ZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsE.exit
   %11 = load ptr, ptr %4, align 8
   %cmp.not.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core10GetContextINS_5ArenaEEEPT_v.exit.i.i
@@ -3807,8 +3807,8 @@ attributes #26 = { noreturn }
 !5 = distinct !{!5, !6, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
 !6 = distinct !{!6, !"_ZN4absl12lts_202308028OkStatusEv"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom: %agg.result"}
-!9 = distinct !{!9, !"_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom"}
+!8 = distinct !{!8, !9, !"_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE: %agg.result"}
+!9 = distinct !{!9, !"_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE"}
 !10 = !{!11}
 !11 = distinct !{!11, !12, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
 !12 = distinct !{!12, !"_ZN4absl12lts_202308028OkStatusEv"}
@@ -3818,11 +3818,11 @@ attributes #26 = { noreturn }
 !16 = distinct !{!16, !14}
 !17 = distinct !{!17, !14}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_.argprom: %agg.result"}
-!20 = distinct !{!20, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_.argprom"}
+!19 = distinct !{!19, !20, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_: %agg.result"}
+!20 = distinct !{!20, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_.argprom: %agg.result"}
-!23 = distinct !{!23, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_.argprom"}
+!22 = distinct !{!22, !23, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_: %agg.result"}
+!23 = distinct !{!23, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_"}
 !24 = !{!22, !19}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS7_4CallEPS7_PNS_18CallSpineInterfaceEEUlSt10unique_ptrIS9_NS_5Arena13PooledDeleterEEE_SL_EEvEclEv: %agg.result"}
@@ -3831,19 +3831,19 @@ attributes #26 = { noreturn }
 !29 = distinct !{!29, !30, !"_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS6_4CallEPS6_PNS_18CallSpineInterfaceEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SK_EclEv: %agg.result"}
 !30 = distinct !{!30, !"_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS6_4CallEPS6_PNS_18CallSpineInterfaceEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SK_EclEv"}
 !31 = !{!32, !29, !26}
-!32 = distinct !{!32, !33, !"_ZZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_.argprom.argprom: %agg.result"}
-!33 = distinct !{!33, !"_ZZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_.argprom.argprom"}
+!32 = distinct !{!32, !33, !"_ZZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_: %agg.result"}
+!33 = distinct !{!33, !"_ZZN9grpc_core21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_"}
 !34 = !{!35, !37}
 !35 = distinct !{!35, !36, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEvE4CastEOS9_: %agg.result"}
 !36 = distinct !{!36, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEvE4CastEOS9_"}
 !37 = distinct !{!37, !38, !"_ZN9grpc_core9poll_castISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEEENS8_IT_EET0_: %agg.result"}
 !38 = distinct !{!38, !"_ZN9grpc_core9poll_castISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEEENS8_IT_EET0_"}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_.argprom: %agg.result"}
-!41 = distinct !{!41, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_.argprom"}
+!40 = distinct !{!40, !41, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_: %agg.result"}
+!41 = distinct !{!41, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_"}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_.argprom: %agg.result"}
-!44 = distinct !{!44, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_.argprom"}
+!43 = distinct !{!43, !44, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_: %agg.result"}
+!44 = distinct !{!44, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_"}
 !45 = !{!43, !40}
 !46 = !{!47}
 !47 = distinct !{!47, !48, !"_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS7_4CallEPS7_PNS_18CallSpineInterfaceEEUlSt10unique_ptrIS9_NS_5Arena13PooledDeleterEEE_SL_EEvEclEv: %agg.result"}
@@ -3852,19 +3852,19 @@ attributes #26 = { noreturn }
 !50 = distinct !{!50, !51, !"_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS6_4CallEPS6_PNS_18CallSpineInterfaceEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SK_EclEv: %agg.result"}
 !51 = distinct !{!51, !"_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS6_4CallEPS6_PNS_18CallSpineInterfaceEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SK_EclEv"}
 !52 = !{!53, !50, !47}
-!53 = distinct !{!53, !54, !"_ZZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_.argprom.argprom: %agg.result"}
-!54 = distinct !{!54, !"_ZZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_.argprom.argprom"}
+!53 = distinct !{!53, !54, !"_ZZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_: %agg.result"}
+!54 = distinct !{!54, !"_ZZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_"}
 !55 = !{!56, !58}
 !56 = distinct !{!56, !57, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEvE4CastEOS9_: %agg.result"}
 !57 = distinct !{!57, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEvE4CastEOS9_"}
 !58 = distinct !{!58, !59, !"_ZN9grpc_core9poll_castISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEEENS8_IT_EET0_: %agg.result"}
 !59 = distinct !{!59, !"_ZN9grpc_core9poll_castISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEEENS8_IT_EET0_"}
 !60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_.argprom: %agg.result"}
-!62 = distinct !{!62, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_.argprom"}
+!61 = distinct !{!61, !62, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_: %agg.result"}
+!62 = distinct !{!62, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_E4MakeEOS6_"}
 !63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_.argprom: %agg.result"}
-!65 = distinct !{!65, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_.argprom"}
+!64 = distinct !{!64, !65, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_: %agg.result"}
+!65 = distinct !{!65, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNSB_4CallEPSB_PNS_18CallSpineInterfaceEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeESB_EEvEEE4typeEOSP_OSB_"}
 !66 = !{!64, !61}
 !67 = !{!68}
 !68 = distinct !{!68, !69, !"_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS7_4CallEPS7_PNS_18CallSpineInterfaceEEUlSt10unique_ptrIS9_NS_5Arena13PooledDeleterEEE_SL_EEvEclEv: %agg.result"}
@@ -3873,8 +3873,8 @@ attributes #26 = { noreturn }
 !71 = distinct !{!71, !72, !"_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS6_4CallEPS6_PNS_18CallSpineInterfaceEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SK_EclEv: %agg.result"}
 !72 = distinct !{!72, !"_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS6_4CallEPS6_PNS_18CallSpineInterfaceEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SK_EclEv"}
 !73 = !{!74, !71, !68}
-!74 = distinct !{!74, !75, !"_ZZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_.argprom.argprom: %agg.result"}
-!75 = distinct !{!75, !"_ZZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_.argprom.argprom"}
+!74 = distinct !{!74, !75, !"_ZZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_: %agg.result"}
+!75 = distinct !{!75, !"_ZZN9grpc_core21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS4_4CallEPS4_PNS_18CallSpineInterfaceEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESI_"}
 !76 = !{!77, !79}
 !77 = distinct !{!77, !78, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEvE4CastEOS9_: %agg.result"}
 !78 = distinct !{!78, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEvE4CastEOS9_"}
@@ -3885,11 +3885,11 @@ attributes #26 = { noreturn }
 !83 = distinct !{!83, !"_ZNK9grpc_core21promise_filter_detail12BaseCallData16ActivityDebugTagB5cxx11Et"}
 !84 = !{!"branch_weights", i32 1, i32 1048575}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN9grpc_core21promise_filter_detail7RunCallIMNS_12_GLOBAL__N_122ServerCallTracerFilter4CallEFvR19grpc_metadata_batchES3_EEDaT_NS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS5_NS_5Arena13PooledDeleterEEEESA_EEPNS0_14FilterCallDataIT0_EE.argprom: %agg.result"}
-!87 = distinct !{!87, !"_ZN9grpc_core21promise_filter_detail7RunCallIMNS_12_GLOBAL__N_122ServerCallTracerFilter4CallEFvR19grpc_metadata_batchES3_EEDaT_NS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS5_NS_5Arena13PooledDeleterEEEESA_EEPNS0_14FilterCallDataIT0_EE.argprom"}
+!86 = distinct !{!86, !87, !"_ZN9grpc_core21promise_filter_detail7RunCallIMNS_12_GLOBAL__N_122ServerCallTracerFilter4CallEFvR19grpc_metadata_batchES3_EEDaT_NS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS5_NS_5Arena13PooledDeleterEEEESA_EEPNS0_14FilterCallDataIT0_EE: %agg.result"}
+!87 = distinct !{!87, !"_ZN9grpc_core21promise_filter_detail7RunCallIMNS_12_GLOBAL__N_122ServerCallTracerFilter4CallEFvR19grpc_metadata_batchES3_EEDaT_NS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS5_NS_5Arena13PooledDeleterEEEESA_EEPNS0_14FilterCallDataIT0_EE"}
 !88 = !{!89, !86}
-!89 = distinct !{!89, !90, !"_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_12_GLOBAL__N_122ServerCallTracerFilter4CallEFvR19grpc_metadata_batchES3_vE3RunENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS5_NS_5Arena13PooledDeleterEEEESA_EEPNS0_14FilterCallDataIS3_EE.argprom: %agg.result"}
-!90 = distinct !{!90, !"_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_12_GLOBAL__N_122ServerCallTracerFilter4CallEFvR19grpc_metadata_batchES3_vE3RunENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS5_NS_5Arena13PooledDeleterEEEESA_EEPNS0_14FilterCallDataIS3_EE.argprom"}
+!89 = distinct !{!89, !90, !"_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_12_GLOBAL__N_122ServerCallTracerFilter4CallEFvR19grpc_metadata_batchES3_vE3RunENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS5_NS_5Arena13PooledDeleterEEEESA_EEPNS0_14FilterCallDataIS3_EE: %agg.result"}
+!90 = distinct !{!90, !"_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_12_GLOBAL__N_122ServerCallTracerFilter4CallEFvR19grpc_metadata_batchES3_vE3RunENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS5_NS_5Arena13PooledDeleterEEEESA_EEPNS0_14FilterCallDataIS3_EE"}
 !91 = !{!92, !89, !86}
 !92 = distinct !{!92, !93, !"_ZNKSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEclES8_: %agg.result"}
 !93 = distinct !{!93, !"_ZNKSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEclES8_"}
@@ -3897,17 +3897,17 @@ attributes #26 = { noreturn }
 !95 = distinct !{!95, !96, !"_ZN9grpc_core21promise_filter_detail19RaceAsyncCompletionILb0EE3RunINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEET_SB_Pv: %agg.result"}
 !96 = distinct !{!96, !"_ZN9grpc_core21promise_filter_detail19RaceAsyncCompletionILb0EE3RunINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEET_SB_Pv"}
 !97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN9grpc_core21promise_filter_detail9MapResultINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS4_ET_PNS0_14FilterCallDataISB_EE.argprom: %agg.result"}
-!99 = distinct !{!99, !"_ZN9grpc_core21promise_filter_detail9MapResultINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS4_ET_PNS0_14FilterCallDataISB_EE.argprom"}
+!98 = distinct !{!98, !99, !"_ZN9grpc_core21promise_filter_detail9MapResultINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS4_ET_PNS0_14FilterCallDataISB_EE: %agg.result"}
+!99 = distinct !{!99, !"_ZN9grpc_core21promise_filter_detail9MapResultINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS4_ET_PNS0_14FilterCallDataISB_EE"}
 !100 = !{!101, !98}
-!101 = distinct !{!101, !102, !"_ZN9grpc_core3MapINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZNS_21promise_filter_detail9MapResultIS7_NS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS3_ET_PNS8_14FilterCallDataISC_EEEUlS6_E_EENS_14promise_detail3MapISH_SC_EESH_SC_.argprom: %agg.result"}
-!102 = distinct !{!102, !"_ZN9grpc_core3MapINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZNS_21promise_filter_detail9MapResultIS7_NS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS3_ET_PNS8_14FilterCallDataISC_EEEUlS6_E_EENS_14promise_detail3MapISH_SC_EESH_SC_.argprom"}
+!101 = distinct !{!101, !102, !"_ZN9grpc_core3MapINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZNS_21promise_filter_detail9MapResultIS7_NS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS3_ET_PNS8_14FilterCallDataISC_EEEUlS6_E_EENS_14promise_detail3MapISH_SC_EESH_SC_: %agg.result"}
+!102 = distinct !{!102, !"_ZN9grpc_core3MapINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZNS_21promise_filter_detail9MapResultIS7_NS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS3_ET_PNS8_14FilterCallDataISC_EEEUlS6_E_EENS_14promise_detail3MapISH_SC_EESH_SC_"}
 !103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNS7_14FilterCallDataISB_EERKNS_8CallArgsEEUlS6_E_E4MakeEOS6_.argprom: %agg.result"}
-!105 = distinct !{!105, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNS7_14FilterCallDataISB_EERKNS_8CallArgsEEUlS6_E_E4MakeEOS6_.argprom"}
+!104 = distinct !{!104, !105, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNS7_14FilterCallDataISB_EERKNS_8CallArgsEEUlS6_E_E4MakeEOS6_: %agg.result"}
+!105 = distinct !{!105, !"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNS7_14FilterCallDataISB_EERKNS_8CallArgsEEUlS6_E_E4MakeEOS6_"}
 !106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNS7_14FilterCallDataISB_EERKNS_8CallArgsEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISQ_E4typeEE4typeESB_EEvEEE4typeEOSQ_OSB_.argprom: %agg.result"}
-!108 = distinct !{!108, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNS7_14FilterCallDataISB_EERKNS_8CallArgsEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISQ_E4typeEE4typeESB_EEvEEE4typeEOSQ_OSB_.argprom"}
+!107 = distinct !{!107, !108, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNS7_14FilterCallDataISB_EERKNS_8CallArgsEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISQ_E4typeEE4typeESB_EEvEEE4typeEOSQ_OSB_: %agg.result"}
+!108 = distinct !{!108, !"_ZN9grpc_core14promise_detail18PromiseFactoryImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEERZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS3_EPNS7_14FilterCallDataISB_EERKNS_8CallArgsEEUlS6_E_EENSt9enable_ifIXntsr14IsVoidCallableINS0_9ResultOfTIFT0_SB_EvE1TEEE5valueENS0_11PromiseLikeINS0_7CurriedINSt9remove_cvINSt16remove_referenceISQ_E4typeEE4typeESB_EEvEEE4typeEOSQ_OSB_"}
 !109 = !{!107, !104}
 !110 = !{!111}
 !111 = distinct !{!111, !112, !"_ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS3_14FilterCallDataIS7_EERKNS_8CallArgsEEUlSt10unique_ptrIS9_NS_5Arena13PooledDeleterEEE_SM_EEvEclEv: %agg.result"}
@@ -3916,8 +3916,8 @@ attributes #26 = { noreturn }
 !114 = distinct !{!114, !115, !"_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS2_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SL_EclEv: %agg.result"}
 !115 = distinct !{!115, !"_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS2_14FilterCallDataIS6_EERKNS_8CallArgsEEUlSt10unique_ptrIS8_NS_5Arena13PooledDeleterEEE_SL_EclEv"}
 !116 = !{!117, !114, !111}
-!117 = distinct !{!117, !118, !"_ZZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESJ_.argprom.argprom: %agg.result"}
-!118 = distinct !{!118, !"_ZZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESJ_.argprom.argprom"}
+!117 = distinct !{!117, !118, !"_ZZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESJ_: %agg.result"}
+!118 = distinct !{!118, !"_ZZN9grpc_core21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvR19grpc_metadata_batchEPNS0_14FilterCallDataIS4_EERKNS_8CallArgsEENKUlSt10unique_ptrIS6_NS_5Arena13PooledDeleterEEE_clESJ_"}
 !119 = !{!120, !122}
 !120 = distinct !{!120, !121, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEvE4CastEOS9_: %agg.result"}
 !121 = distinct !{!121, !"_ZN9grpc_core12PollCastImplISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEENS_4PollIS6_EEvE4CastEOS9_"}
@@ -3942,8 +3942,8 @@ attributes #26 = { noreturn }
 !140 = !{!138, !135, !125}
 !141 = !{!138, !135, !125, !128}
 !142 = !{!143, !128}
-!143 = distinct !{!143, !144, !"_ZZN9grpc_core21promise_filter_detail9MapResultINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS4_ET_PNS0_14FilterCallDataISB_EEENKUlS7_E_clES7_.argprom.argprom: %agg.result"}
-!144 = distinct !{!144, !"_ZZN9grpc_core21promise_filter_detail9MapResultINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS4_ET_PNS0_14FilterCallDataISB_EEENKUlS7_E_clES7_.argprom.argprom"}
+!143 = distinct !{!143, !144, !"_ZZN9grpc_core21promise_filter_detail9MapResultINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS4_ET_PNS0_14FilterCallDataISB_EEENKUlS7_E_clES7_: %agg.result"}
+!144 = distinct !{!144, !"_ZZN9grpc_core21promise_filter_detail9MapResultINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS4_ET_PNS0_14FilterCallDataISB_EEENKUlS7_E_clES7_"}
 !145 = !{!146, !148}
 !146 = distinct !{!146, !147, !"_ZN9grpc_core12PollCastImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEENS_4PollIS5_EEvE4CastEOS7_: %agg.result"}
 !147 = distinct !{!147, !"_ZN9grpc_core12PollCastImplISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEENS_4PollIS5_EEvE4CastEOS7_"}

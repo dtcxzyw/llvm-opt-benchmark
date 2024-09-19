@@ -1296,11 +1296,11 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.not.i.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.argprom.exit", label %if.then5.i.i
+  br i1 %tobool.not.i.i.not.i.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.exit", label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.then3.i.i
   %6 = atomicrmw or ptr %meta.i.i, i64 1152921504606846976 monotonic, align 8
-  br label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.argprom.exit"
+  br label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.exit"
 
 if.end.sink.split.i:                              ; preds = %if.then.i.i, %do.body.i
   %7 = atomicrmw sub ptr %meta.i.i, i64 1 acq_rel, align 8
@@ -1310,16 +1310,16 @@ if.end.i:                                         ; preds = %if.end.sink.split.i
   %displacements.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 48
   %8 = load atomic i32, ptr %displacements.i.i monotonic, align 4
   %cmp.i.i = icmp eq i32 %8, 0
-  br i1 %cmp.i.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.argprom.exit", label %if.end8.i
+  br i1 %cmp.i.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.exit", label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
   %add.i = add i64 %current.0.i, %or.i
   %9 = load i64, ptr %length_bits_mask_.i.i, align 8
   %and.i.i11.i = and i64 %9, %add.i
   %cmp.i = icmp eq i64 %and.i.i11.i, %and.i.i.i
-  br i1 %cmp.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.argprom.exit", label %do.body.i, !llvm.loop !19
+  br i1 %cmp.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.exit", label %do.body.i, !llvm.loop !19
 
-"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.argprom.exit": ; preds = %if.end.i, %if.end8.i, %if.then3.i.i, %if.then5.i.i
+"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_6LookupERKSt5arrayImLm2EEE3$_0ZNS1_6LookupES6_E3$_1ZNS1_6LookupES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.exit": ; preds = %if.end.i, %if.end8.i, %if.then3.i.i, %if.then5.i.i
   %retval.0.i = phi ptr [ %arrayidx.i.i, %if.then3.i.i ], [ %arrayidx.i.i, %if.then5.i.i ], [ null, %if.end8.i ], [ null, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -1665,16 +1665,16 @@ if.end22.sink.split.i.i:                          ; preds = %_ZN7rocksdb12AcqRel
   %displacements.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 48
   %23 = load atomic i32, ptr %displacements.i.i monotonic, align 4
   %cmp.i.i = icmp eq i32 %23, 0
-  br i1 %cmp.i.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_5EraseERKSt5arrayImLm2EEE3$_0ZNS1_5EraseES6_E3$_1ZNS1_5EraseES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.argprom.exit", label %if.end8.i
+  br i1 %cmp.i.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_5EraseERKSt5arrayImLm2EEE3$_0ZNS1_5EraseES6_E3$_1ZNS1_5EraseES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.exit", label %if.end8.i
 
 if.end8.i:                                        ; preds = %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable5EraseERKSt5arrayImLm2EEENK3$_0clEPNS1_10HandleImplE.exit.i"
   %add.i = add i64 %current.0.i, %or.i
   %24 = load i64, ptr %length_bits_mask_.i.i, align 8
   %and.i.i12.i = and i64 %24, %add.i
   %cmp.i = icmp eq i64 %and.i.i12.i, %and.i.i.i
-  br i1 %cmp.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_5EraseERKSt5arrayImLm2EEE3$_0ZNS1_5EraseES6_E3$_1ZNS1_5EraseES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.argprom.exit", label %do.body.i, !llvm.loop !21
+  br i1 %cmp.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_5EraseERKSt5arrayImLm2EEE3$_0ZNS1_5EraseES6_E3$_1ZNS1_5EraseES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.exit", label %do.body.i, !llvm.loop !21
 
-"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_5EraseERKSt5arrayImLm2EEE3$_0ZNS1_5EraseES6_E3$_1ZNS1_5EraseES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.argprom.exit": ; preds = %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable5EraseERKSt5arrayImLm2EEENK3$_0clEPNS1_10HandleImplE.exit.i", %if.end8.i
+"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_5EraseERKSt5arrayImLm2EEE3$_0ZNS1_5EraseES6_E3$_1ZNS1_5EraseES6_E3$_2EEPNS1_10HandleImplES6_RKT_RKT0_RKT1_.exit": ; preds = %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable5EraseERKSt5arrayImLm2EEENK3$_0clEPNS1_10HandleImplE.exit.i", %if.end8.i
   ret void
 }
 
@@ -4241,8 +4241,8 @@ entry:
   %array_.i = getelementptr inbounds i8, ptr %this, i64 184
   br label %do.body.i
 
-do.body.i:                                        ; preds = %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.argprom.exit.i", %entry
-  %current.0.i = phi i64 [ %and.i.i.i, %entry ], [ %and.i.i13.i, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.argprom.exit.i" ]
+do.body.i:                                        ; preds = %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.exit.i", %entry
+  %current.0.i = phi i64 [ %and.i.i.i, %entry ], [ %and.i.i13.i, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.exit.i" ]
   %3 = load ptr, ptr %array_.i, align 8
   %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::FixedHyperClockTable::HandleImpl", ptr %3, i64 %current.0.i
   %meta.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
@@ -4287,7 +4287,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_115BeginSlotInsertERKNS0_20ClockHandleBasic
   %or.i.i.i.i = or i64 %initial_countdown, %shl1.i.i.i.i
   %or2.i.i.i.i = or i64 %or.i.i.i.i, -2305843009213693952
   store atomic i64 %or2.i.i.i.i, ptr %meta.i.i.i.i release, align 8
-  br label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.argprom.exit"
+  br label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.exit"
 
 if.then.i.i:                                      ; preds = %if.then11.i.i.i.i, %if.then.i.i.i.i.i
   %8 = load i64, ptr %1, align 8
@@ -4298,7 +4298,7 @@ if.then.i.i:                                      ; preds = %if.then11.i.i.i.i, 
   %11 = load ptr, ptr %array_.i, align 8
   %arrayidx.i8.i.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::FixedHyperClockTable::HandleImpl", ptr %11, i64 %and.i.i.i.i11.i
   %cmp.not9.i.i.i = icmp eq ptr %arrayidx.i8.i.i.i, %arrayidx.i.i
-  br i1 %cmp.not9.i.i.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.argprom.exit", label %while.body.i.i.i
+  br i1 %cmp.not9.i.i.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.exit", label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then.i.i, %while.body.i.i.i
   %arrayidx.i11.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %while.body.i.i.i ], [ %arrayidx.i8.i.i.i, %if.then.i.i ]
@@ -4311,7 +4311,7 @@ while.body.i.i.i:                                 ; preds = %if.then.i.i, %while
   %14 = load ptr, ptr %array_.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::FixedHyperClockTable::HandleImpl", ptr %14, i64 %and.i.i7.i.i.i
   %cmp.not.i.i.i = icmp eq ptr %arrayidx.i.i.i.i, %arrayidx.i.i
-  br i1 %cmp.not.i.i.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.argprom.exit", label %while.body.i.i.i, !llvm.loop !20
+  br i1 %cmp.not.i.i.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.exit", label %while.body.i.i.i, !llvm.loop !20
 
 if.end8.i.sink.split:                             ; preds = %if.end3.i.i.i.i, %if.then8.i.i.i.i
   %15 = atomicrmw sub ptr %meta.i.i.i.i, i64 %initial_countdown acq_rel, align 8
@@ -4332,7 +4332,7 @@ if.then.i14.i:                                    ; preds = %if.end8.i
   %19 = load ptr, ptr %array_.i, align 8
   %arrayidx.i8.i.i21.i = getelementptr inbounds %"struct.rocksdb::clock_cache::FixedHyperClockTable::HandleImpl", ptr %19, i64 %and.i.i.i.i18.i
   %cmp.not9.i.i22.i = icmp eq ptr %arrayidx.i8.i.i21.i, %arrayidx.i.i
-  br i1 %cmp.not9.i.i22.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.argprom.exit", label %while.body.i.i23.i
+  br i1 %cmp.not9.i.i22.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.exit", label %while.body.i.i23.i
 
 while.body.i.i23.i:                               ; preds = %if.then.i14.i, %while.body.i.i23.i
   %arrayidx.i11.i.i24.i = phi ptr [ %arrayidx.i.i.i29.i, %while.body.i.i23.i ], [ %arrayidx.i8.i.i21.i, %if.then.i14.i ]
@@ -4345,18 +4345,18 @@ while.body.i.i23.i:                               ; preds = %if.then.i14.i, %whi
   %22 = load ptr, ptr %array_.i, align 8
   %arrayidx.i.i.i29.i = getelementptr inbounds %"struct.rocksdb::clock_cache::FixedHyperClockTable::HandleImpl", ptr %22, i64 %and.i.i7.i.i28.i
   %cmp.not.i.i30.i = icmp eq ptr %arrayidx.i.i.i29.i, %arrayidx.i.i
-  br i1 %cmp.not.i.i30.i, label %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.argprom.exit.i", label %while.body.i.i23.i, !llvm.loop !20
+  br i1 %cmp.not.i.i30.i, label %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.exit.i", label %while.body.i.i23.i, !llvm.loop !20
 
 if.else.i.i:                                      ; preds = %if.end8.i
   %displacements.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 48
   %23 = atomicrmw add ptr %displacements.i.i, i32 1 monotonic, align 4
-  br label %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.argprom.exit.i"
+  br label %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.exit.i"
 
-"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.argprom.exit.i": ; preds = %while.body.i.i23.i, %if.else.i.i
-  br i1 %cmp.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.argprom.exit", label %do.body.i, !llvm.loop !46
+"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.exit.i": ; preds = %while.body.i.i23.i, %if.else.i.i
+  br i1 %cmp.i, label %"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.exit", label %do.body.i, !llvm.loop !46
 
-"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.argprom.exit": ; preds = %if.then.i14.i, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.argprom.exit.i", %while.body.i.i.i, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i", %if.then.i.i
-  %already_matches.2 = phi ptr [ null, %if.then.i.i ], [ %arrayidx.i.i, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i" ], [ null, %while.body.i.i.i ], [ null, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.argprom.exit.i" ], [ null, %if.then.i14.i ]
+"_ZN7rocksdb11clock_cache20FixedHyperClockTable8FindSlotIZNS1_8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEE3$_0ZNS1_8DoInsertES5_mbS7_E3$_1ZNS1_8DoInsertES5_mbS7_E3$_2EEPNS1_10HandleImplERKSt5arrayImLm2EERKT_RKT0_RKT1_.exit": ; preds = %if.then.i14.i, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.exit.i", %while.body.i.i.i, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i", %if.then.i.i
+  %already_matches.2 = phi ptr [ null, %if.then.i.i ], [ %arrayidx.i.i, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_0clEPNS1_10HandleImplE.exit.i" ], [ null, %while.body.i.i.i ], [ null, %"_ZZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateEENK3$_2clEPNS1_10HandleImplEb.exit.i" ], [ null, %if.then.i14.i ]
   ret ptr %already_matches.2
 }
 

@@ -3895,19 +3895,19 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 21:                                               ; preds = %17
   %22 = load i32, ptr %0, align 4
   %23 = icmp slt i32 %20, %22
-  br i1 %23, label %Extra_ProgressBarUpdate.argprom.exit, label %24
+  br i1 %23, label %Extra_ProgressBarUpdate.exit, label %24
 
 24:                                               ; preds = %21, %17
   call void @Extra_ProgressBarUpdate_int(ptr noundef %0, i32 noundef %20, ptr noundef null) #19
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %21, %24
+Extra_ProgressBarUpdate.exit:                     ; preds = %21, %24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %25 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #19
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %Abc_Clock.exit11, label %27
 
-27:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit
+27:                                               ; preds = %Extra_ProgressBarUpdate.exit
   %28 = load i64, ptr %3, align 8
   %29 = mul nsw i64 %28, 1000000
   %30 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3917,8 +3917,8 @@ Extra_ProgressBarUpdate.argprom.exit:             ; preds = %21, %24
   %34 = add i64 %33, %32
   br label %Abc_Clock.exit11
 
-Abc_Clock.exit11:                                 ; preds = %Extra_ProgressBarUpdate.argprom.exit, %27
-  %.0.i10 = phi i64 [ %34, %27 ], [ 999999, %Extra_ProgressBarUpdate.argprom.exit ]
+Abc_Clock.exit11:                                 ; preds = %Extra_ProgressBarUpdate.exit, %27
+  %.0.i10 = phi i64 [ %34, %27 ], [ 999999, %Extra_ProgressBarUpdate.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   store i64 %.0.i10, ptr %14, align 8
   br label %35

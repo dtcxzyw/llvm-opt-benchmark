@@ -1337,13 +1337,13 @@ cond.end14.i:                                     ; preds = %cond.false12.i, %en
   %or14.i86.i = or i64 %or10.i84.i, %and.i66.i
   store atomic i64 %or14.i86.i, ptr %0 release, align 8
   %cmp17.not.i = icmp eq ptr %1, null
-  br i1 %cmp17.not.i, label %emap_rtree_write_acquired.argprom.exit, label %release.i.i50.i
+  br i1 %cmp17.not.i, label %emap_rtree_write_acquired.exit, label %release.i.i50.i
 
 release.i.i50.i:                                  ; preds = %cond.end14.i
   store atomic i64 %or14.i86.i, ptr %1 release, align 8
-  br label %emap_rtree_write_acquired.argprom.exit
+  br label %emap_rtree_write_acquired.exit
 
-emap_rtree_write_acquired.argprom.exit:           ; preds = %cond.end14.i, %release.i.i50.i
+emap_rtree_write_acquired.exit:                   ; preds = %cond.end14.i, %release.i.i50.i
   %trail_elm_a = getelementptr inbounds i8, ptr %prepare, i64 16
   %9 = load ptr, ptr %trail_elm_a, align 8
   %trail_elm_b = getelementptr inbounds i8, ptr %prepare, i64 24
@@ -1351,7 +1351,7 @@ emap_rtree_write_acquired.argprom.exit:           ; preds = %cond.end14.i, %rele
   %cmp.i6 = icmp eq ptr %trail, null
   br i1 %cmp.i6, label %cond.end14.i9, label %cond.false12.i7
 
-cond.false12.i7:                                  ; preds = %emap_rtree_write_acquired.argprom.exit
+cond.false12.i7:                                  ; preds = %emap_rtree_write_acquired.exit
   %edata.val.i8 = load i64, ptr %trail, align 8
   %11 = lshr i64 %edata.val.i8, 43
   %12 = and i64 %11, 2
@@ -1361,20 +1361,20 @@ cond.false12.i7:                                  ; preds = %emap_rtree_write_ac
   %16 = or disjoint i64 %15, 66146619527004160
   br label %cond.end14.i9
 
-cond.end14.i9:                                    ; preds = %cond.false12.i7, %emap_rtree_write_acquired.argprom.exit
-  %or10.i84.i14 = phi i64 [ %16, %cond.false12.i7 ], [ 66146619527004160, %emap_rtree_write_acquired.argprom.exit ]
+cond.end14.i9:                                    ; preds = %cond.false12.i7, %emap_rtree_write_acquired.exit
+  %or10.i84.i14 = phi i64 [ %16, %cond.false12.i7 ], [ 66146619527004160, %emap_rtree_write_acquired.exit ]
   %17 = ptrtoint ptr %trail to i64
   %and.i66.i12 = and i64 %17, 281474976710655
   %or14.i86.i15 = or i64 %or10.i84.i14, %and.i66.i12
   store atomic i64 %or14.i86.i15, ptr %9 release, align 8
   %cmp17.not.i16 = icmp eq ptr %10, null
-  br i1 %cmp17.not.i16, label %emap_rtree_write_acquired.argprom.exit18, label %release.i.i50.i17
+  br i1 %cmp17.not.i16, label %emap_rtree_write_acquired.exit18, label %release.i.i50.i17
 
 release.i.i50.i17:                                ; preds = %cond.end14.i9
   store atomic i64 %or14.i86.i15, ptr %10 release, align 8
-  br label %emap_rtree_write_acquired.argprom.exit18
+  br label %emap_rtree_write_acquired.exit18
 
-emap_rtree_write_acquired.argprom.exit18:         ; preds = %cond.end14.i9, %release.i.i50.i17
+emap_rtree_write_acquired.exit18:                 ; preds = %cond.end14.i9, %release.i.i50.i17
   ret void
 }
 
@@ -1452,13 +1452,13 @@ cond.end14.i:                                     ; preds = %cond.false12.i, %if
   %or14.i86.i = or i64 %or10.i84.i, %and.i66.i
   store atomic i64 %or14.i86.i, ptr %3 release, align 8
   %cmp17.not.i = icmp eq ptr %merged_b.0, null
-  br i1 %cmp17.not.i, label %emap_rtree_write_acquired.argprom.exit, label %release.i.i50.i
+  br i1 %cmp17.not.i, label %emap_rtree_write_acquired.exit, label %release.i.i50.i
 
 release.i.i50.i:                                  ; preds = %cond.end14.i
   store atomic i64 %or14.i86.i, ptr %merged_b.0 release, align 8
-  br label %emap_rtree_write_acquired.argprom.exit
+  br label %emap_rtree_write_acquired.exit
 
-emap_rtree_write_acquired.argprom.exit:           ; preds = %cond.end14.i, %release.i.i50.i
+emap_rtree_write_acquired.exit:                   ; preds = %cond.end14.i, %release.i.i50.i
   ret void
 }
 
@@ -1613,7 +1613,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i14) #4
-  call fastcc void @rtree_read_independent.retelim(ptr noundef null, ptr noundef %emap, ptr noundef %rtree_ctx_fallback.i14, i64 noundef %and.i, ptr noundef %contents.i16)
+  call fastcc void @rtree_read_independent(ptr noundef null, ptr noundef %emap, ptr noundef %rtree_ctx_fallback.i14, i64 noundef %and.i, ptr noundef %contents.i16)
   %edata.val2325 = load ptr, ptr %0, align 8
   %edata.val2426 = load i64, ptr %2, align 8
   %3 = ptrtoint ptr %edata.val2325 to i64
@@ -1622,12 +1622,12 @@ if.then.i.i:                                      ; preds = %entry
   %add.i29 = add i64 %and.i.i27, -4096
   %sub.i30 = add i64 %add.i29, %and.i3.i28
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #4
-  call fastcc void @rtree_read_independent.retelim(ptr noundef null, ptr noundef %emap, ptr noundef %rtree_ctx_fallback.i, i64 noundef %sub.i30, ptr noundef %contents.i)
+  call fastcc void @rtree_read_independent(ptr noundef null, ptr noundef %emap, ptr noundef %rtree_ctx_fallback.i, i64 noundef %sub.i30, ptr noundef %contents.i)
   br label %do.end5
 
 if.end.i.i.split:                                 ; preds = %entry
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds i8, ptr %tsdn, i64 448
-  call fastcc void @rtree_read_independent.retelim(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %and.i, ptr noundef %contents.i16)
+  call fastcc void @rtree_read_independent(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %and.i, ptr noundef %contents.i16)
   %edata.val23 = load ptr, ptr %0, align 8
   %edata.val24 = load i64, ptr %2, align 8
   %4 = ptrtoint ptr %edata.val23 to i64
@@ -1635,7 +1635,7 @@ if.end.i.i.split:                                 ; preds = %entry
   %and.i3.i = and i64 %edata.val24, -4096
   %add.i = add i64 %and.i.i, -4096
   %sub.i = add i64 %add.i, %and.i3.i
-  call fastcc void @rtree_read_independent.retelim(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %sub.i, ptr noundef %contents.i)
+  call fastcc void @rtree_read_independent(ptr noundef nonnull %tsdn, ptr noundef %emap, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %sub.i, ptr noundef %contents.i)
   br label %do.end5
 
 do.end5:                                          ; preds = %if.then.i.i, %if.end.i.i.split
@@ -1647,7 +1647,7 @@ declare void @rtree_ctx_data_init(ptr noundef) local_unnamed_addr #1
 declare ptr @rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read_independent.retelim(ptr noundef %tsdn, ptr noundef %rtree, ptr noundef nonnull %rtree_ctx, i64 noundef %key, ptr nocapture noundef nonnull writeonly %r_contents) unnamed_addr #0 {
+define internal fastcc void @rtree_read_independent(ptr noundef %tsdn, ptr noundef %rtree, ptr noundef nonnull %rtree_ctx, i64 noundef %key, ptr nocapture noundef nonnull writeonly %r_contents) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15

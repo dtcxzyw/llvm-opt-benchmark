@@ -2154,7 +2154,7 @@ _.exit54:                                         ; preds = %if.then38, %if.end3
   br label %return
 
 if.end42:                                         ; preds = %if.end33
-  call fastcc void @reset_head.retelim()
+  call fastcc void @reset_head()
   call void @discard_index(ptr noundef nonnull @the_index) #14
   %15 = load ptr, ptr @the_repository, align 8
   %call44 = call i32 @repo_read_index(ptr noundef %15) #14
@@ -2313,7 +2313,7 @@ if.end95:                                         ; preds = %if.end86
   br i1 %tobool96.not, label %if.else102, label %if.then97
 
 if.then97:                                        ; preds = %if.end95
-  %call98 = call fastcc i32 @reset_tree.argelim(ptr noundef %index_tree)
+  %call98 = call fastcc i32 @reset_tree(ptr noundef %index_tree)
   %tobool99.not = icmp ne i32 %call98, 0
   %spec.select = sext i1 %tobool99.not to i32
   br label %restore_untracked
@@ -2687,7 +2687,7 @@ declare void @discard_index(ptr noundef) local_unnamed_addr #4
 declare i32 @repo_read_index(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reset_head.retelim() unnamed_addr #0 {
+define internal fastcc void @reset_head() unnamed_addr #0 {
 entry:
   %cp = alloca %struct.child_process, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp, ptr noundef nonnull align 8 dereferenceable(120) @__const.do_push_stash.cp.160, i64 120, i1 false)
@@ -2713,7 +2713,7 @@ declare i32 @write_locked_index(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare i32 @repo_rerere(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @reset_tree.argelim(ptr noundef nonnull %i_tree) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @reset_tree(ptr noundef nonnull %i_tree) unnamed_addr #0 {
 entry:
   %opts = alloca %struct.unpack_trees_options, align 8
   %t = alloca [8 x %struct.tree_desc], align 16
@@ -3208,7 +3208,7 @@ if.then38:                                        ; preds = %if.end36
   %untracked_files.val = load i64, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %untracked_files, i64 16
   %untracked_files.val36 = load ptr, ptr %18, align 8
-  %call39 = call fastcc i32 @save_untracked_files.argprom(ptr noundef %info, ptr noundef %msg, i64 %untracked_files.val, ptr %untracked_files.val36)
+  %call39 = call fastcc i32 @save_untracked_files(ptr noundef %info, ptr noundef %msg, i64 %untracked_files.val, ptr %untracked_files.val36)
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.end48, label %if.then41
 
@@ -3506,7 +3506,7 @@ declare ptr @commit_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @commit_tree(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @save_untracked_files.argprom(ptr noundef nonnull %info, ptr nocapture noundef nonnull readonly %msg, i64 %files.8.val, ptr %files.16.val) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @save_untracked_files(ptr noundef nonnull %info, ptr nocapture noundef nonnull readonly %msg, i64 %files.8.val, ptr %files.16.val) unnamed_addr #0 {
 entry:
   %untracked_msg = alloca %struct.strbuf, align 8
   %cp_upd_index = alloca %struct.child_process, align 8
@@ -3751,7 +3751,7 @@ entry:
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @stash_index_path, i64 16), align 8
   call void @set_alternate_index_output(ptr noundef %1) #14
   %i_tree = getelementptr inbounds i8, ptr %info, i64 216
-  %call = call fastcc i32 @reset_tree.argelim(ptr noundef %i_tree)
+  %call = call fastcc i32 @reset_tree(ptr noundef %i_tree)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %done
 

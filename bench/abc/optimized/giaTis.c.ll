@@ -739,32 +739,32 @@ Vec_IntGrow.exit.i48:                             ; preds = %58, %56
   %81 = getelementptr i8, ptr %0, i64 40
   %.val41 = load ptr, ptr %81, align 8
   %.not.i = icmp eq ptr %.val41, null
-  br i1 %.not.i, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjIsMuxId.argprom.exit
+  br i1 %.not.i, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
 
-Gia_ObjIsMuxId.argprom.exit:                      ; preds = %73
+Gia_ObjIsMuxId.exit:                              ; preds = %73
   %82 = getelementptr inbounds i32, ptr %.val41, i64 %7
   %83 = load i32, ptr %82, align 4
   %.not59 = icmp eq i32 %83, 0
-  br i1 %.not59, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjFaninId2.argprom.exit
+  br i1 %.not59, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjFaninId2.exit
 
-Gia_ObjFaninId2.argprom.exit:                     ; preds = %Gia_ObjIsMuxId.argprom.exit
+Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   %84 = ashr i32 %83, 1
   tail call void @Gia_ManTisCollectMffc_rec(ptr noundef nonnull %0, i32 noundef %84, ptr noundef %2, ptr noundef %3)
-  br label %Gia_ObjIsMuxId.argprom.exit.thread
+  br label %Gia_ObjIsMuxId.exit.thread
 
-Gia_ObjIsMuxId.argprom.exit.thread:               ; preds = %73, %Gia_ObjFaninId2.argprom.exit, %Gia_ObjIsMuxId.argprom.exit
+Gia_ObjIsMuxId.exit.thread:                       ; preds = %73, %Gia_ObjFaninId2.exit, %Gia_ObjIsMuxId.exit
   %85 = getelementptr inbounds i8, ptr %2, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = load i32, ptr %2, align 8
   %88 = icmp eq i32 %86, %87
   br i1 %88, label %89, label %.Vec_IntGrow.exit10_crit_edge.i51
 
-.Vec_IntGrow.exit10_crit_edge.i51:                ; preds = %Gia_ObjIsMuxId.argprom.exit.thread
+.Vec_IntGrow.exit10_crit_edge.i51:                ; preds = %Gia_ObjIsMuxId.exit.thread
   %.phi.trans.insert.i52 = getelementptr inbounds i8, ptr %2, i64 8
   %.pre.i53 = load ptr, ptr %.phi.trans.insert.i52, align 8
   br label %.sink.split
 
-89:                                               ; preds = %Gia_ObjIsMuxId.argprom.exit.thread
+89:                                               ; preds = %Gia_ObjIsMuxId.exit.thread
   %90 = icmp slt i32 %86, 16
   br i1 %90, label %91, label %99
 
@@ -851,31 +851,31 @@ define void @Gia_ManTisCollectMffc(ptr noundef %0, i32 noundef %1, ptr noundef %
   %17 = getelementptr i8, ptr %0, i64 40
   %.val25 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %.val25, null
-  br i1 %.not.i, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjIsMuxId.argprom.exit
+  br i1 %.not.i, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
 
-Gia_ObjIsMuxId.argprom.exit:                      ; preds = %4
+Gia_ObjIsMuxId.exit:                              ; preds = %4
   %18 = getelementptr inbounds i32, ptr %.val25, i64 %6
   %19 = load i32, ptr %18, align 4
   %.not29 = icmp eq i32 %19, 0
-  br i1 %.not29, label %Gia_ObjIsMuxId.argprom.exit.thread, label %Gia_ObjFaninId2.argprom.exit
+  br i1 %.not29, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjFaninId2.exit
 
-Gia_ObjFaninId2.argprom.exit:                     ; preds = %Gia_ObjIsMuxId.argprom.exit
+Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   %20 = ashr i32 %19, 1
   tail call void @Gia_ManTisCollectMffc_rec(ptr noundef nonnull %0, i32 noundef %20, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  br label %Gia_ObjIsMuxId.argprom.exit.thread
+  br label %Gia_ObjIsMuxId.exit.thread
 
-Gia_ObjIsMuxId.argprom.exit.thread:               ; preds = %4, %Gia_ObjFaninId2.argprom.exit, %Gia_ObjIsMuxId.argprom.exit
+Gia_ObjIsMuxId.exit.thread:                       ; preds = %4, %Gia_ObjFaninId2.exit, %Gia_ObjIsMuxId.exit
   %21 = load i32, ptr %8, align 4
   %22 = load i32, ptr %2, align 8
   %23 = icmp eq i32 %21, %22
   br i1 %23, label %24, label %.Vec_IntGrow.exit10_crit_edge.i
 
-.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Gia_ObjIsMuxId.argprom.exit.thread
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Gia_ObjIsMuxId.exit.thread
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
-24:                                               ; preds = %Gia_ObjIsMuxId.argprom.exit.thread
+24:                                               ; preds = %Gia_ObjIsMuxId.exit.thread
   %25 = icmp slt i32 %21, 16
   br i1 %25, label %26, label %34
 

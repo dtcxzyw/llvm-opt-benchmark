@@ -224,7 +224,7 @@ define dso_local noundef i32 @StartSlotSyncWorker() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   tail call void @InitPostmasterChild() #15
   tail call void @ClosePostmasterPorts(i1 noundef zeroext false) #15
-  tail call fastcc void @ReplSlotSyncWorkerMain.argprom.argelim() #17
+  tail call fastcc void @ReplSlotSyncWorkerMain() #17
   unreachable
 
 3:                                                ; preds = %0
@@ -248,7 +248,7 @@ declare void @InitPostmasterChild() local_unnamed_addr #2
 declare void @ClosePostmasterPorts(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @ReplSlotSyncWorkerMain.argprom.argelim() unnamed_addr #3 {
+define internal fastcc void @ReplSlotSyncWorkerMain() unnamed_addr #3 {
   %1 = alloca ptr, align 8
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %3 = alloca %struct.StringInfoData, align 8
@@ -418,7 +418,7 @@ wait_for_slot_activity.exit:                      ; preds = %wait_for_slot_activ
 78:                                               ; preds = %71
   %79 = load volatile i32, ptr @ConfigReloadPending, align 4
   %.not2.i = icmp eq i32 %79, 0
-  br i1 %.not2.i, label %ProcessSlotSyncInterrupts.argprom.exit, label %80
+  br i1 %.not2.i, label %ProcessSlotSyncInterrupts.exit, label %80
 
 80:                                               ; preds = %78
   %81 = load ptr, ptr @PrimaryConnInfo, align 8
@@ -465,7 +465,7 @@ wait_for_slot_activity.exit:                      ; preds = %wait_for_slot_activ
   %102 = xor i8 %101, %86
   %103 = and i8 %102, 1
   %.not9.i.i = icmp eq i8 %103, 0
-  br i1 %.not9.i.i, label %ProcessSlotSyncInterrupts.argprom.exit, label %104
+  br i1 %.not9.i.i, label %ProcessSlotSyncInterrupts.exit, label %104
 
 104:                                              ; preds = %100, %99
   %105 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
@@ -483,18 +483,18 @@ wait_for_slot_activity.exit:                      ; preds = %wait_for_slot_activ
   call void @proc_exit(i32 noundef 0) #18
   unreachable
 
-ProcessSlotSyncInterrupts.argprom.exit:           ; preds = %78, %100
+ProcessSlotSyncInterrupts.exit:                   ; preds = %78, %100
   %111 = call fastcc zeroext i1 @synchronize_slots(ptr noundef nonnull %60)
   br i1 %111, label %116, label %112
 
-112:                                              ; preds = %ProcessSlotSyncInterrupts.argprom.exit
+112:                                              ; preds = %ProcessSlotSyncInterrupts.exit
   %113 = load i64, ptr @sleep_ms, align 8
   %114 = shl i64 %113, 1
   %115 = call i64 @llvm.smin.i64(i64 %114, i64 30000)
   br label %116
 
-116:                                              ; preds = %112, %ProcessSlotSyncInterrupts.argprom.exit
-  %storemerge.i = phi i64 [ %115, %112 ], [ 200, %ProcessSlotSyncInterrupts.argprom.exit ]
+116:                                              ; preds = %112, %ProcessSlotSyncInterrupts.exit
+  %storemerge.i = phi i64 [ %115, %112 ], [ 200, %ProcessSlotSyncInterrupts.exit ]
   store i64 %storemerge.i, ptr @sleep_ms, align 8
   %117 = load ptr, ptr @MyLatch, align 8
   %118 = call i32 @WaitLatch(ptr noundef %117, i32 noundef 41, i64 noundef %storemerge.i, i32 noundef 83886089) #15

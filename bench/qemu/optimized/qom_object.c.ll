@@ -5449,13 +5449,13 @@ object_resolve_path_component.exit.i19:           ; preds = %if.end.i10.i15
 cleanup:                                          ; preds = %object_resolve_path_component.exit.i19, %if.end.i10.i15, %object_property_find.exit.i.i32, %object_resolve_path_component.exit.i, %if.end.i10.i, %object_property_find.exit.i.i, %if.end.i.i31, %land.lhs.true.i.i26, %if.end.i.i, %land.lhs.true.i.i
   %retval.0 = phi ptr [ null, %if.end.i.i ], [ %parent.tr.ph.lcssa1732.i, %land.lhs.true.i.i ], [ null, %if.end.i.i31 ], [ %parent.tr.ph.lcssa1732.i27, %land.lhs.true.i.i26 ], [ null, %object_property_find.exit.i.i ], [ null, %if.end.i10.i ], [ null, %object_resolve_path_component.exit.i ], [ null, %object_property_find.exit.i.i32 ], [ null, %if.end.i10.i15 ], [ null, %object_resolve_path_component.exit.i19 ]
   %cmp.not.i = icmp eq ptr %call, null
-  br i1 %cmp.not.i, label %glib_auto_cleanup_GStrv.argprom.exit, label %if.then.i43
+  br i1 %cmp.not.i, label %glib_auto_cleanup_GStrv.exit, label %if.then.i43
 
 if.then.i43:                                      ; preds = %cleanup
   tail call void @g_strfreev(ptr noundef nonnull %call) #20
-  br label %glib_auto_cleanup_GStrv.argprom.exit
+  br label %glib_auto_cleanup_GStrv.exit
 
-glib_auto_cleanup_GStrv.argprom.exit:             ; preds = %cleanup, %if.then.i43
+glib_auto_cleanup_GStrv.exit:                     ; preds = %cleanup, %if.then.i43
   ret ptr %retval.0
 }
 

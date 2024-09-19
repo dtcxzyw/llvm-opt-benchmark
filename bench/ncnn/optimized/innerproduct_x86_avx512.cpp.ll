@@ -959,12 +959,12 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   %416 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %417 = load ptr, ptr %416, align 8
   %.not1378.i = icmp eq ptr %417, null
-  br i1 %.not1378.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit, label %418
+  br i1 %.not1378.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, label %418
 
 418:                                              ; preds = %._crit_edge190.i
   %419 = atomicrmw add ptr %417, i32 -1 acq_rel, align 4
   %420 = icmp eq i32 %419, 1
-  br i1 %420, label %421, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
+  br i1 %420, label %421, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
 
 421:                                              ; preds = %418
   %422 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -978,15 +978,15 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   %427 = getelementptr inbounds i8, ptr %426, i64 24
   %428 = load ptr, ptr %427, align 8
   invoke void %428(ptr noundef nonnull align 8 dereferenceable(8) %423, ptr noundef %424)
-          to label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit unwind label %431
+          to label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit unwind label %431
 
 429:                                              ; preds = %421
   %.not1380.i = icmp eq ptr %424, null
-  br i1 %.not1380.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit, label %430
+  br i1 %.not1380.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, label %430
 
 430:                                              ; preds = %429
   call void @free(ptr noundef nonnull %424) #17
-  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
+  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
 
 431:                                              ; preds = %425
   %432 = landingpad { ptr, i32 }
@@ -1331,12 +1331,12 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   %640 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %641 = load ptr, ptr %640, align 8
   %.not1384.i = icmp eq ptr %641, null
-  br i1 %.not1384.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit, label %642
+  br i1 %.not1384.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, label %642
 
 642:                                              ; preds = %._crit_edge92.i
   %643 = atomicrmw add ptr %641, i32 -1 acq_rel, align 4
   %644 = icmp eq i32 %643, 1
-  br i1 %644, label %645, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
+  br i1 %644, label %645, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
 
 645:                                              ; preds = %642
   %646 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1350,15 +1350,15 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   %651 = getelementptr inbounds i8, ptr %650, i64 24
   %652 = load ptr, ptr %651, align 8
   invoke void %652(ptr noundef nonnull align 8 dereferenceable(8) %647, ptr noundef %648)
-          to label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit unwind label %655
+          to label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit unwind label %655
 
 653:                                              ; preds = %645
   %.not1386.i = icmp eq ptr %648, null
-  br i1 %.not1386.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit, label %654
+  br i1 %.not1386.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, label %654
 
 654:                                              ; preds = %653
   call void @free(ptr noundef nonnull %648) #17
-  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
+  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
 
 655:                                              ; preds = %649
   %656 = landingpad { ptr, i32 }
@@ -1598,12 +1598,12 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   %790 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %791 = load ptr, ptr %790, align 8
   %.not1391.i = icmp eq ptr %791, null
-  br i1 %.not1391.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit, label %792
+  br i1 %.not1391.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, label %792
 
 792:                                              ; preds = %._crit_edge36.i
   %793 = atomicrmw add ptr %791, i32 -1 acq_rel, align 4
   %794 = icmp eq i32 %793, 1
-  br i1 %794, label %795, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
+  br i1 %794, label %795, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
 
 795:                                              ; preds = %792
   %796 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1617,15 +1617,15 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   %801 = getelementptr inbounds i8, ptr %800, i64 24
   %802 = load ptr, ptr %801, align 8
   invoke void %802(ptr noundef nonnull align 8 dereferenceable(8) %797, ptr noundef %798)
-          to label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit unwind label %805
+          to label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit unwind label %805
 
 803:                                              ; preds = %795
   %.not1393.i = icmp eq ptr %798, null
-  br i1 %.not1393.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit, label %804
+  br i1 %.not1393.i, label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, label %804
 
 804:                                              ; preds = %803
   call void @free(ptr noundef nonnull %798) #17
-  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
+  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
 
 805:                                              ; preds = %799
   %806 = landingpad { ptr, i32 }
@@ -1717,7 +1717,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   %856 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %857 = load i64, ptr %856, align 8
   store i64 %857, ptr %837, align 8
-  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
+  br label %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
 
 .sink.split.i:                                    ; preds = %786, %557, %261
   %.sink.i = phi ptr [ %256, %261 ], [ %552, %557 ], [ %781, %786 ]
@@ -1725,7 +1725,7 @@ common.resume:                                    ; preds = %246, %250, %257, %2
   call void @free(ptr noundef nonnull %.sink.i) #17
   br label %common.resume
 
-_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit: ; preds = %._crit_edge36.i, %792, %799, %803, %804, %._crit_edge92.i, %642, %649, %653, %654, %._crit_edge190.i, %418, %425, %429, %430, %829
+_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit: ; preds = %._crit_edge36.i, %792, %799, %803, %804, %._crit_edge92.i, %642, %649, %653, %654, %._crit_edge190.i, %418, %425, %429, %430, %829
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
@@ -1733,7 +1733,7 @@ _ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argpr
   %859 = trunc i8 %858 to i1
   br i1 %859, label %860, label %879
 
-860:                                              ; preds = %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit
+860:                                              ; preds = %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit
   %861 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %862 = load ptr, ptr %861, align 8
   %.not19 = icmp eq ptr %862, null
@@ -1774,7 +1774,7 @@ _ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argpr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %877, i8 0, i64 20, i1 false)
   br label %879
 
-879:                                              ; preds = %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.argprom.exit, %876, %37, %27
+879:                                              ; preds = %_ZN4ncnnL33innerproduct_transform_kernel_sseERKNS_3MatERS0_iiRKNS_6OptionE.exit, %876, %37, %27
   ret i32 0
 }
 
@@ -3711,7 +3711,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   %.val = load ptr, ptr %56, align 8
   %60 = getelementptr inbounds i8, ptr %3, i64 39
   %.val98 = load i8, ptr %60, align 1
-  tail call fastcc void @_ZN4ncnnL21innerproduct_gemm_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %55, ptr %.val, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(72) %59, i8 %.val98)
+  tail call fastcc void @_ZN4ncnnL21innerproduct_gemm_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %55, ptr %.val, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(72) %59, i8 %.val98)
   br label %.critedge
 
 61:                                               ; preds = %._crit_edge, %28
@@ -9756,7 +9756,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
   %.val = load ptr, ptr %40, align 8
   %44 = getelementptr inbounds i8, ptr %3, i64 39
   %.val86 = load i8, ptr %44, align 1
-  tail call fastcc void @_ZN4ncnnL27innerproduct_gemm_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %39, ptr %.val, i32 noundef %42, ptr noundef nonnull align 8 dereferenceable(72) %43, i8 %.val86)
+  tail call fastcc void @_ZN4ncnnL27innerproduct_gemm_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %39, ptr %.val, i32 noundef %42, ptr noundef nonnull align 8 dereferenceable(72) %43, i8 %.val86)
   br label %.critedge
 
 45:                                               ; preds = %._crit_edge, %12
@@ -12327,7 +12327,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn23InnerProduct_x86_avx512
 declare void @_ZN4ncnn3Mat6createEiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL21innerproduct_gemm_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr readonly %.0.val, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4, i8 %.39.val) unnamed_addr #6 {
+define internal fastcc void @_ZN4ncnnL21innerproduct_gemm_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr readonly %.0.val, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4, i8 %.39.val) unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -23287,7 +23287,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN4ncnn3Mat6createEimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ncnnL27innerproduct_gemm_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr readonly %.0.val, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4, i8 %.39.val) unnamed_addr #3 {
+define internal fastcc void @_ZN4ncnnL27innerproduct_gemm_fp16s_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr readonly %.0.val, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4, i8 %.39.val) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -1310,7 +1310,7 @@ sw.bb46.i:                                        ; preds = %if.end14.i
   %s.val228.i = load ptr, ptr %102, align 8
   %120 = getelementptr i8, ptr %s.val228.i, i64 8
   %s.val228.val.i = load i8, ptr %120, align 8
-  %call47.i = tail call fastcc i32 @get_man.argprom.argprom(i8 %s.val228.val.i)
+  %call47.i = tail call fastcc i32 @get_man(i8 %s.val228.val.i)
   %cmp48.not.i = icmp eq i32 %call47.i, 2
   br i1 %cmp48.not.i, label %lor.lhs.false50.i, label %if.then55.i
 
@@ -1805,7 +1805,7 @@ if.end231.i:                                      ; preds = %lor.lhs.false217.i
   %s.val222.i = load ptr, ptr %102, align 8
   %178 = getelementptr i8, ptr %s.val222.i, i64 8
   %s.val222.val.i = load i8, ptr %178, align 8
-  %call232.i = tail call fastcc i32 @get_man.argprom.argprom(i8 %s.val222.val.i)
+  %call232.i = tail call fastcc i32 @get_man(i8 %s.val222.val.i)
   switch i32 %call232.i, label %sw.default.i146 [
     i32 0, label %sw.epilog.i
     i32 1, label %sw.bb236.i
@@ -1831,7 +1831,7 @@ sw.bb242.i:                                       ; preds = %if.end14.i
   %s.val221.i = load ptr, ptr %102, align 8
   %179 = getelementptr i8, ptr %s.val221.i, i64 8
   %s.val221.val.i = load i8, ptr %179, align 8
-  %call244.i = tail call fastcc i32 @get_man.argprom.argprom(i8 %s.val221.val.i)
+  %call244.i = tail call fastcc i32 @get_man(i8 %s.val221.val.i)
   %cmp245.i = icmp eq i32 %call244.i, 4
   br i1 %cmp245.i, label %if.then247.i, label %sw.epilog
 
@@ -1908,7 +1908,7 @@ if.end336.i:                                      ; preds = %if.then324.i, %if.e
   %206 = phi i8 [ %or334212.i, %if.then324.i ], [ %200, %if.end318.i ]
   %207 = getelementptr i8, ptr %194, i64 8
   %s.val220.val.i = load i8, ptr %207, align 8
-  %call337.i = tail call fastcc i32 @get_man.argprom.argprom(i8 %s.val220.val.i)
+  %call337.i = tail call fastcc i32 @get_man(i8 %s.val220.val.i)
   switch i32 %call337.i, label %if.end356.i [
     i32 1, label %if.then344.i
     i32 5, label %if.then344.i
@@ -1927,7 +1927,7 @@ if.then344.i:                                     ; preds = %if.end336.i, %if.en
 if.end356.i:                                      ; preds = %if.then344.i, %if.end336.i
   %211 = phi i8 [ %206, %if.end336.i ], [ %or354213.i, %if.then344.i ]
   %s.val218.val.i = phi i8 [ %s.val220.val.i, %if.end336.i ], [ %s.val218.val.pre.i, %if.then344.i ]
-  %call357.i = tail call fastcc i32 @get_man.argprom.argprom(i8 %s.val218.val.i)
+  %call357.i = tail call fastcc i32 @get_man(i8 %s.val218.val.i)
   %cmp358.i = icmp eq i32 %call357.i, 4
   br i1 %cmp358.i, label %if.then360.i, label %if.end373.i
 
@@ -1966,7 +1966,7 @@ sw.bb392.i:                                       ; preds = %if.end14.i
   %s.val217.i = load ptr, ptr %102, align 8
   %216 = getelementptr i8, ptr %s.val217.i, i64 8
   %s.val217.val.i = load i8, ptr %216, align 8
-  %call393.i = tail call fastcc i32 @get_man.argprom.argprom(i8 %s.val217.val.i)
+  %call393.i = tail call fastcc i32 @get_man(i8 %s.val217.val.i)
   %cmp394.not.i = icmp eq i32 %call393.i, 2
   br i1 %cmp394.not.i, label %lor.lhs.false396.i, label %if.then401.i
 
@@ -2131,7 +2131,7 @@ land.lhs.true511.i:                               ; preds = %sw.bb507.i
   %s.val216.i = load ptr, ptr %102, align 8
   %241 = getelementptr i8, ptr %s.val216.i, i64 8
   %s.val216.val.i = load i8, ptr %241, align 8
-  %call512.i = tail call fastcc i32 @get_man.argprom.argprom(i8 %s.val216.val.i)
+  %call512.i = tail call fastcc i32 @get_man(i8 %s.val216.val.i)
   %cmp513.i = icmp eq i32 %call512.i, 2
   br i1 %cmp513.i, label %if.then515.i, label %sw.epilog
 
@@ -2209,7 +2209,7 @@ sw.bb563.i:                                       ; preds = %if.end14.i
   %s.val215.i = load ptr, ptr %102, align 8
   %247 = getelementptr i8, ptr %s.val215.i, i64 8
   %s.val215.val.i = load i8, ptr %247, align 8
-  %call564.i = tail call fastcc i32 @get_man.argprom.argprom(i8 %s.val215.val.i)
+  %call564.i = tail call fastcc i32 @get_man(i8 %s.val215.val.i)
   switch i32 %call564.i, label %sw.epilog [
     i32 0, label %sw.bb565.i
     i32 1, label %sw.bb579.i
@@ -2241,7 +2241,7 @@ sw.bb585.i:                                       ; preds = %if.end14.i
   %s.val.i = load ptr, ptr %102, align 8
   %251 = getelementptr i8, ptr %s.val.i, i64 8
   %s.val.val.i = load i8, ptr %251, align 8
-  %call586.i = tail call fastcc i32 @get_man.argprom.argprom(i8 %s.val.val.i)
+  %call586.i = tail call fastcc i32 @get_man(i8 %s.val.val.i)
   %cmp587.i = icmp eq i32 %call586.i, 4
   br i1 %cmp587.i, label %if.then589.i, label %do.body618.i
 
@@ -2459,7 +2459,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal fastcc range(i32 0, 7) i32 @get_man.argprom.argprom(i8 %s.280.val.8.val) unnamed_addr #5 {
+define internal fastcc range(i32 0, 7) i32 @get_man(i8 %s.280.val.8.val) unnamed_addr #5 {
 entry:
   switch i8 %s.280.val.8.val, label %sw.default [
     i8 32, label %return

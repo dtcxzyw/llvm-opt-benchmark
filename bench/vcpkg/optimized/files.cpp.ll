@@ -8872,7 +8872,7 @@ _ZN12_GLOBAL__N_19ReadDirOpC2ERKN5vcpkg4PathERSt10error_code.exit: ; preds = %18
 
 _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread.thread: ; preds = %_ZN12_GLOBAL__N_19ReadDirOpC2ERKN5vcpkg4PathERSt10error_code.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  br label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit
 
 _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.preheader: ; preds = %_ZN12_GLOBAL__N_19ReadDirOpC2ERKN5vcpkg4PathERSt10error_code.exit.thread, %_ZN12_GLOBAL__N_19ReadDirOpC2ERKN5vcpkg4PathERSt10error_code.exit
   %27 = phi ptr [ %22, %_ZN12_GLOBAL__N_19ReadDirOpC2ERKN5vcpkg4PathERSt10error_code.exit.thread ], [ %26, %_ZN12_GLOBAL__N_19ReadDirOpC2ERKN5vcpkg4PathERSt10error_code.exit ]
@@ -8904,7 +8904,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit:    ; preds = %_ZN12_GLOBAL__N_117
 35:                                               ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit
   %36 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom(ptr %20) #27
+  tail call fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev(ptr %20) #27
   resume { ptr, i32 } %36
 
 37:                                               ; preds = %.noexc
@@ -8943,7 +8943,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread.sink.split: ; preds = %.thr
 _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread: ; preds = %42, %37, %45, %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread.sink.split
   %.1 = phi i1 [ %32, %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread.sink.split ], [ false, %45 ], [ false, %37 ], [ false, %42 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit, label %49
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit, label %49
 
 49:                                               ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread
   store i32 740, ptr %4, align 8
@@ -8952,7 +8952,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread: ; preds = %42, %37, %45, %
   %51 = tail call i32 @closedir(ptr noundef nonnull %20)
   %52 = icmp eq i32 %51, 0
   invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext %52)
-          to label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit unwind label %53
+          to label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit unwind label %53
 
 53:                                               ; preds = %49
   %54 = landingpad { ptr, i32 }
@@ -8961,7 +8961,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread: ; preds = %42, %37, %45, %
   call void @__clang_call_terminate(ptr %55) #31
   unreachable
 
-_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit:     ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread.thread, %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread, %49
+_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit:             ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread.thread, %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread, %49
   %.126 = phi i1 [ false, %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread.thread ], [ %.1, %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread ], [ %.1, %49 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %60
@@ -8972,8 +8972,8 @@ _ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit:     ; preds = %_ZN12_GLOBAL__N_117
   %59 = icmp eq i64 %58, 0
   br label %60
 
-60:                                               ; preds = %56, %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit, %8
-  %.0 = phi i1 [ false, %8 ], [ %.126, %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit ], [ %59, %56 ]
+60:                                               ; preds = %56, %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit, %8
+  %.0 = phi i1 [ false, %8 ], [ %.126, %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit ], [ %59, %56 ]
   ret i1 %.0
 }
 
@@ -9271,7 +9271,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg14RealFilesystem14find_from_PATHEN
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %15
-  invoke fastcc void @_ZN12_GLOBAL__N_120calculate_path_basesEv.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_120calculate_path_basesEv()
           to label %18 unwind label %88
 
 18:                                               ; preds = %17
@@ -10775,15 +10775,15 @@ _ZN12_GLOBAL__N_17PosixFdC2EPKciRSt10error_code.exit: ; preds = %15
   %27 = phi ptr [ %18, %_ZN12_GLOBAL__N_17PosixFdC2EPKciRSt10error_code.exit.thread ], [ %25, %_ZN12_GLOBAL__N_17PosixFdC2EPKciRSt10error_code.exit ]
   %28 = call i32 @fstat64(i32 noundef %14, ptr noundef nonnull %8) #27
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit.thread, label %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit
+  br i1 %29, label %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit.thread, label %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit
 
-_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit.thread: ; preds = %26
+_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit.thread: ; preds = %26
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #32
   store i32 0, ptr %4, align 8
   store ptr %30, ptr %27, align 8
   br label %34
 
-_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit: ; preds = %26
+_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit: ; preds = %26
   %31 = tail call ptr @__errno_location() #32
   %32 = load i32, ptr %31, align 4
   %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #32
@@ -10792,7 +10792,7 @@ _ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit: ; preds = %
   %.not110 = icmp eq i32 %32, 0
   br i1 %.not110, label %34, label %159
 
-34:                                               ; preds = %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit.thread, %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit
+34:                                               ; preds = %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit.thread, %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit
   %35 = getelementptr inbounds i8, ptr %8, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 61440
@@ -10872,15 +10872,15 @@ _ZSteqRKSt10error_codeRKSt15error_condition.exit.thread: ; preds = %57, %_ZSteqR
 69:                                               ; preds = %_ZN12_GLOBAL__N_17PosixFdC2EPKcijRSt10error_code.exit.thread, %_ZN12_GLOBAL__N_17PosixFdC2EPKcijRSt10error_code.exit
   %70 = call i32 @fstat64(i32 noundef %45, ptr noundef nonnull %10) #27
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76.thread, label %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76
+  br i1 %71, label %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit76.thread, label %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit76
 
-_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76.thread: ; preds = %69
+_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit76.thread: ; preds = %69
   %72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #32
   store i32 0, ptr %4, align 8
   store ptr %72, ptr %27, align 8
   br label %76
 
-_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76: ; preds = %69
+_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit76: ; preds = %69
   %73 = tail call ptr @__errno_location() #32
   %74 = load i32, ptr %73, align 4
   %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #32
@@ -10889,7 +10889,7 @@ _ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76: ; preds =
   %.not112 = icmp eq i32 %74, 0
   br i1 %.not112, label %76, label %.critedge
 
-76:                                               ; preds = %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76.thread, %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76
+76:                                               ; preds = %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit76.thread, %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit76
   %77 = getelementptr inbounds i8, ptr %10, i64 24
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 61440
@@ -10946,13 +10946,13 @@ _ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76: ; preds =
   br i1 %or.cond3, label %.thread, label %107
 
 .thread:                                          ; preds = %97, %104
-  tail call fastcc void @_ZNK12_GLOBAL__N_17PosixFd9ftruncateElRSt10error_code.argprom.argelim(i32 %45, ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  tail call fastcc void @_ZNK12_GLOBAL__N_17PosixFd9ftruncateElRSt10error_code(i32 %45, ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   %106 = load i32, ptr %4, align 8
   %.not113 = icmp eq i32 %106, 0
   br i1 %.not113, label %107, label %.critedge
 
 107:                                              ; preds = %.thread, %104
-  tail call fastcc void @_ZNK12_GLOBAL__N_17PosixFd6fchmodEjRSt10error_code.argprom(i32 %45, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %4) #27
+  tail call fastcc void @_ZNK12_GLOBAL__N_17PosixFd6fchmodEjRSt10error_code(i32 %45, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %4) #27
   %108 = load i32, ptr %4, align 8
   %.not114 = icmp eq i32 %108, 0
   br i1 %.not114, label %109, label %.critedge
@@ -11009,7 +11009,7 @@ _ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76: ; preds =
 
 127:                                              ; preds = %.loopexit, %125
   %128 = invoke i64 @read(i32 noundef %14, ptr noundef nonnull %12, i64 noundef 4096)
-          to label %_ZNK12_GLOBAL__N_17PosixFd4readEPvm.argprom.exit unwind label %129
+          to label %_ZNK12_GLOBAL__N_17PosixFd4readEPvm.exit unwind label %129
 
 129:                                              ; preds = %127
   %130 = landingpad { ptr, i32 }
@@ -11018,17 +11018,17 @@ _ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76: ; preds =
   call void @__clang_call_terminate(ptr %131) #31
   unreachable
 
-_ZNK12_GLOBAL__N_17PosixFd4readEPvm.argprom.exit: ; preds = %127
+_ZNK12_GLOBAL__N_17PosixFd4readEPvm.exit:         ; preds = %127
   switch i64 %128, label %.preheader [
     i64 0, label %149
     i64 -1, label %133
   ]
 
-.preheader:                                       ; preds = %_ZNK12_GLOBAL__N_17PosixFd4readEPvm.argprom.exit
+.preheader:                                       ; preds = %_ZNK12_GLOBAL__N_17PosixFd4readEPvm.exit
   %132 = icmp sgt i64 %128, 0
   br i1 %132, label %.lr.ph121, label %.loopexit
 
-133:                                              ; preds = %_ZNK12_GLOBAL__N_17PosixFd4readEPvm.argprom.exit
+133:                                              ; preds = %_ZNK12_GLOBAL__N_17PosixFd4readEPvm.exit
   %134 = tail call ptr @__errno_location() #32
   %135 = load i32, ptr %134, align 4
   %136 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #32
@@ -11036,7 +11036,7 @@ _ZNK12_GLOBAL__N_17PosixFd4readEPvm.argprom.exit: ; preds = %127
   store ptr %136, ptr %27, align 8
   br label %.critedge
 
-137:                                              ; preds = %_ZNK12_GLOBAL__N_17PosixFd5writeEPvm.argprom.exit
+137:                                              ; preds = %_ZNK12_GLOBAL__N_17PosixFd5writeEPvm.exit
   %138 = sub nsw i64 %.056120, %140
   %139 = icmp sgt i64 %138, 0
   br i1 %139, label %.lr.ph121, label %.loopexit, !llvm.loop !107
@@ -11044,7 +11044,7 @@ _ZNK12_GLOBAL__N_17PosixFd4readEPvm.argprom.exit: ; preds = %127
 .lr.ph121:                                        ; preds = %.preheader, %137
   %.056120 = phi i64 [ %138, %137 ], [ %128, %.preheader ]
   %140 = invoke i64 @write(i32 noundef %45, ptr noundef nonnull readonly %12, i64 noundef %.056120)
-          to label %_ZNK12_GLOBAL__N_17PosixFd5writeEPvm.argprom.exit unwind label %141
+          to label %_ZNK12_GLOBAL__N_17PosixFd5writeEPvm.exit unwind label %141
 
 141:                                              ; preds = %.lr.ph121
   %142 = landingpad { ptr, i32 }
@@ -11053,11 +11053,11 @@ _ZNK12_GLOBAL__N_17PosixFd4readEPvm.argprom.exit: ; preds = %127
   call void @__clang_call_terminate(ptr %143) #31
   unreachable
 
-_ZNK12_GLOBAL__N_17PosixFd5writeEPvm.argprom.exit: ; preds = %.lr.ph121
+_ZNK12_GLOBAL__N_17PosixFd5writeEPvm.exit:        ; preds = %.lr.ph121
   %144 = icmp eq i64 %140, -1
   br i1 %144, label %145, label %137
 
-145:                                              ; preds = %_ZNK12_GLOBAL__N_17PosixFd5writeEPvm.argprom.exit
+145:                                              ; preds = %_ZNK12_GLOBAL__N_17PosixFd5writeEPvm.exit
   %146 = tail call ptr @__errno_location() #32
   %147 = load i32, ptr %146, align 4
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #32
@@ -11065,7 +11065,7 @@ _ZNK12_GLOBAL__N_17PosixFd5writeEPvm.argprom.exit: ; preds = %.lr.ph121
   store ptr %148, ptr %27, align 8
   br label %.critedge
 
-149:                                              ; preds = %_ZNK12_GLOBAL__N_17PosixFd4readEPvm.argprom.exit
+149:                                              ; preds = %_ZNK12_GLOBAL__N_17PosixFd4readEPvm.exit
   %150 = load i32, ptr %4, align 8
   %.not116 = icmp eq i32 %150, 0
   br label %.critedge
@@ -11074,8 +11074,8 @@ _ZNK12_GLOBAL__N_17PosixFd5writeEPvm.argprom.exit: ; preds = %.lr.ph121
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   br label %_ZN12_GLOBAL__N_17PosixFdD2Ev.exit
 
-.critedge:                                        ; preds = %.loopexit117, %116, %107, %.thread, %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76, %149, %145, %133, %102, %93, %81
-  %.1 = phi i1 [ false, %93 ], [ false, %102 ], [ false, %133 ], [ false, %145 ], [ %.not116, %149 ], [ false, %81 ], [ false, %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit76 ], [ false, %.thread ], [ false, %107 ], [ false, %116 ], [ true, %.loopexit117 ]
+.critedge:                                        ; preds = %.loopexit117, %116, %107, %.thread, %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit76, %149, %145, %133, %102, %93, %81
+  %.1 = phi i1 [ false, %93 ], [ false, %102 ], [ false, %133 ], [ false, %145 ], [ %.not116, %149 ], [ false, %81 ], [ false, %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit76 ], [ false, %.thread ], [ false, %107 ], [ false, %116 ], [ true, %.loopexit117 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   br i1 %47, label %151, label %_ZN12_GLOBAL__N_17PosixFdD2Ev.exit
 
@@ -11103,8 +11103,8 @@ _ZN12_GLOBAL__N_17PosixFdD2Ev.exit:               ; preds = %154, %.critedge.thr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %159
 
-159:                                              ; preds = %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit, %_ZN12_GLOBAL__N_17PosixFdD2Ev.exit, %39
-  %.0 = phi i1 [ %.1105, %_ZN12_GLOBAL__N_17PosixFdD2Ev.exit ], [ false, %39 ], [ false, %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.argprom.exit ]
+159:                                              ; preds = %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit, %_ZN12_GLOBAL__N_17PosixFdD2Ev.exit, %39
+  %.0 = phi i1 [ %.1105, %_ZN12_GLOBAL__N_17PosixFdD2Ev.exit ], [ false, %39 ], [ false, %_ZNK12_GLOBAL__N_17PosixFd5fstatEP4statRSt10error_code.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   br i1 %16, label %160, label %_ZN12_GLOBAL__N_17PosixFdD2Ev.exit79
 
@@ -11861,18 +11861,18 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.preheader: ; preds = %_ZN12_GLOBAL
 .thread:                                          ; preds = %_ZN12_GLOBAL__N_19ReadDirOpC2ERKN5vcpkg4PathERSt10error_code.exit
   tail call fastcc void @_ZN12_GLOBAL__N_130translate_not_found_to_successERSt10error_code(ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  br label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit
 
 _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit:    ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge, %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.preheader
   store i32 0, ptr %22, align 4
   %27 = invoke noundef ptr @readdir64(ptr noundef %14)
-          to label %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit unwind label %32
+          to label %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit unwind label %32
 
-_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit: ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit
+_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit:         ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %28, label %34
 
-28:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit
+28:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit
   %29 = load i32, ptr %22, align 4
   %.not57 = icmp eq i32 %29, 0
   br i1 %.not57, label %137, label %30
@@ -11888,7 +11888,7 @@ _ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit: ; preds = %_ZN12_GLOBAL__N_117
           cleanup
   br label %.body
 
-34:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit
+34:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit
   %35 = getelementptr inbounds i8, ptr %27, i64 19
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 46
@@ -12218,7 +12218,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge: ; preds = %.critedge, %4
 
 137:                                              ; preds = %28, %.loopexit, %30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit, label %138
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit, label %138
 
 138:                                              ; preds = %137
   store i32 740, ptr %8, align 8
@@ -12227,7 +12227,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge: ; preds = %.critedge, %4
   %140 = call i32 @closedir(ptr noundef nonnull %14)
   %141 = icmp eq i32 %140, 0
   invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %8, i1 noundef zeroext %141)
-          to label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit unwind label %142
+          to label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit unwind label %142
 
 142:                                              ; preds = %138
   %143 = landingpad { ptr, i32 }
@@ -12236,13 +12236,13 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge: ; preds = %.critedge, %4
   call void @__clang_call_terminate(ptr %144) #31
   unreachable
 
-_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit:     ; preds = %.thread, %137, %138
+_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit:             ; preds = %.thread, %137, %138
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   ret void
 
 .body:                                            ; preds = %32, %47, %.body70
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body70 ], [ %33, %32 ], [ %48, %47 ]
-  call fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom(ptr %14) #27
+  call fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev(ptr %14) #27
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -12250,7 +12250,7 @@ _ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit:     ; preds = %.thread, %137, %138
 declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom(ptr %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev(ptr %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.vcpkg::LineInfo", align 8
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %6, label %2
@@ -12455,18 +12455,18 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.preheader: ; preds = %_ZN12_GLOBAL
 .thread:                                          ; preds = %_ZN12_GLOBAL__N_19ReadDirOpC2ERKN5vcpkg4PathERSt10error_code.exit
   tail call fastcc void @_ZN12_GLOBAL__N_130translate_not_found_to_successERSt10error_code(ptr noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  br label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit
 
 _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit:    ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge, %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.preheader
   store i32 0, ptr %16, align 4
   %19 = invoke noundef ptr @readdir64(ptr noundef %8)
-          to label %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit unwind label %24
+          to label %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit unwind label %24
 
-_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit: ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit
+_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit:         ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %26
 
-20:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit
+20:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit
   %21 = load i32, ptr %16, align 4
   %.not16 = icmp eq i32 %21, 0
   br i1 %.not16, label %53, label %22
@@ -12482,7 +12482,7 @@ _ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit: ; preds = %_ZN12_GLOBAL__N_117
           cleanup
   br label %.body
 
-26:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit
+26:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit
   %27 = getelementptr inbounds i8, ptr %19, i64 19
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 46
@@ -12558,7 +12558,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge: ; preds = %_ZNSt6vectorI
 
 53:                                               ; preds = %20, %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit, label %54
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit, label %54
 
 54:                                               ; preds = %53
   store i32 740, ptr %5, align 8
@@ -12567,7 +12567,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge: ; preds = %_ZNSt6vectorI
   %56 = call i32 @closedir(ptr noundef nonnull %8)
   %57 = icmp eq i32 %56, 0
   invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext %57)
-          to label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit unwind label %58
+          to label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit unwind label %58
 
 58:                                               ; preds = %54
   %59 = landingpad { ptr, i32 }
@@ -12576,13 +12576,13 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge: ; preds = %_ZNSt6vectorI
   call void @__clang_call_terminate(ptr %60) #31
   unreachable
 
-_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit:     ; preds = %.thread, %53, %54
+_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit:             ; preds = %.thread, %53, %54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 
 .body:                                            ; preds = %24, %39, %51
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %25, %24 ], [ %40, %39 ]
-  call fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom(ptr %8) #27
+  call fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev(ptr %8) #27
   resume { ptr, i32 } %.pn
 }
 
@@ -12693,7 +12693,7 @@ define internal noundef zeroext i1 @_ZZNK5vcpkg14RealFilesystem29get_directories
   %11 = icmp eq i32 %10, 16384
   %.0.i.i = select i1 %.not.i.i, i1 %11, i1 false
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
-  br label %_ZZNK5vcpkg14RealFilesystem29get_directories_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.argprom.exit
+  br label %_ZZNK5vcpkg14RealFilesystem29get_directories_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.exit
 
 switch.hole_check:                                ; preds = %2
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
@@ -12705,9 +12705,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = zext nneg i8 %switch.tableidx to i12
   %switch.downshift = lshr i12 1884, %switch.cast
   %switch.masked = trunc i12 %switch.downshift to i1
-  br label %_ZZNK5vcpkg14RealFilesystem29get_directories_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.argprom.exit
+  br label %_ZZNK5vcpkg14RealFilesystem29get_directories_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.exit
 
-_ZZNK5vcpkg14RealFilesystem29get_directories_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.argprom.exit: ; preds = %switch.lookup, %5
+_ZZNK5vcpkg14RealFilesystem29get_directories_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.exit: ; preds = %switch.lookup, %5
   %.0.i = phi i1 [ %.0.i.i, %5 ], [ %switch.masked, %switch.lookup ]
   ret i1 %.0.i
 }
@@ -12730,7 +12730,7 @@ define internal noundef zeroext i1 @_ZZNK5vcpkg14RealFilesystem31get_regular_fil
   %11 = icmp eq i32 %10, 32768
   %.0.i.i = select i1 %.not.i.i, i1 %11, i1 false
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
-  br label %_ZZNK5vcpkg14RealFilesystem31get_regular_files_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.argprom.exit
+  br label %_ZZNK5vcpkg14RealFilesystem31get_regular_files_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.exit
 
 switch.hole_check:                                ; preds = %2
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
@@ -12742,9 +12742,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.cast = zext nneg i8 %switch.tableidx to i12
   %switch.downshift = lshr i12 2004, %switch.cast
   %switch.masked = trunc i12 %switch.downshift to i1
-  br label %_ZZNK5vcpkg14RealFilesystem31get_regular_files_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.argprom.exit
+  br label %_ZZNK5vcpkg14RealFilesystem31get_regular_files_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.exit
 
-_ZZNK5vcpkg14RealFilesystem31get_regular_files_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.argprom.exit: ; preds = %switch.lookup, %5
+_ZZNK5vcpkg14RealFilesystem31get_regular_files_non_recursiveERKNS_4PathERSt10error_codeENKUlN12_GLOBAL__N_110PosixDTypeES3_E_clES7_S3_.exit: ; preds = %switch.lookup, %5
   %.0.i = phi i1 [ %.0.i.i, %5 ], [ %switch.masked, %switch.lookup ]
   ret i1 %.0.i
 }
@@ -12760,7 +12760,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120calculate_path_basesEv.argprom() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120calculate_path_basesEv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::vector.37", align 8
   %2 = alloca %"struct.vcpkg::StringView", align 8
   %3 = alloca %"struct.vcpkg::Optional", align 8
@@ -13284,7 +13284,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.preheader: ; preds = %_ZN12_GLOBAL
   store i32 %36, ptr %1, align 8
   store ptr %37, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  br label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit, %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -13299,13 +13299,13 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.preheader: ; preds = %_ZN12_GLOBAL
 _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit:    ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge, %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.preheader
   store i32 0, ptr %32, align 4
   %38 = invoke noundef ptr @readdir64(ptr noundef %24)
-          to label %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit unwind label %.loopexit
+          to label %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit unwind label %.loopexit
 
-_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit: ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit
+_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit:         ; preds = %_ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit
   %.not32 = icmp eq ptr %38, null
   br i1 %.not32, label %39, label %42
 
-39:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit
+39:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit
   %40 = load i32, ptr %32, align 4
   %.not33 = icmp eq i32 %40, 0
   br i1 %.not33, label %62, label %.invoke
@@ -13314,7 +13314,7 @@ _ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit: ; preds = %_ZN12_GLOBAL__N_117
   %41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.loopexit46.sink.split unwind label %.loopexit.split-lp
 
-42:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.argprom.exit
+42:                                               ; preds = %_ZNK12_GLOBAL__N_19ReadDirOp4readEv.exit
   %43 = getelementptr inbounds i8, ptr %38, i64 19
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 46
@@ -13385,7 +13385,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge: ; preds = %58, %49, %46
 
 .loopexit46:                                      ; preds = %58, %.loopexit46.sink.split, %62
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit, label %67
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit, label %67
 
 67:                                               ; preds = %.loopexit46
   store i32 740, ptr %5, align 8
@@ -13394,7 +13394,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge: ; preds = %58, %49, %46
   %69 = call i32 @closedir(ptr noundef nonnull %24)
   %70 = icmp eq i32 %69, 0
   invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext %70)
-          to label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit unwind label %71
+          to label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit unwind label %71
 
 71:                                               ; preds = %67
   %72 = landingpad { ptr, i32 }
@@ -13403,16 +13403,16 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.backedge: ; preds = %58, %49, %46
   call void @__clang_call_terminate(ptr %73) #31
   unreachable
 
-_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit:     ; preds = %.loopexit46.thread, %.loopexit46, %67
+_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit:             ; preds = %.loopexit46.thread, %.loopexit46, %67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %74
 
-74:                                               ; preds = %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit, %15
+74:                                               ; preds = %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit, %15
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %55, %60
   %.pn = phi { ptr, i32 } [ %61, %60 ], [ %56, %55 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom(ptr %24) #27
+  call fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev(ptr %24) #27
   resume { ptr, i32 } %.pn
 }
 
@@ -13647,7 +13647,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread42: ; preds = %74, %_ZN12_GL
 
 81:                                               ; preds = %_ZSteqRKSt10error_codeRKSt15error_condition.exit, %_ZSteqRKSt10error_codeRKSt15error_condition.exit.thread, %.critedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit, label %82
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit, label %82
 
 82:                                               ; preds = %81
   store i32 740, ptr %5, align 8
@@ -13656,7 +13656,7 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread42: ; preds = %74, %_ZN12_GL
   %84 = call i32 @closedir(ptr noundef nonnull %14)
   %85 = icmp eq i32 %84, 0
   invoke void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEb(ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext %85)
-          to label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit unwind label %86
+          to label %_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit unwind label %86
 
 86:                                               ; preds = %82
   %87 = landingpad { ptr, i32 }
@@ -13665,18 +13665,18 @@ _ZN12_GLOBAL__N_117is_dot_or_dot_dotEPKc.exit.thread42: ; preds = %74, %_ZN12_GL
   call void @__clang_call_terminate(ptr %88) #31
   unreachable
 
-_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom.exit:     ; preds = %81, %82
+_ZN12_GLOBAL__N_19ReadDirOpD2Ev.exit:             ; preds = %81, %82
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 
 89:                                               ; preds = %.body, %38
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %eh.lpad-body, %.body ]
-  call fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev.argprom(ptr %14) #27
+  call fastcc void @_ZN12_GLOBAL__N_19ReadDirOpD2Ev(ptr %14) #27
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_17PosixFd9ftruncateElRSt10error_code.argprom.argelim(i32 %.0.val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_17PosixFd9ftruncateElRSt10error_code(i32 %.0.val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   %2 = tail call i32 @ftruncate64(i32 noundef %.0.val, i64 noundef 0) #27
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %6
@@ -13701,7 +13701,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_17PosixFd9ftruncateElRSt10error_co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_17PosixFd6fchmodEjRSt10error_code.argprom(i32 %.0.val, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %1) unnamed_addr #5 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_17PosixFd6fchmodEjRSt10error_code(i32 %.0.val, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %1) unnamed_addr #5 align 2 {
   %3 = tail call i32 @fchmod(i32 noundef %.0.val, i32 noundef %0) #27
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7

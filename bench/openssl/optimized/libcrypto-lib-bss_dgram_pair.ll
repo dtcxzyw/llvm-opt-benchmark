@@ -1487,7 +1487,7 @@ sw.bb12:                                          ; preds = %if.end
   %bio.val22 = load i32, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %hdr.i)
   %tobool.not.i = icmp eq i32 %bio.val22, 0
-  br i1 %tobool.not.i, label %dgram_pair_ctrl_pending.argprom.exit, label %if.end.i37
+  br i1 %tobool.not.i, label %dgram_pair_ctrl_pending.exit, label %if.end.i37
 
 if.end.i37:                                       ; preds = %sw.bb12
   %17 = load ptr, ptr %0, align 8
@@ -1505,7 +1505,7 @@ if.end4.i:                                        ; preds = %if.then1.i, %if.end
   %19 = load ptr, ptr %lock.i39, align 8
   %call.i40 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %19) #8
   %cmp5.i = icmp eq i32 %call.i40, 0
-  br i1 %cmp5.i, label %dgram_pair_ctrl_pending.argprom.exit, label %if.end7.i
+  br i1 %cmp5.i, label %dgram_pair_ctrl_pending.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i
   %arrayidx.i = getelementptr inbounds i8, ptr %readb.0.i, i64 40
@@ -1551,7 +1551,7 @@ dgram_pair_read_inner.exit.i:                     ; preds = %if.end11.i.i, %whil
   store i64 %21, ptr %count.i41, align 8
   %25 = load ptr, ptr %lock.i39, align 8
   %call16.i = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %25) #8
-  switch i64 %total_read.0.lcssa.i.i, label %dgram_pair_ctrl_pending.argprom.exit [
+  switch i64 %total_read.0.lcssa.i.i, label %dgram_pair_ctrl_pending.exit [
     i64 232, label %if.end23.i
     i64 0, label %if.end23.i
   ]
@@ -1560,9 +1560,9 @@ if.end23.i:                                       ; preds = %dgram_pair_read_inn
   %cmp24.not.i = icmp eq i64 %total_read.0.lcssa.i.i, 0
   %26 = load i64, ptr %hdr.i, align 8
   %cond.i = select i1 %cmp24.not.i, i64 0, i64 %26
-  br label %dgram_pair_ctrl_pending.argprom.exit
+  br label %dgram_pair_ctrl_pending.exit
 
-dgram_pair_ctrl_pending.argprom.exit:             ; preds = %sw.bb12, %if.end4.i, %dgram_pair_read_inner.exit.i, %if.end23.i
+dgram_pair_ctrl_pending.exit:                     ; preds = %sw.bb12, %if.end4.i, %dgram_pair_read_inner.exit.i, %if.end23.i
   %retval.0.i46 = phi i64 [ %cond.i, %if.end23.i ], [ 0, %sw.bb12 ], [ 0, %if.end4.i ], [ 0, %dgram_pair_read_inner.exit.i ]
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %hdr.i)
   br label %return
@@ -1602,14 +1602,14 @@ sw.bb25:                                          ; preds = %if.end
 if.end.i.i48:                                     ; preds = %sw.bb25
   %30 = load ptr, ptr %0, align 8
   %cmp.not.i.i49 = icmp eq ptr %30, null
-  br i1 %cmp.not.i.i49, label %dgram_pair_ctrl_get_local_addr_cap.argprom.exit.i, label %if.then1.i.i
+  br i1 %cmp.not.i.i49, label %dgram_pair_ctrl_get_local_addr_cap.exit.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i48
   %ptr3.i.i = getelementptr inbounds i8, ptr %30, i64 64
   %31 = load ptr, ptr %ptr3.i.i, align 8
-  br label %dgram_pair_ctrl_get_local_addr_cap.argprom.exit.i
+  br label %dgram_pair_ctrl_get_local_addr_cap.exit.i
 
-dgram_pair_ctrl_get_local_addr_cap.argprom.exit.i: ; preds = %if.then1.i.i, %if.end.i.i48
+dgram_pair_ctrl_get_local_addr_cap.exit.i:        ; preds = %if.then1.i.i, %if.end.i.i48
   %readb.0.i.i = phi ptr [ %31, %if.then1.i.i ], [ %0, %if.end.i.i48 ]
   %cap.i.i = getelementptr inbounds i8, ptr %readb.0.i.i, i64 64
   %32 = load i32, ptr %cap.i.i, align 8
@@ -1617,7 +1617,7 @@ dgram_pair_ctrl_get_local_addr_cap.argprom.exit.i: ; preds = %if.then1.i.i, %if.
   %cmp5.i.not.i = icmp eq i32 %not.i.i, 9
   br i1 %cmp5.i.not.i, label %if.end.i51, label %return
 
-if.end.i51:                                       ; preds = %dgram_pair_ctrl_get_local_addr_cap.argprom.exit.i
+if.end.i51:                                       ; preds = %dgram_pair_ctrl_get_local_addr_cap.exit.i
   %33 = and i64 %num, 4294967295
   %cmp1.not.not.i = icmp eq i64 %33, 0
   %local_addr_enable.i = getelementptr inbounds i8, ptr %0, i64 80
@@ -1708,8 +1708,8 @@ if.end11.i:                                       ; preds = %if.end7.i71
 sw.default:                                       ; preds = %if.end
   br label %return
 
-return:                                           ; preds = %if.end11.i, %if.end7.i71, %if.end.i70, %if.end4.i59, %sw.bb29, %if.end.i51, %dgram_pair_ctrl_get_local_addr_cap.argprom.exit.i, %sw.bb25, %if.end9.i, %if.end8.i.i, %if.end3.i.i, %if.then.i, %if.then.i66, %sw.bb42, %if.end.i34, %sw.bb10, %sw.bb7, %sw.bb8, %dgram_pair_ctrl_pending.argprom.exit, %sw.bb15, %sw.bb17, %sw.bb23, %sw.bb32, %sw.bb35, %sw.bb39, %sw.default, %if.end, %entry
-  %retval.0 = phi i64 [ 0, %entry ], [ 0, %sw.default ], [ %conv41, %sw.bb39 ], [ 1, %sw.bb35 ], [ %conv34, %sw.bb32 ], [ 1, %sw.bb23 ], [ 1, %sw.bb17 ], [ %conv16, %sw.bb15 ], [ 1, %if.end ], [ %retval.0.i46, %dgram_pair_ctrl_pending.argprom.exit ], [ 1, %sw.bb8 ], [ %10, %sw.bb7 ], [ %spec.store.select.i35, %if.end.i34 ], [ 0, %sw.bb10 ], [ 1, %sw.bb42 ], [ 1, %if.then.i66 ], [ 0, %if.then.i ], [ 1, %if.end9.i ], [ 0, %if.end3.i.i ], [ 0, %if.end8.i.i ], [ 1, %if.end.i51 ], [ 0, %dgram_pair_ctrl_get_local_addr_cap.argprom.exit.i ], [ 0, %sw.bb25 ], [ %38, %if.end4.i59 ], [ 0, %sw.bb29 ], [ 1, %if.end.i70 ], [ 0, %if.end7.i71 ], [ %46, %if.end11.i ]
+return:                                           ; preds = %if.end11.i, %if.end7.i71, %if.end.i70, %if.end4.i59, %sw.bb29, %if.end.i51, %dgram_pair_ctrl_get_local_addr_cap.exit.i, %sw.bb25, %if.end9.i, %if.end8.i.i, %if.end3.i.i, %if.then.i, %if.then.i66, %sw.bb42, %if.end.i34, %sw.bb10, %sw.bb7, %sw.bb8, %dgram_pair_ctrl_pending.exit, %sw.bb15, %sw.bb17, %sw.bb23, %sw.bb32, %sw.bb35, %sw.bb39, %sw.default, %if.end, %entry
+  %retval.0 = phi i64 [ 0, %entry ], [ 0, %sw.default ], [ %conv41, %sw.bb39 ], [ 1, %sw.bb35 ], [ %conv34, %sw.bb32 ], [ 1, %sw.bb23 ], [ 1, %sw.bb17 ], [ %conv16, %sw.bb15 ], [ 1, %if.end ], [ %retval.0.i46, %dgram_pair_ctrl_pending.exit ], [ 1, %sw.bb8 ], [ %10, %sw.bb7 ], [ %spec.store.select.i35, %if.end.i34 ], [ 0, %sw.bb10 ], [ 1, %sw.bb42 ], [ 1, %if.then.i66 ], [ 0, %if.then.i ], [ 1, %if.end9.i ], [ 0, %if.end3.i.i ], [ 0, %if.end8.i.i ], [ 1, %if.end.i51 ], [ 0, %dgram_pair_ctrl_get_local_addr_cap.exit.i ], [ 0, %sw.bb25 ], [ %38, %if.end4.i59 ], [ 0, %sw.bb29 ], [ 1, %if.end.i70 ], [ 0, %if.end7.i71 ], [ %46, %if.end11.i ]
   ret i64 %retval.0
 }
 

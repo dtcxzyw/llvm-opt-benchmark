@@ -794,7 +794,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9DirectiveN3gmx13
   br i1 %.not9, label %46, label %43
 
 43:                                               ; preds = %41
-  invoke fastcc void @_ZN3gmx26StringToEnumValueConverterI20DeprecatedDirectivesXadL_ZL17enumValueToStringS1_EELNS_17StringCompareTypeE2ELNS_12StripStringsE0EEC2Ev.argprom()
+  invoke fastcc void @_ZN3gmx26StringToEnumValueConverterI20DeprecatedDirectivesXadL_ZL17enumValueToStringS1_EELNS_17StringCompareTypeE2ELNS_12StripStringsE0EEC2Ev()
           to label %44 unwind label %65
 
 44:                                               ; preds = %43
@@ -1139,7 +1139,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #9
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx26StringToEnumValueConverterI20DeprecatedDirectivesXadL_ZL17enumValueToStringS1_EELNS_17StringCompareTypeE2ELNS_12StripStringsE0EEC2Ev.argprom() unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx26StringToEnumValueConverterI20DeprecatedDirectivesXadL_ZL17enumValueToStringS1_EELNS_17StringCompareTypeE2ELNS_12StripStringsE0EEC2Ev() unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.gmx::StringCompare", align 4
   %2 = alloca %"class.std::tuple.23", align 8
   %3 = alloca %"class.std::tuple.26", align 1

@@ -280,14 +280,14 @@ define noundef zeroext i1 @"_ZN49_$LT$ropey..Error$u20$as$u20$core..fmt..Debug$G
   %35 = alloca [8 x i8], align 8
   %36 = load i64, ptr %0, align 8, !range !15, !noundef !4
   switch i64 %36, label %default.unreachable234 [
-    i64 0, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit
-    i64 1, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit107
-    i64 2, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit113
-    i64 3, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit119
-    i64 4, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit125
+    i64 0, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
+    i64 1, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit107
+    i64 2, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit113
+    i64 3, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit119
+    i64 4, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit125
     i64 5, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i126
-    i64 6, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit137
-    i64 7, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit143
+    i64 6, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit137
+    i64 7, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit143
     i64 8, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i144
     i64 9, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i150
   ]
@@ -295,7 +295,7 @@ define noundef zeroext i1 @"_ZN49_$LT$ropey..Error$u20$as$u20$core..fmt..Debug$G
 default.unreachable234:                           ; preds = %2
   unreachable
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit: ; preds = %2
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   %38 = load i64, ptr %37, align 8, !noundef !4
@@ -333,7 +333,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   br label %133
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit107: ; preds = %2
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit107: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !noundef !4
@@ -371,7 +371,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit107: ; preds = 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   br label %133
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit113: ; preds = %2
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit113: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load i64, ptr %53, align 8, !noundef !4
@@ -409,7 +409,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit113: ; preds = 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   br label %133
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit119: ; preds = %2
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit119: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   %61 = getelementptr inbounds i8, ptr %0, i64 8
   %62 = load i64, ptr %61, align 8, !noundef !4
@@ -447,7 +447,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit119: ; preds = 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
   br label %133
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit125: ; preds = %2
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit125: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   %69 = getelementptr inbounds i8, ptr %0, i64 8
   %70 = load i64, ptr %69, align 8, !noundef !4
@@ -494,7 +494,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i126: ;
   %86 = tail call noundef zeroext i1 %85(ptr noundef nonnull align 1 %.val84, ptr noalias noundef nonnull readonly align 1 @anon.e942f5b93070d75cb2a7dc08a9bb38ac.23, i64 noundef 54), !noalias !32
   br i1 %86, label %133, label %134
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit137: ; preds = %2
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit137: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   %87 = getelementptr inbounds i8, ptr %0, i64 8
   %88 = load i64, ptr %87, align 8, !noundef !4
@@ -532,7 +532,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit137: ; preds = 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   br label %133
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit143: ; preds = %2
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit143: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   %95 = getelementptr inbounds i8, ptr %0, i64 8
   %96 = load i64, ptr %95, align 8, !noundef !4
@@ -614,19 +614,19 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i150: ;
   %132 = tail call noundef zeroext i1 %131(ptr noundef nonnull align 1 %.val76, ptr noalias noundef nonnull readonly align 1 @anon.e942f5b93070d75cb2a7dc08a9bb38ac.34, i64 noundef 37), !noalias !44
   br i1 %132, label %143, label %140
 
-133:                                              ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i126, %143, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit167, %139, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit161, %134, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit143, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit137, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit125, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit119, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit113, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit107, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit
-  %.sroa.0.0.shrunk = phi i1 [ true, %143 ], [ %142, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit167 ], [ true, %139 ], [ %138, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit161 ], [ %102, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit143 ], [ %94, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit137 ], [ %135, %134 ], [ %73, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit125 ], [ %68, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit119 ], [ %60, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit113 ], [ %52, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit107 ], [ %44, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i126 ]
+133:                                              ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i126, %143, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit167, %139, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit161, %134, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit143, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit137, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit125, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit119, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit113, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit107, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
+  %.sroa.0.0.shrunk = phi i1 [ true, %143 ], [ %142, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit167 ], [ true, %139 ], [ %138, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit161 ], [ %102, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit143 ], [ %94, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit137 ], [ %135, %134 ], [ %73, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit125 ], [ %68, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit119 ], [ %60, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit113 ], [ %52, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit107 ], [ %44, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i126 ]
   ret i1 %.sroa.0.0.shrunk
 
 134:                                              ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i126
-  %135 = tail call fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE.argprom(ptr nonnull %.val84, ptr nonnull %.val85, i64 noundef %75, i64 %77, i64 noundef %79, i64 %81)
+  %135 = tail call fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE(ptr nonnull %.val84, ptr nonnull %.val85, i64 noundef %75, i64 %77, i64 noundef %79, i64 %81)
   br label %133
 
 136:                                              ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i144
-  %137 = tail call fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE.argprom(ptr nonnull %.val78, ptr nonnull %.val79, i64 noundef %104, i64 %106, i64 noundef %108, i64 %110)
-  br i1 %137, label %139, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit161
+  %137 = tail call fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE(ptr nonnull %.val78, ptr nonnull %.val79, i64 noundef %104, i64 %106, i64 noundef %108, i64 %110)
+  br i1 %137, label %139, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit161
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit161: ; preds = %136
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit161: ; preds = %136
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   store ptr %15, ptr %14, align 8
   %.sroa.460.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
@@ -652,10 +652,10 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit161: ; preds = 
   br label %133
 
 140:                                              ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i150
-  %141 = tail call fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE.argprom(ptr nonnull %.val76, ptr nonnull %.val77, i64 noundef %119, i64 %121, i64 noundef %123, i64 %125)
-  br i1 %141, label %143, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit167
+  %141 = tail call fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE(ptr nonnull %.val76, ptr nonnull %.val77, i64 noundef %119, i64 %121, i64 noundef %123, i64 %125)
+  br i1 %141, label %143, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit167
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit167: ; preds = %140
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit167: ; preds = %140
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   store ptr %13, ptr %12, align 8
   %.sroa.464.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
@@ -688,7 +688,7 @@ define noundef zeroext i1 @"_ZN51_$LT$ropey..Error$u20$as$u20$core..fmt..Display
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE.argprom(ptr %.32.val, ptr %.40.val, i64 noundef range(i64 0, 2) %0, i64 %1, i64 noundef range(i64 0, 2) %2, i64 %3) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0df3caE(ptr %.32.val, ptr %.40.val, i64 noundef range(i64 0, 2) %0, i64 %1, i64 noundef range(i64 0, 2) %2, i64 %3) unnamed_addr #1 {
   %5 = alloca [48 x i8], align 8
   %6 = alloca [48 x i8], align 8
   %7 = alloca [48 x i8], align 8
@@ -704,10 +704,10 @@ define internal fastcc noundef zeroext i1 @_ZN5ropey11write_range17h803d94c75b0d
   br i1 %trunc, label %16, label %15
 
 15:                                               ; preds = %4
-  br i1 %trunc21, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit39, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i
+  br i1 %trunc21, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit39, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i
 
 16:                                               ; preds = %4
-  br i1 %trunc21, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit51, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit45
+  br i1 %trunc21, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit51, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit45
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i: ; preds = %15
   %17 = icmp ne ptr %.32.val, null
@@ -717,9 +717,9 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i: ; pr
   %19 = getelementptr inbounds i8, ptr %.40.val, i64 24
   %20 = load ptr, ptr %19, align 8, !invariant.load !4, !noalias !53, !nonnull !4
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 1 %.32.val, ptr noalias noundef nonnull readonly align 1 @anon.e942f5b93070d75cb2a7dc08a9bb38ac.26, i64 noundef 2), !noalias !53
-  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit39: ; preds = %15
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit39: ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store i64 %3, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
@@ -744,13 +744,13 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit39: ; preds = %
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit51, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit45, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit39
-  %.sroa.05.0.in = phi i1 [ %31, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit51 ], [ %27, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit45 ], [ %24, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit39 ], [ %21, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i ]
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit51, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit45, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit39
+  %.sroa.05.0.in = phi i1 [ %31, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit51 ], [ %27, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit45 ], [ %24, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit39 ], [ %21, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i ]
   ret i1 %.sroa.05.0.in
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit45: ; preds = %16
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit45: ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store i64 %1, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
@@ -775,9 +775,9 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit45: ; preds = %
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit51: ; preds = %16
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit51: ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %1, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -809,7 +809,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit51: ; preds = %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -891,51 +891,51 @@ attributes #12 = { noreturn }
 !14 = distinct !{!14, !12, !"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h343b5be5e71edf49E.llvm.3055797631587932725: argument 1"}
 !15 = !{i64 0, i64 10}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!18 = distinct !{!18, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!17 = distinct !{!17, !18, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!18 = distinct !{!18, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!20 = distinct !{!20, !21, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!21 = distinct !{!21, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!23 = distinct !{!23, !24, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!24 = distinct !{!24, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!27 = distinct !{!27, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!26 = distinct !{!26, !27, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!27 = distinct !{!27, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!30 = distinct !{!30, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!29 = distinct !{!29, !30, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!30 = distinct !{!30, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !31 = !{i64 0, i64 2}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!33 = distinct !{!33, !34, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!34 = distinct !{!34, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!36 = distinct !{!36, !37, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!37 = distinct !{!37, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!40 = distinct !{!40, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!39 = distinct !{!39, !40, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!40 = distinct !{!40, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!42 = distinct !{!42, !43, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!43 = distinct !{!43, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!46 = distinct !{!46, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!45 = distinct !{!45, !46, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!46 = distinct !{!46, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!49 = distinct !{!49, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!48 = distinct !{!48, !49, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!49 = distinct !{!49, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!52 = distinct !{!52, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!51 = distinct !{!51, !52, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!52 = distinct !{!52, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!55 = distinct !{!55, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!54 = distinct !{!54, !55, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!55 = distinct !{!55, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!58 = distinct !{!58, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!57 = distinct !{!57, !58, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!58 = distinct !{!58, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!61 = distinct !{!61, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!60 = distinct !{!60, !61, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!61 = distinct !{!61, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!64 = distinct !{!64, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!63 = distinct !{!63, !64, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!64 = distinct !{!64, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}

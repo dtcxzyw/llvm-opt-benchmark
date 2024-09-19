@@ -3380,7 +3380,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %204, %216
 227:                                              ; preds = %224
   %228 = load ptr, ptr %0, align 8
   %.val75 = load i64, ptr %187, align 8
-  %229 = call fastcc noundef zeroext i1 @_ZN5clangL30checkOpenCLEnqueueVariadicArgsERNS_4SemaEPNS_8CallExprEPNS_4ExprEj.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %228, ptr noundef nonnull %1, i64 %.val75, i32 noundef 4)
+  %229 = call fastcc noundef zeroext i1 @_ZN5clangL30checkOpenCLEnqueueVariadicArgsERNS_4SemaEPNS_8CallExprEPNS_4ExprEj(ptr noundef nonnull align 8 dereferenceable(17560) %228, ptr noundef nonnull %1, i64 %.val75, i32 noundef 4)
   br label %373
 
 230:                                              ; preds = %223
@@ -3593,7 +3593,7 @@ _ZNK5clang4Type11isClkEventTEv.exit115:           ; preds = %336
 368:                                              ; preds = %.critedge2
   %369 = load ptr, ptr %0, align 8
   %.val76 = load i64, ptr %244, align 8
-  %370 = call fastcc noundef zeroext i1 @_ZN5clangL30checkOpenCLEnqueueVariadicArgsERNS_4SemaEPNS_8CallExprEPNS_4ExprEj.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %369, ptr noundef nonnull %1, i64 %.val76, i32 noundef 7)
+  %370 = call fastcc noundef zeroext i1 @_ZN5clangL30checkOpenCLEnqueueVariadicArgsERNS_4SemaEPNS_8CallExprEPNS_4ExprEj(ptr noundef nonnull align 8 dereferenceable(17560) %369, ptr noundef nonnull %1, i64 %.val76, i32 noundef 7)
   br label %373
 
 371:                                              ; preds = %230
@@ -4097,7 +4097,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clangL30checkOpenCLEnqueueVariadicArgsERNS_4SemaEPNS_8CallExprEPNS_4ExprEj.argprom(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i64 %.8.val, i32 noundef range(i32 4, 8) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clangL30checkOpenCLEnqueueVariadicArgsERNS_4SemaEPNS_8CallExprEPNS_4ExprEj(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i64 %.8.val, i32 noundef range(i32 4, 8) %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %5 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %6 = and i64 %.8.val, -16

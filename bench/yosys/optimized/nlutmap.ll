@@ -5797,26 +5797,26 @@ _ZN12_GLOBAL__N_113NlutmapWorkerD2Ev.exit:        ; preds = %_ZNSt6vectorIN5Yosy
 2318:                                             ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit
   %.val = load ptr, ptr %36, align 8
   %.not.i.i.i.i52 = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i52, label %_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.argprom.exit, label %2319
+  br i1 %.not.i.i.i.i52, label %_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.exit, label %2319
 
 2319:                                             ; preds = %2318
   call void @_ZdlPv(ptr noundef nonnull %.val) #24
-  br label %_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.exit
 
-_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.argprom.exit: ; preds = %2318, %2319
+_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.exit:        ; preds = %2318, %2319
   ret void
 
 _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit51: ; preds = %.loopexit203, %.loopexit.split-lp204, %2317, %.body, %185, %105
   %.pn24 = phi { ptr, i32 } [ %lpad.phi202, %105 ], [ %186, %185 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %2317 ], [ %lpad.loopexit205, %.loopexit203 ], [ %lpad.loopexit.split-lp206, %.loopexit.split-lp204 ]
   %.val26 = load ptr, ptr %36, align 8
   %.not.i.i.i.i53 = icmp eq ptr %.val26, null
-  br i1 %.not.i.i.i.i53, label %_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.argprom.exit54, label %2320
+  br i1 %.not.i.i.i.i53, label %_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.exit54, label %2320
 
 2320:                                             ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit51
   call void @_ZdlPv(ptr noundef nonnull %.val26) #24
-  br label %_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.argprom.exit54
+  br label %_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.exit54
 
-_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.argprom.exit54: ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit51, %2320
+_ZN12_GLOBAL__N_113NlutmapConfigD2Ev.exit54:      ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit51, %2320
   resume { ptr, i32 } %.pn24
 }
 
@@ -14288,8 +14288,8 @@ attributes #28 = { noreturn nounwind }
 !11 = distinct !{!11, !12, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !12 = distinct !{!12, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZZN12_GLOBAL__N_113NlutmapWorker3runEvENKUlvE_clEv.argprom: argument 0"}
-!15 = distinct !{!15, !"_ZZN12_GLOBAL__N_113NlutmapWorker3runEvENKUlvE_clEv.argprom"}
+!14 = distinct !{!14, !15, !"_ZZN12_GLOBAL__N_113NlutmapWorker3runEvENKUlvE_clEv: argument 0"}
+!15 = distinct !{!15, !"_ZZN12_GLOBAL__N_113NlutmapWorker3runEvENKUlvE_clEv"}
 !16 = !{!"branch_weights", i32 1, i32 1048575}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
@@ -14330,8 +14330,8 @@ attributes #28 = { noreturn nounwind }
 !53 = distinct !{!53, !54, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !54 = distinct !{!54, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZZN12_GLOBAL__N_113NlutmapWorker3runEvENKUlvE0_clEv.argprom: argument 0"}
-!57 = distinct !{!57, !"_ZZN12_GLOBAL__N_113NlutmapWorker3runEvENKUlvE0_clEv.argprom"}
+!56 = distinct !{!56, !57, !"_ZZN12_GLOBAL__N_113NlutmapWorker3runEvENKUlvE0_clEv: argument 0"}
+!57 = distinct !{!57, !"_ZZN12_GLOBAL__N_113NlutmapWorker3runEvENKUlvE0_clEv"}
 !58 = distinct !{!58, !7}
 !59 = distinct !{!59, !7}
 !60 = !{!61}

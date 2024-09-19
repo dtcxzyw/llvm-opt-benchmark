@@ -4861,7 +4861,7 @@ proto_item_set_hidden.exit514:                    ; preds = %proto_item_set_hidd
 858:                                              ; preds = %852
   tail call fastcc void @update_drx_info(ptr noundef nonnull %1, ptr noundef %18)
   %.val = load i16, ptr %58, align 2
-  tail call fastcc void @set_drx_info.argprom(ptr noundef nonnull %1, i16 %.val, i32 noundef 1, i32 noundef %6)
+  tail call fastcc void @set_drx_info(ptr noundef nonnull %1, i16 %.val, i32 noundef 1, i32 noundef %6)
   br label %859
 
 859:                                              ; preds = %858, %852
@@ -4898,35 +4898,35 @@ proto_item_set_hidden.exit514:                    ; preds = %proto_item_set_hidd
   ]
 
 868:                                              ; preds = %866
-  tail call fastcc void @dissect_pch.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18, ptr noundef nonnull %8)
+  tail call fastcc void @dissect_pch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18, ptr noundef nonnull %8)
   br label %876
 
 869:                                              ; preds = %866
-  tail call fastcc void @dissect_rar.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18, ptr noundef nonnull %8)
+  tail call fastcc void @dissect_rar(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18, ptr noundef nonnull %8)
   br label %876
 
 870:                                              ; preds = %866, %866, %866, %866
-  tail call fastcc void @dissect_ulsch_or_dlsch.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18, ptr noundef nonnull %8, ptr noundef %.0398, ptr noundef %27, i32 noundef %6)
+  tail call fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18, ptr noundef nonnull %8, ptr noundef %.0398, ptr noundef %27, i32 noundef %6)
   br label %876
 
 871:                                              ; preds = %866
-  tail call fastcc void @dissect_bch.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
+  tail call fastcc void @dissect_bch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
   br label %876
 
 872:                                              ; preds = %866
-  tail call fastcc void @dissect_mch.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
+  tail call fastcc void @dissect_mch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
   br label %876
 
 873:                                              ; preds = %866
-  tail call fastcc void @dissect_sl_bch.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13)
+  tail call fastcc void @dissect_sl_bch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13)
   br label %876
 
 874:                                              ; preds = %866
-  tail call fastcc void @dissect_slsch.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
+  tail call fastcc void @dissect_slsch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
   br label %876
 
 875:                                              ; preds = %866
-  tail call fastcc void @dissect_bch.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
+  tail call fastcc void @dissect_bch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %13, ptr noundef %18)
   br label %876
 
 876:                                              ; preds = %866, %875, %874, %873, %872, %871, %870, %869, %868
@@ -5970,7 +5970,7 @@ define internal fastcc void @update_drx_info(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_drx_info.argprom(ptr nocapture noundef readonly %0, i16 %.6.val, i32 noundef range(i32 0, 2) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_drx_info(ptr nocapture noundef readonly %0, i16 %.6.val, i32 noundef range(i32 0, 2) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr @mac_lte_ue_parameters, align 8
   %5 = zext i16 %.6.val to i64
   %6 = inttoptr i64 %5 to ptr
@@ -6542,7 +6542,7 @@ proto_item_set_generated.exit210:                 ; preds = %258, %263, %266
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pch.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_pch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #16
   tail call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %3, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.1484, i32 noundef %7)
   %8 = load i32, ptr @hf_mac_lte_pch_pdu, align 4
@@ -6611,7 +6611,7 @@ proto_item_set_hidden.exit:                       ; preds = %22, %24, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rar.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_rar(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
@@ -7093,7 +7093,7 @@ proto_item_set_generated.exit122:                 ; preds = %270, %277, %280
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ulsch_or_dlsch.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_ulsch_or_dlsch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -7205,7 +7205,7 @@ count_ues_tti.exit:                               ; preds = %9, %75
   %87 = inttoptr i64 %86 to ptr
   %88 = tail call ptr @g_hash_table_lookup(ptr noundef %85, ptr noundef %87) #16
   %.not.i1913 = icmp eq ptr %88, null
-  br i1 %.not.i1913, label %show_ues_tti.argprom.exit, label %89
+  br i1 %.not.i1913, label %show_ues_tti.exit, label %89
 
 89:                                               ; preds = %count_ues_tti.exit
   %90 = getelementptr inbounds i8, ptr %4, i64 1
@@ -7217,22 +7217,22 @@ count_ues_tti.exit:                               ; preds = %9, %75
   %96 = load i32, ptr %88, align 4
   %97 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %95, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %96) #16
   %.not.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i, label %show_ues_tti.argprom.exit, label %98
+  br i1 %.not.i.i, label %show_ues_tti.exit, label %98
 
 98:                                               ; preds = %89
   %99 = getelementptr inbounds i8, ptr %97, i64 32
   %100 = load ptr, ptr %99, align 8
   %.not5.i.i = icmp eq ptr %100, null
-  br i1 %.not5.i.i, label %show_ues_tti.argprom.exit, label %101
+  br i1 %.not5.i.i, label %show_ues_tti.exit, label %101
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds i8, ptr %100, i64 28
   %103 = load i32, ptr %102, align 4
   %104 = or i32 %103, 2
   store i32 %104, ptr %102, align 4
-  br label %show_ues_tti.argprom.exit
+  br label %show_ues_tti.exit
 
-show_ues_tti.argprom.exit:                        ; preds = %count_ues_tti.exit, %89, %98, %101
+show_ues_tti.exit:                                ; preds = %count_ues_tti.exit, %89, %98, %101
   %105 = getelementptr inbounds i8, ptr %4, i64 1
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 0
@@ -7255,14 +7255,14 @@ show_ues_tti.argprom.exit:                        ; preds = %count_ues_tti.exit,
   %.not = icmp eq i32 %121, 0
   br i1 %.not, label %mac_lte_drx_new_ulsch_data.exit, label %122
 
-122:                                              ; preds = %show_ues_tti.argprom.exit
+122:                                              ; preds = %show_ues_tti.exit
   %123 = getelementptr inbounds i8, ptr %1, i64 80
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 50
   %126 = load i16, ptr %125, align 2
   %127 = and i16 %126, 8
   %.not1809 = icmp eq i16 %127, 0
-  br i1 %.not1809, label %128, label %set_drx_info.argprom.exit
+  br i1 %.not1809, label %128, label %set_drx_info.exit
 
 128:                                              ; preds = %122
   tail call fastcc void @update_drx_info(ptr noundef nonnull %1, ptr noundef %4)
@@ -7272,13 +7272,13 @@ show_ues_tti.argprom.exit:                        ; preds = %count_ues_tti.exit,
   %131 = inttoptr i64 %130 to ptr
   %132 = tail call ptr @g_hash_table_lookup(ptr noundef %129, ptr noundef %131) #16
   %.not.i1914 = icmp eq ptr %132, null
-  br i1 %.not.i1914, label %set_drx_info.argprom.exit, label %133
+  br i1 %.not.i1914, label %set_drx_info.exit, label %133
 
 133:                                              ; preds = %128
   %134 = getelementptr inbounds i8, ptr %132, i64 12
   %135 = load i32, ptr %134, align 4
   %.not14.i = icmp eq i32 %135, 0
-  br i1 %.not14.i, label %set_drx_info.argprom.exit, label %136
+  br i1 %.not14.i, label %set_drx_info.exit, label %136
 
 136:                                              ; preds = %133
   %137 = tail call ptr @wmem_file_scope() #16
@@ -7293,9 +7293,9 @@ show_ues_tti.argprom.exit:                        ; preds = %count_ues_tti.exit,
   %144 = getelementptr inbounds i8, ptr %143, i64 4
   store i32 %8, ptr %144, align 4
   %145 = tail call i32 @g_hash_table_insert(ptr noundef %140, ptr noundef nonnull %143, ptr noundef %138) #16
-  br label %set_drx_info.argprom.exit
+  br label %set_drx_info.exit
 
-set_drx_info.argprom.exit:                        ; preds = %136, %133, %128, %122
+set_drx_info.exit:                                ; preds = %136, %133, %128, %122
   tail call fastcc void @show_drx_info(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef 1, i32 noundef %8)
   %146 = load ptr, ptr %123, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 50
@@ -7304,7 +7304,7 @@ set_drx_info.argprom.exit:                        ; preds = %136, %133, %128, %1
   %.not1810 = icmp eq i16 %149, 0
   br i1 %.not1810, label %150, label %mac_lte_drx_new_ulsch_data.exit
 
-150:                                              ; preds = %set_drx_info.argprom.exit
+150:                                              ; preds = %set_drx_info.exit
   %151 = load i8, ptr %105, align 1
   %152 = icmp eq i8 %151, 0
   br i1 %152, label %153, label %169
@@ -7406,7 +7406,7 @@ mac_lte_drx_new_ulsch_data.exit.sink.split:       ; preds = %166, %184, %200
   store i64 %207, ptr %.sink2272, align 8
   br label %mac_lte_drx_new_ulsch_data.exit
 
-mac_lte_drx_new_ulsch_data.exit:                  ; preds = %mac_lte_drx_new_ulsch_data.exit.sink.split, %197, %191, %181, %175, %163, %157, %set_drx_info.argprom.exit, %187, %153, %show_ues_tti.argprom.exit
+mac_lte_drx_new_ulsch_data.exit:                  ; preds = %mac_lte_drx_new_ulsch_data.exit.sink.split, %197, %191, %181, %175, %163, %157, %set_drx_info.exit, %187, %153, %show_ues_tti.exit
   %208 = load i8, ptr %105, align 1
   %209 = icmp eq i8 %208, 0
   br i1 %209, label %210, label %TrackReportedULHARQResend.exit.thread.thread
@@ -8184,32 +8184,32 @@ is_data_lcid.exit1930.thread:                     ; preds = %.thread2047, %522, 
   %.22250 = phi i32 [ %580, %579 ], [ %.1, %.thread.sink.split ]
   %585 = load ptr, ptr %411, align 8
   call void @col_append_str(ptr noundef %585, i32 noundef 25, ptr noundef nonnull @.str.1507) #16
-  br i1 %410, label %write_pdu_label_and_info_literal.argprom.exit, label %586
+  br i1 %410, label %write_pdu_label_and_info_literal.exit, label %586
 
 586:                                              ; preds = %.thread
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.1463, ptr noundef nonnull @.str.1507) #16
-  br label %write_pdu_label_and_info_literal.argprom.exit
+  br label %write_pdu_label_and_info_literal.exit
 
 587:                                              ; preds = %579, %.thread2251
   %.22253 = phi i32 [ %.1, %.thread2251 ], [ %580, %579 ]
   %588 = load ptr, ptr %411, align 8
   call void @col_append_str(ptr noundef %588, i32 noundef 25, ptr noundef nonnull @.str.1508) #16
-  br i1 %410, label %write_pdu_label_and_info_literal.argprom.exit, label %589
+  br i1 %410, label %write_pdu_label_and_info_literal.exit, label %589
 
 589:                                              ; preds = %587
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.1463, ptr noundef nonnull @.str.1508) #16
-  br label %write_pdu_label_and_info_literal.argprom.exit
+  br label %write_pdu_label_and_info_literal.exit
 
 590:                                              ; preds = %579
   call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %3, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.1509, i32 noundef %582)
-  br label %write_pdu_label_and_info_literal.argprom.exit
+  br label %write_pdu_label_and_info_literal.exit
 
-write_pdu_label_and_info_literal.argprom.exit:    ; preds = %589, %587, %586, %.thread, %590
+write_pdu_label_and_info_literal.exit:            ; preds = %589, %587, %586, %.thread, %590
   %.22249 = phi i32 [ %.22253, %589 ], [ %.22253, %587 ], [ %.22250, %586 ], [ %.22250, %.thread ], [ %580, %590 ]
   %591 = phi i32 [ -1, %589 ], [ -1, %587 ], [ 0, %586 ], [ 0, %.thread ], [ %582, %590 ]
   br i1 %528, label %598, label %592
 
-592:                                              ; preds = %write_pdu_label_and_info_literal.argprom.exit
+592:                                              ; preds = %write_pdu_label_and_info_literal.exit
   %593 = zext nneg i8 %433 to i32
   %594 = load i8, ptr %105, align 1
   %595 = icmp eq i8 %594, 0
@@ -8217,7 +8217,7 @@ write_pdu_label_and_info_literal.argprom.exit:    ; preds = %589, %587, %586, %.
   %597 = call ptr @val_to_str_const(i32 noundef %593, ptr noundef nonnull %596, ptr noundef nonnull @.str.1448) #16
   br label %604
 
-598:                                              ; preds = %write_pdu_label_and_info_literal.argprom.exit
+598:                                              ; preds = %write_pdu_label_and_info_literal.exit
   %599 = load ptr, ptr %412, align 8
   %600 = getelementptr [1024 x i8], ptr %19, i64 0, i64 %indvars.iv
   %601 = load i8, ptr %600, align 1
@@ -11540,7 +11540,7 @@ proto_item_set_generated.exit2021:                ; preds = %2505, %2511, %2514
   %2557 = load i16, ptr %2556, align 2
   %2558 = and i16 %2557, 8
   %.not1895 = icmp eq i16 %2558, 0
-  br i1 %.not1895, label %2559, label %set_drx_info.argprom.exit2024
+  br i1 %.not1895, label %2559, label %set_drx_info.exit2024
 
 2559:                                             ; preds = %2554
   %.val = load i16, ptr %115, align 2
@@ -11549,13 +11549,13 @@ proto_item_set_generated.exit2021:                ; preds = %2505, %2511, %2514
   %2562 = inttoptr i64 %2561 to ptr
   %2563 = call ptr @g_hash_table_lookup(ptr noundef %2560, ptr noundef %2562) #16
   %.not.i2022 = icmp eq ptr %2563, null
-  br i1 %.not.i2022, label %set_drx_info.argprom.exit2024, label %2564
+  br i1 %.not.i2022, label %set_drx_info.exit2024, label %2564
 
 2564:                                             ; preds = %2559
   %2565 = getelementptr inbounds i8, ptr %2563, i64 12
   %2566 = load i32, ptr %2565, align 4
   %.not14.i2023 = icmp eq i32 %2566, 0
-  br i1 %.not14.i2023, label %set_drx_info.argprom.exit2024, label %2567
+  br i1 %.not14.i2023, label %set_drx_info.exit2024, label %2567
 
 2567:                                             ; preds = %2564
   %2568 = load ptr, ptr @mac_lte_drx_frame_result, align 8
@@ -11564,24 +11564,24 @@ proto_item_set_generated.exit2021:                ; preds = %2505, %2511, %2514
   store i32 %8, ptr getelementptr inbounds (i8, ptr @get_drx_result_hash_key.key, i64 4), align 4
   %2570 = call ptr @g_hash_table_lookup(ptr noundef %2568, ptr noundef nonnull @get_drx_result_hash_key.key) #16
   %.not16.i = icmp eq ptr %2570, null
-  br i1 %.not16.i, label %set_drx_info.argprom.exit2024, label %2571
+  br i1 %.not16.i, label %set_drx_info.exit2024, label %2571
 
 2571:                                             ; preds = %2567
   %2572 = getelementptr inbounds i8, ptr %2570, i64 240
   %2573 = getelementptr inbounds i8, ptr %2563, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %2572, ptr noundef nonnull align 8 dereferenceable(192) %2573, i64 192, i1 false)
-  br label %set_drx_info.argprom.exit2024
+  br label %set_drx_info.exit2024
 
-set_drx_info.argprom.exit2024:                    ; preds = %2571, %2567, %2564, %2559, %2554
+set_drx_info.exit2024:                            ; preds = %2571, %2567, %2564, %2559, %2554
   call fastcc void @show_drx_info(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, ptr noundef %4, i32 noundef 0, i32 noundef %8)
   br label %2574
 
-2574:                                             ; preds = %._crit_edge2169, %2138, %set_drx_info.argprom.exit2024, %2552, %629, %525, %501, %488
+2574:                                             ; preds = %._crit_edge2169, %2138, %set_drx_info.exit2024, %2552, %629, %525, %501, %488
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bch.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_bch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #16
   %7 = getelementptr inbounds i8, ptr %4, i64 2
   %8 = load i8, ptr %7, align 2
@@ -11676,7 +11676,7 @@ proto_item_set_hidden.exit:                       ; preds = %38, %39, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mch.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_mch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [1024 x i32], align 16
   %8 = alloca i64, align 8
@@ -11685,7 +11685,7 @@ define internal fastcc void @dissect_mch.argelim(ptr noundef %0, ptr noundef %1,
   %11 = icmp eq ptr %3, null
   %12 = icmp eq ptr %1, null
   %or.cond3.i = and i1 %12, %11
-  br i1 %or.cond3.i, label %write_pdu_label_and_info_literal.argprom.exit, label %13
+  br i1 %or.cond3.i, label %write_pdu_label_and_info_literal.exit, label %13
 
 13:                                               ; preds = %5
   br i1 %12, label %17, label %14
@@ -11697,19 +11697,19 @@ define internal fastcc void @dissect_mch.argelim(ptr noundef %0, ptr noundef %1,
   br label %17
 
 17:                                               ; preds = %14, %13
-  br i1 %11, label %write_pdu_label_and_info_literal.argprom.exit, label %18
+  br i1 %11, label %write_pdu_label_and_info_literal.exit, label %18
 
 18:                                               ; preds = %17
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.1463, ptr noundef nonnull @.str.1561) #16
-  br label %write_pdu_label_and_info_literal.argprom.exit
+  br label %write_pdu_label_and_info_literal.exit
 
-write_pdu_label_and_info_literal.argprom.exit:    ; preds = %5, %17, %18
+write_pdu_label_and_info_literal.exit:            ; preds = %5, %17, %18
   %19 = load i32, ptr @hf_mac_lte_mch, align 4
   %20 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.833, ptr noundef nonnull @.str.1456) #16
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %21
 
-21:                                               ; preds = %write_pdu_label_and_info_literal.argprom.exit
+21:                                               ; preds = %write_pdu_label_and_info_literal.exit
   %22 = getelementptr inbounds i8, ptr %20, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not5.i = icmp eq ptr %23, null
@@ -11722,7 +11722,7 @@ write_pdu_label_and_info_literal.argprom.exit:    ; preds = %5, %17, %18
   store i32 %27, ptr %25, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %write_pdu_label_and_info_literal.argprom.exit, %21, %24
+proto_item_set_hidden.exit:                       ; preds = %write_pdu_label_and_info_literal.exit, %21, %24
   %28 = load i32, ptr @hf_mac_lte_mch_header, align 4
   %29 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.833, ptr noundef nonnull @.str.1496) #16
   %30 = load i32, ptr @ett_mac_lte_mch_header, align 4
@@ -11876,7 +11876,7 @@ proto_item_set_hidden.exit:                       ; preds = %write_pdu_label_and
   %102 = trunc i64 %101 to i32
   %103 = getelementptr [1024 x i32], ptr %7, i64 0, i64 %indvars.iv
   store i32 %102, ptr %103, align 4
-  switch i32 %102, label %write_pdu_label_and_info_literal.argprom.exit284 [
+  switch i32 %102, label %write_pdu_label_and_info_literal.exit284 [
     i32 0, label %104
     i32 -1, label %110
   ]
@@ -11885,7 +11885,7 @@ proto_item_set_hidden.exit:                       ; preds = %write_pdu_label_and
   %.1358 = phi i32 [ %57, %.thread349 ], [ %100, %99 ]
   %.1258300356 = phi i8 [ %.1258301308, %.thread349 ], [ %.0257, %99 ]
   %.1260303354 = phi i32 [ %.1260304306, %.thread349 ], [ %.1260, %99 ]
-  br i1 %or.cond3.i, label %write_pdu_label_and_info_literal.argprom.exit284.thread310, label %105
+  br i1 %or.cond3.i, label %write_pdu_label_and_info_literal.exit284.thread310, label %105
 
 105:                                              ; preds = %104
   br i1 %12, label %108, label %106
@@ -11896,15 +11896,15 @@ proto_item_set_hidden.exit:                       ; preds = %write_pdu_label_and
   br label %108
 
 108:                                              ; preds = %106, %105
-  br i1 %11, label %write_pdu_label_and_info_literal.argprom.exit284.thread310, label %109
+  br i1 %11, label %write_pdu_label_and_info_literal.exit284.thread310, label %109
 
 109:                                              ; preds = %108
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.1463, ptr noundef nonnull @.str.1507) #16
-  br label %write_pdu_label_and_info_literal.argprom.exit284.thread310
+  br label %write_pdu_label_and_info_literal.exit284.thread310
 
 110:                                              ; preds = %.thread359, %99
   %.1365 = phi i32 [ %57, %.thread359 ], [ %100, %99 ]
-  br i1 %or.cond3.i, label %write_pdu_label_and_info_literal.argprom.exit284.thread, label %111
+  br i1 %or.cond3.i, label %write_pdu_label_and_info_literal.exit284.thread, label %111
 
 111:                                              ; preds = %110
   br i1 %12, label %114, label %112
@@ -11915,13 +11915,13 @@ proto_item_set_hidden.exit:                       ; preds = %write_pdu_label_and
   br label %114
 
 114:                                              ; preds = %112, %111
-  br i1 %11, label %write_pdu_label_and_info_literal.argprom.exit284.thread, label %115
+  br i1 %11, label %write_pdu_label_and_info_literal.exit284.thread, label %115
 
 115:                                              ; preds = %114
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.1463, ptr noundef nonnull @.str.1508) #16
-  br label %write_pdu_label_and_info_literal.argprom.exit284.thread
+  br label %write_pdu_label_and_info_literal.exit284.thread
 
-write_pdu_label_and_info_literal.argprom.exit284.thread: ; preds = %115, %114, %110
+write_pdu_label_and_info_literal.exit284.thread:  ; preds = %115, %114, %110
   %116 = call ptr @val_to_str_const(i32 noundef %55, ptr noundef nonnull @mch_lcid_vals, ptr noundef nonnull @.str.1448) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.1511, ptr noundef %116) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.1512) #16
@@ -11929,7 +11929,7 @@ write_pdu_label_and_info_literal.argprom.exit284.thread: ; preds = %115, %114, %
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.1513, ptr noundef %117) #16
   br label %122
 
-write_pdu_label_and_info_literal.argprom.exit284.thread310: ; preds = %109, %108, %104
+write_pdu_label_and_info_literal.exit284.thread310: ; preds = %109, %108, %104
   %118 = call ptr @val_to_str_const(i32 noundef %55, ptr noundef nonnull @mch_lcid_vals, ptr noundef nonnull @.str.1448) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.1511, ptr noundef %118) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.1475) #16
@@ -11937,7 +11937,7 @@ write_pdu_label_and_info_literal.argprom.exit284.thread310: ; preds = %109, %108
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.1514, ptr noundef %119) #16
   br label %122
 
-write_pdu_label_and_info_literal.argprom.exit284: ; preds = %99
+write_pdu_label_and_info_literal.exit284:         ; preds = %99
   call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %3, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.1509, i32 noundef %102)
   %120 = call ptr @val_to_str_const(i32 noundef %55, ptr noundef nonnull @mch_lcid_vals, ptr noundef nonnull @.str.1448) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.1511, ptr noundef %120) #16
@@ -11946,10 +11946,10 @@ write_pdu_label_and_info_literal.argprom.exit284: ; preds = %99
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.1564, ptr noundef %121, i32 noundef %102) #16
   br label %122
 
-122:                                              ; preds = %write_pdu_label_and_info_literal.argprom.exit284, %write_pdu_label_and_info_literal.argprom.exit284.thread310, %write_pdu_label_and_info_literal.argprom.exit284.thread
-  %.1357 = phi i32 [ %100, %write_pdu_label_and_info_literal.argprom.exit284 ], [ %.1358, %write_pdu_label_and_info_literal.argprom.exit284.thread310 ], [ %.1365, %write_pdu_label_and_info_literal.argprom.exit284.thread ]
-  %.1258300355 = phi i8 [ %.0257, %write_pdu_label_and_info_literal.argprom.exit284 ], [ %.1258300356, %write_pdu_label_and_info_literal.argprom.exit284.thread310 ], [ %.0257, %write_pdu_label_and_info_literal.argprom.exit284.thread ]
-  %.1260303353 = phi i32 [ %.1260, %write_pdu_label_and_info_literal.argprom.exit284 ], [ %.1260303354, %write_pdu_label_and_info_literal.argprom.exit284.thread310 ], [ %.1260, %write_pdu_label_and_info_literal.argprom.exit284.thread ]
+122:                                              ; preds = %write_pdu_label_and_info_literal.exit284, %write_pdu_label_and_info_literal.exit284.thread310, %write_pdu_label_and_info_literal.exit284.thread
+  %.1357 = phi i32 [ %100, %write_pdu_label_and_info_literal.exit284 ], [ %.1358, %write_pdu_label_and_info_literal.exit284.thread310 ], [ %.1365, %write_pdu_label_and_info_literal.exit284.thread ]
+  %.1258300355 = phi i8 [ %.0257, %write_pdu_label_and_info_literal.exit284 ], [ %.1258300356, %write_pdu_label_and_info_literal.exit284.thread310 ], [ %.0257, %write_pdu_label_and_info_literal.exit284.thread ]
+  %.1260303353 = phi i32 [ %.1260, %write_pdu_label_and_info_literal.exit284 ], [ %.1260303354, %write_pdu_label_and_info_literal.exit284.thread310 ], [ %.1260, %write_pdu_label_and_info_literal.exit284.thread ]
   %123 = call ptr @try_val_to_str(i32 noundef %55, ptr noundef nonnull @mch_lcid_vals) #16
   %124 = icmp eq ptr %123, null
   br i1 %124, label %125, label %127
@@ -12278,7 +12278,7 @@ proto_item_set_generated.exit294:                 ; preds = %257, %264, %267
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sl_bch.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sl_bch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #16
   tail call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %3, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.1573, i32 noundef %5)
   %6 = load i32, ptr @hf_mac_lte_slbch_pdu, align 4
@@ -12315,7 +12315,7 @@ proto_item_set_hidden.exit:                       ; preds = %9, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_slsch.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_slsch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [1024 x i16], align 16
   %8 = alloca i32, align 4
@@ -12477,7 +12477,7 @@ is_data_lcid.exit:                                ; preds = %57
   %101 = trunc i64 %100 to i16
   %102 = getelementptr [1024 x i16], ptr %7, i64 0, i64 %indvars.iv
   store i16 %101, ptr %102, align 2
-  switch i16 %101, label %write_pdu_label_and_info_literal.argprom.exit [
+  switch i16 %101, label %write_pdu_label_and_info_literal.exit [
     i16 0, label %105
     i16 -1, label %113
   ]
@@ -12494,7 +12494,7 @@ is_data_lcid.exit:                                ; preds = %57
   %106 = phi i1 [ %103, %.thread285 ], [ %90, %.critedge.thread ]
   %107 = phi i32 [ %spec.select, %.thread285 ], [ %91, %.critedge.thread ]
   %.1216244289 = phi i8 [ %.1216245247, %.thread285 ], [ %.0215, %.critedge.thread ]
-  br i1 %or.cond3.i228, label %write_pdu_label_and_info_literal.argprom.exit.thread249, label %108
+  br i1 %or.cond3.i228, label %write_pdu_label_and_info_literal.exit.thread249, label %108
 
 108:                                              ; preds = %105
   br i1 %45, label %111, label %109
@@ -12505,17 +12505,17 @@ is_data_lcid.exit:                                ; preds = %57
   br label %111
 
 111:                                              ; preds = %109, %108
-  br i1 %44, label %write_pdu_label_and_info_literal.argprom.exit.thread249, label %112
+  br i1 %44, label %write_pdu_label_and_info_literal.exit.thread249, label %112
 
 112:                                              ; preds = %111
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.1463, ptr noundef nonnull @.str.1507) #16
-  br label %write_pdu_label_and_info_literal.argprom.exit.thread249
+  br label %write_pdu_label_and_info_literal.exit.thread249
 
 113:                                              ; preds = %.thread292, %.critedge.thread
   %.2296 = phi i32 [ %68, %.thread292 ], [ %99, %.critedge.thread ]
   %114 = phi i1 [ %87, %.thread292 ], [ %90, %.critedge.thread ]
   %115 = phi i32 [ %88, %.thread292 ], [ %91, %.critedge.thread ]
-  br i1 %or.cond3.i228, label %write_pdu_label_and_info_literal.argprom.exit.thread, label %116
+  br i1 %or.cond3.i228, label %write_pdu_label_and_info_literal.exit.thread, label %116
 
 116:                                              ; preds = %113
   br i1 %45, label %119, label %117
@@ -12526,13 +12526,13 @@ is_data_lcid.exit:                                ; preds = %57
   br label %119
 
 119:                                              ; preds = %117, %116
-  br i1 %44, label %write_pdu_label_and_info_literal.argprom.exit.thread, label %120
+  br i1 %44, label %write_pdu_label_and_info_literal.exit.thread, label %120
 
 120:                                              ; preds = %119
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.1463, ptr noundef nonnull @.str.1508) #16
-  br label %write_pdu_label_and_info_literal.argprom.exit.thread
+  br label %write_pdu_label_and_info_literal.exit.thread
 
-write_pdu_label_and_info_literal.argprom.exit.thread: ; preds = %120, %119, %113
+write_pdu_label_and_info_literal.exit.thread:     ; preds = %120, %119, %113
   %121 = call ptr @val_to_str_const(i32 noundef %66, ptr noundef nonnull @slsch_lcid_vals, ptr noundef nonnull @.str.1448) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.1511, ptr noundef %121) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.1512) #16
@@ -12540,7 +12540,7 @@ write_pdu_label_and_info_literal.argprom.exit.thread: ; preds = %120, %119, %113
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.1513, ptr noundef %122) #16
   br label %128
 
-write_pdu_label_and_info_literal.argprom.exit.thread249: ; preds = %112, %111, %105
+write_pdu_label_and_info_literal.exit.thread249:  ; preds = %112, %111, %105
   %123 = call ptr @val_to_str_const(i32 noundef %66, ptr noundef nonnull @slsch_lcid_vals, ptr noundef nonnull @.str.1448) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.1511, ptr noundef %123) #16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.1475) #16
@@ -12548,7 +12548,7 @@ write_pdu_label_and_info_literal.argprom.exit.thread249: ; preds = %112, %111, %
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.1514, ptr noundef %124) #16
   br label %128
 
-write_pdu_label_and_info_literal.argprom.exit:    ; preds = %.critedge.thread
+write_pdu_label_and_info_literal.exit:            ; preds = %.critedge.thread
   %125 = sext i16 %101 to i32
   call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %3, ptr noundef null, ptr noundef %1, ptr noundef nonnull @.str.1509, i32 noundef %125)
   %126 = call ptr @val_to_str_const(i32 noundef %66, ptr noundef nonnull @slsch_lcid_vals, ptr noundef nonnull @.str.1448) #16
@@ -12558,11 +12558,11 @@ write_pdu_label_and_info_literal.argprom.exit:    ; preds = %.critedge.thread
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.1564, ptr noundef %127, i32 noundef %125) #16
   br label %128
 
-128:                                              ; preds = %write_pdu_label_and_info_literal.argprom.exit, %write_pdu_label_and_info_literal.argprom.exit.thread249, %write_pdu_label_and_info_literal.argprom.exit.thread
-  %.2290 = phi i32 [ %99, %write_pdu_label_and_info_literal.argprom.exit ], [ %.2291, %write_pdu_label_and_info_literal.argprom.exit.thread249 ], [ %.2296, %write_pdu_label_and_info_literal.argprom.exit.thread ]
-  %129 = phi i1 [ %90, %write_pdu_label_and_info_literal.argprom.exit ], [ %106, %write_pdu_label_and_info_literal.argprom.exit.thread249 ], [ %114, %write_pdu_label_and_info_literal.argprom.exit.thread ]
-  %130 = phi i32 [ %91, %write_pdu_label_and_info_literal.argprom.exit ], [ %107, %write_pdu_label_and_info_literal.argprom.exit.thread249 ], [ %115, %write_pdu_label_and_info_literal.argprom.exit.thread ]
-  %.1216244288 = phi i8 [ %.0215, %write_pdu_label_and_info_literal.argprom.exit ], [ %.1216244289, %write_pdu_label_and_info_literal.argprom.exit.thread249 ], [ %.0215, %write_pdu_label_and_info_literal.argprom.exit.thread ]
+128:                                              ; preds = %write_pdu_label_and_info_literal.exit, %write_pdu_label_and_info_literal.exit.thread249, %write_pdu_label_and_info_literal.exit.thread
+  %.2290 = phi i32 [ %99, %write_pdu_label_and_info_literal.exit ], [ %.2291, %write_pdu_label_and_info_literal.exit.thread249 ], [ %.2296, %write_pdu_label_and_info_literal.exit.thread ]
+  %129 = phi i1 [ %90, %write_pdu_label_and_info_literal.exit ], [ %106, %write_pdu_label_and_info_literal.exit.thread249 ], [ %114, %write_pdu_label_and_info_literal.exit.thread ]
+  %130 = phi i32 [ %91, %write_pdu_label_and_info_literal.exit ], [ %107, %write_pdu_label_and_info_literal.exit.thread249 ], [ %115, %write_pdu_label_and_info_literal.exit.thread ]
+  %.1216244288 = phi i8 [ %.0215, %write_pdu_label_and_info_literal.exit ], [ %.1216244289, %write_pdu_label_and_info_literal.exit.thread249 ], [ %.0215, %write_pdu_label_and_info_literal.exit.thread ]
   %131 = call ptr @try_val_to_str(i32 noundef %66, ptr noundef nonnull @slsch_lcid_vals) #16
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %135
@@ -13032,7 +13032,7 @@ define internal fastcc void @call_rlc_dissector(ptr noundef %0, ptr noundef %1, 
   %49 = icmp eq ptr %3, null
   %50 = icmp eq ptr %1, null
   %or.cond3.i = and i1 %50, %49
-  br i1 %or.cond3.i, label %write_pdu_label_and_info_literal.argprom.exit, label %51
+  br i1 %or.cond3.i, label %write_pdu_label_and_info_literal.exit, label %51
 
 51:                                               ; preds = %48
   br i1 %50, label %55, label %52
@@ -13044,19 +13044,19 @@ define internal fastcc void @call_rlc_dissector(ptr noundef %0, ptr noundef %1, 
   br label %55
 
 55:                                               ; preds = %52, %51
-  br i1 %49, label %write_pdu_label_and_info_literal.argprom.exit, label %56
+  br i1 %49, label %write_pdu_label_and_info_literal.exit, label %56
 
 56:                                               ; preds = %55
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %3, ptr noundef nonnull @.str.1463, ptr noundef nonnull @.str.1559) #16
-  br label %write_pdu_label_and_info_literal.argprom.exit
+  br label %write_pdu_label_and_info_literal.exit
 
-write_pdu_label_and_info_literal.argprom.exit:    ; preds = %48, %55, %56
+write_pdu_label_and_info_literal.exit:            ; preds = %48, %55, %56
   %57 = getelementptr inbounds i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8
   tail call void @col_set_fence(ptr noundef %58, i32 noundef 25) #16
   br label %59
 
-59:                                               ; preds = %45, %write_pdu_label_and_info_literal.argprom.exit, %39
+59:                                               ; preds = %45, %write_pdu_label_and_info_literal.exit, %39
   %60 = load i8, ptr @s_number_of_rlc_pdus_shown, align 1
   %61 = add i8 %60, 1
   store i8 %61, ptr @s_number_of_rlc_pdus_shown, align 1

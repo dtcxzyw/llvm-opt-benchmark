@@ -1510,9 +1510,9 @@ define internal fastcc void @_ZL11get_xlatomsRKNSt10filesystem7__cxx114pathEP8_I
 41:                                               ; preds = %23
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %42 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef 95, ptr noundef %.0.ph, i64 noundef %indvars.iv.next, i64 noundef 32)
-          to label %_ZL15gmx_srenew_implI12t_xlate_atomEvPKcS2_iRPT_m.argprom.exit unwind label %.loopexit.loopexit.split-lp
+          to label %_ZL15gmx_srenew_implI12t_xlate_atomEvPKcS2_iRPT_m.exit unwind label %.loopexit.loopexit.split-lp
 
-_ZL15gmx_srenew_implI12t_xlate_atomEvPKcS2_iRPT_m.argprom.exit: ; preds = %41
+_ZL15gmx_srenew_implI12t_xlate_atomEvPKcS2_iRPT_m.exit: ; preds = %41
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12, !noalias !13
   %43 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #12, !noalias !16
@@ -1520,13 +1520,13 @@ _ZL15gmx_srenew_implI12t_xlate_atomEvPKcS2_iRPT_m.argprom.exit: ; preds = %41
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %43, i64 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %47 unwind label %45
 
-45:                                               ; preds = %_ZL15gmx_srenew_implI12t_xlate_atomEvPKcS2_iRPT_m.argprom.exit
+45:                                               ; preds = %_ZL15gmx_srenew_implI12t_xlate_atomEvPKcS2_iRPT_m.exit
   %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
   br label %.body
 
-47:                                               ; preds = %_ZL15gmx_srenew_implI12t_xlate_atomEvPKcS2_iRPT_m.argprom.exit
+47:                                               ; preds = %_ZL15gmx_srenew_implI12t_xlate_atomEvPKcS2_iRPT_m.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #12

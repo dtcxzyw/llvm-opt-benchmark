@@ -212,13 +212,13 @@ entry:
   call void @g_free(ptr noundef %call4) #11
   call void @g_free(ptr noundef %call) #11
   %tobool.not.i.i = icmp eq ptr %call3, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GRegex.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GRegex.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   call void @g_regex_unref(ptr noundef nonnull %call3) #11
-  br label %glib_autoptr_cleanup_GRegex.argprom.exit
+  br label %glib_autoptr_cleanup_GRegex.exit
 
-glib_autoptr_cleanup_GRegex.argprom.exit:         ; preds = %entry, %if.then.i.i
+glib_autoptr_cleanup_GRegex.exit:                 ; preds = %entry, %if.then.i.i
   ret void
 }
 

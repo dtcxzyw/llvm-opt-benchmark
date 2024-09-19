@@ -2362,18 +2362,18 @@ for.end.i117:                                     ; preds = %for.end.loopexit.i,
   store i16 %bf.load.i, ptr %use_shell.i, align 8
   %call2.i119 = call i32 @run_command(ptr noundef nonnull %child.i) #13
   %tobool.not.i120 = icmp eq i32 %call2.i119, 0
-  br i1 %tobool.not.i120, label %run_pager.argprom.exit, label %if.then.i121
+  br i1 %tobool.not.i120, label %run_pager.exit, label %if.then.i121
 
 if.then.i121:                                     ; preds = %for.end.i117
   %call3.i122 = call i32 @common_exit(ptr noundef nonnull @.str.117, i32 noundef 430, i32 noundef %call2.i119) #13
   call void @exit(i32 noundef %call3.i122) #14
   unreachable
 
-run_pager.argprom.exit:                           ; preds = %for.end.i117
+run_pager.exit:                                   ; preds = %for.end.i117
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %child.i)
   br label %if.end1027
 
-if.end1027:                                       ; preds = %run_pager.argprom.exit, %if.end1022
+if.end1027:                                       ; preds = %run_pager.exit, %if.end1022
   call void @clear_pathspec(ptr noundef nonnull %pathspec) #13
   call void @string_list_clear(ptr noundef nonnull %path_list, i32 noundef 0) #13
   call void @free_grep_patterns(ptr noundef nonnull %opt) #13

@@ -3285,47 +3285,47 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7TypeIds7isNeverEv(ptr nocapture n
   %.sroa.030.066.i.i.i.i = phi ptr [ %27, %26 ], [ %3, %.lr.ph.preheader.i.i.i.i ]
   %12 = load ptr, ptr %.sroa.030.066.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
   %13 = load i32, ptr %12, align 8
   %.not41.i.i.i.i = icmp eq i32 %13, 17
   br i1 %.not41.i.i.i.i, label %14, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit"
 
-14:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.i.i.i.i"
+14:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i"
   %15 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i16.i.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i.i16.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit32", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit17.i.i.i.i"
+  br i1 %.not.i.i.i.i16.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit32", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit17.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit17.i.i.i.i": ; preds = %14
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit17.i.i.i.i": ; preds = %14
   %17 = load i32, ptr %16, align 8
   %.not42.i.i.i.i = icmp eq i32 %17, 17
   br i1 %.not42.i.i.i.i, label %18, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit"
 
-18:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit17.i.i.i.i"
+18:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit17.i.i.i.i"
   %19 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i.i18.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i18.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit34", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit19.i.i.i.i"
+  br i1 %.not.i.i.i.i18.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit34", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit19.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit19.i.i.i.i": ; preds = %18
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit19.i.i.i.i": ; preds = %18
   %21 = load i32, ptr %20, align 8
   %.not43.i.i.i.i = icmp eq i32 %21, 17
   br i1 %.not43.i.i.i.i, label %22, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit28"
 
-22:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit19.i.i.i.i"
+22:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit19.i.i.i.i"
   %23 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i20.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i20.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit36", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.i.i.i.i"
+  br i1 %.not.i.i.i.i20.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit36", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.i.i.i.i": ; preds = %22
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.i.i.i.i": ; preds = %22
   %25 = load i32, ptr %24, align 8
   %.not44.i.i.i.i = icmp eq i32 %25, 17
   br i1 %.not44.i.i.i.i, label %26, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit30"
 
-26:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.i.i.i.i"
+26:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.i.i.i.i"
   %27 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 32
   %28 = add nsw i64 %.067.i.i.i.i, -1
   %29 = icmp sgt i64 %.067.i.i.i.i, 1
@@ -3349,14 +3349,14 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7TypeIds7isNeverEv(ptr nocapture n
 31:                                               ; preds = %._crit_edge.i.i.i.i
   %32 = load ptr, ptr %.sroa.030.0.lcssa.i.i.i.i, align 8
   %.not.i.i.i.i22.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i22.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit23.i.i.i.i"
+  br i1 %.not.i.i.i.i22.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit23.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit23.i.i.i.i": ; preds = %31
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit23.i.i.i.i": ; preds = %31
   %33 = load i32, ptr %32, align 8
   %.not.i.i.i.i = icmp eq i32 %33, 17
   br i1 %.not.i.i.i.i, label %34, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit"
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit23.i.i.i.i"
+34:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit23.i.i.i.i"
   %35 = getelementptr inbounds i8, ptr %.sroa.030.0.lcssa.i.i.i.i, i64 8
   br label %36
 
@@ -3364,14 +3364,14 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7TypeIds7isNeverEv(ptr nocapture n
   %.sroa.030.1.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %35, %34 ]
   %37 = load ptr, ptr %.sroa.030.1.i.i.i.i, align 8
   %.not.i.i.i.i24.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i24.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit25.i.i.i.i"
+  br i1 %.not.i.i.i.i24.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit25.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit25.i.i.i.i": ; preds = %36
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit25.i.i.i.i": ; preds = %36
   %38 = load i32, ptr %37, align 8
   %.not39.i.i.i.i = icmp eq i32 %38, 17
   br i1 %.not39.i.i.i.i, label %39, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit"
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit25.i.i.i.i"
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit25.i.i.i.i"
   %40 = getelementptr inbounds i8, ptr %.sroa.030.1.i.i.i.i, i64 8
   br label %41
 
@@ -3379,23 +3379,23 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7TypeIds7isNeverEv(ptr nocapture n
   %.sroa.030.2.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %40, %39 ]
   %42 = load ptr, ptr %.sroa.030.2.i.i.i.i, align 8
   %.not.i.i.i.i26.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i26.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.i.i.i.i"
+  br i1 %.not.i.i.i.i26.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.i.i.i.i": ; preds = %41
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.i.i.i.i": ; preds = %41
   %43 = load i32, ptr %42, align 8
   %.not40.i.i.i.i = icmp eq i32 %43, 17
   %spec.select.i.i.i.i = select i1 %.not40.i.i.i.i, ptr %5, ptr %.sroa.030.2.i.i.i.i
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit17.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit17.i.i.i.i"
   %44 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 8
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit28": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit19.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit28": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit19.i.i.i.i"
   %45 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 16
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit30": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.i.i.i.i"
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit30": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.i.i.i.i"
   %46 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 24
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit"
 
@@ -3411,8 +3411,8 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7TypeIds7isNeverEv(ptr nocapture n
   %49 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 24
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit"
 
-"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.i.i.i.i", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit28", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit30", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit32", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit34", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit36", %._crit_edge.i.i.i.i, %31, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit23.i.i.i.i", %36, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit25.i.i.i.i", %41, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.i.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit23.i.i.i.i" ], [ %.sroa.030.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit25.i.i.i.i" ], [ %5, %._crit_edge.i.i.i.i ], [ %.sroa.030.0.lcssa.i.i.i.i, %31 ], [ %.sroa.030.1.i.i.i.i, %36 ], [ %.sroa.030.2.i.i.i.i, %41 ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.i.i.i.i" ], [ %44, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit" ], [ %45, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit28" ], [ %46, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit30" ], [ %47, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit32" ], [ %48, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit34" ], [ %49, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit36" ], [ %.sroa.030.066.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.i.i.i.i" ], [ %.sroa.030.066.i.i.i.i, %.lr.ph.i.i.i.i ]
+"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit28", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit30", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit32", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit34", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit36", %._crit_edge.i.i.i.i, %31, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit23.i.i.i.i", %36, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit25.i.i.i.i", %41, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.i.i.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit23.i.i.i.i" ], [ %.sroa.030.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit25.i.i.i.i" ], [ %5, %._crit_edge.i.i.i.i ], [ %.sroa.030.0.lcssa.i.i.i.i, %31 ], [ %.sroa.030.1.i.i.i.i, %36 ], [ %.sroa.030.2.i.i.i.i, %41 ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.i.i.i.i" ], [ %44, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit" ], [ %45, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit28" ], [ %46, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit30" ], [ %47, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit32" ], [ %48, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit34" ], [ %49, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_7TypeIds7isNeverEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit36" ], [ %.sroa.030.066.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4Luau7TypeIds7isNeverEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i" ], [ %.sroa.030.066.i.i.i.i, %.lr.ph.i.i.i.i ]
   %50 = icmp eq ptr %5, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   ret i1 %50
 }
@@ -5278,82 +5278,82 @@ define dso_local noundef zeroext i1 @_ZNK4Luau14NormalizedType11hasTopTableEv(pt
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %6, i64 %14
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.thread.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i
-  %.056.i.i.i.i.i = phi i64 [ %47, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.thread.i.i.i.i.i" ], [ %12, %.lr.ph.preheader.i.i.i.i.i ]
-  %.sroa.036.055.i.i.i.i.i = phi ptr [ %46, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.thread.i.i.i.i.i" ], [ %6, %.lr.ph.preheader.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.thread.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i
+  %.056.i.i.i.i.i = phi i64 [ %47, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.thread.i.i.i.i.i" ], [ %12, %.lr.ph.preheader.i.i.i.i.i ]
+  %.sroa.036.055.i.i.i.i.i = phi ptr [ %46, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.thread.i.i.i.i.i" ], [ %6, %.lr.ph.preheader.i.i.i.i.i ]
   %15 = load ptr, ptr %.sroa.036.055.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i", label %16
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i.i.i.i", label %16
 
 16:                                               ; preds = %.lr.ph.i.i.i.i.i
   %17 = load i32, ptr %15, align 8
   %18 = icmp eq i32 %17, 4
-  br i1 %18, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i"
+  br i1 %18, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.i.i.i.i.i": ; preds = %16
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i.i": ; preds = %16
   %19 = getelementptr inbounds i8, ptr %15, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 6
-  br i1 %21, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i"
+  br i1 %21, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.i.i.i.i.i", %16, %.lr.ph.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i.i", %16, %.lr.ph.i.i.i.i.i
   %22 = getelementptr inbounds i8, ptr %.sroa.036.055.i.i.i.i.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i.i16.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i16.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit18.thread.i.i.i.i.i", label %24
+  br i1 %.not.i.i.i.i16.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit18.thread.i.i.i.i.i", label %24
 
-24:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i"
+24:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i.i.i.i"
   %25 = load i32, ptr %23, align 8
   %26 = icmp eq i32 %25, 4
-  br i1 %26, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit18.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit18.thread.i.i.i.i.i"
+  br i1 %26, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit18.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit18.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit18.i.i.i.i.i": ; preds = %24
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit18.i.i.i.i.i": ; preds = %24
   %27 = getelementptr inbounds i8, ptr %23, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 6
-  br i1 %29, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit18.thread.i.i.i.i.i"
+  br i1 %29, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit18.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit18.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit18.i.i.i.i.i", %24, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit18.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit18.i.i.i.i.i", %24, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i.i.i.i"
   %30 = getelementptr inbounds i8, ptr %.sroa.036.055.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i.i19.i.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i19.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i", label %32
+  br i1 %.not.i.i.i.i19.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.thread.i.i.i.i.i", label %32
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit18.thread.i.i.i.i.i"
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit18.thread.i.i.i.i.i"
   %33 = load i32, ptr %31, align 8
   %34 = icmp eq i32 %33, 4
-  br i1 %34, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i"
+  br i1 %34, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.i.i.i.i.i": ; preds = %32
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.i.i.i.i.i": ; preds = %32
   %35 = getelementptr inbounds i8, ptr %31, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 6
-  br i1 %37, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit14", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i"
+  br i1 %37, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit14", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.i.i.i.i.i", %32, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit18.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.i.i.i.i.i", %32, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit18.thread.i.i.i.i.i"
   %38 = getelementptr inbounds i8, ptr %.sroa.036.055.i.i.i.i.i, i64 24
   %39 = load ptr, ptr %38, align 8
   %.not.i.i.i.i22.i.i.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.i22.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.thread.i.i.i.i.i", label %40
+  br i1 %.not.i.i.i.i22.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.thread.i.i.i.i.i", label %40
 
-40:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i"
+40:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.thread.i.i.i.i.i"
   %41 = load i32, ptr %39, align 8
   %42 = icmp eq i32 %41, 4
-  br i1 %42, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.thread.i.i.i.i.i"
+  br i1 %42, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.i.i.i.i.i": ; preds = %40
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.i.i.i.i.i": ; preds = %40
   %43 = getelementptr inbounds i8, ptr %39, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 6
-  br i1 %45, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit16", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.thread.i.i.i.i.i"
+  br i1 %45, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit16", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.i.i.i.i.i", %40, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.i.i.i.i.i", %40, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.thread.i.i.i.i.i"
   %46 = getelementptr inbounds i8, ptr %.sroa.036.055.i.i.i.i.i, i64 32
   %47 = add nsw i64 %.056.i.i.i.i.i, -1
   %48 = icmp sgt i64 %.056.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !18
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.thread.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.thread.i.i.i.i.i"
   %.pre.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   %.pre61.i.i.i.i.i = sub i64 %9, %.pre.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i
@@ -5371,78 +5371,78 @@ define dso_local noundef zeroext i1 @_ZNK4Luau14NormalizedType11hasTopTableEv(pt
 50:                                               ; preds = %._crit_edge.i.i.i.i.i
   %51 = load ptr, ptr %.sroa.036.0.lcssa.i.i.i.i.i, align 8
   %.not.i.i.i.i25.i.i.i.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i.i25.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.thread.i.i.i.i.i", label %52
+  br i1 %.not.i.i.i.i25.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i", label %52
 
 52:                                               ; preds = %50
   %53 = load i32, ptr %51, align 8
   %54 = icmp eq i32 %53, 4
-  br i1 %54, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.thread.i.i.i.i.i"
+  br i1 %54, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.i.i.i.i.i": ; preds = %52
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.i.i.i.i.i": ; preds = %52
   %55 = getelementptr inbounds i8, ptr %51, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, 6
-  br i1 %57, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.thread.i.i.i.i.i"
+  br i1 %57, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.i.i.i.i.i", %52, %50
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.i.i.i.i.i", %52, %50
   %58 = getelementptr inbounds i8, ptr %.sroa.036.0.lcssa.i.i.i.i.i, i64 8
   br label %59
 
-59:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.036.1.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.thread.i.i.i.i.i" ]
+59:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.sroa.036.1.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.thread.i.i.i.i.i" ]
   %60 = load ptr, ptr %.sroa.036.1.i.i.i.i.i, align 8
   %.not.i.i.i.i28.i.i.i.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i.i.i28.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit30.thread.i.i.i.i.i", label %61
+  br i1 %.not.i.i.i.i28.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i", label %61
 
 61:                                               ; preds = %59
   %62 = load i32, ptr %60, align 8
   %63 = icmp eq i32 %62, 4
-  br i1 %63, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit30.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit30.thread.i.i.i.i.i"
+  br i1 %63, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit30.i.i.i.i.i": ; preds = %61
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.i.i.i.i.i": ; preds = %61
   %64 = getelementptr inbounds i8, ptr %60, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 6
-  br i1 %66, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit30.thread.i.i.i.i.i"
+  br i1 %66, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit30.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit30.i.i.i.i.i", %61, %59
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.i.i.i.i.i", %61, %59
   %67 = getelementptr inbounds i8, ptr %.sroa.036.1.i.i.i.i.i, i64 8
   br label %68
 
-68:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit30.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.036.2.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit30.thread.i.i.i.i.i" ]
+68:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.sroa.036.2.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i" ]
   %69 = load ptr, ptr %.sroa.036.2.i.i.i.i.i, align 8
   %.not.i.i.i.i31.i.i.i.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i.i.i31.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i", label %70
+  br i1 %.not.i.i.i.i31.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.thread.i.i.i.i.i", label %70
 
 70:                                               ; preds = %68
   %71 = load i32, ptr %69, align 8
   %72 = icmp eq i32 %71, 4
-  br i1 %72, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit33.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i"
+  br i1 %72, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit33.i.i.i.i.i": ; preds = %70
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.i.i.i.i.i": ; preds = %70
   %73 = getelementptr inbounds i8, ptr %69, i64 8
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, 6
-  br i1 %75, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i"
+  br i1 %75, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit33.i.i.i.i.i", %70, %68
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.i.i.i.i.i", %70, %68
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit18.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit18.i.i.i.i.i"
   %76 = getelementptr inbounds i8, ptr %.sroa.036.055.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit14": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit21.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit14": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit21.i.i.i.i.i"
   %77 = getelementptr inbounds i8, ptr %.sroa.036.055.i.i.i.i.i, i64 16
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit16": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit24.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit16": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit24.i.i.i.i.i"
   %78 = getelementptr inbounds i8, ptr %.sroa.036.055.i.i.i.i.i, i64 24
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.i.i.i.i.i", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit14", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit16", %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit30.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit33.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit27.i.i.i.i.i" ], [ %.sroa.036.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit30.i.i.i.i.i" ], [ %.sroa.036.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit33.i.i.i.i.i" ], [ %8, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i" ], [ %8, %._crit_edge.i.i.i.i.i ], [ %76, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit" ], [ %77, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit14" ], [ %78, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit16" ], [ %.sroa.036.055.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.argprom.exit.i.i.i.i.i" ]
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i.i", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit14", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit16", %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.thread.i.i.i.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit27.i.i.i.i.i" ], [ %.sroa.036.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit30.i.i.i.i.i" ], [ %.sroa.036.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.i.i.i.i.i" ], [ %8, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit33.thread.i.i.i.i.i" ], [ %8, %._crit_edge.i.i.i.i.i ], [ %76, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit" ], [ %77, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit14" ], [ %78, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNKS2_14NormalizedType11hasTopTableEvE3$_0EbT_SE_T0_.exit.loopexit.split.loop.exit16" ], [ %.sroa.036.055.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4Luau14NormalizedType11hasTopTableEvE3$_0EclINS_17__normal_iteratorIPKPKNS2_4TypeESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i.i" ]
   %79 = icmp ne ptr %8, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br label %80
 
@@ -16323,14 +16323,14 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
   store ptr %0, ptr %13, align 8
   %69 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %4, ptr %69, align 8
-  %70 = invoke fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer16unionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull byval(%"struct.Luau::TypePackIterator") align 8 %8, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %70 = invoke fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer16unionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull byval(%"struct.Luau::TypePackIterator") align 8 %8, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %71 unwind label %.loopexit.split-lp
 
 71:                                               ; preds = %.critedge
   br i1 %70, label %72, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 72:                                               ; preds = %71
-  %73 = invoke fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer16unionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull byval(%"struct.Luau::TypePackIterator") align 8 %7, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %73 = invoke fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer16unionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull byval(%"struct.Luau::TypePackIterator") align 8 %7, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %74 unwind label %.loopexit.split-lp
 
 74:                                               ; preds = %72
@@ -16577,7 +16577,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau16TypePackIterat
 declare void @_ZN4Luau16TypePackIteratorppEi(ptr dead_on_unwind writable sret(%"struct.Luau::TypePackIterator") align 8, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer16unionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef byval(%"struct.Luau::TypePackIterator") align 8 %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %5) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer16unionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef byval(%"struct.Luau::TypePackIterator") align 8 %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %5) unnamed_addr #4 align 2 {
   %7 = alloca %"struct.Luau::TypePackIterator", align 8
   %8 = alloca %"struct.Luau::TypePackIterator", align 8
   %9 = alloca %"struct.Luau::TypePackIterator", align 8
@@ -17243,14 +17243,14 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
   store ptr %0, ptr %13, align 8
   %69 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %4, ptr %69, align 8
-  %70 = invoke fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer23intersectionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull byval(%"struct.Luau::TypePackIterator") align 8 %8, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %70 = invoke fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer23intersectionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull byval(%"struct.Luau::TypePackIterator") align 8 %8, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %71 unwind label %.loopexit.split-lp
 
 71:                                               ; preds = %.critedge
   br i1 %70, label %72, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 72:                                               ; preds = %71
-  %73 = invoke fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer23intersectionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull byval(%"struct.Luau::TypePackIterator") align 8 %7, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %73 = invoke fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer23intersectionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_"(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull byval(%"struct.Luau::TypePackIterator") align 8 %7, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %74 unwind label %.loopexit.split-lp
 
 74:                                               ; preds = %72
@@ -19538,7 +19538,7 @@ _ZN4LuauL10resetToTopENS_7NotNullINS_12BuiltinTypesEEERNS_19NormalizedClassTypeE
   %96 = getelementptr inbounds i8, ptr %5, i64 40
   %.val54 = load i64, ptr %96, align 8
   %.not.i62 = icmp eq i64 %.val54, 1
-  br i1 %.not.i62, label %97, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread
+  br i1 %.not.i62, label %97, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread
 
 97:                                               ; preds = %93
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
@@ -19547,17 +19547,17 @@ _ZN4LuauL10resetToTopENS_7NotNullINS_12BuiltinTypesEEERNS_19NormalizedClassTypeE
   %100 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 72
   %101 = load ptr, ptr %100, align 8
   %.not3.i = icmp eq ptr %99, %101
-  br i1 %.not3.i, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread
+  br i1 %.not3.i, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread
 
-_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit: ; preds = %97
+_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit: ; preds = %97
   %102 = getelementptr inbounds i8, ptr %.val, i64 56
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %.val, i64 64
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %103, %105
-  br i1 %106, label %107, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread
+  br i1 %106, label %107, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread
 
-107:                                              ; preds = %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit
+107:                                              ; preds = %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit
   %108 = getelementptr inbounds i8, ptr %5, i64 72
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %5, i64 80
@@ -19613,7 +19613,7 @@ _ZN4Luau19NormalizedClassType12resetToNeverEv.exit: ; preds = %_ZNSt8__detail16_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
   br label %_ZN4Luau7TypeIdsD2Ev.exit86
 
-_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread: ; preds = %97, %93, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit
+_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread: ; preds = %97, %93, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit
   %129 = getelementptr inbounds i8, ptr %6, i64 40
   %130 = getelementptr inbounds i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
@@ -19626,8 +19626,8 @@ _ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argp
   %.not = icmp eq ptr %.sroa.0116.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph150
 
-.lr.ph150:                                        ; preds = %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread, %.loopexit
-  %.sroa.0116.0149 = phi ptr [ %.sroa.0116.0, %.loopexit ], [ %.sroa.0116.0147, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread ]
+.lr.ph150:                                        ; preds = %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread, %.loopexit
+  %.sroa.0116.0149 = phi ptr [ %.sroa.0116.0, %.loopexit ], [ %.sroa.0116.0147, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread ]
   %131 = getelementptr inbounds i8, ptr %.sroa.0116.0149, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %8, align 8
@@ -19846,8 +19846,8 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i83thread-pre-split: ; preds = %_ZN
   %.pr156 = load ptr, ptr %6, align 8
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i83
 
-_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i83: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i83thread-pre-split, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread
-  %214 = phi ptr [ %.pr156, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i83thread-pre-split ], [ null, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread ]
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i83: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i83thread-pre-split, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread
+  %214 = phi ptr [ %.pr156, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i83thread-pre-split ], [ null, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread ]
   %.not.i.i.i84 = icmp eq ptr %214, null
   br i1 %.not.i.i.i84, label %_ZN4Luau7TypeIdsD2Ev.exit86, label %215
 
@@ -22032,7 +22032,7 @@ _ZN4Luau19NormalizedClassType12resetToNeverEv.exit: ; preds = %_ZNSt8__detail16_
   %37 = getelementptr inbounds i8, ptr %2, i64 16
   %.val = load ptr, ptr %37, align 8
   %.not.i = icmp eq i64 %10, 1
-  br i1 %.not.i, label %38, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread
+  br i1 %.not.i, label %38, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds i8, ptr %0, i64 320
@@ -22042,17 +22042,17 @@ _ZN4Luau19NormalizedClassType12resetToNeverEv.exit: ; preds = %_ZNSt8__detail16_
   %42 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload, i64 72
   %43 = load ptr, ptr %42, align 8
   %.not3.i = icmp eq ptr %41, %43
-  br i1 %.not3.i, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread
+  br i1 %.not3.i, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread
 
-_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit: ; preds = %38
+_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit: ; preds = %38
   %44 = getelementptr inbounds i8, ptr %.val, i64 56
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %.val, i64 64
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %45, %47
-  br i1 %48, label %.loopexit174, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread
+  br i1 %48, label %.loopexit174, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread
 
-_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread: ; preds = %38, %36, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit
+_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread: ; preds = %38, %36, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit
   %49 = getelementptr inbounds i8, ptr %2, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %2, i64 64
@@ -22060,7 +22060,7 @@ _ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argp
   %.not237 = icmp eq ptr %50, %52
   br i1 %.not237, label %.loopexit174, label %.lr.ph239
 
-.lr.ph239:                                        ; preds = %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread
+.lr.ph239:                                        ; preds = %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread
   %53 = getelementptr inbounds i8, ptr %2, i64 8
   %54 = getelementptr inbounds i8, ptr %1, i64 56
   %55 = getelementptr inbounds i8, ptr %1, i64 64
@@ -22858,7 +22858,7 @@ _ZN4Luau7TypeIdsD2Ev.exit61:                      ; preds = %_ZNSt13unordered_ma
   %.not = icmp eq ptr %404, %52
   br i1 %.not, label %.loopexit174, label %77
 
-.loopexit174:                                     ; preds = %_ZN4Luau7TypeIdsD2Ev.exit61, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit.thread, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit, %_ZN4Luau19NormalizedClassType12resetToNeverEv.exit
+.loopexit174:                                     ; preds = %_ZN4Luau7TypeIdsD2Ev.exit61, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit.thread, %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit, %_ZN4Luau19NormalizedClassType12resetToNeverEv.exit
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit166, %.loopexit.split-lp167, %279, %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit162
@@ -23956,7 +23956,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer23intersectionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef byval(%"struct.Luau::TypePackIterator") align 8 %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %5) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer23intersectionOfTypePacksEPKNS_11TypePackVarES3_ENK3$_0clERNS_16TypePackIteratorES5_S3_S3_RbS7_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef byval(%"struct.Luau::TypePackIterator") align 8 %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %5) unnamed_addr #4 align 2 {
   %7 = alloca %"struct.Luau::TypePackIterator", align 8
   %8 = alloca %"struct.Luau::TypePackIterator", align 8
   %9 = alloca %"struct.Luau::TypePackIterator", align 8
@@ -28488,9 +28488,9 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit104: ; preds = %_ZNSt6vectorIPK
   %37 = getelementptr inbounds i8, ptr %.sroa.037.0.copyload, i64 72
   %38 = load ptr, ptr %37, align 8
   %.not3.i = icmp eq ptr %36, %38
-  br i1 %.not3.i, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit, label %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i
+  br i1 %.not3.i, label %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit, label %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i
 
-_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit: ; preds = %34
+_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit: ; preds = %34
   %39 = getelementptr inbounds i8, ptr %.val, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %.val, i64 64
@@ -28498,7 +28498,7 @@ _ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argp
   %43 = icmp eq ptr %40, %42
   br i1 %43, label %44, label %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i
 
-44:                                               ; preds = %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit
+44:                                               ; preds = %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit
   %45 = getelementptr inbounds i8, ptr %5, i64 8
   %46 = getelementptr inbounds i8, ptr %5, i64 16
   %47 = ptrtoint ptr %28 to i64
@@ -28573,7 +28573,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__
 .noexc118:                                        ; preds = %70
   unreachable
 
-_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i: ; preds = %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.argprom.exit, %34, %68
+_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i: ; preds = %_ZN4LuauL5isTopENS_7NotNullINS_12BuiltinTypesEEERKNS_19NormalizedClassTypeE.exit, %34, %68
   %71 = shl nuw nsw i64 %.val102, 3
   %72 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %71) #30
           to label %73 unwind label %.loopexit.split-lp637

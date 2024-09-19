@@ -1721,7 +1721,7 @@ sharkd_session_process_check.exit.i:              ; preds = %.thread.i.i, %450, 
   br i1 %.not71.i, label %454, label %455
 
 454:                                              ; preds = %452
-  call fastcc void @sharkd_session_process_complete.retelim(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
+  call fastcc void @sharkd_session_process_complete(ptr noundef %11, ptr noundef readonly %46, i32 noundef %47)
   br label %.outer.backedge
 
 455:                                              ; preds = %452
@@ -2104,7 +2104,7 @@ json_find_attr.exit.thread:                       ; preds = %15, %3, %json_find_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sharkd_session_process_complete.retelim(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2147483647) %2) unnamed_addr #3 {
+define internal fastcc void @sharkd_session_process_complete(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2147483647) %2) unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.sharkd_session_process_complete_pref_data, align 8

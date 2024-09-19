@@ -192,7 +192,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @log3gpp_open.linebuff) #13
   %77 = icmp ugt i64 %76, 100
-  br i1 %77, label %get_file_time_stamp.argprom.exit.thread, label %.preheader.i
+  br i1 %77, label %get_file_time_stamp.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %75, %80
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %80 ], [ 0, %75 ]
@@ -270,7 +270,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
 105:                                              ; preds = %103
   %bcmp28.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %5, ptr noundef nonnull dereferenceable(9) @.str.15, i64 9)
   %106 = icmp eq i32 %bcmp28.i, 0
-  br i1 %106, label %107, label %get_file_time_stamp.argprom.exit.thread
+  br i1 %106, label %107, label %get_file_time_stamp.exit.thread
 
 107:                                              ; preds = %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %.critedge.i
   %.sink.i = phi i32 [ 0, %.critedge.i ], [ 1, %85 ], [ 2, %87 ], [ 3, %89 ], [ 4, %91 ], [ 5, %93 ], [ 6, %95 ], [ 7, %97 ], [ 8, %99 ], [ 9, %101 ], [ 10, %103 ], [ 11, %105 ]
@@ -280,9 +280,9 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
   %110 = getelementptr i8, ptr %109, i64 1
   %111 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %110, ptr noundef nonnull @.str.16, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #12
   %.not29.i = icmp eq i32 %111, 6
-  br i1 %.not29.i, label %112, label %get_file_time_stamp.argprom.exit.thread
+  br i1 %.not29.i, label %112, label %get_file_time_stamp.exit.thread
 
-get_file_time_stamp.argprom.exit.thread:          ; preds = %75, %105, %107
+get_file_time_stamp.exit.thread:                  ; preds = %75, %105, %107
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -346,8 +346,8 @@ get_file_time_stamp.argprom.exit.thread:          ; preds = %75, %105, %107
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #12
   br label %.thread
 
-.thread:                                          ; preds = %thread-pre-split.i, %get_file_time_stamp.argprom.exit.thread, %68, %36, %thread-pre-split, %42, %39, %112
-  %.0 = phi i32 [ 1, %112 ], [ 0, %39 ], [ 0, %42 ], [ 0, %thread-pre-split ], [ %38, %36 ], [ %70, %68 ], [ 0, %get_file_time_stamp.argprom.exit.thread ], [ 0, %thread-pre-split.i ]
+.thread:                                          ; preds = %thread-pre-split.i, %get_file_time_stamp.exit.thread, %68, %36, %thread-pre-split, %42, %39, %112
+  %.0 = phi i32 [ 1, %112 ], [ 0, %39 ], [ 0, %42 ], [ 0, %thread-pre-split ], [ %38, %36 ], [ %70, %68 ], [ 0, %get_file_time_stamp.exit.thread ], [ 0, %thread-pre-split.i ]
   ret i32 %.0
 }
 

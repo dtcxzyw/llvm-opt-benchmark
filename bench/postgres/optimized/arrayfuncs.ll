@@ -247,7 +247,7 @@ define dso_local noundef i64 @array_in(ptr nocapture noundef readonly %0) local_
   br label %ReadArrayDimensions.exit.thread.sink.split
 
 76:                                               ; preds = %70
-  %77 = call fastcc zeroext i1 @ReadDimensionInt.argprom(ptr noundef %4, ptr noundef %6, ptr noundef %19)
+  %77 = call fastcc zeroext i1 @ReadDimensionInt(ptr noundef %4, ptr noundef %6, ptr noundef %19)
   br i1 %77, label %78, label %ReadArrayDimensions.exit.thread
 
 78:                                               ; preds = %76
@@ -276,7 +276,7 @@ define dso_local noundef i64 @array_in(ptr nocapture noundef readonly %0) local_
   store i32 %91, ptr %92, align 4
   %93 = getelementptr i8, ptr %79, i64 1
   store ptr %93, ptr %4, align 8
-  %94 = call fastcc zeroext i1 @ReadDimensionInt.argprom(ptr noundef %4, ptr noundef %5, ptr noundef %19)
+  %94 = call fastcc zeroext i1 @ReadDimensionInt(ptr noundef %4, ptr noundef %5, ptr noundef %19)
   br i1 %94, label %95, label %ReadArrayDimensions.exit.thread
 
 95:                                               ; preds = %90
@@ -3738,7 +3738,7 @@ array_get_isnull.exit:                            ; preds = %._crit_edge
 
 array_get_isnull.exit.thread:                     ; preds = %._crit_edge, %array_get_isnull.exit
   store i8 0, ptr %7, align 1
-  %105 = call fastcc ptr @array_seek.argelim(ptr noundef %.067, i32 noundef 0, ptr noundef %.065, i32 noundef %94, i32 noundef %4, i8 noundef signext %6)
+  %105 = call fastcc ptr @array_seek(ptr noundef %.067, i32 noundef 0, ptr noundef %.065, i32 noundef %94, i32 noundef %4, i8 noundef signext %6)
   br i1 %5, label %106, label %121
 
 106:                                              ; preds = %array_get_isnull.exit.thread
@@ -3787,7 +3787,7 @@ array_get_element_expanded.exit:                  ; preds = %121, %116, %113, %1
 declare i32 @ArrayGetOffset(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @array_seek.argelim(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5) unnamed_addr #6 {
+define internal fastcc ptr @array_seek(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5) unnamed_addr #6 {
   %7 = icmp slt i32 %4, 1
   %8 = icmp ne ptr %2, null
   %or.cond = or i1 %8, %7
@@ -4330,7 +4330,7 @@ define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, pt
 
 ._crit_edge:                                      ; preds = %93, %.preheader
   call void @mda_get_range(i32 noundef %25, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %2) #17
-  %109 = call fastcc i32 @array_slice_size.argelim(ptr noundef %39, ptr noundef %spec.select, i32 noundef %25, ptr noundef %26, ptr noundef %29, ptr noundef %3, ptr noundef %2, i32 noundef %7, i8 noundef signext %9)
+  %109 = call fastcc i32 @array_slice_size(ptr noundef %39, ptr noundef %spec.select, i32 noundef %25, ptr noundef %26, ptr noundef %29, ptr noundef %3, ptr noundef %2, i32 noundef %7, i8 noundef signext %9)
   %.not129 = icmp eq ptr %spec.select, null
   %110 = shl nuw nsw i32 %25, 3
   br i1 %.not129, label %119, label %111
@@ -4416,7 +4416,7 @@ define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, pt
   %.pn.i = phi i64 [ %141, %140 ], [ %139, %.thread.i ]
   %.fr.i = phi ptr [ %145, %140 ], [ null, %.thread.i ]
   %147 = call i32 @ArrayGetOffset(i32 noundef %25, ptr noundef %26, ptr noundef %29, ptr noundef %3) #17
-  %148 = call fastcc ptr @array_seek.argelim(ptr noundef %39, i32 noundef 0, ptr noundef %spec.select, i32 noundef %147, i32 noundef %7, i8 noundef signext %9)
+  %148 = call fastcc ptr @array_seek(ptr noundef %39, i32 noundef 0, ptr noundef %spec.select, i32 noundef %147, i32 noundef %7, i8 noundef signext %9)
   call void @mda_get_prod(i32 noundef %25, ptr noundef %26, ptr noundef nonnull %11) #17
   call void @mda_get_range(i32 noundef %25, ptr noundef nonnull %12, ptr noundef %3, ptr noundef %2) #17
   call void @mda_get_offset_values(i32 noundef %25, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12) #17
@@ -4440,14 +4440,14 @@ define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, pt
   br i1 %.not68.us.i, label %array_bitmap_copy.exit.us.i, label %156
 
 156:                                              ; preds = %.split.us.i
-  %157 = call fastcc ptr @array_seek.argelim(ptr noundef %.060.us.i, i32 noundef %.059.us.i, ptr noundef %spec.select, i32 noundef %155, i32 noundef %7, i8 noundef signext %9)
+  %157 = call fastcc ptr @array_seek(ptr noundef %.060.us.i, i32 noundef %.059.us.i, ptr noundef %spec.select, i32 noundef %155, i32 noundef %7, i8 noundef signext %9)
   %158 = add i32 %155, %.059.us.i
   br label %array_bitmap_copy.exit.us.i
 
 array_bitmap_copy.exit.us.i:                      ; preds = %156, %.split.us.i
   %.161.us.i = phi ptr [ %157, %156 ], [ %.060.us.i, %.split.us.i ]
   %.1.us.i = phi i32 [ %158, %156 ], [ %.059.us.i, %.split.us.i ]
-  %159 = call fastcc ptr @array_seek.argelim(ptr noundef %.161.us.i, i32 noundef %.1.us.i, ptr noundef %spec.select, i32 noundef 1, i32 noundef %7, i8 noundef signext %9)
+  %159 = call fastcc ptr @array_seek(ptr noundef %.161.us.i, i32 noundef %.1.us.i, ptr noundef %spec.select, i32 noundef 1, i32 noundef %7, i8 noundef signext %9)
   %160 = ptrtoint ptr %159 to i64
   %161 = ptrtoint ptr %.161.us.i to i64
   %162 = sub i64 %160, %161
@@ -4474,14 +4474,14 @@ array_bitmap_copy.exit.us.i:                      ; preds = %156, %.split.us.i
   br i1 %.not68.i, label %174, label %171
 
 171:                                              ; preds = %.split.i
-  %172 = call fastcc ptr @array_seek.argelim(ptr noundef %.060.i, i32 noundef %.059.i, ptr noundef %spec.select, i32 noundef %170, i32 noundef %7, i8 noundef signext %9)
+  %172 = call fastcc ptr @array_seek(ptr noundef %.060.i, i32 noundef %.059.i, ptr noundef %spec.select, i32 noundef %170, i32 noundef %7, i8 noundef signext %9)
   %173 = add i32 %170, %.059.i
   br label %174
 
 174:                                              ; preds = %171, %.split.i
   %.161.i = phi ptr [ %172, %171 ], [ %.060.i, %.split.i ]
   %.1.i = phi i32 [ %173, %171 ], [ %.059.i, %.split.i ]
-  %175 = call fastcc ptr @array_seek.argelim(ptr noundef %.161.i, i32 noundef %.1.i, ptr noundef %spec.select, i32 noundef 1, i32 noundef %7, i8 noundef signext %9)
+  %175 = call fastcc ptr @array_seek(ptr noundef %.161.i, i32 noundef %.1.i, ptr noundef %spec.select, i32 noundef 1, i32 noundef %7, i8 noundef signext %9)
   %176 = ptrtoint ptr %175 to i64
   %177 = ptrtoint ptr %.161.i to i64
   %178 = sub i64 %176, %177
@@ -4545,7 +4545,7 @@ array_extract_slice.exit:                         ; preds = %array_bitmap_copy.e
 declare void @mda_get_range(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @array_slice_size.argelim(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 1, 7) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i8 noundef signext %8) unnamed_addr #0 {
+define internal fastcc i32 @array_slice_size(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 1, 7) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i8 noundef signext %8) unnamed_addr #0 {
   %10 = alloca [6 x i32], align 16
   %11 = alloca [6 x i32], align 16
   %12 = alloca [6 x i32], align 16
@@ -4586,7 +4586,7 @@ define internal fastcc i32 @array_slice_size.argelim(ptr noundef readonly %0, pt
 
 26:                                               ; preds = %9
   %27 = call i32 @ArrayGetOffset(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #17
-  %28 = call fastcc ptr @array_seek.argelim(ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef %27, i32 noundef %7, i8 noundef signext %8)
+  %28 = call fastcc ptr @array_seek(ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef %27, i32 noundef %7, i8 noundef signext %8)
   call void @mda_get_prod(i32 noundef %2, ptr noundef %3, ptr noundef nonnull %11) #17
   call void @mda_get_offset_values(i32 noundef %2, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %10) #17
   %29 = shl nuw nsw i32 %2, 2
@@ -4611,7 +4611,7 @@ define internal fastcc i32 @array_slice_size.argelim(ptr noundef readonly %0, pt
   br i1 %.not, label %43, label %40
 
 40:                                               ; preds = %36
-  %41 = call fastcc ptr @array_seek.argelim(ptr noundef %.071, i32 noundef %.073, ptr noundef %1, i32 noundef %39, i32 noundef %7, i8 noundef signext %8)
+  %41 = call fastcc ptr @array_seek(ptr noundef %.071, i32 noundef %.073, ptr noundef %1, i32 noundef %39, i32 noundef %7, i8 noundef signext %8)
   %42 = add i32 %39, %.073
   br label %43
 
@@ -5473,7 +5473,7 @@ array_set_element_expanded.exit:                  ; preds = %248, %253, %256
 379:                                              ; preds = %373, %371
   %.sink387 = phi i64 [ %378, %373 ], [ %372, %371 ]
   %380 = getelementptr i8, ptr %259, i64 %.sink387
-  %381 = call fastcc ptr @array_seek.argelim(ptr noundef %380, i32 noundef 0, ptr noundef %362, i32 noundef %369, i32 noundef %6, i8 noundef signext %8)
+  %381 = call fastcc ptr @array_seek(ptr noundef %380, i32 noundef 0, ptr noundef %362, i32 noundef %369, i32 noundef %6, i8 noundef signext %8)
   %382 = getelementptr i8, ptr %259, i64 %.sink387
   %383 = ptrtoint ptr %381 to i64
   %384 = ptrtoint ptr %382 to i64
@@ -6947,7 +6947,7 @@ define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, pt
   %.pn = phi i64 [ %251, %250 ], [ %249, %.thread ]
   %257 = phi ptr [ %255, %250 ], [ null, %.thread ]
   %258 = getelementptr i8, ptr %33, i64 %.pn
-  %259 = call fastcc ptr @array_seek.argelim(ptr noundef %258, i32 noundef 0, ptr noundef %257, i32 noundef %220, i32 noundef %9, i8 noundef signext %11)
+  %259 = call fastcc ptr @array_seek(ptr noundef %258, i32 noundef 0, ptr noundef %257, i32 noundef %220, i32 noundef %9, i8 noundef signext %11)
   %260 = ptrtoint ptr %259 to i64
   %261 = ptrtoint ptr %258 to i64
   %262 = sub i64 %260, %261
@@ -6995,7 +6995,7 @@ define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, pt
   %288 = phi i32 [ %264, %.thread402 ], [ %269, %.thread403 ]
   %289 = phi ptr [ %285, %.thread402 ], [ null, %.thread403 ]
   %290 = getelementptr i8, ptr %31, i64 %.pn439
-  %291 = call fastcc i32 @array_slice_size.argelim(ptr noundef %290, ptr noundef %289, i32 noundef %35, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %3, ptr noundef %2, i32 noundef %9, i8 noundef signext %11)
+  %291 = call fastcc i32 @array_slice_size(ptr noundef %290, ptr noundef %289, i32 noundef %35, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %3, ptr noundef %2, i32 noundef %9, i8 noundef signext %11)
   br label %338
 
 292:                                              ; preds = %.thread401, %265
@@ -7023,7 +7023,7 @@ define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, pt
   %312 = select i1 %.not305, ptr null, ptr %308
   %313 = call i32 @llvm.smin.i32(i32 %., i32 %301)
   %314 = sub i32 %313, %299
-  %315 = call fastcc ptr @array_seek.argelim(ptr noundef %311, i32 noundef 0, ptr noundef %312, i32 noundef %314, i32 noundef %9, i8 noundef signext %11)
+  %315 = call fastcc ptr @array_seek(ptr noundef %311, i32 noundef 0, ptr noundef %312, i32 noundef %314, i32 noundef %9, i8 noundef signext %11)
   %316 = ptrtoint ptr %315 to i64
   %317 = ptrtoint ptr %311 to i64
   %318 = sub i64 %316, %317
@@ -7042,7 +7042,7 @@ define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, pt
   %sext = shl i64 %318, 32
   %324 = ashr exact i64 %sext, 32
   %325 = getelementptr i8, ptr %311, i64 %324
-  %326 = call fastcc ptr @array_seek.argelim(ptr noundef %325, i32 noundef %314, ptr noundef %312, i32 noundef %323, i32 noundef %9, i8 noundef signext %11)
+  %326 = call fastcc ptr @array_seek(ptr noundef %325, i32 noundef %314, ptr noundef %312, i32 noundef %323, i32 noundef %9, i8 noundef signext %11)
   %327 = ptrtoint ptr %326 to i64
   %328 = ptrtoint ptr %325 to i64
   %329 = sub i64 %327, %328
@@ -7190,7 +7190,7 @@ define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, pt
   %413 = load i32, ptr %34, align 4
   %414 = call i32 @ArrayGetNItems(i32 noundef %413, ptr noundef %83) #17
   %415 = call i32 @ArrayGetOffset(i32 noundef %35, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %3) #17
-  %416 = call fastcc ptr @array_seek.argelim(ptr noundef %379, i32 noundef 0, ptr noundef %405, i32 noundef %415, i32 noundef %9, i8 noundef signext %11)
+  %416 = call fastcc ptr @array_seek(ptr noundef %379, i32 noundef 0, ptr noundef %405, i32 noundef %415, i32 noundef %9, i8 noundef signext %11)
   %417 = ptrtoint ptr %416 to i64
   %418 = ptrtoint ptr %379 to i64
   %419 = sub i64 %417, %418
@@ -7339,7 +7339,7 @@ array_bitmap_copy.exit.i:                         ; preds = %436, %455, %._crit_
   br i1 %.not142.i, label %531, label %468
 
 468:                                              ; preds = %464
-  %469 = call fastcc ptr @array_seek.argelim(ptr noundef %.0125.i, i32 noundef %.0120.i, ptr noundef %405, i32 noundef %467, i32 noundef %9, i8 noundef signext %11)
+  %469 = call fastcc ptr @array_seek(ptr noundef %.0125.i, i32 noundef %.0120.i, ptr noundef %405, i32 noundef %467, i32 noundef %9, i8 noundef signext %11)
   %470 = ptrtoint ptr %469 to i64
   %471 = ptrtoint ptr %.0125.i to i64
   %472 = sub i64 %470, %471
@@ -7486,7 +7486,7 @@ array_bitmap_copy.exit182.i:                      ; preds = %501, %520, %._crit_
   %.1124.i = phi ptr [ %474, %array_bitmap_copy.exit182.i ], [ %.0123.i, %464 ]
   %.1122.i = phi i32 [ %529, %array_bitmap_copy.exit182.i ], [ %.0121.i, %464 ]
   %.1.i = phi i32 [ %530, %array_bitmap_copy.exit182.i ], [ %.0120.i, %464 ]
-  %532 = call fastcc ptr @array_seek.argelim(ptr noundef %.0127.i, i32 noundef %.0119.i, ptr noundef %412, i32 noundef 1, i32 noundef %9, i8 noundef signext %11)
+  %532 = call fastcc ptr @array_seek(ptr noundef %.0127.i, i32 noundef %.0119.i, ptr noundef %412, i32 noundef 1, i32 noundef %9, i8 noundef signext %11)
   %533 = ptrtoint ptr %532 to i64
   %534 = ptrtoint ptr %.0127.i to i64
   %535 = sub i64 %533, %534
@@ -7536,7 +7536,7 @@ array_bitmap_copy.exit221.i:                      ; preds = %array_bitmap_copy.e
   %559 = getelementptr i8, ptr %.0127.i, i64 %536
   %560 = add i32 %.1122.i, 1
   %561 = add i32 %.0119.i, 1
-  %562 = call fastcc ptr @array_seek.argelim(ptr noundef %.1126.i, i32 noundef %.1.i, ptr noundef %405, i32 noundef 1, i32 noundef %9, i8 noundef signext %11)
+  %562 = call fastcc ptr @array_seek(ptr noundef %.1126.i, i32 noundef %.1.i, ptr noundef %405, i32 noundef 1, i32 noundef %9, i8 noundef signext %11)
   %563 = add i32 %.1.i, 1
   %564 = call i32 @mda_next_tuple(i32 noundef %35, ptr noundef nonnull %16, ptr noundef nonnull %14) #17
   %.not143.i = icmp eq i32 %564, -1
@@ -7544,7 +7544,7 @@ array_bitmap_copy.exit221.i:                      ; preds = %array_bitmap_copy.e
 
 565:                                              ; preds = %array_bitmap_copy.exit221.i
   %566 = sub i32 %414, %563
-  %567 = call fastcc ptr @array_seek.argelim(ptr noundef %562, i32 noundef %563, ptr noundef %405, i32 noundef %566, i32 noundef %9, i8 noundef signext %11)
+  %567 = call fastcc ptr @array_seek(ptr noundef %562, i32 noundef %563, ptr noundef %405, i32 noundef %566, i32 noundef %9, i8 noundef signext %11)
   %568 = ptrtoint ptr %567 to i64
   %569 = ptrtoint ptr %562 to i64
   %570 = sub i64 %568, %569
@@ -15514,7 +15514,7 @@ define dso_local noundef i64 @trim_array(ptr nocapture noundef readonly %0) loca
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ReadDimensionInt.argprom(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ReadDimensionInt(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @__ctype_b_loc() #20
   %6 = load ptr, ptr %5, align 8

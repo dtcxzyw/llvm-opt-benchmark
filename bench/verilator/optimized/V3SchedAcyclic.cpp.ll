@@ -1751,7 +1751,7 @@ _ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17
 
 290:                                              ; preds = %287
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit
 
 291:                                              ; preds = %337, %336
   %292 = landingpad { ptr, i32 }
@@ -2039,7 +2039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %382 = ptrtoint ptr %.sroa.0.0 to i64
   %383 = sub i64 %381, %382
   %384 = icmp eq i64 %383, 9223372036854775800
-  br i1 %384, label %385, label %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  br i1 %384, label %385, label %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
 385:                                              ; preds = %380
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.445) #26
@@ -2048,7 +2048,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .noexc.i48:                                       ; preds = %385
   unreachable
 
-_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %380
+_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %380
   %386 = ashr exact i64 %383, 3
   %387 = icmp eq ptr %.sroa.14.0, %.sroa.0.0
   %.sroa.speculated.i.i.i.i45 = select i1 %387, i64 1, i64 %386
@@ -2057,35 +2057,35 @@ _ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check
   %390 = call i64 @llvm.umin.i64(i64 %388, i64 1152921504606846975)
   %391 = select i1 %389, i64 1152921504606846975, i64 %390
   %.not.i.i.i.i46 = icmp eq i64 %391, 0
-  br i1 %.not.i.i.i.i46, label %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i, label %392
+  br i1 %.not.i.i.i.i46, label %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_M_allocateEm.exit.i.i.i, label %392
 
-392:                                              ; preds = %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+392:                                              ; preds = %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %393 = shl nuw nsw i64 %391, 3
   %394 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %393) #25
-          to label %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i unwind label %.loopexit39.i, !noalias !13
+          to label %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit39.i, !noalias !13
 
-_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i: ; preds = %392, %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
-  %395 = phi ptr [ null, %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %394, %392 ]
+_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %392, %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+  %395 = phi ptr [ null, %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %394, %392 ]
   %396 = getelementptr inbounds ptr, ptr %395, i64 %386
   store ptr %.sroa.0.042.i, ptr %396, align 8, !noalias !13
   %397 = icmp sgt i64 %383, 0
-  br i1 %397, label %398, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit21.i.i.i
+  br i1 %397, label %398, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
-398:                                              ; preds = %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i
+398:                                              ; preds = %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_M_allocateEm.exit.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %395, ptr align 8 %.sroa.0.0, i64 %383, i1 false), !noalias !13
-  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit21.i.i.i
+  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
-_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit21.i.i.i: ; preds = %398, %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i
+_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i: ; preds = %398, %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_M_allocateEm.exit.i.i.i
   %399 = getelementptr inbounds i8, ptr %395, i64 %383
   %400 = getelementptr inbounds i8, ptr %399, i64 8
   %.not.i22.i.i.i = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i22.i.i.i, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i, label %401
+  br i1 %.not.i22.i.i.i, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %401
 
-401:                                              ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit21.i.i.i
+401:                                              ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #27, !noalias !13
-  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i
+  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i: ; preds = %401, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit21.i.i.i
+_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %401, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
   %402 = getelementptr inbounds ptr, ptr %395, i64 %391
   br label %_ZN7AstNode12user1SetOnceEv.exit.i
 
@@ -2099,11 +2099,11 @@ _ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_reallo
           cleanup
   br label %407
 
-_ZN7AstNode12user1SetOnceEv.exit.i:               ; preds = %370, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i, %378, %347, %346
-  %.sroa.0.1 = phi ptr [ %395, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i ], [ %.sroa.0.0, %378 ], [ %.sroa.0.0, %347 ], [ %.sroa.0.0, %346 ], [ %.sroa.0.0, %370 ]
-  %.sroa.9.1 = phi ptr [ %400, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i ], [ %379, %378 ], [ %.sroa.9.0, %347 ], [ %.sroa.9.0, %346 ], [ %.sroa.9.0, %370 ]
-  %.sroa.14.1 = phi ptr [ %402, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i ], [ %.sroa.14.0, %378 ], [ %.sroa.14.0, %347 ], [ %.sroa.14.0, %346 ], [ %.sroa.14.0, %370 ]
-  %403 = phi ptr [ %400, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i ], [ %379, %378 ], [ %339, %347 ], [ %339, %346 ], [ %339, %370 ]
+_ZN7AstNode12user1SetOnceEv.exit.i:               ; preds = %370, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %378, %347, %346
+  %.sroa.0.1 = phi ptr [ %395, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.0.0, %378 ], [ %.sroa.0.0, %347 ], [ %.sroa.0.0, %346 ], [ %.sroa.0.0, %370 ]
+  %.sroa.9.1 = phi ptr [ %400, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %379, %378 ], [ %.sroa.9.0, %347 ], [ %.sroa.9.0, %346 ], [ %.sroa.9.0, %370 ]
+  %.sroa.14.1 = phi ptr [ %402, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.14.0, %378 ], [ %.sroa.14.0, %347 ], [ %.sroa.14.0, %346 ], [ %.sroa.14.0, %370 ]
+  %403 = phi ptr [ %400, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %379, %378 ], [ %339, %347 ], [ %339, %346 ], [ %339, %370 ]
   %.sroa.0.0.i = load ptr, ptr %340, align 8, !noalias !13
   %.not.i40 = icmp eq ptr %.sroa.0.0.i, null
   br i1 %.not.i40, label %._crit_edge.i41, label %.lr.ph.i37
@@ -2134,9 +2134,9 @@ _ZN7AstNode12user1SetOnceEv.exit.i:               ; preds = %370, %_ZNSt6vectorI
 409:                                              ; preds = %._crit_edge.i41
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25)
   %.not210.i = icmp eq ptr %.sroa.0.2, %.sroa.9.2
-  br i1 %.not210.i, label %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.argprom.exit.thread, label %.lr.ph13.i
+  br i1 %.not210.i, label %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.exit.thread, label %.lr.ph13.i
 
-_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.argprom.exit.thread: ; preds = %409
+_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.exit.thread: ; preds = %409
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
@@ -2182,9 +2182,9 @@ _ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVe
 ._crit_edge9.i:                                   ; preds = %.lr.ph8.i, %._crit_edge.i54
   %423 = getelementptr inbounds i8, ptr %.sroa.01.011.i, i64 8
   %.not2.i = icmp eq ptr %423, %.sroa.9.2
-  br i1 %.not2.i, label %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.argprom.exit, label %.lr.ph13.i
+  br i1 %.not2.i, label %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.exit, label %.lr.ph13.i
 
-_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.argprom.exit: ; preds = %._crit_edge9.i
+_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.exit: ; preds = %._crit_edge9.i
   %.val9 = load ptr, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
@@ -2198,8 +2198,8 @@ _ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVe
   %429 = getelementptr inbounds i8, ptr %16, i64 24
   br label %430
 
-430:                                              ; preds = %567, %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.argprom.exit
-  %.sroa.04.020.i = phi ptr [ %.sroa.0.2, %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.argprom.exit ], [ %568, %567 ]
+430:                                              ; preds = %567, %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.exit
+  %.sroa.04.020.i = phi ptr [ %.sroa.0.2, %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.exit ], [ %568, %567 ]
   %431 = load ptr, ptr %.sroa.04.020.i, align 8
   %432 = getelementptr i8, ptr %431, i64 80
   %.val.i56 = load ptr, ptr %432, align 8
@@ -2680,7 +2680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i66: 
   %.not.i57 = icmp eq ptr %568, %.sroa.9.2
   br i1 %.not.i57, label %.loopexit, label %430
 
-.loopexit:                                        ; preds = %567, %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.argprom.exit.thread
+.loopexit:                                        ; preds = %567, %_ZN7V3Sched12_GLOBAL__N_116resetEdgeWeightsERKSt6vectorIPNS0_21SchedAcyclicVarVertexESaIS3_EE.exit.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
@@ -2761,7 +2761,7 @@ _ZN12VNUser1InUseC2Ev.exit.i77:                   ; preds = %.loopexit
   %596 = ptrtoint ptr %.sroa.0104.2145.i to i64
   %597 = sub i64 %595, %596
   %598 = icmp eq i64 %597, 9223372036854775800
-  br i1 %598, label %599, label %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  br i1 %598, label %599, label %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
 
 599:                                              ; preds = %594
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.445) #26
@@ -2770,7 +2770,7 @@ _ZN12VNUser1InUseC2Ev.exit.i77:                   ; preds = %.loopexit
 .noexc.i99:                                       ; preds = %599
   unreachable
 
-_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %594
+_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %594
   %600 = ashr exact i64 %597, 3
   %601 = icmp eq ptr %.sroa.6.1144.i, %.sroa.0104.2145.i
   %.sroa.speculated.i.i.i.i96 = select i1 %601, i64 1, i64 %600
@@ -2779,42 +2779,42 @@ _ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_che
   %604 = call i64 @llvm.umin.i64(i64 %602, i64 1152921504606846975)
   %605 = select i1 %603, i64 1152921504606846975, i64 %604
   %.not.i.i.i.i97 = icmp eq i64 %605, 0
-  br i1 %.not.i.i.i.i97, label %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i, label %606
+  br i1 %.not.i.i.i.i97, label %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_M_allocateEm.exit.i.i.i, label %606
 
-606:                                              ; preds = %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+606:                                              ; preds = %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %607 = shl nuw nsw i64 %605, 3
   %608 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %607) #25
-          to label %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i unwind label %.loopexit114.i
+          to label %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit114.i
 
-_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i: ; preds = %606, %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
-  %609 = phi ptr [ null, %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ], [ %608, %606 ]
+_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %606, %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
+  %609 = phi ptr [ null, %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %608, %606 ]
   %610 = getelementptr inbounds ptr, ptr %609, i64 %600
   store ptr %582, ptr %610, align 8
   %611 = icmp sgt i64 %597, 0
-  br i1 %611, label %612, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit21.i.i.i
+  br i1 %611, label %612, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
-612:                                              ; preds = %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i
+612:                                              ; preds = %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_M_allocateEm.exit.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %609, ptr align 8 %.sroa.0104.2145.i, i64 %597, i1 false)
-  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit21.i.i.i
+  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
 
-_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit21.i.i.i: ; preds = %612, %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_M_allocateEm.argprom.exit.i.i.i
+_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i: ; preds = %612, %_ZNSt12_Vector_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_M_allocateEm.exit.i.i.i
   %613 = getelementptr inbounds i8, ptr %609, i64 %597
   %614 = getelementptr inbounds i8, ptr %613, i64 8
   %.not.i22.i.i.i98 = icmp eq ptr %.sroa.0104.2145.i, null
-  br i1 %.not.i22.i.i.i98, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i, label %615
+  br i1 %.not.i22.i.i.i98, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %615
 
-615:                                              ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit21.i.i.i
+615:                                              ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.2145.i) #27
-  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i
+  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i: ; preds = %615, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit21.i.i.i
+_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %615, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
   %616 = getelementptr inbounds ptr, ptr %609, i64 %605
   br label %_ZN7AstNode12user1SetOnceEv.exit.i81
 
 _ZN7V3Sched12LogicByScopeD2Ev.exit.thread.i:      ; preds = %.loopexit
   %617 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit92.i
+  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i
 
 .loopexit114.i:                                   ; preds = %640, %_ZN7AstNode12user1SetOnceEv.exit.i81, %606
   %.sroa.0104.1.ph.i = phi ptr [ %.sroa.0104.2145.i, %606 ], [ %.sroa.0104.3.i, %_ZN7AstNode12user1SetOnceEv.exit.i81 ], [ %.sroa.0104.3.i, %640 ]
@@ -2834,11 +2834,11 @@ _ZN7V3Sched12LogicByScopeD2Ev.exit.thread.i:      ; preds = %.loopexit
   call void @_ZN12VNUser1InUseD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #29
   br label %_ZN7V3Sched12LogicByScopeD2Ev.exit.i
 
-_ZN7AstNode12user1SetOnceEv.exit.i81:             ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i, %592, %577
-  %.sroa.11.2.i = phi ptr [ %.sroa.11.1143.i, %577 ], [ %616, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i ], [ %.sroa.11.1143.i, %592 ]
-  %.sroa.6.2.i = phi ptr [ %.sroa.6.1144.i, %577 ], [ %614, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i ], [ %593, %592 ]
-  %.sroa.0104.3.i = phi ptr [ %.sroa.0104.2145.i, %577 ], [ %609, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i.i ], [ %.sroa.0104.2145.i, %592 ]
-  %619 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt13unordered_mapIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaIS6_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S8_EEEixERSE_.argprom(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr nonnull %582)
+_ZN7AstNode12user1SetOnceEv.exit.i81:             ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %592, %577
+  %.sroa.11.2.i = phi ptr [ %.sroa.11.1143.i, %577 ], [ %616, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.11.1143.i, %592 ]
+  %.sroa.6.2.i = phi ptr [ %.sroa.6.1144.i, %577 ], [ %614, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %593, %592 ]
+  %.sroa.0104.3.i = phi ptr [ %.sroa.0104.2145.i, %577 ], [ %609, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.0104.2145.i, %592 ]
+  %619 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt13unordered_mapIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaIS6_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S8_EEEixERSE_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr nonnull %582)
           to label %620 unwind label %.loopexit114.i
 
 620:                                              ; preds = %_ZN7AstNode12user1SetOnceEv.exit.i81
@@ -2961,7 +2961,7 @@ _ZN12VNUser1InUseD2Ev.exit.i:                     ; preds = %._crit_edge155.i
 658:                                              ; preds = %.lr.ph167.i
   %659 = getelementptr inbounds i8, ptr %.val54.i, i64 88
   %660 = load ptr, ptr %659, align 8
-  %661 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt13unordered_mapIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaIS6_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S8_EEEixERSE_.argprom(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr nonnull %655)
+  %661 = invoke fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt13unordered_mapIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaIS6_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S8_EEEixERSE_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr nonnull %655)
           to label %662 unwind label %.loopexit.split-lp.i88
 
 662:                                              ; preds = %658
@@ -3164,35 +3164,35 @@ _ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_
 
 _ZN13SenTreeFinderD2Ev.exit.i:                    ; preds = %728, %_ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i
   %.not.i.i.i88.i = icmp eq ptr %.sroa.0104.0.lcssa.i, null
-  br i1 %.not.i.i.i88.i, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit.i, label %729
+  br i1 %.not.i.i.i88.i, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i, label %729
 
 729:                                              ; preds = %_ZN13SenTreeFinderD2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.0.lcssa.i) #27
-  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit.i
+  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i
 
-_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit.i: ; preds = %729, %_ZN13SenTreeFinderD2Ev.exit.i
+_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i: ; preds = %729, %_ZN13SenTreeFinderD2Ev.exit.i
   %.val.i.i.i.i = load ptr, ptr %571, align 8, !noalias !20
   %.not1.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
   br i1 %.not1.i.i.i.i.i, label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i.i.i
-  %.02.i.i.i.i.i = phi ptr [ %.0.val.i.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i.i.i ], [ %.val.i.i.i.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i
+  %.02.i.i.i.i.i = phi ptr [ %.0.val.i.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i ], [ %.val.i.i.i.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i ]
   %.0.val.i.i.i.i.i = load ptr, ptr %.02.i.i.i.i.i, align 8
   %730 = getelementptr i8, ptr %.02.i.i.i.i.i, i64 16
   %.val.i.i.i.i.i.i = load ptr, ptr %730, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i.i.i, label %731
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i, label %731
 
 731:                                              ; preds = %.lr.ph.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i.i.i.i) #27
-  br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i.i.i
+  br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i
 
-_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i.i.i: ; preds = %731, %.lr.ph.i.i.i.i.i
+_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i: ; preds = %731, %.lr.ph.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.02.i.i.i.i.i) #27
   %.not.i.i.i.i89.i = icmp eq ptr %.0.val.i.i.i.i.i, null
   br i1 %.not.i.i.i.i89.i, label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !24
 
-_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i.i.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit.i
+_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i.i.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit.i
   %732 = load ptr, ptr %6, align 8, !noalias !20
   %733 = load i64, ptr %570, align 8, !noalias !20
   %734 = shl i64 %733, 3
@@ -3225,13 +3225,13 @@ _ZN7V3Sched12LogicByScopeD2Ev.exit.i:             ; preds = %741, %739, %618
   %.sroa.0104.4.i = phi ptr [ %.sroa.0104.1.i, %618 ], [ %.sroa.0104.0.lcssa.i, %739 ], [ %.sroa.0104.0.lcssa.i, %741 ]
   %.pn52.i = phi { ptr, i32 } [ %lpad.phi119.i, %618 ], [ %.pn.pn.i86, %739 ], [ %.pn.pn.i86, %741 ]
   %.not.i.i.i91.i = icmp eq ptr %.sroa.0104.4.i, null
-  br i1 %.not.i.i.i91.i, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit92.i, label %742
+  br i1 %.not.i.i.i91.i, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i, label %742
 
 742:                                              ; preds = %_ZN7V3Sched12LogicByScopeD2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.4.i) #27
-  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit92.i
+  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i
 
-_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit92.i: ; preds = %742, %_ZN7V3Sched12LogicByScopeD2Ev.exit.i, %_ZN7V3Sched12LogicByScopeD2Ev.exit.thread.i
+_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i: ; preds = %742, %_ZN7V3Sched12LogicByScopeD2Ev.exit.i, %_ZN7V3Sched12LogicByScopeD2Ev.exit.thread.i
   %.pn52109.i = phi { ptr, i32 } [ %617, %_ZN7V3Sched12LogicByScopeD2Ev.exit.thread.i ], [ %.pn52.i, %_ZN7V3Sched12LogicByScopeD2Ev.exit.i ], [ %.pn52.i, %742 ]
   call fastcc void @_ZNSt13unordered_mapIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaIS6_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #29
   br label %.body71
@@ -3241,19 +3241,19 @@ _ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
   %.not.i.i.i102 = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i.i.i102, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.argprom.argprom.exit, label %744
+  br i1 %.not.i.i.i102, label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit, label %744
 
 744:                                              ; preds = %743
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #27
-  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit
 
 745:                                              ; preds = %_ZN8FileLine9singletonEv.exit.i, %_ZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS0_5GraphEPNS0_21SchedAcyclicVarVertexE.exit.i, %.noexc74, %445, %.noexc69, %.noexc68, %.noexc67, %430
   %746 = landingpad { ptr, i32 }
           cleanup
   br label %.body71
 
-.body71:                                          ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit92.i, %459, %745, %441, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit16.i.i, %546, %558, %566
-  %eh.lpad-body72 = phi { ptr, i32 } [ %442, %441 ], [ %.pn.pn.i.i, %546 ], [ %.pn.pn.i.i, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit16.i.i ], [ %.pn.pn.i, %566 ], [ %559, %558 ], [ %.pn52109.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argprom.argprom.exit92.i ], [ %746, %745 ], [ %460, %459 ]
+.body71:                                          ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i, %459, %745, %441, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit16.i.i, %546, %558, %566
+  %eh.lpad-body72 = phi { ptr, i32 } [ %442, %441 ], [ %.pn.pn.i.i, %546 ], [ %.pn.pn.i.i, %_ZNSt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES7_EED2Ev.exit16.i.i ], [ %.pn.pn.i, %566 ], [ %559, %558 ], [ %.pn52109.i, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.exit92.i ], [ %746, %745 ], [ %460, %459 ]
   %.not.i.i.i103 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i103, label %.body, label %747
 
@@ -3261,17 +3261,17 @@ _ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EED2Ev.argp
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #27
   br label %.body
 
-_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.argprom.argprom.exit: ; preds = %744, %743, %290
+_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit: ; preds = %744, %743, %290
   %748 = load ptr, ptr %39, align 8
   %.not.i105 = icmp eq ptr %748, null
-  br i1 %.not.i105, label %_ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.argprom.exit.i
+  br i1 %.not.i105, label %_ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.argprom.exit.i: ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.argprom.argprom.exit
+_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.exit.i: ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit
   call void @_ZN7V3GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %748) #29
   call void @_ZdlPv(ptr noundef nonnull %748) #27
   br label %_ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.argprom.argprom.exit, %_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.argprom.exit.i
+_ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.exit.i
   ret void
 
 .body:                                            ; preds = %747, %.body71, %407, %408, %207, %.loopexit.split-lp.i24, %291, %.body.i30, %.body35
@@ -3307,14 +3307,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11V3GraphEdge16followAlways
 define internal fastcc void @_ZNSt10unique_ptrIN7V3Sched12_GLOBAL__N_15GraphESt14default_deleteIS2_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %3, label %_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.argprom.exit
+  br i1 %.not, label %3, label %_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.exit
 
-_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.argprom.exit: ; preds = %1
+_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.exit: ; preds = %1
   tail call void @_ZN7V3GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #29
   tail call void @_ZdlPv(ptr noundef nonnull %2) #27
   br label %3
 
-3:                                                ; preds = %_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.argprom.exit, %1
+3:                                                ; preds = %_ZNKSt14default_deleteIN7V3Sched12_GLOBAL__N_15GraphEEclEPS2_.exit, %1
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -4368,7 +4368,7 @@ define internal fastcc void @"_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_G
   %14 = load i64, ptr %13, align 8
   %.not1.i.i = icmp eq i64 %14, 0
   %.not.i.i = select i1 %12, i1 true, i1 %.not1.i.i
-  br i1 %.not.i.i, label %15, label %"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.argprom.exit.i"
+  br i1 %.not.i.i, label %15, label %"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.exit.i"
 
 15:                                               ; preds = %5
   %16 = load ptr, ptr %6, align 8
@@ -4386,7 +4386,7 @@ define internal fastcc void @"_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_G
   store i64 %20, ptr %13, align 8
   %21 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
   store i32 %21, ptr %9, align 8
-  br label %"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.argprom.exit.i"
+  br label %"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.exit.i"
 
 common.resume.i:                                  ; preds = %79, %52, %22
   %.sink.i = phi ptr [ %77, %79 ], [ %50, %52 ], [ %17, %22 ]
@@ -4399,7 +4399,7 @@ common.resume.i:                                  ; preds = %79, %52, %22
           cleanup
   br label %common.resume.i
 
-"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.argprom.exit.i": ; preds = %18, %5
+"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.exit.i": ; preds = %18, %5
   %24 = phi i64 [ %20, %18 ], [ %14, %5 ]
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds i8, ptr %8, i64 72
@@ -4407,15 +4407,15 @@ common.resume.i:                                  ; preds = %79, %52, %22
   %.not.i18.i = icmp eq ptr %27, null
   br i1 %.not.i18.i, label %_ZNK7AstNode5widthEv.exit.i, label %28
 
-28:                                               ; preds = %"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.argprom.exit.i"
+28:                                               ; preds = %"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.exit.i"
   %29 = getelementptr inbounds i8, ptr %27, i64 152
   %30 = load i32, ptr %29, align 8
   %31 = sdiv i32 %30, 8
   %32 = add nsw i32 %31, 1
   br label %_ZNK7AstNode5widthEv.exit.i
 
-_ZNK7AstNode5widthEv.exit.i:                      ; preds = %28, %"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.argprom.exit.i"
-  %33 = phi i32 [ %32, %28 ], [ 1, %"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.argprom.exit.i" ]
+_ZNK7AstNode5widthEv.exit.i:                      ; preds = %28, %"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.exit.i"
+  %33 = phi i32 [ %32, %28 ], [ 1, %"_ZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS_12LogicByScopeEENK3$_1clEP11AstVarScope.exit.i" ]
   %34 = getelementptr inbounds i8, ptr %1, i64 176
   %.sroa.0.0.copyload.i.i22 = load i8, ptr %34, align 8
   %35 = add i8 %.sroa.0.0.copyload.i.i22, -1
@@ -5892,7 +5892,7 @@ _ZNK7AstNode5widthEv.exit.thread:                 ; preds = %27, %_ZNK7AstNode5w
 _ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit: ; preds = %.lr.ph.i, %37
   %.0.lcssa.i = phi i32 [ 0, %37 ], [ %39, %.lr.ph.i ]
   store i32 %.0.lcssa.i, ptr %5, align 4
-  invoke fastcc void @_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12emplace_backIJRKS4_RKjEEERS5_DpOT_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  invoke fastcc void @_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12emplace_backIJRKS4_RKjEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %_ZN7AstNode12user3SetOnceEv.exit unwind label %41
 
 41:                                               ; preds = %_ZNK6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E4sizeEv.exit
@@ -6783,7 +6783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12emplace_backIJRKS4_RKjEEERS5_DpOT_.argprom.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12emplace_backIJRKS4_RKjEEERS5_DpOT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6807,13 +6807,13 @@ define internal fastcc void @_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   %14 = ptrtoint ptr %.val27.i to i64
   %15 = sub i64 %13, %14
   %16 = icmp eq i64 %15, 9223372036854775792
-  br i1 %16, label %17, label %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i
+  br i1 %16, label %17, label %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.exit.i
 
 17:                                               ; preds = %12
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.445) #26
   unreachable
 
-_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i: ; preds = %12
+_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.exit.i: ; preds = %12
   %.val7 = load i32, ptr %1, align 4
   %18 = ashr exact i64 %15, 4
   %19 = icmp eq ptr %4, %.val27.i
@@ -6830,35 +6830,35 @@ _ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE
   store ptr %.0.val, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   store i32 %.val7, ptr %27, align 8
-  br i1 %19, label %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit38.i, label %.lr.ph.i.i.i.i
+  br i1 %19, label %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i, %.lr.ph.i.i.i.i
-  %.03.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %25, %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i ]
-  %.092.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i ], [ %.val27.i, %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i
+  %.03.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %25, %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.exit.i ]
+  %.092.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i ], [ %.val27.i, %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.092.i.i.i.i, i64 16, i1 false), !alias.scope !75
   %28 = getelementptr inbounds i8, ptr %.092.i.i.i.i, i64 16
   %29 = getelementptr inbounds i8, ptr %.03.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %28, %4
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit38.i, label %.lr.ph.i.i.i.i, !llvm.loop !79
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38.i, label %.lr.ph.i.i.i.i, !llvm.loop !79
 
-_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit38.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %25, %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.argprom.exit.i ], [ %29, %.lr.ph.i.i.i.i ]
+_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.exit.i
+  %.0.lcssa.i.i.i.i = phi ptr [ %25, %_ZNKSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE12_M_check_lenEmPKc.exit.i ], [ %29, %.lr.ph.i.i.i.i ]
   %30 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i39.i = icmp eq ptr %.val27.i, null
-  br i1 %.not.i39.i, label %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE17_M_realloc_insertIJRKS4_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.argprom.exit, label %31
+  br i1 %.not.i39.i, label %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE17_M_realloc_insertIJRKS4_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit, label %31
 
-31:                                               ; preds = %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit38.i
+31:                                               ; preds = %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val27.i) #27
-  br label %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE17_M_realloc_insertIJRKS4_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.argprom.exit
+  br label %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE17_M_realloc_insertIJRKS4_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit
 
-_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE17_M_realloc_insertIJRKS4_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.argprom.exit: ; preds = %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.argprom.exit38.i, %31
+_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE17_M_realloc_insertIJRKS4_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38.i, %31
   store ptr %25, ptr %0, align 8
   store ptr %30, ptr %3, align 8
   %32 = getelementptr inbounds %"struct.std::pair.150", ptr %25, i64 %23
   store ptr %32, ptr %5, align 8
   br label %33
 
-33:                                               ; preds = %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE17_M_realloc_insertIJRKS4_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.argprom.exit, %7
+33:                                               ; preds = %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE17_M_realloc_insertIJRKS4_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit, %7
   ret void
 }
 
@@ -11289,14 +11289,14 @@ _ZNK7AstNode5widthEv.exit.i.i.i:                  ; preds = %7, %3
   %13 = getelementptr inbounds i8, ptr %.val.val.i.i.i, i64 72
   %14 = load ptr, ptr %13, align 8
   %.not.i3.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i3.i.i.i, label %"_ZSt10__invoke_rIbRZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS1_5GraphEPNS1_21SchedAcyclicVarVertexEE3$_0JRKSt4pairIS5_jESB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.argprom.argprom.argprom.exit", label %15
+  br i1 %.not.i3.i.i.i, label %"_ZSt10__invoke_rIbRZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS1_5GraphEPNS1_21SchedAcyclicVarVertexEE3$_0JRKSt4pairIS5_jESB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %15
 
 15:                                               ; preds = %_ZNK7AstNode5widthEv.exit.i.i.i
   %16 = getelementptr inbounds i8, ptr %14, i64 152
   %17 = load i32, ptr %16, align 8
-  br label %"_ZSt10__invoke_rIbRZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS1_5GraphEPNS1_21SchedAcyclicVarVertexEE3$_0JRKSt4pairIS5_jESB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.argprom.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS1_5GraphEPNS1_21SchedAcyclicVarVertexEE3$_0JRKSt4pairIS5_jESB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-"_ZSt10__invoke_rIbRZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS1_5GraphEPNS1_21SchedAcyclicVarVertexEE3$_0JRKSt4pairIS5_jESB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.argprom.argprom.argprom.exit": ; preds = %_ZNK7AstNode5widthEv.exit.i.i.i, %15
+"_ZSt10__invoke_rIbRZN7V3Sched12_GLOBAL__N_114reportLoopVarsEPNS1_5GraphEPNS1_21SchedAcyclicVarVertexEE3$_0JRKSt4pairIS5_jESB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %_ZNK7AstNode5widthEv.exit.i.i.i, %15
   %18 = phi i32 [ %17, %15 ], [ 0, %_ZNK7AstNode5widthEv.exit.i.i.i ]
   %19 = icmp sgt i32 %10, %18
   ret i1 %19
@@ -11353,7 +11353,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKSt4pairIPN7V3S
 declare void @_ZN7V3Stats7addStatERK11V3Statistic(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt13unordered_mapIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaIS6_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S8_EEEixERSE_.argprom(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt13unordered_mapIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaIS6_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S8_EEEixERSE_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = ptrtoint ptr %.0.val to i64
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val19.i = load i64, ptr %3, align 8
@@ -11425,7 +11425,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt13u
 
 34:                                               ; preds = %29
   %35 = icmp ugt i64 %30, 1152921504606846975
-  br i1 %35, label %36, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE19_M_allocate_bucketsEm.argprom.exit.i.i.i.i.i
+  br i1 %35, label %36, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i
 
 36:                                               ; preds = %34
   %37 = icmp ugt i64 %30, 2305843009213693951
@@ -11445,12 +11445,12 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt13u
 .noexc5.i.i.i:                                    ; preds = %.noexc7.i.i.i.i.i.i
   unreachable
 
-_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE19_M_allocate_bucketsEm.argprom.exit.i.i.i.i.i: ; preds = %34
+_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i: ; preds = %34
   %38 = shl nuw nsw i64 %30, 3
   %39 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #25
           to label %.noexc6.i.i.i unwind label %59
 
-.noexc6.i.i.i:                                    ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE19_M_allocate_bucketsEm.argprom.exit.i.i.i.i.i
+.noexc6.i.i.i:                                    ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %39, i8 0, i64 %38, i1 false)
   br label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i
 
@@ -11515,7 +11515,7 @@ _ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_
   tail call void @_ZdlPv(ptr noundef %55) #27
   br label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i
 
-59:                                               ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE19_M_allocate_bucketsEm.argprom.exit.i.i.i.i.i, %.noexc7.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
+59:                                               ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i, %.noexc7.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
@@ -11559,7 +11559,7 @@ _ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_
   store ptr %75, ptr %18, align 8
   %76 = load ptr, ptr %72, align 8
   store ptr %18, ptr %76, align 8
-  br label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom.exit.i
+  br label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i
 
 77:                                               ; preds = %70
   %78 = getelementptr inbounds i8, ptr %0, i64 16
@@ -11584,9 +11584,9 @@ _ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_
   %86 = phi ptr [ %.pre.i, %80 ], [ %71, %77 ]
   %87 = getelementptr inbounds ptr, ptr %86, i64 %.0.i26.i
   store ptr %78, ptr %87, align 8
-  br label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom.exit.i
+  br label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i
 
-_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom.exit.i: ; preds = %85, %74
+_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i: ; preds = %85, %74
   %88 = load i64, ptr %24, align 8
   %89 = add i64 %88, 1
   store i64 %89, ptr %24, align 8
@@ -11599,11 +11599,11 @@ _ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_
 
 .body.i:                                          ; preds = %90, %63
   %eh.lpad-body.i = phi { ptr, i32 } [ %91, %90 ], [ %64, %63 ]
-  tail call fastcc void @_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom(ptr nonnull %18) #29
+  tail call fastcc void @_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr nonnull %18) #29
   resume { ptr, i32 } %eh.lpad-body.i
 
-_ZNSt8__detail9_Map_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS4_St6vectorIP11AstVarScopeSaIS9_EEESaISC_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_.exit: ; preds = %11, %7, %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom.exit.i
-  %92 = phi ptr [ %18, %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom.exit.i ], [ %8, %7 ], [ %13, %11 ]
+_ZNSt8__detail9_Map_baseIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS4_St6vectorIP11AstVarScopeSaIS9_EEESaISC_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS6_.exit: ; preds = %11, %7, %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i
+  %92 = phi ptr [ %18, %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i ], [ %8, %7 ], [ %13, %11 ]
   %.0.i = getelementptr inbounds i8, ptr %92, i64 16
   ret ptr %.0.i
 }
@@ -12058,24 +12058,24 @@ define internal fastcc void @_ZNSt13unordered_mapIPN7V3Sched12_GLOBAL__N_123Sche
   %.not1.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not1.i.i.i, label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %1, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i
-  %.02.i.i.i = phi ptr [ %.0.val.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i ], [ %.val.i.i, %1 ]
+.lr.ph.i.i.i:                                     ; preds = %1, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i
+  %.02.i.i.i = phi ptr [ %.0.val.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i ], [ %.val.i.i, %1 ]
   %.0.val.i.i.i = load ptr, ptr %.02.i.i.i, align 8
   %3 = getelementptr i8, ptr %.02.i.i.i, i64 16
   %.val.i.i.i.i = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i, label %4
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i, label %4
 
 4:                                                ; preds = %.lr.ph.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i.i) #27
-  br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i
+  br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i
 
-_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i: ; preds = %4, %.lr.ph.i.i.i
+_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i: ; preds = %4, %.lr.ph.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.02.i.i.i) #27
   %.not.i.i.i = icmp eq ptr %.0.val.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !24
 
-_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit.i.i.i, %1
+_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i.i, %1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -12096,7 +12096,7 @@ _ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %4, label %1
 
@@ -12104,17 +12104,17 @@ define internal fastcc void @_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAc
   %2 = getelementptr i8, ptr %.8.val, i64 16
   %.val.i = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit, label %3
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit, label %3
 
 3:                                                ; preds = %1
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i) #27
-  br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit
+  br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit
 
-_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit: ; preds = %1, %3
+_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit: ; preds = %1, %3
   tail call void @_ZdlPv(ptr noundef nonnull %.8.val) #27
   br label %4
 
-4:                                                ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.argprom.exit, %0
+4:                                                ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt6vectorIP11AstVarScopeSaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit, %0
   ret void
 }
 
@@ -12839,9 +12839,9 @@ attributes #30 = { nounwind allocsize(0) }
 !73 = distinct !{!73, !"_ZNK7AstNode10prettyNameB5cxx11Ev"}
 !74 = distinct !{!74, !9}
 !75 = !{!76, !78}
-!76 = distinct !{!76, !77, !"_ZSt19__relocate_object_aISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES5_SaIS5_EEvPT_PT0_RT1_.argprom: argument 0"}
-!77 = distinct !{!77, !"_ZSt19__relocate_object_aISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES5_SaIS5_EEvPT_PT0_RT1_.argprom"}
-!78 = distinct !{!78, !77, !"_ZSt19__relocate_object_aISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES5_SaIS5_EEvPT_PT0_RT1_.argprom: argument 1"}
+!76 = distinct !{!76, !77, !"_ZSt19__relocate_object_aISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!77 = distinct !{!77, !"_ZSt19__relocate_object_aISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES5_SaIS5_EEvPT_PT0_RT1_"}
+!78 = distinct !{!78, !77, !"_ZSt19__relocate_object_aISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !79 = distinct !{!79, !9}
 !80 = distinct !{!80, !9}
 !81 = distinct !{!81, !9}

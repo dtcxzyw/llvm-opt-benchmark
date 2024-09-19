@@ -86,13 +86,13 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
 
 .preheader:                                       ; preds = %.preheader.preheader, %26
   %.01948 = phi i64 [ %27, %26 ], [ 0, %.preheader.preheader ]
-  br i1 %16, label %20, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.argprom.exit"
+  br i1 %16, label %20, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
 
 20:                                               ; preds = %.preheader
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %13, i64 noundef 16384, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.36de252eb2786b37aee3f61249806dab.7) #6, !noalias !7
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.argprom.exit": ; preds = %.preheader
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit": ; preds = %.preheader
   %21 = sub nuw nsw i64 %13, %.01948
   %22 = getelementptr inbounds i8, ptr %7, i64 %.01948
   %23 = call noundef i64 @write(i32 noundef 1, ptr noundef nonnull readonly %22, i64 noundef %21), !noalias !10
@@ -101,15 +101,15 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uu_cat6splice10copy_exact17ha0a
     i64 0, label %25
   ]
 
-_ZN3nix6unistd5write17h023005b3601ee0cbE.exit:    ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.argprom.exit"
+_ZN3nix6unistd5write17h023005b3601ee0cbE.exit:    ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
   %24 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !6, !noalias !13
   br label %.loopexit
 
-25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.argprom.exit"
+25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
   call void @_ZN6uu_cat6splice10copy_exact19panic_cold_explicit17h0cd5967c60547272E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.36de252eb2786b37aee3f61249806dab.8) #6
   unreachable
 
-26:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.argprom.exit"
+26:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.exit"
   %27 = add i64 %23, %.01948
   %28 = icmp ult i64 %27, %13
   br i1 %28, label %.preheader, label %18
@@ -172,8 +172,8 @@ attributes #6 = { noreturn }
 !5 = !{}
 !6 = !{i32 0, i32 134}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE.argprom"}
+!8 = distinct !{!8, !9, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE: argument 0"}
+!9 = distinct !{!9, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hac6f9bdb53a1e89eE"}
 !10 = !{!11}
 !11 = distinct !{!11, !12, !"_ZN3nix6unistd5write17h023005b3601ee0cbE: argument 0"}
 !12 = distinct !{!12, !"_ZN3nix6unistd5write17h023005b3601ee0cbE"}

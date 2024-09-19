@@ -2717,7 +2717,7 @@ _ZNKSt10__weak_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImagingAPISchemaAdapt
   %29 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
   %30 = load atomic i32, ptr %29 monotonic, align 8, !noalias !35
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.thread.i.i.i, label %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom.exit
+  br i1 %31, label %.thread.i.i.i, label %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit
 
 .thread.i.i.i:                                    ; preds = %.noexc, %24, %_ZNKSt10__weak_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImagingAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i, %27
   %32 = phi ptr [ %.pre.i.i.i, %_ZNKSt10__weak_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImagingAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i ], [ null, %27 ], [ null, %24 ], [ null, %.noexc ]
@@ -2773,18 +2773,18 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
 
 _ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i.i.i: ; preds = %51, %49, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.i.i.i
   store ptr %14, ptr %33, align 8, !noalias !35
-  br label %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom.exit
+  br label %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit
 
-_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom.exit: ; preds = %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i.i.i, %_ZNKSt10__weak_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImagingAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i
+_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit: ; preds = %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i.i.i, %_ZNKSt10__weak_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImagingAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i.i.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = load ptr, ptr %56, align 8
   store ptr %14, ptr %56, align 8
   %.not.i.i.i.i10 = icmp eq ptr %57, null
-  br i1 %.not.i.i.i.i10, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.argprom.exit, label %58
+  br i1 %.not.i.i.i.i10, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.exit, label %58
 
-58:                                               ; preds = %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom.exit
+58:                                               ; preds = %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load atomic i64, ptr %59 acquire, align 8
   %61 = icmp eq i64 %60, 4294967297
@@ -2818,7 +2818,7 @@ _ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapte
 74:                                               ; preds = %72, %70
   %.0.i.i.i.i.i12 = phi i32 [ %62, %70 ], [ %73, %72 ]
   %75 = icmp eq i32 %.0.i.i.i.i.i12, 1
-  br i1 %75, label %76, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.argprom.exit
+  br i1 %75, label %76, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.exit
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr %57, align 8
@@ -2843,14 +2843,14 @@ _ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapte
 87:                                               ; preds = %85, %82
   %.0.i.i.i.i.i.i.i14 = phi i32 [ %83, %82 ], [ %86, %85 ]
   %88 = icmp eq i32 %.0.i.i.i.i.i.i.i14, 1
-  br i1 %88, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i15, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.argprom.exit
+  br i1 %88, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i15, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i15: ; preds = %87, %63
   %89 = load ptr, ptr %57, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 24
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(16) %57) #20
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.exit
 
 92:                                               ; preds = %13, %_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingAdapterRegistry11GetInstanceEv.exit
   %93 = landingpad { ptr, i32 }
@@ -2879,7 +2879,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store ptr null, ptr %102, align 8
   store ptr %103, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager26_ComputeWrappedPrimAdapterERKNS_7TfTokenEE15basePrimAdapter, i64 8), align 8
   store ptr null, ptr %5, align 8
-  call fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEED2Ev.argprom(ptr null) #20
+  call fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEED2Ev(ptr null) #20
   %104 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImagingAPISchemaAdapterEED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager26_ComputeWrappedPrimAdapterERKNS_7TfTokenEE15basePrimAdapter, ptr nonnull @__dso_handle) #20
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager26_ComputeWrappedPrimAdapterERKNS_7TfTokenEE15basePrimAdapter) #20
   br label %105
@@ -2892,7 +2892,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager26_ComputeWrappedPrimAdapterERKNS_7TfTokenEE15basePrimAdapter, i64 8), align 8
   %110 = load ptr, ptr %108, align 8
   %.not.i.i.i22 = icmp eq ptr %109, %110
-  br i1 %.not.i.i.i22, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.argprom.exit, label %111
+  br i1 %.not.i.i.i22, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.exit, label %111
 
 111:                                              ; preds = %105
   %.not7.i.i.i = icmp eq ptr %109, null
@@ -2990,7 +2990,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i27, %150, %137, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
   store ptr %109, ptr %108, align 8
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.exit
 
 155:                                              ; preds = %99
   %156 = landingpad { ptr, i32 }
@@ -2998,7 +2998,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager26_ComputeWrappedPrimAdapterERKNS_7TfTokenEE15basePrimAdapter) #20
   br label %157
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, %105, %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom.exit, %74, %87, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i15
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, %105, %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit, %74, %87, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i15
   ret void
 
 157:                                              ; preds = %155, %92
@@ -3185,13 +3185,13 @@ define internal fastcc void @_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.thread.i.i: ; preds = %1
   store i32 2, ptr %5, align 4
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.i.i: ; preds = %1
   %10 = atomicrmw volatile add ptr %5, i32 1 acq_rel, align 4
   %.pre.i.i = load ptr, ptr %8, align 8
   %.not6.i.i.i.i.i.i = icmp eq ptr %.pre.i.i, null
-  br i1 %.not6.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.argprom.exit, label %11
+  br i1 %.not6.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit, label %11
 
 11:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.i.i
   %12 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 12
@@ -3212,24 +3212,24 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
 19:                                               ; preds = %17, %14
   %.0.i.i.i.i.i.i.i = phi i32 [ %15, %14 ], [ %18, %17 ]
   %20 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %20, label %21, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.argprom.exit
+  br i1 %20, label %21, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %.pre.i.i, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %.pre.i.i) #20
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.thread.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.i.i, %19, %21
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.thread.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i.i.i.i, %19, %21
   store ptr %3, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEED2Ev.argprom(ptr %.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterEED2Ev(ptr %.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
@@ -3265,7 +3265,7 @@ define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -3290,16 +3290,16 @@ define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #20
-  br label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
@@ -6364,7 +6364,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrRe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #24
   ret void
 }
@@ -6635,7 +6635,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrRe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_BasePrimAdapterAPISchemaAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #24
   ret void
 }
@@ -8279,8 +8279,8 @@ attributes #25 = { nounwind allocsize(0) }
 !33 = distinct !{!33, !"_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS4_26UsdImagingAPISchemaAdapterEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEELb0EEEE4findERSE_"}
 !34 = distinct !{!34, !5}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.argprom"}
+!36 = distinct !{!36, !37, !"_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: argument 0"}
+!37 = distinct !{!37, !"_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_PrimAdapterAPISchemaAdapterEJRSt10shared_ptrINS0_21UsdImagingPrimAdapterEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS4_26UsdImagingAPISchemaAdapterEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEELb0EEEE4findERSE_: argument 0"}
 !40 = distinct !{!40, !"_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS4_26UsdImagingAPISchemaAdapterEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEELb0EEEE4findERSE_"}

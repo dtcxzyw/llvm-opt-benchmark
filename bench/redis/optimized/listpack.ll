@@ -4998,7 +4998,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %8 = or i1 %switch.i, %cmp5.i
   %9 = or i1 %cmp.i26, %8
   %or.cond11.i = or i1 %cmp12.i, %9
-  br i1 %or.cond11.i, label %lpCurrentEncodedSizeBytes.argprom.exit, label %if.end43.i
+  br i1 %or.cond11.i, label %lpCurrentEncodedSizeBytes.exit, label %if.end43.i
 
 if.end43.i:                                       ; preds = %while.body
   %and46.i = and i32 %conv.i25, 240
@@ -5012,11 +5012,11 @@ if.end50.i:                                       ; preds = %if.end43.i
   %switch.select13.i = select i1 %switch.selectcmp12.i, i32 5, i32 %switch.select.i
   br label %if.end.i30
 
-lpCurrentEncodedSizeBytes.argprom.exit:           ; preds = %while.body
+lpCurrentEncodedSizeBytes.exit:                   ; preds = %while.body
   br i1 %cmp.i26, label %lpEncodeBacklen.exit, label %if.end.i30
 
-if.end.i30:                                       ; preds = %if.end50.i, %if.end43.i, %lpCurrentEncodedSizeBytes.argprom.exit
-  %retval.0.i2738 = phi i32 [ 1, %lpCurrentEncodedSizeBytes.argprom.exit ], [ %switch.select13.i, %if.end50.i ], [ 2, %if.end43.i ]
+if.end.i30:                                       ; preds = %if.end50.i, %if.end43.i, %lpCurrentEncodedSizeBytes.exit
+  %retval.0.i2738 = phi i32 [ 1, %lpCurrentEncodedSizeBytes.exit ], [ %switch.select13.i, %if.end50.i ], [ 2, %if.end43.i ]
   br i1 %cmp5.i, label %lpCurrentEncodedSizeUnsafe.exit.thread, label %if.end11.i
 
 lpCurrentEncodedSizeUnsafe.exit.thread:           ; preds = %if.end.i30
@@ -5092,10 +5092,10 @@ if.else31.i:                                      ; preds = %if.else12.i
   %spec.select = select i1 %cmp32.i, i64 4, i64 5
   br label %lpEncodeBacklen.exit
 
-lpEncodeBacklen.exit:                             ; preds = %lpCurrentEncodedSizeUnsafe.exit.thread, %if.end59.i, %if.end18.i, %if.end11.i, %lpCurrentEncodedSizeBytes.argprom.exit, %if.end88.i, %if.then45.i, %if.then38.i, %if.then31.i, %if.else31.i, %if.else12.i, %if.else.i, %lpCurrentEncodedSizeUnsafe.exit
-  %retval.0.i3346 = phi i32 [ %retval.0.i33, %lpCurrentEncodedSizeUnsafe.exit ], [ %retval.0.i33, %if.else.i ], [ %retval.0.i33, %if.else12.i ], [ %retval.0.i33, %if.else31.i ], [ 1, %if.end59.i ], [ 3, %if.end18.i ], [ 2, %if.end11.i ], [ 1, %lpCurrentEncodedSizeBytes.argprom.exit ], [ 0, %if.end88.i ], [ 9, %if.then45.i ], [ 5, %if.then38.i ], [ 4, %if.then31.i ], [ %add.i, %lpCurrentEncodedSizeUnsafe.exit.thread ]
-  %retval.0.i273944 = phi i32 [ %retval.0.i2738, %lpCurrentEncodedSizeUnsafe.exit ], [ %retval.0.i2738, %if.else.i ], [ %retval.0.i2738, %if.else12.i ], [ %retval.0.i2738, %if.else31.i ], [ %retval.0.i2738, %if.end59.i ], [ %retval.0.i2738, %if.end18.i ], [ %retval.0.i2738, %if.end11.i ], [ 1, %lpCurrentEncodedSizeBytes.argprom.exit ], [ %retval.0.i2738, %if.end88.i ], [ %retval.0.i2738, %if.then45.i ], [ %retval.0.i2738, %if.then38.i ], [ %retval.0.i2738, %if.then31.i ], [ %retval.0.i2738, %lpCurrentEncodedSizeUnsafe.exit.thread ]
-  %retval.0.i36 = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit ], [ 2, %if.else.i ], [ 3, %if.else12.i ], [ %spec.select, %if.else31.i ], [ 1, %if.end59.i ], [ 1, %if.end18.i ], [ 1, %if.end11.i ], [ 1, %lpCurrentEncodedSizeBytes.argprom.exit ], [ 1, %if.end88.i ], [ 1, %if.then45.i ], [ 1, %if.then38.i ], [ 1, %if.then31.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread ]
+lpEncodeBacklen.exit:                             ; preds = %lpCurrentEncodedSizeUnsafe.exit.thread, %if.end59.i, %if.end18.i, %if.end11.i, %lpCurrentEncodedSizeBytes.exit, %if.end88.i, %if.then45.i, %if.then38.i, %if.then31.i, %if.else31.i, %if.else12.i, %if.else.i, %lpCurrentEncodedSizeUnsafe.exit
+  %retval.0.i3346 = phi i32 [ %retval.0.i33, %lpCurrentEncodedSizeUnsafe.exit ], [ %retval.0.i33, %if.else.i ], [ %retval.0.i33, %if.else12.i ], [ %retval.0.i33, %if.else31.i ], [ 1, %if.end59.i ], [ 3, %if.end18.i ], [ 2, %if.end11.i ], [ 1, %lpCurrentEncodedSizeBytes.exit ], [ 0, %if.end88.i ], [ 9, %if.then45.i ], [ 5, %if.then38.i ], [ 4, %if.then31.i ], [ %add.i, %lpCurrentEncodedSizeUnsafe.exit.thread ]
+  %retval.0.i273944 = phi i32 [ %retval.0.i2738, %lpCurrentEncodedSizeUnsafe.exit ], [ %retval.0.i2738, %if.else.i ], [ %retval.0.i2738, %if.else12.i ], [ %retval.0.i2738, %if.else31.i ], [ %retval.0.i2738, %if.end59.i ], [ %retval.0.i2738, %if.end18.i ], [ %retval.0.i2738, %if.end11.i ], [ 1, %lpCurrentEncodedSizeBytes.exit ], [ %retval.0.i2738, %if.end88.i ], [ %retval.0.i2738, %if.then45.i ], [ %retval.0.i2738, %if.then38.i ], [ %retval.0.i2738, %if.then31.i ], [ %retval.0.i2738, %lpCurrentEncodedSizeUnsafe.exit.thread ]
+  %retval.0.i36 = phi i64 [ 1, %lpCurrentEncodedSizeUnsafe.exit ], [ 2, %if.else.i ], [ 3, %if.else12.i ], [ %spec.select, %if.else31.i ], [ 1, %if.end59.i ], [ 1, %if.end18.i ], [ 1, %if.end11.i ], [ 1, %lpCurrentEncodedSizeBytes.exit ], [ 1, %if.end88.i ], [ 1, %if.then45.i ], [ 1, %if.then38.i ], [ 1, %if.then31.i ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread ]
   %conv48 = zext i32 %retval.0.i3346 to i64
   %12 = ptrtoint ptr %p.054 to i64
   %sub.ptr.sub = sub i64 %12, %sub.ptr.rhs.cast

@@ -186,7 +186,7 @@ define align 8 ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = tail call zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17habd3a32dafb72660E"(ptr nonnull align 8 %.sroa.1.0.copyload, ptr nonnull align 8 %4)
-  br i1 %5, label %6, label %"_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module28_$u7b$$u7b$closure$u7d$$u7d$17h427fe49382bffb22E.argprom.exit"
+  br i1 %5, label %6, label %"_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module28_$u7b$$u7b$closure$u7d$$u7d$17h427fe49382bffb22E.exit"
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
@@ -195,9 +195,9 @@ define align 8 ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %10 = tail call zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17habd3a32dafb72660E"(ptr nonnull align 8 %8, ptr nonnull align 8 %9)
   %11 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 48
   %spec.select.i = select i1 %10, ptr %11, ptr null
-  br label %"_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module28_$u7b$$u7b$closure$u7d$$u7d$17h427fe49382bffb22E.argprom.exit"
+  br label %"_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module28_$u7b$$u7b$closure$u7d$$u7d$17h427fe49382bffb22E.exit"
 
-"_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module28_$u7b$$u7b$closure$u7d$$u7d$17h427fe49382bffb22E.argprom.exit": ; preds = %2, %6
+"_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module28_$u7b$$u7b$closure$u7d$$u7d$17h427fe49382bffb22E.exit": ; preds = %2, %6
   %.0.i = phi ptr [ null, %2 ], [ %spec.select.i, %6 ]
   ret ptr %.0.i
 }
@@ -276,7 +276,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %11 = load i64, ptr %10, align 8, !noalias !8, !noundef !3
   call void @"_ZN59_$LT$str$u20$as$u20$heck..upper_camel..ToUpperCamelCase$GT$19to_upper_camel_case17ha26a7806f7d5045aE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %5, ptr nonnull align 1 %9, i64 %11), !noalias !8
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %4, ptr nonnull align 8 %7)
-          to label %"_ZN20wasmtime_wit_bindgen18InterfaceGenerator12type_variant28_$u7b$$u7b$closure$u7d$$u7d$17h1f5c7b808816ea9cE.argprom.exit" unwind label %12, !noalias !8
+          to label %"_ZN20wasmtime_wit_bindgen18InterfaceGenerator12type_variant28_$u7b$$u7b$closure$u7d$$u7d$17h1f5c7b808816ea9cE.exit" unwind label %12, !noalias !8
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
@@ -293,7 +293,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 16:                                               ; preds = %12
   resume { ptr, i32 } %13
 
-"_ZN20wasmtime_wit_bindgen18InterfaceGenerator12type_variant28_$u7b$$u7b$closure$u7d$$u7d$17h1f5c7b808816ea9cE.argprom.exit": ; preds = %3
+"_ZN20wasmtime_wit_bindgen18InterfaceGenerator12type_variant28_$u7b$$u7b$closure$u7d$$u7d$17h1f5c7b808816ea9cE.exit": ; preds = %3
   %17 = load i64, ptr %2, align 8, !range !11, !noalias !8, !noundef !3
   %18 = icmp eq i64 %17, 14
   %..i = select i1 %18, ptr null, ptr %2
@@ -2981,18 +2981,18 @@ attributes #14 = { cold noreturn nounwind }
 !6 = !{i64 0, i64 14}
 !7 = !{i64 0, i64 -9223372036854775807}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator12type_variant28_$u7b$$u7b$closure$u7d$$u7d$17h1f5c7b808816ea9cE.argprom: argument 0"}
-!10 = distinct !{!10, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator12type_variant28_$u7b$$u7b$closure$u7d$$u7d$17h1f5c7b808816ea9cE.argprom"}
+!9 = distinct !{!9, !10, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator12type_variant28_$u7b$$u7b$closure$u7d$$u7d$17h1f5c7b808816ea9cE: argument 0"}
+!10 = distinct !{!10, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator12type_variant28_$u7b$$u7b$closure$u7d$$u7d$17h1f5c7b808816ea9cE"}
 !11 = !{i64 0, i64 15}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_enum28_$u7b$$u7b$closure$u7d$$u7d$17hcaa39f74ba0b7af9E.argprom: argument 0"}
-!14 = distinct !{!14, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_enum28_$u7b$$u7b$closure$u7d$$u7d$17hcaa39f74ba0b7af9E.argprom"}
+!13 = distinct !{!13, !14, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_enum28_$u7b$$u7b$closure$u7d$$u7d$17hcaa39f74ba0b7af9E: argument 0"}
+!14 = distinct !{!14, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator9type_enum28_$u7b$$u7b$closure$u7d$$u7d$17hcaa39f74ba0b7af9E"}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN20wasmtime_wit_bindgen8Wasmtime22toplevel_add_to_linker28_$u7b$$u7b$closure$u7d$$u7d$17h34d261e538720ac3E.argprom: argument 0"}
-!17 = distinct !{!17, !"_ZN20wasmtime_wit_bindgen8Wasmtime22toplevel_add_to_linker28_$u7b$$u7b$closure$u7d$$u7d$17h34d261e538720ac3E.argprom"}
+!16 = distinct !{!16, !17, !"_ZN20wasmtime_wit_bindgen8Wasmtime22toplevel_add_to_linker28_$u7b$$u7b$closure$u7d$$u7d$17h34d261e538720ac3E: argument 0"}
+!17 = distinct !{!17, !"_ZN20wasmtime_wit_bindgen8Wasmtime22toplevel_add_to_linker28_$u7b$$u7b$closure$u7d$$u7d$17h34d261e538720ac3E"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_rust_enum28_$u7b$$u7b$closure$u7d$$u7d$17h964355a6edb0fafdE.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_rust_enum28_$u7b$$u7b$closure$u7d$$u7d$17h964355a6edb0fafdE.argprom"}
+!19 = distinct !{!19, !20, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_rust_enum28_$u7b$$u7b$closure$u7d$$u7d$17h964355a6edb0fafdE: argument 0"}
+!20 = distinct !{!20, !"_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_rust_enum28_$u7b$$u7b$closure$u7d$$u7d$17h964355a6edb0fafdE"}
 !21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !22 = !{i8 0, i8 3}
 !23 = !{i64 0, i64 3}

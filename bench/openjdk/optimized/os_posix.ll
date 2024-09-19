@@ -900,9 +900,9 @@ define hidden noundef ptr @_ZN2os26map_memory_to_file_alignedEmmi8MEMFLAGS(i64 n
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %11 = tail call ptr @mmap64(ptr noundef null, i64 noundef %10, i32 noundef 0, i32 noundef 16418, i32 noundef -1, i64 noundef 0) #28
   %.not.i = icmp eq ptr %11, inttoptr (i64 -1 to ptr)
-  br i1 %.not.i, label %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit.thread, label %12
+  br i1 %.not.i, label %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread, label %12
 
-_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit.thread: ; preds = %4
+_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread: ; preds = %4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %56
 
@@ -922,9 +922,9 @@ _ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit.thread: ; preds = %4
   %18 = icmp sgt i32 %17, 1
   %19 = icmp ne ptr %11, null
   %or.cond.i.i = and i1 %19, %18
-  br i1 %or.cond.i.i, label %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit.thread18, label %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit
+  br i1 %or.cond.i.i, label %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread18, label %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit
 
-_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit.thread18: ; preds = %16
+_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread18: ; preds = %16
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #28
   %20 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_regionEPhmRK15NativeCallStack8MEMFLAGS(ptr noundef nonnull %11, i64 noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef zeroext %3) #28
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #28
@@ -932,13 +932,13 @@ _ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit.thread18: ; preds = %16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %22
 
-_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit: ; preds = %16
+_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit:     ; preds = %16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %21 = icmp eq ptr %11, null
   br i1 %21, label %56, label %22
 
-22:                                               ; preds = %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit.thread18, %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit
+22:                                               ; preds = %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread18, %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit
   %23 = ptrtoint ptr %11 to i64
   %24 = add i64 %1, -1
   %25 = add i64 %24, %23
@@ -1007,8 +1007,8 @@ _ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %56
 
-56:                                               ; preds = %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit.thread, %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit, %_ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit
-  %.0 = phi ptr [ %28, %_ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit ], [ null, %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit ], [ null, %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.argprom.exit.thread ]
+56:                                               ; preds = %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread, %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit, %_ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit
+  %.0 = phi ptr [ %28, %_ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit ], [ null, %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit ], [ null, %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread ]
   ret ptr %.0
 }
 
@@ -2177,13 +2177,13 @@ _ZN19TemplateInterpreter8containsEPh.exit.i:      ; preds = %36
 _ZN19TemplateInterpreter8containsEPh.exit.thread.i: ; preds = %_ZN19TemplateInterpreter8containsEPh.exit.i, %36
   %52 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %2) #28
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.argprom.exit, label %54
+  br i1 %53, label %_ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.exit, label %54
 
 54:                                               ; preds = %_ZN19TemplateInterpreter8containsEPh.exit.thread.i
   %55 = getelementptr inbounds i8, ptr %52, i64 52
   %56 = load i8, ptr %55, align 4
   %57 = icmp eq i8 %56, 1
-  br i1 %57, label %58, label %_ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.argprom.exit
+  br i1 %57, label %58, label %_ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.exit
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %52, i64 50
@@ -2207,7 +2207,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread.i: ; preds = %_ZN19TemplateInte
   %73 = getelementptr inbounds i8, ptr %65, i64 %72
   %74 = icmp uge ptr %2, %73
   %or.cond.i = select i1 %71, i1 %74, i1 false
-  br i1 %or.cond.i, label %_ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.argprom.exit, label %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i
+  br i1 %or.cond.i, label %_ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.exit, label %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i
 
 _ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i: ; preds = %61, %58
   call void @_ZN2os33fetch_compiled_frame_from_contextEPKv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %8, ptr noundef %3) #28
@@ -2221,7 +2221,7 @@ _ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i: ; preds = %61, %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %.sink3.i, i64 56, i1 false)
   br label %76
 
-_ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.argprom.exit: ; preds = %_ZN19TemplateInterpreter8containsEPh.exit.thread.i, %54, %61
+_ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.exit: ; preds = %_ZN19TemplateInterpreter8containsEPh.exit.thread.i, %54, %61
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
@@ -2273,7 +2273,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %78, %_ZNK5frame20is
   store ptr %96, ptr %97, align 8
   br label %118
 
-_ZNK10JavaThread18is_vthread_mountedEv.exit:      ; preds = %.lr.ph.i.i, %_ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.argprom.exit, %76, %.loopexit
+_ZNK10JavaThread18is_vthread_mountedEv.exit:      ; preds = %.lr.ph.i.i, %_ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.exit, %76, %.loopexit
   call void @_ZN13StackOverflow34disable_stack_yellow_reserved_zoneEv(ptr noundef nonnull align 8 dereferenceable(56) %12) #28
   %98 = call noundef ptr @_ZN13SharedRuntime35continuation_for_implicit_exceptionEP10JavaThreadPhNS_21ImplicitExceptionKindE(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2) #28
   store ptr %98, ptr %4, align 8

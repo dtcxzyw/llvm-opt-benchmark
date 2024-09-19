@@ -1495,9 +1495,9 @@ define range(i32 0, 2) i32 @Dar_LibCutMatch(ptr nocapture noundef %0, ptr nocapt
   %27 = getelementptr i8, ptr %26, i64 32
   %.val29 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %.val29, null
-  br i1 %.not.i, label %Aig_ManObj.argprom.exit.thread, label %Aig_ManObj.argprom.exit
+  br i1 %.not.i, label %Aig_ManObj.exit.thread, label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %25
+Aig_ManObj.exit:                                  ; preds = %25
   %28 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1
   %30 = sext i8 %29 to i64
@@ -1509,16 +1509,16 @@ Aig_ManObj.argprom.exit:                          ; preds = %25
   %35 = getelementptr inbounds ptr, ptr %.val.i, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %Aig_ManObj.argprom.exit.thread, label %41
+  br i1 %37, label %Aig_ManObj.exit.thread, label %41
 
-Aig_ManObj.argprom.exit.thread:                   ; preds = %25, %Aig_ManObj.argprom.exit
+Aig_ManObj.exit.thread:                           ; preds = %25, %Aig_ManObj.exit
   %38 = getelementptr inbounds i8, ptr %0, i64 2760
   %39 = load i32, ptr %38, align 8
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 8
   br label %85
 
-41:                                               ; preds = %Aig_ManObj.argprom.exit
+41:                                               ; preds = %Aig_ManObj.exit
   %42 = trunc nuw nsw i64 %indvars.iv to i32
   %43 = lshr i32 %12, %42
   %44 = and i32 %43, 1
@@ -1580,8 +1580,8 @@ Aig_ManObj.argprom.exit.thread:                   ; preds = %25, %Aig_ManObj.arg
   store i32 %84, ptr %82, align 4
   br label %85
 
-85:                                               ; preds = %._crit_edge, %Aig_ManObj.argprom.exit.thread
-  %.0 = phi i32 [ 0, %Aig_ManObj.argprom.exit.thread ], [ 1, %._crit_edge ]
+85:                                               ; preds = %._crit_edge, %Aig_ManObj.exit.thread
+  %.0 = phi i32 [ 0, %Aig_ManObj.exit.thread ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -2616,7 +2616,7 @@ define noundef i32 @Dar2_LibCutMatch(ptr nocapture noundef readonly %0, ptr noca
   %49 = sdiv exact i64 %48, 12
   %50 = trunc i64 %49 to i32
   %51 = add nsw i32 %50, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val17, i32 noundef %51)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val17, i32 noundef %51)
   %52 = getelementptr i8, ptr %.val17, i64 8
   %.val.i.i.i = load ptr, ptr %52, align 8
   %sext.i = shl i64 %49, 32
@@ -2788,7 +2788,7 @@ define void @Dar2_LibEvalAssignNums(ptr noundef %0, i32 noundef %1) local_unname
   %104 = sdiv exact i64 %103, 12
   %105 = trunc i64 %104 to i32
   %106 = add nsw i32 %105, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val56, i32 noundef %106)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val56, i32 noundef %106)
   %107 = getelementptr i8, ptr %.val56, i64 8
   %.val.i.i.i = load ptr, ptr %107, align 8
   %sext.i = shl i64 %104, 32
@@ -2924,7 +2924,7 @@ define i32 @Dar2_LibEval(ptr noundef %0, ptr nocapture noundef readonly %1, i32 
   %51 = sdiv exact i64 %50, 12
   %52 = trunc i64 %51 to i32
   %53 = add nsw i32 %52, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val17.i, i32 noundef %53)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val17.i, i32 noundef %53)
   %54 = getelementptr i8, ptr %.val17.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %54, align 8
   %sext.i.i = shl i64 %51, 32
@@ -3248,7 +3248,7 @@ define i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr nocapture noundef readonly
   %45 = sdiv exact i64 %44, 12
   %46 = trunc i64 %45 to i32
   %47 = add nsw i32 %46, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val8.i, i32 noundef %47)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val8.i, i32 noundef %47)
   %48 = getelementptr i8, ptr %.val8.i, i64 8
   %.val.i.i.i.i = load ptr, ptr %48, align 8
   %sext.i.i = shl i64 %45, 32
@@ -3268,7 +3268,7 @@ define i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr nocapture noundef readonly
   %60 = sdiv exact i64 %59, 12
   %61 = trunc i64 %60 to i32
   %62 = add nsw i32 %61, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val6.i, i32 noundef %62)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i, i32 noundef %62)
   %63 = getelementptr i8, ptr %.val6.i, i64 8
   %.val.i.i.i11.i = load ptr, ptr %63, align 8
   %sext.i12.i = shl i64 %60, 32
@@ -3285,7 +3285,7 @@ define i32 @Dar2_LibBuildBest_rec(ptr noundef %0, ptr nocapture noundef readonly
   %72 = sdiv exact i64 %71, 12
   %73 = trunc i64 %72 to i32
   %74 = add nsw i32 %73, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val10.i, i32 noundef %74)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val10.i, i32 noundef %74)
   %75 = getelementptr i8, ptr %.val10.i, i64 8
   %.val.i.i.i13.i = load ptr, ptr %75, align 8
   %sext.i14.i = shl i64 %72, 32
@@ -3398,7 +3398,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #14
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

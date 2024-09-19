@@ -7597,16 +7597,16 @@ if.else.i.i:                                      ; preds = %if.then.i196
   %max_visible_seq_.i.i = getelementptr inbounds i8, ptr %arg.val, i64 8
   %32 = load i64, ptr %max_visible_seq_.i.i, align 8
   %cmp2.i.i = icmp ult i64 %32, %shr.i
-  br i1 %cmp2.i.i, label %return, label %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.argprom.exit
+  br i1 %cmp2.i.i, label %return, label %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.exit
 
-_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.argprom.exit: ; preds = %if.else.i.i
+_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.exit: ; preds = %if.else.i.i
   %vtable.i.i = load ptr, ptr %arg.val, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %33 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(24) %arg.val, i64 noundef %shr.i)
   br i1 %call.i.i, label %if.end32, label %return
 
-if.end32:                                         ; preds = %if.then.i196, %if.then26, %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.argprom.exit
+if.end32:                                         ; preds = %if.then.i196, %if.then26, %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.exit
   %seq33 = getelementptr inbounds i8, ptr %arg, i64 48
   %34 = load i64, ptr %seq33, align 8
   %cmp34 = icmp eq i64 %34, 72057594037927935
@@ -8923,8 +8923,8 @@ ehcleanup494:                                     ; preds = %ehcleanup483, %ehcl
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg) #30
   br label %common.resume
 
-return:                                           ; preds = %if.else.i.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit, %if.end406, %land.lhs.true409, %if.end343, %if.then347, %if.end245, %if.then249, %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.argprom.exit, %_ZN7rocksdb6StatusD2Ev.exit445, %if.end434, %_ZN7rocksdb6StatusD2Ev.exit407, %if.end382, %if.end172, %_ZN7rocksdb6StatusD2Ev.exit234, %_ZN7rocksdb6StatusD2Ev.exit227, %_ZN7rocksdb6StatusD2Ev.exit220, %if.then5
-  %retval.0 = phi i1 [ false, %_ZN7rocksdb6StatusD2Ev.exit445 ], [ false, %if.end434 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit407 ], [ false, %if.end382 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit227 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit234 ], [ false, %if.end172 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit220 ], [ false, %if.then5 ], [ true, %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.argprom.exit ], [ false, %if.then249 ], [ false, %if.end245 ], [ false, %if.then347 ], [ false, %if.end343 ], [ true, %land.lhs.true409 ], [ true, %if.end406 ], [ false, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit ], [ true, %if.else.i.i ]
+return:                                           ; preds = %if.else.i.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit, %if.end406, %land.lhs.true409, %if.end343, %if.then347, %if.end245, %if.then249, %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.exit, %_ZN7rocksdb6StatusD2Ev.exit445, %if.end434, %_ZN7rocksdb6StatusD2Ev.exit407, %if.end382, %if.end172, %_ZN7rocksdb6StatusD2Ev.exit234, %_ZN7rocksdb6StatusD2Ev.exit227, %_ZN7rocksdb6StatusD2Ev.exit220, %if.then5
+  %retval.0 = phi i1 [ false, %_ZN7rocksdb6StatusD2Ev.exit445 ], [ false, %if.end434 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit407 ], [ false, %if.end382 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit227 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit234 ], [ false, %if.end172 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit220 ], [ false, %if.then5 ], [ true, %_ZN7rocksdb12_GLOBAL__N_15Saver13CheckCallbackEm.exit ], [ false, %if.then249 ], [ false, %if.end245 ], [ false, %if.then347 ], [ false, %if.end343 ], [ true, %land.lhs.true409 ], [ true, %if.end406 ], [ false, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit ], [ true, %if.else.i.i ]
   ret i1 %retval.0
 }
 

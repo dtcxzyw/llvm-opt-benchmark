@@ -2239,13 +2239,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i: ; preds = %51, %48
   %53 = phi ptr [ %50, %48 ], [ %52, %51 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry29MakeMultipleApplyNameInstanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %53)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit unwind label %105
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit unwind label %105
 
-_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
+_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim12GetAttributeERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %54 unwind label %107
 
-54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit
+54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit
   %55 = load ptr, ptr %4, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = and i64 %56, 7
@@ -2354,7 +2354,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
           cleanup
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19
 
-107:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit
+107:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit
   %108 = landingpad { ptr, i32 }
           cleanup
   %109 = load ptr, ptr %4, align 8
@@ -2505,15 +2505,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i: ; preds = %50, %47
   %52 = phi ptr [ %49, %47 ], [ %51, %50 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry29MakeMultipleApplyNameInstanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %52)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit unwind label %86
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit unwind label %86
 
-_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
+_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
   %53 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17SdfValueTypeNamesE seq_cst, align 8
   %54 = inttoptr i64 %53 to ptr
   %.not.i.i13 = icmp eq i64 %53, 0
   br i1 %.not.i.i13, label %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv.exit
 
-55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit
+55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit
   %56 = invoke noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ValueTypeNamesType5_Init3NewEv()
           to label %.noexc14 unwind label %88
 
@@ -2537,8 +2537,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES
   %65 = inttoptr i64 %64 to ptr
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv.exit: ; preds = %63, %.noexc14, %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit
-  %66 = phi ptr [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit ], [ %65, %63 ], [ %56, %.noexc14 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv.exit: ; preds = %63, %.noexc14, %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit
+  %66 = phi ptr [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit ], [ %65, %63 ], [ %56, %.noexc14 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase11_CreateAttrERKNS_7TfTokenERKNS_16SdfValueTypeNameEbNS_14SdfVariabilityERKNS_7VtValueEb(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %67, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3)
           to label %68 unwind label %88
@@ -2743,13 +2743,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i: ; preds = %51, %48
   %53 = phi ptr [ %50, %48 ], [ %52, %51 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry29MakeMultipleApplyNameInstanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %53)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit unwind label %105
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit unwind label %105
 
-_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
+_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim12GetAttributeERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %54 unwind label %107
 
-54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit
+54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit
   %55 = load ptr, ptr %4, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = and i64 %56, 7
@@ -2858,7 +2858,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
           cleanup
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19
 
-107:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit
+107:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit
   %108 = landingpad { ptr, i32 }
           cleanup
   %109 = load ptr, ptr %4, align 8
@@ -3007,15 +3007,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i: ; preds = %50, %47
   %52 = phi ptr [ %49, %47 ], [ %51, %50 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry29MakeMultipleApplyNameInstanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %52)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit unwind label %86
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit unwind label %86
 
-_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
+_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
   %53 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17SdfValueTypeNamesE seq_cst, align 8
   %54 = inttoptr i64 %53 to ptr
   %.not.i.i13 = icmp eq i64 %53, 0
   br i1 %.not.i.i13, label %55, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv.exit
 
-55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit
+55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit
   %56 = invoke noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ValueTypeNamesType5_Init3NewEv()
           to label %.noexc14 unwind label %88
 
@@ -3039,8 +3039,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES
   %65 = inttoptr i64 %64 to ptr
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv.exit: ; preds = %63, %.noexc14, %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit
-  %66 = phi ptr [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.argprom.exit ], [ %65, %63 ], [ %56, %.noexc14 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIKNS_22Sdf_ValueTypeNamesTypeENS1_5_InitEEptEv.exit: ; preds = %63, %.noexc14, %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit
+  %66 = phi ptr [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__L26_GetNamespacedPropertyNameENS_7TfTokenES0_.exit ], [ %65, %63 ], [ %56, %.noexc14 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase11_CreateAttrERKNS_7TfTokenERKNS_16SdfValueTypeNameEbNS_14SdfVariabilityERKNS_7VtValueEb(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %67, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3)
           to label %68 unwind label %88
@@ -3248,7 +3248,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %36, %42
           to label %56 unwind label %81
 
 56:                                               ; preds = %54
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConcatenateAttributeNamesERKSt6vectorINS_7TfTokenESaIS2_EES6_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %55)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConcatenateAttributeNamesERKSt6vectorINS_7TfTokenESaIS2_EES6_(ptr noundef nonnull align 8 dereferenceable(24) %55)
           to label %57 unwind label %81
 
 57:                                               ; preds = %56
@@ -3311,7 +3311,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19: ; preds = %70, %76
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConcatenateAttributeNamesERKSt6vectorINS_7TfTokenESaIS2_EES6_.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ConcatenateAttributeNamesERKSt6vectorINS_7TfTokenESaIS2_EES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN32pxrInternal_v0_24__pxrReserved__18UsdPhysicsLimitAPI23GetSchemaAttributeNamesEbE8allNames, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

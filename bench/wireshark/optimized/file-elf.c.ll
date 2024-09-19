@@ -2568,7 +2568,7 @@ value_guard.exit.i:                               ; preds = %858
   %invariant.op.i = shl i32 %.0110.i, 1
   %868 = load i64, ptr %5, align 8
   %.not21.i = icmp eq i64 %868, 0
-  br i1 %.not21.i, label %dissect_eh_frame_hdr.argprom.exit, label %.lr.ph.i1064
+  br i1 %.not21.i, label %dissect_eh_frame_hdr.exit, label %.lr.ph.i1064
 
 .lr.ph.i1064:                                     ; preds = %value_guard.exit.i, %.lr.ph.i1064
   %869 = phi i32 [ %877, %.lr.ph.i1064 ], [ 1, %value_guard.exit.i ]
@@ -2585,9 +2585,9 @@ value_guard.exit.i:                               ; preds = %858
   %878 = zext i32 %877 to i64
   %879 = load i64, ptr %5, align 8
   %.not.i1065 = icmp ult i64 %879, %878
-  br i1 %.not.i1065, label %dissect_eh_frame_hdr.argprom.exit, label %.lr.ph.i1064, !llvm.loop !9
+  br i1 %.not.i1065, label %dissect_eh_frame_hdr.exit, label %.lr.ph.i1064, !llvm.loop !9
 
-dissect_eh_frame_hdr.argprom.exit:                ; preds = %.lr.ph.i1064, %value_guard.exit.i
+dissect_eh_frame_hdr.exit:                        ; preds = %.lr.ph.i1064, %value_guard.exit.i
   %.0.lcssa.i = phi i32 [ %849, %value_guard.exit.i ], [ %.reass.i, %.lr.ph.i1064 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -2711,27 +2711,27 @@ value_guard.exit.i1072:                           ; preds = %918
   %932 = load i32, ptr %hf_elf64_dynamic_value.sink.i, align 4
   %933 = call ptr @proto_tree_add_item(ptr noundef %891, i32 noundef %932, ptr noundef %0, i32 noundef %924, i32 noundef 8, i32 noundef %.) #5
   %934 = add i32 %.09621258, 16
-  br label %dissect_dynamic.argprom.exit
+  br label %dissect_dynamic.exit
 
 .thread5.i:                                       ; preds = %.critedge.i, %908, %904
   %hf_elf_dynamic_value.sink.i = phi ptr [ @hf_elf_dynamic_value, %904 ], [ @hf_elf_dynamic_pointer, %908 ], [ @hf_elf_dynamic_ignored, %.critedge.i ]
   %935 = load i32, ptr %hf_elf_dynamic_value.sink.i, align 4
   %936 = call ptr @proto_tree_add_item(ptr noundef %891, i32 noundef %935, ptr noundef %0, i32 noundef %902, i32 noundef 4, i32 noundef %.) #5
   %937 = add i32 %.09621258, 8
-  br label %dissect_dynamic.argprom.exit
+  br label %dissect_dynamic.exit
 
 938:                                              ; preds = %.critedge.i, %900
   %939 = load i32, ptr @hf_elf_dynamic_unspecified, align 4
   %940 = call ptr @proto_tree_add_item(ptr noundef %891, i32 noundef %939, ptr noundef %0, i32 noundef %902, i32 noundef 4, i32 noundef %.) #5
   %941 = add i32 %.09621258, 8
   %942 = icmp sgt i32 %901, -1
-  br i1 %942, label %dissect_dynamic.argprom.exit, label %943
+  br i1 %942, label %dissect_dynamic.exit, label %943
 
 943:                                              ; preds = %938
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.649, ptr noundef nonnull @.str.650, i32 noundef 639, ptr noundef nonnull @.str.651, ptr noundef nonnull @.str.652) #6
   unreachable
 
-dissect_dynamic.argprom.exit:                     ; preds = %.thread.i1073, %.thread5.i, %938
+dissect_dynamic.exit:                             ; preds = %.thread.i1073, %.thread5.i, %938
   %.04.i = phi i32 [ %934, %.thread.i1073 ], [ %941, %938 ], [ %937, %.thread5.i ]
   %.0713.i = phi i32 [ %922, %.thread.i1073 ], [ %901, %938 ], [ %901, %.thread5.i ]
   %944 = call ptr @rval_to_str_const(i32 noundef %.0713.i, ptr noundef nonnull @dynamic_tag_rvals, ptr noundef nonnull @.str.627) #5
@@ -2742,12 +2742,12 @@ dissect_dynamic.argprom.exit:                     ; preds = %.thread.i1073, %.th
   %.not1034 = icmp eq i32 %.04.i, %947
   br i1 %.not1034, label %value_guard.exit1070, label %948
 
-948:                                              ; preds = %dissect_dynamic.argprom.exit
+948:                                              ; preds = %dissect_dynamic.exit
   %949 = load ptr, ptr %13, align 8
   %950 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %949, ptr noundef nonnull @ei_invalid_entry_size) #5
   br label %value_guard.exit1070
 
-value_guard.exit1070:                             ; preds = %dissect_dynamic.argprom.exit, %948
+value_guard.exit1070:                             ; preds = %dissect_dynamic.exit, %948
   %951 = add i32 %.09671257, 1
   %952 = zext i32 %951 to i64
   %.not1132 = icmp ugt i32 %951, %888
@@ -3090,14 +3090,14 @@ value_guard.exit1083:                             ; preds = %value_guard.exit108
   %.not1030.not = icmp ult i32 %.39701253, %1119
   br i1 %.not1030.not, label %value_guard.exit1083, label %value_guard.exit1051, !llvm.loop !13
 
-value_guard.exit1051.sink.split:                  ; preds = %dissect_eh_frame_hdr.argprom.exit, %dissect_eh_frame.exit
+value_guard.exit1051.sink.split:                  ; preds = %dissect_eh_frame_hdr.exit, %dissect_eh_frame.exit
   %1124 = load ptr, ptr %13, align 8
   %1125 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1124, ptr noundef nonnull @ei_invalid_segment_size) #5
   br label %value_guard.exit1051
 
-value_guard.exit1051:                             ; preds = %value_guard.exit1080, %value_guard.exit1075, %value_guard.exit1083, %value_guard.exit1070, %value_guard.exit1051.sink.split, %value_guard.exit1080.preheader, %value_guard.exit1075.preheader, %dissect_eh_frame.exit, %884, %1115, %958, %dissect_eh_frame_hdr.argprom.exit, %537
-  %.3984 = phi i64 [ %542, %dissect_eh_frame.exit ], [ %542, %dissect_eh_frame_hdr.argprom.exit ], [ %542, %884 ], [ %542, %958 ], [ %542, %1115 ], [ %.29831265, %537 ], [ %542, %value_guard.exit1075.preheader ], [ %542, %value_guard.exit1080.preheader ], [ %542, %value_guard.exit1051.sink.split ], [ %542, %value_guard.exit1070 ], [ %542, %value_guard.exit1083 ], [ %542, %value_guard.exit1075 ], [ %542, %value_guard.exit1080 ]
-  %.5978 = phi i32 [ %547, %dissect_eh_frame.exit ], [ %547, %dissect_eh_frame_hdr.argprom.exit ], [ %547, %884 ], [ %547, %958 ], [ %547, %1115 ], [ %.49771266, %537 ], [ %547, %value_guard.exit1075.preheader ], [ %547, %value_guard.exit1080.preheader ], [ %547, %value_guard.exit1051.sink.split ], [ %547, %value_guard.exit1070 ], [ %547, %value_guard.exit1083 ], [ %547, %value_guard.exit1075 ], [ %547, %value_guard.exit1080 ]
+value_guard.exit1051:                             ; preds = %value_guard.exit1080, %value_guard.exit1075, %value_guard.exit1083, %value_guard.exit1070, %value_guard.exit1051.sink.split, %value_guard.exit1080.preheader, %value_guard.exit1075.preheader, %dissect_eh_frame.exit, %884, %1115, %958, %dissect_eh_frame_hdr.exit, %537
+  %.3984 = phi i64 [ %542, %dissect_eh_frame.exit ], [ %542, %dissect_eh_frame_hdr.exit ], [ %542, %884 ], [ %542, %958 ], [ %542, %1115 ], [ %.29831265, %537 ], [ %542, %value_guard.exit1075.preheader ], [ %542, %value_guard.exit1080.preheader ], [ %542, %value_guard.exit1051.sink.split ], [ %542, %value_guard.exit1070 ], [ %542, %value_guard.exit1083 ], [ %542, %value_guard.exit1075 ], [ %542, %value_guard.exit1080 ]
+  %.5978 = phi i32 [ %547, %dissect_eh_frame.exit ], [ %547, %dissect_eh_frame_hdr.exit ], [ %547, %884 ], [ %547, %958 ], [ %547, %1115 ], [ %.49771266, %537 ], [ %547, %value_guard.exit1075.preheader ], [ %547, %value_guard.exit1080.preheader ], [ %547, %value_guard.exit1051.sink.split ], [ %547, %value_guard.exit1070 ], [ %547, %value_guard.exit1083 ], [ %547, %value_guard.exit1075 ], [ %547, %value_guard.exit1080 ]
   %.not1025.wide = icmp eq i32 %380, 0
   br i1 %.not1025.wide, label %value_guard.exit1051._crit_edge, label %379, !llvm.loop !14
 

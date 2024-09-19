@@ -431,7 +431,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit39:               ; preds = %_ZNSt8valarrayIfE6r
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11bioinspired17BasicRetinaFilterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %49, align 8, !noalias !9
   %52 = getelementptr inbounds i8, ptr %49, i64 16
   invoke void @_ZN2cv11bioinspired17BasicRetinaFilterC1Ejjjb(ptr noundef nonnull align 8 dereferenceable(168) %52, i32 noundef %.sroa.4.0.extract.trunc, i32 noundef %.sroa.073.0.extract.trunc, i32 noundef 2, i1 noundef zeroext false)
-          to label %_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11bioinspired17BasicRetinaFilterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !9
+          to label %_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11bioinspired17BasicRetinaFilterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !9
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11bioinspired17BasicRetinaFilterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %.noexc40
   %53 = landingpad { ptr, i32 }
@@ -439,14 +439,14 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11bioinspired17BasicRe
   tail call void @_ZdlPv(ptr noundef nonnull %49) #16, !noalias !9
   br label %.body
 
-_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %.noexc40
+_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %.noexc40
   store ptr %52, ptr %9, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8
   %.not.i.i.i.i = icmp eq ptr %49, %55
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_11bioinspired17BasicRetinaFilterEEaSERKS3_.exit, label %56
 
-56:                                               ; preds = %_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+56:                                               ; preds = %_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_.exit
   %57 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %57, 0
   br i1 %.not.i.i.i.i.i, label %61, label %58
@@ -539,7 +539,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
   store ptr %49, ptr %54, align 8
   br label %_ZN2cv3PtrINS_11bioinspired17BasicRetinaFilterEEaSERKS3_.exit
 
-_ZN2cv3PtrINS_11bioinspired17BasicRetinaFilterEEaSERKS3_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+_ZN2cv3PtrINS_11bioinspired17BasicRetinaFilterEEaSERKS3_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, %_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_.exit
   %97 = load atomic i64, ptr %50 acquire, align 8
   %98 = icmp eq i64 %97, 4294967297
   %99 = trunc i64 %97 to i32
@@ -616,7 +616,7 @@ _ZN2cv3PtrINS_11bioinspired17BasicRetinaFilterEED2Ev.exit: ; preds = %110, %122,
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11bioinspired11RetinaColorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %127, align 8, !noalias !14
   %130 = getelementptr inbounds i8, ptr %127, i64 16
   invoke void @_ZN2cv11bioinspired11RetinaColorC1Ejji(ptr noundef nonnull align 8 dereferenceable(349) %130, i32 noundef %.sroa.4.0.extract.trunc, i32 noundef %.sroa.073.0.extract.trunc, i32 noundef 2)
-          to label %_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11bioinspired11RetinaColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !14
+          to label %_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11bioinspired11RetinaColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !14
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11bioinspired11RetinaColorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i: ; preds = %.noexc47
   %131 = landingpad { ptr, i32 }
@@ -624,14 +624,14 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11bioinspired11RetinaC
   tail call void @_ZdlPv(ptr noundef nonnull %127) #16, !noalias !14
   br label %.body
 
-_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %.noexc47
+_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %.noexc47
   store ptr %130, ptr %10, align 8
   %132 = getelementptr inbounds i8, ptr %0, i64 32
   %133 = load ptr, ptr %132, align 8
   %.not.i.i.i.i50 = icmp eq ptr %127, %133
   br i1 %.not.i.i.i.i50, label %_ZN2cv3PtrINS_11bioinspired11RetinaColorEEaSERKS3_.exit, label %134
 
-134:                                              ; preds = %_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+134:                                              ; preds = %_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_.exit
   %135 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i52 = icmp eq i8 %135, 0
   br i1 %.not.i.i.i.i.i52, label %139, label %136
@@ -724,7 +724,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
   store ptr %127, ptr %132, align 8
   br label %_ZN2cv3PtrINS_11bioinspired11RetinaColorEEaSERKS3_.exit
 
-_ZN2cv3PtrINS_11bioinspired11RetinaColorEEaSERKS3_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i59, %_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_.argprom.exit
+_ZN2cv3PtrINS_11bioinspired11RetinaColorEEaSERKS3_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i59, %_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_.exit
   %175 = load atomic i64, ptr %128 acquire, align 8
   %176 = icmp eq i64 %175, 4294967297
   %177 = trunc i64 %175 to i32
@@ -2772,18 +2772,18 @@ attributes #19 = { allocsize(0) }
 !4 = !{!5, !7}
 !5 = distinct !{!5, !6, !"_ZSt11make_sharedIN2cv11bioinspired25RetinaFastToneMappingImplEJRKNS0_5Size_IiEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
 !6 = distinct !{!6, !"_ZSt11make_sharedIN2cv11bioinspired25RetinaFastToneMappingImplEJRKNS0_5Size_IiEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
-!7 = distinct !{!7, !8, !"_ZN2cvL7makePtrINS_11bioinspired25RetinaFastToneMappingImplEJNS_5Size_IiEEEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZN2cvL7makePtrINS_11bioinspired25RetinaFastToneMappingImplEJNS_5Size_IiEEEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!7 = distinct !{!7, !8, !"_ZN2cvL7makePtrINS_11bioinspired25RetinaFastToneMappingImplEJNS_5Size_IiEEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!8 = distinct !{!8, !"_ZN2cvL7makePtrINS_11bioinspired25RetinaFastToneMappingImplEJNS_5Size_IiEEEEENS_3PtrIT_EEDpRKT0_"}
 !9 = !{!10, !12}
 !10 = distinct !{!10, !11, !"_ZSt11make_sharedIN2cv11bioinspired17BasicRetinaFilterEJRKiS4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
 !11 = distinct !{!11, !"_ZSt11make_sharedIN2cv11bioinspired17BasicRetinaFilterEJRKiS4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
-!12 = distinct !{!12, !13, !"_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!13 = distinct !{!13, !"_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!12 = distinct !{!12, !13, !"_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!13 = distinct !{!13, !"_ZN2cvL7makePtrINS_11bioinspired17BasicRetinaFilterEJiiiEEENS_3PtrIT_EEDpRKT0_"}
 !14 = !{!15, !17}
 !15 = distinct !{!15, !16, !"_ZSt11make_sharedIN2cv11bioinspired11RetinaColorEJRKiS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
 !16 = distinct !{!16, !"_ZSt11make_sharedIN2cv11bioinspired11RetinaColorEJRKiS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
-!17 = distinct !{!17, !18, !"_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!18 = distinct !{!18, !"_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!17 = distinct !{!17, !18, !"_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!18 = distinct !{!18, !"_ZN2cvL7makePtrINS_11bioinspired11RetinaColorEJiiEEENS_3PtrIT_EEDpRKT0_"}
 !19 = !{!20}
 !20 = distinct !{!20, !21, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
 !21 = distinct !{!21, !"_ZNK2cv11_InputArray6getMatEi"}

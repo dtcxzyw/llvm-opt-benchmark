@@ -368,7 +368,7 @@ define internal i32 @netlbl_mgmt_protocols(ptr noundef %0, ptr nocapture noundef
   %6 = getelementptr inbounds i8, ptr %1, i64 80
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  switch i32 %8, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread [
+  switch i32 %8, label %netlbl_mgmt_protocols_cb.exit.thread [
     i32 0, label %9
     i32 1, label %.thread
     i32 2, label %.thread15
@@ -384,7 +384,7 @@ define internal i32 @netlbl_mgmt_protocols(ptr noundef %0, ptr nocapture noundef
   %.val3.val = load i32, ptr %12, align 4
   %13 = tail call ptr @genlmsg_put(ptr noundef %0, i32 noundef %.val.val, i32 noundef %.val3.val, ptr noundef nonnull @netlbl_mgmt_gnl_family, i32 noundef 2, i8 noundef zeroext 7) #10
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread, label %15
+  br i1 %14, label %netlbl_mgmt_protocols_cb.exit.thread, label %15
 
 15:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
@@ -393,9 +393,9 @@ define internal i32 @netlbl_mgmt_protocols(ptr noundef %0, ptr nocapture noundef
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   %17 = icmp eq i32 %16, 0
   %18 = getelementptr i8, ptr %13, i64 -20
-  br i1 %17, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread12, label %29
+  br i1 %17, label %netlbl_mgmt_protocols_cb.exit.thread12, label %29
 
-netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread12: ; preds = %15
+netlbl_mgmt_protocols_cb.exit.thread12:           ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 192
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 184
@@ -411,7 +411,7 @@ netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread12: ; preds = %15
 
 29:                                               ; preds = %15
   %30 = icmp eq ptr %18, null
-  br i1 %30, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit, label %31
+  br i1 %30, label %netlbl_mgmt_protocols_cb.exit, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %0, i64 200
@@ -433,13 +433,13 @@ netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread12: ; preds = %15
   %40 = sub i64 %38, %39
   %41 = trunc i64 %40 to i32
   call void @skb_trim(ptr noundef %0, i32 noundef %41) #10
-  br label %netlbl_mgmt_protocols_cb.argprom.argprom.exit
+  br label %netlbl_mgmt_protocols_cb.exit
 
-netlbl_mgmt_protocols_cb.argprom.argprom.exit:    ; preds = %29, %36
+netlbl_mgmt_protocols_cb.exit:                    ; preds = %29, %36
   %42 = icmp slt i32 %16, 0
-  br i1 %42, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread, label %.thread
+  br i1 %42, label %netlbl_mgmt_protocols_cb.exit.thread, label %.thread
 
-.thread:                                          ; preds = %2, %netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread12, %netlbl_mgmt_protocols_cb.argprom.argprom.exit
+.thread:                                          ; preds = %2, %netlbl_mgmt_protocols_cb.exit.thread12, %netlbl_mgmt_protocols_cb.exit
   %.val4 = load ptr, ptr %1, align 8
   %43 = getelementptr i8, ptr %1, i64 8
   %.val5 = load ptr, ptr %43, align 8
@@ -449,7 +449,7 @@ netlbl_mgmt_protocols_cb.argprom.argprom.exit:    ; preds = %29, %36
   %.val5.val = load i32, ptr %45, align 4
   %46 = tail call ptr @genlmsg_put(ptr noundef %0, i32 noundef %.val4.val, i32 noundef %.val5.val, ptr noundef nonnull @netlbl_mgmt_gnl_family, i32 noundef 2, i8 noundef zeroext 7) #10
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread, label %48
+  br i1 %47, label %netlbl_mgmt_protocols_cb.exit.thread, label %48
 
 48:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
@@ -458,9 +458,9 @@ netlbl_mgmt_protocols_cb.argprom.argprom.exit:    ; preds = %29, %36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   %50 = icmp eq i32 %49, 0
   %51 = getelementptr i8, ptr %46, i64 -20
-  br i1 %50, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit9.thread13, label %62
+  br i1 %50, label %netlbl_mgmt_protocols_cb.exit9.thread13, label %62
 
-netlbl_mgmt_protocols_cb.argprom.argprom.exit9.thread13: ; preds = %48
+netlbl_mgmt_protocols_cb.exit9.thread13:          ; preds = %48
   %52 = getelementptr inbounds i8, ptr %0, i64 192
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 184
@@ -476,7 +476,7 @@ netlbl_mgmt_protocols_cb.argprom.argprom.exit9.thread13: ; preds = %48
 
 62:                                               ; preds = %48
   %63 = icmp eq ptr %51, null
-  br i1 %63, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit9, label %64
+  br i1 %63, label %netlbl_mgmt_protocols_cb.exit9, label %64
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds i8, ptr %0, i64 200
@@ -498,13 +498,13 @@ netlbl_mgmt_protocols_cb.argprom.argprom.exit9.thread13: ; preds = %48
   %73 = sub i64 %71, %72
   %74 = trunc i64 %73 to i32
   call void @skb_trim(ptr noundef %0, i32 noundef %74) #10
-  br label %netlbl_mgmt_protocols_cb.argprom.argprom.exit9
+  br label %netlbl_mgmt_protocols_cb.exit9
 
-netlbl_mgmt_protocols_cb.argprom.argprom.exit9:   ; preds = %62, %69
+netlbl_mgmt_protocols_cb.exit9:                   ; preds = %62, %69
   %75 = icmp slt i32 %49, 0
-  br i1 %75, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread, label %.thread15
+  br i1 %75, label %netlbl_mgmt_protocols_cb.exit.thread, label %.thread15
 
-.thread15:                                        ; preds = %2, %netlbl_mgmt_protocols_cb.argprom.argprom.exit9.thread13, %netlbl_mgmt_protocols_cb.argprom.argprom.exit9
+.thread15:                                        ; preds = %2, %netlbl_mgmt_protocols_cb.exit9.thread13, %netlbl_mgmt_protocols_cb.exit9
   %.val6 = load ptr, ptr %1, align 8
   %76 = getelementptr i8, ptr %1, i64 8
   %.val7 = load ptr, ptr %76, align 8
@@ -514,7 +514,7 @@ netlbl_mgmt_protocols_cb.argprom.argprom.exit9:   ; preds = %62, %69
   %.val7.val = load i32, ptr %78, align 4
   %79 = tail call ptr @genlmsg_put(ptr noundef %0, i32 noundef %.val6.val, i32 noundef %.val7.val, ptr noundef nonnull @netlbl_mgmt_gnl_family, i32 noundef 2, i8 noundef zeroext 7) #10
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit11.thread, label %81
+  br i1 %80, label %netlbl_mgmt_protocols_cb.exit11.thread, label %81
 
 81:                                               ; preds = %.thread15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
@@ -524,9 +524,9 @@ netlbl_mgmt_protocols_cb.argprom.argprom.exit9:   ; preds = %62, %69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   %83 = icmp eq i32 %.fr, 0
   %84 = getelementptr i8, ptr %79, i64 -20
-  br i1 %83, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit11.thread17, label %95
+  br i1 %83, label %netlbl_mgmt_protocols_cb.exit11.thread17, label %95
 
-netlbl_mgmt_protocols_cb.argprom.argprom.exit11.thread17: ; preds = %81
+netlbl_mgmt_protocols_cb.exit11.thread17:         ; preds = %81
   %85 = getelementptr inbounds i8, ptr %0, i64 192
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 184
@@ -538,11 +538,11 @@ netlbl_mgmt_protocols_cb.argprom.argprom.exit11.thread17: ; preds = %81
   %93 = sub i64 %91, %92
   %94 = trunc i64 %93 to i32
   store i32 %94, ptr %84, align 4
-  br label %netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread
+  br label %netlbl_mgmt_protocols_cb.exit.thread
 
 95:                                               ; preds = %81
   %96 = icmp eq ptr %84, null
-  br i1 %96, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit11, label %97
+  br i1 %96, label %netlbl_mgmt_protocols_cb.exit11, label %97
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds i8, ptr %0, i64 200
@@ -564,17 +564,17 @@ netlbl_mgmt_protocols_cb.argprom.argprom.exit11.thread17: ; preds = %81
   %106 = sub i64 %104, %105
   %107 = trunc i64 %106 to i32
   call void @skb_trim(ptr noundef %0, i32 noundef %107) #10
-  br label %netlbl_mgmt_protocols_cb.argprom.argprom.exit11
+  br label %netlbl_mgmt_protocols_cb.exit11
 
-netlbl_mgmt_protocols_cb.argprom.argprom.exit11:  ; preds = %95, %102
+netlbl_mgmt_protocols_cb.exit11:                  ; preds = %95, %102
   %108 = icmp slt i32 %.fr, 0
-  br i1 %108, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit11.thread, label %netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread
+  br i1 %108, label %netlbl_mgmt_protocols_cb.exit11.thread, label %netlbl_mgmt_protocols_cb.exit.thread
 
-netlbl_mgmt_protocols_cb.argprom.argprom.exit11.thread: ; preds = %.thread15, %netlbl_mgmt_protocols_cb.argprom.argprom.exit11
-  br label %netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread
+netlbl_mgmt_protocols_cb.exit11.thread:           ; preds = %.thread15, %netlbl_mgmt_protocols_cb.exit11
+  br label %netlbl_mgmt_protocols_cb.exit.thread
 
-netlbl_mgmt_protocols_cb.argprom.argprom.exit.thread: ; preds = %2, %.thread, %9, %netlbl_mgmt_protocols_cb.argprom.argprom.exit11.thread, %netlbl_mgmt_protocols_cb.argprom.argprom.exit11, %netlbl_mgmt_protocols_cb.argprom.argprom.exit11.thread17, %netlbl_mgmt_protocols_cb.argprom.argprom.exit9, %netlbl_mgmt_protocols_cb.argprom.argprom.exit
-  %109 = phi i64 [ 0, %netlbl_mgmt_protocols_cb.argprom.argprom.exit ], [ 1, %netlbl_mgmt_protocols_cb.argprom.argprom.exit9 ], [ 2, %netlbl_mgmt_protocols_cb.argprom.argprom.exit11.thread ], [ 3, %netlbl_mgmt_protocols_cb.argprom.argprom.exit11 ], [ 3, %netlbl_mgmt_protocols_cb.argprom.argprom.exit11.thread17 ], [ 0, %9 ], [ 1, %.thread ], [ %7, %2 ]
+netlbl_mgmt_protocols_cb.exit.thread:             ; preds = %2, %.thread, %9, %netlbl_mgmt_protocols_cb.exit11.thread, %netlbl_mgmt_protocols_cb.exit11, %netlbl_mgmt_protocols_cb.exit11.thread17, %netlbl_mgmt_protocols_cb.exit9, %netlbl_mgmt_protocols_cb.exit
+  %109 = phi i64 [ 0, %netlbl_mgmt_protocols_cb.exit ], [ 1, %netlbl_mgmt_protocols_cb.exit9 ], [ 2, %netlbl_mgmt_protocols_cb.exit11.thread ], [ 3, %netlbl_mgmt_protocols_cb.exit11 ], [ 3, %netlbl_mgmt_protocols_cb.exit11.thread17 ], [ 0, %9 ], [ 1, %.thread ], [ %7, %2 ]
   %110 = and i64 %109, 4294967295
   store i64 %110, ptr %6, align 8
   %111 = getelementptr inbounds i8, ptr %0, i64 112

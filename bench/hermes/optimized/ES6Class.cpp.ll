@@ -30561,7 +30561,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberE
   %conv.i.i = zext i32 %parameters.val6 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %parameters.val, i64 %conv.i.i
   %cmp.not1.i = icmp eq i32 %parameters.val6, 0
-  br i1 %cmp.not1.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit, label %for.body.i
+  br i1 %cmp.not1.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit, %for.body.i
   %36 = phi ptr [ %37, %for.body.i ], [ %ref.tmp5, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit ]
@@ -30575,9 +30575,9 @@ for.body.i:                                       ; preds = %_ZN6hermes25ES6Clas
   store ptr %37, ptr %ref.tmp5, align 8, !alias.scope !17
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.02.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit, label %for.body.i
+  br i1 %cmp.not.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit, label %for.body.i
 
-_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit: ; preds = %for.body.i, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit
+_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_4NodeERPNS2_14IdentifierNodeEbEEEPT_S5_DpOT0_.exit
   %38 = load ptr, ptr %this, align 8
   %state_.i.i.i.i36 = getelementptr inbounds i8, ptr %38, i64 24
   %39 = load ptr, ptr %state_.i.i.i.i36, align 8
@@ -30601,11 +30601,11 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit: ; preds = %for.body.i
   %cmp9.i.i.i.i46 = icmp ugt i64 %add.i.i.i.i45, 262144
   br i1 %cmp9.i.i.i.i46, label %if.then.i.i.i.i64, label %if.end.i.i.i.i47
 
-if.then.i.i.i.i64:                                ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit
+if.then.i.i.i.i64:                                ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
   %call11.i.i.i.i65 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef 80, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i49
 
-if.end.i.i.i.i47:                                 ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit
+if.end.i.i.i.i47:                                 ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
   %add14.i.i.i.i48 = add i64 %47, %43
   %48 = inttoptr i64 %add14.i.i.i.i48 to ptr
   store i64 %add.i.i.i.i45, ptr %offset8.i.i.i.i44, align 8
@@ -31876,7 +31876,7 @@ if.end.i:                                         ; preds = %if.end.i.i.i48, %if
   store ptr %50, ptr %memberKey.i, align 8, !noalias !20
   store i8 %frombool.i.i, ptr %isStatic3.i.i, align 8, !noalias !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i), !noalias !20
-  %call.i.i = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.argprom(ptr %classMemberIndexByIdentifier.sroa.0.060.i, i32 %classMemberIndexByIdentifier.sroa.23.057.i, ptr noundef nonnull readonly align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i)
+  %call.i.i = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %classMemberIndexByIdentifier.sroa.0.060.i, i32 %classMemberIndexByIdentifier.sroa.23.057.i, ptr noundef nonnull readonly align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i)
   %52 = load ptr, ptr %TheBucket.i.i, align 8, !noalias !20
   %idx.ext.i.i.i.i = zext i32 %classMemberIndexByIdentifier.sroa.23.057.i to i64
   %add.ptr.i.i.i.i50 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.62", ptr %classMemberIndexByIdentifier.sroa.0.060.i, i64 %idx.ext.i.i.i.i
@@ -31896,7 +31896,7 @@ if.else.i:                                        ; preds = %if.end.i
   %55 = load i32, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !20
   %conv.i.i = zext i32 %55 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i.i), !noalias !20
-  %call.i.i.i51 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.argprom(ptr %classMemberIndexByIdentifier.sroa.0.060.i, i32 %classMemberIndexByIdentifier.sroa.23.057.i, ptr noundef nonnull readonly align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i)
+  %call.i.i.i51 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %classMemberIndexByIdentifier.sroa.0.060.i, i32 %classMemberIndexByIdentifier.sroa.23.057.i, ptr noundef nonnull readonly align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i)
   %56 = load ptr, ptr %TheBucket.i.i.i, align 8, !noalias !20
   br i1 %call.i.i.i51, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_.exit.i, label %if.end.i.i22.i
 
@@ -31990,7 +31990,7 @@ for.body.i5.i.i.i.i.i.i:                          ; preds = %_ZN4llvh12DenseMapB
   br i1 %or.cond.i.i.i.i.i.i.i, label %if.end.i7.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i5.i.i.i.i.i.i
-  %60 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.argprom(ptr nonnull %call.i.i.i.i.i.i.i, i32 %.sroa.speculated.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %B.016.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %DestBucket.i.i.i.i.i.i.i)
+  %60 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr nonnull %call.i.i.i.i.i.i.i, i32 %.sroa.speculated.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %B.016.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %DestBucket.i.i.i.i.i.i.i)
   %61 = load ptr, ptr %DestBucket.i.i.i.i.i.i.i, align 8, !noalias !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %61, ptr noundef nonnull align 8 dereferenceable(9) %B.016.i.i.i.i.i.i.i, i64 9, i1 false)
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 16
@@ -32014,7 +32014,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseM
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4growEj.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i.i
   %classMemberIndexByIdentifier.sroa.11.6.i = phi i32 [ %classMemberIndexByIdentifier.sroa.11.5.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E18moveFromOldBucketsEPS8_SB_.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.i.i ]
-  %63 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.argprom(ptr nonnull %call.i.i.i.i.i.i.i, i32 %.sroa.speculated.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.addr.i.i.i.i.i)
+  %63 = call fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr nonnull %call.i.i.i.i.i.i.i, i32 %.sroa.speculated.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(9) %memberKey.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.addr.i.i.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %TheBucket.addr.i.i.i.i.i, align 8, !noalias !20
   br label %if.end12.i.i.i.i.i
 
@@ -32885,7 +32885,7 @@ _ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOB
   %conv.i.i.i161 = zext i32 %statements.val20 to i64
   %add.ptr.i.i.i162 = getelementptr inbounds ptr, ptr %statements.val, i64 %conv.i.i.i161
   %cmp.not1.i.i = icmp eq i32 %statements.val20, 0
-  br i1 %cmp.not1.i.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit.i, label %for.body.i.i
+  br i1 %cmp.not1.i.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit, %for.body.i.i
   %222 = phi ptr [ %223, %for.body.i.i ], [ %stmtList.i, %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit ]
@@ -32899,9 +32899,9 @@ for.body.i.i:                                     ; preds = %_ZN6hermes25ES6Clas
   store ptr %223, ptr %stmtList.i, align 8, !alias.scope !25
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.02.i.i, i64 8
   %cmp.not.i.i163 = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i162
-  br i1 %cmp.not.i.i163, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit.i, label %for.body.i.i
+  br i1 %cmp.not.i.i163, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i, label %for.body.i.i
 
-_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit.i: ; preds = %for.body.i.i, %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit
+_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i: ; preds = %for.body.i.i, %_ZN6hermes25ES6ClassesTransformations13appendMethodsEPNS_6ESTree4NodeERKN12_GLOBAL__N_120ResolvedClassMembersERNS4_10NodeVectorE.exit
   %224 = load ptr, ptr %this, align 8
   %state_.i.i.i.i.i.i164 = getelementptr inbounds i8, ptr %224, i64 24
   %225 = load ptr, ptr %state_.i.i.i.i.i.i164, align 8
@@ -32925,11 +32925,11 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit.i: ; preds = %for.body
   %cmp9.i.i.i.i.i.i173 = icmp ugt i64 %add.i.i.i.i.i.i172, 262144
   br i1 %cmp9.i.i.i.i.i.i173, label %if.then.i.i.i.i.i.i210, label %if.end.i.i.i.i.i.i174
 
-if.then.i.i.i.i.i.i210:                           ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit.i
+if.then.i.i.i.i.i.i210:                           ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i
   %call11.i.i.i.i.i.i211 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %224, i64 noundef 72, i64 noundef 8) #16
   br label %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit.i
 
-if.end.i.i.i.i.i.i174:                            ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit.i
+if.end.i.i.i.i.i.i174:                            ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit.i
   %add14.i.i.i.i.i.i175 = add i64 %233, %229
   %234 = inttoptr i64 %add14.i.i.i.i.i.i175 to ptr
   store i64 %add.i.i.i.i.i.i172, ptr %offset8.i.i.i.i.i.i171, align 8
@@ -33287,7 +33287,7 @@ if.end.i.i.i.i.i.i.i101.i:                        ; preds = %_ZN6hermes6ESTree4N
   br label %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i.i
 
 _ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i101.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i92.i
-  br i1 %cmp.not.i.i.i.i196, label %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.argprom.exit, label %if.then.i.i.i106.i
+  br i1 %cmp.not.i.i.i.i196, label %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.exit, label %if.then.i.i.i106.i
 
 if.then.i.i.i106.i:                               ; preds = %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i.i
   %sourceRange_.i.i.i.i107.i = getelementptr inbounds i8, ptr %classNode, i64 24
@@ -33302,9 +33302,9 @@ if.then.i.i.i106.i:                               ; preds = %_ZN6hermes6ESTree18
   %retval.sroa.0.0.copyload.i9.i.i.i114.i = load ptr, ptr %debugLoc_.i.i.i.i113.i, align 8
   %debugLoc_.i10.i.i.i115.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i93.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i114.i, ptr %debugLoc_.i10.i.i.i115.i, align 8
-  br label %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.argprom.exit
+  br label %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.exit
 
-_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.argprom.exit: ; preds = %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i.i, %if.then.i.i.i106.i
+_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.exit: ; preds = %_ZN6hermes6ESTree18CallExpressionNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEE.exit.i.i, %if.then.i.i.i106.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stmtList.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp5.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp13.i)
@@ -33313,11 +33313,11 @@ _ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_
   %cmp.i.i.i.i214 = icmp eq ptr %295, %add.ptr.i.i.i.i.i.i.i46
   br i1 %cmp.i.i.i.i214, label %_ZN12_GLOBAL__N_120ResolvedClassMembersD2Ev.exit, label %if.then.i.i.i215
 
-if.then.i.i.i215:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.argprom.exit
+if.then.i.i.i215:                                 ; preds = %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.exit
   call void @free(ptr noundef %295) #16
   br label %_ZN12_GLOBAL__N_120ResolvedClassMembersD2Ev.exit
 
-_ZN12_GLOBAL__N_120ResolvedClassMembersD2Ev.exit: ; preds = %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.argprom.exit, %if.then.i.i.i215
+_ZN12_GLOBAL__N_120ResolvedClassMembersD2Ev.exit: ; preds = %_ZN6hermes25ES6ClassesTransformations17blockToExpressionEPNS_6ESTree4NodeERKN12_GLOBAL__N_110NodeVectorES3_.exit, %if.then.i.i.i215
   %296 = load ptr, ptr %statements, align 8
   %cmp.i.i.i.i217 = icmp eq ptr %296, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i217, label %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit219, label %if.then.i.i.i218
@@ -34573,7 +34573,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberE
   %conv.i.i = zext i32 %parameters.val6 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %parameters.val, i64 %conv.i.i
   %cmp.not1.i = icmp eq i32 %parameters.val6, 0
-  br i1 %cmp.not1.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit, label %for.body.i
+  br i1 %cmp.not1.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit, %for.body.i
   %36 = phi ptr [ %37, %for.body.i ], [ %ref.tmp6, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit ]
@@ -34587,9 +34587,9 @@ for.body.i:                                       ; preds = %_ZN6hermes25ES6Clas
   store ptr %37, ptr %ref.tmp6, align 8, !alias.scope !28
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.02.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit, label %for.body.i
+  br i1 %cmp.not.i, label %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit, label %for.body.i
 
-_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit: ; preds = %for.body.i, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit
+_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit: ; preds = %for.body.i, %_ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree20MemberExpressionNodeEJRPNS2_14IdentifierNodeES6_bEEEPT_PNS2_4NodeEDpOT0_.exit
   %38 = load ptr, ptr %this, align 8
   %state_.i.i.i.i43 = getelementptr inbounds i8, ptr %38, i64 24
   %39 = load ptr, ptr %state_.i.i.i.i43, align 8
@@ -34613,11 +34613,11 @@ _ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit: ; preds = %for.body.i
   %cmp9.i.i.i.i53 = icmp ugt i64 %add.i.i.i.i52, 262144
   br i1 %cmp9.i.i.i.i53, label %if.then.i.i.i.i71, label %if.end.i.i.i.i54
 
-if.then.i.i.i.i71:                                ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit
+if.then.i.i.i.i71:                                ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
   %call11.i.i.i.i72 = call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %38, i64 noundef 80, i64 noundef 8) #16
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit.i56
 
-if.end.i.i.i.i54:                                 ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom.exit
+if.end.i.i.i.i54:                                 ; preds = %_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.exit
   %add14.i.i.i.i55 = add i64 %47, %43
   %48 = inttoptr i64 %add14.i.i.i.i55 to ptr
   store i64 %add.i.i.i.i52, ptr %offset8.i.i.i.i51, align 8
@@ -34681,11 +34681,11 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18CallExp
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.argprom(ptr %this.0.val, i32 %this.16.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %Val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %FoundBucket) unnamed_addr #9 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %this.0.val, i32 %this.16.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %Val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %FoundBucket) unnamed_addr #9 align 2 {
 entry:
   %helper.i.i.sroa.0.i.i = alloca [5 x i8], align 8
   %cmp.i = icmp eq i32 %this.16.val, 0
-  br i1 %cmp.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %Val, align 8
@@ -34752,7 +34752,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseM
   %10 = and i8 %9, 1
   %cmp.i.i10.i = icmp eq i8 %10, 0
   %11 = select i1 %cmp.i.i.i9.i, i1 %cmp.i.i10.i, i1 false
-  br i1 %11, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit, label %if.end10.i
+  br i1 %11, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E12getHashValueERKS3_.exit.i, %if.end16.i
   %agg.tmp6.sroa.2.0.copyload16.i = phi i8 [ %agg.tmp6.sroa.2.0.copyload.i, %if.end16.i ], [ %agg.tmp6.sroa.2.0.copyload8.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E12getHashValueERKS3_.exit.i ]
@@ -34770,7 +34770,7 @@ if.end10.i:                                       ; preds = %_ZN4llvh12DenseMapB
 if.then15.i:                                      ; preds = %if.end10.i
   %tobool.not.i = icmp eq ptr %FoundTombstone.012.i, null
   %cond.i = select i1 %tobool.not.i, ptr %add.ptr14.i, ptr %FoundTombstone.012.i
-  br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit
+  br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit
 
 if.end16.i:                                       ; preds = %if.end10.i
   %cmp.i.i.i18.i = icmp eq ptr %agg.tmp6.sroa.0.0.copyload15.i, inttoptr (i64 -16 to ptr)
@@ -34791,9 +34791,9 @@ if.end16.i:                                       ; preds = %if.end10.i
   %16 = and i8 %15, 1
   %cmp.i.i.i = icmp eq i8 %16, 0
   %17 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i, i1 false
-  br i1 %17, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit, label %if.end10.i, !llvm.loop !32
+  br i1 %17, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit, label %if.end10.i, !llvm.loop !32
 
-_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.argprom.exit: ; preds = %if.end16.i, %entry, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E12getHashValueERKS3_.exit.i, %if.then15.i
+_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_.exit: ; preds = %if.end16.i, %entry, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E12getHashValueERKS3_.exit.i, %if.then15.i
   %cond.sink.i = phi ptr [ %cond.i, %if.then15.i ], [ null, %entry ], [ %add.ptr5.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E12getHashValueERKS3_.exit.i ], [ %add.ptr.i, %if.end16.i ]
   %retval.0.i = phi i1 [ false, %if.then15.i ], [ false, %entry ], [ true, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E12getHashValueERKS3_.exit.i ], [ true, %if.end16.i ]
   store ptr %cond.sink.i, ptr %FoundBucket, align 8
@@ -35144,18 +35144,18 @@ attributes #18 = { noreturn nounwind }
 !15 = distinct !{!15, !10}
 !16 = distinct !{!16, !10}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom: %agg.result"}
-!19 = distinct !{!19, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom"}
+!18 = distinct !{!18, !19, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv: %agg.result"}
+!19 = distinct !{!19, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv"}
 !20 = !{!21}
 !21 = distinct !{!21, !22, !"_ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE: %agg.result"}
 !22 = distinct !{!22, !"_ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBodyNodeE"}
 !23 = distinct !{!23, !10}
 !24 = distinct !{!24, !10}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom: %agg.result"}
-!27 = distinct !{!27, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom"}
+!26 = distinct !{!26, !27, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv: %agg.result"}
+!27 = distinct !{!27, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom: %agg.result"}
-!30 = distinct !{!30, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv.argprom"}
+!29 = distinct !{!29, !30, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv: %agg.result"}
+!30 = distinct !{!30, !"_ZNK12_GLOBAL__N_110NodeVector10toNodeListEv"}
 !31 = !{!"branch_weights", i32 1, i32 1048575}
 !32 = distinct !{!32, !10}

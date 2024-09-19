@@ -231,7 +231,7 @@ define dso_local void @lexer_init(ptr nocapture noundef %0) local_unnamed_addr #
   br i1 %.not45, label %42, label %.thread
 
 .thread:                                          ; preds = %27, %39, %.loopexit
-  tail call void (ptr, ptr, ...) @add_error_token_at_start.retelim(ptr noundef %0, ptr noundef nonnull @.str)
+  tail call void (ptr, ptr, ...) @add_error_token_at_start(ptr noundef %0, ptr noundef nonnull @.str)
   br label %42
 
 42:                                               ; preds = %.thread, %.loopexit
@@ -679,7 +679,7 @@ return_token.exit:                                ; preds = %skip_whitespace.exi
   br label %298
 
 char_is_letter_.exit:                             ; preds = %119
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str.2)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str.2)
   br label %298
 
 123:                                              ; preds = %117
@@ -763,11 +763,11 @@ char_is_letter_.exit:                             ; preds = %119
   ]
 
 136:                                              ; preds = %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133, %133
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 37, ptr noundef nonnull @.str.3)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 37, ptr noundef nonnull @.str.3)
   br label %298
 
 char_is_letter.exit:                              ; preds = %133
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.4)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.4)
   br label %298
 
 match.exit:                                       ; preds = %131
@@ -775,11 +775,11 @@ match.exit:                                       ; preds = %131
   br label %298
 
 138:                                              ; preds = %117
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull @.str.5)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull @.str.5)
   br label %298
 
 139:                                              ; preds = %117
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull @.str.6)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull @.str.6)
   br label %298
 
 140:                                              ; preds = %117
@@ -790,15 +790,15 @@ match.exit:                                       ; preds = %131
 142:                                              ; preds = %140
   %143 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %143, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 43, ptr noundef nonnull @.str.7)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 43, ptr noundef nonnull @.str.7)
   br label %298
 
 match.exit164:                                    ; preds = %140
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 17, ptr noundef nonnull @.str.8)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 17, ptr noundef nonnull @.str.8)
   br label %298
 
 144:                                              ; preds = %117
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.9)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.9)
   br label %298
 
 145:                                              ; preds = %117
@@ -809,15 +809,15 @@ match.exit164:                                    ; preds = %140
 147:                                              ; preds = %145
   %148 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %148, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 44, ptr noundef nonnull @.str.10)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 44, ptr noundef nonnull @.str.10)
   br label %298
 
 match.exit166:                                    ; preds = %145
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 19, ptr noundef nonnull @.str.11)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 19, ptr noundef nonnull @.str.11)
   br label %298
 
 149:                                              ; preds = %117
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 26, ptr noundef nonnull @.str.12)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 26, ptr noundef nonnull @.str.12)
   br label %298
 
 150:                                              ; preds = %117
@@ -828,15 +828,15 @@ match.exit166:                                    ; preds = %145
 152:                                              ; preds = %150
   %153 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %153, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 45, ptr noundef nonnull @.str.13)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 45, ptr noundef nonnull @.str.13)
   br label %298
 
 match.exit168:                                    ; preds = %150
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 18, ptr noundef nonnull @.str.14)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 18, ptr noundef nonnull @.str.14)
   br label %298
 
 154:                                              ; preds = %117
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 25, ptr noundef nonnull @.str.15)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 25, ptr noundef nonnull @.str.15)
   br label %298
 
 155:                                              ; preds = %117
@@ -854,19 +854,19 @@ match.exit168:                                    ; preds = %150
 160:                                              ; preds = %157
   %161 = getelementptr inbounds i8, ptr %6, i64 3
   store ptr %161, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 61, ptr noundef nonnull @.str.16)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 61, ptr noundef nonnull @.str.16)
   br label %298
 
 match.exit172:                                    ; preds = %157
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 36, ptr noundef nonnull @.str.17)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 36, ptr noundef nonnull @.str.17)
   br label %298
 
 match.exit170:                                    ; preds = %155
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.18)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull @.str.18)
   br label %298
 
 162:                                              ; preds = %117
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str.19)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str.19)
   br label %298
 
 163:                                              ; preds = %117
@@ -877,11 +877,11 @@ match.exit170:                                    ; preds = %155
 165:                                              ; preds = %163
   %166 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %166, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 58, ptr noundef nonnull @.str.20)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 58, ptr noundef nonnull @.str.20)
   br label %298
 
 match.exit174:                                    ; preds = %163
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull @.str.21)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull @.str.21)
   br label %298
 
 167:                                              ; preds = %117
@@ -894,17 +894,17 @@ match.exit174:                                    ; preds = %163
 169:                                              ; preds = %167
   %170 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %170, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 31, ptr noundef nonnull @.str.22)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 31, ptr noundef nonnull @.str.22)
   br label %298
 
 171:                                              ; preds = %167
   %172 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %172, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 50, ptr noundef nonnull @.str.23)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 50, ptr noundef nonnull @.str.23)
   br label %298
 
 match.exit178:                                    ; preds = %167
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.24)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.24)
   br label %298
 
 173:                                              ; preds = %117
@@ -932,7 +932,7 @@ match.exit178:                                    ; preds = %167
 182:                                              ; preds = %179, %175
   %183 = getelementptr inbounds i8, ptr %6, i64 3
   store ptr %183, ptr %2, align 8
-  tail call fastcc void @parse_doc_start.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @parse_doc_start(ptr noundef nonnull %0)
   br label %298
 
 match.exit180:                                    ; preds = %173
@@ -942,11 +942,11 @@ match.exit180:                                    ; preds = %173
 184:                                              ; preds = %match.exit180
   %185 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %185, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 35, ptr noundef nonnull @.str.25)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 35, ptr noundef nonnull @.str.25)
   br label %298
 
 match.exit182:                                    ; preds = %match.exit180
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.26)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.26)
   br label %298
 
 186:                                              ; preds = %117
@@ -957,11 +957,11 @@ match.exit182:                                    ; preds = %match.exit180
 188:                                              ; preds = %186
   %189 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %189, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 49, ptr noundef nonnull @.str.27)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 49, ptr noundef nonnull @.str.27)
   br label %298
 
 match.exit184:                                    ; preds = %186
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 27, ptr noundef nonnull @.str.28)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 27, ptr noundef nonnull @.str.28)
   br label %298
 
 190:                                              ; preds = %117
@@ -974,17 +974,17 @@ match.exit184:                                    ; preds = %186
 192:                                              ; preds = %190
   %193 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %193, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 41, ptr noundef nonnull @.str.29)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 41, ptr noundef nonnull @.str.29)
   br label %298
 
 194:                                              ; preds = %190
   %195 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %195, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 39, ptr noundef nonnull @.str.30)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 39, ptr noundef nonnull @.str.30)
   br label %298
 
 match.exit188:                                    ; preds = %190
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 10, ptr noundef nonnull @.str.31)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 10, ptr noundef nonnull @.str.31)
   br label %298
 
 196:                                              ; preds = %117
@@ -995,11 +995,11 @@ match.exit188:                                    ; preds = %190
 198:                                              ; preds = %196
   %199 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %199, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.32)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.32)
   br label %298
 
 match.exit190:                                    ; preds = %196
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @.str.33)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @.str.33)
   br label %298
 
 200:                                              ; preds = %117
@@ -1012,17 +1012,17 @@ match.exit190:                                    ; preds = %196
 202:                                              ; preds = %200
   %203 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %203, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 57, ptr noundef nonnull @.str.34)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 57, ptr noundef nonnull @.str.34)
   br label %298
 
 204:                                              ; preds = %200
   %205 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %205, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 38, ptr noundef nonnull @.str.35)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 38, ptr noundef nonnull @.str.35)
   br label %298
 
 match.exit194:                                    ; preds = %200
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull @.str.36)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull @.str.36)
   br label %298
 
 206:                                              ; preds = %117
@@ -1042,21 +1042,21 @@ match.exit194:                                    ; preds = %200
 211:                                              ; preds = %208
   %212 = getelementptr inbounds i8, ptr %6, i64 3
   store ptr %212, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 62, ptr noundef nonnull @.str.37)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 62, ptr noundef nonnull @.str.37)
   br label %298
 
 match.exit198:                                    ; preds = %208
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 59, ptr noundef nonnull @.str.38)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 59, ptr noundef nonnull @.str.38)
   br label %298
 
 213:                                              ; preds = %206
   %214 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %214, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 42, ptr noundef nonnull @.str.39)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 42, ptr noundef nonnull @.str.39)
   br label %298
 
 match.exit200:                                    ; preds = %206
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.40)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.40)
   br label %298
 
 215:                                              ; preds = %117
@@ -1078,33 +1078,33 @@ match.exit200:                                    ; preds = %206
 220:                                              ; preds = %217
   %221 = getelementptr inbounds i8, ptr %6, i64 3
   store ptr %221, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 63, ptr noundef nonnull @.str.41)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 63, ptr noundef nonnull @.str.41)
   br label %298
 
 match.exit204:                                    ; preds = %217
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 60, ptr noundef nonnull @.str.42)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 60, ptr noundef nonnull @.str.42)
   br label %298
 
 222:                                              ; preds = %215
   %223 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %223, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 55, ptr noundef nonnull @.str.43)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 55, ptr noundef nonnull @.str.43)
   br label %298
 
 224:                                              ; preds = %215
   %225 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %225, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.44)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.44)
   br label %298
 
 226:                                              ; preds = %215
   %227 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %227, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.45)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.45)
   br label %298
 
 match.exit210:                                    ; preds = %215
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 11, ptr noundef nonnull @.str.46)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 11, ptr noundef nonnull @.str.46)
   br label %298
 
 228:                                              ; preds = %117
@@ -1115,11 +1115,11 @@ match.exit210:                                    ; preds = %215
 230:                                              ; preds = %228
   %231 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %231, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.47)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.47)
   br label %298
 
 match.exit212:                                    ; preds = %228
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 21, ptr noundef nonnull @.str.48)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 21, ptr noundef nonnull @.str.48)
   br label %298
 
 232:                                              ; preds = %117
@@ -1132,17 +1132,17 @@ match.exit212:                                    ; preds = %228
 234:                                              ; preds = %232
   %235 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %235, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 29, ptr noundef nonnull @.str.49)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 29, ptr noundef nonnull @.str.49)
   br label %298
 
 236:                                              ; preds = %232
   %237 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %237, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.50)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.50)
   br label %298
 
 match.exit216:                                    ; preds = %232
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.51)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.51)
   br label %298
 
 238:                                              ; preds = %117
@@ -1156,23 +1156,23 @@ match.exit216:                                    ; preds = %232
 240:                                              ; preds = %238
   %241 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %241, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 54, ptr noundef nonnull @.str.52)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 54, ptr noundef nonnull @.str.52)
   br label %298
 
 242:                                              ; preds = %238
   %243 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %243, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 51, ptr noundef nonnull @.str.53)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 51, ptr noundef nonnull @.str.53)
   br label %298
 
 244:                                              ; preds = %238
   %245 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %245, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 33, ptr noundef nonnull @.str.54)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 33, ptr noundef nonnull @.str.54)
   br label %298
 
 match.exit222:                                    ; preds = %238
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @.str.55)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @.str.55)
   br label %298
 
 246:                                              ; preds = %117
@@ -1185,17 +1185,17 @@ match.exit222:                                    ; preds = %238
 248:                                              ; preds = %246
   %249 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %249, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 53, ptr noundef nonnull @.str.56)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 53, ptr noundef nonnull @.str.56)
   br label %298
 
 250:                                              ; preds = %246
   %251 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %251, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 52, ptr noundef nonnull @.str.57)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 52, ptr noundef nonnull @.str.57)
   br label %298
 
 match.exit226:                                    ; preds = %246
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.58)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.58)
   br label %298
 
 252:                                              ; preds = %117
@@ -1209,23 +1209,23 @@ match.exit226:                                    ; preds = %246
 254:                                              ; preds = %252
   %255 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %255, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 30, ptr noundef nonnull @.str.59)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 30, ptr noundef nonnull @.str.59)
   br label %298
 
 256:                                              ; preds = %252
   %257 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %257, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 47, ptr noundef nonnull @.str.60)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 47, ptr noundef nonnull @.str.60)
   br label %298
 
 258:                                              ; preds = %252
   %259 = getelementptr inbounds i8, ptr %6, i64 2
   store ptr %259, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 46, ptr noundef nonnull @.str.61)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 46, ptr noundef nonnull @.str.61)
   br label %298
 
 match.exit232:                                    ; preds = %252
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 20, ptr noundef nonnull @.str.62)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 20, ptr noundef nonnull @.str.62)
   br label %298
 
 260:                                              ; preds = %117
@@ -1309,11 +1309,11 @@ backtrack.exit233:                                ; preds = %284, %287
 
 295:                                              ; preds = %293
   %296 = zext i8 %99 to i32
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.63, i32 noundef %296)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.63, i32 noundef %296)
   br label %298
 
 297:                                              ; preds = %293
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, i32 noundef %100)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, i32 noundef %100)
   br label %298
 
 298:                                              ; preds = %244, %match.exit222, %236, %match.exit216, %230, %match.exit212, %226, %match.exit210, %213, %match.exit200, %204, %match.exit194, %198, %match.exit190, %194, %match.exit188, %188, %match.exit184, %184, %match.exit182, %171, %match.exit178, %165, %match.exit174, %147, %match.exit166, %142, %match.exit164, %297, %295, %backtrack.exit233, %backtrack.exit, %274, %262, %match.exit232, %258, %256, %254, %match.exit226, %250, %248, %242, %240, %234, %224, %222, %match.exit204, %220, %match.exit198, %211, %202, %192, %182, %169, %162, %match.exit170, %match.exit172, %160, %154, %match.exit168, %152, %149, %144, %139, %138, %match.exit, %char_is_letter.exit, %136, %129, %127, %125, %123, %char_is_letter_.exit, %121, %.thread, %return_token.exit
@@ -1322,7 +1322,7 @@ backtrack.exit233:                                ; preds = %284, %287
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_error_token_at_start.retelim(ptr nocapture noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @add_error_token_at_start(ptr nocapture noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1413,7 +1413,7 @@ declare void @sema_verror_range(i64, ptr noundef, ptr noundef) local_unnamed_add
 declare void @llvm.va_end.p0(ptr) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @return_token.retelim(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc void @return_token(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1536,7 +1536,7 @@ define internal fastcc noundef zeroext i1 @scan_doc_line(ptr nocapture noundef %
 22:                                               ; preds = %18, %14
   %23 = getelementptr inbounds i8, ptr %.promoted99, i64 1
   store ptr %23, ptr %2, align 8
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 187, ptr noundef nonnull @.str.68)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 187, ptr noundef nonnull @.str.68)
   br label %lex_doc_directive.exit
 
 .loopexit73:                                      ; preds = %.loopexit73.preheader, %26
@@ -1588,7 +1588,7 @@ define internal fastcc noundef zeroext i1 @scan_doc_line(ptr nocapture noundef %
   br i1 %.not.i, label %47, label %46
 
 46:                                               ; preds = %43
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.70)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.70)
   br label %lex_doc_directive.exit
 
 47:                                               ; preds = %43
@@ -1707,7 +1707,7 @@ return_token.exit:                                ; preds = %73, %83
   br i1 %108, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.loopexit73, %105
-  tail call void (ptr, ptr, ...) @add_error_token_at_start.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.69)
+  tail call void (ptr, ptr, ...) @add_error_token_at_start(ptr noundef nonnull %0, ptr noundef nonnull @.str.69)
   br label %lex_doc_directive.exit
 
 lex_doc_directive.exit:                           ; preds = %47, %46, %40, %.loopexit, %return_token.exit, %22
@@ -1838,7 +1838,7 @@ define internal fastcc noundef zeroext i1 @scan_ident(ptr nocapture noundef %0, 
   br i1 %.not51, label %33, label %34
 
 33:                                               ; preds = %32
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.71)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.71)
   br label %101
 
 .sink.split:                                      ; preds = %31, %29, %28
@@ -1885,7 +1885,7 @@ define internal fastcc noundef zeroext i1 @scan_ident(ptr nocapture noundef %0, 
   br i1 %or.cond, label %53, label %54
 
 53:                                               ; preds = %51
-  tail call fastcc void @return_token.retelim(ptr noundef nonnull %0, i32 noundef 28, ptr noundef nonnull @.str.72)
+  tail call fastcc void @return_token(ptr noundef nonnull %0, i32 noundef 28, ptr noundef nonnull @.str.72)
   br label %101
 
 54:                                               ; preds = %51
@@ -1894,11 +1894,11 @@ define internal fastcc noundef zeroext i1 @scan_ident(ptr nocapture noundef %0, 
   br i1 %or.cond3, label %56, label %57
 
 56:                                               ; preds = %54
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.73, i32 noundef %7)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.73, i32 noundef %7)
   br label %101
 
 57:                                               ; preds = %54
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.74)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.74)
   br label %101
 
 58:                                               ; preds = %44
@@ -1991,7 +1991,7 @@ match.exit102.lr.ph.lr.ph:                        ; preds = %1
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %8, ptr %2, align 8
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.75)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.75)
   br label %.loopexit
 
 match.exit102.thread:                             ; preds = %.thread124
@@ -2009,7 +2009,7 @@ match.exit.backedge:                              ; preds = %match.exit102.lr.ph
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %match.exit.backedge
-  tail call void (ptr, ptr, ...) @add_error_token_at_start.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.76)
+  tail call void (ptr, ptr, ...) @add_error_token_at_start(ptr noundef nonnull %0, ptr noundef nonnull @.str.76)
   br label %.loopexit
 
 15:                                               ; preds = %match.exit.backedge
@@ -2027,7 +2027,7 @@ match.exit.backedge:                              ; preds = %match.exit102.lr.ph
   br i1 %20, label %.loopexit132, label %.thread124
 
 .loopexit132:                                     ; preds = %.thread117, %15
-  tail call void (ptr, ptr, ...) @add_error_token_at_start.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.77)
+  tail call void (ptr, ptr, ...) @add_error_token_at_start(ptr noundef nonnull %0, ptr noundef nonnull @.str.77)
   br label %.loopexit
 
 21:                                               ; preds = %15
@@ -2106,7 +2106,7 @@ match.exit.backedge:                              ; preds = %match.exit102.lr.ph
   br i1 %exitcond.not.i, label %scan_utf8.exit, label %38, !llvm.loop !17
 
 scan_utf8.exit.thread:                            ; preds = %24, %35, %46, %.thread.i
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.87)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.87)
   br label %.loopexit
 
 scan_utf8.exit:                                   ; preds = %49
@@ -2133,7 +2133,7 @@ scan_utf8.exit.thread120:                         ; preds = %scan_utf8.exit
   br label %backtrack.exit
 
 backtrack.exit:                                   ; preds = %55, %58
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.78)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.78)
   br label %.loopexit
 
 61:                                               ; preds = %scan_utf8.exit.thread120
@@ -2178,11 +2178,11 @@ backtrack.exit:                                   ; preds = %55, %58
 84:                                               ; preds = %80, %77
   %85 = getelementptr inbounds i8, ptr %10, i64 2
   store ptr %85, ptr %2, align 8
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, i32 noundef %75)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, i32 noundef %75)
   br label %.loopexit
 
 86:                                               ; preds = %71
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.80)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.80)
   br label %.loopexit
 
 87:                                               ; preds = %67
@@ -2253,7 +2253,7 @@ scan_hex_literal.exit.thread:                     ; preds = %scan_hex_literal.ex
   %119 = ptrtoint ptr %10 to i64
   %120 = sub i64 %118, %119
   %121 = trunc i64 %120 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @add_error_token_at.retelim(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %121, ptr noundef nonnull @.str.81)
+  tail call void (ptr, ptr, i32, ptr, ...) @add_error_token_at(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %121, ptr noundef nonnull @.str.81)
   br label %.loopexit
 
 122:                                              ; preds = %scan_hex_literal.exit
@@ -2327,7 +2327,7 @@ scan_hex_literal.exit113.thread:                  ; preds = %scan_hex_literal.ex
   %162 = trunc i64 %161 to i32
   %163 = icmp eq i8 %69, 117
   %164 = select i1 %163, ptr @.str.83, ptr @.str.84
-  tail call void (ptr, ptr, i32, ptr, ...) @add_error_token_at.retelim(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %162, ptr noundef nonnull @.str.82, ptr noundef nonnull %164, i32 noundef %153)
+  tail call void (ptr, ptr, i32, ptr, ...) @add_error_token_at(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %162, ptr noundef nonnull @.str.82, ptr noundef nonnull %164, i32 noundef %153)
   br label %.loopexit
 
 165:                                              ; preds = %scan_hex_literal.exit113
@@ -2349,7 +2349,7 @@ match.exit115.thread:                             ; preds = %165
 
 168:                                              ; preds = %165
   %169 = zext nneg i8 %69 to i32
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.85, i32 noundef %169)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.85, i32 noundef %169)
   br label %.loopexit
 
 .thread124.loopexit:                              ; preds = %93
@@ -2447,7 +2447,7 @@ set_generic_token.exit:                           ; preds = %196, %207
   br label %.loopexit
 
 221:                                              ; preds = %124, %23
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.86)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.86)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %scan_utf8.exit, %scan_utf8.exit.thread, %221, %set_generic_token.exit, %168, %scan_hex_literal.exit113.thread, %scan_hex_literal.exit.thread, %86, %84, %backtrack.exit, %.loopexit132, %14, %7
@@ -2483,7 +2483,7 @@ define internal fastcc noundef zeroext i1 @scan_raw_string(ptr nocapture noundef
   br i1 %.not, label %16, label %18
 
 12:                                               ; preds = %9
-  tail call void (ptr, ptr, ...) @add_error_token_at_start.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.89)
+  tail call void (ptr, ptr, ...) @add_error_token_at_start(ptr noundef nonnull %0, ptr noundef nonnull @.str.89)
   br label %75
 
 13:                                               ; preds = %.thread42
@@ -2694,7 +2694,7 @@ define internal fastcc noundef zeroext i1 @scan_string(ptr nocapture noundef %0)
   br label %backtrack.exit
 
 backtrack.exit:                                   ; preds = %26, %30, %.critedge
-  tail call void (ptr, ptr, ...) @add_error_token_at_start.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.90)
+  tail call void (ptr, ptr, ...) @add_error_token_at_start(ptr noundef nonnull %0, ptr noundef nonnull @.str.90)
   %.promoted.i = load ptr, ptr %2, align 8
   br label %33
 
@@ -2740,7 +2740,7 @@ backtrack.exit:                                   ; preds = %26, %30, %.critedge
   br label %backtrack.exit68
 
 backtrack.exit68:                                 ; preds = %.loopexit, %47
-  tail call void (ptr, ptr, ...) @add_error_token_at_start.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.91)
+  tail call void (ptr, ptr, ...) @add_error_token_at_start(ptr noundef nonnull %0, ptr noundef nonnull @.str.91)
   %.promoted.i69 = load ptr, ptr %2, align 8
   br label %50
 
@@ -3053,7 +3053,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   br label %append_esc_string_token.exit
 
 272:                                              ; preds = %59, %63, %72, %85, %94, %103, %112, %129, %138, %147, %156, %165, %174, %183, %192
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.92)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.92)
   %.promoted.i71 = load ptr, ptr %2, align 8
   br label %273
 
@@ -3207,7 +3207,7 @@ consume_to_end_quote.exit:                        ; preds = %273, %273, %33, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_error_token_at_current.retelim(ptr nocapture noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @add_error_token_at_current(ptr nocapture noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3290,7 +3290,7 @@ set_generic_token.exit:                           ; preds = %33, %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @parse_doc_start.retelim(ptr nocapture noundef %0) unnamed_addr #4 {
+define internal fastcc void @parse_doc_start(ptr nocapture noundef %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -3418,7 +3418,7 @@ define internal fastcc noundef zeroext i1 @scan_hex_array(ptr nocapture noundef 
   br label %20
 
 .outer._crit_edge:                                ; preds = %.outer, %44, %13
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.93, i32 noundef %5)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.93, i32 noundef %5)
   br label %96
 
 20:                                               ; preds = %.lr.ph, %44
@@ -3488,11 +3488,11 @@ char_is_whitespace.exit:                          ; preds = %38
 
 49:                                               ; preds = %char_is_whitespace.exit
   %50 = zext nneg i8 %21 to i32
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.94, i32 noundef %50)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.94, i32 noundef %50)
   br label %96
 
 51:                                               ; preds = %char_is_whitespace.exit
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.95)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.95)
   br label %96
 
 52:                                               ; preds = %20
@@ -3514,7 +3514,7 @@ char_is_whitespace.exit:                          ; preds = %38
   br i1 %.not, label %61, label %60
 
 60:                                               ; preds = %57
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.96)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.96)
   br label %96
 
 61:                                               ; preds = %57
@@ -3656,7 +3656,7 @@ char_is_whitespace.exit:                          ; preds = %char_is_whitespace.
   ]
 
 39:                                               ; preds = %char_is_whitespace.exit
-  tail call void (ptr, ptr, ...) @add_error_token_at_start.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, i32 noundef %25)
+  tail call void (ptr, ptr, ...) @add_error_token_at_start(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, i32 noundef %25)
   br label %119
 
 40:                                               ; preds = %char_is_whitespace.exit
@@ -3692,7 +3692,7 @@ char_is_base64.exit.thread:                       ; preds = %47, %char_is_base64
 
 53:                                               ; preds = %char_is_base64.exit.thread
   %54 = sext i8 %38 to i32
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.99, i32 noundef %54)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.99, i32 noundef %54)
   br label %119
 
 55:                                               ; preds = %char_is_base64.exit.thread
@@ -3716,7 +3716,7 @@ char_is_whitespace.exit.backedge:                 ; preds = %57, %57, %57
   br i1 %exitcond, label %59, label %60
 
 59:                                               ; preds = %58
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.100, i32 noundef 61)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.100, i32 noundef 61)
   br label %119
 
 60:                                               ; preds = %58
@@ -3732,12 +3732,12 @@ char_is_whitespace.exit.backedge:                 ; preds = %57, %57, %57
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %63
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.101)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.101)
   br label %119
 
 66:                                               ; preds = %63
   %67 = zext nneg i8 %38 to i32
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.102, i32 noundef %67)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.102, i32 noundef %67)
   br label %119
 
 68:                                               ; preds = %44
@@ -3777,7 +3777,7 @@ default.unreachable138:                           ; preds = %69
   br i1 %.not69, label %80, label %79
 
 79:                                               ; preds = %75
-  tail call void (ptr, ptr, ...) @add_error_token_at_start.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.103)
+  tail call void (ptr, ptr, ...) @add_error_token_at_start(ptr noundef nonnull %0, ptr noundef nonnull @.str.103)
   br label %119
 
 80:                                               ; preds = %75
@@ -3909,7 +3909,7 @@ skip.exit:                                        ; preds = %24
   br i1 %.not60.i, label %31, label %32
 
 31:                                               ; preds = %skip.exit
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.104)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.104)
   br label %scan_hex.exit
 
 32:                                               ; preds = %skip.exit
@@ -3975,7 +3975,7 @@ skip.exit:                                        ; preds = %24
   br label %40, !llvm.loop !30
 
 50:                                               ; preds = %47
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
   br label %scan_hex.exit
 
 char_is_hex_or_.exit.i:                           ; preds = %40
@@ -3997,7 +3997,7 @@ char_is_hex_or_.exit.i:                           ; preds = %40
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %55
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.106)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.106)
   br label %scan_hex.exit
 
 59:                                               ; preds = %55
@@ -4075,7 +4075,7 @@ char_is_hex_or_.exit.i:                           ; preds = %40
   br label %71, !llvm.loop !31
 
 81:                                               ; preds = %78
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
   br label %scan_hex.exit
 
 char_is_hex_or_.exit57.i:                         ; preds = %71, %char_is_hex_or_.exit.i
@@ -4114,7 +4114,7 @@ char_is_hex_or_.exit57.thread.i:                  ; preds = %._crit_edge.i, %cha
   br label %backtrack.exit.i
 
 backtrack.exit.i:                                 ; preds = %94, %91
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.107)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.107)
   br label %scan_hex.exit
 
 97:                                               ; preds = %char_is_hex_or_.exit57.thread.i
@@ -4220,7 +4220,7 @@ skip.exit14:                                      ; preds = %149
   br i1 %154, label %156, label %155
 
 155:                                              ; preds = %skip.exit14
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.114)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.114)
   br label %scan_oct.exit
 
 156:                                              ; preds = %skip.exit14
@@ -4247,7 +4247,7 @@ skip.exit14:                                      ; preds = %149
   br i1 %169, label %170, label %171
 
 170:                                              ; preds = %167
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
   br label %scan_oct.exit
 
 171:                                              ; preds = %167, %.lr.ph.i
@@ -4263,7 +4263,7 @@ skip.exit14:                                      ; preds = %149
   br i1 %176, label %177, label %178
 
 177:                                              ; preds = %._crit_edge.i16
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.114)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.114)
   br label %scan_oct.exit
 
 178:                                              ; preds = %._crit_edge.i16
@@ -4277,7 +4277,7 @@ skip.exit14:                                      ; preds = %149
   br i1 %182, label %183, label %184
 
 183:                                              ; preds = %180
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.115)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.115)
   br label %scan_oct.exit
 
 184:                                              ; preds = %180
@@ -4376,7 +4376,7 @@ skip.exit27:                                      ; preds = %231
   br i1 %236, label %238, label %237
 
 237:                                              ; preds = %skip.exit27
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.116)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.116)
   br label %scan_binary.exit
 
 238:                                              ; preds = %skip.exit27
@@ -4410,7 +4410,7 @@ skip.exit27:                                      ; preds = %231
   br label %240, !llvm.loop !33
 
 250:                                              ; preds = %247
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
   br label %scan_binary.exit
 
 251:                                              ; preds = %240
@@ -4419,7 +4419,7 @@ skip.exit27:                                      ; preds = %231
   br i1 %253, label %254, label %255
 
 254:                                              ; preds = %251
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.116)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.116)
   br label %scan_binary.exit
 
 255:                                              ; preds = %251
@@ -4433,7 +4433,7 @@ skip.exit27:                                      ; preds = %231
   br i1 %259, label %260, label %261
 
 260:                                              ; preds = %257
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.117)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.117)
   br label %scan_binary.exit
 
 261:                                              ; preds = %257
@@ -4522,7 +4522,7 @@ scan_binary.exit:                                 ; preds = %237, %250, %254, %2
   br i1 %308, label %309, label %310
 
 309:                                              ; preds = %306
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
   br label %scan_dec.exit
 
 310:                                              ; preds = %306, %.lr.ph.i48
@@ -4557,7 +4557,7 @@ scan_binary.exit:                                 ; preds = %237, %250, %254, %2
   br i1 %322, label %.lr.ph48.i, label %.loopexit.i
 
 323:                                              ; preds = %318
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.106)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.106)
   br label %scan_dec.exit
 
 .lr.ph48.i:                                       ; preds = %.preheader.i, %332
@@ -4574,7 +4574,7 @@ scan_binary.exit:                                 ; preds = %237, %250, %254, %2
   br i1 %330, label %331, label %332
 
 331:                                              ; preds = %328
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.105)
   br label %scan_dec.exit
 
 332:                                              ; preds = %328, %.lr.ph48.i
@@ -4620,7 +4620,7 @@ scan_binary.exit:                                 ; preds = %237, %250, %254, %2
   br label %backtrack.exit.i45
 
 backtrack.exit.i45:                               ; preds = %348, %345
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.107)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.107)
   br label %scan_dec.exit
 
 352:                                              ; preds = %.loopexit.thread.i
@@ -4699,7 +4699,7 @@ scan_dec.exit:                                    ; preds = %309, %323, %331, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_error_token.retelim(ptr nocapture noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @add_error_token(ptr nocapture noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %4, align 8
@@ -4839,7 +4839,7 @@ define internal fastcc signext range(i8 -1, 121) i8 @char_is_valid_escape(i8 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_error_token_at.retelim(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ...) unnamed_addr #0 {
+define internal void @add_error_token_at(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5029,11 +5029,11 @@ define internal fastcc noundef zeroext i1 @scan_exponent(ptr nocapture noundef %
   br label %backtrack.exit
 
 backtrack.exit:                                   ; preds = %41, %45
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.108)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.108)
   br label %.loopexit
 
 49:                                               ; preds = %.thread50, %39
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.109)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.109)
   br label %.loopexit
 
 50:                                               ; preds = %39
@@ -5041,11 +5041,11 @@ backtrack.exit:                                   ; preds = %41, %45
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %50
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.110)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.110)
   br label %53
 
 53:                                               ; preds = %50, %52
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.111, i32 noundef %40)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.111, i32 noundef %40)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -5104,7 +5104,7 @@ define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr nocapture noun
 
 23:                                               ; preds = %18
   %24 = sext i8 %20 to i32
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, i32 noundef %24)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, i32 noundef %24)
   br label %99
 
 25:                                               ; preds = %7
@@ -5113,7 +5113,7 @@ define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr nocapture noun
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %25
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, i32 noundef %8)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, i32 noundef %8)
   br label %99
 
 29:                                               ; preds = %25
@@ -5164,7 +5164,7 @@ define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr nocapture noun
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %52
-  tail call void (ptr, ptr, ...) @add_error_token_at_current.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, i32 noundef %8)
+  tail call void (ptr, ptr, ...) @add_error_token_at_current(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, i32 noundef %8)
   br label %99
 
 56:                                               ; preds = %52
@@ -5249,7 +5249,7 @@ define internal fastcc noundef zeroext i1 @scan_number_suffix(ptr nocapture noun
 97:                                               ; preds = %91, %89
   %98 = getelementptr inbounds i8, ptr %86, i64 1
   store ptr %98, ptr %3, align 8
-  tail call void (ptr, ptr, ...) @add_error_token.retelim(ptr noundef nonnull %0, ptr noundef nonnull @.str.113)
+  tail call void (ptr, ptr, ...) @add_error_token(ptr noundef nonnull %0, ptr noundef nonnull @.str.113)
   br label %99
 
 99:                                               ; preds = %.loopexit, %2, %97, %55, %28, %23

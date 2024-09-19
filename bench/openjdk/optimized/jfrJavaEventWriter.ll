@@ -464,7 +464,7 @@ define hidden void @_ZN18JfrJavaEventWriter7excludeEmPK10JavaThread(i64 noundef 
   %3 = getelementptr i8, ptr %1, i64 584
   %.val = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.val, null
-  br i1 %4, label %_ZL18set_excluded_fieldmPK10JavaThreadb.argprom.exit, label %5
+  br i1 %4, label %_ZL18set_excluded_fieldmPK10JavaThreadb.exit, label %5
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %.val to i64
@@ -499,7 +499,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.i: ; preds = %16, %12, %8
   %22 = inttoptr i64 %21 to ptr
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, %0
-  br i1 %24, label %25, label %_ZL18set_excluded_fieldmPK10JavaThreadb.argprom.exit
+  br i1 %24, label %25, label %_ZL18set_excluded_fieldmPK10JavaThreadb.exit
 
 25:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.i
   %26 = load i32, ptr @_ZL15excluded_offset, align 4
@@ -507,9 +507,9 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.i: ; preds = %16, %12, %8
   %28 = add nsw i64 %27, %19
   %29 = inttoptr i64 %28 to ptr
   store i8 1, ptr %29, align 1
-  br label %_ZL18set_excluded_fieldmPK10JavaThreadb.argprom.exit
+  br label %_ZL18set_excluded_fieldmPK10JavaThreadb.exit
 
-_ZL18set_excluded_fieldmPK10JavaThreadb.argprom.exit: ; preds = %2, %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.i, %25
+_ZL18set_excluded_fieldmPK10JavaThreadb.exit:     ; preds = %2, %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.i, %25
   ret void
 }
 
@@ -518,7 +518,7 @@ define hidden void @_ZN18JfrJavaEventWriter7includeEmPK10JavaThread(i64 noundef 
   %3 = getelementptr i8, ptr %1, i64 584
   %.val = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.val, null
-  br i1 %4, label %_ZL18set_excluded_fieldmPK10JavaThreadb.argprom.exit, label %5
+  br i1 %4, label %_ZL18set_excluded_fieldmPK10JavaThreadb.exit, label %5
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %.val to i64
@@ -553,7 +553,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.i: ; preds = %16, %12, %8
   %22 = inttoptr i64 %21 to ptr
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, %0
-  br i1 %24, label %25, label %_ZL18set_excluded_fieldmPK10JavaThreadb.argprom.exit
+  br i1 %24, label %25, label %_ZL18set_excluded_fieldmPK10JavaThreadb.exit
 
 25:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.i
   %26 = load i32, ptr @_ZL15excluded_offset, align 4
@@ -561,9 +561,9 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.i: ; preds = %16, %12, %8
   %28 = add nsw i64 %27, %19
   %29 = inttoptr i64 %28 to ptr
   store i8 0, ptr %29, align 1
-  br label %_ZL18set_excluded_fieldmPK10JavaThreadb.argprom.exit
+  br label %_ZL18set_excluded_fieldmPK10JavaThreadb.exit
 
-_ZL18set_excluded_fieldmPK10JavaThreadb.argprom.exit: ; preds = %2, %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.i, %25
+_ZL18set_excluded_fieldmPK10JavaThreadb.exit:     ; preds = %2, %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.i, %25
   ret void
 }
 

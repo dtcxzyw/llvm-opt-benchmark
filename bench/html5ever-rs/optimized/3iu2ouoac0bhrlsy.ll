@@ -582,8 +582,8 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !117
   br label %168
 
-.critedge:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220", %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i233", %.thread272, %.thread271, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit208", %148, %188, %196
-  %.0117 = phi i8 [ %., %196 ], [ 0, %148 ], [ %.mux, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit208" ], [ 2, %188 ], [ 0, %.thread271 ], [ 0, %.thread272 ], [ 2, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i233" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i" ]
+.critedge:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220", %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i233", %.thread272, %.thread271, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit208", %148, %188, %196
+  %.0117 = phi i8 [ %., %196 ], [ 0, %148 ], [ %.mux, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit208" ], [ 2, %188 ], [ 0, %.thread271 ], [ 0, %.thread272 ], [ 2, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i233" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %170 = load i64, ptr %7, align 8, !range !4, !alias.scope !132, !noundef !5
   %171 = icmp eq i64 %170, -9223372036854775808
@@ -647,60 +647,60 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !144
   br label %188
 
-.lr.ph.i.i:                                       ; preds = %188, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i"
-  %.idx = phi i64 [ %.add, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i" ], [ 0, %188 ]
+.lr.ph.i.i:                                       ; preds = %188, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i"
+  %.idx = phi i64 [ %.add, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i" ], [ 0, %188 ]
   %.ptr = getelementptr inbounds i8, ptr @anon.dcf0590ddea9489929259de672f22440.55, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 16
   %190 = getelementptr i8, ptr %.ptr, i64 8
   %.val5.i.i = load i64, ptr %190, align 8, !alias.scope !158, !noalias !161, !noundef !5
   %.not.i.i.i.i = icmp ult i64 %.sroa.3.0.i201319328, %.val5.i.i
-  br i1 %.not.i.i.i.i, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i": ; preds = %.lr.ph.i.i
   %.val4.i.i = load ptr, ptr %.ptr, align 8, !alias.scope !158, !noalias !161, !nonnull !5, !align !131, !noundef !5
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val4.i.i, ptr nonnull readonly %.sroa.0.0.i202320327, i64 %.val5.i.i), !alias.scope !166, !noalias !173
   %191 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %191, label %.critedge, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i"
+  br i1 %191, label %.critedge, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i"
 
-"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i", %.lr.ph.i.i
+"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i", %.lr.ph.i.i
   %.not14.i.i = icmp eq i64 %.add, 864
   br i1 %.not14.i.i, label %.lr.ph.i.i217, label %.lr.ph.i.i
 
-.lr.ph.i.i217:                                    ; preds = %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i", %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i223"
-  %.idx277 = phi i64 [ %.add278, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i223" ], [ 0, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i" ]
+.lr.ph.i.i217:                                    ; preds = %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i", %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223"
+  %.idx277 = phi i64 [ %.add278, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223" ], [ 0, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i" ]
   %.ptr279 = getelementptr inbounds i8, ptr @anon.dcf0590ddea9489929259de672f22440.64, i64 %.idx277
   %.add278 = add nuw nsw i64 %.idx277, 16
   %192 = getelementptr i8, ptr %.ptr279, i64 8
   %.val5.i.i218 = load i64, ptr %192, align 8, !alias.scope !174, !noalias !177, !noundef !5
   %.not.i.i.i.i219 = icmp ult i64 %.sroa.3.0.i201319328, %.val5.i.i218
-  br i1 %.not.i.i.i.i219, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i223", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220"
+  br i1 %.not.i.i.i.i219, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220": ; preds = %.lr.ph.i.i217
   %.val4.i.i221 = load ptr, ptr %.ptr279, align 8, !alias.scope !174, !noalias !177, !nonnull !5, !align !131, !noundef !5
   %bcmp.i.i.i.i.i222 = call i32 @bcmp(ptr nonnull readonly %.val4.i.i221, ptr nonnull readonly %.sroa.0.0.i202320327, i64 %.val5.i.i218), !alias.scope !182, !noalias !189
   %193 = icmp eq i32 %bcmp.i.i.i.i.i222, 0
-  br i1 %193, label %.critedge, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i223"
+  br i1 %193, label %.critedge, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223"
 
-"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i223": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220", %.lr.ph.i.i217
+"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220", %.lr.ph.i.i217
   %.not14.i.i224 = icmp eq i64 %.add278, 32
   br i1 %.not14.i.i224, label %.lr.ph.i.i227, label %.lr.ph.i.i217
 
-.lr.ph.i.i227:                                    ; preds = %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i223", %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i233"
-  %.idx281 = phi i64 [ %.add282, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i233" ], [ 0, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i223" ]
+.lr.ph.i.i227:                                    ; preds = %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223", %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i233"
+  %.idx281 = phi i64 [ %.add282, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i233" ], [ 0, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223" ]
   %.ptr283 = getelementptr inbounds i8, ptr @anon.dcf0590ddea9489929259de672f22440.67, i64 %.idx281
   %.add282 = add nuw nsw i64 %.idx281, 16
   %194 = getelementptr i8, ptr %.ptr283, i64 8
   %.val5.i.i228 = load i64, ptr %194, align 8, !alias.scope !190, !noalias !193, !noundef !5
   %.not.i.i.i.i229 = icmp ult i64 %.sroa.3.0.i201319328, %.val5.i.i228
-  br i1 %.not.i.i.i.i229, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i233", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i230"
+  br i1 %.not.i.i.i.i229, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i233", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i230"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i230": ; preds = %.lr.ph.i.i227
   %.val4.i.i231 = load ptr, ptr %.ptr283, align 8, !alias.scope !190, !noalias !193, !nonnull !5, !align !131, !noundef !5
   %bcmp.i.i.i.i.i232 = call i32 @bcmp(ptr nonnull readonly %.val4.i.i231, ptr nonnull readonly %.sroa.0.0.i202320327, i64 %.val5.i.i228), !alias.scope !198, !noalias !205
   %195 = icmp eq i32 %bcmp.i.i.i.i.i232, 0
-  br i1 %195, label %196, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i233"
+  br i1 %195, label %196, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i233"
 
-"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.argprom.exit.backedge.i.i233": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i230", %.lr.ph.i.i227
+"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i233": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i230", %.lr.ph.i.i227
   %.not14.i.i234 = icmp eq i64 %.add282, 32
   br i1 %.not14.i.i234, label %.critedge, label %.lr.ph.i.i227
 

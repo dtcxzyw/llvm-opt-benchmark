@@ -522,7 +522,7 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.
   %165 = call ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.034.041.i.i.i) #16, !noalias !4
   %166 = getelementptr inbounds i8, ptr %.sroa.034.041.i.i.i, i64 48
   %.not8.i.i.i.i = icmp eq ptr %165, %166
-  br i1 %.not8.i.i.i.i, label %_ZN12_GLOBAL__N_120SLSHardeningInserter19hardenReturnsAndBRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockE.argprom.exit.i.i.i, label %.preheader.i.i.i.preheader.i.preheader.i.i.i
+  br i1 %.not8.i.i.i.i, label %_ZN12_GLOBAL__N_120SLSHardeningInserter19hardenReturnsAndBRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockE.exit.i.i.i, label %.preheader.i.i.i.preheader.i.preheader.i.i.i
 
 .preheader.i.i.i.preheader.i.preheader.i.i.i:     ; preds = %160
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 399
@@ -636,7 +636,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i:           ; preds = %208, %_ZN4llvm26Mac
   %216 = zext i16 %215 to i32
   %.off.i.i.i.i = add nsw i32 %216, -1217
   %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, 2
-  br i1 %switch.i.i.i.i, label %_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.argprom.exit.i.i.i, label %.critedge.i.i.i.i
+  br i1 %switch.i.i.i.i, label %_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.exit.i.i.i, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %213, %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i
   store ptr %.val.i.i.i.i, ptr %21, align 8, !noalias !4
@@ -734,32 +734,32 @@ _ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12Ma
 _ZN4llvm10MIMetadataD2Ev.exit.i.i.i.i:            ; preds = %243, %_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE.exit.i.i.i
   %244 = load ptr, ptr %21, align 8, !noalias !4
   %.not.i.i.i.i11.i.i.i.i = icmp eq ptr %244, null
-  br i1 %.not.i.i.i.i11.i.i.i.i, label %_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.argprom.exit.i.i.i, label %245
+  br i1 %.not.i.i.i.i11.i.i.i.i, label %_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.exit.i.i.i, label %245
 
 245:                                              ; preds = %_ZN4llvm10MIMetadataD2Ev.exit.i.i.i.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %21, ptr noundef nonnull align 4 dereferenceable(8) %244) #16, !noalias !4
-  br label %_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.argprom.exit.i.i.i
+  br label %_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.exit.i.i.i
 
-_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.argprom.exit.i.i.i: ; preds = %245, %_ZN4llvm10MIMetadataD2Ev.exit.i.i.i.i, %213
+_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.exit.i.i.i: ; preds = %245, %_ZN4llvm10MIMetadataD2Ev.exit.i.i.i.i, %213
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21), !noalias !4
   %246 = load ptr, ptr %39, align 8, !noalias !4
   %.not.i.i.i.i24.i.i.i.i = icmp eq ptr %246, null
   br i1 %.not.i.i.i.i24.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i, label %247
 
-247:                                              ; preds = %_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.argprom.exit.i.i.i
+247:                                              ; preds = %_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.exit.i.i.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %39, ptr noundef nonnull align 4 dereferenceable(8) %246) #16, !noalias !4
   br label %_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i
 
-_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i:               ; preds = %247, %_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.argprom.exit.i.i.i, %192
+_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i:               ; preds = %247, %_ZL24insertSpeculationBarrierPKN4llvm16AArch64SubtargetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8DebugLocEb.exit.i.i.i, %192
   %.not.i.i.i.i = icmp eq ptr %180, %166
-  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_120SLSHardeningInserter19hardenReturnsAndBRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockE.argprom.exit.i.i.i, label %.preheader.i.i.i.preheader.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_120SLSHardeningInserter19hardenReturnsAndBRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockE.exit.i.i.i, label %.preheader.i.i.i.preheader.i.i.i.i, !llvm.loop !9
 
-_ZN12_GLOBAL__N_120SLSHardeningInserter19hardenReturnsAndBRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockE.argprom.exit.i.i.i: ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i, %160
+_ZN12_GLOBAL__N_120SLSHardeningInserter19hardenReturnsAndBRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockE.exit.i.i.i: ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i.i.i.i, %160
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39), !noalias !4
   br label %248
 
-248:                                              ; preds = %_ZN12_GLOBAL__N_120SLSHardeningInserter19hardenReturnsAndBRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockE.argprom.exit.i.i.i, %157
+248:                                              ; preds = %_ZN12_GLOBAL__N_120SLSHardeningInserter19hardenReturnsAndBRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockE.exit.i.i.i, %157
   %249 = load i8, ptr %76, align 1, !noalias !4
   %250 = trunc i8 %249 to i1
   br i1 %250, label %251, label %_ZN12_GLOBAL__N_120SLSHardeningInserter10hardenBLRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockERNS_9ThunksSetE.exit.i.i.i
@@ -775,13 +775,13 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter19hardenReturnsAndBRsERN4llvm17MachineMod
   %255 = getelementptr inbounds nuw i8, ptr %.sroa.034.041.i.i.i, i64 32
   br label %.preheader.i.i.i.preheader.i11.i.i.i
 
-.preheader.i.i.i.preheader.i11.i.i.i:             ; preds = %_ZL5isBLRRKN4llvm12MachineInstrE.argprom.exit.i.i.i.i, %.preheader.i.i.i.preheader.lr.ph.i.i.i.i
-  %.sroa.010.015.i.i.i.i = phi ptr [ %253, %.preheader.i.i.i.preheader.lr.ph.i.i.i.i ], [ %257, %_ZL5isBLRRKN4llvm12MachineInstrE.argprom.exit.i.i.i.i ]
+.preheader.i.i.i.preheader.i11.i.i.i:             ; preds = %_ZL5isBLRRKN4llvm12MachineInstrE.exit.i.i.i.i, %.preheader.i.i.i.preheader.lr.ph.i.i.i.i
+  %.sroa.010.015.i.i.i.i = phi ptr [ %253, %.preheader.i.i.i.preheader.lr.ph.i.i.i.i ], [ %257, %_ZL5isBLRRKN4llvm12MachineInstrE.exit.i.i.i.i ]
   %256 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i.i.i.i, i64 8
   %257 = load ptr, ptr %256, align 8, !noalias !4
   %258 = getelementptr i8, ptr %.sroa.010.015.i.i.i.i, i64 68
   %.val.i12.i.i.i = load i16, ptr %258, align 4, !noalias !4
-  switch i16 %.val.i12.i.i.i, label %_ZL5isBLRRKN4llvm12MachineInstrE.argprom.exit.i.i.i.i [
+  switch i16 %.val.i12.i.i.i, label %_ZL5isBLRRKN4llvm12MachineInstrE.exit.i.i.i.i [
     i16 1770, label %259
     i16 431, label %259
     i16 1771, label %259
@@ -1167,20 +1167,20 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
   %391 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %129) #16, !noalias !4
   %392 = load ptr, ptr %129, align 8, !noalias !4
   %393 = icmp eq ptr %392, %130
-  br i1 %393, label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_120SLSHardeningInserterENS1_9ThunksSetEE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS7_.argprom.exit.i.i.i.i.i, label %394
+  br i1 %393, label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_120SLSHardeningInserterENS1_9ThunksSetEE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS7_.exit.i.i.i.i.i, label %394
 
 394:                                              ; preds = %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i.i.i.i.i.i
   call void @free(ptr noundef %392) #16, !noalias !4
-  br label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_120SLSHardeningInserterENS1_9ThunksSetEE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS7_.argprom.exit.i.i.i.i.i
+  br label %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_120SLSHardeningInserterENS1_9ThunksSetEE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS7_.exit.i.i.i.i.i
 
-_ZN4llvm13ThunkInserterIN12_GLOBAL__N_120SLSHardeningInserterENS1_9ThunksSetEE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS7_.argprom.exit.i.i.i.i.i: ; preds = %394, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i.i.i.i.i.i
+_ZN4llvm13ThunkInserterIN12_GLOBAL__N_120SLSHardeningInserterENS1_9ThunksSetEE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS7_.exit.i.i.i.i.i: ; preds = %394, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23), !noalias !4
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %24), !noalias !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25), !noalias !4
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %26), !noalias !4
   br label %395
 
-395:                                              ; preds = %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_120SLSHardeningInserterENS1_9ThunksSetEE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS7_.argprom.exit.i.i.i.i.i, %_ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i
+395:                                              ; preds = %_ZN4llvm13ThunkInserterIN12_GLOBAL__N_120SLSHardeningInserterENS1_9ThunksSetEE19createThunkFunctionERNS_17MachineModuleInfoENS_9StringRefEbS7_.exit.i.i.i.i.i, %_ZN12_GLOBAL__N_19ThunksSet3getENS_9ThunkKind11ThunkKindIdEN4llvm8RegisterES4_.exit.i.i.i.i.i
   %396 = load ptr, ptr %33, align 8, !noalias !4
   store ptr %396, ptr %37, align 8, !noalias !4
   %.not.i.i.i.i68.i.i.i.i.i = icmp eq ptr %396, null
@@ -1416,13 +1416,13 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter14convertBLRToBLERN4llvm17MachineModuleIn
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36), !noalias !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37), !noalias !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38), !noalias !4
-  br label %_ZL5isBLRRKN4llvm12MachineInstrE.argprom.exit.i.i.i.i
+  br label %_ZL5isBLRRKN4llvm12MachineInstrE.exit.i.i.i.i
 
-_ZL5isBLRRKN4llvm12MachineInstrE.argprom.exit.i.i.i.i: ; preds = %_ZN12_GLOBAL__N_120SLSHardeningInserter14convertBLRToBLERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockENS1_14ilist_iteratorINS1_12ilist_detail12node_optionsINS1_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEERNS_9ThunksSetE.exit.i.i.i.i, %.preheader.i.i.i.preheader.i11.i.i.i
+_ZL5isBLRRKN4llvm12MachineInstrE.exit.i.i.i.i:    ; preds = %_ZN12_GLOBAL__N_120SLSHardeningInserter14convertBLRToBLERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockENS1_14ilist_iteratorINS1_12ilist_detail12node_optionsINS1_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEERNS_9ThunksSetE.exit.i.i.i.i, %.preheader.i.i.i.preheader.i11.i.i.i
   %.not.i15.i.i.i = icmp eq ptr %257, %254
   br i1 %.not.i15.i.i.i, label %_ZN12_GLOBAL__N_120SLSHardeningInserter10hardenBLRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockERNS_9ThunksSetE.exit.i.i.i, label %.preheader.i.i.i.preheader.i11.i.i.i, !llvm.loop !43
 
-_ZN12_GLOBAL__N_120SLSHardeningInserter10hardenBLRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockERNS_9ThunksSetE.exit.i.i.i: ; preds = %_ZL5isBLRRKN4llvm12MachineInstrE.argprom.exit.i.i.i.i, %251, %248
+_ZN12_GLOBAL__N_120SLSHardeningInserter10hardenBLRsERN4llvm17MachineModuleInfoERNS1_17MachineBasicBlockERNS_9ThunksSetE.exit.i.i.i: ; preds = %_ZL5isBLRRKN4llvm12MachineInstrE.exit.i.i.i.i, %251, %248
   %470 = getelementptr inbounds nuw i8, ptr %.sroa.034.041.i.i.i, i64 8
   %.sroa.034.0.i.i.i = load ptr, ptr %470, align 8, !noalias !4
   %.not.i7.i.i = icmp eq ptr %.sroa.034.0.i.i.i, %83
@@ -2015,13 +2015,13 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i.i11.i.i: ; preds = %_
   %706 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %593, ptr nonnull %595, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %705)
   %707 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i10.i.i12.i.i = icmp eq ptr %707, null
-  br i1 %.not.i.i.i.i.i10.i.i12.i.i, label %_ZN12_GLOBAL__N_120SLSHardeningInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i, label %708
+  br i1 %.not.i.i.i.i.i10.i.i12.i.i, label %_ZN12_GLOBAL__N_120SLSHardeningInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i, label %708
 
 708:                                              ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i.i11.i.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %707) #16
-  br label %_ZN12_GLOBAL__N_120SLSHardeningInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i
+  br label %_ZN12_GLOBAL__N_120SLSHardeningInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i
 
-_ZN12_GLOBAL__N_120SLSHardeningInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i: ; preds = %708, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i.i11.i.i
+_ZN12_GLOBAL__N_120SLSHardeningInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i: ; preds = %708, %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i.i11.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -2029,8 +2029,8 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter13populateThunkERN4llvm15MachineFunctionE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   br label %_ZN4llvm17ThunkInserterPassIJN12_GLOBAL__N_120SLSHardeningInserterEEE6runTIsIJS2_EEEbRNS_17MachineModuleInfoERNS_15MachineFunctionERSt5tupleIJDpT_EE.exit
 
-_ZN4llvm17ThunkInserterPassIJN12_GLOBAL__N_120SLSHardeningInserterEEE6runTIsIJS2_EEEbRNS_17MachineModuleInfoERNS_15MachineFunctionERSt5tupleIJDpT_EE.exit: ; preds = %494, %_ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.i.i, %_ZN12_GLOBAL__N_120SLSHardeningInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i
-  %.0.i.i = phi i1 [ true, %_ZN12_GLOBAL__N_120SLSHardeningInserter13populateThunkERN4llvm15MachineFunctionE.argprom.exit.i.i ], [ false, %_ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.i.i ], [ true, %494 ]
+_ZN4llvm17ThunkInserterPassIJN12_GLOBAL__N_120SLSHardeningInserterEEE6runTIsIJS2_EEEbRNS_17MachineModuleInfoERNS_15MachineFunctionERSt5tupleIJDpT_EE.exit: ; preds = %494, %_ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.i.i, %_ZN12_GLOBAL__N_120SLSHardeningInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i
+  %.0.i.i = phi i1 [ true, %_ZN12_GLOBAL__N_120SLSHardeningInserter13populateThunkERN4llvm15MachineFunctionE.exit.i.i ], [ false, %_ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.i.i ], [ true, %494 ]
   call void @llvm.lifetime.end.p0(i64 268, ptr nonnull %41)
   ret i1 %.0.i.i
 }

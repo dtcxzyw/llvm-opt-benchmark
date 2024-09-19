@@ -369,7 +369,7 @@ define noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %45, i64 16
   %77 = load i32, ptr %76, align 8
-  tail call fastcc void @pmix_stepd_send.retelim(ptr noundef %75, i32 noundef %77, i32 noundef %65)
+  tail call fastcc void @pmix_stepd_send(ptr noundef %75, i32 noundef %77, i32 noundef %65)
   tail call void @slurm_free_buf(ptr noundef nonnull %45) #8
   %78 = load i32, ptr @pmix_stepd_children, align 4
   %79 = icmp slt i32 %64, %78
@@ -462,7 +462,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare void @slurm_packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pmix_stepd_send.retelim(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @pmix_stepd_send(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @pmix_stepd_hostlist, align 8
   %6 = tail call ptr @slurm_hostlist_nth(ptr noundef %5, i32 noundef %2) #8
@@ -621,7 +621,7 @@ pmix_stepd_rank_parent.exit:                      ; preds = %46, %49
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %36, i64 16
   %60 = load i32, ptr %59, align 8
-  tail call fastcc void @pmix_stepd_send.retelim(ptr noundef %58, i32 noundef %60, i32 noundef %.0.i)
+  tail call fastcc void @pmix_stepd_send(ptr noundef %58, i32 noundef %60, i32 noundef %.0.i)
   tail call void @slurm_free_buf(ptr noundef nonnull %36) #8
   br label %63
 

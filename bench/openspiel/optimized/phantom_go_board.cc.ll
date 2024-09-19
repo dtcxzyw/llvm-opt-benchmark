@@ -1507,7 +1507,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard5ClearEv(ptr nocapture n
   %49 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %17, i64 0, i64 %48, i32 2
   %50 = load i8, ptr %49, align 2
   %51 = icmp eq i8 %50, 2
-  br i1 %51, label %52, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit.i"
+  br i1 %51, label %52, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit.i"
 
 52:                                               ; preds = %.lr.ph51
   %53 = zext i16 %46 to i64
@@ -1528,17 +1528,17 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard5ClearEv(ptr nocapture n
   %66 = load i32, ptr %57, align 4
   %67 = add i32 %66, %65
   store i32 %67, ptr %57, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit.i": ; preds = %52, %.lr.ph51
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit.i": ; preds = %52, %.lr.ph51
   %68 = add i16 %46, 1
   %69 = zext i16 %68 to i64
   %70 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %17, i64 0, i64 %69, i32 2
   %71 = load i8, ptr %70, align 2
   %72 = icmp eq i8 %71, 2
-  br i1 %72, label %73, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit14.i"
+  br i1 %72, label %73, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit14.i"
 
-73:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit.i"
+73:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit.i"
   %74 = zext i16 %46 to i64
   %75 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %17, i64 0, i64 %74
   %76 = load i16, ptr %75, align 2
@@ -1557,17 +1557,17 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard5ClearEv(ptr nocapture n
   %87 = load i32, ptr %78, align 4
   %88 = add i32 %87, %86
   store i32 %88, ptr %78, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit14.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit14.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit14.i": ; preds = %73, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit.i"
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit14.i": ; preds = %73, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit.i"
   %89 = add i16 %46, -1
   %90 = zext i16 %89 to i64
   %91 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %17, i64 0, i64 %90, i32 2
   %92 = load i8, ptr %91, align 2
   %93 = icmp eq i8 %92, 2
-  br i1 %93, label %94, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit15.i"
+  br i1 %93, label %94, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit15.i"
 
-94:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit14.i"
+94:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit14.i"
   %95 = zext i16 %46 to i64
   %96 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %17, i64 0, i64 %95
   %97 = load i16, ptr %96, align 2
@@ -1586,9 +1586,9 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard5ClearEv(ptr nocapture n
   %108 = load i32, ptr %99, align 4
   %109 = add i32 %108, %107
   store i32 %109, ptr %99, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit15.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit15.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit15.i": ; preds = %94, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit14.i"
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit15.i": ; preds = %94, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit14.i"
   %110 = add i16 %46, -21
   %111 = zext i16 %110 to i64
   %112 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %17, i64 0, i64 %111, i32 2
@@ -1596,7 +1596,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard5ClearEv(ptr nocapture n
   %114 = icmp eq i8 %113, 2
   br i1 %114, label %115, label %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard5ClearEvE3$_0EEvtRKT_.exit"
 
-115:                                              ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit15.i"
+115:                                              ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit15.i"
   %116 = zext i16 %46 to i64
   %117 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %17, i64 0, i64 %116
   %118 = load i16, ptr %117, align 2
@@ -1617,7 +1617,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard5ClearEv(ptr nocapture n
   store i32 %130, ptr %120, align 4
   br label %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard5ClearEvE3$_0EEvtRKT_.exit"
 
-"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard5ClearEvE3$_0EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.argprom.exit15.i", %115
+"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard5ClearEvE3$_0EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard5ClearEvENK3$_0clEt.exit15.i", %115
   %131 = getelementptr inbounds i8, ptr %.sroa.032.049, i64 2
   %.not39 = icmp eq ptr %131, %43
   br i1 %.not39, label %.preheader, label %.lr.ph51
@@ -2495,7 +2495,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_
   store i16 %241, ptr %239, align 2
   %242 = load i8, ptr %7, align 2
   %243 = icmp eq i8 %242, 2
-  br i1 %243, label %244, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit.i"
+  br i1 %243, label %244, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit.i"
 
 244:                                              ; preds = %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_1EEvtRKT_.exit"
   %245 = getelementptr inbounds nuw i8, ptr %238, i64 8
@@ -2511,14 +2511,14 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_
   %253 = load i32, ptr %238, align 4
   %254 = add i32 %253, %252
   store i32 %254, ptr %238, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit.i": ; preds = %244, %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_1EEvtRKT_.exit"
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit.i": ; preds = %244, %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_1EEvtRKT_.exit"
   %255 = load i8, ptr %20, align 2
   %256 = icmp eq i8 %255, 2
-  br i1 %256, label %257, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit14.i"
+  br i1 %256, label %257, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit14.i"
 
-257:                                              ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit.i"
+257:                                              ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit.i"
   %258 = load i16, ptr %229, align 2
   %259 = zext i16 %258 to i64
   %260 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Chain"], ptr %235, i64 0, i64 %259
@@ -2535,14 +2535,14 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_
   %269 = load i32, ptr %260, align 4
   %270 = add i32 %269, %268
   store i32 %270, ptr %260, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit14.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit14.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit14.i": ; preds = %257, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit.i"
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit14.i": ; preds = %257, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit.i"
   %271 = load i8, ptr %34, align 2
   %272 = icmp eq i8 %271, 2
-  br i1 %272, label %273, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit15.i"
+  br i1 %272, label %273, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit15.i"
 
-273:                                              ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit14.i"
+273:                                              ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit14.i"
   %274 = load i16, ptr %229, align 2
   %275 = zext i16 %274 to i64
   %276 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Chain"], ptr %235, i64 0, i64 %275
@@ -2559,14 +2559,14 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_
   %285 = load i32, ptr %276, align 4
   %286 = add i32 %285, %284
   store i32 %286, ptr %276, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit15.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit15.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit15.i": ; preds = %273, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit14.i"
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit15.i": ; preds = %273, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit14.i"
   %287 = load i8, ptr %48, align 2
   %288 = icmp eq i8 %287, 2
   br i1 %288, label %289, label %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_2EEvtRKT_.exit"
 
-289:                                              ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit15.i"
+289:                                              ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit15.i"
   %290 = load i16, ptr %229, align 2
   %291 = zext i16 %290 to i64
   %292 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Chain"], ptr %235, i64 0, i64 %291
@@ -2585,7 +2585,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_
   store i32 %302, ptr %292, align 4
   br label %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_2EEvtRKT_.exit"
 
-"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_2EEvtRKT_.exit": ; preds = %289, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.argprom.exit15.i", %61
+"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_2EEvtRKT_.exit": ; preds = %289, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit15.i", %61
   ret void
 }
 
@@ -3803,7 +3803,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEt(ptr noc
   %12 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %3, i64 0, i64 %11, i32 2
   %13 = load i8, ptr %12, align 2
   %14 = icmp eq i8 %13, 2
-  br i1 %14, label %15, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit.i"
+  br i1 %14, label %15, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit.i"
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3813,9 +3813,9 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEt(ptr noc
   store i16 %10, ptr %18, align 4
   %19 = mul nuw i32 %17, %17
   store i32 %19, ptr %8, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit.i": ; preds = %15, %2
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit.i": ; preds = %15, %2
   %20 = phi i32 [ %19, %15 ], [ 0, %2 ]
   %21 = phi i16 [ %10, %15 ], [ 0, %2 ]
   %22 = phi i16 [ 1, %15 ], [ 0, %2 ]
@@ -3824,9 +3824,9 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEt(ptr noc
   %25 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %3, i64 0, i64 %24, i32 2
   %26 = load i8, ptr %25, align 2
   %27 = icmp eq i8 %26, 2
-  br i1 %27, label %28, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit14.i"
+  br i1 %27, label %28, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit14.i"
 
-28:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit.i"
+28:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit.i"
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %30 = add nuw nsw i16 %22, 1
   store i16 %30, ptr %29, align 4
@@ -3837,20 +3837,20 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEt(ptr noc
   %34 = mul nuw i32 %31, %31
   %35 = add i32 %20, %34
   store i32 %35, ptr %8, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit14.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit14.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit14.i": ; preds = %28, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit.i"
-  %36 = phi i32 [ %35, %28 ], [ %20, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit.i" ]
-  %37 = phi i16 [ %33, %28 ], [ %21, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit.i" ]
-  %38 = phi i16 [ %30, %28 ], [ %22, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit.i" ]
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit14.i": ; preds = %28, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit.i"
+  %36 = phi i32 [ %35, %28 ], [ %20, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit.i" ]
+  %37 = phi i16 [ %33, %28 ], [ %21, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit.i" ]
+  %38 = phi i16 [ %30, %28 ], [ %22, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit.i" ]
   %39 = add i16 %1, -1
   %40 = zext i16 %39 to i64
   %41 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %3, i64 0, i64 %40, i32 2
   %42 = load i8, ptr %41, align 2
   %43 = icmp eq i8 %42, 2
-  br i1 %43, label %44, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit15.i"
+  br i1 %43, label %44, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit15.i"
 
-44:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit14.i"
+44:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit14.i"
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %46 = add nuw nsw i16 %38, 1
   store i16 %46, ptr %45, align 4
@@ -3861,12 +3861,12 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEt(ptr noc
   %50 = mul nuw i32 %47, %47
   %51 = add i32 %36, %50
   store i32 %51, ptr %8, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit15.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit15.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit15.i": ; preds = %44, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit14.i"
-  %52 = phi i32 [ %51, %44 ], [ %36, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit14.i" ]
-  %53 = phi i16 [ %49, %44 ], [ %37, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit14.i" ]
-  %54 = phi i16 [ %46, %44 ], [ %38, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit14.i" ]
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit15.i": ; preds = %44, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit14.i"
+  %52 = phi i32 [ %51, %44 ], [ %36, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit14.i" ]
+  %53 = phi i16 [ %49, %44 ], [ %37, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit14.i" ]
+  %54 = phi i16 [ %46, %44 ], [ %38, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit14.i" ]
   %55 = add i16 %1, -21
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %3, i64 0, i64 %56, i32 2
@@ -3874,7 +3874,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEt(ptr noc
   %59 = icmp eq i8 %58, 2
   br i1 %59, label %60, label %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard12InitNewChainEtE3$_0EEvtRKT_.exit"
 
-60:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit15.i"
+60:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit15.i"
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %62 = add nuw nsw i16 %54, 1
   store i16 %62, ptr %61, align 4
@@ -3887,7 +3887,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEt(ptr noc
   store i32 %67, ptr %8, align 4
   br label %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard12InitNewChainEtE3$_0EEvtRKT_.exit"
 
-"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard12InitNewChainEtE3$_0EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.argprom.exit15.i", %60
+"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard12InitNewChainEtE3$_0EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard12InitNewChainEtENK3$_0clEt.exit15.i", %60
   ret void
 }
 
@@ -4825,13 +4825,13 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEv(ptr no
   %26 = load i8, ptr %25, align 2
   %27 = load i8, ptr %8, align 4
   %28 = icmp eq i8 %26, %27
-  br i1 %28, label %29, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit.i"
+  br i1 %28, label %29, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit.i"
 
 29:                                               ; preds = %17
   %30 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %24
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
-  br i1 %32, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit.i", label %33
+  br i1 %32, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit.i", label %33
 
 33:                                               ; preds = %29
   %34 = add nsw i32 %12, 1
@@ -4842,9 +4842,9 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEv(ptr no
   store i8 1, ptr %30, align 1
   %.pre.i = load ptr, ptr %0, align 8
   %.pre14.i = load i8, ptr %8, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit.i": ; preds = %33, %29, %17
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit.i": ; preds = %33, %29, %17
   %37 = phi i8 [ %27, %17 ], [ %26, %29 ], [ %.pre14.i, %33 ]
   %38 = phi ptr [ %19, %17 ], [ %19, %29 ], [ %.pre.i, %33 ]
   %39 = add i16 %11, 1
@@ -4856,13 +4856,13 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEv(ptr no
   %45 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %40, i64 0, i64 %44, i32 2
   %46 = load i8, ptr %45, align 2
   %47 = icmp eq i8 %46, %37
-  br i1 %47, label %48, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit10.i"
+  br i1 %47, label %48, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i"
 
-48:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit.i"
+48:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit.i"
   %49 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %44
   %50 = load i8, ptr %49, align 1
   %51 = trunc i8 %50 to i1
-  br i1 %51, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit10.i", label %52
+  br i1 %51, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i", label %52
 
 52:                                               ; preds = %48
   %53 = load i32, ptr %2, align 4
@@ -4874,11 +4874,11 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEv(ptr no
   store i8 1, ptr %49, align 1
   %.pre16.i = load ptr, ptr %0, align 8
   %.pre18.i = load i8, ptr %8, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit10.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit10.i": ; preds = %52, %48, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit.i"
-  %57 = phi i8 [ %37, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit.i" ], [ %37, %48 ], [ %.pre18.i, %52 ]
-  %58 = phi ptr [ %38, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit.i" ], [ %38, %48 ], [ %.pre16.i, %52 ]
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i": ; preds = %52, %48, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit.i"
+  %57 = phi i8 [ %37, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit.i" ], [ %37, %48 ], [ %.pre18.i, %52 ]
+  %58 = phi ptr [ %38, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit.i" ], [ %38, %48 ], [ %.pre16.i, %52 ]
   %59 = add i16 %11, -1
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 740
   %61 = zext i16 %59 to i64
@@ -4888,13 +4888,13 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEv(ptr no
   %65 = getelementptr inbounds [441 x %"struct.open_spiel::phantom_go::PhantomGoBoard::Vertex"], ptr %60, i64 0, i64 %64, i32 2
   %66 = load i8, ptr %65, align 2
   %67 = icmp eq i8 %66, %57
-  br i1 %67, label %68, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit11.i"
+  br i1 %67, label %68, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit11.i"
 
-68:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit10.i"
+68:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i"
   %69 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %64
   %70 = load i8, ptr %69, align 1
   %71 = trunc i8 %70 to i1
-  br i1 %71, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit11.i", label %72
+  br i1 %71, label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit11.i", label %72
 
 72:                                               ; preds = %68
   %73 = load i32, ptr %2, align 4
@@ -4906,11 +4906,11 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEv(ptr no
   store i8 1, ptr %69, align 1
   %.pre20.i = load ptr, ptr %0, align 8
   %.pre22.i = load i8, ptr %8, align 4
-  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit11.i"
+  br label %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit11.i"
 
-"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit11.i": ; preds = %72, %68, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit10.i"
-  %77 = phi i8 [ %57, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit10.i" ], [ %57, %68 ], [ %.pre22.i, %72 ]
-  %78 = phi ptr [ %58, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit10.i" ], [ %58, %68 ], [ %.pre20.i, %72 ]
+"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit11.i": ; preds = %72, %68, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i"
+  %77 = phi i8 [ %57, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i" ], [ %57, %68 ], [ %.pre22.i, %72 ]
+  %78 = phi ptr [ %58, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i" ], [ %58, %68 ], [ %.pre20.i, %72 ]
   %79 = add i16 %11, -21
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 740
   %81 = zext i16 %79 to i64
@@ -4922,7 +4922,7 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEv(ptr no
   %87 = icmp eq i8 %86, %77
   br i1 %87, label %88, label %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard9GroupIter4stepEvE3$_0EEvtRKT_.exit"
 
-88:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit11.i"
+88:                                               ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit11.i"
   %89 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %84
   %90 = load i8, ptr %89, align 1
   %91 = trunc i8 %90 to i1
@@ -4939,8 +4939,8 @@ define void @_ZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEv(ptr no
   %.pre2 = load ptr, ptr %0, align 8
   br label %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard9GroupIter4stepEvE3$_0EEvtRKT_.exit"
 
-"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard9GroupIter4stepEvE3$_0EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit11.i", %88, %92
-  %97 = phi ptr [ %78, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.argprom.exit11.i" ], [ %78, %88 ], [ %.pre2, %92 ]
+"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard9GroupIter4stepEvE3$_0EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit11.i", %88, %92
+  %97 = phi ptr [ %78, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard9GroupIter4stepEvENK3$_0clEt.exit11.i" ], [ %78, %88 ], [ %.pre2, %92 ]
   %98 = load i16, ptr %7, align 2
   %99 = zext i16 %98 to i64
   %100 = getelementptr inbounds [441 x i8], ptr %6, i64 0, i64 %99

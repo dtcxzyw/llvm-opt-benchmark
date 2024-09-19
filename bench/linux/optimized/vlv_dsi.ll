@@ -1494,7 +1494,7 @@ define internal void @intel_dsi_pre_enable(ptr nocapture readnone %0, ptr nounde
 454:                                              ; preds = %447
   %455 = trunc i64 %448 to i32
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @dpi_send_cmd.argprom(ptr %.val, i32 noundef 2, i32 noundef %455)
+  tail call fastcc void @dpi_send_cmd(ptr %.val, i32 noundef 2, i32 noundef %455)
   br label %456
 
 456:                                              ; preds = %454, %447
@@ -1692,7 +1692,7 @@ define internal void @intel_dsi_disable(ptr nocapture readnone %0, ptr noundef %
 24:                                               ; preds = %17
   %25 = trunc i64 %18 to i32
   %.val = load ptr, ptr %1, align 8
-  tail call fastcc void @dpi_send_cmd.argprom(ptr %.val, i32 noundef 1, i32 noundef %25)
+  tail call fastcc void @dpi_send_cmd(ptr %.val, i32 noundef 1, i32 noundef %25)
   br label %26
 
 26:                                               ; preds = %24, %17
@@ -3570,7 +3570,7 @@ declare dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef, i32 noundef) lo
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dpi_send_cmd.argprom(ptr %.0.val, i32 noundef range(i32 1, 3) %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @dpi_send_cmd(ptr %.0.val, i32 noundef range(i32 1, 3) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = or disjoint i32 %0, 64
   %4 = icmp eq i32 %1, 0
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 2304

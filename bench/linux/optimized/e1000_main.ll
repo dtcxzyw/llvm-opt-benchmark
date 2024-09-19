@@ -3473,7 +3473,7 @@ thread-pre-split:                                 ; preds = %157
 
 227:                                              ; preds = %225, %221
   %.val = load ptr, ptr %32, align 8
-  tail call fastcc void @e1000_dump_eeprom.argprom(ptr %.val)
+  tail call fastcc void @e1000_dump_eeprom(ptr %.val)
   %228 = getelementptr i8, ptr %25, i64 3708
   %229 = getelementptr inbounds i8, ptr %25, i64 813
   %230 = load i8, ptr %229, align 1
@@ -5093,7 +5093,7 @@ declare dso_local i32 @e1000_init_eeprom_params(ptr noundef) local_unnamed_addr 
 declare dso_local i32 @e1000_validate_eeprom_checksum(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @e1000_dump_eeprom.argprom(ptr %.1144.val) unnamed_addr #4 align 16 {
+define internal fastcc void @e1000_dump_eeprom(ptr %.1144.val) unnamed_addr #4 align 16 {
   %1 = alloca %struct.ethtool_eeprom, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #16
   %2 = getelementptr inbounds i8, ptr %.1144.val, i64 760

@@ -1624,7 +1624,7 @@ _ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE9push_backERKS3_.exit: ; preds = %
           to label %.noexc18 unwind label %134
 
 .noexc18:                                         ; preds = %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE9push_backERKS3_.exit
-  br i1 %121, label %122, label %"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.argprom.exit"
+  br i1 %121, label %122, label %"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.exit"
 
 122:                                              ; preds = %.noexc18
   %123 = load ptr, ptr %65, align 8
@@ -1632,21 +1632,21 @@ _ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE9push_backERKS3_.exit: ; preds = %
   %125 = load ptr, ptr %124, align 8
   %126 = load i64, ptr %123, align 8
   %127 = invoke noundef zeroext i1 %125(i64 noundef %126, ptr noundef nonnull align 8 dereferenceable(24) %0)
-          to label %"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.argprom.exit.thread" unwind label %134
+          to label %"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.exit.thread" unwind label %134
 
-"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.argprom.exit.thread": ; preds = %122
+"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.exit.thread": ; preds = %122
   %128 = load ptr, ptr %64, align 8
   %129 = zext i1 %127 to i8
   store i8 %129, ptr %128, align 1
   br label %147
 
-"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.argprom.exit": ; preds = %.noexc18
+"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.exit": ; preds = %.noexc18
   %130 = load ptr, ptr %64, align 8
   %131 = load i8, ptr %130, align 1
   %132 = trunc i8 %131 to i1
   br i1 %132, label %147, label %133
 
-133:                                              ; preds = %"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.argprom.exit"
+133:                                              ; preds = %"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.exit"
   invoke fastcc void @"_ZN3ade12_GLOBAL__N_110visitPathsIZNS_9findPathsERKNS_6HandleINS_4NodeEEES6_NS_4util8func_refIFbRKSt6vectorIS4_SaIS4_EEEEEE3$_0EEvRSB_S6_OT_"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %147 unwind label %134
 
@@ -1678,7 +1678,7 @@ _ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EE9push_backERKS3_.exit: ; preds = %
   %146 = icmp eq i32 %.0.i.i.i.i.i, 1
   br i1 %146, label %common.resume.sink.split, label %common.resume
 
-147:                                              ; preds = %"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.argprom.exit.thread", %133, %"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.argprom.exit"
+147:                                              ; preds = %"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.exit.thread", %133, %"_ZZN3ade9findPathsERKNS_6HandleINS_4NodeEEES4_NS_4util8func_refIFbRKSt6vectorIS2_SaIS2_EEEEEENK3$_0clESB_S4_S4_.exit"
   %148 = load ptr, ptr %61, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 -16
   store ptr %149, ptr %61, align 8

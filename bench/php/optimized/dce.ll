@@ -3011,7 +3011,7 @@ zend_bitset_first.exit.i1661:                     ; preds = %.lr.ph.i.i1658
   %1720 = load ptr, ptr %5, align 8
   %1721 = getelementptr inbounds i8, ptr %1717, i64 28
   %1722 = load i8, ptr %1721, align 4
-  switch i8 %1722, label %is_free_of_live_var.argprom.exit.thread.i [
+  switch i8 %1722, label %is_free_of_live_var.exit.thread.i [
     i8 0, label %dce_instr.exit
     i8 70, label %1723
     i8 127, label %._crit_edge.i.i
@@ -3034,7 +3034,7 @@ zend_bitset_first.exit.i1661:                     ; preds = %.lr.ph.i.i1658
   %1731 = and i32 %1729, 1984
   %.not8.i.i = icmp eq i32 %1731, 0
   %or.cond.i.i = and i1 %.not.i.i1668, %.not8.i.i
-  br i1 %or.cond.i.i, label %is_free_of_live_var.argprom.exit.thread.i, label %1732
+  br i1 %or.cond.i.i, label %is_free_of_live_var.exit.thread.i, label %1732
 
 1732:                                             ; preds = %1723, %._crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre2.i.i, %._crit_edge.i.i ], [ %1727, %1723 ]
@@ -3057,13 +3057,13 @@ zend_bitset_first.exit.i1661:                     ; preds = %.lr.ph.i.i1658
   %1746 = shl nuw i64 1, %1745
   %1747 = and i64 %1744, %1746
   %.not109.i = icmp eq i64 %1747, 0
-  br i1 %.not109.i, label %dce_instr.exit, label %is_free_of_live_var.argprom.exit.thread.i
+  br i1 %.not109.i, label %dce_instr.exit, label %is_free_of_live_var.exit.thread.i
 
 1748:                                             ; preds = %1732
   %1749 = getelementptr inbounds i8, ptr %1736, i64 8
   %1750 = load i32, ptr %1749, align 8
   %1751 = icmp sgt i32 %1750, -1
-  br i1 %1751, label %1752, label %is_free_of_live_var.argprom.exit.i
+  br i1 %1751, label %1752, label %is_free_of_live_var.exit.i
 
 1752:                                             ; preds = %1748
   %1753 = load ptr, ptr %142, align 8
@@ -3075,23 +3075,23 @@ zend_bitset_first.exit.i1661:                     ; preds = %.lr.ph.i.i1658
   %1759 = shl nuw i64 1, %1758
   %1760 = and i64 %1757, %1759
   %.not111.i = icmp eq i64 %1760, 0
-  br i1 %.not111.i, label %dce_instr.exit, label %is_free_of_live_var.argprom.exit.thread.i
+  br i1 %.not111.i, label %dce_instr.exit, label %is_free_of_live_var.exit.thread.i
 
-is_free_of_live_var.argprom.exit.i:               ; preds = %1748
+is_free_of_live_var.exit.i:                       ; preds = %1748
   %1761 = load ptr, ptr %9, align 8
   %1762 = getelementptr inbounds i8, ptr %1761, i64 80
   %1763 = load i32, ptr %1762, align 8
   %.not110.i = icmp slt i32 %1733, %1763
-  br i1 %.not110.i, label %dce_instr.exit, label %is_free_of_live_var.argprom.exit.thread.i
+  br i1 %.not110.i, label %dce_instr.exit, label %is_free_of_live_var.exit.thread.i
 
-is_free_of_live_var.argprom.exit.thread.i:        ; preds = %is_free_of_live_var.argprom.exit.i, %1752, %1739, %1723, %1715
+is_free_of_live_var.exit.thread.i:                ; preds = %is_free_of_live_var.exit.i, %1752, %1739, %1723, %1715
   %1764 = getelementptr inbounds i8, ptr %1717, i64 29
   %1765 = load i8, ptr %1764, align 1
   %1766 = and i8 %1765, 6
   %.not.i1666 = icmp eq i8 %1766, 0
   br i1 %.not.i1666, label %1816, label %1767
 
-1767:                                             ; preds = %is_free_of_live_var.argprom.exit.thread.i
+1767:                                             ; preds = %is_free_of_live_var.exit.thread.i
   %1768 = load i32, ptr %1719, align 4
   %1769 = getelementptr inbounds i8, ptr %1720, i64 64
   %1770 = load ptr, ptr %1769, align 8
@@ -3167,9 +3167,9 @@ is_var_dead.exit.i:                               ; preds = %1784
   %1815 = load i8, ptr %1764, align 1
   br label %1816
 
-1816:                                             ; preds = %1814, %1812, %1812, %1804, %1800, %is_var_dead.exit.i, %1788, %1775, %is_free_of_live_var.argprom.exit.thread.i
-  %.080.i = phi i32 [ -1, %is_var_dead.exit.i ], [ -1, %1800 ], [ %1807, %1814 ], [ -1, %1812 ], [ -1, %1804 ], [ -1, %is_free_of_live_var.argprom.exit.thread.i ], [ -1, %1812 ], [ -1, %1775 ], [ -1, %1788 ]
-  %.0.i1667 = phi i8 [ undef, %is_var_dead.exit.i ], [ undef, %1800 ], [ %1815, %1814 ], [ undef, %1812 ], [ undef, %1804 ], [ undef, %is_free_of_live_var.argprom.exit.thread.i ], [ undef, %1812 ], [ undef, %1775 ], [ undef, %1788 ]
+1816:                                             ; preds = %1814, %1812, %1812, %1804, %1800, %is_var_dead.exit.i, %1788, %1775, %is_free_of_live_var.exit.thread.i
+  %.080.i = phi i32 [ -1, %is_var_dead.exit.i ], [ -1, %1800 ], [ %1807, %1814 ], [ -1, %1812 ], [ -1, %1804 ], [ -1, %is_free_of_live_var.exit.thread.i ], [ -1, %1812 ], [ -1, %1775 ], [ -1, %1788 ]
+  %.0.i1667 = phi i8 [ undef, %is_var_dead.exit.i ], [ undef, %1800 ], [ %1815, %1814 ], [ undef, %1812 ], [ undef, %1804 ], [ undef, %is_free_of_live_var.exit.thread.i ], [ undef, %1812 ], [ undef, %1775 ], [ undef, %1788 ]
   %1817 = getelementptr inbounds i8, ptr %1717, i64 30
   %1818 = load i8, ptr %1817, align 2
   %1819 = and i8 %1818, 6
@@ -3390,8 +3390,8 @@ is_var_dead.exit99.i:                             ; preds = %1839
   store i32 %1955, ptr %1957, align 4
   br label %dce_instr.exit
 
-dce_instr.exit:                                   ; preds = %1715, %1739, %1752, %is_free_of_live_var.argprom.exit.i, %1869, %1933, %1936
-  %.082.i = phi i32 [ 0, %1936 ], [ 0, %1869 ], [ 0, %1715 ], [ 0, %is_free_of_live_var.argprom.exit.i ], [ 1, %1933 ], [ 0, %1739 ], [ 0, %1752 ]
+dce_instr.exit:                                   ; preds = %1715, %1739, %1752, %is_free_of_live_var.exit.i, %1869, %1933, %1936
+  %.082.i = phi i32 [ 0, %1936 ], [ 0, %1869 ], [ 0, %1715 ], [ 0, %is_free_of_live_var.exit.i ], [ 1, %1933 ], [ 0, %1739 ], [ 0, %1752 ]
   %1958 = add nsw i32 %.082.i, %.11812
   br label %1959
 
@@ -3545,8 +3545,8 @@ add_to_phi_worklist_no_val.exit1682:              ; preds = %2005, %2016, %2024
   %.not14841824 = icmp eq ptr %.113591823, null
   br i1 %.not14841824, label %._crit_edge1828, label %.lr.ph1827
 
-.lr.ph1827:                                       ; preds = %2034, %try_remove_trivial_phi.argprom.exit
-  %.113591825 = phi ptr [ %.11359, %try_remove_trivial_phi.argprom.exit ], [ %.113591823, %2034 ]
+.lr.ph1827:                                       ; preds = %2034, %try_remove_trivial_phi.exit
+  %.113591825 = phi ptr [ %.11359, %try_remove_trivial_phi.exit ], [ %.113591823, %2034 ]
   %2038 = getelementptr inbounds i8, ptr %.113591825, i64 68
   %2039 = load i32, ptr %2038, align 4
   %2040 = zext i32 %2039 to i64
@@ -3562,13 +3562,13 @@ add_to_phi_worklist_no_val.exit1682:              ; preds = %2005, %2016, %2024
 2047:                                             ; preds = %.lr.ph1827
   tail call void @zend_ssa_remove_uses_of_var(ptr noundef nonnull %2, i32 noundef %2039) #12
   tail call void @zend_ssa_remove_phi(ptr noundef nonnull %2, ptr noundef nonnull %.113591825) #12
-  br label %try_remove_trivial_phi.argprom.exit
+  br label %try_remove_trivial_phi.exit
 
 2048:                                             ; preds = %.lr.ph1827
   %2049 = getelementptr inbounds i8, ptr %.113591825, i64 8
   %2050 = load i32, ptr %2049, align 8
   %2051 = icmp slt i32 %2050, 0
-  br i1 %2051, label %2052, label %try_remove_trivial_phi.argprom.exit
+  br i1 %2051, label %2052, label %try_remove_trivial_phi.exit
 
 2052:                                             ; preds = %2048
   %2053 = load ptr, ptr %1974, align 8
@@ -3578,7 +3578,7 @@ add_to_phi_worklist_no_val.exit1682:              ; preds = %2005, %2016, %2024
   %2057 = getelementptr inbounds %struct._zend_basic_block, ptr %2053, i64 %2056, i32 5
   %2058 = load i32, ptr %2057, align 8
   %2059 = icmp sgt i32 %2058, 0
-  br i1 %2059, label %.lr.ph.i.i1683, label %try_remove_trivial_phi.argprom.exit
+  br i1 %2059, label %.lr.ph.i.i1683, label %try_remove_trivial_phi.exit
 
 .lr.ph.i.i1683:                                   ; preds = %2052
   %2060 = getelementptr inbounds i8, ptr %.113591825, i64 96
@@ -3602,7 +3602,7 @@ add_to_phi_worklist_no_val.exit1682:              ; preds = %2005, %2016, %2024
 
 2069:                                             ; preds = %2067
   %.not.i.i1686 = icmp eq i32 %.01921.i.i, %2064
-  br i1 %.not.i.i1686, label %2070, label %try_remove_trivial_phi.argprom.exit
+  br i1 %.not.i.i1686, label %2070, label %try_remove_trivial_phi.exit
 
 2070:                                             ; preds = %2069, %2067, %2062
   %.1.i.i = phi i32 [ %.01921.i.i, %2062 ], [ %.01921.i.i, %2069 ], [ %2064, %2067 ]
@@ -3612,19 +3612,19 @@ add_to_phi_worklist_no_val.exit1682:              ; preds = %2005, %2016, %2024
 
 get_common_phi_source.exit.i:                     ; preds = %2070
   %2071 = icmp sgt i32 %.1.i.i, -1
-  br i1 %2071, label %2072, label %try_remove_trivial_phi.argprom.exit
+  br i1 %2071, label %2072, label %try_remove_trivial_phi.exit
 
 2072:                                             ; preds = %get_common_phi_source.exit.i
   tail call void @zend_ssa_rename_var_uses(ptr noundef %.val, i32 noundef %2039, i32 noundef %.1.i.i, i1 noundef zeroext true) #12
   tail call void @zend_ssa_remove_phi(ptr noundef %.val, ptr noundef nonnull %.113591825) #12
-  br label %try_remove_trivial_phi.argprom.exit
+  br label %try_remove_trivial_phi.exit
 
-try_remove_trivial_phi.argprom.exit:              ; preds = %2069, %2072, %get_common_phi_source.exit.i, %2052, %2048, %2047
+try_remove_trivial_phi.exit:                      ; preds = %2069, %2072, %get_common_phi_source.exit.i, %2052, %2048, %2047
   %.11359 = load ptr, ptr %.113591825, align 8
   %.not1484 = icmp eq ptr %.11359, null
   br i1 %.not1484, label %._crit_edge1828.loopexit, label %.lr.ph1827
 
-._crit_edge1828.loopexit:                         ; preds = %try_remove_trivial_phi.argprom.exit
+._crit_edge1828.loopexit:                         ; preds = %try_remove_trivial_phi.exit
   %.pre1893 = load i32, ptr %2, align 8
   br label %._crit_edge1828
 

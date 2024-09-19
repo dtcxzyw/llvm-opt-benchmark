@@ -156,14 +156,14 @@ define i32 @task_cgroup_memory_create(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 248
   %6 = load i64, ptr %5, align 8
-  %7 = tail call fastcc i32 @_memcg_initialize.argprom(i64 noundef %6, i1 noundef zeroext false)
+  %7 = tail call fastcc i32 @_memcg_initialize(i64 noundef %6, i1 noundef zeroext false)
   %.not5 = icmp eq i32 %7, 0
   br i1 %.not5, label %8, label %19
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 256
   %10 = load i64, ptr %9, align 8
-  %11 = tail call fastcc i32 @_memcg_initialize.argprom(i64 noundef %10, i1 noundef zeroext true)
+  %11 = tail call fastcc i32 @_memcg_initialize(i64 noundef %10, i1 noundef zeroext true)
   %.not6 = icmp eq i32 %11, 0
   br i1 %.not6, label %12, label %19
 
@@ -190,7 +190,7 @@ define i32 @task_cgroup_memory_create(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @cgroup_g_step_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_memcg_initialize.argprom(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_memcg_initialize(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct.cgroup_limits_t, align 8
   %4 = icmp eq i64 %0, 0
   br i1 %4, label %5, label %11

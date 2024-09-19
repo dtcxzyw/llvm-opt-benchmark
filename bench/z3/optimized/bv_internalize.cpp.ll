@@ -1983,107 +1983,107 @@ sw.bb:                                            ; preds = %invoke.cont
 
 sw.bb3:                                           ; preds = %invoke.cont
   %22 = ptrtoint ptr %this to i64
-  %23 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %un, i64 %22) #23
+  %23 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %un, i64 %22) #23
   br label %if.then.invoke
 
 sw.bb6:                                           ; preds = %invoke.cont
   %24 = ptrtoint ptr %this to i64
-  %25 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %un, i64 %24) #23
+  %25 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %un, i64 %24) #23
   br label %if.then.invoke
 
 sw.bb10:                                          ; preds = %invoke.cont
   %26 = ptrtoint ptr %this to i64
-  %27 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_2EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %un, i64 %26) #23
+  %27 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_2EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %un, i64 %26) #23
   br label %if.then.invoke
 
 sw.bb14:                                          ; preds = %invoke.cont
   %28 = ptrtoint ptr %this to i64
-  %29 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_3EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %un, i64 %28) #23
+  %29 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_3EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %un, i64 %28) #23
   br label %if.then.invoke
 
 sw.bb18:                                          ; preds = %invoke.cont
   %30 = ptrtoint ptr %this to i64
-  %31 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_4EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %30) #23
+  %31 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_4EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %30) #23
   br label %sw.bb95.invoke
 
 sw.bb22:                                          ; preds = %invoke.cont
   %32 = ptrtoint ptr %this to i64
-  %33 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_5EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %32) #23
+  %33 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_5EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %32) #23
   br label %sw.bb95.invoke
 
 sw.bb26:                                          ; preds = %invoke.cont
   %34 = ptrtoint ptr %this to i64
-  %35 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_6EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %34) #23
+  %35 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_6EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %34) #23
   br label %sw.bb95.invoke
 
 sw.bb30:                                          ; preds = %invoke.cont
   %36 = ptrtoint ptr %this to i64
-  %37 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_7EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %36) #23
+  %37 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_7EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %36) #23
   br label %sw.bb95.invoke
 
 sw.bb34:                                          ; preds = %invoke.cont
   %38 = ptrtoint ptr %this to i64
-  %39 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_8EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %38) #23
+  %39 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_8EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %38) #23
   br label %sw.bb95.invoke
 
 sw.bb38:                                          ; preds = %invoke.cont
   %40 = ptrtoint ptr %this to i64
-  %41 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_9EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %40) #23
+  %41 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_9EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %40) #23
   br label %sw.bb95.invoke
 
 sw.bb42:                                          ; preds = %invoke.cont
   %42 = ptrtoint ptr %this to i64
-  %43 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_10EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %42) #23
+  %43 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_10EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %42) #23
   br label %sw.bb95.invoke
 
 sw.bb46:                                          ; preds = %invoke.cont
   %44 = ptrtoint ptr %this to i64
-  %45 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_11EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %44) #23
+  %45 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_11EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %44) #23
   br label %sw.bb95.invoke
 
 sw.bb50:                                          ; preds = %invoke.cont
   %46 = ptrtoint ptr %this to i64
-  %47 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_12EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %46) #23
+  %47 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_12EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %46) #23
   br label %sw.bb95.invoke
 
 sw.bb54:                                          ; preds = %invoke.cont
   %48 = ptrtoint ptr %this to i64
-  %49 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_13EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %48) #23
+  %49 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_13EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %48) #23
   br label %sw.bb95.invoke
 
 sw.bb58:                                          ; preds = %invoke.cont
   %50 = ptrtoint ptr %this to i64
-  %51 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_14EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %50) #23
+  %51 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_14EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %50) #23
   br label %sw.bb95.invoke
 
 sw.bb62:                                          ; preds = %invoke.cont
   %52 = ptrtoint ptr %this to i64
-  %53 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_15EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %52) #23
+  %53 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_15EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %52) #23
   br label %sw.bb95.invoke
 
 sw.bb66:                                          ; preds = %invoke.cont
   %54 = ptrtoint ptr %this to i64
-  %55 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_16EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %54) #23
+  %55 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_16EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %54) #23
   br label %sw.bb95.invoke
 
 sw.bb70:                                          ; preds = %invoke.cont
   %56 = ptrtoint ptr %this to i64
-  %57 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_17EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %56) #23
+  %57 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_17EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %56) #23
   br label %sw.bb95.invoke
 
 sw.bb74:                                          ; preds = %invoke.cont
   %58 = ptrtoint ptr %this to i64
-  %59 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_18EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %58) #23
+  %59 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_18EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %58) #23
   br label %sw.bb95.invoke
 
 sw.bb78:                                          ; preds = %invoke.cont
   %60 = ptrtoint ptr %this to i64
-  %61 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_19EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %60) #23
+  %61 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_19EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %60) #23
   br label %sw.bb95.invoke
 
 sw.bb82:                                          ; preds = %invoke.cont
   %62 = ptrtoint ptr %this to i64
-  %63 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_20EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %62) #23
+  %63 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_20EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %62) #23
   br label %sw.bb95.invoke
 
 sw.bb86:                                          ; preds = %invoke.cont
@@ -2094,7 +2094,7 @@ sw.bb86:                                          ; preds = %invoke.cont
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb86
-  %66 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_21EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %un, i64 %65) #23
+  %66 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_21EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %un, i64 %65) #23
   br label %if.then.invoke
 
 if.then.invoke:                                   ; preds = %sw.bb3, %sw.bb6, %sw.bb10, %sw.bb14, %if.then
@@ -2102,12 +2102,12 @@ if.then.invoke:                                   ; preds = %sw.bb3, %sw.bb6, %s
           to label %sw.epilog unwind label %lpad
 
 if.end:                                           ; preds = %sw.bb86
-  %67 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_22EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %65) #23
+  %67 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_22EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %65) #23
   br label %sw.bb95.invoke
 
 sw.bb95:                                          ; preds = %invoke.cont
   %68 = ptrtoint ptr %this to i64
-  %69 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_23EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %68) #23
+  %69 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_23EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %bin, i64 %68) #23
   br label %sw.bb95.invoke
 
 sw.bb95.invoke:                                   ; preds = %sw.bb18, %sw.bb22, %sw.bb26, %sw.bb30, %sw.bb34, %sw.bb38, %sw.bb42, %sw.bb46, %sw.bb50, %sw.bb54, %sw.bb58, %sw.bb62, %sw.bb66, %sw.bb70, %sw.bb74, %sw.bb78, %sw.bb82, %if.end, %sw.bb95
@@ -2116,22 +2116,22 @@ sw.bb95.invoke:                                   ; preds = %sw.bb18, %sw.bb22, 
 
 sw.bb99:                                          ; preds = %invoke.cont
   %70 = ptrtoint ptr %this to i64
-  %71 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_24EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %pun, i64 %70) #23
+  %71 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_24EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %pun, i64 %70) #23
   br label %sw.bb111.invoke
 
 sw.bb103:                                         ; preds = %invoke.cont
   %72 = ptrtoint ptr %this to i64
-  %73 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_25EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %pun, i64 %72) #23
+  %73 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_25EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %pun, i64 %72) #23
   br label %sw.bb111.invoke
 
 sw.bb107:                                         ; preds = %invoke.cont
   %74 = ptrtoint ptr %this to i64
-  %75 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_26EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %pun, i64 %74) #23
+  %75 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_26EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %pun, i64 %74) #23
   br label %sw.bb111.invoke
 
 sw.bb111:                                         ; preds = %invoke.cont
   %76 = ptrtoint ptr %this to i64
-  %77 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_27EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %pun, i64 %76) #23
+  %77 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_27EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %pun, i64 %76) #23
   br label %sw.bb111.invoke
 
 sw.bb111.invoke:                                  ; preds = %sw.bb99, %sw.bb103, %sw.bb107, %sw.bb111
@@ -2140,17 +2140,17 @@ sw.bb111.invoke:                                  ; preds = %sw.bb99, %sw.bb103,
 
 sw.bb115:                                         ; preds = %invoke.cont
   %78 = ptrtoint ptr %this to i64
-  %79 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_28EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ebin, i64 %78) #23
+  %79 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_28EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %ebin, i64 %78) #23
   br label %sw.bb123.invoke
 
 sw.bb119:                                         ; preds = %invoke.cont
   %80 = ptrtoint ptr %this to i64
-  %81 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_29EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ebin, i64 %80) #23
+  %81 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_29EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %ebin, i64 %80) #23
   br label %sw.bb123.invoke
 
 sw.bb123:                                         ; preds = %invoke.cont
   %82 = ptrtoint ptr %this to i64
-  %83 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_30EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ebin, i64 %82) #23
+  %83 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_30EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull align 8 dereferenceable(32) %ebin, i64 %82) #23
   br label %sw.bb123.invoke
 
 sw.bb123.invoke:                                  ; preds = %sw.bb115, %sw.bb119, %sw.bb123
@@ -2231,32 +2231,32 @@ sw.bb161:                                         ; preds = %invoke.cont
 
 sw.bb163:                                         ; preds = %invoke.cont
   %84 = ptrtoint ptr %this to i64
-  %85 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_31EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ibin, i64 %84) #23
-  %86 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_32EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %iun, i64 %84) #23
+  %85 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_31EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %ibin, i64 %84) #23
+  %86 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_32EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %iun, i64 %84) #23
   br label %sw.bb187.invoke
 
 sw.bb169:                                         ; preds = %invoke.cont
   %87 = ptrtoint ptr %this to i64
-  %88 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_33EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ibin, i64 %87) #23
-  %89 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_34EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %iun, i64 %87) #23
+  %88 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_33EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %ibin, i64 %87) #23
+  %89 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_34EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %iun, i64 %87) #23
   br label %sw.bb187.invoke
 
 sw.bb175:                                         ; preds = %invoke.cont
   %90 = ptrtoint ptr %this to i64
-  %91 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_35EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ibin, i64 %90) #23
-  %92 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_36EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %iun, i64 %90) #23
+  %91 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_35EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %ibin, i64 %90) #23
+  %92 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_36EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %iun, i64 %90) #23
   br label %sw.bb187.invoke
 
 sw.bb181:                                         ; preds = %invoke.cont
   %93 = ptrtoint ptr %this to i64
-  %94 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_37EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ibin, i64 %93) #23
-  %95 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_38EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %iun, i64 %93) #23
+  %94 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_37EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %ibin, i64 %93) #23
+  %95 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_38EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %iun, i64 %93) #23
   br label %sw.bb187.invoke
 
 sw.bb187:                                         ; preds = %invoke.cont
   %96 = ptrtoint ptr %this to i64
-  %97 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_39EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %ibin, i64 %96) #23
-  %98 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_40EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull align 8 dereferenceable(32) %iun, i64 %96) #23
+  %97 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_39EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %ibin, i64 %96) #23
+  %98 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_40EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull align 8 dereferenceable(32) %iun, i64 %96) #23
   br label %sw.bb187.invoke
 
 sw.bb187.invoke:                                  ; preds = %sw.bb163, %sw.bb169, %sw.bb175, %sw.bb181, %sw.bb187
@@ -2737,7 +2737,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
@@ -2996,7 +2996,7 @@ lpad3:                                            ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
@@ -3037,7 +3037,7 @@ _ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_2EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_2EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
@@ -3078,7 +3078,7 @@ _ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_3EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_3EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
@@ -3119,7 +3119,7 @@ _ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_4EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_4EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3614,7 +3614,7 @@ _ZN10ref_vectorI4expr11ast_managerED2Ev.exit112:  ; preds = %_ZN10ref_vectorI4ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_5EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_5EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3655,7 +3655,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_6EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_6EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3696,7 +3696,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_7EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_7EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3737,7 +3737,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_8EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_8EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3778,7 +3778,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_9EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_9EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3819,7 +3819,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_10EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_10EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3860,7 +3860,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_11EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_11EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3901,7 +3901,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_12EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_12EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3942,7 +3942,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_13EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_13EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3983,7 +3983,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_14EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_14EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4024,7 +4024,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_15EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_15EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4065,7 +4065,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_16EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_16EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4106,7 +4106,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_17EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_17EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4147,7 +4147,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_18EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_18EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4188,7 +4188,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_19EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_19EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4229,7 +4229,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_20EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_20EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4270,7 +4270,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_21EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_21EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
@@ -4311,7 +4311,7 @@ _ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_22EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_22EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4352,7 +4352,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_23EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_23EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4393,7 +4393,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_24EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_24EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
@@ -4680,7 +4680,7 @@ lpad3:                                            ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_25EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_25EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
@@ -4721,7 +4721,7 @@ _ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_26EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_26EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
@@ -4762,7 +4762,7 @@ _ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_27EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_27EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
@@ -4803,7 +4803,7 @@ _ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_28EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_28EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.243", align 8
@@ -5147,7 +5147,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_29EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_29EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.243", align 8
@@ -5188,7 +5188,7 @@ _ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_30EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_30EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.243", align 8
@@ -9238,7 +9238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_31EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_31EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
@@ -9279,7 +9279,7 @@ _ZNSt8functionIFP4exprS1_S1_EED2Ev.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_32EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_32EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
@@ -9564,7 +9564,7 @@ ehcleanup:                                        ; preds = %lpad25, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_33EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_33EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
@@ -9605,7 +9605,7 @@ _ZNSt8functionIFP4exprS1_S1_EED2Ev.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_34EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_34EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
@@ -9646,7 +9646,7 @@ _ZNSt8functionIFP4exprS1_EED2Ev.exit:             ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_35EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_35EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
@@ -9687,7 +9687,7 @@ _ZNSt8functionIFP4exprS1_S1_EED2Ev.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_36EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_36EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
@@ -9728,7 +9728,7 @@ _ZNSt8functionIFP4exprS1_EED2Ev.exit:             ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_37EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_37EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
@@ -9769,7 +9769,7 @@ _ZNSt8functionIFP4exprS1_S1_EED2Ev.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_38EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_38EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
@@ -9810,7 +9810,7 @@ _ZNSt8functionIFP4exprS1_EED2Ev.exit:             ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_39EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_39EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
@@ -9851,7 +9851,7 @@ _ZNSt8functionIFP4exprS1_S1_EED2Ev.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_40EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.argprom"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_40EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
@@ -12385,7 +12385,7 @@ declare noundef zeroext i1 @_ZN3euf13th_euf_solver10add_clauseEN3sat7literalES2_
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2bv6solver18internalize_udiv_iEP3app(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver18internalize_udiv_iEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom.exit":
+"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver18internalize_udiv_iEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.exit":
   %bin = alloca %"class.std::function.241", align 8
   %0 = ptrtoint ptr %this to i64
   store i64 %0, ptr %bin, align 8
@@ -12398,7 +12398,7 @@ define hidden void @_ZN2bv6solver18internalize_udiv_iEP3app(ptr noundef nonnull 
   invoke void @_ZN2bv6solver18internalize_binaryEP3appRSt8functionIFvjPKP4exprS7_R10ref_vectorIS4_11ast_managerEEE(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef %a, ptr noundef nonnull align 8 dereferenceable(32) %bin)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver18internalize_udiv_iEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom.exit"
+invoke.cont:                                      ; preds = %"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver18internalize_udiv_iEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.exit"
   %1 = load ptr, ptr %_M_manager3.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit, label %if.then.i.i
@@ -12417,7 +12417,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 
-lpad:                                             ; preds = %"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver18internalize_udiv_iEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.argprom.exit"
+lpad:                                             ; preds = %"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver18internalize_udiv_iEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_.exit"
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = load ptr, ptr %_M_manager3.i.i, align 8

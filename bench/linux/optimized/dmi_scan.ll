@@ -1410,22 +1410,22 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dmi_walk_early(ptr nocaptu
   %.pre-phi.i = zext i32 %.pre-phi.in.i to i64
   %49 = sub i64 %.pre-phi14.i, %8
   %50 = icmp slt i64 %49, %.pre-phi.i
-  br i1 %50, label %51, label %dmi_decode_table.argprom.exit
+  br i1 %50, label %51, label %dmi_decode_table.exit
 
 51:                                               ; preds = %._crit_edge.i
   %52 = trunc i64 %49 to i32
   store i32 %52, ptr @dmi_len, align 4
   %.pre = and i64 %49, 4294967295
-  br label %dmi_decode_table.argprom.exit
+  br label %dmi_decode_table.exit
 
-dmi_decode_table.argprom.exit:                    ; preds = %._crit_edge.i, %51
+dmi_decode_table.exit:                            ; preds = %._crit_edge.i, %51
   %.pre-phi = phi i64 [ %.pre-phi.i, %._crit_edge.i ], [ %.pre, %51 ]
   tail call void @add_device_randomness(ptr noundef nonnull %5, i64 noundef %.pre-phi) #21
   tail call void @early_memunmap(ptr noundef nonnull %5, i64 noundef %4) #21
   br label %53
 
-53:                                               ; preds = %dmi_decode_table.argprom.exit, %1
-  %54 = phi i32 [ 0, %dmi_decode_table.argprom.exit ], [ -12, %1 ]
+53:                                               ; preds = %dmi_decode_table.exit, %1
+  %54 = phi i32 [ 0, %dmi_decode_table.exit ], [ -12, %1 ]
   ret i32 %54
 }
 

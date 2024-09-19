@@ -4640,7 +4640,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 138:                                              ; preds = %121
   %139 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %139, null
-  br i1 %.not, label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.argprom.exit, label %140
+  br i1 %.not, label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit, label %140
 
 140:                                              ; preds = %138
   %141 = load i8, ptr %58, align 4
@@ -4709,14 +4709,14 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
 _ZSt4copyIPfN9__gnu_cxx17__normal_iteratorIS0_St6vectorIfSaIfEEEEET0_T_S8_S7_.exit: ; preds = %.lr.ph179, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit, %175, %173
   %179 = load ptr, ptr %19, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.63, i32 noundef 956, ptr noundef %179)
-          to label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.argprom.exit unwind label %.loopexit.split-lp173
+          to label %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit unwind label %.loopexit.split-lp173
 
-_ZL14gmx_sfree_implIfEvPKcS1_iPT_.argprom.exit:   ; preds = %_ZSt4copyIPfN9__gnu_cxx17__normal_iteratorIS0_St6vectorIfSaIfEEEEET0_T_S8_S7_.exit, %138
+_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit:           ; preds = %_ZSt4copyIPfN9__gnu_cxx17__normal_iteratorIS0_St6vectorIfSaIfEEEEET0_T_S8_S7_.exit, %138
   %180 = load ptr, ptr %20, align 8
   store ptr %180, ptr %22, align 8
   br i1 %57, label %181, label %340
 
-181:                                              ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.argprom.exit
+181:                                              ; preds = %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit
   %182 = getelementptr inbounds i8, ptr %2, i64 8
   %183 = load i32, ptr %182, align 8
   %184 = getelementptr inbounds i8, ptr %0, i64 392
@@ -5128,7 +5128,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_113connolly_plotEPKciPKfPA3_fP7t_atomsP8t_s
           cleanup
   br label %.body
 
-340:                                              ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_113connolly_plotEPKciPKfPA3_fP7t_atomsP8t_symtab7PbcTypePA3_S4_b.exit, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.argprom.exit
+340:                                              ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_113connolly_plotEPKciPKfPA3_fP7t_atomsP8t_symtab7PbcTypePA3_S4_b.exit, %_ZL14gmx_sfree_implIfEvPKcS1_iPT_.exit
   %341 = getelementptr inbounds i8, ptr %2, i64 28
   %342 = load float, ptr %341, align 4
   invoke void @_ZN3gmx18AnalysisDataHandle10startFrameEiff(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %1, float noundef %342, float noundef 0.000000e+00)

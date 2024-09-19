@@ -959,7 +959,7 @@ index_get_field_name.exit:                        ; preds = %137, %145
 
 .thread8.i:                                       ; preds = %157
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  br label %dissect_oer_bit_string_unconstr.argprom.exit
+  br label %dissect_oer_bit_string_unconstr.exit
 
 161:                                              ; preds = %157
   %162 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %158) #8
@@ -996,7 +996,7 @@ index_get_field_name.exit:                        ; preds = %137, %145
 
 181:                                              ; preds = %170
   %.not.i179 = icmp eq i32 %172, 0
-  br i1 %.not.i179, label %dissect_oer_bit_string_unconstr.argprom.exit, label %.lr.ph.i180
+  br i1 %.not.i179, label %dissect_oer_bit_string_unconstr.exit, label %.lr.ph.i180
 
 .lr.ph.i180:                                      ; preds = %181
   %182 = shl nuw nsw i32 255, %173
@@ -1023,9 +1023,9 @@ index_get_field_name.exit:                        ; preds = %137, %145
 192:                                              ; preds = %188, %185
   %193 = add i32 %.25.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %184
-  br i1 %exitcond.not.i, label %dissect_oer_bit_string_unconstr.argprom.exit, label %185, !llvm.loop !10
+  br i1 %exitcond.not.i, label %dissect_oer_bit_string_unconstr.exit, label %185, !llvm.loop !10
 
-dissect_oer_bit_string_unconstr.argprom.exit:     ; preds = %192, %.thread8.i, %181
+dissect_oer_bit_string_unconstr.exit:             ; preds = %192, %.thread8.i, %181
   %.0196 = phi i32 [ 0, %181 ], [ %159, %.thread8.i ], [ %172, %192 ]
   %.2.lcssa.i = phi i32 [ %171, %181 ], [ %158, %.thread8.i ], [ %193, %192 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -1033,9 +1033,9 @@ dissect_oer_bit_string_unconstr.argprom.exit:     ; preds = %192, %.thread8.i, %
   %.not159224 = icmp eq ptr %194, null
   br i1 %.not159224, label %._crit_edge227, label %.lr.ph226
 
-.lr.ph226:                                        ; preds = %dissect_oer_bit_string_unconstr.argprom.exit, %199
-  %195 = phi ptr [ %202, %199 ], [ %6, %dissect_oer_bit_string_unconstr.argprom.exit ]
-  %.0136225 = phi i32 [ %200, %199 ], [ 0, %dissect_oer_bit_string_unconstr.argprom.exit ]
+.lr.ph226:                                        ; preds = %dissect_oer_bit_string_unconstr.exit, %199
+  %195 = phi ptr [ %202, %199 ], [ %6, %dissect_oer_bit_string_unconstr.exit ]
+  %.0136225 = phi i32 [ %200, %199 ], [ 0, %dissect_oer_bit_string_unconstr.exit ]
   %196 = getelementptr inbounds i8, ptr %195, i64 8
   %197 = load i32, ptr %196, align 8
   %198 = icmp eq i32 %197, 2
@@ -1049,8 +1049,8 @@ dissect_oer_bit_string_unconstr.argprom.exit:     ; preds = %192, %.thread8.i, %
   %.not159 = icmp eq ptr %203, null
   br i1 %.not159, label %._crit_edge227, label %.lr.ph226, !llvm.loop !11
 
-._crit_edge227:                                   ; preds = %199, %.lr.ph226, %dissect_oer_bit_string_unconstr.argprom.exit
-  %.0136.lcssa = phi i32 [ 0, %dissect_oer_bit_string_unconstr.argprom.exit ], [ %.0136225, %.lr.ph226 ], [ %200, %199 ]
+._crit_edge227:                                   ; preds = %199, %.lr.ph226, %dissect_oer_bit_string_unconstr.exit
+  %.0136.lcssa = phi i32 [ 0, %dissect_oer_bit_string_unconstr.exit ], [ %.0136225, %.lr.ph226 ], [ %200, %199 ]
   %204 = icmp sgt i32 %.0196, 0
   br i1 %204, label %.lr.ph238, label %.loopexit
 

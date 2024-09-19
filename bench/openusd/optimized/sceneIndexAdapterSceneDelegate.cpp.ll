@@ -35311,7 +35311,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_42HdRenderSettingsPrimTo
   br i1 %.not, label %.critedge, label %254
 
 254:                                              ; preds = %250
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ToDictionaryERKSt10shared_ptrINS_21HdContainerDataSourceEE.argprom(ptr dead_on_unwind noalias writable align 8 %47, ptr nonnull %251, ptr %253)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ToDictionaryERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr dead_on_unwind noalias writable align 8 %47, ptr nonnull %251, ptr %253)
           to label %255 unwind label %314
 
 255:                                              ; preds = %254
@@ -37496,7 +37496,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 1233:                                             ; preds = %1231
   %.val7.i.i.i.i = load ptr, ptr %541, align 8, !noalias !193
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ToDictionaryERKSt10shared_ptrINS_21HdContainerDataSourceEE.argprom(ptr dead_on_unwind noalias writable align 8 %14, ptr nonnull %1232, ptr %.val7.i.i.i.i)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ToDictionaryERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr dead_on_unwind noalias writable align 8 %14, ptr nonnull %1232, ptr %.val7.i.i.i.i)
           to label %1234 unwind label %1249
 
 1234:                                             ; preds = %1233
@@ -39133,7 +39133,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 
 1969:                                             ; preds = %1967
   %.val9.i.i = load ptr, ptr %563, align 8, !noalias !171
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ToDictionaryERKSt10shared_ptrINS_21HdContainerDataSourceEE.argprom(ptr dead_on_unwind noalias writable align 8 %38, ptr nonnull %1968, ptr %.val9.i.i)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ToDictionaryERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr dead_on_unwind noalias writable align 8 %38, ptr nonnull %1968, ptr %.val9.i.i)
           to label %1970 unwind label %1985
 
 1970:                                             ; preds = %1969
@@ -73819,7 +73819,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__33HdExtComputationPrimvar
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__22HdRenderSettingsSchema21GetNamespacedSettingsEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ToDictionaryERKSt10shared_ptrINS_21HdContainerDataSourceEE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ToDictionaryERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdTypedContainerSchema", align 8
   %3 = alloca %"class.std::shared_ptr", align 8
   store ptr %.0.val, ptr %3, align 8
@@ -86935,8 +86935,8 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRP
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %13
 
-13:                                               ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.argprom.exit.i", %.lr.ph.i
-  %.09.i = phi ptr [ %.07.i, %.lr.ph.i ], [ %.0.i, %"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.argprom.exit.i" ]
+13:                                               ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.exit.i", %.lr.ph.i
+  %.09.i = phi ptr [ %.07.i, %.lr.ph.i ], [ %.0.i, %"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.exit.i" ]
   %14 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -87315,13 +87315,13 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   %177 = ptrtoint ptr %176 to i64
   %178 = and i64 %177, 7
   %.not.i.i.i18.i.i = icmp eq i64 %178, 0
-  br i1 %.not.i.i.i18.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.argprom.exit.i", label %179
+  br i1 %.not.i.i.i18.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.exit.i", label %179
 
 179:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i.i.i
   %180 = and i64 %177, -8
   %181 = inttoptr i64 %180 to ptr
   %182 = atomicrmw sub ptr %181, i32 2 release, align 4
-  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.argprom.exit.i"
+  br label %"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.exit.i"
 
 183:                                              ; preds = %104, %102, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit.i.thread.i
   %184 = landingpad { ptr, i32 }
@@ -87334,7 +87334,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #27
   resume { ptr, i32 } %.pn.i.i
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.argprom.exit.i": ; preds = %179, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i.i.i
+"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.exit.i": ; preds = %179, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -87344,7 +87344,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_32HdSceneIndexAdapterSceneDelegate15_PrimCacheEntryEE15ParallelForEachIZNS1_4SyncEPNS_19HdSyncRequestVectorEE3$_0EEvRKT_ENKUlRPvE_clESC_.exit", label %13, !llvm.loop !588
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_32HdSceneIndexAdapterSceneDelegate15_PrimCacheEntryEE15ParallelForEachIZNS1_4SyncEPNS_19HdSyncRequestVectorEE3$_0EEvRKT_ENKUlRPvE_clESC_.exit": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.argprom.exit.i", %2
+"_ZZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_32HdSceneIndexAdapterSceneDelegate15_PrimCacheEntryEE15ParallelForEachIZNS1_4SyncEPNS_19HdSyncRequestVectorEE3$_0EEvRKT_ENKUlRPvE_clESC_.exit": ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__32HdSceneIndexAdapterSceneDelegate4SyncEPNS_19HdSyncRequestVectorEENK3$_0clERKNS_7SdfPathERKNS0_15_PrimCacheEntryE.exit.i", %2
   ret void
 }
 

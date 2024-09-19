@@ -16,15 +16,15 @@ define noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load i64, ptr %5, align 8, !noundef !3
   %6 = icmp eq i64 %.val, 0
-  br i1 %6, label %"_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors28_$u7b$$u7b$closure$u7d$$u7d$17he0c334f26a827073E.argprom.exit", label %7
+  br i1 %6, label %"_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors28_$u7b$$u7b$closure$u7d$$u7d$17he0c334f26a827073E.exit", label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   %9 = load i64, ptr %8, align 8, !noundef !3
   %10 = icmp ult i64 %.val, %9
-  br label %"_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors28_$u7b$$u7b$closure$u7d$$u7d$17he0c334f26a827073E.argprom.exit"
+  br label %"_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors28_$u7b$$u7b$closure$u7d$$u7d$17he0c334f26a827073E.exit"
 
-"_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors28_$u7b$$u7b$closure$u7d$$u7d$17he0c334f26a827073E.argprom.exit": ; preds = %2, %7
+"_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors28_$u7b$$u7b$closure$u7d$$u7d$17he0c334f26a827073E.exit": ; preds = %2, %7
   %.0.i = phi i1 [ %10, %7 ], [ false, %2 ]
   ret i1 %.0.i
 }
@@ -37,15 +37,15 @@ define noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load i64, ptr %5, align 8, !noundef !3
   %6 = icmp eq i64 %.val, 0
-  br i1 %6, label %"_ZN22cranelift_codegen_meta9gen_types12emit_vectors28_$u7b$$u7b$closure$u7d$$u7d$17hc0589eb3de03c0cfE.argprom.exit", label %7
+  br i1 %6, label %"_ZN22cranelift_codegen_meta9gen_types12emit_vectors28_$u7b$$u7b$closure$u7d$$u7d$17hc0589eb3de03c0cfE.exit", label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   %9 = load i64, ptr %8, align 8, !noundef !3
   %10 = icmp ult i64 %.val, %9
-  br label %"_ZN22cranelift_codegen_meta9gen_types12emit_vectors28_$u7b$$u7b$closure$u7d$$u7d$17hc0589eb3de03c0cfE.argprom.exit"
+  br label %"_ZN22cranelift_codegen_meta9gen_types12emit_vectors28_$u7b$$u7b$closure$u7d$$u7d$17hc0589eb3de03c0cfE.exit"
 
-"_ZN22cranelift_codegen_meta9gen_types12emit_vectors28_$u7b$$u7b$closure$u7d$$u7d$17hc0589eb3de03c0cfE.argprom.exit": ; preds = %2, %7
+"_ZN22cranelift_codegen_meta9gen_types12emit_vectors28_$u7b$$u7b$closure$u7d$$u7d$17hc0589eb3de03c0cfE.exit": ; preds = %2, %7
   %.0.i = phi i1 [ %10, %7 ], [ false, %2 ]
   ret i1 %.0.i
 }

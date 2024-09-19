@@ -1912,7 +1912,7 @@ _ZL17match_option_namePKcPiPci.exit.i:            ; preds = %.preheader.i.i
   br label %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
 
 231:                                              ; preds = %219
-  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i.argelim(i32 noundef %190, ptr noundef %204, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef %183, i32 noundef %217, ptr noundef %14)
+  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %190, ptr noundef %204, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef %183, i32 noundef %217, ptr noundef %14)
   br label %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
 
 232:                                              ; preds = %191
@@ -2093,7 +2093,7 @@ _ZL10skip_commaRPc.exit49:                        ; preds = %279, %285
   br label %313
 
 310:                                              ; preds = %290
-  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i.argelim(i32 noundef %282, ptr noundef nonnull %296, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull %287, i32 noundef %47, ptr noundef %14)
+  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %282, ptr noundef nonnull %296, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull %287, i32 noundef %47, ptr noundef %14)
   %311 = load i8, ptr %14, align 16
   %.not = icmp eq i8 %311, 0
   br i1 %.not, label %313, label %312
@@ -2385,7 +2385,7 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %31, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i.argelim(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3, i32 noundef range(i32 41, 40) %4, ptr noundef nonnull %5) unnamed_addr #2 {
+define internal fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3, i32 noundef range(i32 41, 40) %4, ptr noundef nonnull %5) unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

@@ -560,7 +560,7 @@ land.lhs.true:                                    ; preds = %if.end43
   br i1 %cmp48.not, label %if.end52, label %if.then50
 
 if.then50:                                        ; preds = %land.lhs.true
-  tail call fastcc void @opt_format_error.retelim(ptr noundef nonnull %s, i64 noundef %flags)
+  tail call fastcc void @opt_format_error(ptr noundef nonnull %s, i64 noundef %flags)
   br label %return
 
 if.end52:                                         ; preds = %land.lhs.true, %if.end43
@@ -821,7 +821,7 @@ if.then116:                                       ; preds = %lor.lhs.false112, %
   br i1 %cmp118, label %if.then120, label %if.end122
 
 if.then120:                                       ; preds = %if.then116
-  tail call fastcc void @opt_format_error.retelim(ptr noundef nonnull %s, i64 noundef %flags)
+  tail call fastcc void @opt_format_error(ptr noundef nonnull %s, i64 noundef %flags)
   br label %return
 
 if.end122:                                        ; preds = %if.then116
@@ -854,7 +854,7 @@ if.then139:                                       ; preds = %lor.lhs.false135, %
   br i1 %cmp141, label %if.then143, label %if.end145
 
 if.then143:                                       ; preds = %if.then139
-  tail call fastcc void @opt_format_error.retelim(ptr noundef nonnull %s, i64 noundef %flags)
+  tail call fastcc void @opt_format_error(ptr noundef nonnull %s, i64 noundef %flags)
   br label %return
 
 if.end145:                                        ; preds = %if.then139
@@ -876,7 +876,7 @@ declare i32 @opt_printf_stderr(ptr noundef, ...) local_unnamed_addr #5
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @opt_format_error.retelim(ptr noundef %s, i64 noundef %flags) unnamed_addr #4 {
+define internal fastcc void @opt_format_error(ptr noundef %s, i64 noundef %flags) unnamed_addr #4 {
 entry:
   %call = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.53, ptr noundef nonnull @prog, ptr noundef %s) #21
   br label %for.body
@@ -2414,7 +2414,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp7.not, label %if.end16, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %call10 = tail call fastcc ptr @valtype2param.argprom(i32 %2)
+  %call10 = tail call fastcc ptr @valtype2param(i32 %2)
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #20
   %3 = trunc i64 %call11 to i32
   %.reass = add i32 %conv6, 3
@@ -2525,7 +2525,7 @@ if.end23.i:                                       ; preds = %if.end16.i
   br i1 %cmp48.not.i, label %if.end60.i, label %if.then50.i
 
 if.then50.i:                                      ; preds = %if.end23.i
-  %call51.i = call fastcc ptr @valtype2param.argprom(i32 %10)
+  %call51.i = call fastcc ptr @valtype2param(i32 %10)
   %call52.i = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str, ptr noundef nonnull %call51.i) #21
   %cmp53.i = icmp sgt i32 %call52.i, 0
   %cond58.i = select i1 %cmp53.i, i32 %call52.i, i32 30
@@ -2563,7 +2563,7 @@ for.end47:                                        ; preds = %opt_print.exit, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef nonnull ptr @valtype2param.argprom(i32 %o.12.val) unnamed_addr #6 {
+define internal fastcc noundef nonnull ptr @valtype2param(i32 %o.12.val) unnamed_addr #6 {
 entry:
   switch i32 %o.12.val, label %sw.epilog [
     i32 0, label %return

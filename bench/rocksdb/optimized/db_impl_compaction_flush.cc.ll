@@ -24329,8 +24329,8 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont44
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %cfds, i64 96
   br label %for.body.i
 
-for.body.i:                                       ; preds = %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.argprom.exit.i", %for.body.lr.ph.i
-  %__first.sroa.0.04.i = phi ptr [ %22, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.argprom.exit.i" ]
+for.body.i:                                       ; preds = %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.exit.i", %for.body.lr.ph.i
+  %__first.sroa.0.04.i = phi ptr [ %22, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.exit.i" ]
   %24 = load ptr, ptr %__first.sroa.0.04.i, align 8
   %vtable.i.i = load ptr, ptr %24, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 48
@@ -24349,7 +24349,7 @@ if.then.i.i.i:                                    ; preds = %call.i.i.noexc
   store i64 %inc.i.i.i, ptr %cfds, align 8
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %27, i64 %26
   store ptr %call.i.i19, ptr %arrayidx.i.i.i, align 8
-  br label %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.argprom.exit.i"
+  br label %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.exit.i"
 
 if.else.i.i.i:                                    ; preds = %call.i.i.noexc
   %28 = load ptr, ptr %_M_finish.i.i.i.i, align 8
@@ -24362,7 +24362,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
   %30 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  br label %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.argprom.exit.i"
+  br label %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.exit.i"
 
 if.else.i.i.i.i:                                  ; preds = %if.else.i.i.i
   %31 = load ptr, ptr %vect_.i, align 8
@@ -24420,14 +24420,14 @@ _ZNSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   %add.ptr19.i.i.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
-  br label %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.argprom.exit.i"
+  br label %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.exit.i"
 
-"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.argprom.exit.i": ; preds = %_ZNSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i, %if.then.i.i.i.i, %if.then.i.i.i
+"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.exit.i": ; preds = %_ZNSt6vectorIPN7rocksdb16ColumnFamilyDataESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i, %if.then.i.i.i.i, %if.then.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %23
   br i1 %cmp.i.not.i, label %invoke.cont56, label %for.body.i, !llvm.loop !237
 
-invoke.cont56:                                    ; preds = %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.argprom.exit.i", %invoke.cont44
+invoke.cont56:                                    ; preds = %"_ZZN7rocksdb6DBImpl5FlushERKNS_12FlushOptionsERKSt6vectorIPNS_18ColumnFamilyHandleESaIS6_EEENK3$_0clES6_.exit.i", %invoke.cont44
   invoke void @_ZN7rocksdb6DBImpl20AtomicFlushMemTablesERKNS_12FlushOptionsENS_11FlushReasonERKNS_10autovectorIPNS_16ColumnFamilyDataELm8EEEb(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp59, ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef nonnull align 1 dereferenceable(2) %flush_options, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(104) %cfds, i1 noundef zeroext false)
           to label %invoke.cont60 unwind label %lpad55.loopexit.split-lp.loopexit.split-lp
 

@@ -970,7 +970,7 @@ _ZN4llvm11ms_demangle9Demangler16demangleUnsignedERSt17basic_string_viewIcSt11ch
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.retelim(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i64 %1, ptr nocapture readonly %2) unnamed_addr #3 {
+define internal fastcc void @_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i64 %1, ptr nocapture readonly %2) unnamed_addr #3 {
   %.sroa.01.0.copyload = load i64, ptr %0, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.22.0.copyload = load ptr, ptr %.sroa.22.0..sroa_idx, align 8
@@ -4663,7 +4663,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46: ; preds = %_ZL14isFunction
   br label %98
 
 _ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread: ; preds = %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46
-  tail call fastcc void @_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_.retelim(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 4, ptr nonnull @.str.28)
+  tail call fastcc void @_ZL12consumeFrontRSt17basic_string_viewIcSt11char_traitsIcEES2_(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 4, ptr nonnull @.str.28)
   %92 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext false)
   br label %98
 

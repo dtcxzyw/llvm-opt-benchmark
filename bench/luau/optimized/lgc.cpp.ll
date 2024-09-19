@@ -413,9 +413,9 @@ _ZL12propagateallP12global_State.exit44.i:        ; preds = %.lr.ph.i40.i, %_ZL1
   %.not61.i.i = icmp eq ptr %101, null
   br i1 %.not61.i.i, label %_ZL10cleartableP9lua_StateP8GCObject.exit.i, label %.lr.ph65.i.i
 
-.lr.ph65.i.i:                                     ; preds = %_ZL12propagateallP12global_State.exit44.i, %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i
-  %.063.i.i = phi ptr [ %203, %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i ], [ %101, %_ZL12propagateallP12global_State.exit44.i ]
-  %.03462.i.i = phi i64 [ %114, %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i ], [ 0, %_ZL12propagateallP12global_State.exit44.i ]
+.lr.ph65.i.i:                                     ; preds = %_ZL12propagateallP12global_State.exit44.i, %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i
+  %.063.i.i = phi ptr [ %203, %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i ], [ %101, %_ZL12propagateallP12global_State.exit44.i ]
+  %.03462.i.i = phi i64 [ %114, %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i ], [ 0, %_ZL12propagateallP12global_State.exit44.i ]
   %102 = getelementptr inbounds i8, ptr %.063.i.i, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = sext i32 %103 to i64
@@ -578,34 +578,34 @@ _ZL11removeentryP7LuaNode.exit.i.i:               ; preds = %172, %168, %166, %1
   %177 = getelementptr i8, ptr %.063.i.i, i64 16
   %.0.val.i.i = load ptr, ptr %177, align 8
   %178 = icmp eq ptr %.0.val.i.i, null
-  br i1 %178, label %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i, label %179
+  br i1 %178, label %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i, label %179
 
 179:                                              ; preds = %175
   %180 = getelementptr inbounds i8, ptr %.0.val.i.i, i64 3
   %181 = load i8, ptr %180, align 1
   %182 = and i8 %181, 4
   %.not.i.i.i = icmp eq i8 %182, 0
-  br i1 %.not.i.i.i, label %183, label %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i
+  br i1 %.not.i.i.i, label %183, label %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i
 
 183:                                              ; preds = %179
   %184 = getelementptr inbounds i8, ptr %176, i64 3048
   %185 = load ptr, ptr %184, align 8
   %186 = tail call noundef ptr @_Z10luaT_gettmP5Table3TMSP7TString(ptr noundef nonnull %.0.val.i.i, i32 noundef 2, ptr noundef %185)
   %.not10.i.i.i = icmp eq ptr %186, null
-  br i1 %.not10.i.i.i, label %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i, label %187
+  br i1 %.not10.i.i.i, label %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i, label %187
 
 187:                                              ; preds = %183
   %188 = getelementptr inbounds i8, ptr %186, i64 12
   %189 = load i32, ptr %188, align 4
   %190 = icmp eq i32 %189, 5
-  br i1 %190, label %191, label %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i
+  br i1 %190, label %191, label %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i
 
 191:                                              ; preds = %187
   %192 = load ptr, ptr %186, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 24
   %194 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %193, i32 noundef 115) #9
   %.not42.i.i = icmp eq ptr %194, null
-  br i1 %.not42.i.i, label %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i, label %195
+  br i1 %.not42.i.i, label %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i, label %195
 
 195:                                              ; preds = %191
   %196 = load i8, ptr %106, align 2
@@ -613,20 +613,20 @@ _ZL11removeentryP7LuaNode.exit.i.i:               ; preds = %172, %168, %166, %1
   %198 = shl i32 3, %197
   %199 = sdiv i32 %198, 8
   %200 = icmp slt i32 %.1.i.i, %199
-  br i1 %200, label %201, label %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i
+  br i1 %200, label %201, label %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i
 
 201:                                              ; preds = %195
   tail call void @_Z15luaH_resizehashP9lua_StateP5Tablei(ptr noundef nonnull %0, ptr noundef nonnull %.063.i.i, i32 noundef %.1.i.i)
-  br label %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i
+  br label %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i
 
-_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i: ; preds = %201, %195, %191, %187, %183, %179, %175
+_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i: ; preds = %201, %195, %191, %187, %183, %179, %175
   %202 = getelementptr inbounds i8, ptr %.063.i.i, i64 40
   %203 = load ptr, ptr %202, align 8
   %.not.i48.i = icmp eq ptr %203, null
   br i1 %.not.i48.i, label %_ZL10cleartableP9lua_StateP8GCObject.exit.i, label %.lr.ph65.i.i, !llvm.loop !13
 
-_ZL10cleartableP9lua_StateP8GCObject.exit.i:      ; preds = %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i, %_ZL12propagateallP12global_State.exit44.i
-  %.034.lcssa.i.i = phi i64 [ 0, %_ZL12propagateallP12global_State.exit44.i ], [ %114, %_ZL12gettablemodeP12global_StateP5Table.argprom.exit.thread.i.i ]
+_ZL10cleartableP9lua_StateP8GCObject.exit.i:      ; preds = %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i, %_ZL12propagateallP12global_State.exit44.i
+  %.034.lcssa.i.i = phi i64 [ 0, %_ZL12propagateallP12global_State.exit44.i ], [ %114, %_ZL12gettablemodeP12global_StateP5Table.exit.thread.i.i ]
   store ptr null, ptr %75, align 8
   %204 = load ptr, ptr %7, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 2816

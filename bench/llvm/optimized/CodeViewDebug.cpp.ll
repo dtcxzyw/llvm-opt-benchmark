@@ -35009,8 +35009,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
 .lr.ph.i5.i.preheader:                            ; preds = %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit38.us.i.i.i", %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit38.i.i.i", %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit.i.i.i"
   br label %.lr.ph.i5.i
 
-.lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.argprom.exit.i9.i"
-  %.01.i.i = phi ptr [ %106, %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.argprom.exit.i9.i" ], [ %.026, %.lr.ph.i5.i.preheader ]
+.lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.exit.i9.i"
+  %.01.i.i = phi ptr [ %106, %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.exit.i9.i" ], [ %.026, %.lr.ph.i5.i.preheader ]
   %106 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
   %107 = load ptr, ptr %106, align 8
   %108 = load ptr, ptr %0, align 8
@@ -35071,7 +35071,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
 139:                                              ; preds = %133, %129, %._crit_edge.i.i.i6.i
   %.128.i.i.i8.i = phi i64 [ %135, %133 ], [ %.0.lcssa.i.i.i7.i, %129 ], [ %.0.lcssa.i.i.i7.i, %._crit_edge.i.i.i6.i ]
   %140 = icmp sgt i64 %.128.i.i.i8.i, 0
-  br i1 %140, label %.lr.ph.i.i.i.i11.i, label %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.argprom.exit.i9.i"
+  br i1 %140, label %.lr.ph.i.i.i.i11.i, label %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.exit.i9.i"
 
 .lr.ph.i.i.i.i11.i:                               ; preds = %139, %145
   %.0133.i.i.i.i12.i = phi i64 [ %.04.i.i12.i.i14.i, %145 ], [ %.128.i.i.i8.i, %139 ]
@@ -35086,15 +35086,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   %143 = getelementptr i8, ptr %.val14.val.i.i.i.i17.i, i64 20
   %.val14.val.val.i.i.i.i19.i = load i16, ptr %143, align 4
   %144 = icmp ult i16 %.val.val.val.i.i.i.i18.i, %.val14.val.val.i.i.i.i19.i
-  br i1 %144, label %145, label %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.argprom.exit.i9.i"
+  br i1 %144, label %145, label %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.exit.i9.i"
 
 145:                                              ; preds = %.lr.ph.i.i.i.i11.i
   %146 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i12.i
   store ptr %.val.i.i.i.i15.i, ptr %146, align 8
   %.not.i.i20.i = icmp ult i64 %.04.in.i.i.i.i13.i, 2
-  br i1 %.not.i.i20.i, label %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.argprom.exit.i9.i", label %.lr.ph.i.i.i.i11.i, !llvm.loop !479
+  br i1 %.not.i.i20.i, label %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.exit.i9.i", label %.lr.ph.i.i.i.i11.i, !llvm.loop !479
 
-"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.argprom.exit.i9.i": ; preds = %145, %.lr.ph.i.i.i.i11.i, %139
+"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.exit.i9.i": ; preds = %145, %.lr.ph.i.i.i.i11.i, %139
   %.013.lcssa.i.i.i.i10.i = phi i64 [ %.128.i.i.i8.i, %139 ], [ %.0133.i.i.i.i12.i, %.lr.ph.i.i.i.i11.i ], [ 0, %145 ]
   %147 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i10.i
   store ptr %107, ptr %147, align 8
@@ -35219,7 +35219,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   %188 = icmp sgt i64 %187, 128
   br i1 %188, label %9, label %"_ZSt14__partial_sortIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_T0_.exit", !llvm.loop !485
 
-"_ZSt14__partial_sortIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEET_SG_SG_T0_.exit", %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.argprom.exit.i9.i", %3
+"_ZSt14__partial_sortIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEET_SG_SG_T0_.exit", %"_ZSt10__pop_heapIPPKN4llvm13CodeViewDebug13LocalVariableEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_SG_SG_RT0_.exit.i9.i", %3
   ret void
 }
 
@@ -36855,7 +36855,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfo
   %20 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1333", ptr %8, i64 %19
   %21 = load ptr, ptr %20, align 8, !noalias !496
   %22 = icmp eq ptr %2, %21
-  br i1 %22, label %"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i.i
+  br i1 %22, label %"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %12, %28
   %23 = phi ptr [ %35, %28 ], [ %21, %12 ]
@@ -36883,7 +36883,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfo
   %34 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1333", ptr %8, i64 %33
   %35 = load ptr, ptr %34, align 8, !noalias !496
   %36 = icmp eq ptr %2, %35
-  br i1 %36, label %"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !229
+  br i1 %36, label %"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !229
 
 37:                                               ; preds = %26, %4
   %.sink.i.i.i.i.i.i.i.i = phi ptr [ %27, %26 ], [ null, %4 ]
@@ -36893,16 +36893,16 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfo
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load ptr, ptr %7, align 8, !noalias !496
   store ptr %41, ptr %40, align 8, !noalias !496
-  br label %"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %28, %12, %37
+"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %28, %12, %37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfoERKNS0_12MachineInstrElEZNS0_13CodeViewDebug25discoverJumpTableBranchesEPKNS0_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS1_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS1_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -36910,18 +36910,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4llvm20Machin
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS1_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS1_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS1_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS1_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS1_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS1_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS1_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm13CodeViewDebug25discoverJumpTableBranchesEPKNS1_15MachineFunctionEbE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -37009,7 +37009,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN4llvm20MachineJumpTableInfo
   %51 = load ptr, ptr %46, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 48
   store ptr %52, ptr %46, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug29collectDebugInfoForJumpTablesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug29collectDebugInfoForJumpTablesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
 53:                                               ; preds = %23
   %54 = load ptr, ptr %26, align 8
@@ -37074,9 +37074,9 @@ _ZNSt6vectorIN4llvm13CodeViewDebug13JumpTableInfoESaIS2_EE17_M_realloc_insertIJS
   store ptr %73, ptr %46, align 8
   %75 = getelementptr inbounds %"struct.llvm::CodeViewDebug::JumpTableInfo", ptr %68, i64 %64
   store ptr %75, ptr %48, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug29collectDebugInfoForJumpTablesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug29collectDebugInfoForJumpTablesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug29collectDebugInfoForJumpTablesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %50, %_ZNSt6vectorIN4llvm13CodeViewDebug13JumpTableInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN4llvm13CodeViewDebug29collectDebugInfoForJumpTablesEPKNS0_15MachineFunctionEbE3$_0JRKNS0_20MachineJumpTableInfoERKNS0_12MachineInstrElEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %50, %_ZNSt6vectorIN4llvm13CodeViewDebug13JumpTableInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret void
 }

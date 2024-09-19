@@ -508,7 +508,7 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
   %67 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8) #4
   %68 = call i32 @tvb_reported_length_remaining(ptr noundef %67, i32 noundef 0) #4
   %.not1.i.i = icmp eq i32 %68, 0
-  br i1 %.not1.i.i, label %dissect_parameters.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not1.i.i, label %dissect_parameters.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %dissect_common_header.exit.i
   %69 = getelementptr inbounds i8, ptr %1, i64 408
@@ -1069,14 +1069,14 @@ dissect_parameter.exit.i.i:                       ; preds = %378, %dissect_relea
   %381 = add i32 %.030.i.i, %.02.i.i
   %382 = call i32 @tvb_reported_length_remaining(ptr noundef %67, i32 noundef %381) #4
   %.not.i21.i = icmp eq i32 %382, 0
-  br i1 %.not.i21.i, label %dissect_parameters.argprom.exit.i, label %70, !llvm.loop !7
+  br i1 %.not.i21.i, label %dissect_parameters.exit.i, label %70, !llvm.loop !7
 
-dissect_parameters.argprom.exit.i:                ; preds = %dissect_parameter.exit.i.i, %dissect_common_header.exit.i
+dissect_parameters.exit.i:                        ; preds = %dissect_parameter.exit.i.i, %dissect_common_header.exit.i
   %383 = load i32, ptr @dlci_efa, align 4
   %or.cond.i = icmp ult i32 %383, 8176
   br i1 %or.cond.i, label %384, label %391
 
-384:                                              ; preds = %dissect_parameters.argprom.exit.i
+384:                                              ; preds = %dissect_parameters.exit.i
   %385 = load i32, ptr @messageclassCopy, align 4
   switch i32 %385, label %387 [
     i32 4, label %386
@@ -1096,7 +1096,7 @@ dissect_parameters.argprom.exit.i:                ; preds = %dissect_parameter.e
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %389, i32 noundef 25, ptr noundef nonnull @.str.154, i32 noundef %390) #4
   br label %391
 
-391:                                              ; preds = %387, %386, %dissect_parameters.argprom.exit.i
+391:                                              ; preds = %387, %386, %dissect_parameters.exit.i
   %392 = load i32, ptr @sa_bit_id, align 4
   %393 = icmp sgt i32 %392, -1
   br i1 %393, label %394, label %398
@@ -1113,7 +1113,7 @@ dissect_parameters.argprom.exit.i:                ; preds = %dissect_parameter.e
 398:                                              ; preds = %394, %391
   %399 = load i32, ptr @link_status_operational, align 4
   %400 = icmp sgt i32 %399, -1
-  br i1 %400, label %401, label %dissect_v5ua_message.argprom.exit
+  br i1 %400, label %401, label %dissect_v5ua_message.exit
 
 401:                                              ; preds = %398
   switch i32 %399, label %404 [
@@ -1132,9 +1132,9 @@ dissect_parameters.argprom.exit.i:                ; preds = %dissect_parameter.e
 
 404:                                              ; preds = %.sink.split.i, %401
   store i32 -1, ptr @link_status_operational, align 4
-  br label %dissect_v5ua_message.argprom.exit
+  br label %dissect_v5ua_message.exit
 
-dissect_v5ua_message.argprom.exit:                ; preds = %398, %404
+dissect_v5ua_message.exit:                        ; preds = %398, %404
   %405 = call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %405
 }

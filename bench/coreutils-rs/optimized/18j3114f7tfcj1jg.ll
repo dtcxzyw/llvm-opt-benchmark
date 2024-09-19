@@ -40,7 +40,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h472ab177d9601a8cE", ptr %17, align 8, !noalias !3
   call void @_ZN4core3fmt9Arguments6new_v117h30bf1d769ab653e6E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr nonnull align 8 @anon.f4f36e2827d9a98c41ad7a4676c02c03.3, i64 2, ptr nonnull align 8 %5, i64 1), !noalias !3
   call void @_ZN5alloc3fmt6format17h37dbd3d28761c149E(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nonnull align 8 %6)
-  br label %"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E.argprom.exit"
+  br label %"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E.exit"
 
 18:                                               ; preds = %4
   %19 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hcfad22611c8b7ee8E"(i64 3, i1 zeroext false), !noalias !3
@@ -54,9 +54,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   store ptr %21, ptr %.sroa.24.0..sroa_idx.i, align 8, !alias.scope !3
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 3, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !3
-  br label %"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E.argprom.exit"
+  br label %"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E.exit"
 
-"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E.argprom.exit": ; preds = %11, %18
+"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E.exit": ; preds = %11, %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -264,8 +264,8 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{!4}
-!4 = distinct !{!4, !5, !"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E.argprom: argument 0"}
-!5 = distinct !{!5, !"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E.argprom"}
+!4 = distinct !{!4, !5, !"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E: argument 0"}
+!5 = distinct !{!5, !"_ZN13uuhelp_parser11parse_usage28_$u7b$$u7b$closure$u7d$$u7d$17h011079741f716642E"}
 !6 = !{}
 !7 = !{i64 1}
 !8 = !{i64 8}

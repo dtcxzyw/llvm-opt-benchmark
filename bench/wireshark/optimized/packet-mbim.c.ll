@@ -5008,7 +5008,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
 
 347:                                              ; preds = %344
   %348 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_set_signal_state.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %348)
+  call fastcc void @mbim_dissect_set_signal_state(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %348)
   br label %2550
 
 349:                                              ; preds = %344
@@ -5278,7 +5278,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br label %2550
 
 488:                                              ; preds = %482
-  call fastcc void @mbim_dissect_sms_read_req.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %485)
+  call fastcc void @mbim_dissect_sms_read_req(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %485)
   br label %2550
 
 489:                                              ; preds = %471
@@ -5441,7 +5441,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br i1 %577, label %579, label %580
 
 579:                                              ; preds = %575
-  call fastcc void @mbim_dissect_set_phonebook_write.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %578)
+  call fastcc void @mbim_dissect_set_phonebook_write(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %578)
   br label %2550
 
 580:                                              ; preds = %575
@@ -5467,7 +5467,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
 
 589:                                              ; preds = %586
   %590 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_set_stk_pac.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %590)
+  call fastcc void @mbim_dissect_set_stk_pac(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %590)
   br label %2550
 
 591:                                              ; preds = %586
@@ -5551,7 +5551,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br label %2550
 
 635:                                              ; preds = %629
-  call fastcc void @mbim_dissect_aka_auth_req.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %632)
+  call fastcc void @mbim_dissect_aka_auth_req(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %632)
   br label %2550
 
 636:                                              ; preds = %628
@@ -5565,7 +5565,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br label %2550
 
 642:                                              ; preds = %636
-  call fastcc void @mbim_dissect_akap_auth_req.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %639)
+  call fastcc void @mbim_dissect_akap_auth_req(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %639)
   br label %2550
 
 643:                                              ; preds = %628
@@ -5579,7 +5579,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br label %2550
 
 649:                                              ; preds = %643
-  call fastcc void @mbim_dissect_sim_auth_req.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %646)
+  call fastcc void @mbim_dissect_sim_auth_req(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %646)
   br label %2550
 
 650:                                              ; preds = %628
@@ -5797,7 +5797,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
 
 758:                                              ; preds = %755
   %759 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_thermal_config.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %759)
+  call fastcc void @mbim_dissect_thermal_config(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %759)
   br label %2550
 
 760:                                              ; preds = %755
@@ -5823,7 +5823,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
 771:                                              ; preds = %768
   %772 = load i32, ptr %5, align 4
   %773 = load i32, ptr %9, align 4
-  call fastcc void @mbim_dissect_sar_config.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %772, i32 noundef %773)
+  call fastcc void @mbim_dissect_sar_config(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %772, i32 noundef %773)
   br label %2550
 
 774:                                              ; preds = %768
@@ -5964,7 +5964,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
 846:                                              ; preds = %843
   %847 = load i32, ptr %5, align 4
   %848 = load i32, ptr %9, align 4
-  call fastcc void @mbim_dissect_nrtcws_config.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %847, i32 noundef %848)
+  call fastcc void @mbim_dissect_nrtcws_config(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %847, i32 noundef %848)
   br label %2550
 
 849:                                              ; preds = %843
@@ -6786,7 +6786,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   %1262 = load i32, ptr %5, align 4
   %1263 = getelementptr i8, ptr %.01668, i64 24
   %.01668.val = load i32, ptr %1263, align 8
-  call fastcc void @mbim_dissect_ms_set_terminal_capability.argprom(ptr noundef %.01671, ptr noundef nonnull %1, ptr noundef %.01667, i32 noundef %1262, i32 %.01668.val)
+  call fastcc void @mbim_dissect_ms_set_terminal_capability(ptr noundef %.01671, ptr noundef nonnull %1, ptr noundef %.01667, i32 noundef %1262, i32 %.01668.val)
   br label %2550
 
 1264:                                             ; preds = %1258
@@ -6887,12 +6887,12 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
 
 1312:                                             ; preds = %1214
   %1313 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_ms_access_binary.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %1313)
+  call fastcc void @mbim_dissect_ms_access_binary(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %1313)
   br label %2550
 
 1314:                                             ; preds = %1214
   %1315 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_ms_access_record.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %1315)
+  call fastcc void @mbim_dissect_ms_access_record(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %1315)
   br label %2550
 
 1316:                                             ; preds = %1214
@@ -6916,7 +6916,7 @@ proto_item_set_generated.exit:                    ; preds = %192, %189, %186, %1
   br label %2550
 
 1327:                                             ; preds = %1322
-  call fastcc void @mbim_dissect_ms_file_path.argprom(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %1324)
+  call fastcc void @mbim_dissect_ms_file_path(ptr noundef %.01671, ptr noundef %.01667, i32 noundef %1324)
   br label %2550
 
 1328:                                             ; preds = %1214
@@ -7358,7 +7358,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
   br i1 %1564, label %1566, label %1567
 
 1566:                                             ; preds = %1562
-  call fastcc void @mbim_dissect_pin_list_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1565)
+  call fastcc void @mbim_dissect_pin_list_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1565)
   br label %2550
 
 1567:                                             ; preds = %1562
@@ -7411,7 +7411,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
 
 1590:                                             ; preds = %1520
   %1591 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_signal_state_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1591, ptr noundef nonnull %.01668)
+  call fastcc void @mbim_dissect_signal_state_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1591, ptr noundef nonnull %.01668)
   br label %2550
 
 1592:                                             ; preds = %1520
@@ -7497,7 +7497,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
   br i1 %1635, label %1637, label %1638
 
 1637:                                             ; preds = %1633
-  call fastcc void @mbim_dissect_packet_statistics_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1636)
+  call fastcc void @mbim_dissect_packet_statistics_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1636)
   br label %2550
 
 1638:                                             ; preds = %1633
@@ -7645,7 +7645,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
 
 1710:                                             ; preds = %1709
   %1711 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_phonebook_configuration_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1711)
+  call fastcc void @mbim_dissect_phonebook_configuration_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1711)
   br label %2550
 
 1712:                                             ; preds = %1709
@@ -7701,7 +7701,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
 
 1737:                                             ; preds = %1734
   %1738 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_stk_pac_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1738)
+  call fastcc void @mbim_dissect_stk_pac_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1738)
   br label %2550
 
 1739:                                             ; preds = %1734
@@ -7735,7 +7735,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
   br i1 %1759, label %1761, label %1762
 
 1761:                                             ; preds = %1757
-  call fastcc void @mbim_dissect_stk_terminal_response_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1760)
+  call fastcc void @mbim_dissect_stk_terminal_response_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1760)
   br label %2550
 
 1762:                                             ; preds = %1757
@@ -7777,7 +7777,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
   br i1 %1780, label %1782, label %1783
 
 1782:                                             ; preds = %1778
-  call fastcc void @mbim_dissect_aka_auth_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1781)
+  call fastcc void @mbim_dissect_aka_auth_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1781)
   br label %2550
 
 1783:                                             ; preds = %1778
@@ -7791,7 +7791,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
   br i1 %1787, label %1789, label %1790
 
 1789:                                             ; preds = %1785
-  call fastcc void @mbim_dissect_akap_auth_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1788)
+  call fastcc void @mbim_dissect_akap_auth_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1788)
   br label %2550
 
 1790:                                             ; preds = %1785
@@ -7805,7 +7805,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
   br i1 %1794, label %1796, label %1797
 
 1796:                                             ; preds = %1792
-  call fastcc void @mbim_dissect_sim_auth_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1795)
+  call fastcc void @mbim_dissect_sim_auth_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1795)
   br label %2550
 
 1797:                                             ; preds = %1792
@@ -7897,7 +7897,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
   br i1 %1842, label %1844, label %1845
 
 1844:                                             ; preds = %1840
-  call fastcc void @mbim_dissect_muticarrier_current_cid_list_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1843)
+  call fastcc void @mbim_dissect_muticarrier_current_cid_list_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1843)
   br label %2550
 
 1845:                                             ; preds = %1840
@@ -8053,12 +8053,12 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
 
 1924:                                             ; preds = %1920
   %1925 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_thermal_config.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1925)
+  call fastcc void @mbim_dissect_thermal_config(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1925)
   br label %2550
 
 1926:                                             ; preds = %1920, %1916
   %1927 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_thermal_state_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1927)
+  call fastcc void @mbim_dissect_thermal_state_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1927)
   br label %2550
 
 1928:                                             ; preds = %1915
@@ -8078,7 +8078,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
 
 1936:                                             ; preds = %1932
   %1937 = load i32, ptr %17, align 4
-  call fastcc void @mbim_dissect_sar_config.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1935, i32 noundef %1937)
+  call fastcc void @mbim_dissect_sar_config(ptr noundef %.01670, ptr noundef %1519, i32 noundef %1935, i32 noundef %1937)
   br label %2550
 
 1938:                                             ; preds = %1932
@@ -8259,12 +8259,12 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
 2028:                                             ; preds = %.critedge1919, %2026
   %2029 = phi i32 [ %.old44, %.critedge1919 ], [ %2021, %2026 ]
   %2030 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_nrtcws_config.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2030, i32 noundef %2029)
+  call fastcc void @mbim_dissect_nrtcws_config(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2030, i32 noundef %2029)
   br label %2550
 
 2031:                                             ; preds = %2013
   %2032 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_nrtcws_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2032)
+  call fastcc void @mbim_dissect_nrtcws_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2032)
   br label %2550
 
 2033:                                             ; preds = %1986
@@ -8406,7 +8406,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
 
 2101:                                             ; preds = %2094, %2093
   %2102 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_atds_signal_info.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2102)
+  call fastcc void @mbim_dissect_atds_signal_info(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2102)
   br label %2550
 
 2103:                                             ; preds = %2090
@@ -9181,12 +9181,12 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
 
 2491:                                             ; preds = %2417
   %2492 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_ms_response.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2492)
+  call fastcc void @mbim_dissect_ms_response(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2492)
   br label %2550
 
 2493:                                             ; preds = %2417
   %2494 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_ms_response.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2494)
+  call fastcc void @mbim_dissect_ms_response(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2494)
   br label %2550
 
 2495:                                             ; preds = %2417
@@ -9211,7 +9211,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
 
 2506:                                             ; preds = %2499, %2498
   %2507 = load i32, ptr %5, align 4
-  call fastcc void @mbim_dissect_ms_file_status.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2507)
+  call fastcc void @mbim_dissect_ms_file_status(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2507)
   br label %2550
 
 2508:                                             ; preds = %2495
@@ -9230,7 +9230,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
   br i1 %cond, label %2516, label %2517
 
 2516:                                             ; preds = %2514
-  call fastcc void @mbim_dissect_ms_nitz.argprom(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2515)
+  call fastcc void @mbim_dissect_ms_nitz(ptr noundef %.01670, ptr noundef %1519, i32 noundef %2515)
   br label %2550
 
 2517:                                             ; preds = %2514
@@ -10743,7 +10743,7 @@ define internal fastcc void @mbim_dissect_set_register_state(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_set_signal_state.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_set_signal_state(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_set_signal_state_signal_strength_interval, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %6 = add i32 %2, 4
@@ -10807,7 +10807,7 @@ define internal fastcc void @mbim_dissect_set_connect_v3_and_higher(ptr noundef 
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef -2147483648) #10
   %36 = add i32 %27, 12
   store i32 %36, ptr %8, align 4
-  call fastcc void @mbim_dissect_context_type_uuid.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8)
+  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8)
   %37 = load i32, ptr @hf_mbim_set_connect_media_preference, align 4
   %38 = load i32, ptr %8, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef -2147483648) #10
@@ -10908,7 +10908,7 @@ define internal fastcc void @mbim_dissect_set_connect(ptr noundef %0, ptr nounde
   %43 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef -2147483648) #10
   %44 = add i32 %3, 44
   store i32 %44, ptr %5, align 4
-  call fastcc void @mbim_dissect_context_type_uuid.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)
+  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)
   %45 = load i32, ptr %6, align 4
   %46 = icmp ne i32 %45, 0
   %47 = load i32, ptr %7, align 4
@@ -10989,7 +10989,7 @@ define internal fastcc void @mbim_dissect_context(ptr noundef %0, ptr noundef %1
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #10
   %17 = add i32 %3, 4
   store i32 %17, ptr %6, align 4
-  call fastcc void @mbim_dissect_context_type_uuid.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6)
+  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6)
   %18 = load i32, ptr @hf_mbim_context_access_string_offset, align 4
   %19 = load i32, ptr %6, align 4
   %20 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #10
@@ -11389,7 +11389,7 @@ define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr noc
 71:                                               ; preds = %68, %64
   %72 = load i32, ptr %6, align 4
   %.not.i = icmp eq i32 %72, 0
-  br i1 %.not.i, label %mbim_dissect_single_packet_filter.argprom.exit, label %73
+  br i1 %.not.i, label %mbim_dissect_single_packet_filter.exit, label %73
 
 73:                                               ; preds = %71
   %74 = load i32, ptr %7, align 4
@@ -11405,22 +11405,22 @@ define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr noc
 79:                                               ; preds = %75, %73
   %80 = load i32, ptr %8, align 4
   %.not28.i = icmp eq i32 %80, 0
-  br i1 %.not28.i, label %mbim_dissect_single_packet_filter.argprom.exit, label %81
+  br i1 %.not28.i, label %mbim_dissect_single_packet_filter.exit, label %81
 
 81:                                               ; preds = %79
   %82 = load i32, ptr @hf_mbim_single_packet_filter_packet_mask, align 4
   %83 = add i32 %80, %52
   %84 = load i32, ptr %6, align 4
   %85 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %82, ptr noundef %0, i32 noundef %83, i32 noundef %84, i32 noundef 0) #10
-  br label %mbim_dissect_single_packet_filter.argprom.exit
+  br label %mbim_dissect_single_packet_filter.exit
 
-mbim_dissect_single_packet_filter.argprom.exit:   ; preds = %71, %79, %81
+mbim_dissect_single_packet_filter.exit:           ; preds = %71, %79, %81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %86
 
-86:                                               ; preds = %40, %43, %mbim_dissect_single_packet_filter.argprom.exit
+86:                                               ; preds = %40, %43, %mbim_dissect_single_packet_filter.exit
   %87 = add nuw i32 %.148, 1
   %88 = load i32, ptr %9, align 4
   %89 = icmp ult i32 %87, %88
@@ -11466,7 +11466,7 @@ define internal fastcc void @mbim_dissect_set_sms_configuration(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_sms_read_req.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_sms_read_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_sms_read_req_format, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %6 = add i32 %2, 4
@@ -11800,7 +11800,7 @@ switch.lookup:                                    ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_set_phonebook_write.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_set_phonebook_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -11854,7 +11854,7 @@ define internal fastcc void @mbim_dissect_set_phonebook_write.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_set_stk_pac.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_set_stk_pac(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_set_stk_pac_pac_host_control, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 32, i32 noundef 0) #10
   %6 = load i32, ptr @ett_mbim_pac, align 4
@@ -11993,7 +11993,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_aka_auth_req.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_aka_auth_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_aka_auth_req_rand, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 16, i32 noundef 0) #10
   %6 = add i32 %2, 16
@@ -12003,7 +12003,7 @@ define internal fastcc void @mbim_dissect_aka_auth_req.argprom(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_akap_auth_req.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_akap_auth_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_mbim_akap_auth_req_rand, align 4
@@ -12035,7 +12035,7 @@ define internal fastcc void @mbim_dissect_akap_auth_req.argprom(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_sim_auth_req.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_sim_auth_req(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_sim_auth_req_rand1, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 16, i32 noundef 0) #10
   %6 = add i32 %2, 16
@@ -12131,7 +12131,7 @@ mbim_dissect_service_id_uuid.exit:                ; preds = %10, %.thread.loopex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_thermal_config.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_thermal_config(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -12166,7 +12166,7 @@ define internal fastcc void @mbim_dissect_thermal_config.argprom(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_sar_config.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_sar_config(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mbim_sar_config_sar_status, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %7 = icmp ugt i32 %3, 4
@@ -12183,7 +12183,7 @@ define internal fastcc void @mbim_dissect_sar_config.argprom(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_nrtcws_config.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_nrtcws_config(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mbim_nrtcws_config_mode, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #10
   %7 = icmp ugt i32 %3, 2
@@ -13135,7 +13135,7 @@ define internal fastcc void @mbim_dissect_ms_apdu(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_set_terminal_capability.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %.24.val) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_set_terminal_capability(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %.24.val) unnamed_addr #0 {
   %5 = icmp ugt i32 %.24.val, 3
   br i1 %5, label %10, label %6
 
@@ -13185,7 +13185,7 @@ define internal fastcc void @mbim_dissect_ms_set_reset(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_access_binary.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_access_binary(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -13286,7 +13286,7 @@ define internal fastcc void @mbim_dissect_ms_access_binary.argprom(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_access_record.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_access_record(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -13384,7 +13384,7 @@ define internal fastcc void @mbim_dissect_ms_access_record.argprom(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_file_path.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_file_path(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -13784,7 +13784,7 @@ define internal fastcc void @mbim_dissect_subscriber_ready_status(ptr noundef %0
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_pin_list_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_pin_list_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %31
@@ -14073,13 +14073,13 @@ define internal fastcc void @mbim_dissect_packet_service_info(ptr noundef %0, pt
 67:                                               ; preds = %53
   %68 = and i32 %64, 32767
   %69 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %59, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef %64, ptr noundef nonnull @.str.2552, i32 noundef %68) #10
-  br label %mbim_dissect_ms_plmn.argprom.exit
+  br label %mbim_dissect_ms_plmn.exit
 
 70:                                               ; preds = %53
   %71 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %59, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef %64, ptr noundef nonnull @.str.2553, i32 noundef %64) #10
-  br label %mbim_dissect_ms_plmn.argprom.exit
+  br label %mbim_dissect_ms_plmn.exit
 
-mbim_dissect_ms_plmn.argprom.exit:                ; preds = %67, %70
+mbim_dissect_ms_plmn.exit:                        ; preds = %67, %70
   %72 = add i32 %.074, 8
   %73 = load i32, ptr @hf_mbim_ms_tai_tac, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef -2147483648) #10
@@ -14090,8 +14090,8 @@ mbim_dissect_ms_plmn.argprom.exit:                ; preds = %67, %70
   %77 = icmp slt i32 %76, %5
   br i1 %77, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit
 
-.lr.ph.i:                                         ; preds = %mbim_dissect_ms_plmn.argprom.exit, %.lr.ph.i
-  %78 = phi i32 [ %81, %.lr.ph.i ], [ %75, %mbim_dissect_ms_plmn.argprom.exit ]
+.lr.ph.i:                                         ; preds = %mbim_dissect_ms_plmn.exit, %.lr.ph.i
+  %78 = phi i32 [ %81, %.lr.ph.i ], [ %75, %mbim_dissect_ms_plmn.exit ]
   %79 = load i32, ptr @ett_mbim_pair_list, align 4
   %80 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %78, i32 noundef 0, i32 noundef %79, ptr noundef null, ptr noundef nonnull @.str.2579) #10
   call fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %80, ptr noundef %7)
@@ -14100,7 +14100,7 @@ mbim_dissect_ms_plmn.argprom.exit:                ; preds = %67, %70
   %83 = icmp slt i32 %82, %5
   br i1 %83, label %.lr.ph.i, label %mbim_dissect_tlv_ie_list.exit, !llvm.loop !10
 
-mbim_dissect_tlv_ie_list.exit:                    ; preds = %.lr.ph.i, %mbim_dissect_ms_plmn.argprom.exit
+mbim_dissect_tlv_ie_list.exit:                    ; preds = %.lr.ph.i, %mbim_dissect_ms_plmn.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %84
 
@@ -14109,7 +14109,7 @@ mbim_dissect_tlv_ie_list.exit:                    ; preds = %.lr.ph.i, %mbim_dis
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_signal_state_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_signal_state_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -14225,7 +14225,7 @@ define internal fastcc void @mbim_dissect_connect_info(ptr noundef %0, ptr nound
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef -2147483648) #10
   %20 = add i32 %3, 16
   store i32 %20, ptr %8, align 4
-  call fastcc void @mbim_dissect_context_type_uuid.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8)
+  call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8)
   %21 = load i32, ptr %8, align 4
   %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %21) #10
   %23 = icmp eq i32 %22, 0
@@ -14773,7 +14773,7 @@ mbim_dissect_device_service_element.exit:         ; preds = %.lr.ph.split.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_packet_statistics_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_packet_statistics_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_packet_statistics_info_in_discards, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %6 = add i32 %2, 4
@@ -15294,7 +15294,7 @@ switch.lookup:                                    ; preds = %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_phonebook_configuration_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_phonebook_configuration_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_phonebook_configuration_info_phonebook_state, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %6 = add i32 %2, 4
@@ -15419,22 +15419,22 @@ define internal fastcc void @mbim_dissect_phonebook_read_info(ptr noundef %0, pt
   %73 = load i32, ptr %8, align 4
   %74 = icmp ne i32 %73, 0
   %or.cond3.i = select i1 %72, i1 %74, i1 false
-  br i1 %or.cond3.i, label %75, label %mbim_dissect_phonebook_entry.argprom.exit
+  br i1 %or.cond3.i, label %75, label %mbim_dissect_phonebook_entry.exit
 
 75:                                               ; preds = %70
   %76 = load i32, ptr @hf_mbim_phonebook_entry_name, align 4
   %77 = add i32 %71, %47
   %78 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %76, ptr noundef %0, i32 noundef %77, i32 noundef %73, i32 noundef -2147483644) #10
-  br label %mbim_dissect_phonebook_entry.argprom.exit
+  br label %mbim_dissect_phonebook_entry.exit
 
-mbim_dissect_phonebook_entry.argprom.exit:        ; preds = %70, %75
+mbim_dissect_phonebook_entry.exit:                ; preds = %70, %75
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %79
 
-79:                                               ; preds = %.lr.ph44, %38, %mbim_dissect_phonebook_entry.argprom.exit
+79:                                               ; preds = %.lr.ph44, %38, %mbim_dissect_phonebook_entry.exit
   %80 = add nuw i32 %.143, 1
   %81 = load i32, ptr %9, align 4
   %82 = icmp ult i32 %80, %81
@@ -15445,7 +15445,7 @@ mbim_dissect_phonebook_entry.argprom.exit:        ; preds = %70, %75
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_stk_pac_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_stk_pac_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_stk_pac_info_pac_support, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 256, i32 noundef 0) #10
   %6 = load i32, ptr @ett_mbim_pac, align 4
@@ -15589,7 +15589,7 @@ define internal fastcc void @mbim_dissect_stk_pac_info.argprom(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_stk_terminal_response_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_stk_terminal_response_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_mbim_stk_terminal_response_info_result_data_string_offset, align 4
@@ -15618,7 +15618,7 @@ define internal fastcc void @mbim_dissect_stk_terminal_response_info.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_aka_auth_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_aka_auth_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_aka_auth_info_res, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 16, i32 noundef 0) #10
   %6 = add i32 %2, 16
@@ -15637,7 +15637,7 @@ define internal fastcc void @mbim_dissect_aka_auth_info.argprom(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_akap_auth_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_akap_auth_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_akap_auth_info_res, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 16, i32 noundef 0) #10
   %6 = add i32 %2, 16
@@ -15656,7 +15656,7 @@ define internal fastcc void @mbim_dissect_akap_auth_info.argprom(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_sim_auth_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_sim_auth_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_sim_auth_info_sres1, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %6 = add i32 %2, 4
@@ -15681,7 +15681,7 @@ define internal fastcc void @mbim_dissect_sim_auth_info.argprom(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_muticarrier_current_cid_list_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_muticarrier_current_cid_list_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_mbim_multicarrier_current_cid_list_info_cid_count, align 4
   %6 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %4) #10
@@ -15705,7 +15705,7 @@ define internal fastcc void @mbim_dissect_muticarrier_current_cid_list_info.argp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_thermal_state_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_thermal_state_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_thermal_state_info_current_temp_value, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %6 = add i32 %2, 4
@@ -15775,18 +15775,18 @@ define internal fastcc void @mbim_dissect_adpclk_freq_info(ptr noundef %0, ptr n
   %31 = icmp ult i32 %29, %30
   br i1 %31, label %22, label %.preheader, !llvm.loop !50
 
-.lr.ph45:                                         ; preds = %.preheader, %mbim_dissect_adpclk_freq_value.argprom.exit
-  %.144 = phi i32 [ %65, %mbim_dissect_adpclk_freq_value.argprom.exit ], [ 0, %.preheader ]
+.lr.ph45:                                         ; preds = %.preheader, %mbim_dissect_adpclk_freq_value.exit
+  %.144 = phi i32 [ %65, %mbim_dissect_adpclk_freq_value.exit ], [ 0, %.preheader ]
   %32 = call ptr @wmem_array_index(ptr noundef %14, i32 noundef %.144) #10
   %33 = load i32, ptr %32, align 4
   %.not40 = icmp eq i32 %33, 0
-  br i1 %.not40, label %mbim_dissect_adpclk_freq_value.argprom.exit, label %34
+  br i1 %.not40, label %mbim_dissect_adpclk_freq_value.exit, label %34
 
 34:                                               ; preds = %.lr.ph45
   %35 = getelementptr inbounds i8, ptr %32, i64 4
   %36 = load i32, ptr %35, align 4
   %.not41 = icmp eq i32 %36, 0
-  br i1 %.not41, label %mbim_dissect_adpclk_freq_value.argprom.exit, label %37
+  br i1 %.not41, label %mbim_dissect_adpclk_freq_value.exit, label %37
 
 37:                                               ; preds = %34
   %38 = add i32 %33, %3
@@ -15802,40 +15802,40 @@ define internal fastcc void @mbim_dissect_adpclk_freq_info(ptr noundef %0, ptr n
   %48 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_freq_spread, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef -2147483648) #10
   %50 = icmp ugt i32 %44, 8
-  br i1 %50, label %51, label %mbim_dissect_adpclk_freq_value.argprom.exit
+  br i1 %50, label %51, label %mbim_dissect_adpclk_freq_value.exit
 
 51:                                               ; preds = %37
   %52 = add i32 %43, 8
   %53 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_noise_power, align 4
   %54 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef -2147483648) #10
   %55 = icmp ugt i32 %44, 12
-  br i1 %55, label %56, label %mbim_dissect_adpclk_freq_value.argprom.exit
+  br i1 %55, label %56, label %mbim_dissect_adpclk_freq_value.exit
 
 56:                                               ; preds = %51
   %57 = add i32 %43, 12
   %58 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_rssi, align 4
   %59 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef -2147483648) #10
   %60 = icmp ugt i32 %44, 16
-  br i1 %60, label %61, label %mbim_dissect_adpclk_freq_value.argprom.exit
+  br i1 %60, label %61, label %mbim_dissect_adpclk_freq_value.exit
 
 61:                                               ; preds = %56
   %62 = add i32 %43, 16
   %63 = load i32, ptr @hf_mbim_adpclk_freq_info_adpclk_freq_value_connect_status, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 4, i32 noundef -2147483648) #10
-  br label %mbim_dissect_adpclk_freq_value.argprom.exit
+  br label %mbim_dissect_adpclk_freq_value.exit
 
-mbim_dissect_adpclk_freq_value.argprom.exit:      ; preds = %61, %56, %51, %37, %.lr.ph45, %34
+mbim_dissect_adpclk_freq_value.exit:              ; preds = %61, %56, %51, %37, %.lr.ph45, %34
   %65 = add nuw i32 %.144, 1
   %66 = load i32, ptr %5, align 4
   %67 = icmp ult i32 %65, %66
   br i1 %67, label %.lr.ph45, label %.loopexit, !llvm.loop !51
 
-.loopexit:                                        ; preds = %mbim_dissect_adpclk_freq_value.argprom.exit, %10, %.preheader, %4
+.loopexit:                                        ; preds = %mbim_dissect_adpclk_freq_value.exit, %10, %.preheader, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_nrtcws_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_nrtcws_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_nrtcws_info_lte_active, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #10
   %6 = add i32 %2, 2
@@ -15863,7 +15863,7 @@ define internal fastcc void @mbim_dissect_nrtcws_info.argprom(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_atds_signal_info.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_atds_signal_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_atds_signal_info_rssi, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %6 = add i32 %2, 4
@@ -17753,7 +17753,7 @@ define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr nocapt
 100:                                              ; preds = %96, %91
   %101 = load i32, ptr %11, align 4
   %.not.i = icmp eq i32 %101, 0
-  br i1 %.not.i, label %mbim_dissect_ms_app_info_elements.argprom.exit, label %102
+  br i1 %.not.i, label %mbim_dissect_ms_app_info_elements.exit, label %102
 
 102:                                              ; preds = %100
   %103 = load i32, ptr @hf_mbim_ms_app_info_pin_ref, align 4
@@ -17761,9 +17761,9 @@ define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr nocapt
   %105 = add i32 %104, %50
   %106 = load i32, ptr %10, align 4
   %107 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %103, ptr noundef %0, i32 noundef %105, i32 noundef %106, i32 noundef 0) #10
-  br label %mbim_dissect_ms_app_info_elements.argprom.exit
+  br label %mbim_dissect_ms_app_info_elements.exit
 
-mbim_dissect_ms_app_info_elements.argprom.exit:   ; preds = %100, %102
+mbim_dissect_ms_app_info_elements.exit:           ; preds = %100, %102
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -17773,7 +17773,7 @@ mbim_dissect_ms_app_info_elements.argprom.exit:   ; preds = %100, %102
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %108
 
-108:                                              ; preds = %.lr.ph56, %57, %mbim_dissect_ms_app_info_elements.argprom.exit
+108:                                              ; preds = %.lr.ph56, %57, %mbim_dissect_ms_app_info_elements.exit
   %109 = load i32, ptr %12, align 4
   %110 = icmp ult i32 %54, %109
   br i1 %110, label %.lr.ph56, label %._crit_edge, !llvm.loop !69
@@ -17783,7 +17783,7 @@ mbim_dissect_ms_app_info_elements.argprom.exit:   ; preds = %100, %102
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_response.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_response(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_mbim_ms_response_version, align 4
@@ -17818,7 +17818,7 @@ define internal fastcc void @mbim_dissect_ms_response.argprom(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_file_status.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_file_status(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_ms_file_status_version, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %6 = add i32 %2, 4
@@ -17859,7 +17859,7 @@ define internal fastcc void @mbim_dissect_ms_file_status.argprom(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_nitz.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_nitz(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mbim_nitz_year, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %6 = add i32 %2, 4
@@ -17915,7 +17915,7 @@ declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_context_type_uuid.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct._e_guid_t, align 4
   %6 = load i32, ptr %3, align 4
   call void @tvb_get_ntohguid(ptr noundef %0, i32 noundef %6, ptr noundef nonnull %5) #10
@@ -18271,15 +18271,15 @@ mbim_dissect_ms_wake_command.exit:                ; preds = %140, %158
   %179 = load i32, ptr %8, align 4
   %180 = icmp ne i32 %179, 0
   %or.cond.i81 = select i1 %178, i1 %180, i1 false
-  br i1 %or.cond.i81, label %181, label %mbim_dissect_ms_wake_packet.argprom.exit
+  br i1 %or.cond.i81, label %181, label %mbim_dissect_ms_wake_packet.exit
 
 181:                                              ; preds = %162
   %182 = load i32, ptr @hf_mbim_ms_wake_reason_packet_saved_data, align 4
   %183 = add i32 %177, %163
   %184 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %165, i32 noundef %182, ptr noundef %0, i32 noundef %183, i32 noundef %179, ptr noundef null, ptr noundef nonnull @.str.2560) #10
-  br label %mbim_dissect_ms_wake_packet.argprom.exit
+  br label %mbim_dissect_ms_wake_packet.exit
 
-mbim_dissect_ms_wake_packet.argprom.exit:         ; preds = %162, %181
+mbim_dissect_ms_wake_packet.exit:                 ; preds = %162, %181
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %mbim_dissect_rej_nssai.exit
@@ -18346,7 +18346,7 @@ mbim_dissect_ursp_rules.exit:                     ; preds = %.lr.ph.i82, %194
   %223 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %220, ptr noundef %0, i32 noundef %221, i32 noundef %222, i32 noundef 0) #10
   br label %mbim_dissect_rej_nssai.exit
 
-mbim_dissect_rej_nssai.exit:                      ; preds = %mbim_dissect_rej_snssai.exit.i, %66, %219, %214, %mbim_dissect_ursp_rules.exit, %189, %185, %mbim_dissect_ms_wake_packet.argprom.exit, %mbim_dissect_ms_wake_command.exit, %mbim_dissect_tps.exit, %120, %mbim_dissect_ms_tai.exit, %mbim_dissect_ladn.exit, %mbim_dissect_precfg_dflt_cfg_nssai.exit, %mbim_dissect_nssai.exit, %43
+mbim_dissect_rej_nssai.exit:                      ; preds = %mbim_dissect_rej_snssai.exit.i, %66, %219, %214, %mbim_dissect_ursp_rules.exit, %189, %185, %mbim_dissect_ms_wake_packet.exit, %mbim_dissect_ms_wake_command.exit, %mbim_dissect_tps.exit, %120, %mbim_dissect_ms_tai.exit, %mbim_dissect_ladn.exit, %mbim_dissect_precfg_dflt_cfg_nssai.exit, %mbim_dissect_nssai.exit, %43
   call void @decrement_dissection_depth(ptr noundef %1) #10
   %224 = load i32, ptr %21, align 4
   %225 = add i32 %224, %39
@@ -18466,13 +18466,13 @@ define internal fastcc range(i32 0, 2) i32 @mbim_dissect_ms_single_tai(ptr nound
 22:                                               ; preds = %14
   %23 = and i32 %19, 32767
   %24 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef %19, ptr noundef nonnull @.str.2552, i32 noundef %23) #10
-  br label %mbim_dissect_ms_plmn.argprom.exit.i
+  br label %mbim_dissect_ms_plmn.exit.i
 
 25:                                               ; preds = %14
   %26 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef %19, ptr noundef nonnull @.str.2553, i32 noundef %19) #10
-  br label %mbim_dissect_ms_plmn.argprom.exit.i
+  br label %mbim_dissect_ms_plmn.exit.i
 
-mbim_dissect_ms_plmn.argprom.exit.i:              ; preds = %25, %22
+mbim_dissect_ms_plmn.exit.i:                      ; preds = %25, %22
   %27 = load i32, ptr %3, align 4
   %28 = add i32 %27, 4
   store i32 %28, ptr %3, align 4
@@ -18483,11 +18483,11 @@ mbim_dissect_ms_plmn.argprom.exit.i:              ; preds = %25, %22
   store i32 %32, ptr %3, align 4
   %33 = load i32, ptr %6, align 4
   %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %mbim_dissect_ms_tai_list_single_plmn.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %mbim_dissect_ms_tai_list_single_plmn.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %mbim_dissect_ms_plmn.argprom.exit.i, %.lr.ph.i
-  %34 = phi i32 [ %38, %.lr.ph.i ], [ %32, %mbim_dissect_ms_plmn.argprom.exit.i ]
-  %.01.i = phi i32 [ %39, %.lr.ph.i ], [ 0, %mbim_dissect_ms_plmn.argprom.exit.i ]
+.lr.ph.i:                                         ; preds = %mbim_dissect_ms_plmn.exit.i, %.lr.ph.i
+  %34 = phi i32 [ %38, %.lr.ph.i ], [ %32, %mbim_dissect_ms_plmn.exit.i ]
+  %.01.i = phi i32 [ %39, %.lr.ph.i ], [ 0, %mbim_dissect_ms_plmn.exit.i ]
   %35 = load i32, ptr @hf_mbim_ms_tai_tac, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef -2147483648) #10
   %37 = load i32, ptr %3, align 4
@@ -18496,9 +18496,9 @@ mbim_dissect_ms_plmn.argprom.exit.i:              ; preds = %25, %22
   %39 = add nuw i32 %.01.i, 1
   %40 = load i32, ptr %6, align 4
   %41 = icmp ult i32 %39, %40
-  br i1 %41, label %.lr.ph.i, label %mbim_dissect_ms_tai_list_single_plmn.argprom.exit, !llvm.loop !78
+  br i1 %41, label %.lr.ph.i, label %mbim_dissect_ms_tai_list_single_plmn.exit, !llvm.loop !78
 
-mbim_dissect_ms_tai_list_single_plmn.argprom.exit: ; preds = %.lr.ph.i, %mbim_dissect_ms_plmn.argprom.exit.i
+mbim_dissect_ms_tai_list_single_plmn.exit:        ; preds = %.lr.ph.i, %mbim_dissect_ms_plmn.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %74
 
@@ -18511,11 +18511,11 @@ mbim_dissect_ms_tai_list_single_plmn.argprom.exit: ; preds = %.lr.ph.i, %mbim_di
   store i32 %46, ptr %3, align 4
   %47 = load i32, ptr %5, align 4
   %.not.i16 = icmp eq i32 %47, 0
-  br i1 %.not.i16, label %mbim_dissect_ms_tai_list_multi_plmn.argprom.exit, label %.lr.ph.i17
+  br i1 %.not.i16, label %mbim_dissect_ms_tai_list_multi_plmn.exit, label %.lr.ph.i17
 
-.lr.ph.i17:                                       ; preds = %42, %mbim_dissect_ms_plmn.argprom.exit.i19
-  %.02.i = phi i32 [ %49, %mbim_dissect_ms_plmn.argprom.exit.i19 ], [ 0, %42 ]
-  %storemerge1.i = phi i32 [ %69, %mbim_dissect_ms_plmn.argprom.exit.i19 ], [ %46, %42 ]
+.lr.ph.i17:                                       ; preds = %42, %mbim_dissect_ms_plmn.exit.i19
+  %.02.i = phi i32 [ %49, %mbim_dissect_ms_plmn.exit.i19 ], [ 0, %42 ]
+  %storemerge1.i = phi i32 [ %69, %mbim_dissect_ms_plmn.exit.i19 ], [ %46, %42 ]
   %48 = load i32, ptr @ett_mbim_pair_list, align 4
   %49 = add nuw i32 %.02.i, 1
   %50 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %storemerge1.i, i32 noundef 0, i32 noundef %48, ptr noundef null, ptr noundef nonnull @.str.2554, i32 noundef %49) #10
@@ -18533,13 +18533,13 @@ mbim_dissect_ms_tai_list_single_plmn.argprom.exit: ; preds = %.lr.ph.i, %mbim_di
 59:                                               ; preds = %.lr.ph.i17
   %60 = and i32 %56, 32767
   %61 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %50, i32 noundef %58, ptr noundef %0, i32 noundef %54, i32 noundef 2, i32 noundef %56, ptr noundef nonnull @.str.2552, i32 noundef %60) #10
-  br label %mbim_dissect_ms_plmn.argprom.exit.i19
+  br label %mbim_dissect_ms_plmn.exit.i19
 
 62:                                               ; preds = %.lr.ph.i17
   %63 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %50, i32 noundef %58, ptr noundef %0, i32 noundef %54, i32 noundef 2, i32 noundef %56, ptr noundef nonnull @.str.2553, i32 noundef %56) #10
-  br label %mbim_dissect_ms_plmn.argprom.exit.i19
+  br label %mbim_dissect_ms_plmn.exit.i19
 
-mbim_dissect_ms_plmn.argprom.exit.i19:            ; preds = %62, %59
+mbim_dissect_ms_plmn.exit.i19:                    ; preds = %62, %59
   %64 = load i32, ptr %3, align 4
   %65 = add i32 %64, 4
   store i32 %65, ptr %3, align 4
@@ -18550,9 +18550,9 @@ mbim_dissect_ms_plmn.argprom.exit.i19:            ; preds = %62, %59
   store i32 %69, ptr %3, align 4
   %70 = load i32, ptr %5, align 4
   %71 = icmp ult i32 %49, %70
-  br i1 %71, label %.lr.ph.i17, label %mbim_dissect_ms_tai_list_multi_plmn.argprom.exit, !llvm.loop !79
+  br i1 %71, label %.lr.ph.i17, label %mbim_dissect_ms_tai_list_multi_plmn.exit, !llvm.loop !79
 
-mbim_dissect_ms_tai_list_multi_plmn.argprom.exit: ; preds = %mbim_dissect_ms_plmn.argprom.exit.i19, %42
+mbim_dissect_ms_tai_list_multi_plmn.exit:         ; preds = %mbim_dissect_ms_plmn.exit.i19, %42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %74
 
@@ -18560,8 +18560,8 @@ mbim_dissect_ms_tai_list_multi_plmn.argprom.exit: ; preds = %mbim_dissect_ms_plm
   %73 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_mbim_unexpected_msg, ptr noundef %0, i32 noundef %12, i32 noundef 1) #10
   br label %74
 
-74:                                               ; preds = %mbim_dissect_ms_tai_list_single_plmn.argprom.exit, %mbim_dissect_ms_tai_list_multi_plmn.argprom.exit, %72
-  %.0 = phi i32 [ 0, %72 ], [ 1, %mbim_dissect_ms_tai_list_multi_plmn.argprom.exit ], [ 1, %mbim_dissect_ms_tai_list_single_plmn.argprom.exit ]
+74:                                               ; preds = %mbim_dissect_ms_tai_list_single_plmn.exit, %mbim_dissect_ms_tai_list_multi_plmn.exit, %72
+  %.0 = phi i32 [ 0, %72 ], [ 1, %mbim_dissect_ms_tai_list_multi_plmn.exit ], [ 1, %mbim_dissect_ms_tai_list_single_plmn.exit ]
   ret i32 %.0
 }
 
@@ -18875,7 +18875,7 @@ define internal fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  tail call fastcc void @mbim_dissect_context_type_uuid.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %13 = load i32, ptr @hf_mbim_set_ms_provisioned_context_v2_ip_type, align 4
   %14 = load i32, ptr %3, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #10

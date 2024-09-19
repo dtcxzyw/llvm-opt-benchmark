@@ -665,7 +665,7 @@ BufferGetPage.exit:                               ; preds = %195, %201
   %.015.i.i.i = phi ptr [ %283, %277 ], [ %275, %.lr.ph.preheader.i.i.i ]
   %.01214.i.i.i = phi i32 [ %278, %277 ], [ 0, %.lr.ph.preheader.i.i.i ]
   %276 = icmp eq i32 %.01214.i.i.i, %171
-  br i1 %276, label %saveNodeLink.argprom.exit.i, label %277
+  br i1 %276, label %saveNodeLink.exit.i, label %277
 
 277:                                              ; preds = %.lr.ph.i.i.i
   %278 = add nuw nsw i32 %.01214.i.i.i, 1
@@ -684,7 +684,7 @@ BufferGetPage.exit:                               ; preds = %195, %201
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.spgUpdateNodeLink) #10
   unreachable
 
-saveNodeLink.argprom.exit.i:                      ; preds = %.lr.ph.i.i.i
+saveNodeLink.exit.i:                              ; preds = %.lr.ph.i.i.i
   %286 = lshr i32 %261, 16
   %287 = trunc nuw i32 %286 to i16
   store i16 %287, ptr %.015.i.i.i, align 2
@@ -788,7 +788,7 @@ saveNodeLink.argprom.exit.i:                      ; preds = %.lr.ph.i.i.i
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 287, ptr noundef nonnull @__func__.addLeafTuple) #10
   unreachable
 
-353:                                              ; preds = %347, %301, %saveNodeLink.argprom.exit.i, %250
+353:                                              ; preds = %347, %301, %saveNodeLink.exit.i, %250
   %354 = load i32, ptr %93, align 4
   call void @MarkBufferDirty(i32 noundef %354) #10
   %355 = load ptr, ptr %136, align 8
@@ -868,12 +868,12 @@ addLeafTuple.exit:                                ; preds = %353, %362, %365, %3
   %394 = load i32, ptr %16, align 8
   %.off.i148 = add i32 %394, -1
   %switch.i149 = icmp ult i32 %.off.i148, 2
-  br i1 %switch.i149, label %checkSplitConditions.argprom.exit.thread, label %395
+  br i1 %switch.i149, label %checkSplitConditions.exit.thread, label %395
 
 395:                                              ; preds = %393
   %396 = load i16, ptr %95, align 8
   %.not3.i = icmp eq i16 %396, 0
-  br i1 %.not3.i, label %checkSplitConditions.argprom.exit, label %.lr.ph.i
+  br i1 %.not3.i, label %checkSplitConditions.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %395
   %397 = getelementptr inbounds i8, ptr %227, i64 24
@@ -920,32 +920,32 @@ addLeafTuple.exit:                                ; preds = %353, %362, %365, %3
   %418 = load i16, ptr %417, align 4
   %419 = and i16 %418, 16383
   %.not.i151 = icmp eq i16 %419, 0
-  br i1 %.not.i151, label %checkSplitConditions.argprom.exit.loopexit, label %398, !llvm.loop !9
+  br i1 %.not.i151, label %checkSplitConditions.exit.loopexit, label %398, !llvm.loop !9
 
-checkSplitConditions.argprom.exit.loopexit:       ; preds = %416
+checkSplitConditions.exit.loopexit:               ; preds = %416
   %420 = icmp slt i32 %.120.i, 64
-  br label %checkSplitConditions.argprom.exit
+  br label %checkSplitConditions.exit
 
-checkSplitConditions.argprom.exit:                ; preds = %checkSplitConditions.argprom.exit.loopexit, %395
-  %storemerge.i = phi i1 [ true, %395 ], [ %420, %checkSplitConditions.argprom.exit.loopexit ]
-  %.0.i = phi i32 [ 0, %395 ], [ %.1.i, %checkSplitConditions.argprom.exit.loopexit ]
+checkSplitConditions.exit:                        ; preds = %checkSplitConditions.exit.loopexit, %395
+  %storemerge.i = phi i1 [ true, %395 ], [ %420, %checkSplitConditions.exit.loopexit ]
+  %.0.i = phi i32 [ 0, %395 ], [ %.1.i, %checkSplitConditions.exit.loopexit ]
   %421 = icmp ult i32 %.0.i, 4080
   %or.cond = select i1 %421, i1 %storemerge.i, i1 false
-  br i1 %or.cond, label %422, label %checkSplitConditions.argprom.exit.thread
+  br i1 %or.cond, label %422, label %checkSplitConditions.exit.thread
 
-422:                                              ; preds = %checkSplitConditions.argprom.exit
+422:                                              ; preds = %checkSplitConditions.exit
   %423 = load i32, ptr %221, align 4
   %424 = lshr i32 %423, 2
   %narrow138 = add nuw nsw i32 %.0.i, 4
   %narrow241 = add nuw nsw i32 %narrow138, %424
   %425 = icmp ult i32 %narrow241, 8161
-  br i1 %425, label %426, label %checkSplitConditions.argprom.exit.thread
+  br i1 %425, label %426, label %checkSplitConditions.exit.thread
 
 426:                                              ; preds = %422
   call fastcc void @moveLeafs(ptr noundef %0, ptr noundef %1, ptr noundef %16, ptr noundef %17, ptr noundef nonnull %221, i1 noundef zeroext %24)
   br label %.loopexit
 
-checkSplitConditions.argprom.exit.thread:         ; preds = %393, %422, %checkSplitConditions.argprom.exit
+checkSplitConditions.exit.thread:                 ; preds = %393, %422, %checkSplitConditions.exit
   %427 = load i8, ptr %18, align 1
   %428 = trunc i8 %427 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -985,7 +985,7 @@ checkSplitConditions.argprom.exit.thread:         ; preds = %393, %422, %checkSp
   %switch.i153 = icmp ult i32 %.off.i152, 2
   br i1 %switch.i153, label %.preheader556.i, label %502
 
-.preheader556.i:                                  ; preds = %checkSplitConditions.argprom.exit.thread
+.preheader556.i:                                  ; preds = %checkSplitConditions.exit.thread
   %.not458588.i = icmp eq i32 %436, 0
   br i1 %.not458588.i, label %.loopexit557.i, label %.lr.ph593.i
 
@@ -1089,7 +1089,7 @@ fetch_att.exit.i:                                 ; preds = %486, %480, %477, %4
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 767, ptr noundef nonnull @__func__.doPickSplit) #10
   unreachable
 
-502:                                              ; preds = %checkSplitConditions.argprom.exit.thread
+502:                                              ; preds = %checkSplitConditions.exit.thread
   %503 = load i16, ptr %95, align 8
   %.not581.i = icmp eq i16 %503, 0
   br i1 %.not581.i, label %.loopexit557.i, label %.lr.ph.i154
@@ -2112,7 +2112,7 @@ BufferGetPage.exit511.i:                          ; preds = %971, %965
   %.015.i.i.i162 = phi ptr [ %1032, %1026 ], [ %1024, %.lr.ph.preheader.i.i.i160 ]
   %.01214.i.i.i163 = phi i32 [ %1027, %1026 ], [ 0, %.lr.ph.preheader.i.i.i160 ]
   %1025 = icmp eq i32 %.01214.i.i.i163, %171
-  br i1 %1025, label %saveNodeLink.argprom.exit.i166, label %1026
+  br i1 %1025, label %saveNodeLink.exit.i166, label %1026
 
 1026:                                             ; preds = %.lr.ph.i.i.i161
   %1027 = add nuw nsw i32 %.01214.i.i.i163, 1
@@ -2131,7 +2131,7 @@ BufferGetPage.exit511.i:                          ; preds = %971, %965
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.spgUpdateNodeLink) #10
   unreachable
 
-saveNodeLink.argprom.exit.i166:                   ; preds = %.lr.ph.i.i.i161
+saveNodeLink.exit.i166:                           ; preds = %.lr.ph.i.i.i161
   %1035 = lshr i32 %1010, 16
   %1036 = trunc nuw i32 %1035 to i16
   store i16 %1036, ptr %.015.i.i.i162, align 2
@@ -2144,7 +2144,7 @@ saveNodeLink.argprom.exit.i166:                   ; preds = %.lr.ph.i.i.i161
   %.not471.i = icmp eq i16 %.0411.i, 0
   br i1 %.not471.i, label %1143, label %1040
 
-1040:                                             ; preds = %saveNodeLink.argprom.exit.i166
+1040:                                             ; preds = %saveNodeLink.exit.i166
   %1041 = load i32, ptr %16, align 8
   %1042 = load i16, ptr %95, align 8
   %1043 = getelementptr inbounds i8, ptr %.sroa.9.0.copyload.i, i64 24
@@ -2238,7 +2238,7 @@ BufferGetPage.exit514.i:                          ; preds = %1067, %1061
   %.015.i.i519.i = phi ptr [ %1105, %1099 ], [ %1097, %.lr.ph.preheader.i.i517.i ]
   %.01214.i.i520.i = phi i32 [ %1100, %1099 ], [ 0, %.lr.ph.preheader.i.i517.i ]
   %1098 = icmp eq i32 %.01214.i.i520.i, %171
-  br i1 %1098, label %saveNodeLink.argprom.exit523.i, label %1099
+  br i1 %1098, label %saveNodeLink.exit523.i, label %1099
 
 1099:                                             ; preds = %.lr.ph.i.i518.i
   %1100 = add nuw nsw i32 %.01214.i.i520.i, 1
@@ -2257,7 +2257,7 @@ BufferGetPage.exit514.i:                          ; preds = %1067, %1061
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.spgUpdateNodeLink) #10
   unreachable
 
-saveNodeLink.argprom.exit523.i:                   ; preds = %.lr.ph.i.i518.i
+saveNodeLink.exit523.i:                           ; preds = %.lr.ph.i.i518.i
   %1108 = lshr i32 %1082, 16
   %1109 = trunc nuw i32 %1108 to i16
   store i16 %1109, ptr %.015.i.i519.i, align 2
@@ -2270,7 +2270,7 @@ saveNodeLink.argprom.exit523.i:                   ; preds = %.lr.ph.i.i518.i
   %.not470.i = icmp eq i16 %.0411.i, 0
   br i1 %.not470.i, label %1143, label %1113
 
-1113:                                             ; preds = %saveNodeLink.argprom.exit523.i
+1113:                                             ; preds = %saveNodeLink.exit523.i
   %1114 = load i32, ptr %16, align 8
   %1115 = load i16, ptr %95, align 8
   %1116 = getelementptr inbounds i8, ptr %.sroa.9.0.copyload.i, i64 24
@@ -2322,9 +2322,9 @@ saveNodeLink.argprom.exit523.i:                   ; preds = %.lr.ph.i.i518.i
   %1142 = load i32, ptr %93, align 4
   br label %1143
 
-1143:                                             ; preds = %1141, %1113, %saveNodeLink.argprom.exit523.i, %1040, %saveNodeLink.argprom.exit.i166
-  %.sroa.1.0.copyload.sink.i = phi i32 [ %1142, %1141 ], [ %.sroa.1.0.copyload.i, %1040 ], [ %.sroa.1.0.copyload.i, %saveNodeLink.argprom.exit.i166 ], [ %.sroa.1.0.copyload.i, %1113 ], [ %.sroa.1.0.copyload.i, %saveNodeLink.argprom.exit523.i ]
-  %.sroa.1.0.i = phi i32 [ 0, %1141 ], [ %.sroa.1.0.copyload.i, %1040 ], [ %.sroa.1.0.copyload.i, %saveNodeLink.argprom.exit.i166 ], [ %.sroa.1.0.copyload.i, %1113 ], [ %.sroa.1.0.copyload.i, %saveNodeLink.argprom.exit523.i ]
+1143:                                             ; preds = %1141, %1113, %saveNodeLink.exit523.i, %1040, %saveNodeLink.exit.i166
+  %.sroa.1.0.copyload.sink.i = phi i32 [ %1142, %1141 ], [ %.sroa.1.0.copyload.i, %1040 ], [ %.sroa.1.0.copyload.i, %saveNodeLink.exit.i166 ], [ %.sroa.1.0.copyload.i, %1113 ], [ %.sroa.1.0.copyload.i, %saveNodeLink.exit523.i ]
+  %.sroa.1.0.i = phi i32 [ 0, %1141 ], [ %.sroa.1.0.copyload.i, %1040 ], [ %.sroa.1.0.copyload.i, %saveNodeLink.exit.i166 ], [ %.sroa.1.0.copyload.i, %1113 ], [ %.sroa.1.0.copyload.i, %saveNodeLink.exit523.i ]
   call void @MarkBufferDirty(i32 noundef %.sroa.1.0.copyload.sink.i) #10
   %1144 = load ptr, ptr %136, align 8
   %1145 = getelementptr inbounds i8, ptr %1144, i64 114
@@ -2737,13 +2737,13 @@ ItemPointerIsValid.exit.i173:                     ; preds = %1329
   %1337 = or disjoint i32 %1335, %1336
   store i32 %1337, ptr %16, align 8
   %.0.val.i = load i16, ptr %1330, align 2
-  br label %spgMatchNodeAction.argprom.exit
+  br label %spgMatchNodeAction.exit
 
 ItemPointerIsValid.exit.thread.i175:              ; preds = %ItemPointerIsValid.exit.i173, %1329
   store i32 -1, ptr %16, align 8
-  br label %spgMatchNodeAction.argprom.exit
+  br label %spgMatchNodeAction.exit
 
-spgMatchNodeAction.argprom.exit:                  ; preds = %1332, %ItemPointerIsValid.exit.thread.i175
+spgMatchNodeAction.exit:                          ; preds = %1332, %ItemPointerIsValid.exit.thread.i175
   %storemerge.i174 = phi i16 [ 0, %ItemPointerIsValid.exit.thread.i175 ], [ %.0.val.i, %1332 ]
   store i16 %storemerge.i174, ptr %95, align 8
   store i32 0, ptr %93, align 4
@@ -2752,7 +2752,7 @@ spgMatchNodeAction.argprom.exit:                  ; preds = %1332, %ItemPointerI
   %1339 = add i32 %1338, %.0112383
   br i1 %24, label %1345, label %1340
 
-1340:                                             ; preds = %spgMatchNodeAction.argprom.exit
+1340:                                             ; preds = %spgMatchNodeAction.exit
   %1341 = load i64, ptr %154, align 8
   store i64 %1341, ptr %15, align 16
   %1342 = call i64 @SpGistGetLeafTupleSize(ptr noundef nonnull %22, ptr noundef nonnull %15, ptr noundef nonnull %4) #10
@@ -2760,8 +2760,8 @@ spgMatchNodeAction.argprom.exit:                  ; preds = %1332, %ItemPointerI
   %1344 = add i32 %1343, 4
   br label %1345
 
-1345:                                             ; preds = %1340, %spgMatchNodeAction.argprom.exit
-  %.1 = phi i32 [ %.0114381, %spgMatchNodeAction.argprom.exit ], [ %1344, %1340 ]
+1345:                                             ; preds = %1340, %spgMatchNodeAction.exit
+  %.1 = phi i32 [ %.0114381, %spgMatchNodeAction.exit ], [ %1344, %1340 ]
   %1346 = icmp ugt i32 %.1, 8160
   br i1 %1346, label %1347, label %.thread229
 
@@ -3110,7 +3110,7 @@ BufferGetPage.exit.i187:                          ; preds = %1504, %1498
   %.015.i.i.i193 = phi ptr [ %1548, %1542 ], [ %1540, %.lr.ph.preheader.i.i.i191 ]
   %.01214.i.i.i194 = phi i32 [ %1543, %1542 ], [ 0, %.lr.ph.preheader.i.i.i191 ]
   %1541 = icmp eq i32 %.01214.i.i.i194, %1488
-  br i1 %1541, label %saveNodeLink.argprom.exit.i197, label %1542
+  br i1 %1541, label %saveNodeLink.exit.i197, label %1542
 
 1542:                                             ; preds = %.lr.ph.i.i.i192
   %1543 = add nuw nsw i32 %.01214.i.i.i194, 1
@@ -3129,7 +3129,7 @@ BufferGetPage.exit.i187:                          ; preds = %1504, %1498
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.spgUpdateNodeLink) #10
   unreachable
 
-saveNodeLink.argprom.exit.i197:                   ; preds = %.lr.ph.i.i.i192
+saveNodeLink.exit.i197:                           ; preds = %.lr.ph.i.i.i192
   %1551 = lshr i32 %1524, 16
   %1552 = trunc nuw i32 %1551 to i16
   store i16 %1552, ptr %.015.i.i.i193, align 2
@@ -3143,11 +3143,11 @@ saveNodeLink.argprom.exit.i197:                   ; preds = %.lr.ph.i.i.i192
   %1557 = trunc i8 %1556 to i1
   br i1 %1557, label %1558, label %1560
 
-1558:                                             ; preds = %saveNodeLink.argprom.exit.i197
+1558:                                             ; preds = %saveNodeLink.exit.i197
   %1559 = call ptr @spgFormDeadTuple(ptr noundef nonnull %1, i32 noundef 3, i32 noundef -1, i16 noundef zeroext 0) #10
   br label %1564
 
-1560:                                             ; preds = %saveNodeLink.argprom.exit.i197
+1560:                                             ; preds = %saveNodeLink.exit.i197
   %1561 = load i32, ptr %16, align 8
   %1562 = load i16, ptr %95, align 8
   %1563 = call ptr @spgFormDeadTuple(ptr noundef nonnull %1, i32 noundef 1, i32 noundef %1561, i16 noundef zeroext %1562) #10
@@ -4061,7 +4061,7 @@ BufferGetPage.exit:                               ; preds = %59, %65
   %.015.i.i = phi ptr [ %155, %149 ], [ %147, %.lr.ph.preheader.i.i ]
   %.01214.i.i = phi i32 [ %150, %149 ], [ 0, %.lr.ph.preheader.i.i ]
   %148 = icmp eq i32 %.01214.i.i, %140
-  br i1 %148, label %saveNodeLink.argprom.exit, label %149
+  br i1 %148, label %saveNodeLink.exit, label %149
 
 149:                                              ; preds = %.lr.ph.i.i
   %150 = add nuw nsw i32 %.01214.i.i, 1
@@ -4080,7 +4080,7 @@ BufferGetPage.exit:                               ; preds = %59, %65
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.spgUpdateNodeLink) #10
   unreachable
 
-saveNodeLink.argprom.exit:                        ; preds = %.lr.ph.i.i
+saveNodeLink.exit:                                ; preds = %.lr.ph.i.i
   %158 = lshr i32 %71, 16
   %159 = trunc nuw i32 %158 to i16
   store i16 %159, ptr %.015.i.i, align 2
@@ -4103,7 +4103,7 @@ saveNodeLink.argprom.exit:                        ; preds = %.lr.ph.i.i
   %171 = icmp eq i8 %170, 112
   br i1 %171, label %172, label %222
 
-172:                                              ; preds = %saveNodeLink.argprom.exit
+172:                                              ; preds = %saveNodeLink.exit
   %173 = load i32, ptr @wal_level, align 4
   %174 = icmp sgt i32 %173, 0
   br i1 %174, label %183, label %175
@@ -4184,7 +4184,7 @@ saveNodeLink.argprom.exit:                        ; preds = %.lr.ph.i.i
   store i32 %217, ptr %221, align 4
   br label %222
 
-222:                                              ; preds = %saveNodeLink.argprom.exit, %175, %179, %183, %186
+222:                                              ; preds = %saveNodeLink.exit, %175, %179, %183, %186
   %223 = load volatile i32, ptr @CritSectionCount, align 4
   %224 = add i32 %223, -1
   store volatile i32 %224, ptr @CritSectionCount, align 4

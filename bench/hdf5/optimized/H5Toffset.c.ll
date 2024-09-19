@@ -276,7 +276,7 @@ define range(i32 -1, 1) i32 @H5Tset_offset(i64 noundef %0, i64 noundef %1) local
   br label %.thread38
 
 .thread:                                          ; preds = %50, %57
-  tail call fastcc void @H5T__set_offset.retelim(ptr noundef %24, i64 noundef %1)
+  tail call fastcc void @H5T__set_offset(ptr noundef %24, i64 noundef %1)
   %63 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #3
   br label %65
 
@@ -290,7 +290,7 @@ define range(i32 -1, 1) i32 @H5Tset_offset(i64 noundef %0, i64 noundef %1) local
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5T__set_offset.retelim(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc void @H5T__set_offset(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -299,7 +299,7 @@ define internal fastcc void @H5T__set_offset.retelim(ptr nocapture noundef nonnu
   br i1 %.not, label %30, label %7
 
 7:                                                ; preds = %2
-  tail call fastcc void @H5T__set_offset.retelim(ptr noundef %6, i64 noundef %1)
+  tail call fastcc void @H5T__set_offset(ptr noundef %6, i64 noundef %1)
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4

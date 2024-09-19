@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN7tendril5OFLOW17hdc69e70c4b83c50eE = external local_unnamed_addr global { ptr, i64 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.argprom"(i64 %.0.val, i32 %.12.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.0.val, i32 %.12.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %2 = alloca { { i64, ptr }, i64 }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -48,16 +48,16 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   %18 = getelementptr inbounds i8, ptr %3, i64 8
   %19 = load i64, ptr %18, align 8, !range !14, !noalias !7, !noundef !15
   %.not.i.i.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.argprom.exit.i", label %20
+  br i1 %.not.i.i.i.i.i, label %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit.i", label %20
 
 20:                                               ; preds = %10
   %21 = load ptr, ptr %3, align 8, !noalias !7, !nonnull !15, !noundef !15
   %22 = getelementptr inbounds i8, ptr %3, i64 16
   %23 = load i64, ptr %22, align 8, !noalias !7, !noundef !15
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15586061709592140432"(ptr noalias noundef nonnull readonly align 1 %17, ptr noundef nonnull %21, i64 noundef %19, i64 noundef %23), !noalias !4
-  br label %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.argprom.exit.i"
+  br label %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit.i"
 
-"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.argprom.exit.i": ; preds = %20, %10
+"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit.i": ; preds = %20, %10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4
   br label %"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.exit"
@@ -87,21 +87,21 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   %36 = getelementptr inbounds i8, ptr %1, i64 8
   %37 = load i64, ptr %36, align 8, !range !14, !noalias !19, !noundef !15
   %.not.i.i.i.i4.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i4.i, label %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.argprom.exit5.i", label %38
+  br i1 %.not.i.i.i.i4.i, label %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit5.i", label %38
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr %1, align 8, !noalias !19, !nonnull !15, !noundef !15
   %40 = getelementptr inbounds i8, ptr %1, i64 16
   %41 = load i64, ptr %40, align 8, !noalias !19, !noundef !15
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15586061709592140432"(ptr noalias noundef nonnull readonly align 1 %35, ptr noundef nonnull %39, i64 noundef %37, i64 noundef %41), !noalias !4
-  br label %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.argprom.exit5.i"
+  br label %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit5.i"
 
-"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.argprom.exit5.i": ; preds = %38, %29
+"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit5.i": ; preds = %38, %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1), !noalias !19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !4
   br label %"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.exit"
 
-"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.exit": ; preds = %0, %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.argprom.exit.i", %24, %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.argprom.exit5.i"
+"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.exit": ; preds = %0, %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit.i", %24, %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit5.i"
   ret void
 }
 
@@ -287,7 +287,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN7tendril7tendril20
 103:                                              ; preds = %99
   %104 = getelementptr inbounds i8, ptr %0, i64 12
   %.val1.i = load i32, ptr %104, align 4, !alias.scope !37
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.argprom"(i64 %2, i32 %.val1.i)
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %2, i32 %.val1.i)
           to label %107 unwind label %105, !noalias !37
 
 common.resume:                                    ; preds = %142, %105
@@ -377,7 +377,7 @@ common.resume:                                    ; preds = %142, %105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   %141 = getelementptr inbounds i8, ptr %0, i64 12
   %.val5.i = load i32, ptr %141, align 4, !alias.scope !40
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.argprom"(i64 %2, i32 %.val5.i)
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %2, i32 %.val5.i)
           to label %144 unwind label %142, !noalias !40
 
 142:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i"
@@ -414,7 +414,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue10push_front17h033e
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.thread": ; preds = %6, %2
   %11 = getelementptr inbounds i8, ptr %1, i64 12
   %.val3 = load i32, ptr %11, align 4
-  tail call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.argprom"(i64 %4, i32 %.val3)
+  tail call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %4, i32 %.val3)
   br label %21
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.thread5": ; preds = %6
@@ -491,7 +491,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue9push_back17hdb0fb6
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.thread": ; preds = %6, %2
   %11 = getelementptr inbounds i8, ptr %1, i64 12
   %.val3 = load i32, ptr %11, align 4
-  tail call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.argprom"(i64 %4, i32 %.val3)
+  tail call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %4, i32 %.val3)
   br label %21
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.thread5": ; preds = %6
@@ -722,7 +722,7 @@ define noundef range(i32 0, 2097152) i32 @_ZN11markup5ever4util12buffer_queue11B
   %.sroa.4.8.copyload = load i64, ptr %27, align 8, !noalias !77
   %.sroa.610.8..sroa_idx = getelementptr inbounds i8, ptr %27, i64 12
   %.sroa.610.8.copyload = load i32, ptr %.sroa.610.8..sroa_idx, align 4, !noalias !77
-  tail call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.argprom"(i64 %.sroa.4.8.copyload, i32 %.sroa.610.8.copyload), !noalias !82
+  tail call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.4.8.copyload, i32 %.sroa.610.8.copyload), !noalias !82
   br label %.thread18
 }
 
@@ -1036,7 +1036,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i29)
   %144 = getelementptr inbounds i8, ptr %14, i64 12
   %.val5.i = load i32, ptr %144, align 4, !alias.scope !105
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.argprom"(i64 %105, i32 %.val5.i)
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %105, i32 %.val5.i)
           to label %145 unwind label %161, !noalias !105
 
 145:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i36"
@@ -1095,7 +1095,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   %.sroa.491.8.copyload = load i64, ptr %157, align 8, !noalias !113
   %.sroa.693.8..sroa_idx = getelementptr inbounds i8, ptr %157, i64 12
   %.sroa.693.8.copyload = load i32, ptr %.sroa.693.8..sroa_idx, align 4, !noalias !113
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.argprom"(i64 %.sroa.491.8.copyload, i32 %.sroa.693.8.copyload)
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.491.8.copyload, i32 %.sroa.693.8.copyload)
           to label %.thread110 unwind label %158
 
 158:                                              ; preds = %.thread
@@ -1104,7 +1104,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   br i1 %153, label %.thread113, label %160
 
 160:                                              ; preds = %158
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.argprom"(i64 %.sroa.49.sroa.4.0104, i32 %.sroa.49.sroa.12.0106)
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.49.sroa.4.0104, i32 %.sroa.49.sroa.12.0106)
           to label %.thread113 unwind label %103
 
 161:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i36"
@@ -1113,7 +1113,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   store i64 %..i.i, ptr %14, align 8, !alias.scope !105
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 8
   store i64 %.sroa.4.i.i29.0..sroa.4.i.i29.0..sroa.4.i.i29.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i38, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !105
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.argprom"(i64 %.sroa.072.0, i32 %.sroa.573.12.extract.trunc) #10
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.072.0, i32 %.sroa.573.12.extract.trunc) #10
           to label %.thread113 unwind label %103
 }
 

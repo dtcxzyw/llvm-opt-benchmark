@@ -1131,16 +1131,16 @@ _ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit: ; preds = %25
   store i8 1, ptr %69, align 1
   store ptr @.str.5, ptr %8, align 8
   store i8 3, ptr %68, align 8
-  br i1 %21, label %70, label %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit"
+  br i1 %21, label %70, label %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit"
 
 70:                                               ; preds = %47
   %71 = load ptr, ptr %13, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 120
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef nonnull align 8 dereferenceable(34) %8, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit"
+  br label %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit"
 
-"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit": ; preds = %47, %70
+"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit": ; preds = %47, %70
   call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %67, i32 noundef 4, ptr null) #13
   %74 = load ptr, ptr %13, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 200
@@ -1154,8 +1154,8 @@ _ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit: ; preds = %25
   %.not6163 = icmp eq ptr %80, %81
   br i1 %.not6163, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit", %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit
-  %.sroa.046.064 = phi ptr [ %86, %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit ], [ %80, %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit" ]
+.lr.ph:                                           ; preds = %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit", %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit
+  %.sroa.046.064 = phi ptr [ %86, %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit ], [ %80, %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit" ]
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.046.064, i64 235
   %83 = load i8, ptr %82, align 1
   %84 = trunc i8 %83 to i1
@@ -1167,8 +1167,8 @@ _ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineB
   %.not61 = icmp eq ptr %86, %81
   br i1 %.not61, label %.critedge, label %.lr.ph, !llvm.loop !4
 
-.critedge:                                        ; preds = %.lr.ph, %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit, %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit"
-  %.sroa.046.0.lcssa = phi ptr [ %80, %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit" ], [ %86, %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit ], [ %.sroa.046.064, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit, %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit"
+  %.sroa.046.0.lcssa = phi ptr [ %80, %"_ZZN4llvm12WinException25emitCSpecificHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit" ], [ %86, %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit ], [ %.sroa.046.064, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   %87 = getelementptr inbounds i8, ptr %78, i64 56
@@ -1451,9 +1451,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.43, ptr %7, align 8
   store i8 3, ptr %120, align 8
   %122 = load ptr, ptr %17, align 8
-  br i1 %28, label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit", label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit79.critedge"
+  br i1 %28, label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit", label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit79.critedge"
 
-"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit": ; preds = %119
+"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit": ; preds = %119
   %123 = getelementptr inbounds i8, ptr %122, i64 120
   %124 = load ptr, ptr %123, align 8
   call void %124(ptr noundef nonnull align 8 dereferenceable(288) %17, ptr noundef nonnull align 8 dereferenceable(34) %7, i1 noundef zeroext true) #13
@@ -1470,9 +1470,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %131 = getelementptr inbounds i8, ptr %130, i64 120
   %132 = load ptr, ptr %131, align 8
   call void %132(ptr noundef nonnull align 8 dereferenceable(288) %17, ptr noundef nonnull align 8 dereferenceable(34) %8, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit79"
+  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit79"
 
-"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit79.critedge": ; preds = %119
+"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit79.critedge": ; preds = %119
   %133 = getelementptr inbounds i8, ptr %122, i64 520
   %134 = load ptr, ptr %133, align 8
   call void %134(ptr noundef nonnull align 8 dereferenceable(288) %17, i64 noundef %.058, i32 noundef 4) #13
@@ -1481,9 +1481,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %136, align 1
   store ptr @.str.44, ptr %8, align 8
   store i8 3, ptr %135, align 8
-  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit79"
+  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit79"
 
-"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit79": ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit79.critedge", %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit"
+"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit79": ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit79.critedge", %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit"
   %137 = load ptr, ptr %17, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 520
   %139 = load ptr, ptr %138, align 8
@@ -1494,9 +1494,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.45, ptr %9, align 8
   store i8 3, ptr %140, align 8
   %142 = load ptr, ptr %17, align 8
-  br i1 %28, label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit80", label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit81.critedge"
+  br i1 %28, label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit80", label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit81.critedge"
 
-"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit80": ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit79"
+"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit80": ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit79"
   %143 = getelementptr inbounds i8, ptr %142, i64 120
   %144 = load ptr, ptr %143, align 8
   call void %144(ptr noundef nonnull align 8 dereferenceable(288) %17, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true) #13
@@ -1513,9 +1513,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %151 = getelementptr inbounds i8, ptr %150, i64 120
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef nonnull align 8 dereferenceable(288) %17, ptr noundef nonnull align 8 dereferenceable(34) %10, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit81"
+  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit81"
 
-"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit81.critedge": ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit79"
+"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit81.critedge": ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit79"
   %153 = getelementptr inbounds i8, ptr %142, i64 520
   %154 = load ptr, ptr %153, align 8
   call void %154(ptr noundef nonnull align 8 dereferenceable(288) %17, i64 noundef %.059, i32 noundef 4) #13
@@ -1524,17 +1524,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   store i8 1, ptr %156, align 1
   store ptr @.str.46, ptr %10, align 8
   store i8 3, ptr %155, align 8
-  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit81"
+  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit81"
 
-"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit81": ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit81.critedge", %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit80"
+"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit81": ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit81.critedge", %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit80"
   %157 = load ptr, ptr %17, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 520
   %159 = load ptr, ptr %158, align 8
   call void %159(ptr noundef nonnull align 8 dereferenceable(288) %17, i64 noundef 0, i32 noundef 4) #13
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread111
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread111:      ; preds = %_ZN4llvm12WinException29emitEHRegistrationOffsetLabelERKNS_13WinEHFuncInfoENS_9StringRefE.exit, %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit81", %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.0 = phi i32 [ -2, %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit81" ], [ -1, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ -1, %_ZN4llvm12WinException29emitEHRegistrationOffsetLabelERKNS_13WinEHFuncInfoENS_9StringRefE.exit ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread111:      ; preds = %_ZN4llvm12WinException29emitEHRegistrationOffsetLabelERKNS_13WinEHFuncInfoENS_9StringRefE.exit, %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit81", %_ZN4llvmeqENS_9StringRefES0_.exit
+  %.0 = phi i32 [ -2, %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit81" ], [ -1, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ -1, %_ZN4llvm12WinException29emitEHRegistrationOffsetLabelERKNS_13WinEHFuncInfoENS_9StringRefE.exit ]
   %160 = getelementptr inbounds nuw i8, ptr %30, i64 472
   %161 = load ptr, ptr %160, align 8
   %162 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %160) #13
@@ -1564,7 +1564,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread111:      ; preds = %_ZN4llvm12WinExcept
   br i1 %177, label %178, label %180
 
 178:                                              ; preds = %171
-  %179 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom(ptr noundef %174)
+  %179 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE(ptr noundef %174)
   br label %182
 
 180:                                              ; preds = %171
@@ -1579,16 +1579,16 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread111:      ; preds = %_ZN4llvm12WinExcept
   store i8 1, ptr %165, align 1
   store ptr @.str.27, ptr %11, align 8
   store i8 3, ptr %164, align 8
-  br i1 %28, label %186, label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit82"
+  br i1 %28, label %186, label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit82"
 
 186:                                              ; preds = %182
   %187 = load ptr, ptr %17, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 120
   %189 = load ptr, ptr %188, align 8
   call void %189(ptr noundef nonnull align 8 dereferenceable(288) %17, ptr noundef nonnull align 8 dereferenceable(34) %11, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit82"
+  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit82"
 
-"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit82": ; preds = %182, %186
+"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit82": ; preds = %182, %186
   %190 = sext i32 %.0. to i64
   %191 = load ptr, ptr %17, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 520
@@ -1602,36 +1602,36 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread111:      ; preds = %_ZN4llvm12WinExcept
   %.not.i83 = icmp eq i8 %197, 0
   br i1 %.not.i83, label %_ZN4llvm5TwineC2EPKc.exit, label %198
 
-198:                                              ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit82"
+198:                                              ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit82"
   store ptr %196, ptr %12, align 8
   br label %_ZN4llvm5TwineC2EPKc.exit
 
-_ZN4llvm5TwineC2EPKc.exit:                        ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit82", %198
-  %storemerge.i = phi i8 [ 3, %198 ], [ 1, %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit82" ]
+_ZN4llvm5TwineC2EPKc.exit:                        ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit82", %198
+  %storemerge.i = phi i8 [ 3, %198 ], [ 1, %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit82" ]
   store i8 %storemerge.i, ptr %166, align 8
-  br i1 %28, label %199, label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit84"
+  br i1 %28, label %199, label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit84"
 
 199:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit
   %200 = load ptr, ptr %17, align 8
   %201 = getelementptr inbounds i8, ptr %200, i64 120
   %202 = load ptr, ptr %201, align 8
   call void %202(ptr noundef nonnull align 8 dereferenceable(288) %17, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit84"
+  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit84"
 
-"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit84": ; preds = %_ZN4llvm5TwineC2EPKc.exit, %199
+"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit84": ; preds = %_ZN4llvm5TwineC2EPKc.exit, %199
   %203 = getelementptr inbounds nuw i8, ptr %.060117, i64 8
   %204 = load ptr, ptr %203, align 8
   %.not.i85 = icmp eq ptr %204, null
   %205 = load ptr, ptr %14, align 8
   br i1 %.not.i85, label %206, label %210
 
-206:                                              ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit84"
+206:                                              ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit84"
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 72
   %208 = load ptr, ptr %207, align 8
   %209 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(2432) %208, i1 noundef zeroext false, i32 noundef 0) #13
   br label %_ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit
 
-210:                                              ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit84"
+210:                                              ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit84"
   %211 = call noundef ptr @_ZNK4llvm10AsmPrinter9getSymbolEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(785) %205, ptr noundef nonnull %204) #13
   %.not.i.i = icmp eq ptr %211, null
   br i1 %.not.i.i, label %212, label %217
@@ -1671,27 +1671,27 @@ _ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit: ; preds = %206,
 _ZN4llvm5TwineC2EPKc.exit89:                      ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit, %229
   %storemerge.i88 = phi i8 [ 3, %229 ], [ 1, %_ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit ]
   store i8 %storemerge.i88, ptr %169, align 8
-  br i1 %28, label %230, label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit90"
+  br i1 %28, label %230, label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit90"
 
 230:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit89
   %231 = load ptr, ptr %17, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 120
   %233 = load ptr, ptr %232, align 8
   call void %233(ptr noundef nonnull align 8 dereferenceable(288) %17, ptr noundef nonnull align 8 dereferenceable(34) %13, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit90"
+  br label %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit90"
 
-"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit90": ; preds = %_ZN4llvm5TwineC2EPKc.exit89, %230
+"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit90": ; preds = %_ZN4llvm5TwineC2EPKc.exit89, %230
   %.not.i91 = icmp eq ptr %183, null
   br i1 %.not.i91, label %234, label %239
 
-234:                                              ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit90"
+234:                                              ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit90"
   %235 = load ptr, ptr %14, align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 72
   %237 = load ptr, ptr %236, align 8
   %238 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(2432) %237, i1 noundef zeroext false, i32 noundef 0) #13
   br label %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit
 
-239:                                              ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit90"
+239:                                              ; preds = %"_ZZN4llvm12WinException22emitExceptHandlerTableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit90"
   %240 = load i8, ptr %168, align 1
   %241 = trunc i8 %240 to i1
   %242 = select i1 %241, i16 125, i16 0
@@ -1985,9 +1985,9 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread: ; preds = %_ZNK4llvm9MCAsmInf
   store ptr @.str.16, ptr %17, align 8
   store i8 3, ptr %171, align 8
   %173 = load ptr, ptr %50, align 8
-  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit187.critedge"
+  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit187.critedge"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit": ; preds = %160
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit": ; preds = %160
   %174 = getelementptr inbounds i8, ptr %173, i64 120
   %175 = load ptr, ptr %174, align 8
   call void %175(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %17, i1 noundef zeroext true) #13
@@ -2004,9 +2004,9 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread: ; preds = %_ZNK4llvm9MCAsmInf
   %182 = getelementptr inbounds i8, ptr %181, i64 120
   %183 = load ptr, ptr %182, align 8
   call void %183(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %18, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit187"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit187"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit187.critedge": ; preds = %160
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit187.critedge": ; preds = %160
   %184 = getelementptr inbounds i8, ptr %173, i64 520
   %185 = load ptr, ptr %184, align 8
   call void %185(ptr noundef nonnull align 8 dereferenceable(288) %50, i64 noundef 429065506, i32 noundef 4) #13
@@ -2015,9 +2015,9 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread: ; preds = %_ZNK4llvm9MCAsmInf
   store i8 1, ptr %187, align 1
   store ptr @.str.17, ptr %18, align 8
   store i8 3, ptr %186, align 8
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit187"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit187"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit187": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit187.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit"
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit187": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit187.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit"
   %188 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %126) #13
   %189 = load ptr, ptr %50, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 520
@@ -2028,27 +2028,27 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread: ; preds = %_ZNK4llvm9MCAsmInf
   store i8 1, ptr %193, align 1
   store ptr @.str.18, ptr %19, align 8
   store i8 3, ptr %192, align 8
-  br i1 %164, label %194, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit188"
+  br i1 %164, label %194, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit188"
 
-194:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit187"
+194:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit187"
   %195 = load ptr, ptr %50, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 120
   %197 = load ptr, ptr %196, align 8
   call void %197(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %19, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit188"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit188"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit188": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit187", %194
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit188": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit187", %194
   %.not.i189 = icmp eq ptr %.0116, null
   br i1 %.not.i189, label %198, label %203
 
-198:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit188"
+198:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit188"
   %199 = load ptr, ptr %47, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 72
   %201 = load ptr, ptr %200, align 8
   %202 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(2432) %201, i1 noundef zeroext false, i32 noundef 0) #13
   br label %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit
 
-203:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit188"
+203:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit188"
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %205 = load i8, ptr %204, align 1
   %206 = trunc i8 %205 to i1
@@ -2067,9 +2067,9 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit: ; preds = %198, %20
   store i8 1, ptr %213, align 1
   store ptr @.str.19, ptr %20, align 8
   store i8 3, ptr %212, align 8
-  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit191", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit192.critedge"
+  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit191", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit192.critedge"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit191": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit191": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit
   %214 = load ptr, ptr %50, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 120
   %216 = load ptr, ptr %215, align 8
@@ -2088,9 +2088,9 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit: ; preds = %198, %20
   %224 = getelementptr inbounds i8, ptr %223, i64 120
   %225 = load ptr, ptr %224, align 8
   call void %225(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %21, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit192"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit192"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit192.critedge": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit192.critedge": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit
   %226 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %138) #13
   %227 = load ptr, ptr %50, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 520
@@ -2101,20 +2101,20 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit: ; preds = %198, %20
   store i8 1, ptr %231, align 1
   store ptr @.str.20, ptr %21, align 8
   store i8 3, ptr %230, align 8
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit192"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit192"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit192": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit192.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit191"
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit192": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit192.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit191"
   %.not.i193 = icmp eq ptr %.0117, null
   br i1 %.not.i193, label %232, label %237
 
-232:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit192"
+232:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit192"
   %233 = load ptr, ptr %47, align 8
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 72
   %235 = load ptr, ptr %234, align 8
   %236 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(2432) %235, i1 noundef zeroext false, i32 noundef 0) #13
   br label %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit195
 
-237:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit192"
+237:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit192"
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %239 = load i8, ptr %238, align 1
   %240 = trunc i8 %239 to i1
@@ -2133,9 +2133,9 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit195: ; preds = %232, 
   store i8 1, ptr %247, align 1
   store ptr @.str.21, ptr %22, align 8
   store i8 3, ptr %246, align 8
-  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit196", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit197.critedge"
+  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit196", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit197.critedge"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit196": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit195
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit196": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit195
   %248 = load ptr, ptr %50, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 120
   %250 = load ptr, ptr %249, align 8
@@ -2154,9 +2154,9 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit195: ; preds = %232, 
   %258 = getelementptr inbounds i8, ptr %257, i64 120
   %259 = load ptr, ptr %258, align 8
   call void %259(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %23, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit197"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit197"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit197.critedge": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit195
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit197.critedge": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit195
   %260 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #13
   %261 = load ptr, ptr %50, align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 520
@@ -2167,20 +2167,20 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit195: ; preds = %232, 
   store i8 1, ptr %265, align 1
   store ptr @.str.22, ptr %23, align 8
   store i8 3, ptr %264, align 8
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit197"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit197"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit197": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit197.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit196"
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit197": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit197.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit196"
   %.not.i198 = icmp eq ptr %.0118, null
   br i1 %.not.i198, label %266, label %271
 
-266:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit197"
+266:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit197"
   %267 = load ptr, ptr %47, align 8
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 72
   %269 = load ptr, ptr %268, align 8
   %270 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(2432) %269, i1 noundef zeroext false, i32 noundef 0) #13
   br label %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit200
 
-271:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit197"
+271:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit197"
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %273 = load i8, ptr %272, align 1
   %274 = trunc i8 %273 to i1
@@ -2222,32 +2222,32 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203:    ; preds = %_ZN4llvm12WinExcept
   store i8 1, ptr %293, align 1
   store ptr @.str.23, ptr %24, align 8
   store i8 3, ptr %292, align 8
-  br i1 %164, label %294, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit204"
+  br i1 %164, label %294, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit204"
 
 294:                                              ; preds = %291
   %295 = load ptr, ptr %50, align 8
   %296 = getelementptr inbounds i8, ptr %295, i64 120
   %297 = load ptr, ptr %296, align 8
   call void %297(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %24, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit204"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit204"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit204": ; preds = %291, %294
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit204": ; preds = %291, %294
   %298 = load ptr, ptr %50, align 8
   %299 = getelementptr inbounds i8, ptr %298, i64 520
   %300 = load ptr, ptr %299, align 8
   call void %300(ptr noundef nonnull align 8 dereferenceable(288) %50, i64 noundef %.0114, i32 noundef 4) #13
   br label %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread
 
-_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203, %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit200, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit204", %288
+_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread: ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203, %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit200, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit204", %288
   %301 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %302 = getelementptr inbounds nuw i8, ptr %25, i64 33
   store i8 1, ptr %302, align 1
   store ptr @.str.24, ptr %25, align 8
   store i8 3, ptr %301, align 8
   %303 = load ptr, ptr %50, align 8
-  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit205", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit206.critedge"
+  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit205", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit206.critedge"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit205": ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit205": ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread
   %304 = getelementptr inbounds i8, ptr %303, i64 120
   %305 = load ptr, ptr %304, align 8
   call void %305(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %25, i1 noundef zeroext true) #13
@@ -2264,9 +2264,9 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread: ; preds = %_ZNK4llvm9MCAsm
   %312 = getelementptr inbounds i8, ptr %311, i64 120
   %313 = load ptr, ptr %312, align 8
   call void %313(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %26, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit206"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit206"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit206.critedge": ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit206.critedge": ; preds = %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread
   %314 = getelementptr inbounds i8, ptr %303, i64 520
   %315 = load ptr, ptr %314, align 8
   call void %315(ptr noundef nonnull align 8 dereferenceable(288) %50, i64 noundef 0, i32 noundef 4) #13
@@ -2275,9 +2275,9 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread: ; preds = %_ZNK4llvm9MCAsm
   store i8 1, ptr %317, align 1
   store ptr @.str.25, ptr %26, align 8
   store i8 3, ptr %316, align 8
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit206"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit206"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit206": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit206.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit205"
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit206": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit206.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit205"
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 2448
@@ -2291,7 +2291,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread: ; preds = %_ZNK4llvm9MCAsm
   call void %325(ptr noundef nonnull align 8 dereferenceable(288) %50, i64 noundef %., i32 noundef 4) #13
   br i1 %.not.i189, label %.loopexit328, label %326
 
-326:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit206"
+326:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit206"
   %327 = load ptr, ptr %50, align 8
   %328 = getelementptr inbounds i8, ptr %327, i64 200
   %329 = load ptr, ptr %328, align 8
@@ -2319,13 +2319,13 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread: ; preds = %_ZNK4llvm9MCAsm
   %341 = and i64 %.sroa.0.0.copyload.i.i.i, -8
   %342 = inttoptr i64 %341 to ptr
   %.0.i.i.i = select i1 %.not.i.i.i207, ptr null, ptr %342
-  %343 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom(ptr noundef %.0.i.i.i)
+  %343 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE(ptr noundef %.0.i.i.i)
   store i8 1, ptr %334, align 1
   store ptr @.str.27, ptr %27, align 8
   store i8 3, ptr %333, align 8
-  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit208", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit209.critedge"
+  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit208", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit209.critedge"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit208": ; preds = %338
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit208": ; preds = %338
   %344 = load ptr, ptr %50, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 120
   %346 = load ptr, ptr %345, align 8
@@ -2343,9 +2343,9 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread: ; preds = %_ZNK4llvm9MCAsm
   %353 = getelementptr inbounds i8, ptr %352, i64 120
   %354 = load ptr, ptr %353, align 8
   call void %354(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %28, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit209"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit209"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit209.critedge": ; preds = %338
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit209.critedge": ; preds = %338
   %355 = load i32, ptr %.0120330, align 8
   %356 = sext i32 %355 to i64
   %357 = load ptr, ptr %50, align 8
@@ -2355,20 +2355,20 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit203.thread: ; preds = %_ZNK4llvm9MCAsm
   store i8 1, ptr %336, align 1
   store ptr @.str.28, ptr %28, align 8
   store i8 3, ptr %335, align 8
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit209"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit209"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit209": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit209.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit208"
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit209": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit209.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit208"
   %.not.i210 = icmp eq ptr %343, null
   br i1 %.not.i210, label %360, label %365
 
-360:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit209"
+360:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit209"
   %361 = load ptr, ptr %47, align 8
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 72
   %363 = load ptr, ptr %362, align 8
   %364 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(2432) %363, i1 noundef zeroext false, i32 noundef 0) #13
   br label %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit212
 
-365:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit209"
+365:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit209"
   %366 = load i8, ptr %337, align 1
   %367 = trunc i8 %366 to i1
   %368 = select i1 %367, i16 125, i16 0
@@ -2385,7 +2385,7 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit212: ; preds = %360, 
   %.not131 = icmp eq ptr %373, %332
   br i1 %.not131, label %.loopexit328, label %338
 
-.loopexit328:                                     ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit212, %326, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit206"
+.loopexit328:                                     ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit212, %326, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit206"
   br i1 %.not.i193, label %_ZN4llvm11SmallVectorIPNS_8MCSymbolELj1EED2Ev.exit, label %374
 
 374:                                              ; preds = %.loopexit328
@@ -2477,9 +2477,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit: ; pred
   store i8 1, ptr %391, align 1
   store ptr @.str.31, ptr %34, align 8
   store i8 3, ptr %390, align 8
-  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit245", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit246.critedge"
+  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit245", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit246.critedge"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit245": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit245": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit
   %422 = load ptr, ptr %50, align 8
   %423 = getelementptr inbounds i8, ptr %422, i64 120
   %424 = load ptr, ptr %423, align 8
@@ -2497,9 +2497,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit: ; pred
   %431 = getelementptr inbounds i8, ptr %430, i64 120
   %432 = load ptr, ptr %431, align 8
   call void %432(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %35, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit246"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit246"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit246.critedge": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit246.critedge": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit
   %433 = load i32, ptr %404, align 8
   %434 = sext i32 %433 to i64
   %435 = load ptr, ptr %50, align 8
@@ -2509,9 +2509,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit: ; pred
   store i8 1, ptr %393, align 1
   store ptr @.str.32, ptr %35, align 8
   store i8 3, ptr %392, align 8
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit246"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit246"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit246": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit246.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit245"
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit246": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit246.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit245"
   %438 = getelementptr inbounds nuw i8, ptr %404, i64 4
   %439 = load i32, ptr %438, align 4
   %440 = sext i32 %439 to i64
@@ -2522,9 +2522,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit: ; pred
   store i8 1, ptr %395, align 1
   store ptr @.str.33, ptr %36, align 8
   store i8 3, ptr %394, align 8
-  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit247", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit249.critedge.critedge"
+  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit247", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit249.critedge.critedge"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit247": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit246"
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit247": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit246"
   %444 = load ptr, ptr %50, align 8
   %445 = getelementptr inbounds i8, ptr %444, i64 120
   %446 = load ptr, ptr %445, align 8
@@ -2555,9 +2555,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit: ; pred
   %461 = getelementptr inbounds i8, ptr %460, i64 120
   %462 = load ptr, ptr %461, align 8
   call void %462(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %38, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit249"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit249"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit249.critedge.critedge": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit246"
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit249.critedge.critedge": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit246"
   %463 = getelementptr inbounds nuw i8, ptr %404, i64 8
   %464 = load i32, ptr %463, align 8
   %465 = sext i32 %464 to i64
@@ -2576,20 +2576,20 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit: ; pred
   store i8 1, ptr %399, align 1
   store ptr @.str.35, ptr %38, align 8
   store i8 3, ptr %398, align 8
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit249"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit249"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit249": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit249.critedge.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit247"
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit249": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit249.critedge.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit247"
   %.not.i250 = icmp eq ptr %.0121, null
   br i1 %.not.i250, label %473, label %478
 
-473:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit249"
+473:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit249"
   %474 = load ptr, ptr %47, align 8
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 72
   %476 = load ptr, ptr %475, align 8
   %477 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(2432) %476, i1 noundef zeroext false, i32 noundef 0) #13
   br label %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit252
 
-478:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit249"
+478:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit249"
   %479 = load i8, ptr %400, align 1
   %480 = trunc i8 %479 to i1
   %481 = select i1 %480, i16 125, i16 0
@@ -2775,7 +2775,7 @@ _ZN4llvm12WinException19getFrameIndexOffsetEiRKNS_13WinEHFuncInfoE.exit257: ; pr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %.not.i261326 = icmp eq i64 %594, 0
   %.not.i261 = or i1 %.not.i.i.i259, %.not.i261326
-  br i1 %.not.i261, label %_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom.exit, label %596
+  br i1 %.not.i261, label %_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.exit, label %596
 
 596:                                              ; preds = %587
   %597 = getelementptr inbounds nuw i8, ptr %595, i64 32
@@ -2839,9 +2839,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit69.i:              ; preds = %_ZNK4llvm9StringRef
   store i8 2, ptr %522, align 8, !alias.scope !42
   store i8 3, ptr %523, align 1, !alias.scope !42
   %616 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %607, ptr noundef nonnull align 8 dereferenceable(34) %3) #13
-  br label %_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom.exit
+  br label %_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.exit
 
-_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom.exit: ; preds = %587, %_ZN4llvmplERKNS_5TwineES2_.exit69.i
+_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.exit: ; preds = %587, %_ZN4llvmplERKNS_5TwineES2_.exit69.i
   %.0.i262 = phi ptr [ %616, %_ZN4llvmplERKNS_5TwineES2_.exit69.i ], [ null, %587 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -2852,9 +2852,9 @@ _ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom.exit
   store i8 1, ptr %525, align 1
   store ptr @.str.36, ptr %39, align 8
   store i8 3, ptr %524, align 8
-  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit263", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit264.critedge"
+  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit263", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit264.critedge"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit263": ; preds = %_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom.exit
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit263": ; preds = %_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.exit
   %617 = load ptr, ptr %50, align 8
   %618 = getelementptr inbounds i8, ptr %617, i64 120
   %619 = load ptr, ptr %618, align 8
@@ -2872,9 +2872,9 @@ _ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom.exit
   %626 = getelementptr inbounds i8, ptr %625, i64 120
   %627 = load ptr, ptr %626, align 8
   call void %627(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %40, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit264"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit264"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit264.critedge": ; preds = %_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom.exit
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit264.critedge": ; preds = %_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.exit
   %628 = load i32, ptr %.0122346, align 8
   %629 = sext i32 %628 to i64
   %630 = load ptr, ptr %50, align 8
@@ -2884,22 +2884,22 @@ _ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom.exit
   store i8 1, ptr %527, align 1
   store ptr @.str.37, ptr %40, align 8
   store i8 3, ptr %526, align 8
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit264"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit264"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit264": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit264.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit263"
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit264": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit264.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit263"
   %633 = getelementptr inbounds nuw i8, ptr %.0122346, i64 16
   %634 = load ptr, ptr %633, align 8
   %.not.i265 = icmp eq ptr %634, null
   %635 = load ptr, ptr %47, align 8
   br i1 %.not.i265, label %636, label %640
 
-636:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit264"
+636:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit264"
   %637 = getelementptr inbounds nuw i8, ptr %635, i64 72
   %638 = load ptr, ptr %637, align 8
   %639 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(2432) %638, i1 noundef zeroext false, i32 noundef 0) #13
   br label %_ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit
 
-640:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit264"
+640:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit264"
   %641 = call noundef ptr @_ZNK4llvm10AsmPrinter9getSymbolEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(785) %635, ptr noundef nonnull %634) #13
   %.not.i.i = icmp eq ptr %641, null
   br i1 %.not.i.i, label %642, label %647
@@ -2927,9 +2927,9 @@ _ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit: ; preds = %636,
   store i8 1, ptr %530, align 1
   store ptr @.str.38, ptr %41, align 8
   store i8 3, ptr %529, align 8
-  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit267", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit268.critedge"
+  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit267", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit268.critedge"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit267": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit267": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit
   %655 = load ptr, ptr %50, align 8
   %656 = getelementptr inbounds i8, ptr %655, i64 120
   %657 = load ptr, ptr %656, align 8
@@ -2942,27 +2942,27 @@ _ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit: ; preds = %636,
   %659 = getelementptr inbounds i8, ptr %658, i64 120
   %660 = load ptr, ptr %659, align 8
   call void %660(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %42, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit268"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit268"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit268.critedge": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit268.critedge": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_11GlobalValueE.exit
   call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef %591, i32 noundef 4, ptr null) #13
   store i8 1, ptr %532, align 1
   store ptr @.str.39, ptr %42, align 8
   store i8 3, ptr %531, align 8
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit268"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit268"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit268": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit268.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit267"
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit268": ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit268.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit267"
   %.not.i269 = icmp eq ptr %.0.i262, null
   br i1 %.not.i269, label %661, label %666
 
-661:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit268"
+661:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit268"
   %662 = load ptr, ptr %47, align 8
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 72
   %664 = load ptr, ptr %663, align 8
   %665 = call noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(2432) %664, i1 noundef zeroext false, i32 noundef 0) #13
   br label %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit271
 
-666:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit268"
+666:                                              ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit268"
   %667 = load i8, ptr %528, align 1
   %668 = trunc i8 %667 to i1
   %669 = select i1 %668, i16 125, i16 0
@@ -2983,23 +2983,23 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit271: ; preds = %661, 
   store i8 1, ptr %534, align 1
   store ptr @.str.40, ptr %43, align 8
   store i8 3, ptr %533, align 8
-  br i1 %164, label %677, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit272"
+  br i1 %164, label %677, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit272"
 
 677:                                              ; preds = %676
   %678 = load ptr, ptr %50, align 8
   %679 = getelementptr inbounds i8, ptr %678, i64 120
   %680 = load ptr, ptr %679, align 8
   call void %680(ptr noundef nonnull align 8 dereferenceable(288) %50, ptr noundef nonnull align 8 dereferenceable(34) %43, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit272"
+  br label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit272"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit272": ; preds = %676, %677
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit272": ; preds = %676, %677
   %681 = load ptr, ptr %50, align 8
   %682 = getelementptr inbounds i8, ptr %681, i64 520
   %683 = load ptr, ptr %682, align 8
   call void %683(ptr noundef nonnull align 8 dereferenceable(288) %50, i64 noundef %.0123, i32 noundef 4) #13
   br label %684
 
-684:                                              ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit271, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit272"
+684:                                              ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit271, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit272"
   %685 = getelementptr inbounds i8, ptr %.0122346, i64 32
   %.not138 = icmp eq ptr %685, %547
   br i1 %.not138, label %.loopexit327, label %.lr.ph348
@@ -3038,10 +3038,10 @@ _ZN4llvm11SmallVectorIPNS_8MCSymbolELj1EED2Ev.exit: ; preds = %690, %._crit_edge
   %699 = getelementptr inbounds nuw i8, ptr %44, i64 33
   %700 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %701 = getelementptr inbounds nuw i8, ptr %45, i64 33
-  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit273.us", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit274.critedge"
+  br i1 %164, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit273.us", label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit274.critedge"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit273.us": ; preds = %.lr.ph357, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit273.us"
-  %.0115355.us = phi ptr [ %715, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit273.us" ], [ %695, %.lr.ph357 ]
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit273.us": ; preds = %.lr.ph357, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit273.us"
+  %.0115355.us = phi ptr [ %715, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit273.us" ], [ %695, %.lr.ph357 ]
   store i8 1, ptr %699, align 1
   store ptr @.str.41, ptr %44, align 8
   store i8 3, ptr %698, align 8
@@ -3067,10 +3067,10 @@ _ZN4llvm11SmallVectorIPNS_8MCSymbolELj1EED2Ev.exit: ; preds = %690, %._crit_edge
   call void %714(ptr noundef nonnull align 8 dereferenceable(288) %50, i64 noundef %711, i32 noundef 4) #13
   %715 = getelementptr inbounds i8, ptr %.0115355.us, i64 16
   %.not136.us = icmp eq ptr %715, %697
-  br i1 %.not136.us, label %.loopexit, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit273.us"
+  br i1 %.not136.us, label %.loopexit, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit273.us"
 
-"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit274.critedge": ; preds = %.lr.ph357, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit274.critedge"
-  %.0115355 = phi ptr [ %723, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit274.critedge" ], [ %695, %.lr.ph357 ]
+"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit274.critedge": ; preds = %.lr.ph357, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit274.critedge"
+  %.0115355 = phi ptr [ %723, %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit274.critedge" ], [ %695, %.lr.ph357 ]
   store i8 1, ptr %699, align 1
   store ptr @.str.41, ptr %44, align 8
   store i8 3, ptr %698, align 8
@@ -3088,9 +3088,9 @@ _ZN4llvm11SmallVectorIPNS_8MCSymbolELj1EED2Ev.exit: ; preds = %690, %._crit_edge
   call void %722(ptr noundef nonnull align 8 dereferenceable(288) %50, i64 noundef %719, i32 noundef 4) #13
   %723 = getelementptr inbounds i8, ptr %.0115355, i64 16
   %.not136 = icmp eq ptr %723, %697
-  br i1 %.not136, label %.loopexit, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit274.critedge"
+  br i1 %.not136, label %.loopexit, label %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit274.critedge"
 
-.loopexit:                                        ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit274.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.argprom.argprom.exit273.us", %691, %_ZN4llvm11SmallVectorIPNS_8MCSymbolELj1EED2Ev.exit
+.loopexit:                                        ; preds = %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit274.critedge", %"_ZZN4llvm12WinException25emitCXXFrameHandler3TableEPKNS_15MachineFunctionEENK3$_0clERKNS_5TwineE.exit273.us", %691, %_ZN4llvm11SmallVectorIPNS_8MCSymbolELj1EED2Ev.exit
   %724 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #13
   %725 = load ptr, ptr %11, align 8
   %726 = icmp eq ptr %725, %59
@@ -3424,7 +3424,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEiNS_12DenseMapInfoI
   br i1 %188, label %189, label %182, !llvm.loop !51
 
 189:                                              ; preds = %185
-  %190 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom(ptr noundef nonnull %184)
+  %190 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE(ptr noundef nonnull %184)
   br label %.loopexit177
 
 .loopexit177:                                     ; preds = %182, %189
@@ -3500,7 +3500,7 @@ _ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread: ; preds = %20
   %217 = load i32, ptr %142, align 8
   %.val = load ptr, ptr %25, align 8
   %.not1.i.i = icmp eq i32 %.0165208, -1
-  br i1 %.not1.i.i, label %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not1.i.i, label %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread, %.lr.ph.i.i
   %.03.i.i = phi i32 [ %218, %.lr.ph.i.i ], [ 0, %_ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread ]
@@ -3510,35 +3510,35 @@ _ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread: ; preds = %20
   %220 = getelementptr inbounds %"struct.llvm::ClrEHUnwindMapEntry", ptr %.val, i64 %219, i32 3
   %221 = load i32, ptr %220, align 8
   %.not.i.i125 = icmp eq i32 %221, -1
-  br i1 %.not.i.i125, label %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !55
+  br i1 %.not.i.i125, label %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit.i, label %.lr.ph.i.i, !llvm.loop !55
 
-_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit.i: ; preds = %.lr.ph.i.i, %_ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread
+_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit.i:  ; preds = %.lr.ph.i.i, %_ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread
   %.0.lcssa.i.i = phi i32 [ 0, %_ZNK12_GLOBAL__N_125InvokeStateChangeIteratorneERKS0_.exit.thread ], [ %218, %.lr.ph.i.i ]
   %.not1.i26.i = icmp eq i32 %217, -1
-  br i1 %.not1.i26.i, label %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit32.i, label %.lr.ph.i27.i
+  br i1 %.not1.i26.i, label %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit32.i, label %.lr.ph.i27.i
 
-.lr.ph.i27.i:                                     ; preds = %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit.i, %.lr.ph.i27.i
-  %.03.i28.i = phi i32 [ %222, %.lr.ph.i27.i ], [ 0, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit.i ]
-  %.042.i29.i = phi i32 [ %225, %.lr.ph.i27.i ], [ %217, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit.i ]
+.lr.ph.i27.i:                                     ; preds = %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit.i, %.lr.ph.i27.i
+  %.03.i28.i = phi i32 [ %222, %.lr.ph.i27.i ], [ 0, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit.i ]
+  %.042.i29.i = phi i32 [ %225, %.lr.ph.i27.i ], [ %217, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit.i ]
   %222 = add nuw nsw i32 %.03.i28.i, 1
   %223 = sext i32 %.042.i29.i to i64
   %224 = getelementptr inbounds %"struct.llvm::ClrEHUnwindMapEntry", ptr %.val, i64 %223, i32 3
   %225 = load i32, ptr %224, align 8
   %.not.i30.i = icmp eq i32 %225, -1
-  br i1 %.not.i30.i, label %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit32.i, label %.lr.ph.i27.i, !llvm.loop !55
+  br i1 %.not.i30.i, label %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit32.i, label %.lr.ph.i27.i, !llvm.loop !55
 
-_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit32.i: ; preds = %.lr.ph.i27.i, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit.i
-  %.0.lcssa.i31.i = phi i32 [ 0, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit.i ], [ %222, %.lr.ph.i27.i ]
+_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit32.i: ; preds = %.lr.ph.i27.i, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit.i
+  %.0.lcssa.i31.i = phi i32 [ 0, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit.i ], [ %222, %.lr.ph.i27.i ]
   %226 = icmp slt i32 %.0.lcssa.i.i, %.0.lcssa.i31.i
   br i1 %226, label %.lr.ph.i, label %.preheader1.i
 
-.preheader1.i:                                    ; preds = %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit32.i
+.preheader1.i:                                    ; preds = %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit32.i
   %227 = icmp slt i32 %.0.lcssa.i31.i, %.0.lcssa.i.i
   br i1 %227, label %.lr.ph8.i, label %.preheader.i
 
-.lr.ph.i:                                         ; preds = %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit32.i, %.lr.ph.i
-  %.04.i = phi i32 [ %231, %.lr.ph.i ], [ %.0.lcssa.i31.i, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit32.i ]
-  %.0213.i = phi i32 [ %230, %.lr.ph.i ], [ %217, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit32.i ]
+.lr.ph.i:                                         ; preds = %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit32.i, %.lr.ph.i
+  %.04.i = phi i32 [ %231, %.lr.ph.i ], [ %.0.lcssa.i31.i, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit32.i ]
+  %.0213.i = phi i32 [ %230, %.lr.ph.i ], [ %217, %_ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.exit32.i ]
   %228 = sext i32 %.0213.i to i64
   %229 = getelementptr inbounds %"struct.llvm::ClrEHUnwindMapEntry", ptr %.val, i64 %228, i32 3
   %230 = load i32, ptr %229, align 8
@@ -3550,7 +3550,7 @@ _ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit32.i: ; preds = %.lr.ph.i27
   %.021.lcssa22.i = phi i32 [ %217, %.preheader1.i ], [ %230, %.lr.ph.i ], [ %217, %.lr.ph8.i ]
   %.022.lcssa.i = phi i32 [ %.0165208, %.preheader1.i ], [ %.0165208, %.lr.ph.i ], [ %235, %.lr.ph8.i ]
   %.not10.i = icmp eq i32 %.022.lcssa.i, %.021.lcssa22.i
-  br i1 %.not10.i, label %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.argprom.exit, label %.lr.ph13.i
+  br i1 %.not10.i, label %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit, label %.lr.ph13.i
 
 .lr.ph8.i:                                        ; preds = %.preheader1.i, %.lr.ph8.i
   %.0207.i = phi i32 [ %236, %.lr.ph8.i ], [ %.0.lcssa.i.i, %.preheader1.i ]
@@ -3572,16 +3572,16 @@ _ZL10getTryRankRKN4llvm13WinEHFuncInfoEi.argprom.exit32.i: ; preds = %.lr.ph.i27
   %242 = getelementptr inbounds %"struct.llvm::ClrEHUnwindMapEntry", ptr %.val, i64 %241, i32 3
   %243 = load i32, ptr %242, align 8
   %.not.i = icmp eq i32 %240, %243
-  br i1 %.not.i, label %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.argprom.exit, label %.lr.ph13.i, !llvm.loop !58
+  br i1 %.not.i, label %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit, label %.lr.ph13.i, !llvm.loop !58
 
-_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.argprom.exit: ; preds = %.lr.ph13.i, %.preheader.i
+_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit: ; preds = %.lr.ph13.i, %.preheader.i
   %.123.lcssa.i = phi i32 [ %.021.lcssa22.i, %.preheader.i ], [ %240, %.lr.ph13.i ]
   %.not94197 = icmp eq i32 %.0165208, %.123.lcssa.i
   br i1 %.not94197, label %._crit_edge201, label %.lr.ph200
 
-.lr.ph200:                                        ; preds = %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.argprom.exit, %279
-  %.1199 = phi ptr [ %.2, %279 ], [ %.0164209, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.argprom.exit ]
-  %.1166198 = phi i32 [ %265, %279 ], [ %.0165208, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.argprom.exit ]
+.lr.ph200:                                        ; preds = %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit, %279
+  %.1199 = phi ptr [ %.2, %279 ], [ %.0164209, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit ]
+  %.1166198 = phi i32 [ %265, %279 ], [ %.0165208, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit ]
   store ptr %.1199, ptr %13, align 8
   %244 = load ptr, ptr %141, align 8
   store ptr %244, ptr %143, align 8
@@ -3657,10 +3657,10 @@ _ZN4llvm23SmallVectorTemplateBaseIZNS_12WinException21emitCLRExceptionTableEPKNS
   %.pre241 = load i32, ptr %142, align 8
   br label %._crit_edge201
 
-._crit_edge201:                                   ; preds = %._crit_edge201.loopexit, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.argprom.exit
-  %280 = phi i32 [ %217, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.argprom.exit ], [ %.pre241, %._crit_edge201.loopexit ]
-  %.1166.lcssa = phi i32 [ %.0165208, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.argprom.exit ], [ %.123.lcssa.i, %._crit_edge201.loopexit ]
-  %.1.lcssa = phi ptr [ %.0164209, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.argprom.exit ], [ %.2, %._crit_edge201.loopexit ]
+._crit_edge201:                                   ; preds = %._crit_edge201.loopexit, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit
+  %280 = phi i32 [ %217, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit ], [ %.pre241, %._crit_edge201.loopexit ]
+  %.1166.lcssa = phi i32 [ %.0165208, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit ], [ %.123.lcssa.i, %._crit_edge201.loopexit ]
+  %.1.lcssa = phi ptr [ %.0164209, %_ZL14getTryAncestorRKN4llvm13WinEHFuncInfoEii.exit ], [ %.2, %._crit_edge201.loopexit ]
   %.not95 = icmp eq i32 %280, %.1166.lcssa
   br i1 %.not95, label %312, label %.preheader
 
@@ -3807,7 +3807,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPKNS_8MCSymbolEiEE12emplace_backIJRS4_RiEEERS5
   %.0.copyload.i.i.i.i.i.i.i127 = load i64, ptr %371, align 8
   %372 = and i64 %.0.copyload.i.i.i.i.i.i.i127, -8
   %373 = inttoptr i64 %372 to ptr
-  %374 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom(ptr noundef %373)
+  %374 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE(ptr noundef %373)
   %375 = load ptr, ptr %14, align 8
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 72
   %377 = load ptr, ptr %376, align 8
@@ -3937,7 +3937,7 @@ define hidden void @_ZN4llvm12WinException12beginFuncletERKNS_17MachineBasicBloc
   br i1 %.not, label %10, label %47
 
 10:                                               ; preds = %3
-  %11 = tail call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom(ptr noundef nonnull %1)
+  %11 = tail call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE(ptr noundef nonnull %1)
   %12 = load ptr, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
@@ -4070,7 +4070,7 @@ define hidden void @_ZN4llvm12WinException12beginFuncletERKNS_17MachineBasicBloc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom(ptr noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -4467,8 +4467,8 @@ define hidden void @_ZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHF
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 33
   br label %30
 
-30:                                               ; preds = %.lr.ph, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit48"
-  %.057 = phi i32 [ %4, %.lr.ph ], [ %139, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit48" ]
+30:                                               ; preds = %.lr.ph, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48"
+  %.057 = phi i32 [ %4, %.lr.ph ], [ %139, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48" ]
   %31 = sext i32 %.057 to i64
   %32 = load ptr, ptr %20, align 8
   %33 = getelementptr inbounds %"struct.llvm::SEHUnwindMapEntry", ptr %32, i64 %31
@@ -4482,7 +4482,7 @@ define hidden void @_ZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHF
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %30
-  %41 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom(ptr noundef %36)
+  %41 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE(ptr noundef %36)
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %42, label %47
 
@@ -4570,9 +4570,9 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit41: ; preds = %84, %7
   store i8 1, ptr %23, align 1
   store ptr @.str.6, ptr %6, align 8
   store i8 3, ptr %22, align 8
-  br i1 %19, label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit", label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit42.critedge"
+  br i1 %19, label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit", label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42.critedge"
 
-"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit41
+"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit41
   %92 = load ptr, ptr %13, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 120
   %94 = load ptr, ptr %93, align 8
@@ -4589,9 +4589,9 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit41: ; preds = %84, %7
   %100 = getelementptr inbounds i8, ptr %99, i64 120
   %101 = load ptr, ptr %100, align 8
   call void %101(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef nonnull align 8 dereferenceable(34) %7, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit42"
+  br label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42"
 
-"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit42.critedge": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit41
+"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42.critedge": ; preds = %_ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit41
   %102 = load ptr, ptr %10, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 72
   %104 = load ptr, ptr %103, align 8
@@ -4600,9 +4600,9 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit41: ; preds = %84, %7
   store i8 1, ptr %25, align 1
   store ptr @.str.7, ptr %7, align 8
   store i8 3, ptr %24, align 8
-  br label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit42"
+  br label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42"
 
-"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit42": ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit42.critedge", %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit"
+"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42": ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42.critedge", %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit"
   %106 = load ptr, ptr %10, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 72
   %108 = load ptr, ptr %107, align 8
@@ -4628,23 +4628,23 @@ _ZN4llvm12WinException14create32bitRefEPKNS_8MCSymbolE.exit41: ; preds = %84, %7
   %.not.i43 = icmp eq i8 %124, 0
   br i1 %.not.i43, label %_ZN4llvm5TwineC2EPKc.exit, label %125
 
-125:                                              ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit42"
+125:                                              ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42"
   store ptr %123, ptr %8, align 8
   br label %_ZN4llvm5TwineC2EPKc.exit
 
-_ZN4llvm5TwineC2EPKc.exit:                        ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit42", %125
-  %storemerge.i = phi i8 [ 3, %125 ], [ 1, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit42" ]
+_ZN4llvm5TwineC2EPKc.exit:                        ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42", %125
+  %storemerge.i = phi i8 [ 3, %125 ], [ 1, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit42" ]
   store i8 %storemerge.i, ptr %26, align 8
-  br i1 %19, label %126, label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit44"
+  br i1 %19, label %126, label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44"
 
 126:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit
   %127 = load ptr, ptr %13, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 120
   %129 = load ptr, ptr %128, align 8
   call void %129(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef nonnull align 8 dereferenceable(34) %8, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit44"
+  br label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44"
 
-"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit44": ; preds = %_ZN4llvm5TwineC2EPKc.exit, %126
+"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44": ; preds = %_ZN4llvm5TwineC2EPKc.exit, %126
   call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %.026, i32 noundef 4, ptr null) #13
   %130 = load i8, ptr %37, align 4
   %131 = trunc i8 %130 to i1
@@ -4654,29 +4654,29 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %"_ZZN4llvm12WinExce
   %.not.i45 = icmp eq i8 %133, 0
   br i1 %.not.i45, label %_ZN4llvm5TwineC2EPKc.exit47, label %134
 
-134:                                              ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit44"
+134:                                              ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44"
   store ptr %132, ptr %9, align 8
   br label %_ZN4llvm5TwineC2EPKc.exit47
 
-_ZN4llvm5TwineC2EPKc.exit47:                      ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit44", %134
-  %storemerge.i46 = phi i8 [ 3, %134 ], [ 1, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit44" ]
+_ZN4llvm5TwineC2EPKc.exit47:                      ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44", %134
+  %storemerge.i46 = phi i8 [ 3, %134 ], [ 1, %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit44" ]
   store i8 %storemerge.i46, ptr %28, align 8
-  br i1 %19, label %135, label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit48"
+  br i1 %19, label %135, label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48"
 
 135:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit47
   %136 = load ptr, ptr %13, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 120
   %138 = load ptr, ptr %137, align 8
   call void %138(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true) #13
-  br label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit48"
+  br label %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48"
 
-"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit48": ; preds = %_ZN4llvm5TwineC2EPKc.exit47, %135
+"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48": ; preds = %_ZN4llvm5TwineC2EPKc.exit47, %135
   call void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %.025, i32 noundef 4, ptr null) #13
   %139 = load i32, ptr %33, align 8
   %.not = icmp eq i32 %139, -1
   br i1 %.not, label %._crit_edge, label %30, !llvm.loop !89
 
-._crit_edge:                                      ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.argprom.argprom.exit48", %5
+._crit_edge:                                      ; preds = %"_ZZN4llvm12WinException22emitSEHActionsForRangeERKNS_13WinEHFuncInfoEPKNS_8MCSymbolES6_iENK3$_0clERKNS_5TwineE.exit48", %5
   ret void
 }
 
@@ -4808,7 +4808,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_14FuncletPadInstEiNS_12DenseMapInfoIS4
   %.0.i.i.pn.i = phi ptr [ %86, %.loopexit.i ], [ %73, %65 ], [ %82, %78 ]
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i, i64 8
   %88 = load i32, ptr %87, align 8
-  %89 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE.argprom(ptr noundef nonnull %.sroa.047.070)
+  %89 = call fastcc noundef ptr @_ZL17getMCSymbolForMBBPN4llvm10AsmPrinterEPKNS_17MachineBasicBlockE(ptr noundef nonnull %.sroa.047.070)
   br label %90
 
 90:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_14FuncletPadInstEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E4findES4_.exit, %54

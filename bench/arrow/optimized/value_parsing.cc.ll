@@ -1782,7 +1782,7 @@ entry:
   store i8 0, ptr %have_zone_offset_.i.i.i.i.i.i.i.i, align 8, !noalias !21
   %call6.i.i.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %format_.i.i.i.i.i.i.i.i) #16, !noalias !21
   %cmp7.not.i.i.i.i.i.i.i.i = icmp eq i64 %call6.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp7.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEED2Ev.argprom.exit, label %while.body.i.i.i.i.i.i.i.i
+  br i1 %cmp7.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEED2Ev.exit, label %while.body.i.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i.i:                       ; preds = %entry, %if.end17.i.i.i.i.i.i.i.i
   %cur.08.i.i.i.i.i.i.i.i = phi i64 [ %inc18.i.i.i.i.i.i.i.i, %if.end17.i.i.i.i.i.i.i.i ], [ 0, %entry ]
@@ -1811,7 +1811,7 @@ invoke.cont11.i.i.i.i.i.i.i.i:                    ; preds = %land.lhs.true.i.i.i
 
 if.then15.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont11.i.i.i.i.i.i.i.i
   store i8 1, ptr %have_zone_offset_.i.i.i.i.i.i.i.i, align 8, !noalias !21
-  br label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEED2Ev.exit
 
 lpad.i.i.i.i.i.i.i.i:                             ; preds = %land.lhs.true.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i
   %2 = landingpad { ptr, i32 }
@@ -1826,9 +1826,9 @@ if.end17.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont11.i.i.i
   %inc18.i.i.i.i.i.i.i.i = add i64 %cur.1.i.i.i.i.i.i.i.i, 1
   %call.i.i.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %format_.i.i.i.i.i.i.i.i) #16, !noalias !21
   %cmp.i.i.i.i.i.i.i.i = icmp ult i64 %inc18.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEED2Ev.argprom.exit, !llvm.loop !24
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEED2Ev.exit, !llvm.loop !24
 
-_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEED2Ev.argprom.exit: ; preds = %if.end17.i.i.i.i.i.i.i.i, %if.then15.i.i.i.i.i.i.i.i, %entry
+_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEED2Ev.exit: ; preds = %if.end17.i.i.i.i.i.i.i.i, %if.then15.i.i.i.i.i.i.i.i, %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i.i) #16, !noalias !21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !21
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
@@ -1839,7 +1839,7 @@ _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserEED2Ev.
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow15TimestampParser11MakeISO8601Ev(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_113ISO8601ParserEED2Ev.argprom.exit:
+_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_113ISO8601ParserEED2Ev.exit:
   %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !25
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !25
@@ -4531,7 +4531,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_123StrptimeTimestampParserESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
@@ -4834,7 +4834,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_113ISO8601ParserESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }

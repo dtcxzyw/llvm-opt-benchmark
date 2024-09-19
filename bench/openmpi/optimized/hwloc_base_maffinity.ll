@@ -32,7 +32,7 @@ define range(i32 -2, 1) i32 @opal_hwloc_base_memory_set(ptr nocapture noundef re
   %7 = load i32, ptr @opal_hwloc_base_mbfa, align 4
   %8 = icmp eq i32 %7, 0
   %or.cond.not.i = select i1 %.b.i, i1 true, i1 %8
-  br i1 %or.cond.not.i, label %opal_hwloc_base_report_bind_failure.argprom.exit, label %9
+  br i1 %or.cond.not.i, label %opal_hwloc_base_report_bind_failure.exit, label %9
 
 9:                                                ; preds = %6
   %10 = call i32 @gethostname(ptr noundef nonnull %4, i64 noundef 65) #4
@@ -43,9 +43,9 @@ define range(i32 -2, 1) i32 @opal_hwloc_base_memory_set(ptr nocapture noundef re
   %15 = select i1 %14, ptr @.str.6, ptr @.str.7
   %16 = call i32 (ptr, ptr, i32, ...) %11(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %4, i32 noundef %12, ptr noundef nonnull @.str.1, i32 noundef 59, ptr noundef nonnull @.str, ptr noundef nonnull %15) #4
   store i1 true, ptr @opal_hwloc_base_report_bind_failure.already_reported, align 4
-  br label %opal_hwloc_base_report_bind_failure.argprom.exit
+  br label %opal_hwloc_base_report_bind_failure.exit
 
-opal_hwloc_base_report_bind_failure.argprom.exit: ; preds = %6, %9
+opal_hwloc_base_report_bind_failure.exit:         ; preds = %6, %9
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %4)
   br label %.thread50
 
@@ -92,7 +92,7 @@ opal_hwloc_base_report_bind_failure.argprom.exit: ; preds = %6, %9
   %31 = load i32, ptr @opal_hwloc_base_mbfa, align 4
   %32 = icmp eq i32 %31, 0
   %or.cond.not.i25 = select i1 %.b.i24, i1 true, i1 %32
-  br i1 %or.cond.not.i25, label %opal_hwloc_base_report_bind_failure.argprom.exit26, label %33
+  br i1 %or.cond.not.i25, label %opal_hwloc_base_report_bind_failure.exit26, label %33
 
 33:                                               ; preds = %.thread33
   %34 = call i32 @gethostname(ptr noundef nonnull %3, i64 noundef 65) #4
@@ -103,15 +103,15 @@ opal_hwloc_base_report_bind_failure.argprom.exit: ; preds = %6, %9
   %39 = select i1 %38, ptr @.str.6, ptr @.str.7
   %40 = call i32 (ptr, ptr, i32, ...) %35(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %3, i32 noundef %36, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull %.0173237, ptr noundef nonnull %39) #4
   store i1 true, ptr @opal_hwloc_base_report_bind_failure.already_reported, align 4
-  br label %opal_hwloc_base_report_bind_failure.argprom.exit26
+  br label %opal_hwloc_base_report_bind_failure.exit26
 
-opal_hwloc_base_report_bind_failure.argprom.exit26: ; preds = %.thread33, %33
+opal_hwloc_base_report_bind_failure.exit26:       ; preds = %.thread33, %33
   %.0.i = phi i32 [ %.0183138, %33 ], [ 0, %.thread33 ]
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %3)
   br label %.thread50
 
-.thread50:                                        ; preds = %._crit_edge, %opal_hwloc_base_report_bind_failure.argprom.exit26, %opal_hwloc_base_report_bind_failure.argprom.exit
-  %.019 = phi i32 [ 0, %opal_hwloc_base_report_bind_failure.argprom.exit ], [ %.0.i, %opal_hwloc_base_report_bind_failure.argprom.exit26 ], [ 0, %._crit_edge ]
+.thread50:                                        ; preds = %._crit_edge, %opal_hwloc_base_report_bind_failure.exit26, %opal_hwloc_base_report_bind_failure.exit
+  %.019 = phi i32 [ 0, %opal_hwloc_base_report_bind_failure.exit ], [ %.0.i, %opal_hwloc_base_report_bind_failure.exit26 ], [ 0, %._crit_edge ]
   ret i32 %.019
 }
 
@@ -139,7 +139,7 @@ define range(i32 -2, 1) i32 @opal_hwloc_base_membind(ptr nocapture noundef reado
   %8 = load i32, ptr @opal_hwloc_base_mbfa, align 4
   %9 = icmp eq i32 %8, 0
   %or.cond.not.i = select i1 %.b.i, i1 true, i1 %9
-  br i1 %or.cond.not.i, label %opal_hwloc_base_report_bind_failure.argprom.exit, label %10
+  br i1 %or.cond.not.i, label %opal_hwloc_base_report_bind_failure.exit, label %10
 
 10:                                               ; preds = %7
   %11 = call i32 @gethostname(ptr noundef nonnull %5, i64 noundef 65) #4
@@ -150,9 +150,9 @@ define range(i32 -2, 1) i32 @opal_hwloc_base_membind(ptr nocapture noundef reado
   %16 = select i1 %15, ptr @.str.6, ptr @.str.7
   %17 = call i32 (ptr, ptr, i32, ...) %12(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %5, i32 noundef %13, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef nonnull @.str, ptr noundef nonnull %16) #4
   store i1 true, ptr @opal_hwloc_base_report_bind_failure.already_reported, align 4
-  br label %opal_hwloc_base_report_bind_failure.argprom.exit
+  br label %opal_hwloc_base_report_bind_failure.exit
 
-opal_hwloc_base_report_bind_failure.argprom.exit: ; preds = %7, %10
+opal_hwloc_base_report_bind_failure.exit:         ; preds = %7, %10
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %5)
   br label %.thread51
 
@@ -198,7 +198,7 @@ opal_hwloc_base_report_bind_failure.argprom.exit: ; preds = %7, %10
   %31 = load i32, ptr @opal_hwloc_base_mbfa, align 4
   %32 = icmp eq i32 %31, 0
   %or.cond.not.i26 = select i1 %.b.i25, i1 true, i1 %32
-  br i1 %or.cond.not.i26, label %opal_hwloc_base_report_bind_failure.argprom.exit27, label %33
+  br i1 %or.cond.not.i26, label %opal_hwloc_base_report_bind_failure.exit27, label %33
 
 33:                                               ; preds = %.thread34
   %34 = call i32 @gethostname(ptr noundef nonnull %4, i64 noundef 65) #4
@@ -209,15 +209,15 @@ opal_hwloc_base_report_bind_failure.argprom.exit: ; preds = %7, %10
   %39 = select i1 %38, ptr @.str.6, ptr @.str.7
   %40 = call i32 (ptr, ptr, i32, ...) %35(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %4, i32 noundef %36, ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull %.03338, ptr noundef nonnull %39) #4
   store i1 true, ptr @opal_hwloc_base_report_bind_failure.already_reported, align 4
-  br label %opal_hwloc_base_report_bind_failure.argprom.exit27
+  br label %opal_hwloc_base_report_bind_failure.exit27
 
-opal_hwloc_base_report_bind_failure.argprom.exit27: ; preds = %.thread34, %33
+opal_hwloc_base_report_bind_failure.exit27:       ; preds = %.thread34, %33
   %.0.i = phi i32 [ %.0183239, %33 ], [ 0, %.thread34 ]
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %4)
   br label %.thread51
 
-.thread51:                                        ; preds = %._crit_edge, %opal_hwloc_base_report_bind_failure.argprom.exit27, %opal_hwloc_base_report_bind_failure.argprom.exit
-  %.020 = phi i32 [ 0, %opal_hwloc_base_report_bind_failure.argprom.exit ], [ %.0.i, %opal_hwloc_base_report_bind_failure.argprom.exit27 ], [ 0, %._crit_edge ]
+.thread51:                                        ; preds = %._crit_edge, %opal_hwloc_base_report_bind_failure.exit27, %opal_hwloc_base_report_bind_failure.exit
+  %.020 = phi i32 [ 0, %opal_hwloc_base_report_bind_failure.exit ], [ %.0.i, %opal_hwloc_base_report_bind_failure.exit27 ], [ 0, %._crit_edge ]
   ret i32 %.020
 }
 

@@ -233,9 +233,9 @@ if.end.i:                                         ; preds = %if.end
   tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #23
   %call.i.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %if.then2.i, label %hook_list_is_empty.argprom.exit.i
+  br i1 %tobool.not.i.i, label %if.then2.i, label %hook_list_is_empty.exit.i
 
-hook_list_is_empty.argprom.exit.i:                ; preds = %if.end.i
+hook_list_is_empty.exit.i:                        ; preds = %if.end.i
   tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #23
   br label %return
 
@@ -244,8 +244,8 @@ if.then2.i:                                       ; preds = %if.end.i
   %call.i2.i = tail call ptr @signal(i32 noundef 6, ptr noundef %1) #23
   br label %return
 
-return:                                           ; preds = %if.then2.i, %hook_list_is_empty.argprom.exit.i, %if.end, %entry, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ false, %entry ], [ false, %if.end ], [ false, %hook_list_is_empty.argprom.exit.i ], [ false, %if.then2.i ]
+return:                                           ; preds = %if.then2.i, %hook_list_is_empty.exit.i, %if.end, %entry, %if.then
+  %retval.0 = phi i1 [ true, %if.then ], [ false, %entry ], [ false, %if.end ], [ false, %hook_list_is_empty.exit.i ], [ false, %if.then2.i ]
   ret i1 %retval.0
 }
 
@@ -262,9 +262,9 @@ if.end:                                           ; preds = %entry
   tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call) #23
   %call.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.then2, label %hook_list_is_empty.argprom.exit
+  br i1 %tobool.not.i, label %if.then2, label %hook_list_is_empty.exit
 
-hook_list_is_empty.argprom.exit:                  ; preds = %if.end
+hook_list_is_empty.exit:                          ; preds = %if.end
   tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #23
   br label %if.end3
 
@@ -273,7 +273,7 @@ if.then2:                                         ; preds = %if.end
   %call.i2 = tail call ptr @signal(i32 noundef 6, ptr noundef %0) #23
   br label %if.end3
 
-if.end3:                                          ; preds = %hook_list_is_empty.argprom.exit, %entry, %if.then2
+if.end3:                                          ; preds = %hook_list_is_empty.exit, %entry, %if.then2
   ret void
 }
 
@@ -348,9 +348,9 @@ if.end.i:                                         ; preds = %if.end24
   tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #23
   %call.i.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %if.then2.i, label %hook_list_is_empty.argprom.exit.i
+  br i1 %tobool.not.i.i, label %if.then2.i, label %hook_list_is_empty.exit.i
 
-hook_list_is_empty.argprom.exit.i:                ; preds = %if.end.i
+hook_list_is_empty.exit.i:                        ; preds = %if.end.i
   tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #23
   br label %if.end26
 
@@ -359,7 +359,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %call.i2.i = tail call ptr @signal(i32 noundef 6, ptr noundef %6) #23
   br label %if.end26
 
-if.end26:                                         ; preds = %if.then2.i, %hook_list_is_empty.argprom.exit.i, %if.end24, %entry
+if.end26:                                         ; preds = %if.then2.i, %hook_list_is_empty.exit.i, %if.end24, %entry
   tail call fastcc void @qtest_check_status(ptr noundef nonnull %s)
   ret void
 }
@@ -468,9 +468,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %call.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.then1, label %hook_list_is_empty.argprom.exit
+  br i1 %tobool.not.i, label %if.then1, label %hook_list_is_empty.exit
 
-hook_list_is_empty.argprom.exit:                  ; preds = %if.end
+hook_list_is_empty.exit:                          ; preds = %if.end
   tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #23
   br label %if.end2
 
@@ -479,7 +479,7 @@ if.then1:                                         ; preds = %if.end
   store ptr %call.i3, ptr @sighandler_old, align 8
   br label %if.end2
 
-if.end2:                                          ; preds = %hook_list_is_empty.argprom.exit, %if.then1
+if.end2:                                          ; preds = %hook_list_is_empty.exit, %if.then1
   %call3 = tail call ptr @g_hook_alloc(ptr noundef nonnull @abrt_hooks) #23
   %func = getelementptr inbounds i8, ptr %call3, i64 48
   store ptr %fn, ptr %func, align 8
@@ -886,9 +886,9 @@ if.end.i:                                         ; preds = %entry
   tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #23
   %call.i.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %if.then2.i, label %hook_list_is_empty.argprom.exit.i
+  br i1 %tobool.not.i.i, label %if.then2.i, label %hook_list_is_empty.exit.i
 
-hook_list_is_empty.argprom.exit.i:                ; preds = %if.end.i
+hook_list_is_empty.exit.i:                        ; preds = %if.end.i
   tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #23
   br label %qtest_remove_abrt_handler.exit
 
@@ -897,7 +897,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %call.i2.i = tail call ptr @signal(i32 noundef 6, ptr noundef %0) #23
   br label %qtest_remove_abrt_handler.exit
 
-qtest_remove_abrt_handler.exit:                   ; preds = %entry, %hook_list_is_empty.argprom.exit.i, %if.then2.i
+qtest_remove_abrt_handler.exit:                   ; preds = %entry, %hook_list_is_empty.exit.i, %if.then2.i
   %qemu_pid.i = getelementptr inbounds i8, ptr %s, i64 8
   %1 = load i32, ptr %qemu_pid.i, align 8
   %cmp.not.i = icmp eq i32 %1, -1
@@ -2219,16 +2219,16 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %call1 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.58) #23
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %glib_autoptr_cleanup_GString.argprom.exit, label %do.body8
+  br i1 %tobool2.not, label %glib_autoptr_cleanup_GString.exit, label %do.body8
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %do.end
+glib_autoptr_cleanup_GString.exit:                ; preds = %do.end
   %call6 = tail call ptr @qobject_to_json_pretty(ptr noundef nonnull %call.i, i1 noundef zeroext true) #23
   %1 = load ptr, ptr %call6, align 8
   tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.11, ptr noundef %1) #23
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call6, i32 noundef 1) #23
   br label %do.body8
 
-do.body8:                                         ; preds = %do.end, %glib_autoptr_cleanup_GString.argprom.exit
+do.body8:                                         ; preds = %do.end, %glib_autoptr_cleanup_GString.exit
   %call9 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.58) #23
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.else12, label %do.body15
@@ -2305,16 +2305,16 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %call1 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #23
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %glib_autoptr_cleanup_GString.argprom.exit, label %do.body8
+  br i1 %tobool2.not, label %glib_autoptr_cleanup_GString.exit, label %do.body8
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %do.end
+glib_autoptr_cleanup_GString.exit:                ; preds = %do.end
   %call6 = tail call ptr @qobject_to_json_pretty(ptr noundef nonnull %call.i, i1 noundef zeroext true) #23
   %1 = load ptr, ptr %call6, align 8
   tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.11, ptr noundef %1) #23
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call6, i32 noundef 1) #23
   br label %do.body8
 
-do.body8:                                         ; preds = %do.end, %glib_autoptr_cleanup_GString.argprom.exit
+do.body8:                                         ; preds = %do.end, %glib_autoptr_cleanup_GString.exit
   %call9 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #23
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.else12, label %do.end14
@@ -2407,16 +2407,16 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %call1 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #23
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %glib_autoptr_cleanup_GString.argprom.exit, label %do.body8
+  br i1 %tobool2.not, label %glib_autoptr_cleanup_GString.exit, label %do.body8
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %do.end
+glib_autoptr_cleanup_GString.exit:                ; preds = %do.end
   %call6 = tail call ptr @qobject_to_json_pretty(ptr noundef nonnull %call.i, i1 noundef zeroext true) #23
   %1 = load ptr, ptr %call6, align 8
   tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.11, ptr noundef %1) #23
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call6, i32 noundef 1) #23
   br label %do.body8
 
-do.body8:                                         ; preds = %do.end, %glib_autoptr_cleanup_GString.argprom.exit
+do.body8:                                         ; preds = %do.end, %glib_autoptr_cleanup_GString.exit
   %call9 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #23
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.else12, label %do.end14
@@ -2833,21 +2833,21 @@ land.lhs.true.i:                                  ; preds = %for.body
   %obj.val.i = load i32, ptr %p.0.val, align 8
   %10 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %10, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #25
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
   br i1 %cmp.i, label %do.end29, label %if.else27
 
-if.else27:                                        ; preds = %for.body, %qobject_type.argprom.exit.i
+if.else27:                                        ; preds = %for.body, %qobject_type.exit.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1526, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.149) #25
   unreachable
 
-do.end29:                                         ; preds = %qobject_type.argprom.exit.i
+do.end29:                                         ; preds = %qobject_type.exit.i
   %call30 = tail call ptr @qdict_get(ptr noundef nonnull %p.0.val, ptr noundef nonnull @.str.72) #23
   %tobool32.not = icmp eq ptr %call30, null
   br i1 %tobool32.not, label %if.else34, label %land.lhs.true.i25
@@ -2860,21 +2860,21 @@ land.lhs.true.i25:                                ; preds = %do.end29
   %obj.val.i26 = load i32, ptr %call30, align 8
   %11 = add i32 %obj.val.i26, -1
   %or.cond.i.i27 = icmp ult i32 %11, 6
-  br i1 %or.cond.i.i27, label %qobject_type.argprom.exit.i29, label %if.else.i.i28
+  br i1 %or.cond.i.i27, label %qobject_type.exit.i29, label %if.else.i.i28
 
 if.else.i.i28:                                    ; preds = %land.lhs.true.i25
   tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #25
   unreachable
 
-qobject_type.argprom.exit.i29:                    ; preds = %land.lhs.true.i25
+qobject_type.exit.i29:                            ; preds = %land.lhs.true.i25
   %cmp.i30 = icmp eq i32 %obj.val.i26, 3
   br i1 %cmp.i30, label %do.end43, label %if.else41
 
-if.else41:                                        ; preds = %qobject_type.argprom.exit.i29
+if.else41:                                        ; preds = %qobject_type.exit.i29
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1531, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.74) #25
   unreachable
 
-do.end43:                                         ; preds = %qobject_type.argprom.exit.i29
+do.end43:                                         ; preds = %qobject_type.exit.i29
   %call44 = tail call ptr @qstring_get_str(ptr noundef nonnull %call30) #23
   %call45 = tail call noalias ptr @g_strdup(ptr noundef %call44) #23
   %12 = load ptr, ptr @qtest_get_machines.machines, align 8
@@ -2889,21 +2889,21 @@ land.lhs.true.i35:                                ; preds = %do.end43
   %obj.val.i36 = load i32, ptr %call46, align 8
   %13 = add i32 %obj.val.i36, -1
   %or.cond.i.i37 = icmp ult i32 %13, 6
-  br i1 %or.cond.i.i37, label %qobject_type.argprom.exit.i39, label %if.else.i.i38
+  br i1 %or.cond.i.i37, label %qobject_type.exit.i39, label %if.else.i.i38
 
 if.else.i.i38:                                    ; preds = %land.lhs.true.i35
   tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #25
   unreachable
 
-qobject_type.argprom.exit.i39:                    ; preds = %land.lhs.true.i35
+qobject_type.exit.i39:                            ; preds = %land.lhs.true.i35
   %cmp.i40 = icmp eq i32 %obj.val.i36, 3
   br i1 %cmp.i40, label %do.end55, label %if.else53
 
-if.else53:                                        ; preds = %qobject_type.argprom.exit.i39
+if.else53:                                        ; preds = %qobject_type.exit.i39
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1537, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.74) #25
   unreachable
 
-do.end55:                                         ; preds = %qobject_type.argprom.exit.i39
+do.end55:                                         ; preds = %qobject_type.exit.i39
   %call56 = tail call ptr @qstring_get_str(ptr noundef nonnull %call46) #23
   %call57 = tail call noalias ptr @g_strdup(ptr noundef %call56) #23
   br label %for.inc
@@ -3162,21 +3162,21 @@ land.lhs.true.i16:                                ; preds = %for.body
   %obj.val.i = load i32, ptr %p.0.val, align 8
   %6 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %6, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i16
   tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #25
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i16
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i16
   %cmp.i17 = icmp eq i32 %obj.val.i, 4
   br i1 %cmp.i17, label %do.end30, label %if.else28
 
-if.else28:                                        ; preds = %for.body, %qobject_type.argprom.exit.i
+if.else28:                                        ; preds = %for.body, %qobject_type.exit.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1643, ptr noundef nonnull @__func__.qtest_has_device, ptr noundef nonnull @.str.71) #25
   unreachable
 
-do.end30:                                         ; preds = %qobject_type.argprom.exit.i
+do.end30:                                         ; preds = %qobject_type.exit.i
   %call31 = tail call ptr @qdict_get(ptr noundef nonnull %p.0.val, ptr noundef nonnull @.str.72) #23
   %tobool33.not = icmp eq ptr %call31, null
   br i1 %tobool33.not, label %if.else35, label %land.lhs.true.i20
@@ -3189,21 +3189,21 @@ land.lhs.true.i20:                                ; preds = %do.end30
   %obj.val.i21 = load i32, ptr %call31, align 8
   %7 = add i32 %obj.val.i21, -1
   %or.cond.i.i22 = icmp ult i32 %7, 6
-  br i1 %or.cond.i.i22, label %qobject_type.argprom.exit.i24, label %if.else.i.i23
+  br i1 %or.cond.i.i22, label %qobject_type.exit.i24, label %if.else.i.i23
 
 if.else.i.i23:                                    ; preds = %land.lhs.true.i20
   tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #25
   unreachable
 
-qobject_type.argprom.exit.i24:                    ; preds = %land.lhs.true.i20
+qobject_type.exit.i24:                            ; preds = %land.lhs.true.i20
   %cmp.i25 = icmp eq i32 %obj.val.i21, 3
   br i1 %cmp.i25, label %do.end44, label %if.else42
 
-if.else42:                                        ; preds = %qobject_type.argprom.exit.i24
+if.else42:                                        ; preds = %qobject_type.exit.i24
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1648, ptr noundef nonnull @__func__.qtest_has_device, ptr noundef nonnull @.str.74) #25
   unreachable
 
-do.end44:                                         ; preds = %qobject_type.argprom.exit.i24
+do.end44:                                         ; preds = %qobject_type.exit.i24
   %call45 = tail call ptr @qstring_get_str(ptr noundef nonnull %call31) #23
   %call46 = tail call i32 @g_str_equal(ptr noundef %call45, ptr noundef %device) #23
   %tobool47.not.not.not = icmp ne i32 %call46, 0
@@ -3879,9 +3879,9 @@ if.then.i:                                        ; preds = %cond.end
 if.end.i:                                         ; preds = %if.then.i, %cond.end
   %call.i.i = call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %if.then1.i, label %hook_list_is_empty.argprom.exit.i
+  br i1 %tobool.not.i.i, label %if.then1.i, label %hook_list_is_empty.exit.i
 
-hook_list_is_empty.argprom.exit.i:                ; preds = %if.end.i
+hook_list_is_empty.exit.i:                        ; preds = %if.end.i
   call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #23
   br label %qtest_add_abrt_handler.exit
 
@@ -3890,7 +3890,7 @@ if.then1.i:                                       ; preds = %if.end.i
   store ptr %call.i3.i, ptr @sighandler_old, align 8
   br label %qtest_add_abrt_handler.exit
 
-qtest_add_abrt_handler.exit:                      ; preds = %hook_list_is_empty.argprom.exit.i, %if.then1.i
+qtest_add_abrt_handler.exit:                      ; preds = %hook_list_is_empty.exit.i, %if.then1.i
   %call3.i = call ptr @g_hook_alloc(ptr noundef nonnull @abrt_hooks) #23
   %func.i = getelementptr inbounds i8, ptr %call3.i, i64 48
   store ptr @kill_qemu_hook_func, ptr %func.i, align 8
@@ -3921,13 +3921,13 @@ if.then10:                                        ; preds = %if.end
 
 if.end14:                                         ; preds = %if.end
   %tobool.not.i.i5 = icmp eq ptr %call4, null
-  br i1 %tobool.not.i.i5, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i5, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end14
   %call.i.i.i = call ptr @g_string_free(ptr noundef nonnull %call4, i32 noundef 1) #23
-  br label %glib_autoptr_cleanup_GString.argprom.exit
+  br label %glib_autoptr_cleanup_GString.exit
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %if.end14, %if.then.i.i
+glib_autoptr_cleanup_GString.exit:                ; preds = %if.end14, %if.then.i.i
   call void @g_free(ptr noundef %cond) #23
   ret ptr %call
 }

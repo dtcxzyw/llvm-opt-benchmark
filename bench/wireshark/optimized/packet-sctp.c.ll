@@ -3327,11 +3327,11 @@ define internal fastcc i32 @dissect_sctp_chunk(ptr noundef %0, ptr noundef %1, p
   br label %83
 
 71:                                               ; preds = %53
-  tail call fastcc void @dissect_re_config_chunk.argprom(ptr noundef %0, i16 noundef zeroext %8, ptr noundef %1, ptr noundef %.0173191)
+  tail call fastcc void @dissect_re_config_chunk(ptr noundef %0, i16 noundef zeroext %8, ptr noundef %1, ptr noundef %.0173191)
   br label %83
 
 72:                                               ; preds = %53
-  tail call fastcc void @dissect_auth_chunk.argprom(ptr noundef %0, i16 noundef zeroext %8, ptr noundef %.0173191)
+  tail call fastcc void @dissect_auth_chunk(ptr noundef %0, i16 noundef zeroext %8, ptr noundef %.0173191)
   br label %83
 
 73:                                               ; preds = %53
@@ -4053,7 +4053,7 @@ sctp_tsn.exit:                                    ; preds = %120, %121, %tsn_tre
 
 328:                                              ; preds = %326
   %.0..0..0..0.80 = load volatile i32, ptr %19, align 4
-  call fastcc void @dissect_payload.retelim(ptr noundef %305, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.0..0..0..0.80)
+  call fastcc void @dissect_payload(ptr noundef %305, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.0..0..0..0.80)
   store volatile i32 1, ptr %20, align 4
   br label %329
 
@@ -5351,7 +5351,7 @@ fragment_reassembly.exit.i:                       ; preds = %625, %632, %628, %5
   %916 = getelementptr inbounds i8, ptr %2, i64 360
   %917 = load ptr, ptr %916, align 8
   %918 = call ptr @wmem_list_tail(ptr noundef %917) #17
-  call fastcc void @dissect_payload.retelim(ptr noundef nonnull %.032.i, ptr noundef %2, ptr noundef %3, i32 noundef %.0..0..0..0.82)
+  call fastcc void @dissect_payload(ptr noundef nonnull %.032.i, ptr noundef %2, ptr noundef %3, i32 noundef %.0..0..0..0.82)
   %919 = call ptr @wmem_list_frame_next(ptr noundef %918) #17
   call fastcc void @export_sctp_data_chunk(ptr noundef %2, ptr noundef nonnull %.032.i, i32 noundef %.0..0..0..0.82, ptr noundef %919)
   br label %dissect_fragmented_payload.exit
@@ -6043,7 +6043,7 @@ define internal fastcc void @dissect_forward_tsn_chunk(ptr noundef %0, i16 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_re_config_chunk.argprom(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_re_config_chunk(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = zext i16 %1 to i32
   %6 = add nsw i32 %5, -4
   %7 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4) #17
@@ -6072,7 +6072,7 @@ define internal fastcc void @dissect_re_config_chunk.argprom(ptr noundef %0, i16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_auth_chunk.argprom(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_auth_chunk(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = zext i16 %1 to i32
   %5 = add nsw i32 %4, -8
   %6 = load i32, ptr @hf_shared_key_id, align 4
@@ -6684,7 +6684,7 @@ declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef,
 declare ptr @wmem_list_tail(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_payload.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @enable_ulp_dissection, align 4
   %.not = icmp eq i32 %6, 0
@@ -8405,7 +8405,7 @@ define internal fastcc void @sctp_ack_block(ptr nocapture noundef readonly %0, p
 
 38:                                               ; preds = %32
   %.val = load i32, ptr %14, align 4
-  tail call fastcc void @ack_tree.argprom(ptr noundef %.05888, ptr noundef %3, ptr noundef %2, i32 %.val)
+  tail call fastcc void @ack_tree(ptr noundef %.05888, ptr noundef %3, ptr noundef %2, i32 %.val)
   br label %39
 
 39:                                               ; preds = %32, %.preheader86, %38
@@ -8514,7 +8514,7 @@ define internal fastcc void @sctp_ack_block(ptr nocapture noundef readonly %0, p
 
 92:                                               ; preds = %89
   %.val.i = load i32, ptr %14, align 4
-  tail call fastcc void @ack_tree.argprom(ptr noundef %71, ptr noundef %3, ptr noundef %2, i32 %.val.i)
+  tail call fastcc void @ack_tree(ptr noundef %71, ptr noundef %3, ptr noundef %2, i32 %.val.i)
   br label %sctp_ack.exit
 
 sctp_ack.exit:                                    ; preds = %.preheader.split, %66, %89, %92
@@ -8527,7 +8527,7 @@ sctp_ack.exit:                                    ; preds = %.preheader.split, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ack_tree.argprom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 %.20.val) unnamed_addr #0 {
+define internal fastcc void @ack_tree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 %.20.val) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8

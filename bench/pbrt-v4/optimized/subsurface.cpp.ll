@@ -363,11 +363,11 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   %16 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %16, null
-  br i1 %tobool.not.i.i.i, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit", label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %call.i.i.i = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i32 noundef 3)
-          to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit" unwind label %terminate.lpad.i.i.i
+          to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -396,7 +396,7 @@ common.resume:                                    ; preds = %lpad.body.i20, %if.
   %common.resume.op = phi { ptr, i32 } [ %12, %if.then.i.i4.i ], [ %12, %lpad.body.i ], [ %36, %if.then.i.i4.i22 ], [ %36, %lpad.body.i20 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit": ; preds = %invoke.cont.i, %if.then.i.i.i
+"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit": ; preds = %invoke.cont.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.addr.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %aggregate = getelementptr inbounds i8, ptr %this, i64 536
@@ -421,11 +421,11 @@ common.resume:                                    ; preds = %lpad.body.i20, %if.
   %tobool.i6 = trunc i8 %29 to i1
   br i1 %tobool.i6, label %if.then.i36, label %if.else.i7
 
-if.then.i36:                                      ; preds = %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit"
+if.then.i36:                                      ; preds = %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit"
   call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef 130, ptr noundef nonnull @.str.8) #19
   unreachable
 
-if.else.i7:                                       ; preds = %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit"
+if.else.i7:                                       ; preds = %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit"
   %size.i.i8 = getelementptr inbounds i8, ptr %26, i64 680
   %30 = load atomic i32, ptr %size.i.i8 monotonic, align 4
   %conv.i9 = sext i32 %30 to i64
@@ -486,11 +486,11 @@ invoke.cont.i31:                                  ; preds = %if.then.i.i.i.i28, 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i2)
   %40 = load ptr, ptr %_M_manager.i.i.i10, align 8
   %tobool.not.i.i.i32 = icmp eq ptr %40, null
-  br i1 %tobool.not.i.i.i32, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS_25SubsurfaceScatterWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit", label %if.then.i.i.i33
+  br i1 %tobool.not.i.i.i32, label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS_25SubsurfaceScatterWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit", label %if.then.i.i.i33
 
 if.then.i.i.i33:                                  ; preds = %invoke.cont.i31
   %call.i.i.i34 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i4, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i4, i32 noundef 3)
-          to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS_25SubsurfaceScatterWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit" unwind label %terminate.lpad.i.i.i35
+          to label %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS_25SubsurfaceScatterWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit" unwind label %terminate.lpad.i.i.i35
 
 terminate.lpad.i.i.i35:                           ; preds = %if.then.i.i.i33
   %41 = landingpad { ptr, i32 }
@@ -515,13 +515,13 @@ terminate.lpad.i.i6.i24:                          ; preds = %if.then.i.i4.i22
   call void @__clang_call_terminate(ptr %45) #20
   unreachable
 
-"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS_25SubsurfaceScatterWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit": ; preds = %invoke.cont.i31, %if.then.i.i.i33
+"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS_25SubsurfaceScatterWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit": ; preds = %invoke.cont.i31, %if.then.i.i.i33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.addr.i3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i4)
   call void @_ZN4pbrt23WavefrontPathIntegrator15TraceShadowRaysEi(ptr noundef nonnull align 8 dereferenceable(648) %this, i32 noundef %wavefrontDepth)
   br label %return
 
-return:                                           ; preds = %entry, %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS_25SubsurfaceScatterWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.argprom.exit"
+return:                                           ; preds = %entry, %"_ZN4pbrt12ForAllQueuedIZNS_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS_25SubsurfaceScatterWorkItemEEEvPKcPKNS_9WorkQueueIT0_EEiOT_.exit"
   ret void
 }
 
@@ -849,7 +849,7 @@ entry:
   %set.i.i.i.i.i = getelementptr inbounds i8, ptr %probeSeg.i.i.i.i, i64 24
   %56 = load i8, ptr %set.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i = trunc i8 %56 to i1
-  br i1 %tobool.i.i.i.i.i, label %invoke.cont23.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS0_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
+  br i1 %tobool.i.i.i.i.i, label %invoke.cont23.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS0_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
 invoke.cont23.i.i.i.i:                            ; preds = %entry
   %subsurfaceScatterQueue.i.i.i.i = getelementptr inbounds i8, ptr %call.val.val, i64 608
@@ -1038,9 +1038,9 @@ invoke.cont23.i.i.i.i:                            ; preds = %entry
   %arrayidx33.i.i.i.i.i = getelementptr inbounds i32, ptr %87, i64 %idxprom.i.i.i.i.i.i
   store i32 %50, ptr %arrayidx33.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp198.i.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS0_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS0_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS0_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit": ; preds = %entry, %invoke.cont23.i.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_0NS0_28GetBSSRDFAndProbeRayWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit": ; preds = %entry, %invoke.cont23.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ctx.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %lambda.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %bssrdf.i.i.i.i)
@@ -3811,7 +3811,7 @@ entry:
   %reservoirPDF.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 184
   %2 = load float, ptr %reservoirPDF.i.i.i.i, align 8
   %cmp.i.i.i.i = fcmp oeq float %2, 0.000000e+00
-  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit", label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit", label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
   %bssrdf2.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 40
@@ -3963,7 +3963,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i:     ; preds = %for.body.i.i.i.i.i
   %19 = extractelement <2 x float> %15, i64 0
-  br i1 %cmp2.i.i.i.i.i, label %for.body.i31.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
+  br i1 %cmp2.i.i.i.i.i, label %for.body.i31.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
 for.body.i31.i.i.i.i:                             ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i, %for.body.i31.i.i.i.i
   %indvars.iv.i32.i.i.i.i = phi i64 [ %indvars.iv.next.i35.i.i.i.i, %for.body.i31.i.i.i.i ], [ 0, %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i ]
@@ -3976,7 +3976,7 @@ for.body.i31.i.i.i.i:                             ; preds = %_ZNK4pbrt15SampledS
   br i1 %or.cond.i37.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit38.i.i.i.i, label %for.body.i31.i.i.i.i, !llvm.loop !47
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit38.i.i.i.i:   ; preds = %for.body.i31.i.i.i.i
-  br i1 %cmp2.i34.i.i.i.i, label %if.end5.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
+  br i1 %cmp2.i34.i.i.i.i, label %if.end5.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
 if.end5.i.i.i.i:                                  ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit38.i.i.i.i
   %21 = load float, ptr %reservoirPDF.i.i.i.i, align 8
@@ -4644,7 +4644,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit268.i.i.i.i: ; preds = %_ZN4pstd8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %flags.i.i.i.i.i.i)
   %and.i.i.i.i.i.i = and i32 %call3.i.i.i.i.i.i.i, 12
   %tobool.i269.not.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 0
-  br i1 %tobool.i269.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit", label %if.then168.i.i.i.i
+  br i1 %tobool.i269.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit", label %if.then168.i.i.i.i
 
 if.then168.i.i.i.i:                               ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit268.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ctx169.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ssi.i.i.i.i, i64 24, i1 false)
@@ -4679,7 +4679,7 @@ if.then168.i.i.i.i:                               ; preds = %_ZN4pstd8optionalIN
   %set.i276.i.i.i.i = getelementptr inbounds i8, ptr %sampledLight.i.i.i.i, i64 16
   %120 = load i8, ptr %set.i276.i.i.i.i, align 8
   %tobool.i277.i.i.i.i = trunc i8 %120 to i1
-  br i1 %tobool.i277.i.i.i.i, label %invoke.cont182.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
+  br i1 %tobool.i277.i.i.i.i, label %invoke.cont182.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
 invoke.cont182.i.i.i.i:                           ; preds = %if.then168.i.i.i.i
   %121 = load i64, ptr %sampledLight.i.i.i.i, align 8
@@ -4713,7 +4713,7 @@ invoke.cont182.i.i.i.i:                           ; preds = %if.then168.i.i.i.i
   %set.i289.i.i.i.i = getelementptr inbounds i8, ptr %ls.i.i.i.i, i64 112
   %126 = load i8, ptr %set.i289.i.i.i.i, align 8
   %tobool.i290.i.i.i.i = trunc i8 %126 to i1
-  br i1 %tobool.i290.i.i.i.i, label %for.body.i295.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
+  br i1 %tobool.i290.i.i.i.i, label %for.body.i295.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
 for.body.i295.i.i.i.i:                            ; preds = %invoke.cont182.i.i.i.i, %for.body.i295.i.i.i.i
   %indvars.iv.i296.i.i.i.i = phi i64 [ %indvars.iv.next.i299.i.i.i.i, %for.body.i295.i.i.i.i ], [ 0, %invoke.cont182.i.i.i.i ]
@@ -4726,13 +4726,13 @@ for.body.i295.i.i.i.i:                            ; preds = %invoke.cont182.i.i.
   br i1 %or.cond.i301.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit302.i.i.i.i, label %for.body.i295.i.i.i.i, !llvm.loop !47
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit302.i.i.i.i:  ; preds = %for.body.i295.i.i.i.i
-  br i1 %cmp2.i298.i.i.i.i, label %invoke.cont202.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
+  br i1 %cmp2.i298.i.i.i.i, label %invoke.cont202.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
 invoke.cont202.i.i.i.i:                           ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit302.i.i.i.i
   %pdf204.i.i.i.i = getelementptr inbounds i8, ptr %ls.i.i.i.i, i64 28
   %128 = load float, ptr %pdf204.i.i.i.i, align 4
   %cmp205.i.i.i.i = fcmp oeq float %128, 0.000000e+00
-  br i1 %cmp205.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit", label %invoke.cont209.i.i.i.i
+  br i1 %cmp205.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit", label %invoke.cont209.i.i.i.i
 
 invoke.cont209.i.i.i.i:                           ; preds = %invoke.cont202.i.i.i.i
   %wi211.i.i.i.i = getelementptr inbounds i8, ptr %ls.i.i.i.i, i64 16
@@ -4758,7 +4758,7 @@ for.body.i315.i.i.i.i:                            ; preds = %for.body.i315.i.i.i
   br i1 %or.cond.i321.i.i.i.i, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit322.i.i.i.i, label %for.body.i315.i.i.i.i, !llvm.loop !47
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit322.i.i.i.i:  ; preds = %for.body.i315.i.i.i.i
-  br i1 %cmp2.i318.i.i.i.i, label %if.end222.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
+  br i1 %cmp2.i318.i.i.i.i, label %if.end222.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
 if.end222.i.i.i.i:                                ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit322.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i323.i.i.i.i)
@@ -4990,9 +4990,9 @@ invoke.cont306.i.i.i.i:                           ; preds = %invoke.cont289.i.i.
   %161 = load i32, ptr %pixelIndex.i.i.i.i, align 4
   store i32 %161, ptr %pixelIndex311.i.i.i.i, align 4
   %call314.i.i.i.i = call noundef i32 @_ZN4pbrt9WorkQueueINS_17ShadowRayWorkItemEE4PushES1_(ptr noundef nonnull align 8 dereferenceable(228) %160, ptr noundef nonnull %agg.tmp304.i.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.argprom.argprom.exit": ; preds = %entry, %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i, %_ZNK4pbrt15SampledSpectrumcvbEv.exit38.i.i.i.i, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit268.i.i.i.i, %if.then168.i.i.i.i, %invoke.cont182.i.i.i.i, %_ZNK4pbrt15SampledSpectrumcvbEv.exit302.i.i.i.i, %invoke.cont202.i.i.i.i, %_ZNK4pbrt15SampledSpectrumcvbEv.exit322.i.i.i.i, %invoke.cont306.i.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt12ForAllQueuedIZNS0_23WavefrontPathIntegrator16SampleSubsurfaceEiE3$_1NS0_25SubsurfaceScatterWorkItemEEEvPKcPKNS0_9WorkQueueIT0_EEiOT_EUliE_JlEENSt9enable_ifIX16is_invocable_r_vISC_S8_DpT1_EESC_E4typeEOS8_DpOSH_.exit": ; preds = %entry, %_ZNK4pbrt15SampledSpectrumcvbEv.exit.i.i.i.i, %_ZNK4pbrt15SampledSpectrumcvbEv.exit38.i.i.i.i, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit268.i.i.i.i, %if.then168.i.i.i.i, %invoke.cont182.i.i.i.i, %_ZNK4pbrt15SampledSpectrumcvbEv.exit302.i.i.i.i, %invoke.cont202.i.i.i.i, %_ZNK4pbrt15SampledSpectrumcvbEv.exit322.i.i.i.i, %invoke.cont306.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %bssrdf.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bxdf.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %bssrdfSample.i.i.i.i)

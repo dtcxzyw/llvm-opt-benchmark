@@ -1584,7 +1584,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef nonnull @.str.399, ptr noundef %449) #6
   %450 = load i32, ptr @hf_9P_setattr_flags, align 4
   %451 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %450, ptr noundef %0, i32 noundef 11, i32 noundef 4, i32 noundef -2147483648) #6
-  call fastcc void @dissect_9P_setattrflags.argelim(ptr noundef %0, ptr noundef %451)
+  call fastcc void @dissect_9P_setattrflags(ptr noundef %0, ptr noundef %451)
   %452 = load i32, ptr @hf_9P_statmode, align 4
   %453 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %452, ptr noundef %0, i32 noundef 15, i32 noundef 4, i32 noundef -2147483648) #6
   call fastcc void @dissect_9P_dm(ptr noundef %0, ptr noundef %453, i32 noundef 15, i32 noundef 0)
@@ -2613,7 +2613,7 @@ define internal fastcc void @dissect_9P_getattrflags(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_9P_setattrflags.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_9P_setattrflags(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @ett_9P_setattr_flags, align 4
   %4 = tail call ptr @proto_item_add_subtree(ptr noundef %1, i32 noundef %3) #6
   %.not = icmp eq ptr %4, null

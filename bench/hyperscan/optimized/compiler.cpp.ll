@@ -3035,5 +3035,5 @@ attributes #23 = { noreturn nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN3ue2L18generateRoseEngineERNS_2NGE.argprom: %agg.result"}
-!12 = distinct !{!12, !"_ZN3ue2L18generateRoseEngineERNS_2NGE.argprom"}
+!11 = distinct !{!11, !12, !"_ZN3ue2L18generateRoseEngineERNS_2NGE: %agg.result"}
+!12 = distinct !{!12, !"_ZN3ue2L18generateRoseEngineERNS_2NGE"}

@@ -869,7 +869,7 @@ define internal i64 @cf_h2_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   store ptr null, ptr %6, align 8
   call void @Curl_dynhds_init(ptr noundef nonnull %7, i64 noundef 0, i64 noundef 1048576) #11
   %.val.i = load ptr, ptr %11, align 8
-  %66 = call fastcc i32 @http2_data_setup.argprom(ptr %.val.i, ptr noundef %1, ptr noundef %6)
+  %66 = call fastcc i32 @http2_data_setup(ptr %.val.i, ptr noundef %1, ptr noundef %6)
   store i32 %66, ptr %4, align 4
   %.not.i = icmp eq i32 %66, 0
   br i1 %.not.i, label %67, label %198
@@ -1999,11 +1999,11 @@ drain_stream.exit41.i:                            ; preds = %84, %70
   br label %http2_data_pause.exit
 
 149:                                              ; preds = %5
-  tail call fastcc void @http2_data_done.argelim(ptr noundef nonnull %0, ptr noundef %1)
+  tail call fastcc void @http2_data_done(ptr noundef nonnull %0, ptr noundef %1)
   br label %http2_data_pause.exit
 
 150:                                              ; preds = %5
-  tail call fastcc void @http2_data_done.argelim(ptr noundef nonnull %0, ptr noundef %1)
+  tail call fastcc void @http2_data_done(ptr noundef nonnull %0, ptr noundef %1)
   br label %http2_data_pause.exit
 
 http2_data_pause.exit:                            ; preds = %148, %133, %116, %112, %96, %94, %.critedge.i, %drain_stream.exit41.i, %31, %19, %17, %149, %150, %5
@@ -2159,20 +2159,20 @@ define internal range(i32 0, 56) i32 @cf_h2_keep_alive(ptr nocapture noundef rea
 8:                                                ; preds = %2
   %9 = tail call ptr @nghttp2_strerror(i32 noundef %7) #11
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.54, ptr noundef %9, i32 noundef %7) #11
-  br label %http2_send_ping.argprom.exit
+  br label %http2_send_ping.exit
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %.val, align 8
   %12 = tail call i32 @nghttp2_session_send(ptr noundef %11) #11
   %.not13.i = icmp eq i32 %12, 0
-  br i1 %.not13.i, label %http2_send_ping.argprom.exit, label %13
+  br i1 %.not13.i, label %http2_send_ping.exit, label %13
 
 13:                                               ; preds = %10
   %14 = tail call ptr @nghttp2_strerror(i32 noundef %12) #11
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.55, ptr noundef %14, i32 noundef %12) #11
-  br label %http2_send_ping.argprom.exit
+  br label %http2_send_ping.exit
 
-http2_send_ping.argprom.exit:                     ; preds = %8, %10, %13
+http2_send_ping.exit:                             ; preds = %8, %10, %13
   %.0.i = phi i32 [ 16, %8 ], [ 55, %13 ], [ 0, %10 ]
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 16
@@ -2240,7 +2240,7 @@ define internal i32 @cf_h2_query(ptr nocapture noundef readonly %0, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @Curl_conn_is_http2(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %Curl_cf_is_http2.argprom.exit, label %4
+  br i1 %.not, label %Curl_cf_is_http2.exit, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %1, i64 432
@@ -2248,28 +2248,28 @@ define dso_local noundef zeroext i1 @Curl_conn_is_http2(ptr nocapture noundef re
   %7 = getelementptr inbounds [2 x ptr], ptr %5, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not1.i = icmp eq ptr %8, null
-  br i1 %.not1.i, label %Curl_cf_is_http2.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %Curl_cf_is_http2.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %15
   %.052.i = phi ptr [ %17, %15 ], [ %8, %4 ]
   %9 = load ptr, ptr %.052.i, align 8
   %10 = icmp eq ptr %9, @Curl_cft_nghttp2
-  br i1 %10, label %Curl_cf_is_http2.argprom.exit, label %11
+  br i1 %10, label %Curl_cf_is_http2.exit, label %11
 
 11:                                               ; preds = %.lr.ph.i
   %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not7.i = icmp eq i32 %14, 0
-  br i1 %.not7.i, label %15, label %Curl_cf_is_http2.argprom.exit
+  br i1 %.not7.i, label %15, label %Curl_cf_is_http2.exit
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %.052.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %Curl_cf_is_http2.argprom.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %Curl_cf_is_http2.exit, label %.lr.ph.i, !llvm.loop !8
 
-Curl_cf_is_http2.argprom.exit:                    ; preds = %15, %11, %.lr.ph.i, %4, %3
+Curl_cf_is_http2.exit:                            ; preds = %15, %11, %.lr.ph.i, %4, %3
   %18 = phi i1 [ false, %3 ], [ false, %4 ], [ %10, %.lr.ph.i ], [ %10, %11 ], [ %10, %15 ]
   ret i1 %18
 }
@@ -2538,7 +2538,7 @@ h2_client_new.exit:                               ; preds = %18
 
 55:                                               ; preds = %38
   %.val = load ptr, ptr %10, align 8
-  %56 = call fastcc i32 @http2_data_setup.argprom(ptr %.val, ptr noundef nonnull %1, ptr noundef %6)
+  %56 = call fastcc i32 @http2_data_setup(ptr %.val, ptr noundef nonnull %1, ptr noundef %6)
   %.not74 = icmp eq i32 %56, 0
   br i1 %.not74, label %57, label %121
 
@@ -2683,7 +2683,7 @@ define dso_local i32 @Curl_http2_switch_at(ptr noundef %0, ptr noundef %1) local
   %5 = load ptr, ptr @Curl_ccalloc, align 8
   %6 = tail call ptr %5(i64 noundef 1, i64 noundef 208) #11
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %http2_cfilter_insert_after.argprom.exit.thread, label %7
+  br i1 %.not.i, label %http2_cfilter_insert_after.exit.thread, label %7
 
 7:                                                ; preds = %2
   %8 = call i32 @Curl_cf_create(ptr noundef nonnull %3, ptr noundef nonnull @Curl_cft_nghttp2, ptr noundef nonnull %6) #11
@@ -2712,9 +2712,9 @@ cf_h2_ctx_clear.exit.i.i:                         ; preds = %12, %9
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %10, align 8
   %16 = load ptr, ptr @Curl_cfree, align 8
   call void %16(ptr noundef nonnull %6) #11
-  br label %http2_cfilter_insert_after.argprom.exit.thread
+  br label %http2_cfilter_insert_after.exit.thread
 
-http2_cfilter_insert_after.argprom.exit.thread:   ; preds = %cf_h2_ctx_clear.exit.i.i, %2
+http2_cfilter_insert_after.exit.thread:           ; preds = %cf_h2_ctx_clear.exit.i.i, %2
   %.04.i.ph = phi i32 [ 27, %2 ], [ %8, %cf_h2_ctx_clear.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %39
@@ -2755,8 +2755,8 @@ http2_cfilter_insert_after.argprom.exit.thread:   ; preds = %cf_h2_ctx_clear.exi
   %38 = call i32 @Curl_conn_cf_connect(ptr noundef nonnull %20, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull %4) #11
   br label %39
 
-39:                                               ; preds = %http2_cfilter_insert_after.argprom.exit.thread, %22, %17, %37
-  %.0 = phi i32 [ %38, %37 ], [ %21, %17 ], [ 0, %22 ], [ %.04.i.ph, %http2_cfilter_insert_after.argprom.exit.thread ]
+39:                                               ; preds = %http2_cfilter_insert_after.exit.thread, %22, %17, %37
+  %.0 = phi i32 [ %38, %37 ], [ %21, %17 ], [ 0, %22 ], [ %.04.i.ph, %http2_cfilter_insert_after.exit.thread ]
   ret i32 %.0
 }
 
@@ -3719,7 +3719,7 @@ define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr nound
 declare void @Curl_dynhds_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @http2_data_setup.argprom(ptr %.16.val, ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @http2_data_setup(ptr %.16.val, ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4143,7 +4143,7 @@ declare i32 @nghttp2_session_get_local_window_size(ptr noundef) local_unnamed_ad
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @http2_data_done.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @http2_data_done(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %1, null
@@ -4388,7 +4388,7 @@ define internal range(i32 -902, 1) i32 @on_frame_recv(ptr noundef %0, ptr nounde
   br i1 %29, label %30, label %43
 
 30:                                               ; preds = %25
-  %31 = call fastcc i32 @fr_print.argelim(ptr noundef nonnull %1, ptr noundef %14)
+  %31 = call fastcc i32 @fr_print(ptr noundef nonnull %1, ptr noundef %14)
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 %32
   store i8 0, ptr %33, align 1
@@ -4799,9 +4799,9 @@ define internal range(i32 -902, 1) i32 @on_frame_recv(ptr noundef %0, ptr nounde
   %243 = getelementptr inbounds i8, ptr %242, i64 8
   %244 = call i64 @Curl_bufq_write(ptr noundef nonnull %243, ptr noundef nonnull @.str.87, i64 noundef 2, ptr noundef nonnull %13) #11
   %245 = icmp slt i64 %244, 0
-  br i1 %245, label %recvbuf_write_hds.argprom.exit.i, label %recvbuf_write_hds.argprom.exit.thread.i
+  br i1 %245, label %recvbuf_write_hds.exit.i, label %recvbuf_write_hds.exit.thread.i
 
-recvbuf_write_hds.argprom.exit.thread.i:          ; preds = %241
+recvbuf_write_hds.exit.thread.i:                  ; preds = %241
   %246 = getelementptr inbounds i8, ptr %242, i64 272
   %247 = load i64, ptr %246, align 8
   %248 = add i64 %247, %244
@@ -4809,13 +4809,13 @@ recvbuf_write_hds.argprom.exit.thread.i:          ; preds = %241
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   br label %250
 
-recvbuf_write_hds.argprom.exit.i:                 ; preds = %241
+recvbuf_write_hds.exit.i:                         ; preds = %241
   %249 = load i32, ptr %13, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %.not105.i = icmp eq i32 %249, 0
   br i1 %.not105.i, label %250, label %on_stream_frame.exit
 
-250:                                              ; preds = %recvbuf_write_hds.argprom.exit.i, %recvbuf_write_hds.argprom.exit.thread.i
+250:                                              ; preds = %recvbuf_write_hds.exit.i, %recvbuf_write_hds.exit.thread.i
   %251 = load i32, ptr %236, align 8
   %.off107.i = add i32 %251, -100
   %.not106.i = icmp ult i32 %.off107.i, 100
@@ -4883,7 +4883,7 @@ h2_duphandle.exit.thread120.i.i:                  ; preds = %274
   %277 = getelementptr inbounds i8, ptr %273, i64 384
   store ptr %276, ptr %277, align 8
   %.val.i.i.i = load ptr, ptr %15, align 8
-  %278 = call fastcc i32 @http2_data_setup.argprom(ptr %.val.i.i.i, ptr noundef nonnull %273, ptr noundef %10)
+  %278 = call fastcc i32 @http2_data_setup(ptr %.val.i.i.i, ptr noundef nonnull %273, ptr noundef %10)
   %279 = getelementptr inbounds i8, ptr %124, i64 4496
   %280 = load i32, ptr %279, align 8
   %281 = getelementptr inbounds i8, ptr %273, i64 4496
@@ -4952,7 +4952,7 @@ h2_duphandle.exit.i.i:                            ; preds = %274
   br i1 %.not.i110.i.i, label %305, label %discard_newhandle.exit.i.i
 
 305:                                              ; preds = %.thread.i.i
-  call fastcc void @http2_data_done.argelim(ptr noundef nonnull %2, ptr noundef nonnull %288)
+  call fastcc void @http2_data_done(ptr noundef nonnull %2, ptr noundef nonnull %288)
   store ptr null, ptr %303, align 8
   br label %discard_newhandle.exit.i.i
 
@@ -5033,7 +5033,7 @@ discard_newhandle.exit.i.i:                       ; preds = %305, %.thread.i.i
   br i1 %.not.i113.i.i, label %334, label %discard_newhandle.exit114.i.i
 
 334:                                              ; preds = %331
-  call fastcc void @http2_data_done.argelim(ptr noundef nonnull %2, ptr noundef nonnull %288)
+  call fastcc void @http2_data_done(ptr noundef nonnull %2, ptr noundef nonnull %288)
   store ptr null, ptr %332, align 8
   br label %discard_newhandle.exit114.i.i
 
@@ -5051,7 +5051,7 @@ discard_newhandle.exit114.i.i:                    ; preds = %334, %331
   store ptr %339, ptr %340, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.val.i.i = load ptr, ptr %15, align 8
-  %341 = call fastcc i32 @http2_data_setup.argprom(ptr %.val.i.i, ptr noundef nonnull %288, ptr noundef %11)
+  %341 = call fastcc i32 @http2_data_setup(ptr %.val.i.i, ptr noundef nonnull %288, ptr noundef %11)
   %.not104.i.i = icmp eq i32 %341, 0
   br i1 %.not104.i.i, label %347, label %342
 
@@ -5065,7 +5065,7 @@ discard_newhandle.exit114.i.i:                    ; preds = %334, %331
   br i1 %.not.i115.i.i, label %345, label %discard_newhandle.exit116.i.i
 
 345:                                              ; preds = %342
-  call fastcc void @http2_data_done.argelim(ptr noundef nonnull %2, ptr noundef nonnull %288)
+  call fastcc void @http2_data_done(ptr noundef nonnull %2, ptr noundef nonnull %288)
   store ptr null, ptr %343, align 8
   br label %discard_newhandle.exit116.i.i
 
@@ -5123,7 +5123,7 @@ discard_newhandle.exit116.i.i:                    ; preds = %345, %342
   br i1 %.not.i117.i.i, label %372, label %discard_newhandle.exit118.i.i
 
 372:                                              ; preds = %369
-  call fastcc void @http2_data_done.argelim(ptr noundef %2, ptr noundef nonnull %288)
+  call fastcc void @http2_data_done(ptr noundef %2, ptr noundef nonnull %288)
   store ptr null, ptr %370, align 8
   br label %discard_newhandle.exit118.i.i
 
@@ -5337,8 +5337,8 @@ push_promise.exit.i:                              ; preds = %388
   call void @Curl_expire(ptr noundef nonnull %124, i64 noundef 0, i32 noundef 8) #11
   br label %on_stream_frame.exit
 
-on_stream_frame.exit:                             ; preds = %98, %145, %150, %155, %181, %235, %recvbuf_write_hds.argprom.exit.i, %406, %414, %417, %422, %156, %445, %push_promise.exit.i, %412, %231, %220, %225, %227, %215, %254, %200, %214, %429, %444, %461, %476, %135, %130, %126, %125, %.critedge117, %104, %101, %47, %120, %105, %44
-  %.0 = phi i32 [ 0, %44 ], [ 0, %105 ], [ 0, %120 ], [ 0, %47 ], [ 0, %101 ], [ 0, %104 ], [ 0, %.critedge117 ], [ 0, %125 ], [ 0, %126 ], [ 0, %130 ], [ 0, %135 ], [ -902, %145 ], [ -902, %150 ], [ -902, %155 ], [ -902, %181 ], [ -902, %235 ], [ -902, %recvbuf_write_hds.argprom.exit.i ], [ -902, %406 ], [ -902, %414 ], [ -902, %417 ], [ -902, %422 ], [ 0, %156 ], [ 0, %445 ], [ 0, %push_promise.exit.i ], [ 0, %412 ], [ 0, %231 ], [ 0, %220 ], [ 0, %225 ], [ 0, %227 ], [ 0, %215 ], [ 0, %254 ], [ 0, %200 ], [ 0, %214 ], [ 0, %429 ], [ 0, %444 ], [ 0, %461 ], [ 0, %476 ], [ 0, %98 ]
+on_stream_frame.exit:                             ; preds = %98, %145, %150, %155, %181, %235, %recvbuf_write_hds.exit.i, %406, %414, %417, %422, %156, %445, %push_promise.exit.i, %412, %231, %220, %225, %227, %215, %254, %200, %214, %429, %444, %461, %476, %135, %130, %126, %125, %.critedge117, %104, %101, %47, %120, %105, %44
+  %.0 = phi i32 [ 0, %44 ], [ 0, %105 ], [ 0, %120 ], [ 0, %47 ], [ 0, %101 ], [ 0, %104 ], [ 0, %.critedge117 ], [ 0, %125 ], [ 0, %126 ], [ 0, %130 ], [ 0, %135 ], [ -902, %145 ], [ -902, %150 ], [ -902, %155 ], [ -902, %181 ], [ -902, %235 ], [ -902, %recvbuf_write_hds.exit.i ], [ -902, %406 ], [ -902, %414 ], [ -902, %417 ], [ -902, %422 ], [ 0, %156 ], [ 0, %445 ], [ 0, %push_promise.exit.i ], [ 0, %412 ], [ 0, %231 ], [ 0, %220 ], [ 0, %225 ], [ 0, %227 ], [ 0, %215 ], [ 0, %254 ], [ 0, %200 ], [ 0, %214 ], [ 0, %429 ], [ 0, %444 ], [ 0, %461 ], [ 0, %476 ], [ 0, %98 ]
   ret i32 %.0
 }
 
@@ -5373,7 +5373,7 @@ define internal noundef i32 @on_frame_send(ptr nocapture readnone %0, ptr nocapt
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %14
-  %20 = call fastcc i32 @fr_print.argelim(ptr noundef %1, ptr noundef %4)
+  %20 = call fastcc i32 @fr_print(ptr noundef %1, ptr noundef %4)
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %21
   store i8 0, ptr %22, align 1
@@ -5975,16 +5975,16 @@ define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr nocapture 
 
 116:                                              ; preds = %112
   %117 = load i32, ptr %11, align 4
-  br label %recvbuf_write_hds.argprom.exit
+  br label %recvbuf_write_hds.exit
 
 118:                                              ; preds = %112
   %119 = getelementptr inbounds i8, ptr %21, i64 272
   %120 = load i64, ptr %119, align 8
   %121 = add i64 %120, %114
   store i64 %121, ptr %119, align 8
-  br label %recvbuf_write_hds.argprom.exit
+  br label %recvbuf_write_hds.exit
 
-recvbuf_write_hds.argprom.exit:                   ; preds = %116, %118
+recvbuf_write_hds.exit:                           ; preds = %116, %118
   %.0.i = phi i32 [ %117, %116 ], [ 0, %118 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %170
@@ -6003,16 +6003,16 @@ recvbuf_write_hds.argprom.exit:                   ; preds = %116, %118
 
 128:                                              ; preds = %124
   %129 = load i32, ptr %10, align 4
-  br label %recvbuf_write_hds.argprom.exit183
+  br label %recvbuf_write_hds.exit183
 
 130:                                              ; preds = %124
   %131 = getelementptr inbounds i8, ptr %21, i64 272
   %132 = load i64, ptr %131, align 8
   %133 = add i64 %132, %126
   store i64 %133, ptr %131, align 8
-  br label %recvbuf_write_hds.argprom.exit183
+  br label %recvbuf_write_hds.exit183
 
-recvbuf_write_hds.argprom.exit183:                ; preds = %128, %130
+recvbuf_write_hds.exit183:                        ; preds = %128, %130
   %.0.i182 = phi i32 [ %129, %128 ], [ 0, %130 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %170
@@ -6032,19 +6032,19 @@ recvbuf_write_hds.argprom.exit183:                ; preds = %128, %130
 
 141:                                              ; preds = %137
   %.val175 = load ptr, ptr %17, align 8
-  %142 = call fastcc i32 @recvbuf_write_hds.argprom(ptr %.val175, ptr noundef nonnull @.str.114, i64 noundef 7)
+  %142 = call fastcc i32 @recvbuf_write_hds(ptr %.val175, ptr noundef nonnull @.str.114, i64 noundef 7)
   %.not159 = icmp eq i32 %142, 0
   br i1 %.not159, label %143, label %212
 
 143:                                              ; preds = %141
   %.val176 = load ptr, ptr %17, align 8
-  %144 = call fastcc i32 @recvbuf_write_hds.argprom(ptr %.val176, ptr noundef %4, i64 noundef %5)
+  %144 = call fastcc i32 @recvbuf_write_hds(ptr %.val176, ptr noundef %4, i64 noundef %5)
   %.not160 = icmp eq i32 %144, 0
   br i1 %.not160, label %145, label %212
 
 145:                                              ; preds = %143
   %.val177 = load ptr, ptr %17, align 8
-  %146 = call fastcc i32 @recvbuf_write_hds.argprom(ptr %.val177, ptr noundef nonnull @.str.115, i64 noundef 3)
+  %146 = call fastcc i32 @recvbuf_write_hds(ptr %.val177, ptr noundef nonnull @.str.115, i64 noundef 3)
   %.not161 = icmp eq i32 %146, 0
   br i1 %.not161, label %147, label %212
 
@@ -6089,8 +6089,8 @@ recvbuf_write_hds.argprom.exit183:                ; preds = %128, %130
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull @.str.116, i32 noundef %168, i32 noundef %169) #11
   br label %212
 
-170:                                              ; preds = %recvbuf_write_hds.argprom.exit183, %recvbuf_write_hds.argprom.exit
-  %phi.call = phi i32 [ %.0.i, %recvbuf_write_hds.argprom.exit ], [ %.0.i182, %recvbuf_write_hds.argprom.exit183 ]
+170:                                              ; preds = %recvbuf_write_hds.exit183, %recvbuf_write_hds.exit
+  %phi.call = phi i32 [ %.0.i, %recvbuf_write_hds.exit ], [ %.0.i182, %recvbuf_write_hds.exit183 ]
   %.not152 = icmp eq i32 %phi.call, 0
   br i1 %.not152, label %171, label %212
 
@@ -6110,9 +6110,9 @@ recvbuf_write_hds.argprom.exit183:                ; preds = %128, %130
   %177 = getelementptr inbounds i8, ptr %176, i64 8
   %178 = call i64 @Curl_bufq_write(ptr noundef nonnull %177, ptr noundef nonnull @.str.117, i64 noundef 2, ptr noundef nonnull %9) #11
   %179 = icmp slt i64 %178, 0
-  br i1 %179, label %recvbuf_write_hds.argprom.exit186, label %recvbuf_write_hds.argprom.exit186.thread
+  br i1 %179, label %recvbuf_write_hds.exit186, label %recvbuf_write_hds.exit186.thread
 
-recvbuf_write_hds.argprom.exit186.thread:         ; preds = %175
+recvbuf_write_hds.exit186.thread:                 ; preds = %175
   %180 = getelementptr inbounds i8, ptr %176, i64 272
   %181 = load i64, ptr %180, align 8
   %182 = add i64 %181, %178
@@ -6120,21 +6120,21 @@ recvbuf_write_hds.argprom.exit186.thread:         ; preds = %175
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %184
 
-recvbuf_write_hds.argprom.exit186:                ; preds = %175
+recvbuf_write_hds.exit186:                        ; preds = %175
   %183 = load i32, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %.not153 = icmp eq i32 %183, 0
   br i1 %.not153, label %184, label %212
 
-184:                                              ; preds = %recvbuf_write_hds.argprom.exit186.thread, %recvbuf_write_hds.argprom.exit186
+184:                                              ; preds = %recvbuf_write_hds.exit186.thread, %recvbuf_write_hds.exit186
   %.val179 = load ptr, ptr %17, align 8
-  %185 = call fastcc i32 @recvbuf_write_hds.argprom(ptr %.val179, ptr noundef %4, i64 noundef %5)
+  %185 = call fastcc i32 @recvbuf_write_hds(ptr %.val179, ptr noundef %4, i64 noundef %5)
   %.not154 = icmp eq i32 %185, 0
   br i1 %.not154, label %186, label %212
 
 186:                                              ; preds = %184
   %.val180 = load ptr, ptr %17, align 8
-  %187 = call fastcc i32 @recvbuf_write_hds.argprom(ptr %.val180, ptr noundef nonnull @.str.87, i64 noundef 2)
+  %187 = call fastcc i32 @recvbuf_write_hds(ptr %.val180, ptr noundef nonnull @.str.87, i64 noundef 2)
   %.not155 = icmp eq i32 %187, 0
   br i1 %.not155, label %188, label %212
 
@@ -6180,8 +6180,8 @@ recvbuf_write_hds.argprom.exit186:                ; preds = %175
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull @.str.118, i32 noundef %209, i32 noundef %210, ptr noundef %2, i32 noundef %211, ptr noundef %4) #11
   br label %212
 
-212:                                              ; preds = %51, %208, %203, %198, %186, %184, %recvbuf_write_hds.argprom.exit186, %170, %167, %162, %157, %145, %143, %141, %137, %134, %107, %80, %82, %57, %28, %8, %78, %71, %.thread
-  %.0 = phi i32 [ -521, %71 ], [ -521, %78 ], [ -902, %.thread ], [ -902, %8 ], [ -902, %28 ], [ -902, %51 ], [ -521, %57 ], [ 0, %82 ], [ 0, %80 ], [ %., %107 ], [ -902, %134 ], [ -902, %137 ], [ -902, %141 ], [ -902, %143 ], [ -902, %145 ], [ 0, %157 ], [ 0, %162 ], [ 0, %167 ], [ -902, %170 ], [ -902, %recvbuf_write_hds.argprom.exit186 ], [ -902, %184 ], [ -902, %186 ], [ 0, %198 ], [ 0, %203 ], [ 0, %208 ]
+212:                                              ; preds = %51, %208, %203, %198, %186, %184, %recvbuf_write_hds.exit186, %170, %167, %162, %157, %145, %143, %141, %137, %134, %107, %80, %82, %57, %28, %8, %78, %71, %.thread
+  %.0 = phi i32 [ -521, %71 ], [ -521, %78 ], [ -902, %.thread ], [ -902, %8 ], [ -902, %28 ], [ -902, %51 ], [ -521, %57 ], [ 0, %82 ], [ 0, %80 ], [ %., %107 ], [ -902, %134 ], [ -902, %137 ], [ -902, %141 ], [ -902, %143 ], [ -902, %145 ], [ 0, %157 ], [ 0, %162 ], [ 0, %167 ], [ -902, %170 ], [ -902, %recvbuf_write_hds.exit186 ], [ -902, %184 ], [ -902, %186 ], [ 0, %198 ], [ 0, %203 ], [ 0, %208 ]
   ret i32 %.0
 }
 
@@ -6215,7 +6215,7 @@ declare void @nghttp2_session_callbacks_del(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_bufq_write_pass(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fr_print.argelim(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
@@ -6363,7 +6363,7 @@ declare i32 @nghttp2_session_get_remote_settings(ptr noundef, i32 noundef) local
 declare i32 @nghttp2_session_get_stream_local_window_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @recvbuf_write_hds.argprom(ptr readonly %.384.val, ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @recvbuf_write_hds(ptr readonly %.384.val, ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %.384.val, null
   br i1 %.not, label %7, label %4
@@ -6406,7 +6406,7 @@ define internal fastcc void @discard_newhandle(ptr noundef %0, ptr noundef nonnu
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call fastcc void @http2_data_done.argelim(ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @http2_data_done(ptr noundef %0, ptr noundef nonnull %1)
   store ptr null, ptr %4, align 8
   br label %7
 

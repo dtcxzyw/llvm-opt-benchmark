@@ -262,7 +262,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store ptr %_M_impl.i.i.i.i.i.i.i59, ptr %ref.tmp2, align 8, !alias.scope !9
   %_M_refcount.i.i.i62 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr %call5.i.i.i5.i.i.i.i.i63, ptr %_M_refcount.i.i.i62, align 8, !alias.scope !9
-  invoke fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110comparisonERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS3_7MatcherEESG_PS9_.argprom(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr nonnull %_M_impl.i.i.i.i.i.i.i, ptr nonnull %call5.i.i.i5.i.i.i.i.i56, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef %op1)
+  invoke fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110comparisonERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS3_7MatcherEESG_PS9_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr nonnull %_M_impl.i.i.i.i.i.i.i, ptr nonnull %call5.i.i.i5.i.i.i.i.i56, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef %op1)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -317,7 +317,7 @@ invoke.cont17:                                    ; preds = %invoke.cont14
   store ptr %_M_impl.i.i.i.i.i.i.i80, ptr %ref.tmp15, align 8, !alias.scope !26
   %_M_refcount.i.i.i83 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store ptr %call5.i.i.i5.i.i.i.i.i84, ptr %_M_refcount.i.i.i83, align 8, !alias.scope !26
-  invoke fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110comparisonERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS3_7MatcherEESG_PS9_.argprom(ptr noalias align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr nonnull %_M_impl.i.i.i.i.i.i.i72, ptr nonnull %call5.i.i.i5.i.i.i.i.i76, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, ptr noundef %op2)
+  invoke fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110comparisonERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS3_7MatcherEESG_PS9_(ptr noalias align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr nonnull %_M_impl.i.i.i.i.i.i.i72, ptr nonnull %call5.i.i.i5.i.i.i.i.i76, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, ptr noundef %op2)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
@@ -358,21 +358,21 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %ref.tmp11.val50 = load ptr, ptr %ref.tmp11, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   %ref.tmp11.val51 = load ptr, ptr %0, align 8
-  invoke fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_16ifelseERKSt10shared_ptrINS3_7MatcherEES8_S8_.argprom(ptr noalias align 8 %ref.tmp10, ptr %ref.tmp11.val50, ptr %ref.tmp11.val51, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23)
+  invoke fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_16ifelseERKSt10shared_ptrINS3_7MatcherEES8_S8_(ptr noalias align 8 %ref.tmp10, ptr %ref.tmp11.val50, ptr %ref.tmp11.val51, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   %ref.tmp.val52 = load ptr, ptr %ref.tmp, align 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp.val53 = load ptr, ptr %1, align 8
-  invoke fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_16ifelseERKSt10shared_ptrINS3_7MatcherEES8_S8_.argprom(ptr noalias align 8 %matcher, ptr %ref.tmp.val52, ptr %ref.tmp.val53, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10)
+  invoke fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_16ifelseERKSt10shared_ptrINS3_7MatcherEES8_S8_(ptr noalias align 8 %matcher, ptr %ref.tmp.val52, ptr %ref.tmp.val53, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   %2 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   %ref.tmp10.val = load ptr, ptr %2, align 8
   %cmp.not.i.i.i = icmp eq ptr %ref.tmp10.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont29
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10.val, i64 8
@@ -408,7 +408,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %4, %if.then.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %ref.tmp10.val, align 8
@@ -433,21 +433,21 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %10, %if.then.i.i.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %ref.tmp10.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp10.val) #18
-  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
 
-_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit: ; preds = %invoke.cont29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit: ; preds = %invoke.cont29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %ref.tmp23.val = load ptr, ptr %_M_refcount.i.i.i97, align 8
   %cmp.not.i.i.i100 = icmp eq ptr %ref.tmp23.val, null
-  br i1 %cmp.not.i.i.i100, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit130, label %if.then.i.i.i101
+  br i1 %cmp.not.i.i.i100, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit130, label %if.then.i.i.i101
 
-if.then.i.i.i101:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+if.then.i.i.i101:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
   %_M_use_count.i.i.i.i102 = getelementptr inbounds i8, ptr %ref.tmp23.val, i64 8
   %13 = load atomic i64, ptr %_M_use_count.i.i.i.i102 acquire, align 8
   %cmp.i.i.i.i103 = icmp eq i64 %13, 4294967297
@@ -481,7 +481,7 @@ if.else.i.i.i.i.i125:                             ; preds = %if.end.i.i.i.i104
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108: ; preds = %if.else.i.i.i.i.i125, %if.then.i.i.i.i.i106
   %retval.i.0.i.i.i.i109 = phi i32 [ %14, %if.then.i.i.i.i.i106 ], [ %17, %if.else.i.i.i.i.i125 ]
   %cmp6.i.i.i.i110 = icmp eq i32 %retval.i.0.i.i.i.i109, 1
-  br i1 %cmp6.i.i.i.i110, label %if.then7.i.i.i.i111, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit130
+  br i1 %cmp6.i.i.i.i110, label %if.then7.i.i.i.i111, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit130
 
 if.then7.i.i.i.i111:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108
   %vtable.i.i.i.i.i.i112 = load ptr, ptr %ref.tmp23.val, align 8
@@ -506,21 +506,21 @@ if.else.i.i.i.i.i.i.i124:                         ; preds = %if.then7.i.i.i.i111
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i118: ; preds = %if.else.i.i.i.i.i.i.i124, %if.then.i.i.i.i.i.i.i116
   %retval.i.0.i.i.i.i.i.i119 = phi i32 [ %20, %if.then.i.i.i.i.i.i.i116 ], [ %21, %if.else.i.i.i.i.i.i.i124 ]
   %cmp.i.i.i.i.i.i120 = icmp eq i32 %retval.i.0.i.i.i.i.i.i119, 1
-  br i1 %cmp.i.i.i.i.i.i120, label %if.end8.sink.split.i.i.i.i121, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit130
+  br i1 %cmp.i.i.i.i.i.i120, label %if.end8.sink.split.i.i.i.i121, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit130
 
 if.end8.sink.split.i.i.i.i121:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i118, %if.then.i.i.i.i126
   %vtable2.i.i.i.i.i.i122 = load ptr, ptr %ref.tmp23.val, align 8
   %vfn3.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i122, i64 24
   %22 = load ptr, ptr %vfn3.i.i.i.i.i.i123, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23.val) #18
-  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit130
+  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit130
 
-_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit130: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i118, %if.end8.sink.split.i.i.i.i121
+_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit130: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i108, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i118, %if.end8.sink.split.i.i.i.i121
   %ref.tmp20.val = load ptr, ptr %_M_refcount.i.i.i90, align 8
   %cmp.not.i.i.i131 = icmp eq ptr %ref.tmp20.val, null
-  br i1 %cmp.not.i.i.i131, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit161, label %if.then.i.i.i132
+  br i1 %cmp.not.i.i.i131, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit161, label %if.then.i.i.i132
 
-if.then.i.i.i132:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit130
+if.then.i.i.i132:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit130
   %_M_use_count.i.i.i.i133 = getelementptr inbounds i8, ptr %ref.tmp20.val, i64 8
   %23 = load atomic i64, ptr %_M_use_count.i.i.i.i133 acquire, align 8
   %cmp.i.i.i.i134 = icmp eq i64 %23, 4294967297
@@ -554,7 +554,7 @@ if.else.i.i.i.i.i156:                             ; preds = %if.end.i.i.i.i135
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i139: ; preds = %if.else.i.i.i.i.i156, %if.then.i.i.i.i.i137
   %retval.i.0.i.i.i.i140 = phi i32 [ %24, %if.then.i.i.i.i.i137 ], [ %27, %if.else.i.i.i.i.i156 ]
   %cmp6.i.i.i.i141 = icmp eq i32 %retval.i.0.i.i.i.i140, 1
-  br i1 %cmp6.i.i.i.i141, label %if.then7.i.i.i.i142, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit161
+  br i1 %cmp6.i.i.i.i141, label %if.then7.i.i.i.i142, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit161
 
 if.then7.i.i.i.i142:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i139
   %vtable.i.i.i.i.i.i143 = load ptr, ptr %ref.tmp20.val, align 8
@@ -579,21 +579,21 @@ if.else.i.i.i.i.i.i.i155:                         ; preds = %if.then7.i.i.i.i142
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i149: ; preds = %if.else.i.i.i.i.i.i.i155, %if.then.i.i.i.i.i.i.i147
   %retval.i.0.i.i.i.i.i.i150 = phi i32 [ %30, %if.then.i.i.i.i.i.i.i147 ], [ %31, %if.else.i.i.i.i.i.i.i155 ]
   %cmp.i.i.i.i.i.i151 = icmp eq i32 %retval.i.0.i.i.i.i.i.i150, 1
-  br i1 %cmp.i.i.i.i.i.i151, label %if.end8.sink.split.i.i.i.i152, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit161
+  br i1 %cmp.i.i.i.i.i.i151, label %if.end8.sink.split.i.i.i.i152, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit161
 
 if.end8.sink.split.i.i.i.i152:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i149, %if.then.i.i.i.i157
   %vtable2.i.i.i.i.i.i153 = load ptr, ptr %ref.tmp20.val, align 8
   %vfn3.i.i.i.i.i.i154 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i153, i64 24
   %32 = load ptr, ptr %vfn3.i.i.i.i.i.i154, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20.val) #18
-  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit161
+  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit161
 
-_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit161: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit130, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i139, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i149, %if.end8.sink.split.i.i.i.i152
+_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit161: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit130, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i139, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i149, %if.end8.sink.split.i.i.i.i152
   %ref.tmp11.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i162 = icmp eq ptr %ref.tmp11.val, null
-  br i1 %cmp.not.i.i.i162, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit192, label %if.then.i.i.i163
+  br i1 %cmp.not.i.i.i162, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit192, label %if.then.i.i.i163
 
-if.then.i.i.i163:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit161
+if.then.i.i.i163:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit161
   %_M_use_count.i.i.i.i164 = getelementptr inbounds i8, ptr %ref.tmp11.val, i64 8
   %33 = load atomic i64, ptr %_M_use_count.i.i.i.i164 acquire, align 8
   %cmp.i.i.i.i165 = icmp eq i64 %33, 4294967297
@@ -627,7 +627,7 @@ if.else.i.i.i.i.i187:                             ; preds = %if.end.i.i.i.i166
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i170: ; preds = %if.else.i.i.i.i.i187, %if.then.i.i.i.i.i168
   %retval.i.0.i.i.i.i171 = phi i32 [ %34, %if.then.i.i.i.i.i168 ], [ %37, %if.else.i.i.i.i.i187 ]
   %cmp6.i.i.i.i172 = icmp eq i32 %retval.i.0.i.i.i.i171, 1
-  br i1 %cmp6.i.i.i.i172, label %if.then7.i.i.i.i173, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit192
+  br i1 %cmp6.i.i.i.i172, label %if.then7.i.i.i.i173, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit192
 
 if.then7.i.i.i.i173:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i170
   %vtable.i.i.i.i.i.i174 = load ptr, ptr %ref.tmp11.val, align 8
@@ -652,21 +652,21 @@ if.else.i.i.i.i.i.i.i186:                         ; preds = %if.then7.i.i.i.i173
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i180: ; preds = %if.else.i.i.i.i.i.i.i186, %if.then.i.i.i.i.i.i.i178
   %retval.i.0.i.i.i.i.i.i181 = phi i32 [ %40, %if.then.i.i.i.i.i.i.i178 ], [ %41, %if.else.i.i.i.i.i.i.i186 ]
   %cmp.i.i.i.i.i.i182 = icmp eq i32 %retval.i.0.i.i.i.i.i.i181, 1
-  br i1 %cmp.i.i.i.i.i.i182, label %if.end8.sink.split.i.i.i.i183, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit192
+  br i1 %cmp.i.i.i.i.i.i182, label %if.end8.sink.split.i.i.i.i183, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit192
 
 if.end8.sink.split.i.i.i.i183:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i180, %if.then.i.i.i.i188
   %vtable2.i.i.i.i.i.i184 = load ptr, ptr %ref.tmp11.val, align 8
   %vfn3.i.i.i.i.i.i185 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i184, i64 24
   %42 = load ptr, ptr %vfn3.i.i.i.i.i.i185, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11.val) #18
-  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit192
+  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit192
 
-_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit192: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i170, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i180, %if.end8.sink.split.i.i.i.i183
+_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit192: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i170, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i180, %if.end8.sink.split.i.i.i.i183
   %ref.tmp15.val = load ptr, ptr %_M_refcount.i.i.i83, align 8
   %cmp.not.i.i.i193 = icmp eq ptr %ref.tmp15.val, null
   br i1 %cmp.not.i.i.i193, label %if.then.i.i.i225, label %if.then.i.i.i194
 
-if.then.i.i.i194:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit192
+if.then.i.i.i194:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit192
   %_M_use_count.i.i.i.i195 = getelementptr inbounds i8, ptr %ref.tmp15.val, i64 8
   %43 = load atomic i64, ptr %_M_use_count.i.i.i.i195 acquire, align 8
   %cmp.i.i.i.i196 = icmp eq i64 %43, 4294967297
@@ -734,7 +734,7 @@ if.end8.sink.split.i.i.i.i214:                    ; preds = %_ZN9__gnu_cxx27__ex
   call void %52(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15.val) #18
   br label %if.then.i.i.i225
 
-if.then.i.i.i225:                                 ; preds = %if.end8.sink.split.i.i.i.i214, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i211, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i201, %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit192
+if.then.i.i.i225:                                 ; preds = %if.end8.sink.split.i.i.i.i214, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i211, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i201, %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit192
   %53 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i70 acquire, align 8
   %cmp.i.i.i.i227 = icmp eq i64 %53, 4294967297
   %54 = trunc i64 %53 to i32
@@ -766,7 +766,7 @@ if.else.i.i.i.i.i249:                             ; preds = %if.end.i.i.i.i228
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i232: ; preds = %if.else.i.i.i.i.i249, %if.then.i.i.i.i.i230
   %retval.i.0.i.i.i.i233 = phi i32 [ %54, %if.then.i.i.i.i.i230 ], [ %57, %if.else.i.i.i.i.i249 ]
   %cmp6.i.i.i.i234 = icmp eq i32 %retval.i.0.i.i.i.i233, 1
-  br i1 %cmp6.i.i.i.i234, label %if.then7.i.i.i.i235, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit254
+  br i1 %cmp6.i.i.i.i234, label %if.then7.i.i.i.i235, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit254
 
 if.then7.i.i.i.i235:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i232
   %vtable.i.i.i.i.i.i236 = load ptr, ptr %call5.i.i.i5.i.i.i.i.i76, align 8
@@ -790,21 +790,21 @@ if.else.i.i.i.i.i.i.i248:                         ; preds = %if.then7.i.i.i.i235
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i242: ; preds = %if.else.i.i.i.i.i.i.i248, %if.then.i.i.i.i.i.i.i240
   %retval.i.0.i.i.i.i.i.i243 = phi i32 [ %60, %if.then.i.i.i.i.i.i.i240 ], [ %61, %if.else.i.i.i.i.i.i.i248 ]
   %cmp.i.i.i.i.i.i244 = icmp eq i32 %retval.i.0.i.i.i.i.i.i243, 1
-  br i1 %cmp.i.i.i.i.i.i244, label %if.end8.sink.split.i.i.i.i245, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit254
+  br i1 %cmp.i.i.i.i.i.i244, label %if.end8.sink.split.i.i.i.i245, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit254
 
 if.end8.sink.split.i.i.i.i245:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i242, %if.then.i.i.i.i250
   %vtable2.i.i.i.i.i.i246 = load ptr, ptr %call5.i.i.i5.i.i.i.i.i76, align 8
   %vfn3.i.i.i.i.i.i247 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i246, i64 24
   %62 = load ptr, ptr %vfn3.i.i.i.i.i.i247, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i5.i.i.i.i.i76) #18
-  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit254
+  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit254
 
-_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit254: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i232, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i242, %if.end8.sink.split.i.i.i.i245
+_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit254: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i232, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i242, %if.end8.sink.split.i.i.i.i245
   %ref.tmp7.val = load ptr, ptr %_M_refcount.i.i.i68, align 8
   %cmp.not.i.i.i255 = icmp eq ptr %ref.tmp7.val, null
-  br i1 %cmp.not.i.i.i255, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit285, label %if.then.i.i.i256
+  br i1 %cmp.not.i.i.i255, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit285, label %if.then.i.i.i256
 
-if.then.i.i.i256:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit254
+if.then.i.i.i256:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit254
   %_M_use_count.i.i.i.i257 = getelementptr inbounds i8, ptr %ref.tmp7.val, i64 8
   %63 = load atomic i64, ptr %_M_use_count.i.i.i.i257 acquire, align 8
   %cmp.i.i.i.i258 = icmp eq i64 %63, 4294967297
@@ -838,7 +838,7 @@ if.else.i.i.i.i.i280:                             ; preds = %if.end.i.i.i.i259
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263: ; preds = %if.else.i.i.i.i.i280, %if.then.i.i.i.i.i261
   %retval.i.0.i.i.i.i264 = phi i32 [ %64, %if.then.i.i.i.i.i261 ], [ %67, %if.else.i.i.i.i.i280 ]
   %cmp6.i.i.i.i265 = icmp eq i32 %retval.i.0.i.i.i.i264, 1
-  br i1 %cmp6.i.i.i.i265, label %if.then7.i.i.i.i266, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit285
+  br i1 %cmp6.i.i.i.i265, label %if.then7.i.i.i.i266, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit285
 
 if.then7.i.i.i.i266:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263
   %vtable.i.i.i.i.i.i267 = load ptr, ptr %ref.tmp7.val, align 8
@@ -863,21 +863,21 @@ if.else.i.i.i.i.i.i.i279:                         ; preds = %if.then7.i.i.i.i266
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i273: ; preds = %if.else.i.i.i.i.i.i.i279, %if.then.i.i.i.i.i.i.i271
   %retval.i.0.i.i.i.i.i.i274 = phi i32 [ %70, %if.then.i.i.i.i.i.i.i271 ], [ %71, %if.else.i.i.i.i.i.i.i279 ]
   %cmp.i.i.i.i.i.i275 = icmp eq i32 %retval.i.0.i.i.i.i.i.i274, 1
-  br i1 %cmp.i.i.i.i.i.i275, label %if.end8.sink.split.i.i.i.i276, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit285
+  br i1 %cmp.i.i.i.i.i.i275, label %if.end8.sink.split.i.i.i.i276, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit285
 
 if.end8.sink.split.i.i.i.i276:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i273, %if.then.i.i.i.i281
   %vtable2.i.i.i.i.i.i277 = load ptr, ptr %ref.tmp7.val, align 8
   %vfn3.i.i.i.i.i.i278 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i277, i64 24
   %72 = load ptr, ptr %vfn3.i.i.i.i.i.i278, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp7.val) #18
-  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit285
+  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit285
 
-_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit285: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit254, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i273, %if.end8.sink.split.i.i.i.i276
+_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit285: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit254, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i273, %if.end8.sink.split.i.i.i.i276
   %ref.tmp.val = load ptr, ptr %1, align 8
   %cmp.not.i.i.i286 = icmp eq ptr %ref.tmp.val, null
-  br i1 %cmp.not.i.i.i286, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit316, label %if.then.i.i.i287
+  br i1 %cmp.not.i.i.i286, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit316, label %if.then.i.i.i287
 
-if.then.i.i.i287:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit285
+if.then.i.i.i287:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit285
   %_M_use_count.i.i.i.i288 = getelementptr inbounds i8, ptr %ref.tmp.val, i64 8
   %73 = load atomic i64, ptr %_M_use_count.i.i.i.i288 acquire, align 8
   %cmp.i.i.i.i289 = icmp eq i64 %73, 4294967297
@@ -911,7 +911,7 @@ if.else.i.i.i.i.i311:                             ; preds = %if.end.i.i.i.i290
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i294: ; preds = %if.else.i.i.i.i.i311, %if.then.i.i.i.i.i292
   %retval.i.0.i.i.i.i295 = phi i32 [ %74, %if.then.i.i.i.i.i292 ], [ %77, %if.else.i.i.i.i.i311 ]
   %cmp6.i.i.i.i296 = icmp eq i32 %retval.i.0.i.i.i.i295, 1
-  br i1 %cmp6.i.i.i.i296, label %if.then7.i.i.i.i297, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit316
+  br i1 %cmp6.i.i.i.i296, label %if.then7.i.i.i.i297, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit316
 
 if.then7.i.i.i.i297:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i294
   %vtable.i.i.i.i.i.i298 = load ptr, ptr %ref.tmp.val, align 8
@@ -936,21 +936,21 @@ if.else.i.i.i.i.i.i.i310:                         ; preds = %if.then7.i.i.i.i297
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i304: ; preds = %if.else.i.i.i.i.i.i.i310, %if.then.i.i.i.i.i.i.i302
   %retval.i.0.i.i.i.i.i.i305 = phi i32 [ %80, %if.then.i.i.i.i.i.i.i302 ], [ %81, %if.else.i.i.i.i.i.i.i310 ]
   %cmp.i.i.i.i.i.i306 = icmp eq i32 %retval.i.0.i.i.i.i.i.i305, 1
-  br i1 %cmp.i.i.i.i.i.i306, label %if.end8.sink.split.i.i.i.i307, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit316
+  br i1 %cmp.i.i.i.i.i.i306, label %if.end8.sink.split.i.i.i.i307, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit316
 
 if.end8.sink.split.i.i.i.i307:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i304, %if.then.i.i.i.i312
   %vtable2.i.i.i.i.i.i308 = load ptr, ptr %ref.tmp.val, align 8
   %vfn3.i.i.i.i.i.i309 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i308, i64 24
   %82 = load ptr, ptr %vfn3.i.i.i.i.i.i309, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.val) #18
-  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit316
+  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit316
 
-_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit316: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit285, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i294, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i304, %if.end8.sink.split.i.i.i.i307
+_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit316: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit285, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i294, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i304, %if.end8.sink.split.i.i.i.i307
   %ref.tmp2.val = load ptr, ptr %_M_refcount.i.i.i62, align 8
   %cmp.not.i.i.i317 = icmp eq ptr %ref.tmp2.val, null
   br i1 %cmp.not.i.i.i317, label %if.then.i.i.i349, label %if.then.i.i.i318
 
-if.then.i.i.i318:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit316
+if.then.i.i.i318:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit316
   %_M_use_count.i.i.i.i319 = getelementptr inbounds i8, ptr %ref.tmp2.val, i64 8
   %83 = load atomic i64, ptr %_M_use_count.i.i.i.i319 acquire, align 8
   %cmp.i.i.i.i320 = icmp eq i64 %83, 4294967297
@@ -1018,7 +1018,7 @@ if.end8.sink.split.i.i.i.i338:                    ; preds = %_ZN9__gnu_cxx27__ex
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.val) #18
   br label %if.then.i.i.i349
 
-if.then.i.i.i349:                                 ; preds = %if.end8.sink.split.i.i.i.i338, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i335, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i325, %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit316
+if.then.i.i.i349:                                 ; preds = %if.end8.sink.split.i.i.i.i338, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i335, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i325, %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit316
   %93 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i351 = icmp eq i64 %93, 4294967297
   %94 = trunc i64 %93 to i32
@@ -1050,7 +1050,7 @@ if.else.i.i.i.i.i373:                             ; preds = %if.end.i.i.i.i352
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356: ; preds = %if.else.i.i.i.i.i373, %if.then.i.i.i.i.i354
   %retval.i.0.i.i.i.i357 = phi i32 [ %94, %if.then.i.i.i.i.i354 ], [ %97, %if.else.i.i.i.i.i373 ]
   %cmp6.i.i.i.i358 = icmp eq i32 %retval.i.0.i.i.i.i357, 1
-  br i1 %cmp6.i.i.i.i358, label %if.then7.i.i.i.i359, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit378
+  br i1 %cmp6.i.i.i.i358, label %if.then7.i.i.i.i359, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit378
 
 if.then7.i.i.i.i359:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356
   %vtable.i.i.i.i.i.i360 = load ptr, ptr %call5.i.i.i5.i.i.i.i.i56, align 8
@@ -1074,16 +1074,16 @@ if.else.i.i.i.i.i.i.i372:                         ; preds = %if.then7.i.i.i.i359
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366: ; preds = %if.else.i.i.i.i.i.i.i372, %if.then.i.i.i.i.i.i.i364
   %retval.i.0.i.i.i.i.i.i367 = phi i32 [ %100, %if.then.i.i.i.i.i.i.i364 ], [ %101, %if.else.i.i.i.i.i.i.i372 ]
   %cmp.i.i.i.i.i.i368 = icmp eq i32 %retval.i.0.i.i.i.i.i.i367, 1
-  br i1 %cmp.i.i.i.i.i.i368, label %if.end8.sink.split.i.i.i.i369, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit378
+  br i1 %cmp.i.i.i.i.i.i368, label %if.end8.sink.split.i.i.i.i369, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit378
 
 if.end8.sink.split.i.i.i.i369:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366, %if.then.i.i.i.i374
   %vtable2.i.i.i.i.i.i370 = load ptr, ptr %call5.i.i.i5.i.i.i.i.i56, align 8
   %vfn3.i.i.i.i.i.i371 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i370, i64 24
   %102 = load ptr, ptr %vfn3.i.i.i.i.i.i371, align 8
   call void %102(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i5.i.i.i.i.i56) #18
-  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit378
+  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit378
 
-_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit378: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366, %if.end8.sink.split.i.i.i.i369
+_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit378: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i356, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i366, %if.end8.sink.split.i.i.i.i369
   %matcher.val45 = load ptr, ptr %matcher, align 8
   %body_.i = getelementptr inbounds i8, ptr %expr, i64 64
   %vtable = load ptr, ptr %matcher.val45, align 8
@@ -1091,7 +1091,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2
   %call42 = invoke noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(8) %matcher.val45, ptr noundef nonnull align 8 dereferenceable(16) %body_.i)
           to label %invoke.cont41 unwind label %lpad38
 
-invoke.cont41:                                    ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit378
+invoke.cont41:                                    ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit378
   br i1 %call42, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont41
@@ -1154,59 +1154,59 @@ lpad28:                                           ; preds = %invoke.cont27
           cleanup
   %115 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   %ref.tmp10.val34 = load ptr, ptr %115, align 8
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr %ref.tmp10.val34) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr %ref.tmp10.val34) #18
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad28, %lpad26
   %.pn = phi { ptr, i32 } [ %114, %lpad28 ], [ %113, %lpad26 ]
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr nonnull %call5.i.i.i5.i.i.i.i.i98) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr nonnull %call5.i.i.i5.i.i.i.i.i98) #18
   br label %ehcleanup30
 
 ehcleanup30:                                      ; preds = %ehcleanup, %lpad24
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %112, %lpad24 ]
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr nonnull %call5.i.i.i5.i.i.i.i.i91) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr nonnull %call5.i.i.i5.i.i.i.i.i91) #18
   br label %ehcleanup31
 
 ehcleanup31:                                      ; preds = %ehcleanup30, %lpad21
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup30 ], [ %111, %lpad21 ]
   %116 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   %ref.tmp11.val37 = load ptr, ptr %116, align 8
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr %ref.tmp11.val37) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr %ref.tmp11.val37) #18
   br label %ehcleanup32
 
 ehcleanup32:                                      ; preds = %ehcleanup31, %lpad18
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup31 ], [ %110, %lpad18 ]
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr nonnull %call5.i.i.i5.i.i.i.i.i84) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr nonnull %call5.i.i.i5.i.i.i.i.i84) #18
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %ehcleanup32, %lpad16
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup32 ], [ %109, %lpad16 ]
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr nonnull %call5.i.i.i5.i.i.i.i.i76) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr nonnull %call5.i.i.i5.i.i.i.i.i76) #18
   br label %ehcleanup34
 
 ehcleanup34:                                      ; preds = %ehcleanup33, %lpad13
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup33 ], [ %108, %lpad13 ]
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr nonnull %call5.i.i.i5.i.i.i.i.i69) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr nonnull %call5.i.i.i5.i.i.i.i.i69) #18
   br label %ehcleanup35
 
 ehcleanup35:                                      ; preds = %ehcleanup34, %lpad8
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup34 ], [ %107, %lpad8 ]
   %117 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp.val41 = load ptr, ptr %117, align 8
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr %ref.tmp.val41) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr %ref.tmp.val41) #18
   br label %ehcleanup36
 
 ehcleanup36:                                      ; preds = %ehcleanup35, %lpad5
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup35 ], [ %106, %lpad5 ]
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr nonnull %call5.i.i.i5.i.i.i.i.i63) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr nonnull %call5.i.i.i5.i.i.i.i.i63) #18
   br label %ehcleanup37
 
 ehcleanup37:                                      ; preds = %ehcleanup36, %lpad3
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup36 ], [ %105, %lpad3 ]
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr nonnull %call5.i.i.i5.i.i.i.i.i56) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr nonnull %call5.i.i.i5.i.i.i.i.i56) #18
   br label %ehcleanup211
 
-lpad38:                                           ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit378
+lpad38:                                           ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit378
   %118 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup209
@@ -1810,7 +1810,7 @@ if.else.i.i.i.i.i531:                             ; preds = %if.then.i.i.i526
 _ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEEC2ERKS5_.exit532: ; preds = %if.then162, %if.then.i.i.i.i.i529, %if.else.i.i.i.i.i531
   %213 = load i64, ptr %c2, align 8
   %c.val = load ptr, ptr %c, align 8
-  %call167 = invoke fastcc noundef zeroext i1 @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110isLessThenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RKSt10shared_ptrIKNS0_4core20FieldAccessTypedExprEElSB_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %op2, ptr %c.val, i64 noundef %213, ptr noundef nonnull align 8 dereferenceable(32) %left)
+  %call167 = invoke fastcc noundef zeroext i1 @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110isLessThenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RKSt10shared_ptrIKNS0_4core20FieldAccessTypedExprEElSB_(ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %op2, ptr %c.val, i64 noundef %213, ptr noundef nonnull align 8 dereferenceable(32) %left)
           to label %invoke.cont166 unwind label %lpad165
 
 invoke.cont166:                                   ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEEC2ERKS5_.exit532
@@ -1874,7 +1874,7 @@ if.else.i.i.i.i.i542:                             ; preds = %if.then.i.i.i537
 _ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEEC2ERKS5_.exit543: ; preds = %if.then171, %if.then.i.i.i.i.i540, %if.else.i.i.i.i.i542
   %223 = load i64, ptr %c1, align 8
   %a.val = load ptr, ptr %a, align 8
-  %call177 = invoke fastcc noundef zeroext i1 @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110isLessThenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RKSt10shared_ptrIKNS0_4core20FieldAccessTypedExprEElSB_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %op1, ptr %a.val, i64 noundef %223, ptr noundef nonnull align 8 dereferenceable(32) %left)
+  %call177 = invoke fastcc noundef zeroext i1 @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110isLessThenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RKSt10shared_ptrIKNS0_4core20FieldAccessTypedExprEElSB_(ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %op1, ptr %a.val, i64 noundef %223, ptr noundef nonnull align 8 dereferenceable(32) %left)
           to label %invoke.cont176 unwind label %lpad175
 
 invoke.cont176:                                   ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEEC2ERKS5_.exit543
@@ -1904,14 +1904,14 @@ lpad175:                                          ; preds = %_ZNSt10shared_ptrIK
 if.end180:                                        ; preds = %if.end169
   %227 = load i64, ptr %c1, align 8
   %a.val54 = load ptr, ptr %a, align 8
-  %call183 = invoke fastcc noundef zeroext i1 @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110isLessThenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RKSt10shared_ptrIKNS0_4core20FieldAccessTypedExprEElSB_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %op1, ptr %a.val54, i64 noundef %227, ptr noundef nonnull align 8 dereferenceable(32) %left)
+  %call183 = invoke fastcc noundef zeroext i1 @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110isLessThenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RKSt10shared_ptrIKNS0_4core20FieldAccessTypedExprEElSB_(ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %op1, ptr %a.val54, i64 noundef %227, ptr noundef nonnull align 8 dereferenceable(32) %left)
           to label %invoke.cont182 unwind label %lpad181
 
 invoke.cont182:                                   ; preds = %if.end180
   %frombool184 = zext i1 %call183 to i8
   %228 = load i64, ptr %c2, align 8
   %c.val55 = load ptr, ptr %c, align 8
-  %call186 = invoke fastcc noundef zeroext i1 @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110isLessThenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RKSt10shared_ptrIKNS0_4core20FieldAccessTypedExprEElSB_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %op2, ptr %c.val55, i64 noundef %228, ptr noundef nonnull align 8 dereferenceable(32) %left)
+  %call186 = invoke fastcc noundef zeroext i1 @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110isLessThenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RKSt10shared_ptrIKNS0_4core20FieldAccessTypedExprEElSB_(ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %op2, ptr %c.val55, i64 noundef %228, ptr noundef nonnull align 8 dereferenceable(32) %left)
           to label %invoke.cont185 unwind label %lpad181
 
 invoke.cont185:                                   ; preds = %invoke.cont182
@@ -2089,7 +2089,7 @@ cleanup208:                                       ; preds = %if.end.i.i.i.i599, 
   %250 = getelementptr inbounds i8, ptr %matcher, i64 8
   %matcher.val = load ptr, ptr %250, align 8
   %cmp.not.i.i.i600 = icmp eq ptr %matcher.val, null
-  br i1 %cmp.not.i.i.i600, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit630, label %if.then.i.i.i601
+  br i1 %cmp.not.i.i.i600, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit630, label %if.then.i.i.i601
 
 if.then.i.i.i601:                                 ; preds = %cleanup208
   %_M_use_count.i.i.i.i602 = getelementptr inbounds i8, ptr %matcher.val, i64 8
@@ -2125,7 +2125,7 @@ if.else.i.i.i.i.i625:                             ; preds = %if.end.i.i.i.i604
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i608: ; preds = %if.else.i.i.i.i.i625, %if.then.i.i.i.i.i606
   %retval.i.0.i.i.i.i609 = phi i32 [ %252, %if.then.i.i.i.i.i606 ], [ %255, %if.else.i.i.i.i.i625 ]
   %cmp6.i.i.i.i610 = icmp eq i32 %retval.i.0.i.i.i.i609, 1
-  br i1 %cmp6.i.i.i.i610, label %if.then7.i.i.i.i611, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit630
+  br i1 %cmp6.i.i.i.i610, label %if.then7.i.i.i.i611, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit630
 
 if.then7.i.i.i.i611:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i608
   %vtable.i.i.i.i.i.i612 = load ptr, ptr %matcher.val, align 8
@@ -2150,16 +2150,16 @@ if.else.i.i.i.i.i.i.i624:                         ; preds = %if.then7.i.i.i.i611
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i618: ; preds = %if.else.i.i.i.i.i.i.i624, %if.then.i.i.i.i.i.i.i616
   %retval.i.0.i.i.i.i.i.i619 = phi i32 [ %258, %if.then.i.i.i.i.i.i.i616 ], [ %259, %if.else.i.i.i.i.i.i.i624 ]
   %cmp.i.i.i.i.i.i620 = icmp eq i32 %retval.i.0.i.i.i.i.i.i619, 1
-  br i1 %cmp.i.i.i.i.i.i620, label %if.end8.sink.split.i.i.i.i621, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit630
+  br i1 %cmp.i.i.i.i.i.i620, label %if.end8.sink.split.i.i.i.i621, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit630
 
 if.end8.sink.split.i.i.i.i621:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i618, %if.then.i.i.i.i626
   %vtable2.i.i.i.i.i.i622 = load ptr, ptr %matcher.val, align 8
   %vfn3.i.i.i.i.i.i623 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i622, i64 24
   %260 = load ptr, ptr %vfn3.i.i.i.i.i.i623, align 8
   call void %260(ptr noundef nonnull align 8 dereferenceable(16) %matcher.val) #18
-  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit630
+  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit630
 
-_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit630: ; preds = %cleanup208, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i608, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i618, %if.end8.sink.split.i.i.i.i621
+_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit630: ; preds = %cleanup208, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i608, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i618, %if.end8.sink.split.i.i.i.i621
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %op2) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %op1) #18
   %_M_refcount.i.i631 = getelementptr inbounds i8, ptr %v, i64 8
@@ -2167,7 +2167,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2
   %cmp.not.i.i.i632 = icmp eq ptr %261, null
   br i1 %cmp.not.i.i.i632, label %_ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEED2Ev.exit662, label %if.then.i.i.i633
 
-if.then.i.i.i633:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit630
+if.then.i.i.i633:                                 ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit630
   %_M_use_count.i.i.i.i634 = getelementptr inbounds i8, ptr %261, i64 8
   %262 = load atomic i64, ptr %_M_use_count.i.i.i.i634 acquire, align 8
   %cmp.i.i.i.i635 = icmp eq i64 %262, 4294967297
@@ -2235,7 +2235,7 @@ if.end8.sink.split.i.i.i.i653:                    ; preds = %_ZN9__gnu_cxx27__ex
   call void %271(ptr noundef nonnull align 8 dereferenceable(16) %261) #18
   br label %_ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEED2Ev.exit662
 
-_ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEED2Ev.exit662: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit630, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i640, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i650, %if.end8.sink.split.i.i.i.i653
+_ZNSt10shared_ptrIKN8facebook5velox4core10ITypedExprEED2Ev.exit662: ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit630, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i640, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i650, %if.end8.sink.split.i.i.i.i653
   %_M_refcount.i.i663 = getelementptr inbounds i8, ptr %u, i64 8
   %272 = load ptr, ptr %_M_refcount.i.i663, align 8
   %cmp.not.i.i.i664 = icmp eq ptr %272, null
@@ -2760,7 +2760,7 @@ ehcleanup209:                                     ; preds = %ehcleanup207, %lpad
   %.pn26.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn26.pn.pn.pn, %ehcleanup207 ], [ %118, %lpad38 ]
   %349 = getelementptr inbounds i8, ptr %matcher, i64 8
   %matcher.val44 = load ptr, ptr %349, align 8
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr %matcher.val44) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr %matcher.val44) #18
   br label %ehcleanup211
 
 ehcleanup211:                                     ; preds = %ehcleanup209, %ehcleanup37, %lpad
@@ -2782,7 +2782,7 @@ ehcleanup211:                                     ; preds = %ehcleanup209, %ehcl
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_16ifelseERKSt10shared_ptrINS3_7MatcherEES8_S8_.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %condition.0.val, ptr %condition.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %thenClause, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %elseClause) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_16ifelseERKSt10shared_ptrINS3_7MatcherEES8_S8_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %condition.0.val, ptr %condition.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %thenClause, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %elseClause) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.std::vector.48", align 8
   %ref.tmp2 = alloca [3 x %"class.std::shared_ptr.5"], align 8
@@ -2950,13 +2950,13 @@ _ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17M
   store ptr %call5.i.i.i5.i.i.i.i23, ptr %_M_refcount.i.i24, align 8
   br label %arraydestroy.body
 
-arraydestroy.body:                                ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit, %_ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit
-  %arraydestroy.elementPast = phi ptr [ %add.ptr.i.i, %_ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit ], [ %arraydestroy.element, %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit ]
+arraydestroy.body:                                ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit, %_ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit
+  %arraydestroy.elementPast = phi ptr [ %add.ptr.i.i, %_ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit ], [ %arraydestroy.element, %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -16
   %21 = getelementptr i8, ptr %arraydestroy.elementPast, i64 -8
   %arraydestroy.element.val = load ptr, ptr %21, align 8
   %cmp.not.i.i.i39 = icmp eq ptr %arraydestroy.element.val, null
-  br i1 %cmp.not.i.i.i39, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit, label %if.then.i.i.i40
+  br i1 %cmp.not.i.i.i39, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit, label %if.then.i.i.i40
 
 if.then.i.i.i40:                                  ; preds = %arraydestroy.body
   %_M_use_count.i.i.i.i41 = getelementptr inbounds i8, ptr %arraydestroy.element.val, i64 8
@@ -2992,7 +2992,7 @@ if.else.i.i.i.i.i64:                              ; preds = %if.end.i.i.i.i43
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i47: ; preds = %if.else.i.i.i.i.i64, %if.then.i.i.i.i.i45
   %retval.i.0.i.i.i.i48 = phi i32 [ %23, %if.then.i.i.i.i.i45 ], [ %26, %if.else.i.i.i.i.i64 ]
   %cmp6.i.i.i.i49 = icmp eq i32 %retval.i.0.i.i.i.i48, 1
-  br i1 %cmp6.i.i.i.i49, label %if.then7.i.i.i.i50, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i49, label %if.then7.i.i.i.i50, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
 
 if.then7.i.i.i.i50:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i47
   %vtable.i.i.i.i.i.i51 = load ptr, ptr %arraydestroy.element.val, align 8
@@ -3017,20 +3017,20 @@ if.else.i.i.i.i.i.i.i63:                          ; preds = %if.then7.i.i.i.i50
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i57: ; preds = %if.else.i.i.i.i.i.i.i63, %if.then.i.i.i.i.i.i.i55
   %retval.i.0.i.i.i.i.i.i58 = phi i32 [ %29, %if.then.i.i.i.i.i.i.i55 ], [ %30, %if.else.i.i.i.i.i.i.i63 ]
   %cmp.i.i.i.i.i.i59 = icmp eq i32 %retval.i.0.i.i.i.i.i.i58, 1
-  br i1 %cmp.i.i.i.i.i.i59, label %if.end8.sink.split.i.i.i.i60, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i59, label %if.end8.sink.split.i.i.i.i60, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i60:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i57, %if.then.i.i.i.i65
   %vtable2.i.i.i.i.i.i61 = load ptr, ptr %arraydestroy.element.val, align 8
   %vfn3.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i61, i64 24
   %31 = load ptr, ptr %vfn3.i.i.i.i.i.i62, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element.val) #18
-  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
 
-_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit: ; preds = %arraydestroy.body, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i47, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i57, %if.end8.sink.split.i.i.i.i60
+_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit: ; preds = %arraydestroy.body, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i47, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i57, %if.end8.sink.split.i.i.i.i60
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %ref.tmp2
   br i1 %arraydestroy.done, label %arraydestroy.done7, label %arraydestroy.body
 
-arraydestroy.done7:                               ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+arraydestroy.done7:                               ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
   ret void
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEC2ERKS6_.exit21
@@ -3053,7 +3053,7 @@ arraydestroy.body10:                              ; preds = %arraydestroy.body10
   %arraydestroy.element12 = getelementptr inbounds i8, ptr %arraydestroy.elementPast11, i64 -16
   %34 = getelementptr i8, ptr %arraydestroy.elementPast11, i64 -8
   %arraydestroy.element12.val = load ptr, ptr %34, align 8
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr %arraydestroy.element12.val) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr %arraydestroy.element12.val) #18
   %arraydestroy.done13 = icmp eq ptr %arraydestroy.element12, %ref.tmp2
   br i1 %arraydestroy.done13, label %eh.resume, label %arraydestroy.body10
 
@@ -3062,7 +3062,7 @@ eh.resume:                                        ; preds = %arraydestroy.body10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110comparisonERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS3_7MatcherEESG_PS9_.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr %left.0.val, ptr %left.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %right, ptr noundef nonnull %op) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110comparisonERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS3_7MatcherEESG_PS9_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr %left.0.val, ptr %left.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %right, ptr noundef nonnull %op) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i.i = alloca %"class.std::vector.48", align 8
   %ref.tmp1 = alloca %"class.std::vector.48", align 8
@@ -3225,13 +3225,13 @@ _ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17M
   store ptr %call5.i.i.i5.i.i.i.i13, ptr %_M_refcount.i.i14, align 8
   br label %arraydestroy.body
 
-arraydestroy.body:                                ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit, %_ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit
-  %arraydestroy.elementPast = phi ptr [ %add.ptr.i.i, %_ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit ], [ %arraydestroy.element, %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit ]
+arraydestroy.body:                                ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit, %_ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit
+  %arraydestroy.elementPast = phi ptr [ %add.ptr.i.i, %_ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit ], [ %arraydestroy.element, %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -16
   %17 = getelementptr i8, ptr %arraydestroy.elementPast, i64 -8
   %arraydestroy.element.val = load ptr, ptr %17, align 8
   %cmp.not.i.i.i29 = icmp eq ptr %arraydestroy.element.val, null
-  br i1 %cmp.not.i.i.i29, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit, label %if.then.i.i.i30
+  br i1 %cmp.not.i.i.i29, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit, label %if.then.i.i.i30
 
 if.then.i.i.i30:                                  ; preds = %arraydestroy.body
   %_M_use_count.i.i.i.i31 = getelementptr inbounds i8, ptr %arraydestroy.element.val, i64 8
@@ -3267,7 +3267,7 @@ if.else.i.i.i.i.i54:                              ; preds = %if.end.i.i.i.i33
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i37: ; preds = %if.else.i.i.i.i.i54, %if.then.i.i.i.i.i35
   %retval.i.0.i.i.i.i38 = phi i32 [ %19, %if.then.i.i.i.i.i35 ], [ %22, %if.else.i.i.i.i.i54 ]
   %cmp6.i.i.i.i39 = icmp eq i32 %retval.i.0.i.i.i.i38, 1
-  br i1 %cmp6.i.i.i.i39, label %if.then7.i.i.i.i40, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i39, label %if.then7.i.i.i.i40, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
 
 if.then7.i.i.i.i40:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i37
   %vtable.i.i.i.i.i.i41 = load ptr, ptr %arraydestroy.element.val, align 8
@@ -3292,20 +3292,20 @@ if.else.i.i.i.i.i.i.i53:                          ; preds = %if.then7.i.i.i.i40
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i47: ; preds = %if.else.i.i.i.i.i.i.i53, %if.then.i.i.i.i.i.i.i45
   %retval.i.0.i.i.i.i.i.i48 = phi i32 [ %25, %if.then.i.i.i.i.i.i.i45 ], [ %26, %if.else.i.i.i.i.i.i.i53 ]
   %cmp.i.i.i.i.i.i49 = icmp eq i32 %retval.i.0.i.i.i.i.i.i48, 1
-  br i1 %cmp.i.i.i.i.i.i49, label %if.end8.sink.split.i.i.i.i50, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i49, label %if.end8.sink.split.i.i.i.i50, label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i50:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i47, %if.then.i.i.i.i55
   %vtable2.i.i.i.i.i.i51 = load ptr, ptr %arraydestroy.element.val, align 8
   %vfn3.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i51, i64 24
   %27 = load ptr, ptr %vfn3.i.i.i.i.i.i52, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element.val) #18
-  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
 
-_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit: ; preds = %arraydestroy.body, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i47, %if.end8.sink.split.i.i.i.i50
+_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit: ; preds = %arraydestroy.body, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i47, %if.end8.sink.split.i.i.i.i50
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %ref.tmp2
   br i1 %arraydestroy.done, label %arraydestroy.done6, label %arraydestroy.body
 
-arraydestroy.done6:                               ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom.exit
+arraydestroy.done6:                               ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.exit
   ret void
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEC2ERKS6_.exit11
@@ -3332,7 +3332,7 @@ arraydestroy.body9:                               ; preds = %arraydestroy.body9,
   %arraydestroy.element11 = getelementptr inbounds i8, ptr %arraydestroy.elementPast10, i64 -16
   %30 = getelementptr i8, ptr %arraydestroy.elementPast10, i64 -8
   %arraydestroy.element11.val = load ptr, ptr %30, align 8
-  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr %arraydestroy.element11.val) #18
+  call fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr %arraydestroy.element11.val) #18
   %arraydestroy.done12 = icmp eq ptr %arraydestroy.element11, %ref.tmp2
   br i1 %arraydestroy.done12, label %eh.resume, label %arraydestroy.body9
 
@@ -3343,10 +3343,10 @@ eh.resume:                                        ; preds = %arraydestroy.body9
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev.argprom(ptr %this.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEED2Ev(ptr %this.8.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -3382,7 +3382,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -3407,16 +3407,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #18
-  br label %_ZNSt12__shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -3650,7 +3650,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110isLessThenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RKSt10shared_ptrIKNS0_4core20FieldAccessTypedExprEElSB_.argprom(ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %operation, ptr %left.0.val, i64 noundef %result, ptr noundef nonnull align 8 dereferenceable(32) %inputLeft) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_110isLessThenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RKSt10shared_ptrIKNS0_4core20FieldAccessTypedExprEElSB_(ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %operation, ptr %left.0.val, i64 noundef %result, ptr noundef nonnull align 8 dereferenceable(32) %inputLeft) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %op = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3997,12 +3997,12 @@ entry:
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i
-  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i ], [ %0, %entry ]
+for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i
+  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i ], [ %0, %entry ]
   %2 = getelementptr i8, ptr %__first.addr.04.i.i.i, i64 8
   %__first.addr.0.val.i.i.i = load ptr, ptr %2, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.val.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.val.i.i.i, i64 8
@@ -4038,7 +4038,7 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %4, %if.then.i.i.i.i.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i, align 8
@@ -4063,34 +4063,34 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %10, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.0.val.i.i.i) #18
-  br label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i
+  br label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i
+_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !58
 
-invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i
+invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i
   %this.val.pr = load ptr, ptr %this, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #21
-  br label %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit
 
-_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 
@@ -4129,7 +4129,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
@@ -4250,12 +4250,12 @@ entry:
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i ], [ %0, %entry ]
+for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
   %2 = getelementptr i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %__first.addr.0.val.i.i.i.i = load ptr, ptr %2, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.val.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.val.i.i.i.i, i64 8
@@ -4291,7 +4291,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %4, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i, align 8
@@ -4316,21 +4316,21 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %10, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.0.val.i.i.i.i) #18
-  br label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i
+  br label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
+_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !58
 
-invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i
+invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i
   %this.val.pr.i = load ptr, ptr %inputMatchers_, align 8
   br label %invoke.cont.i
 
@@ -4358,12 +4358,12 @@ entry:
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i.i ], [ %0, %entry ]
+for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i.i ], [ %0, %entry ]
   %2 = getelementptr i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %__first.addr.0.val.i.i.i.i.i = load ptr, ptr %2, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.val.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
   %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.val.i.i.i.i.i, i64 8
@@ -4399,7 +4399,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %4, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i.i, align 8
@@ -4424,21 +4424,21 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %10, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i.i
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i.i, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.0.val.i.i.i.i.i) #18
-  br label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i.i
+  br label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
+_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !58
 
-invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i.i
+invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i.i
   %this.val.pr.i.i = load ptr, ptr %inputMatchers_.i, align 8
   br label %invoke.cont.i.i
 
@@ -4498,7 +4498,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
@@ -4742,12 +4742,12 @@ entry:
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i ], [ %0, %entry ]
+for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
   %2 = getelementptr i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %__first.addr.0.val.i.i.i.i = load ptr, ptr %2, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.val.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.val.i.i.i.i, i64 8
@@ -4783,7 +4783,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %4, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i, align 8
@@ -4808,21 +4808,21 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %10, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.0.val.i.i.i.i) #18
-  br label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i
+  br label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
+_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !58
 
-invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.argprom.exit.i.i.i.i
+invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEEEvPT_.exit.i.i.i.i
   %this.val.pr.i = load ptr, ptr %inputMatchers_, align 8
   br label %invoke.cont.i
 
@@ -4877,7 +4877,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
@@ -5912,7 +5912,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
@@ -6998,45 +6998,45 @@ attributes #22 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5, !7}
-!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_.argprom: %agg.result"}
-!6 = distinct !{!6, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_: %agg.result"}
+!6 = distinct !{!6, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_"}
 !7 = distinct !{!7, !8, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_114anySingleInputEPSt10shared_ptrIKNS0_4core10ITypedExprEEPS4_IKNS5_20FieldAccessTypedExprEE: %agg.result"}
 !8 = distinct !{!8, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_114anySingleInputEPSt10shared_ptrIKNS0_4core10ITypedExprEEPS4_IKNS5_20FieldAccessTypedExprEE"}
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_114anySingleInputEPSt10shared_ptrIKNS0_4core10ITypedExprEEPS4_IKNS5_20FieldAccessTypedExprEE: %agg.result"}
 !11 = distinct !{!11, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_114anySingleInputEPSt10shared_ptrIKNS0_4core10ITypedExprEEPS4_IKNS5_20FieldAccessTypedExprEE"}
 !12 = !{!13, !10}
-!13 = distinct !{!13, !14, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_.argprom: %agg.result"}
-!14 = distinct !{!14, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_.argprom"}
+!13 = distinct !{!13, !14, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_: %agg.result"}
+!14 = distinct !{!14, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_"}
 !15 = !{!16}
 !16 = distinct !{!16, !17, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_118comparisonConstantEPl: %agg.result"}
 !17 = distinct !{!17, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_118comparisonConstantEPl"}
 !18 = !{!19, !16}
-!19 = distinct !{!19, !20, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!20 = distinct !{!20, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!19 = distinct !{!19, !20, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!20 = distinct !{!20, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_.argprom: %agg.result"}
-!23 = distinct !{!23, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_.argprom"}
+!22 = distinct !{!22, !23, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_: %agg.result"}
+!23 = distinct !{!23, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_"}
 !24 = distinct !{!24, !25, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_114anySingleInputEPSt10shared_ptrIKNS0_4core10ITypedExprEEPS4_IKNS5_20FieldAccessTypedExprEE: %agg.result"}
 !25 = distinct !{!25, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_114anySingleInputEPSt10shared_ptrIKNS0_4core10ITypedExprEEPS4_IKNS5_20FieldAccessTypedExprEE"}
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_114anySingleInputEPSt10shared_ptrIKNS0_4core10ITypedExprEEPS4_IKNS5_20FieldAccessTypedExprEE: %agg.result"}
 !28 = distinct !{!28, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_114anySingleInputEPSt10shared_ptrIKNS0_4core10ITypedExprEEPS4_IKNS5_20FieldAccessTypedExprEE"}
 !29 = !{!30, !27}
-!30 = distinct !{!30, !31, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_.argprom: %agg.result"}
-!31 = distinct !{!31, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_.argprom"}
+!30 = distinct !{!30, !31, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_: %agg.result"}
+!31 = distinct !{!31, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_121AnySingleInputMatcherEJRPSt10shared_ptrIKNS1_4core10ITypedExprEERPS6_IKNS7_20FieldAccessTypedExprEEEES6_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_"}
 !32 = !{!33}
 !33 = distinct !{!33, !34, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_118comparisonConstantEPl: %agg.result"}
 !34 = distinct !{!34, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_118comparisonConstantEPl"}
 !35 = !{!36, !33}
-!36 = distinct !{!36, !37, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!37 = distinct !{!37, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!36 = distinct !{!36, !37, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!37 = distinct !{!37, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_118comparisonConstantEPl: %agg.result"}
 !40 = distinct !{!40, !"_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_118comparisonConstantEPl"}
 !41 = !{!42, !39}
-!42 = distinct !{!42, !43, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: %agg.result"}
-!43 = distinct !{!43, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!42 = distinct !{!42, !43, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: %agg.result"}
+!43 = distinct !{!43, !"_ZSt11make_sharedIN8facebook5velox9functions9prestosql12_GLOBAL__N_125ComparisonConstantMatcherEJRPlEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZSt11make_sharedIN8facebook5velox4core20FieldAccessTypedExprEJRKSt10shared_ptrIKNS1_4TypeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES4_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_: %agg.result"}
 !46 = distinct !{!46, !"_ZSt11make_sharedIN8facebook5velox4core20FieldAccessTypedExprEJRKSt10shared_ptrIKNS1_4TypeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES4_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESJ_E4typeEEDpOT0_"}

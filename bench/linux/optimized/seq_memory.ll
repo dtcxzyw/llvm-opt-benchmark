@@ -39,12 +39,12 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_seq_expa
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_seq_dump_var_event(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call fastcc i32 @dump_var_event.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
+  %4 = tail call fastcc i32 @dump_var_event(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @dump_var_event.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 1073741824) %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @dump_var_event(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 1073741824) %3) unnamed_addr #0 align 16 {
   %5 = alloca [32 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
@@ -194,7 +194,7 @@ define dso_local i32 @snd_seq_expand_var_event(ptr nocapture noundef readonly %0
 
 35:                                               ; preds = %25
   %36 = select i1 %26, ptr @seq_copy_in_user, ptr @seq_copy_in_kernel
-  %37 = call fastcc i32 @dump_var_event.argelim(ptr noundef %0, ptr noundef nonnull %36, ptr noundef nonnull %6, i32 noundef %14)
+  %37 = call fastcc i32 @dump_var_event(ptr noundef %0, ptr noundef nonnull %36, ptr noundef nonnull %6, i32 noundef %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %.thread, label %39

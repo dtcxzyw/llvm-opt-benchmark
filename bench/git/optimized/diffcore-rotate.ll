@@ -66,7 +66,7 @@ if.then13:                                        ; preds = %for.inc, %for.cond.
   br i1 %tobool15.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %if.then13
-  %call17 = tail call fastcc ptr @_.argprom()
+  %call17 = tail call fastcc ptr @_()
   %rotate_to18 = getelementptr inbounds i8, ptr %opt, i64 8
   %8 = load ptr, ptr %rotate_to18, align 8
   tail call void (ptr, ...) @die(ptr noundef %call17, ptr noundef %8) #9
@@ -138,7 +138,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @die(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_.argprom() unnamed_addr #0 {
+define internal fastcc ptr @_() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

@@ -908,7 +908,7 @@ define hidden i32 @mbedtls_ecp_mul_restartable(ptr noundef %0, ptr noundef %1, p
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
+  %10 = tail call fastcc i32 @ecp_mul_restartable_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
   br label %11
 
 11:                                               ; preds = %7, %9
@@ -917,7 +917,7 @@ define hidden i32 @mbedtls_ecp_mul_restartable(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #6 {
+define internal fastcc i32 @ecp_mul_restartable_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #6 {
   %7 = alloca %struct.mbedtls_mpi, align 8
   %8 = alloca %struct.mbedtls_ecp_point, align 8
   %9 = alloca [4 x %struct.mbedtls_mpi], align 16
@@ -931,18 +931,18 @@ define internal fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef %0,
   %17 = alloca [4 x %struct.mbedtls_mpi], align 16
   %18 = tail call i32 @mbedtls_ecp_check_privkey(ptr noundef %0, ptr noundef %2)
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %ecp_mul_comb.argprom.exit
+  br i1 %.not, label %19, label %ecp_mul_comb.exit
 
 19:                                               ; preds = %6
   %20 = tail call i32 @mbedtls_ecp_check_pubkey(ptr noundef %0, ptr noundef %3)
   %.not23 = icmp eq i32 %20, 0
-  br i1 %.not23, label %21, label %ecp_mul_comb.argprom.exit
+  br i1 %.not23, label %21, label %ecp_mul_comb.exit
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %0, i64 96
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %ecp_mul_comb.argprom.exit, label %25
+  br i1 %24, label %ecp_mul_comb.exit, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %0, i64 120
@@ -979,7 +979,7 @@ ecp_mul_mxz.exit.thread:                          ; preds = %mpi_init_many.exit.
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17)
-  br label %ecp_mul_comb.argprom.exit
+  br label %ecp_mul_comb.exit
 
 35:                                               ; preds = %mpi_init_many.exit.i
   %36 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %16, ptr noundef %3) #19
@@ -1103,17 +1103,17 @@ ecp_mul_mxz.exit:                                 ; preds = %79
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17)
   %.not24 = icmp eq i32 %.034.i, 0
-  br i1 %.not24, label %mbedtls_ecp_get_type.exit.thread, label %ecp_mul_comb.argprom.exit
+  br i1 %.not24, label %mbedtls_ecp_get_type.exit.thread, label %ecp_mul_comb.exit
 
 mbedtls_ecp_get_type.exit.thread:                 ; preds = %ecp_mul_mxz.exit
   %.pr.pre = load ptr, ptr %22, align 8
   %82 = icmp eq ptr %.pr.pre, null
-  br i1 %82, label %ecp_mul_comb.argprom.exit, label %83
+  br i1 %82, label %ecp_mul_comb.exit, label %83
 
 83:                                               ; preds = %mbedtls_ecp_get_type.exit.thread
   %.pr = load ptr, ptr %26, align 8
   %84 = icmp eq ptr %.pr, null
-  br i1 %84, label %ecp_mul_comb.argprom.exit, label %mbedtls_ecp_get_type.exit28
+  br i1 %84, label %ecp_mul_comb.exit, label %mbedtls_ecp_get_type.exit28
 
 mbedtls_ecp_get_type.exit28:                      ; preds = %25, %83
   %85 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1381,15 +1381,15 @@ mbedtls_ecp_copy.exit.thread.i.i:                 ; preds = %167, %mbedtls_ecp_c
   %198 = getelementptr inbounds i8, ptr %.012.i80.i.i, i64 24
   call void @mbedtls_mpi_free(ptr noundef nonnull %.012.i80.i.i) #19
   %.not.i81.i.i = icmp eq i64 %197, 0
-  br i1 %.not.i81.i.i, label %ecp_precompute_comb.argprom.exit.i, label %196, !llvm.loop !14
+  br i1 %.not.i81.i.i, label %ecp_precompute_comb.exit.i, label %196, !llvm.loop !14
 
-ecp_precompute_comb.argprom.exit.i:               ; preds = %196
+ecp_precompute_comb.exit.i:                       ; preds = %196
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14)
   %.not63.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not63.i, label %199, label %283
 
-199:                                              ; preds = %ecp_precompute_comb.argprom.exit.i
+199:                                              ; preds = %ecp_precompute_comb.exit.i
   br i1 %.not.i2.i, label %204, label %200
 
 200:                                              ; preds = %199
@@ -1416,7 +1416,7 @@ ecp_precompute_comb.argprom.exit.i:               ; preds = %196
 ecp_comb_recode_scalar.exit.thread.i.i:           ; preds = %204
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  br label %ecp_mul_comb_after_precomp.argprom.exit.i
+  br label %ecp_mul_comb_after_precomp.exit.i
 
 207:                                              ; preds = %204
   %208 = call i32 @mbedtls_mpi_get_bit(ptr noundef %2, i64 noundef 0) #19
@@ -1501,7 +1501,7 @@ ecp_comb_recode_scalar.exit.i.i:                  ; preds = %.lr.ph.i.i.i.i, %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %.not.i73.i = icmp eq i32 %.0.i.i.i, 0
-  br i1 %.not.i73.i, label %244, label %ecp_mul_comb_after_precomp.argprom.exit.i
+  br i1 %.not.i73.i, label %244, label %ecp_mul_comb_after_precomp.exit.i
 
 244:                                              ; preds = %ecp_comb_recode_scalar.exit.i.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
@@ -1582,15 +1582,15 @@ mpi_init_many.exit.i.i.i:                         ; preds = %247
   %270 = getelementptr inbounds i8, ptr %.012.i41.i.i.i, i64 24
   call void @mbedtls_mpi_free(ptr noundef nonnull %.012.i41.i.i.i) #19
   %.not.i42.i.i.i = icmp eq i64 %269, 0
-  br i1 %.not.i42.i.i.i, label %ecp_mul_comb_core.argprom.exit.i.i, label %268, !llvm.loop !14
+  br i1 %.not.i42.i.i.i, label %ecp_mul_comb_core.exit.i.i, label %268, !llvm.loop !14
 
-ecp_mul_comb_core.argprom.exit.i.i:               ; preds = %268
+ecp_mul_comb_core.exit.i.i:                       ; preds = %268
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9)
   %.not27.i.i = icmp eq i32 %.029.i.i.i, 0
-  br i1 %.not27.i.i, label %271, label %ecp_mul_comb_after_precomp.argprom.exit.i
+  br i1 %.not27.i.i, label %271, label %ecp_mul_comb_after_precomp.exit.i
 
-271:                                              ; preds = %ecp_mul_comb_core.argprom.exit.i.i
+271:                                              ; preds = %ecp_mul_comb_core.exit.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @mbedtls_mpi_init(ptr noundef nonnull %7) #19
   %272 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1603,7 +1603,7 @@ ecp_mul_comb_core.argprom.exit.i.i:               ; preds = %268
 ecp_safe_invert_jac.exit.thread.i.i:              ; preds = %271
   call void @mbedtls_mpi_free(ptr noundef nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %ecp_mul_comb_after_precomp.argprom.exit.i
+  br label %ecp_mul_comb_after_precomp.exit.i
 
 ecp_safe_invert_jac.exit.i.i:                     ; preds = %271
   %.not7.i.i.i = icmp eq i32 %273, 0
@@ -1612,7 +1612,7 @@ ecp_safe_invert_jac.exit.i.i:                     ; preds = %271
   call void @mbedtls_mpi_free(ptr noundef nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %.not28.i.i = icmp eq i32 %277, 0
-  br i1 %.not28.i.i, label %278, label %ecp_mul_comb_after_precomp.argprom.exit.i
+  br i1 %.not28.i.i, label %278, label %ecp_mul_comb_after_precomp.exit.i
 
 278:                                              ; preds = %ecp_safe_invert_jac.exit.i.i
   %.not29.i.i = icmp eq ptr %4, null
@@ -1621,20 +1621,20 @@ ecp_safe_invert_jac.exit.i.i:                     ; preds = %271
 279:                                              ; preds = %278
   %280 = call fastcc i32 @ecp_randomize_jac(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   %.not30.i.i = icmp eq i32 %280, 0
-  br i1 %.not30.i.i, label %281, label %ecp_mul_comb_after_precomp.argprom.exit.i
+  br i1 %.not30.i.i, label %281, label %ecp_mul_comb_after_precomp.exit.i
 
 281:                                              ; preds = %279, %278
   %282 = call fastcc i32 @ecp_normalize_jac(ptr noundef %0, ptr noundef %1)
-  br label %ecp_mul_comb_after_precomp.argprom.exit.i
+  br label %ecp_mul_comb_after_precomp.exit.i
 
-ecp_mul_comb_after_precomp.argprom.exit.i:        ; preds = %281, %279, %ecp_safe_invert_jac.exit.i.i, %ecp_safe_invert_jac.exit.thread.i.i, %ecp_mul_comb_core.argprom.exit.i.i, %ecp_comb_recode_scalar.exit.i.i, %ecp_comb_recode_scalar.exit.thread.i.i
-  %.0.i72.i = phi i32 [ %.0.i.i.i, %ecp_comb_recode_scalar.exit.i.i ], [ %.029.i.i.i, %ecp_mul_comb_core.argprom.exit.i.i ], [ %277, %ecp_safe_invert_jac.exit.i.i ], [ %280, %279 ], [ %282, %281 ], [ -20352, %ecp_comb_recode_scalar.exit.thread.i.i ], [ %275, %ecp_safe_invert_jac.exit.thread.i.i ]
+ecp_mul_comb_after_precomp.exit.i:                ; preds = %281, %279, %ecp_safe_invert_jac.exit.i.i, %ecp_safe_invert_jac.exit.thread.i.i, %ecp_mul_comb_core.exit.i.i, %ecp_comb_recode_scalar.exit.i.i, %ecp_comb_recode_scalar.exit.thread.i.i
+  %.0.i72.i = phi i32 [ %.0.i.i.i, %ecp_comb_recode_scalar.exit.i.i ], [ %.029.i.i.i, %ecp_mul_comb_core.exit.i.i ], [ %277, %ecp_safe_invert_jac.exit.i.i ], [ %280, %279 ], [ %282, %281 ], [ -20352, %ecp_comb_recode_scalar.exit.thread.i.i ], [ %275, %ecp_safe_invert_jac.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 262, ptr nonnull %12)
   br label %283
 
-283:                                              ; preds = %ecp_mul_comb_after_precomp.argprom.exit.i, %ecp_precompute_comb.argprom.exit.i
-  %.054.i = phi i32 [ %.0.i72.i, %ecp_mul_comb_after_precomp.argprom.exit.i ], [ %.0.i.i, %ecp_precompute_comb.argprom.exit.i ]
-  %.1.i = phi ptr [ %.08.i, %ecp_mul_comb_after_precomp.argprom.exit.i ], [ %121, %ecp_precompute_comb.argprom.exit.i ]
+283:                                              ; preds = %ecp_mul_comb_after_precomp.exit.i, %ecp_precompute_comb.exit.i
+  %.054.i = phi i32 [ %.0.i72.i, %ecp_mul_comb_after_precomp.exit.i ], [ %.0.i.i, %ecp_precompute_comb.exit.i ]
+  %.1.i = phi ptr [ %.08.i, %ecp_mul_comb_after_precomp.exit.i ], [ %121, %ecp_precompute_comb.exit.i ]
   %284 = getelementptr inbounds i8, ptr %0, i64 232
   %285 = load ptr, ptr %284, align 8
   %286 = icmp eq ptr %.1.i, %285
@@ -1664,12 +1664,12 @@ mbedtls_ecp_point_free.exit.i:                    ; preds = %mbedtls_ecp_point_f
 
 291:                                              ; preds = %._crit_edge.i, %283
   %.not68.i = icmp eq i32 %.054.i, 0
-  br i1 %.not68.i, label %ecp_mul_comb.argprom.exit, label %.thread16.i
+  br i1 %.not68.i, label %ecp_mul_comb.exit, label %.thread16.i
 
 .thread16.i:                                      ; preds = %291, %119
   %.0541519.i = phi i32 [ %.054.i, %291 ], [ -19840, %119 ]
   %292 = icmp eq ptr %1, null
-  br i1 %292, label %ecp_mul_comb.argprom.exit, label %293
+  br i1 %292, label %ecp_mul_comb.exit, label %293
 
 293:                                              ; preds = %.thread16.i
   call void @mbedtls_mpi_free(ptr noundef nonnull %1) #19
@@ -1677,9 +1677,9 @@ mbedtls_ecp_point_free.exit.i:                    ; preds = %mbedtls_ecp_point_f
   call void @mbedtls_mpi_free(ptr noundef nonnull %294) #19
   %295 = getelementptr inbounds i8, ptr %1, i64 48
   call void @mbedtls_mpi_free(ptr noundef nonnull %295) #19
-  br label %ecp_mul_comb.argprom.exit
+  br label %ecp_mul_comb.exit
 
-ecp_mul_comb.argprom.exit:                        ; preds = %21, %83, %mbedtls_ecp_get_type.exit.thread, %293, %.thread16.i, %291, %ecp_mul_mxz.exit.thread, %ecp_mul_mxz.exit, %19, %6
+ecp_mul_comb.exit:                                ; preds = %21, %83, %mbedtls_ecp_get_type.exit.thread, %293, %.thread16.i, %291, %ecp_mul_mxz.exit.thread, %ecp_mul_mxz.exit, %19, %6
   %.0 = phi i32 [ %18, %6 ], [ %20, %19 ], [ %.034.i, %ecp_mul_mxz.exit ], [ -20352, %ecp_mul_mxz.exit.thread ], [ 0, %291 ], [ %.0541519.i, %.thread16.i ], [ %.0541519.i, %293 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ 0, %83 ], [ -20352, %21 ]
   ret i32 %.0
 }
@@ -1690,7 +1690,7 @@ define hidden i32 @mbedtls_ecp_mul(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %7, label %mbedtls_ecp_mul_restartable.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
+  %9 = tail call fastcc i32 @ecp_mul_restartable_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
   br label %mbedtls_ecp_mul_restartable.exit
 
 mbedtls_ecp_mul_restartable.exit:                 ; preds = %6, %8
@@ -1731,12 +1731,12 @@ mbedtls_ecp_get_type.exit:                        ; preds = %13
   br i1 %.not.i, label %mpi_init_many.exit, label %19, !llvm.loop !11
 
 mpi_init_many.exit:                               ; preds = %19
-  %22 = call fastcc i32 @mbedtls_ecp_mul_shortcuts.argprom(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3)
+  %22 = call fastcc i32 @mbedtls_ecp_mul_shortcuts(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3)
   %.not23 = icmp eq i32 %22, 0
   br i1 %.not23, label %23, label %29
 
 23:                                               ; preds = %mpi_init_many.exit
-  %24 = call fastcc i32 @mbedtls_ecp_mul_shortcuts.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
+  %24 = call fastcc i32 @mbedtls_ecp_mul_shortcuts(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   %.not24 = icmp eq i32 %24, 0
   br i1 %.not24, label %25, label %29
 
@@ -1774,7 +1774,7 @@ mbedtls_ecp_get_type.exit.thread:                 ; preds = %13, %7, %mpi_free_m
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbedtls_ecp_mul_shortcuts.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #6 {
+define internal fastcc i32 @mbedtls_ecp_mul_shortcuts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #6 {
   %5 = alloca %struct.mbedtls_mpi, align 8
   call void @mbedtls_mpi_init(ptr noundef nonnull %5) #19
   %6 = call i32 @mbedtls_mpi_cmp_int(ptr noundef %2, i64 noundef 0) #19
@@ -1858,7 +1858,7 @@ mbedtls_ecp_copy.exit26:                          ; preds = %34
   br label %mbedtls_ecp_set_zero.exit
 
 49:                                               ; preds = %29
-  %50 = call fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef null)
+  %50 = call fastcc i32 @ecp_mul_restartable_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef null)
   br label %mbedtls_ecp_set_zero.exit
 
 mbedtls_ecp_set_zero.exit:                        ; preds = %34, %32, %25, %21, %19, %13, %10, %8, %49, %45, %41, %mbedtls_ecp_copy.exit26
@@ -2005,7 +2005,7 @@ define internal fastcc i32 @ecp_add_mixed(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not121, label %73, label %mbedtls_ecp_copy.exit
 
 73:                                               ; preds = %71
-  %74 = tail call fastcc i32 @mbedtls_mpi_shift_l_mod.argelim(ptr noundef %0, ptr noundef %4)
+  %74 = tail call fastcc i32 @mbedtls_mpi_shift_l_mod(ptr noundef %0, ptr noundef %4)
   %.not122 = icmp eq i32 %74, 0
   br i1 %.not122, label %75, label %mbedtls_ecp_copy.exit
 
@@ -2238,7 +2238,7 @@ mbedtls_ecp_get_type.exit10:                      ; preds = %12
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %66
-  %71 = call fastcc i32 @mbedtls_mpi_sub_int_mod.argelim(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %4)
+  %71 = call fastcc i32 @mbedtls_mpi_sub_int_mod(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %4)
   %.not30.i = icmp eq i32 %71, 0
   br i1 %.not30.i, label %75, label %82
 
@@ -2418,7 +2418,7 @@ define hidden i32 @mbedtls_ecp_gen_keypair_base(ptr noundef %0, ptr noundef %1, 
   br i1 %9, label %mbedtls_ecp_mul.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %5)
+  %11 = tail call fastcc i32 @ecp_mul_restartable_internal(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %5)
   br label %mbedtls_ecp_mul.exit
 
 mbedtls_ecp_mul.exit:                             ; preds = %10, %8, %6
@@ -2438,7 +2438,7 @@ define hidden i32 @mbedtls_ecp_gen_keypair(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %9, label %mbedtls_ecp_gen_keypair_base.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef %4)
+  %11 = tail call fastcc i32 @ecp_mul_restartable_internal(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef %4)
   br label %mbedtls_ecp_gen_keypair_base.exit
 
 mbedtls_ecp_gen_keypair_base.exit:                ; preds = %5, %8, %10
@@ -2465,7 +2465,7 @@ define hidden i32 @mbedtls_ecp_gen_key(i32 noundef %0, ptr noundef %1, ptr nound
   br i1 %12, label %mbedtls_ecp_gen_keypair.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef %3)
+  %14 = tail call fastcc i32 @ecp_mul_restartable_internal(ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef %3)
   br label %mbedtls_ecp_gen_keypair.exit
 
 mbedtls_ecp_gen_keypair.exit:                     ; preds = %13, %11, %6, %4
@@ -2693,7 +2693,7 @@ define hidden i32 @mbedtls_ecp_check_pub_priv(ptr noundef %0, ptr noundef %1, pt
 mbedtls_ecp_mul.exit:                             ; preds = %23
   %27 = getelementptr inbounds i8, ptr %1, i64 80
   %28 = getelementptr inbounds i8, ptr %1, i64 248
-  %29 = call fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %28, ptr noundef nonnull %27, ptr noundef nonnull %2, ptr noundef %3)
+  %29 = call fastcc i32 @ecp_mul_restartable_internal(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %28, ptr noundef nonnull %27, ptr noundef nonnull %2, ptr noundef %3)
   %.not24 = icmp eq i32 %29, 0
   br i1 %.not24, label %30, label %mbedtls_ecp_mul.exit.thread
 
@@ -2819,12 +2819,12 @@ define hidden i32 @mbedtls_ecp_self_test(i32 noundef %0) local_unnamed_addr #6 {
   br i1 %.not23, label %25, label %39
 
 25:                                               ; preds = %23
-  %26 = call fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull @self_test_rng, ptr noundef null)
+  %26 = call fastcc i32 @ecp_mul_restartable_internal(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull @self_test_rng, ptr noundef null)
   %.not24 = icmp eq i32 %26, 0
   br i1 %.not24, label %27, label %39
 
 27:                                               ; preds = %25
-  %28 = call fastcc i32 @self_test_point.argelim(i32 noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef @__const.mbedtls_ecp_self_test.sw_exponents)
+  %28 = call fastcc i32 @self_test_point(i32 noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef @__const.mbedtls_ecp_self_test.sw_exponents)
   %.not25 = icmp eq i32 %28, 0
   br i1 %.not25, label %29, label %39
 
@@ -2837,7 +2837,7 @@ define hidden i32 @mbedtls_ecp_self_test(i32 noundef %0) local_unnamed_addr #6 {
 
 .split:                                           ; preds = %29, %.split15
   %.sink = phi i32 [ %0, %.split15 ], [ 0, %29 ]
-  %31 = call fastcc i32 @self_test_point.argelim(i32 noundef %.sink, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %4, ptr noundef @__const.mbedtls_ecp_self_test.sw_exponents)
+  %31 = call fastcc i32 @self_test_point(i32 noundef %.sink, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %4, ptr noundef @__const.mbedtls_ecp_self_test.sw_exponents)
   %.not26 = icmp eq i32 %31, 0
   br i1 %.not26, label %32, label %39
 
@@ -2856,7 +2856,7 @@ define hidden i32 @mbedtls_ecp_self_test(i32 noundef %0) local_unnamed_addr #6 {
   br i1 %.not27, label %37, label %39
 
 37:                                               ; preds = %35
-  %38 = call fastcc i32 @self_test_point.argelim(i32 noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef @__const.mbedtls_ecp_self_test.m_exponents)
+  %38 = call fastcc i32 @self_test_point(i32 noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef %9, ptr noundef @__const.mbedtls_ecp_self_test.m_exponents)
   br label %39
 
 39:                                               ; preds = %37, %35, %.split, %27, %25, %23, %1
@@ -2922,7 +2922,7 @@ define internal noundef i32 @self_test_rng(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @self_test_point.argelim(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #6 {
+define internal fastcc i32 @self_test_point(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #6 {
   store i64 0, ptr @add_count, align 8
   store i64 0, ptr @dbl_count, align 8
   store i64 0, ptr @mul_count, align 8
@@ -2932,7 +2932,7 @@ define internal fastcc i32 @self_test_point.argelim(i32 noundef %0, ptr noundef 
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @self_test_rng, ptr noundef null)
+  %10 = tail call fastcc i32 @ecp_mul_restartable_internal(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @self_test_rng, ptr noundef null)
   %.not36 = icmp eq i32 %10, 0
   br i1 %.not36, label %.preheader.preheader, label %.loopexit
 
@@ -2954,7 +2954,7 @@ define internal fastcc i32 @self_test_point.argelim(i32 noundef %0, ptr noundef 
   br i1 %.not37, label %14, label %.loopexit
 
 14:                                               ; preds = %.preheader
-  %15 = tail call fastcc i32 @ecp_mul_restartable_internal.argprom(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @self_test_rng, ptr noundef null)
+  %15 = tail call fastcc i32 @ecp_mul_restartable_internal(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @self_test_rng, ptr noundef null)
   %.not38 = icmp eq i32 %15, 0
   br i1 %.not38, label %16, label %.loopexit
 
@@ -3437,7 +3437,7 @@ mbedtls_mpi_add_mod.exit:                         ; preds = %19
   br i1 %.not134, label %34, label %mbedtls_mpi_sub_mod.exit
 
 34:                                               ; preds = %32
-  %35 = tail call fastcc i32 @mbedtls_mpi_mul_int_mod.argelim(ptr noundef %0, ptr noundef %3, ptr noundef %11)
+  %35 = tail call fastcc i32 @mbedtls_mpi_mul_int_mod(ptr noundef %0, ptr noundef %3, ptr noundef %11)
   %.not135 = icmp eq i32 %35, 0
   br i1 %.not135, label %57, label %mbedtls_mpi_sub_mod.exit
 
@@ -3500,7 +3500,7 @@ mbedtls_mpi_mul_int_mod.exit:                     ; preds = %41
   br i1 %.not136, label %61, label %mbedtls_mpi_sub_mod.exit
 
 61:                                               ; preds = %57
-  %62 = tail call fastcc i32 @mbedtls_mpi_shift_l_mod.argelim(ptr noundef %0, ptr noundef %58)
+  %62 = tail call fastcc i32 @mbedtls_mpi_shift_l_mod(ptr noundef %0, ptr noundef %58)
   %.not137 = icmp eq i32 %62, 0
   br i1 %.not137, label %63, label %mbedtls_mpi_sub_mod.exit
 
@@ -3511,7 +3511,7 @@ mbedtls_mpi_mul_int_mod.exit:                     ; preds = %41
   br i1 %.not138, label %66, label %mbedtls_mpi_sub_mod.exit
 
 66:                                               ; preds = %63
-  %67 = tail call fastcc i32 @mbedtls_mpi_shift_l_mod.argelim(ptr noundef %0, ptr noundef %64)
+  %67 = tail call fastcc i32 @mbedtls_mpi_shift_l_mod(ptr noundef %0, ptr noundef %64)
   %.not139 = icmp eq i32 %67, 0
   br i1 %.not139, label %68, label %mbedtls_mpi_sub_mod.exit
 
@@ -3522,7 +3522,7 @@ mbedtls_mpi_mul_int_mod.exit:                     ; preds = %41
   br i1 %.not140, label %71, label %mbedtls_mpi_sub_mod.exit
 
 71:                                               ; preds = %68
-  %72 = tail call fastcc i32 @mbedtls_mpi_shift_l_mod.argelim(ptr noundef %0, ptr noundef %69)
+  %72 = tail call fastcc i32 @mbedtls_mpi_shift_l_mod(ptr noundef %0, ptr noundef %69)
   %.not141 = icmp eq i32 %72, 0
   br i1 %.not141, label %73, label %mbedtls_mpi_sub_mod.exit
 
@@ -3563,7 +3563,7 @@ mbedtls_mpi_mul_int_mod.exit:                     ; preds = %41
   br i1 %.not148, label %88, label %mbedtls_mpi_sub_mod.exit
 
 88:                                               ; preds = %85
-  %89 = tail call fastcc i32 @mbedtls_mpi_shift_l_mod.argelim(ptr noundef %0, ptr noundef %69)
+  %89 = tail call fastcc i32 @mbedtls_mpi_shift_l_mod(ptr noundef %0, ptr noundef %69)
   %.not149 = icmp eq i32 %89, 0
   br i1 %.not149, label %90, label %mbedtls_mpi_sub_mod.exit
 
@@ -3751,7 +3751,7 @@ mpi_free_many.exit:                               ; preds = %73
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbedtls_mpi_mul_int_mod.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #6 {
+define internal fastcc i32 @mbedtls_mpi_mul_int_mod(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #6 {
   %4 = tail call i32 @mbedtls_mpi_mul_int(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef 3) #19
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader, label %.loopexit
@@ -3776,7 +3776,7 @@ define internal fastcc i32 @mbedtls_mpi_mul_int_mod.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbedtls_mpi_shift_l_mod.argelim(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #6 {
+define internal fastcc i32 @mbedtls_mpi_shift_l_mod(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #6 {
   %3 = tail call i32 @mbedtls_mpi_shift_l(ptr noundef nonnull %1, i64 noundef 1) #19
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.preheader, label %.loopexit
@@ -3918,7 +3918,7 @@ ecp_safe_invert_jac.exit:                         ; preds = %20
 declare i32 @mbedtls_mpi_add_int(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbedtls_mpi_sub_int_mod.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #6 {
+define internal fastcc i32 @mbedtls_mpi_sub_int_mod(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #6 {
   %4 = tail call i32 @mbedtls_mpi_sub_int(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef 3) #19
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader, label %.critedge

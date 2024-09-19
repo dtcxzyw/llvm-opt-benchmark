@@ -1278,7 +1278,7 @@ define hidden i32 @frstrans_dissect_struct_RdcParameters(ptr noundef %0, i32 nou
 59:                                               ; preds = %56, %54, %51, %49
   %.0.i.i = phi i32 [ %42, %49 ], [ %53, %51 ], [ %42, %54 ], [ %58, %56 ]
   %60 = load i32, ptr %10, align 4
-  switch i32 %60, label %frstrans_dissect_element_RdcParameters_u.argprom.exit [
+  switch i32 %60, label %frstrans_dissect_element_RdcParameters_u.exit [
     i32 0, label %61
     i32 1, label %64
     i32 2, label %67
@@ -1287,19 +1287,19 @@ define hidden i32 @frstrans_dissect_struct_RdcParameters(ptr noundef %0, i32 nou
 61:                                               ; preds = %59
   %62 = load i32, ptr @hf_frstrans_frstrans_RdcParameterUnion_filter_generic, align 4
   %63 = call i32 @frstrans_dissect_struct_RdcParameterGeneric(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 poison)
-  br label %frstrans_dissect_element_RdcParameters_u.argprom.exit
+  br label %frstrans_dissect_element_RdcParameters_u.exit
 
 64:                                               ; preds = %59
   %65 = load i32, ptr @hf_frstrans_frstrans_RdcParameterUnion_filter_max, align 4
   %66 = call i32 @frstrans_dissect_struct_RdcParameterFilterMax(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, i32 poison)
-  br label %frstrans_dissect_element_RdcParameters_u.argprom.exit
+  br label %frstrans_dissect_element_RdcParameters_u.exit
 
 67:                                               ; preds = %59
   %68 = load i32, ptr @hf_frstrans_frstrans_RdcParameterUnion_filter_point, align 4
   %69 = call i32 @frstrans_dissect_struct_RdcParameterFilterPoint(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, i32 poison)
-  br label %frstrans_dissect_element_RdcParameters_u.argprom.exit
+  br label %frstrans_dissect_element_RdcParameters_u.exit
 
-frstrans_dissect_element_RdcParameters_u.argprom.exit: ; preds = %59, %61, %64, %67
+frstrans_dissect_element_RdcParameters_u.exit:    ; preds = %59, %61, %64, %67
   %.1.i.i = phi i32 [ %.0.i.i, %59 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ]
   %70 = load ptr, ptr %9, align 8
   %71 = sub i32 %.1.i.i, %36
@@ -1315,7 +1315,7 @@ frstrans_dissect_element_RdcParameters_u.argprom.exit: ; preds = %59, %61, %64, 
   %.not45 = icmp eq i32 %76, 0
   br i1 %.not45, label %83, label %77
 
-77:                                               ; preds = %frstrans_dissect_element_RdcParameters_u.argprom.exit
+77:                                               ; preds = %frstrans_dissect_element_RdcParameters_u.exit
   %78 = load i32, ptr %47, align 4
   %.not46 = icmp ne i32 %78, 0
   %79 = and i32 %.1.i.i, 3
@@ -1328,8 +1328,8 @@ frstrans_dissect_element_RdcParameters_u.argprom.exit: ; preds = %59, %61, %64, 
   %82 = add i32 %81, 4
   br label %83
 
-83:                                               ; preds = %80, %77, %frstrans_dissect_element_RdcParameters_u.argprom.exit
-  %.1 = phi i32 [ %.1.i.i, %77 ], [ %82, %80 ], [ %.1.i.i, %frstrans_dissect_element_RdcParameters_u.argprom.exit ]
+83:                                               ; preds = %80, %77, %frstrans_dissect_element_RdcParameters_u.exit
+  %.1 = phi i32 [ %.1.i.i, %77 ], [ %82, %80 ], [ %.1.i.i, %frstrans_dissect_element_RdcParameters_u.exit ]
   ret i32 %.1
 }
 

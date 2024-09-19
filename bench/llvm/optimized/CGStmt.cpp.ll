@@ -3904,12 +3904,12 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %143, %146
   %159 = load ptr, ptr %132, align 8
   %.val = load ptr, ptr %101, align 8
   %.not.i32 = icmp eq ptr %.val, null
-  br i1 %.not.i32, label %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.argprom.exit, label %160
+  br i1 %.not.i32, label %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.exit, label %160
 
 160:                                              ; preds = %150
   %161 = load i8, ptr %.val, align 8
   switch i8 %161, label %.fold.split.i [
-    i8 -32, label %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.argprom.exit
+    i8 -32, label %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.exit
     i8 -21, label %162
   ]
 
@@ -3917,12 +3917,12 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %143, %146
   %163 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %164 = load i32, ptr %163, align 4
   %165 = icmp eq i32 %164, 0
-  br label %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.argprom.exit
+  br label %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.exit
 
 .fold.split.i:                                    ; preds = %160
-  br label %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.argprom.exit
+  br label %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.exit
 
-_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.argprom.exit: ; preds = %150, %160, %162, %.fold.split.i
+_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.exit: ; preds = %150, %160, %162, %.fold.split.i
   %.0.i = phi i1 [ %165, %162 ], [ true, %160 ], [ true, %150 ], [ false, %.fold.split.i ]
   %166 = call noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction23checkIfLoopMustProgressEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %159, i1 noundef zeroext %.0.i)
   call void @_ZN5clang7CodeGen13LoopInfoStack4pushEPN4llvm10BasicBlockERNS_10ASTContextERKNS_14CodeGenOptionsENS2_8ArrayRefIPKNS_4AttrEEERKNS2_8DebugLocESH_b(ptr noundef nonnull align 8 dereferenceable(112) %153, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(23096) %156, ptr noundef nonnull align 8 dereferenceable(2136) %158, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, i1 noundef zeroext %166) #17
@@ -3930,11 +3930,11 @@ _ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.argprom.exit: ; preds = %150, %160, 
   %.not.i.i.i.i = icmp eq ptr %167, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit, label %168
 
-168:                                              ; preds = %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.argprom.exit
+168:                                              ; preds = %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.exit
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %11, ptr noundef nonnull align 4 dereferenceable(8) %167) #17
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.argprom.exit, %168
+_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZL16hasEmptyLoopBodyIN5clang6DoStmtEEbRKT_.exit, %168
   %169 = load ptr, ptr %10, align 8
   %.not.i.i.i.i33 = icmp eq ptr %169, null
   br i1 %.not.i.i.i.i33, label %_ZN4llvm8DebugLocD2Ev.exit34, label %170
@@ -4360,16 +4360,16 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13IntrinsicInstELb1EE9push_backES2_.exit: 
   %103 = getelementptr inbounds i8, ptr %1, i64 40
   %.val58 = load ptr, ptr %103, align 8
   %.not.i61 = icmp eq ptr %.val, null
-  br i1 %.not.i61, label %104, label %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.argprom.exit
+  br i1 %.not.i61, label %104, label %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.exit
 
 104:                                              ; preds = %92
   %.not6.i = icmp eq ptr %.val58, null
-  br i1 %.not6.i, label %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.argprom.exit, label %105
+  br i1 %.not6.i, label %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.exit, label %105
 
 105:                                              ; preds = %104
   %106 = load i8, ptr %.val58, align 8
   switch i8 %106, label %.fold.split.i [
-    i8 -32, label %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.argprom.exit
+    i8 -32, label %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.exit
     i8 -21, label %107
   ]
 
@@ -4377,12 +4377,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13IntrinsicInstELb1EE9push_backES2_.exit: 
   %108 = getelementptr inbounds nuw i8, ptr %.val58, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = icmp eq i32 %109, 0
-  br label %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.argprom.exit
+  br label %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.exit
 
 .fold.split.i:                                    ; preds = %105
-  br label %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.argprom.exit
+  br label %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.exit
 
-_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.argprom.exit: ; preds = %92, %104, %105, %107, %.fold.split.i
+_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.exit: ; preds = %92, %104, %105, %107, %.fold.split.i
   %.0.i = phi i1 [ %110, %107 ], [ false, %92 ], [ true, %105 ], [ true, %104 ], [ false, %.fold.split.i ]
   %111 = call noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction23checkIfLoopMustProgressEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %101, i1 noundef zeroext %.0.i)
   call void @_ZN5clang7CodeGen13LoopInfoStack4pushEPN4llvm10BasicBlockERNS_10ASTContextERKNS_14CodeGenOptionsENS2_8ArrayRefIPKNS_4AttrEEERKNS2_8DebugLocESH_b(ptr noundef nonnull align 8 dereferenceable(112) %95, ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(23096) %97, ptr noundef nonnull align 8 dereferenceable(2136) %99, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, i1 noundef zeroext %111) #17
@@ -4390,11 +4390,11 @@ _ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.argprom.exit: ; preds = %92, %104, 
   %.not.i.i.i.i = icmp eq ptr %112, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit, label %113
 
-113:                                              ; preds = %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.argprom.exit
+113:                                              ; preds = %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.exit
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %11, ptr noundef nonnull align 4 dereferenceable(8) %112) #17
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.argprom.exit, %113
+_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZL16hasEmptyLoopBodyIN5clang7ForStmtEEbRKT_.exit, %113
   %114 = load ptr, ptr %10, align 8
   %.not.i.i.i.i62 = icmp eq ptr %114, null
   br i1 %.not.i.i.i.i62, label %_ZN4llvm8DebugLocD2Ev.exit63, label %115
@@ -10726,7 +10726,7 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev.exit: ; preds = %1540, %._crit
   %1780 = load ptr, ptr %28, align 8
   %1781 = load ptr, ptr %26, align 8
   %1782 = ptrtoint ptr %.sroa.0900.0.lcssa to i64
-  call fastcc void @_ZL13EmitAsmStoresRN5clang7CodeGen15CodeGenFunctionERKNS_7AsmStmtEN4llvm8ArrayRefIPNS6_5ValueEEENS7_IPNS6_4TypeEEESD_NS7_INS0_6LValueEEENS7_INS_8QualTypeEEERKNS6_9BitVectorESK_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr %1772, i64 %1778, ptr %1779, ptr %1780, ptr %1781, ptr %.sroa.0900.0.lcssa, ptr noundef nonnull align 8 dereferenceable(68) %30, ptr noundef nonnull align 8 dereferenceable(68) %31)
+  call fastcc void @_ZL13EmitAsmStoresRN5clang7CodeGen15CodeGenFunctionERKNS_7AsmStmtEN4llvm8ArrayRefIPNS6_5ValueEEENS7_IPNS6_4TypeEEESD_NS7_INS0_6LValueEEENS7_INS_8QualTypeEEERKNS6_9BitVectorESK_(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr %1772, i64 %1778, ptr %1779, ptr %1780, ptr %1781, ptr %.sroa.0900.0.lcssa, ptr noundef nonnull align 8 dereferenceable(68) %30, ptr noundef nonnull align 8 dereferenceable(68) %31)
   %1783 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %1784 = load i32, ptr %1783, align 8
   %1785 = icmp ne i32 %1784, 0
@@ -10847,7 +10847,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_11SmallVectorIPNS_5Value
   %1844 = load ptr, ptr %27, align 8
   %1845 = load ptr, ptr %28, align 8
   %1846 = load ptr, ptr %26, align 8
-  call fastcc void @_ZL13EmitAsmStoresRN5clang7CodeGen15CodeGenFunctionERKNS_7AsmStmtEN4llvm8ArrayRefIPNS6_5ValueEEENS7_IPNS6_4TypeEEESD_NS7_INS0_6LValueEEENS7_INS_8QualTypeEEERKNS6_9BitVectorESK_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr %1842, i64 %1843, ptr %1844, ptr %1845, ptr %1846, ptr %.sroa.0900.0.lcssa, ptr noundef nonnull align 8 dereferenceable(68) %30, ptr noundef nonnull align 8 dereferenceable(68) %31)
+  call fastcc void @_ZL13EmitAsmStoresRN5clang7CodeGen15CodeGenFunctionERKNS_7AsmStmtEN4llvm8ArrayRefIPNS6_5ValueEEENS7_IPNS6_4TypeEEESD_NS7_INS0_6LValueEEENS7_INS_8QualTypeEEERKNS6_9BitVectorESK_(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr %1842, i64 %1843, ptr %1844, ptr %1845, ptr %1846, ptr %.sroa.0900.0.lcssa, ptr noundef nonnull align 8 dereferenceable(68) %30, ptr noundef nonnull align 8 dereferenceable(68) %31)
   call void @_ZN4llvm13IRBuilderBase16InsertPointGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %80) #17
   %1847 = getelementptr inbounds i8, ptr %.02761366, i64 8
   %.not315 = icmp eq ptr %1847, %1789
@@ -17413,7 +17413,7 @@ declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction16EmitCallOrInvokeEN4llvm
 declare void @_ZN5clang7CodeGen15CodeGenFunction20getBundlesForFuncletEPN4llvm5ValueE(ptr dead_on_unwind writable sret(%"class.llvm::SmallVector.1618") align 8, ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13EmitAsmStoresRN5clang7CodeGen15CodeGenFunctionERKNS_7AsmStmtEN4llvm8ArrayRefIPNS6_5ValueEEENS7_IPNS6_4TypeEEESD_NS7_INS0_6LValueEEENS7_INS_8QualTypeEEERKNS6_9BitVectorESK_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture readonly %2, i64 %3, ptr nocapture readonly %4, ptr nocapture readonly %.0.val, ptr nocapture readonly %.0.val1, ptr nocapture readonly %.0.val3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %6) unnamed_addr #0 {
+define internal fastcc void @_ZL13EmitAsmStoresRN5clang7CodeGen15CodeGenFunctionERKNS_7AsmStmtEN4llvm8ArrayRefIPNS6_5ValueEEENS7_IPNS6_4TypeEEESD_NS7_INS0_6LValueEEENS7_INS_8QualTypeEEERKNS6_9BitVectorESK_(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture readonly %2, i64 %3, ptr nocapture readonly %4, ptr nocapture readonly %.0.val, ptr nocapture readonly %.0.val1, ptr nocapture readonly %.0.val3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %6) unnamed_addr #0 {
   %8 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %9 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %10 = alloca ptr, align 8

@@ -20,7 +20,7 @@ define hidden range(i32 0, 268) i32 @av1_get_pred_context_switchable_interp(ptr 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 7873
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %get_ref_filter_type.argprom.exit
+  br i1 %17, label %18, label %get_ref_filter_type.exit
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds i8, ptr %4, i64 -8
@@ -34,7 +34,7 @@ define hidden range(i32 0, 268) i32 @av1_get_pred_context_switchable_interp(ptr 
   %25 = getelementptr inbounds i8, ptr %20, i64 17
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, %11
-  br i1 %27, label %28, label %get_ref_filter_type.argprom.exit
+  br i1 %27, label %28, label %get_ref_filter_type.exit
 
 28:                                               ; preds = %24, %18
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 20
@@ -43,16 +43,16 @@ define hidden range(i32 0, 268) i32 @av1_get_pred_context_switchable_interp(ptr 
   %32 = and i32 %31, 16
   %33 = lshr i32 %30, %32
   %34 = and i32 %33, 255
-  br label %get_ref_filter_type.argprom.exit
+  br label %get_ref_filter_type.exit
 
-get_ref_filter_type.argprom.exit:                 ; preds = %28, %24, %2
+get_ref_filter_type.exit:                         ; preds = %28, %24, %2
   %.027 = phi i32 [ 3, %2 ], [ %34, %28 ], [ 3, %24 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 7872
   %36 = load i8, ptr %35, align 16
   %37 = trunc i8 %36 to i1
-  br i1 %37, label %38, label %get_ref_filter_type.argprom.exit29
+  br i1 %37, label %38, label %get_ref_filter_type.exit29
 
-38:                                               ; preds = %get_ref_filter_type.argprom.exit
+38:                                               ; preds = %get_ref_filter_type.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = sub nsw i32 0, %40
@@ -68,7 +68,7 @@ get_ref_filter_type.argprom.exit:                 ; preds = %28, %24, %2
   %49 = getelementptr inbounds i8, ptr %44, i64 17
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, %11
-  br i1 %51, label %52, label %get_ref_filter_type.argprom.exit29
+  br i1 %51, label %52, label %get_ref_filter_type.exit29
 
 52:                                               ; preds = %48, %38
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 20
@@ -77,18 +77,18 @@ get_ref_filter_type.argprom.exit:                 ; preds = %28, %24, %2
   %56 = and i32 %55, 16
   %57 = lshr i32 %54, %56
   %58 = and i32 %57, 255
-  br label %get_ref_filter_type.argprom.exit29
+  br label %get_ref_filter_type.exit29
 
-get_ref_filter_type.argprom.exit29:               ; preds = %52, %48, %get_ref_filter_type.argprom.exit
-  %.0 = phi i32 [ 3, %get_ref_filter_type.argprom.exit ], [ %58, %52 ], [ 3, %48 ]
+get_ref_filter_type.exit29:                       ; preds = %52, %48, %get_ref_filter_type.exit
+  %.0 = phi i32 [ 3, %get_ref_filter_type.exit ], [ %58, %52 ], [ 3, %48 ]
   %59 = icmp eq i32 %.027, %.0
   br i1 %59, label %60, label %62
 
-60:                                               ; preds = %get_ref_filter_type.argprom.exit29
+60:                                               ; preds = %get_ref_filter_type.exit29
   %61 = add nuw nsw i32 %.027, %14
   br label %72
 
-62:                                               ; preds = %get_ref_filter_type.argprom.exit29
+62:                                               ; preds = %get_ref_filter_type.exit29
   %63 = icmp eq i32 %.027, 3
   br i1 %63, label %64, label %66
 

@@ -1617,7 +1617,7 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEZL24initializeRecordStreamerRKNS0_6ModuleENS0_12function_refIFvRNS0_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL24initializeRecordStreamerRKN4llvm6ModuleENS1_12function_refIFvRNS1_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL24initializeRecordStreamerRKN4llvm6ModuleENS1_12function_refIFvRNS1_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -1625,18 +1625,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiag
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL24initializeRecordStreamerRKN4llvm6ModuleENS1_12function_refIFvRNS1_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL24initializeRecordStreamerRKN4llvm6ModuleENS1_12function_refIFvRNS1_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL24initializeRecordStreamerRKN4llvm6ModuleENS1_12function_refIFvRNS1_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL24initializeRecordStreamerRKN4llvm6ModuleENS1_12function_refIFvRNS1_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL24initializeRecordStreamerRKN4llvm6ModuleENS1_12function_refIFvRNS1_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL24initializeRecordStreamerRKN4llvm6ModuleENS1_12function_refIFvRNS1_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL24initializeRecordStreamerRKN4llvm6ModuleENS1_12function_refIFvRNS1_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL24initializeRecordStreamerRKN4llvm6ModuleENS1_12function_refIFvRNS1_14RecordStreamerEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -1936,7 +1936,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorISt4pairINSt7__cxx1112basic_stringIcSt11char_t
   %45 = load ptr, ptr %40, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %46, ptr %40, align 8
-  br label %"_ZZN4llvm17ModuleSymbolTable9addModuleEPNS_6ModuleEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.argprom.exit"
+  br label %"_ZZN4llvm17ModuleSymbolTable9addModuleEPNS_6ModuleEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.exit"
 
 47:                                               ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEE8AllocateEm.exit.i
   %48 = load ptr, ptr %9, align 8
@@ -1999,9 +1999,9 @@ _ZNSt6vectorIN4llvm12PointerUnionIJPNS0_11GlobalValueEPSt4pairINSt7__cxx1112basi
   store ptr %67, ptr %40, align 8
   %69 = getelementptr inbounds %"class.llvm::PointerUnion", ptr %62, i64 %58
   store ptr %69, ptr %42, align 8
-  br label %"_ZZN4llvm17ModuleSymbolTable9addModuleEPNS_6ModuleEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.argprom.exit"
+  br label %"_ZZN4llvm17ModuleSymbolTable9addModuleEPNS_6ModuleEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.exit"
 
-"_ZZN4llvm17ModuleSymbolTable9addModuleEPNS_6ModuleEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.argprom.exit": ; preds = %44, %_ZNSt6vectorIN4llvm12PointerUnionIJPNS0_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i
+"_ZZN4llvm17ModuleSymbolTable9addModuleEPNS_6ModuleEENK3$_0clENS_9StringRefENS_6object14BasicSymbolRef5FlagsE.exit": ; preds = %44, %_ZNSt6vectorIN4llvm12PointerUnionIJPNS0_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)

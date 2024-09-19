@@ -501,7 +501,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 if.then264:                                       ; preds = %if.then262
-  %call265 = call fastcc ptr @_.argprom()
+  %call265 = call fastcc ptr @_()
   call void (ptr, ...) @die(ptr noundef %call265) #8
   unreachable
 
@@ -573,7 +573,7 @@ declare void @ref_sorting_set_sort_flags_all(ptr noundef, i32 noundef, i32 nound
 declare void @die(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_.argprom() unnamed_addr #0 {
+define internal fastcc ptr @_() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

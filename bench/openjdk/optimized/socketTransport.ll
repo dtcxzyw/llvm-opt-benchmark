@@ -126,7 +126,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 589824) #13
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %readPreferIPv6Addresses.argprom.exit
+  br i1 %.not, label %17, label %readPreferIPv6Addresses.exit
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %5, align 8
@@ -135,7 +135,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr %21(ptr noundef nonnull %18, ptr noundef nonnull @.str) #13
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %readPreferIPv6Addresses.argprom.exit, label %24
+  br i1 %23, label %readPreferIPv6Addresses.exit, label %24
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %5, align 8
@@ -144,7 +144,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr %28(ptr noundef nonnull %25, ptr noundef nonnull %22, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #13
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %readPreferIPv6Addresses.argprom.exit, label %31
+  br i1 %30, label %readPreferIPv6Addresses.exit, label %31
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %5, align 8
@@ -153,7 +153,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr %35(ptr noundef nonnull %32, ptr noundef nonnull @.str.3) #13
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %readBooleanSysProp.argprom.exit, label %38
+  br i1 %37, label %readBooleanSysProp.exit, label %38
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr %32, align 8
@@ -167,7 +167,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
   %.not.i = icmp ne i8 %46, 0
   %.not29.i = icmp eq ptr %42, null
   %or.cond26 = select i1 %.not.i, i1 true, i1 %.not29.i
-  br i1 %or.cond26, label %readBooleanSysProp.argprom.exit, label %47
+  br i1 %or.cond26, label %readBooleanSysProp.exit, label %47
 
 47:                                               ; preds = %38
   %48 = load ptr, ptr %32, align 8
@@ -175,7 +175,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr %50(ptr noundef nonnull %32, ptr noundef nonnull %42, ptr noundef null) #13
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %readBooleanSysProp.argprom.exit, label %53
+  br i1 %52, label %readBooleanSysProp.exit, label %53
 
 53:                                               ; preds = %47
   %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(5) @.str.54) #14
@@ -197,18 +197,18 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
   %61 = getelementptr inbounds i8, ptr %60, i64 1360
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull %32, ptr noundef nonnull %42, ptr noundef nonnull %51) #13
-  br label %readBooleanSysProp.argprom.exit
+  br label %readBooleanSysProp.exit
 
-readBooleanSysProp.argprom.exit:                  ; preds = %31, %38, %47, %59
+readBooleanSysProp.exit:                          ; preds = %31, %38, %47, %59
   %63 = load ptr, ptr %5, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 1336
   %66 = load ptr, ptr %65, align 8
   %67 = call ptr %66(ptr noundef nonnull %63, ptr noundef nonnull @.str.4) #13
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %readPreferIPv6Addresses.argprom.exit, label %69
+  br i1 %68, label %readPreferIPv6Addresses.exit, label %69
 
-69:                                               ; preds = %readBooleanSysProp.argprom.exit
+69:                                               ; preds = %readBooleanSysProp.exit
   %70 = load ptr, ptr %63, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 912
   %72 = load ptr, ptr %71, align 8
@@ -220,7 +220,7 @@ readBooleanSysProp.argprom.exit:                  ; preds = %31, %38, %47, %59
   %.not.i22 = icmp ne i8 %77, 0
   %.not26.i = icmp eq ptr %73, null
   %or.cond27 = select i1 %.not.i22, i1 true, i1 %.not26.i
-  br i1 %or.cond27, label %readPreferIPv6Addresses.argprom.exit, label %78
+  br i1 %or.cond27, label %readPreferIPv6Addresses.exit, label %78
 
 78:                                               ; preds = %69
   %79 = load ptr, ptr %63, align 8
@@ -228,7 +228,7 @@ readBooleanSysProp.argprom.exit:                  ; preds = %31, %38, %47, %59
   %81 = load ptr, ptr %80, align 8
   %82 = call ptr %81(ptr noundef nonnull %63, ptr noundef nonnull %73, ptr noundef null) #13
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %readPreferIPv6Addresses.argprom.exit, label %84
+  br i1 %83, label %readPreferIPv6Addresses.exit, label %84
 
 84:                                               ; preds = %78
   %85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(5) @.str.54) #14
@@ -255,14 +255,14 @@ readBooleanSysProp.argprom.exit:                  ; preds = %31, %38, %47, %59
   %95 = getelementptr inbounds i8, ptr %94, i64 1360
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull %63, ptr noundef nonnull %73, ptr noundef nonnull %82) #13
-  br label %readPreferIPv6Addresses.argprom.exit
+  br label %readPreferIPv6Addresses.exit
 
-readPreferIPv6Addresses.argprom.exit:             ; preds = %93, %78, %69, %readBooleanSysProp.argprom.exit, %24, %17, %11
+readPreferIPv6Addresses.exit:                     ; preds = %93, %78, %69, %readBooleanSysProp.exit, %24, %17, %11
   %97 = load ptr, ptr %5, align 8
   %.not20 = icmp eq ptr %97, null
   br i1 %.not20, label %108, label %98
 
-98:                                               ; preds = %readPreferIPv6Addresses.argprom.exit
+98:                                               ; preds = %readPreferIPv6Addresses.exit
   %99 = load ptr, ptr %97, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 1824
   %101 = load ptr, ptr %100, align 8
@@ -278,8 +278,8 @@ readPreferIPv6Addresses.argprom.exit:             ; preds = %93, %78, %69, %read
   call void %107(ptr noundef nonnull %104) #13
   br label %108
 
-108:                                              ; preds = %readPreferIPv6Addresses.argprom.exit, %98, %103, %7, %4
-  %.0 = phi i32 [ -3, %4 ], [ -5, %7 ], [ 0, %103 ], [ 0, %98 ], [ 0, %readPreferIPv6Addresses.argprom.exit ]
+108:                                              ; preds = %readPreferIPv6Addresses.exit, %98, %103, %7, %4
+  %.0 = phi i32 [ -3, %4 ], [ -5, %7 ], [ 0, %103 ], [ 0, %98 ], [ 0, %readPreferIPv6Addresses.exit ]
   ret i32 %.0
 }
 
@@ -357,14 +357,14 @@ setLastError.exit:                                ; preds = %18, %22
   %33 = zext i1 %.not32 to i32
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %connectToAddr.argprom.exit
-  %.pre56 = phi i32 [ %.pre57, %connectToAddr.argprom.exit ], [ %.fr50, %.preheader.preheader ]
-  %34 = phi i32 [ %98, %connectToAddr.argprom.exit ], [ %.fr50, %.preheader.preheader ]
-  %.02249 = phi i32 [ 1, %connectToAddr.argprom.exit ], [ %33, %.preheader.preheader ]
-  %.02348 = phi i32 [ %.3, %connectToAddr.argprom.exit ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %connectToAddr.exit
+  %.pre56 = phi i32 [ %.pre57, %connectToAddr.exit ], [ %.fr50, %.preheader.preheader ]
+  %34 = phi i32 [ %98, %connectToAddr.exit ], [ %.fr50, %.preheader.preheader ]
+  %.02249 = phi i32 [ 1, %connectToAddr.exit ], [ %33, %.preheader.preheader ]
+  %.02348 = phi i32 [ %.3, %connectToAddr.exit ], [ 0, %.preheader.preheader ]
   %.041 = load ptr, ptr %6, align 8
   %.not3542 = icmp eq ptr %.041, null
-  br i1 %.not3542, label %connectToAddr.argprom.exit, label %.lr.ph
+  br i1 %.not3542, label %connectToAddr.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %trunc = trunc nuw i32 %.02249 to i1
@@ -482,11 +482,11 @@ setLastError.exit.i:                              ; preds = %87, %83
 89:                                               ; preds = %70, %62
   %.0.i37 = phi i32 [ %72, %70 ], [ %68, %62 ]
   %.not22.i = icmp eq i32 %.0.i37, 0
-  br i1 %.not22.i, label %.connectToAddr.argprom.exit.loopexit_crit_edge, label %90
+  br i1 %.not22.i, label %.connectToAddr.exit.loopexit_crit_edge, label %90
 
-.connectToAddr.argprom.exit.loopexit_crit_edge:   ; preds = %89
+.connectToAddr.exit.loopexit_crit_edge:           ; preds = %89
   %.pre.pre = load i32, ptr @socketFD, align 4
-  br label %connectToAddr.argprom.exit
+  br label %connectToAddr.exit
 
 90:                                               ; preds = %89
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.15)
@@ -509,12 +509,12 @@ setLastError.exit.i:                              ; preds = %87, %83
   %97 = getelementptr inbounds i8, ptr %.044, i64 40
   %.0 = load ptr, ptr %97, align 8
   %.not35 = icmp eq ptr %.0, null
-  br i1 %.not35, label %connectToAddr.argprom.exit, label %35, !llvm.loop !6
+  br i1 %.not35, label %connectToAddr.exit, label %35, !llvm.loop !6
 
-connectToAddr.argprom.exit:                       ; preds = %96, %.connectToAddr.argprom.exit.loopexit_crit_edge, %.preheader
-  %.pre57 = phi i32 [ %.pre56, %.preheader ], [ %.pre.pre, %.connectToAddr.argprom.exit.loopexit_crit_edge ], [ %.pre54, %96 ]
-  %98 = phi i32 [ %34, %.preheader ], [ %.pre.pre, %.connectToAddr.argprom.exit.loopexit_crit_edge ], [ %.pre54, %96 ]
-  %.3 = phi i32 [ %.02348, %.preheader ], [ 0, %.connectToAddr.argprom.exit.loopexit_crit_edge ], [ %.2, %96 ]
+connectToAddr.exit:                               ; preds = %96, %.connectToAddr.exit.loopexit_crit_edge, %.preheader
+  %.pre57 = phi i32 [ %.pre56, %.preheader ], [ %.pre.pre, %.connectToAddr.exit.loopexit_crit_edge ], [ %.pre54, %96 ]
+  %98 = phi i32 [ %34, %.preheader ], [ %.pre.pre, %.connectToAddr.exit.loopexit_crit_edge ], [ %.pre54, %96 ]
+  %.3 = phi i32 [ %.02348, %.preheader ], [ 0, %.connectToAddr.exit.loopexit_crit_edge ], [ %.2, %96 ]
   %99 = icmp eq i32 %.02249, 0
   %100 = icmp slt i32 %98, 0
   %101 = select i1 %99, i1 %100, i1 false
@@ -525,7 +525,7 @@ connectToAddr.argprom.exit:                       ; preds = %96, %.connectToAddr
   call void @freeaddrinfo(ptr noundef %.ph) #13
   br label %102
 
-._crit_edge:                                      ; preds = %connectToAddr.argprom.exit
+._crit_edge:                                      ; preds = %connectToAddr.exit
   %.pre52 = load ptr, ptr %6, align 8
   call void @freeaddrinfo(ptr noundef %.pre52) #13
   %.not33 = icmp eq i32 %.3, 0
@@ -631,14 +631,14 @@ define internal range(i32 0, 203) i32 @socketTransport_startListening(ptr nocapt
   store i64 %34, ptr %36, align 8
   %37 = load i16, ptr %spec.select.val, align 2
   %38 = icmp eq i16 %37, 10
-  br i1 %38, label %isEqualIPv6Addr.argprom.exit, label %isEqualIPv6Addr.argprom.exit.thread
+  br i1 %38, label %isEqualIPv6Addr.exit, label %isEqualIPv6Addr.exit.thread
 
-isEqualIPv6Addr.argprom.exit.thread:              ; preds = %30
+isEqualIPv6Addr.exit.thread:                      ; preds = %30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11)
   br label %.loopexit
 
-isEqualIPv6Addr.argprom.exit:                     ; preds = %30
+isEqualIPv6Addr.exit:                             ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull readonly align 4 dereferenceable(28) %spec.select.val, i64 28, i1 false)
   %39 = getelementptr inbounds i8, ptr %11, i64 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %39, ptr noundef nonnull dereferenceable(16) %10, i64 16)
@@ -647,7 +647,7 @@ isEqualIPv6Addr.argprom.exit:                     ; preds = %30
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11)
   br i1 %.not45, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %isEqualIPv6Addr.argprom.exit
+.preheader:                                       ; preds = %isEqualIPv6Addr.exit
   %.154 = load ptr, ptr %12, align 8
   %.not3155 = icmp eq ptr %.154, null
   br i1 %.not3155, label %.loopexit, label %.lr.ph57
@@ -669,14 +669,14 @@ isEqualIPv6Addr.argprom.exit:                     ; preds = %30
   store i64 %41, ptr %42, align 8
   %46 = load i16, ptr %.1.val, align 2
   %47 = icmp eq i16 %46, 10
-  br i1 %47, label %isEqualIPv6Addr.argprom.exit36, label %isEqualIPv6Addr.argprom.exit36.thread
+  br i1 %47, label %isEqualIPv6Addr.exit36, label %isEqualIPv6Addr.exit36.thread
 
-isEqualIPv6Addr.argprom.exit36.thread:            ; preds = %44
+isEqualIPv6Addr.exit36.thread:                    ; preds = %44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9)
   br label %48
 
-isEqualIPv6Addr.argprom.exit36:                   ; preds = %44
+isEqualIPv6Addr.exit36:                           ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull readonly align 4 dereferenceable(28) %.1.val, i64 28, i1 false)
   %bcmp.i35 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %43, ptr noundef nonnull dereferenceable(16) %8, i64 16)
   %.not46 = icmp eq i32 %bcmp.i35, 0
@@ -684,14 +684,14 @@ isEqualIPv6Addr.argprom.exit36:                   ; preds = %44
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9)
   br i1 %.not46, label %.loopexit, label %48
 
-48:                                               ; preds = %isEqualIPv6Addr.argprom.exit36.thread, %isEqualIPv6Addr.argprom.exit36
+48:                                               ; preds = %isEqualIPv6Addr.exit36.thread, %isEqualIPv6Addr.exit36
   %49 = getelementptr inbounds i8, ptr %.156, i64 40
   %.1 = load ptr, ptr %49, align 8
   %.not31 = icmp eq ptr %.1, null
   br i1 %.not31, label %.loopexit, label %44, !llvm.loop !11
 
-.loopexit:                                        ; preds = %48, %isEqualIPv6Addr.argprom.exit36, %.preheader, %isEqualIPv6Addr.argprom.exit.thread, %isEqualIPv6Addr.argprom.exit, %.loopexit48
-  %.2 = phi ptr [ %spec.select, %.loopexit48 ], [ %spec.select, %isEqualIPv6Addr.argprom.exit ], [ %spec.select, %isEqualIPv6Addr.argprom.exit.thread ], [ %spec.select, %.preheader ], [ %spec.select, %48 ], [ %.156, %isEqualIPv6Addr.argprom.exit36 ]
+.loopexit:                                        ; preds = %48, %isEqualIPv6Addr.exit36, %.preheader, %isEqualIPv6Addr.exit.thread, %isEqualIPv6Addr.exit, %.loopexit48
+  %.2 = phi ptr [ %spec.select, %.loopexit48 ], [ %spec.select, %isEqualIPv6Addr.exit ], [ %spec.select, %isEqualIPv6Addr.exit.thread ], [ %spec.select, %.preheader ], [ %spec.select, %48 ], [ %.156, %isEqualIPv6Addr.exit36 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -795,13 +795,13 @@ setReuseAddrOption.exit.thread.i:                 ; preds = %68, %63
   %98 = call ptr %94(i32 noundef %97) #13
   store ptr %98, ptr %2, align 8
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %startListening.argprom.exit
+  br i1 %99, label %100, label %startListening.exit
 
 100:                                              ; preds = %88
   call fastcc void @setLastError(i32 noundef 110, ptr noundef nonnull @.str.8)
   br label %103
 
-startListening.argprom.exit:                      ; preds = %88
+startListening.exit:                              ; preds = %88
   %101 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %5) #13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
@@ -826,8 +826,8 @@ startListening.argprom.exit:                      ; preds = %88
   store i32 -1, ptr @serverSocketFD, align 4
   br label %109
 
-109:                                              ; preds = %startListening.argprom.exit, %103, %107, %19
-  %.021 = phi i32 [ %20, %19 ], [ %.0.i37.ph, %107 ], [ %.0.i37.ph, %103 ], [ 0, %startListening.argprom.exit ]
+109:                                              ; preds = %startListening.exit, %103, %107, %19
+  %.021 = phi i32 [ %20, %19 ], [ %.0.i37.ph, %107 ], [ %.0.i37.ph, %103 ], [ 0, %startListening.exit ]
   ret i32 %.021
 }
 

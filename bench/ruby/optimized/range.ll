@@ -736,7 +736,7 @@ RANGE_EXCL.exit.i:                                ; preds = %32, %30
 
 37:                                               ; preds = %RANGE_EXCL.exit.i
   %38 = tail call i64 @rb_id2sym(i64 noundef 3137) #10
-  tail call fastcc void @rb_name_err_raise.argprom(i64 noundef %0, i64 noundef %38) #12
+  tail call fastcc void @rb_name_err_raise(i64 noundef %0, i64 noundef %38) #12
   unreachable
 
 range_modify.exit:                                ; preds = %RANGE_EXCL.exit.i
@@ -811,7 +811,7 @@ RANGE_EXCL.exit.i:                                ; preds = %22, %20
 
 27:                                               ; preds = %RANGE_EXCL.exit.i
   %28 = call i64 @rb_id2sym(i64 noundef 3137) #10
-  call fastcc void @rb_name_err_raise.argprom(i64 noundef %2, i64 noundef %28) #12
+  call fastcc void @rb_name_err_raise(i64 noundef %2, i64 noundef %28) #12
   unreachable
 
 range_modify.exit:                                ; preds = %RANGE_EXCL.exit.i
@@ -870,7 +870,7 @@ RANGE_EXCL.exit.i:                                ; preds = %17, %15
 
 22:                                               ; preds = %RANGE_EXCL.exit.i
   %23 = tail call i64 @rb_id2sym(i64 noundef 3137) #10
-  tail call fastcc void @rb_name_err_raise.argprom(i64 noundef %0, i64 noundef %23) #12
+  tail call fastcc void @rb_name_err_raise(i64 noundef %0, i64 noundef %23) #12
   unreachable
 
 range_modify.exit:                                ; preds = %RANGE_EXCL.exit.i
@@ -5171,7 +5171,7 @@ declare i64 @rb_ivar_get(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @rb_name_err_raise.argprom(i64 noundef %0, i64 noundef %1) unnamed_addr #5 {
+define internal fastcc void @rb_name_err_raise(i64 noundef %0, i64 noundef %1) unnamed_addr #5 {
   %3 = tail call i64 @rb_fstring_cstr(ptr noundef nonnull @.str.35) #10
   tail call fastcc void @rb_name_err_raise_str(i64 noundef %3, i64 noundef %0, i64 noundef %1) #12
   unreachable

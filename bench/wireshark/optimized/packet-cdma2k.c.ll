@@ -1773,7 +1773,7 @@ define internal i32 @dissect_cdma2k(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not18, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  call fastcc void @cdma2k_message_decode.argprom(ptr noundef %0, ptr noundef %13, ptr noundef %5, ptr noundef %6)
+  call fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %13, ptr noundef %5, ptr noundef %6)
   %17 = load i32, ptr %5, align 4
   %18 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %17) #4
   %19 = icmp ne i32 %18, 0
@@ -1819,7 +1819,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cdma2k_message_decode.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc void @cdma2k_message_decode(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = load i32, ptr @hf_cdma2k_tlac_Header, align 4
   %7 = load i32, ptr %2, align 4
@@ -2380,14 +2380,14 @@ cdma2k_message_ADDR_FIELDS.exit:                  ; preds = %cdma2k_message_ADDR
   %378 = shl i32 %377, 3
   %379 = trunc i32 %378 to i16
   %380 = icmp ugt i8 %343, 3
-  br i1 %380, label %381, label %cdma2k_message_REGISTRATION.argprom.exit
+  br i1 %380, label %381, label %cdma2k_message_REGISTRATION.exit
 
 381:                                              ; preds = %370
   %382 = load i32, ptr @hf_cdma2k_Return_Cause, align 4
   %383 = tail call ptr @proto_tree_add_bits_item(ptr noundef %322, i32 noundef %382, ptr noundef %0, i32 noundef %378, i32 noundef 4, i32 noundef 0) #4
   %384 = or disjoint i16 %379, 4
   %385 = icmp ugt i8 %343, 5
-  br i1 %385, label %386, label %cdma2k_message_REGISTRATION.argprom.exit
+  br i1 %385, label %386, label %cdma2k_message_REGISTRATION.exit
 
 386:                                              ; preds = %381
   %387 = load i32, ptr @hf_cdma2k_Qpch_Supported, align 4
@@ -2415,7 +2415,7 @@ cdma2k_message_ADDR_FIELDS.exit:                  ; preds = %cdma2k_message_ADDR
 404:                                              ; preds = %399, %386
   %.1.i = phi i16 [ %403, %399 ], [ %398, %386 ]
   %.not4.i = icmp eq i8 %343, 6
-  br i1 %.not4.i, label %cdma2k_message_REGISTRATION.argprom.exit, label %405
+  br i1 %.not4.i, label %cdma2k_message_REGISTRATION.exit, label %405
 
 405:                                              ; preds = %404
   %406 = load i32, ptr @hf_cdma2k_GeoLoc_Incl, align 4
@@ -2424,16 +2424,16 @@ cdma2k_message_ADDR_FIELDS.exit:                  ; preds = %cdma2k_message_ADDR
   %409 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %407, i32 noundef 1) #4
   %410 = add i16 %.1.i, 1
   %.not84.i = icmp eq i8 %409, 0
-  br i1 %.not84.i, label %cdma2k_message_REGISTRATION.argprom.exit, label %411
+  br i1 %.not84.i, label %cdma2k_message_REGISTRATION.exit, label %411
 
 411:                                              ; preds = %405
   %412 = load i32, ptr @hf_cdma2k_GeoLoc_Type, align 4
   %413 = zext i16 %410 to i32
   %414 = tail call ptr @proto_tree_add_bits_item(ptr noundef %322, i32 noundef %412, ptr noundef %0, i32 noundef %413, i32 noundef 3, i32 noundef 0) #4
   %415 = add i16 %.1.i, 4
-  br label %cdma2k_message_REGISTRATION.argprom.exit
+  br label %cdma2k_message_REGISTRATION.exit
 
-cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %405, %411
+cdma2k_message_REGISTRATION.exit:                 ; preds = %370, %381, %404, %405, %411
   %.2.i = phi i16 [ %415, %411 ], [ %410, %405 ], [ %.1.i, %404 ], [ %384, %381 ], [ %379, %370 ]
   %416 = zext i16 %.2.i to i32
   %417 = and i32 %416, 7
@@ -2442,7 +2442,7 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %420 = zext i1 %418 to i32
   %storemerge.i = add nuw nsw i32 %419, %420
   store i32 %storemerge.i, ptr %2, align 4
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 421:                                              ; preds = %317
   %422 = load i32, ptr @hf_cdma2k_OrderIndMsg, align 4
@@ -2472,7 +2472,7 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %444 = shl i16 %.tr.i, 3
   %445 = or disjoint i16 %444, 1
   %.not.i166 = icmp eq i8 %441, 0
-  br i1 %.not.i166, label %cdma2k_message_ORDER_IND.argprom.exit, label %446
+  br i1 %.not.i166, label %cdma2k_message_ORDER_IND.exit, label %446
 
 446:                                              ; preds = %421
   %447 = load i32, ptr @hf_cdma2k_Order_Specific_Fields, align 4
@@ -2499,7 +2499,7 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %457 = zext i16 %455 to i32
   %458 = tail call ptr @proto_tree_add_bits_item(ptr noundef %450, i32 noundef %456, ptr noundef %0, i32 noundef %457, i32 noundef 32, i32 noundef 0) #4
   %459 = add i16 %444, 41
-  br label %cdma2k_message_ORDER_IND.argprom.exit
+  br label %cdma2k_message_ORDER_IND.exit
 
 460:                                              ; preds = %446
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef nonnull @.str.1174) #4
@@ -2507,7 +2507,7 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %462 = zext i16 %445 to i32
   %463 = tail call ptr @proto_tree_add_bits_item(ptr noundef %450, i32 noundef %461, ptr noundef %0, i32 noundef %462, i32 noundef 8, i32 noundef 0) #4
   %464 = add i16 %444, 9
-  br label %cdma2k_message_ORDER_IND.argprom.exit
+  br label %cdma2k_message_ORDER_IND.exit
 
 465:                                              ; preds = %446
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef nonnull @.str.1175) #4
@@ -2519,7 +2519,7 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %471 = zext i16 %469 to i32
   %472 = tail call ptr @proto_tree_add_bits_item(ptr noundef %450, i32 noundef %470, ptr noundef %0, i32 noundef %471, i32 noundef 16, i32 noundef 0) #4
   %473 = add i16 %444, 25
-  br label %cdma2k_message_ORDER_IND.argprom.exit
+  br label %cdma2k_message_ORDER_IND.exit
 
 474:                                              ; preds = %446
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef nonnull @.str.1176) #4
@@ -2531,7 +2531,7 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %480 = zext i16 %478 to i32
   %481 = tail call ptr @proto_tree_add_bits_item(ptr noundef %450, i32 noundef %479, ptr noundef %0, i32 noundef %480, i32 noundef 16, i32 noundef 0) #4
   %482 = add i16 %444, 25
-  br label %cdma2k_message_ORDER_IND.argprom.exit
+  br label %cdma2k_message_ORDER_IND.exit
 
 483:                                              ; preds = %446
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef nonnull @.str.1177) #4
@@ -2607,13 +2607,13 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %525 = zext i16 %.4.i to i32
   %526 = and i32 %525, 7
   %.not176.i = icmp eq i32 %526, 0
-  br i1 %.not176.i, label %cdma2k_message_ORDER_IND.argprom.exit, label %527
+  br i1 %.not176.i, label %cdma2k_message_ORDER_IND.exit, label %527
 
 527:                                              ; preds = %.thread2.i
   %528 = load i32, ptr @hf_cdma2k_Reserved, align 4
   %529 = sub nuw nsw i32 8, %526
   %530 = tail call ptr @proto_tree_add_bits_item(ptr noundef %450, i32 noundef %528, ptr noundef %0, i32 noundef %525, i32 noundef %529, i32 noundef 0) #4
-  br label %cdma2k_message_ORDER_IND.argprom.exit
+  br label %cdma2k_message_ORDER_IND.exit
 
 531:                                              ; preds = %446
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef nonnull @.str.1178) #4
@@ -2628,7 +2628,7 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %540 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %539, i32 noundef 8) #4
   %541 = add i16 %444, 9
   %542 = icmp eq i8 %540, 3
-  br i1 %542, label %543, label %cdma2k_message_ORDER_IND.argprom.exit
+  br i1 %542, label %543, label %cdma2k_message_ORDER_IND.exit
 
 543:                                              ; preds = %531
   %544 = load i32, ptr @hf_cdma2k_Rsc_Mode_Ind, align 4
@@ -2640,7 +2640,7 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %550 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %549, i32 noundef 1) #4
   %551 = add i16 %444, 10
   %552 = icmp eq i8 %550, 1
-  br i1 %552, label %553, label %cdma2k_message_ORDER_IND.argprom.exit
+  br i1 %552, label %553, label %cdma2k_message_ORDER_IND.exit
 
 553:                                              ; preds = %543
   %554 = load i32, ptr @hf_cdma2k_Rsci, align 4
@@ -2655,7 +2655,7 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %563 = zext i16 %561 to i32
   %564 = tail call ptr @proto_tree_add_bits_item(ptr noundef %450, i32 noundef %562, ptr noundef %0, i32 noundef %563, i32 noundef 4, i32 noundef 0) #4
   %565 = or disjoint i16 %561, 4
-  br label %cdma2k_message_ORDER_IND.argprom.exit
+  br label %cdma2k_message_ORDER_IND.exit
 
 566:                                              ; preds = %446
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef nonnull @.str.1179) #4
@@ -2674,7 +2674,7 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %579 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %578, i32 noundef 1) #4
   %580 = add i16 %444, 10
   %581 = icmp eq i8 %579, 1
-  br i1 %581, label %582, label %cdma2k_message_ORDER_IND.argprom.exit
+  br i1 %581, label %582, label %cdma2k_message_ORDER_IND.exit
 
 582:                                              ; preds = %566
   %583 = load i32, ptr @hf_cdma2k_Rsci, align 4
@@ -2689,13 +2689,13 @@ cdma2k_message_REGISTRATION.argprom.exit:         ; preds = %370, %381, %404, %4
   %592 = zext i16 %590 to i32
   %593 = tail call ptr @proto_tree_add_bits_item(ptr noundef %450, i32 noundef %591, ptr noundef %0, i32 noundef %592, i32 noundef 4, i32 noundef 0) #4
   %594 = or disjoint i16 %590, 4
-  br label %cdma2k_message_ORDER_IND.argprom.exit
+  br label %cdma2k_message_ORDER_IND.exit
 
 595:                                              ; preds = %446
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef nonnull @.str.1180) #4
-  br label %cdma2k_message_ORDER_IND.argprom.exit
+  br label %cdma2k_message_ORDER_IND.exit
 
-cdma2k_message_ORDER_IND.argprom.exit:            ; preds = %421, %451, %460, %465, %474, %.thread2.i, %527, %531, %543, %553, %566, %582, %595
+cdma2k_message_ORDER_IND.exit:                    ; preds = %421, %451, %460, %465, %474, %.thread2.i, %527, %531, %543, %553, %566, %582, %595
   %.0.i167 = phi i16 [ %445, %595 ], [ %594, %582 ], [ %580, %566 ], [ %565, %553 ], [ %551, %543 ], [ %541, %531 ], [ %.4.i, %527 ], [ %.4.i, %.thread2.i ], [ %482, %474 ], [ %473, %465 ], [ %464, %460 ], [ %459, %451 ], [ %445, %421 ]
   %596 = zext i16 %.0.i167 to i32
   %597 = and i32 %596, 7
@@ -2704,7 +2704,7 @@ cdma2k_message_ORDER_IND.argprom.exit:            ; preds = %421, %451, %460, %4
   %600 = zext i1 %598 to i32
   %storemerge.i168 = add nuw nsw i32 %599, %600
   store i32 %storemerge.i168, ptr %2, align 4
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 601:                                              ; preds = %317
   %602 = load i32, ptr @hf_cdma2k_DataBurstIndMsg, align 4
@@ -2755,7 +2755,7 @@ cdma2k_message_ORDER_IND.argprom.exit:            ; preds = %421, %451, %460, %4
   %643 = add nuw nsw i32 %642, 65535
   %644 = and i32 %643, 65535
   %.not4.i171 = icmp eq i32 %644, 0
-  br i1 %.not4.i171, label %cdma2k_message_DATA_BURST_IND.argprom.exit, label %.lr.ph8.i
+  br i1 %.not4.i171, label %cdma2k_message_DATA_BURST_IND.exit, label %.lr.ph8.i
 
 .lr.ph8.i:                                        ; preds = %601, %._crit_edge.i
   %.0756.i = phi i16 [ %.176.lcssa.i, %._crit_edge.i ], [ 1, %601 ]
@@ -2849,13 +2849,13 @@ cdma2k_message_ORDER_IND.argprom.exit:            ; preds = %421, %451, %460, %4
 
 ._crit_edge9.loopexit.i:                          ; preds = %._crit_edge.i
   %.pre.i175 = load i32, ptr %2, align 4
-  br label %cdma2k_message_DATA_BURST_IND.argprom.exit
+  br label %cdma2k_message_DATA_BURST_IND.exit
 
-cdma2k_message_DATA_BURST_IND.argprom.exit:       ; preds = %601, %._crit_edge9.loopexit.i
+cdma2k_message_DATA_BURST_IND.exit:               ; preds = %601, %._crit_edge9.loopexit.i
   %698 = phi i32 [ %.pre.i175, %._crit_edge9.loopexit.i ], [ %641, %601 ]
   %699 = add i32 %698, 1
   store i32 %699, ptr %2, align 4
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 700:                                              ; preds = %317
   %701 = shl i32 %316, 3
@@ -3061,7 +3061,7 @@ cdma2k_message_DATA_BURST_IND.argprom.exit:       ; preds = %601, %._crit_edge9.
 ._crit_edge.i178:                                 ; preds = %.lr.ph13.i, %825
   %.7.lcssa.i = phi i16 [ %834, %825 ], [ %839, %.lr.ph13.i ]
   %841 = icmp ugt i8 %719, 5
-  br i1 %841, label %842, label %cdma2k_message_ORIGINATION.argprom.exit
+  br i1 %841, label %842, label %cdma2k_message_ORIGINATION.exit
 
 842:                                              ; preds = %._crit_edge.i178
   %843 = load i32, ptr @hf_cdma2k_DRS, align 4
@@ -3251,7 +3251,7 @@ cdma2k_message_DATA_BURST_IND.argprom.exit:       ; preds = %601, %._crit_edge9.
   %989 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %987, ptr noundef %0, i32 noundef %988, i32 noundef 1, i32 noundef 0) #4
   %990 = add i16 %.14.i, 1
   %.not516.i = icmp eq i8 %719, 6
-  br i1 %.not516.i, label %cdma2k_message_ORIGINATION.argprom.exit, label %991
+  br i1 %.not516.i, label %cdma2k_message_ORIGINATION.exit, label %991
 
 991:                                              ; preds = %986
   %992 = load i32, ptr @hf_cdma2k_Orig_Reason, align 4
@@ -3514,7 +3514,7 @@ cdma2k_message_DATA_BURST_IND.argprom.exit:       ; preds = %601, %._crit_edge9.
   %1172 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1170, i32 noundef 2) #4
   %1173 = add i16 %.25.i, 2
   %.not525.i = icmp eq i8 %1172, 0
-  br i1 %.not525.i, label %cdma2k_message_ORIGINATION.argprom.exit, label %1174
+  br i1 %.not525.i, label %cdma2k_message_ORIGINATION.exit, label %1174
 
 1174:                                             ; preds = %1168
   %1175 = zext i8 %1172 to i32
@@ -3528,9 +3528,9 @@ cdma2k_message_DATA_BURST_IND.argprom.exit:       ; preds = %601, %._crit_edge9.
   %1183 = tail call ptr @proto_tree_add_bits_item(ptr noundef %707, i32 noundef %1180, ptr noundef %0, i32 noundef %1181, i32 noundef %1182, i32 noundef 0) #4
   %1184 = trunc nuw nsw i32 %1182 to i16
   %1185 = add i16 %1179, %1184
-  br label %cdma2k_message_ORIGINATION.argprom.exit
+  br label %cdma2k_message_ORIGINATION.exit
 
-cdma2k_message_ORIGINATION.argprom.exit:          ; preds = %._crit_edge.i178, %986, %1168, %1174
+cdma2k_message_ORIGINATION.exit:                  ; preds = %._crit_edge.i178, %986, %1168, %1174
   %.8.i = phi i16 [ %1185, %1174 ], [ %1173, %1168 ], [ %990, %986 ], [ %.7.lcssa.i, %._crit_edge.i178 ]
   %1186 = zext i16 %.8.i to i32
   %1187 = and i32 %1186, 7
@@ -3539,7 +3539,7 @@ cdma2k_message_ORIGINATION.argprom.exit:          ; preds = %._crit_edge.i178, %
   %1190 = zext i1 %1188 to i32
   %storemerge.i179 = add nuw nsw i32 %1189, %1190
   store i32 %storemerge.i179, ptr %2, align 4
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 1191:                                             ; preds = %317
   %1192 = load i32, ptr @hf_cdma2k_PageRspMsg, align 4
@@ -3620,7 +3620,7 @@ cdma2k_message_ORIGINATION.argprom.exit:          ; preds = %._crit_edge.i178, %
 ._crit_edge.i187:                                 ; preds = %.lr.ph.i184, %1236
   %.1.lcssa.i = phi i16 [ %1241, %1236 ], [ %1246, %.lr.ph.i184 ]
   %1248 = icmp ugt i8 %1211, 5
-  br i1 %1248, label %1249, label %cdma2k_message_PAGE_RESPONSE.argprom.exit
+  br i1 %1248, label %1249, label %cdma2k_message_PAGE_RESPONSE.exit
 
 1249:                                             ; preds = %._crit_edge.i187
   %1250 = load i32, ptr @hf_cdma2k_Uzid_Incl, align 4
@@ -3787,7 +3787,7 @@ cdma2k_message_ORIGINATION.argprom.exit:          ; preds = %._crit_edge.i178, %
   %1376 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1195, i32 noundef %1374, ptr noundef %0, i32 noundef %1375, i32 noundef 1, i32 noundef 0) #4
   %1377 = add i16 %.6.i193, 1
   %.not2.i = icmp eq i8 %1211, 6
-  br i1 %.not2.i, label %cdma2k_message_PAGE_RESPONSE.argprom.exit, label %1378
+  br i1 %.not2.i, label %cdma2k_message_PAGE_RESPONSE.exit, label %1378
 
 1378:                                             ; preds = %1373
   %1379 = load i32, ptr @hf_cdma2k_Sts_Supported, align 4
@@ -3935,7 +3935,7 @@ cdma2k_message_ORIGINATION.argprom.exit:          ; preds = %._crit_edge.i178, %
   %1488 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1486, i32 noundef 2) #4
   %1489 = add i16 %.12.i197, 2
   %.not326.i = icmp eq i8 %1488, 0
-  br i1 %.not326.i, label %cdma2k_message_PAGE_RESPONSE.argprom.exit, label %1490
+  br i1 %.not326.i, label %cdma2k_message_PAGE_RESPONSE.exit, label %1490
 
 1490:                                             ; preds = %.loopexit.i196
   %1491 = zext i8 %1488 to i32
@@ -3949,9 +3949,9 @@ cdma2k_message_ORIGINATION.argprom.exit:          ; preds = %._crit_edge.i178, %
   %1499 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1195, i32 noundef %1496, ptr noundef %0, i32 noundef %1497, i32 noundef %1498, i32 noundef 0) #4
   %1500 = trunc nuw nsw i32 %1498 to i16
   %1501 = add i16 %1495, %1500
-  br label %cdma2k_message_PAGE_RESPONSE.argprom.exit
+  br label %cdma2k_message_PAGE_RESPONSE.exit
 
-cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %1373, %.loopexit.i196, %1490
+cdma2k_message_PAGE_RESPONSE.exit:                ; preds = %._crit_edge.i187, %1373, %.loopexit.i196, %1490
   %.8.i189 = phi i16 [ %1501, %1490 ], [ %1489, %.loopexit.i196 ], [ %1377, %1373 ], [ %.1.lcssa.i, %._crit_edge.i187 ]
   %1502 = zext i16 %.8.i189 to i32
   %1503 = and i32 %1502, 7
@@ -3960,7 +3960,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1506 = zext i1 %1504 to i32
   %storemerge.i190 = add nuw nsw i32 %1505, %1506
   store i32 %storemerge.i190, ptr %2, align 4
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 1507:                                             ; preds = %317
   %1508 = load i32, ptr @hf_cdma2k_AuthChallRspMsg, align 4
@@ -3974,7 +3974,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1516 = load i32, ptr %2, align 4
   %1517 = add i32 %1516, 3
   store i32 %1517, ptr %2, align 4
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 1518:                                             ; preds = %317
   %1519 = load i32, ptr @ett_cdma2k_subtree1, align 4
@@ -4000,7 +4000,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1537 = shl i16 %.tr.i200, 3
   %1538 = or disjoint i16 %1537, 1
   %.not.i201 = icmp eq i8 %1534, 0
-  br i1 %.not.i201, label %cdma2k_message_ORDER_CMD.argprom.exit, label %1539
+  br i1 %.not.i201, label %cdma2k_message_ORDER_CMD.exit, label %1539
 
 1539:                                             ; preds = %1518
   %1540 = lshr i8 %1525, 2
@@ -4035,7 +4035,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1555 = zext i16 %1553 to i32
   %1556 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1544, i32 noundef %1554, ptr noundef %0, i32 noundef %1555, i32 noundef 6, i32 noundef 0) #4
   %1557 = add i16 %1537, 33
-  br label %cdma2k_message_ORDER_CMD.argprom.exit
+  br label %cdma2k_message_ORDER_CMD.exit
 
 1558:                                             ; preds = %1539
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1542, ptr noundef nonnull @.str.1174) #4
@@ -4043,7 +4043,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1560 = zext i16 %1538 to i32
   %1561 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1544, i32 noundef %1559, ptr noundef %0, i32 noundef %1560, i32 noundef 8, i32 noundef 0) #4
   %1562 = add i16 %1537, 9
-  br label %cdma2k_message_ORDER_CMD.argprom.exit
+  br label %cdma2k_message_ORDER_CMD.exit
 
 1563:                                             ; preds = %1539
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1542, ptr noundef nonnull @.str.1178) #4
@@ -4058,7 +4058,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1572 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1571, i32 noundef 8) #4
   %1573 = add i16 %1537, 9
   %1574 = icmp eq i8 %1572, 3
-  br i1 %1574, label %1575, label %cdma2k_message_ORDER_CMD.argprom.exit
+  br i1 %1574, label %1575, label %cdma2k_message_ORDER_CMD.exit
 
 1575:                                             ; preds = %1563
   %1576 = load i32, ptr @hf_cdma2k_Rsc_Mode_Ind, align 4
@@ -4070,7 +4070,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1582 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1581, i32 noundef 1) #4
   %1583 = add i16 %1537, 10
   %1584 = icmp eq i8 %1582, 1
-  br i1 %1584, label %1585, label %cdma2k_message_ORDER_CMD.argprom.exit
+  br i1 %1584, label %1585, label %cdma2k_message_ORDER_CMD.exit
 
 1585:                                             ; preds = %1575
   %1586 = load i32, ptr @hf_cdma2k_Rsci, align 4
@@ -4085,7 +4085,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1595 = zext i16 %1593 to i32
   %1596 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1544, i32 noundef %1594, ptr noundef %0, i32 noundef %1595, i32 noundef 4, i32 noundef 0) #4
   %1597 = or disjoint i16 %1593, 4
-  br label %cdma2k_message_ORDER_CMD.argprom.exit
+  br label %cdma2k_message_ORDER_CMD.exit
 
 1598:                                             ; preds = %1539
   %1599 = load i32, ptr @hf_cdma2k_Ordq, align 4
@@ -4175,13 +4175,13 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1647 = zext i16 %.3.i211 to i32
   %1648 = and i32 %1647, 7
   %.not403.i = icmp eq i32 %1648, 0
-  br i1 %.not403.i, label %cdma2k_message_ORDER_CMD.argprom.exit, label %1649
+  br i1 %.not403.i, label %cdma2k_message_ORDER_CMD.exit, label %1649
 
 1649:                                             ; preds = %.thread9.i
   %1650 = load i32, ptr @hf_cdma2k_Reserved, align 4
   %1651 = sub nuw nsw i32 8, %1648
   %1652 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1544, i32 noundef %1650, ptr noundef %0, i32 noundef %1647, i32 noundef %1651, i32 noundef 0) #4
-  br label %cdma2k_message_ORDER_CMD.argprom.exit
+  br label %cdma2k_message_ORDER_CMD.exit
 
 1653:                                             ; preds = %1539
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1542, ptr noundef nonnull @.str.1195) #4
@@ -4210,7 +4210,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1670 = zext i16 %.4.i210 to i32
   %1671 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1544, i32 noundef %1669, ptr noundef %0, i32 noundef %1670, i32 noundef 5, i32 noundef 0) #4
   %1672 = add i16 %.4.i210, 5
-  br label %cdma2k_message_ORDER_CMD.argprom.exit
+  br label %cdma2k_message_ORDER_CMD.exit
 
 1673:                                             ; preds = %1539
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1542, ptr noundef nonnull @.str.1196) #4
@@ -4230,7 +4230,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1687 = zext i16 %1685 to i32
   %1688 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1544, i32 noundef %1686, ptr noundef %0, i32 noundef %1687, i32 noundef 3, i32 noundef 0) #4
   %1689 = add i16 %1537, 24
-  br label %cdma2k_message_ORDER_CMD.argprom.exit
+  br label %cdma2k_message_ORDER_CMD.exit
 
 1690:                                             ; preds = %1539
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1542, ptr noundef nonnull @.str.1197) #4
@@ -4274,7 +4274,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1721 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1719, i32 noundef 8) #4
   %1722 = add i16 %.6.i207, 14
   %1723 = icmp eq i8 %1721, 0
-  br i1 %1723, label %cdma2k_message_ORDER_CMD.argprom.exit, label %.thread16.i
+  br i1 %1723, label %cdma2k_message_ORDER_CMD.exit, label %.thread16.i
 
 .thread16.i:                                      ; preds = %1717, %1711
   %.719.i = phi i16 [ %1722, %1717 ], [ %1715, %1711 ]
@@ -4340,7 +4340,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1770 = zext i16 %.10.i209 to i32
   %1771 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1544, i32 noundef %1769, ptr noundef %0, i32 noundef %1770, i32 noundef 8, i32 noundef 0) #4
   %1772 = add i16 %.10.i209, 8
-  br label %cdma2k_message_ORDER_CMD.argprom.exit
+  br label %cdma2k_message_ORDER_CMD.exit
 
 1773:                                             ; preds = %1539
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1542, ptr noundef nonnull @.str.1179) #4
@@ -4461,7 +4461,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1863 = zext i16 %1861 to i32
   %1864 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1544, i32 noundef %1862, ptr noundef %0, i32 noundef %1863, i32 noundef 8, i32 noundef 0) #4
   %1865 = add i16 %.15.i206, 19
-  br label %cdma2k_message_ORDER_CMD.argprom.exit
+  br label %cdma2k_message_ORDER_CMD.exit
 
 1866:                                             ; preds = %1539
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1542, ptr noundef nonnull @.str.1198) #4
@@ -4480,7 +4480,7 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1879 = zext i16 %1878 to i32
   %1880 = load i32, ptr @hf_cdma2k_Reserved, align 4
   %1881 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1544, i32 noundef %1880, ptr noundef %0, i32 noundef %1879, i32 noundef 6, i32 noundef 0) #4
-  br label %cdma2k_message_ORDER_CMD.argprom.exit
+  br label %cdma2k_message_ORDER_CMD.exit
 
 1882:                                             ; preds = %1539
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1542, ptr noundef nonnull @.str.1199) #4
@@ -4494,20 +4494,20 @@ cdma2k_message_PAGE_RESPONSE.argprom.exit:        ; preds = %._crit_edge.i187, %
   %1890 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %1888, i32 noundef 1) #4
   %1891 = add i16 %1537, 10
   %1892 = icmp eq i8 %1890, 1
-  br i1 %1892, label %1893, label %cdma2k_message_ORDER_CMD.argprom.exit
+  br i1 %1892, label %1893, label %cdma2k_message_ORDER_CMD.exit
 
 1893:                                             ; preds = %1882
   %1894 = load i32, ptr @hf_cdma2k_Regulatory_Ind, align 4
   %1895 = zext i16 %1891 to i32
   %1896 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1544, i32 noundef %1894, ptr noundef %0, i32 noundef %1895, i32 noundef 2, i32 noundef 0) #4
   %1897 = add i16 %1537, 12
-  br label %cdma2k_message_ORDER_CMD.argprom.exit
+  br label %cdma2k_message_ORDER_CMD.exit
 
 1898:                                             ; preds = %1539
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1542, ptr noundef nonnull @.str.1200) #4
-  br label %cdma2k_message_ORDER_CMD.argprom.exit
+  br label %cdma2k_message_ORDER_CMD.exit
 
-cdma2k_message_ORDER_CMD.argprom.exit:            ; preds = %1518, %1545, %1558, %1563, %1575, %1585, %.thread9.i, %1649, %1668, %1673, %1717, %1768, %1849, %1866, %1882, %1893, %1898
+cdma2k_message_ORDER_CMD.exit:                    ; preds = %1518, %1545, %1558, %1563, %1575, %1585, %.thread9.i, %1649, %1668, %1673, %1717, %1768, %1849, %1866, %1882, %1893, %1898
   %.0395.i = phi i16 [ %1538, %1898 ], [ %1897, %1893 ], [ %1891, %1882 ], [ %1878, %1866 ], [ %1865, %1849 ], [ %1772, %1768 ], [ %1722, %1717 ], [ %1689, %1673 ], [ %1672, %1668 ], [ %.3.i211, %1649 ], [ %.3.i211, %.thread9.i ], [ %1597, %1585 ], [ %1583, %1575 ], [ %1573, %1563 ], [ %1562, %1558 ], [ %1557, %1545 ], [ %1538, %1518 ]
   %1899 = zext i16 %.0395.i to i32
   %1900 = and i32 %1899, 7
@@ -4516,7 +4516,7 @@ cdma2k_message_ORDER_CMD.argprom.exit:            ; preds = %1518, %1545, %1558,
   %1903 = zext i1 %1901 to i32
   %storemerge.i202 = add nuw nsw i32 %1902, %1903
   store i32 %storemerge.i202, ptr %2, align 4
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 1904:                                             ; preds = %317
   %1905 = load i32, ptr @hf_cdma2k_DataBurstCmdMsg, align 4
@@ -4567,7 +4567,7 @@ cdma2k_message_ORDER_CMD.argprom.exit:            ; preds = %1518, %1545, %1558,
   %1946 = add nuw nsw i32 %1945, 65535
   %1947 = and i32 %1946, 65535
   %.not4.i212 = icmp eq i32 %1947, 0
-  br i1 %.not4.i212, label %cdma2k_message_DATA_BURST_CMD.argprom.exit, label %.lr.ph8.i213
+  br i1 %.not4.i212, label %cdma2k_message_DATA_BURST_CMD.exit, label %.lr.ph8.i213
 
 .lr.ph8.i213:                                     ; preds = %1904, %._crit_edge.i226
   %.0756.i214 = phi i16 [ %.176.lcssa.i227, %._crit_edge.i226 ], [ 1, %1904 ]
@@ -4661,13 +4661,13 @@ cdma2k_message_ORDER_CMD.argprom.exit:            ; preds = %1518, %1545, %1558,
 
 ._crit_edge9.loopexit.i229:                       ; preds = %._crit_edge.i226
   %.pre.i230 = load i32, ptr %2, align 4
-  br label %cdma2k_message_DATA_BURST_CMD.argprom.exit
+  br label %cdma2k_message_DATA_BURST_CMD.exit
 
-cdma2k_message_DATA_BURST_CMD.argprom.exit:       ; preds = %1904, %._crit_edge9.loopexit.i229
+cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1904, %._crit_edge9.loopexit.i229
   %2001 = phi i32 [ %.pre.i230, %._crit_edge9.loopexit.i229 ], [ %1944, %1904 ]
   %2002 = add i32 %2001, 1
   store i32 %2002, ptr %2, align 4
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 2003:                                             ; preds = %317
   %2004 = load i32, ptr @hf_cdma2k_AuthChallReqMsg, align 4
@@ -4686,7 +4686,7 @@ cdma2k_message_DATA_BURST_CMD.argprom.exit:       ; preds = %1904, %._crit_edge9
   %2016 = load i32, ptr %2, align 4
   %2017 = add i32 %2016, 1
   store i32 %2017, ptr %2, align 4
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 2018:                                             ; preds = %317
   %2019 = load i32, ptr @hf_cdma2k_GenPageReqMsg, align 4
@@ -4694,7 +4694,7 @@ cdma2k_message_DATA_BURST_CMD.argprom.exit:       ; preds = %1904, %._crit_edge9
   %2021 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %2022 = tail call ptr @proto_item_add_subtree(ptr noundef %2020, i32 noundef %2021) #4
   %.not.i232 = icmp eq i16 %314, 0
-  br i1 %.not.i232, label %cdma2k_message_GEN_PAGE_REQ.argprom.exit, label %2023
+  br i1 %.not.i232, label %cdma2k_message_GEN_PAGE_REQ.exit, label %2023
 
 2023:                                             ; preds = %2018
   %2024 = load i32, ptr @hf_cdma2k_service_option, align 4
@@ -4703,11 +4703,11 @@ cdma2k_message_DATA_BURST_CMD.argprom.exit:       ; preds = %1904, %._crit_edge9
   %2027 = load i32, ptr %2, align 4
   %2028 = add i32 %2027, 2
   store i32 %2028, ptr %2, align 4
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 2029:                                             ; preds = %317
   store i16 0, ptr %3, align 2
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 2030:                                             ; preds = %304
   switch i8 %37, label %2551 [
@@ -4724,7 +4724,7 @@ cdma2k_message_DATA_BURST_CMD.argprom.exit:       ; preds = %1904, %._crit_edge9
   %2036 = load i32, ptr %2, align 4
   %2037 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2036) #4
   %.not31.i = icmp eq i32 %2037, 0
-  br i1 %.not31.i, label %cdma2k_message_GEN_PAGE_REQ.argprom.exit, label %.lr.ph34.i
+  br i1 %.not31.i, label %cdma2k_message_GEN_PAGE_REQ.exit, label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %2031, %.loopexit.i233
   %.032.i = phi i16 [ %2042, %.loopexit.i233 ], [ 1, %2031 ]
@@ -5423,17 +5423,17 @@ cdma2k_message_DATA_BURST_CMD.argprom.exit:       ; preds = %1904, %._crit_edge9
   %2548 = phi i32 [ %.pre50.i, %2344 ], [ %.pre.i241, %.thread.i239 ], [ %.pre51.i, %2225 ], [ %.pre52.i, %2187 ], [ %.pre53.i, %2064 ], [ %2521, %2501 ], [ %2532, %2522 ], [ %.pre49.i, %2547 ], [ %2546, %2533 ], [ %2486, %._crit_edge.i237 ], [ %2413, %2382 ], [ %2186, %2179 ], [ %2178, %2154 ], [ %2153, %._crit_edge22.i ], [ %2108, %._crit_edge26.i ], [ %2075, %.lr.ph30.i ], [ %2222, %.lr.ph18.i ], [ %2260, %.lr.ph15.i ], [ %2341, %.lr.ph12.i ], [ %2379, %.lr.ph10.i238 ]
   %2549 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2548) #4
   %.not.i234 = icmp eq i32 %2549, 0
-  br i1 %.not.i234, label %cdma2k_message_GEN_PAGE_REQ.argprom.exit, label %.lr.ph34.i, !llvm.loop !26
+  br i1 %.not.i234, label %cdma2k_message_GEN_PAGE_REQ.exit, label %.lr.ph34.i, !llvm.loop !26
 
 2550:                                             ; preds = %2030, %2030
-  tail call fastcc void @cdma2k_message_HANDOFF_DIR.argprom(ptr noundef %0, ptr noundef %308, ptr noundef %2, i16 noundef zeroext %.0159)
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  tail call fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %308, ptr noundef %2, i16 noundef zeroext %.0159)
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
 2551:                                             ; preds = %2030
   store i16 0, ptr %3, align 2
-  br label %cdma2k_message_GEN_PAGE_REQ.argprom.exit
+  br label %cdma2k_message_GEN_PAGE_REQ.exit
 
-cdma2k_message_GEN_PAGE_REQ.argprom.exit:         ; preds = %.loopexit.i233, %2031, %2023, %2018, %2550, %2551, %cdma2k_message_REGISTRATION.argprom.exit, %cdma2k_message_ORDER_IND.argprom.exit, %cdma2k_message_DATA_BURST_IND.argprom.exit, %cdma2k_message_ORIGINATION.argprom.exit, %cdma2k_message_PAGE_RESPONSE.argprom.exit, %1507, %cdma2k_message_ORDER_CMD.argprom.exit, %cdma2k_message_DATA_BURST_CMD.argprom.exit, %2003, %2029
+cdma2k_message_GEN_PAGE_REQ.exit:                 ; preds = %.loopexit.i233, %2031, %2023, %2018, %2550, %2551, %cdma2k_message_REGISTRATION.exit, %cdma2k_message_ORDER_IND.exit, %cdma2k_message_DATA_BURST_IND.exit, %cdma2k_message_ORIGINATION.exit, %cdma2k_message_PAGE_RESPONSE.exit, %1507, %cdma2k_message_ORDER_CMD.exit, %cdma2k_message_DATA_BURST_CMD.exit, %2003, %2029
   ret void
 }
 
@@ -5450,7 +5450,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare zeroext i16 @tvb_get_bits16(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cdma2k_message_HANDOFF_DIR.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext range(i16 0, 256) %3) unnamed_addr #0 {
+define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext range(i16 0, 256) %3) unnamed_addr #0 {
   %5 = icmp eq i16 %3, 34
   %6 = load i32, ptr %2, align 4
   %hf_cdma2k_UhdmMsg.val = load i32, ptr @hf_cdma2k_UhdmMsg, align 4
@@ -6639,27 +6639,27 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR.argprom(ptr noundef %0, 
   %820 = zext i16 %.49 to i32
   %821 = and i32 %820, 7
   %.not492.i = icmp eq i32 %821, 0
-  br i1 %.not492.i, label %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.argprom.exit, label %822
+  br i1 %.not492.i, label %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit, label %822
 
 822:                                              ; preds = %.loopexit.i
   %823 = load i32, ptr @hf_cdma2k_Reserved, align 4
   %824 = sub nuw nsw i32 8, %821
   %825 = tail call ptr @proto_tree_add_bits_item(ptr noundef %400, i32 noundef %823, ptr noundef %0, i32 noundef %820, i32 noundef %824, i32 noundef 0) #4
-  br label %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.argprom.exit
+  br label %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit
 
 826:                                              ; preds = %379
   %.tr577 = zext i8 %388 to i16
   %827 = shl nuw nsw i16 %.tr577, 3
   %828 = add i16 %827, %389
-  br label %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.argprom.exit
+  br label %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit
 
-cdma2k_message_ACTIVE_SET_RECORD_FIELDS.argprom.exit: ; preds = %822, %.loopexit.i, %826
+cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, %826
   %.50 = phi i16 [ %828, %826 ], [ %.49, %.loopexit.i ], [ %.49, %822 ]
   %829 = and i8 %383, -5
   %or.cond5.not = icmp eq i8 %829, 2
   br i1 %or.cond5.not, label %.critedge, label %830
 
-830:                                              ; preds = %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.argprom.exit
+830:                                              ; preds = %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit
   %831 = load i32, ptr @hf_cdma2k_Rev_Fch_Gating_Mode, align 4
   %832 = zext i16 %.50 to i32
   %833 = tail call ptr @proto_tree_add_bits_item(ptr noundef %10, i32 noundef %831, ptr noundef %0, i32 noundef %832, i32 noundef 1, i32 noundef 0) #4
@@ -6684,8 +6684,8 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.argprom.exit: ; preds = %822, %.loopexit
   %848 = add i16 %.50, 4
   br label %.critedge
 
-.critedge:                                        ; preds = %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.argprom.exit, %837, %844, %830
-  %.51 = phi i16 [ %.50, %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.argprom.exit ], [ %848, %844 ], [ %842, %837 ], [ %835, %830 ]
+.critedge:                                        ; preds = %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit, %837, %844, %830
+  %.51 = phi i16 [ %.50, %cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit ], [ %848, %844 ], [ %842, %837 ], [ %835, %830 ]
   %849 = icmp eq i16 %.0555, 2
   %850 = and i16 %.0555, -2
   %or.cond8 = icmp eq i16 %850, 2

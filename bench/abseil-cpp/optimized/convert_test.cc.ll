@@ -1800,7 +1800,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -1842,7 +1842,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -2293,7 +2293,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i:          ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i.i.i, align 8
   %__begin0.0.add.i = add nuw nsw i64 %__begin0.0.idx1.i, 16
   %cmp.not.i = icmp eq i64 %__begin0.0.add.i, 160
-  br i1 %cmp.not.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_cEEvRKT_.argprom.exit, label %for.body.i
+  br i1 %cmp.not.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_cEEvRKT_.exit, label %for.body.i
 
 ehcleanup16.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit13.i, %lpad4.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %_ZN7testing7MessageD2Ev.exit13.i ], [ %4, %lpad4.i ]
@@ -2304,7 +2304,7 @@ common.resume:                                    ; preds = %ehcleanup, %ehclean
   %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup16.i ], [ %3, %lpad.i ], [ %.pn.pn.i25, %ehcleanup15.i ], [ %16, %lpad.i19 ], [ %.pn.pn.i73, %ehcleanup15.i72 ], [ %29, %lpad.i65 ], [ %.pn.pn.i127, %ehcleanup15.i126 ], [ %42, %lpad.i119 ], [ %.pn.pn.i308, %ehcleanup15.i307 ], [ %83, %lpad.i300 ], [ %.pn2, %ehcleanup14 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_cEEvRKT_.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i
+_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_cEEvRKT_.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %kExpect.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i)
@@ -2324,8 +2324,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_cEEvRKT_.argpr
   %message_.i.i.i10 = getelementptr inbounds i8, ptr %gtest_ar.i7, i64 8
   br label %for.body.i11
 
-for.body.i11:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i45, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_cEEvRKT_.argprom.exit
-  %__begin0.0.idx1.i12 = phi i64 [ 0, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_cEEvRKT_.argprom.exit ], [ %__begin0.0.add.i46, %_ZN7testing15AssertionResultD2Ev.exit.i45 ]
+for.body.i11:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i45, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_cEEvRKT_.exit
+  %__begin0.0.idx1.i12 = phi i64 [ 0, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_cEEvRKT_.exit ], [ %__begin0.0.add.i46, %_ZN7testing15AssertionResultD2Ev.exit.i45 ]
   %__begin0.0.ptr.i13 = getelementptr inbounds i8, ptr %kExpect.i6, i64 %__begin0.0.idx1.i12
   %fmt.i14 = getelementptr inbounds i8, ptr %__begin0.0.ptr.i13, i64 8
   %13 = load ptr, ptr %fmt.i14, align 8
@@ -2442,14 +2442,14 @@ _ZN7testing15AssertionResultD2Ev.exit.i45:        ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i.i.i10, align 8
   %__begin0.0.add.i46 = add nuw nsw i64 %__begin0.0.idx1.i12, 16
   %cmp.not.i47 = icmp eq i64 %__begin0.0.add.i46, 160
-  br i1 %cmp.not.i47, label %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_wEEvRKT_.argprom.exit, label %for.body.i11
+  br i1 %cmp.not.i47, label %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_wEEvRKT_.exit, label %for.body.i11
 
 ehcleanup15.i:                                    ; preds = %_ZN7testing7MessageD2Ev.exit13.i36, %lpad6.i
   %.pn.pn.i25 = phi { ptr, i32 } [ %.pn.i31, %_ZN7testing7MessageD2Ev.exit13.i36 ], [ %20, %lpad6.i ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar.i7) #30
   br label %common.resume
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_wEEvRKT_.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i45
+_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_wEEvRKT_.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i5)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %kExpect.i6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i7)
@@ -2469,8 +2469,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_wEEvRKT_.argpr
   %message_.i.i.i56 = getelementptr inbounds i8, ptr %gtest_ar.i51, i64 8
   br label %for.body.i57
 
-for.body.i57:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i99, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_wEEvRKT_.argprom.exit
-  %__begin0.0.idx1.i58 = phi i64 [ 0, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_wEEvRKT_.argprom.exit ], [ %__begin0.0.add.i100, %_ZN7testing15AssertionResultD2Ev.exit.i99 ]
+for.body.i57:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i99, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_wEEvRKT_.exit
+  %__begin0.0.idx1.i58 = phi i64 [ 0, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIA6_wEEvRKT_.exit ], [ %__begin0.0.add.i100, %_ZN7testing15AssertionResultD2Ev.exit.i99 ]
   %__begin0.0.ptr.i59 = getelementptr inbounds i8, ptr %kExpect.i50, i64 %__begin0.0.idx1.i58
   %fmt.i60 = getelementptr inbounds i8, ptr %__begin0.0.ptr.i59, i64 8
   %26 = load ptr, ptr %fmt.i60, align 8
@@ -2587,14 +2587,14 @@ _ZN7testing15AssertionResultD2Ev.exit.i99:        ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i.i.i56, align 8
   %__begin0.0.add.i100 = add nuw nsw i64 %__begin0.0.idx1.i58, 16
   %cmp.not.i101 = icmp eq i64 %__begin0.0.add.i100, 160
-  br i1 %cmp.not.i101, label %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKcEEvRKT_.argprom.exit, label %for.body.i57
+  br i1 %cmp.not.i101, label %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKcEEvRKT_.exit, label %for.body.i57
 
 ehcleanup15.i72:                                  ; preds = %_ZN7testing7MessageD2Ev.exit13.i87, %lpad6.i71
   %.pn.pn.i73 = phi { ptr, i32 } [ %.pn.i82, %_ZN7testing7MessageD2Ev.exit13.i87 ], [ %33, %lpad6.i71 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar.i51) #30
   br label %common.resume
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKcEEvRKT_.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i99
+_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKcEEvRKT_.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i99
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i49)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %kExpect.i50)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i51)
@@ -2614,8 +2614,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKcEEvRKT_.argpro
   %message_.i.i.i110 = getelementptr inbounds i8, ptr %gtest_ar.i105, i64 8
   br label %for.body.i111
 
-for.body.i111:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i153, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKcEEvRKT_.argprom.exit
-  %__begin0.0.idx1.i112 = phi i64 [ 0, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKcEEvRKT_.argprom.exit ], [ %__begin0.0.add.i154, %_ZN7testing15AssertionResultD2Ev.exit.i153 ]
+for.body.i111:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i153, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKcEEvRKT_.exit
+  %__begin0.0.idx1.i112 = phi i64 [ 0, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKcEEvRKT_.exit ], [ %__begin0.0.add.i154, %_ZN7testing15AssertionResultD2Ev.exit.i153 ]
   %__begin0.0.ptr.i113 = getelementptr inbounds i8, ptr %kExpect.i104, i64 %__begin0.0.idx1.i112
   %fmt.i114 = getelementptr inbounds i8, ptr %__begin0.0.ptr.i113, i64 8
   %39 = load ptr, ptr %fmt.i114, align 8
@@ -2732,14 +2732,14 @@ _ZN7testing15AssertionResultD2Ev.exit.i153:       ; preds = %_ZNKSt14default_del
   store ptr null, ptr %message_.i.i.i110, align 8
   %__begin0.0.add.i154 = add nuw nsw i64 %__begin0.0.idx1.i112, 16
   %cmp.not.i155 = icmp eq i64 %__begin0.0.add.i154, 160
-  br i1 %cmp.not.i155, label %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKwEEvRKT_.argprom.exit, label %for.body.i111
+  br i1 %cmp.not.i155, label %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKwEEvRKT_.exit, label %for.body.i111
 
 ehcleanup15.i126:                                 ; preds = %_ZN7testing7MessageD2Ev.exit13.i141, %lpad6.i125
   %.pn.pn.i127 = phi { ptr, i32 } [ %.pn.i136, %_ZN7testing7MessageD2Ev.exit13.i141 ], [ %46, %lpad6.i125 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar.i105) #30
   br label %common.resume
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKwEEvRKT_.argprom.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i153
+_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKwEEvRKT_.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i153
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i103)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %kExpect.i104)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar.i105)
@@ -2750,7 +2750,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKwEEvRKT_.argpro
   %call.i159 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
           to label %call.i.noexc unwind label %lpad
 
-call.i.noexc:                                     ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKwEEvRKT_.argprom.exit
+call.i.noexc:                                     ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKwEEvRKT_.exit
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef %call.i159, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %.noexc unwind label %lpad
 
@@ -3242,7 +3242,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertISt17basic_string_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp8.i289)
   ret void
 
-lpad:                                             ; preds = %call.i.noexc, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKwEEvRKT_.argprom.exit
+lpad:                                             ; preds = %call.i.noexc, %_ZN4absl19str_format_internal12_GLOBAL__N_117TestStringConvertIPKwEEvRKT_.exit
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -5132,7 +5132,7 @@ entry:
   %dispatcher_.i.i108 = getelementptr inbounds i8, ptr %args_array, i64 216
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchINS0_7VoidPtrEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i108, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp16, ptr nonnull @.str.92, i64 2, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.91, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.91, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -5234,7 +5234,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp35, ptr nonnull @.str.94, i64 4, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar32, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.93, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar32, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.93, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -5341,7 +5341,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit138:         ; preds = %if.end57, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i137
   store ptr null, ptr %message_.i135, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp62, ptr nonnull @.str.96, i64 4, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar59, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar59, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit138
@@ -5448,7 +5448,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit162:         ; preds = %if.end84, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i161
   store ptr null, ptr %message_.i159, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp89, ptr nonnull @.str.98, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar86, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar86, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89)
           to label %invoke.cont94 unwind label %lpad93
 
 invoke.cont94:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit162
@@ -5555,7 +5555,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit186:         ; preds = %if.end111, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i185
   store ptr null, ptr %message_.i183, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp116, ptr nonnull @.str.100, i64 7, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar113, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.99, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar113, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.99, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116)
           to label %invoke.cont121 unwind label %lpad120
 
 invoke.cont121:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit186
@@ -5662,7 +5662,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit210:         ; preds = %if.end138, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i209
   store ptr null, ptr %message_.i207, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp143, ptr nonnull @.str.102, i64 3, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar140, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.101, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp143)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar140, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.101, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp143)
           to label %invoke.cont148 unwind label %lpad147
 
 invoke.cont148:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit210
@@ -5769,7 +5769,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit234:         ; preds = %if.end165, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i233
   store ptr null, ptr %message_.i231, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp170, ptr nonnull @.str.104, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar167, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.103, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar167, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.103, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170)
           to label %invoke.cont175 unwind label %lpad174
 
 invoke.cont175:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit234
@@ -5876,7 +5876,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit258:         ; preds = %if.end192, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i257
   store ptr null, ptr %message_.i255, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp197, ptr nonnull @.str.106, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar194, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp197)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar194, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp197)
           to label %invoke.cont202 unwind label %lpad201
 
 invoke.cont202:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit258
@@ -5983,7 +5983,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit282:         ; preds = %if.end219, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i281
   store ptr null, ptr %message_.i279, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp224, ptr nonnull @.str.98, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar221, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar221, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224)
           to label %invoke.cont229 unwind label %lpad228
 
 invoke.cont229:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit282
@@ -6090,7 +6090,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit306:         ; preds = %if.end246, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i305
   store ptr null, ptr %message_.i303, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp251, ptr nonnull @.str.108, i64 8, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar248, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.107, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp251)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar248, ptr nonnull @_ZZN4absl19str_format_internal12_GLOBAL__N_130FormatConvertTest_Pointer_Test8TestBodyEvE1x, ptr noundef nonnull @.str.107, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp251)
           to label %invoke.cont256 unwind label %lpad255
 
 invoke.cont256:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit306
@@ -7526,7 +7526,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit635:         ; preds = %if.end354, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i634
   store ptr null, ptr %message_.i632, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp359, ptr nonnull @.str.116, i64 4, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar356, ptr noundef nonnull @.str.115, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp359)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar356, ptr noundef nonnull @.str.115, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp359)
           to label %invoke.cont364 unwind label %lpad363
 
 invoke.cont364:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit635
@@ -7633,7 +7633,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit659:         ; preds = %if.end381, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i658
   store ptr null, ptr %message_.i656, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp386, ptr nonnull @.str.118, i64 4, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar383, ptr noundef nonnull @.str.117, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp386)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar383, ptr noundef nonnull @.str.117, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp386)
           to label %invoke.cont391 unwind label %lpad390
 
 invoke.cont391:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit659
@@ -7740,7 +7740,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit683:         ; preds = %if.end408, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i682
   store ptr null, ptr %message_.i680, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp413, ptr nonnull @.str.120, i64 4, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar410, ptr noundef nonnull @.str.119, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp413)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar410, ptr noundef nonnull @.str.119, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp413)
           to label %invoke.cont418 unwind label %lpad417
 
 invoke.cont418:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit683
@@ -9176,7 +9176,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1124:        ; preds = %if.end516, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1123
   store ptr null, ptr %message_.i1121, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp521, ptr nonnull @.str.128, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar518, ptr noundef nonnull @.str.127, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp521)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar518, ptr noundef nonnull @.str.127, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp521)
           to label %invoke.cont526 unwind label %lpad525
 
 invoke.cont526:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1124
@@ -9283,7 +9283,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1148:        ; preds = %if.end543, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1147
   store ptr null, ptr %message_.i1145, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp548, ptr nonnull @.str.130, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar545, ptr nonnull %vc, ptr noundef nonnull @.str.129, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp548)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar545, ptr nonnull %vc, ptr noundef nonnull @.str.129, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp548)
           to label %invoke.cont553 unwind label %lpad552
 
 invoke.cont553:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1148
@@ -9390,7 +9390,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1172:        ; preds = %if.end570, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1171
   store ptr null, ptr %message_.i1169, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp575, ptr nonnull @.str.132, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar572, ptr nonnull %vwc, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp575)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar572, ptr nonnull %vwc, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp575)
           to label %invoke.cont580 unwind label %lpad579
 
 invoke.cont580:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1172
@@ -9497,7 +9497,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1196:        ; preds = %if.end597, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1195
   store ptr null, ptr %message_.i1193, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp602, ptr nonnull @.str.134, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar599, ptr noundef nonnull @.str.133, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp602)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar599, ptr noundef nonnull @.str.133, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp602)
           to label %invoke.cont607 unwind label %lpad606
 
 invoke.cont607:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1196
@@ -9604,7 +9604,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit1220:        ; preds = %if.end624, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i1219
   store ptr null, ptr %message_.i1217, align 8
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp629, ptr nonnull @.str.136, i64 5, ptr nonnull %args_array, i64 14)
-  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias align 8 %gtest_ar626, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp629)
+  invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar626, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp629)
           to label %invoke.cont634 unwind label %lpad633
 
 invoke.cont634:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit1220
@@ -9722,7 +9722,7 @@ eh.resume:                                        ; preds = %ehcleanup652, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -10056,7 +10056,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias nonnull align 8 %agg.result, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -10390,7 +10390,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr noundef %value_text, ptr noundef nonnull align 8 dereferenceable(32) %x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -12785,7 +12785,7 @@ entry:
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10DescribeToEPSo(ptr nocapture nonnull readnone align 8 %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb.argprom(ptr noalias align 8 %ref.tmp, i1 noundef zeroext false)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12804,7 +12804,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18DescribeNegationToEPSo(ptr nocapture nonnull readnone align 8 %this, ptr noundef %gmock_os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb.argprom(ptr noalias align 8 %ref.tmp, i1 noundef zeroext true)
+  call fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12865,7 +12865,7 @@ return:                                           ; preds = %entry, %if.end10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb.argprom(ptr noalias nonnull align 8 %agg.result, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %agg.result, i1 noundef zeroext %negation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.110", align 8
@@ -16244,30 +16244,30 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i163, %fo
   %__i.sroa.0.013.i.ptr.i.i.i = getelementptr inbounds i8, ptr %floats.sroa.0.10, i64 %__i.sroa.0.013.i.idx.i.i.i
   %5 = load float, ptr %__i.sroa.0.013.i.ptr.i.i.i, align 4
   %6 = fcmp uno float %5, 0.000000e+00
-  br i1 %6, label %for.inc.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i.i"
+  br i1 %6, label %for.inc.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i.i": ; preds = %for.body.i.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i": ; preds = %for.body.i.i.i.i
   %7 = load float, ptr %floats.sroa.0.10, align 4
   %8 = fcmp uno float %7, 0.000000e+00
   %cmp.i.i.i.i.i.i164 = fcmp olt float %5, %7
   %spec.select.i.i.i.i.i.i = or i1 %8, %cmp.i.i.i.i.i.i164
-  br i1 %spec.select.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i"
+  br i1 %spec.select.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i"
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i.i"
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i"
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %floats.sroa.0.10, i64 %__i.sroa.0.013.i.idx.i.i.i, i1 false)
   br label %for.inc.i.i.i.i
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i.i"
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i"
   %9 = load float, ptr %__first.coerce.pn12.i.i.i.i, align 4
   %10 = fcmp uno float %9, 0.000000e+00
   %cmp.i.i12.i.i.i.i.i = fcmp olt float %5, %9
   %spec.select.i.i13.i.i.i.i.i = or i1 %10, %cmp.i.i12.i.i.i.i.i
   br i1 %spec.select.i.i13.i.i.i.i.i, label %while.body.i.i.i.i.i, label %for.inc.i.i.i.i
 
-while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i", %while.body.i.i.i.i.i
-  %11 = phi float [ %12, %while.body.i.i.i.i.i ], [ %9, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i" ]
-  %__last.sroa.0.0815.i.i.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i" ]
-  %__next.sroa.0.0914.i.i.i.i.i = phi ptr [ %__next.sroa.0.0.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__first.coerce.pn12.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i" ]
+while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i", %while.body.i.i.i.i.i
+  %11 = phi float [ %12, %while.body.i.i.i.i.i ], [ %9, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i" ]
+  %__last.sroa.0.0815.i.i.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i" ]
+  %__next.sroa.0.0914.i.i.i.i.i = phi ptr [ %__next.sroa.0.0.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__first.coerce.pn12.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i" ]
   store float %11, ptr %__last.sroa.0.0815.i.i.i.i.i, align 4
   %__next.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.0914.i.i.i.i.i, i64 -4
   %12 = load float, ptr %__next.sroa.0.0.i.i.i.i.i, align 4
@@ -16276,8 +16276,8 @@ while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__op
   %spec.select.i.i.i.i.i.i.i = or i1 %13, %cmp.i.i.i.i.i.i.i
   br i1 %spec.select.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %for.inc.i.i.i.i
 
-for.inc.i.i.i.i:                                  ; preds = %while.body.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i.i.i.i, %for.body.i.i.i.i
-  %__first.coerce.sink.i.i.i.i = phi ptr [ %floats.sroa.0.10, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i" ], [ %__i.sroa.0.013.i.ptr.i.i.i, %for.body.i.i.i.i ], [ %__next.sroa.0.0914.i.i.i.i.i, %while.body.i.i.i.i.i ]
+for.inc.i.i.i.i:                                  ; preds = %while.body.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i.i.i.i, %for.body.i.i.i.i
+  %__first.coerce.sink.i.i.i.i = phi ptr [ %floats.sroa.0.10, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i" ], [ %__i.sroa.0.013.i.ptr.i.i.i, %for.body.i.i.i.i ], [ %__next.sroa.0.0914.i.i.i.i.i, %while.body.i.i.i.i.i ]
   store float %5, ptr %__first.coerce.sink.i.i.i.i, align 4
   %__i.sroa.0.013.i.add.i.i.i = add nuw nsw i64 %__i.sroa.0.013.i.idx.i.i.i, 4
   %cmp.i1.not.i.i.i.i = icmp eq i64 %__i.sroa.0.013.i.add.i.i.i, 64
@@ -16292,9 +16292,9 @@ for.body.i4.i.i.i:                                ; preds = %"_ZSt16__insertion_
   %__i.sroa.0.03.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %add.ptr.i.i.i.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_T0_.exit.i.i.i" ]
   %14 = load float, ptr %__i.sroa.0.03.i.i.i.i, align 4
   %15 = fcmp uno float %14, 0.000000e+00
-  br i1 %15, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i"
+  br i1 %15, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i": ; preds = %for.body.i4.i.i.i
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i": ; preds = %for.body.i4.i.i.i
   %__next.sroa.0.07.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 -4
   %16 = load float, ptr %__next.sroa.0.07.i.i.i.i.i, align 4
   %17 = fcmp uno float %16, 0.000000e+00
@@ -16302,10 +16302,10 @@ for.body.i4.i.i.i:                                ; preds = %"_ZSt16__insertion_
   %spec.select.i.i13.i.i7.i.i.i = or i1 %17, %cmp.i.i12.i.i6.i.i.i
   br i1 %spec.select.i.i13.i.i7.i.i.i, label %while.body.i.i8.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i"
 
-while.body.i.i8.i.i.i:                            ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i", %while.body.i.i8.i.i.i
-  %18 = phi float [ %19, %while.body.i.i8.i.i.i ], [ %16, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i" ]
-  %__last.sroa.0.0815.i.i9.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i10.i.i.i, %while.body.i.i8.i.i.i ], [ %__i.sroa.0.03.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i" ]
-  %__next.sroa.0.0914.i.i10.i.i.i = phi ptr [ %__next.sroa.0.0.i.i11.i.i.i, %while.body.i.i8.i.i.i ], [ %__next.sroa.0.07.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i" ]
+while.body.i.i8.i.i.i:                            ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i", %while.body.i.i8.i.i.i
+  %18 = phi float [ %19, %while.body.i.i8.i.i.i ], [ %16, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i" ]
+  %__last.sroa.0.0815.i.i9.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i10.i.i.i, %while.body.i.i8.i.i.i ], [ %__i.sroa.0.03.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i" ]
+  %__next.sroa.0.0914.i.i10.i.i.i = phi ptr [ %__next.sroa.0.0.i.i11.i.i.i, %while.body.i.i8.i.i.i ], [ %__next.sroa.0.07.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i" ]
   store float %18, ptr %__last.sroa.0.0815.i.i9.i.i.i, align 4
   %__next.sroa.0.0.i.i11.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.0914.i.i10.i.i.i, i64 -4
   %19 = load float, ptr %__next.sroa.0.0.i.i11.i.i.i, align 4
@@ -16314,8 +16314,8 @@ while.body.i.i8.i.i.i:                            ; preds = %"_ZN9__gnu_cxx5__op
   %spec.select.i.i.i.i13.i.i.i = or i1 %20, %cmp.i.i.i.i12.i.i.i
   br i1 %spec.select.i.i.i.i13.i.i.i, label %while.body.i.i8.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i"
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %while.body.i.i8.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i", %for.body.i4.i.i.i
-  %__last.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %__i.sroa.0.03.i.i.i.i, %for.body.i4.i.i.i ], [ %__i.sroa.0.03.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i" ], [ %__next.sroa.0.0914.i.i10.i.i.i, %while.body.i.i8.i.i.i ]
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %while.body.i.i8.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i", %for.body.i4.i.i.i
+  %__last.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %__i.sroa.0.03.i.i.i.i, %for.body.i4.i.i.i ], [ %__i.sroa.0.03.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i" ], [ %__next.sroa.0.0914.i.i10.i.i.i, %while.body.i.i8.i.i.i ]
   store float %14, ptr %__last.sroa.0.0.lcssa.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 4
   %cmp.i.not.i.i.i.i = icmp eq ptr %__i.sroa.0.03.i.i.i.i, %add.ptr.i.i.i.i.i.i151.pn
@@ -16330,16 +16330,16 @@ for.body.i20.i.i.i:                               ; preds = %if.else.i.i.i, %for
   %__first.coerce.pn12.i22.i.i.i = phi ptr [ %__i.sroa.0.013.i21.i.i.i, %for.inc.i29.i.i.i ], [ %floats.sroa.0.10, %if.else.i.i.i ]
   %21 = load float, ptr %__i.sroa.0.013.i21.i.i.i, align 4
   %22 = fcmp uno float %21, 0.000000e+00
-  br i1 %22, label %for.inc.i29.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i23.i.i.i"
+  br i1 %22, label %for.inc.i29.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i23.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i23.i.i.i": ; preds = %for.body.i20.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i23.i.i.i": ; preds = %for.body.i20.i.i.i
   %23 = load float, ptr %floats.sroa.0.10, align 4
   %24 = fcmp uno float %23, 0.000000e+00
   %cmp.i.i.i24.i.i.i = fcmp olt float %21, %23
   %spec.select.i.i.i25.i.i.i = or i1 %24, %cmp.i.i.i24.i.i.i
-  br i1 %spec.select.i.i.i25.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i"
+  br i1 %spec.select.i.i.i25.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i"
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i23.i.i.i"
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i23.i.i.i"
   %add.ptr.i2.i40.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn12.i22.i.i.i, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i41.i.i.i = ptrtoint ptr %__i.sroa.0.013.i21.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i42.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i41.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -16349,17 +16349,17 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i45.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %floats.sroa.0.10, i64 %sub.ptr.sub.i.i.i.i.i.i42.i.i.i, i1 false)
   br label %for.inc.i29.i.i.i
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i23.i.i.i"
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i23.i.i.i"
   %25 = load float, ptr %__first.coerce.pn12.i22.i.i.i, align 4
   %26 = fcmp uno float %25, 0.000000e+00
   %cmp.i.i12.i.i27.i.i.i = fcmp olt float %21, %25
   %spec.select.i.i13.i.i28.i.i.i = or i1 %26, %cmp.i.i12.i.i27.i.i.i
   br i1 %spec.select.i.i13.i.i28.i.i.i, label %while.body.i.i33.i.i.i, label %for.inc.i29.i.i.i
 
-while.body.i.i33.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i", %while.body.i.i33.i.i.i
-  %27 = phi float [ %28, %while.body.i.i33.i.i.i ], [ %25, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i" ]
-  %__last.sroa.0.0815.i.i34.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i35.i.i.i, %while.body.i.i33.i.i.i ], [ %__i.sroa.0.013.i21.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i" ]
-  %__next.sroa.0.0914.i.i35.i.i.i = phi ptr [ %__next.sroa.0.0.i.i36.i.i.i, %while.body.i.i33.i.i.i ], [ %__first.coerce.pn12.i22.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i" ]
+while.body.i.i33.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i", %while.body.i.i33.i.i.i
+  %27 = phi float [ %28, %while.body.i.i33.i.i.i ], [ %25, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i" ]
+  %__last.sroa.0.0815.i.i34.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i35.i.i.i, %while.body.i.i33.i.i.i ], [ %__i.sroa.0.013.i21.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i" ]
+  %__next.sroa.0.0914.i.i35.i.i.i = phi ptr [ %__next.sroa.0.0.i.i36.i.i.i, %while.body.i.i33.i.i.i ], [ %__first.coerce.pn12.i22.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i" ]
   store float %27, ptr %__last.sroa.0.0815.i.i34.i.i.i, align 4
   %__next.sroa.0.0.i.i36.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.0914.i.i35.i.i.i, i64 -4
   %28 = load float, ptr %__next.sroa.0.0.i.i36.i.i.i, align 4
@@ -16368,8 +16368,8 @@ while.body.i.i33.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__op
   %spec.select.i.i.i.i38.i.i.i = or i1 %29, %cmp.i.i.i.i37.i.i.i
   br i1 %spec.select.i.i.i.i38.i.i.i, label %while.body.i.i33.i.i.i, label %for.inc.i29.i.i.i
 
-for.inc.i29.i.i.i:                                ; preds = %while.body.i.i33.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i, %for.body.i20.i.i.i
-  %__first.coerce.sink.i30.i.i.i = phi ptr [ %floats.sroa.0.10, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i ], [ %__i.sroa.0.013.i21.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i" ], [ %__i.sroa.0.013.i21.i.i.i, %for.body.i20.i.i.i ], [ %__next.sroa.0.0914.i.i35.i.i.i, %while.body.i.i33.i.i.i ]
+for.inc.i29.i.i.i:                                ; preds = %while.body.i.i33.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i, %for.body.i20.i.i.i
+  %__first.coerce.sink.i30.i.i.i = phi ptr [ %floats.sroa.0.10, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i ], [ %__i.sroa.0.013.i21.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclIfNS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i" ], [ %__i.sroa.0.013.i21.i.i.i, %for.body.i20.i.i.i ], [ %__next.sroa.0.0914.i.i35.i.i.i, %while.body.i.i33.i.i.i ]
   store float %21, ptr %__first.coerce.sink.i30.i.i.i, align 4
   %__i.sroa.0.0.i31.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.013.i21.i.i.i, i64 4
   %cmp.i1.not.i32.i.i.i = icmp eq ptr %__i.sroa.0.013.i21.i.i.i, %add.ptr.i.i.i.i.i.i151.pn
@@ -17101,16 +17101,16 @@ while.body.i.i.i:                                 ; preds = %"_ZSt13__adjust_hea
   %cmp31.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i1114.i.i.i
   br i1 %cmp31.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
-while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i"
-  %__holeIndex.addr.032.i.i.i.i = phi i64 [ %7, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i" ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
+while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i"
+  %__holeIndex.addr.032.i.i.i.i = phi i64 [ %7, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
   %add.i.i.i.i = shl i64 %__holeIndex.addr.032.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
   %add.ptr.i.i.i.i.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %mul.i.i.i.i
   %2 = load float, ptr %add.ptr.i.i.i.i.i, align 4
   %3 = fcmp uno float %2, 0.000000e+00
-  br i1 %3, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i.i"
+  br i1 %3, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i.i": ; preds = %while.body.i.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i": ; preds = %while.body.i.i.i.i
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
   %add.ptr.i17.i.i.i.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %sub3.i.i.i.i
   %4 = load float, ptr %add.ptr.i17.i.i.i.i, align 4
@@ -17121,18 +17121,18 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %spec.select.i.i.i.i = select i1 %cond.fr.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
   %add.ptr.i18.phi.trans.insert.i.i.i.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %spec.select.i.i.i.i
   %.pre.i.i.i.i = load float, ptr %add.ptr.i18.phi.trans.insert.i.i.i.i, align 4
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i.i", %while.body.i.i.i.i
-  %6 = phi float [ %2, %while.body.i.i.i.i ], [ %.pre.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i.i" ]
-  %7 = phi i64 [ %mul.i.i.i.i, %while.body.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i.i" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i", %while.body.i.i.i.i
+  %6 = phi float [ %2, %while.body.i.i.i.i ], [ %.pre.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i" ]
+  %7 = phi i64 [ %mul.i.i.i.i, %while.body.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i.i" ]
   %add.ptr.i19.i.i.i.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %__holeIndex.addr.032.i.i.i.i
   store float %6, ptr %add.ptr.i19.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i64 %7, %div.i1114.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !477
 
-while.end.i.i.i.i:                                ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i", %while.body.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %__parent.0.i.i.i, %while.body.i.i.i ], [ %7, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i" ]
+while.end.i.i.i.i:                                ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i", %while.body.i.i.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %__parent.0.i.i.i, %while.body.i.i.i ], [ %7, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ]
   %cmp19.i.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i.i, %div56.i.i.i
   %or.cond.i.i.i = select i1 %cmp16.i.i.i.i, i1 %cmp19.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then20.i.i.i.i, label %if.end33.i.i.i.i
@@ -17153,15 +17153,15 @@ land.rhs.lr.ph.i.i.i.i.i:                         ; preds = %if.end33.i.i.i.i
   %9 = fcmp uno float %1, 0.000000e+00
   br i1 %9, label %land.rhs.us.i.i.i.i.i, label %land.rhs.i.i.i.i.i
 
-land.rhs.us.i.i.i.i.i:                            ; preds = %land.rhs.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i.i"
-  %__parent.09.us.i.i.i.i.i = phi i64 [ %__parent.0.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i.i" ], [ %__parent.06.i.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ]
-  %__holeIndex.addr.08.us.i.i.i.i.i = phi i64 [ %__parent.09.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i.i" ], [ %__holeIndex.addr.1.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ]
+land.rhs.us.i.i.i.i.i:                            ; preds = %land.rhs.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i"
+  %__parent.09.us.i.i.i.i.i = phi i64 [ %__parent.0.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %__parent.06.i.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ]
+  %__holeIndex.addr.08.us.i.i.i.i.i = phi i64 [ %__parent.09.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %__holeIndex.addr.1.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ]
   %add.ptr.i.us.i.i.i.i.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %__parent.09.us.i.i.i.i.i
   %10 = load float, ptr %add.ptr.i.us.i.i.i.i.i, align 4
   %11 = fcmp uno float %10, 0.000000e+00
-  br i1 %11, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i.i"
+  br i1 %11, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i.i": ; preds = %land.rhs.us.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i": ; preds = %land.rhs.us.i.i.i.i.i
   %add.ptr.i8.us.i.i.i.i.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %__holeIndex.addr.08.us.i.i.i.i.i
   store float %10, ptr %add.ptr.i8.us.i.i.i.i.i, align 4
   %__parent.0.in.us.i.i.i.i.i = add nsw i64 %__parent.09.us.i.i.i.i.i, -1
@@ -17185,20 +17185,20 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.09.i.i.i.i.i, %__parent.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !478
 
-"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i.i", %land.rhs.us.i.i.i.i.i, %if.end33.i.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ %__parent.09.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i.i" ], [ %__holeIndex.addr.08.us.i.i.i.i.i, %land.rhs.us.i.i.i.i.i ], [ %__parent.09.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.08.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
+"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i", %land.rhs.us.i.i.i.i.i, %if.end33.i.i.i.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ %__parent.09.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %__holeIndex.addr.08.us.i.i.i.i.i, %land.rhs.us.i.i.i.i.i ], [ %__parent.09.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.08.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
   %add.ptr.i9.i.i.i.i.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store float %1, ptr %add.ptr.i9.i.i.i.i.i, align 4
   %cmp8.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp8.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i", label %while.body.i.i.i, !llvm.loop !479
+  br i1 %cmp8.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i", label %while.body.i.i.i, !llvm.loop !479
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
   %cmp6.i.i = icmp sgt i64 %sub.ptr.sub.i.i.fr.i.i29.lcssa, 4
   br i1 %cmp6.i.i, label %while.body.i.i, label %while.end
 
-while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i"
-  %__last.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i" ], [ %storemerge27.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
+  %__last.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i" ], [ %storemerge27.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i" ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.07.i.i, i64 -4
   %13 = load float, ptr %incdec.ptr.i.i1.i, align 4
   %14 = load float, ptr %__first.coerce.fr, align 4
@@ -17211,16 +17211,16 @@ while.body.i.i:                                   ; preds = %"_ZSt11__make_heapI
   %cmp31.i.i.i7.i = icmp sgt i64 %sub.ptr.div.i.i.i4.i, 2
   br i1 %cmp31.i.i.i7.i, label %while.body.i.i.i39.i, label %while.end.i.i.i8.i
 
-while.body.i.i.i39.i:                             ; preds = %while.body.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i"
-  %__holeIndex.addr.032.i.i.i40.i = phi i64 [ %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i" ], [ 0, %while.body.i.i ]
+while.body.i.i.i39.i:                             ; preds = %while.body.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i53.i"
+  %__holeIndex.addr.032.i.i.i40.i = phi i64 [ %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i53.i" ], [ 0, %while.body.i.i ]
   %add.i.i.i41.i = shl i64 %__holeIndex.addr.032.i.i.i40.i, 1
   %mul.i.i.i42.i = add i64 %add.i.i.i41.i, 2
   %add.ptr.i.i.i.i43.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %mul.i.i.i42.i
   %15 = load float, ptr %add.ptr.i.i.i.i43.i, align 4
   %16 = fcmp uno float %15, 0.000000e+00
-  br i1 %16, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i44.i"
+  br i1 %16, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i53.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i44.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i44.i": ; preds = %while.body.i.i.i39.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i44.i": ; preds = %while.body.i.i.i39.i
   %sub3.i.i.i45.i = or disjoint i64 %add.i.i.i41.i, 1
   %add.ptr.i17.i.i.i46.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %sub3.i.i.i45.i
   %17 = load float, ptr %add.ptr.i17.i.i.i46.i, align 4
@@ -17231,18 +17231,18 @@ while.body.i.i.i39.i:                             ; preds = %while.body.i.i, %"_
   %spec.select.i.i.i50.i = select i1 %cond.fr.i.i.i49.i, i64 %sub3.i.i.i45.i, i64 %mul.i.i.i42.i
   %add.ptr.i18.phi.trans.insert.i.i.i51.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %spec.select.i.i.i50.i
   %.pre.i.i.i52.i = load float, ptr %add.ptr.i18.phi.trans.insert.i.i.i51.i, align 4
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i53.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i44.i", %while.body.i.i.i39.i
-  %19 = phi float [ %15, %while.body.i.i.i39.i ], [ %.pre.i.i.i52.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i44.i" ]
-  %20 = phi i64 [ %mul.i.i.i42.i, %while.body.i.i.i39.i ], [ %spec.select.i.i.i50.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i.i44.i" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i53.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i44.i", %while.body.i.i.i39.i
+  %19 = phi float [ %15, %while.body.i.i.i39.i ], [ %.pre.i.i.i52.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i44.i" ]
+  %20 = phi i64 [ %mul.i.i.i42.i, %while.body.i.i.i39.i ], [ %spec.select.i.i.i50.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i.i44.i" ]
   %add.ptr.i19.i.i.i54.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %__holeIndex.addr.032.i.i.i40.i
   store float %19, ptr %add.ptr.i19.i.i.i54.i, align 4
   %cmp.i.i.i55.i = icmp slt i64 %20, %div.i.i.i6.i
   br i1 %cmp.i.i.i55.i, label %while.body.i.i.i39.i, label %while.end.i.i.i8.i, !llvm.loop !477
 
-while.end.i.i.i8.i:                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i", %while.body.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i9.i = phi i64 [ 0, %while.body.i.i ], [ %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i" ]
+while.end.i.i.i8.i:                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i53.i", %while.body.i.i
+  %__holeIndex.addr.0.lcssa.i.i.i9.i = phi i64 [ 0, %while.body.i.i ], [ %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.thread.i.i.i53.i" ]
   %21 = and i64 %sub.ptr.sub.i.i.i3.i, 4
   %cmp16.i.i.i10.i = icmp eq i64 %21, 0
   br i1 %cmp16.i.i.i10.i, label %land.lhs.true.i.i.i.i, label %if.end33.i.i.i11.i
@@ -17265,7 +17265,7 @@ if.then20.i.i.i35.i:                              ; preds = %land.lhs.true.i.i.i
 if.end33.i.i.i11.i:                               ; preds = %if.then20.i.i.i35.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i8.i
   %__holeIndex.addr.1.i.i.i12.i = phi i64 [ %sub24.i.i.i36.i, %if.then20.i.i.i35.i ], [ %__holeIndex.addr.0.lcssa.i.i.i9.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i9.i, %while.end.i.i.i8.i ]
   %cmp7.i.i.i.i13.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i12.i, 0
-  br i1 %cmp7.i.i.i.i13.i, label %land.rhs.lr.ph.i.i.i.i16.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i"
+  br i1 %cmp7.i.i.i.i13.i, label %land.rhs.lr.ph.i.i.i.i16.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
 
 land.rhs.lr.ph.i.i.i.i16.i:                       ; preds = %if.end33.i.i.i11.i
   %__parent.0.in5.i.i.i.i17.i = add nsw i64 %__holeIndex.addr.1.i.i.i12.i, -1
@@ -17273,21 +17273,21 @@ land.rhs.lr.ph.i.i.i.i16.i:                       ; preds = %if.end33.i.i.i11.i
   %23 = fcmp uno float %13, 0.000000e+00
   br i1 %23, label %land.rhs.us.i.i.i.i26.i, label %land.rhs.i.i.i.i18.i
 
-land.rhs.us.i.i.i.i26.i:                          ; preds = %land.rhs.lr.ph.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i30.i"
-  %__parent.09.us.i.i.i.i27.i = phi i64 [ %__parent.0.us.i.i48.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i30.i" ], [ %__parent.06.i.i36.i.i.i, %land.rhs.lr.ph.i.i.i.i16.i ]
-  %__holeIndex.addr.08.us.i.i.i.i28.i = phi i64 [ %__parent.09.us.i.i.i.i27.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i30.i" ], [ %__holeIndex.addr.1.i.i.i12.i, %land.rhs.lr.ph.i.i.i.i16.i ]
+land.rhs.us.i.i.i.i26.i:                          ; preds = %land.rhs.lr.ph.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i30.i"
+  %__parent.09.us.i.i.i.i27.i = phi i64 [ %__parent.0.us.i.i48.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i30.i" ], [ %__parent.06.i.i36.i.i.i, %land.rhs.lr.ph.i.i.i.i16.i ]
+  %__holeIndex.addr.08.us.i.i.i.i28.i = phi i64 [ %__parent.09.us.i.i.i.i27.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i30.i" ], [ %__holeIndex.addr.1.i.i.i12.i, %land.rhs.lr.ph.i.i.i.i16.i ]
   %add.ptr.i.us.i.i.i.i29.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %__parent.09.us.i.i.i.i27.i
   %24 = load float, ptr %add.ptr.i.us.i.i.i.i29.i, align 4
   %25 = fcmp uno float %24, 0.000000e+00
-  br i1 %25, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i30.i"
+  br i1 %25, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i30.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i30.i": ; preds = %land.rhs.us.i.i.i.i26.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i30.i": ; preds = %land.rhs.us.i.i.i.i26.i
   %add.ptr.i8.us.i.i.i.i31.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %__holeIndex.addr.08.us.i.i.i.i28.i
   store float %24, ptr %add.ptr.i8.us.i.i.i.i31.i, align 4
   %__parent.0.in.us.i.i.i.i32.i = add nsw i64 %__parent.09.us.i.i.i.i27.i, -1
   %__parent.0.us.i.i48.i.i.i = lshr i64 %__parent.0.in.us.i.i.i.i32.i, 1
   %cmp.us.i.i.not.i.i.i = icmp eq i64 %__parent.09.us.i.i.i.i27.i, 0
-  br i1 %cmp.us.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i", label %land.rhs.us.i.i.i.i26.i, !llvm.loop !478
+  br i1 %cmp.us.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %land.rhs.us.i.i.i.i26.i, !llvm.loop !478
 
 land.rhs.i.i.i.i18.i:                             ; preds = %land.rhs.lr.ph.i.i.i.i16.i, %while.body.i.i.i.i23.i
   %__parent.09.i.i.i.i19.i = phi i64 [ %__parent.0.i.i57.i.i.i, %while.body.i.i.i.i23.i ], [ %__parent.06.i.i36.i.i.i, %land.rhs.lr.ph.i.i.i.i16.i ]
@@ -17295,7 +17295,7 @@ land.rhs.i.i.i.i18.i:                             ; preds = %land.rhs.lr.ph.i.i.
   %add.ptr.i.i.i.i.i21.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %__parent.09.i.i.i.i19.i
   %26 = load float, ptr %add.ptr.i.i.i.i.i21.i, align 4
   %cmp.i.i.i.i.i.i22.i = fcmp olt float %26, %13
-  br i1 %cmp.i.i.i.i.i.i22.i, label %while.body.i.i.i.i23.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i22.i, label %while.body.i.i.i.i23.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
 
 while.body.i.i.i.i23.i:                           ; preds = %land.rhs.i.i.i.i18.i
   %add.ptr.i8.i.i.i.i24.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %__holeIndex.addr.08.i.i.i.i20.i
@@ -17303,10 +17303,10 @@ while.body.i.i.i.i23.i:                           ; preds = %land.rhs.i.i.i.i18.
   %__parent.0.in.i.i.i.i25.i = add nsw i64 %__parent.09.i.i.i.i19.i, -1
   %__parent.0.i.i57.i.i.i = lshr i64 %__parent.0.in.i.i.i.i25.i, 1
   %cmp.i.i.not.i.i.i = icmp eq i64 %__parent.09.i.i.i.i19.i, 0
-  br i1 %cmp.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i", label %land.rhs.i.i.i.i18.i, !llvm.loop !478
+  br i1 %cmp.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %land.rhs.i.i.i.i18.i, !llvm.loop !478
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i": ; preds = %while.body.i.i.i.i23.i, %land.rhs.i.i.i.i18.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i30.i", %land.rhs.us.i.i.i.i26.i, %if.end33.i.i.i11.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i14.i = phi i64 [ %__holeIndex.addr.1.i.i.i12.i, %if.end33.i.i.i11.i ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.argprom.exit.us.i.i.i.i30.i" ], [ %__holeIndex.addr.08.us.i.i.i.i28.i, %land.rhs.us.i.i.i.i26.i ], [ 0, %while.body.i.i.i.i23.i ], [ %__holeIndex.addr.08.i.i.i.i20.i, %land.rhs.i.i.i.i18.i ]
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i": ; preds = %while.body.i.i.i.i23.i, %land.rhs.i.i.i.i18.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i30.i", %land.rhs.us.i.i.i.i26.i, %if.end33.i.i.i11.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i14.i = phi i64 [ %__holeIndex.addr.1.i.i.i12.i, %if.end33.i.i.i11.i ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEEbT_RT0_.exit.us.i.i.i.i30.i" ], [ %__holeIndex.addr.08.us.i.i.i.i28.i, %land.rhs.us.i.i.i.i26.i ], [ 0, %while.body.i.i.i.i23.i ], [ %__holeIndex.addr.08.i.i.i.i20.i, %land.rhs.i.i.i.i18.i ]
   %add.ptr.i9.i.i.i.i15.i = getelementptr inbounds float, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i14.i
   store float %13, ptr %add.ptr.i9.i.i.i.i15.i, align 4
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 4
@@ -17323,77 +17323,77 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %27 = load float, ptr %add.ptr.i2.i, align 4
   %28 = fcmp uno float %27, 0.000000e+00
   %.pre25.i.i = load float, ptr %add.ptr.i.i, align 4
-  br i1 %28, label %if.else44.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i"
+  br i1 %28, label %if.else44.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i": ; preds = %if.end
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i": ; preds = %if.end
   %29 = fcmp uno float %.pre25.i.i, 0.000000e+00
   %cmp.i.i.i.i5 = fcmp olt float %27, %.pre25.i.i
   %spec.select.i.i.i.i6 = or i1 %29, %cmp.i.i.i.i5
   %.pre.i.i = load float, ptr %add.ptr.i3.i, align 4
-  br i1 %spec.select.i.i.i.i6, label %if.then.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit15.i.i"
+  br i1 %spec.select.i.i.i.i6, label %if.then.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit15.i.i"
 
-if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i"
-  br i1 %29, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit10.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit5.i.i"
+if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i"
+  br i1 %29, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit5.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit5.i.i": ; preds = %if.then.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit5.i.i": ; preds = %if.then.i.i
   %30 = fcmp uno float %.pre.i.i, 0.000000e+00
   %cmp.i.i2.i.i = fcmp olt float %.pre25.i.i, %.pre.i.i
   %spec.select.i.i3.i.i = or i1 %30, %cmp.i.i2.i.i
-  br i1 %spec.select.i.i3.i.i, label %if.then12.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit10.i.i"
+  br i1 %spec.select.i.i3.i.i, label %if.then12.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i"
 
-if.then12.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit5.i.i"
+if.then12.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit5.i.i"
   %31 = load float, ptr %__first.coerce.fr, align 4
   store float %.pre25.i.i, ptr %__first.coerce.fr, align 4
   store float %31, ptr %add.ptr.i.i, align 4
   br label %while.body.i.i7.preheader
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit10.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit5.i.i", %if.then.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit5.i.i", %if.then.i.i
   %32 = fcmp uno float %.pre.i.i, 0.000000e+00
   %cmp.i.i7.i.i = fcmp olt float %27, %.pre.i.i
   %spec.select.i.i8.i.i = or i1 %32, %cmp.i.i7.i.i
   %33 = load float, ptr %__first.coerce.fr, align 4
   br i1 %spec.select.i.i8.i.i, label %if.then22.i.i, label %if.else27.i.i
 
-if.then22.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit10.i.i"
+if.then22.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i"
   store float %.pre.i.i, ptr %__first.coerce.fr, align 4
   store float %33, ptr %add.ptr.i3.i, align 4
   br label %while.body.i.i7.preheader
 
-if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit10.i.i"
+if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit10.i.i"
   store float %27, ptr %__first.coerce.fr, align 4
   store float %33, ptr %add.ptr.i2.i, align 4
   br label %while.body.i.i7.preheader
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit15.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit15.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i.i"
   %34 = fcmp uno float %.pre.i.i, 0.000000e+00
   %cmp.i.i12.i.i = fcmp olt float %27, %.pre.i.i
   %spec.select.i.i13.i.i = or i1 %34, %cmp.i.i12.i.i
   br i1 %spec.select.i.i13.i.i, label %if.then39.i.i, label %if.else44.i.i
 
-if.then39.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit15.i.i"
+if.then39.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit15.i.i"
   %35 = load float, ptr %__first.coerce.fr, align 4
   store float %27, ptr %__first.coerce.fr, align 4
   store float %35, ptr %add.ptr.i2.i, align 4
   br label %while.body.i.i7.preheader
 
-if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit15.i.i", %if.end
+if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit15.i.i", %if.end
   %36 = fcmp uno float %.pre25.i.i, 0.000000e+00
-  br i1 %36, label %if.else55.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit20.i.i"
+  br i1 %36, label %if.else55.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit20.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit20.i.i": ; preds = %if.else44.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit20.i.i": ; preds = %if.else44.i.i
   %37 = load float, ptr %add.ptr.i3.i, align 4
   %38 = fcmp uno float %37, 0.000000e+00
   %cmp.i.i17.i.i = fcmp olt float %.pre25.i.i, %37
   %spec.select.i.i18.i.i = or i1 %38, %cmp.i.i17.i.i
   br i1 %spec.select.i.i18.i.i, label %if.then50.i.i, label %if.else55.i.i
 
-if.then50.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit20.i.i"
+if.then50.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit20.i.i"
   %39 = load float, ptr %__first.coerce.fr, align 4
   store float %37, ptr %__first.coerce.fr, align 4
   store float %39, ptr %add.ptr.i3.i, align 4
   br label %while.body.i.i7.preheader
 
-if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit20.i.i", %if.else44.i.i
+if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit20.i.i", %if.else44.i.i
   %40 = load float, ptr %__first.coerce.fr, align 4
   store float %.pre25.i.i, ptr %__first.coerce.fr, align 4
   store float %40, ptr %add.ptr.i.i, align 4
@@ -17409,34 +17409,34 @@ while.body.i.i7:                                  ; preds = %while.body.i.i7.pre
   %42 = fcmp uno float %41, 0.000000e+00
   %.pre.i5.i = load float, ptr %__first.coerce.fr, align 4
   %.fr21.i.i = freeze float %.pre.i5.i
-  br i1 %42, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i"
+  br i1 %42, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i": ; preds = %while.body.i.i7
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i": ; preds = %while.body.i.i7
   %43 = fcmp uno float %.fr21.i.i, 0.000000e+00
-  br i1 %43, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i6.i"
+  br i1 %43, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i6.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.us.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.us.i.i"
-  %__first.sroa.0.115.us.i.i = phi ptr [ %incdec.ptr.i.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.us.i.i" ], [ %__first.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i"
+  %__first.sroa.0.115.us.i.i = phi ptr [ %incdec.ptr.i.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i" ], [ %__first.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
   %incdec.ptr.i.us.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.115.us.i.i, i64 4
   %44 = load float, ptr %incdec.ptr.i.us.i.i, align 4
   %45 = fcmp uno float %44, 0.000000e+00
-  br i1 %45, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.us.i.i", !llvm.loop !481
+  br i1 %45, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i", !llvm.loop !481
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i6.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i", %while.body7.i.i
-  %46 = phi float [ %47, %while.body7.i.i ], [ %41, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i" ]
-  %__first.sroa.0.115.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body7.i.i ], [ %__first.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i6.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i", %while.body7.i.i
+  %46 = phi float [ %47, %while.body7.i.i ], [ %41, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
+  %__first.sroa.0.115.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body7.i.i ], [ %__first.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
   %cmp.i.i.i7.i = fcmp olt float %46, %.fr21.i.i
   br i1 %cmp.i.i.i7.i, label %while.body7.i.i, label %while.end.i.i
 
-while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i6.i"
+while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i6.i"
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.115.i.i, i64 4
   %47 = load float, ptr %incdec.ptr.i.i.i, align 4
   %48 = fcmp uno float %47, 0.000000e+00
-  br i1 %48, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i6.i", !llvm.loop !481
+  br i1 %48, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i6.i", !llvm.loop !481
 
-while.end.i.i:                                    ; preds = %while.body7.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i6.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.us.i.i", %while.body.i.i7
-  %__first.sroa.0.1.lcssa.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i7 ], [ %incdec.ptr.i.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.us.i.i" ], [ %incdec.ptr.i.i.i, %while.body7.i.i ], [ %__first.sroa.0.115.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i6.i" ]
-  %.lcssa.i.i = phi float [ %41, %while.body.i.i7 ], [ %44, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.us.i.i" ], [ %47, %while.body7.i.i ], [ %46, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.argprom.exit.i6.i" ]
+while.end.i.i:                                    ; preds = %while.body7.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i6.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i", %while.body.i.i7
+  %__first.sroa.0.1.lcssa.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i7 ], [ %incdec.ptr.i.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i" ], [ %incdec.ptr.i.i.i, %while.body7.i.i ], [ %__first.sroa.0.115.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i6.i" ]
+  %.lcssa.i.i = phi float [ %41, %while.body.i.i7 ], [ %44, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.us.i.i" ], [ %47, %while.body7.i.i ], [ %46, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPfSt6vectorIfSaIfEEEESE_EEbT_T0_.exit.i6.i" ]
   %49 = fcmp uno float %.fr21.i.i, 0.000000e+00
   br i1 %49, label %while.end.split.us.i.i, label %while.cond10.i.i
 
@@ -17473,7 +17473,7 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !476
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i", %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i"
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_128FormatConvertTest_Float_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i"
   ret void
 }
 
@@ -18803,30 +18803,30 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i426, %fo
   %__i.sroa.0.013.i.ptr.i.i.i = getelementptr inbounds i8, ptr %doubles.sroa.0.9, i64 %__i.sroa.0.013.i.idx.i.i.i
   %49 = load double, ptr %__i.sroa.0.013.i.ptr.i.i.i, align 8
   %50 = fcmp uno double %49, 0.000000e+00
-  br i1 %50, label %for.inc.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i.i"
+  br i1 %50, label %for.inc.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i.i": ; preds = %for.body.i.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i": ; preds = %for.body.i.i.i.i
   %51 = load double, ptr %doubles.sroa.0.9, align 8
   %52 = fcmp uno double %51, 0.000000e+00
   %cmp.i.i.i.i.i.i428 = fcmp olt double %49, %51
   %spec.select.i.i.i.i.i.i = or i1 %52, %cmp.i.i.i.i.i.i428
-  br i1 %spec.select.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i"
+  br i1 %spec.select.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i"
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i.i"
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i"
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %doubles.sroa.0.9, i64 %__i.sroa.0.013.i.idx.i.i.i, i1 false)
   br label %for.inc.i.i.i.i
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i.i"
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i"
   %53 = load double, ptr %__first.coerce.pn12.i.i.i.i, align 8
   %54 = fcmp uno double %53, 0.000000e+00
   %cmp.i.i12.i.i.i.i.i = fcmp olt double %49, %53
   %spec.select.i.i13.i.i.i.i.i = or i1 %54, %cmp.i.i12.i.i.i.i.i
   br i1 %spec.select.i.i13.i.i.i.i.i, label %while.body.i.i.i.i.i, label %for.inc.i.i.i.i
 
-while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i", %while.body.i.i.i.i.i
-  %55 = phi double [ %56, %while.body.i.i.i.i.i ], [ %53, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i" ]
-  %__last.sroa.0.0815.i.i.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i" ]
-  %__next.sroa.0.0914.i.i.i.i.i = phi ptr [ %__next.sroa.0.0.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__first.coerce.pn12.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i" ]
+while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i", %while.body.i.i.i.i.i
+  %55 = phi double [ %56, %while.body.i.i.i.i.i ], [ %53, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i" ]
+  %__last.sroa.0.0815.i.i.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i" ]
+  %__next.sroa.0.0914.i.i.i.i.i = phi ptr [ %__next.sroa.0.0.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__first.coerce.pn12.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i" ]
   store double %55, ptr %__last.sroa.0.0815.i.i.i.i.i, align 8
   %__next.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.0914.i.i.i.i.i, i64 -8
   %56 = load double, ptr %__next.sroa.0.0.i.i.i.i.i, align 8
@@ -18835,8 +18835,8 @@ while.body.i.i.i.i.i:                             ; preds = %"_ZN9__gnu_cxx5__op
   %spec.select.i.i.i.i.i.i.i = or i1 %57, %cmp.i.i.i.i.i.i.i
   br i1 %spec.select.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %for.inc.i.i.i.i
 
-for.inc.i.i.i.i:                                  ; preds = %while.body.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i.i.i, %for.body.i.i.i.i
-  %__first.coerce.sink.i.i.i.i = phi ptr [ %doubles.sroa.0.9, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i.i.i.i" ], [ %__i.sroa.0.013.i.ptr.i.i.i, %for.body.i.i.i.i ], [ %__next.sroa.0.0914.i.i.i.i.i, %while.body.i.i.i.i.i ]
+for.inc.i.i.i.i:                                  ; preds = %while.body.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i.i.i, %for.body.i.i.i.i
+  %__first.coerce.sink.i.i.i.i = phi ptr [ %doubles.sroa.0.9, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ %__i.sroa.0.013.i.ptr.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i.i.i.i" ], [ %__i.sroa.0.013.i.ptr.i.i.i, %for.body.i.i.i.i ], [ %__next.sroa.0.0914.i.i.i.i.i, %while.body.i.i.i.i.i ]
   store double %49, ptr %__first.coerce.sink.i.i.i.i, align 8
   %__i.sroa.0.013.i.add.i.i.i = add nuw nsw i64 %__i.sroa.0.013.i.idx.i.i.i, 8
   %cmp.i1.not.i.i.i.i = icmp eq i64 %__i.sroa.0.013.i.add.i.i.i, 128
@@ -18851,9 +18851,9 @@ for.body.i4.i.i.i:                                ; preds = %"_ZSt16__insertion_
   %__i.sroa.0.03.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %add.ptr.i.i.i.i429, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_T0_.exit.i.i.i" ]
   %58 = load double, ptr %__i.sroa.0.03.i.i.i.i, align 8
   %59 = fcmp uno double %58, 0.000000e+00
-  br i1 %59, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i"
+  br i1 %59, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i": ; preds = %for.body.i4.i.i.i
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i": ; preds = %for.body.i4.i.i.i
   %__next.sroa.0.07.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 -8
   %60 = load double, ptr %__next.sroa.0.07.i.i.i.i.i, align 8
   %61 = fcmp uno double %60, 0.000000e+00
@@ -18861,10 +18861,10 @@ for.body.i4.i.i.i:                                ; preds = %"_ZSt16__insertion_
   %spec.select.i.i13.i.i7.i.i.i = or i1 %61, %cmp.i.i12.i.i6.i.i.i
   br i1 %spec.select.i.i13.i.i7.i.i.i, label %while.body.i.i8.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i"
 
-while.body.i.i8.i.i.i:                            ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i", %while.body.i.i8.i.i.i
-  %62 = phi double [ %63, %while.body.i.i8.i.i.i ], [ %60, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i" ]
-  %__last.sroa.0.0815.i.i9.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i10.i.i.i, %while.body.i.i8.i.i.i ], [ %__i.sroa.0.03.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i" ]
-  %__next.sroa.0.0914.i.i10.i.i.i = phi ptr [ %__next.sroa.0.0.i.i11.i.i.i, %while.body.i.i8.i.i.i ], [ %__next.sroa.0.07.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i" ]
+while.body.i.i8.i.i.i:                            ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i", %while.body.i.i8.i.i.i
+  %62 = phi double [ %63, %while.body.i.i8.i.i.i ], [ %60, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i" ]
+  %__last.sroa.0.0815.i.i9.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i10.i.i.i, %while.body.i.i8.i.i.i ], [ %__i.sroa.0.03.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i" ]
+  %__next.sroa.0.0914.i.i10.i.i.i = phi ptr [ %__next.sroa.0.0.i.i11.i.i.i, %while.body.i.i8.i.i.i ], [ %__next.sroa.0.07.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i" ]
   store double %62, ptr %__last.sroa.0.0815.i.i9.i.i.i, align 8
   %__next.sroa.0.0.i.i11.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.0914.i.i10.i.i.i, i64 -8
   %63 = load double, ptr %__next.sroa.0.0.i.i11.i.i.i, align 8
@@ -18873,8 +18873,8 @@ while.body.i.i8.i.i.i:                            ; preds = %"_ZN9__gnu_cxx5__op
   %spec.select.i.i.i.i13.i.i.i = or i1 %64, %cmp.i.i.i.i12.i.i.i
   br i1 %spec.select.i.i.i.i13.i.i.i, label %while.body.i.i8.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i"
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %while.body.i.i8.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i", %for.body.i4.i.i.i
-  %__last.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %__i.sroa.0.03.i.i.i.i, %for.body.i4.i.i.i ], [ %__i.sroa.0.03.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i5.i.i.i" ], [ %__next.sroa.0.0914.i.i10.i.i.i, %while.body.i.i8.i.i.i ]
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %while.body.i.i8.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i", %for.body.i4.i.i.i
+  %__last.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %__i.sroa.0.03.i.i.i.i, %for.body.i4.i.i.i ], [ %__i.sroa.0.03.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i5.i.i.i" ], [ %__next.sroa.0.0914.i.i10.i.i.i, %while.body.i.i8.i.i.i ]
   store double %58, ptr %__last.sroa.0.0.lcssa.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.03.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %__i.sroa.0.03.i.i.i.i, %add.ptr.i.i.i.i.i.i152.pn
@@ -18889,16 +18889,16 @@ for.body.i20.i.i.i:                               ; preds = %if.else.i.i.i427, %
   %__first.coerce.pn12.i22.i.i.i = phi ptr [ %__i.sroa.0.013.i21.i.i.i, %for.inc.i29.i.i.i ], [ %doubles.sroa.0.9, %if.else.i.i.i427 ]
   %65 = load double, ptr %__i.sroa.0.013.i21.i.i.i, align 8
   %66 = fcmp uno double %65, 0.000000e+00
-  br i1 %66, label %for.inc.i29.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i23.i.i.i"
+  br i1 %66, label %for.inc.i29.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i23.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i23.i.i.i": ; preds = %for.body.i20.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i23.i.i.i": ; preds = %for.body.i20.i.i.i
   %67 = load double, ptr %doubles.sroa.0.9, align 8
   %68 = fcmp uno double %67, 0.000000e+00
   %cmp.i.i.i24.i.i.i = fcmp olt double %65, %67
   %spec.select.i.i.i25.i.i.i = or i1 %68, %cmp.i.i.i24.i.i.i
-  br i1 %spec.select.i.i.i25.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i"
+  br i1 %spec.select.i.i.i25.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i"
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i23.i.i.i"
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i23.i.i.i"
   %add.ptr.i2.i40.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn12.i22.i.i.i, i64 16
   %sub.ptr.lhs.cast.i.i.i.i.i.i41.i.i.i = ptrtoint ptr %__i.sroa.0.013.i21.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i42.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i41.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -18908,17 +18908,17 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i45.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %doubles.sroa.0.9, i64 %sub.ptr.sub.i.i.i.i.i.i42.i.i.i, i1 false)
   br label %for.inc.i29.i.i.i
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i23.i.i.i"
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i23.i.i.i"
   %69 = load double, ptr %__first.coerce.pn12.i22.i.i.i, align 8
   %70 = fcmp uno double %69, 0.000000e+00
   %cmp.i.i12.i.i27.i.i.i = fcmp olt double %65, %69
   %spec.select.i.i13.i.i28.i.i.i = or i1 %70, %cmp.i.i12.i.i27.i.i.i
   br i1 %spec.select.i.i13.i.i28.i.i.i, label %while.body.i.i33.i.i.i, label %for.inc.i29.i.i.i
 
-while.body.i.i33.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i", %while.body.i.i33.i.i.i
-  %71 = phi double [ %72, %while.body.i.i33.i.i.i ], [ %69, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i" ]
-  %__last.sroa.0.0815.i.i34.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i35.i.i.i, %while.body.i.i33.i.i.i ], [ %__i.sroa.0.013.i21.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i" ]
-  %__next.sroa.0.0914.i.i35.i.i.i = phi ptr [ %__next.sroa.0.0.i.i36.i.i.i, %while.body.i.i33.i.i.i ], [ %__first.coerce.pn12.i22.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i" ]
+while.body.i.i33.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i", %while.body.i.i33.i.i.i
+  %71 = phi double [ %72, %while.body.i.i33.i.i.i ], [ %69, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i" ]
+  %__last.sroa.0.0815.i.i34.i.i.i = phi ptr [ %__next.sroa.0.0914.i.i35.i.i.i, %while.body.i.i33.i.i.i ], [ %__i.sroa.0.013.i21.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i" ]
+  %__next.sroa.0.0914.i.i35.i.i.i = phi ptr [ %__next.sroa.0.0.i.i36.i.i.i, %while.body.i.i33.i.i.i ], [ %__first.coerce.pn12.i22.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i" ]
   store double %71, ptr %__last.sroa.0.0815.i.i34.i.i.i, align 8
   %__next.sroa.0.0.i.i36.i.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.0914.i.i35.i.i.i, i64 -8
   %72 = load double, ptr %__next.sroa.0.0.i.i36.i.i.i, align 8
@@ -18927,8 +18927,8 @@ while.body.i.i33.i.i.i:                           ; preds = %"_ZN9__gnu_cxx5__op
   %spec.select.i.i.i.i38.i.i.i = or i1 %73, %cmp.i.i.i.i37.i.i.i
   br i1 %spec.select.i.i.i.i38.i.i.i, label %while.body.i.i33.i.i.i, label %for.inc.i29.i.i.i
 
-for.inc.i29.i.i.i:                                ; preds = %while.body.i.i33.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i, %for.body.i20.i.i.i
-  %__first.coerce.sink.i30.i.i.i = phi ptr [ %doubles.sroa.0.9, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i ], [ %__i.sroa.0.013.i21.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.argprom.exit.lr.ph.split.i.i26.i.i.i" ], [ %__i.sroa.0.013.i21.i.i.i, %for.body.i20.i.i.i ], [ %__next.sroa.0.0914.i.i35.i.i.i, %while.body.i.i33.i.i.i ]
+for.inc.i29.i.i.i:                                ; preds = %while.body.i.i33.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i, %for.body.i20.i.i.i
+  %__first.coerce.sink.i30.i.i.i = phi ptr [ %doubles.sroa.0.9, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit.i39.i.i.i ], [ %__i.sroa.0.013.i21.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclIdNS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbRT_T0_.exit.lr.ph.split.i.i26.i.i.i" ], [ %__i.sroa.0.013.i21.i.i.i, %for.body.i20.i.i.i ], [ %__next.sroa.0.0914.i.i35.i.i.i, %while.body.i.i33.i.i.i ]
   store double %65, ptr %__first.coerce.sink.i30.i.i.i, align 8
   %__i.sroa.0.0.i31.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.013.i21.i.i.i, i64 8
   %cmp.i1.not.i32.i.i.i = icmp eq ptr %__i.sroa.0.013.i21.i.i.i, %add.ptr.i.i.i.i.i.i152.pn
@@ -19628,16 +19628,16 @@ while.body.i.i.i:                                 ; preds = %"_ZSt13__adjust_hea
   %cmp31.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i1114.i.i.i
   br i1 %cmp31.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
-while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i"
-  %__holeIndex.addr.032.i.i.i.i = phi i64 [ %7, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i" ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
+while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i"
+  %__holeIndex.addr.032.i.i.i.i = phi i64 [ %7, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
   %add.i.i.i.i = shl i64 %__holeIndex.addr.032.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
   %add.ptr.i.i.i.i.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %mul.i.i.i.i
   %2 = load double, ptr %add.ptr.i.i.i.i.i, align 8
   %3 = fcmp uno double %2, 0.000000e+00
-  br i1 %3, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i.i"
+  br i1 %3, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i.i": ; preds = %while.body.i.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i": ; preds = %while.body.i.i.i.i
   %sub3.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
   %add.ptr.i17.i.i.i.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %sub3.i.i.i.i
   %4 = load double, ptr %add.ptr.i17.i.i.i.i, align 8
@@ -19648,18 +19648,18 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %spec.select.i.i.i.i = select i1 %cond.fr.i.i.i.i, i64 %sub3.i.i.i.i, i64 %mul.i.i.i.i
   %add.ptr.i18.phi.trans.insert.i.i.i.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %spec.select.i.i.i.i
   %.pre.i.i.i.i = load double, ptr %add.ptr.i18.phi.trans.insert.i.i.i.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i.i", %while.body.i.i.i.i
-  %6 = phi double [ %2, %while.body.i.i.i.i ], [ %.pre.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i.i" ]
-  %7 = phi i64 [ %mul.i.i.i.i, %while.body.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i.i" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i", %while.body.i.i.i.i
+  %6 = phi double [ %2, %while.body.i.i.i.i ], [ %.pre.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i" ]
+  %7 = phi i64 [ %mul.i.i.i.i, %while.body.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i.i" ]
   %add.ptr.i19.i.i.i.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %__holeIndex.addr.032.i.i.i.i
   store double %6, ptr %add.ptr.i19.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i64 %7, %div.i1114.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !513
 
-while.end.i.i.i.i:                                ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i", %while.body.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %__parent.0.i.i.i, %while.body.i.i.i ], [ %7, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i.i" ]
+while.end.i.i.i.i:                                ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i", %while.body.i.i.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %__parent.0.i.i.i, %while.body.i.i.i ], [ %7, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i.i" ]
   %cmp19.i.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i.i, %div56.i.i.i
   %or.cond.i.i.i = select i1 %cmp16.i.i.i.i, i1 %cmp19.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then20.i.i.i.i, label %if.end33.i.i.i.i
@@ -19680,15 +19680,15 @@ land.rhs.lr.ph.i.i.i.i.i:                         ; preds = %if.end33.i.i.i.i
   %9 = fcmp uno double %1, 0.000000e+00
   br i1 %9, label %land.rhs.us.i.i.i.i.i, label %land.rhs.i.i.i.i.i
 
-land.rhs.us.i.i.i.i.i:                            ; preds = %land.rhs.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i.i"
-  %__parent.09.us.i.i.i.i.i = phi i64 [ %__parent.0.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i.i" ], [ %__parent.06.i.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ]
-  %__holeIndex.addr.08.us.i.i.i.i.i = phi i64 [ %__parent.09.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i.i" ], [ %__holeIndex.addr.1.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ]
+land.rhs.us.i.i.i.i.i:                            ; preds = %land.rhs.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i"
+  %__parent.09.us.i.i.i.i.i = phi i64 [ %__parent.0.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %__parent.06.i.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ]
+  %__holeIndex.addr.08.us.i.i.i.i.i = phi i64 [ %__parent.09.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %__holeIndex.addr.1.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ]
   %add.ptr.i.us.i.i.i.i.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %__parent.09.us.i.i.i.i.i
   %10 = load double, ptr %add.ptr.i.us.i.i.i.i.i, align 8
   %11 = fcmp uno double %10, 0.000000e+00
-  br i1 %11, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i.i"
+  br i1 %11, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i.i": ; preds = %land.rhs.us.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i": ; preds = %land.rhs.us.i.i.i.i.i
   %add.ptr.i8.us.i.i.i.i.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %__holeIndex.addr.08.us.i.i.i.i.i
   store double %10, ptr %add.ptr.i8.us.i.i.i.i.i, align 8
   %__parent.0.in.us.i.i.i.i.i = add nsw i64 %__parent.09.us.i.i.i.i.i, -1
@@ -19712,20 +19712,20 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.09.i.i.i.i.i, %__parent.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !514
 
-"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i.i", %land.rhs.us.i.i.i.i.i, %if.end33.i.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ %__parent.09.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i.i" ], [ %__holeIndex.addr.08.us.i.i.i.i.i, %land.rhs.us.i.i.i.i.i ], [ %__parent.09.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.08.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
+"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i", %land.rhs.us.i.i.i.i.i, %if.end33.i.i.i.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ], [ %__parent.09.us.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i.i" ], [ %__holeIndex.addr.08.us.i.i.i.i.i, %land.rhs.us.i.i.i.i.i ], [ %__parent.09.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.08.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
   %add.ptr.i9.i.i.i.i.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store double %1, ptr %add.ptr.i9.i.i.i.i.i, align 8
   %cmp8.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
-  br i1 %cmp8.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i", label %while.body.i.i.i, !llvm.loop !515
+  br i1 %cmp8.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i", label %while.body.i.i.i, !llvm.loop !515
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
   %cmp6.i.i = icmp sgt i64 %sub.ptr.sub.i.i.fr.i.i29.lcssa, 8
   br i1 %cmp6.i.i, label %while.body.i.i, label %while.end
 
-while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i"
-  %__last.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i" ], [ %storemerge27.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
+  %__last.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i" ], [ %storemerge27.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i" ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.07.i.i, i64 -8
   %13 = load double, ptr %incdec.ptr.i.i1.i, align 8
   %14 = load double, ptr %__first.coerce.fr, align 8
@@ -19738,16 +19738,16 @@ while.body.i.i:                                   ; preds = %"_ZSt11__make_heapI
   %cmp31.i.i.i7.i = icmp sgt i64 %sub.ptr.div.i.i.i4.i, 2
   br i1 %cmp31.i.i.i7.i, label %while.body.i.i.i39.i, label %while.end.i.i.i8.i
 
-while.body.i.i.i39.i:                             ; preds = %while.body.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i"
-  %__holeIndex.addr.032.i.i.i40.i = phi i64 [ %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i" ], [ 0, %while.body.i.i ]
+while.body.i.i.i39.i:                             ; preds = %while.body.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i53.i"
+  %__holeIndex.addr.032.i.i.i40.i = phi i64 [ %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i53.i" ], [ 0, %while.body.i.i ]
   %add.i.i.i41.i = shl i64 %__holeIndex.addr.032.i.i.i40.i, 1
   %mul.i.i.i42.i = add i64 %add.i.i.i41.i, 2
   %add.ptr.i.i.i.i43.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %mul.i.i.i42.i
   %15 = load double, ptr %add.ptr.i.i.i.i43.i, align 8
   %16 = fcmp uno double %15, 0.000000e+00
-  br i1 %16, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i44.i"
+  br i1 %16, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i53.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i44.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i44.i": ; preds = %while.body.i.i.i39.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i44.i": ; preds = %while.body.i.i.i39.i
   %sub3.i.i.i45.i = or disjoint i64 %add.i.i.i41.i, 1
   %add.ptr.i17.i.i.i46.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %sub3.i.i.i45.i
   %17 = load double, ptr %add.ptr.i17.i.i.i46.i, align 8
@@ -19758,18 +19758,18 @@ while.body.i.i.i39.i:                             ; preds = %while.body.i.i, %"_
   %spec.select.i.i.i50.i = select i1 %cond.fr.i.i.i49.i, i64 %sub3.i.i.i45.i, i64 %mul.i.i.i42.i
   %add.ptr.i18.phi.trans.insert.i.i.i51.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %spec.select.i.i.i50.i
   %.pre.i.i.i52.i = load double, ptr %add.ptr.i18.phi.trans.insert.i.i.i51.i, align 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i53.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i44.i", %while.body.i.i.i39.i
-  %19 = phi double [ %15, %while.body.i.i.i39.i ], [ %.pre.i.i.i52.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i44.i" ]
-  %20 = phi i64 [ %mul.i.i.i42.i, %while.body.i.i.i39.i ], [ %spec.select.i.i.i50.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i.i44.i" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i53.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i44.i", %while.body.i.i.i39.i
+  %19 = phi double [ %15, %while.body.i.i.i39.i ], [ %.pre.i.i.i52.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i44.i" ]
+  %20 = phi i64 [ %mul.i.i.i42.i, %while.body.i.i.i39.i ], [ %spec.select.i.i.i50.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i.i44.i" ]
   %add.ptr.i19.i.i.i54.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %__holeIndex.addr.032.i.i.i40.i
   store double %19, ptr %add.ptr.i19.i.i.i54.i, align 8
   %cmp.i.i.i55.i = icmp slt i64 %20, %div.i.i.i6.i
   br i1 %cmp.i.i.i55.i, label %while.body.i.i.i39.i, label %while.end.i.i.i8.i, !llvm.loop !513
 
-while.end.i.i.i8.i:                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i", %while.body.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i9.i = phi i64 [ 0, %while.body.i.i ], [ %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.thread.i.i.i53.i" ]
+while.end.i.i.i8.i:                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i53.i", %while.body.i.i
+  %__holeIndex.addr.0.lcssa.i.i.i9.i = phi i64 [ 0, %while.body.i.i ], [ %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.thread.i.i.i53.i" ]
   %21 = and i64 %sub.ptr.sub.i.i.i3.i, 8
   %cmp16.i.i.i10.i = icmp eq i64 %21, 0
   br i1 %cmp16.i.i.i10.i, label %land.lhs.true.i.i.i.i, label %if.end33.i.i.i11.i
@@ -19792,7 +19792,7 @@ if.then20.i.i.i35.i:                              ; preds = %land.lhs.true.i.i.i
 if.end33.i.i.i11.i:                               ; preds = %if.then20.i.i.i35.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i8.i
   %__holeIndex.addr.1.i.i.i12.i = phi i64 [ %sub24.i.i.i36.i, %if.then20.i.i.i35.i ], [ %__holeIndex.addr.0.lcssa.i.i.i9.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i9.i, %while.end.i.i.i8.i ]
   %cmp7.i.i.i.i13.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i12.i, 0
-  br i1 %cmp7.i.i.i.i13.i, label %land.rhs.lr.ph.i.i.i.i16.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i"
+  br i1 %cmp7.i.i.i.i13.i, label %land.rhs.lr.ph.i.i.i.i16.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
 
 land.rhs.lr.ph.i.i.i.i16.i:                       ; preds = %if.end33.i.i.i11.i
   %__parent.0.in5.i.i.i.i17.i = add nsw i64 %__holeIndex.addr.1.i.i.i12.i, -1
@@ -19800,21 +19800,21 @@ land.rhs.lr.ph.i.i.i.i16.i:                       ; preds = %if.end33.i.i.i11.i
   %23 = fcmp uno double %13, 0.000000e+00
   br i1 %23, label %land.rhs.us.i.i.i.i26.i, label %land.rhs.i.i.i.i18.i
 
-land.rhs.us.i.i.i.i26.i:                          ; preds = %land.rhs.lr.ph.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i30.i"
-  %__parent.09.us.i.i.i.i27.i = phi i64 [ %__parent.0.us.i.i48.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i30.i" ], [ %__parent.06.i.i36.i.i.i, %land.rhs.lr.ph.i.i.i.i16.i ]
-  %__holeIndex.addr.08.us.i.i.i.i28.i = phi i64 [ %__parent.09.us.i.i.i.i27.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i30.i" ], [ %__holeIndex.addr.1.i.i.i12.i, %land.rhs.lr.ph.i.i.i.i16.i ]
+land.rhs.us.i.i.i.i26.i:                          ; preds = %land.rhs.lr.ph.i.i.i.i16.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i30.i"
+  %__parent.09.us.i.i.i.i27.i = phi i64 [ %__parent.0.us.i.i48.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i30.i" ], [ %__parent.06.i.i36.i.i.i, %land.rhs.lr.ph.i.i.i.i16.i ]
+  %__holeIndex.addr.08.us.i.i.i.i28.i = phi i64 [ %__parent.09.us.i.i.i.i27.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i30.i" ], [ %__holeIndex.addr.1.i.i.i12.i, %land.rhs.lr.ph.i.i.i.i16.i ]
   %add.ptr.i.us.i.i.i.i29.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %__parent.09.us.i.i.i.i27.i
   %24 = load double, ptr %add.ptr.i.us.i.i.i.i29.i, align 8
   %25 = fcmp uno double %24, 0.000000e+00
-  br i1 %25, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i30.i"
+  br i1 %25, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i30.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i30.i": ; preds = %land.rhs.us.i.i.i.i26.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i30.i": ; preds = %land.rhs.us.i.i.i.i26.i
   %add.ptr.i8.us.i.i.i.i31.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %__holeIndex.addr.08.us.i.i.i.i28.i
   store double %24, ptr %add.ptr.i8.us.i.i.i.i31.i, align 8
   %__parent.0.in.us.i.i.i.i32.i = add nsw i64 %__parent.09.us.i.i.i.i27.i, -1
   %__parent.0.us.i.i48.i.i.i = lshr i64 %__parent.0.in.us.i.i.i.i32.i, 1
   %cmp.us.i.i.not.i.i.i = icmp eq i64 %__parent.09.us.i.i.i.i27.i, 0
-  br i1 %cmp.us.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i", label %land.rhs.us.i.i.i.i26.i, !llvm.loop !514
+  br i1 %cmp.us.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %land.rhs.us.i.i.i.i26.i, !llvm.loop !514
 
 land.rhs.i.i.i.i18.i:                             ; preds = %land.rhs.lr.ph.i.i.i.i16.i, %while.body.i.i.i.i23.i
   %__parent.09.i.i.i.i19.i = phi i64 [ %__parent.0.i.i57.i.i.i, %while.body.i.i.i.i23.i ], [ %__parent.06.i.i36.i.i.i, %land.rhs.lr.ph.i.i.i.i16.i ]
@@ -19822,7 +19822,7 @@ land.rhs.i.i.i.i18.i:                             ; preds = %land.rhs.lr.ph.i.i.
   %add.ptr.i.i.i.i.i21.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %__parent.09.i.i.i.i19.i
   %26 = load double, ptr %add.ptr.i.i.i.i.i21.i, align 8
   %cmp.i.i.i.i.i.i22.i = fcmp olt double %26, %13
-  br i1 %cmp.i.i.i.i.i.i22.i, label %while.body.i.i.i.i23.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i"
+  br i1 %cmp.i.i.i.i.i.i22.i, label %while.body.i.i.i.i23.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i"
 
 while.body.i.i.i.i23.i:                           ; preds = %land.rhs.i.i.i.i18.i
   %add.ptr.i8.i.i.i.i24.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %__holeIndex.addr.08.i.i.i.i20.i
@@ -19830,10 +19830,10 @@ while.body.i.i.i.i23.i:                           ; preds = %land.rhs.i.i.i.i18.
   %__parent.0.in.i.i.i.i25.i = add nsw i64 %__parent.09.i.i.i.i19.i, -1
   %__parent.0.i.i57.i.i.i = lshr i64 %__parent.0.in.i.i.i.i25.i, 1
   %cmp.i.i.not.i.i.i = icmp eq i64 %__parent.09.i.i.i.i19.i, 0
-  br i1 %cmp.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i", label %land.rhs.i.i.i.i18.i, !llvm.loop !514
+  br i1 %cmp.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", label %land.rhs.i.i.i.i18.i, !llvm.loop !514
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i": ; preds = %while.body.i.i.i.i23.i, %land.rhs.i.i.i.i18.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i30.i", %land.rhs.us.i.i.i.i26.i, %if.end33.i.i.i11.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i14.i = phi i64 [ %__holeIndex.addr.1.i.i.i12.i, %if.end33.i.i.i11.i ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.argprom.exit.us.i.i.i.i30.i" ], [ %__holeIndex.addr.08.us.i.i.i.i28.i, %land.rhs.us.i.i.i.i26.i ], [ 0, %while.body.i.i.i.i23.i ], [ %__holeIndex.addr.08.i.i.i.i20.i, %land.rhs.i.i.i.i18.i ]
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i": ; preds = %while.body.i.i.i.i23.i, %land.rhs.i.i.i.i18.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i30.i", %land.rhs.us.i.i.i.i26.i, %if.end33.i.i.i11.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i14.i = phi i64 [ %__holeIndex.addr.1.i.i.i12.i, %if.end33.i.i.i11.i ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEEbT_RT0_.exit.us.i.i.i.i30.i" ], [ %__holeIndex.addr.08.us.i.i.i.i28.i, %land.rhs.us.i.i.i.i26.i ], [ 0, %while.body.i.i.i.i23.i ], [ %__holeIndex.addr.08.i.i.i.i20.i, %land.rhs.i.i.i.i18.i ]
   %add.ptr.i9.i.i.i.i15.i = getelementptr inbounds double, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i14.i
   store double %13, ptr %add.ptr.i9.i.i.i.i15.i, align 8
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 8
@@ -19850,77 +19850,77 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %27 = load double, ptr %add.ptr.i2.i, align 8
   %28 = fcmp uno double %27, 0.000000e+00
   %.pre25.i.i = load double, ptr %add.ptr.i.i, align 8
-  br i1 %28, label %if.else44.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i"
+  br i1 %28, label %if.else44.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i": ; preds = %if.end
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i": ; preds = %if.end
   %29 = fcmp uno double %.pre25.i.i, 0.000000e+00
   %cmp.i.i.i.i5 = fcmp olt double %27, %.pre25.i.i
   %spec.select.i.i.i.i6 = or i1 %29, %cmp.i.i.i.i5
   %.pre.i.i = load double, ptr %add.ptr.i3.i, align 8
-  br i1 %spec.select.i.i.i.i6, label %if.then.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit15.i.i"
+  br i1 %spec.select.i.i.i.i6, label %if.then.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit15.i.i"
 
-if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i"
-  br i1 %29, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit10.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit5.i.i"
+if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i"
+  br i1 %29, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit5.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit5.i.i": ; preds = %if.then.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit5.i.i": ; preds = %if.then.i.i
   %30 = fcmp uno double %.pre.i.i, 0.000000e+00
   %cmp.i.i2.i.i = fcmp olt double %.pre25.i.i, %.pre.i.i
   %spec.select.i.i3.i.i = or i1 %30, %cmp.i.i2.i.i
-  br i1 %spec.select.i.i3.i.i, label %if.then12.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit10.i.i"
+  br i1 %spec.select.i.i3.i.i, label %if.then12.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i"
 
-if.then12.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit5.i.i"
+if.then12.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit5.i.i"
   %31 = load double, ptr %__first.coerce.fr, align 8
   store double %.pre25.i.i, ptr %__first.coerce.fr, align 8
   store double %31, ptr %add.ptr.i.i, align 8
   br label %while.body.i.i7.preheader
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit10.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit5.i.i", %if.then.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit5.i.i", %if.then.i.i
   %32 = fcmp uno double %.pre.i.i, 0.000000e+00
   %cmp.i.i7.i.i = fcmp olt double %27, %.pre.i.i
   %spec.select.i.i8.i.i = or i1 %32, %cmp.i.i7.i.i
   %33 = load double, ptr %__first.coerce.fr, align 8
   br i1 %spec.select.i.i8.i.i, label %if.then22.i.i, label %if.else27.i.i
 
-if.then22.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit10.i.i"
+if.then22.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i"
   store double %.pre.i.i, ptr %__first.coerce.fr, align 8
   store double %33, ptr %add.ptr.i3.i, align 8
   br label %while.body.i.i7.preheader
 
-if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit10.i.i"
+if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit10.i.i"
   store double %27, ptr %__first.coerce.fr, align 8
   store double %33, ptr %add.ptr.i2.i, align 8
   br label %while.body.i.i7.preheader
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit15.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit15.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i.i"
   %34 = fcmp uno double %.pre.i.i, 0.000000e+00
   %cmp.i.i12.i.i = fcmp olt double %27, %.pre.i.i
   %spec.select.i.i13.i.i = or i1 %34, %cmp.i.i12.i.i
   br i1 %spec.select.i.i13.i.i, label %if.then39.i.i, label %if.else44.i.i
 
-if.then39.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit15.i.i"
+if.then39.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit15.i.i"
   %35 = load double, ptr %__first.coerce.fr, align 8
   store double %27, ptr %__first.coerce.fr, align 8
   store double %35, ptr %add.ptr.i2.i, align 8
   br label %while.body.i.i7.preheader
 
-if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit15.i.i", %if.end
+if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit15.i.i", %if.end
   %36 = fcmp uno double %.pre25.i.i, 0.000000e+00
-  br i1 %36, label %if.else55.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit20.i.i"
+  br i1 %36, label %if.else55.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit20.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit20.i.i": ; preds = %if.else44.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit20.i.i": ; preds = %if.else44.i.i
   %37 = load double, ptr %add.ptr.i3.i, align 8
   %38 = fcmp uno double %37, 0.000000e+00
   %cmp.i.i17.i.i = fcmp olt double %.pre25.i.i, %37
   %spec.select.i.i18.i.i = or i1 %38, %cmp.i.i17.i.i
   br i1 %spec.select.i.i18.i.i, label %if.then50.i.i, label %if.else55.i.i
 
-if.then50.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit20.i.i"
+if.then50.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit20.i.i"
   %39 = load double, ptr %__first.coerce.fr, align 8
   store double %37, ptr %__first.coerce.fr, align 8
   store double %39, ptr %add.ptr.i3.i, align 8
   br label %while.body.i.i7.preheader
 
-if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit20.i.i", %if.else44.i.i
+if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit20.i.i", %if.else44.i.i
   %40 = load double, ptr %__first.coerce.fr, align 8
   store double %.pre25.i.i, ptr %__first.coerce.fr, align 8
   store double %40, ptr %add.ptr.i.i, align 8
@@ -19936,34 +19936,34 @@ while.body.i.i7:                                  ; preds = %while.body.i.i7.pre
   %42 = fcmp uno double %41, 0.000000e+00
   %.pre.i5.i = load double, ptr %__first.coerce.fr, align 8
   %.fr21.i.i = freeze double %.pre.i5.i
-  br i1 %42, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i"
+  br i1 %42, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i": ; preds = %while.body.i.i7
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i": ; preds = %while.body.i.i7
   %43 = fcmp uno double %.fr21.i.i, 0.000000e+00
-  br i1 %43, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i6.i"
+  br i1 %43, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i6.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.us.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.us.i.i"
-  %__first.sroa.0.115.us.i.i = phi ptr [ %incdec.ptr.i.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.us.i.i" ], [ %__first.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i"
+  %__first.sroa.0.115.us.i.i = phi ptr [ %incdec.ptr.i.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i" ], [ %__first.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
   %incdec.ptr.i.us.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.115.us.i.i, i64 8
   %44 = load double, ptr %incdec.ptr.i.us.i.i, align 8
   %45 = fcmp uno double %44, 0.000000e+00
-  br i1 %45, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.us.i.i", !llvm.loop !517
+  br i1 %45, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i", !llvm.loop !517
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i6.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i", %while.body7.i.i
-  %46 = phi double [ %47, %while.body7.i.i ], [ %41, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i" ]
-  %__first.sroa.0.115.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body7.i.i ], [ %__first.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.lr.ph.i.i" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i6.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i", %while.body7.i.i
+  %46 = phi double [ %47, %while.body7.i.i ], [ %41, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
+  %__first.sroa.0.115.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body7.i.i ], [ %__first.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.lr.ph.i.i" ]
   %cmp.i.i.i7.i = fcmp olt double %46, %.fr21.i.i
   br i1 %cmp.i.i.i7.i, label %while.body7.i.i, label %while.end.i.i
 
-while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i6.i"
+while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i6.i"
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.115.i.i, i64 8
   %47 = load double, ptr %incdec.ptr.i.i.i, align 8
   %48 = fcmp uno double %47, 0.000000e+00
-  br i1 %48, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i6.i", !llvm.loop !517
+  br i1 %48, label %while.end.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i6.i", !llvm.loop !517
 
-while.end.i.i:                                    ; preds = %while.body7.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i6.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.us.i.i", %while.body.i.i7
-  %__first.sroa.0.1.lcssa.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i7 ], [ %incdec.ptr.i.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.us.i.i" ], [ %incdec.ptr.i.i.i, %while.body7.i.i ], [ %__first.sroa.0.115.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i6.i" ]
-  %.lcssa.i.i = phi double [ %41, %while.body.i.i7 ], [ %44, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.us.i.i" ], [ %47, %while.body7.i.i ], [ %46, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.argprom.exit.i6.i" ]
+while.end.i.i:                                    ; preds = %while.body7.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i6.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i", %while.body.i.i7
+  %__first.sroa.0.1.lcssa.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i7 ], [ %incdec.ptr.i.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i" ], [ %incdec.ptr.i.i.i, %while.body7.i.i ], [ %__first.sroa.0.115.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i6.i" ]
+  %.lcssa.i.i = phi double [ %41, %while.body.i.i7 ], [ %44, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.us.i.i" ], [ %47, %while.body7.i.i ], [ %46, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEESE_EEbT_T0_.exit.i6.i" ]
   %49 = fcmp uno double %.fr21.i.i, 0.000000e+00
   br i1 %49, label %while.end.split.us.i.i, label %while.cond10.i.i
 
@@ -20000,7 +20000,7 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !512
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.argprom.exit.i.i", %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.argprom.exit.i.i"
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_SF_RT0_.exit.i.i", %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterIZN4absl19str_format_internal12_GLOBAL__N_129FormatConvertTest_Double_Test8TestBodyEvE3$_0EEEvT_SF_RT0_.exit.i.i"
   ret void
 }
 
@@ -42246,7 +42246,7 @@ if.else.i:                                        ; preds = %invoke.cont38
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %this.val.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775776
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.147) #33
@@ -42255,7 +42255,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 .noexc23:                                         ; preds = %if.then.i.i.i
   unreachable
 
-_ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %if.else.i
+_ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 48
   %cmp.i.i.i.i = icmp eq ptr %16, %this.val.i.i
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
@@ -42264,15 +42264,15 @@ _ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntA
   %20 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 192153584101141162)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 192153584101141162, i64 %20
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_M_allocateEm.argprom.exit.i.i, label %cond.true.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 48
   %call5.i.i.i.i.i24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #35
-          to label %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_M_allocateEm.argprom.exit.i.i unwind label %lpad40.loopexit
+          to label %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_M_allocateEm.exit.i.i unwind label %lpad40.loopexit
 
-_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i
-  %cond.i19.i.i = phi ptr [ null, %_ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i ], [ %call5.i.i.i.i.i24, %cond.true.i.i.i ]
+_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i19.i.i = phi ptr [ null, %_ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i24, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds %struct.Expectation.243, ptr %cond.i19.i.i, i64 %sub.ptr.div.i.i.i.i
   %21 = load i32, ptr %ex, align 8
   store i32 %21, ptr %add.ptr.i.i, align 8
@@ -42280,11 +42280,11 @@ _ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTes
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %out.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %out36)
           to label %invoke.cont.i.i unwind label %invoke.cont19.i.i
 
-invoke.cont.i.i:                                  ; preds = %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_M_allocateEm.argprom.exit.i.i
+invoke.cont.i.i:                                  ; preds = %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_M_allocateEm.exit.i.i
   %fmt.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40
   %22 = load ptr, ptr %fmt39, align 8
   store ptr %22, ptr %fmt.i.i.i.i.i, align 8
-  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit32.i.i, label %for.body.i.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %for.body.i.i.i.i.i
   %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i19.i.i, %invoke.cont.i.i ]
@@ -42304,15 +42304,15 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 48
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 48
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %16
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit32.i.i, label %for.body.i.i.i.i.i, !llvm.loop !1940
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i, label %for.body.i.i.i.i.i, !llvm.loop !1940
 
-_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit32.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
+_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 48
   %tobool.not.i.i.i22 = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i.i.i22, label %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i33.i.i
 
-if.then.i33.i.i:                                  ; preds = %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit32.i.i
+if.then.i33.i.i:                                  ; preds = %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val.i.i) #34
   br label %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
@@ -42322,7 +42322,7 @@ lpad17.i.i:                                       ; preds = %invoke.cont19.i.i
   invoke void @__cxa_end_catch()
           to label %lpad40.body unwind label %terminate.lpad.i.i
 
-invoke.cont19.i.i:                                ; preds = %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_M_allocateEm.argprom.exit.i.i
+invoke.cont19.i.i:                                ; preds = %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_M_allocateEm.exit.i.i
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
@@ -42341,7 +42341,7 @@ terminate.lpad.i.i:                               ; preds = %lpad17.i.i
 unreachable.i.i:                                  ; preds = %invoke.cont19.i.i
   unreachable
 
-_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i33.i.i, %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit32.i.i
+_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i33.i.i, %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i
   store ptr %cond.i19.i.i, ptr %expect, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr26.i.i = getelementptr inbounds %struct.Expectation.243, ptr %cond.i19.i.i, i64 %cond.i.i.i
@@ -42890,13 +42890,13 @@ invoke.contthread-pre-split:                      ; preds = %for.body.i.i.i
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #34
-  br label %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EED2Ev.exit
 
-_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 
@@ -43017,7 +43017,7 @@ entry:
   %ref.tmp358 = alloca %"class.testing::Message", align 8
   %ref.tmp361 = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp362 = alloca %"class.std::__cxx11::basic_string", align 8
-  %call = tail call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIiEEbPKcT_.argelim(ptr noundef nonnull @.str.92)
+  %call = tail call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIiEEbPKcT_(ptr noundef nonnull @.str.92)
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
@@ -43111,7 +43111,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %entry, %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  %call17 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIiEEbPKcT_.argelim(ptr noundef nonnull @.str.73)
+  %call17 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIiEEbPKcT_(ptr noundef nonnull @.str.73)
   %frombool18 = zext i1 %call17 to i8
   store i8 %frombool18, ptr %gtest_ar_15, align 8
   %message_.i73 = getelementptr inbounds i8, ptr %gtest_ar_15, i64 8
@@ -43205,7 +43205,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit88:          ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %if.end37, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i87
   store ptr null, ptr %message_.i73, align 8
-  %call41 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIiEEbPKcT_.argelim(ptr noundef nonnull @.str.747)
+  %call41 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIiEEbPKcT_(ptr noundef nonnull @.str.747)
   %frombool42 = zext i1 %call41 to i8
   store i8 %frombool42, ptr %gtest_ar_39, align 8
   %message_.i90 = getelementptr inbounds i8, ptr %gtest_ar_39, i64 8
@@ -43299,7 +43299,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit88, %if.end61, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i104
   store ptr null, ptr %message_.i90, align 8
-  %call65 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_.argelim(ptr noundef nonnull @.str.92)
+  %call65 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_(ptr noundef nonnull @.str.92)
   %frombool66 = zext i1 %call65 to i8
   store i8 %frombool66, ptr %gtest_ar_63, align 8
   %message_.i107 = getelementptr inbounds i8, ptr %gtest_ar_63, i64 8
@@ -43393,7 +43393,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit122:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit105, %if.end85, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i121
   store ptr null, ptr %message_.i107, align 8
-  %call89 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_.argelim(ptr noundef nonnull @.str.73)
+  %call89 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_(ptr noundef nonnull @.str.73)
   %frombool90 = zext i1 %call89 to i8
   store i8 %frombool90, ptr %gtest_ar_87, align 8
   %message_.i124 = getelementptr inbounds i8, ptr %gtest_ar_87, i64 8
@@ -43487,7 +43487,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit139:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit122, %if.end109, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i138
   store ptr null, ptr %message_.i124, align 8
-  %call113 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_.argelim(ptr noundef nonnull @.str.747)
+  %call113 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_(ptr noundef nonnull @.str.747)
   %frombool114 = zext i1 %call113 to i8
   store i8 %frombool114, ptr %gtest_ar_111, align 8
   %message_.i141 = getelementptr inbounds i8, ptr %gtest_ar_111, i64 8
@@ -43581,7 +43581,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit156:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit139, %if.end133, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i155
   store ptr null, ptr %message_.i141, align 8
-  %call137 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_.argelim(ptr noundef nonnull @.str.752)
+  %call137 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_(ptr noundef nonnull @.str.752)
   %frombool138 = zext i1 %call137 to i8
   store i8 %frombool138, ptr %gtest_ar_135, align 8
   %message_.i158 = getelementptr inbounds i8, ptr %gtest_ar_135, i64 8
@@ -43675,7 +43675,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit173:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit156, %if.end157, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i172
   store ptr null, ptr %message_.i158, align 8
-  %call161 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_.argelim(ptr noundef nonnull @.str.754)
+  %call161 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_(ptr noundef nonnull @.str.754)
   %frombool162 = zext i1 %call161 to i8
   store i8 %frombool162, ptr %gtest_ar_159, align 8
   %message_.i175 = getelementptr inbounds i8, ptr %gtest_ar_159, i64 8
@@ -43769,7 +43769,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit190:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit173, %if.end181, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i189
   store ptr null, ptr %message_.i175, align 8
-  %call185 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_.argelim(ptr noundef nonnull @.str.756)
+  %call185 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_(ptr noundef nonnull @.str.756)
   %frombool186 = zext i1 %call185 to i8
   store i8 %frombool186, ptr %gtest_ar_183, align 8
   %message_.i192 = getelementptr inbounds i8, ptr %gtest_ar_183, i64 8
@@ -43863,7 +43863,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit207:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit190, %if.end205, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i206
   store ptr null, ptr %message_.i192, align 8
-  %call209 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_.argelim(ptr noundef nonnull @.str.758)
+  %call209 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_(ptr noundef nonnull @.str.758)
   %frombool210 = zext i1 %call209 to i8
   store i8 %frombool210, ptr %gtest_ar_207, align 8
   %message_.i209 = getelementptr inbounds i8, ptr %gtest_ar_207, i64 8
@@ -43957,7 +43957,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit224:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit207, %if.end229, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i223
   store ptr null, ptr %message_.i209, align 8
-  %call233 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_.argprom(ptr noundef nonnull @.str.747)
+  %call233 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_(ptr noundef nonnull @.str.747)
   %frombool234 = zext i1 %call233 to i8
   store i8 %frombool234, ptr %gtest_ar_231, align 8
   %message_.i226 = getelementptr inbounds i8, ptr %gtest_ar_231, i64 8
@@ -44051,7 +44051,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit241:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit224, %if.end253, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i240
   store ptr null, ptr %message_.i226, align 8
-  %call257 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_.argprom(ptr noundef nonnull @.str.752)
+  %call257 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_(ptr noundef nonnull @.str.752)
   %frombool258 = zext i1 %call257 to i8
   store i8 %frombool258, ptr %gtest_ar_255, align 8
   %message_.i243 = getelementptr inbounds i8, ptr %gtest_ar_255, i64 8
@@ -44145,7 +44145,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit258:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit241, %if.end277, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i257
   store ptr null, ptr %message_.i243, align 8
-  %call281 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_.argprom(ptr noundef nonnull @.str.754)
+  %call281 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_(ptr noundef nonnull @.str.754)
   %frombool282 = zext i1 %call281 to i8
   store i8 %frombool282, ptr %gtest_ar_279, align 8
   %message_.i260 = getelementptr inbounds i8, ptr %gtest_ar_279, i64 8
@@ -44239,7 +44239,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit275:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit258, %if.end301, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i274
   store ptr null, ptr %message_.i260, align 8
-  %call305 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_.argprom(ptr noundef nonnull @.str.756)
+  %call305 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_(ptr noundef nonnull @.str.756)
   %frombool306 = zext i1 %call305 to i8
   store i8 %frombool306, ptr %gtest_ar_303, align 8
   %message_.i277 = getelementptr inbounds i8, ptr %gtest_ar_303, i64 8
@@ -44333,7 +44333,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit292:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit275, %if.end325, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i291
   store ptr null, ptr %message_.i277, align 8
-  %call329 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_.argprom(ptr noundef nonnull @.str.233)
+  %call329 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_(ptr noundef nonnull @.str.233)
   %frombool330 = zext i1 %call329 to i8
   store i8 %frombool330, ptr %gtest_ar_327, align 8
   %message_.i294 = getelementptr inbounds i8, ptr %gtest_ar_327, i64 8
@@ -44427,7 +44427,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit309:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit292, %if.end349, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i308
   store ptr null, ptr %message_.i294, align 8
-  %call353 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_.argprom(ptr noundef nonnull @.str.758)
+  %call353 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_(ptr noundef nonnull @.str.758)
   %frombool354 = zext i1 %call353 to i8
   store i8 %frombool354, ptr %gtest_ar_351, align 8
   %message_.i311 = getelementptr inbounds i8, ptr %gtest_ar_351, i64 8
@@ -44530,7 +44530,7 @@ eh.resume:                                        ; preds = %lpad359, %_ZN7testi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIiEEbPKcT_.argelim(ptr noundef %test_format) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIiEEbPKcT_(ptr noundef %test_format) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %format_string = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -44780,7 +44780,7 @@ eh.resume:                                        ; preds = %ehcleanup48, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_.argelim(ptr noundef %test_format) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIdEEbPKcT_(ptr noundef %test_format) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %format_string = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -45030,7 +45030,7 @@ eh.resume:                                        ; preds = %ehcleanup48, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_.argprom(ptr noundef %test_format) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFailsIPKcEEbS4_T_(ptr noundef %test_format) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %format_string = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -46131,7 +46131,7 @@ declare i32 @isspace(i32 noundef) local_unnamed_addr #20
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i41.i.i.i.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp.i.i.i.i.i.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -47401,7 +47401,7 @@ invoke.cont38.i.i.i.i.i:                          ; preds = %invoke.cont12.i53.i
 invoke.cont40.i.i.i.i.i:                          ; preds = %invoke.cont38.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsImEEEE, i64 16), ptr %call41.i.i.i.i.i, align 8
   %call45.i.i.i.i.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15.i62.i.i.i.i, ptr noundef %call21.i.i.i.i.i, ptr noundef %call25.i.i.i.i.i, ptr noundef null, ptr noundef nonnull %agg.tmp26.i.i.i.i.i, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestImEEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %call41.i.i.i.i.i)
-          to label %_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIViJstlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.argprom.exit unwind label %lpad29.i.i.i.i.i
+          to label %_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIViJstlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.exit unwind label %lpad29.i.i.i.i.i
 
 lpad.i60.i.i.i.i:                                 ; preds = %call.i.noexc.i.i.i.i.i, %invoke.cont44.i.i.i.i
   %48 = landingpad { ptr, i32 }
@@ -47884,7 +47884,7 @@ ehcleanup53.i:                                    ; preds = %ehcleanup52.i, %lpa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #30
   br label %common.resume
 
-_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIViJstlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.argprom.exit: ; preds = %invoke.cont40.i.i.i.i.i
+_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIViJstlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.exit: ; preds = %invoke.cont40.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.i.i.i) #30
@@ -47895,7 +47895,7 @@ _ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i.i.i) #30
-  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr noundef nonnull readonly align 8 dereferenceable(24) %type_names)
+  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr noundef nonnull readonly align 8 dereferenceable(24) %type_names)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i59.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i.i)
@@ -54762,7 +54762,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef no
 declare noundef zeroext i1 @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIlEEbNS1_4DataENS0_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i41.i.i.i.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp.i.i.i.i.i.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -56032,7 +56032,7 @@ invoke.cont38.i.i.i.i.i:                          ; preds = %invoke.cont12.i53.i
 invoke.cont40.i.i.i.i.i:                          ; preds = %invoke.cont38.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsIwEEEE, i64 16), ptr %call41.i.i.i.i.i, align 8
   %call45.i.i.i.i.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15.i62.i.i.i.i, ptr noundef %call21.i.i.i.i.i, ptr noundef %call25.i.i.i.i.i, ptr noundef null, ptr noundef nonnull %agg.tmp26.i.i.i.i.i, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestIwEEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %call41.i.i.i.i.i)
-          to label %_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIyJahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.argprom.exit unwind label %lpad29.i.i.i.i.i
+          to label %_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIyJahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.exit unwind label %lpad29.i.i.i.i.i
 
 lpad.i60.i.i.i.i:                                 ; preds = %call.i.noexc.i.i.i.i.i, %invoke.cont44.i.i.i.i
   %48 = landingpad { ptr, i32 }
@@ -56515,7 +56515,7 @@ ehcleanup53.i:                                    ; preds = %ehcleanup52.i, %lpa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #30
   br label %common.resume
 
-_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIyJahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.argprom.exit: ; preds = %invoke.cont40.i.i.i.i.i
+_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIyJahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.exit: ; preds = %invoke.cont40.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.i.i.i) #30
@@ -64286,7 +64286,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 declare i8 @_ZN4absl19str_format_internal17FormatConvertImplEwNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i32 noundef signext, i64, i32, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i41.i.i.i.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp.i.i.i.i.i.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -65556,7 +65556,7 @@ invoke.cont37.i.i.i.i.i:                          ; preds = %invoke.cont12.i53.i
 invoke.cont39.i.i.i.i.i:                          ; preds = %invoke.cont37.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_4CharImEEEE, i64 16), ptr %call40.i.i.i.i.i, align 8
   %call44.i.i.i.i.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15.i62.i.i.i.i, ptr noundef %call21.i.i.i.i.i, ptr noundef %call25.i.i.i.i.i, ptr noundef null, ptr noundef nonnull %agg.tmp26.i.i.i.i.i, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestImEEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %call40.i.i.i.i.i)
-          to label %_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIViJstlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.argprom.exit unwind label %lpad31.i.i.i.i.i
+          to label %_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIViJstlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.exit unwind label %lpad31.i.i.i.i.i
 
 lpad.i60.i.i.i.i:                                 ; preds = %call.i.noexc.i.i.i.i.i, %invoke.cont43.i.i.i.i
   %48 = landingpad { ptr, i32 }
@@ -66039,7 +66039,7 @@ ehcleanup52.i:                                    ; preds = %ehcleanup51.i, %lpa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #30
   br label %common.resume
 
-_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIViJstlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.argprom.exit: ; preds = %invoke.cont39.i.i.i.i.i
+_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIViJstlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.exit: ; preds = %invoke.cont39.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.i.i.i) #30
@@ -66050,7 +66050,7 @@ _ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i.i) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i.i.i) #30
-  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr noundef nonnull readonly align 8 dereferenceable(24) %type_names)
+  call fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr noundef nonnull readonly align 8 dereferenceable(24) %type_names)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i59.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i.i)
@@ -70963,7 +70963,7 @@ if.end87:                                         ; preds = %if.then.i.i.i.i.i52
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIxJyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE(ptr noundef nonnull align 8 dereferenceable(36) %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i41.i.i.i.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp.i.i.i.i.i.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -72233,7 +72233,7 @@ invoke.cont37.i.i.i.i.i:                          ; preds = %invoke.cont12.i53.i
 invoke.cont39.i.i.i.i.i:                          ; preds = %invoke.cont37.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl19str_format_internal12_GLOBAL__N_135gtest_suite_TypedFormatConvertTest_4CharIwEEEE, i64 16), ptr %call40.i.i.i.i.i, align 8
   %call44.i.i.i.i.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef %call15.i62.i.i.i.i, ptr noundef %call21.i.i.i.i.i, ptr noundef %call25.i.i.i.i.i, ptr noundef null, ptr noundef nonnull %agg.tmp26.i.i.i.i.i, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestIwEEE6dummy_E, ptr noundef null, ptr noundef null, ptr noundef nonnull %call40.i.i.i.i.i)
-          to label %_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIyJahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.argprom.exit unwind label %lpad31.i.i.i.i.i
+          to label %_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIyJahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.exit unwind label %lpad31.i.i.i.i.i
 
 lpad.i60.i.i.i.i:                                 ; preds = %call.i.noexc.i.i.i.i.i, %invoke.cont43.i.i.i.i
   %48 = landingpad { ptr, i32 }
@@ -72716,7 +72716,7 @@ ehcleanup52.i:                                    ; preds = %ehcleanup51.i, %lpa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #30
   br label %common.resume
 
-_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIyJahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.argprom.exit: ; preds = %invoke.cont39.i.i.i.i.i
+_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIyJahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESE_SE_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISO_EE.exit: ; preds = %invoke.cont39.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16.i.i.i.i.i) #30
@@ -79532,11 +79532,11 @@ invoke.cont.i:                                    ; preds = %.noexc.i
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 317, ptr %line.i.i, align 8
-  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 317)
+  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 317)
           to label %invoke.cont6.i unwind label %lpad4.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont3.i
-  %call9.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 317)
+  %call9.i = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 317)
           to label %invoke.cont8.i unwind label %lpad4.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont6.i
@@ -79611,11 +79611,11 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
   %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
   store i32 331, ptr %line.i.i14, align 8
-  %call7.i15 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 331)
+  %call7.i15 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 331)
           to label %invoke.cont6.i17 unwind label %lpad4.i16
 
 invoke.cont6.i17:                                 ; preds = %invoke.cont3.i13
-  %call9.i18 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 331)
+  %call9.i18 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 331)
           to label %invoke.cont8.i19 unwind label %lpad4.i16
 
 invoke.cont8.i19:                                 ; preds = %invoke.cont6.i17
@@ -79684,11 +79684,11 @@ invoke.cont.i32:                                  ; preds = %.noexc.i30
 invoke.cont3.i36:                                 ; preds = %invoke.cont.i32
   %line.i.i37 = getelementptr inbounds i8, ptr %agg.tmp.i22, i64 32
   store i32 341, ptr %line.i.i37, align 8
-  %call7.i38 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 341)
+  %call7.i38 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 341)
           to label %invoke.cont6.i40 unwind label %lpad4.i39
 
 invoke.cont6.i40:                                 ; preds = %invoke.cont3.i36
-  %call9.i41 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 341)
+  %call9.i41 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 341)
           to label %invoke.cont8.i42 unwind label %lpad4.i39
 
 invoke.cont8.i42:                                 ; preds = %invoke.cont6.i40
@@ -79757,11 +79757,11 @@ invoke.cont.i56:                                  ; preds = %.noexc.i54
 invoke.cont3.i60:                                 ; preds = %invoke.cont.i56
   %line.i.i61 = getelementptr inbounds i8, ptr %agg.tmp.i46, i64 32
   store i32 376, ptr %line.i.i61, align 8
-  %call7.i62 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 376)
+  %call7.i62 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 376)
           to label %invoke.cont6.i64 unwind label %lpad4.i63
 
 invoke.cont6.i64:                                 ; preds = %invoke.cont3.i60
-  %call9.i65 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 376)
+  %call9.i65 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 376)
           to label %invoke.cont8.i66 unwind label %lpad4.i63
 
 invoke.cont8.i66:                                 ; preds = %invoke.cont6.i64
@@ -79830,11 +79830,11 @@ invoke.cont.i80:                                  ; preds = %.noexc.i78
 invoke.cont3.i84:                                 ; preds = %invoke.cont.i80
   %line.i.i85 = getelementptr inbounds i8, ptr %agg.tmp.i70, i64 32
   store i32 478, ptr %line.i.i85, align 8
-  %call7.i86 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 478)
+  %call7.i86 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 478)
           to label %invoke.cont6.i88 unwind label %lpad4.i87
 
 invoke.cont6.i88:                                 ; preds = %invoke.cont3.i84
-  %call9.i89 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 478)
+  %call9.i89 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 478)
           to label %invoke.cont8.i90 unwind label %lpad4.i87
 
 invoke.cont8.i90:                                 ; preds = %invoke.cont6.i88
@@ -80246,7 +80246,7 @@ invoke.cont44.i.i.i:                              ; preds = %invoke.cont40.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i) #30
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %call13.i.i, ptr noundef %23, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_16AllIntsWithFlagsEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(36) %call13.i.i, ptr noundef %23, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i)
           to label %invoke.cont14.i.i unwind label %lpad1.i.i
 
 lpad.i.i.i:                                       ; preds = %call.i.noexc.i.i.i, %invoke.cont12.i.i
@@ -80701,7 +80701,7 @@ invoke.cont43.i.i.i.i:                            ; preds = %invoke.cont39.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i.i.i) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i.i.i) #30
-  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(36) %call13.i.i.i, ptr noundef %retval.0.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i)
+  invoke fastcc void @_ZN7testing8internal21TypeParameterizedTestIN4absl19str_format_internal12_GLOBAL__N_122TypedFormatConvertTestENS0_11TemplateSelINS4_35gtest_suite_TypedFormatConvertTest_4CharEEENS0_5TypesIjJVistlmxyahcwEEEE8RegisterEPKcRKNS0_12CodeLocationESF_SF_iRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(36) %call13.i.i.i, ptr noundef %retval.0.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %ref.tmp4.i)
           to label %invoke.cont8.i112 unwind label %lpad1.i.i.i
 
 lpad.i.i41.i.i:                                   ; preds = %call.i.noexc.i.i.i.i, %invoke.cont12.i.i.i
@@ -80935,11 +80935,11 @@ invoke.cont.i123:                                 ; preds = %.noexc.i121
 invoke.cont3.i127:                                ; preds = %invoke.cont.i123
   %line.i.i128 = getelementptr inbounds i8, ptr %agg.tmp.i113, i64 32
   store i32 699, ptr %line.i.i128, align 8
-  %call7.i129 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 699)
+  %call7.i129 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 699)
           to label %invoke.cont6.i131 unwind label %lpad4.i130
 
 invoke.cont6.i131:                                ; preds = %invoke.cont3.i127
-  %call9.i132 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 699)
+  %call9.i132 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 699)
           to label %invoke.cont8.i133 unwind label %lpad4.i130
 
 invoke.cont8.i133:                                ; preds = %invoke.cont6.i131
@@ -81008,11 +81008,11 @@ invoke.cont.i147:                                 ; preds = %.noexc.i145
 invoke.cont3.i151:                                ; preds = %invoke.cont.i147
   %line.i.i152 = getelementptr inbounds i8, ptr %agg.tmp.i137, i64 32
   store i32 710, ptr %line.i.i152, align 8
-  %call7.i153 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 710)
+  %call7.i153 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 710)
           to label %invoke.cont6.i155 unwind label %lpad4.i154
 
 invoke.cont6.i155:                                ; preds = %invoke.cont3.i151
-  %call9.i156 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 710)
+  %call9.i156 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 710)
           to label %invoke.cont8.i157 unwind label %lpad4.i154
 
 invoke.cont8.i157:                                ; preds = %invoke.cont6.i155
@@ -81081,11 +81081,11 @@ invoke.cont.i171:                                 ; preds = %.noexc.i169
 invoke.cont3.i175:                                ; preds = %invoke.cont.i171
   %line.i.i176 = getelementptr inbounds i8, ptr %agg.tmp.i161, i64 32
   store i32 727, ptr %line.i.i176, align 8
-  %call7.i177 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 727)
+  %call7.i177 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 727)
           to label %invoke.cont6.i179 unwind label %lpad4.i178
 
 invoke.cont6.i179:                                ; preds = %invoke.cont3.i175
-  %call9.i180 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 727)
+  %call9.i180 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 727)
           to label %invoke.cont8.i181 unwind label %lpad4.i178
 
 invoke.cont8.i181:                                ; preds = %invoke.cont6.i179
@@ -81154,11 +81154,11 @@ invoke.cont.i195:                                 ; preds = %.noexc.i193
 invoke.cont3.i199:                                ; preds = %invoke.cont.i195
   %line.i.i200 = getelementptr inbounds i8, ptr %agg.tmp.i185, i64 32
   store i32 762, ptr %line.i.i200, align 8
-  %call7.i201 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 762)
+  %call7.i201 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 762)
           to label %invoke.cont6.i203 unwind label %lpad4.i202
 
 invoke.cont6.i203:                                ; preds = %invoke.cont3.i199
-  %call9.i204 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 762)
+  %call9.i204 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 762)
           to label %invoke.cont8.i205 unwind label %lpad4.i202
 
 invoke.cont8.i205:                                ; preds = %invoke.cont6.i203
@@ -81227,11 +81227,11 @@ invoke.cont.i219:                                 ; preds = %.noexc.i217
 invoke.cont3.i223:                                ; preds = %invoke.cont.i219
   %line.i.i224 = getelementptr inbounds i8, ptr %agg.tmp.i209, i64 32
   store i32 859, ptr %line.i.i224, align 8
-  %call7.i225 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 859)
+  %call7.i225 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 859)
           to label %invoke.cont6.i227 unwind label %lpad4.i226
 
 invoke.cont6.i227:                                ; preds = %invoke.cont3.i223
-  %call9.i228 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 859)
+  %call9.i228 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 859)
           to label %invoke.cont8.i229 unwind label %lpad4.i226
 
 invoke.cont8.i229:                                ; preds = %invoke.cont6.i227
@@ -81300,11 +81300,11 @@ invoke.cont.i243:                                 ; preds = %.noexc.i241
 invoke.cont3.i247:                                ; preds = %invoke.cont.i243
   %line.i.i248 = getelementptr inbounds i8, ptr %agg.tmp.i233, i64 32
   store i32 910, ptr %line.i.i248, align 8
-  %call7.i249 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 910)
+  %call7.i249 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 910)
           to label %invoke.cont6.i251 unwind label %lpad4.i250
 
 invoke.cont6.i251:                                ; preds = %invoke.cont3.i247
-  %call9.i252 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 910)
+  %call9.i252 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 910)
           to label %invoke.cont8.i253 unwind label %lpad4.i250
 
 invoke.cont8.i253:                                ; preds = %invoke.cont6.i251
@@ -81373,11 +81373,11 @@ invoke.cont.i267:                                 ; preds = %.noexc.i265
 invoke.cont3.i271:                                ; preds = %invoke.cont.i267
   %line.i.i272 = getelementptr inbounds i8, ptr %agg.tmp.i257, i64 32
   store i32 988, ptr %line.i.i272, align 8
-  %call7.i273 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 988)
+  %call7.i273 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 988)
           to label %invoke.cont6.i275 unwind label %lpad4.i274
 
 invoke.cont6.i275:                                ; preds = %invoke.cont3.i271
-  %call9.i276 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 988)
+  %call9.i276 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 988)
           to label %invoke.cont8.i277 unwind label %lpad4.i274
 
 invoke.cont8.i277:                                ; preds = %invoke.cont6.i275
@@ -81446,11 +81446,11 @@ invoke.cont.i291:                                 ; preds = %.noexc.i289
 invoke.cont3.i295:                                ; preds = %invoke.cont.i291
   %line.i.i296 = getelementptr inbounds i8, ptr %agg.tmp.i281, i64 32
   store i32 1093, ptr %line.i.i296, align 8
-  %call7.i297 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 1093)
+  %call7.i297 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 1093)
           to label %invoke.cont6.i299 unwind label %lpad4.i298
 
 invoke.cont6.i299:                                ; preds = %invoke.cont3.i295
-  %call9.i300 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 1093)
+  %call9.i300 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 1093)
           to label %invoke.cont8.i301 unwind label %lpad4.i298
 
 invoke.cont8.i301:                                ; preds = %invoke.cont6.i299
@@ -81519,11 +81519,11 @@ invoke.cont.i315:                                 ; preds = %.noexc.i313
 invoke.cont3.i319:                                ; preds = %invoke.cont.i315
   %line.i.i320 = getelementptr inbounds i8, ptr %agg.tmp.i305, i64 32
   store i32 1198, ptr %line.i.i320, align 8
-  %call7.i321 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 1198)
+  %call7.i321 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 1198)
           to label %invoke.cont6.i323 unwind label %lpad4.i322
 
 invoke.cont6.i323:                                ; preds = %invoke.cont3.i319
-  %call9.i324 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 1198)
+  %call9.i324 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 1198)
           to label %invoke.cont8.i325 unwind label %lpad4.i322
 
 invoke.cont8.i325:                                ; preds = %invoke.cont6.i323
@@ -81592,11 +81592,11 @@ invoke.cont.i339:                                 ; preds = %.noexc.i337
 invoke.cont3.i343:                                ; preds = %invoke.cont.i339
   %line.i.i344 = getelementptr inbounds i8, ptr %agg.tmp.i329, i64 32
   store i32 1293, ptr %line.i.i344, align 8
-  %call7.i345 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 1293)
+  %call7.i345 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 1293)
           to label %invoke.cont6.i347 unwind label %lpad4.i346
 
 invoke.cont6.i347:                                ; preds = %invoke.cont3.i343
-  %call9.i348 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 1293)
+  %call9.i348 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 1293)
           to label %invoke.cont8.i349 unwind label %lpad4.i346
 
 invoke.cont8.i349:                                ; preds = %invoke.cont6.i347
@@ -81665,11 +81665,11 @@ invoke.cont.i363:                                 ; preds = %.noexc.i361
 invoke.cont3.i367:                                ; preds = %invoke.cont.i363
   %line.i.i368 = getelementptr inbounds i8, ptr %agg.tmp.i353, i64 32
   store i32 1305, ptr %line.i.i368, align 8
-  %call7.i369 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 1305)
+  %call7.i369 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 1305)
           to label %invoke.cont6.i371 unwind label %lpad4.i370
 
 invoke.cont6.i371:                                ; preds = %invoke.cont3.i367
-  %call9.i372 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 1305)
+  %call9.i372 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 1305)
           to label %invoke.cont8.i373 unwind label %lpad4.i370
 
 invoke.cont8.i373:                                ; preds = %invoke.cont6.i371
@@ -81738,11 +81738,11 @@ invoke.cont.i387:                                 ; preds = %.noexc.i385
 invoke.cont3.i391:                                ; preds = %invoke.cont.i387
   %line.i.i392 = getelementptr inbounds i8, ptr %agg.tmp.i377, i64 32
   store i32 1385, ptr %line.i.i392, align 8
-  %call7.i393 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 1385)
+  %call7.i393 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 1385)
           to label %invoke.cont6.i395 unwind label %lpad4.i394
 
 invoke.cont6.i395:                                ; preds = %invoke.cont3.i391
-  %call9.i396 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 1385)
+  %call9.i396 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 1385)
           to label %invoke.cont8.i397 unwind label %lpad4.i394
 
 invoke.cont8.i397:                                ; preds = %invoke.cont6.i395
@@ -81811,11 +81811,11 @@ invoke.cont.i411:                                 ; preds = %.noexc.i409
 invoke.cont3.i415:                                ; preds = %invoke.cont.i411
   %line.i.i416 = getelementptr inbounds i8, ptr %agg.tmp.i401, i64 32
   store i32 1433, ptr %line.i.i416, align 8
-  %call7.i417 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 1433)
+  %call7.i417 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 1433)
           to label %invoke.cont6.i419 unwind label %lpad4.i418
 
 invoke.cont6.i419:                                ; preds = %invoke.cont3.i415
-  %call9.i420 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 1433)
+  %call9.i420 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 1433)
           to label %invoke.cont8.i421 unwind label %lpad4.i418
 
 invoke.cont8.i421:                                ; preds = %invoke.cont6.i419
@@ -81884,11 +81884,11 @@ invoke.cont.i435:                                 ; preds = %.noexc.i433
 invoke.cont3.i439:                                ; preds = %invoke.cont.i435
   %line.i.i440 = getelementptr inbounds i8, ptr %agg.tmp.i425, i64 32
   store i32 1459, ptr %line.i.i440, align 8
-  %call7.i441 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 1459)
+  %call7.i441 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 1459)
           to label %invoke.cont6.i443 unwind label %lpad4.i442
 
 invoke.cont6.i443:                                ; preds = %invoke.cont3.i439
-  %call9.i444 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 1459)
+  %call9.i444 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN4absl19str_format_internal12_GLOBAL__N_117FormatConvertTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 1459)
           to label %invoke.cont8.i445 unwind label %lpad4.i442
 
 invoke.cont8.i445:                                ; preds = %invoke.cont6.i443
@@ -82184,199 +82184,199 @@ attributes #36 = { nounwind willreturn memory(read) }
 !149 = distinct !{!149, !150, !"_ZN7testing13PrintToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_: %agg.result"}
 !150 = distinct !{!150, !"_ZN7testing13PrintToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_"}
 !151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!153 = distinct !{!153, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!152 = distinct !{!152, !153, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!153 = distinct !{!153, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEENS_7MatcherIT_EERKT0_"}
 !154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!156 = distinct !{!156, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!155 = distinct !{!155, !156, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!156 = distinct !{!156, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEENS_7MatcherIT_EERKT0_"}
 !157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE4CastERKSG_.argprom: %agg.result"}
-!159 = distinct !{!159, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE4CastERKSG_.argprom"}
+!158 = distinct !{!158, !159, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE4CastERKSG_: %agg.result"}
+!159 = distinct !{!159, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE4CastERKSG_"}
 !160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE.argprom: %agg.result"}
-!162 = distinct !{!162, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE.argprom"}
+!161 = distinct !{!161, !162, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE: %agg.result"}
+!162 = distinct !{!162, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE"}
 !163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom: %agg.result"}
-!165 = distinct !{!165, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom"}
+!164 = distinct !{!164, !165, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv: %agg.result"}
+!165 = distinct !{!165, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv"}
 !166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!168 = distinct !{!168, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!167 = distinct !{!167, !168, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!168 = distinct !{!168, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !169 = !{!167, !164, !161, !158, !155, !152, !170}
-!170 = distinct !{!170, !171, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom: %agg.result"}
-!171 = distinct !{!171, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom"}
+!170 = distinct !{!170, !171, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_: %agg.result"}
+!171 = distinct !{!171, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKiEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_"}
 !172 = !{!167, !164, !161, !158, !155, !152}
 !173 = !{!170}
 !174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!176 = distinct !{!176, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEENS_7MatcherIT_EERKT0_.argprom"}
+!175 = distinct !{!175, !176, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!176 = distinct !{!176, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEENS_7MatcherIT_EERKT0_"}
 !177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!179 = distinct !{!179, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEENS_7MatcherIT_EERKT0_.argprom"}
+!178 = distinct !{!178, !179, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!179 = distinct !{!179, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEENS_7MatcherIT_EERKT0_"}
 !180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE4CastERKSG_.argprom: %agg.result"}
-!182 = distinct !{!182, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE4CastERKSG_.argprom"}
+!181 = distinct !{!181, !182, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE4CastERKSG_: %agg.result"}
+!182 = distinct !{!182, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE4CastERKSG_"}
 !183 = !{!184}
-!184 = distinct !{!184, !185, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE.argprom: %agg.result"}
-!185 = distinct !{!185, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE.argprom"}
+!184 = distinct !{!184, !185, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE: %agg.result"}
+!185 = distinct !{!185, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE"}
 !186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom: %agg.result"}
-!188 = distinct !{!188, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom"}
+!187 = distinct !{!187, !188, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv: %agg.result"}
+!188 = distinct !{!188, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv"}
 !189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!191 = distinct !{!191, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!190 = distinct !{!190, !191, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!191 = distinct !{!191, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !192 = !{!190, !187, !184, !181, !178, !175, !193}
-!193 = distinct !{!193, !194, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultES7_RKT_.argprom: %agg.result"}
-!194 = distinct !{!194, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultES7_RKT_.argprom"}
+!193 = distinct !{!193, !194, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultES7_RKT_: %agg.result"}
+!194 = distinct !{!194, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKcEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultES7_RKT_"}
 !195 = !{!190, !187, !184, !181, !178, !175}
 !196 = !{!193}
 !197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!199 = distinct !{!199, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEENS_7MatcherIT_EERKT0_.argprom"}
+!198 = distinct !{!198, !199, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!199 = distinct !{!199, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEENS_7MatcherIT_EERKT0_"}
 !200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!202 = distinct !{!202, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEENS_7MatcherIT_EERKT0_.argprom"}
+!201 = distinct !{!201, !202, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!202 = distinct !{!202, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEENS_7MatcherIT_EERKT0_"}
 !203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE4CastERKSG_.argprom: %agg.result"}
-!205 = distinct !{!205, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE4CastERKSG_.argprom"}
+!204 = distinct !{!204, !205, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE4CastERKSG_: %agg.result"}
+!205 = distinct !{!205, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE4CastERKSG_"}
 !206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE.argprom: %agg.result"}
-!208 = distinct !{!208, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE.argprom"}
+!207 = distinct !{!207, !208, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE: %agg.result"}
+!208 = distinct !{!208, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE"}
 !209 = !{!210}
-!210 = distinct !{!210, !211, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom: %agg.result"}
-!211 = distinct !{!211, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom"}
+!210 = distinct !{!210, !211, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv: %agg.result"}
+!211 = distinct !{!211, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv"}
 !212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!214 = distinct !{!214, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!213 = distinct !{!213, !214, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!214 = distinct !{!214, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !215 = !{!213, !210, !207, !204, !201, !198, !216}
-!216 = distinct !{!216, !217, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom: %agg.result"}
-!217 = distinct !{!217, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom"}
+!216 = distinct !{!216, !217, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_: %agg.result"}
+!217 = distinct !{!217, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKwEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_"}
 !218 = !{!213, !210, !207, !204, !201, !198}
 !219 = !{!216}
 !220 = !{!221}
-!221 = distinct !{!221, !222, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!222 = distinct !{!222, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEENS_7MatcherIT_EERKT0_.argprom"}
+!221 = distinct !{!221, !222, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!222 = distinct !{!222, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEENS_7MatcherIT_EERKT0_"}
 !223 = !{!224}
-!224 = distinct !{!224, !225, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!225 = distinct !{!225, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEENS_7MatcherIT_EERKT0_.argprom"}
+!224 = distinct !{!224, !225, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!225 = distinct !{!225, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEENS_7MatcherIT_EERKT0_"}
 !226 = !{!227}
-!227 = distinct !{!227, !228, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE4CastERKSF_.argprom: %agg.result"}
-!228 = distinct !{!228, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE4CastERKSF_.argprom"}
+!227 = distinct !{!227, !228, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE4CastERKSF_: %agg.result"}
+!228 = distinct !{!228, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE4CastERKSF_"}
 !229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE.argprom: %agg.result"}
-!231 = distinct !{!231, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE.argprom"}
+!230 = distinct !{!230, !231, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE: %agg.result"}
+!231 = distinct !{!231, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE"}
 !232 = !{!233}
-!233 = distinct !{!233, !234, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom: %agg.result"}
-!234 = distinct !{!234, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom"}
+!233 = distinct !{!233, !234, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv: %agg.result"}
+!234 = distinct !{!234, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv"}
 !235 = !{!236}
-!236 = distinct !{!236, !237, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!237 = distinct !{!237, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!236 = distinct !{!236, !237, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!237 = distinct !{!237, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !238 = !{!236, !233, !230, !227, !224, !221, !239}
-!239 = distinct !{!239, !240, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom: %agg.result"}
-!240 = distinct !{!240, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom"}
+!239 = distinct !{!239, !240, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_: %agg.result"}
+!240 = distinct !{!240, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPcEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_"}
 !241 = !{!236, !233, !230, !227, !224, !221}
 !242 = !{!239}
 !243 = !{!244}
-!244 = distinct !{!244, !245, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!245 = distinct !{!245, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEENS_7MatcherIT_EERKT0_.argprom"}
+!244 = distinct !{!244, !245, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!245 = distinct !{!245, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEENS_7MatcherIT_EERKT0_"}
 !246 = !{!247}
-!247 = distinct !{!247, !248, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!248 = distinct !{!248, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEENS_7MatcherIT_EERKT0_.argprom"}
+!247 = distinct !{!247, !248, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!248 = distinct !{!248, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEENS_7MatcherIT_EERKT0_"}
 !249 = !{!250}
-!250 = distinct !{!250, !251, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE4CastERKSF_.argprom: %agg.result"}
-!251 = distinct !{!251, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE4CastERKSF_.argprom"}
+!250 = distinct !{!250, !251, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE4CastERKSF_: %agg.result"}
+!251 = distinct !{!251, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE4CastERKSF_"}
 !252 = !{!253}
-!253 = distinct !{!253, !254, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE.argprom: %agg.result"}
-!254 = distinct !{!254, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE.argprom"}
+!253 = distinct !{!253, !254, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE: %agg.result"}
+!254 = distinct !{!254, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE"}
 !255 = !{!256}
-!256 = distinct !{!256, !257, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom: %agg.result"}
-!257 = distinct !{!257, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom"}
+!256 = distinct !{!256, !257, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv: %agg.result"}
+!257 = distinct !{!257, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv"}
 !258 = !{!259}
-!259 = distinct !{!259, !260, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!260 = distinct !{!260, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!259 = distinct !{!259, !260, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!260 = distinct !{!260, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !261 = !{!259, !256, !253, !250, !247, !244, !262}
-!262 = distinct !{!262, !263, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom: %agg.result"}
-!263 = distinct !{!263, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom"}
+!262 = distinct !{!262, !263, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_: %agg.result"}
+!263 = distinct !{!263, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPwEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_"}
 !264 = !{!259, !256, !253, !250, !247, !244}
 !265 = !{!262}
 !266 = !{!267}
-!267 = distinct !{!267, !268, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!268 = distinct !{!268, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEENS_7MatcherIT_EERKT0_.argprom"}
+!267 = distinct !{!267, !268, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!268 = distinct !{!268, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEENS_7MatcherIT_EERKT0_"}
 !269 = !{!270}
-!270 = distinct !{!270, !271, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!271 = distinct !{!271, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEENS_7MatcherIT_EERKT0_.argprom"}
+!270 = distinct !{!270, !271, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!271 = distinct !{!271, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEENS_7MatcherIT_EERKT0_"}
 !272 = !{!273}
-!273 = distinct !{!273, !274, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE4CastERKSG_.argprom: %agg.result"}
-!274 = distinct !{!274, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE4CastERKSG_.argprom"}
+!273 = distinct !{!273, !274, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE4CastERKSG_: %agg.result"}
+!274 = distinct !{!274, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE4CastERKSG_"}
 !275 = !{!276}
-!276 = distinct !{!276, !277, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE.argprom: %agg.result"}
-!277 = distinct !{!277, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE.argprom"}
+!276 = distinct !{!276, !277, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE: %agg.result"}
+!277 = distinct !{!277, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE"}
 !278 = !{!279}
-!279 = distinct !{!279, !280, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom: %agg.result"}
-!280 = distinct !{!280, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom"}
+!279 = distinct !{!279, !280, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv: %agg.result"}
+!280 = distinct !{!280, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv"}
 !281 = !{!282}
-!282 = distinct !{!282, !283, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!283 = distinct !{!283, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!282 = distinct !{!282, !283, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!283 = distinct !{!283, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !284 = !{!282, !279, !276, !273, !270, !267, !285}
-!285 = distinct !{!285, !286, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom: %agg.result"}
-!286 = distinct !{!286, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_.argprom"}
+!285 = distinct !{!285, !286, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_: %agg.result"}
+!286 = distinct !{!286, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPKvEEEclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcRKT_"}
 !287 = !{!282, !279, !276, !273, !270, !267}
 !288 = !{!285}
 !289 = !{!290}
-!290 = distinct !{!290, !291, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!291 = distinct !{!291, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!290 = distinct !{!290, !291, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!291 = distinct !{!291, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEENS_7MatcherIT_EERKT0_"}
 !292 = !{!293}
-!293 = distinct !{!293, !294, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!294 = distinct !{!294, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!293 = distinct !{!293, !294, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!294 = distinct !{!294, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEENS_7MatcherIT_EERKT0_"}
 !295 = !{!296}
-!296 = distinct !{!296, !297, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE4CastERKSF_.argprom: %agg.result"}
-!297 = distinct !{!297, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE4CastERKSF_.argprom"}
+!296 = distinct !{!296, !297, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE4CastERKSF_: %agg.result"}
+!297 = distinct !{!297, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE4CastERKSF_"}
 !298 = !{!299}
-!299 = distinct !{!299, !300, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE.argprom: %agg.result"}
-!300 = distinct !{!300, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE.argprom"}
+!299 = distinct !{!299, !300, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE: %agg.result"}
+!300 = distinct !{!300, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE8CastImplILb0EEENS_7MatcherIS9_EERKSF_St17integral_constantIbLb1EESM_IbXT_EE"}
 !301 = !{!302}
-!302 = distinct !{!302, !303, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom: %agg.result"}
-!303 = distinct !{!303, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom"}
+!302 = distinct !{!302, !303, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv: %agg.result"}
+!303 = distinct !{!303, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv"}
 !304 = !{!305}
-!305 = distinct !{!305, !306, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!306 = distinct !{!306, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!305 = distinct !{!305, !306, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!306 = distinct !{!306, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPiEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !307 = !{!305, !302, !299, !296, !293, !290}
 !308 = !{!309}
-!309 = distinct !{!309, !310, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!310 = distinct !{!310, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEENS_7MatcherIT_EERKT0_.argprom"}
+!309 = distinct !{!309, !310, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!310 = distinct !{!310, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEENS_7MatcherIT_EERKT0_"}
 !311 = !{!312}
-!312 = distinct !{!312, !313, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!313 = distinct !{!313, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEENS_7MatcherIT_EERKT0_.argprom"}
+!312 = distinct !{!312, !313, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!313 = distinct !{!313, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEENS_7MatcherIT_EERKT0_"}
 !314 = !{!315}
-!315 = distinct !{!315, !316, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE4CastERKSE_.argprom: %agg.result"}
-!316 = distinct !{!316, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE4CastERKSE_.argprom"}
+!315 = distinct !{!315, !316, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE4CastERKSE_: %agg.result"}
+!316 = distinct !{!316, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE4CastERKSE_"}
 !317 = !{!318}
-!318 = distinct !{!318, !319, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE8CastImplILb0EEENS_7MatcherIS9_EERKSE_St17integral_constantIbLb1EESL_IbXT_EE.argprom: %agg.result"}
-!319 = distinct !{!319, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE8CastImplILb0EEENS_7MatcherIS9_EERKSE_St17integral_constantIbLb1EESL_IbXT_EE.argprom"}
+!318 = distinct !{!318, !319, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE8CastImplILb0EEENS_7MatcherIS9_EERKSE_St17integral_constantIbLb1EESL_IbXT_EE: %agg.result"}
+!319 = distinct !{!319, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE8CastImplILb0EEENS_7MatcherIS9_EERKSE_St17integral_constantIbLb1EESL_IbXT_EE"}
 !320 = !{!321}
-!321 = distinct !{!321, !322, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom: %agg.result"}
-!322 = distinct !{!322, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom"}
+!321 = distinct !{!321, !322, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv: %agg.result"}
+!322 = distinct !{!322, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv"}
 !323 = !{!324}
-!324 = distinct !{!324, !325, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!325 = distinct !{!325, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!324 = distinct !{!324, !325, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!325 = distinct !{!325, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIDnEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !326 = !{!324, !321, !318, !315, !312, !309}
 !327 = !{!328}
-!328 = distinct !{!328, !329, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!329 = distinct !{!329, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEENS_7MatcherIT_EERKT0_.argprom"}
+!328 = distinct !{!328, !329, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!329 = distinct !{!329, !"_ZN7testing15SafeMatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEENS_7MatcherIT_EERKT0_"}
 !330 = !{!331}
-!331 = distinct !{!331, !332, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!332 = distinct !{!332, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEENS_7MatcherIT_EERKT0_.argprom"}
+!331 = distinct !{!331, !332, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!332 = distinct !{!332, !"_ZN7testing11MatcherCastIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEENS_7MatcherIT_EERKT0_"}
 !333 = !{!334}
-!334 = distinct !{!334, !335, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE4CastERKSG_.argprom: %agg.result"}
-!335 = distinct !{!335, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE4CastERKSG_.argprom"}
+!334 = distinct !{!334, !335, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE4CastERKSG_: %agg.result"}
+!335 = distinct !{!335, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE4CastERKSG_"}
 !336 = !{!337}
-!337 = distinct !{!337, !338, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE.argprom: %agg.result"}
-!338 = distinct !{!338, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE.argprom"}
+!337 = distinct !{!337, !338, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE: %agg.result"}
+!338 = distinct !{!338, !"_ZN7testing8internal15MatcherCastImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE8CastImplILb0EEENS_7MatcherIS9_EERKSG_St17integral_constantIbLb1EESN_IbXT_EE"}
 !339 = !{!340}
-!340 = distinct !{!340, !341, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom: %agg.result"}
-!341 = distinct !{!341, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv.argprom"}
+!340 = distinct !{!340, !341, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv: %agg.result"}
+!341 = distinct !{!341, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEEcvNS_7MatcherIT_EEIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv"}
 !342 = !{!343}
-!343 = distinct !{!343, !344, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!344 = distinct !{!344, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!343 = distinct !{!343, !344, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!344 = distinct !{!344, !"_ZNK7testing8internal15MatcherBaseImplIN4absl19str_format_internal12_GLOBAL__N_128MatchesPointerStringMatcherPIPVKvEEE5ApplyIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJLm0EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !345 = !{!343, !340, !337, !334, !331, !328}
 !346 = !{!347}
 !347 = distinct !{!347, !348, !"_ZN7testing8internal39UniversalTersePrintTupleFieldsToStringsISt5tupleIJPiEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EERKT_: %agg.result"}
@@ -83968,10 +83968,10 @@ attributes #36 = { nounwind willreturn memory(read) }
 !1933 = distinct !{!1933, !9}
 !1934 = distinct !{!1934, !9}
 !1935 = !{!1936}
-!1936 = distinct !{!1936, !1937, !"_ZSt19__relocate_object_aIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationS4_SaIS4_EEvPT_PT0_RT1_.argprom: %__dest"}
-!1937 = distinct !{!1937, !"_ZSt19__relocate_object_aIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationS4_SaIS4_EEvPT_PT0_RT1_.argprom"}
+!1936 = distinct !{!1936, !1937, !"_ZSt19__relocate_object_aIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationS4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
+!1937 = distinct !{!1937, !"_ZSt19__relocate_object_aIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationS4_SaIS4_EEvPT_PT0_RT1_"}
 !1938 = !{!1939}
-!1939 = distinct !{!1939, !1937, !"_ZSt19__relocate_object_aIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationS4_SaIS4_EEvPT_PT0_RT1_.argprom: %__orig"}
+!1939 = distinct !{!1939, !1937, !"_ZSt19__relocate_object_aIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationS4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
 !1940 = distinct !{!1940, !9}
 !1941 = !{!1942}
 !1942 = distinct !{!1942, !1943, !"_ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_: %agg.result"}

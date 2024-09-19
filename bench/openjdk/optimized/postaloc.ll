@@ -848,7 +848,7 @@ _ZN12PhaseChaitin11skip_copiesEP4Node.exit:       ; preds = %81, %90
 _ZNK10Node_ArrayixEj.exit.i:                      ; preds = %127, %.lr.ph.i
   %131 = phi ptr [ %130, %127 ], [ null, %.lr.ph.i ]
   %.not.i147 = icmp eq ptr %131, %.0.i
-  br i1 %.not.i147, label %123, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit
+  br i1 %.not.i147, label %123, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit
 
 .loopexit161:                                     ; preds = %123, %102
   %132 = getelementptr inbounds i8, ptr %5, i64 16
@@ -865,24 +865,24 @@ _ZNK10Node_ArrayixEj.exit.i:                      ; preds = %127, %.lr.ph.i
   %143 = getelementptr inbounds ptr, ptr %142, i64 %134
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %141, %144
-  br i1 %145, label %.loopexit, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit
+  br i1 %145, label %.loopexit, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit
 
-_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit: ; preds = %_ZNK10Node_ArrayixEj.exit.i, %.loopexit161
+_ZL23register_contains_valueP4NodeiiRK9Node_List.exit: ; preds = %_ZNK10Node_ArrayixEj.exit.i, %.loopexit161
   %.2 = phi i32 [ %138, %.loopexit161 ], [ %.1, %_ZNK10Node_ArrayixEj.exit.i ]
   %146 = load i32, ptr %.012.in.in.i.le, align 8
   %147 = and i32 %146, 16
   %.not160 = icmp eq i32 %147, 0
   br i1 %.not160, label %153, label %148
 
-148:                                              ; preds = %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit
+148:                                              ; preds = %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit
   %149 = load ptr, ptr %.0.i, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 40
   %151 = load ptr, ptr %150, align 8
   %152 = tail call noundef ptr %151(ptr noundef nonnull align 8 dereferenceable(52) %.0.i) #9
   br label %153
 
-153:                                              ; preds = %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit, %148
-  %154 = phi ptr [ %152, %148 ], [ null, %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit ]
+153:                                              ; preds = %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit, %148
+  %154 = phi ptr [ %152, %148 ], [ null, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit ]
   %155 = getelementptr inbounds i8, ptr %0, i64 84
   %156 = load i32, ptr %155, align 4
   %.not177 = icmp eq i32 %156, 0
@@ -898,9 +898,9 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit: ; preds = %_ZNK10
   %162 = zext i32 %26 to i64
   br label %163
 
-163:                                              ; preds = %.lr.ph173, %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157
-  %indvars.iv = phi i64 [ 0, %.lr.ph173 ], [ %indvars.iv.next, %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157 ]
-  %.3171 = phi i32 [ %.2, %.lr.ph173 ], [ %.4, %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157 ]
+163:                                              ; preds = %.lr.ph173, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157
+  %indvars.iv = phi i64 [ 0, %.lr.ph173 ], [ %indvars.iv.next, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157 ]
+  %.3171 = phi i32 [ %.2, %.lr.ph173 ], [ %.4, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157 ]
   %164 = icmp eq i64 %indvars.iv, %162
   br i1 %164, label %165, label %180
 
@@ -917,7 +917,7 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit: ; preds = %_ZNK10
   %174 = getelementptr inbounds i8, ptr %170, i64 %.idx
   %175 = load ptr, ptr %170, align 8
   %176 = icmp ugt i32 %172, 1
-  br i1 %176, label %.lr.ph.preheader, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157
+  br i1 %176, label %.lr.ph.preheader, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157
 
 .lr.ph.preheader:                                 ; preds = %165
   %.0124166 = getelementptr inbounds i8, ptr %170, i64 8
@@ -933,19 +933,19 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit: ; preds = %_ZNK10
   br i1 %179, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %.not143, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157, label %180
+  br i1 %.not143, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157, label %180
 
 180:                                              ; preds = %163, %._crit_edge
   %181 = load ptr, ptr %121, align 8
   %182 = getelementptr inbounds ptr, ptr %181, i64 %indvars.iv
   %183 = load ptr, ptr %182, align 8
-  br i1 %157, label %184, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157.thread
+  br i1 %157, label %184, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157.thread
 
 184:                                              ; preds = %180
   %185 = trunc nuw i64 %indvars.iv to i32
   %186 = or i32 %185, %158
   %.not142 = icmp eq i32 %186, -1
-  br i1 %.not142, label %.lr.ph.preheader.i148, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157
+  br i1 %.not142, label %.lr.ph.preheader.i148, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157
 
 .lr.ph.preheader.i148:                            ; preds = %184
   %.val145 = load i32, ptr %120, align 8
@@ -954,7 +954,7 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit: ; preds = %_ZNK10
 187:                                              ; preds = %_ZNK10Node_ArrayixEj.exit.i152
   %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i151, 1
   %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i155, %wide.trip.count.i149
-  br i1 %exitcond.not.i156, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157.thread, label %.lr.ph.i150, !llvm.loop !12
+  br i1 %exitcond.not.i156, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157.thread, label %.lr.ph.i150, !llvm.loop !12
 
 .lr.ph.i150:                                      ; preds = %187, %.lr.ph.preheader.i148
   %indvars.iv.i151 = phi i64 [ 0, %.lr.ph.preheader.i148 ], [ %indvars.iv.next.i155, %187 ]
@@ -972,16 +972,16 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit: ; preds = %_ZNK10
 _ZNK10Node_ArrayixEj.exit.i152:                   ; preds = %191, %.lr.ph.i150
   %195 = phi ptr [ %194, %191 ], [ null, %.lr.ph.i150 ]
   %.not.i153 = icmp eq ptr %195, %183
-  br i1 %.not.i153, label %187, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157
+  br i1 %.not.i153, label %187, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157
 
-_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157.thread: ; preds = %187, %180
+_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157.thread: ; preds = %187, %180
   %196 = icmp eq ptr %183, %.0.i
   br i1 %196, label %220, label %197
 
-197:                                              ; preds = %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157.thread
+197:                                              ; preds = %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157.thread
   %198 = icmp ne ptr %183, null
   %or.cond3 = and i1 %159, %198
-  br i1 %or.cond3, label %199, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157
+  br i1 %or.cond3, label %199, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157
 
 199:                                              ; preds = %197
   %200 = load ptr, ptr %183, align 8
@@ -989,14 +989,14 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157.thread: ; preds
   %202 = load ptr, ptr %201, align 8
   %203 = tail call noundef ptr %202(ptr noundef nonnull align 8 dereferenceable(52) %183) #9
   %204 = icmp eq ptr %203, %154
-  br i1 %204, label %205, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157
+  br i1 %204, label %205, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157
 
 205:                                              ; preds = %199
   %206 = getelementptr inbounds i8, ptr %183, i64 44
   %207 = load i32, ptr %206, align 4
   %208 = and i32 %207, 3
   %209 = icmp eq i32 %208, 2
-  br i1 %209, label %210, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157
+  br i1 %209, label %210, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157
 
 210:                                              ; preds = %205
   %211 = load ptr, ptr %183, align 8
@@ -1008,9 +1008,9 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157.thread: ; preds
   %217 = load ptr, ptr %216, align 8
   %218 = tail call noundef i32 %217(ptr noundef nonnull align 8 dereferenceable(64) %.0.i) #9
   %219 = icmp eq i32 %214, %218
-  br i1 %219, label %220, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157
+  br i1 %219, label %220, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157
 
-220:                                              ; preds = %210, %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157.thread
+220:                                              ; preds = %210, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157.thread
   br i1 %160, label %._crit_edge181, label %221
 
 ._crit_edge181:                                   ; preds = %220
@@ -1029,7 +1029,7 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157.thread: ; preds
   %227 = getelementptr inbounds i8, ptr %226, i64 32
   %228 = load i32, ptr %227, align 8
   %229 = icmp eq i32 %228, 1
-  br i1 %229, label %230, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157
+  br i1 %229, label %230, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157
 
 230:                                              ; preds = %._crit_edge181, %224, %221
   %231 = phi ptr [ %.pre, %._crit_edge181 ], [ %.pre182, %224 ], [ %.pre182, %221 ]
@@ -1044,9 +1044,9 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157.thread: ; preds
   %240 = getelementptr inbounds ptr, ptr %239, i64 %indvars.iv
   %241 = load ptr, ptr %240, align 8
   %242 = icmp eq ptr %238, %241
-  br i1 %242, label %.loopexit, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157
+  br i1 %242, label %.loopexit, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157
 
-_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157: ; preds = %_ZNK10Node_ArrayixEj.exit.i152, %165, %197, %199, %205, %210, %230, %224, %184, %._crit_edge
+_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157: ; preds = %_ZNK10Node_ArrayixEj.exit.i152, %165, %197, %199, %205, %210, %230, %224, %184, %._crit_edge
   %.4 = phi i32 [ %.3171, %._crit_edge ], [ %.3171, %184 ], [ %235, %230 ], [ %.3171, %224 ], [ %.3171, %210 ], [ %.3171, %205 ], [ %.3171, %199 ], [ %.3171, %197 ], [ %.3171, %165 ], [ %.3171, %_ZNK10Node_ArrayixEj.exit.i152 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %243 = load i32, ptr %155, align 4
@@ -1054,8 +1054,8 @@ _ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157: ; preds = %_ZN
   %245 = icmp ult i64 %indvars.iv.next, %244
   br i1 %245, label %163, label %.loopexit, !llvm.loop !14
 
-.loopexit:                                        ; preds = %230, %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157, %153, %.loopexit161, %_ZN12PhaseChaitin11skip_copiesEP4Node.exit, %63, %._crit_edge194
-  %.0121 = phi i32 [ %.1, %._crit_edge194 ], [ %.1, %63 ], [ %.1, %_ZN12PhaseChaitin11skip_copiesEP4Node.exit ], [ %138, %.loopexit161 ], [ %.2, %153 ], [ %235, %230 ], [ %.4, %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit157 ]
+.loopexit:                                        ; preds = %230, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157, %153, %.loopexit161, %_ZN12PhaseChaitin11skip_copiesEP4Node.exit, %63, %._crit_edge194
+  %.0121 = phi i32 [ %.1, %._crit_edge194 ], [ %.1, %63 ], [ %.1, %_ZN12PhaseChaitin11skip_copiesEP4Node.exit ], [ %138, %.loopexit161 ], [ %.2, %153 ], [ %235, %230 ], [ %.4, %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit157 ]
   ret i32 %.0121
 }
 
@@ -3653,18 +3653,18 @@ _ZN12PhaseChaitin24replace_and_yank_if_deadEP4NodeiP5BlockR9Node_ListS5_.exit458
 _ZNK10Node_ArrayixEj.exit.i460:                   ; preds = %1007, %.lr.ph.i459
   %1011 = phi ptr [ %1010, %1007 ], [ null, %.lr.ph.i459 ]
   %.not.i461 = icmp eq ptr %1011, %.0.i431
-  br i1 %.not.i461, label %1003, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit
+  br i1 %.not.i461, label %1003, label %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit
 
-_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit: ; preds = %_ZNK10Node_ArrayixEj.exit.i460
+_ZL23register_contains_valueP4NodeiiRK9Node_List.exit: ; preds = %_ZNK10Node_ArrayixEj.exit.i460
   %1012 = load i32, ptr %487, align 8
   %.not.i464 = icmp ult i32 %755, %1012
   br i1 %.not.i464, label %_ZN10Node_Array3mapEjP4Node.exit465, label %1013
 
-1013:                                             ; preds = %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit
+1013:                                             ; preds = %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit
   call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %303, i32 noundef %755) #9
   br label %_ZN10Node_Array3mapEjP4Node.exit465
 
-_ZN10Node_Array3mapEjP4Node.exit465:              ; preds = %_ZL23register_contains_valueP4NodeiiRK9Node_List.argprom.exit, %1013
+_ZN10Node_Array3mapEjP4Node.exit465:              ; preds = %_ZL23register_contains_valueP4NodeiiRK9Node_List.exit, %1013
   %1014 = load ptr, ptr %488, align 8
   %1015 = zext i32 %755 to i64
   %1016 = getelementptr inbounds ptr, ptr %1014, i64 %1015

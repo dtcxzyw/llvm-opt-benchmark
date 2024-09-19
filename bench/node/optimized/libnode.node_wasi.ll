@@ -8662,7 +8662,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 2311
   %53 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = trunc i8 %53 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %54 = load ptr, ptr @stderr, align 8
@@ -8671,9 +8671,9 @@ if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCa
   %.pre2.i.i = load i64, ptr %offset.addr.i.i, align 8
   %.pre3.i.i = load i64, ptr %len.addr.i.i, align 8
   %.pre4.i.i = load i32, ptr %advice.addr.i.i, align 4
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
   %55 = phi i32 [ %call7.i35.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre4.i.i, %if.end.i.i.i.i ]
   %56 = phi i64 [ %call7.i34.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i ]
   %57 = phi i64 [ %call7.i32.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i ]
@@ -8691,7 +8691,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmm
   store i64 %shl.i.i.i, ptr %arrayidx.i106.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_8FdAdviseES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -9184,7 +9184,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i35, %
   %arrayidx.i.i.i.i.i36 = getelementptr inbounds i8, ptr %59, i64 2311
   %60 = load i8, ptr %arrayidx.i.i.i.i.i36, align 1
   %tobool.i.i.i.i.i = trunc i8 %60 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i38, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i38, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i38:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %61 = load ptr, ptr @stderr, align 8
@@ -9192,9 +9192,9 @@ if.end.i.i.i.i38:                                 ; preds = %_ZNK2v820FunctionCa
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   %.pre2.i.i = load i64, ptr %offset.addr.i.i, align 8
   %.pre3.i.i = load i64, ptr %len.addr.i.i, align 8
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i38
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i38
   %62 = phi i64 [ %call7.i30.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i38 ]
   %63 = phi i64 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i38 ]
   %64 = phi i32 [ %call7.i.i34, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i38 ]
@@ -9209,7 +9209,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmm
   store i64 %shl.i.i.i, ptr %arrayidx.i76.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_10FdAllocateES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -9500,15 +9500,15 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 2311
   %36 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = trunc i8 %36 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %37 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %37, ptr noundef nonnull @.str.53, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i) #28
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
   %38 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %28, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
@@ -9519,7 +9519,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjET
   store i64 %shl.i.i.i, ptr %arrayidx.i16.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_7FdCloseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -9806,15 +9806,15 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 2311
   %36 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = trunc i8 %36 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %37 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %37, ptr noundef nonnull @.str.54, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i) #28
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
   %38 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %28, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
@@ -9825,7 +9825,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjET
   store i64 %shl.i.i.i, ptr %arrayidx.i16.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_10FdDatasyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -10541,16 +10541,16 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
   %tobool.i.i.i.i = trunc i8 %48 to i1
-  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i37, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i37, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %49 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.56, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %flags.addr.i.i) #28
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   %.pre2.i.i = load i32, ptr %flags.addr.i.i, align 4
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i37
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i37
   %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
   %51 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
@@ -10564,7 +10564,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjE
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_16FdFdstatSetFlagsES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -10950,7 +10950,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i35, %
   %arrayidx.i.i.i.i.i36 = getelementptr inbounds i8, ptr %59, i64 2311
   %60 = load i8, ptr %arrayidx.i.i.i.i.i36, align 1
   %tobool.i.i.i.i.i = trunc i8 %60 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i38, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i38, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i38:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %61 = load ptr, ptr @stderr, align 8
@@ -10958,9 +10958,9 @@ if.end.i.i.i.i38:                                 ; preds = %_ZNK2v820FunctionCa
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   %.pre2.i.i = load i64, ptr %fs_rights_base.addr.i.i, align 8
   %.pre3.i.i = load i64, ptr %fs_rights_inheriting.addr.i.i, align 8
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i38
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i38
   %62 = phi i64 [ %call7.i30.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i38 ]
   %63 = phi i64 [ %call7.i28.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i38 ]
   %64 = phi i32 [ %call7.i.i34, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i38 ]
@@ -10975,7 +10975,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmm
   store i64 %shl.i.i.i, ptr %arrayidx.i76.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmETnT_XadL_ZNS3_17FdFdstatSetRightsES4_S5_jmmEEjJjmmEJLm0ELm1ELm2EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -11693,16 +11693,16 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = trunc i8 %48 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i36, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i36, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i36:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %49 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRjRmEEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.59, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %st_size.addr.i.i) #28
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
   %.pre2.i.i = load i64, ptr %st_size.addr.i.i, align 8
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i36
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i36
   %50 = phi i64 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i36 ]
   %51 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i36 ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
@@ -11715,7 +11715,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmE
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmETnT_XadL_ZNS3_17FdFilestatSetSizeES4_S5_jmEEjJjmEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -12105,7 +12105,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 2311
   %53 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = trunc i8 %53 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %54 = load ptr, ptr @stderr, align 8
@@ -12114,9 +12114,9 @@ if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCa
   %.pre2.i.i = load i64, ptr %st_atim.addr.i.i, align 8
   %.pre3.i.i = load i64, ptr %st_mtim.addr.i.i, align 8
   %.pre4.i.i = load i32, ptr %fst_flags.addr.i.i, align 4
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
   %55 = phi i32 [ %call7.i35.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre4.i.i, %if.end.i.i.i.i ]
   %56 = phi i64 [ %call7.i34.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre3.i.i, %if.end.i.i.i.i ]
   %57 = phi i64 [ %call7.i32.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i ]
@@ -12134,7 +12134,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmm
   store i64 %shl.i.i.i, ptr %arrayidx.i106.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjmmjETnT_XadL_ZNS3_18FdFilestatSetTimesES4_S5_jmmjEEjJjmmjEJLm0ELm1ELm2ELm3EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -14879,16 +14879,16 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
   %tobool.i.i.i.i = trunc i8 %48 to i1
-  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i37, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i37, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %49 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.67, ptr noundef nonnull align 4 dereferenceable(4) %from.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %to.addr.i.i) #28
   %.pre.i.i = load i32, ptr %from.addr.i.i, align 4
   %.pre2.i.i = load i32, ptr %to.addr.i.i, align 4
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i37
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i37
   %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
   %51 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
@@ -14901,7 +14901,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjE
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_10FdRenumberES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -15567,15 +15567,15 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 2311
   %36 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = trunc i8 %36 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %37 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %37, ptr noundef nonnull @.str.69, ptr noundef nonnull align 4 dereferenceable(4) %fd.addr.i.i) #28
   %.pre.i.i = load i32, ptr %fd.addr.i.i, align 4
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
   %38 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %28, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
@@ -15586,7 +15586,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjET
   store i64 %shl.i.i.i, ptr %arrayidx.i16.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_6FdSyncES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -16862,7 +16862,7 @@ if.then.i78:                                      ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 0)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 0)
   br i1 %call.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -17071,7 +17071,7 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %info, i32 noundef range(i32 0, 3) %i) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %info, i32 noundef range(i32 0, 3) %i) unnamed_addr #3 {
 entry:
   %length_.i.i = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load i32, ptr %length_.i.i, align 8
@@ -17901,7 +17901,7 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5Va
   br i1 %call3.i.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit, label %if.then.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit: ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i.i
-  %call9.i.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 2)
+  %call9.i.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 2)
   br i1 %call9.i.i.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i.i, %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i, %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit
@@ -18905,7 +18905,7 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5Va
   br i1 %call3.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit, label %if.then.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit: ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i
-  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 1)
+  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 1)
   br i1 %call9.i.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i, %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit
@@ -19704,7 +19704,7 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5Va
   br i1 %call3.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit, label %if.then.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit: ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i
-  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 1)
+  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 1)
   br i1 %call9.i.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i, %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit
@@ -20061,7 +20061,7 @@ if.then.i78:                                      ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 0)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 0)
   br i1 %call.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -21287,22 +21287,22 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 2311
   %36 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = trunc i8 %36 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %37 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %37, ptr noundef nonnull @.str.83, ptr noundef nonnull align 4 dereferenceable(4) %code.addr.i.i) #28
   %.pre.i.i = load i32, ptr %code.addr.i.i, align 4
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
   %38 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
   %call.i.i34 = call zeroext i16 @uvwasi_proc_exit(ptr noundef nonnull %uvw_.i.i, i32 noundef %38) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %code.addr.i.i)
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFvRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_8ProcExitES4_S5_jEEvJjEJLm0EETnNSt9enable_ifIXsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -21590,15 +21590,15 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i32, %
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 2311
   %36 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = trunc i8 %36 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %37 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %37, ptr noundef nonnull @.str.84, ptr noundef nonnull align 4 dereferenceable(4) %sig.addr.i.i) #28
   %.pre.i.i = load i32, ptr %sig.addr.i.i, align 4
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i
   %38 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i ]
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %28, i64 24
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
@@ -21610,7 +21610,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjET
   store i64 %shl.i.i.i, ptr %arrayidx.i16.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjETnT_XadL_ZNS3_9ProcRaiseES4_S5_jEEjJjEJLm0EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -22237,14 +22237,14 @@ do.end50:                                         ; preds = %if.end26
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 2311
   %28 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = trunc i8 %28 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i:                                   ; preds = %do.end50
   %29 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %29, ptr noundef nonnull @.str.310, ptr noundef nonnull align 8 dereferenceable(8) %message.addr.i2.i.i.i) #28
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %do.end50, %if.end.i.i.i.i
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %do.end50, %if.end.i.i.i.i
   %arrayidx.i.i31 = getelementptr inbounds i8, ptr %args.val, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %message.addr.i2.i.i.i)
   %uvw_.i.i = getelementptr inbounds i8, ptr %retval.i12.0.i, i64 40
@@ -22254,7 +22254,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETn
   store i64 %shl.i.i.i, ptr %arrayidx.i.i31, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEETnT_XadL_ZNS3_10SchedYieldES4_S5_EEjJETpTnmJETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 
@@ -22826,7 +22826,7 @@ _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5Va
   br i1 %call3.i.i.i.i, label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit, label %if.then.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit: ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i
-  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 1)
+  %call9.i.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 1)
   br i1 %call9.i.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i, %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIJjjjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEE.exit
@@ -23183,7 +23183,7 @@ if.then.i78:                                      ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 0)
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjJjjjjEEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_DpT0_(ptr noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef 0)
   br i1 %call.i, label %do.body, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
@@ -23714,16 +23714,16 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i: ; preds = %if.end.i.i34, %
   %arrayidx.i.i.i.i35 = getelementptr inbounds i8, ptr %47, i64 2311
   %48 = load i8, ptr %arrayidx.i.i.i.i35, align 1
   %tobool.i.i.i.i = trunc i8 %48 to i1
-  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i37, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br i1 %tobool.i.i.i.i, label %if.end.i.i.i.i37, label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
 if.end.i.i.i.i37:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
   %49 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRjS1_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %49, ptr noundef nonnull @.str.90, ptr noundef nonnull align 4 dereferenceable(4) %sock.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %how.addr.i.i) #28
   %.pre.i.i = load i32, ptr %sock.addr.i.i, align 4
   %.pre2.i.i = load i32, ptr %how.addr.i.i, align 4
-  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit
+  br label %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit
 
-_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i37
+_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i, %if.end.i.i.i.i37
   %50 = phi i32 [ %call7.i24.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre2.i.i, %if.end.i.i.i.i37 ]
   %51 = phi i32 [ %call7.i.i33, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i ], [ %.pre.i.i, %if.end.i.i.i.i37 ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %34, i64 24
@@ -23737,7 +23737,7 @@ _ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjE
   store i64 %shl.i.i.i, ptr %arrayidx.i46.i, align 8
   br label %return
 
-return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.argprom.exit, %if.then24
+return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then.i, %if.then.i78, %_ZN4node4wasi12_GLOBAL__N_116CallAndSetReturnIPFjRNS0_4WASIENS0_10WasmMemoryEjjETnT_XadL_ZNS3_12SockShutdownES4_S5_jjEEjJjjEJLm0ELm1EETnNSt9enable_ifIXntsr3std7is_voidIT1_EE5valueEbE4typeELb1EEEvSt16integer_sequenceImJXspT3_EEERKN2v820FunctionCallbackInfoINSF_5ValueEEEPS3_S5_.exit, %if.then24
   ret void
 }
 

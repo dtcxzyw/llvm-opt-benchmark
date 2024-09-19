@@ -742,7 +742,7 @@ do.body.i:                                        ; preds = %skip_optional_kwonl
 if.then4.i:                                       ; preds = %do.body.i
   %11 = load ptr, ptr @PyExc_TypeError, align 8
   call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.7) #3
-  br label %_sha2_sha512_impl.argprom.exit
+  br label %_sha2_sha512_impl.exit
 
 if.end.i:                                         ; preds = %do.body.i
   %call5.i = call i32 @PyObject_CheckBuffer(ptr noundef nonnull %3) #3
@@ -752,12 +752,12 @@ if.end.i:                                         ; preds = %do.body.i
 if.then7.i:                                       ; preds = %if.end.i
   %12 = load ptr, ptr @PyExc_TypeError, align 8
   call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.8) #3
-  br label %_sha2_sha512_impl.argprom.exit
+  br label %_sha2_sha512_impl.exit
 
 if.end8.i:                                        ; preds = %if.end.i
   %call9.i = call i32 @PyObject_GetBuffer(ptr noundef nonnull %3, ptr noundef nonnull %buf.i, i32 noundef 0) #3
   %cmp.i = icmp eq i32 %call9.i, -1
-  br i1 %cmp.i, label %_sha2_sha512_impl.argprom.exit, label %if.end11.i
+  br i1 %cmp.i, label %_sha2_sha512_impl.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end8.i
   %ndim.i = getelementptr inbounds i8, ptr %buf.i, i64 36
@@ -769,7 +769,7 @@ if.then13.i:                                      ; preds = %if.end11.i
   %14 = load ptr, ptr @PyExc_BufferError, align 8
   call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.9) #3
   call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
-  br label %_sha2_sha512_impl.argprom.exit
+  br label %_sha2_sha512_impl.exit
 
 if.end15.i:                                       ; preds = %skip_optional_kwonly.thread, %skip_optional_kwonly
   %module.val37 = phi ptr [ %module.val35, %skip_optional_kwonly.thread ], [ %module.val, %skip_optional_kwonly ]
@@ -777,7 +777,7 @@ if.end15.i:                                       ; preds = %skip_optional_kwonl
   %call.val.i = load ptr, ptr %15, align 8
   %call.i.i = call ptr @_PyObject_GC_New(ptr noundef %call.val.i) #3
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %_sha2_sha512_impl.argprom.exit, label %if.end22.i
+  br i1 %tobool.not.i.i, label %_sha2_sha512_impl.exit, label %if.end22.i
 
 if.end15.thread.i:                                ; preds = %if.end11.i
   %16 = getelementptr i8, ptr %module.val43, i64 24
@@ -788,7 +788,7 @@ if.end15.thread.i:                                ; preds = %if.end11.i
 
 if.then20.i:                                      ; preds = %if.end15.thread.i
   call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
-  br label %_sha2_sha512_impl.argprom.exit
+  br label %_sha2_sha512_impl.exit
 
 if.end22.i:                                       ; preds = %if.end15.thread.i, %if.end15.i
   %tobool.not.i38 = phi i1 [ false, %if.end15.thread.i ], [ true, %if.end15.i ]
@@ -824,14 +824,14 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.then27.i
-  br i1 %tobool.not.i38, label %_sha2_sha512_impl.argprom.exit, label %if.then29.i
+  br i1 %tobool.not.i38, label %_sha2_sha512_impl.exit, label %if.then29.i
 
 if.then29.i:                                      ; preds = %Py_DECREF.exit.i
   call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
-  br label %_sha2_sha512_impl.argprom.exit
+  br label %_sha2_sha512_impl.exit
 
 if.end31.i:                                       ; preds = %if.end22.i
-  br i1 %tobool.not.i38, label %_sha2_sha512_impl.argprom.exit, label %if.then33.i
+  br i1 %tobool.not.i38, label %_sha2_sha512_impl.exit, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end31.i
   %len.i = getelementptr inbounds i8, ptr %buf.i, i64 16
@@ -873,15 +873,15 @@ update_512.exit29.i:                              ; preds = %if.then33.i
 
 if.end43.i:                                       ; preds = %update_512.exit29.i, %update_512.exit.i
   call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
-  br label %_sha2_sha512_impl.argprom.exit
+  br label %_sha2_sha512_impl.exit
 
-_sha2_sha512_impl.argprom.exit:                   ; preds = %if.then4.i, %if.then7.i, %if.end8.i, %if.then13.i, %if.end15.i, %if.then20.i, %Py_DECREF.exit.i, %if.then29.i, %if.end31.i, %if.end43.i
+_sha2_sha512_impl.exit:                           ; preds = %if.then4.i, %if.then7.i, %if.end8.i, %if.then13.i, %if.end15.i, %if.then20.i, %Py_DECREF.exit.i, %if.then29.i, %if.end31.i, %if.end43.i
   %retval.0.i = phi ptr [ null, %if.then4.i ], [ null, %if.then13.i ], [ null, %if.then7.i ], [ null, %if.end8.i ], [ null, %if.then20.i ], [ null, %if.then29.i ], [ null, %Py_DECREF.exit.i ], [ %call.i4.i, %if.end43.i ], [ %call.i4.i, %if.end31.i ], [ null, %if.end15.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %buf.i)
   br label %exit
 
-exit:                                             ; preds = %if.end24, %cond.end9, %_sha2_sha512_impl.argprom.exit
-  %return_value.0 = phi ptr [ null, %if.end24 ], [ %retval.0.i, %_sha2_sha512_impl.argprom.exit ], [ null, %cond.end9 ]
+exit:                                             ; preds = %if.end24, %cond.end9, %_sha2_sha512_impl.exit
+  %return_value.0 = phi ptr [ null, %if.end24 ], [ %retval.0.i, %_sha2_sha512_impl.exit ], [ null, %cond.end9 ]
   ret ptr %return_value.0
 }
 
@@ -963,7 +963,7 @@ do.body.i:                                        ; preds = %skip_optional_kwonl
 if.then4.i:                                       ; preds = %do.body.i
   %11 = load ptr, ptr @PyExc_TypeError, align 8
   call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.7) #3
-  br label %_sha2_sha384_impl.argprom.exit
+  br label %_sha2_sha384_impl.exit
 
 if.end.i:                                         ; preds = %do.body.i
   %call5.i = call i32 @PyObject_CheckBuffer(ptr noundef nonnull %3) #3
@@ -973,12 +973,12 @@ if.end.i:                                         ; preds = %do.body.i
 if.then7.i:                                       ; preds = %if.end.i
   %12 = load ptr, ptr @PyExc_TypeError, align 8
   call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.8) #3
-  br label %_sha2_sha384_impl.argprom.exit
+  br label %_sha2_sha384_impl.exit
 
 if.end8.i:                                        ; preds = %if.end.i
   %call9.i = call i32 @PyObject_GetBuffer(ptr noundef nonnull %3, ptr noundef nonnull %buf.i, i32 noundef 0) #3
   %cmp.i = icmp eq i32 %call9.i, -1
-  br i1 %cmp.i, label %_sha2_sha384_impl.argprom.exit, label %if.end11.i
+  br i1 %cmp.i, label %_sha2_sha384_impl.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end8.i
   %ndim.i = getelementptr inbounds i8, ptr %buf.i, i64 36
@@ -990,7 +990,7 @@ if.then13.i:                                      ; preds = %if.end11.i
   %14 = load ptr, ptr @PyExc_BufferError, align 8
   call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.9) #3
   call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
-  br label %_sha2_sha384_impl.argprom.exit
+  br label %_sha2_sha384_impl.exit
 
 if.end15.i:                                       ; preds = %skip_optional_kwonly.thread, %skip_optional_kwonly
   %module.val37 = phi ptr [ %module.val35, %skip_optional_kwonly.thread ], [ %module.val, %skip_optional_kwonly ]
@@ -998,7 +998,7 @@ if.end15.i:                                       ; preds = %skip_optional_kwonl
   %call.val.i = load ptr, ptr %15, align 8
   %call.i.i = call ptr @_PyObject_GC_New(ptr noundef %call.val.i) #3
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %_sha2_sha384_impl.argprom.exit, label %if.end22.i
+  br i1 %tobool.not.i.i, label %_sha2_sha384_impl.exit, label %if.end22.i
 
 if.end15.thread.i:                                ; preds = %if.end11.i
   %16 = getelementptr i8, ptr %module.val43, i64 16
@@ -1009,7 +1009,7 @@ if.end15.thread.i:                                ; preds = %if.end11.i
 
 if.then20.i:                                      ; preds = %if.end15.thread.i
   call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
-  br label %_sha2_sha384_impl.argprom.exit
+  br label %_sha2_sha384_impl.exit
 
 if.end22.i:                                       ; preds = %if.end15.thread.i, %if.end15.i
   %tobool.not.i38 = phi i1 [ false, %if.end15.thread.i ], [ true, %if.end15.i ]
@@ -1045,14 +1045,14 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.then27.i
-  br i1 %tobool.not.i38, label %_sha2_sha384_impl.argprom.exit, label %if.then29.i
+  br i1 %tobool.not.i38, label %_sha2_sha384_impl.exit, label %if.then29.i
 
 if.then29.i:                                      ; preds = %Py_DECREF.exit.i
   call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
-  br label %_sha2_sha384_impl.argprom.exit
+  br label %_sha2_sha384_impl.exit
 
 if.end31.i:                                       ; preds = %if.end22.i
-  br i1 %tobool.not.i38, label %_sha2_sha384_impl.argprom.exit, label %if.then33.i
+  br i1 %tobool.not.i38, label %_sha2_sha384_impl.exit, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end31.i
   %len.i = getelementptr inbounds i8, ptr %buf.i, i64 16
@@ -1094,15 +1094,15 @@ update_512.exit29.i:                              ; preds = %if.then33.i
 
 if.end43.i:                                       ; preds = %update_512.exit29.i, %update_512.exit.i
   call void @PyBuffer_Release(ptr noundef nonnull %buf.i) #3
-  br label %_sha2_sha384_impl.argprom.exit
+  br label %_sha2_sha384_impl.exit
 
-_sha2_sha384_impl.argprom.exit:                   ; preds = %if.then4.i, %if.then7.i, %if.end8.i, %if.then13.i, %if.end15.i, %if.then20.i, %Py_DECREF.exit.i, %if.then29.i, %if.end31.i, %if.end43.i
+_sha2_sha384_impl.exit:                           ; preds = %if.then4.i, %if.then7.i, %if.end8.i, %if.then13.i, %if.end15.i, %if.then20.i, %Py_DECREF.exit.i, %if.then29.i, %if.end31.i, %if.end43.i
   %retval.0.i = phi ptr [ null, %if.then4.i ], [ null, %if.then13.i ], [ null, %if.then7.i ], [ null, %if.end8.i ], [ null, %if.then20.i ], [ null, %if.then29.i ], [ null, %Py_DECREF.exit.i ], [ %call.i4.i, %if.end43.i ], [ %call.i4.i, %if.end31.i ], [ null, %if.end15.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %buf.i)
   br label %exit
 
-exit:                                             ; preds = %if.end24, %cond.end9, %_sha2_sha384_impl.argprom.exit
-  %return_value.0 = phi ptr [ null, %if.end24 ], [ %retval.0.i, %_sha2_sha384_impl.argprom.exit ], [ null, %cond.end9 ]
+exit:                                             ; preds = %if.end24, %cond.end9, %_sha2_sha384_impl.exit
+  %return_value.0 = phi ptr [ null, %if.end24 ], [ %retval.0.i, %_sha2_sha384_impl.exit ], [ null, %cond.end9 ]
   ret ptr %return_value.0
 }
 

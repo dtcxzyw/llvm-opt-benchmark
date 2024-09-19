@@ -3399,7 +3399,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator9_PtrProxyD2Ev.exit2
   %.03.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.noexc270 ], [ %.val.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator9_PtrProxyD2Ev.exit265 ]
   %.082.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.noexc270 ], [ %178, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator9_PtrProxyD2Ev.exit265 ]
   %1189 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i, i64 32
-  %1190 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1189, ptr noundef nonnull align 8 dereferenceable(24) %26)
+  %1190 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1189, ptr noundef nonnull align 8 dereferenceable(24) %26)
           to label %.noexc270 unwind label %.loopexit325
 
 .noexc270:                                        ; preds = %.lr.ph.i.i.i.i
@@ -3417,7 +3417,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
 1192:                                             ; preds = %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_20UsdSkelSkinningQueryEEENS0_12_GLOBAL__N_113_CompareSkelsESaISt4pairIKS1_S4_EEE11lower_boundERS8_.exit.i
   %.082.i.i.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %.082.i.i.i.i, i64 32
   %.19.i.i.i.i.sroa.sel = select i1 %1190, ptr %.082.i.i.i.i.sroa.gep, ptr %1189
-  %1193 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %.19.i.i.i.i.sroa.sel)
+  %1193 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %.19.i.i.i.i.sroa.sel)
           to label %.noexc271 unwind label %.loopexit.split-lp326
 
 .noexc271:                                        ; preds = %1192
@@ -3473,7 +3473,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
 1210:                                             ; preds = %1209
   %1211 = load ptr, ptr %181, align 8
   %1212 = getelementptr inbounds nuw i8, ptr %1211, i64 32
-  %1213 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1212, ptr noundef nonnull align 8 dereferenceable(24) %1196)
+  %1213 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1212, ptr noundef nonnull align 8 dereferenceable(24) %1196)
           to label %.noexc.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc.i.i:                                       ; preds = %1210
@@ -3491,7 +3491,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
 .lr.ph.i.i.i4.i:                                  ; preds = %1216, %.noexc11.i.i
   %.02327.i.i.i.i = phi ptr [ %.023.i.i.i.i, %.noexc11.i.i ], [ %.02325.i.i.i.i, %1216 ]
   %1217 = getelementptr inbounds nuw i8, ptr %.02327.i.i.i.i, i64 32
-  %1218 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1217)
+  %1218 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1217)
           to label %.noexc11.i.i unwind label %.loopexit.i.i
 
 .noexc11.i.i:                                     ; preds = %.lr.ph.i.i.i4.i
@@ -3518,7 +3518,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
   %.022.lcssa32.i.i.i.i = phi ptr [ %.022.lcssa31.i.i.i.i, %1220 ], [ %.02327.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.08.0.i.i.i.i = phi ptr [ %1221, %1220 ], [ %.02327.i.i.i.i, %._crit_edge.i.i.i.i ]
   %1223 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 32
-  %1224 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1223, ptr noundef nonnull align 8 dereferenceable(24) %1196)
+  %1224 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1223, ptr noundef nonnull align 8 dereferenceable(24) %1196)
           to label %.noexc12.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc12.i.i:                                     ; preds = %1222
@@ -3526,7 +3526,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
 
 1225:                                             ; preds = %1207
   %1226 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i14.i, i64 32
-  %1227 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1226)
+  %1227 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1226)
           to label %.noexc13.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc13.i.i:                                     ; preds = %1225
@@ -3540,7 +3540,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
 1231:                                             ; preds = %1228
   %1232 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %.08.lcssa.i.i.i14.i) #21
   %1233 = getelementptr inbounds nuw i8, ptr %1232, i64 32
-  %1234 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1233, ptr noundef nonnull align 8 dereferenceable(24) %1196)
+  %1234 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1233, ptr noundef nonnull align 8 dereferenceable(24) %1196)
           to label %.noexc14.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc14.i.i:                                     ; preds = %1231
@@ -3560,7 +3560,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
 .lr.ph.i14.i.i.i:                                 ; preds = %1238, %.noexc15.i.i
   %.02327.i15.i.i.i = phi ptr [ %.023.i18.i.i.i, %.noexc15.i.i ], [ %.02325.i12.i.i.i, %1238 ]
   %1239 = getelementptr inbounds nuw i8, ptr %.02327.i15.i.i.i, i64 32
-  %1240 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1239)
+  %1240 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1239)
           to label %.noexc15.i.i unwind label %.loopexit.split-lp.loopexit.i.i
 
 .noexc15.i.i:                                     ; preds = %.lr.ph.i14.i.i.i
@@ -3587,14 +3587,14 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
   %.022.lcssa32.i21.i.i.i = phi ptr [ %.022.lcssa31.i30.i.i.i, %1242 ], [ %.02327.i15.i.i.i, %._crit_edge.i20.i.i.i ]
   %.sroa.08.0.i22.i.i.i = phi ptr [ %1243, %1242 ], [ %.02327.i15.i.i.i, %._crit_edge.i20.i.i.i ]
   %1245 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i22.i.i.i, i64 32
-  %1246 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1245, ptr noundef nonnull align 8 dereferenceable(24) %1196)
+  %1246 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1245, ptr noundef nonnull align 8 dereferenceable(24) %1196)
           to label %.noexc16.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc16.i.i:                                     ; preds = %1244
   br i1 %1246, label %.thread.i.i, label %.thread15.i.i
 
 1247:                                             ; preds = %.noexc13.i.i
-  %1248 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1226, ptr noundef nonnull align 8 dereferenceable(24) %1196)
+  %1248 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1226, ptr noundef nonnull align 8 dereferenceable(24) %1196)
           to label %.noexc17.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc17.i.i:                                     ; preds = %1247
@@ -3608,7 +3608,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
 1252:                                             ; preds = %1249
   %1253 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.08.lcssa.i.i.i14.i) #21
   %1254 = getelementptr inbounds nuw i8, ptr %1253, i64 32
-  %1255 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1254)
+  %1255 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1254)
           to label %.noexc18.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc18.i.i:                                     ; preds = %1252
@@ -3628,7 +3628,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
 .lr.ph.i35.i.i.i:                                 ; preds = %1259, %.noexc19.i.i
   %.02327.i36.i.i.i = phi ptr [ %.023.i39.i.i.i, %.noexc19.i.i ], [ %.02325.i33.i.i.i, %1259 ]
   %1260 = getelementptr inbounds nuw i8, ptr %.02327.i36.i.i.i, i64 32
-  %1261 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1260)
+  %1261 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1260)
           to label %.noexc19.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i
 
 .noexc19.i.i:                                     ; preds = %.lr.ph.i35.i.i.i
@@ -3655,7 +3655,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
   %.022.lcssa32.i42.i.i.i = phi ptr [ %.022.lcssa31.i51.i.i.i, %1263 ], [ %.02327.i36.i.i.i, %._crit_edge.i41.i.i.i ]
   %.sroa.08.0.i43.i.i.i = phi ptr [ %1264, %1263 ], [ %.02327.i36.i.i.i, %._crit_edge.i41.i.i.i ]
   %1266 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i43.i.i.i, i64 32
-  %1267 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1266, ptr noundef nonnull align 8 dereferenceable(24) %1196)
+  %1267 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1266, ptr noundef nonnull align 8 dereferenceable(24) %1196)
           to label %.noexc20.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc20.i.i:                                     ; preds = %1265
@@ -3677,7 +3677,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonENS0_7VtArrayINS0_
 
 1270:                                             ; preds = %.thread.i.i
   %1271 = getelementptr inbounds nuw i8, ptr %.sroa.12.0.i12.i.i, i64 32
-  %1272 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1271)
+  %1272 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %1196, ptr noundef nonnull align 8 dereferenceable(24) %1271)
           to label %1273 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i4.i
@@ -4033,7 +4033,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonES1_EvT_S3_RS
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonES1_EvT_S3_RSaIT0_E.exit.i, %1392
   %.val66 = load ptr, ptr %179, align 8
-  call fastcc void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonESt4pairIKS1_NS0_7VtArrayINS0_20UsdSkelSkinningQueryEEEESt10_Select1stIS7_ENS0_12_GLOBAL__N_113_CompareSkelsESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E.argprom(ptr noundef %.val66)
+  call fastcc void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonESt4pairIKS1_NS0_7VtArrayINS0_20UsdSkelSkinningQueryEEEESt10_Select1stIS7_ENS0_12_GLOBAL__N_113_CompareSkelsESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.val66)
   br label %1400
 
 1397:                                             ; preds = %.loopexit, %.loopexit.split-lp, %.body115
@@ -4049,7 +4049,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonESaIS1_EED2Ev.e
 1399:                                             ; preds = %1398, %360
   %.pn55.pn.pn.pn = phi { ptr, i32 } [ %.pn55.pn.pn, %1398 ], [ %361, %360 ]
   %.val67 = load ptr, ptr %179, align 8
-  call fastcc void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonESt4pairIKS1_NS0_7VtArrayINS0_20UsdSkelSkinningQueryEEEESt10_Select1stIS7_ENS0_12_GLOBAL__N_113_CompareSkelsESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E.argprom(ptr noundef %.val67)
+  call fastcc void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonESt4pairIKS1_NS0_7VtArrayINS0_20UsdSkelSkinningQueryEEEESt10_Select1stIS7_ENS0_12_GLOBAL__N_113_CompareSkelsESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.val67)
   br label %1403
 
 1400:                                             ; preds = %.invoke, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonESaIS1_EED2Ev.exit
@@ -9444,7 +9444,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(pt
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdPrimRange8iterator9incrementEv(ptr noundef nonnull align 8 dereferenceable(30)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonESt4pairIKS1_NS0_7VtArrayINS0_20UsdSkelSkinningQueryEEEESt10_Select1stIS7_ENS0_12_GLOBAL__N_113_CompareSkelsESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E.argprom(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonESt4pairIKS1_NS0_7VtArrayINS0_20UsdSkelSkinningQueryEEEESt10_Select1stIS7_ENS0_12_GLOBAL__N_113_CompareSkelsESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -9452,7 +9452,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__1
   %.02 = phi ptr [ %.0.val, %.lr.ph ], [ %0, %1 ]
   %2 = getelementptr i8, ptr %.02, i64 24
   %.0.val6 = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonESt4pairIKS1_NS0_7VtArrayINS0_20UsdSkelSkinningQueryEEEESt10_Select1stIS7_ENS0_12_GLOBAL__N_113_CompareSkelsESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E.argprom(ptr noundef %.0.val6)
+  tail call fastcc void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__15UsdSkelSkeletonESt4pairIKS1_NS0_7VtArrayINS0_20UsdSkelSkinningQueryEEEESt10_Select1stIS7_ENS0_12_GLOBAL__N_113_CompareSkelsESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.02, i64 32
@@ -9939,7 +9939,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim7_HasA
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBindingAPI16_GetStaticTfTypeEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_CompareSkelsclERKNS_15UsdSkelSkeletonES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

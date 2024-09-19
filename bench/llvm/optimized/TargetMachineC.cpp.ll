@@ -134,14 +134,14 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %1
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
   %.not8.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %.not8.i.i.i.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i.i.i.preheader.i
+  br i1 %.not8.i.i.i.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.preheader.i
 
 _ZN4llvm9StringRefC2EPKc.exit.thread:             ; preds = %1
   %6 = tail call { ptr, ptr } @_ZN4llvm14TargetRegistry7targetsEv() #15
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
   %.not8.i.i.i.i14 = icmp eq ptr %7, %8
-  br i1 %.not8.i.i.i.i14, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i.i.i.us.i.preheader
+  br i1 %.not8.i.i.i.i14, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.us.i.preheader
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %.not.i24.i.i.i.i.i.i = icmp eq i64 %2, 0
@@ -152,47 +152,47 @@ _ZN4llvm9StringRefC2EPKc.exit.thread:             ; preds = %1
   %10 = phi ptr [ %5, %.lr.ph.i.i.i.preheader.i ], [ %8, %_ZN4llvm9StringRefC2EPKc.exit.thread ]
   br label %.lr.ph.i.i.i.us.i
 
-.lr.ph.i.i.i.us.i:                                ; preds = %.lr.ph.i.i.i.us.i.preheader, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.us.i"
-  %.sroa.03.09.i.i.i.us.i = phi ptr [ %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.us.i" ], [ %9, %.lr.ph.i.i.i.us.i.preheader ]
+.lr.ph.i.i.i.us.i:                                ; preds = %.lr.ph.i.i.i.us.i.preheader, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.us.i"
+  %.sroa.03.09.i.i.i.us.i = phi ptr [ %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.us.i" ], [ %9, %.lr.ph.i.i.i.us.i.preheader ]
   %11 = getelementptr i8, ptr %.sroa.03.09.i.i.i.us.i, i64 16
   %.val1.i.i.i.i.us.i = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %.val1.i.i.i.i.us.i, null
-  br i1 %.not.i.i.i.i.i.i.us.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.argprom.exit", label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i
+  br i1 %.not.i.i.i.i.i.i.us.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit", label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i:     ; preds = %.lr.ph.i.i.i.us.i
   %char0.i = load i8, ptr %.val1.i.i.i.i.us.i, align 1
   %.not.i2.i.i.i.i.i.us.i = icmp eq i8 %char0.i, 0
-  br i1 %.not.i2.i.i.i.i.i.us.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.us.i"
+  br i1 %.not.i2.i.i.i.i.i.us.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.us.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.us.i": ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.us.i": ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i
   %12 = load ptr, ptr %.sroa.03.09.i.i.i.us.i, align 8
   %.not.i.i.i.us.i = icmp eq ptr %12, %10
-  br i1 %.not.i.i.i.us.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i.i.i.us.i, !llvm.loop !4
+  br i1 %.not.i.i.i.us.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.us.i, !llvm.loop !4
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.preheader.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.i"
-  %.sroa.03.09.i.i.i.i = phi ptr [ %17, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.i" ], [ %4, %.lr.ph.i.i.i.preheader.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.preheader.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.i"
+  %.sroa.03.09.i.i.i.i = phi ptr [ %17, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.i" ], [ %4, %.lr.ph.i.i.i.preheader.i ]
   %13 = getelementptr i8, ptr %.sroa.03.09.i.i.i.i, i64 16
   %.val1.i.i.i.i.i = load ptr, ptr %13, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val1.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.i", label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.i", label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i:        ; preds = %.lr.ph.i.i.i.i
   %14 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val1.i.i.i.i.i) #15
   %.not.i2.i.i.i.i.i.i = icmp eq i64 %14, %2
-  br i1 %.not.i2.i.i.i.i.i.i, label %15, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.i"
+  br i1 %.not.i2.i.i.i.i.i.i, label %15, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.i"
 
 15:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val1.i.i.i.i.i, ptr nonnull readonly %0, i64 %2)
   %16 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %16, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.i"
+  br i1 %16, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.i": ; preds = %15, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.i": ; preds = %15, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   %17 = load ptr, ptr %.sroa.03.09.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %17, %5
-  br i1 %.not.i.i.i.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.argprom.exit", label %.lr.ph.i.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i.i, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !4
 
-"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.argprom.exit": ; preds = %15, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.i", %.lr.ph.i.i.i.us.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.us.i", %_ZN4llvm9StringRefC2EPKc.exit.thread, %_ZN4llvm9StringRefC2EPKc.exit
-  %.sroa.03.0.lcssa.i.i.i.i = phi ptr [ %4, %_ZN4llvm9StringRefC2EPKc.exit ], [ %7, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %.sroa.03.09.i.i.i.us.i, %.lr.ph.i.i.i.us.i ], [ %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.us.i" ], [ %.sroa.03.09.i.i.i.us.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i ], [ %17, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.argprom.exit.thread6.i.i.i.i" ], [ %.sroa.03.09.i.i.i.i, %15 ]
+"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit": ; preds = %15, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.i", %.lr.ph.i.i.i.us.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.us.i", %_ZN4llvm9StringRefC2EPKc.exit.thread, %_ZN4llvm9StringRefC2EPKc.exit
+  %.sroa.03.0.lcssa.i.i.i.i = phi ptr [ %4, %_ZN4llvm9StringRefC2EPKc.exit ], [ %7, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %.sroa.03.09.i.i.i.us.i, %.lr.ph.i.i.i.us.i ], [ %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.us.i" ], [ %.sroa.03.09.i.i.i.us.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i.us.i ], [ %17, %"_ZN9__gnu_cxx5__ops10_Iter_predIZ21LLVMGetTargetFromNameE3$_0EclIN4llvm14TargetRegistry8iteratorEEEbT_.exit.thread6.i.i.i.i" ], [ %.sroa.03.09.i.i.i.i, %15 ]
   %18 = tail call { ptr, ptr } @_ZN4llvm14TargetRegistry7targetsEv() #15
   %19 = extractvalue { ptr, ptr } %18, 1
   %.not = icmp eq ptr %.sroa.03.0.lcssa.i.i.i.i, %19

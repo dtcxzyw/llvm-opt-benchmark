@@ -770,7 +770,7 @@ if.end.i.i.i:                                     ; preds = %for.inc.i
   %dec.i.i.i = add i32 %12, -1
   store i32 %dec.i.i.i, ptr %depth.i.i4.i, align 4
   %cmp2.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
-  br i1 %cmp2.not.i.i.i, label %while.end.i.i6.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i
+  br i1 %cmp2.not.i.i.i, label %while.end.i.i6.i, label %glib_autoptr_cleanup_RCUReadAuto.exit.i
 
 while.end.i.i6.i:                                 ; preds = %if.end.i.i.i
   store atomic i64 0, ptr %call.i.i3.i release, align 8
@@ -779,25 +779,25 @@ while.end.i.i6.i:                                 ; preds = %if.end.i.i.i
   %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i, i64 8
   %13 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
   %tobool.i.i.i = trunc i8 %13 to i1
-  br i1 %tobool.i.i.i, label %while.end21.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i
+  br i1 %tobool.i.i.i, label %while.end21.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit.i
 
 while.end21.i.i.i:                                ; preds = %while.end.i.i6.i
   store atomic i8 0, ptr %waiting.i.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit.i
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i:  ; preds = %while.end21.i.i.i, %while.end.i.i6.i, %if.end.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit.i:          ; preds = %while.end21.i.i.i, %while.end.i.i6.i, %if.end.i.i.i
   br i1 %callsite_coalesce, label %if.then4.i, label %qsp_mktree.exit
 
-if.then4.i:                                       ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i
+if.then4.i:                                       ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit.i
   call void @qht_init(ptr noundef nonnull %coalesce_ht.i, ptr noundef nonnull @qsp_entry_no_thread_obj_cmp, i64 noundef 64, i32 noundef 3) #16
   call void @qht_iter(ptr noundef nonnull %ht.i, ptr noundef nonnull @qsp_iter_callsite_coalesce, ptr noundef nonnull %coalesce_ht.i) #16
   call void @qht_iter(ptr noundef nonnull %ht.i, ptr noundef nonnull @qsp_ht_delete, ptr noundef null) #16
   call void @qht_destroy(ptr noundef nonnull %ht.i) #16
   br label %qsp_mktree.exit
 
-qsp_mktree.exit:                                  ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i, %if.then4.i
-  %htp.0.i = phi ptr [ %coalesce_ht.i, %if.then4.i ], [ %ht.i, %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i ]
+qsp_mktree.exit:                                  ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit.i, %if.then4.i
+  %htp.0.i = phi ptr [ %coalesce_ht.i, %if.then4.i ], [ %ht.i, %glib_autoptr_cleanup_RCUReadAuto.exit.i ]
   call void @qht_iter(ptr noundef nonnull %htp.0.i, ptr noundef nonnull @qsp_sort, ptr noundef %call) #16
   call void @qht_destroy(ptr noundef nonnull %htp.0.i) #16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ht.i)

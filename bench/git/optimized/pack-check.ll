@@ -317,13 +317,13 @@ for.body.i:                                       ; preds = %if.end38.i, %for.bo
 
 for.end.i:                                        ; preds = %for.body.i
   %cmp.i.not.i = icmp eq i32 %20, 1
-  br i1 %cmp.i.not.i, label %for.body56.lr.ph.i, label %sane_qsort.argprom.exit.thread134.i
+  br i1 %cmp.i.not.i, label %for.body56.lr.ph.i, label %sane_qsort.exit.thread134.i
 
-sane_qsort.argprom.exit.thread134.i:              ; preds = %for.end.i
+sane_qsort.exit.thread134.i:                      ; preds = %for.end.i
   call void @qsort(ptr noundef nonnull %call42.i, i64 noundef %idxprom.i, i64 noundef 16, ptr noundef nonnull @compare_entries) #9
   br label %for.body56.lr.ph.i
 
-for.body56.lr.ph.i:                               ; preds = %for.end.i, %sane_qsort.argprom.exit.thread134.i
+for.body56.lr.ph.i:                               ; preds = %for.end.i, %sane_qsort.exit.thread134.i
   %index_version.i = getelementptr inbounds i8, ptr %p, i64 128
   %pack_name91.i = getelementptr inbounds i8, ptr %p, i64 240
   %tobool148.not.i = icmp eq ptr %fn, null

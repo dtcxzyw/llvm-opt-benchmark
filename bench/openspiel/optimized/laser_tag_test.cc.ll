@@ -4316,7 +4316,7 @@ _ZN10open_spiel13GameParameterD2Ev.exit104.i:     ; preds = %_ZN10open_spiel13Ga
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit109.i: ; preds = %.noexc106.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #19
-  invoke fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_tensor_from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argelim(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  invoke fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_tensor_from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %1514 unwind label %1570
 
 1514:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit109.i
@@ -4340,7 +4340,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit109.i:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit114.i120: ; preds = %.noexc111.i119
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #19
-  invoke fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_tensor_from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argelim(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  invoke fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_tensor_from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %1518 unwind label %1574
 
 1518:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit114.i120
@@ -4992,7 +4992,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit162.i:               ; preds = %1755, %1753
           to label %1766 unwind label %1576
 
 1766:                                             ; preds = %1764
-  invoke fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_tensor_from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argelim(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  invoke fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_tensor_from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %1767 unwind label %1576
 
 1767:                                             ; preds = %1766
@@ -5021,7 +5021,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit164.i:               ; preds = %1775, %1767
           to label %1779 unwind label %1576
 
 1779:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit164.i
-  invoke fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_tensor_from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argelim(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  invoke fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_tensor_from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %1780 unwind label %1576
 
 1780:                                             ; preds = %1779
@@ -9739,7 +9739,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_tensor_from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argelim(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_tensor_from_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .noexc:
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1

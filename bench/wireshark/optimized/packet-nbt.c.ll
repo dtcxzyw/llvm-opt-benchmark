@@ -666,7 +666,7 @@ dissect_query_records.exit:                       ; preds = %add_name_and_type.e
 
 119:                                              ; preds = %116, %117
   %120 = phi ptr [ %118, %117 ], [ null, %116 ]
-  %121 = call fastcc i32 @dissect_answer_records.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %.0, i32 noundef %115, ptr noundef %120, ptr noundef %26, i32 noundef %19, ptr noundef nonnull @.str.245)
+  %121 = call fastcc i32 @dissect_answer_records(ptr noundef %0, ptr noundef %1, i32 noundef %.0, i32 noundef %115, ptr noundef %120, ptr noundef %26, i32 noundef %19, ptr noundef nonnull @.str.245)
   %122 = add i32 %121, %.0
   br label %123
 
@@ -677,7 +677,7 @@ dissect_query_records.exit:                       ; preds = %add_name_and_type.e
   br i1 %.not71, label %128, label %125
 
 125:                                              ; preds = %123
-  %126 = call fastcc i32 @dissect_answer_records.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %.1, i32 noundef %124, ptr noundef null, ptr noundef %26, i32 noundef %19, ptr noundef nonnull @.str.246)
+  %126 = call fastcc i32 @dissect_answer_records(ptr noundef %0, ptr noundef %1, i32 noundef %.1, i32 noundef %124, ptr noundef null, ptr noundef %26, i32 noundef %19, ptr noundef nonnull @.str.246)
   %127 = add i32 %126, %.1
   br label %128
 
@@ -688,7 +688,7 @@ dissect_query_records.exit:                       ; preds = %add_name_and_type.e
   br i1 %.not72, label %132, label %130
 
 130:                                              ; preds = %128
-  %131 = call fastcc i32 @dissect_answer_records.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %.2, i32 noundef %129, ptr noundef null, ptr noundef %26, i32 noundef %19, ptr noundef nonnull @.str.247)
+  %131 = call fastcc i32 @dissect_answer_records(ptr noundef %0, ptr noundef %1, i32 noundef %.2, i32 noundef %129, ptr noundef null, ptr noundef %26, i32 noundef %19, ptr noundef nonnull @.str.247)
   br label %132
 
 132:                                              ; preds = %130, %128
@@ -886,7 +886,7 @@ define internal i32 @dissect_nbss(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.val = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.270) #8
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %dissect_continuation_packet.argprom.exit, label %33
+  br i1 %.not.i, label %dissect_continuation_packet.exit, label %33
 
 33:                                               ; preds = %32
   %34 = load i32, ptr @proto_nbss, align 4
@@ -895,9 +895,9 @@ define internal i32 @dissect_nbss(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #8
   %38 = load i32, ptr @hf_nbss_continuation_data, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #8
-  br label %dissect_continuation_packet.argprom.exit
+  br label %dissect_continuation_packet.exit
 
-dissect_continuation_packet.argprom.exit:         ; preds = %32, %33
+dissect_continuation_packet.exit:                 ; preds = %32, %33
   %40 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   br label %170
 
@@ -945,7 +945,7 @@ dissect_continuation_packet.argprom.exit:         ; preds = %32, %33
   %.val158 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %.val158, i32 noundef 25, ptr noundef nonnull @.str.270) #8
   %.not.i166 = icmp eq ptr %2, null
-  br i1 %.not.i166, label %dissect_continuation_packet.argprom.exit167, label %65
+  br i1 %.not.i166, label %dissect_continuation_packet.exit167, label %65
 
 65:                                               ; preds = %64
   %66 = load i32, ptr @proto_nbss, align 4
@@ -954,9 +954,9 @@ dissect_continuation_packet.argprom.exit:         ; preds = %32, %33
   %69 = tail call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #8
   %70 = load i32, ptr @hf_nbss_continuation_data, align 4
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #8
-  br label %dissect_continuation_packet.argprom.exit167
+  br label %dissect_continuation_packet.exit167
 
-dissect_continuation_packet.argprom.exit167:      ; preds = %64, %65
+dissect_continuation_packet.exit167:              ; preds = %64, %65
   %72 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   br label %170
 
@@ -978,7 +978,7 @@ dissect_continuation_packet.argprom.exit167:      ; preds = %64, %65
 
 76:                                               ; preds = %74
   %.val159 = load ptr, ptr %7, align 8
-  %77 = tail call fastcc i32 @dissect_continuation_packet.argprom(ptr noundef %0, ptr %.val159, ptr noundef %2)
+  %77 = tail call fastcc i32 @dissect_continuation_packet(ptr noundef %0, ptr %.val159, ptr noundef %2)
   br label %170
 
 78:                                               ; preds = %73
@@ -988,7 +988,7 @@ dissect_continuation_packet.argprom.exit167:      ; preds = %64, %65
 
 80:                                               ; preds = %78
   %.val160 = load ptr, ptr %7, align 8
-  %81 = tail call fastcc i32 @dissect_continuation_packet.argprom(ptr noundef %0, ptr %.val160, ptr noundef %2)
+  %81 = tail call fastcc i32 @dissect_continuation_packet(ptr noundef %0, ptr %.val160, ptr noundef %2)
   br label %170
 
 82:                                               ; preds = %73
@@ -997,7 +997,7 @@ dissect_continuation_packet.argprom.exit167:      ; preds = %64, %65
 
 83:                                               ; preds = %82
   %.val161 = load ptr, ptr %7, align 8
-  %84 = tail call fastcc i32 @dissect_continuation_packet.argprom(ptr noundef %0, ptr %.val161, ptr noundef %2)
+  %84 = tail call fastcc i32 @dissect_continuation_packet(ptr noundef %0, ptr %.val161, ptr noundef %2)
   br label %170
 
 85:                                               ; preds = %73
@@ -1006,7 +1006,7 @@ dissect_continuation_packet.argprom.exit167:      ; preds = %64, %65
 
 86:                                               ; preds = %85
   %.val162 = load ptr, ptr %7, align 8
-  %87 = tail call fastcc i32 @dissect_continuation_packet.argprom(ptr noundef %0, ptr %.val162, ptr noundef %2)
+  %87 = tail call fastcc i32 @dissect_continuation_packet(ptr noundef %0, ptr %.val162, ptr noundef %2)
   br label %170
 
 88:                                               ; preds = %73
@@ -1015,7 +1015,7 @@ dissect_continuation_packet.argprom.exit167:      ; preds = %64, %65
 
 89:                                               ; preds = %88
   %.val163 = load ptr, ptr %7, align 8
-  %90 = tail call fastcc i32 @dissect_continuation_packet.argprom(ptr noundef %0, ptr %.val163, ptr noundef %2)
+  %90 = tail call fastcc i32 @dissect_continuation_packet(ptr noundef %0, ptr %.val163, ptr noundef %2)
   br label %170
 
 91:                                               ; preds = %73
@@ -1024,12 +1024,12 @@ dissect_continuation_packet.argprom.exit167:      ; preds = %64, %65
 
 92:                                               ; preds = %91
   %.val164 = load ptr, ptr %7, align 8
-  %93 = tail call fastcc i32 @dissect_continuation_packet.argprom(ptr noundef %0, ptr %.val164, ptr noundef %2)
+  %93 = tail call fastcc i32 @dissect_continuation_packet(ptr noundef %0, ptr %.val164, ptr noundef %2)
   br label %170
 
 94:                                               ; preds = %73
   %.val165 = load ptr, ptr %7, align 8
-  %95 = tail call fastcc i32 @dissect_continuation_packet.argprom(ptr noundef %0, ptr %.val165, ptr noundef %2)
+  %95 = tail call fastcc i32 @dissect_continuation_packet(ptr noundef %0, ptr %.val165, ptr noundef %2)
   br label %170
 
 96:                                               ; preds = %74, %78, %82, %85, %88, %91, %6
@@ -1169,8 +1169,8 @@ dissect_continuation_packet.argprom.exit167:      ; preds = %64, %65
   %169 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   br label %170
 
-170:                                              ; preds = %4, %._crit_edge, %160, %112, %94, %92, %89, %86, %83, %80, %76, %dissect_continuation_packet.argprom.exit167, %dissect_continuation_packet.argprom.exit, %28
-  %.0 = phi i32 [ %115, %112 ], [ %164, %160 ], [ %169, %._crit_edge ], [ %31, %28 ], [ %40, %dissect_continuation_packet.argprom.exit ], [ %72, %dissect_continuation_packet.argprom.exit167 ], [ %95, %94 ], [ %93, %92 ], [ %90, %89 ], [ %87, %86 ], [ %84, %83 ], [ %81, %80 ], [ %77, %76 ], [ 0, %4 ]
+170:                                              ; preds = %4, %._crit_edge, %160, %112, %94, %92, %89, %86, %83, %80, %76, %dissect_continuation_packet.exit167, %dissect_continuation_packet.exit, %28
+  %.0 = phi i32 [ %115, %112 ], [ %164, %160 ], [ %169, %._crit_edge ], [ %31, %28 ], [ %40, %dissect_continuation_packet.exit ], [ %72, %dissect_continuation_packet.exit167 ], [ %95, %94 ], [ %93, %92 ], [ %90, %89 ], [ %87, %86 ], [ %84, %83 ], [ %81, %80 ], [ %77, %76 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1222,7 +1222,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_answer_records.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 0) %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 16) %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_answer_records(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 0) %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 16) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = load i32, ptr @ett_nbns_ans, align 4
@@ -1999,7 +1999,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_continuation_packet.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @dissect_continuation_packet(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.270) #8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %3

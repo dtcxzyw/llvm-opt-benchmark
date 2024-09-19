@@ -3339,7 +3339,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br i1 %.not1229, label %2067, label %2084
 
 2067:                                             ; preds = %2065
-  %2068 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %12, ptr %.01247, ptr nonnull %.21165, i32 %2066)
+  %2068 = call fastcc i32 @yysyntax_error(ptr noundef %12, ptr %.01247, ptr nonnull %.21165, i32 %2066)
   switch i32 %2068, label %2079 [
     i32 0, label %2069
     i32 -1, label %2070
@@ -3363,7 +3363,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br i1 %.not1231, label %2078, label %2075
 
 2075:                                             ; preds = %2072
-  %2076 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %12, ptr nonnull %2074, ptr nonnull %.21165, i32 %2066)
+  %2076 = call fastcc i32 @yysyntax_error(ptr noundef %12, ptr nonnull %2074, ptr nonnull %.21165, i32 %2066)
   %2077 = icmp eq i32 %2076, -2
   br label %2079
 
@@ -3403,7 +3403,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br i1 %2089, label %.thread1282, label %2091
 
 2090:                                             ; preds = %2086
-  call fastcc void @yydestruct.argprom(i32 noundef %2066, ptr noundef %5)
+  call fastcc void @yydestruct(i32 noundef %2066, ptr noundef %5)
   br label %2091
 
 2091:                                             ; preds = %.thread1256, %2084, %2088, %2090, %84
@@ -3446,7 +3446,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %2109 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2094
   %2110 = load i8, ptr %2109, align 1
   %2111 = sext i8 %2110 to i32
-  call fastcc void @yydestruct.argprom(i32 noundef %2111, ptr noundef %.51178)
+  call fastcc void @yydestruct(i32 noundef %2111, ptr noundef %.51178)
   %2112 = getelementptr inbounds i8, ptr %.51178, i64 -16
   %2113 = getelementptr inbounds i8, ptr %.51168, i64 -2
   %2114 = getelementptr inbounds i8, ptr %.51188, i64 -8
@@ -3515,7 +3515,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %.6116912771294 = phi ptr [ %.6116912771295, %.thread1282 ], [ %.61169, %2126 ]
   %.4116212791292 = phi ptr [ %.4116212791293, %.thread1282 ], [ %.41162, %2126 ]
   %2132 = phi i32 [ %2130, %.thread1282 ], [ 2, %2126 ]
-  call fastcc void @yydestruct.argprom(i32 noundef %2132, ptr noundef %5)
+  call fastcc void @yydestruct(i32 noundef %2132, ptr noundef %5)
   br label %2133
 
 2133:                                             ; preds = %2131, %.loopexit
@@ -3535,7 +3535,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %2136 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2135
   %2137 = load i8, ptr %2136, align 1
   %2138 = sext i8 %2137 to i32
-  call fastcc void @yydestruct.argprom(i32 noundef %2138, ptr noundef %.711801321)
+  call fastcc void @yydestruct(i32 noundef %2138, ptr noundef %.711801321)
   %2139 = getelementptr inbounds i8, ptr %.711801321, i64 -16
   %2140 = getelementptr inbounds i8, ptr %.711701322, i64 -2
   %.not1233 = icmp eq ptr %2140, %.411621280
@@ -4097,7 +4097,7 @@ define internal fastcc { i64, ptr } @check_object_key(ptr %0, ptr %1) unnamed_ad
 declare { ptr, ptr } @gen_dictpair(ptr, ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @yysyntax_error.argprom(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #4 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #4 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread6, label %3
@@ -4353,7 +4353,7 @@ yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yydestruct.argprom(i32 noundef range(i32 -128, 128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   switch i32 %0, label %135 [
     i32 4, label %3
     i32 5, label %7

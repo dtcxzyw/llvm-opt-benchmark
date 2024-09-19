@@ -760,7 +760,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   br i1 %or.cond254, label %130, label %131
 
 130:                                              ; preds = %125
-  call fastcc void @ProcessLine.argprom(ptr noundef nonnull %0, float %126, float %128, float %.sroa.0.1276, float %.sroa.13.1274, ptr noundef %15)
+  call fastcc void @ProcessLine(ptr noundef nonnull %0, float %126, float %128, float %.sroa.0.1276, float %.sroa.13.1274, ptr noundef %15)
   br label %131
 
 131:                                              ; preds = %125, %130, %122
@@ -822,7 +822,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 160:                                              ; preds = %158
   %.val221 = load float, ptr %14, align 16
   %.val222 = load float, ptr %77, align 4
-  call fastcc void @ProcessLine.argprom(ptr noundef %0, float %.val221, float %.val222, float %151, float %154, ptr noundef %15)
+  call fastcc void @ProcessLine(ptr noundef %0, float %.val221, float %.val222, float %151, float %154, ptr noundef %15)
   store float %151, ptr %14, align 16
   store float %154, ptr %77, align 4
   br label %533
@@ -1057,7 +1057,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
 
 278:                                              ; preds = %182
   %.val226 = load float, ptr %77, align 4
-  call fastcc void @ProcessLine.argprom(ptr noundef %0, float %186, float %.val226, float %173, float %176, ptr noundef %15)
+  call fastcc void @ProcessLine(ptr noundef %0, float %186, float %.val226, float %173, float %176, ptr noundef %15)
   br label %279
 
 279:                                              ; preds = %278, %ProcessQuad.exit
@@ -1501,7 +1501,7 @@ ProcessCubic.exit:                                ; preds = %519, %427, %._crit_
 520:                                              ; preds = %307
   %.val229 = load float, ptr %14, align 16
   %.val230 = load float, ptr %77, align 4
-  call fastcc void @ProcessLine.argprom(ptr noundef %0, float %.val229, float %.val230, float %298, float %301, ptr noundef %15)
+  call fastcc void @ProcessLine(ptr noundef %0, float %.val229, float %.val230, float %298, float %301, ptr noundef %15)
   br label %521
 
 521:                                              ; preds = %520, %ProcessCubic.exit
@@ -1524,7 +1524,7 @@ ProcessCubic.exit:                                ; preds = %519, %427, %._crit_
   br i1 %or.cond266, label %530, label %531
 
 530:                                              ; preds = %525
-  call fastcc void @ProcessLine.argprom(ptr noundef %0, float %526, float %528, float %.sroa.0.1276, float %.sroa.13.1274, ptr noundef %15)
+  call fastcc void @ProcessLine(ptr noundef %0, float %526, float %528, float %.sroa.0.1276, float %.sroa.13.1274, ptr noundef %15)
   store float %.sroa.0.1276, ptr %14, align 16
   store float %.sroa.13.1274, ptr %77, align 4
   br label %531
@@ -1567,7 +1567,7 @@ ProcessCubic.exit:                                ; preds = %519, %427, %._crit_
   br i1 %or.cond269, label %548, label %549
 
 548:                                              ; preds = %542
-  call fastcc void @ProcessLine.argprom(ptr noundef nonnull %0, float %543, float %546, float %.sroa.0.2, float %.sroa.13.2, ptr noundef %15)
+  call fastcc void @ProcessLine(ptr noundef nonnull %0, float %543, float %546, float %.sroa.0.2, float %.sroa.13.2, ptr noundef %15)
   br label %549
 
 549:                                              ; preds = %542, %548, %538
@@ -1582,7 +1582,7 @@ ProcessCubic.exit:                                ; preds = %519, %427, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ProcessLine.argprom(ptr noundef %0, float %.0.val, float %.4.val, float %.0.val1, float %.4.val3, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.4.val, float %.0.val1, float %.4.val3, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 40

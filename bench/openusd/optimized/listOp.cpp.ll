@@ -5718,12 +5718,12 @@ _ZNKSt8functionIFSt8optionalIiEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTyp
   %.sroa.0.0.extract.trunc = trunc i64 %33 to i32
   %34 = and i64 %33, 4294967296
   %.not35 = icmp eq i64 %34, 0
-  br i1 %.not35, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %35
+  br i1 %.not35, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit, label %35
 
 35:                                               ; preds = %_ZNKSt8functionIFSt8optionalIiEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKiEEclES3_S5_.exit
   %36 = load ptr, ptr %22, align 8
   %.not10.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not10.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %35, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %36, %35 ]
@@ -5740,19 +5740,19 @@ _ZNKSt8functionIFSt8optionalIiEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTyp
 
 _ZNSt8_Rb_treeIiSt4pairIKiSt14_List_iteratorIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %40 = icmp eq ptr %.19.i.i.i.i, %23
-  br i1 %40, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
+  br i1 %40, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
 
 _ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiSt14_List_iteratorIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %41 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %42 = load i32, ptr %41, align 4
   %43 = icmp sgt i32 %42, %.sroa.0.0.extract.trunc
-  br i1 %43, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split
+  br i1 %43, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEdeEv.exit15: ; preds = %30
   %.val8 = load i32, ptr %.sroa.028.037, align 4
   %44 = load ptr, ptr %22, align 8
   %.not10.i.i.i.i16 = icmp eq ptr %44, null
-  br i1 %.not10.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %.lr.ph.i.i.i.i17
+  br i1 %.not10.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEdeEv.exit15, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %.1.i.i.i.i23, %.lr.ph.i.i.i.i17 ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEdeEv.exit15 ]
@@ -5769,15 +5769,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEdeEv.ex
 
 _ZNSt8_Rb_treeIiSt4pairIKiSt14_List_iteratorIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25: ; preds = %.lr.ph.i.i.i.i17
   %48 = icmp eq ptr %.19.i.i.i.i20, %23
-  br i1 %48, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i26
+  br i1 %48, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i26
 
 _ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i26: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiSt14_List_iteratorIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25
   %49 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i20, i64 32
   %50 = load i32, ptr %49, align 4
   %51 = icmp slt i32 %.val8, %50
-  br i1 %51, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split
+  br i1 %51, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit.sink.split
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split: ; preds = %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i26, %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
+_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit.sink.split: ; preds = %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i26, %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
   %.19.i.i.i.i20.lcssa.sink43 = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ], [ %.19.i.i.i.i20, %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i26 ]
   %52 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i20.lcssa.sink43, i64 40
   %53 = load ptr, ptr %52, align 8
@@ -5791,14 +5791,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIi
   %57 = load i64, ptr %25, align 8
   %58 = add i64 %57, -1
   store i64 %58, ptr %25, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split, %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i26, %_ZNSt8_Rb_treeIiSt4pairIKiSt14_List_iteratorIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEdeEv.exit15, %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeIiSt4pairIKiSt14_List_iteratorIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %35, %_ZNKSt8functionIFSt8optionalIiEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKiEEclES3_S5_.exit
+_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit.sink.split, %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i26, %_ZNSt8_Rb_treeIiSt4pairIKiSt14_List_iteratorIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEdeEv.exit15, %_ZNSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeIiSt4pairIKiSt14_List_iteratorIiEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %35, %_ZNKSt8functionIFSt8optionalIiEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKiEEclES3_S5_.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %59 = icmp eq ptr %.sroa.028.037, %19
   br i1 %59, label %60, label %61
 
-60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit
   store ptr @.str.40, ptr %6, align 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEppEv, ptr %26, align 8
   store i64 233, ptr %27, align 8
@@ -5807,7 +5807,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIi
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %6, i32 noundef 1, ptr noundef nonnull @.str.41)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEppEv.exit
 
-61:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+61:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIiNSt7__cxx114listIiSaIiEEESt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIKiS7_EEEEEvRKT_PT0_PT1_.exit
   %62 = getelementptr inbounds i8, ptr %.sroa.028.037, i64 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEppEv.exit
 
@@ -14648,12 +14648,12 @@ _ZNKSt8functionIFSt8optionalIjEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTyp
   %.sroa.0.0.extract.trunc = trunc i64 %33 to i32
   %34 = and i64 %33, 4294967296
   %.not35 = icmp eq i64 %34, 0
-  br i1 %.not35, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %35
+  br i1 %.not35, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit, label %35
 
 35:                                               ; preds = %_ZNKSt8functionIFSt8optionalIjEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKjEEclES3_S5_.exit
   %36 = load ptr, ptr %22, align 8
   %.not10.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not10.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %35, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %36, %35 ]
@@ -14670,19 +14670,19 @@ _ZNKSt8functionIFSt8optionalIjEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTyp
 
 _ZNSt8_Rb_treeIjSt4pairIKjSt14_List_iteratorIjEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %40 = icmp eq ptr %.19.i.i.i.i, %23
-  br i1 %40, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i
+  br i1 %40, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i
 
 _ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i: ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjSt14_List_iteratorIjEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %41 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %42 = load i32, ptr %41, align 4
   %43 = icmp ugt i32 %42, %.sroa.0.0.extract.trunc
-  br i1 %43, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split
+  br i1 %43, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEdeEv.exit15: ; preds = %30
   %.val8 = load i32, ptr %.sroa.028.037, align 4
   %44 = load ptr, ptr %22, align 8
   %.not10.i.i.i.i16 = icmp eq ptr %44, null
-  br i1 %.not10.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %.lr.ph.i.i.i.i17
+  br i1 %.not10.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEdeEv.exit15, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %.1.i.i.i.i23, %.lr.ph.i.i.i.i17 ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEdeEv.exit15 ]
@@ -14699,15 +14699,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEdeEv.ex
 
 _ZNSt8_Rb_treeIjSt4pairIKjSt14_List_iteratorIjEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25: ; preds = %.lr.ph.i.i.i.i17
   %48 = icmp eq ptr %.19.i.i.i.i20, %23
-  br i1 %48, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i26
+  br i1 %48, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i26
 
 _ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i26: ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjSt14_List_iteratorIjEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25
   %49 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i20, i64 32
   %50 = load i32, ptr %49, align 4
   %51 = icmp ult i32 %.val8, %50
-  br i1 %51, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split
+  br i1 %51, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit.sink.split
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split: ; preds = %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i26, %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i
+_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit.sink.split: ; preds = %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i26, %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i
   %.19.i.i.i.i20.lcssa.sink43 = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i ], [ %.19.i.i.i.i20, %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i26 ]
   %52 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i20.lcssa.sink43, i64 40
   %53 = load ptr, ptr %52, align 8
@@ -14721,14 +14721,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIj
   %57 = load i64, ptr %25, align 8
   %58 = add i64 %57, -1
   store i64 %58, ptr %25, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split, %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i26, %_ZNSt8_Rb_treeIjSt4pairIKjSt14_List_iteratorIjEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEdeEv.exit15, %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeIjSt4pairIKjSt14_List_iteratorIjEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %35, %_ZNKSt8functionIFSt8optionalIjEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKjEEclES3_S5_.exit
+_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit.sink.split, %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i26, %_ZNSt8_Rb_treeIjSt4pairIKjSt14_List_iteratorIjEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEdeEv.exit15, %_ZNSt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeIjSt4pairIKjSt14_List_iteratorIjEESt10_Select1stIS4_ESt4lessIjESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %35, %_ZNKSt8functionIFSt8optionalIjEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKjEEclES3_S5_.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %59 = icmp eq ptr %.sroa.028.037, %19
   br i1 %59, label %60, label %61
 
-60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit
   store ptr @.str.40, ptr %6, align 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEppEv, ptr %26, align 8
   store i64 233, ptr %27, align 8
@@ -14737,7 +14737,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIj
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %6, i32 noundef 1, ptr noundef nonnull @.str.41)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEppEv.exit
 
-61:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+61:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIjNSt7__cxx114listIjSaIjEEESt3mapIjSt14_List_iteratorIjESt4lessIjESaISt4pairIKjS7_EEEEEvRKT_PT0_PT1_.exit
   %62 = getelementptr inbounds i8, ptr %.sroa.028.037, i64 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEppEv.exit
 
@@ -23580,12 +23580,12 @@ _ZNKSt8functionIFSt8optionalIlEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTyp
   %34 = extractvalue { i64, i8 } %33, 0
   %35 = extractvalue { i64, i8 } %33, 1
   %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+  br i1 %36, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit
 
 37:                                               ; preds = %_ZNKSt8functionIFSt8optionalIlEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKlEEclES3_S5_.exit
   %38 = load ptr, ptr %22, align 8
   %.not10.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not10.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %37, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %38, %37 ]
@@ -23602,19 +23602,19 @@ _ZNKSt8functionIFSt8optionalIlEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTyp
 
 _ZNSt8_Rb_treeIlSt4pairIKlSt14_List_iteratorIlEESt10_Select1stIS4_ESt4lessIlESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %42 = icmp eq ptr %.19.i.i.i.i, %23
-  br i1 %42, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i
+  br i1 %42, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i
 
 _ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i: ; preds = %_ZNSt8_Rb_treeIlSt4pairIKlSt14_List_iteratorIlEESt10_Select1stIS4_ESt4lessIlESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %44 = load i64, ptr %43, align 8
   %45 = icmp slt i64 %34, %44
-  br i1 %45, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split
+  br i1 %45, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIlSaIlEELb0EEdeEv.exit15: ; preds = %30
   %.val8 = load i64, ptr %.sroa.028.036, align 8
   %46 = load ptr, ptr %22, align 8
   %.not10.i.i.i.i16 = icmp eq ptr %46, null
-  br i1 %.not10.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %.lr.ph.i.i.i.i17
+  br i1 %.not10.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIlSaIlEELb0EEdeEv.exit15, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %.1.i.i.i.i23, %.lr.ph.i.i.i.i17 ], [ %46, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIlSaIlEELb0EEdeEv.exit15 ]
@@ -23631,15 +23631,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIlSaIlEELb0EEdeEv.ex
 
 _ZNSt8_Rb_treeIlSt4pairIKlSt14_List_iteratorIlEESt10_Select1stIS4_ESt4lessIlESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25: ; preds = %.lr.ph.i.i.i.i17
   %50 = icmp eq ptr %.19.i.i.i.i20, %23
-  br i1 %50, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i26
+  br i1 %50, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i26
 
 _ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i26: ; preds = %_ZNSt8_Rb_treeIlSt4pairIKlSt14_List_iteratorIlEESt10_Select1stIS4_ESt4lessIlESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25
   %51 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i20, i64 32
   %52 = load i64, ptr %51, align 8
   %53 = icmp slt i64 %.val8, %52
-  br i1 %53, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split
+  br i1 %53, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit.sink.split
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split: ; preds = %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i26, %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i
+_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit.sink.split: ; preds = %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i26, %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i
   %.19.i.i.i.i20.lcssa.sink42 = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i ], [ %.19.i.i.i.i20, %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i26 ]
   %54 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i20.lcssa.sink42, i64 40
   %55 = load ptr, ptr %54, align 8
@@ -23653,14 +23653,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIl
   %59 = load i64, ptr %25, align 8
   %60 = add i64 %59, -1
   store i64 %60, ptr %25, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split, %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i26, %_ZNSt8_Rb_treeIlSt4pairIKlSt14_List_iteratorIlEESt10_Select1stIS4_ESt4lessIlESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIlSaIlEELb0EEdeEv.exit15, %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeIlSt4pairIKlSt14_List_iteratorIlEESt10_Select1stIS4_ESt4lessIlESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %37, %_ZNKSt8functionIFSt8optionalIlEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKlEEclES3_S5_.exit
+_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit.sink.split, %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i26, %_ZNSt8_Rb_treeIlSt4pairIKlSt14_List_iteratorIlEESt10_Select1stIS4_ESt4lessIlESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIlSaIlEELb0EEdeEv.exit15, %_ZNSt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeIlSt4pairIKlSt14_List_iteratorIlEESt10_Select1stIS4_ESt4lessIlESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %37, %_ZNKSt8functionIFSt8optionalIlEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKlEEclES3_S5_.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %61 = icmp eq ptr %.sroa.028.036, %19
   br i1 %61, label %62, label %63
 
-62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit
   store ptr @.str.40, ptr %6, align 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEppEv, ptr %26, align 8
   store i64 233, ptr %27, align 8
@@ -23669,7 +23669,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIl
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %6, i32 noundef 1, ptr noundef nonnull @.str.41)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIlSaIlEELb0EEppEv.exit
 
-63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentIlNSt7__cxx114listIlSaIlEEESt3mapIlSt14_List_iteratorIlESt4lessIlESaISt4pairIKlS7_EEEEEvRKT_PT0_PT1_.exit
   %64 = getelementptr inbounds i8, ptr %.sroa.028.036, i64 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIlSaIlEELb0EEppEv.exit
 
@@ -32517,12 +32517,12 @@ _ZNKSt8functionIFSt8optionalImEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTyp
   %34 = extractvalue { i64, i8 } %33, 0
   %35 = extractvalue { i64, i8 } %33, 1
   %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+  br i1 %36, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit
 
 37:                                               ; preds = %_ZNKSt8functionIFSt8optionalImEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKmEEclES3_S5_.exit
   %38 = load ptr, ptr %22, align 8
   %.not10.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not10.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %.lr.ph.i.i.i.i
+  br i1 %.not10.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %37, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %38, %37 ]
@@ -32539,19 +32539,19 @@ _ZNKSt8functionIFSt8optionalImEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTyp
 
 _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorImEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %42 = icmp eq ptr %.19.i.i.i.i, %23
-  br i1 %42, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i
+  br i1 %42, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i
 
 _ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorImEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %44 = load i64, ptr %43, align 8
   %45 = icmp ult i64 %34, %44
-  br i1 %45, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split
+  br i1 %45, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorImSaImEELb0EEdeEv.exit15: ; preds = %30
   %.val8 = load i64, ptr %.sroa.028.036, align 8
   %46 = load ptr, ptr %22, align 8
   %.not10.i.i.i.i16 = icmp eq ptr %46, null
-  br i1 %.not10.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %.lr.ph.i.i.i.i17
+  br i1 %.not10.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorImSaImEELb0EEdeEv.exit15, %.lr.ph.i.i.i.i17
   %.012.i.i.i.i18 = phi ptr [ %.1.i.i.i.i23, %.lr.ph.i.i.i.i17 ], [ %46, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorImSaImEELb0EEdeEv.exit15 ]
@@ -32568,15 +32568,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorImSaImEELb0EEdeEv.ex
 
 _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorImEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25: ; preds = %.lr.ph.i.i.i.i17
   %50 = icmp eq ptr %.19.i.i.i.i20, %23
-  br i1 %50, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i26
+  br i1 %50, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i26
 
 _ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i26: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorImEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25
   %51 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i20, i64 32
   %52 = load i64, ptr %51, align 8
   %53 = icmp ult i64 %.val8, %52
-  br i1 %53, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split
+  br i1 %53, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit.sink.split
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split: ; preds = %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i26, %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i
+_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit.sink.split: ; preds = %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i26, %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i
   %.19.i.i.i.i20.lcssa.sink42 = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i ], [ %.19.i.i.i.i20, %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i26 ]
   %54 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i20.lcssa.sink42, i64 40
   %55 = load ptr, ptr %54, align 8
@@ -32590,14 +32590,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaIm
   %59 = load i64, ptr %25, align 8
   %60 = add i64 %59, -1
   store i64 %60, ptr %25, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit.sink.split, %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i26, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorImEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorImSaImEELb0EEdeEv.exit15, %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorImEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %37, %_ZNKSt8functionIFSt8optionalImEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKmEEclES3_S5_.exit
+_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit.sink.split, %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i26, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorImEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i25, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorImSaImEELb0EEdeEv.exit15, %_ZNSt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorImEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %37, %_ZNKSt8functionIFSt8optionalImEN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeERKmEEclES3_S5_.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %61 = icmp eq ptr %.sroa.028.036, %19
   br i1 %61, label %62, label %63
 
-62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit
   store ptr @.str.40, ptr %6, align 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIiSaIiEELb0EEppEv, ptr %26, align 8
   store i64 233, ptr %27, align 8
@@ -32606,7 +32606,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaIm
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %6, i32 noundef 1, ptr noundef nonnull @.str.41)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorImSaImEELb0EEppEv.exit
 
-63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.argprom.exit
+63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentImNSt7__cxx114listImSaImEEESt3mapImSt14_List_iteratorImESt4lessImESaISt4pairIKmS7_EEEEEvRKT_PT0_PT1_.exit
   %64 = getelementptr inbounds i8, ptr %.sroa.028.036, i64 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorImSaImEELb0EEppEv.exit
 
@@ -46556,7 +46556,7 @@ _ZNKSt8functionIFSt8optionalIN32pxrInternal_v0_24__pxrReserved__7TfTokenEENS1_13
 
 33:                                               ; preds = %_ZNKSt8functionIFSt8optionalIN32pxrInternal_v0_24__pxrReserved__7TfTokenEENS1_13SdfListOpTypeERKS2_EEclES4_S6_.exit
   %.val = load ptr, ptr %9, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7TfTokenENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_.argprom(ptr %.val, ptr noundef %3, ptr noundef %4)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7TfTokenENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(ptr %.val, ptr noundef %3, ptr noundef %4)
   %.pre = load i8, ptr %23, align 8
   br label %34
 
@@ -46581,7 +46581,7 @@ _ZNKSt8functionIFSt8optionalIN32pxrInternal_v0_24__pxrReserved__7TfTokenEENS1_13
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7TfTokenESaIS2_EELb0EEdeEv.exit19: ; preds = %28
   %.val10 = load ptr, ptr %.sroa.0.027, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7TfTokenENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_.argprom(ptr %.val10, ptr noundef %3, ptr noundef %4)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7TfTokenENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(ptr %.val10, ptr noundef %3, ptr noundef %4)
   br label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7TfTokenEED2Ev.exit13
 
 _ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7TfTokenEED2Ev.exit13: ; preds = %41, %37, %34, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7TfTokenESaIS2_EELb0EEdeEv.exit19
@@ -50751,7 +50751,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS2_EE6spliceES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7TfTokenENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_.argprom(ptr %.0.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7TfTokenENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(ptr %.0.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -62258,7 +62258,7 @@ _ZNKSt8functionIFSt8optionalIN32pxrInternal_v0_24__pxrReserved__7SdfPathEENS1_13
 
 33:                                               ; preds = %_ZNKSt8functionIFSt8optionalIN32pxrInternal_v0_24__pxrReserved__7SdfPathEENS1_13SdfListOpTypeERKS2_EEclES4_S6_.exit
   %.val = load i64, ptr %9, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7SdfPathENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_.argprom(i64 %.val, ptr noundef %3, ptr noundef %4)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7SdfPathENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(i64 %.val, ptr noundef %3, ptr noundef %4)
   %.pre = load i8, ptr %23, align 8
   br label %34
 
@@ -62301,7 +62301,7 @@ _ZNKSt8functionIFSt8optionalIN32pxrInternal_v0_24__pxrReserved__7SdfPathEENS1_13
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7SdfPathESaIS2_EELb0EEdeEv.exit17: ; preds = %28
   %.val10 = load i64, ptr %.sroa.0.025, align 4
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7SdfPathENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_.argprom(i64 %.val10, ptr noundef %3, ptr noundef %4)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7SdfPathENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(i64 %.val10, ptr noundef %3, ptr noundef %4)
   br label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7SdfPathEED2Ev.exit
 
 _ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7SdfPathEED2Ev.exit: ; preds = %52, %39, %37, %34, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_7SdfPathESaIS2_EELb0EEdeEv.exit17
@@ -66226,7 +66226,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS2_EE6spliceES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7SdfPathENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_.argprom(i64 %.0.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7SdfPathENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(i64 %.0.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

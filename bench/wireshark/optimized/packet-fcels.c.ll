@@ -1213,8 +1213,8 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   %151 = and i32 %.0284.ph348, 255
   %152 = call ptr @val_to_str_ext(i32 noundef %151, ptr noundef nonnull @fc_els_proto_val_ext, ptr noundef nonnull @.str.582) #3
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %150, i32 noundef 25, ptr noundef nonnull @.str.583, ptr noundef %152) #3
-  call fastcc void @dissect_fcels_lsrjt.argprom.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_lsrjt(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 153:                                              ; preds = %.thread342
   %154 = zext i8 %.0287.ph to i32
@@ -1251,7 +1251,7 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
     i8 99, label %181
     i8 114, label %182
     i8 120, label %183
-    i8 121, label %dissect_fcels_prli.argprom.exit
+    i8 121, label %dissect_fcels_prli.exit
     i8 122, label %184
     i8 123, label %185
     i8 125, label %186
@@ -1260,149 +1260,149 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 158:                                              ; preds = %157
-  call fastcc void @dissect_fcels_logi.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %.0278, i8 noundef zeroext 3)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef %2, ptr noundef %.0278, i8 noundef zeroext 3)
+  br label %dissect_fcels_prli.exit
 
 159:                                              ; preds = %157
-  call fastcc void @dissect_fcels_logi.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %.0278, i8 noundef zeroext 4)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef %2, ptr noundef %.0278, i8 noundef zeroext 4)
+  br label %dissect_fcels_prli.exit
 
 160:                                              ; preds = %157
-  call fastcc void @dissect_fcels_logout.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_logout(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 161:                                              ; preds = %157
-  call fastcc void @dissect_fcels_abtx.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_abtx(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 162:                                              ; preds = %157
-  call fastcc void @dissect_fcels_rsi.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_rsi(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 163:                                              ; preds = %157
-  call fastcc void @dissect_fcels_rrq.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_rrq(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 164:                                              ; preds = %157
-  call fastcc void @dissect_fcels_rec.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_rec(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 165:                                              ; preds = %157
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %dissect_fcels_prli.argprom.exit, label %166
+  br i1 %.not.i, label %dissect_fcels_prli.exit, label %166
 
 166:                                              ; preds = %165
-  call fastcc void @dissect_fcels_prlilo_payload.argprom(ptr noundef %0, i8 noundef zeroext %.0281335, ptr noundef %.0278, i8 noundef zeroext 32)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 noundef zeroext %.0281335, ptr noundef %.0278, i8 noundef zeroext 32)
+  br label %dissect_fcels_prli.exit
 
 167:                                              ; preds = %157
   %.not.i316 = icmp eq ptr %2, null
-  br i1 %.not.i316, label %dissect_fcels_prli.argprom.exit, label %168
+  br i1 %.not.i316, label %dissect_fcels_prli.exit, label %168
 
 168:                                              ; preds = %167
-  call fastcc void @dissect_fcels_prlilo_payload.argprom(ptr noundef %0, i8 noundef zeroext %.0281335, ptr noundef %.0278, i8 noundef zeroext 33)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 noundef zeroext %.0281335, ptr noundef %.0278, i8 noundef zeroext 33)
+  br label %dissect_fcels_prli.exit
 
 169:                                              ; preds = %157
   %.not.i317 = icmp eq ptr %2, null
-  br i1 %.not.i317, label %dissect_fcels_prli.argprom.exit, label %170
+  br i1 %.not.i317, label %dissect_fcels_prli.exit, label %170
 
 170:                                              ; preds = %169
-  call fastcc void @dissect_fcels_prlilo_payload.argprom(ptr noundef %0, i8 noundef zeroext %.0281335, ptr noundef %.0278, i8 noundef zeroext 36)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 noundef zeroext %.0281335, ptr noundef %.0278, i8 noundef zeroext 36)
+  br label %dissect_fcels_prli.exit
 
 171:                                              ; preds = %157
-  call fastcc void @dissect_fcels_logi.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %.0278, i8 noundef zeroext 80)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef %2, ptr noundef %.0278, i8 noundef zeroext 80)
+  br label %dissect_fcels_prli.exit
 
 172:                                              ; preds = %157
-  call fastcc void @dissect_fcels_logi.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %.0278, i8 noundef zeroext 81)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef %2, ptr noundef %.0278, i8 noundef zeroext 81)
+  br label %dissect_fcels_prli.exit
 
 173:                                              ; preds = %157
-  call fastcc void @dissect_fcels_adisc.argprom.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_adisc(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 174:                                              ; preds = %157
-  call fastcc void @dissect_fcels_farp.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_farp(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 175:                                              ; preds = %157
-  call fastcc void @dissect_fcels_farp.argprom(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_farp(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 176:                                              ; preds = %157
-  call fastcc void @dissect_fcels_rps.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_rps(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 177:                                              ; preds = %157
-  call fastcc void @dissect_fcels_rpl.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_rpl(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 178:                                              ; preds = %157
-  call fastcc void @dissect_fcels_fan.argprom.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_fan(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 179:                                              ; preds = %157
-  call fastcc void @dissect_fcels_rscn.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_rscn(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 180:                                              ; preds = %157
-  call fastcc void @dissect_fcels_scr.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_scr(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 181:                                              ; preds = %157
-  call fastcc void @dissect_fcels_rnft.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_rnft(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 182:                                              ; preds = %157
-  call fastcc void @dissect_fcels_lsts.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_lsts(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 183:                                              ; preds = %157
-  call fastcc void @dissect_fcels_rnid.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_rnid(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 184:                                              ; preds = %157
-  call fastcc void @dissect_fcels_lirr.argprom.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_lirr(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 185:                                              ; preds = %157
-  call fastcc void @dissect_fcels_srl.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_srl(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 186:                                              ; preds = %157
-  call fastcc void @dissect_fcels_rpsc.argprom(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  call fastcc void @dissect_fcels_rpsc(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %.0281335, ptr noundef %.0278)
+  br label %dissect_fcels_prli.exit
 
 187:                                              ; preds = %157
   %188 = load ptr, ptr @fcsp_handle, align 8
   %189 = icmp ne ptr %188, null
   %or.cond13 = select i1 %or.cond, i1 %189, i1 false
-  br i1 %or.cond13, label %190, label %dissect_fcels_prli.argprom.exit
+  br i1 %or.cond13, label %190, label %dissect_fcels_prli.exit
 
 190:                                              ; preds = %187
   %191 = call i32 @call_dissector(ptr noundef nonnull %188, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #3
-  br label %dissect_fcels_prli.argprom.exit
+  br label %dissect_fcels_prli.exit
 
 192:                                              ; preds = %157
   call fastcc void @dissect_fcels_cbind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  br label %dissect_fcels_prli.exit
 
 193:                                              ; preds = %157
   call fastcc void @dissect_fcels_unbind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0278)
-  br label %dissect_fcels_prli.argprom.exit
+  br label %dissect_fcels_prli.exit
 
 194:                                              ; preds = %157
   %195 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #3
-  br label %dissect_fcels_prli.argprom.exit
+  br label %dissect_fcels_prli.exit
 
-dissect_fcels_prli.argprom.exit:                  ; preds = %157, %170, %169, %168, %167, %166, %165, %187, %190, %194, %193, %192, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %164, %163, %162, %161, %160, %159, %158, %.thread337
+dissect_fcels_prli.exit:                          ; preds = %157, %170, %169, %168, %167, %166, %165, %187, %190, %194, %193, %192, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %164, %163, %162, %161, %160, %159, %158, %.thread337
   %196 = call i32 @tvb_reported_length(ptr noundef %0) #3
   br label %197
 
-197:                                              ; preds = %4, %dissect_fcels_prli.argprom.exit, %142, %131, %118, %87, %25
-  %.0 = phi i32 [ 0, %25 ], [ %196, %dissect_fcels_prli.argprom.exit ], [ 0, %131 ], [ 0, %142 ], [ 0, %118 ], [ 0, %87 ], [ 0, %4 ]
+197:                                              ; preds = %4, %dissect_fcels_prli.exit, %142, %131, %118, %87, %25
+  %.0 = phi i32 [ 0, %25 ], [ %196, %dissect_fcels_prli.exit ], [ 0, %131 ], [ 0, %142 ], [ 0, %118 ], [ 0, %87 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1451,7 +1451,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_lsrjt.argprom.argelim(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_lsrjt(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %4
 
@@ -1473,7 +1473,7 @@ define internal fastcc void @dissect_fcels_lsrjt.argprom.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_logout.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_logout(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %5
 
@@ -1497,7 +1497,7 @@ define internal fastcc void @dissect_fcels_logout.argprom(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_abtx.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_abtx(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %5
 
@@ -1525,7 +1525,7 @@ define internal fastcc void @dissect_fcels_abtx.argprom(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_rsi.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rsi(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %5
 
@@ -1553,7 +1553,7 @@ define internal fastcc void @dissect_fcels_rsi.argprom(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_rrq.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rrq(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %5
 
@@ -1579,7 +1579,7 @@ define internal fastcc void @dissect_fcels_rrq.argprom(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_rec.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rec(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %31, label %5
 
@@ -1621,7 +1621,7 @@ define internal fastcc void @dissect_fcels_rec.argprom(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_adisc.argprom.argelim(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_adisc(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %4
 
@@ -1645,7 +1645,7 @@ define internal fastcc void @dissect_fcels_adisc.argprom.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_rps.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rps(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #3
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %57, label %6
@@ -1724,7 +1724,7 @@ define internal fastcc void @dissect_fcels_rps.argprom(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_rpl.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rpl(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -1778,7 +1778,7 @@ define internal fastcc void @dissect_fcels_rpl.argprom(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_fan.argprom.argelim(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_fan(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %4
 
@@ -1800,7 +1800,7 @@ define internal fastcc void @dissect_fcels_fan.argprom.argelim(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_rscn.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rscn(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -1855,7 +1855,7 @@ define internal fastcc void @dissect_fcels_rscn.argprom(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_scr.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_scr(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %5
 
@@ -1877,7 +1877,7 @@ define internal fastcc void @dissect_fcels_scr.argprom(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_rnft.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rnft(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -1931,7 +1931,7 @@ define internal fastcc void @dissect_fcels_rnft.argprom(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_lsts.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_lsts(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %5
 
@@ -1963,7 +1963,7 @@ define internal fastcc void @dissect_fcels_lsts.argprom(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_rnid.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rnid(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %45, label %5
 
@@ -2024,7 +2024,7 @@ define internal fastcc void @dissect_fcels_rnid.argprom(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_lirr.argprom.argelim(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_lirr(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %4
 
@@ -2053,7 +2053,7 @@ define internal fastcc void @dissect_fcels_lirr.argprom.argelim(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_srl.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_srl(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %5
 
@@ -2077,7 +2077,7 @@ define internal fastcc void @dissect_fcels_srl.argprom(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_rpsc.argprom(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_rpsc(ptr noundef %0, ptr noundef readnone %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -2224,7 +2224,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #0
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_logi.argprom(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, i8 noundef zeroext range(i8 3, 82) %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, i8 noundef zeroext range(i8 3, 82) %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %80, label %5
 
@@ -2341,7 +2341,7 @@ declare ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef, ptr noundef, i
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_prlilo_payload.argprom(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1, ptr noundef %2, i8 noundef zeroext range(i8 32, 37) %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_prlilo_payload(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1, ptr noundef %2, i8 noundef zeroext range(i8 32, 37) %3) unnamed_addr #1 {
   %5 = load i32, ptr @ett_fcels_prli, align 4
   %6 = tail call ptr @proto_item_add_subtree(ptr noundef %2, i32 noundef %5) #3
   %7 = load i32, ptr @hf_fcels_opcode, align 4
@@ -2451,7 +2451,7 @@ dissect_prlilo_flags.exit:                        ; preds = %21, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_farp.argprom(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_farp(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %29, label %4
 

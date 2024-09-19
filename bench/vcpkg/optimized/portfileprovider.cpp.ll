@@ -507,7 +507,7 @@ _ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE7reserveEm.exit.i: 
   %15 = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.02.05.i = load ptr, ptr %15, align 8, !noalias !14
   %.not6.i = icmp eq ptr %.sroa.02.05.i, null
-  br i1 %.not6.i, label %"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.argprom.exit", label %.lr.ph.i
+  br i1 %.not6.i, label %"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE7reserveEm.exit.i
   %16 = getelementptr inbounds i8, ptr %0, i64 8
@@ -591,7 +591,7 @@ _ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE12emplace_backIJS3_
   %48 = getelementptr inbounds i8, ptr %.pn, i64 8
   %.sroa.02.0.i = load ptr, ptr %.sroa.02.07.i, align 8, !noalias !14
   %.not.i = icmp eq ptr %.sroa.02.0.i, null
-  br i1 %.not.i, label %"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.argprom.exit.loopexit", label %17
+  br i1 %.not.i, label %"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.exit.loopexit", label %17
 
 .loopexit.i:                                      ; preds = %35
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -620,13 +620,13 @@ _ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE12emplace_backIJS3_
 _ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EED2Ev.exit.i: ; preds = %52, %50
   resume { ptr, i32 } %lpad.phi.i
 
-"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.argprom.exit.loopexit": ; preds = %_ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i
+"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.exit.loopexit": ; preds = %_ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i
   store ptr %48, ptr %16, align 8, !alias.scope !14
   store ptr %46, ptr %0, align 8, !alias.scope !14
   store ptr %45, ptr %10, align 8, !alias.scope !14
-  br label %"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.argprom.exit"
+  br label %"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.exit"
 
-"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.argprom.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.argprom.exit.loopexit", %_ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE7reserveEm.exit.i
+"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.exit.loopexit", %_ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE7reserveEm.exit.i
   ret void
 }
 
@@ -917,7 +917,7 @@ _ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE7reserveEm.exit.i: 
   %.promoted6 = phi ptr [ %27, %_ZNSt12_Vector_baseIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE13_M_deallocateEPS3_m.exit.i.i ], [ null, %24 ]
   %30 = load ptr, ptr %6, align 8, !noalias !35
   %.not5.i = icmp eq ptr %30, %4
-  br i1 %.not5.i, label %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.argprom.exit", label %.lr.ph.i
+  br i1 %.not5.i, label %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE7reserveEm.exit.i
   %31 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1002,7 +1002,7 @@ _ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE12emplace_backIJS3_
   %63 = getelementptr inbounds i8, ptr %.pn, i64 8
   %64 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.02.06.i) #22, !noalias !35
   %.not.i = icmp eq ptr %64, %4
-  br i1 %.not.i, label %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.argprom.exit.loopexit", label %32
+  br i1 %.not.i, label %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.exit.loopexit", label %32
 
 .loopexit.i:                                      ; preds = %50
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -1028,25 +1028,25 @@ _ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE12emplace_backIJS3_
   call void @_ZdlPv(ptr noundef nonnull %67) #21, !noalias !35
   br label %.body
 
-"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.argprom.exit.loopexit": ; preds = %_ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i
+"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.exit.loopexit": ; preds = %_ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i
   store ptr %63, ptr %31, align 8, !alias.scope !35
   store ptr %61, ptr %0, align 8, !alias.scope !35
   store ptr %60, ptr %25, align 8, !alias.scope !35
-  br label %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.argprom.exit"
+  br label %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.exit"
 
-"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.argprom.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.argprom.exit.loopexit", %_ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE7reserveEm.exit.i
+"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.exit.loopexit", %_ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EE7reserveEm.exit.i
   %69 = load ptr, ptr %5, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5vcpkg28SourceControlFileAndLocationEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %69)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5vcpkg28SourceControlFileAndLocationESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev.exit unwind label %70
 
-70:                                               ; preds = %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.argprom.exit"
+70:                                               ; preds = %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.exit"
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
   call void @__clang_call_terminate(ptr %72) #23
   unreachable
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5vcpkg28SourceControlFileAndLocationESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev.exit: ; preds = %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.argprom.exit"
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5vcpkg28SourceControlFileAndLocationESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev.exit: ; preds = %"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.exit"
   ret void
 
 73:                                               ; preds = %14, %2
@@ -12180,8 +12180,8 @@ attributes #23 = { noreturn nounwind }
 !12 = distinct !{!12, !13, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEEEEENS_15LocalizedStringEmDpOT_: argument 0"}
 !13 = distinct !{!13, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_10StringViewEEEEEENS_15LocalizedStringEmDpOT_"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.argprom: argument 0"}
-!16 = distinct !{!16, !"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_.argprom"}
+!15 = distinct !{!15, !16, !"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_: argument 0"}
+!16 = distinct !{!16, !"_ZN5vcpkg4Util4fmapIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S9_EEEZNKS_19MapPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISU_EEOSR_OSP_"}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN5vcpkg22make_baseline_providerERKNS_11RegistrySetE: argument 0"}
 !19 = distinct !{!19, !"_ZN5vcpkg22make_baseline_providerERKNS_11RegistrySetE"}
@@ -12201,14 +12201,14 @@ attributes #23 = { noreturn nounwind }
 !33 = distinct !{!33, !34, !"_ZSt11make_uniqueIN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplEJRKNS0_18ReadOnlyFilesystemERKNS0_11RegistrySetEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !34 = distinct !{!34, !"_ZSt11make_uniqueIN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplEJRKNS0_18ReadOnlyFilesystemERKNS0_11RegistrySetEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_.argprom"}
+!36 = distinct !{!36, !37, !"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_: argument 0"}
+!37 = distinct !{!37, !"_ZN5vcpkg4Util4fmapIRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_28SourceControlFileAndLocationESt4lessIS8_ESaISt4pairIKS8_SB_EEEZNKS_21PathsPortFileProvider22load_all_control_filesEvE3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_"}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZSt11make_uniqueIN5vcpkg12_GLOBAL__N_119OverlayProviderImplEJRKNS0_18ReadOnlyFilesystemERKNS0_4PathERNS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!40 = distinct !{!40, !"_ZSt11make_uniqueIN5vcpkg12_GLOBAL__N_119OverlayProviderImplEJRKNS0_18ReadOnlyFilesystemERKNS0_4PathERNS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!39 = distinct !{!39, !40, !"_ZSt11make_uniqueIN5vcpkg12_GLOBAL__N_119OverlayProviderImplEJRKNS0_18ReadOnlyFilesystemERKNS0_4PathERNS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!40 = distinct !{!40, !"_ZSt11make_uniqueIN5vcpkg12_GLOBAL__N_119OverlayProviderImplEJRKNS0_18ReadOnlyFilesystemERKNS0_4PathERNS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZSt11make_uniqueIN5vcpkg12_GLOBAL__N_120ManifestProviderImplEJRKNS0_18ReadOnlyFilesystemERKNS0_4PathERNS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_St10unique_ptrINS0_17SourceControlFileESt14default_deleteISK_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZSt11make_uniqueIN5vcpkg12_GLOBAL__N_120ManifestProviderImplEJRKNS0_18ReadOnlyFilesystemERKNS0_4PathERNS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_St10unique_ptrINS0_17SourceControlFileESt14default_deleteISK_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!42 = distinct !{!42, !43, !"_ZSt11make_uniqueIN5vcpkg12_GLOBAL__N_120ManifestProviderImplEJRKNS0_18ReadOnlyFilesystemERKNS0_4PathERNS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_St10unique_ptrINS0_17SourceControlFileESt14default_deleteISK_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!43 = distinct !{!43, !"_ZSt11make_uniqueIN5vcpkg12_GLOBAL__N_120ManifestProviderImplEJRKNS0_18ReadOnlyFilesystemERKNS0_4PathERNS0_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_St10unique_ptrINS0_17SourceControlFileESt14default_deleteISK_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
 !46 = distinct !{!46, !45}
@@ -12344,8 +12344,8 @@ attributes #23 = { noreturn nounwind }
 !176 = distinct !{!176, !177, !"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_12_GLOBAL__N_119OverlayProviderImplC1ERKNS_18ReadOnlyFilesystemERKNS_4PathESA_EUlRS9_E_EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_: argument 0"}
 !177 = distinct !{!177, !"_ZN5vcpkg4Util4fmapIRNS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_12_GLOBAL__N_119OverlayProviderImplC1ERKNS_18ReadOnlyFilesystemERKNS_4PathESA_EUlRS9_E_EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaIST_EEOSQ_OSO_"}
 !178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZZN5vcpkg12_GLOBAL__N_119OverlayProviderImplC1ERKNS_18ReadOnlyFilesystemERKNS_4PathENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENKUlRSF_E_clESH_.argprom: argument 0"}
-!180 = distinct !{!180, !"_ZZN5vcpkg12_GLOBAL__N_119OverlayProviderImplC1ERKNS_18ReadOnlyFilesystemERKNS_4PathENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENKUlRSF_E_clESH_.argprom"}
+!179 = distinct !{!179, !180, !"_ZZN5vcpkg12_GLOBAL__N_119OverlayProviderImplC1ERKNS_18ReadOnlyFilesystemERKNS_4PathENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENKUlRSF_E_clESH_: argument 0"}
+!180 = distinct !{!180, !"_ZZN5vcpkg12_GLOBAL__N_119OverlayProviderImplC1ERKNS_18ReadOnlyFilesystemERKNS_4PathENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENKUlRSF_E_clESH_"}
 !181 = !{!179, !176}
 !182 = distinct !{!182, !45}
 !183 = distinct !{!183, !45}

@@ -1268,9 +1268,9 @@ proto_item_set_generated.exit.i:                  ; preds = %394, %391, %.crited
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %321, ptr noundef nonnull @.str.271) #6
   br label %dissect_data_frame.exit
 
-.lr.ph120.i:                                      ; preds = %proto_item_set_generated.exit.i, %dissect_DIGITAL.argprom.exit.i
-  %.097119.i = phi i32 [ %.0.i110.i, %dissect_DIGITAL.argprom.exit.i ], [ 0, %proto_item_set_generated.exit.i ]
-  %.1118.i = phi i32 [ %677, %dissect_DIGITAL.argprom.exit.i ], [ 0, %proto_item_set_generated.exit.i ]
+.lr.ph120.i:                                      ; preds = %proto_item_set_generated.exit.i, %dissect_DIGITAL.exit.i
+  %.097119.i = phi i32 [ %.0.i110.i, %dissect_DIGITAL.exit.i ], [ 0, %proto_item_set_generated.exit.i ]
+  %.1118.i = phi i32 [ %677, %dissect_DIGITAL.exit.i ], [ 0, %proto_item_set_generated.exit.i ]
   %401 = load ptr, ptr %347, align 8
   %402 = call ptr @wmem_array_index(ptr noundef %401, i32 noundef %.1118.i) #6
   %403 = getelementptr inbounds i8, ptr %402, i64 288
@@ -1657,14 +1657,14 @@ dissect_ANALOG.exit.i:                            ; preds = %664, %614, %dissect
   %.0.i106.i = phi i32 [ %610, %dissect_DFREQ.exit.i ], [ %610, %614 ], [ %.1.i108.i, %664 ]
   %.val.i = load i32, ptr %425, align 8
   %665 = icmp eq i32 %.val.i, 0
-  br i1 %665, label %dissect_DIGITAL.argprom.exit.i, label %666
+  br i1 %665, label %dissect_DIGITAL.exit.i, label %666
 
 666:                                              ; preds = %dissect_ANALOG.exit.i
   %667 = shl i32 %.val.i, 1
   %668 = load i32, ptr @ett_data_digital, align 4
   %669 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %432, ptr noundef %340, i32 noundef %.0.i106.i, i32 noundef %667, i32 noundef %668, ptr noundef null, ptr noundef nonnull @.str.286, i32 noundef %.val.i) #6
   %670 = icmp sgt i32 %.val.i, 0
-  br i1 %670, label %.lr.ph.i111.i, label %dissect_DIGITAL.argprom.exit.i
+  br i1 %670, label %.lr.ph.i111.i, label %dissect_DIGITAL.exit.i
 
 .lr.ph.i111.i:                                    ; preds = %666, %.lr.ph.i111.i
   %.0212.i.i = phi i32 [ %674, %.lr.ph.i111.i ], [ 0, %666 ]
@@ -1676,9 +1676,9 @@ dissect_ANALOG.exit.i:                            ; preds = %664, %614, %dissect
   %675 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %669, i32 noundef %672, ptr noundef %340, i32 noundef %.0221.i.i, i32 noundef 2, i32 noundef %673, ptr noundef nonnull @.str.287, i32 noundef %674, i32 noundef %673) #6
   %676 = add i32 %.0221.i.i, 2
   %exitcond.not.i112.i = icmp eq i32 %674, %.val.i
-  br i1 %exitcond.not.i112.i, label %dissect_DIGITAL.argprom.exit.i, label %.lr.ph.i111.i, !llvm.loop !17
+  br i1 %exitcond.not.i112.i, label %dissect_DIGITAL.exit.i, label %.lr.ph.i111.i, !llvm.loop !17
 
-dissect_DIGITAL.argprom.exit.i:                   ; preds = %.lr.ph.i111.i, %666, %dissect_ANALOG.exit.i
+dissect_DIGITAL.exit.i:                           ; preds = %.lr.ph.i111.i, %666, %dissect_ANALOG.exit.i
   %.0.i110.i = phi i32 [ %.0.i106.i, %dissect_ANALOG.exit.i ], [ %.0.i106.i, %666 ], [ %676, %.lr.ph.i111.i ]
   %677 = add nuw i32 %.1118.i, 1
   %678 = load ptr, ptr %347, align 8
@@ -1950,14 +1950,14 @@ dissect_config_frame.exit:                        ; preds = %802, %804
   br label %dissect_data_frame.exit
 
 836:                                              ; preds = %833
-  call fastcc void @dissect_config_3_frame.retelim(ptr noundef %340, ptr noundef %321)
+  call fastcc void @dissect_config_3_frame(ptr noundef %340, ptr noundef %321)
   br label %dissect_data_frame.exit
 
 837:                                              ; preds = %337
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %321, ptr noundef nonnull @.str.267) #6
   br label %dissect_data_frame.exit
 
-dissect_data_frame.exit:                          ; preds = %dissect_DIGITAL.argprom.exit.i, %830, %828, %824, %808, %400, %proto_item_set_generated.exit.i, %835, %836, %837, %dissect_config_frame.exit, %681
+dissect_data_frame.exit:                          ; preds = %dissect_DIGITAL.exit.i, %830, %828, %824, %808, %400, %proto_item_set_generated.exit.i, %835, %836, %837, %dissect_config_frame.exit, %681
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %275, ptr noundef nonnull @.str.268) #6
   br label %838
 
@@ -2011,7 +2011,7 @@ declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef,
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_config_3_frame.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_config_3_frame(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [16 x i8], align 16
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %1, ptr noundef nonnull @.str.288) #6

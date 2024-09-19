@@ -182,19 +182,19 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.i:          ; preds = %land.rhs.i.i.i
   %5 = load i32, ptr %m_kind.i.i.i.i.i.i, align 4
   %cmp2.i.i.i.i.i.i = icmp eq i32 %5, 4
   %6 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
-  br i1 %6, label %_ZL11has_ite_argR11ast_managerjPKP4expr.argprom.exit, label %for.inc.i
+  br i1 %6, label %_ZL11has_ite_argR11ast_managerjPKP4expr.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %land.rhs.i.i.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !6
 
-_ZL11has_ite_argR11ast_managerjPKP4expr.argprom.exit: ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i
+_ZL11has_ite_argR11ast_managerjPKP4expr.exit:     ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i
   %7 = and i64 %indvars.iv.i, 2147483648
   %cmp.not = icmp eq i64 %7, 0
   br i1 %cmp.not, label %if.end4, label %return
 
-if.end4:                                          ; preds = %_ZL11has_ite_argR11ast_managerjPKP4expr.argprom.exit
+if.end4:                                          ; preds = %_ZL11has_ite_argR11ast_managerjPKP4expr.exit
   %idxprom = and i64 %indvars.iv.i, 2147483647
   %arrayidx = getelementptr inbounds ptr, ptr %args, i64 %idxprom
   %8 = load ptr, ptr %arrayidx, align 8
@@ -418,8 +418,8 @@ ehcleanup:                                        ; preds = %lpad26, %lpad
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %t_new) #11
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %for.inc.i, %if.end, %if.then2.i.i.i71, %if.then.i.i.i66, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %_ZL11has_ite_argR11ast_managerjPKP4expr.argprom.exit, %entry
-  %retval.0 = phi i32 [ 5, %entry ], [ 5, %_ZL11has_ite_argR11ast_managerjPKP4expr.argprom.exit ], [ 1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ 1, %if.then.i.i.i66 ], [ 1, %if.then2.i.i.i71 ], [ 5, %if.end ], [ 5, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %if.end, %if.then2.i.i.i71, %if.then.i.i.i66, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %_ZL11has_ite_argR11ast_managerjPKP4expr.exit, %entry
+  %retval.0 = phi i32 [ 5, %entry ], [ 5, %_ZL11has_ite_argR11ast_managerjPKP4expr.exit ], [ 1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ 1, %if.then.i.i.i66 ], [ 1, %if.then2.i.i.i71 ], [ 5, %if.end ], [ 5, %for.inc.i ]
   ret i32 %retval.0
 }
 

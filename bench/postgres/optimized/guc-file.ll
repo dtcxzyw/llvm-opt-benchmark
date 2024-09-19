@@ -1260,7 +1260,7 @@ GUC_yy_init_buffer.exit:                          ; preds = %35, %.thread.i
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #1 {
-  tail call fastcc void @GUC_flex_fatal.retelim(ptr noundef %0)
+  tail call fastcc void @GUC_flex_fatal(ptr noundef %0)
   unreachable
 }
 
@@ -3201,7 +3201,7 @@ declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #14
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @GUC_flex_fatal.retelim(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc void @GUC_flex_fatal(ptr noundef %0) unnamed_addr #1 {
   store ptr %0, ptr @GUC_flex_fatal_errmsg, align 8
   %2 = load ptr, ptr @GUC_flex_fatal_jmp, align 8
   tail call void @siglongjmp(ptr noundef %2, i32 noundef 1) #29

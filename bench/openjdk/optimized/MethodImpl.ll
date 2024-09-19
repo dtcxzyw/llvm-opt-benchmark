@@ -142,7 +142,7 @@ define internal noundef zeroext i8 @lineTable(ptr noundef %0, ptr noundef %1) #0
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i8 @variableTable(ptr noundef %0, ptr noundef %1) #0 {
-  tail call fastcc void @doVariableTable.retelim(ptr noundef %0, ptr noundef %1, i32 noundef 0)
+  tail call fastcc void @doVariableTable(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i8 1
 }
 
@@ -240,7 +240,7 @@ define internal noundef zeroext i8 @isObsolete(ptr noundef %0, ptr noundef %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i8 @variableTableWithGenerics(ptr noundef %0, ptr noundef %1) #0 {
-  tail call fastcc void @doVariableTable.retelim(ptr noundef %0, ptr noundef %1, i32 noundef 1)
+  tail call fastcc void @doVariableTable(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i8 1
 }
 
@@ -273,7 +273,7 @@ declare zeroext i16 @outStream_error(ptr noundef) local_unnamed_addr #1
 declare void @jvmtiDeallocate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @doVariableTable.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @doVariableTable(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4

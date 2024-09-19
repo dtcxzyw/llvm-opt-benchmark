@@ -440,7 +440,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdImagingDataSourcePointsPr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit: ; preds = %24, %31, %34, %.thread.i.i
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetCustomPrimvarMappingsERKNS_7UsdPrimE.argprom.retelim()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetCustomPrimvarMappingsERKNS_7UsdPrimE()
           to label %36 unwind label %120
 
 36:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit
@@ -959,7 +959,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceCusto
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetCustomPrimvarMappingsERKNS_7UsdPrimE.argprom.retelim() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetCustomPrimvarMappingsERKNS_7UsdPrimE() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca [1 x %"struct.pxrInternal_v0_24__pxrReserved__::UsdImagingDataSourceCustomPrimvars::Mapping"], align 8
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %3 = alloca %"class.std::allocator", align 1
@@ -1283,7 +1283,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdImagingDataSourcePointsPr
   br i1 %8, label %9, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit
 
 9:                                                ; preds = %5
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetCustomPrimvarMappingsERKNS_7UsdPrimE.argprom.retelim()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetCustomPrimvarMappingsERKNS_7UsdPrimE()
           to label %10 unwind label %46
 
 10:                                               ; preds = %9

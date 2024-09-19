@@ -9541,7 +9541,7 @@ Symbol_find.exit.i:                               ; preds = %.lr.ph.i.i
   br label %956, !llvm.loop !125
 
 962:                                              ; preds = %956
-  call void (ptr, ptr, ...) @lemon_sprintf.retelim(ptr noundef %2, ptr noundef nonnull @.str.328, i32 noundef %948)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.328, i32 noundef %948)
   %963 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #45
   %964 = trunc i64 %963 to i32
   %965 = load ptr, ptr %3, align 8
@@ -10909,7 +10909,7 @@ file_open.exit.thread:                            ; preds = %6
 34:                                               ; preds = %.lr.ph
   %35 = getelementptr inbounds i8, ptr %30, i64 92
   %36 = load i32, ptr %35, align 4
-  call void (ptr, ptr, ...) @lemon_sprintf.retelim(ptr noundef %2, ptr noundef nonnull @.str.108, i32 noundef %36)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.108, i32 noundef %36)
   %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.109, ptr noundef nonnull %2) #42
   br label %40
 
@@ -13793,7 +13793,7 @@ file_open.exit:                                   ; preds = %8, %1
   %20 = getelementptr ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @lemon_sprintf.retelim(ptr noundef %3, ptr noundef nonnull @.str.259, ptr noundef nonnull %.str.70., ptr noundef %22, i32 noundef %17)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %3, ptr noundef nonnull @.str.259, ptr noundef nonnull %.str.70., ptr noundef %22, i32 noundef %17)
   %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #45
   %.not34 = icmp eq i32 %23, 0
   br i1 %.not34, label %24, label %.critedge
@@ -14695,7 +14695,7 @@ define hidden range(i32 0, 2) i32 @PrintAction(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @lemon_sprintf.retelim(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @lemon_sprintf(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [50 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -15400,7 +15400,7 @@ define hidden noalias noundef ptr @pathsearch(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not52, label %14, label %13
 
 13:                                               ; preds = %5
-  tail call void (ptr, ptr, ...) @lemon_sprintf.retelim(ptr noundef %12, ptr noundef nonnull @.str.124, ptr noundef %0, ptr noundef %1)
+  tail call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %12, ptr noundef nonnull @.str.124, ptr noundef %0, ptr noundef %1)
   br label %14
 
 14:                                               ; preds = %13, %5
@@ -15459,7 +15459,7 @@ lemon_strcpy.exit:                                ; preds = %.preheader, %46
   %.0 = phi ptr [ %39, %36 ], [ %34, %33 ]
   %41 = load i8, ptr %.0, align 1
   store i8 0, ptr %.0, align 1
-  tail call void (ptr, ptr, ...) @lemon_sprintf.retelim(ptr noundef %26, ptr noundef nonnull @.str.124, ptr noundef nonnull %.041, ptr noundef %1)
+  tail call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %26, ptr noundef nonnull @.str.124, ptr noundef nonnull %.041, ptr noundef %1)
   store i8 %41, ptr %.0, align 1
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %43, label %44
@@ -15781,11 +15781,11 @@ define hidden noalias noundef ptr @tplt_open(ptr nocapture noundef %0) local_unn
   %31 = ptrtoint ptr %27 to i64
   %32 = sub i64 %30, %31
   %33 = trunc i64 %32 to i32
-  call void (ptr, ptr, ...) @lemon_sprintf.retelim(ptr noundef %2, ptr noundef nonnull @.str.131, i32 noundef %33, ptr noundef %27)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.131, i32 noundef %33, ptr noundef %27)
   br label %35
 
 34:                                               ; preds = %25
-  call void (ptr, ptr, ...) @lemon_sprintf.retelim(ptr noundef %2, ptr noundef nonnull @.str.132, ptr noundef %27)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.132, ptr noundef %27)
   br label %35
 
 35:                                               ; preds = %34, %29
@@ -16266,7 +16266,7 @@ thread-pre-split:                                 ; preds = %24
   br i1 %46, label %47, label %61
 
 47:                                               ; preds = %44
-  call void (ptr, ptr, ...) @lemon_sprintf.retelim(ptr noundef %5, ptr noundef nonnull @.str.138, i32 noundef %.02131)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %5, ptr noundef nonnull @.str.138, i32 noundef %.02131)
   %48 = load ptr, ptr @append_str.z, align 8
   %49 = load i32, ptr @append_str.used, align 4
   %50 = sext i32 %49 to i64
@@ -16479,7 +16479,7 @@ append_str.exit217:                               ; preds = %append_str.exit, %5
   br label %.thread
 
 84:                                               ; preds = %62
-  call void (ptr, ptr, ...) @lemon_sprintf.retelim(ptr noundef %5, ptr noundef nonnull @.str.141, ptr noundef nonnull %60, ptr noundef nonnull %23)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %5, ptr noundef nonnull @.str.141, ptr noundef nonnull %60, ptr noundef nonnull %23)
   %85 = load ptr, ptr %10, align 8
   %86 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(1) %5) #45
   %.not = icmp eq ptr %86, null

@@ -816,9 +816,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %191 = getelementptr inbounds i8, ptr %187, i64 32
   store ptr @_ZL12cmStaticCAPI, ptr %191, align 8, !noalias !73
   invoke void %.0116119(ptr noundef nonnull %190)
-          to label %195 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit12.i.i.i.i.i.i, !noalias !73
+          to label %195 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i, !noalias !73
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit12.i.i.i.i.i.i: ; preds = %.noexc.i
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i: ; preds = %.noexc.i
   %192 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %187) #33, !noalias !73
@@ -829,8 +829,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCom
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %193, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit12.i.i.i.i.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %194, %193 ], [ %192, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit12.i.i.i.i.i.i ]
+.body.i:                                          ; preds = %193, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i
+  %eh.lpad-body.i = phi { ptr, i32 } [ %194, %193 ], [ %192, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %184) #33, !noalias !67
   br label %.body89
 
@@ -1857,7 +1857,7 @@ define internal void @_ZN12_GLOBAL__N_115cmLoadedCommandD2Ev(ptr nocapture nound
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit, label %3
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -1893,7 +1893,7 @@ define internal void @_ZN12_GLOBAL__N_115cmLoadedCommandD2Ev(ptr nocapture nound
 19:                                               ; preds = %17, %15
   %.0.i.i.i.i = phi i32 [ %7, %15 ], [ %18, %17 ]
   %20 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %20, label %21, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit
+  br i1 %20, label %21, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %.val, align 8
@@ -1918,16 +1918,16 @@ define internal void @_ZN12_GLOBAL__N_115cmLoadedCommandD2Ev(ptr nocapture nound
 32:                                               ; preds = %30, %27
   %.0.i.i.i.i.i.i = phi i32 [ %28, %27 ], [ %31, %30 ]
   %33 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %33, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit
+  br i1 %33, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %32, %8
   %34 = load ptr, ptr %.val, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %.val) #31
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit: ; preds = %1, %19, %32, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit: ; preds = %1, %19, %32, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
@@ -2023,7 +2023,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115cmLoadedCommand11InitialP
   %9 = getelementptr inbounds i8, ptr %.val, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit, label %11
+  br i1 %.not, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %.val, i64 80
@@ -2096,7 +2096,7 @@ common.resume:                                    ; preds = %.body, %.body53, %4
 45:                                               ; preds = %._crit_edge
   %46 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_118SignalHandlerGuardD2Ev.argprom() #31
+  tail call fastcc void @_ZN12_GLOBAL__N_118SignalHandlerGuardD2Ev() #31
   br label %common.resume
 
 _ZN12_GLOBAL__N_117LoadedCommandImpl13DoInitialPassEP10cmMakefileiPPc.exit: ; preds = %._crit_edge
@@ -2128,7 +2128,7 @@ _ZL15cmFreeArgumentsiPPc.exit:                    ; preds = %.lr.ph.i, %_ZN12_GL
   %53 = getelementptr inbounds i8, ptr %.val37, i64 40
   %54 = load ptr, ptr %53, align 8
   %.not30 = icmp eq ptr %54, null
-  br i1 %.not30, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit, label %55
+  br i1 %.not30, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit, label %55
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2245,11 +2245,11 @@ _ZNSt8functionIFvR16cmLocalGeneratorRK19cmListFileBacktraceSt10unique_ptrI15cmCu
 _ZN10cmMakefile15GeneratorActionD2Ev.exit.i:      ; preds = %94, %_ZNSt8functionIFvR16cmLocalGeneratorRK19cmListFileBacktraceSt10unique_ptrI15cmCustomCommandSt14default_deleteIS6_EEEED2Ev.exit.i.i
   %99 = load ptr, ptr %76, align 8
   %.not.i.i3.i = icmp eq ptr %99, null
-  br i1 %.not.i.i3.i, label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit", label %100
+  br i1 %.not.i.i3.i, label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit", label %100
 
 100:                                              ; preds = %_ZN10cmMakefile15GeneratorActionD2Ev.exit.i
   %101 = invoke noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3)
-          to label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit" unwind label %102
+          to label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit" unwind label %102
 
 102:                                              ; preds = %100
   %103 = landingpad { ptr, i32 }
@@ -2277,12 +2277,12 @@ _ZN10cmMakefile15GeneratorActionD2Ev.exit.i:      ; preds = %94, %_ZNSt8function
   call void @__clang_call_terminate(ptr %112) #29
   unreachable
 
-"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit": ; preds = %_ZN10cmMakefile15GeneratorActionD2Ev.exit.i, %100
+"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit": ; preds = %_ZN10cmMakefile15GeneratorActionD2Ev.exit.i, %100
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit, label %113
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit, label %113
 
-113:                                              ; preds = %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit"
+113:                                              ; preds = %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit"
   %114 = getelementptr inbounds i8, ptr %57, i64 8
   %115 = load atomic i64, ptr %114 acquire, align 8
   %116 = icmp eq i64 %115, 4294967297
@@ -2316,7 +2316,7 @@ _ZN10cmMakefile15GeneratorActionD2Ev.exit.i:      ; preds = %94, %_ZNSt8function
 129:                                              ; preds = %127, %125
   %.0.i.i.i.i = phi i32 [ %117, %125 ], [ %128, %127 ]
   %130 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %130, label %131, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit
+  br i1 %130, label %131, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit
 
 131:                                              ; preds = %129
   %132 = load ptr, ptr %57, align 8
@@ -2341,14 +2341,14 @@ _ZN10cmMakefile15GeneratorActionD2Ev.exit.i:      ; preds = %94, %_ZNSt8function
 142:                                              ; preds = %140, %137
   %.0.i.i.i.i.i.i = phi i32 [ %138, %137 ], [ %141, %140 ]
   %143 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %143, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit
+  br i1 %143, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %142, %118
   %144 = load ptr, ptr %57, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 24
   %146 = load ptr, ptr %145, align 8
   call void %146(ptr noundef nonnull align 8 dereferenceable(16) %57) #31
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit
 
 147:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEEC2ERKS2_.exit45
   %148 = landingpad { ptr, i32 }
@@ -2358,15 +2358,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 .body:                                            ; preds = %105, %108, %147
   %.sroa.3.0 = phi ptr [ %57, %147 ], [ null, %108 ], [ null, %105 ]
   %eh.lpad-body = phi { ptr, i32 } [ %148, %147 ], [ %106, %108 ], [ %106, %105 ]
-  call fastcc void @"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom"(ptr %.sroa.3.0) #31
-  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom(ptr %57) #31
+  call fastcc void @"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev"(ptr %.sroa.3.0) #31
+  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev(ptr %57) #31
   br label %common.resume
 
 149:                                              ; preds = %_ZL15cmFreeArgumentsiPPc.exit
   %150 = getelementptr inbounds i8, ptr %.val37, i64 80
   %151 = load ptr, ptr %150, align 8
   %.not28 = icmp eq ptr %151, null
-  br i1 %.not28, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit, label %152
+  br i1 %.not28, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit, label %152
 
 152:                                              ; preds = %149
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #31
@@ -2396,7 +2396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 158:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #31
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit
 
 159:                                              ; preds = %.noexc51, %152
   %160 = landingpad { ptr, i32 }
@@ -2414,8 +2414,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #31
   br label %common.resume
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %142, %129, %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit", %149, %158, %52, %3
-  %.020 = phi i1 [ true, %3 ], [ true, %52 ], [ false, %158 ], [ false, %149 ], [ true, %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit" ], [ true, %129 ], [ true, %142 ], [ true, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ]
+_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %142, %129, %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit", %149, %158, %52, %3
+  %.020 = phi i1 [ true, %3 ], [ true, %52 ], [ false, %158 ], [ false, %149 ], [ true, %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit" ], [ true, %129 ], [ true, %142 ], [ true, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ]
   ret i1 %.020
 }
 
@@ -2579,11 +2579,11 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedComm
   %18 = getelementptr inbounds i8, ptr %0, i64 96
   %19 = load ptr, ptr %18, align 8
   %.not1.i.i.i = icmp eq ptr %19, null
-  br i1 %.not1.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117LoadedCommandImplEEEvRS0_PT_.argprom.exit, label %20
+  br i1 %.not1.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117LoadedCommandImplEEEvRS0_PT_.exit, label %20
 
 20:                                               ; preds = %17
   tail call void @free(ptr noundef nonnull %19) #31
-  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117LoadedCommandImplEEEvRS0_PT_.argprom.exit
+  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117LoadedCommandImplEEEvRS0_PT_.exit
 
 21:                                               ; preds = %4
   %22 = landingpad { ptr, i32 }
@@ -2592,13 +2592,13 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedComm
   tail call void @__clang_call_terminate(ptr %23) #29
   unreachable
 
-_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117LoadedCommandImplEEEvRS0_PT_.argprom.exit: ; preds = %17, %20
+_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_117LoadedCommandImplEEEvRS0_PT_.exit: ; preds = %17, %20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117LoadedCommandImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #33
   ret void
 }
@@ -12544,7 +12544,7 @@ declare void @_ZNK10cmMakefile13DisplayStatusERKNSt7__cxx1112basic_stringIcSt11c
 declare void @_ZN7cmState14DefinePropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10cmProperty9ScopeTypeES7_S7_bS7_(ptr noundef nonnull align 8 dereferenceable(705), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118SignalHandlerGuardD2Ev.argprom() unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118SignalHandlerGuardD2Ev() unnamed_addr #3 align 2 {
   %1 = tail call ptr @signal(i32 noundef 11, ptr noundef null) #31
   %2 = tail call ptr @signal(i32 noundef 7, ptr noundef null) #31
   %3 = tail call ptr @signal(i32 noundef 4, ptr noundef null) #31
@@ -12555,9 +12555,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_118SignalHandlerGuardD2Ev.argprom()
 declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom(ptr %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev(ptr %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_117LoadedCommandImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_117LoadedCommandImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -12593,7 +12593,7 @@ define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImp
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_117LoadedCommandImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_117LoadedCommandImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -12618,23 +12618,23 @@ define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImp
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_117LoadedCommandImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_117LoadedCommandImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #31
-  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_117LoadedCommandImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_117LoadedCommandImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN12_GLOBAL__N_117LoadedCommandImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIN12_GLOBAL__N_117LoadedCommandImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom"(ptr %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev"(ptr %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -12670,7 +12670,7 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassER
 17:                                               ; preds = %15, %13
   %.0.i.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -12695,16 +12695,16 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassER
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #31
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 }
 
@@ -12781,15 +12781,15 @@ define internal void @"_ZNSt17_Function_handlerIFvR16cmLocalGeneratorRK19cmListF
   %11 = getelementptr inbounds i8, ptr %.val3, i64 40
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull %.val3, ptr noundef %.val4)
-          to label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JR16cmLocalGeneratorRK19cmListFileBacktraceEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit" unwind label %13
+          to label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JR16cmLocalGeneratorRK19cmListFileBacktraceEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit" unwind label %13
 
 13:                                               ; preds = %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN12_GLOBAL__N_118SignalHandlerGuardD2Ev.argprom() #31
+  tail call fastcc void @_ZN12_GLOBAL__N_118SignalHandlerGuardD2Ev() #31
   resume { ptr, i32 } %14
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JR16cmLocalGeneratorRK19cmListFileBacktraceEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %3
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusE3$_0JR16cmLocalGeneratorRK19cmListFileBacktraceEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %3
   %15 = tail call ptr @signal(i32 noundef 11, ptr noundef null) #31
   %16 = tail call ptr @signal(i32 noundef 7, ptr noundef null) #31
   %17 = tail call ptr @signal(i32 noundef 4, ptr noundef null) #31
@@ -12798,7 +12798,7 @@ define internal void @"_ZNSt17_Function_handlerIFvR16cmLocalGeneratorRK19cmListF
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvR16cmLocalGeneratorRK19cmListFileBacktraceEZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #6 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %18
@@ -12807,12 +12807,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvR16cmLocalGenera
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -12824,7 +12824,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvR16cmLocalGenera
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.val8.i, ptr %9, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.argprom.exit.i", label %10
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.exit.i", label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %.val8.i, i64 8
@@ -12836,26 +12836,26 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvR16cmLocalGenera
   %14 = load i32, ptr %11, align 4
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %11, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.exit.i"
 
 16:                                               ; preds = %10
   %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.argprom.exit.i"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.exit.i"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.argprom.exit.i": ; preds = %16, %13, %6
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.exit.i": ; preds = %16, %13, %6
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 18:                                               ; preds = %3
   %.val9.i = load ptr, ptr %0, align 8
   %19 = icmp eq ptr %.val9.i, null
-  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit", label %20
+  br i1 %19, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit", label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr i8, ptr %.val9.i, i64 8
   %.val.i.i = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit.i.i", label %22
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit.i.i", label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
@@ -12891,7 +12891,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvR16cmLocalGenera
 38:                                               ; preds = %36, %34
   %.0.i.i.i.i.i.i.i = phi i32 [ %26, %34 ], [ %37, %36 ]
   %39 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %39, label %40, label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %39, label %40, label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit.i.i"
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %.val.i.i, align 8
@@ -12916,20 +12916,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvR16cmLocalGenera
 51:                                               ; preds = %49, %46
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %47, %46 ], [ %50, %49 ]
   %52 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit.i.i"
+  br i1 %52, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit.i.i"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %51, %27
   %53 = load ptr, ptr %.val.i.i, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #31
-  br label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit.i.i"
 
-"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
+"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit.i.i": ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %51, %38, %20
   tail call void @_ZdlPv(ptr noundef nonnull %.val9.i) #33
-  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.argprom.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.argprom.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit": ; preds = %3, %"_ZZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusEN3$_0D2Ev.exit.i.i", %18, %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -13141,11 +13141,11 @@ attributes #36 = { noreturn }
 !65 = distinct !{!65, !66, !"_ZZ8cmStrCatIcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA5_KcEES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_: argument 0"}
 !66 = distinct !{!66, !"_ZZ8cmStrCatIcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA5_KcEES5_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZSt11make_uniqueIN12_GLOBAL__N_115cmLoadedCommandEJRPFvP19cmLoadedCommandInfoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!69 = distinct !{!69, !"_ZSt11make_uniqueIN12_GLOBAL__N_115cmLoadedCommandEJRPFvP19cmLoadedCommandInfoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!68 = distinct !{!68, !69, !"_ZSt11make_uniqueIN12_GLOBAL__N_115cmLoadedCommandEJRPFvP19cmLoadedCommandInfoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!69 = distinct !{!69, !"_ZSt11make_uniqueIN12_GLOBAL__N_115cmLoadedCommandEJRPFvP19cmLoadedCommandInfoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZSt11make_sharedIN12_GLOBAL__N_117LoadedCommandImplEJRPFvP19cmLoadedCommandInfoEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: argument 0"}
-!72 = distinct !{!72, !"_ZSt11make_sharedIN12_GLOBAL__N_117LoadedCommandImplEJRPFvP19cmLoadedCommandInfoEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
+!71 = distinct !{!71, !72, !"_ZSt11make_sharedIN12_GLOBAL__N_117LoadedCommandImplEJRPFvP19cmLoadedCommandInfoEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!72 = distinct !{!72, !"_ZSt11make_sharedIN12_GLOBAL__N_117LoadedCommandImplEJRPFvP19cmLoadedCommandInfoEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
 !73 = !{!71, !68}
 !74 = distinct !{!74, !30}
 !75 = distinct !{!75, !30}

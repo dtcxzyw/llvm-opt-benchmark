@@ -442,14 +442,14 @@ _ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120Iterato
   %.0811.i.i.i.i.i.i.i.add.i.i = add nuw nsw i64 %.0811.i.i.i.i.i.i.i.idx.i.i, 80
   %149 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i.i.i, i64 80
   %.not.i.i.i.i.i.i.i37.i.i = icmp eq i64 %.0811.i.i.i.i.i.i.i.add.i.i, 240
-  br i1 %.not.i.i.i.i.i.i.i37.i.i, label %_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES8_EE.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i.i.i.i37.i.i, label %_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES8_EE.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i36.i.i, !llvm.loop !7
 
-_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES8_EE.argprom.exit.i.i: ; preds = %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i
+_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES8_EE.exit.i.i: ; preds = %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EEJRKSB_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i
   store ptr %149, ptr %119, align 8
   br label %150
 
-150:                                              ; preds = %_ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS1_14CheckerContextENS1_4SValES7_EED2Ev.exit.i.i, %_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES8_EE.argprom.exit.i.i
-  %151 = phi ptr [ %120, %_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES8_EE.argprom.exit.i.i ], [ %152, %_ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS1_14CheckerContextENS1_4SValES7_EED2Ev.exit.i.i ]
+150:                                              ; preds = %_ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS1_14CheckerContextENS1_4SValES7_EED2Ev.exit.i.i, %_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES8_EE.exit.i.i
+  %151 = phi ptr [ %120, %_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES8_EE.exit.i.i ], [ %152, %_ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS1_14CheckerContextENS1_4SValES7_EED2Ev.exit.i.i ]
   %152 = getelementptr inbounds i8, ptr %151, i64 -80
   %153 = getelementptr inbounds i8, ptr %151, i64 -64
   %154 = load ptr, ptr %153, align 8
@@ -1098,7 +1098,7 @@ define internal void @_ZN12_GLOBAL__N_120IteratorRangeCheckerD2Ev(ptr noundef no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
-  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %1, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %18, %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EEEvPT_.exit.i.i.i.i.i ], [ %3, %1 ]
@@ -1137,18 +1137,18 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EEEvPT_.exit.i.i.i.i.i: ; preds = %12, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 80
   %.not.i.i.i.i.i = icmp eq ptr %18, %5
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.argprom.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.argprom.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EEEvPT_.exit.i.i.i.i.i
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EEEvPT_.exit.i.i.i.i.i
   %.val.pr.i.i = load ptr, ptr %2, align 8
-  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.argprom.exit.i.i
+  br label %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.argprom.exitthread-pre-split.i.i, %1
-  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.argprom.exitthread-pre-split.i.i ], [ %3, %1 ]
+_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i.i, %1
+  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i.i ], [ %3, %1 ]
   %.not.i.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EED2Ev.exit, label %19
 
-19:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.argprom.exit.i.i
+19:                                               ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.exit.i.i
   %20 = getelementptr inbounds i8, ptr %0, i64 152
   %.val1.i.i = load ptr, ptr %20, align 8
   %21 = ptrtoint ptr %.val1.i.i to i64
@@ -1157,7 +1157,7 @@ _ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorR
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %23) #16
   br label %_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EED2Ev.exit
 
-_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.argprom.exit.i.i, %19
+_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS0_14CheckerContextENS0_4SValES6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS2_14CheckerContextENS2_4SValES8_EESB_EvT_SD_RSaIT0_E.exit.i.i, %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2453,21 +2453,21 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i: ; p
   %35 = call noundef zeroext i1 @_ZN5clang4ento8iterator7compareEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprES9_NS_18BinaryOperatorKindE(ptr noundef nonnull %6, ptr noundef %34, ptr noundef nonnull %27, i32 noundef 14) #14
   %36 = load ptr, ptr %6, align 8
   %.not.i.i2.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i2.i.i, label %_ZN12_GLOBAL__N_17isEqualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprES9_.argprom.exit.i, label %37
+  br i1 %.not.i.i2.i.i, label %_ZN12_GLOBAL__N_17isEqualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprES9_.exit.i, label %37
 
 37:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %36) #14
-  br label %_ZN12_GLOBAL__N_17isEqualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprES9_.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_17isEqualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprES9_.exit.i
 
-_ZN12_GLOBAL__N_17isEqualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprES9_.argprom.exit.i: ; preds = %37, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i
+_ZN12_GLOBAL__N_17isEqualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprES9_.exit.i: ; preds = %37, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i.thread
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i: ; preds = %_ZN12_GLOBAL__N_17isEqualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprES9_.argprom.exit.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i: ; preds = %_ZN12_GLOBAL__N_17isEqualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprES9_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br i1 %35, label %43, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit32
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i.thread: ; preds = %_ZN12_GLOBAL__N_17isEqualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprES9_.argprom.exit.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i.thread: ; preds = %_ZN12_GLOBAL__N_17isEqualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprES9_.exit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br i1 %35, label %.thread.i.i, label %.thread44

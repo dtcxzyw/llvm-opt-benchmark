@@ -1577,7 +1577,7 @@ define internal i32 @dissect_bp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %89 = load ptr, ptr %39, align 8
   %90 = call i32 @wscbor_skip_if_errors(ptr noundef %89, ptr noundef %0, ptr noundef nonnull %10, ptr noundef %86) #16
   %.not.i = icmp eq i32 %90, 0
-  br i1 %.not.i, label %91, label %dissect_block_primary.argprom.exit
+  br i1 %.not.i, label %91, label %dissect_block_primary.exit
 
 91:                                               ; preds = %81
   %92 = load ptr, ptr %39, align 8
@@ -1796,7 +1796,7 @@ proto_item_set_generated.exit185.i:               ; preds = %206, %203, %199, %p
   store i32 %82, ptr %10, align 4
   %216 = load ptr, ptr %39, align 8
   %217 = call i32 @wscbor_skip_next_item(ptr noundef %216, ptr noundef %0, ptr noundef nonnull %10) #16
-  br label %dissect_block_primary.argprom.exit
+  br label %dissect_block_primary.exit
 
 218:                                              ; preds = %213
   %219 = load ptr, ptr %39, align 8
@@ -1821,7 +1821,7 @@ proto_item_set_generated.exit185.i:               ; preds = %206, %203, %199, %p
   %.0161.i = phi i64 [ 11, %218 ], [ 9, %210 ], [ 9, %proto_item_set_generated.exit185.i ]
   %234 = load i64, ptr %127, align 8
   switch i64 %234, label %249 [
-    i64 0, label %dissect_block_primary.argprom.exit
+    i64 0, label %dissect_block_primary.exit
     i64 1, label %235
     i64 2, label %235
   ]
@@ -1835,7 +1835,7 @@ proto_item_set_generated.exit185.i:               ; preds = %206, %203, %199, %p
   store i32 %82, ptr %10, align 4
   %238 = load ptr, ptr %39, align 8
   %239 = call i32 @wscbor_skip_next_item(ptr noundef %238, ptr noundef %0, ptr noundef nonnull %10) #16
-  br label %dissect_block_primary.argprom.exit
+  br label %dissect_block_primary.exit
 
 240:                                              ; preds = %235
   %241 = load ptr, ptr %39, align 8
@@ -1848,13 +1848,13 @@ proto_item_set_generated.exit185.i:               ; preds = %206, %203, %199, %p
   %247 = sub i32 %246, %82
   %248 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %82, i32 noundef %247) #16
   call fastcc void @show_crc_info(ptr noundef %248, ptr noundef nonnull %1, ptr noundef %79, ptr noundef %118, ptr noundef %244)
-  br label %dissect_block_primary.argprom.exit
+  br label %dissect_block_primary.exit
 
 249:                                              ; preds = %233
   %250 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %120, ptr noundef nonnull @ei_crc_type_unknown) #16
-  br label %dissect_block_primary.argprom.exit
+  br label %dissect_block_primary.exit
 
-dissect_block_primary.argprom.exit:               ; preds = %81, %215, %233, %237, %240, %249
+dissect_block_primary.exit:                       ; preds = %81, %215, %233, %237, %240, %249
   %.pn.i = load i32, ptr %10, align 4
   %.0.i = sub i32 %.pn.i, %82
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
@@ -1863,7 +1863,7 @@ dissect_block_primary.argprom.exit:               ; preds = %81, %215, %233, %23
   %251 = icmp slt i32 %.0.i, 1
   br i1 %251, label %.loopexit, label %252
 
-252:                                              ; preds = %dissect_block_primary.argprom.exit
+252:                                              ; preds = %dissect_block_primary.exit
   %253 = load i32, ptr %13, align 4
   %254 = add i32 %253, %.0.i
   store i32 %254, ptr %13, align 4
@@ -1922,7 +1922,7 @@ bp_bundle_ident_new.exit:                         ; preds = %267, %276
   store ptr %268, ptr %62, align 8
   %285 = load i32, ptr @hf_bundle_ident, align 4
   %.val = load ptr, ptr %39, align 8
-  %286 = call fastcc ptr @proto_tree_add_ident.argprom(ptr %.val, ptr noundef %28, i32 noundef %285, ptr noundef %0, ptr noundef nonnull %268)
+  %286 = call fastcc ptr @proto_tree_add_ident(ptr %.val, ptr noundef %28, i32 noundef %285, ptr noundef %0, ptr noundef nonnull %268)
   %287 = load i32, ptr @ett_ident, align 4
   %288 = call ptr @proto_item_add_subtree(ptr noundef %286, i32 noundef %287) #16
   %289 = load ptr, ptr @bp_history, align 8
@@ -2441,8 +2441,8 @@ proto_item_set_generated.exit330:                 ; preds = %353, %364, %361, %3
   %.not285 = icmp slt i32 %549, %38
   br i1 %.not285, label %66, label %._crit_edge
 
-.loopexit:                                        ; preds = %dissect_block_canonical.exit, %dissect_block_primary.argprom.exit, %70, %._crit_edge
-  %.0249360 = phi i64 [ %.0249367, %70 ], [ %.0249.lcssa, %._crit_edge ], [ %.0249367, %dissect_block_canonical.exit ], [ 0, %dissect_block_primary.argprom.exit ]
+.loopexit:                                        ; preds = %dissect_block_canonical.exit, %dissect_block_primary.exit, %70, %._crit_edge
+  %.0249360 = phi i64 [ %.0249367, %70 ], [ %.0249.lcssa, %._crit_edge ], [ %.0249367, %dissect_block_canonical.exit ], [ 0, %dissect_block_primary.exit ]
   %550 = getelementptr inbounds i8, ptr %30, i64 40
   %551 = load ptr, ptr %550, align 8
   %552 = call ptr @wmem_list_head(ptr noundef %551) #16
@@ -3931,7 +3931,7 @@ bp_bundle_ident_new.exit:                         ; preds = %50, %76
 .thread:                                          ; preds = %bp_bundle_ident_new.exit, %96, %88
   %103 = load i32, ptr @hf_status_rep_subj_ident, align 4
   %.val = load ptr, ptr %13, align 8
-  %104 = call fastcc ptr @proto_tree_add_ident.argprom(ptr %.val, ptr noundef %12, i32 noundef %103, ptr noundef %0, ptr noundef nonnull %69)
+  %104 = call fastcc ptr @proto_tree_add_ident(ptr %.val, ptr noundef %12, i32 noundef %103, ptr noundef %0, ptr noundef nonnull %69)
   %105 = load ptr, ptr @bp_history, align 8
   %106 = load ptr, ptr %105, align 8
   %107 = call ptr @wmem_map_lookup(ptr noundef %106, ptr noundef nonnull %69) #16
@@ -4133,7 +4133,7 @@ declare ptr @proto_tree_add_cbor_ctrl(ptr noundef, i32 noundef, ptr noundef, ptr
 declare void @proto_item_prepend_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @proto_tree_add_ident.argprom(ptr %.408.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc ptr @proto_tree_add_ident(ptr %.408.val, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %.408.val, ptr noundef null) #16
   %6 = tail call ptr @address_to_name(ptr noundef %3) #16
   %7 = getelementptr inbounds i8, ptr %3, i64 24
@@ -4273,7 +4273,7 @@ define internal i32 @block_dissect_sort(ptr noundef readonly %0, ptr noundef rea
   %9 = getelementptr i8, ptr %7, i64 16
   %.val = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %blocktype_order.argprom.exit, label %10
+  br i1 %.not.i, label %blocktype_order.exit, label %10
 
 10:                                               ; preds = %6
   %11 = load i64, ptr %.val, align 8
@@ -4281,29 +4281,29 @@ define internal i32 @block_dissect_sort(ptr noundef readonly %0, ptr noundef rea
   %switch.select.i = sext i1 %switch.selectcmp.i to i32
   %switch.selectcmp3.i = icmp eq i64 %11, 12
   %switch.select4.i = select i1 %switch.selectcmp3.i, i32 -2, i32 %switch.select.i
-  br label %blocktype_order.argprom.exit
+  br label %blocktype_order.exit
 
-blocktype_order.argprom.exit:                     ; preds = %6, %10
+blocktype_order.exit:                             ; preds = %6, %10
   %.0.i = phi i32 [ %switch.select4.i, %10 ], [ 0, %6 ]
   %12 = getelementptr i8, ptr %8, i64 16
   %.val17 = load ptr, ptr %12, align 8
   %.not.i18 = icmp eq ptr %.val17, null
-  br i1 %.not.i18, label %blocktype_order.argprom.exit24, label %13
+  br i1 %.not.i18, label %blocktype_order.exit24, label %13
 
-13:                                               ; preds = %blocktype_order.argprom.exit
+13:                                               ; preds = %blocktype_order.exit
   %14 = load i64, ptr %.val17, align 8
   %switch.selectcmp.i19 = icmp eq i64 %14, 11
   %switch.select.i20 = sext i1 %switch.selectcmp.i19 to i32
   %switch.selectcmp3.i21 = icmp eq i64 %14, 12
   %switch.select4.i22 = select i1 %switch.selectcmp3.i21, i32 -2, i32 %switch.select.i20
-  br label %blocktype_order.argprom.exit24
+  br label %blocktype_order.exit24
 
-blocktype_order.argprom.exit24:                   ; preds = %blocktype_order.argprom.exit, %13
-  %.0.i23 = phi i32 [ %switch.select4.i22, %13 ], [ 0, %blocktype_order.argprom.exit ]
+blocktype_order.exit24:                           ; preds = %blocktype_order.exit, %13
+  %.0.i23 = phi i32 [ %switch.select4.i22, %13 ], [ 0, %blocktype_order.exit ]
   %15 = icmp slt i32 %.0.i, %.0.i23
   br i1 %15, label %20, label %16
 
-16:                                               ; preds = %blocktype_order.argprom.exit24
+16:                                               ; preds = %blocktype_order.exit24
   %17 = icmp sgt i32 %.0.i, %.0.i23
   br i1 %17, label %20, label %18
 
@@ -4311,8 +4311,8 @@ blocktype_order.argprom.exit24:                   ; preds = %blocktype_order.arg
   %19 = tail call i32 @g_int_equal(ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   br label %20
 
-20:                                               ; preds = %16, %blocktype_order.argprom.exit24, %18
-  %.0 = phi i32 [ %19, %18 ], [ -1, %blocktype_order.argprom.exit24 ], [ 1, %16 ]
+20:                                               ; preds = %16, %blocktype_order.exit24, %18
+  %.0 = phi i32 [ %19, %18 ], [ -1, %blocktype_order.exit24 ], [ 1, %16 ]
   ret i32 %.0
 }
 

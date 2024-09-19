@@ -2859,7 +2859,7 @@ print_stats_table_header.exit:                    ; preds = %print_stats_table_h
 739:                                              ; preds = %737, %735, %731
   %740 = load i32, ptr %295, align 8
   %.not164.i = icmp eq i32 %740, 0
-  br i1 %.not164.i, label %print_value.argprom.exit180.i, label %741
+  br i1 %.not164.i, label %print_value.exit180.i, label %741
 
 741:                                              ; preds = %739
   %.b133.i = load i1, ptr @cap_duration, align 4
@@ -2994,7 +2994,7 @@ absolute_time_string.exit179.i:                   ; preds = %793, %791, %790
 
 795:                                              ; preds = %absolute_time_string.exit179.i, %784
   %.b136.i = load i1, ptr @cap_data_rate_byte, align 4
-  br i1 %.b136.i, label %print_value.argprom.exit.i, label %796
+  br i1 %.b136.i, label %print_value.exit.i, label %796
 
 796:                                              ; preds = %795
   %797 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.116)
@@ -3008,24 +3008,24 @@ absolute_time_string.exit179.i:                   ; preds = %793, %791, %790
 
 801:                                              ; preds = %799
   %802 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.144, ptr noundef nonnull @.str.2, i32 noundef 2, double noundef %798, ptr noundef nonnull @.str.117)
-  br label %print_value.argprom.exit.i
+  br label %print_value.exit.i
 
 803:                                              ; preds = %799
   %804 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.145, ptr noundef nonnull @.str.2)
-  br label %print_value.argprom.exit.i
+  br label %print_value.exit.i
 
 805:                                              ; preds = %796
   %806 = fptosi double %798 to i64
   %807 = call ptr @format_size_wmem(ptr noundef null, i64 noundef %806, i32 noundef 4, i16 noundef zeroext 0) #16
   %puts165.i = call i32 @puts(ptr nonnull dereferenceable(1) %807)
   call void @g_free(ptr noundef %807) #16
-  br label %print_value.argprom.exit.i
+  br label %print_value.exit.i
 
-print_value.argprom.exit.i:                       ; preds = %805, %803, %801, %795
+print_value.exit.i:                               ; preds = %805, %803, %801, %795
   %.b137.i = load i1, ptr @cap_data_rate_bit, align 4
-  br i1 %.b137.i, label %print_value.argprom.exit180.i, label %808
+  br i1 %.b137.i, label %print_value.exit180.i, label %808
 
-808:                                              ; preds = %print_value.argprom.exit.i
+808:                                              ; preds = %print_value.exit.i
   %809 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.118)
   %.b151.i = load i1, ptr @machine_readable, align 4
   %810 = load double, ptr %307, align 8
@@ -3038,34 +3038,34 @@ print_value.argprom.exit.i:                       ; preds = %805, %803, %801, %7
 
 814:                                              ; preds = %812
   %815 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.144, ptr noundef nonnull @.str.2, i32 noundef 2, double noundef %811, ptr noundef nonnull @.str.119)
-  br label %print_value.argprom.exit180.i
+  br label %print_value.exit180.i
 
 816:                                              ; preds = %812
   %817 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.145, ptr noundef nonnull @.str.2)
-  br label %print_value.argprom.exit180.i
+  br label %print_value.exit180.i
 
 818:                                              ; preds = %808
   %819 = fptosi double %811 to i64
   %820 = call ptr @format_size_wmem(ptr noundef null, i64 noundef %819, i32 noundef 3, i16 noundef zeroext 0) #16
   %puts166.i = call i32 @puts(ptr nonnull dereferenceable(1) %820)
   call void @g_free(ptr noundef %820) #16
-  br label %print_value.argprom.exit180.i
+  br label %print_value.exit180.i
 
-print_value.argprom.exit180.i:                    ; preds = %818, %816, %814, %print_value.argprom.exit.i, %739
+print_value.exit180.i:                            ; preds = %818, %816, %814, %print_value.exit.i, %739
   %.b138.i = load i1, ptr @cap_packet_size, align 4
   br i1 %.b138.i, label %824, label %821
 
-821:                                              ; preds = %print_value.argprom.exit180.i
+821:                                              ; preds = %print_value.exit180.i
   %822 = load double, ptr %309, align 8
   %823 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.120, double noundef %822)
   br label %824
 
-824:                                              ; preds = %821, %print_value.argprom.exit180.i
+824:                                              ; preds = %821, %print_value.exit180.i
   %825 = load i32, ptr %295, align 8
   %826 = icmp eq i32 %825, 0
   %.b139.i = load i1, ptr @cap_packet_rate, align 4
   %or.cond.not.i = select i1 %826, i1 true, i1 %.b139.i
-  br i1 %or.cond.not.i, label %print_value.argprom.exit181.i, label %827
+  br i1 %or.cond.not.i, label %print_value.exit181.i, label %827
 
 827:                                              ; preds = %824
   %828 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.121)
@@ -3079,29 +3079,29 @@ print_value.argprom.exit180.i:                    ; preds = %818, %816, %814, %p
 
 832:                                              ; preds = %830
   %833 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.144, ptr noundef nonnull @.str.2, i32 noundef 2, double noundef %829, ptr noundef nonnull @.str.122)
-  br label %print_value.argprom.exit181.i
+  br label %print_value.exit181.i
 
 834:                                              ; preds = %830
   %835 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.145, ptr noundef nonnull @.str.2)
-  br label %print_value.argprom.exit181.i
+  br label %print_value.exit181.i
 
 836:                                              ; preds = %827
   %837 = fptosi double %829 to i64
   %838 = call ptr @format_size_wmem(ptr noundef null, i64 noundef %837, i32 noundef 6, i16 noundef zeroext 0) #16
   %puts168.i = call i32 @puts(ptr nonnull dereferenceable(1) %838)
   call void @g_free(ptr noundef %838) #16
-  br label %print_value.argprom.exit181.i
+  br label %print_value.exit181.i
 
-print_value.argprom.exit181.i:                    ; preds = %836, %834, %832, %824
+print_value.exit181.i:                            ; preds = %836, %834, %832, %824
   %.b140.i = load i1, ptr @cap_file_hashes, align 4
   br i1 %.b140.i, label %842, label %839
 
-839:                                              ; preds = %print_value.argprom.exit181.i
+839:                                              ; preds = %print_value.exit181.i
   %840 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.123, ptr noundef nonnull @file_sha256)
   %841 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.124, ptr noundef nonnull @file_sha1)
   br label %842
 
-842:                                              ; preds = %839, %print_value.argprom.exit181.i
+842:                                              ; preds = %839, %print_value.exit181.i
   %.b141.i = load i1, ptr @cap_order, align 4
   br i1 %.b141.i, label %848, label %843
 

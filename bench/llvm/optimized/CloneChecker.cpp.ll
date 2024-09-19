@@ -1347,15 +1347,15 @@ _ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit
 
 ._crit_edge62.i.i:                                ; preds = %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i.i, %._crit_edge54.i.i
   %.not.i.i.i49.i.i = icmp eq ptr %.sroa.017.0.lcssa.i.i, null
-  br i1 %.not.i.i.i49.i.i, label %_ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.argprom.exit.i, label %216
+  br i1 %.not.i.i.i49.i.i, label %_ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.exit.i, label %216
 
 216:                                              ; preds = %._crit_edge62.i.i
   %217 = ptrtoint ptr %.sroa.017.0.lcssa.i.i to i64
   %218 = sub i64 %.sroa.10.0.lcssa.i.i, %217
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.017.0.lcssa.i.i, i64 noundef %218) #19
-  br label %_ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.argprom.exit.i
+  br label %_ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.exit.i
 
-_ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.argprom.exit.i: ; preds = %216, %._crit_edge62.i.i
+_ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.exit.i: ; preds = %216, %._crit_edge62.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
@@ -1374,7 +1374,7 @@ _ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugRepor
   %221 = trunc i8 %220 to i1
   br i1 %221, label %222, label %371
 
-222:                                              ; preds = %_ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.argprom.exit.i
+222:                                              ; preds = %_ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   call void @_ZN5clang33MatchingVariablePatternConstraint9constrainERSt6vectorIN4llvm11SmallVectorINS_12StmtSequenceELj8EEESaIS5_EE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(24) %27) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
@@ -1386,7 +1386,7 @@ _ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugRepor
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %.not12.i.i = icmp eq ptr %.val6.i, %.val7.i
-  br i1 %.not12.i.i, label %_ZNK12_GLOBAL__N_112CloneChecker12reportClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.argprom.exit.i, label %.lr.ph15.i.i
+  br i1 %.not12.i.i, label %_ZNK12_GLOBAL__N_112CloneChecker12reportClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.exit.i, label %.lr.ph15.i.i
 
 .lr.ph15.i.i:                                     ; preds = %222
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1649,16 +1649,16 @@ _ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit
   store ptr null, ptr %10, align 8
   %370 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i, i64 208
   %.not.i16.i = icmp eq ptr %370, %.val7.i
-  br i1 %.not.i16.i, label %_ZNK12_GLOBAL__N_112CloneChecker12reportClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.argprom.exit.i, label %224
+  br i1 %.not.i16.i, label %_ZNK12_GLOBAL__N_112CloneChecker12reportClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.exit.i, label %224
 
-_ZNK12_GLOBAL__N_112CloneChecker12reportClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.argprom.exit.i: ; preds = %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i15.i, %222
+_ZNK12_GLOBAL__N_112CloneChecker12reportClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.exit.i: ; preds = %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i15.i, %222
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %371
 
-371:                                              ; preds = %_ZNK12_GLOBAL__N_112CloneChecker12reportClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.argprom.exit.i, %_ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.argprom.exit.i
+371:                                              ; preds = %_ZNK12_GLOBAL__N_112CloneChecker12reportClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.exit.i, %_ZNK12_GLOBAL__N_112CloneChecker22reportSuspiciousClonesERN5clang4ento11BugReporterERNS2_15AnalysisManagerERSt6vectorIN4llvm11SmallVectorINS1_12StmtSequenceELj8EEESaISB_EE.exit.i
   %372 = load ptr, ptr %27, align 8
   %373 = load ptr, ptr %69, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %372, %373
@@ -1688,7 +1688,7 @@ _ZSt8_DestroyIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_EvT_S6_RSaIT0_
 _ZSt8_DestroyIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_EvT_S6_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i.i, %371
   %380 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i.i ], [ %372, %371 ]
   %.not.i.i.i21.i = icmp eq ptr %380, null
-  br i1 %.not.i.i.i21.i, label %_ZNK12_GLOBAL__N_112CloneChecker25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %381
+  br i1 %.not.i.i.i21.i, label %_ZNK12_GLOBAL__N_112CloneChecker25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %381
 
 381:                                              ; preds = %_ZSt8_DestroyIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_EvT_S6_RSaIT0_E.exit.i.i
   %382 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -1697,9 +1697,9 @@ _ZSt8_DestroyIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_EvT_S6_RSaIT0_
   %385 = ptrtoint ptr %380 to i64
   %386 = sub i64 %384, %385
   call void @_ZdlPvm(ptr noundef nonnull %380, i64 noundef %386) #19
-  br label %_ZNK12_GLOBAL__N_112CloneChecker25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_112CloneChecker25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_112CloneChecker25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %_ZSt8_DestroyIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_EvT_S6_RSaIT0_E.exit.i.i, %381
+_ZNK12_GLOBAL__N_112CloneChecker25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %_ZSt8_DestroyIPN4llvm11SmallVectorIN5clang12StmtSequenceELj8EEES4_EvT_S6_RSaIT0_E.exit.i.i, %381
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   ret void

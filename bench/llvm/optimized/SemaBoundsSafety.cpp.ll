@@ -582,9 +582,9 @@ _ZN5clang9FieldDecl9getParentEv.exit122:          ; preds = %292, %293
   br label %.sink.split
 
 314:                                              ; preds = %_ZN5clang9FieldDecl9getParentEv.exit122
-  %315 = tail call fastcc noundef ptr @_ZN5clangL32GetEnclosingNamedOrTopAnonRecordEPKNS_9FieldDeclE.argprom(i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i111)
+  %315 = tail call fastcc noundef ptr @_ZN5clangL32GetEnclosingNamedOrTopAnonRecordEPKNS_9FieldDeclE(i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i111)
   %.val73 = load i64, ptr %278, align 8
-  %316 = tail call fastcc noundef ptr @_ZN5clangL32GetEnclosingNamedOrTopAnonRecordEPKNS_9FieldDeclE.argprom(i64 %.val73)
+  %316 = tail call fastcc noundef ptr @_ZN5clangL32GetEnclosingNamedOrTopAnonRecordEPKNS_9FieldDeclE(i64 %.val73)
   %.not70 = icmp eq ptr %315, %316
   br i1 %.not70, label %343, label %317
 
@@ -1636,7 +1636,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN5clangL32GetEnclosingNamedOrTopAnonRecordEPKNS_9FieldDeclE.argprom(i64 %.16.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN5clangL32GetEnclosingNamedOrTopAnonRecordEPKNS_9FieldDeclE(i64 %.16.val) unnamed_addr #0 {
   %1 = and i64 %.16.val, 4
   %2 = icmp eq i64 %1, 0
   %3 = and i64 %.16.val, -8

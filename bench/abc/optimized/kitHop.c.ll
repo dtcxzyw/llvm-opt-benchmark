@@ -1096,12 +1096,12 @@ Vec_IntGrow.exit.i66:                             ; preds = %57, %55
   %75 = sext i32 %.val57 to i64
   %.not.i68 = icmp slt i64 %indvars.iv, %75
   %.pre = load i32, ptr %73, align 8
-  br i1 %.not.i68, label %.Kit_GraphNodeFanin1.argprom.exit_crit_edge, label %76
+  br i1 %.not.i68, label %.Kit_GraphNodeFanin1.exit_crit_edge, label %76
 
-.Kit_GraphNodeFanin1.argprom.exit_crit_edge:      ; preds = %72
+.Kit_GraphNodeFanin1.exit_crit_edge:              ; preds = %72
   %.phi.trans.insert = getelementptr inbounds i8, ptr %73, i64 4
   %.pre80 = load i32, ptr %.phi.trans.insert, align 4
-  br label %Kit_GraphNodeFanin1.argprom.exit
+  br label %Kit_GraphNodeFanin1.exit
 
 76:                                               ; preds = %72
   %77 = lshr i32 %.pre, 1
@@ -1116,12 +1116,12 @@ Vec_IntGrow.exit.i66:                             ; preds = %57, %55
   %86 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val50, i64 %85
   %87 = ptrtoint ptr %80 to i64
   %88 = ptrtoint ptr %86 to i64
-  br label %Kit_GraphNodeFanin1.argprom.exit
+  br label %Kit_GraphNodeFanin1.exit
 
-Kit_GraphNodeFanin1.argprom.exit:                 ; preds = %.Kit_GraphNodeFanin1.argprom.exit_crit_edge, %76
-  %89 = phi i32 [ %82, %76 ], [ %.pre80, %.Kit_GraphNodeFanin1.argprom.exit_crit_edge ]
-  %90 = phi i64 [ %87, %76 ], [ 0, %.Kit_GraphNodeFanin1.argprom.exit_crit_edge ]
-  %91 = phi i64 [ %88, %76 ], [ 0, %.Kit_GraphNodeFanin1.argprom.exit_crit_edge ]
+Kit_GraphNodeFanin1.exit:                         ; preds = %.Kit_GraphNodeFanin1.exit_crit_edge, %76
+  %89 = phi i32 [ %82, %76 ], [ %.pre80, %.Kit_GraphNodeFanin1.exit_crit_edge ]
+  %90 = phi i64 [ %87, %76 ], [ 0, %.Kit_GraphNodeFanin1.exit_crit_edge ]
+  %91 = phi i64 [ %88, %76 ], [ 0, %.Kit_GraphNodeFanin1.exit_crit_edge ]
   %92 = sub i64 %90, %74
   %93 = sdiv exact i64 %92, 24
   %94 = trunc i64 %93 to i32
@@ -1143,11 +1143,11 @@ Kit_GraphNodeFanin1.argprom.exit:                 ; preds = %.Kit_GraphNodeFanin
   %108 = icmp eq i32 %106, %107
   br i1 %108, label %109, label %.Vec_IntGrow.exit10_crit_edge.i.i
 
-.Vec_IntGrow.exit10_crit_edge.i.i:                ; preds = %Kit_GraphNodeFanin1.argprom.exit
+.Vec_IntGrow.exit10_crit_edge.i.i:                ; preds = %Kit_GraphNodeFanin1.exit
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %Vec_IntPush.exit.i
 
-109:                                              ; preds = %Kit_GraphNodeFanin1.argprom.exit
+109:                                              ; preds = %Kit_GraphNodeFanin1.exit
   %110 = icmp slt i32 %106, 16
   br i1 %110, label %111, label %118
 

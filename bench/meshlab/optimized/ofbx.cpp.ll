@@ -736,7 +736,7 @@ $_ZTIN4ofbx8NullImplE = comdat any
 @.str.125 = private unnamed_addr constant [13 x i8] c"TimeSpanStop\00", align 1
 @.str.126 = private unnamed_addr constant [9 x i8] c"TimeMode\00", align 1
 @.str.127 = private unnamed_addr constant [16 x i8] c"CustomFrameRate\00", align 1
-@switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim = private unnamed_addr constant [9 x i32] [i32 8, i32 8, i32 4, i32 8, i32 8, i32 4, i32 8, i32 8, i32 8], align 4
+@switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i = private unnamed_addr constant [9 x i32] [i32 8, i32 8, i32 4, i32 8, i32 8, i32 4, i32 8, i32 8, i32 8], align 4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noundef i64 @_ZNK4ofbx8DataView5toU64Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
@@ -2488,7 +2488,7 @@ define noundef i32 @_ZNK4ofbx6Object16getRotationOrderEv(ptr nocapture noundef n
   %3 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %3, align 8
   %.not10.i.i.i = icmp eq ptr %.val.val, null
-  br i1 %.not10.i.i.i, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.argprom.argprom.exit, label %.lr.ph.split.i.i.i
+  br i1 %.not10.i.i.i, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %1, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i
   %4 = phi ptr [ %17, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i ], [ %.val.val, %1 ]
@@ -2524,13 +2524,13 @@ _ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i:       ; preds = %.lr.ph.i.i.i.i, %_Z
   %16 = getelementptr inbounds i8, ptr %4, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.argprom.argprom.exit, label %.lr.ph.split.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit, label %.lr.ph.split.i.i.i, !llvm.loop !8
 
 _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i:   ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.i.i.i
   %18 = getelementptr inbounds i8, ptr %4, i64 32
   %.06.i.i = load ptr, ptr %18, align 8
   %.not137.i.i = icmp eq ptr %.06.i.i, null
-  br i1 %.not137.i.i, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.argprom.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not137.i.i, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i
   %.08.i.i = phi ptr [ %.0.i.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i ], [ %.06.i.i, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i ]
@@ -2572,13 +2572,13 @@ _ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i:         ; preds = %.lr.ph.i15.i.i, %_Z
   %32 = getelementptr inbounds i8, ptr %.08.i.i, i64 40
   %.0.i.i = load ptr, ptr %32, align 8
   %.not13.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not13.i.i, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.argprom.argprom.exit, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not13.i.i, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit, label %.lr.ph.i.i, !llvm.loop !16
 
 .lr.ph.i11.i:                                     ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.i.i, %34
   %.010.i12.i = phi i32 [ %39, %34 ], [ 0, %_ZNK4ofbx8DataVieweqEPKc.exit.i.i ]
   %.079.i.i = phi ptr [ %38, %34 ], [ %20, %_ZNK4ofbx8DataVieweqEPKc.exit.i.i ]
   %33 = icmp eq ptr %.079.i.i, null
-  br i1 %33, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.argprom.argprom.exit, label %34
+  br i1 %33, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit, label %34
 
 34:                                               ; preds = %.lr.ph.i11.i
   %35 = load ptr, ptr %.079.i.i, align 8
@@ -2591,7 +2591,7 @@ _ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i:         ; preds = %.lr.ph.i15.i.i, %_Z
 
 _ZNK4ofbx7Element11getPropertyEi.exit.i:          ; preds = %34
   %.not10.i = icmp eq ptr %38, null
-  br i1 %.not10.i, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.argprom.argprom.exit, label %40
+  br i1 %.not10.i, label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit, label %40
 
 40:                                               ; preds = %_ZNK4ofbx7Element11getPropertyEi.exit.i
   %41 = getelementptr inbounds i8, ptr %38, i64 16
@@ -2603,13 +2603,13 @@ _ZNK4ofbx7Element11getPropertyEi.exit.i:          ; preds = %34
 
 46:                                               ; preds = %40
   %47 = load i32, ptr %45, align 4
-  br label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.argprom.argprom.exit
+  br label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit
 
 48:                                               ; preds = %40
   %49 = tail call i32 @atoi(ptr nocapture noundef %45) #30
-  br label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.argprom.argprom.exit
+  br label %_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit
 
-_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.argprom.argprom.exit: ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i, %.lr.ph.i11.i, %1, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i, %_ZNK4ofbx7Element11getPropertyEi.exit.i, %46, %48
+_ZN4ofbxL19resolveEnumPropertyERKNS_6ObjectEPKci.exit: ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i, %.lr.ph.i11.i, %1, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i, %_ZNK4ofbx7Element11getPropertyEi.exit.i, %46, %48
   %.0.i = phi i32 [ 0, %_ZNK4ofbx7Element11getPropertyEi.exit.i ], [ %47, %46 ], [ %49, %48 ], [ 0, %1 ], [ 0, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i ], [ 0, %.lr.ph.i11.i ], [ 0, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i ], [ 0, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i ]
   ret i32 %.0.i
 }
@@ -2622,12 +2622,12 @@ define void @_ZNK4ofbx6Object17getRotationOffsetEv(ptr dead_on_unwind noalias no
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(24) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr readonly %.144.val.32.val, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #8 {
+define internal fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr readonly %.144.val.32.val, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #8 {
   %.not10.i.i = icmp eq ptr %.144.val.32.val, null
   br i1 %.not10.i.i, label %.loopexit, label %.lr.ph.split.i.i
 
@@ -2833,7 +2833,7 @@ define void @_ZNK4ofbx6Object16getRotationPivotEv(ptr dead_on_unwind noalias noc
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(24) %3)
   ret void
 }
 
@@ -2845,7 +2845,7 @@ define void @_ZNK4ofbx6Object15getPostRotationEv(ptr dead_on_unwind noalias noca
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(24) %3)
   ret void
 }
 
@@ -2857,7 +2857,7 @@ define void @_ZNK4ofbx6Object16getScalingOffsetEv(ptr dead_on_unwind noalias noc
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(24) %3)
   ret void
 }
 
@@ -2869,7 +2869,7 @@ define void @_ZNK4ofbx6Object15getScalingPivotEv(ptr dead_on_unwind noalias noca
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(24) %3)
   ret void
 }
 
@@ -2887,7 +2887,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_(ptr dead_on_unwind noalia
   %.val.i = load ptr, ptr %9, align 8, !noalias !18
   %10 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load ptr, ptr %10, align 8, !noalias !18
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val.val.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val.val.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind writable sret(%"struct.ofbx::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6)
   ret void
@@ -2934,14 +2934,14 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %.val.i = load ptr, ptr %39, align 8, !noalias !21
   %40 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load ptr, ptr %40, align 8, !noalias !21
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val.val.i, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val.val.i, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !noalias !24
   %.val.i6 = load ptr, ptr %39, align 8, !noalias !24
   %41 = getelementptr i8, ptr %.val.i6, i64 32
   %.val.val.i7 = load ptr, ptr %41, align 8, !noalias !24
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %.val.val.i7, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %.val.val.i7, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %42 = tail call noundef i32 @_ZNK4ofbx6Object16getRotationOrderEv(ptr noundef nonnull align 8 dereferenceable(176) %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
@@ -2973,7 +2973,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %.val.i8 = load ptr, ptr %39, align 8, !noalias !27
   %58 = getelementptr i8, ptr %.val.i8, i64 32
   %.val.val.i9 = load ptr, ptr %58, align 8, !noalias !27
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr %.val.val.i9, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr %.val.val.i9, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call fastcc void @_ZN4ofbxL17getRotationMatrixERKNS_4Vec3ENS_13RotationOrderE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
@@ -2981,7 +2981,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %.val.i10 = load ptr, ptr %39, align 8, !noalias !30
   %59 = getelementptr i8, ptr %.val.i10, i64 32
   %.val.val.i11 = load ptr, ptr %59, align 8, !noalias !30
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr %.val.val.i11, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr %.val.val.i11, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %60 = load double, ptr %21, align 8, !noalias !33
@@ -3004,7 +3004,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %.val.i12 = load ptr, ptr %39, align 8, !noalias !36
   %70 = getelementptr i8, ptr %.val.i12, i64 32
   %.val.val.i13 = load ptr, ptr %70, align 8, !noalias !36
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr %.val.val.i13, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr %.val.val.i13, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %71 = load double, ptr %23, align 8
   %72 = getelementptr inbounds i8, ptr %22, i64 96
@@ -3045,7 +3045,7 @@ define void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind noa
   %.val.i14 = load ptr, ptr %39, align 8, !noalias !39
   %93 = getelementptr i8, ptr %.val.i14, i64 32
   %.val.val.i15 = load ptr, ptr %93, align 8, !noalias !39
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr %.val.val.i15, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr %.val.val.i15, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %94 = load double, ptr %27, align 8
   %95 = getelementptr inbounds i8, ptr %26, i64 96
@@ -3505,7 +3505,7 @@ define void @_ZNK4ofbx6Object15getLocalScalingEv(ptr dead_on_unwind noalias noca
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %7, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %3)
   ret void
 }
 
@@ -4077,7 +4077,7 @@ define void @_ZNK4ofbx6Object14getPreRotationEv(ptr dead_on_unwind noalias nocap
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(24) %3)
   ret void
 }
 
@@ -4098,7 +4098,7 @@ define void @_ZNK4ofbx6Object19getLocalTranslationEv(ptr dead_on_unwind noalias 
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %3)
   ret void
 }
 
@@ -4110,7 +4110,7 @@ define void @_ZNK4ofbx6Object16getLocalRotationEv(ptr dead_on_unwind noalias noc
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias writable align 8 %0, ptr %.val.val, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %3)
   ret void
 }
 
@@ -4225,14 +4225,14 @@ _ZNK4ofbx6Object9getParentEv.exit.thread:         ; preds = %2, %_ZNK4ofbx6Objec
   %.val.i = load ptr, ptr %63, align 8, !noalias !123
   %64 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load ptr, ptr %64, align 8, !noalias !123
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %.val.val.i, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %.val.val.i, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !noalias !126
   %.val.i3 = load ptr, ptr %63, align 8, !noalias !126
   %65 = getelementptr i8, ptr %.val.i3, i64 32
   %.val.val.i4 = load ptr, ptr %65, align 8, !noalias !126
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val.val.i4, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val.val.i4, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !129
@@ -4244,7 +4244,7 @@ _ZNK4ofbx6Object9getParentEv.exit.thread:         ; preds = %2, %_ZNK4ofbx6Objec
   %.val.i.i = load ptr, ptr %63, align 8, !noalias !132
   %68 = getelementptr i8, ptr %.val.i.i, i64 32
   %.val.val.i.i = load ptr, ptr %68, align 8, !noalias !132
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.val.val.i.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %7), !noalias !129
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.val.val.i.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %7), !noalias !129
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !129
   call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind writable sret(%"struct.ofbx::Matrix") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -4258,14 +4258,14 @@ _ZNK4ofbx6Object9getParentEv.exit.thread:         ; preds = %2, %_ZNK4ofbx6Objec
   %.val.i5 = load ptr, ptr %70, align 8, !noalias !135
   %71 = getelementptr i8, ptr %.val.i5, i64 32
   %.val.val.i6 = load ptr, ptr %71, align 8, !noalias !135
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.val.val.i6, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.val.val.i6, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !138
   %.val.i7 = load ptr, ptr %70, align 8, !noalias !138
   %72 = getelementptr i8, ptr %.val.i7, i64 32
   %.val.val.i8 = load ptr, ptr %72, align 8, !noalias !138
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr %.val.val.i8, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr %.val.val.i8, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !141
@@ -4277,7 +4277,7 @@ _ZNK4ofbx6Object9getParentEv.exit.thread:         ; preds = %2, %_ZNK4ofbx6Objec
   %.val.i.i9 = load ptr, ptr %70, align 8, !noalias !144
   %75 = getelementptr i8, ptr %.val.i.i9, i64 32
   %.val.val.i.i10 = load ptr, ptr %75, align 8, !noalias !144
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val.val.i.i10, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %3), !noalias !141
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val.val.i.i10, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %3), !noalias !141
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !141
   call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind nonnull writable sret(%"struct.ofbx::Matrix") align 8 %14, ptr noundef nonnull readonly align 8 dereferenceable(176) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -4430,14 +4430,14 @@ define void @_ZNK4ofbx6Object17getLocalTransformEv(ptr dead_on_unwind noalias no
   %.val.i = load ptr, ptr %9, align 8, !noalias !150
   %10 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load ptr, ptr %10, align 8, !noalias !150
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val.val.i, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %.val.val.i, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !153
   %.val.i1 = load ptr, ptr %9, align 8, !noalias !153
   %11 = getelementptr i8, ptr %.val.i1, i64 32
   %.val.val.i2 = load ptr, ptr %11, align 8, !noalias !153
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val.val.i2, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val.val.i2, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store double 1.000000e+00, ptr %3, align 8, !noalias !156
@@ -4448,7 +4448,7 @@ define void @_ZNK4ofbx6Object17getLocalTransformEv(ptr dead_on_unwind noalias no
   %.val.i3 = load ptr, ptr %9, align 8, !noalias !156
   %14 = getelementptr i8, ptr %.val.i3, i64 32
   %.val.val.i4 = load ptr, ptr %14, align 8, !noalias !156
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.val.val.i4, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.val.val.i4, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @_ZNK4ofbx6Object9evalLocalERKNS_4Vec3ES3_S3_(ptr dead_on_unwind writable sret(%"struct.ofbx::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret void
@@ -8627,15 +8627,15 @@ _ZNK4ofbx8DataVieweqEPKc.exit216.i:               ; preds = %440
   %481 = load i32, ptr %480, align 4
   %482 = icmp sgt i32 %481, -1
   %indvars.iv.next.i.i = add i32 %indvars.iv.i.i, 1
-  br i1 %482, label %478, label %_ZN4ofbxL19getTriCountFromPolyERKSt6vectorIiSaIiEEPi.argprom.exit.i, !llvm.loop !184
+  br i1 %482, label %478, label %_ZN4ofbxL19getTriCountFromPolyERKSt6vectorIiSaIiEEPi.exit.i, !llvm.loop !184
 
-_ZN4ofbxL19getTriCountFromPolyERKSt6vectorIiSaIiEEPi.argprom.exit.i: ; preds = %478
+_ZN4ofbxL19getTriCountFromPolyERKSt6vectorIiSaIiEEPi.exit.i: ; preds = %478
   %483 = add i32 %.0366472.i, 2
   %484 = add i32 %483, %indvars.iv.i.i
   %485 = icmp sgt i32 %indvars.iv.i.i, 0
   br i1 %485, label %.lr.ph470.i, label %._crit_edge471.i
 
-.lr.ph470.i:                                      ; preds = %_ZN4ofbxL19getTriCountFromPolyERKSt6vectorIiSaIiEEPi.argprom.exit.i
+.lr.ph470.i:                                      ; preds = %_ZN4ofbxL19getTriCountFromPolyERKSt6vectorIiSaIiEEPi.exit.i
   %.pre521.i = load ptr, ptr %455, align 8
   br label %486
 
@@ -8721,7 +8721,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   %exitcond514.not.i = icmp eq i32 %520, %indvars.iv.i.i
   br i1 %exitcond514.not.i, label %._crit_edge471.i, label %486, !llvm.loop !185
 
-._crit_edge471.i:                                 ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %_ZN4ofbxL19getTriCountFromPolyERKSt6vectorIiSaIiEEPi.argprom.exit.i
+._crit_edge471.i:                                 ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %_ZN4ofbxL19getTriCountFromPolyERKSt6vectorIiSaIiEEPi.exit.i
   %indvars.iv.next516.i = add nuw nsw i64 %indvars.iv515.i, 1
   %exitcond519.not.i = icmp eq i64 %indvars.iv.next516.i, %wide.trip.count518.i
   br i1 %exitcond519.not.i, label %.loopexit427.i, label %477, !llvm.loop !186
@@ -8791,7 +8791,7 @@ _ZNK4ofbx8DataView5toIntEv.exit.thread.i:         ; preds = %_ZNK4ofbx8DataView5
   %544 = getelementptr inbounds i8, ptr %.093483.i, i64 32
   %545 = load ptr, ptr %544, align 8
   %.not10.i.i.i = icmp eq ptr %545, null
-  br i1 %.not10.i.i.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i, label %.lr.ph.split.i.i.i
+  br i1 %.not10.i.i.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %_ZNK4ofbx8DataView5toIntEv.exit.thread.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i
   %546 = phi ptr [ %559, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i ], [ %545, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i ]
@@ -8827,13 +8827,13 @@ _ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i:       ; preds = %.lr.ph.i.i.i.i226, 
   %558 = getelementptr inbounds i8, ptr %546, i64 40
   %559 = load ptr, ptr %558, align 8
   %.not.i.i223.i = icmp eq ptr %559, null
-  br i1 %.not.i.i223.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i, label %.lr.ph.split.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i223.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i, label %.lr.ph.split.i.i.i, !llvm.loop !8
 
 _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i:   ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.i.i.i
   %560 = getelementptr inbounds i8, ptr %546, i64 48
   %561 = load ptr, ptr %560, align 8
   %.not35.i.i = icmp eq ptr %561, null
-  br i1 %.not35.i.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i, label %.lr.ph.split.i44.i.i
+  br i1 %.not35.i.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i, label %.lr.ph.split.i44.i.i
 
 .lr.ph.split.i44.i.i:                             ; preds = %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i50.i.i
   %562 = phi ptr [ %575, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i50.i.i ], [ %545, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i ]
@@ -8928,7 +8928,7 @@ _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit73.i.i: ; preds = %_ZNK4ofbx8DataViewe
   %596 = getelementptr inbounds i8, ptr %592, i64 24
   %597 = load ptr, ptr %596, align 8
   %.not1420.i.i226.i = icmp eq ptr %595, %597
-  br i1 %.not1420.i.i226.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i, label %.lr.ph.i74.i.i
+  br i1 %.not1420.i.i226.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i, label %.lr.ph.i74.i.i
 
 .lr.ph.i74.i.i:                                   ; preds = %593, %600
   %598 = phi i8 [ %603, %600 ], [ 66, %593 ]
@@ -9008,7 +9008,7 @@ _ZNK4ofbx8DataVieweqEPKc.exit103.i.i:             ; preds = %612
   %.01122.i107.i.i = phi ptr [ %619, %618 ], [ @.str.96, %.lr.ph.i105.i.i.preheader ]
   %617 = load i8, ptr %.023.i106.i.i, align 1
   %.not15.i108.i.i = icmp eq i8 %616, %617
-  br i1 %.not15.i108.i.i, label %618, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i
+  br i1 %.not15.i108.i.i, label %618, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
 
 618:                                              ; preds = %.lr.ph.i105.i.i
   %619 = getelementptr inbounds i8, ptr %.01122.i107.i.i, i64 1
@@ -9021,7 +9021,7 @@ _ZNK4ofbx8DataVieweqEPKc.exit103.i.i:             ; preds = %612
 
 _ZNK4ofbx8DataVieweqEPKc.exit117.i.i:             ; preds = %618
   %spec.select.i116.i.i = and i1 %.not14.i111.i.i, %.not.i110.i.i
-  br i1 %spec.select.i116.i.i, label %.sink.split.i.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i
+  br i1 %spec.select.i116.i.i, label %.sink.split.i.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
 
 .sink.split.i.i:                                  ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i, %_ZNK4ofbx8DataVieweqEPKc.exit103.i.i, %_ZNK4ofbx8DataVieweqEPKc.exit89.i.i, %_ZNK4ofbx8DataVieweqEPKc.exit.i237.i, %590, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit73.i.i
   %.2.i = phi i32 [ %.0482.i, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit73.i.i ], [ %.0482.i, %590 ], [ 0, %_ZNK4ofbx8DataVieweqEPKc.exit.i237.i ], [ 1, %_ZNK4ofbx8DataVieweqEPKc.exit89.i.i ], [ 2, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i ], [ 2, %_ZNK4ofbx8DataVieweqEPKc.exit103.i.i ]
@@ -9040,7 +9040,7 @@ _ZNK4ofbx8DataVieweqEPKc.exit117.i.i:             ; preds = %618
   %628 = getelementptr inbounds i8, ptr %624, i64 24
   %629 = load ptr, ptr %628, align 8
   %.not1420.i118.i.i = icmp eq ptr %627, %629
-  br i1 %.not1420.i118.i.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i, label %.lr.ph.i119.i.i
+  br i1 %.not1420.i118.i.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i, label %.lr.ph.i119.i.i
 
 .lr.ph.i119.i.i:                                  ; preds = %625, %632
   %630 = phi i8 [ %635, %632 ], [ 73, %625 ]
@@ -9113,7 +9113,7 @@ _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit147.i.i: ; preds = %_ZNK4ofbx8DataView
           to label %.noexc238.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc238.i:                                      ; preds = %652
-  br i1 %653, label %.noexc238..thread31.i_crit_edge.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i
+  br i1 %653, label %.noexc238..thread31.i_crit_edge.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
 
 .noexc238..thread31.i_crit_edge.i:                ; preds = %.noexc238.i
   %.pre523.i = load ptr, ptr %560, align 8
@@ -9125,7 +9125,7 @@ _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit147.i.i: ; preds = %_ZNK4ofbx8DataView
   %.01122.i.i151.i.i = phi ptr [ %657, %656 ], [ @.str.97, %.lr.ph.i.i149.i.i.preheader ]
   %655 = load i8, ptr %.023.i.i150.i.i, align 1
   %.not15.i.i152.i.i = icmp eq i8 %654, %655
-  br i1 %.not15.i.i152.i.i, label %656, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i
+  br i1 %.not15.i.i152.i.i, label %656, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
 
 656:                                              ; preds = %.lr.ph.i.i149.i.i
   %657 = getelementptr inbounds i8, ptr %.01122.i.i151.i.i, i64 1
@@ -9138,7 +9138,7 @@ _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit147.i.i: ; preds = %_ZNK4ofbx8DataView
 
 _ZNK4ofbx8DataViewneEPKc.exit.i.i:                ; preds = %656
   %spec.select.i.i.i.i = and i1 %.not14.i.i155.i.i, %.not.i.i154.i.i
-  br i1 %spec.select.i.i.i.i, label %.thread31.i.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i
+  br i1 %spec.select.i.i.i.i, label %.thread31.i.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
 
 .thread31.i.i:                                    ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i140.i.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i, %.noexc238..thread31.i_crit_edge.i, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit147.i.i, %622, %.sink.split.i.i
   %660 = phi ptr [ %.pre523.i, %.noexc238..thread31.i_crit_edge.i ], [ %561, %_ZNK4ofbx8DataViewneEPKc.exit.i.i ], [ %561, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit147.i.i ], [ %561, %622 ], [ %561, %.sink.split.i.i ], [ %561, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i140.i.i ]
@@ -9302,7 +9302,7 @@ _ZN4ofbxL14parseTextArrayINS_4Vec2EEEvRKNS_8PropertyEPSt6vectorIT_SaIS6_EE.exit.
 
 .noexc241.i:                                      ; preds = %718
   %723 = load i8, ptr %715, align 4
-  switch i8 %723, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i [
+  switch i8 %723, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i [
     i8 100, label %726
     i8 102, label %724
     i8 105, label %725
@@ -9368,24 +9368,24 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i.i.i: ; preds = %743, %741, %
   %757 = load i8, ptr %715, align 4
   %switch.tableidx = add i8 %757, -100
   %758 = icmp ult i8 %switch.tableidx, 9
-  br i1 %758, label %switch.hole_check, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i
+  br i1 %758, label %switch.hole_check, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i
 
 switch.hole_check:                                ; preds = %756
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 293, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i
+  br i1 %switch.lobit, label %switch.lookup, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %759 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim, i64 0, i64 %759
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i, i64 0, i64 %759
   %switch.load = load i32, ptr %switch.gep, align 4
   %760 = load ptr, ptr %753, align 8
   %761 = getelementptr inbounds i8, ptr %760, i64 12
   %762 = getelementptr inbounds i8, ptr %660, i64 24
   %763 = load ptr, ptr %762, align 8
   %764 = icmp ugt ptr %761, %763
-  br i1 %764, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i, label %765
+  br i1 %764, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, label %765
 
 765:                                              ; preds = %switch.lookup
   %766 = load ptr, ptr %660, align 8
@@ -9400,21 +9400,21 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %772 = load i32, ptr %771, align 4
   %773 = getelementptr inbounds i8, ptr %770, i64 8
   %774 = load i32, ptr %773, align 4
-  switch i32 %772, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i [
+  switch i32 %772, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i [
     i32 0, label %775
     i32 1, label %783
   ]
 
 775:                                              ; preds = %.noexc243.i
   %776 = icmp sgt i32 %774, %752
-  br i1 %776, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i, label %777
+  br i1 %776, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, label %777
 
 777:                                              ; preds = %775
   %778 = zext i32 %774 to i64
   %779 = getelementptr inbounds i8, ptr %761, i64 %778
   %780 = load ptr, ptr %762, align 8
   %781 = icmp ugt ptr %779, %780
-  br i1 %781, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i, label %782
+  br i1 %781, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, label %782
 
 782:                                              ; preds = %777
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %746, ptr nonnull align 1 %761, i64 %778, i1 false)
@@ -9423,7 +9423,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 783:                                              ; preds = %.noexc243.i
   %784 = mul i32 %769, %switch.load
   %785 = icmp sgt i32 %784, %752
-  br i1 %785, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i, label %786
+  br i1 %785, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, label %786
 
 786:                                              ; preds = %783
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7)
@@ -9445,7 +9445,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 _ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.thread.i: ; preds = %.noexc245.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7)
-  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i
+  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i
 
 789:                                              ; preds = %.noexc245.i
   %790 = invoke i32 @mz_inflateEnd(ptr noundef nonnull %7)
@@ -9455,7 +9455,7 @@ _ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i:     ; preds = %789
   %791 = icmp eq i32 %790, 0
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br i1 %791, label %864, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i
+  br i1 %791, label %864, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
 
 792:                                              ; preds = %745
   %793 = load ptr, ptr %753, align 8
@@ -9528,7 +9528,7 @@ _ZN4ofbx10fromStringINS_4Vec2EEEPKcS3_S3_PT_.exit.i.i.i.i.i.i: ; preds = %.crite
   %819 = ashr exact i64 %818, 4
   %820 = icmp eq i64 %819, %796
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br i1 %820, label %864, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i
+  br i1 %820, label %864, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
 
 821:                                              ; preds = %714
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -9633,22 +9633,22 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE6resizeEm.exit.i.i.i: ; preds = %848, %846, %84
 
 .loopexit.i.i.thread.i:                           ; preds = %823
   %.not.i.i.i20.i.i403.i = icmp eq ptr %.pre29.i.i.i, null
-  br i1 %.not.i.i.i20.i.i403.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i, label %.thread.i
+  br i1 %.not.i.i.i20.i.i403.i, label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, label %.thread.i
 
 .thread.i:                                        ; preds = %.loopexit.i.i.thread.i
   call void @_ZdlPv(ptr noundef nonnull %.pre29.i.i.i) #33
-  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i
+  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i
 
 859:                                              ; preds = %.loopexit.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %.pre28.i.i.i) #33
   br label %.sink.split.i
 
-_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i: ; preds = %switch.hole_check, %756, %.thread.i, %.loopexit.i.i.thread.i, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.thread.i, %783, %777, %775, %.noexc243.i, %switch.lookup, %.noexc241.i
+_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i: ; preds = %switch.hole_check, %756, %.thread.i, %.loopexit.i.i.thread.i, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.thread.i, %783, %777, %775, %.noexc243.i, %switch.lookup, %.noexc241.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i
+  br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
 
-_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i: ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i, %.lr.ph.i105.i.i, %.lr.ph.i.i149.i.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i, %816, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i, %.noexc238.i, %625, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i, %593, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i
-  %.3392.i = phi i32 [ %.2.i, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i ], [ %.2.i, %816 ], [ %.0482.i, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i ], [ %.0482.i, %593 ], [ %.2.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i ], [ %.2.i, %.noexc238.i ], [ %.2.i, %625 ], [ %.0482.i, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i ], [ %.0482.i, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i ], [ %.2.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.sink.split.i ], [ %.2.i, %.lr.ph.i.i149.i.i ], [ %.0482.i, %.lr.ph.i105.i.i ], [ %.0482.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i ]
+_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i: ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i, %.lr.ph.i105.i.i, %.lr.ph.i.i149.i.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, %816, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i, %.noexc238.i, %625, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i, %593, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i
+  %.3392.i = phi i32 [ %.2.i, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i ], [ %.2.i, %816 ], [ %.0482.i, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i ], [ %.0482.i, %593 ], [ %.2.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i ], [ %.2.i, %.noexc238.i ], [ %.2.i, %625 ], [ %.0482.i, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i ], [ %.0482.i, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i ], [ %.2.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i ], [ %.2.i, %.lr.ph.i.i149.i.i ], [ %.0482.i, %.lr.ph.i105.i.i ], [ %.0482.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i ]
   store ptr @.str.78, ptr @_ZN4ofbx5Error9s_messageE, align 8
   br label %_ZN4ofbxL5remapINS_4Vec2EEEvPSt6vectorIT_SaIS3_EERKS2_IiSaIiEE.exit.i
 
@@ -10180,9 +10180,9 @@ _ZNSt6vectorIN4ofbx4Vec2ESaIS1_EE9push_backERKS1_.exit.i.i: ; preds = %_ZNSt6vec
   call void @_ZdlPv(ptr noundef nonnull %1011) #33
   br label %_ZN4ofbxL5remapINS_4Vec2EEEvPSt6vectorIT_SaIS3_EERKS2_IiSaIiEE.exit.i
 
-_ZN4ofbxL5remapINS_4Vec2EEEvPSt6vectorIT_SaIS3_EERKS2_IiSaIiEE.exit.i: ; preds = %1093, %._crit_edge.i.i, %_ZN4ofbxL5splatINS_4Vec2EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMappingERKS5_RKS2_IiSaIiEESE_.exit.i, %864, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i
-  %.0.i224393.i = phi i1 [ true, %864 ], [ false, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i ], [ true, %_ZN4ofbxL5splatINS_4Vec2EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMappingERKS5_RKS2_IiSaIiEESE_.exit.i ], [ true, %._crit_edge.i.i ], [ true, %1093 ]
-  %.3391.i = phi i32 [ %.2.i, %864 ], [ %.3392.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom.exit.thread.i ], [ %.2.i, %_ZN4ofbxL5splatINS_4Vec2EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMappingERKS5_RKS2_IiSaIiEESE_.exit.i ], [ %.2.i, %._crit_edge.i.i ], [ %.2.i, %1093 ]
+_ZN4ofbxL5remapINS_4Vec2EEEvPSt6vectorIT_SaIS3_EERKS2_IiSaIiEE.exit.i: ; preds = %1093, %._crit_edge.i.i, %_ZN4ofbxL5splatINS_4Vec2EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMappingERKS5_RKS2_IiSaIiEESE_.exit.i, %864, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
+  %.0.i224393.i = phi i1 [ true, %864 ], [ false, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i ], [ true, %_ZN4ofbxL5splatINS_4Vec2EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMappingERKS5_RKS2_IiSaIiEESE_.exit.i ], [ true, %._crit_edge.i.i ], [ true, %1093 ]
+  %.3391.i = phi i32 [ %.2.i, %864 ], [ %.3392.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i ], [ %.2.i, %_ZN4ofbxL5splatINS_4Vec2EEEvPSt6vectorIT_SaIS3_EENS_12GeometryImpl17VertexDataMappingERKS5_RKS2_IiSaIiEESE_.exit.i ], [ %.2.i, %._crit_edge.i.i ], [ %.2.i, %1093 ]
   %1094 = load ptr, ptr %15, align 8
   %.not.i.i.i277.i = icmp eq ptr %1094, null
   br i1 %.not.i.i.i277.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit278.i, label %1095
@@ -10334,7 +10334,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EED2Ev.exit297.i:  ; preds = %1142, %_ZNSt6vector
 1144:                                             ; preds = %_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EED2Ev.exit297.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  %1145 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec4EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom(ptr noundef nonnull align 8 dereferenceable(56) %1143, ptr noundef %19, ptr noundef %20, ptr noundef %21)
+  %1145 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec4EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr noundef nonnull align 8 dereferenceable(56) %1143, ptr noundef %19, ptr noundef %20, ptr noundef %21)
           to label %1146 unwind label %1148
 
 1146:                                             ; preds = %1144
@@ -13705,7 +13705,7 @@ switch.hole_check:                                ; preds = %9
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 12
@@ -13856,7 +13856,7 @@ switch.hole_check:                                ; preds = %9
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 12
@@ -14007,7 +14007,7 @@ switch.hole_check:                                ; preds = %9
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 12
@@ -14164,7 +14164,7 @@ switch.hole_check:                                ; preds = %9
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 12
@@ -14315,7 +14315,7 @@ switch.hole_check:                                ; preds = %9
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 12
@@ -15464,7 +15464,7 @@ _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit:       ; preds = %_ZNK4ofbx8DataViewe
 
 51:                                               ; preds = %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit
   %52 = getelementptr inbounds i8, ptr %3, i64 368
-  %53 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull %52)
+  %53 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull %52)
           to label %54 unwind label %_ZNSt10unique_ptrIN4ofbx11ClusterImplESt14default_deleteIS1_EED2Ev.exit
 
 54:                                               ; preds = %51
@@ -15532,7 +15532,7 @@ _ZN4ofbxL9findChildERKNS_7ElementEPKc.exit36:     ; preds = %_ZNK4ofbx8DataViewe
 
 75:                                               ; preds = %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit36
   %76 = getelementptr inbounds i8, ptr %3, i64 240
-  %77 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull %76)
+  %77 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull %76)
           to label %78 unwind label %_ZNSt10unique_ptrIN4ofbx11ClusterImplESt14default_deleteIS1_EED2Ev.exit
 
 78:                                               ; preds = %75
@@ -17109,7 +17109,7 @@ switch.hole_check:                                ; preds = %53
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %56 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim, i64 0, i64 %56
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i, i64 0, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   %57 = load ptr, ptr %50, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 12
@@ -19110,7 +19110,7 @@ _ZNSt6vectorIN4ofbx4Vec3ESaIS1_EED2Ev.exit19:     ; preds = %87, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec4EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4ofbxL15parseVertexDataINS_4Vec4EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.ofbx::Vec4", align 8
   %6 = alloca %struct.mz_stream_s, align 8
   %7 = alloca %"class.std::vector.126", align 8
@@ -19703,7 +19703,7 @@ switch.hole_check:                                ; preds = %226
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %229 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim, i64 0, i64 %229
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i, i64 0, i64 %229
   %switch.load = load i32, ptr %switch.gep, align 4
   %230 = load ptr, ptr %223, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 12
@@ -22245,7 +22245,7 @@ define linkonce_odr noundef ptr @_ZNK4ofbx22AnimationCurveNodeImpl7getBoneEv(ptr
 declare float @llvm.fmuladd.f32(float, float, float) #17
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @_ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #8 {
   %3 = alloca %struct.mz_stream_s, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -22268,7 +22268,7 @@ switch.hole_check:                                ; preds = %8
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %12 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i.argelim, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN4ofbxL13parseArrayRawINS_6MatrixEEEbRKNS_8PropertyEPT_i, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 12
@@ -22657,12 +22657,12 @@ define linkonce_odr void @_ZNK4ofbx8MeshImpl18getGeometricMatrixEv(ptr dead_on_u
   %.val2 = load ptr, ptr %11, align 8
   %12 = getelementptr i8, ptr %.val2, i64 32
   %.val2.val = load ptr, ptr %12, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.val2.val, ptr noundef nonnull @.str.107, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.val2.val, ptr noundef nonnull @.str.107, ptr noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.val1 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %.val1, i64 32
   %.val1.val = load ptr, ptr %13, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val1.val, ptr noundef nonnull @.str.108, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val1.val, ptr noundef nonnull @.str.108, ptr noundef nonnull align 8 dereferenceable(24) %6)
   store double 1.000000e+00, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 8
   store double 1.000000e+00, ptr %14, align 8
@@ -22671,7 +22671,7 @@ define linkonce_odr void @_ZNK4ofbx8MeshImpl18getGeometricMatrixEv(ptr dead_on_u
   %.val = load ptr, ptr %11, align 8
   %16 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %16, align 8
-  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E.argprom.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val.val, ptr noundef nonnull @.str.109, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  call fastcc void @_ZN4ofbxL19resolveVec3PropertyERKNS_6ObjectEPKcRKNS_4Vec3E(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val.val, ptr noundef nonnull @.str.109, ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(128) @constinit, i64 128, i1 false)
   %17 = load double, ptr %7, align 8
   %18 = fptrunc double %17 to float

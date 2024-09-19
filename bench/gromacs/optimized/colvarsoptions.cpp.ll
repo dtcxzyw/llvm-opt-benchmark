@@ -698,11 +698,11 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i34.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i32.i, %_ZN3gmx16KeyValueTreePathD2Ev.exit.i
   %75 = phi ptr [ %.pr.i.i33.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i32.i ], [ %71, %_ZN3gmx16KeyValueTreePathD2Ev.exit.i ]
   %.not.i.i.i.i35.i = icmp eq ptr %75, null
-  br i1 %.not.i.i.i.i35.i, label %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIbPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.argprom.exit, label %76
+  br i1 %.not.i.i.i.i35.i, label %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIbPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.exit, label %76
 
 76:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i34.i
   call void @_ZdlPv(ptr noundef nonnull %75) #25
-  br label %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIbPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.argprom.exit
+  br label %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIbPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.exit
 
 77:                                               ; preds = %2
   %78 = landingpad { ptr, i32 }
@@ -813,7 +813,7 @@ common.resume:                                    ; preds = %218, %250, %147, %1
   call void @_ZN3gmx32KeyValueTreeTransformRuleBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #23
   resume { ptr, i32 } %common.resume.op
 
-_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIbPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.argprom.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i34.i, %76
+_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIbPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i34.i, %76
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #23
@@ -847,7 +847,7 @@ _ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIbPFbRKNSt7__cxx1112basic_st
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(32) @_ZN3gmxL19c_colvarsModuleNameB5cxx11E)
           to label %113 unwind label %147
 
-113:                                              ; preds = %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIbPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.argprom.exit
+113:                                              ; preds = %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIbPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.exit
   %114 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.3)
           to label %115 unwind label %149
 
@@ -977,7 +977,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   call void @_ZdlPv(ptr noundef nonnull %145) #25
   br label %"_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS_14ColvarsOptions16initMdpTransformEPNS_27IKeyValueTreeTransformRulesEE3$_0EEvSA_T0_RKS7_.exit"
 
-147:                                              ; preds = %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIbPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.argprom.exit
+147:                                              ; preds = %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIbPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.exit
   %148 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -1240,11 +1240,11 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i34.i60: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i32.i58, %_ZN3gmx16KeyValueTreePathD2Ev.exit.i53
   %216 = phi ptr [ %.pr.i.i33.i59, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i32.i58 ], [ %212, %_ZN3gmx16KeyValueTreePathD2Ev.exit.i53 ]
   %.not.i.i.i.i35.i61 = icmp eq ptr %216, null
-  br i1 %.not.i.i.i.i35.i61, label %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIiPFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.argprom.exit, label %217
+  br i1 %.not.i.i.i.i35.i61, label %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIiPFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.exit, label %217
 
 217:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i34.i60
   call void @_ZdlPv(ptr noundef nonnull %216) #25
-  br label %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIiPFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.argprom.exit
+  br label %_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIiPFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.exit
 
 218:                                              ; preds = %"_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS_14ColvarsOptions16initMdpTransformEPNS_27IKeyValueTreeTransformRulesEE3$_0EEvSA_T0_RKS7_.exit"
   %219 = landingpad { ptr, i32 }
@@ -1349,7 +1349,7 @@ _ZNSt8functionIFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   br label %common.resume
 
-_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIiPFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.argprom.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i34.i60, %217
+_ZN3gmx12_GLOBAL__N_129colvarsMdpTransformFromStringIiPFiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPNS_27IKeyValueTreeTransformRulesET0_S9_.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i34.i60, %217
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
@@ -8978,11 +8978,11 @@ attributes #28 = { nounwind willreturn memory(read) }
 !65 = distinct !{!65, !66, !"_ZSt11make_uniqueIN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRKS8_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !66 = distinct !{!66, !"_ZSt11make_uniqueIN3gmx3Any7ContentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRKS8_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3gmx14ColvarsOptions16initMdpTransformEPNS6_27IKeyValueTreeTransformRulesEE3$_0JRKS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom: argument 0"}
-!69 = distinct !{!69, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3gmx14ColvarsOptions16initMdpTransformEPNS6_27IKeyValueTreeTransformRulesEE3$_0JRKS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom"}
+!68 = distinct !{!68, !69, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3gmx14ColvarsOptions16initMdpTransformEPNS6_27IKeyValueTreeTransformRulesEE3$_0JRKS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_: argument 0"}
+!69 = distinct !{!69, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3gmx14ColvarsOptions16initMdpTransformEPNS6_27IKeyValueTreeTransformRulesEE3$_0JRKS5_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_"}
 !70 = !{!71, !68}
-!71 = distinct !{!71, !72, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3gmx14ColvarsOptions16initMdpTransformEPNS6_27IKeyValueTreeTransformRulesEE3$_0JRKS5_EET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!72 = distinct !{!72, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3gmx14ColvarsOptions16initMdpTransformEPNS6_27IKeyValueTreeTransformRulesEE3$_0JRKS5_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!71 = distinct !{!71, !72, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3gmx14ColvarsOptions16initMdpTransformEPNS6_27IKeyValueTreeTransformRulesEE3$_0JRKS5_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!72 = distinct !{!72, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3gmx14ColvarsOptions16initMdpTransformEPNS6_27IKeyValueTreeTransformRulesEE3$_0JRKS5_EET_St14__invoke_otherOT0_DpOT1_"}
 !73 = !{!74}
 !74 = distinct !{!74, !75, !"_ZSt10__invoke_rIN3gmx3AnyERZNS0_32KeyValueTreeTransformRuleBuilder7ToValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE13transformWithESt8functionIFiRKS9_EEEUlRKS1_E_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_: argument 0"}
 !75 = distinct !{!75, !"_ZSt10__invoke_rIN3gmx3AnyERZNS0_32KeyValueTreeTransformRuleBuilder7ToValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE13transformWithESt8functionIFiRKS9_EEEUlRKS1_E_JSH_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_"}

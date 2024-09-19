@@ -1791,7 +1791,7 @@ define internal void @i915_pmu_event_start(ptr noundef %0, i32 %1) #0 align 16 {
   %.val3 = phi i64 [ %11, %15 ], [ %.val3.pre, %72 ]
   %.val = phi ptr [ %4, %15 ], [ %.val.pre, %72 ]
   %74 = getelementptr inbounds i8, ptr %0, i64 488
-  %75 = tail call fastcc i64 @__i915_pmu_event_read.argprom(ptr %.val, i64 %.val3)
+  %75 = tail call fastcc i64 @__i915_pmu_event_read(ptr %.val, i64 %.val3)
   store volatile i64 %75, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 480
   store i32 0, ptr %76, align 8
@@ -1820,7 +1820,7 @@ define internal void @i915_pmu_event_stop(ptr noundef %0, i32 noundef %1) #0 ali
   %13 = load volatile i64, ptr %12, align 8
   %14 = getelementptr i8, ptr %0, i64 224
   %.val37 = load i64, ptr %14, align 8
-  %15 = tail call fastcc i64 @__i915_pmu_event_read.argprom(ptr %4, i64 %.val37)
+  %15 = tail call fastcc i64 @__i915_pmu_event_read(ptr %4, i64 %.val37)
   %16 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 %15, ptr elementtype(i64) %12, i64 %13) #12, !srcloc !37
   %17 = extractvalue { i8, i64 } %16, 0
   %18 = icmp ult i8 %17, 2
@@ -1833,7 +1833,7 @@ define internal void @i915_pmu_event_stop(ptr noundef %0, i32 noundef %1) #0 ali
   %21 = extractvalue { i8, i64 } %20, 1
   %.val = load ptr, ptr %3, align 8
   %.val3 = load i64, ptr %14, align 8
-  %22 = tail call fastcc i64 @__i915_pmu_event_read.argprom(ptr %.val, i64 %.val3)
+  %22 = tail call fastcc i64 @__i915_pmu_event_read(ptr %.val, i64 %.val3)
   %23 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 %22, ptr elementtype(i64) %12, i64 %21) #12, !srcloc !37
   %24 = extractvalue { i8, i64 } %23, 0
   %25 = icmp ult i8 %24, 2
@@ -1979,7 +1979,7 @@ define internal void @i915_pmu_event_read(ptr noundef %0) #0 align 16 {
   %11 = load volatile i64, ptr %10, align 8
   %12 = getelementptr i8, ptr %0, i64 224
   %.val14 = load i64, ptr %12, align 8
-  %13 = tail call fastcc i64 @__i915_pmu_event_read.argprom(ptr %3, i64 %.val14)
+  %13 = tail call fastcc i64 @__i915_pmu_event_read(ptr %3, i64 %.val14)
   %14 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 %13, ptr elementtype(i64) %10, i64 %11) #12, !srcloc !37
   %15 = extractvalue { i8, i64 } %14, 0
   %16 = icmp ult i8 %15, 2
@@ -1992,7 +1992,7 @@ define internal void @i915_pmu_event_read(ptr noundef %0) #0 align 16 {
   %19 = extractvalue { i8, i64 } %18, 1
   %.val = load ptr, ptr %2, align 8
   %.val1 = load i64, ptr %12, align 8
-  %20 = tail call fastcc i64 @__i915_pmu_event_read.argprom(ptr %.val, i64 %.val1)
+  %20 = tail call fastcc i64 @__i915_pmu_event_read(ptr %.val, i64 %.val1)
   %21 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 %20, ptr elementtype(i64) %10, i64 %19) #12, !srcloc !37
   %22 = extractvalue { i8, i64 } %21, 0
   %23 = icmp ult i8 %22, 2
@@ -2379,7 +2379,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #4
 declare dso_local void @drm_dev_put(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__i915_pmu_event_read.argprom(ptr %.152.val, i64 %.224.val) unnamed_addr #0 align 16 {
+define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) unnamed_addr #0 align 16 {
   %1 = alloca i64, align 8
   %2 = icmp ult i64 %.224.val, 1048576
   br i1 %2, label %3, label %39

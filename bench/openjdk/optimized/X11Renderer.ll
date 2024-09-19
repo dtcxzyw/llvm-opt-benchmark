@@ -199,7 +199,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRoundRect(ptr noundef %0, ptr 
   %78 = shl i32 %.tr168, 1
   %79 = or i32 %78, %76
   %or.cond.not.i = icmp sgt i32 %79, -1
-  br i1 %or.cond.not.i, label %80, label %awt_drawArc.argprom.exit
+  br i1 %or.cond.not.i, label %80, label %awt_drawArc.exit
 
 80:                                               ; preds = %40
   %81 = load i64, ptr %73, align 8
@@ -207,60 +207,60 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRoundRect(ptr noundef %0, ptr 
   %sext = shl i64 %81, 32
   %83 = ashr exact i64 %sext, 32
   %84 = tail call i32 @XDrawArc(ptr noundef %82, i64 noundef %83, ptr noundef %74, i32 noundef %46, i32 noundef %48, i32 noundef %76, i32 noundef %78, i32 noundef 5760, i32 noundef 5760) #10
-  br label %awt_drawArc.argprom.exit
+  br label %awt_drawArc.exit
 
-awt_drawArc.argprom.exit:                         ; preds = %40, %80
+awt_drawArc.exit:                                 ; preds = %40, %80
   %85 = trunc nsw i64 %63 to i32
   %.tr179 = sub nsw i32 %51, %85
   %86 = shl nsw i32 %.tr179, 1
   %87 = sub nsw i32 %51, %86
   %88 = or i32 %78, %86
   %or.cond.not.i172 = icmp sgt i32 %88, -1
-  br i1 %or.cond.not.i172, label %89, label %awt_drawArc.argprom.exit173
+  br i1 %or.cond.not.i172, label %89, label %awt_drawArc.exit173
 
-89:                                               ; preds = %awt_drawArc.argprom.exit
+89:                                               ; preds = %awt_drawArc.exit
   %90 = load i64, ptr %73, align 8
   %91 = load ptr, ptr @awt_display, align 8
   %sext180 = shl i64 %90, 32
   %92 = ashr exact i64 %sext180, 32
   %93 = tail call i32 @XDrawArc(ptr noundef %91, i64 noundef %92, ptr noundef %74, i32 noundef %87, i32 noundef %48, i32 noundef %86, i32 noundef %78, i32 noundef 0, i32 noundef 5760) #10
-  br label %awt_drawArc.argprom.exit173
+  br label %awt_drawArc.exit173
 
-awt_drawArc.argprom.exit173:                      ; preds = %awt_drawArc.argprom.exit, %89
+awt_drawArc.exit173:                              ; preds = %awt_drawArc.exit, %89
   %94 = trunc nsw i64 %72 to i32
   %.tr181 = sub nsw i32 %54, %94
   %95 = shl nsw i32 %.tr181, 1
   %96 = sub nsw i32 %54, %95
   %97 = or i32 %95, %76
   %or.cond.not.i174 = icmp sgt i32 %97, -1
-  br i1 %or.cond.not.i174, label %98, label %awt_drawArc.argprom.exit175
+  br i1 %or.cond.not.i174, label %98, label %awt_drawArc.exit175
 
-98:                                               ; preds = %awt_drawArc.argprom.exit173
+98:                                               ; preds = %awt_drawArc.exit173
   %99 = load i64, ptr %73, align 8
   %100 = load ptr, ptr @awt_display, align 8
   %sext182 = shl i64 %99, 32
   %101 = ashr exact i64 %sext182, 32
   %102 = tail call i32 @XDrawArc(ptr noundef %100, i64 noundef %101, ptr noundef %74, i32 noundef %46, i32 noundef %96, i32 noundef %76, i32 noundef %95, i32 noundef 11520, i32 noundef 5760) #10
-  br label %awt_drawArc.argprom.exit175
+  br label %awt_drawArc.exit175
 
-awt_drawArc.argprom.exit175:                      ; preds = %awt_drawArc.argprom.exit173, %98
+awt_drawArc.exit175:                              ; preds = %awt_drawArc.exit173, %98
   %103 = or i32 %95, %86
   %or.cond.not.i176 = icmp sgt i32 %103, -1
-  br i1 %or.cond.not.i176, label %104, label %awt_drawArc.argprom.exit177
+  br i1 %or.cond.not.i176, label %104, label %awt_drawArc.exit177
 
-104:                                              ; preds = %awt_drawArc.argprom.exit175
+104:                                              ; preds = %awt_drawArc.exit175
   %105 = load i64, ptr %73, align 8
   %106 = load ptr, ptr @awt_display, align 8
   %sext183 = shl i64 %105, 32
   %107 = ashr exact i64 %sext183, 32
   %108 = tail call i32 @XDrawArc(ptr noundef %106, i64 noundef %107, ptr noundef %74, i32 noundef %87, i32 noundef %96, i32 noundef %86, i32 noundef %95, i32 noundef 17280, i32 noundef 5760) #10
-  br label %awt_drawArc.argprom.exit177
+  br label %awt_drawArc.exit177
 
-awt_drawArc.argprom.exit177:                      ; preds = %awt_drawArc.argprom.exit175, %104
+awt_drawArc.exit177:                              ; preds = %awt_drawArc.exit175, %104
   %.not = icmp sgt i64 %59, %63
   br i1 %.not, label %118, label %109
 
-109:                                              ; preds = %awt_drawArc.argprom.exit177
+109:                                              ; preds = %awt_drawArc.exit177
   %110 = load ptr, ptr @awt_display, align 8
   %111 = load i64, ptr %73, align 8
   %112 = tail call i32 @XDrawLine(ptr noundef %110, i64 noundef %111, ptr noundef %74, i32 noundef %75, i32 noundef %48, i32 noundef %85, i32 noundef %48) #10
@@ -273,7 +273,7 @@ awt_drawArc.argprom.exit177:                      ; preds = %awt_drawArc.argprom
   %117 = tail call i32 @XDrawLine(ptr noundef %115, i64 noundef %116, ptr noundef %74, i32 noundef %75, i32 noundef %54, i32 noundef %85, i32 noundef %54) #10
   br label %118
 
-118:                                              ; preds = %109, %114, %awt_drawArc.argprom.exit177
+118:                                              ; preds = %109, %114, %awt_drawArc.exit177
   %.not169 = icmp sgt i64 %68, %72
   br i1 %.not169, label %.sink.split, label %119
 
@@ -313,7 +313,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawOval(ptr noundef %0, ptr nocap
 14:                                               ; preds = %11
   %15 = or i32 %7, %6
   %or.cond3 = icmp sgt i32 %15, -1
-  br i1 %or.cond3, label %16, label %awt_drawArc.argprom.exit
+  br i1 %or.cond3, label %16, label %awt_drawArc.exit
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr @awt_display, align 8
@@ -323,7 +323,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawOval(ptr noundef %0, ptr nocap
   %21 = add nuw nsw i32 %6, 1
   %22 = add nuw nsw i32 %7, 1
   %23 = tail call i32 @XFillRectangle(ptr noundef %17, i64 noundef %19, ptr noundef %20, i32 noundef %4, i32 noundef %5, i32 noundef %21, i32 noundef %22) #10
-  br label %awt_drawArc.argprom.exit
+  br label %awt_drawArc.exit
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds i8, ptr %9, i64 88
@@ -333,13 +333,13 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawOval(ptr noundef %0, ptr nocap
   %sext = shl i64 %26, 32
   %29 = ashr exact i64 %sext, 32
   %30 = tail call i32 @XDrawArc(ptr noundef %28, i64 noundef %29, ptr noundef %27, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef 23040) #10
-  br label %awt_drawArc.argprom.exit
+  br label %awt_drawArc.exit
 
-awt_drawArc.argprom.exit:                         ; preds = %24, %14, %16
+awt_drawArc.exit:                                 ; preds = %24, %14, %16
   tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %9) #10
   br label %31
 
-31:                                               ; preds = %8, %awt_drawArc.argprom.exit
+31:                                               ; preds = %8, %awt_drawArc.exit
   ret void
 }
 
@@ -355,7 +355,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawArc(ptr noundef %0, ptr nocapt
   %16 = inttoptr i64 %3 to ptr
   %17 = or i32 %7, %6
   %or.cond.not.i = icmp sgt i32 %17, -1
-  br i1 %or.cond.not.i, label %18, label %awt_drawArc.argprom.exit
+  br i1 %or.cond.not.i, label %18, label %awt_drawArc.exit
 
 18:                                               ; preds = %12
   %19 = add i32 %9, -360
@@ -375,13 +375,13 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawArc(ptr noundef %0, ptr nocapt
   %sext = shl i64 %15, 32
   %26 = ashr exact i64 %sext, 32
   %27 = tail call i32 @XDrawArc(ptr noundef %25, i64 noundef %26, ptr noundef %16, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %.025.i, i32 noundef %.0.i) #10
-  br label %awt_drawArc.argprom.exit
+  br label %awt_drawArc.exit
 
-awt_drawArc.argprom.exit:                         ; preds = %12, %24
+awt_drawArc.exit:                                 ; preds = %12, %24
   tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %13) #10
   br label %28
 
-28:                                               ; preds = %10, %awt_drawArc.argprom.exit
+28:                                               ; preds = %10, %awt_drawArc.exit
   ret void
 }
 
@@ -1167,7 +1167,7 @@ Java_sun_java2d_x11_X11Renderer_XFillRect.exit:   ; preds = %15
   %70 = shl i32 %.tr170, 1
   %71 = or i32 %70, %68
   %or.cond.not.i = icmp sgt i32 %71, -1
-  br i1 %or.cond.not.i, label %72, label %awt_drawArc.argprom.exit
+  br i1 %or.cond.not.i, label %72, label %awt_drawArc.exit
 
 72:                                               ; preds = %29
   %73 = load i64, ptr %65, align 8
@@ -1175,59 +1175,59 @@ Java_sun_java2d_x11_X11Renderer_XFillRect.exit:   ; preds = %15
   %sext = shl i64 %73, 32
   %75 = ashr exact i64 %sext, 32
   %76 = tail call i32 @XFillArc(ptr noundef %74, i64 noundef %75, ptr noundef %66, i32 noundef %37, i32 noundef %39, i32 noundef %68, i32 noundef %70, i32 noundef 5760, i32 noundef 5760) #10
-  br label %awt_drawArc.argprom.exit
+  br label %awt_drawArc.exit
 
-awt_drawArc.argprom.exit:                         ; preds = %29, %72
+awt_drawArc.exit:                                 ; preds = %29, %72
   %77 = trunc nsw i64 %54 to i32
   %.tr184 = sub nsw i32 %narrow, %77
   %78 = shl nsw i32 %.tr184, 1
   %79 = sub nsw i32 %narrow, %78
   %80 = or i32 %70, %78
   %or.cond.not.i173 = icmp sgt i32 %80, -1
-  br i1 %or.cond.not.i173, label %81, label %awt_drawArc.argprom.exit174
+  br i1 %or.cond.not.i173, label %81, label %awt_drawArc.exit174
 
-81:                                               ; preds = %awt_drawArc.argprom.exit
+81:                                               ; preds = %awt_drawArc.exit
   %82 = load i64, ptr %65, align 8
   %83 = load ptr, ptr @awt_display, align 8
   %sext181 = shl i64 %82, 32
   %84 = ashr exact i64 %sext181, 32
   %85 = tail call i32 @XFillArc(ptr noundef %83, i64 noundef %84, ptr noundef %66, i32 noundef %79, i32 noundef %39, i32 noundef %78, i32 noundef %70, i32 noundef 0, i32 noundef 5760) #10
-  br label %awt_drawArc.argprom.exit174
+  br label %awt_drawArc.exit174
 
-awt_drawArc.argprom.exit174:                      ; preds = %awt_drawArc.argprom.exit, %81
+awt_drawArc.exit174:                              ; preds = %awt_drawArc.exit, %81
   %.tr185 = trunc nsw i64 %64 to i32
   %86 = shl nsw i32 %.tr185, 1
   %87 = sub nsw i32 %narrow179, %86
   %88 = or i32 %68, %86
   %or.cond.not.i175 = icmp sgt i32 %88, -1
-  br i1 %or.cond.not.i175, label %89, label %awt_drawArc.argprom.exit176
+  br i1 %or.cond.not.i175, label %89, label %awt_drawArc.exit176
 
-89:                                               ; preds = %awt_drawArc.argprom.exit174
+89:                                               ; preds = %awt_drawArc.exit174
   %90 = load i64, ptr %65, align 8
   %91 = load ptr, ptr @awt_display, align 8
   %sext182 = shl i64 %90, 32
   %92 = ashr exact i64 %sext182, 32
   %93 = tail call i32 @XFillArc(ptr noundef %91, i64 noundef %92, ptr noundef %66, i32 noundef %37, i32 noundef %87, i32 noundef %68, i32 noundef %86, i32 noundef 11520, i32 noundef 5760) #10
-  br label %awt_drawArc.argprom.exit176
+  br label %awt_drawArc.exit176
 
-awt_drawArc.argprom.exit176:                      ; preds = %awt_drawArc.argprom.exit174, %89
+awt_drawArc.exit176:                              ; preds = %awt_drawArc.exit174, %89
   %94 = or i32 %86, %78
   %or.cond.not.i177 = icmp sgt i32 %94, -1
-  br i1 %or.cond.not.i177, label %95, label %awt_drawArc.argprom.exit178
+  br i1 %or.cond.not.i177, label %95, label %awt_drawArc.exit178
 
-95:                                               ; preds = %awt_drawArc.argprom.exit176
+95:                                               ; preds = %awt_drawArc.exit176
   %96 = load i64, ptr %65, align 8
   %97 = load ptr, ptr @awt_display, align 8
   %sext183 = shl i64 %96, 32
   %98 = ashr exact i64 %sext183, 32
   %99 = tail call i32 @XFillArc(ptr noundef %97, i64 noundef %98, ptr noundef %66, i32 noundef %79, i32 noundef %87, i32 noundef %78, i32 noundef %86, i32 noundef 17280, i32 noundef 5760) #10
-  br label %awt_drawArc.argprom.exit178
+  br label %awt_drawArc.exit178
 
-awt_drawArc.argprom.exit178:                      ; preds = %awt_drawArc.argprom.exit176, %95
+awt_drawArc.exit178:                              ; preds = %awt_drawArc.exit176, %95
   %100 = icmp slt i64 %50, %54
   br i1 %100, label %101, label %119
 
-101:                                              ; preds = %awt_drawArc.argprom.exit178
+101:                                              ; preds = %awt_drawArc.exit178
   %102 = icmp sgt i64 %59, %40
   br i1 %102, label %103, label %109
 
@@ -1253,7 +1253,7 @@ awt_drawArc.argprom.exit178:                      ; preds = %awt_drawArc.argprom
   %118 = tail call i32 @XFillRectangle(ptr noundef %112, i64 noundef %113, ptr noundef %66, i32 noundef %67, i32 noundef %114, i32 noundef %116, i32 noundef %117) #10
   br label %119
 
-119:                                              ; preds = %109, %111, %awt_drawArc.argprom.exit178
+119:                                              ; preds = %109, %111, %awt_drawArc.exit178
   %120 = icmp slt i64 %59, %63
   br i1 %120, label %121, label %.sink.split
 
@@ -1338,7 +1338,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillOval(ptr noundef %0, ptr nocap
   %49 = icmp sgt i32 %.048, 0
   %50 = icmp sgt i32 %.049, 0
   %or.cond7 = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond7, label %51, label %awt_drawArc.argprom.exit
+  br i1 %or.cond7, label %51, label %awt_drawArc.exit
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr @awt_display, align 8
@@ -1346,7 +1346,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillOval(ptr noundef %0, ptr nocap
   %54 = load i64, ptr %53, align 8
   %55 = inttoptr i64 %3 to ptr
   %56 = tail call i32 @XFillRectangle(ptr noundef %52, i64 noundef %54, ptr noundef %55, i32 noundef %.0, i32 noundef %.047, i32 noundef %.048, i32 noundef %.049) #10
-  br label %awt_drawArc.argprom.exit
+  br label %awt_drawArc.exit
 
 57:                                               ; preds = %11
   %58 = getelementptr inbounds i8, ptr %9, i64 88
@@ -1356,13 +1356,13 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillOval(ptr noundef %0, ptr nocap
   %sext = shl i64 %59, 32
   %62 = ashr exact i64 %sext, 32
   %63 = tail call i32 @XFillArc(ptr noundef %61, i64 noundef %62, ptr noundef %60, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, i32 noundef 23040) #10
-  br label %awt_drawArc.argprom.exit
+  br label %awt_drawArc.exit
 
-awt_drawArc.argprom.exit:                         ; preds = %57, %48, %51
+awt_drawArc.exit:                                 ; preds = %57, %48, %51
   tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %9) #10
   br label %64
 
-64:                                               ; preds = %8, %awt_drawArc.argprom.exit
+64:                                               ; preds = %8, %awt_drawArc.exit
   ret void
 }
 
@@ -1381,7 +1381,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillArc(ptr noundef %0, ptr nocapt
   %16 = inttoptr i64 %3 to ptr
   %17 = or i32 %7, %6
   %or.cond.not.i = icmp sgt i32 %17, -1
-  br i1 %or.cond.not.i, label %18, label %awt_drawArc.argprom.exit
+  br i1 %or.cond.not.i, label %18, label %awt_drawArc.exit
 
 18:                                               ; preds = %12
   %19 = add i32 %9, -360
@@ -1401,13 +1401,13 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillArc(ptr noundef %0, ptr nocapt
   %sext = shl i64 %15, 32
   %26 = ashr exact i64 %sext, 32
   %27 = tail call i32 @XFillArc(ptr noundef %25, i64 noundef %26, ptr noundef %16, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %.025.i, i32 noundef %.0.i) #10
-  br label %awt_drawArc.argprom.exit
+  br label %awt_drawArc.exit
 
-awt_drawArc.argprom.exit:                         ; preds = %12, %24
+awt_drawArc.exit:                                 ; preds = %12, %24
   tail call void @X11SD_DirectRenderNotify(ptr noundef %0, ptr noundef nonnull %13) #10
   br label %28
 
-28:                                               ; preds = %10, %awt_drawArc.argprom.exit
+28:                                               ; preds = %10, %awt_drawArc.exit
   ret void
 }
 

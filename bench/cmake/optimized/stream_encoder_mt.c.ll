@@ -892,21 +892,21 @@ stream_encode_in.exit._crit_edge:                 ; preds = %stream_encode_in.ex
   %229 = add nsw i64 %228, %227
   store i64 %229, ptr %40, align 8
   %230 = icmp sgt i64 %229, 999999999
-  br i1 %230, label %231, label %mythread_condtime_set.argprom.exit.i
+  br i1 %230, label %231, label %mythread_condtime_set.exit.i
 
 231:                                              ; preds = %216
   %232 = add nsw i64 %229, -1000000000
   store i64 %232, ptr %40, align 8
   %233 = add nsw i64 %225, 1
   store i64 %233, ptr %16, align 8
-  br label %mythread_condtime_set.argprom.exit.i
+  br label %mythread_condtime_set.exit.i
 
-mythread_condtime_set.argprom.exit.i:             ; preds = %231, %216
+mythread_condtime_set.exit.i:                     ; preds = %231, %216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %234
 
-234:                                              ; preds = %213, %mythread_condtime_set.argprom.exit.i
-  %.1104 = phi i1 [ %.0103.ph, %213 ], [ true, %mythread_condtime_set.argprom.exit.i ]
+234:                                              ; preds = %213, %mythread_condtime_set.exit.i
+  %.1104 = phi i1 [ %.0103.ph, %213 ], [ true, %mythread_condtime_set.exit.i ]
   %235 = call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #11
   br i1 %214, label %.split.us.us.i.outer, label %.split.i102
 

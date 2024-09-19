@@ -9443,20 +9443,20 @@ if.end.i.i.i:                                     ; preds = %entry
   %2 = getelementptr i8, ptr %this.val.i.i.i, i64 72
   %this.val.val.i.i.i = load i8, ptr %2, align 8
   %tobool.i.i.i.i.i = trunc i8 %this.val.val.i.i.i to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPNS0_2io7PrinterEENK3$_0clEv.argprom.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPNS0_2io7PrinterEENK3$_0clEv.exit.i.i.i"
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
   %3 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %this.val1.i.i.i = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %this.val1.i.i.i, align 8
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %4, ptr null, i64 0, i64 92, ptr nonnull @.str.54)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPNS0_2io7PrinterEENK3$_0clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPNS0_2io7PrinterEENK3$_0clEv.exit.i.i.i"
 
-"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPNS0_2io7PrinterEENK3$_0clEv.argprom.argprom.exit.i.i.i": ; preds = %if.end.i.i.i.i, %if.end.i.i.i
+"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPNS0_2io7PrinterEENK3$_0clEv.exit.i.i.i": ; preds = %if.end.i.i.i.i, %if.end.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPS3_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPS3_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPNS0_2io7PrinterEENK3$_0clEv.argprom.argprom.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPS3_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPNS0_2io7PrinterEENK3$_0clEv.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -9602,17 +9602,17 @@ if.end.i.i.i:                                     ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val.val.i.i.i, ptr null, i64 0, i64 25, ptr nonnull @.str.64)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_1clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_1clEv.exit.i.i.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val.val.i.i.i, ptr null, i64 0, i64 119, ptr nonnull @.str.65)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_1clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_1clEv.exit.i.i.i"
 
-"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_1clEv.argprom.argprom.exit.i.i.i": ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
+"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_1clEv.exit.i.i.i": ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_1clEv.argprom.argprom.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_1clEv.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -9678,17 +9678,17 @@ if.end.i.i.i:                                     ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val.val.i.i.i, ptr null, i64 0, i64 10, ptr nonnull @.str.66)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_2clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_2clEv.exit.i.i.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val.val.i.i.i, ptr null, i64 0, i64 90, ptr nonnull @.str.67)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_2clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_2clEv.exit.i.i.i"
 
-"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_2clEv.argprom.argprom.exit.i.i.i": ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
+"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_2clEv.exit.i.i.i": ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_2clEv.argprom.argprom.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_2clEv.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -9747,20 +9747,20 @@ if.end.i.i.i:                                     ; preds = %entry
   %2 = getelementptr i8, ptr %this.val.i.i.i, i64 76
   %this.val.val.i.i.i = load i8, ptr %2, align 4
   %tobool.i.i.i.i.i = trunc i8 %this.val.val.i.i.i to i1
-  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_3clEv.argprom.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i.i.i, label %if.end.i.i.i.i, label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_3clEv.exit.i.i.i"
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
   %3 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %this.val1.i.i.i = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %this.val1.i.i.i, align 8
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %4, ptr null, i64 0, i64 108, ptr nonnull @.str.68)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_3clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_3clEv.exit.i.i.i"
 
-"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_3clEv.argprom.argprom.exit.i.i.i": ; preds = %if.end.i.i.i.i, %if.end.i.i.i
+"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_3clEv.exit.i.i.i": ; preds = %if.end.i.i.i.i, %if.end.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_3clEv.argprom.argprom.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_3clEv.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -9826,7 +9826,7 @@ if.end.i.i.i:                                     ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 131, ptr nonnull @.str.69)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.exit.i.i.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i
   %field_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i, i64 88
@@ -9836,7 +9836,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 38, ptr nonnull @.str.70)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.exit.i.i.i"
 
 if.end8.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %is_inlined_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i, i64 72
@@ -9846,7 +9846,7 @@ if.end8.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
 
 if.then10.i.i.i.i.i:                              ; preds = %if.end8.i.i.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 164, ptr nonnull @.str.71)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.exit.i.i.i"
 
 if.end14.i.i.i.i.i:                               ; preds = %if.end8.i.i.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 82, ptr nonnull @.str.72)
@@ -9858,17 +9858,17 @@ if.end14.i.i.i.i.i:                               ; preds = %if.end8.i.i.i.i.i
 
 if.then19.i.i.i.i.i:                              ; preds = %if.end14.i.i.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 38, ptr nonnull @.str.70)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.exit.i.i.i"
 
 if.end23.i.i.i.i.i:                               ; preds = %if.end14.i.i.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 187, ptr nonnull @.str.73)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.exit.i.i.i"
 
-"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.argprom.argprom.exit.i.i.i": ; preds = %if.end23.i.i.i.i.i, %if.then19.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.then4.i.i.i.i.i, %if.then.i.i.i.i.i
+"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.exit.i.i.i": ; preds = %if.end23.i.i.i.i.i, %if.then19.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.then4.i.i.i.i.i, %if.then.i.i.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.argprom.argprom.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_4clEv.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -9936,7 +9936,7 @@ if.end.i.i.i:                                     ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 190, ptr nonnull @.str.74)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.exit.i.i.i"
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i.i
   %field_.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i, i64 88
@@ -9956,7 +9956,7 @@ if.end8.i.i.i.i.i:                                ; preds = %if.then4.i.i.i.i.i,
 
 if.then10.i.i.i.i.i:                              ; preds = %if.end8.i.i.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 62, ptr nonnull @.str.76)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.exit.i.i.i"
 
 if.end14.i.i.i.i.i:                               ; preds = %if.end8.i.i.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 49, ptr nonnull @.str.77)
@@ -9964,17 +9964,17 @@ if.end14.i.i.i.i.i:                               ; preds = %if.end8.i.i.i.i.i
   %6 = getelementptr i8, ptr %this.val.i.i.i.i.i, i64 80
   %this.val.val.i.i.i.i.i = load ptr, ptr %6, align 8
   %call2.i.i.i.i.i.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this.val.val.i.i.i.i.i) #29
-  br i1 %call2.i.i.i.i.i.i, label %if.then19.i.i.i.i.i, label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.argprom.argprom.exit.i.i.i"
+  br i1 %call2.i.i.i.i.i.i, label %if.then19.i.i.i.i.i, label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.exit.i.i.i"
 
 if.then19.i.i.i.i.i:                              ; preds = %if.end14.i.i.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %this.val1.val.i.i.i, ptr null, i64 0, i64 173, ptr nonnull @.str.78)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.exit.i.i.i"
 
-"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.argprom.argprom.exit.i.i.i": ; preds = %if.then19.i.i.i.i.i, %if.end14.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.then.i.i.i.i.i
+"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.exit.i.i.i": ; preds = %if.then19.i.i.i.i.i, %if.end14.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.then.i.i.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.argprom.argprom.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS3_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterEENK3$_5clEv.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -10116,17 +10116,17 @@ if.end.i.i.i:                                     ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %4, ptr null, i64 0, i64 17, ptr nonnull @.str.96)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPNS0_2io7PrinterEENK3$_1clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPNS0_2io7PrinterEENK3$_1clEv.exit.i.i.i"
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %4, ptr null, i64 0, i64 112, ptr nonnull @.str.97)
-  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPNS0_2io7PrinterEENK3$_1clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPNS0_2io7PrinterEENK3$_1clEv.exit.i.i.i"
 
-"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPNS0_2io7PrinterEENK3$_1clEv.argprom.argprom.exit.i.i.i": ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPNS0_2io7PrinterEENK3$_1clEv.exit.i.i.i": ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   store i8 0, ptr %0, align 8
   br label %"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPS3_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit"
 
-"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPS3_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPNS0_2io7PrinterEENK3$_1clEv.argprom.argprom.exit.i.i.i"
+"_ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS1_8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPS3_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS5_5Rank2EEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISO_T0_DpT1_EESO_E4typeEOSU_DpOSV_.exit": ; preds = %entry, %"_ZZNK6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPNS0_2io7PrinterEENK3$_1clEv.exit.i.i.i"
   %retval.0.i.i.i = xor i1 %tobool.i.i.i, true
   ret i1 %retval.0.i.i.i
 }
@@ -11921,11 +11921,11 @@ attributes #32 = { noreturn }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularStringEJRPKNS1_15FieldDescriptorERKNS3_7OptionsERPNS3_18MessageSCCAnalyzerEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!6 = distinct !{!6, !"_ZSt11make_uniqueIN6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularStringEJRPKNS1_15FieldDescriptorERKNS3_7OptionsERPNS3_18MessageSCCAnalyzerEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularStringEJRPKNS1_15FieldDescriptorERKNS3_7OptionsERPNS3_18MessageSCCAnalyzerEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN6google8protobuf8compiler3cpp12_GLOBAL__N_114SingularStringEJRPKNS1_15FieldDescriptorERKNS3_7OptionsERPNS3_18MessageSCCAnalyzerEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZSt11make_uniqueIN6google8protobuf8compiler3cpp12_GLOBAL__N_114RepeatedStringEJRPKNS1_15FieldDescriptorERKNS3_7OptionsERPNS3_18MessageSCCAnalyzerEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!9 = distinct !{!9, !"_ZSt11make_uniqueIN6google8protobuf8compiler3cpp12_GLOBAL__N_114RepeatedStringEJRPKNS1_15FieldDescriptorERKNS3_7OptionsERPNS3_18MessageSCCAnalyzerEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!8 = distinct !{!8, !9, !"_ZSt11make_uniqueIN6google8protobuf8compiler3cpp12_GLOBAL__N_114RepeatedStringEJRPKNS1_15FieldDescriptorERKNS3_7OptionsERPNS3_18MessageSCCAnalyzerEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!9 = distinct !{!9, !"_ZSt11make_uniqueIN6google8protobuf8compiler3cpp12_GLOBAL__N_114RepeatedStringEJRPKNS1_15FieldDescriptorERKNS3_7OptionsERPNS3_18MessageSCCAnalyzerEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!13}
@@ -11933,36 +11933,36 @@ attributes #32 = { noreturn }
 !14 = distinct !{!14, !"_ZNO6google8protobuf2io7Printer3Sub11AnnotatedAsENS2_16AnnotationRecordE"}
 !15 = distinct !{!15, !11}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!18 = distinct !{!18, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!17 = distinct !{!17, !18, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!18 = distinct !{!18, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString28GenerateAccessorDeclarationsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !19 = distinct !{!19, !11}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!22 = distinct !{!22, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!21 = distinct !{!21, !22, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!22 = distinct !{!22, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!25 = distinct !{!25, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!24 = distinct !{!24, !25, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!25 = distinct !{!25, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!28 = distinct !{!28, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!27 = distinct !{!27, !28, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!28 = distinct !{!28, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_2vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!31 = distinct !{!31, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!30 = distinct !{!30, !31, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!31 = distinct !{!31, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_3vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!34 = distinct !{!34, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!33 = distinct !{!33, !34, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!34 = distinct !{!34, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_4vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!37 = distinct !{!37, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!36 = distinct !{!36, !37, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!37 = distinct !{!37, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString33GenerateInlineAccessorDefinitionsEPS2_E3$_5vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!40 = distinct !{!40, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!39 = distinct !{!39, !40, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!40 = distinct !{!40, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!43 = distinct !{!43, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!42 = distinct !{!42, !43, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!43 = distinct !{!43, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString27GenerateCopyConstructorCodeEPS2_E3$_1vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString39GenerateSerializeWithCachedSizesToArrayEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!46 = distinct !{!46, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString39GenerateSerializeWithCachedSizesToArrayEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!45 = distinct !{!45, !46, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString39GenerateSerializeWithCachedSizesToArrayEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!46 = distinct !{!46, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114SingularString39GenerateSerializeWithCachedSizesToArrayEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !47 = !{!48}
 !48 = distinct !{!48, !49, !"_ZN6google8protobuf8compiler3cpp15MakeDefaultNameB5cxx11EPKNS0_15FieldDescriptorE: %agg.result"}
 !49 = distinct !{!49, !"_ZN6google8protobuf8compiler3cpp15MakeDefaultNameB5cxx11EPKNS0_15FieldDescriptorE"}
@@ -12087,11 +12087,11 @@ attributes #32 = { noreturn }
 !168 = distinct !{!168, !11}
 !169 = distinct !{!169, !11}
 !170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString33GenerateInlineAccessorDefinitionsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!172 = distinct !{!172, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString33GenerateInlineAccessorDefinitionsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!171 = distinct !{!171, !172, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString33GenerateInlineAccessorDefinitionsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!172 = distinct !{!172, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString33GenerateInlineAccessorDefinitionsEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString19GenerateMergingCodeEPS2_EUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!175 = distinct !{!175, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString19GenerateMergingCodeEPS2_EUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!174 = distinct !{!174, !175, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString19GenerateMergingCodeEPS2_EUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!175 = distinct !{!175, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString19GenerateMergingCodeEPS2_EUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}
 !176 = !{!177}
-!177 = distinct !{!177, !178, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString39GenerateSerializeWithCachedSizesToArrayEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom: %agg.result"}
-!178 = distinct !{!178, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString39GenerateSerializeWithCachedSizesToArrayEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E.argprom"}
+!177 = distinct !{!177, !178, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString39GenerateSerializeWithCachedSizesToArrayEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E: %agg.result"}
+!178 = distinct !{!178, !"_ZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS0_8compiler3cpp12_GLOBAL__N_114RepeatedString39GenerateSerializeWithCachedSizesToArrayEPS2_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFbvEEEEOT_NS4_5Rank2E"}

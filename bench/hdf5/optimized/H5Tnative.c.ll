@@ -659,12 +659,12 @@ H5T__get_native_float.exit:                       ; preds = %154, %147
 
 199:                                              ; preds = %195
   %200 = load i64, ptr @H5T_POINTER_ALIGN_g, align 8
-  tail call fastcc void @H5T__cmp_offset.retelim(ptr noundef %4, ptr noundef %3, i64 noundef 8, i64 noundef 1, i64 noundef %200, ptr noundef %2)
+  tail call fastcc void @H5T__cmp_offset(ptr noundef %4, ptr noundef %3, i64 noundef 8, i64 noundef 1, i64 noundef %200, ptr noundef %2)
   br label %H5T__get_native_integer.exit.thread371
 
 201:                                              ; preds = %195, %189
   %202 = load i64, ptr @H5T_NATIVE_SCHAR_ALIGN_g, align 8
-  tail call fastcc void @H5T__cmp_offset.retelim(ptr noundef %4, ptr noundef %3, i64 noundef 1, i64 noundef %19, i64 noundef %202, ptr noundef %2)
+  tail call fastcc void @H5T__cmp_offset(ptr noundef %4, ptr noundef %3, i64 noundef 1, i64 noundef %19, i64 noundef %202, ptr noundef %2)
   br label %H5T__get_native_integer.exit.thread371
 
 203:                                              ; preds = %25
@@ -960,7 +960,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %278, %271
   %.0255.in = phi ptr [ @H5T_HOBJREF_ALIGN_g, %350 ], [ %H5T_HDSETREGREF_ALIGN_g.H5T_REF_ALIGN_g, %361 ]
   %.0254 = phi i64 [ 8, %350 ], [ %., %361 ]
   %.0255 = load i64, ptr %.0255.in, align 8
-  tail call fastcc void @H5T__cmp_offset.retelim(ptr noundef %4, ptr noundef %3, i64 noundef %.0254, i64 noundef 1, i64 noundef %.0255, ptr noundef %2)
+  tail call fastcc void @H5T__cmp_offset(ptr noundef %4, ptr noundef %3, i64 noundef %.0254, i64 noundef 1, i64 noundef %.0255, ptr noundef %2)
   br label %H5T__get_native_integer.exit.thread371
 
 365:                                              ; preds = %25
@@ -1114,7 +1114,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %278, %271
 
 447:                                              ; preds = %434
   %448 = load i64, ptr %7, align 8
-  call fastcc void @H5T__cmp_offset.retelim(ptr noundef %4, ptr noundef %3, i64 noundef %427, i64 noundef 1, i64 noundef %448, ptr noundef %2)
+  call fastcc void @H5T__cmp_offset(ptr noundef %4, ptr noundef %3, i64 noundef %427, i64 noundef 1, i64 noundef %448, ptr noundef %2)
   br label %449
 
 449:                                              ; preds = %447, %458
@@ -1408,7 +1408,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %278, %271
 625:                                              ; preds = %.preheader464
   %626 = load i64, ptr %9, align 8
   %627 = load i64, ptr %10, align 8
-  call fastcc void @H5T__cmp_offset.retelim(ptr noundef %4, ptr noundef %3, i64 noundef %626, i64 noundef %624, i64 noundef %627, ptr noundef %2)
+  call fastcc void @H5T__cmp_offset(ptr noundef %4, ptr noundef %3, i64 noundef %626, i64 noundef %624, i64 noundef %627, ptr noundef %2)
   %628 = call ptr @H5MM_xfree(ptr noundef nonnull %574) #7
   br label %H5T__get_native_integer.exit.thread371
 
@@ -1470,7 +1470,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %278, %271
 
 664:                                              ; preds = %657
   %665 = load i64, ptr @H5T_HVL_ALIGN_g, align 8
-  tail call fastcc void @H5T__cmp_offset.retelim(ptr noundef %4, ptr noundef %3, i64 noundef 16, i64 noundef 1, i64 noundef %665, ptr noundef %2)
+  tail call fastcc void @H5T__cmp_offset(ptr noundef %4, ptr noundef %3, i64 noundef 16, i64 noundef 1, i64 noundef %665, ptr noundef %2)
   br label %H5T__get_native_integer.exit.thread371
 
 666:                                              ; preds = %25
@@ -1734,7 +1734,7 @@ declare i32 @H5T_get_sign(ptr noundef) local_unnamed_addr #1
 declare ptr @H5T_copy(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @H5T__cmp_offset.retelim(ptr nocapture noundef nonnull %0, ptr noundef writeonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #3 {
+define internal fastcc void @H5T__cmp_offset(ptr nocapture noundef nonnull %0, ptr noundef writeonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %7
 

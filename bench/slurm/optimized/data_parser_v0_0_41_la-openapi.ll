@@ -286,7 +286,7 @@ _should_be_ref.exit:                              ; preds = %92
 
 _should_be_ref.exit.thread60:                     ; preds = %78, %.split75.us, %_should_be_ref.exit
   %97 = trunc nuw i8 %.us-phi79 to i1
-  tail call fastcc void @_set_openapi_parse.retelim(ptr noundef %0, ptr noundef %.us-phi76, ptr noundef %3, ptr noundef %.us-phi78, i1 noundef zeroext %97)
+  tail call fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %.us-phi76, ptr noundef %3, ptr noundef %.us-phi78, i1 noundef zeroext %97)
   br label %142
 
 _should_be_ref.exit.thread:                       ; preds = %87, %90, %92, %_resolve_parser_index.exit.thread.i, %_should_be_ref.exit
@@ -382,7 +382,7 @@ _should_be_ref.exit.thread:                       ; preds = %87, %90, %92, %_res
   %136 = call ptr @data_set_dict(ptr noundef %128) #6
   %137 = load i16, ptr %50, align 8
   %138 = icmp ne i16 %137, 0
-  call fastcc void @_set_openapi_parse.retelim(ptr noundef %136, ptr noundef nonnull %.us-phi76, ptr noundef nonnull %3, ptr noundef null, i1 noundef zeroext %138)
+  call fastcc void @_set_openapi_parse(ptr noundef %136, ptr noundef nonnull %.us-phi76, ptr noundef nonnull %3, ptr noundef null, i1 noundef zeroext %138)
   br label %141
 
 139:                                              ; preds = %121
@@ -403,7 +403,7 @@ _should_be_ref.exit.thread:                       ; preds = %87, %90, %92, %_res
 declare ptr @find_parser_by_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_openapi_parse.retelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 124
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
@@ -1015,7 +1015,7 @@ define void @set_openapi_schema(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   %10 = getelementptr inbounds i8, ptr %4, i64 24
   call void @get_parsers(ptr noundef nonnull %9, ptr noundef nonnull %10) #6
-  call fastcc void @_set_openapi_parse.retelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef null, i1 noundef zeroext false)
+  call fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef null, i1 noundef zeroext false)
   ret void
 }
 
@@ -1375,7 +1375,7 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %39 [
-    i32 4, label %_add_param_eflags.argprom.exit
+    i32 4, label %_add_param_eflags.exit
     i32 3, label %6
     i32 2, label %35
   ]
@@ -1387,7 +1387,7 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   %9 = getelementptr inbounds i8, ptr %8, i64 136
   %10 = load i8, ptr %9, align 8
   %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %_add_param_eflags.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_add_param_eflags.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %11 = getelementptr inbounds i8, ptr %8, i64 128
@@ -1415,7 +1415,7 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   %28 = load i16, ptr %27, align 2
   %29 = icmp ne i16 %28, 0
   %.val.i = load ptr, ptr %12, align 8
-  %30 = tail call fastcc ptr @_add_param.argprom.argelim(ptr noundef %22, ptr noundef %24, i1 noundef zeroext true, ptr noundef %26, i1 noundef zeroext %29, i1 noundef zeroext false, ptr %.val.i)
+  %30 = tail call fastcc ptr @_add_param(ptr noundef %22, ptr noundef %24, i1 noundef zeroext true, ptr noundef %26, i1 noundef zeroext %29, i1 noundef zeroext false, ptr %.val.i)
   %.pre.i = load i8, ptr %9, align 8
   br label %31
 
@@ -1424,7 +1424,7 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %33 = zext i8 %32 to i64
   %34 = icmp ult i64 %indvars.iv.next.i, %33
-  br i1 %34, label %13, label %_add_param_eflags.argprom.exit, !llvm.loop !19
+  br i1 %34, label %13, label %_add_param_eflags.exit, !llvm.loop !19
 
 35:                                               ; preds = %3
   %36 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1452,7 +1452,7 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   %46 = getelementptr inbounds i8, ptr %.1.lcssa, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 1
-  br i1 %48, label %_add_param_eflags.argprom.exit, label %49
+  br i1 %48, label %_add_param_eflags.exit, label %49
 
 49:                                               ; preds = %._crit_edge
   %50 = tail call ptr @data_list_append(ptr noundef %0) #6
@@ -1472,7 +1472,7 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   %64 = trunc i8 %63 to i1
   %65 = getelementptr i8, ptr %2, i64 64
   %.val = load ptr, ptr %65, align 8
-  %66 = tail call fastcc ptr @_add_param.argprom.argelim(ptr noundef %51, ptr noundef %53, i1 noundef zeroext %56, ptr noundef %58, i1 noundef zeroext %61, i1 noundef zeroext %64, ptr %.val)
+  %66 = tail call fastcc ptr @_add_param(ptr noundef %51, ptr noundef %53, i1 noundef zeroext %56, ptr noundef %58, i1 noundef zeroext %61, i1 noundef zeroext %64, ptr %.val)
   %67 = load i32, ptr %4, align 4
   %68 = icmp eq i32 %67, 2
   br i1 %68, label %69, label %73
@@ -1488,13 +1488,13 @@ define internal fastcc void @_add_param_linked(ptr noundef %0, ptr nocapture nou
   %74 = getelementptr inbounds i8, ptr %.023, i64 128
   %75 = load ptr, ptr %74, align 8
   %.not26 = icmp eq ptr %75, null
-  br i1 %.not26, label %_add_param_eflags.argprom.exit, label %76
+  br i1 %.not26, label %_add_param_eflags.exit, label %76
 
 76:                                               ; preds = %73
   tail call fastcc void @_add_param_flag_enum(ptr noundef %66, ptr noundef nonnull %.023)
-  br label %_add_param_eflags.argprom.exit
+  br label %_add_param_eflags.exit
 
-_add_param_eflags.argprom.exit:                   ; preds = %31, %6, %3, %._crit_edge, %76, %73
+_add_param_eflags.exit:                           ; preds = %31, %6, %3, %._crit_edge, %76, %73
   ret void
 }
 
@@ -2187,7 +2187,7 @@ define internal noundef i32 @_convert_dict_entry(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_add_param.argprom.argelim(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr %.64.val) unnamed_addr #0 {
+define internal fastcc noundef ptr @_add_param(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr %.64.val) unnamed_addr #0 {
   %7 = tail call ptr @data_key_get(ptr noundef %.64.val, ptr noundef %1) #6
   %8 = icmp ne ptr %7, null
   %9 = tail call ptr @data_key_set(ptr noundef %0, ptr noundef nonnull @.str.38) #6

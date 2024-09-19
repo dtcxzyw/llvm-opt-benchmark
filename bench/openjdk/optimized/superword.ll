@@ -2655,13 +2655,13 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 
 ._crit_edge.i:                                    ; preds = %85
   store i32 %.1.i, ptr %4, align 8
-  br i1 %22, label %10, label %"_ZN7PackSet11split_packsIZN9SuperWord33split_packs_at_use_def_boundariesEvE3$_0EEvPKcT_.argprom.exit", !llvm.loop !37
+  br i1 %22, label %10, label %"_ZN7PackSet11split_packsIZN9SuperWord33split_packs_at_use_def_boundariesEvE3$_0EEvPKcT_.exit", !llvm.loop !37
 
 .critedge.i:                                      ; preds = %10
   store i32 0, ptr %4, align 8
-  br label %"_ZN7PackSet11split_packsIZN9SuperWord33split_packs_at_use_def_boundariesEvE3$_0EEvPKcT_.argprom.exit"
+  br label %"_ZN7PackSet11split_packsIZN9SuperWord33split_packs_at_use_def_boundariesEvE3$_0EEvPKcT_.exit"
 
-"_ZN7PackSet11split_packsIZN9SuperWord33split_packs_at_use_def_boundariesEvE3$_0EEvPKcT_.argprom.exit": ; preds = %._crit_edge.i, %.critedge.i
+"_ZN7PackSet11split_packsIZN9SuperWord33split_packs_at_use_def_boundariesEvE3$_0EEvPKcT_.exit": ; preds = %._crit_edge.i, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 }
@@ -2703,7 +2703,7 @@ define hidden void @_ZN9SuperWord46split_packs_only_implemented_with_smaller_siz
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i, %23
   %.0.in.i.i.i = phi i32 [ %.0.i.i.i, %23 ], [ %20, %.lr.ph.i ]
   %22 = icmp ugt i32 %.0.in.i.i.i, 3
-  br i1 %22, label %23, label %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.argprom.exit.i"
+  br i1 %22, label %23, label %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.exit.i"
 
 23:                                               ; preds = %.preheader.i.i.i
   %.0.i.i.i = lshr i32 %.0.in.i.i.i, 1
@@ -2713,15 +2713,15 @@ define hidden void @_ZN9SuperWord46split_packs_only_implemented_with_smaller_siz
 .loopexit.i.i:                                    ; preds = %23, %.lr.ph.i
   %.011.i.ph.i.i = phi i32 [ %20, %.lr.ph.i ], [ %.0.i.i.i, %23 ]
   %.not.i.i = icmp eq i32 %.011.i.ph.i.i, %17
-  br i1 %.not.i.i, label %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.argprom.exit.i", label %25
+  br i1 %.not.i.i, label %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.exit.i", label %25
 
 25:                                               ; preds = %.loopexit.i.i
   %.sroa.2.0.insert.ext.i.i.i = zext i32 %.011.i.ph.i.i to i64
   %.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i, 32
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, 2
-  br label %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.argprom.exit.i"
+  br label %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.exit.i"
 
-"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.argprom.exit.i": ; preds = %.preheader.i.i.i, %25, %.loopexit.i.i
+"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.exit.i": ; preds = %.preheader.i.i.i, %25, %.loopexit.i.i
   %.pn.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %25 ], [ 0, %.loopexit.i.i ], [ 1, %.preheader.i.i.i ]
   call void @_ZN7PackSet10split_packEPKcP9Node_List9SplitTask(ptr dead_on_unwind nonnull writable sret(%class.SplitStatus) align 8 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr nonnull poison, ptr noundef %15, i64 %.pn.i.i, ptr poison)
   %26 = load i32, ptr %2, align 8
@@ -2735,7 +2735,7 @@ define hidden void @_ZN9SuperWord46split_packs_only_implemented_with_smaller_siz
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %38, label %33
 
-33:                                               ; preds = %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.argprom.exit.i"
+33:                                               ; preds = %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.exit.i"
   %34 = add nsw i32 %.0136.i, 1
   %35 = load ptr, ptr %5, align 8
   %36 = sext i32 %.0136.i to i64
@@ -2743,8 +2743,8 @@ define hidden void @_ZN9SuperWord46split_packs_only_implemented_with_smaller_siz
   store ptr %29, ptr %37, align 8
   br label %38
 
-38:                                               ; preds = %33, %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.argprom.exit.i"
-  %.1.i = phi i32 [ %34, %33 ], [ %.0136.i, %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.argprom.exit.i" ]
+38:                                               ; preds = %33, %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.exit.i"
+  %.1.i = phi i32 [ %34, %33 ], [ %.0136.i, %"_ZZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvENK3$_0clEPK9Node_List.exit.i" ]
   %.not15.i = icmp eq ptr %30, null
   br i1 %.not15.i, label %91, label %39
 
@@ -2875,13 +2875,13 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 
 ._crit_edge.i:                                    ; preds = %91
   store i32 %.1.i, ptr %4, align 8
-  br i1 %28, label %10, label %"_ZN7PackSet11split_packsIZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvE3$_0EEvPKcT_.argprom.exit", !llvm.loop !40
+  br i1 %28, label %10, label %"_ZN7PackSet11split_packsIZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvE3$_0EEvPKcT_.exit", !llvm.loop !40
 
 .critedge.i:                                      ; preds = %10
   store i32 0, ptr %4, align 8
-  br label %"_ZN7PackSet11split_packsIZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvE3$_0EEvPKcT_.argprom.exit"
+  br label %"_ZN7PackSet11split_packsIZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvE3$_0EEvPKcT_.exit"
 
-"_ZN7PackSet11split_packsIZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvE3$_0EEvPKcT_.argprom.exit": ; preds = %._crit_edge.i, %.critedge.i
+"_ZN7PackSet11split_packsIZN9SuperWord46split_packs_only_implemented_with_smaller_sizeEvE3$_0EEvPKcT_.exit": ; preds = %._crit_edge.i, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 }
@@ -2936,21 +2936,21 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i: ; preds = %.lr.ph.i
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, %27
   %.not.i.i = icmp eq i32 %33, 0
-  br i1 %.not.i.i, label %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread.i.i, label %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i"
+  br i1 %.not.i.i, label %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread.i.i, label %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.exit.i"
 
 _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread.i.i: ; preds = %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i, %.lr.ph.i
   %34 = getelementptr inbounds i8, ptr %.val.val.i, i64 304
   %35 = tail call noundef zeroext i1 @_ZNK20VLoopDependencyGraph20mutually_independentEPK9Node_List(ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef nonnull readonly %15)
-  br i1 %35, label %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i", label %36
+  br i1 %35, label %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.exit.i", label %36
 
 36:                                               ; preds = %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread.i.i
   %37 = lshr i32 %17, 1
   %.sroa.2.0.insert.ext.i.i.i = zext nneg i32 %37 to i64
   %.sroa.2.0.insert.shift.i.i.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i.i.i, 32
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, 2
-  br label %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i"
+  br label %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.exit.i"
 
-"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i": ; preds = %36, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread.i.i, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i
+"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.exit.i": ; preds = %36, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread.i.i, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i
   %.pn.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %36 ], [ 0, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread.i.i ], [ 0, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i ]
   call void @_ZN7PackSet10split_packEPKcP9Node_List9SplitTask(ptr dead_on_unwind nonnull writable sret(%class.SplitStatus) align 8 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr nonnull poison, ptr noundef nonnull %15, i64 %.pn.i.i, ptr poison)
   %38 = load i32, ptr %2, align 8
@@ -2964,7 +2964,7 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread.i.i: ; preds = %_ZNK9Sup
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %50, label %45
 
-45:                                               ; preds = %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i"
+45:                                               ; preds = %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.exit.i"
   %46 = add nsw i32 %.0136.i, 1
   %47 = load ptr, ptr %5, align 8
   %48 = sext i32 %.0136.i to i64
@@ -2972,8 +2972,8 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.thread.i.i: ; preds = %_ZNK9Sup
   store ptr %41, ptr %49, align 8
   br label %50
 
-50:                                               ; preds = %45, %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i"
-  %.1.i = phi i32 [ %46, %45 ], [ %.0136.i, %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i" ]
+50:                                               ; preds = %45, %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.exit.i"
+  %.1.i = phi i32 [ %46, %45 ], [ %.0136.i, %"_ZZN9SuperWord38split_packs_to_break_mutual_dependenceEvENK3$_0clEPK9Node_List.exit.i" ]
   %.not15.i = icmp eq ptr %42, null
   br i1 %.not15.i, label %103, label %51
 
@@ -3104,13 +3104,13 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 
 ._crit_edge.i:                                    ; preds = %103
   store i32 %.1.i, ptr %4, align 8
-  br i1 %40, label %10, label %"_ZN7PackSet11split_packsIZN9SuperWord38split_packs_to_break_mutual_dependenceEvE3$_0EEvPKcT_.argprom.exit", !llvm.loop !42
+  br i1 %40, label %10, label %"_ZN7PackSet11split_packsIZN9SuperWord38split_packs_to_break_mutual_dependenceEvE3$_0EEvPKcT_.exit", !llvm.loop !42
 
 .critedge.i:                                      ; preds = %10
   store i32 0, ptr %4, align 8
-  br label %"_ZN7PackSet11split_packsIZN9SuperWord38split_packs_to_break_mutual_dependenceEvE3$_0EEvPKcT_.argprom.exit"
+  br label %"_ZN7PackSet11split_packsIZN9SuperWord38split_packs_to_break_mutual_dependenceEvE3$_0EEvPKcT_.exit"
 
-"_ZN7PackSet11split_packsIZN9SuperWord38split_packs_to_break_mutual_dependenceEvE3$_0EEvPKcT_.argprom.exit": ; preds = %._crit_edge.i, %.critedge.i
+"_ZN7PackSet11split_packsIZN9SuperWord38split_packs_to_break_mutual_dependenceEvE3$_0EEvPKcT_.exit": ; preds = %._crit_edge.i, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 }
@@ -3298,13 +3298,13 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 
 ._crit_edge.i.i:                                  ; preds = %84
   store i32 %.1.i.i, ptr %4, align 8
-  br i1 %21, label %10, label %"_ZN7PackSet12filter_packsIZN9SuperWord32filter_packs_for_power_of_2_sizeEvE3$_0EEvPKcS4_T_.argprom.exit", !llvm.loop !44
+  br i1 %21, label %10, label %"_ZN7PackSet12filter_packsIZN9SuperWord32filter_packs_for_power_of_2_sizeEvE3$_0EEvPKcS4_T_.exit", !llvm.loop !44
 
 .critedge.i.i:                                    ; preds = %10
   store i32 0, ptr %4, align 8
-  br label %"_ZN7PackSet12filter_packsIZN9SuperWord32filter_packs_for_power_of_2_sizeEvE3$_0EEvPKcS4_T_.argprom.exit"
+  br label %"_ZN7PackSet12filter_packsIZN9SuperWord32filter_packs_for_power_of_2_sizeEvE3$_0EEvPKcS4_T_.exit"
 
-"_ZN7PackSet12filter_packsIZN9SuperWord32filter_packs_for_power_of_2_sizeEvE3$_0EEvPKcS4_T_.argprom.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
+"_ZN7PackSet12filter_packsIZN9SuperWord32filter_packs_for_power_of_2_sizeEvE3$_0EEvPKcS4_T_.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 }
@@ -3345,7 +3345,7 @@ define hidden void @_ZN9SuperWord36filter_packs_for_mutual_independenceEv(ptr no
   %22 = lshr i32 %21, 5
   %23 = load i32, ptr %19, align 8
   %.not.i.i.i.i.i.i.i = icmp ult i32 %22, %23
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i, label %"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i, label %"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.exit.i.i.i"
 
 _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i: ; preds = %.lr.ph.i.i
   %24 = and i32 %21, 31
@@ -3357,17 +3357,17 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i: ; preds = %.lr.ph.i.i
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, %25
   %.not.i.i.i.i = icmp eq i32 %31, 0
-  br i1 %.not.i.i.i.i, label %"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i.i.i", label %"_ZZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_ENKUlPK9Node_ListE_clES8_.exit.i.i"
+  br i1 %.not.i.i.i.i, label %"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.exit.i.i.i", label %"_ZZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_ENKUlPK9Node_ListE_clES8_.exit.i.i"
 
-"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i.i.i": ; preds = %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i, %.lr.ph.i.i
+"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.exit.i.i.i": ; preds = %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i, %.lr.ph.i.i
   %32 = getelementptr inbounds i8, ptr %.val.val.i.i.i, i64 304
   %33 = tail call noundef zeroext i1 @_ZNK20VLoopDependencyGraph20mutually_independentEPK9Node_List(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr noundef nonnull readonly %15)
   %not. = xor i1 %33, true
   %34 = zext i1 %not. to i64
   br label %"_ZZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_ENKUlPK9Node_ListE_clES8_.exit.i.i"
 
-"_ZZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_ENKUlPK9Node_ListE_clES8_.exit.i.i": ; preds = %"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i.i.i", %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i
-  %.pn.i.i.i = phi i64 [ 0, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i ], [ %34, %"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.argprom.argprom.exit.i.i.i" ]
+"_ZZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_ENKUlPK9Node_ListE_clES8_.exit.i.i": ; preds = %"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.exit.i.i.i", %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i
+  %.pn.i.i.i = phi i64 [ 0, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit.i.i.i.i ], [ %34, %"_ZZN9SuperWord36filter_packs_for_mutual_independenceEvENK3$_0clEPK9Node_List.exit.i.i.i" ]
   call void @_ZN7PackSet10split_packEPKcP9Node_List9SplitTask(ptr dead_on_unwind nonnull writable sret(%class.SplitStatus) align 8 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr nonnull poison, ptr noundef nonnull %15, i64 %.pn.i.i.i, ptr poison)
   %35 = load i32, ptr %2, align 8
   %36 = icmp ne i32 %35, 0
@@ -3520,13 +3520,13 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 
 ._crit_edge.i.i:                                  ; preds = %100
   store i32 %.1.i.i, ptr %4, align 8
-  br i1 %37, label %10, label %"_ZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_.argprom.exit", !llvm.loop !46
+  br i1 %37, label %10, label %"_ZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_.exit", !llvm.loop !46
 
 .critedge.i.i:                                    ; preds = %10
   store i32 0, ptr %4, align 8
-  br label %"_ZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_.argprom.exit"
+  br label %"_ZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_.exit"
 
-"_ZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_.argprom.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
+"_ZN7PackSet12filter_packsIZN9SuperWord36filter_packs_for_mutual_independenceEvE3$_0EEvPKcS4_T_.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 }
@@ -3882,13 +3882,13 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 
 ._crit_edge.i.i:                                  ; preds = %203
   store i32 %.1.i.i, ptr %21, align 8
-  br i1 %140, label %40, label %"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.argprom.exit", !llvm.loop !48
+  br i1 %140, label %40, label %"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.exit", !llvm.loop !48
 
 .critedge.i.i:                                    ; preds = %40
   store i32 0, ptr %21, align 8
-  br label %"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.argprom.exit"
+  br label %"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.exit"
 
-"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.argprom.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
+"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
   %.3 = phi ptr [ %.022, %.critedge.i.i ], [ %.224, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %207 = load ptr, ptr %.3, align 8
@@ -3897,7 +3897,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
   %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 8 dereferenceable(8) %.3) #12
   br i1 %210, label %211, label %288
 
-211:                                              ; preds = %"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.argprom.exit"
+211:                                              ; preds = %"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.exit"
   %212 = load ptr, ptr %.3, align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 24
   %214 = load ptr, ptr %213, align 8
@@ -4004,7 +4004,7 @@ _ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i.i: ; preds
   store i32 %286, ptr %287, align 8
   br label %288
 
-288:                                              ; preds = %.thread.i.i.i, %"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.argprom.exit"
+288:                                              ; preds = %.thread.i.i.i, %"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.exit"
   %289 = load ptr, ptr %12, align 8
   %.not.i.i.i.i7 = icmp eq ptr %289, null
   br i1 %.not.i.i.i.i7, label %291, label %290
@@ -4212,13 +4212,13 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 
 ._crit_edge.i.i:                                  ; preds = %85
   store i32 %.1.i.i, ptr %4, align 8
-  br i1 %22, label %10, label %"_ZN7PackSet12filter_packsIZN9SuperWord28filter_packs_for_implementedEvE3$_0EEvPKcS4_T_.argprom.exit", !llvm.loop !50
+  br i1 %22, label %10, label %"_ZN7PackSet12filter_packsIZN9SuperWord28filter_packs_for_implementedEvE3$_0EEvPKcS4_T_.exit", !llvm.loop !50
 
 .critedge.i.i:                                    ; preds = %10
   store i32 0, ptr %4, align 8
-  br label %"_ZN7PackSet12filter_packsIZN9SuperWord28filter_packs_for_implementedEvE3$_0EEvPKcS4_T_.argprom.exit"
+  br label %"_ZN7PackSet12filter_packsIZN9SuperWord28filter_packs_for_implementedEvE3$_0EEvPKcS4_T_.exit"
 
-"_ZN7PackSet12filter_packsIZN9SuperWord28filter_packs_for_implementedEvE3$_0EEvPKcS4_T_.argprom.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
+"_ZN7PackSet12filter_packsIZN9SuperWord28filter_packs_for_implementedEvE3$_0EEvPKcS4_T_.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 }
@@ -4461,13 +4461,13 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
 
 ._crit_edge.i.i:                                  ; preds = %115
   store i32 %.1.i.i, ptr %3, align 8
-  br i1 %52, label %42, label %"_ZN7PackSet12filter_packsIZN9SuperWord27filter_packs_for_profitableEvE3$_0EEvPKcS4_T_.argprom.exit", !llvm.loop !53
+  br i1 %52, label %42, label %"_ZN7PackSet12filter_packsIZN9SuperWord27filter_packs_for_profitableEvE3$_0EEvPKcS4_T_.exit", !llvm.loop !53
 
 .critedge.i.i:                                    ; preds = %42
   store i32 0, ptr %3, align 8
-  br label %"_ZN7PackSet12filter_packsIZN9SuperWord27filter_packs_for_profitableEvE3$_0EEvPKcS4_T_.argprom.exit"
+  br label %"_ZN7PackSet12filter_packsIZN9SuperWord27filter_packs_for_profitableEvE3$_0EEvPKcS4_T_.exit"
 
-"_ZN7PackSet12filter_packsIZN9SuperWord27filter_packs_for_profitableEvE3$_0EEvPKcS4_T_.argprom.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
+"_ZN7PackSet12filter_packsIZN9SuperWord27filter_packs_for_profitableEvE3$_0EEvPKcS4_T_.exit": ; preds = %._crit_edge.i.i, %.critedge.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 }
@@ -4619,7 +4619,7 @@ define hidden void @_ZN9SuperWord23collect_valid_vpointersER13GrowableArrayIPK8V
   %4 = getelementptr inbounds i8, ptr %.val, i64 168
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph.i.i, label %"_ZNK9SuperWord12for_each_memIZNS_23collect_valid_vpointersER13GrowableArrayIPK8VPointerEE3$_0EEvT_.argprom.exit"
+  br i1 %6, label %.lr.ph.i.i, label %"_ZNK9SuperWord12for_each_memIZNS_23collect_valid_vpointersER13GrowableArrayIPK8VPointerEE3$_0EEvT_.exit"
 
 .lr.ph.i.i:                                       ; preds = %2
   %7 = getelementptr inbounds i8, ptr %.val, i64 176
@@ -4772,9 +4772,9 @@ _ZN26GrowableArrayWithAllocatorIPK8VPointer13GrowableArrayIS2_EE6appendERKS2_.ex
   %99 = load i32, ptr %4, align 4
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next.i.i, %100
-  br i1 %101, label %10, label %"_ZNK9SuperWord12for_each_memIZNS_23collect_valid_vpointersER13GrowableArrayIPK8VPointerEE3$_0EEvT_.argprom.exit", !llvm.loop !54
+  br i1 %101, label %10, label %"_ZNK9SuperWord12for_each_memIZNS_23collect_valid_vpointersER13GrowableArrayIPK8VPointerEE3$_0EEvT_.exit", !llvm.loop !54
 
-"_ZNK9SuperWord12for_each_memIZNS_23collect_valid_vpointersER13GrowableArrayIPK8VPointerEE3$_0EEvT_.argprom.exit": ; preds = %"_ZZN9SuperWord23collect_valid_vpointersER13GrowableArrayIPK8VPointerEENK3$_0clEPK7MemNodei.exit.i.i", %2
+"_ZNK9SuperWord12for_each_memIZNS_23collect_valid_vpointersER13GrowableArrayIPK8VPointerEE3$_0EEvT_.exit": ; preds = %"_ZZN9SuperWord23collect_valid_vpointersER13GrowableArrayIPK8VPointerEENK3$_0clEPK7MemNodei.exit.i.i", %2
   ret void
 }
 

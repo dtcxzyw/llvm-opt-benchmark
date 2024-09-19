@@ -916,7 +916,7 @@ thread-pre-split:                                 ; preds = %.preheader62.split.
   %437 = load ptr, ptr %11, align 8
   %438 = getelementptr i8, ptr %437, i64 168
   %.val = load ptr, ptr %438, align 8
-  call fastcc void @file_start_write.argprom(ptr %.val)
+  call fastcc void @file_start_write(ptr %.val)
   %439 = load ptr, ptr %31, align 8
   %440 = call i32 %439(ptr noundef nonnull %4) #19
   %441 = icmp ne i32 %440, 0
@@ -935,7 +935,7 @@ thread-pre-split:                                 ; preds = %.preheader62.split.
   %449 = load ptr, ptr %11, align 8
   %450 = getelementptr i8, ptr %449, i64 168
   %.val25 = load ptr, ptr %450, align 8
-  call fastcc void @file_end_write.argprom(ptr %.val25)
+  call fastcc void @file_end_write(ptr %.val25)
   call fastcc void @free_vma_snapshot(ptr noundef nonnull %4)
   br label %451
 
@@ -950,7 +950,7 @@ thread-pre-split:                                 ; preds = %.preheader62.split.
   %457 = load ptr, ptr %11, align 8
   %458 = getelementptr i8, ptr %457, i64 200
   %.val26 = load ptr, ptr %458, align 8
-  call fastcc void @wait_for_dump_helpers.argprom(ptr %.val26)
+  call fastcc void @wait_for_dump_helpers(ptr %.val26)
   br label %.thread53
 
 .thread53:                                        ; preds = %418, %407, %410, %398, %401, %376, %370, %364, %338, %456, %451, %434, %431, %.thread50
@@ -1515,7 +1515,7 @@ define internal fastcc noundef zeroext i1 @dump_vma_snapshot(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @file_start_write.argprom(ptr nocapture readonly %.168.val) unnamed_addr #6 align 16 {
+define internal fastcc void @file_start_write(ptr nocapture readonly %.168.val) unnamed_addr #6 align 16 {
   %1 = load i16, ptr %.168.val, align 8
   %2 = and i16 %1, -4096
   %3 = icmp eq i16 %2, -32768
@@ -1644,7 +1644,7 @@ __dump_emit.exit:                                 ; preds = %12, %30, %36, %38, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @file_end_write.argprom(ptr nocapture readonly %.168.val) unnamed_addr #6 align 16 {
+define internal fastcc void @file_end_write(ptr nocapture readonly %.168.val) unnamed_addr #6 align 16 {
   %1 = load i16, ptr %.168.val, align 8
   %2 = and i16 %1, -4096
   %3 = icmp eq i16 %2, -32768
@@ -1742,7 +1742,7 @@ define internal fastcc void @free_vma_snapshot(ptr nocapture noundef %0) unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @wait_for_dump_helpers.argprom(ptr %.200.val) unnamed_addr #0 align 16 {
+define internal fastcc void @wait_for_dump_helpers(ptr %.200.val) unnamed_addr #0 align 16 {
   %1 = alloca %struct.wait_queue_entry, align 8
   tail call void @pipe_lock(ptr noundef %.200.val) #19
   %2 = getelementptr inbounds i8, ptr %.200.val, i64 100

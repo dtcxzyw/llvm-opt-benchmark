@@ -514,7 +514,7 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
           to label %116 unwind label %107
 
 116:                                              ; preds = %115
-  invoke fastcc void @"_ZZN5vcpkg32command_format_manifest_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clEONS_8OptionalIN12_GLOBAL__N_17ToWriteEEE.argprom"(ptr nonnull %31, ptr nonnull %29, ptr noundef nonnull align 8 dereferenceable(160) %34)
+  invoke fastcc void @"_ZZN5vcpkg32command_format_manifest_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clEONS_8OptionalIN12_GLOBAL__N_17ToWriteEEE"(ptr nonnull %31, ptr nonnull %29, ptr noundef nonnull align 8 dereferenceable(160) %34)
           to label %117 unwind label %180
 
 117:                                              ; preds = %116
@@ -768,7 +768,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESa
           to label %183 unwind label %107
 
 183:                                              ; preds = %182
-  invoke fastcc void @"_ZZN5vcpkg32command_format_manifest_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clEONS_8OptionalIN12_GLOBAL__N_17ToWriteEEE.argprom"(ptr nonnull %31, ptr nonnull %29, ptr noundef nonnull align 8 dereferenceable(160) %35)
+  invoke fastcc void @"_ZZN5vcpkg32command_format_manifest_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clEONS_8OptionalIN12_GLOBAL__N_17ToWriteEEE"(ptr nonnull %31, ptr nonnull %29, ptr noundef nonnull align 8 dereferenceable(160) %35)
           to label %184 unwind label %247
 
 184:                                              ; preds = %183
@@ -1152,7 +1152,7 @@ _ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit: ; preds = %_ZN5vcpkg8Opti
           to label %292 unwind label %.loopexit330
 
 292:                                              ; preds = %291
-  invoke fastcc void @"_ZZN5vcpkg32command_format_manifest_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clEONS_8OptionalIN12_GLOBAL__N_17ToWriteEEE.argprom"(ptr nonnull %31, ptr nonnull %29, ptr noundef nonnull align 8 dereferenceable(160) %42)
+  invoke fastcc void @"_ZZN5vcpkg32command_format_manifest_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clEONS_8OptionalIN12_GLOBAL__N_17ToWriteEEE"(ptr nonnull %31, ptr nonnull %29, ptr noundef nonnull align 8 dereferenceable(160) %42)
           to label %293 unwind label %297
 
 293:                                              ; preds = %292
@@ -1182,7 +1182,7 @@ _ZN5vcpkg8OptionalIN12_GLOBAL__N_17ToWriteEED2Ev.exit93: ; preds = %296, %293, %
           to label %300 unwind label %.loopexit330
 
 300:                                              ; preds = %299
-  invoke fastcc void @"_ZZN5vcpkg32command_format_manifest_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clEONS_8OptionalIN12_GLOBAL__N_17ToWriteEEE.argprom"(ptr nonnull %31, ptr nonnull %29, ptr noundef nonnull align 8 dereferenceable(160) %43)
+  invoke fastcc void @"_ZZN5vcpkg32command_format_manifest_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clEONS_8OptionalIN12_GLOBAL__N_17ToWriteEEE"(ptr nonnull %31, ptr nonnull %29, ptr noundef nonnull align 8 dereferenceable(160) %43)
           to label %301 unwind label %305
 
 301:                                              ; preds = %300
@@ -2041,7 +2041,7 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcp
   %556 = getelementptr inbounds i8, ptr %31, i64 8
   %557 = load ptr, ptr %556, align 8
   %.not4.i.i.i.i = icmp eq ptr %555, %557
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.argprom.exit.i, label %.lr.ph.i.i.i.i98
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i98
 
 .lr.ph.i.i.i.i98:                                 ; preds = %.body, %.lr.ph.i.i.i.i98
   %.05.i.i.i.i = phi ptr [ %561, %.lr.ph.i.i.i.i98 ], [ %555, %.body ]
@@ -2054,23 +2054,23 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcp
   call void @_ZN5vcpkg17SourceControlFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.05.i.i.i.i) #18
   %561 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 152
   %.not.i.i.i.i99 = icmp eq ptr %561, %557
-  br i1 %.not.i.i.i.i99, label %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i, label %.lr.ph.i.i.i.i98, !llvm.loop !18
+  br i1 %.not.i.i.i.i99, label %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i98, !llvm.loop !18
 
-_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i98
+_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i98
   %.val.pr.i = load ptr, ptr %31, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.argprom.exit.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i, %.body
-  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i ], [ %555, %.body ]
+_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %.body
+  %.val.i = phi ptr [ %.val.pr.i, %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %555, %.body ]
   %.not.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EED2Ev.exit, label %562
 
-562:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.argprom.exit.i
+562:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.exit.i
   call void @_ZdlPv(ptr noundef nonnull %.val.i) #20
   br label %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EED2Ev.exit: ; preds = %562, %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.argprom.exit.i, %64
-  %.pn51.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %.pn51.pn, %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.argprom.exit.i ], [ %.pn51.pn, %562 ]
+_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EED2Ev.exit: ; preds = %562, %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.exit.i, %64
+  %.pn51.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %.pn51.pn, %_ZSt8_DestroyIPN12_GLOBAL__N_17ToWriteES1_EvT_S3_RSaIT0_E.exit.i ], [ %.pn51.pn, %562 ]
   call void @_ZN5vcpkg15ParsedArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %28) #18
   resume { ptr, i32 } %.pn51.pn.pn
 }
@@ -2158,7 +2158,7 @@ declare noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr, i64, ptr, i64) 
 declare { ptr, i64 } @_ZNK5vcpkg4Path8filenameEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5vcpkg32command_format_manifest_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clEONS_8OptionalIN12_GLOBAL__N_17ToWriteEEE.argprom"(ptr nocapture %.0.val, ptr nocapture writeonly %.8.val, ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5vcpkg32command_format_manifest_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clEONS_8OptionalIN12_GLOBAL__N_17ToWriteEEE"(ptr nocapture %.0.val, ptr nocapture writeonly %.8.val, ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr %0, align 8
   %3 = trunc i8 %2 to i1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2222,13 +2222,13 @@ define internal fastcc void @"_ZZN5vcpkg32command_format_manifest_and_exitERKNS_
   %40 = ptrtoint ptr %.val.i.i.i to i64
   %41 = sub i64 %39, %40
   %42 = icmp eq i64 %41, 9223372036854775752
-  br i1 %42, label %43, label %_ZNKSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  br i1 %42, label %43, label %_ZNKSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
 43:                                               ; preds = %38
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #19
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %38
+_ZNKSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %38
   %44 = sdiv exact i64 %41, 152
   %45 = icmp eq ptr %7, %.val.i.i.i
   %.sroa.speculated.i.i.i.i = select i1 %45, i64 1, i64 %44
@@ -2237,15 +2237,15 @@ _ZNKSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i
   %48 = tail call i64 @llvm.umin.i64(i64 %46, i64 60680079189834051)
   %49 = select i1 %47, i64 60680079189834051, i64 %48
   %.not.i.i.i.i = icmp eq i64 %49, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.argprom.exit.i.i.i, label %50
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.exit.i.i.i, label %50
 
-50:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+50:                                               ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %51 = mul nuw nsw i64 %49, 152
   %52 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %51) #22
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.argprom.exit.i.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.exit.i.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.argprom.exit.i.i.i: ; preds = %50, %_ZNKSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
-  %53 = phi ptr [ %52, %50 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i ]
+_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %50, %_ZNKSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %53 = phi ptr [ %52, %50 ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %54 = getelementptr inbounds %"struct.(anonymous namespace)::ToWrite", ptr %53, i64 %44
   %55 = load i64, ptr %4, align 8
   store i64 %55, ptr %54, align 8
@@ -2285,11 +2285,11 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.argprom.exit
   %78 = getelementptr inbounds i8, ptr %54, i64 120
   %79 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %79) #18
-  br i1 %45, label %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %45, label %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.argprom.exit.i.i.i, %.lr.ph.i.i.i.i
-  %.03.i.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i.i ], [ %53, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.argprom.exit.i.i.i ]
-  %.092.i.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i.i ], [ %.val.i.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.argprom.exit.i.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i
+  %.03.i.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i.i ], [ %53, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.exit.i.i.i ]
+  %.092.i.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i.i ], [ %.val.i.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %80 = load i64, ptr %.092.i.i.i.i, align 8, !alias.scope !22, !noalias !19
@@ -2337,19 +2337,19 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.argprom.exit
   %105 = getelementptr inbounds i8, ptr %.092.i.i.i.i, i64 152
   %106 = getelementptr inbounds i8, ptr %.03.i.i.i.i, i64 152
   %.not.i.i.i3.i = icmp eq ptr %105, %7
-  br i1 %.not.i.i.i3.i, label %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !24
+  br i1 %.not.i.i.i3.i, label %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !24
 
-_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.argprom.exit.i.i.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %53, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.argprom.exit.i.i.i ], [ %106, %.lr.ph.i.i.i.i ]
+_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.exit.i.i.i
+  %.0.lcssa.i.i.i.i = phi ptr [ %53, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17ToWriteESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %106, %.lr.ph.i.i.i.i ]
   %107 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 152
   %.not.i20.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i20.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %108
 
-108:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i
+108:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %.val.i.i.i) #20
   br label %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %108, %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i
+_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %108, %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
   store ptr %53, ptr %.0.val, align 8
   store ptr %107, ptr %6, align 8
   %109 = getelementptr inbounds %"struct.(anonymous namespace)::ToWrite", ptr %53, i64 %49
@@ -7903,10 +7903,10 @@ attributes #23 = { noreturn nounwind }
 !17 = distinct !{!17, !"_ZNKSt10error_code7messageB5cxx11Ev"}
 !18 = distinct !{!18, !6}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_17ToWriteES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_17ToWriteES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
+!20 = distinct !{!20, !21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_17ToWriteES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!21 = distinct !{!21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_17ToWriteES1_SaIS1_EEvPT_PT0_RT1_"}
 !22 = !{!23}
-!23 = distinct !{!23, !21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_17ToWriteES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
+!23 = distinct !{!23, !21, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_17ToWriteES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !24 = distinct !{!24, !6}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZN5vcpkg3msg6formatIJNS0_6path_tEEJNS_10StringViewEEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS6_E4typeET0_EE: argument 0"}

@@ -463,9 +463,9 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %90
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %117 = call noundef zeroext i1 @_ZNK4llvm8CallBase15onlyReadsMemoryEv(ptr noundef nonnull align 8 dereferenceable(88) %56) #15
-  br i1 %117, label %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.argprom.exit.thread, label %118
+  br i1 %117, label %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.exit.thread, label %118
 
-_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.argprom.exit.thread: ; preds = %115
+_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.exit.thread: ; preds = %115
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -807,13 +807,13 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit50.i: ; preds = %
   %287 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   %288 = load ptr, ptr %5, align 8
   %289 = icmp eq ptr %288, %24
-  br i1 %289, label %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.argprom.exit, label %290
+  br i1 %289, label %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.exit, label %290
 
 290:                                              ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit50.i
   call void @free(ptr noundef %288) #15
-  br label %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.argprom.exit
+  br label %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.exit
 
-_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.argprom.exit: ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit50.i, %290
+_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.exit: ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit50.i, %290
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -823,15 +823,15 @@ _ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_ite
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   br label %.loopexit
 
-_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %90, %_ZNK4llvm8CallBase11isNoBuiltinEv.exit.thread, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %62, %59, %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.argprom.exit.thread, %111, %82, %87, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit, %77, %_ZNK4llvm8CallBase11isNoBuiltinEv.exit, %_ZNK4llvm8CallBase10isStrictFPEv.exit, %.lr.ph
+_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %90, %_ZNK4llvm8CallBase11isNoBuiltinEv.exit.thread, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %62, %59, %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.exit.thread, %111, %82, %87, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit, %77, %_ZNK4llvm8CallBase11isNoBuiltinEv.exit, %_ZNK4llvm8CallBase10isStrictFPEv.exit, %.lr.ph
   %291 = getelementptr inbounds nuw i8, ptr %.sroa.031.052, i64 8
   %.sroa.031.0 = load ptr, ptr %291, align 8
   %.not47 = icmp eq ptr %.sroa.031.0, %53
   br i1 %.not47, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
-.loopexit:                                        ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, %46, %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.argprom.exit
-  %.sroa.035.2 = phi ptr [ %286, %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.argprom.exit ], [ %48, %46 ], [ %48, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread ]
-  %.1 = phi i1 [ true, %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.argprom.exit ], [ %.055, %46 ], [ %.055, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread ]
+.loopexit:                                        ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, %46, %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.exit
+  %.sroa.035.2 = phi ptr [ %286, %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.exit ], [ %48, %46 ], [ %48, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread ]
+  %.1 = phi i1 [ true, %_ZL12optimizeSQRTPN4llvm8CallInstEPNS_8FunctionERNS_10BasicBlockERNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS4_Lb0ELb0EvLb0EvEELb0ELb0EEEPKNS_19TargetTransformInfoEPNS_14DomTreeUpdaterE.exit ], [ %.055, %46 ], [ %.055, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread ]
   %.not46 = icmp eq ptr %.sroa.035.2, %20
   br i1 %.not46, label %._crit_edge, label %46, !llvm.loop !15
 

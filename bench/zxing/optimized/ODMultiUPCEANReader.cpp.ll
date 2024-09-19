@@ -2415,7 +2415,7 @@ _ZN5ZXing9IsPatternILb0ELi3ELi4EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EX
 51:                                               ; preds = %48, %70
   %.065 = phi i32 [ 0, %48 ], [ %71, %70 ]
   %.sroa.037.064 = phi ptr [ %50, %48 ], [ %.sroa.037.1, %70 ]
-  %52 = call fastcc noundef zeroext i1 @_ZN5ZXing4OneDL11DecodeDigitERKNS_11PatternViewERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi.argprom(ptr %.sroa.037.064, i32 4, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5)
+  %52 = call fastcc noundef zeroext i1 @_ZN5ZXing4OneDL11DecodeDigitERKNS_11PatternViewERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr %.sroa.037.064, i32 4, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5)
   br i1 %52, label %_ZN5ZXing11PatternView10skipSymbolEv.exit, label %_ZNK5ZXing11PatternView7isValidEv.exit.thread
 
 _ZN5ZXing11PatternView10skipSymbolEv.exit:        ; preds = %51
@@ -2804,7 +2804,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #10
 declare double @llvm.fabs.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5ZXing4OneDL11DecodeDigitERKNS_11PatternViewERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi.argprom(ptr readonly %.0.val, i32 %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN5ZXing4OneDL11DecodeDigitERKNS_11PatternViewERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr readonly %.0.val, i32 %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %3 = sext i32 %.8.val to i64
   %4 = getelementptr inbounds i16, ptr %.0.val, i64 %3

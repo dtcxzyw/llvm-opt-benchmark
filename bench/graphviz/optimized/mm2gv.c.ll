@@ -227,7 +227,7 @@ init.exit:                                        ; preds = %39, %36
 
 59:                                               ; preds = %57, %56
   %.0 = phi ptr [ %58, %57 ], [ %52, %56 ]
-  %60 = call fastcc ptr @makeDotGraph.argprom.argelim(ptr noundef %.0, ptr noundef %.sroa.6.0, i32 noundef %.sroa.17.0.ph118, i32 noundef %.sroa.14.0.ph123, i32 noundef %.sroa.20.0.ph112)
+  %60 = call fastcc ptr @makeDotGraph(ptr noundef %.0, ptr noundef %.sroa.6.0, i32 noundef %.sroa.17.0.ph118, i32 noundef %.sroa.14.0.ph123, i32 noundef %.sroa.20.0.ph112)
   %61 = call i32 @agwrite(ptr noundef %60, ptr noundef %.sroa.3.0.ph130) #20
   call fastcc void @graphviz_exit(i32 noundef 0) #22
   unreachable
@@ -260,7 +260,7 @@ declare ptr @SparseMatrix_make_undirected(ptr noundef) local_unnamed_addr #1
 declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @makeDotGraph.argprom.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 {
+define internal fastcc ptr @makeDotGraph(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #5 {
   %6 = alloca %struct.agxbuf, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -324,7 +324,7 @@ agxbsizeof.exit.i.i:                              ; preds = %38
   %39 = load i32, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   %41 = load i32, ptr %40, align 8
-  call void (ptr, ptr, ...) @agxbprint.argelim(ptr noundef %6, ptr noundef nonnull @.str.20, ptr noundef %16, i32 noundef %39, i32 noundef %41)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.20, ptr noundef %16, i32 noundef %39, i32 noundef %41)
   %42 = getelementptr inbounds i8, ptr %6, i64 31
   %.val.i.i.i = load i8, ptr %42, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
@@ -401,7 +401,7 @@ agxbsizeof.exit.i.i190.lr.ph:                     ; preds = %65
 agxbsizeof.exit.i.i190:                           ; preds = %agxbsizeof.exit.i.i190.lr.ph, %agxbuse.exit202
   %indvars.iv = phi i64 [ 0, %agxbsizeof.exit.i.i190.lr.ph ], [ %indvars.iv.next, %agxbuse.exit202 ]
   %71 = trunc nuw nsw i64 %indvars.iv to i32
-  call void (ptr, ptr, ...) @agxbprint.argelim(ptr noundef %6, ptr noundef nonnull @.str.5, i32 noundef %71)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.5, i32 noundef %71)
   %.val.i.i.i187 = load i8, ptr %68, align 1
   %.not.i.i.i188 = icmp eq i8 %.val.i.i.i187, -1
   %72 = load i64, ptr %69, align 8
@@ -699,7 +699,7 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
 200:                                              ; preds = %.lr.ph72
   %201 = getelementptr inbounds double, ptr %12, i64 %indvars.iv91
   %202 = load double, ptr %201, align 8
-  call void (ptr, ptr, ...) @agxbprint.argelim(ptr noundef %6, ptr noundef nonnull @.str.28, double noundef %202)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.28, double noundef %202)
   %.val.i.i.i203 = load i8, ptr %179, align 1
   %.not.i.i.i204 = icmp eq i8 %.val.i.i.i203, -1
   br i1 %.not.i.i.i204, label %agxbsizeof.exit.i.i206, label %agxbsizeof.exit.i.i206.thread
@@ -923,7 +923,7 @@ Hue2RGB.exit26.i:                                 ; preds = %300, %297, %294, %2
   %.018.i25.i = phi double [ %293, %292 ], [ %302, %300 ], [ 1.000000e+00, %294 ], [ 0.000000e+00, %297 ]
   %303 = call double @llvm.fmuladd.f64(double %.018.i25.i, double 2.550000e+02, double 5.000000e-01)
   %304 = fptosi double %303 to i32
-  call void (ptr, ptr, ...) @agxbprint.argelim(ptr noundef %6, ptr noundef nonnull @.str.31, i32 noundef %265, i32 noundef %284, i32 noundef %304)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.31, i32 noundef %265, i32 noundef %284, i32 noundef %304)
   %.val.i.i.i.i = load i8, ptr %179, align 1
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
   br i1 %.not.i.i.i.i, label %agxbsizeof.exit.i.i.i, label %agxbsizeof.exit.i.i.i.thread
@@ -1038,7 +1038,7 @@ hue2rgb.exit:                                     ; preds = %agxbclear.exit.thre
   %341 = phi ptr [ %340, %339 ], [ %6, %agxbclear.exit.thread.i.i ]
   %342 = call i32 @agxset(ptr noundef %199, ptr noundef %.0164, ptr noundef %341) #20
   %343 = load double, ptr %243, align 8
-  call void (ptr, ptr, ...) @agxbprint.argelim(ptr noundef %6, ptr noundef nonnull @.str.28, double noundef %343)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr noundef nonnull @.str.28, double noundef %343)
   %.val.i.i.i220 = load i8, ptr %179, align 1
   %.not.i.i.i221 = icmp eq i8 %.val.i.i.i220, -1
   br i1 %.not.i.i.i221, label %agxbsizeof.exit.i.i223, label %agxbsizeof.exit.i.i223.thread
@@ -1170,14 +1170,14 @@ agxbuse.exit235:                                  ; preds = %agxbclear.exit.thre
   %387 = getelementptr inbounds i8, ptr %6, i64 31
   %.val186 = load i8, ptr %387, align 1
   %388 = icmp eq i8 %.val186, -1
-  br i1 %388, label %389, label %agxbfree.argprom.exit
+  br i1 %388, label %389, label %agxbfree.exit
 
 389:                                              ; preds = %._crit_edge78
   %.val = load ptr, ptr %6, align 8
   call void @free(ptr noundef %.val) #20
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %._crit_edge78, %389
+agxbfree.exit:                                    ; preds = %._crit_edge78, %389
   call void @free(ptr noundef %.0157) #20
   call void @free(ptr noundef %15) #20
   ret ptr %35
@@ -1247,7 +1247,7 @@ declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_un
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint.argelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #5 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)

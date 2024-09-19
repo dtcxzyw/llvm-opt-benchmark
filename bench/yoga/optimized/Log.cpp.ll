@@ -150,13 +150,13 @@ entry:
 sw.bb.i:                                          ; preds = %entry, %entry
   %2 = load ptr, ptr @stderr, align 8
   %call.i = tail call i32 @vfprintf(ptr noundef %2, ptr noundef readonly %format, ptr noundef %args) #8
-  br label %"_ZZN8facebook4yoga16getDefaultLoggerEvENK3$_0clEPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tag.argprom.exit"
+  br label %"_ZZN8facebook4yoga16getDefaultLoggerEvENK3$_0clEPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tag.exit"
 
 sw.default.i:                                     ; preds = %entry
   %call4.i = tail call i32 @vprintf(ptr noundef readonly %format, ptr noundef %args)
-  br label %"_ZZN8facebook4yoga16getDefaultLoggerEvENK3$_0clEPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tag.argprom.exit"
+  br label %"_ZZN8facebook4yoga16getDefaultLoggerEvENK3$_0clEPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tag.exit"
 
-"_ZZN8facebook4yoga16getDefaultLoggerEvENK3$_0clEPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tag.argprom.exit": ; preds = %sw.bb.i, %sw.default.i
+"_ZZN8facebook4yoga16getDefaultLoggerEvENK3$_0clEPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tag.exit": ; preds = %sw.bb.i, %sw.default.i
   %retval.0.i = phi i32 [ %call4.i, %sw.default.i ], [ %call.i, %sw.bb.i ]
   ret i32 %retval.0.i
 }

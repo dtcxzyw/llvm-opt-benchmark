@@ -27,7 +27,7 @@ define ptr @Ssw_BmcUnroll_rec(ptr noundef %0, ptr nocapture noundef readonly %1,
   %7 = mul nsw i32 %.val, %2
   %8 = add nsw i32 %.val52, %7
   %9 = add nsw i32 %8, 1
-  tail call fastcc void @Vec_PtrFillExtra.argprom(ptr noundef %.val51, i32 noundef %9)
+  tail call fastcc void @Vec_PtrFillExtra(ptr noundef %.val51, i32 noundef %9)
   %10 = getelementptr i8, ptr %.val51, i64 8
   %.val.i.i = load ptr, ptr %10, align 8
   %11 = sext i32 %8 to i64
@@ -92,7 +92,7 @@ Saig_ObjIsPi.exit:                                ; preds = %21
   %39 = mul nsw i32 %.val.i65, %2
   %40 = add nsw i32 %.val5.i, %39
   %41 = add nsw i32 %40, 1
-  tail call fastcc void @Vec_PtrFillExtra.argprom(ptr noundef %.val4.i66, i32 noundef %41)
+  tail call fastcc void @Vec_PtrFillExtra(ptr noundef %.val4.i66, i32 noundef %41)
   %42 = getelementptr i8, ptr %.val4.i66, i64 8
   %.val.i.i.i = load ptr, ptr %42, align 8
   %43 = sext i32 %40 to i64
@@ -164,7 +164,7 @@ Ssw_ObjChild0Fra_.exit:                           ; preds = %36, %28, %24, %Saig
   %86 = mul nsw i32 %.val61, %2
   %87 = add nsw i32 %.val63, %86
   %88 = add nsw i32 %87, 1
-  tail call fastcc void @Vec_PtrFillExtra.argprom(ptr noundef %.val62, i32 noundef %88)
+  tail call fastcc void @Vec_PtrFillExtra(ptr noundef %.val62, i32 noundef %88)
   %89 = getelementptr i8, ptr %.val62, i64 8
   %.val.i.i73 = load ptr, ptr %89, align 8
   %90 = sext i32 %87 to i64
@@ -199,7 +199,7 @@ define internal fastcc ptr @Ssw_ObjChild0Fra_(ptr nocapture noundef readonly %0,
   %12 = mul nsw i32 %.val, %2
   %13 = add nsw i32 %.val5, %12
   %14 = add nsw i32 %13, 1
-  tail call fastcc void @Vec_PtrFillExtra.argprom(ptr noundef %.val4, i32 noundef %14)
+  tail call fastcc void @Vec_PtrFillExtra(ptr noundef %.val4, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val4, i64 8
   %.val.i.i = load ptr, ptr %15, align 8
   %16 = sext i32 %13 to i64
@@ -238,7 +238,7 @@ define internal fastcc ptr @Ssw_ObjChild1Fra_(ptr nocapture noundef readonly %0,
   %12 = mul nsw i32 %.val, %2
   %13 = add nsw i32 %.val5, %12
   %14 = add nsw i32 %13, 1
-  tail call fastcc void @Vec_PtrFillExtra.argprom(ptr noundef %.val4, i32 noundef %14)
+  tail call fastcc void @Vec_PtrFillExtra(ptr noundef %.val4, i32 noundef %14)
   %15 = getelementptr i8, ptr %.val4, i64 8
   %.val.i.i = load ptr, ptr %15, align 8
   %16 = sext i32 %13 to i64
@@ -317,7 +317,7 @@ define noundef ptr @Ssw_BmcGetCounterExample(ptr nocapture noundef readonly %0, 
   %32 = getelementptr inbounds i8, ptr %.val32, i64 4
   %33 = load i32, ptr %32, align 4
   %.not.i.not = icmp slt i32 %30, %33
-  br i1 %.not.i.not, label %Vec_PtrFillExtra.argprom.exit, label %34
+  br i1 %.not.i.not, label %Vec_PtrFillExtra.exit, label %34
 
 34:                                               ; preds = %.lr.ph
   %35 = load i32, ptr %.val32, align 8
@@ -402,9 +402,9 @@ Vec_PtrGrow.exit.i:                               ; preds = %Vec_PtrGrow.exit.si
 
 ._crit_edge.i:                                    ; preds = %64, %Vec_PtrGrow.exit.i
   store i32 %31, ptr %32, align 4
-  br label %Vec_PtrFillExtra.argprom.exit
+  br label %Vec_PtrFillExtra.exit
 
-Vec_PtrFillExtra.argprom.exit:                    ; preds = %.lr.ph, %._crit_edge.i
+Vec_PtrFillExtra.exit:                            ; preds = %.lr.ph, %._crit_edge.i
   %67 = getelementptr i8, ptr %.val32, i64 8
   %.val.i.i = load ptr, ptr %67, align 8
   %68 = sext i32 %30 to i64
@@ -413,7 +413,7 @@ Vec_PtrFillExtra.argprom.exit:                    ; preds = %.lr.ph, %._crit_edg
   %71 = icmp eq ptr %70, null
   br i1 %71, label %84, label %72
 
-72:                                               ; preds = %Vec_PtrFillExtra.argprom.exit
+72:                                               ; preds = %Vec_PtrFillExtra.exit
   %73 = tail call i32 @Ssw_CnfGetNodeValue(ptr noundef %1, ptr noundef nonnull %70) #10
   %.not30 = icmp eq i32 %73, 0
   br i1 %.not30, label %84, label %74
@@ -431,7 +431,7 @@ Vec_PtrFillExtra.argprom.exit:                    ; preds = %.lr.ph, %._crit_edg
   store i32 %83, ptr %81, align 4
   br label %84
 
-84:                                               ; preds = %72, %74, %Vec_PtrFillExtra.argprom.exit
+84:                                               ; preds = %72, %74, %Vec_PtrFillExtra.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %85 = load ptr, ptr %0, align 8
   %86 = getelementptr i8, ptr %85, i64 108
@@ -560,7 +560,7 @@ Abc_Clock.exit:                                   ; preds = %43, %46
   %59 = getelementptr inbounds i8, ptr %.val69, i64 4
   %60 = load i32, ptr %59, align 4
   %.not.i.not = icmp slt i32 %57, %60
-  br i1 %.not.i.not, label %Vec_PtrFillExtra.argprom.exit, label %61
+  br i1 %.not.i.not, label %Vec_PtrFillExtra.exit, label %61
 
 61:                                               ; preds = %.lr.ph
   %62 = load i32, ptr %.val69, align 8
@@ -645,9 +645,9 @@ Vec_PtrGrow.exit.i:                               ; preds = %Vec_PtrGrow.exit.si
 
 ._crit_edge.i:                                    ; preds = %91, %Vec_PtrGrow.exit.i
   store i32 %58, ptr %59, align 4
-  br label %Vec_PtrFillExtra.argprom.exit
+  br label %Vec_PtrFillExtra.exit
 
-Vec_PtrFillExtra.argprom.exit:                    ; preds = %.lr.ph, %._crit_edge.i
+Vec_PtrFillExtra.exit:                            ; preds = %.lr.ph, %._crit_edge.i
   %94 = getelementptr i8, ptr %.val69, i64 8
   %.val.i.i = load ptr, ptr %94, align 8
   %95 = sext i32 %57 to i64
@@ -666,9 +666,9 @@ Vec_PtrFillExtra.argprom.exit:                    ; preds = %.lr.ph, %._crit_edg
   %105 = getelementptr inbounds i8, ptr %.val83, i64 4
   %106 = load i32, ptr %105, align 4
   %.not.i.not.i.i = icmp slt i32 %.val84, %106
-  br i1 %.not.i.not.i.i, label %Ssw_ObjSatNum.argprom.exit, label %107
+  br i1 %.not.i.not.i.i, label %Ssw_ObjSatNum.exit, label %107
 
-107:                                              ; preds = %Vec_PtrFillExtra.argprom.exit
+107:                                              ; preds = %Vec_PtrFillExtra.exit
   %108 = load i32, ptr %.val83, align 8
   %109 = shl nsw i32 %108, 1
   %.not.i.i = icmp slt i32 %.val84, %109
@@ -751,9 +751,9 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i:                                ; preds = %137, %Vec_IntGrow.exit.i.i.i
   store i32 %104, ptr %105, align 4
-  br label %Ssw_ObjSatNum.argprom.exit
+  br label %Ssw_ObjSatNum.exit
 
-Ssw_ObjSatNum.argprom.exit:                       ; preds = %Vec_PtrFillExtra.argprom.exit, %._crit_edge.i.i.i
+Ssw_ObjSatNum.exit:                               ; preds = %Vec_PtrFillExtra.exit, %._crit_edge.i.i.i
   %140 = getelementptr i8, ptr %.val83, i64 8
   %.val.i.i85 = load ptr, ptr %140, align 8
   %141 = sext i32 %.val84 to i64
@@ -766,7 +766,7 @@ Ssw_ObjSatNum.argprom.exit:                       ; preds = %Vec_PtrFillExtra.ar
   store i32 %147, ptr %9, align 4
   br i1 %.not, label %152, label %148
 
-148:                                              ; preds = %Ssw_ObjSatNum.argprom.exit
+148:                                              ; preds = %Ssw_ObjSatNum.exit
   %.val74 = load i32, ptr %30, align 8
   %149 = trunc nuw nsw i64 %indvars.iv to i32
   %150 = srem i32 %149, %.val74
@@ -774,7 +774,7 @@ Ssw_ObjSatNum.argprom.exit:                       ; preds = %Vec_PtrFillExtra.ar
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, i32 noundef %150, i32 noundef %151)
   br label %152
 
-152:                                              ; preds = %148, %Ssw_ObjSatNum.argprom.exit
+152:                                              ; preds = %148, %Ssw_ObjSatNum.exit
   %153 = load ptr, ptr %34, align 8
   %154 = call i32 @sat_solver_solve(ptr noundef %153, ptr noundef nonnull %9, ptr noundef nonnull %36, i64 noundef %37, i64 noundef 0, i64 noundef 0, i64 noundef 0) #10
   switch i32 %154, label %161 [
@@ -920,7 +920,7 @@ declare void @Ssw_SatStop(ptr noundef) local_unnamed_addr #1
 declare void @Ssw_FrmStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrFillExtra.argprom(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

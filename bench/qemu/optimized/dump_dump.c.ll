@@ -398,7 +398,7 @@ if.end87:                                         ; preds = %if.end82
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(300) @dump_state_global, i8 0, i64 300, i1 false)
   store i32 1, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 300), align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @dump_state_global, i64 304), i8 0, i64 48, i1 false)
-  call fastcc void @dump_init.argprom(i32 noundef %fd.0, i1 noundef zeroext %has_format, i32 noundef %format.addr.062, i1 noundef zeroext %paging, i1 noundef zeroext %has_begin, i64 noundef %begin, i64 noundef %length, i1 noundef zeroext %kdump_raw.061, ptr noundef nonnull %spec.select)
+  call fastcc void @dump_init(i32 noundef %fd.0, i1 noundef zeroext %has_format, i32 noundef %format.addr.062, i1 noundef zeroext %paging, i1 noundef zeroext %has_begin, i64 noundef %begin, i64 noundef %length, i1 noundef zeroext %kdump_raw.061, ptr noundef nonnull %spec.select)
   %4 = load ptr, ptr %spec.select, align 8
   %tobool92.not = icmp eq ptr %4, null
   br i1 %tobool92.not, label %if.end100, label %while.end
@@ -448,7 +448,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 declare i32 @migrate_add_blocker_internal(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dump_init.argprom(i32 noundef range(i32 0, -1) %fd, i1 noundef zeroext %has_format, i32 noundef %format, i1 noundef zeroext %paging, i1 noundef zeroext %has_filter, i64 noundef %begin, i64 noundef %length, i1 noundef zeroext %kdump_raw, ptr noundef %errp) unnamed_addr #2 {
+define internal fastcc void @dump_init(i32 noundef range(i32 0, -1) %fd, i1 noundef zeroext %has_format, i32 noundef %format, i1 noundef zeroext %paging, i1 noundef zeroext %has_filter, i64 noundef %begin, i64 noundef %length, i1 noundef zeroext %kdump_raw, ptr noundef %errp) unnamed_addr #2 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %frombool = zext i1 %has_format to i8
@@ -534,9 +534,9 @@ if.end44:                                         ; preds = %for.end
   tail call void @guest_phys_blocks_append(ptr noundef nonnull @dump_state_global) #18
   %block.01.i = load ptr, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 8), align 8
   %tobool.not2.i = icmp eq ptr %block.01.i, null
-  br i1 %tobool.not2.i, label %dump_calculate_size.argprom.exit.thread, label %for.body.lr.ph.i
+  br i1 %tobool.not2.i, label %dump_calculate_size.exit.thread, label %for.body.lr.ph.i
 
-dump_calculate_size.argprom.exit.thread:          ; preds = %if.end44
+dump_calculate_size.exit.thread:                  ; preds = %if.end44
   store i64 0, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 320), align 8
   br label %if.then52
 
@@ -558,7 +558,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %next.us.i = getelementptr inbounds i8, ptr %block.04.us.i, i64 32
   %block.0.us.i = load ptr, ptr %next.us.i, align 8
   %tobool.not.us.i = icmp eq ptr %block.0.us.i, null
-  br i1 %tobool.not.us.i, label %dump_calculate_size.argprom.exit, label %for.body.us.i, !llvm.loop !10
+  br i1 %tobool.not.us.i, label %dump_calculate_size.exit, label %for.body.us.i, !llvm.loop !10
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
   %block.04.i = phi ptr [ %block.0.i, %for.body.i ], [ %block.01.i, %for.body.lr.ph.i ]
@@ -574,19 +574,19 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %next.i = getelementptr inbounds i8, ptr %block.04.i, i64 32
   %block.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i134 = icmp eq ptr %block.0.i, null
-  br i1 %tobool.not.i134, label %dump_calculate_size.argprom.exit, label %for.body.i, !llvm.loop !10
+  br i1 %tobool.not.i134, label %dump_calculate_size.exit, label %for.body.i, !llvm.loop !10
 
-dump_calculate_size.argprom.exit:                 ; preds = %for.body.i, %for.body.us.i
+dump_calculate_size.exit:                         ; preds = %for.body.i, %for.body.us.i
   %total.0.lcssa.i = phi i64 [ %add.us.i, %for.body.us.i ], [ %add.i, %for.body.i ]
   store i64 %total.0.lcssa.i, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 320), align 8
   %tobool51.not = icmp eq i64 %total.0.lcssa.i, 0
   br i1 %tobool51.not, label %if.then52, label %if.end53
 
-if.then52:                                        ; preds = %dump_calculate_size.argprom.exit.thread, %dump_calculate_size.argprom.exit
+if.then52:                                        ; preds = %dump_calculate_size.exit.thread, %dump_calculate_size.exit
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 1840, ptr noundef nonnull @__func__.dump_init, ptr noundef nonnull @.str.16) #18
   br label %cleanup
 
-if.end53:                                         ; preds = %dump_calculate_size.argprom.exit
+if.end53:                                         ; preds = %dump_calculate_size.exit
   %call55 = tail call i32 @cpu_get_dump_info(ptr noundef nonnull getelementptr inbounds (i8, ptr @dump_state_global, i64 24), ptr noundef nonnull @dump_state_global) #18
   %cmp56 = icmp slt i32 %call55, 0
   br i1 %cmp56, label %if.then57, label %if.end58
@@ -717,7 +717,7 @@ if.then127:                                       ; preds = %get_note_sizes.exit
   br label %if.end138
 
 if.else130:                                       ; preds = %get_note_sizes.exit
-  tail call fastcc void @vmcoreinfo_update_phys_base.argprom()
+  tail call fastcc void @vmcoreinfo_update_phys_base()
   %26 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 344), align 8
   %27 = load i64, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 160), align 8
   %add133 = add i64 %27, %26
@@ -845,7 +845,7 @@ if.end230:                                        ; preds = %if.else216, %if.the
   br label %cleanup238
 
 cleanup:                                          ; preds = %if.then140, %if.then57, %if.then52, %if.then43
-  call fastcc void @dump_cleanup.retelim(ptr noundef nonnull @dump_state_global)
+  call fastcc void @dump_cleanup(ptr noundef nonnull @dump_state_global)
   br label %cleanup238
 
 cleanup238:                                       ; preds = %sw.bb, %sw.bb175, %sw.bb177, %sw.default, %cleanup, %if.end230
@@ -1092,15 +1092,15 @@ if.else.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i
 get_note_sizes.exit.i.i.i.i:                      ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %name_sz.0.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %conv7.i.i.i.i.i, %if.else.i.i.i.i.i ]
   %cmp.i123.i.i.i = icmp eq i64 %name_sz.0.i.i.i.i.i, 11
-  br i1 %cmp.i123.i.i.i, label %note_name_equal.argprom.exit.i.i.i, label %if.end73.i.i.i
+  br i1 %cmp.i123.i.i.i, label %note_name_equal.exit.i.i.i, label %if.end73.i.i.i
 
-note_name_equal.argprom.exit.i.i.i:               ; preds = %get_note_sizes.exit.i.i.i.i
+note_name_equal.exit.i.i.i:                       ; preds = %get_note_sizes.exit.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr i8, ptr %28, i64 12
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i.i.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
   %cmp6.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %cmp6.i.i.i.i, label %if.then56.i.i.i, label %if.end73.i.i.i
 
-if.then56.i.i.i:                                  ; preds = %note_name_equal.argprom.exit.i.i.i
+if.then56.i.i.i:                                  ; preds = %note_name_equal.exit.i.i.i
   %n_descsz.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 4
   %32 = load i32, ptr %n_descsz.i.i.i.i, align 4
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i125.i.i.i, label %if.else.i124.i.i.i
@@ -1144,7 +1144,7 @@ get_note_sizes.exit.i.i.i:                        ; preds = %if.else.i124.i.i.i,
   store i64 %spec.select.i131.i.i.i, ptr %size_vmcoreinfo.i.i.i, align 1
   br label %if.end73.i.i.i
 
-if.end73.i.i.i:                                   ; preds = %get_note_sizes.exit.i.i.i, %note_name_equal.argprom.exit.i.i.i, %get_note_sizes.exit.i.i.i.i, %if.end41.i.i.i
+if.end73.i.i.i:                                   ; preds = %get_note_sizes.exit.i.i.i, %note_name_equal.exit.i.i.i, %get_note_sizes.exit.i.i.i.i, %if.end41.i.i.i
   %41 = call i64 @llvm.bswap.i64(i64 %add51.i.i.i)
   %spec.select.i134.i.i.i = select i1 %cmp.i115.i.i.i, i64 %add51.i.i.i, i64 %41
   %offset_note75.i.i.i = getelementptr inbounds i8, ptr %call42.i.i.i, i64 48
@@ -1394,15 +1394,15 @@ if.else.i.i.i79.i.i:                              ; preds = %land.lhs.true.i76.i
 get_note_sizes.exit.i.i82.i.i:                    ; preds = %if.else.i.i.i79.i.i, %if.then.i.i.i132.i.i
   %name_sz.0.i.i.i83.i.i = phi i64 [ %spec.select.i.i.i.i134.i.i, %if.then.i.i.i132.i.i ], [ %conv7.i.i.i81.i.i, %if.else.i.i.i79.i.i ]
   %cmp.i123.i84.i.i = icmp eq i64 %name_sz.0.i.i.i83.i.i, 11
-  br i1 %cmp.i123.i84.i.i, label %note_name_equal.argprom.exit.i115.i.i, label %if.end75.i.i.i
+  br i1 %cmp.i123.i84.i.i, label %note_name_equal.exit.i115.i.i, label %if.end75.i.i.i
 
-note_name_equal.argprom.exit.i115.i.i:            ; preds = %get_note_sizes.exit.i.i82.i.i
+note_name_equal.exit.i115.i.i:                    ; preds = %get_note_sizes.exit.i.i82.i.i
   %add.ptr.i.i116.i.i = getelementptr i8, ptr %81, i64 12
   %bcmp.i.i117.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i.i116.i.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
   %cmp6.i.i118.i.i = icmp eq i32 %bcmp.i.i117.i.i, 0
   br i1 %cmp6.i.i118.i.i, label %if.then57.i.i.i, label %if.end75.i.i.i
 
-if.then57.i.i.i:                                  ; preds = %note_name_equal.argprom.exit.i115.i.i
+if.then57.i.i.i:                                  ; preds = %note_name_equal.exit.i115.i.i
   %n_descsz.i.i119.i.i = getelementptr inbounds i8, ptr %81, i64 4
   %85 = load i32, ptr %n_descsz.i.i119.i.i, align 4
   br i1 %cmp.i.i.i.i78.i.i, label %if.then.i125.i129.i.i, label %if.else.i124.i120.i.i
@@ -1442,7 +1442,7 @@ get_note_sizes.exit.i123.i.i:                     ; preds = %if.else.i124.i120.i
   store i32 %spec.select.i131.i127.i.i, ptr %size_vmcoreinfo.i128.i.i, align 1
   br label %if.end75.i.i.i
 
-if.end75.i.i.i:                                   ; preds = %get_note_sizes.exit.i123.i.i, %note_name_equal.argprom.exit.i115.i.i, %get_note_sizes.exit.i.i82.i.i, %if.end41.i66.i.i
+if.end75.i.i.i:                                   ; preds = %get_note_sizes.exit.i123.i.i, %note_name_equal.exit.i115.i.i, %get_note_sizes.exit.i.i82.i.i, %if.end41.i66.i.i
   %94 = call i64 @llvm.bswap.i64(i64 %add52.i.i.i)
   %spec.select.i134.i85.i.i = select i1 %cmp.i115.i68.i.i, i64 %add52.i.i.i, i64 %94
   %offset_note77.i.i.i = getelementptr inbounds i8, ptr %call42.i67.i.i, i64 32
@@ -2985,7 +2985,7 @@ cond.end:                                         ; preds = %if.end25, %cond.tru
   %cond28 = phi ptr [ %call27, %cond.true ], [ null, %if.end25 ]
   call void @qapi_event_send_dump_completed(ptr noundef nonnull %call.i, ptr noundef %cond28) #18
   call void @qapi_free_DumpQueryResult(ptr noundef nonnull %call.i) #18
-  call fastcc void @dump_cleanup.retelim(ptr noundef nonnull %s)
+  call fastcc void @dump_cleanup(ptr noundef nonnull %s)
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val19 = load ptr, ptr %errp1, align 8
   call void @error_propagate(ptr noundef %_auto_errp_prop.val19, ptr noundef %_auto_errp_prop.val) #18
@@ -3086,7 +3086,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #6
 declare void @g_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vmcoreinfo_update_phys_base.argprom() unnamed_addr #2 {
+define internal fastcc void @vmcoreinfo_update_phys_base() unnamed_addr #2 {
 entry:
   %phys_base = alloca i64, align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @dump_state_global, i64 336), align 8
@@ -3115,15 +3115,15 @@ get_note_sizes.exit.i:                            ; preds = %if.else.i.i, %if.th
   %6 = phi i32 [ %2, %if.then.i.i ], [ %4, %if.else.i.i ]
   %name_sz.0.i.i = phi i64 [ %spec.select.i.i.i, %if.then.i.i ], [ %conv7.i.i, %if.else.i.i ]
   %cmp.i = icmp eq i64 %name_sz.0.i.i, 11
-  br i1 %cmp.i, label %note_name_equal.argprom.exit, label %return
+  br i1 %cmp.i, label %note_name_equal.exit, label %return
 
-note_name_equal.argprom.exit:                     ; preds = %get_note_sizes.exit.i
+note_name_equal.exit:                             ; preds = %get_note_sizes.exit.i
   %add.ptr.i = getelementptr i8, ptr %0, i64 12
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %add.ptr.i, ptr noundef nonnull dereferenceable(11) @__func__.VMCOREINFO, i64 11)
   %cmp6.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp6.i, label %if.end, label %return
 
-if.end:                                           ; preds = %note_name_equal.argprom.exit
+if.end:                                           ; preds = %note_name_equal.exit
   %n_descsz.i = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %n_descsz.i, align 4
   br i1 %cmp.i.i.i, label %if.then.i, label %if.else.i
@@ -3214,7 +3214,7 @@ for.end:                                          ; preds = %for.inc, %get_note_
   call void @g_strfreev(ptr noundef nonnull %call8) #18
   br label %return
 
-return:                                           ; preds = %get_note_sizes.exit.i, %note_name_equal.argprom.exit, %for.end
+return:                                           ; preds = %get_note_sizes.exit.i, %note_name_equal.exit, %for.end
   ret void
 }
 
@@ -3225,7 +3225,7 @@ declare void @qemu_get_guest_simple_memory_mapping(ptr noundef, ptr noundef) loc
 declare void @memory_mapping_filter(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dump_cleanup.retelim(ptr noundef %s) unnamed_addr #2 {
+define internal fastcc void @dump_cleanup(ptr noundef %s) unnamed_addr #2 {
 entry:
   %arch_cleanup_fn = getelementptr inbounds i8, ptr %s, i64 72
   %0 = load ptr, ptr %arch_cleanup_fn, align 8

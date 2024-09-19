@@ -724,7 +724,7 @@ entry:
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %3 = getelementptr inbounds i8, ptr %ctx, i64 88
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_11LOONGARCH32EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_.argprom(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_11LOONGARCH32EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %4 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_11LOONGARCH32EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -963,7 +963,7 @@ if.end27:                                         ; preds = %for.body
   %28 = getelementptr i8, ptr %25, i64 40
   %get_got_idx.val.val = load i32, ptr %28, align 8
   %cmp.i.i.i = icmp eq i32 %get_got_idx.val.val, -1
-  br i1 %cmp.i.i.i, label %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit", label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE9has_tlsgdERNS0_7ContextIS2_EE.exit.i
+  br i1 %cmp.i.i.i, label %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit", label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE9has_tlsgdERNS0_7ContextIS2_EE.exit.i
 
 _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE9has_tlsgdERNS0_7ContextIS2_EE.exit.i: ; preds = %if.end27
   %conv.i.i.i = sext i32 %get_got_idx.val.val to i64
@@ -971,14 +971,14 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE9has_tlsgdERNS0_7ContextIS2_EE.exit.i: ;
   %tlsgd_idx.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %29, i64 %conv.i.i.i, i32 2
   %30 = load i32, ptr %tlsgd_idx.i.i.i, align 4
   %.not.i = icmp eq i32 %30, -1
-  br i1 %.not.i, label %cond.false.i3.i, label %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+  br i1 %.not.i, label %cond.false.i3.i, label %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
 
 cond.false.i3.i:                                  ; preds = %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE9has_tlsgdERNS0_7ContextIS2_EE.exit.i
   %add.ptr.i.i.i = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %29, i64 %conv.i.i.i
   %31 = load i32, ptr %add.ptr.i.i.i, align 4
-  br label %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+  br label %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
 
-"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit": ; preds = %if.end27, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE9has_tlsgdERNS0_7ContextIS2_EE.exit.i, %cond.false.i3.i
+"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit": ; preds = %if.end27, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE9has_tlsgdERNS0_7ContextIS2_EE.exit.i, %cond.false.i3.i
   %retval.0.i = phi i32 [ %31, %cond.false.i3.i ], [ -1, %if.end27 ], [ %30, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE9has_tlsgdERNS0_7ContextIS2_EE.exit.i ]
   %conv43 = sext i32 %retval.0.i to i64
   %mul = shl nsw i64 %conv43, 2
@@ -1041,15 +1041,15 @@ cond.false.i3.i:                                  ; preds = %_ZNK4mold3elf6Symbo
     i8 108, label %do.body.i.i607
   ]
 
-sw.bb:                                            ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb:                                            ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   call void @_ZN4mold3elf12InputSectionINS0_11LOONGARCH32EE16apply_dyn_absrelERNS0_7ContextIS2_EERNS0_6SymbolIS2_EERKNS0_6ElfRelIS2_EEPhmlmPPSB_(ptr noundef nonnull align 8 dereferenceable(118) %this, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i, ptr noundef %add.ptr34, i64 noundef %call35, i64 noundef %conv37, i64 noundef %add, ptr noundef nonnull %dynrel) #19
   br label %for.inc
 
-sw.bb49:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb49:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   call void @_ZN4mold3elf12InputSectionINS0_11LOONGARCH32EE16apply_dyn_absrelERNS0_7ContextIS2_EERNS0_6SymbolIS2_EERKNS0_6ElfRelIS2_EEPhmlmPPSB_(ptr noundef nonnull align 8 dereferenceable(118) %this, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i, ptr noundef %add.ptr34, i64 noundef %call35, i64 noundef %conv37, i64 noundef %add, ptr noundef nonnull %dynrel) #19
   br label %for.inc
 
-sw.bb50:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb50:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add51 = add i64 %call35, %conv37
   %sub = sub i64 %add51, %add
   call fastcc void @"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_1clElll"(ptr noundef nonnull align 8 dereferenceable(40) %check_branch, i64 noundef %sub, i64 noundef -131072, i64 noundef 131072)
@@ -1062,7 +1062,7 @@ sw.bb50:                                          ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb55:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb55:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add56 = add i64 %call35, %conv37
   %sub57 = sub i64 %add56, %add
   call fastcc void @"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_1clElll"(ptr noundef nonnull align 8 dereferenceable(40) %check_branch, i64 noundef %sub57, i64 noundef -4194304, i64 noundef 4194304)
@@ -1079,7 +1079,7 @@ sw.bb55:                                          ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i8.i, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb62:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb62:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add63 = add i64 %call35, %conv37
   %sub64 = sub i64 %add63, %add
   %38 = add i64 %sub64, -134217728
@@ -1126,7 +1126,7 @@ if.end72:                                         ; preds = %sw.bb62, %if.then68
   store i32 %or.i8.i257, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb75:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb75:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %46 = trunc i64 %call35 to i32
   %conv77 = add i32 %x.0.copyload.i240, %46
   %x.0.copyload.i.i.i258 = load i32, ptr %add.ptr34, align 1
@@ -1137,7 +1137,7 @@ sw.bb75:                                          ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i261, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb78:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb78:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %x.0.copyload.i.i.i262 = load i32, ptr %add.ptr34, align 1
   %and.i.i263 = and i32 %x.0.copyload.i.i.i262, -33554401
   %48 = trunc i64 %call35 to i32
@@ -1148,7 +1148,7 @@ sw.bb78:                                          ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i265, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb82:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb82:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add83 = add i64 %call35, %conv37
   %x.0.copyload.i.i.i266 = load i32, ptr %add.ptr34, align 1
   %and.i.i267 = and i32 %x.0.copyload.i.i.i266, -33554401
@@ -1159,7 +1159,7 @@ sw.bb82:                                          ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i269, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb86:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb86:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add87 = add i64 %call35, %conv37
   %x.0.copyload.i.i.i270 = load i32, ptr %add.ptr34, align 1
   %and.i.i271 = and i32 %x.0.copyload.i.i.i270, -4193281
@@ -1170,7 +1170,7 @@ sw.bb86:                                          ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i273, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb90:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb90:                                          ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %x.0.copyload.i274 = load i32, ptr %add.ptr34, align 1
   %and = and i32 %x.0.copyload.i274, -67108864
   %cmp92 = icmp eq i32 %and, 1275068416
@@ -1197,7 +1197,7 @@ if.else:                                          ; preds = %sw.bb90
   store i32 %or.i.i282, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb101:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb101:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add102 = add i64 %call35, %conv37
   %add.i283 = add i64 %add102, 2048
   %and.i1.i = and i64 %add, 4294963200
@@ -1211,7 +1211,7 @@ sw.bb101:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i287, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb105:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb105:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add106 = add i64 %call35, %conv37
   %and.i.i.i = and i64 %add106, -4096
   %and.i5.i.i = and i64 %add, -4096
@@ -1232,7 +1232,7 @@ sw.bb105:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i295, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb109:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb109:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add110 = add i64 %call35, %conv37
   %and.i.i.i296 = and i64 %add110, -4096
   %and.i5.i.i297 = and i64 %add, -4096
@@ -1253,7 +1253,7 @@ sw.bb109:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i309, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb113:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb113:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %61 = trunc i64 %mul to i32
   %62 = add i32 %x.0.copyload.i243, %x.0.copyload.i240
   %conv116 = add i32 %62, %61
@@ -1265,7 +1265,7 @@ sw.bb113:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i313, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb117:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb117:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %and.i1.i315 = and i64 %add, 4294963200
   %add118 = add nsw i64 %conv37, 2048
   %add119 = sub nsw i64 %add118, %and.i1.i315
@@ -1280,7 +1280,7 @@ sw.bb117:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i322, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb122:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb122:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add123 = add nsw i64 %conv46, %conv37
   %add124 = add nsw i64 %add123, %mul
   %and.i.i.i323 = and i64 %add124, -4096
@@ -1302,7 +1302,7 @@ sw.bb122:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i337, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb127:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb127:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add128 = add nsw i64 %conv46, %conv37
   %add129 = add nsw i64 %add128, %mul
   %and.i.i.i338 = and i64 %add129, -4096
@@ -1324,7 +1324,7 @@ sw.bb127:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i351, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb132:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb132:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %72 = trunc i64 %mul to i32
   %73 = add i32 %x.0.copyload.i243, %x.0.copyload.i240
   %conv135 = add i32 %73, %72
@@ -1336,7 +1336,7 @@ sw.bb132:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i355, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb136:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb136:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %x.0.copyload.i.i.i356 = load i32, ptr %add.ptr34, align 1
   %and.i.i357 = and i32 %x.0.copyload.i.i.i356, -33554401
   %75 = trunc i64 %mul to i32
@@ -1348,7 +1348,7 @@ sw.bb136:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i359, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb141:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb141:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add142 = add nsw i64 %conv46, %conv37
   %add143 = add nsw i64 %add142, %mul
   %x.0.copyload.i.i.i360 = load i32, ptr %add.ptr34, align 1
@@ -1360,7 +1360,7 @@ sw.bb141:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i363, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb146:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb146:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add147 = add nsw i64 %conv46, %conv37
   %add148 = add nsw i64 %add147, %mul
   %x.0.copyload.i.i.i364 = load i32, ptr %add.ptr34, align 1
@@ -1372,7 +1372,7 @@ sw.bb146:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i367, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb151:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb151:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add152 = add i64 %call35, %conv37
   %80 = load i64, ptr %tp_addr169, align 8
   %sub153 = sub i64 %add152, %80
@@ -1385,7 +1385,7 @@ sw.bb151:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i371, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb155:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb155:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add156 = add i64 %call35, %conv37
   %82 = load i64, ptr %tp_addr169, align 8
   %sub158 = sub i64 %add156, %82
@@ -1398,7 +1398,7 @@ sw.bb155:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i375, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb161:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb161:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add162 = add i64 %call35, %conv37
   %85 = load i64, ptr %tp_addr169, align 8
   %sub164 = sub i64 %add162, %85
@@ -1411,7 +1411,7 @@ sw.bb161:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i379, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb167:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb167:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add168 = add i64 %call35, %conv37
   %86 = load i64, ptr %tp_addr169, align 8
   %sub170 = sub i64 %add168, %86
@@ -1424,7 +1424,7 @@ sw.bb167:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %or.i.i383, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb173:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb173:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   br i1 %cmp.i.i.i, label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %sw.bb173
@@ -1447,7 +1447,7 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exi
   store i32 %or.i.i392, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb177:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb177:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   br i1 %cmp.i.i.i, label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit405, label %cond.false.i.i398
 
 cond.false.i.i398:                                ; preds = %sw.bb177
@@ -1475,7 +1475,7 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exi
   store i32 %or.i.i414, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb182:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb182:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   br i1 %cmp.i.i.i, label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit427, label %cond.false.i.i420
 
 cond.false.i.i420:                                ; preds = %sw.bb182
@@ -1510,7 +1510,7 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exi
   store i32 %or.i.i442, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb187:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb187:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   br i1 %cmp.i.i.i, label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit455, label %cond.false.i.i448
 
 cond.false.i.i448:                                ; preds = %sw.bb187
@@ -1545,7 +1545,7 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exi
   store i32 %or.i.i469, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb192:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb192:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   br i1 %cmp.i.i.i, label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit482, label %cond.false.i.i475
 
 cond.false.i.i475:                                ; preds = %sw.bb192
@@ -1568,7 +1568,7 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exi
   store i32 %or.i.i486, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb196:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb196:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   br i1 %cmp.i.i.i, label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit499, label %cond.false.i.i492
 
 cond.false.i.i492:                                ; preds = %sw.bb196
@@ -1591,7 +1591,7 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exi
   store i32 %or.i.i503, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb201:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb201:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   br i1 %cmp.i.i.i, label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit516, label %cond.false.i.i509
 
 cond.false.i.i509:                                ; preds = %sw.bb201
@@ -1616,7 +1616,7 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exi
   store i32 %or.i.i520, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb206:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb206:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   br i1 %cmp.i.i.i, label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit533, label %cond.false.i.i526
 
 cond.false.i.i526:                                ; preds = %sw.bb206
@@ -1641,7 +1641,7 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exi
   store i32 %or.i.i537, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb211:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit", %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb211:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit", %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   br i1 %cmp.i.i.i, label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit, label %cond.false.i.i543
 
 cond.false.i.i543:                                ; preds = %sw.bb211
@@ -1692,7 +1692,7 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exi
   store i32 %or.i.i570, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb219:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit", %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb219:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit", %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   br i1 %cmp.i.i.i, label %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit583, label %cond.false.i.i576
 
 cond.false.i.i576:                                ; preds = %sw.bb219
@@ -1715,7 +1715,7 @@ _ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exi
   store i32 %or.i.i587, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb224:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb224:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %145 = load i8, ptr %add.ptr34, align 1
   %146 = and i8 %145, -64
   %add229 = add i64 %call35, %conv37
@@ -1726,7 +1726,7 @@ sw.bb224:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i8 %conv232, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb233:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb233:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add234 = add i64 %call35, %conv37
   %150 = load i8, ptr %add.ptr34, align 1
   %151 = trunc i64 %add234 to i8
@@ -1734,7 +1734,7 @@ sw.bb233:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i8 %conv237, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb238:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb238:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add239 = add i64 %call35, %conv37
   %conv240 = trunc i64 %add239 to i16
   %x.0.copyload.i.i588 = load i16, ptr %add.ptr34, align 1
@@ -1742,7 +1742,7 @@ sw.bb238:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i16 %add.i589, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb242:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb242:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %152 = trunc i64 %call35 to i32
   %conv244 = add i32 %x.0.copyload.i240, %152
   %x.0.copyload.i.i590 = load i32, ptr %add.ptr34, align 1
@@ -1750,14 +1750,14 @@ sw.bb242:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %add.i591, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb246:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb246:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add247 = add i64 %call35, %conv37
   %x.0.copyload.i.i592 = load i64, ptr %add.ptr34, align 1
   %add.i593 = add i64 %add247, %x.0.copyload.i.i592
   store i64 %add.i593, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb249:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb249:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %153 = load i8, ptr %add.ptr34, align 1
   %154 = and i8 %153, -64
   %155 = add i64 %call35, %conv37
@@ -1768,7 +1768,7 @@ sw.bb249:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i8 %conv258, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb259:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb259:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add260 = add i64 %call35, %conv37
   %159 = load i8, ptr %add.ptr34, align 1
   %160 = trunc i64 %add260 to i8
@@ -1776,7 +1776,7 @@ sw.bb259:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i8 %conv263, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb264:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb264:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add265 = add i64 %call35, %conv37
   %conv266 = trunc i64 %add265 to i16
   %x.0.copyload.i.i594 = load i16, ptr %add.ptr34, align 1
@@ -1784,7 +1784,7 @@ sw.bb264:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i16 %sub.i595, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb268:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb268:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %161 = trunc i64 %call35 to i32
   %x.0.copyload.i.i596 = load i32, ptr %add.ptr34, align 1
   %162 = add i32 %x.0.copyload.i240, %161
@@ -1792,30 +1792,30 @@ sw.bb268:                                         ; preds = %"_ZZN4mold3elf12Inp
   store i32 %sub.i597, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb272:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb272:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %x.0.copyload.i.i598 = load i64, ptr %add.ptr34, align 1
   %163 = add i64 %call35, %conv37
   %sub.i599 = sub i64 %x.0.copyload.i.i598, %163
   store i64 %sub.i599, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb275:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb275:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add276 = add i64 %call35, %conv37
   %sub277 = sub i64 %add276, %add
   %conv278 = trunc i64 %sub277 to i32
   store i32 %conv278, ptr %add.ptr34, align 1
   br label %for.inc
 
-sw.bb280:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.bb280:                                         ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   %add281 = add i64 %call35, %conv37
   %sub282 = sub i64 %add281, %add
   store i64 %sub282, ptr %add.ptr34, align 1
   br label %for.inc
 
-do.body.i.i:                                      ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit", %do.body.i.i
-  %incdec.ptr4.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %add.ptr34, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit" ]
-  %shift.0.i.i = phi i32 [ %add.i.i602, %do.body.i.i ], [ 0, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit" ]
-  %val.0.i.i = phi i64 [ %or.i.i601, %do.body.i.i ], [ 0, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit" ]
+do.body.i.i:                                      ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit", %do.body.i.i
+  %incdec.ptr4.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %add.ptr34, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit" ]
+  %shift.0.i.i = phi i32 [ %add.i.i602, %do.body.i.i ], [ 0, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit" ]
+  %val.0.i.i = phi i64 [ %or.i.i601, %do.body.i.i ], [ 0, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit" ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr4.i.i, i64 1
   %164 = load i8, ptr %incdec.ptr4.i.i, align 1
   %165 = and i8 %164, 127
@@ -1855,10 +1855,10 @@ _ZN4mold14overwrite_ulebEPhm.exit:                ; preds = %while.body.i, %_ZN4
   store i8 %conv4.i606, ptr %loc.addr.0.lcssa.i, align 1
   br label %for.inc
 
-do.body.i.i607:                                   ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit", %do.body.i.i607
-  %incdec.ptr4.i.i608 = phi ptr [ %incdec.ptr.i.i611, %do.body.i.i607 ], [ %add.ptr34, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit" ]
-  %shift.0.i.i609 = phi i32 [ %add.i.i617, %do.body.i.i607 ], [ 0, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit" ]
-  %val.0.i.i610 = phi i64 [ %or.i.i616, %do.body.i.i607 ], [ 0, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit" ]
+do.body.i.i607:                                   ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit", %do.body.i.i607
+  %incdec.ptr4.i.i608 = phi ptr [ %incdec.ptr.i.i611, %do.body.i.i607 ], [ %add.ptr34, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit" ]
+  %shift.0.i.i609 = phi i32 [ %add.i.i617, %do.body.i.i607 ], [ 0, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit" ]
+  %val.0.i.i610 = phi i64 [ %or.i.i616, %do.body.i.i607 ], [ 0, %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit" ]
   %incdec.ptr.i.i611 = getelementptr inbounds i8, ptr %incdec.ptr4.i.i608, i64 1
   %170 = load i8, ptr %incdec.ptr4.i.i608, align 1
   %171 = and i8 %170, 127
@@ -1898,7 +1898,7 @@ _ZN4mold14overwrite_ulebEPhm.exit631:             ; preds = %while.body.i621, %_
   store i8 %conv4.i630, ptr %loc.addr.0.lcssa.i628, align 1
   br label %for.inc
 
-sw.default:                                       ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.argprom.argprom.exit"
+sw.default:                                       ; preds = %"_ZZN4mold3elf12InputSectionINS0_11LOONGARCH32EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clEv.exit"
   unreachable
 
 for.inc:                                          ; preds = %for.body, %for.body, %for.body, %for.body, %for.body, %sw.bb, %sw.bb49, %sw.bb50, %sw.bb55, %if.end72, %sw.bb75, %sw.bb78, %sw.bb82, %sw.bb86, %sw.bb101, %sw.bb105, %sw.bb109, %sw.bb113, %sw.bb117, %sw.bb122, %sw.bb127, %sw.bb132, %sw.bb136, %sw.bb141, %sw.bb146, %sw.bb151, %sw.bb155, %sw.bb161, %sw.bb167, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit405, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit427, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit455, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit482, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit499, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit516, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_gottp_addrERNS0_7ContextIS2_EE.exit533, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit561, %_ZNK4mold3elf6SymbolINS0_11LOONGARCH32EE14get_tlsgd_addrERNS0_7ContextIS2_EE.exit583, %sw.bb224, %sw.bb233, %sw.bb238, %sw.bb242, %sw.bb246, %sw.bb249, %sw.bb259, %sw.bb264, %sw.bb268, %sw.bb272, %sw.bb275, %sw.bb280, %_ZN4mold14overwrite_ulebEPhm.exit, %_ZN4mold14overwrite_ulebEPhm.exit631, %if.else, %if.then93
@@ -3354,7 +3354,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 23
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_11LOONGARCH32EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_.argprom(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_11LOONGARCH32EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %5 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_11LOONGARCH32EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -3413,7 +3413,7 @@ if.else:                                          ; preds = %entry
   %arrayidx.i.i.i18 = getelementptr inbounds i8, ptr %agg.tmp6, i64 21
   store i8 0, ptr %arrayidx.i.i.i18, align 1
   %ctx.val5 = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_11LOONGARCH32EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_.argprom(ptr noalias align 8 %ref.tmp5, i8 %ctx.val5, ptr noundef %agg.tmp6)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_11LOONGARCH32EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp5, i8 %ctx.val5, ptr noundef %agg.tmp6)
   %12 = load ptr, ptr %this, align 8
   %tobool.not.i31 = icmp eq ptr %12, null
   br i1 %tobool.not.i31, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_11LOONGARCH32EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit35, label %if.then.i32
@@ -3629,7 +3629,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_11LOONGARCH32EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_.argprom(ptr noalias nonnull align 8 %agg.result, i8 %ctx.88.val, ptr noundef nonnull %msg) unnamed_addr #4 {
+define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_11LOONGARCH32EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %agg.result, i8 %ctx.88.val, ptr noundef nonnull %msg) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8

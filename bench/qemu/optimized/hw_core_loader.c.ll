@@ -5723,13 +5723,13 @@ for.inc:                                          ; preds = %if.then, %if.else9,
 for.end:                                          ; preds = %for.inc, %entry
   %call14 = tail call ptr @human_readable_text_from_str(ptr noundef %call) #23
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #23
-  br label %glib_autoptr_cleanup_GString.argprom.exit
+  br label %glib_autoptr_cleanup_GString.exit
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %for.end, %if.then.i.i
+glib_autoptr_cleanup_GString.exit:                ; preds = %for.end, %if.then.i.i
   ret ptr %call14
 }
 

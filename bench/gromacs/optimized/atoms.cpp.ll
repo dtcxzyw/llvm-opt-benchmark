@@ -1064,7 +1064,7 @@ declare noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef, ptr noundef) local
 ; Function Attrs: mustprogress uwtable
 define void @_Z8pr_atomsP8_IO_FILEiPKcPK7t_atomsb(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = tail call noundef zeroext i1 @_Z9availableP8_IO_FILEPKviPKc(ptr noundef %0, ptr noundef %3, i32 noundef %1, ptr noundef %2)
-  br i1 %6, label %7, label %_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.argprom.exit
+  br i1 %6, label %7, label %_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.exit
 
 7:                                                ; preds = %5
   %8 = tail call noundef i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2)
@@ -1072,12 +1072,12 @@ define void @_Z8pr_atomsP8_IO_FILEiPKcPK7t_atomsb(ptr noundef %0, i32 noundef %1
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %3, align 8
   %12 = tail call noundef zeroext i1 @_Z9availableP8_IO_FILEPKviPKc(ptr noundef %0, ptr noundef %10, i32 noundef %8, ptr noundef nonnull @.str.21)
-  br i1 %12, label %13, label %_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.argprom.exit
+  br i1 %12, label %13, label %_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.exit
 
 13:                                               ; preds = %7
   %14 = tail call noundef i32 @_Z10pr_title_nP8_IO_FILEiPKci(ptr noundef %0, i32 noundef %8, ptr noundef nonnull @.str.21, i32 noundef %11)
   %15 = icmp sgt i32 %11, 0
-  br i1 %15, label %.lr.ph.preheader.i, label %_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.argprom.exit
+  br i1 %15, label %.lr.ph.preheader.i, label %_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.exit
 
 .lr.ph.preheader.i:                               ; preds = %13
   %wide.trip.count.i = zext nneg i32 %11 to i64
@@ -1117,9 +1117,9 @@ define void @_Z8pr_atomsP8_IO_FILEiPKcPK7t_atomsb(ptr noundef %0, i32 noundef %1
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.21, i32 noundef %44, i32 noundef %20, i32 noundef %23, ptr noundef %28, double noundef %30, double noundef %33, double noundef %36, double noundef %39, i32 noundef %41, i32 noundef %43) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.argprom.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.exit, label %.lr.ph.i, !llvm.loop !10
 
-_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.argprom.exit: ; preds = %.lr.ph.i, %7, %13
+_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.exit:         ; preds = %.lr.ph.i, %7, %13
   %46 = getelementptr inbounds i8, ptr %3, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr %3, align 8
@@ -1130,12 +1130,12 @@ _ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.argprom.exit: ; preds = %.lr.ph.i, %7, %13
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %3, align 8
   %54 = tail call noundef zeroext i1 @_Z9availableP8_IO_FILEPKviPKc(ptr noundef %0, ptr noundef %50, i32 noundef %8, ptr noundef nonnull @.str.22)
-  br i1 %54, label %55, label %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.argprom.exit
+  br i1 %54, label %55, label %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.exit
 
-55:                                               ; preds = %_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.argprom.exit
+55:                                               ; preds = %_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.exit
   %56 = tail call noundef i32 @_Z10pr_title_nP8_IO_FILEiPKci(ptr noundef %0, i32 noundef %8, ptr noundef nonnull @.str.22, i32 noundef %53)
   %57 = icmp sgt i32 %53, 0
-  br i1 %57, label %.lr.ph.i26, label %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.argprom.exit
+  br i1 %57, label %.lr.ph.i26, label %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.exit
 
 .lr.ph.i26:                                       ; preds = %55
   %wide.trip.count7.i = zext nneg i32 %53 to i64
@@ -1154,7 +1154,7 @@ _ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.argprom.exit: ; preds = %.lr.ph.i, %7, %13
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.22, i32 noundef %65, ptr noundef %61, ptr noundef %64) #17
   %indvars.iv.next5.i = add nuw nsw i64 %indvars.iv4.i, 1
   %exitcond8.not.i = icmp eq i64 %indvars.iv.next5.i, %wide.trip.count7.i
-  br i1 %exitcond8.not.i, label %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !11
+  br i1 %exitcond8.not.i, label %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.exit, label %.lr.ph.split.us.i, !llvm.loop !11
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i26, %.lr.ph.split.i
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i28, %.lr.ph.split.i ], [ 0, %.lr.ph.i26 ]
@@ -1168,20 +1168,20 @@ _ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.argprom.exit: ; preds = %.lr.ph.i, %7, %13
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.22, i32 noundef -1, ptr noundef %70, ptr noundef %73) #17
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i27, 1
   %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, %wide.trip.count7.i
-  br i1 %exitcond.not.i29, label %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.argprom.exit, label %.lr.ph.split.i, !llvm.loop !11
+  br i1 %exitcond.not.i29, label %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.exit, label %.lr.ph.split.i, !llvm.loop !11
 
-_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.argprom.exit: ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.argprom.exit, %55
+_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.exit:     ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %_ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.exit, %55
   %75 = getelementptr inbounds i8, ptr %3, i64 48
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %3, i64 40
   %78 = load i32, ptr %77, align 8
   %79 = tail call noundef zeroext i1 @_Z9availableP8_IO_FILEPKviPKc(ptr noundef %0, ptr noundef %76, i32 noundef %8, ptr noundef nonnull @.str.23)
-  br i1 %79, label %80, label %_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.argprom.exit
+  br i1 %79, label %80, label %_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.exit
 
-80:                                               ; preds = %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.argprom.exit
+80:                                               ; preds = %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.exit
   %81 = tail call noundef i32 @_Z10pr_title_nP8_IO_FILEiPKci(ptr noundef %0, i32 noundef %8, ptr noundef nonnull @.str.23, i32 noundef %78)
   %82 = icmp sgt i32 %78, 0
-  br i1 %82, label %.lr.ph.i30, label %_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.argprom.exit
+  br i1 %82, label %.lr.ph.i30, label %_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.exit
 
 .lr.ph.i30:                                       ; preds = %80
   %wide.trip.count7.i31 = zext nneg i32 %78 to i64
@@ -1204,7 +1204,7 @@ _ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.argprom.exit: ; preds = %.lr.ph.split.i,
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.23, i32 noundef %92, ptr noundef %86, i32 noundef %88, i32 noundef %spec.select.us.i) #17
   %indvars.iv.next5.i38 = add nuw nsw i64 %indvars.iv4.i37, 1
   %exitcond8.not.i39 = icmp eq i64 %indvars.iv.next5.i38, %wide.trip.count7.i31
-  br i1 %exitcond8.not.i39, label %_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.argprom.exit, label %.lr.ph.split.us.i36, !llvm.loop !12
+  br i1 %exitcond8.not.i39, label %_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.exit, label %.lr.ph.split.us.i36, !llvm.loop !12
 
 .lr.ph.split.i32:                                 ; preds = %.lr.ph.i30, %.lr.ph.split.i32
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i34, %.lr.ph.split.i32 ], [ 0, %.lr.ph.i30 ]
@@ -1222,9 +1222,9 @@ _ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.argprom.exit: ; preds = %.lr.ph.split.i,
   %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.23, i32 noundef -1, ptr noundef %97, i32 noundef %99, i32 noundef %spec.select.i) #17
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count7.i31
-  br i1 %exitcond.not.i35, label %_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.argprom.exit, label %.lr.ph.split.i32, !llvm.loop !12
+  br i1 %exitcond.not.i35, label %_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.exit, label %.lr.ph.split.i32, !llvm.loop !12
 
-_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.argprom.exit: ; preds = %.lr.ph.split.i32, %.lr.ph.split.us.i36, %80, %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.argprom.exit, %5
+_ZL10pr_resinfoP8_IO_FILEiPKcPK9t_resinfoib.exit: ; preds = %.lr.ph.split.i32, %.lr.ph.split.us.i36, %80, %_ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.exit, %5
   ret void
 }
 

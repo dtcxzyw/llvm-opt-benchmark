@@ -392,7 +392,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %4, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -401,14 +401,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %5 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i32 %ret.1
 }
 
@@ -875,7 +875,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i10
   %dec.i.i.i.i = add i32 %9, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -884,14 +884,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %10 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i32 %retval.0
 }
 
@@ -1308,7 +1308,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %15, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -1317,14 +1317,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %16 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %16 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret void
 }
 
@@ -1751,7 +1751,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i14
   %dec.i.i.i.i = add i32 %21, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -1760,14 +1760,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %22 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %22 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret void
 }
 
@@ -2198,7 +2198,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i50
   %dec.i.i.i.i = add i32 %63, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -2207,14 +2207,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %64 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %64 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i32 %retval.0
 }
 
@@ -2299,7 +2299,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %5, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -2308,14 +2308,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %6 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %6 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i64 %total.0.lcssa
 }
 
@@ -2451,12 +2451,12 @@ if.else.i:                                        ; preds = %migrate_ram_is_igno
   %7 = load i64, ptr %used_length.i.i, align 8
   %shr.i.i = lshr i64 %7, 12
   %cmp.i.i = icmp eq i64 %.fr.i.i, 4096
-  br i1 %cmp.i.i, label %postcopy_chunk_hostpages_pass.argprom.exit.i, label %if.end.i.i
+  br i1 %cmp.i.i, label %postcopy_chunk_hostpages_pass.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i
   %call.i10.i = tail call i64 @find_next_bit(ptr noundef %5, i64 noundef %shr.i.i, i64 noundef 0) #18
   %cmp33.i.i = icmp ult i64 %call.i10.i, %shr.i.i
-  br i1 %cmp33.i.i, label %while.body.lr.ph.i.i, label %postcopy_chunk_hostpages_pass.argprom.exitthread-pre-split.i
+  br i1 %cmp33.i.i, label %while.body.lr.ph.i.i, label %postcopy_chunk_hostpages_pass.exitthread-pre-split.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
   %conv5.i.i = and i64 %div26.i.i, 4294967295
@@ -2514,26 +2514,26 @@ if.end32.i.i:                                     ; preds = %for.body.i.i, %if.t
   %run_start.2.i.i = phi i64 [ %run_start.1.fr.i.i, %if.end10.i.i ], [ %mul24.i.i, %if.then15.i.i ], [ %mul24.i.i, %for.body.i.i ]
   %call33.i.i = tail call i64 @find_next_bit(ptr noundef %5, i64 noundef %shr.i.i, i64 noundef %run_start.2.i.i) #18
   %cmp3.i.i = icmp ult i64 %call33.i.i, %shr.i.i
-  br i1 %cmp3.i.i, label %while.body.i.i, label %postcopy_chunk_hostpages_pass.argprom.exitthread-pre-split.i, !llvm.loop !42
+  br i1 %cmp3.i.i, label %while.body.i.i, label %postcopy_chunk_hostpages_pass.exitthread-pre-split.i, !llvm.loop !42
 
-postcopy_chunk_hostpages_pass.argprom.exitthread-pre-split.i: ; preds = %if.end32.i.i, %if.end.i.i
+postcopy_chunk_hostpages_pass.exitthread-pre-split.i: ; preds = %if.end32.i.i, %if.end.i.i
   %block.0.val.pr.i = load i64, ptr %used_length.i.i, align 8
   %block.0.val9.pre.i = load ptr, ptr %bmap.i.i, align 8
   %.pre.i = lshr i64 %block.0.val.pr.i, 12
-  br label %postcopy_chunk_hostpages_pass.argprom.exit.i
+  br label %postcopy_chunk_hostpages_pass.exit.i
 
-postcopy_chunk_hostpages_pass.argprom.exit.i:     ; preds = %postcopy_chunk_hostpages_pass.argprom.exitthread-pre-split.i, %if.else.i
-  %shr.i11.pre-phi.i = phi i64 [ %.pre.i, %postcopy_chunk_hostpages_pass.argprom.exitthread-pre-split.i ], [ %shr.i.i, %if.else.i ]
-  %block.0.val9.i = phi ptr [ %block.0.val9.pre.i, %postcopy_chunk_hostpages_pass.argprom.exitthread-pre-split.i ], [ %5, %if.else.i ]
-  %block.0.val.i = phi i64 [ %block.0.val.pr.i, %postcopy_chunk_hostpages_pass.argprom.exitthread-pre-split.i ], [ %7, %if.else.i ]
+postcopy_chunk_hostpages_pass.exit.i:             ; preds = %postcopy_chunk_hostpages_pass.exitthread-pre-split.i, %if.else.i
+  %shr.i11.pre-phi.i = phi i64 [ %.pre.i, %postcopy_chunk_hostpages_pass.exitthread-pre-split.i ], [ %shr.i.i, %if.else.i ]
+  %block.0.val9.i = phi ptr [ %block.0.val9.pre.i, %postcopy_chunk_hostpages_pass.exitthread-pre-split.i ], [ %5, %if.else.i ]
+  %block.0.val.i = phi i64 [ %block.0.val.pr.i, %postcopy_chunk_hostpages_pass.exitthread-pre-split.i ], [ %7, %if.else.i ]
   %cmp1.not3.i.i = icmp ult i64 %block.0.val.i, 4096
-  br i1 %cmp1.not3.i.i, label %postcopy_send_discard_bm_ram.argprom.exit.i, label %for.body.i12.i
+  br i1 %cmp1.not3.i.i, label %postcopy_send_discard_bm_ram.exit.i, label %for.body.i12.i
 
-for.body.i12.i:                                   ; preds = %postcopy_chunk_hostpages_pass.argprom.exit.i, %if.end.i14.i
-  %current.02.i.i = phi i64 [ %call2.shr.i.i, %if.end.i14.i ], [ 0, %postcopy_chunk_hostpages_pass.argprom.exit.i ]
+for.body.i12.i:                                   ; preds = %postcopy_chunk_hostpages_pass.exit.i, %if.end.i14.i
+  %current.02.i.i = phi i64 [ %call2.shr.i.i, %if.end.i14.i ], [ 0, %postcopy_chunk_hostpages_pass.exit.i ]
   %call.i13.i = tail call i64 @find_next_bit(ptr noundef %block.0.val9.i, i64 noundef %shr.i11.pre-phi.i, i64 noundef %current.02.i.i) #18
   %cmp1.not.i.i = icmp ult i64 %call.i13.i, %shr.i11.pre-phi.i
-  br i1 %cmp1.not.i.i, label %if.end.i14.i, label %postcopy_send_discard_bm_ram.argprom.exit.i
+  br i1 %cmp1.not.i.i, label %if.end.i14.i, label %postcopy_send_discard_bm_ram.exit.i
 
 if.end.i14.i:                                     ; preds = %for.body.i12.i
   %add.i15.i = add nuw nsw i64 %call.i13.i, 1
@@ -2542,13 +2542,13 @@ if.end.i14.i:                                     ; preds = %for.body.i12.i
   %discard_length.0.i.i = sub nsw i64 %call2.shr.i.i, %call.i13.i
   tail call void @postcopy_discard_send_range(ptr noundef %ms, i64 noundef %call.i13.i, i64 noundef %discard_length.0.i.i) #18
   %cmp.i17.i = icmp ult i64 %call2.i16.i, %shr.i11.pre-phi.i
-  br i1 %cmp.i17.i, label %for.body.i12.i, label %postcopy_send_discard_bm_ram.argprom.exit.i, !llvm.loop !43
+  br i1 %cmp.i17.i, label %for.body.i12.i, label %postcopy_send_discard_bm_ram.exit.i, !llvm.loop !43
 
-postcopy_send_discard_bm_ram.argprom.exit.i:      ; preds = %if.end.i14.i, %for.body.i12.i, %postcopy_chunk_hostpages_pass.argprom.exit.i
+postcopy_send_discard_bm_ram.exit.i:              ; preds = %if.end.i14.i, %for.body.i12.i, %postcopy_chunk_hostpages_pass.exit.i
   tail call void @postcopy_discard_send_finish(ptr noundef %ms) #18
   br label %while.end5.i
 
-while.end5.i:                                     ; preds = %postcopy_send_discard_bm_ram.argprom.exit.i, %migrate_ram_is_ignored.exit.i, %for.body.i
+while.end5.i:                                     ; preds = %postcopy_send_discard_bm_ram.exit.i, %migrate_ram_is_ignored.exit.i, %for.body.i
   %next.i = getelementptr inbounds i8, ptr %block.021.i, i64 336
   %12 = load atomic i64, ptr %next.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !44
@@ -2604,7 +2604,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i8
   %dec.i.i.i.i = add i32 %19, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -2613,14 +2613,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %20 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %20 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret void
 }
 
@@ -2762,7 +2762,7 @@ if.end.i.i:                                       ; preds = %ram_bytes_remaining
   %dec.i.i = add i32 %16, -1
   store i32 %dec.i.i, ptr %depth.i.i21, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp2.not.i.i, label %while.end.i.i23, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i, label %while.end.i.i23, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i23:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i20 release, align 8
@@ -2771,14 +2771,14 @@ while.end.i.i23:                                  ; preds = %if.end.i.i
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i20, i64 8
   %17 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i24 = trunc i8 %17 to i1
-  br i1 %tobool.i.i24, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i24, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i23
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %while.end21.i.i, %while.end.i.i23, %if.end.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i23, %if.end.i.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1055) #18
   tail call void @memory_global_after_dirty_log_sync() #18
   %num_dirty_pages_period = getelementptr inbounds i8, ptr %rs, i64 168
@@ -2791,7 +2791,7 @@ glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %while.end21.i.i, %w
   %or.cond.i.i30 = select i1 %tobool.i.i28, i1 %tobool4.i.i29, i1 false
   br i1 %or.cond.i.i30, label %land.lhs.true5.i.i31, label %trace_migration_bitmap_sync_end.exit
 
-land.lhs.true5.i.i31:                             ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+land.lhs.true5.i.i31:                             ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit
   %21 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i32 = and i32 %21, 32768
   %cmp.i.not.i.i33 = icmp eq i32 %and.i.i.i32, 0
@@ -2815,7 +2815,7 @@ if.else.i.i36:                                    ; preds = %if.then.i.i34
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i64 noundef %18) #18
   br label %trace_migration_bitmap_sync_end.exit
 
-trace_migration_bitmap_sync_end.exit:             ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit, %land.lhs.true5.i.i31, %if.then8.i.i37, %if.else.i.i36
+trace_migration_bitmap_sync_end.exit:             ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %land.lhs.true5.i.i31, %if.then8.i.i37, %if.else.i.i36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i27)
   %call.i41 = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #18
   %div.i42 = sdiv i64 %call.i41, 1000000
@@ -3711,7 +3711,7 @@ if.end.i.i:                                       ; preds = %for.end
   %dec.i.i = add i32 %8, -1
   store i32 %dec.i.i, ptr %depth.i.i7, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp2.not.i.i, label %while.end.i.i9, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i, label %while.end.i.i9, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i9:                                   ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i6 release, align 8
@@ -3720,14 +3720,14 @@ while.end.i.i9:                                   ; preds = %if.end.i.i
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i6, i64 8
   %9 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i9
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %while.end21.i.i, %while.end.i.i9, %if.end.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i9, %if.end.i.i
   %10 = load ptr, ptr @ram_state, align 8
   %migration_dirty_pages = getelementptr inbounds i8, ptr %10, i64 224
   store i64 0, ptr %migration_dirty_pages, align 8
@@ -4002,7 +4002,7 @@ if.end.i.i:                                       ; preds = %for.inc41
   %dec.i.i = add i32 %9, -1
   store i32 %dec.i.i, ptr %depth.i.i21, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp2.not.i.i, label %while.end.i.i23, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i, label %while.end.i.i23, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i23:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i20 release, align 8
@@ -4011,14 +4011,14 @@ while.end.i.i23:                                  ; preds = %if.end.i.i
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i20, i64 8
   %10 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i23
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %while.end21.i.i, %while.end.i.i23, %if.end.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i23, %if.end.i.i
   tail call fastcc void @ram_state_cleanup(ptr noundef nonnull @ram_state)
   ret void
 }
@@ -4603,7 +4603,7 @@ if.end.i.i:                                       ; preds = %for.inc18
   %dec.i.i = add i32 %8, -1
   store i32 %dec.i.i, ptr %depth.i.i20, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp2.not.i.i, label %while.end.i.i22, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i, label %while.end.i.i22, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i22:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i19 release, align 8
@@ -4612,14 +4612,14 @@ while.end.i.i22:                                  ; preds = %if.end.i.i
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i19, i64 8
   %9 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i22
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %while.end21.i.i, %while.end.i.i22, %if.end.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i22, %if.end.i.i
   %10 = load ptr, ptr @ram_state, align 8
   %migration_dirty_pages = getelementptr inbounds i8, ptr %10, i64 224
   %11 = load i64, ptr %migration_dirty_pages, align 8
@@ -4631,7 +4631,7 @@ glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %while.end21.i.i, %w
   %or.cond.i.i = select i1 %tobool.i.i23, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_colo_flush_ram_cache_begin.exit
 
-land.lhs.true5.i.i:                               ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+land.lhs.true5.i.i:                               ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit
   %14 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %14, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
@@ -4655,7 +4655,7 @@ if.else.i.i25:                                    ; preds = %if.then.i.i24
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i64 noundef %11) #18
   br label %trace_colo_flush_ram_cache_begin.exit
 
-trace_colo_flush_ram_cache_begin.exit:            ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i25
+trace_colo_flush_ram_cache_begin.exit:            ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call.i.i26 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i27 = getelementptr inbounds i8, ptr %call.i.i26, i64 12
@@ -4684,7 +4684,7 @@ while.body34.preheader:                           ; preds = %rcu_read_auto_lock.
   %21 = inttoptr i64 %20 to ptr
   br label %while.body34
 
-land.lhs.true5.i.i51:                             ; preds = %rcu_read_auto_unlock.argprom.exit79
+land.lhs.true5.i.i51:                             ; preds = %rcu_read_auto_unlock.exit79
   %22 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i52 = and i32 %22, 32768
   %cmp.i.not.i.i53 = icmp eq i32 %and.i.i.i52, 0
@@ -4708,7 +4708,7 @@ if.else.i.i56:                                    ; preds = %if.then.i.i54
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72) #18
   br label %trace_colo_flush_ram_cache_end.exit
 
-trace_colo_flush_ram_cache_end.exit:              ; preds = %rcu_read_auto_unlock.argprom.exit79, %land.lhs.true5.i.i51, %if.then8.i.i57, %if.else.i.i56
+trace_colo_flush_ram_cache_end.exit:              ; preds = %rcu_read_auto_unlock.exit79, %land.lhs.true5.i.i51, %if.then8.i.i57, %if.else.i.i56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i47)
   ret void
 
@@ -4915,7 +4915,7 @@ if.end.i.i71:                                     ; preds = %for.inc59
   %dec.i.i72 = add i32 %50, -1
   store i32 %dec.i.i72, ptr %depth.i.i69, align 4
   %cmp2.not.i.i73 = icmp eq i32 %dec.i.i72, 0
-  br i1 %cmp2.not.i.i73, label %while.end.i.i74, label %rcu_read_auto_unlock.argprom.exit79
+  br i1 %cmp2.not.i.i73, label %while.end.i.i74, label %rcu_read_auto_unlock.exit79
 
 while.end.i.i74:                                  ; preds = %if.end.i.i71
   store atomic i64 0, ptr %call.i.i68 release, align 8
@@ -4924,14 +4924,14 @@ while.end.i.i74:                                  ; preds = %if.end.i.i71
   %waiting.i.i75 = getelementptr inbounds i8, ptr %call.i.i68, i64 8
   %51 = load atomic i8, ptr %waiting.i.i75 monotonic, align 8
   %tobool.i.i76 = trunc i8 %51 to i1
-  br i1 %tobool.i.i76, label %while.end21.i.i77, label %rcu_read_auto_unlock.argprom.exit79
+  br i1 %tobool.i.i76, label %while.end21.i.i77, label %rcu_read_auto_unlock.exit79
 
 while.end21.i.i77:                                ; preds = %while.end.i.i74
   store atomic i8 0, ptr %waiting.i.i75 monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %rcu_read_auto_unlock.argprom.exit79
+  br label %rcu_read_auto_unlock.exit79
 
-rcu_read_auto_unlock.argprom.exit79:              ; preds = %if.end.i.i71, %while.end.i.i74, %while.end21.i.i77
+rcu_read_auto_unlock.exit79:                      ; preds = %if.end.i.i71, %while.end.i.i74, %while.end21.i.i77
   %52 = load ptr, ptr @ram_state, align 8
   %bitmap_mutex61 = getelementptr inbounds i8, ptr %52, i64 232
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex61, ptr noundef nonnull @.str, i32 noundef 3788) #18
@@ -5940,7 +5940,7 @@ if.end.i.i.i.i:                                   ; preds = %for.inc.i.i
   %dec.i.i.i.i = add i32 %17, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i7.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i9.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i.i
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i9.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit.i.i
 
 while.end.i.i9.i.i:                               ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i6.i.i release, align 8
@@ -5949,14 +5949,14 @@ while.end.i.i9.i.i:                               ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i6.i.i, i64 8
   %18 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %18 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i.i
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i9.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i.i
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit.i.i
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i.i: ; preds = %while.end21.i.i.i.i, %while.end.i.i9.i.i, %if.end.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit.i.i:        ; preds = %while.end21.i.i.i.i, %while.end.i.i9.i.i, %if.end.i.i.i.i
   call void @qemu_mutex_unlock_ramlist() #18
   %call.i.i.i11.i.i = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i11.i.i, i64 12
@@ -5966,7 +5966,7 @@ glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i.i: ; preds = %while.end21.i.i.i.
   %cmp.not.i.i.i.i.i = icmp eq i32 %19, 0
   br i1 %cmp.not.i.i.i.i.i, label %while.end.i.i.i.i.i, label %rcu_read_auto_lock.exit.i.i.i
 
-while.end.i.i.i.i.i:                              ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i.i
+while.end.i.i.i.i.i:                              ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit.i.i
   %20 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i.i.i = and i64 %20, 4294967295
   store atomic i64 %conv8.i.i.i.i.i, ptr %call.i.i.i11.i.i monotonic, align 8
@@ -5974,7 +5974,7 @@ while.end.i.i.i.i.i:                              ; preds = %glib_autoptr_cleanu
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i.i.i
 
-rcu_read_auto_lock.exit.i.i.i:                    ; preds = %while.end.i.i.i.i.i, %glib_autoptr_cleanup_RCUReadAuto.argprom.exit.i.i
+rcu_read_auto_lock.exit.i.i.i:                    ; preds = %while.end.i.i.i.i.i, %glib_autoptr_cleanup_RCUReadAuto.exit.i.i
   %21 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !86
   %tobool.not8.i.i.i = icmp eq i64 %21, 0
@@ -6258,7 +6258,7 @@ if.end.i.i44:                                     ; preds = %for.inc39
   %dec.i.i = add i32 %49, -1
   store i32 %dec.i.i, ptr %depth.i.i42, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp2.not.i.i, label %while.end.i.i45, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i, label %while.end.i.i45, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i45:                                  ; preds = %if.end.i.i44
   store atomic i64 0, ptr %call.i.i41 release, align 8
@@ -6267,14 +6267,14 @@ while.end.i.i45:                                  ; preds = %if.end.i.i44
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i41, i64 8
   %50 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %50 to i1
-  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i45
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %while.end21.i.i, %while.end.i.i45, %if.end.i.i44
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i45, %if.end.i.i44
   %call51 = call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #20
   store ptr %call51, ptr @migration_ops, align 8
   store ptr @ram_save_target_page_legacy, ptr %call51, align 8
@@ -6284,7 +6284,7 @@ glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %while.end21.i.i, %w
   %cmp53 = icmp slt i32 %call52, 0
   br i1 %cmp53, label %return, label %if.end56
 
-if.end56:                                         ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+if.end56:                                         ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit
   %call57 = call zeroext i1 @migrate_multifd() #18
   br i1 %call57, label %land.lhs.true59, label %if.end62
 
@@ -6301,8 +6301,8 @@ if.end62:                                         ; preds = %if.then61, %land.lh
   %call63 = call i32 @qemu_fflush(ptr noundef %f) #18
   br label %return
 
-return:                                           ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit, %entry, %if.end62, %if.then4
-  %retval.0 = phi i32 [ %call63, %if.end62 ], [ -1, %if.then4 ], [ -1, %entry ], [ %call52, %glib_autoptr_cleanup_RCUReadAuto.argprom.exit ]
+return:                                           ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %entry, %if.end62, %if.then4
+  %retval.0 = phi i32 [ %call63, %if.end62 ], [ -1, %if.then4 ], [ -1, %entry ], [ %call52, %glib_autoptr_cleanup_RCUReadAuto.exit ]
   ret i32 %retval.0
 }
 
@@ -6976,7 +6976,7 @@ if.end.i.i:                                       ; preds = %migration_bitmap_sy
   %dec.i.i = add i32 %7, -1
   store i32 %dec.i.i, ptr %depth.i.i7, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp2.not.i.i, label %while.end.i.i9, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i, label %while.end.i.i9, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i9:                                   ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i6 release, align 8
@@ -6985,21 +6985,21 @@ while.end.i.i9:                                   ; preds = %if.end.i.i
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i6, i64 8
   %8 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i, label %while.end21.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i9
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %while.end21.i.i, %while.end.i.i9, %if.end.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i9, %if.end.i.i
   call void @qemu_mutex_unlock_iothread() #18
   %9 = load i64, ptr %migration_dirty_pages, align 8
   %mul4 = shl i64 %9, 12
   br label %if.end
 
-if.end:                                           ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit, %land.lhs.true, %entry
-  %remaining_size.0 = phi i64 [ %mul, %entry ], [ %mul4, %glib_autoptr_cleanup_RCUReadAuto.argprom.exit ], [ %mul, %land.lhs.true ]
+if.end:                                           ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %land.lhs.true, %entry
+  %remaining_size.0 = phi i64 [ %mul, %entry ], [ %mul4, %glib_autoptr_cleanup_RCUReadAuto.exit ], [ %mul, %land.lhs.true ]
   %call5 = call zeroext i1 @migrate_postcopy_ram() #18
   %can_postcopy.must_precopy = select i1 %call5, ptr %can_postcopy, ptr %must_precopy
   %10 = load i64, ptr %can_postcopy.must_precopy, align 8
@@ -7058,7 +7058,7 @@ if.end.i.i13.us:                                  ; preds = %for.body.us
   %dec.i.i.us = add i32 %5, -1
   store i32 %dec.i.i.us, ptr %depth.i.i11.us, align 4
   %cmp2.not.i.i.us = icmp eq i32 %dec.i.i.us, 0
-  br i1 %cmp2.not.i.i.us, label %while.end.i.i14.us, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i.us, label %while.end.i.i14.us, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i14.us:                               ; preds = %if.end.i.i13.us
   store atomic i64 0, ptr %call.i.i10.us release, align 8
@@ -7067,15 +7067,15 @@ while.end.i.i14.us:                               ; preds = %if.end.i.i13.us
   %waiting.i.i.us = getelementptr inbounds i8, ptr %call.i.i10.us, i64 8
   %6 = load atomic i8, ptr %waiting.i.i.us monotonic, align 8
   %tobool.i.i15.us = trunc i8 %6 to i1
-  br i1 %tobool.i.i15.us, label %while.end21.i.i.us, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i15.us, label %while.end21.i.i.us, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.us:                               ; preds = %while.end.i.i14.us
   store atomic i8 0, ptr %waiting.i.i.us monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %while.end21.i.i.us, %while.end.i.i14.us, %if.end.i.i13.us, %rcu_read_auto_unlock.argprom.exit
-  %.us-phi = phi i32 [ %or95.i.le, %rcu_read_auto_unlock.argprom.exit ], [ %call4.us, %while.end21.i.i.us ], [ %call4.us, %while.end.i.i14.us ], [ %call4.us, %if.end.i.i13.us ]
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i.us, %while.end.i.i14.us, %if.end.i.i13.us, %rcu_read_auto_unlock.exit
+  %.us-phi = phi i32 [ %or95.i.le, %rcu_read_auto_unlock.exit ], [ %call4.us, %while.end21.i.i.us ], [ %call4.us, %while.end.i.i14.us ], [ %call4.us, %if.end.i.i13.us ]
   %7 = load i64, ptr @ram_load.seq_iter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %8 = load i32, ptr @trace_events_enabled_count, align 4
@@ -7085,7 +7085,7 @@ glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %while.end21.i.i.us,
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_ram_load_complete.exit
 
-land.lhs.true5.i.i:                               ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+land.lhs.true5.i.i:                               ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit
   %10 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %10, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
@@ -7109,7 +7109,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i3
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.112, i32 noundef %.us-phi, i64 noundef %7) #18
   br label %trace_ram_load_complete.exit
 
-trace_ram_load_complete.exit:                     ; preds = %glib_autoptr_cleanup_RCUReadAuto.argprom.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_ram_load_complete.exit:                     ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %return
 
@@ -7611,7 +7611,7 @@ if.end.i.i13:                                     ; preds = %ram_load_precopy.ex
   %dec.i.i = add i32 %52, -1
   store i32 %dec.i.i, ptr %depth.i.i11, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp2.not.i.i, label %while.end.i.i14, label %rcu_read_auto_unlock.argprom.exit
+  br i1 %cmp2.not.i.i, label %while.end.i.i14, label %rcu_read_auto_unlock.exit
 
 while.end.i.i14:                                  ; preds = %if.end.i.i13
   store atomic i64 0, ptr %call.i.i10 release, align 8
@@ -7620,16 +7620,16 @@ while.end.i.i14:                                  ; preds = %if.end.i.i13
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i10, i64 8
   %53 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i15 = trunc i8 %53 to i1
-  br i1 %tobool.i.i15, label %while.end21.i.i, label %rcu_read_auto_unlock.argprom.exit
+  br i1 %tobool.i.i15, label %while.end21.i.i, label %rcu_read_auto_unlock.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i14
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
-  br label %rcu_read_auto_unlock.argprom.exit
+  br label %rcu_read_auto_unlock.exit
 
-rcu_read_auto_unlock.argprom.exit:                ; preds = %if.end.i.i13, %while.end.i.i14, %while.end21.i.i
+rcu_read_auto_unlock.exit:                        ; preds = %if.end.i.i13, %while.end.i.i14, %while.end21.i.i
   %or95.i.le = or i32 %call94.i, %ret.1.i
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 return:                                           ; preds = %entry, %trace_ram_load_complete.exit
   %retval.0 = phi i32 [ %.us-phi, %trace_ram_load_complete.exit ], [ -22, %entry ]
@@ -8145,17 +8145,17 @@ if.end.i:                                         ; preds = %entry
   %last_sent_block.i = getelementptr inbounds i8, ptr %pss, i64 8
   %3 = load ptr, ptr %last_sent_block.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
-  br i1 %cmp.not.i, label %save_compress_page.argprom.exit, label %if.then1.i
+  br i1 %cmp.not.i, label %save_compress_page.exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
   tail call void @compress_flush_data() #18
   br label %if.end4
 
-save_compress_page.argprom.exit:                  ; preds = %if.end.i
+save_compress_page.exit:                          ; preds = %if.end.i
   %call4.i = tail call zeroext i1 @compress_page_with_multi_thread(ptr noundef %2, i64 noundef %shl, ptr noundef nonnull @compress_send_queued_data) #18
   br i1 %call4.i, label %return, label %if.end4
 
-if.end4:                                          ; preds = %entry, %if.then1.i, %save_compress_page.argprom.exit
+if.end4:                                          ; preds = %entry, %if.then1.i, %save_compress_page.exit
   %4 = load ptr, ptr %block1, align 8
   %host.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %host.i, align 8
@@ -8598,8 +8598,8 @@ if.then.i36.i:                                    ; preds = %if.end10.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #18
   br label %return
 
-return:                                           ; preds = %if.then.i36.i, %if.end10.i, %if.end.i17, %if.then10, %save_zero_page.exit, %save_compress_page.argprom.exit
-  %retval.0 = phi i32 [ 1, %save_compress_page.argprom.exit ], [ 1, %save_zero_page.exit ], [ 1, %if.end.i17 ], [ -1, %if.then10 ], [ %pages.1.i, %if.end10.i ], [ %pages.1.i, %if.then.i36.i ]
+return:                                           ; preds = %if.then.i36.i, %if.end10.i, %if.end.i17, %if.then10, %save_zero_page.exit, %save_compress_page.exit
+  %retval.0 = phi i32 [ 1, %save_compress_page.exit ], [ 1, %save_zero_page.exit ], [ 1, %if.end.i17 ], [ -1, %if.then10 ], [ %pages.1.i, %if.end10.i ], [ %pages.1.i, %if.then.i36.i ]
   ret i32 %retval.0
 }
 

@@ -1259,7 +1259,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %281, %283
   %315 = getelementptr inbounds [2 x i32], ptr %8, i64 0, i64 %312
   %316 = load i32, ptr %315, align 4
   %317 = zext i32 %316 to i64
-  %318 = call fastcc i32 @ompi_coll_base_sendrecv.argelim(ptr noundef %306, i64 noundef %309, ptr noundef %2, i32 noundef %.0183, ptr noundef %314, i64 noundef %317, ptr noundef %2, i32 noundef %.0183, ptr noundef %4, ptr noundef null, i32 noundef %.val)
+  %318 = call fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %306, i64 noundef %309, ptr noundef %2, i32 noundef %.0183, ptr noundef %314, i64 noundef %317, ptr noundef %2, i32 noundef %.0183, ptr noundef %4, ptr noundef null, i32 noundef %.val)
   %.not227 = icmp eq i32 %318, 0
   br i1 %.not227, label %319, label %.loopexit246
 
@@ -1273,7 +1273,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %281, %283
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_coll_base_sendrecv.argelim(ptr noundef %0, i64 noundef range(i64 -2147483648, 4294967296) %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, ptr noundef %4, i64 noundef range(i64 -2147483645, 4294967296) %5, ptr noundef %6, i32 noundef range(i32 -2147483647, -2147483648) %7, ptr noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #0 {
+define internal fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %0, i64 noundef range(i64 -2147483648, 4294967296) %1, ptr noundef %2, i32 noundef range(i32 -2147483647, -2147483648) %3, ptr noundef %4, i64 noundef range(i64 -2147483645, 4294967296) %5, ptr noundef %6, i32 noundef range(i32 -2147483647, -2147483648) %7, ptr noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #0 {
   %12 = icmp eq i32 %3, %7
   %13 = icmp eq i32 %7, %10
   %or.cond = and i1 %12, %13

@@ -67,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [24 x i8] c"SuSE 6.3 tcpdump - pcap\00", align 1
 @.str.35 = private unnamed_addr constant [24 x i8] c"Modified tcpdump - pcap\00", align 1
 @.str.36 = private unnamed_addr constant [21 x i8] c"Nokia tcpdump - pcap\00", align 1
-@switch.table.libpcap_read_header.argprom = private unnamed_addr constant [7 x i32] [i32 16, i32 16, i32 16, i32 24, i32 28, i32 24, i32 20], align 4
+@switch.table.libpcap_read_header = private unnamed_addr constant [7 x i32] [i32 16, i32 16, i32 16, i32 24, i32 28, i32 24, i32 20], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @libpcap_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -655,7 +655,7 @@ define internal fastcc range(i32 -1, 6) i32 @libpcap_try_record(ptr nocapture no
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %6, align 8
-  %7 = call fastcc i32 @libpcap_read_header.argprom(ptr %.val, ptr noundef %5, ptr noundef %1, ptr noundef %2, ptr noundef %4)
+  %7 = call fastcc i32 @libpcap_read_header(ptr %.val, ptr noundef %5, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %10
 
@@ -715,7 +715,7 @@ define internal fastcc range(i32 -1, 6) i32 @libpcap_try_record(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @libpcap_read_header.argprom(ptr nocapture readonly %.96.val, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @libpcap_read_header(ptr nocapture readonly %.96.val, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %.96.val, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, 7
@@ -727,7 +727,7 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_read_header.argprom(ptr noca
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.libpcap_read_header.argprom, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.libpcap_read_header, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   %10 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %switch.load, ptr noundef %1, ptr noundef %2) #7
   %.not = icmp eq i32 %10, 0
@@ -802,7 +802,7 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_read_packet(ptr noundef %0, 
   %7 = alloca %struct.pcaprec_ss990915_hdr, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = call fastcc i32 @libpcap_read_header.argprom(ptr %9, ptr noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  %10 = call fastcc i32 @libpcap_read_header(ptr %9, ptr noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %83, label %11
 

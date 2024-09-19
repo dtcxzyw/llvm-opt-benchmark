@@ -831,7 +831,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
 
 253:                                              ; preds = %245, %247, %248
   %254 = phi i32 [ -2, %245 ], [ %252, %248 ], [ 2, %247 ]
-  %255 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %5, ptr nonnull %4, ptr %.2497, i32 %254)
+  %255 = call fastcc i32 @yysyntax_error(ptr noundef %5, ptr nonnull %4, ptr %.2497, i32 %254)
   switch i32 %255, label %264 [
     i32 0, label %256
     i32 -1, label %257
@@ -847,7 +847,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   br i1 %.not533, label %263, label %260
 
 260:                                              ; preds = %257
-  %261 = call fastcc i32 @yysyntax_error.argprom(ptr noundef %5, ptr nonnull %259, ptr %.2497, i32 %254)
+  %261 = call fastcc i32 @yysyntax_error(ptr noundef %5, ptr nonnull %259, ptr %.2497, i32 %254)
   %262 = icmp eq i32 %261, -2
   br label %264
 
@@ -940,7 +940,7 @@ declare void @phpdbg_stack_separate(ptr noundef) local_unnamed_addr #4
 declare void @phpdbg_stack_push(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @yysyntax_error.argprom(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
+define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #5 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %yy_syntax_error_arguments.exit.thread6, label %3

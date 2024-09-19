@@ -918,7 +918,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !266, !noalias !261, !noundef !20
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !258, !noalias !267
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E.exit
 
 13:                                               ; preds = %3
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -926,9 +926,9 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !261
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !267
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E.exit
 
-_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E.argprom.exit: ; preds = %10, %13
+_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E.exit: ; preds = %10, %13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !261
   store i64 %8, ptr %0, align 8, !alias.scope !258, !noalias !267
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
@@ -964,7 +964,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !266, !noalias !277, !noundef !20
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !274, !noalias !282
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E.exit
 
 13:                                               ; preds = %3
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -972,9 +972,9 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !277
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !282
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E.exit
 
-_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E.argprom.exit: ; preds = %10, %13
+_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E.exit: ; preds = %10, %13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !277
   store i64 %8, ptr %0, align 8, !alias.scope !274, !noalias !282
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
@@ -1010,7 +1010,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !266, !noalias !292, !noundef !20
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !289, !noalias !297
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E.exit
 
 13:                                               ; preds = %3
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -1018,9 +1018,9 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !292
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !297
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E.exit
 
-_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E.argprom.exit: ; preds = %10, %13
+_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E.exit: ; preds = %10, %13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !292
   store i64 %8, ptr %0, align 8, !alias.scope !289, !noalias !297
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
@@ -1056,7 +1056,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !266, !noalias !307, !noundef !20
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !304, !noalias !312
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E.exit
 
 13:                                               ; preds = %3
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -1064,9 +1064,9 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !307
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !312
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E.exit
 
-_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E.argprom.exit: ; preds = %10, %13
+_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E.exit: ; preds = %10, %13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !307
   store i64 %8, ptr %0, align 8, !alias.scope !304, !noalias !312
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
@@ -1102,7 +1102,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !266, !noalias !322, !noundef !20
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !319, !noalias !327
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE.exit
 
 13:                                               ; preds = %3
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -1110,9 +1110,9 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !322
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !327
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE.exit
 
-_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE.argprom.exit: ; preds = %10, %13
+_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE.exit: ; preds = %10, %13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !322
   store i64 %8, ptr %0, align 8, !alias.scope !319, !noalias !327
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
@@ -1148,7 +1148,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !266, !noalias !337, !noundef !20
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !334, !noalias !342
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE.exit
 
 13:                                               ; preds = %3
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -1156,9 +1156,9 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !337
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !342
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE.exit
 
-_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE.argprom.exit: ; preds = %10, %13
+_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE.exit: ; preds = %10, %13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !337
   store i64 %8, ptr %0, align 8, !alias.scope !334, !noalias !342
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
@@ -1194,7 +1194,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !266, !noalias !352, !noundef !20
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !349, !noalias !357
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E.exit
 
 13:                                               ; preds = %3
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -1202,9 +1202,9 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !352
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !357
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E.exit
 
-_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E.argprom.exit: ; preds = %10, %13
+_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E.exit: ; preds = %10, %13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !352
   store i64 %8, ptr %0, align 8, !alias.scope !349, !noalias !357
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
@@ -1240,7 +1240,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !266, !noalias !367, !noundef !20
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !364, !noalias !372
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE.exit
 
 13:                                               ; preds = %3
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -1248,9 +1248,9 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !367
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !372
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE.exit
 
-_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE.argprom.exit: ; preds = %10, %13
+_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE.exit: ; preds = %10, %13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !367
   store i64 %8, ptr %0, align 8, !alias.scope !364, !noalias !372
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
@@ -1286,7 +1286,7 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   %11 = load i8, ptr %6, align 1, !range !266, !noalias !382, !noundef !20
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8, !alias.scope !379, !noalias !387
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE.exit
 
 13:                                               ; preds = %3
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -1294,9 +1294,9 @@ define hidden void @"_ZN100_$LT$T$u20$as$u20$diesel..connection..statement_cache
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !382
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.210.i, i64 24, i1 false), !noalias !387
-  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE.argprom.exit
+  br label %_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE.exit
 
-_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE.argprom.exit: ; preds = %10, %13
+_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE.exit: ; preds = %10, %13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !382
   store i64 %8, ptr %0, align 8, !alias.scope !379, !noalias !387
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.210.i)
@@ -5440,10 +5440,10 @@ attributes #10 = { cold noreturn nounwind }
 !256 = distinct !{!256, !254, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h13dd6224865e1540E: argument 0"}
 !257 = distinct !{!257, !254, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h13dd6224865e1540E: argument 2"}
 !258 = !{!259}
-!259 = distinct !{!259, !260, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E.argprom: argument 0"}
-!260 = distinct !{!260, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E.argprom"}
+!259 = distinct !{!259, !260, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E: argument 0"}
+!260 = distinct !{!260, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E"}
 !261 = !{!259, !262}
-!262 = distinct !{!262, !260, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E.argprom: argument 1"}
+!262 = distinct !{!262, !260, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h7b7fe96869d28ae5E: argument 1"}
 !263 = !{!264, !259}
 !264 = distinct !{!264, !265, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h13dd6224865e1540E: argument 1"}
 !265 = distinct !{!265, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h13dd6224865e1540E"}
@@ -5456,10 +5456,10 @@ attributes #10 = { cold noreturn nounwind }
 !272 = distinct !{!272, !270, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hfebe68488e1cd221E: argument 0"}
 !273 = distinct !{!273, !270, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hfebe68488e1cd221E: argument 2"}
 !274 = !{!275}
-!275 = distinct !{!275, !276, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E.argprom: argument 0"}
-!276 = distinct !{!276, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E.argprom"}
+!275 = distinct !{!275, !276, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E: argument 0"}
+!276 = distinct !{!276, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E"}
 !277 = !{!275, !278}
-!278 = distinct !{!278, !276, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E.argprom: argument 1"}
+!278 = distinct !{!278, !276, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h8bf21afab5759697E: argument 1"}
 !279 = !{!280, !275}
 !280 = distinct !{!280, !281, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hfebe68488e1cd221E: argument 1"}
 !281 = distinct !{!281, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hfebe68488e1cd221E"}
@@ -5471,10 +5471,10 @@ attributes #10 = { cold noreturn nounwind }
 !287 = distinct !{!287, !285, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h0f7c1f9a024efd64E: argument 0"}
 !288 = distinct !{!288, !285, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h0f7c1f9a024efd64E: argument 2"}
 !289 = !{!290}
-!290 = distinct !{!290, !291, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E.argprom: argument 0"}
-!291 = distinct !{!291, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E.argprom"}
+!290 = distinct !{!290, !291, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E: argument 0"}
+!291 = distinct !{!291, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E"}
 !292 = !{!290, !293}
-!293 = distinct !{!293, !291, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E.argprom: argument 1"}
+!293 = distinct !{!293, !291, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9b808e80773188c9E: argument 1"}
 !294 = !{!295, !290}
 !295 = distinct !{!295, !296, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h0f7c1f9a024efd64E: argument 1"}
 !296 = distinct !{!296, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h0f7c1f9a024efd64E"}
@@ -5486,10 +5486,10 @@ attributes #10 = { cold noreturn nounwind }
 !302 = distinct !{!302, !300, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf03efcbeffcf5016E: argument 0"}
 !303 = distinct !{!303, !300, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf03efcbeffcf5016E: argument 2"}
 !304 = !{!305}
-!305 = distinct !{!305, !306, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E.argprom: argument 0"}
-!306 = distinct !{!306, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E.argprom"}
+!305 = distinct !{!305, !306, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E: argument 0"}
+!306 = distinct !{!306, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E"}
 !307 = !{!305, !308}
-!308 = distinct !{!308, !306, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E.argprom: argument 1"}
+!308 = distinct !{!308, !306, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hf3175bc6f3e652d1E: argument 1"}
 !309 = !{!310, !305}
 !310 = distinct !{!310, !311, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf03efcbeffcf5016E: argument 1"}
 !311 = distinct !{!311, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf03efcbeffcf5016E"}
@@ -5501,10 +5501,10 @@ attributes #10 = { cold noreturn nounwind }
 !317 = distinct !{!317, !315, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hec2f91fab5507caaE: argument 0"}
 !318 = distinct !{!318, !315, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hec2f91fab5507caaE: argument 2"}
 !319 = !{!320}
-!320 = distinct !{!320, !321, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE.argprom: argument 0"}
-!321 = distinct !{!321, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE.argprom"}
+!320 = distinct !{!320, !321, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE: argument 0"}
+!321 = distinct !{!321, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE"}
 !322 = !{!320, !323}
-!323 = distinct !{!323, !321, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE.argprom: argument 1"}
+!323 = distinct !{!323, !321, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h95e4dc5453f3d21eE: argument 1"}
 !324 = !{!325, !320}
 !325 = distinct !{!325, !326, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hec2f91fab5507caaE: argument 1"}
 !326 = distinct !{!326, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hec2f91fab5507caaE"}
@@ -5516,10 +5516,10 @@ attributes #10 = { cold noreturn nounwind }
 !332 = distinct !{!332, !330, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h532477b80e252a09E: argument 0"}
 !333 = distinct !{!333, !330, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h532477b80e252a09E: argument 2"}
 !334 = !{!335}
-!335 = distinct !{!335, !336, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE.argprom: argument 0"}
-!336 = distinct !{!336, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE.argprom"}
+!335 = distinct !{!335, !336, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE: argument 0"}
+!336 = distinct !{!336, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE"}
 !337 = !{!335, !338}
-!338 = distinct !{!338, !336, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE.argprom: argument 1"}
+!338 = distinct !{!338, !336, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h9513ff884115259eE: argument 1"}
 !339 = !{!340, !335}
 !340 = distinct !{!340, !341, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h532477b80e252a09E: argument 1"}
 !341 = distinct !{!341, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h532477b80e252a09E"}
@@ -5531,10 +5531,10 @@ attributes #10 = { cold noreturn nounwind }
 !347 = distinct !{!347, !345, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h9936362a5480f172E: argument 0"}
 !348 = distinct !{!348, !345, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h9936362a5480f172E: argument 2"}
 !349 = !{!350}
-!350 = distinct !{!350, !351, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E.argprom: argument 0"}
-!351 = distinct !{!351, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E.argprom"}
+!350 = distinct !{!350, !351, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E: argument 0"}
+!351 = distinct !{!351, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E"}
 !352 = !{!350, !353}
-!353 = distinct !{!353, !351, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E.argprom: argument 1"}
+!353 = distinct !{!353, !351, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hd542a4c069432e03E: argument 1"}
 !354 = !{!355, !350}
 !355 = distinct !{!355, !356, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h9936362a5480f172E: argument 1"}
 !356 = distinct !{!356, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h9936362a5480f172E"}
@@ -5546,10 +5546,10 @@ attributes #10 = { cold noreturn nounwind }
 !362 = distinct !{!362, !360, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17haab5e4c1a8682016E: argument 0"}
 !363 = distinct !{!363, !360, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17haab5e4c1a8682016E: argument 2"}
 !364 = !{!365}
-!365 = distinct !{!365, !366, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE.argprom: argument 0"}
-!366 = distinct !{!366, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE.argprom"}
+!365 = distinct !{!365, !366, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE: argument 0"}
+!366 = distinct !{!366, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE"}
 !367 = !{!365, !368}
-!368 = distinct !{!368, !366, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE.argprom: argument 1"}
+!368 = distinct !{!368, !366, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17hfcacf8dbc9f27a6eE: argument 1"}
 !369 = !{!370, !365}
 !370 = distinct !{!370, !371, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17haab5e4c1a8682016E: argument 1"}
 !371 = distinct !{!371, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17haab5e4c1a8682016E"}
@@ -5561,10 +5561,10 @@ attributes #10 = { cold noreturn nounwind }
 !377 = distinct !{!377, !375, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf77f865640fe8163E: argument 0"}
 !378 = distinct !{!378, !375, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf77f865640fe8163E: argument 2"}
 !379 = !{!380}
-!380 = distinct !{!380, !381, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE.argprom: argument 0"}
-!381 = distinct !{!381, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE.argprom"}
+!380 = distinct !{!380, !381, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE: argument 0"}
+!381 = distinct !{!381, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE"}
 !382 = !{!380, !383}
-!383 = distinct !{!383, !381, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE.argprom: argument 1"}
+!383 = distinct !{!383, !381, !"_ZN6diesel13query_builder13QueryFragment25is_safe_to_cache_prepared17h04da607a5804c07dE: argument 1"}
 !384 = !{!385, !380}
 !385 = distinct !{!385, !386, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf77f865640fe8163E: argument 1"}
 !386 = distinct !{!386, !"_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hf77f865640fe8163E"}

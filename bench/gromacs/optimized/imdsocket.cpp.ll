@@ -34,7 +34,7 @@ define noundef ptr @_ZN3gmx14imdsock_createEv() local_unnamed_addr #1 {
   %6 = tail call ptr @__errno_location() #14
   %7 = load i32, ptr %6, align 4
   %8 = tail call ptr @strerror(i32 noundef %7) #13
-  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc.argprom(i32 noundef 156, ptr noundef %8)
+  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef 156, ptr noundef %8)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull %1)
   br label %9
 
@@ -47,7 +47,7 @@ define noundef ptr @_ZN3gmx14imdsock_createEv() local_unnamed_addr #1 {
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc.argprom(i32 noundef range(i32 156, 437) %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef range(i32 156, 437) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN3gmxL6IMDstrE, ptr noundef nonnull @.str.1, i32 noundef %0) #15
   %.not = icmp eq ptr %1, null
@@ -102,7 +102,7 @@ define noundef i32 @_ZN3gmx12imdsock_bindEPNS_9IMDSocketEi(ptr noundef %0, i32 n
   %11 = tail call ptr @__errno_location() #14
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @strerror(i32 noundef %12) #13
-  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc.argprom(i32 noundef 202, ptr noundef %13)
+  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef 202, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %10, %2
@@ -130,7 +130,7 @@ define noundef i32 @_ZN3gmx15imd_sock_listenEPNS_9IMDSocketE(ptr nocapture nound
   %6 = tail call ptr @__errno_location() #14
   %7 = load i32, ptr %6, align 4
   %8 = tail call ptr @strerror(i32 noundef %7) #13
-  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc.argprom(i32 noundef 225, ptr noundef %8)
+  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef 225, ptr noundef %8)
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -161,7 +161,7 @@ define noundef ptr @_ZN3gmx14imdsock_acceptEPNS_9IMDSocketE(ptr noundef %0) loca
   %11 = tail call ptr @__errno_location() #14
   %12 = load i32, ptr %11, align 4
   %13 = call ptr @strerror(i32 noundef %12) #13
-  call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc.argprom(i32 noundef 255, ptr noundef %13)
+  call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef 255, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %10, %7
@@ -190,7 +190,7 @@ define noundef i32 @_ZN3gmx15imdsock_getportEPNS_9IMDSocketEPi(ptr noundef %0, p
   %10 = tail call ptr @__errno_location() #14
   %11 = load i32, ptr %10, align 4
   %12 = call ptr @strerror(i32 noundef %11) #13
-  call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc.argprom(i32 noundef 274, ptr noundef %12)
+  call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef 274, ptr noundef %12)
   br label %18
 
 13:                                               ; preds = %2
@@ -273,7 +273,7 @@ define void @_ZN3gmx16imdsock_shutdownEPNS_9IMDSocketE(ptr noundef readonly %0) 
   %11 = tail call ptr @__errno_location() #14
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @strerror(i32 noundef %12) #13
-  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc.argprom(i32 noundef 364, ptr noundef %13)
+  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef 364, ptr noundef %13)
   br label %14
 
 14:                                               ; preds = %1, %8, %3
@@ -300,7 +300,7 @@ define noundef range(i32 0, 2) i32 @_ZN3gmx15imdsock_destroyEPNS_9IMDSocketE(ptr
   %9 = tail call ptr @__errno_location() #14
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @strerror(i32 noundef %10) #13
-  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc.argprom(i32 noundef 390, ptr noundef %11)
+  tail call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef 390, ptr noundef %11)
   br label %12
 
 12:                                               ; preds = %3, %1, %8
@@ -350,7 +350,7 @@ define noundef i32 @_ZN3gmx15imdsock_tryreadEPNS_9IMDSocketEii(ptr nocapture nou
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 427, ptr noundef nonnull %5)
   %29 = load i32, ptr %25, align 4
   %30 = call ptr @strerror(i32 noundef %29) #13
-  call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc.argprom(i32 noundef 436, ptr noundef %30)
+  call fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef 436, ptr noundef %30)
   br label %31
 
 .critedge12:                                      ; preds = %19

@@ -426,9 +426,9 @@ define dso_local noundef range(i32 -2, 1) i32 @snd_seq_delete_port(ptr noundef %
   %30 = getelementptr inbounds i8, ptr %24, i64 96
   tail call void @snd_use_lock_sync_helper(ptr noundef %30, ptr noundef nonnull @.str.5, i32 noundef 262) #10
   %31 = getelementptr inbounds i8, ptr %24, i64 104
-  tail call fastcc void @clear_subscriber_list.argprom(ptr noundef nonnull %24, ptr noundef %31, i32 noundef 1)
+  tail call fastcc void @clear_subscriber_list(ptr noundef nonnull %24, ptr noundef %31, i32 noundef 1)
   %32 = getelementptr inbounds i8, ptr %24, i64 192
-  tail call fastcc void @clear_subscriber_list.argprom(ptr noundef nonnull %24, ptr noundef %32, i32 noundef 0)
+  tail call fastcc void @clear_subscriber_list(ptr noundef nonnull %24, ptr noundef %32, i32 noundef 0)
   %33 = getelementptr inbounds i8, ptr %24, i64 288
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
@@ -515,9 +515,9 @@ define dso_local noundef i32 @snd_seq_delete_all_ports(ptr noundef %0) local_unn
   %33 = getelementptr i8, ptr %19, i64 16
   call void @snd_use_lock_sync_helper(ptr noundef %33, ptr noundef nonnull @.str.5, i32 noundef 262) #10
   %34 = getelementptr i8, ptr %19, i64 24
-  call fastcc void @clear_subscriber_list.argprom(ptr noundef %20, ptr noundef %34, i32 noundef 1)
+  call fastcc void @clear_subscriber_list(ptr noundef %20, ptr noundef %34, i32 noundef 1)
   %35 = getelementptr i8, ptr %19, i64 112
-  call fastcc void @clear_subscriber_list.argprom(ptr noundef %20, ptr noundef %35, i32 noundef 0)
+  call fastcc void @clear_subscriber_list(ptr noundef %20, ptr noundef %35, i32 noundef 0)
   %36 = getelementptr i8, ptr %19, i64 208
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
@@ -1256,7 +1256,7 @@ declare dso_local void @__init_rwsem(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @snd_use_lock_sync_helper(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @clear_subscriber_list.argprom(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @clear_subscriber_list(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = icmp eq ptr %4, %1

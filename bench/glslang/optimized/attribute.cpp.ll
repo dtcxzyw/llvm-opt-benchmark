@@ -883,8 +883,8 @@ define void @_ZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14T
   %56 = getelementptr inbounds i8, ptr %.0, i64 57
   br label %57
 
-57:                                               ; preds = %.lr.ph82, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
-  %storemerge81 = phi ptr [ %storemerge79, %.lr.ph82 ], [ %storemerge, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread" ]
+57:                                               ; preds = %.lr.ph82, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
+  %storemerge81 = phi ptr [ %storemerge79, %.lr.ph82 ], [ %storemerge, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread" ]
   store ptr %5, ptr %6, align 8
   store ptr %0, ptr %46, align 8
   store ptr %4, ptr %47, align 8
@@ -935,11 +935,11 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i:       ; preds = %60
   %83 = getelementptr inbounds i8, ptr %82, i64 352
   %84 = load ptr, ptr %83, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %84(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.17) #11
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 85:                                               ; preds = %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i, %60
   store i8 1, ptr %56, align 1
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 86:                                               ; preds = %57
   %87 = getelementptr inbounds i8, ptr %storemerge81, i64 24
@@ -973,13 +973,13 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i32:     ; preds = %86
   %109 = getelementptr inbounds i8, ptr %108, i64 352
   %110 = load ptr, ptr %109, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %110(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.17) #11
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 111:                                              ; preds = %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i32, %86
   store i8 1, ptr %50, align 2
   store i32 0, ptr %51, align 4
   store i32 0, ptr %49, align 8
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 112:                                              ; preds = %57
   %113 = getelementptr inbounds i8, ptr %storemerge81, i64 24
@@ -1013,17 +1013,17 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i34:     ; preds = %112
   %135 = getelementptr inbounds i8, ptr %134, i64 352
   %136 = load ptr, ptr %135, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %136(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %133, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17) #11
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 137:                                              ; preds = %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i34, %112
   store i32 -1, ptr %55, align 4
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 138:                                              ; preds = %57
   %139 = getelementptr inbounds i8, ptr %storemerge81, i64 24
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.argprom.exit", label %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36
+  br i1 %141, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit", label %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36
 
 _ZNK7glslang14TAttributeArgs4sizeEv.exit.i36:     ; preds = %138
   %142 = load ptr, ptr %140, align 8
@@ -1039,14 +1039,14 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i36:     ; preds = %138
   %152 = sub i64 %150, %151
   %153 = and i64 %152, 34359738360
   %154 = icmp eq i64 %153, 8
-  br i1 %154, label %155, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.argprom.exit"
+  br i1 %154, label %155, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit"
 
 155:                                              ; preds = %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36
   %156 = load ptr, ptr %5, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 24
   %158 = load ptr, ptr %157, align 8
   %159 = icmp eq ptr %158, null
-  br i1 %159, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.argprom.exit", label %160
+  br i1 %159, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit", label %160
 
 160:                                              ; preds = %155
   %161 = load ptr, ptr %158, align 8
@@ -1063,7 +1063,7 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i36:     ; preds = %138
   %172 = lshr exact i64 %171, 3
   %173 = trunc i64 %172 to i32
   %.not.i.i.i = icmp sgt i32 %173, 0
-  br i1 %.not.i.i.i, label %174, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.argprom.exit"
+  br i1 %.not.i.i.i, label %174, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit"
 
 174:                                              ; preds = %160
   %175 = load ptr, ptr %157, align 8
@@ -1079,7 +1079,7 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i36:     ; preds = %138
   %185 = load ptr, ptr %184, align 8
   %186 = call noundef ptr %185(ptr noundef nonnull align 8 dereferenceable(32) %182) #11
   %187 = icmp eq ptr %186, null
-  br i1 %187, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.argprom.exit", label %188
+  br i1 %187, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit", label %188
 
 188:                                              ; preds = %174
   %189 = load ptr, ptr %157, align 8
@@ -1101,14 +1101,14 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i36:     ; preds = %138
   %205 = getelementptr inbounds i8, ptr %204, i64 8
   %206 = load i32, ptr %205, align 8
   %.not10.i.i.i = icmp eq i32 %206, 8
-  br i1 %.not10.i.i.i, label %207, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.argprom.exit"
+  br i1 %.not10.i.i.i, label %207, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit"
 
 207:                                              ; preds = %188
   %208 = load i32, ptr %204, align 8
   %209 = icmp slt i32 %208, 1
-  br i1 %209, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.argprom.exit", label %217
+  br i1 %209, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit", label %217
 
-"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.argprom.exit": ; preds = %138, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36, %155, %160, %174, %188, %207
+"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit": ; preds = %138, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36, %155, %160, %174, %188, %207
   %.sink4.i = phi i64 [ 344, %207 ], [ 352, %188 ], [ 352, %174 ], [ 352, %160 ], [ 352, %155 ], [ 352, %138 ], [ 352, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36 ]
   %.str.25.sink.i = phi ptr [ @.str.24, %207 ], [ @.str.25, %188 ], [ @.str.25, %174 ], [ @.str.25, %160 ], [ @.str.25, %155 ], [ @.str.25, %138 ], [ @.str.25, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i36 ]
   %210 = load ptr, ptr %4, align 8
@@ -1119,17 +1119,17 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i36:     ; preds = %138
   %215 = getelementptr inbounds i8, ptr %214, i64 %.sink4.i
   %216 = load ptr, ptr %215, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %216(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef nonnull %.str.25.sink.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.17) #11
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 217:                                              ; preds = %207
   store i32 %208, ptr %55, align 4
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 218:                                              ; preds = %57
   %219 = load i32, ptr %48, align 8
   %220 = add i32 %219, -1
   %or.cond.i = icmp ult i32 %220, 66559
-  br i1 %or.cond.i, label %221, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit"
+  br i1 %or.cond.i, label %221, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit"
 
 221:                                              ; preds = %218
   %222 = load ptr, ptr %4, align 8
@@ -1140,22 +1140,22 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i36:     ; preds = %138
   %227 = getelementptr inbounds i8, ptr %226, i64 352
   %228 = load ptr, ptr %227, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %228(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %225, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.17) #11
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit"
 
-"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit": ; preds = %218, %221
+"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit": ; preds = %218, %221
   %229 = call fastcc noundef zeroext i1 @"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_3clEPKcRj"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.8, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  br i1 %229, label %230, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br i1 %229, label %230, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
-230:                                              ; preds = %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit"
+230:                                              ; preds = %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit"
   %231 = load i32, ptr %7, align 4
   store i32 %231, ptr %54, align 8
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 232:                                              ; preds = %57
   %233 = load i32, ptr %48, align 8
   %234 = add i32 %233, -1
   %or.cond.i37 = icmp ult i32 %234, 66559
-  br i1 %or.cond.i37, label %235, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit38"
+  br i1 %or.cond.i37, label %235, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit38"
 
 235:                                              ; preds = %232
   %236 = load ptr, ptr %4, align 8
@@ -1166,22 +1166,22 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i36:     ; preds = %138
   %241 = getelementptr inbounds i8, ptr %240, i64 352
   %242 = load ptr, ptr %241, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %242(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %239, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.17) #11
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit38"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit38"
 
-"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit38": ; preds = %232, %235
+"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit38": ; preds = %232, %235
   %243 = call fastcc noundef zeroext i1 @"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_3clEPKcRj"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.9, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  br i1 %243, label %244, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br i1 %243, label %244, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
-244:                                              ; preds = %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit38"
+244:                                              ; preds = %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit38"
   %245 = load i32, ptr %7, align 4
   store i32 %245, ptr %53, align 4
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 246:                                              ; preds = %57
   %247 = load i32, ptr %48, align 8
   %248 = add i32 %247, -1
   %or.cond.i39 = icmp ult i32 %248, 66559
-  br i1 %or.cond.i39, label %249, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit40"
+  br i1 %or.cond.i39, label %249, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit40"
 
 249:                                              ; preds = %246
   %250 = load ptr, ptr %4, align 8
@@ -1193,16 +1193,16 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i36:     ; preds = %138
   %256 = load ptr, ptr %255, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %256(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %253, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.17) #11
   %.pre = load ptr, ptr %5, align 8
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit40"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit40"
 
-"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit40": ; preds = %246, %249
+"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit40": ; preds = %246, %249
   %257 = phi ptr [ %storemerge81, %246 ], [ %.pre, %249 ]
   %258 = getelementptr inbounds i8, ptr %257, i64 24
   %259 = load ptr, ptr %258, align 8
   %260 = icmp eq ptr %259, null
   br i1 %260, label %_ZNK7glslang14TAttributeArgs4sizeEv.exit.thread.i, label %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i41
 
-_ZNK7glslang14TAttributeArgs4sizeEv.exit.i41:     ; preds = %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit40"
+_ZNK7glslang14TAttributeArgs4sizeEv.exit.i41:     ; preds = %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit40"
   %261 = load ptr, ptr %259, align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 408
   %263 = load ptr, ptr %262, align 8
@@ -1294,9 +1294,9 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.i41:     ; preds = %"_ZZN7glslang13TPar
   %335 = getelementptr inbounds i8, ptr %334, i64 344
   %336 = load ptr, ptr %335, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %336(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %333, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.17) #11
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
-_ZNK7glslang14TAttributeArgs4sizeEv.exit.thread.i: ; preds = %307, %293, %279, %274, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i41, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit40"
+_ZNK7glslang14TAttributeArgs4sizeEv.exit.thread.i: ; preds = %307, %293, %279, %274, %_ZNK7glslang14TAttributeArgs4sizeEv.exit.i41, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit40"
   %337 = load ptr, ptr %4, align 8
   %338 = load ptr, ptr %337, align 8
   %339 = load ptr, ptr %338, align 8
@@ -1305,18 +1305,18 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.thread.i: ; preds = %307, %293, %279, %
   %342 = getelementptr inbounds i8, ptr %341, i64 352
   %343 = load ptr, ptr %342, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %343(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %340, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.17) #11
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 344:                                              ; preds = %326
   store i32 %327, ptr %7, align 4
   store i32 %327, ptr %52, align 8
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 345:                                              ; preds = %57
   %346 = load i32, ptr %48, align 8
   %347 = add i32 %346, -1
   %or.cond.i45 = icmp ult i32 %347, 66559
-  br i1 %or.cond.i45, label %348, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit46"
+  br i1 %or.cond.i45, label %348, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit46"
 
 348:                                              ; preds = %345
   %349 = load ptr, ptr %4, align 8
@@ -1327,23 +1327,23 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.thread.i: ; preds = %307, %293, %279, %
   %354 = getelementptr inbounds i8, ptr %353, i64 352
   %355 = load ptr, ptr %354, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %355(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %352, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.17) #11
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit46"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit46"
 
-"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit46": ; preds = %345, %348
+"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit46": ; preds = %345, %348
   %356 = call fastcc noundef zeroext i1 @"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_3clEPKcRj"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.11, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  br i1 %356, label %357, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br i1 %356, label %357, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
-357:                                              ; preds = %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit46"
+357:                                              ; preds = %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit46"
   %358 = load i32, ptr %7, align 4
   store i32 %358, ptr %51, align 4
   store i8 0, ptr %50, align 2
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 359:                                              ; preds = %57
   %360 = load i32, ptr %48, align 8
   %361 = add i32 %360, -1
   %or.cond.i47 = icmp ult i32 %361, 66559
-  br i1 %or.cond.i47, label %362, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit48"
+  br i1 %or.cond.i47, label %362, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit48"
 
 362:                                              ; preds = %359
   %363 = load ptr, ptr %4, align 8
@@ -1354,17 +1354,17 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.thread.i: ; preds = %307, %293, %279, %
   %368 = getelementptr inbounds i8, ptr %367, i64 352
   %369 = load ptr, ptr %368, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %369(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %366, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.17) #11
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit48"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit48"
 
-"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit48": ; preds = %359, %362
+"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit48": ; preds = %359, %362
   %370 = call fastcc noundef zeroext i1 @"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_3clEPKcRj"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.12, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  br i1 %370, label %371, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br i1 %370, label %371, label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
-371:                                              ; preds = %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit48"
+371:                                              ; preds = %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit48"
   %372 = load i32, ptr %7, align 4
   store i32 %372, ptr %49, align 8
   store i8 0, ptr %50, align 2
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
 373:                                              ; preds = %57
   %374 = load ptr, ptr %4, align 8
@@ -1375,16 +1375,16 @@ _ZNK7glslang14TAttributeArgs4sizeEv.exit.thread.i: ; preds = %307, %293, %279, %
   %379 = getelementptr inbounds i8, ptr %378, i64 352
   %380 = load ptr, ptr %379, align 8
   call void (ptr, ptr, ptr, ptr, ptr, ...) %380(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %377, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.17) #11
-  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread"
+  br label %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"
 
-"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread": ; preds = %_ZNK7glslang14TAttributeArgs4sizeEv.exit.thread.i, %329, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.argprom.exit", %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_0clEPKc.exit35", %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_0clEPKc.exit33", %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_0clEPKc.exit", %373, %85, %111, %137, %217, %230, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit", %244, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit38", %344, %357, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit46", %371, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.argprom.exit48"
+"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread": ; preds = %_ZNK7glslang14TAttributeArgs4sizeEv.exit.thread.i, %329, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_1clEPKcRi.exit", %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_0clEPKc.exit35", %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_0clEPKc.exit33", %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_0clEPKc.exit", %373, %85, %111, %137, %217, %230, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit", %244, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit38", %344, %357, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit46", %371, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_2clEPKc.exit48"
   %381 = load ptr, ptr %5, align 8
   %storemerge = load ptr, ptr %381, align 8
   store ptr %storemerge, ptr %5, align 8
   %.not75 = icmp eq ptr %storemerge, %45
   br i1 %.not75, label %.thread, label %57, !llvm.loop !9
 
-.thread:                                          ; preds = %32, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.argprom.exit.thread", %19, %.loopexit, %13
+.thread:                                          ; preds = %32, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread", %19, %.loopexit, %13
   ret void
 }
 

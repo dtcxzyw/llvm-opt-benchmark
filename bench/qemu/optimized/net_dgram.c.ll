@@ -105,7 +105,7 @@ if.then14:                                        ; preds = %if.end11
 
 if.then.i:                                        ; preds = %if.then14
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 291, ptr noundef nonnull @__func__.net_dgram_mcast_init, ptr noundef nonnull @.str.23) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 if.end.i:                                         ; preds = %if.then14
   %call.i = call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #14
@@ -117,7 +117,7 @@ if.end.i:                                         ; preds = %if.then14
 
 if.then4.i:                                       ; preds = %if.end.i
   call void @g_free(ptr noundef %call.i) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 if.end5.i:                                        ; preds = %if.end.i
   %tobool.not.i = icmp eq ptr %2, null
@@ -130,7 +130,7 @@ if.then6.i:                                       ; preds = %if.end5.i
 
 if.then9.i:                                       ; preds = %if.then6.i
   call void @g_free(ptr noundef %call.i) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 if.else.i:                                        ; preds = %if.end5.i
   %10 = load i32, ptr %2, align 8
@@ -150,7 +150,7 @@ if.then16.i:                                      ; preds = %sw.bb.i
   call void @g_free(ptr noundef %call.i) #12
   %12 = load ptr, ptr %u12.i, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 316, ptr noundef nonnull @__func__.net_dgram_mcast_init, ptr noundef nonnull @.str.24, ptr noundef %12) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 if.end19.i:                                       ; preds = %sw.bb.i
   %call20.i = call fastcc i32 @net_dgram_mcast_create(ptr noundef %call.i, ptr noundef nonnull %localaddr.i, ptr noundef %errp)
@@ -159,7 +159,7 @@ if.end19.i:                                       ; preds = %sw.bb.i
 
 if.then22.i:                                      ; preds = %if.end19.i
   call void @g_free(ptr noundef %call.i) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 sw.bb24.i:                                        ; preds = %if.else.i
   %call25.i = call ptr @monitor_cur() #12
@@ -171,7 +171,7 @@ sw.bb24.i:                                        ; preds = %if.else.i
 
 if.then29.i:                                      ; preds = %sw.bb24.i
   call void @g_free(ptr noundef %call.i) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 if.end30.i:                                       ; preds = %sw.bb24.i
   %call31.i = call i32 @qemu_socket_try_set_nonblock(i32 noundef %call27.i) #12
@@ -182,7 +182,7 @@ if.then33.i:                                      ; preds = %if.end30.i
   call void @g_free(ptr noundef %call.i) #12
   %sub.i = sub i32 0, %call31.i
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 339, ptr noundef nonnull @__func__.net_dgram_mcast_init, i32 noundef %sub.i, ptr noundef nonnull @.str.15, ptr noundef %name, i32 noundef %call27.i) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 if.end34.i:                                       ; preds = %if.end30.i
   %call35.i = call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #14
@@ -196,7 +196,7 @@ if.end34.i:                                       ; preds = %if.end30.i
 if.then42.i:                                      ; preds = %if.end34.i
   call void @g_free(ptr noundef %call35.i) #12
   %call43.i = call i32 @close(i32 noundef %call27.i) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 if.end44.i:                                       ; preds = %if.end34.i
   %sin_addr.i = getelementptr inbounds i8, ptr %call35.i, i64 4
@@ -208,7 +208,7 @@ if.then46.i:                                      ; preds = %if.end44.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 361, ptr noundef nonnull @__func__.net_dgram_mcast_init, ptr noundef nonnull @.str.25) #12
   call void @g_free(ptr noundef nonnull %call35.i) #12
   %call47.i = call i32 @close(i32 noundef %call27.i) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 if.end48.i:                                       ; preds = %if.end44.i
   %call49.i = call fastcc i32 @net_dgram_mcast_create(ptr noundef nonnull %call35.i, ptr noundef null, ptr noundef %errp)
@@ -218,7 +218,7 @@ if.end48.i:                                       ; preds = %if.end44.i
 if.then51.i:                                      ; preds = %if.end48.i
   call void @g_free(ptr noundef nonnull %call35.i) #12
   %call52.i = call i32 @close(i32 noundef %call27.i) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 if.end53.i:                                       ; preds = %if.end48.i
   %call54.i = call i32 @dup2(i32 noundef %call49.i, i32 noundef %call27.i) #12
@@ -228,7 +228,7 @@ if.end53.i:                                       ; preds = %if.end48.i
 sw.default.i:                                     ; preds = %if.else.i
   call void @g_free(ptr noundef %call.i) #12
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 380, ptr noundef nonnull @__func__.net_dgram_mcast_init, ptr noundef nonnull @.str.16) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 do.body.i:                                        ; preds = %if.end53.i, %if.end19.i, %if.then6.i
   %fd.0.i = phi i32 [ %call27.i, %if.end53.i ], [ %call20.i, %if.end19.i ], [ %call7.i, %if.then6.i ]
@@ -270,7 +270,7 @@ if.then67.i:                                      ; preds = %do.end.i
   %call70.i = call zeroext i16 @ntohs(i16 noundef zeroext %21) #13
   %conv.i = zext i16 %call70.i to i32
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.26, ptr noundef %call69.i, i32 noundef %conv.i) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 if.else71.i:                                      ; preds = %do.end.i
   %22 = load i32, ptr %2, align 8
@@ -288,7 +288,7 @@ sw.bb73.i:                                        ; preds = %if.else71.i
   %call79.i = call zeroext i16 @ntohs(i16 noundef zeroext %24) #13
   %conv80.i = zext i16 %call79.i to i32
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.26, ptr noundef %call77.i, i32 noundef %conv80.i) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 sw.bb81.i:                                        ; preds = %if.else71.i
   %sin_addr83.i = getelementptr inbounds i8, ptr %saddr.0.i, i64 4
@@ -299,13 +299,13 @@ sw.bb81.i:                                        ; preds = %if.else71.i
   %call87.i = call zeroext i16 @ntohs(i16 noundef zeroext %26) #13
   %conv88.i = zext i16 %call87.i to i32
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.27, i32 noundef %fd.0.i, ptr noundef %call85.i, i32 noundef %conv88.i) #12
-  br label %net_dgram_mcast_init.argprom.exit
+  br label %net_dgram_mcast_init.exit
 
 do.body90.i:                                      ; preds = %if.else71.i
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 412, ptr noundef nonnull @__func__.net_dgram_mcast_init, ptr noundef null) #11
   unreachable
 
-net_dgram_mcast_init.argprom.exit:                ; preds = %if.then.i, %if.then4.i, %if.then9.i, %if.then16.i, %if.then22.i, %if.then29.i, %if.then33.i, %if.then42.i, %if.then46.i, %if.then51.i, %sw.default.i, %if.then67.i, %sw.bb73.i, %sw.bb81.i
+net_dgram_mcast_init.exit:                        ; preds = %if.then.i, %if.then4.i, %if.then9.i, %if.then16.i, %if.then22.i, %if.then29.i, %if.then33.i, %if.then42.i, %if.then46.i, %if.then51.i, %sw.default.i, %if.then67.i, %sw.bb73.i, %sw.bb81.i
   %retval.0.i = phi i32 [ -1, %if.then.i ], [ -1, %if.then4.i ], [ -1, %sw.default.i ], [ -1, %if.then29.i ], [ -1, %if.then33.i ], [ -1, %if.then42.i ], [ -1, %if.then46.i ], [ -1, %if.then51.i ], [ -1, %if.then16.i ], [ -1, %if.then22.i ], [ -1, %if.then9.i ], [ 0, %sw.bb73.i ], [ 0, %sw.bb81.i ], [ 0, %if.then67.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %localaddr.i)
   br label %return
@@ -602,8 +602,8 @@ do.body197:                                       ; preds = %if.end166
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 619, ptr noundef nonnull @__func__.net_init_dgram, ptr noundef null) #11
   unreachable
 
-return:                                           ; preds = %sw.bb168, %sw.bb180, %if.else193, %if.then189, %sw.bb139, %if.end46, %sw.bb, %if.then6, %sw.default, %if.then150, %if.then130, %if.then122, %if.then86, %if.then68, %if.then62, %if.then57, %if.then35, %if.then30, %if.then25, %if.then19, %net_dgram_mcast_init.argprom.exit
-  %retval.0 = phi i32 [ %retval.0.i, %net_dgram_mcast_init.argprom.exit ], [ -1, %if.then25 ], [ -1, %if.then30 ], [ -1, %sw.default ], [ -1, %if.then150 ], [ -1, %if.then86 ], [ -1, %if.then122 ], [ -1, %if.then130 ], [ -1, %if.then57 ], [ -1, %if.then62 ], [ -1, %if.then68 ], [ -1, %if.then35 ], [ -1, %if.then19 ], [ -1, %if.then6 ], [ -1, %sw.bb ], [ -1, %if.end46 ], [ -1, %sw.bb139 ], [ 0, %if.then189 ], [ 0, %if.else193 ], [ 0, %sw.bb180 ], [ 0, %sw.bb168 ]
+return:                                           ; preds = %sw.bb168, %sw.bb180, %if.else193, %if.then189, %sw.bb139, %if.end46, %sw.bb, %if.then6, %sw.default, %if.then150, %if.then130, %if.then122, %if.then86, %if.then68, %if.then62, %if.then57, %if.then35, %if.then30, %if.then25, %if.then19, %net_dgram_mcast_init.exit
+  %retval.0 = phi i32 [ %retval.0.i, %net_dgram_mcast_init.exit ], [ -1, %if.then25 ], [ -1, %if.then30 ], [ -1, %sw.default ], [ -1, %if.then150 ], [ -1, %if.then86 ], [ -1, %if.then122 ], [ -1, %if.then130 ], [ -1, %if.then57 ], [ -1, %if.then62 ], [ -1, %if.then68 ], [ -1, %if.then35 ], [ -1, %if.then19 ], [ -1, %if.then6 ], [ -1, %sw.bb ], [ -1, %if.end46 ], [ -1, %sw.bb139 ], [ 0, %if.then189 ], [ 0, %if.else193 ], [ 0, %sw.bb180 ], [ 0, %sw.bb168 ]
   ret i32 %retval.0
 }
 

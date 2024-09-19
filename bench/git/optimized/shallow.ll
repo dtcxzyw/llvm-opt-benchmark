@@ -480,14 +480,14 @@ if.end12.i.i:                                     ; preds = %if.end.i.i, %if.end
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %depths.sroa.38.4, i64 %idxprom14.i.i
   %18 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %18, null
-  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %commit_depth_at.argprom.exit
+  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %commit_depth_at.exit
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %call24.i.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #12
   store ptr %call24.i.i, ptr %arrayidx15.i.i, align 8
-  br label %commit_depth_at.argprom.exit
+  br label %commit_depth_at.exit
 
-commit_depth_at.argprom.exit:                     ; preds = %if.end12.i.i, %if.end20.i.i
+commit_depth_at.exit:                             ; preds = %if.end12.i.i, %if.end20.i.i
   %19 = phi ptr [ %18, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
   %idxprom34.i.i = zext nneg i32 %rem.i.i to i64
   %arrayidx35.i.i = getelementptr inbounds ptr, ptr %19, i64 %idxprom34.i.i
@@ -495,13 +495,13 @@ commit_depth_at.argprom.exit:                     ; preds = %if.end12.i.i, %if.e
   %tobool12.not = icmp eq ptr %20, null
   br i1 %tobool12.not, label %if.then13, label %if.end15
 
-if.then13:                                        ; preds = %commit_depth_at.argprom.exit
+if.then13:                                        ; preds = %commit_depth_at.exit
   %call14 = call ptr @xmalloc(i64 noundef 4) #12
   store ptr %call14, ptr %arrayidx35.i.i, align 8
   br label %if.end15
 
-if.end15:                                         ; preds = %if.then13, %commit_depth_at.argprom.exit
-  %21 = phi ptr [ %call14, %if.then13 ], [ %20, %commit_depth_at.argprom.exit ]
+if.end15:                                         ; preds = %if.then13, %commit_depth_at.exit
+  %21 = phi ptr [ %call14, %if.then13 ], [ %20, %commit_depth_at.exit ]
   store i32 0, ptr %21, align 4
   br label %if.end19
 
@@ -537,14 +537,14 @@ if.end12.i.i59:                                   ; preds = %if.end.i.i45, %if.e
   %arrayidx15.i.i62 = getelementptr inbounds ptr, ptr %depths.sroa.38.5, i64 %idxprom14.i.i61
   %30 = load ptr, ptr %arrayidx15.i.i62, align 8
   %tobool16.not.i.i63 = icmp eq ptr %30, null
-  br i1 %tobool16.not.i.i63, label %if.end20.i.i69, label %commit_depth_at.argprom.exit79
+  br i1 %tobool16.not.i.i63, label %if.end20.i.i69, label %commit_depth_at.exit79
 
 if.end20.i.i69:                                   ; preds = %if.end12.i.i59
   %call24.i.i74 = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #12
   store ptr %call24.i.i74, ptr %arrayidx15.i.i62, align 8
-  br label %commit_depth_at.argprom.exit79
+  br label %commit_depth_at.exit79
 
-commit_depth_at.argprom.exit79:                   ; preds = %if.end12.i.i59, %if.end20.i.i69
+commit_depth_at.exit79:                           ; preds = %if.end12.i.i59, %if.end20.i.i69
   %31 = phi ptr [ %30, %if.end12.i.i59 ], [ %call24.i.i74, %if.end20.i.i69 ]
   %idxprom34.i.i67 = zext nneg i32 %rem.i.i64 to i64
   %arrayidx35.i.i68 = getelementptr inbounds ptr, ptr %31, i64 %idxprom34.i.i67
@@ -552,12 +552,12 @@ commit_depth_at.argprom.exit79:                   ; preds = %if.end12.i.i59, %if
   %33 = load i32, ptr %32, align 4
   br label %if.end19
 
-if.end19:                                         ; preds = %while.cond.outer, %if.end15, %commit_depth_at.argprom.exit79
-  %depths.sroa.21.1 = phi i32 [ %depths.sroa.21.4, %if.end15 ], [ %depths.sroa.21.5, %commit_depth_at.argprom.exit79 ], [ %depths.sroa.21.0.ph, %while.cond.outer ]
-  %depths.sroa.38.1 = phi ptr [ %depths.sroa.38.4, %if.end15 ], [ %depths.sroa.38.5, %commit_depth_at.argprom.exit79 ], [ %depths.sroa.38.0.ph, %while.cond.outer ]
-  %commit.1 = phi ptr [ %call.us, %if.end15 ], [ %call16, %commit_depth_at.argprom.exit79 ], [ %commit.0.ph, %while.cond.outer ]
-  %cur_depth.1 = phi i32 [ 0, %if.end15 ], [ %33, %commit_depth_at.argprom.exit79 ], [ %cur_depth.0.ph, %while.cond.outer ]
-  %i.1 = phi i32 [ %10, %if.end15 ], [ %22, %commit_depth_at.argprom.exit79 ], [ %i.0.ph, %while.cond.outer ]
+if.end19:                                         ; preds = %while.cond.outer, %if.end15, %commit_depth_at.exit79
+  %depths.sroa.21.1 = phi i32 [ %depths.sroa.21.4, %if.end15 ], [ %depths.sroa.21.5, %commit_depth_at.exit79 ], [ %depths.sroa.21.0.ph, %while.cond.outer ]
+  %depths.sroa.38.1 = phi ptr [ %depths.sroa.38.4, %if.end15 ], [ %depths.sroa.38.5, %commit_depth_at.exit79 ], [ %depths.sroa.38.0.ph, %while.cond.outer ]
+  %commit.1 = phi ptr [ %call.us, %if.end15 ], [ %call16, %commit_depth_at.exit79 ], [ %commit.0.ph, %while.cond.outer ]
+  %cur_depth.1 = phi i32 [ 0, %if.end15 ], [ %33, %commit_depth_at.exit79 ], [ %cur_depth.0.ph, %while.cond.outer ]
+  %i.1 = phi i32 [ %10, %if.end15 ], [ %22, %commit_depth_at.exit79 ], [ %i.0.ph, %while.cond.outer ]
   call void @parse_commit_or_die(ptr noundef nonnull %commit.1) #12
   %inc20 = add nsw i32 %cur_depth.1, 1
   %cmp22.not = icmp slt i32 %inc20, %depth
@@ -648,14 +648,14 @@ if.end12.i.i97:                                   ; preds = %if.end.i.i83, %for.
   %arrayidx15.i.i100 = getelementptr inbounds ptr, ptr %depths.sroa.38.6, i64 %idxprom14.i.i99
   %46 = load ptr, ptr %arrayidx15.i.i100, align 8
   %tobool16.not.i.i101 = icmp eq ptr %46, null
-  br i1 %tobool16.not.i.i101, label %if.end20.i.i107, label %commit_depth_at.argprom.exit117
+  br i1 %tobool16.not.i.i101, label %if.end20.i.i107, label %commit_depth_at.exit117
 
 if.end20.i.i107:                                  ; preds = %if.end12.i.i97
   %call24.i.i112 = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #12
   store ptr %call24.i.i112, ptr %arrayidx15.i.i100, align 8
-  br label %commit_depth_at.argprom.exit117
+  br label %commit_depth_at.exit117
 
-commit_depth_at.argprom.exit117:                  ; preds = %if.end12.i.i97, %if.end20.i.i107
+commit_depth_at.exit117:                          ; preds = %if.end12.i.i97, %if.end20.i.i107
   %47 = phi ptr [ %46, %if.end12.i.i97 ], [ %call24.i.i112, %if.end20.i.i107 ]
   %idxprom34.i.i105 = zext nneg i32 %rem.i.i102 to i64
   %arrayidx35.i.i106 = getelementptr inbounds ptr, ptr %47, i64 %idxprom34.i.i105
@@ -663,12 +663,12 @@ commit_depth_at.argprom.exit117:                  ; preds = %if.end12.i.i97, %if
   %tobool56.not = icmp eq ptr %48, null
   br i1 %tobool56.not, label %if.then57, label %if.else59
 
-if.then57:                                        ; preds = %commit_depth_at.argprom.exit117
+if.then57:                                        ; preds = %commit_depth_at.exit117
   %call58 = call ptr @xmalloc(i64 noundef 4) #12
   store ptr %call58, ptr %arrayidx35.i.i106, align 8
   br label %if.end63
 
-if.else59:                                        ; preds = %commit_depth_at.argprom.exit117
+if.else59:                                        ; preds = %commit_depth_at.exit117
   %49 = load i32, ptr %48, align 4
   %cmp60.not = icmp slt i32 %cur_depth.2232, %49
   br i1 %cmp60.not, label %if.end63, label %for.inc
@@ -716,14 +716,14 @@ if.end12.i.i135:                                  ; preds = %if.end.i.i121, %if.
   %arrayidx15.i.i138 = getelementptr inbounds ptr, ptr %depths.sroa.38.7, i64 %idxprom14.i.i137
   %59 = load ptr, ptr %arrayidx15.i.i138, align 8
   %tobool16.not.i.i139 = icmp eq ptr %59, null
-  br i1 %tobool16.not.i.i139, label %if.end20.i.i145, label %commit_depth_at.argprom.exit155
+  br i1 %tobool16.not.i.i139, label %if.end20.i.i145, label %commit_depth_at.exit155
 
 if.end20.i.i145:                                  ; preds = %if.end12.i.i135
   %call24.i.i150 = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #12
   store ptr %call24.i.i150, ptr %arrayidx15.i.i138, align 8
-  br label %commit_depth_at.argprom.exit155
+  br label %commit_depth_at.exit155
 
-commit_depth_at.argprom.exit155:                  ; preds = %if.end12.i.i135, %if.end20.i.i145
+commit_depth_at.exit155:                          ; preds = %if.end12.i.i135, %if.end20.i.i145
   %60 = phi ptr [ %59, %if.end12.i.i135 ], [ %call24.i.i150, %if.end20.i.i145 ]
   %idxprom34.i.i143 = zext nneg i32 %rem.i.i140 to i64
   %arrayidx35.i.i144 = getelementptr inbounds ptr, ptr %60, i64 %idxprom34.i.i143
@@ -731,11 +731,11 @@ commit_depth_at.argprom.exit155:                  ; preds = %if.end12.i.i135, %i
   %62 = load i32, ptr %61, align 4
   br label %for.inc
 
-for.inc:                                          ; preds = %if.then65, %commit_depth_at.argprom.exit155, %if.else59
-  %depths.sroa.21.3 = phi i32 [ %depths.sroa.21.7, %commit_depth_at.argprom.exit155 ], [ %depths.sroa.21.6, %if.then65 ], [ %depths.sroa.21.6, %if.else59 ]
-  %depths.sroa.38.3 = phi ptr [ %depths.sroa.38.7, %commit_depth_at.argprom.exit155 ], [ %depths.sroa.38.6, %if.then65 ], [ %depths.sroa.38.6, %if.else59 ]
-  %commit.3 = phi ptr [ %51, %commit_depth_at.argprom.exit155 ], [ %commit.2231, %if.then65 ], [ %commit.2231, %if.else59 ]
-  %cur_depth.3 = phi i32 [ %62, %commit_depth_at.argprom.exit155 ], [ %cur_depth.2232, %if.then65 ], [ %cur_depth.2232, %if.else59 ]
+for.inc:                                          ; preds = %if.then65, %commit_depth_at.exit155, %if.else59
+  %depths.sroa.21.3 = phi i32 [ %depths.sroa.21.7, %commit_depth_at.exit155 ], [ %depths.sroa.21.6, %if.then65 ], [ %depths.sroa.21.6, %if.else59 ]
+  %depths.sroa.38.3 = phi ptr [ %depths.sroa.38.7, %commit_depth_at.exit155 ], [ %depths.sroa.38.6, %if.then65 ], [ %depths.sroa.38.6, %if.else59 ]
+  %commit.3 = phi ptr [ %51, %commit_depth_at.exit155 ], [ %commit.2231, %if.then65 ], [ %commit.2231, %if.else59 ]
+  %cur_depth.3 = phi i32 [ %62, %commit_depth_at.exit155 ], [ %cur_depth.2232, %if.then65 ], [ %cur_depth.2232, %if.else59 ]
   %next72 = getelementptr inbounds i8, ptr %p.0233, i64 8
   %p.0 = load ptr, ptr %next72, align 8
   %tobool52.not = icmp eq ptr %p.0, null
@@ -743,7 +743,7 @@ for.inc:                                          ; preds = %if.then65, %commit_
 
 while.end:                                        ; preds = %lor.lhs.false.lr.ph.split.us, %if.then10.us
   %cmp3.not.i = icmp eq i32 %depths.sroa.21.0.ph, 0
-  br i1 %cmp3.not.i, label %deep_clear_commit_depth.argprom.exit, label %for.body.i.preheader
+  br i1 %cmp3.not.i, label %deep_clear_commit_depth.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %while.end
   %63 = zext nneg i32 %depths.sroa.21.0.ph to i64
@@ -779,9 +779,9 @@ for.body.i.i157:                                  ; preds = %for.inc9.i, %for.bo
   call void @free(ptr noundef %67) #12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond266.not = icmp eq i64 %indvars.iv.next.i.i, %63
-  br i1 %exitcond266.not, label %deep_clear_commit_depth.argprom.exit, label %for.body.i.i157, !llvm.loop !11
+  br i1 %exitcond266.not, label %deep_clear_commit_depth.exit, label %for.body.i.i157, !llvm.loop !11
 
-deep_clear_commit_depth.argprom.exit:             ; preds = %for.body.i.i157, %while.end
+deep_clear_commit_depth.exit:                     ; preds = %for.body.i.i157, %while.end
   call void @free(ptr noundef %depths.sroa.38.0.ph) #12
   %68 = load ptr, ptr %result, align 8
   ret ptr %68
@@ -1165,7 +1165,7 @@ if.then:                                          ; preds = %check_shallow_file_
   br i1 %cmp, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %call6 = call fastcc ptr @get_lock_file_path.argprom(ptr %shallow_lock.val)
+  %call6 = call fastcc ptr @get_lock_file_path(ptr %shallow_lock.val)
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.8, ptr noundef %call6) #11
   unreachable
 
@@ -1181,7 +1181,7 @@ if.end9:                                          ; preds = %check_shallow_file_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_lock_file_path.argprom(ptr %lk.0.val) unnamed_addr #0 {
+define internal fastcc ptr @get_lock_file_path(ptr %lk.0.val) unnamed_addr #0 {
 entry:
   %call = tail call ptr @get_tempfile_path(ptr noundef %lk.0.val) #12
   ret ptr %call
@@ -1309,7 +1309,7 @@ if.then10:                                        ; preds = %check_shallow_file_
 
 if.then12:                                        ; preds = %if.then10
   %shallow_lock.val = load ptr, ptr %shallow_lock, align 8
-  %call14 = call fastcc ptr @get_lock_file_path.argprom(ptr %shallow_lock.val)
+  %call14 = call fastcc ptr @get_lock_file_path(ptr %shallow_lock.val)
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.8, ptr noundef %call14) #11
   unreachable
 
@@ -1810,14 +1810,14 @@ if.end12.i.i.i:                                   ; preds = %if.end.i.i.i, %whil
   %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %pi.sroa.35146.4, i64 %idxprom14.i.i.i
   %39 = load ptr, ptr %arrayidx15.i.i.i, align 8
   %tobool16.not.i.i.i = icmp eq ptr %39, null
-  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %ref_bitmap_at.argprom.exit.i
+  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %ref_bitmap_at.exit.i
 
 if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
   %call24.i.i.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #12
   store ptr %call24.i.i.i, ptr %arrayidx15.i.i.i, align 8
-  br label %ref_bitmap_at.argprom.exit.i
+  br label %ref_bitmap_at.exit.i
 
-ref_bitmap_at.argprom.exit.i:                     ; preds = %if.end20.i.i.i, %if.end12.i.i.i
+ref_bitmap_at.exit.i:                             ; preds = %if.end20.i.i.i, %if.end12.i.i.i
   %40 = phi ptr [ %39, %if.end12.i.i.i ], [ %call24.i.i.i, %if.end20.i.i.i ]
   %idxprom34.i.i.i = zext nneg i32 %rem.i.i.i to i64
   %arrayidx35.i.i.i = getelementptr inbounds ptr, ptr %40, i64 %idxprom34.i.i.i
@@ -1826,16 +1826,16 @@ ref_bitmap_at.argprom.exit.i:                     ; preds = %if.end20.i.i.i, %if
   %tobool10.not.i = icmp eq i32 %41, 0
   br i1 %tobool10.not.i, label %if.else.i, label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %for.inc59.i, %if.end46.i, %if.end32.i, %ref_bitmap_at.argprom.exit.i
-  %pi.sroa.68161.3 = phi ptr [ %pi.sroa.68161.6, %if.end46.i ], [ %pi.sroa.68161.6, %if.end32.i ], [ %pi.sroa.68161.2, %ref_bitmap_at.argprom.exit.i ], [ %pi.sroa.68161.6, %for.inc59.i ]
-  %pi.sroa.76.2 = phi ptr [ %pi.sroa.76.4, %if.end46.i ], [ %pi.sroa.76.4, %if.end32.i ], [ %pi.sroa.76.1, %ref_bitmap_at.argprom.exit.i ], [ %pi.sroa.76.4, %for.inc59.i ]
-  %pi.sroa.84.3 = phi ptr [ %pi.sroa.84.6, %if.end46.i ], [ %pi.sroa.84.6, %if.end32.i ], [ %pi.sroa.84.2, %ref_bitmap_at.argprom.exit.i ], [ %pi.sroa.84.6, %for.inc59.i ]
-  %pi.sroa.88.3 = phi i32 [ %pi.sroa.88.6, %if.end46.i ], [ %pi.sroa.88.6, %if.end32.i ], [ %pi.sroa.88.2, %ref_bitmap_at.argprom.exit.i ], [ %pi.sroa.88.6, %for.inc59.i ]
+while.cond.backedge.i:                            ; preds = %for.inc59.i, %if.end46.i, %if.end32.i, %ref_bitmap_at.exit.i
+  %pi.sroa.68161.3 = phi ptr [ %pi.sroa.68161.6, %if.end46.i ], [ %pi.sroa.68161.6, %if.end32.i ], [ %pi.sroa.68161.2, %ref_bitmap_at.exit.i ], [ %pi.sroa.68161.6, %for.inc59.i ]
+  %pi.sroa.76.2 = phi ptr [ %pi.sroa.76.4, %if.end46.i ], [ %pi.sroa.76.4, %if.end32.i ], [ %pi.sroa.76.1, %ref_bitmap_at.exit.i ], [ %pi.sroa.76.4, %for.inc59.i ]
+  %pi.sroa.84.3 = phi ptr [ %pi.sroa.84.6, %if.end46.i ], [ %pi.sroa.84.6, %if.end32.i ], [ %pi.sroa.84.2, %ref_bitmap_at.exit.i ], [ %pi.sroa.84.6, %for.inc59.i ]
+  %pi.sroa.88.3 = phi i32 [ %pi.sroa.88.6, %if.end46.i ], [ %pi.sroa.88.6, %if.end32.i ], [ %pi.sroa.88.2, %ref_bitmap_at.exit.i ], [ %pi.sroa.88.6, %for.inc59.i ]
   %42 = load ptr, ptr %head.i, align 8
   %tobool6.not.i = icmp eq ptr %42, null
   br i1 %tobool6.not.i, label %while.end.i, label %while.body.i, !llvm.loop !23
 
-if.else.i:                                        ; preds = %ref_bitmap_at.argprom.exit.i
+if.else.i:                                        ; preds = %ref_bitmap_at.exit.i
   %bf.set.i = or disjoint i32 %bf.load.i50, 16
   store i32 %bf.set.i, ptr %call8.i, align 8
   %43 = load ptr, ptr %arrayidx35.i.i.i, align 8
@@ -2065,14 +2065,14 @@ if.end12.i.i:                                     ; preds = %if.end.i.i52, %for.
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %pi.sroa.35146.7, i64 %idxprom14.i.i
   %66 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %66, null
-  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %ref_bitmap_at.argprom.exit
+  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %ref_bitmap_at.exit
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %call24.i.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #12
   store ptr %call24.i.i, ptr %arrayidx15.i.i, align 8
-  br label %ref_bitmap_at.argprom.exit
+  br label %ref_bitmap_at.exit
 
-ref_bitmap_at.argprom.exit:                       ; preds = %if.end12.i.i, %if.end20.i.i
+ref_bitmap_at.exit:                               ; preds = %if.end12.i.i, %if.end20.i.i
   %67 = phi ptr [ %66, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
   %idxprom34.i.i = zext nneg i32 %rem.i.i to i64
   %arrayidx35.i.i = getelementptr inbounds ptr, ptr %67, i64 %idxprom34.i.i
@@ -2080,7 +2080,7 @@ ref_bitmap_at.argprom.exit:                       ; preds = %if.end12.i.i, %if.e
   %tobool96.not = icmp eq ptr %68, null
   br i1 %tobool96.not, label %for.inc105, label %if.then97
 
-if.then97:                                        ; preds = %ref_bitmap_at.argprom.exit
+if.then97:                                        ; preds = %ref_bitmap_at.exit
   %call99 = call ptr @xmemdupz(ptr noundef nonnull %68, i64 noundef %conv98) #12
   %69 = load i32, ptr %arrayidx90, align 4
   %idxprom102 = sext i32 %69 to i64
@@ -2088,7 +2088,7 @@ if.then97:                                        ; preds = %ref_bitmap_at.argpr
   store ptr %call99, ptr %arrayidx103, align 8
   br label %for.inc105
 
-for.inc105:                                       ; preds = %ref_bitmap_at.argprom.exit, %if.then97
+for.inc105:                                       ; preds = %ref_bitmap_at.exit, %if.then97
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count289
   br i1 %exitcond290.not, label %for.body.i117.preheader, label %for.body87, !llvm.loop !28
@@ -2194,14 +2194,14 @@ if.end12.i.i.i90:                                 ; preds = %if.end.i.i.i74, %if
   %arrayidx15.i.i.i92 = getelementptr inbounds ptr, ptr %pi.sroa.35146.12, i64 %idxprom14.i.i.i91
   %91 = load ptr, ptr %arrayidx15.i.i.i92, align 8
   %tobool16.not.i.i.i93 = icmp eq ptr %91, null
-  br i1 %tobool16.not.i.i.i93, label %if.end20.i.i.i107, label %ref_bitmap_at.argprom.exit.i94
+  br i1 %tobool16.not.i.i.i93, label %if.end20.i.i.i107, label %ref_bitmap_at.exit.i94
 
 if.end20.i.i.i107:                                ; preds = %if.end12.i.i.i90
   %call24.i.i.i111 = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #12
   store ptr %call24.i.i.i111, ptr %arrayidx15.i.i.i92, align 8
-  br label %ref_bitmap_at.argprom.exit.i94
+  br label %ref_bitmap_at.exit.i94
 
-ref_bitmap_at.argprom.exit.i94:                   ; preds = %if.end20.i.i.i107, %if.end12.i.i.i90
+ref_bitmap_at.exit.i94:                           ; preds = %if.end20.i.i.i107, %if.end12.i.i.i90
   %92 = phi ptr [ %91, %if.end12.i.i.i90 ], [ %call24.i.i.i111, %if.end20.i.i.i107 ]
   %idxprom34.i.i.i97 = zext nneg i32 %rem.i.i.i95 to i64
   %arrayidx35.i.i.i98 = getelementptr inbounds ptr, ptr %92, i64 %idxprom34.i.i.i97
@@ -2215,8 +2215,8 @@ for.cond25.i:                                     ; preds = %for.body28.i
   %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, %wide.trip.count.i69
   br i1 %exitcond.not.i106, label %for.inc39.i, label %for.body28.i, !llvm.loop !29
 
-for.body28.i:                                     ; preds = %ref_bitmap_at.argprom.exit.i94, %for.cond25.i
-  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i105, %for.cond25.i ], [ 0, %ref_bitmap_at.argprom.exit.i94 ]
+for.body28.i:                                     ; preds = %ref_bitmap_at.exit.i94, %for.cond25.i
+  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i105, %for.cond25.i ], [ 0, %ref_bitmap_at.exit.i94 ]
   %arrayidx31.i = getelementptr inbounds i32, ptr %93, i64 %indvars.iv.i99
   %94 = load i32, ptr %arrayidx31.i, align 4
   %tobool32.not.i = icmp eq i32 %94, 0
@@ -2260,8 +2260,8 @@ update_refstatus.exit.i:                          ; preds = %for.inc.i.i, %if.th
   %inc.i = add nsw i32 %dst.0114.i, 1
   br label %for.inc39.i
 
-for.inc39.i:                                      ; preds = %for.cond25.i, %update_refstatus.exit.i, %ref_bitmap_at.argprom.exit.i94
-  %dst.1.i = phi i32 [ %inc.i, %update_refstatus.exit.i ], [ %dst.0114.i, %ref_bitmap_at.argprom.exit.i94 ], [ %dst.0114.i, %for.cond25.i ]
+for.inc39.i:                                      ; preds = %for.cond25.i, %update_refstatus.exit.i, %ref_bitmap_at.exit.i94
+  %dst.1.i = phi i32 [ %inc.i, %update_refstatus.exit.i ], [ %dst.0114.i, %ref_bitmap_at.exit.i94 ], [ %dst.0114.i, %for.cond25.i ]
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   %101 = load i32, ptr %nr_theirs, align 8
   %102 = sext i32 %101 to i64
@@ -2343,14 +2343,14 @@ if.end12.i.i68.i:                                 ; preds = %if.end.i.i54.i, %if
   %arrayidx15.i.i71.i = getelementptr inbounds ptr, ptr %pi.sroa.35146.10, i64 %idxprom14.i.i70.i
   %117 = load ptr, ptr %arrayidx15.i.i71.i, align 8
   %tobool16.not.i.i72.i = icmp eq ptr %117, null
-  br i1 %tobool16.not.i.i72.i, label %if.end20.i.i78.i, label %ref_bitmap_at.argprom.exit88.i
+  br i1 %tobool16.not.i.i72.i, label %if.end20.i.i78.i, label %ref_bitmap_at.exit88.i
 
 if.end20.i.i78.i:                                 ; preds = %if.end12.i.i68.i
   %call24.i.i83.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #12
   store ptr %call24.i.i83.i, ptr %arrayidx15.i.i71.i, align 8
-  br label %ref_bitmap_at.argprom.exit88.i
+  br label %ref_bitmap_at.exit88.i
 
-ref_bitmap_at.argprom.exit88.i:                   ; preds = %if.end20.i.i78.i, %if.end12.i.i68.i
+ref_bitmap_at.exit88.i:                           ; preds = %if.end20.i.i78.i, %if.end12.i.i68.i
   %118 = phi ptr [ %117, %if.end12.i.i68.i ], [ %call24.i.i83.i, %if.end20.i.i78.i ]
   %idxprom34.i.i76.i = zext nneg i32 %rem.i.i73.i to i64
   %arrayidx35.i.i77.i = getelementptr inbounds ptr, ptr %118, i64 %idxprom34.i.i76.i
@@ -2359,8 +2359,8 @@ ref_bitmap_at.argprom.exit88.i:                   ; preds = %if.end20.i.i78.i, %
   %brmerge122.i = select i1 %tobool65.not.i, i1 true, i1 %cmp69116.i
   br i1 %brmerge122.i, label %for.inc88.i, label %for.body71.i
 
-for.body71.i:                                     ; preds = %ref_bitmap_at.argprom.exit88.i, %for.inc85.i
-  %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %for.inc85.i ], [ 0, %ref_bitmap_at.argprom.exit88.i ]
+for.body71.i:                                     ; preds = %ref_bitmap_at.exit88.i, %for.inc85.i
+  %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %for.inc85.i ], [ 0, %ref_bitmap_at.exit88.i ]
   %120 = load ptr, ptr %arrayidx35.i.i77.i, align 8
   %arrayidx74.i = getelementptr inbounds i32, ptr %120, i64 %indvars.iv127.i
   %121 = load i32, ptr %arrayidx74.i, align 4
@@ -2419,8 +2419,8 @@ for.inc85.i:                                      ; preds = %land.lhs.true.i65, 
   %exitcond131.not.i = icmp eq i64 %indvars.iv.next128.i, %wide.trip.count130.i
   br i1 %exitcond131.not.i, label %for.inc88.i, label %for.body71.i, !llvm.loop !32
 
-for.inc88.i:                                      ; preds = %for.inc85.i, %update_refstatus.exit109.i, %ref_bitmap_at.argprom.exit88.i
-  %dst.3.i = phi i32 [ %inc83.i, %update_refstatus.exit109.i ], [ %dst.2119.i, %ref_bitmap_at.argprom.exit88.i ], [ %dst.2119.i, %for.inc85.i ]
+for.inc88.i:                                      ; preds = %for.inc85.i, %update_refstatus.exit109.i, %ref_bitmap_at.exit88.i
+  %dst.3.i = phi i32 [ %inc83.i, %update_refstatus.exit109.i ], [ %dst.2119.i, %ref_bitmap_at.exit88.i ], [ %dst.2119.i, %for.inc85.i ]
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
   %132 = load i32, ptr %nr_ours, align 8
   %133 = sext i32 %132 to i64

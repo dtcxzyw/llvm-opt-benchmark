@@ -952,7 +952,7 @@ enc_uint64.exit182.i:                             ; preds = %72
   br i1 %77, label %make_header.exit.thread, label %78
 
 78:                                               ; preds = %enc_uint64.exit182.i
-  %79 = call fastcc i32 @make_streamsInfo.argelim(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %25, i64 noundef %27, ptr noundef nonnull readonly %30, i32 noundef 1, i32 noundef 0)
+  %79 = call fastcc i32 @make_streamsInfo(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %25, i64 noundef %27, ptr noundef nonnull readonly %30, i32 noundef 1, i32 noundef 0)
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %make_header.exit.thread, label %enc_uint64.exit190.i
 
@@ -1503,7 +1503,7 @@ enc_uint64.exit:                                  ; preds = %304, %compression_e
   br i1 %329, label %flush_wbuff.exit, label %330
 
 330:                                              ; preds = %enc_uint64.exit
-  %331 = call fastcc i32 @make_streamsInfo.argelim(ptr noundef nonnull %0, i64 noundef %25, i64 noundef %301, i64 noundef %303, ptr noundef nonnull %30, i32 noundef 0, i32 noundef %302)
+  %331 = call fastcc i32 @make_streamsInfo(ptr noundef nonnull %0, i64 noundef %25, i64 noundef %301, i64 noundef %303, ptr noundef nonnull %30, i32 noundef 0, i32 noundef %302)
   %332 = icmp slt i32 %331, 0
   br i1 %332, label %flush_wbuff.exit, label %333
 
@@ -1749,7 +1749,7 @@ define internal noundef i32 @_7z_free(ptr noundef %0) #0 {
   %9 = getelementptr i8, ptr %3, i64 61712
   %.val = load ptr, ptr %9, align 8
   %.not1.i = icmp eq ptr %.val, null
-  br i1 %.not1.i, label %file_free_register.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %file_free_register.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
   %.02.i = phi ptr [ %11, %.lr.ph.i ], [ %.val, %8 ]
@@ -1760,15 +1760,15 @@ define internal noundef i32 @_7z_free(ptr noundef %0) #0 {
   tail call void @free(ptr noundef %13) #18
   tail call void @free(ptr noundef nonnull %.02.i) #18
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %file_free_register.argprom.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %file_free_register.exit, label %.lr.ph.i, !llvm.loop !14
 
-file_free_register.argprom.exit:                  ; preds = %.lr.ph.i, %8
+file_free_register.exit:                          ; preds = %.lr.ph.i, %8
   %14 = getelementptr inbounds i8, ptr %3, i64 200
   %15 = load i32, ptr %14, align 8
   %.not.i8 = icmp eq i32 %15, 0
   br i1 %.not.i8, label %compression_end.exit, label %16
 
-16:                                               ; preds = %file_free_register.argprom.exit
+16:                                               ; preds = %file_free_register.exit
   %17 = getelementptr inbounds i8, ptr %3, i64 136
   %18 = getelementptr inbounds i8, ptr %3, i64 184
   store i32 0, ptr %18, align 8
@@ -1781,7 +1781,7 @@ file_free_register.argprom.exit:                  ; preds = %.lr.ph.i, %8
   %23 = tail call i32 %22(ptr noundef %0, ptr noundef nonnull %17) #18
   br label %compression_end.exit
 
-compression_end.exit:                             ; preds = %file_free_register.argprom.exit, %16
+compression_end.exit:                             ; preds = %file_free_register.exit, %16
   %24 = getelementptr inbounds i8, ptr %3, i64 248
   %25 = load ptr, ptr %24, align 8
   tail call void @free(ptr noundef %25) #18
@@ -3103,7 +3103,7 @@ define internal fastcc noundef i32 @enc_uint64(ptr noundef %0, i64 noundef %1) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @make_streamsInfo.argelim(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @make_streamsInfo(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca [9 x i8], align 1
   %9 = alloca [9 x i8], align 1
   %10 = alloca [9 x i8], align 1

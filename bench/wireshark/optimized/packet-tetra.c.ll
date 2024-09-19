@@ -2946,11 +2946,11 @@ define hidden void @tetra_dissect_pdu(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %29
-  tail call fastcc void @dissect_MAC_RESOURCE_PDU.argprom.retelim(ptr noundef %2, ptr noundef %4, ptr noundef %20)
+  tail call fastcc void @dissect_MAC_RESOURCE_PDU(ptr noundef %2, ptr noundef %4, ptr noundef %20)
   br label %104
 
 32:                                               ; preds = %29
-  tail call fastcc void @dissect_MAC_DATA_PDU.argprom.retelim(ptr noundef %2, ptr noundef %4, ptr noundef %20)
+  tail call fastcc void @dissect_MAC_DATA_PDU(ptr noundef %2, ptr noundef %4, ptr noundef %20)
   br label %104
 
 33:                                               ; preds = %25
@@ -2963,15 +2963,15 @@ define hidden void @tetra_dissect_pdu(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %35
-  tail call fastcc void @dissect_MAC_END_DOWNLINK_PDU.argprom.retelim(ptr noundef %2, ptr noundef %4, ptr noundef %20)
+  tail call fastcc void @dissect_MAC_END_DOWNLINK_PDU(ptr noundef %2, ptr noundef %4, ptr noundef %20)
   br label %104
 
 38:                                               ; preds = %35
-  tail call fastcc void @dissect_MAC_END_UPLINK_PDU.argprom.retelim(ptr noundef %2, ptr noundef %4, ptr noundef %20)
+  tail call fastcc void @dissect_MAC_END_UPLINK_PDU(ptr noundef %2, ptr noundef %4, ptr noundef %20)
   br label %104
 
 39:                                               ; preds = %33
-  tail call fastcc void @dissect_MAC_FRAG_PDU.argprom.retelim(ptr noundef %2, ptr noundef %4, ptr noundef %20)
+  tail call fastcc void @dissect_MAC_FRAG_PDU(ptr noundef %2, ptr noundef %4, ptr noundef %20)
   br label %104
 
 40:                                               ; preds = %25
@@ -3012,11 +3012,11 @@ default.unreachable86:                            ; preds = %82, %44, %25
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %52
-  tail call fastcc void @dissect_MAC_END_DOWN111_PDU.argprom.retelim(ptr noundef %2, ptr noundef %4, ptr noundef %20)
+  tail call fastcc void @dissect_MAC_END_DOWN111_PDU(ptr noundef %2, ptr noundef %4, ptr noundef %20)
   br label %104
 
 55:                                               ; preds = %52
-  tail call fastcc void @dissect_MAC_FRAG120_PDU.argprom.retelim(ptr noundef %2, ptr noundef %4, ptr noundef %20)
+  tail call fastcc void @dissect_MAC_FRAG120_PDU(ptr noundef %2, ptr noundef %4, ptr noundef %20)
   br label %104
 
 56:                                               ; preds = %44
@@ -3105,15 +3105,15 @@ default.unreachable86:                            ; preds = %82, %44, %25
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %92
-  tail call fastcc void @dissect_MAC_END_DOWN111_PDU.argprom.retelim(ptr noundef %2, ptr noundef %4, ptr noundef %20)
+  tail call fastcc void @dissect_MAC_END_DOWN111_PDU(ptr noundef %2, ptr noundef %4, ptr noundef %20)
   br label %104
 
 95:                                               ; preds = %92
-  tail call fastcc void @dissect_MAC_END_UP114_PDU.argprom.retelim(ptr noundef %2, ptr noundef %4, ptr noundef %20)
+  tail call fastcc void @dissect_MAC_END_UP114_PDU(ptr noundef %2, ptr noundef %4, ptr noundef %20)
   br label %104
 
 96:                                               ; preds = %90
-  tail call fastcc void @dissect_MAC_FRAG120_PDU.argprom.retelim(ptr noundef %2, ptr noundef %4, ptr noundef %20)
+  tail call fastcc void @dissect_MAC_FRAG120_PDU(ptr noundef %2, ptr noundef %4, ptr noundef %20)
   br label %104
 
 97:                                               ; preds = %82
@@ -3144,7 +3144,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MAC_RESOURCE_PDU.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_MAC_RESOURCE_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #3
   %5 = load i32, ptr @hf_tetra_MAC_RESOURCE_PDU, align 4
@@ -3154,7 +3154,7 @@ define internal fastcc void @dissect_MAC_RESOURCE_PDU.argprom.retelim(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MAC_DATA_PDU.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_MAC_DATA_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #3
   %5 = load i32, ptr @hf_tetra_MAC_DATA_PDU, align 4
@@ -3164,7 +3164,7 @@ define internal fastcc void @dissect_MAC_DATA_PDU.argprom.retelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MAC_END_DOWNLINK_PDU.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_MAC_END_DOWNLINK_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #3
   %5 = load i32, ptr @hf_tetra_MAC_END_DOWNLINK_PDU, align 4
@@ -3174,7 +3174,7 @@ define internal fastcc void @dissect_MAC_END_DOWNLINK_PDU.argprom.retelim(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MAC_END_UPLINK_PDU.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_MAC_END_UPLINK_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #3
   %5 = load i32, ptr @hf_tetra_MAC_END_UPLINK_PDU, align 4
@@ -3184,7 +3184,7 @@ define internal fastcc void @dissect_MAC_END_UPLINK_PDU.argprom.retelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MAC_FRAG_PDU.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_MAC_FRAG_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #3
   %5 = load i32, ptr @hf_tetra_MAC_FRAG_PDU, align 4
@@ -3194,7 +3194,7 @@ define internal fastcc void @dissect_MAC_FRAG_PDU.argprom.retelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MAC_END_DOWN111_PDU.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_MAC_END_DOWN111_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #3
   %5 = load i32, ptr @hf_tetra_MAC_END_DOWN111_PDU, align 4
@@ -3204,7 +3204,7 @@ define internal fastcc void @dissect_MAC_END_DOWN111_PDU.argprom.retelim(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MAC_FRAG120_PDU.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_MAC_FRAG120_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #3
   %5 = load i32, ptr @hf_tetra_MAC_FRAG120_PDU, align 4
@@ -3216,7 +3216,7 @@ define internal fastcc void @dissect_MAC_FRAG120_PDU.argprom.retelim(ptr noundef
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_MAC_END_UP114_PDU.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_MAC_END_UP114_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext false, ptr noundef %1) #3
   %5 = load i32, ptr @hf_tetra_MAC_END_UP114_PDU, align 4

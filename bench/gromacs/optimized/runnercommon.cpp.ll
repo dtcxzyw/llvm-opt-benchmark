@@ -348,51 +348,51 @@ _ZN3gmx30TrajectoryAnalysisRunnerCommon4Impl16finishTrajectoryEv.exit: ; preds =
   %12 = getelementptr inbounds i8, ptr %0, i64 248
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %_ZL14gmx_sfree_implI10t_trxframeEvPKcS2_iPT_.argprom.exit, label %14
+  br i1 %.not, label %_ZL14gmx_sfree_implI10t_trxframeEvPKcS2_iPT_.exit, label %14
 
 14:                                               ; preds = %_ZN3gmx30TrajectoryAnalysisRunnerCommon4Impl16finishTrajectoryEv.exit
   %15 = getelementptr inbounds i8, ptr %13, i64 72
   %16 = load ptr, ptr %15, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 161, ptr noundef %16)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit unwind label %34
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit unwind label %34
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit: ; preds = %14
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %14
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 88
   %19 = load ptr, ptr %18, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef %19)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit6 unwind label %34
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit6 unwind label %34
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit6: ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit6:       ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
   %20 = load ptr, ptr %12, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 104
   %22 = load ptr, ptr %21, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 163, ptr noundef %22)
-          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit8 unwind label %34
+          to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit8 unwind label %34
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit8: ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit6
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit8:       ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit6
   %23 = load ptr, ptr %12, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 168
   %25 = load ptr, ptr %24, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 164, ptr noundef %25)
-          to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit unwind label %34
+          to label %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit unwind label %34
 
-_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit:   ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit8
+_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit:           ; preds = %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit8
   %26 = load ptr, ptr %12, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 165, ptr noundef %26)
-          to label %_ZL14gmx_sfree_implI10t_trxframeEvPKcS2_iPT_.argprom.exit unwind label %34
+          to label %_ZL14gmx_sfree_implI10t_trxframeEvPKcS2_iPT_.exit unwind label %34
 
-_ZL14gmx_sfree_implI10t_trxframeEvPKcS2_iPT_.argprom.exit: ; preds = %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit, %_ZN3gmx30TrajectoryAnalysisRunnerCommon4Impl16finishTrajectoryEv.exit
+_ZL14gmx_sfree_implI10t_trxframeEvPKcS2_iPT_.exit: ; preds = %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit, %_ZN3gmx30TrajectoryAnalysisRunnerCommon4Impl16finishTrajectoryEv.exit
   %27 = getelementptr inbounds i8, ptr %0, i64 272
   %28 = load ptr, ptr %27, align 8
   %.not2 = icmp eq ptr %28, null
   br i1 %.not2, label %30, label %29
 
-29:                                               ; preds = %_ZL14gmx_sfree_implI10t_trxframeEvPKcS2_iPT_.argprom.exit
+29:                                               ; preds = %_ZL14gmx_sfree_implI10t_trxframeEvPKcS2_iPT_.exit
   invoke void @_Z15output_env_doneP16gmx_output_env_t(ptr noundef nonnull %28)
           to label %30 unwind label %34
 
-30:                                               ; preds = %29, %_ZL14gmx_sfree_implI10t_trxframeEvPKcS2_iPT_.argprom.exit
+30:                                               ; preds = %29, %_ZL14gmx_sfree_implI10t_trxframeEvPKcS2_iPT_.exit
   %31 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #15
   %32 = getelementptr inbounds i8, ptr %0, i64 144
@@ -402,7 +402,7 @@ _ZL14gmx_sfree_implI10t_trxframeEvPKcS2_iPT_.argprom.exit: ; preds = %_ZL14gmx_s
   tail call void @_ZN3gmx17ITopologyProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   ret void
 
-34:                                               ; preds = %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.argprom.exit, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit8, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit6, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.argprom.exit, %14, %11, %5, %29
+34:                                               ; preds = %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit8, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit6, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit, %14, %11, %5, %29
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0

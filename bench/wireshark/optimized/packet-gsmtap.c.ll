@@ -506,7 +506,7 @@ define internal i32 @dissect_gsmtap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 38:                                               ; preds = %30
   %39 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 40:                                               ; preds = %30
   %41 = zext i16 %20 to i32
@@ -711,7 +711,7 @@ switch.early.test.i:                              ; preds = %69
   %125 = call i32 @call_dissector_with_data(ptr noundef %124, ptr noundef %32, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %126 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 127:                                              ; preds = %120
   %128 = load i32, ptr %51, align 4
@@ -722,7 +722,7 @@ switch.early.test.i:                              ; preds = %69
 130:                                              ; preds = %120
   tail call fastcc void @handle_rlcmac(i32 noundef %21, ptr noundef %32, ptr noundef nonnull %1, ptr noundef %2)
   %131 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 132:                                              ; preds = %120
   %133 = load i32, ptr %51, align 4
@@ -731,9 +731,9 @@ switch.early.test.i:                              ; preds = %69
 
 135:                                              ; preds = %132
   %.val.i = load ptr, ptr %33, align 8
-  tail call fastcc void @dissect_ptcch_dl.argprom(ptr noundef %32, ptr %.val.i, ptr noundef %2)
+  tail call fastcc void @dissect_ptcch_dl(ptr noundef %32, ptr %.val.i, ptr noundef %2)
   %136 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 137:                                              ; preds = %120, %120
   br label %select.unfold.i
@@ -741,7 +741,7 @@ switch.early.test.i:                              ; preds = %69
 138:                                              ; preds = %120, %120
   tail call fastcc void @dissect_um_voice(ptr noundef %32, ptr noundef nonnull %1, ptr noundef %2)
   %139 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 140:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -750,7 +750,7 @@ switch.early.test.i:                              ; preds = %69
   %142 = call i32 @call_dissector_with_data(ptr noundef %141, ptr noundef %32, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %143 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 144:                                              ; preds = %120
   br label %select.unfold.i
@@ -781,7 +781,7 @@ switch.early.test.i:                              ; preds = %69
 
 handle_tetra.exit.i:                              ; preds = %154, %150, %147
   %157 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 158:                                              ; preds = %110
   %switch.tableidx20 = add i8 %22, -16
@@ -840,7 +840,7 @@ handle_tetra.exit.i:                              ; preds = %154, %150, %147
 
 174:                                              ; preds = %168, %166
   %175 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 176:                                              ; preds = %165
   %177 = load ptr, ptr getelementptr inbounds (i8, ptr @sub_handles, i64 208), align 16
@@ -859,7 +859,7 @@ handle_tetra.exit.i:                              ; preds = %154, %150, %147
 
 184:                                              ; preds = %178, %176
   %185 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 186:                                              ; preds = %165
   %187 = load ptr, ptr getelementptr inbounds (i8, ptr @sub_handles, i64 224), align 16
@@ -878,7 +878,7 @@ handle_tetra.exit.i:                              ; preds = %154, %150, %147
 
 194:                                              ; preds = %188, %186
   %195 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 196:                                              ; preds = %165
   %197 = load ptr, ptr getelementptr inbounds (i8, ptr @sub_handles, i64 232), align 8
@@ -897,7 +897,7 @@ handle_tetra.exit.i:                              ; preds = %154, %150, %147
 
 204:                                              ; preds = %198, %196
   %205 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 206:                                              ; preds = %165
   %207 = load ptr, ptr getelementptr inbounds (i8, ptr @sub_handles, i64 240), align 16
@@ -916,7 +916,7 @@ handle_tetra.exit.i:                              ; preds = %154, %150, %147
 
 214:                                              ; preds = %208, %206
   %215 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
 216:                                              ; preds = %165
   br label %select.unfold.i
@@ -966,9 +966,9 @@ select.unfold.i:                                  ; preds = %158, %switch.lookup
 
 239:                                              ; preds = %237, %select.unfold.i, %229, %224, %219
   %240 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %dissect_gsmtap_v2.argprom.exit
+  br label %dissect_gsmtap_v2.exit
 
-dissect_gsmtap_v2.argprom.exit:                   ; preds = %38, %122, %130, %135, %138, %140, %handle_tetra.exit.i, %174, %184, %194, %204, %214, %239
+dissect_gsmtap_v2.exit:                           ; preds = %38, %122, %130, %135, %138, %140, %handle_tetra.exit.i, %174, %184, %194, %204, %214, %239
   %.0229.i = phi i32 [ %39, %38 ], [ %240, %239 ], [ %215, %214 ], [ %205, %204 ], [ %195, %194 ], [ %185, %184 ], [ %175, %174 ], [ %157, %handle_tetra.exit.i ], [ %143, %140 ], [ %139, %138 ], [ %136, %135 ], [ %131, %130 ], [ %126, %122 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -995,8 +995,8 @@ dissect_gsmtap_v2.argprom.exit:                   ; preds = %38, %122, %130, %13
   %253 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %252, ptr noundef nonnull @ei_gsmtap_unknown_gsmtap_version) #6
   br label %254
 
-254:                                              ; preds = %241, %dissect_gsmtap_v2.argprom.exit
-  %.0 = phi i32 [ %.0229.i, %dissect_gsmtap_v2.argprom.exit ], [ 1, %241 ]
+254:                                              ; preds = %241, %dissect_gsmtap_v2.exit
+  %.0 = phi i32 [ %.0229.i, %dissect_gsmtap_v2.exit ], [ 1, %241 ]
   ret i32 %.0
 }
 
@@ -1557,7 +1557,7 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ptcch_dl.argprom(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_ptcch_dl(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.339) #6
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %26, label %3

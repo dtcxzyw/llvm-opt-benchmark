@@ -2320,7 +2320,7 @@ emax_reached.exit:                                ; preds = %26, %._crit_edge.i
   br i1 %.not490, label %1081, label %866
 
 866:                                              ; preds = %860
-  call fastcc void @calculate_fuzzy_image_hash.retelim(ptr noundef nonnull %0, i32 noundef 527)
+  call fastcc void @calculate_fuzzy_image_hash(ptr noundef nonnull %0, i32 noundef 527)
   br label %1081
 
 867:                                              ; preds = %286
@@ -2380,7 +2380,7 @@ emax_reached.exit:                                ; preds = %26, %._crit_edge.i
   br i1 %.not487, label %1081, label %895
 
 895:                                              ; preds = %890
-  call fastcc void @calculate_fuzzy_image_hash.retelim(ptr noundef nonnull %0, i32 noundef 528)
+  call fastcc void @calculate_fuzzy_image_hash(ptr noundef nonnull %0, i32 noundef 528)
   br label %1081
 
 896:                                              ; preds = %286
@@ -2440,7 +2440,7 @@ emax_reached.exit:                                ; preds = %26, %._crit_edge.i
   br i1 %.not480, label %1081, label %924
 
 924:                                              ; preds = %919
-  call fastcc void @calculate_fuzzy_image_hash.retelim(ptr noundef nonnull %0, i32 noundef 529)
+  call fastcc void @calculate_fuzzy_image_hash(ptr noundef nonnull %0, i32 noundef 529)
   br label %1081
 
 925:                                              ; preds = %286
@@ -2500,7 +2500,7 @@ emax_reached.exit:                                ; preds = %26, %._crit_edge.i
   br i1 %.not473, label %1081, label %953
 
 953:                                              ; preds = %948
-  call fastcc void @calculate_fuzzy_image_hash.retelim(ptr noundef nonnull %0, i32 noundef 530)
+  call fastcc void @calculate_fuzzy_image_hash(ptr noundef nonnull %0, i32 noundef 530)
   br label %1081
 
 954:                                              ; preds = %286
@@ -2560,7 +2560,7 @@ emax_reached.exit:                                ; preds = %26, %._crit_edge.i
   br i1 %.not466, label %1081, label %982
 
 982:                                              ; preds = %977
-  call fastcc void @calculate_fuzzy_image_hash.retelim(ptr noundef nonnull %0, i32 noundef 531)
+  call fastcc void @calculate_fuzzy_image_hash(ptr noundef nonnull %0, i32 noundef 531)
   br label %1081
 
 983:                                              ; preds = %286
@@ -2977,7 +2977,7 @@ emax_reached.exit:                                ; preds = %26, %._crit_edge.i
   br i1 %.not589, label %.thread626, label %1201
 
 1201:                                             ; preds = %1195
-  %1202 = call fastcc i32 @cli_scanpdf.argelim(ptr noundef nonnull %0)
+  %1202 = call fastcc i32 @cli_scanpdf(ptr noundef nonnull %0)
   store i32 %1202, ptr %3, align 4
   br label %.thread626
 
@@ -4263,7 +4263,7 @@ define internal fastcc i32 @scanraw(ptr noundef %0, i32 noundef range(i32 587, 5
   br label %.thread512
 
 529:                                              ; preds = %526
-  %530 = call fastcc i32 @cli_scanpdf.argelim(ptr noundef nonnull %0)
+  %530 = call fastcc i32 @cli_scanpdf(ptr noundef nonnull %0)
   %531 = call ptr @cli_recursion_stack_pop(ptr noundef nonnull %0) #16
   br label %.thread512
 
@@ -4339,7 +4339,7 @@ define internal fastcc i32 @scanraw(ptr noundef %0, i32 noundef range(i32 587, 5
   %565 = trunc i64 %564 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.96, i32 noundef %565) #16
   call void @cli_exe_info_destroy(ptr noundef nonnull %7) #16
-  %566 = call fastcc i32 @cli_scanembpe.argelim(ptr noundef nonnull %0)
+  %566 = call fastcc i32 @cli_scanembpe(ptr noundef nonnull %0)
   br label %567
 
 567:                                              ; preds = %563, %562
@@ -4629,7 +4629,7 @@ define internal fastcc i32 @cli_scanrar(ptr noundef %0) unnamed_addr #0 {
 
 30:                                               ; preds = %25, %23
   %.022 = phi ptr [ %24, %23 ], [ %26, %25 ]
-  %31 = call fastcc i32 @cli_scanrar_file.argelim(ptr noundef %.022, ptr noundef nonnull %0)
+  %31 = call fastcc i32 @cli_scanrar_file(ptr noundef %.022, ptr noundef nonnull %0)
   %32 = load ptr, ptr %2, align 8
   %33 = icmp eq ptr %32, null
   %34 = icmp eq i32 %31, 8
@@ -4653,7 +4653,7 @@ define internal fastcc i32 @cli_scanrar(ptr noundef %0) unnamed_addr #0 {
 
 44:                                               ; preds = %35
   %45 = load ptr, ptr %2, align 8
-  %46 = call fastcc i32 @cli_scanrar_file.argelim(ptr noundef %45, ptr noundef nonnull %0)
+  %46 = call fastcc i32 @cli_scanrar_file(ptr noundef %45, ptr noundef nonnull %0)
   br label %47
 
 47:                                               ; preds = %30, %44, %43, %22
@@ -7305,7 +7305,7 @@ define internal fastcc i32 @cli_scanriff(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @calculate_fuzzy_image_hash.retelim(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @calculate_fuzzy_image_hash(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.image_fuzzy_hash, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [17 x i8], align 16
@@ -7764,7 +7764,7 @@ declare i32 @cli_unpackelf(ptr noundef) local_unnamed_addr #2
 declare i32 @cli_unpackmacho(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_scanpdf.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @cli_scanpdf(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @cli_gentemp_with_prefix(ptr noundef %3, ptr noundef nonnull @.str.296) #16
@@ -9096,7 +9096,7 @@ declare i32 @cli_peheader(ptr noundef, ptr noundef, i32 noundef, ptr noundef) lo
 declare void @cli_exe_info_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_scanembpe.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @cli_scanembpe(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -9259,7 +9259,7 @@ declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_u
 declare i32 @fmap_dump_to_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cli_scanrar_file.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @cli_scanrar_file(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -9859,7 +9859,7 @@ define internal fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef no
   br i1 %.not83, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call fastcc void @cli_ole2_tempdir_scan_summary.argelim(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2)
+  tail call fastcc void @cli_ole2_tempdir_scan_summary(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2)
   br label %21
 
 21:                                               ; preds = %20, %17, %6
@@ -10096,7 +10096,7 @@ sub_1121:                                         ; preds = %.tail
 declare void @uniq_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cli_ole2_tempdir_scan_summary.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @cli_ole2_tempdir_scan_summary(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4

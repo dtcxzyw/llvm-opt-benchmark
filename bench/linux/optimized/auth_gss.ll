@@ -1600,14 +1600,14 @@ define internal noundef range(i32 -16, 1) i32 @gss_pipe_open_v1(ptr nocapture no
 
 15:                                               ; preds = %1
   %16 = icmp eq i32 %11, 1
-  br i1 %16, label %17, label %gss_pipe_open.argprom.argprom.exit
+  br i1 %16, label %17, label %gss_pipe_open.exit
 
 17:                                               ; preds = %15, %13
   %18 = getelementptr inbounds i8, ptr %9, i64 192
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18, ptr elementtype(i32) %18) #18, !srcloc !34
-  br label %gss_pipe_open.argprom.argprom.exit
+  br label %gss_pipe_open.exit
 
-gss_pipe_open.argprom.argprom.exit:               ; preds = %15, %17
+gss_pipe_open.exit:                               ; preds = %15, %17
   %19 = phi i32 [ 0, %17 ], [ -16, %15 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @pipe_version_lock) #18
   ret i32 %19
@@ -2383,14 +2383,14 @@ define internal noundef range(i32 -16, 1) i32 @gss_pipe_open_v0(ptr nocapture no
 
 15:                                               ; preds = %1
   %16 = icmp eq i32 %11, 0
-  br i1 %16, label %17, label %gss_pipe_open.argprom.argprom.exit
+  br i1 %16, label %17, label %gss_pipe_open.exit
 
 17:                                               ; preds = %15, %13
   %18 = getelementptr inbounds i8, ptr %9, i64 192
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18, ptr elementtype(i32) %18) #18, !srcloc !34
-  br label %gss_pipe_open.argprom.argprom.exit
+  br label %gss_pipe_open.exit
 
-gss_pipe_open.argprom.argprom.exit:               ; preds = %15, %17
+gss_pipe_open.exit:                               ; preds = %15, %17
   %19 = phi i32 [ 0, %17 ], [ -16, %15 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @pipe_version_lock) #18
   ret i32 %19
@@ -2463,7 +2463,7 @@ define internal range(i32 -10, -11) i32 @gss_cred_init(ptr noundef %0, ptr nound
   %.val10 = load ptr, ptr %14, align 8
   %29 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load i32, ptr %29, align 8
-  %30 = call fastcc ptr @gss_setup_upcall.argprom.argprom(ptr noundef %5, i32 %.val.val, ptr %.val10)
+  %30 = call fastcc ptr @gss_setup_upcall(ptr noundef %5, i32 %.val.val, ptr %.val10)
   %31 = icmp eq ptr %30, inttoptr (i64 -11 to ptr)
   br i1 %31, label %32, label %58
 
@@ -3267,7 +3267,7 @@ define internal i32 @gss_refresh(ptr noundef %0) #2 align 16 {
   %.val7 = load ptr, ptr %66, align 8
   %67 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load i32, ptr %67, align 8
-  %68 = call fastcc ptr @gss_setup_upcall.argprom.argprom(ptr noundef %64, i32 %.val.val, ptr %.val7)
+  %68 = call fastcc ptr @gss_setup_upcall(ptr noundef %64, i32 %.val.val, ptr %.val7)
   %69 = ptrtoint ptr %68 to i64
   %70 = icmp eq ptr %68, inttoptr (i64 -11 to ptr)
   br i1 %70, label %71, label %74
@@ -4227,7 +4227,7 @@ define internal i32 @gss_unwrap_resp(ptr noundef %0, ptr noundef %1) #2 align 16
   %116 = add nuw nsw i32 %115, 3
   %117 = getelementptr i8, ptr %9, i64 48
   %.val.i = load ptr, ptr %117, align 8
-  call fastcc void @gss_update_rslack.argprom.argelim(ptr noundef %0, ptr %.val.i, i32 noundef %116)
+  call fastcc void @gss_update_rslack(ptr noundef %0, ptr %.val.i, i32 noundef %116)
   br label %gss_unwrap_resp_integ.exit
 
 .thread.i:                                        ; preds = %103, %99, %93, %89, %86, %71, %66, %61
@@ -4833,7 +4833,7 @@ define internal zeroext i1 @gss_xmit_need_reencode(ptr noundef %0) #2 align 16 {
 declare dso_local i32 @autoremove_wake_function(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @gss_setup_upcall.argprom.argprom(ptr noundef %0, i32 %.88.val.32.val, ptr %.120.val) unnamed_addr #2 align 16 {
+define internal fastcc ptr @gss_setup_upcall(ptr noundef %0, i32 %.88.val.32.val, ptr %.120.val) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(584) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 584) #19
   %4 = icmp eq ptr %3, null
@@ -5485,7 +5485,7 @@ declare dso_local i32 @__SCT__tp_func_rpcgss_wrap(ptr noundef, ptr noundef, i32 
 declare dso_local i32 @rpcauth_unwrap_resp_decode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gss_update_rslack.argprom.argelim(ptr noundef %0, ptr %.48.val, i32 noundef range(i32 3, 1073741827) %1) unnamed_addr #2 align 16 {
+define internal fastcc void @gss_update_rslack(ptr noundef %0, ptr %.48.val, i32 noundef range(i32 3, 1073741827) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %.48.val, i64 16
   %4 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 2, ptr elementtype(i64) %3) #18, !srcloc !60
   %5 = icmp ult i8 %4, 2

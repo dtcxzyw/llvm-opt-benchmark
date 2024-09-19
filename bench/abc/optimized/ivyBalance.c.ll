@@ -268,7 +268,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %22, %10
 .Vec_PtrGrow.exit11_crit_edge.i.i.i:              ; preds = %.loopexit.i
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %Vec_VecPush.argprom.exit.i
+  br label %Vec_VecPush.exit.i
 
 38:                                               ; preds = %.loopexit.i
   %39 = icmp slt i32 %35, 16
@@ -292,7 +292,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %45, %43
   %47 = phi ptr [ %44, %43 ], [ %46, %45 ]
   store ptr %47, ptr %41, align 8
   store i32 16, ptr %33, align 8
-  br label %Vec_VecPush.argprom.exit.i
+  br label %Vec_VecPush.exit.i
 
 48:                                               ; preds = %38
   %49 = shl nuw nsw i32 %35, 1
@@ -315,9 +315,9 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %45, %43
   %59 = phi ptr [ %55, %54 ], [ %57, %56 ]
   store ptr %59, ptr %50, align 8
   store i32 %49, ptr %33, align 8
-  br label %Vec_VecPush.argprom.exit.i
+  br label %Vec_VecPush.exit.i
 
-Vec_VecPush.argprom.exit.i:                       ; preds = %58, %Vec_PtrGrow.exit.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i
+Vec_VecPush.exit.i:                               ; preds = %58, %Vec_PtrGrow.exit.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i
   %60 = phi ptr [ %.pre.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i ], [ %59, %58 ], [ %47, %Vec_PtrGrow.exit.i.i.i ]
   %61 = load i32, ptr %34, align 4
   %62 = add nsw i32 %61, 1
@@ -327,8 +327,8 @@ Vec_VecPush.argprom.exit.i:                       ; preds = %58, %Vec_PtrGrow.ex
   store ptr null, ptr %64, align 8
   br label %65
 
-65:                                               ; preds = %Vec_VecPush.argprom.exit.i, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %31, %Vec_VecPush.argprom.exit.i ]
+65:                                               ; preds = %Vec_VecPush.exit.i, %._crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %31, %Vec_VecPush.exit.i ]
   %66 = getelementptr i8, ptr %2, i64 8
   %.val21.i = load ptr, ptr %66, align 8
   %67 = getelementptr inbounds ptr, ptr %.val21.i, i64 %.pre-phi.i
@@ -516,9 +516,9 @@ define ptr @Ivy_NodeBalanceBuildSuper(ptr noundef %0, ptr nocapture noundef %1, 
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, 2
-  br i1 %7, label %._crit_edge, label %Vec_PtrSort.argprom.exit
+  br i1 %7, label %._crit_edge, label %Vec_PtrSort.exit
 
-Vec_PtrSort.argprom.exit:                         ; preds = %4
+Vec_PtrSort.exit:                                 ; preds = %4
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %6 to i64
@@ -527,7 +527,7 @@ Vec_PtrSort.argprom.exit:                         ; preds = %4
   %11 = icmp sgt i32 %.pre, 1
   br i1 %11, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %Vec_PtrSort.argprom.exit
+.lr.ph:                                           ; preds = %Vec_PtrSort.exit
   %.not = icmp eq i32 %3, 0
   %12 = getelementptr i8, ptr %1, i64 8
   %.not21 = icmp eq i32 %2, 6
@@ -644,19 +644,19 @@ Ivy_NodeBalanceFindLeft.exit:                     ; preds = %41, %._crit_edge.sp
   store ptr null, ptr %16, align 8
   store ptr %68, ptr %17, align 8
   %.not.i.us.i = icmp eq ptr %68, null
-  br i1 %.not.i.us.i, label %Ivy_ObjCreateGhost.exit.us.i, label %Ivy_ObjFaninId1.argprom.exit.i.us.i
+  br i1 %.not.i.us.i, label %Ivy_ObjCreateGhost.exit.us.i, label %Ivy_ObjFaninId1.exit.i.us.i
 
-Ivy_ObjFaninId1.argprom.exit.i.us.i:              ; preds = %75
+Ivy_ObjFaninId1.exit.i.us.i:                      ; preds = %75
   %.val.i19.i.us.i = load i32, ptr %71, align 8
   %79 = icmp slt i32 %.val.i19.i.us.i, 0
   br i1 %79, label %80, label %Ivy_ObjCreateGhost.exit.us.i
 
-80:                                               ; preds = %Ivy_ObjFaninId1.argprom.exit.i.us.i
+80:                                               ; preds = %Ivy_ObjFaninId1.exit.i.us.i
   store ptr %68, ptr %16, align 8
   store ptr null, ptr %17, align 8
   br label %Ivy_ObjCreateGhost.exit.us.i
 
-Ivy_ObjCreateGhost.exit.us.i:                     ; preds = %80, %Ivy_ObjFaninId1.argprom.exit.i.us.i, %75
+Ivy_ObjCreateGhost.exit.us.i:                     ; preds = %80, %Ivy_ObjFaninId1.exit.i.us.i, %75
   %81 = tail call ptr @Ivy_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %18) #9
   %.not43.us.i = icmp eq ptr %81, null
   br i1 %.not43.us.i, label %74, label %.split65.us.i
@@ -693,20 +693,20 @@ Ivy_ObjCreateGhost.exit.us.i:                     ; preds = %80, %Ivy_ObjFaninId
   store ptr %.fr.i, ptr %16, align 8
   store ptr %84, ptr %17, align 8
   %.not.i.i = icmp eq ptr %84, null
-  br i1 %.not.i.i, label %Ivy_ObjCreateGhost.exit.i, label %Ivy_ObjFaninId1.argprom.exit.i.i
+  br i1 %.not.i.i, label %Ivy_ObjCreateGhost.exit.i, label %Ivy_ObjFaninId1.exit.i.i
 
-Ivy_ObjFaninId1.argprom.exit.i.i:                 ; preds = %91
+Ivy_ObjFaninId1.exit.i.i:                         ; preds = %91
   %.val.i.i.i = load i32, ptr %58, align 8
   %.val.i19.i.i = load i32, ptr %87, align 8
   %95 = icmp sgt i32 %.val.i.i.i, %.val.i19.i.i
   br i1 %95, label %96, label %Ivy_ObjCreateGhost.exit.i
 
-96:                                               ; preds = %Ivy_ObjFaninId1.argprom.exit.i.i
+96:                                               ; preds = %Ivy_ObjFaninId1.exit.i.i
   store ptr %84, ptr %16, align 8
   store ptr %.fr.i, ptr %17, align 8
   br label %Ivy_ObjCreateGhost.exit.i
 
-Ivy_ObjCreateGhost.exit.i:                        ; preds = %96, %Ivy_ObjFaninId1.argprom.exit.i.i, %91
+Ivy_ObjCreateGhost.exit.i:                        ; preds = %96, %Ivy_ObjFaninId1.exit.i.i, %91
   %97 = tail call ptr @Ivy_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %18) #9
   %.not43.i = icmp eq ptr %97, null
   br i1 %.not43.i, label %82, label %.split65.us.i
@@ -877,7 +877,7 @@ Ivy_NodeBalancePushUniqueOrderByLevel.exit:       ; preds = %117, %Ivy_NodeBalan
   %175 = icmp sgt i32 %174, 1
   br i1 %175, label %19, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %143, %Ivy_NodeBalancePushUniqueOrderByLevel.exit, %4, %Vec_PtrSort.argprom.exit
+._crit_edge:                                      ; preds = %143, %Ivy_NodeBalancePushUniqueOrderByLevel.exit, %4, %Vec_PtrSort.exit
   %176 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %176, align 8
   %177 = load ptr, ptr %.val, align 8

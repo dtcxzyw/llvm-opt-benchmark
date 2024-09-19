@@ -355,12 +355,12 @@ define hidden void @zim_DOMXPath_query(ptr nocapture noundef readonly %0, ptr no
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 44
   %.val2 = load i32, ptr %4, align 4
-  tail call fastcc void @php_xpath_eval.argprom(ptr %.val, i32 %.val2, ptr noundef %1, i32 noundef 0)
+  tail call fastcc void @php_xpath_eval(ptr %.val, i32 %.val2, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_xpath_eval.argprom(ptr %.32.val, i32 %.44.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -653,7 +653,7 @@ define hidden void @zim_DOMXPath_evaluate(ptr nocapture noundef readonly %0, ptr
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 44
   %.val2 = load i32, ptr %4, align 4
-  tail call fastcc void @php_xpath_eval.argprom(ptr %.val, i32 %.val2, ptr noundef %1, i32 noundef 1)
+  tail call fastcc void @php_xpath_eval(ptr %.val, i32 %.val2, ptr noundef %1, i32 noundef 1)
   ret void
 }
 

@@ -322,15 +322,15 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 define internal i64 @echild_status(i64 noundef %0) #0 {
   %.pr.i = load i64, ptr @echild_status.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %2 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.6, i64 noundef 6) #10
   store i64 %2, ptr @echild_status.rbimpl_id, align 8
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !7
 
-rbimpl_intern_const.argprom.exit:                 ; preds = %.lr.ph.i, %1
+rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
   %.lcssa.i = phi i64 [ %.pr.i, %1 ], [ %2, %.lr.ph.i ]
   %3 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef %.lcssa.i) #10
   ret i64 %3

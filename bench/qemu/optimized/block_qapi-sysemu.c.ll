@@ -337,12 +337,12 @@ entry:
 
 qmp_get_blk.exit.thread.i:                        ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 48, ptr noundef nonnull @__func__.qmp_get_blk, ptr noundef nonnull @.str.13) #4
-  br label %blockdev_insert_medium.argprom.exit
+  br label %blockdev_insert_medium.exit
 
 qmp_get_blk.exit.i:                               ; preds = %entry
   %call.i.i = tail call ptr @blk_by_qdev_id(ptr noundef nonnull %id, ptr noundef %errp) #4
   %tobool.not.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i, label %blockdev_insert_medium.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %blockdev_insert_medium.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %qmp_get_blk.exit.i
   %call2.i = tail call ptr @bdrv_find_node(ptr noundef %node_name) #4
@@ -351,7 +351,7 @@ if.end.i:                                         ; preds = %qmp_get_blk.exit.i
 
 if.then4.i:                                       ; preds = %if.end.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 301, ptr noundef nonnull @__func__.blockdev_insert_medium, ptr noundef nonnull @.str.17, ptr noundef %node_name) #4
-  br label %blockdev_insert_medium.argprom.exit
+  br label %blockdev_insert_medium.exit
 
 if.end5.i:                                        ; preds = %if.end.i
   %call6.i = tail call zeroext i1 @bdrv_has_blk(ptr noundef nonnull %call2.i) #4
@@ -359,13 +359,13 @@ if.end5.i:                                        ; preds = %if.end.i
 
 if.then7.i:                                       ; preds = %if.end5.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 306, ptr noundef nonnull @__func__.blockdev_insert_medium, ptr noundef nonnull @.str.18, ptr noundef %node_name) #4
-  br label %blockdev_insert_medium.argprom.exit
+  br label %blockdev_insert_medium.exit
 
 if.end8.i:                                        ; preds = %if.end5.i
   tail call fastcc void @qmp_blockdev_insert_anon_medium(ptr noundef %call.i.i, ptr noundef %call2.i, ptr noundef %errp)
-  br label %blockdev_insert_medium.argprom.exit
+  br label %blockdev_insert_medium.exit
 
-blockdev_insert_medium.argprom.exit:              ; preds = %qmp_get_blk.exit.thread.i, %qmp_get_blk.exit.i, %if.then4.i, %if.then7.i, %if.end8.i
+blockdev_insert_medium.exit:                      ; preds = %qmp_get_blk.exit.thread.i, %qmp_get_blk.exit.i, %if.then4.i, %if.then7.i, %if.end8.i
   tail call void @bdrv_graph_rdunlock_main_loop() #4
   ret void
 }

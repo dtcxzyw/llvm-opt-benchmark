@@ -67,7 +67,7 @@ define dso_local ptr @ioam6_namespace(ptr nocapture noundef readonly %0, i16 nou
   %4 = getelementptr inbounds i8, ptr %0, i64 2200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
-  %7 = call fastcc ptr @rhashtable_lookup_fast.argprom(ptr noundef %6, ptr noundef nonnull %3, ptr nonnull @ioam6_ns_cmpfn)
+  %7 = call fastcc ptr @rhashtable_lookup_fast(ptr noundef %6, ptr noundef nonnull %3, ptr nonnull @ioam6_ns_cmpfn)
   ret ptr %7
 }
 
@@ -75,7 +75,7 @@ define dso_local ptr @ioam6_namespace(ptr nocapture noundef readonly %0, i16 nou
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @rhashtable_lookup_fast.argprom(ptr noundef %0, ptr noundef %1, ptr %.32.val) unnamed_addr #2 align 16 {
+define internal fastcc ptr @rhashtable_lookup_fast(ptr noundef %0, ptr noundef %1, ptr %.32.val) unnamed_addr #2 align 16 {
   %3 = alloca %struct.rhashtable_compare_arg, align 8
   %.32.val.fr = freeze ptr %.32.val
   tail call void @__rcu_read_lock() #16
@@ -1148,7 +1148,7 @@ define internal i32 @ioam6_genl_addns(ptr nocapture readnone %0, ptr nocapture n
   %17 = load ptr, ptr %16, align 8
   tail call void @mutex_lock(ptr noundef %17) #16
   %18 = getelementptr inbounds i8, ptr %17, i64 32
-  %19 = call fastcc ptr @rhashtable_lookup_fast.argprom(ptr noundef %18, ptr noundef nonnull %4, ptr nonnull @ioam6_ns_cmpfn)
+  %19 = call fastcc ptr @rhashtable_lookup_fast(ptr noundef %18, ptr noundef nonnull %4, ptr nonnull @ioam6_ns_cmpfn)
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %52
 
@@ -1237,7 +1237,7 @@ define internal range(i32 -22, 1) i32 @ioam6_genl_delns(ptr nocapture readnone %
   %16 = load ptr, ptr %15, align 8
   tail call void @mutex_lock(ptr noundef %16) #16
   %17 = getelementptr inbounds i8, ptr %16, i64 32
-  %18 = call fastcc ptr @rhashtable_lookup_fast.argprom(ptr noundef %17, ptr noundef nonnull %3, ptr nonnull @ioam6_ns_cmpfn)
+  %18 = call fastcc ptr @rhashtable_lookup_fast(ptr noundef %17, ptr noundef nonnull %3, ptr nonnull @ioam6_ns_cmpfn)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %31, label %20
 
@@ -1508,7 +1508,7 @@ define internal i32 @ioam6_genl_addsc(ptr nocapture readnone %0, ptr nocapture n
   %19 = load ptr, ptr %18, align 8
   tail call void @mutex_lock(ptr noundef %19) #16
   %20 = getelementptr inbounds i8, ptr %19, i64 168
-  %21 = call fastcc ptr @rhashtable_lookup_fast.argprom(ptr noundef %20, ptr noundef nonnull %3, ptr nonnull @ioam6_sc_cmpfn)
+  %21 = call fastcc ptr @rhashtable_lookup_fast(ptr noundef %20, ptr noundef nonnull %3, ptr nonnull @ioam6_sc_cmpfn)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %52
 
@@ -1584,7 +1584,7 @@ define internal range(i32 -22, 1) i32 @ioam6_genl_delsc(ptr nocapture readnone %
   %15 = load ptr, ptr %14, align 8
   tail call void @mutex_lock(ptr noundef %15) #16
   %16 = getelementptr inbounds i8, ptr %15, i64 168
-  %17 = call fastcc ptr @rhashtable_lookup_fast.argprom(ptr noundef %16, ptr noundef nonnull %3, ptr nonnull @ioam6_sc_cmpfn)
+  %17 = call fastcc ptr @rhashtable_lookup_fast(ptr noundef %16, ptr noundef nonnull %3, ptr nonnull @ioam6_sc_cmpfn)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %30, label %19
 
@@ -1841,7 +1841,7 @@ define internal noundef range(i32 -22, 1) i32 @ioam6_genl_ns_set_schema(ptr noca
   %25 = load ptr, ptr %24, align 8
   tail call void @mutex_lock(ptr noundef %25) #16
   %26 = getelementptr inbounds i8, ptr %25, i64 32
-  %27 = call fastcc ptr @rhashtable_lookup_fast.argprom(ptr noundef %26, ptr noundef nonnull %3, ptr nonnull @ioam6_ns_cmpfn)
+  %27 = call fastcc ptr @rhashtable_lookup_fast(ptr noundef %26, ptr noundef nonnull %3, ptr nonnull @ioam6_ns_cmpfn)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %58, label %29
 
@@ -1859,7 +1859,7 @@ define internal noundef range(i32 -22, 1) i32 @ioam6_genl_ns_set_schema(ptr noca
   %38 = load i32, ptr %37, align 4
   store i32 %38, ptr %4, align 4
   %39 = getelementptr inbounds i8, ptr %25, i64 168
-  %40 = call fastcc ptr @rhashtable_lookup_fast.argprom(ptr noundef %39, ptr noundef nonnull %4, ptr nonnull @ioam6_sc_cmpfn)
+  %40 = call fastcc ptr @rhashtable_lookup_fast(ptr noundef %39, ptr noundef nonnull %4, ptr nonnull @ioam6_sc_cmpfn)
   %41 = icmp eq ptr %40, null
   br i1 %41, label %58, label %42
 

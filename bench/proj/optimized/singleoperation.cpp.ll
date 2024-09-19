@@ -11061,7 +11061,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit261: ; preds = %160, %173, %_ZN
   br i1 %36, label %190, label %.thread385
 
 190:                                              ; preds = %189
-  switch i32 %30, label %"_ZZNK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEEbENK3$_0clEi.argprom.exit" [
+  switch i32 %30, label %"_ZZNK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEEbENK3$_0clEi.exit" [
     i32 9607, label %191
     i32 9606, label %191
     i32 9603, label %191
@@ -11133,13 +11133,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit265:                 ; preds = %195
   call void @_ZdlPv(ptr noundef nonnull %.pre) #39
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit267
 
-"_ZZNK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEEbENK3$_0clEi.argprom.exit": ; preds = %190
+"_ZZNK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEEbENK3$_0clEi.exit": ; preds = %190
   %211 = icmp eq i32 %30, 9801
   %212 = icmp eq i32 %35, 9802
   %or.cond19 = and i1 %211, %212
   br i1 %or.cond19, label %213, label %223
 
-213:                                              ; preds = %"_ZZNK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEEbENK3$_0clEi.argprom.exit"
+213:                                              ; preds = %"_ZZNK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEEbENK3$_0clEi.exit"
   %214 = load ptr, ptr %0, align 8
   %215 = getelementptr i8, ptr %214, i64 -24
   %216 = load i64, ptr %215, align 8
@@ -11151,7 +11151,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit265:                 ; preds = %195
   %222 = tail call noundef zeroext i1 %221(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %218, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit267
 
-223:                                              ; preds = %"_ZZNK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEEbENK3$_0clEi.argprom.exit"
+223:                                              ; preds = %"_ZZNK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEEbENK3$_0clEi.exit"
   %224 = icmp eq i32 %30, 9804
   %225 = icmp eq i32 %35, 9805
   %or.cond21 = and i1 %224, %225
@@ -31553,7 +31553,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv.exit1578: ; preds = %
 
 .thread2022:                                      ; preds = %_ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv.exit1578.thread, %_ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv.exit1578, %1645
   %1647 = phi ptr [ %1643, %1645 ], [ null, %_ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv.exit1578.thread ], [ null, %_ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv.exit1578 ]
-  invoke fastcc void @"_ZZNK5osgeo4proj9operation15SingleOperation25exportToPROJStringGenericEPNS0_2io19PROJStringFormatterEENK3$_0clERKSt10shared_ptrINS0_3crs3CRSEE.argprom"(ptr %1647)
+  invoke fastcc void @"_ZZNK5osgeo4proj9operation15SingleOperation25exportToPROJStringGenericEPNS0_2io19PROJStringFormatterEENK3$_0clERKSt10shared_ptrINS0_3crs3CRSEE"(ptr %1647)
           to label %1650 unwind label %1648
 
 1648:                                             ; preds = %.thread2022
@@ -31630,7 +31630,7 @@ _ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1590: ; preds = %
 
 .thread2028:                                      ; preds = %_ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1590.thread, %_ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1590, %1675
   %1677 = phi ptr [ %1673, %1675 ], [ null, %_ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1590.thread ], [ null, %_ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv.exit1590 ]
-  invoke fastcc void @"_ZZNK5osgeo4proj9operation15SingleOperation25exportToPROJStringGenericEPNS0_2io19PROJStringFormatterEENK3$_0clERKSt10shared_ptrINS0_3crs3CRSEE.argprom"(ptr %1677)
+  invoke fastcc void @"_ZZNK5osgeo4proj9operation15SingleOperation25exportToPROJStringGenericEPNS0_2io19PROJStringFormatterEENK3$_0clERKSt10shared_ptrINS0_3crs3CRSEE"(ptr %1677)
           to label %1680 unwind label %1678
 
 1678:                                             ; preds = %.thread2028, %1692, %1690, %1689, %1688, %1684, %1683, %1682
@@ -32287,8 +32287,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEEC2ENS0_3
   %1953 = call noundef zeroext i1 @_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(32) %725, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj9operation10INVERSE_OFB5cxx11E) #38
   %1954 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5osgeo4proj9operationL16_getNTv1FilenameB5cxx11EPKNS1_15SingleOperationEb(ptr noundef %0, i1 noundef zeroext true)
   %1955 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5osgeo4proj9operationL16_getNTv2FilenameB5cxx11EPKNS1_15SingleOperationEb(ptr noundef %0, i1 noundef zeroext true)
-  %1956 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5osgeo4proj9operationL19_getCTABLE2FilenameB5cxx11EPKNS1_15SingleOperationEb.argelim(ptr noundef %0)
-  %1957 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5osgeo4proj9operationL32_getHorizontalShiftGTIFFFilenameB5cxx11EPKNS1_15SingleOperationEb.argelim(ptr noundef %0)
+  %1956 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5osgeo4proj9operationL19_getCTABLE2FilenameB5cxx11EPKNS1_15SingleOperationEb(ptr noundef %0)
+  %1957 = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5osgeo4proj9operationL32_getHorizontalShiftGTIFFFilenameB5cxx11EPKNS1_15SingleOperationEb(ptr noundef %0)
   %1958 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1957) #38
   br i1 %1958, label %1959, label %1964
 
@@ -37711,7 +37711,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs8Bou
 declare void @_ZNK5osgeo4proj3crs3CRS20extractGeographicCRSEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.448") align 8, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK5osgeo4proj9operation15SingleOperation25exportToPROJStringGenericEPNS0_2io19PROJStringFormatterEENK3$_0clERKSt10shared_ptrINS0_3crs3CRSEE.argprom"(ptr readonly %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK5osgeo4proj9operation15SingleOperation25exportToPROJStringGenericEPNS0_2io19PROJStringFormatterEENK3$_0clERKSt10shared_ptrINS0_3crs3CRSEE"(ptr readonly %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %.thread, label %2
 
@@ -37904,7 +37904,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5osgeo4proj8internal11starts_w
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5osgeo4proj9operationL19_getCTABLE2FilenameB5cxx11EPKNS1_15SingleOperationEb.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5osgeo4proj9operationL19_getCTABLE2FilenameB5cxx11EPKNS1_15SingleOperationEb(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -37973,7 +37973,7 @@ common.resume:                                    ; preds = %28, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5osgeo4proj9operationL32_getHorizontalShiftGTIFFFilenameB5cxx11EPKNS1_15SingleOperationEb.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZN5osgeo4proj9operationL32_getHorizontalShiftGTIFFFilenameB5cxx11EPKNS1_15SingleOperationEb(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

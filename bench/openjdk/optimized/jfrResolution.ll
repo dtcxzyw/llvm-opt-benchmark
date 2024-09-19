@@ -1166,20 +1166,20 @@ _ZL13exclude_framePK6Method.exit.thread.i:        ; preds = %_ZL13exclude_frameP
 43:                                               ; preds = %42, %_ZL13exclude_framePK6Method.exit.thread.i
   %44 = load ptr, ptr %13, align 8
   %.not8.i.i.i.i.i = icmp eq ptr %44, %14
-  br i1 %.not8.i.i.i.i.i, label %_ZL16find_real_senderR12vframeStreamP10JavaThread.argprom.exit, label %45
+  br i1 %.not8.i.i.i.i.i, label %_ZL16find_real_senderR12vframeStreamP10JavaThread.exit, label %45
 
 45:                                               ; preds = %43
   store ptr %12, ptr %11, align 8
   store ptr %14, ptr %13, align 8
   store ptr %16, ptr %15, align 8
-  br label %_ZL16find_real_senderR12vframeStreamP10JavaThread.argprom.exit
+  br label %_ZL16find_real_senderR12vframeStreamP10JavaThread.exit
 
-_ZL16find_real_senderR12vframeStreamP10JavaThread.argprom.exit: ; preds = %43, %45
+_ZL16find_real_senderR12vframeStreamP10JavaThread.exit: ; preds = %43, %45
   %46 = icmp eq ptr %.0.i, null
   br i1 %46, label %99, label %47
 
-47:                                               ; preds = %_ZL16find_real_senderR12vframeStreamP10JavaThread.argprom.exit, %4
-  %.018 = phi ptr [ %.0.i, %_ZL16find_real_senderR12vframeStreamP10JavaThread.argprom.exit ], [ %6, %4 ]
+47:                                               ; preds = %_ZL16find_real_senderR12vframeStreamP10JavaThread.exit, %4
+  %.018 = phi ptr [ %.0.i, %_ZL16find_real_senderR12vframeStreamP10JavaThread.exit ], [ %6, %4 ]
   %48 = getelementptr inbounds i8, ptr %0, i64 5072
   %49 = load i32, ptr %48, align 8
   store i32 %49, ptr %1, align 4
@@ -1271,8 +1271,8 @@ _ZNK18vframeStreamCommon8frame_idEv.exit22:       ; preds = %84, %94
   store i8 2, ptr %2, align 1
   br label %99
 
-99:                                               ; preds = %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit, %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit.thread, %98, %_ZNK18vframeStreamCommon8frame_idEv.exit22, %_ZL16find_real_senderR12vframeStreamP10JavaThread.argprom.exit
-  %.0 = phi ptr [ null, %_ZL16find_real_senderR12vframeStreamP10JavaThread.argprom.exit ], [ %.018, %_ZNK18vframeStreamCommon8frame_idEv.exit22 ], [ %.018, %98 ], [ %.018, %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit.thread ], [ %.018, %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit ]
+99:                                               ; preds = %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit, %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit.thread, %98, %_ZNK18vframeStreamCommon8frame_idEv.exit22, %_ZL16find_real_senderR12vframeStreamP10JavaThread.exit
+  %.0 = phi ptr [ null, %_ZL16find_real_senderR12vframeStreamP10JavaThread.exit ], [ %.018, %_ZNK18vframeStreamCommon8frame_idEv.exit22 ], [ %.018, %98 ], [ %.018, %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit.thread ], [ %.018, %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit ]
   ret ptr %.0
 }
 

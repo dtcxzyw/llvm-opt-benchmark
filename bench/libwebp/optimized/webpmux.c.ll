@@ -252,7 +252,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %50, i8 0, i64 88, i1 false)
   %53 = call i32 @ExUtilInitCommandLineArguments(i32 noundef %51, ptr noundef nonnull %52, ptr noundef nonnull %50) #12
   %.not.i = icmp eq i32 %53, 0
-  br i1 %.not.i, label %InitializeConfig.argprom.exit.thread, label %54
+  br i1 %.not.i, label %InitializeConfig.exit.thread, label %54
 
 54:                                               ; preds = %2
   %55 = load i32, ptr %50, align 8
@@ -504,17 +504,17 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 148:                                              ; preds = %139, %133, %127, %122, %102, %89, %81, %73, %65
   %149 = load ptr, ptr @stderr, align 8
   %150 = call i64 @fwrite(ptr nonnull @.str, i64 43, i64 1, ptr %149) #14
-  br label %InitializeConfig.argprom.exit.thread
+  br label %InitializeConfig.exit.thread
 
 151:                                              ; preds = %ValidateCommandLine.exit.i
   %152 = load ptr, ptr @stderr, align 8
   %153 = call i64 @fwrite(ptr nonnull @.str.1, i64 32, i64 1, ptr %152) #14
-  br label %InitializeConfig.argprom.exit.thread
+  br label %InitializeConfig.exit.thread
 
 154:                                              ; preds = %ValidateCommandLine.exit.i
   %155 = getelementptr inbounds i8, ptr %50, i64 8
   %156 = load ptr, ptr %155, align 8
-  br i1 %56, label %.lr.ph.i.i, label %ParseCommandLine.argprom.exit.i
+  br i1 %56, label %.lr.ph.i.i, label %ParseCommandLine.exit.i
 
 .lr.ph.i.i:                                       ; preds = %154
   %157 = getelementptr inbounds i8, ptr %50, i64 40
@@ -554,7 +554,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 177:                                              ; preds = %172
   %178 = load ptr, ptr @stderr, align 8
   %179 = call i64 @fwrite(ptr nonnull @.str.20, i64 35, i64 1, ptr %178) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 180:                                              ; preds = %170
   %181 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(10) @.str.15) #13
@@ -569,7 +569,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 185:                                              ; preds = %182
   %186 = load ptr, ptr @stderr, align 8
   %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.21, ptr noundef nonnull %167) #16
-  br label %ParseCommandLine.argprom.exit.i
+  br label %ParseCommandLine.exit.i
 
 188:                                              ; preds = %182
   %189 = load i32, ptr %157, align 8
@@ -589,7 +589,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 192:                                              ; preds = %188
   %193 = load ptr, ptr @stderr, align 8
   %194 = call i64 @fwrite(ptr nonnull @.str.20, i64 35, i64 1, ptr %193) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 195:                                              ; preds = %190, %190
   store i32 5, ptr %159, align 8
@@ -603,7 +603,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 200:                                              ; preds = %190
   %201 = load ptr, ptr @stderr, align 8
   %202 = call i64 @fwrite(ptr nonnull @.str.22, i64 36, i64 1, ptr %201) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 203:                                              ; preds = %180
   %204 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(5) @.str.2) #13
@@ -623,7 +623,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 210:                                              ; preds = %205
   %211 = load ptr, ptr @stderr, align 8
   %212 = call i64 @fwrite(ptr nonnull @.str.20, i64 35, i64 1, ptr %211) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 213:                                              ; preds = %203
   %214 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(7) @.str.6) #13
@@ -644,7 +644,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 220:                                              ; preds = %215
   %221 = load ptr, ptr @stderr, align 8
   %222 = call i64 @fwrite(ptr nonnull @.str.20, i64 35, i64 1, ptr %221) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 223:                                              ; preds = %213
   %224 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(7) @.str.12) #13
@@ -659,7 +659,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 228:                                              ; preds = %225
   %229 = load ptr, ptr @stderr, align 8
   %230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %229, ptr noundef nonnull @.str.21, ptr noundef nonnull %167) #16
-  br label %ParseCommandLine.argprom.exit.i
+  br label %ParseCommandLine.exit.i
 
 231:                                              ; preds = %225
   %232 = load i32, ptr %157, align 8
@@ -679,7 +679,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 235:                                              ; preds = %231
   %236 = load ptr, ptr @stderr, align 8
   %237 = call i64 @fwrite(ptr nonnull @.str.20, i64 35, i64 1, ptr %236) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 238:                                              ; preds = %233, %233
   store i32 4, ptr %159, align 8
@@ -698,7 +698,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 246:                                              ; preds = %233
   %247 = load ptr, ptr @stderr, align 8
   %248 = call i64 @fwrite(ptr nonnull @.str.22, i64 36, i64 1, ptr %247) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 249:                                              ; preds = %223
   %250 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(6) @.str.13) #13
@@ -718,7 +718,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 256:                                              ; preds = %253
   %257 = load ptr, ptr @stderr, align 8
   %258 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %257, ptr noundef nonnull @.str.21, ptr noundef nonnull %167) #16
-  br label %ParseCommandLine.argprom.exit.i
+  br label %ParseCommandLine.exit.i
 
 259:                                              ; preds = %253
   %260 = load i32, ptr %157, align 8
@@ -738,7 +738,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 263:                                              ; preds = %259
   %264 = load ptr, ptr @stderr, align 8
   %265 = call i64 @fwrite(ptr nonnull @.str.20, i64 35, i64 1, ptr %264) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 266:                                              ; preds = %261, %261
   store i32 4, ptr %159, align 8
@@ -757,7 +757,7 @@ ValidateCommandLine.exit.i:                       ; preds = %136
 274:                                              ; preds = %261
   %275 = load ptr, ptr @stderr, align 8
   %276 = call i64 @fwrite(ptr nonnull @.str.22, i64 36, i64 1, ptr %275) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 sub_1.i20.i:                                      ; preds = %251
   %277 = getelementptr inbounds i8, ptr %167, i64 1
@@ -779,7 +779,7 @@ sub_1.i20.i:                                      ; preds = %251
 285:                                              ; preds = %282
   %286 = load ptr, ptr @stderr, align 8
   %287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef nonnull @.str.21, ptr noundef nonnull %167) #16
-  br label %ParseCommandLine.argprom.exit.i
+  br label %ParseCommandLine.exit.i
 
 288:                                              ; preds = %282
   %289 = getelementptr i8, ptr %166, i64 8
@@ -805,7 +805,7 @@ sub_1.i20.i:                                      ; preds = %251
 296:                                              ; preds = %293
   %297 = load ptr, ptr @stderr, align 8
   %298 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %297, ptr noundef nonnull @.str.21, ptr noundef nonnull %167) #16
-  br label %ParseCommandLine.argprom.exit.i
+  br label %ParseCommandLine.exit.i
 
 299:                                              ; preds = %293
   %300 = icmp sgt i32 %55, %294
@@ -814,7 +814,7 @@ sub_1.i20.i:                                      ; preds = %251
 301:                                              ; preds = %299
   %302 = load ptr, ptr @stderr, align 8
   %303 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %302, ptr noundef nonnull @.str.23, ptr noundef nonnull %167) #16
-  br label %ParseCommandLine.argprom.exit.i
+  br label %ParseCommandLine.exit.i
 
 304:                                              ; preds = %299
   %305 = load i32, ptr %157, align 8
@@ -824,7 +824,7 @@ sub_1.i20.i:                                      ; preds = %251
 306:                                              ; preds = %304
   %307 = load ptr, ptr @stderr, align 8
   %308 = call i64 @fwrite(ptr nonnull @.str.20, i64 35, i64 1, ptr %307) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 309:                                              ; preds = %304
   store i32 4, ptr %157, align 8
@@ -885,7 +885,7 @@ sub_111.i.i:                                      ; preds = %317
 330:                                              ; preds = %.tail9.i.i
   %331 = add nsw i32 %55, -1
   %332 = icmp slt i32 %.086.i.i, %331
-  br i1 %332, label %333, label %ParseCommandLine.argprom.exit.i
+  br i1 %332, label %333, label %ParseCommandLine.exit.i
 
 333:                                              ; preds = %330
   %334 = add nsw i32 %.086.i.i, 1
@@ -898,7 +898,7 @@ sub_111.i.i:                                      ; preds = %317
   %339 = getelementptr inbounds ptr, ptr %156, i64 %338
   %340 = load ptr, ptr %339, align 8
   store ptr %340, ptr %158, align 8
-  br label %ParseCommandLine.argprom.exit.i
+  br label %ParseCommandLine.exit.i
 
 341:                                              ; preds = %333
   %342 = load ptr, ptr @stderr, align 8
@@ -906,12 +906,12 @@ sub_111.i.i:                                      ; preds = %317
   %344 = getelementptr inbounds ptr, ptr %156, i64 %343
   %345 = load ptr, ptr %344, align 8
   %346 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %342, ptr noundef nonnull @.str.29, ptr noundef %345) #16
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 .tail9.thread.i.i:                                ; preds = %.tail9.i.i, %sub_111.i.i
   %347 = load ptr, ptr @stderr, align 8
   %348 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %347, ptr noundef nonnull @.str.30, ptr noundef nonnull %167) #16
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 349:                                              ; preds = %161
   %350 = load i32, ptr %157, align 8
@@ -921,7 +921,7 @@ sub_111.i.i:                                      ; preds = %317
 352:                                              ; preds = %349
   %353 = load ptr, ptr @stderr, align 8
   %354 = call i64 @fwrite(ptr nonnull @.str.31, i64 56, i64 1, ptr %353) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 355:                                              ; preds = %349
   %356 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %167, ptr noundef nonnull dereferenceable(4) @.str.32) #13
@@ -961,7 +961,7 @@ sub_111.i.i:                                      ; preds = %317
 370:                                              ; preds = %.thread.i.i, %361
   %371 = load ptr, ptr @stderr, align 8
   %372 = call i64 @fwrite(ptr nonnull @.str.22, i64 36, i64 1, ptr %371) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 373:                                              ; preds = %.thread1.i.i
   %374 = add nsw i32 %.086.i.i, 2
@@ -972,7 +972,7 @@ sub_111.i.i:                                      ; preds = %317
   %377 = load ptr, ptr @stderr, align 8
   %378 = load ptr, ptr %166, align 8
   %379 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %377, ptr noundef nonnull @.str.21, ptr noundef %378) #16
-  br label %ParseCommandLine.argprom.exit.i
+  br label %ParseCommandLine.exit.i
 
 380:                                              ; preds = %373
   %381 = getelementptr i8, ptr %166, i64 8
@@ -1001,7 +1001,7 @@ sub_111.i.i:                                      ; preds = %317
 393:                                              ; preds = %390
   %394 = load ptr, ptr @stderr, align 8
   %395 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %394, ptr noundef nonnull @.str.21, ptr noundef nonnull %167) #16
-  br label %ParseCommandLine.argprom.exit.i
+  br label %ParseCommandLine.exit.i
 
 396:                                              ; preds = %390
   store i32 4, ptr %159, align 8
@@ -1027,7 +1027,7 @@ sub_111.i.i:                                      ; preds = %317
 407:                                              ; preds = %404
   %408 = load ptr, ptr @stderr, align 8
   %409 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %408, ptr noundef nonnull @.str.21, ptr noundef nonnull %167) #16
-  br label %ParseCommandLine.argprom.exit.i
+  br label %ParseCommandLine.exit.i
 
 410:                                              ; preds = %404
   store i32 6, ptr %159, align 8
@@ -1052,7 +1052,7 @@ sub_111.i.i:                                      ; preds = %317
 420:                                              ; preds = %417
   %421 = load ptr, ptr @stderr, align 8
   %422 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %421, ptr noundef nonnull @.str.21, ptr noundef nonnull %167) #16
-  br label %ParseCommandLine.argprom.exit.i
+  br label %ParseCommandLine.exit.i
 
 423:                                              ; preds = %417
   store i32 7, ptr %159, align 8
@@ -1076,26 +1076,26 @@ sub_111.i.i:                                      ; preds = %317
 433:                                              ; preds = %428
   %434 = load ptr, ptr @stderr, align 8
   %435 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %434, ptr noundef nonnull @.str.29, ptr noundef nonnull %167) #16
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 436:                                              ; preds = %431, %423, %410, %396, %385, %380, %309, %288, %266, %238, %218, %208, %195, %175
   %.1209.i.i = phi i32 [ %.020885.i.i, %309 ], [ %.020885.i.i, %288 ], [ %273, %266 ], [ %245, %238 ], [ %.020885.i.i, %218 ], [ %.020885.i.i, %208 ], [ %199, %195 ], [ %.020885.i.i, %175 ], [ %.020885.i.i, %431 ], [ %427, %423 ], [ %414, %410 ], [ %400, %396 ], [ %384, %380 ], [ %.020885.i.i, %385 ]
   %.1.i.i = phi i32 [ %294, %309 ], [ %283, %288 ], [ %254, %266 ], [ %226, %238 ], [ %219, %218 ], [ %209, %208 ], [ %183, %195 ], [ %176, %175 ], [ %432, %431 ], [ %418, %423 ], [ %405, %410 ], [ %391, %396 ], [ %374, %380 ], [ %386, %385 ]
   %437 = icmp slt i32 %.1.i.i, %55
-  br i1 %437, label %161, label %ParseCommandLine.argprom.exit.i, !llvm.loop !7
+  br i1 %437, label %161, label %ParseCommandLine.exit.i, !llvm.loop !7
 
-ParseCommandLine.argprom.exit.i:                  ; preds = %436, %420, %407, %393, %376, %337, %330, %301, %296, %285, %256, %228, %185, %154
+ParseCommandLine.exit.i:                          ; preds = %436, %420, %407, %393, %376, %337, %330, %301, %296, %285, %256, %228, %185, %154
   %438 = getelementptr inbounds i8, ptr %50, i64 40
   %439 = load i32, ptr %438, align 8
   %440 = icmp eq i32 %439, 0
   br i1 %440, label %441, label %444
 
-441:                                              ; preds = %ParseCommandLine.argprom.exit.i
+441:                                              ; preds = %ParseCommandLine.exit.i
   %442 = load ptr, ptr @stderr, align 8
   %443 = call i64 @fwrite(ptr nonnull @.str.38, i64 28, i64 1, ptr %442) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
-444:                                              ; preds = %ParseCommandLine.argprom.exit.i
+444:                                              ; preds = %ParseCommandLine.exit.i
   %445 = getelementptr inbounds i8, ptr %50, i64 64
   %446 = load i32, ptr %445, align 8
   %447 = icmp ne i32 %446, 0
@@ -1106,7 +1106,7 @@ ParseCommandLine.argprom.exit.i:                  ; preds = %436, %420, %407, %3
 448:                                              ; preds = %444
   %449 = load ptr, ptr @stderr, align 8
   %450 = call i64 @fwrite(ptr nonnull @.str.39, i64 29, i64 1, ptr %449) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 451:                                              ; preds = %444
   %452 = getelementptr inbounds i8, ptr %50, i64 48
@@ -1121,7 +1121,7 @@ ParseCommandLine.argprom.exit.i:                  ; preds = %436, %420, %407, %3
 456:                                              ; preds = %455
   %457 = load ptr, ptr @stderr, align 8
   %458 = call i64 @fwrite(ptr nonnull @.str.40, i64 32, i64 1, ptr %457) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 459:                                              ; preds = %455
   %.not10.i.i = icmp eq i32 %446, 4
@@ -1130,26 +1130,26 @@ ParseCommandLine.argprom.exit.i:                  ; preds = %436, %420, %407, %3
 460:                                              ; preds = %459
   %461 = load ptr, ptr @stderr, align 8
   %462 = call i64 @fwrite(ptr nonnull @.str.40, i64 32, i64 1, ptr %461) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
 463:                                              ; preds = %459, %451
   %464 = getelementptr inbounds i8, ptr %50, i64 56
   %465 = load ptr, ptr %464, align 8
   %466 = icmp ne ptr %465, null
   %brmerge.i.i = or i1 %.not.i22.i, %466
-  br i1 %brmerge.i.i, label %InitializeConfig.argprom.exit, label %467
+  br i1 %brmerge.i.i, label %InitializeConfig.exit, label %467
 
 467:                                              ; preds = %463
   %468 = load ptr, ptr @stderr, align 8
   %469 = call i64 @fwrite(ptr nonnull @.str.41, i64 33, i64 1, ptr %468) #14
-  br label %ParseCommandLine.argprom.exit.thread.i
+  br label %ParseCommandLine.exit.thread.i
 
-ParseCommandLine.argprom.exit.thread.i:           ; preds = %467, %460, %456, %448, %441, %433, %370, %352, %.tail9.thread.i.i, %341, %306, %274, %263, %246, %235, %220, %210, %200, %192, %177
+ParseCommandLine.exit.thread.i:                   ; preds = %467, %460, %456, %448, %441, %433, %370, %352, %.tail9.thread.i.i, %341, %306, %274, %263, %246, %235, %220, %210, %200, %192, %177
   %470 = load ptr, ptr @stderr, align 8
   %471 = call i64 @fwrite(ptr nonnull @.str, i64 43, i64 1, ptr %470) #14
-  br label %InitializeConfig.argprom.exit.thread
+  br label %InitializeConfig.exit.thread
 
-InitializeConfig.argprom.exit:                    ; preds = %463
+InitializeConfig.exit:                            ; preds = %463
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42)
@@ -1168,7 +1168,7 @@ InitializeConfig.argprom.exit:                    ; preds = %463
     i32 4, label %970
   ]
 
-472:                                              ; preds = %InitializeConfig.argprom.exit
+472:                                              ; preds = %InitializeConfig.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39)
   %473 = call i32 @ExUtilReadFileToWebPData(ptr noundef %453, ptr noundef nonnull %39) #12
   %.not.i.i10 = icmp eq i32 %473, 0
@@ -1341,7 +1341,7 @@ GetFrame.exit.i:                                  ; preds = %WriteWebP.exit.i.i,
   %560 = call i64 @fwrite(ptr nonnull @.str.43, i64 41, i64 1, ptr %559) #14
   br label %Process.exit
 
-561:                                              ; preds = %InitializeConfig.argprom.exit
+561:                                              ; preds = %InitializeConfig.exit
   switch i32 %446, label %785 [
     i32 4, label %562
     i32 3, label %670
@@ -1502,30 +1502,30 @@ GetFrame.exit.i:                                  ; preds = %WriteWebP.exit.i.i,
   %627 = or i32 %.val12.i.i, %.val.i.i
   %628 = and i32 %627, 1
   %.not.i.i196.i = icmp eq i32 %628, 0
-  br i1 %.not.i.i196.i, label %WarnAboutOddOffset.argprom.exit.i.i, label %629
+  br i1 %.not.i.i196.i, label %WarnAboutOddOffset.exit.i.i, label %629
 
 629:                                              ; preds = %626
   %630 = load ptr, ptr @stderr, align 8
   %631 = and i32 %.val.i.i, -2
   %632 = and i32 %.val12.i.i, -2
   %633 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %630, ptr noundef nonnull @.str.88, i32 noundef %.val.i.i, i32 noundef %.val12.i.i, i32 noundef %631, i32 noundef %632) #16
-  br label %WarnAboutOddOffset.argprom.exit.i.i
+  br label %WarnAboutOddOffset.exit.i.i
 
-WarnAboutOddOffset.argprom.exit.i.i:              ; preds = %629, %626
+WarnAboutOddOffset.exit.i.i:                      ; preds = %629, %626
   %634 = load i32, ptr %28, align 4
   store i32 %634, ptr %571, align 8
   %635 = load i8, ptr %31, align 1
   %.not.i197.i = icmp eq i8 %635, 98
   br i1 %.not.i197.i, label %636, label %638
 
-636:                                              ; preds = %WarnAboutOddOffset.argprom.exit.i.i
+636:                                              ; preds = %WarnAboutOddOffset.exit.i.i
   %637 = load i8, ptr %30, align 1
   switch i8 %637, label %638 [
     i8 45, label %642
     i8 43, label %642
   ]
 
-638:                                              ; preds = %636, %WarnAboutOddOffset.argprom.exit.i.i, %618
+638:                                              ; preds = %636, %WarnAboutOddOffset.exit.i.i, %618
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %30)
@@ -1843,7 +1843,7 @@ WriteWebP.exit.i:                                 ; preds = %798, %791
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   br label %Process.exit
 
-801:                                              ; preds = %InitializeConfig.argprom.exit
+801:                                              ; preds = %InitializeConfig.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   %802 = call i32 @ExUtilReadFileToWebPData(ptr noundef %453, ptr noundef nonnull %19) #12
   %.not.i219.i = icmp eq i32 %802, 0
@@ -2134,7 +2134,7 @@ DuplicateMuxHeader.exit.i:                        ; preds = %853
   call void @WebPMuxDelete(ptr noundef %.0137.i) #12
   br label %Process.exit
 
-928:                                              ; preds = %InitializeConfig.argprom.exit
+928:                                              ; preds = %InitializeConfig.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   %929 = call i32 @ExUtilReadFileToWebPData(ptr noundef %453, ptr noundef nonnull %16) #12
   %.not.i226.i = icmp eq i32 %929, 0
@@ -2217,7 +2217,7 @@ WriteWebP.exit232.i:                              ; preds = %967, %960
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   br label %Process.exit
 
-970:                                              ; preds = %InitializeConfig.argprom.exit
+970:                                              ; preds = %InitializeConfig.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   %971 = call i32 @ExUtilReadFileToWebPData(ptr noundef %453, ptr noundef nonnull %14) #12
   %.not.i233.i = icmp eq i32 %971, 0
@@ -2507,9 +2507,9 @@ DisplayInfo.exit.i:                               ; preds = %.critedge46.i.i, %1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   br label %Process.exit
 
-Process.exit:                                     ; preds = %611, %614, %InitializeConfig.argprom.exit, %CreateMux.exit.thread.i, %GetFrame.exit.i, %544, %555, %558, %574, %594, %608, %638, %647, %655, %663, %CreateMux.exit202.thread.i, %678, %690, %708, %CreateMux.exit206.thread.i, %723, %730, %751, %CreateMux.exit216.thread.i, %772, %778, %785, %WriteWebP.exit.i, %CreateMux.exit222.thread.i, %813, %819, %DuplicateMuxHeader.exit.thread.i, %DuplicateMuxHeader.exit.i, %.loopexit308.i, %CreateMux.exit229.thread.i, %943, %954, %WriteWebP.exit232.i, %CreateMux.exit236.thread.i, %DisplayInfo.exit.i
-  %.0271.i = phi ptr [ null, %InitializeConfig.argprom.exit ], [ %973, %DisplayInfo.exit.i ], [ %931, %WriteWebP.exit232.i ], [ %931, %943 ], [ %931, %954 ], [ %804, %819 ], [ %804, %DuplicateMuxHeader.exit.i ], [ %.2273.i, %.loopexit308.i ], [ %804, %813 ], [ null, %785 ], [ null, %751 ], [ %.1272.i, %WriteWebP.exit.i ], [ %764, %778 ], [ %764, %772 ], [ null, %708 ], [ %715, %730 ], [ %715, %723 ], [ %673, %678 ], [ %673, %690 ], [ null, %574 ], [ %563, %655 ], [ %563, %638 ], [ %563, %647 ], [ %563, %608 ], [ %563, %594 ], [ %563, %663 ], [ %475, %558 ], [ %475, %555 ], [ %475, %544 ], [ %475, %GetFrame.exit.i ], [ null, %CreateMux.exit.thread.i ], [ null, %CreateMux.exit202.thread.i ], [ null, %CreateMux.exit206.thread.i ], [ null, %CreateMux.exit216.thread.i ], [ null, %CreateMux.exit222.thread.i ], [ %804, %DuplicateMuxHeader.exit.thread.i ], [ null, %CreateMux.exit229.thread.i ], [ null, %CreateMux.exit236.thread.i ], [ %563, %614 ], [ %563, %611 ]
-  %.0134.i = phi i32 [ 1, %InitializeConfig.argprom.exit ], [ %.0.i238.i, %DisplayInfo.exit.i ], [ %.0.i231.i, %WriteWebP.exit232.i ], [ 0, %943 ], [ 0, %954 ], [ %823, %819 ], [ %812, %DuplicateMuxHeader.exit.i ], [ %.1135.i, %.loopexit308.i ], [ 0, %813 ], [ 0, %785 ], [ 0, %751 ], [ %.0.i218.i, %WriteWebP.exit.i ], [ 0, %778 ], [ 0, %772 ], [ 0, %708 ], [ 0, %730 ], [ 0, %723 ], [ 0, %678 ], [ 0, %690 ], [ 0, %574 ], [ 0, %655 ], [ 0, %638 ], [ 0, %647 ], [ 0, %608 ], [ 0, %594 ], [ 0, %663 ], [ 0, %558 ], [ %557, %555 ], [ 0, %544 ], [ %538, %GetFrame.exit.i ], [ 0, %CreateMux.exit.thread.i ], [ 0, %CreateMux.exit202.thread.i ], [ 0, %CreateMux.exit206.thread.i ], [ 0, %CreateMux.exit216.thread.i ], [ 0, %CreateMux.exit222.thread.i ], [ %812, %DuplicateMuxHeader.exit.thread.i ], [ 0, %CreateMux.exit229.thread.i ], [ 0, %CreateMux.exit236.thread.i ], [ 0, %614 ], [ 0, %611 ]
+Process.exit:                                     ; preds = %611, %614, %InitializeConfig.exit, %CreateMux.exit.thread.i, %GetFrame.exit.i, %544, %555, %558, %574, %594, %608, %638, %647, %655, %663, %CreateMux.exit202.thread.i, %678, %690, %708, %CreateMux.exit206.thread.i, %723, %730, %751, %CreateMux.exit216.thread.i, %772, %778, %785, %WriteWebP.exit.i, %CreateMux.exit222.thread.i, %813, %819, %DuplicateMuxHeader.exit.thread.i, %DuplicateMuxHeader.exit.i, %.loopexit308.i, %CreateMux.exit229.thread.i, %943, %954, %WriteWebP.exit232.i, %CreateMux.exit236.thread.i, %DisplayInfo.exit.i
+  %.0271.i = phi ptr [ null, %InitializeConfig.exit ], [ %973, %DisplayInfo.exit.i ], [ %931, %WriteWebP.exit232.i ], [ %931, %943 ], [ %931, %954 ], [ %804, %819 ], [ %804, %DuplicateMuxHeader.exit.i ], [ %.2273.i, %.loopexit308.i ], [ %804, %813 ], [ null, %785 ], [ null, %751 ], [ %.1272.i, %WriteWebP.exit.i ], [ %764, %778 ], [ %764, %772 ], [ null, %708 ], [ %715, %730 ], [ %715, %723 ], [ %673, %678 ], [ %673, %690 ], [ null, %574 ], [ %563, %655 ], [ %563, %638 ], [ %563, %647 ], [ %563, %608 ], [ %563, %594 ], [ %563, %663 ], [ %475, %558 ], [ %475, %555 ], [ %475, %544 ], [ %475, %GetFrame.exit.i ], [ null, %CreateMux.exit.thread.i ], [ null, %CreateMux.exit202.thread.i ], [ null, %CreateMux.exit206.thread.i ], [ null, %CreateMux.exit216.thread.i ], [ null, %CreateMux.exit222.thread.i ], [ %804, %DuplicateMuxHeader.exit.thread.i ], [ null, %CreateMux.exit229.thread.i ], [ null, %CreateMux.exit236.thread.i ], [ %563, %614 ], [ %563, %611 ]
+  %.0134.i = phi i32 [ 1, %InitializeConfig.exit ], [ %.0.i238.i, %DisplayInfo.exit.i ], [ %.0.i231.i, %WriteWebP.exit232.i ], [ 0, %943 ], [ 0, %954 ], [ %823, %819 ], [ %812, %DuplicateMuxHeader.exit.i ], [ %.1135.i, %.loopexit308.i ], [ 0, %813 ], [ 0, %785 ], [ 0, %751 ], [ %.0.i218.i, %WriteWebP.exit.i ], [ 0, %778 ], [ 0, %772 ], [ 0, %708 ], [ 0, %730 ], [ 0, %723 ], [ 0, %678 ], [ 0, %690 ], [ 0, %574 ], [ 0, %655 ], [ 0, %638 ], [ 0, %647 ], [ 0, %608 ], [ 0, %594 ], [ 0, %663 ], [ 0, %558 ], [ %557, %555 ], [ 0, %544 ], [ %538, %GetFrame.exit.i ], [ 0, %CreateMux.exit.thread.i ], [ 0, %CreateMux.exit202.thread.i ], [ 0, %CreateMux.exit206.thread.i ], [ 0, %CreateMux.exit216.thread.i ], [ 0, %CreateMux.exit222.thread.i ], [ %812, %DuplicateMuxHeader.exit.thread.i ], [ 0, %CreateMux.exit229.thread.i ], [ 0, %CreateMux.exit236.thread.i ], [ 0, %614 ], [ 0, %611 ]
   call void @WebPMuxDelete(ptr noundef %.0271.i) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
@@ -2524,12 +2524,12 @@ Process.exit:                                     ; preds = %611, %614, %Initial
   %1120 = xor i32 %.0134.i, 1
   br label %1121
 
-InitializeConfig.argprom.exit.thread:             ; preds = %148, %ParseCommandLine.argprom.exit.thread.i, %151, %2
+InitializeConfig.exit.thread:                     ; preds = %148, %ParseCommandLine.exit.thread.i, %151, %2
   call fastcc void @PrintHelp()
   br label %1121
 
-1121:                                             ; preds = %InitializeConfig.argprom.exit.thread, %Process.exit
-  %.0 = phi i32 [ %1120, %Process.exit ], [ 1, %InitializeConfig.argprom.exit.thread ]
+1121:                                             ; preds = %InitializeConfig.exit.thread, %Process.exit
+  %.0 = phi i32 [ %1120, %Process.exit ], [ 1, %InitializeConfig.exit.thread ]
   %1122 = getelementptr inbounds i8, ptr %50, i64 72
   %1123 = load ptr, ptr %1122, align 8
   call void @free(ptr noundef %1123) #12

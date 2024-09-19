@@ -8403,7 +8403,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i393:
   %.val.i = load ptr, ptr %21, align 8
   %2701 = getelementptr inbounds i8, ptr %21, i64 8
   %.val16.i = load ptr, ptr %2701, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_139CheckBestResponsesAgaintGoldenResponsesERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaISA_EERSt13unordered_mapIS9_lSt4hashIS9_ESt8equal_toIS9_ESaIS3_IKS9_lEEE.argprom(ptr %.val.i, ptr %.val16.i, ptr noundef nonnull align 8 dereferenceable(56) %22)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_139CheckBestResponsesAgaintGoldenResponsesERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaISA_EERSt13unordered_mapIS9_lSt4hashIS9_ESt8equal_toIS9_ESaIS3_IKS9_lEEE(ptr %.val.i, ptr %.val16.i, ptr noundef nonnull align 8 dereferenceable(56) %22)
           to label %2702 unwind label %2868
 
 2702:                                             ; preds = %2700
@@ -8555,7 +8555,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %.val17.i = load ptr, ptr %24, align 8
   %2765 = getelementptr inbounds i8, ptr %24, i64 8
   %.val18.i = load ptr, ptr %2765, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_139CheckBestResponsesAgaintGoldenResponsesERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaISA_EERSt13unordered_mapIS9_lSt4hashIS9_ESt8equal_toIS9_ESaIS3_IKS9_lEEE.argprom(ptr %.val17.i, ptr %.val18.i, ptr noundef nonnull align 8 dereferenceable(56) %22)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_139CheckBestResponsesAgaintGoldenResponsesERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaISA_EERSt13unordered_mapIS9_lSt4hashIS9_ESt8equal_toIS9_ESaIS3_IKS9_lEEE(ptr %.val17.i, ptr %.val18.i, ptr noundef nonnull align 8 dereferenceable(56) %22)
           to label %2766 unwind label %2872
 
 2766:                                             ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_lESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i402
@@ -8963,7 +8963,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   %.val = load ptr, ptr %3, align 8
   %23 = getelementptr inbounds i8, ptr %3, i64 8
   %.val8 = load ptr, ptr %23, align 8
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_139CheckBestResponsesAgaintGoldenResponsesERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaISA_EERSt13unordered_mapIS9_lSt4hashIS9_ESt8equal_toIS9_ESaIS3_IKS9_lEEE.argprom(ptr %.val, ptr %.val8, ptr noundef nonnull align 8 dereferenceable(56) %8)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_139CheckBestResponsesAgaintGoldenResponsesERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaISA_EERSt13unordered_mapIS9_lSt4hashIS9_ESt8equal_toIS9_ESaIS3_IKS9_lEEE(ptr %.val, ptr %.val8, ptr noundef nonnull align 8 dereferenceable(56) %8)
           to label %24 unwind label %47
 
 24:                                               ; preds = %22
@@ -9421,7 +9421,7 @@ _ZN10open_spiel10algorithms19TabularBestResponse5ValueERKNS_5StateE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_139CheckBestResponsesAgaintGoldenResponsesERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaISA_EERSt13unordered_mapIS9_lSt4hashIS9_ESt8equal_toIS9_ESaIS3_IKS9_lEEE.argprom(ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_139CheckBestResponsesAgaintGoldenResponsesERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElESaISA_EERSt13unordered_mapIS9_lSt4hashIS9_ESt8equal_toIS9_ESaIS3_IKS9_lEEE(ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

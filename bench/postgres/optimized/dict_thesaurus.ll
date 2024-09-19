@@ -817,22 +817,22 @@ addCompiledLexeme.exit101.i:                      ; preds = %314, %309
 356:                                              ; preds = %.lr.ph195.i
   %357 = icmp ne ptr %355, null
   %..i.i = zext i1 %357 to i32
-  br label %cmpLexeme.argprom.exit.i
+  br label %cmpLexeme.exit.i
 
 358:                                              ; preds = %.lr.ph195.i
   %359 = icmp eq ptr %355, null
-  br i1 %359, label %cmpLexeme.argprom.exit.thread.i, label %360
+  br i1 %359, label %cmpLexeme.exit.thread.i, label %360
 
 360:                                              ; preds = %358
   %361 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.084.val.i, ptr noundef nonnull dereferenceable(1) %355) #11
-  br label %cmpLexeme.argprom.exit.i
+  br label %cmpLexeme.exit.i
 
-cmpLexeme.argprom.exit.i:                         ; preds = %360, %356
+cmpLexeme.exit.i:                                 ; preds = %360, %356
   %.0.i102.i = phi i32 [ %361, %360 ], [ %..i.i, %356 ]
   %362 = icmp eq i32 %.0.i102.i, 0
-  br i1 %362, label %363, label %cmpLexeme.argprom.exit.thread.i
+  br i1 %362, label %363, label %cmpLexeme.exit.thread.i
 
-363:                                              ; preds = %cmpLexeme.argprom.exit.i
+363:                                              ; preds = %cmpLexeme.exit.i
   %364 = getelementptr i8, ptr %.pn192.i, i64 24
   %365 = load ptr, ptr %364, align 8
   %366 = getelementptr inbounds i8, ptr %.4191.i, i64 8
@@ -884,13 +884,13 @@ cmpLexemeInfo.exit.i:                             ; preds = %380, %363
   call void @pfree(ptr noundef nonnull %390) #10
   br label %393
 
-cmpLexeme.argprom.exit.thread.i:                  ; preds = %cmpLexeme.argprom.exit.i, %358
+cmpLexeme.exit.thread.i:                          ; preds = %cmpLexeme.exit.i, %358
   %392 = getelementptr i8, ptr %.4191.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %392, ptr noundef nonnull align 8 dereferenceable(16) %.084193.i, i64 16, i1 false)
   br label %393
 
-393:                                              ; preds = %cmpLexeme.argprom.exit.thread.i, %391, %389
-  %.5.i = phi ptr [ %.4191.i, %391 ], [ %.4191.i, %389 ], [ %392, %cmpLexeme.argprom.exit.thread.i ]
+393:                                              ; preds = %cmpLexeme.exit.thread.i, %391, %389
+  %.5.i = phi ptr [ %.4191.i, %391 ], [ %.4191.i, %389 ], [ %392, %cmpLexeme.exit.thread.i ]
   %.084.i = getelementptr i8, ptr %.084193.i, i64 16
   %394 = load ptr, ptr %342, align 8
   %395 = ptrtoint ptr %.084.i to i64
@@ -1823,22 +1823,22 @@ define internal i32 @cmpTheLexeme(ptr nocapture noundef readonly %0, ptr nocaptu
 5:                                                ; preds = %2
   %6 = icmp ne ptr %4, null
   %..i = zext i1 %6 to i32
-  br label %cmpLexeme.argprom.exit
+  br label %cmpLexeme.exit
 
 7:                                                ; preds = %2
   %8 = icmp eq ptr %4, null
-  br i1 %8, label %cmpLexeme.argprom.exit.thread, label %9
+  br i1 %8, label %cmpLexeme.exit.thread, label %9
 
 9:                                                ; preds = %7
   %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %4) #11
-  br label %cmpLexeme.argprom.exit
+  br label %cmpLexeme.exit
 
-cmpLexeme.argprom.exit:                           ; preds = %5, %9
+cmpLexeme.exit:                                   ; preds = %5, %9
   %.0.i = phi i32 [ %10, %9 ], [ %..i, %5 ]
   %.not = icmp eq i32 %.0.i, 0
-  br i1 %.not, label %11, label %cmpLexeme.argprom.exit.thread
+  br i1 %.not, label %11, label %cmpLexeme.exit.thread
 
-11:                                               ; preds = %cmpLexeme.argprom.exit
+11:                                               ; preds = %cmpLexeme.exit
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1846,7 +1846,7 @@ cmpLexeme.argprom.exit:                           ; preds = %5, %9
   %16 = icmp eq ptr %13, null
   %17 = icmp eq ptr %15, null
   %or.cond.i = or i1 %16, %17
-  br i1 %or.cond.i, label %cmpLexeme.argprom.exit.thread, label %18
+  br i1 %or.cond.i, label %cmpLexeme.exit.thread, label %18
 
 18:                                               ; preds = %11
   %19 = load i32, ptr %13, align 8
@@ -1868,25 +1868,25 @@ cmpLexeme.argprom.exit:                           ; preds = %5, %9
   %31 = getelementptr inbounds i8, ptr %15, i64 6
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %30, %32
-  br i1 %33, label %cmpLexeme.argprom.exit.thread, label %34
+  br i1 %33, label %cmpLexeme.exit.thread, label %34
 
 34:                                               ; preds = %28
   %35 = icmp ugt i16 %30, %32
   %.neg = select i1 %35, i32 -1, i32 1
-  br label %cmpLexeme.argprom.exit.thread
+  br label %cmpLexeme.exit.thread
 
 36:                                               ; preds = %22
   %37 = icmp ugt i16 %24, %26
   %.neg11 = select i1 %37, i32 -1, i32 1
-  br label %cmpLexeme.argprom.exit.thread
+  br label %cmpLexeme.exit.thread
 
 38:                                               ; preds = %18
   %39 = icmp ugt i32 %19, %20
   %.neg12 = select i1 %39, i32 -1, i32 1
-  br label %cmpLexeme.argprom.exit.thread
+  br label %cmpLexeme.exit.thread
 
-cmpLexeme.argprom.exit.thread:                    ; preds = %38, %36, %34, %28, %11, %7, %cmpLexeme.argprom.exit
-  %.0 = phi i32 [ %.0.i, %cmpLexeme.argprom.exit ], [ -1, %7 ], [ %.neg, %34 ], [ %.neg11, %36 ], [ %.neg12, %38 ], [ 0, %11 ], [ 0, %28 ]
+cmpLexeme.exit.thread:                            ; preds = %38, %36, %34, %28, %11, %7, %cmpLexeme.exit
+  %.0 = phi i32 [ %.0.i, %cmpLexeme.exit ], [ -1, %7 ], [ %.neg, %34 ], [ %.neg11, %36 ], [ %.neg12, %38 ], [ 0, %11 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -1902,17 +1902,17 @@ define internal i32 @cmpLexemeQ(ptr nocapture noundef readonly %0, ptr nocapture
 5:                                                ; preds = %2
   %6 = icmp ne ptr %4, null
   %..i = zext i1 %6 to i32
-  br label %cmpLexeme.argprom.exit
+  br label %cmpLexeme.exit
 
 7:                                                ; preds = %2
   %8 = icmp eq ptr %4, null
-  br i1 %8, label %cmpLexeme.argprom.exit, label %9
+  br i1 %8, label %cmpLexeme.exit, label %9
 
 9:                                                ; preds = %7
   %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %4) #11
-  br label %cmpLexeme.argprom.exit
+  br label %cmpLexeme.exit
 
-cmpLexeme.argprom.exit:                           ; preds = %5, %7, %9
+cmpLexeme.exit:                                   ; preds = %5, %7, %9
   %.0.i = phi i32 [ %10, %9 ], [ %..i, %5 ], [ -1, %7 ]
   ret i32 %.0.i
 }

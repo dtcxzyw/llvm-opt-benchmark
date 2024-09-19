@@ -8871,7 +8871,7 @@ if.end408:                                        ; preds = %if.end404, %if.end2
 
 if.then410:                                       ; preds = %if.end408
   %pZip.val216 = load ptr, ptr %m_pState71, align 8
-  call fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename.argprom(i32 %pZip.val, ptr %pZip.val216)
+  call fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(i32 %pZip.val, ptr %pZip.val216)
   br label %return
 
 return:                                           ; preds = %if.end408, %if.then410, %if.then.i445, %if.then.i450, %if.then.i457, %if.then.i464, %if.then.i471, %if.then316, %if.then305, %if.then296, %if.then.i499, %if.then.i506, %if.then.i513, %if.then.i520, %if.then.i527, %if.then.i534, %if.then.i541, %if.then.i548, %if.then.i555, %if.then.i562, %if.then.i569, %if.then.i576, %if.then.i583, %if.then.i590, %if.then.i597, %if.then.i604, %if.then.i611, %if.then.i618, %if.then.i625
@@ -12244,7 +12244,7 @@ if.end171:                                        ; preds = %if.end162
 
 if.end184:                                        ; preds = %if.end171
   %conv172 = trunc nuw i64 %call42 to i16
-  %call186 = call fastcc i32 @mz_zip_writer_add_to_central_dir.argprom.argelim(ptr noundef %pZip, ptr noundef nonnull %pArchive_name, i16 noundef zeroext %conv172, ptr noundef %pComment, i16 noundef zeroext %comment_size, i64 noundef %uncomp_size.addr.0134, i64 noundef %comp_size.0, i32 noundef %uncomp_crc32.addr.0136, i16 noundef zeroext %method.0, i16 noundef zeroext %40, i16 noundef zeroext %41, i64 noundef %add104, i32 noundef %ext_attributes.0)
+  %call186 = call fastcc i32 @mz_zip_writer_add_to_central_dir(ptr noundef %pZip, ptr noundef nonnull %pArchive_name, i16 noundef zeroext %conv172, ptr noundef %pComment, i16 noundef zeroext %comment_size, i64 noundef %uncomp_size.addr.0134, i64 noundef %comp_size.0, i32 noundef %uncomp_crc32.addr.0136, i16 noundef zeroext %method.0, i16 noundef zeroext %40, i16 noundef zeroext %41, i64 noundef %add104, i32 noundef %ext_attributes.0)
   %tobool187.not = icmp eq i32 %call186, 0
   br i1 %tobool187.not, label %return, label %if.end189
 
@@ -12366,7 +12366,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_add_to_central_dir.argprom.argelim(ptr nocapture noundef nonnull readonly %pZip, ptr noundef readonly %pFilename, i16 noundef zeroext %filename_size, ptr noundef readonly %pComment, i16 noundef zeroext %comment_size, i64 noundef %uncomp_size, i64 noundef %comp_size, i32 noundef %uncomp_crc32, i16 noundef zeroext %method, i16 noundef zeroext %dos_time, i16 noundef zeroext %dos_date, i64 noundef %local_header_ofs, i32 noundef %ext_attributes) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_add_to_central_dir(ptr nocapture noundef nonnull readonly %pZip, ptr noundef readonly %pFilename, i16 noundef zeroext %filename_size, ptr noundef readonly %pComment, i16 noundef zeroext %comment_size, i64 noundef %uncomp_size, i64 noundef %comp_size, i32 noundef %uncomp_crc32, i16 noundef zeroext %method, i16 noundef zeroext %dos_time, i16 noundef zeroext %dos_date, i64 noundef %local_header_ofs, i32 noundef %ext_attributes) unnamed_addr #4 {
 entry:
   %central_dir_ofs = alloca i32, align 4
   %central_dir_header = alloca [46 x i8], align 16
@@ -13169,7 +13169,7 @@ if.end191:                                        ; preds = %if.end183
 
 if.end204:                                        ; preds = %if.end191
   %conv192 = trunc nuw i64 %call21 to i16
-  %call206 = call fastcc i32 @mz_zip_writer_add_to_central_dir.argprom.argelim(ptr noundef %pZip, ptr noundef nonnull %pArchive_name, i16 noundef zeroext %conv192, ptr noundef %pComment, i16 noundef zeroext %comment_size, i64 noundef %call50, i64 noundef %comp_size.0, i32 noundef %uncomp_crc32.0, i16 noundef zeroext %method.0, i16 noundef zeroext %33, i16 noundef zeroext %34, i64 noundef %add, i32 noundef %ext_attributes)
+  %call206 = call fastcc i32 @mz_zip_writer_add_to_central_dir(ptr noundef %pZip, ptr noundef nonnull %pArchive_name, i16 noundef zeroext %conv192, ptr noundef %pComment, i16 noundef zeroext %comment_size, i64 noundef %call50, i64 noundef %comp_size.0, i32 noundef %uncomp_crc32.0, i16 noundef zeroext %method.0, i16 noundef zeroext %33, i16 noundef zeroext %34, i64 noundef %add, i32 noundef %ext_attributes)
   %tobool207.not = icmp eq i32 %call206, 0
   br i1 %tobool207.not, label %return, label %if.end209
 
@@ -15013,7 +15013,7 @@ if.end50:                                         ; preds = %if.end29
   %30 = load i64, ptr %header_offset, align 8
   %external_attr = getelementptr inbounds i8, ptr %zip, i64 319592
   %31 = load i32, ptr %external_attr, align 8
-  %call64 = call fastcc i32 @mz_zip_writer_add_to_central_dir.argprom.argelim(ptr noundef %zip, ptr noundef %25, i16 noundef zeroext %conv, ptr noundef nonnull @.str.1, i16 noundef zeroext 0, i64 noundef %26, i64 noundef %27, i32 noundef %28, i16 noundef zeroext %29, i16 noundef zeroext %conv.i, i16 noundef zeroext %conv9.i, i64 noundef %30, i32 noundef %31)
+  %call64 = call fastcc i32 @mz_zip_writer_add_to_central_dir(ptr noundef %zip, ptr noundef %25, i16 noundef zeroext %conv, ptr noundef nonnull @.str.1, i16 noundef zeroext 0, i64 noundef %26, i64 noundef %27, i32 noundef %28, i16 noundef zeroext %29, i16 noundef zeroext %conv.i, i16 noundef zeroext %conv9.i, i64 noundef %30, i32 noundef %31)
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %if.then71, label %if.end67
 
@@ -16266,7 +16266,7 @@ while.end90.i:                                    ; preds = %if.end87.i, %while.
   store i64 %sub92.i, ptr %zip, align 8
   %sub93.i = sub nsw i32 %0, %deleted_entry_num.0.lcssa.i
   store i32 %sub93.i, ptr %m_total_files.i, align 8
-  call fastcc void @zip_central_dir_delete.argelim(ptr noundef %26, ptr noundef %call.i, i32 noundef %0)
+  call fastcc void @zip_central_dir_delete(ptr noundef %26, ptr noundef %call.i, i32 noundef %0)
   call void @free(ptr noundef %call.i) #30
   br label %zip_entries_delete_mark.exit
 
@@ -19167,7 +19167,7 @@ for.end117:                                       ; preds = %for.inc115
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename.argprom(i32 %pZip.16.val, ptr nocapture readonly %pZip.104.val) unnamed_addr #10 {
+define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(i32 %pZip.16.val, ptr nocapture readonly %pZip.104.val) unnamed_addr #10 {
 entry:
   %m_central_dir_offsets = getelementptr inbounds i8, ptr %pZip.104.val, i64 32
   %m_sorted_central_dir_offsets = getelementptr inbounds i8, ptr %pZip.104.val, i64 64
@@ -19593,7 +19593,7 @@ declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #22
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zip_central_dir_delete.argelim(ptr nocapture noundef %pState, ptr nocapture noundef nonnull readonly %deleted_entry_index_array, i32 noundef %entry_num) unnamed_addr #4 {
+define internal fastcc void @zip_central_dir_delete(ptr nocapture noundef %pState, ptr nocapture noundef nonnull readonly %deleted_entry_index_array, i32 noundef %entry_num) unnamed_addr #4 {
 entry:
   %cmp44 = icmp sgt i32 %entry_num, 0
   br i1 %cmp44, label %while.cond1.preheader.lr.ph, label %while.end49

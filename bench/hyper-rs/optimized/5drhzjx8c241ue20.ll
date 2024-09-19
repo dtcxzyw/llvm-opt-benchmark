@@ -40,11 +40,11 @@ define internal void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$
   %12 = icmp ult i64 %11, -9223372036854775807
   tail call void @llvm.assume(i1 %12)
   %13 = icmp eq i64 %9, 0
-  br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.argprom.exit", label %14
+  br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.exit", label %14
 
 14:                                               ; preds = %6
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %9, i64 noundef %11) #14
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.argprom.exit"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.exit"
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds i8, ptr %4, i64 8
@@ -54,16 +54,16 @@ define internal void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$
   %20 = icmp ult i64 %19, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %17, 0
-  br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.argprom.exit4", label %22
+  br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.exit4", label %22
 
 22:                                               ; preds = %15
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %17, i64 noundef %19) #14
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.argprom.exit4"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.argprom.exit4": ; preds = %15, %22
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.exit4": ; preds = %15, %22
   ret void
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.argprom.exit": ; preds = %14, %6
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h952641b8fa9b7806E.exit": ; preds = %14, %6
   resume { ptr, i32 } %7
 }
 
@@ -93,22 +93,22 @@ define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hbe31f20482
 
 6:                                                ; preds = %2
   %7 = inttoptr i64 %1 to ptr
-  br label %_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.argprom.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.exit
 
 8:                                                ; preds = %2
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %10 = tail call noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef %1) #14
-  br label %_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.argprom.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.argprom.exit: ; preds = %6, %8
+_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.exit: ; preds = %6, %8
   %.sroa.05.0.i = phi ptr [ %7, %6 ], [ %10, %8 ]
   %11 = icmp eq ptr %.sroa.05.0.i, null
   br i1 %11, label %13, label %12
 
-12:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.argprom.exit
+12:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.exit
   ret ptr %.sroa.05.0.i
 
-13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.argprom.exit
+13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef %1, i64 noundef %0) #15
   unreachable
 }
@@ -432,7 +432,7 @@ define noundef zeroext i1 @"_ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..
   %9 = select i1 %6, i64 %8, i64 0
   switch i64 %9, label %10 [
     i64 0, label %switch.lookup
-    i64 1, label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.argprom.exit
+    i64 1, label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
     i64 2, label %11
   ]
 
@@ -440,7 +440,7 @@ define noundef zeroext i1 @"_ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..
   unreachable
 
 11:                                               ; preds = %2
-  br label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.argprom.exit
+  br label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
 
 switch.lookup:                                    ; preds = %2
   %12 = zext nneg i8 %4 to i64
@@ -449,9 +449,9 @@ switch.lookup:                                    ; preds = %2
   %13 = zext nneg i8 %4 to i64
   %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E.5", i64 0, i64 %13
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  br label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.argprom.exit
+  br label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
 
-_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.argprom.exit: ; preds = %switch.lookup, %2, %11
+_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit: ; preds = %switch.lookup, %2, %11
   %.sroa.6.0.i = phi i64 [ 22, %11 ], [ 20, %2 ], [ %switch.load, %switch.lookup ]
   %.sroa.0.0.i = phi ptr [ @anon.3ec2cf8333d55addd664f7f348231227.5, %11 ], [ @anon.3ec2cf8333d55addd664f7f348231227.4, %2 ], [ %switch.load2, %switch.lookup ]
   %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.6.0.i)

@@ -494,7 +494,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   %202 = lshr i64 %201, 32
   %203 = xor i64 %202, %201
   %.not.i = icmp eq i64 %198, 8
-  br i1 %.not.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_m.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_m.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %197, %.lr.ph.i
   %indvars.iv7.i = phi i64 [ %indvars.iv.next8.i, %.lr.ph.i ], [ 8, %197 ]
@@ -524,9 +524,9 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   %218 = add i64 %.13.i, %217
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next8.i, %198
-  br i1 %exitcond10.not.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_m.argprom.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond10.not.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_m.exit, label %.lr.ph.i, !llvm.loop !9
 
-_ZL21XXH3_len_129to240_64bPKhmS0_m.argprom.exit:  ; preds = %.lr.ph.i, %197
+_ZL21XXH3_len_129to240_64bPKhmS0_m.exit:          ; preds = %.lr.ph.i, %197
   %.1.lcssa.i = phi i64 [ %203, %197 ], [ %218, %.lr.ph.i ]
   %219 = getelementptr inbounds i8, ptr %0, i64 %1
   %220 = getelementptr inbounds i8, ptr %219, i64 -16
@@ -735,9 +735,9 @@ _ZL21XXH3_len_129to240_64bPKhmS0_m.argprom.exit:  ; preds = %.lr.ph.i, %197
   %334 = add i64 %.0810.i.i, %333
   %335 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %335, 4
-  br i1 %exitcond.not.i.i, label %_ZL17XXH3_hashLong_64bPKhmS0_m.argprom.exit, label %321, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %_ZL17XXH3_hashLong_64bPKhmS0_m.exit, label %321, !llvm.loop !14
 
-_ZL17XXH3_hashLong_64bPKhmS0_m.argprom.exit:      ; preds = %321
+_ZL17XXH3_hashLong_64bPKhmS0_m.exit:              ; preds = %321
   %336 = lshr i64 %334, 37
   %337 = xor i64 %336, %334
   %338 = mul i64 %337, 1609587791953885689
@@ -746,8 +746,8 @@ _ZL17XXH3_hashLong_64bPKhmS0_m.argprom.exit:      ; preds = %321
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   br label %341
 
-341:                                              ; preds = %7, %29, %49, %73, %_ZL17XXH3_hashLong_64bPKhmS0_m.argprom.exit, %_ZL21XXH3_len_129to240_64bPKhmS0_m.argprom.exit, %171
-  %.072 = phi i64 [ %177, %171 ], [ %235, %_ZL21XXH3_len_129to240_64bPKhmS0_m.argprom.exit ], [ %340, %_ZL17XXH3_hashLong_64bPKhmS0_m.argprom.exit ], [ %26, %7 ], [ %47, %29 ], [ %72, %49 ], [ 3244421341483603138, %73 ]
+341:                                              ; preds = %7, %29, %49, %73, %_ZL17XXH3_hashLong_64bPKhmS0_m.exit, %_ZL21XXH3_len_129to240_64bPKhmS0_m.exit, %171
+  %.072 = phi i64 [ %177, %171 ], [ %235, %_ZL21XXH3_len_129to240_64bPKhmS0_m.exit ], [ %340, %_ZL17XXH3_hashLong_64bPKhmS0_m.exit ], [ %26, %7 ], [ %47, %29 ], [ %72, %49 ], [ 3244421341483603138, %73 ]
   ret i64 %.072
 }
 
@@ -1205,7 +1205,7 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   %297 = lshr i64 %296, 32
   %298 = xor i64 %297, %296
   %.not4.i = icmp ult i64 %1, 160
-  br i1 %.not4.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.argprom.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %288, %.lr.ph.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %.lr.ph.i ], [ 160, %288 ]
@@ -1265,9 +1265,9 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   %330 = xor i64 %328, %329
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 32
   %.not.i = icmp ult i64 %1, %indvars.iv.next14.i
-  br i1 %.not.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.argprom.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit, label %.lr.ph.i, !llvm.loop !16
 
-_ZL22XXH3_len_129to240_128bPKhmS0_mm.argprom.exit: ; preds = %.lr.ph.i, %288
+_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
   %.sroa.020.1.lcssa.i = phi i64 [ %293, %288 ], [ %317, %.lr.ph.i ]
   %.sroa.11.1.lcssa.i = phi i64 [ %298, %288 ], [ %330, %.lr.ph.i ]
   %331 = getelementptr inbounds i8, ptr %0, i64 %1
@@ -1563,9 +1563,9 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit421:               ; preds = %481
   %501 = xor i64 %500, %499
   br label %502
 
-502:                                              ; preds = %7, %46, %77, %113, %_ZL14XXH3_mergeAccsPKmPKhm.exit421, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.argprom.exit, %206
-  %.sroa.5.0 = phi i64 [ %249, %206 ], [ %374, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.argprom.exit ], [ %501, %_ZL14XXH3_mergeAccsPKmPKhm.exit421 ], [ %43, %7 ], [ %75, %46 ], [ %112, %77 ], [ -7374073936536430376, %113 ]
-  %.sroa.0.0 = phi i64 [ %243, %206 ], [ %368, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.argprom.exit ], [ %496, %_ZL14XXH3_mergeAccsPKmPKhm.exit421 ], [ %38, %7 ], [ %70, %46 ], [ %106, %77 ], [ 6918025063187695999, %113 ]
+502:                                              ; preds = %7, %46, %77, %113, %_ZL14XXH3_mergeAccsPKmPKhm.exit421, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit, %206
+  %.sroa.5.0 = phi i64 [ %249, %206 ], [ %374, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit ], [ %501, %_ZL14XXH3_mergeAccsPKmPKhm.exit421 ], [ %43, %7 ], [ %75, %46 ], [ %112, %77 ], [ -7374073936536430376, %113 ]
+  %.sroa.0.0 = phi i64 [ %243, %206 ], [ %368, %_ZL22XXH3_len_129to240_128bPKhmS0_mm.exit ], [ %496, %_ZL14XXH3_mergeAccsPKmPKhm.exit421 ], [ %38, %7 ], [ %70, %46 ], [ %106, %77 ], [ 6918025063187695999, %113 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { i64, i64 } %.fca.1.insert

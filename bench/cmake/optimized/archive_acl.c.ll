@@ -677,7 +677,7 @@ define dso_local noundef ptr @archive_acl_to_text_w(ptr nocapture noundef readon
 9:                                                ; preds = %4
   %10 = and i32 %.val, 768
   %.not11.i = icmp eq i32 %10, 0
-  br i1 %.not11.i, label %.split, label %archive_acl_text_want_type.argprom.exit.thread93
+  br i1 %.not11.i, label %.split, label %archive_acl_text_want_type.exit.thread93
 
 11:                                               ; preds = %4
   %.1.i = and i32 %2, 768
@@ -701,7 +701,7 @@ define dso_local noundef ptr @archive_acl_to_text_w(ptr nocapture noundef readon
   %phi.call = phi i64 [ %12, %.split ], [ %14, %.split63 ]
   %.056 = phi i32 [ %2, %.split ], [ %13, %.split63 ]
   %16 = icmp eq i64 %phi.call, 0
-  br i1 %16, label %archive_acl_text_want_type.argprom.exit.thread93, label %17
+  br i1 %16, label %archive_acl_text_want_type.exit.thread93, label %17
 
 17:                                               ; preds = %15
   %18 = and i32 %.056, 8
@@ -717,7 +717,7 @@ define dso_local noundef ptr @archive_acl_to_text_w(ptr nocapture noundef readon
   %23 = tail call ptr @__errno_location() #21
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 12
-  br i1 %25, label %26, label %archive_acl_text_want_type.argprom.exit.thread93
+  br i1 %25, label %26, label %archive_acl_text_want_type.exit.thread93
 
 26:                                               ; preds = %22
   tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
@@ -1214,7 +1214,7 @@ append_entry_w.exit88:                            ; preds = %232, %234
 
 243:                                              ; preds = %239
   call void @free(ptr noundef %20) #19
-  br label %archive_acl_text_want_type.argprom.exit.thread93
+  br label %archive_acl_text_want_type.exit.thread93
 
 244:                                              ; preds = %97, %97, %97, %append_entry_w.exit88, %239, %237, %90
   %.2 = phi i32 [ %.1108, %90 ], [ %.1108, %97 ], [ %236, %append_entry_w.exit88 ], [ %.1108, %239 ], [ %.1108, %237 ], [ %.1108, %97 ], [ %.1108, %97 ]
@@ -1239,13 +1239,13 @@ append_entry_w.exit88:                            ; preds = %232, %234
 
 248:                                              ; preds = %._crit_edge
   %.not73 = icmp eq ptr %1, null
-  br i1 %.not73, label %archive_acl_text_want_type.argprom.exit.thread93, label %249
+  br i1 %.not73, label %archive_acl_text_want_type.exit.thread93, label %249
 
 249:                                              ; preds = %248
   store i64 %246, ptr %1, align 8
-  br label %archive_acl_text_want_type.argprom.exit.thread93
+  br label %archive_acl_text_want_type.exit.thread93
 
-archive_acl_text_want_type.argprom.exit.thread93: ; preds = %9, %248, %249, %22, %15, %243
+archive_acl_text_want_type.exit.thread93:         ; preds = %9, %248, %249, %22, %15, %243
   %.0 = phi ptr [ null, %243 ], [ null, %15 ], [ null, %22 ], [ %20, %249 ], [ %20, %248 ], [ null, %9 ]
   ret ptr %.0
 }
@@ -1537,7 +1537,7 @@ define dso_local noundef ptr @archive_acl_to_text_l(ptr nocapture noundef readon
 10:                                               ; preds = %4
   %11 = and i32 %.val, 768
   %.not11.i = icmp eq i32 %11, 0
-  br i1 %.not11.i, label %.split, label %archive_acl_text_want_type.argprom.exit.thread91
+  br i1 %.not11.i, label %.split, label %archive_acl_text_want_type.exit.thread91
 
 12:                                               ; preds = %4
   %.1.i = and i32 %2, 768
@@ -1561,7 +1561,7 @@ define dso_local noundef ptr @archive_acl_to_text_l(ptr nocapture noundef readon
   %phi.call = phi i64 [ %13, %.split ], [ %15, %.split60 ]
   %.053 = phi i32 [ %2, %.split ], [ %14, %.split60 ]
   %17 = icmp eq i64 %phi.call, 0
-  br i1 %17, label %archive_acl_text_want_type.argprom.exit.thread91, label %18
+  br i1 %17, label %archive_acl_text_want_type.exit.thread91, label %18
 
 18:                                               ; preds = %16
   %19 = and i32 %.053, 8
@@ -1576,7 +1576,7 @@ define dso_local noundef ptr @archive_acl_to_text_l(ptr nocapture noundef readon
   %23 = tail call ptr @__errno_location() #21
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 12
-  br i1 %25, label %26, label %archive_acl_text_want_type.argprom.exit.thread91
+  br i1 %25, label %26, label %archive_acl_text_want_type.exit.thread91
 
 26:                                               ; preds = %22
   tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #23
@@ -1723,7 +1723,7 @@ append_entry.exit:                                ; preds = %29, %64
 
 99:                                               ; preds = %95
   call void @free(ptr noundef %20) #19
-  br label %archive_acl_text_want_type.argprom.exit.thread91
+  br label %archive_acl_text_want_type.exit.thread91
 
 100:                                              ; preds = %95
   %101 = icmp sgt i32 %.1106, 0
@@ -2095,13 +2095,13 @@ append_entry.exit86:                              ; preds = %220, %222
 
 229:                                              ; preds = %._crit_edge
   %.not69 = icmp eq ptr %1, null
-  br i1 %.not69, label %archive_acl_text_want_type.argprom.exit.thread91, label %230
+  br i1 %.not69, label %archive_acl_text_want_type.exit.thread91, label %230
 
 230:                                              ; preds = %229
   store i64 %227, ptr %1, align 8
-  br label %archive_acl_text_want_type.argprom.exit.thread91
+  br label %archive_acl_text_want_type.exit.thread91
 
-archive_acl_text_want_type.argprom.exit.thread91: ; preds = %10, %229, %230, %22, %16, %99
+archive_acl_text_want_type.exit.thread91:         ; preds = %10, %229, %230, %22, %16, %99
   %.0 = phi ptr [ null, %99 ], [ null, %16 ], [ null, %22 ], [ %20, %230 ], [ %20, %229 ], [ null, %10 ]
   ret ptr %.0
 }

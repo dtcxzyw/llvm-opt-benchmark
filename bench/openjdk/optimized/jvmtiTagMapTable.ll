@@ -250,7 +250,7 @@ define hidden void @_ZN16JvmtiTagMapTableC2Ev(ptr nocapture noundef nonnull writ
 define hidden void @_ZN16JvmtiTagMapTable5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 8
   %.not6.i = icmp eq i32 %2, 0
-  br i1 %.not6.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKeylLN6AnyObj15allocation_typeE2EL8MEMFLAGS23EES1_lLS3_2ELS4_23EXadL_ZNS1_8get_hashERKS1_EEXadL_ZNS1_6equalsES7_S7_EEE6unlinkIZN16JvmtiTagMapTable5clearEvE9RemoveAllEEvPT_.argprom.exit, label %.lr.ph4.i
+  br i1 %.not6.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKeylLN6AnyObj15allocation_typeE2EL8MEMFLAGS23EES1_lLS3_2ELS4_23EXadL_ZNS1_8get_hashERKS1_EEXadL_ZNS1_6equalsES7_S7_EEE6unlinkIZN16JvmtiTagMapTable5clearEvE9RemoveAllEEvPT_.exit, label %.lr.ph4.i
 
 .lr.ph4.i:                                        ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -285,9 +285,9 @@ define hidden void @_ZN16JvmtiTagMapTable5clearEv(ptr nocapture noundef nonnull 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKeylLN6AnyObj15allocation_typeE2EL8MEMFLAGS23EES1_lLS3_2ELS4_23EXadL_ZNS1_8get_hashERKS1_EEXadL_ZNS1_6equalsES7_S7_EEE6unlinkIZN16JvmtiTagMapTable5clearEvE9RemoveAllEEvPT_.argprom.exit, label %5, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKeylLN6AnyObj15allocation_typeE2EL8MEMFLAGS23EES1_lLS3_2ELS4_23EXadL_ZNS1_8get_hashERKS1_EEXadL_ZNS1_6equalsES7_S7_EEE6unlinkIZN16JvmtiTagMapTable5clearEvE9RemoveAllEEvPT_.exit, label %5, !llvm.loop !8
 
-_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKeylLN6AnyObj15allocation_typeE2EL8MEMFLAGS23EES1_lLS3_2ELS4_23EXadL_ZNS1_8get_hashERKS1_EEXadL_ZNS1_6equalsES7_S7_EEE6unlinkIZN16JvmtiTagMapTable5clearEvE9RemoveAllEEvPT_.argprom.exit: ; preds = %._crit_edge.i, %1
+_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKeylLN6AnyObj15allocation_typeE2EL8MEMFLAGS23EES1_lLS3_2ELS4_23EXadL_ZNS1_8get_hashERKS1_EEXadL_ZNS1_6equalsES7_S7_EEE6unlinkIZN16JvmtiTagMapTable5clearEvE9RemoveAllEEvPT_.exit: ; preds = %._crit_edge.i, %1
   ret void
 }
 

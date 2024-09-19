@@ -3156,14 +3156,14 @@ if.then.i:                                        ; preds = %for.body
 invoke.cont3.i.i.i.i:                             ; preds = %if.then.i
   %17 = load ptr, ptr %agg.tmp.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %17, null
-  br i1 %cmp.not.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEvRS1_PT_DpOT0_.exit.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i: ; preds = %invoke.cont3.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %17, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %18 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17) #25
-  br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i"
+  br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEvRS1_PT_DpOT0_.exit.i"
 
 lpad2.i.i.i.i:                                    ; preds = %if.then.i
   %19 = landingpad { ptr, i32 }
@@ -3183,7 +3183,7 @@ common.resume:                                    ; preds = %lpad, %lpad22.body,
   %common.resume.op = phi { ptr, i32 } [ %19, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i.i.i.i ], [ %19, %lpad2.i.i.i.i ], [ %32, %lpad17.i.i ], [ %eh.lpad-body, %lpad22.body ], [ %39, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i, %invoke.cont3.i.i.i.i
+"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEvRS1_PT_DpOT0_.exit.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i, %invoke.cont3.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
   %22 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %22, i64 8
@@ -3325,7 +3325,7 @@ unreachable.i.i:                                  ; preds = %invoke.cont19.i.i
   store ptr %add.ptr26.i.i, ptr %_M_end_of_storage.i, align 8
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEERS0_DpOT_.exit"
 
-"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEERS0_DpOT_.exit": ; preds = %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i", %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i"
+"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEERS0_DpOT_.exit": ; preds = %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEvRS1_PT_DpOT0_.exit.i", %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i"
   %inc = add nuw i32 %i.018, 1
   %37 = load ptr, ptr %rep_, align 8
   %parallel_threads11 = getelementptr inbounds i8, ptr %37, i64 1724
@@ -24574,7 +24574,7 @@ entry:
   %6 = load ptr, ptr %pc_rep1.i.i.i.i.i.i, align 8
   %compress_queue2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 312
   %call23.i.i.i.i.i.i = call noundef zeroext i1 @_ZN7rocksdb9WorkQueueIPNS_22BlockBasedTableBuilder22ParallelCompressionRep8BlockRepEE3popERS4_(ptr noundef nonnull align 8 dereferenceable(280) %compress_queue2.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %block_rep.i.i.i.i.i.i)
-  br i1 %call23.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEclEv.argprom.exit"
+  br i1 %call23.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEclEv.exit"
 
 while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.i.i.i.i.i.i
   %7 = load ptr, ptr %block_rep.i.i.i.i.i.i, align 8
@@ -24593,9 +24593,9 @@ while.body.i.i.i.i.i.i:                           ; preds = %entry, %while.body.
   %12 = load ptr, ptr %pc_rep.i.i.i.i.i.i, align 8
   %compress_queue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 312
   %call2.i.i.i.i.i.i = call noundef zeroext i1 @_ZN7rocksdb9WorkQueueIPNS_22BlockBasedTableBuilder22ParallelCompressionRep8BlockRepEE3popERS4_(ptr noundef nonnull align 8 dereferenceable(280) %compress_queue.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %block_rep.i.i.i.i.i.i)
-  br i1 %call2.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEclEv.argprom.exit", !llvm.loop !47
+  br i1 %call2.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEclEv.exit", !llvm.loop !47
 
-"_ZNSt6thread8_InvokerISt5tupleIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEclEv.argprom.exit": ; preds = %while.body.i.i.i.i.i.i, %entry
+"_ZNSt6thread8_InvokerISt5tupleIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEclEv.exit": ; preds = %while.body.i.i.i.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %block_rep.i.i.i.i.i.i)
   ret void
 }

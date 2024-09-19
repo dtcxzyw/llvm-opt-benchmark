@@ -366,7 +366,7 @@ skip_optional:                                    ; preds = %if.end34, %land.lhs
   %use_pymutex.0 = phi i32 [ 1, %if.end12 ], [ %call17, %if.end20 ], [ %call17, %if.end31 ], [ %call17, %land.lhs.true38 ], [ %call17, %if.end34 ]
   %critical_section_length.0 = phi i32 [ 1, %if.end12 ], [ 1, %if.end20 ], [ %call25, %if.end31 ], [ %call25, %land.lhs.true38 ], [ %call25, %if.end34 ]
   %time_ms.0 = phi i32 [ 1000, %if.end12 ], [ 1000, %if.end20 ], [ 1000, %if.end31 ], [ -1, %land.lhs.true38 ], [ %call36, %if.end34 ]
-  %call43 = tail call fastcc ptr @_testinternalcapi_benchmark_locks_impl.argprom(i64 noundef %ival.019, i32 noundef %use_pymutex.0, i32 noundef %critical_section_length.0, i32 noundef %time_ms.0)
+  %call43 = tail call fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %ival.019, i32 noundef %use_pymutex.0, i32 noundef %critical_section_length.0, i32 noundef %time_ms.0)
   br label %exit
 
 exit:                                             ; preds = %land.lhs.true38, %land.lhs.true27, %if.end15, %land.lhs.true8, %lor.lhs.false, %skip_optional
@@ -377,7 +377,7 @@ exit:                                             ; preds = %land.lhs.true38, %l
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @test_lock_benchmark(ptr nocapture readnone %module, ptr nocapture readnone %obj) #0 {
 entry:
-  %call = tail call fastcc ptr @_testinternalcapi_benchmark_locks_impl.argprom(i64 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 100)
+  %call = tail call fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 100)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -415,26 +415,26 @@ for.body:                                         ; preds = %entry, %for.inc
   %i.012 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   %0 = load atomic i8, ptr %once seq_cst, align 1
   %cmp.i = icmp eq i8 %0, 4
-  br i1 %cmp.i, label %_PyOnceFlag_CallOnce.argprom.exit.thread, label %_PyOnceFlag_CallOnce.argprom.exit
+  br i1 %cmp.i, label %_PyOnceFlag_CallOnce.exit.thread, label %_PyOnceFlag_CallOnce.exit
 
-_PyOnceFlag_CallOnce.argprom.exit:                ; preds = %for.body
+_PyOnceFlag_CallOnce.exit:                        ; preds = %for.body
   %call2.i = call i32 @_PyOnceFlag_CallOnceSlow(ptr noundef nonnull %once, ptr noundef nonnull @init_maybe_fail, ptr noundef nonnull %counter) #5
   %cmp1 = icmp ult i32 %i.012, 4
   br i1 %cmp1, label %if.then, label %if.else
 
-_PyOnceFlag_CallOnce.argprom.exit.thread:         ; preds = %for.body
+_PyOnceFlag_CallOnce.exit.thread:                 ; preds = %for.body
   %cmp15 = icmp ult i32 %i.012, 4
   br i1 %cmp15, label %cond.false, label %cond.end6
 
-if.then:                                          ; preds = %_PyOnceFlag_CallOnce.argprom.exit
+if.then:                                          ; preds = %_PyOnceFlag_CallOnce.exit
   %cmp2 = icmp eq i32 %call2.i, -1
   br i1 %cmp2, label %for.inc, label %cond.false
 
-cond.false:                                       ; preds = %_PyOnceFlag_CallOnce.argprom.exit.thread, %if.then
+cond.false:                                       ; preds = %_PyOnceFlag_CallOnce.exit.thread, %if.then
   call void @__assert_fail(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.9, i32 noundef 365, ptr noundef nonnull @__PRETTY_FUNCTION__.test_lock_once) #6
   unreachable
 
-if.else:                                          ; preds = %_PyOnceFlag_CallOnce.argprom.exit
+if.else:                                          ; preds = %_PyOnceFlag_CallOnce.exit
   %cmp3 = icmp eq i32 %call2.i, 0
   br i1 %cmp3, label %cond.end6, label %cond.false5
 
@@ -442,7 +442,7 @@ cond.false5:                                      ; preds = %if.else
   call void @__assert_fail(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.9, i32 noundef 368, ptr noundef nonnull @__PRETTY_FUNCTION__.test_lock_once) #6
   unreachable
 
-cond.end6:                                        ; preds = %_PyOnceFlag_CallOnce.argprom.exit.thread, %if.else
+cond.end6:                                        ; preds = %_PyOnceFlag_CallOnce.exit.thread, %if.else
   %1 = load i32, ptr %counter, align 4
   %cmp7 = icmp eq i32 %1, 5
   br i1 %cmp7, label %for.inc, label %cond.false9
@@ -772,7 +772,7 @@ declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl.argprom(i64 noundef %num_threads, i32 noundef range(i32 0, -2147483648) %use_pymutex, i32 noundef %critical_section_length, i32 noundef %time_ms) unnamed_addr #0 {
+define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %num_threads, i32 noundef range(i32 0, -2147483648) %use_pymutex, i32 noundef %critical_section_length, i32 noundef %time_ms) unnamed_addr #0 {
 entry:
   %bench_data = alloca %struct.bench_data_locks, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %bench_data, i8 0, i64 248, i1 false)

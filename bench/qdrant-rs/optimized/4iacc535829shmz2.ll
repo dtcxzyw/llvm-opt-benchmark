@@ -1811,7 +1811,7 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   %35 = getelementptr inbounds i8, ptr %1, i64 4
   %36 = load float, ptr %35, align 4, !noundef !10
   %37 = fcmp oeq float %34, %36
-  br i1 %37, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.argprom.exit, label %38
+  br i1 %37, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit, label %38
 
 38:                                               ; preds = %32
   store float %36, ptr %33, align 4
@@ -1822,15 +1822,15 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   %.val13 = phi ptr [ %.val13.pre, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ], [ %4, %38 ]
   %.sroa.7.0.ph = phi i64 [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ], [ %8, %38 ]
   %40 = icmp ult i64 %.sroa.7.0.ph, %.val14
-  br i1 %40, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.argprom.exit.i", label %53, !prof !250
+  br i1 %40, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", label %53, !prof !250
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.argprom.exit.i": ; preds = %39
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i": ; preds = %39
   %41 = icmp ne ptr %.val13, null
   tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %.sroa.7.0.ph, 0
-  br i1 %42, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.argprom.exit, label %.lr.ph.preheader.i
+  br i1 %42, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.argprom.exit.i"
+.lr.ph.preheader.i:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i"
   %43 = getelementptr inbounds [0 x { i32, float, float }], ptr %.val13, i64 0, i64 %.sroa.7.0.ph
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load float, ptr %44, align 4, !noundef !10
@@ -1862,9 +1862,9 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   %59 = tail call float @llvm.maxnum.f32(float %.04.i, float %56)
   %60 = icmp eq ptr %.val13, %58
   %or.cond.i = select i1 %57, i1 true, i1 %60
-  br i1 %or.cond.i, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.argprom.exit, label %.lr.ph.i
+  br i1 %or.cond.i, label %_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit, label %.lr.ph.i
 
-_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.argprom.exit: ; preds = %.lr.ph.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.argprom.exit.i", %32
+_ZN6sparse5index12posting_list11PostingList37propagate_max_next_weight_to_the_left17hec35d9b5ff6b23dcE.exit: ; preds = %.lr.ph.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", %32
   ret void
 }
 
@@ -2546,8 +2546,8 @@ attributes #34 = { cold noreturn nounwind }
 !238 = !{!239, !241}
 !239 = distinct !{!239, !240, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h63a9a9f07dd11b65E: argument 0"}
 !240 = distinct !{!240, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h63a9a9f07dd11b65E"}
-!241 = distinct !{!241, !242, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h25a135938e4547f7E.argprom: argument 0"}
-!242 = distinct !{!242, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h25a135938e4547f7E.argprom"}
+!241 = distinct !{!241, !242, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h25a135938e4547f7E: argument 0"}
+!242 = distinct !{!242, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h25a135938e4547f7E"}
 !243 = !{!244}
 !244 = distinct !{!244, !240, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h63a9a9f07dd11b65E: argument 1"}
 !245 = !{!246}

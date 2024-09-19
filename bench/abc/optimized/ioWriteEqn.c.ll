@@ -289,14 +289,14 @@ Io_NtkWriteEqnCos.exit.i:                         ; preds = %100, %Io_NtkWriteEq
   %131 = load i32, ptr %115, align 4
   %132 = sext i32 %131 to i64
   %133 = icmp slt i64 %indvars.iv80.i, %132
-  br i1 %133, label %Extra_ProgressBarUpdate.argprom.exit.i, label %134
+  br i1 %133, label %Extra_ProgressBarUpdate.exit.i, label %134
 
 134:                                              ; preds = %130, %129
   %135 = trunc nuw nsw i64 %indvars.iv80.i to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %115, i32 noundef %135, ptr noundef null) #8
-  br label %Extra_ProgressBarUpdate.argprom.exit.i
+  br label %Extra_ProgressBarUpdate.exit.i
 
-Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %134, %130
+Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
   %.val38.i = load ptr, ptr %124, align 8
   %136 = getelementptr i8, ptr %124, i64 48
   %.val39.i = load ptr, ptr %136, align 8
@@ -319,7 +319,7 @@ Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %134, %130
   %147 = icmp sgt i32 %.val4273.i, 0
   br i1 %147, label %.lr.ph.i13, label %.critedge2.i
 
-.lr.ph.i13:                                       ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+.lr.ph.i13:                                       ; preds = %Extra_ProgressBarUpdate.exit.i
   %148 = getelementptr i8, ptr %124, i64 32
   br label %149
 
@@ -351,7 +351,7 @@ Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %134, %130
   %164 = icmp slt i64 %indvars.iv.next.i15, %163
   br i1 %164, label %149, label %.critedge2.i, !llvm.loop !9
 
-.critedge2.i:                                     ; preds = %149, %Extra_ProgressBarUpdate.argprom.exit.i
+.critedge2.i:                                     ; preds = %149, %Extra_ProgressBarUpdate.exit.i
   %165 = getelementptr inbounds i8, ptr %124, i64 56
   %166 = load ptr, ptr %165, align 8
   tail call void @Hop_ObjPrintEqn(ptr noundef nonnull %37, ptr noundef %166, ptr noundef nonnull %109, i32 noundef 0) #8

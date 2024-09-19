@@ -439,7 +439,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
   %152 = sub nsw i64 0, %151
   %153 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %152
   %154 = load ptr, ptr %153, align 8
-  %155 = call fastcc noundef ptr @_ZL10LowerCTPOPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom(ptr noundef %154, ptr noundef nonnull %1)
+  %155 = call fastcc noundef ptr @_ZL10LowerCTPOPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE(ptr noundef %154, ptr noundef nonnull %1)
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %155) #15
   br label %1306
 
@@ -1856,13 +1856,13 @@ _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit267.i: ; preds =
   %828 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #15
   %829 = load ptr, ptr %36, align 8
   %830 = icmp eq ptr %829, %170
-  br i1 %830, label %_ZL10LowerBSWAPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom.exit, label %831
+  br i1 %830, label %_ZL10LowerBSWAPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.exit, label %831
 
 831:                                              ; preds = %827
   call void @free(ptr noundef %829) #15
-  br label %_ZL10LowerBSWAPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom.exit
+  br label %_ZL10LowerBSWAPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.exit
 
-_ZL10LowerBSWAPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom.exit: ; preds = %827, %831
+_ZL10LowerBSWAPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.exit: ; preds = %827, %831
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %38)
@@ -2025,19 +2025,19 @@ _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit.i106: ; preds =
   %892 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i16 257, ptr %892, align 8
   %893 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef %.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(34) %9)
-  %894 = call fastcc noundef ptr @_ZL10LowerCTPOPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom(ptr noundef %893, ptr noundef %1)
+  %894 = call fastcc noundef ptr @_ZL10LowerCTPOPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE(ptr noundef %893, ptr noundef %1)
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %842) #15
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %841) #15
   %895 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   %896 = load ptr, ptr %5, align 8
   %897 = icmp eq ptr %896, %843
-  br i1 %897, label %_ZL9LowerCTLZRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom.exit, label %898
+  br i1 %897, label %_ZL9LowerCTLZRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.exit, label %898
 
 898:                                              ; preds = %._crit_edge.i
   call void @free(ptr noundef %896) #15
-  br label %_ZL9LowerCTLZRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom.exit
+  br label %_ZL9LowerCTLZRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.exit
 
-_ZL9LowerCTLZRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom.exit: ; preds = %._crit_edge.i, %898
+_ZL9LowerCTLZRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.exit: ; preds = %._crit_edge.i, %898
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -2132,7 +2132,7 @@ _ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
 _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %.lr.ph.i.i.i, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit, %933
   %.0.i116 = phi ptr [ %932, %_ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit ], [ %935, %933 ], [ %935, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  %948 = call fastcc noundef ptr @_ZL10LowerCTPOPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom(ptr noundef %.0.i116, ptr noundef nonnull %1)
+  %948 = call fastcc noundef ptr @_ZL10LowerCTPOPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE(ptr noundef %.0.i116, ptr noundef nonnull %1)
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %948) #15
   br label %1306
 
@@ -2538,7 +2538,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit153:              ; preds = %1140, %1142
   %1189 = getelementptr inbounds i8, ptr %82, i64 24
   %1190 = getelementptr inbounds nuw i8, ptr %1184, i64 8
   %1191 = load ptr, ptr %1190, align 8
-  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE.retelim(ptr noundef nonnull @.str.19, ptr noundef nonnull %1, ptr noundef %82, ptr noundef %1189, ptr noundef %1191)
+  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef nonnull @.str.19, ptr noundef nonnull %1, ptr noundef %82, ptr noundef %1189, ptr noundef %1191)
   br label %1306
 
 1192:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
@@ -2577,7 +2577,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit153:              ; preds = %1140, %1142
   %1221 = getelementptr inbounds i8, ptr %84, i64 24
   %1222 = getelementptr inbounds nuw i8, ptr %1216, i64 8
   %1223 = load ptr, ptr %1222, align 8
-  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE.retelim(ptr noundef nonnull @.str.20, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %1221, ptr noundef %1223)
+  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef nonnull @.str.20, ptr noundef nonnull %1, ptr noundef %84, ptr noundef %1221, ptr noundef %1223)
   br label %1306
 
 1224:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
@@ -2639,7 +2639,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit153:              ; preds = %1140, %1142
   %1275 = load ptr, ptr %1274, align 8
   %1276 = getelementptr inbounds nuw i8, ptr %1275, i64 8
   %1277 = load ptr, ptr %1276, align 8
-  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE.retelim(ptr noundef nonnull @.str.21, ptr noundef nonnull %1, ptr noundef %86, ptr noundef %1269, ptr noundef %1277)
+  call fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef nonnull @.str.21, ptr noundef nonnull %1, ptr noundef %86, ptr noundef %1269, ptr noundef %1277)
   br label %1306
 
 1278:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
@@ -2723,7 +2723,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit153:              ; preds = %1140, %1142
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %1305) #15
   br label %1306
 
-1306:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %1293, %1300, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit125, %1000, %1302, %1292, %1291, %1290, %1289, %1288, %1287, %1286, %1285, %1284, %1283, %1282, %1281, %1280, %1279, %1278, %1224, %1192, %1160, %1152, %1148, %_ZN4llvm11raw_ostreamlsEPKc.exit153, %_ZN4llvm11raw_ostreamlsEPKc.exit147, %_ZN4llvm11raw_ostreamlsEPKc.exit141, %_ZN4llvm11raw_ostreamlsEPKc.exit138, %_ZN4llvm11raw_ostreamlsEPKc.exit128, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit, %_ZL9LowerCTLZRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom.exit, %_ZL10LowerBSWAPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom.exit, %147, %135
+1306:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %1293, %1300, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit125, %1000, %1302, %1292, %1291, %1290, %1289, %1288, %1287, %1286, %1285, %1284, %1283, %1282, %1281, %1280, %1279, %1278, %1224, %1192, %1160, %1152, %1148, %_ZN4llvm11raw_ostreamlsEPKc.exit153, %_ZN4llvm11raw_ostreamlsEPKc.exit147, %_ZN4llvm11raw_ostreamlsEPKc.exit141, %_ZN4llvm11raw_ostreamlsEPKc.exit138, %_ZN4llvm11raw_ostreamlsEPKc.exit128, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit, %_ZL9LowerCTLZRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.exit, %_ZL10LowerBSWAPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.exit, %147, %135
   %1307 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #15
   br label %1308
 
@@ -2828,7 +2828,7 @@ declare void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 
 declare noundef ptr @_ZN4llvm11ConstantInt7getTrueEPNS_4TypeE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL10LowerCTPOPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE.argprom(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL10LowerCTPOPRN4llvm11LLVMContextEPNS_5ValueEPNS_11InstructionE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -3263,7 +3263,7 @@ declare noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef no
 declare noundef ptr @_ZNK4llvm10DataLayout13getIntPtrTypeERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(512), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL15ReplaceCallWithIPPN4llvm5ValueEEPNS0_8CallInstEPKcS5_T_S8_PNS0_4TypeE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::IRBuilder", align 8
   %7 = alloca %"class.llvm::SmallVector.107", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -3498,14 +3498,14 @@ define internal fastcc void @_ZL26ReplaceFPIntrinsicWithCallPN4llvm8CallInstEPKc
   %18 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
   %20 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %19) #15
-  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE.retelim(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %18, ptr noundef %20)
+  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %18, ptr noundef %20)
   br label %35
 
 21:                                               ; preds = %4
   %22 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
   %24 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %23) #15
-  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE.retelim(ptr noundef %2, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %22, ptr noundef %24)
+  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE(ptr noundef %2, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %22, ptr noundef %24)
   br label %35
 
 25:                                               ; preds = %4, %4, %4
@@ -3518,7 +3518,7 @@ define internal fastcc void @_ZL26ReplaceFPIntrinsicWithCallPN4llvm8CallInstEPKc
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
-  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE.retelim(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %26, ptr noundef %34)
+  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %26, ptr noundef %34)
   br label %35
 
 35:                                               ; preds = %25, %21, %17
@@ -3850,7 +3850,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
 declare noundef ptr @_ZN4llvm8CastInst6CreateENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineENS_14InsertPositionE(i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::IRBuilder", align 8
   %7 = alloca %"class.llvm::SmallVector.107", align 8
   %8 = alloca %"class.llvm::Twine", align 8

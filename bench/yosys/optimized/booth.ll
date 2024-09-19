@@ -644,9 +644,9 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge482,
 137:                                              ; preds = %135, %131, %.lr.ph.i
   %138 = load i32, ptr @_ZZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEvE2id, align 4, !noalias !9
   %.not.i.i.i92.i = icmp eq i32 %138, 0
-  br i1 %.not.i.i.i92.i, label %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom.exit.thread.i, label %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom.exit.i
+  br i1 %.not.i.i.i92.i, label %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.exit.thread.i, label %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.exit.i
 
-_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom.exit.thread.i: ; preds = %137
+_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.exit.thread.i: ; preds = %137
   %139 = getelementptr inbounds i8, ptr %128, i64 76
   %140 = load i32, ptr %139, align 4
   %.not236.i = icmp eq i32 %140, 0
@@ -658,7 +658,7 @@ _ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom.exit.thread.i: ; p
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEvE2id) #22, !noalias !9
   br label %.body.i
 
-_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom.exit.i: ; preds = %137
+_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.exit.i: ; preds = %137
   %143 = sext i32 %138 to i64
   %144 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !9
   %145 = getelementptr inbounds i32, ptr %144, i64 %143
@@ -672,7 +672,7 @@ _ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom.exit.i: ; preds = 
   %151 = trunc i8 %150 to i1
   br i1 %151, label %152, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i
 
-152:                                              ; preds = %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom.exit.i
+152:                                              ; preds = %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.exit.i
   %153 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %154 = getelementptr inbounds i32, ptr %153, i64 %143
   %155 = load i32, ptr %154, align 4
@@ -692,7 +692,7 @@ _ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom.exit.i: ; preds = 
   call void @__clang_call_terminate(ptr %161) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %158, %152, %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom.exit.i
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %158, %152, %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.exit.i
   br i1 %.not235.i, label %162, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit225.i
 
 .loopexit169:                                     ; preds = %162, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i78
@@ -705,7 +705,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %158, %152, %_ZZN12_
           cleanup
   br label %.body.i
 
-162:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom.exit.thread.i
+162:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.exit.thread.i
   %163 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %128, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
           to label %164 unwind label %.loopexit169
 
@@ -1447,7 +1447,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
           cleanup
   br label %.body52
 
-406:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit147.i, %567, %525, %418, %416, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.i, %412, %410, %408
+406:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit147.i, %567, %525, %418, %416, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.i, %412, %410, %408
   %407 = landingpad { ptr, i32 }
           cleanup
   br label %645
@@ -1463,14 +1463,14 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 412:                                              ; preds = %410
   %413 = getelementptr inbounds i8, ptr %128, i64 72
   %414 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %413)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.i unwind label %406
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.i unwind label %406
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.i: ; preds = %412
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.i: ; preds = %412
   %415 = select i1 %411, ptr @.str.23, ptr @.str.24
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.22, ptr noundef %414, ptr noundef nonnull %415)
           to label %416 unwind label %406
 
-416:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit.i
+416:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.i
   %. = call i32 @llvm.umax.i32(i32 %400, i32 %401)
   %417 = and i32 %., 1
   %spec.select239.i = add nuw i32 %417, %.
@@ -2312,7 +2312,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i223.i: ; preds 
   call void @_ZdlPv(ptr noundef nonnull %642) #23
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit225.i
 
-_ZN5Yosys5RTLIL7SigSpecD2Ev.exit225.i:            ; preds = %643, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i223.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom.exit.thread.i
+_ZN5Yosys5RTLIL7SigSpecD2Ev.exit225.i:            ; preds = %643, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i223.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.exit.thread.i
   %644 = getelementptr inbounds i8, ptr %.sroa.0230.0238.i, i64 8
   %.not234.i = icmp eq ptr %644, %125
   br i1 %.not234.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
@@ -11672,7 +11672,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i.i:            ; preds = %2618
   %2635 = getelementptr inbounds %"struct.Yosys::RTLIL::SigSpec", ptr %2633, i64 %indvars.iv.i373
   %2636 = getelementptr inbounds i8, ptr %2635, i64 128
   %2637 = getelementptr inbounds i8, ptr %2635, i64 64
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_.argprom(ptr noundef %2615, ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(64) %2635, ptr noundef nonnull align 8 dereferenceable(64) %2637, ptr noundef nonnull align 8 dereferenceable(64) %2636, ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %86, ptr noundef nonnull align 8 dereferenceable(32) %98)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef %2615, ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(64) %2635, ptr noundef nonnull align 8 dereferenceable(64) %2637, ptr noundef nonnull align 8 dereferenceable(64) %2636, ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %86, ptr noundef nonnull align 8 dereferenceable(32) %98)
           to label %2638 unwind label %2897, !noalias !47
 
 2638:                                             ; preds = %2634
@@ -21113,7 +21113,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i856: ; preds = %1845, %1840
           to label %1874 unwind label %2352
 
 1874:                                             ; preds = %1873
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_.argprom(ptr noundef nonnull %1, ptr noundef %194, ptr noundef nonnull align 8 dereferenceable(64) %202, ptr noundef nonnull align 8 dereferenceable(64) %204, ptr noundef nonnull align 8 dereferenceable(64) %206, ptr noundef nonnull align 8 dereferenceable(64) %207, ptr noundef nonnull align 8 dereferenceable(64) %208, ptr noundef nonnull align 8 dereferenceable(32) %209)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef nonnull %1, ptr noundef %194, ptr noundef nonnull align 8 dereferenceable(64) %202, ptr noundef nonnull align 8 dereferenceable(64) %204, ptr noundef nonnull align 8 dereferenceable(64) %206, ptr noundef nonnull align 8 dereferenceable(64) %207, ptr noundef nonnull align 8 dereferenceable(64) %208, ptr noundef nonnull align 8 dereferenceable(32) %209)
           to label %1875 unwind label %2354
 
 1875:                                             ; preds = %1874
@@ -21971,7 +21971,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i1003: ; preds = %2166, %2162
 2180:                                             ; preds = %2177
   %2181 = getelementptr inbounds %"struct.Yosys::RTLIL::SigSpec", ptr %2179, i64 %indvars.iv2446
   %2182 = getelementptr inbounds %"struct.Yosys::RTLIL::SigSpec", ptr %2178, i64 %indvars.iv2446
-  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_.argprom(ptr noundef nonnull %1, ptr noundef %222, ptr noundef nonnull align 8 dereferenceable(64) %229, ptr noundef nonnull align 8 dereferenceable(64) %231, ptr noundef nonnull align 8 dereferenceable(64) %233, ptr noundef nonnull align 8 dereferenceable(64) %2182, ptr noundef nonnull align 8 dereferenceable(64) %2181, ptr noundef nonnull align 8 dereferenceable(32) %235)
+  invoke fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef nonnull %1, ptr noundef %222, ptr noundef nonnull align 8 dereferenceable(64) %229, ptr noundef nonnull align 8 dereferenceable(64) %231, ptr noundef nonnull align 8 dereferenceable(64) %233, ptr noundef nonnull align 8 dereferenceable(64) %2182, ptr noundef nonnull align 8 dereferenceable(64) %2181, ptr noundef nonnull align 8 dereferenceable(32) %235)
           to label %2183 unwind label %2430
 
 2183:                                             ; preds = %2180
@@ -29323,7 +29323,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL7SigSpecEEvT_S4_.exit: ; preds = %_ZSt8_DestroyIN5Yo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115BoothPassWorker14BuildBitwiseFaEPN5Yosys5RTLIL6ModuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS2_7SigSpecESD_SD_SD_SD_RKSA_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -33447,8 +33447,8 @@ attributes #26 = { builtin allocsize(0) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom: argument 0"}
-!11 = distinct !{!11, !"_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv.argprom"}
+!10 = distinct !{!10, !11, !"_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv: argument 0"}
+!11 = distinct !{!11, !"_ZZN12_GLOBAL__N_115BoothPassWorker3runEvENKUlvE_clEv"}
 !12 = !{!"branch_weights", i32 1, i32 1048575}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}

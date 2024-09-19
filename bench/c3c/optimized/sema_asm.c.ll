@@ -167,7 +167,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i8
   switch i8 %9, label %489 [
-    i8 6, label %sema_check_asm_arg_reg.argprom.exit
+    i8 6, label %sema_check_asm_arg_reg.exit
     i8 0, label %10
     i8 1, label %55
     i8 5, label %144
@@ -188,7 +188,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   %16 = load i64, ptr %15, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %16, ptr noundef nonnull @.str.9) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds i8, ptr %13, i64 8
@@ -236,11 +236,11 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   %40 = load ptr, ptr %13, align 8
   %41 = load i64, ptr %39, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %41, ptr noundef nonnull @.str.10, ptr noundef %40) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 42:                                               ; preds = %37
   %43 = trunc i64 %3 to i1
-  br i1 %43, label %44, label %sema_check_asm_arg_reg.argprom.exit
+  br i1 %43, label %44, label %sema_check_asm_arg_reg.exit
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds i8, ptr %13, i64 16
@@ -254,7 +254,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   %53 = load i64, ptr %52, align 8
   %54 = or i64 %50, %53
   store i64 %54, ptr %52, align 8
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 55:                                               ; preds = %6
   %56 = and i64 %3, 4
@@ -265,7 +265,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   %58 = getelementptr inbounds i8, ptr %5, i64 8
   %59 = load i64, ptr %58, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %59, ptr noundef nonnull @.str.11) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds i8, ptr %5, i64 32
@@ -284,7 +284,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
 
 69:                                               ; preds = %60
   %70 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 71776119061217280, i32 0, ptr noundef nonnull %65)
-  br i1 %70, label %71, label %sema_check_asm_arg_reg.argprom.exit
+  br i1 %70, label %71, label %sema_check_asm_arg_reg.exit
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds i8, ptr %65, i64 32
@@ -322,7 +322,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
 
 87:                                               ; preds = %60
   %88 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 71776119061217280, i32 0, ptr noundef nonnull %65)
-  br i1 %88, label %89, label %sema_check_asm_arg_reg.argprom.exit
+  br i1 %88, label %89, label %sema_check_asm_arg_reg.exit
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds i8, ptr %65, i64 32
@@ -341,7 +341,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   %98 = getelementptr inbounds i8, ptr %5, i64 8
   %99 = load i64, ptr %98, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %99, ptr noundef nonnull @.str.12) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 100:                                              ; preds = %89, %85, %83, %81, %79, %77, %71
   %.082.i = phi i32 [ %95, %89 ], [ 128, %71 ], [ 80, %77 ], [ 64, %79 ], [ 32, %81 ], [ 16, %83 ], [ %..i, %85 ]
@@ -353,7 +353,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   %105 = getelementptr inbounds %struct.Expr_, ptr %103, i64 %104
   %.not90.i67 = icmp eq ptr %103, null
   %.not90.i = select i1 %.not.i66, i1 true, i1 %.not90.i67
-  br i1 %.not90.i, label %sema_check_asm_arg_reg.argprom.exit, label %106
+  br i1 %.not90.i, label %sema_check_asm_arg_reg.exit, label %106
 
 106:                                              ; preds = %100
   %107 = getelementptr inbounds i8, ptr %105, i64 24
@@ -366,7 +366,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
 
 110:                                              ; preds = %106
   %111 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 71776119061217280, i32 0, ptr noundef nonnull %105)
-  br i1 %111, label %112, label %sema_check_asm_arg_reg.argprom.exit
+  br i1 %111, label %112, label %sema_check_asm_arg_reg.exit
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds i8, ptr %65, i64 32
@@ -404,7 +404,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
 
 128:                                              ; preds = %106
   %129 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 71776119061217280, i32 0, ptr noundef nonnull %105)
-  br i1 %129, label %130, label %sema_check_asm_arg_reg.argprom.exit
+  br i1 %129, label %130, label %sema_check_asm_arg_reg.exit
 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds i8, ptr %105, i64 32
@@ -419,18 +419,18 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   %138 = getelementptr inbounds i8, ptr %5, i64 8
   %139 = load i64, ptr %138, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %139, ptr noundef nonnull @.str.12) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 140:                                              ; preds = %130, %126, %124, %122, %120, %118, %112
   %.081.i = phi i32 [ %136, %130 ], [ 128, %112 ], [ 80, %118 ], [ 64, %120 ], [ 32, %122 ], [ 16, %124 ], [ %.98.i, %126 ]
   %.not97.i = icmp eq i32 %.082.i, %.081.i
-  br i1 %.not97.i, label %sema_check_asm_arg_reg.argprom.exit, label %141
+  br i1 %.not97.i, label %sema_check_asm_arg_reg.exit, label %141
 
 141:                                              ; preds = %140
   %142 = getelementptr inbounds i8, ptr %105, i64 8
   %143 = load i64, ptr %142, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %143, ptr noundef nonnull @.str.13) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 144:                                              ; preds = %6
   %145 = getelementptr inbounds i8, ptr %5, i64 32
@@ -439,7 +439,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   %148 = zext i32 %146 to i64
   %149 = getelementptr inbounds %struct.Expr_, ptr %147, i64 %148
   %150 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %149) #4
-  br i1 %150, label %151, label %sema_check_asm_arg_reg.argprom.exit
+  br i1 %150, label %151, label %sema_check_asm_arg_reg.exit
 
 151:                                              ; preds = %144
   %152 = getelementptr inbounds i8, ptr %149, i64 16
@@ -525,7 +525,7 @@ max_supported_imm_int.exit.thread.i.i:            ; preds = %max_supported_imm_i
   %188 = load ptr, ptr %2, align 8
   %189 = load i64, ptr %187, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %189, ptr noundef nonnull @.str.16, ptr noundef %188) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 190:                                              ; preds = %max_supported_imm_int.exit.i.i
   %191 = getelementptr inbounds i8, ptr %149, i64 32
@@ -541,7 +541,7 @@ max_supported_imm_int.exit.thread.i.i:            ; preds = %max_supported_imm_i
   %197 = tail call ptr @type_quoted_error_string(ptr noundef nonnull %.037.i.i.i) #4
   %198 = load i64, ptr %195, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %198, ptr noundef nonnull @.str.17, ptr noundef %196, ptr noundef %197) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 199:                                              ; preds = %190
   br i1 %165, label %200, label %205
@@ -567,7 +567,7 @@ switch.lookup:                                    ; preds = %200
   store i64 %208, ptr %7, align 8
   store i64 %.sroa.3.0.i, ptr %145, align 8
   store ptr %.037.i.i.i, ptr %5, align 8
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 .critedge.i:                                      ; preds = %156, %151
   %209 = trunc i64 %3 to i1
@@ -577,7 +577,7 @@ switch.lookup:                                    ; preds = %200
   %211 = getelementptr inbounds i8, ptr %5, i64 8
   %212 = load i64, ptr %211, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %212, ptr noundef nonnull @.str.14) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 .preheader.i:                                     ; preds = %.critedge.i, %.preheader.i.backedge
   %.0.i63.in.i = phi ptr [ %.0.i63.in.i.be, %.preheader.i.backedge ], [ %149, %.critedge.i ]
@@ -696,12 +696,12 @@ sema_reg_int_suported_type.exit.i:                ; preds = %258, %255, %252, %2
   %265 = tail call ptr @type_quoted_error_string(ptr noundef %264) #4
   %266 = load i64, ptr %263, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %266, ptr noundef nonnull @.str.15, ptr noundef %265) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 267:                                              ; preds = %sema_reg_int_suported_type.exit.i
   tail call fastcc void @asm_reg_add_input(ptr noundef %1, ptr noundef nonnull %7)
   store ptr %.0597488.i, ptr %5, align 8
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 268:                                              ; preds = %.thread.thread.i, %.thread.i
   %.059748992.i = phi ptr [ %.05974.i, %.thread.i ], [ %228, %.thread.thread.i ]
@@ -760,12 +760,12 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   %292 = tail call ptr @type_quoted_error_string(ptr noundef %291) #4
   %293 = load i64, ptr %290, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %293, ptr noundef nonnull @.str.15, ptr noundef %292) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 294:                                              ; preds = %sema_reg_float_suported_type.exit.i
   tail call fastcc void @asm_reg_add_input(ptr noundef %1, ptr noundef nonnull %7)
   store ptr %.059748992.i, ptr %5, align 8
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 295:                                              ; preds = %268
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.sema_check_asm_arg_value, ptr noundef nonnull @.str.7, i32 noundef 460) #5
@@ -778,7 +778,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   %300 = load i64, ptr %299, align 8
   %301 = tail call ptr @sema_resolve_symbol(ptr noundef %0, ptr noundef %298, ptr noundef null, i64 %300) #4
   %.not.i42 = icmp eq ptr %301, null
-  br i1 %.not.i42, label %sema_check_asm_arg_reg.argprom.exit, label %302
+  br i1 %.not.i42, label %sema_check_asm_arg_reg.exit, label %302
 
 302:                                              ; preds = %296
   store ptr %301, ptr %297, align 8
@@ -791,7 +791,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 306:                                              ; preds = %302
   %307 = load i64, ptr %299, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %307, ptr noundef nonnull @.str.20) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 308:                                              ; preds = %302
   %309 = getelementptr inbounds i8, ptr %301, i64 72
@@ -818,7 +818,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 320:                                              ; preds = %318
   %321 = load i64, ptr %299, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %321, ptr noundef nonnull @.str.21) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 .critedge.i43:                                    ; preds = %318, %308
   %322 = trunc i64 %3 to i1
@@ -845,7 +845,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 335:                                              ; preds = %330
   %336 = load i64, ptr %299, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %336, ptr noundef nonnull @.str.22) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 337:                                              ; preds = %330
   tail call fastcc void @asm_reg_add_input(ptr noundef %1, ptr noundef nonnull %7)
@@ -866,7 +866,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 344:                                              ; preds = %339
   %345 = load i64, ptr %299, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %345, ptr noundef nonnull @.str.23) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 346:                                              ; preds = %339
   tail call fastcc void @asm_reg_add_output(ptr noundef %1, ptr noundef nonnull %7)
@@ -947,11 +947,11 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 
 382:                                              ; preds = %379
   tail call void (i64, ptr, ...) @sema_error_at(i64 %381, ptr noundef nonnull @.str.24) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 383:                                              ; preds = %379
   tail call void (i64, ptr, ...) @sema_error_at(i64 %381, ptr noundef nonnull @.str.25) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 384:                                              ; preds = %376
   %385 = tail call i32 @type_size(ptr noundef nonnull %.096216.i) #4
@@ -1003,7 +1003,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %393, %390, %384
   %.0.i122.i = phi i32 [ 128, %384 ], [ 80, %390 ], [ 64, %393 ], [ 32, %396 ], [ 16, %399 ], [ %spec.select.i.i61, %402 ]
   %405 = icmp eq i32 %.0.i122.i, %386
-  br i1 %405, label %sema_check_asm_arg_reg.argprom.exit, label %406
+  br i1 %405, label %sema_check_asm_arg_reg.exit, label %406
 
 406:                                              ; preds = %sema_reg_int_suported_type.exit.i49
   br i1 %.not.i.i47, label %407, label %417
@@ -1041,7 +1041,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
   %421 = tail call ptr @type_quoted_error_string(ptr noundef %420) #4
   %422 = load i64, ptr %299, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %422, ptr noundef nonnull @.str.26, ptr noundef %419, ptr noundef %421) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 423:                                              ; preds = %.thread.thread.i62, %.thread.i45
   %.09621519.i = phi ptr [ %.0962.i, %.thread.i45 ], [ %366, %.thread.thread.i62 ]
@@ -1063,28 +1063,28 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
 
 431:                                              ; preds = %428
   tail call void (i64, ptr, ...) @sema_error_at(i64 %430, ptr noundef nonnull @.str.24) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 432:                                              ; preds = %428
   tail call void (i64, ptr, ...) @sema_error_at(i64 %430, ptr noundef nonnull @.str.27) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 433:                                              ; preds = %426
-  %434 = tail call fastcc zeroext i1 @sema_reg_float_suported_type.argelim(i32 %4, ptr noundef nonnull %.09621519.i)
-  br i1 %434, label %sema_check_asm_arg_reg.argprom.exit, label %435
+  %434 = tail call fastcc zeroext i1 @sema_reg_float_suported_type(i32 %4, ptr noundef nonnull %.09621519.i)
+  br i1 %434, label %sema_check_asm_arg_reg.exit, label %435
 
 435:                                              ; preds = %433
   %436 = load ptr, ptr %309, align 8
   %437 = tail call ptr @type_quoted_error_string(ptr noundef %436) #4
   %438 = load i64, ptr %299, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %438, ptr noundef nonnull @.str.28, ptr noundef %437) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 439:                                              ; preds = %423
   %440 = tail call ptr @type_quoted_error_string(ptr noundef %348) #4
   %441 = load i64, ptr %299, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %441, ptr noundef nonnull @.str.29, ptr noundef %440) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 442:                                              ; preds = %6
   %443 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1093,7 +1093,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
   %446 = load i64, ptr %445, align 8
   %447 = tail call ptr @sema_resolve_symbol(ptr noundef %0, ptr noundef %444, ptr noundef null, i64 %446) #4
   %.not.i64 = icmp eq ptr %447, null
-  br i1 %.not.i64, label %sema_check_asm_arg_reg.argprom.exit, label %448
+  br i1 %.not.i64, label %sema_check_asm_arg_reg.exit, label %448
 
 448:                                              ; preds = %442
   store ptr %447, ptr %443, align 8
@@ -1170,13 +1170,13 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
 485:                                              ; preds = %484, %478
   %486 = and i64 %3, 4
   %.not48.i = icmp eq i64 %486, 0
-  br i1 %.not48.i, label %.sink.split.i, label %sema_check_asm_arg_reg.argprom.exit
+  br i1 %.not48.i, label %.sink.split.i, label %sema_check_asm_arg_reg.exit
 
 .sink.split.i:                                    ; preds = %485, %479, %472, %462, %448
   %.str.31.sink.i = phi ptr [ @.str.20, %448 ], [ @.str.21, %462 ], [ @.str.22, %472 ], [ @.str.23, %479 ], [ @.str.31, %485 ]
   %487 = load i64, ptr %445, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %487, ptr noundef nonnull %.str.31.sink.i) #4
-  br label %sema_check_asm_arg_reg.argprom.exit
+  br label %sema_check_asm_arg_reg.exit
 
 488:                                              ; preds = %6
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.sema_check_asm_arg, ptr noundef nonnull @.str.7, i32 noundef 479) #5
@@ -1186,7 +1186,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.sema_check_asm_arg, ptr noundef nonnull @.str.7, i32 noundef 482) #5
   unreachable
 
-sema_check_asm_arg_reg.argprom.exit:              ; preds = %.sink.split.i, %485, %442, %439, %435, %433, %432, %431, %417, %sema_reg_int_suported_type.exit.i49, %383, %382, %344, %335, %320, %306, %296, %294, %sema_reg_float_suported_type.exit.thread.i, %267, %262, %210, %205, %194, %max_supported_imm_int.exit.thread.i.i, %144, %141, %140, %137, %128, %110, %100, %97, %87, %69, %57, %44, %42, %38, %14, %6
+sema_check_asm_arg_reg.exit:                      ; preds = %.sink.split.i, %485, %442, %439, %435, %433, %432, %431, %417, %sema_reg_int_suported_type.exit.i49, %383, %382, %344, %335, %320, %306, %296, %294, %sema_reg_float_suported_type.exit.thread.i, %267, %262, %210, %205, %194, %max_supported_imm_int.exit.thread.i.i, %144, %141, %140, %137, %128, %110, %100, %97, %87, %69, %57, %44, %42, %38, %14, %6
   %.0 = phi i1 [ true, %6 ], [ false, %38 ], [ false, %14 ], [ true, %44 ], [ true, %42 ], [ false, %97 ], [ false, %137 ], [ false, %141 ], [ false, %57 ], [ false, %69 ], [ false, %87 ], [ false, %110 ], [ false, %128 ], [ true, %140 ], [ true, %100 ], [ false, %210 ], [ true, %267 ], [ false, %262 ], [ true, %294 ], [ false, %sema_reg_float_suported_type.exit.thread.i ], [ false, %144 ], [ true, %205 ], [ false, %194 ], [ false, %max_supported_imm_int.exit.thread.i.i ], [ false, %306 ], [ false, %320 ], [ false, %335 ], [ false, %344 ], [ false, %417 ], [ false, %382 ], [ false, %383 ], [ false, %435 ], [ false, %431 ], [ false, %432 ], [ false, %439 ], [ false, %296 ], [ true, %sema_reg_int_suported_type.exit.i49 ], [ true, %433 ], [ false, %442 ], [ true, %485 ], [ false, %.sink.split.i ]
   ret i1 %.0
 }
@@ -1418,7 +1418,7 @@ asm_add_input.exit:                               ; preds = %68, %72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @sema_reg_float_suported_type.argelim(i32 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @sema_reg_float_suported_type(i32 %0, ptr noundef %1) unnamed_addr #0 {
   %3 = and i32 %0, 65535
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %22, label %4

@@ -441,7 +441,7 @@ define dso_local void @_ZNK4llvm13AArch64MCExpr24fixELFSymbolsInTLSFixupsERNS_11
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @_ZL28fixELFSymbolsInTLSFixupsImplPKN4llvm6MCExprERNS_11MCAssemblerE.argprom(ptr noundef %8)
+  tail call fastcc void @_ZL28fixELFSymbolsInTLSFixupsImplPKN4llvm6MCExprERNS_11MCAssemblerE(ptr noundef %8)
   br label %9
 
 9:                                                ; preds = %2, %6
@@ -449,7 +449,7 @@ define dso_local void @_ZNK4llvm13AArch64MCExpr24fixELFSymbolsInTLSFixupsERNS_11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28fixELFSymbolsInTLSFixupsImplPKN4llvm6MCExprERNS_11MCAssemblerE.argprom(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @_ZL28fixELFSymbolsInTLSFixupsImplPKN4llvm6MCExprERNS_11MCAssemblerE(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
@@ -464,7 +464,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 3:                                                ; preds = %tailrecurse
   %4 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %5 = load ptr, ptr %4, align 8
-  tail call fastcc void @_ZL28fixELFSymbolsInTLSFixupsImplPKN4llvm6MCExprERNS_11MCAssemblerE.argprom(ptr noundef %5)
+  tail call fastcc void @_ZL28fixELFSymbolsInTLSFixupsImplPKN4llvm6MCExprERNS_11MCAssemblerE(ptr noundef %5)
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse, %3

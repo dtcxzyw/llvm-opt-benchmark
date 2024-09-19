@@ -26,7 +26,7 @@ define double @SparseMatrix_solve(ptr noundef %0, i32 noundef %1, ptr nocapture 
 18:                                               ; preds = %6
   %19 = load ptr, ptr @stderr, align 8
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str, i64 noundef %17, i64 noundef 8) #10
-  tail call fastcc void @graphviz_exit.argelim() #11
+  tail call fastcc void @graphviz_exit() #11
   unreachable
 
 21:                                               ; preds = %6
@@ -40,7 +40,7 @@ define double @SparseMatrix_solve(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %26 = load ptr, ptr @stderr, align 8
   %27 = shl nuw nsw i64 %17, 3
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.1, i64 noundef %27) #10
-  tail call fastcc void @graphviz_exit.argelim() #11
+  tail call fastcc void @graphviz_exit() #11
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %21
@@ -107,7 +107,7 @@ diag_precon_new.exit:                             ; preds = %.loopexit.i, %gv_ca
 50:                                               ; preds = %diag_precon_new.exit
   %51 = load ptr, ptr @stderr, align 8
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str, i64 noundef %49, i64 noundef 8) #10
-  tail call fastcc void @graphviz_exit.argelim() #11
+  tail call fastcc void @graphviz_exit() #11
   unreachable
 
 53:                                               ; preds = %diag_precon_new.exit
@@ -121,7 +121,7 @@ diag_precon_new.exit:                             ; preds = %.loopexit.i, %gv_ca
   %58 = load ptr, ptr @stderr, align 8
   %59 = shl nuw nsw i64 %49, 3
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.1, i64 noundef %59) #10
-  tail call fastcc void @graphviz_exit.argelim() #11
+  tail call fastcc void @graphviz_exit() #11
   unreachable
 
 gv_calloc.exit.i13:                               ; preds = %53
@@ -147,7 +147,7 @@ gv_calloc.exit45.preheader.i:                     ; preds = %gv_calloc.exit.i13
   %69 = load ptr, ptr @stderr, align 8
   %70 = shl nuw nsw i64 %49, 3
   %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.1, i64 noundef %70) #10
-  tail call fastcc void @graphviz_exit.argelim() #11
+  tail call fastcc void @graphviz_exit() #11
   unreachable
 
 .preheader.i:                                     ; preds = %gv_calloc.exit45.i, %.preheader.lr.ph.i
@@ -188,7 +188,7 @@ gv_calloc.exit.i.thread.i:                        ; preds = %.preheader.i
 84:                                               ; preds = %._crit_edge.i
   %85 = load ptr, ptr @stderr, align 8
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.1, i64 noundef %66) #10
-  call fastcc void @graphviz_exit.argelim() #11
+  call fastcc void @graphviz_exit() #11
   unreachable
 
 gv_calloc.exit.i.i:                               ; preds = %._crit_edge.i
@@ -199,7 +199,7 @@ gv_calloc.exit.i.i:                               ; preds = %._crit_edge.i
 89:                                               ; preds = %gv_calloc.exit.i.i
   %90 = load ptr, ptr @stderr, align 8
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.1, i64 noundef %66) #10
-  call fastcc void @graphviz_exit.argelim() #11
+  call fastcc void @graphviz_exit() #11
   unreachable
 
 92:                                               ; preds = %gv_calloc.exit.i.i, %gv_calloc.exit.i.thread.i
@@ -214,7 +214,7 @@ gv_calloc.exit.i.i:                               ; preds = %._crit_edge.i
 97:                                               ; preds = %92
   %98 = load ptr, ptr @stderr, align 8
   %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.1, i64 noundef %66) #10
-  call fastcc void @graphviz_exit.argelim() #11
+  call fastcc void @graphviz_exit() #11
   unreachable
 
 gv_calloc.exit56.i.i:                             ; preds = %92
@@ -226,7 +226,7 @@ gv_calloc.exit56.i.i:                             ; preds = %92
 102:                                              ; preds = %gv_calloc.exit56.i.i
   %103 = load ptr, ptr @stderr, align 8
   %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.1, i64 noundef %66) #10
-  call fastcc void @graphviz_exit.argelim() #11
+  call fastcc void @graphviz_exit() #11
   unreachable
 
 gv_calloc.exit59.i.i:                             ; preds = %gv_calloc.exit56.i.i
@@ -355,7 +355,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #3 {
+define internal fastcc void @graphviz_exit() unnamed_addr #3 {
   tail call void @exit(i32 noundef 1) #14
   unreachable
 }

@@ -70,7 +70,7 @@ define noundef range(i32 0, 2) i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noun
 
 16:                                               ; preds = %7
   %17 = tail call noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef nonnull %0)
-  %18 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb.argelim(ptr noundef %17, ptr noundef %12, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %13)
+  %18 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %17, ptr noundef %12, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %13)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread, label %20
 
@@ -82,12 +82,12 @@ define noundef range(i32 0, 2) i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noun
   %indvars.iv29.i = phi i64 [ 0, %20 ], [ %indvars.iv.next30.i, %29 ]
   br label %22
 
-22:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.argprom.exit.i, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.argprom.exit.i ]
+22:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
   %23 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
   %24 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %17, ptr noundef %23)
   %.not25.not.i = icmp eq i32 %24, 0
-  br i1 %.not25.not.i, label %25, label %_ZL9xtc_checkPKcbS0_i.argprom.exit.i
+  br i1 %.not25.not.i, label %25, label %_ZL9xtc_checkPKcbS0_i.exit.i
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @debug, align 8
@@ -98,12 +98,12 @@ define noundef range(i32 0, 2) i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noun
   %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %26, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 150) #8
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread
 
-_ZL9xtc_checkPKcbS0_i.argprom.exit.i:             ; preds = %22
+_ZL9xtc_checkPKcbS0_i.exit.i:                     ; preds = %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not, label %29, label %22, !llvm.loop !5
 
-29:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.argprom.exit.i
+29:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next30.i, 3
   br i1 %exitcond16.not, label %30, label %.preheader.i, !llvm.loop !7
@@ -136,7 +136,7 @@ _ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread:     ; preds = %27, %25, %32, %34, 
 declare noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %0, ptr noundef nonnull %1)
   %9 = icmp eq i32 %8, 0
@@ -145,7 +145,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL10xtc_headerP3XDRPiS1_PlP
 10:                                               ; preds = %6
   %11 = tail call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %0, ptr noundef %2)
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %_ZL9xtc_checkPKcbS0_i.argprom.exit
+  br i1 %.not, label %12, label %_ZL9xtc_checkPKcbS0_i.exit
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr @debug, align 8
@@ -156,7 +156,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL10xtc_headerP3XDRPiS1_PlP
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 117) #8
   br label %.critedge
 
-_ZL9xtc_checkPKcbS0_i.argprom.exit:               ; preds = %10
+_ZL9xtc_checkPKcbS0_i.exit:                       ; preds = %10
   %16 = load i64, ptr %3, align 8
   %17 = trunc i64 %16 to i32
   store i32 %17, ptr %7, align 4
@@ -164,22 +164,22 @@ _ZL9xtc_checkPKcbS0_i.argprom.exit:               ; preds = %10
   %.not27 = icmp eq i32 %18, 0
   br i1 %.not27, label %19, label %25
 
-19:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.argprom.exit
+19:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit
   %20 = load ptr, ptr @debug, align 8
   %.not.i18 = icmp eq ptr %20, null
-  br i1 %.not.i18, label %_ZL9xtc_checkPKcbS0_i.argprom.exit20.thread, label %21
+  br i1 %.not.i18, label %_ZL9xtc_checkPKcbS0_i.exit20.thread, label %21
 
 21:                                               ; preds = %19
   %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %20, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 124) #8
-  br label %_ZL9xtc_checkPKcbS0_i.argprom.exit20.thread
+  br label %_ZL9xtc_checkPKcbS0_i.exit20.thread
 
-_ZL9xtc_checkPKcbS0_i.argprom.exit20.thread:      ; preds = %21, %19
+_ZL9xtc_checkPKcbS0_i.exit20.thread:              ; preds = %21, %19
   %23 = load i32, ptr %7, align 4
   %24 = sext i32 %23 to i64
   store i64 %24, ptr %3, align 8
   br label %.critedge
 
-25:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.argprom.exit
+25:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit
   %26 = load i32, ptr %7, align 4
   %27 = sext i32 %26 to i64
   store i64 %27, ptr %3, align 8
@@ -196,8 +196,8 @@ _ZL9xtc_checkPKcbS0_i.argprom.exit20.thread:      ; preds = %21, %19
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %30, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 129) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %12, %14, %31, %29, %25, %_ZL9xtc_checkPKcbS0_i.argprom.exit20.thread
-  %.1 = phi i32 [ 0, %_ZL9xtc_checkPKcbS0_i.argprom.exit20.thread ], [ 0, %31 ], [ 0, %29 ], [ 1, %25 ], [ 0, %14 ], [ 0, %12 ]
+.critedge:                                        ; preds = %12, %14, %31, %29, %25, %_ZL9xtc_checkPKcbS0_i.exit20.thread
+  %.1 = phi i32 [ 0, %_ZL9xtc_checkPKcbS0_i.exit20.thread ], [ 0, %31 ], [ 0, %29 ], [ 1, %25 ], [ 0, %14 ], [ 0, %12 ]
   %33 = trunc nuw nsw i32 %.1 to i8
   store i8 %33, ptr %5, align 1
   br label %34
@@ -224,7 +224,7 @@ define noundef range(i32 0, 2) i32 @_Z14read_first_xtcP8t_fileioPiPlPfPA3_fPS5_S
   %10 = alloca i32, align 4
   store i8 1, ptr %7, align 1
   %11 = tail call noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef %0)
-  %12 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb.argelim(ptr noundef %11, ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
+  %12 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %11, ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %38, label %13
 
@@ -263,12 +263,12 @@ _ZL15check_xtc_magici.exit:                       ; preds = %13, %13
   %indvars.iv29.i = phi i64 [ 0, %_ZL15check_xtc_magici.exit ], [ %indvars.iv.next30.i, %30 ]
   br label %23
 
-23:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.argprom.exit.i, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.argprom.exit.i ]
+23:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
   %24 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
   %25 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %11, ptr noundef %24)
   %.not25.not.i = icmp eq i32 %25, 0
-  br i1 %.not25.not.i, label %26, label %_ZL9xtc_checkPKcbS0_i.argprom.exit.i
+  br i1 %.not25.not.i, label %26, label %_ZL9xtc_checkPKcbS0_i.exit.i
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @debug, align 8
@@ -279,12 +279,12 @@ _ZL15check_xtc_magici.exit:                       ; preds = %13, %13
   %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 150) #8
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
 
-_ZL9xtc_checkPKcbS0_i.argprom.exit.i:             ; preds = %23
+_ZL9xtc_checkPKcbS0_i.exit.i:                     ; preds = %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not, label %30, label %23, !llvm.loop !5
 
-30:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.argprom.exit.i
+30:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next30.i, 3
   br i1 %exitcond16.not, label %31, label %.preheader.i, !llvm.loop !7
@@ -442,7 +442,7 @@ define noundef range(i32 0, 2) i32 @_Z13read_next_xtcP8t_fileioiPlPfPA3_fS4_S2_P
   store i32 %1, ptr %10, align 4
   store i8 1, ptr %7, align 1
   %14 = tail call noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef %0)
-  %15 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb.argelim(ptr noundef %14, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
+  %15 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %14, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %44, label %16
 
@@ -497,12 +497,12 @@ _ZL15check_xtc_magici.exit:                       ; preds = %16, %16
   %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %36 ], [ 0, %_ZL15check_xtc_magici.exit ]
   br label %29
 
-29:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.argprom.exit.i, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.argprom.exit.i ]
+29:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZL9xtc_checkPKcbS0_i.exit.i ]
   %30 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv29.i, i64 %indvars.iv.i
   %31 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %14, ptr noundef %30)
   %.not25.not.i = icmp eq i32 %31, 0
-  br i1 %.not25.not.i, label %32, label %_ZL9xtc_checkPKcbS0_i.argprom.exit.i
+  br i1 %.not25.not.i, label %32, label %_ZL9xtc_checkPKcbS0_i.exit.i
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr @debug, align 8
@@ -513,12 +513,12 @@ _ZL15check_xtc_magici.exit:                       ; preds = %16, %16
   %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %33, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 150) #8
   br label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit
 
-_ZL9xtc_checkPKcbS0_i.argprom.exit.i:             ; preds = %29
+_ZL9xtc_checkPKcbS0_i.exit.i:                     ; preds = %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not, label %36, label %29, !llvm.loop !5
 
-36:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.argprom.exit.i
+36:                                               ; preds = %_ZL9xtc_checkPKcbS0_i.exit.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next30.i, 3
   br i1 %exitcond14.not, label %37, label %.preheader.i, !llvm.loop !7

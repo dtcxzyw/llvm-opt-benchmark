@@ -5782,37 +5782,37 @@ _ZNSt10unique_ptrIN4llvm9symbolize18SymbolizableModuleESt14default_deleteIS2_EED
 139:                                              ; preds = %132
   %.sroa.2.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, 11
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit.thread.i.i.i.i.i.i"
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i.i.i: ; preds = %132
   %140 = load ptr, ptr %5, align 8
   %.not.i.i.i.i3.i.i.i.i.i.i = icmp eq ptr %140, null
-  br i1 %.not.i.i.i.i3.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i", label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i3.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit.thread.i.i.i.i.i.i", label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i.i.i
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 8
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull align 8 dereferenceable(8) %140) #19
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i": ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i.i.i, %139
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit.thread.i.i.i.i.i.i": ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i.i.i.i, %139
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %145
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %139
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit.i.i.i.i.i.i": ; preds = %139
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
   %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(11) @.str.15, i64 11)
   %144 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br i1 %144, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit..critedge.loopexit_crit_edge.i.i.i.i.i.i", label %145
+  br i1 %144, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit..critedge.loopexit_crit_edge.i.i.i.i.i.i", label %145
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit..critedge.loopexit_crit_edge.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit..critedge.loopexit_crit_edge.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit.i.i.i.i.i.i"
   %.sroa.01.0.copyload.pre.pre.i.i.i.i.i.i = load i64, ptr %6, align 8
   %.sroa.22.0.copyload.pre.pre.i.i.i.i.i.i = load ptr, ptr %129, align 8
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6object16content_iteratorINS2_10SectionRefEEEEEZNS_9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS_9StringRefEE3$_1EEbOT_T0_.exit"
 
-145:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+145:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit.thread.i.i.i.i.i.i"
   %146 = load ptr, ptr %129, align 8
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 136
@@ -5825,9 +5825,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i: 
   %.not2.i.i.i.i.i.i.i = select i1 %151, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i.i
   br i1 %.not2.i.i.i.i.i.i.i, label %132, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_6object16content_iteratorINS2_10SectionRefEEEEEZNS_9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS_9StringRefEE3$_1EEbOT_T0_.exit", !llvm.loop !198
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_6object16content_iteratorINS2_10SectionRefEEEEEZNS_9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS_9StringRefEE3$_1EEbOT_T0_.exit": ; preds = %145, %116, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit..critedge.loopexit_crit_edge.i.i.i.i.i.i"
-  %.sroa.22.0.copyload.i.i.i.i.i.i = phi ptr [ %122, %116 ], [ %.sroa.22.0.copyload.pre.pre.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit..critedge.loopexit_crit_edge.i.i.i.i.i.i" ], [ %128, %145 ]
-  %.sroa.01.0.copyload.i.i.i.i.i.i = phi i64 [ %121, %116 ], [ %.sroa.01.0.copyload.pre.pre.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.argprom.exit..critedge.loopexit_crit_edge.i.i.i.i.i.i" ], [ %127, %145 ]
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_6object16content_iteratorINS2_10SectionRefEEEEEZNS_9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS_9StringRefEE3$_1EEbOT_T0_.exit": ; preds = %145, %116, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit..critedge.loopexit_crit_edge.i.i.i.i.i.i"
+  %.sroa.22.0.copyload.i.i.i.i.i.i = phi ptr [ %122, %116 ], [ %.sroa.22.0.copyload.pre.pre.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit..critedge.loopexit_crit_edge.i.i.i.i.i.i" ], [ %128, %145 ]
+  %.sroa.01.0.copyload.i.i.i.i.i.i = phi i64 [ %121, %116 ], [ %.sroa.01.0.copyload.pre.pre.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS2_9StringRefEE3$_1EclINS2_6object16content_iteratorINS9_10SectionRefEEEEEbT_.exit..critedge.loopexit_crit_edge.i.i.i.i.i.i" ], [ %127, %145 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %152 = load ptr, ptr %21, align 8
   %.not94 = icmp eq ptr %152, null
@@ -9377,16 +9377,16 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i.i
   store ptr null, ptr %11, align 8
   %16 = load ptr, ptr %10, align 8
   %.not.i1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6object6BinaryEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %_ZNKSt14default_deleteIN4llvm6object6BinaryEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6object6BinaryEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(48) %16) #19
-  br label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt14default_deleteIN4llvm6object6BinaryEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt14default_deleteIN4llvm6object6BinaryEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
@@ -9827,16 +9827,16 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm9symbolize14LLVMSymbo
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6object10ObjectFileEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %_ZNKSt14default_deleteIN4llvm6object10ObjectFileEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6object10ObjectFileEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %1
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %6) #19
-  br label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %1, %_ZNKSt14default_deleteIN4llvm6object10ObjectFileEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer17getOrCreateObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_E3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %1, %_ZNKSt14default_deleteIN4llvm6object10ObjectFileEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -10428,16 +10428,16 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN4llvm9symbolize14LLVMSymbo
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS0_9StringRefEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm9symbolize18SymbolizableModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS0_9StringRefEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %_ZNKSt14default_deleteIN4llvm9symbolize18SymbolizableModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm9symbolize18SymbolizableModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %1
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
-  br label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS0_9StringRefEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS0_9StringRefEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS0_9StringRefEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %1, %_ZNKSt14default_deleteIN4llvm9symbolize18SymbolizableModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN4llvm9symbolize14LLVMSymbolizer21getOrCreateModuleInfoENS0_9StringRefEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %1, %_ZNKSt14default_deleteIN4llvm9symbolize18SymbolizableModuleEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %5, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
@@ -10512,7 +10512,7 @@ _ZNKSt8functionIFvvEEclEv.exit.i.i.i:             ; preds = %1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIS0_EE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %28
@@ -10521,11 +10521,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN4llvm9symbol
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
@@ -10568,12 +10568,12 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i.i.i:        ; preds = %10, %6
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i": ; preds = %20, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i.i.i
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 28:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %29 = icmp eq ptr %.val6.i, null
-  br i1 %29, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit", label %30
+  br i1 %29, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit", label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 48
@@ -10598,9 +10598,9 @@ _ZNSt8functionIFvvEED2Ev.exit.i.i.i:              ; preds = %33, %30
 
 "_ZZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEEN3$_0D2Ev.exit.i.i": ; preds = %38, %_ZNSt8functionIFvvEED2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 64) #22
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEEN3$_0D2Ev.exit.i.i", %28, %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEEN3$_0D2Ev.exit.i.i", %28, %"_ZNSt14_Function_base13_Base_managerIZN4llvm9symbolize12CachedBinary11pushEvictorESt8functionIFvvEEE3$_0E15_M_init_functorIRKS7_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 

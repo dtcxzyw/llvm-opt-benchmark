@@ -205,14 +205,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema17CheckNoInlineAttrEPKNS_4Stm
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i, label %14
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i, label %14
 
 14:                                               ; preds = %4
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_114CallExprFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %1)
   %.val27.pre.i = load ptr, ptr %11, align 8
-  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i: ; preds = %14, %4
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i: ; preds = %14, %4
   %.val27.i = phi ptr [ %.val.i, %4 ], [ %.val27.pre.i, %14 ]
   store ptr %.val27.i, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -220,21 +220,21 @@ _ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i: ;
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %.not.i.i34.i = icmp eq ptr %2, null
-  br i1 %.not.i.i34.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i, label %17
+  br i1 %.not.i.i34.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i, label %17
 
-17:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i
+17:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_114CallExprFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %2)
   %.val28.pre.pre.i = load ptr, ptr %16, align 8
   %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 24
   %.val29.pre.i.pre = load ptr, ptr %.phi.trans.insert.i.phi.trans.insert, align 8
-  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i
+  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i: ; preds = %17, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i
-  %.val29.pre.i = phi ptr [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i ], [ %.val29.pre.i.pre, %17 ]
-  %.val28.pre.i = phi ptr [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i ], [ %.val28.pre.pre.i, %17 ]
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._crit_edge.i, label %18
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i: ; preds = %17, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i
+  %.val29.pre.i = phi ptr [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i ], [ %.val29.pre.i.pre, %17 ]
+  %.val28.pre.i = phi ptr [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i ], [ %.val28.pre.pre.i, %17 ]
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35._crit_edge.i, label %18
 
-18:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i
+18:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i
   %19 = ptrtoint ptr %.val29.pre.i to i64
   %20 = ptrtoint ptr %.val28.pre.i to i64
   %21 = sub i64 %19, %20
@@ -245,14 +245,14 @@ _ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i:
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = icmp eq i64 %21, %27
-  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._crit_edge.i
+  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35._crit_edge.i
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._crit_edge.i: ; preds = %18, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i
-  %29 = phi i1 [ %28, %18 ], [ false, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i ]
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35._crit_edge.i: ; preds = %18, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i
+  %29 = phi i1 [ %28, %18 ], [ false, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i ]
   %.not.i = icmp eq ptr %.val28.pre.i, %.val29.pre.i
   br i1 %.not.i, label %30, label %.lr.ph.i
 
-30:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._crit_edge.i
+30:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35._crit_edge.i
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   %32 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #16
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %31, i32 %32, i32 noundef 6153, i1 noundef zeroext false) #17
@@ -263,7 +263,7 @@ _ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._c
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
   br label %.loopexit.i
 
-.lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._crit_edge.i
+.lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35._crit_edge.i
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %38 = load ptr, ptr %37, align 8, !noalias !4
   %39 = load ptr, ptr %13, align 8, !noalias !5
@@ -496,7 +496,7 @@ _ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread.i: ; preds = %104, %97
   %.0.i = phi i1 [ %36, %30 ], [ false, %_ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread.i ]
   %.val30.i = load ptr, ptr %16, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val30.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i, label %141
+  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.exit.i, label %141
 
 141:                                              ; preds = %.loopexit.i
   %142 = getelementptr inbounds i8, ptr %6, i64 32
@@ -505,14 +505,14 @@ _ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread.i: ; preds = %104, %97
   %144 = ptrtoint ptr %.val30.i to i64
   %145 = sub i64 %143, %144
   call void @_ZdlPvm(ptr noundef nonnull %.val30.i, i64 noundef %145) #18
-  br label %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.exit.i
 
-_ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i: ; preds = %141, %.loopexit.i
+_ZN12_GLOBAL__N_114CallExprFinderD2Ev.exit.i:     ; preds = %141, %.loopexit.i
   %.val32.i = load ptr, ptr %13, align 8
   %.not.i.i.i.i58.i = icmp eq ptr %.val32.i, null
   br i1 %.not.i.i.i.i58.i, label %_ZL19CheckStmtInlineAttrIN5clang16AlwaysInlineAttrELi0EEbRNS0_4SemaEPKNS0_4StmtES6_RKNS0_19AttributeCommonInfoE.exit, label %146
 
-146:                                              ; preds = %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i
+146:                                              ; preds = %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.exit.i
   %147 = getelementptr inbounds i8, ptr %5, i64 32
   %.val33.i = load ptr, ptr %147, align 8
   %148 = ptrtoint ptr %.val33.i to i64
@@ -521,7 +521,7 @@ _ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i: ; preds = %141, %.loopexit
   call void @_ZdlPvm(ptr noundef nonnull %.val32.i, i64 noundef %150) #18
   br label %_ZL19CheckStmtInlineAttrIN5clang16AlwaysInlineAttrELi0EEbRNS0_4SemaEPKNS0_4StmtES6_RKNS0_19AttributeCommonInfoE.exit
 
-_ZL19CheckStmtInlineAttrIN5clang16AlwaysInlineAttrELi0EEbRNS0_4SemaEPKNS0_4StmtES6_RKNS0_19AttributeCommonInfoE.exit: ; preds = %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i, %146
+_ZL19CheckStmtInlineAttrIN5clang16AlwaysInlineAttrELi0EEbRNS0_4SemaEPKNS0_4StmtES6_RKNS0_19AttributeCommonInfoE.exit: ; preds = %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.exit.i, %146
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
@@ -553,14 +553,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema21CheckAlwaysInlineAttrEPKNS_
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %.not.i.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i, label %14
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i, label %14
 
 14:                                               ; preds = %4
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_114CallExprFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %1)
   %.val27.pre.i = load ptr, ptr %11, align 8
-  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i: ; preds = %14, %4
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i: ; preds = %14, %4
   %.val27.i = phi ptr [ %.val.i, %4 ], [ %.val27.pre.i, %14 ]
   store ptr %.val27.i, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -568,21 +568,21 @@ _ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i: ;
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %.not.i.i34.i = icmp eq ptr %2, null
-  br i1 %.not.i.i34.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i, label %17
+  br i1 %.not.i.i34.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i, label %17
 
-17:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i
+17:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_114CallExprFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %2)
   %.val28.pre.pre.i = load ptr, ptr %16, align 8
   %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 24
   %.val29.pre.i.pre = load ptr, ptr %.phi.trans.insert.i.phi.trans.insert, align 8
-  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i
+  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i: ; preds = %17, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i
-  %.val29.pre.i = phi ptr [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i ], [ %.val29.pre.i.pre, %17 ]
-  %.val28.pre.i = phi ptr [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i ], [ %.val28.pre.pre.i, %17 ]
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._crit_edge.i, label %18
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i: ; preds = %17, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i
+  %.val29.pre.i = phi ptr [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i ], [ %.val29.pre.i.pre, %17 ]
+  %.val28.pre.i = phi ptr [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i ], [ %.val28.pre.pre.i, %17 ]
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35._crit_edge.i, label %18
 
-18:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i
+18:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i
   %19 = ptrtoint ptr %.val29.pre.i to i64
   %20 = ptrtoint ptr %.val28.pre.i to i64
   %21 = sub i64 %19, %20
@@ -593,14 +593,14 @@ _ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i:
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = icmp eq i64 %21, %27
-  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._crit_edge.i
+  br label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35._crit_edge.i
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._crit_edge.i: ; preds = %18, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i
-  %29 = phi i1 [ %28, %18 ], [ false, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35.i ]
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35._crit_edge.i: ; preds = %18, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i
+  %29 = phi i1 [ %28, %18 ], [ false, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35.i ]
   %.not.i = icmp eq ptr %.val28.pre.i, %.val29.pre.i
   br i1 %.not.i, label %30, label %.lr.ph.i
 
-30:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._crit_edge.i
+30:                                               ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35._crit_edge.i
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   %32 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #16
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %31, i32 %32, i32 noundef 6153, i1 noundef zeroext false) #17
@@ -611,7 +611,7 @@ _ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._c
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
   br label %.loopexit.i
 
-.lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit35._crit_edge.i
+.lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit35._crit_edge.i
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %38 = load ptr, ptr %37, align 8, !noalias !4
   %39 = load ptr, ptr %13, align 8, !noalias !18
@@ -845,7 +845,7 @@ _ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread.i: ; preds = %104, %97
   %.0.i = phi i1 [ %36, %30 ], [ false, %_ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread.i ]
   %.val30.i = load ptr, ptr %16, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.val30.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i, label %141
+  br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.exit.i, label %141
 
 141:                                              ; preds = %.loopexit.i
   %142 = getelementptr inbounds i8, ptr %6, i64 32
@@ -854,14 +854,14 @@ _ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread.i: ; preds = %104, %97
   %144 = ptrtoint ptr %.val30.i to i64
   %145 = sub i64 %143, %144
   call void @_ZdlPvm(ptr noundef nonnull %.val30.i, i64 noundef %145) #18
-  br label %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.exit.i
 
-_ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i: ; preds = %141, %.loopexit.i
+_ZN12_GLOBAL__N_114CallExprFinderD2Ev.exit.i:     ; preds = %141, %.loopexit.i
   %.val32.i = load ptr, ptr %13, align 8
   %.not.i.i.i.i58.i = icmp eq ptr %.val32.i, null
   br i1 %.not.i.i.i.i58.i, label %_ZL19CheckStmtInlineAttrIN5clang12NoInlineAttrELi2EEbRNS0_4SemaEPKNS0_4StmtES6_RKNS0_19AttributeCommonInfoE.exit, label %146
 
-146:                                              ; preds = %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i
+146:                                              ; preds = %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.exit.i
   %147 = getelementptr inbounds i8, ptr %5, i64 32
   %.val33.i = load ptr, ptr %147, align 8
   %148 = ptrtoint ptr %.val33.i to i64
@@ -870,7 +870,7 @@ _ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i: ; preds = %141, %.loopexit
   call void @_ZdlPvm(ptr noundef nonnull %.val32.i, i64 noundef %150) #18
   br label %_ZL19CheckStmtInlineAttrIN5clang12NoInlineAttrELi2EEbRNS0_4SemaEPKNS0_4StmtES6_RKNS0_19AttributeCommonInfoE.exit
 
-_ZL19CheckStmtInlineAttrIN5clang12NoInlineAttrELi2EEbRNS0_4SemaEPKNS0_4StmtES6_RKNS0_19AttributeCommonInfoE.exit: ; preds = %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.argprom.exit.i, %146
+_ZL19CheckStmtInlineAttrIN5clang12NoInlineAttrELi2EEbRNS0_4SemaEPKNS0_4StmtES6_RKNS0_19AttributeCommonInfoE.exit: ; preds = %_ZN12_GLOBAL__N_114CallExprFinderD2Ev.exit.i, %146
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
@@ -2837,7 +2837,7 @@ _ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.thread.i: ; preds = %.thread.i.i.i.i.i
   store i64 %505, ptr %27, align 8
   %506 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %504, ptr noundef nonnull align 4 dereferenceable(8) %27)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #17
-  br label %_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
 507:                                              ; preds = %498, %_ZNK4llvm5APInt12getSExtValueEv.exit.i
   %.121.ph.i = phi i32 [ %496, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ], [ 0, %498 ]
@@ -2851,7 +2851,7 @@ _ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.thread.i: ; preds = %.thread.i.i.i.i.i
   br label %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.i
 
 _ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.i:      ; preds = %509, %507
-  br i1 %497, label %511, label %_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br i1 %497, label %511, label %_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
 511:                                              ; preds = %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.i, %473
   %.020.i = phi i32 [ %.121.ph.i, %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.i ], [ 0, %473 ]
@@ -2895,9 +2895,9 @@ _ZnwmRKN5clang10ASTContextEm.exit.i101:           ; preds = %.critedge.i.i.i.i.i
   store ptr %.sink.i102, ptr %513, align 8
   %534 = load ptr, ptr %76, align 8
   call void @_ZN5clang20OpenCLUnrollHintAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoEj(ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i.i.i.i103, ptr noundef nonnull align 8 dereferenceable(23096) %534, ptr noundef nonnull align 8 dereferenceable(32) %99, i32 noundef %.020.i) #17
-  br label %_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
-_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit: ; preds = %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.thread.i, %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.i, %_ZnwmRKN5clang10ASTContextEm.exit.i101
+_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit: ; preds = %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.thread.i, %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.i, %_ZnwmRKN5clang10ASTContextEm.exit.i101
   %.1.i104 = phi ptr [ null, %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.i ], [ %.0.i.i.i.i.i103, %_ZnwmRKN5clang10ASTContextEm.exit.i101 ], [ null, %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit25.thread.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %25)
@@ -2945,7 +2945,7 @@ _ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit.i: ; preds
   store i32 1, ptr %31, align 4
   %553 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %552, ptr noundef nonnull align 4 dereferenceable(4) %31)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #17
-  br label %_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
 554:                                              ; preds = %_ZNK5clang19AttributeCommonInfo29getAttributeSpellingListIndexEv.exit.i
   br i1 %548, label %._crit_edge.i, label %.lr.ph.i86.preheader
@@ -3093,16 +3093,16 @@ _ZnwmRKN5clang10ASTContextEm.exit.i92:            ; preds = %.critedge.i.i.i.i.i
   %.sroa.11.09.i = phi ptr [ %.sroa.11.0.lcssa.i, %_ZnwmRKN5clang10ASTContextEm.exit.i92 ], [ %.sroa.11.018.i, %.lr.ph.i86 ]
   %.1.i = phi ptr [ %.0.i.i.i.i.i94, %_ZnwmRKN5clang10ASTContextEm.exit.i92 ], [ null, %.lr.ph.i86 ]
   %.not.i.i.i18.i = icmp eq ptr %.sroa.0.014.i, null
-  br i1 %.not.i.i.i18.i, label %_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit, label %607
+  br i1 %.not.i.i.i18.i, label %_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, label %607
 
 607:                                              ; preds = %.loopexit.i
   %608 = ptrtoint ptr %.sroa.11.09.i to i64
   %609 = ptrtoint ptr %.sroa.0.014.i to i64
   %610 = sub i64 %608, %609
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.014.i, i64 noundef %610) #18
-  br label %_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
-_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit: ; preds = %550, %.loopexit.i, %607
+_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit: ; preds = %550, %.loopexit.i, %607
   %.0.i87 = phi ptr [ null, %550 ], [ %.1.i, %.loopexit.i ], [ %.1.i, %607 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
@@ -3116,28 +3116,28 @@ _ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRang
   store ptr %.val.i65, ptr %33, align 8
   store i8 0, ptr %82, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i16, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i83.thread, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i67
+  br i1 %.not.i.i.i16, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i83.thread, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i67
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i67: ; preds = %611
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i67: ; preds = %611
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_114CallExprFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %33, ptr noundef nonnull %1)
   %.val10.pre.i68 = load ptr, ptr %83, align 8
   %.val11.pre.i70 = load ptr, ptr %.phi.trans.insert.i69, align 8
   %.not.i71 = icmp eq ptr %.val10.pre.i68, %.val11.pre.i70
-  br i1 %.not.i71, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i83, label %615
+  br i1 %.not.i71, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i83, label %615
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i83: ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i67
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i83: ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i67
   %.val14.i84.pre = load i8, ptr %82, align 8
   %612 = trunc i8 %.val14.i84.pre to i1
-  br i1 %612, label %615, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i83.thread
+  br i1 %612, label %615, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i83.thread
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i83.thread: ; preds = %611, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i83
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i83.thread: ; preds = %611, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i83
   %613 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #16
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %79, i32 %613, i32 noundef 6153, i1 noundef zeroext false) #17
   %614 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(96) %34, ptr noundef nonnull align 8 dereferenceable(72) %99)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #17
   br label %639
 
-615:                                              ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i83, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i67
+615:                                              ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i83, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i67
   %616 = load ptr, ptr %76, align 8
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 2144
   %618 = getelementptr inbounds nuw i8, ptr %616, i64 2224
@@ -3180,8 +3180,8 @@ _ZnwmRKN5clang10ASTContextEm.exit.i75:            ; preds = %.critedge.i.i.i.i.i
   call void @_ZN5clang11NoMergeAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(23096) %638, ptr noundef nonnull align 8 dereferenceable(32) %99) #17
   br label %639
 
-639:                                              ; preds = %_ZnwmRKN5clang10ASTContextEm.exit.i75, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i83.thread
-  %.0.i78 = phi ptr [ %.0.i.i.i.i.i77, %_ZnwmRKN5clang10ASTContextEm.exit.i75 ], [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i83.thread ]
+639:                                              ; preds = %_ZnwmRKN5clang10ASTContextEm.exit.i75, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i83.thread
+  %.0.i78 = phi ptr [ %.0.i.i.i.i.i77, %_ZnwmRKN5clang10ASTContextEm.exit.i75 ], [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i83.thread ]
   %.val12.i79 = load ptr, ptr %83, align 8
   %.not.i.i.i.i15.i80 = icmp eq ptr %.val12.i79, null
   br i1 %.not.i.i.i.i15.i80, label %_ZL17handleNoMergeAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, label %640
@@ -3290,7 +3290,7 @@ _ZL18handleNoInlineAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRang
 690:                                              ; preds = %676
   %691 = inttoptr i64 %686 to ptr
   %692 = inttoptr i64 %685 to ptr
-  br label %_ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
 .critedge.i.i.i.i.i56:                            ; preds = %676
   call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %678)
@@ -3300,9 +3300,9 @@ _ZL18handleNoInlineAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRang
   %696 = and i64 %695, -8
   %697 = inttoptr i64 %696 to ptr
   %698 = getelementptr inbounds i8, ptr %697, i64 40
-  br label %_ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
-_ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit: ; preds = %690, %.critedge.i.i.i.i.i56
+_ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit: ; preds = %690, %.critedge.i.i.i.i.i56
   %.sink.i54 = phi ptr [ %698, %.critedge.i.i.i.i.i56 ], [ %691, %690 ]
   %.0.i.i.i.i.i55 = phi ptr [ %697, %.critedge.i.i.i.i.i56 ], [ %692, %690 ]
   store ptr %.sink.i54, ptr %678, align 8
@@ -3366,7 +3366,7 @@ _ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRang
 732:                                              ; preds = %718
   %733 = inttoptr i64 %728 to ptr
   %734 = inttoptr i64 %727 to ptr
-  br label %_ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
 .critedge.i.i.i.i.i46:                            ; preds = %718
   call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %720)
@@ -3376,9 +3376,9 @@ _ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRang
   %738 = and i64 %737, -8
   %739 = inttoptr i64 %738 to ptr
   %740 = getelementptr inbounds i8, ptr %739, i64 40
-  br label %_ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
-_ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit: ; preds = %732, %.critedge.i.i.i.i.i46
+_ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit: ; preds = %732, %.critedge.i.i.i.i.i46
   %.sink.i44 = phi ptr [ %740, %.critedge.i.i.i.i.i46 ], [ %733, %732 ]
   %.0.i.i.i.i.i45 = phi ptr [ %739, %.critedge.i.i.i.i.i46 ], [ %734, %732 ]
   store ptr %.sink.i44, ptr %720, align 8
@@ -3444,7 +3444,7 @@ _ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.arg
 774:                                              ; preds = %760
   %775 = inttoptr i64 %770 to ptr
   %776 = inttoptr i64 %769 to ptr
-  br label %_ZL14handleUnlikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL14handleUnlikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
 .critedge.i.i.i.i.i36:                            ; preds = %760
   call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %762)
@@ -3454,9 +3454,9 @@ _ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.arg
   %780 = and i64 %779, -8
   %781 = inttoptr i64 %780 to ptr
   %782 = getelementptr inbounds i8, ptr %781, i64 40
-  br label %_ZL14handleUnlikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL14handleUnlikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
-_ZL14handleUnlikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit: ; preds = %774, %.critedge.i.i.i.i.i36
+_ZL14handleUnlikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit: ; preds = %774, %.critedge.i.i.i.i.i36
   %.sink.i34 = phi ptr [ %782, %.critedge.i.i.i.i.i36 ], [ %775, %774 ]
   %.0.i.i.i.i.i35 = phi ptr [ %781, %.critedge.i.i.i.i.i36 ], [ %776, %774 ]
   store ptr %.sink.i34, ptr %762, align 8
@@ -3492,7 +3492,7 @@ _ZL14handleUnlikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.a
   store i64 %.sroa.0.0.copyload.i.i20, ptr %42, align 8
   %797 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %796, ptr noundef nonnull align 4 dereferenceable(8) %42)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #17
-  br label %_ZL21handleMSConstexprAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL21handleMSConstexprAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
 798:                                              ; preds = %789
   %799 = load ptr, ptr %76, align 8
@@ -3535,9 +3535,9 @@ _ZnwmRKN5clang10ASTContextEm.exit.i25:            ; preds = %.critedge.i.i.i.i.i
   store ptr %.sink.i26, ptr %800, align 8
   %821 = load ptr, ptr %76, align 8
   call void @_ZN5clang15MSConstexprAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i27, ptr noundef nonnull align 8 dereferenceable(23096) %821, ptr noundef nonnull align 8 dereferenceable(32) %99) #17
-  br label %_ZL21handleMSConstexprAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit
+  br label %_ZL21handleMSConstexprAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
 
-_ZL21handleMSConstexprAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit: ; preds = %794, %_ZnwmRKN5clang10ASTContextEm.exit.i25
+_ZL21handleMSConstexprAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit: ; preds = %794, %_ZnwmRKN5clang10ASTContextEm.exit.i25
   %.0.i21 = phi ptr [ %.0.i.i.i.i.i27, %_ZnwmRKN5clang10ASTContextEm.exit.i25 ], [ null, %794 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
@@ -3550,28 +3550,28 @@ _ZL21handleMSConstexprAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceR
   store ptr %.val.i, ptr %43, align 8
   store i8 0, ptr %77, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i16, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i.thread, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i
+  br i1 %.not.i.i.i16, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i.thread, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i: ; preds = %822
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i: ; preds = %822
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_114CallExprFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull %1)
   %.val10.pre.i = load ptr, ptr %78, align 8
   %.val11.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.not.i17 = icmp eq ptr %.val10.pre.i, %.val11.pre.i
-  br i1 %.not.i17, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i, label %826
+  br i1 %.not.i17, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i, label %826
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i
   %.val14.i.pre = load i8, ptr %77, align 8
   %823 = trunc i8 %.val14.i.pre to i1
-  br i1 %823, label %826, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i.thread
+  br i1 %823, label %826, label %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i.thread
 
-_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i.thread: ; preds = %822, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i
+_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i.thread: ; preds = %822, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i
   %824 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #16
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %44, ptr noundef nonnull align 8 dereferenceable(8) %79, i32 %824, i32 noundef 6153, i1 noundef zeroext false) #17
   %825 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN5clanglsINS_10ParsedAttrEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(96) %44, ptr noundef nonnull align 8 dereferenceable(72) %99)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #17
   br label %850
 
-826:                                              ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.i
+826:                                              ; preds = %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.i
   %827 = load ptr, ptr %76, align 8
   %828 = getelementptr inbounds nuw i8, ptr %827, i64 2144
   %829 = getelementptr inbounds nuw i8, ptr %827, i64 2224
@@ -3614,8 +3614,8 @@ _ZnwmRKN5clang10ASTContextEm.exit.i:              ; preds = %.critedge.i.i.i.i.i
   call void @_ZN5clang16NoConvergentAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoE(ptr noundef nonnull align 8 dereferenceable(35) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(23096) %849, ptr noundef nonnull align 8 dereferenceable(32) %99) #17
   br label %850
 
-850:                                              ; preds = %_ZnwmRKN5clang10ASTContextEm.exit.i, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i.thread
-  %.0.i18 = phi ptr [ %.0.i.i.i.i.i, %_ZnwmRKN5clang10ASTContextEm.exit.i ], [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.argprom.exit.thread.i.thread ]
+850:                                              ; preds = %_ZnwmRKN5clang10ASTContextEm.exit.i, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i.thread
+  %.0.i18 = phi ptr [ %.0.i.i.i.i.i, %_ZnwmRKN5clang10ASTContextEm.exit.i ], [ null, %_ZN12_GLOBAL__N_114CallExprFinderC2ERN5clang4SemaEPKNS1_4StmtE.exit.thread.i.thread ]
   %.val12.i = load ptr, ptr %78, align 8
   %.not.i.i.i.i15.i = icmp eq ptr %.val12.i, null
   br i1 %.not.i.i.i.i15.i, label %_ZL22handleNoConvergentAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, label %851
@@ -3664,8 +3664,8 @@ _ZL20ProcessStmtAttributeRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRa
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %71)
   br label %877
 
-_ZL20ProcessStmtAttributeRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit: ; preds = %_ZnwmRKN5clang10ASTContextEm.exit.i148, %_ZL22handleAlwaysInlineAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL21handleFallThroughAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL18handleLoopHintAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL22handleHLSLLoopHintAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit, %_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit, %_ZL17handleNoMergeAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL18handleNoInlineAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit, %_ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit, %_ZL14handleUnlikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit, %784, %_ZL21handleMSConstexprAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit, %_ZL22handleNoConvergentAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
-  %.0.i = phi ptr [ %.0.i18, %_ZL22handleNoConvergentAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i21, %_ZL21handleMSConstexprAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit ], [ %788, %784 ], [ %.0.i.i.i.i.i35, %_ZL14handleUnlikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit ], [ %.0.i.i.i.i.i45, %_ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit ], [ %.0.i.i.i.i.i55, %_ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit ], [ %.0.i57, %_ZL18handleNoInlineAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i78, %_ZL17handleNoMergeAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i87, %_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit ], [ %.1.i104, %_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.argprom.exit ], [ %.0.i116, %_ZL22handleHLSLLoopHintAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i125, %_ZL18handleLoopHintAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i138, %_ZL21handleFallThroughAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i153, %_ZL22handleAlwaysInlineAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i.i.i.i.i150, %_ZnwmRKN5clang10ASTContextEm.exit.i148 ]
+_ZL20ProcessStmtAttributeRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit: ; preds = %_ZnwmRKN5clang10ASTContextEm.exit.i148, %_ZL22handleAlwaysInlineAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL21handleFallThroughAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL18handleLoopHintAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL22handleHLSLLoopHintAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL17handleNoMergeAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL18handleNoInlineAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL14handleUnlikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %784, %_ZL21handleMSConstexprAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit, %_ZL22handleNoConvergentAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
+  %.0.i = phi ptr [ %.0.i18, %_ZL22handleNoConvergentAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i21, %_ZL21handleMSConstexprAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %788, %784 ], [ %.0.i.i.i.i.i35, %_ZL14handleUnlikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i.i.i.i.i45, %_ZL12handleLikelyRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i.i.i.i.i55, %_ZL18handleMustTailAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i57, %_ZL18handleNoInlineAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i78, %_ZL17handleNoMergeAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i87, %_ZL18handleSuppressAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.1.i104, %_ZL22handleOpenCLUnrollHintRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i116, %_ZL22handleHLSLLoopHintAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i125, %_ZL18handleLoopHintAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i138, %_ZL21handleFallThroughAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i153, %_ZL22handleAlwaysInlineAttrRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit ], [ %.0.i.i.i.i.i150, %_ZnwmRKN5clang10ASTContextEm.exit.i148 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %67)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %69)

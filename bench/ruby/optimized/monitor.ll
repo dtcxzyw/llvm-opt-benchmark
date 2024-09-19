@@ -77,13 +77,13 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   %14 = icmp ne i64 %13, 0
   %15 = icmp eq i64 %12, 0
   %16 = or i1 %15, %14
-  br i1 %16, label %rb_obj_write.argprom.exit, label %17
+  br i1 %16, label %rb_obj_write.exit, label %17
 
 17:                                               ; preds = %RTYPEDDATA_GET_DATA.exit
   tail call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %12) #5
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %RTYPEDDATA_GET_DATA.exit, %17
+rb_obj_write.exit:                                ; preds = %RTYPEDDATA_GET_DATA.exit, %17
   %18 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 4, ptr %18, align 8
   store i64 0, ptr %10, align 8
@@ -104,7 +104,7 @@ define internal range(i64 0, 21) i64 @monitor_try_enter(i64 noundef %0) #0 {
 ._crit_edge:                                      ; preds = %1
   %.pre = load i64, ptr %2, align 8
   %5 = add nsw i64 %.pre, 1
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 16
@@ -120,19 +120,19 @@ define internal range(i64 0, 21) i64 @monitor_try_enter(i64 noundef %0) #0 {
   %13 = icmp ne i64 %12, 0
   %14 = icmp eq i64 %11, 0
   %15 = or i1 %14, %13
-  br i1 %15, label %rb_obj_write.argprom.exit, label %16
+  br i1 %15, label %rb_obj_write.exit, label %16
 
 16:                                               ; preds = %10
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %11) #5
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %16, %10, %._crit_edge
+rb_obj_write.exit:                                ; preds = %16, %10, %._crit_edge
   %17 = phi i64 [ %5, %._crit_edge ], [ 1, %10 ], [ 1, %16 ]
   store i64 %17, ptr %2, align 8
   br label %18
 
-18:                                               ; preds = %6, %rb_obj_write.argprom.exit
-  %.0 = phi i64 [ 20, %rb_obj_write.argprom.exit ], [ 0, %6 ]
+18:                                               ; preds = %6, %rb_obj_write.exit
+  %.0 = phi i64 [ 20, %rb_obj_write.exit ], [ 0, %6 ]
   ret i64 %.0
 }
 
@@ -148,7 +148,7 @@ define internal noundef i64 @monitor_enter(i64 noundef %0) #0 {
 ._crit_edge:                                      ; preds = %1
   %.pre = load i64, ptr %2, align 8
   %5 = add nsw i64 %.pre, 1
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 16
@@ -160,13 +160,13 @@ define internal noundef i64 @monitor_enter(i64 noundef %0) #0 {
   %12 = icmp ne i64 %11, 0
   %13 = icmp eq i64 %10, 0
   %14 = or i1 %13, %12
-  br i1 %14, label %rb_obj_write.argprom.exit, label %15
+  br i1 %14, label %rb_obj_write.exit, label %15
 
 15:                                               ; preds = %6
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %10) #5
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %15, %6, %._crit_edge
+rb_obj_write.exit:                                ; preds = %15, %6, %._crit_edge
   %16 = phi i64 [ %5, %._crit_edge ], [ 1, %6 ], [ 1, %15 ]
   store i64 %16, ptr %2, align 8
   ret i64 4
@@ -403,15 +403,15 @@ define internal range(i64 0, 21) i64 @monitor_wait_for_cond_body(i64 noundef %0)
   %6 = load i64, ptr %5, align 8
   %.pr.i = load i64, ptr @monitor_wait_for_cond_body.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %7 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.13, i64 noundef 4) #5
   store i64 %7, ptr @monitor_wait_for_cond_body.rbimpl_id, align 8
   %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit, !llvm.loop !6
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !6
 
-rbimpl_intern_const.argprom.exit:                 ; preds = %.lr.ph.i, %1
+rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
   %.lcssa.i = phi i64 [ %.pr.i, %1 ], [ %7, %.lr.ph.i ]
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 8
@@ -437,24 +437,24 @@ define internal noundef i64 @monitor_enter_for_cond(i64 noundef %0) #0 {
   %9 = icmp ne i64 %8, 0
   %10 = icmp eq i64 %7, 0
   %11 = or i1 %10, %9
-  br i1 %11, label %rb_obj_write.argprom.exit, label %12
+  br i1 %11, label %rb_obj_write.exit, label %12
 
 12:                                               ; preds = %1
   tail call void @rb_gc_writebarrier(i64 noundef %5, i64 noundef %7) #5
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %1, %12
+rb_obj_write.exit:                                ; preds = %1, %12
   %13 = getelementptr inbounds i8, ptr %2, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 1
   %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %18, label %16
 
-16:                                               ; preds = %rb_obj_write.argprom.exit
+16:                                               ; preds = %rb_obj_write.exit
   %17 = ashr i64 %14, 1
   br label %rb_num2long_inline.exit
 
-18:                                               ; preds = %rb_obj_write.argprom.exit
+18:                                               ; preds = %rb_obj_write.exit
   %19 = tail call i64 @rb_num2long(i64 noundef %14) #5
   br label %rb_num2long_inline.exit
 

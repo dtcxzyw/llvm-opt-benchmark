@@ -504,7 +504,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %64
 89:                                               ; preds = %87
   %90 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22UnrollRuntimeMultiExit, i64 128), align 8
   %91 = trunc i8 %90 to i1
-  br label %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.argprom.exit
+  br label %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.exit
 
 92:                                               ; preds = %87
   %93 = getelementptr inbounds i8, ptr %17, i64 16
@@ -541,13 +541,13 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %64
   %111 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #17
   %112 = load ptr, ptr %17, align 8
   %113 = icmp eq ptr %112, %93
-  br i1 %113, label %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.argprom.exit, label %114
+  br i1 %113, label %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.exit, label %114
 
 114:                                              ; preds = %110
   call void @free(ptr noundef %112) #17
-  br label %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.argprom.exit
+  br label %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.exit
 
-_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.argprom.exit: ; preds = %89, %110, %114
+_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.exit: ; preds = %89, %110, %114
   %.0.i = phi i1 [ %91, %89 ], [ %.1.i, %110 ], [ %.1.i, %114 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   %.not391 = icmp ne ptr %7, null
@@ -558,7 +558,7 @@ _ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10Ba
   %.not391.old = icmp eq ptr %7, null
   br i1 %.not391.old, label %651, label %116
 
-116:                                              ; preds = %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.argprom.exit, %115
+116:                                              ; preds = %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.exit, %115
   %117 = call noundef ptr @_ZN4llvm15ScalarEvolution12getExitCountEPKNS_4LoopEPKNS_10BasicBlockENS0_13ExitCountKindE(ptr noundef nonnull align 8 dereferenceable(1392) %7, ptr noundef nonnull %0, ptr noundef nonnull %59, i32 noundef 0) #17
   %118 = call noundef zeroext i1 @_ZN4llvm19SCEVCouldNotCompute7classofEPKNS_4SCEVE(ptr noundef nonnull %117) #17
   br i1 %118, label %651, label %119
@@ -1681,8 +1681,8 @@ _ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EED2Ev.exit: ; preds = %642, %644
   call void @_ZN4llvm12SCEVExpanderD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %20) #17
   br label %651
 
-651:                                              ; preds = %119, %116, %115, %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.argprom.exit, %86, %650
-  %.1 = phi i1 [ %.2, %650 ], [ false, %86 ], [ false, %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.argprom.exit ], [ false, %115 ], [ false, %116 ], [ false, %119 ]
+651:                                              ; preds = %119, %116, %115, %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.exit, %86, %650
+  %.1 = phi i1 [ %.2, %650 ], [ false, %86 ], [ false, %_ZL32canProfitablyUnrollMultiExitLoopPN4llvm4LoopERNS_15SmallVectorImplIPNS_10BasicBlockEEES4_b.exit ], [ false, %115 ], [ false, %116 ], [ false, %119 ]
   %652 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #17
   %653 = load ptr, ptr %18, align 8
   %654 = icmp eq ptr %653, %82

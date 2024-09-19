@@ -583,14 +583,14 @@ do.body.i:                                        ; preds = %do.cond.i, %sw.bb1
 if.then.i:                                        ; preds = %do.body.i
   %23 = load i32, ptr %end_reached40.i, align 8
   %tobool.not.i = icmp eq i32 %23, 0
-  br i1 %tobool.not.i, label %if.then2.i, label %file_load_dir_entry.argprom.exit
+  br i1 %tobool.not.i, label %if.then2.i, label %file_load_dir_entry.exit
 
 if.then2.i:                                       ; preds = %if.then.i
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 650, ptr noundef nonnull @__func__.file_load_dir_entry) #8
   %24 = load i32, ptr %last_errno28.i, align 8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %24, ptr noundef null) #8
-  br label %file_load_dir_entry.argprom.exit
+  br label %file_load_dir_entry.exit
 
 if.end4.i:                                        ; preds = %do.body.i
   %25 = load i8, ptr %22, align 1
@@ -699,7 +699,7 @@ ossl_ends_with_dirsep.exit.i.i:                   ; preds = %if.then.i.i.i, %if.
   %add6.i.i = add i64 %add5.i.i, %call4.i.i
   %call7.i.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %add6.i.i, ptr noundef nonnull @.str.4, i32 noundef 558) #8
   %cmp.i18.i = icmp eq ptr %call7.i.i, null
-  br i1 %cmp.i18.i, label %file_load_dir_entry.argprom.exit, label %file_name_to_uri.exit.i
+  br i1 %cmp.i18.i, label %file_load_dir_entry.exit, label %file_name_to_uri.exit.i
 
 file_name_to_uri.exit.i:                          ; preds = %ossl_ends_with_dirsep.exit.i.i
   %tobool.not.i20.i = icmp eq i32 %cmp3.i.i.i, 0
@@ -739,15 +739,15 @@ do.end.i:                                         ; preds = %do.cond.i
   store i64 %call45.i, ptr %data_size.i, align 16
   %call47.i = call i32 %object_cb(ptr noundef nonnull %object.i, ptr noundef %object_cbarg) #8
   call void @CRYPTO_free(ptr noundef nonnull %newname.1.i, ptr noundef nonnull @.str.4, i32 noundef 681) #8
-  br label %file_load_dir_entry.argprom.exit
+  br label %file_load_dir_entry.exit
 
-file_load_dir_entry.argprom.exit:                 ; preds = %ossl_ends_with_dirsep.exit.i.i, %if.then.i, %if.then2.i, %do.end.i
+file_load_dir_entry.exit:                         ; preds = %ossl_ends_with_dirsep.exit.i.i, %if.then.i, %if.then2.i, %do.end.i
   %retval.0.i15 = phi i32 [ %call47.i, %do.end.i ], [ 0, %if.then2.i ], [ 0, %if.then.i ], [ 0, %ossl_ends_with_dirsep.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %object.i)
   br label %return
 
-return:                                           ; preds = %entry, %file_load_dir_entry.argprom.exit, %file_load_file.exit
-  %retval.0 = phi i32 [ %retval.0.i15, %file_load_dir_entry.argprom.exit ], [ %retval.0.i, %file_load_file.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %file_load_dir_entry.exit, %file_load_file.exit
+  %retval.0 = phi i32 [ %retval.0.i15, %file_load_dir_entry.exit ], [ %retval.0.i, %file_load_file.exit ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

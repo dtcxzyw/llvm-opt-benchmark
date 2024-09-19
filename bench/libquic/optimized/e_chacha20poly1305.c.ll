@@ -80,7 +80,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %ctx, i64 8
   %ctx.val = load ptr, ptr %0, align 8
-  %call = tail call fastcc i32 @seal_impl.argprom(ptr noundef nonnull @poly1305_update, ptr %ctx.val, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len)
+  %call = tail call fastcc i32 @seal_impl(ptr noundef nonnull @poly1305_update, ptr %ctx.val, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -101,7 +101,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %ctx, i64 8
   %ctx.val = load ptr, ptr %0, align 8
-  %call = tail call fastcc i32 @open_impl.argprom.argelim(ptr noundef nonnull @poly1305_update, ptr %ctx.val, ptr noundef %out, ptr noundef %out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len)
+  %call = tail call fastcc i32 @open_impl(ptr noundef nonnull @poly1305_update, ptr %ctx.val, ptr noundef %out, ptr noundef %out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -123,7 +123,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @seal_impl.argprom(ptr nocapture noundef readonly %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @seal_impl(ptr nocapture noundef readonly %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
 entry:
   %poly1305_key.i = alloca [32 x i8], align 16
   %ctx.i = alloca [512 x i8], align 16
@@ -249,7 +249,7 @@ declare void @CRYPTO_poly1305_finish(ptr noundef, ptr noundef) local_unnamed_add
 declare void @CRYPTO_poly1305_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @open_impl.argprom.argelim(ptr nocapture noundef readonly %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @open_impl(ptr nocapture noundef readonly %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
 entry:
   %poly1305_key.i = alloca [32 x i8], align 16
   %ctx.i = alloca [512 x i8], align 16
@@ -324,7 +324,7 @@ if.end:                                           ; preds = %entry
   store i64 %0, ptr %add.ptr, align 4
   %1 = getelementptr i8, ptr %ctx, i64 8
   %ctx.val = load ptr, ptr %1, align 8
-  %call = call fastcc i32 @seal_impl.argprom(ptr noundef nonnull @poly1305_update_old, ptr %ctx.val, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef nonnull %nonce_96, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len)
+  %call = call fastcc i32 @seal_impl(ptr noundef nonnull @poly1305_update_old, ptr %ctx.val, ptr noundef %out, ptr noundef %out_len, i64 noundef %max_out_len, ptr noundef nonnull %nonce_96, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -350,7 +350,7 @@ if.end:                                           ; preds = %entry
   store i64 %0, ptr %add.ptr, align 4
   %1 = getelementptr i8, ptr %ctx, i64 8
   %ctx.val = load ptr, ptr %1, align 8
-  %call = call fastcc i32 @open_impl.argprom.argelim(ptr noundef nonnull @poly1305_update_old, ptr %ctx.val, ptr noundef %out, ptr noundef %out_len, ptr noundef nonnull %nonce_96, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len)
+  %call = call fastcc i32 @open_impl(ptr noundef nonnull @poly1305_update_old, ptr %ctx.val, ptr noundef %out, ptr noundef %out_len, ptr noundef nonnull %nonce_96, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

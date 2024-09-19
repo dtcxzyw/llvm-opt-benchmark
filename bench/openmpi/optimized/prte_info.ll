@@ -305,11 +305,11 @@ pmix_obj_run_constructors.exit96:                 ; preds = %.lr.ph.i93, %81
   br i1 %.not82, label %._crit_edge, label %.lr.ph130, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph130, %pmix_obj_run_constructors.exit96
-  %101 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str)
+  %101 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str)
   br i1 %101, label %.thread119, label %102
 
 102:                                              ; preds = %._crit_edge
-  %103 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.24)
+  %103 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.24)
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %102
@@ -325,7 +325,7 @@ pmix_obj_run_constructors.exit96:                 ; preds = %.lr.ph.i93, %81
   br label %.critedge
 
 105:                                              ; preds = %102, %104
-  %106 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.25)
+  %106 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.25)
   br i1 %106, label %107, label %.thread104
 
 107:                                              ; preds = %105
@@ -334,7 +334,7 @@ pmix_obj_run_constructors.exit96:                 ; preds = %.lr.ph.i93, %81
 
 .thread104:                                       ; preds = %105, %107
   %.1106 = phi i1 [ true, %107 ], [ %103, %105 ]
-  %108 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.26)
+  %108 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.26)
   br i1 %108, label %109, label %.thread108
 
 109:                                              ; preds = %.thread104
@@ -343,7 +343,7 @@ pmix_obj_run_constructors.exit96:                 ; preds = %.lr.ph.i93, %81
 
 .thread108:                                       ; preds = %.thread104, %109
   %.2110 = phi i1 [ true, %109 ], [ %.1106, %.thread104 ]
-  %110 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.27)
+  %110 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.27)
   br i1 %110, label %111, label %.thread112
 
 111:                                              ; preds = %.thread108
@@ -352,20 +352,20 @@ pmix_obj_run_constructors.exit96:                 ; preds = %.lr.ph.i93, %81
 
 .thread112:                                       ; preds = %.thread108, %111
   %.3114 = phi i1 [ true, %111 ], [ %.2110, %.thread108 ]
-  %112 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.28)
+  %112 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.28)
   br i1 %112, label %.thread120, label %.thread116
 
 .thread116:                                       ; preds = %.thread112
-  %113 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.29)
+  %113 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.29)
   br i1 %113, label %.critedge, label %116
 
 .thread120:                                       ; preds = %.thread112
   tail call void @prte_info_do_config(i1 noundef zeroext true) #9
-  %114 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.29)
+  %114 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.29)
   br i1 %114, label %.critedge, label %.thread123
 
 .critedge:                                        ; preds = %.thread120, %.thread119, %.thread116
-  %115 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr noundef nonnull @.str.30)
+  %115 = tail call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull @.str.30)
   tail call void @prte_info_do_params(i1 noundef zeroext %101, i1 noundef zeroext %115) #9
   br label %.thread123
 
@@ -384,22 +384,22 @@ pmix_obj_run_constructors.exit96:                 ; preds = %.lr.ph.i93, %81
   tail call void @prte_info_components_open() #9
   %121 = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
   %122 = icmp sgt i32 %121, 0
-  br i1 %122, label %pmix_pointer_array_get_item.argprom.exit.preheader, label %.thread123
+  br i1 %122, label %pmix_pointer_array_get_item.exit.preheader, label %.thread123
 
-pmix_pointer_array_get_item.argprom.exit.preheader: ; preds = %117
+pmix_pointer_array_get_item.exit.preheader:       ; preds = %117
   %.pre140 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_types, i64 152), align 8
-  br label %pmix_pointer_array_get_item.argprom.exit
+  br label %pmix_pointer_array_get_item.exit
 
-pmix_pointer_array_get_item.argprom.exit:         ; preds = %pmix_pointer_array_get_item.argprom.exit.preheader, %132
-  %123 = phi i32 [ %121, %pmix_pointer_array_get_item.argprom.exit.preheader ], [ %133, %132 ]
-  %124 = phi ptr [ %.pre140, %pmix_pointer_array_get_item.argprom.exit.preheader ], [ %134, %132 ]
-  %indvars.iv137 = phi i64 [ 0, %pmix_pointer_array_get_item.argprom.exit.preheader ], [ %indvars.iv.next138, %132 ]
+pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_get_item.exit.preheader, %132
+  %123 = phi i32 [ %121, %pmix_pointer_array_get_item.exit.preheader ], [ %133, %132 ]
+  %124 = phi ptr [ %.pre140, %pmix_pointer_array_get_item.exit.preheader ], [ %134, %132 ]
+  %indvars.iv137 = phi i64 [ 0, %pmix_pointer_array_get_item.exit.preheader ], [ %indvars.iv.next138, %132 ]
   %125 = getelementptr inbounds ptr, ptr %124, i64 %indvars.iv137
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
   br i1 %127, label %132, label %128
 
-128:                                              ; preds = %pmix_pointer_array_get_item.argprom.exit
+128:                                              ; preds = %pmix_pointer_array_get_item.exit
   %129 = load ptr, ptr @prte_info_component_all, align 8
   %130 = load ptr, ptr @prte_info_ver_full, align 8
   %131 = load ptr, ptr @prte_info_type_all, align 8
@@ -408,13 +408,13 @@ pmix_pointer_array_get_item.argprom.exit:         ; preds = %pmix_pointer_array_
   %.pre141 = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
   br label %132
 
-132:                                              ; preds = %pmix_pointer_array_get_item.argprom.exit, %128
-  %133 = phi i32 [ %123, %pmix_pointer_array_get_item.argprom.exit ], [ %.pre141, %128 ]
-  %134 = phi ptr [ %124, %pmix_pointer_array_get_item.argprom.exit ], [ %.pre, %128 ]
+132:                                              ; preds = %pmix_pointer_array_get_item.exit, %128
+  %133 = phi i32 [ %123, %pmix_pointer_array_get_item.exit ], [ %.pre141, %128 ]
+  %134 = phi ptr [ %124, %pmix_pointer_array_get_item.exit ], [ %.pre, %128 ]
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %135 = sext i32 %133 to i64
   %136 = icmp slt i64 %indvars.iv.next138, %135
-  br i1 %136, label %pmix_pointer_array_get_item.argprom.exit, label %.thread123, !llvm.loop !10
+  br i1 %136, label %pmix_pointer_array_get_item.exit, label %.thread123, !llvm.loop !10
 
 .thread123:                                       ; preds = %132, %117, %.thread120, %.critedge, %116
   tail call void @prte_info_components_close() #9
@@ -492,10 +492,10 @@ declare i32 @pmix_pointer_array_add(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @pmix_server_register_params() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr nocapture noundef readonly %0) unnamed_addr #7 {
+define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr nocapture noundef readonly %0) unnamed_addr #7 {
   %.01.i = load ptr, ptr getelementptr inbounds (i8, ptr @prte_info_cmd_line, i64 360), align 8
   %.not2.i = icmp eq ptr %.01.i, getelementptr inbounds (i8, ptr @prte_info_cmd_line, i64 240)
-  br i1 %.not2.i, label %pmix_cmd_line_get_param.argprom.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %pmix_cmd_line_get_param.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %6
   %.03.i = phi ptr [ %.0.i, %6 ], [ %.01.i, %1 ]
@@ -503,21 +503,21 @@ define internal fastcc zeroext i1 @pmix_cmd_line_is_taken.argprom(ptr nocapture 
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %0) #11
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %pmix_cmd_line_get_param.argprom.exit.loopexit, label %6
+  br i1 %5, label %pmix_cmd_line_get_param.exit.loopexit, label %6
 
 6:                                                ; preds = %.lr.ph.i
   %7 = getelementptr inbounds i8, ptr %.03.i, i64 120
   %.0.i = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.0.i, getelementptr inbounds (i8, ptr @prte_info_cmd_line, i64 240)
-  br i1 %.not.i, label %pmix_cmd_line_get_param.argprom.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %pmix_cmd_line_get_param.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
 
-pmix_cmd_line_get_param.argprom.exit.loopexit:    ; preds = %6, %.lr.ph.i
+pmix_cmd_line_get_param.exit.loopexit:            ; preds = %6, %.lr.ph.i
   %.08.i.ph = phi ptr [ null, %6 ], [ %.03.i, %.lr.ph.i ]
   %8 = icmp ne ptr %.08.i.ph, null
-  br label %pmix_cmd_line_get_param.argprom.exit
+  br label %pmix_cmd_line_get_param.exit
 
-pmix_cmd_line_get_param.argprom.exit:             ; preds = %pmix_cmd_line_get_param.argprom.exit.loopexit, %1
-  %.08.i = phi i1 [ false, %1 ], [ %8, %pmix_cmd_line_get_param.argprom.exit.loopexit ]
+pmix_cmd_line_get_param.exit:                     ; preds = %pmix_cmd_line_get_param.exit.loopexit, %1
+  %.08.i = phi i1 [ false, %1 ], [ %8, %pmix_cmd_line_get_param.exit.loopexit ]
   ret i1 %.08.i
 }
 

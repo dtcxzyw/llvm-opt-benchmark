@@ -1313,7 +1313,7 @@ for.cond.i:                                       ; preds = %if.end60.i, %for.co
   %inc.i = add nsw i32 %m.0.i, 1
   %call1.i = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 0, i32 noundef %m.0.i) #5
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %generate_q_fips186_2.argprom.exit.thread, label %if.end.i
+  br i1 %tobool.not.i, label %generate_q_fips186_2.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %for.cond.i
   br i1 %generate_seed.addr.0.i, label %if.end5.i, label %land.lhs.true.i
@@ -1321,7 +1321,7 @@ if.end.i:                                         ; preds = %for.cond.i
 land.lhs.true.i:                                  ; preds = %if.end.i
   %call3.i = call i32 @RAND_bytes_ex(ptr noundef %call.i, ptr noundef nonnull %seed, i64 noundef %shr, i32 noundef 0) #5
   %cmp.i = icmp slt i32 %call3.i, 1
-  br i1 %cmp.i, label %generate_q_fips186_2.argprom.exit.thread, label %if.end5.i
+  br i1 %cmp.i, label %generate_q_fips186_2.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 16 %seed, i64 %shr, i1 false)
@@ -1346,12 +1346,12 @@ for.body.i:                                       ; preds = %for.cond6.i
 for.end.i:                                        ; preds = %for.body.i, %for.cond6.i
   %call18.i = call i32 @EVP_Digest(ptr noundef nonnull %seed, i64 noundef %shr, ptr noundef nonnull %md.i, ptr noundef null, ptr noundef nonnull %call19, ptr noundef null) #5
   %tobool19.not.i = icmp eq i32 %call18.i, 0
-  br i1 %tobool19.not.i, label %generate_q_fips186_2.argprom.exit.thread, label %if.end21.i
+  br i1 %tobool19.not.i, label %generate_q_fips186_2.exit.thread, label %if.end21.i
 
 if.end21.i:                                       ; preds = %for.end.i
   %call23.i = call i32 @EVP_Digest(ptr noundef nonnull %buf, i64 noundef %shr, ptr noundef nonnull %buf2.i, ptr noundef null, ptr noundef nonnull %call19, ptr noundef null) #5
   %tobool24.not.i = icmp eq i32 %call23.i, 0
-  br i1 %tobool24.not.i, label %generate_q_fips186_2.argprom.exit.thread, label %for.cond27.preheader.i
+  br i1 %tobool24.not.i, label %generate_q_fips186_2.exit.thread, label %for.cond27.preheader.i
 
 for.cond27.preheader.i:                           ; preds = %if.end21.i
   br i1 %cmp291.i, label %for.body31.i, label %for.end41.i
@@ -1377,7 +1377,7 @@ for.end41.i:                                      ; preds = %for.body31.i, %for.
   store i8 %22, ptr %arrayidx46.i, align 1
   %call52.i = call ptr @BN_bin2bn(ptr noundef nonnull %md.i, i32 noundef %conv.i, ptr noundef %call65) #5
   %tobool53.not.i = icmp eq ptr %call52.i, null
-  br i1 %tobool53.not.i, label %generate_q_fips186_2.argprom.exit.thread, label %if.end55.i
+  br i1 %tobool53.not.i, label %generate_q_fips186_2.exit.thread, label %if.end55.i
 
 if.end55.i:                                       ; preds = %for.end41.i
   %call56.i = call i32 @BN_check_prime(ptr noundef %call65, ptr noundef nonnull %call58, ptr noundef %cb) #5
@@ -1386,9 +1386,9 @@ if.end55.i:                                       ; preds = %for.end41.i
 
 if.end60.i:                                       ; preds = %if.end55.i
   %cmp61.not.i = icmp eq i32 %call56.i, 0
-  br i1 %cmp61.not.i, label %for.cond.i, label %generate_q_fips186_2.argprom.exit.thread
+  br i1 %cmp61.not.i, label %for.cond.i, label %generate_q_fips186_2.exit.thread
 
-generate_q_fips186_2.argprom.exit.thread:         ; preds = %land.lhs.true.i, %if.end60.i, %for.end41.i, %if.end21.i, %for.end.i, %for.cond.i
+generate_q_fips186_2.exit.thread:                 ; preds = %land.lhs.true.i, %if.end60.i, %for.end41.i, %if.end21.i, %for.end.i, %for.cond.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %buf2.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %md.i)
   br label %if.then281
@@ -1579,9 +1579,9 @@ pass:                                             ; preds = %if.end223, %if.end2
   %. = select i1 %cmp274.not, i32 1, i32 2
   br label %if.then281
 
-if.then281:                                       ; preds = %if.end132, %if.end136, %if.end162, %if.then152, %if.then175, %if.then181, %for.end, %g_only, %if.end193, %if.then199, %if.end204, %if.end208, %land.lhs.true217, %if.end223, %lor.lhs.false257, %if.end253, %if.end266, %pass, %generate_q_fips186_2.argprom.exit.thread, %if.end223.thread, %if.end72, %if.then89, %if.then110, %if.then100, %if.end62
-  %ok.0167 = phi i32 [ 0, %if.end62 ], [ 0, %if.then100 ], [ 0, %if.then110 ], [ 0, %if.then89 ], [ 0, %if.end72 ], [ 0, %g_only ], [ 0, %if.end253 ], [ 0, %lor.lhs.false257 ], [ 0, %if.end266 ], [ 0, %if.end223 ], [ 0, %land.lhs.true217 ], [ 0, %if.end208 ], [ 0, %if.end204 ], [ 0, %if.then199 ], [ 0, %if.end193 ], [ 0, %if.then152 ], [ 0, %if.then175 ], [ 0, %if.then181 ], [ 0, %for.end ], [ %., %pass ], [ 0, %generate_q_fips186_2.argprom.exit.thread ], [ 0, %if.end223.thread ], [ 0, %if.end162 ], [ 0, %if.end136 ], [ 0, %if.end132 ]
-  %mont.0164 = phi ptr [ null, %if.end62 ], [ null, %if.then100 ], [ null, %if.then110 ], [ null, %if.then89 ], [ null, %if.end72 ], [ null, %g_only ], [ %call189, %if.end253 ], [ %call189, %lor.lhs.false257 ], [ %call189, %if.end266 ], [ %call189, %if.end223 ], [ %call189, %land.lhs.true217 ], [ %call189, %if.end208 ], [ %call189, %if.end204 ], [ %call189, %if.then199 ], [ %call189, %if.end193 ], [ null, %if.then152 ], [ null, %if.then175 ], [ null, %if.then181 ], [ null, %for.end ], [ %mont.1, %pass ], [ null, %generate_q_fips186_2.argprom.exit.thread ], [ %call189, %if.end223.thread ], [ null, %if.end162 ], [ null, %if.end136 ], [ null, %if.end132 ]
+if.then281:                                       ; preds = %if.end132, %if.end136, %if.end162, %if.then152, %if.then175, %if.then181, %for.end, %g_only, %if.end193, %if.then199, %if.end204, %if.end208, %land.lhs.true217, %if.end223, %lor.lhs.false257, %if.end253, %if.end266, %pass, %generate_q_fips186_2.exit.thread, %if.end223.thread, %if.end72, %if.then89, %if.then110, %if.then100, %if.end62
+  %ok.0167 = phi i32 [ 0, %if.end62 ], [ 0, %if.then100 ], [ 0, %if.then110 ], [ 0, %if.then89 ], [ 0, %if.end72 ], [ 0, %g_only ], [ 0, %if.end253 ], [ 0, %lor.lhs.false257 ], [ 0, %if.end266 ], [ 0, %if.end223 ], [ 0, %land.lhs.true217 ], [ 0, %if.end208 ], [ 0, %if.end204 ], [ 0, %if.then199 ], [ 0, %if.end193 ], [ 0, %if.then152 ], [ 0, %if.then175 ], [ 0, %if.then181 ], [ 0, %for.end ], [ %., %pass ], [ 0, %generate_q_fips186_2.exit.thread ], [ 0, %if.end223.thread ], [ 0, %if.end162 ], [ 0, %if.end136 ], [ 0, %if.end132 ]
+  %mont.0164 = phi ptr [ null, %if.end62 ], [ null, %if.then100 ], [ null, %if.then110 ], [ null, %if.then89 ], [ null, %if.end72 ], [ null, %g_only ], [ %call189, %if.end253 ], [ %call189, %lor.lhs.false257 ], [ %call189, %if.end266 ], [ %call189, %if.end223 ], [ %call189, %land.lhs.true217 ], [ %call189, %if.end208 ], [ %call189, %if.end204 ], [ %call189, %if.then199 ], [ %call189, %if.end193 ], [ null, %if.then152 ], [ null, %if.then175 ], [ null, %if.then181 ], [ null, %for.end ], [ %mont.1, %pass ], [ null, %generate_q_fips186_2.exit.thread ], [ %call189, %if.end223.thread ], [ null, %if.end162 ], [ null, %if.end136 ], [ null, %if.end132 ]
   call void @BN_CTX_end(ptr noundef nonnull %call58) #5
   br label %if.end282
 

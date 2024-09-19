@@ -3066,343 +3066,343 @@ define internal i32 @dissect_inap_T_argument(i1 zeroext %0, ptr noundef %1, i32 
   ]
 
 10:                                               ; preds = %6
-  %11 = tail call fastcc i32 @dissect_ActivateServiceFilteringArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %11 = tail call fastcc i32 @dissect_ActivateServiceFilteringArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 12:                                               ; preds = %6
-  %13 = tail call fastcc i32 @dissect_AnalysedInformationArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %13 = tail call fastcc i32 @dissect_AnalysedInformationArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 14:                                               ; preds = %6
-  %15 = tail call fastcc i32 @dissect_AnalyseInformationArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %15 = tail call fastcc i32 @dissect_AnalyseInformationArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 16:                                               ; preds = %6
-  %17 = tail call fastcc i32 @dissect_ApplyChargingArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %17 = tail call fastcc i32 @dissect_ApplyChargingArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 18:                                               ; preds = %6
-  %19 = tail call fastcc i32 @dissect_ApplyChargingReportArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %19 = tail call fastcc i32 @dissect_ApplyChargingReportArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 20:                                               ; preds = %6
-  %21 = tail call fastcc i32 @dissect_AssistRequestInstructionsArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %21 = tail call fastcc i32 @dissect_AssistRequestInstructionsArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 22:                                               ; preds = %6
-  %23 = tail call fastcc i32 @dissect_AuthorizeTerminationArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %23 = tail call fastcc i32 @dissect_AuthorizeTerminationArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 24:                                               ; preds = %6
-  %25 = tail call fastcc i32 @dissect_CallFilteringArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %25 = tail call fastcc i32 @dissect_CallFilteringArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 26:                                               ; preds = %6
-  %27 = tail call fastcc i32 @dissect_CallGapArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %27 = tail call fastcc i32 @dissect_CallGapArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 28:                                               ; preds = %6
-  %29 = tail call fastcc i32 @dissect_CallInformationReportArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %29 = tail call fastcc i32 @dissect_CallInformationReportArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 30:                                               ; preds = %6
-  %31 = tail call fastcc i32 @dissect_CallInformationRequestArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %31 = tail call fastcc i32 @dissect_CallInformationRequestArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 32:                                               ; preds = %6
-  %33 = tail call fastcc i32 @dissect_CancelArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %33 = tail call fastcc i32 @dissect_CancelArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 34:                                               ; preds = %6
-  %35 = tail call fastcc i32 @dissect_CancelStatusReportRequestArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %35 = tail call fastcc i32 @dissect_CancelStatusReportRequestArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 36:                                               ; preds = %6
-  %37 = tail call fastcc i32 @dissect_CollectedInformationArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %37 = tail call fastcc i32 @dissect_CollectedInformationArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 38:                                               ; preds = %6
-  %39 = tail call fastcc i32 @dissect_CollectInformationArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %39 = tail call fastcc i32 @dissect_CollectInformationArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 40:                                               ; preds = %6
-  %41 = tail call fastcc i32 @dissect_ConnectArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %41 = tail call fastcc i32 @dissect_ConnectArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 42:                                               ; preds = %6
-  %43 = tail call fastcc i32 @dissect_ConnectToResourceArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %43 = tail call fastcc i32 @dissect_ConnectToResourceArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 44:                                               ; preds = %6
-  %45 = tail call fastcc i32 @dissect_ContinueWithArgumentArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %45 = tail call fastcc i32 @dissect_ContinueWithArgumentArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 46:                                               ; preds = %6
-  %47 = tail call fastcc i32 @dissect_CreateCallSegmentAssociationArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %47 = tail call fastcc i32 @dissect_CreateCallSegmentAssociationArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 48:                                               ; preds = %6
-  %49 = tail call fastcc i32 @dissect_CreateOrRemoveTriggerDataArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %49 = tail call fastcc i32 @dissect_CreateOrRemoveTriggerDataArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 50:                                               ; preds = %6
-  %51 = tail call fastcc i32 @dissect_DisconnectForwardConnectionWithArgumentArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %51 = tail call fastcc i32 @dissect_DisconnectForwardConnectionWithArgumentArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 52:                                               ; preds = %6
-  %53 = tail call fastcc i32 @dissect_DisconnectLegArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %53 = tail call fastcc i32 @dissect_DisconnectLegArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 54:                                               ; preds = %6
-  %55 = tail call fastcc i32 @dissect_EntityReleasedArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %55 = tail call fastcc i32 @dissect_EntityReleasedArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 56:                                               ; preds = %6
-  %57 = tail call fastcc i32 @dissect_EstablishTemporaryConnectionArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %57 = tail call fastcc i32 @dissect_EstablishTemporaryConnectionArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 58:                                               ; preds = %6
-  %59 = tail call fastcc i32 @dissect_EventNotificationChargingArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %59 = tail call fastcc i32 @dissect_EventNotificationChargingArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 60:                                               ; preds = %6
-  %61 = tail call fastcc i32 @dissect_EventReportBCSMArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %61 = tail call fastcc i32 @dissect_EventReportBCSMArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 62:                                               ; preds = %6
-  %63 = tail call fastcc i32 @dissect_EventReportFacilityArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %63 = tail call fastcc i32 @dissect_EventReportFacilityArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 64:                                               ; preds = %6
-  %65 = tail call fastcc i32 @dissect_FacilitySelectedAndAvailableArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %65 = tail call fastcc i32 @dissect_FacilitySelectedAndAvailableArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 66:                                               ; preds = %6
-  %67 = tail call fastcc i32 @dissect_FurnishChargingInformationArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %67 = tail call fastcc i32 @dissect_FurnishChargingInformationArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 68:                                               ; preds = %6
-  %69 = tail call fastcc i32 @dissect_HoldCallInNetworkArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %69 = tail call fastcc i32 @dissect_HoldCallInNetworkArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 70:                                               ; preds = %6
-  %71 = tail call fastcc i32 @dissect_InitialDPArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %71 = tail call fastcc i32 @dissect_InitialDPArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 72:                                               ; preds = %6
-  %73 = tail call fastcc i32 @dissect_InitiateCallAttemptArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %73 = tail call fastcc i32 @dissect_InitiateCallAttemptArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 74:                                               ; preds = %6
-  %75 = tail call fastcc i32 @dissect_ManageTriggerDataArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %75 = tail call fastcc i32 @dissect_ManageTriggerDataArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 76:                                               ; preds = %6
-  %77 = tail call fastcc i32 @dissect_MergeCallSegmentsArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %77 = tail call fastcc i32 @dissect_MergeCallSegmentsArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 78:                                               ; preds = %6
-  %79 = tail call fastcc i32 @dissect_MonitorRouteReportArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %79 = tail call fastcc i32 @dissect_MonitorRouteReportArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 80:                                               ; preds = %6
-  %81 = tail call fastcc i32 @dissect_MonitorRouteRequestArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %81 = tail call fastcc i32 @dissect_MonitorRouteRequestArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 82:                                               ; preds = %6
-  %83 = tail call fastcc i32 @dissect_MoveCallSegmentsArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %83 = tail call fastcc i32 @dissect_MoveCallSegmentsArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 84:                                               ; preds = %6
-  %85 = tail call fastcc i32 @dissect_MoveLegArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %85 = tail call fastcc i32 @dissect_MoveLegArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 86:                                               ; preds = %6
-  %87 = tail call fastcc i32 @dissect_OAbandonArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %87 = tail call fastcc i32 @dissect_OAbandonArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 88:                                               ; preds = %6
-  %89 = tail call fastcc i32 @dissect_OAnswerArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %89 = tail call fastcc i32 @dissect_OAnswerArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 90:                                               ; preds = %6
-  %91 = tail call fastcc i32 @dissect_OCalledPartyBusyArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %91 = tail call fastcc i32 @dissect_OCalledPartyBusyArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 92:                                               ; preds = %6
-  %93 = tail call fastcc i32 @dissect_ODisconnectArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %93 = tail call fastcc i32 @dissect_ODisconnectArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 94:                                               ; preds = %6
-  %95 = tail call fastcc i32 @dissect_MidCallArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %95 = tail call fastcc i32 @dissect_MidCallArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 96:                                               ; preds = %6
-  %97 = tail call fastcc i32 @dissect_ONoAnswerArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %97 = tail call fastcc i32 @dissect_ONoAnswerArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 98:                                               ; preds = %6
-  %99 = tail call fastcc i32 @dissect_OriginationAttemptArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %99 = tail call fastcc i32 @dissect_OriginationAttemptArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 100:                                              ; preds = %6
-  %101 = tail call fastcc i32 @dissect_OriginationAttemptAuthorizedArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %101 = tail call fastcc i32 @dissect_OriginationAttemptAuthorizedArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 102:                                              ; preds = %6
-  %103 = tail call fastcc i32 @dissect_OSuspendedArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %103 = tail call fastcc i32 @dissect_OSuspendedArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 104:                                              ; preds = %6
-  %105 = tail call fastcc i32 @dissect_ReconnectArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %105 = tail call fastcc i32 @dissect_ReconnectArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 106:                                              ; preds = %6
-  %107 = tail call fastcc i32 @dissect_ReleaseCallArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %107 = tail call fastcc i32 @dissect_ReleaseCallArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 108:                                              ; preds = %6
-  %109 = tail call fastcc i32 @dissect_ReportUTSIArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %109 = tail call fastcc i32 @dissect_ReportUTSIArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 110:                                              ; preds = %6
-  %111 = tail call fastcc i32 @dissect_RequestCurrentStatusReportArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %111 = tail call fastcc i32 @dissect_RequestCurrentStatusReportArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 112:                                              ; preds = %6
-  %113 = tail call fastcc i32 @dissect_RequestEveryStatusChangeReportArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %113 = tail call fastcc i32 @dissect_RequestEveryStatusChangeReportArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 114:                                              ; preds = %6
-  %115 = tail call fastcc i32 @dissect_RequestFirstStatusMatchReportArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %115 = tail call fastcc i32 @dissect_RequestFirstStatusMatchReportArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 116:                                              ; preds = %6
-  %117 = tail call fastcc i32 @dissect_RequestNotificationChargingEventArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %117 = tail call fastcc i32 @dissect_RequestNotificationChargingEventArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 118:                                              ; preds = %6
-  %119 = tail call fastcc i32 @dissect_RequestReportBCSMEventArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %119 = tail call fastcc i32 @dissect_RequestReportBCSMEventArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 120:                                              ; preds = %6
-  %121 = tail call fastcc i32 @dissect_RequestReportFacilityEventArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %121 = tail call fastcc i32 @dissect_RequestReportFacilityEventArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 122:                                              ; preds = %6
-  %123 = tail call fastcc i32 @dissect_RequestReportUTSIArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %123 = tail call fastcc i32 @dissect_RequestReportUTSIArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 124:                                              ; preds = %6
-  %125 = tail call fastcc i32 @dissect_ResetTimerArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %125 = tail call fastcc i32 @dissect_ResetTimerArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 126:                                              ; preds = %6
-  %127 = tail call fastcc i32 @dissect_RouteSelectFailureArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %127 = tail call fastcc i32 @dissect_RouteSelectFailureArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 128:                                              ; preds = %6
-  %129 = tail call fastcc i32 @dissect_SelectFacilityArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %129 = tail call fastcc i32 @dissect_SelectFacilityArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 130:                                              ; preds = %6
-  %131 = tail call fastcc i32 @dissect_SelectRouteArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %131 = tail call fastcc i32 @dissect_SelectRouteArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 132:                                              ; preds = %6
-  %133 = tail call fastcc i32 @dissect_SendChargingInformationArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %133 = tail call fastcc i32 @dissect_SendChargingInformationArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 134:                                              ; preds = %6
-  %135 = tail call fastcc i32 @dissect_SendFacilityInformationArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %135 = tail call fastcc i32 @dissect_SendFacilityInformationArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 136:                                              ; preds = %6
-  %137 = tail call fastcc i32 @dissect_SendSTUIArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %137 = tail call fastcc i32 @dissect_SendSTUIArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 138:                                              ; preds = %6
-  %139 = tail call fastcc i32 @dissect_ServiceFilteringResponseArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %139 = tail call fastcc i32 @dissect_ServiceFilteringResponseArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 140:                                              ; preds = %6
-  %141 = tail call fastcc i32 @dissect_SetServiceProfileArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %141 = tail call fastcc i32 @dissect_SetServiceProfileArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 142:                                              ; preds = %6
-  %143 = tail call fastcc i32 @dissect_SplitLegArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %143 = tail call fastcc i32 @dissect_SplitLegArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 144:                                              ; preds = %6
-  %145 = tail call fastcc i32 @dissect_StatusReportArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %145 = tail call fastcc i32 @dissect_StatusReportArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 146:                                              ; preds = %6
-  %147 = tail call fastcc i32 @dissect_TAnswerArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %147 = tail call fastcc i32 @dissect_TAnswerArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 148:                                              ; preds = %6
-  %149 = tail call fastcc i32 @dissect_TBusyArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %149 = tail call fastcc i32 @dissect_TBusyArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 150:                                              ; preds = %6
-  %151 = tail call fastcc i32 @dissect_TDisconnectArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %151 = tail call fastcc i32 @dissect_TDisconnectArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 152:                                              ; preds = %6
-  %153 = tail call fastcc i32 @dissect_TermAttemptAuthorizedArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %153 = tail call fastcc i32 @dissect_TermAttemptAuthorizedArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 154:                                              ; preds = %6
-  %155 = tail call fastcc i32 @dissect_TerminationAttemptArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %155 = tail call fastcc i32 @dissect_TerminationAttemptArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 156:                                              ; preds = %6
-  %157 = tail call fastcc i32 @dissect_MidCallArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %157 = tail call fastcc i32 @dissect_MidCallArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 158:                                              ; preds = %6
-  %159 = tail call fastcc i32 @dissect_TNoAnswerArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %159 = tail call fastcc i32 @dissect_TNoAnswerArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 160:                                              ; preds = %6
-  %161 = tail call fastcc i32 @dissect_TSuspendedArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %161 = tail call fastcc i32 @dissect_TSuspendedArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 162:                                              ; preds = %6
-  %163 = tail call fastcc i32 @dissect_PlayAnnouncementArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %163 = tail call fastcc i32 @dissect_PlayAnnouncementArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 164:                                              ; preds = %6
-  %165 = tail call fastcc i32 @dissect_PromptAndCollectUserInformationArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %165 = tail call fastcc i32 @dissect_PromptAndCollectUserInformationArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 166:                                              ; preds = %6
-  %167 = tail call fastcc i32 @dissect_PromptAndReceiveMessageArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %167 = tail call fastcc i32 @dissect_PromptAndReceiveMessageArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 168:                                              ; preds = %6
-  %169 = tail call fastcc i32 @dissect_ScriptCloseArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %169 = tail call fastcc i32 @dissect_ScriptCloseArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 170:                                              ; preds = %6
-  %171 = tail call fastcc i32 @dissect_ScriptEventArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %171 = tail call fastcc i32 @dissect_ScriptEventArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 172:                                              ; preds = %6
-  %173 = tail call fastcc i32 @dissect_ScriptInformationArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %173 = tail call fastcc i32 @dissect_ScriptInformationArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 174:                                              ; preds = %6
-  %175 = tail call fastcc i32 @dissect_ScriptRunArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %175 = tail call fastcc i32 @dissect_ScriptRunArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 176:                                              ; preds = %6
-  %177 = tail call fastcc i32 @dissect_SpecializedResourceReportArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %177 = tail call fastcc i32 @dissect_SpecializedResourceReportArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 178:                                              ; preds = %6
-  %179 = tail call fastcc i32 @dissect_SRFCallGapArg_PDU.argprom(ptr noundef %1, ptr noundef %9, ptr noundef %4)
+  %179 = tail call fastcc i32 @dissect_SRFCallGapArg_PDU(ptr noundef %1, ptr noundef %9, ptr noundef %4)
   br label %dissect_invokeData.exit
 
 180:                                              ; preds = %6
@@ -3497,7 +3497,7 @@ declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @dissect_ber_object_identifier_str(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ActivateServiceFilteringArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ActivateServiceFilteringArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ActivateServiceFilteringArg_PDU, align 4
@@ -3507,7 +3507,7 @@ define internal fastcc i32 @dissect_ActivateServiceFilteringArg_PDU.argprom(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_AnalysedInformationArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_AnalysedInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_AnalysedInformationArg_PDU, align 4
@@ -3517,7 +3517,7 @@ define internal fastcc i32 @dissect_AnalysedInformationArg_PDU.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_AnalyseInformationArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_AnalyseInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_AnalyseInformationArg_PDU, align 4
@@ -3527,7 +3527,7 @@ define internal fastcc i32 @dissect_AnalyseInformationArg_PDU.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ApplyChargingArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ApplyChargingArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ApplyChargingArg_PDU, align 4
@@ -3537,7 +3537,7 @@ define internal fastcc i32 @dissect_ApplyChargingArg_PDU.argprom(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ApplyChargingReportArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ApplyChargingReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ApplyChargingReportArg_PDU, align 4
@@ -3546,7 +3546,7 @@ define internal fastcc i32 @dissect_ApplyChargingReportArg_PDU.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_AssistRequestInstructionsArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_AssistRequestInstructionsArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_AssistRequestInstructionsArg_PDU, align 4
@@ -3556,7 +3556,7 @@ define internal fastcc i32 @dissect_AssistRequestInstructionsArg_PDU.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_AuthorizeTerminationArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_AuthorizeTerminationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_AuthorizeTerminationArg_PDU, align 4
@@ -3566,7 +3566,7 @@ define internal fastcc i32 @dissect_AuthorizeTerminationArg_PDU.argprom(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_CallFilteringArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_CallFilteringArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_CallFilteringArg_PDU, align 4
@@ -3576,7 +3576,7 @@ define internal fastcc i32 @dissect_CallFilteringArg_PDU.argprom(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_CallGapArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_CallGapArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_CallGapArg_PDU, align 4
@@ -3586,7 +3586,7 @@ define internal fastcc i32 @dissect_CallGapArg_PDU.argprom(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_CallInformationReportArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_CallInformationReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_CallInformationReportArg_PDU, align 4
@@ -3596,7 +3596,7 @@ define internal fastcc i32 @dissect_CallInformationReportArg_PDU.argprom(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_CallInformationRequestArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_CallInformationRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_CallInformationRequestArg_PDU, align 4
@@ -3606,7 +3606,7 @@ define internal fastcc i32 @dissect_CallInformationRequestArg_PDU.argprom(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_CancelArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_CancelArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_CancelArg_PDU, align 4
@@ -3616,7 +3616,7 @@ define internal fastcc i32 @dissect_CancelArg_PDU.argprom(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_CancelStatusReportRequestArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_CancelStatusReportRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_CancelStatusReportRequestArg_PDU, align 4
@@ -3626,7 +3626,7 @@ define internal fastcc i32 @dissect_CancelStatusReportRequestArg_PDU.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_CollectedInformationArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_CollectedInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_CollectedInformationArg_PDU, align 4
@@ -3636,7 +3636,7 @@ define internal fastcc i32 @dissect_CollectedInformationArg_PDU.argprom(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_CollectInformationArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_CollectInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_CollectInformationArg_PDU, align 4
@@ -3646,7 +3646,7 @@ define internal fastcc i32 @dissect_CollectInformationArg_PDU.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ConnectArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ConnectArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ConnectArg_PDU, align 4
@@ -3656,7 +3656,7 @@ define internal fastcc i32 @dissect_ConnectArg_PDU.argprom(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ConnectToResourceArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ConnectToResourceArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ConnectToResourceArg_PDU, align 4
@@ -3666,7 +3666,7 @@ define internal fastcc i32 @dissect_ConnectToResourceArg_PDU.argprom(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ContinueWithArgumentArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ContinueWithArgumentArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ContinueWithArgumentArg_PDU, align 4
@@ -3676,7 +3676,7 @@ define internal fastcc i32 @dissect_ContinueWithArgumentArg_PDU.argprom(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_CreateCallSegmentAssociationArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_CreateCallSegmentAssociationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_CreateCallSegmentAssociationArg_PDU, align 4
@@ -3686,7 +3686,7 @@ define internal fastcc i32 @dissect_CreateCallSegmentAssociationArg_PDU.argprom(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_CreateOrRemoveTriggerDataArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_CreateOrRemoveTriggerDataArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_CreateOrRemoveTriggerDataArg_PDU, align 4
@@ -3696,7 +3696,7 @@ define internal fastcc i32 @dissect_CreateOrRemoveTriggerDataArg_PDU.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_DisconnectForwardConnectionWithArgumentArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_DisconnectForwardConnectionWithArgumentArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_DisconnectForwardConnectionWithArgumentArg_PDU, align 4
@@ -3706,7 +3706,7 @@ define internal fastcc i32 @dissect_DisconnectForwardConnectionWithArgumentArg_P
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_DisconnectLegArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_DisconnectLegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_DisconnectLegArg_PDU, align 4
@@ -3716,7 +3716,7 @@ define internal fastcc i32 @dissect_DisconnectLegArg_PDU.argprom(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_EntityReleasedArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_EntityReleasedArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_EntityReleasedArg_PDU, align 4
@@ -3726,7 +3726,7 @@ define internal fastcc i32 @dissect_EntityReleasedArg_PDU.argprom(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_EstablishTemporaryConnectionArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_EstablishTemporaryConnectionArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_EstablishTemporaryConnectionArg_PDU, align 4
@@ -3736,7 +3736,7 @@ define internal fastcc i32 @dissect_EstablishTemporaryConnectionArg_PDU.argprom(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_EventNotificationChargingArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_EventNotificationChargingArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_EventNotificationChargingArg_PDU, align 4
@@ -3746,7 +3746,7 @@ define internal fastcc i32 @dissect_EventNotificationChargingArg_PDU.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_EventReportBCSMArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_EventReportBCSMArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_EventReportBCSMArg_PDU, align 4
@@ -3756,7 +3756,7 @@ define internal fastcc i32 @dissect_EventReportBCSMArg_PDU.argprom(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_EventReportFacilityArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_EventReportFacilityArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_EventReportFacilityArg_PDU, align 4
@@ -3766,7 +3766,7 @@ define internal fastcc i32 @dissect_EventReportFacilityArg_PDU.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_FacilitySelectedAndAvailableArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_FacilitySelectedAndAvailableArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_FacilitySelectedAndAvailableArg_PDU, align 4
@@ -3776,7 +3776,7 @@ define internal fastcc i32 @dissect_FacilitySelectedAndAvailableArg_PDU.argprom(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_FurnishChargingInformationArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_FurnishChargingInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_FurnishChargingInformationArg_PDU, align 4
@@ -3785,7 +3785,7 @@ define internal fastcc i32 @dissect_FurnishChargingInformationArg_PDU.argprom(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_HoldCallInNetworkArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_HoldCallInNetworkArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_HoldCallInNetworkArg_PDU, align 4
@@ -3795,7 +3795,7 @@ define internal fastcc i32 @dissect_HoldCallInNetworkArg_PDU.argprom(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_InitialDPArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_InitialDPArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_InitialDPArg_PDU, align 4
@@ -3805,7 +3805,7 @@ define internal fastcc i32 @dissect_InitialDPArg_PDU.argprom(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_InitiateCallAttemptArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_InitiateCallAttemptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_InitiateCallAttemptArg_PDU, align 4
@@ -3815,7 +3815,7 @@ define internal fastcc i32 @dissect_InitiateCallAttemptArg_PDU.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ManageTriggerDataArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ManageTriggerDataArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ManageTriggerDataArg_PDU, align 4
@@ -3825,7 +3825,7 @@ define internal fastcc i32 @dissect_ManageTriggerDataArg_PDU.argprom(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_MergeCallSegmentsArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_MergeCallSegmentsArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_MergeCallSegmentsArg_PDU, align 4
@@ -3835,7 +3835,7 @@ define internal fastcc i32 @dissect_MergeCallSegmentsArg_PDU.argprom(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_MonitorRouteReportArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_MonitorRouteReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_MonitorRouteReportArg_PDU, align 4
@@ -3845,7 +3845,7 @@ define internal fastcc i32 @dissect_MonitorRouteReportArg_PDU.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_MonitorRouteRequestArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_MonitorRouteRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_MonitorRouteRequestArg_PDU, align 4
@@ -3855,7 +3855,7 @@ define internal fastcc i32 @dissect_MonitorRouteRequestArg_PDU.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_MoveCallSegmentsArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_MoveCallSegmentsArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_MoveCallSegmentsArg_PDU, align 4
@@ -3865,7 +3865,7 @@ define internal fastcc i32 @dissect_MoveCallSegmentsArg_PDU.argprom(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_MoveLegArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_MoveLegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_MoveLegArg_PDU, align 4
@@ -3875,7 +3875,7 @@ define internal fastcc i32 @dissect_MoveLegArg_PDU.argprom(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_OAbandonArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_OAbandonArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_OAbandonArg_PDU, align 4
@@ -3885,7 +3885,7 @@ define internal fastcc i32 @dissect_OAbandonArg_PDU.argprom(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_OAnswerArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_OAnswerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_OAnswerArg_PDU, align 4
@@ -3895,7 +3895,7 @@ define internal fastcc i32 @dissect_OAnswerArg_PDU.argprom(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_OCalledPartyBusyArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_OCalledPartyBusyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_OCalledPartyBusyArg_PDU, align 4
@@ -3905,7 +3905,7 @@ define internal fastcc i32 @dissect_OCalledPartyBusyArg_PDU.argprom(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ODisconnectArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ODisconnectArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ODisconnectArg_PDU, align 4
@@ -3915,7 +3915,7 @@ define internal fastcc i32 @dissect_ODisconnectArg_PDU.argprom(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_MidCallArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_MidCallArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_MidCallArg_PDU, align 4
@@ -3925,7 +3925,7 @@ define internal fastcc i32 @dissect_MidCallArg_PDU.argprom(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ONoAnswerArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ONoAnswerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ONoAnswerArg_PDU, align 4
@@ -3935,7 +3935,7 @@ define internal fastcc i32 @dissect_ONoAnswerArg_PDU.argprom(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_OriginationAttemptArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_OriginationAttemptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_OriginationAttemptArg_PDU, align 4
@@ -3945,7 +3945,7 @@ define internal fastcc i32 @dissect_OriginationAttemptArg_PDU.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_OriginationAttemptAuthorizedArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_OriginationAttemptAuthorizedArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_OriginationAttemptAuthorizedArg_PDU, align 4
@@ -3955,7 +3955,7 @@ define internal fastcc i32 @dissect_OriginationAttemptAuthorizedArg_PDU.argprom(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_OSuspendedArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_OSuspendedArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_OSuspendedArg_PDU, align 4
@@ -3965,7 +3965,7 @@ define internal fastcc i32 @dissect_OSuspendedArg_PDU.argprom(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ReconnectArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ReconnectArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ReconnectArg_PDU, align 4
@@ -3975,7 +3975,7 @@ define internal fastcc i32 @dissect_ReconnectArg_PDU.argprom(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ReleaseCallArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ReleaseCallArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ReleaseCallArg_PDU, align 4
@@ -3985,7 +3985,7 @@ define internal fastcc i32 @dissect_ReleaseCallArg_PDU.argprom(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ReportUTSIArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ReportUTSIArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ReportUTSIArg_PDU, align 4
@@ -3995,7 +3995,7 @@ define internal fastcc i32 @dissect_ReportUTSIArg_PDU.argprom(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RequestCurrentStatusReportArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_RequestCurrentStatusReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_RequestCurrentStatusReportArg_PDU, align 4
@@ -4005,7 +4005,7 @@ define internal fastcc i32 @dissect_RequestCurrentStatusReportArg_PDU.argprom(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RequestEveryStatusChangeReportArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_RequestEveryStatusChangeReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_RequestEveryStatusChangeReportArg_PDU, align 4
@@ -4015,7 +4015,7 @@ define internal fastcc i32 @dissect_RequestEveryStatusChangeReportArg_PDU.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RequestFirstStatusMatchReportArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_RequestFirstStatusMatchReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_RequestFirstStatusMatchReportArg_PDU, align 4
@@ -4025,7 +4025,7 @@ define internal fastcc i32 @dissect_RequestFirstStatusMatchReportArg_PDU.argprom
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RequestNotificationChargingEventArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_RequestNotificationChargingEventArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_RequestNotificationChargingEventArg_PDU, align 4
@@ -4035,7 +4035,7 @@ define internal fastcc i32 @dissect_RequestNotificationChargingEventArg_PDU.argp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RequestReportBCSMEventArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_RequestReportBCSMEventArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_RequestReportBCSMEventArg_PDU, align 4
@@ -4045,7 +4045,7 @@ define internal fastcc i32 @dissect_RequestReportBCSMEventArg_PDU.argprom(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RequestReportFacilityEventArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_RequestReportFacilityEventArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_RequestReportFacilityEventArg_PDU, align 4
@@ -4055,7 +4055,7 @@ define internal fastcc i32 @dissect_RequestReportFacilityEventArg_PDU.argprom(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RequestReportUTSIArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_RequestReportUTSIArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_RequestReportUTSIArg_PDU, align 4
@@ -4065,7 +4065,7 @@ define internal fastcc i32 @dissect_RequestReportUTSIArg_PDU.argprom(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ResetTimerArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ResetTimerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ResetTimerArg_PDU, align 4
@@ -4075,7 +4075,7 @@ define internal fastcc i32 @dissect_ResetTimerArg_PDU.argprom(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RouteSelectFailureArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_RouteSelectFailureArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_RouteSelectFailureArg_PDU, align 4
@@ -4085,7 +4085,7 @@ define internal fastcc i32 @dissect_RouteSelectFailureArg_PDU.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_SelectFacilityArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_SelectFacilityArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_SelectFacilityArg_PDU, align 4
@@ -4095,7 +4095,7 @@ define internal fastcc i32 @dissect_SelectFacilityArg_PDU.argprom(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_SelectRouteArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_SelectRouteArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_SelectRouteArg_PDU, align 4
@@ -4105,7 +4105,7 @@ define internal fastcc i32 @dissect_SelectRouteArg_PDU.argprom(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_SendChargingInformationArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_SendChargingInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_SendChargingInformationArg_PDU, align 4
@@ -4115,7 +4115,7 @@ define internal fastcc i32 @dissect_SendChargingInformationArg_PDU.argprom(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_SendFacilityInformationArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_SendFacilityInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_SendFacilityInformationArg_PDU, align 4
@@ -4125,7 +4125,7 @@ define internal fastcc i32 @dissect_SendFacilityInformationArg_PDU.argprom(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_SendSTUIArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_SendSTUIArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_SendSTUIArg_PDU, align 4
@@ -4135,7 +4135,7 @@ define internal fastcc i32 @dissect_SendSTUIArg_PDU.argprom(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ServiceFilteringResponseArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ServiceFilteringResponseArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ServiceFilteringResponseArg_PDU, align 4
@@ -4145,7 +4145,7 @@ define internal fastcc i32 @dissect_ServiceFilteringResponseArg_PDU.argprom(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_SetServiceProfileArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_SetServiceProfileArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_SetServiceProfileArg_PDU, align 4
@@ -4155,7 +4155,7 @@ define internal fastcc i32 @dissect_SetServiceProfileArg_PDU.argprom(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_SplitLegArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_SplitLegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_SplitLegArg_PDU, align 4
@@ -4165,7 +4165,7 @@ define internal fastcc i32 @dissect_SplitLegArg_PDU.argprom(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_StatusReportArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_StatusReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_StatusReportArg_PDU, align 4
@@ -4175,7 +4175,7 @@ define internal fastcc i32 @dissect_StatusReportArg_PDU.argprom(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_TAnswerArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_TAnswerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_TAnswerArg_PDU, align 4
@@ -4185,7 +4185,7 @@ define internal fastcc i32 @dissect_TAnswerArg_PDU.argprom(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_TBusyArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_TBusyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_TBusyArg_PDU, align 4
@@ -4195,7 +4195,7 @@ define internal fastcc i32 @dissect_TBusyArg_PDU.argprom(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_TDisconnectArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_TDisconnectArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_TDisconnectArg_PDU, align 4
@@ -4205,7 +4205,7 @@ define internal fastcc i32 @dissect_TDisconnectArg_PDU.argprom(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_TermAttemptAuthorizedArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_TermAttemptAuthorizedArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_TermAttemptAuthorizedArg_PDU, align 4
@@ -4215,7 +4215,7 @@ define internal fastcc i32 @dissect_TermAttemptAuthorizedArg_PDU.argprom(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_TerminationAttemptArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_TerminationAttemptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_TerminationAttemptArg_PDU, align 4
@@ -4225,7 +4225,7 @@ define internal fastcc i32 @dissect_TerminationAttemptArg_PDU.argprom(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_TNoAnswerArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_TNoAnswerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_TNoAnswerArg_PDU, align 4
@@ -4235,7 +4235,7 @@ define internal fastcc i32 @dissect_TNoAnswerArg_PDU.argprom(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_TSuspendedArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_TSuspendedArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_TSuspendedArg_PDU, align 4
@@ -4245,7 +4245,7 @@ define internal fastcc i32 @dissect_TSuspendedArg_PDU.argprom(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_PlayAnnouncementArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_PlayAnnouncementArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_PlayAnnouncementArg_PDU, align 4
@@ -4255,7 +4255,7 @@ define internal fastcc i32 @dissect_PlayAnnouncementArg_PDU.argprom(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_PromptAndCollectUserInformationArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_PromptAndCollectUserInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_PromptAndCollectUserInformationArg_PDU, align 4
@@ -4265,7 +4265,7 @@ define internal fastcc i32 @dissect_PromptAndCollectUserInformationArg_PDU.argpr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_PromptAndReceiveMessageArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_PromptAndReceiveMessageArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_PromptAndReceiveMessageArg_PDU, align 4
@@ -4275,7 +4275,7 @@ define internal fastcc i32 @dissect_PromptAndReceiveMessageArg_PDU.argprom(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ScriptCloseArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ScriptCloseArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ScriptCloseArg_PDU, align 4
@@ -4285,7 +4285,7 @@ define internal fastcc i32 @dissect_ScriptCloseArg_PDU.argprom(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ScriptEventArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ScriptEventArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ScriptEventArg_PDU, align 4
@@ -4295,7 +4295,7 @@ define internal fastcc i32 @dissect_ScriptEventArg_PDU.argprom(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ScriptInformationArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ScriptInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ScriptInformationArg_PDU, align 4
@@ -4305,7 +4305,7 @@ define internal fastcc i32 @dissect_ScriptInformationArg_PDU.argprom(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ScriptRunArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ScriptRunArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_ScriptRunArg_PDU, align 4
@@ -4315,7 +4315,7 @@ define internal fastcc i32 @dissect_ScriptRunArg_PDU.argprom(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_SpecializedResourceReportArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_SpecializedResourceReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_SpecializedResourceReportArg_PDU, align 4
@@ -4324,7 +4324,7 @@ define internal fastcc i32 @dissect_SpecializedResourceReportArg_PDU.argprom(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_SRFCallGapArg_PDU.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_SRFCallGapArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %5 = load i32, ptr @hf_inap_SRFCallGapArg_PDU, align 4

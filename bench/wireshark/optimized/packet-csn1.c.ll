@@ -217,7 +217,7 @@ ProcessError.exit:                                ; preds = %47, %51
 
 81:                                               ; preds = %68
   %82 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %82, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %82, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 83:                                               ; preds = %71, %59
@@ -280,7 +280,7 @@ ProcessError.exit:                                ; preds = %47, %51
 
 119:                                              ; preds = %112
   %120 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %120, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %120, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 121:                                              ; preds = %107, %114, %100
@@ -342,7 +342,7 @@ ProcessError.exit:                                ; preds = %47, %51
 
 156:                                              ; preds = %128
   %157 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %157, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %157, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 158:                                              ; preds = %149, %121
@@ -430,12 +430,12 @@ ProcessError.exit:                                ; preds = %47, %51
 
 219:                                              ; preds = %202
   %220 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %220, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %220, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 221:                                              ; preds = %160
   %222 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %222, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %222, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 223:                                              ; preds = %167, %204, %186
@@ -511,12 +511,12 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
 
 276:                                              ; preds = %232
   %277 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %277, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %277, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 278:                                              ; preds = %227
   %279 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %279, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %279, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 280:                                              ; preds = %56
@@ -569,7 +569,7 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
 
 313:                                              ; preds = %305
   %314 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %314, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %314, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 315:                                              ; preds = %299, %307, %291
@@ -606,7 +606,7 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
 
 339:                                              ; preds = %317
   %340 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %340, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %340, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 341:                                              ; preds = %56
@@ -673,7 +673,7 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
 
 379:                                              ; preds = %377
   %380 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %380, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_not_implemented, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %380, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_not_implemented, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 381:                                              ; preds = %377
@@ -682,16 +682,16 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
   br i1 %382, label %384, label %385
 
 384:                                              ; preds = %381
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %383, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_not_implemented, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %383, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_not_implemented, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 385:                                              ; preds = %381
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %383, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %383, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 386:                                              ; preds = %353
   %387 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %387, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %387, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 388:                                              ; preds = %366
@@ -784,7 +784,7 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
 
 436:                                              ; preds = %434
   %437 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %437, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %437, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 438:                                              ; preds = %434
@@ -793,7 +793,7 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
 
 440:                                              ; preds = %438
   %441 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %441, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_not_implemented, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %441, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_not_implemented, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 442:                                              ; preds = %438
@@ -878,7 +878,7 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
 
 488:                                              ; preds = %482
   %489 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %489, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_script_error, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %489, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_script_error, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 .lr.ph1843:                                       ; preds = %.lr.ph1843.preheader, %531
@@ -977,7 +977,7 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
 
 ._crit_edge1844:                                  ; preds = %531
   %536 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %536, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_stream_not_supported, ptr noundef %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %536, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_stream_not_supported, ptr noundef %.01291)
   br label %.loopexit
 
 ._crit_edge1844.thread:                           ; preds = %.preheader, %.thread
@@ -1079,7 +1079,7 @@ tvb_get_masked_bits8.exit:                        ; preds = %242, %250
 
 596:                                              ; preds = %588
   %597 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %597, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_union_index, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %597, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_union_index, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 .lr.ph1808.preheader:                             ; preds = %588
@@ -1231,12 +1231,12 @@ tvb_get_masked_bits8.exit1477:                    ; preds = %612, %622
 
 681:                                              ; preds = %674
   %682 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %682, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_general, ptr noundef %635)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %682, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_general, ptr noundef %635)
   br label %.loopexit
 
 683:                                              ; preds = %655
   %684 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %684, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_general, ptr noundef %635)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %684, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_general, ptr noundef %635)
   br label %.loopexit
 
 685:                                              ; preds = %662, %676, %669
@@ -1320,12 +1320,12 @@ tvb_get_masked_bits8.exit1477:                    ; preds = %612, %622
 
 744:                                              ; preds = %729
   %745 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %745, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_general, ptr noundef %635)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %745, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_general, ptr noundef %635)
   br label %.loopexit
 
 746:                                              ; preds = %692
   %747 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %747, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef %635)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %747, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef %635)
   br label %.loopexit
 
 748:                                              ; preds = %699, %731, %715
@@ -1359,12 +1359,12 @@ tvb_get_masked_bits8.exit1477:                    ; preds = %612, %622
 
 767:                                              ; preds = %756
   %768 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %768, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_general, ptr noundef %635)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %768, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_general, ptr noundef %635)
   br label %771
 
 769:                                              ; preds = %751
   %770 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %770, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef %635)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %770, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef %635)
   br label %.loopexit
 
 771:                                              ; preds = %758, %767
@@ -1472,16 +1472,16 @@ tvb_get_masked_bits8.exit1477:                    ; preds = %612, %622
   br i1 %827, label %829, label %830
 
 829:                                              ; preds = %826
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %828, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_not_implemented, ptr noundef nonnull %635)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %828, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_not_implemented, ptr noundef nonnull %635)
   br label %.loopexit
 
 830:                                              ; preds = %826
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %828, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %635)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %828, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_general, ptr noundef nonnull %635)
   br label %.loopexit
 
 831:                                              ; preds = %786
   %832 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %832, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %635)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %832, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %635)
   br label %.loopexit
 
 833:                                              ; preds = %._crit_edge1809, %._crit_edge1809, %._crit_edge1809
@@ -1580,7 +1580,7 @@ tvb_get_masked_bits8.exit1477:                    ; preds = %612, %622
 
 890:                                              ; preds = %881
   %891 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %891, ptr noundef %3, i32 noundef %888, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %635)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %891, ptr noundef %3, i32 noundef %888, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %635)
   br label %.loopexit
 
 892:                                              ; preds = %._crit_edge1809
@@ -1629,7 +1629,7 @@ tvb_get_masked_bits8.exit1477:                    ; preds = %612, %622
 
 921:                                              ; preds = %._crit_edge1809
   %922 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %922, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_script_error, ptr noundef %635)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %922, ptr noundef %3, i32 noundef %625, ptr noundef nonnull @ei_csn1_script_error, ptr noundef %635)
   br label %.loopexit
 
 923:                                              ; preds = %56, %56
@@ -1998,7 +1998,7 @@ ProcessError.exit1483:                            ; preds = %1081
 
 1143:                                             ; preds = %1139
   %1144 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %1144, ptr noundef %3, i32 noundef %1140, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %1144, ptr noundef %3, i32 noundef %1140, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 1145:                                             ; preds = %1139, %1104
@@ -2039,7 +2039,7 @@ ProcessError.exit1483:                            ; preds = %1081
 
 1162:                                             ; preds = %._crit_edge1788
   %1163 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %1163, ptr noundef %3, i32 noundef %1159, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %1163, ptr noundef %3, i32 noundef %1159, ptr noundef nonnull @ei_csn1_more_bits_to_unpack, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 .thread1520:                                      ; preds = %1147, %._crit_edge1788
@@ -2390,7 +2390,7 @@ ProcessError.exit1497:                            ; preds = %1332
 
 1383:                                             ; preds = %1379
   %1384 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %1384, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more32bits, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %1384, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_more32bits, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 1385:                                             ; preds = %1376, %1381, %1371
@@ -2403,7 +2403,7 @@ ProcessError.exit1497:                            ; preds = %1332
 
 1389:                                             ; preds = %1385
   %1390 = load ptr, ptr %29, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %1390, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_fixed_not_matched, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %1390, ptr noundef %3, i32 noundef %.01297, ptr noundef nonnull @ei_csn1_fixed_not_matched, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 1391:                                             ; preds = %1385
@@ -2438,7 +2438,7 @@ ProcessError.exit1497:                            ; preds = %1332
   %1416 = load ptr, ptr %29, align 8
   %1417 = getelementptr inbounds i8, ptr %.01291, i64 40
   %1418 = load ptr, ptr %1417, align 8
-  call fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %1416, ptr noundef %3, i32 noundef %.01297, ptr noundef %1418, ptr noundef nonnull %.01291)
+  call fastcc void @ProcessError(ptr noundef %0, ptr noundef %1416, ptr noundef %3, i32 noundef %.01297, ptr noundef %1418, ptr noundef nonnull %.01291)
   br label %.loopexit
 
 1419:                                             ; preds = %56
@@ -2481,7 +2481,7 @@ ProcessError.exit1500:                            ; preds = %1423, %1427
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ProcessError.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #1 {
+define internal fastcc void @ProcessError(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #1 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %16, label %7
 

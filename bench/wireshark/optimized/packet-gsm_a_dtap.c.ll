@@ -2344,7 +2344,7 @@ define hidden zeroext i16 @de_bearer_cap_uplink(ptr noundef %0, ptr noundef %1, 
 define hidden noundef zeroext i16 @de_cld_party_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_gsm_a_dtap_cld_party_bcd_num, align 4
-  call fastcc void @de_bcd_num.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
+  call fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
   %10 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %27, label %11
@@ -2385,7 +2385,7 @@ define hidden noundef zeroext i16 @de_cld_party_bcd_num(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @de_bcd_num.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6) unnamed_addr #1 {
+define internal fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %6) unnamed_addr #1 {
   store ptr null, ptr %6, align 8
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
   %9 = load i32, ptr @hf_gsm_a_extension, align 4
@@ -3054,7 +3054,7 @@ default.unreachable:                              ; preds = %7
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i16 @de_cld_party_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
-  call fastcc void @de_sub_addr.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
+  call fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   %11 = icmp ne ptr %5, null
@@ -3075,7 +3075,7 @@ define internal noundef zeroext i16 @de_cld_party_sub_addr(ptr noundef %0, ptr n
 define internal noundef zeroext i16 @de_clg_party_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_gsm_a_dtap_clg_party_bcd_num, align 4
-  call fastcc void @de_bcd_num.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
+  call fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
   %10 = load ptr, ptr %8, align 8
   %11 = icmp ne ptr %10, null
   %12 = icmp ne ptr %5, null
@@ -3095,7 +3095,7 @@ define internal noundef zeroext i16 @de_clg_party_bcd_num(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i16 @de_clg_party_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
-  call fastcc void @de_sub_addr.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
+  call fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   %11 = icmp ne ptr %5, null
@@ -3452,7 +3452,7 @@ switch.early.test:                                ; preds = %103
 define internal noundef zeroext i16 @de_conn_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_gsm_a_dtap_conn_num, align 4
-  call fastcc void @de_bcd_num.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
+  call fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
   %10 = load ptr, ptr %8, align 8
   %11 = icmp ne ptr %10, null
   %12 = icmp ne ptr %5, null
@@ -3472,7 +3472,7 @@ define internal noundef zeroext i16 @de_conn_num(ptr noundef %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i16 @de_conn_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
-  call fastcc void @de_sub_addr.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
+  call fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   %11 = icmp ne ptr %5, null
@@ -3680,7 +3680,7 @@ define internal noundef zeroext i16 @de_recall_type(ptr noundef %0, ptr noundef 
 define internal noundef zeroext i16 @de_red_party_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_gsm_a_dtap_red_party_bcd_num, align 4
-  call fastcc void @de_bcd_num.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
+  call fastcc void @de_bcd_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %9, ptr noundef %8)
   %10 = load ptr, ptr %8, align 8
   %11 = icmp ne ptr %10, null
   %12 = icmp ne ptr %5, null
@@ -3700,7 +3700,7 @@ define internal noundef zeroext i16 @de_red_party_bcd_num(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i16 @de_red_party_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
-  call fastcc void @de_sub_addr.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
+  call fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   %11 = icmp ne ptr %5, null
@@ -5255,7 +5255,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @de_sub_addr.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #1 {
+define internal fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #1 {
   store ptr null, ptr %5, align 8
   %7 = load i32, ptr @hf_gsm_a_extension, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6

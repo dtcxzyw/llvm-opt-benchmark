@@ -1022,16 +1022,16 @@ priv_init_scratch.exit:                           ; preds = %if.end3
 if.then6:                                         ; preds = %priv_init_scratch.exit
   %scratch.val = load ptr, ptr %scratch, align 8
   %tobool.not.i = icmp eq ptr %scratch.val, null
-  br i1 %tobool.not.i, label %priv_destroy_scratch.argprom.exit, label %if.then.i76
+  br i1 %tobool.not.i, label %priv_destroy_scratch.exit, label %if.then.i76
 
 if.then.i76:                                      ; preds = %if.then6
   %scratch.val57 = load ptr, ptr %ctxt1.i, align 8
   %free_fn.i = getelementptr inbounds i8, ptr %scratch.val57, i64 96
   %11 = load ptr, ptr %free_fn.i, align 8
   call void %11(ptr noundef nonnull %scratch.val) #10
-  br label %priv_destroy_scratch.argprom.exit
+  br label %priv_destroy_scratch.exit
 
-priv_destroy_scratch.argprom.exit:                ; preds = %if.then6, %if.then.i76
+priv_destroy_scratch.exit:                        ; preds = %if.then6, %if.then.i76
   %call7 = call i32 @internal_exr_context_restore_handlers(ptr noundef nonnull %ctxt, i32 noundef %call3.i) #10
   br label %return
 
@@ -1049,16 +1049,16 @@ if.then10:                                        ; preds = %if.end8
   %call12 = call i32 %14(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2) #10
   %scratch.val58 = load ptr, ptr %scratch, align 8
   %tobool.not.i78 = icmp eq ptr %scratch.val58, null
-  br i1 %tobool.not.i78, label %priv_destroy_scratch.argprom.exit82, label %if.then.i79
+  br i1 %tobool.not.i78, label %priv_destroy_scratch.exit82, label %if.then.i79
 
 if.then.i79:                                      ; preds = %if.then10
   %scratch.val59 = load ptr, ptr %ctxt1.i, align 8
   %free_fn.i80 = getelementptr inbounds i8, ptr %scratch.val59, i64 96
   %15 = load ptr, ptr %free_fn.i80, align 8
   call void %15(ptr noundef nonnull %scratch.val58) #10
-  br label %priv_destroy_scratch.argprom.exit82
+  br label %priv_destroy_scratch.exit82
 
-priv_destroy_scratch.argprom.exit82:              ; preds = %if.then10, %if.then.i79
+priv_destroy_scratch.exit82:                      ; preds = %if.then10, %if.then.i79
   %call13 = call i32 @internal_exr_context_restore_handlers(ptr noundef nonnull %ctxt, i32 noundef %call12) #10
   br label %return
 
@@ -1108,16 +1108,16 @@ if.then44:                                        ; preds = %if.then41
   %call50 = call i32 (ptr, i32, ptr, ...) %22(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.3, i32 noundef %conv47, i32 noundef %conv49) #10
   %scratch.val60 = load ptr, ptr %scratch, align 8
   %tobool.not.i83 = icmp eq ptr %scratch.val60, null
-  br i1 %tobool.not.i83, label %priv_destroy_scratch.argprom.exit87, label %if.then.i84
+  br i1 %tobool.not.i83, label %priv_destroy_scratch.exit87, label %if.then.i84
 
 if.then.i84:                                      ; preds = %if.then44
   %scratch.val61 = load ptr, ptr %ctxt1.i, align 8
   %free_fn.i85 = getelementptr inbounds i8, ptr %scratch.val61, i64 96
   %23 = load ptr, ptr %free_fn.i85, align 8
   call void %23(ptr noundef nonnull %scratch.val60) #10
-  br label %priv_destroy_scratch.argprom.exit87
+  br label %priv_destroy_scratch.exit87
 
-priv_destroy_scratch.argprom.exit87:              ; preds = %if.then44, %if.then.i84
+priv_destroy_scratch.exit87:                      ; preds = %if.then44, %if.then.i84
   %call51 = call i32 @internal_exr_context_restore_handlers(ptr noundef nonnull %ctxt, i32 noundef %call50) #10
   br label %return
 
@@ -1149,16 +1149,16 @@ if.then62:                                        ; preds = %do.cond, %if.end58
   %call64 = call i32 %25(ptr noundef %ctxt, i32 noundef 6, ptr noundef nonnull @.str.4) #10
   %scratch.val62 = load ptr, ptr %scratch, align 8
   %tobool.not.i88 = icmp eq ptr %scratch.val62, null
-  br i1 %tobool.not.i88, label %priv_destroy_scratch.argprom.exit92, label %if.then.i89
+  br i1 %tobool.not.i88, label %priv_destroy_scratch.exit92, label %if.then.i89
 
 if.then.i89:                                      ; preds = %if.then62
   %scratch.val63 = load ptr, ptr %ctxt1.i, align 8
   %free_fn.i90 = getelementptr inbounds i8, ptr %scratch.val63, i64 96
   %26 = load ptr, ptr %free_fn.i90, align 8
   call void %26(ptr noundef nonnull %scratch.val62) #10
-  br label %priv_destroy_scratch.argprom.exit92
+  br label %priv_destroy_scratch.exit92
 
-priv_destroy_scratch.argprom.exit92:              ; preds = %if.then62, %if.then.i89
+priv_destroy_scratch.exit92:                      ; preds = %if.then62, %if.then.i89
   %call65 = call i32 @internal_exr_context_restore_handlers(ptr noundef nonnull %ctxt, i32 noundef %call64) #10
   br label %return
 
@@ -1176,16 +1176,16 @@ if.then70:                                        ; preds = %if.end66
 if.then74:                                        ; preds = %if.then70
   %scratch.val64 = load ptr, ptr %scratch, align 8
   %tobool.not.i93 = icmp eq ptr %scratch.val64, null
-  br i1 %tobool.not.i93, label %priv_destroy_scratch.argprom.exit97, label %if.then.i94
+  br i1 %tobool.not.i93, label %priv_destroy_scratch.exit97, label %if.then.i94
 
 if.then.i94:                                      ; preds = %if.then74
   %scratch.val65 = load ptr, ptr %ctxt1.i, align 8
   %free_fn.i95 = getelementptr inbounds i8, ptr %scratch.val65, i64 96
   %29 = load ptr, ptr %free_fn.i95, align 8
   call void %29(ptr noundef nonnull %scratch.val64) #10
-  br label %priv_destroy_scratch.argprom.exit97
+  br label %priv_destroy_scratch.exit97
 
-priv_destroy_scratch.argprom.exit97:              ; preds = %if.then74, %if.then.i94
+priv_destroy_scratch.exit97:                      ; preds = %if.then74, %if.then.i94
   %call75 = call i32 @internal_exr_context_restore_handlers(ptr noundef %ctxt, i32 noundef %call71) #10
   br label %return
 
@@ -1205,16 +1205,16 @@ if.then85:                                        ; preds = %if.end80
   %call87 = call i32 %32(ptr noundef nonnull %ctxt, i32 noundef 6, ptr noundef nonnull @.str.5) #10
   %scratch.val66 = load ptr, ptr %scratch, align 8
   %tobool.not.i98 = icmp eq ptr %scratch.val66, null
-  br i1 %tobool.not.i98, label %priv_destroy_scratch.argprom.exit102, label %if.then.i99
+  br i1 %tobool.not.i98, label %priv_destroy_scratch.exit102, label %if.then.i99
 
 if.then.i99:                                      ; preds = %if.then85
   %scratch.val67 = load ptr, ptr %ctxt1.i, align 8
   %free_fn.i100 = getelementptr inbounds i8, ptr %scratch.val67, i64 96
   %33 = load ptr, ptr %free_fn.i100, align 8
   call void %33(ptr noundef nonnull %scratch.val66) #10
-  br label %priv_destroy_scratch.argprom.exit102
+  br label %priv_destroy_scratch.exit102
 
-priv_destroy_scratch.argprom.exit102:             ; preds = %if.then85, %if.then.i99
+priv_destroy_scratch.exit102:                     ; preds = %if.then85, %if.then.i99
   %call88 = call i32 @internal_exr_context_restore_handlers(ptr noundef nonnull %ctxt, i32 noundef %call87) #10
   br label %return
 
@@ -2820,28 +2820,28 @@ do.cond:                                          ; preds = %if.end101.thread135
 if.then112:                                       ; preds = %if.end89, %if.end76
   %scratch.val70 = load i64, ptr %navail.i.i.i412.i.i, align 8
   %scratch.val71 = load i64, ptr %fileoff.i72, align 8
-  %call113 = call fastcc i32 @update_chunk_offsets.argprom(ptr noundef nonnull %ctxt, i64 %scratch.val70, i64 %scratch.val71)
+  %call113 = call fastcc i32 @update_chunk_offsets(ptr noundef nonnull %ctxt, i64 %scratch.val70, i64 %scratch.val71)
   br label %if.end114
 
 if.end114:                                        ; preds = %if.then104, %if.then112
   %rv.3 = phi i32 [ %call113, %if.then112 ], [ %rv.2131, %if.then104 ]
   %scratch.val68 = load ptr, ptr %scratch, align 8
   %tobool.not.i109 = icmp eq ptr %scratch.val68, null
-  br i1 %tobool.not.i109, label %priv_destroy_scratch.argprom.exit113, label %if.then.i110
+  br i1 %tobool.not.i109, label %priv_destroy_scratch.exit113, label %if.then.i110
 
 if.then.i110:                                     ; preds = %if.end114
   %scratch.val69 = load ptr, ptr %ctxt1.i, align 8
   %free_fn.i111 = getelementptr inbounds i8, ptr %scratch.val69, i64 96
   %327 = load ptr, ptr %free_fn.i111, align 8
   call void %327(ptr noundef nonnull %scratch.val68) #10
-  br label %priv_destroy_scratch.argprom.exit113
+  br label %priv_destroy_scratch.exit113
 
-priv_destroy_scratch.argprom.exit113:             ; preds = %if.end114, %if.then.i110
+priv_destroy_scratch.exit113:                     ; preds = %if.end114, %if.then.i110
   %call115 = call i32 @internal_exr_context_restore_handlers(ptr noundef nonnull %ctxt, i32 noundef %rv.3) #10
   br label %return
 
-return:                                           ; preds = %priv_destroy_scratch.argprom.exit113, %priv_destroy_scratch.argprom.exit102, %priv_destroy_scratch.argprom.exit97, %priv_destroy_scratch.argprom.exit92, %priv_destroy_scratch.argprom.exit87, %priv_destroy_scratch.argprom.exit82, %priv_destroy_scratch.argprom.exit, %if.then1
-  %retval.0 = phi i32 [ %call2, %if.then1 ], [ %call7, %priv_destroy_scratch.argprom.exit ], [ %call51, %priv_destroy_scratch.argprom.exit87 ], [ %call65, %priv_destroy_scratch.argprom.exit92 ], [ %call75, %priv_destroy_scratch.argprom.exit97 ], [ %call88, %priv_destroy_scratch.argprom.exit102 ], [ %call115, %priv_destroy_scratch.argprom.exit113 ], [ %call13, %priv_destroy_scratch.argprom.exit82 ]
+return:                                           ; preds = %priv_destroy_scratch.exit113, %priv_destroy_scratch.exit102, %priv_destroy_scratch.exit97, %priv_destroy_scratch.exit92, %priv_destroy_scratch.exit87, %priv_destroy_scratch.exit82, %priv_destroy_scratch.exit, %if.then1
+  %retval.0 = phi i32 [ %call2, %if.then1 ], [ %call7, %priv_destroy_scratch.exit ], [ %call51, %priv_destroy_scratch.exit87 ], [ %call65, %priv_destroy_scratch.exit92 ], [ %call75, %priv_destroy_scratch.exit97 ], [ %call88, %priv_destroy_scratch.exit102 ], [ %call115, %priv_destroy_scratch.exit113 ], [ %call13, %priv_destroy_scratch.exit82 ]
   ret i32 %retval.0
 }
 
@@ -2870,7 +2870,7 @@ declare i32 @internal_exr_validate_read_part(ptr noundef, ptr noundef) local_unn
 declare i32 @internal_exr_add_part(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @update_chunk_offsets.argprom(ptr noundef %ctxt, i64 %scratch.16.val, i64 %scratch.24.val) unnamed_addr #0 {
+define internal fastcc i32 @update_chunk_offsets(ptr noundef %ctxt, i64 %scratch.16.val, i64 %scratch.24.val) unnamed_addr #0 {
 entry:
   %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
   %0 = load ptr, ptr %parts, align 8

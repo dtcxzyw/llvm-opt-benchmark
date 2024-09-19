@@ -258,7 +258,7 @@ declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @monitor_unblocked(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
-glib_autoptr_cleanup_QemuLockable.argprom.exit:
+glib_autoptr_cleanup_QemuLockable.exit:
   %mon_lock = getelementptr inbounds i8, ptr %opaque, i64 88
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -272,7 +272,7 @@ glib_autoptr_cleanup_QemuLockable.argprom.exit:
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @monitor_flush(ptr noundef %mon) local_unnamed_addr #0 {
-glib_autoptr_cleanup_QemuLockable.argprom.exit:
+glib_autoptr_cleanup_QemuLockable.exit:
   %mon_lock = getelementptr inbounds i8, ptr %mon, i64 88
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -387,7 +387,7 @@ for.end:                                          ; preds = %for.cond
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @monitor_puts(ptr noundef %mon, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
-glib_autoptr_cleanup_QemuLockable.argprom.exit:
+glib_autoptr_cleanup_QemuLockable.exit:
   %mon_lock = getelementptr inbounds i8, ptr %mon, i64 88
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -769,21 +769,21 @@ land.lhs.true.i.i:                                ; preds = %if.else4.i
   %obj.val.i.i = load i32, ptr %call5.i, align 8
   %21 = add i32 %obj.val.i.i, -1
   %or.cond.i.i31.i = icmp ult i32 %21, 6
-  br i1 %or.cond.i.i31.i, label %qobject_type.argprom.exit.i.i, label %if.else.i.i32.i
+  br i1 %or.cond.i.i31.i, label %qobject_type.exit.i.i, label %if.else.i.i32.i
 
 if.else.i.i32.i:                                  ; preds = %land.lhs.true.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #17
   unreachable
 
-qobject_type.argprom.exit.i.i:                    ; preds = %land.lhs.true.i.i
+qobject_type.exit.i.i:                            ; preds = %land.lhs.true.i.i
   %cmp.i.i = icmp eq i32 %obj.val.i.i, 4
   br i1 %cmp.i.i, label %qobject_check_type.exit.i, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %qobject_type.argprom.exit.i.i, %if.else4.i
+if.else.i.i:                                      ; preds = %qobject_type.exit.i.i, %if.else4.i
   br label %qobject_check_type.exit.i
 
-qobject_check_type.exit.i:                        ; preds = %if.else.i.i, %qobject_type.argprom.exit.i.i
-  %retval.0.i.i = phi ptr [ null, %if.else.i.i ], [ %call5.i, %qobject_type.argprom.exit.i.i ]
+qobject_check_type.exit.i:                        ; preds = %if.else.i.i, %qobject_type.exit.i.i
+  %retval.0.i.i = phi ptr [ null, %if.else.i.i ], [ %call5.i, %qobject_type.exit.i.i ]
   store i32 %10, ptr %key.i, align 8
   store ptr %retval.0.i.i, ptr %data8.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timer.i, i8 0, i64 16, i1 false)
@@ -1747,7 +1747,7 @@ qobject_unref_impl.exit:                          ; preds = %if.then, %land.lhs.
   %18 = load i64, ptr %arrayidx, align 8
   %add = add i64 %18, %call5
   tail call void @timer_mod_ns(ptr noundef %17, i64 noundef %add) #13
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.else:                                          ; preds = %trace_monitor_protocol_event_handler.exit
   %19 = load ptr, ptr @monitor_qapi_event_state, align 8
@@ -1790,9 +1790,9 @@ if.then.i:                                        ; preds = %qobject_unref_impl.
 
 timer_free.exit:                                  ; preds = %qobject_unref_impl.exit25, %if.then.i
   tail call void @g_free(ptr noundef nonnull %opaque) #13
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %timer_free.exit, %qobject_unref_impl.exit
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %timer_free.exit, %qobject_unref_impl.exit
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @monitor_lock, ptr noundef nonnull @.str.18, i32 noundef 132) #13
   ret void
 }

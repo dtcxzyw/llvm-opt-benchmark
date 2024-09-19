@@ -1542,9 +1542,9 @@ if.then5:                                         ; preds = %_ZN10ODDLParser16lo
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
   %cmp3.i = icmp eq ptr %.val, null
-  br i1 %cmp3.i, label %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.argprom.exit.thread, label %if.end.i
+  br i1 %cmp3.i, label %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit.thread, label %if.end.i
 
-_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.argprom.exit.thread: ; preds = %if.then5
+_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit.thread: ; preds = %if.then5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %type.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i)
@@ -1629,7 +1629,7 @@ lpad.i100:                                        ; preds = %invoke.cont.i101, %
 invoke.cont8.i:                                   ; preds = %invoke.cont.i101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
   %call11.i = invoke noundef ptr @_ZN10ODDLParser7DDLNode6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_PS0_(ptr noundef nonnull align 8 dereferenceable(32) %type.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i, ptr noundef %retval.0.i.i)
-          to label %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.argprom.exit unwind label %lpad9.i
+          to label %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit unwind label %lpad9.i
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %if.end.i
   %11 = landingpad { ptr, i32 }
@@ -1662,7 +1662,7 @@ common.resume:                                    ; preds = %lpad.body, %lpad20,
   %common.resume.op = phi { ptr, i32 } [ %24, %lpad.i59 ], [ %.pn.i, %ehcleanup.i ], [ %eh.lpad-body.i, %lpad.body.i ], [ %.pn.pn, %ehcleanup60 ], [ %29, %lpad20 ], [ %eh.lpad-body, %lpad.body ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.argprom.exit: ; preds = %invoke.cont8.i
+_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit: ; preds = %invoke.cont8.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type.i) #26
@@ -1673,7 +1673,7 @@ _ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.argprom.exit: ; p
   %cmp7.not = icmp eq ptr %call11.i, null
   br i1 %cmp7.not, label %if.else, label %if.end.i51
 
-if.end.i51:                                       ; preds = %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.argprom.exit
+if.end.i51:                                       ; preds = %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit
   %14 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %15 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -1742,7 +1742,7 @@ _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gn
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %delete.end
 
-if.else:                                          ; preds = %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.argprom.exit.thread, %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.argprom.exit
+if.else:                                          ; preds = %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit.thread, %_ZN10ODDLParserL13createDDLNodeEPNS_4TextEPNS_13OpenDDLParserE.exit
   %call9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8)
   %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %delete.end

@@ -549,7 +549,7 @@ entry:
   %result = getelementptr inbounds i8, ptr %req, i64 88
   %0 = load i64, ptr %result, align 8
   %cmp = icmp slt i64 %0, 0
-  br i1 %cmp, label %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ED2Ev.argprom.exit", label %if.end
+  br i1 %cmp, label %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ED2Ev.exit", label %if.end
 
 if.end:                                           ; preds = %entry
   call void @uv_fs_req_cleanup(ptr noundef nonnull %req) #14
@@ -620,20 +620,20 @@ if.then.i:                                        ; preds = %if.end13, %if.end, 
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %close_req.i.i)
   %call.i.i = call i32 @uv_fs_close(ptr noundef null, ptr noundef nonnull %close_req.i.i, i32 noundef %call2, ptr noundef null) #14
   %cmp.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp.not.i.i, label %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_1ED2Ev.argprom.exit", label %do.body4.i.i
+  br i1 %cmp.not.i.i, label %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_1ED2Ev.exit", label %do.body4.i.i
 
 do.body4.i.i:                                     ; preds = %if.then.i
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZN4node6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEENK3$_1clEvE4args") #14
   call void @abort() #17
   unreachable
 
-"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_1ED2Ev.argprom.exit": ; preds = %if.then.i
+"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_1ED2Ev.exit": ; preds = %if.then.i
   call void @uv_fs_req_cleanup(ptr noundef nonnull %close_req.i.i) #14
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %close_req.i.i)
-  br label %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ED2Ev.argprom.exit"
+  br label %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ED2Ev.exit"
 
-"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ED2Ev.argprom.exit": ; preds = %entry, %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_1ED2Ev.argprom.exit"
-  %retval.0 = phi i1 [ %cmp812, %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_1ED2Ev.argprom.exit" ], [ false, %entry ]
+"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ED2Ev.exit": ; preds = %entry, %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_1ED2Ev.exit"
+  %retval.0 = phi i1 [ %cmp812, %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_1ED2Ev.exit" ], [ false, %entry ]
   call void @uv_fs_req_cleanup(ptr noundef nonnull %req) #14
   ret i1 %retval.0
 }

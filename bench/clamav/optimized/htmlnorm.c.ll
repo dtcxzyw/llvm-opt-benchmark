@@ -380,12 +380,12 @@ define noundef zeroext i1 @html_normalise_mem(ptr noundef %0, ptr noundef %1, i6
   store i64 %2, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %10 = call fastcc zeroext i1 @cli_html_normalise.argelim(ptr noundef %0, ptr noundef %7, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %10 = call fastcc zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef %7, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i1 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @cli_html_normalise.argelim(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [1025 x i8], align 16
   %8 = alloca [1025 x i8], align 16
@@ -494,7 +494,7 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise.argelim(ptr nounde
 54:                                               ; preds = %27, %51
   %.11152 = phi ptr [ %33, %51 ], [ null, %27 ]
   %.11150 = phi ptr [ %41, %51 ], [ null, %27 ]
-  %55 = tail call fastcc ptr @cli_readchunk.argprom.argelim(ptr noundef %1)
+  %55 = tail call fastcc ptr @cli_readchunk(ptr noundef %1)
   %.not.i1484 = icmp eq ptr %.11152, null
   %56 = getelementptr inbounds i8, ptr %.11152, i64 8200
   %57 = getelementptr inbounds i8, ptr %.11152, i64 4
@@ -4633,7 +4633,7 @@ js_process.exit1664:                              ; preds = %1798, %1782
 
 1825:                                             ; preds = %1822
   call void @free(ptr noundef %.11048.ph3262) #15
-  %1826 = call fastcc ptr @cli_readchunk.argprom.argelim(ptr noundef %1)
+  %1826 = call fastcc ptr @cli_readchunk(ptr noundef %1)
   %spec.select1390 = select i1 %1823, ptr %1826, ptr %.11066.ph433
   br i1 %.11002.ph383, label %.thread1725, label %1827
 
@@ -4934,7 +4934,7 @@ define noundef zeroext i1 @html_normalise_map(ptr noundef %0, ptr noundef %1, pt
   store i64 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %1, ptr %11, align 8
-  %12 = call fastcc zeroext i1 @cli_html_normalise.argelim(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %12 = call fastcc zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i1 %12
 }
 
@@ -4959,7 +4959,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   br i1 %14, label %16, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %15 = call fastcc ptr @cli_readchunk.argprom.argelim(ptr noundef %6)
+  %15 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not72 = icmp eq ptr %15, null
   br i1 %.not72, label %.thread63, label %.lr.ph
 
@@ -4975,7 +4975,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
 
 19:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %17) #15
-  %20 = call fastcc ptr @cli_readchunk.argprom.argelim(ptr noundef %6)
+  %20 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.thread63, label %.lr.ph
 
@@ -4993,7 +4993,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
 
 25:                                               ; preds = %23
   tail call void @free(ptr noundef %.132) #15
-  %26 = call fastcc ptr @cli_readchunk.argprom.argelim(ptr noundef %6)
+  %26 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not54 = icmp eq ptr %26, null
   br i1 %.not54, label %.thread63, label %27
 
@@ -5108,7 +5108,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   br label %115
 
 106:                                              ; preds = %.lr.ph75
-  %107 = call fastcc ptr @cli_readchunk.argprom.argelim(ptr noundef %6)
+  %107 = call fastcc ptr @cli_readchunk(ptr noundef %6)
   %.not107 = icmp eq ptr %107, null
   br i1 %.not107, label %._crit_edge.thread91, label %.lr.ph75
 
@@ -5158,7 +5158,7 @@ declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) loca
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cli_readchunk.argprom.argelim(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call ptr @cli_max_malloc(i64 noundef 8192) #15
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4

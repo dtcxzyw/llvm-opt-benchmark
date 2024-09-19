@@ -106,7 +106,7 @@ define internal i32 @pmix_bfrop_open(i32 noundef %0) #0 {
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 40), align 8
   %7 = load ptr, ptr %6, align 8
   %.not1.i = icmp eq ptr %7, null
-  br i1 %.not1.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %8 = phi ptr [ %10, %.lr.ph.i ], [ %7, %5 ]
@@ -115,9 +115,9 @@ define internal i32 @pmix_bfrop_open(i32 noundef %0) #0 {
   %9 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
-pmix_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %5
+pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %11 = tail call i32 @pmix_mca_base_framework_components_open(ptr noundef nonnull @pmix_bfrops_base_framework, i32 noundef %0) #10
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   store i32 %12, ptr @pmix_bfrops_base_output, align 4

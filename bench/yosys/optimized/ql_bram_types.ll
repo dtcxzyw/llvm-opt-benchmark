@@ -809,7 +809,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit168:                ; preds = %254, %256
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9) #22
   br label %.body
 
-.loopexit639:                                     ; preds = %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+.loopexit639:                                     ; preds = %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
   %lpad.loopexit641 = landingpad { ptr, i32 }
           cleanup
   br label %.body102
@@ -2155,7 +2155,7 @@ switch.lookup:                                    ; preds = %622
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %625
   %switch.load = load i32, ptr %switch.gep, align 4
   switch i32 %418, label %.invoke3779 [
-    i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+    i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
     i32 2, label %626
     i32 3, label %627
     i32 4, label %628
@@ -2164,21 +2164,21 @@ switch.lookup:                                    ; preds = %622
   ]
 
 626:                                              ; preds = %switch.lookup
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 627:                                              ; preds = %switch.lookup
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 628:                                              ; preds = %switch.lookup
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 629:                                              ; preds = %switch.lookup
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 630:                                              ; preds = %switch.lookup
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
-_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke: ; preds = %switch.lookup3788, %688, %689, %690, %691, %692, %switch.lookup3784, %679, %680, %681, %682, %683, %switch.lookup3780, %670, %671, %672, %673, %674, %switch.lookup, %626, %627, %628, %629, %630
+_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke: ; preds = %switch.lookup3788, %688, %689, %690, %691, %692, %switch.lookup3784, %679, %680, %681, %682, %683, %switch.lookup3780, %670, %671, %672, %673, %674, %switch.lookup, %626, %627, %628, %629, %630
   %631 = phi ptr [ @.str.12, %630 ], [ @.str.12, %629 ], [ @.str.12, %628 ], [ @.str.12, %627 ], [ @.str.12, %626 ], [ @.str.12, %switch.lookup ], [ @.str.13, %674 ], [ @.str.13, %673 ], [ @.str.13, %672 ], [ @.str.13, %671 ], [ @.str.13, %670 ], [ @.str.13, %switch.lookup3780 ], [ @.str.14, %683 ], [ @.str.14, %682 ], [ @.str.14, %681 ], [ @.str.14, %680 ], [ @.str.14, %679 ], [ @.str.14, %switch.lookup3784 ], [ @.str.15, %692 ], [ @.str.15, %691 ], [ @.str.15, %690 ], [ @.str.15, %689 ], [ @.str.15, %688 ], [ @.str.15, %switch.lookup3788 ]
   %632 = phi i32 [ %switch.load, %630 ], [ %switch.load, %629 ], [ %switch.load, %628 ], [ %switch.load, %627 ], [ %switch.load, %626 ], [ %switch.load, %switch.lookup ], [ %switch.load3783, %674 ], [ %switch.load3783, %673 ], [ %switch.load3783, %672 ], [ %switch.load3783, %671 ], [ %switch.load3783, %670 ], [ %switch.load3783, %switch.lookup3780 ], [ %switch.load3787, %683 ], [ %switch.load3787, %682 ], [ %switch.load3787, %681 ], [ %switch.load3787, %680 ], [ %switch.load3787, %679 ], [ %switch.load3787, %switch.lookup3784 ], [ %switch.load3791, %692 ], [ %switch.load3791, %691 ], [ %switch.load3791, %690 ], [ %switch.load3791, %689 ], [ %switch.load3791, %688 ], [ %switch.load3791, %switch.lookup3788 ]
   %633 = phi i32 [ 2, %630 ], [ 1, %629 ], [ 4, %628 ], [ 36, %627 ], [ 18, %626 ], [ 9, %switch.lookup ], [ 2, %674 ], [ 1, %673 ], [ 4, %672 ], [ 36, %671 ], [ 18, %670 ], [ 9, %switch.lookup3780 ], [ 2, %683 ], [ 1, %682 ], [ 4, %681 ], [ 36, %680 ], [ 18, %679 ], [ 9, %switch.lookup3784 ], [ 2, %692 ], [ 1, %691 ], [ 4, %690 ], [ 36, %689 ], [ 18, %688 ], [ 9, %switch.lookup3788 ]
@@ -2287,7 +2287,7 @@ switch.lookup3780:                                ; preds = %667
   %switch.gep3782 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %669
   %switch.load3783 = load i32, ptr %switch.gep3782, align 4
   switch i32 %458, label %.invoke3779 [
-    i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+    i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
     i32 2, label %670
     i32 3, label %671
     i32 4, label %672
@@ -2296,19 +2296,19 @@ switch.lookup3780:                                ; preds = %667
   ]
 
 670:                                              ; preds = %switch.lookup3780
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 671:                                              ; preds = %switch.lookup3780
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 672:                                              ; preds = %switch.lookup3780
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 673:                                              ; preds = %switch.lookup3780
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 674:                                              ; preds = %switch.lookup3780
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 675:                                              ; preds = %666
   %.not75 = icmp eq i32 %498, %578
@@ -2324,7 +2324,7 @@ switch.lookup3784:                                ; preds = %676
   %switch.gep3786 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %678
   %switch.load3787 = load i32, ptr %switch.gep3786, align 4
   switch i32 %578, label %.invoke3779 [
-    i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+    i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
     i32 2, label %679
     i32 3, label %680
     i32 4, label %681
@@ -2333,19 +2333,19 @@ switch.lookup3784:                                ; preds = %676
   ]
 
 679:                                              ; preds = %switch.lookup3784
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 680:                                              ; preds = %switch.lookup3784
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 681:                                              ; preds = %switch.lookup3784
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 682:                                              ; preds = %switch.lookup3784
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 683:                                              ; preds = %switch.lookup3784
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 684:                                              ; preds = %675
   %.not76 = icmp eq i32 %538, %618
@@ -2361,7 +2361,7 @@ switch.lookup3788:                                ; preds = %685
   %switch.gep3790 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE.14, i64 0, i64 %687
   %switch.load3791 = load i32, ptr %switch.gep3790, align 4
   switch i32 %618, label %.invoke3779 [
-    i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+    i32 1, label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
     i32 2, label %688
     i32 3, label %689
     i32 4, label %690
@@ -2370,19 +2370,19 @@ switch.lookup3788:                                ; preds = %685
   ]
 
 688:                                              ; preds = %switch.lookup3788
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 689:                                              ; preds = %switch.lookup3788
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 690:                                              ; preds = %switch.lookup3788
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 691:                                              ; preds = %switch.lookup3788
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 692:                                              ; preds = %switch.lookup3788
-  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke
+  br label %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke
 
 693:                                              ; preds = %684
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #22
@@ -2614,7 +2614,7 @@ _ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #22
   br label %763
 
-760:                                              ; preds = %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.argprom.exit502.invoke, %_ZN5Yosys5RTLIL5ConstD2Ev.exit238, %_ZN5Yosys5RTLIL5ConstD2Ev.exit168, %757
+760:                                              ; preds = %_ZN12_GLOBAL__N_115QlBramTypesPass14width_for_modeEi.exit502.invoke, %_ZN5Yosys5RTLIL5ConstD2Ev.exit238, %_ZN5Yosys5RTLIL5ConstD2Ev.exit168, %757
   %.not.i.i.i.i558 = icmp eq ptr %208, null
   br i1 %.not.i.i.i.i558, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit559, label %761
 
@@ -5245,15 +5245,15 @@ attributes #26 = { builtin allocsize(0) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom: argument 0"}
-!10 = distinct !{!10, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv.argprom"}
+!9 = distinct !{!9, !10, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv: argument 0"}
+!10 = distinct !{!10, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEv"}
 !11 = !{!"branch_weights", i32 1, i32 1048575}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE0_clEv.argprom: argument 0"}
-!14 = distinct !{!14, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE0_clEv.argprom"}
+!13 = distinct !{!13, !14, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE0_clEv: argument 0"}
+!14 = distinct !{!14, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE0_clEv"}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE1_clEv.argprom: argument 0"}
-!17 = distinct !{!17, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE1_clEv.argprom"}
+!16 = distinct !{!16, !17, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE1_clEv: argument 0"}
+!17 = distinct !{!17, !"_ZZN12_GLOBAL__N_115QlBramTypesPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE1_clEv"}
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZNK5Yosys5RTLIL5Const7extractEiiNS0_5StateE: argument 0"}
 !20 = distinct !{!20, !"_ZNK5Yosys5RTLIL5Const7extractEiiNS0_5StateE"}

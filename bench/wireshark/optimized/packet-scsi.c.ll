@@ -4882,7 +4882,7 @@ define hidden void @dissect_spc_modeselect6(ptr noundef %0, ptr noundef %1, ptr 
 61:                                               ; preds = %56, %59
   %62 = phi i32 [ %60, %59 ], [ %49, %56 ]
   %63 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %52, i32 noundef %62, i32 noundef %49) #10
-  tail call fastcc void @dissect_scsi_blockdescs.argprom(ptr noundef %63, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0)
+  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %63, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0)
   br label %64
 
 64:                                               ; preds = %61, %46
@@ -4919,7 +4919,7 @@ define hidden void @dissect_spc_modeselect6(ptr noundef %0, ptr noundef %1, ptr 
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_scsi_blockdescs.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -5209,7 +5209,7 @@ define hidden void @dissect_spc_modeselect10(ptr noundef %0, ptr noundef %1, ptr
 70:                                               ; preds = %65, %68
   %71 = phi i32 [ %69, %68 ], [ %58, %65 ]
   %72 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %61, i32 noundef %71, i32 noundef %58) #10
-  tail call fastcc void @dissect_scsi_blockdescs.argprom(ptr noundef %72, ptr noundef %2, ptr noundef nonnull %7, i32 noundef %51)
+  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %72, ptr noundef %2, ptr noundef nonnull %7, i32 noundef %51)
   br label %73
 
 73:                                               ; preds = %70, %55
@@ -5264,7 +5264,7 @@ define hidden void @dissect_spc_modesense6(ptr noundef %0, ptr noundef %1, ptr n
   %19 = add i32 %3, 1
   %20 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef 0) #10
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %dissect_scsi_pagecode.argprom.exit, label %21
+  br i1 %.not.i, label %dissect_scsi_pagecode.exit, label %21
 
 21:                                               ; preds = %13
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %19) #10
@@ -5292,9 +5292,9 @@ switch.lookup:                                    ; preds = %27
   %.0.in.i = phi ptr [ @hf_scsi_spc_pagecode, %21 ], [ %switch.load, %switch.lookup ], [ @hf_scsi_spc_pagecode, %27 ]
   %.0.i = load i32, ptr %.0.in.i, align 4
   %35 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %2, i32 noundef %.0.i, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef %23) #10
-  br label %dissect_scsi_pagecode.argprom.exit
+  br label %dissect_scsi_pagecode.exit
 
-dissect_scsi_pagecode.argprom.exit:               ; preds = %13, %34
+dissect_scsi_pagecode.exit:                       ; preds = %13, %34
   %36 = load i32, ptr @hf_scsi_alloclen, align 4
   %37 = add i32 %3, 3
   %38 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #10
@@ -5352,7 +5352,7 @@ dissect_scsi_pagecode.argprom.exit:               ; preds = %13, %34
 74:                                               ; preds = %69, %72
   %75 = phi i32 [ %73, %72 ], [ %62, %69 ]
   %76 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %65, i32 noundef %75, i32 noundef %62) #10
-  tail call fastcc void @dissect_scsi_blockdescs.argprom(ptr noundef %76, ptr noundef %2, ptr noundef %7, i32 noundef 0)
+  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %76, ptr noundef %2, ptr noundef %7, i32 noundef 0)
   br label %77
 
 77:                                               ; preds = %74, %59
@@ -5383,7 +5383,7 @@ dissect_scsi_pagecode.argprom.exit:               ; preds = %13, %34
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %82, label %.critedge, !llvm.loop !16
 
-.critedge:                                        ; preds = %84, %82, %77, %54, %49, %43, %8, %dissect_scsi_pagecode.argprom.exit
+.critedge:                                        ; preds = %84, %82, %77, %54, %49, %43, %8, %dissect_scsi_pagecode.exit
   ret void
 }
 
@@ -5409,7 +5409,7 @@ define hidden void @dissect_spc_modesense10(ptr noundef %0, ptr noundef %1, ptr 
   %20 = add i32 %3, 1
   %21 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #10
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %dissect_scsi_pagecode.argprom.exit, label %22
+  br i1 %.not.i, label %dissect_scsi_pagecode.exit, label %22
 
 22:                                               ; preds = %12
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %20) #10
@@ -5437,9 +5437,9 @@ switch.lookup:                                    ; preds = %28
   %.0.in.i = phi ptr [ @hf_scsi_spc_pagecode, %22 ], [ %switch.load, %switch.lookup ], [ @hf_scsi_spc_pagecode, %28 ]
   %.0.i = load i32, ptr %.0.in.i, align 4
   %36 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %2, i32 noundef %.0.i, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef %24) #10
-  br label %dissect_scsi_pagecode.argprom.exit
+  br label %dissect_scsi_pagecode.exit
 
-dissect_scsi_pagecode.argprom.exit:               ; preds = %12, %35
+dissect_scsi_pagecode.exit:                       ; preds = %12, %35
   %37 = load i32, ptr @hf_scsi_alloclen16, align 4
   %38 = add i32 %3, 6
   %39 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef 0) #10
@@ -5508,7 +5508,7 @@ dissect_scsi_pagecode.argprom.exit:               ; preds = %12, %35
 84:                                               ; preds = %79, %82
   %85 = phi i32 [ %83, %82 ], [ %72, %79 ]
   %86 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %75, i32 noundef %85, i32 noundef %72) #10
-  tail call fastcc void @dissect_scsi_blockdescs.argprom(ptr noundef %86, ptr noundef %2, ptr noundef %7, i32 noundef %65)
+  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %86, ptr noundef %2, ptr noundef %7, i32 noundef %65)
   br label %87
 
 87:                                               ; preds = %84, %69
@@ -5539,7 +5539,7 @@ dissect_scsi_pagecode.argprom.exit:               ; preds = %12, %35
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %92, label %.critedge, !llvm.loop !17
 
-.critedge:                                        ; preds = %94, %92, %87, %61, %56, %51, %44, %8, %dissect_scsi_pagecode.argprom.exit
+.critedge:                                        ; preds = %94, %92, %87, %61, %56, %51, %44, %8, %dissect_scsi_pagecode.exit
   ret void
 }
 

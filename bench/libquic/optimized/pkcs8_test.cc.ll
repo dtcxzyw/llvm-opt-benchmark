@@ -93,9 +93,9 @@ cleanup14.i:                                      ; preds = %entry
   %8 = load ptr, ptr @stderr, align 8
   %9 = call i64 @fwrite(ptr nonnull @.str.1, i64 50, i64 1, ptr %8) #7
   %cmp.not.i4.i = icmp eq ptr %call.i, null
-  br i1 %cmp.not.i4.i, label %_ZL4testPKhm.argprom.exit.thread, label %if.then.i5.i
+  br i1 %cmp.not.i4.i, label %_ZL4testPKhm.exit.thread, label %if.then.i5.i
 
-_ZL4testPKhm.argprom.exit.thread:                 ; preds = %cleanup14.i
+_ZL4testPKhm.exit.thread:                         ; preds = %cleanup14.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %keypair.i)
@@ -104,7 +104,7 @@ _ZL4testPKhm.argprom.exit.thread:                 ; preds = %cleanup14.i
 if.then.i5.i:                                     ; preds = %cleanup14.i, %cleanup14.thread.i
   %retval.04.i = phi i1 [ %cmp.i.i, %cleanup14.thread.i ], [ false, %cleanup14.i ]
   invoke void @X509_SIG_free(ptr noundef nonnull %call.i)
-          to label %_ZL4testPKhm.argprom.exit unwind label %terminate.lpad.i6.i
+          to label %_ZL4testPKhm.exit unwind label %terminate.lpad.i6.i
 
 terminate.lpad.i6.i:                              ; preds = %if.then.i5.i
   %10 = landingpad { ptr, i32 }
@@ -118,18 +118,18 @@ ehcleanup.i:                                      ; preds = %lpad9.i, %lpad.i
   call void @_ZNSt10unique_ptrI11X509_sig_st14OpenSSLDeleterIS0_XadL_Z13X509_SIG_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sig.i) #8
   resume { ptr, i32 } %.pn.i
 
-_ZL4testPKhm.argprom.exit:                        ; preds = %if.then.i5.i
+_ZL4testPKhm.exit:                                ; preds = %if.then.i5.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %keypair.i)
   br i1 %retval.04.i, label %if.end, label %return
 
-if.end:                                           ; preds = %_ZL4testPKhm.argprom.exit
+if.end:                                           ; preds = %_ZL4testPKhm.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %return
 
-return:                                           ; preds = %_ZL4testPKhm.argprom.exit.thread, %_ZL4testPKhm.argprom.exit, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %_ZL4testPKhm.argprom.exit ], [ 1, %_ZL4testPKhm.argprom.exit.thread ]
+return:                                           ; preds = %_ZL4testPKhm.exit.thread, %_ZL4testPKhm.exit, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %_ZL4testPKhm.exit ], [ 1, %_ZL4testPKhm.exit.thread ]
   ret i32 %retval.0
 }
 

@@ -445,9 +445,9 @@ if.end20.i.i.i:                                   ; preds = %if.then16.i.i.i
 for.inc.i.i.i:                                    ; preds = %if.end20.i.i.i, %if.else.i.i.i, %if.end.i.i.i
   %ngpr.1.i.i.i = phi i32 [ %inc.i.i.i, %if.end.i.i.i ], [ %ngpr.03.i.i.i, %if.end20.i.i.i ], [ %ngpr.03.i.i.i, %if.else.i.i.i ]
   %nfpr.1.i.i.i = phi i32 [ %nfpr.04.i.i.i, %if.end.i.i.i ], [ %inc23.i.i.i, %if.end20.i.i.i ], [ %nfpr.04.i.i.i, %if.else.i.i.i ]
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %ccall_struct_reg.argprom.exit.i.i, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %ccall_struct_reg.exit.i.i, !llvm.loop !7
 
-ccall_struct_reg.argprom.exit.i.i:                ; preds = %for.inc.i.i.i
+ccall_struct_reg.exit.i.i:                        ; preds = %for.inc.i.i.i
   %conv30.i.i.i = trunc nuw i32 %ngpr.1.i.i.i to i8
   store i8 %conv30.i.i.i, ptr %ngpr114.i, align 2
   %conv32.i.i.i = trunc nuw i32 %nfpr.1.i.i.i to i8
@@ -479,9 +479,9 @@ ccall_struct_arg.exit.i:                          ; preds = %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %dp.i.i)
   br label %err_nyi.i
 
-if.end121.i:                                      ; preds = %if.end.i.i, %ccall_struct_reg.argprom.exit.i.i
-  %40 = phi i8 [ %.pre214.i, %if.end.i.i ], [ %conv32.i.i.i, %ccall_struct_reg.argprom.exit.i.i ]
-  %41 = phi i8 [ %.pre213.i, %if.end.i.i ], [ %conv30.i.i.i, %ccall_struct_reg.argprom.exit.i.i ]
+if.end121.i:                                      ; preds = %if.end.i.i, %ccall_struct_reg.exit.i.i
+  %40 = phi i8 [ %.pre214.i, %if.end.i.i ], [ %conv32.i.i.i, %ccall_struct_reg.exit.i.i ]
+  %41 = phi i8 [ %.pre213.i, %if.end.i.i ], [ %conv30.i.i.i, %ccall_struct_reg.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %dp.i.i)
   %42 = load i8, ptr %nsp112.i, align 4
   %conv123.i = zext i8 %42 to i32

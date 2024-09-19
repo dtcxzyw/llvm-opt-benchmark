@@ -195,7 +195,7 @@ define dso_local void @_ZN4llvm15BinaryStreamRefC2ENS_8ArrayRefIhEENS_10endianne
 34:                                               ; preds = %32, %30
   %.0.i.i.i.i = phi i32 [ %23, %30 ], [ %33, %32 ]
   %35 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %35, label %36, label %_ZNSt10shared_ptrIN12_GLOBAL__N_112ArrayRefImplEED2Ev.argprom.exit
+  br i1 %35, label %36, label %_ZNSt10shared_ptrIN12_GLOBAL__N_112ArrayRefImplEED2Ev.exit
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %5, align 8
@@ -219,16 +219,16 @@ define dso_local void @_ZN4llvm15BinaryStreamRefC2ENS_8ArrayRefIhEENS_10endianne
 46:                                               ; preds = %44, %41
   %.0.i.i.i.i.i.i = phi i32 [ %42, %41 ], [ %45, %44 ]
   %47 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %47, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_112ArrayRefImplEED2Ev.argprom.exit
+  br i1 %47, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_112ArrayRefImplEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %46, %24
   %48 = load ptr, ptr %5, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %5) #11
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_112ArrayRefImplEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_112ArrayRefImplEED2Ev.exit
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_112ArrayRefImplEED2Ev.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %46, %34
+_ZNSt10shared_ptrIN12_GLOBAL__N_112ArrayRefImplEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %46, %34
   ret void
 }
 
@@ -584,7 +584,7 @@ define dso_local void @_ZN4llvm23WritableBinaryStreamRefC2ENS_15MutableArrayRefI
 36:                                               ; preds = %34, %32
   %.0.i.i.i.i = phi i32 [ %25, %32 ], [ %35, %34 ]
   %37 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %37, label %38, label %_ZNSt10shared_ptrIN12_GLOBAL__N_119MutableArrayRefImplEED2Ev.argprom.exit
+  br i1 %37, label %38, label %_ZNSt10shared_ptrIN12_GLOBAL__N_119MutableArrayRefImplEED2Ev.exit
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %5, align 8
@@ -608,16 +608,16 @@ define dso_local void @_ZN4llvm23WritableBinaryStreamRefC2ENS_15MutableArrayRefI
 48:                                               ; preds = %46, %43
   %.0.i.i.i.i.i.i = phi i32 [ %44, %43 ], [ %47, %46 ]
   %49 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %49, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_119MutableArrayRefImplEED2Ev.argprom.exit
+  br i1 %49, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_119MutableArrayRefImplEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %48, %26
   %50 = load ptr, ptr %5, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull align 8 dereferenceable(16) %5) #11
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_119MutableArrayRefImplEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_119MutableArrayRefImplEED2Ev.exit
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_119MutableArrayRefImplEED2Ev.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %48, %36
+_ZNSt10shared_ptrIN12_GLOBAL__N_119MutableArrayRefImplEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %48, %36
   ret void
 }
 
@@ -814,7 +814,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112ArrayRefIm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112ArrayRefImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112ArrayRefImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112ArrayRefImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #13
   ret void
 }
@@ -1084,7 +1084,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_119MutableArr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_119MutableArrayRefImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_119MutableArrayRefImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_119MutableArrayRefImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 80) #13
   ret void
 }
@@ -1480,8 +1480,8 @@ attributes #13 = { builtin nounwind }
 !4 = !{!5, !7}
 !5 = distinct !{!5, !6, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112ArrayRefImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS9_: argument 0"}
 !6 = distinct !{!6, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112ArrayRefImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS9_"}
-!7 = distinct !{!7, !8, !"_ZSt11make_sharedIN12_GLOBAL__N_112ArrayRefImplEJRN4llvm8ArrayRefIhEERNS2_10endiannessEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZSt11make_sharedIN12_GLOBAL__N_112ArrayRefImplEJRN4llvm8ArrayRefIhEERNS2_10endiannessEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!7 = distinct !{!7, !8, !"_ZSt11make_sharedIN12_GLOBAL__N_112ArrayRefImplEJRN4llvm8ArrayRefIhEERNS2_10endiannessEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
+!8 = distinct !{!8, !"_ZSt11make_sharedIN12_GLOBAL__N_112ArrayRefImplEJRN4llvm8ArrayRefIhEERNS2_10endiannessEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !9 = !{!7}
 !10 = !{!11}
 !11 = distinct !{!11, !12, !"_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE18checkOffsetForReadEmm: argument 0"}
@@ -1492,8 +1492,8 @@ attributes #13 = { builtin nounwind }
 !16 = !{!17, !19}
 !17 = distinct !{!17, !18, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_119MutableArrayRefImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS9_: argument 0"}
 !18 = distinct !{!18, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_119MutableArrayRefImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS9_"}
-!19 = distinct !{!19, !20, !"_ZSt11make_sharedIN12_GLOBAL__N_119MutableArrayRefImplEJRN4llvm15MutableArrayRefIhEERNS2_10endiannessEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZSt11make_sharedIN12_GLOBAL__N_119MutableArrayRefImplEJRN4llvm15MutableArrayRefIhEERNS2_10endiannessEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.argprom"}
+!19 = distinct !{!19, !20, !"_ZSt11make_sharedIN12_GLOBAL__N_119MutableArrayRefImplEJRN4llvm15MutableArrayRefIhEERNS2_10endiannessEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_: argument 0"}
+!20 = distinct !{!20, !"_ZSt11make_sharedIN12_GLOBAL__N_119MutableArrayRefImplEJRN4llvm15MutableArrayRefIhEERNS2_10endiannessEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_"}
 !21 = !{!19}
 !22 = !{!23}
 !23 = distinct !{!23, !24, !"_ZNK4llvm19BinaryStreamRefBaseINS_23WritableBinaryStreamRefENS_20WritableBinaryStreamEE18checkOffsetForReadEmm: argument 0"}

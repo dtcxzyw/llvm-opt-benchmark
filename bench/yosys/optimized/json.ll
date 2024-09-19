@@ -286,7 +286,7 @@ define noundef zeroext i1 @_ZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112b
 
 _ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN15WriteFileTargetC2Ev.exit: ; preds = %2
   invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 16)
-          to label %5 unwind label %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.argprom.exit.i15
+          to label %5 unwind label %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.exit.i15
 
 5:                                                ; preds = %_ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN15WriteFileTargetC2Ev.exit
   %6 = load ptr, ptr %4, align 8
@@ -294,10 +294,10 @@ _ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_trai
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 %8
   %10 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %9)
-          to label %11 unwind label %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.argprom.exit.i15
+          to label %11 unwind label %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.exit.i15
 
 11:                                               ; preds = %5
-  br i1 %10, label %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.argprom.exit.i, label %14
+  br i1 %10, label %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.exit.i, label %14
 
 12:                                               ; preds = %2
   %13 = landingpad { ptr, i32 }
@@ -399,18 +399,18 @@ _ZNSt6vectorISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_deleteIS3_EES
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %_ZNSt10unique_ptrIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetSt14default_deleteISA_EED2Ev.exit16
 
-_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.argprom.exit.i: ; preds = %11
+_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.exit.i: ; preds = %11
   %52 = load ptr, ptr %3, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(520) %3) #16
   br label %_ZNSt10unique_ptrIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetSt14default_deleteISA_EED2Ev.exit
 
-_ZNSt10unique_ptrIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetSt14default_deleteISA_EED2Ev.exit: ; preds = %.noexc, %20, %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.argprom.exit.i
+_ZNSt10unique_ptrIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetSt14default_deleteISA_EED2Ev.exit: ; preds = %.noexc, %20, %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.exit.i
   %.0628 = xor i1 %10, true
   ret i1 %.0628
 
-_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.argprom.exit.i15: ; preds = %5, %_ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN15WriteFileTargetC2Ev.exit
+_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.exit.i15: ; preds = %5, %_ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN15WriteFileTargetC2Ev.exit
   %55 = landingpad { ptr, i32 }
           cleanup
   %56 = load ptr, ptr %3, align 8
@@ -419,8 +419,8 @@ _ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_
   tail call void %58(ptr noundef nonnull align 8 dereferenceable(520) %3) #16
   br label %_ZNSt10unique_ptrIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetSt14default_deleteISA_EED2Ev.exit16
 
-_ZNSt10unique_ptrIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetSt14default_deleteISA_EED2Ev.exit16: ; preds = %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.argprom.exit.i15, %.thread, %12
-  %.pn.pn = phi { ptr, i32 } [ %13, %12 ], [ %48, %.thread ], [ %55, %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.argprom.exit.i15 ]
+_ZNSt10unique_ptrIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetSt14default_deleteISA_EED2Ev.exit16: ; preds = %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.exit.i15, %.thread, %12
+  %.pn.pn = phi { ptr, i32 } [ %13, %12 ], [ %48, %.thread ], [ %55, %_ZNKSt14default_deleteIZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTargetEclEPSA_.exit.i15 ]
   resume { ptr, i32 } %.pn.pn
 }
 

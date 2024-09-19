@@ -1572,7 +1572,7 @@ entry:
   %m_stream.i = getelementptr inbounds i8, ptr %DOCTEST_CAPTURE_5.i, i64 40
   store ptr %s, ptr %m_stream.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA290_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i, ptr noundef nonnull align 1 dereferenceable(290) @.str.9)
-          to label %"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.argprom.exit" unwind label %lpad.i
+          to label %"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.exit" unwind label %lpad.i
 
 lpad.i:                                           ; preds = %entry
   %0 = landingpad { ptr, i32 }
@@ -1580,7 +1580,7 @@ lpad.i:                                           ; preds = %entry
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i) #24
   resume { ptr, i32 } %0
 
-"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.argprom.exit": ; preds = %entry
+"_ZZN5utilsL19DOCTEST_ANON_FUNC_2EvENK3$_0clEPSo.exit": ; preds = %entry
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_5.i) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %DOCTEST_CAPTURE_5.i)
   ret void
@@ -4486,7 +4486,7 @@ call.i.i.i.i.i.i.noexc.i:                         ; preds = %call.i.i.i.i.noexc.
 
 .noexc.i:                                         ; preds = %call.i.i.i.i.i.i.noexc.i
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctestlsERSoRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
-          to label %"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.argprom.exit" unwind label %lpad.i.i
+          to label %"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.exit" unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
   %1 = landingpad { ptr, i32 }
@@ -4504,7 +4504,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_35.i) #24
   resume { ptr, i32 } %eh.lpad-body.i
 
-"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.argprom.exit": ; preds = %.noexc.i
+"_ZZN12_GLOBAL__N_116check_utf8stringEbiiiiENK3$_4clEPSo.exit": ; preds = %.noexc.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_35.i) #24
@@ -21272,7 +21272,7 @@ call.i.i.i.i.i.i.noexc.i:                         ; preds = %call.i.i.i.i.noexc.
 
 .noexc.i:                                         ; preds = %call.i.i.i.i.i.i.noexc.i
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctestlsERSoRKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
-          to label %"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.argprom.exit" unwind label %lpad.i.i
+          to label %"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.exit" unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
   %1 = landingpad { ptr, i32 }
@@ -21290,7 +21290,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_20.i) #24
   resume { ptr, i32 } %eh.lpad-body.i
 
-"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.argprom.exit": ; preds = %.noexc.i
+"_ZZN12_GLOBAL__N_114check_utf8dumpEbiiiiENK3$_4clEPSo.exit": ; preds = %.noexc.i
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %DOCTEST_CAPTURE_20.i) #24
@@ -24666,8 +24666,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_.argprom: %agg.result"}
-!7 = distinct !{!7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_.argprom"}
+!6 = distinct !{!6, !7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
+!7 = distinct !{!7, !"_ZN7doctest6detail16MakeContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EENS0_12ContextScopeIT_EERKS5_"}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
@@ -24708,8 +24708,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !45 = distinct !{!45, !46, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
 !46 = distinct !{!46, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_"}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom: %agg.result"}
-!49 = distinct !{!49, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom"}
+!48 = distinct !{!48, !49, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
+!49 = distinct !{!49, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_116check_utf8stringEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_"}
 !50 = !{i64 2154954400}
 !51 = !{i64 2154956982}
 !52 = !{!53}
@@ -24725,8 +24725,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !62 = distinct !{!62, !63, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
 !63 = distinct !{!63, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_3EENS0_12ContextScopeIT_EERKS5_"}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom: %agg.result"}
-!66 = distinct !{!66, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_.argprom"}
+!65 = distinct !{!65, !66, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_: %agg.result"}
+!66 = distinct !{!66, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_114check_utf8dumpEbiiiiE3$_4EENS0_12ContextScopeIT_EERKS5_"}
 !67 = !{i64 2154926577}
 !68 = !{!69}
 !69 = distinct !{!69, !70, !"_ZN7doctest6detail20ExpressionDecomposerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_14Expression_lhsIT_EEOSA_: %agg.result"}

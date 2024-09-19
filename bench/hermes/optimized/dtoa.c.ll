@@ -941,12 +941,12 @@ if.end408.i:                                      ; preds = %if.end408.ithread-p
   %tobool409.i = fcmp une double %100, 0.000000e+00
   br i1 %tobool409.i, label %if.end414.i, label %undfl.i
 
-undfl.i:                                          ; preds = %if.end929.i, %if.then776.i, %sulp.argprom.exit491.i, %if.then694.i, %if.end408.i, %if.then388.i, %if.then351.i
-  %bb.2.i = phi ptr [ %bb.4.i, %if.end929.i ], [ %bb.4.i, %if.then776.i ], [ undef, %if.then351.i ], [ undef, %if.then388.i ], [ undef, %if.end408.i ], [ %bb.4.i, %if.then694.i ], [ %bb.4.i, %sulp.argprom.exit491.i ]
-  %bd.2.i = phi ptr [ %bd.4.i, %if.end929.i ], [ %bd.4.i, %if.then776.i ], [ undef, %if.then351.i ], [ undef, %if.then388.i ], [ undef, %if.end408.i ], [ %bd.4.i, %if.then694.i ], [ %bd.4.i, %sulp.argprom.exit491.i ]
-  %bd0.2.i = phi ptr [ null, %if.end929.i ], [ %b.2.lcssa.i.i, %if.then776.i ], [ null, %if.then351.i ], [ null, %if.then388.i ], [ null, %if.end408.i ], [ %b.2.lcssa.i.i, %if.then694.i ], [ %b.2.lcssa.i.i, %sulp.argprom.exit491.i ]
-  %bs.2.i = phi ptr [ %bs.4.i, %if.end929.i ], [ %bs.4.i, %if.then776.i ], [ undef, %if.then351.i ], [ undef, %if.then388.i ], [ undef, %if.end408.i ], [ %bs.4.i, %if.then694.i ], [ %bs.4.i, %sulp.argprom.exit491.i ]
-  %delta.2.i = phi ptr [ %delta.3.i, %if.end929.i ], [ %call583.i, %if.then776.i ], [ undef, %if.then351.i ], [ undef, %if.then388.i ], [ undef, %if.end408.i ], [ %delta.4.i97, %if.then694.i ], [ %call583.i, %sulp.argprom.exit491.i ]
+undfl.i:                                          ; preds = %if.end929.i, %if.then776.i, %sulp.exit491.i, %if.then694.i, %if.end408.i, %if.then388.i, %if.then351.i
+  %bb.2.i = phi ptr [ %bb.4.i, %if.end929.i ], [ %bb.4.i, %if.then776.i ], [ undef, %if.then351.i ], [ undef, %if.then388.i ], [ undef, %if.end408.i ], [ %bb.4.i, %if.then694.i ], [ %bb.4.i, %sulp.exit491.i ]
+  %bd.2.i = phi ptr [ %bd.4.i, %if.end929.i ], [ %bd.4.i, %if.then776.i ], [ undef, %if.then351.i ], [ undef, %if.then388.i ], [ undef, %if.end408.i ], [ %bd.4.i, %if.then694.i ], [ %bd.4.i, %sulp.exit491.i ]
+  %bd0.2.i = phi ptr [ null, %if.end929.i ], [ %b.2.lcssa.i.i, %if.then776.i ], [ null, %if.then351.i ], [ null, %if.then388.i ], [ null, %if.end408.i ], [ %b.2.lcssa.i.i, %if.then694.i ], [ %b.2.lcssa.i.i, %sulp.exit491.i ]
+  %bs.2.i = phi ptr [ %bs.4.i, %if.end929.i ], [ %bs.4.i, %if.then776.i ], [ undef, %if.then351.i ], [ undef, %if.then388.i ], [ undef, %if.end408.i ], [ %bs.4.i, %if.then694.i ], [ %bs.4.i, %sulp.exit491.i ]
+  %delta.2.i = phi ptr [ %delta.3.i, %if.end929.i ], [ %call583.i, %if.then776.i ], [ undef, %if.then351.i ], [ undef, %if.then388.i ], [ undef, %if.end408.i ], [ %delta.4.i97, %if.then694.i ], [ %call583.i, %sulp.exit491.i ]
   store double 0.000000e+00, ptr %rv.i, align 8
   br label %range_err.i
 
@@ -1638,13 +1638,13 @@ if.end732.i:                                      ; preds = %if.else726.i, %if.t
   br i1 %tobool637.not.i, label %if.else738.i, label %if.then735.i
 
 if.then735.i:                                     ; preds = %if.end732.i
-  br i1 %tobool885.i, label %sulp.argprom.exit.i, label %lor.lhs.false.i.i
+  br i1 %tobool885.i, label %sulp.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then735.i
   %and.i.i = lshr i32 %136, 20
   %shr.i.i = and i32 %and.i.i, 2047
   %cmp.i471.i = icmp ugt i32 %shr.i.i, 106
-  br i1 %cmp.i471.i, label %sulp.argprom.exit.i, label %if.end.i472.i
+  br i1 %cmp.i471.i, label %sulp.exit.i, label %if.end.i472.i
 
 if.end.i472.i:                                    ; preds = %lor.lhs.false.i.i
   %141 = shl nuw nsw i32 %shr.i.i, 20
@@ -1653,9 +1653,9 @@ if.end.i472.i:                                    ; preds = %lor.lhs.false.i.i
   %u.sroa.0.4.insert.shift.i.i = shl nuw nsw i64 %u.sroa.0.4.insert.ext.i.i, 32
   %142 = bitcast i64 %u.sroa.0.4.insert.shift.i.i to double
   %mul.i474.i = fmul double %140, %142
-  br label %sulp.argprom.exit.i
+  br label %sulp.exit.i
 
-sulp.argprom.exit.i:                              ; preds = %if.end.i472.i, %lor.lhs.false.i.i, %if.then735.i
+sulp.exit.i:                                      ; preds = %if.end.i472.i, %lor.lhs.false.i.i, %if.then735.i
   %retval.0.i475.i = phi double [ %mul.i474.i, %if.end.i472.i ], [ %140, %lor.lhs.false.i.i ], [ %140, %if.then735.i ]
   %143 = load double, ptr %rv.i, align 8
   %add737.i = fadd double %retval.0.i475.i, %143
@@ -1663,13 +1663,13 @@ sulp.argprom.exit.i:                              ; preds = %if.end.i472.i, %lor
   br label %if.end750.i
 
 if.else738.i:                                     ; preds = %if.end732.i
-  br i1 %tobool885.i, label %sulp.argprom.exit491.i, label %lor.lhs.false.i481.i
+  br i1 %tobool885.i, label %sulp.exit491.i, label %lor.lhs.false.i481.i
 
 lor.lhs.false.i481.i:                             ; preds = %if.else738.i
   %and.i482.i = lshr i32 %136, 20
   %shr.i483.i = and i32 %and.i482.i, 2047
   %cmp.i484.i = icmp ugt i32 %shr.i483.i, 106
-  br i1 %cmp.i484.i, label %sulp.argprom.exit491.i, label %if.end.i485.i
+  br i1 %cmp.i484.i, label %sulp.exit491.i, label %if.end.i485.i
 
 if.end.i485.i:                                    ; preds = %lor.lhs.false.i481.i
   %144 = shl nuw nsw i32 %shr.i483.i, 20
@@ -1678,9 +1678,9 @@ if.end.i485.i:                                    ; preds = %lor.lhs.false.i481.
   %u.sroa.0.4.insert.shift.i488.i = shl nuw nsw i64 %u.sroa.0.4.insert.ext.i487.i, 32
   %145 = bitcast i64 %u.sroa.0.4.insert.shift.i488.i to double
   %mul.i489.i = fmul double %140, %145
-  br label %sulp.argprom.exit491.i
+  br label %sulp.exit491.i
 
-sulp.argprom.exit491.i:                           ; preds = %if.end.i485.i, %lor.lhs.false.i481.i, %if.else738.i
+sulp.exit491.i:                                   ; preds = %if.end.i485.i, %lor.lhs.false.i481.i, %if.else738.i
   %retval.0.i490.i = phi double [ %mul.i489.i, %if.end.i485.i ], [ %140, %lor.lhs.false.i481.i ], [ %140, %if.else738.i ]
   %146 = load double, ptr %rv.i, align 8
   %sub740.i = fsub double %146, %retval.0.i490.i
@@ -1688,7 +1688,7 @@ sulp.argprom.exit491.i:                           ; preds = %if.end.i485.i, %lor
   %tobool741.i = fcmp une double %sub740.i, 0.000000e+00
   br i1 %tobool741.i, label %if.end750.i, label %undfl.i
 
-if.end750.i:                                      ; preds = %sulp.argprom.exit491.i, %sulp.argprom.exit.i
+if.end750.i:                                      ; preds = %sulp.exit491.i, %sulp.exit.i
   %sub752.i = sub nsw i32 1, %124
   br label %for.end919.i
 
@@ -2529,13 +2529,13 @@ retlow1.i.i:                                      ; preds = %odd.i.i, %if.then11
   %u.sroa.0.4.insert.ext.i.i.i.i = zext i32 %sub.i.i.i.i to i64
   %u.sroa.0.4.insert.shift.i.i.i.i = shl nuw i64 %u.sroa.0.4.insert.ext.i.i.i.i, 32
   %227 = bitcast i64 %u.sroa.0.4.insert.shift.i.i.i.i to double
-  br i1 %tobool885.i, label %sulp.argprom.exit.i.i, label %lor.lhs.false.i.i.i
+  br i1 %tobool885.i, label %sulp.exit.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %retlow1.i.i
   %and.i134.i.i = lshr i32 %rv.val90.i.i, 20
   %shr.i.i.i = and i32 %and.i134.i.i, 2047
   %cmp.i135.i.i = icmp ugt i32 %shr.i.i.i, 106
-  br i1 %cmp.i135.i.i, label %sulp.argprom.exit.i.i, label %if.end.i.i625.i
+  br i1 %cmp.i135.i.i, label %sulp.exit.i.i, label %if.end.i.i625.i
 
 if.end.i.i625.i:                                  ; preds = %lor.lhs.false.i.i.i
   %228 = shl nuw nsw i32 %shr.i.i.i, 20
@@ -2544,9 +2544,9 @@ if.end.i.i625.i:                                  ; preds = %lor.lhs.false.i.i.i
   %u.sroa.0.4.insert.shift.i.i627.i = shl nuw nsw i64 %u.sroa.0.4.insert.ext.i.i626.i, 32
   %229 = bitcast i64 %u.sroa.0.4.insert.shift.i.i627.i to double
   %mul.i.i628.i = fmul double %227, %229
-  br label %sulp.argprom.exit.i.i
+  br label %sulp.exit.i.i
 
-sulp.argprom.exit.i.i:                            ; preds = %if.end.i.i625.i, %lor.lhs.false.i.i.i, %retlow1.i.i
+sulp.exit.i.i:                                    ; preds = %if.end.i.i625.i, %lor.lhs.false.i.i.i, %retlow1.i.i
   %retval.0.i.i.i = phi double [ %mul.i.i628.i, %if.end.i.i625.i ], [ %227, %lor.lhs.false.i.i.i ], [ %227, %retlow1.i.i ]
   %230 = load double, ptr %rv.i, align 8
   %sub122.i.i = fsub double %230, %retval.0.i.i.i
@@ -2566,13 +2566,13 @@ rethi1.i.i:                                       ; preds = %odd.i.i, %if.then12
   %u.sroa.0.4.insert.ext.i.i138.i.i = zext i32 %sub.i.i137.i.i to i64
   %u.sroa.0.4.insert.shift.i.i139.i.i = shl nuw i64 %u.sroa.0.4.insert.ext.i.i138.i.i, 32
   %232 = bitcast i64 %u.sroa.0.4.insert.shift.i.i139.i.i to double
-  br i1 %tobool885.i, label %sulp.argprom.exit151.i.i, label %lor.lhs.false.i141.i.i
+  br i1 %tobool885.i, label %sulp.exit151.i.i, label %lor.lhs.false.i141.i.i
 
 lor.lhs.false.i141.i.i:                           ; preds = %rethi1.i.i
   %and.i142.i.i = lshr i32 %231, 20
   %shr.i143.i.i = and i32 %and.i142.i.i, 2047
   %cmp.i144.i.i = icmp ugt i32 %shr.i143.i.i, 106
-  br i1 %cmp.i144.i.i, label %sulp.argprom.exit151.i.i, label %if.end.i145.i.i
+  br i1 %cmp.i144.i.i, label %sulp.exit151.i.i, label %if.end.i145.i.i
 
 if.end.i145.i.i:                                  ; preds = %lor.lhs.false.i141.i.i
   %233 = shl nuw nsw i32 %shr.i143.i.i, 20
@@ -2581,9 +2581,9 @@ if.end.i145.i.i:                                  ; preds = %lor.lhs.false.i141.
   %u.sroa.0.4.insert.shift.i148.i.i = shl nuw nsw i64 %u.sroa.0.4.insert.ext.i147.i.i, 32
   %234 = bitcast i64 %u.sroa.0.4.insert.shift.i148.i.i to double
   %mul.i149.i.i = fmul double %232, %234
-  br label %sulp.argprom.exit151.i.i
+  br label %sulp.exit151.i.i
 
-sulp.argprom.exit151.i.i:                         ; preds = %if.end.i145.i.i, %lor.lhs.false.i141.i.i, %rethi1.i.i
+sulp.exit151.i.i:                                 ; preds = %if.end.i145.i.i, %lor.lhs.false.i141.i.i, %rethi1.i.i
   %retval.0.i150.i.i = phi double [ %mul.i149.i.i, %if.end.i145.i.i ], [ %232, %lor.lhs.false.i141.i.i ], [ %232, %rethi1.i.i ]
   %235 = load double, ptr %rv.i, align 8
   %add131.i.i = fadd double %retval.0.i150.i.i, %235
@@ -2624,8 +2624,8 @@ if.else158.i.i:                                   ; preds = %if.else133.i.i
 odd.i.i:                                          ; preds = %if.else158.i.i, %if.else149.i.i, %if.then143.i.i
   br i1 %dsign.0.i.i, label %retlow1.i.i, label %rethi1.i.i
 
-if.end170.sink.split.i.i:                         ; preds = %sulp.argprom.exit151.i.i, %sulp.argprom.exit.i.i, %if.then110.i.i
-  %sub122.sink.i.i = phi double [ %sub122.i.i, %sulp.argprom.exit.i.i ], [ %add131.i.i, %sulp.argprom.exit151.i.i ], [ 0.000000e+00, %if.then110.i.i ]
+if.end170.sink.split.i.i:                         ; preds = %sulp.exit151.i.i, %sulp.exit.i.i, %if.then110.i.i
+  %sub122.sink.i.i = phi double [ %sub122.i.i, %sulp.exit.i.i ], [ %add131.i.i, %sulp.exit151.i.i ], [ 0.000000e+00, %if.then110.i.i ]
   store double %sub122.sink.i.i, ptr %rv.i, align 8
   %238 = bitcast double %sub122.sink.i.i to i64
   %239 = lshr i64 %238, 32

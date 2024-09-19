@@ -248,7 +248,7 @@ if.end:                                           ; preds = %if.then.i.i, %if.th
   %ioc_in = getelementptr inbounds i8, ptr %call.i, i64 152
   %1 = load ptr, ptr %ioc_in, align 8
   %tobool4.not = icmp eq ptr %1, null
-  br i1 %tobool4.not, label %glib_autoptr_cleanup_GSource.argprom.exit13, label %if.then5
+  br i1 %tobool4.not, label %glib_autoptr_cleanup_GSource.exit13, label %if.then5
 
 if.then5:                                         ; preds = %if.end
   %and8 = and i32 %cond, -5
@@ -256,13 +256,13 @@ if.then5:                                         ; preds = %if.end
   tail call void @g_source_set_callback(ptr noundef %call9, ptr noundef nonnull @child_func, ptr noundef %call.i7, ptr noundef null) #7
   tail call void @g_source_add_child_source(ptr noundef %call.i7, ptr noundef %call9) #7
   %tobool.not.i.i8 = icmp eq ptr %call9, null
-  br i1 %tobool.not.i.i8, label %glib_autoptr_cleanup_GSource.argprom.exit13, label %if.then.i.i9
+  br i1 %tobool.not.i.i8, label %glib_autoptr_cleanup_GSource.exit13, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %if.then5
   tail call void @g_source_unref(ptr noundef nonnull %call9) #7
-  br label %glib_autoptr_cleanup_GSource.argprom.exit13
+  br label %glib_autoptr_cleanup_GSource.exit13
 
-glib_autoptr_cleanup_GSource.argprom.exit13:      ; preds = %if.end, %if.then5, %if.then.i.i9
+glib_autoptr_cleanup_GSource.exit13:              ; preds = %if.end, %if.then5, %if.then.i.i9
   ret ptr %call.i7
 }
 

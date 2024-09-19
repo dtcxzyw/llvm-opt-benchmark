@@ -398,11 +398,11 @@ if.else8.i:                                       ; preds = %if.then4.i
 
 if.else9.i:                                       ; preds = %if.else.i63
   %add.i65 = add nsw i32 %24, %requested_digits
-  call fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_.argelim(i32 noundef %add.i65, ptr noundef nonnull %decimal_point, ptr noundef %numerator, ptr noundef %denominator, ptr %buffer.coerce0, ptr noundef %length)
+  call fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_(i32 noundef %add.i65, ptr noundef nonnull %decimal_point, ptr noundef %numerator, ptr noundef %denominator, ptr %buffer.coerce0, ptr noundef %length)
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %_ZN17double_conversionL15FixupMultiply10EibPiPNS_6BignumES2_S2_S2_.exit
-  call fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_.argelim(i32 noundef %requested_digits, ptr noundef nonnull %decimal_point, ptr noundef %numerator, ptr noundef %denominator, ptr %buffer.coerce0, ptr noundef %length)
+  call fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_(i32 noundef %requested_digits, ptr noundef nonnull %decimal_point, ptr noundef %numerator, ptr noundef %denominator, ptr %buffer.coerce0, ptr noundef %length)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %_ZN17double_conversionL15FixupMultiply10EibPiPNS_6BignumES2_S2_S2_.exit
@@ -421,7 +421,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_.argelim(i32 noundef %count, ptr nocapture noundef %decimal_point, ptr noundef nonnull %numerator, ptr noundef nonnull %denominator, ptr nocapture %buffer.coerce0, ptr nocapture noundef writeonly %length) unnamed_addr #0 {
+define internal fastcc void @_ZN17double_conversionL21GenerateCountedDigitsEiPiPNS_6BignumES2_NS_6VectorIcEES0_(i32 noundef %count, ptr nocapture noundef %decimal_point, ptr noundef nonnull %numerator, ptr noundef nonnull %denominator, ptr nocapture %buffer.coerce0, ptr nocapture noundef writeonly %length) unnamed_addr #0 {
 entry:
   %sub = add i32 %count, -1
   %cmp34 = icmp sgt i32 %count, 1

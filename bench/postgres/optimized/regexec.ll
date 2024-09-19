@@ -618,11 +618,11 @@ freedfa.exit:                                     ; preds = %39, %43
   %58 = call fastcc ptr @shortest(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.068.us.i, ptr noundef %.068.us.i, ptr noundef %57, ptr noundef nonnull %4, ptr noundef null)
   %59 = load i32, ptr %56, align 8
   %.not.us.i = icmp eq i32 %59, 0
-  br i1 %.not.us.i, label %60, label %cfindloop.argprom.exit
+  br i1 %.not.us.i, label %60, label %cfindloop.exit
 
 60:                                               ; preds = %.split43.us.i
   %61 = icmp eq ptr %58, null
-  br i1 %61, label %cfindloop.argprom.exit, label %62
+  br i1 %61, label %cfindloop.exit, label %62
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %4, align 8
@@ -634,7 +634,7 @@ freedfa.exit:                                     ; preds = %39, %43
   %64 = getelementptr i8, ptr %58, i64 4
   %65 = load ptr, ptr %55, align 8
   %66 = icmp ult ptr %64, %65
-  br i1 %66, label %.split43.us.i, label %cfindloop.argprom.exit, !llvm.loop !11
+  br i1 %66, label %.split43.us.i, label %cfindloop.exit, !llvm.loop !11
 
 .split.us.us.us.i:                                ; preds = %62, %.split16.us.us.us.i
   %.06434.us.us.i = phi ptr [ %89, %.split16.us.us.us.i ], [ %63, %62 ]
@@ -642,7 +642,7 @@ freedfa.exit:                                     ; preds = %39, %43
   %68 = call fastcc ptr @longest(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %.06434.us.us.i, ptr noundef %67, ptr noundef nonnull %5)
   %69 = load i32, ptr %56, align 8
   %.not76.us28.us.us.i = icmp eq i32 %69, 0
-  br i1 %.not76.us28.us.us.i, label %.lr.ph30.us.us.i, label %cfindloop.argprom.exit
+  br i1 %.not76.us28.us.us.i, label %.lr.ph30.us.us.i, label %cfindloop.exit
 
 .lr.ph30.us.us.i:                                 ; preds = %.split.us.us.us.i, %85
   %70 = phi ptr [ %87, %85 ], [ %68, %.split.us.us.us.i ]
@@ -680,7 +680,7 @@ freedfa.exit:                                     ; preds = %39, %43
   %87 = call fastcc ptr @longest(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %.06434.us.us.i, ptr noundef %86, ptr noundef nonnull %5)
   %88 = load i32, ptr %56, align 8
   %.not76.us.us.us.i = icmp eq i32 %88, 0
-  br i1 %.not76.us.us.us.i, label %.lr.ph30.us.us.i, label %cfindloop.argprom.exit
+  br i1 %.not76.us.us.us.i, label %.lr.ph30.us.us.i, label %cfindloop.exit
 
 .split16.us.us.us.i:                              ; preds = %83, %76
   %89 = getelementptr i8, ptr %.06434.us.us.i, i64 4
@@ -693,11 +693,11 @@ freedfa.exit:                                     ; preds = %39, %43
   %91 = call fastcc ptr @shortest(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.068.i, ptr noundef %.068.i, ptr noundef %90, ptr noundef nonnull %4, ptr noundef null)
   %92 = load i32, ptr %56, align 8
   %.not.i38 = icmp eq i32 %92, 0
-  br i1 %.not.i38, label %93, label %cfindloop.argprom.exit
+  br i1 %.not.i38, label %93, label %cfindloop.exit
 
 93:                                               ; preds = %.split43.i
   %94 = icmp eq ptr %91, null
-  br i1 %94, label %cfindloop.argprom.exit, label %95
+  br i1 %94, label %cfindloop.exit, label %95
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr %4, align 8
@@ -711,7 +711,7 @@ freedfa.exit:                                     ; preds = %39, %43
   %98 = call fastcc ptr @shortest(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %.06434.i, ptr noundef %.06434.i, ptr noundef %97, ptr noundef null, ptr noundef nonnull %5)
   %99 = load i32, ptr %56, align 8
   %.not7625.i = icmp eq i32 %99, 0
-  br i1 %.not7625.i, label %.lr.ph.i, label %cfindloop.argprom.exit
+  br i1 %.not7625.i, label %.lr.ph.i, label %cfindloop.exit
 
 .lr.ph.i:                                         ; preds = %.split.i, %134
   %100 = phi ptr [ %136, %134 ], [ %98, %.split.i ]
@@ -746,7 +746,7 @@ freedfa.exit:                                     ; preds = %39, %43
   %113 = getelementptr inbounds i8, ptr %0, i64 24
   %114 = load i64, ptr %113, align 8
   %.not79.i = icmp eq i64 %114, 0
-  br i1 %.not79.i, label %cfindloop.argprom.exit, label %115
+  br i1 %.not79.i, label %cfindloop.exit, label %115
 
 115:                                              ; preds = %.split22.us.i
   %116 = getelementptr inbounds i8, ptr %0, i64 48
@@ -766,7 +766,7 @@ freedfa.exit:                                     ; preds = %39, %43
   %129 = load ptr, ptr %122, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 8
   store i64 %128, ptr %130, align 8
-  br label %cfindloop.argprom.exit
+  br label %cfindloop.exit
 
 .split18.us.i:                                    ; preds = %108, %78
   %.us-phi20.i = phi i32 [ %82, %78 ], [ %112, %108 ]
@@ -774,7 +774,7 @@ freedfa.exit:                                     ; preds = %39, %43
   %.not78.i = icmp eq i32 %131, 0
   %..i = select i1 %.not78.i, i32 %.us-phi20.i, i32 %131
   store i32 %..i, ptr %56, align 8
-  br label %cfindloop.argprom.exit
+  br label %cfindloop.exit
 
 132:                                              ; preds = %108
   %133 = icmp eq ptr %100, %97
@@ -785,7 +785,7 @@ freedfa.exit:                                     ; preds = %39, %43
   %136 = call fastcc ptr @shortest(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %.06434.i, ptr noundef %135, ptr noundef %97, ptr noundef null, ptr noundef nonnull %5)
   %137 = load i32, ptr %56, align 8
   %.not76.i = icmp eq i32 %137, 0
-  br i1 %.not76.i, label %.lr.ph.i, label %cfindloop.argprom.exit
+  br i1 %.not76.i, label %.lr.ph.i, label %cfindloop.exit
 
 .split16.i:                                       ; preds = %132, %106
   %138 = getelementptr i8, ptr %.06434.i, i64 4
@@ -796,9 +796,9 @@ freedfa.exit:                                     ; preds = %39, %43
   %139 = getelementptr i8, ptr %91, i64 4
   %140 = load ptr, ptr %55, align 8
   %141 = icmp ult ptr %139, %140
-  br i1 %141, label %.split43.i, label %cfindloop.argprom.exit, !llvm.loop !11
+  br i1 %141, label %.split43.i, label %cfindloop.exit, !llvm.loop !11
 
-cfindloop.argprom.exit:                           ; preds = %93, %._crit_edge.split.i, %.split43.i, %.split.i, %134, %60, %._crit_edge.split.us.us.i, %.split43.us.i, %.split.us.us.us.i, %85, %.split22.us.i, %115, %.split18.us.i
+cfindloop.exit:                                   ; preds = %93, %._crit_edge.split.i, %.split43.i, %.split.i, %134, %60, %._crit_edge.split.us.us.i, %.split43.us.i, %.split.us.us.us.i, %85, %.split22.us.i, %115, %.split18.us.i
   %.0.i = phi i32 [ %.us-phi20.i, %.split18.us.i ], [ 0, %115 ], [ 0, %.split22.us.i ], [ %88, %85 ], [ %69, %.split.us.us.us.i ], [ 1, %60 ], [ 1, %._crit_edge.split.us.us.i ], [ %59, %.split43.us.i ], [ %137, %134 ], [ %99, %.split.i ], [ 1, %93 ], [ 1, %._crit_edge.split.i ], [ %92, %.split43.i ]
   %.049 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -808,7 +808,7 @@ cfindloop.argprom.exit:                           ; preds = %93, %._crit_edge.sp
   %144 = trunc i8 %143 to i1
   br i1 %144, label %145, label %161
 
-145:                                              ; preds = %cfindloop.argprom.exit
+145:                                              ; preds = %cfindloop.exit
   %146 = getelementptr inbounds i8, ptr %17, i64 24
   %147 = load ptr, ptr %146, align 8
   %.not.i39 = icmp eq ptr %147, null
@@ -848,7 +848,7 @@ cfindloop.argprom.exit:                           ; preds = %93, %._crit_edge.sp
   call void @pfree(ptr noundef nonnull %159) #10
   br label %161
 
-161:                                              ; preds = %160, %157, %cfindloop.argprom.exit
+161:                                              ; preds = %160, %157, %cfindloop.exit
   %162 = getelementptr inbounds i8, ptr %17, i64 112
   %163 = load i8, ptr %162, align 8
   %164 = trunc i8 %163 to i1
@@ -2396,11 +2396,11 @@ define internal fastcc i32 @cdissect(ptr noundef nonnull %0, ptr nocapture nound
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12() #10
   %.not41 = icmp eq i32 %13, 0
-  br i1 %.not41, label %14, label %subset.argprom.exit
+  br i1 %.not41, label %14, label %subset.exit
 
 14:                                               ; preds = %7
   %15 = load i8, ptr %1, align 8
-  switch i8 %15, label %subset.argprom.exit [
+  switch i8 %15, label %subset.exit [
     i8 61, label %crevcondissect.exit
     i8 98, label %16
     i8 46, label %63
@@ -2556,23 +2556,23 @@ getsubdfa.exit:                                   ; preds = %79, %80, %100
   %105 = getelementptr inbounds i8, ptr %0, i64 72
   %106 = load i32, ptr %105, align 8
   %.not.i44 = icmp eq i32 %106, 0
-  br i1 %.not.i44, label %107, label %subset.argprom.exit
+  br i1 %.not.i44, label %107, label %subset.exit
 
 107:                                              ; preds = %getsubdfa.exit
   %108 = tail call fastcc ptr @getsubdfa(ptr noundef %0, ptr noundef %70)
   %109 = load i32, ptr %105, align 8
   %.not61.i = icmp eq i32 %109, 0
-  br i1 %.not61.i, label %110, label %subset.argprom.exit
+  br i1 %.not61.i, label %110, label %subset.exit
 
 110:                                              ; preds = %107
   %111 = tail call fastcc ptr @shortest(ptr noundef %0, ptr noundef %.019.i, ptr noundef %2, ptr noundef %2, ptr noundef %3, ptr noundef null, ptr noundef null)
   %112 = load i32, ptr %105, align 8
   %.not62.i = icmp eq i32 %112, 0
-  br i1 %.not62.i, label %113, label %subset.argprom.exit
+  br i1 %.not62.i, label %113, label %subset.exit
 
 113:                                              ; preds = %110
   %114 = icmp eq ptr %111, null
-  br i1 %114, label %subset.argprom.exit, label %.preheader77
+  br i1 %114, label %subset.exit, label %.preheader77
 
 .preheader77:                                     ; preds = %113, %133
   %.049.i = phi ptr [ %131, %133 ], [ %111, %113 ]
@@ -2597,27 +2597,27 @@ getsubdfa.exit:                                   ; preds = %79, %80, %100
 124:                                              ; preds = %123, %117
   %.0.i45 = phi i32 [ %121, %123 ], [ %118, %117 ]
   %.not63.i = icmp eq i32 %.0.i45, 1
-  br i1 %.not63.i, label %125, label %subset.argprom.exit
+  br i1 %.not63.i, label %125, label %subset.exit
 
 125:                                              ; preds = %124, %.preheader77
   %126 = load i32, ptr %105, align 8
   %.not64.i = icmp eq i32 %126, 0
-  br i1 %.not64.i, label %127, label %subset.argprom.exit
+  br i1 %.not64.i, label %127, label %subset.exit
 
 127:                                              ; preds = %125
   %128 = icmp eq ptr %.049.i, %3
-  br i1 %128, label %subset.argprom.exit, label %129
+  br i1 %128, label %subset.exit, label %129
 
 129:                                              ; preds = %127
   %130 = getelementptr i8, ptr %.049.i, i64 4
   %131 = tail call fastcc ptr @shortest(ptr noundef %0, ptr noundef %.019.i, ptr noundef %2, ptr noundef %130, ptr noundef %3, ptr noundef null, ptr noundef null)
   %132 = load i32, ptr %105, align 8
   %.not65.i = icmp eq i32 %132, 0
-  br i1 %.not65.i, label %133, label %subset.argprom.exit
+  br i1 %.not65.i, label %133, label %subset.exit
 
 133:                                              ; preds = %129
   %134 = icmp eq ptr %131, null
-  br i1 %134, label %subset.argprom.exit, label %.preheader77
+  br i1 %134, label %subset.exit, label %.preheader77
 
 135:                                              ; preds = %63
   br i1 %78, label %136, label %getsubdfa.exit69
@@ -2664,23 +2664,23 @@ getsubdfa.exit69:                                 ; preds = %135, %136, %156
   %161 = getelementptr inbounds i8, ptr %0, i64 72
   %162 = load i32, ptr %161, align 8
   %.not.i46 = icmp eq i32 %162, 0
-  br i1 %.not.i46, label %163, label %subset.argprom.exit
+  br i1 %.not.i46, label %163, label %subset.exit
 
 163:                                              ; preds = %getsubdfa.exit69
   %164 = tail call fastcc ptr @getsubdfa(ptr noundef %0, ptr noundef %70)
   %165 = load i32, ptr %161, align 8
   %.not60.i = icmp eq i32 %165, 0
-  br i1 %.not60.i, label %166, label %subset.argprom.exit
+  br i1 %.not60.i, label %166, label %subset.exit
 
 166:                                              ; preds = %163
   %167 = tail call fastcc ptr @longest(ptr noundef %0, ptr noundef %.019.i68, ptr noundef %2, ptr noundef %3, ptr noundef null)
   %168 = load i32, ptr %161, align 8
   %.not61.i47 = icmp eq i32 %168, 0
-  br i1 %.not61.i47, label %169, label %subset.argprom.exit
+  br i1 %.not61.i47, label %169, label %subset.exit
 
 169:                                              ; preds = %166
   %170 = icmp eq ptr %167, null
-  br i1 %170, label %subset.argprom.exit, label %.preheader
+  br i1 %170, label %subset.exit, label %.preheader
 
 .preheader:                                       ; preds = %169, %189
   %.047.i = phi ptr [ %187, %189 ], [ %167, %169 ]
@@ -2705,33 +2705,33 @@ getsubdfa.exit69:                                 ; preds = %135, %136, %156
 180:                                              ; preds = %179, %173
   %.0.i50 = phi i32 [ %177, %179 ], [ %174, %173 ]
   %.not62.i51 = icmp eq i32 %.0.i50, 1
-  br i1 %.not62.i51, label %181, label %subset.argprom.exit
+  br i1 %.not62.i51, label %181, label %subset.exit
 
 181:                                              ; preds = %180, %.preheader
   %182 = load i32, ptr %161, align 8
   %.not63.i48 = icmp eq i32 %182, 0
-  br i1 %.not63.i48, label %183, label %subset.argprom.exit
+  br i1 %.not63.i48, label %183, label %subset.exit
 
 183:                                              ; preds = %181
   %184 = icmp eq ptr %.047.i, %2
-  br i1 %184, label %subset.argprom.exit, label %185
+  br i1 %184, label %subset.exit, label %185
 
 185:                                              ; preds = %183
   %186 = getelementptr i8, ptr %.047.i, i64 -4
   %187 = tail call fastcc ptr @longest(ptr noundef %0, ptr noundef %.019.i68, ptr noundef %2, ptr noundef %186, ptr noundef null)
   %188 = load i32, ptr %161, align 8
   %.not64.i49 = icmp eq i32 %188, 0
-  br i1 %.not64.i49, label %189, label %subset.argprom.exit
+  br i1 %.not64.i49, label %189, label %subset.exit
 
 189:                                              ; preds = %185
   %190 = icmp eq ptr %187, null
-  br i1 %190, label %subset.argprom.exit, label %.preheader
+  br i1 %190, label %subset.exit, label %.preheader
 
 191:                                              ; preds = %14
   %192 = getelementptr inbounds i8, ptr %1, i64 24
   %.020.i124 = load ptr, ptr %192, align 8
   %.not.i52125 = icmp eq ptr %.020.i124, null
-  br i1 %.not.i52125, label %subset.argprom.exit, label %.lr.ph129
+  br i1 %.not.i52125, label %subset.exit, label %.lr.ph129
 
 .lr.ph129:                                        ; preds = %191
   %193 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2743,7 +2743,7 @@ getsubdfa.exit69:                                 ; preds = %135, %136, %156
   %197 = getelementptr inbounds i8, ptr %.020.i126, i64 32
   %.020.i = load ptr, ptr %197, align 8
   %.not.i52 = icmp eq ptr %.020.i, null
-  br i1 %.not.i52, label %subset.argprom.exit, label %198, !llvm.loop !20
+  br i1 %.not.i52, label %subset.exit, label %198, !llvm.loop !20
 
 198:                                              ; preds = %.lr.ph129, %196
   %.020.i126 = phi ptr [ %.020.i124, %.lr.ph129 ], [ %.020.i, %196 ]
@@ -2796,7 +2796,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   %.019.i70 = phi ptr [ null, %206 ], [ %210, %225 ], [ %204, %198 ]
   %230 = load i32, ptr %195, align 8
   %.not25.i = icmp eq i32 %230, 0
-  br i1 %.not25.i, label %231, label %subset.argprom.exit
+  br i1 %.not25.i, label %231, label %subset.exit
 
 231:                                              ; preds = %getsubdfa.exit71
   %232 = tail call fastcc ptr @longest(ptr noundef %0, ptr noundef %.019.i70, ptr noundef %2, ptr noundef %3, ptr noundef null)
@@ -2811,7 +2811,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
 236:                                              ; preds = %234, %231
   %237 = load i32, ptr %195, align 8
   %.not27.i = icmp eq i32 %237, 0
-  br i1 %.not27.i, label %196, label %subset.argprom.exit
+  br i1 %.not27.i, label %196, label %subset.exit
 
 238:                                              ; preds = %14
   %239 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2851,7 +2851,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   %262 = add i64 %261, 8
   %263 = tail call ptr @palloc_extended(i64 noundef %262, i32 noundef 2) #10
   %264 = icmp eq ptr %263, null
-  br i1 %264, label %subset.argprom.exit, label %265
+  br i1 %264, label %subset.exit, label %265
 
 265:                                              ; preds = %251
   store ptr %2, ptr %263, align 8
@@ -2966,7 +2966,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
 
 313:                                              ; preds = %303
   tail call void @pfree(ptr noundef nonnull %263) #10
-  br label %subset.argprom.exit
+  br label %subset.exit
 
 314:                                              ; preds = %.preheader87
   tail call void @pfree(ptr noundef nonnull %263) #10
@@ -3002,7 +3002,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
 
 .backedge90.thread:                               ; preds = %.loopexit88, %.backedge90, %322
   tail call void @pfree(ptr noundef nonnull %263) #10
-  br label %subset.argprom.exit
+  br label %subset.exit
 
 325:                                              ; preds = %238
   %326 = tail call i16 @llvm.smax.i16(i16 %245, i16 1)
@@ -3023,7 +3023,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   %337 = add i64 %336, 8
   %338 = tail call ptr @palloc_extended(i64 noundef %337, i32 noundef 2) #10
   %339 = icmp eq ptr %338, null
-  br i1 %339, label %subset.argprom.exit, label %340
+  br i1 %339, label %subset.exit, label %340
 
 340:                                              ; preds = %325
   store ptr %2, ptr %338, align 8
@@ -3139,7 +3139,7 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
 
 389:                                              ; preds = %379
   tail call void @pfree(ptr noundef nonnull %338) #10
-  br label %subset.argprom.exit
+  br label %subset.exit
 
 390:                                              ; preds = %.preheader84
   tail call void @pfree(ptr noundef nonnull %338) #10
@@ -3210,14 +3210,14 @@ crevcondissect.exit:                              ; preds = %234, %120, %176, %.
   %419 = icmp sgt i32 %418, 0
   %420 = icmp eq i32 %.0, 0
   %or.cond = select i1 %419, i1 %420, i1 false
-  br i1 %or.cond, label %421, label %subset.argprom.exit
+  br i1 %or.cond, label %421, label %subset.exit
 
 421:                                              ; preds = %crevcondissect.exit
   %422 = zext nneg i32 %418 to i64
   %423 = getelementptr inbounds i8, ptr %0, i64 24
   %424 = load i64, ptr %423, align 8
   %.not.i67 = icmp ugt i64 %424, %422
-  br i1 %.not.i67, label %425, label %subset.argprom.exit
+  br i1 %.not.i67, label %425, label %subset.exit
 
 425:                                              ; preds = %421
   %426 = getelementptr inbounds i8, ptr %0, i64 48
@@ -3238,9 +3238,9 @@ crevcondissect.exit:                              ; preds = %234, %120, %176, %.
   %440 = load ptr, ptr %432, align 8
   %441 = getelementptr %struct.regmatch_t, ptr %440, i64 %422, i32 1
   store i64 %439, ptr %441, align 8
-  br label %subset.argprom.exit
+  br label %subset.exit
 
-subset.argprom.exit:                              ; preds = %getsubdfa.exit71, %236, %196, %133, %129, %127, %125, %124, %189, %185, %183, %181, %180, %191, %14, %325, %389, %251, %.backedge90.thread, %313, %169, %166, %163, %getsubdfa.exit69, %113, %110, %107, %getsubdfa.exit, %425, %421, %crevcondissect.exit, %7
+subset.exit:                                      ; preds = %getsubdfa.exit71, %236, %196, %133, %129, %127, %125, %124, %189, %185, %183, %181, %180, %191, %14, %325, %389, %251, %.backedge90.thread, %313, %169, %166, %163, %getsubdfa.exit69, %113, %110, %107, %getsubdfa.exit, %425, %421, %crevcondissect.exit, %7
   %.040 = phi i32 [ 19, %7 ], [ %.0, %crevcondissect.exit ], [ 0, %421 ], [ 0, %425 ], [ 12, %325 ], [ %388, %389 ], [ 12, %251 ], [ 1, %.backedge90.thread ], [ %312, %313 ], [ 1, %169 ], [ %168, %166 ], [ %165, %163 ], [ %162, %getsubdfa.exit69 ], [ 1, %113 ], [ %112, %110 ], [ %109, %107 ], [ %106, %getsubdfa.exit ], [ 15, %14 ], [ 1, %191 ], [ %.0.i50, %180 ], [ %182, %181 ], [ 1, %183 ], [ %188, %185 ], [ 1, %189 ], [ %.0.i45, %124 ], [ %126, %125 ], [ 1, %127 ], [ %132, %129 ], [ 1, %133 ], [ %230, %getsubdfa.exit71 ], [ %237, %236 ], [ 1, %196 ]
   ret i32 %.040
 }

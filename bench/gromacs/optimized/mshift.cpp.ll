@@ -409,7 +409,7 @@ define void @_Z7p_graphP8_IO_FILEPKcPK7t_graph(ptr nocapture noundef %0, ptr nou
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @_ZL7g_erroriPKc.argprom(i32 noundef 176) #21
+  tail call fastcc void @_ZL7g_erroriPKc(i32 noundef 176) #21
   unreachable
 
 6:                                                ; preds = %3
@@ -546,7 +546,7 @@ define void @_Z7p_graphP8_IO_FILEPKcPK7t_graph(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZL7g_erroriPKc.argprom(i32 noundef range(i32 176, 853) %0) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL7g_erroriPKc(i32 noundef range(i32 176, 853) %0) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::filesystem::__cxx11::path", align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 1 dereferenceable(124) @.str.4, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 165, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.4, i32 noundef %0) #21
@@ -4033,7 +4033,7 @@ define void @_Z7shift_xPK7t_graphPA3_KfS4_PA3_f(ptr noundef readonly %0, ptr noc
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call fastcc void @_ZL7g_erroriPKc.argprom(i32 noundef 852) #21
+  tail call fastcc void @_ZL7g_erroriPKc(i32 noundef 852) #21
   unreachable
 
 7:                                                ; preds = %4

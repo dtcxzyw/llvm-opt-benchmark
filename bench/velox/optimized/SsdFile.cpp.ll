@@ -4534,7 +4534,7 @@ if.end.i.i26:                                     ; preds = %lpad8
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit28
 
 _ZN5folly8FunctionIFvvEED2Ev.exit28:              ; preds = %lpad8, %if.end.i.i26
-  call fastcc void @"_ZZN8facebook5velox5cache7SsdFile10checkpointEbEN3$_0D2Ev.argprom"(ptr null) #35
+  call fastcc void @"_ZZN8facebook5velox5cache7SsdFile10checkpointEbEN3$_0D2Ev"(ptr null) #35
   br label %ehcleanup209
 
 if.end10:                                         ; preds = %invoke.cont9, %if.end.i.i, %invoke.cont
@@ -4841,20 +4841,20 @@ lpad.i52:                                         ; preds = %.noexc54
 
 invoke.cont126:                                   ; preds = %.noexc54
   %cmp.i56 = icmp slt i32 %34, 0
-  br i1 %cmp.i56, label %if.then.i, label %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit"
+  br i1 %cmp.i56, label %if.then.i, label %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
 
 if.then.i:                                        ; preds = %invoke.cont126
   call void @llvm.trap()
   unreachable
 
-"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit": ; preds = %invoke.cont126
+"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit": ; preds = %invoke.cont126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp123) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp124) #35
   store i64 3421368606, ptr %endMarker, align 8
   %call134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %state, ptr noundef nonnull %endMarker, i64 noundef 8)
           to label %invoke.cont133 unwind label %lpad130
 
-invoke.cont133:                                   ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit"
+invoke.cont133:                                   ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
   %vtable135 = load ptr, ptr %state, align 8
   %vbase.offset.ptr136 = getelementptr i8, ptr %vtable135, i64 -24
   %vbase.offset137 = load i64, ptr %vbase.offset.ptr136, align 8
@@ -4904,7 +4904,7 @@ lpad125.body:                                     ; preds = %lpad.i52, %lpad125
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp124) #35
   br label %ehcleanup204
 
-lpad130:                                          ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit99", %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit88", %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit77", %invoke.cont152, %if.end151, %invoke.cont133, %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit"
+lpad130:                                          ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit99", %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit88", %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit77", %invoke.cont152, %if.end151, %invoke.cont133, %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
   %39 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -4952,13 +4952,13 @@ lpad.i70:                                         ; preds = %.noexc72
 
 invoke.cont159:                                   ; preds = %.noexc72
   %cmp.i75 = icmp slt i32 %call155, 0
-  br i1 %cmp.i75, label %if.then.i76, label %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit77"
+  br i1 %cmp.i75, label %if.then.i76, label %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit77"
 
 if.then.i76:                                      ; preds = %invoke.cont159
   call void @llvm.trap()
   unreachable
 
-"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit77": ; preds = %invoke.cont159
+"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit77": ; preds = %invoke.cont159
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp156) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp157) #35
   %call170 = invoke i32 @fsync(i32 noundef %call155)
@@ -4975,7 +4975,7 @@ lpad158.body:                                     ; preds = %lpad.i70, %lpad158
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp157) #35
   br label %ehcleanup204
 
-invoke.cont169:                                   ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit77"
+invoke.cont169:                                   ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit77"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp172) #35
   %call.i7882 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp171)
           to label %call.i78.noexc unwind label %lpad173
@@ -4997,19 +4997,19 @@ lpad.i81:                                         ; preds = %.noexc83
 
 invoke.cont174:                                   ; preds = %.noexc83
   %cmp.i86 = icmp slt i32 %call170, 0
-  br i1 %cmp.i86, label %if.then.i87, label %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit88"
+  br i1 %cmp.i86, label %if.then.i87, label %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit88"
 
 if.then.i87:                                      ; preds = %invoke.cont174
   call void @llvm.trap()
   unreachable
 
-"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit88": ; preds = %invoke.cont174
+"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit88": ; preds = %invoke.cont174
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp171) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp172) #35
   %call181 = invoke i32 @close(i32 noundef %call155)
           to label %invoke.cont180 unwind label %lpad130
 
-invoke.cont180:                                   ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit88"
+invoke.cont180:                                   ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit88"
   %evictLogFd_ = getelementptr inbounds i8, ptr %this, i64 376
   %44 = load i32, ptr %evictLogFd_, align 8
   %call182 = call i32 @ftruncate(i32 noundef %44, i64 noundef 0) #35
@@ -5034,20 +5034,20 @@ lpad.i92:                                         ; preds = %.noexc94
 
 invoke.cont186:                                   ; preds = %.noexc94
   %cmp.i97 = icmp slt i32 %call182, 0
-  br i1 %cmp.i97, label %if.then.i98, label %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit99"
+  br i1 %cmp.i97, label %if.then.i98, label %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit99"
 
 if.then.i98:                                      ; preds = %invoke.cont186
   call void @llvm.trap()
   unreachable
 
-"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit99": ; preds = %invoke.cont186
+"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit99": ; preds = %invoke.cont186
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp183) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp184) #35
   %46 = load i32, ptr %evictLogFd_, align 8
   %call194 = invoke i32 @fsync(i32 noundef %46)
           to label %invoke.cont193 unwind label %lpad130
 
-invoke.cont193:                                   ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit99"
+invoke.cont193:                                   ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit99"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp196) #35
   %call.i100104 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp195)
           to label %call.i100.noexc unwind label %lpad197
@@ -5069,24 +5069,24 @@ lpad.i103:                                        ; preds = %.noexc105
 
 invoke.cont198:                                   ; preds = %.noexc105
   %cmp.i108 = icmp slt i32 %call194, 0
-  br i1 %cmp.i108, label %if.then.i109, label %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit110"
+  br i1 %cmp.i108, label %if.then.i109, label %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110"
 
 if.then.i109:                                     ; preds = %invoke.cont198
   call void @llvm.trap()
   unreachable
 
-"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit110": ; preds = %invoke.cont198
+"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110": ; preds = %invoke.cont198
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp195) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp196) #35
   %48 = load ptr, ptr %fileSyncRc, align 8
   %cmp.not.i = icmp eq ptr %48, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit, label %_ZNKSt14default_deleteIiEclEPi.exit.i
 
-_ZNKSt14default_deleteIiEclEPi.exit.i:            ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit110"
+_ZNKSt14default_deleteIiEclEPi.exit.i:            ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110"
   call void @_ZdlPv(ptr noundef nonnull %48) #38
   br label %_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit
 
-_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit: ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit110", %_ZNKSt14default_deleteIiEclEPi.exit.i
+_ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit: ; preds = %"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_2clEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit110", %_ZNKSt14default_deleteIiEclEPi.exit.i
   store ptr null, ptr %fileSyncRc, align 8
   %49 = load ptr, ptr %_M_before_begin.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %49, null
@@ -5878,7 +5878,7 @@ ehcleanup:                                        ; preds = %lpad29, %lpad27
 declare i32 @fsync(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN8facebook5velox5cache7SsdFile10checkpointEbEN3$_0D2Ev.argprom"(ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8facebook5velox5cache7SsdFile10checkpointEbEN3$_0D2Ev"(ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.8.val, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox11AsyncSourceIiEEED2Ev.exit, label %if.then.i.i.i
@@ -14674,8 +14674,8 @@ attributes #42 = { cold nounwind }
 !41 = distinct !{!41, !11}
 !42 = distinct !{!42, !11}
 !43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt11make_sharedIN8facebook5velox11AsyncSourceIiEEJZNS1_5cache7SsdFile10checkpointEbE3$_1EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom: %agg.result"}
-!45 = distinct !{!45, !"_ZSt11make_sharedIN8facebook5velox11AsyncSourceIiEEJZNS1_5cache7SsdFile10checkpointEbE3$_1EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_.argprom"}
+!44 = distinct !{!44, !45, !"_ZSt11make_sharedIN8facebook5velox11AsyncSourceIiEEJZNS1_5cache7SsdFile10checkpointEbE3$_1EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: %agg.result"}
+!45 = distinct !{!45, !"_ZSt11make_sharedIN8facebook5velox11AsyncSourceIiEEJZNS1_5cache7SsdFile10checkpointEbE3$_1EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
 !46 = !{!47}
 !47 = distinct !{!47, !48, !"_ZN8facebook5velox5cache14SsdFileTracker10copyScoresEv: %agg.result"}
 !48 = distinct !{!48, !"_ZN8facebook5velox5cache14SsdFileTracker10copyScoresEv"}
@@ -14741,14 +14741,14 @@ attributes #42 = { cold nounwind }
 !108 = distinct !{!108, !11}
 !109 = distinct !{!109, !11}
 !110 = !{!111}
-!111 = distinct !{!111, !112, !"_ZSt10__invoke_rISt10unique_ptrIiSt14default_deleteIiEERZN8facebook5velox5cache7SsdFile10checkpointEbE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom: %agg.result"}
-!112 = distinct !{!112, !"_ZSt10__invoke_rISt10unique_ptrIiSt14default_deleteIiEERZN8facebook5velox5cache7SsdFile10checkpointEbE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom"}
+!111 = distinct !{!111, !112, !"_ZSt10__invoke_rISt10unique_ptrIiSt14default_deleteIiEERZN8facebook5velox5cache7SsdFile10checkpointEbE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_: %agg.result"}
+!112 = distinct !{!112, !"_ZSt10__invoke_rISt10unique_ptrIiSt14default_deleteIiEERZN8facebook5velox5cache7SsdFile10checkpointEbE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_"}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZSt13__invoke_implISt10unique_ptrIiSt14default_deleteIiEERZN8facebook5velox5cache7SsdFile10checkpointEbE3$_1JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!115 = distinct !{!115, !"_ZSt13__invoke_implISt10unique_ptrIiSt14default_deleteIiEERZN8facebook5velox5cache7SsdFile10checkpointEbE3$_1JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!114 = distinct !{!114, !115, !"_ZSt13__invoke_implISt10unique_ptrIiSt14default_deleteIiEERZN8facebook5velox5cache7SsdFile10checkpointEbE3$_1JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!115 = distinct !{!115, !"_ZSt13__invoke_implISt10unique_ptrIiSt14default_deleteIiEERZN8facebook5velox5cache7SsdFile10checkpointEbE3$_1JEET_St14__invoke_otherOT0_DpOT1_"}
 !116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_1clEv.argprom: %agg.result"}
-!118 = distinct !{!118, !"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_1clEv.argprom"}
+!117 = distinct !{!117, !118, !"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_1clEv: %agg.result"}
+!118 = distinct !{!118, !"_ZZN8facebook5velox5cache7SsdFile10checkpointEbENK3$_1clEv"}
 !119 = !{!117, !114, !111}
 !120 = !{!121}
 !121 = distinct !{!121, !122, !"_ZSt11make_uniqueIiJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}

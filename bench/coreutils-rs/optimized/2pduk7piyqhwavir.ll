@@ -595,7 +595,7 @@ thread-pre-split:                                 ; preds = %.thread, %138, %35
 188:                                              ; preds = %thread-pre-split
   %189 = load i64, ptr %26, align 8, !alias.scope !69, !noundef !4
   %190 = icmp eq i64 %189, 0
-  br i1 %190, label %191, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.argprom.exit"
+  br i1 %190, label %191, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.exit"
 
 191:                                              ; preds = %188
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hf9aedeae589b9af0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26, i64 noundef 0)
@@ -603,9 +603,9 @@ thread-pre-split:                                 ; preds = %.thread, %138, %35
 
 .noexc74:                                         ; preds = %191
   %.pre.i = load i64, ptr %36, align 8, !alias.scope !69
-  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.argprom.exit"
+  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.argprom.exit": ; preds = %188, %.noexc74
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.exit": ; preds = %188, %.noexc74
   %192 = phi i64 [ %.pre.i, %.noexc74 ], [ 0, %188 ]
   %193 = getelementptr inbounds i8, ptr %26, i64 8
   %194 = load ptr, ptr %193, align 8, !alias.scope !69, !nonnull !4, !noundef !4
@@ -618,8 +618,8 @@ thread-pre-split:                                 ; preds = %.thread, %138, %35
   store i64 %198, ptr %36, align 8, !alias.scope !69
   br label %199
 
-199:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.argprom.exit", %thread-pre-split
-  %200 = phi i64 [ %198, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.argprom.exit" ], [ %186, %thread-pre-split ]
+199:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.exit", %thread-pre-split
+  %200 = phi i64 [ %198, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.exit" ], [ %186, %thread-pre-split ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.017)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
   %201 = getelementptr inbounds i8, ptr %26, i64 8
@@ -1061,8 +1061,8 @@ attributes #13 = { cold noreturn nounwind }
 !67 = distinct !{!67, !"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h0dc7d4f8894e9224E"}
 !68 = !{i64 0, i64 -9223372036854775807}
 !69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.argprom: argument 0"}
-!71 = distinct !{!71, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E.argprom"}
+!70 = distinct !{!70, !71, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E: argument 0"}
+!71 = distinct !{!71, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36fa8d0f0d8910d8E"}
 !72 = !{!73, !75, !77}
 !73 = distinct !{!73, !74, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3e8618b1faca502eE.llvm.8092952956822545444: argument 0"}
 !74 = distinct !{!74, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3e8618b1faca502eE.llvm.8092952956822545444"}

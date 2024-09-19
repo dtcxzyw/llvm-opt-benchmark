@@ -869,9 +869,9 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_silentMode(ptr nocapt
 7:                                                ; preds = %4
   %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.39) #11
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %13, label %parseBoolean.argprom.exit
+  br i1 %9, label %13, label %parseBoolean.exit
 
-parseBoolean.argprom.exit:                        ; preds = %7
+parseBoolean.exit:                                ; preds = %7
   store i32 -13, ptr %2, align 4
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.37) #10
   store ptr %10, ptr %3, align 8
@@ -887,8 +887,8 @@ parseBoolean.argprom.exit:                        ; preds = %7
   store i32 0, ptr %14, align 8
   br label %15
 
-15:                                               ; preds = %parseBoolean.argprom.exit, %11, %13
-  %.0.i9 = phi i1 [ true, %11 ], [ true, %13 ], [ false, %parseBoolean.argprom.exit ]
+15:                                               ; preds = %parseBoolean.exit, %11, %13
+  %.0.i9 = phi i1 [ true, %11 ], [ true, %13 ], [ false, %parseBoolean.exit ]
   ret i1 %.0.i9
 }
 
@@ -901,9 +901,9 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_cyclicMode(ptr nocapt
 7:                                                ; preds = %4
   %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.39) #11
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %13, label %parseBoolean.argprom.exit
+  br i1 %9, label %13, label %parseBoolean.exit
 
-parseBoolean.argprom.exit:                        ; preds = %7
+parseBoolean.exit:                                ; preds = %7
   store i32 -13, ptr %2, align 4
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.37) #10
   store ptr %10, ptr %3, align 8
@@ -919,8 +919,8 @@ parseBoolean.argprom.exit:                        ; preds = %7
   store i32 0, ptr %14, align 4
   br label %15
 
-15:                                               ; preds = %parseBoolean.argprom.exit, %11, %13
-  %.0.i9 = phi i1 [ true, %11 ], [ true, %13 ], [ false, %parseBoolean.argprom.exit ]
+15:                                               ; preds = %parseBoolean.exit, %11, %13
+  %.0.i9 = phi i1 [ true, %11 ], [ true, %13 ], [ false, %parseBoolean.exit ]
   ret i1 %.0.i9
 }
 

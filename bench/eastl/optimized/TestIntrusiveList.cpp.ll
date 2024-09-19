@@ -192,9 +192,9 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
   store i32 0, ptr %gep, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 24
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 480
-  br i1 %arrayctor.done, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit, label %arrayctor.loop
+  br i1 %arrayctor.done, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit, label %arrayctor.loop
 
-_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit: ; preds = %arrayctor.loop
+_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit: ; preds = %arrayctor.loop
   %mpPrev.i.i = getelementptr inbounds i8, ptr %ilist, i64 8
   store ptr %ilist, ptr %mpPrev.i.i, align 8
   store ptr %ilist, ptr %ilist, align 8
@@ -457,7 +457,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   %cmp.i.not.i258 = icmp eq ptr %23, %25
   br i1 %cmp.i.not.i258, label %invoke.cont265, label %if.then.i259
 
-if.then.i259:                                     ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit
+if.then.i259:                                     ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit
   %mpPrev.i260 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %mpPrev.i260, align 8
   %mpPrev7.i = getelementptr inbounds i8, ptr %23, i64 8
@@ -476,8 +476,8 @@ if.then.i259:                                     ; preds = %_ZN5eastl14intrusiv
   %ilist.val34.pre = load ptr, ptr %ilist, align 8
   br label %invoke.cont265
 
-invoke.cont265:                                   ; preds = %if.then.i259, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit
-  %ilist.val34 = phi ptr [ %ilist.val34.pre, %if.then.i259 ], [ %ilist.val32, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit ]
+invoke.cont265:                                   ; preds = %if.then.i259, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit
+  %ilist.val34 = phi ptr [ %ilist.val34.pre, %if.then.i259 ], [ %ilist.val32, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit ]
   store ptr %ilist.val34, ptr %agg.tmp266, align 8, !alias.scope !41
   store ptr %ilist, ptr %agg.tmp267, align 8, !alias.scope !44
   %call269 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp266, ptr noundef %agg.tmp267, i32 poison, ptr noundef nonnull @.str.28, i32 noundef 10, i32 noundef 11, i32 noundef 12, i32 noundef 13, i32 noundef 14, i32 noundef 15, i32 noundef 16, i32 noundef 17, i32 noundef 18, i32 noundef 19, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 6, i32 noundef 0, i32 noundef 9, i32 noundef 7, i32 noundef 8, i32 noundef -1)
@@ -542,7 +542,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit: ; preds = %i
   store ptr %nodes, ptr %37, align 8
   %38 = load ptr, ptr %ilist2, align 8
   %cmp.not.i267 = icmp eq ptr %38, %ilist2
-  br i1 %cmp.not.i267, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit273, label %if.then.i268
+  br i1 %cmp.not.i267, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit273, label %if.then.i268
 
 if.then.i268:                                     ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit
   %ilist.val37 = load ptr, ptr %ilist, align 8
@@ -556,9 +556,9 @@ if.then.i268:                                     ; preds = %_ZN5eastl14intrusiv
   store ptr %40, ptr %mpPrev.i269, align 8
   store ptr %ilist2, ptr %ilist2, align 8
   store ptr %ilist2, ptr %mpPrev.i.i201, align 8
-  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit273
+  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit273
 
-_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit273: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit, %if.then.i268
+_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit273: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4swapERS3_.exit, %if.then.i268
   %ilist.val38 = load ptr, ptr %ilist, align 8
   store ptr %ilist.val38, ptr %agg.tmp291, align 8, !alias.scope !59
   store ptr %ilist, ptr %agg.tmp292, align 8, !alias.scope !62
@@ -595,9 +595,9 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
   %cmp.not.i307 = icmp eq ptr %43, %42
-  br i1 %cmp.not.i307, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.argprom.exit313, label %if.then.i308
+  br i1 %cmp.not.i307, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313, label %if.then.i308
 
-if.then.i308:                                     ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit273
+if.then.i308:                                     ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit273
   %mpPrev.i309 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load ptr, ptr %mpPrev.i309, align 8
   %mpPrev2.i310 = getelementptr inbounds i8, ptr %43, i64 8
@@ -609,10 +609,10 @@ if.then.i308:                                     ; preds = %_ZN5eastl14intrusiv
   store ptr %45, ptr %mpPrev.i309, align 8
   store ptr %43, ptr %42, align 8
   %ilist.val45.pre = load ptr, ptr %ilist, align 8
-  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.argprom.exit313
+  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313
 
-_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.argprom.exit313: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit273, %if.then.i308
-  %ilist.val45 = phi ptr [ %ilist.val43, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit273 ], [ %ilist.val45.pre, %if.then.i308 ]
+_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit273, %if.then.i308
+  %ilist.val45 = phi ptr [ %ilist.val43, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit273 ], [ %ilist.val45.pre, %if.then.i308 ]
   store ptr %ilist.val45, ptr %agg.tmp356, align 8, !alias.scope !77
   store ptr %ilist, ptr %agg.tmp357, align 8, !alias.scope !80
   %call359 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp356, ptr noundef %agg.tmp357, i32 poison, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef -1)
@@ -647,9 +647,9 @@ for.cond411.preheader:                            ; preds = %for.body406
   store ptr %nodes, ptr %ilist, align 8
   br label %for.body413
 
-for.body406:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.argprom.exit313, %for.body406
-  %indvars.iv = phi i64 [ 4, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.argprom.exit313 ], [ %indvars.iv.next, %for.body406 ]
-  %arrayidx40711421143 = phi ptr [ %ilist, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.argprom.exit313 ], [ %arrayidx407, %for.body406 ]
+for.body406:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313, %for.body406
+  %indvars.iv = phi i64 [ 4, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313 ], [ %indvars.iv.next, %for.body406 ]
+  %arrayidx40711421143 = phi ptr [ %ilist, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313 ], [ %arrayidx407, %for.body406 ]
   %arrayidx407 = getelementptr inbounds [20 x %"struct.(anonymous namespace)::IntNode"], ptr %nodes, i64 0, i64 %indvars.iv
   store ptr %arrayidx40711421143, ptr %arrayidx407, align 8
   %mpPrev.i351 = getelementptr inbounds i8, ptr %arrayidx407, i64 8
@@ -1295,7 +1295,7 @@ invoke.cont825:                                   ; preds = %arrayctor.loop779
   store ptr %incdec.ptr.i712, ptr %incdec.ptr.i707, align 16
   %this.val.i722 = load ptr, ptr %listA784, align 8
   %cmp.i24.i.not = icmp eq ptr %this.val.i722, %listA784
-  br i1 %cmp.i24.i.not, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.argprom.exit23.i, label %while.body.i
+  br i1 %cmp.i24.i.not, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i, label %while.body.i
 
 while.body.i:                                     ; preds = %invoke.cont825, %if.end.i724
   %first.sroa.0.028.i = phi ptr [ %first.sroa.0.1.i, %if.end.i724 ], [ %this.val.i722, %invoke.cont825 ]
@@ -1344,9 +1344,9 @@ if.end.i724:                                      ; preds = %if.else.i723, %if.t
 
 while.end.i:                                      ; preds = %if.end.i724
   %cmp.i16.not.i = icmp eq ptr %firstX.sroa.0.1.i, %listB805
-  br i1 %cmp.i16.not.i, label %invoke.cont827, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.argprom.exit23.i
+  br i1 %cmp.i16.not.i, label %invoke.cont827, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i
 
-_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.argprom.exit23.i: ; preds = %invoke.cont825, %while.end.i
+_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i: ; preds = %invoke.cont825, %while.end.i
   %firstX.sroa.0.0.lcssa.i1172 = phi ptr [ %firstX.sroa.0.1.i, %while.end.i ], [ %nodesB, %invoke.cont825 ]
   %86 = load ptr, ptr %mpPrev.i.i677, align 8
   %mpPrev7.i20.i = getelementptr inbounds i8, ptr %firstX.sroa.0.0.lcssa.i1172, i64 8
@@ -1363,7 +1363,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %86, ptr %mpPrev.i.i634, align 8
   br label %invoke.cont827
 
-invoke.cont827:                                   ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.argprom.exit23.i, %while.end.i
+invoke.cont827:                                   ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i, %while.end.i
   %listA784.val = load ptr, ptr %listA784, align 8
   store ptr %listA784.val, ptr %agg.tmp828, align 8, !alias.scope !219
   store ptr %listA784, ptr %agg.tmp829, align 8, !alias.scope !222
@@ -1853,7 +1853,7 @@ if.then.i:                                        ; preds = %invoke.cont8
 invoke.cont17:                                    ; preds = %_ZNK5eastl19intrusive_list_base4sizeEv.exit, %if.then.i, %invoke.cont8
   %10 = phi ptr [ %0, %_ZNK5eastl19intrusive_list_base4sizeEv.exit ], [ %.pre, %if.then.i ], [ %0, %invoke.cont8 ]
   %cmp.not.i6 = icmp eq ptr %10, %this
-  br i1 %cmp.not.i6, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit, label %if.then.i7
+  br i1 %cmp.not.i6, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %invoke.cont17
   %rightList.val = load ptr, ptr %rightList, align 8
@@ -1867,16 +1867,16 @@ if.then.i7:                                       ; preds = %invoke.cont17
   store ptr %12, ptr %mpPrev.i8, align 8
   store ptr %this, ptr %this, align 8
   store ptr %this, ptr %mpPrev, align 8
-  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit
+  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit
 
-_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit: ; preds = %invoke.cont17, %if.then.i7
+_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit: ; preds = %invoke.cont17, %if.then.i7
   call fastcc void @_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4sortEv(ptr noundef nonnull align 8 dereferenceable(16) %leftList)
   call fastcc void @_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4sortEv(ptr noundef nonnull align 8 dereferenceable(16) %rightList)
   %13 = load ptr, ptr %leftList, align 8
   %cmp.not.i10 = icmp eq ptr %13, %leftList
-  br i1 %cmp.not.i10, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit15, label %if.then.i11
+  br i1 %cmp.not.i10, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15, label %if.then.i11
 
-if.then.i11:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit
+if.then.i11:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit
   %this.val = load ptr, ptr %this, align 8
   %mpPrev.i12 = getelementptr inbounds i8, ptr %this.val, i64 8
   %14 = load ptr, ptr %mpPrev.i12, align 8
@@ -1888,13 +1888,13 @@ if.then.i11:                                      ; preds = %_ZN5eastl14intrusiv
   store ptr %15, ptr %mpPrev.i12, align 8
   store ptr %leftList, ptr %leftList, align 8
   store ptr %leftList, ptr %mpPrev.i.i, align 8
-  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit15
+  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15
 
-_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit15: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit, %if.then.i11
+_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit, %if.then.i11
   %cmp.not.i16 = icmp eq ptr %this, %rightList
   br i1 %cmp.not.i16, label %if.end, label %if.then.i17
 
-if.then.i17:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit15
+if.then.i17:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15
   %this.val.i = load ptr, ptr %this, align 8
   %x.val.i = load ptr, ptr %rightList, align 8
   %cmp.i24.i = icmp ne ptr %this.val.i, %this
@@ -1950,9 +1950,9 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 while.end.i:                                      ; preds = %if.end.i, %if.then.i17
   %firstX.sroa.0.0.lcssa.i = phi ptr [ %x.val.i, %if.then.i17 ], [ %firstX.sroa.0.1.i, %if.end.i ]
   %cmp.i16.not.i = icmp eq ptr %firstX.sroa.0.0.lcssa.i, %rightList
-  br i1 %cmp.i16.not.i, label %if.end, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.argprom.exit23.i
+  br i1 %cmp.i16.not.i, label %if.end, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i
 
-_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.argprom.exit23.i: ; preds = %while.end.i
+_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i: ; preds = %while.end.i
   %25 = load ptr, ptr %mpPrev.i.i5, align 8
   %mpPrev7.i20.i = getelementptr inbounds i8, ptr %firstX.sroa.0.0.lcssa.i, i64 8
   %26 = load ptr, ptr %mpPrev7.i20.i, align 8
@@ -1968,7 +1968,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %25, ptr %mpPrev, align 8
   br label %if.end
 
-if.end:                                           ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit15, %while.end.i, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.argprom.exit23.i, %entry
+if.end:                                           ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15, %while.end.i, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i, %entry
   ret void
 }
 
@@ -2043,7 +2043,7 @@ if.then.i:                                        ; preds = %invoke.cont8
 invoke.cont17:                                    ; preds = %_ZNK5eastl19intrusive_list_base4sizeEv.exit, %if.then.i, %invoke.cont8
   %10 = phi ptr [ %0, %_ZNK5eastl19intrusive_list_base4sizeEv.exit ], [ %.pre, %if.then.i ], [ %0, %invoke.cont8 ]
   %cmp.not.i6 = icmp eq ptr %10, %this
-  br i1 %cmp.not.i6, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit, label %if.then.i7
+  br i1 %cmp.not.i6, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %invoke.cont17
   %rightList.val = load ptr, ptr %rightList, align 8
@@ -2057,16 +2057,16 @@ if.then.i7:                                       ; preds = %invoke.cont17
   store ptr %12, ptr %mpPrev.i8, align 8
   store ptr %this, ptr %this, align 8
   store ptr %this, ptr %mpPrev, align 8
-  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit
+  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit
 
-_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit: ; preds = %invoke.cont17, %if.then.i7
+_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit: ; preds = %invoke.cont17, %if.then.i7
   call fastcc void @_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4sortINS_4lessIiEEEEvT_(ptr noundef nonnull align 8 dereferenceable(16) %leftList)
   call fastcc void @_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE4sortINS_4lessIiEEEEvT_(ptr noundef nonnull align 8 dereferenceable(16) %rightList)
   %13 = load ptr, ptr %leftList, align 8
   %cmp.not.i10 = icmp eq ptr %13, %leftList
-  br i1 %cmp.not.i10, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit15, label %if.then.i11
+  br i1 %cmp.not.i10, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15, label %if.then.i11
 
-if.then.i11:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit
+if.then.i11:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit
   %this.val = load ptr, ptr %this, align 8
   %mpPrev.i12 = getelementptr inbounds i8, ptr %this.val, i64 8
   %14 = load ptr, ptr %mpPrev.i12, align 8
@@ -2078,13 +2078,13 @@ if.then.i11:                                      ; preds = %_ZN5eastl14intrusiv
   store ptr %15, ptr %mpPrev.i12, align 8
   store ptr %leftList, ptr %leftList, align 8
   store ptr %leftList, ptr %mpPrev.i.i, align 8
-  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit15
+  br label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15
 
-_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit15: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit, %if.then.i11
+_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15: ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit, %if.then.i11
   %cmp.not.i16 = icmp eq ptr %this, %rightList
   br i1 %cmp.not.i16, label %if.end, label %if.then.i17
 
-if.then.i17:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit15
+if.then.i17:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15
   %this.val.i = load ptr, ptr %this, align 8
   %x.val.i = load ptr, ptr %rightList, align 8
   %cmp.i25.i = icmp ne ptr %this.val.i, %this
@@ -2140,9 +2140,9 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 while.end.i:                                      ; preds = %if.end.i, %if.then.i17
   %firstX.sroa.0.0.lcssa.i = phi ptr [ %x.val.i, %if.then.i17 ], [ %firstX.sroa.0.1.i, %if.end.i ]
   %cmp.i17.not.i = icmp eq ptr %firstX.sroa.0.0.lcssa.i, %rightList
-  br i1 %cmp.i17.not.i, label %if.end, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.argprom.exit24.i
+  br i1 %cmp.i17.not.i, label %if.end, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit24.i
 
-_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.argprom.exit24.i: ; preds = %while.end.i
+_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit24.i: ; preds = %while.end.i
   %25 = load ptr, ptr %mpPrev.i.i5, align 8
   %mpPrev7.i21.i = getelementptr inbounds i8, ptr %firstX.sroa.0.0.lcssa.i, i64 8
   %26 = load ptr, ptr %mpPrev7.i21.i, align 8
@@ -2158,7 +2158,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store ptr %25, ptr %mpPrev, align 8
   br label %if.end
 
-if.end:                                           ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.argprom.exit15, %while.end.i, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.argprom.exit24.i, %entry
+if.end:                                           ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_.exit15, %while.end.i, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit24.i, %entry
   ret void
 }
 
@@ -2193,86 +2193,86 @@ attributes #7 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!7 = distinct !{!7, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!6 = distinct !{!6, !7, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!7 = distinct !{!7, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !10 = distinct !{!10, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!13 = distinct !{!13, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!12 = distinct !{!12, !13, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!13 = distinct !{!13, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !14 = !{!15}
 !15 = distinct !{!15, !16, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !16 = distinct !{!16, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!19 = distinct !{!19, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!18 = distinct !{!18, !19, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!19 = distinct !{!19, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !20 = !{!21}
 !21 = distinct !{!21, !22, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !22 = distinct !{!22, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!25 = distinct !{!25, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!24 = distinct !{!24, !25, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!25 = distinct !{!25, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !28 = distinct !{!28, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!31 = distinct !{!31, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!30 = distinct !{!30, !31, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!31 = distinct !{!31, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !32 = !{!33}
 !33 = distinct !{!33, !34, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !34 = distinct !{!34, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!37 = distinct !{!37, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!36 = distinct !{!36, !37, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!37 = distinct !{!37, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !40 = distinct !{!40, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!43 = distinct !{!43, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!42 = distinct !{!42, !43, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!43 = distinct !{!43, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !46 = distinct !{!46, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!49 = distinct !{!49, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!48 = distinct !{!48, !49, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!49 = distinct !{!49, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !50 = !{!51}
 !51 = distinct !{!51, !52, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !52 = distinct !{!52, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!55 = distinct !{!55, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!54 = distinct !{!54, !55, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!55 = distinct !{!55, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !56 = !{!57}
 !57 = distinct !{!57, !58, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !58 = distinct !{!58, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!61 = distinct !{!61, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!60 = distinct !{!60, !61, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!61 = distinct !{!61, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !62 = !{!63}
 !63 = distinct !{!63, !64, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !64 = distinct !{!64, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!67 = distinct !{!67, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!66 = distinct !{!66, !67, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!67 = distinct !{!67, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !68 = !{!69}
 !69 = distinct !{!69, !70, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !70 = distinct !{!70, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!73 = distinct !{!73, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!72 = distinct !{!72, !73, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!73 = distinct !{!73, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !74 = !{!75}
 !75 = distinct !{!75, !76, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !76 = distinct !{!76, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!79 = distinct !{!79, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!78 = distinct !{!78, !79, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!79 = distinct !{!79, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !80 = !{!81}
 !81 = distinct !{!81, !82, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !82 = distinct !{!82, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!85 = distinct !{!85, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!84 = distinct !{!84, !85, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!85 = distinct !{!85, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !86 = !{!87}
 !87 = distinct !{!87, !88, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !88 = distinct !{!88, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
@@ -2280,27 +2280,27 @@ attributes #7 = { nounwind }
 !90 = !{!"llvm.loop.mustprogress"}
 !91 = distinct !{!91, !90}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!94 = distinct !{!94, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!93 = distinct !{!93, !94, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!94 = distinct !{!94, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !95 = !{!96}
 !96 = distinct !{!96, !97, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !97 = distinct !{!97, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!100 = distinct !{!100, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!99 = distinct !{!99, !100, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!100 = distinct !{!100, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !101 = !{!102}
 !102 = distinct !{!102, !103, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !103 = distinct !{!103, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !104 = distinct !{!104, !90}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!107 = distinct !{!107, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!106 = distinct !{!106, !107, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!107 = distinct !{!107, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !108 = !{!109}
 !109 = distinct !{!109, !110, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !110 = distinct !{!110, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!113 = distinct !{!113, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!112 = distinct !{!112, !113, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!113 = distinct !{!113, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !114 = !{!115}
 !115 = distinct !{!115, !116, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !116 = distinct !{!116, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
@@ -2314,8 +2314,8 @@ attributes #7 = { nounwind }
 !124 = distinct !{!124, !125, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_: %agg.result"}
 !125 = distinct !{!125, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_"}
 !126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!128 = distinct !{!128, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!127 = distinct !{!127, !128, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!128 = distinct !{!128, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !129 = !{!130}
 !130 = distinct !{!130, !131, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !131 = distinct !{!131, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
@@ -2324,117 +2324,117 @@ attributes #7 = { nounwind }
 !134 = distinct !{!134, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6locateERS2_"}
 !135 = distinct !{!135, !90}
 !136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!138 = distinct !{!138, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!137 = distinct !{!137, !138, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!138 = distinct !{!138, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !139 = !{!140}
 !140 = distinct !{!140, !141, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !141 = distinct !{!141, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!144 = distinct !{!144, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!143 = distinct !{!143, !144, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!144 = distinct !{!144, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !145 = !{!146}
 !146 = distinct !{!146, !147, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !147 = distinct !{!147, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE.argprom: %agg.result"}
-!150 = distinct !{!150, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE.argprom"}
+!149 = distinct !{!149, !150, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE: %agg.result"}
+!150 = distinct !{!150, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE"}
 !151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!153 = distinct !{!153, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!152 = distinct !{!152, !153, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!153 = distinct !{!153, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !154 = !{!155}
 !155 = distinct !{!155, !156, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !156 = distinct !{!156, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_.argprom: %agg.result"}
-!159 = distinct !{!159, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_.argprom"}
+!158 = distinct !{!158, !159, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_: %agg.result"}
+!159 = distinct !{!159, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_"}
 !160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!162 = distinct !{!162, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!161 = distinct !{!161, !162, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!162 = distinct !{!162, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !163 = !{!164}
 !164 = distinct !{!164, !165, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !165 = distinct !{!165, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_.argprom: %agg.result"}
-!168 = distinct !{!168, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_.argprom"}
+!167 = distinct !{!167, !168, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_: %agg.result"}
+!168 = distinct !{!168, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EES8_"}
 !169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!171 = distinct !{!171, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!170 = distinct !{!170, !171, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!171 = distinct !{!171, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !172 = !{!173}
 !173 = distinct !{!173, !174, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !174 = distinct !{!174, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !175 = distinct !{!175, !90}
 !176 = !{!177}
-!177 = distinct !{!177, !178, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!178 = distinct !{!178, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!177 = distinct !{!177, !178, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!178 = distinct !{!178, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !179 = !{!180}
 !180 = distinct !{!180, !181, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !181 = distinct !{!181, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !182 = !{!183}
-!183 = distinct !{!183, !184, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!184 = distinct !{!184, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!183 = distinct !{!183, !184, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!184 = distinct !{!184, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !185 = !{!186}
 !186 = distinct !{!186, !187, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !187 = distinct !{!187, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !188 = !{!189}
-!189 = distinct !{!189, !190, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!190 = distinct !{!190, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!189 = distinct !{!189, !190, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!190 = distinct !{!190, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !191 = !{!192}
 !192 = distinct !{!192, !193, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !193 = distinct !{!193, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !194 = !{!195}
-!195 = distinct !{!195, !196, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!196 = distinct !{!196, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!195 = distinct !{!195, !196, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!196 = distinct !{!196, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !197 = !{!198}
 !198 = distinct !{!198, !199, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !199 = distinct !{!199, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!202 = distinct !{!202, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!201 = distinct !{!201, !202, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!202 = distinct !{!202, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !203 = !{!204}
 !204 = distinct !{!204, !205, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !205 = distinct !{!205, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !206 = !{!207}
-!207 = distinct !{!207, !208, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!208 = distinct !{!208, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!207 = distinct !{!207, !208, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!208 = distinct !{!208, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !209 = !{!210}
 !210 = distinct !{!210, !211, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !211 = distinct !{!211, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!214 = distinct !{!214, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!213 = distinct !{!213, !214, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!214 = distinct !{!214, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !215 = !{!216}
 !216 = distinct !{!216, !217, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !217 = distinct !{!217, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !218 = distinct !{!218, !90}
 !219 = !{!220}
-!220 = distinct !{!220, !221, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!221 = distinct !{!221, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!220 = distinct !{!220, !221, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!221 = distinct !{!221, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !222 = !{!223}
 !223 = distinct !{!223, !224, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !224 = distinct !{!224, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !225 = !{!226}
-!226 = distinct !{!226, !227, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!227 = distinct !{!227, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!226 = distinct !{!226, !227, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!227 = distinct !{!227, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !228 = !{!229}
 !229 = distinct !{!229, !230, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !230 = distinct !{!230, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !231 = !{!232}
-!232 = distinct !{!232, !233, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE.argprom: %agg.result"}
-!233 = distinct !{!233, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE.argprom"}
+!232 = distinct !{!232, !233, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE: %agg.result"}
+!233 = distinct !{!233, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE"}
 !234 = distinct !{!234, !90}
 !235 = !{!236}
-!236 = distinct !{!236, !237, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!237 = distinct !{!237, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!236 = distinct !{!236, !237, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!237 = distinct !{!237, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !238 = !{!239}
 !239 = distinct !{!239, !240, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !240 = distinct !{!240, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}
 !241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE.argprom: %agg.result"}
-!243 = distinct !{!243, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE.argprom"}
+!242 = distinct !{!242, !243, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE: %agg.result"}
+!243 = distinct !{!243, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5eraseENS_23intrusive_list_iteratorIS2_PKS2_RS5_EE"}
 !244 = distinct !{!244, !90}
 !245 = !{!246}
-!246 = distinct !{!246, !247, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom: %agg.result"}
-!247 = distinct !{!247, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv.argprom"}
+!246 = distinct !{!246, !247, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv: %agg.result"}
+!247 = distinct !{!247, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE5beginEv"}
 !248 = !{!249}
 !249 = distinct !{!249, !250, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv: %agg.result"}
 !250 = distinct !{!250, !"_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE3endEv"}

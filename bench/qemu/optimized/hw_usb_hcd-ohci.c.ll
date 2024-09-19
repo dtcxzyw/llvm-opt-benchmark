@@ -4560,13 +4560,13 @@ if.then6:                                         ; preds = %land.lhs.true
   %9 = load i16, ptr @_TRACE_USB_OHCI_MEM_PORT_READ_DSTATE, align 2
   %tobool4.i.i47 = icmp ne i16 %9, 0
   %or.cond.i.i48 = select i1 %tobool.i.i46, i1 %tobool4.i.i47, i1 false
-  br i1 %or.cond.i.i48, label %land.lhs.true5.i.i49, label %trace_usb_ohci_mem_port_read.argprom.exit
+  br i1 %or.cond.i.i48, label %land.lhs.true5.i.i49, label %trace_usb_ohci_mem_port_read.exit
 
 land.lhs.true5.i.i49:                             ; preds = %if.then6
   %10 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i50 = and i32 %10, 32768
   %cmp.i.not.i.i51 = icmp eq i32 %and.i.i.i50, 0
-  br i1 %cmp.i.not.i.i51, label %trace_usb_ohci_mem_port_read.argprom.exit, label %if.then.i.i52
+  br i1 %cmp.i.not.i.i51, label %trace_usb_ohci_mem_port_read.exit, label %if.then.i.i52
 
 if.then.i.i52:                                    ; preds = %land.lhs.true5.i.i49
   %11 = load i8, ptr @message_with_timestamp, align 1
@@ -4580,13 +4580,13 @@ if.then8.i.i55:                                   ; preds = %if.then.i.i52
   %tv_usec.i.i58 = getelementptr inbounds i8, ptr %_now.i.i45, i64 8
   %13 = load i64, ptr %tv_usec.i.i58, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.127, i32 noundef %call10.i.i57, i64 noundef %12, i64 noundef %13, i32 noundef %size, ptr noundef nonnull @.str.124, i32 noundef %conv9, i32 noundef %conv10, i32 noundef %conv12, i32 noundef %or) #8
-  br label %trace_usb_ohci_mem_port_read.argprom.exit
+  br label %trace_usb_ohci_mem_port_read.exit
 
 if.else.i.i54:                                    ; preds = %if.then.i.i52
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, i32 noundef %size, ptr noundef nonnull @.str.124, i32 noundef %conv9, i32 noundef %conv10, i32 noundef %conv12, i32 noundef %or) #8
-  br label %trace_usb_ohci_mem_port_read.argprom.exit
+  br label %trace_usb_ohci_mem_port_read.exit
 
-trace_usb_ohci_mem_port_read.argprom.exit:        ; preds = %if.then6, %land.lhs.true5.i.i49, %if.then8.i.i55, %if.else.i.i54
+trace_usb_ohci_mem_port_read.exit:                ; preds = %if.then6, %land.lhs.true5.i.i49, %if.then8.i.i55, %if.else.i.i54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i45)
   br label %if.end57
 
@@ -4811,8 +4811,8 @@ trace_usb_ohci_mem_read.exit:                     ; preds = %ohci_reg_name.exit,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i59)
   br label %if.end57
 
-if.end57:                                         ; preds = %trace_usb_ohci_mem_port_read.argprom.exit, %sw.epilog, %trace_usb_ohci_mem_read.exit
-  %retval1.1 = phi i32 [ %or, %trace_usb_ohci_mem_port_read.argprom.exit ], [ %retval1.077, %trace_usb_ohci_mem_read.exit ], [ 0, %sw.epilog ]
+if.end57:                                         ; preds = %trace_usb_ohci_mem_port_read.exit, %sw.epilog, %trace_usb_ohci_mem_read.exit
+  %retval1.1 = phi i32 [ %or, %trace_usb_ohci_mem_port_read.exit ], [ %retval1.077, %trace_usb_ohci_mem_read.exit ], [ 0, %sw.epilog ]
   %conv58 = zext i32 %retval1.1 to i64
   br label %return
 
@@ -4902,13 +4902,13 @@ if.then5:                                         ; preds = %land.lhs.true
   %8 = load i16, ptr @_TRACE_USB_OHCI_MEM_PORT_WRITE_DSTATE, align 2
   %tobool4.i.i71 = icmp ne i16 %8, 0
   %or.cond.i.i72 = select i1 %tobool.i.i70, i1 %tobool4.i.i71, i1 false
-  br i1 %or.cond.i.i72, label %land.lhs.true5.i.i73, label %trace_usb_ohci_mem_port_write.argprom.exit
+  br i1 %or.cond.i.i72, label %land.lhs.true5.i.i73, label %trace_usb_ohci_mem_port_write.exit
 
 land.lhs.true5.i.i73:                             ; preds = %if.then5
   %9 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i74 = and i32 %9, 32768
   %cmp.i.not.i.i75 = icmp eq i32 %and.i.i.i74, 0
-  br i1 %cmp.i.not.i.i75, label %trace_usb_ohci_mem_port_write.argprom.exit, label %if.then.i.i76
+  br i1 %cmp.i.not.i.i75, label %trace_usb_ohci_mem_port_write.exit, label %if.then.i.i76
 
 if.then.i.i76:                                    ; preds = %land.lhs.true5.i.i73
   %10 = load i8, ptr @message_with_timestamp, align 1
@@ -4922,13 +4922,13 @@ if.then8.i.i79:                                   ; preds = %if.then.i.i76
   %tv_usec.i.i82 = getelementptr inbounds i8, ptr %_now.i.i69, i64 8
   %12 = load i64, ptr %tv_usec.i.i82, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.157, i32 noundef %call10.i.i81, i64 noundef %11, i64 noundef %12, i32 noundef %size, ptr noundef nonnull @.str.124, i32 noundef %conv6, i32 noundef %conv7, i32 noundef %conv9, i32 noundef %conv10) #8
-  br label %trace_usb_ohci_mem_port_write.argprom.exit
+  br label %trace_usb_ohci_mem_port_write.exit
 
 if.else.i.i78:                                    ; preds = %if.then.i.i76
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.158, i32 noundef %size, ptr noundef nonnull @.str.124, i32 noundef %conv6, i32 noundef %conv7, i32 noundef %conv9, i32 noundef %conv10) #8
-  br label %trace_usb_ohci_mem_port_write.argprom.exit
+  br label %trace_usb_ohci_mem_port_write.exit
 
-trace_usb_ohci_mem_port_write.argprom.exit:       ; preds = %if.then5, %land.lhs.true5.i.i73, %if.then8.i.i79, %if.else.i.i78
+trace_usb_ohci_mem_port_write.exit:               ; preds = %if.then5, %land.lhs.true5.i.i73, %if.then8.i.i79, %if.else.i.i78
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i69)
   %sub11 = add nuw nsw i64 %addr, 17179869100
   %shr12 = lshr exact i64 %sub11, 2
@@ -4949,11 +4949,11 @@ trace_usb_ohci_mem_port_write.argprom.exit:       ; preds = %if.then5, %land.lhs
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %17, label %16
 
-16:                                               ; preds = %trace_usb_ohci_mem_port_write.argprom.exit
+16:                                               ; preds = %trace_usb_ohci_mem_port_write.exit
   store i32 %14, ptr %ctrl.i, align 8
   br label %17
 
-17:                                               ; preds = %16, %trace_usb_ohci_mem_port_write.argprom.exit
+17:                                               ; preds = %16, %trace_usb_ohci_mem_port_write.exit
   %and10.i = and i32 %conv10, 2
   %cmp.i.i = icmp eq i32 %and10.i, 0
   br i1 %cmp.i.i, label %ohci_port_set_if_connected.exit.i, label %if.end.i.i

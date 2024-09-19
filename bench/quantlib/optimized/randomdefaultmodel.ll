@@ -2907,13 +2907,13 @@ invoke.cont51:                                    ; preds = %if.end69.i, %if.the
 invoke.cont53:                                    ; preds = %invoke.cont51
   %ref.tmp47.val = load ptr, ptr %pn.i.i.i, align 8, !tbaa !33
   %cmp.not.i.i.i.i = icmp eq ptr %ref.tmp47.val, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.argprom.exit, label %if.then.i.i.i.i75
+  br i1 %cmp.not.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.exit, label %if.then.i.i.i.i75
 
 if.then.i.i.i.i75:                                ; preds = %invoke.cont53
   %use_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp47.val, i64 8
   %128 = atomicrmw sub ptr %use_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i76 = icmp eq i32 %128, 1
-  br i1 %cmp.i.i.i.i.i76, label %if.then.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i76, label %if.then.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i75
   %vtable.i.i.i.i.i = load ptr, ptr %ref.tmp47.val, align 8, !tbaa !28
@@ -2926,14 +2926,14 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i75
   %weak_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp47.val, i64 12
   %130 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %130, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %ref.tmp47.val, align 8, !tbaa !28
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %131 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %131(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp47.val)
-          to label %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.argprom.exit unwind label %terminate.lpad.i.i.i.i
+          to label %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %132 = landingpad { ptr, i32 }
@@ -2942,12 +2942,12 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %133) #27
   unreachable
 
-_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.argprom.exit: ; preds = %invoke.cont53, %if.then.i.i.i.i75, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
+_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.exit:         ; preds = %invoke.cont53, %if.then.i.i.i.i75, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
   %134 = load ptr, ptr %pn.i.i, align 8, !tbaa !33
   %cmp.not.i.i.i78 = icmp eq ptr %134, null
   br i1 %cmp.not.i.i.i78, label %_ZN8QuantLib6HandleINS_31DefaultProbabilityTermStructureEED2Ev.exit, label %if.then.i.i.i79
 
-if.then.i.i.i79:                                  ; preds = %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.argprom.exit
+if.then.i.i.i79:                                  ; preds = %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.exit
   %use_count_.i.i.i.i80 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %135 = atomicrmw sub ptr %use_count_.i.i.i.i80, i32 1 acq_rel, align 4
   %cmp.i.i.i.i81 = icmp eq i32 %135, 1
@@ -2980,7 +2980,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i84
   call void @__clang_call_terminate(ptr %140) #27
   unreachable
 
-_ZN8QuantLib6HandleINS_31DefaultProbabilityTermStructureEED2Ev.exit: ; preds = %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.argprom.exit, %if.then.i.i.i79, %.noexc.i.i.i, %if.then.i.i.i.i.i84
+_ZN8QuantLib6HandleINS_31DefaultProbabilityTermStructureEED2Ev.exit: ; preds = %_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.exit, %if.then.i.i.i79, %.noexc.i.i.i, %if.then.i.i.i.i.i84
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp47) #26
   br label %if.end
 
@@ -3007,7 +3007,7 @@ lpad50.loopexit.split-lp.loopexit.split-lp:       ; preds = %do.body144.i, %_ZNK
 lpad50.body:                                      ; preds = %lpad50.loopexit, %lpad50.loopexit.split-lp.loopexit.split-lp, %lpad50.loopexit.split-lp.loopexit, %ehcleanup27.i, %ehcleanup154.i.i, %ehcleanup207.i
   %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.pn.pn.i.i, %ehcleanup154.i.i ], [ %.pn15.pn.pn.pn.i, %ehcleanup207.i ], [ %.pn.pn.pn.pn.i, %ehcleanup27.i ], [ %lpad.loopexit, %lpad50.loopexit ], [ %lpad.loopexit171, %lpad50.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp172, %lpad50.loopexit.split-lp.loopexit.split-lp ]
   %ref.tmp47.val22 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !33
-  call fastcc void @_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.argprom(ptr %ref.tmp47.val22) #26
+  call fastcc void @_ZN8QuantLib12_GLOBAL__N_14RootD2Ev(ptr %ref.tmp47.val22) #26
   call void @_ZN8QuantLib6HandleINS_31DefaultProbabilityTermStructureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp47) #26
   br label %ehcleanup55
@@ -3056,7 +3056,7 @@ _ZN8QuantLib6HandleINS_31DefaultProbabilityTermStructureEEC2ERKS2_.exit99: ; pre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp62, i8 0, i64 16, i1 false)
   store double %call27, ptr %pd_.i102, align 8, !tbaa !122
   %149 = load double, ptr %accuracy_, align 8, !tbaa !34
-  %call69 = invoke fastcc noundef double @_ZNK8QuantLib8Solver1DINS_9BisectionEE5solveINS_12_GLOBAL__N_14RootEEEdRKT_dddd.argelim(ptr noundef nonnull align 8 dereferenceable(74) %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp61, double noundef %149, double noundef %div, double noundef %tmax)
+  %call69 = invoke fastcc noundef double @_ZNK8QuantLib8Solver1DINS_9BisectionEE5solveINS_12_GLOBAL__N_14RootEEEdRKT_dddd(ptr noundef nonnull align 8 dereferenceable(74) %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp61, double noundef %149, double noundef %div, double noundef %tmax)
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %_ZN8QuantLib6HandleINS_31DefaultProbabilityTermStructureEEC2ERKS2_.exit99
@@ -3065,7 +3065,7 @@ invoke.cont68:                                    ; preds = %_ZN8QuantLib6Handle
 
 invoke.cont70:                                    ; preds = %invoke.cont68
   %ref.tmp61.val = load ptr, ptr %pn.i.i.i100, align 8, !tbaa !33
-  call fastcc void @_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.argprom(ptr %ref.tmp61.val) #26
+  call fastcc void @_ZN8QuantLib12_GLOBAL__N_14RootD2Ev(ptr %ref.tmp61.val) #26
   call void @_ZN8QuantLib6HandleINS_31DefaultProbabilityTermStructureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp62) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp61) #26
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp60) #26
@@ -3081,7 +3081,7 @@ lpad67:                                           ; preds = %_ZN8QuantLib6Handle
   %151 = landingpad { ptr, i32 }
           cleanup
   %ref.tmp61.val23 = load ptr, ptr %pn.i.i.i100, align 8, !tbaa !33
-  call fastcc void @_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.argprom(ptr %ref.tmp61.val23) #26
+  call fastcc void @_ZN8QuantLib12_GLOBAL__N_14RootD2Ev(ptr %ref.tmp61.val23) #26
   call void @_ZN8QuantLib6HandleINS_31DefaultProbabilityTermStructureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp62) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp61) #26
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp60) #26
@@ -3721,7 +3721,7 @@ unreachable:                                      ; preds = %invoke.cont14
 declare void @_ZN8QuantLib4Pool7setTimeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(32), double noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_14RootD2Ev.argprom(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_14RootD2Ev(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i = icmp eq ptr %this.8.val, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib6HandleINS_31DefaultProbabilityTermStructureEED2Ev.exit, label %if.then.i.i.i
@@ -3812,7 +3812,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_31DefaultProbabilityTermStructureEE4
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZNK8QuantLib8Solver1DINS_9BisectionEE5solveINS_12_GLOBAL__N_14RootEEEdRKT_dddd.argelim(ptr nocapture noundef nonnull align 8 dereferenceable(74) %this, ptr noundef nonnull align 8 dereferenceable(24) %f, double noundef %accuracy, double noundef %guess, double noundef %xMax) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZNK8QuantLib8Solver1DINS_9BisectionEE5solveINS_12_GLOBAL__N_14RootEEEdRKT_dddd(ptr nocapture noundef nonnull align 8 dereferenceable(74) %this, ptr noundef nonnull align 8 dereferenceable(24) %f, double noundef %accuracy, double noundef %guess, double noundef %xMax) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8

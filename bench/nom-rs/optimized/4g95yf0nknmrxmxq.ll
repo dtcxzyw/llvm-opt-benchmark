@@ -77,7 +77,7 @@ define noundef zeroext i1 @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize
   %.val = load i64, ptr %1, align 8, !alias.scope !18, !noalias !21, !noundef !4
   %3 = load i64, ptr %0, align 8, !alias.scope !23, !noalias !28, !noundef !4
   %.not.i = icmp ugt i64 %3, %.val
-  br i1 %.not.i, label %_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.argprom.exit, label %4
+  br i1 %.not.i, label %_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -89,20 +89,20 @@ define noundef zeroext i1 @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize
 
 8:                                                ; preds = %4
   %9 = icmp ule i64 %.val, %7
-  br label %_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.argprom.exit
+  br label %_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit
 
 10:                                               ; preds = %4
   %11 = icmp ult i64 %.val, %7
-  br label %_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.argprom.exit
+  br label %_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit
 
-_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.argprom.exit: ; preds = %2, %8, %10
+_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit: ; preds = %2, %8, %10
   %.014.i = phi i1 [ false, %2 ], [ %11, %10 ], [ %9, %8 ]
   ret i1 %.014.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$11is_inverted17h5fe079571de6d9c8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
-_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.argprom.exit:
+_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit:
   %.val = load i64, ptr %0, align 8, !noalias !4, !noundef !4
   %1 = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i8, ptr %1, align 8, !range !30, !alias.scope !35, !noundef !4
@@ -300,8 +300,8 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !10 = !{!11, !13}
 !11 = distinct !{!11, !12, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE: argument 0"}
 !12 = distinct !{!12, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE"}
-!13 = distinct !{!13, !14, !"_ZN4core3ops5range11RangeBounds8contains17hcef0f587b887c7d3E.argprom: argument 0"}
-!14 = distinct !{!14, !"_ZN4core3ops5range11RangeBounds8contains17hcef0f587b887c7d3E.argprom"}
+!13 = distinct !{!13, !14, !"_ZN4core3ops5range11RangeBounds8contains17hcef0f587b887c7d3E: argument 0"}
+!14 = distinct !{!14, !"_ZN4core3ops5range11RangeBounds8contains17hcef0f587b887c7d3E"}
 !15 = !{!16}
 !16 = distinct !{!16, !12, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE: argument 1"}
 !17 = !{!13}
@@ -313,8 +313,8 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !23 = !{!24, !26}
 !24 = distinct !{!24, !25, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE: argument 0"}
 !25 = distinct !{!25, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE"}
-!26 = distinct !{!26, !27, !"_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.argprom: argument 0"}
-!27 = distinct !{!27, !"_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.argprom"}
+!26 = distinct !{!26, !27, !"_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE: argument 0"}
+!27 = distinct !{!27, !"_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE"}
 !28 = !{!29}
 !29 = distinct !{!29, !25, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE: argument 1"}
 !30 = !{i8 0, i8 2}
@@ -325,8 +325,8 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !35 = !{!36, !38}
 !36 = distinct !{!36, !37, !"_ZN100_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17hdfb0660a58456e17E: argument 0"}
 !37 = distinct !{!37, !"_ZN100_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17hdfb0660a58456e17E"}
-!38 = distinct !{!38, !39, !"_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.argprom: argument 0"}
-!39 = distinct !{!39, !"_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.argprom"}
+!38 = distinct !{!38, !39, !"_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE: argument 0"}
+!39 = distinct !{!39, !"_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE"}
 !40 = !{!38}
 !41 = !{!42}
 !42 = distinct !{!42, !43, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE: argument 1"}
@@ -336,8 +336,8 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !46 = !{!47, !49}
 !47 = distinct !{!47, !48, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE: argument 0"}
 !48 = distinct !{!48, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE"}
-!49 = distinct !{!49, !50, !"_ZN4core3ops5range11RangeBounds8contains17h9fa90ea625b14193E.argprom: argument 0"}
-!50 = distinct !{!50, !"_ZN4core3ops5range11RangeBounds8contains17h9fa90ea625b14193E.argprom"}
+!49 = distinct !{!49, !50, !"_ZN4core3ops5range11RangeBounds8contains17h9fa90ea625b14193E: argument 0"}
+!50 = distinct !{!50, !"_ZN4core3ops5range11RangeBounds8contains17h9fa90ea625b14193E"}
 !51 = !{!52}
 !52 = distinct !{!52, !48, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE: argument 1"}
 !53 = !{!54}
@@ -348,8 +348,8 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !58 = !{!59, !61}
 !59 = distinct !{!59, !60, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h74cba38c6d91bc23E: argument 1"}
 !60 = distinct !{!60, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h74cba38c6d91bc23E"}
-!61 = distinct !{!61, !62, !"_ZN4core3ops5range11RangeBounds8contains17h99dc2539fb11e672E.argprom: argument 0"}
-!62 = distinct !{!62, !"_ZN4core3ops5range11RangeBounds8contains17h99dc2539fb11e672E.argprom"}
+!61 = distinct !{!61, !62, !"_ZN4core3ops5range11RangeBounds8contains17h99dc2539fb11e672E: argument 0"}
+!62 = distinct !{!62, !"_ZN4core3ops5range11RangeBounds8contains17h99dc2539fb11e672E"}
 !63 = !{!64}
 !64 = distinct !{!64, !60, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h74cba38c6d91bc23E: argument 0"}
 !65 = !{!66}
@@ -360,7 +360,7 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !70 = !{!71, !73}
 !71 = distinct !{!71, !72, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE: argument 1"}
 !72 = distinct !{!72, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE"}
-!73 = distinct !{!73, !74, !"_ZN4core3ops5range11RangeBounds8contains17h49eb3a7e2b4ee27cE.argprom: argument 0"}
-!74 = distinct !{!74, !"_ZN4core3ops5range11RangeBounds8contains17h49eb3a7e2b4ee27cE.argprom"}
+!73 = distinct !{!73, !74, !"_ZN4core3ops5range11RangeBounds8contains17h49eb3a7e2b4ee27cE: argument 0"}
+!74 = distinct !{!74, !"_ZN4core3ops5range11RangeBounds8contains17h49eb3a7e2b4ee27cE"}
 !75 = !{!76}
 !76 = distinct !{!76, !72, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2le17haaa502d1097539eeE: argument 0"}

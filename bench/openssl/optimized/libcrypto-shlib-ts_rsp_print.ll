@@ -161,17 +161,17 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %a.addr.01.i, i64 16
   %8 = load i32, ptr %incdec.ptr.i, align 8
   %cmp.i = icmp sgt i32 %8, -1
-  br i1 %cmp.i, label %for.body.i, label %ts_status_map_print.argprom.exit, !llvm.loop !6
+  br i1 %cmp.i, label %for.body.i, label %ts_status_map_print.exit, !llvm.loop !6
 
-ts_status_map_print.argprom.exit:                 ; preds = %for.inc.i
+ts_status_map_print.exit:                         ; preds = %for.inc.i
   %9 = icmp eq i32 %lines.1.i, 0
   br i1 %9, label %if.then30, label %if.end32
 
-if.then30:                                        ; preds = %if.end22, %ts_status_map_print.argprom.exit
+if.then30:                                        ; preds = %if.end22, %ts_status_map_print.exit
   %call31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.25) #2
   br label %if.end32
 
-if.end32:                                         ; preds = %if.then30, %ts_status_map_print.argprom.exit
+if.end32:                                         ; preds = %if.then30, %ts_status_map_print.exit
   %call33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.22) #2
   ret i32 1
 }

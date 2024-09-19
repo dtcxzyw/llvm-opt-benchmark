@@ -994,7 +994,7 @@ define internal i32 @dissect_eigrp(ptr noundef %0, ptr noundef %1, ptr noundef %
 dissect_eigrp_ipv4_tlv.exit:                      ; preds = %203, %211
   %.0.i = phi i32 [ %212, %211 ], [ 4, %203 ]
   %213 = call fastcc i32 @dissect_eigrp_legacy_metric(ptr noundef %65, ptr noundef %206, i32 noundef %.0.i)
-  call fastcc void @dissect_eigrp_ipv4_addrs.argelim(ptr noundef %70, ptr noundef %65, ptr noundef %206, ptr noundef %1, i32 noundef %213)
+  call fastcc void @dissect_eigrp_ipv4_addrs(ptr noundef %70, ptr noundef %65, ptr noundef %206, ptr noundef %1, i32 noundef %213)
   br label %dissect_eigrp_general_tlv.exit
 
 214:                                              ; preds = %61
@@ -1084,7 +1084,7 @@ dissect_eigrp_ipx_tlv.exit:                       ; preds = %244, %254
 dissect_eigrp_ipv6_tlv.exit:                      ; preds = %262, %270
   %.0.i113 = phi i32 [ %271, %270 ], [ 16, %262 ]
   %272 = call fastcc i32 @dissect_eigrp_legacy_metric(ptr noundef %65, ptr noundef %265, i32 noundef %.0.i113)
-  call fastcc void @dissect_eigrp_ipv6_addrs.argelim(ptr noundef %70, ptr noundef %65, ptr noundef %265, ptr noundef %1, i32 noundef %272)
+  call fastcc void @dissect_eigrp_ipv6_addrs(ptr noundef %70, ptr noundef %65, ptr noundef %265, ptr noundef %1, i32 noundef %272)
   br label %dissect_eigrp_general_tlv.exit
 
 273:                                              ; preds = %61
@@ -1339,11 +1339,11 @@ dissect_eigrp_wide_metric.exit.i:                 ; preds = %dissect_eigrp_wide_
   ]
 
 417:                                              ; preds = %416
-  call fastcc void @dissect_eigrp_ipv4_addrs.argelim(ptr noundef %70, ptr noundef %65, ptr noundef %276, ptr noundef %1, i32 noundef %.0.i114)
+  call fastcc void @dissect_eigrp_ipv4_addrs(ptr noundef %70, ptr noundef %65, ptr noundef %276, ptr noundef %1, i32 noundef %.0.i114)
   br label %dissect_eigrp_general_tlv.exit
 
 418:                                              ; preds = %416
-  call fastcc void @dissect_eigrp_ipv6_addrs.argelim(ptr noundef %70, ptr noundef %65, ptr noundef %276, ptr noundef %1, i32 noundef %.0.i114)
+  call fastcc void @dissect_eigrp_ipv6_addrs(ptr noundef %70, ptr noundef %65, ptr noundef %276, ptr noundef %1, i32 noundef %.0.i114)
   br label %dissect_eigrp_general_tlv.exit
 
 419:                                              ; preds = %416, %.thread.i
@@ -1407,11 +1407,11 @@ dissect_eigrp_wide_metric.exit.i:                 ; preds = %dissect_eigrp_wide_
   ]
 
 451:                                              ; preds = %450
-  call fastcc void @dissect_eigrp_ipv4_addrs.argelim(ptr noundef %70, ptr noundef %65, ptr noundef %431, ptr noundef %1, i32 noundef %.0.i115)
+  call fastcc void @dissect_eigrp_ipv4_addrs(ptr noundef %70, ptr noundef %65, ptr noundef %431, ptr noundef %1, i32 noundef %.0.i115)
   br label %dissect_eigrp_general_tlv.exit
 
 452:                                              ; preds = %450
-  call fastcc void @dissect_eigrp_ipv6_addrs.argelim(ptr noundef %70, ptr noundef %65, ptr noundef %431, ptr noundef %1, i32 noundef %.0.i115)
+  call fastcc void @dissect_eigrp_ipv6_addrs(ptr noundef %70, ptr noundef %65, ptr noundef %431, ptr noundef %1, i32 noundef %.0.i115)
   br label %dissect_eigrp_general_tlv.exit
 
 453:                                              ; preds = %450, %.thread.i116
@@ -1597,7 +1597,7 @@ define internal fastcc noundef i32 @dissect_eigrp_legacy_metric(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eigrp_ipv4_addrs.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_eigrp_ipv4_addrs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct._address, align 8
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %4) #6
@@ -1723,7 +1723,7 @@ define internal fastcc noundef i32 @dissect_eigrp_ipx_extdata(ptr noundef %0, pt
 declare ptr @ipxnet_to_str_punct(ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eigrp_ipv6_addrs.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_eigrp_ipv6_addrs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = alloca %struct._address, align 8
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %4) #6

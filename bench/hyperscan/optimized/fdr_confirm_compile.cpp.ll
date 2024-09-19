@@ -596,9 +596,9 @@ if.then59.i.i:                                    ; preds = %for.end.i.i
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %45 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i56.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, 8
-  br i1 %cmp.i56.i.i, label %if.then.i66.i.invoke.sink.split.i, label %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.argprom.exit.i.i
+  br i1 %cmp.i56.i.i, label %if.then.i66.i.invoke.sink.split.i, label %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.exit.i.i
 
-_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.argprom.exit.i.i: ; preds = %if.then59.i.i
+_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.exit.i.i: ; preds = %if.then59.i.i
   store i64 0, ptr %mask.i.i.i, align 8, !noalias !7
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.sub.i.i.i.i
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i57.i.i, i64 %idx.neg.i.i.i
@@ -614,9 +614,9 @@ _ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.argprom.exit.i.i: ; preds = %if.the
   %sub.ptr.rhs.cast.i.i60.i.i = ptrtoint ptr %cmp62.val.i.i to i64
   %sub.ptr.sub.i.i61.i.i = sub i64 %sub.ptr.lhs.cast.i.i59.i.i, %sub.ptr.rhs.cast.i.i60.i.i
   %cmp.i62.i.i = icmp ugt i64 %sub.ptr.sub.i.i61.i.i, 8
-  br i1 %cmp.i62.i.i, label %if.then.i66.i.invoke.sink.split.i, label %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.argprom.exit68.i.i
+  br i1 %cmp.i62.i.i, label %if.then.i66.i.invoke.sink.split.i, label %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.exit68.i.i
 
-if.then.i66.i.invoke.sink.split.i:                ; preds = %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.argprom.exit.i.i, %if.then59.i.i
+if.then.i66.i.invoke.sink.split.i:                ; preds = %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.exit.i.i, %if.then59.i.i
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 8) #20, !noalias !7
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9exception, i64 16), ptr %exception.i.i.i, align 8, !noalias !7
   br label %if.then.i66.i.invoke.i
@@ -631,7 +631,7 @@ if.then.i66.i.invoke.i:                           ; preds = %if.then.i66.i.invok
 if.then.i66.i.cont.i:                             ; preds = %if.then.i66.i.invoke.i
   unreachable
 
-_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.argprom.exit68.i.i: ; preds = %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.argprom.exit.i.i
+_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.exit68.i.i: ; preds = %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.exit.i.i
   store i64 0, ptr %mask.i58.i.i, align 8, !noalias !7
   %idx.neg.i64.i.i = sub nsw i64 0, %sub.ptr.sub.i.i61.i.i
   %add.ptr3.i65.i.i = getelementptr inbounds i8, ptr %add.ptr.i63.i.i, i64 %idx.neg.i64.i.i
@@ -644,8 +644,8 @@ _ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.argprom.exit68.i.i: ; preds = %_ZN3
   store i64 %or69.i.i, ptr %add.ptr.i51.i.i, align 8, !noalias !7
   br label %if.end70.i.i
 
-if.end70.i.i:                                     ; preds = %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.argprom.exit68.i.i, %for.end.i.i
-  %53 = phi i64 [ %or67.i.i, %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.argprom.exit68.i.i ], [ %msk15.1.i.i, %for.end.i.i ]
+if.end70.i.i:                                     ; preds = %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.exit68.i.i, %for.end.i.i
+  %53 = phi i64 [ %or67.i.i, %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.exit68.i.i ], [ %msk15.1.i.i, %for.end.i.i ]
   %and72.i.i = and i64 %53, %andmsk.0.i
   %inc74.i.i = add i32 %i.080.i.i, 1
   %conv.i34.i = zext i32 %inc74.i.i to i64

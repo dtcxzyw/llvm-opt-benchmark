@@ -961,7 +961,7 @@ define hidden noundef zeroext i1 @zend_optimizer_update_op1_const(ptr nocapture 
   store i32 %41, ptr %38, align 4
   %42 = load ptr, ptr %2, align 8
   %43 = tail call ptr @zend_string_tolower_ex(ptr noundef %42, i1 noundef zeroext false) #18
-  tail call fastcc void @zend_optimizer_add_literal_string.retelim(ptr noundef %0, ptr noundef %43)
+  tail call fastcc void @zend_optimizer_add_literal_string(ptr noundef %0, ptr noundef %43)
   br label %211
 
 44:                                               ; preds = %3
@@ -982,7 +982,7 @@ define hidden noundef zeroext i1 @zend_optimizer_update_op1_const(ptr nocapture 
   store i32 %50, ptr %52, align 4
   %53 = load ptr, ptr %2, align 8
   %54 = tail call ptr @zend_string_tolower_ex(ptr noundef %53, i1 noundef zeroext false) #18
-  tail call fastcc void @zend_optimizer_add_literal_string.retelim(ptr noundef %0, ptr noundef %54)
+  tail call fastcc void @zend_optimizer_add_literal_string(ptr noundef %0, ptr noundef %54)
   br label %211
 
 55:                                               ; preds = %3
@@ -1003,7 +1003,7 @@ define hidden noundef zeroext i1 @zend_optimizer_update_op1_const(ptr nocapture 
   store i32 %61, ptr %63, align 4
   %64 = load ptr, ptr %2, align 8
   %65 = tail call ptr @zend_string_tolower_ex(ptr noundef %64, i1 noundef zeroext false) #18
-  tail call fastcc void @zend_optimizer_add_literal_string.retelim(ptr noundef %0, ptr noundef %65)
+  tail call fastcc void @zend_optimizer_add_literal_string(ptr noundef %0, ptr noundef %65)
   br label %211
 
 66:                                               ; preds = %3
@@ -1033,7 +1033,7 @@ define hidden noundef zeroext i1 @zend_optimizer_update_op1_const(ptr nocapture 
 78:                                               ; preds = %73, %68
   %79 = load ptr, ptr %2, align 8
   %80 = tail call ptr @zend_string_tolower_ex(ptr noundef %79, i1 noundef zeroext false) #18
-  tail call fastcc void @zend_optimizer_add_literal_string.retelim(ptr noundef %0, ptr noundef %80)
+  tail call fastcc void @zend_optimizer_add_literal_string(ptr noundef %0, ptr noundef %80)
   br label %211
 
 81:                                               ; preds = %3
@@ -1063,7 +1063,7 @@ define hidden noundef zeroext i1 @zend_optimizer_update_op1_const(ptr nocapture 
 93:                                               ; preds = %88, %83
   %94 = load ptr, ptr %2, align 8
   %95 = tail call ptr @zend_string_tolower_ex(ptr noundef %94, i1 noundef zeroext false) #18
-  tail call fastcc void @zend_optimizer_add_literal_string.retelim(ptr noundef %0, ptr noundef %95)
+  tail call fastcc void @zend_optimizer_add_literal_string(ptr noundef %0, ptr noundef %95)
   br label %211
 
 96:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
@@ -1371,7 +1371,7 @@ define internal fastcc void @drop_leading_backslash(ptr nocapture noundef %0) un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_optimizer_add_literal_string.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_optimizer_add_literal_string(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1491,7 +1491,7 @@ define hidden noundef zeroext i1 @zend_optimizer_update_op2_const(ptr nocapture 
   store i32 %13, ptr %14, align 4
   %15 = load ptr, ptr %2, align 8
   %16 = tail call ptr @zend_string_tolower_ex(ptr noundef %15, i1 noundef zeroext false) #18
-  tail call fastcc void @zend_optimizer_add_literal_string.retelim(ptr noundef %0, ptr noundef %16)
+  tail call fastcc void @zend_optimizer_add_literal_string(ptr noundef %0, ptr noundef %16)
   %17 = getelementptr inbounds i8, ptr %0, i64 76
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 8
@@ -1513,7 +1513,7 @@ define hidden noundef zeroext i1 @zend_optimizer_update_op2_const(ptr nocapture 
   store i32 %25, ptr %26, align 4
   %27 = load ptr, ptr %2, align 8
   %28 = tail call ptr @zend_string_tolower_ex(ptr noundef %27, i1 noundef zeroext false) #18
-  tail call fastcc void @zend_optimizer_add_literal_string.retelim(ptr noundef %0, ptr noundef %28)
+  tail call fastcc void @zend_optimizer_add_literal_string(ptr noundef %0, ptr noundef %28)
   %29 = getelementptr inbounds i8, ptr %0, i64 76
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, 8
@@ -1746,7 +1746,7 @@ zend_optimizer_add_literal_string.exit:           ; preds = %drop_leading_backsl
   store i32 %161, ptr %162, align 4
   %163 = load ptr, ptr %2, align 8
   %164 = tail call ptr @zend_string_tolower_ex(ptr noundef %163, i1 noundef zeroext false) #18
-  tail call fastcc void @zend_optimizer_add_literal_string.retelim(ptr noundef %0, ptr noundef %164)
+  tail call fastcc void @zend_optimizer_add_literal_string(ptr noundef %0, ptr noundef %164)
   %165 = getelementptr inbounds i8, ptr %0, i64 76
   %166 = load i32, ptr %165, align 4
   %167 = add i32 %166, 8
@@ -1773,7 +1773,7 @@ zend_optimizer_add_literal_string.exit:           ; preds = %drop_leading_backsl
   store i32 %176, ptr %177, align 4
   %178 = load ptr, ptr %2, align 8
   %179 = tail call ptr @zend_string_tolower_ex(ptr noundef %178, i1 noundef zeroext false) #18
-  tail call fastcc void @zend_optimizer_add_literal_string.retelim(ptr noundef %0, ptr noundef %179)
+  tail call fastcc void @zend_optimizer_add_literal_string(ptr noundef %0, ptr noundef %179)
   %180 = getelementptr inbounds i8, ptr %0, i64 76
   %181 = load i32, ptr %180, align 4
   %182 = add i32 %181, 16
@@ -1794,7 +1794,7 @@ zend_optimizer_add_literal_string.exit:           ; preds = %drop_leading_backsl
   store i32 %188, ptr %189, align 4
   %190 = load ptr, ptr %2, align 8
   %191 = tail call ptr @zend_string_tolower_ex(ptr noundef %190, i1 noundef zeroext false) #18
-  tail call fastcc void @zend_optimizer_add_literal_string.retelim(ptr noundef %0, ptr noundef %191)
+  tail call fastcc void @zend_optimizer_add_literal_string(ptr noundef %0, ptr noundef %191)
   %192 = getelementptr inbounds i8, ptr %1, i64 29
   %193 = load i8, ptr %192, align 1
   %.not235 = icmp eq i8 %193, 1
@@ -5432,7 +5432,7 @@ define internal void @step_adjust_fcall_stack_size(ptr nocapture noundef readonl
   %5 = zext i32 %.val to i64
   %6 = getelementptr inbounds %struct._zend_op, ptr %.val2, i64 %5
   %.not4.i = icmp eq i32 %.val, 0
-  br i1 %.not4.i, label %zend_adjust_fcall_stack_size.argprom.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %zend_adjust_fcall_stack_size.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5489,9 +5489,9 @@ define internal void @step_adjust_fcall_stack_size(ptr nocapture noundef readonl
 .thread.i:                                        ; preds = %37, %12, %8
   %40 = getelementptr inbounds i8, ptr %.0293.i, i64 32
   %41 = icmp ult ptr %40, %6
-  br i1 %41, label %8, label %zend_adjust_fcall_stack_size.argprom.exit
+  br i1 %41, label %8, label %zend_adjust_fcall_stack_size.exit
 
-zend_adjust_fcall_stack_size.argprom.exit:        ; preds = %.thread.i, %2
+zend_adjust_fcall_stack_size.exit:                ; preds = %.thread.i, %2
   ret void
 }
 

@@ -9394,9 +9394,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %41, %44
   store i32 33619968, ptr %9, align 8
   store ptr %16, ptr %82, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef -1, double noundef -1.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit unwind label %84
+          to label %_ZN2cvmLERNS_3MatERKd.exit unwind label %84
 
-_ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %81
+_ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %81
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %90
 
@@ -9415,7 +9415,7 @@ _ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %81
           cleanup
   br label %268
 
-90:                                               ; preds = %79, %_ZN2cvmLERNS_3MatERKd.argprom.exit
+90:                                               ; preds = %79, %_ZN2cvmLERNS_3MatERKd.exit
   %91 = getelementptr inbounds i8, ptr %23, i64 16
   store i32 0, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %23, i64 20
@@ -9438,9 +9438,9 @@ _ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %81
   store i32 33619968, ptr %8, align 8
   store ptr %17, ptr %98, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef -1, double noundef -1.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit43 unwind label %84
+          to label %_ZN2cvmLERNS_3MatERKd.exit43 unwind label %84
 
-_ZN2cvmLERNS_3MatERKd.argprom.exit43:             ; preds = %97
+_ZN2cvmLERNS_3MatERKd.exit43:                     ; preds = %97
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %102
 
@@ -9449,7 +9449,7 @@ _ZN2cvmLERNS_3MatERKd.argprom.exit43:             ; preds = %97
           cleanup
   br label %268
 
-102:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.argprom.exit43, %95
+102:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.exit43, %95
   invoke void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %27, i32 noundef 3, i32 noundef 3, i32 noundef 6)
           to label %_ZN2cv4Mat_IdEC2Eii.exit unwind label %84
 

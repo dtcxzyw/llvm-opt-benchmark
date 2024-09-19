@@ -4984,27 +4984,27 @@ sw.bb1.thread:                                    ; preds = %entry
   %0 = load ptr, ptr %from, align 8
   store ptr %0, ptr %to, align 8
   store ptr null, ptr %from, align 8
-  br label %"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit"
 
 sw.bb1:                                           ; preds = %entry
   %call.val.pr = load ptr, ptr %from, align 8
   %cmp.not.i.i = icmp eq ptr %call.val.pr, null
-  br i1 %cmp.not.i.i, label %"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb1
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.val.pr, i64 8
   %1 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit"
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %call.val.pr, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %call.val.pr) #22
-  br label %"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit"
 
-"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.argprom.exit": ; preds = %sw.bb1.thread, %sw.bb1, %if.then.i.i, %if.then.i.i.i
+"_ZZN9grpc_core15Chttp2Connector15OnHandshakeDoneEPvN4absl12lts_202308026StatusEEN3$_0D2Ev.exit": ; preds = %sw.bb1.thread, %sw.bb1, %if.then.i.i, %if.then.i.i.i
   ret void
 }
 

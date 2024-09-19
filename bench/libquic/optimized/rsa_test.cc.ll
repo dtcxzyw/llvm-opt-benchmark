@@ -745,15 +745,15 @@ _ZL10TestBadKeyv.exit:                            ; preds = %_ZNSt10unique_ptrI9
   br i1 %retval.0813.i, label %lor.lhs.false10, label %return
 
 lor.lhs.false10:                                  ; preds = %_ZL10TestBadKeyv.exit
-  %call11 = call fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m.argelim(i32 noundef 2, ptr noundef nonnull @_ZL12kTwoPrimeKey, i64 noundef 1189, ptr noundef nonnull @_ZL25kTwoPrimeEncryptedMessage)
+  %call11 = call fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef 2, ptr noundef nonnull @_ZL12kTwoPrimeKey, i64 noundef 1189, ptr noundef nonnull @_ZL25kTwoPrimeEncryptedMessage)
   br i1 %call11, label %lor.lhs.false12, label %return
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false10
-  %call13 = call fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m.argelim(i32 noundef 3, ptr noundef nonnull @_ZL14kThreePrimeKey, i64 noundef 1243, ptr noundef nonnull @_ZL27kThreePrimeEncryptedMessage)
+  %call13 = call fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef 3, ptr noundef nonnull @_ZL14kThreePrimeKey, i64 noundef 1243, ptr noundef nonnull @_ZL27kThreePrimeEncryptedMessage)
   br i1 %call13, label %lor.lhs.false14, label %return
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false12
-  %call15 = call fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m.argelim(i32 noundef 6, ptr noundef nonnull @_ZL12kSixPrimeKey, i64 noundef 1316, ptr noundef nonnull @_ZL25kSixPrimeEncryptedMessage)
+  %call15 = call fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef 6, ptr noundef nonnull @_ZL12kSixPrimeKey, i64 noundef 1316, ptr noundef nonnull @_ZL25kSixPrimeEncryptedMessage)
   br i1 %call15, label %lor.lhs.false16, label %return
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false14
@@ -1010,7 +1010,7 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m.argelim(i32 noundef range(i32 2, 7) %nprimes, ptr noundef %der, i64 noundef range(i64 1189, 1317) %der_size, ptr noundef %enc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef range(i32 2, 7) %nprimes, ptr noundef %der, i64 noundef range(i64 1189, 1317) %der_size, ptr noundef %enc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %der.addr = alloca ptr, align 8
   %rsa = alloca %"class.std::unique_ptr", align 8

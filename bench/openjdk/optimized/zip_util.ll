@@ -2019,7 +2019,7 @@ define internal fastcc noalias noundef ptr @newEntry(ptr nocapture noundef %0, p
   %.val.i = load i64, ptr %51, align 8
   %52 = getelementptr i8, ptr %0, i64 72
   %.val34.i = load i32, ptr %52, align 8
-  %53 = tail call fastcc ptr @readCENHeader.argprom(i64 %.val.i, i32 %.val34.i, i64 noundef %24, i32 noundef 8192)
+  %53 = tail call fastcc ptr @readCENHeader(i64 %.val.i, i32 %.val34.i, i64 noundef %24, i32 noundef 8192)
   %54 = icmp eq ptr %53, null
   br i1 %54, label %sequentialAccessReadCENHeader.exit.thread220, label %55
 
@@ -2036,7 +2036,7 @@ sequentialAccessReadCENHeader.exit:               ; preds = %21
   %.val = load i64, ptr %58, align 8
   %59 = getelementptr i8, ptr %0, i64 72
   %.val218 = load i32, ptr %59, align 8
-  %60 = tail call fastcc ptr @readCENHeader.argprom(i64 %.val, i32 %.val218, i64 noundef %24, i32 noundef 160)
+  %60 = tail call fastcc ptr @readCENHeader(i64 %.val, i32 %.val218, i64 noundef %24, i32 noundef 160)
   %61 = icmp eq ptr %60, null
   br i1 %61, label %sequentialAccessReadCENHeader.exit.thread220, label %sequentialAccessReadCENHeader.exit.thread
 
@@ -3240,7 +3240,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @readCENHeader.argprom(i64 %.16.val, i32 %.72.val, i64 noundef %0, i32 noundef range(i32 160, 8193) %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @readCENHeader(i64 %.16.val, i32 %.72.val, i64 noundef %0, i32 noundef range(i32 160, 8193) %1) unnamed_addr #0 {
   %3 = zext nneg i32 %1 to i64
   %4 = sub nsw i64 %.16.val, %0
   %5 = icmp slt i64 %4, %3

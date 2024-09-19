@@ -998,7 +998,7 @@ AppendJumble.exit:                                ; preds = %11
 174:                                              ; preds = %AppendJumble.exit
   %175 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %175, align 8
-  tail call fastcc void @_jumbleVariableShowStmt.argprom(ptr noundef nonnull %0, ptr %.val)
+  tail call fastcc void @_jumbleVariableShowStmt(ptr noundef nonnull %0, ptr %.val)
   br label %305
 
 176:                                              ; preds = %AppendJumble.exit
@@ -1172,7 +1172,7 @@ AppendJumble.exit:                                ; preds = %11
 218:                                              ; preds = %AppendJumble.exit
   %219 = getelementptr i8, ptr %1, i64 8
   %.val516 = load ptr, ptr %219, align 8
-  tail call fastcc void @_jumbleClosePortalStmt.argprom(ptr noundef nonnull %0, ptr %.val516)
+  tail call fastcc void @_jumbleClosePortalStmt(ptr noundef nonnull %0, ptr %.val516)
   br label %305
 
 220:                                              ; preds = %AppendJumble.exit
@@ -1252,13 +1252,13 @@ AppendJumble.exit:                                ; preds = %11
 240:                                              ; preds = %AppendJumble.exit
   %241 = getelementptr i8, ptr %1, i64 8
   %.val517 = load ptr, ptr %241, align 8
-  tail call fastcc void @_jumbleListenStmt.argprom(ptr noundef nonnull %0, ptr %.val517)
+  tail call fastcc void @_jumbleListenStmt(ptr noundef nonnull %0, ptr %.val517)
   br label %305
 
 242:                                              ; preds = %AppendJumble.exit
   %243 = getelementptr i8, ptr %1, i64 8
   %.val518 = load ptr, ptr %243, align 8
-  tail call fastcc void @_jumbleUnlistenStmt.argprom(ptr noundef nonnull %0, ptr %.val518)
+  tail call fastcc void @_jumbleUnlistenStmt(ptr noundef nonnull %0, ptr %.val518)
   br label %305
 
 244:                                              ; preds = %AppendJumble.exit
@@ -1288,7 +1288,7 @@ AppendJumble.exit:                                ; preds = %11
 250:                                              ; preds = %AppendJumble.exit
   %251 = getelementptr i8, ptr %1, i64 8
   %.val519 = load ptr, ptr %251, align 8
-  tail call fastcc void @_jumbleLoadStmt.argprom(ptr noundef nonnull %0, ptr %.val519)
+  tail call fastcc void @_jumbleLoadStmt(ptr noundef nonnull %0, ptr %.val519)
   br label %305
 
 252:                                              ; preds = %AppendJumble.exit
@@ -1302,7 +1302,7 @@ AppendJumble.exit:                                ; preds = %11
 254:                                              ; preds = %AppendJumble.exit
   %255 = getelementptr i8, ptr %1, i64 8
   %.val520 = load ptr, ptr %255, align 8
-  tail call fastcc void @_jumbleAlterDatabaseRefreshCollStmt.argprom(ptr noundef nonnull %0, ptr %.val520)
+  tail call fastcc void @_jumbleAlterDatabaseRefreshCollStmt(ptr noundef nonnull %0, ptr %.val520)
   br label %305
 
 256:                                              ; preds = %AppendJumble.exit
@@ -1434,7 +1434,7 @@ AppendJumble.exit:                                ; preds = %11
 289:                                              ; preds = %AppendJumble.exit
   %290 = getelementptr i8, ptr %1, i64 8
   %.val521 = load ptr, ptr %290, align 8
-  tail call fastcc void @_jumbleExtensibleNode.argprom(ptr noundef nonnull %0, ptr %.val521)
+  tail call fastcc void @_jumbleExtensibleNode(ptr noundef nonnull %0, ptr %.val521)
   br label %305
 
 291:                                              ; preds = %AppendJumble.exit
@@ -1444,7 +1444,7 @@ AppendJumble.exit:                                ; preds = %11
 292:                                              ; preds = %AppendJumble.exit
   %293 = getelementptr i8, ptr %1, i64 8
   %.val522 = load ptr, ptr %293, align 8
-  tail call fastcc void @_jumbleFloat.argprom(ptr noundef nonnull %0, ptr %.val522)
+  tail call fastcc void @_jumbleFloat(ptr noundef nonnull %0, ptr %.val522)
   br label %305
 
 294:                                              ; preds = %AppendJumble.exit
@@ -1454,13 +1454,13 @@ AppendJumble.exit:                                ; preds = %11
 295:                                              ; preds = %AppendJumble.exit
   %296 = getelementptr i8, ptr %1, i64 8
   %.val523 = load ptr, ptr %296, align 8
-  tail call fastcc void @_jumbleString.argprom(ptr noundef nonnull %0, ptr %.val523)
+  tail call fastcc void @_jumbleString(ptr noundef nonnull %0, ptr %.val523)
   br label %305
 
 297:                                              ; preds = %AppendJumble.exit
   %298 = getelementptr i8, ptr %1, i64 8
   %.val524 = load ptr, ptr %298, align 8
-  tail call fastcc void @_jumbleBitString.argprom(ptr noundef nonnull %0, ptr %.val524)
+  tail call fastcc void @_jumbleBitString(ptr noundef nonnull %0, ptr %.val524)
   br label %305
 
 299:                                              ; preds = %AppendJumble.exit, %AppendJumble.exit, %AppendJumble.exit, %AppendJumble.exit
@@ -11246,7 +11246,7 @@ AppendJumble.exit25:                              ; preds = %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleVariableShowStmt.argprom(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleVariableShowStmt(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -16342,7 +16342,7 @@ AppendJumble.exit16:                              ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleClosePortalStmt.argprom(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleClosePortalStmt(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -18414,7 +18414,7 @@ AppendJumble.exit19:                              ; preds = %33, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleListenStmt.argprom(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleListenStmt(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -18461,7 +18461,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleUnlistenStmt.argprom(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleUnlistenStmt(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -18962,7 +18962,7 @@ AppendJumble.exit19:                              ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleLoadStmt.argprom(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleLoadStmt(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -19113,7 +19113,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterDatabaseRefreshCollStmt.argprom(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterDatabaseRefreshCollStmt(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -21210,7 +21210,7 @@ define internal fastcc void @_jumblePathKeyInfo(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleExtensibleNode.argprom(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleExtensibleNode(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -21294,7 +21294,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleFloat.argprom(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleFloat(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -21378,7 +21378,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleString.argprom(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleString(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -21425,7 +21425,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleBitString.argprom(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleBitString(ptr nocapture noundef %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 

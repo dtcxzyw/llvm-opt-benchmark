@@ -636,13 +636,13 @@ _ZN12_GLOBAL__N_118LocalStackSlotImpl17AdjustStackOffsetERN4llvm16MachineFrameIn
   %270 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %271 = load ptr, ptr %7, align 8
   %272 = icmp eq ptr %271, %57
-  br i1 %272, label %_ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15MachineFunctionE.argprom.exit, label %273
+  br i1 %272, label %_ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15MachineFunctionE.exit, label %273
 
 273:                                              ; preds = %._crit_edge19.i
   call void @free(ptr noundef %271) #16
-  br label %_ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15MachineFunctionE.argprom.exit
+  br label %_ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15MachineFunctionE.exit
 
-_ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15MachineFunctionE.argprom.exit: ; preds = %._crit_edge19.i, %273
+_ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15MachineFunctionE.exit: ; preds = %._crit_edge19.i, %273
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
@@ -676,7 +676,7 @@ _ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15Mach
   %.not119131.i = icmp eq ptr %.sroa.0116.0130.i, %290
   br i1 %.not119131.i, label %._crit_edge136.i, label %.lr.ph135.i
 
-.lr.ph135.i:                                      ; preds = %_ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15MachineFunctionE.argprom.exit
+.lr.ph135.i:                                      ; preds = %_ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15MachineFunctionE.exit
   %291 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %292 = getelementptr inbounds nuw i8, ptr %274, i64 32
   %293 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -841,7 +841,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   %.not119.i = icmp eq ptr %.sroa.0116.0.i, %290
   br i1 %.not119.i, label %._crit_edge136.i, label %297
 
-._crit_edge136.i:                                 ; preds = %._crit_edge.i13, %_ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15MachineFunctionE.argprom.exit
+._crit_edge136.i:                                 ; preds = %._crit_edge.i13, %_ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15MachineFunctionE.exit
   %.val.i.i = load ptr, ptr %3, align 8
   %365 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %366 = icmp slt i64 %365, 2
@@ -2372,50 +2372,50 @@ define internal noundef range(i32 -1, 2) i32 @_ZN4llvm25array_pod_sort_comparato
   %9 = load i64, ptr %3, align 8
   %10 = load i64, ptr %6, align 8
   %11 = icmp slt i64 %9, %10
-  br i1 %11, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit.thread, label %12
+  br i1 %11, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit.thread, label %12
 
 12:                                               ; preds = %2
   %13 = icmp slt i64 %10, %9
-  br i1 %13, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit4.thread, label %14
+  br i1 %13, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4.thread, label %14
 
 14:                                               ; preds = %12
   %15 = load i32, ptr %4, align 4
   %16 = load i32, ptr %7, align 4
   %17 = icmp slt i32 %15, %16
-  br i1 %17, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit.thread, label %18
+  br i1 %17, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit.thread, label %18
 
 18:                                               ; preds = %14
   %19 = icmp slt i32 %16, %15
-  br i1 %19, label %23, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit
+  br i1 %19, label %23, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit
 
-_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit: ; preds = %18
+_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit: ; preds = %18
   %20 = load i32, ptr %5, align 4
   %21 = load i32, ptr %8, align 4
   %22 = icmp ult i32 %20, %21
-  br i1 %22, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit.thread, label %23
+  br i1 %22, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit.thread, label %23
 
-23:                                               ; preds = %18, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit
+23:                                               ; preds = %18, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit
   %24 = load i32, ptr %7, align 4
   %25 = load i32, ptr %4, align 4
   %26 = icmp slt i32 %24, %25
-  br i1 %26, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit4.thread, label %27
+  br i1 %26, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4.thread, label %27
 
 27:                                               ; preds = %23
   %28 = icmp slt i32 %25, %24
-  br i1 %28, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit.thread, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit4
+  br i1 %28, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4
 
-_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit4: ; preds = %27
+_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4: ; preds = %27
   %29 = load i32, ptr %8, align 4
   %30 = load i32, ptr %5, align 4
   %31 = icmp ult i32 %29, %30
   %cond.fr = freeze i1 %31
-  br i1 %cond.fr, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit4.thread, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit.thread
+  br i1 %cond.fr, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4.thread, label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit.thread
 
-_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit4.thread: ; preds = %12, %23, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit4
-  br label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit.thread
+_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4.thread: ; preds = %12, %23, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4
+  br label %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit.thread
 
-_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit.thread: ; preds = %27, %14, %2, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit4.thread, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit4, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit
-  %.0 = phi i32 [ -1, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit ], [ 1, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit4.thread ], [ 0, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.argprom.exit4 ], [ -1, %2 ], [ -1, %14 ], [ 0, %27 ]
+_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit.thread: ; preds = %27, %14, %2, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4.thread, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit
+  %.0 = phi i32 [ -1, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit ], [ 1, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4.thread ], [ 0, %_ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit4 ], [ -1, %2 ], [ -1, %14 ], [ 0, %27 ]
   ret i32 %.0
 }
 

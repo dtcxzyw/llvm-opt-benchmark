@@ -8474,7 +8474,7 @@ _ZNKSt10filesystem7__cxx114pathcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 80:                                               ; preds = %44, %33
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #31
   %81 = invoke noundef zeroext i1 @_ZNSt10filesystem6removeERKNS_7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %5)
-          to label %"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.argprom.exit" unwind label %82
+          to label %"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.exit" unwind label %82
 
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
@@ -8483,14 +8483,14 @@ _ZNKSt10filesystem7__cxx114pathcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   call void @__clang_call_terminate(ptr %84) #36
   unreachable
 
-"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.argprom.exit": ; preds = %80
+"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.exit": ; preds = %80
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #31
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #31
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #31
   call void @__cxa_end_catch()
   br label %85
 
-85:                                               ; preds = %2, %"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.argprom.exit"
+85:                                               ; preds = %2, %"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.exit"
   ret void
 
 86:                                               ; preds = %79, %73, %72, %66
@@ -8501,7 +8501,7 @@ _ZNKSt10filesystem7__cxx114pathcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 87:                                               ; preds = %86, %64, %62
   %.pn27.pn.pn = phi { ptr, i32 } [ %.pn27.pn, %86 ], [ %65, %64 ], [ %63, %62 ]
   %88 = invoke noundef zeroext i1 @_ZNSt10filesystem6removeERKNS_7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %5)
-          to label %"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.argprom.exit37" unwind label %89
+          to label %"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.exit37" unwind label %89
 
 89:                                               ; preds = %87
   %90 = landingpad { ptr, i32 }
@@ -8510,12 +8510,12 @@ _ZNKSt10filesystem7__cxx114pathcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   call void @__clang_call_terminate(ptr %91) #36
   unreachable
 
-"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.argprom.exit37": ; preds = %87
+"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.exit37": ; preds = %87
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #31
   br label %92
 
-92:                                               ; preds = %"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.argprom.exit37", %61, %49
-  %.pn27.pn.pn.pn = phi { ptr, i32 } [ %.pn27.pn.pn, %"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.argprom.exit37" ], [ %.pn.pn.pn, %61 ], [ %50, %49 ]
+92:                                               ; preds = %"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.exit37", %61, %49
+  %.pn27.pn.pn.pn = phi { ptr, i32 } [ %.pn27.pn.pn, %"_ZN7FinallyIZN3nix8moveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_E3$_0ED2Ev.exit37" ], [ %.pn.pn.pn, %61 ], [ %50, %49 ]
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #31
   br label %93
 

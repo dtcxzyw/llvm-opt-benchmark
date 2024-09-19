@@ -1532,7 +1532,7 @@ define internal void @_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
-  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.argprom.exit, label %.lr.ph.i.i.i
+  br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %23, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EEEvPT_.exit.i.i.i ], [ %2, %1 ]
@@ -1559,7 +1559,7 @@ _ZNSt6vectorIN8WasmEdge6Plugin12PluginModule16ModuleDescriptorESaIS3_EED2Ev.exit
   %15 = getelementptr inbounds i8, ptr %5, i64 80
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i1.i.i.i.i.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i1.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEEclEPS3_.argprom.exit.i.i.i.i.i, label %17
+  br i1 %.not.i.i.i1.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEEclEPS3_.exit.i.i.i.i.i, label %17
 
 17:                                               ; preds = %_ZNSt6vectorIN8WasmEdge6Plugin12PluginModule16ModuleDescriptorESaIS3_EED2Ev.exit.i.i.i.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %5, i64 96
@@ -1568,37 +1568,37 @@ _ZNSt6vectorIN8WasmEdge6Plugin12PluginModule16ModuleDescriptorESaIS3_EED2Ev.exit
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
   tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #26
-  br label %_ZNKSt14default_deleteIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEEclEPS3_.argprom.exit.i.i.i.i.i
+  br label %_ZNKSt14default_deleteIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEEclEPS3_.exit.i.i.i.i.i
 
-_ZNKSt14default_deleteIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEEclEPS3_.argprom.exit.i.i.i.i.i: ; preds = %17, %_ZNSt6vectorIN8WasmEdge6Plugin12PluginModule16ModuleDescriptorESaIS3_EED2Ev.exit.i.i.i.i.i.i.i
+_ZNKSt14default_deleteIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEEclEPS3_.exit.i.i.i.i.i: ; preds = %17, %_ZNSt6vectorIN8WasmEdge6Plugin12PluginModule16ModuleDescriptorESaIS3_EED2Ev.exit.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 136) #26
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEEclEPS3_.argprom.exit.i.i.i.i.i, %.lr.ph.i.i.i
+_ZSt8_DestroyISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEEclEPS3_.exit.i.i.i.i.i, %.lr.ph.i.i.i
   store ptr null, ptr %.05.i.i.i, align 8
   %23 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %23, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.argprom.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !6
 
-_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.argprom.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EEEvPT_.exit.i.i.i
+_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EEEvPT_.exit.i.i.i
   %.val.pr = load ptr, ptr %0, align 8
-  br label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.argprom.exit
+  br label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit
 
-_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.argprom.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.argprom.exitthread-pre-split, %1
-  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.argprom.exitthread-pre-split ], [ %2, %1 ]
+_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, %1
+  %.val = phi ptr [ %.val.pr, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EED2Ev.argprom.exit, label %24
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %24
 
-24:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.argprom.exit
+24:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %.val1 = load ptr, ptr %25, align 8
   %26 = ptrtoint ptr %.val1 to i64
   %27 = ptrtoint ptr %.val to i64
   %28 = sub i64 %26, %27
   tail call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %28) #26
-  br label %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EED2Ev.exit
 
-_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EED2Ev.argprom.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.argprom.exit, %24
+_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit, %24
   ret void
 }
 
@@ -3193,13 +3193,13 @@ _ZNSt13unordered_mapIPKN8WasmEdge6Plugin12PluginModule16ModuleDescriptorEPK25Was
   %239 = load ptr, ptr %195, align 8, !noalias !37
   %240 = getelementptr inbounds i8, ptr %239, i64 72
   store ptr %240, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPNSE_6ToggleENSE_6ParserIbEEEEEbKbEEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPNSE_6ToggleENSE_6ParserIbEEEEEbKbEEDaS6_S8_SA_.exit.i.i
 
 241:                                              ; preds = %224
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tISC_ENS6_11DescriptionEPbPKbEEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %232, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(32) %25)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPNSE_6ToggleENSE_6ParserIbEEEEEbKbEEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPNSE_6ToggleENSE_6ParserIbEEEEEbKbEEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPNSE_6ToggleENSE_6ParserIbEEEEEbKbEEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %241, %234
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPNSE_6ToggleENSE_6ParserIbEEEEEbKbEEDaS6_S8_SA_.exit.i.i: ; preds = %241, %234
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25), !noalias !37
   br label %451
@@ -3242,13 +3242,13 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %258 = load ptr, ptr %195, align 8, !noalias !37
   %259 = getelementptr inbounds i8, ptr %258, i64 72
   store ptr %259, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPaNSE_6ParserIaEEEEEaKaEEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPaNSE_6ParserIaEEEEEaKaEEDaS6_S8_SA_.exit.i.i
 
 260:                                              ; preds = %242
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tISF_ENS6_11DescriptionESD_PKaEEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %250, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(32) %23)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPaNSE_6ParserIaEEEEEaKaEEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPaNSE_6ParserIaEEEEEaKaEEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPaNSE_6ParserIaEEEEEaKaEEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %260, %252
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPaNSE_6ParserIaEEEEEaKaEEDaS6_S8_SA_.exit.i.i: ; preds = %260, %252
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23), !noalias !37
   br label %451
@@ -3291,13 +3291,13 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %277 = load ptr, ptr %195, align 8, !noalias !37
   %278 = getelementptr inbounds i8, ptr %277, i64 72
   store ptr %278, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPsNSE_6ParserIsEEEEEsKsEEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPsNSE_6ParserIsEEEEEsKsEEDaS6_S8_SA_.exit.i.i
 
 279:                                              ; preds = %261
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tISI_ENS6_11DescriptionESG_PKsEEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %269, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPsNSE_6ParserIsEEEEEsKsEEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPsNSE_6ParserIsEEEEEsKsEEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPsNSE_6ParserIsEEEEEsKsEEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %279, %271
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPsNSE_6ParserIsEEEEEsKsEEDaS6_S8_SA_.exit.i.i: ; preds = %279, %271
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !37
   br label %451
@@ -3340,13 +3340,13 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %296 = load ptr, ptr %195, align 8, !noalias !37
   %297 = getelementptr inbounds i8, ptr %296, i64 72
   store ptr %297, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPiNSE_6ParserIiEEEEEiKiEEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPiNSE_6ParserIiEEEEEiKiEEDaS6_S8_SA_.exit.i.i
 
 298:                                              ; preds = %280
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tISL_ENS6_11DescriptionESJ_PKiEEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %288, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPiNSE_6ParserIiEEEEEiKiEEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPiNSE_6ParserIiEEEEEiKiEEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPiNSE_6ParserIiEEEEEiKiEEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %298, %290
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPiNSE_6ParserIiEEEEEiKiEEDaS6_S8_SA_.exit.i.i: ; preds = %298, %290
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !37
   br label %451
@@ -3389,13 +3389,13 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %315 = load ptr, ptr %195, align 8, !noalias !37
   %316 = getelementptr inbounds i8, ptr %315, i64 72
   store ptr %316, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPlNSE_6ParserIlEEEEElKlEEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPlNSE_6ParserIlEEEEElKlEEDaS6_S8_SA_.exit.i.i
 
 317:                                              ; preds = %299
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tISO_ENS6_11DescriptionESM_PKlEEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %307, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPlNSE_6ParserIlEEEEElKlEEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPlNSE_6ParserIlEEEEElKlEEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPlNSE_6ParserIlEEEEElKlEEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %317, %309
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPlNSE_6ParserIlEEEEElKlEEDaS6_S8_SA_.exit.i.i: ; preds = %317, %309
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17), !noalias !37
   br label %451
@@ -3438,13 +3438,13 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %334 = load ptr, ptr %195, align 8, !noalias !37
   %335 = getelementptr inbounds i8, ptr %334, i64 72
   store ptr %335, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPhNSE_6ParserIhEEEEEhKhEEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPhNSE_6ParserIhEEEEEhKhEEDaS6_S8_SA_.exit.i.i
 
 336:                                              ; preds = %318
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tISR_ENS6_11DescriptionESP_PKhEEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %326, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPhNSE_6ParserIhEEEEEhKhEEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPhNSE_6ParserIhEEEEEhKhEEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPhNSE_6ParserIhEEEEEhKhEEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %336, %328
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPhNSE_6ParserIhEEEEEhKhEEDaS6_S8_SA_.exit.i.i: ; preds = %336, %328
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !37
   br label %451
@@ -3487,13 +3487,13 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %353 = load ptr, ptr %195, align 8, !noalias !37
   %354 = getelementptr inbounds i8, ptr %353, i64 72
   store ptr %354, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPtNSE_6ParserItEEEEEtKtEEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPtNSE_6ParserItEEEEEtKtEEDaS6_S8_SA_.exit.i.i
 
 355:                                              ; preds = %337
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tISU_ENS6_11DescriptionESS_PKtEEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %345, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPtNSE_6ParserItEEEEEtKtEEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPtNSE_6ParserItEEEEEtKtEEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPtNSE_6ParserItEEEEEtKtEEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %355, %347
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPtNSE_6ParserItEEEEEtKtEEDaS6_S8_SA_.exit.i.i: ; preds = %355, %347
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !37
   br label %451
@@ -3536,13 +3536,13 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %372 = load ptr, ptr %195, align 8, !noalias !37
   %373 = getelementptr inbounds i8, ptr %372, i64 72
   store ptr %373, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPjNSE_6ParserIjEEEEEjKjEEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPjNSE_6ParserIjEEEEEjKjEEDaS6_S8_SA_.exit.i.i
 
 374:                                              ; preds = %356
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tISX_ENS6_11DescriptionESV_PKjEEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %364, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPjNSE_6ParserIjEEEEEjKjEEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPjNSE_6ParserIjEEEEEjKjEEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPjNSE_6ParserIjEEEEEjKjEEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %374, %366
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPjNSE_6ParserIjEEEEEjKjEEDaS6_S8_SA_.exit.i.i: ; preds = %374, %366
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !37
   br label %451
@@ -3585,13 +3585,13 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %391 = load ptr, ptr %195, align 8, !noalias !37
   %392 = getelementptr inbounds i8, ptr %391, i64 72
   store ptr %392, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPmNSE_6ParserImEEEEEmKmEEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPmNSE_6ParserImEEEEEmKmEEDaS6_S8_SA_.exit.i.i
 
 393:                                              ; preds = %375
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tIS10_ENS6_11DescriptionESY_PKmEEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %383, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPmNSE_6ParserImEEEEEmKmEEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPmNSE_6ParserImEEEEEmKmEEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPmNSE_6ParserImEEEEEmKmEEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %393, %385
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPmNSE_6ParserImEEEEEmKmEEDaS6_S8_SA_.exit.i.i: ; preds = %393, %385
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !37
   br label %451
@@ -3634,13 +3634,13 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %410 = load ptr, ptr %195, align 8, !noalias !37
   %411 = getelementptr inbounds i8, ptr %410, i64 72
   store ptr %411, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPfNSE_6ParserIfEEEEEfKfEEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPfNSE_6ParserIfEEEEEfKfEEDaS6_S8_SA_.exit.i.i
 
 412:                                              ; preds = %394
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tIS13_ENS6_11DescriptionES11_PKfEEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %402, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPfNSE_6ParserIfEEEEEfKfEEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPfNSE_6ParserIfEEEEEfKfEEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPfNSE_6ParserIfEEEEEfKfEEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %412, %404
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPfNSE_6ParserIfEEEEEfKfEEDaS6_S8_SA_.exit.i.i: ; preds = %412, %404
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !37
   br label %451
@@ -3683,13 +3683,13 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %429 = load ptr, ptr %195, align 8, !noalias !37
   %430 = getelementptr inbounds i8, ptr %429, i64 72
   store ptr %430, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPdNSE_6ParserIdEEEEEdKdEEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPdNSE_6ParserIdEEEEEdKdEEDaS6_S8_SA_.exit.i.i
 
 431:                                              ; preds = %413
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tIS16_ENS6_11DescriptionES14_PKdEEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %421, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPdNSE_6ParserIdEEEEEdKdEEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPdNSE_6ParserIdEEEEEdKdEEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPdNSE_6ParserIdEEEEEdKdEEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %431, %423
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPdNSE_6ParserIdEEEEEdKdEEDaS6_S8_SA_.exit.i.i: ; preds = %431, %423
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !37
   br label %451
@@ -3732,18 +3732,18 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %448 = load ptr, ptr %195, align 8, !noalias !37
   %449 = getelementptr inbounds i8, ptr %448, i64 72
   store ptr %449, ptr %195, align 8, !noalias !37
-  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIP15WasmEdge_StringNSE_6ParserISG_EEEEESG_KSG_EEDaS6_S8_SA_.argprom.exit.i.i
+  br label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIP15WasmEdge_StringNSE_6ParserISG_EEEEESG_KSG_EEDaS6_S8_SA_.exit.i.i
 
 450:                                              ; preds = %432
   invoke void @_ZNSt6vectorISt4pairIPK22WasmEdge_ProgramOptionSt7variantIJN8WasmEdge2PO6OptionIPNS6_6ToggleENS6_6ParserIbEEEENS7_IPaNSA_IaEEEENS7_IPsNSA_IsEEEENS7_IPiNSA_IiEEEENS7_IPlNSA_IlEEEENS7_IPhNSA_IhEEEENS7_IPtNSA_ItEEEENS7_IPjNSA_IjEEEENS7_IPmNSA_ImEEEENS7_IPfNSA_IfEEEENS7_IPdNSA_IdEEEENS7_IP15WasmEdge_StringNSA_IS17_EEEEEEESaIS1C_EE17_M_realloc_insertIJRKSt21piecewise_construct_tSt5tupleIJS3_EES1J_IJSt15in_place_type_tIS1A_ENS6_11DescriptionES18_PKS17_EEEEEvN9__gnu_cxx17__normal_iteratorIPS1C_S1E_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr %440, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIP15WasmEdge_StringNSE_6ParserISG_EEEEESG_KSG_EEDaS6_S8_SA_.argprom.exit.i.i unwind label %.loopexit.i.i, !noalias !37
+          to label %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIP15WasmEdge_StringNSE_6ParserISG_EEEEESG_KSG_EEDaS6_S8_SA_.exit.i.i unwind label %.loopexit.i.i, !noalias !37
 
-_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIP15WasmEdge_StringNSE_6ParserISG_EEEEESG_KSG_EEDaS6_S8_SA_.argprom.exit.i.i: ; preds = %450, %442
+_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIP15WasmEdge_StringNSE_6ParserISG_EEEEESG_KSG_EEDaS6_S8_SA_.exit.i.i: ; preds = %450, %442
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !37
   br label %451
 
-451:                                              ; preds = %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIP15WasmEdge_StringNSE_6ParserISG_EEEEESG_KSG_EEDaS6_S8_SA_.argprom.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPdNSE_6ParserIdEEEEEdKdEEDaS6_S8_SA_.argprom.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPfNSE_6ParserIfEEEEEfKfEEDaS6_S8_SA_.argprom.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPmNSE_6ParserImEEEEEmKmEEDaS6_S8_SA_.argprom.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPjNSE_6ParserIjEEEEEjKjEEDaS6_S8_SA_.argprom.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPtNSE_6ParserItEEEEEtKtEEDaS6_S8_SA_.argprom.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPhNSE_6ParserIhEEEEEhKhEEDaS6_S8_SA_.argprom.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPlNSE_6ParserIlEEEEElKlEEDaS6_S8_SA_.argprom.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPiNSE_6ParserIiEEEEEiKiEEDaS6_S8_SA_.argprom.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPsNSE_6ParserIsEEEEEsKsEEDaS6_S8_SA_.argprom.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPaNSE_6ParserIaEEEEEaKaEEDaS6_S8_SA_.argprom.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPNSE_6ToggleENSE_6ParserIbEEEEEbKbEEDaS6_S8_SA_.argprom.exit.i.i, %219
+451:                                              ; preds = %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIP15WasmEdge_StringNSE_6ParserISG_EEEEESG_KSG_EEDaS6_S8_SA_.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPdNSE_6ParserIdEEEEEdKdEEDaS6_S8_SA_.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPfNSE_6ParserIfEEEEEfKfEEDaS6_S8_SA_.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPmNSE_6ParserImEEEEEmKmEEDaS6_S8_SA_.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPjNSE_6ParserIjEEEEEjKjEEDaS6_S8_SA_.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPtNSE_6ParserItEEEEEtKtEEDaS6_S8_SA_.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPhNSE_6ParserIhEEEEEhKhEEDaS6_S8_SA_.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPlNSE_6ParserIlEEEEElKlEEDaS6_S8_SA_.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPiNSE_6ParserIiEEEEEiKiEEDaS6_S8_SA_.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPsNSE_6ParserIsEEEEEsKsEEDaS6_S8_SA_.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPaNSE_6ParserIaEEEEEaKaEEDaS6_S8_SA_.exit.i.i, %_ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDescriptorENKUlT_PT0_PT1_E_clISt15in_place_type_tINS_2PO6OptionIPNSE_6ToggleENSE_6ParserIbEEEEEbKbEEDaS6_S8_SA_.exit.i.i, %219
   %452 = add nuw nsw i64 %.053128.i.i, 1
   %453 = load i32, ptr %190, align 8, !noalias !37
   %454 = zext i32 %453 to i64
@@ -3797,7 +3797,7 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
   %469 = ptrtoint ptr %467 to i64
   %470 = sub i64 %468, %469
   %471 = icmp eq i64 %470, 9223372036854775800
-  br i1 %471, label %472, label %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %471, label %472, label %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
 
 472:                                              ; preds = %466
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.191) #29
@@ -3806,7 +3806,7 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
 .noexc20:                                         ; preds = %472
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %466
+_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %466
   %473 = ashr exact i64 %470, 3
   %474 = icmp eq ptr %460, %467
   %.sroa.speculated.i.i.i = select i1 %474, i64 1, i64 %473
@@ -3820,11 +3820,11 @@ _ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister
   %480 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %479) #31
           to label %.noexc21 unwind label %594
 
-.noexc21:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i
+.noexc21:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
   %481 = getelementptr inbounds i8, ptr %480, i64 %470
   %482 = ptrtoint ptr %130 to i64
   store i64 %482, ptr %481, align 8
-  br i1 %474, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit24.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %474, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc21, %.lr.ph.i.i.i.i.i
   %.03.i.i.i.i.i = phi ptr [ %484, %.lr.ph.i.i.i.i.i ], [ %480, %.noexc21 ]
@@ -3837,30 +3837,30 @@ _ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister
   %483 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 8
   %484 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i19 = icmp eq ptr %483, %460
-  br i1 %.not.i.i.i.i.i19, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit24.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !47
+  br i1 %.not.i.i.i.i.i19, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !47
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit24.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc21
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc21
   %.0.lcssa.i.i.i.i.i = phi ptr [ %480, %.noexc21 ], [ %484, %.lr.ph.i.i.i.i.i ]
   %485 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i25.i.i = icmp eq ptr %467, null
-  br i1 %.not.i25.i.i, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.argprom.exit.i, label %486
+  br i1 %.not.i25.i.i, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %486
 
-486:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit24.i.i
+486:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i
   %487 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, i64 16), align 8
   %488 = ptrtoint ptr %487 to i64
   %489 = sub i64 %488, %469
   call void @_ZdlPvm(ptr noundef nonnull %467, i64 noundef %489) #26
-  br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.argprom.exit.i
+  br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.argprom.exit.i: ; preds = %486, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit24.i.i
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %486, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit24.i.i
   store ptr %480, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, align 8
   store ptr %485, ptr getelementptr inbounds (i8, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, i64 8), align 8
   %490 = getelementptr inbounds %"class.std::unique_ptr.47", ptr %480, i64 %478
   store ptr %490, ptr getelementptr inbounds (i8, ptr @_ZN8WasmEdge6Plugin12_GLOBAL__N_119CAPIPluginRegistersE, i64 16), align 8
   br label %_ZNSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS3_EED2Ev.exit: ; preds = %462, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.argprom.exit.i
-  %491 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.argprom.exit.i ], [ %464, %462 ]
+_ZNSt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS3_EED2Ev.exit: ; preds = %462, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i
+  %491 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i ], [ %464, %462 ]
   %.val10 = load ptr, ptr %491, align 8
   %492 = getelementptr i8, ptr %.val10, i64 128
   %.val11 = load i8, ptr %492, align 8
@@ -4091,7 +4091,7 @@ _ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit: ; preds = %_ZNSt1
   %.053 = phi i1 [ false, %574 ], [ false, %586 ], [ true, %532 ], [ true, %549 ], [ true, %562 ], [ %.053.ph, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split ]
   ret i1 %.053
 
-594:                                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i, %472, %129, %127, %72, %1, %528
+594:                                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i, %472, %129, %127, %72, %1, %528
   %595 = landingpad { ptr, i32 }
           catch ptr null
   %596 = extractvalue { ptr, i32 } %595, 0
@@ -49120,15 +49120,15 @@ attributes #32 = { nounwind willreturn memory(read) }
 !35 = distinct !{!35, !"_ZNK8WasmEdge10Executable12createSymbolIFPK25WasmEdge_PluginDescriptorvEEENS_6SymbolIT_EEPS7_"}
 !36 = !{!34, !29}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZSt11make_uniqueIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEJRPK25WasmEdge_PluginDescriptorEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!39 = distinct !{!39, !"_ZSt11make_uniqueIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEJRPK25WasmEdge_PluginDescriptorEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!38 = distinct !{!38, !39, !"_ZSt11make_uniqueIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEJRPK25WasmEdge_PluginDescriptorEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!39 = distinct !{!39, !"_ZSt11make_uniqueIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterEJRPK25WasmEdge_PluginDescriptorEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_.argprom: argument 0"}
-!44 = distinct !{!44, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_.argprom"}
+!43 = distinct !{!43, !44, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!44 = distinct !{!44, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_"}
 !45 = !{!46}
-!46 = distinct !{!46, !44, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_.argprom: argument 1"}
+!46 = distinct !{!46, !44, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
 !47 = distinct !{!47, !5}
 !48 = !{!49}
 !49 = distinct !{!49, !50, !"_ZSt19__relocate_object_aIN8WasmEdge6Plugin12PluginModuleES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}

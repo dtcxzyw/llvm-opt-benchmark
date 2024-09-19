@@ -1635,7 +1635,7 @@ define void @_ZN3nix11getCgroupFSB5cxx11Ev(ptr dead_on_unwind noalias writable s
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  invoke fastcc void @"_ZZN3nix11getCgroupFSB5cxx11EvENK3$_0clB5cxx11Ev.argprom"()
+  invoke fastcc void @"_ZZN3nix11getCgroupFSB5cxx11EvENK3$_0clB5cxx11Ev"()
           to label %7 unwind label %13
 
 7:                                                ; preds = %6
@@ -1666,7 +1666,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nix11getCgroupFSB5cxx11EvENK3$_0clB5cxx11Ev.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nix11getCgroupFSB5cxx11EvENK3$_0clB5cxx11Ev"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::allocator", align 1
   %2 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   %.not = icmp eq ptr %2, null

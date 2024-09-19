@@ -693,13 +693,13 @@ while.body.i36:                                   ; preds = %do.body.i, %while.b
 if.then.i.i:                                      ; preds = %while.body.i36
   %cmp.i.i = icmp eq i64 %55, 1
   %cond.i.i = select i1 %cmp.i.i, ptr @.str.43, ptr @.str.44
-  br label %Q_.argprom.exit.i
+  br label %Q_.exit.i
 
 if.end.i.i:                                       ; preds = %while.body.i36
   %call.i.i = call ptr @ngettext(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i64 noundef %55) #14
-  br label %Q_.argprom.exit.i
+  br label %Q_.exit.i
 
-Q_.argprom.exit.i:                                ; preds = %if.end.i.i, %if.then.i.i
+Q_.exit.i:                                        ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end.i.i ], [ %cond.i.i, %if.then.i.i ]
   %call1.i = call i32 (ptr, ...) @printf_ln(ptr noundef %retval.0.i.i) #14
   %57 = load i32, ptr @clean_use_color, align 4
@@ -713,7 +713,7 @@ Q_.argprom.exit.i:                                ; preds = %if.end.i.i, %if.the
   %cmp.not.i = icmp eq i32 %58, -1
   br i1 %cmp.not.i, label %if.else.i40, label %if.then.i37
 
-if.then.i37:                                      ; preds = %Q_.argprom.exit.i
+if.then.i37:                                      ; preds = %Q_.exit.i
   %idxprom.i38 = sext i32 %58 to i64
   %fn.i = getelementptr inbounds [6 x %struct.menu_item], ptr %menus.i, i64 0, i64 %idxprom.i38, i32 3
   %59 = load ptr, ptr %fn.i, align 8
@@ -751,7 +751,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
   %call1.i18.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %retval.0.i.i17.i)
   br label %interactive_main_loop.exit
 
-if.else.i40:                                      ; preds = %Q_.argprom.exit.i
+if.else.i40:                                      ; preds = %Q_.exit.i
   call void @string_list_clear(ptr noundef nonnull @del_list, i32 noundef 0) #14
   %64 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i.i = icmp eq i32 %64, 0
@@ -994,20 +994,20 @@ do.body.i:                                        ; preds = %do.cond.i, %if.end6
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.34, i64 %prefix.addr.0.idx.i
   %0 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 18
-  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %1 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %1, %0
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !13
+  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !13
 
-skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
+skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.then8, label %if.end18
 
-if.then8:                                         ; preds = %skip_prefix.argprom.exit
+if.then8:                                         ; preds = %skip_prefix.exit
   %call9 = tail call i32 @lookup_config(ptr noundef nonnull @color_interactive_slots, i32 noundef 6, ptr noundef %scevgep.i) #14
   %cmp = icmp slt i32 %call9, 0
   br i1 %cmp, label %return, label %if.end11
@@ -1026,7 +1026,7 @@ if.end16:                                         ; preds = %if.end11
   %call17 = tail call i32 @color_parse(ptr noundef nonnull %value, ptr noundef nonnull %arrayidx) #14
   br label %return
 
-if.end18:                                         ; preds = %skip_prefix.argprom.exit
+if.end18:                                         ; preds = %skip_prefix.exit
   %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %var, ptr noundef nonnull dereferenceable(19) @.str.35) #16
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.then21, label %if.end24
@@ -2764,7 +2764,7 @@ for.end99.i:                                      ; preds = %for.inc97.i, %if.en
   call void @strbuf_list_free(ptr noundef nonnull %call.i49.i) #14
   %115 = load i32, ptr %nr1, align 4
   %cmp10223.i = icmp sgt i32 %115, 0
-  br i1 %cmp10223.i, label %for.body104.lr.ph.i, label %parse_choice.argprom.exit.thread
+  br i1 %cmp10223.i, label %for.body104.lr.ph.i, label %parse_choice.exit.thread
 
 for.body104.lr.ph.i:                              ; preds = %for.end99.i
   %wide.trip.count.i = zext nneg i32 %115 to i64
@@ -2778,31 +2778,31 @@ for.body104.i:                                    ; preds = %for.body104.i, %for
   %add.i = add nsw i32 %116, %nr.024.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %parse_choice.argprom.exit, label %for.body104.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %parse_choice.exit, label %for.body104.i, !llvm.loop !28
 
-parse_choice.argprom.exit:                        ; preds = %for.body104.i
+parse_choice.exit:                                ; preds = %for.body104.i
   %117 = load i32, ptr %flags, align 8
   %and46 = and i32 %117, 1
   %tobool47.not = icmp eq i32 %and46, 0
   br i1 %tobool47.not, label %if.else, label %if.then48
 
-parse_choice.argprom.exit.thread:                 ; preds = %for.end99.i
+parse_choice.exit.thread:                         ; preds = %for.end99.i
   %118 = load i32, ptr %flags, align 8
   %and4697 = and i32 %118, 1
   %tobool47.not98 = icmp eq i32 %and4697, 0
   br i1 %tobool47.not98, label %if.else, label %for.cond5.outer.backedge
 
-for.cond5.outer.backedge:                         ; preds = %parse_choice.argprom.exit.thread, %if.else, %if.then48
-  %nr.0.ph.be = phi i32 [ %nr.0.lcssa.i101, %if.else ], [ 0, %if.then48 ], [ 0, %parse_choice.argprom.exit.thread ]
+for.cond5.outer.backedge:                         ; preds = %parse_choice.exit.thread, %if.else, %if.then48
+  %nr.0.ph.be = phi i32 [ %nr.0.lcssa.i101, %if.else ], [ 0, %if.then48 ], [ 0, %parse_choice.exit.thread ]
   br label %for.cond5.outer
 
-if.then48:                                        ; preds = %parse_choice.argprom.exit
+if.then48:                                        ; preds = %parse_choice.exit
   %tobool49.not = icmp eq i32 %add.i, 0
   br i1 %tobool49.not, label %for.cond5.outer.backedge, label %if.end75
 
-if.else:                                          ; preds = %parse_choice.argprom.exit.thread, %parse_choice.argprom.exit
-  %119 = phi i32 [ %118, %parse_choice.argprom.exit.thread ], [ %117, %parse_choice.argprom.exit ]
-  %nr.0.lcssa.i101 = phi i32 [ 0, %parse_choice.argprom.exit.thread ], [ %add.i, %parse_choice.argprom.exit ]
+if.else:                                          ; preds = %parse_choice.exit.thread, %parse_choice.exit
+  %119 = phi i32 [ %118, %parse_choice.exit.thread ], [ %117, %parse_choice.exit ]
+  %nr.0.lcssa.i101 = phi i32 [ 0, %parse_choice.exit.thread ], [ %add.i, %parse_choice.exit ]
   %and53 = and i32 %119, 2
   %tobool54.not = icmp eq i32 %and53, 0
   br i1 %tobool54.not, label %for.cond5.outer.backedge, label %if.else62

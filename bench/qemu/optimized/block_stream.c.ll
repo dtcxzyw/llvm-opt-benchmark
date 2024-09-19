@@ -414,7 +414,7 @@ entry:
   %call1 = tail call ptr @bdrv_skip_filters(ptr noundef %0) #5
   %1 = load ptr, ptr %base_overlay, align 8
   %cmp = icmp eq ptr %call1, %1
-  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockable.argprom.exit, label %if.end
+  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockable.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %target_bs, align 8
@@ -424,7 +424,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %conv = trunc i64 %call3 to i32
-  br label %glib_autoptr_cleanup_GraphLockable.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockable.exit
 
 for.inc:                                          ; preds = %if.end
   tail call void @bdrv_graph_co_rdunlock() #5
@@ -432,7 +432,7 @@ for.inc:                                          ; preds = %if.end
   %cmp968.not = icmp eq i64 %call3, 0
   br i1 %cmp968.not, label %return, label %for.body11.lr.ph
 
-glib_autoptr_cleanup_GraphLockable.argprom.exit:  ; preds = %entry, %if.then5
+glib_autoptr_cleanup_GraphLockable.exit:          ; preds = %entry, %if.then5
   %retval.0.ph = phi i32 [ %conv, %if.then5 ], [ 0, %entry ]
   tail call void @bdrv_graph_co_rdunlock() #5
   br label %return
@@ -582,8 +582,8 @@ for.inc76:                                        ; preds = %if.end69, %if.then7
   %cmp9 = icmp slt i64 %add, %call3
   br i1 %cmp9, label %for.body11, label %return, !llvm.loop !8
 
-return:                                           ; preds = %if.end60, %for.body11, %for.inc76, %for.inc, %glib_autoptr_cleanup_GraphLockable.argprom.exit
-  %retval.1 = phi i32 [ %retval.0.ph, %glib_autoptr_cleanup_GraphLockable.argprom.exit ], [ 0, %for.inc ], [ %spec.select, %if.end60 ], [ %error.070, %for.body11 ], [ %error.3, %for.inc76 ]
+return:                                           ; preds = %if.end60, %for.body11, %for.inc76, %for.inc, %glib_autoptr_cleanup_GraphLockable.exit
+  %retval.1 = phi i32 [ %retval.0.ph, %glib_autoptr_cleanup_GraphLockable.exit ], [ 0, %for.inc ], [ %spec.select, %if.end60 ], [ %error.070, %for.body11 ], [ %error.3, %for.inc76 ]
   ret i32 %retval.1
 }
 

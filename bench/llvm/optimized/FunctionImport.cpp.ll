@@ -792,7 +792,7 @@ $_ZTV22WorkloadImportsManager = comdat any
 @.str.126 = private unnamed_addr constant [7 x i8] c".llvm.\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_FunctionImport.cpp, ptr null }]
 @switch.table._ZN20ModuleImportsManager22computeImportForModuleERKN4llvm8DenseMapImPNS0_18GlobalValueSummaryENS0_12DenseMapInfoImvEENS0_6detail12DenseMapPairImS3_EEEENS0_9StringRefERNS0_16FunctionImporter11ImportMapTyE.47 = private unnamed_addr constant [5 x ptr] [ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108], align 8
-@switch.table._ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE.argprom.argelim = private unnamed_addr constant [8 x ptr] [ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103], align 8
+@switch.table._ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE = private unnamed_addr constant [8 x ptr] [ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
@@ -1816,7 +1816,7 @@ _ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit: ; preds = %_ZNK4llvm18Module
 46:                                               ; preds = %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit
   %47 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16ImportInstrLimit, i64 128), align 8
   %48 = load ptr, ptr %13, align 8
-  call fastcc void @_ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(136) %.0.i, ptr noundef nonnull align 8 dereferenceable(488) %31, i32 noundef %47, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(20) %8)
+  call fastcc void @_ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE(ptr noundef nonnull align 8 dereferenceable(136) %.0.i, ptr noundef nonnull align 8 dereferenceable(488) %31, i32 noundef %47, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %49
 
 49:                                               ; preds = %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit, %46
@@ -1859,7 +1859,7 @@ _ZN4llvm16DenseMapIteratorImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6d
   %64 = inttoptr i64 %59 to ptr
   %65 = load ptr, ptr %10, align 8
   %66 = load ptr, ptr %13, align 8
-  call fastcc void @_ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(136) %64, ptr noundef nonnull align 8 dereferenceable(488) %65, i32 noundef %57, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(20) %8)
+  call fastcc void @_ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE(ptr noundef nonnull align 8 dereferenceable(136) %64, ptr noundef nonnull align 8 dereferenceable(488) %65, i32 noundef %57, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %67
 
 67:                                               ; preds = %63, %.lr.ph119
@@ -2050,7 +2050,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit70:               ; preds = %155, %157
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 12
   %162 = load i32, ptr %161, align 4
   %163 = sext i32 %162 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE.argprom.argelim, i64 0, i64 %163
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE, i64 0, i64 %163
   %switch.load = load ptr, ptr %switch.gep, align 8
   %164 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #26
   %165 = getelementptr inbounds nuw i8, ptr %.0.i.i69, i64 24
@@ -2331,7 +2331,7 @@ _ZN4llvm11SmallVectorISt5tupleIJPKNS_15FunctionSummaryEjEELj128EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(20) %8) unnamed_addr #0 {
+define internal fastcc void @_ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(20) %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = alloca %"class.std::allocator", align 1
@@ -2425,7 +2425,7 @@ define internal fastcc void @_ZL24computeImportForFunctionRKN4llvm15FunctionSumm
   %70 = load i32, ptr %69, align 4
   %71 = trunc i32 %70 to i8
   %72 = and i8 %71, 7
-  switch i8 %72, label %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.argprom.exit" [
+  switch i8 %72, label %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.exit" [
     i8 3, label %73
     i8 1, label %75
     i8 4, label %77
@@ -2433,17 +2433,17 @@ define internal fastcc void @_ZL24computeImportForFunctionRKN4llvm15FunctionSumm
 
 73:                                               ; preds = %.loopexit
   %74 = load float, ptr getelementptr inbounds (i8, ptr @_ZL19ImportHotMultiplier, i64 128), align 8
-  br label %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.argprom.exit"
+  br label %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.exit"
 
 75:                                               ; preds = %.loopexit
   %76 = load float, ptr getelementptr inbounds (i8, ptr @_ZL20ImportColdMultiplier, i64 128), align 8
-  br label %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.argprom.exit"
+  br label %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.exit"
 
 77:                                               ; preds = %.loopexit
   %78 = load float, ptr getelementptr inbounds (i8, ptr @_ZL24ImportCriticalMultiplier, i64 128), align 8
-  br label %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.argprom.exit"
+  br label %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.exit"
 
-"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.argprom.exit": ; preds = %.loopexit, %73, %75, %77
+"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.exit": ; preds = %.loopexit, %73, %75, %77
   %.0.i = phi float [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ 1.000000e+00, %.loopexit ]
   %79 = fmul float %.0.i, %31
   store i64 %47, ptr %14, align 8
@@ -2455,7 +2455,7 @@ define internal fastcc void @_ZL24computeImportForFunctionRKN4llvm15FunctionSumm
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %108, label %84
 
-84:                                               ; preds = %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.argprom.exit"
+84:                                               ; preds = %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.exit"
   %85 = mul i64 %47, -4658895280553007687
   %86 = lshr i64 %85, 31
   %87 = xor i64 %86, %85
@@ -2496,8 +2496,8 @@ define internal fastcc void @_ZL24computeImportForFunctionRKN4llvm15FunctionSumm
   %107 = icmp eq i64 %47, %106
   br i1 %107, label %_ZNSt4pairImSt5tupleIJjPKN4llvm18GlobalValueSummaryESt10unique_ptrINS1_16FunctionImporter17ImportFailureInfoESt14default_deleteIS7_EEEEED2Ev.exit, label %.lr.ph.i.i.i.i68, !llvm.loop !79
 
-108:                                              ; preds = %97, %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.argprom.exit"
-  %.sink.i.i.i.i = phi ptr [ %98, %97 ], [ null, %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.argprom.exit" ]
+108:                                              ; preds = %97, %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.exit"
+  %.sink.i.i.i.i = phi ptr [ %98, %97 ], [ null, %"_ZZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEEENK3$_0clENS_10CalleeInfo11HotnessTypeE.exit" ]
   %109 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImSt5tupleIJjPKNS_18GlobalValueSummaryESt10unique_ptrINS_16FunctionImporter17ImportFailureInfoESt14default_deleteIS8_EEEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSC_EEEEmSC_SE_SH_E20InsertIntoBucketImplImEEPSH_RKmRKT_SL_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %.sink.i.i.i.i), !noalias !74
   %110 = load i64, ptr %14, align 8, !noalias !74
   store i64 %110, ptr %109, align 8, !noalias !74
@@ -2854,7 +2854,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %250 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.91) #26, !noalias !89
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %250) #26
   %251 = sext i32 %.034.ph47 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE.argprom.argelim, i64 0, i64 %251
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZL24computeImportForFunctionRKN4llvm15FunctionSummaryERKNS_18ModuleSummaryIndexEjRKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEENS_12function_refIFbmPKS7_EEERNS_15SmallVectorImplISt5tupleIJPS1_jEEEER15GlobalsImporterRNS_16FunctionImporter11ImportMapTyEPNS6_INS_9StringRefENS_8DenseSetINS_9ValueInfoENS9_ISZ_vEEEENS9_ISX_vEENSC_ISX_S11_EEEERNS6_ImSN_IJjSJ_St10unique_ptrINSU_17ImportFailureInfoESt14default_deleteIS17_EEEESA_NSC_ImS1B_EEEE, i64 0, i64 %251
   %switch.load = load ptr, ptr %switch.gep, align 8
   %252 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %switch.load) #26, !noalias !92
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %252) #26
@@ -5681,7 +5681,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit: ; preds = %32, %_ZNKSt8_Rb_t
   %63 = getelementptr i8, ptr %.029.val.i.i.i.i.i.i, i64 8
   %.029.val.val.i.i.i.i.i.i = load i32, ptr %63, align 8
   %64 = icmp eq i32 %.029.val.val.i.i.i.i.i.i, 2
-  br i1 %64, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit", label %65
+  br i1 %64, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit", label %65
 
 65:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %66 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 8
@@ -5689,7 +5689,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit: ; preds = %32, %_ZNKSt8_Rb_t
   %67 = getelementptr i8, ptr %.val.i.i.i.i.i.i, i64 8
   %.val.val.i.i.i.i.i.i = load i32, ptr %67, align 8
   %68 = icmp eq i32 %.val.val.i.i.i.i.i.i, 2
-  br i1 %68, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %69
+  br i1 %68, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %69
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 16
@@ -5697,7 +5697,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit: ; preds = %32, %_ZNKSt8_Rb_t
   %71 = getelementptr i8, ptr %.val30.i.i.i.i.i.i, i64 8
   %.val30.val.i.i.i.i.i.i = load i32, ptr %71, align 8
   %72 = icmp eq i32 %.val30.val.i.i.i.i.i.i, 2
-  br i1 %72, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit46", label %73
+  br i1 %72, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit46", label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 24
@@ -5705,7 +5705,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit: ; preds = %32, %_ZNKSt8_Rb_t
   %75 = getelementptr i8, ptr %.val31.i.i.i.i.i.i, i64 8
   %.val31.val.i.i.i.i.i.i = load i32, ptr %75, align 8
   %76 = icmp eq i32 %.val31.val.i.i.i.i.i.i, 2
-  br i1 %76, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit48", label %77
+  br i1 %76, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48", label %77
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 32
@@ -5720,7 +5720,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit: ; preds = %32, %_ZNKSt8_Rb_t
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %_ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit
   %.pre-phi50.i.i.i.i.i.i = phi i64 [ %81, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %59, %_ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %53, %_ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit ]
-  switch i64 %.pre-phi50.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread" [
+  switch i64 %.pre-phi50.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread" [
     i64 3, label %82
     i64 2, label %87
     i64 1, label %92
@@ -5731,7 +5731,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit: ; preds = %32, %_ZNKSt8_Rb_t
   %83 = getelementptr i8, ptr %.029.val32.i.i.i.i.i.i, i64 8
   %.029.val32.val.i.i.i.i.i.i = load i32, ptr %83, align 8
   %84 = icmp eq i32 %.029.val32.val.i.i.i.i.i.i, 2
-  br i1 %84, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit", label %85
+  br i1 %84, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit", label %85
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
@@ -5743,7 +5743,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit: ; preds = %32, %_ZNKSt8_Rb_t
   %88 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i, i64 8
   %.1.val.val.i.i.i.i.i.i = load i32, ptr %88, align 8
   %89 = icmp eq i32 %.1.val.val.i.i.i.i.i.i, 2
-  br i1 %89, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit", label %90
+  br i1 %89, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit", label %90
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
@@ -5755,30 +5755,30 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit: ; preds = %32, %_ZNKSt8_Rb_t
   %93 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i, i64 8
   %.2.val.val.i.i.i.i.i.i = load i32, ptr %93, align 8
   %94 = icmp eq i32 %.2.val.val.i.i.i.i.i.i, 2
-  br i1 %94, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread"
+  br i1 %94, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %65
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %65
   %95 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit46": ; preds = %69
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit46": ; preds = %69
   %96 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit48": ; preds = %73
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48": ; preds = %73
   %97 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit46", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit48", %82, %87, %92
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %82 ], [ %.1.i.i.i.i.i.i, %87 ], [ %.2.i.i.i.i.i.i, %92 ], [ %95, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %96, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit46" ], [ %97, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit48" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit46", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48", %82, %87, %92
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %82 ], [ %.1.i.i.i.i.i.i, %87 ], [ %.2.i.i.i.i.i.i, %92 ], [ %95, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %96, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit46" ], [ %97, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not31 = icmp eq ptr %55, %.028.i.i.i.i.i.i
-  br i1 %.not31, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread", label %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread
+  br i1 %.not31, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread", label %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread": ; preds = %92, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit"
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread": ; preds = %92, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit"
   store i64 %49, ptr %.sroa.027.041, align 8
   br label %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread
 
-_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread: ; preds = %19, %_ZNKSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit", %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit, %11, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread"
+_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread: ; preds = %19, %_ZNKSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit", %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit, %11, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread"
   %98 = getelementptr inbounds i8, ptr %.sroa.027.041, i64 16
   %.not = icmp eq ptr %98, %6
   br i1 %.not, label %._crit_edge, label %11
@@ -5941,7 +5941,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %73 = getelementptr i8, ptr %.029.val.i.i.i.i.i.i.i, i64 8
   %.029.val.val.i.i.i.i.i.i.i = load i32, ptr %73, align 8
   %74 = icmp eq i32 %.029.val.val.i.i.i.i.i.i.i, 2
-  br i1 %74, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", label %75
+  br i1 %74, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", label %75
 
 75:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %76 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 8
@@ -5949,7 +5949,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %77 = getelementptr i8, ptr %.val.i.i.i.i.i.i.i, i64 8
   %.val.val.i.i.i.i.i.i.i = load i32, ptr %77, align 8
   %78 = icmp eq i32 %.val.val.i.i.i.i.i.i.i, 2
-  br i1 %78, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit", label %79
+  br i1 %78, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit", label %79
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 16
@@ -5957,7 +5957,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %81 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i, i64 8
   %.val30.val.i.i.i.i.i.i.i = load i32, ptr %81, align 8
   %82 = icmp eq i32 %.val30.val.i.i.i.i.i.i.i, 2
-  br i1 %82, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit39", label %83
+  br i1 %82, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit39", label %83
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 24
@@ -5965,7 +5965,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %85 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i, i64 8
   %.val31.val.i.i.i.i.i.i.i = load i32, ptr %85, align 8
   %86 = icmp eq i32 %.val31.val.i.i.i.i.i.i.i, 2
-  br i1 %86, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit41", label %87
+  br i1 %86, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit41", label %87
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 32
@@ -5980,7 +5980,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %_ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i
   %.pre-phi50.i.i.i.i.i.i.i = phi i64 [ %91, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %69, %_ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i ]
   %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %63, %_ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i ]
-  switch i64 %.pre-phi50.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread.i" [
+  switch i64 %.pre-phi50.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread.i" [
     i64 3, label %92
     i64 2, label %97
     i64 1, label %102
@@ -5991,7 +5991,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %93 = getelementptr i8, ptr %.029.val32.i.i.i.i.i.i.i, i64 8
   %.029.val32.val.i.i.i.i.i.i.i = load i32, ptr %93, align 8
   %94 = icmp eq i32 %.029.val32.val.i.i.i.i.i.i.i, 2
-  br i1 %94, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", label %95
+  br i1 %94, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", label %95
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 8
@@ -6003,7 +6003,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %98 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i, i64 8
   %.1.val.val.i.i.i.i.i.i.i = load i32, ptr %98, align 8
   %99 = icmp eq i32 %.1.val.val.i.i.i.i.i.i.i, 2
-  br i1 %99, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", label %100
+  br i1 %99, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", label %100
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i.i, i64 8
@@ -6015,30 +6015,30 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %103 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i, i64 8
   %.2.val.val.i.i.i.i.i.i.i = load i32, ptr %103, align 8
   %104 = icmp eq i32 %.2.val.val.i.i.i.i.i.i.i, 2
-  br i1 %104, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread.i"
+  br i1 %104, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread.i"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit": ; preds = %75
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit": ; preds = %75
   %105 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit39": ; preds = %79
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit39": ; preds = %79
   %106 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit41": ; preds = %83
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit41": ; preds = %83
   %107 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit39", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit41", %102, %97, %92
-  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %92 ], [ %.1.i.i.i.i.i.i.i, %97 ], [ %.2.i.i.i.i.i.i.i, %102 ], [ %105, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit" ], [ %106, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit39" ], [ %107, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit41" ], [ %.02943.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit39", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit41", %102, %97, %92
+  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %92 ], [ %.1.i.i.i.i.i.i.i, %97 ], [ %.2.i.i.i.i.i.i.i, %102 ], [ %105, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %106, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit39" ], [ %107, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit41" ], [ %.02943.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %.not31.i = icmp eq ptr %65, %.028.i.i.i.i.i.i.i
-  br i1 %.not31.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread.i", label %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread.i
+  br i1 %.not31.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread.i", label %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread.i
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread.i": ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", %102, %._crit_edge.i.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread.i": ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", %102, %._crit_edge.i.i.i.i.i.i.i
   store i64 %59, ptr %.sroa.027.041.i, align 8
   br label %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread.i
 
-_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread.i: ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread.i", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.i, %_ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i.i, %_ZNKSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %29, %.lr.ph.i
+_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread.i: ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread.i", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.i, %_ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i.i, %_ZNKSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %29, %.lr.ph.i
   %108 = getelementptr inbounds i8, ptr %.sroa.027.041.i, i64 16
   %.not.i = icmp eq ptr %108, %21
   br i1 %.not.i, label %_Z31updateValueInfoForIndirectCallsRN4llvm18ModuleSummaryIndexEPNS_15FunctionSummaryE.exit, label %.lr.ph.i
@@ -6372,7 +6372,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %146 = getelementptr i8, ptr %.029.val.i.i.i.i.i.i.i, i64 8
   %.029.val.val.i.i.i.i.i.i.i = load i32, ptr %146, align 8
   %147 = icmp eq i32 %.029.val.val.i.i.i.i.i.i.i, 2
-  br i1 %147, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", label %148
+  br i1 %147, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", label %148
 
 148:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %149 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 8
@@ -6380,7 +6380,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %150 = getelementptr i8, ptr %.val.i.i.i.i.i.i.i, i64 8
   %.val.val.i.i.i.i.i.i.i = load i32, ptr %150, align 8
   %151 = icmp eq i32 %.val.val.i.i.i.i.i.i.i, 2
-  br i1 %151, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit", label %152
+  br i1 %151, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit", label %152
 
 152:                                              ; preds = %148
   %153 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 16
@@ -6388,7 +6388,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %154 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i, i64 8
   %.val30.val.i.i.i.i.i.i.i = load i32, ptr %154, align 8
   %155 = icmp eq i32 %.val30.val.i.i.i.i.i.i.i, 2
-  br i1 %155, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit167", label %156
+  br i1 %155, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit167", label %156
 
 156:                                              ; preds = %152
   %157 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 24
@@ -6396,7 +6396,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %158 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i, i64 8
   %.val31.val.i.i.i.i.i.i.i = load i32, ptr %158, align 8
   %159 = icmp eq i32 %.val31.val.i.i.i.i.i.i.i, 2
-  br i1 %159, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit169", label %160
+  br i1 %159, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit169", label %160
 
 160:                                              ; preds = %156
   %161 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 32
@@ -6411,7 +6411,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %_ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i
   %.pre-phi50.i.i.i.i.i.i.i = phi i64 [ %164, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %142, %_ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i ]
   %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %136, %_ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i ]
-  switch i64 %.pre-phi50.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread.i" [
+  switch i64 %.pre-phi50.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread.i" [
     i64 3, label %165
     i64 2, label %170
     i64 1, label %175
@@ -6422,7 +6422,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %166 = getelementptr i8, ptr %.029.val32.i.i.i.i.i.i.i, i64 8
   %.029.val32.val.i.i.i.i.i.i.i = load i32, ptr %166, align 8
   %167 = icmp eq i32 %.029.val32.val.i.i.i.i.i.i.i, 2
-  br i1 %167, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", label %168
+  br i1 %167, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", label %168
 
 168:                                              ; preds = %165
   %169 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 8
@@ -6434,7 +6434,7 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %171 = getelementptr i8, ptr %.1.val.i.i.i.i.i.i.i, i64 8
   %.1.val.val.i.i.i.i.i.i.i = load i32, ptr %171, align 8
   %172 = icmp eq i32 %.1.val.val.i.i.i.i.i.i.i, 2
-  br i1 %172, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", label %173
+  br i1 %172, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", label %173
 
 173:                                              ; preds = %170
   %174 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i.i, i64 8
@@ -6446,30 +6446,30 @@ _ZNK4llvm18ModuleSummaryIndex12getValueInfoEm.exit.i: ; preds = %_ZNKSt3mapImN4l
   %176 = getelementptr i8, ptr %.2.val.i.i.i.i.i.i.i, i64 8
   %.2.val.val.i.i.i.i.i.i.i = load i32, ptr %176, align 8
   %177 = icmp eq i32 %.2.val.val.i.i.i.i.i.i.i, 2
-  br i1 %177, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread.i"
+  br i1 %177, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread.i"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit": ; preds = %148
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit": ; preds = %148
   %178 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit167": ; preds = %152
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit167": ; preds = %152
   %179 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit169": ; preds = %156
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit169": ; preds = %156
   %180 = getelementptr inbounds i8, ptr %.02943.i.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit167", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit169", %175, %170, %165
-  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %165 ], [ %.1.i.i.i.i.i.i.i, %170 ], [ %.2.i.i.i.i.i.i.i, %175 ], [ %178, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit" ], [ %179, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit167" ], [ %180, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i.loopexit.split.loop.exit169" ], [ %.02943.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit167", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit169", %175, %170, %165
+  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %165 ], [ %.1.i.i.i.i.i.i.i, %170 ], [ %.2.i.i.i.i.i.i.i, %175 ], [ %178, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %179, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit167" ], [ %180, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit169" ], [ %.02943.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %.not31.i = icmp eq ptr %138, %.028.i.i.i.i.i.i.i
-  br i1 %.not31.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread.i", label %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread.i
+  br i1 %.not31.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread.i", label %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread.i
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread.i": ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", %175, %._crit_edge.i.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread.i": ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", %175, %._crit_edge.i.i.i.i.i.i.i
   store i64 %132, ptr %.sroa.027.041.i, align 8
   br label %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread.i
 
-_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread.i: ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.thread.i", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.argprom.exit.i", %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.i, %_ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i.i, %_ZNKSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %102, %.lr.ph.i
+_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.thread.i: ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.thread.i", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZ31updateValueInfoForIndirectCallsRNS_18ModuleSummaryIndexEPNS_15FunctionSummaryEE3$_0EEbOT_T0_.exit.i", %_ZNK4llvm18ModuleSummaryIndex21getGUIDFromOriginalIDEm.exit.i, %_ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i.i, %_ZNKSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %102, %.lr.ph.i
   %181 = getelementptr inbounds i8, ptr %.sroa.027.041.i, i64 16
   %.not.i = icmp eq ptr %181, %94
   br i1 %.not.i, label %_Z31updateValueInfoForIndirectCallsRN4llvm18ModuleSummaryIndexEPNS_15FunctionSummaryE.exit.loopexit, label %.lr.ph.i
@@ -6656,7 +6656,7 @@ define internal fastcc void @"_ZZN4llvm40computeDeadSymbolsAndUpdateIndirectCall
   %.029.val.val.i.i.i.i.i.i = load i16, ptr %17, align 4
   %18 = and i16 %.029.val.val.i.i.i.i.i.i, 128
   %.not35.i.i.i.i.i.i = icmp eq i16 %18, 0
-  br i1 %.not35.i.i.i.i.i.i, label %19, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit"
+  br i1 %.not35.i.i.i.i.i.i, label %19, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit"
 
 19:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 8
@@ -6665,7 +6665,7 @@ define internal fastcc void @"_ZZN4llvm40computeDeadSymbolsAndUpdateIndirectCall
   %.val.val.i.i.i.i.i.i = load i16, ptr %21, align 4
   %22 = and i16 %.val.val.i.i.i.i.i.i, 128
   %.not36.i.i.i.i.i.i = icmp eq i16 %22, 0
-  br i1 %.not36.i.i.i.i.i.i, label %23, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit"
+  br i1 %.not36.i.i.i.i.i.i, label %23, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit"
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 16
@@ -6674,7 +6674,7 @@ define internal fastcc void @"_ZZN4llvm40computeDeadSymbolsAndUpdateIndirectCall
   %.val30.val.i.i.i.i.i.i = load i16, ptr %25, align 4
   %26 = and i16 %.val30.val.i.i.i.i.i.i, 128
   %.not37.i.i.i.i.i.i = icmp eq i16 %26, 0
-  br i1 %.not37.i.i.i.i.i.i, label %27, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit77"
+  br i1 %.not37.i.i.i.i.i.i, label %27, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit77"
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 24
@@ -6683,7 +6683,7 @@ define internal fastcc void @"_ZZN4llvm40computeDeadSymbolsAndUpdateIndirectCall
   %.val31.val.i.i.i.i.i.i = load i16, ptr %29, align 4
   %30 = and i16 %.val31.val.i.i.i.i.i.i, 128
   %.not38.i.i.i.i.i.i = icmp eq i16 %30, 0
-  br i1 %.not38.i.i.i.i.i.i, label %31, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit79"
+  br i1 %.not38.i.i.i.i.i.i, label %31, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit79"
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 32
@@ -6698,7 +6698,7 @@ define internal fastcc void @"_ZZN4llvm40computeDeadSymbolsAndUpdateIndirectCall
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %3
   %.pre-phi56.i.i.i.i.i.i = phi i64 [ %35, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %13, %3 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %7, %3 ]
-  switch i64 %.pre-phi56.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.thread" [
+  switch i64 %.pre-phi56.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.thread" [
     i64 3, label %36
     i64 2, label %41
     i64 1, label %46
@@ -6710,7 +6710,7 @@ define internal fastcc void @"_ZZN4llvm40computeDeadSymbolsAndUpdateIndirectCall
   %.029.val32.val.i.i.i.i.i.i = load i16, ptr %37, align 4
   %38 = and i16 %.029.val32.val.i.i.i.i.i.i, 128
   %.not.i.i.i.i.i.i = icmp eq i16 %38, 0
-  br i1 %.not.i.i.i.i.i.i, label %39, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit"
+  br i1 %.not.i.i.i.i.i.i, label %39, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit"
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
@@ -6723,7 +6723,7 @@ define internal fastcc void @"_ZZN4llvm40computeDeadSymbolsAndUpdateIndirectCall
   %.1.val.val.i.i.i.i.i.i = load i16, ptr %42, align 4
   %43 = and i16 %.1.val.val.i.i.i.i.i.i, 128
   %.not33.i.i.i.i.i.i = icmp eq i16 %43, 0
-  br i1 %.not33.i.i.i.i.i.i, label %44, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit"
+  br i1 %.not33.i.i.i.i.i.i, label %44, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit"
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
@@ -6736,26 +6736,26 @@ define internal fastcc void @"_ZZN4llvm40computeDeadSymbolsAndUpdateIndirectCall
   %.2.val.val.i.i.i.i.i.i = load i16, ptr %47, align 4
   %48 = and i16 %.2.val.val.i.i.i.i.i.i, 128
   %.not34.i.i.i.i.i.i = icmp eq i16 %48, 0
-  br i1 %.not34.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.thread", label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit"
+  br i1 %.not34.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.thread", label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %19
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %19
   %49 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit77": ; preds = %23
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit77": ; preds = %23
   %50 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit79": ; preds = %27
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit79": ; preds = %27
   %51 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit77", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit79", %36, %41, %46
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %36 ], [ %.1.i.i.i.i.i.i, %41 ], [ %.2.i.i.i.i.i.i, %46 ], [ %49, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %50, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit77" ], [ %51, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.loopexit.split.loop.exit79" ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit77", %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit79", %36, %41, %46
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %36 ], [ %.1.i.i.i.i.i.i, %41 ], [ %.2.i.i.i.i.i.i, %46 ], [ %49, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %50, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit77" ], [ %51, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.loopexit.split.loop.exit79" ], [ %.02949.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not45 = icmp eq ptr %9, %.028.i.i.i.i.i.i
-  br i1 %.not45, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.thread", label %.thread
+  br i1 %.not45, label %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.thread", label %.thread
 
-"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.thread": ; preds = %46, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit"
+"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.thread": ; preds = %46, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit"
   %52 = load ptr, ptr %0, align 8
   %53 = load i64, ptr %5, align 8
   %54 = load ptr, ptr %52, align 8
@@ -6767,7 +6767,7 @@ define internal fastcc void @"_ZZN4llvm40computeDeadSymbolsAndUpdateIndirectCall
   %.pre70 = load ptr, ptr %8, align 8
   br i1 %58, label %59, label %70
 
-59:                                               ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.thread"
+59:                                               ; preds = %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.thread"
   %.not56 = icmp eq ptr %.pre, %.pre70
   br i1 %.not56, label %._crit_edge.thread, label %.lr.ph
 
@@ -6825,7 +6825,7 @@ _ZN4llvm11GlobalValue21isInterposableLinkageENS0_12LinkageTypesE.exit: ; preds =
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.109, i1 noundef zeroext true) #28
   unreachable
 
-70:                                               ; preds = %._crit_edge.thread, %._crit_edge, %68, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit.thread"
+70:                                               ; preds = %._crit_edge.thread, %._crit_edge, %68, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit.thread"
   %.not2461 = icmp eq ptr %.pre, %.pre70
   br i1 %.not2461, label %._crit_edge65, label %.lr.ph64
 
@@ -6869,7 +6869,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9ValueInfoELb1EE9push_backES1_.exit: ; pred
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %81, i64 noundef %91) #26
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge.thread, %67, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.argprom.exit", %_ZN4llvm23SmallVectorTemplateBaseINS_9ValueInfoELb1EE9push_backES1_.exit
+.thread:                                          ; preds = %._crit_edge.thread, %67, %"_ZN4llvm6any_ofINS_8ArrayRefISt10unique_ptrINS_18GlobalValueSummaryESt14default_deleteIS3_EEEEZZNS_40computeDeadSymbolsAndUpdateIndirectCallsERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEENK3$_0clENS_9ValueInfoEbEUlRKS6_E_EEbOT_T0_.exit", %_ZN4llvm23SmallVectorTemplateBaseINS_9ValueInfoELb1EE9push_backES1_.exit
   ret void
 }
 
@@ -7079,7 +7079,7 @@ _ZNK4llvm16FunctionImporter11ImportMapTy5beginEv.exit: ; preds = %.lr.ph.i6.i12.
   store i64 %.sroa.2.0.copyload, ptr %81, align 8
   %93 = call ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm8DenseMapImPNS8_18GlobalValueSummaryENS8_12DenseMapInfoImvEENS8_6detail12DenseMapPairImSB_EEEEESt10_Select1stISI_ESt4lessIvESaISI_EE10_M_find_trINS8_9StringRefEvEESt23_Rb_tree_const_iteratorISI_ERKT_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(16) %11)
   %94 = icmp eq ptr %93, %47
-  br i1 %94, label %95, label %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.argprom.exit"
+  br i1 %94, label %95, label %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.exit"
 
 95:                                               ; preds = %84
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #26
@@ -7142,9 +7142,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8DenseMapImP
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %113, i64 noundef %116, i64 noundef 8) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #26
-  br label %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.argprom.exit"
+  br label %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.exit"
 
-"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.argprom.exit": ; preds = %84, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8DenseMapImPNS6_18GlobalValueSummaryENS6_12DenseMapInfoImvEENS6_6detail12DenseMapPairImS9_EEEESt4lessIvESaISt4pairIKS5_SF_EEE11try_emplaceIJSF_EEESI_ISt17_Rb_tree_iteratorISK_EbEOS5_DpOT_.exit.i
+"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.exit": ; preds = %84, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8DenseMapImPNS6_18GlobalValueSummaryENS6_12DenseMapInfoImvEENS6_6detail12DenseMapPairImS9_EEEESt4lessIvESaISt4pairIKS5_SF_EEE11try_emplaceIJSF_EEESI_ISt17_Rb_tree_iteratorISK_EbEOS5_DpOT_.exit.i
   %.sroa.0.0.i = phi ptr [ %.sroa.011.0.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8DenseMapImPNS6_18GlobalValueSummaryENS6_12DenseMapInfoImvEENS6_6detail12DenseMapPairImS9_EEEESt4lessIvESaISt4pairIKS5_SF_EEE11try_emplaceIJSF_EEESI_ISt17_Rb_tree_iteratorISK_EbEOS5_DpOT_.exit.i ], [ %93, %84 ]
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
@@ -7155,7 +7155,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8DenseMapImP
   %.not.i22 = icmp eq ptr %118, null
   br i1 %.not.i22, label %.loopexit.i, label %119
 
-119:                                              ; preds = %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.argprom.exit"
+119:                                              ; preds = %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.exit"
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #26, !noalias !191
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %121 = load i32, ptr %120, align 8, !noalias !191
@@ -7199,9 +7199,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm8DenseMapImP
   %146 = icmp eq i64 %128, %145
   br i1 %146, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E4findERKm.exit, label %.lr.ph.i.i.i, !llvm.loop !73
 
-.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.argprom.exit", %119
-  %.sroa.8.159 = phi i32 [ 0, %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.argprom.exit" ], [ 0, %119 ], [ %121, %.lr.ph.i.i.i ]
-  %.sroa.028.157 = phi ptr [ null, %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.argprom.exit" ], [ null, %119 ], [ %126, %.lr.ph.i.i.i ]
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.exit", %119
+  %.sroa.8.159 = phi i32 [ 0, %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.exit" ], [ 0, %119 ], [ %121, %.lr.ph.i.i.i ]
+  %.sroa.028.157 = phi ptr [ null, %"_ZZN4llvm32gatherImportedSummariesForModuleENS_9StringRefERKNS_8DenseMapIS0_NS1_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS4_IS0_vEENS7_IS0_S9_EEEERKNS_16FunctionImporter11ImportMapTyERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIvESaISt4pairIKSP_S9_EEERSt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEENK3$_0clESX_S0_.exit" ], [ null, %119 ], [ %126, %.lr.ph.i.i.i ]
   %147 = zext i32 %.sroa.8.159 to i64
   %148 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %.sroa.028.157, i64 %147
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E4findERKm.exit
@@ -8659,14 +8659,14 @@ _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i12.i: ; preds = %_ZN4llvm11Gl
   %203 = icmp ne i32 %198, 0
   %204 = icmp ne i32 %201, 9
   %spec.select.i.i13.i = and i1 %204, %203
-  br i1 %spec.select.i.i13.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i, label %_ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE.argprom.exit
+  br i1 %spec.select.i.i13.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i, label %_ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE.exit
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i12.i, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i
   %205 = or i32 %200, 16384
   store i32 %205, ptr %186, align 8
-  br label %_ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE.argprom.exit
+  br label %_ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE.exit
 
-_ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE.argprom.exit: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i12.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i
+_ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE.exit: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i12.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i14.i
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %150, ptr noundef nonnull %181) #26
   call void @_ZN4llvm5Value8takeNameEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %181, ptr noundef nonnull %150) #26
   call void @_ZN4llvm8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(57) %6) #26
@@ -8675,12 +8675,12 @@ _ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE.argprom.exit: ; pr
   %207 = trunc i8 %206 to i1
   br i1 %207, label %211, label %208
 
-208:                                              ; preds = %_ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE.argprom.exit
+208:                                              ; preds = %_ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE.exit
   %209 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4llvm34EnableMemProfContextDisambiguationE, i64 128), align 8
   %210 = trunc i8 %209 to i1
   br i1 %210, label %211, label %222
 
-211:                                              ; preds = %208, %_ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE.argprom.exit
+211:                                              ; preds = %208, %_ZL23replaceAliasWithAliaseePN4llvm6ModuleEPNS_11GlobalAliasE.exit
   %212 = load ptr, ptr %2, align 8
   %213 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %145) #26
   %214 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %145) #26
@@ -14992,7 +14992,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrI
   call void @_ZN4llvm19getLazyIRFileModuleENS_9StringRefERNS_12SMDiagnosticERNS_11LLVMContextEb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.475") align 8 %8, ptr %27, i64 %28, ptr noundef nonnull align 8 dereferenceable(360) %4, ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext true) #26, !noalias !330
   %29 = load ptr, ptr %8, align 8, !alias.scope !345, !noalias !330
   %.not.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i.i, label %30, label %"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_6ModuleESt14default_deleteIS3_EEEERZL27doImportingForModuleForTestRS3_NS0_12function_refIFbmPKNS0_18GlobalValueSummaryEEEEE3$_0JNS0_9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit"
+  br i1 %.not.i.i.i.i, label %30, label %"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_6ModuleESt14default_deleteIS3_EEEERZL27doImportingForModuleForTestRS3_NS0_12function_refIFbmPKNS0_18GlobalValueSummaryEEEEE3$_0JNS0_9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 30:                                               ; preds = %3
   %31 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #26, !noalias !330
@@ -15000,7 +15000,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrI
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.115, i1 noundef zeroext true) #28, !noalias !330
   unreachable
 
-"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_6ModuleESt14default_deleteIS3_EEEERZL27doImportingForModuleForTestRS3_NS0_12function_refIFbmPKNS0_18GlobalValueSummaryEEEEE3$_0JNS0_9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.exit": ; preds = %3
+"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_6ModuleESt14default_deleteIS3_EEEERZL27doImportingForModuleForTestRS3_NS0_12function_refIFbmPKNS0_18GlobalValueSummaryEEEEE3$_0JNS0_9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %3
   call void @_ZN4llvm12SMDiagnosticD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %4) #26, !noalias !330
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %4), !noalias !340
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26, !noalias !330
@@ -15019,7 +15019,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrI
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrINS0_6ModuleESt14default_deleteIS3_EEEENS0_9StringRefEEZL27doImportingForModuleForTestRS3_NS0_12function_refIFbmPKNS0_18GlobalValueSummaryEEEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #15 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL27doImportingForModuleForTestRN4llvm6ModuleENS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL27doImportingForModuleForTestRN4llvm6ModuleENS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -15027,18 +15027,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8ExpectedIS
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL27doImportingForModuleForTestRN4llvm6ModuleENS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL27doImportingForModuleForTestRN4llvm6ModuleENS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL27doImportingForModuleForTestRN4llvm6ModuleENS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL27doImportingForModuleForTestRN4llvm6ModuleENS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL27doImportingForModuleForTestRN4llvm6ModuleENS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL27doImportingForModuleForTestRN4llvm6ModuleENS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL27doImportingForModuleForTestRN4llvm6ModuleENS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL27doImportingForModuleForTestRN4llvm6ModuleENS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -22902,11 +22902,11 @@ attributes #31 = { nounwind willreturn memory(read) }
 !328 = distinct !{!328, !13}
 !329 = distinct !{!329, !13}
 !330 = !{!331}
-!331 = distinct !{!331, !332, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_6ModuleESt14default_deleteIS3_EEEERZL27doImportingForModuleForTestRS3_NS0_12function_refIFbmPKNS0_18GlobalValueSummaryEEEEE3$_0JNS0_9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom: argument 0"}
-!332 = distinct !{!332, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_6ModuleESt14default_deleteIS3_EEEERZL27doImportingForModuleForTestRS3_NS0_12function_refIFbmPKNS0_18GlobalValueSummaryEEEEE3$_0JNS0_9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom"}
+!331 = distinct !{!331, !332, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_6ModuleESt14default_deleteIS3_EEEERZL27doImportingForModuleForTestRS3_NS0_12function_refIFbmPKNS0_18GlobalValueSummaryEEEEE3$_0JNS0_9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_: argument 0"}
+!332 = distinct !{!332, !"_ZSt10__invoke_rIN4llvm8ExpectedISt10unique_ptrINS0_6ModuleESt14default_deleteIS3_EEEERZL27doImportingForModuleForTestRS3_NS0_12function_refIFbmPKNS0_18GlobalValueSummaryEEEEE3$_0JNS0_9StringRefEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_"}
 !333 = !{!334}
-!334 = distinct !{!334, !335, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EERZL27doImportingForModuleForTestRS2_NS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0JNS1_9StringRefEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!335 = distinct !{!335, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EERZL27doImportingForModuleForTestRS2_NS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0JNS1_9StringRefEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!334 = distinct !{!334, !335, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EERZL27doImportingForModuleForTestRS2_NS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0JNS1_9StringRefEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!335 = distinct !{!335, !"_ZSt13__invoke_implISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EERZL27doImportingForModuleForTestRS2_NS1_12function_refIFbmPKNS1_18GlobalValueSummaryEEEEE3$_0JNS1_9StringRefEEET_St14__invoke_otherOT0_DpOT1_"}
 !336 = !{!337}
 !337 = distinct !{!337, !338, !"_ZZL27doImportingForModuleForTestRN4llvm6ModuleENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEEENK3$_0clENS_9StringRefE: argument 0"}
 !338 = distinct !{!338, !"_ZZL27doImportingForModuleForTestRN4llvm6ModuleENS_12function_refIFbmPKNS_18GlobalValueSummaryEEEEENK3$_0clENS_9StringRefE"}

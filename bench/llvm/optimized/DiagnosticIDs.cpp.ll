@@ -1137,9 +1137,9 @@ define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs24getWarningOptionForGrou
 define dso_local range(i64 0, 8589934592) i64 @_ZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #9 align 2 {
   br label %3
 
-3:                                                ; preds = %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i", %2
-  %.04.i.i = phi ptr [ @_ZL11OptionTable, %2 ], [ %.1.i.i, %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i" ]
-  %.0103.i.i = phi i64 [ 1055, %2 ], [ %.111.i.i, %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i" ]
+3:                                                ; preds = %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i", %2
+  %.04.i.i = phi ptr [ @_ZL11OptionTable, %2 ], [ %.1.i.i, %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i" ]
+  %.0103.i.i = phi i64 [ 1055, %2 ], [ %.111.i.i, %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i" ]
   %4 = lshr i64 %.0103.i.i, 1
   %5 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr %.04.i.i, i64 %4
   %.val13.i.i = load i16, ptr %5, align 8
@@ -1159,13 +1159,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %3
 
 13:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %12, 0
-  br label %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i"
+  br label %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i"
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %3
   %14 = icmp ugt i64 %1, %9
-  br label %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i"
+  br label %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i"
 
-"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, %13
+"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, %13
   %.0.i.i.i.i.i = phi i1 [ %.inv.i.i.i.i.i, %13 ], [ %14, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i ]
   %15 = getelementptr inbounds i8, ptr %5, i64 24
   %16 = xor i64 %4, -1
@@ -1173,13 +1173,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZN4
   %.111.i.i = select i1 %.0.i.i.i.i.i, i64 %17, i64 %4
   %.1.i.i = select i1 %.0.i.i.i.i.i, ptr %15, ptr %.04.i.i
   %18 = icmp sgt i64 %.111.i.i, 0
-  br i1 %18, label %3, label %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.argprom.exit", !llvm.loop !11
+  br i1 %18, label %3, label %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit", !llvm.loop !11
 
-"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.argprom.exit": ; preds = %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i"
+"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit": ; preds = %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i"
   %19 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZL11OptionTable, i64 25320)
   br i1 %19, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %20
 
-20:                                               ; preds = %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.argprom.exit"
+20:                                               ; preds = %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit"
   %.val = load i16, ptr %.1.i.i, align 8
   %21 = zext i16 %.val to i64
   %22 = getelementptr inbounds i8, ptr @_ZL14DiagGroupNames, i64 %21
@@ -1205,9 +1205,9 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread10:       ; preds = %26, %_ZN4llvmneENS_
   %31 = and i64 %30, 4294967295
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
-_ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %20, %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.argprom.exit", %_ZN4llvmneENS_9StringRefES0_.exit, %_ZN4llvmneENS_9StringRefES0_.exit.thread10
-  %.sroa.0.0 = phi i64 [ %31, %_ZN4llvmneENS_9StringRefES0_.exit.thread10 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.argprom.exit" ], [ 0, %20 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %_ZN4llvmneENS_9StringRefES0_.exit.thread10 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.argprom.exit" ], [ 0, %20 ]
+_ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %20, %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit", %_ZN4llvmneENS_9StringRefES0_.exit, %_ZN4llvmneENS_9StringRefES0_.exit.thread10
+  %.sroa.0.0 = phi i64 [ %31, %_ZN4llvmneENS_9StringRefES0_.exit.thread10 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit" ], [ 0, %20 ]
+  %.sroa.2.0 = phi i64 [ 4294967296, %_ZN4llvmneENS_9StringRefES0_.exit.thread10 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit" ], [ 0, %20 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
 }
@@ -1416,9 +1416,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 define dso_local noundef zeroext i1 @_ZNK5clang13DiagnosticIDs21getDiagnosticsInGroupENS_4diag6FlavorEN4llvm9StringRefERNS3_15SmallVectorImplIjEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, i32 noundef %1, ptr nocapture readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #4 align 2 {
   br label %6
 
-6:                                                ; preds = %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i.i", %5
-  %.04.i.i.i = phi ptr [ @_ZL11OptionTable, %5 ], [ %.1.i.i.i, %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i.i" ]
-  %.0103.i.i.i = phi i64 [ 1055, %5 ], [ %.111.i.i.i, %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i.i" ]
+6:                                                ; preds = %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i.i", %5
+  %.04.i.i.i = phi ptr [ @_ZL11OptionTable, %5 ], [ %.1.i.i.i, %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i.i" ]
+  %.0103.i.i.i = phi i64 [ 1055, %5 ], [ %.111.i.i.i, %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i.i" ]
   %7 = lshr i64 %.0103.i.i.i, 1
   %8 = getelementptr inbounds %"struct.(anonymous namespace)::WarningOption", ptr %.04.i.i.i, i64 %7
   %.val13.i.i.i = load i16, ptr %8, align 8
@@ -1438,13 +1438,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %6
 
 16:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
   %.inv.i.i.i.i.i.i = icmp slt i32 %15, 0
-  br label %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i.i"
+  br label %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i.i"
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i, %6
   %17 = icmp ugt i64 %3, %12
-  br label %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i.i"
+  br label %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i.i"
 
-"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i.i": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i, %16
+"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i.i": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i, %16
   %.0.i.i.i.i.i.i = phi i1 [ %.inv.i.i.i.i.i.i, %16 ], [ %17, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i ]
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %19 = xor i64 %7, -1
@@ -1452,13 +1452,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_Z
   %.111.i.i.i = select i1 %.0.i.i.i.i.i.i, i64 %20, i64 %7
   %.1.i.i.i = select i1 %.0.i.i.i.i.i.i, ptr %18, ptr %.04.i.i.i
   %21 = icmp sgt i64 %.111.i.i.i, 0
-  br i1 %21, label %6, label %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.argprom.exit.i", !llvm.loop !11
+  br i1 %21, label %6, label %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit.i", !llvm.loop !11
 
-"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.argprom.exit.i": ; preds = %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.argprom.exit.i.i.i"
+"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit.i": ; preds = %"_ZZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefEENK3$_0clERKN12_GLOBAL__N_113WarningOptionE.exit.i.i.i"
   %22 = icmp eq ptr %.1.i.i.i, getelementptr inbounds (i8, ptr @_ZL11OptionTable, i64 25320)
   br i1 %22, label %_ZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefE.exit.thread, label %23
 
-23:                                               ; preds = %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.argprom.exit.i"
+23:                                               ; preds = %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit.i"
   %.val.i = load i16, ptr %.1.i.i.i, align 8
   %24 = zext i16 %.val.i to i64
   %25 = getelementptr inbounds i8, ptr @_ZL14DiagGroupNames, i64 %24
@@ -1486,8 +1486,8 @@ _ZN4llvmneENS_9StringRefES0_.exit.i:              ; preds = %29
   %37 = tail call fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4diag6FlavorEPKN12_GLOBAL__N_113WarningOptionERN4llvm15SmallVectorImplIjEE(i32 noundef %1, ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefE.exit.thread
 
-_ZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefE.exit.thread: ; preds = %23, %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.argprom.exit.i", %_ZN4llvmneENS_9StringRefES0_.exit.i, %31
-  %.0 = phi i1 [ %37, %31 ], [ true, %_ZN4llvmneENS_9StringRefES0_.exit.i ], [ true, %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.argprom.exit.i" ], [ true, %23 ]
+_ZN5clang13DiagnosticIDs24getGroupForWarningOptionEN4llvm9StringRefE.exit.thread: ; preds = %23, %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit.i", %_ZN4llvmneENS_9StringRefES0_.exit.i, %31
+  %.0 = phi i1 [ %37, %31 ], [ true, %_ZN4llvmneENS_9StringRefES0_.exit.i ], [ true, %"_ZN4llvm15partition_pointIRA1055_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit.i" ], [ true, %23 ]
   ret i1 %.0
 }
 

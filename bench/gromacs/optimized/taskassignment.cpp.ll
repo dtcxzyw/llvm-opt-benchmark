@@ -374,7 +374,7 @@ define void @_ZN3gmx25GpuTaskAssignmentsBuilder5buildENS_8ArrayRefIKiEES3_RK13gm
   %57 = getelementptr inbounds i8, ptr %26, i64 8
   %.val64 = load ptr, ptr %57, align 8
   %.not4.i = icmp eq ptr %.val, %.val64
-  br i1 %.not4.i, label %_ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.i
   %.06.i = phi i64 [ %65, %.lr.ph.i ], [ 0, %56 ]
@@ -389,9 +389,9 @@ define void @_ZN3gmx25GpuTaskAssignmentsBuilder5buildENS_8ArrayRefIKiEES3_RK13gm
   %65 = add i64 %64, %.06.i
   %66 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 24
   %.not.i = icmp eq ptr %66, %.val64
-  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EE.exit, label %.lr.ph.i
 
-_ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EE.argprom.exit: ; preds = %.lr.ph.i, %56
+_ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EE.exit: ; preds = %.lr.ph.i, %56
   %.0.lcssa.i = phi i64 [ 0, %56 ], [ %65, %.lr.ph.i ]
   store ptr null, ptr %27, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
@@ -399,7 +399,7 @@ _ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2
   %67 = icmp eq ptr %3, %4
   br i1 %67, label %68, label %143
 
-68:                                               ; preds = %_ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EE.argprom.exit
+68:                                               ; preds = %_ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EE.exit
   %69 = ptrtoint ptr %2 to i64
   %70 = ptrtoint ptr %1 to i64
   %71 = sub i64 %69, %70
@@ -609,7 +609,7 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %_ZNSt12_Vector_base
   store ptr %141, ptr %142, align 8
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit86
 
-143:                                              ; preds = %_ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EE.argprom.exit
+143:                                              ; preds = %_ZN3gmx12_GLOBAL__N_123countGpuTasksOnThisNodeERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EE.exit
   %144 = ptrtoint ptr %4 to i64
   %145 = ptrtoint ptr %3 to i64
   %146 = sub i64 %144, %145
@@ -3955,8 +3955,8 @@ attributes #26 = { noreturn nounwind }
 !8 = distinct !{!8, !9, !"_ZN3gmx6copyOfIiEESt6vectorIT_SaIS2_EERKNS_8ArrayRefIKS2_EE: argument 0"}
 !9 = distinct !{!9, !"_ZN3gmx6copyOfIiEESt6vectorIT_SaIS2_EERKNS_8ArrayRefIKS2_EE"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN3gmx12_GLOBAL__N_119buildTaskAssignmentERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EENS_8ArrayRefIKiEE.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZN3gmx12_GLOBAL__N_119buildTaskAssignmentERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EENS_8ArrayRefIKiEE.argprom"}
+!11 = distinct !{!11, !12, !"_ZN3gmx12_GLOBAL__N_119buildTaskAssignmentERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EENS_8ArrayRefIKiEE: argument 0"}
+!12 = distinct !{!12, !"_ZN3gmx12_GLOBAL__N_119buildTaskAssignmentERKSt6vectorIS1_INS_7GpuTaskESaIS2_EESaIS4_EENS_8ArrayRefIKiEE"}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}

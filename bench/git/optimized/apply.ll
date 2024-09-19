@@ -1852,13 +1852,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call fastcc ptr @find_name_gnu(ptr noundef readonly %1, ptr noundef nonnull %line, i32 noundef %spec.select)
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.end3.i, label %find_name.argprom.exit
+  br i1 %tobool.not.i, label %if.end3.i, label %find_name.exit
 
 if.end3.i:                                        ; preds = %if.then.i, %entry
   %call4.i = tail call fastcc ptr @find_name_common(ptr noundef readonly %1, ptr noundef nonnull %line, ptr noundef null, i32 noundef %spec.select, ptr noundef null, i32 noundef 0)
-  br label %find_name.argprom.exit
+  br label %find_name.exit
 
-find_name.argprom.exit:                           ; preds = %if.then.i, %if.end3.i
+find_name.exit:                                   ; preds = %if.then.i, %if.end3.i
   %retval.0.i = phi ptr [ %call4.i, %if.end3.i ], [ %call.i, %if.then.i ]
   store ptr %retval.0.i, ptr %old_name, align 8
   ret i32 0
@@ -1884,13 +1884,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call fastcc ptr @find_name_gnu(ptr noundef readonly %1, ptr noundef nonnull %line, i32 noundef %spec.select)
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.end3.i, label %find_name.argprom.exit
+  br i1 %tobool.not.i, label %if.end3.i, label %find_name.exit
 
 if.end3.i:                                        ; preds = %if.then.i, %entry
   %call4.i = tail call fastcc ptr @find_name_common(ptr noundef readonly %1, ptr noundef nonnull %line, ptr noundef null, i32 noundef %spec.select, ptr noundef null, i32 noundef 0)
-  br label %find_name.argprom.exit
+  br label %find_name.exit
 
-find_name.argprom.exit:                           ; preds = %if.then.i, %if.end3.i
+find_name.exit:                                   ; preds = %if.then.i, %if.end3.i
   %retval.0.i = phi ptr [ %call4.i, %if.end3.i ], [ %call.i, %if.then.i ]
   store ptr %retval.0.i, ptr %patch, align 8
   ret i32 0
@@ -1917,13 +1917,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call fastcc ptr @find_name_gnu(ptr noundef readonly %1, ptr noundef nonnull %line, i32 noundef %spec.select)
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.end3.i, label %find_name.argprom.exit
+  br i1 %tobool.not.i, label %if.end3.i, label %find_name.exit
 
 if.end3.i:                                        ; preds = %if.then.i, %entry
   %call4.i = tail call fastcc ptr @find_name_common(ptr noundef readonly %1, ptr noundef nonnull %line, ptr noundef null, i32 noundef %spec.select, ptr noundef null, i32 noundef 0)
-  br label %find_name.argprom.exit
+  br label %find_name.exit
 
-find_name.argprom.exit:                           ; preds = %if.then.i, %if.end3.i
+find_name.exit:                                   ; preds = %if.then.i, %if.end3.i
   %retval.0.i = phi ptr [ %call4.i, %if.end3.i ], [ %call.i, %if.then.i ]
   store ptr %retval.0.i, ptr %old_name, align 8
   ret i32 0
@@ -1949,13 +1949,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call fastcc ptr @find_name_gnu(ptr noundef readonly %1, ptr noundef nonnull %line, i32 noundef %spec.select)
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.end3.i, label %find_name.argprom.exit
+  br i1 %tobool.not.i, label %if.end3.i, label %find_name.exit
 
 if.end3.i:                                        ; preds = %if.then.i, %entry
   %call4.i = tail call fastcc ptr @find_name_common(ptr noundef readonly %1, ptr noundef nonnull %line, ptr noundef null, i32 noundef %spec.select, ptr noundef null, i32 noundef 0)
-  br label %find_name.argprom.exit
+  br label %find_name.exit
 
-find_name.argprom.exit:                           ; preds = %if.then.i, %if.end3.i
+find_name.exit:                                   ; preds = %if.then.i, %if.end3.i
   %retval.0.i = phi ptr [ %call4.i, %if.end3.i ], [ %call.i, %if.then.i ]
   store ptr %retval.0.i, ptr %patch, align 8
   ret i32 0
@@ -7815,13 +7815,13 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %call.i = tail call fastcc ptr @find_name_gnu(ptr noundef readonly %1, ptr noundef nonnull %line, i32 noundef %2)
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.end3.i, label %find_name.argprom.exit
+  br i1 %tobool.not.i, label %if.end3.i, label %find_name.exit
 
 if.end3.i:                                        ; preds = %if.then.i, %if.then
   %call4.i = tail call fastcc ptr @find_name_common(ptr noundef readonly %1, ptr noundef nonnull %line, ptr noundef null, i32 noundef %2, ptr noundef null, i32 noundef 2)
-  br label %find_name.argprom.exit
+  br label %find_name.exit
 
-find_name.argprom.exit:                           ; preds = %if.then.i, %if.end3.i
+find_name.exit:                                   ; preds = %if.then.i, %if.end3.i
   %retval.0.i = phi ptr [ %call4.i, %if.end3.i ], [ %call.i, %if.then.i ]
   store ptr %retval.0.i, ptr %name, align 8
   br label %return
@@ -7856,27 +7856,27 @@ if.end9:                                          ; preds = %if.then3
   %8 = load i32, ptr %p_value11, align 4
   %9 = load i8, ptr %line, align 1
   %cmp.i20 = icmp eq i8 %9, 34
-  br i1 %cmp.i20, label %if.then.i24, label %find_name.argprom.exit27
+  br i1 %cmp.i20, label %if.then.i24, label %find_name.exit27
 
 if.then.i24:                                      ; preds = %if.end9
   %call.i25 = tail call fastcc ptr @find_name_gnu(ptr noundef readonly %7, ptr noundef nonnull %line, i32 noundef %8)
   %tobool.not.i26 = icmp eq ptr %call.i25, null
-  br i1 %tobool.not.i26, label %find_name.argprom.exit27, label %lor.lhs.false
+  br i1 %tobool.not.i26, label %find_name.exit27, label %lor.lhs.false
 
-find_name.argprom.exit27:                         ; preds = %if.end9, %if.then.i24
+find_name.exit27:                                 ; preds = %if.end9, %if.then.i24
   %call4.i22 = tail call fastcc ptr @find_name_common(ptr noundef readonly %7, ptr noundef nonnull %line, ptr noundef null, i32 noundef %8, ptr noundef null, i32 noundef 2)
   %tobool13.not = icmp eq ptr %call4.i22, null
   br i1 %tobool13.not, label %if.then16, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %if.then.i24, %find_name.argprom.exit27
-  %retval.0.i2345 = phi ptr [ %call4.i22, %find_name.argprom.exit27 ], [ %call.i25, %if.then.i24 ]
+lor.lhs.false:                                    ; preds = %if.then.i24, %find_name.exit27
+  %retval.0.i2345 = phi ptr [ %call4.i22, %find_name.exit27 ], [ %call.i25, %if.then.i24 ]
   %10 = load ptr, ptr %name, align 8
   %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i2345, ptr noundef nonnull dereferenceable(1) %10) #22
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.end22, label %if.then16
 
-if.then16:                                        ; preds = %lor.lhs.false, %find_name.argprom.exit27
-  %retval.0.i2346 = phi ptr [ %retval.0.i2345, %lor.lhs.false ], [ null, %find_name.argprom.exit27 ]
+if.then16:                                        ; preds = %lor.lhs.false, %find_name.exit27
+  %retval.0.i2346 = phi ptr [ %retval.0.i2345, %lor.lhs.false ], [ null, %find_name.exit27 ]
   tail call void @free(ptr noundef %retval.0.i2346) #21
   %cmp.not = icmp eq i32 %side, 0
   %11 = load i32, ptr @git_gettext_enabled, align 4
@@ -7943,8 +7943,8 @@ _.exit42:                                         ; preds = %if.then25, %if.end3
   %call28 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i41, i32 noundef %19) #21
   br label %return
 
-return:                                           ; preds = %if.end22, %is_dev_null.exit, %_.exit42, %cond.end, %_.exit, %find_name.argprom.exit
-  %retval.0 = phi i32 [ -1, %_.exit ], [ -1, %cond.end ], [ -1, %_.exit42 ], [ 0, %find_name.argprom.exit ], [ 0, %is_dev_null.exit ], [ 0, %if.end22 ]
+return:                                           ; preds = %if.end22, %is_dev_null.exit, %_.exit42, %cond.end, %_.exit, %find_name.exit
+  %retval.0 = phi i32 [ -1, %_.exit ], [ -1, %cond.end ], [ -1, %_.exit42 ], [ 0, %find_name.exit ], [ 0, %is_dev_null.exit ], [ 0, %if.end22 ]
   ret i32 %retval.0
 }
 
@@ -12292,7 +12292,7 @@ if.end84.i.i:                                     ; preds = %st_mult.exit.i.i.i,
   %add.ptr87.i.i = getelementptr inbounds %struct.line, ptr %270, i64 %conv4.i.i
   %271 = load ptr, ptr %line182.i, align 8
   %tobool.not.i84.i.i = icmp eq i64 %267, 0
-  br i1 %tobool.not.i84.i.i, label %update_image.argprom.exit.i, label %if.then.i85.i.i
+  br i1 %tobool.not.i84.i.i, label %update_image.exit.i, label %if.then.i85.i.i
 
 if.then.i85.i.i:                                  ; preds = %if.end84.i.i
   %cmp.i.i86.i.i = icmp ugt i64 %267, 1152921504606846975
@@ -12307,7 +12307,7 @@ copy_array.exit.i.i:                              ; preds = %if.then.i85.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr87.i.i, ptr readonly align 1 %271, i64 %mul.i.i88.i.i, i1 false)
   %272 = load i32, ptr %allow_overlap.i.i, align 4
   %tobool.not.i352.not.i = icmp eq i32 %272, 0
-  br i1 %tobool.not.i352.not.i, label %for.body96.i.i, label %update_image.argprom.exit.i
+  br i1 %tobool.not.i352.not.i, label %for.body96.i.i, label %update_image.exit.i
 
 for.body96.i.i:                                   ; preds = %copy_array.exit.i.i, %for.body96.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %for.body96.i.i ], [ 0, %copy_array.exit.i.i ]
@@ -12319,9 +12319,9 @@ for.body96.i.i:                                   ; preds = %copy_array.exit.i.i
   store i32 %bf.set.i354.i, ptr %flag.i.i, align 8
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next18.i.i, %267
-  br i1 %exitcond.not.i, label %update_image.argprom.exit.i, label %for.body96.i.i, !llvm.loop !67
+  br i1 %exitcond.not.i, label %update_image.exit.i, label %for.body96.i.i, !llvm.loop !67
 
-update_image.argprom.exit.i:                      ; preds = %for.body96.i.i, %copy_array.exit.i.i, %if.end84.i.i
+update_image.exit.i:                              ; preds = %for.body96.i.i, %copy_array.exit.i.i, %if.end84.i.i
   %sext72.i.i = shl i64 %sub52.i.i, 32
   %conv106.i.i = ashr exact i64 %sext72.i.i, 32
   store i64 %conv106.i.i, ptr %nr16.i.i, align 8
@@ -12390,7 +12390,7 @@ if.end18:                                         ; preds = %_.exit
   store i8 %bf.set, ptr %rejected, align 8
   br label %if.end21
 
-if.end21:                                         ; preds = %update_image.argprom.exit.i, %if.end18
+if.end21:                                         ; preds = %update_image.exit.i, %if.end18
   %next = getelementptr inbounds i8, ptr %frag.080, i64 72
   %284 = load ptr, ptr %next, align 8
   %tobool9.not = icmp eq ptr %284, null
@@ -12543,7 +12543,7 @@ _.exit38:                                         ; preds = %if.then18, %if.end3
 if.else22:                                        ; preds = %if.else14
   %10 = getelementptr i8, ptr %patch, i64 64
   %patch.val = load i16, ptr %10, align 8
-  %call23 = tail call fastcc i32 @read_old_data.argprom(ptr noundef %st, i16 %patch.val, ptr noundef %name, ptr noundef %buf)
+  %call23 = tail call fastcc i32 @read_old_data(ptr noundef %st, i16 %patch.val, ptr noundef %name, ptr noundef %buf)
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %return, label %if.then25
 
@@ -12567,7 +12567,7 @@ return:                                           ; preds = %if.then, %read_file
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_old_data.argprom(ptr nocapture noundef nonnull readonly %st, i16 %patch.64.val, ptr noundef nonnull %path, ptr noundef nonnull %buf) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_old_data(ptr nocapture noundef nonnull readonly %st, i16 %patch.64.val, ptr noundef nonnull %path, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %0 = and i16 %patch.64.val, 256
   %tobool.not = icmp eq i16 %0, 0

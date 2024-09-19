@@ -47,7 +47,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z15lua_getargumentP9lua_Stateii(p
   %11 = sdiv exact i64 %10, 40
   %12 = trunc i64 %11 to i32
   %.not = icmp ult i32 %1, %12
-  br i1 %.not, label %13, label %_ZL11getluaprotoP8CallInfo.argprom.exit.thread
+  br i1 %.not, label %13, label %_ZL11getluaprotoP8CallInfo.exit.thread
 
 13:                                               ; preds = %3
   %14 = sext i32 %1 to i64
@@ -57,7 +57,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z15lua_getargumentP9lua_Stateii(p
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 4
   %.not36 = icmp eq i32 %19, 0
-  br i1 %.not36, label %20, label %_ZL11getluaprotoP8CallInfo.argprom.exit.thread
+  br i1 %.not36, label %20, label %_ZL11getluaprotoP8CallInfo.exit.thread
 
 20:                                               ; preds = %13
   %21 = getelementptr i8, ptr %16, i64 8
@@ -65,24 +65,24 @@ define dso_local noundef range(i32 0, 2) i32 @_Z15lua_getargumentP9lua_Stateii(p
   %22 = getelementptr inbounds i8, ptr %.val, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 7
-  br i1 %24, label %25, label %_ZL11getluaprotoP8CallInfo.argprom.exit.thread
+  br i1 %24, label %25, label %_ZL11getluaprotoP8CallInfo.exit.thread
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %.val, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 3
   %28 = load i8, ptr %27, align 1
   %.not.i = icmp eq i8 %28, 0
-  br i1 %.not.i, label %_ZL11getluaprotoP8CallInfo.argprom.exit, label %_ZL11getluaprotoP8CallInfo.argprom.exit.thread
+  br i1 %.not.i, label %_ZL11getluaprotoP8CallInfo.exit, label %_ZL11getluaprotoP8CallInfo.exit.thread
 
-_ZL11getluaprotoP8CallInfo.argprom.exit:          ; preds = %25
+_ZL11getluaprotoP8CallInfo.exit:                  ; preds = %25
   %29 = getelementptr inbounds i8, ptr %26, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = icmp ne ptr %30, null
   %32 = icmp sgt i32 %2, 0
   %or.cond = and i1 %32, %31
-  br i1 %or.cond, label %33, label %_ZL11getluaprotoP8CallInfo.argprom.exit.thread
+  br i1 %or.cond, label %33, label %_ZL11getluaprotoP8CallInfo.exit.thread
 
-33:                                               ; preds = %_ZL11getluaprotoP8CallInfo.argprom.exit
+33:                                               ; preds = %_ZL11getluaprotoP8CallInfo.exit
   %34 = getelementptr inbounds i8, ptr %30, i64 4
   %35 = load i8, ptr %34, align 4
   %36 = zext i8 %35 to i32
@@ -107,13 +107,13 @@ _ZL11getluaprotoP8CallInfo.argprom.exit:          ; preds = %25
   %46 = getelementptr %struct.lua_TValue, ptr %44, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -16
   tail call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef nonnull %0, ptr noundef %47)
-  br label %_ZL11getluaprotoP8CallInfo.argprom.exit.thread
+  br label %_ZL11getluaprotoP8CallInfo.exit.thread
 
 48:                                               ; preds = %33
   %49 = getelementptr inbounds i8, ptr %30, i64 5
   %50 = load i8, ptr %49, align 1
   %.not38 = icmp eq i8 %50, 0
-  br i1 %.not38, label %_ZL11getluaprotoP8CallInfo.argprom.exit.thread, label %51
+  br i1 %.not38, label %_ZL11getluaprotoP8CallInfo.exit.thread, label %51
 
 51:                                               ; preds = %48
   %52 = zext nneg i32 %2 to i64
@@ -123,7 +123,7 @@ _ZL11getluaprotoP8CallInfo.argprom.exit:          ; preds = %25
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 4
   %58 = icmp sgt i64 %57, %52
-  br i1 %58, label %59, label %_ZL11getluaprotoP8CallInfo.argprom.exit.thread
+  br i1 %58, label %59, label %_ZL11getluaprotoP8CallInfo.exit.thread
 
 59:                                               ; preds = %51
   %60 = getelementptr inbounds i8, ptr %0, i64 1
@@ -142,10 +142,10 @@ _ZL11getluaprotoP8CallInfo.argprom.exit:          ; preds = %25
   %66 = phi ptr [ %.pre, %63 ], [ %.val, %59 ]
   %67 = getelementptr inbounds %struct.lua_TValue, ptr %66, i64 %52
   tail call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef nonnull %0, ptr noundef nonnull %67)
-  br label %_ZL11getluaprotoP8CallInfo.argprom.exit.thread
+  br label %_ZL11getluaprotoP8CallInfo.exit.thread
 
-_ZL11getluaprotoP8CallInfo.argprom.exit.thread:   ; preds = %20, %25, %_ZL11getluaprotoP8CallInfo.argprom.exit, %48, %51, %65, %43, %13, %3
-  %.031 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 1, %43 ], [ 1, %65 ], [ 0, %51 ], [ 0, %48 ], [ 0, %_ZL11getluaprotoP8CallInfo.argprom.exit ], [ 0, %25 ], [ 0, %20 ]
+_ZL11getluaprotoP8CallInfo.exit.thread:           ; preds = %20, %25, %_ZL11getluaprotoP8CallInfo.exit, %48, %51, %65, %43, %13, %3
+  %.031 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 1, %43 ], [ 1, %65 ], [ 0, %51 ], [ 0, %48 ], [ 0, %_ZL11getluaprotoP8CallInfo.exit ], [ 0, %25 ], [ 0, %20 ]
   ret i32 %.031
 }
 
@@ -190,15 +190,15 @@ define dso_local noundef ptr @_Z12lua_getlocalP9lua_Stateii(ptr noundef %0, i32 
   %27 = getelementptr inbounds i8, ptr %26, i64 3
   %28 = load i8, ptr %27, align 1
   %.not.i = icmp eq i8 %28, 0
-  br i1 %.not.i, label %_ZL11getluaprotoP8CallInfo.argprom.exit, label %.critedge
+  br i1 %.not.i, label %_ZL11getluaprotoP8CallInfo.exit, label %.critedge
 
-_ZL11getluaprotoP8CallInfo.argprom.exit:          ; preds = %25
+_ZL11getluaprotoP8CallInfo.exit:                  ; preds = %25
   %29 = getelementptr inbounds i8, ptr %26, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not27 = icmp eq ptr %30, null
   br i1 %.not27, label %.critedge, label %31
 
-31:                                               ; preds = %_ZL11getluaprotoP8CallInfo.argprom.exit
+31:                                               ; preds = %_ZL11getluaprotoP8CallInfo.exit
   %32 = getelementptr inbounds i8, ptr %16, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not.i30 = icmp eq ptr %33, null
@@ -244,8 +244,8 @@ _ZL11getluaprotoP8CallInfo.argprom.exit:          ; preds = %25
   %59 = getelementptr inbounds i8, ptr %58, i64 24
   br label %.critedge
 
-.critedge:                                        ; preds = %20, %25, %_ZL11getluaprotoP8CallInfo.argprom.exit, %52, %43, %13, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %13 ], [ %59, %52 ], [ null, %43 ], [ null, %_ZL11getluaprotoP8CallInfo.argprom.exit ], [ null, %25 ], [ null, %20 ]
+.critedge:                                        ; preds = %20, %25, %_ZL11getluaprotoP8CallInfo.exit, %52, %43, %13, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %13 ], [ %59, %52 ], [ null, %43 ], [ null, %_ZL11getluaprotoP8CallInfo.exit ], [ null, %25 ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -288,15 +288,15 @@ define dso_local noundef ptr @_Z12lua_setlocalP9lua_Stateii(ptr nocapture nounde
   %27 = getelementptr inbounds i8, ptr %26, i64 3
   %28 = load i8, ptr %27, align 1
   %.not.i = icmp eq i8 %28, 0
-  br i1 %.not.i, label %_ZL11getluaprotoP8CallInfo.argprom.exit, label %.critedge
+  br i1 %.not.i, label %_ZL11getluaprotoP8CallInfo.exit, label %.critedge
 
-_ZL11getluaprotoP8CallInfo.argprom.exit:          ; preds = %25
+_ZL11getluaprotoP8CallInfo.exit:                  ; preds = %25
   %29 = getelementptr inbounds i8, ptr %26, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not26 = icmp eq ptr %30, null
   br i1 %.not26, label %.critedge, label %31
 
-31:                                               ; preds = %_ZL11getluaprotoP8CallInfo.argprom.exit
+31:                                               ; preds = %_ZL11getluaprotoP8CallInfo.exit
   %32 = getelementptr inbounds i8, ptr %16, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not.i28 = icmp eq ptr %33, null
@@ -336,7 +336,7 @@ _ZL11getluaprotoP8CallInfo.argprom.exit:          ; preds = %25
   %58 = getelementptr inbounds i8, ptr %57, i64 24
   br label %62
 
-.critedge:                                        ; preds = %20, %25, %_ZL11getluaprotoP8CallInfo.argprom.exit, %43
+.critedge:                                        ; preds = %20, %25, %_ZL11getluaprotoP8CallInfo.exit, %43
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 -16
@@ -444,7 +444,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11lua_getinfoP9lua_StateiPKcP9lu
   %.0.i = phi ptr [ %2, %42 ], [ %165, %164 ]
   %59 = load i8, ptr %.0.i, align 1
   switch i8 %59, label %164 [
-    i8 0, label %_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.argprom.exit
+    i8 0, label %_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.exit
     i8 115, label %60
     i8 108, label %75
     i8 117, label %122
@@ -491,21 +491,21 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11lua_getinfoP9lua_StateiPKcP9lu
   %78 = getelementptr inbounds i8, ptr %77, i64 12
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 7
-  br i1 %80, label %81, label %_ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit.i
+  br i1 %80, label %81, label %_ZL11currentlineP9lua_StateP8CallInfo.exit.i
 
 81:                                               ; preds = %76
   %82 = load ptr, ptr %77, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 3
   %84 = load i8, ptr %83, align 1
   %.not50.i = icmp eq i8 %84, 0
-  br i1 %.not50.i, label %85, label %_ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit.i
+  br i1 %.not50.i, label %85, label %_ZL11currentlineP9lua_StateP8CallInfo.exit.i
 
 85:                                               ; preds = %81
   %.val52.i = load ptr, ptr %51, align 8
   %86 = getelementptr i8, ptr %82, i64 24
   %.val.val.val.i = load ptr, ptr %86, align 8
   %.not.i.i.i = icmp eq ptr %.val52.i, null
-  br i1 %.not.i.i.i, label %_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i.i, label %87
+  br i1 %.not.i.i.i, label %_ZL9currentpcP9lua_StateP8CallInfo.exit.i.i, label %87
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds i8, ptr %.val.val.val.i, i64 16
@@ -516,16 +516,16 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11lua_getinfoP9lua_StateiPKcP9lu
   %93 = lshr exact i64 %92, 2
   %94 = trunc i64 %93 to i32
   %95 = add nsw i32 %94, -1
-  br label %_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i.i
+  br label %_ZL9currentpcP9lua_StateP8CallInfo.exit.i.i
 
-_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i.i: ; preds = %87, %85
+_ZL9currentpcP9lua_StateP8CallInfo.exit.i.i:      ; preds = %87, %85
   %96 = phi i32 [ %95, %87 ], [ 0, %85 ]
   %97 = getelementptr inbounds i8, ptr %.val.val.val.i, i64 56
   %98 = load ptr, ptr %97, align 8
   %.not.i3.i.i = icmp eq ptr %98, null
-  br i1 %.not.i3.i.i, label %_ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit.i, label %99
+  br i1 %.not.i3.i.i, label %_ZL11currentlineP9lua_StateP8CallInfo.exit.i, label %99
 
-99:                                               ; preds = %_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i.i
+99:                                               ; preds = %_ZL9currentpcP9lua_StateP8CallInfo.exit.i.i
   %100 = getelementptr inbounds i8, ptr %.val.val.val.i, i64 64
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %.val.val.val.i, i64 160
@@ -539,10 +539,10 @@ _ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i.i: ; preds = %87, %85
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
   %112 = add nsw i32 %107, %111
-  br label %_ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit.i
+  br label %_ZL11currentlineP9lua_StateP8CallInfo.exit.i
 
-_ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit.i: ; preds = %99, %_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i.i, %81, %76
-  %113 = phi i32 [ -1, %81 ], [ -1, %76 ], [ %112, %99 ], [ 0, %_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i.i ]
+_ZL11currentlineP9lua_StateP8CallInfo.exit.i:     ; preds = %99, %_ZL9currentpcP9lua_StateP8CallInfo.exit.i.i, %81, %76
+  %113 = phi i32 [ -1, %81 ], [ -1, %76 ], [ %112, %99 ], [ 0, %_ZL9currentpcP9lua_StateP8CallInfo.exit.i.i ]
   store i32 %113, ptr %52, align 4
   br label %164
 
@@ -652,16 +652,16 @@ _ZL11getfuncnameP7Closure.exit.i:                 ; preds = %161, %159, %153, %1
 163:                                              ; preds = %58
   br label %164
 
-164:                                              ; preds = %163, %_ZL11getfuncnameP7Closure.exit.i, %127, %126, %122, %120, %_ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit.i, %63, %62, %58
-  %.1.i = phi ptr [ %.034, %163 ], [ %.042.i, %_ZL11getfuncnameP7Closure.exit.i ], [ %.042.i, %126 ], [ %.042.i, %127 ], [ %.042.i, %122 ], [ %.042.i, %_ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit.i ], [ %.042.i, %120 ], [ %.042.i, %62 ], [ %.042.i, %63 ], [ %.042.i, %58 ]
+164:                                              ; preds = %163, %_ZL11getfuncnameP7Closure.exit.i, %127, %126, %122, %120, %_ZL11currentlineP9lua_StateP8CallInfo.exit.i, %63, %62, %58
+  %.1.i = phi ptr [ %.034, %163 ], [ %.042.i, %_ZL11getfuncnameP7Closure.exit.i ], [ %.042.i, %126 ], [ %.042.i, %127 ], [ %.042.i, %122 ], [ %.042.i, %_ZL11currentlineP9lua_StateP8CallInfo.exit.i ], [ %.042.i, %120 ], [ %.042.i, %62 ], [ %.042.i, %63 ], [ %.042.i, %58 ]
   %165 = getelementptr inbounds i8, ptr %.0.i, i64 1
   br label %58, !llvm.loop !5
 
-_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.argprom.exit: ; preds = %58
+_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.exit: ; preds = %58
   %.not38 = icmp eq ptr %.042.i, null
   br i1 %.not38, label %.thread, label %166
 
-166:                                              ; preds = %_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.argprom.exit
+166:                                              ; preds = %_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.exit
   %167 = getelementptr inbounds i8, ptr %0, i64 1
   %168 = load i8, ptr %167, align 1
   %169 = and i8 %168, 4
@@ -699,8 +699,8 @@ _ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.argprom.exit: ; pred
   store ptr %186, ptr %173, align 8
   br label %.thread
 
-.thread:                                          ; preds = %41, %184, %_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.argprom.exit, %24, %18, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %18 ], [ 1, %_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.argprom.exit ], [ 1, %184 ], [ 0, %41 ], [ 0, %24 ]
+.thread:                                          ; preds = %41, %184, %_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.exit, %24, %18, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %18 ], [ 1, %_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo.exit ], [ 1, %184 ], [ 0, %41 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -847,9 +847,9 @@ define internal fastcc void @_ZL9pusherrorP9lua_StatePKc(ptr noundef %0, ptr nou
   %13 = getelementptr inbounds i8, ptr %12, i64 3
   %14 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %_ZL11getluaprotoP8CallInfo.argprom.exit, label %53
+  br i1 %.not, label %_ZL11getluaprotoP8CallInfo.exit, label %53
 
-_ZL11getluaprotoP8CallInfo.argprom.exit:          ; preds = %11
+_ZL11getluaprotoP8CallInfo.exit:                  ; preds = %11
   %15 = getelementptr inbounds i8, ptr %12, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 88
@@ -866,9 +866,9 @@ _ZL11getluaprotoP8CallInfo.argprom.exit:          ; preds = %11
   %25 = getelementptr i8, ptr %.val13.val, i64 24
   %.val13.val.val = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %.val14, null
-  br i1 %.not.i.i, label %_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i, label %26
+  br i1 %.not.i.i, label %_ZL9currentpcP9lua_StateP8CallInfo.exit.i, label %26
 
-26:                                               ; preds = %_ZL11getluaprotoP8CallInfo.argprom.exit
+26:                                               ; preds = %_ZL11getluaprotoP8CallInfo.exit
   %27 = getelementptr inbounds i8, ptr %.val13.val.val, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %.val14 to i64
@@ -877,16 +877,16 @@ _ZL11getluaprotoP8CallInfo.argprom.exit:          ; preds = %11
   %32 = lshr exact i64 %31, 2
   %33 = trunc i64 %32 to i32
   %34 = add nsw i32 %33, -1
-  br label %_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i
+  br label %_ZL9currentpcP9lua_StateP8CallInfo.exit.i
 
-_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i: ; preds = %26, %_ZL11getluaprotoP8CallInfo.argprom.exit
-  %35 = phi i32 [ %34, %26 ], [ 0, %_ZL11getluaprotoP8CallInfo.argprom.exit ]
+_ZL9currentpcP9lua_StateP8CallInfo.exit.i:        ; preds = %26, %_ZL11getluaprotoP8CallInfo.exit
+  %35 = phi i32 [ %34, %26 ], [ 0, %_ZL11getluaprotoP8CallInfo.exit ]
   %36 = getelementptr inbounds i8, ptr %.val13.val.val, i64 56
   %37 = load ptr, ptr %36, align 8
   %.not.i3.i = icmp eq ptr %37, null
-  br i1 %.not.i3.i, label %_ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit, label %38
+  br i1 %.not.i3.i, label %_ZL11currentlineP9lua_StateP8CallInfo.exit, label %38
 
-38:                                               ; preds = %_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i
+38:                                               ; preds = %_ZL9currentpcP9lua_StateP8CallInfo.exit.i
   %39 = getelementptr inbounds i8, ptr %.val13.val.val, i64 64
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %.val13.val.val, i64 160
@@ -900,10 +900,10 @@ _ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i: ; preds = %26, %_ZL11getluapr
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = add nsw i32 %46, %50
-  br label %_ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit
+  br label %_ZL11currentlineP9lua_StateP8CallInfo.exit
 
-_ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit: ; preds = %_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i, %38
-  %.0.i.i = phi i32 [ %51, %38 ], [ 0, %_ZL9currentpcP9lua_StateP8CallInfo.argprom.exit.i ]
+_ZL11currentlineP9lua_StateP8CallInfo.exit:       ; preds = %_ZL9currentpcP9lua_StateP8CallInfo.exit.i, %38
+  %.0.i.i = phi i32 [ %51, %38 ], [ 0, %_ZL9currentpcP9lua_StateP8CallInfo.exit.i ]
   %52 = call noundef ptr (ptr, ptr, ...) @_Z16luaO_pushfstringP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef %23, i32 noundef %.0.i.i, ptr noundef %1)
   br label %54
 
@@ -911,7 +911,7 @@ _ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit: ; preds = %_
   tail call void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef nonnull %0, ptr noundef %1)
   br label %54
 
-54:                                               ; preds = %53, %_ZL11currentlineP9lua_StateP8CallInfo.argprom.argprom.argprom.exit
+54:                                               ; preds = %53, %_ZL11currentlineP9lua_StateP8CallInfo.exit
   ret void
 }
 

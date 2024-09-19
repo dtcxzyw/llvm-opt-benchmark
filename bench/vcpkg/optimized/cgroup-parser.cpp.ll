@@ -531,21 +531,21 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg28detect_docker_in_cgroup_fileENS_
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %35
-  br i1 %39, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i.i.i"
+  br i1 %39, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i": ; preds = %.noexc
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i.i.i.i": ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br label %.loopexit21
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %.noexc
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i.i": ; preds = %.noexc
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(32) %36) #13
   %40 = load ptr, ptr %18, align 8
   %41 = load i64, ptr %28, align 8
   %42 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr %40, i64 %41, ptr nonnull @.str.3, i64 4)
           to label %.noexc8 unwind label %.loopexit
 
-.noexc8:                                          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i.i.i"
+.noexc8:                                          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br i1 %42, label %.loopexit21, label %43
@@ -561,22 +561,22 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg28detect_docker_in_cgroup_fileENS_
           to label %.noexc9 unwind label %.loopexit
 
 .noexc9:                                          ; preds = %43
-  br i1 %47, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit16.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit16.i.i.i.i.i.i"
+  br i1 %47, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit16.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit16.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit16.thread.i.i.i.i.i.i": ; preds = %.noexc9
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit16.thread.i.i.i.i.i.i": ; preds = %.noexc9
   %48 = getelementptr inbounds i8, ptr %.sroa.024.055.i.i.i.i.i.i, i64 72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   br label %.loopexit21
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit16.i.i.i.i.i.i": ; preds = %.noexc9
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit16.i.i.i.i.i.i": ; preds = %.noexc9
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(32) %44) #13
   %49 = load ptr, ptr %16, align 8
   %50 = load i64, ptr %30, align 8
   %51 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr %49, i64 %50, ptr nonnull @.str.3, i64 4)
           to label %.noexc10 unwind label %.loopexit
 
-.noexc10:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit16.i.i.i.i.i.i"
+.noexc10:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit16.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   br i1 %51, label %.loopexit.split.loop.exit43.i.i.i.i.i.i, label %52
@@ -592,22 +592,22 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg28detect_docker_in_cgroup_fileENS_
           to label %.noexc11 unwind label %.loopexit
 
 .noexc11:                                         ; preds = %52
-  br i1 %56, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit17.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit17.i.i.i.i.i.i"
+  br i1 %56, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit17.thread.i.i.i.i.i.i": ; preds = %.noexc11
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.thread.i.i.i.i.i.i": ; preds = %.noexc11
   %57 = getelementptr inbounds i8, ptr %.sroa.024.055.i.i.i.i.i.i, i64 144
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br label %.loopexit21
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit17.i.i.i.i.i.i": ; preds = %.noexc11
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.i.i.i.i.i.i": ; preds = %.noexc11
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(32) %53) #13
   %58 = load ptr, ptr %14, align 8
   %59 = load i64, ptr %32, align 8
   %60 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr %58, i64 %59, ptr nonnull @.str.3, i64 4)
           to label %.noexc12 unwind label %.loopexit
 
-.noexc12:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit17.i.i.i.i.i.i"
+.noexc12:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %60, label %.loopexit.split.loop.exit45.i.i.i.i.i.i, label %61
@@ -623,22 +623,22 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg28detect_docker_in_cgroup_fileENS_
           to label %.noexc13 unwind label %.loopexit
 
 .noexc13:                                         ; preds = %61
-  br i1 %65, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit18.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit18.i.i.i.i.i.i"
+  br i1 %65, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit18.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit18.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit18.thread.i.i.i.i.i.i": ; preds = %.noexc13
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit18.thread.i.i.i.i.i.i": ; preds = %.noexc13
   %66 = getelementptr inbounds i8, ptr %.sroa.024.055.i.i.i.i.i.i, i64 216
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %.loopexit21
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit18.i.i.i.i.i.i": ; preds = %.noexc13
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit18.i.i.i.i.i.i": ; preds = %.noexc13
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(32) %62) #13
   %67 = load ptr, ptr %12, align 8
   %68 = load i64, ptr %34, align 8
   %69 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr %67, i64 %68, ptr nonnull @.str.3, i64 4)
           to label %.noexc14 unwind label %.loopexit
 
-.noexc14:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit18.i.i.i.i.i.i"
+.noexc14:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit18.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br i1 %69, label %.loopexit.split.loop.exit47.i.i.i.i.i.i, label %70
@@ -676,14 +676,14 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg28detect_docker_in_cgroup_fileENS_
           to label %.noexc15 unwind label %.loopexit.split-lp
 
 .noexc15:                                         ; preds = %75
-  br i1 %80, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit19.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit19.i.i.i.i.i.i"
+  br i1 %80, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit19.thread.i.i.i.i.i.i": ; preds = %.noexc15
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.thread.i.i.i.i.i.i": ; preds = %.noexc15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %.loopexit21
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit19.i.i.i.i.i.i": ; preds = %.noexc15
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.i.i.i.i.i.i": ; preds = %.noexc15
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(32) %76) #13
   %81 = load ptr, ptr %10, align 8
   %82 = getelementptr inbounds i8, ptr %10, i64 8
@@ -691,7 +691,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg28detect_docker_in_cgroup_fileENS_
   %84 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr %81, i64 %83, ptr nonnull @.str.3, i64 4)
           to label %.noexc16 unwind label %.loopexit.split-lp
 
-.noexc16:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit19.i.i.i.i.i.i"
+.noexc16:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br i1 %84, label %.loopexit21, label %85
@@ -713,14 +713,14 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg28detect_docker_in_cgroup_fileENS_
           to label %.noexc17 unwind label %.loopexit.split-lp
 
 .noexc17:                                         ; preds = %87
-  br i1 %92, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit20.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit20.i.i.i.i.i.i"
+  br i1 %92, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit20.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit20.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit20.thread.i.i.i.i.i.i": ; preds = %.noexc17
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit20.thread.i.i.i.i.i.i": ; preds = %.noexc17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %.loopexit21
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit20.i.i.i.i.i.i": ; preds = %.noexc17
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit20.i.i.i.i.i.i": ; preds = %.noexc17
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %88) #13
   %93 = load ptr, ptr %8, align 8
   %94 = getelementptr inbounds i8, ptr %8, i64 8
@@ -728,7 +728,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg28detect_docker_in_cgroup_fileENS_
   %96 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr %93, i64 %95, ptr nonnull @.str.3, i64 4)
           to label %.noexc18 unwind label %.loopexit.split-lp
 
-.noexc18:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit20.i.i.i.i.i.i"
+.noexc18:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit20.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br i1 %96, label %.loopexit21, label %97
@@ -750,14 +750,14 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg28detect_docker_in_cgroup_fileENS_
           to label %.noexc19 unwind label %.loopexit.split-lp
 
 .noexc19:                                         ; preds = %99
-  br i1 %104, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i"
+  br i1 %104, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i.i": ; preds = %.noexc19
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.thread.i.i.i.i.i.i": ; preds = %.noexc19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %.loopexit21
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i": ; preds = %.noexc19
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i.i": ; preds = %.noexc19
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %100) #13
   %105 = load ptr, ptr %6, align 8
   %106 = getelementptr inbounds i8, ptr %6, i64 8
@@ -765,7 +765,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg28detect_docker_in_cgroup_fileENS_
   %108 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(ptr %105, i64 %107, ptr nonnull @.str.3, i64 4)
           to label %.noexc20 unwind label %.loopexit.split-lp
 
-.noexc20:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i"
+.noexc20:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %spec.select.i.i.i.i.i.i = select i1 %108, ptr %.sroa.024.2.i.i.i.i.i.i, ptr %.val7
@@ -783,8 +783,8 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg28detect_docker_in_cgroup_fileENS_
   %111 = getelementptr inbounds i8, ptr %.sroa.024.055.i.i.i.i.i.i, i64 216
   br label %.loopexit21
 
-.loopexit21:                                      ; preds = %.noexc8, %.loopexit.split.loop.exit47.i.i.i.i.i.i, %.loopexit.split.loop.exit45.i.i.i.i.i.i, %.loopexit.split.loop.exit43.i.i.i.i.i.i, %.noexc20, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i.i", %.noexc18, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit20.thread.i.i.i.i.i.i", %.noexc16, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit19.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit18.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit17.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit16.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.024.0.lcssa.i.i.i.i.i.i, %.noexc16 ], [ %.sroa.024.1.i.i.i.i.i.i, %.noexc18 ], [ %.val7, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.024.055.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i" ], [ %48, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit16.thread.i.i.i.i.i.i" ], [ %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit17.thread.i.i.i.i.i.i" ], [ %66, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit18.thread.i.i.i.i.i.i" ], [ %.sroa.024.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit19.thread.i.i.i.i.i.i" ], [ %.sroa.024.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit20.thread.i.i.i.i.i.i" ], [ %.sroa.024.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i.i" ], [ %spec.select.i.i.i.i.i.i, %.noexc20 ], [ %109, %.loopexit.split.loop.exit43.i.i.i.i.i.i ], [ %110, %.loopexit.split.loop.exit45.i.i.i.i.i.i ], [ %111, %.loopexit.split.loop.exit47.i.i.i.i.i.i ], [ %.sroa.024.055.i.i.i.i.i.i, %.noexc8 ]
+.loopexit21:                                      ; preds = %.noexc8, %.loopexit.split.loop.exit47.i.i.i.i.i.i, %.loopexit.split.loop.exit45.i.i.i.i.i.i, %.loopexit.split.loop.exit43.i.i.i.i.i.i, %.noexc20, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.thread.i.i.i.i.i.i", %.noexc18, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit20.thread.i.i.i.i.i.i", %.noexc16, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit18.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit16.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i.i.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.024.0.lcssa.i.i.i.i.i.i, %.noexc16 ], [ %.sroa.024.1.i.i.i.i.i.i, %.noexc18 ], [ %.val7, %._crit_edge.i.i.i.i.i.i ], [ %.sroa.024.055.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit.thread.i.i.i.i.i.i" ], [ %48, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit16.thread.i.i.i.i.i.i" ], [ %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.thread.i.i.i.i.i.i" ], [ %66, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit18.thread.i.i.i.i.i.i" ], [ %.sroa.024.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.thread.i.i.i.i.i.i" ], [ %.sroa.024.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit20.thread.i.i.i.i.i.i" ], [ %.sroa.024.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.thread.i.i.i.i.i.i" ], [ %spec.select.i.i.i.i.i.i, %.noexc20 ], [ %109, %.loopexit.split.loop.exit43.i.i.i.i.i.i ], [ %110, %.loopexit.split.loop.exit45.i.i.i.i.i.i ], [ %111, %.loopexit.split.loop.exit47.i.i.i.i.i.i ], [ %.sroa.024.055.i.i.i.i.i.i, %.noexc8 ]
   %112 = load ptr, ptr %19, align 8
   %113 = load ptr, ptr %20, align 8
   %.not4.i.i.i.i = icmp eq ptr %112, %113
@@ -817,12 +817,12 @@ _ZNSt6vectorIN5vcpkg12ControlGroupESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
   %119 = icmp ne ptr %.val7, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   ret i1 %119
 
-.loopexit:                                        ; preds = %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit.i.i.i.i.i.i", %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit16.i.i.i.i.i.i", %52, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit17.i.i.i.i.i.i", %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit18.i.i.i.i.i.i"
+.loopexit:                                        ; preds = %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i.i.i.i", %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit16.i.i.i.i.i.i", %52, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit17.i.i.i.i.i.i", %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit18.i.i.i.i.i.i"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %120
 
-.loopexit.split-lp:                               ; preds = %75, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit19.i.i.i.i.i.i", %87, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit20.i.i.i.i.i.i", %99, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i"
+.loopexit.split-lp:                               ; preds = %75, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit19.i.i.i.i.i.i", %87, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit20.i.i.i.i.i.i", %99, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5vcpkg28detect_docker_in_cgroup_fileENS2_10StringViewES3_E3$_0EclINS_17__normal_iteratorIPNS2_12ControlGroupESt6vectorIS8_SaIS8_EEEEEEbT_.exit21.i.i.i.i.i.i"
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %120

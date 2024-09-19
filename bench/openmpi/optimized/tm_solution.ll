@@ -153,7 +153,7 @@ define internal fastcc noundef double @display_sol(ptr nocapture noundef readonl
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %.val11, 0
-  br i1 %11, label %.lr.ph5.i, label %display_sol_sum_com.argprom.exit
+  br i1 %11, label %.lr.ph5.i, label %display_sol_sum_com.exit
 
 .lr.ph5.i:                                        ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 40
@@ -281,9 +281,9 @@ distance.exit.i:                                  ; preds = %54, %52
 80:                                               ; preds = %79, %74
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %13
-  br i1 %exitcond21.not.i, label %display_sol_sum_com.argprom.exit, label %74, !llvm.loop !11
+  br i1 %exitcond21.not.i, label %display_sol_sum_com.exit, label %74, !llvm.loop !11
 
-display_sol_sum_com.argprom.exit:                 ; preds = %80, %5
+display_sol_sum_com.exit:                         ; preds = %80, %5
   %.0.lcssa23.i = phi double [ 0.000000e+00, %5 ], [ %.1.lcssa.i, %80 ]
   %81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, double noundef %.0.lcssa23.i)
   br label %234
@@ -298,7 +298,7 @@ display_sol_sum_com.argprom.exit:                 ; preds = %80, %5
   %87 = getelementptr inbounds i8, ptr %0, i64 8
   %88 = load i32, ptr %87, align 8
   %89 = icmp sgt i32 %.val13, 0
-  br i1 %89, label %.lr.ph5.i17, label %display_sol_max_com.argprom.exit
+  br i1 %89, label %.lr.ph5.i17, label %display_sol_max_com.exit
 
 .lr.ph5.i17:                                      ; preds = %82
   %90 = getelementptr inbounds i8, ptr %0, i64 40
@@ -426,9 +426,9 @@ distance.exit._crit_edge.i:                       ; preds = %146, %distance.exit
 156:                                              ; preds = %155, %150
   %indvars.iv.next18.i30 = add nuw nsw i64 %indvars.iv17.i29, 1
   %exitcond21.not.i31 = icmp eq i64 %indvars.iv.next18.i30, %92
-  br i1 %exitcond21.not.i31, label %display_sol_max_com.argprom.exit, label %150, !llvm.loop !14
+  br i1 %exitcond21.not.i31, label %display_sol_max_com.exit, label %150, !llvm.loop !14
 
-display_sol_max_com.argprom.exit:                 ; preds = %156, %82
+display_sol_max_com.exit:                         ; preds = %156, %82
   %.0.lcssa23.i16 = phi double [ 0.000000e+00, %82 ], [ %.1.lcssa.i24, %156 ]
   %157 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, double noundef %.0.lcssa23.i16)
   br label %234
@@ -438,7 +438,7 @@ display_sol_max_com.argprom.exit:                 ; preds = %156, %82
   %159 = getelementptr i8, ptr %1, i64 16
   %.val15 = load i32, ptr %159, align 8
   %160 = icmp sgt i32 %.val15, 0
-  br i1 %160, label %.lr.ph5.i45, label %display_sol_hop_byte.argprom.exit
+  br i1 %160, label %.lr.ph5.i45, label %display_sol_hop_byte.exit
 
 .lr.ph5.i45:                                      ; preds = %158
   %161 = getelementptr inbounds i8, ptr %0, i64 8
@@ -564,9 +564,9 @@ distance.exit._crit_edge.i70:                     ; preds = %215, %distance.exit
 226:                                              ; preds = %225, %220
   %indvars.iv.next18.i58 = add nuw nsw i64 %indvars.iv17.i57, 1
   %exitcond21.not.i59 = icmp eq i64 %indvars.iv.next18.i58, %163
-  br i1 %exitcond21.not.i59, label %display_sol_hop_byte.argprom.exit, label %220, !llvm.loop !17
+  br i1 %exitcond21.not.i59, label %display_sol_hop_byte.exit, label %220, !llvm.loop !17
 
-display_sol_hop_byte.argprom.exit:                ; preds = %226, %158
+display_sol_hop_byte.exit:                        ; preds = %226, %158
   %.0.lcssa23.i44 = phi double [ 0.000000e+00, %158 ], [ %.1.lcssa.i52, %226 ]
   %227 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, double noundef %.0.lcssa23.i44)
   br label %234
@@ -581,8 +581,8 @@ display_sol_hop_byte.argprom.exit:                ; preds = %226, %158
   %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef nonnull @.str.8, i32 noundef %3) #14
   br label %234
 
-234:                                              ; preds = %228, %231, %display_sol_hop_byte.argprom.exit, %display_sol_max_com.argprom.exit, %display_sol_sum_com.argprom.exit
-  %.0 = phi double [ -1.000000e+00, %231 ], [ %.0.lcssa23.i44, %display_sol_hop_byte.argprom.exit ], [ %.0.lcssa23.i16, %display_sol_max_com.argprom.exit ], [ %.0.lcssa23.i, %display_sol_sum_com.argprom.exit ], [ -1.000000e+00, %228 ]
+234:                                              ; preds = %228, %231, %display_sol_hop_byte.exit, %display_sol_max_com.exit, %display_sol_sum_com.exit
+  %.0 = phi double [ -1.000000e+00, %231 ], [ %.0.lcssa23.i44, %display_sol_hop_byte.exit ], [ %.0.lcssa23.i16, %display_sol_max_com.exit ], [ %.0.lcssa23.i, %display_sol_sum_com.exit ], [ -1.000000e+00, %228 ]
   ret double %.0
 }
 
@@ -968,7 +968,7 @@ define hidden void @tm_map_MPIPP(ptr nocapture noundef readonly %0, i32 noundef 
   %18 = tail call noalias ptr @malloc(i64 noundef %8) #15
   %19 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %19, align 8
-  %20 = tail call fastcc ptr @generate_random_sol.argprom(ptr %.val, i32 noundef %2, i32 noundef 0)
+  %20 = tail call fastcc ptr @generate_random_sol(ptr %.val, i32 noundef %2, i32 noundef 0)
   br i1 %11, label %.lr.ph203.preheader, label %.preheader194
 
 .lr.ph203.preheader:                              ; preds = %._crit_edge
@@ -1479,7 +1479,7 @@ eval_sol.exit:                                    ; preds = %.loopexit.i
   tail call void @free(ptr noundef %.0232) #13
   %205 = add nuw i32 %.0108230, 1
   %.val119 = load ptr, ptr %19, align 8
-  %206 = tail call fastcc ptr @generate_random_sol.argprom(ptr %.val119, i32 noundef %2, i32 noundef %.0108230)
+  %206 = tail call fastcc ptr @generate_random_sol(ptr %.val119, i32 noundef %2, i32 noundef %.0108230)
   %exitcond270.not = icmp eq i32 %.0108230, %1
   br i1 %exitcond270.not, label %._crit_edge233, label %.preheader193, !llvm.loop !32
 
@@ -1513,7 +1513,7 @@ eval_sol.exit:                                    ; preds = %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @generate_random_sol.argprom(ptr nocapture readonly %.32.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @generate_random_sol(ptr nocapture readonly %.32.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = sext i32 %0 to i64
   %4 = shl nsw i64 %3, 4
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #15

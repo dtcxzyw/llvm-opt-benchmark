@@ -1373,7 +1373,7 @@ define hidden void @"_ZN15deltalake_mount4file23MountFileStorageBackend16path_to
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -4291,7 +4291,7 @@ common.ret:                                       ; preds = %121, %17
   %22 = getelementptr inbounds i8, ptr %1, i64 24
   %23 = getelementptr i8, ptr %19, i64 8
   %.val11 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
-  invoke fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(24) %22, ptr nonnull %.val11, ptr noalias noundef readonly align 8 dereferenceable(24) %21)
+  invoke fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E(ptr noalias nocapture noundef align 8 dereferenceable(24) %22, ptr nonnull %.val11, ptr noalias noundef readonly align 8 dereferenceable(24) %21)
           to label %27 unwind label %25
 
 24:                                               ; preds = %136, %149, %175, %31, %25
@@ -4309,7 +4309,7 @@ common.ret:                                       ; preds = %121, %17
   %29 = load ptr, ptr %28, align 8, !nonnull !4, !align !13, !noundef !4
   %30 = getelementptr inbounds i8, ptr %1, i64 48
   %.val = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
-  invoke fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(24) %30, ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(24) %29)
+  invoke fastcc void @_ZN15deltalake_mount4file23MountFileStorageBackend18path_to_filesystem17h74c9688f3908f5f4E(ptr noalias nocapture noundef align 8 dereferenceable(24) %30, ptr nonnull %.val, ptr noalias noundef readonly align 8 dereferenceable(24) %29)
           to label %.thread unwind label %31
 
 31:                                               ; preds = %27
@@ -5648,10 +5648,10 @@ attributes #19 = { noreturn }
 !193 = !{i32 0, i32 2}
 !194 = !{!188, !191}
 !195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h23895e0843054e6dE.argprom: argument 0"}
-!197 = distinct !{!197, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h23895e0843054e6dE.argprom"}
+!196 = distinct !{!196, !197, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h23895e0843054e6dE: argument 0"}
+!197 = distinct !{!197, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h23895e0843054e6dE"}
 !198 = !{!199}
-!199 = distinct !{!199, !197, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h23895e0843054e6dE.argprom: argument 1"}
+!199 = distinct !{!199, !197, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h23895e0843054e6dE: argument 1"}
 !200 = !{!196, !199}
 !201 = !{!202}
 !202 = distinct !{!202, !203, !"_ZN3url13path_segments15PathSegmentsMut6extend17h0ddaf5f2ee07ee3cE: argument 0"}
@@ -6043,10 +6043,10 @@ attributes #19 = { noreturn }
 !588 = distinct !{!588, !589, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE: argument 0"}
 !589 = distinct !{!589, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE"}
 !590 = !{!591}
-!591 = distinct !{!591, !592, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h97972a38134d18a5E.argprom: argument 0"}
-!592 = distinct !{!592, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h97972a38134d18a5E.argprom"}
+!591 = distinct !{!591, !592, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h97972a38134d18a5E: argument 0"}
+!592 = distinct !{!592, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h97972a38134d18a5E"}
 !593 = !{!591, !594}
-!594 = distinct !{!594, !592, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h97972a38134d18a5E.argprom: argument 1"}
+!594 = distinct !{!594, !592, !"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h97972a38134d18a5E: argument 1"}
 !595 = !{!596, !598, !600, !602}
 !596 = distinct !{!596, !597, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h720e5ed9160dccc4E.llvm.16543861533300112609: argument 0"}
 !597 = distinct !{!597, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h720e5ed9160dccc4E.llvm.16543861533300112609"}

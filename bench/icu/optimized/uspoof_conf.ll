@@ -1377,14 +1377,14 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UError
 define internal void @"_ZZN6icu_7513SPUStringPoolC1ER10UErrorCodeEN3$_08__invokeEPv"(ptr noundef %obj) #2 align 2 {
 entry:
   %isnull.i = icmp eq ptr %obj, null
-  br i1 %isnull.i, label %"_ZZN6icu_7513SPUStringPoolC1ER10UErrorCodeENK3$_0clEPv.argprom.exit", label %delete.notnull.i
+  br i1 %isnull.i, label %"_ZZN6icu_7513SPUStringPoolC1ER10UErrorCodeENK3$_0clEPv.exit", label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   tail call void @_ZN6icu_759SPUStringD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %obj) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %obj) #11
-  br label %"_ZZN6icu_7513SPUStringPoolC1ER10UErrorCodeENK3$_0clEPv.argprom.exit"
+  br label %"_ZZN6icu_7513SPUStringPoolC1ER10UErrorCodeENK3$_0clEPv.exit"
 
-"_ZZN6icu_7513SPUStringPoolC1ER10UErrorCodeENK3$_0clEPv.argprom.exit": ; preds = %entry, %delete.notnull.i
+"_ZZN6icu_7513SPUStringPoolC1ER10UErrorCodeENK3$_0clEPv.exit": ; preds = %entry, %delete.notnull.i
   ret void
 }
 

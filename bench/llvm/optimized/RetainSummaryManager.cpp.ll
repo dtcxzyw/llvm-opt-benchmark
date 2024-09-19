@@ -2394,7 +2394,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit301.thread586: ; preds = %_ZNK4llvm9Str
 385:                                              ; preds = %383
   %.sroa.027.0.copyload = load ptr, ptr %12, align 8
   %.sroa.228.0.copyload = load i64, ptr %62, align 8
-  %386 = call fastcc noundef zeroext i1 @_ZL8isRetainPKN5clang12FunctionDeclEN4llvm9StringRefE.argprom(ptr %.sroa.027.0.copyload, i64 %.sroa.228.0.copyload)
+  %386 = call fastcc noundef zeroext i1 @_ZL8isRetainPKN5clang12FunctionDeclEN4llvm9StringRefE(ptr %.sroa.027.0.copyload, i64 %.sroa.228.0.copyload)
   br i1 %386, label %387, label %389
 
 387:                                              ; preds = %385
@@ -2405,7 +2405,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit301.thread586: ; preds = %_ZNK4llvm9Str
 389:                                              ; preds = %385
   %.sroa.025.0.copyload = load ptr, ptr %12, align 8
   %.sroa.226.0.copyload = load i64, ptr %62, align 8
-  %390 = call fastcc noundef zeroext i1 @_ZL13isAutoreleasePKN5clang12FunctionDeclEN4llvm9StringRefE.argprom(ptr %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload)
+  %390 = call fastcc noundef zeroext i1 @_ZL13isAutoreleasePKN5clang12FunctionDeclEN4llvm9StringRefE(ptr %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload)
   br i1 %390, label %391, label %393
 
 391:                                              ; preds = %389
@@ -2451,7 +2451,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit301.thread586: ; preds = %_ZNK4llvm9Str
 404:                                              ; preds = %402, %400
   %.sroa.015.0.copyload = load ptr, ptr %12, align 8
   %.sroa.216.0.copyload = load i64, ptr %62, align 8
-  %405 = call fastcc noundef zeroext i1 @_ZL8isRetainPKN5clang12FunctionDeclEN4llvm9StringRefE.argprom(ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload)
+  %405 = call fastcc noundef zeroext i1 @_ZL8isRetainPKN5clang12FunctionDeclEN4llvm9StringRefE(ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload)
   br i1 %405, label %406, label %408
 
 406:                                              ; preds = %404
@@ -2519,7 +2519,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit331.thread591: ; preds = %_ZNK4llvm9Str
   %428 = sub i64 %419, %.sroa.speculated5.i
   store ptr %427, ptr %12, align 8
   store i64 %428, ptr %62, align 8
-  %429 = call fastcc noundef zeroext i1 @_ZL9isReleasePKN5clang12FunctionDeclEN4llvm9StringRefE.argprom(ptr nonnull %427, i64 %428)
+  %429 = call fastcc noundef zeroext i1 @_ZL9isReleasePKN5clang12FunctionDeclEN4llvm9StringRefE(ptr nonnull %427, i64 %428)
   br i1 %429, label %430, label %432
 
 430:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit331.thread591
@@ -2983,7 +2983,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 declare noundef zeroext i1 @_ZN5clang4ento5cocoa9isRefTypeENS_8QualTypeEN4llvm9StringRefES4_(i64, ptr, i64, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL8isRetainPKN5clang12FunctionDeclEN4llvm9StringRefE.argprom(ptr %0, i64 %1) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL8isRetainPKN5clang12FunctionDeclEN4llvm9StringRefE(ptr %0, i64 %1) unnamed_addr #2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3001,7 +3001,7 @@ define internal fastcc noundef zeroext i1 @_ZL8isRetainPKN5clang12FunctionDeclEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL13isAutoreleasePKN5clang12FunctionDeclEN4llvm9StringRefE.argprom(ptr %0, i64 %1) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL13isAutoreleasePKN5clang12FunctionDeclEN4llvm9StringRefE(ptr %0, i64 %1) unnamed_addr #2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3154,7 +3154,7 @@ _ZN5clang15hasSpecificAttrINS_21CFAuditedTransferAttrEN4llvm11SmallVectorIPNS_4A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL9isReleasePKN5clang12FunctionDeclEN4llvm9StringRefE.argprom(ptr %0, i64 %1) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL9isReleasePKN5clang12FunctionDeclEN4llvm9StringRefE(ptr %0, i64 %1) unnamed_addr #2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5244,13 +5244,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit59.thread112:    ; preds = %_ZN4llvmeqENS_9Stri
 96:                                               ; preds = %94, %92, %90
   %.sroa.019.0.copyload = load ptr, ptr %7, align 8
   %.sroa.220.0.copyload = load i64, ptr %20, align 8
-  %97 = call fastcc noundef zeroext i1 @_ZL8isRetainPKN5clang12FunctionDeclEN4llvm9StringRefE.argprom(ptr %.sroa.019.0.copyload, i64 %.sroa.220.0.copyload)
+  %97 = call fastcc noundef zeroext i1 @_ZL8isRetainPKN5clang12FunctionDeclEN4llvm9StringRefE(ptr %.sroa.019.0.copyload, i64 %.sroa.220.0.copyload)
   br i1 %97, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %98
 
 98:                                               ; preds = %96
   %.sroa.017.0.copyload = load ptr, ptr %7, align 8
   %.sroa.218.0.copyload = load i64, ptr %20, align 8
-  %99 = call fastcc noundef zeroext i1 @_ZL13isAutoreleasePKN5clang12FunctionDeclEN4llvm9StringRefE.argprom(ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload)
+  %99 = call fastcc noundef zeroext i1 @_ZL13isAutoreleasePKN5clang12FunctionDeclEN4llvm9StringRefE(ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload)
   br i1 %99, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %100
 
 100:                                              ; preds = %98
@@ -5599,7 +5599,7 @@ _ZNK5clang4Decl7hasAttrINS_21OSReturnsRetainedAttrEEEbv.exit.i.i.i: ; preds = %.
   br i1 %.not.i.i6.i, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread
 
 _ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit: ; preds = %83, %76, %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.thread.i.i, %62, %78, %_ZNK5clang4Decl7hasAttrINS_21OSReturnsRetainedAttrEEEbv.exit.i.i.i
-  %85 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.argprom.argelim(ptr noundef %2)
+  %85 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef %2)
   %.not83 = icmp ult i64 %85, 4294967296
   br i1 %.not83, label %86, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread
 
@@ -5722,7 +5722,7 @@ _ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i: ; preds =
   br i1 %.not.i.i6.i37, label %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.thread.i.i.i, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread
 
 _ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.thread.i.i.i: ; preds = %135, %128, %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i, %130, %114, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.thread.i.i
-  %137 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.argprom.argelim(ptr noundef %2)
+  %137 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef %2)
   %.sroa.3.0.extract.shift.i.i.i = lshr i64 %137, 32
   %138 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i to i1
   br i1 %138, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit, label %139
@@ -5972,28 +5972,28 @@ _ZNK5clang4Decl7hasAttrINS_14OSConsumedAttrEEEbv.exit.thread.i.i.i.i: ; preds = 
   %89 = icmp sgt i64 %87, 0
   br i1 %89, label %.lr.ph.i.i.i.i.i.i12.i.i.i, label %99
 
-.lr.ph.i.i.i.i.i.i12.i.i.i:                       ; preds = %85, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i.i.i.i.i
-  %.sroa.013.1.i.i.i.i.i.i.i.i = phi ptr [ %98, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %85 ]
+.lr.ph.i.i.i.i.i.i12.i.i.i:                       ; preds = %85, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i.i.i.i.i
+  %.sroa.013.1.i.i.i.i.i.i.i.i = phi ptr [ %98, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %85 ]
   %.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.013.1.i.i.i.i.i.i.i.i, align 8
   %90 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i, i64 32
   %91 = load i16, ptr %90, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %91, 83
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %92, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %92, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i.i.i.i.i
 
 92:                                               ; preds = %.lr.ph.i.i.i.i.i.i12.i.i.i
   %93 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i, i64 36
   %94 = load i32, ptr %93, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %94, 21
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %92
+_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i.i.i.i, i64 40
   %96 = load ptr, ptr %95, align 8
   %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(21) %96, ptr noundef nonnull dereferenceable(21) @.str.92, i64 21)
   %97 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %97, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_123GeneralizedConsumedAttrEEEbv.exit.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i.i.i.i.i
+  br i1 %97, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_123GeneralizedConsumedAttrEEEbv.exit.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i.i.i.i.i, %92, %.lr.ph.i.i.i.i.i.i12.i.i.i
+_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i, %92, %.lr.ph.i.i.i.i.i.i12.i.i.i
   %98 = getelementptr inbounds i8, ptr %.sroa.013.1.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i13.i.i.i = icmp eq ptr %98, %88
   br i1 %.not.i.i.i.i.i.i13.i.i.i, label %.loopexit182, label %.lr.ph.i.i.i.i.i.i12.i.i.i, !llvm.loop !59
@@ -6002,35 +6002,35 @@ _ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.arg
   %.not3.i3.i.i.i.i.i.i.i.i = icmp eq i64 %87, 0
   br i1 %.not3.i3.i.i.i.i.i.i.i.i, label %.loopexit182, label %.lr.ph.i4.i.i.i.i.i7.i.i.i
 
-.lr.ph.i4.i.i.i.i.i7.i.i.i:                       ; preds = %99, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i.i.i.i.i
-  %.sroa.0.1.i.i.i.i.i8.i.i.i = phi ptr [ %108, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i.i.i.i.i ], [ %88, %99 ]
+.lr.ph.i4.i.i.i.i.i7.i.i.i:                       ; preds = %99, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i.i.i.i.i
+  %.sroa.0.1.i.i.i.i.i8.i.i.i = phi ptr [ %108, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i.i.i.i.i ], [ %88, %99 ]
   %.val.i5.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.0.1.i.i.i.i.i8.i.i.i, align 8
   %100 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i.i.i.i.i, i64 32
   %101 = load i16, ptr %100, align 8
   %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i = icmp eq i16 %101, 83
-  br i1 %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i, label %102, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i, label %102, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i.i.i.i.i
 
 102:                                              ; preds = %.lr.ph.i4.i.i.i.i.i7.i.i.i
   %103 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i.i.i.i.i, i64 36
   %104 = load i32, ptr %103, align 4
   %.not.i.i.i.i.i.i.i.i.i.i9.i.i.i.i.i.i.i.i = icmp eq i32 %104, 21
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i9.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i9.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i.i.i.i.i: ; preds = %102
+_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i.i.i.i.i: ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i.i.i.i.i, i64 40
   %106 = load ptr, ptr %105, align 8
   %bcmp.i.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(21) %106, ptr noundef nonnull dereferenceable(21) @.str.92, i64 21)
   %107 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i11.i.i.i.i.i.i.i.i, 0
-  br i1 %107, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_123GeneralizedConsumedAttrEEEbv.exit.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i.i.i.i.i
+  br i1 %107, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_123GeneralizedConsumedAttrEEEbv.exit.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i.i.i.i.i, %102, %.lr.ph.i4.i.i.i.i.i7.i.i.i
+_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i.i.i.i.i, %102, %.lr.ph.i4.i.i.i.i.i7.i.i.i
   %108 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i.i8.i.i.i, i64 8
   %.not.i8.i.i.i.i.i.i.i.i = icmp eq ptr %108, %.val.i.i.i.i.i.i
   br i1 %.not.i8.i.i.i.i.i.i.i.i, label %.loopexit182, label %.lr.ph.i4.i.i.i.i.i7.i.i.i, !llvm.loop !59
 
-_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_123GeneralizedConsumedAttrEEEbv.exit.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i.i.i.i.i
-  %.sroa.013.0.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.013.1.i.i.i.i.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i.i10.i.i.i = phi ptr [ %88, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i8.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i.i.i.i.i ]
+_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_123GeneralizedConsumedAttrEEEbv.exit.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i
+  %.sroa.013.0.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.013.1.i.i.i.i.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i.i10.i.i.i = phi ptr [ %88, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i8.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i.i.i.i.i ]
   %.not.i11.i.i.i = icmp eq ptr %.sroa.013.0.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i10.i.i.i
   br i1 %.not.i11.i.i.i, label %.loopexit182, label %109
 
@@ -6043,7 +6043,7 @@ _ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_123GeneralizedConsumedAttrEEEbv.exit.i.i.i
   tail call void @_ZN5clang4ento13RetainSummary6addArgERN4llvm12ImmutableMapIjNS0_9ArgEffectENS2_16ImutKeyValueInfoIjS4_EEE7FactoryEjS4_(ptr noundef nonnull align 8 dereferenceable(40) %111, ptr noundef nonnull align 8 dereferenceable(81) %112, i32 noundef %2, i64 %.sroa.0.0.insert.insert.i.ph)
   br label %.loopexit
 
-.loopexit182:                                     ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i.i.i.i.i, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_123GeneralizedConsumedAttrEEEbv.exit.i.i.i.i, %99, %_ZNK5clang4Decl7hasAttrINS_14OSConsumedAttrEEEbv.exit.thread.i.i.i.i
+.loopexit182:                                     ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_123GeneralizedConsumedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i.i.i.i.i, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_123GeneralizedConsumedAttrEEEbv.exit.i.i.i.i, %99, %_ZNK5clang4Decl7hasAttrINS_14OSConsumedAttrEEEbv.exit.thread.i.i.i.i
   %113 = load i8, ptr %6, align 1
   %114 = trunc i8 %113 to i1
   br i1 %114, label %115, label %_ZNK5clang4Decl7hasAttrINS_21CFReturnsRetainedAttrEEEbv.exit.thread.i.i
@@ -6264,7 +6264,7 @@ _ZNK5clang4Decl7hasAttrINS_27OSReturnsRetainedOnZeroAttrEEEbv.exit.i.i.i.i.i: ; 
   br i1 %.not.i.i6.i.i.i54, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJNS_30OSReturnsRetainedOnNonZeroAttrENS_27OSReturnsRetainedOnZeroAttrEN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJNS_30OSReturnsRetainedOnNonZeroAttrENS_27OSReturnsRetainedOnZeroAttrEN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread.thread
 
 _ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJNS_30OSReturnsRetainedOnNonZeroAttrENS_27OSReturnsRetainedOnZeroAttrEN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit: ; preds = %206, %199, %_ZNK5clang4Decl7hasAttrINS_30OSReturnsRetainedOnNonZeroAttrEEEbv.exit.thread.i.i.i.i, %186, %201, %_ZNK5clang4Decl7hasAttrINS_27OSReturnsRetainedOnZeroAttrEEEbv.exit.i.i.i.i.i
-  %208 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.argprom.argelim(ptr noundef %1)
+  %208 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef %1)
   %.not165 = icmp ult i64 %208, 4294967296
   br i1 %.not165, label %324, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJNS_30OSReturnsRetainedOnNonZeroAttrENS_27OSReturnsRetainedOnZeroAttrEN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread
 
@@ -6619,7 +6619,7 @@ _ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i: ; preds =
   br i1 %.not.i.i6.i110, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread
 
 _ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit: ; preds = %370, %363, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.thread.i.i, %350, %365, %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i
-  %372 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.argprom.argelim(ptr noundef %1)
+  %372 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef %1)
   %.not166 = icmp ult i64 %372, 4294967296
   br i1 %.not166, label %376, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread
 
@@ -13429,7 +13429,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i64 3, 4294967300) i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.argprom.argelim(ptr noundef %0) unnamed_addr #2 align 2 {
+define internal fastcc range(i64 3, 4294967300) i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 256
@@ -13444,28 +13444,28 @@ define internal fastcc range(i64 3, 4294967300) i64 @_ZN5clang4ento20RetainSumma
   %9 = icmp sgt i64 %7, 0
   br i1 %9, label %.lr.ph.i.i.i.i.i, label %19
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %5, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i
-  %.sroa.013.1.i.i.i.i = phi ptr [ %18, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i ], [ %.val.i.i, %5 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %5, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
+  %.sroa.013.1.i.i.i.i = phi ptr [ %18, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i ], [ %.val.i.i, %5 ]
   %.val.i.i.i.i.i = load ptr, ptr %.sroa.013.1.i.i.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 32
   %11 = load i16, ptr %10, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %11, 83
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
 
 12:                                               ; preds = %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 36
   %14 = load i32, ptr %13, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %14, 29
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i: ; preds = %12
+_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i: ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 40
   %16 = load ptr, ptr %15, align 8
   %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(29) %16, ptr noundef nonnull dereferenceable(29) @.str.90, i64 29)
   %17 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %17, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i
+  br i1 %17, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i, %12, %.lr.ph.i.i.i.i.i
+_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i, %12, %.lr.ph.i.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %.sroa.013.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %18, %8
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !165
@@ -13474,39 +13474,39 @@ _ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRK
   %.not3.i3.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not3.i3.i.i.i.i, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.thread, label %.lr.ph.i4.i.i.i.i
 
-.lr.ph.i4.i.i.i.i:                                ; preds = %19, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i
-  %.sroa.0.1.i.i.i.i = phi ptr [ %28, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i ], [ %8, %19 ]
+.lr.ph.i4.i.i.i.i:                                ; preds = %19, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
+  %.sroa.0.1.i.i.i.i = phi ptr [ %28, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i ], [ %8, %19 ]
   %.val.i5.i.i.i.i = load ptr, ptr %.sroa.0.1.i.i.i.i, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i, i64 32
   %21 = load i16, ptr %20, align 8
   %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i = icmp eq i16 %21, 83
-  br i1 %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i, label %22, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i, label %22, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
 
 22:                                               ; preds = %.lr.ph.i4.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i, i64 36
   %24 = load i32, ptr %23, align 4
   %.not.i.i.i.i.i.i.i.i.i.i9.i.i.i.i = icmp eq i32 %24, 29
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i9.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i9.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i: ; preds = %22
+_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i: ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i, i64 40
   %26 = load ptr, ptr %25, align 8
   %bcmp.i.i.i.i.i.i.i.i.i.i11.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(29) %26, ptr noundef nonnull dereferenceable(29) @.str.90, i64 29)
   %27 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i11.i.i.i.i, 0
-  br i1 %27, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i
+  br i1 %27, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit, label %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i, %22, %.lr.ph.i4.i.i.i.i
+_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i, %22, %.lr.ph.i4.i.i.i.i
   %28 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i, i64 8
   %.not.i8.i.i.i.i = icmp eq ptr %28, %.val.i.i
   br i1 %.not.i8.i.i.i.i, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.thread, label %.lr.ph.i4.i.i.i.i, !llvm.loop !165
 
-_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i
-  %.sroa.013.0.i.i.i.i = phi ptr [ %.sroa.013.1.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i ], [ %.val.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %8, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i ]
+_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i
+  %.sroa.013.0.i.i.i.i = phi ptr [ %.sroa.013.1.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i ], [ %.val.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %8, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i ]
   %.not = icmp eq ptr %.sroa.013.0.i.i.i.i, %.sroa.0.0.i.i.i.i
   br i1 %.not, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.thread, label %29
 
-_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.thread: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i, %19, %1, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit
+_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.thread: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i, %19, %1, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit
   br label %29
 
 29:                                               ; preds = %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exit.thread
@@ -13515,7 +13515,7 @@ _ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEbv.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i64 3, 4294967300) i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.argprom.argelim(ptr noundef %0) unnamed_addr #2 align 2 {
+define internal fastcc range(i64 3, 4294967300) i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 256
@@ -13530,28 +13530,28 @@ define internal fastcc range(i64 3, 4294967300) i64 @_ZN5clang4ento20RetainSumma
   %9 = icmp sgt i64 %7, 0
   br i1 %9, label %.lr.ph.i.i.i.i.i, label %19
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %5, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i
-  %.sroa.013.1.i.i.i.i = phi ptr [ %18, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i ], [ %.val.i.i, %5 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %5, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
+  %.sroa.013.1.i.i.i.i = phi ptr [ %18, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i ], [ %.val.i.i, %5 ]
   %.val.i.i.i.i.i = load ptr, ptr %.sroa.013.1.i.i.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 32
   %11 = load i16, ptr %10, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %11, 83
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
 
 12:                                               ; preds = %.lr.ph.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 36
   %14 = load i32, ptr %13, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %14, 33
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i: ; preds = %12
+_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i: ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 40
   %16 = load ptr, ptr %15, align 8
   %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(33) %16, ptr noundef nonnull dereferenceable(33) @.str.91, i64 33)
   %17 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %17, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i
+  br i1 %17, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i, %12, %.lr.ph.i.i.i.i.i
+_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i, %12, %.lr.ph.i.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %.sroa.013.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %18, %8
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !166
@@ -13560,39 +13560,39 @@ _ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEE
   %.not3.i3.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not3.i3.i.i.i.i, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit.thread, label %.lr.ph.i4.i.i.i.i
 
-.lr.ph.i4.i.i.i.i:                                ; preds = %19, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i
-  %.sroa.0.1.i.i.i.i = phi ptr [ %28, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i ], [ %8, %19 ]
+.lr.ph.i4.i.i.i.i:                                ; preds = %19, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
+  %.sroa.0.1.i.i.i.i = phi ptr [ %28, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i ], [ %8, %19 ]
   %.val.i5.i.i.i.i = load ptr, ptr %.sroa.0.1.i.i.i.i, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i, i64 32
   %21 = load i16, ptr %20, align 8
   %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i = icmp eq i16 %21, 83
-  br i1 %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i, label %22, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i6.i.i.i.i, label %22, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
 
 22:                                               ; preds = %.lr.ph.i4.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i, i64 36
   %24 = load i32, ptr %23, align 4
   %.not.i.i.i.i.i.i.i.i.i.i9.i.i.i.i = icmp eq i32 %24, 33
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i9.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i9.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i: ; preds = %22
+_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i: ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %.val.i5.i.i.i.i, i64 40
   %26 = load ptr, ptr %25, align 8
   %bcmp.i.i.i.i.i.i.i.i.i.i11.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(33) %26, ptr noundef nonnull dereferenceable(33) @.str.91, i64 33)
   %27 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i11.i.i.i.i, 0
-  br i1 %27, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i
+  br i1 %27, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit, label %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i
 
-_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i, %22, %.lr.ph.i4.i.i.i.i
+_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i, %22, %.lr.ph.i4.i.i.i.i
   %28 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i, i64 8
   %.not.i8.i.i.i.i = icmp eq ptr %28, %.val.i.i
   br i1 %.not.i8.i.i.i.i, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit.thread, label %.lr.ph.i4.i.i.i.i, !llvm.loop !166
 
-_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i
-  %.sroa.013.0.i.i.i.i = phi ptr [ %.sroa.013.1.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i ], [ %.val.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %8, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.i10.i.i.i.i ]
+_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i
+  %.sroa.013.0.i.i.i.i = phi ptr [ %.sroa.013.1.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i ], [ %.val.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %8, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.i10.i.i.i.i ]
   %.not = icmp eq ptr %.sroa.013.0.i.i.i.i, %.sroa.0.0.i.i.i.i
   br i1 %.not, label %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit.thread, label %29
 
-_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit.thread: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i7.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.argprom.exit.thread.i.i.i.i.i, %19, %1, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit
+_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit.thread: ; preds = %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i7.i.i.i.i, %_ZN4llvm3isaIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEPN5clang4AttrEEEbRKT0_.exit.thread.i.i.i.i.i, %19, %1, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit
   br label %29
 
 29:                                               ; preds = %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEEbv.exit.thread

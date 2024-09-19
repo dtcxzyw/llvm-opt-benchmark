@@ -1033,11 +1033,11 @@ if.then.i21:                                      ; preds = %explist1.exit, %exp
   %spec.store.select.i = add nsw i32 %144, 1
   call void @luaK_setreturns(ptr noundef %ls.val, ptr noundef nonnull %e.i.i, i32 noundef %spec.store.select.i) #6
   %cmp6.i = icmp slt i32 %n.0.i.lcssa, 3
-  br i1 %cmp6.i, label %if.then7.i22, label %adjust_assign.argprom.exit
+  br i1 %cmp6.i, label %if.then7.i22, label %adjust_assign.exit
 
 if.then7.i22:                                     ; preds = %if.then.i21
   call void @luaK_reserveregs(ptr noundef %ls.val, i32 noundef %144) #6
-  br label %adjust_assign.argprom.exit
+  br label %adjust_assign.exit
 
 if.then12.i:                                      ; preds = %explist1.exit
   call void @luaK_exp2nextreg(ptr noundef %ls.val, ptr noundef nonnull %e.i.i) #6
@@ -1045,16 +1045,16 @@ if.then12.i:                                      ; preds = %explist1.exit
 
 if.end13.i:                                       ; preds = %if.then12.i, %explist1.exit
   %cmp14.i = icmp slt i32 %n.0.i.lcssa, 3
-  br i1 %cmp14.i, label %if.then15.i, label %adjust_assign.argprom.exit
+  br i1 %cmp14.i, label %if.then15.i, label %adjust_assign.exit
 
 if.then15.i:                                      ; preds = %if.end13.i
   %freereg.i19 = getelementptr inbounds i8, ptr %ls.val, i64 60
   %145 = load i32, ptr %freereg.i19, align 4, !tbaa !60
   call void @luaK_reserveregs(ptr noundef %ls.val, i32 noundef %sub.i18) #6
   call void @luaK_nil(ptr noundef %ls.val, i32 noundef %145, i32 noundef %sub.i18) #6
-  br label %adjust_assign.argprom.exit
+  br label %adjust_assign.exit
 
-adjust_assign.argprom.exit:                       ; preds = %if.then.i21, %if.then7.i22, %if.end13.i, %if.then15.i
+adjust_assign.exit:                               ; preds = %if.then.i21, %if.then7.i22, %if.end13.i, %if.then15.i
   call void @luaK_checkstack(ptr noundef %129, i32 noundef 3) #6
   call fastcc void @forbody(ptr noundef nonnull %ls, i32 noundef %130, i32 noundef %139, i32 noundef %nvars.0.i.i.lcssa, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e.i.i) #6
@@ -1064,7 +1064,7 @@ sw.default.i160:                                  ; preds = %str_checkname.exit.
   call void @luaX_syntaxerror(ptr noundef nonnull %ls, ptr noundef nonnull @.str.18) #6
   br label %sw.epilog.i
 
-sw.epilog.i:                                      ; preds = %sw.default.i160, %adjust_assign.argprom.exit, %fornum.exit.i
+sw.epilog.i:                                      ; preds = %sw.default.i160, %adjust_assign.exit, %fornum.exit.i
   call fastcc void @check_match(ptr noundef nonnull %ls, i32 noundef 262, i32 noundef 264, i32 noundef %3)
   %146 = load ptr, ptr %bl3.i.i117, align 8, !tbaa !22
   %147 = load ptr, ptr %146, align 8, !tbaa !52
@@ -1800,11 +1800,11 @@ if.then.i28:                                      ; preds = %if.end.i54, %if.end
   %spec.store.select.i29 = add nsw i32 %305, 1
   call void @luaK_setreturns(ptr noundef %ls.val17, ptr noundef nonnull %e.i40, i32 noundef %spec.store.select.i29) #6
   %cmp6.i30 = icmp sgt i32 %sub.i23, 0
-  br i1 %cmp6.i30, label %if.then7.i31, label %adjust_assign.argprom.exit33
+  br i1 %cmp6.i30, label %if.then7.i31, label %adjust_assign.exit33
 
 if.then7.i31:                                     ; preds = %if.then.i28
   call void @luaK_reserveregs(ptr noundef %ls.val17, i32 noundef %305) #6
-  br label %adjust_assign.argprom.exit33
+  br label %adjust_assign.exit33
 
 if.then12.i32:                                    ; preds = %if.end.i54
   call void @luaK_exp2nextreg(ptr noundef %ls.val17, ptr noundef nonnull %e.i40) #6
@@ -1812,7 +1812,7 @@ if.then12.i32:                                    ; preds = %if.end.i54
 
 if.end13.i24:                                     ; preds = %if.then12.i32, %if.end.i54
   %cmp14.i25 = icmp sgt i32 %sub.i23, 0
-  br i1 %cmp14.i25, label %if.then15.i26, label %adjust_assign.argprom.exit33
+  br i1 %cmp14.i25, label %if.then15.i26, label %adjust_assign.exit33
 
 if.then15.i26:                                    ; preds = %if.end13.i24.thread, %if.end13.i24
   %ls.val173844 = phi ptr [ %ls.val1736, %if.end13.i24.thread ], [ %ls.val17, %if.end13.i24 ]
@@ -1821,9 +1821,9 @@ if.then15.i26:                                    ; preds = %if.end13.i24.thread
   %306 = load i32, ptr %freereg.i27, align 4, !tbaa !60
   call void @luaK_reserveregs(ptr noundef %ls.val173844, i32 noundef %sub.i233943) #6
   call void @luaK_nil(ptr noundef %ls.val173844, i32 noundef %306, i32 noundef %sub.i233943) #6
-  br label %adjust_assign.argprom.exit33
+  br label %adjust_assign.exit33
 
-adjust_assign.argprom.exit33:                     ; preds = %if.then.i28, %if.then7.i31, %if.end13.i24, %if.then15.i26
+adjust_assign.exit33:                             ; preds = %if.then.i28, %if.then7.i31, %if.end13.i24, %if.then15.i26
   %307 = load ptr, ptr %fs1.i21, align 8, !tbaa !15
   %nactvar.i.i = getelementptr inbounds i8, ptr %307, i64 74
   %308 = load i8, ptr %nactvar.i.i, align 2, !tbaa !49
@@ -1842,7 +1842,7 @@ adjust_assign.argprom.exit33:                     ; preds = %if.then.i28, %if.th
   %lcmp.mod.not.not = icmp eq i32 %315, 0
   br i1 %lcmp.mod.not.not, label %for.body.i.i.prol.loopexit, label %for.body.i.i.preheader
 
-for.body.i.i.prol.loopexit:                       ; preds = %adjust_assign.argprom.exit33
+for.body.i.i.prol.loopexit:                       ; preds = %adjust_assign.exit33
   %316 = sub nsw i64 %314, %313
   %arrayidx.i.i.prol = getelementptr inbounds [200 x i16], ptr %actvar.i.i, i64 0, i64 %316
   %317 = load i16, ptr %arrayidx.i.i.prol, align 2, !tbaa !54
@@ -1853,8 +1853,8 @@ for.body.i.i.prol.loopexit:                       ; preds = %adjust_assign.argpr
   %318 = icmp eq i32 %nvars.0.i, 0
   br i1 %318, label %localstat.exit, label %for.body.i.i.preheader
 
-for.body.i.i.preheader:                           ; preds = %adjust_assign.argprom.exit33, %for.body.i.i.prol.loopexit
-  %indvars.iv.i.i.unr102 = phi i64 [ %indvars.iv.next.i.i.prol, %for.body.i.i.prol.loopexit ], [ %313, %adjust_assign.argprom.exit33 ]
+for.body.i.i.preheader:                           ; preds = %adjust_assign.exit33, %for.body.i.i.prol.loopexit
+  %indvars.iv.i.i.unr102 = phi i64 [ %indvars.iv.next.i.i.prol, %for.body.i.i.prol.loopexit ], [ %313, %adjust_assign.exit33 ]
   %indvars.iv.next.i.i.neg = add nuw nsw i64 %314, 1
   br label %for.body.i.i
 
@@ -4931,11 +4931,11 @@ if.then.i:                                        ; preds = %if.then23, %if.then
   %spec.store.select.i = add nsw i32 %29, 1
   call void @luaK_setreturns(ptr noundef %27, ptr noundef nonnull %e, i32 noundef %spec.store.select.i) #6
   %cmp6.i6 = icmp sgt i32 %sub.i, 0
-  br i1 %cmp6.i6, label %if.then7.i7, label %adjust_assign.argprom.exit
+  br i1 %cmp6.i6, label %if.then7.i7, label %adjust_assign.exit
 
 if.then7.i7:                                      ; preds = %if.then.i
   call void @luaK_reserveregs(ptr noundef %27, i32 noundef %29) #6
-  br label %adjust_assign.argprom.exit
+  br label %adjust_assign.exit
 
 if.then12.i:                                      ; preds = %if.then23
   call void @luaK_exp2nextreg(ptr noundef %27, ptr noundef nonnull %e) #6
@@ -4943,20 +4943,20 @@ if.then12.i:                                      ; preds = %if.then23
 
 if.end13.i:                                       ; preds = %if.then12.i, %if.then23
   %cmp14.i = icmp sgt i32 %sub.i, 0
-  br i1 %cmp14.i, label %if.then15.i, label %adjust_assign.argprom.exit
+  br i1 %cmp14.i, label %if.then15.i, label %adjust_assign.exit
 
 if.then15.i:                                      ; preds = %if.end13.i
   %freereg.i5 = getelementptr inbounds i8, ptr %27, i64 60
   %30 = load i32, ptr %freereg.i5, align 4, !tbaa !60
   call void @luaK_reserveregs(ptr noundef %27, i32 noundef %sub.i) #6
   call void @luaK_nil(ptr noundef %27, i32 noundef %30, i32 noundef %sub.i) #6
-  br label %adjust_assign.argprom.exit
+  br label %adjust_assign.exit
 
-adjust_assign.argprom.exit:                       ; preds = %if.then.i, %if.then7.i7, %if.end13.i, %if.then15.i
+adjust_assign.exit:                               ; preds = %if.then.i, %if.then7.i7, %if.end13.i, %if.then15.i
   %cmp24 = icmp sgt i32 %n.0.i.lcssa, %nvars
   br i1 %cmp24, label %if.then26, label %if.end36
 
-if.then26:                                        ; preds = %adjust_assign.argprom.exit
+if.then26:                                        ; preds = %adjust_assign.exit
   %31 = load ptr, ptr %fs32, align 8, !tbaa !15
   %freereg = getelementptr inbounds i8, ptr %31, i64 60
   %32 = load i32, ptr %freereg, align 4, !tbaa !60
@@ -4969,7 +4969,7 @@ cleanup:                                          ; preds = %explist1.exit
   %33 = load ptr, ptr %fs32, align 8, !tbaa !15
   br label %cleanup42
 
-if.end36:                                         ; preds = %if.then26, %adjust_assign.argprom.exit, %if.end19
+if.end36:                                         ; preds = %if.then26, %adjust_assign.exit, %if.end19
   %fs37 = getelementptr inbounds i8, ptr %ls, i64 48
   %34 = load ptr, ptr %fs37, align 8, !tbaa !15
   %freereg38 = getelementptr inbounds i8, ptr %34, i64 60

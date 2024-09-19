@@ -795,12 +795,12 @@ land.lhs.true4.i:                                 ; preds = %if.end.i58
   %mp_subscript.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mp_subscript.i, align 8
   %tobool6.not.i = icmp eq ptr %5, null
-  br i1 %tobool6.not.i, label %if.else.i, label %get_sq_item.argprom.exit.thread
+  br i1 %tobool6.not.i, label %if.else.i, label %get_sq_item.exit.thread
 
 if.else.i:                                        ; preds = %land.lhs.true4.i, %if.end.i58
-  br label %get_sq_item.argprom.exit.thread
+  br label %get_sq_item.exit.thread
 
-get_sq_item.argprom.exit.thread:                  ; preds = %land.lhs.true4.i, %if.else.i
+get_sq_item.exit.thread:                          ; preds = %land.lhs.true4.i, %if.else.i
   %msg.0.i = phi ptr [ @.str.13, %if.else.i ], [ @.str.12, %land.lhs.true4.i ]
   %6 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %list.val, i64 24
@@ -1209,8 +1209,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %litem.0.ph) #2
   br label %return
 
-return:                                           ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %error, %get_sq_item.argprom.exit.thread, %if.end10, %if.then2, %while.end, %if.then
-  %retval.0 = phi i64 [ -1, %if.then ], [ %lo.addr.0.lcssa, %while.end ], [ -1, %if.then2 ], [ -1, %if.end10 ], [ -1, %get_sq_item.argprom.exit.thread ], [ -1, %error ], [ -1, %if.then.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ]
+return:                                           ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %error, %get_sq_item.exit.thread, %if.end10, %if.then2, %while.end, %if.then
+  %retval.0 = phi i64 [ -1, %if.then ], [ %lo.addr.0.lcssa, %while.end ], [ -1, %if.then2 ], [ -1, %if.end10 ], [ -1, %get_sq_item.exit.thread ], [ -1, %error ], [ -1, %if.then.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ]
   ret i64 %retval.0
 }
 
@@ -1281,12 +1281,12 @@ land.lhs.true4.i:                                 ; preds = %if.end.i58
   %mp_subscript.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mp_subscript.i, align 8
   %tobool6.not.i = icmp eq ptr %5, null
-  br i1 %tobool6.not.i, label %if.else.i, label %get_sq_item.argprom.exit.thread
+  br i1 %tobool6.not.i, label %if.else.i, label %get_sq_item.exit.thread
 
 if.else.i:                                        ; preds = %land.lhs.true4.i, %if.end.i58
-  br label %get_sq_item.argprom.exit.thread
+  br label %get_sq_item.exit.thread
 
-get_sq_item.argprom.exit.thread:                  ; preds = %land.lhs.true4.i, %if.else.i
+get_sq_item.exit.thread:                          ; preds = %land.lhs.true4.i, %if.else.i
   %msg.0.i = phi ptr [ @.str.13, %if.else.i ], [ @.str.12, %land.lhs.true4.i ]
   %6 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i = getelementptr inbounds i8, ptr %list.val, i64 24
@@ -1695,8 +1695,8 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %litem.0.ph) #2
   br label %return
 
-return:                                           ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %error, %get_sq_item.argprom.exit.thread, %if.end10, %if.then2, %while.end, %if.then
-  %retval.0 = phi i64 [ -1, %if.then ], [ %lo.addr.0.lcssa, %while.end ], [ -1, %if.then2 ], [ -1, %if.end10 ], [ -1, %get_sq_item.argprom.exit.thread ], [ -1, %error ], [ -1, %if.then.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ]
+return:                                           ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %error, %get_sq_item.exit.thread, %if.end10, %if.then2, %while.end, %if.then
+  %retval.0 = phi i64 [ -1, %if.then ], [ %lo.addr.0.lcssa, %while.end ], [ -1, %if.then2 ], [ -1, %if.end10 ], [ -1, %get_sq_item.exit.thread ], [ -1, %error ], [ -1, %if.then.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ]
   ret i64 %retval.0
 }
 

@@ -3588,7 +3588,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8, !alias.scope !74
   %10 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorEPS1_ET0_T_S6_S5_(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %5)
-          to label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit" unwind label %11, !noalias !74
+          to label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit" unwind label %11, !noalias !74
 
 11:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
@@ -3604,7 +3604,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22UsdValidationErrorSiteESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17, !noalias !74
   resume { ptr, i32 } %13
 
-"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i
+"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %16, align 8, !alias.scope !74
   %17 = getelementptr inbounds i8, ptr %4, i64 40
@@ -4859,7 +4859,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15), !noalias !85
   %244 = load ptr, ptr %16, align 8, !noalias !85
   %.not.i.i.i4.i.i = icmp eq ptr %244, null
-  br i1 %.not.i.i.i4.i.i, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit", label %245
+  br i1 %.not.i.i.i4.i.i, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %245
 
 245:                                              ; preds = %243
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 8
@@ -4880,7 +4880,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 255:                                              ; preds = %250
   %256 = icmp eq i32 %247, -1
-  br i1 %256, label %261, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
+  br i1 %256, label %261, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 257:                                              ; preds = %250, %249
   %.067.i.i.i.i.i = phi i32 [ %254, %250 ], [ -2, %249 ]
@@ -4888,19 +4888,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
           to label %.noexc.i5.i.i unwind label %265, !noalias !85
 
 .noexc.i5.i.i:                                    ; preds = %257
-  br i1 %258, label %261, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
+  br i1 %258, label %261, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i: ; preds = %245
   %259 = atomicrmw sub ptr %246, i32 1 release, align 4, !noalias !85
   %260 = icmp eq i32 %259, 1
-  br i1 %260, label %261, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
+  br i1 %260, label %261, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 261:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %.noexc.i5.i.i, %255
   %262 = load ptr, ptr %244, align 8, !noalias !85
   %263 = getelementptr inbounds i8, ptr %262, i64 8
   %264 = load ptr, ptr %263, align 8, !noalias !85
   call void %264(ptr noundef nonnull align 8 dereferenceable(12) %244) #17, !noalias !85
-  br label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 265:                                              ; preds = %257
   %266 = landingpad { ptr, i32 }
@@ -4914,7 +4914,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #17, !noalias !85
   resume { ptr, i32 } %eh.lpad-body.i.i
 
-"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %243, %255, %.noexc.i5.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %261
+"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %243, %255, %.noexc.i5.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %261
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !79
   ret void
 }
@@ -5483,20 +5483,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i: ; preds = %172, %1
   %176 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %177 = load ptr, ptr %176, align 8, !noalias !112
   %.not.i.i.i.i47.i.i.i = icmp eq ptr %177, null
-  br i1 %.not.i.i.i.i47.i.i.i, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i48.i.i.i
+  br i1 %.not.i.i.i.i47.i.i.i, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i48.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i48.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = atomicrmw sub ptr %178, i32 1 release, align 4, !noalias !112
   %180 = icmp eq i32 %179, 1
-  br i1 %180, label %181, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br i1 %180, label %181, label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 181:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i48.i.i.i
   %182 = load ptr, ptr %177, align 8, !noalias !112
   %183 = getelementptr inbounds i8, ptr %182, i64 8
   %184 = load ptr, ptr %183, align 8, !noalias !112
   call void %184(ptr noundef nonnull align 8 dereferenceable(12) %177) #17, !noalias !112
-  br label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
 185:                                              ; preds = %.invoke.i.i.i
   %186 = landingpad { ptr, i32 }
@@ -5589,7 +5589,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit54.i.i.i: ; preds = %211, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i53.i.i.i, %205
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i48.i.i.i, %181
+"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i48.i.i.i, %181
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !111
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !111
@@ -6052,14 +6052,14 @@ attributes #21 = { builtin nounwind }
 !62 = distinct !{!62, !"_ZNK32pxrInternal_v0_24__pxrReserved__22UsdValidationErrorSite11GetPropertyEv"}
 !63 = distinct !{!63, !16}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom: argument 0"}
-!66 = distinct !{!66, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom"}
+!65 = distinct !{!65, !66, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_: argument 0"}
+!66 = distinct !{!66, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!69 = distinct !{!69, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!68 = distinct !{!68, !69, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!69 = distinct !{!69, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_0JRKNS1_9TfWeakPtrINS1_8SdfLayerEEEEET_St14__invoke_otherOT0_DpOT1_"}
 !70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZZL19TestSimpleValidatorvENK3$_0clERKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEE.argprom: argument 0"}
-!72 = distinct !{!72, !"_ZZL19TestSimpleValidatorvENK3$_0clERKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEE.argprom"}
+!71 = distinct !{!71, !72, !"_ZZL19TestSimpleValidatorvENK3$_0clERKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEE: argument 0"}
+!72 = distinct !{!72, !"_ZZL19TestSimpleValidatorvENK3$_0clERKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEE"}
 !73 = !{!68, !65}
 !74 = !{!71, !68, !65}
 !75 = distinct !{!75, !16}
@@ -6067,17 +6067,17 @@ attributes #21 = { builtin nounwind }
 !77 = distinct !{!77, !16}
 !78 = distinct !{!78, !16}
 !79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom: argument 0"}
-!81 = distinct !{!81, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom"}
+!80 = distinct !{!80, !81, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_: argument 0"}
+!81 = distinct !{!81, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_"}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!84 = distinct !{!84, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!83 = distinct !{!83, !84, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!84 = distinct !{!84, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_1JRKNS1_9TfWeakPtrINS1_8UsdStageEEEEET_St14__invoke_otherOT0_DpOT1_"}
 !85 = !{!83, !80}
 !86 = !{!87, !83, !80}
-!87 = distinct !{!87, !88, !"_ZZL19TestSimpleValidatorvENK3$_1clERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEE.argprom: argument 0:thread"}
-!88 = distinct !{!88, !"_ZZL19TestSimpleValidatorvENK3$_1clERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEE.argprom"}
+!87 = distinct !{!87, !88, !"_ZZL19TestSimpleValidatorvENK3$_1clERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEE: argument 0:thread"}
+!88 = distinct !{!88, !"_ZZL19TestSimpleValidatorvENK3$_1clERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEE"}
 !89 = !{!90}
-!90 = distinct !{!90, !88, !"_ZZL19TestSimpleValidatorvENK3$_1clERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEE.argprom: argument 0"}
+!90 = distinct !{!90, !88, !"_ZZL19TestSimpleValidatorvENK3$_1clERKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEE: argument 0"}
 !91 = !{!90, !83, !80}
 !92 = !{!93, !95, !97, !90, !83, !80}
 !93 = distinct !{!93, !94, !"_ZN32pxrInternal_v0_24__pxrReserved__10Tf_Remnant8RegisterERSt6atomicIPS0_E: argument 0"}
@@ -6090,14 +6090,14 @@ attributes #21 = { builtin nounwind }
 !100 = distinct !{!100, !101, !"_ZN32pxrInternal_v0_24__pxrReserved__10Tf_Remnant8RegisterIS0_EENS_8TfRefPtrIS0_EERSt6atomicIPS0_EPT_: argument 0"}
 !101 = distinct !{!101, !"_ZN32pxrInternal_v0_24__pxrReserved__10Tf_Remnant8RegisterIS0_EENS_8TfRefPtrIS0_EERSt6atomicIPS0_EPT_"}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom: argument 0"}
-!104 = distinct !{!104, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom"}
+!103 = distinct !{!103, !104, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_: argument 0"}
+!104 = distinct !{!104, !"_ZSt10__invoke_rISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!107 = distinct !{!107, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!106 = distinct !{!106, !107, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!107 = distinct !{!107, !"_ZSt13__invoke_implISt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERZL19TestSimpleValidatorvE3$_2JRKNS1_7UsdPrimEEET_St14__invoke_otherOT0_DpOT1_"}
 !108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZZL19TestSimpleValidatorvENK3$_2clERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom: argument 0"}
-!110 = distinct !{!110, !"_ZZL19TestSimpleValidatorvENK3$_2clERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom"}
+!109 = distinct !{!109, !110, !"_ZZL19TestSimpleValidatorvENK3$_2clERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE: argument 0"}
+!110 = distinct !{!110, !"_ZZL19TestSimpleValidatorvENK3$_2clERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE"}
 !111 = !{!106, !103}
 !112 = !{!109, !106, !103}
 !113 = !{!114}

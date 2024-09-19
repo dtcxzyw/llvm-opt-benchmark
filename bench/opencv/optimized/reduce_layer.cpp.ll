@@ -2368,7 +2368,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15ReduceLayerImpl8finalizeERKNS_11_In
   %17 = sext i32 %.val19 to i64
   %.idx = shl nsw i64 %17, 2
   %.not46 = icmp eq i32 %.val19, 0
-  br i1 %.not46, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit, label %18
+  br i1 %.not46, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %18
 
 18:                                               ; preds = %13
   %19 = icmp slt i32 %.val19, 0
@@ -2389,14 +2389,14 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %.val20, i64 %.idx, i1 false)
   %22 = getelementptr inbounds i8, ptr %21, i64 %.idx
   %23 = ptrtoint ptr %22 to i64
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %20, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %13, %.noexc36
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %13, %.noexc36
   %.sroa.8.0 = phi i64 [ %23, %.noexc36 ], [ 0, %13 ]
   %.sroa.040.0 = phi ptr [ %21, %.noexc36 ], [ null, %13 ]
   %25 = load ptr, ptr %8, align 8
@@ -2404,7 +2404,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %13, %.noex
   %.not61 = icmp eq ptr %25, %26
   br i1 %.not61, label %.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
+.lr.ph:                                           ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
   %27 = ptrtoint ptr %.sroa.040.0 to i64
   %28 = sub i64 %.sroa.8.0, %27
   %29 = lshr exact i64 %28, 2
@@ -2412,9 +2412,9 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %13, %.noex
   %31 = sub nsw i32 0, %30
   br label %32
 
-.preheader:                                       ; preds = %38, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
-  %.lcssa51 = phi ptr [ %25, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit ], [ %42, %38 ]
-  %.lcssa = phi ptr [ %26, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit ], [ %43, %38 ]
+.preheader:                                       ; preds = %38, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+  %.lcssa51 = phi ptr [ %25, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit ], [ %42, %38 ]
+  %.lcssa = phi ptr [ %26, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit ], [ %43, %38 ]
   %.not4956 = icmp eq ptr %.lcssa, %.lcssa51
   br i1 %.not4956, label %60, label %.lr.ph59
 

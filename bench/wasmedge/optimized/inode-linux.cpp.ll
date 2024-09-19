@@ -5998,7 +5998,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   br label %.critedge
 
 .critedge:                                        ; preds = %125, %130
-  tail call fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE.argprom"(ptr noundef nonnull align 1 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(33) %126) #24
+  tail call fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE"(ptr noundef nonnull align 1 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(33) %126) #24
   %.pre108 = load i32, ptr %88, align 1
   br label %132
 
@@ -6031,7 +6031,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %143 = load i8, ptr %142, align 2
   %144 = icmp eq i8 %143, 2
   tail call void @llvm.assume(i1 %144)
-  tail call fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE.argprom"(ptr noundef nonnull align 1 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(33) %141) #24
+  tail call fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE"(ptr noundef nonnull align 1 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(33) %141) #24
   br label %145
 
 145:                                              ; preds = %135, %137, %140
@@ -6239,7 +6239,7 @@ _ZNSt6vectorI11epoll_eventSaIS0_EE5clearEv.exit:  ; preds = %.lr.ph99, %77, %224
 declare i32 @epoll_wait(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE.argprom"(ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %0, ptr nocapture noundef nonnull align 8 dereferenceable(33) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE"(ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %0, ptr nocapture noundef nonnull align 8 dereferenceable(33) %1) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -7416,14 +7416,14 @@ attributes #29 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt.argprom: argument 0"}
-!17 = distinct !{!17, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt.argprom"}
+!16 = distinct !{!16, !17, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt: argument 0"}
+!17 = distinct !{!17, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt.argprom"}
+!19 = distinct !{!19, !20, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt: argument 0"}
+!20 = distinct !{!20, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt.argprom: argument 0"}
-!23 = distinct !{!23, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt.argprom"}
+!22 = distinct !{!22, !23, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt: argument 0"}
+!23 = distinct !{!23, !"_ZN8WasmEdge4Host4WASIL23sockAddressAssignHelperE23__wasi_address_family_tRKN5cxx204spanIKhLm18446744073709551615EEEt"}
 !24 = distinct !{!24, !5}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZSt19__relocate_object_aIN8WasmEdge4Host4WASI6Poller5TimerES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}

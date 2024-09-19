@@ -1890,7 +1890,7 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
   %.val = load i32, ptr %415, align 8
   %416 = getelementptr i8, ptr %414, i64 200
   %.val75 = load ptr, ptr %416, align 8
-  %417 = call fastcc i32 @ieee80211_get_mmie_keyidx.argprom(i32 %.val, ptr %.val75)
+  %417 = call fastcc i32 @ieee80211_get_mmie_keyidx(i32 %.val, ptr %.val75)
   %418 = getelementptr inbounds i8, ptr %371, i64 4
   %419 = load i32, ptr %418, align 4
   %420 = and i32 %419, 1
@@ -3439,7 +3439,7 @@ thread-pre-split112:                              ; preds = %430, %650
   ]
 
 1345:                                             ; preds = %1342, %1341, %1338, %1338
-  %1346 = call fastcc i32 @ieee80211_get_mmie_keyidx.argprom(i32 %1336, ptr %1284)
+  %1346 = call fastcc i32 @ieee80211_get_mmie_keyidx(i32 %1336, ptr %1284)
   %1347 = icmp slt i32 %1346, 0
   br i1 %1347, label %1348, label %1355, !prof !6
 
@@ -3470,7 +3470,7 @@ thread-pre-split112:                              ; preds = %430, %650
 1360:                                             ; preds = %1357
   %1361 = getelementptr i8, ptr %1285, i64 112
   %.val78 = load i32, ptr %1361, align 8
-  %1362 = call fastcc i32 @ieee80211_get_mmie_keyidx.argprom(i32 %.val78, ptr %1284)
+  %1362 = call fastcc i32 @ieee80211_get_mmie_keyidx(i32 %.val78, ptr %1284)
   %1363 = icmp slt i32 %1362, 0
   br i1 %1363, label %1364, label %.thread146, !prof !6
 
@@ -7418,7 +7418,7 @@ define internal fastcc range(i32 0, 8388608) i32 @sta_stats_encode_rate(ptr noca
 declare dso_local zeroext i1 @cfg80211_rx_unexpected_4addr_frame(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc range(i32 -1, 65536) i32 @ieee80211_get_mmie_keyidx.argprom(i32 %.112.val, ptr nocapture readonly %.200.val) unnamed_addr #12 align 16 {
+define internal fastcc range(i32 -1, 65536) i32 @ieee80211_get_mmie_keyidx(i32 %.112.val, ptr nocapture readonly %.200.val) unnamed_addr #12 align 16 {
   %1 = icmp ult i32 %.112.val, 42
   br i1 %1, label %45, label %2
 
@@ -9729,7 +9729,7 @@ define internal fastcc noundef ptr @ieee80211_clean_skb(ptr noundef %0, i32 noun
   %62 = add i32 %55, -4
   %63 = zext i32 %62 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %61, ptr align 1 %60, i64 %63, i1 false)
-  tail call fastcc void @pskb_pull.argelim(ptr noundef %0)
+  tail call fastcc void @pskb_pull(ptr noundef %0)
   br label %64
 
 64:                                               ; preds = %59, %58, %45
@@ -9738,7 +9738,7 @@ define internal fastcc noundef ptr @ieee80211_clean_skb(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @pskb_pull.argelim(ptr noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc void @pskb_pull(ptr noundef %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 116

@@ -217,7 +217,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
   %seq_num3.i = getelementptr inbounds i8, ptr %item.02.i, i64 24
   %1 = load i64, ptr %seq_num3.i, align 8
   %cmp4.i = icmp eq i64 %1, %seq_num
-  br i1 %cmp4.i, label %srtm_find.argprom.exit, label %if.else.i
+  br i1 %cmp4.i, label %srtm_find.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
   %cmp7.i = icmp ult i64 %1, %seq_num
@@ -229,7 +229,7 @@ for.inc.i:                                        ; preds = %if.else.i
   %cmp2.not.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i, label %if.end2, label %for.body.i, !llvm.loop !6
 
-srtm_find.argprom.exit:                           ; preds = %for.body.i
+srtm_find.exit:                                   ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %key.i)
   br label %return
 
@@ -395,8 +395,8 @@ srtm_check_lh.exit75.thread:                      ; preds = %if.then45
   store i8 %bf.set.i73, ptr %alloc_failed, align 8
   br label %return
 
-return:                                           ; preds = %sorted_insert_srt.exit, %if.then35, %if.then45, %srtm_check_lh.exit75.thread, %srtm_check_lh.exit58.thread, %srtm_find.argprom.exit, %if.end2, %entry, %if.then29, %if.then20, %if.then12
-  %retval.0 = phi i32 [ 0, %if.then20 ], [ 0, %if.then29 ], [ 0, %if.then12 ], [ 0, %entry ], [ 0, %srtm_find.argprom.exit ], [ 0, %if.end2 ], [ 0, %srtm_check_lh.exit58.thread ], [ 0, %srtm_check_lh.exit75.thread ], [ 1, %if.then45 ], [ 1, %if.then35 ], [ 1, %sorted_insert_srt.exit ]
+return:                                           ; preds = %sorted_insert_srt.exit, %if.then35, %if.then45, %srtm_check_lh.exit75.thread, %srtm_check_lh.exit58.thread, %srtm_find.exit, %if.end2, %entry, %if.then29, %if.then20, %if.then12
+  %retval.0 = phi i32 [ 0, %if.then20 ], [ 0, %if.then29 ], [ 0, %if.then12 ], [ 0, %entry ], [ 0, %srtm_find.exit ], [ 0, %if.end2 ], [ 0, %srtm_check_lh.exit58.thread ], [ 0, %srtm_check_lh.exit75.thread ], [ 1, %if.then45 ], [ 1, %if.then35 ], [ 1, %sorted_insert_srt.exit ]
   ret i32 %retval.0
 }
 
@@ -421,7 +421,7 @@ if.end:                                           ; preds = %entry
   store ptr %opaque, ptr %opaque1.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %srtm.val, ptr noundef nonnull %key.i) #8
   %cmp2.not1.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp2.not1.i, label %srtm_find.argprom.exit.thread, label %for.body.i.preheader
+  br i1 %cmp2.not1.i, label %srtm_find.exit.thread, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end
   %seq_num3.i28 = getelementptr inbounds i8, ptr %call.i.i, i64 24
@@ -439,15 +439,15 @@ if.else.i:                                        ; preds = %for.body.i.preheade
   %3 = phi i64 [ %2, %for.body.i ], [ %1, %for.body.i.preheader ]
   %item.02.i30 = phi ptr [ %4, %for.body.i ], [ %call.i.i, %for.body.i.preheader ]
   %cmp7.i = icmp ult i64 %3, %seq_num
-  br i1 %cmp7.i, label %srtm_find.argprom.exit.thread, label %for.inc.i
+  br i1 %cmp7.i, label %srtm_find.exit.thread, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i
   %next_by_seq_num.i = getelementptr inbounds i8, ptr %item.02.i30, i64 8
   %4 = load ptr, ptr %next_by_seq_num.i, align 8
   %cmp2.not.i = icmp eq ptr %4, null
-  br i1 %cmp2.not.i, label %srtm_find.argprom.exit.thread, label %for.body.i, !llvm.loop !6
+  br i1 %cmp2.not.i, label %srtm_find.exit.thread, label %for.body.i, !llvm.loop !6
 
-srtm_find.argprom.exit.thread:                    ; preds = %if.else.i, %for.inc.i, %if.end
+srtm_find.exit.thread:                            ; preds = %if.else.i, %for.inc.i, %if.end
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %key.i)
   br label %return
 
@@ -530,8 +530,8 @@ if.end24:                                         ; preds = %if.then2.i, %if.els
   call void @CRYPTO_free(ptr noundef nonnull %item.02.i.lcssa36, ptr noundef nonnull @.str, i32 noundef 411) #8
   br label %return
 
-return:                                           ; preds = %srtm_remove_from_rev.exit, %srtm_check_lh.exit.thread, %srtm_find.argprom.exit.thread, %entry, %if.end24
-  %retval.0 = phi i32 [ 1, %if.end24 ], [ 0, %entry ], [ 0, %srtm_remove_from_rev.exit ], [ 0, %srtm_find.argprom.exit.thread ], [ 0, %srtm_check_lh.exit.thread ]
+return:                                           ; preds = %srtm_remove_from_rev.exit, %srtm_check_lh.exit.thread, %srtm_find.exit.thread, %entry, %if.end24
+  %retval.0 = phi i32 [ 1, %if.end24 ], [ 0, %entry ], [ 0, %srtm_remove_from_rev.exit ], [ 0, %srtm_find.exit.thread ], [ 0, %srtm_check_lh.exit.thread ]
   ret i32 %retval.0
 }
 

@@ -135,13 +135,13 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i:     ; preds = %if.then.i.i, %entry
   store i8 0, ptr %arrayidx.i.i, align 1
   %3 = load ptr, ptr %NameBuf.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit, label %if.then.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i
   call void @free(ptr noundef %3) #22
-  br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit
+  br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit
 
-_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit: ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
+_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEEE, i64 16), ptr %call3.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %InputData.coerce0, i64 %InputData.coerce1
@@ -579,12 +579,12 @@ _ZL10getFileAuxIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh20WritableMemoryBuffer7getFileERKNS_5TwineElb(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
 entry:
-  tail call fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb.argelim(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %FileSize, i64 noundef 0, i1 noundef zeroext %IsVolatile)
+  tail call fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %FileSize, i64 noundef 0, i1 noundef zeroext %IsVolatile)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb.argelim(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) unnamed_addr #4 {
+define internal fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %FileSize, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) unnamed_addr #4 {
 entry:
   %NameBuf.i26.i = alloca %"class.llvh::SmallString", align 8
   %NameBuf.i.i = alloca %"class.llvh::SmallString", align 8
@@ -716,13 +716,13 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.
   store i8 0, ptr %arrayidx.i.i.i, align 1, !noalias !29
   %12 = load ptr, ptr %NameBuf.i.i, align 8, !noalias !29
   %cmp.i.i.i.i.i.i = icmp eq ptr %12, %add.ptr.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit.i, label %if.then.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
   call void @free(ptr noundef %12) #22, !noalias !29
-  br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit.i
+  br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i
 
-_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
+_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !29
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i64 16), ptr %call3.i.i, align 8, !noalias !29
   %MFR.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 24
@@ -740,7 +740,7 @@ _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit.i: ; preds = %if.then.i.i
   %cmp.i.not.i.i = icmp eq i32 %14, 0
   br i1 %cmp.i.not.i.i, label %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i, label %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i
 
-_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i: ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit.i
+_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i: ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i
   %call.i7.i.i = call noundef ptr @_ZNK4llvh3sys2fs18mapped_file_region10const_dataEv(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i.i) #22, !noalias !29
   %call.i.i8.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22, !noalias !29
   %15 = add i32 %call.i.i8.i.i, -1
@@ -756,7 +756,7 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt
   %cmp.i22.not.i = icmp eq i32 %.pr.i, 0
   br i1 %cmp.i22.not.i, label %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i
 
-_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit.i
+_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i
   %vtable.i.i.i = load ptr, ptr %call3.i.i, align 8, !noalias !29
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %16 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !29
@@ -915,7 +915,7 @@ return:                                           ; preds = %_ZL15getOpenFileImp
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh20WritableMemoryBuffer12getFileSliceERKNS_5TwineEmmb(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile) local_unnamed_addr #4 align 2 {
 entry:
-  tail call fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb.argelim(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef -1, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile)
+  tail call fastcc void @_ZL10getFileAuxIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %Filename, i64 noundef -1, i64 noundef %MapSize, i64 noundef %Offset, i1 noundef zeroext %IsVolatile)
   ret void
 }
 
@@ -1165,13 +1165,13 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i:     ; preds = %if.then.i.i, %if.en
   store i8 0, ptr %arrayidx.i.i, align 1
   %10 = load ptr, ptr %NameBuf.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %10, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit, label %if.then.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i
   call void @free(ptr noundef %10) #22
-  br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit
+  br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit
 
-_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit: ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
+_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
   %11 = load i32, ptr %FD, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i64 16), ptr %call3.i, align 8
@@ -1190,7 +1190,7 @@ _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit: ; preds = %_ZL13CopyStri
   %cmp.i.not.i = icmp eq i32 %13, 0
   br i1 %cmp.i.not.i, label %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit, label %_ZNKSt14default_deleteIN4llvh24WriteThroughMemoryBufferEEclEPS1_.exit.i
 
-_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit: ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit
+_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit: ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit
   %call.i7.i = call noundef ptr @_ZNK4llvh3sys2fs18mapped_file_region10const_dataEv(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i) #22
   %call.i.i8.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %14 = add i32 %call.i.i8.i, -1
@@ -1215,8 +1215,8 @@ cleanup.thread:                                   ; preds = %_ZN12_GLOBAL__N_120
   store i64 %15, ptr %agg.result, align 8
   br label %return
 
-_ZNKSt14default_deleteIN4llvh24WriteThroughMemoryBufferEEclEPS1_.exit.i: ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit, %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit
-  %16 = phi i32 [ %.pr, %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit ], [ %13, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit ]
+_ZNKSt14default_deleteIN4llvh24WriteThroughMemoryBufferEEclEPS1_.exit.i: ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit, %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit
+  %16 = phi i32 [ %.pr, %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEC2EbimmRSt10error_code.exit ], [ %13, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit ]
   %agg.tmp24.sroa.21.0.copyload = load ptr, ptr %1, align 8
   %HasError.i20 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i21 = load i8, ptr %HasError.i20, align 8
@@ -1430,13 +1430,13 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i:     ; preds = %if.then.i.i23, %if.
   store i8 0, ptr %arrayidx.i.i, align 1
   %13 = load ptr, ptr %NameBuf.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %13, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i, label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit, label %if.then.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i
   call void @free(ptr noundef %13) #22
-  br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit
+  br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit
 
-_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit: ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
+_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i64 16), ptr %call3.i, align 8
   %MFR.i = getelementptr inbounds i8, ptr %call3.i, i64 24
@@ -1454,7 +1454,7 @@ _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit: ; preds = %_ZL13CopyStri
   %cmp.i.not.i24 = icmp eq i32 %15, 0
   br i1 %cmp.i.not.i24, label %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_code.exit, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread
 
-_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_code.exit: ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit
+_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_code.exit: ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit
   %call.i7.i = call noundef ptr @_ZNK4llvh3sys2fs18mapped_file_region10const_dataEv(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i) #22
   %call.i.i8.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %16 = add i32 %call.i.i8.i, -1
@@ -1470,7 +1470,7 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_
   %cmp.i28.not = icmp eq i32 %.pr, 0
   br i1 %cmp.i28.not, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread
 
-_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_code.exit, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.argprom.exit
+_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_code.exit, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit
   %vtable.i.i = load ptr, ptr %call3.i, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %17 = load ptr, ptr %vfn.i.i, align 8

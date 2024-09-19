@@ -266,7 +266,7 @@ define void @_Z17CrossIntersectionRKSt6vectorI8HalfEdgeSaIS0_EES4_(ptr dead_on_u
   store double -1.000000e+00, ptr %.sroa.16367, align 8, !alias.scope !5
   %.not17.i = icmp eq ptr %13, %12
   %indvars.iv488.sroa.gep578 = getelementptr inbounds i8, ptr %5, i64 8
-  br i1 %.not17.i, label %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not17.i, label %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i
   %.sroa.0365.0 = phi double [ %.sroa.0365.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i ], [ 1.000000e+00, %3 ]
@@ -388,25 +388,25 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
   %.sroa.0.0.copyload.i19.i = phi double [ %.sroa.0.0.copyload.i19.ph.i, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.sink.split.i ], [ %.sroa.0.0.copyload.i20.i, %64 ]
   %70 = getelementptr inbounds i8, ptr %.sroa.014.018.i, i64 16
   %.not.i = icmp eq ptr %70, %12
-  br i1 %.not.i, label %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit, label %.lr.ph.i
 
-_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit: ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i, %3
+_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit: ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i, %3
   %.sroa.0365.7 = phi double [ 1.000000e+00, %3 ], [ %.sroa.0365.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i ]
   %.sroa.11.7 = phi double [ -1.000000e+00, %3 ], [ %.sroa.11.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   store double 1.000000e+00, ptr %.sroa.9355, align 8, !alias.scope !8
   store double -1.000000e+00, ptr %.sroa.25, align 8, !alias.scope !8
   %.not17.i44 = icmp eq ptr %20, %19
-  br i1 %.not17.i44, label %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit76, label %.lr.ph.i45
+  br i1 %.not17.i44, label %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit76, label %.lr.ph.i45
 
-.lr.ph.i45:                                       ; preds = %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62
-  %.sroa.0352.0 = phi double [ %.sroa.0352.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ 1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit ]
-  %.sroa.16359.0 = phi double [ %.sroa.16359.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ -1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit ]
-  %71 = phi double [ %113, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ -1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit ]
-  %.sroa.2.0.copyload.i727.i46 = phi double [ %.sroa.2.0.copyload.i728.i63, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ 1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit ]
-  %72 = phi double [ %114, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ -1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit ]
-  %.sroa.0.0.copyload.i23.i47 = phi double [ %.sroa.0.0.copyload.i19.i64, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ 1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit ]
-  %.sroa.014.018.i48 = phi ptr [ %115, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ %20, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit ]
+.lr.ph.i45:                                       ; preds = %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62
+  %.sroa.0352.0 = phi double [ %.sroa.0352.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ 1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit ]
+  %.sroa.16359.0 = phi double [ %.sroa.16359.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ -1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit ]
+  %71 = phi double [ %113, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ -1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit ]
+  %.sroa.2.0.copyload.i727.i46 = phi double [ %.sroa.2.0.copyload.i728.i63, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ 1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit ]
+  %72 = phi double [ %114, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ -1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit ]
+  %.sroa.0.0.copyload.i23.i47 = phi double [ %.sroa.0.0.copyload.i19.i64, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ 1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit ]
+  %.sroa.014.018.i48 = phi ptr [ %115, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ], [ %20, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit ]
   %73 = load ptr, ptr %.sroa.014.018.i48, align 8, !noalias !8
   %74 = getelementptr inbounds i8, ptr %.sroa.014.018.i48, i64 8
   %75 = load i32, ptr %74, align 8, !noalias !8
@@ -519,11 +519,11 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62:  ; preds = %_ZN3vcg4Box2IdE3Add
   %.sroa.0.0.copyload.i19.i64 = phi double [ %.sroa.0.0.copyload.i19.ph.i70, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.sink.split.i66 ], [ %.sroa.0.0.copyload.i20.i60, %109 ]
   %115 = getelementptr inbounds i8, ptr %.sroa.014.018.i48, i64 16
   %.not.i65 = icmp eq ptr %115, %19
-  br i1 %.not.i65, label %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit76, label %.lr.ph.i45
+  br i1 %.not.i65, label %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit76, label %.lr.ph.i45
 
-_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit76: ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit
-  %.sroa.0352.7 = phi double [ 1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit ], [ %.sroa.0352.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ]
-  %.sroa.16359.7 = phi double [ -1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit ], [ %.sroa.16359.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ]
+_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit76: ; preds = %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit
+  %.sroa.0352.7 = phi double [ 1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit ], [ %.sroa.0352.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ]
+  %.sroa.16359.7 = phi double [ -1.000000e+00, %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit ], [ %.sroa.16359.4, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i62 ]
   %.sroa.6366.0..sroa.6366.0..sroa.6366.0..sroa.6366.0.copyload = load double, ptr %.sroa.6366, align 8
   %.sroa.16367.0..sroa.16367.0..sroa.16367.0..sroa.16367.0.copyload = load double, ptr %.sroa.16367, align 8
   %116 = fcmp ogt double %.sroa.0365.7, %.sroa.11.7
@@ -531,11 +531,11 @@ _ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit76: ; preds = %_ZN3vcg4
   %118 = select i1 %116, i1 true, i1 %117
   br i1 %118, label %119, label %120
 
-119:                                              ; preds = %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit76
+119:                                              ; preds = %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit76
   %.sroa.9355.0..sroa.9355.0..sroa.9355.0..sroa.9355.0.copyload = load double, ptr %.sroa.9355, align 8
   br label %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit
 
-120:                                              ; preds = %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom.exit76
+120:                                              ; preds = %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit76
   %121 = fcmp ogt double %.sroa.0365.7, %.sroa.0352.7
   %.sroa.0368.0 = select i1 %121, double %.sroa.0352.7, double %.sroa.0365.7
   %.sroa.9355.0..sroa.9355.0..sroa.9355.0..sroa.9355.8. = load double, ptr %.sroa.9355, align 8
@@ -3116,11 +3116,11 @@ attributes #25 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom: argument 0"}
-!7 = distinct !{!7, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom"}
+!6 = distinct !{!6, !7, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE: argument 0"}
+!7 = distinct !{!7, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom: argument 0"}
-!10 = distinct !{!10, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom"}
+!9 = distinct !{!9, !10, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE: argument 0"}
+!10 = distinct !{!10, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE"}
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!14}
@@ -3143,8 +3143,8 @@ attributes #25 = { noreturn nounwind }
 !30 = distinct !{!30, !12}
 !31 = distinct !{!31, !12}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.argprom"}
+!33 = distinct !{!33, !34, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE: argument 0"}
+!34 = distinct !{!34, !"_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE"}
 !35 = distinct !{!35, !12}
 !36 = distinct !{!36, !12}
 !37 = distinct !{!37, !12}

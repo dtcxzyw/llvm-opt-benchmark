@@ -4924,11 +4924,11 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i42.i.i.i
 invoke.cont7.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i.i
   %47 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8, !noalias !110
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %47, null
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i, label %if.then.i.i.i.i43.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i, label %if.then.i.i.i.i43.i.i.i
 
 if.then.i.i.i.i43.i.i.i:                          ; preds = %invoke.cont7.i.i.i.i.i
   %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i, i32 noundef 3)
-          to label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !80
+          to label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !80
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i43.i.i.i
   %48 = landingpad { ptr, i32 }
@@ -5157,7 +5157,7 @@ _ZN5arrow6StatusD2Ev.exit150.i.i.i.i.i:           ; preds = %for.cond67.preheade
   store ptr %80, ptr %s.i.i, align 8, !alias.scope !123, !noalias !80
   store ptr null, ptr %ref.tmp74.i.i.i.i.i, align 8, !noalias !122
   %cmp.i151.i.i.i.i.i = icmp eq ptr %80, null
-  br i1 %cmp.i151.i.i.i.i.i, label %for.inc94.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp.i151.i.i.i.i.i, label %for.inc94.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i
 
 for.inc94.i.i.i.i.i:                              ; preds = %.noexc50.i.i.i
   %inc75.i.i.i.i.i = add nsw i64 %in_position.3646.i.i.i.i.i, 1
@@ -5262,7 +5262,7 @@ _ZN5arrow6StatusD2Ev.exit308.i.i.i.i.i:           ; preds = %for.body142.i.i.i.i
   store ptr %105, ptr %s.i.i, align 8, !alias.scope !139, !noalias !80
   store ptr null, ptr %ref.tmp148.i.i.i.i.i, align 8, !noalias !138
   %cmp.i309.i.i.i.i.i = icmp eq ptr %105, null
-  br i1 %cmp.i309.i.i.i.i.i, label %if.end167.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp.i309.i.i.i.i.i, label %if.end167.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i
 
 if.end167.i.i.i.i.i:                              ; preds = %.noexc52.i.i.i, %for.body142.i.i.i.i.i
   %inc168.i.i.i.i.i = add nsw i64 %in_position.5638.i.i.i.i.i, 1
@@ -5314,7 +5314,7 @@ _ZN5arrow6StatusD2Ev.exit393.i.i.i.i.i:           ; preds = %land.lhs.true185.i.
   store ptr %112, ptr %s.i.i, align 8, !alias.scope !145, !noalias !80
   store ptr null, ptr %ref.tmp191.i.i.i.i.i, align 8, !noalias !144
   %cmp.i394.i.i.i.i.i = icmp eq ptr %112, null
-  br i1 %cmp.i394.i.i.i.i.i, label %if.end210.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp.i394.i.i.i.i.i, label %if.end210.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i
 
 if.end210.i.i.i.i.i:                              ; preds = %.noexc53.i.i.i, %land.lhs.true185.i.i.i.i.i, %for.body182.i.i.i.i.i
   %inc211.i.i.i.i.i = add nsw i64 %in_position.6634.i.i.i.i.i, 1
@@ -5355,7 +5355,7 @@ _ZN5arrow6StatusD2Ev.exit478.i.i.i.i.i:           ; preds = %land.lhs.true226.i.
   store ptr %119, ptr %s.i.i, align 8, !alias.scope !151, !noalias !80
   store ptr null, ptr %ref.tmp232.i.i.i.i.i, align 8, !noalias !150
   %cmp.i479.i.i.i.i.i = icmp eq ptr %119, null
-  br i1 %cmp.i479.i.i.i.i.i, label %if.end276.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp.i479.i.i.i.i.i, label %if.end276.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i
 
 do.body254.i.i.i.i.i:                             ; preds = %for.body221.i.i.i.i.i
   %120 = load ptr, ptr %AppendNull.i.i.i.i.i, align 8, !noalias !152
@@ -5419,9 +5419,9 @@ if.end283.i.i.i.i.i:                              ; preds = %if.end276.i.i.i.i.i
 
 while.end.i.i.i.i.i:                              ; preds = %if.end283.i.i.i.i.i, %.noexc45.i.i.i
   store ptr null, ptr %s.i.i, align 8, !alias.scope !163, !noalias !80
-  br label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i
 
-_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i: ; preds = %.noexc54.i.i.i, %.noexc53.i.i.i, %.noexc52.i.i.i, %.noexc50.i.i.i, %while.end.i.i.i.i.i, %if.then.i.i.i.i43.i.i.i, %invoke.cont7.i.i.i.i.i
+_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i: ; preds = %.noexc54.i.i.i, %.noexc53.i.i.i, %.noexc52.i.i.i, %.noexc50.i.i.i, %while.end.i.i.i.i.i, %if.then.i.i.i.i43.i.i.i, %invoke.cont7.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %values_is_valid.i.i.i.i.i), !noalias !109
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %AppendNotNull.i.i.i.i.i), !noalias !109
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %AppendNull.i.i.i.i.i), !noalias !109
@@ -5436,7 +5436,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19F
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp232.i.i.i.i.i), !noalias !109
   br label %cleanup17.i.i.i
 
-cleanup17.i.i.i:                                  ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i
+cleanup17.i.i.i:                                  ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow5ArrayE, i64 16), ptr %typed_values.i.i.i, align 8, !noalias !88
   %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %typed_values.i.i.i, i64 16
   %134 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !noalias !88
@@ -8230,11 +8230,11 @@ invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 invoke.cont7.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i.i
   %47 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8, !noalias !440
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %47, null
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i, label %if.then.i.i.i.i50.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i, label %if.then.i.i.i.i50.i.i.i
 
 if.then.i.i.i.i50.i.i.i:                          ; preds = %invoke.cont7.i.i.i.i.i
   %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i, i32 noundef 3)
-          to label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !398
+          to label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !398
 
 terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i50.i.i.i
   %48 = landingpad { ptr, i32 }
@@ -8503,7 +8503,7 @@ _ZN5arrow6StatusD2Ev.exit149.i.i.i.i.i:           ; preds = %for.cond67.preheade
   store ptr %89, ptr %s.i.i, align 8, !alias.scope !451, !noalias !398
   store ptr null, ptr %ref.tmp74.i.i.i.i.i, align 8, !noalias !450
   %cmp.i150.i.i.i.i.i = icmp eq ptr %89, null
-  br i1 %cmp.i150.i.i.i.i.i, label %for.inc94.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp.i150.i.i.i.i.i, label %for.inc94.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i
 
 for.inc94.i.i.i.i.i:                              ; preds = %.noexc56.i.i.i
   %inc75.i.i.i.i.i = add nsw i64 %in_position.3656.i.i.i.i.i, 1
@@ -8643,7 +8643,7 @@ _ZN5arrow6StatusD2Ev.exit308.i.i.i.i.i:           ; preds = %for.body142.i.i.i.i
   store ptr %123, ptr %s.i.i, align 8, !alias.scope !467, !noalias !398
   store ptr null, ptr %ref.tmp148.i.i.i.i.i, align 8, !noalias !466
   %cmp.i309.i.i.i.i.i = icmp eq ptr %123, null
-  br i1 %cmp.i309.i.i.i.i.i, label %if.end167.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp.i309.i.i.i.i.i, label %if.end167.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i
 
 if.end167.i.i.i.i.i:                              ; preds = %.noexc57.i.i.i, %for.body142.i.i.i.i.i
   %inc168.i.i.i.i.i = add nsw i64 %in_position.5648.i.i.i.i.i, 1
@@ -8695,7 +8695,7 @@ _ZN5arrow6StatusD2Ev.exit393.i.i.i.i.i:           ; preds = %land.lhs.true185.i.
   store ptr %130, ptr %s.i.i, align 8, !alias.scope !473, !noalias !398
   store ptr null, ptr %ref.tmp191.i.i.i.i.i, align 8, !noalias !472
   %cmp.i394.i.i.i.i.i = icmp eq ptr %130, null
-  br i1 %cmp.i394.i.i.i.i.i, label %if.end210.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp.i394.i.i.i.i.i, label %if.end210.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i
 
 if.end210.i.i.i.i.i:                              ; preds = %.noexc58.i.i.i, %land.lhs.true185.i.i.i.i.i, %for.body182.i.i.i.i.i
   %inc211.i.i.i.i.i = add nsw i64 %in_position.6644.i.i.i.i.i, 1
@@ -8736,7 +8736,7 @@ _ZN5arrow6StatusD2Ev.exit478.i.i.i.i.i:           ; preds = %land.lhs.true226.i.
   store ptr %137, ptr %s.i.i, align 8, !alias.scope !479, !noalias !398
   store ptr null, ptr %ref.tmp232.i.i.i.i.i, align 8, !noalias !478
   %cmp.i479.i.i.i.i.i = icmp eq ptr %137, null
-  br i1 %cmp.i479.i.i.i.i.i, label %if.end276.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp.i479.i.i.i.i.i, label %if.end276.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i
 
 do.body254.i.i.i.i.i:                             ; preds = %for.body221.i.i.i.i.i
   %138 = load ptr, ptr %AppendNull.i.i.i.i.i, align 8, !noalias !480
@@ -8851,9 +8851,9 @@ if.end283.i.i.i.i.i:                              ; preds = %if.end276.i.i.i.i.i
 return.sink.split.i.i.i.i.i:                      ; preds = %if.end283.i.i.i.i.i, %nrvo.skipdtor270.i.i.i.i.i, %.noexc52.i.i.i
   %.pr.i.i.i.lcssa.sink.i.i.i.i.i = phi ptr [ %.pr.i.i.i.i.i.i.i.i, %nrvo.skipdtor270.i.i.i.i.i ], [ null, %.noexc52.i.i.i ], [ null, %if.end283.i.i.i.i.i ]
   store ptr %.pr.i.i.i.lcssa.sink.i.i.i.i.i, ptr %s.i.i, align 8, !alias.scope !441, !noalias !398
-  br label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i
+  br label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i
 
-_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i: ; preds = %.noexc59.i.i.i, %.noexc58.i.i.i, %.noexc57.i.i.i, %.noexc56.i.i.i, %return.sink.split.i.i.i.i.i, %if.then.i.i.i.i50.i.i.i, %invoke.cont7.i.i.i.i.i
+_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i: ; preds = %.noexc59.i.i.i, %.noexc58.i.i.i, %.noexc57.i.i.i, %.noexc56.i.i.i, %return.sink.split.i.i.i.i.i, %if.then.i.i.i.i50.i.i.i, %invoke.cont7.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %values_is_valid.i.i.i.i.i), !noalias !439
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %AppendNotNull.i.i.i.i.i), !noalias !439
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %AppendNull.i.i.i.i.i), !noalias !439
@@ -8868,7 +8868,7 @@ _ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17F
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp232.i.i.i.i.i), !noalias !439
   br label %_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEv.exit.i.i
 
-_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEv.exit.i.i: ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i
+_ZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEv.exit.i.i: ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i
   call void @_ZN5arrow18FixedSizeListArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %typed_values.i.i.i) #23, !noalias !398
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %typed_values.i.i.i), !noalias !398
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i), !noalias !398
@@ -17152,7 +17152,7 @@ _ZN5arrow6StatusD2Ev.exit38.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
   %length15354.i.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 8
   %50 = load i64, ptr %length15354.i.i.i.i.i, align 8, !noalias !1233
   %cmp355.i.i.i.i.i = icmp sgt i64 %50, 0
-  br i1 %cmp355.i.i.i.i.i, label %while.body.lr.ph.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp355.i.i.i.i.i, label %while.body.lr.ph.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i
 
 while.body.lr.ph.i.i.i.i.i:                       ; preds = %.noexc44.i.i.i
   %false_count_.i255.i.i.i.i.i = getelementptr inbounds i8, ptr %kernel.i, i64 112
@@ -17364,14 +17364,14 @@ if.end144.i.i.i.i.i:                              ; preds = %call.i.i.i.i.noexc.
   %length15.i.i.i.i.i = getelementptr inbounds i8, ptr %91, i64 8
   %92 = load i64, ptr %length15.i.i.i.i.i, align 8, !noalias !1233
   %cmp.i.i.i147.i.i = icmp slt i64 %position.2.i.i.i.i.i, %92
-  br i1 %cmp.i.i.i147.i.i, label %while.body.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i, !llvm.loop !1249
+  br i1 %cmp.i.i.i147.i.i, label %while.body.i.i.i.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i, !llvm.loop !1249
 
-_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i: ; preds = %if.end144.i.i.i.i.i, %.noexc44.i.i.i
+_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i: ; preds = %if.end144.i.i.i.i.i, %.noexc44.i.i.i
   store ptr null, ptr %s.i.i, align 8, !alias.scope !1250, !noalias !1205
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i.i), !noalias !1232
   br label %cleanup16.i.i.i
 
-cleanup16.i.i.i:                                  ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i
+cleanup16.i.i.i:                                  ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow5ArrayE, i64 16), ptr %typed_values.i.i.i, align 8, !noalias !1213
   %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %typed_values.i.i.i, i64 16
   %93 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !noalias !1213
@@ -17779,7 +17779,7 @@ _ZN5arrow6StatusD2Ev.exit38.i267.i.i:             ; preds = %_ZN5arrow6StatusD2E
   %length15354.i.i.i284.i.i = getelementptr inbounds i8, ptr %152, i64 8
   %153 = load i64, ptr %length15354.i.i.i284.i.i, align 8, !noalias !1276
   %cmp355.i.i.i285.i.i = icmp sgt i64 %153, 0
-  br i1 %cmp355.i.i.i285.i.i, label %while.body.lr.ph.i.i.i318.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp355.i.i.i285.i.i, label %while.body.lr.ph.i.i.i318.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i
 
 while.body.lr.ph.i.i.i318.i.i:                    ; preds = %.noexc44.i283.i.i
   %false_count_.i255.i.i.i321.i.i = getelementptr inbounds i8, ptr %kernel.i, i64 112
@@ -17991,14 +17991,14 @@ if.end144.i.i.i343.i.i:                           ; preds = %call.i.i.i.i.noexc.
   %length15.i.i.i345.i.i = getelementptr inbounds i8, ptr %194, i64 8
   %195 = load i64, ptr %length15.i.i.i345.i.i, align 8, !noalias !1276
   %cmp.i.i.i346.i.i = icmp slt i64 %position.2.i.i.i344.i.i, %195
-  br i1 %cmp.i.i.i346.i.i, label %while.body.i.i.i326.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i, !llvm.loop !1292
+  br i1 %cmp.i.i.i346.i.i, label %while.body.i.i.i326.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i, !llvm.loop !1292
 
-_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i: ; preds = %if.end144.i.i.i343.i.i, %.noexc44.i283.i.i
+_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i: ; preds = %if.end144.i.i.i343.i.i, %.noexc44.i283.i.i
   store ptr null, ptr %s54.i.i, align 8, !alias.scope !1293, !noalias !1205
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i236.i.i), !noalias !1275
   br label %cleanup16.i286.i.i
 
-cleanup16.i286.i.i:                               ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i436.i.i
+cleanup16.i286.i.i:                               ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i436.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow5ArrayE, i64 16), ptr %typed_values.i237.i.i, align 8, !noalias !1256
   %_M_refcount.i.i.i.i.i.i.i287.i.i = getelementptr inbounds i8, ptr %typed_values.i237.i.i, i64 16
   %196 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i287.i.i, align 8, !noalias !1256
@@ -18406,7 +18406,7 @@ _ZN5arrow6StatusD2Ev.exit38.i584.i.i:             ; preds = %_ZN5arrow6StatusD2E
   %length15354.i.i.i601.i.i = getelementptr inbounds i8, ptr %255, i64 8
   %256 = load i64, ptr %length15354.i.i.i601.i.i, align 8, !noalias !1319
   %cmp355.i.i.i602.i.i = icmp sgt i64 %256, 0
-  br i1 %cmp355.i.i.i602.i.i, label %while.body.lr.ph.i.i.i635.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp355.i.i.i602.i.i, label %while.body.lr.ph.i.i.i635.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i
 
 while.body.lr.ph.i.i.i635.i.i:                    ; preds = %.noexc44.i600.i.i
   %false_count_.i255.i.i.i638.i.i = getelementptr inbounds i8, ptr %kernel.i, i64 112
@@ -18618,14 +18618,14 @@ if.end144.i.i.i660.i.i:                           ; preds = %call.i.i.i.i.noexc.
   %length15.i.i.i662.i.i = getelementptr inbounds i8, ptr %297, i64 8
   %298 = load i64, ptr %length15.i.i.i662.i.i, align 8, !noalias !1319
   %cmp.i.i.i663.i.i = icmp slt i64 %position.2.i.i.i661.i.i, %298
-  br i1 %cmp.i.i.i663.i.i, label %while.body.i.i.i643.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i, !llvm.loop !1335
+  br i1 %cmp.i.i.i663.i.i, label %while.body.i.i.i643.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i, !llvm.loop !1335
 
-_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i: ; preds = %if.end144.i.i.i660.i.i, %.noexc44.i600.i.i
+_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i: ; preds = %if.end144.i.i.i660.i.i, %.noexc44.i600.i.i
   store ptr null, ptr %s81.i.i, align 8, !alias.scope !1336, !noalias !1205
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i553.i.i), !noalias !1318
   br label %cleanup16.i603.i.i
 
-cleanup16.i603.i.i:                               ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i753.i.i
+cleanup16.i603.i.i:                               ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i753.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow5ArrayE, i64 16), ptr %typed_values.i554.i.i, align 8, !noalias !1299
   %_M_refcount.i.i.i.i.i.i.i604.i.i = getelementptr inbounds i8, ptr %typed_values.i554.i.i, i64 16
   %299 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i604.i.i, align 8, !noalias !1299
@@ -19033,7 +19033,7 @@ _ZN5arrow6StatusD2Ev.exit38.i901.i.i:             ; preds = %_ZN5arrow6StatusD2E
   %length15354.i.i.i918.i.i = getelementptr inbounds i8, ptr %358, i64 8
   %359 = load i64, ptr %length15354.i.i.i918.i.i, align 8, !noalias !1362
   %cmp355.i.i.i919.i.i = icmp sgt i64 %359, 0
-  br i1 %cmp355.i.i.i919.i.i, label %while.body.lr.ph.i.i.i952.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i
+  br i1 %cmp355.i.i.i919.i.i, label %while.body.lr.ph.i.i.i952.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i
 
 while.body.lr.ph.i.i.i952.i.i:                    ; preds = %.noexc44.i917.i.i
   %false_count_.i255.i.i.i955.i.i = getelementptr inbounds i8, ptr %kernel.i, i64 112
@@ -19242,14 +19242,14 @@ if.end141.i.i.i.i.i:                              ; preds = %call.i.i.i.i.noexc.
   %length15.i.i.i978.i.i = getelementptr inbounds i8, ptr %400, i64 8
   %401 = load i64, ptr %length15.i.i.i978.i.i, align 8, !noalias !1362
   %cmp.i.i.i979.i.i = icmp slt i64 %position.2.i.i.i977.i.i, %401
-  br i1 %cmp.i.i.i979.i.i, label %while.body.i.i.i960.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i, !llvm.loop !1378
+  br i1 %cmp.i.i.i979.i.i, label %while.body.i.i.i960.i.i, label %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i, !llvm.loop !1378
 
-_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i: ; preds = %if.end141.i.i.i.i.i, %.noexc44.i917.i.i
+_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i: ; preds = %if.end141.i.i.i.i.i, %.noexc44.i917.i.i
   store ptr null, ptr %s108.i.i, align 8, !alias.scope !1379, !noalias !1205
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i870.i.i), !noalias !1361
   br label %cleanup16.i920.i.i
 
-cleanup16.i920.i.i:                               ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i1043.i.i
+cleanup16.i920.i.i:                               ; preds = %_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.exit.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i1043.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow5ArrayE, i64 16), ptr %typed_values.i871.i.i, align 8, !noalias !1342
   %_M_refcount.i.i.i.i.i.i.i921.i.i = getelementptr inbounds i8, ptr %typed_values.i871.i.i, i64 16
   %402 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i921.i.i, align 8, !noalias !1342
@@ -28179,7 +28179,7 @@ _ZN5arrow6StatusD2Ev.exit203.i.i.i.i.i:           ; preds = %_ZNK5arrow8internal
   %72 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !2010
   %inc4.i167.i.i.i.i.i = add nsw i64 %72, 1
   store i64 %inc4.i167.i.i.i.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2010
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias align 8 %ref.tmp83.i.i.i.i.i, ptr nonnull %kernel.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv(ptr noalias align 8 %ref.tmp83.i.i.i.i.i, ptr nonnull %kernel.i)
           to label %.noexc7.i.i.i unwind label %lpad2.loopexit.i.i.i, !noalias !2006
 
 .noexc7.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit203.i.i.i.i.i
@@ -28217,7 +28217,7 @@ for.cond112.i.i.i.i.i:                            ; preds = %.noexc9.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit281.i.i.i.i.i:           ; preds = %.noexc8.i.i.i, %for.cond112.i.i.i.i.i
   %i111.0328.i.i.i.i.i = phi i64 [ %inc139.i.i.i.i.i, %for.cond112.i.i.i.i.i ], [ 0, %.noexc8.i.i.i ]
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias align 8 %ref.tmp119.i.i.i.i.i, ptr nonnull %kernel.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv(ptr noalias align 8 %ref.tmp119.i.i.i.i.i, ptr nonnull %kernel.i)
           to label %.noexc9.i.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i.i.i, !noalias !2006
 
 .noexc9.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit281.i.i.i.i.i
@@ -28722,7 +28722,7 @@ _ZN5arrow6StatusD2Ev.exit203.i.i.i365.i.i:        ; preds = %_ZNK5arrow8internal
   %154 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !2036
   %inc4.i167.i.i.i372.i.i = add nsw i64 %154, 1
   store i64 %inc4.i167.i.i.i372.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2036
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias align 8 %ref.tmp83.i.i.i228.i.i, ptr nonnull %kernel.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv(ptr noalias align 8 %ref.tmp83.i.i.i228.i.i, ptr nonnull %kernel.i)
           to label %.noexc7.i373.i.i unwind label %lpad2.loopexit.i357.i.i, !noalias !2032
 
 .noexc7.i373.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit203.i.i.i365.i.i
@@ -28760,7 +28760,7 @@ for.cond112.i.i.i329.i.i:                         ; preds = %.noexc9.i327.i.i
 
 _ZN5arrow6StatusD2Ev.exit281.i.i.i323.i.i:        ; preds = %.noexc8.i317.i.i, %for.cond112.i.i.i329.i.i
   %i111.0328.i.i.i324.i.i = phi i64 [ %inc139.i.i.i330.i.i, %for.cond112.i.i.i329.i.i ], [ 0, %.noexc8.i317.i.i ]
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias align 8 %ref.tmp119.i.i.i229.i.i, ptr nonnull %kernel.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv(ptr noalias align 8 %ref.tmp119.i.i.i229.i.i, ptr nonnull %kernel.i)
           to label %.noexc9.i327.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i325.i.i, !noalias !2032
 
 .noexc9.i327.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit281.i.i.i323.i.i
@@ -29265,7 +29265,7 @@ _ZN5arrow6StatusD2Ev.exit203.i.i.i636.i.i:        ; preds = %_ZNK5arrow8internal
   %236 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !2062
   %inc4.i167.i.i.i643.i.i = add nsw i64 %236, 1
   store i64 %inc4.i167.i.i.i643.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2062
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias align 8 %ref.tmp83.i.i.i499.i.i, ptr nonnull %kernel.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv(ptr noalias align 8 %ref.tmp83.i.i.i499.i.i, ptr nonnull %kernel.i)
           to label %.noexc7.i644.i.i unwind label %lpad2.loopexit.i628.i.i, !noalias !2058
 
 .noexc7.i644.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit203.i.i.i636.i.i
@@ -29303,7 +29303,7 @@ for.cond112.i.i.i600.i.i:                         ; preds = %.noexc9.i598.i.i
 
 _ZN5arrow6StatusD2Ev.exit281.i.i.i594.i.i:        ; preds = %.noexc8.i588.i.i, %for.cond112.i.i.i600.i.i
   %i111.0328.i.i.i595.i.i = phi i64 [ %inc139.i.i.i601.i.i, %for.cond112.i.i.i600.i.i ], [ 0, %.noexc8.i588.i.i ]
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias align 8 %ref.tmp119.i.i.i500.i.i, ptr nonnull %kernel.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv(ptr noalias align 8 %ref.tmp119.i.i.i500.i.i, ptr nonnull %kernel.i)
           to label %.noexc9.i598.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i596.i.i, !noalias !2058
 
 .noexc9.i598.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit281.i.i.i594.i.i
@@ -29805,7 +29805,7 @@ _ZN5arrow6StatusD2Ev.exit203.i.i.i881.i.i:        ; preds = %_ZNK5arrow8internal
   %318 = load i64, ptr %bit_length_.i.i.i, align 8, !noalias !2088
   %inc4.i167.i.i.i888.i.i = add nsw i64 %318, 1
   store i64 %inc4.i167.i.i.i888.i.i, ptr %bit_length_.i.i.i, align 8, !noalias !2088
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias align 8 %ref.tmp80.i.i.i.i.i, ptr nonnull %kernel.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv(ptr noalias align 8 %ref.tmp80.i.i.i.i.i, ptr nonnull %kernel.i)
           to label %.noexc7.i889.i.i unwind label %lpad2.loopexit.i876.i.i, !noalias !2084
 
 .noexc7.i889.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit203.i.i.i881.i.i
@@ -29843,7 +29843,7 @@ for.cond109.i.i.i.i.i:                            ; preds = %.noexc9.i857.i.i
 
 _ZN5arrow6StatusD2Ev.exit281.i.i.i854.i.i:        ; preds = %.noexc8.i850.i.i, %for.cond109.i.i.i.i.i
   %i108.0328.i.i.i.i.i = phi i64 [ %inc136.i.i.i.i.i, %for.cond109.i.i.i.i.i ], [ 0, %.noexc8.i850.i.i ]
-  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias align 8 %ref.tmp116.i.i.i.i.i, ptr nonnull %kernel.i)
+  invoke fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv(ptr noalias align 8 %ref.tmp116.i.i.i.i.i, ptr nonnull %kernel.i)
           to label %.noexc9.i857.i.i unwind label %lpad2.loopexit.split-lp.loopexit.i855.i.i, !noalias !2084
 
 .noexc9.i857.i.i:                                 ; preds = %_ZN5arrow6StatusD2Ev.exit281.i.i.i854.i.i
@@ -39355,14 +39355,14 @@ entry:
   br i1 %tobool.i.i, label %for.cond.preheader.i.i.i, label %for.cond3.preheader.i.i.i
 
 for.cond3.preheader.i.i.i:                        ; preds = %entry
-  br i1 %cmp115.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSBSelectionImplENS0_19FixedSizeBinaryTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit
+  br i1 %cmp115.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSBSelectionImplENS0_19FixedSizeBinaryTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit
 
 for.body5.lr.ph.i.i.i:                            ; preds = %for.cond3.preheader.i.i.i
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   br label %for.body5.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
-  br i1 %cmp115.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSBSelectionImplENS0_19FixedSizeBinaryTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit
+  br i1 %cmp115.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSBSelectionImplENS0_19FixedSizeBinaryTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
   %1 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -39464,7 +39464,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %ref.tmp.i.i.i, align 8
   %inc.i.i.i = add nuw nsw i64 %i.0116.i.i.i, 1
   %exitcond118.not.i.i.i = icmp eq i64 %inc.i.i.i, %__args1.val
-  br i1 %exitcond118.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSBSelectionImplENS0_19FixedSizeBinaryTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit, label %for.body.i.i.i, !llvm.loop !2512
+  br i1 %exitcond118.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSBSelectionImplENS0_19FixedSizeBinaryTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit, label %for.body.i.i.i, !llvm.loop !2512
 
 for.body5.i.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit110.i.i.i, %for.body5.lr.ph.i.i.i
   %i2.0114.i.i.i = phi i64 [ 0, %for.body5.lr.ph.i.i.i ], [ %inc9.i.i.i, %_ZN5arrow6StatusD2Ev.exit110.i.i.i ]
@@ -39601,9 +39601,9 @@ _ZN5arrow6StatusD2Ev.exit110.i.i.i:               ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %31, align 8
   %inc9.i.i.i = add nuw nsw i64 %i2.0114.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc9.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSBSelectionImplENS0_19FixedSizeBinaryTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !2519
+  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSBSelectionImplENS0_19FixedSizeBinaryTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit, label %for.body5.i.i.i, !llvm.loop !2519
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSBSelectionImplENS0_19FixedSizeBinaryTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit110.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSBSelectionImplENS0_19FixedSizeBinaryTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit110.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
   %44 = load ptr, ptr %__functor.val, align 8
   %45 = load ptr, ptr %44, align 8
   %cmp.i.i.i.i = icmp eq ptr %45, null
@@ -44669,14 +44669,14 @@ entry:
   br i1 %tobool.i.i, label %for.cond.preheader.i.i.i, label %for.cond3.preheader.i.i.i
 
 for.cond3.preheader.i.i.i:                        ; preds = %entry
-  br i1 %cmp114.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_8ListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit
+  br i1 %cmp114.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_8ListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit
 
 for.body5.lr.ph.i.i.i:                            ; preds = %for.cond3.preheader.i.i.i
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   br label %for.body5.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
-  br i1 %cmp114.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_8ListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit
+  br i1 %cmp114.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_8ListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
   %1 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -44778,7 +44778,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %ref.tmp.i.i.i, align 8
   %inc.i.i.i = add nuw nsw i64 %i.0115.i.i.i, 1
   %exitcond117.not.i.i.i = icmp eq i64 %inc.i.i.i, %__args1.val
-  br i1 %exitcond117.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_8ListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit, label %for.body.i.i.i, !llvm.loop !2686
+  br i1 %exitcond117.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_8ListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit, label %for.body.i.i.i, !llvm.loop !2686
 
 for.body5.i.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %for.body5.lr.ph.i.i.i
   %i2.0113.i.i.i = phi i64 [ 0, %for.body5.lr.ph.i.i.i ], [ %inc9.i.i.i, %_ZN5arrow6StatusD2Ev.exit109.i.i.i ]
@@ -44908,9 +44908,9 @@ _ZN5arrow6StatusD2Ev.exit109.i.i.i:               ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %32, align 8
   %inc9.i.i.i = add nuw nsw i64 %i2.0113.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc9.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_8ListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !2693
+  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_8ListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit, label %for.body5.i.i.i, !llvm.loop !2693
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_8ListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_8ListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
   %45 = load ptr, ptr %__functor.val, align 8
   %46 = load ptr, ptr %45, align 8
   %cmp.i.i.i.i = icmp eq ptr %46, null
@@ -48052,14 +48052,14 @@ entry:
   br i1 %tobool.i.i, label %for.cond.preheader.i.i.i, label %for.cond3.preheader.i.i.i
 
 for.cond3.preheader.i.i.i:                        ; preds = %entry
-  br i1 %cmp114.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_13LargeListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit
+  br i1 %cmp114.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_13LargeListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit
 
 for.body5.lr.ph.i.i.i:                            ; preds = %for.cond3.preheader.i.i.i
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   br label %for.body5.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
-  br i1 %cmp114.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_13LargeListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit
+  br i1 %cmp114.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_13LargeListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
   %1 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -48161,7 +48161,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %ref.tmp.i.i.i, align 8
   %inc.i.i.i = add nuw nsw i64 %i.0115.i.i.i, 1
   %exitcond117.not.i.i.i = icmp eq i64 %inc.i.i.i, %__args1.val
-  br i1 %exitcond117.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_13LargeListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit, label %for.body.i.i.i, !llvm.loop !2846
+  br i1 %exitcond117.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_13LargeListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit, label %for.body.i.i.i, !llvm.loop !2846
 
 for.body5.i.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %for.body5.lr.ph.i.i.i
   %i2.0113.i.i.i = phi i64 [ 0, %for.body5.lr.ph.i.i.i ], [ %inc9.i.i.i, %_ZN5arrow6StatusD2Ev.exit109.i.i.i ]
@@ -48291,9 +48291,9 @@ _ZN5arrow6StatusD2Ev.exit109.i.i.i:               ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %32, align 8
   %inc9.i.i.i = add nuw nsw i64 %i2.0113.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc9.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_13LargeListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !2853
+  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_13LargeListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit, label %for.body5.i.i.i, !llvm.loop !2853
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_13LargeListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_13LargeListTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
   %45 = load ptr, ptr %__functor.val, align 8
   %46 = load ptr, ptr %45, align 8
   %cmp.i.i.i.i = icmp eq ptr %46, null
@@ -49585,7 +49585,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %entry
   store ptr %.pr.i.i, ptr %agg.result, align 8, !alias.scope !2897
   store ptr null, ptr %ref.tmp.i.i, align 8, !noalias !2897
   %cmp.i.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %cmp.i.i.i, label %do.end6.i.i, label %_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom.exit
+  br i1 %cmp.i.i.i, label %do.end6.i.i, label %_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.exit
 
 do.end6.i.i:                                      ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %nrvo.skipdtor.thread.i.i
   %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 304
@@ -49607,9 +49607,9 @@ for.body.i.i.i.i.preheader.i.i:                   ; preds = %do.end6.i.i
 _ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit.i.i: ; preds = %for.body.i.i.i.i.preheader.i.i, %do.end6.i.i
   call void @_ZN5arrow12ArrayBuilder13UnsafeSetNullEl(ptr noundef nonnull align 8 dereferenceable(144) %child_index_builder.i, i64 noundef %conv.i), !noalias !2896
   store ptr null, ptr %agg.result, align 8, !alias.scope !2900
-  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom.exit
+  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.exit
 
-_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %_ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit.i.i
+_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %_ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !2883
   ret void
 }
@@ -49630,14 +49630,14 @@ entry:
   br i1 %tobool.i.i, label %for.cond.preheader.i.i.i, label %for.cond3.preheader.i.i.i
 
 for.cond3.preheader.i.i.i:                        ; preds = %entry
-  br i1 %cmp113.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSLSelectionImplENS0_17FixedSizeListTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit
+  br i1 %cmp113.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSLSelectionImplENS0_17FixedSizeListTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit
 
 for.body5.lr.ph.i.i.i:                            ; preds = %for.cond3.preheader.i.i.i
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   br label %for.body5.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
-  br i1 %cmp113.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSLSelectionImplENS0_17FixedSizeListTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit
+  br i1 %cmp113.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSLSelectionImplENS0_17FixedSizeListTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
   %1 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -49739,7 +49739,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %ref.tmp.i.i.i, align 8
   %inc.i.i.i = add nuw nsw i64 %i.0114.i.i.i, 1
   %exitcond116.not.i.i.i = icmp eq i64 %inc.i.i.i, %__args1.val
-  br i1 %exitcond116.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSLSelectionImplENS0_17FixedSizeListTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit, label %for.body.i.i.i, !llvm.loop !2903
+  br i1 %exitcond116.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSLSelectionImplENS0_17FixedSizeListTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit, label %for.body.i.i.i, !llvm.loop !2903
 
 for.body5.i.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %for.body5.lr.ph.i.i.i
   %i2.0112.i.i.i = phi i64 [ 0, %for.body5.lr.ph.i.i.i ], [ %inc9.i.i.i, %_ZN5arrow6StatusD2Ev.exit109.i.i.i ]
@@ -49836,9 +49836,9 @@ _ZN5arrow6StatusD2Ev.exit109.i.i.i:               ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %ref.tmp6.i.i.i, align 8
   %inc9.i.i.i = add nuw nsw i64 %i2.0112.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc9.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSLSelectionImplENS0_17FixedSizeListTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !2904
+  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSLSelectionImplENS0_17FixedSizeListTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit, label %for.body5.i.i.i, !llvm.loop !2904
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSLSelectionImplENS0_17FixedSizeListTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_16FSLSelectionImplENS0_17FixedSizeListTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
   %32 = load ptr, ptr %__functor.val, align 8
   %33 = load ptr, ptr %32, align 8
   %cmp.i.i.i.i = icmp eq ptr %33, null
@@ -54260,7 +54260,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %entry
   %.pr.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !3004
   store ptr null, ptr %ref.tmp.i, align 8, !noalias !3004
   %cmp.i.i = icmp eq ptr %.pr.i, null
-  br i1 %cmp.i.i, label %do.end15.i, label %_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.exit
+  br i1 %cmp.i.i, label %do.end15.i, label %_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.exit
 
 do.end15.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit.thread.i
   %24 = load ptr, ptr %child_indices_builders_.i, align 8, !noalias !2995
@@ -54301,9 +54301,9 @@ do.end15.i:                                       ; preds = %_ZN5arrow6StatusD2E
   %36 = load i64, ptr %size_.i.i.i.i, align 8, !noalias !2995
   %add.i.i.i.i = add nsw i64 %36, 4
   store i64 %add.i.i.i.i, ptr %size_.i.i.i.i, align 8, !noalias !2995
-  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.exit
+  br label %_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.exit
 
-_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %do.end15.i
+_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %do.end15.i
   %storemerge.i = phi ptr [ null, %do.end15.i ], [ %.pr.i, %_ZN5arrow6StatusD2Ev.exit.i ]
   store ptr %storemerge.i, ptr %agg.result, align 8, !alias.scope !2995
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -54326,14 +54326,14 @@ entry:
   br i1 %tobool.i.i, label %for.cond.preheader.i.i.i, label %for.cond3.preheader.i.i.i
 
 for.cond3.preheader.i.i.i:                        ; preds = %entry
-  br i1 %cmp113.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_23DenseUnionSelectionImplENS0_14DenseUnionTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit
+  br i1 %cmp113.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_23DenseUnionSelectionImplENS0_14DenseUnionTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit
 
 for.body5.lr.ph.i.i.i:                            ; preds = %for.cond3.preheader.i.i.i
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   br label %for.body5.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
-  br i1 %cmp113.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_23DenseUnionSelectionImplENS0_14DenseUnionTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit
+  br i1 %cmp113.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_23DenseUnionSelectionImplENS0_14DenseUnionTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
   %1 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -54485,7 +54485,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %ref.tmp.i.i.i, align 8
   %inc.i.i.i = add nuw nsw i64 %i.0114.i.i.i, 1
   %exitcond116.not.i.i.i = icmp eq i64 %inc.i.i.i, %__args1.val
-  br i1 %exitcond116.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_23DenseUnionSelectionImplENS0_14DenseUnionTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit, label %for.body.i.i.i, !llvm.loop !3012
+  br i1 %exitcond116.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_23DenseUnionSelectionImplENS0_14DenseUnionTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit, label %for.body.i.i.i, !llvm.loop !3012
 
 for.body5.i.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %for.body5.lr.ph.i.i.i
   %i2.0112.i.i.i = phi i64 [ 0, %for.body5.lr.ph.i.i.i ], [ %inc9.i.i.i, %_ZN5arrow6StatusD2Ev.exit109.i.i.i ]
@@ -54582,9 +54582,9 @@ _ZN5arrow6StatusD2Ev.exit109.i.i.i:               ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %ref.tmp6.i.i.i, align 8
   %inc9.i.i.i = add nuw nsw i64 %i2.0112.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc9.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_23DenseUnionSelectionImplENS0_14DenseUnionTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !3013
+  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_23DenseUnionSelectionImplENS0_14DenseUnionTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit, label %for.body5.i.i.i, !llvm.loop !3013
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_23DenseUnionSelectionImplENS0_14DenseUnionTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.argprom.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_23DenseUnionSelectionImplENS0_14DenseUnionTypeEE11VisitFilterIZNS5_14GenerateOutputINS7_13FilterAdapterEEENS0_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISE_SG_DpT1_EESE_E4typeESH_DpOSL_.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
   %51 = load ptr, ptr %__functor.val, align 8
   %52 = load ptr, ptr %51, align 8
   %cmp.i.i.i.i = icmp eq ptr %52, null
@@ -55986,14 +55986,14 @@ entry:
   br i1 %tobool.i.i, label %for.cond.preheader.i.i.i, label %for.cond3.preheader.i.i.i
 
 for.cond3.preheader.i.i.i:                        ; preds = %entry
-  br i1 %cmp114.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_7MapTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit
+  br i1 %cmp114.i.i.i, label %for.body5.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_7MapTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit
 
 for.body5.lr.ph.i.i.i:                            ; preds = %for.cond3.preheader.i.i.i
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   br label %for.body5.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %entry
-  br i1 %cmp114.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_7MapTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit
+  br i1 %cmp114.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_7MapTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
   %1 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -56095,7 +56095,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %ref.tmp.i.i.i, align 8
   %inc.i.i.i = add nuw nsw i64 %i.0115.i.i.i, 1
   %exitcond117.not.i.i.i = icmp eq i64 %inc.i.i.i, %__args1.val
-  br i1 %exitcond117.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_7MapTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit, label %for.body.i.i.i, !llvm.loop !3066
+  br i1 %exitcond117.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_7MapTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit, label %for.body.i.i.i, !llvm.loop !3066
 
 for.body5.i.i.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %for.body5.lr.ph.i.i.i
   %i2.0113.i.i.i = phi i64 [ 0, %for.body5.lr.ph.i.i.i ], [ %inc9.i.i.i, %_ZN5arrow6StatusD2Ev.exit109.i.i.i ]
@@ -56225,9 +56225,9 @@ _ZN5arrow6StatusD2Ev.exit109.i.i.i:               ; preds = %_ZN5arrow6Status5St
   store ptr null, ptr %32, align 8
   %inc9.i.i.i = add nuw nsw i64 %i2.0113.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc9.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_7MapTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit, label %for.body5.i.i.i, !llvm.loop !3073
+  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_7MapTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit, label %for.body5.i.i.i, !llvm.loop !3073
 
-_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_7MapTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.argprom.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
+_ZSt10__invoke_rIbRZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS3_17ListSelectionImplINS0_7MapTypeEEES6_E11VisitFilterIZNS7_14GenerateOutputINS8_13FilterAdapterEEENS0_6StatusEvEUllE_ZNSA_ISB_EESC_vEUlvE_EESC_OT_OT0_EUlllbE_JllbEENSt9enable_ifIX16is_invocable_r_vISF_SH_DpT1_EESF_E4typeESI_DpOSM_.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit109.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i, %for.cond3.preheader.i.i.i, %for.cond.preheader.i.i.i
   %45 = load ptr, ptr %__functor.val, align 8
   %46 = load ptr, ptr %45, align 8
   %cmp.i.i.i.i = icmp eq ptr %46, null
@@ -58177,7 +58177,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %type_codes_ = getelementptr inbounds i8, ptr %this.0.val, i64 232
@@ -58416,7 +58416,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %type_codes_ = getelementptr inbounds i8, ptr %this.0.val, i64 232
@@ -58655,7 +58655,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %type_codes_ = getelementptr inbounds i8, ptr %this.0.val, i64 232
@@ -58894,7 +58894,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %type_codes_ = getelementptr inbounds i8, ptr %this.0.val, i64 232
@@ -63120,8 +63120,8 @@ attributes #25 = { noreturn }
 !101 = !{!100}
 !102 = !{!100, !86}
 !103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom: %agg.result"}
-!105 = distinct !{!105, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom"}
+!104 = distinct !{!104, !105, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_: %agg.result"}
+!105 = distinct !{!105, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_"}
 !106 = !{!107}
 !107 = distinct !{!107, !108, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_: %agg.result"}
 !108 = distinct !{!108, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_"}
@@ -63172,8 +63172,8 @@ attributes #25 = { noreturn }
 !153 = distinct !{!153, !154, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !154 = distinct !{!154, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv"}
 !155 = !{!156, !153, !107, !104, !86, !64, !61}
-!156 = distinct !{!156, !157, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!157 = distinct !{!157, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!156 = distinct !{!156, !157, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!157 = distinct !{!157, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !158 = !{!159, !107, !104, !86}
 !159 = distinct !{!159, !160, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !160 = distinct !{!160, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -63222,8 +63222,8 @@ attributes #25 = { noreturn }
 !203 = distinct !{!203, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEv"}
 !204 = !{!202, !180, !177}
 !205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!207 = distinct !{!207, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!206 = distinct !{!206, !207, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!207 = distinct !{!207, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !208 = !{!209}
 !209 = distinct !{!209, !210, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
 !210 = distinct !{!210, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_"}
@@ -63272,8 +63272,8 @@ attributes #25 = { noreturn }
 !253 = distinct !{!253, !254, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !254 = distinct !{!254, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv"}
 !255 = !{!256, !253, !209, !206, !202, !180, !177}
-!256 = distinct !{!256, !257, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!257 = distinct !{!257, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!256 = distinct !{!256, !257, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!257 = distinct !{!257, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !258 = !{!259, !209, !206}
 !259 = distinct !{!259, !260, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !260 = distinct !{!260, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -63330,8 +63330,8 @@ attributes #25 = { noreturn }
 !311 = distinct !{!311, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEv"}
 !312 = !{!310, !288, !285}
 !313 = !{!314}
-!314 = distinct !{!314, !315, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!315 = distinct !{!315, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!314 = distinct !{!314, !315, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!315 = distinct !{!315, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !316 = !{!317}
 !317 = distinct !{!317, !318, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
 !318 = distinct !{!318, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_"}
@@ -63380,8 +63380,8 @@ attributes #25 = { noreturn }
 !361 = distinct !{!361, !362, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !362 = distinct !{!362, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv"}
 !363 = !{!364, !361, !317, !314, !310, !288, !285}
-!364 = distinct !{!364, !365, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!365 = distinct !{!365, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!364 = distinct !{!364, !365, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!365 = distinct !{!365, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !366 = !{!367, !317, !314}
 !367 = distinct !{!367, !368, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !368 = distinct !{!368, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -63450,8 +63450,8 @@ attributes #25 = { noreturn }
 !431 = !{!430}
 !432 = !{!430, !418}
 !433 = !{!434}
-!434 = distinct !{!434, !435, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom: %agg.result"}
-!435 = distinct !{!435, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom"}
+!434 = distinct !{!434, !435, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_: %agg.result"}
+!435 = distinct !{!435, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_"}
 !436 = !{!437}
 !437 = distinct !{!437, !438, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_: %agg.result"}
 !438 = distinct !{!438, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_"}
@@ -63500,8 +63500,8 @@ attributes #25 = { noreturn }
 !481 = distinct !{!481, !482, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !482 = distinct !{!482, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv"}
 !483 = !{!484, !481, !437, !434, !418, !396, !393}
-!484 = distinct !{!484, !485, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!485 = distinct !{!485, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!484 = distinct !{!484, !485, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!485 = distinct !{!485, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !486 = !{!487, !489, !484, !481, !437, !434, !418, !396, !393}
 !487 = distinct !{!487, !488, !"_ZN5arrow12ArrayBuilder7ReserveEl: %agg.result"}
 !488 = distinct !{!488, !"_ZN5arrow12ArrayBuilder7ReserveEl"}
@@ -63561,8 +63561,8 @@ attributes #25 = { noreturn }
 !542 = distinct !{!542, !"_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEv"}
 !543 = !{!541, !519, !516}
 !544 = !{!545}
-!545 = distinct !{!545, !546, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom: %agg.result"}
-!546 = distinct !{!546, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_.argprom"}
+!545 = distinct !{!545, !546, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_: %agg.result"}
+!546 = distinct !{!546, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE13FilterAdapter8GenerateIZNS4_14GenerateOutputIS7_EENS_6StatusEvEUllE_ZNS9_IS7_EESA_vEUlvE_EESA_OT_OT0_"}
 !547 = !{!548}
 !548 = distinct !{!548, !549, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_: %agg.result"}
 !549 = distinct !{!549, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_"}
@@ -63689,8 +63689,8 @@ attributes #25 = { noreturn }
 !670 = distinct !{!670, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEv"}
 !671 = !{!669, !647, !644}
 !672 = !{!673}
-!673 = distinct !{!673, !674, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!674 = distinct !{!674, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!673 = distinct !{!673, !674, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!674 = distinct !{!674, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E13FilterAdapter8GenerateIZNS6_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !675 = !{!676}
 !676 = distinct !{!676, !677, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
 !677 = distinct !{!677, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_"}
@@ -63739,8 +63739,8 @@ attributes #25 = { noreturn }
 !720 = distinct !{!720, !721, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !721 = distinct !{!721, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv"}
 !722 = !{!723, !720, !676, !673, !669, !647, !644}
-!723 = distinct !{!723, !724, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!724 = distinct !{!724, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!723 = distinct !{!723, !724, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!724 = distinct !{!724, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !725 = !{!726, !676, !673}
 !726 = distinct !{!726, !727, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !727 = distinct !{!727, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -63815,8 +63815,8 @@ attributes #25 = { noreturn }
 !796 = !{!797, !799, !781, !759, !752}
 !797 = distinct !{!797, !798, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E9VisitTakeIhZNS6_14GenerateOutputINS7_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !798 = distinct !{!798, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E9VisitTakeIhZNS6_14GenerateOutputINS7_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
-!799 = distinct !{!799, !800, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!800 = distinct !{!800, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!799 = distinct !{!799, !800, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!800 = distinct !{!800, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !801 = !{!799, !781, !759, !752}
 !802 = !{!803, !797, !799, !781, !759, !752}
 !803 = distinct !{!803, !804, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
@@ -63832,12 +63832,12 @@ attributes #25 = { noreturn }
 !813 = distinct !{!813, !814, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !814 = distinct !{!814, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !815 = !{!816, !797, !799, !781, !759, !752}
-!816 = distinct !{!816, !817, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!817 = distinct !{!817, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!816 = distinct !{!816, !817, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!817 = distinct !{!817, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !818 = distinct !{!818, !8}
 !819 = !{!820, !797, !799, !781, !759, !752}
-!820 = distinct !{!820, !821, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!821 = distinct !{!821, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!820 = distinct !{!820, !821, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!821 = distinct !{!821, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !822 = distinct !{!822, !8}
 !823 = distinct !{!823, !8}
 !824 = !{!825}
@@ -63859,8 +63859,8 @@ attributes #25 = { noreturn }
 !840 = !{!841, !843, !825, !759, !752}
 !841 = distinct !{!841, !842, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E9VisitTakeItZNS6_14GenerateOutputINS7_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !842 = distinct !{!842, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E9VisitTakeItZNS6_14GenerateOutputINS7_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
-!843 = distinct !{!843, !844, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!844 = distinct !{!844, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!843 = distinct !{!843, !844, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!844 = distinct !{!844, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !845 = !{!843, !825, !759, !752}
 !846 = !{!847, !841, !843, !825, !759, !752}
 !847 = distinct !{!847, !848, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
@@ -63876,12 +63876,12 @@ attributes #25 = { noreturn }
 !857 = distinct !{!857, !858, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !858 = distinct !{!858, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !859 = !{!860, !841, !843, !825, !759, !752}
-!860 = distinct !{!860, !861, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!861 = distinct !{!861, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!860 = distinct !{!860, !861, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!861 = distinct !{!861, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !862 = distinct !{!862, !8}
 !863 = !{!864, !841, !843, !825, !759, !752}
-!864 = distinct !{!864, !865, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!865 = distinct !{!865, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!864 = distinct !{!864, !865, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!865 = distinct !{!865, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !866 = distinct !{!866, !8}
 !867 = distinct !{!867, !8}
 !868 = !{!869}
@@ -63903,8 +63903,8 @@ attributes #25 = { noreturn }
 !884 = !{!885, !887, !869, !759, !752}
 !885 = distinct !{!885, !886, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E9VisitTakeIjZNS6_14GenerateOutputINS7_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !886 = distinct !{!886, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E9VisitTakeIjZNS6_14GenerateOutputINS7_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
-!887 = distinct !{!887, !888, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!888 = distinct !{!888, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!887 = distinct !{!887, !888, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!888 = distinct !{!888, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !889 = !{!887, !869, !759, !752}
 !890 = !{!891, !885, !887, !869, !759, !752}
 !891 = distinct !{!891, !892, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
@@ -63920,12 +63920,12 @@ attributes #25 = { noreturn }
 !901 = distinct !{!901, !902, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !902 = distinct !{!902, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !903 = !{!904, !885, !887, !869, !759, !752}
-!904 = distinct !{!904, !905, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!905 = distinct !{!905, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!904 = distinct !{!904, !905, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!905 = distinct !{!905, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !906 = distinct !{!906, !8}
 !907 = !{!908, !885, !887, !869, !759, !752}
-!908 = distinct !{!908, !909, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!909 = distinct !{!909, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!908 = distinct !{!908, !909, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!909 = distinct !{!909, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !910 = distinct !{!910, !8}
 !911 = distinct !{!911, !8}
 !912 = !{!913}
@@ -63947,8 +63947,8 @@ attributes #25 = { noreturn }
 !928 = !{!929, !931, !913, !759, !752}
 !929 = distinct !{!929, !930, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E9VisitTakeImZNS6_14GenerateOutputINS7_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !930 = distinct !{!930, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E9VisitTakeImZNS6_14GenerateOutputINS7_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
-!931 = distinct !{!931, !932, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!932 = distinct !{!932, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!931 = distinct !{!931, !932, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!932 = distinct !{!932, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_10BinaryTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !933 = !{!931, !913, !759, !752}
 !934 = !{!935, !929, !931, !913, !759, !752}
 !935 = distinct !{!935, !936, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
@@ -63964,12 +63964,12 @@ attributes #25 = { noreturn }
 !945 = distinct !{!945, !946, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !946 = distinct !{!946, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !947 = !{!948, !929, !931, !913, !759, !752}
-!948 = distinct !{!948, !949, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!949 = distinct !{!949, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!948 = distinct !{!948, !949, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!949 = distinct !{!949, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !950 = distinct !{!950, !8}
 !951 = !{!952, !929, !931, !913, !759, !752}
-!952 = distinct !{!952, !953, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!953 = distinct !{!953, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!952 = distinct !{!952, !953, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!953 = distinct !{!953, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_10BinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !954 = distinct !{!954, !8}
 !955 = distinct !{!955, !8}
 !956 = !{!957, !759, !752}
@@ -64030,8 +64030,8 @@ attributes #25 = { noreturn }
 !1011 = !{!1012, !1014, !996, !974, !967}
 !1012 = distinct !{!1012, !1013, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E9VisitTakeIhZNS6_14GenerateOutputINS7_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1013 = distinct !{!1013, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E9VisitTakeIhZNS6_14GenerateOutputINS7_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
-!1014 = distinct !{!1014, !1015, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1015 = distinct !{!1015, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1014 = distinct !{!1014, !1015, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1015 = distinct !{!1015, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1016 = !{!1014, !996, !974, !967}
 !1017 = !{!1018, !1012, !1014, !996, !974, !967}
 !1018 = distinct !{!1018, !1019, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
@@ -64047,12 +64047,12 @@ attributes #25 = { noreturn }
 !1028 = distinct !{!1028, !1029, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1029 = distinct !{!1029, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1030 = !{!1031, !1012, !1014, !996, !974, !967}
-!1031 = distinct !{!1031, !1032, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1032 = distinct !{!1032, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1031 = distinct !{!1031, !1032, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1032 = distinct !{!1032, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !1033 = distinct !{!1033, !8}
 !1034 = !{!1035, !1012, !1014, !996, !974, !967}
-!1035 = distinct !{!1035, !1036, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1036 = distinct !{!1036, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1035 = distinct !{!1035, !1036, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1036 = distinct !{!1036, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !1037 = distinct !{!1037, !8}
 !1038 = distinct !{!1038, !8}
 !1039 = !{!1040}
@@ -64074,8 +64074,8 @@ attributes #25 = { noreturn }
 !1055 = !{!1056, !1058, !1040, !974, !967}
 !1056 = distinct !{!1056, !1057, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E9VisitTakeItZNS6_14GenerateOutputINS7_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1057 = distinct !{!1057, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E9VisitTakeItZNS6_14GenerateOutputINS7_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
-!1058 = distinct !{!1058, !1059, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1059 = distinct !{!1059, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1058 = distinct !{!1058, !1059, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1059 = distinct !{!1059, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1060 = !{!1058, !1040, !974, !967}
 !1061 = !{!1062, !1056, !1058, !1040, !974, !967}
 !1062 = distinct !{!1062, !1063, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
@@ -64091,12 +64091,12 @@ attributes #25 = { noreturn }
 !1072 = distinct !{!1072, !1073, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1073 = distinct !{!1073, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1074 = !{!1075, !1056, !1058, !1040, !974, !967}
-!1075 = distinct !{!1075, !1076, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1076 = distinct !{!1076, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1075 = distinct !{!1075, !1076, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1076 = distinct !{!1076, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !1077 = distinct !{!1077, !8}
 !1078 = !{!1079, !1056, !1058, !1040, !974, !967}
-!1079 = distinct !{!1079, !1080, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1080 = distinct !{!1080, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1079 = distinct !{!1079, !1080, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1080 = distinct !{!1080, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !1081 = distinct !{!1081, !8}
 !1082 = distinct !{!1082, !8}
 !1083 = !{!1084}
@@ -64118,8 +64118,8 @@ attributes #25 = { noreturn }
 !1099 = !{!1100, !1102, !1084, !974, !967}
 !1100 = distinct !{!1100, !1101, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E9VisitTakeIjZNS6_14GenerateOutputINS7_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1101 = distinct !{!1101, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E9VisitTakeIjZNS6_14GenerateOutputINS7_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
-!1102 = distinct !{!1102, !1103, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1103 = distinct !{!1103, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1102 = distinct !{!1102, !1103, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1103 = distinct !{!1103, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1104 = !{!1102, !1084, !974, !967}
 !1105 = !{!1106, !1100, !1102, !1084, !974, !967}
 !1106 = distinct !{!1106, !1107, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
@@ -64135,12 +64135,12 @@ attributes #25 = { noreturn }
 !1116 = distinct !{!1116, !1117, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1117 = distinct !{!1117, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1118 = !{!1119, !1100, !1102, !1084, !974, !967}
-!1119 = distinct !{!1119, !1120, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1120 = distinct !{!1120, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1119 = distinct !{!1119, !1120, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1120 = distinct !{!1120, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !1121 = distinct !{!1121, !8}
 !1122 = !{!1123, !1100, !1102, !1084, !974, !967}
-!1123 = distinct !{!1123, !1124, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1124 = distinct !{!1124, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1123 = distinct !{!1123, !1124, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1124 = distinct !{!1124, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !1125 = distinct !{!1125, !8}
 !1126 = distinct !{!1126, !8}
 !1127 = !{!1128}
@@ -64162,8 +64162,8 @@ attributes #25 = { noreturn }
 !1143 = !{!1144, !1146, !1128, !974, !967}
 !1144 = distinct !{!1144, !1145, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E9VisitTakeImZNS6_14GenerateOutputINS7_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1145 = distinct !{!1145, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E9VisitTakeImZNS6_14GenerateOutputINS7_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
-!1146 = distinct !{!1146, !1147, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1147 = distinct !{!1147, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1146 = distinct !{!1146, !1147, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1147 = distinct !{!1147, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_22VarBinarySelectionImplINS_15LargeBinaryTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1148 = !{!1146, !1128, !974, !967}
 !1149 = !{!1150, !1144, !1146, !1128, !974, !967}
 !1150 = distinct !{!1150, !1151, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
@@ -64179,12 +64179,12 @@ attributes #25 = { noreturn }
 !1160 = distinct !{!1160, !1161, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1161 = distinct !{!1161, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1162 = !{!1163, !1144, !1146, !1128, !974, !967}
-!1163 = distinct !{!1163, !1164, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1164 = distinct !{!1164, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1163 = distinct !{!1163, !1164, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1164 = distinct !{!1164, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !1165 = distinct !{!1165, !8}
 !1166 = !{!1167, !1144, !1146, !1128, !974, !967}
-!1167 = distinct !{!1167, !1168, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1168 = distinct !{!1168, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1167 = distinct !{!1167, !1168, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1168 = distinct !{!1168, !"_ZZN5arrow7compute8internal12_GLOBAL__N_122VarBinarySelectionImplINS_15LargeBinaryTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !1169 = distinct !{!1169, !8}
 !1170 = distinct !{!1170, !8}
 !1171 = !{!1172, !974, !967}
@@ -64243,8 +64243,8 @@ attributes #25 = { noreturn }
 !1224 = !{!1223}
 !1225 = !{!1223, !1211}
 !1226 = !{!1227}
-!1227 = distinct !{!1227, !1228, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!1228 = distinct !{!1228, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!1227 = distinct !{!1227, !1228, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!1228 = distinct !{!1228, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !1229 = !{!1230}
 !1230 = distinct !{!1230, !1231, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !1231 = distinct !{!1231, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -64258,12 +64258,12 @@ attributes #25 = { noreturn }
 !1239 = distinct !{!1239, !1240, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
 !1240 = distinct !{!1240, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl"}
 !1241 = !{!1242, !1230, !1227, !1211, !1189, !1182}
-!1242 = distinct !{!1242, !1243, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1243 = distinct !{!1243, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1242 = distinct !{!1242, !1243, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1243 = distinct !{!1243, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !1244 = distinct !{!1244, !8}
 !1245 = !{!1246, !1230, !1227, !1211, !1189, !1182}
-!1246 = distinct !{!1246, !1247, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1247 = distinct !{!1247, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1246 = distinct !{!1246, !1247, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1247 = distinct !{!1247, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !1248 = distinct !{!1248, !8}
 !1249 = distinct !{!1249, !8}
 !1250 = !{!1251, !1230, !1227, !1211}
@@ -64286,8 +64286,8 @@ attributes #25 = { noreturn }
 !1267 = !{!1266}
 !1268 = !{!1266, !1254}
 !1269 = !{!1270}
-!1270 = distinct !{!1270, !1271, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!1271 = distinct !{!1271, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!1270 = distinct !{!1270, !1271, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!1271 = distinct !{!1271, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !1272 = !{!1273}
 !1273 = distinct !{!1273, !1274, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !1274 = distinct !{!1274, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -64301,12 +64301,12 @@ attributes #25 = { noreturn }
 !1282 = distinct !{!1282, !1283, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
 !1283 = distinct !{!1283, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl"}
 !1284 = !{!1285, !1273, !1270, !1254, !1189, !1182}
-!1285 = distinct !{!1285, !1286, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1286 = distinct !{!1286, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1285 = distinct !{!1285, !1286, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1286 = distinct !{!1286, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !1287 = distinct !{!1287, !8}
 !1288 = !{!1289, !1273, !1270, !1254, !1189, !1182}
-!1289 = distinct !{!1289, !1290, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1290 = distinct !{!1290, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1289 = distinct !{!1289, !1290, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1290 = distinct !{!1290, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !1291 = distinct !{!1291, !8}
 !1292 = distinct !{!1292, !8}
 !1293 = !{!1294, !1273, !1270, !1254}
@@ -64329,8 +64329,8 @@ attributes #25 = { noreturn }
 !1310 = !{!1309}
 !1311 = !{!1309, !1297}
 !1312 = !{!1313}
-!1313 = distinct !{!1313, !1314, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!1314 = distinct !{!1314, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!1313 = distinct !{!1313, !1314, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!1314 = distinct !{!1314, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !1315 = !{!1316}
 !1316 = distinct !{!1316, !1317, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !1317 = distinct !{!1317, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -64344,12 +64344,12 @@ attributes #25 = { noreturn }
 !1325 = distinct !{!1325, !1326, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
 !1326 = distinct !{!1326, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl"}
 !1327 = !{!1328, !1316, !1313, !1297, !1189, !1182}
-!1328 = distinct !{!1328, !1329, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1329 = distinct !{!1329, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1328 = distinct !{!1328, !1329, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1329 = distinct !{!1329, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !1330 = distinct !{!1330, !8}
 !1331 = !{!1332, !1316, !1313, !1297, !1189, !1182}
-!1332 = distinct !{!1332, !1333, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1333 = distinct !{!1333, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1332 = distinct !{!1332, !1333, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1333 = distinct !{!1333, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !1334 = distinct !{!1334, !8}
 !1335 = distinct !{!1335, !8}
 !1336 = !{!1337, !1316, !1313, !1297}
@@ -64372,8 +64372,8 @@ attributes #25 = { noreturn }
 !1353 = !{!1352}
 !1354 = !{!1352, !1340}
 !1355 = !{!1356}
-!1356 = distinct !{!1356, !1357, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!1357 = distinct !{!1357, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!1356 = distinct !{!1356, !1357, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!1357 = distinct !{!1357, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !1358 = !{!1359}
 !1359 = distinct !{!1359, !1360, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !1360 = distinct !{!1360, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -64387,12 +64387,12 @@ attributes #25 = { noreturn }
 !1368 = distinct !{!1368, !1369, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
 !1369 = distinct !{!1369, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl"}
 !1370 = !{!1371, !1359, !1356, !1340, !1189, !1182}
-!1371 = distinct !{!1371, !1372, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1372 = distinct !{!1372, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1371 = distinct !{!1371, !1372, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1372 = distinct !{!1372, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !1373 = distinct !{!1373, !8}
 !1374 = !{!1375, !1359, !1356, !1340, !1189, !1182}
-!1375 = distinct !{!1375, !1376, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1376 = distinct !{!1376, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1375 = distinct !{!1375, !1376, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1376 = distinct !{!1376, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !1377 = distinct !{!1377, !8}
 !1378 = distinct !{!1378, !8}
 !1379 = !{!1380, !1359, !1356, !1340}
@@ -64442,8 +64442,8 @@ attributes #25 = { noreturn }
 !1423 = distinct !{!1423, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv"}
 !1424 = !{!1422, !1400, !1393}
 !1425 = !{!1426, !1422, !1400, !1393}
-!1426 = distinct !{!1426, !1427, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1427 = distinct !{!1427, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1426 = distinct !{!1426, !1427, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1427 = distinct !{!1427, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1428 = !{!1429, !1426, !1422, !1400, !1393}
 !1429 = distinct !{!1429, !1430, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E9VisitTakeIhZNS6_14GenerateOutputINS7_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1430 = distinct !{!1430, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E9VisitTakeIhZNS6_14GenerateOutputINS7_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -64455,12 +64455,12 @@ attributes #25 = { noreturn }
 !1436 = distinct !{!1436, !1437, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1437 = distinct !{!1437, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1438 = !{!1439, !1429, !1426, !1422, !1400, !1393}
-!1439 = distinct !{!1439, !1440, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1440 = distinct !{!1440, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1439 = distinct !{!1439, !1440, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1440 = distinct !{!1440, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !1441 = distinct !{!1441, !8}
 !1442 = !{!1443, !1429, !1426, !1422, !1400, !1393}
-!1443 = distinct !{!1443, !1444, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1444 = distinct !{!1444, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1443 = distinct !{!1443, !1444, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1444 = distinct !{!1444, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !1445 = distinct !{!1445, !8}
 !1446 = distinct !{!1446, !8}
 !1447 = !{!1448}
@@ -64468,8 +64468,8 @@ attributes #25 = { noreturn }
 !1449 = distinct !{!1449, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv"}
 !1450 = !{!1448, !1400, !1393}
 !1451 = !{!1452, !1448, !1400, !1393}
-!1452 = distinct !{!1452, !1453, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1453 = distinct !{!1453, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1452 = distinct !{!1452, !1453, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1453 = distinct !{!1453, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1454 = !{!1455, !1452, !1448, !1400, !1393}
 !1455 = distinct !{!1455, !1456, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E9VisitTakeItZNS6_14GenerateOutputINS7_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1456 = distinct !{!1456, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E9VisitTakeItZNS6_14GenerateOutputINS7_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -64481,12 +64481,12 @@ attributes #25 = { noreturn }
 !1462 = distinct !{!1462, !1463, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1463 = distinct !{!1463, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1464 = !{!1465, !1455, !1452, !1448, !1400, !1393}
-!1465 = distinct !{!1465, !1466, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1466 = distinct !{!1466, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1465 = distinct !{!1465, !1466, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1466 = distinct !{!1466, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !1467 = distinct !{!1467, !8}
 !1468 = !{!1469, !1455, !1452, !1448, !1400, !1393}
-!1469 = distinct !{!1469, !1470, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1470 = distinct !{!1470, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1469 = distinct !{!1469, !1470, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1470 = distinct !{!1470, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !1471 = distinct !{!1471, !8}
 !1472 = distinct !{!1472, !8}
 !1473 = !{!1474}
@@ -64494,8 +64494,8 @@ attributes #25 = { noreturn }
 !1475 = distinct !{!1475, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv"}
 !1476 = !{!1474, !1400, !1393}
 !1477 = !{!1478, !1474, !1400, !1393}
-!1478 = distinct !{!1478, !1479, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1479 = distinct !{!1479, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1478 = distinct !{!1478, !1479, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1479 = distinct !{!1479, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1480 = !{!1481, !1478, !1474, !1400, !1393}
 !1481 = distinct !{!1481, !1482, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E9VisitTakeIjZNS6_14GenerateOutputINS7_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1482 = distinct !{!1482, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E9VisitTakeIjZNS6_14GenerateOutputINS7_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -64507,12 +64507,12 @@ attributes #25 = { noreturn }
 !1488 = distinct !{!1488, !1489, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1489 = distinct !{!1489, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1490 = !{!1491, !1481, !1478, !1474, !1400, !1393}
-!1491 = distinct !{!1491, !1492, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1492 = distinct !{!1492, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1491 = distinct !{!1491, !1492, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1492 = distinct !{!1492, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !1493 = distinct !{!1493, !8}
 !1494 = !{!1495, !1481, !1478, !1474, !1400, !1393}
-!1495 = distinct !{!1495, !1496, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1496 = distinct !{!1496, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1495 = distinct !{!1495, !1496, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1496 = distinct !{!1496, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !1497 = distinct !{!1497, !8}
 !1498 = distinct !{!1498, !8}
 !1499 = !{!1500}
@@ -64520,8 +64520,8 @@ attributes #25 = { noreturn }
 !1501 = distinct !{!1501, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv"}
 !1502 = !{!1500, !1400, !1393}
 !1503 = !{!1504, !1500, !1400, !1393}
-!1504 = distinct !{!1504, !1505, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1505 = distinct !{!1505, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1504 = distinct !{!1504, !1505, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1505 = distinct !{!1505, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1506 = !{!1507, !1504, !1500, !1400, !1393}
 !1507 = distinct !{!1507, !1508, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E9VisitTakeImZNS6_14GenerateOutputINS7_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1508 = distinct !{!1508, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E9VisitTakeImZNS6_14GenerateOutputINS7_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -64533,12 +64533,12 @@ attributes #25 = { noreturn }
 !1514 = distinct !{!1514, !1515, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1515 = distinct !{!1515, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1516 = !{!1517, !1507, !1504, !1500, !1400, !1393}
-!1517 = distinct !{!1517, !1518, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1518 = distinct !{!1518, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1517 = distinct !{!1517, !1518, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1518 = distinct !{!1518, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !1519 = distinct !{!1519, !8}
 !1520 = !{!1521, !1507, !1504, !1500, !1400, !1393}
-!1521 = distinct !{!1521, !1522, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1522 = distinct !{!1522, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1521 = distinct !{!1521, !1522, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1522 = distinct !{!1522, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !1523 = distinct !{!1523, !8}
 !1524 = distinct !{!1524, !8}
 !1525 = !{!1526, !1400, !1393}
@@ -64585,8 +64585,8 @@ attributes #25 = { noreturn }
 !1566 = distinct !{!1566, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv"}
 !1567 = !{!1565, !1543, !1536}
 !1568 = !{!1569, !1565, !1543, !1536}
-!1569 = distinct !{!1569, !1570, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1570 = distinct !{!1570, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1569 = distinct !{!1569, !1570, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1570 = distinct !{!1570, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1571 = !{!1572, !1569, !1565, !1543, !1536}
 !1572 = distinct !{!1572, !1573, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E9VisitTakeIhZNS6_14GenerateOutputINS7_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1573 = distinct !{!1573, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E9VisitTakeIhZNS6_14GenerateOutputINS7_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -64598,12 +64598,12 @@ attributes #25 = { noreturn }
 !1579 = distinct !{!1579, !1580, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1580 = distinct !{!1580, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1581 = !{!1582, !1572, !1569, !1565, !1543, !1536}
-!1582 = distinct !{!1582, !1583, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1583 = distinct !{!1583, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1582 = distinct !{!1582, !1583, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1583 = distinct !{!1583, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !1584 = distinct !{!1584, !8}
 !1585 = !{!1586, !1572, !1569, !1565, !1543, !1536}
-!1586 = distinct !{!1586, !1587, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1587 = distinct !{!1587, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1586 = distinct !{!1586, !1587, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1587 = distinct !{!1587, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !1588 = distinct !{!1588, !8}
 !1589 = distinct !{!1589, !8}
 !1590 = !{!1591}
@@ -64611,8 +64611,8 @@ attributes #25 = { noreturn }
 !1592 = distinct !{!1592, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv"}
 !1593 = !{!1591, !1543, !1536}
 !1594 = !{!1595, !1591, !1543, !1536}
-!1595 = distinct !{!1595, !1596, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1596 = distinct !{!1596, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1595 = distinct !{!1595, !1596, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1596 = distinct !{!1596, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1597 = !{!1598, !1595, !1591, !1543, !1536}
 !1598 = distinct !{!1598, !1599, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E9VisitTakeItZNS6_14GenerateOutputINS7_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1599 = distinct !{!1599, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E9VisitTakeItZNS6_14GenerateOutputINS7_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -64624,12 +64624,12 @@ attributes #25 = { noreturn }
 !1605 = distinct !{!1605, !1606, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1606 = distinct !{!1606, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1607 = !{!1608, !1598, !1595, !1591, !1543, !1536}
-!1608 = distinct !{!1608, !1609, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1609 = distinct !{!1609, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1608 = distinct !{!1608, !1609, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1609 = distinct !{!1609, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !1610 = distinct !{!1610, !8}
 !1611 = !{!1612, !1598, !1595, !1591, !1543, !1536}
-!1612 = distinct !{!1612, !1613, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1613 = distinct !{!1613, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1612 = distinct !{!1612, !1613, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1613 = distinct !{!1613, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !1614 = distinct !{!1614, !8}
 !1615 = distinct !{!1615, !8}
 !1616 = !{!1617}
@@ -64637,8 +64637,8 @@ attributes #25 = { noreturn }
 !1618 = distinct !{!1618, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv"}
 !1619 = !{!1617, !1543, !1536}
 !1620 = !{!1621, !1617, !1543, !1536}
-!1621 = distinct !{!1621, !1622, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1622 = distinct !{!1622, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1621 = distinct !{!1621, !1622, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1622 = distinct !{!1622, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1623 = !{!1624, !1621, !1617, !1543, !1536}
 !1624 = distinct !{!1624, !1625, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E9VisitTakeIjZNS6_14GenerateOutputINS7_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1625 = distinct !{!1625, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E9VisitTakeIjZNS6_14GenerateOutputINS7_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -64650,12 +64650,12 @@ attributes #25 = { noreturn }
 !1631 = distinct !{!1631, !1632, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1632 = distinct !{!1632, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1633 = !{!1634, !1624, !1621, !1617, !1543, !1536}
-!1634 = distinct !{!1634, !1635, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1635 = distinct !{!1635, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1634 = distinct !{!1634, !1635, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1635 = distinct !{!1635, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !1636 = distinct !{!1636, !8}
 !1637 = !{!1638, !1624, !1621, !1617, !1543, !1536}
-!1638 = distinct !{!1638, !1639, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1639 = distinct !{!1639, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1638 = distinct !{!1638, !1639, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1639 = distinct !{!1639, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !1640 = distinct !{!1640, !8}
 !1641 = distinct !{!1641, !8}
 !1642 = !{!1643}
@@ -64663,8 +64663,8 @@ attributes #25 = { noreturn }
 !1644 = distinct !{!1644, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv"}
 !1645 = !{!1643, !1543, !1536}
 !1646 = !{!1647, !1643, !1543, !1536}
-!1647 = distinct !{!1647, !1648, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!1648 = distinct !{!1648, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!1647 = distinct !{!1647, !1648, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!1648 = distinct !{!1648, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !1649 = !{!1650, !1647, !1643, !1543, !1536}
 !1650 = distinct !{!1650, !1651, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E9VisitTakeImZNS6_14GenerateOutputINS7_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !1651 = distinct !{!1651, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E9VisitTakeImZNS6_14GenerateOutputINS7_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -64676,12 +64676,12 @@ attributes #25 = { noreturn }
 !1657 = distinct !{!1657, !1658, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !1658 = distinct !{!1658, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !1659 = !{!1660, !1650, !1647, !1643, !1543, !1536}
-!1660 = distinct !{!1660, !1661, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1661 = distinct !{!1661, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1660 = distinct !{!1660, !1661, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1661 = distinct !{!1661, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !1662 = distinct !{!1662, !8}
 !1663 = !{!1664, !1650, !1647, !1643, !1543, !1536}
-!1664 = distinct !{!1664, !1665, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1665 = distinct !{!1665, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1664 = distinct !{!1664, !1665, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1665 = distinct !{!1665, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !1666 = distinct !{!1666, !8}
 !1667 = distinct !{!1667, !8}
 !1668 = !{!1669, !1543, !1536}
@@ -64740,8 +64740,8 @@ attributes #25 = { noreturn }
 !1721 = !{!1720}
 !1722 = !{!1720, !1708}
 !1723 = !{!1724}
-!1724 = distinct !{!1724, !1725, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!1725 = distinct !{!1725, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!1724 = distinct !{!1724, !1725, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!1725 = distinct !{!1725, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !1726 = !{!1727}
 !1727 = distinct !{!1727, !1728, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !1728 = distinct !{!1728, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -64757,8 +64757,8 @@ attributes #25 = { noreturn }
 !1738 = distinct !{!1738, !1739, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
 !1739 = distinct !{!1739, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl"}
 !1740 = !{!1741, !1727, !1724, !1708, !1686, !1679}
-!1741 = distinct !{!1741, !1742, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1742 = distinct !{!1742, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1741 = distinct !{!1741, !1742, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1742 = distinct !{!1742, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !1743 = !{!1744, !1746, !1741, !1727, !1724, !1708, !1686, !1679}
 !1744 = distinct !{!1744, !1745, !"_ZN5arrow12ArrayBuilder7ReserveEl: %agg.result"}
 !1745 = distinct !{!1745, !"_ZN5arrow12ArrayBuilder7ReserveEl"}
@@ -64772,8 +64772,8 @@ attributes #25 = { noreturn }
 !1753 = !{!1746, !1741, !1727, !1724, !1708, !1686, !1679}
 !1754 = distinct !{!1754, !8}
 !1755 = !{!1756, !1727, !1724, !1708, !1686, !1679}
-!1756 = distinct !{!1756, !1757, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1757 = distinct !{!1757, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1756 = distinct !{!1756, !1757, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1757 = distinct !{!1757, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !1758 = !{!1759, !1761, !1756, !1727, !1724, !1708, !1686, !1679}
 !1759 = distinct !{!1759, !1760, !"_ZN5arrow12ArrayBuilder7ReserveEl: %agg.result"}
 !1760 = distinct !{!1760, !"_ZN5arrow12ArrayBuilder7ReserveEl"}
@@ -64805,8 +64805,8 @@ attributes #25 = { noreturn }
 !1786 = !{!1785}
 !1787 = !{!1785, !1773}
 !1788 = !{!1789}
-!1789 = distinct !{!1789, !1790, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!1790 = distinct !{!1790, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!1789 = distinct !{!1789, !1790, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!1790 = distinct !{!1790, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !1791 = !{!1792}
 !1792 = distinct !{!1792, !1793, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !1793 = distinct !{!1793, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -64821,8 +64821,8 @@ attributes #25 = { noreturn }
 !1802 = distinct !{!1802, !1803, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
 !1803 = distinct !{!1803, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl"}
 !1804 = !{!1805, !1792, !1789, !1773, !1686, !1679}
-!1805 = distinct !{!1805, !1806, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1806 = distinct !{!1806, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1805 = distinct !{!1805, !1806, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1806 = distinct !{!1806, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !1807 = !{!1808, !1810, !1805, !1792, !1789, !1773, !1686, !1679}
 !1808 = distinct !{!1808, !1809, !"_ZN5arrow12ArrayBuilder7ReserveEl: %agg.result"}
 !1809 = distinct !{!1809, !"_ZN5arrow12ArrayBuilder7ReserveEl"}
@@ -64836,8 +64836,8 @@ attributes #25 = { noreturn }
 !1817 = !{!1810, !1805, !1792, !1789, !1773, !1686, !1679}
 !1818 = distinct !{!1818, !8}
 !1819 = !{!1820, !1792, !1789, !1773, !1686, !1679}
-!1820 = distinct !{!1820, !1821, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1821 = distinct !{!1821, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1820 = distinct !{!1820, !1821, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1821 = distinct !{!1821, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !1822 = !{!1823, !1825, !1820, !1792, !1789, !1773, !1686, !1679}
 !1823 = distinct !{!1823, !1824, !"_ZN5arrow12ArrayBuilder7ReserveEl: %agg.result"}
 !1824 = distinct !{!1824, !"_ZN5arrow12ArrayBuilder7ReserveEl"}
@@ -64869,8 +64869,8 @@ attributes #25 = { noreturn }
 !1850 = !{!1849}
 !1851 = !{!1849, !1837}
 !1852 = !{!1853}
-!1853 = distinct !{!1853, !1854, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!1854 = distinct !{!1854, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!1853 = distinct !{!1853, !1854, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!1854 = distinct !{!1854, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !1855 = !{!1856}
 !1856 = distinct !{!1856, !1857, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !1857 = distinct !{!1857, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -64885,8 +64885,8 @@ attributes #25 = { noreturn }
 !1866 = distinct !{!1866, !1867, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
 !1867 = distinct !{!1867, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl"}
 !1868 = !{!1869, !1856, !1853, !1837, !1686, !1679}
-!1869 = distinct !{!1869, !1870, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1870 = distinct !{!1870, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1869 = distinct !{!1869, !1870, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1870 = distinct !{!1870, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !1871 = !{!1872, !1874, !1869, !1856, !1853, !1837, !1686, !1679}
 !1872 = distinct !{!1872, !1873, !"_ZN5arrow12ArrayBuilder7ReserveEl: %agg.result"}
 !1873 = distinct !{!1873, !"_ZN5arrow12ArrayBuilder7ReserveEl"}
@@ -64900,8 +64900,8 @@ attributes #25 = { noreturn }
 !1881 = !{!1874, !1869, !1856, !1853, !1837, !1686, !1679}
 !1882 = distinct !{!1882, !8}
 !1883 = !{!1884, !1856, !1853, !1837, !1686, !1679}
-!1884 = distinct !{!1884, !1885, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1885 = distinct !{!1885, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1884 = distinct !{!1884, !1885, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1885 = distinct !{!1885, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !1886 = !{!1887, !1889, !1884, !1856, !1853, !1837, !1686, !1679}
 !1887 = distinct !{!1887, !1888, !"_ZN5arrow12ArrayBuilder7ReserveEl: %agg.result"}
 !1888 = distinct !{!1888, !"_ZN5arrow12ArrayBuilder7ReserveEl"}
@@ -64933,8 +64933,8 @@ attributes #25 = { noreturn }
 !1914 = !{!1913}
 !1915 = !{!1913, !1901}
 !1916 = !{!1917}
-!1917 = distinct !{!1917, !1918, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!1918 = distinct !{!1918, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!1917 = distinct !{!1917, !1918, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!1918 = distinct !{!1918, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !1919 = !{!1920}
 !1920 = distinct !{!1920, !1921, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !1921 = distinct !{!1921, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSLSelectionImplENS_17FixedSizeListTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -64949,8 +64949,8 @@ attributes #25 = { noreturn }
 !1930 = distinct !{!1930, !1931, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
 !1931 = distinct !{!1931, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl"}
 !1932 = !{!1933, !1920, !1917, !1901, !1686, !1679}
-!1933 = distinct !{!1933, !1934, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1934 = distinct !{!1934, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1933 = distinct !{!1933, !1934, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1934 = distinct !{!1934, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !1935 = !{!1936, !1938, !1933, !1920, !1917, !1901, !1686, !1679}
 !1936 = distinct !{!1936, !1937, !"_ZN5arrow12ArrayBuilder7ReserveEl: %agg.result"}
 !1937 = distinct !{!1937, !"_ZN5arrow12ArrayBuilder7ReserveEl"}
@@ -64964,8 +64964,8 @@ attributes #25 = { noreturn }
 !1945 = !{!1938, !1933, !1920, !1917, !1901, !1686, !1679}
 !1946 = distinct !{!1946, !8}
 !1947 = !{!1948, !1920, !1917, !1901, !1686, !1679}
-!1948 = distinct !{!1948, !1949, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!1949 = distinct !{!1949, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!1948 = distinct !{!1948, !1949, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!1949 = distinct !{!1949, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !1950 = !{!1951, !1953, !1948, !1920, !1917, !1901, !1686, !1679}
 !1951 = distinct !{!1951, !1952, !"_ZN5arrow12ArrayBuilder7ReserveEl: %agg.result"}
 !1952 = distinct !{!1952, !"_ZN5arrow12ArrayBuilder7ReserveEl"}
@@ -65024,8 +65024,8 @@ attributes #25 = { noreturn }
 !2005 = distinct !{!2005, !"_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEv"}
 !2006 = !{!2004, !1982, !1975}
 !2007 = !{!2008, !2004, !1982, !1975}
-!2008 = distinct !{!2008, !2009, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!2009 = distinct !{!2009, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!2008 = distinct !{!2008, !2009, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!2009 = distinct !{!2009, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !2010 = !{!2011, !2008, !2004, !1982, !1975}
 !2011 = distinct !{!2011, !2012, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !2012 = distinct !{!2012, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -65050,8 +65050,8 @@ attributes #25 = { noreturn }
 !2031 = distinct !{!2031, !"_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterItEEEENS_6StatusEv"}
 !2032 = !{!2030, !1982, !1975}
 !2033 = !{!2034, !2030, !1982, !1975}
-!2034 = distinct !{!2034, !2035, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!2035 = distinct !{!2035, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!2034 = distinct !{!2034, !2035, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!2035 = distinct !{!2035, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !2036 = !{!2037, !2034, !2030, !1982, !1975}
 !2037 = distinct !{!2037, !2038, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !2038 = distinct !{!2038, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -65076,8 +65076,8 @@ attributes #25 = { noreturn }
 !2057 = distinct !{!2057, !"_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEv"}
 !2058 = !{!2056, !1982, !1975}
 !2059 = !{!2060, !2056, !1982, !1975}
-!2060 = distinct !{!2060, !2061, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!2061 = distinct !{!2061, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!2060 = distinct !{!2060, !2061, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!2061 = distinct !{!2061, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !2062 = !{!2063, !2060, !2056, !1982, !1975}
 !2063 = distinct !{!2063, !2064, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !2064 = distinct !{!2064, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -65102,8 +65102,8 @@ attributes #25 = { noreturn }
 !2083 = distinct !{!2083, !"_ZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE11TakeAdapterImEEEENS_6StatusEv"}
 !2084 = !{!2082, !1982, !1975}
 !2085 = !{!2086, !2082, !1982, !1975}
-!2086 = distinct !{!2086, !2087, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!2087 = distinct !{!2087, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!2086 = distinct !{!2086, !2087, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!2087 = distinct !{!2087, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !2088 = !{!2089, !2086, !2082, !1982, !1975}
 !2089 = distinct !{!2089, !2090, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !2090 = distinct !{!2090, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_23DenseUnionSelectionImplENS_14DenseUnionTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
@@ -65166,76 +65166,76 @@ attributes #25 = { noreturn }
 !2147 = distinct !{!2147, !2148, !"_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEv: %agg.result"}
 !2148 = distinct !{!2148, !"_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEv"}
 !2149 = !{!2150, !2147, !2125, !2118}
-!2150 = distinct !{!2150, !2151, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!2151 = distinct !{!2151, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!2150 = distinct !{!2150, !2151, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!2151 = distinct !{!2151, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !2152 = !{!2153, !2150, !2147, !2125, !2118}
 !2153 = distinct !{!2153, !2154, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !2154 = distinct !{!2154, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
 !2155 = !{!2156, !2153, !2150, !2147, !2125, !2118}
-!2156 = distinct !{!2156, !2157, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl.argprom.argprom.argprom: %agg.result"}
-!2157 = distinct !{!2157, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl.argprom.argprom.argprom"}
+!2156 = distinct !{!2156, !2157, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
+!2157 = distinct !{!2157, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUllE_clEl"}
 !2158 = distinct !{!2158, !8}
 !2159 = distinct !{!2159, !8}
 !2160 = !{!2161, !2153, !2150, !2147, !2125, !2118}
-!2161 = distinct !{!2161, !2162, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom: %agg.result"}
-!2162 = distinct !{!2162, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom"}
+!2161 = distinct !{!2161, !2162, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2162 = distinct !{!2162, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !2163 = distinct !{!2163, !8}
 !2164 = distinct !{!2164, !8}
 !2165 = !{!2166, !2125, !2118}
 !2166 = distinct !{!2166, !2167, !"_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterItEEEENS_6StatusEv: %agg.result"}
 !2167 = distinct !{!2167, !"_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterItEEEENS_6StatusEv"}
 !2168 = !{!2169, !2166, !2125, !2118}
-!2169 = distinct !{!2169, !2170, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!2170 = distinct !{!2170, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!2169 = distinct !{!2169, !2170, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!2170 = distinct !{!2170, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !2171 = !{!2172, !2169, !2166, !2125, !2118}
 !2172 = distinct !{!2172, !2173, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !2173 = distinct !{!2173, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
 !2174 = !{!2175, !2172, !2169, !2166, !2125, !2118}
-!2175 = distinct !{!2175, !2176, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl.argprom.argprom.argprom: %agg.result"}
-!2176 = distinct !{!2176, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl.argprom.argprom.argprom"}
+!2175 = distinct !{!2175, !2176, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
+!2176 = distinct !{!2176, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUllE_clEl"}
 !2177 = distinct !{!2177, !8}
 !2178 = distinct !{!2178, !8}
 !2179 = !{!2180, !2172, !2169, !2166, !2125, !2118}
-!2180 = distinct !{!2180, !2181, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom: %agg.result"}
-!2181 = distinct !{!2181, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom"}
+!2180 = distinct !{!2180, !2181, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2181 = distinct !{!2181, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !2182 = distinct !{!2182, !8}
 !2183 = distinct !{!2183, !8}
 !2184 = !{!2185, !2125, !2118}
 !2185 = distinct !{!2185, !2186, !"_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEv: %agg.result"}
 !2186 = distinct !{!2186, !"_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEv"}
 !2187 = !{!2188, !2185, !2125, !2118}
-!2188 = distinct !{!2188, !2189, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!2189 = distinct !{!2189, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!2188 = distinct !{!2188, !2189, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!2189 = distinct !{!2189, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !2190 = !{!2191, !2188, !2185, !2125, !2118}
 !2191 = distinct !{!2191, !2192, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !2192 = distinct !{!2192, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
 !2193 = !{!2194, !2191, !2188, !2185, !2125, !2118}
-!2194 = distinct !{!2194, !2195, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl.argprom.argprom.argprom: %agg.result"}
-!2195 = distinct !{!2195, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl.argprom.argprom.argprom"}
+!2194 = distinct !{!2194, !2195, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
+!2195 = distinct !{!2195, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUllE_clEl"}
 !2196 = distinct !{!2196, !8}
 !2197 = distinct !{!2197, !8}
 !2198 = !{!2199, !2191, !2188, !2185, !2125, !2118}
-!2199 = distinct !{!2199, !2200, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom: %agg.result"}
-!2200 = distinct !{!2200, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom"}
+!2199 = distinct !{!2199, !2200, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2200 = distinct !{!2200, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !2201 = distinct !{!2201, !8}
 !2202 = distinct !{!2202, !8}
 !2203 = !{!2204, !2125, !2118}
 !2204 = distinct !{!2204, !2205, !"_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterImEEEENS_6StatusEv: %agg.result"}
 !2205 = distinct !{!2205, !"_ZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterImEEEENS_6StatusEv"}
 !2206 = !{!2207, !2204, !2125, !2118}
-!2207 = distinct !{!2207, !2208, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom: %agg.result"}
-!2208 = distinct !{!2208, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_.argprom"}
+!2207 = distinct !{!2207, !2208, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_: %agg.result"}
+!2208 = distinct !{!2208, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_ZNSA_IS8_EESB_vEUlvE_EESB_OT_OT0_"}
 !2209 = !{!2210, !2207, !2204, !2125, !2118}
 !2210 = distinct !{!2210, !2211, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_: %agg.result"}
 !2211 = distinct !{!2211, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_24SparseUnionSelectionImplENS_15SparseUnionTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS8_ISA_EESB_vEUlvE_EESB_OT0_OT1_"}
 !2212 = !{!2213, !2210, !2207, !2204, !2125, !2118}
-!2213 = distinct !{!2213, !2214, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl.argprom.argprom.argprom: %agg.result"}
-!2214 = distinct !{!2214, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl.argprom.argprom.argprom"}
+!2213 = distinct !{!2213, !2214, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl: %agg.result"}
+!2214 = distinct !{!2214, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUllE_clEl"}
 !2215 = distinct !{!2215, !8}
 !2216 = distinct !{!2216, !8}
 !2217 = !{!2218, !2210, !2207, !2204, !2125, !2118}
-!2218 = distinct !{!2218, !2219, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom: %agg.result"}
-!2219 = distinct !{!2219, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom"}
+!2218 = distinct !{!2218, !2219, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2219 = distinct !{!2219, !"_ZZN5arrow7compute8internal12_GLOBAL__N_124SparseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_15SparseUnionTypeEE11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !2220 = distinct !{!2220, !8}
 !2221 = distinct !{!2221, !8}
 !2222 = !{!2223, !2125, !2118}
@@ -65281,44 +65281,44 @@ attributes #25 = { noreturn }
 !2262 = distinct !{!2262, !2263, !"_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_10StructTypeEE11TakeAdapterIhEEEENS_6StatusEv: %agg.result"}
 !2263 = distinct !{!2263, !"_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_10StructTypeEE11TakeAdapterIhEEEENS_6StatusEv"}
 !2264 = !{!2265, !2262, !2240, !2233}
-!2265 = distinct !{!2265, !2266, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_.argprom: %agg.result"}
-!2266 = distinct !{!2266, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_.argprom"}
+!2265 = distinct !{!2265, !2266, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_: %agg.result"}
+!2266 = distinct !{!2266, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterIhE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_"}
 !2267 = !{!2268, !2265, !2262, !2240, !2233}
-!2268 = distinct !{!2268, !2269, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_.argprom: %agg.result"}
-!2269 = distinct !{!2269, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_.argprom"}
+!2268 = distinct !{!2268, !2269, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_: %agg.result"}
+!2269 = distinct !{!2269, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeIhZNS4_14GenerateOutputINS6_11TakeAdapterIhEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_"}
 !2270 = distinct !{!2270, !8}
 !2271 = distinct !{!2271, !8}
 !2272 = !{!2273, !2240, !2233}
 !2273 = distinct !{!2273, !2274, !"_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_10StructTypeEE11TakeAdapterItEEEENS_6StatusEv: %agg.result"}
 !2274 = distinct !{!2274, !"_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_10StructTypeEE11TakeAdapterItEEEENS_6StatusEv"}
 !2275 = !{!2276, !2273, !2240, !2233}
-!2276 = distinct !{!2276, !2277, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_.argprom: %agg.result"}
-!2277 = distinct !{!2277, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_.argprom"}
+!2276 = distinct !{!2276, !2277, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_: %agg.result"}
+!2277 = distinct !{!2277, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterItE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_"}
 !2278 = !{!2279, !2276, !2273, !2240, !2233}
-!2279 = distinct !{!2279, !2280, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_.argprom: %agg.result"}
-!2280 = distinct !{!2280, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_.argprom"}
+!2279 = distinct !{!2279, !2280, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_: %agg.result"}
+!2280 = distinct !{!2280, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeItZNS4_14GenerateOutputINS6_11TakeAdapterItEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_"}
 !2281 = distinct !{!2281, !8}
 !2282 = distinct !{!2282, !8}
 !2283 = !{!2284, !2240, !2233}
 !2284 = distinct !{!2284, !2285, !"_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_10StructTypeEE11TakeAdapterIjEEEENS_6StatusEv: %agg.result"}
 !2285 = distinct !{!2285, !"_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_10StructTypeEE11TakeAdapterIjEEEENS_6StatusEv"}
 !2286 = !{!2287, !2284, !2240, !2233}
-!2287 = distinct !{!2287, !2288, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_.argprom: %agg.result"}
-!2288 = distinct !{!2288, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_.argprom"}
+!2287 = distinct !{!2287, !2288, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_: %agg.result"}
+!2288 = distinct !{!2288, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterIjE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_"}
 !2289 = !{!2290, !2287, !2284, !2240, !2233}
-!2290 = distinct !{!2290, !2291, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_.argprom: %agg.result"}
-!2291 = distinct !{!2291, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_.argprom"}
+!2290 = distinct !{!2290, !2291, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_: %agg.result"}
+!2291 = distinct !{!2291, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeIjZNS4_14GenerateOutputINS6_11TakeAdapterIjEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_"}
 !2292 = distinct !{!2292, !8}
 !2293 = distinct !{!2293, !8}
 !2294 = !{!2295, !2240, !2233}
 !2295 = distinct !{!2295, !2296, !"_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_10StructTypeEE11TakeAdapterImEEEENS_6StatusEv: %agg.result"}
 !2296 = distinct !{!2296, !"_ZN5arrow7compute8internal12_GLOBAL__N_119StructSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_10StructTypeEE11TakeAdapterImEEEENS_6StatusEv"}
 !2297 = !{!2298, !2295, !2240, !2233}
-!2298 = distinct !{!2298, !2299, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_.argprom: %agg.result"}
-!2299 = distinct !{!2299, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_.argprom"}
+!2298 = distinct !{!2298, !2299, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_: %agg.result"}
+!2299 = distinct !{!2299, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE11TakeAdapterImE8GenerateIZNS4_14GenerateOutputIS8_EENS_6StatusEvEUllE_RFSB_vEEESB_OT_OT0_"}
 !2300 = !{!2301, !2298, !2295, !2240, !2233}
-!2301 = distinct !{!2301, !2302, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_.argprom: %agg.result"}
-!2302 = distinct !{!2302, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_.argprom"}
+!2301 = distinct !{!2301, !2302, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_: %agg.result"}
+!2302 = distinct !{!2302, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_19StructSelectionImplENS_10StructTypeEE9VisitTakeImZNS4_14GenerateOutputINS6_11TakeAdapterImEEEENS_6StatusEvEUllE_RFSB_vEEESB_OT0_OT1_"}
 !2303 = distinct !{!2303, !8}
 !2304 = distinct !{!2304, !8}
 !2305 = !{!2306, !2240, !2233}
@@ -65365,8 +65365,8 @@ attributes #25 = { noreturn }
 !2346 = distinct !{!2346, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEv"}
 !2347 = !{!2345, !2323, !2316}
 !2348 = !{!2349, !2345, !2323, !2316}
-!2349 = distinct !{!2349, !2350, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!2350 = distinct !{!2350, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!2349 = distinct !{!2349, !2350, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!2350 = distinct !{!2350, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterIhE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !2351 = !{!2352, !2349, !2345, !2323, !2316}
 !2352 = distinct !{!2352, !2353, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E9VisitTakeIhZNS6_14GenerateOutputINS7_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !2353 = distinct !{!2353, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E9VisitTakeIhZNS6_14GenerateOutputINS7_11TakeAdapterIhEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -65378,12 +65378,12 @@ attributes #25 = { noreturn }
 !2359 = distinct !{!2359, !2360, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !2360 = distinct !{!2360, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !2361 = !{!2362, !2352, !2349, !2345, !2323, !2316}
-!2362 = distinct !{!2362, !2363, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2363 = distinct !{!2363, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2362 = distinct !{!2362, !2363, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2363 = distinct !{!2363, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !2364 = distinct !{!2364, !8}
 !2365 = !{!2366, !2352, !2349, !2345, !2323, !2316}
-!2366 = distinct !{!2366, !2367, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2367 = distinct !{!2367, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2366 = distinct !{!2366, !2367, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2367 = distinct !{!2367, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIhEEEENS_6StatusEvENKUlvE_clEv"}
 !2368 = distinct !{!2368, !8}
 !2369 = distinct !{!2369, !8}
 !2370 = !{!2371}
@@ -65391,8 +65391,8 @@ attributes #25 = { noreturn }
 !2372 = distinct !{!2372, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEv"}
 !2373 = !{!2371, !2323, !2316}
 !2374 = !{!2375, !2371, !2323, !2316}
-!2375 = distinct !{!2375, !2376, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!2376 = distinct !{!2376, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!2375 = distinct !{!2375, !2376, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!2376 = distinct !{!2376, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterItE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !2377 = !{!2378, !2375, !2371, !2323, !2316}
 !2378 = distinct !{!2378, !2379, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E9VisitTakeItZNS6_14GenerateOutputINS7_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !2379 = distinct !{!2379, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E9VisitTakeItZNS6_14GenerateOutputINS7_11TakeAdapterItEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -65404,12 +65404,12 @@ attributes #25 = { noreturn }
 !2385 = distinct !{!2385, !2386, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !2386 = distinct !{!2386, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !2387 = !{!2388, !2378, !2375, !2371, !2323, !2316}
-!2388 = distinct !{!2388, !2389, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2389 = distinct !{!2389, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2388 = distinct !{!2388, !2389, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2389 = distinct !{!2389, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !2390 = distinct !{!2390, !8}
 !2391 = !{!2392, !2378, !2375, !2371, !2323, !2316}
-!2392 = distinct !{!2392, !2393, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2393 = distinct !{!2393, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2392 = distinct !{!2392, !2393, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2393 = distinct !{!2393, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterItEEEENS_6StatusEvENKUlvE_clEv"}
 !2394 = distinct !{!2394, !8}
 !2395 = distinct !{!2395, !8}
 !2396 = !{!2397}
@@ -65417,8 +65417,8 @@ attributes #25 = { noreturn }
 !2398 = distinct !{!2398, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEv"}
 !2399 = !{!2397, !2323, !2316}
 !2400 = !{!2401, !2397, !2323, !2316}
-!2401 = distinct !{!2401, !2402, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!2402 = distinct !{!2402, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!2401 = distinct !{!2401, !2402, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!2402 = distinct !{!2402, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterIjE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !2403 = !{!2404, !2401, !2397, !2323, !2316}
 !2404 = distinct !{!2404, !2405, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E9VisitTakeIjZNS6_14GenerateOutputINS7_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !2405 = distinct !{!2405, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E9VisitTakeIjZNS6_14GenerateOutputINS7_11TakeAdapterIjEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -65430,12 +65430,12 @@ attributes #25 = { noreturn }
 !2411 = distinct !{!2411, !2412, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !2412 = distinct !{!2412, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !2413 = !{!2414, !2404, !2401, !2397, !2323, !2316}
-!2414 = distinct !{!2414, !2415, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2415 = distinct !{!2415, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2414 = distinct !{!2414, !2415, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2415 = distinct !{!2415, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !2416 = distinct !{!2416, !8}
 !2417 = !{!2418, !2404, !2401, !2397, !2323, !2316}
-!2418 = distinct !{!2418, !2419, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2419 = distinct !{!2419, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2418 = distinct !{!2418, !2419, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2419 = distinct !{!2419, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterIjEEEENS_6StatusEvENKUlvE_clEv"}
 !2420 = distinct !{!2420, !8}
 !2421 = distinct !{!2421, !8}
 !2422 = !{!2423}
@@ -65443,8 +65443,8 @@ attributes #25 = { noreturn }
 !2424 = distinct !{!2424, !"_ZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEv"}
 !2425 = !{!2423, !2323, !2316}
 !2426 = !{!2427, !2423, !2323, !2316}
-!2427 = distinct !{!2427, !2428, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom: %agg.result"}
-!2428 = distinct !{!2428, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_.argprom"}
+!2427 = distinct !{!2427, !2428, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_: %agg.result"}
+!2428 = distinct !{!2428, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11TakeAdapterImE8GenerateIZNS6_14GenerateOutputIS9_EENS_6StatusEvEUllE_ZNSB_IS9_EESC_vEUlvE_EESC_OT_OT0_"}
 !2429 = !{!2430, !2427, !2423, !2323, !2316}
 !2430 = distinct !{!2430, !2431, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E9VisitTakeImZNS6_14GenerateOutputINS7_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_: %agg.result"}
 !2431 = distinct !{!2431, !"_ZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E9VisitTakeImZNS6_14GenerateOutputINS7_11TakeAdapterImEEEENS_6StatusEvEUllE_ZNS9_ISB_EESC_vEUlvE_EESC_OT0_OT1_"}
@@ -65456,12 +65456,12 @@ attributes #25 = { noreturn }
 !2437 = distinct !{!2437, !2438, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !2438 = distinct !{!2438, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !2439 = !{!2440, !2430, !2427, !2423, !2323, !2316}
-!2440 = distinct !{!2440, !2441, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2441 = distinct !{!2441, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2440 = distinct !{!2440, !2441, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2441 = distinct !{!2441, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !2442 = distinct !{!2442, !8}
 !2443 = !{!2444, !2430, !2427, !2423, !2323, !2316}
-!2444 = distinct !{!2444, !2445, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2445 = distinct !{!2445, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2444 = distinct !{!2444, !2445, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2445 = distinct !{!2445, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E11TakeAdapterImEEEENS_6StatusEvENKUlvE_clEv"}
 !2446 = distinct !{!2446, !8}
 !2447 = distinct !{!2447, !8}
 !2448 = !{!2449, !2323, !2316}
@@ -65526,15 +65526,15 @@ attributes #25 = { noreturn }
 !2507 = distinct !{!2507, !2508, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !2508 = distinct !{!2508, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv"}
 !2509 = !{!2510, !2507}
-!2510 = distinct !{!2510, !2511, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2511 = distinct !{!2511, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2510 = distinct !{!2510, !2511, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2511 = distinct !{!2511, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !2512 = distinct !{!2512, !8}
 !2513 = !{!2514}
 !2514 = distinct !{!2514, !2515, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !2515 = distinct !{!2515, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_16FSBSelectionImplENS_19FixedSizeBinaryTypeEE11VisitFilterIZNS4_14GenerateOutputINS6_13FilterAdapterEEENS_6StatusEvEUllE_ZNS8_IS9_EESA_vEUlvE_EESA_OT_OT0_ENKUlvE_clEv"}
 !2516 = !{!2517, !2514}
-!2517 = distinct !{!2517, !2518, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2518 = distinct !{!2518, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2517 = distinct !{!2517, !2518, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2518 = distinct !{!2518, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSBSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_19FixedSizeBinaryTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !2519 = distinct !{!2519, !8}
 !2520 = !{!2521}
 !2521 = distinct !{!2521, !2522, !"_ZN5arrow10TypeTraitsINS_9Int32TypeEE14type_singletonEv: %agg.result"}
@@ -65696,8 +65696,8 @@ attributes #25 = { noreturn }
 !2677 = distinct !{!2677, !2678, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !2678 = distinct !{!2678, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv"}
 !2679 = !{!2680}
-!2680 = distinct !{!2680, !2681, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2681 = distinct !{!2681, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2680 = distinct !{!2680, !2681, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2681 = distinct !{!2681, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !2682 = !{!2680, !2677}
 !2683 = !{!2684, !2680, !2677}
 !2684 = distinct !{!2684, !2685, !"_ZN5arrow6Status2OKEv: %agg.result"}
@@ -65707,8 +65707,8 @@ attributes #25 = { noreturn }
 !2688 = distinct !{!2688, !2689, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !2689 = distinct !{!2689, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_8ListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv"}
 !2690 = !{!2691, !2688}
-!2691 = distinct !{!2691, !2692, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2692 = distinct !{!2692, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2691 = distinct !{!2691, !2692, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2692 = distinct !{!2692, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_8ListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !2693 = distinct !{!2693, !8}
 !2694 = !{!2695}
 !2695 = distinct !{!2695, !2696, !"_ZN5arrow10TypeTraitsINS_9Int64TypeEE14type_singletonEv: %agg.result"}
@@ -65856,8 +65856,8 @@ attributes #25 = { noreturn }
 !2837 = distinct !{!2837, !2838, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !2838 = distinct !{!2838, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv"}
 !2839 = !{!2840}
-!2840 = distinct !{!2840, !2841, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2841 = distinct !{!2841, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2840 = distinct !{!2840, !2841, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2841 = distinct !{!2841, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !2842 = !{!2840, !2837}
 !2843 = !{!2844, !2840, !2837}
 !2844 = distinct !{!2844, !2845, !"_ZN5arrow6Status2OKEv: %agg.result"}
@@ -65867,8 +65867,8 @@ attributes #25 = { noreturn }
 !2848 = distinct !{!2848, !2849, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !2849 = distinct !{!2849, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_13LargeListTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv"}
 !2850 = !{!2851, !2848}
-!2851 = distinct !{!2851, !2852, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2852 = distinct !{!2852, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2851 = distinct !{!2851, !2852, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2852 = distinct !{!2852, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_13LargeListTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !2853 = distinct !{!2853, !8}
 !2854 = !{!2855}
 !2855 = distinct !{!2855, !2856, !"_ZN5arrow10TypeTraitsINS_9Int64TypeEE14type_singletonEv: %agg.result"}
@@ -65900,8 +65900,8 @@ attributes #25 = { noreturn }
 !2881 = distinct !{!2881, !2882, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !2882 = distinct !{!2882, !"_ZN5arrow6Status2OKEv"}
 !2883 = !{!2884}
-!2884 = distinct !{!2884, !2885, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!2885 = distinct !{!2885, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!2884 = distinct !{!2884, !2885, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2885 = distinct !{!2885, !"_ZZN5arrow7compute8internal12_GLOBAL__N_116FSLSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_17FixedSizeListTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !2886 = !{!2887}
 !2887 = distinct !{!2887, !2888, !"_ZN5arrow14NumericBuilderINS_9Int64TypeEE11AppendNullsEl: %agg.result"}
 !2888 = distinct !{!2888, !"_ZN5arrow14NumericBuilderINS_9Int64TypeEE11AppendNullsEl"}
@@ -66012,8 +66012,8 @@ attributes #25 = { noreturn }
 !2993 = !{!2994}
 !2994 = distinct !{!2994, !2992, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !2995 = !{!2996}
-!2996 = distinct !{!2996, !2997, !"_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom: %agg.result"}
-!2997 = distinct !{!2997, !"_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom"}
+!2996 = distinct !{!2996, !2997, !"_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!2997 = distinct !{!2997, !"_ZZN5arrow7compute8internal12_GLOBAL__N_123DenseUnionSelectionImpl14GenerateOutputINS2_9SelectionIS3_NS_14DenseUnionTypeEE13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !2998 = !{!2999, !2996}
 !2999 = distinct !{!2999, !3000, !"_ZN5arrow12ArrayBuilder7ReserveEl: %agg.result"}
 !3000 = distinct !{!3000, !"_ZN5arrow12ArrayBuilder7ReserveEl"}
@@ -66076,8 +66076,8 @@ attributes #25 = { noreturn }
 !3057 = distinct !{!3057, !3058, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !3058 = distinct !{!3058, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv"}
 !3059 = !{!3060}
-!3060 = distinct !{!3060, !3061, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!3061 = distinct !{!3061, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!3060 = distinct !{!3060, !3061, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!3061 = distinct !{!3061, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !3062 = !{!3060, !3057}
 !3063 = !{!3064, !3060, !3057}
 !3064 = distinct !{!3064, !3065, !"_ZN5arrow6Status2OKEv: %agg.result"}
@@ -66087,8 +66087,8 @@ attributes #25 = { noreturn }
 !3068 = distinct !{!3068, !3069, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv: %agg.result"}
 !3069 = distinct !{!3069, !"_ZZN5arrow7compute8internal12_GLOBAL__N_19SelectionINS2_17ListSelectionImplINS_7MapTypeEEES5_E11VisitFilterIZNS6_14GenerateOutputINS7_13FilterAdapterEEENS_6StatusEvEUllE_ZNS9_ISA_EESB_vEUlvE_EESB_OT_OT0_ENKUlvE_clEv"}
 !3070 = !{!3071, !3068}
-!3071 = distinct !{!3071, !3072, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom: %agg.result"}
-!3072 = distinct !{!3072, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv.argprom.argprom"}
+!3071 = distinct !{!3071, !3072, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv: %agg.result"}
+!3072 = distinct !{!3072, !"_ZZN5arrow7compute8internal12_GLOBAL__N_117ListSelectionImplINS_7MapTypeEE14GenerateOutputINS2_9SelectionIS5_S4_E13FilterAdapterEEENS_6StatusEvENKUlvE_clEv"}
 !3073 = distinct !{!3073, !8}
 !3074 = !{!3075}
 !3075 = distinct !{!3075, !3076, !"_ZN5arrow18TypedBufferBuilderIivE7ReserveEl: %agg.result"}

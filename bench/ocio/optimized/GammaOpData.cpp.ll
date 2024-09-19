@@ -2877,19 +2877,19 @@ for.inc.i.i.i.i.i36.i51:                          ; preds = %for.body.i.i.i.i.i3
 land.lhs.true6:                                   ; preds = %for.inc.i.i.i.i.i36.i51, %land.rhs.i38.thread
   %37 = load double, ptr %20, align 8
   %cmp.i63 = fcmp oeq double %37, 1.000000e+00
-  br i1 %cmp.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.argprom.exit, label %sw.epilog
+  br i1 %cmp.i63, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.exit, label %sw.epilog
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.argprom.exit: ; preds = %land.lhs.true6
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.exit: ; preds = %land.lhs.true6
   %add.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %38 = load double, ptr %add.ptr.i.i, align 8
   %cmp2.i = fcmp oeq double %38, 0.000000e+00
   br i1 %cmp2.i, label %return, label %sw.epilog
 
-sw.epilog:                                        ; preds = %for.body.i.i.i.i.i.i14, %for.body.i.i.i.i.i12.i30, %for.body.i.i.i.i.i32.i47, %for.body.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i, %for.body.i.i.i.i.i32.i, %land.rhs.i38, %land.rhs.i, %land.lhs.true6, %land.lhs.true.thread.i55, %land.lhs.true.i22, %sw.bb4, %land.lhs.true.thread.i, %land.lhs.true.i, %sw.bb, %land.rhs.i38.thread, %land.rhs.i.thread, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.argprom.exit, %land.lhs.true, %entry
+sw.epilog:                                        ; preds = %for.body.i.i.i.i.i.i14, %for.body.i.i.i.i.i12.i30, %for.body.i.i.i.i.i32.i47, %for.body.i.i.i.i.i.i, %for.body.i.i.i.i.i12.i, %for.body.i.i.i.i.i32.i, %land.rhs.i38, %land.rhs.i, %land.lhs.true6, %land.lhs.true.thread.i55, %land.lhs.true.i22, %sw.bb4, %land.lhs.true.thread.i, %land.lhs.true.i, %sw.bb, %land.rhs.i38.thread, %land.rhs.i.thread, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.exit, %land.lhs.true, %entry
   br label %return
 
-return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.argprom.exit, %land.lhs.true, %sw.epilog
-  %retval.0 = phi i1 [ false, %sw.epilog ], [ true, %land.lhs.true ], [ true, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.argprom.exit ]
+return:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.exit, %land.lhs.true, %sw.epilog
+  %retval.0 = phi i1 [ false, %sw.epilog ], [ true, %land.lhs.true ], [ true, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118IsMonCurveIdentityERKSt6vectorIdSaIdEE.exit ]
   ret i1 %retval.0
 }
 

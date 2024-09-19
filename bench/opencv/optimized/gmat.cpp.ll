@@ -1996,11 +1996,11 @@ _ZNK2cv8GMatDesceqERKS0_.exit.i:                  ; preds = %60, %59, %43, %36, 
   %62 = getelementptr inbounds i8, ptr %3, i64 24
   %63 = load ptr, ptr %62, align 8
   %.not.i.i.i.i11.i = icmp eq ptr %63, null
-  br i1 %.not.i.i.i.i11.i, label %_ZN2cv12_GLOBAL__N_117canDescribeHelperINS_4RMatEEEbRKNS_8GMatDescERKT_.argprom.exit, label %64
+  br i1 %.not.i.i.i.i11.i, label %_ZN2cv12_GLOBAL__N_117canDescribeHelperINS_4RMatEEEbRKNS_8GMatDescERKT_.exit, label %64
 
 64:                                               ; preds = %_ZNK2cv8GMatDesceqERKS0_.exit.i
   call void @_ZdlPv(ptr noundef nonnull %63) #21
-  br label %_ZN2cv12_GLOBAL__N_117canDescribeHelperINS_4RMatEEEbRKNS_8GMatDescERKT_.argprom.exit
+  br label %_ZN2cv12_GLOBAL__N_117canDescribeHelperINS_4RMatEEEbRKNS_8GMatDescERKT_.exit
 
 65:                                               ; preds = %11
   %66 = landingpad { ptr, i32 }
@@ -2017,7 +2017,7 @@ _ZNK2cv8GMatDesceqERKS0_.exit.i:                  ; preds = %60, %59, %43, %36, 
 _ZN2cv8GMatDescD2Ev.exit14.i:                     ; preds = %69, %65
   resume { ptr, i32 } %66
 
-_ZN2cv12_GLOBAL__N_117canDescribeHelperINS_4RMatEEEbRKNS_8GMatDescERKT_.argprom.exit: ; preds = %_ZNK2cv8GMatDesceqERKS0_.exit.i, %64
+_ZN2cv12_GLOBAL__N_117canDescribeHelperINS_4RMatEEEbRKNS_8GMatDescERKT_.exit: ; preds = %_ZNK2cv8GMatDesceqERKS0_.exit.i, %64
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   ret i1 %61

@@ -2954,7 +2954,7 @@ define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr nounde
   %432 = load ptr, ptr %431, align 8
   %.val = load i32, ptr %11, align 8
   %.val16 = load i8, ptr %291, align 4, !range !25, !noundef !26
-  %433 = call fastcc i64 @ieee80211_recalc_twt_req.argprom(i32 %.val, i8 %.val16, ptr noundef %432, ptr noundef %0, ptr noundef nonnull %417, ptr noundef %252)
+  %433 = call fastcc i64 @ieee80211_recalc_twt_req(i32 %.val, i8 %.val16, ptr noundef %432, ptr noundef %0, ptr noundef nonnull %417, ptr noundef %252)
   %434 = or i64 %406, %433
   store i64 %434, ptr %5, align 8
   %435 = getelementptr inbounds i8, ptr %252, i64 144
@@ -2977,7 +2977,7 @@ define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr nounde
   %450 = getelementptr inbounds i8, ptr %9, i64 1280
   %451 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.69, ptr noundef %450, ptr noundef %179) #19
   call fastcc void @ieee80211_set_disassoc(ptr noundef %9, i16 noundef zeroext 192, i16 noundef zeroext 3, i1 noundef zeroext true, ptr noundef nonnull %6)
-  call fastcc void @ieee80211_report_disconnect.argelim(ptr noundef %9, ptr noundef nonnull %6, i64 noundef 26, i1 noundef zeroext true, i16 noundef zeroext 3)
+  call fastcc void @ieee80211_report_disconnect(ptr noundef %9, ptr noundef nonnull %6, i64 noundef 26, i1 noundef zeroext true, i16 noundef zeroext 3)
   br label %486
 
 452:                                              ; preds = %426
@@ -3024,7 +3024,7 @@ define internal fastcc void @ieee80211_rx_mgmt_beacon(ptr noundef %0, ptr nounde
 
 482:                                              ; preds = %480
   call fastcc void @ieee80211_set_disassoc(ptr noundef %9, i16 noundef zeroext 192, i16 noundef zeroext 3, i1 noundef zeroext true, ptr noundef nonnull %6)
-  call fastcc void @ieee80211_report_disconnect.argelim(ptr noundef %9, ptr noundef nonnull %6, i64 noundef 26, i1 noundef zeroext true, i16 noundef zeroext 3)
+  call fastcc void @ieee80211_report_disconnect(ptr noundef %9, ptr noundef nonnull %6, i64 noundef 26, i1 noundef zeroext true, i16 noundef zeroext 3)
   br label %486
 
 483:                                              ; preds = %480, %475, %461
@@ -3521,7 +3521,7 @@ define dso_local void @ieee80211_sta_rx_queued_mgmt(ptr noundef %0, ptr noundef 
   %309 = tail call ptr @ieee80211_get_reason_code_string(i16 noundef zeroext %274)
   %310 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.106, ptr noundef %307, ptr noundef %297, i32 noundef %308, ptr noundef nonnull %309) #19
   tail call fastcc void @ieee80211_set_disassoc(ptr noundef %0, i16 noundef zeroext 0, i16 noundef zeroext 0, i1 noundef zeroext false, ptr noundef null)
-  tail call fastcc void @ieee80211_report_disconnect.argelim(ptr noundef %0, ptr noundef %16, i64 noundef %272, i1 noundef zeroext false, i16 noundef zeroext %274)
+  tail call fastcc void @ieee80211_report_disconnect(ptr noundef %0, ptr noundef %16, i64 noundef %272, i1 noundef zeroext false, i16 noundef zeroext %274)
   br label %679
 
 311:                                              ; preds = %296, %291
@@ -3607,7 +3607,7 @@ define dso_local void @ieee80211_sta_rx_queued_mgmt(ptr noundef %0, ptr noundef 
   %372 = tail call ptr @ieee80211_get_reason_code_string(i16 noundef zeroext %358)
   %373 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.108, ptr noundef %370, ptr noundef %344, i32 noundef %371, ptr noundef nonnull %372) #19
   tail call fastcc void @ieee80211_set_disassoc(ptr noundef %0, i16 noundef zeroext 0, i16 noundef zeroext 0, i1 noundef zeroext false, ptr noundef null)
-  tail call fastcc void @ieee80211_report_disconnect.argelim(ptr noundef %0, ptr noundef %16, i64 noundef %335, i1 noundef zeroext false, i16 noundef zeroext %358)
+  tail call fastcc void @ieee80211_report_disconnect(ptr noundef %0, ptr noundef %16, i64 noundef %335, i1 noundef zeroext false, i16 noundef zeroext %358)
   br label %679
 
 374:                                              ; preds = %30, %30
@@ -5096,7 +5096,7 @@ define internal fastcc void @ieee80211_set_disassoc(ptr noundef %0, i16 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_report_disconnect.argelim(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2, i1 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_report_disconnect(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2, i1 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.ieee80211_event, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !62
@@ -8211,7 +8211,7 @@ ieee80211_mgd_csa_present.exit.thread11:          ; preds = %75, %ieee80211_mgd_
   %205 = getelementptr inbounds i8, ptr %0, i64 4138
   %206 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.54, ptr noundef %204, ptr noundef %205, ptr noundef %104) #19
   call fastcc void @ieee80211_set_disassoc(ptr noundef %0, i16 noundef zeroext 192, i16 noundef zeroext 1, i1 noundef zeroext false, ptr noundef nonnull %3)
-  call fastcc void @ieee80211_report_disconnect.argelim(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 26, i1 noundef zeroext true, i16 noundef zeroext 1)
+  call fastcc void @ieee80211_report_disconnect(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 26, i1 noundef zeroext true, i16 noundef zeroext 1)
   call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %3) #18
   br label %207
 
@@ -8524,7 +8524,7 @@ define internal fastcc i32 @ieee80211_prep_connection(ptr noundef %0, ptr nounde
   store i32 %89, ptr %91, align 8
   %92 = load ptr, ptr %79, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 60
-  tail call fastcc void @ieee80211_get_dtim.argprom(ptr noundef nonnull %83, ptr noundef %93)
+  tail call fastcc void @ieee80211_get_dtim(ptr noundef nonnull %83, ptr noundef %93)
   br label %.thread12
 
 94:                                               ; preds = %74
@@ -8937,7 +8937,7 @@ ieee80211_mgd_csa_present.exit.thread21:          ; preds = %90, %ieee80211_mgd_
   %184 = getelementptr inbounds i8, ptr %0, i64 4138
   %185 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef %183, ptr noundef %184, ptr noundef %176) #19
   call fastcc void @ieee80211_set_disassoc(ptr noundef %0, i16 noundef zeroext 192, i16 noundef zeroext 1, i1 noundef zeroext false, ptr noundef nonnull %3)
-  call fastcc void @ieee80211_report_disconnect.argelim(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 26, i1 noundef zeroext true, i16 noundef zeroext 1)
+  call fastcc void @ieee80211_report_disconnect(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 26, i1 noundef zeroext true, i16 noundef zeroext 1)
   call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %3) #18
   br label %186
 
@@ -13252,7 +13252,7 @@ define internal fastcc range(i64 0, 16) i64 @ieee80211_handle_bss_capability(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i64 0, 134217729) i64 @ieee80211_recalc_twt_req.argprom(i32 %.4056.val, i8 %.5068.val, ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i64 0, 134217729) i64 @ieee80211_recalc_twt_req(i32 %.4056.val, i8 %.5068.val, ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 align 16 {
   %5 = icmp eq i8 %.5068.val, 0
   br i1 %5, label %8, label %6
 
@@ -16503,7 +16503,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_assoc_success(ptr noundef %
   %.val = load i32, ptr %625, align 8
   %626 = getelementptr i8, ptr %207, i64 5068
   %.val56 = load i8, ptr %626, align 4, !range !25, !noundef !26
-  %627 = call fastcc i64 @ieee80211_recalc_twt_req.argprom(i32 %.val, i8 %.val56, ptr noundef %532, ptr noundef nonnull %75, ptr noundef nonnull %111, ptr noundef %223)
+  %627 = call fastcc i64 @ieee80211_recalc_twt_req(i32 %.val, i8 %.val56, ptr noundef %532, ptr noundef nonnull %75, ptr noundef nonnull %111, ptr noundef %223)
   %628 = load i64, ptr %206, align 8
   %629 = or i64 %628, %627
   store i64 %629, ptr %206, align 8
@@ -17458,7 +17458,7 @@ declare dso_local void @cfg80211_rx_assoc_resp(ptr noundef, ptr noundef) local_u
 declare dso_local i32 @ieee80211_sta_allocate_link(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_get_dtim.argprom(ptr noundef nonnull %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_get_dtim(ptr noundef nonnull %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 29
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8

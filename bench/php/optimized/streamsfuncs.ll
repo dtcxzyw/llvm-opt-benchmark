@@ -2776,7 +2776,7 @@ stream_array_emulate_read_fd_set.exit.thread.thread: ; preds = %105
 
 .thread382:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread, %stream_array_emulate_read_fd_set.exit.thread.thread
   %182 = phi i32 [ %174, %stream_array_emulate_read_fd_set.exit.thread.thread ], [ %168, %stream_array_emulate_read_fd_set.exit.thread ]
-  call fastcc void @stream_array_from_fd_set.retelim(ptr noundef %.2265315, ptr noundef %4)
+  call fastcc void @stream_array_from_fd_set(ptr noundef %.2265315, ptr noundef %4)
   br label %.thread384
 
 .thread384:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread383, %.thread382
@@ -2784,14 +2784,14 @@ stream_array_emulate_read_fd_set.exit.thread.thread: ; preds = %105
   br i1 %.not300, label %185, label %184
 
 184:                                              ; preds = %.thread384
-  call fastcc void @stream_array_from_fd_set.retelim(ptr noundef %.2268318, ptr noundef %5)
+  call fastcc void @stream_array_from_fd_set(ptr noundef %.2268318, ptr noundef %5)
   br label %185
 
 185:                                              ; preds = %184, %.thread384
   br i1 %.not301, label %187, label %186
 
 186:                                              ; preds = %185
-  call fastcc void @stream_array_from_fd_set.retelim(ptr noundef %.2271321, ptr noundef %6)
+  call fastcc void @stream_array_from_fd_set(ptr noundef %.2271321, ptr noundef %6)
   br label %187
 
 187:                                              ; preds = %186, %185
@@ -2918,7 +2918,7 @@ declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stream_array_from_fd_set.retelim(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @stream_array_from_fd_set(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8

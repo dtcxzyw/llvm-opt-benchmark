@@ -47080,7 +47080,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19UsdPrimSiblingRangeD2Ev.exit: ; preds = %
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19UsdPrimSiblingRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %25) #29
   br label %686
 
-91:                                               ; preds = %.invoke, %.noexc51, %_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom.exit.i, %133, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i, %124, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit.i.i, %112, %93, %86
+91:                                               ; preds = %.invoke, %.noexc51, %_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.exit.i, %133, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i, %124, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit.i.i, %112, %93, %86
   %92 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -47184,17 +47184,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i: ; pred
   %131 = load i64, ptr %130, align 8, !noalias !378
   %132 = and i64 %131, 2048
   %.not5.i.i.i.i = icmp eq i64 %132, 0
-  br i1 %.not5.i.i.i.i, label %_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom.exit.i, label %133
+  br i1 %.not5.i.i.i.i, label %_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.exit.i, label %133
 
 133:                                              ; preds = %129, %127
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__31Usd_ThrowExpiredPrimAccessErrorEPKNS_12Usd_PrimDataE(ptr noundef %.val.i)
-          to label %_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom.exit.i unwind label %91
+          to label %_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.exit.i unwind label %91
 
-_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom.exit.i: ; preds = %133, %129
+_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.exit.i: ; preds = %133, %129
   %134 = invoke noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__12Usd_PrimData12GetSpecifierEv(ptr noundef nonnull align 8 dereferenceable(64) %.val.i)
           to label %.noexc51 unwind label %91
 
-.noexc51:                                         ; preds = %_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom.exit.i
+.noexc51:                                         ; preds = %_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.exit.i
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum14GetDisplayNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__12SdfSpecifierE, i32 %134)
           to label %.noexc52 unwind label %91
 
@@ -47240,13 +47240,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim11GetTypeNameEv.exit.i.i: ; preds 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i.i: ; preds = %149, %146
   %151 = phi ptr [ %148, %146 ], [ %150, %149 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %151)
-          to label %_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom.exit.i unwind label %160
+          to label %_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.exit.i unwind label %160
 
-_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom.exit.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i.i
+_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.exit.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %152 unwind label %162
 
-152:                                              ; preds = %_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom.exit.i
+152:                                              ; preds = %_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.exit.i
   %153 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #29
   br i1 %153, label %168, label %154
 
@@ -47272,7 +47272,7 @@ _ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdP
           cleanup
   br label %331
 
-162:                                              ; preds = %_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom.exit.i
+162:                                              ; preds = %_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.exit.i
   %163 = landingpad { ptr, i32 }
           cleanup
   br label %330
@@ -60449,11 +60449,11 @@ attributes #35 = { nounwind willreturn memory(none) }
 !376 = distinct !{!376, !377, !"_ZN12_GLOBAL__N_112GetPrimLabelIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
 !377 = distinct !{!377, !"_ZN12_GLOBAL__N_112GetPrimLabelIN32pxrInternal_v0_24__pxrReserved__7UsdPrimEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
 !378 = !{!379}
-!379 = distinct !{!379, !380, !"_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom: argument 0"}
-!380 = distinct !{!380, !"_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom"}
+!379 = distinct !{!379, !380, !"_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE: argument 0"}
+!380 = distinct !{!380, !"_ZN12_GLOBAL__N_112GetSpecifierB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE"}
 !381 = !{!382}
-!382 = distinct !{!382, !383, !"_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom: argument 0"}
-!383 = distinct !{!383, !"_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.argprom"}
+!382 = distinct !{!382, !383, !"_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE: argument 0"}
+!383 = distinct !{!383, !"_ZN12_GLOBAL__N_111GetTypeNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE"}
 !384 = !{!385, !376}
 !385 = distinct !{!385, !386, !"_ZN12_GLOBAL__N_17GetNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE: argument 0"}
 !386 = distinct !{!386, !"_ZN12_GLOBAL__N_17GetNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE"}

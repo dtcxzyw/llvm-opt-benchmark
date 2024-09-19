@@ -8888,14 +8888,14 @@ define internal fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc62
   %21 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit" unwind label %27
+          to label %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit" unwind label %27
 
-"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #29
   br i1 %21, label %22, label %33
 
-22:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit"
+22:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit"
   %23 = invoke noalias noundef nonnull dereferenceable(5208) ptr @_Znwm(i64 noundef 5208) #33
           to label %24 unwind label %29
 
@@ -8930,7 +8930,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZdlPv(ptr noundef nonnull %23) #34
   br label %258
 
-33:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit"
+33:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #29
   %34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc64 unwind label %111
@@ -8951,14 +8951,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68: ; preds = %.noexc65
   %37 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit70" unwind label %113
+          to label %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit70" unwind label %113
 
-"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit70": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68
+"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit70": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #29
   br i1 %37, label %38, label %117
 
-38:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit70"
+38:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit70"
   %39 = load ptr, ptr %6, align 8
   %40 = getelementptr inbounds i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8
@@ -9147,14 +9147,14 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZdlPv(ptr noundef nonnull %89) #34
   br label %258
 
-117:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit70"
+117:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit70"
   %118 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5faiss12_GLOBAL__N_110sq_patternB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit86" unwind label %29
+          to label %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit86" unwind label %29
 
-"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit86": ; preds = %117
+"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit86": ; preds = %117
   br i1 %118, label %119, label %144
 
-119:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit86"
+119:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit86"
   %120 = invoke noalias noundef nonnull dereferenceable(5208) ptr @_Znwm(i64 noundef 5208) #33
           to label %121 unwind label %29
 
@@ -9217,7 +9217,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZdlPv(ptr noundef nonnull %120) #34
   br label %258
 
-144:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit86"
+144:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit86"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #29
   %145 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %.noexc93 unwind label %190
@@ -9238,14 +9238,14 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit97: ; preds = %.noexc94
   %148 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit99" unwind label %192
+          to label %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit99" unwind label %192
 
-"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit99": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit97
+"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit99": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit97
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #29
   br i1 %148, label %149, label %199
 
-149:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit99"
+149:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit99"
   %150 = load ptr, ptr %6, align 8
   %151 = getelementptr inbounds i8, ptr %6, i64 8
   %152 = load ptr, ptr %151, align 8
@@ -9365,7 +9365,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZdlPv(ptr noundef nonnull %177) #34
   br label %258
 
-199:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit99"
+199:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit99"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #29
   %200 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %.noexc113 unwind label %247
@@ -9386,14 +9386,14 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117: ; preds = %.noexc114
   %203 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit119" unwind label %249
+          to label %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit119" unwind label %249
 
-"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit119": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117
+"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit119": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #29
   br i1 %203, label %204, label %255
 
-204:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit119"
+204:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit119"
   %205 = load ptr, ptr %6, align 8
   %206 = getelementptr inbounds i8, ptr %6, i64 8
   %207 = load ptr, ptr %206, align 8
@@ -9510,8 +9510,8 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZdlPv(ptr noundef nonnull %236) #34
   br label %258
 
-255:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit119", %24, %241, %185, %138, %103
-  %.0 = phi ptr [ %89, %103 ], [ %120, %138 ], [ %177, %185 ], [ %236, %241 ], [ %23, %24 ], [ null, %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit119" ]
+255:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit119", %24, %241, %185, %138, %103
+  %.0 = phi ptr [ %89, %103 ], [ %120, %138 ], [ %177, %185 ], [ %236, %241 ], [ %23, %24 ], [ null, %"_ZZN5faiss12_GLOBAL__N_115parse_IndexHNSWENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit119" ]
   %256 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %256, null
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEED2Ev.exit, label %257
@@ -9600,14 +9600,14 @@ define internal fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc32
   %17 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit" unwind label %23
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit" unwind label %23
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #29
   br i1 %17, label %18, label %29
 
-18:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit"
+18:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit"
   %19 = invoke noalias noundef nonnull dereferenceable(5136) ptr @_Znwm(i64 noundef 5136) #33
           to label %20 unwind label %25
 
@@ -9642,7 +9642,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZdlPv(ptr noundef nonnull %19) #34
   br label %142
 
-29:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit"
+29:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #29
   %30 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc34 unwind label %107
@@ -9663,14 +9663,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38: ; preds = %.noexc35
   %33 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit40" unwind label %109
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit40" unwind label %109
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit40": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit40": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #29
   br i1 %33, label %34, label %113
 
-34:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit40"
+34:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit40"
   %35 = load ptr, ptr %6, align 8
   %36 = getelementptr inbounds i8, ptr %6, i64 8
   %37 = load ptr, ptr %36, align 8
@@ -9858,14 +9858,14 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZdlPv(ptr noundef nonnull %85) #34
   br label %142
 
-113:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit40"
+113:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit40"
   %114 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5faiss12_GLOBAL__N_110sq_patternB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit56" unwind label %25
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit56" unwind label %25
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit56": ; preds = %113
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit56": ; preds = %113
   br i1 %114, label %115, label %139
 
-115:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit56"
+115:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit56"
   %116 = invoke noalias noundef nonnull dereferenceable(5136) ptr @_Znwm(i64 noundef 5136) #33
           to label %117 unwind label %25
 
@@ -9930,8 +9930,8 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #29
   br label %139
 
-139:                                              ; preds = %.sink.split, %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit56", %20
-  %.0 = phi ptr [ %19, %20 ], [ null, %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.argprom.exit56" ], [ %.0.ph, %.sink.split ]
+139:                                              ; preds = %.sink.split, %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit56", %20
+  %.0 = phi ptr [ %19, %20 ], [ null, %"_ZZN5faiss12_GLOBAL__N_114parse_IndexNSGENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEiENK3$_0clERKS6_.exit56" ], [ %.0.ph, %.sink.split ]
   %140 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %140, null
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEED2Ev.exit, label %141
@@ -11636,14 +11636,14 @@ define internal fastcc noundef ptr @_ZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNS
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc196
   %53 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit" unwind label %61
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit" unwind label %61
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #29
   br i1 %53, label %54, label %67
 
-54:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit"
+54:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit"
   %55 = invoke noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #33
           to label %56 unwind label %63
 
@@ -11681,7 +11681,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZdlPv(ptr noundef nonnull %55) #34
   br label %_ZNSt6vectorImSaImEED2Ev.exit293
 
-67:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit"
+67:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #29
   %68 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc198 unwind label %77
@@ -11702,14 +11702,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit202: ; preds = %.noexc199
   %71 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit204" unwind label %79
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit204" unwind label %79
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit204": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit202
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit204": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit202
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #29
   br i1 %71, label %72, label %83
 
-72:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit204"
+72:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit204"
   %73 = invoke noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #33
           to label %74 unwind label %63
 
@@ -11742,19 +11742,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit202: ;
   call void @_ZdlPv(ptr noundef nonnull %73) #34
   br label %_ZNSt6vectorImSaImEED2Ev.exit293
 
-83:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit204"
+83:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit204"
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5faiss12_GLOBAL__N_110sq_patternB5cxx11E)
           to label %84 unwind label %63
 
 84:                                               ; preds = %83
   %85 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit206" unwind label %108
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit206" unwind label %108
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit206": ; preds = %84
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit206": ; preds = %84
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #29
   br i1 %85, label %86, label %115
 
-86:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit206"
+86:                                               ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit206"
   %87 = invoke noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #33
           to label %88 unwind label %63
 
@@ -11826,7 +11826,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZdlPv(ptr noundef nonnull %87) #34
   br label %_ZNSt6vectorImSaImEED2Ev.exit293
 
-115:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit206"
+115:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit206"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #29
   %116 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %.noexc207 unwind label %171
@@ -11847,14 +11847,14 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211: ; preds = %.noexc208
   %119 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit213" unwind label %173
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit213" unwind label %173
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit213": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit213": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #29
   br i1 %119, label %120, label %177
 
-120:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit213"
+120:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit213"
   %121 = load ptr, ptr %5, align 8
   %122 = getelementptr inbounds i8, ptr %5, i64 8
   %123 = load ptr, ptr %122, align 8
@@ -11986,7 +11986,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZdlPv(ptr noundef nonnull %148) #34
   br label %_ZNSt6vectorImSaImEED2Ev.exit293
 
-177:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit213"
+177:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit213"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #29
   %178 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %.noexc232 unwind label %195
@@ -12007,14 +12007,14 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit236: ; preds = %.noexc233
   %181 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit238" unwind label %197
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit238" unwind label %197
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit238": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit236
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit238": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit236
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #29
   br i1 %181, label %182, label %240
 
-182:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit238"
+182:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit238"
   %183 = icmp eq i32 %3, 1
   br i1 %183, label %204, label %184
 
@@ -12151,7 +12151,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZdlPv(ptr noundef nonnull %232) #34
   br label %_ZNSt6vectorImSaImEED2Ev.exit293
 
-240:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit238"
+240:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit238"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #29
   %241 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %.noexc251 unwind label %295
@@ -12172,14 +12172,14 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit255: ; preds = %.noexc252
   %244 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit257" unwind label %297
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit257" unwind label %297
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit257": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit255
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit257": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit255
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #29
   br i1 %244, label %245, label %301
 
-245:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit257"
+245:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit257"
   %246 = load ptr, ptr %5, align 8
   %247 = getelementptr inbounds i8, ptr %5, i64 8
   %248 = load ptr, ptr %247, align 8
@@ -12310,7 +12310,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZdlPv(ptr noundef nonnull %273) #34
   br label %_ZNSt6vectorImSaImEED2Ev.exit293
 
-301:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit257"
+301:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit257"
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull @.str.269, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5faiss12_GLOBAL__N_114aq_def_patternB5cxx11E)
           to label %302 unwind label %63
 
@@ -12321,14 +12321,14 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 304:                                              ; preds = %302
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %303) #29
   %305 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit278" unwind label %353
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit278" unwind label %353
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit278": ; preds = %304
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit278": ; preds = %304
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #29
   br i1 %305, label %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i, label %402
 
-_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i: ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit278"
+_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i: ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit278"
   %306 = load ptr, ptr %5, align 8, !noalias !37
   %307 = getelementptr inbounds i8, ptr %5, i64 8
   %308 = load ptr, ptr %307, align 8, !noalias !37
@@ -12558,7 +12558,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZdlPv(ptr noundef nonnull %400) #34
   br label %_ZNSt6vectorImSaImEED2Ev.exit293
 
-402:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit278"
+402:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit278"
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %29, ptr noundef nonnull @.str.271, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5faiss12_GLOBAL__N_115paq_def_patternB5cxx11E)
           to label %403 unwind label %63
 
@@ -12569,14 +12569,14 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 405:                                              ; preds = %403
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %404) #29
   %406 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit297" unwind label %490
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit297" unwind label %490
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit297": ; preds = %405
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit297": ; preds = %405
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #29
   br i1 %406, label %407, label %507
 
-407:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit297"
+407:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit297"
   %408 = load ptr, ptr %5, align 8
   %409 = getelementptr inbounds i8, ptr %5, i64 8
   %410 = load ptr, ptr %409, align 8
@@ -12797,19 +12797,19 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZdlPv(ptr noundef nonnull %498) #34
   br label %_ZNSt6vectorImSaImEED2Ev.exit293
 
-507:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit297"
+507:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit297"
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %32, ptr noundef nonnull @.str.272, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5faiss12_GLOBAL__N_115aq_norm_patternB5cxx11E)
           to label %508 unwind label %63
 
 508:                                              ; preds = %507
   %509 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit330" unwind label %577
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit330" unwind label %577
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit330": ; preds = %508
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit330": ; preds = %508
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #29
   br i1 %509, label %510, label %610
 
-510:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit330"
+510:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit330"
   %511 = load ptr, ptr %5, align 8
   %512 = getelementptr inbounds i8, ptr %5, i64 8
   %513 = load ptr, ptr %512, align 8
@@ -13037,19 +13037,19 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #29
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-610:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit330"
+610:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit330"
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %37, ptr noundef nonnull @.str.273, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5faiss12_GLOBAL__N_115aq_norm_patternB5cxx11E)
           to label %611 unwind label %63
 
 611:                                              ; preds = %610
   %612 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit363" unwind label %695
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit363" unwind label %695
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit363": ; preds = %611
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit363": ; preds = %611
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #29
   br i1 %612, label %613, label %731
 
-613:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit363"
+613:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit363"
   %614 = load ptr, ptr %5, align 8
   %615 = getelementptr inbounds i8, ptr %5, i64 8
   %616 = load ptr, ptr %615, align 8
@@ -13319,21 +13319,21 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #29
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-731:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit363"
+731:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit363"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #29
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull @.str.274, ptr noundef nonnull align 1 dereferenceable(1) %44)
           to label %732 unwind label %766
 
 732:                                              ; preds = %731
   %733 = invoke fastcc noundef zeroext i1 @_ZN5faiss12_GLOBAL__N_18re_matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RNS1_13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcS6_EESaINS1_9sub_matchISE_EEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit402" unwind label %768
+          to label %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit402" unwind label %768
 
-"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit402": ; preds = %732
+"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit402": ; preds = %732
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #29
   br i1 %733, label %734, label %_ZNSt6vectorImSaImEED2Ev.exit
 
-734:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit402"
+734:                                              ; preds = %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit402"
   %735 = load ptr, ptr %5, align 8
   %736 = getelementptr inbounds i8, ptr %5, i64 8
   %737 = load ptr, ptr %736, align 8
@@ -13735,8 +13735,8 @@ _ZNKSt14default_deleteIN5faiss15VectorTransformEEclEPS1_.exit.i461: ; preds = %9
   call void %910(ptr noundef nonnull align 8 dereferenceable(17) %.sroa.0.2) #29
   br label %_ZNSt6vectorImSaImEED2Ev.exit293
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451.thread505, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451.thread, %900, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451, %398, %396, %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit402", %482, %499, %233, %74, %56, %726, %605, %290, %166, %107
-  %.0 = phi ptr [ %87, %107 ], [ %148, %166 ], [ %273, %290 ], [ %.0131, %605 ], [ %.0128, %726 ], [ %55, %56 ], [ %73, %74 ], [ %232, %233 ], [ %481, %482 ], [ %498, %499 ], [ null, %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.argprom.exit402" ], [ %.0129, %396 ], [ %.0129, %398 ], [ %859, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451 ], [ %859, %900 ], [ %859, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451.thread ], [ %859, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451.thread505 ]
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451.thread505, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451.thread, %900, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451, %398, %396, %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit402", %482, %499, %233, %74, %56, %726, %605, %290, %166, %107
+  %.0 = phi ptr [ %87, %107 ], [ %148, %166 ], [ %273, %290 ], [ %.0131, %605 ], [ %.0128, %726 ], [ %55, %56 ], [ %73, %74 ], [ %232, %233 ], [ %481, %482 ], [ %498, %499 ], [ null, %"_ZZN5faiss12_GLOBAL__N_114parse_IndexIVFERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10unique_ptrINS_5IndexESt14default_deleteISA_EEmNS_10MetricTypeEENK3$_0clES6_.exit402" ], [ %.0129, %396 ], [ %.0129, %398 ], [ %859, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451 ], [ %859, %900 ], [ %859, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451.thread ], [ %859, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit451.thread505 ]
   %911 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %911, null
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEED2Ev.exit, label %912

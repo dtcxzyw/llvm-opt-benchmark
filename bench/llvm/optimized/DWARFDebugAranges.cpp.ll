@@ -1086,7 +1086,7 @@ define dso_local noundef i64 @_ZNK4llvm17DWARFDebugAranges11findAddressEm(ptr no
   %6 = ptrtoint ptr %.val to i64
   %7 = sub i64 %5, %6
   %8 = icmp sgt i64 %7, 0
-  br i1 %8, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm17DWARFDebugAranges5RangeESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.argprom.exit"
+  br i1 %8, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm17DWARFDebugAranges5RangeESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm17DWARFDebugAranges5RangeESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i.i: ; preds = %2
   %9 = udiv exact i64 %7, 24
@@ -1110,14 +1110,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm17DWARFDebugAranges5RangeESt
   %.sroa.015.1.i.i = select i1 %.not.i.i, ptr %.sroa.015.016.i.i, ptr %13
   %.1.i.i = select i1 %.not.i.i, i64 %10, i64 %15
   %16 = icmp sgt i64 %.1.i.i, 0
-  br i1 %16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm17DWARFDebugAranges5RangeESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.argprom.exit", !llvm.loop !29
+  br i1 %16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm17DWARFDebugAranges5RangeESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.exit", !llvm.loop !29
 
-"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.argprom.exit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm17DWARFDebugAranges5RangeESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, %2
+"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm17DWARFDebugAranges5RangeESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i, %2
   %.sroa.015.0.lcssa.i.i = phi ptr [ %.val, %2 ], [ %.sroa.015.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm17DWARFDebugAranges5RangeESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i.i ]
   %.not7 = icmp eq ptr %.sroa.015.0.lcssa.i.i, %.val3
   br i1 %.not7, label %.critedge, label %17
 
-17:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.argprom.exit"
+17:                                               ; preds = %"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.exit"
   %18 = load i64, ptr %.sroa.015.0.lcssa.i.i, align 8
   %.not = icmp ugt i64 %18, %1
   br i1 %.not, label %.critedge, label %19
@@ -1127,8 +1127,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4llvm17DWARFDebugAranges5RangeESt
   %21 = load i64, ptr %20, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.argprom.exit", %19
-  %.0 = phi i64 [ %21, %19 ], [ -1, %"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.argprom.exit" ], [ -1, %17 ]
+.critedge:                                        ; preds = %17, %"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.exit", %19
+  %.0 = phi i64 [ %21, %19 ], [ -1, %"_ZN4llvm15partition_pointIRKSt6vectorINS_17DWARFDebugAranges5RangeESaIS3_EEZNKS2_11findAddressEmE3$_0RKS3_EEDaOT_T0_.exit" ], [ -1, %17 ]
   ret i64 %.0
 }
 

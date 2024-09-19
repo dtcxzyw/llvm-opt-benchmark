@@ -3707,7 +3707,7 @@ if.end9:                                          ; preds = %if.then3
   %call.i = tail call noundef float @_ZNK10ODDLParser5Value8getFloatEv(ptr noundef nonnull align 8 dereferenceable(32) %call.val)
   store float %call.i, ptr %m.i, align 16
   %cmp.not1.i = icmp eq ptr %7, null
-  br i1 %cmp.not1.i, label %_ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.argprom.exit, label %while.body.i
+  br i1 %cmp.not1.i, label %_ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end9, %while.body.i
   %next.03.i = phi ptr [ %8, %while.body.i ], [ %7, %if.end9 ]
@@ -3753,9 +3753,9 @@ while.end.loopexit.i:                             ; preds = %while.body.i
   %.pre17.i = load float, ptr %arrayidx32.phi.trans.insert.i, align 4
   %arrayidx34.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 60
   %.pre18.i = load float, ptr %arrayidx34.phi.trans.insert.i, align 4
-  br label %_ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.argprom.exit
+  br label %_ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.exit
 
-_ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.argprom.exit: ; preds = %if.end9, %while.end.loopexit.i
+_ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.exit: ; preds = %if.end9, %while.end.loopexit.i
   %9 = phi float [ %.pre18.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
   %10 = phi float [ %.pre17.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
   %11 = phi float [ %.pre16.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
@@ -3807,7 +3807,7 @@ _ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.argprom.exi
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %m.i)
   br label %if.end11
 
-if.end11:                                         ; preds = %_ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.argprom.exit, %if.end
+if.end11:                                         ; preds = %_ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.exit, %if.end
   ret void
 
 eh.resume:                                        ; preds = %lpad7, %lpad

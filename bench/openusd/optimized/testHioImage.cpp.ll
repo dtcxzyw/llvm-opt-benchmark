@@ -196,13 +196,13 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_Z14GetGrey8Va
   %14 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENUlvE_8__invokeEv", ptr %14, align 8
   %15 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZZ14GetGrey8ValuesvE5_once, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %18
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %18
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %12
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %12
   %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %"_ZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %16
+  br i1 %.not.i, label %"_ZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %16
 
-16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %15) #20
           to label %17 unwind label %18
 
@@ -220,7 +220,7 @@ common.resume:                                    ; preds = %20, %18
   store ptr null, ptr %14, align 8
   br label %common.resume
 
-"_ZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+"_ZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %13, align 8
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -299,13 +299,13 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_Z13GetRgb8Val
   %14 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENUlvE_8__invokeEv", ptr %14, align 8
   %15 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZZ13GetRgb8ValuesvE5_once, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %18
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %18
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %12
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %12
   %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %"_ZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %16
+  br i1 %.not.i, label %"_ZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %16
 
-16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %15) #20
           to label %17 unwind label %18
 
@@ -323,7 +323,7 @@ common.resume:                                    ; preds = %20, %18
   store ptr null, ptr %14, align 8
   br label %common.resume
 
-"_ZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+"_ZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %13, align 8
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -372,13 +372,13 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_Z17GetRgbFloa
   %14 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENUlvE_8__invokeEv", ptr %14, align 8
   %15 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZZ17GetRgbFloatValuesvE5_once, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %18
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %18
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %12
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %12
   %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %"_ZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %16
+  br i1 %.not.i, label %"_ZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %16
 
-16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+16:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %15) #20
           to label %17 unwind label %18
 
@@ -396,7 +396,7 @@ common.resume:                                    ; preds = %20, %18
   store ptr null, ptr %14, align 8
   br label %common.resume
 
-"_ZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+"_ZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %13, align 8
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -6159,9 +6159,9 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ14G
 14:                                               ; preds = %3
   %indvars.iv.next5.i.i.i.i.i = add nuw nsw i64 %indvars.iv4.i.i.i.i.i, 1
   %exitcond7.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next5.i.i.i.i.i, 256
-  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.argprom.exit", label %.preheader.i.i.i.i.i, !llvm.loop !16
+  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit", label %.preheader.i.i.i.i.i, !llvm.loop !16
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.argprom.exit": ; preds = %14
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ14GetGrey8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit": ; preds = %14
   ret void
 }
 
@@ -6202,9 +6202,9 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ13G
 17:                                               ; preds = %3
   %indvars.iv.next5.i.i.i.i.i = add nuw nsw i64 %indvars.iv4.i.i.i.i.i, 1
   %exitcond7.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next5.i.i.i.i.i, 256
-  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.argprom.exit", label %.preheader.i.i.i.i.i, !llvm.loop !18
+  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit", label %.preheader.i.i.i.i.i, !llvm.loop !18
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.argprom.exit": ; preds = %17
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ13GetRgb8ValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit": ; preds = %17
   ret void
 }
 
@@ -6250,9 +6250,9 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17G
 24:                                               ; preds = %5
   %indvars.iv.next5.i.i.i.i.i = add nuw nsw i64 %indvars.iv4.i.i.i.i.i, 1
   %exitcond7.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next5.i.i.i.i.i, 256
-  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.argprom.exit", label %.preheader.i.i.i.i.i, !llvm.loop !20
+  br i1 %exitcond7.not.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit", label %.preheader.i.i.i.i.i, !llvm.loop !20
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.argprom.exit": ; preds = %24
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ17GetRgbFloatValuesvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS5_ENKUlvE_clEv.exit": ; preds = %24
   ret void
 }
 

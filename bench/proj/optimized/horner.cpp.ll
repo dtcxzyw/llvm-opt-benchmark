@@ -514,13 +514,13 @@ define internal void @_ZL25complex_horner_forward_4dR8PJ_COORDP8PJconsts(ptr noc
   %13 = tail call double @llvm.fabs.f64(double %.027.i)
   %14 = fcmp ogt double %13, %.val.i
   %or.cond.i.i = or i1 %12, %14
-  br i1 %or.cond.i.i, label %15, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
+  br i1 %or.cond.i.i, label %15, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
 
 15:                                               ; preds = %2
   %16 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050)
   br label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
-_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; preds = %2
+_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
   %.in.i = getelementptr inbounds i8, ptr %4, i64 72
   %17 = load ptr, ptr %.in.i, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 8
@@ -536,10 +536,10 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; 
   %28 = icmp ugt ptr %26, %17
   br i1 %28, label %.lr.ph.i.i, label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
-.lr.ph.i.i:                                       ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i, %.lr.ph.i.i
-  %.027.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.02326.i.i = phi double [ %39, %.lr.ph.i.i ], [ %27, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.02425.i.i = phi double [ %33, %.lr.ph.i.i ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
+.lr.ph.i.i:                                       ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i, %.lr.ph.i.i
+  %.027.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.02326.i.i = phi double [ %39, %.lr.ph.i.i ], [ %27, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.02425.i.i = phi double [ %33, %.lr.ph.i.i ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
   %29 = fmul double %.128.i, %.02326.i.i
   %30 = tail call double @llvm.fmuladd.f64(double %.1.i, double %.02425.i.i, double %29)
   %31 = getelementptr inbounds i8, ptr %.027.i.i, i64 -8
@@ -554,9 +554,9 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; 
   %40 = icmp ugt ptr %37, %17
   br i1 %40, label %.lr.ph.i.i, label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, !llvm.loop !4
 
-_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %.lr.ph.i.i, %15, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
-  %.sroa.026.0.i = phi double [ 0x7FF0000000000000, %15 ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ], [ %33, %.lr.ph.i.i ]
-  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %15 ], [ %27, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ], [ %39, %.lr.ph.i.i ]
+_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %.lr.ph.i.i, %15, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
+  %.sroa.026.0.i = phi double [ 0x7FF0000000000000, %15 ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %33, %.lr.ph.i.i ]
+  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %15 ], [ %27, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %39, %.lr.ph.i.i ]
   store double %.sroa.026.0.i, ptr %0, align 8
   store double %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
@@ -592,13 +592,13 @@ define internal void @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts(ptr noc
   %13 = tail call double @llvm.fabs.f64(double %.027.i)
   %14 = fcmp ogt double %13, %.val.i
   %or.cond.i.i = or i1 %12, %14
-  br i1 %or.cond.i.i, label %15, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
+  br i1 %or.cond.i.i, label %15, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
 
 15:                                               ; preds = %2
   %16 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050)
   br label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
-_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; preds = %2
+_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
   %.in.i = getelementptr inbounds i8, ptr %4, i64 80
   %17 = load ptr, ptr %.in.i, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 8
@@ -614,10 +614,10 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; 
   %28 = icmp ugt ptr %26, %17
   br i1 %28, label %.lr.ph.i.i, label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
-.lr.ph.i.i:                                       ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i, %.lr.ph.i.i
-  %.027.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.02326.i.i = phi double [ %39, %.lr.ph.i.i ], [ %27, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.02425.i.i = phi double [ %33, %.lr.ph.i.i ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
+.lr.ph.i.i:                                       ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i, %.lr.ph.i.i
+  %.027.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.02326.i.i = phi double [ %39, %.lr.ph.i.i ], [ %27, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.02425.i.i = phi double [ %33, %.lr.ph.i.i ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
   %29 = fmul double %.128.i, %.02326.i.i
   %30 = tail call double @llvm.fmuladd.f64(double %.1.i, double %.02425.i.i, double %29)
   %31 = getelementptr inbounds i8, ptr %.027.i.i, i64 -8
@@ -632,9 +632,9 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; 
   %40 = icmp ugt ptr %37, %17
   br i1 %40, label %.lr.ph.i.i, label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, !llvm.loop !4
 
-_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %.lr.ph.i.i, %15, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
-  %.sroa.026.0.i = phi double [ 0x7FF0000000000000, %15 ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ], [ %33, %.lr.ph.i.i ]
-  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %15 ], [ %27, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ], [ %39, %.lr.ph.i.i ]
+_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %.lr.ph.i.i, %15, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
+  %.sroa.026.0.i = phi double [ 0x7FF0000000000000, %15 ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %33, %.lr.ph.i.i ]
+  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %15 ], [ %27, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %39, %.lr.ph.i.i ]
   store double %.sroa.026.0.i, ptr %0, align 8
   store double %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
@@ -654,13 +654,13 @@ define internal void @_ZL35complex_horner_iterative_inverse_4dR8PJ_COORDP8PJcons
   %8 = tail call double @llvm.fabs.f64(double %.sroa.0.0.copyload)
   %9 = fcmp ogt double %8, %.val.i
   %or.cond.i.i = or i1 %7, %9
-  br i1 %or.cond.i.i, label %10, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
+  br i1 %or.cond.i.i, label %10, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
 
 10:                                               ; preds = %2
   %11 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050)
   br label %_ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
-_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; preds = %2
+_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
   %12 = getelementptr inbounds i8, ptr %4, i64 32
   %13 = load double, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 72
@@ -673,10 +673,10 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; 
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   br label %22
 
-22:                                               ; preds = %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
-  %23 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ], [ %56, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
-  %.sroa.5.049.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ], [ %48, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
-  %.sroa.039.048.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ], [ %47, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
+22:                                               ; preds = %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
+  %23 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %56, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
+  %.sroa.5.049.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %48, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
+  %.sroa.039.048.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %47, %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i ]
   %24 = load ptr, ptr %14, align 8
   %25 = load i32, ptr %21, align 8
   %26 = shl i32 %25, 1
@@ -783,13 +783,13 @@ define internal void @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts(ptr nocapture n
   %8 = tail call double @llvm.fabs.f64(double %.027.i)
   %9 = fcmp ogt double %8, %.val.i
   %or.cond.i.i = or i1 %7, %9
-  br i1 %or.cond.i.i, label %10, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
+  br i1 %or.cond.i.i, label %10, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
 
 10:                                               ; preds = %2
   %11 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050)
   br label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
-_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; preds = %2
+_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
   %.in.i = getelementptr inbounds i8, ptr %4, i64 40
   %12 = load ptr, ptr %.in.i, align 8
   %.in30.i = getelementptr inbounds i8, ptr %4, i64 48
@@ -810,12 +810,12 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; 
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, label %.lr.ph55.i.i
 
-.lr.ph55.i.i:                                     ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i, %._crit_edge.i.i
-  %.03453.i.i = phi i32 [ %40, %._crit_edge.i.i ], [ %15, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.03552.i.i = phi double [ %39, %._crit_edge.i.i ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.03651.i.i = phi double [ %38, %._crit_edge.i.i ], [ %24, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.03750.i.i = phi ptr [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.03849.i.i = phi ptr [ %.139.lcssa.i.i, %._crit_edge.i.i ], [ %23, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
+.lr.ph55.i.i:                                     ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i, %._crit_edge.i.i
+  %.03453.i.i = phi i32 [ %40, %._crit_edge.i.i ], [ %15, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.03552.i.i = phi double [ %39, %._crit_edge.i.i ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.03651.i.i = phi double [ %38, %._crit_edge.i.i ], [ %24, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.03750.i.i = phi ptr [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.03849.i.i = phi ptr [ %.139.lcssa.i.i, %._crit_edge.i.i ], [ %23, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
   %27 = getelementptr inbounds i8, ptr %.03849.i.i, i64 -8
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %.03750.i.i, i64 -8
@@ -850,9 +850,9 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; 
   %.not31.i = icmp eq i32 %40, 0
   br i1 %.not31.i, label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, label %.lr.ph55.i.i, !llvm.loop !8
 
-_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %._crit_edge.i.i, %10, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
-  %.sroa.026.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ], [ %39, %._crit_edge.i.i ]
-  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %24, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ], [ %38, %._crit_edge.i.i ]
+_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %._crit_edge.i.i, %10, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
+  %.sroa.026.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %39, %._crit_edge.i.i ]
+  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %24, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %38, %._crit_edge.i.i ]
   store double %.sroa.026.0.i, ptr %0, align 8
   store double %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
@@ -879,13 +879,13 @@ define internal void @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts(ptr nocapture n
   %8 = tail call double @llvm.fabs.f64(double %.027.i)
   %9 = fcmp ogt double %8, %.val.i
   %or.cond.i.i = or i1 %7, %9
-  br i1 %or.cond.i.i, label %10, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
+  br i1 %or.cond.i.i, label %10, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
 
 10:                                               ; preds = %2
   %11 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050)
   br label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
-_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; preds = %2
+_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
   %.in.i = getelementptr inbounds i8, ptr %4, i64 56
   %12 = load ptr, ptr %.in.i, align 8
   %.in30.i = getelementptr inbounds i8, ptr %4, i64 64
@@ -906,12 +906,12 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; 
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, label %.lr.ph55.i.i
 
-.lr.ph55.i.i:                                     ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i, %._crit_edge.i.i
-  %.03453.i.i = phi i32 [ %40, %._crit_edge.i.i ], [ %15, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.03552.i.i = phi double [ %39, %._crit_edge.i.i ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.03651.i.i = phi double [ %38, %._crit_edge.i.i ], [ %24, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.03750.i.i = phi ptr [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.03849.i.i = phi ptr [ %.139.lcssa.i.i, %._crit_edge.i.i ], [ %23, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
+.lr.ph55.i.i:                                     ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i, %._crit_edge.i.i
+  %.03453.i.i = phi i32 [ %40, %._crit_edge.i.i ], [ %15, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.03552.i.i = phi double [ %39, %._crit_edge.i.i ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.03651.i.i = phi double [ %38, %._crit_edge.i.i ], [ %24, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.03750.i.i = phi ptr [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %25, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.03849.i.i = phi ptr [ %.139.lcssa.i.i, %._crit_edge.i.i ], [ %23, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
   %27 = getelementptr inbounds i8, ptr %.03849.i.i, i64 -8
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %.03750.i.i, i64 -8
@@ -946,9 +946,9 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; 
   %.not31.i = icmp eq i32 %40, 0
   br i1 %.not31.i, label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit, label %.lr.ph55.i.i, !llvm.loop !8
 
-_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %._crit_edge.i.i, %10, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
-  %.sroa.026.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ], [ %39, %._crit_edge.i.i ]
-  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %24, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ], [ %38, %._crit_edge.i.i ]
+_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit: ; preds = %._crit_edge.i.i, %10, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
+  %.sroa.026.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %26, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %39, %._crit_edge.i.i ]
+  %.sroa.3.0.i = phi double [ 0x7FF0000000000000, %10 ], [ %24, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ], [ %38, %._crit_edge.i.i ]
   store double %.sroa.026.0.i, ptr %0, align 8
   store double %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
@@ -968,13 +968,13 @@ define internal void @_ZL27horner_iterative_inverse_4dR8PJ_COORDP8PJconsts(ptr n
   %8 = tail call double @llvm.fabs.f64(double %.sroa.0.0.copyload)
   %9 = fcmp ogt double %8, %.val.i
   %or.cond.i.i = or i1 %7, %9
-  br i1 %or.cond.i.i, label %10, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
+  br i1 %or.cond.i.i, label %10, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
 
 10:                                               ; preds = %2
   %11 = tail call i32 @proj_errno_set(ptr noundef nonnull %1, i32 noundef 2050)
   br label %_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
-_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; preds = %2
+_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 32
@@ -1006,12 +1006,12 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i: ; 
   %34 = fneg double %19
   %35 = load double, ptr %gep99.i, align 8
   %36 = load double, ptr %gep101.i, align 8
-  br i1 %31, label %.lr.ph55.i.preheader.us.i, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.split.i
+  br i1 %31, label %.lr.ph55.i.preheader.us.i, label %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i
 
-.lr.ph55.i.preheader.us.i:                        ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i
-  %37 = phi i32 [ %80, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.0103.us.i = phi double [ %69, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
-  %.059102.us.i = phi double [ %72, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i ]
+.lr.ph55.i.preheader.us.i:                        ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i
+  %37 = phi i32 [ %80, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.0103.us.i = phi double [ %69, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
+  %.059102.us.i = phi double [ %72, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i ]
   br label %.lr.ph55.i.us.i
 
 .lr.ph55.i.us.i:                                  ; preds = %._crit_edge.i.us.i, %.lr.ph55.i.preheader.us.i
@@ -1099,7 +1099,7 @@ _ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i: ; preds = %.lr.ph.i68.u
   %.not63.us.i = select i1 %81, i1 true, i1 %79
   br i1 %.not63.us.i, label %.split.us.i, label %.lr.ph55.i.preheader.us.i, !llvm.loop !10
 
-_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.split.i: ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.i
+_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i: ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
   %82 = fneg double %29
   %83 = fmul double %30, %82
   %84 = tail call double @llvm.fmuladd.f64(double %35, double %36, double %83)
@@ -1112,10 +1112,10 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.split
   %91 = fmul double %90, %85
   br label %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i
 
-_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i: ; preds = %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.split.i
-  %92 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.split.i ], [ %100, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %.0103.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.split.i ], [ %88, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %.059102.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.argprom.exit.split.i ], [ %91, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i: ; preds = %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i
+  %92 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %100, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %.0103.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %88, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %.059102.i = phi double [ 0.000000e+00, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %91, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
   %93 = fsub double %88, %.0103.i
   %94 = tail call double @llvm.fabs.f64(double %93)
   %95 = fcmp olt double %94, %15

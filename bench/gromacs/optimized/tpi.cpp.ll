@@ -596,7 +596,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit495: ;
           cleanup
   br label %_ZN14gmx_ffparams_tD2Ev.exit677
 
-.loopexit.split-lp952:                            ; preds = %103, %112, %115, %134, %171, %._crit_edge, %221, %227, %234, %238, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %293, %482, %502, %.thread896, %245, %_ZL7usingRFRK22CoulombInteractionType.argprom.exit
+.loopexit.split-lp952:                            ; preds = %103, %112, %115, %134, %171, %._crit_edge, %221, %227, %234, %238, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, %293, %482, %502, %.thread896, %245, %_ZL7usingRFRK22CoulombInteractionType.exit
   %lpad.loopexit.split-lp954 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN14gmx_ffparams_tD2Ev.exit677
@@ -698,15 +698,15 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
   %157 = icmp sgt i32 %156, 0
   br i1 %157, label %.lr.ph, label %171
 
-.lr.ph:                                           ; preds = %.preheader950, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit ], [ 0, %.preheader950 ]
-  %.03591079 = phi ptr [ %168, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit ], [ %154, %.preheader950 ]
-  %.18811077 = phi ptr [ %158, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit ], [ null, %.preheader950 ]
+.lr.ph:                                           ; preds = %.preheader950, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit ], [ 0, %.preheader950 ]
+  %.03591079 = phi ptr [ %168, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit ], [ %154, %.preheader950 ]
+  %.18811077 = phi ptr [ %158, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit ], [ null, %.preheader950 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %158 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.10, i32 noundef 247, ptr noundef %.18811077, i64 noundef %indvars.iv.next, i64 noundef 4)
-          to label %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit unwind label %.loopexit951
+          to label %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit unwind label %.loopexit951
 
-_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit: ; preds = %.lr.ph
+_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit:        ; preds = %.lr.ph
   %159 = load double, ptr %34, align 8
   %160 = fptrunc double %159 to float
   %161 = getelementptr inbounds float, ptr %158, i64 %indvars.iv
@@ -739,9 +739,9 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit: ; preds = %.lr.ph
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %42) #23
   br label %_ZN14gmx_ffparams_tD2Ev.exit677
 
-._crit_edge:                                      ; preds = %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit, %153, %147
-  %.0880 = phi ptr [ null, %153 ], [ null, %147 ], [ %158, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit ]
-  %.0360 = phi i32 [ 1, %153 ], [ 0, %147 ], [ %164, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.argprom.exit ]
+._crit_edge:                                      ; preds = %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit, %153, %147
+  %.0880 = phi ptr [ null, %153 ], [ null, %147 ], [ %158, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit ]
+  %.0360 = phi i32 [ 1, %153 ], [ 0, %147 ], [ %164, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit ]
   %176 = getelementptr inbounds i8, ptr %0, i64 224
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 8
@@ -935,7 +935,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %259, %.no
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds i8, ptr %291, i64 68
   %.val481 = load i32, ptr %292, align 4
-  switch i32 %.val481, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit [
+  switch i32 %.val481, label %_ZL8usingPmeRK22CoulombInteractionType.exit [
     i32 3, label %293
     i32 14, label %293
     i32 13, label %293
@@ -947,26 +947,26 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %259, %.no
   %294 = getelementptr inbounds i8, ptr %290, i64 304
   %295 = load ptr, ptr %294, align 8
   invoke void @_Z20gmx_pme_reinit_atomsP9gmx_pme_tiN3gmx8ArrayRefIKfEES4_(ptr noundef %295, i32 noundef %281, ptr null, ptr null, ptr null, ptr null)
-          to label %._ZL8usingPmeRK22CoulombInteractionType.argprom.exit_crit_edge unwind label %.loopexit.split-lp952
+          to label %._ZL8usingPmeRK22CoulombInteractionType.exit_crit_edge unwind label %.loopexit.split-lp952
 
-._ZL8usingPmeRK22CoulombInteractionType.argprom.exit_crit_edge: ; preds = %293
+._ZL8usingPmeRK22CoulombInteractionType.exit_crit_edge: ; preds = %293
   %.pre1345 = load ptr, ptr %176, align 8
   %.pre1346 = load ptr, ptr %.pre1345, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre1346, i64 68
   %.val484.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+  br label %_ZL8usingPmeRK22CoulombInteractionType.exit
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %._ZL8usingPmeRK22CoulombInteractionType.argprom.exit_crit_edge, %285
-  %.val484 = phi i32 [ %.val484.pre, %._ZL8usingPmeRK22CoulombInteractionType.argprom.exit_crit_edge ], [ %.val481, %285 ]
-  %296 = phi ptr [ %.pre1346, %._ZL8usingPmeRK22CoulombInteractionType.argprom.exit_crit_edge ], [ %291, %285 ]
-  switch i32 %.val484, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit [
+_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %._ZL8usingPmeRK22CoulombInteractionType.exit_crit_edge, %285
+  %.val484 = phi i32 [ %.val484.pre, %._ZL8usingPmeRK22CoulombInteractionType.exit_crit_edge ], [ %.val481, %285 ]
+  %296 = phi ptr [ %.pre1346, %._ZL8usingPmeRK22CoulombInteractionType.exit_crit_edge ], [ %291, %285 ]
+  switch i32 %.val484, label %_ZL7usingRFRK22CoulombInteractionType.exit [
     i32 1, label %297
     i32 2, label %297
     i32 11, label %297
     i32 16, label %297
   ]
 
-297:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+297:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit, %_ZL8usingPmeRK22CoulombInteractionType.exit, %_ZL8usingPmeRK22CoulombInteractionType.exit, %_ZL8usingPmeRK22CoulombInteractionType.exit
   %298 = getelementptr i8, ptr %98, i64 640
   %.val486 = load i32, ptr %298, align 8
   %299 = icmp slt i32 %281, %.val486
@@ -1050,20 +1050,20 @@ _ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %._ZL8usingPmeRK2
   %349 = fmul float %.0.lcssa.i, %348
   %350 = load ptr, ptr @debug, align 8
   %.not433 = icmp eq ptr %350, null
-  br i1 %.not433, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit, label %351
+  br i1 %.not433, label %_ZL7usingRFRK22CoulombInteractionType.exit, label %351
 
 351:                                              ; preds = %.loopexit948
   %352 = fpext float %349 to double
   %353 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %350, ptr noundef nonnull @.str.25, double noundef %352) #23
-  br label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit
+  br label %_ZL7usingRFRK22CoulombInteractionType.exit
 
-_ZL7usingRFRK22CoulombInteractionType.argprom.exit: ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit, %.loopexit948, %351
-  %.0355 = phi float [ %349, %351 ], [ %349, %.loopexit948 ], [ 0.000000e+00, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit ]
+_ZL7usingRFRK22CoulombInteractionType.exit:       ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit, %.loopexit948, %351
+  %.0355 = phi float [ %349, %351 ], [ %349, %.loopexit948 ], [ 0.000000e+00, %_ZL8usingPmeRK22CoulombInteractionType.exit ]
   %354 = sext i32 %280 to i64
   %355 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.10, i32 noundef 344, i64 noundef %354, i64 noundef 12)
-          to label %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit unwind label %.loopexit.split-lp952
+          to label %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit unwind label %.loopexit.split-lp952
 
-_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit: ; preds = %_ZL7usingRFRK22CoulombInteractionType.argprom.exit
+_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit
   %356 = load ptr, ptr %99, align 8
   %357 = getelementptr inbounds i8, ptr %356, i64 384
   %358 = load i32, ptr %357, align 8
@@ -1072,7 +1072,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit: ; preds = %_ZL7usingRFRK22Co
   %359 = icmp sgt i32 %280, 0
   br i1 %359, label %.lr.ph1086, label %._crit_edge1094.thread
 
-.lr.ph1086:                                       ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit
+.lr.ph1086:                                       ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit
   %360 = getelementptr inbounds i8, ptr %98, i64 176
   %361 = getelementptr inbounds i8, ptr %98, i64 192
   %362 = getelementptr inbounds i8, ptr %98, i64 200
@@ -1169,7 +1169,7 @@ switch.lookup:                                    ; preds = %397
   %414 = icmp slt i64 %indvars.iv.next1283, %404
   br i1 %414, label %.lr.ph1093, label %._crit_edge1094, !llvm.loop !12
 
-._crit_edge1094.thread:                           ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.argprom.exit
+._crit_edge1094.thread:                           ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit
   %415 = sitofp i32 %280 to float
   %416 = fdiv float 1.000000e+00, %415
   %417 = fmul float %416, 0.000000e+00
@@ -1438,7 +1438,7 @@ switch.lookup:                                    ; preds = %397
           cleanup
   br label %.body564
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %607, %613, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRA33_KcEEERS5_DpOT_.exit, %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit556, %759, %772, %822, %1869, %1871, %1874, %_ZL12realloc_binsPPdPii.exit644, %1937, %1941, %_ZNSt10filesystem7__cxx114pathD2Ev.exit657, %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit660, %586, %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit, %.noexc504, %634, %637, %640, %643, %646, %649, %652, %655, %658, %661, %695, %698, %725, %728, %737, %740, %748, %1898, %.noexc633, %._crit_edge.i627, %1919, %1995, %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %607, %613, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRA33_KcEEERS5_DpOT_.exit, %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit556, %759, %772, %822, %1869, %1871, %1874, %_ZL12realloc_binsPPdPii.exit644, %1937, %1941, %_ZNSt10filesystem7__cxx114pathD2Ev.exit657, %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit660, %586, %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit, %.noexc504, %634, %637, %640, %643, %646, %649, %652, %655, %658, %661, %695, %698, %725, %728, %737, %740, %748, %1898, %.noexc633, %._crit_edge.i627, %1919, %1995, %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body564
@@ -1516,9 +1516,9 @@ switch.lookup:                                    ; preds = %397
   %.1343 = phi i32 [ %spec.select, %.loopexit943 ], [ %spec.select479, %574 ]
   %587 = sext i32 %.1343 to i64
   %588 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.10, i32 noundef 479, i64 noundef %587, i64 noundef 8)
-          to label %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit:  ; preds = %586
+_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %586
   %589 = load ptr, ptr %99, align 8
   %590 = getelementptr inbounds i8, ptr %589, i64 528
   %591 = load i64, ptr %590, align 8
@@ -1528,7 +1528,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit:  ; preds = %586
   invoke void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj5EEEvPSt5arrayIT_XT0_EES4_(ptr noundef nonnull %46, i64 noundef 15)
           to label %.noexc504 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc504:                                        ; preds = %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit
+.noexc504:                                        ; preds = %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit
   %592 = getelementptr inbounds i8, ptr %46, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %592, i8 0, i64 16, i1 false)
   %593 = invoke { i64, i64 } @_ZN3gmx19ThreeFry2x64GeneralILj20ELj16EE13generateBlockERKSt5arrayImLm2EES5_(ptr noundef nonnull align 8 dereferenceable(52) %46, ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %592)
@@ -1992,9 +1992,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %750 = getelementptr inbounds i8, ptr %30, i64 8
   store float 0.000000e+00, ptr %750, align 4
   %751 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.10, i32 noundef 536, i64 noundef 10, i64 noundef 8)
-          to label %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit556 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit556 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit556: ; preds = %748
+_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit556:       ; preds = %748
   %752 = getelementptr inbounds i8, ptr %0, i64 56
   %753 = load ptr, ptr %752, align 8
   %754 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2004,7 +2004,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit556: ; preds = %748
   %758 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef nonnull @.str.32, i32 noundef %755, ptr noundef %757)
           to label %759 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-759:                                              ; preds = %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.argprom.exit556
+759:                                              ; preds = %_ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit556
   store ptr %758, ptr %56, align 8
   invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(8) %56, i8 noundef zeroext 2)
           to label %760 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3719,7 +3719,7 @@ _ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZSt8_DestroyIPNSt1
   %1587 = load ptr, ptr %1586, align 8
   %1588 = getelementptr inbounds i8, ptr %1587, i64 68
   %.val483 = load i32, ptr %1588, align 4
-  switch i32 %.val483, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit614 [
+  switch i32 %.val483, label %_ZL7usingRFRK22CoulombInteractionType.exit614 [
     i32 1, label %1589
     i32 2, label %1589
     i32 11, label %1589
@@ -3732,9 +3732,9 @@ _ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZSt8_DestroyIPNSt1
   %1592 = load float, ptr %1591, align 4
   %1593 = fadd float %.0355, %1592
   store float %1593, ptr %1591, align 4
-  br label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit614
+  br label %_ZL7usingRFRK22CoulombInteractionType.exit614
 
-_ZL7usingRFRK22CoulombInteractionType.argprom.exit614: ; preds = %1585, %1589
+_ZL7usingRFRK22CoulombInteractionType.exit614:    ; preds = %1585, %1589
   %1594 = load ptr, ptr %870, align 8
   %1595 = getelementptr inbounds i8, ptr %1594, i64 312
   %1596 = load float, ptr %1595, align 4
@@ -3743,7 +3743,7 @@ _ZL7usingRFRK22CoulombInteractionType.argprom.exit614: ; preds = %1585, %1589
   %or.cond = or i1 %1597, %1598
   br i1 %or.cond, label %1599, label %1605
 
-1599:                                             ; preds = %_ZL7usingRFRK22CoulombInteractionType.argprom.exit614
+1599:                                             ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit614
   %1600 = load ptr, ptr @debug, align 8
   %.not464 = icmp eq ptr %1600, null
   br i1 %.not464, label %.thread909, label %1601
@@ -3754,7 +3754,7 @@ _ZL7usingRFRK22CoulombInteractionType.argprom.exit614: ; preds = %1585, %1589
   %1604 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1600, ptr noundef nonnull @.str.58, double noundef %1007, i32 noundef %1602, double noundef %1603) #23
   br label %.thread909
 
-1605:                                             ; preds = %_ZL7usingRFRK22CoulombInteractionType.argprom.exit614
+1605:                                             ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit614
   %1606 = fmul float %1596, %873
   %1607 = fpext float %1606 to double
   %1608 = call double @exp(double noundef %1607) #23
@@ -4596,13 +4596,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit657:       ; preds = %1951, %1954
 
 1995:                                             ; preds = %1994, %1933
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.10, i32 noundef 1064, ptr noundef %.4886)
-          to label %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit:   ; preds = %1995
+_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit:           ; preds = %1995
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.10, i32 noundef 1066, ptr noundef %588)
-          to label %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit660 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit660 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit660: ; preds = %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit
+_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit660:        ; preds = %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit
   %1996 = load ptr, ptr %239, align 8
   %1997 = zext nneg i32 %.0348 to i64
   %1998 = load ptr, ptr %99, align 8
@@ -4612,7 +4612,7 @@ _ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit660: ; preds = %_ZL14gmx_sfree_imp
   invoke void @_Z35walltime_accounting_set_nsteps_doneP23gmx_walltime_accountingl(ptr noundef %1996, i64 noundef %2001)
           to label %2002 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-2002:                                             ; preds = %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.argprom.exit660
+2002:                                             ; preds = %_ZL14gmx_sfree_implIdEvPKcS1_iPT_.exit660
   call void @_ZN22InteractionDefinitionsD2Ev(ptr noundef nonnull align 8 dereferenceable(2736) %45) #23
   %2003 = load ptr, ptr %535, align 8
   %2004 = getelementptr inbounds i8, ptr %44, i64 88

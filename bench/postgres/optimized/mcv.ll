@@ -2273,7 +2273,7 @@ define dso_local double @mcv_clauselist_selectivity(ptr nocapture noundef readon
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call fastcc ptr @mcv_get_match_bitmap.argprom(ptr noundef %2, ptr noundef %24, ptr noundef %26, ptr noundef %22, i1 noundef zeroext false)
+  %27 = tail call fastcc ptr @mcv_get_match_bitmap(ptr noundef %2, ptr noundef %24, ptr noundef %26, ptr noundef %22, i1 noundef zeroext false)
   store double 0.000000e+00, ptr %7, align 8
   store double 0.000000e+00, ptr %8, align 8
   %28 = getelementptr inbounds i8, ptr %22, i64 8
@@ -2322,7 +2322,7 @@ define dso_local double @mcv_clauselist_selectivity(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mcv_get_match_bitmap.argprom(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc ptr @mcv_get_match_bitmap(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.FmgrInfo, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2797,7 +2797,7 @@ is_orclause.exit249:                              ; preds = %is_orclause.exit, %
   %286 = icmp eq i32 %285, 1
   %287 = getelementptr inbounds i8, ptr %.0228713, i64 8
   %288 = load ptr, ptr %287, align 8
-  %289 = call fastcc ptr @mcv_get_match_bitmap.argprom(ptr noundef %288, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %286)
+  %289 = call fastcc ptr @mcv_get_match_bitmap(ptr noundef %288, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %286)
   %290 = load i32, ptr %22, align 8
   %.not60 = icmp eq i32 %290, 0
   br i1 %.not60, label %.loopexit.sink.split, label %.lr.ph44
@@ -2834,7 +2834,7 @@ is_orclause.exit249:                              ; preds = %is_orclause.exit, %
 305:                                              ; preds = %is_orclause.exit
   %306 = getelementptr inbounds i8, ptr %.0228713, i64 8
   %307 = load ptr, ptr %306, align 8
-  %308 = call fastcc ptr @mcv_get_match_bitmap.argprom(ptr noundef %307, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false)
+  %308 = call fastcc ptr @mcv_get_match_bitmap(ptr noundef %307, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false)
   %309 = load i32, ptr %22, align 8
   %.not59 = icmp eq i32 %309, 0
   br i1 %.not59, label %.loopexit.sink.split, label %.lr.ph41
@@ -3020,7 +3020,7 @@ define dso_local double @mcv_clause_selectivity_or(ptr nocapture noundef readnon
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call fastcc ptr @mcv_get_match_bitmap.argprom(ptr noundef %18, ptr noundef %20, ptr noundef %22, ptr noundef %2, i1 noundef zeroext false)
+  %23 = tail call fastcc ptr @mcv_get_match_bitmap(ptr noundef %18, ptr noundef %20, ptr noundef %22, ptr noundef %2, i1 noundef zeroext false)
   store double 0.000000e+00, ptr %5, align 8
   store double 0.000000e+00, ptr %6, align 8
   store double 0.000000e+00, ptr %7, align 8

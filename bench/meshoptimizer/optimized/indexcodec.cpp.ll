@@ -354,27 +354,27 @@ for.body.i184:                                    ; preds = %for.inc.i188, %cond
   %arrayidx.i186 = getelementptr inbounds i8, ptr @_ZN7meshoptL21kCodeAuxEncodingTableE, i64 %indvars.iv.i185
   %34 = load i8, ptr %arrayidx.i186, align 1
   %cmp2.i187 = icmp eq i8 %34, %conv153
-  br i1 %cmp2.i187, label %_ZN7meshoptL15getCodeAuxIndexEhPKh.argprom.exit, label %for.inc.i188
+  br i1 %cmp2.i187, label %_ZN7meshoptL15getCodeAuxIndexEhPKh.exit, label %for.inc.i188
 
 for.inc.i188:                                     ; preds = %for.body.i184
   %indvars.iv.next.i189 = add nuw nsw i64 %indvars.iv.i185, 1
   %exitcond.not.i190 = icmp eq i64 %indvars.iv.next.i189, 16
   br i1 %exitcond.not.i190, label %if.else165, label %for.body.i184, !llvm.loop !9
 
-_ZN7meshoptL15getCodeAuxIndexEhPKh.argprom.exit:  ; preds = %for.body.i184
+_ZN7meshoptL15getCodeAuxIndexEhPKh.exit:          ; preds = %for.body.i184
   %35 = icmp ult i64 %indvars.iv.i185, 14
   %or.cond8 = and i1 %cmp116, %35
   %or.cond8.not = xor i1 %or.cond8, true
   %brmerge = or i1 %or.cond4, %or.cond8.not
   br i1 %brmerge, label %if.else165, label %if.then161
 
-if.then161:                                       ; preds = %_ZN7meshoptL15getCodeAuxIndexEhPKh.argprom.exit
+if.then161:                                       ; preds = %_ZN7meshoptL15getCodeAuxIndexEhPKh.exit
   %36 = trunc i64 %indvars.iv.i185 to i8
   %conv163 = or disjoint i8 %36, -16
   store i8 %conv163, ptr %code.0315, align 1
   br label %if.end170
 
-if.else165:                                       ; preds = %for.inc.i188, %_ZN7meshoptL15getCodeAuxIndexEhPKh.argprom.exit
+if.else165:                                       ; preds = %for.inc.i188, %_ZN7meshoptL15getCodeAuxIndexEhPKh.exit
   store i8 %spec.select134, ptr %code.0315, align 1
   %incdec.ptr169 = getelementptr inbounds i8, ptr %data.0313, i64 1
   store i8 %conv153, ptr %data.0313, align 1

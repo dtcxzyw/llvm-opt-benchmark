@@ -853,7 +853,7 @@ opal_obj_run_constructors.exit33:                 ; preds = %.lr.ph.i30, %43
   br label %opal_thread_add_fetch_32.exit35
 
 opal_thread_add_fetch_32.exit35:                  ; preds = %51, %54
-  tail call fastcc void @ompi_comm_extended_cid_block_new.argprom.argelim(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_comm_null, i64 184))
+  tail call fastcc void @ompi_comm_extended_cid_block_new(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_mpi_comm_null, i64 184))
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @ompi_mpi_comm_null, i64 168), ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @ompi_mpi_comm_null, i64 184), i64 16, i1 false)
   store i32 2, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_null, i64 216), align 8
   store i32 -2, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_null, i64 220), align 4
@@ -923,7 +923,7 @@ declare i32 @opal_hash_table_init(ptr noundef, i64 noundef) local_unnamed_addr #
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ompi_comm_extended_cid_block_new.argprom.argelim(ptr nocapture noundef writeonly %0) unnamed_addr #2 {
+define internal fastcc void @ompi_comm_extended_cid_block_new(ptr nocapture noundef writeonly %0) unnamed_addr #2 {
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 209), align 1
   %3 = icmp ult i8 %2, 4
   %4 = load i8, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 208), align 8
@@ -1436,13 +1436,13 @@ opal_thread_add_fetch_32.exit37:                  ; preds = %42, %44
 
 63:                                               ; preds = %62, %opal_thread_add_fetch_32.exit37
   %.not9.i.i = icmp eq ptr %59, null
-  br i1 %.not9.i.i, label %opal_obj_new.argprom.exit.thread.i, label %66
+  br i1 %.not9.i.i, label %opal_obj_new.exit.thread.i, label %66
 
-opal_obj_new.argprom.exit.thread.i:               ; preds = %63
+opal_obj_new.exit.thread.i:                       ; preds = %63
   store ptr null, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 272), align 8
   %64 = load ptr, ptr @stderr, align 8
   %65 = call i64 @fwrite(ptr nonnull @.str.18, i64 46, i64 1, ptr %64) #14
-  br label %ompi_attr_hash_init.argprom.exit
+  br label %ompi_attr_hash_init.exit
 
 66:                                               ; preds = %63
   store ptr @opal_hash_table_t_class, ptr %59, align 8
@@ -1451,7 +1451,7 @@ opal_obj_new.argprom.exit.thread.i:               ; preds = %63
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %69 = load ptr, ptr %68, align 8
   %.not6.i.i.i = icmp eq ptr %69, null
-  br i1 %.not6.i.i.i, label %opal_obj_new.argprom.exit.thread1.i, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread1.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %66, %.lr.ph.i.i.i
   %70 = phi ptr [ %72, %.lr.ph.i.i.i ], [ %69, %66 ]
@@ -1460,14 +1460,14 @@ opal_obj_new.argprom.exit.thread.i:               ; preds = %63
   %71 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not.i.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i.i, label %opal_obj_new.argprom.exit.thread1.i, label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i, label %opal_obj_new.exit.thread1.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
-opal_obj_new.argprom.exit.thread1.i:              ; preds = %.lr.ph.i.i.i, %66
+opal_obj_new.exit.thread1.i:                      ; preds = %.lr.ph.i.i.i, %66
   store ptr %59, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 272), align 8
   %73 = call i32 @opal_hash_table_init(ptr noundef nonnull %59, i64 noundef 10) #12
-  br label %ompi_attr_hash_init.argprom.exit
+  br label %ompi_attr_hash_init.exit
 
-ompi_attr_hash_init.argprom.exit:                 ; preds = %opal_obj_new.argprom.exit.thread.i, %opal_obj_new.argprom.exit.thread1.i
+ompi_attr_hash_init.exit:                         ; preds = %opal_obj_new.exit.thread.i, %opal_obj_new.exit.thread1.i
   %74 = load i32, ptr @opal_process_info, align 8
   store ptr null, ptr %2, align 8
   store ptr null, ptr %4, align 8
@@ -1481,7 +1481,7 @@ ompi_attr_hash_init.argprom.exit:                 ; preds = %opal_obj_new.argpro
   %80 = icmp eq ptr %79, null
   br i1 %80, label %.thread55, label %81
 
-81:                                               ; preds = %ompi_attr_hash_init.argprom.exit
+81:                                               ; preds = %ompi_attr_hash_init.exit
   %82 = load i16, ptr %79, align 8
   %.not28 = icmp eq i16 %82, 3
   %83 = icmp eq i32 %78, 0
@@ -1524,7 +1524,7 @@ ompi_attr_hash_init.argprom.exit:                 ; preds = %opal_obj_new.argpro
   call void @free(ptr noundef nonnull %88) #12
   br label %.thread55
 
-.thread55:                                        ; preds = %ompi_attr_hash_init.argprom.exit, %95, %87
+.thread55:                                        ; preds = %ompi_attr_hash_init.exit, %95, %87
   %96 = load i32, ptr @opal_class_init_epoch, align 4
   %97 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_communicator_t_class, i64 32), align 8
   %.not32 = icmp eq i32 %96, %97
@@ -1568,7 +1568,7 @@ opal_obj_run_constructors.exit44:                 ; preds = %.lr.ph.i41, %99
   %114 = load i8, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 208), align 8
   %115 = icmp ne i8 %114, -1
   %116 = select i1 %113, i1 %115, i1 false
-  br i1 %116, label %117, label %ompi_comm_extended_cid_block_new.argprom.exit
+  br i1 %116, label %117, label %ompi_comm_extended_cid_block_new.exit
 
 117:                                              ; preds = %107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 184), ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 184), i64 16, i1 false)
@@ -1581,9 +1581,9 @@ opal_obj_run_constructors.exit44:                 ; preds = %.lr.ph.i41, %99
   %121 = add nuw nsw i8 %112, 1
   store i8 %121, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 209), align 1
   store i8 0, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 208), align 8
-  br label %ompi_comm_extended_cid_block_new.argprom.exit
+  br label %ompi_comm_extended_cid_block_new.exit
 
-ompi_comm_extended_cid_block_new.argprom.exit:    ; preds = %107, %117
+ompi_comm_extended_cid_block_new.exit:            ; preds = %107, %117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 168), ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 184), i64 16, i1 false)
   store i32 1, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 216), align 8
   %122 = getelementptr inbounds i8, ptr %108, i64 20
@@ -1596,7 +1596,7 @@ ompi_comm_extended_cid_block_new.argprom.exit:    ; preds = %107, %117
   %126 = trunc i8 %125 to i1
   br i1 %126, label %127, label %132
 
-127:                                              ; preds = %ompi_comm_extended_cid_block_new.argprom.exit
+127:                                              ; preds = %ompi_comm_extended_cid_block_new.exit
   %128 = atomicrmw volatile add ptr %124, i32 1 monotonic, align 4
   %129 = load ptr, ptr @ompi_initial_error_handler_eh, align 8
   store ptr %129, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 296), align 8
@@ -1604,7 +1604,7 @@ ompi_comm_extended_cid_block_new.argprom.exit:    ; preds = %107, %117
   %131 = atomicrmw volatile add ptr %130, i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit49
 
-132:                                              ; preds = %ompi_comm_extended_cid_block_new.argprom.exit
+132:                                              ; preds = %ompi_comm_extended_cid_block_new.exit
   %133 = load volatile i32, ptr %124, align 4
   %134 = add nsw i32 %133, 1
   store volatile i32 %134, ptr %124, align 4

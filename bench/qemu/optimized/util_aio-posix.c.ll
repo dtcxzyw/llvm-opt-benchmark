@@ -367,7 +367,7 @@ entry:
   %0 = getelementptr i8, ptr %ctx, i64 152
   %ctx.val = load ptr, ptr %0, align 8
   %tobool.not6.i.i = icmp eq ptr %ctx.val, null
-  br i1 %tobool.not6.i.i, label %aio_set_fd_poll.argprom.exit, label %for.body.i.i
+  br i1 %tobool.not6.i.i, label %aio_set_fd_poll.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   %node.07.i.i = phi ptr [ %node.0.i.i, %for.inc.i.i ], [ %ctx.val, %entry ]
@@ -385,16 +385,16 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   %node5.i.i = getelementptr inbounds i8, ptr %node.07.i.i, i64 64
   %node.0.i.i = load ptr, ptr %node5.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %node.0.i.i, null
-  br i1 %tobool.not.i.i, label %aio_set_fd_poll.argprom.exit, label %for.body.i.i, !llvm.loop !5
+  br i1 %tobool.not.i.i, label %aio_set_fd_poll.exit, label %for.body.i.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %if.then.i.i
   %io_poll_begin1.i = getelementptr inbounds i8, ptr %node.07.i.i, i64 40
   store ptr %io_poll_begin, ptr %io_poll_begin1.i, align 8
   %io_poll_end2.i = getelementptr inbounds i8, ptr %node.07.i.i, i64 48
   store ptr %io_poll_end, ptr %io_poll_end2.i, align 8
-  br label %aio_set_fd_poll.argprom.exit
+  br label %aio_set_fd_poll.exit
 
-aio_set_fd_poll.argprom.exit:                     ; preds = %for.inc.i.i, %entry, %if.end.i
+aio_set_fd_poll.exit:                             ; preds = %for.inc.i.i, %entry, %if.end.i
   ret void
 }
 

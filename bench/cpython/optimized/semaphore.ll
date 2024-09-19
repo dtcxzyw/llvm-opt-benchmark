@@ -495,7 +495,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call1.i = call ptr @_PyMp_SetError(ptr noundef null, i32 noundef -1) #11
-  br label %_multiprocessing_SemLock__get_value_impl.argprom.exit
+  br label %_multiprocessing_SemLock__get_value_impl.exit
 
 if.end.i:                                         ; preds = %entry
   %1 = load i32, ptr %sval.i, align 4
@@ -510,9 +510,9 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   %2 = phi i32 [ 0, %if.then3.i ], [ %1, %if.end.i ]
   %conv.i = zext nneg i32 %2 to i64
   %call5.i = call ptr @PyLong_FromLong(i64 noundef %conv.i) #11
-  br label %_multiprocessing_SemLock__get_value_impl.argprom.exit
+  br label %_multiprocessing_SemLock__get_value_impl.exit
 
-_multiprocessing_SemLock__get_value_impl.argprom.exit: ; preds = %if.then.i, %if.end4.i
+_multiprocessing_SemLock__get_value_impl.exit:    ; preds = %if.then.i, %if.end4.i
   %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %call5.i, %if.end4.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sval.i)
   ret ptr %retval.0.i
@@ -531,16 +531,16 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call1.i = call ptr @_PyMp_SetError(ptr noundef null, i32 noundef -1) #11
-  br label %_multiprocessing_SemLock__is_zero_impl.argprom.exit
+  br label %_multiprocessing_SemLock__is_zero_impl.exit
 
 if.end.i:                                         ; preds = %entry
   %1 = load i32, ptr %sval.i, align 4
   %cmp2.i = icmp eq i32 %1, 0
   %conv4.i = zext i1 %cmp2.i to i64
   %call5.i = call ptr @PyBool_FromLong(i64 noundef %conv4.i) #11
-  br label %_multiprocessing_SemLock__is_zero_impl.argprom.exit
+  br label %_multiprocessing_SemLock__is_zero_impl.exit
 
-_multiprocessing_SemLock__is_zero_impl.argprom.exit: ; preds = %if.then.i, %if.end.i
+_multiprocessing_SemLock__is_zero_impl.exit:      ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %call5.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sval.i)
   ret ptr %retval.0.i

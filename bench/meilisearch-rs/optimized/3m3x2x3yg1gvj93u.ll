@@ -1649,10 +1649,10 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$std..thread..local..AccessEr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hcf0c462c11850ba5E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #5 {
+define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hcf0c462c11850ba5E"(ptr %.0.val, i64 %.8.val) unnamed_addr #5 {
   %1 = alloca [24 x i8], align 8
   %2 = icmp eq i64 %.8.val, 0
-  br i1 %2, label %"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h85e530e9953a3669E.argprom.exit", label %3
+  br i1 %2, label %"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h85e530e9953a3669E.exit", label %3
 
 3:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !555
@@ -1667,7 +1667,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inn
   %10 = load i64, ptr %9, align 8, !noalias !555, !noundef !9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1), !noalias !555
   %11 = icmp eq i64 %8, 0
-  br i1 %11, label %"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h85e530e9953a3669E.argprom.exit", label %12
+  br i1 %11, label %"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h85e530e9953a3669E.exit", label %12
 
 12:                                               ; preds = %3
   %13 = icmp ne ptr %.0.val, null
@@ -1675,9 +1675,9 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inn
   %14 = sub nsw i64 0, %10
   %15 = getelementptr inbounds i8, ptr %.0.val, i64 %14
   tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %8, i64 noundef %5) #34, !noalias !561
-  br label %"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h85e530e9953a3669E.argprom.exit"
+  br label %"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h85e530e9953a3669E.exit"
 
-"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h85e530e9953a3669E.argprom.exit": ; preds = %0, %3, %12
+"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h85e530e9953a3669E.exit": ; preds = %0, %3, %12
   ret void
 }
 
@@ -3238,7 +3238,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_
 12:                                               ; preds = %19, %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hcf0c462c11850ba5E.argprom"(ptr nonnull %11, i64 %.sroa.5.0.copyload7.i) #33
+  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hcf0c462c11850ba5E"(ptr nonnull %11, i64 %.sroa.5.0.copyload7.i) #33
           to label %24 unwind label %22, !noalias !869
 
 14:                                               ; preds = %10
@@ -3458,7 +3458,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hae8c7ff12649ce77E.exit._crit_edge.i.i.i": ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hae8c7ff12649ce77E.exit.backedge.i.i.i", %28
   %switch7.i.i.i = icmp eq i64 %.sroa.04.0.i.i.i, 1
-  br i1 %switch7.i.i.i, label %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.argprom.exit.i.i.i, label %50
+  br i1 %switch7.i.i.i, label %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.exit.i.i.i, label %50
 
 .lr.ph.i.i.i:                                     ; preds = %28, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hae8c7ff12649ce77E.exit.backedge.i.i.i"
   %.sroa.010.036.i.i.i = phi i16 [ %36, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hae8c7ff12649ce77E.exit.backedge.i.i.i" ], [ %31, %28 ]
@@ -3505,16 +3505,16 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   %51 = icmp slt <16 x i8> %.sroa.0.0.copyload.i31.i.i.i, zeroinitializer
   %52 = bitcast <16 x i1> %51 to i16
   %53 = icmp eq i16 %52, 0
-  br i1 %53, label %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.argprom.exit.i.i.i, label %54
+  br i1 %53, label %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.exit.i.i.i, label %54
 
 54:                                               ; preds = %50
   %55 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %52, i1 true)
   %56 = zext nneg i16 %55 to i64
   %57 = add i64 %.sroa.0.026.i.i.i, %56
   %58 = and i64 %57, %.val8.i.i
-  br label %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.argprom.exit.i.i.i
+  br label %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.exit.i.i.i
 
-_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.argprom.exit.i.i.i: ; preds = %54, %50, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hae8c7ff12649ce77E.exit._crit_edge.i.i.i"
+_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.exit.i.i.i: ; preds = %54, %50, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hae8c7ff12649ce77E.exit._crit_edge.i.i.i"
   %cond.i.i.i = phi i1 [ true, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hae8c7ff12649ce77E.exit._crit_edge.i.i.i" ], [ true, %54 ], [ false, %50 ]
   %.sroa.04.1.i.i.i = phi i64 [ 1, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hae8c7ff12649ce77E.exit._crit_edge.i.i.i" ], [ 1, %54 ], [ 0, %50 ]
   %.sroa.4.1.i.i.i = phi i64 [ %.sroa.4.0.i.i.i, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hae8c7ff12649ce77E.exit._crit_edge.i.i.i" ], [ %58, %54 ], [ undef, %50 ]
@@ -3523,12 +3523,12 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc6
   %61 = icmp eq i16 %60, 0
   br i1 %61, label %62, label %65
 
-62:                                               ; preds = %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.argprom.exit.i.i.i
+62:                                               ; preds = %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.exit.i.i.i
   %63 = add i64 %.sroa.8.0.i.i.i, 16
   %64 = add i64 %.sroa.0.026.i.i.i, %63
   br label %28
 
-65:                                               ; preds = %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.argprom.exit.i.i.i
+65:                                               ; preds = %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17hd0a8816f9dc66840E.exit.i.i.i
   tail call void @llvm.assume(i1 %cond.i.i.i)
   %66 = getelementptr inbounds i8, ptr %.val7.i.i, i64 %.sroa.4.1.i.i.i
   %67 = load i8, ptr %66, align 1, !noalias !898, !noundef !9
@@ -3781,7 +3781,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13with_capa
 7:                                                ; preds = %17, %2
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hcf0c462c11850ba5E.argprom"(ptr nonnull %6, i64 %.sroa.5.0.copyload7) #33
+  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hcf0c462c11850ba5E"(ptr nonnull %6, i64 %.sroa.5.0.copyload7) #33
           to label %22 unwind label %20
 
 9:                                                ; preds = %2
@@ -5768,8 +5768,8 @@ attributes #36 = { noreturn nounwind }
 !914 = distinct !{!914, !"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1272dd2529e53051E.llvm.15137815808512737898"}
 !915 = !{!916, !917, !919, !904, !899}
 !916 = distinct !{!916, !914, !"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1272dd2529e53051E.llvm.15137815808512737898: argument 0"}
-!917 = distinct !{!917, !918, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17h4af4853c9c41e35bE.argprom: argument 0"}
-!918 = distinct !{!918, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17h4af4853c9c41e35bE.argprom"}
+!917 = distinct !{!917, !918, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17h4af4853c9c41e35bE: argument 0"}
+!918 = distinct !{!918, !"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17h4af4853c9c41e35bE"}
 !919 = distinct !{!919, !920, !"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hae8c7ff12649ce77E: argument 0"}
 !920 = distinct !{!920, !"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hae8c7ff12649ce77E"}
 !921 = !{!917, !919, !904, !899}

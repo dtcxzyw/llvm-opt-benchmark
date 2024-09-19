@@ -1883,7 +1883,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleToggleEv(ptr noundef nonnul
   %91 = getelementptr inbounds i8, ptr %0, i64 32208
   %92 = getelementptr inbounds i8, ptr %0, i64 33284
   %93 = getelementptr inbounds i8, ptr %0, i64 33404
-  %94 = call fastcc noundef zeroext i1 @_ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi.argelim(ptr noundef %89, ptr noundef %71, ptr noundef %90, ptr noundef %91, i32 noundef %82, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %92, ptr noundef nonnull %93)
+  %94 = call fastcc noundef zeroext i1 @_ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi(ptr noundef %89, ptr noundef %71, ptr noundef %90, ptr noundef %91, i32 noundef %82, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %92, ptr noundef nonnull %93)
   br i1 %94, label %95, label %253
 
 95:                                               ; preds = %87
@@ -2178,7 +2178,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr noundef writeonly %8, ptr noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr noundef writeonly %8, ptr noundef writeonly %9) unnamed_addr #0 {
   %11 = alloca [9 x float], align 16
   %12 = alloca [3 x i8], align 1
   %13 = alloca [3 x i32], align 4

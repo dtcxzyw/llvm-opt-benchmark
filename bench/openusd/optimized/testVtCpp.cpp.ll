@@ -13810,7 +13810,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit530:                 ; preds = %_ZSt5equalIPiN9__gn
 
 .noexc531:                                        ; preds = %828
   %830 = icmp eq i64 %829, 1234
-  br i1 %830, label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_0EEvmOT_.argprom.exit", label %831
+  br i1 %830, label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_0EEvmOT_.exit", label %831
 
 831:                                              ; preds = %.noexc531
   %832 = icmp ult i64 %829, 1234
@@ -13832,7 +13832,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit530:                 ; preds = %_ZSt5equalIPiN9__gn
   %838 = uitofp nneg i32 %.04.i.i to double
   store double %838, ptr %.032.i.ptr.i, align 8
   %.not.i.i = icmp eq i64 %.032.i.add.i, 9872
-  br i1 %.not.i.i, label %"_ZZL9testArrayvENK3$_0clEPdS0_.argprom.exit.i", label %.lr.ph.i.i, !llvm.loop !69
+  br i1 %.not.i.i, label %"_ZZL9testArrayvENK3$_0clEPdS0_.exit.i", label %.lr.ph.i.i, !llvm.loop !69
 
 839:                                              ; preds = %831
   %840 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv(ptr noundef nonnull align 8 dereferenceable(40) %174)
@@ -13842,7 +13842,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit530:                 ; preds = %_ZSt5equalIPiN9__gn
   br i1 %840, label %841, label %851
 
 841:                                              ; preds = %.noexc533
-  br i1 %832, label %842, label %"_ZZL9testArrayvENK3$_0clEPdS0_.argprom.exit.i"
+  br i1 %832, label %842, label %"_ZZL9testArrayvENK3$_0clEPdS0_.exit.i"
 
 842:                                              ; preds = %841
   %843 = load ptr, ptr %833, align 8
@@ -13869,7 +13869,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit530:                 ; preds = %_ZSt5equalIPiN9__gn
   %850 = uitofp nneg i32 %.04.i46.i to double
   store double %850, ptr %.032.i47.ptr.i, align 8
   %.not.i48.i = icmp eq i64 %.032.i47.add.i, 9872
-  br i1 %.not.i48.i, label %"_ZZL9testArrayvENK3$_0clEPdS0_.argprom.exit.i", label %.lr.ph.i45.i, !llvm.loop !69
+  br i1 %.not.i48.i, label %"_ZZL9testArrayvENK3$_0clEPdS0_.exit.i", label %.lr.ph.i45.i, !llvm.loop !69
 
 851:                                              ; preds = %.noexc533
   %852 = load ptr, ptr %833, align 8
@@ -13878,7 +13878,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit530:                 ; preds = %_ZSt5equalIPiN9__gn
           to label %.noexc535 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc535:                                        ; preds = %851
-  br i1 %832, label %855, label %"_ZZL9testArrayvENK3$_0clEPdS0_.argprom.exit.i"
+  br i1 %832, label %855, label %"_ZZL9testArrayvENK3$_0clEPdS0_.exit.i"
 
 855:                                              ; preds = %.noexc535
   %.idx.i = shl nuw nsw i64 %829, 3
@@ -13893,15 +13893,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit530:                 ; preds = %_ZSt5equalIPiN9__gn
   %857 = uitofp nneg i32 %.04.i52.i to double
   store double %857, ptr %.032.i53.ptr.i, align 8
   %.not.i54.i = icmp eq i64 %.032.i53.add.i, 9872
-  br i1 %.not.i54.i, label %"_ZZL9testArrayvENK3$_0clEPdS0_.argprom.exit.i", label %.lr.ph.i51.i, !llvm.loop !69
+  br i1 %.not.i54.i, label %"_ZZL9testArrayvENK3$_0clEPdS0_.exit.i", label %.lr.ph.i51.i, !llvm.loop !69
 
-"_ZZL9testArrayvENK3$_0clEPdS0_.argprom.exit.i":  ; preds = %.lr.ph.i51.i, %.lr.ph.i45.i, %.lr.ph.i.i, %.noexc535, %841
+"_ZZL9testArrayvENK3$_0clEPdS0_.exit.i":          ; preds = %.lr.ph.i51.i, %.lr.ph.i45.i, %.lr.ph.i.i, %.noexc535, %841
   %.0.i = phi ptr [ %854, %.noexc535 ], [ %834, %841 ], [ %836, %.lr.ph.i.i ], [ %.1.i, %.lr.ph.i45.i ], [ %854, %.lr.ph.i51.i ]
   %858 = load ptr, ptr %833, align 8
   %.not44.i = icmp eq ptr %.0.i, %858
   br i1 %.not44.i, label %860, label %859
 
-859:                                              ; preds = %"_ZZL9testArrayvENK3$_0clEPdS0_.argprom.exit.i"
+859:                                              ; preds = %"_ZZL9testArrayvENK3$_0clEPdS0_.exit.i"
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv(ptr noundef nonnull align 8 dereferenceable(40) %174)
           to label %.noexc536 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -13909,15 +13909,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit530:                 ; preds = %_ZSt5equalIPiN9__gn
   store ptr %.0.i, ptr %833, align 8
   br label %860
 
-860:                                              ; preds = %.noexc536, %"_ZZL9testArrayvENK3$_0clEPdS0_.argprom.exit.i"
+860:                                              ; preds = %.noexc536, %"_ZZL9testArrayvENK3$_0clEPdS0_.exit.i"
   store i64 1234, ptr %174, align 8
-  br label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_0EEvmOT_.argprom.exit"
+  br label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_0EEvmOT_.exit"
 
-"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_0EEvmOT_.argprom.exit": ; preds = %860, %.noexc531
+"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_0EEvmOT_.exit": ; preds = %860, %.noexc531
   %861 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %174)
           to label %862 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-862:                                              ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_0EEvmOT_.argprom.exit"
+862:                                              ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_0EEvmOT_.exit"
   %863 = icmp eq i64 %861, 1234
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %58)
   br i1 %863, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit538, label %.invoke1802
@@ -14080,7 +14080,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit543:                 ; preds = %.invoke1800, %.noex
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke1802, %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_0EEvmOT_.argprom.exit", %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_1EEvmOT_.argprom.exit", %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_2EEvmOT_.argprom.exit", %828, %835, %839, %847, %851, %859, %903, %910, %914, %922, %926, %934, %949, %956, %.noexc583, %959, %967, %.noexc586, %970, %974, %977
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke1802, %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_0EEvmOT_.exit", %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_1EEvmOT_.exit", %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_2EEvmOT_.exit", %828, %835, %839, %847, %851, %859, %903, %910, %914, %922, %926, %934, %949, %956, %.noexc583, %959, %967, %.noexc586, %970, %974, %977
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -14098,7 +14098,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit543:                 ; preds = %.invoke1800, %.noex
 
 .noexc568:                                        ; preds = %903
   %905 = icmp eq i64 %904, 2345
-  br i1 %905, label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_1EEvmOT_.argprom.exit", label %906
+  br i1 %905, label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_1EEvmOT_.exit", label %906
 
 906:                                              ; preds = %.noexc568
   %907 = icmp ult i64 %904, 2345
@@ -14120,7 +14120,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit543:                 ; preds = %.invoke1800, %.noex
   %913 = uitofp nneg i32 %.04.i.i563 to double
   store double %913, ptr %.032.i.ptr.i565, align 8
   %.not.i.i567 = icmp eq i64 %.032.i.add.i566, 18760
-  br i1 %.not.i.i567, label %"_ZZL9testArrayvENK3$_1clEPdS0_.argprom.exit.i", label %.lr.ph.i.i562, !llvm.loop !71
+  br i1 %.not.i.i567, label %"_ZZL9testArrayvENK3$_1clEPdS0_.exit.i", label %.lr.ph.i.i562, !llvm.loop !71
 
 914:                                              ; preds = %906
   %915 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv(ptr noundef nonnull align 8 dereferenceable(40) %174)
@@ -14130,7 +14130,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit543:                 ; preds = %.invoke1800, %.noex
   br i1 %915, label %916, label %926
 
 916:                                              ; preds = %.noexc570
-  br i1 %907, label %917, label %"_ZZL9testArrayvENK3$_1clEPdS0_.argprom.exit.i"
+  br i1 %907, label %917, label %"_ZZL9testArrayvENK3$_1clEPdS0_.exit.i"
 
 917:                                              ; preds = %916
   %918 = load ptr, ptr %908, align 8
@@ -14157,7 +14157,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit543:                 ; preds = %.invoke1800, %.noex
   %925 = uitofp nneg i32 %.04.i46.i557 to double
   store double %925, ptr %.032.i47.ptr.i559, align 8
   %.not.i48.i561 = icmp eq i64 %.032.i47.add.i560, 18760
-  br i1 %.not.i48.i561, label %"_ZZL9testArrayvENK3$_1clEPdS0_.argprom.exit.i", label %.lr.ph.i45.i556, !llvm.loop !71
+  br i1 %.not.i48.i561, label %"_ZZL9testArrayvENK3$_1clEPdS0_.exit.i", label %.lr.ph.i45.i556, !llvm.loop !71
 
 926:                                              ; preds = %.noexc570
   %927 = load ptr, ptr %908, align 8
@@ -14166,7 +14166,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit543:                 ; preds = %.invoke1800, %.noex
           to label %.noexc572 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc572:                                        ; preds = %926
-  br i1 %907, label %930, label %"_ZZL9testArrayvENK3$_1clEPdS0_.argprom.exit.i"
+  br i1 %907, label %930, label %"_ZZL9testArrayvENK3$_1clEPdS0_.exit.i"
 
 930:                                              ; preds = %.noexc572
   %.idx.i547 = shl nuw nsw i64 %904, 3
@@ -14181,15 +14181,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit543:                 ; preds = %.invoke1800, %.noex
   %932 = uitofp nneg i32 %.04.i52.i549 to double
   store double %932, ptr %.032.i53.ptr.i551, align 8
   %.not.i54.i553 = icmp eq i64 %.032.i53.add.i552, 18760
-  br i1 %.not.i54.i553, label %"_ZZL9testArrayvENK3$_1clEPdS0_.argprom.exit.i", label %.lr.ph.i51.i548, !llvm.loop !71
+  br i1 %.not.i54.i553, label %"_ZZL9testArrayvENK3$_1clEPdS0_.exit.i", label %.lr.ph.i51.i548, !llvm.loop !71
 
-"_ZZL9testArrayvENK3$_1clEPdS0_.argprom.exit.i":  ; preds = %.lr.ph.i51.i548, %.lr.ph.i45.i556, %.lr.ph.i.i562, %.noexc572, %916
+"_ZZL9testArrayvENK3$_1clEPdS0_.exit.i":          ; preds = %.lr.ph.i51.i548, %.lr.ph.i45.i556, %.lr.ph.i.i562, %.noexc572, %916
   %.0.i545 = phi ptr [ %929, %.noexc572 ], [ %909, %916 ], [ %911, %.lr.ph.i.i562 ], [ %.1.i554, %.lr.ph.i45.i556 ], [ %929, %.lr.ph.i51.i548 ]
   %933 = load ptr, ptr %908, align 8
   %.not44.i546 = icmp eq ptr %.0.i545, %933
   br i1 %.not44.i546, label %935, label %934
 
-934:                                              ; preds = %"_ZZL9testArrayvENK3$_1clEPdS0_.argprom.exit.i"
+934:                                              ; preds = %"_ZZL9testArrayvENK3$_1clEPdS0_.exit.i"
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv(ptr noundef nonnull align 8 dereferenceable(40) %174)
           to label %.noexc573 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -14197,15 +14197,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit543:                 ; preds = %.invoke1800, %.noex
   store ptr %.0.i545, ptr %908, align 8
   br label %935
 
-935:                                              ; preds = %.noexc573, %"_ZZL9testArrayvENK3$_1clEPdS0_.argprom.exit.i"
+935:                                              ; preds = %.noexc573, %"_ZZL9testArrayvENK3$_1clEPdS0_.exit.i"
   store i64 2345, ptr %174, align 8
-  br label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_1EEvmOT_.argprom.exit"
+  br label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_1EEvmOT_.exit"
 
-"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_1EEvmOT_.argprom.exit": ; preds = %935, %.noexc568
+"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_1EEvmOT_.exit": ; preds = %935, %.noexc568
   %936 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %174)
           to label %937 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-937:                                              ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_1EEvmOT_.argprom.exit"
+937:                                              ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_1EEvmOT_.exit"
   %938 = icmp eq i64 %936, 2345
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %56)
   br i1 %938, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit575, label %.invoke1802
@@ -14241,7 +14241,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 .noexc582:                                        ; preds = %949
   %951 = icmp eq i64 %950, 123
-  br i1 %951, label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_2EEvmOT_.argprom.exit", label %952
+  br i1 %951, label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_2EEvmOT_.exit", label %952
 
 952:                                              ; preds = %.noexc582
   %953 = icmp ult i64 %950, 123
@@ -14361,13 +14361,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 978:                                              ; preds = %.noexc590, %.loopexit.i
   store i64 123, ptr %174, align 8
-  br label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_2EEvmOT_.argprom.exit"
+  br label %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_2EEvmOT_.exit"
 
-"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_2EEvmOT_.argprom.exit": ; preds = %978, %.noexc582
+"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_2EEvmOT_.exit": ; preds = %978, %.noexc582
   %979 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %174)
           to label %980 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-980:                                              ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_2EEvmOT_.argprom.exit"
+980:                                              ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeIZL9testArrayvE3$_2EEvmOT_.exit"
   %981 = icmp eq i64 %979, 123
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %51)
   br i1 %981, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit592, label %.invoke1802

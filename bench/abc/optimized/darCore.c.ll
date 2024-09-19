@@ -279,14 +279,14 @@ Abc_Clock.exit166:                                ; preds = %Abc_Clock.exit164, 
   %126 = getelementptr inbounds i8, ptr %66, i64 36
   br label %127
 
-127:                                              ; preds = %.lr.ph, %Aig_ManObj.argprom.exit.thread
-  %.0120186 = phi ptr [ %.val156, %.lr.ph ], [ %148, %Aig_ManObj.argprom.exit.thread ]
-  %.0124185 = phi i32 [ 0, %.lr.ph ], [ %147, %Aig_ManObj.argprom.exit.thread ]
+127:                                              ; preds = %.lr.ph, %Aig_ManObj.exit.thread
+  %.0120186 = phi ptr [ %.val156, %.lr.ph ], [ %148, %Aig_ManObj.exit.thread ]
+  %.0124185 = phi i32 [ 0, %.lr.ph ], [ %147, %Aig_ManObj.exit.thread ]
   %128 = getelementptr inbounds i8, ptr %.0120186, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = and i32 %129, 268435456
   %131 = icmp eq i32 %130, 0
-  br i1 %131, label %Aig_ManObj.argprom.exit.thread, label %132
+  br i1 %131, label %Aig_ManObj.exit.thread, label %132
 
 132:                                              ; preds = %127
   %133 = icmp ult i32 %129, 536870912
@@ -295,32 +295,32 @@ Abc_Clock.exit166:                                ; preds = %Abc_Clock.exit164, 
 134:                                              ; preds = %132
   %.mask = and i32 %129, -536870912
   %135 = icmp eq i32 %.mask, 536870912
-  br i1 %135, label %136, label %Aig_ManObj.argprom.exit.thread
+  br i1 %135, label %136, label %Aig_ManObj.exit.thread
 
 136:                                              ; preds = %134
   %137 = getelementptr inbounds i8, ptr %.0120186, i64 8
   %138 = load i32, ptr %137, align 4
   %139 = load i32, ptr %126, align 4
   %.not138 = icmp eq i32 %138, %139
-  br i1 %.not138, label %Aig_ManObj.argprom.exit.thread, label %140
+  br i1 %.not138, label %Aig_ManObj.exit.thread, label %140
 
 140:                                              ; preds = %136
   %141 = load ptr, ptr %56, align 8
   %142 = getelementptr i8, ptr %141, i64 32
   %.val158 = load ptr, ptr %142, align 8
   %.not.i = icmp eq ptr %.val158, null
-  br i1 %.not.i, label %Aig_ManObj.argprom.exit.thread, label %Aig_ManObj.argprom.exit
+  br i1 %.not.i, label %Aig_ManObj.exit.thread, label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %140
+Aig_ManObj.exit:                                  ; preds = %140
   %143 = getelementptr i8, ptr %.val158, i64 8
   %.val.i = load ptr, ptr %143, align 8
   %144 = sext i32 %138 to i64
   %145 = getelementptr inbounds ptr, ptr %.val.i, i64 %144
   %146 = load ptr, ptr %145, align 8
   %.not139 = icmp eq ptr %146, null
-  br i1 %.not139, label %Aig_ManObj.argprom.exit.thread, label %155
+  br i1 %.not139, label %Aig_ManObj.exit.thread, label %155
 
-Aig_ManObj.argprom.exit.thread:                   ; preds = %140, %127, %Aig_ManObj.argprom.exit, %136, %134
+Aig_ManObj.exit.thread:                           ; preds = %140, %127, %Aig_ManObj.exit, %136, %134
   %147 = add nuw nsw i32 %.0124185, 1
   %148 = getelementptr inbounds i8, ptr %.0120186, i64 24
   %exitcond.not = icmp eq i32 %147, %125
@@ -335,12 +335,12 @@ Aig_ManObj.argprom.exit.thread:                   ; preds = %140, %127, %Aig_Man
   %154 = ptrtoint ptr %.val160 to i64
   br label %169
 
-155:                                              ; preds = %Aig_ManObj.argprom.exit
+155:                                              ; preds = %Aig_ManObj.exit
   %156 = load ptr, ptr %56, align 8
   %157 = getelementptr i8, ptr %156, i64 32
   %.val159 = load ptr, ptr %157, align 8
   %.not.i167 = icmp eq ptr %.val159, null
-  br i1 %.not.i167, label %Aig_ManObj.argprom.exit169, label %158
+  br i1 %.not.i167, label %Aig_ManObj.exit169, label %158
 
 158:                                              ; preds = %155
   %159 = getelementptr inbounds i8, ptr %.0120186, i64 8
@@ -351,17 +351,17 @@ Aig_ManObj.argprom.exit.thread:                   ; preds = %140, %127, %Aig_Man
   %163 = getelementptr inbounds ptr, ptr %.val.i168, i64 %162
   %164 = load ptr, ptr %163, align 8
   %165 = ptrtoint ptr %164 to i64
-  br label %Aig_ManObj.argprom.exit169
+  br label %Aig_ManObj.exit169
 
-Aig_ManObj.argprom.exit169:                       ; preds = %155, %158
+Aig_ManObj.exit169:                               ; preds = %155, %158
   %166 = phi i64 [ %165, %158 ], [ 0, %155 ]
   %167 = and i32 %129, 65535
   %168 = icmp eq i32 %167, 21845
   br label %169
 
-169:                                              ; preds = %Aig_ManObj.argprom.exit169, %149
-  %.sink209 = phi i1 [ %168, %Aig_ManObj.argprom.exit169 ], [ %153, %149 ]
-  %.sink = phi i64 [ %166, %Aig_ManObj.argprom.exit169 ], [ %154, %149 ]
+169:                                              ; preds = %Aig_ManObj.exit169, %149
+  %.sink209 = phi i1 [ %168, %Aig_ManObj.exit169 ], [ %153, %149 ]
+  %.sink = phi i64 [ %166, %Aig_ManObj.exit169 ], [ %154, %149 ]
   %170 = zext i1 %.sink209 to i64
   %171 = xor i64 %.sink, %170
   %.0122 = inttoptr i64 %171 to ptr
@@ -372,7 +372,7 @@ Aig_ManObj.argprom.exit169:                       ; preds = %155, %158
   call void @Aig_ObjReplace(ptr noundef %0, ptr noundef nonnull %66, ptr noundef %.0122, i32 noundef %174) #11
   br label %239
 
-._crit_edge:                                      ; preds = %Aig_ManObj.argprom.exit.thread, %Abc_Clock.exit166
+._crit_edge:                                      ; preds = %Aig_ManObj.exit.thread, %Abc_Clock.exit166
   store i32 -1, ptr %57, align 8
   store i32 -1, ptr %8, align 4
   %175 = load ptr, ptr %58, align 8

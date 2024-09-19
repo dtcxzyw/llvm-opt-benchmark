@@ -35,7 +35,7 @@ entry:
   %buf.i8.i.i = alloca [64 x i8], align 16
   %buf.i.i.i = alloca [64 x i8], align 16
   %buf.i = alloca [64 x i8], align 16
-  %call = tail call fastcc ptr @os_pages_map.argelim(ptr noundef %addr, i64 noundef %size, ptr noundef %commit)
+  %call = tail call fastcc ptr @os_pages_map(ptr noundef %addr, i64 noundef %size, ptr noundef %commit)
   %cmp = icmp eq ptr %call, null
   %cmp3 = icmp eq ptr %call, %addr
   %or.cond = or i1 %cmp, %cmp3
@@ -168,7 +168,7 @@ return:                                           ; preds = %os_pages_unmap.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_pages_map.argelim(ptr noundef %addr, i64 noundef %size, ptr nocapture noundef %commit) unnamed_addr #0 {
+define internal fastcc ptr @os_pages_map(ptr noundef %addr, i64 noundef %size, ptr nocapture noundef %commit) unnamed_addr #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %0 = load i8, ptr @os_overcommits, align 1

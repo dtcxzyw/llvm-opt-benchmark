@@ -1740,9 +1740,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1149 = private unnamed_addr constant [17 x i8] c"Measurement data\00", align 1
 @.str.1150 = private unnamed_addr constant [10 x i8] c"MAC Trace\00", align 1
 @.str.1151 = private unnamed_addr constant [12 x i8] c"Unknown TLV\00", align 1
-@switch.table.dissect_dcbx_tlv.argprom = private unnamed_addr constant [6 x ptr] [ptr @ett_org_spc_dcbx_cee_1, ptr @ett_org_spc_dcbx_cee_2, ptr @ett_org_spc_dcbx_cee_3, ptr @ett_org_spc_dcbx_cee_4, ptr @ett_org_spc_dcbx_cee_1, ptr @ett_org_spc_dcbx_cin_6], align 8
-@switch.table.dissect_dcbx_tlv.argprom.14 = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 3, i32 4, i32 1, i32 6], align 4
-@switch.table.dissect_ieee_802_3_tlv.argelim = private unnamed_addr constant [4 x ptr] [ptr @media_power_pse_device, ptr @media_power_pd_device, ptr @media_power_pse_device, ptr @media_power_pd_device], align 8
+@switch.table.dissect_dcbx_tlv = private unnamed_addr constant [6 x ptr] [ptr @ett_org_spc_dcbx_cee_1, ptr @ett_org_spc_dcbx_cee_2, ptr @ett_org_spc_dcbx_cee_3, ptr @ett_org_spc_dcbx_cee_4, ptr @ett_org_spc_dcbx_cee_1, ptr @ett_org_spc_dcbx_cin_6], align 8
+@switch.table.dissect_dcbx_tlv.14 = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 3, i32 4, i32 1, i32 6], align 4
+@switch.table.dissect_ieee_802_3_tlv = private unnamed_addr constant [4 x ptr] [ptr @media_power_pse_device, ptr @media_power_pd_device, ptr @media_power_pse_device, ptr @media_power_pd_device], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_lldp() local_unnamed_addr #0 {
@@ -1972,7 +1972,7 @@ define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %16 = getelementptr inbounds i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_alloc0(ptr noundef %17, i64 noundef 32) #8
-  %19 = tail call fastcc i32 @dissect_lldp_chassis_id.argelim(ptr noundef %15, ptr noundef %1, ptr noundef %11, ptr noundef %18)
+  %19 = tail call fastcc i32 @dissect_lldp_chassis_id(ptr noundef %15, ptr noundef %1, ptr noundef %11, ptr noundef %18)
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %21, label %23
 
@@ -1987,7 +1987,7 @@ define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %narrow107 = add nuw nsw i16 %25, 2
   %26 = zext nneg i16 %narrow107 to i32
   %27 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %19, i32 noundef %26) #8
-  %28 = tail call fastcc i32 @dissect_lldp_port_id.argelim(ptr noundef %27, ptr noundef nonnull %1, ptr noundef %11, ptr noundef %18)
+  %28 = tail call fastcc i32 @dissect_lldp_port_id(ptr noundef %27, ptr noundef nonnull %1, ptr noundef %11, ptr noundef %18)
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %32
 
@@ -2003,7 +2003,7 @@ define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %narrow108 = add nuw nsw i16 %35, 2
   %36 = zext nneg i16 %narrow108 to i32
   %37 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %33, i32 noundef %36) #8
-  %38 = tail call fastcc i32 @dissect_lldp_time_to_live.argelim(ptr noundef %37, ptr noundef nonnull %1, ptr noundef %11)
+  %38 = tail call fastcc i32 @dissect_lldp_time_to_live(ptr noundef %37, ptr noundef nonnull %1, ptr noundef %11)
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %40, label %42
 
@@ -2017,8 +2017,8 @@ define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %44 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   br label %45
 
-45:                                               ; preds = %dissect_lldp_management_address.argprom.exit.thread, %42
-  %.0103 = phi i32 [ %43, %42 ], [ %403, %dissect_lldp_management_address.argprom.exit.thread ]
+45:                                               ; preds = %dissect_lldp_management_address.exit.thread, %42
+  %.0103 = phi i32 [ %43, %42 ], [ %403, %dissect_lldp_management_address.exit.thread ]
   %46 = icmp ult i32 %.0103, %44
   br i1 %46, label %47, label %.loopexit
 
@@ -2043,22 +2043,22 @@ define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 53:                                               ; preds = %47
-  %54 = tail call fastcc i32 @dissect_lldp_chassis_id.argelim(ptr noundef %52, ptr noundef %1, ptr noundef %11, ptr noundef %18)
+  %54 = tail call fastcc i32 @dissect_lldp_chassis_id(ptr noundef %52, ptr noundef %1, ptr noundef %11, ptr noundef %18)
   %55 = load i32, ptr @column_info_selection, align 4
   %56 = icmp eq i32 %55, 1
-  br i1 %56, label %dissect_lldp_management_address.argprom.exit.thread119.sink.split, label %dissect_lldp_management_address.argprom.exit.thread119
+  br i1 %56, label %dissect_lldp_management_address.exit.thread119.sink.split, label %dissect_lldp_management_address.exit.thread119
 
 57:                                               ; preds = %47
-  %58 = tail call fastcc i32 @dissect_lldp_port_id.argelim(ptr noundef %52, ptr noundef %1, ptr noundef %11, ptr noundef %18)
+  %58 = tail call fastcc i32 @dissect_lldp_port_id(ptr noundef %52, ptr noundef %1, ptr noundef %11, ptr noundef %18)
   %59 = load i32, ptr @column_info_selection, align 4
   %60 = icmp eq i32 %59, 1
-  br i1 %60, label %dissect_lldp_management_address.argprom.exit.thread119.sink.split, label %dissect_lldp_management_address.argprom.exit.thread119
+  br i1 %60, label %dissect_lldp_management_address.exit.thread119.sink.split, label %dissect_lldp_management_address.exit.thread119
 
 61:                                               ; preds = %47
-  %62 = tail call fastcc i32 @dissect_lldp_time_to_live.argelim(ptr noundef %52, ptr noundef %1, ptr noundef %11)
+  %62 = tail call fastcc i32 @dissect_lldp_time_to_live(ptr noundef %52, ptr noundef %1, ptr noundef %11)
   %63 = load i32, ptr @column_info_selection, align 4
   %64 = icmp eq i32 %63, 1
-  br i1 %64, label %dissect_lldp_management_address.argprom.exit.thread119.sink.split, label %dissect_lldp_management_address.argprom.exit.thread119
+  br i1 %64, label %dissect_lldp_management_address.exit.thread119.sink.split, label %dissect_lldp_management_address.exit.thread119
 
 65:                                               ; preds = %47
   %66 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %52, i32 noundef 0) #8
@@ -2071,7 +2071,7 @@ define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %52, i32 noundef 0, i32 noundef 2, i32 noundef 0) #8
   %73 = load i32, ptr @hf_lldp_tlv_len, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %73, ptr noundef %52, i32 noundef 0, i32 noundef 2, i32 noundef 0) #8
-  br label %dissect_lldp_management_address.argprom.exit.thread
+  br label %dissect_lldp_management_address.exit.thread
 
 75:                                               ; preds = %47
   %76 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %52, i32 noundef 0) #8
@@ -2088,7 +2088,7 @@ define internal i32 @dissect_lldp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %87 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %86, ptr noundef %52, i32 noundef 0, i32 noundef 2, i32 noundef 0) #8
   %88 = load i32, ptr @hf_port_desc, align 4
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %88, ptr noundef %52, i32 noundef 2, i32 noundef %78, i32 noundef 0) #8
-  br label %dissect_lldp_management_address.argprom.exit.thread
+  br label %dissect_lldp_management_address.exit.thread
 
 90:                                               ; preds = %47, %47
   %91 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %52, i32 noundef 0) #8
@@ -2132,7 +2132,7 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   %hf_lldp_tlv_system_desc.val.i = load i32, ptr @hf_lldp_tlv_system_desc, align 4
   %113 = select i1 %96, i32 %hf_lldp_tlv_system_name.val.i, i32 %hf_lldp_tlv_system_desc.val.i
   %114 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %113, ptr noundef %52, i32 noundef 2, i32 noundef %93, i32 noundef 0) #8
-  br label %dissect_lldp_management_address.argprom.exit.thread
+  br label %dissect_lldp_management_address.exit.thread
 
 115:                                              ; preds = %47
   %116 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %52, i32 noundef 0) #8
@@ -2197,7 +2197,7 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   %174 = tail call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %173, ptr noundef %52, i32 noundef 4, i32 noundef 2, i32 noundef 0) #8
   %175 = load i32, ptr @hf_lldp_tlv_enable_system_cap_tpmr_component, align 4
   %176 = tail call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %175, ptr noundef %52, i32 noundef 4, i32 noundef 2, i32 noundef 0) #8
-  br label %dissect_lldp_management_address.argprom.exit.thread
+  br label %dissect_lldp_management_address.exit.thread
 
 177:                                              ; preds = %47
   %178 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %52, i32 noundef 0) #8
@@ -2252,14 +2252,14 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   %215 = tail call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %214, ptr noundef %52, i32 noundef %212, i32 noundef 1, i32 noundef 0) #8
   %216 = add nuw nsw i32 %205, 9
   %.not.i = icmp eq i8 %213, 0
-  br i1 %.not.i, label %dissect_lldp_management_address.argprom.exit.thread, label %217
+  br i1 %.not.i, label %dissect_lldp_management_address.exit.thread, label %217
 
 217:                                              ; preds = %204
   %218 = zext i8 %213 to i32
   %219 = load i32, ptr @hf_mgn_obj_id, align 4
   %220 = tail call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %219, ptr noundef %52, i32 noundef %216, i32 noundef %218, i32 noundef 0) #8
   %221 = add nuw nsw i32 %216, %218
-  br label %dissect_lldp_management_address.argprom.exit.thread
+  br label %dissect_lldp_management_address.exit.thread
 
 222:                                              ; preds = %47
   %223 = tail call i32 @tvb_reported_length(ptr noundef %52) #8
@@ -2270,7 +2270,7 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   %228 = load ptr, ptr @oui_unique_code_table, align 8
   %229 = tail call i32 @dissector_try_uint(ptr noundef %228, i32 noundef %226, ptr noundef %52, ptr noundef %1, ptr noundef %11) #8
   %.not.i113 = icmp eq i32 %229, 0
-  br i1 %.not.i113, label %230, label %dissect_lldp_management_address.argprom.exit
+  br i1 %.not.i113, label %230, label %dissect_lldp_management_address.exit
 
 230:                                              ; preds = %222
   %231 = tail call ptr @uint_get_manuf_name_if_known(i32 noundef %226) #8
@@ -2584,7 +2584,7 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
 
 365:                                              ; preds = %357
   %366 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %362, ptr noundef nonnull @ei_lldp_bad_length, ptr noundef nonnull @.str.1112, i32 noundef %363) #8
-  br label %dissect_lldp_management_address.argprom.exit
+  br label %dissect_lldp_management_address.exit
 
 367:                                              ; preds = %357
   %368 = load i32, ptr @hf_org_spc_oui, align 4
@@ -2609,15 +2609,15 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   ]
 
 372:                                              ; preds = %367
-  tail call fastcc void @dissect_dcbx_tlv.argprom(ptr noundef %371, ptr noundef %358)
+  tail call fastcc void @dissect_dcbx_tlv(ptr noundef %371, ptr noundef %358)
   br label %388
 
 373:                                              ; preds = %367
-  tail call fastcc void @dissect_ieee_802_1_tlv.argprom.argelim(ptr noundef %371, ptr noundef %358)
+  tail call fastcc void @dissect_ieee_802_1_tlv(ptr noundef %371, ptr noundef %358)
   br label %388
 
 374:                                              ; preds = %367
-  tail call fastcc void @dissect_ieee_802_3_tlv.argelim(ptr noundef %371, ptr noundef %1, ptr noundef %358)
+  tail call fastcc void @dissect_ieee_802_3_tlv(ptr noundef %371, ptr noundef %1, ptr noundef %358)
   br label %388
 
 375:                                              ; preds = %367
@@ -2633,7 +2633,7 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   br label %388
 
 378:                                              ; preds = %367
-  tail call fastcc void @dissect_ieee_802_1qbg_tlv.argprom(ptr noundef %371, ptr noundef %358)
+  tail call fastcc void @dissect_ieee_802_1qbg_tlv(ptr noundef %371, ptr noundef %358)
   br label %388
 
 379:                                              ; preds = %367
@@ -2641,23 +2641,23 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   br label %388
 
 380:                                              ; preds = %367
-  tail call fastcc void @dissect_avaya_tlv.argprom(ptr noundef %371, ptr noundef %358)
+  tail call fastcc void @dissect_avaya_tlv(ptr noundef %371, ptr noundef %358)
   br label %388
 
 381:                                              ; preds = %367
-  tail call fastcc void @dissect_iana_tlv.argprom(ptr noundef %371, ptr noundef %358)
+  tail call fastcc void @dissect_iana_tlv(ptr noundef %371, ptr noundef %358)
   br label %388
 
 382:                                              ; preds = %367
-  tail call fastcc void @dissect_extreme_avaya_tlv.argprom.argelim(ptr noundef %371, ptr noundef %358, i16 noundef zeroext %225)
+  tail call fastcc void @dissect_extreme_avaya_tlv(ptr noundef %371, ptr noundef %358, i16 noundef zeroext %225)
   br label %388
 
 383:                                              ; preds = %367
-  tail call fastcc void @dissect_extreme_avaya2_tlv.argprom.argelim(ptr noundef %371, ptr noundef %358)
+  tail call fastcc void @dissect_extreme_avaya2_tlv(ptr noundef %371, ptr noundef %358)
   br label %388
 
 384:                                              ; preds = %367
-  tail call fastcc void @dissect_onos_tlv.argprom(ptr noundef %371, ptr noundef %358)
+  tail call fastcc void @dissect_onos_tlv(ptr noundef %371, ptr noundef %358)
   br label %388
 
 385:                                              ; preds = %367
@@ -2665,12 +2665,12 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   br label %388
 
 387:                                              ; preds = %367
-  tail call fastcc void @dissect_oui_default_tlv.argprom(ptr noundef %371, ptr noundef %358)
+  tail call fastcc void @dissect_oui_default_tlv(ptr noundef %371, ptr noundef %358)
   br label %388
 
 388:                                              ; preds = %387, %385, %384, %383, %382, %381, %380, %379, %378, %377, %376, %375, %374, %373, %372
   %389 = tail call i32 @tvb_reported_length(ptr noundef %52) #8
-  br label %dissect_lldp_management_address.argprom.exit
+  br label %dissect_lldp_management_address.exit
 
 390:                                              ; preds = %47
   %391 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %52, i32 noundef 0) #8
@@ -2683,32 +2683,32 @@ dissect_lldp_system_name.exit:                    ; preds = %98, %103, %.sink.sp
   %397 = tail call ptr @proto_tree_add_item(ptr noundef %395, i32 noundef %396, ptr noundef %52, i32 noundef 0, i32 noundef 2, i32 noundef 0) #8
   %398 = load i32, ptr @hf_lldp_tlv_len, align 4
   %399 = tail call ptr @proto_tree_add_item(ptr noundef %395, i32 noundef %398, ptr noundef %52, i32 noundef 0, i32 noundef 2, i32 noundef 0) #8
-  br label %dissect_lldp_management_address.argprom.exit.thread
+  br label %dissect_lldp_management_address.exit.thread
 
-dissect_lldp_management_address.argprom.exit:     ; preds = %388, %365, %222
+dissect_lldp_management_address.exit:             ; preds = %388, %365, %222
   %.0102 = phi i32 [ %223, %365 ], [ %389, %388 ], [ %223, %222 ]
   %400 = icmp slt i32 %.0102, 0
-  br i1 %400, label %dissect_lldp_management_address.argprom.exit.thread119, label %dissect_lldp_management_address.argprom.exit.thread
+  br i1 %400, label %dissect_lldp_management_address.exit.thread119, label %dissect_lldp_management_address.exit.thread
 
-dissect_lldp_management_address.argprom.exit.thread119.sink.split: ; preds = %61, %57, %53
+dissect_lldp_management_address.exit.thread119.sink.split: ; preds = %61, %57, %53
   %.str.1072.sink = phi ptr [ @.str.1072, %53 ], [ @.str.1073, %57 ], [ @.str.1074, %61 ]
   %401 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %401, i32 noundef 25, ptr noundef nonnull %.str.1072.sink) #8
-  br label %dissect_lldp_management_address.argprom.exit.thread119
+  br label %dissect_lldp_management_address.exit.thread119
 
-dissect_lldp_management_address.argprom.exit.thread119: ; preds = %dissect_lldp_management_address.argprom.exit, %dissect_lldp_management_address.argprom.exit.thread119.sink.split, %53, %57, %61
-  %.0102121 = phi i32 [ -1, %61 ], [ -1, %57 ], [ -1, %53 ], [ -1, %dissect_lldp_management_address.argprom.exit.thread119.sink.split ], [ %.0102, %dissect_lldp_management_address.argprom.exit ]
+dissect_lldp_management_address.exit.thread119:   ; preds = %dissect_lldp_management_address.exit, %dissect_lldp_management_address.exit.thread119.sink.split, %53, %57, %61
+  %.0102121 = phi i32 [ -1, %61 ], [ -1, %57 ], [ -1, %53 ], [ -1, %dissect_lldp_management_address.exit.thread119.sink.split ], [ %.0102, %dissect_lldp_management_address.exit ]
   %402 = add i32 %.0102121, %.0103
   tail call void @set_actual_length(ptr noundef %0, i32 noundef %402) #8
   br label %.loopexit
 
-dissect_lldp_management_address.argprom.exit.thread: ; preds = %204, %217, %65, %75, %dissect_lldp_system_name.exit, %115, %390, %dissect_lldp_management_address.argprom.exit
-  %.0102117 = phi i32 [ %.0102, %dissect_lldp_management_address.argprom.exit ], [ %216, %204 ], [ %221, %217 ], [ %68, %65 ], [ %81, %75 ], [ %97, %dissect_lldp_system_name.exit ], [ 6, %115 ], [ %393, %390 ]
+dissect_lldp_management_address.exit.thread:      ; preds = %204, %217, %65, %75, %dissect_lldp_system_name.exit, %115, %390, %dissect_lldp_management_address.exit
+  %.0102117 = phi i32 [ %.0102, %dissect_lldp_management_address.exit ], [ %216, %204 ], [ %221, %217 ], [ %68, %65 ], [ %81, %75 ], [ %97, %dissect_lldp_system_name.exit ], [ 6, %115 ], [ %393, %390 ]
   %403 = add i32 %.0102117, %.0103
   %404 = icmp ult i16 %48, 512
   br i1 %404, label %.loopexit, label %45, !llvm.loop !9
 
-.loopexit:                                        ; preds = %45, %dissect_lldp_management_address.argprom.exit.thread, %dissect_lldp_management_address.argprom.exit.thread119, %40, %30, %21
+.loopexit:                                        ; preds = %45, %dissect_lldp_management_address.exit.thread, %dissect_lldp_management_address.exit.thread119, %40, %30, %21
   %405 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   ret i32 %405
 }
@@ -2756,7 +2756,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #8
@@ -2968,7 +2968,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_chassis_id.argelim(p
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #8
@@ -3175,7 +3175,7 @@ define internal fastcc range(i32 -1, 514) i32 @dissect_lldp_port_id.argelim(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 5) i32 @dissect_lldp_time_to_live.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 5) i32 @dissect_lldp_time_to_live(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #8
   %.mask = and i16 %4, -512
   %.not = icmp eq i16 %.mask, 1536
@@ -3259,7 +3259,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcbx_tlv.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_dcbx_tlv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_dcbx_type, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #8
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #8
@@ -3286,10 +3286,10 @@ switch.hole_check:                                ; preds = %.lr.ph8
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %13 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_dcbx_tlv.argprom, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_dcbx_tlv, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep18 = getelementptr inbounds [6 x i32], ptr @switch.table.dissect_dcbx_tlv.argprom.14, i64 0, i64 %14
+  %switch.gep18 = getelementptr inbounds [6 x i32], ptr @switch.table.dissect_dcbx_tlv.14, i64 0, i64 %14
   %switch.load19 = load i32, ptr %switch.gep18, align 4
   %narrow = add nuw nsw i16 %11, 2
   %15 = zext nneg i16 %narrow to i32
@@ -3482,7 +3482,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ieee_802_1_tlv.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_ieee_802_1_tlv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
   %4 = load i32, ptr @hf_ieee_802_1_subtype, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #8
@@ -3769,7 +3769,7 @@ define internal fastcc void @dissect_ieee_802_1_tlv.argprom.argelim(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ieee_802_3_tlv.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_ieee_802_3_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
   %6 = load i32, ptr @hf_ieee_802_3_subtype, align 4
@@ -3895,7 +3895,7 @@ switch.lookup:                                    ; preds = %89
   %112 = load i32, ptr @hf_ieee_802_3_mdi_power_source, align 4
   %113 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %112, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #8
   %114 = zext nneg i8 %109 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_ieee_802_3_tlv.argelim, i64 0, i64 %114
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_ieee_802_3_tlv, i64 0, i64 %114
   %switch.load = load ptr, ptr %switch.gep, align 8
   %115 = lshr i8 %108, 4
   %116 = and i8 %115, 3
@@ -4913,7 +4913,7 @@ define internal fastcc void @dissect_cisco_tlv(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ieee_802_1qbg_tlv.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_ieee_802_1qbg_tlv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
   %4 = load i32, ptr @hf_ieee_802_1qbg_subtype, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #8
@@ -5494,7 +5494,7 @@ define internal fastcc void @dissect_hytec_tlv(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_avaya_tlv.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_avaya_tlv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
   %4 = load i32, ptr @hf_avaya_subtype, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #8
@@ -5555,7 +5555,7 @@ define internal fastcc void @dissect_avaya_tlv.argprom(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_iana_tlv.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_iana_tlv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
   %4 = load i32, ptr @hf_iana_subtype, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #8
@@ -5580,7 +5580,7 @@ define internal fastcc void @dissect_iana_tlv.argprom(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_extreme_avaya_tlv.argprom.argelim(ptr noundef %0, ptr noundef %1, i16 noundef zeroext range(i16 0, 512) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_extreme_avaya_tlv(ptr noundef %0, ptr noundef %1, i16 noundef zeroext range(i16 0, 512) %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
   %5 = load i32, ptr @hf_ex_avaya_tlv_subtype, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #8
@@ -5638,7 +5638,7 @@ define internal fastcc void @dissect_extreme_avaya_tlv.argprom.argelim(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_extreme_avaya2_tlv.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_extreme_avaya2_tlv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
@@ -5684,7 +5684,7 @@ define internal fastcc void @dissect_extreme_avaya2_tlv.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_onos_tlv.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_onos_tlv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_onos_subtype, align 4
   %5 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3) #8
@@ -5726,7 +5726,7 @@ define internal fastcc void @dissect_onos_tlv.argprom(ptr noundef %0, ptr nounde
 declare i32 @dissect_lldp_cip_tlv(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_oui_default_tlv.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_oui_default_tlv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_unknown_subtype, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #8
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1) #8

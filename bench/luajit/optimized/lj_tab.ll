@@ -1200,9 +1200,9 @@ for.inc.i:                                        ; preds = %countint.exit.i, %f
   %total.1.i = phi i32 [ %total.03.i, %for.body.i11 ], [ %inc.i15, %countint.exit.i ]
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i16, %wide.trip.count.i
-  br i1 %exitcond.i, label %counthash.argprom.exit, label %for.body.i11, !llvm.loop !16
+  br i1 %exitcond.i, label %counthash.exit, label %for.body.i11, !llvm.loop !16
 
-counthash.argprom.exit:                           ; preds = %for.inc.i
+counthash.exit:                                   ; preds = %for.inc.i
   %add = add i32 %retval.0.i, 1
   %add5.i = add i32 %na.1.i, %retval.0.i
   %add3 = add i32 %add, %total.1.i
@@ -1210,7 +1210,7 @@ counthash.argprom.exit:                           ; preds = %for.inc.i
   %cmp.i18 = icmp ult i64 %17, -1970324836974592
   br i1 %cmp.i18, label %if.then.i20, label %countint.exit
 
-if.then.i20:                                      ; preds = %counthash.argprom.exit
+if.then.i20:                                      ; preds = %counthash.exit
   %18 = bitcast i64 %17 to double
   %conv2.i = fptosi double %18 to i32
   %cmp3.i21 = icmp ult i32 %conv2.i, 134217729
@@ -1232,8 +1232,8 @@ if.then8.i:                                       ; preds = %if.then.i20
   store i32 %inc.i25, ptr %arrayidx.i24, align 4
   br label %countint.exit
 
-countint.exit:                                    ; preds = %counthash.argprom.exit, %if.then.i20, %if.then8.i
-  %retval.0.i19 = phi i32 [ 1, %if.then8.i ], [ 0, %if.then.i20 ], [ 0, %counthash.argprom.exit ]
+countint.exit:                                    ; preds = %counthash.exit, %if.then.i20, %if.then8.i
+  %retval.0.i19 = phi i32 [ 1, %if.then8.i ], [ 0, %if.then.i20 ], [ 0, %counthash.exit ]
   %add6 = add i32 %add5.i, %retval.0.i19
   %mul.i = shl i32 %add6, 1
   %cmp11.not.i = icmp eq i32 %mul.i, 0

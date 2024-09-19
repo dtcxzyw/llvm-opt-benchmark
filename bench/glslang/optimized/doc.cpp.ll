@@ -5931,13 +5931,13 @@ define void @_ZN3spv12ParameterizeEv() local_unnamed_addr #3 {
   store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3spv12ParameterizeEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENUlvE_8__invokeEv", ptr %4, align 8
   %5 = call noundef i32 @pthread_once(ptr noundef nonnull @_ZZN3spv12ParameterizeEvE11initialized, ptr noundef nonnull @__once_proxy) #15
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %"_ZSt9call_onceIZN3spv12ParameterizeEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %6
+  br i1 %.not.i, label %"_ZSt9call_onceIZN3spv12ParameterizeEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %6
 
 6:                                                ; preds = %0
   call void @_ZSt20__throw_system_errori(i32 noundef %5) #16
   unreachable
 
-"_ZSt9call_onceIZN3spv12ParameterizeEvE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %0
+"_ZSt9call_onceIZN3spv12ParameterizeEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %0
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -5957,12 +5957,12 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN3spv12ParameterizeEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS6_ENUlvE_8__invokeEv"() #3 align 2 {
-  tail call fastcc void @"_ZZN3spv12ParameterizeEvENK3$_0clEv.argprom"()
+  tail call fastcc void @"_ZZN3spv12ParameterizeEvENK3$_0clEv"()
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN3spv12ParameterizeEvENK3$_0clEv.argprom"() unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN3spv12ParameterizeEvENK3$_0clEv"() unnamed_addr #3 align 2 {
   %1 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN3spv15InstructionDescE, i64 104), align 8
   %2 = and i8 %1, -4
   store i8 %2, ptr getelementptr inbounds (i8, ptr @_ZN3spv15InstructionDescE, i64 104), align 8

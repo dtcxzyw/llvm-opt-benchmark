@@ -544,7 +544,7 @@ _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8R
   br label %_ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8RegisterEEED2Ev.exit
 
 _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8RegisterEEED2Ev.exit: ; preds = %_ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8RegisterEEEC2ERKS9_.exit, %24
-  call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImpl20runOnMachineFunctionERN4llvm15MachineFunctionE.retelim(ptr noundef nonnull align 8 dereferenceable(1257) %5, ptr noundef nonnull align 8 dereferenceable(1041) %2)
+  call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImpl20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1257) %5, ptr noundef nonnull align 8 dereferenceable(1041) %2)
   call void @_ZN4llvm39getMachineFunctionPassPreservedAnalysesEv(ptr dead_on_unwind writable sret(%"class.llvm::PreservedAnalyses") align 8 %0) #22
   call void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull @_ZN4llvm11CFGAnalyses6SetKeyE)
   call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplD2Ev(ptr noundef nonnull align 8 dereferenceable(1257) %5) #22
@@ -629,7 +629,7 @@ _ZNSt8functionIFbRKN4llvm18TargetRegisterInfoERKNS0_19MachineRegisterInfoENS0_8R
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImpl20runOnMachineFunctionERN4llvm15MachineFunctionE.retelim(ptr noundef nonnull align 8 dereferenceable(1257) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImpl20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1257) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10274,7 +10274,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImpl12allocVirtRegER
   %15 = inttoptr i64 %14 to ptr
   %16 = add i32 %3, -1
   %17 = icmp ult i32 %16, 1073741823
-  br i1 %17, label %18, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit
+  br i1 %17, label %18, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit
 
 18:                                               ; preds = %5
   %19 = load ptr, ptr %8, align 8
@@ -10292,7 +10292,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImpl12allocVirtRegER
   %31 = getelementptr inbounds i8, ptr %29, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit
+  br i1 %33, label %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit
 
 _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit: ; preds = %18
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 384
@@ -10306,7 +10306,7 @@ _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit: ; preds = %
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, %37
   %.not.i = icmp eq i64 %43, 0
-  br i1 %.not.i, label %44, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit
+  br i1 %.not.i, label %44, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit
 
 44:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit
   %45 = load ptr, ptr %15, align 8
@@ -10315,7 +10315,7 @@ _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit: ; preds = %
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   %.not.i.i = icmp ult i32 %46, %49
-  br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit
+  br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %44
   %50 = and i32 %3, 7
@@ -10328,7 +10328,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %44
   %57 = shl nuw nsw i32 1, %50
   %58 = and i32 %57, %56
   %.not139 = icmp eq i32 %58, 0
-  br i1 %.not139, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit, label %59
+  br i1 %.not139, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit, label %59
 
 59:                                               ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit
   %60 = trunc i32 %3 to i16
@@ -10336,7 +10336,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %44
 
 61:                                               ; preds = %59
   %62 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_116RegAllocFastImpl21isClobberedByRegMasksEt(ptr noundef nonnull align 8 dereferenceable(1257) %0, i16 noundef zeroext %60)
-  br i1 %62, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit, label %63
+  br i1 %62, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit, label %63
 
 63:                                               ; preds = %61, %59
   %64 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10373,7 +10373,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %44
   %86 = getelementptr inbounds i32, ptr %78, i64 %85
   %87 = load i32, ptr %86, align 4
   %.not.not.i = icmp ult i32 %87, %83
-  br i1 %.not.not.i, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit
+  br i1 %.not.not.i, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit
 
 _ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %84
   %88 = getelementptr inbounds i8, ptr %.sroa.39.019.i, i64 2
@@ -10405,7 +10405,7 @@ _ZNK12_GLOBAL__N_116RegAllocFastImpl16isRegUsedInInstrEtb.exit: ; preds = %_ZN4l
   %102 = getelementptr inbounds i32, ptr %.val56, i64 %101
   %103 = load i32, ptr %102, align 4
   %.not.i63 = icmp eq i32 %103, 0
-  br i1 %.not.i63, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i64, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit
+  br i1 %.not.i63, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i64, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit
 
 _ZN4llvm17MCRegUnitIteratorppEv.exit.i64:         ; preds = %.lr.ph.i62
   %104 = getelementptr inbounds i8, ptr %.sroa.32.012.i, i64 2
@@ -10419,7 +10419,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i64:         ; preds = %.lr.ph.i62
   tail call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImpl19assignVirtToPhysRegERN4llvm12MachineInstrERNS0_7LiveRegEt(ptr noundef nonnull align 8 dereferenceable(1257) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i16 noundef zeroext %60)
   br label %369
 
-_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit: ; preds = %84, %.lr.ph.i62, %61, %44, %18, %5, %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit
+_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit: ; preds = %84, %.lr.ph.i62, %61, %44, %18, %5, %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit
   %.sroa.0122.0 = phi i32 [ 0, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit ], [ 0, %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit ], [ 0, %5 ], [ 0, %18 ], [ 0, %44 ], [ 0, %61 ], [ %3, %.lr.ph.i62 ], [ 0, %84 ]
   %108 = load ptr, ptr %7, align 8
   %109 = icmp slt i32 %.sroa.027.0.copyload, 0
@@ -10433,9 +10433,9 @@ _ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit: ; pr
   %.0.in.i.i.i.i = select i1 %109, ptr %112, ptr %116
   %.0.i.i.i.i = load ptr, ptr %.0.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93, label %117
+  br i1 %.not.i.i.i.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93, label %117
 
-117:                                              ; preds = %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit
+117:                                              ; preds = %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit
   %118 = load i32, ptr %.0.i.i.i.i, align 8
   %119 = and i32 %118, 16777216
   %.not.i.i.i.i.i = icmp eq i32 %119, 0
@@ -10445,13 +10445,13 @@ _ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit: ; pr
   %121 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %122 = load ptr, ptr %121, align 8
   %.not.i4.i.i.i.i = icmp eq ptr %122, null
-  br i1 %.not.i4.i.i.i.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93, label %123
+  br i1 %.not.i4.i.i.i.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93, label %123
 
 123:                                              ; preds = %120
   %124 = load i32, ptr %122, align 8
   %125 = and i32 %124, 16777216
   %.not.i.i.i.i.i.i = icmp eq i32 %125, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93, label %.lr.ph.preheader.i66
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93, label %.lr.ph.preheader.i66
 
 .lr.ph.preheader.i66:                             ; preds = %123, %117
   %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %117 ], [ %122, %123 ]
@@ -10472,24 +10472,24 @@ _ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit: ; pr
   %129 = getelementptr i8, ptr %126, i64 68
   %.val9.i = load i16, ptr %129, align 4
   %130 = icmp eq i16 %.val9.i, 19
-  br i1 %130, label %131, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i
+  br i1 %130, label %131, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.thread.i
 
 131:                                              ; preds = %.lr.ph.i67
   %132 = load i32, ptr %.val.i, align 8
   %133 = and i32 %132, 1048320
   %.not.i.i.i68 = icmp eq i32 %133, 0
-  br i1 %.not.i.i.i68, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i
+  br i1 %.not.i.i.i68, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.thread.i
 
-_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i: ; preds = %131
+_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i: ; preds = %131
   %134 = getelementptr inbounds i8, ptr %.val.i, i64 32
   %135 = load i32, ptr %134, align 8
   %136 = and i32 %135, 1048320
   %.not1.i.i.i = icmp eq i32 %136, 0
-  br i1 %.not1.i.i.i, label %.preheader.i, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i
+  br i1 %.not1.i.i.i, label %.preheader.i, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.thread.i
 
-.preheader.i:                                     ; preds = %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i, %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i.i
-  %.val.pn.i = phi ptr [ %.val.i.i, %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i.i ], [ %.val.i, %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i ]
-  %.0.i.i = phi i32 [ %152, %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i.i ], [ 0, %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i ]
+.preheader.i:                                     ; preds = %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i, %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i.i
+  %.val.pn.i = phi ptr [ %.val.i.i, %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i.i ], [ %.val.i, %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i ]
+  %.0.i.i = phi i32 [ %152, %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i.i ], [ 0, %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i ]
   %.sroa.0.0.i.in.i = getelementptr inbounds i8, ptr %.val.pn.i, i64 36
   %.sroa.0.0.i.i = load i32, ptr %.sroa.0.0.i.in.i, align 4
   %137 = add i32 %.sroa.0.0.i.i, -1
@@ -10500,7 +10500,7 @@ _ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i: ; preds = %131
 140:                                              ; preds = %.preheader.i
   %141 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %139, i32 %.sroa.0.0.i.i) #22
   %.not.i.i69 = icmp eq ptr %141, null
-  br i1 %.not.i.i69, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i, label %142
+  br i1 %.not.i.i69, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.thread.i, label %142
 
 142:                                              ; preds = %140
   %143 = getelementptr i8, ptr %141, i64 32
@@ -10508,15 +10508,15 @@ _ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i: ; preds = %131
   %144 = getelementptr i8, ptr %141, i64 68
   %.val7.i.i = load i16, ptr %144, align 4
   %145 = icmp eq i16 %.val7.i.i, 19
-  br i1 %145, label %146, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i
+  br i1 %145, label %146, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.thread.i
 
 146:                                              ; preds = %142
   %147 = load i32, ptr %.val.i.i, align 8
   %148 = and i32 %147, 1048320
   %.not.i.i.i11.i = icmp eq i32 %148, 0
-  br i1 %.not.i.i.i11.i, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i.i, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i
+  br i1 %.not.i.i.i11.i, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i.i, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.thread.i
 
-_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i.i: ; preds = %146
+_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i.i: ; preds = %146
   %149 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
   %150 = load i32, ptr %149, align 8
   %151 = and i32 %150, 1048320
@@ -10524,13 +10524,13 @@ _ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i.i: ; preds = %146
   %152 = add nuw nsw i32 %.0.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %152, 4
   %or.cond.i = select i1 %.not1.i.i.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i, label %.preheader.i, !llvm.loop !176
+  br i1 %or.cond.i, label %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.thread.i, label %.preheader.i, !llvm.loop !176
 
-_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i: ; preds = %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i.i, %146, %142, %140, %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.i, %131, %.lr.ph.i67
+_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.thread.i: ; preds = %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i.i, %146, %142, %140, %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.i, %131, %.lr.ph.i67
   %exitcond.i = icmp eq i32 %.025.i, 2
-  br i1 %exitcond.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93, label %153
+  br i1 %exitcond.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93, label %153
 
-153:                                              ; preds = %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i
+153:                                              ; preds = %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.thread.i
   %154 = add nuw nsw i32 %.025.i, 1
   %155 = load ptr, ptr %127, align 8
   br label %156
@@ -10540,13 +10540,13 @@ _ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i: ; preds = %_ZL1
   %157 = getelementptr inbounds nuw i8, ptr %.pr3.i.i, i64 24
   %158 = load ptr, ptr %157, align 8
   %.not.i.i12.i = icmp eq ptr %158, null
-  br i1 %.not.i.i12.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93, label %159
+  br i1 %.not.i.i12.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93, label %159
 
 159:                                              ; preds = %156
   %160 = load i32, ptr %158, align 8
   %161 = and i32 %160, 16777216
   %.not.i.i.i13.i = icmp eq i32 %161, 0
-  br i1 %.not.i.i.i13.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i
+  br i1 %.not.i.i.i13.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i
 
 _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i: ; preds = %159
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 8
@@ -10570,7 +10570,7 @@ _ZNK12_GLOBAL__N_116RegAllocFastImpl11traceCopiesEN4llvm8RegisterE.exit: ; preds
   %177 = getelementptr inbounds i8, ptr %175, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = trunc i8 %178 to i1
-  br i1 %179, label %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit71, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93
+  br i1 %179, label %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit71, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93
 
 _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit71: ; preds = %_ZNK12_GLOBAL__N_116RegAllocFastImpl11traceCopiesEN4llvm8RegisterE.exit
   %180 = getelementptr inbounds nuw i8, ptr %139, i64 384
@@ -10584,7 +10584,7 @@ _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit71: ; preds =
   %188 = load i64, ptr %187, align 8
   %189 = and i64 %188, %183
   %.not.i70 = icmp eq i64 %189, 0
-  br i1 %.not.i70, label %190, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93
+  br i1 %.not.i70, label %190, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93
 
 190:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit71
   %191 = load ptr, ptr %15, align 8
@@ -10593,7 +10593,7 @@ _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit71: ; preds =
   %194 = load i16, ptr %193, align 2
   %195 = zext i16 %194 to i32
   %.not.i.i73 = icmp ult i32 %192, %195
-  br i1 %.not.i.i73, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93
+  br i1 %.not.i.i73, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74: ; preds = %190
   %196 = and i32 %.sroa.0.0.i.i, 7
@@ -10606,7 +10606,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74: ; preds = %190
   %203 = shl nuw nsw i32 1, %196
   %204 = and i32 %203, %202
   %.not141 = icmp eq i32 %204, 0
-  br i1 %.not141, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93, label %205
+  br i1 %.not141, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93, label %205
 
 205:                                              ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74
   %206 = trunc i32 %.sroa.0.0.i.i to i16
@@ -10614,7 +10614,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74: ; preds = %190
 
 207:                                              ; preds = %205
   %208 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_116RegAllocFastImpl21isClobberedByRegMasksEt(ptr noundef nonnull align 8 dereferenceable(1257) %0, i16 noundef zeroext %206)
-  br i1 %208, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93, label %209
+  br i1 %208, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93, label %209
 
 209:                                              ; preds = %207, %205
   %210 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10651,7 +10651,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74: ; preds = %190
   %232 = getelementptr inbounds i32, ptr %224, i64 %231
   %233 = load i32, ptr %232, align 4
   %.not.not.i79 = icmp ult i32 %233, %229
-  br i1 %.not.not.i79, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i81, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93
+  br i1 %.not.not.i79, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i81, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93
 
 _ZN4llvm17MCRegUnitIteratorppEv.exit.i81:         ; preds = %230
   %234 = getelementptr inbounds i8, ptr %.sroa.39.019.i77, i64 2
@@ -10683,7 +10683,7 @@ _ZNK12_GLOBAL__N_116RegAllocFastImpl16isRegUsedInInstrEtb.exit83: ; preds = %_ZN
   %248 = getelementptr inbounds i32, ptr %.val58, i64 %247
   %249 = load i32, ptr %248, align 4
   %.not.i89 = icmp eq i32 %249, 0
-  br i1 %.not.i89, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i91, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93
+  br i1 %.not.i89, label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i91, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93
 
 _ZN4llvm17MCRegUnitIteratorppEv.exit.i91:         ; preds = %.lr.ph.i86
   %250 = getelementptr inbounds i8, ptr %.sroa.32.012.i87, i64 2
@@ -10697,8 +10697,8 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i91:         ; preds = %.lr.ph.i86
   tail call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImpl19assignVirtToPhysRegERN4llvm12MachineInstrERNS0_7LiveRegEt(ptr noundef nonnull align 8 dereferenceable(1257) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i16 noundef zeroext %206)
   br label %369
 
-_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93: ; preds = %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i, %159, %156, %230, %.lr.ph.i86, %207, %190, %_ZNK12_GLOBAL__N_116RegAllocFastImpl11traceCopiesEN4llvm8RegisterE.exit, %123, %120, %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit, %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit71, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74
-  %.sroa.0114.0 = phi i32 [ 0, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74 ], [ 0, %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit71 ], [ 0, %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit ], [ 0, %120 ], [ 0, %123 ], [ 0, %_ZNK12_GLOBAL__N_116RegAllocFastImpl11traceCopiesEN4llvm8RegisterE.exit ], [ 0, %190 ], [ 0, %207 ], [ %.sroa.0.0.i.i, %.lr.ph.i86 ], [ 0, %230 ], [ 0, %156 ], [ 0, %159 ], [ 0, %_ZL13isCoalescableRKN4llvm12MachineInstrE.argprom.exit.thread.i ]
+_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93: ; preds = %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.thread.i, %159, %156, %230, %.lr.ph.i86, %207, %190, %_ZNK12_GLOBAL__N_116RegAllocFastImpl11traceCopiesEN4llvm8RegisterE.exit, %123, %120, %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit, %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit71, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74
+  %.sroa.0114.0 = phi i32 [ 0, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit74 ], [ 0, %_ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit71 ], [ 0, %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit ], [ 0, %120 ], [ 0, %123 ], [ 0, %_ZNK12_GLOBAL__N_116RegAllocFastImpl11traceCopiesEN4llvm8RegisterE.exit ], [ 0, %190 ], [ 0, %207 ], [ %.sroa.0.0.i.i, %.lr.ph.i86 ], [ 0, %230 ], [ 0, %156 ], [ 0, %159 ], [ 0, %_ZL13isCoalescableRKN4llvm12MachineInstrE.exit.thread.i ]
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %255 = load ptr, ptr %15, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 24
@@ -10712,11 +10712,11 @@ _ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93: ; 
   %.not.i.i94 = icmp eq i32 %262, %263
   br i1 %.not.i.i94, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit, label %264
 
-264:                                              ; preds = %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93
+264:                                              ; preds = %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93
   tail call void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320) %254, ptr noundef nonnull %15) #22
   br label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit
 
-_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds = %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.argprom.argprom.exit93, %264
+_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds = %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit93, %264
   %265 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %266 = load ptr, ptr %265, align 8
   %267 = getelementptr inbounds nuw i8, ptr %260, i64 4
@@ -15155,7 +15155,7 @@ declare noundef zeroext i1 @_ZN4llvm19MachineFunctionPass13runOnFunctionERNS_8Fu
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112RegAllocFast20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1320) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImpl20runOnMachineFunctionERN4llvm15MachineFunctionE.retelim(ptr noundef nonnull align 8 dereferenceable(1257) %3, ptr noundef nonnull align 8 dereferenceable(1041) %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImpl20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1257) %3, ptr noundef nonnull align 8 dereferenceable(1041) %1)
   ret i1 true
 }
 

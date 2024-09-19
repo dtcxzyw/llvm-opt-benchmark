@@ -101,13 +101,13 @@ RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %13, %5
   %21 = icmp ne i64 %20, 0
   %22 = icmp eq i64 %3, 0
   %23 = or i1 %22, %21
-  br i1 %23, label %rb_obj_write.argprom.exit.i, label %24
+  br i1 %23, label %rb_obj_write.exit.i, label %24
 
 24:                                               ; preds = %RTYPEDDATA_GET_DATA.exit.i
   tail call void @rb_gc_writebarrier(i64 noundef %7, i64 noundef %3) #10
-  br label %rb_obj_write.argprom.exit.i
+  br label %rb_obj_write.exit.i
 
-rb_obj_write.argprom.exit.i:                      ; preds = %24, %RTYPEDDATA_GET_DATA.exit.i
+rb_obj_write.exit.i:                              ; preds = %24, %RTYPEDDATA_GET_DATA.exit.i
   %25 = getelementptr inbounds i8, ptr %15, i64 40
   store i64 %4, ptr %25, align 8
   %26 = and i64 %4, 7
@@ -116,11 +116,11 @@ rb_obj_write.argprom.exit.i:                      ; preds = %24, %RTYPEDDATA_GET
   %29 = or i1 %28, %27
   br i1 %29, label %rb_fiddle_ptr_new2.exit, label %30
 
-30:                                               ; preds = %rb_obj_write.argprom.exit.i
+30:                                               ; preds = %rb_obj_write.exit.i
   tail call void @rb_gc_writebarrier(i64 noundef %7, i64 noundef %4) #10
   br label %rb_fiddle_ptr_new2.exit
 
-rb_fiddle_ptr_new2.exit:                          ; preds = %rb_obj_write.argprom.exit.i, %30
+rb_fiddle_ptr_new2.exit:                          ; preds = %rb_obj_write.exit.i, %30
   ret i64 %7
 }
 
@@ -204,13 +204,13 @@ define void @Init_fiddle_pointer() local_unnamed_addr #0 {
   %43 = and i64 %42, 2
   %.not.i.i.i = icmp eq i64 %43, 0
   %44 = getelementptr inbounds i8, ptr %40, i64 32
-  br i1 %.not.i.i.i, label %45, label %rb_fiddle_ptr_new.argprom.exit
+  br i1 %.not.i.i.i, label %45, label %rb_fiddle_ptr_new.exit
 
 45:                                               ; preds = %0
   %46 = load ptr, ptr %44, align 8
-  br label %rb_fiddle_ptr_new.argprom.exit
+  br label %rb_fiddle_ptr_new.exit
 
-rb_fiddle_ptr_new.argprom.exit:                   ; preds = %0, %45
+rb_fiddle_ptr_new.exit:                           ; preds = %0, %45
   %47 = phi ptr [ %46, %45 ], [ %44, %0 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
@@ -355,7 +355,7 @@ rb_fiddle_ptr_malloc.exit:                        ; preds = %rb_num2long_inline.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %.0..0..0. = load i64, ptr %6, align 8
   %.not = icmp eq i64 %.0..0..0., 0
-  br i1 %.not, label %rb_obj_write.argprom.exit, label %49
+  br i1 %.not, label %rb_obj_write.exit, label %49
 
 49:                                               ; preds = %rb_fiddle_ptr_malloc.exit
   %50 = load ptr, ptr %41, align 8
@@ -363,18 +363,18 @@ rb_fiddle_ptr_malloc.exit:                        ; preds = %rb_num2long_inline.
   store i64 %.0..0..0., ptr %51, align 8
   %52 = and i64 %.0..0..0., 7
   %.not21 = icmp eq i64 %52, 0
-  br i1 %.not21, label %53, label %rb_obj_write.argprom.exit
+  br i1 %.not21, label %53, label %rb_obj_write.exit
 
 53:                                               ; preds = %49
   call void @rb_gc_writebarrier(i64 noundef %36, i64 noundef %.0..0..0.) #10
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %53, %49, %rb_fiddle_ptr_malloc.exit
+rb_obj_write.exit:                                ; preds = %53, %49, %rb_fiddle_ptr_malloc.exit
   %54 = call i32 @rb_block_given_p() #10
   %.not14 = icmp eq i32 %54, 0
   br i1 %.not14, label %60, label %55
 
-55:                                               ; preds = %rb_obj_write.argprom.exit
+55:                                               ; preds = %rb_obj_write.exit
   %.not15 = icmp eq ptr %.0, null
   br i1 %.not15, label %56, label %58
 
@@ -387,8 +387,8 @@ rb_obj_write.argprom.exit:                        ; preds = %53, %49, %rb_fiddle
   %59 = call i64 @rb_ensure(ptr noundef nonnull @rb_yield, i64 noundef %36, ptr noundef nonnull @rb_fiddle_ptr_call_free, i64 noundef %36) #10
   br label %60
 
-60:                                               ; preds = %rb_obj_write.argprom.exit, %58
-  %.012 = phi i64 [ %59, %58 ], [ %36, %rb_obj_write.argprom.exit ]
+60:                                               ; preds = %rb_obj_write.exit, %58
+  %.012 = phi i64 [ %59, %58 ], [ %36, %rb_obj_write.exit ]
   ret i64 %.012
 }
 
@@ -417,13 +417,13 @@ define internal i64 @rb_fiddle_ptr_s_to_ptr(i64 %0, i64 noundef %1) #0 {
   %18 = and i64 %17, 2
   %.not.i.i.i = icmp eq i64 %18, 0
   %19 = getelementptr inbounds i8, ptr %15, i64 32
-  br i1 %.not.i.i.i, label %20, label %rb_fiddle_ptr_new.argprom.exit
+  br i1 %.not.i.i.i, label %20, label %rb_fiddle_ptr_new.exit
 
 20:                                               ; preds = %7
   %21 = load ptr, ptr %19, align 8
-  br label %rb_fiddle_ptr_new.argprom.exit
+  br label %rb_fiddle_ptr_new.exit
 
-rb_fiddle_ptr_new.argprom.exit:                   ; preds = %7, %20
+rb_fiddle_ptr_new.exit:                           ; preds = %7, %20
   %22 = phi ptr [ %21, %20 ], [ %19, %7 ]
   store ptr %12, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
@@ -453,13 +453,13 @@ rb_fiddle_ptr_new.argprom.exit:                   ; preds = %7, %20
   %40 = and i64 %39, 2
   %.not.i.i.i15 = icmp eq i64 %40, 0
   %41 = getelementptr inbounds i8, ptr %37, i64 32
-  br i1 %.not.i.i.i15, label %42, label %rb_fiddle_ptr_new.argprom.exit16
+  br i1 %.not.i.i.i15, label %42, label %rb_fiddle_ptr_new.exit16
 
 42:                                               ; preds = %29
   %43 = load ptr, ptr %41, align 8
-  br label %rb_fiddle_ptr_new.argprom.exit16
+  br label %rb_fiddle_ptr_new.exit16
 
-rb_fiddle_ptr_new.argprom.exit16:                 ; preds = %29, %42
+rb_fiddle_ptr_new.exit16:                         ; preds = %29, %42
   %44 = phi ptr [ %43, %42 ], [ %41, %29 ]
   store ptr %30, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
@@ -482,7 +482,7 @@ rb_fiddle_ptr_new.argprom.exit16:                 ; preds = %29, %42
   %53 = load i64, ptr @rb_cPointer, align 8
   %54 = tail call i64 @rb_obj_is_kind_of(i64 noundef %51, i64 noundef %53) #10
   %.not13 = icmp eq i64 %54, 0
-  br i1 %.not13, label %55, label %rb_obj_write.argprom.exit
+  br i1 %.not13, label %55, label %rb_obj_write.exit
 
 55:                                               ; preds = %52
   %56 = load i64, ptr @rb_eFiddleDLError, align 8
@@ -516,13 +516,13 @@ rb_num2ulong_inline.exit:                         ; preds = %61, %63
   %71 = and i64 %70, 2
   %.not.i.i.i17 = icmp eq i64 %71, 0
   %72 = getelementptr inbounds i8, ptr %68, i64 32
-  br i1 %.not.i.i.i17, label %73, label %rb_fiddle_ptr_new.argprom.exit18
+  br i1 %.not.i.i.i17, label %73, label %rb_fiddle_ptr_new.exit18
 
 73:                                               ; preds = %rb_num2ulong_inline.exit
   %74 = load ptr, ptr %72, align 8
-  br label %rb_fiddle_ptr_new.argprom.exit18
+  br label %rb_fiddle_ptr_new.exit18
 
-rb_fiddle_ptr_new.argprom.exit18:                 ; preds = %rb_num2ulong_inline.exit, %73
+rb_fiddle_ptr_new.exit18:                         ; preds = %rb_num2ulong_inline.exit, %73
   %75 = phi ptr [ %74, %73 ], [ %72, %rb_num2ulong_inline.exit ]
   store ptr %65, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
@@ -531,11 +531,11 @@ rb_fiddle_ptr_new.argprom.exit18:                 ; preds = %rb_num2ulong_inline
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %76, i8 0, i64 17, i1 false)
   br label %78
 
-78:                                               ; preds = %rb_fiddle_ptr_new.argprom.exit16, %rb_fiddle_ptr_new.argprom.exit18, %rb_fiddle_ptr_new.argprom.exit
-  %.011 = phi i64 [ %1, %rb_fiddle_ptr_new.argprom.exit ], [ %31, %rb_fiddle_ptr_new.argprom.exit16 ], [ %spec.select, %rb_fiddle_ptr_new.argprom.exit18 ]
-  %.0 = phi i64 [ %14, %rb_fiddle_ptr_new.argprom.exit ], [ %36, %rb_fiddle_ptr_new.argprom.exit16 ], [ %67, %rb_fiddle_ptr_new.argprom.exit18 ]
+78:                                               ; preds = %rb_fiddle_ptr_new.exit16, %rb_fiddle_ptr_new.exit18, %rb_fiddle_ptr_new.exit
+  %.011 = phi i64 [ %1, %rb_fiddle_ptr_new.exit ], [ %31, %rb_fiddle_ptr_new.exit16 ], [ %spec.select, %rb_fiddle_ptr_new.exit18 ]
+  %.0 = phi i64 [ %14, %rb_fiddle_ptr_new.exit ], [ %36, %rb_fiddle_ptr_new.exit16 ], [ %67, %rb_fiddle_ptr_new.exit18 ]
   %.not14 = icmp eq i64 %.011, 0
-  br i1 %.not14, label %rb_obj_write.argprom.exit, label %79
+  br i1 %.not14, label %rb_obj_write.exit, label %79
 
 79:                                               ; preds = %78
   %80 = inttoptr i64 %.0 to ptr
@@ -545,13 +545,13 @@ rb_fiddle_ptr_new.argprom.exit18:                 ; preds = %rb_num2ulong_inline
   store i64 %.011, ptr %83, align 8
   %84 = and i64 %.011, 7
   %.not25 = icmp eq i64 %84, 0
-  br i1 %.not25, label %85, label %rb_obj_write.argprom.exit
+  br i1 %.not25, label %85, label %rb_obj_write.exit
 
 85:                                               ; preds = %79
   call void @rb_gc_writebarrier(i64 noundef %.0, i64 noundef %.011) #10
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %52, %85, %79, %78
+rb_obj_write.exit:                                ; preds = %52, %85, %79, %78
   %.022 = phi i64 [ %.0, %78 ], [ %.0, %79 ], [ %.0, %85 ], [ %51, %52 ]
   ret i64 %.022
 }
@@ -740,13 +740,13 @@ get_freefunc.exit:                                ; preds = %20, %rb_num2ulong_i
   %52 = icmp ne i64 %51, 0
   %53 = icmp eq i64 %.0, 0
   %54 = or i1 %53, %52
-  br i1 %54, label %rb_obj_write.argprom.exit, label %55
+  br i1 %54, label %rb_obj_write.exit, label %55
 
 55:                                               ; preds = %49
   call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.0) #10
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %49, %55
+rb_obj_write.exit:                                ; preds = %49, %55
   %56 = getelementptr inbounds i8, ptr %43, i64 40
   %.0..0..0. = load i64, ptr %7, align 8
   store i64 %.0..0..0., ptr %56, align 8
@@ -754,13 +754,13 @@ rb_obj_write.argprom.exit:                        ; preds = %49, %55
   %58 = icmp ne i64 %57, 0
   %59 = icmp eq i64 %.0..0..0., 0
   %60 = or i1 %59, %58
-  br i1 %60, label %rb_obj_write.argprom.exit35, label %61
+  br i1 %60, label %rb_obj_write.exit35, label %61
 
-61:                                               ; preds = %rb_obj_write.argprom.exit
+61:                                               ; preds = %rb_obj_write.exit
   call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %.0..0..0.) #10
-  br label %rb_obj_write.argprom.exit35
+  br label %rb_obj_write.exit35
 
-rb_obj_write.argprom.exit35:                      ; preds = %rb_obj_write.argprom.exit, %61
+rb_obj_write.exit35:                              ; preds = %rb_obj_write.exit, %61
   store ptr %.024, ptr %43, align 8
   %62 = getelementptr inbounds i8, ptr %43, i64 8
   store i64 %.02237, ptr %62, align 8
@@ -768,7 +768,7 @@ rb_obj_write.argprom.exit35:                      ; preds = %rb_obj_write.argpro
   store ptr %.023, ptr %63, align 8
   br label %64
 
-64:                                               ; preds = %rb_obj_write.argprom.exit35, %get_freefunc.exit
+64:                                               ; preds = %rb_obj_write.exit35, %get_freefunc.exit
   ret i64 4
 }
 
@@ -929,13 +929,13 @@ define internal i64 @rb_fiddle_ptr_ptr(i64 noundef %0) #0 {
   %10 = and i64 %9, 2
   %.not.i.i.i = icmp eq i64 %10, 0
   %11 = getelementptr inbounds i8, ptr %7, i64 32
-  br i1 %.not.i.i.i, label %12, label %rb_fiddle_ptr_new.argprom.exit
+  br i1 %.not.i.i.i, label %12, label %rb_fiddle_ptr_new.exit
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %11, align 8
-  br label %rb_fiddle_ptr_new.argprom.exit
+  br label %rb_fiddle_ptr_new.exit
 
-rb_fiddle_ptr_new.argprom.exit:                   ; preds = %1, %12
+rb_fiddle_ptr_new.exit:                           ; preds = %1, %12
   %14 = phi ptr [ %13, %12 ], [ %11, %1 ]
   store ptr %4, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 8
@@ -956,13 +956,13 @@ define internal i64 @rb_fiddle_ptr_ref(i64 noundef %0) #0 {
   %8 = and i64 %7, 2
   %.not.i.i.i = icmp eq i64 %8, 0
   %9 = getelementptr inbounds i8, ptr %5, i64 32
-  br i1 %.not.i.i.i, label %10, label %rb_fiddle_ptr_new.argprom.exit
+  br i1 %.not.i.i.i, label %10, label %rb_fiddle_ptr_new.exit
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %9, align 8
-  br label %rb_fiddle_ptr_new.argprom.exit
+  br label %rb_fiddle_ptr_new.exit
 
-rb_fiddle_ptr_new.argprom.exit:                   ; preds = %1, %10
+rb_fiddle_ptr_new.exit:                           ; preds = %1, %10
   %12 = phi ptr [ %11, %10 ], [ %9, %1 ]
   store ptr %2, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
@@ -1260,13 +1260,13 @@ rb_num2long_inline.exit:                          ; preds = %18, %20
   %27 = and i64 %26, 2
   %.not.i.i.i = icmp eq i64 %27, 0
   %28 = getelementptr inbounds i8, ptr %24, i64 32
-  br i1 %.not.i.i.i, label %29, label %rb_fiddle_ptr_new.argprom.exit
+  br i1 %.not.i.i.i, label %29, label %rb_fiddle_ptr_new.exit
 
 29:                                               ; preds = %rb_num2long_inline.exit
   %30 = load ptr, ptr %28, align 8
-  br label %rb_fiddle_ptr_new.argprom.exit
+  br label %rb_fiddle_ptr_new.exit
 
-rb_fiddle_ptr_new.argprom.exit:                   ; preds = %rb_num2long_inline.exit, %29
+rb_fiddle_ptr_new.exit:                           ; preds = %rb_num2long_inline.exit, %29
   %31 = phi ptr [ %30, %29 ], [ %28, %rb_num2long_inline.exit ]
   %32 = sub nsw i64 %16, %.0.i7
   %33 = getelementptr inbounds i8, ptr %.0.i, i64 %.0.i7
@@ -1332,13 +1332,13 @@ rb_num2long_inline.exit:                          ; preds = %18, %20
   %27 = and i64 %26, 2
   %.not.i.i.i = icmp eq i64 %27, 0
   %28 = getelementptr inbounds i8, ptr %24, i64 32
-  br i1 %.not.i.i.i, label %29, label %rb_fiddle_ptr_new.argprom.exit
+  br i1 %.not.i.i.i, label %29, label %rb_fiddle_ptr_new.exit
 
 29:                                               ; preds = %rb_num2long_inline.exit
   %30 = load ptr, ptr %28, align 8
-  br label %rb_fiddle_ptr_new.argprom.exit
+  br label %rb_fiddle_ptr_new.exit
 
-rb_fiddle_ptr_new.argprom.exit:                   ; preds = %rb_num2long_inline.exit, %29
+rb_fiddle_ptr_new.exit:                           ; preds = %rb_num2long_inline.exit, %29
   %31 = phi ptr [ %30, %29 ], [ %28, %rb_num2long_inline.exit ]
   %32 = add nsw i64 %.0.i7, %16
   %33 = sub i64 0, %.0.i7

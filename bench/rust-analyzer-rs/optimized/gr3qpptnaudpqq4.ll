@@ -374,7 +374,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h01c54e7298b5
 .thread:                                          ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %19 = getelementptr inbounds i8, ptr %12, i64 24
@@ -486,30 +486,30 @@ default.unreachable40:                            ; preds = %46
           cleanup
   %55 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
   %56 = extractvalue { i8, i1 } %55, 1
-  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread", label %57
+  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread", label %57
 
 57:                                               ; preds = %54
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread" unwind label %52
+          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread" unwind label %52
 
 "_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit": ; preds = %44, %51, %61, %64
   %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn23, %64 ], [ %.pn.pn23, %61 ], [ %45, %44 ], [ %45, %51 ]
   resume { ptr, i32 } %.pn.pn22
 
-"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread": ; preds = %54, %57, %.thread
+"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread": ; preds = %54, %57, %.thread
   %.pn.pn23 = phi { ptr, i32 } [ %18, %.thread ], [ %lpad.thr_comm, %57 ], [ %lpad.thr_comm, %54 ]
   %58 = load atomic i64, ptr %5 monotonic, align 8, !noalias !74
   %59 = and i64 %58, 1
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %61, label %64
 
-61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
   %62 = add i64 %58, -20
   %63 = cmpxchg weak ptr %5, i64 %58, i64 %62 release monotonic, align 8, !noalias !74
   %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %63, 1
   br i1 %.sroa.18.0.in.i.i.i.i, label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit", label %64
 
-64:                                               ; preds = %61, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+64:                                               ; preds = %61, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
           to label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit" unwind label %52
 }
@@ -534,7 +534,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3aaa8850ae5e
 .thread:                                          ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %19 = getelementptr inbounds i8, ptr %12, i64 24
@@ -604,7 +604,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3aaa8850ae5e
   %45 = landingpad { ptr, i32 }
           cleanup
   %.not = icmp eq i64 %40, 2
-  br i1 %.not, label %51, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.argprom.exit"
+  br i1 %.not, label %51, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit"
 
 46:                                               ; preds = %37
   switch i64 %40, label %default.unreachable40 [
@@ -633,7 +633,7 @@ default.unreachable40:                            ; preds = %46
 
 51:                                               ; preds = %44
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h741c9f66975094baE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43) #19
-          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.argprom.exit" unwind label %52
+          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit" unwind label %52
 
 52:                                               ; preds = %61, %57, %51
   %53 = landingpad { ptr, i32 }
@@ -646,26 +646,26 @@ default.unreachable40:                            ; preds = %46
           cleanup
   %55 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
   %56 = extractvalue { i8, i1 } %55, 1
-  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread", label %57
+  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread", label %57
 
 57:                                               ; preds = %54
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread" unwind label %52
+          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread" unwind label %52
 
-"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.argprom.exit": ; preds = %44, %51, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread", %61
-  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn23, %61 ], [ %.pn.pn23, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread" ], [ %45, %44 ], [ %45, %51 ]
+"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit": ; preds = %44, %51, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread", %61
+  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn23, %61 ], [ %.pn.pn23, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread" ], [ %45, %44 ], [ %45, %51 ]
   resume { ptr, i32 } %.pn.pn22
 
-"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread": ; preds = %54, %57, %.thread
+"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread": ; preds = %54, %57, %.thread
   %.pn.pn23 = phi { ptr, i32 } [ %18, %.thread ], [ %lpad.thr_comm, %57 ], [ %lpad.thr_comm, %54 ]
   %58 = atomicrmw sub ptr %5, i64 16 release, align 8
   %59 = and i64 %58, -14
   %60 = icmp eq i64 %59, 18
-  br i1 %60, label %61, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.argprom.exit"
+  br i1 %60, label %61, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit"
 
-61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.argprom.exit" unwind label %52
+          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit" unwind label %52
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -688,7 +688,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4dcf99814dce
 .thread:                                          ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %19 = getelementptr inbounds i8, ptr %12, i64 24
@@ -758,7 +758,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4dcf99814dce
   %45 = landingpad { ptr, i32 }
           cleanup
   %.not = icmp eq i64 %40, 2
-  br i1 %.not, label %51, label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.argprom.exit"
+  br i1 %.not, label %51, label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit"
 
 46:                                               ; preds = %37
   switch i64 %40, label %default.unreachable40 [
@@ -787,7 +787,7 @@ default.unreachable40:                            ; preds = %46
 
 51:                                               ; preds = %44
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h741c9f66975094baE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43) #19
-          to label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.argprom.exit" unwind label %52
+          to label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit" unwind label %52
 
 52:                                               ; preds = %61, %57, %51
   %53 = landingpad { ptr, i32 }
@@ -800,26 +800,26 @@ default.unreachable40:                            ; preds = %46
           cleanup
   %55 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
   %56 = extractvalue { i8, i1 } %55, 1
-  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread", label %57
+  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread", label %57
 
 57:                                               ; preds = %54
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread" unwind label %52
+          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread" unwind label %52
 
-"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.argprom.exit": ; preds = %44, %51, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread", %61
-  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn23, %61 ], [ %.pn.pn23, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread" ], [ %45, %44 ], [ %45, %51 ]
+"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit": ; preds = %44, %51, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread", %61
+  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn23, %61 ], [ %.pn.pn23, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread" ], [ %45, %44 ], [ %45, %51 ]
   resume { ptr, i32 } %.pn.pn22
 
-"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread": ; preds = %54, %57, %.thread
+"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread": ; preds = %54, %57, %.thread
   %.pn.pn23 = phi { ptr, i32 } [ %18, %.thread ], [ %lpad.thr_comm, %57 ], [ %lpad.thr_comm, %54 ]
   %58 = atomicrmw sub ptr %5, i64 16 release, align 8
   %59 = and i64 %58, -14
   %60 = icmp eq i64 %59, 18
-  br i1 %60, label %61, label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.argprom.exit"
+  br i1 %60, label %61, label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit"
 
-61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.argprom.exit" unwind label %52
+          to label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit" unwind label %52
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -842,7 +842,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9b8da23d7dab
 .thread:                                          ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %19 = getelementptr inbounds i8, ptr %12, i64 24
@@ -954,30 +954,30 @@ default.unreachable40:                            ; preds = %46
           cleanup
   %55 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
   %56 = extractvalue { i8, i1 } %55, 1
-  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread", label %57
+  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread", label %57
 
 57:                                               ; preds = %54
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread" unwind label %52
+          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread" unwind label %52
 
 "_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit": ; preds = %44, %51, %61, %64
   %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn23, %64 ], [ %.pn.pn23, %61 ], [ %45, %44 ], [ %45, %51 ]
   resume { ptr, i32 } %.pn.pn22
 
-"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread": ; preds = %54, %57, %.thread
+"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread": ; preds = %54, %57, %.thread
   %.pn.pn23 = phi { ptr, i32 } [ %18, %.thread ], [ %lpad.thr_comm, %57 ], [ %lpad.thr_comm, %54 ]
   %58 = load atomic i64, ptr %5 monotonic, align 8, !noalias !79
   %59 = and i64 %58, 1
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %61, label %64
 
-61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
   %62 = add i64 %58, -20
   %63 = cmpxchg weak ptr %5, i64 %58, i64 %62 release monotonic, align 8, !noalias !79
   %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %63, 1
   br i1 %.sroa.18.0.in.i.i.i.i, label %"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit", label %64
 
-64:                                               ; preds = %61, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+64:                                               ; preds = %61, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
           to label %"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit" unwind label %52
 }
@@ -1002,7 +1002,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heacd73fdca2b
 .thread:                                          ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %19 = getelementptr inbounds i8, ptr %12, i64 24
@@ -1114,30 +1114,30 @@ default.unreachable40:                            ; preds = %46
           cleanup
   %55 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
   %56 = extractvalue { i8, i1 } %55, 1
-  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread", label %57
+  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread", label %57
 
 57:                                               ; preds = %54
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread" unwind label %52
+          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread" unwind label %52
 
 "_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit": ; preds = %44, %51, %61, %64
   %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn23, %64 ], [ %.pn.pn23, %61 ], [ %45, %44 ], [ %45, %51 ]
   resume { ptr, i32 } %.pn.pn22
 
-"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread": ; preds = %54, %57, %.thread
+"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread": ; preds = %54, %57, %.thread
   %.pn.pn23 = phi { ptr, i32 } [ %18, %.thread ], [ %lpad.thr_comm, %57 ], [ %lpad.thr_comm, %54 ]
   %58 = load atomic i64, ptr %5 monotonic, align 8, !noalias !84
   %59 = and i64 %58, 1
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %61, label %64
 
-61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
   %62 = add i64 %58, -20
   %63 = cmpxchg weak ptr %5, i64 %58, i64 %62 release monotonic, align 8, !noalias !84
   %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %63, 1
   br i1 %.sroa.18.0.in.i.i.i.i, label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit", label %64
 
-64:                                               ; preds = %61, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+64:                                               ; preds = %61, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
           to label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit" unwind label %52
 }
@@ -1162,7 +1162,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heb6aa66fd9e2
 .thread:                                          ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+  br label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %19 = getelementptr inbounds i8, ptr %12, i64 24
@@ -1232,7 +1232,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heb6aa66fd9e2
   %45 = landingpad { ptr, i32 }
           cleanup
   %.not = icmp eq i64 %40, 2
-  br i1 %.not, label %51, label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.argprom.exit"
+  br i1 %.not, label %51, label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit"
 
 46:                                               ; preds = %37
   switch i64 %40, label %default.unreachable40 [
@@ -1261,7 +1261,7 @@ default.unreachable40:                            ; preds = %46
 
 51:                                               ; preds = %44
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h741c9f66975094baE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43) #19
-          to label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.argprom.exit" unwind label %52
+          to label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit" unwind label %52
 
 52:                                               ; preds = %61, %57, %51
   %53 = landingpad { ptr, i32 }
@@ -1274,26 +1274,26 @@ default.unreachable40:                            ; preds = %46
           cleanup
   %55 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
   %56 = extractvalue { i8, i1 } %55, 1
-  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread", label %57
+  br i1 %56, label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread", label %57
 
 57:                                               ; preds = %54
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread" unwind label %52
+          to label %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread" unwind label %52
 
-"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.argprom.exit": ; preds = %44, %51, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread", %61
-  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn23, %61 ], [ %.pn.pn23, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread" ], [ %45, %44 ], [ %45, %51 ]
+"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit": ; preds = %44, %51, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread", %61
+  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn23, %61 ], [ %.pn.pn23, %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread" ], [ %45, %44 ], [ %45, %51 ]
   resume { ptr, i32 } %.pn.pn22
 
-"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread": ; preds = %54, %57, %.thread
+"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread": ; preds = %54, %57, %.thread
   %.pn.pn23 = phi { ptr, i32 } [ %18, %.thread ], [ %lpad.thr_comm, %57 ], [ %lpad.thr_comm, %54 ]
   %58 = atomicrmw sub ptr %5, i64 16 release, align 8
   %59 = and i64 %58, -14
   %60 = icmp eq i64 %59, 18
-  br i1 %60, label %61, label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.argprom.exit"
+  br i1 %60, label %61, label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit"
 
-61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.argprom.exit.thread"
+61:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$salsa..runtime..dependency_graph..DependencyGraph$GT$$GT$17h12eda092a7450560E.exit.thread"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.argprom.exit" unwind label %52
+          to label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit" unwind label %52
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1322,7 +1322,7 @@ define hidden void @_ZN5salsa7runtime7Runtime25with_incremented_revision17h2939c
   %24 = icmp eq i64 %23, 5
   br i1 %24, label %.critedge67, label %25
 
-.noexc77:                                         ; preds = %77, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+.noexc77:                                         ; preds = %77, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
   br i1 %.3, label %247, label %"_ZN4core3ptr218drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..CompressedFileTextQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..CompressedFileTextQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17h56d75363726f9d00E.exit"
 
 .thread:                                          ; preds = %47, %73, %60, %55, %.critedge67, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %30
@@ -1475,7 +1475,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #17
           to label %52 unwind label %.thread
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit": ; preds = %.body, %87, %80
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit": ; preds = %.body, %87, %80
   %.3 = phi i1 [ %.2, %80 ], [ %.4.lpad-body, %87 ], [ %.4.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %eh.lpad-body, %87 ], [ %eh.lpad-body, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
@@ -1485,7 +1485,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %76 = icmp eq i64 %75, 1
   br i1 %76, label %77, label %.noexc77
 
-77:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+77:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
   %78 = load ptr, ptr %17, align 8, !alias.scope !96, !nonnull !11, !noundef !11
   %79 = load atomic i64, ptr %78 acquire, align 8, !noalias !96
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
@@ -1495,7 +1495,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.2 = phi i1 [ true, %71 ], [ false, %223 ]
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit": ; preds = %68, %71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
@@ -1520,11 +1520,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %eh.lpad-body = phi { ptr, i32 } [ %191, %196 ], [ %191, %190 ], [ %111, %189 ], [ %111, %186 ], [ %.pn49.i, %184 ], [ %.pn49.i, %.thread46.i ], [ %lpad.loopexit, %.loopexit139 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %85 = cmpxchg ptr %69, i64 8, i64 0 release monotonic, align 8
   %86 = extractvalue { i64, i1 } %85, 1
-  br i1 %86, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit", label %87
+  br i1 %86, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit", label %87
 
 87:                                               ; preds = %.body
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %69, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit" unwind label %245
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit" unwind label %245
 
 88:                                               ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit"
   store i32 %84, ptr %16, align 4
@@ -1730,20 +1730,20 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %173 = cmpxchg ptr %155, i64 8, i64 0 release monotonic, align 8, !noalias !97
   %174 = extractvalue { i64, i1 } %173, 1
-  br i1 %174, label %"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.argprom.exit30.i", label %175
+  br i1 %174, label %"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.exit30.i", label %175
 
 175:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$17h82aa4a0eaf70d806E.exit.i"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %155, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.argprom.exit30.i" unwind label %.thread51.i, !noalias !97
+          to label %"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.exit30.i" unwind label %.thread51.i, !noalias !97
 
-"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.argprom.exit30.i": ; preds = %181, %175, %"_ZN4core3ptr95drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$17h82aa4a0eaf70d806E.exit.i"
+"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.exit30.i": ; preds = %181, %175, %"_ZN4core3ptr95drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$17h82aa4a0eaf70d806E.exit.i"
   %.sroa.3.0.i = phi i8 [ undef, %181 ], [ %160, %"_ZN4core3ptr95drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$17h82aa4a0eaf70d806E.exit.i" ], [ %160, %175 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !97
   %176 = cmpxchg ptr %106, i64 8, i64 0 release monotonic, align 8, !noalias !97
   %177 = extractvalue { i64, i1 } %176, 1
   br i1 %177, label %217, label %178
 
-178:                                              ; preds = %"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.argprom.exit30.i"
+178:                                              ; preds = %"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.exit30.i"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %106, i1 noundef zeroext false)
           to label %217 unwind label %.loopexit.split-lp
 
@@ -1755,7 +1755,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
 
 181:                                              ; preds = %.noexc21.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !97
-  br label %"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.argprom.exit30.i"
+  br label %"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.exit30.i"
 
 .thread46.i:                                      ; preds = %185, %172, %168, %.thread51.i
   %.pn49.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %185 ], [ %lpad.thr_comm.i, %.thread51.i ], [ %169, %168 ], [ %169, %172 ]
@@ -1864,7 +1864,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %.critedge71
 
-217:                                              ; preds = %"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.argprom.exit30.i", %178
+217:                                              ; preds = %"_ZN4core3ptr174drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$$u5b$u8$u5d$$GT$$GT$$GT$$GT$17h61324a2621500471E.exit30.i", %178
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !97
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   br i1 %129, label %218, label %.loopexit
@@ -1879,11 +1879,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %221 = cmpxchg ptr %69, i64 8, i64 0 release monotonic, align 8
   %222 = extractvalue { i64, i1 } %221, 1
-  br i1 %222, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91", label %223
+  br i1 %222, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91", label %223
 
 223:                                              ; preds = %.loopexit
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %69, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91" unwind label %80
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91" unwind label %80
 
 224:                                              ; preds = %218
   %225 = icmp eq i64 %220, -1
@@ -1924,7 +1924,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   invoke void @_ZN5salsa8revision14AtomicRevision5store17ha68888389602ab5eE(ptr noundef nonnull align 4 %.sroa.0120.0, i32 noundef %238)
           to label %234 unwind label %.loopexit139
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91": ; preds = %.loopexit, %223
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91": ; preds = %.loopexit, %223
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %239 = load ptr, ptr %17, align 8, !alias.scope !134, !nonnull !11, !noundef !11
@@ -1932,13 +1932,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   %241 = icmp eq i64 %240, 1
   br i1 %241, label %242, label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98"
 
-242:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91"
+242:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91"
   %243 = load ptr, ptr %17, align 8, !alias.scope !134, !nonnull !11, !noundef !11
   %244 = load atomic i64, ptr %243 acquire, align 8, !noalias !134
   call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
   br label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98"
 
-"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98": ; preds = %242, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91"
+"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98": ; preds = %242, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   ret void
@@ -2124,7 +2124,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #17
   unreachable
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit": ; preds = %.body, %79, %72
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit": ; preds = %.body, %79, %72
   %.pn = phi { ptr, i32 } [ %73, %72 ], [ %eh.lpad-body, %79 ], [ %eh.lpad-body, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
   call void @llvm.experimental.noalias.scope.decl(metadata !149)
@@ -2133,7 +2133,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %68 = icmp eq i64 %67, 1
   br i1 %68, label %69, label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit"
 
-69:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+69:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
   %70 = load ptr, ptr %14, align 8, !alias.scope !152, !nonnull !11, !noundef !11
   %71 = load atomic i64, ptr %70 acquire, align 8, !noalias !152
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
@@ -2142,7 +2142,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 72:                                               ; preds = %184, %63
   %73 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit": ; preds = %60, %63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
@@ -2165,11 +2165,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %eh.lpad-body = phi { ptr, i32 } [ %102, %105 ], [ %102, %101 ], [ %137, %140 ], [ %137, %136 ], [ %lpad.loopexit, %.loopexit134 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %77 = cmpxchg ptr %61, i64 8, i64 0 release monotonic, align 8
   %78 = extractvalue { i64, i1 } %77, 1
-  br i1 %78, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit", label %79
+  br i1 %78, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit", label %79
 
 79:                                               ; preds = %.body
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %61, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit" unwind label %206
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit" unwind label %206
 
 80:                                               ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit"
   store i32 %76, ptr %13, align 4
@@ -2346,19 +2346,19 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit77.
   store i8 %107, ptr %148, align 4, !noalias !153
   %151 = cmpxchg ptr %144, i64 8, i64 0 release monotonic, align 8, !noalias !153
   %152 = extractvalue { i64, i1 } %151, 1
-  br i1 %152, label %"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.argprom.exit.i", label %153
+  br i1 %152, label %"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.exit.i", label %153
 
 153:                                              ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit46.i"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %144, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.argprom.exit.i" unwind label %136, !noalias !153
+          to label %"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.exit.i" unwind label %136, !noalias !153
 
-"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.argprom.exit.i": ; preds = %159, %153, %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit46.i"
+"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.exit.i": ; preds = %159, %153, %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit46.i"
   %.sroa.3.0.i = phi i8 [ undef, %159 ], [ %149, %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit46.i" ], [ %149, %153 ]
   %154 = cmpxchg ptr %.sroa.0110.0.copyload, i64 8, i64 0 release monotonic, align 8, !noalias !153
   %155 = extractvalue { i64, i1 } %154, 1
   br i1 %155, label %178, label %156
 
-156:                                              ; preds = %"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.argprom.exit.i"
+156:                                              ; preds = %"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.exit.i"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %.sroa.0110.0.copyload, i1 noundef zeroext false)
           to label %178 unwind label %.loopexit.split-lp
 
@@ -2370,7 +2370,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit77.
 
 159:                                              ; preds = %.noexc40.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !153
-  br label %"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.argprom.exit.i"
+  br label %"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.exit.i"
 
 160:                                              ; preds = %96
   %161 = load ptr, ptr @_ZN5salsa7runtime7Runtime25with_incremented_revision10__CALLSITE17h821118b167207d53E, align 8, !nonnull !11, !align !15, !noundef !11
@@ -2437,7 +2437,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit77.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %.critedge68
 
-178:                                              ; preds = %"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.argprom.exit.i", %156
+178:                                              ; preds = %"_ZN4core3ptr164drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$base_db..input..SourceRootId$GT$$GT$$GT$17h757096d01955bb5bE.exit.i", %156
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !153
   br i1 %113, label %179, label %.loopexit
 
@@ -2451,11 +2451,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit77.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %182 = cmpxchg ptr %61, i64 8, i64 0 release monotonic, align 8
   %183 = extractvalue { i64, i1 } %182, 1
-  br i1 %183, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit88", label %184
+  br i1 %183, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit88", label %184
 
 184:                                              ; preds = %.loopexit
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %61, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit88" unwind label %72
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit88" unwind label %72
 
 185:                                              ; preds = %179
   %186 = icmp eq i64 %181, -1
@@ -2496,7 +2496,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit77.
   invoke void @_ZN5salsa8revision14AtomicRevision5store17ha68888389602ab5eE(ptr noundef nonnull align 4 %.sroa.0119.0, i32 noundef %199)
           to label %195 unwind label %.loopexit134
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit88": ; preds = %.loopexit, %184
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit88": ; preds = %.loopexit, %184
   call void @llvm.experimental.noalias.scope.decl(metadata !165)
   call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %200 = load ptr, ptr %14, align 8, !alias.scope !171, !nonnull !11, !noundef !11
@@ -2504,13 +2504,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit77.
   %202 = icmp eq i64 %201, 1
   br i1 %202, label %203, label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit94"
 
-203:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit88"
+203:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit88"
   %204 = load ptr, ptr %14, align 8, !alias.scope !171, !nonnull !11, !noundef !11
   %205 = load atomic i64, ptr %204 acquire, align 8, !noalias !171
   call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
   br label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit94"
 
-"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit94": ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit88", %203
+"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit94": ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit88", %203
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   ret void
@@ -2521,7 +2521,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit77.
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit", %69
+"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit", %69
   resume { ptr, i32 } %.pn
 }
 
@@ -2551,7 +2551,7 @@ define hidden void @_ZN5salsa7runtime7Runtime25with_incremented_revision17h4a40c
   %24 = icmp eq i64 %23, 5
   br i1 %24, label %.critedge67, label %25
 
-.noexc77:                                         ; preds = %77, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+.noexc77:                                         ; preds = %77, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
   br i1 %.3, label %240, label %239
 
 .thread:                                          ; preds = %47, %73, %60, %55, %.critedge67, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %30
@@ -2704,7 +2704,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #17
           to label %52 unwind label %.thread
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit": ; preds = %.body, %87, %80
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit": ; preds = %.body, %87, %80
   %.3 = phi i1 [ %.2, %80 ], [ %.4.lpad-body, %87 ], [ %.4.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %eh.lpad-body, %87 ], [ %eh.lpad-body, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !172)
@@ -2714,7 +2714,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %76 = icmp eq i64 %75, 1
   br i1 %76, label %77, label %.noexc77
 
-77:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+77:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
   %78 = load ptr, ptr %17, align 8, !alias.scope !178, !nonnull !11, !noundef !11
   %79 = load atomic i64, ptr %78 acquire, align 8, !noalias !178
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
@@ -2724,7 +2724,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.2 = phi i1 [ true, %71 ], [ false, %215 ]
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit": ; preds = %68, %71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
@@ -2749,11 +2749,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %eh.lpad-body = phi { ptr, i32 } [ %189, %188 ], [ %111, %187 ], [ %111, %184 ], [ %.pn47.i, %182 ], [ %.pn47.i, %.thread44.i ], [ %lpad.loopexit, %.loopexit137 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %85 = cmpxchg ptr %69, i64 8, i64 0 release monotonic, align 8
   %86 = extractvalue { i64, i1 } %85, 1
-  br i1 %86, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit", label %87
+  br i1 %86, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit", label %87
 
 87:                                               ; preds = %.body
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %69, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit" unwind label %237
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit" unwind label %237
 
 88:                                               ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit"
   store i32 %84, ptr %16, align 4
@@ -2966,20 +2966,20 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %171 = cmpxchg ptr %150, i64 8, i64 0 release monotonic, align 8, !noalias !179
   %172 = extractvalue { i64, i1 } %171, 1
-  br i1 %172, label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.argprom.exit29.i", label %173
+  br i1 %172, label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.exit29.i", label %173
 
 173:                                              ; preds = %"_ZN4core3ptr100drop_in_place$LT$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$17h883cffc9e1f51daeE.exit.i"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %150, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.argprom.exit29.i" unwind label %.thread49.i, !noalias !179
+          to label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.exit29.i" unwind label %.thread49.i, !noalias !179
 
-"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.argprom.exit29.i": ; preds = %179, %173, %"_ZN4core3ptr100drop_in_place$LT$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$17h883cffc9e1f51daeE.exit.i"
+"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.exit29.i": ; preds = %179, %173, %"_ZN4core3ptr100drop_in_place$LT$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$17h883cffc9e1f51daeE.exit.i"
   %.sroa.3.0.i = phi i8 [ undef, %179 ], [ %155, %"_ZN4core3ptr100drop_in_place$LT$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$17h883cffc9e1f51daeE.exit.i" ], [ %155, %173 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !179
   %174 = cmpxchg ptr %106, i64 8, i64 0 release monotonic, align 8, !noalias !179
   %175 = extractvalue { i64, i1 } %174, 1
   br i1 %175, label %209, label %176
 
-176:                                              ; preds = %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.argprom.exit29.i"
+176:                                              ; preds = %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.exit29.i"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %106, i1 noundef zeroext false)
           to label %209 unwind label %.loopexit.split-lp
 
@@ -2991,7 +2991,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
 
 179:                                              ; preds = %.noexc21.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !179
-  br label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.argprom.exit29.i"
+  br label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.exit29.i"
 
 .thread44.i:                                      ; preds = %183, %170, %.body.i, %.thread49.i
   %.pn47.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %183 ], [ %lpad.thr_comm.i, %.thread49.i ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i, %170 ]
@@ -3090,7 +3090,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %.critedge71
 
-209:                                              ; preds = %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.argprom.exit29.i", %176
+209:                                              ; preds = %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$$GT$17hcc1b0458a702d531E.exit29.i", %176
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !179
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br i1 %125, label %210, label %.loopexit
@@ -3105,11 +3105,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %213 = cmpxchg ptr %69, i64 8, i64 0 release monotonic, align 8
   %214 = extractvalue { i64, i1 } %213, 1
-  br i1 %214, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91", label %215
+  br i1 %214, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91", label %215
 
 215:                                              ; preds = %.loopexit
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %69, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91" unwind label %80
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91" unwind label %80
 
 216:                                              ; preds = %210
   %217 = icmp eq i64 %212, -1
@@ -3150,7 +3150,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   invoke void @_ZN5salsa8revision14AtomicRevision5store17ha68888389602ab5eE(ptr noundef nonnull align 4 %.sroa.0118.0, i32 noundef %230)
           to label %226 unwind label %.loopexit137
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91": ; preds = %.loopexit, %215
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91": ; preds = %.loopexit, %215
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
   call void @llvm.experimental.noalias.scope.decl(metadata !199)
   %231 = load ptr, ptr %17, align 8, !alias.scope !202, !nonnull !11, !noundef !11
@@ -3158,13 +3158,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   %233 = icmp eq i64 %232, 1
   br i1 %233, label %234, label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98"
 
-234:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91"
+234:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91"
   %235 = load ptr, ptr %17, align 8, !alias.scope !202, !nonnull !11, !noundef !11
   %236 = load atomic i64, ptr %235 acquire, align 8, !noalias !202
   call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
   br label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98"
 
-"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98": ; preds = %234, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91"
+"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98": ; preds = %234, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   ret void
@@ -3208,7 +3208,7 @@ define hidden void @_ZN5salsa7runtime7Runtime25with_incremented_revision17h5b400
   %20 = icmp eq i64 %19, 5
   br i1 %20, label %.critedge67, label %21
 
-.noexc77:                                         ; preds = %73, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+.noexc77:                                         ; preds = %73, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
   br i1 %.3, label %191, label %"_ZN4core3ptr206drop_in_place$LT$$LT$salsa..input..UnitInputStorage$LT$base_db..CrateGraphQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..CrateGraphQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0fa5d94e381df2a6E.exit"
 
 .thread:                                          ; preds = %43, %69, %56, %51, %.critedge67, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %26
@@ -3361,7 +3361,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #17
           to label %48 unwind label %.thread
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit": ; preds = %.body, %83, %76
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit": ; preds = %.body, %83, %76
   %.3 = phi i1 [ %.2, %76 ], [ %.4.lpad-body, %83 ], [ %.4.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %eh.lpad-body, %83 ], [ %eh.lpad-body, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !203)
@@ -3371,7 +3371,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %72 = icmp eq i64 %71, 1
   br i1 %72, label %73, label %.noexc77
 
-73:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+73:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
   %74 = load ptr, ptr %13, align 8, !alias.scope !209, !nonnull !11, !noundef !11
   %75 = load atomic i64, ptr %74 acquire, align 8, !noalias !209
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
@@ -3381,7 +3381,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.2 = phi i1 [ true, %67 ], [ false, %167 ]
   %77 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit": ; preds = %64, %67
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
@@ -3406,11 +3406,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %eh.lpad-body = phi { ptr, i32 } [ %135, %140 ], [ %135, %134 ], [ %128, %131 ], [ %128, %127 ], [ %lpad.loopexit, %.loopexit140 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %81 = cmpxchg ptr %65, i64 8, i64 0 release monotonic, align 8
   %82 = extractvalue { i64, i1 } %81, 1
-  br i1 %82, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit", label %83
+  br i1 %82, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit", label %83
 
 83:                                               ; preds = %.body
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %65, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit" unwind label %189
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit" unwind label %189
 
 84:                                               ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit"
   store i32 %80, ptr %12, align 4
@@ -3653,11 +3653,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %165 = cmpxchg ptr %65, i64 8, i64 0 release monotonic, align 8
   %166 = extractvalue { i64, i1 } %165, 1
-  br i1 %166, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit92", label %167
+  br i1 %166, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit92", label %167
 
 167:                                              ; preds = %.loopexit
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %65, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit92" unwind label %76
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit92" unwind label %76
 
 168:                                              ; preds = %162
   %169 = icmp eq i64 %164, -1
@@ -3698,7 +3698,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   invoke void @_ZN5salsa8revision14AtomicRevision5store17ha68888389602ab5eE(ptr noundef nonnull align 4 %.sroa.0120.0, i32 noundef %182)
           to label %178 unwind label %.loopexit140
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit92": ; preds = %.loopexit, %167
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit92": ; preds = %.loopexit, %167
   call void @llvm.experimental.noalias.scope.decl(metadata !236)
   call void @llvm.experimental.noalias.scope.decl(metadata !239)
   %183 = load ptr, ptr %13, align 8, !alias.scope !242, !nonnull !11, !noundef !11
@@ -3706,13 +3706,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   %185 = icmp eq i64 %184, 1
   br i1 %185, label %186, label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit99"
 
-186:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit92"
+186:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit92"
   %187 = load ptr, ptr %13, align 8, !alias.scope !242, !nonnull !11, !noundef !11
   %188 = load atomic i64, ptr %187 acquire, align 8, !noalias !242
   call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
   br label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit99"
 
-"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit99": ; preds = %186, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit92"
+"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit99": ; preds = %186, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit92"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   ret void
@@ -3771,7 +3771,7 @@ define hidden void @_ZN5salsa7runtime7Runtime25with_incremented_revision17h7f87b
   %24 = icmp eq i64 %23, 5
   br i1 %24, label %.critedge67, label %25
 
-.noexc77:                                         ; preds = %77, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+.noexc77:                                         ; preds = %77, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
   br i1 %.3, label %243, label %"_ZN4core3ptr202drop_in_place$LT$$LT$salsa..input..InputStorage$LT$base_db..SourceRootQuery$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$base_db..SourceRootQuery$GT$$GT$..set..$u7b$$u7b$closure$u7d$$u7d$$GT$17he1272b81028d0932E.exit"
 
 .thread:                                          ; preds = %47, %73, %60, %55, %.critedge67, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %30
@@ -3924,7 +3924,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #17
           to label %52 unwind label %.thread
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit": ; preds = %.body, %87, %80
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit": ; preds = %.body, %87, %80
   %.3 = phi i1 [ %.2, %80 ], [ %.4.lpad-body, %87 ], [ %.4.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %eh.lpad-body, %87 ], [ %eh.lpad-body, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !253)
@@ -3934,7 +3934,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %76 = icmp eq i64 %75, 1
   br i1 %76, label %77, label %.noexc77
 
-77:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+77:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
   %78 = load ptr, ptr %17, align 8, !alias.scope !259, !nonnull !11, !noundef !11
   %79 = load atomic i64, ptr %78 acquire, align 8, !noalias !259
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
@@ -3944,7 +3944,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.2 = phi i1 [ true, %71 ], [ false, %219 ]
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit": ; preds = %68, %71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
@@ -3969,11 +3969,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %eh.lpad-body = phi { ptr, i32 } [ %187, %192 ], [ %187, %186 ], [ %111, %185 ], [ %111, %182 ], [ %.pn49.i, %180 ], [ %.pn49.i, %.thread46.i ], [ %lpad.loopexit, %.loopexit139 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %85 = cmpxchg ptr %69, i64 8, i64 0 release monotonic, align 8
   %86 = extractvalue { i64, i1 } %85, 1
-  br i1 %86, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit", label %87
+  br i1 %86, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit", label %87
 
 87:                                               ; preds = %.body
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %69, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit" unwind label %241
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit" unwind label %241
 
 88:                                               ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit"
   store i32 %84, ptr %16, align 4
@@ -4174,20 +4174,20 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %169 = cmpxchg ptr %151, i64 8, i64 0 release monotonic, align 8, !noalias !260
   %170 = extractvalue { i64, i1 } %169, 1
-  br i1 %170, label %"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.argprom.exit30.i", label %171
+  br i1 %170, label %"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.exit30.i", label %171
 
 171:                                              ; preds = %"_ZN4core3ptr109drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$17h58c577abeaea4640E.exit.i"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %151, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.argprom.exit30.i" unwind label %.thread51.i, !noalias !260
+          to label %"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.exit30.i" unwind label %.thread51.i, !noalias !260
 
-"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.argprom.exit30.i": ; preds = %177, %171, %"_ZN4core3ptr109drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$17h58c577abeaea4640E.exit.i"
+"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.exit30.i": ; preds = %177, %171, %"_ZN4core3ptr109drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$17h58c577abeaea4640E.exit.i"
   %.sroa.3.0.i = phi i8 [ undef, %177 ], [ %156, %"_ZN4core3ptr109drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$17h58c577abeaea4640E.exit.i" ], [ %156, %171 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !260
   %172 = cmpxchg ptr %106, i64 8, i64 0 release monotonic, align 8, !noalias !260
   %173 = extractvalue { i64, i1 } %172, 1
   br i1 %173, label %213, label %174
 
-174:                                              ; preds = %"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.argprom.exit30.i"
+174:                                              ; preds = %"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.exit30.i"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %106, i1 noundef zeroext false)
           to label %213 unwind label %.loopexit.split-lp
 
@@ -4199,7 +4199,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
 
 177:                                              ; preds = %.noexc21.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !260
-  br label %"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.argprom.exit30.i"
+  br label %"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.exit30.i"
 
 .thread46.i:                                      ; preds = %181, %168, %164, %.thread51.i
   %.pn49.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %181 ], [ %lpad.thr_comm.i, %.thread51.i ], [ %165, %164 ], [ %165, %168 ]
@@ -4308,7 +4308,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %.critedge71
 
-213:                                              ; preds = %"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.argprom.exit30.i", %174
+213:                                              ; preds = %"_ZN4core3ptr188drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..SourceRoot$GT$$GT$$GT$$GT$17h94c341000ba75fdeE.exit30.i", %174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !260
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br i1 %126, label %214, label %.loopexit
@@ -4323,11 +4323,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %217 = cmpxchg ptr %69, i64 8, i64 0 release monotonic, align 8
   %218 = extractvalue { i64, i1 } %217, 1
-  br i1 %218, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91", label %219
+  br i1 %218, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91", label %219
 
 219:                                              ; preds = %.loopexit
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %69, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91" unwind label %80
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91" unwind label %80
 
 220:                                              ; preds = %214
   %221 = icmp eq i64 %216, -1
@@ -4368,7 +4368,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   invoke void @_ZN5salsa8revision14AtomicRevision5store17ha68888389602ab5eE(ptr noundef nonnull align 4 %.sroa.0120.0, i32 noundef %234)
           to label %230 unwind label %.loopexit139
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91": ; preds = %.loopexit, %219
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91": ; preds = %.loopexit, %219
   call void @llvm.experimental.noalias.scope.decl(metadata !290)
   call void @llvm.experimental.noalias.scope.decl(metadata !293)
   %235 = load ptr, ptr %17, align 8, !alias.scope !296, !nonnull !11, !noundef !11
@@ -4376,13 +4376,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   %237 = icmp eq i64 %236, 1
   br i1 %237, label %238, label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98"
 
-238:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91"
+238:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91"
   %239 = load ptr, ptr %17, align 8, !alias.scope !296, !nonnull !11, !noundef !11
   %240 = load atomic i64, ptr %239 acquire, align 8, !noalias !296
   call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
   br label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98"
 
-"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98": ; preds = %238, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91"
+"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98": ; preds = %238, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   ret void
@@ -4441,7 +4441,7 @@ define hidden void @_ZN5salsa7runtime7Runtime25with_incremented_revision17hbafb6
   %24 = icmp eq i64 %23, 5
   br i1 %24, label %.critedge67, label %25
 
-.noexc77:                                         ; preds = %77, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+.noexc77:                                         ; preds = %77, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
   br i1 %.3, label %243, label %242
 
 .thread:                                          ; preds = %47, %73, %60, %55, %.critedge67, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %30
@@ -4594,7 +4594,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #17
           to label %52 unwind label %.thread
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit": ; preds = %.body, %87, %80
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit": ; preds = %.body, %87, %80
   %.3 = phi i1 [ %.2, %80 ], [ %.4.lpad-body, %87 ], [ %.4.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %eh.lpad-body, %87 ], [ %eh.lpad-body, %.body ]
   call void @llvm.experimental.noalias.scope.decl(metadata !307)
@@ -4604,7 +4604,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %76 = icmp eq i64 %75, 1
   br i1 %76, label %77, label %.noexc77
 
-77:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+77:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
   %78 = load ptr, ptr %17, align 8, !alias.scope !313, !nonnull !11, !noundef !11
   %79 = load atomic i64, ptr %78 acquire, align 8, !noalias !313
   invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
@@ -4614,7 +4614,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.2 = phi i1 [ true, %71 ], [ false, %218 ]
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit"
+  br label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit"
 
 "_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit": ; preds = %68, %71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
@@ -4639,11 +4639,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %eh.lpad-body = phi { ptr, i32 } [ %193, %192 ], [ %112, %191 ], [ %112, %188 ], [ %.pn48.i, %186 ], [ %.pn48.i, %.thread45.i ], [ %lpad.loopexit, %.loopexit137 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %85 = cmpxchg ptr %69, i64 8, i64 0 release monotonic, align 8
   %86 = extractvalue { i64, i1 } %85, 1
-  br i1 %86, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit", label %87
+  br i1 %86, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit", label %87
 
 87:                                               ; preds = %.body
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %69, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit" unwind label %240
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit" unwind label %240
 
 88:                                               ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2c0722c5f50d8711E.exit"
   store i32 %84, ptr %16, align 4
@@ -4858,20 +4858,20 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %175 = cmpxchg ptr %150, i64 8, i64 0 release monotonic, align 8, !noalias !314
   %176 = extractvalue { i64, i1 } %175, 1
-  br i1 %176, label %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.argprom.exit30.i", label %177
+  br i1 %176, label %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.exit30.i", label %177
 
 177:                                              ; preds = %"_ZN4core3ptr146drop_in_place$LT$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$17h80aed0069d0c3e3cE.exit.i"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %150, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.argprom.exit30.i" unwind label %.thread50.i, !noalias !314
+          to label %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.exit30.i" unwind label %.thread50.i, !noalias !314
 
-"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.argprom.exit30.i": ; preds = %183, %177, %"_ZN4core3ptr146drop_in_place$LT$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$17h80aed0069d0c3e3cE.exit.i"
+"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.exit30.i": ; preds = %183, %177, %"_ZN4core3ptr146drop_in_place$LT$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$17h80aed0069d0c3e3cE.exit.i"
   %.sroa.3.0.i = phi i8 [ undef, %183 ], [ %155, %"_ZN4core3ptr146drop_in_place$LT$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$17h80aed0069d0c3e3cE.exit.i" ], [ %155, %177 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !314
   %178 = cmpxchg ptr %107, i64 8, i64 0 release monotonic, align 8, !noalias !314
   %179 = extractvalue { i64, i1 } %178, 1
   br i1 %179, label %212, label %180
 
-180:                                              ; preds = %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.argprom.exit30.i"
+180:                                              ; preds = %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.exit30.i"
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %107, i1 noundef zeroext false)
           to label %212 unwind label %.loopexit.split-lp
 
@@ -4883,7 +4883,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
 
 183:                                              ; preds = %.noexc21.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !314
-  br label %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.argprom.exit30.i"
+  br label %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.exit30.i"
 
 .thread45.i:                                      ; preds = %187, %174, %170, %.thread50.i
   %.pn48.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %187 ], [ %lpad.thr_comm.i, %.thread50.i ], [ %171, %170 ], [ %171, %174 ]
@@ -4981,7 +4981,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %.critedge71
 
-212:                                              ; preds = %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.argprom.exit30.i", %180
+212:                                              ; preds = %"_ZN4core3ptr225drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..runtime..StampedValue$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h1d69855047782d34E.exit30.i", %180
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !314
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   br i1 %125, label %213, label %.loopexit
@@ -4996,11 +4996,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %216 = cmpxchg ptr %69, i64 8, i64 0 release monotonic, align 8
   %217 = extractvalue { i64, i1 } %216, 1
-  br i1 %217, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91", label %218
+  br i1 %217, label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91", label %218
 
 218:                                              ; preds = %.loopexit
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h459c7d83ffa33573E(ptr noundef nonnull align 8 %69, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91" unwind label %80
+          to label %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91" unwind label %80
 
 219:                                              ; preds = %213
   %220 = icmp eq i64 %215, -1
@@ -5041,7 +5041,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   invoke void @_ZN5salsa8revision14AtomicRevision5store17ha68888389602ab5eE(ptr noundef nonnull align 4 %.sroa.0118.0, i32 noundef %233)
           to label %229 unwind label %.loopexit137
 
-"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91": ; preds = %.loopexit, %218
+"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91": ; preds = %.loopexit, %218
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
   call void @llvm.experimental.noalias.scope.decl(metadata !352)
   %234 = load ptr, ptr %17, align 8, !alias.scope !355, !nonnull !11, !noundef !11
@@ -5049,13 +5049,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   %236 = icmp eq i64 %235, 1
   br i1 %236, label %237, label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98"
 
-237:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91"
+237:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91"
   %238 = load ptr, ptr %17, align 8, !alias.scope !355, !nonnull !11, !noundef !11
   %239 = load atomic i64, ptr %238 acquire, align 8, !noalias !355
   call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h00d36833da0577a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
   br label %"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98"
 
-"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98": ; preds = %237, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.argprom.exit91"
+"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E.exit98": ; preds = %237, %"_ZN4core3ptr108drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$$LP$$RP$$GT$$GT$17h3f1318e3b68e5723E.exit91"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   ret void
@@ -5469,10 +5469,10 @@ attributes #19 = { cold }
 !121 = distinct !{!121, !"_ZN69_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h31cbb6a413fecf9bE"}
 !122 = !{!120, !117, !98}
 !123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
-!125 = distinct !{!125, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
+!124 = distinct !{!124, !125, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!125 = distinct !{!125, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
 !126 = !{!127}
-!127 = distinct !{!127, !125, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
+!127 = distinct !{!127, !125, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !128 = !{!129}
 !129 = distinct !{!129, !130, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E: argument 0"}
 !130 = distinct !{!130, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E"}
@@ -5506,10 +5506,10 @@ attributes #19 = { cold }
 !158 = distinct !{!158, !"_ZN8indexmap3map4core5entry24VacantEntry$LT$K$C$V$GT$6insert17hf71902e828b034c1E"}
 !159 = distinct !{!159, !158, !"_ZN8indexmap3map4core5entry24VacantEntry$LT$K$C$V$GT$6insert17hf71902e828b034c1E: argument 1"}
 !160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
-!162 = distinct !{!162, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
+!161 = distinct !{!161, !162, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!162 = distinct !{!162, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
 !163 = !{!164}
-!164 = distinct !{!164, !162, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
+!164 = distinct !{!164, !162, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !165 = !{!166}
 !166 = distinct !{!166, !167, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E: argument 0"}
 !167 = distinct !{!167, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E"}
@@ -5537,10 +5537,10 @@ attributes #19 = { cold }
 !189 = distinct !{!189, !190, !"_ZN4core3ptr100drop_in_place$LT$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$17h883cffc9e1f51daeE: argument 0"}
 !190 = distinct !{!190, !"_ZN4core3ptr100drop_in_place$LT$salsa..runtime..StampedValue$LT$core..option..Option$LT$semver..Version$GT$$GT$$GT$17h883cffc9e1f51daeE"}
 !191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
-!193 = distinct !{!193, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
+!192 = distinct !{!192, !193, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!193 = distinct !{!193, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
 !194 = !{!195}
-!195 = distinct !{!195, !193, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
+!195 = distinct !{!195, !193, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !196 = !{!197}
 !197 = distinct !{!197, !198, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E: argument 0"}
 !198 = distinct !{!198, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E"}
@@ -5577,10 +5577,10 @@ attributes #19 = { cold }
 !229 = distinct !{!229, !"_ZN69_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd2c45e786ddd7cc1E"}
 !230 = !{!228, !225, !211}
 !231 = !{!232}
-!232 = distinct !{!232, !233, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
-!233 = distinct !{!233, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
+!232 = distinct !{!232, !233, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!233 = distinct !{!233, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
 !234 = !{!235}
-!235 = distinct !{!235, !233, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
+!235 = distinct !{!235, !233, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !236 = !{!237}
 !237 = distinct !{!237, !238, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E: argument 0"}
 !238 = distinct !{!238, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E"}
@@ -5631,10 +5631,10 @@ attributes #19 = { cold }
 !283 = distinct !{!283, !"_ZN69_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0dfe2d3ec7ebcd58E"}
 !284 = !{!282, !279, !261}
 !285 = !{!286}
-!286 = distinct !{!286, !287, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
-!287 = distinct !{!287, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
+!286 = distinct !{!286, !287, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!287 = distinct !{!287, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
 !288 = !{!289}
-!289 = distinct !{!289, !287, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
+!289 = distinct !{!289, !287, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !290 = !{!291}
 !291 = distinct !{!291, !292, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E: argument 0"}
 !292 = distinct !{!292, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E"}
@@ -5690,10 +5690,10 @@ attributes #19 = { cold }
 !342 = !{!340, !337, !325, !322}
 !343 = !{!340, !337, !325, !322, !315}
 !344 = !{!345}
-!345 = distinct !{!345, !346, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
-!346 = distinct !{!346, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
+!345 = distinct !{!345, !346, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!346 = distinct !{!346, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
 !347 = !{!348}
-!348 = distinct !{!348, !346, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
+!348 = distinct !{!348, !346, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !349 = !{!350}
 !350 = distinct !{!350, !351, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E: argument 0"}
 !351 = distinct !{!351, !"_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$salsa..runtime..SharedState$GT$$GT$17h2003c886ce3808c6E"}

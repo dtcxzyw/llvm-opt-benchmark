@@ -150,7 +150,7 @@ Csw_CutHash.exit:                                 ; preds = %7, %2
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
   %.02751 = load ptr, ptr %20, align 8
   %.not52 = icmp eq ptr %.02751, null
-  br i1 %.not52, label %Aig_ManObj.argprom.exit, label %.lr.ph
+  br i1 %.not52, label %Aig_ManObj.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Csw_CutHash.exit
   %21 = getelementptr inbounds i8, ptr %1, i64 12
@@ -222,7 +222,7 @@ Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i
   %64 = getelementptr i8, ptr %63, i64 32
   %.val = load ptr, ptr %64, align 8
   %.not.i35 = icmp eq ptr %.val, null
-  br i1 %.not.i35, label %Aig_ManObj.argprom.exit, label %65
+  br i1 %.not.i35, label %Aig_ManObj.exit, label %65
 
 65:                                               ; preds = %Kit_TruthIsEqual.exit
   %66 = getelementptr inbounds i8, ptr %.02753, i64 16
@@ -232,7 +232,7 @@ Kit_TruthIsEqual.exit:                            ; preds = %select.unfold.i
   %69 = sext i32 %67 to i64
   %70 = getelementptr inbounds ptr, ptr %.val.i, i64 %69
   %71 = load ptr, ptr %70, align 8
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
 select.unfold.i37:                                ; preds = %41, %74
   %indvars.iv.i38 = phi i64 [ %75, %74 ], [ %31, %41 ]
@@ -256,7 +256,7 @@ Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i37
   %83 = getelementptr i8, ptr %82, i64 32
   %.val33 = load ptr, ptr %83, align 8
   %.not.i41 = icmp eq ptr %.val33, null
-  br i1 %.not.i41, label %Aig_ManObj.argprom.exit43, label %84
+  br i1 %.not.i41, label %Aig_ManObj.exit43, label %84
 
 84:                                               ; preds = %Kit_TruthIsOpposite.exit
   %85 = getelementptr inbounds i8, ptr %.02753, i64 16
@@ -268,20 +268,20 @@ Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i37
   %90 = load ptr, ptr %89, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = xor i64 %91, 1
-  br label %Aig_ManObj.argprom.exit43
+  br label %Aig_ManObj.exit43
 
-Aig_ManObj.argprom.exit43:                        ; preds = %Kit_TruthIsOpposite.exit, %84
+Aig_ManObj.exit43:                                ; preds = %Kit_TruthIsOpposite.exit, %84
   %93 = phi i64 [ %92, %84 ], [ 1, %Kit_TruthIsOpposite.exit ]
   %94 = inttoptr i64 %93 to ptr
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
 Kit_TruthIsEqual.exit.thread:                     ; preds = %74, %56, %39, %35, %32
   %.027 = load ptr, ptr %.02753, align 8
   %.not = icmp eq ptr %.027, null
-  br i1 %.not, label %Aig_ManObj.argprom.exit, label %32, !llvm.loop !10
+  br i1 %.not, label %Aig_ManObj.exit, label %32, !llvm.loop !10
 
-Aig_ManObj.argprom.exit:                          ; preds = %Kit_TruthIsEqual.exit.thread, %Csw_CutHash.exit, %65, %Kit_TruthIsEqual.exit, %Aig_ManObj.argprom.exit43
-  %.0 = phi ptr [ %94, %Aig_ManObj.argprom.exit43 ], [ %71, %65 ], [ null, %Kit_TruthIsEqual.exit ], [ null, %Csw_CutHash.exit ], [ null, %Kit_TruthIsEqual.exit.thread ]
+Aig_ManObj.exit:                                  ; preds = %Kit_TruthIsEqual.exit.thread, %Csw_CutHash.exit, %65, %Kit_TruthIsEqual.exit, %Aig_ManObj.exit43
+  %.0 = phi ptr [ %94, %Aig_ManObj.exit43 ], [ %71, %65 ], [ null, %Kit_TruthIsEqual.exit ], [ null, %Csw_CutHash.exit ], [ null, %Kit_TruthIsEqual.exit.thread ]
   ret ptr %.0
 }
 

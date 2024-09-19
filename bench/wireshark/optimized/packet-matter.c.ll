@@ -302,7 +302,7 @@ define internal i32 @dissect_matter(ptr noundef %0, ptr nocapture noundef readon
   %.1.i = phi i32 [ %86, %83 ], [ %81, %78 ]
   %88 = and i32 %73, 8
   %.not47.i = icmp eq i32 %88, 0
-  br i1 %.not47.i, label %dissect_matter_payload.argprom.exit, label %89
+  br i1 %.not47.i, label %dissect_matter_payload.exit, label %89
 
 89:                                               ; preds = %87
   store i32 0, ptr %5, align 4
@@ -314,9 +314,9 @@ define internal i32 @dissect_matter(ptr noundef %0, ptr nocapture noundef readon
   %95 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %93, ptr noundef %64, i32 noundef %92, i32 noundef %94, i32 noundef 0) #3
   %96 = load i32, ptr %5, align 4
   %97 = add i32 %96, %92
-  br label %dissect_matter_payload.argprom.exit
+  br label %dissect_matter_payload.exit
 
-dissect_matter_payload.argprom.exit:              ; preds = %87, %89
+dissect_matter_payload.exit:                      ; preds = %87, %89
   %.2.i = phi i32 [ %97, %89 ], [ %.1.i, %87 ]
   %98 = call i32 @tvb_reported_length_remaining(ptr noundef %64, i32 noundef %.2.i) #3
   %99 = load i32, ptr @hf_payload_application, align 4
@@ -332,8 +332,8 @@ dissect_matter_payload.argprom.exit:              ; preds = %87, %89
   %106 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %105, ptr noundef %0, i32 noundef %.075, i32 noundef %104, ptr noundef nonnull @.str.93, i32 noundef %104) #3
   br label %107
 
-107:                                              ; preds = %dissect_matter_payload.argprom.exit, %103, %4
-  %.0 = phi i32 [ 0, %4 ], [ %102, %dissect_matter_payload.argprom.exit ], [ %.075, %103 ]
+107:                                              ; preds = %dissect_matter_payload.exit, %103, %4
+  %.0 = phi i32 [ 0, %4 ], [ %102, %dissect_matter_payload.exit ], [ %.075, %103 ]
   ret i32 %.0
 }
 

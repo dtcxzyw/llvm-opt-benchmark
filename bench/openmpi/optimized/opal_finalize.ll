@@ -38,7 +38,7 @@ define range(i32 -1, 1) i32 @opal_finalize() local_unnamed_addr #0 {
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %.not1.i = icmp eq ptr %9, null
-  br i1 %.not1.i, label %opal_obj_run_destructors.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %10 = phi ptr [ %12, %.lr.ph.i ], [ %9, %5 ]
@@ -47,15 +47,15 @@ define range(i32 -1, 1) i32 @opal_finalize() local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %opal_obj_run_destructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
-opal_obj_run_destructors.argprom.exit:            ; preds = %.lr.ph.i, %5
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %5
   %13 = tail call i32 @opal_event_finalize() #3
   %14 = tail call i32 @opal_finalize_util() #3
   br label %15
 
-15:                                               ; preds = %3, %opal_obj_run_destructors.argprom.exit
-  %.0 = phi i32 [ 0, %opal_obj_run_destructors.argprom.exit ], [ %., %3 ]
+15:                                               ; preds = %3, %opal_obj_run_destructors.exit
+  %.0 = phi i32 [ 0, %opal_obj_run_destructors.exit ], [ %., %3 ]
   ret i32 %.0
 }
 

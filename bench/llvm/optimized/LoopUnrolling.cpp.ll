@@ -1257,9 +1257,9 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramState
   %10 = getelementptr i8, ptr %8, i64 16
   %.val2 = load ptr, ptr %10, align 8
   %11 = icmp eq ptr %.val2, %1
-  br i1 %11, label %_ZNK4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEE7getTailEv.argprom.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
+  br i1 %11, label %_ZNK4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEE7getTailEv.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
-_ZNK4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEE7getTailEv.argprom.exit: ; preds = %9
+_ZNK4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEE7getTailEv.exit: ; preds = %9
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr i8, ptr %8, i64 40
   %.val.i = load ptr, ptr %13, align 8
@@ -1274,11 +1274,11 @@ _ZNK4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEE7getTailEv.argprom.exit: ; p
   %.not.i.i2.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i2.i.i, label %_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE.exit, label %17
 
-17:                                               ; preds = %_ZNK4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEE7getTailEv.argprom.exit
+17:                                               ; preds = %_ZNK4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEE7getTailEv.exit
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %16) #17
   br label %_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE.exit
 
-_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE.exit: ; preds = %_ZNK4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEE7getTailEv.argprom.exit, %17
+_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE.exit: ; preds = %_ZNK4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEE7getTailEv.exit, %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !51
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %12) #17
   %18 = load ptr, ptr %5, align 8
@@ -1896,7 +1896,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i:   ; preds = %268, %253
   %290 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %278, i64 %289
   %291 = load ptr, ptr %290, align 8
   %292 = icmp eq ptr %277, %291
-  br i1 %292, label %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.argprom.exit.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %292, label %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %282, %298
   %293 = phi ptr [ %305, %298 ], [ %291, %282 ]
@@ -1924,7 +1924,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i:   ; preds = %268, %253
   %304 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %278, i64 %303
   %305 = load ptr, ptr %304, align 8
   %306 = icmp eq ptr %277, %305
-  br i1 %306, label %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.argprom.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !94
+  br i1 %306, label %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !94
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit.i.i.i.i: ; preds = %296, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i
   %.sink.i.i.i.i.i.i = phi ptr [ %297, %296 ], [ null, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i ]
@@ -1935,9 +1935,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12Den
   store ptr null, ptr %309, align 8
   %.pre.i.i = load ptr, ptr %7, align 8
   %.pre7.i.i = load i32, ptr %279, align 8
-  br label %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.argprom.exit.i
+  br label %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i
 
-_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.argprom.exit.i: ; preds = %298, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit.i.i.i.i, %282
+_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i: ; preds = %298, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit.i.i.i.i, %282
   %310 = phi i32 [ %.pre7.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit.i.i.i.i ], [ %280, %282 ], [ %280, %298 ]
   %311 = phi ptr [ %.pre.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit.i.i.i.i ], [ %278, %282 ], [ %278, %298 ]
   %.0.i.i.i.i34 = phi ptr [ %307, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit.i.i.i.i ], [ %290, %282 ], [ %304, %298 ]
@@ -1965,7 +1965,7 @@ _ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.a
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5clang4entoL17isPossiblyEscapedEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit, label %327
 
-327:                                              ; preds = %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.argprom.exit.i, %._crit_edge108.i
+327:                                              ; preds = %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i, %._crit_edge108.i
   br i1 %252, label %328, label %.critedge2.i
 
 328:                                              ; preds = %327
@@ -2558,8 +2558,8 @@ _ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit.i: ; pred
   call void @llvm.assume(i1 %252)
   br label %_ZN5clang4entoL17isPossiblyEscapedEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit
 
-_ZN5clang4entoL17isPossiblyEscapedEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit: ; preds = %_ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit.i, %.lr.ph.i.i, %.lr.ph.i48.i, %_ZN4llvm5APIntD2Ev.exit27, %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.argprom.exit.i, %328, %._crit_edge.i
-  %609 = phi i1 [ true, %._crit_edge.i ], [ false, %_ZN4llvm5APIntD2Ev.exit27 ], [ false, %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.argprom.exit.i ], [ false, %328 ], [ true, %.lr.ph.i48.i ], [ true, %.lr.ph.i.i ], [ false, %_ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit.i ]
+_ZN5clang4entoL17isPossiblyEscapedEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit: ; preds = %_ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit.i, %.lr.ph.i.i, %.lr.ph.i48.i, %_ZN4llvm5APIntD2Ev.exit27, %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i, %328, %._crit_edge.i
+  %609 = phi i1 [ true, %._crit_edge.i ], [ false, %_ZN4llvm5APIntD2Ev.exit27 ], [ false, %_ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i ], [ false, %328 ], [ true, %.lr.ph.i48.i ], [ true, %.lr.ph.i.i ], [ false, %_ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -21132,11 +21132,11 @@ attributes #20 = { noreturn nounwind }
 !52 = distinct !{!52, !53, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !53 = distinct !{!53, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !54 = !{!55, !52}
-!55 = distinct !{!55, !56, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!56 = distinct !{!56, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!55 = distinct !{!55, !56, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!56 = distinct !{!56, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!59 = distinct !{!59, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!58 = distinct !{!58, !59, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!59 = distinct !{!59, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !60 = !{!61}
 !61 = distinct !{!61, !62, !"_ZN5clang12ast_matchers5matchINS0_8internal7MatcherINS_4StmtEEES4_EEN4llvm11SmallVectorINS0_10BoundNodesELj1EEET_RKT0_RNS_10ASTContextE: argument 0"}
 !62 = distinct !{!62, !"_ZN5clang12ast_matchers5matchINS0_8internal7MatcherINS_4StmtEEES4_EEN4llvm11SmallVectorINS0_10BoundNodesELj1EEET_RKT0_RNS_10ASTContextE"}

@@ -455,21 +455,21 @@ initialization.exit:                              ; preds = %.lr.ph83.i, %.prehe
   %.076 = phi i32 [ 0, %initialization.exit ], [ %.1, %algo.exit ]
   %.0 = phi i32 [ 0, %initialization.exit ], [ %194, %algo.exit ]
   %167 = icmp eq i32 %.076, %.0
-  br i1 %167, label %nextGain.argprom.exit, label %nextGain.argprom.exit.thread
+  br i1 %167, label %nextGain.exit, label %nextGain.exit.thread
 
-nextGain.argprom.exit:                            ; preds = %166
+nextGain.exit:                                    ; preds = %166
   %168 = call double @PQ_findMaxKey(ptr noundef nonnull %8) #11
   %169 = fcmp ogt double %168, 0.000000e+00
   br i1 %169, label %174, label %251
 
-nextGain.argprom.exit.thread:                     ; preds = %166
+nextGain.exit.thread:                             ; preds = %166
   %170 = sext i32 %.0 to i64
   %171 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %170
   %172 = call double @PQ_findMaxKey(ptr noundef %171) #11
   %173 = fcmp ogt double %172, 0.000000e+00
   br i1 %173, label %.thread, label %252
 
-174:                                              ; preds = %nextGain.argprom.exit
+174:                                              ; preds = %nextGain.exit
   %175 = call i32 @PQ_deleteMax(ptr noundef nonnull %8) #11
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds %struct.PriorityQueue_, ptr %116, i64 %176
@@ -479,7 +479,7 @@ nextGain.argprom.exit.thread:                     ; preds = %166
   %181 = load i32, ptr %180, align 4
   br label %186
 
-.thread:                                          ; preds = %nextGain.argprom.exit.thread
+.thread:                                          ; preds = %nextGain.exit.thread
   %182 = call i32 @PQ_deleteMax(ptr noundef %171) #11
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds i32, ptr %.0.i, i64 %183
@@ -595,11 +595,11 @@ algo.exit:                                        ; preds = %._crit_edge.i38, %2
   call void @PQ_adjustKey(ptr noundef nonnull %8, i32 noundef %250, double noundef %244) #11
   br label %166, !llvm.loop !25
 
-251:                                              ; preds = %nextGain.argprom.exit
+251:                                              ; preds = %nextGain.exit
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   br label %balancing.exit
 
-252:                                              ; preds = %nextGain.argprom.exit.thread
+252:                                              ; preds = %nextGain.exit.thread
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   %253 = call i32 @PQ_init(ptr noundef nonnull %7, i32 noundef %9) #11
   br i1 %120, label %.lr.ph.i46, label %._crit_edge.i45

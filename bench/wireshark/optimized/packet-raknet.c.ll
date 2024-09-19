@@ -510,7 +510,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   %34 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_raknet_encrypted_message, ptr noundef %0, i32 noundef 0, i32 noundef %33) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.161, i32 noundef %33) #3
   %35 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %raknet_dissect_connected_message.argprom.exit
+  br label %raknet_dissect_connected_message.exit
 
 36:                                               ; preds = %raknet_get_session_state.exit.i
   %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
@@ -524,7 +524,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   %41 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_raknet_unknown_message_id, ptr noundef %0, i32 noundef 0, i32 noundef 1) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef nonnull @.str.163, i32 noundef %38) #3
   %42 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %raknet_dissect_connected_message.argprom.exit
+  br label %raknet_dissect_connected_message.exit
 
 43:                                               ; preds = %36
   %44 = and i32 %38, 64
@@ -556,12 +556,12 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
 
 58:                                               ; preds = %57
   %59 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.088.i) #3
-  tail call fastcc void @raknet_dissect_ACK.argprom.retelim(ptr noundef %59, ptr noundef nonnull %1, ptr noundef %49, i32 1)
-  br label %raknet_dissect_connected_message.argprom.exit
+  tail call fastcc void @raknet_dissect_ACK(ptr noundef %59, ptr noundef nonnull %1, ptr noundef %49, i32 1)
+  br label %raknet_dissect_connected_message.exit
 
 60:                                               ; preds = %57
   %61 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %raknet_dissect_connected_message.argprom.exit
+  br label %raknet_dissect_connected_message.exit
 
 62:                                               ; preds = %43
   %63 = and i32 %38, 32
@@ -582,12 +582,12 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
 
 72:                                               ; preds = %64
   %73 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #3
-  tail call fastcc void @raknet_dissect_ACK.argprom.retelim(ptr noundef %73, ptr noundef nonnull %1, ptr noundef %68, i32 0)
-  br label %raknet_dissect_connected_message.argprom.exit
+  tail call fastcc void @raknet_dissect_ACK(ptr noundef %73, ptr noundef nonnull %1, ptr noundef %68, i32 0)
+  br label %raknet_dissect_connected_message.exit
 
 74:                                               ; preds = %64
   %75 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %raknet_dissect_connected_message.argprom.exit
+  br label %raknet_dissect_connected_message.exit
 
 76:                                               ; preds = %62
   store i32 0, ptr %12, align 4
@@ -904,7 +904,7 @@ raknet_dissect_common_message.exit.i:             ; preds = %203
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %raknet_dissect_connected_message.argprom.exit
+  br label %raknet_dissect_connected_message.exit
 
 .sink.split.i:                                    ; preds = %245, %244, %182
   %.sink5.i = phi i32 [ %181, %182 ], [ %.3.i.i, %244 ], [ %181, %245 ]
@@ -934,14 +934,14 @@ raknet_dissect_common_message.exit.i:             ; preds = %203
 
 255:                                              ; preds = %248
   %256 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %raknet_dissect_connected_message.argprom.exit
+  br label %raknet_dissect_connected_message.exit
 
-raknet_dissect_connected_message.argprom.exit:    ; preds = %31, %39, %58, %60, %72, %74, %raknet_dissect_common_message.exit.i, %255
+raknet_dissect_connected_message.exit:            ; preds = %31, %39, %58, %60, %72, %74, %raknet_dissect_common_message.exit.i, %255
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   br label %257
 
-257:                                              ; preds = %raknet_dissect_connected_message.argprom.exit, %4
+257:                                              ; preds = %raknet_dissect_connected_message.exit, %4
   %258 = call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %258
 }
@@ -994,19 +994,19 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal range(i32 0, 2) i32 @dissect_raknet_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 9, ptr noundef nonnull @RAKNET_OFFLINE_MESSAGE_DATA_ID, i64 noundef 16) #3
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %test_raknet_heur.argprom.exit.thread, label %7
+  br i1 %6, label %test_raknet_heur.exit.thread, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @RAKNET_OFFLINE_MESSAGE_DATA_ID, i64 noundef 16) #3
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %test_raknet_heur.argprom.exit.thread, label %test_raknet_heur.argprom.exit
+  br i1 %9, label %test_raknet_heur.exit.thread, label %test_raknet_heur.exit
 
-test_raknet_heur.argprom.exit:                    ; preds = %7
+test_raknet_heur.exit:                            ; preds = %7
   %10 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 17, ptr noundef nonnull @RAKNET_OFFLINE_MESSAGE_DATA_ID, i64 noundef 16) #3
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %test_raknet_heur.argprom.exit.thread, label %17
+  br i1 %.not, label %test_raknet_heur.exit.thread, label %17
 
-test_raknet_heur.argprom.exit.thread:             ; preds = %7, %4, %test_raknet_heur.argprom.exit
+test_raknet_heur.exit.thread:                     ; preds = %7, %4, %test_raknet_heur.exit
   %11 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #3
   %12 = load ptr, ptr @raknet_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %11, ptr noundef %12) #3
@@ -1016,8 +1016,8 @@ test_raknet_heur.argprom.exit.thread:             ; preds = %7, %4, %test_raknet
   %16 = zext i1 %15 to i32
   br label %17
 
-17:                                               ; preds = %test_raknet_heur.argprom.exit, %test_raknet_heur.argprom.exit.thread
-  %.0 = phi i32 [ %16, %test_raknet_heur.argprom.exit.thread ], [ 0, %test_raknet_heur.argprom.exit ]
+17:                                               ; preds = %test_raknet_heur.exit, %test_raknet_heur.exit.thread
+  %.0 = phi i32 [ %16, %test_raknet_heur.exit.thread ], [ 0, %test_raknet_heur.exit ]
   ret i32 %.0
 }
 
@@ -1058,7 +1058,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @raknet_dissect_ACK.argprom.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, i32 %.0.val) unnamed_addr #0 {
+define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, i32 %.0.val) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq i32 %.0.val, 0
   %5 = getelementptr inbounds i8, ptr %1, i64 8

@@ -89,7 +89,7 @@ define dso_local ptr @_ZN4llvm31findSplitPointForStackProtectorEPNS_17MachineBas
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.argprom.exit, label %.preheader55
+  br i1 %6, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit, label %.preheader55
 
 .preheader55:                                     ; preds = %2, %18
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i.i, %18 ], [ %3, %2 ]
@@ -201,11 +201,11 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit22: ; preds
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, 128
   %.not52 = icmp eq i64 %55, 0
-  br i1 %.not52, label %57, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.argprom.exit
+  br i1 %.not52, label %57, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit22
   %56 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i15, i64 noundef 128, i32 noundef 1) #8
-  br i1 %56, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.argprom.exit, label %57
+  br i1 %56, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit, label %57
 
 57:                                               ; preds = %50, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i15, i64 68
@@ -213,7 +213,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %_ZN4llvm26Machin
   %60 = zext i16 %59 to i32
   %61 = load i32, ptr %32, align 8
   %.not = icmp eq i32 %61, %60
-  br i1 %.not, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.argprom.exit, label %33, !llvm.loop !8
+  br i1 %.not, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit, label %33, !llvm.loop !8
 
 62:                                               ; preds = %.preheader73, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit35
   %.sroa.048.0 = phi ptr [ %.sroa.0.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit35 ], [ %3, %.preheader73 ]
@@ -233,7 +233,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %_ZN4llvm26Machin
   br i1 %switch.i.i, label %.critedge2.i, label %66
 
 66:                                               ; preds = %65
-  switch i16 %.val9, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.argprom.exit [
+  switch i16 %.val9, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit [
     i16 127, label %.critedge2.i
     i16 134, label %.critedge2.i
     i16 126, label %.critedge2.i
@@ -249,7 +249,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %_ZN4llvm26Machin
   %68 = load i32, ptr %.val, align 8
   %69 = and i32 %68, 16777471
   %or.cond.i = icmp eq i32 %69, 16777216
-  br i1 %or.cond.i, label %70, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.argprom.exit
+  br i1 %or.cond.i, label %70, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit
 
 70:                                               ; preds = %67
   %71 = icmp eq i16 %.val9, 10
@@ -260,7 +260,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %_ZN4llvm26Machin
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 255
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.argprom.exit
+  br i1 %76, label %77, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit
 
 77:                                               ; preds = %72
   %78 = getelementptr inbounds nuw i8, ptr %.val, i64 4
@@ -274,11 +274,11 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %_ZN4llvm26Machin
   %84 = load i32, ptr %83, align 4
   %85 = add i32 %84, -1
   %86 = icmp ult i32 %85, 1073741823
-  br i1 %86, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.argprom.exit, label %.critedge2.i
+  br i1 %86, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %77, %82, %65, %66, %66, %66, %66, %66, %66, %66, %66, %66, %70
   %87 = icmp eq ptr %.sroa.0.2, %5
-  br i1 %87, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.argprom.exit, label %88
+  br i1 %87, label %_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit, label %88
 
 88:                                               ; preds = %.critedge2.i
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i24 = load i64, ptr %.sroa.0.2, align 8
@@ -313,7 +313,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit35: ; preds
   %.sroa.0.0.i.i.i28 = phi ptr [ %90, %88 ], [ %90, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i29 ], [ %96, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i31 ]
   br label %62, !llvm.loop !9
 
-_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.argprom.exit: ; preds = %66, %82, %72, %67, %.critedge2.i, %50, %57, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit, %2
+_ZL24MIIsInTerminatorSequenceRKN4llvm12MachineInstrE.exit: ; preds = %66, %82, %72, %67, %.critedge2.i, %50, %57, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit, %2
   %.sroa.0.0.in.sroa.speculated = phi ptr [ %3, %2 ], [ %3, %50 ], [ %.sroa.0.0.i.i.i15, %57 ], [ %3, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.sroa.048.0, %66 ], [ %.sroa.048.0, %82 ], [ %.sroa.048.0, %72 ], [ %.sroa.048.0, %67 ], [ %.sroa.0.2, %.critedge2.i ]
   ret ptr %.sroa.0.0.in.sroa.speculated
 }

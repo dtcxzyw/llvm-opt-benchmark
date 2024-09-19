@@ -362,7 +362,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_118LibCallsShrinkWrapEvE5visitERNS_8Function
     i32 419, label %166
     i32 420, label %166
     i32 421, label %166
-    i32 233, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+    i32 233, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
     i32 234, label %187
     i32 235, label %188
     i32 178, label %197
@@ -396,8 +396,8 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_118LibCallsShrinkWrapEvE5visitERNS_8Function
   %135 = sub nsw i64 0, %134
   %136 = getelementptr inbounds %"class.llvm::Use", ptr %117, i64 %135
   %137 = load ptr, ptr %136, align 8
-  %138 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f.argprom(ptr noundef nonnull %117, ptr noundef %137, i32 noundef 4, float noundef -1.000000e+00, ptr noundef %137, i32 noundef 2, float noundef 1.000000e+00)
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i
+  %138 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f(ptr noundef nonnull %117, ptr noundef %137, i32 noundef 4, float noundef -1.000000e+00, ptr noundef %137, i32 noundef 2, float noundef 1.000000e+00)
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i
 
 139:                                              ; preds = %116, %116, %116, %116, %116, %116
   %140 = getelementptr inbounds nuw i8, ptr %117, i64 4
@@ -407,8 +407,8 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_118LibCallsShrinkWrapEvE5visitERNS_8Function
   %144 = sub nsw i64 0, %143
   %145 = getelementptr inbounds %"class.llvm::Use", ptr %117, i64 %144
   %146 = load ptr, ptr %145, align 8
-  %147 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f.argprom(ptr noundef nonnull %117, ptr noundef %146, i32 noundef 1, float noundef 0x7FF0000000000000, ptr noundef %146, i32 noundef 1, float noundef 0xFFF0000000000000)
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i
+  %147 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f(ptr noundef nonnull %117, ptr noundef %146, i32 noundef 1, float noundef 0x7FF0000000000000, ptr noundef %146, i32 noundef 1, float noundef 0xFFF0000000000000)
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i
 
 148:                                              ; preds = %116, %116, %116
   %149 = getelementptr inbounds nuw i8, ptr %117, i64 4
@@ -418,8 +418,8 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_118LibCallsShrinkWrapEvE5visitERNS_8Function
   %153 = sub nsw i64 0, %152
   %154 = getelementptr inbounds %"class.llvm::Use", ptr %117, i64 %153
   %155 = load ptr, ptr %154, align 8
-  %156 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf.argprom(ptr noundef nonnull %117, ptr noundef %155, i32 noundef 4, float noundef 1.000000e+00)
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i
+  %156 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull %117, ptr noundef %155, i32 noundef 4, float noundef 1.000000e+00)
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i
 
 157:                                              ; preds = %116, %116, %116
   %158 = getelementptr inbounds nuw i8, ptr %117, i64 4
@@ -429,13 +429,13 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_118LibCallsShrinkWrapEvE5visitERNS_8Function
   %162 = sub nsw i64 0, %161
   %163 = getelementptr inbounds %"class.llvm::Use", ptr %117, i64 %162
   %164 = load ptr, ptr %163, align 8
-  %165 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf.argprom(ptr noundef nonnull %117, ptr noundef %164, i32 noundef 4, float noundef 0.000000e+00)
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i
+  %165 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull %117, ptr noundef %164, i32 noundef 4, float noundef 0.000000e+00)
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i
 
 166:                                              ; preds = %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116
   switch i32 %.val.i.i.i, label %178 [
-    i32 208, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
-    i32 419, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+    i32 208, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
+    i32 419, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
     i32 209, label %167
     i32 420, label %167
     i32 210, label %168
@@ -452,42 +452,42 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_118LibCallsShrinkWrapEvE5visitERNS_8Function
   ]
 
 167:                                              ; preds = %166, %166
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 168:                                              ; preds = %166, %166
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 169:                                              ; preds = %166
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 170:                                              ; preds = %166
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 171:                                              ; preds = %166
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 172:                                              ; preds = %166
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 173:                                              ; preds = %166
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 174:                                              ; preds = %166
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 175:                                              ; preds = %166
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 176:                                              ; preds = %166
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 177:                                              ; preds = %166
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 178:                                              ; preds = %166
   unreachable
 
-_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i: ; preds = %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %166
+_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i: ; preds = %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %166
   %.05.i.i.i.i.i = phi float [ 1.138300e+04, %177 ], [ 1.270000e+02, %176 ], [ 1.023000e+03, %175 ], [ 4.932000e+03, %174 ], [ 3.800000e+01, %173 ], [ 3.080000e+02, %172 ], [ 1.135600e+04, %171 ], [ 8.800000e+01, %170 ], [ 7.090000e+02, %169 ], [ 1.135700e+04, %168 ], [ 8.900000e+01, %167 ], [ 7.100000e+02, %166 ], [ 7.100000e+02, %166 ]
   %.0.i.i.i.i.i = phi float [ -1.644500e+04, %177 ], [ -1.490000e+02, %176 ], [ -1.074000e+03, %175 ], [ -4.950000e+03, %174 ], [ -4.500000e+01, %173 ], [ -3.230000e+02, %172 ], [ -1.139900e+04, %171 ], [ -1.030000e+02, %170 ], [ -7.450000e+02, %169 ], [ -1.135700e+04, %168 ], [ -8.900000e+01, %167 ], [ -7.100000e+02, %166 ], [ -7.100000e+02, %166 ]
   %179 = getelementptr inbounds nuw i8, ptr %117, i64 4
@@ -497,16 +497,16 @@ _ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKN
   %183 = sub nsw i64 0, %182
   %184 = getelementptr inbounds %"class.llvm::Use", ptr %117, i64 %183
   %185 = load ptr, ptr %184, align 8
-  %186 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f.argprom(ptr noundef nonnull %117, ptr noundef %185, i32 noundef 2, float noundef %.05.i.i.i.i.i, ptr noundef %185, i32 noundef 4, float noundef %.0.i.i.i.i.i)
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i
+  %186 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f(ptr noundef nonnull %117, ptr noundef %185, i32 noundef 2, float noundef %.05.i.i.i.i.i, ptr noundef %185, i32 noundef 4, float noundef %.0.i.i.i.i.i)
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i
 
 187:                                              ; preds = %116
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 188:                                              ; preds = %116
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
-_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i: ; preds = %188, %187, %116
+_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i: ; preds = %188, %187, %116
   %.0.i11.i.i.i.i = phi float [ 1.135600e+04, %188 ], [ 8.800000e+01, %187 ], [ 7.090000e+02, %116 ]
   %189 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %190 = load i32, ptr %189, align 4
@@ -515,8 +515,8 @@ _ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKN
   %193 = sub nsw i64 0, %192
   %194 = getelementptr inbounds %"class.llvm::Use", ptr %117, i64 %193
   %195 = load ptr, ptr %194, align 8
-  %196 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf.argprom(ptr noundef nonnull %117, ptr noundef %195, i32 noundef 2, float noundef %.0.i11.i.i.i.i)
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i
+  %196 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull %117, ptr noundef %195, i32 noundef 2, float noundef %.0.i11.i.i.i.i)
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i
 
 197:                                              ; preds = %116, %116, %116
   %198 = getelementptr inbounds nuw i8, ptr %117, i64 4
@@ -526,8 +526,8 @@ _ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKN
   %202 = sub nsw i64 0, %201
   %203 = getelementptr inbounds %"class.llvm::Use", ptr %117, i64 %202
   %204 = load ptr, ptr %203, align 8
-  %205 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f.argprom(ptr noundef nonnull %117, ptr noundef %204, i32 noundef 5, float noundef -1.000000e+00, ptr noundef %204, i32 noundef 3, float noundef 1.000000e+00)
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i
+  %205 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f(ptr noundef nonnull %117, ptr noundef %204, i32 noundef 5, float noundef -1.000000e+00, ptr noundef %204, i32 noundef 3, float noundef 1.000000e+00)
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i
 
 206:                                              ; preds = %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116
   %207 = getelementptr inbounds nuw i8, ptr %117, i64 4
@@ -537,8 +537,8 @@ _ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKN
   %211 = sub nsw i64 0, %210
   %212 = getelementptr inbounds %"class.llvm::Use", ptr %117, i64 %211
   %213 = load ptr, ptr %212, align 8
-  %214 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf.argprom(ptr noundef nonnull %117, ptr noundef %213, i32 noundef 5, float noundef 0.000000e+00)
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i
+  %214 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull %117, ptr noundef %213, i32 noundef 5, float noundef 0.000000e+00)
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i
 
 215:                                              ; preds = %116, %116, %116
   %216 = getelementptr inbounds nuw i8, ptr %117, i64 4
@@ -548,13 +548,13 @@ _ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKN
   %220 = sub nsw i64 0, %219
   %221 = getelementptr inbounds %"class.llvm::Use", ptr %117, i64 %220
   %222 = load ptr, ptr %221, align 8
-  %223 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf.argprom(ptr noundef nonnull %117, ptr noundef %222, i32 noundef 5, float noundef -1.000000e+00)
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i
+  %223 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull %117, ptr noundef %222, i32 noundef 5, float noundef -1.000000e+00)
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i
 
 224:                                              ; preds = %116, %116, %116
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %.not.i.i.i.i5.i = icmp eq i32 %.val.i.i.i, 377
-  br i1 %.not.i.i.i.i5.i, label %225, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i.i
+  br i1 %.not.i.i.i.i5.i, label %225, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i.i
 
 225:                                              ; preds = %224
   %226 = getelementptr inbounds nuw i8, ptr %117, i64 4
@@ -576,18 +576,18 @@ _ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKN
   %239 = fcmp olt double %238, 1.000000e+00
   %240 = fcmp ogt double %238, 2.550000e+02
   %or.cond9.i.i.i.i.i = or i1 %239, %240
-  br i1 %or.cond9.i.i.i.i.i, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i.i, label %241
+  br i1 %or.cond9.i.i.i.i.i, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i.i, label %241
 
 241:                                              ; preds = %236
-  %242 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf.argprom(ptr noundef nonnull %117, ptr noundef %234, i32 noundef 2, float noundef 1.270000e+02)
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  %242 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull %117, ptr noundef %234, i32 noundef 2, float noundef 1.270000e+02)
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
 243:                                              ; preds = %225
   %244 = icmp ugt i8 %235, 28
   %245 = and i8 %235, -2
   %or.cond.i.i.i.i.i = icmp eq i8 %245, 72
   %or.cond10.i.i.i.i.i = and i1 %244, %or.cond.i.i.i.i.i
-  br i1 %or.cond10.i.i.i.i.i, label %246, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i.i
+  br i1 %or.cond10.i.i.i.i.i, label %246, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i.i
 
 246:                                              ; preds = %243
   %247 = getelementptr inbounds nuw i8, ptr %232, i64 4
@@ -620,7 +620,7 @@ _ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i:      ; preds = %253, %250
   store i8 %.fca.1.extract.i.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %263 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #10
   %264 = trunc i64 %263 to i32
-  switch i32 %264, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i.i [
+  switch i32 %264, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i.i [
     i32 8, label %267
     i32 16, label %265
     i32 32, label %266
@@ -634,21 +634,21 @@ _ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i:      ; preds = %253, %250
 
 267:                                              ; preds = %266, %265, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i
   %.0.i.i12.i.i.i = phi float [ 6.400000e+01, %265 ], [ 3.200000e+01, %266 ], [ 1.280000e+02, %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i ]
-  %268 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f.argprom(ptr noundef nonnull %117, ptr noundef nonnull %232, i32 noundef 5, float noundef 0.000000e+00, ptr noundef %234, i32 noundef 2, float noundef %.0.i.i12.i.i.i)
-  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i
+  %268 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f(ptr noundef nonnull %117, ptr noundef nonnull %232, i32 noundef 5, float noundef 0.000000e+00, ptr noundef %234, i32 noundef 2, float noundef %.0.i.i12.i.i.i)
+  br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i
 
-_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i, %243, %236, %224
+_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm4User10getOperandEj.exit.i.i.i.i.i, %243, %236, %224
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap7performEPN4llvm8CallInstE.exit.i.i
 
-_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i: ; preds = %267, %241
+_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i: ; preds = %267, %241
   %.026.i.i.i.i.i = phi ptr [ %242, %241 ], [ %268, %267 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %269 = icmp eq ptr %.026.i.i.i.i.i, null
-  br i1 %269, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap7performEPN4llvm8CallInstE.exit.i.i, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i
+  br i1 %269, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap7performEPN4llvm8CallInstE.exit.i.i, label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i
 
-_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i: ; preds = %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i, %215, %206, %197, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i, %157, %148, %139, %130
-  %.0.i9.i.sink.i.i = phi ptr [ %165, %157 ], [ %156, %148 ], [ %147, %139 ], [ %138, %130 ], [ %196, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i ], [ %186, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i ], [ %.026.i.i.i.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i ], [ %223, %215 ], [ %214, %206 ], [ %205, %197 ]
+_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i: ; preds = %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i, %215, %206, %197, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i, %157, %148, %139, %130
+  %.0.i9.i.sink.i.i = phi ptr [ %165, %157 ], [ %156, %148 ], [ %147, %139 ], [ %138, %130 ], [ %196, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateOneRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i ], [ %186, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap20generateTwoRangeCondEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i ], [ %.026.i.i.i.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i ], [ %223, %215 ], [ %214, %206 ], [ %205, %197 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -682,8 +682,8 @@ _ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallIn
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   br label %_ZN12_GLOBAL__N_118LibCallsShrinkWrap7performEPN4llvm8CallInstE.exit.i.i
 
-_ZN12_GLOBAL__N_118LibCallsShrinkWrap7performEPN4llvm8CallInstE.exit.i.i: ; preds = %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i.i, %116
-  %280 = phi i1 [ true, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i ], [ %.013.i.i, %116 ], [ %.013.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.thread.i.i.i.i ], [ %.013.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.argprom.exit.i.i.i.i ]
+_ZN12_GLOBAL__N_118LibCallsShrinkWrap7performEPN4llvm8CallInstE.exit.i.i: ; preds = %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i.i, %116
+  %280 = phi i1 [ true, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap26performCallDomainErrorOnlyEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i ], [ %.013.i.i, %116 ], [ %.013.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.thread.i.i.i.i ], [ %.013.i.i, %_ZN12_GLOBAL__N_118LibCallsShrinkWrap18generateCondForPowEPN4llvm8CallInstERKNS1_7LibFuncE.exit.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %281 = getelementptr inbounds i8, ptr %.0812.i.i, i64 8
   %.not.i.i = icmp eq ptr %281, %111
@@ -926,7 +926,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnul
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f.argprom(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2, float noundef %3, ptr noundef %4, i32 noundef range(i32 1, 5) %5, float noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12createOrCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEfS5_S7_f(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2, float noundef %3, ptr noundef %4, i32 noundef range(i32 1, 5) %5, float noundef %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::IRBuilder", align 8
   %10 = alloca %"class.llvm::Twine", align 8
@@ -958,8 +958,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap12creat
   store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %12, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %13, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull %0)
-  %25 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_7CmpInst9PredicateEf.argprom(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef %4, i32 noundef %5, float noundef %6)
-  %26 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_7CmpInst9PredicateEf.argprom(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef %1, i32 noundef %2, float noundef %3)
+  %25 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef %4, i32 noundef %5, float noundef %6)
+  %26 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef %1, i32 noundef %2, float noundef %3)
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i16 257, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
@@ -1019,7 +1019,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_7CmpInst9PredicateEf.argprom(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2, float noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2, float noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::detail::IEEEFloat", align 8
   %6 = alloca %"class.llvm::APFloat", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -1490,7 +1490,7 @@ declare void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 derefere
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf.argprom(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 2, 6) %2, float noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondEPN4llvm8CallInstEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 2, 6) %2, float noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IRBuilder", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #10
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -1520,7 +1520,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10creat
   store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %8, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull %0)
-  %20 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_7CmpInst9PredicateEf.argprom(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef %1, i32 noundef %2, float noundef %3)
+  %20 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118LibCallsShrinkWrap10createCondERN4llvm9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueENS1_7CmpInst9PredicateEf(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef %1, i32 noundef %2, float noundef %3)
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #10
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
   %21 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10

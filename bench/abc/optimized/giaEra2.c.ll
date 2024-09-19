@@ -1370,7 +1370,7 @@ tailrecurse._crit_edge:                           ; preds = %63, %Gia_ObjHasBran
   %15 = getelementptr inbounds i32, ptr %11, i64 %14
   %.val9.val.i = load ptr, ptr %.val, align 8
   %.not12.i = icmp eq ptr %15, %.val9.val.i
-  br i1 %.not12.i, label %Gia_ManAreListCountListUsed.argprom.exit, label %.lr.ph.i
+  br i1 %.not12.i, label %Gia_ManAreListCountListUsed.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %tailrecurse._crit_edge, %.lr.ph.i
   %.04.i = phi i32 [ %17, %.lr.ph.i ], [ 0, %tailrecurse._crit_edge ]
@@ -1391,7 +1391,7 @@ tailrecurse._crit_edge:                           ; preds = %63, %Gia_ObjHasBran
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %23, i64 %26
   %.not1.i = icmp eq ptr %27, %.val9.val.i
-  br i1 %.not1.i, label %Gia_ManAreListCountListUsed.argprom.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not1.i, label %Gia_ManAreListCountListUsed.exit, label %.lr.ph.i, !llvm.loop !18
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
   %.tr1923 = phi i32 [ %1, %.lr.ph ], [ %.pre29, %.backedge.backedge ]
@@ -1477,7 +1477,7 @@ Gia_ObjHasBranch2.exit:                           ; preds = %61
   %68 = add i32 %67, %57
   br label %.backedge.backedge
 
-Gia_ManAreListCountListUsed.argprom.exit:         ; preds = %.lr.ph.i, %tailrecurse._crit_edge
+Gia_ManAreListCountListUsed.exit:                 ; preds = %.lr.ph.i, %tailrecurse._crit_edge
   %.0 = phi i32 [ 0, %tailrecurse._crit_edge ], [ %17, %.lr.ph.i ]
   %accumulator.ret.tr = add nsw i32 %.0, %accumulator.tr.lcssa
   ret i32 %accumulator.ret.tr
@@ -1874,7 +1874,7 @@ Gia_ObjHasBranch0.exit.thread48:                  ; preds = %16
   br label %32
 
 Gia_ObjHasBranch0.exit.thread:                    ; preds = %16
-  %31 = tail call fastcc i32 @Gia_ManAreCubeCheckList.argprom(ptr noundef %0, i32 %19, ptr noundef nonnull %2)
+  %31 = tail call fastcc i32 @Gia_ManAreCubeCheckList(ptr noundef %0, i32 %19, ptr noundef nonnull %2)
   br label %32
 
 32:                                               ; preds = %Gia_ObjHasBranch0.exit.thread, %Gia_ObjHasBranch0.exit.thread48
@@ -1913,7 +1913,7 @@ Gia_ObjHasBranch1.exit.thread51:                  ; preds = %37
   br label %53
 
 Gia_ObjHasBranch1.exit.thread:                    ; preds = %37
-  %52 = tail call fastcc i32 @Gia_ManAreCubeCheckList.argprom(ptr noundef %0, i32 %40, ptr noundef nonnull %2)
+  %52 = tail call fastcc i32 @Gia_ManAreCubeCheckList(ptr noundef %0, i32 %40, ptr noundef nonnull %2)
   br label %53
 
 53:                                               ; preds = %Gia_ObjHasBranch1.exit.thread, %Gia_ObjHasBranch1.exit.thread51
@@ -1945,7 +1945,7 @@ Gia_ObjHasBranch2.exit.thread54:                  ; preds = %55
   br label %tailrecurse
 
 Gia_ObjHasBranch2.exit.thread:                    ; preds = %55
-  %69 = tail call fastcc i32 @Gia_ManAreCubeCheckList.argprom(ptr noundef %0, i32 %58, ptr noundef nonnull %2)
+  %69 = tail call fastcc i32 @Gia_ManAreCubeCheckList(ptr noundef %0, i32 %58, ptr noundef nonnull %2)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %53, %32, %Gia_ObjHasBranch2.exit.thread
@@ -1954,7 +1954,7 @@ Gia_ObjHasBranch2.exit.thread:                    ; preds = %55
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Gia_ManAreCubeCheckList.argprom(ptr nocapture noundef %0, i32 %.0.val, ptr noundef %1) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @Gia_ManAreCubeCheckList(ptr nocapture noundef %0, i32 %.0.val, ptr noundef %1) unnamed_addr #11 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -2270,9 +2270,9 @@ Gia_ObjHasBranch0.exit.thread:                    ; preds = %16
   %54 = getelementptr inbounds i32, ptr %50, i64 %53
   %.val9.val.i = load ptr, ptr %.val65, align 8
   %.not12.i = icmp eq ptr %54, %.val9.val.i
-  br i1 %.not12.i, label %Gia_ManAreListCountListUsed.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not12.i, label %Gia_ManAreListCountListUsed.exit.thread, label %.lr.ph.i
 
-Gia_ManAreListCountListUsed.argprom.exit.thread:  ; preds = %43
+Gia_ManAreListCountListUsed.exit.thread:          ; preds = %43
   store i32 %40, ptr %.tr136, align 4
   br label %72
 
@@ -2295,9 +2295,9 @@ Gia_ManAreListCountListUsed.argprom.exit.thread:  ; preds = %43
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i32, ptr %62, i64 %65
   %.not1.i = icmp eq ptr %66, %.val9.val.i
-  br i1 %.not1.i, label %Gia_ManAreListCountListUsed.argprom.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not1.i, label %Gia_ManAreListCountListUsed.exit, label %.lr.ph.i, !llvm.loop !18
 
-Gia_ManAreListCountListUsed.argprom.exit:         ; preds = %.lr.ph.i
+Gia_ManAreListCountListUsed.exit:                 ; preds = %.lr.ph.i
   %67 = shl i32 %56, 14
   %68 = and i32 %67, 1032192
   %69 = or disjoint i32 %68, %40
@@ -2306,7 +2306,7 @@ Gia_ManAreListCountListUsed.argprom.exit:         ; preds = %.lr.ph.i
   %71 = icmp ult i32 %70, 31
   br i1 %71, label %72, label %92
 
-72:                                               ; preds = %Gia_ManAreListCountListUsed.argprom.exit.thread, %Gia_ManAreListCountListUsed.argprom.exit
+72:                                               ; preds = %Gia_ManAreListCountListUsed.exit.thread, %Gia_ManAreListCountListUsed.exit
   %73 = and i32 %34, -2147483648
   store i32 %73, ptr %30, align 4
   %.val21.i = load ptr, ptr %44, align 8
@@ -2358,7 +2358,7 @@ Gia_ManAreListCountListUsed.argprom.exit:         ; preds = %.lr.ph.i
   %.not24.i = icmp eq ptr %91, %.val23.val.i
   br i1 %.not24.i, label %Gia_ManAreCompress.exit, label %.lr.ph.i73, !llvm.loop !27
 
-92:                                               ; preds = %Gia_ManAreListCountListUsed.argprom.exit
+92:                                               ; preds = %Gia_ManAreListCountListUsed.exit
   tail call fastcc void @Gia_ManAreRebalance(ptr noundef %0, ptr noundef nonnull %30)
   %93 = load i32, ptr %.tr136, align 4
   %94 = and i32 %93, -1032193
@@ -2416,9 +2416,9 @@ Gia_ObjHasBranch1.exit.thread:                    ; preds = %98
   %127 = getelementptr inbounds i32, ptr %123, i64 %126
   %.val9.val.i76 = load ptr, ptr %.val63, align 8
   %.not12.i77 = icmp eq ptr %127, %.val9.val.i76
-  br i1 %.not12.i77, label %Gia_ManAreListCountListUsed.argprom.exit86.thread, label %.lr.ph.i78
+  br i1 %.not12.i77, label %Gia_ManAreListCountListUsed.exit86.thread, label %.lr.ph.i78
 
-Gia_ManAreListCountListUsed.argprom.exit86.thread: ; preds = %116
+Gia_ManAreListCountListUsed.exit86.thread:        ; preds = %116
   store i32 %113, ptr %.tr136, align 4
   br label %145
 
@@ -2441,9 +2441,9 @@ Gia_ManAreListCountListUsed.argprom.exit86.thread: ; preds = %116
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds i32, ptr %135, i64 %138
   %.not1.i84 = icmp eq ptr %139, %.val9.val.i76
-  br i1 %.not1.i84, label %Gia_ManAreListCountListUsed.argprom.exit86, label %.lr.ph.i78, !llvm.loop !18
+  br i1 %.not1.i84, label %Gia_ManAreListCountListUsed.exit86, label %.lr.ph.i78, !llvm.loop !18
 
-Gia_ManAreListCountListUsed.argprom.exit86:       ; preds = %.lr.ph.i78
+Gia_ManAreListCountListUsed.exit86:               ; preds = %.lr.ph.i78
   %140 = shl i32 %129, 20
   %141 = and i32 %140, 66060288
   %142 = or disjoint i32 %141, %113
@@ -2452,7 +2452,7 @@ Gia_ManAreListCountListUsed.argprom.exit86:       ; preds = %.lr.ph.i78
   %144 = icmp ult i32 %143, 31
   br i1 %144, label %145, label %165
 
-145:                                              ; preds = %Gia_ManAreListCountListUsed.argprom.exit86.thread, %Gia_ManAreListCountListUsed.argprom.exit86
+145:                                              ; preds = %Gia_ManAreListCountListUsed.exit86.thread, %Gia_ManAreListCountListUsed.exit86
   %146 = and i32 %107, -2147483648
   store i32 %146, ptr %103, align 4
   %.val21.i88 = load ptr, ptr %117, align 8
@@ -2504,7 +2504,7 @@ Gia_ManAreListCountListUsed.argprom.exit86:       ; preds = %.lr.ph.i78
   %.not24.i105 = icmp eq ptr %164, %.val23.val.i102
   br i1 %.not24.i105, label %Gia_ManAreCompress.exit, label %.lr.ph.i92, !llvm.loop !27
 
-165:                                              ; preds = %Gia_ManAreListCountListUsed.argprom.exit86
+165:                                              ; preds = %Gia_ManAreListCountListUsed.exit86
   tail call fastcc void @Gia_ManAreRebalance(ptr noundef %0, ptr noundef nonnull %103)
   %166 = load i32, ptr %.tr136, align 4
   %167 = and i32 %166, -66060289
@@ -2555,9 +2555,9 @@ Gia_ObjHasBranch2.exit.thread:                    ; preds = %168
   %196 = getelementptr inbounds i32, ptr %192, i64 %195
   %.val9.val.i112 = load ptr, ptr %.val, align 8
   %.not12.i113 = icmp eq ptr %196, %.val9.val.i112
-  br i1 %.not12.i113, label %Gia_ManAreListCountListUsed.argprom.exit122.thread, label %.lr.ph.i114
+  br i1 %.not12.i113, label %Gia_ManAreListCountListUsed.exit122.thread, label %.lr.ph.i114
 
-Gia_ManAreListCountListUsed.argprom.exit122.thread: ; preds = %185
+Gia_ManAreListCountListUsed.exit122.thread:       ; preds = %185
   store i32 %182, ptr %.tr136, align 4
   br label %213
 
@@ -2580,9 +2580,9 @@ Gia_ManAreListCountListUsed.argprom.exit122.thread: ; preds = %185
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i32, ptr %204, i64 %207
   %.not1.i120 = icmp eq ptr %208, %.val9.val.i112
-  br i1 %.not1.i120, label %Gia_ManAreListCountListUsed.argprom.exit122, label %.lr.ph.i114, !llvm.loop !18
+  br i1 %.not1.i120, label %Gia_ManAreListCountListUsed.exit122, label %.lr.ph.i114, !llvm.loop !18
 
-Gia_ManAreListCountListUsed.argprom.exit122:      ; preds = %.lr.ph.i114
+Gia_ManAreListCountListUsed.exit122:              ; preds = %.lr.ph.i114
   %209 = shl i32 %198, 26
   %210 = or disjoint i32 %209, %182
   store i32 %210, ptr %.tr136, align 4
@@ -2590,11 +2590,11 @@ Gia_ManAreListCountListUsed.argprom.exit122:      ; preds = %.lr.ph.i114
   %212 = icmp ult i32 %211, 31
   br i1 %212, label %213, label %214
 
-213:                                              ; preds = %Gia_ManAreListCountListUsed.argprom.exit122.thread, %Gia_ManAreListCountListUsed.argprom.exit122
+213:                                              ; preds = %Gia_ManAreListCountListUsed.exit122.thread, %Gia_ManAreListCountListUsed.exit122
   tail call fastcc void @Gia_ManAreCompress(ptr noundef %0, ptr noundef nonnull %172)
   br label %Gia_ManAreCompress.exit
 
-214:                                              ; preds = %Gia_ManAreListCountListUsed.argprom.exit122
+214:                                              ; preds = %Gia_ManAreListCountListUsed.exit122
   tail call fastcc void @Gia_ManAreRebalance(ptr noundef %0, ptr noundef nonnull %172)
   %215 = load i32, ptr %.tr136, align 4
   %216 = and i32 %215, 67108863
@@ -2890,7 +2890,7 @@ Gia_ObjHasBranch0.exit.thread48:                  ; preds = %16
   br label %49
 
 Gia_ObjHasBranch0.exit.thread:                    ; preds = %16
-  tail call fastcc void @Gia_ManAreCubeCollectList.argprom.retelim(ptr noundef %0, i32 %19, ptr noundef nonnull %2)
+  tail call fastcc void @Gia_ManAreCubeCollectList(ptr noundef %0, i32 %19, ptr noundef nonnull %2)
   br label %49
 
 31:                                               ; preds = %tailrecurse
@@ -2924,7 +2924,7 @@ Gia_ObjHasBranch1.exit.thread51:                  ; preds = %34
   br label %49
 
 Gia_ObjHasBranch1.exit.thread:                    ; preds = %34
-  tail call fastcc void @Gia_ManAreCubeCollectList.argprom.retelim(ptr noundef %0, i32 %37, ptr noundef nonnull %2)
+  tail call fastcc void @Gia_ManAreCubeCollectList(ptr noundef %0, i32 %37, ptr noundef nonnull %2)
   br label %49
 
 49:                                               ; preds = %Gia_ObjHasBranch1.exit.thread51, %Gia_ObjHasBranch1.exit.thread, %Gia_ObjHasBranch0.exit.thread48, %Gia_ObjHasBranch0.exit.thread, %31
@@ -2951,12 +2951,12 @@ Gia_ObjHasBranch2.exit.thread54:                  ; preds = %49
   br label %tailrecurse
 
 Gia_ObjHasBranch2.exit.thread:                    ; preds = %49
-  tail call fastcc void @Gia_ManAreCubeCollectList.argprom.retelim(ptr noundef %0, i32 %52, ptr noundef nonnull %2)
+  tail call fastcc void @Gia_ManAreCubeCollectList(ptr noundef %0, i32 %52, ptr noundef nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAreCubeCollectList.argprom.retelim(ptr nocapture noundef readonly %0, i32 %.0.val, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc void @Gia_ManAreCubeCollectList(ptr nocapture noundef readonly %0, i32 %.0.val, ptr nocapture noundef readonly %1) unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -3994,7 +3994,7 @@ Abc_Clock.exit:                                   ; preds = %86, %89
 .thread:                                          ; preds = %118, %96, %.lr.ph.i101, %Abc_Clock.exit
   %124 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %124, align 4
-  call fastcc void @Gia_ManAreCubeProcess.retelim(ptr noundef nonnull %0, ptr noundef nonnull %93)
+  call fastcc void @Gia_ManAreCubeProcess(ptr noundef nonnull %0, ptr noundef nonnull %93)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %125 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #26
   %126 = icmp slt i32 %125, 0
@@ -4383,7 +4383,7 @@ Gia_ManAreCreateSta.exit:                         ; preds = %10, %28
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAreCubeProcess.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @Gia_ManAreCubeProcess(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4429,7 +4429,7 @@ define internal fastcc void @Gia_ManAreCubeProcess.retelim(ptr noundef %0, ptr n
 .thread29:                                        ; preds = %6, %10
   %27 = getelementptr inbounds i8, ptr %0, i64 72
   %.val26 = load i32, ptr %27, align 4
-  %28 = tail call fastcc i32 @Gia_ManAreCubeCheckList.argprom(ptr noundef nonnull %0, i32 %.val26, ptr noundef %1)
+  %28 = tail call fastcc i32 @Gia_ManAreCubeCheckList(ptr noundef nonnull %0, i32 %.val26, ptr noundef %1)
   %.not24 = icmp eq i32 %28, 0
   br i1 %.not24, label %34, label %29
 
@@ -5297,7 +5297,7 @@ Abc_Clock.exit:                                   ; preds = %4, %23
 
 Gia_ManAreCreateStaInit.exit:                     ; preds = %.lr.ph.i, %47, %38
   %62 = call fastcc ptr @Gia_ManAreCreateStaNew(ptr noundef nonnull %40)
-  call fastcc void @Gia_ManAreCubeProcess.retelim(ptr noundef nonnull %40, ptr noundef %62)
+  call fastcc void @Gia_ManAreCubeProcess(ptr noundef nonnull %40, ptr noundef %62)
   %63 = getelementptr inbounds i8, ptr %40, i64 68
   %64 = getelementptr inbounds i8, ptr %40, i64 64
   store i32 1, ptr %63, align 4

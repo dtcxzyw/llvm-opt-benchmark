@@ -198,7 +198,7 @@ _PaPulseAudio_Read.exit:                          ; preds = %3, %_PaPulseAudio_W
   br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %_PaPulseAudio_Read.exit
-  call fastcc void @_PaPulseAudio_ProcessAudio.retelim(ptr noundef nonnull %2, i64 noundef %1)
+  call fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef nonnull %2, i64 noundef %1)
   br label %24
 
 24:                                               ; preds = %23, %_PaPulseAudio_Read.exit
@@ -209,7 +209,7 @@ _PaPulseAudio_Read.exit:                          ; preds = %3, %_PaPulseAudio_W
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_PaPulseAudio_ProcessAudio.retelim(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -569,7 +569,7 @@ define void @PaPulseAudio_StreamPlaybackCb(ptr nocapture readnone %0, i64 nounde
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call fastcc void @_PaPulseAudio_ProcessAudio.retelim(ptr noundef nonnull %2, i64 noundef %1)
+  tail call fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef nonnull %2, i64 noundef %1)
   br label %7
 
 7:                                                ; preds = %6, %3
@@ -1242,18 +1242,18 @@ declare void @pa_stream_set_read_callback(ptr noundef, ptr noundef, ptr noundef)
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @PaPulseAudio_AbortStreamCb(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @RequestStop.retelim(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @RequestStop(ptr noundef %0, i32 noundef 1)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @PaPulseAudio_StopStreamCb(ptr noundef %0) local_unnamed_addr #0 {
-  tail call fastcc void @RequestStop.retelim(ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @RequestStop(ptr noundef %0, i32 noundef 0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RequestStop.retelim(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @RequestStop(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 82216

@@ -1319,7 +1319,7 @@ rbimpl_rstring_getmem.exit2412:                   ; preds = %561, %570
 574:                                              ; preds = %rbimpl_intern_const.exit
   %.not2228 = icmp eq i8 %.019033423, 0
   %spec.store.select = select i1 %.not2228, i8 48, i8 %.019033423
-  %575 = call fastcc i64 @format_value.argelim(i64 noundef %544)
+  %575 = call fastcc i64 @format_value(i64 noundef %544)
   %576 = inttoptr i64 %575 to ptr
   %577 = getelementptr inbounds i8, ptr %576, i64 16
   %578 = load i64, ptr %577, align 8
@@ -5563,7 +5563,7 @@ declare i64 @rb_str_catf(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @format_value.argelim(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @format_value(i64 noundef %0) unnamed_addr #0 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0

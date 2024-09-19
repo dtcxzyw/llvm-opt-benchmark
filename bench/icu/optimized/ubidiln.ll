@@ -1100,8 +1100,8 @@ for.body123.lr.ph:                                ; preds = %if.end112
   %46 = getelementptr i8, ptr %pBiDi, i64 304
   br label %for.body123
 
-for.body123:                                      ; preds = %for.body123.lr.ph, %_ZL22getRunFromLogicalIndexP5UBiDii.argprom.exit
-  %point.0175 = phi ptr [ %45, %for.body123.lr.ph ], [ %incdec.ptr, %_ZL22getRunFromLogicalIndexP5UBiDii.argprom.exit ]
+for.body123:                                      ; preds = %for.body123.lr.ph, %_ZL22getRunFromLogicalIndexP5UBiDii.exit
+  %point.0175 = phi ptr [ %45, %for.body123.lr.ph ], [ %incdec.ptr, %_ZL22getRunFromLogicalIndexP5UBiDii.exit ]
   %47 = load i32, ptr %point.0175, align 4
   %pBiDi.val = load i32, ptr %runCount, align 8
   %pBiDi.val112 = load ptr, ptr %46, align 8
@@ -1127,7 +1127,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %sub.i = sub i32 %48, %visualStart.04.i
   %add.i = add nsw i32 %sub.i, %and.i126
   %cmp8.i = icmp slt i32 %47, %add.i
-  br i1 %cmp8.i, label %_ZL22getRunFromLogicalIndexP5UBiDii.argprom.exit, label %if.end.i127
+  br i1 %cmp8.i, label %_ZL22getRunFromLogicalIndexP5UBiDii.exit, label %if.end.i127
 
 if.end.i127:                                      ; preds = %land.lhs.true.i, %for.body.i
   %indvars.iv.next.i128 = add nuw nsw i64 %indvars.iv.i124, 1
@@ -1138,7 +1138,7 @@ for.end.i:                                        ; preds = %for.body123, %if.en
   tail call void @abort() #9
   unreachable
 
-_ZL22getRunFromLogicalIndexP5UBiDii.argprom.exit: ; preds = %land.lhs.true.i
+_ZL22getRunFromLogicalIndexP5UBiDii.exit:         ; preds = %land.lhs.true.i
   %flag = getelementptr inbounds i8, ptr %point.0175, i64 4
   %50 = load i32, ptr %flag, align 4
   %sext155 = shl i64 %indvars.iv.i124, 32
@@ -1151,7 +1151,7 @@ _ZL22getRunFromLogicalIndexP5UBiDii.argprom.exit: ; preds = %land.lhs.true.i
   %cmp122 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp122, label %for.body123, label %if.end132, !llvm.loop !20
 
-if.end132:                                        ; preds = %_ZL22getRunFromLogicalIndexP5UBiDii.argprom.exit, %if.end112
+if.end132:                                        ; preds = %_ZL22getRunFromLogicalIndexP5UBiDii.exit, %if.end112
   %controlCount = getelementptr inbounds i8, ptr %pBiDi, i64 440
   %52 = load i32, ptr %controlCount, align 8
   %cmp133 = icmp sgt i32 %52, 0
@@ -1215,7 +1215,7 @@ land.lhs.true.i140:                               ; preds = %for.body.i133
   %sub.i141 = sub i32 %57, %visualStart.04.i135
   %add.i142 = add nsw i32 %sub.i141, %and.i138
   %cmp8.i143 = icmp sgt i32 %add.i142, %conv155
-  br i1 %cmp8.i143, label %_ZL22getRunFromLogicalIndexP5UBiDii.argprom.exit147, label %if.end.i144
+  br i1 %cmp8.i143, label %_ZL22getRunFromLogicalIndexP5UBiDii.exit147, label %if.end.i144
 
 if.end.i144:                                      ; preds = %land.lhs.true.i140, %for.body.i133
   %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i134, 1
@@ -1226,7 +1226,7 @@ for.end.i130:                                     ; preds = %if.then154, %if.end
   tail call void @abort() #9
   unreachable
 
-_ZL22getRunFromLogicalIndexP5UBiDii.argprom.exit147: ; preds = %land.lhs.true.i140
+_ZL22getRunFromLogicalIndexP5UBiDii.exit147:      ; preds = %land.lhs.true.i140
   %sext = shl i64 %indvars.iv.i134, 32
   %idxprom158 = ashr exact i64 %sext, 32
   %insertRemove160 = getelementptr inbounds %struct.Run, ptr %pBiDi.val114, i64 %idxprom158, i32 2
@@ -1235,7 +1235,7 @@ _ZL22getRunFromLogicalIndexP5UBiDii.argprom.exit147: ; preds = %land.lhs.true.i1
   store i32 %dec, ptr %insertRemove160, align 4
   br label %for.inc162
 
-for.inc162:                                       ; preds = %for.body143, %_ZL22getRunFromLogicalIndexP5UBiDii.argprom.exit147
+for.inc162:                                       ; preds = %for.body143, %_ZL22getRunFromLogicalIndexP5UBiDii.exit147
   %incdec.ptr163 = getelementptr inbounds i8, ptr %pu.0177, i64 2
   %cmp142 = icmp ult ptr %incdec.ptr163, %add.ptr140
   br i1 %cmp142, label %for.body143, label %return, !llvm.loop !21

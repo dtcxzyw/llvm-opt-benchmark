@@ -260,8 +260,8 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %cmp.not.us = icmp eq ptr %snd_buf, %6
   br i1 %cmp.not.us, label %while.cond16.preheader.thread, label %while.body.us, !llvm.loop !5
 
-while.cond16.preheader:                           ; preds = %ikcp_segment_delete.argprom.exit, %while.cond.preheader
-  %.pre91.pre92.pre.pre.pre = phi ptr [ %.pre91.pre92.pre.pre.pre.pre, %while.cond.preheader ], [ %.pre91.pre92.pre.pre.pre104, %ikcp_segment_delete.argprom.exit ]
+while.cond16.preheader:                           ; preds = %ikcp_segment_delete.exit, %while.cond.preheader
+  %.pre91.pre92.pre.pre.pre = phi ptr [ %.pre91.pre92.pre.pre.pre.pre, %while.cond.preheader ], [ %.pre91.pre92.pre.pre.pre104, %ikcp_segment_delete.exit ]
   %rcv_buf = getelementptr inbounds i8, ptr %kcp, i64 184
   %7 = load ptr, ptr %rcv_buf, align 8
   %cmp19.not78 = icmp eq ptr %rcv_buf, %7
@@ -296,10 +296,10 @@ while.body21.us:                                  ; preds = %while.body21.us.pre
   %cmp19.not.us = icmp eq ptr %rcv_buf110113, %15
   br i1 %cmp19.not.us, label %while.cond40.preheader, label %while.body21.us, !llvm.loop !7
 
-while.body:                                       ; preds = %while.body.lr.ph, %ikcp_segment_delete.argprom.exit
-  %.pre91.pre92.pre.pre.pre105 = phi ptr [ %.pre91.pre92.pre.pre.pre104, %ikcp_segment_delete.argprom.exit ], [ %.pre91.pre92.pre.pre.pre.pre, %while.body.lr.ph ]
-  %16 = phi ptr [ %21, %ikcp_segment_delete.argprom.exit ], [ %.pre91.pre92.pre.pre.pre.pre, %while.body.lr.ph ]
-  %17 = phi ptr [ %22, %ikcp_segment_delete.argprom.exit ], [ %0, %while.body.lr.ph ]
+while.body:                                       ; preds = %while.body.lr.ph, %ikcp_segment_delete.exit
+  %.pre91.pre92.pre.pre.pre105 = phi ptr [ %.pre91.pre92.pre.pre.pre104, %ikcp_segment_delete.exit ], [ %.pre91.pre92.pre.pre.pre.pre, %while.body.lr.ph ]
+  %16 = phi ptr [ %21, %ikcp_segment_delete.exit ], [ %.pre91.pre92.pre.pre.pre.pre, %while.body.lr.ph ]
+  %17 = phi ptr [ %22, %ikcp_segment_delete.exit ], [ %0, %while.body.lr.ph ]
   %prev = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %prev, align 8
   %19 = load ptr, ptr %17, align 8
@@ -314,30 +314,30 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then.i.i:                                      ; preds = %while.body
   tail call void %16(ptr noundef nonnull %17) #14
   %.pre = load ptr, ptr @ikcp_free_hook, align 8
-  br label %ikcp_segment_delete.argprom.exit
+  br label %ikcp_segment_delete.exit
 
 if.else.i.i:                                      ; preds = %while.body
   tail call void @free(ptr noundef nonnull %17) #14
-  br label %ikcp_segment_delete.argprom.exit
+  br label %ikcp_segment_delete.exit
 
-ikcp_segment_delete.argprom.exit:                 ; preds = %if.then.i.i, %if.else.i.i
+ikcp_segment_delete.exit:                         ; preds = %if.then.i.i, %if.else.i.i
   %.pre91.pre92.pre.pre.pre104 = phi ptr [ %.pre, %if.then.i.i ], [ %.pre91.pre92.pre.pre.pre105, %if.else.i.i ]
   %21 = phi ptr [ %.pre, %if.then.i.i ], [ null, %if.else.i.i ]
   %22 = load ptr, ptr %snd_buf, align 8
   %cmp.not = icmp eq ptr %snd_buf, %22
   br i1 %cmp.not, label %while.cond16.preheader, label %while.body, !llvm.loop !8
 
-while.cond40.preheader:                           ; preds = %ikcp_segment_delete.argprom.exit60, %while.body21.us, %while.cond16.preheader.thread, %while.cond16.preheader
-  %.pre91.pre92.pre.pre = phi ptr [ %.pre91.pre92.pre.pre.pre, %while.cond16.preheader ], [ null, %while.cond16.preheader.thread ], [ null, %while.body21.us ], [ %.pre91.pre92.pre.pre101, %ikcp_segment_delete.argprom.exit60 ]
+while.cond40.preheader:                           ; preds = %ikcp_segment_delete.exit60, %while.body21.us, %while.cond16.preheader.thread, %while.cond16.preheader
+  %.pre91.pre92.pre.pre = phi ptr [ %.pre91.pre92.pre.pre.pre, %while.cond16.preheader ], [ null, %while.cond16.preheader.thread ], [ null, %while.body21.us ], [ %.pre91.pre92.pre.pre101, %ikcp_segment_delete.exit60 ]
   %snd_queue = getelementptr inbounds i8, ptr %kcp, i64 136
   %23 = load ptr, ptr %snd_queue, align 8
   %cmp43.not79 = icmp eq ptr %snd_queue, %23
   br i1 %cmp43.not79, label %while.cond64.preheader, label %while.body45
 
-while.body21:                                     ; preds = %while.body21.lr.ph, %ikcp_segment_delete.argprom.exit60
-  %.pre91.pre92.pre.pre102 = phi ptr [ %.pre91.pre92.pre.pre101, %ikcp_segment_delete.argprom.exit60 ], [ %.pre91.pre92.pre.pre.pre, %while.body21.lr.ph ]
-  %24 = phi ptr [ %29, %ikcp_segment_delete.argprom.exit60 ], [ %.pre91.pre92.pre.pre.pre, %while.body21.lr.ph ]
-  %25 = phi ptr [ %30, %ikcp_segment_delete.argprom.exit60 ], [ %7, %while.body21.lr.ph ]
+while.body21:                                     ; preds = %while.body21.lr.ph, %ikcp_segment_delete.exit60
+  %.pre91.pre92.pre.pre102 = phi ptr [ %.pre91.pre92.pre.pre101, %ikcp_segment_delete.exit60 ], [ %.pre91.pre92.pre.pre.pre, %while.body21.lr.ph ]
+  %24 = phi ptr [ %29, %ikcp_segment_delete.exit60 ], [ %.pre91.pre92.pre.pre.pre, %while.body21.lr.ph ]
+  %25 = phi ptr [ %30, %ikcp_segment_delete.exit60 ], [ %7, %while.body21.lr.ph ]
   %prev26 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %prev26, align 8
   %27 = load ptr, ptr %25, align 8
@@ -352,30 +352,30 @@ while.body21:                                     ; preds = %while.body21.lr.ph,
 if.then.i.i58:                                    ; preds = %while.body21
   tail call void %24(ptr noundef nonnull %25) #14
   %.pre84 = load ptr, ptr @ikcp_free_hook, align 8
-  br label %ikcp_segment_delete.argprom.exit60
+  br label %ikcp_segment_delete.exit60
 
 if.else.i.i59:                                    ; preds = %while.body21
   tail call void @free(ptr noundef nonnull %25) #14
-  br label %ikcp_segment_delete.argprom.exit60
+  br label %ikcp_segment_delete.exit60
 
-ikcp_segment_delete.argprom.exit60:               ; preds = %if.then.i.i58, %if.else.i.i59
+ikcp_segment_delete.exit60:                       ; preds = %if.then.i.i58, %if.else.i.i59
   %.pre91.pre92.pre.pre101 = phi ptr [ %.pre84, %if.then.i.i58 ], [ %.pre91.pre92.pre.pre102, %if.else.i.i59 ]
   %29 = phi ptr [ %.pre84, %if.then.i.i58 ], [ null, %if.else.i.i59 ]
   %30 = load ptr, ptr %rcv_buf, align 8
   %cmp19.not = icmp eq ptr %rcv_buf, %30
   br i1 %cmp19.not, label %while.cond40.preheader, label %while.body21, !llvm.loop !10
 
-while.cond64.preheader:                           ; preds = %ikcp_segment_delete.argprom.exit64, %while.cond40.preheader
-  %.pre91.pre92.pre = phi ptr [ %.pre91.pre92.pre.pre, %while.cond40.preheader ], [ %.pre91.pre92.pre99, %ikcp_segment_delete.argprom.exit64 ]
+while.cond64.preheader:                           ; preds = %ikcp_segment_delete.exit64, %while.cond40.preheader
+  %.pre91.pre92.pre = phi ptr [ %.pre91.pre92.pre.pre, %while.cond40.preheader ], [ %.pre91.pre92.pre99, %ikcp_segment_delete.exit64 ]
   %rcv_queue = getelementptr inbounds i8, ptr %kcp, i64 152
   %31 = load ptr, ptr %rcv_queue, align 8
   %cmp67.not80 = icmp eq ptr %rcv_queue, %31
   br i1 %cmp67.not80, label %while.end87, label %while.body69
 
-while.body45:                                     ; preds = %while.cond40.preheader, %ikcp_segment_delete.argprom.exit64
-  %.pre91.pre92.pre98 = phi ptr [ %.pre91.pre92.pre99, %ikcp_segment_delete.argprom.exit64 ], [ %.pre91.pre92.pre.pre, %while.cond40.preheader ]
-  %32 = phi ptr [ %37, %ikcp_segment_delete.argprom.exit64 ], [ %.pre91.pre92.pre.pre, %while.cond40.preheader ]
-  %33 = phi ptr [ %38, %ikcp_segment_delete.argprom.exit64 ], [ %23, %while.cond40.preheader ]
+while.body45:                                     ; preds = %while.cond40.preheader, %ikcp_segment_delete.exit64
+  %.pre91.pre92.pre98 = phi ptr [ %.pre91.pre92.pre99, %ikcp_segment_delete.exit64 ], [ %.pre91.pre92.pre.pre, %while.cond40.preheader ]
+  %32 = phi ptr [ %37, %ikcp_segment_delete.exit64 ], [ %.pre91.pre92.pre.pre, %while.cond40.preheader ]
+  %33 = phi ptr [ %38, %ikcp_segment_delete.exit64 ], [ %23, %while.cond40.preheader ]
   %prev50 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %prev50, align 8
   %35 = load ptr, ptr %33, align 8
@@ -390,23 +390,23 @@ while.body45:                                     ; preds = %while.cond40.prehea
 if.then.i.i62:                                    ; preds = %while.body45
   tail call void %32(ptr noundef nonnull %33) #14
   %.pre86 = load ptr, ptr @ikcp_free_hook, align 8
-  br label %ikcp_segment_delete.argprom.exit64
+  br label %ikcp_segment_delete.exit64
 
 if.else.i.i63:                                    ; preds = %while.body45
   tail call void @free(ptr noundef nonnull %33) #14
-  br label %ikcp_segment_delete.argprom.exit64
+  br label %ikcp_segment_delete.exit64
 
-ikcp_segment_delete.argprom.exit64:               ; preds = %if.then.i.i62, %if.else.i.i63
+ikcp_segment_delete.exit64:                       ; preds = %if.then.i.i62, %if.else.i.i63
   %.pre91.pre92.pre99 = phi ptr [ %.pre86, %if.then.i.i62 ], [ %.pre91.pre92.pre98, %if.else.i.i63 ]
   %37 = phi ptr [ %.pre86, %if.then.i.i62 ], [ null, %if.else.i.i63 ]
   %38 = load ptr, ptr %snd_queue, align 8
   %cmp43.not = icmp eq ptr %snd_queue, %38
   br i1 %cmp43.not, label %while.cond64.preheader, label %while.body45, !llvm.loop !11
 
-while.body69:                                     ; preds = %while.cond64.preheader, %ikcp_segment_delete.argprom.exit68
-  %.pre91.pre9295 = phi ptr [ %.pre91.pre9296, %ikcp_segment_delete.argprom.exit68 ], [ %.pre91.pre92.pre, %while.cond64.preheader ]
-  %39 = phi ptr [ %44, %ikcp_segment_delete.argprom.exit68 ], [ %.pre91.pre92.pre, %while.cond64.preheader ]
-  %40 = phi ptr [ %45, %ikcp_segment_delete.argprom.exit68 ], [ %31, %while.cond64.preheader ]
+while.body69:                                     ; preds = %while.cond64.preheader, %ikcp_segment_delete.exit68
+  %.pre91.pre9295 = phi ptr [ %.pre91.pre9296, %ikcp_segment_delete.exit68 ], [ %.pre91.pre92.pre, %while.cond64.preheader ]
+  %39 = phi ptr [ %44, %ikcp_segment_delete.exit68 ], [ %.pre91.pre92.pre, %while.cond64.preheader ]
+  %40 = phi ptr [ %45, %ikcp_segment_delete.exit68 ], [ %31, %while.cond64.preheader ]
   %prev74 = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load ptr, ptr %prev74, align 8
   %42 = load ptr, ptr %40, align 8
@@ -421,21 +421,21 @@ while.body69:                                     ; preds = %while.cond64.prehea
 if.then.i.i66:                                    ; preds = %while.body69
   tail call void %39(ptr noundef nonnull %40) #14
   %.pre88 = load ptr, ptr @ikcp_free_hook, align 8
-  br label %ikcp_segment_delete.argprom.exit68
+  br label %ikcp_segment_delete.exit68
 
 if.else.i.i67:                                    ; preds = %while.body69
   tail call void @free(ptr noundef nonnull %40) #14
-  br label %ikcp_segment_delete.argprom.exit68
+  br label %ikcp_segment_delete.exit68
 
-ikcp_segment_delete.argprom.exit68:               ; preds = %if.then.i.i66, %if.else.i.i67
+ikcp_segment_delete.exit68:                       ; preds = %if.then.i.i66, %if.else.i.i67
   %.pre91.pre9296 = phi ptr [ %.pre88, %if.then.i.i66 ], [ %.pre91.pre9295, %if.else.i.i67 ]
   %44 = phi ptr [ %.pre88, %if.then.i.i66 ], [ null, %if.else.i.i67 ]
   %45 = load ptr, ptr %rcv_queue, align 8
   %cmp67.not = icmp eq ptr %rcv_queue, %45
   br i1 %cmp67.not, label %while.end87, label %while.body69, !llvm.loop !12
 
-while.end87:                                      ; preds = %ikcp_segment_delete.argprom.exit68, %while.cond64.preheader
-  %.pre91.pre92 = phi ptr [ %.pre91.pre92.pre, %while.cond64.preheader ], [ %.pre91.pre9296, %ikcp_segment_delete.argprom.exit68 ]
+while.end87:                                      ; preds = %ikcp_segment_delete.exit68, %while.cond64.preheader
+  %.pre91.pre92 = phi ptr [ %.pre91.pre92.pre, %while.cond64.preheader ], [ %.pre91.pre9296, %ikcp_segment_delete.exit68 ]
   %buffer = getelementptr inbounds i8, ptr %kcp, i64 224
   %46 = load ptr, ptr %buffer, align 8
   %tobool88.not = icmp eq ptr %46, null
@@ -574,10 +574,10 @@ if.end11:                                         ; preds = %if.end8
   %cmp31 = icmp sgt i32 %len, -1
   br i1 %cmp31, label %for.cond.us, label %for.cond
 
-for.cond.us:                                      ; preds = %if.end11, %ikcp_segment_delete.argprom.exit.us
-  %p.0.us = phi ptr [ %9, %ikcp_segment_delete.argprom.exit.us ], [ %0, %if.end11 ]
-  %len.addr.1.us = phi i32 [ %add.us, %ikcp_segment_delete.argprom.exit.us ], [ 0, %if.end11 ]
-  %buffer.addr.0.us = phi ptr [ %buffer.addr.1.us, %ikcp_segment_delete.argprom.exit.us ], [ %buffer, %if.end11 ]
+for.cond.us:                                      ; preds = %if.end11, %ikcp_segment_delete.exit.us
+  %p.0.us = phi ptr [ %9, %ikcp_segment_delete.exit.us ], [ %0, %if.end11 ]
+  %len.addr.1.us = phi i32 [ %add.us, %ikcp_segment_delete.exit.us ], [ 0, %if.end11 ]
+  %buffer.addr.0.us = phi ptr [ %buffer.addr.1.us, %ikcp_segment_delete.exit.us ], [ %buffer, %if.end11 ]
   %cmp18.not.us = icmp eq ptr %p.0.us, %rcv_queue
   br i1 %cmp18.not.us, label %for.end, label %for.body.us
 
@@ -640,13 +640,13 @@ if.end30.us:                                      ; preds = %if.then28.us, %ikcp
 
 if.then.i.i.us:                                   ; preds = %if.end30.us
   tail call void %20(ptr noundef nonnull %p.0.us) #14
-  br label %ikcp_segment_delete.argprom.exit.us
+  br label %ikcp_segment_delete.exit.us
 
 if.else.i.i.us:                                   ; preds = %if.end30.us
   tail call void @free(ptr noundef nonnull %p.0.us) #14
-  br label %ikcp_segment_delete.argprom.exit.us
+  br label %ikcp_segment_delete.exit.us
 
-ikcp_segment_delete.argprom.exit.us:              ; preds = %if.else.i.i.us, %if.then.i.i.us
+ikcp_segment_delete.exit.us:                      ; preds = %if.else.i.i.us, %if.then.i.i.us
   %21 = load i32, ptr %nrcv_que, align 4
   %dec.us = add i32 %21, -1
   store i32 %dec.us, ptr %nrcv_que, align 4
@@ -708,8 +708,8 @@ if.end30:                                         ; preds = %if.end24, %if.then2
   %cmp48 = icmp eq i32 %26, 0
   br i1 %cmp48, label %for.end, label %for.cond, !llvm.loop !14
 
-for.end:                                          ; preds = %for.cond, %if.end30, %for.cond.us, %ikcp_segment_delete.argprom.exit.us
-  %.us-phi = phi i32 [ %add.us, %ikcp_segment_delete.argprom.exit.us ], [ %len.addr.1.us, %for.cond.us ], [ %add, %if.end30 ], [ %len.addr.1, %for.cond ]
+for.end:                                          ; preds = %for.cond, %if.end30, %for.cond.us, %ikcp_segment_delete.exit.us
+  %.us-phi = phi i32 [ %add.us, %ikcp_segment_delete.exit.us ], [ %len.addr.1.us, %for.cond.us ], [ %add, %if.end30 ], [ %len.addr.1, %for.cond ]
   %rcv_buf = getelementptr inbounds i8, ptr %kcp, i64 184
   %30 = load ptr, ptr %rcv_buf, align 8
   %cmp54.not66 = icmp eq ptr %rcv_buf, %30
@@ -873,18 +873,18 @@ if.then9:                                         ; preds = %if.then5
 
 if.then.i.i:                                      ; preds = %if.then9
   %call.i.i = tail call ptr %5(i64 noundef %add.i) #14
-  br label %ikcp_segment_new.argprom.exit
+  br label %ikcp_segment_new.exit
 
 if.end.i.i:                                       ; preds = %if.then9
   %call1.i.i = tail call noalias ptr @malloc(i64 noundef %add.i) #15
-  br label %ikcp_segment_new.argprom.exit
+  br label %ikcp_segment_new.exit
 
-ikcp_segment_new.argprom.exit:                    ; preds = %if.then.i.i, %if.end.i.i
+ikcp_segment_new.exit:                            ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call1.i.i, %if.end.i.i ]
   %cmp14 = icmp eq ptr %retval.0.i.i, null
   br i1 %cmp14, label %return, label %if.end16
 
-if.end16:                                         ; preds = %ikcp_segment_new.argprom.exit
+if.end16:                                         ; preds = %ikcp_segment_new.exit
   %6 = load ptr, ptr %prev, align 8
   %prev19 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store ptr %6, ptr %prev19, align 8
@@ -1051,19 +1051,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 if.then.i.i107:                                   ; preds = %for.body
   %call.i.i108 = tail call ptr %24(i64 noundef %add.i105) #14
   %.pre = load ptr, ptr @ikcp_malloc_hook, align 8
-  br label %ikcp_segment_new.argprom.exit112
+  br label %ikcp_segment_new.exit112
 
 if.end.i.i110:                                    ; preds = %for.body
   %call1.i.i111 = tail call noalias ptr @malloc(i64 noundef %add.i105) #15
-  br label %ikcp_segment_new.argprom.exit112
+  br label %ikcp_segment_new.exit112
 
-ikcp_segment_new.argprom.exit112:                 ; preds = %if.then.i.i107, %if.end.i.i110
+ikcp_segment_new.exit112:                         ; preds = %if.then.i.i107, %if.end.i.i110
   %26 = phi ptr [ %.pre, %if.then.i.i107 ], [ null, %if.end.i.i110 ]
   %retval.0.i.i109 = phi ptr [ %call.i.i108, %if.then.i.i107 ], [ %call1.i.i111, %if.end.i.i110 ]
   %cmp108 = icmp eq ptr %retval.0.i.i109, null
   br i1 %cmp108, label %return, label %if.end111
 
-if.end111:                                        ; preds = %ikcp_segment_new.argprom.exit112
+if.end111:                                        ; preds = %ikcp_segment_new.exit112
   %tobool112 = icmp ne ptr %buffer.addr.3120, null
   %cmp114 = icmp sgt i32 %len.addr.2119, 0
   %or.cond1 = select i1 %tobool112, i1 %cmp114, i1 false
@@ -1104,8 +1104,8 @@ if.end120:                                        ; preds = %if.then116, %if.end
   %exitcond.not = icmp eq i32 %inc159, %spec.store.select
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !17
 
-return:                                           ; preds = %ikcp_segment_new.argprom.exit112, %if.end120, %for.body.us, %if.end120.us, %if.end92, %if.then84, %if.end67, %ikcp_segment_new.argprom.exit, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ -2, %ikcp_segment_new.argprom.exit ], [ %sent.1, %if.end67 ], [ %sent.0., %if.then84 ], [ %sent.0, %if.end92 ], [ -2, %for.body.us ], [ %add158.us, %if.end120.us ], [ -2, %ikcp_segment_new.argprom.exit112 ], [ %add158, %if.end120 ]
+return:                                           ; preds = %ikcp_segment_new.exit112, %if.end120, %for.body.us, %if.end120.us, %if.end92, %if.then84, %if.end67, %ikcp_segment_new.exit, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ -2, %ikcp_segment_new.exit ], [ %sent.1, %if.end67 ], [ %sent.0., %if.then84 ], [ %sent.0, %if.end92 ], [ -2, %for.body.us ], [ %add158.us, %if.end120.us ], [ -2, %ikcp_segment_new.exit112 ], [ %add158, %if.end120 ]
   ret i32 %retval.0
 }
 
@@ -1347,8 +1347,8 @@ if.end48:                                         ; preds = %if.end32
   %cmp.not13.i = icmp eq ptr %7, %snd_buf.i
   br i1 %cmp.not13.i, label %ikcp_parse_una.exit, label %for.body.i
 
-for.body.i:                                       ; preds = %if.end48, %ikcp_segment_delete.argprom.exit.i
-  %p.014.i = phi ptr [ %9, %ikcp_segment_delete.argprom.exit.i ], [ %7, %if.end48 ]
+for.body.i:                                       ; preds = %if.end48, %ikcp_segment_delete.exit.i
+  %p.014.i = phi ptr [ %9, %ikcp_segment_delete.exit.i ], [ %7, %if.end48 ]
   %sn.i = getelementptr inbounds i8, ptr %p.014.i, i64 36
   %8 = load i32, ptr %sn.i, align 4
   %sub.i.i = sub i32 %una.0.copyload, %8
@@ -1370,20 +1370,20 @@ if.then.i:                                        ; preds = %for.body.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   tail call void %12(ptr noundef nonnull %p.014.i) #14
-  br label %ikcp_segment_delete.argprom.exit.i
+  br label %ikcp_segment_delete.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i
   tail call void @free(ptr noundef nonnull %p.014.i) #14
-  br label %ikcp_segment_delete.argprom.exit.i
+  br label %ikcp_segment_delete.exit.i
 
-ikcp_segment_delete.argprom.exit.i:               ; preds = %if.else.i.i.i, %if.then.i.i.i
+ikcp_segment_delete.exit.i:                       ; preds = %if.else.i.i.i, %if.then.i.i.i
   %13 = load i32, ptr %nsnd_buf.i, align 8
   %dec.i = add i32 %13, -1
   store i32 %dec.i, ptr %nsnd_buf.i, align 8
   %cmp.not.i = icmp eq ptr %9, %snd_buf.i
   br i1 %cmp.not.i, label %ikcp_parse_una.exit.loopexit, label %for.body.i, !llvm.loop !20
 
-ikcp_parse_una.exit.loopexit:                     ; preds = %ikcp_segment_delete.argprom.exit.i, %for.body.i
+ikcp_parse_una.exit.loopexit:                     ; preds = %ikcp_segment_delete.exit.i, %for.body.i
   %.pre = load ptr, ptr %snd_buf.i, align 8
   br label %ikcp_parse_una.exit
 
@@ -1487,13 +1487,13 @@ if.then9.i:                                       ; preds = %for.body.i156
 
 if.then.i.i.i160:                                 ; preds = %if.then9.i
   tail call void %28(ptr noundef nonnull %p.0.i) #14
-  br label %ikcp_segment_delete.argprom.exit.i161
+  br label %ikcp_segment_delete.exit.i161
 
 if.else.i.i.i164:                                 ; preds = %if.then9.i
   tail call void @free(ptr noundef nonnull %p.0.i) #14
-  br label %ikcp_segment_delete.argprom.exit.i161
+  br label %ikcp_segment_delete.exit.i161
 
-ikcp_segment_delete.argprom.exit.i161:            ; preds = %if.else.i.i.i164, %if.then.i.i.i160
+ikcp_segment_delete.exit.i161:                    ; preds = %if.else.i.i.i164, %if.then.i.i.i160
   %29 = load i32, ptr %nsnd_buf.i, align 8
   %dec.i163 = add i32 %29, -1
   store i32 %dec.i163, ptr %nsnd_buf.i, align 8
@@ -1505,8 +1505,8 @@ if.end17.i:                                       ; preds = %for.body.i156
   %cmp20.i = icmp slt i32 %sub.i.i157, 0
   br i1 %cmp20.i, label %ikcp_parse_ack.exit, label %for.cond.i, !llvm.loop !21
 
-ikcp_parse_ack.exit:                              ; preds = %for.cond.i, %if.end17.i, %if.end61, %lor.lhs.false.i153, %ikcp_segment_delete.argprom.exit.i161
-  %30 = phi ptr [ %14, %if.end61 ], [ %14, %lor.lhs.false.i153 ], [ %.pre260, %ikcp_segment_delete.argprom.exit.i161 ], [ %14, %if.end17.i ], [ %14, %for.cond.i ]
+ikcp_parse_ack.exit:                              ; preds = %for.cond.i, %if.end17.i, %if.end61, %lor.lhs.false.i153, %ikcp_segment_delete.exit.i161
+  %30 = phi ptr [ %14, %if.end61 ], [ %14, %lor.lhs.false.i153 ], [ %.pre260, %ikcp_segment_delete.exit.i161 ], [ %14, %if.end17.i ], [ %14, %for.cond.i ]
   %cmp.not.i166 = icmp eq ptr %30, %snd_buf.i
   %sn.i168 = getelementptr inbounds i8, ptr %30, i64 36
   %.sink.in.i169 = select i1 %cmp.not.i166, ptr %snd_nxt.i, ptr %sn.i168
@@ -1686,13 +1686,13 @@ if.then98:                                        ; preds = %ikcp_ack_push.exit
 
 if.then.i.i197:                                   ; preds = %if.then98
   %call.i.i198 = tail call ptr %59(i64 noundef %add.i195) #14
-  br label %ikcp_segment_new.argprom.exit
+  br label %ikcp_segment_new.exit
 
 if.end.i.i201:                                    ; preds = %if.then98
   %call1.i.i202 = tail call noalias ptr @malloc(i64 noundef %add.i195) #15
-  br label %ikcp_segment_new.argprom.exit
+  br label %ikcp_segment_new.exit
 
-ikcp_segment_new.argprom.exit:                    ; preds = %if.then.i.i197, %if.end.i.i201
+ikcp_segment_new.exit:                            ; preds = %if.then.i.i197, %if.end.i.i201
   %retval.0.i.i200 = phi ptr [ %call.i.i198, %if.then.i.i197 ], [ %call1.i.i202, %if.end.i.i201 ]
   %conv100 = getelementptr inbounds i8, ptr %retval.0.i.i200, i64 16
   store i32 %conv7.0.copyload, ptr %conv100, align 8
@@ -1714,12 +1714,12 @@ ikcp_segment_new.argprom.exit:                    ; preds = %if.then.i.i197, %if
   %cmp111.not = icmp eq i32 %len.0.copyload, 0
   br i1 %cmp111.not, label %if.end116, label %if.then113
 
-if.then113:                                       ; preds = %ikcp_segment_new.argprom.exit
+if.then113:                                       ; preds = %ikcp_segment_new.exit
   %data114 = getelementptr inbounds i8, ptr %retval.0.i.i200, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data114, ptr nonnull align 1 %add.ptr.i, i64 %conv25, i1 false)
   br label %if.end116
 
-if.end116:                                        ; preds = %if.then113, %ikcp_segment_new.argprom.exit
+if.end116:                                        ; preds = %if.then113, %ikcp_segment_new.exit
   tail call void @ikcp_parse_data(ptr noundef nonnull %kcp, ptr noundef nonnull %retval.0.i.i200)
   br label %if.end142
 

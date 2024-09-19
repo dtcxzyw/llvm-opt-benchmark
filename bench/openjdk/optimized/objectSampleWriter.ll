@@ -635,9 +635,9 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObje
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph.i.i, label %104
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.argprom.exit.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.argprom.exit.i.i ], [ 0, %.preheader.i.i ]
-  %57 = phi ptr [ %100, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.argprom.exit.i.i ], [ %54, %.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.exit.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.exit.i.i ], [ 0, %.preheader.i.i ]
+  %57 = phi ptr [ %100, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.exit.i.i ], [ %54, %.preheader.i.i ]
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv.i.i
@@ -673,7 +673,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObje
 _ZNK7oopDesc5klassEv.exit.i.i.i.i.i:              ; preds = %78, %68
   %.0.i.i.i.i.i.i = phi ptr [ %77, %68 ], [ %79, %78 ]
   %80 = icmp eq ptr %.0.i.i.i.i.i.i, null
-  br i1 %80, label %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.argprom.exit.i.i, label %81
+  br i1 %80, label %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.exit.i.i, label %81
 
 81:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i.i.i.i
   %82 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 168
@@ -703,9 +703,9 @@ _ZNK7oopDesc5klassEv.exit.i.i.i.i.i:              ; preds = %78, %68
 _ZN10JfrTraceId4loadEPK5Klass.exit.i.i.i.i.i.i.i: ; preds = %90, %81
   %94 = phi i64 [ %.pre.i.i.i.i.i.i.i.i.i, %90 ], [ %83, %81 ]
   %95 = lshr i64 %94, 16
-  br label %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.argprom.exit.i.i
+  br label %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.exit.i.i
 
-_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.argprom.exit.i.i: ; preds = %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i.i.i.i.i.i, %_ZNK7oopDesc5klassEv.exit.i.i.i.i.i
+_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.exit.i.i: ; preds = %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i.i.i.i.i.i, %_ZNK7oopDesc5klassEv.exit.i.i.i.i.i
   %96 = phi i64 [ %95, %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i.i.i.i.i.i ], [ 0, %_ZNK7oopDesc5klassEv.exit.i.i.i.i.i ]
   call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %12, i64 noundef %96)
   call void @_ZN23ObjectSampleDescriptionC1EP7oopDesc(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull %61) #10
@@ -726,7 +726,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObje
   call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %12, i64 %16, i32 %17) #10
   br label %_ZL18write_sample_infosR19JfrCheckpointWriter.exit
 
-_ZN9SampleSetIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEE7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIS4_XadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEEEvRT_.exit.i: ; preds = %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.argprom.exit.i.i
+_ZN9SampleSetIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEE7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIS4_XadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEEEvRT_.exit.i: ; preds = %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.exit.i.i
   %indvars.i = trunc i64 %indvars.iv.next.i.i to i32
   call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %12, i32 noundef %indvars.i, i64 noundef %.0.i.i.i) #10
   br label %_ZL18write_sample_infosR19JfrCheckpointWriter.exit
@@ -1077,7 +1077,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectS
   %270 = getelementptr inbounds i8, ptr %.val.i, i64 8
   %271 = load i64, ptr %270, align 8
   %.not19.i.i.i = icmp eq i64 %271, 0
-  br i1 %.not19.i.i.i, label %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.argprom.exit.thread.i, label %.lr.ph17.i.i.preheader.i
+  br i1 %.not19.i.i.i, label %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.exit.thread.i, label %.lr.ph17.i.i.preheader.i
 
 .lr.ph17.i.i.preheader.i:                         ; preds = %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEC2ES9_bb.exit.i
   %272 = getelementptr inbounds i8, ptr %228, i64 8
@@ -1426,21 +1426,21 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %427 = add nuw i64 %.015.i.i.i, 1
   %428 = load i64, ptr %270, align 8
   %429 = icmp ult i64 %427, %428
-  br i1 %429, label %.lr.ph17.i.i.i, label %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.argprom.exit.i, !llvm.loop !12
+  br i1 %429, label %.lr.ph17.i.i.i, label %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.exit.i, !llvm.loop !12
 
-_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.argprom.exit.i: ; preds = %._crit_edge.i.i.i
+_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.exit.i: ; preds = %._crit_edge.i.i.i
   %430 = icmp eq i32 %.sroa.13.2.i, 0
-  br i1 %430, label %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.argprom.exit.thread.i, label %431
+  br i1 %430, label %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.exit.thread.i, label %431
 
-_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.argprom.exit.thread.i: ; preds = %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.argprom.exit.i, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEC2ES9_bb.exit.i
+_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.exit.thread.i: ; preds = %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.exit.i, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEC2ES9_bb.exit.i
   call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %228, i64 %232, i32 %233) #10
   br label %_ZL17write_field_infosR19JfrCheckpointWriter.exit
 
-431:                                              ; preds = %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.argprom.exit.i
+431:                                              ; preds = %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.exit.i
   call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %228, i32 noundef %.sroa.13.2.i, i64 noundef %.0.i.i.i44) #10
   br label %_ZL17write_field_infosR19JfrCheckpointWriter.exit
 
-_ZL17write_field_infosR19JfrCheckpointWriter.exit: ; preds = %_ZL17write_array_infosR19JfrCheckpointWriter.exit, %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.argprom.exit.thread.i, %431
+_ZL17write_field_infosR19JfrCheckpointWriter.exit: ; preds = %_ZL17write_array_infosR19JfrCheckpointWriter.exit, %_ZNK10FieldTable7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectSampleFieldInfomEXadL_ZL20__write_field_info__P19JfrCheckpointWriterPKvEEELj209EEEEvRT_.exit.thread.i, %431
   %432 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %433 = load ptr, ptr @_ZL10root_infos, align 8
@@ -1537,9 +1537,9 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectS
   %476 = icmp sgt i32 %475, 0
   br i1 %476, label %.lr.ph.i.i60, label %504
 
-.lr.ph.i.i60:                                     ; preds = %.preheader.i.i59, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.argprom.exit.i.i
-  %indvars.iv.i.i61 = phi i64 [ %indvars.iv.next.i.i64, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.argprom.exit.i.i ], [ 0, %.preheader.i.i59 ]
-  %477 = phi ptr [ %500, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.argprom.exit.i.i ], [ %474, %.preheader.i.i59 ]
+.lr.ph.i.i60:                                     ; preds = %.preheader.i.i59, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.exit.i.i
+  %indvars.iv.i.i61 = phi i64 [ %indvars.iv.next.i.i64, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.exit.i.i ], [ 0, %.preheader.i.i59 ]
+  %477 = phi ptr [ %500, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.exit.i.i ], [ %474, %.preheader.i.i59 ]
   %478 = getelementptr inbounds i8, ptr %477, i64 8
   %479 = load ptr, ptr %478, align 8
   %480 = getelementptr inbounds ptr, ptr %479, i64 %indvars.iv.i.i61
@@ -1551,7 +1551,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectS
   %483 = getelementptr inbounds i8, ptr %.val.i.i62, i64 8
   %484 = load ptr, ptr %483, align 8
   %485 = icmp eq ptr %484, null
-  br i1 %485, label %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.argprom.exit.i.i, label %486
+  br i1 %485, label %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.exit.i.i, label %486
 
 486:                                              ; preds = %.lr.ph.i.i60
   call void @_ZN24ObjectDescriptionBuilderC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #10
@@ -1568,9 +1568,9 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectS
   %492 = load ptr, ptr %483, align 8
   call void @_ZN24ObjectDescriptionBuilder10write_textEPKc(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef %492) #10
   %493 = call noundef ptr @_ZN24ObjectDescriptionBuilder11descriptionEv(ptr noundef nonnull align 8 dereferenceable(112) %2) #10
-  br label %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.argprom.exit.i.i
+  br label %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.exit.i.i
 
-_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.argprom.exit.i.i: ; preds = %491, %.lr.ph.i.i60
+_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.exit.i.i: ; preds = %491, %.lr.ph.i.i60
   %.0.i.i.i.i.i.i63 = phi ptr [ %493, %491 ], [ null, %.lr.ph.i.i60 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2)
   call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %432, ptr noundef %.0.i.i.i.i.i.i63)
@@ -1593,7 +1593,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectS
   call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %432, i64 %436, i32 %437) #10
   br label %_ZL22write_root_descriptorsR19JfrCheckpointWriter.exit
 
-_ZN9SampleSetIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEE7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIS4_XadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEEEvRT_.exit.i: ; preds = %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.argprom.exit.i.i
+_ZN9SampleSetIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEE7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIS4_XadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEEEvRT_.exit.i: ; preds = %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.exit.i.i
   %indvars.i65 = trunc i64 %indvars.iv.next.i.i64 to i32
   call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %432, i32 noundef %indvars.i65, i64 noundef %.0.i.i.i57) #10
   br label %_ZL22write_root_descriptorsR19JfrCheckpointWriter.exit

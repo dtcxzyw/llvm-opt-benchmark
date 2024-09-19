@@ -203,20 +203,20 @@ if.end45:                                         ; preds = %if.end40
   %call46 = tail call i32 @EVP_RAND_uninstantiate(ptr noundef nonnull %call8) #14
   %call47 = tail call i32 @EVP_RAND_uninstantiate(ptr noundef nonnull %call15) #14
   %call48 = tail call i32 @EVP_RAND_uninstantiate(ptr noundef nonnull %call11) #14
-  %call49 = tail call fastcc i32 @test_drbg_reseed.argelim(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 1, i64 noundef 0)
+  %call49 = tail call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 1, i64 noundef 0)
   %call52 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 599, ptr noundef nonnull @.str.18, i32 noundef %call49) #14
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %return, label %if.end55
 
 if.end55:                                         ; preds = %if.end45
-  %call56 = tail call fastcc i32 @test_drbg_reseed.argelim(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
+  %call56 = tail call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
   %call59 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 608, ptr noundef nonnull @.str.19, i32 noundef %call56) #14
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %return, label %if.end62
 
 if.end62:                                         ; preds = %if.end55
   tail call fastcc void @inc_reseed_counter(ptr noundef nonnull %call8)
-  %call63 = tail call fastcc i32 @test_drbg_reseed.argelim(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
+  %call63 = tail call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
   %call66 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 619, ptr noundef nonnull @.str.20, i32 noundef %call63) #14
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %return, label %if.end69
@@ -224,7 +224,7 @@ if.end62:                                         ; preds = %if.end55
 if.end69:                                         ; preds = %if.end62
   tail call fastcc void @inc_reseed_counter(ptr noundef nonnull %call8)
   tail call fastcc void @inc_reseed_counter(ptr noundef nonnull %call15)
-  %call70 = tail call fastcc i32 @test_drbg_reseed.argelim(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
+  %call70 = tail call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
   %call73 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 631, ptr noundef nonnull @.str.21, i32 noundef %call70) #14
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %return, label %if.end76
@@ -232,7 +232,7 @@ if.end69:                                         ; preds = %if.end62
 if.end76:                                         ; preds = %if.end69
   tail call fastcc void @inc_reseed_counter(ptr noundef nonnull %call8)
   tail call fastcc void @inc_reseed_counter(ptr noundef nonnull %call11)
-  %call77 = tail call fastcc i32 @test_drbg_reseed.argelim(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
+  %call77 = tail call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
   %call80 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 643, ptr noundef nonnull @.str.22, i32 noundef %call77) #14
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %return, label %if.end83
@@ -241,7 +241,7 @@ if.end83:                                         ; preds = %if.end76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %rand_add_buf, i8 114, i64 256, i1 false)
   %call84 = tail call i64 @time(ptr noundef null) #14
   call void @RAND_add(ptr noundef nonnull %rand_add_buf, i32 noundef 256, double noundef 2.560000e+02) #14
-  %call86 = call fastcc i32 @test_drbg_reseed.argelim(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 1, i64 noundef %call84)
+  %call86 = call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %call8, ptr noundef nonnull %call11, ptr noundef nonnull %call15, ptr noundef null, ptr noundef null, i32 noundef 1, i64 noundef %call84)
   %call89 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 663, ptr noundef nonnull @.str.23, i32 noundef %call86) #14
   %tobool90.not = icmp ne i32 %call89, 0
   %spec.select = zext i1 %tobool90.not to i32
@@ -376,7 +376,7 @@ if.then26.i.i:                                    ; preds = %land.lhs.true17.i.i
 if.else46.i.i:                                    ; preds = %if.else.i.i
   %4 = load i32, ptr %fd.i.i, align 4
   %call48.i.i = call i32 @close(i32 noundef %4) #14
-  %call51.i.i = call fastcc i32 @test_drbg_reseed.argelim(ptr noundef %call, ptr noundef %call2, ptr noundef %call6, ptr noundef nonnull %random.i.i, ptr noundef nonnull %arrayidx42.i.i, i32 noundef 1, i64 noundef 0)
+  %call51.i.i = call fastcc i32 @test_drbg_reseed(ptr noundef %call, ptr noundef %call2, ptr noundef %call6, ptr noundef nonnull %random.i.i, ptr noundef nonnull %arrayidx42.i.i, i32 noundef 1, i64 noundef 0)
   %call54.i.i = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 390, ptr noundef nonnull @.str.68, i32 noundef %call51.i.i) #14
   %tobool55.not.i.i = icmp eq i32 %call54.i.i, 0
   br i1 %tobool55.not.i.i, label %if.end67.i.i, label %land.lhs.true56.i.i
@@ -416,7 +416,7 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %return.sink.split.i
 
 for.end.i:                                        ; preds = %for.cond.i
   %arrayidx22.i = getelementptr inbounds i8, ptr %random.i, i64 16
-  %call23.i = call fastcc i32 @test_drbg_reseed.argelim(ptr noundef %call, ptr noundef %call2, ptr noundef %call6, ptr noundef nonnull %random.i, ptr noundef nonnull %arrayidx22.i, i32 noundef 0, i64 noundef 0)
+  %call23.i = call fastcc i32 @test_drbg_reseed(ptr noundef %call, ptr noundef %call2, ptr noundef %call6, ptr noundef nonnull %random.i, ptr noundef nonnull %arrayidx22.i, i32 noundef 0, i64 noundef 0)
   %call26.i = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 443, ptr noundef nonnull @.str.56, i32 noundef %call23.i) #14
   %tobool27.not.i = icmp eq i32 %call26.i, 0
   br i1 %tobool27.not.i, label %test_rand_reseed_on_fork.exit, label %if.end29.i
@@ -900,7 +900,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @EVP_RAND_uninstantiate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_drbg_reseed.argelim(ptr noundef %primary, ptr noundef %public, ptr noundef %private, ptr noundef %public_random, ptr noundef %private_random, i32 noundef range(i32 0, 2) %expect_primary_reseed, i64 noundef %reseed_when) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_drbg_reseed(ptr noundef %primary, ptr noundef %public, ptr noundef %private, ptr noundef %public_random, ptr noundef %private_random, i32 noundef range(i32 0, 2) %expect_primary_reseed, i64 noundef %reseed_when) unnamed_addr #0 {
 entry:
   %params.i.i60 = alloca [2 x %struct.ossl_param_st], align 16
   %n.i.i61 = alloca i32, align 4

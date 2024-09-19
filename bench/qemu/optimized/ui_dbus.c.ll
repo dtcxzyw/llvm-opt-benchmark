@@ -124,7 +124,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 294, ptr noundef nonnull @__func__.dbus_display_add_client, ptr noundef nonnull @.str.1) #5
-  br label %glib_autoptr_cleanup_GSocketConnection.argprom.exit
+  br label %glib_autoptr_cleanup_GSocketConnection.exit
 
 if.end:                                           ; preds = %entry
   %add_client_cancellable = getelementptr inbounds i8, ptr %0, i64 104
@@ -147,7 +147,7 @@ if.then7:                                         ; preds = %if.end4
   %3 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 308, ptr noundef nonnull @__func__.dbus_display_add_client, ptr noundef nonnull @.str.2, ptr noundef %3) #5
   %call8 = call i32 @close(i32 noundef %csock) #5
-  br label %glib_autoptr_cleanup_GSocketConnection.argprom.exit
+  br label %glib_autoptr_cleanup_GSocketConnection.exit
 
 cleanup:                                          ; preds = %if.end4
   %call10 = call ptr @g_socket_connection_factory_create_connection(ptr noundef nonnull %call5) #5
@@ -169,25 +169,25 @@ if.then.i.i:                                      ; preds = %cleanup
   call void @g_object_unref(ptr noundef nonnull %call10) #5
   br label %if.then.i.i5
 
-glib_autoptr_cleanup_GSocketConnection.argprom.exit: ; preds = %if.then, %if.then7
+glib_autoptr_cleanup_GSocketConnection.exit:      ; preds = %if.then, %if.then7
   call void @g_free(ptr noundef %call) #5
-  br label %glib_autoptr_cleanup_GSocket.argprom.exit
+  br label %glib_autoptr_cleanup_GSocket.exit
 
 if.then.i.i5:                                     ; preds = %cleanup, %if.then.i.i
   call void @g_object_unref(ptr noundef nonnull %call5) #5
-  br label %glib_autoptr_cleanup_GSocket.argprom.exit
+  br label %glib_autoptr_cleanup_GSocket.exit
 
-glib_autoptr_cleanup_GSocket.argprom.exit:        ; preds = %glib_autoptr_cleanup_GSocketConnection.argprom.exit, %if.then.i.i5
-  %retval.01318 = phi i1 [ false, %glib_autoptr_cleanup_GSocketConnection.argprom.exit ], [ true, %if.then.i.i5 ]
+glib_autoptr_cleanup_GSocket.exit:                ; preds = %glib_autoptr_cleanup_GSocketConnection.exit, %if.then.i.i5
+  %retval.01318 = phi i1 [ false, %glib_autoptr_cleanup_GSocketConnection.exit ], [ true, %if.then.i.i5 ]
   %err.val = load ptr, ptr %err, align 8
   %tobool.not.i.i6 = icmp eq ptr %err.val, null
-  br i1 %tobool.not.i.i6, label %glib_autoptr_cleanup_GError.argprom.exit, label %if.then.i.i7
+  br i1 %tobool.not.i.i6, label %glib_autoptr_cleanup_GError.exit, label %if.then.i.i7
 
-if.then.i.i7:                                     ; preds = %glib_autoptr_cleanup_GSocket.argprom.exit
+if.then.i.i7:                                     ; preds = %glib_autoptr_cleanup_GSocket.exit
   call void @g_error_free(ptr noundef nonnull %err.val) #5
-  br label %glib_autoptr_cleanup_GError.argprom.exit
+  br label %glib_autoptr_cleanup_GError.exit
 
-glib_autoptr_cleanup_GError.argprom.exit:         ; preds = %glib_autoptr_cleanup_GSocket.argprom.exit, %if.then.i.i7
+glib_autoptr_cleanup_GError.exit:                 ; preds = %glib_autoptr_cleanup_GSocket.exit, %if.then.i.i7
   ret i1 %retval.01318
 }
 
@@ -247,7 +247,7 @@ if.then2:                                         ; preds = %do.end
   %5 = load ptr, ptr %server, align 8
   call void @g_dbus_object_manager_server_set_connection(ptr noundef %5, ptr noundef null) #5
   call void @g_dbus_connection_start_message_processing(ptr noundef null) #5
-  br label %glib_autoptr_cleanup_GDBusConnection.argprom.exit
+  br label %glib_autoptr_cleanup_GDBusConnection.exit
 
 if.then.i.i.critedge:                             ; preds = %do.end
   %6 = load ptr, ptr @dbus_display, align 8
@@ -256,18 +256,18 @@ if.then.i.i.critedge:                             ; preds = %do.end
   call void @g_dbus_object_manager_server_set_connection(ptr noundef %7, ptr noundef nonnull %call) #5
   call void @g_dbus_connection_start_message_processing(ptr noundef nonnull %call) #5
   call void @g_object_unref(ptr noundef nonnull %call) #5
-  br label %glib_autoptr_cleanup_GDBusConnection.argprom.exit
+  br label %glib_autoptr_cleanup_GDBusConnection.exit
 
-glib_autoptr_cleanup_GDBusConnection.argprom.exit: ; preds = %if.then2, %if.then.i.i.critedge
+glib_autoptr_cleanup_GDBusConnection.exit:        ; preds = %if.then2, %if.then.i.i.critedge
   %err.val = load ptr, ptr %err, align 8
   %tobool.not.i.i3 = icmp eq ptr %err.val, null
-  br i1 %tobool.not.i.i3, label %glib_autoptr_cleanup_GError.argprom.exit, label %if.then.i.i4
+  br i1 %tobool.not.i.i3, label %glib_autoptr_cleanup_GError.exit, label %if.then.i.i4
 
-if.then.i.i4:                                     ; preds = %glib_autoptr_cleanup_GDBusConnection.argprom.exit
+if.then.i.i4:                                     ; preds = %glib_autoptr_cleanup_GDBusConnection.exit
   call void @g_error_free(ptr noundef nonnull %err.val) #5
-  br label %glib_autoptr_cleanup_GError.argprom.exit
+  br label %glib_autoptr_cleanup_GError.exit
 
-glib_autoptr_cleanup_GError.argprom.exit:         ; preds = %glib_autoptr_cleanup_GDBusConnection.argprom.exit, %if.then.i.i4
+glib_autoptr_cleanup_GError.exit:                 ; preds = %glib_autoptr_cleanup_GDBusConnection.exit, %if.then.i.i4
   ret void
 }
 
@@ -308,13 +308,13 @@ entry:
   tail call void @dbus_clipboard_init(ptr noundef %call.i) #5
   tail call void @dbus_chardev_init(ptr noundef %call.i) #5
   %tobool.not.i.i = icmp eq ptr %call4, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GDBusObjectSkeleton.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GDBusObjectSkeleton.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @g_object_unref(ptr noundef nonnull %call4) #5
-  br label %glib_autoptr_cleanup_GDBusObjectSkeleton.argprom.exit
+  br label %glib_autoptr_cleanup_GDBusObjectSkeleton.exit
 
-glib_autoptr_cleanup_GDBusObjectSkeleton.argprom.exit: ; preds = %entry, %if.then.i.i
+glib_autoptr_cleanup_GDBusObjectSkeleton.exit:    ; preds = %entry, %if.then.i.i
   ret void
 }
 
@@ -470,7 +470,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 202, ptr noundef nonnull @__func__.dbus_display_complete, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.4) #5
-  br label %glib_autoptr_cleanup_GArray.argprom.exit
+  br label %glib_autoptr_cleanup_GArray.exit
 
 if.end:                                           ; preds = %entry
   %p2p = getelementptr inbounds i8, ptr %call.i, i64 44
@@ -514,7 +514,7 @@ if.then17:                                        ; preds = %if.end15
   %message = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 218, ptr noundef nonnull @__func__.dbus_display_complete, ptr noundef nonnull @.str.18, ptr noundef %4) #5
-  br label %glib_autoptr_cleanup_GArray.argprom.exit
+  br label %glib_autoptr_cleanup_GArray.exit
 
 if.end18:                                         ; preds = %if.end15
   %audiodev = getelementptr inbounds i8, ptr %call.i, i64 56
@@ -530,7 +530,7 @@ land.lhs.true20:                                  ; preds = %if.end18
 if.then24:                                        ; preds = %land.lhs.true20
   %call26 = call ptr @audio_state_by_name(ptr noundef nonnull %5, ptr noundef %errp) #5
   %tobool27.not = icmp eq ptr %call26, null
-  br i1 %tobool27.not, label %glib_autoptr_cleanup_GArray.argprom.exit, label %if.end29
+  br i1 %tobool27.not, label %glib_autoptr_cleanup_GArray.exit, label %if.end29
 
 if.end29:                                         ; preds = %if.then24
   %7 = load ptr, ptr %call26, align 8
@@ -542,7 +542,7 @@ if.end29:                                         ; preds = %if.then24
 if.then32:                                        ; preds = %if.end29
   %9 = load ptr, ptr %audiodev, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 229, ptr noundef nonnull @__func__.dbus_display_complete, ptr noundef nonnull @.str.20, ptr noundef %9) #5
-  br label %glib_autoptr_cleanup_GArray.argprom.exit
+  br label %glib_autoptr_cleanup_GArray.exit
 
 if.end34:                                         ; preds = %if.end29
   %10 = load ptr, ptr %call26, align 8
@@ -569,7 +569,7 @@ if.end43.lr.ph:                                   ; preds = %if.end38
   %server.i = getelementptr inbounds i8, ptr %call.i, i64 80
   br label %if.end43
 
-if.end43:                                         ; preds = %if.end43.lr.ph, %dbus_display_add_console.argprom.exit
+if.end43:                                         ; preds = %if.end43.lr.ph, %dbus_display_add_console.exit
   %14 = load i32, ptr %idx, align 4
   %call.i29 = call ptr @qemu_console_lookup_by_index(i32 noundef %14) #5
   %tobool.not.i = icmp eq ptr %call.i29, null
@@ -581,18 +581,18 @@ if.else.i:                                        ; preds = %if.end43
 
 if.end.i:                                         ; preds = %if.end43
   %call1.i = call zeroext i1 @qemu_console_is_graphic(ptr noundef nonnull %call.i29) #5
-  br i1 %call1.i, label %land.lhs.true.i, label %dbus_display_add_console.argprom.exit
+  br i1 %call1.i, label %land.lhs.true.i, label %dbus_display_add_console.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %15 = load i32, ptr %gl_mode.i, align 8
   %cmp.not.i = icmp eq i32 %15, 0
-  br i1 %cmp.not.i, label %dbus_display_add_console.argprom.exit, label %if.then2.i
+  br i1 %cmp.not.i, label %dbus_display_add_console.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
   call void @qemu_console_set_display_gl_ctx(ptr noundef nonnull %call.i29, ptr noundef nonnull %glctx.i) #5
-  br label %dbus_display_add_console.argprom.exit
+  br label %dbus_display_add_console.exit
 
-dbus_display_add_console.argprom.exit:            ; preds = %if.end.i, %land.lhs.true.i, %if.then2.i
+dbus_display_add_console.exit:                    ; preds = %if.end.i, %land.lhs.true.i, %if.then2.i
   %call4.i = call ptr @dbus_display_console_new(ptr noundef nonnull %call.i, ptr noundef nonnull %call.i29) #5
   %16 = load ptr, ptr %consoles.i, align 8
   call void @g_ptr_array_insert(ptr noundef %16, i32 noundef %14, ptr noundef %call4.i) #5
@@ -608,7 +608,7 @@ dbus_display_add_console.argprom.exit:            ; preds = %if.end.i, %land.lhs
   %tobool41.not = icmp eq ptr %call40, null
   br i1 %tobool41.not, label %for.end, label %if.end43
 
-for.end:                                          ; preds = %dbus_display_add_console.argprom.exit, %if.end38
+for.end:                                          ; preds = %dbus_display_add_console.exit, %if.end38
   %call48 = call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.21) #5
   %19 = load ptr, ptr %call39, align 8
   %len = getelementptr inbounds i8, ptr %call39, i64 8
@@ -625,7 +625,7 @@ for.end:                                          ; preds = %dbus_display_add_co
   %bus53 = getelementptr inbounds i8, ptr %call.i, i64 72
   %23 = load ptr, ptr %bus53, align 8
   %tobool54.not = icmp eq ptr %23, null
-  br i1 %tobool54.not, label %glib_autoptr_cleanup_GArray.argprom.exit, label %if.then55
+  br i1 %tobool54.not, label %glib_autoptr_cleanup_GArray.exit, label %if.then55
 
 if.then55:                                        ; preds = %for.end
   %server56 = getelementptr inbounds i8, ptr %call.i, i64 80
@@ -633,19 +633,19 @@ if.then55:                                        ; preds = %for.end
   call void @g_dbus_object_manager_server_set_connection(ptr noundef %24, ptr noundef nonnull %23) #5
   %25 = load ptr, ptr %bus53, align 8
   %call59 = call i32 @g_bus_own_name_on_connection(ptr noundef %25, ptr noundef nonnull @.str.26, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #5
-  br label %glib_autoptr_cleanup_GArray.argprom.exit
+  br label %glib_autoptr_cleanup_GArray.exit
 
-glib_autoptr_cleanup_GArray.argprom.exit:         ; preds = %if.then, %if.then17, %if.then32, %if.then24, %if.then55, %for.end
+glib_autoptr_cleanup_GArray.exit:                 ; preds = %if.then, %if.then17, %if.then32, %if.then24, %if.then55, %for.end
   call void @g_free(ptr noundef %call1) #5
   %err.val = load ptr, ptr %err, align 8
   %tobool.not.i.i30 = icmp eq ptr %err.val, null
-  br i1 %tobool.not.i.i30, label %glib_autoptr_cleanup_GError.argprom.exit, label %if.then.i.i31
+  br i1 %tobool.not.i.i30, label %glib_autoptr_cleanup_GError.exit, label %if.then.i.i31
 
-if.then.i.i31:                                    ; preds = %glib_autoptr_cleanup_GArray.argprom.exit
+if.then.i.i31:                                    ; preds = %glib_autoptr_cleanup_GArray.exit
   call void @g_error_free(ptr noundef nonnull %err.val) #5
-  br label %glib_autoptr_cleanup_GError.argprom.exit
+  br label %glib_autoptr_cleanup_GError.exit
 
-glib_autoptr_cleanup_GError.argprom.exit:         ; preds = %glib_autoptr_cleanup_GArray.argprom.exit, %if.then.i.i31
+glib_autoptr_cleanup_GError.exit:                 ; preds = %glib_autoptr_cleanup_GArray.exit, %if.then.i.i31
   ret void
 }
 

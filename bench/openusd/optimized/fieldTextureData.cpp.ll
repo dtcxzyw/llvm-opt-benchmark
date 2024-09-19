@@ -221,7 +221,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19HioFieldTextureData3NewERKNS
   %20 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_factoryRegistryE seq_cst, align 8
   %21 = inttoptr i64 %20 to ptr
   %.not.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i, label %22, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
+  br i1 %.not.i.i, label %22, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
 
 22:                                               ; preds = %6
   %23 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
@@ -341,7 +341,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL_
   %51 = ptrtoint ptr %23 to i64
   %52 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_factoryRegistryE, i64 0, i64 %51 seq_cst seq_cst, align 8
   %53 = extractvalue { i64, i1 } %52, 1
-  br i1 %53, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit, label %54
+  br i1 %53, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit, label %54
 
 54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryEE3NewEv.exit.i.i.i
   %55 = load ptr, ptr %27, align 8
@@ -389,9 +389,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_FieldTextureDataFactoryReg
   call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef 56) #24
   %73 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_factoryRegistryE seq_cst, align 8
   %74 = inttoptr i64 %73 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit: ; preds = %6, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryEE3NewEv.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_FieldTextureDataFactoryRegistryD2Ev.exit.i.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit: ; preds = %6, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryEE3NewEv.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_FieldTextureDataFactoryRegistryD2Ev.exit.i.i.i
   %75 = phi ptr [ %21, %6 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_FieldTextureDataFactoryRegistryD2Ev.exit.i.i.i ], [ %23, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryEE3NewEv.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
@@ -404,7 +404,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTe
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__20TfStringToLowerAsciiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %77 unwind label %147
 
-77:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
+77:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %78 unwind label %149
 
@@ -546,7 +546,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %141,
   invoke void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %13, i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef %145, ptr noundef %146)
           to label %181 unwind label %152
 
-147:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.argprom.exit
+147:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_132_FieldTextureDataFactoryRegistryENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv.exit
   %148 = landingpad { ptr, i32 }
           cleanup
   br label %151

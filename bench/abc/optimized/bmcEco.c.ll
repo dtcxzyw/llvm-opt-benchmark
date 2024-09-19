@@ -366,7 +366,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %199 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val181, i64 %198, i32 1
   %200 = load i32, ptr %199, align 4
   %201 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %22, i32 noundef %194, i32 noundef %200) #12
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %22, i32 noundef %201)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %22, i32 noundef %201)
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %202 = load ptr, ptr %80, align 8
   %203 = getelementptr i8, ptr %202, i64 4
@@ -521,7 +521,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
 
 .critedge18:                                      ; preds = %.lr.ph248, %268, %.critedge16
   %.0.lcssa = phi i32 [ 0, %.critedge16 ], [ %282, %268 ], [ %.0247, %.lr.ph248 ]
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %22, i32 noundef %.0.lcssa)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %22, i32 noundef %.0.lcssa)
   %287 = getelementptr i8, ptr %2, i64 4
   %.val167251 = load i32, ptr %287, align 4
   %288 = icmp sgt i32 %.val167251, 0
@@ -544,7 +544,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %24
   %294 = sext i32 %293 to i64
   %295 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val174, i64 %294, i32 1
   %296 = load i32, ptr %295, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %22, i32 noundef %296)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %22, i32 noundef %296)
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %.val167 = load i32, ptr %287, align 4
   %297 = sext i32 %.val167 to i64
@@ -663,7 +663,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648

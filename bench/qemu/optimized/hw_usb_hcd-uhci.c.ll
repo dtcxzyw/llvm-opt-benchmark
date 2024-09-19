@@ -352,7 +352,7 @@ trace_usb_uhci_schedule_stop.exit:                ; preds = %if.then, %land.lhs.
   %10 = getelementptr i8, ptr %opaque, i64 3304
   %opaque.val = load ptr, ptr %10, align 8
   %tobool.not1.i = icmp eq ptr %opaque.val, null
-  br i1 %tobool.not1.i, label %uhci_async_cancel_all.argprom.exit, label %land.rhs.i
+  br i1 %tobool.not1.i, label %uhci_async_cancel_all.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %trace_usb_uhci_schedule_stop.exit, %land.rhs.i
   %queue.02.i = phi ptr [ %11, %land.rhs.i ], [ %opaque.val, %trace_usb_uhci_schedule_stop.exit ]
@@ -360,9 +360,9 @@ land.rhs.i:                                       ; preds = %trace_usb_uhci_sche
   %11 = load ptr, ptr %next.i, align 8
   tail call fastcc void @uhci_queue_free(ptr noundef nonnull %queue.02.i, ptr noundef nonnull @.str.59)
   %tobool.not.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i, label %uhci_async_cancel_all.argprom.exit, label %land.rhs.i, !llvm.loop !5
+  br i1 %tobool.not.i, label %uhci_async_cancel_all.exit, label %land.rhs.i, !llvm.loop !5
 
-uhci_async_cancel_all.argprom.exit:               ; preds = %land.rhs.i, %trace_usb_uhci_schedule_stop.exit
+uhci_async_cancel_all.exit:                       ; preds = %land.rhs.i, %trace_usb_uhci_schedule_stop.exit
   %status = getelementptr inbounds i8, ptr %opaque, i64 3074
   %12 = load i16, ptr %status, align 2
   %13 = or i16 %12, 32
@@ -415,9 +415,9 @@ for.body.lr.ph:                                   ; preds = %if.end17
   %.pre = load i16, ptr %frnum24, align 2
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %uhci_async_validate_end.argprom.exit
-  %20 = phi i16 [ %.pre, %for.body.lr.ph ], [ %84, %uhci_async_validate_end.argprom.exit ]
-  %i.0119 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %uhci_async_validate_end.argprom.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %uhci_async_validate_end.exit
+  %20 = phi i16 [ %.pre, %for.body.lr.ph ], [ %84, %uhci_async_validate_end.exit ]
+  %i.0119 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %uhci_async_validate_end.exit ]
   store i32 0, ptr %frame_bytes, align 8
   %conv25 = zext i16 %20 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i37)
@@ -472,7 +472,7 @@ uhci_async_validate_begin.exit:                   ; preds = %for.body.i, %trace_
   tail call fastcc void @uhci_process_frame(ptr noundef %opaque)
   %opaque.val36 = load ptr, ptr %queues.i, align 8
   %tobool.not1.i53 = icmp eq ptr %opaque.val36, null
-  br i1 %tobool.not1.i53, label %uhci_async_validate_end.argprom.exit, label %land.rhs.i54
+  br i1 %tobool.not1.i53, label %uhci_async_validate_end.exit, label %land.rhs.i54
 
 land.rhs.i54:                                     ; preds = %uhci_async_validate_begin.exit, %for.inc.i
   %queue.02.i55 = phi ptr [ %28, %for.inc.i ], [ %opaque.val36, %uhci_async_validate_begin.exit ]
@@ -717,9 +717,9 @@ uhci_queue_free.exit:                             ; preds = %while.end.i, %land.
 
 for.inc.i:                                        ; preds = %uhci_queue_free.exit, %land.rhs.i54
   %tobool.not.i58 = icmp eq ptr %28, null
-  br i1 %tobool.not.i58, label %uhci_async_validate_end.argprom.exit, label %land.rhs.i54, !llvm.loop !9
+  br i1 %tobool.not.i58, label %uhci_async_validate_end.exit, label %land.rhs.i54, !llvm.loop !9
 
-uhci_async_validate_end.argprom.exit:             ; preds = %for.inc.i, %uhci_async_validate_begin.exit
+uhci_async_validate_end.exit:                     ; preds = %for.inc.i, %uhci_async_validate_begin.exit
   %82 = load i16, ptr %frnum24, align 2
   %83 = add i16 %82, 1
   %84 = and i16 %83, 2047
@@ -731,7 +731,7 @@ uhci_async_validate_end.argprom.exit:             ; preds = %for.inc.i, %uhci_as
   %exitcond.not = icmp eq i32 %inc, %spec.store.select
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
-for.end:                                          ; preds = %uhci_async_validate_end.argprom.exit, %if.end17
+for.end:                                          ; preds = %uhci_async_validate_end.exit, %if.end17
   %pending_int_mask = getelementptr inbounds i8, ptr %opaque, i64 3296
   %86 = load i32, ptr %pending_int_mask, align 16
   %tobool34.not = icmp eq i32 %86, 0
@@ -819,7 +819,7 @@ if.end44:                                         ; preds = %uhci_update_irq.exi
   tail call void @timer_mod(ptr noundef %106, i64 noundef %add47) #11
   br label %return
 
-return:                                           ; preds = %if.end44, %uhci_async_cancel_all.argprom.exit
+return:                                           ; preds = %if.end44, %uhci_async_cancel_all.exit
   ret void
 }
 
@@ -949,7 +949,7 @@ if.end6:                                          ; preds = %if.then4, %if.end
   %8 = getelementptr i8, ptr %call.i, i64 3304
   %call.val = load ptr, ptr %8, align 8
   %tobool.not1.i = icmp eq ptr %call.val, null
-  br i1 %tobool.not1.i, label %uhci_async_cancel_all.argprom.exit, label %land.rhs.i
+  br i1 %tobool.not1.i, label %uhci_async_cancel_all.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end6, %land.rhs.i
   %queue.02.i = phi ptr [ %9, %land.rhs.i ], [ %call.val, %if.end6 ]
@@ -957,20 +957,20 @@ land.rhs.i:                                       ; preds = %if.end6, %land.rhs.
   %9 = load ptr, ptr %next.i, align 8
   tail call fastcc void @uhci_queue_free(ptr noundef nonnull %queue.02.i, ptr noundef nonnull @.str.59)
   %tobool.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i, label %uhci_async_cancel_all.argprom.exit, label %land.rhs.i, !llvm.loop !5
+  br i1 %tobool.not.i, label %uhci_async_cancel_all.exit, label %land.rhs.i, !llvm.loop !5
 
-uhci_async_cancel_all.argprom.exit:               ; preds = %land.rhs.i, %if.end6
+uhci_async_cancel_all.exit:                       ; preds = %land.rhs.i, %if.end6
   %masterbus = getelementptr inbounds i8, ptr %call.i, i64 3328
   %10 = load ptr, ptr %masterbus, align 16
   %tobool7.not = icmp eq ptr %10, null
   br i1 %tobool7.not, label %if.then8, label %if.end9
 
-if.then8:                                         ; preds = %uhci_async_cancel_all.argprom.exit
+if.then8:                                         ; preds = %uhci_async_cancel_all.exit
   %bus = getelementptr inbounds i8, ptr %call.i, i64 2880
   tail call void @usb_bus_release(ptr noundef nonnull %bus) #11
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then8, %uhci_async_cancel_all.argprom.exit
+if.end9:                                          ; preds = %if.then8, %uhci_async_cancel_all.exit
   ret void
 }
 
@@ -1118,7 +1118,7 @@ entry:
   %3 = getelementptr i8, ptr %0, i64 3304
   %.val = load ptr, ptr %3, align 8
   %tobool.not1.i = icmp eq ptr %.val, null
-  br i1 %tobool.not1.i, label %uhci_async_cancel_device.argprom.exit, label %land.rhs.i
+  br i1 %tobool.not1.i, label %uhci_async_cancel_device.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry, %for.inc.i
   %queue.02.i = phi ptr [ %4, %for.inc.i ], [ %.val, %entry ]
@@ -1137,9 +1137,9 @@ if.then.i:                                        ; preds = %land.rhs.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.rhs.i
   %tobool.not.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i, label %uhci_async_cancel_device.argprom.exit, label %land.rhs.i, !llvm.loop !12
+  br i1 %tobool.not.i, label %uhci_async_cancel_device.exit, label %land.rhs.i, !llvm.loop !12
 
-uhci_async_cancel_device.argprom.exit:            ; preds = %for.inc.i, %entry
+uhci_async_cancel_device.exit:                    ; preds = %for.inc.i, %entry
   %ctrl = getelementptr [2 x %struct.UHCIPort], ptr %ports, i64 0, i64 %idxprom, i32 1
   %7 = load i16, ptr %ctrl, align 8
   %8 = and i16 %7, 1
@@ -1152,7 +1152,7 @@ uhci_async_cancel_device.argprom.exit:            ; preds = %for.inc.i, %entry
   %.not = icmp eq i16 %12, 0
   br i1 %.not, label %15, label %13
 
-13:                                               ; preds = %uhci_async_cancel_device.argprom.exit
+13:                                               ; preds = %uhci_async_cancel_device.exit
   %tobool11.not.not = icmp eq i16 %11, 0
   %and15 = and i16 %10, -13
   %14 = or disjoint i16 %and15, 8
@@ -1160,7 +1160,7 @@ uhci_async_cancel_device.argprom.exit:            ; preds = %for.inc.i, %entry
   store i16 %simplifycfg.merge, ptr %ctrl, align 8
   br label %15
 
-15:                                               ; preds = %uhci_async_cancel_device.argprom.exit, %13
+15:                                               ; preds = %uhci_async_cancel_device.exit, %13
   %cmd.i = getelementptr inbounds i8, ptr %0, i64 3072
   %16 = load i16, ptr %cmd.i, align 16
   %17 = and i16 %16, 8
@@ -1234,7 +1234,7 @@ entry:
   %1 = getelementptr i8, ptr %0, i64 3304
   %.val = load ptr, ptr %1, align 8
   %tobool.not1.i = icmp eq ptr %.val, null
-  br i1 %tobool.not1.i, label %uhci_async_cancel_device.argprom.exit, label %land.rhs.i
+  br i1 %tobool.not1.i, label %uhci_async_cancel_device.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry, %for.inc.i
   %queue.02.i = phi ptr [ %2, %for.inc.i ], [ %.val, %entry ]
@@ -1253,9 +1253,9 @@ if.then.i:                                        ; preds = %land.rhs.i
 
 for.inc.i:                                        ; preds = %if.then.i, %land.rhs.i
   %tobool.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i, label %uhci_async_cancel_device.argprom.exit, label %land.rhs.i, !llvm.loop !12
+  br i1 %tobool.not.i, label %uhci_async_cancel_device.exit, label %land.rhs.i, !llvm.loop !12
 
-uhci_async_cancel_device.argprom.exit:            ; preds = %for.inc.i, %entry
+uhci_async_cancel_device.exit:                    ; preds = %for.inc.i, %entry
   ret void
 }
 
@@ -4043,7 +4043,7 @@ for.end:                                          ; preds = %for.inc
   %9 = getelementptr i8, ptr %call.i17, i64 3304
   %call1.val = load ptr, ptr %9, align 8
   %tobool.not1.i = icmp eq ptr %call1.val, null
-  br i1 %tobool.not1.i, label %uhci_async_cancel_all.argprom.exit, label %land.rhs.i
+  br i1 %tobool.not1.i, label %uhci_async_cancel_all.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.end, %land.rhs.i
   %queue.02.i = phi ptr [ %10, %land.rhs.i ], [ %call1.val, %for.end ]
@@ -4051,9 +4051,9 @@ land.rhs.i:                                       ; preds = %for.end, %land.rhs.
   %10 = load ptr, ptr %next.i, align 8
   tail call fastcc void @uhci_queue_free(ptr noundef nonnull %queue.02.i, ptr noundef nonnull @.str.59)
   %tobool.not.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i, label %uhci_async_cancel_all.argprom.exit, label %land.rhs.i, !llvm.loop !5
+  br i1 %tobool.not.i, label %uhci_async_cancel_all.exit, label %land.rhs.i, !llvm.loop !5
 
-uhci_async_cancel_all.argprom.exit:               ; preds = %land.rhs.i, %for.end
+uhci_async_cancel_all.exit:                       ; preds = %land.rhs.i, %for.end
   %bh = getelementptr inbounds i8, ptr %call.i17, i64 3104
   %11 = load ptr, ptr %bh, align 16
   tail call void @qemu_bh_cancel(ptr noundef %11) #11
@@ -4062,13 +4062,13 @@ uhci_async_cancel_all.argprom.exit:               ; preds = %land.rhs.i, %for.en
   %tobool.not.i18 = icmp eq i8 %13, 0
   br i1 %tobool.not.i18, label %lor.lhs.false.i, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %uhci_async_cancel_all.argprom.exit
+land.lhs.true.i:                                  ; preds = %uhci_async_cancel_all.exit
   %14 = load i16, ptr %intr, align 4
   %15 = and i16 %14, 4
   %tobool3.not.i = icmp eq i16 %15, 0
   br i1 %tobool3.not.i, label %lor.lhs.false.i, label %if.then.i
 
-lor.lhs.false.i:                                  ; preds = %land.lhs.true.i, %uhci_async_cancel_all.argprom.exit
+lor.lhs.false.i:                                  ; preds = %land.lhs.true.i, %uhci_async_cancel_all.exit
   %16 = and i8 %12, 2
   %tobool7.not.i = icmp eq i8 %16, 0
   br i1 %tobool7.not.i, label %lor.lhs.false13.i, label %land.lhs.true8.i

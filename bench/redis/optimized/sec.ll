@@ -1128,8 +1128,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %n_lock_ops16.i = getelementptr inbounds i8, ptr %mutex_prof_data, i64 56
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %malloc_mutex_prof_accum.argprom.exit
-  %i.014 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %malloc_mutex_prof_accum.argprom.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %malloc_mutex_prof_accum.exit
+  %i.014 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %malloc_mutex_prof_accum.exit ]
   %1 = load ptr, ptr %shards, align 8
   %arrayidx = getelementptr inbounds %struct.sec_shard_s, ptr %1, i64 %i.014
   %lock.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
@@ -1189,13 +1189,13 @@ if.end.i10:                                       ; preds = %if.then.i11, %mallo
   %max_n_thds8.i = getelementptr inbounds i8, ptr %arrayidx2, i64 32
   %11 = load i32, ptr %max_n_thds8.i, align 8
   %cmp9.i = icmp ult i32 %10, %11
-  br i1 %cmp9.i, label %if.then10.i, label %malloc_mutex_prof_accum.argprom.exit
+  br i1 %cmp9.i, label %if.then10.i, label %malloc_mutex_prof_accum.exit
 
 if.then10.i:                                      ; preds = %if.end.i10
   store i32 %11, ptr %max_n_thds.i, align 8
-  br label %malloc_mutex_prof_accum.argprom.exit
+  br label %malloc_mutex_prof_accum.exit
 
-malloc_mutex_prof_accum.argprom.exit:             ; preds = %if.end.i10, %if.then10.i
+malloc_mutex_prof_accum.exit:                     ; preds = %if.end.i10, %if.then10.i
   store atomic i32 0, ptr %n_waiting_thds.i monotonic, align 4
   %n_owner_switches.i = getelementptr inbounds i8, ptr %arrayidx2, i64 40
   %12 = load i64, ptr %n_owner_switches.i, align 8
@@ -1218,7 +1218,7 @@ malloc_mutex_prof_accum.argprom.exit:             ; preds = %if.end.i10, %if.the
   %cmp = icmp ult i64 %inc, %17
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
-for.end:                                          ; preds = %malloc_mutex_prof_accum.argprom.exit, %entry
+for.end:                                          ; preds = %malloc_mutex_prof_accum.exit, %entry
   ret void
 }
 

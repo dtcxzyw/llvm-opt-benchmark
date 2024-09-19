@@ -24937,7 +24937,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit: ; preds = %37, %
   %46 = getelementptr inbounds i8, ptr %5, i64 16
   %.val12 = load i32, ptr %46, align 8
   %.not.i.i.i = icmp eq i32 %.val12, 0
-  br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.argprom.exit, label %47
+  br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.exit, label %47
 
 47:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit
   %48 = and i32 %.val12, 255
@@ -24952,11 +24952,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit: ; preds = %37, %
   %57 = atomicrmw sub ptr %56, i32 1 seq_cst, align 4
   %58 = and i32 %57, 2147483647
   %59 = icmp eq i32 %58, 1
-  br i1 %59, label %60, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.argprom.exit
+  br i1 %59, label %60, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.exit
 
 60:                                               ; preds = %47
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %55)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.argprom.exit unwind label %61
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.exit unwind label %61
 
 61:                                               ; preds = %60
   %62 = landingpad { ptr, i32 }
@@ -24965,14 +24965,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit: ; preds = %37, %
   call void @__clang_call_terminate(ptr %63) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit, %47, %60
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit, %47, %60
   ret void
 
 64:                                               ; preds = %33, %31
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %34, %33 ]
   %65 = getelementptr inbounds i8, ptr %5, i64 16
   %.val13 = load i32, ptr %65, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.argprom(i32 %.val13) #24
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev(i32 %.val13) #24
   resume { ptr, i32 } %.pn
 }
 
@@ -25319,7 +25319,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit11.i: ; preds = %83, %70, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.argprom(i32 %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev(i32 %.16.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq i32 %.16.val, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, label %1
 
@@ -25421,7 +25421,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit: ; preds = %19, %
   %27 = getelementptr inbounds i8, ptr %3, i64 16
   %.val10 = load i32, ptr %27, align 8
   %.not.i.i.i = icmp eq i32 %.val10, 0
-  br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.argprom.exit, label %28
+  br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.exit, label %28
 
 28:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit
   %29 = and i32 %.val10, 255
@@ -25436,11 +25436,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit: ; preds = %19, %
   %38 = atomicrmw sub ptr %37, i32 1 seq_cst, align 4
   %39 = and i32 %38, 2147483647
   %40 = icmp eq i32 %39, 1
-  br i1 %40, label %41, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.argprom.exit
+  br i1 %40, label %41, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.exit
 
 41:                                               ; preds = %28
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %36)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.argprom.exit unwind label %42
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.exit unwind label %42
 
 42:                                               ; preds = %41
   %43 = landingpad { ptr, i32 }
@@ -25449,14 +25449,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit: ; preds = %19, %
   call void @__clang_call_terminate(ptr %44) #25
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit, %28, %41
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockD2Ev.exit, %28, %41
   ret i1 %.07
 
 45:                                               ; preds = %25, %23
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %24, %23 ]
   %46 = getelementptr inbounds i8, ptr %3, i64 16
   %.val9 = load i32, ptr %46, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev.argprom(i32 %.val9) #24
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_AbsPathHelperD2Ev(i32 %.val9) #24
   resume { ptr, i32 } %.pn
 }
 

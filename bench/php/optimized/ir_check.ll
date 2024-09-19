@@ -112,10 +112,10 @@ define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unna
   %37 = zext nneg i32 %.0252370 to i64
   br label %38
 
-38:                                               ; preds = %.lr.ph, %ir_check_use_list.argprom.exit
-  %.2255352 = phi i1 [ %.0253369, %.lr.ph ], [ %.8, %ir_check_use_list.argprom.exit ]
-  %.0258351 = phi i32 [ 1, %.lr.ph ], [ %232, %ir_check_use_list.argprom.exit ]
-  %.0261350 = phi ptr [ %33, %.lr.ph ], [ %233, %ir_check_use_list.argprom.exit ]
+38:                                               ; preds = %.lr.ph, %ir_check_use_list.exit
+  %.2255352 = phi i1 [ %.0253369, %.lr.ph ], [ %.8, %ir_check_use_list.exit ]
+  %.0258351 = phi i32 [ 1, %.lr.ph ], [ %232, %ir_check_use_list.exit ]
+  %.0261350 = phi ptr [ %33, %.lr.ph ], [ %233, %ir_check_use_list.exit ]
   %39 = load i32, ptr %.0261350, align 4
   %.not296 = icmp eq i32 %39, 0
   br i1 %.not296, label %194, label %40
@@ -127,12 +127,12 @@ define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unna
 42:                                               ; preds = %40
   %43 = load i32, ptr %12, align 8
   %.not315 = icmp slt i32 %39, %43
-  br i1 %.not315, label %ir_check_use_list.argprom.exit, label %44
+  br i1 %.not315, label %ir_check_use_list.exit, label %44
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr @stderr, align 8
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.1, i32 noundef %.0252370, i32 noundef %.0258351, i32 noundef %39) #4
-  br label %ir_check_use_list.argprom.exit
+  br label %ir_check_use_list.exit
 
 47:                                               ; preds = %40
   %48 = load i32, ptr %2, align 8
@@ -329,7 +329,7 @@ define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unna
   %135 = getelementptr inbounds %struct._ir_block, ptr %.val, i64 %134, i32 8
   %136 = load i32, ptr %135, align 4
   %137 = icmp eq i32 %131, %133
-  br i1 %137, label %ir_check_domination.argprom.exit, label %.preheader.i
+  br i1 %137, label %ir_check_domination.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %129
   %.pn1.i = zext i32 %133 to i64
@@ -353,10 +353,10 @@ define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unna
   %147 = icmp eq i32 %131, %.021.lcssa.i
   br i1 %147, label %.thread330, label %148
 
-ir_check_domination.argprom.exit:                 ; preds = %129
+ir_check_domination.exit:                         ; preds = %129
   br i1 %.not308, label %.thread330, label %148
 
-148:                                              ; preds = %._crit_edge.i, %ir_check_domination.argprom.exit
+148:                                              ; preds = %._crit_edge.i, %ir_check_domination.exit
   %149 = load ptr, ptr @stderr, align 8
   %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef nonnull @.str.6, i32 noundef %.0252370, i32 noundef %.0258351, i32 noundef %39, i32 noundef %39, i32 noundef %.0252370) #4
   br label %.thread330
@@ -446,11 +446,11 @@ ir_check_domination.argprom.exit:                 ; preds = %129
   %198 = icmp eq i8 %195, 104
   %199 = icmp eq i32 %.0258351, 2
   %or.cond = and i1 %199, %198
-  br i1 %or.cond, label %ir_check_use_list.argprom.exit, label %202
+  br i1 %or.cond, label %ir_check_use_list.exit, label %202
 
 200:                                              ; preds = %194
   %.old1 = icmp eq i32 %.0258351, 2
-  br i1 %.old1, label %ir_check_use_list.argprom.exit, label %.thread331
+  br i1 %.old1, label %ir_check_use_list.exit, label %.thread331
 
 .thread331:                                       ; preds = %200
   %201 = icmp eq i32 %.0258351, 1
@@ -460,7 +460,7 @@ ir_check_domination.argprom.exit:                 ; preds = %129
   %203 = icmp eq i8 %195, 91
   %204 = icmp eq i32 %.0258351, 1
   %or.cond4 = and i1 %204, %203
-  br i1 %or.cond4, label %ir_check_use_list.argprom.exit, label %205
+  br i1 %or.cond4, label %ir_check_use_list.exit, label %205
 
 205:                                              ; preds = %.thread331, %202
   %206 = phi i1 [ %201, %.thread331 ], [ %204, %202 ]
@@ -473,18 +473,18 @@ ir_check_domination.argprom.exit:                 ; preds = %129
   %212 = icmp ne i8 %195, 88
   %or.cond7 = or i1 %212, %206
   %or.cond316 = and i1 %.not297, %or.cond7
-  br i1 %or.cond316, label %213, label %ir_check_use_list.argprom.exit
+  br i1 %or.cond316, label %213, label %ir_check_use_list.exit
 
 213:                                              ; preds = %205
   %214 = load ptr, ptr @stderr, align 8
   %215 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef nonnull @.str.12, i32 noundef %.0252370, i32 noundef %.0258351, i32 noundef 0) #4
-  br label %ir_check_use_list.argprom.exit
+  br label %ir_check_use_list.exit
 
-.thread330:                                       ; preds = %166, %._crit_edge.i, %173, %182, %188, %168, %179, %171, %158, %157, %162, %161, %122, %125, %127, %ir_check_domination.argprom.exit, %148, %191
-  %.7 = phi i1 [ false, %191 ], [ %.3256, %182 ], [ false, %188 ], [ false, %179 ], [ %.3256, %171 ], [ false, %168 ], [ %.3256, %157 ], [ false, %158 ], [ false, %162 ], [ %.3256, %161 ], [ %.6, %ir_check_domination.argprom.exit ], [ false, %148 ], [ %.6, %127 ], [ %.6, %125 ], [ %.6, %122 ], [ %.3256, %173 ], [ %.6, %._crit_edge.i ], [ %.3256, %166 ]
+.thread330:                                       ; preds = %166, %._crit_edge.i, %173, %182, %188, %168, %179, %171, %158, %157, %162, %161, %122, %125, %127, %ir_check_domination.exit, %148, %191
+  %.7 = phi i1 [ false, %191 ], [ %.3256, %182 ], [ false, %188 ], [ false, %179 ], [ %.3256, %171 ], [ false, %168 ], [ %.3256, %157 ], [ false, %158 ], [ false, %162 ], [ %.3256, %161 ], [ %.6, %ir_check_domination.exit ], [ false, %148 ], [ %.6, %127 ], [ %.6, %125 ], [ %.6, %122 ], [ %.3256, %173 ], [ %.6, %._crit_edge.i ], [ %.3256, %166 ]
   %216 = load ptr, ptr %10, align 8
   %.not342 = icmp eq ptr %216, null
-  br i1 %.not342, label %ir_check_use_list.argprom.exit, label %217
+  br i1 %.not342, label %ir_check_use_list.exit, label %217
 
 217:                                              ; preds = %.thread330
   %218 = getelementptr inbounds %struct._ir_use_list, ptr %216, i64 %54
@@ -505,7 +505,7 @@ ir_check_domination.argprom.exit:                 ; preds = %129
   %.0121.i = phi i32 [ %228, %227 ], [ 0, %.lr.ph.preheader.i ]
   %225 = load i32, ptr %.0112.i, align 4
   %226 = icmp eq i32 %225, %.0252370
-  br i1 %226, label %ir_check_use_list.argprom.exit, label %227
+  br i1 %226, label %ir_check_use_list.exit, label %227
 
 227:                                              ; preds = %.lr.ph.i326
   %228 = add nuw nsw i32 %.0121.i, 1
@@ -516,16 +516,16 @@ ir_check_domination.argprom.exit:                 ; preds = %129
 .loopexit343:                                     ; preds = %227, %217
   %230 = load ptr, ptr @stderr, align 8
   %231 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %230, ptr noundef nonnull @.str.13, i32 noundef %.0252370, i32 noundef %.0258351, i32 noundef %39) #4
-  br label %ir_check_use_list.argprom.exit
+  br label %ir_check_use_list.exit
 
-ir_check_use_list.argprom.exit:                   ; preds = %.lr.ph.i326, %42, %44, %202, %213, %205, %200, %197, %.thread330, %.loopexit343
+ir_check_use_list.exit:                           ; preds = %.lr.ph.i326, %42, %44, %202, %213, %205, %200, %197, %.thread330, %.loopexit343
   %.8 = phi i1 [ false, %.loopexit343 ], [ %.7, %.thread330 ], [ %.2255352, %197 ], [ %.2255352, %205 ], [ false, %213 ], [ %.2255352, %202 ], [ %.2255352, %200 ], [ %.2255352, %42 ], [ false, %44 ], [ %.7, %.lr.ph.i326 ]
   %232 = add nuw nsw i32 %.0258351, 1
   %233 = getelementptr inbounds i8, ptr %.0261350, i64 4
   %exitcond.not = icmp eq i32 %.0258351, %.0251
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %38
 
-._crit_edge.loopexit:                             ; preds = %ir_check_use_list.argprom.exit
+._crit_edge.loopexit:                             ; preds = %ir_check_use_list.exit
   %.pre = load i8, ptr %.0264368, align 8
   br label %._crit_edge
 
@@ -669,11 +669,11 @@ ir_check_use_list.argprom.exit:                   ; preds = %.lr.ph.i326, %42, %
   %316 = getelementptr inbounds i32, ptr %313, i64 %315
   br label %.lr.ph357
 
-.lr.ph357:                                        ; preds = %.lr.ph357.preheader, %ir_check_input_list.argprom.exit
-  %317 = phi i32 [ %338, %ir_check_input_list.argprom.exit ], [ %311, %.lr.ph357.preheader ]
-  %.11355 = phi i1 [ %.12, %ir_check_input_list.argprom.exit ], [ %.9, %.lr.ph357.preheader ]
-  %.1259354 = phi i32 [ %339, %ir_check_input_list.argprom.exit ], [ 0, %.lr.ph357.preheader ]
-  %.1262353 = phi ptr [ %340, %ir_check_input_list.argprom.exit ], [ %316, %.lr.ph357.preheader ]
+.lr.ph357:                                        ; preds = %.lr.ph357.preheader, %ir_check_input_list.exit
+  %317 = phi i32 [ %338, %ir_check_input_list.exit ], [ %311, %.lr.ph357.preheader ]
+  %.11355 = phi i1 [ %.12, %ir_check_input_list.exit ], [ %.9, %.lr.ph357.preheader ]
+  %.1259354 = phi i32 [ %339, %ir_check_input_list.exit ], [ 0, %.lr.ph357.preheader ]
+  %.1262353 = phi ptr [ %340, %ir_check_input_list.exit ], [ %316, %.lr.ph357.preheader ]
   %318 = load i32, ptr %.1262353, align 4
   %.val324 = load ptr, ptr %0, align 8
   %319 = sext i32 %318 to i64
@@ -709,15 +709,15 @@ ir_check_use_list.argprom.exit:                   ; preds = %.lr.ph.i326, %42, %
   %.04.i = getelementptr inbounds i8, ptr %.pn.pn.i, i64 4
   %334 = load i32, ptr %.04.i, align 4
   %335 = icmp eq i32 %334, %.0252370
-  br i1 %335, label %ir_check_input_list.argprom.exit, label %332
+  br i1 %335, label %ir_check_input_list.exit, label %332
 
 .loopexit:                                        ; preds = %332, %331
   %336 = load ptr, ptr @stderr, align 8
   %337 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %336, ptr noundef nonnull @.str.18, i32 noundef %318, i32 noundef %.0252370) #4
   %.pre379 = load i32, ptr %310, align 4
-  br label %ir_check_input_list.argprom.exit
+  br label %ir_check_input_list.exit
 
-ir_check_input_list.argprom.exit:                 ; preds = %.lr.ph.i327, %.loopexit
+ir_check_input_list.exit:                         ; preds = %.lr.ph.i327, %.loopexit
   %338 = phi i32 [ %.pre379, %.loopexit ], [ %317, %.lr.ph.i327 ]
   %.12 = phi i1 [ false, %.loopexit ], [ %.11355, %.lr.ph.i327 ]
   %339 = add nuw nsw i32 %.1259354, 1
@@ -725,9 +725,9 @@ ir_check_input_list.argprom.exit:                 ; preds = %.lr.ph.i327, %.loop
   %341 = icmp slt i32 %339, %338
   br i1 %341, label %.lr.ph357, label %._crit_edge358
 
-._crit_edge358:                                   ; preds = %ir_check_input_list.argprom.exit, %307
-  %.11.lcssa = phi i1 [ %.9, %307 ], [ %.12, %ir_check_input_list.argprom.exit ]
-  %.lcssa345 = phi i32 [ %311, %307 ], [ %338, %ir_check_input_list.argprom.exit ]
+._crit_edge358:                                   ; preds = %ir_check_input_list.exit, %307
+  %.11.lcssa = phi i1 [ %.9, %307 ], [ %.12, %ir_check_input_list.exit ]
+  %.lcssa345 = phi i32 [ %311, %307 ], [ %338, %ir_check_input_list.exit ]
   %342 = and i32 %25, 1536
   %or.cond317 = icmp eq i32 %342, 512
   br i1 %or.cond317, label %343, label %421

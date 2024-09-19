@@ -3960,9 +3960,9 @@ mbedtls_mpi_lset.exit.thread:                     ; preds = %._crit_edge.i136, %
   %142 = getelementptr inbounds i64, ptr %141, i64 %114
   %143 = load i64, ptr %142, align 8
   %.not122 = icmp ult i64 %140, %143
-  br i1 %.not122, label %mbedtls_int_div_int.argprom.exit, label %154
+  br i1 %.not122, label %mbedtls_int_div_int.exit, label %154
 
-mbedtls_int_div_int.argprom.exit:                 ; preds = %136
+mbedtls_int_div_int.exit:                         ; preds = %136
   %144 = getelementptr i64, ptr %138, i64 %.071.in171
   %145 = getelementptr i8, ptr %144, i64 -16
   %146 = load i64, ptr %145, align 8
@@ -3976,8 +3976,8 @@ mbedtls_int_div_int.argprom.exit:                 ; preds = %136
   %153 = trunc nuw i128 %spec.store.select.i to i64
   br label %154
 
-154:                                              ; preds = %136, %mbedtls_int_div_int.argprom.exit
-  %.sink = phi i64 [ %153, %mbedtls_int_div_int.argprom.exit ], [ -1, %136 ]
+154:                                              ; preds = %136, %mbedtls_int_div_int.exit
+  %.sink = phi i64 [ %153, %mbedtls_int_div_int.exit ], [ -1, %136 ]
   %155 = getelementptr i64, ptr %137, i64 %.071.in171
   %156 = getelementptr i64, ptr %155, i64 %131
   store i64 %.sink, ptr %156, align 8
@@ -4698,9 +4698,9 @@ mbedtls_mpi_bitlen.exit226.thread:                ; preds = %mbedtls_mpi_bitlen.
   %74 = mul i64 %73, %.0101.i
   %75 = lshr i32 %.02.i, 1
   %76 = icmp ugt i32 %.02.i, 15
-  br i1 %76, label %71, label %mpi_montg_init.argprom.argprom.exit, !llvm.loop !56
+  br i1 %76, label %71, label %mpi_montg_init.exit, !llvm.loop !56
 
-mpi_montg_init.argprom.argprom.exit:              ; preds = %71
+mpi_montg_init.exit:                              ; preds = %71
   %77 = sub i64 0, %74
   store i32 1, ptr %10, align 8
   %78 = getelementptr inbounds i8, ptr %10, i64 8
@@ -4717,7 +4717,7 @@ mpi_montg_init.argprom.argprom.exit:              ; preds = %71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1536) %12, i8 0, i64 1536, i1 false)
   br i1 %.not44.i.i190, label %.thread287, label %.preheader.i227
 
-.preheader.i227:                                  ; preds = %mpi_montg_init.argprom.argprom.exit
+.preheader.i227:                                  ; preds = %mpi_montg_init.exit
   %82 = getelementptr inbounds i8, ptr %2, i64 16
   %.pre.pre.i228 = load ptr, ptr %82, align 8
   br label %83
@@ -4782,9 +4782,9 @@ mbedtls_mpi_bitlen.exit248:                       ; preds = %89, %mbedtls_clz.ex
   %spec.select293 = select i1 %100, i64 4, i64 %.292
   br label %.thread287
 
-.thread287:                                       ; preds = %99, %mpi_montg_init.argprom.argprom.exit, %97, %mbedtls_mpi_bitlen.exit248
-  %102 = phi i1 [ true, %mbedtls_mpi_bitlen.exit248 ], [ true, %97 ], [ false, %mpi_montg_init.argprom.argprom.exit ], [ %101, %99 ]
-  %103 = phi i64 [ 6, %mbedtls_mpi_bitlen.exit248 ], [ 5, %97 ], [ 1, %mpi_montg_init.argprom.argprom.exit ], [ %spec.select293, %99 ]
+.thread287:                                       ; preds = %99, %mpi_montg_init.exit, %97, %mbedtls_mpi_bitlen.exit248
+  %102 = phi i1 [ true, %mbedtls_mpi_bitlen.exit248 ], [ true, %97 ], [ false, %mpi_montg_init.exit ], [ %101, %99 ]
+  %103 = phi i64 [ 6, %mbedtls_mpi_bitlen.exit248 ], [ 5, %97 ], [ 1, %mpi_montg_init.exit ], [ %spec.select293, %99 ]
   %104 = add i64 %16, 1
   %105 = icmp ugt i64 %104, 10000
   br i1 %105, label %mbedtls_mpi_grow.exit, label %106

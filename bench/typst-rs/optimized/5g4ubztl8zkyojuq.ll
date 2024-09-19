@@ -606,14 +606,14 @@ common.resume.i.i:                                ; preds = %98, %70, %66
   %.val.i19.pre.i.i = load ptr, ptr %4, align 8, !alias.scope !58, !noalias !50
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %.not.i.i20.i.i = icmp eq ptr %.val.i19.pre.i.i, inttoptr (i64 16 to ptr)
-  br i1 %.not.i.i20.i.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit.i.i.i", label %78
+  br i1 %.not.i.i20.i.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit.i.i.i", label %78
 
 78:                                               ; preds = %72
   %79 = getelementptr i8, ptr %.val.i19.pre.i.i, i64 -8
   %.val.i.i.i21.i.i = load i64, ptr %79, align 8, !noalias !61, !noundef !7
-  br label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit.i.i.i"
+  br label %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit.i.i.i"
 
-"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit.i.i.i": ; preds = %78, %72
+"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit.i.i.i": ; preds = %78, %72
   %.0.i.i.i22.i.i = phi i64 [ %.val.i.i.i21.i.i, %78 ], [ 0, %72 ]
   %80 = icmp eq i64 %77, %.0.i.i.i22.i.i
   %81 = zext i1 %80 to i64
@@ -632,7 +632,7 @@ common.resume.i.i:                                ; preds = %98, %70, %66
   invoke void @"_ZN4ecow3vec15EcoVec$LT$T$GT$7reserve17h49b2bc288d04b2b2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %87)
           to label %72 unwind label %98, !noalias !50
 
-88:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit.i.i.i"
+88:                                               ; preds = %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit.i.i.i"
   %89 = load ptr, ptr %4, align 8, !alias.scope !58, !noalias !50, !nonnull !7, !noundef !7
   %90 = load i64, ptr %85, align 8, !alias.scope !58, !noalias !50, !noundef !7
   %91 = getelementptr inbounds i8, ptr %89, i64 %90
@@ -655,7 +655,7 @@ common.resume.i.i:                                ; preds = %98, %70, %66
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !50
   br label %_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE.exit
 
-98:                                               ; preds = %82, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.argprom.exit.i.i.i"
+98:                                               ; preds = %82, %"_ZN4ecow3vec15EcoVec$LT$T$GT$8capacity17h4b5878aa311f2b38E.exit.i.i.i"
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h038c2f2f19feb061E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)

@@ -1066,22 +1066,22 @@ land.lhs.true.i.i:                                ; preds = %for.body.i
   %obj.val.i.i = load i32, ptr %list_entry.0.val.i, align 8
   %16 = add i32 %obj.val.i.i, -1
   %or.cond.i.i.i = icmp ult i32 %16, 6
-  br i1 %or.cond.i.i.i, label %qobject_type.argprom.exit.i.i, label %if.else.i.i.i
+  br i1 %or.cond.i.i.i, label %qobject_type.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #15
   unreachable
 
-qobject_type.argprom.exit.i.i:                    ; preds = %land.lhs.true.i.i
+qobject_type.exit.i.i:                            ; preds = %land.lhs.true.i.i
   %cmp.i.i = icmp eq i32 %obj.val.i.i, 4
   br i1 %cmp.i.i, label %if.end30.i, label %if.then28.i
 
-if.then28.i:                                      ; preds = %qobject_type.argprom.exit.i.i, %for.body.i
+if.then28.i:                                      ; preds = %qobject_type.exit.i.i, %for.body.i
   %17 = load ptr, ptr %2, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__func__.config_parse_qdict_section, ptr noundef nonnull @.str.29, ptr noundef %17, i32 noundef %i.046.i) #13
   br label %cleanup.i
 
-if.end30.i:                                       ; preds = %qobject_type.argprom.exit.i.i
+if.end30.i:                                       ; preds = %qobject_type.exit.i.i
   %18 = load ptr, ptr %2, align 8
   %inc.i = add i32 %i.046.i, 1
   %call32.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.30, ptr noundef %18, i32 noundef %i.046.i) #13
@@ -1115,25 +1115,25 @@ cleanup.i:                                        ; preds = %for.cond.i, %if.end
   %retval.0.ph.i = phi i1 [ true, %if.end14.i ], [ false, %if.end5.i ], [ false, %if.end.i ], [ true, %for.body ], [ false, %if.then28.i ], [ false, %if.then38.i ], [ false, %if.then42.i ], [ false, %if.then19.i ], [ false, %if.then11.i ], [ %tobool34.not.not.i.not.not, %if.end30.i ], [ %tobool34.not.not.i.not.not, %for.cond.i ]
   %list.val.pr.i = load ptr, ptr %list.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %list.val.pr.i, null
-  br i1 %tobool.not.i.i.i, label %glib_autoptr_cleanup_QList.argprom.exit.i, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %glib_autoptr_cleanup_QList.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end23.i, %cleanup.i
   %retval.0.i8 = phi i1 [ %retval.0.ph.i, %cleanup.i ], [ true, %if.end23.i ]
   %list.val.i7 = phi ptr [ %list.val.pr.i, %cleanup.i ], [ %15, %if.end23.i ]
   call void @qlist_unref(ptr noundef nonnull %list.val.i7) #13
-  br label %glib_autoptr_cleanup_QList.argprom.exit.i
+  br label %glib_autoptr_cleanup_QList.exit.i
 
-glib_autoptr_cleanup_QList.argprom.exit.i:        ; preds = %if.then.i.i.i, %cleanup.i
+glib_autoptr_cleanup_QList.exit.i:                ; preds = %if.then.i.i.i, %cleanup.i
   %retval.0.i9 = phi i1 [ %retval.0.i8, %if.then.i.i.i ], [ %retval.0.ph.i, %cleanup.i ]
   %subqdict.val.i = load ptr, ptr %subqdict.i, align 8
   %tobool.not.i.i32.i = icmp eq ptr %subqdict.val.i, null
   br i1 %tobool.not.i.i32.i, label %config_parse_qdict_section.exit, label %if.then.i.i33.i
 
-if.then.i.i33.i:                                  ; preds = %glib_autoptr_cleanup_QList.argprom.exit.i
+if.then.i.i33.i:                                  ; preds = %glib_autoptr_cleanup_QList.exit.i
   call void @qdict_unref(ptr noundef nonnull %subqdict.val.i) #13
   br label %config_parse_qdict_section.exit
 
-config_parse_qdict_section.exit:                  ; preds = %glib_autoptr_cleanup_QList.argprom.exit.i, %if.then.i.i33.i
+config_parse_qdict_section.exit:                  ; preds = %glib_autoptr_cleanup_QList.exit.i, %if.then.i.i33.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %subqdict.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %list.i)
   br i1 %retval.0.i9, label %for.cond, label %return

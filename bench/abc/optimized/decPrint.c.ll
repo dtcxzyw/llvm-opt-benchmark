@@ -107,7 +107,7 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %45 = getelementptr inbounds i8, ptr %44, i64 -24
   %.val48 = load i32, ptr %27, align 8
   %46 = and i32 %.val48, 1
-  call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %45, i32 noundef %46, ptr noundef %.036, ptr noundef nonnull %5)
+  call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %45, i32 noundef %46, ptr noundef %.036, ptr noundef nonnull %5)
   br label %47
 
 47:                                               ; preds = %31, %40, %20
@@ -132,7 +132,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #4 {
+define internal fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #4 {
   %7 = load i32, ptr %2, align 8
   %8 = lshr i32 %7, 1
   %9 = and i32 %8, 1073741823
@@ -221,7 +221,7 @@ common.ret:                                       ; preds = %25, %87, %79, %60
   %64 = load i32, ptr %63, align 8
   %65 = lshr i32 %64, 15
   %66 = and i32 %65, 1
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %39, i32 noundef %66, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %39, i32 noundef %66, ptr noundef %4, ptr noundef nonnull %5)
   %67 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 3, i64 1, ptr %0)
   %68 = load i32, ptr %5, align 4
   %69 = add nsw i32 %68, 3
@@ -230,7 +230,7 @@ common.ret:                                       ; preds = %25, %87, %79, %60
   %71 = load i32, ptr %70, align 8
   %72 = lshr i32 %71, 16
   %73 = and i32 %72, 1
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %45, i32 noundef %73, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %45, i32 noundef %73, ptr noundef %4, ptr noundef nonnull %5)
   %fputc93 = tail call i32 @fputc(i32 41, ptr %0)
   br label %common.ret
 
@@ -246,7 +246,7 @@ common.ret:                                       ; preds = %25, %87, %79, %60
 
 79:                                               ; preds = %74
   %80 = xor i32 %78, 1
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %80, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %80, ptr noundef %4, ptr noundef nonnull %5)
   %81 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 3, i64 1, ptr %0)
   %82 = load i32, ptr %5, align 4
   %83 = add nsw i32 %82, 3
@@ -254,15 +254,15 @@ common.ret:                                       ; preds = %25, %87, %79, %60
   %84 = load i32, ptr %13, align 4
   %85 = and i32 %84, 1
   %86 = xor i32 %85, 1
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %86, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %86, ptr noundef %4, ptr noundef nonnull %5)
   %fputc100 = tail call i32 @fputc(i32 41, ptr %0)
   br label %common.ret
 
 87:                                               ; preds = %74
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %78, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %78, ptr noundef %4, ptr noundef nonnull %5)
   %88 = load i32, ptr %13, align 4
   %89 = and i32 %88, 1
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %89, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %89, ptr noundef %4, ptr noundef nonnull %5)
   %fputc96 = tail call i32 @fputc(i32 41, ptr %0)
   br label %common.ret
 }
@@ -327,7 +327,7 @@ define void @Dec_GraphPrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 44:                                               ; preds = %40
   %45 = lshr i32 %38, 15
   %46 = and i32 %45, 1
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef %46, ptr noundef %4, ptr noundef %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef %46, ptr noundef %4, ptr noundef %5)
   br label %55
 
 47:                                               ; preds = %40
@@ -338,7 +338,7 @@ define void @Dec_GraphPrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %50 = load i32, ptr %37, align 8
   %51 = lshr i32 %50, 15
   %52 = and i32 %51, 1
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef %52, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13, i32 noundef %52, ptr noundef %4, ptr noundef nonnull %5)
   %fputc77 = tail call i32 @fputc(i32 41, ptr %0)
   %53 = load i32, ptr %5, align 4
   %54 = add nsw i32 %53, 1
@@ -380,7 +380,7 @@ Dec_GraphPrintUpdatePos.exit:                     ; preds = %55, %63
   %68 = load i32, ptr %37, align 8
   %69 = lshr i32 %68, 16
   %70 = and i32 %69, 1
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %19, i32 noundef %70, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %19, i32 noundef %70, ptr noundef %4, ptr noundef nonnull %5)
   br label %94
 
 71:                                               ; preds = %Dec_GraphPrintUpdatePos.exit
@@ -391,7 +391,7 @@ Dec_GraphPrintUpdatePos.exit:                     ; preds = %55, %63
   %74 = load i32, ptr %37, align 8
   %75 = lshr i32 %74, 16
   %76 = and i32 %75, 1
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %19, i32 noundef %76, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %19, i32 noundef %76, ptr noundef %4, ptr noundef nonnull %5)
   %fputc81 = tail call i32 @fputc(i32 41, ptr %0)
   %77 = load i32, ptr %5, align 4
   %78 = add nsw i32 %77, 1
@@ -401,7 +401,7 @@ Dec_GraphPrintUpdatePos.exit:                     ; preds = %55, %63
 79:                                               ; preds = %36
   %80 = lshr i32 %38, 15
   %81 = and i32 %80, 1
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13, i32 noundef %81, ptr noundef %4, ptr noundef %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13, i32 noundef %81, ptr noundef %4, ptr noundef %5)
   %82 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 3, i64 1, ptr %0)
   %83 = load i32, ptr %5, align 4
   %84 = add nsw i32 %83, 3
@@ -429,7 +429,7 @@ Dec_GraphPrintUpdatePos.exit90:                   ; preds = %79, %90
   %91 = load i32, ptr %37, align 8
   %92 = lshr i32 %91, 16
   %93 = and i32 %92, 1
-  tail call fastcc void @Dec_GraphPrint_rec.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %19, i32 noundef %93, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, ptr noundef %19, i32 noundef %93, ptr noundef %4, ptr noundef nonnull %5)
   br label %94
 
 94:                                               ; preds = %67, %71, %Dec_GraphPrintUpdatePos.exit90, %26

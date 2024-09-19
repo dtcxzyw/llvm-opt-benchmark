@@ -317,14 +317,14 @@ define noundef ptr @hwloc__insert_object_by_cpuset(ptr noundef %0, ptr noundef %
 15:                                               ; preds = %7
   %16 = tail call i32 @hwloc_bitmap_iszero(ptr noundef readonly %9) #34
   %.not.i.i50 = icmp eq i32 %16, 0
-  br i1 %.not.i.i50, label %tailrecurse.us.i, label %hwloc__find_obj_covering_memory_cpuset.argprom.exit
+  br i1 %.not.i.i50, label %tailrecurse.us.i, label %hwloc__find_obj_covering_memory_cpuset.exit
 
-tailrecurse.us.i:                                 ; preds = %15, %hwloc_get_child_covering_cpuset.argprom.exit.us.i
-  %.tr.us.i = phi ptr [ %.03.i.us.i, %hwloc_get_child_covering_cpuset.argprom.exit.us.i ], [ %14, %15 ]
+tailrecurse.us.i:                                 ; preds = %15, %hwloc_get_child_covering_cpuset.exit.us.i
+  %.tr.us.i = phi ptr [ %.03.i.us.i, %hwloc_get_child_covering_cpuset.exit.us.i ], [ %14, %15 ]
   %17 = getelementptr inbounds i8, ptr %.tr.us.i, i64 120
   %.01.i.us.i = load ptr, ptr %17, align 8
   %.not112.i.us.i = icmp eq ptr %.01.i.us.i, null
-  br i1 %.not112.i.us.i, label %hwloc__find_obj_covering_memory_cpuset.argprom.exit.thread, label %.lr.ph.i.us.i
+  br i1 %.not112.i.us.i, label %hwloc__find_obj_covering_memory_cpuset.exit.thread, label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %tailrecurse.us.i, %23
   %.03.i.us.i = phi ptr [ %.0.i.us.i, %23 ], [ %.01.i.us.i, %tailrecurse.us.i ]
@@ -336,41 +336,41 @@ tailrecurse.us.i:                                 ; preds = %15, %hwloc_get_chil
 20:                                               ; preds = %.lr.ph.i.us.i
   %21 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef readonly %9, ptr noundef nonnull %19) #34
   %.not13.i.us.i = icmp eq i32 %21, 0
-  br i1 %.not13.i.us.i, label %23, label %hwloc_get_child_covering_cpuset.argprom.exit.us.i
+  br i1 %.not13.i.us.i, label %23, label %hwloc_get_child_covering_cpuset.exit.us.i
 
-hwloc_get_child_covering_cpuset.argprom.exit.us.i: ; preds = %20
+hwloc_get_child_covering_cpuset.exit.us.i:        ; preds = %20
   %22 = tail call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %19, ptr noundef readonly %9) #34
   %.not14.us.i = icmp eq i32 %22, 0
-  br i1 %.not14.us.i, label %tailrecurse.us.i, label %hwloc__find_obj_covering_memory_cpuset.argprom.exit.thread
+  br i1 %.not14.us.i, label %tailrecurse.us.i, label %hwloc__find_obj_covering_memory_cpuset.exit.thread
 
 23:                                               ; preds = %20, %.lr.ph.i.us.i
   %24 = getelementptr inbounds i8, ptr %.03.i.us.i, i64 88
   %.0.i.us.i = load ptr, ptr %24, align 8
   %.not11.i.us.i = icmp eq ptr %.0.i.us.i, null
-  br i1 %.not11.i.us.i, label %hwloc__find_obj_covering_memory_cpuset.argprom.exit, label %.lr.ph.i.us.i, !llvm.loop !6
+  br i1 %.not11.i.us.i, label %hwloc__find_obj_covering_memory_cpuset.exit, label %.lr.ph.i.us.i, !llvm.loop !6
 
-hwloc__find_obj_covering_memory_cpuset.argprom.exit: ; preds = %23, %15
+hwloc__find_obj_covering_memory_cpuset.exit:      ; preds = %23, %15
   %.0.i51 = phi ptr [ %14, %15 ], [ %.tr.us.i, %23 ]
   %.not41.i = icmp eq ptr %.0.i51, null
-  br i1 %.not41.i, label %25, label %hwloc__find_obj_covering_memory_cpuset.argprom.exit.thread
+  br i1 %.not41.i, label %25, label %hwloc__find_obj_covering_memory_cpuset.exit.thread
 
-25:                                               ; preds = %hwloc__find_obj_covering_memory_cpuset.argprom.exit
+25:                                               ; preds = %hwloc__find_obj_covering_memory_cpuset.exit
   %26 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #34
-  br label %hwloc__find_obj_covering_memory_cpuset.argprom.exit.thread
+  br label %hwloc__find_obj_covering_memory_cpuset.exit.thread
 
-hwloc__find_obj_covering_memory_cpuset.argprom.exit.thread: ; preds = %hwloc_get_child_covering_cpuset.argprom.exit.us.i, %tailrecurse.us.i, %25, %hwloc__find_obj_covering_memory_cpuset.argprom.exit
-  %.1.i = phi ptr [ %.0.i51, %hwloc__find_obj_covering_memory_cpuset.argprom.exit ], [ %26, %25 ], [ %.tr.us.i, %tailrecurse.us.i ], [ %.03.i.us.i, %hwloc_get_child_covering_cpuset.argprom.exit.us.i ]
+hwloc__find_obj_covering_memory_cpuset.exit.thread: ; preds = %hwloc_get_child_covering_cpuset.exit.us.i, %tailrecurse.us.i, %25, %hwloc__find_obj_covering_memory_cpuset.exit
+  %.1.i = phi ptr [ %.0.i51, %hwloc__find_obj_covering_memory_cpuset.exit ], [ %26, %25 ], [ %.tr.us.i, %tailrecurse.us.i ], [ %.03.i.us.i, %hwloc_get_child_covering_cpuset.exit.us.i ]
   %27 = load i32, ptr %.1.i, align 8
   %28 = icmp eq i32 %27, 3
   br i1 %28, label %29, label %32
 
-29:                                               ; preds = %hwloc__find_obj_covering_memory_cpuset.argprom.exit.thread
+29:                                               ; preds = %hwloc__find_obj_covering_memory_cpuset.exit.thread
   %30 = getelementptr inbounds i8, ptr %.1.i, i64 72
   %31 = load ptr, ptr %30, align 8
   br label %32
 
-32:                                               ; preds = %29, %hwloc__find_obj_covering_memory_cpuset.argprom.exit.thread
-  %.2.i = phi ptr [ %31, %29 ], [ %.1.i, %hwloc__find_obj_covering_memory_cpuset.argprom.exit.thread ]
+32:                                               ; preds = %29, %hwloc__find_obj_covering_memory_cpuset.exit.thread
+  %.2.i = phi ptr [ %31, %29 ], [ %.1.i, %hwloc__find_obj_covering_memory_cpuset.exit.thread ]
   %.not42.i = icmp eq ptr %.2.i, %14
   br i1 %.not42.i, label %37, label %33
 
@@ -4180,7 +4180,7 @@ hwloc_obj_add_children_sets.exit:                 ; preds = %.lr.ph.i, %116
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %137, align 8
-  tail call fastcc void @hwloc_propagate_symmetric_subtree.argprom(ptr noundef %138)
+  tail call fastcc void @hwloc_propagate_symmetric_subtree(ptr noundef %138)
   tail call fastcc void @hwloc_set_group_depth(ptr noundef %0)
   %139 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #33
   br label %140
@@ -4322,7 +4322,7 @@ hwloc_connect_special_levels.exit.thread:         ; preds = %29, %8, %5, %hwloc_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_propagate_symmetric_subtree.argprom(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @hwloc_propagate_symmetric_subtree(ptr nocapture noundef %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -4339,7 +4339,7 @@ define internal fastcc void @hwloc_propagate_symmetric_subtree.argprom(ptr nocap
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.0374 = phi ptr [ %.037, %.lr.ph ], [ %.0371, %5 ]
   %.0353 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %5 ]
-  tail call fastcc void @hwloc_propagate_symmetric_subtree.argprom(ptr noundef nonnull %.0374)
+  tail call fastcc void @hwloc_propagate_symmetric_subtree(ptr noundef nonnull %.0374)
   %7 = getelementptr inbounds i8, ptr %.0374, i64 136
   %8 = load i32, ptr %7, align 8
   %.not46 = icmp eq i32 %8, 0
@@ -6593,7 +6593,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_load(ptr noundef %0) local_unnamed_a
 7:                                                ; preds = %1
   %8 = tail call ptr @__errno_location() #36
   store i32 16, ptr %8, align 4
-  br label %hwloc_discover_by_phase.argprom.exit
+  br label %hwloc_discover_by_phase.exit
 
 9:                                                ; preds = %1
   %10 = and i64 %5, -13
@@ -6756,14 +6756,14 @@ define range(i32 -1, 1) i32 @hwloc_topology_load(ptr noundef %0) local_unnamed_a
   %71 = phi i32 [ %.pre.i, %64 ], [ %62, %55 ]
   %72 = and i32 %71, 2
   %.not130.i = icmp eq i32 %72, 0
-  br i1 %.not130.i, label %hwloc_discover_by_phase.argprom.exit.i, label %73
+  br i1 %.not130.i, label %hwloc_discover_by_phase.exit.i, label %73
 
 73:                                               ; preds = %70
   store i32 2, ptr %2, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 816
   %.01.i.i = load ptr, ptr %74, align 8
   %.not2.i.i = icmp eq ptr %.01.i.i, null
-  br i1 %.not2.i.i, label %hwloc_discover_by_phase.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %hwloc_discover_by_phase.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %73, %87
   %.03.i.i = phi ptr [ %.0.i.i, %87 ], [ %.01.i.i, %73 ]
@@ -6771,7 +6771,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_load(ptr noundef %0) local_unnamed_a
   %76 = load i32, ptr %49, align 4
   %77 = and i32 %76, %75
   %.not14.i.i = icmp eq i32 %77, 0
-  br i1 %.not14.i.i, label %78, label %hwloc_discover_by_phase.argprom.exit.i.loopexit
+  br i1 %.not14.i.i, label %78, label %hwloc_discover_by_phase.exit.i.loopexit
 
 78:                                               ; preds = %.lr.ph.i.i
   %79 = getelementptr inbounds i8, ptr %.03.i.i, i64 32
@@ -6794,14 +6794,14 @@ define range(i32 -1, 1) i32 @hwloc_topology_load(ptr noundef %0) local_unnamed_a
   %88 = getelementptr inbounds i8, ptr %.03.i.i, i64 24
   %.0.i.i = load ptr, ptr %88, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %hwloc_discover_by_phase.argprom.exit.i.loopexit, label %.lr.ph.i.i, !llvm.loop !74
+  br i1 %.not.i.i, label %hwloc_discover_by_phase.exit.i.loopexit, label %.lr.ph.i.i, !llvm.loop !74
 
-hwloc_discover_by_phase.argprom.exit.i.loopexit:  ; preds = %.lr.ph.i.i, %87
+hwloc_discover_by_phase.exit.i.loopexit:          ; preds = %.lr.ph.i.i, %87
   %.pre127 = load i32, ptr %61, align 8
-  br label %hwloc_discover_by_phase.argprom.exit.i
+  br label %hwloc_discover_by_phase.exit.i
 
-hwloc_discover_by_phase.argprom.exit.i:           ; preds = %hwloc_discover_by_phase.argprom.exit.i.loopexit, %73, %70
-  %89 = phi i32 [ %.pre127, %hwloc_discover_by_phase.argprom.exit.i.loopexit ], [ %71, %73 ], [ %71, %70 ]
+hwloc_discover_by_phase.exit.i:                   ; preds = %hwloc_discover_by_phase.exit.i.loopexit, %73, %70
+  %89 = phi i32 [ %.pre127, %hwloc_discover_by_phase.exit.i.loopexit ], [ %71, %73 ], [ %71, %70 ]
   %90 = getelementptr inbounds i8, ptr %0, i64 24
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %91, align 8
@@ -6811,12 +6811,12 @@ hwloc_discover_by_phase.argprom.exit.i:           ; preds = %hwloc_discover_by_p
   %.not132.i = icmp eq ptr %95, null
   br i1 %.not132.i, label %98, label %96
 
-96:                                               ; preds = %hwloc_discover_by_phase.argprom.exit.i
+96:                                               ; preds = %hwloc_discover_by_phase.exit.i
   %97 = call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %95) #34
   %.not133.i = icmp eq i32 %97, 0
   br i1 %.not133.i, label %100, label %98
 
-98:                                               ; preds = %96, %hwloc_discover_by_phase.argprom.exit.i
+98:                                               ; preds = %96, %hwloc_discover_by_phase.exit.i
   %99 = tail call ptr @__errno_location() #36
   store i32 22, ptr %99, align 4
   br label %501
@@ -6824,14 +6824,14 @@ hwloc_discover_by_phase.argprom.exit.i:           ; preds = %hwloc_discover_by_p
 100:                                              ; preds = %96
   %101 = and i32 %89, 4
   %.not134.i = icmp eq i32 %101, 0
-  br i1 %.not134.i, label %hwloc_discover_by_phase.argprom.exit170.i, label %102
+  br i1 %.not134.i, label %hwloc_discover_by_phase.exit170.i, label %102
 
 102:                                              ; preds = %100
   store i32 4, ptr %2, align 8
   %103 = getelementptr inbounds i8, ptr %0, i64 816
   %.01.i161.i = load ptr, ptr %103, align 8
   %.not2.i162.i = icmp eq ptr %.01.i161.i, null
-  br i1 %.not2.i162.i, label %hwloc_discover_by_phase.argprom.exit170.i, label %.lr.ph.i163.i
+  br i1 %.not2.i162.i, label %hwloc_discover_by_phase.exit170.i, label %.lr.ph.i163.i
 
 .lr.ph.i163.i:                                    ; preds = %102, %116
   %.03.i164.i = phi ptr [ %.0.i168.i, %116 ], [ %.01.i161.i, %102 ]
@@ -6839,7 +6839,7 @@ hwloc_discover_by_phase.argprom.exit.i:           ; preds = %hwloc_discover_by_p
   %105 = load i32, ptr %49, align 4
   %106 = and i32 %105, %104
   %.not14.i165.i = icmp eq i32 %106, 0
-  br i1 %.not14.i165.i, label %107, label %hwloc_discover_by_phase.argprom.exit170.i
+  br i1 %.not14.i165.i, label %107, label %hwloc_discover_by_phase.exit170.i
 
 107:                                              ; preds = %.lr.ph.i163.i
   %108 = getelementptr inbounds i8, ptr %.03.i164.i, i64 32
@@ -6862,15 +6862,15 @@ hwloc_discover_by_phase.argprom.exit.i:           ; preds = %hwloc_discover_by_p
   %117 = getelementptr inbounds i8, ptr %.03.i164.i, i64 24
   %.0.i168.i = load ptr, ptr %117, align 8
   %.not.i169.i = icmp eq ptr %.0.i168.i, null
-  br i1 %.not.i169.i, label %hwloc_discover_by_phase.argprom.exit170.i, label %.lr.ph.i163.i, !llvm.loop !74
+  br i1 %.not.i169.i, label %hwloc_discover_by_phase.exit170.i, label %.lr.ph.i163.i, !llvm.loop !74
 
-hwloc_discover_by_phase.argprom.exit170.i:        ; preds = %116, %.lr.ph.i163.i, %102, %100
+hwloc_discover_by_phase.exit170.i:                ; preds = %116, %.lr.ph.i163.i, %102, %100
   %118 = getelementptr inbounds i8, ptr %0, i64 648
   %119 = load ptr, ptr %118, align 8
   %.not135.i = icmp eq ptr %119, null
   br i1 %.not135.i, label %137, label %120
 
-120:                                              ; preds = %hwloc_discover_by_phase.argprom.exit170.i
+120:                                              ; preds = %hwloc_discover_by_phase.exit170.i
   %121 = load i64, ptr %4, align 8
   %122 = and i64 %121, 1
   %.not136.i = icmp eq i64 %122, 0
@@ -6905,7 +6905,7 @@ hwloc_discover_by_phase.argprom.exit170.i:        ; preds = %116, %.lr.ph.i163.i
   store i64 %136, ptr %50, align 8
   br label %137
 
-137:                                              ; preds = %133, %131, %129, %123, %120, %hwloc_discover_by_phase.argprom.exit170.i
+137:                                              ; preds = %133, %131, %129, %123, %120, %hwloc_discover_by_phase.exit170.i
   %138 = load ptr, ptr %90, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %139, align 8
@@ -7184,14 +7184,14 @@ hwloc_filter_check_keep_object.exit.thread224.i:  ; preds = %282, %261, %hwloc_f
   %286 = load i32, ptr %61, align 8
   %287 = and i32 %286, 8
   %.not149.i = icmp eq i32 %287, 0
-  br i1 %.not149.i, label %hwloc_discover_by_phase.argprom.exit183.i, label %288
+  br i1 %.not149.i, label %hwloc_discover_by_phase.exit183.i, label %288
 
 288:                                              ; preds = %285
   store i32 8, ptr %2, align 8
   %289 = getelementptr inbounds i8, ptr %0, i64 816
   %.01.i174.i = load ptr, ptr %289, align 8
   %.not2.i175.i = icmp eq ptr %.01.i174.i, null
-  br i1 %.not2.i175.i, label %hwloc_discover_by_phase.argprom.exit183.i, label %.lr.ph.i176.i
+  br i1 %.not2.i175.i, label %hwloc_discover_by_phase.exit183.i, label %.lr.ph.i176.i
 
 .lr.ph.i176.i:                                    ; preds = %288, %302
   %.03.i177.i = phi ptr [ %.0.i181.i, %302 ], [ %.01.i174.i, %288 ]
@@ -7199,7 +7199,7 @@ hwloc_filter_check_keep_object.exit.thread224.i:  ; preds = %282, %261, %hwloc_f
   %291 = load i32, ptr %49, align 4
   %292 = and i32 %291, %290
   %.not14.i178.i = icmp eq i32 %292, 0
-  br i1 %.not14.i178.i, label %293, label %hwloc_discover_by_phase.argprom.exit183.i.loopexit
+  br i1 %.not14.i178.i, label %293, label %hwloc_discover_by_phase.exit183.i.loopexit
 
 293:                                              ; preds = %.lr.ph.i176.i
   %294 = getelementptr inbounds i8, ptr %.03.i177.i, i64 32
@@ -7222,24 +7222,24 @@ hwloc_filter_check_keep_object.exit.thread224.i:  ; preds = %282, %261, %hwloc_f
   %303 = getelementptr inbounds i8, ptr %.03.i177.i, i64 24
   %.0.i181.i = load ptr, ptr %303, align 8
   %.not.i182.i = icmp eq ptr %.0.i181.i, null
-  br i1 %.not.i182.i, label %hwloc_discover_by_phase.argprom.exit183.i.loopexit, label %.lr.ph.i176.i, !llvm.loop !74
+  br i1 %.not.i182.i, label %hwloc_discover_by_phase.exit183.i.loopexit, label %.lr.ph.i176.i, !llvm.loop !74
 
-hwloc_discover_by_phase.argprom.exit183.i.loopexit: ; preds = %.lr.ph.i176.i, %302
+hwloc_discover_by_phase.exit183.i.loopexit:       ; preds = %.lr.ph.i176.i, %302
   %.pre128 = load i32, ptr %61, align 8
-  br label %hwloc_discover_by_phase.argprom.exit183.i
+  br label %hwloc_discover_by_phase.exit183.i
 
-hwloc_discover_by_phase.argprom.exit183.i:        ; preds = %hwloc_discover_by_phase.argprom.exit183.i.loopexit, %288, %285
-  %304 = phi i32 [ %.pre128, %hwloc_discover_by_phase.argprom.exit183.i.loopexit ], [ %286, %288 ], [ %286, %285 ]
+hwloc_discover_by_phase.exit183.i:                ; preds = %hwloc_discover_by_phase.exit183.i.loopexit, %288, %285
+  %304 = phi i32 [ %.pre128, %hwloc_discover_by_phase.exit183.i.loopexit ], [ %286, %288 ], [ %286, %285 ]
   %305 = and i32 %304, 16
   %.not150.i = icmp eq i32 %305, 0
-  br i1 %.not150.i, label %hwloc_discover_by_phase.argprom.exit193.i, label %306
+  br i1 %.not150.i, label %hwloc_discover_by_phase.exit193.i, label %306
 
-306:                                              ; preds = %hwloc_discover_by_phase.argprom.exit183.i
+306:                                              ; preds = %hwloc_discover_by_phase.exit183.i
   store i32 16, ptr %2, align 8
   %307 = getelementptr inbounds i8, ptr %0, i64 816
   %.01.i184.i = load ptr, ptr %307, align 8
   %.not2.i185.i = icmp eq ptr %.01.i184.i, null
-  br i1 %.not2.i185.i, label %hwloc_discover_by_phase.argprom.exit193.i, label %.lr.ph.i186.i
+  br i1 %.not2.i185.i, label %hwloc_discover_by_phase.exit193.i, label %.lr.ph.i186.i
 
 .lr.ph.i186.i:                                    ; preds = %306, %320
   %.03.i187.i = phi ptr [ %.0.i191.i, %320 ], [ %.01.i184.i, %306 ]
@@ -7247,7 +7247,7 @@ hwloc_discover_by_phase.argprom.exit183.i:        ; preds = %hwloc_discover_by_p
   %309 = load i32, ptr %49, align 4
   %310 = and i32 %309, %308
   %.not14.i188.i = icmp eq i32 %310, 0
-  br i1 %.not14.i188.i, label %311, label %hwloc_discover_by_phase.argprom.exit193.i.loopexit
+  br i1 %.not14.i188.i, label %311, label %hwloc_discover_by_phase.exit193.i.loopexit
 
 311:                                              ; preds = %.lr.ph.i186.i
   %312 = getelementptr inbounds i8, ptr %.03.i187.i, i64 32
@@ -7270,24 +7270,24 @@ hwloc_discover_by_phase.argprom.exit183.i:        ; preds = %hwloc_discover_by_p
   %321 = getelementptr inbounds i8, ptr %.03.i187.i, i64 24
   %.0.i191.i = load ptr, ptr %321, align 8
   %.not.i192.i = icmp eq ptr %.0.i191.i, null
-  br i1 %.not.i192.i, label %hwloc_discover_by_phase.argprom.exit193.i.loopexit, label %.lr.ph.i186.i, !llvm.loop !74
+  br i1 %.not.i192.i, label %hwloc_discover_by_phase.exit193.i.loopexit, label %.lr.ph.i186.i, !llvm.loop !74
 
-hwloc_discover_by_phase.argprom.exit193.i.loopexit: ; preds = %.lr.ph.i186.i, %320
+hwloc_discover_by_phase.exit193.i.loopexit:       ; preds = %.lr.ph.i186.i, %320
   %.pre129 = load i32, ptr %61, align 8
-  br label %hwloc_discover_by_phase.argprom.exit193.i
+  br label %hwloc_discover_by_phase.exit193.i
 
-hwloc_discover_by_phase.argprom.exit193.i:        ; preds = %hwloc_discover_by_phase.argprom.exit193.i.loopexit, %306, %hwloc_discover_by_phase.argprom.exit183.i
-  %322 = phi i32 [ %.pre129, %hwloc_discover_by_phase.argprom.exit193.i.loopexit ], [ %304, %306 ], [ %304, %hwloc_discover_by_phase.argprom.exit183.i ]
+hwloc_discover_by_phase.exit193.i:                ; preds = %hwloc_discover_by_phase.exit193.i.loopexit, %306, %hwloc_discover_by_phase.exit183.i
+  %322 = phi i32 [ %.pre129, %hwloc_discover_by_phase.exit193.i.loopexit ], [ %304, %306 ], [ %304, %hwloc_discover_by_phase.exit183.i ]
   %323 = and i32 %322, 32
   %.not151.i = icmp eq i32 %323, 0
-  br i1 %.not151.i, label %hwloc_discover_by_phase.argprom.exit203.i, label %324
+  br i1 %.not151.i, label %hwloc_discover_by_phase.exit203.i, label %324
 
-324:                                              ; preds = %hwloc_discover_by_phase.argprom.exit193.i
+324:                                              ; preds = %hwloc_discover_by_phase.exit193.i
   store i32 32, ptr %2, align 8
   %325 = getelementptr inbounds i8, ptr %0, i64 816
   %.01.i194.i = load ptr, ptr %325, align 8
   %.not2.i195.i = icmp eq ptr %.01.i194.i, null
-  br i1 %.not2.i195.i, label %hwloc_discover_by_phase.argprom.exit203.i, label %.lr.ph.i196.i
+  br i1 %.not2.i195.i, label %hwloc_discover_by_phase.exit203.i, label %.lr.ph.i196.i
 
 .lr.ph.i196.i:                                    ; preds = %324, %338
   %.03.i197.i = phi ptr [ %.0.i201.i, %338 ], [ %.01.i194.i, %324 ]
@@ -7295,7 +7295,7 @@ hwloc_discover_by_phase.argprom.exit193.i:        ; preds = %hwloc_discover_by_p
   %327 = load i32, ptr %49, align 4
   %328 = and i32 %327, %326
   %.not14.i198.i = icmp eq i32 %328, 0
-  br i1 %.not14.i198.i, label %329, label %hwloc_discover_by_phase.argprom.exit203.i.loopexit
+  br i1 %.not14.i198.i, label %329, label %hwloc_discover_by_phase.exit203.i.loopexit
 
 329:                                              ; preds = %.lr.ph.i196.i
   %330 = getelementptr inbounds i8, ptr %.03.i197.i, i64 32
@@ -7318,24 +7318,24 @@ hwloc_discover_by_phase.argprom.exit193.i:        ; preds = %hwloc_discover_by_p
   %339 = getelementptr inbounds i8, ptr %.03.i197.i, i64 24
   %.0.i201.i = load ptr, ptr %339, align 8
   %.not.i202.i = icmp eq ptr %.0.i201.i, null
-  br i1 %.not.i202.i, label %hwloc_discover_by_phase.argprom.exit203.i.loopexit, label %.lr.ph.i196.i, !llvm.loop !74
+  br i1 %.not.i202.i, label %hwloc_discover_by_phase.exit203.i.loopexit, label %.lr.ph.i196.i, !llvm.loop !74
 
-hwloc_discover_by_phase.argprom.exit203.i.loopexit: ; preds = %.lr.ph.i196.i, %338
+hwloc_discover_by_phase.exit203.i.loopexit:       ; preds = %.lr.ph.i196.i, %338
   %.pre130 = load i32, ptr %61, align 8
-  br label %hwloc_discover_by_phase.argprom.exit203.i
+  br label %hwloc_discover_by_phase.exit203.i
 
-hwloc_discover_by_phase.argprom.exit203.i:        ; preds = %hwloc_discover_by_phase.argprom.exit203.i.loopexit, %324, %hwloc_discover_by_phase.argprom.exit193.i
-  %340 = phi i32 [ %.pre130, %hwloc_discover_by_phase.argprom.exit203.i.loopexit ], [ %322, %324 ], [ %322, %hwloc_discover_by_phase.argprom.exit193.i ]
+hwloc_discover_by_phase.exit203.i:                ; preds = %hwloc_discover_by_phase.exit203.i.loopexit, %324, %hwloc_discover_by_phase.exit193.i
+  %340 = phi i32 [ %.pre130, %hwloc_discover_by_phase.exit203.i.loopexit ], [ %322, %324 ], [ %322, %hwloc_discover_by_phase.exit193.i ]
   %341 = and i32 %340, 64
   %.not152.i = icmp eq i32 %341, 0
-  br i1 %.not152.i, label %hwloc_discover_by_phase.argprom.exit213.i, label %342
+  br i1 %.not152.i, label %hwloc_discover_by_phase.exit213.i, label %342
 
-342:                                              ; preds = %hwloc_discover_by_phase.argprom.exit203.i
+342:                                              ; preds = %hwloc_discover_by_phase.exit203.i
   store i32 64, ptr %2, align 8
   %343 = getelementptr inbounds i8, ptr %0, i64 816
   %.01.i204.i = load ptr, ptr %343, align 8
   %.not2.i205.i = icmp eq ptr %.01.i204.i, null
-  br i1 %.not2.i205.i, label %hwloc_discover_by_phase.argprom.exit213.i, label %.lr.ph.i206.i
+  br i1 %.not2.i205.i, label %hwloc_discover_by_phase.exit213.i, label %.lr.ph.i206.i
 
 .lr.ph.i206.i:                                    ; preds = %342, %356
   %.03.i207.i = phi ptr [ %.0.i211.i, %356 ], [ %.01.i204.i, %342 ]
@@ -7343,7 +7343,7 @@ hwloc_discover_by_phase.argprom.exit203.i:        ; preds = %hwloc_discover_by_p
   %345 = load i32, ptr %49, align 4
   %346 = and i32 %345, %344
   %.not14.i208.i = icmp eq i32 %346, 0
-  br i1 %.not14.i208.i, label %347, label %hwloc_discover_by_phase.argprom.exit213.i
+  br i1 %.not14.i208.i, label %347, label %hwloc_discover_by_phase.exit213.i
 
 347:                                              ; preds = %.lr.ph.i206.i
   %348 = getelementptr inbounds i8, ptr %.03.i207.i, i64 32
@@ -7366,22 +7366,22 @@ hwloc_discover_by_phase.argprom.exit203.i:        ; preds = %hwloc_discover_by_p
   %357 = getelementptr inbounds i8, ptr %.03.i207.i, i64 24
   %.0.i211.i = load ptr, ptr %357, align 8
   %.not.i212.i = icmp eq ptr %.0.i211.i, null
-  br i1 %.not.i212.i, label %hwloc_discover_by_phase.argprom.exit213.i, label %.lr.ph.i206.i, !llvm.loop !74
+  br i1 %.not.i212.i, label %hwloc_discover_by_phase.exit213.i, label %.lr.ph.i206.i, !llvm.loop !74
 
-hwloc_discover_by_phase.argprom.exit213.i:        ; preds = %356, %.lr.ph.i206.i, %342, %hwloc_discover_by_phase.argprom.exit203.i
+hwloc_discover_by_phase.exit213.i:                ; preds = %356, %.lr.ph.i206.i, %342, %hwloc_discover_by_phase.exit203.i
   call void @hwloc_pci_discovery_exit(ptr noundef %0) #33
   %358 = call ptr @getenv(ptr noundef nonnull @.str.63) #33
   %.not153.i = icmp eq ptr %358, null
   br i1 %.not153.i, label %363, label %359
 
-359:                                              ; preds = %hwloc_discover_by_phase.argprom.exit213.i
+359:                                              ; preds = %hwloc_discover_by_phase.exit213.i
   %360 = load ptr, ptr %90, align 8
   %361 = load ptr, ptr %360, align 8
   %362 = load ptr, ptr %361, align 8
   call fastcc void @hwloc_debug_sort_children(ptr noundef %362)
   br label %363
 
-363:                                              ; preds = %359, %hwloc_discover_by_phase.argprom.exit213.i
+363:                                              ; preds = %359, %hwloc_discover_by_phase.exit213.i
   %364 = load ptr, ptr %90, align 8
   %365 = load ptr, ptr %364, align 8
   %366 = load ptr, ptr %365, align 8
@@ -7506,7 +7506,7 @@ hwloc_hide_errors.exit220.i:                      ; preds = %407, %402
   %420 = load ptr, ptr %90, align 8
   %421 = load ptr, ptr %420, align 8
   %422 = load ptr, ptr %421, align 8
-  call fastcc void @hwloc_propagate_symmetric_subtree.argprom(ptr noundef %422)
+  call fastcc void @hwloc_propagate_symmetric_subtree(ptr noundef %422)
   call fastcc void @hwloc_set_group_depth(ptr noundef nonnull %0)
   %423 = getelementptr inbounds i8, ptr %0, i64 816
   %424 = load ptr, ptr %423, align 8
@@ -7643,13 +7643,13 @@ hwloc_discover.exit:                              ; preds = %435, %431, %429, %4
   %484 = load i32, ptr %61, align 8
   %485 = and i32 %484, 128
   %.not105 = icmp eq i32 %485, 0
-  br i1 %.not105, label %hwloc_discover_by_phase.argprom.exit, label %486
+  br i1 %.not105, label %hwloc_discover_by_phase.exit, label %486
 
 486:                                              ; preds = %483
   store i32 128, ptr %2, align 8
   %.01.i = load ptr, ptr %423, align 8
   %.not2.i = icmp eq ptr %.01.i, null
-  br i1 %.not2.i, label %hwloc_discover_by_phase.argprom.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %hwloc_discover_by_phase.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %486, %499
   %.03.i = phi ptr [ %.0.i106, %499 ], [ %.01.i, %486 ]
@@ -7657,7 +7657,7 @@ hwloc_discover.exit:                              ; preds = %435, %431, %429, %4
   %488 = load i32, ptr %49, align 4
   %489 = and i32 %488, %487
   %.not14.i = icmp eq i32 %489, 0
-  br i1 %.not14.i, label %490, label %hwloc_discover_by_phase.argprom.exit
+  br i1 %.not14.i, label %490, label %hwloc_discover_by_phase.exit
 
 490:                                              ; preds = %.lr.ph.i
   %491 = getelementptr inbounds i8, ptr %.03.i, i64 32
@@ -7680,16 +7680,16 @@ hwloc_discover.exit:                              ; preds = %435, %431, %429, %4
   %500 = getelementptr inbounds i8, ptr %.03.i, i64 24
   %.0.i106 = load ptr, ptr %500, align 8
   %.not.i107 = icmp eq ptr %.0.i106, null
-  br i1 %.not.i107, label %hwloc_discover_by_phase.argprom.exit, label %.lr.ph.i, !llvm.loop !74
+  br i1 %.not.i107, label %hwloc_discover_by_phase.exit, label %.lr.ph.i, !llvm.loop !74
 
 501:                                              ; preds = %98, %hwloc_filter_check_keep_object.exit.thread224.i, %380, %hwloc_hide_errors.exit.i, %395, %hwloc_hide_errors.exit217.i, %410, %hwloc_hide_errors.exit220.i, %413
   call void @hwloc_pci_discovery_exit(ptr noundef nonnull %0) #33
   call void @hwloc_topology_clear(ptr noundef nonnull %0)
   call void @hwloc_topology_setup_defaults(ptr noundef nonnull %0)
   call void @hwloc_backends_disable_all(ptr noundef nonnull %0) #33
-  br label %hwloc_discover_by_phase.argprom.exit
+  br label %hwloc_discover_by_phase.exit
 
-hwloc_discover_by_phase.argprom.exit:             ; preds = %499, %.lr.ph.i, %486, %483, %501, %7
+hwloc_discover_by_phase.exit:                     ; preds = %499, %.lr.ph.i, %486, %483, %501, %7
   %.0 = phi i32 [ -1, %501 ], [ -1, %7 ], [ 0, %483 ], [ 0, %486 ], [ 0, %.lr.ph.i ], [ 0, %499 ]
   ret i32 %.0
 }
@@ -7818,7 +7818,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
   br i1 %.not116, label %.critedge128, label %44
 
 44:                                               ; preds = %42
-  %45 = tail call fastcc ptr @hwloc_get_obj_by_type.argelim(ptr noundef nonnull %0, i32 noundef 3) #34
+  %45 = tail call fastcc ptr @hwloc_get_obj_by_type(ptr noundef nonnull %0, i32 noundef 3) #34
   br label %46
 
 46:                                               ; preds = %58, %44
@@ -7890,7 +7890,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
   br i1 %.not109, label %.critedge130, label %79
 
 79:                                               ; preds = %76
-  %80 = tail call fastcc ptr @hwloc_get_obj_by_type.argelim(ptr noundef nonnull %0, i32 noundef 13) #34
+  %80 = tail call fastcc ptr @hwloc_get_obj_by_type(ptr noundef nonnull %0, i32 noundef 13) #34
   br label %81
 
 81:                                               ; preds = %91, %79
@@ -8010,7 +8010,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %131, align 8
-  tail call fastcc void @hwloc_propagate_symmetric_subtree.argprom(ptr noundef %132)
+  tail call fastcc void @hwloc_propagate_symmetric_subtree(ptr noundef %132)
   %133 = load ptr, ptr %129, align 8
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %134, align 8
@@ -8038,7 +8038,7 @@ declare i32 @hwloc_bitmap_intersects(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @hwloc_bitmap_not(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc ptr @hwloc_get_obj_by_type.argelim(ptr noundef %0, i32 noundef range(i32 3, 14) %1) unnamed_addr #14 {
+define internal fastcc ptr @hwloc_get_obj_by_type(ptr noundef %0, i32 noundef range(i32 3, 14) %1) unnamed_addr #14 {
   %3 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef %1) #33
   %switch = icmp ugt i32 %3, -3
   br i1 %switch, label %6, label %4
@@ -8422,11 +8422,11 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_filter_levels_keep_structure(
   %20 = zext i32 %.0216385 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph391, %hwloc_compare_levels_structure.argprom.exit.thread
-  %22 = phi i32 [ %16, %.lr.ph391 ], [ %484, %hwloc_compare_levels_structure.argprom.exit.thread ]
-  %indvars.iv429 = phi i64 [ %20, %.lr.ph391 ], [ %indvars.iv.next430, %hwloc_compare_levels_structure.argprom.exit.thread ]
-  %.0216.in388 = phi i32 [ %16, %.lr.ph391 ], [ %486, %hwloc_compare_levels_structure.argprom.exit.thread ]
-  %.0220387 = phi i32 [ 0, %.lr.ph391 ], [ %.1221, %hwloc_compare_levels_structure.argprom.exit.thread ]
+21:                                               ; preds = %.lr.ph391, %hwloc_compare_levels_structure.exit.thread
+  %22 = phi i32 [ %16, %.lr.ph391 ], [ %484, %hwloc_compare_levels_structure.exit.thread ]
+  %indvars.iv429 = phi i64 [ %20, %.lr.ph391 ], [ %indvars.iv.next430, %hwloc_compare_levels_structure.exit.thread ]
+  %.0216.in388 = phi i32 [ %16, %.lr.ph391 ], [ %486, %hwloc_compare_levels_structure.exit.thread ]
+  %.0220387 = phi i32 [ 0, %.lr.ph391 ], [ %.1221, %hwloc_compare_levels_structure.exit.thread ]
   %23 = load ptr, ptr %17, align 8
   %24 = add i32 %.0216.in388, -2
   %25 = zext i32 %24 to i64
@@ -8526,7 +8526,7 @@ hwloc_dont_merge_group_level.exit265:             ; preds = %63, %59
   %71 = phi i1 [ false, %51 ], [ %.not240, %hwloc_dont_merge_group_level.exit265 ]
   %.0222 = phi i32 [ 0, %51 ], [ %spec.select254, %hwloc_dont_merge_group_level.exit265 ]
   %or.cond = or i1 %52, %71
-  br i1 %or.cond, label %.thread, label %hwloc_compare_levels_structure.argprom.exit.thread
+  br i1 %or.cond, label %.thread, label %hwloc_compare_levels_structure.exit.thread
 
 .thread:                                          ; preds = %57, %70
   %.0222352 = phi i32 [ %.0222, %70 ], [ 1, %57 ]
@@ -8555,7 +8555,7 @@ hwloc_dont_merge_group_level.exit265:             ; preds = %63, %59
   %82 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv429
   %83 = load i32, ptr %82, align 4
   %.not.i266 = icmp eq i32 %81, %83
-  br i1 %.not.i266, label %.preheader.i, label %hwloc_compare_levels_structure.argprom.exit.thread
+  br i1 %.not.i266, label %.preheader.i, label %hwloc_compare_levels_structure.exit.thread
 
 .preheader.i:                                     ; preds = %78
   %.not11.i267 = icmp eq i32 %81, 0
@@ -8574,19 +8574,19 @@ hwloc_dont_merge_group_level.exit265:             ; preds = %63, %59
   %88 = getelementptr inbounds i8, ptr %87, i64 72
   %89 = load ptr, ptr %88, align 8
   %.not25.us.i = icmp eq ptr %85, %89
-  br i1 %.not25.us.i, label %90, label %hwloc_compare_levels_structure.argprom.exit.thread
+  br i1 %.not25.us.i, label %90, label %hwloc_compare_levels_structure.exit.thread
 
 90:                                               ; preds = %.lr.ph.split.us.i
   %91 = getelementptr inbounds i8, ptr %85, i64 104
   %92 = load i32, ptr %91, align 8
   %.not26.us.i = icmp eq i32 %92, 1
-  br i1 %.not26.us.i, label %93, label %hwloc_compare_levels_structure.argprom.exit.thread
+  br i1 %.not26.us.i, label %93, label %hwloc_compare_levels_structure.exit.thread
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds i8, ptr %85, i64 140
   %95 = load i32, ptr %94, align 4
   %.not27.us.i = icmp eq i32 %95, 0
-  br i1 %.not27.us.i, label %96, label %hwloc_compare_levels_structure.argprom.exit.thread
+  br i1 %.not27.us.i, label %96, label %hwloc_compare_levels_structure.exit.thread
 
 96:                                               ; preds = %93
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
@@ -8602,13 +8602,13 @@ hwloc_dont_merge_group_level.exit265:             ; preds = %63, %59
   %101 = getelementptr inbounds i8, ptr %100, i64 72
   %102 = load ptr, ptr %101, align 8
   %.not25.i = icmp eq ptr %98, %102
-  br i1 %.not25.i, label %103, label %hwloc_compare_levels_structure.argprom.exit.thread
+  br i1 %.not25.i, label %103, label %hwloc_compare_levels_structure.exit.thread
 
 103:                                              ; preds = %.lr.ph.split.i
   %104 = getelementptr inbounds i8, ptr %98, i64 104
   %105 = load i32, ptr %104, align 8
   %.not26.i = icmp eq i32 %105, 1
-  br i1 %.not26.i, label %106, label %hwloc_compare_levels_structure.argprom.exit.thread
+  br i1 %.not26.i, label %106, label %hwloc_compare_levels_structure.exit.thread
 
 106:                                              ; preds = %103
   %indvars.iv.next.i270 = add nuw nsw i64 %indvars.iv.i269, 1
@@ -9376,9 +9376,9 @@ hwloc__free_object_contents.exit349:              ; preds = %.lr.ph.i.i346, %359
   %482 = add i32 %481, -1
   store i32 %482, ptr %15, align 4
   %483 = add nsw i32 %.0220387, 1
-  br label %hwloc_compare_levels_structure.argprom.exit.thread
+  br label %hwloc_compare_levels_structure.exit.thread
 
-hwloc_compare_levels_structure.argprom.exit.thread: ; preds = %103, %.lr.ph.split.i, %93, %90, %.lr.ph.split.us.i, %78, %70, %470
+hwloc_compare_levels_structure.exit.thread:       ; preds = %103, %.lr.ph.split.i, %93, %90, %.lr.ph.split.us.i, %78, %70, %470
   %484 = phi i32 [ %482, %470 ], [ %22, %70 ], [ %22, %78 ], [ %22, %.lr.ph.split.us.i ], [ %22, %90 ], [ %22, %93 ], [ %22, %.lr.ph.split.i ], [ %22, %103 ]
   %.1221 = phi i32 [ %483, %470 ], [ %.0220387, %70 ], [ %.0220387, %78 ], [ %.0220387, %.lr.ph.split.us.i ], [ %.0220387, %90 ], [ %.0220387, %93 ], [ %.0220387, %.lr.ph.split.i ], [ %.0220387, %103 ]
   %indvars.iv.next430 = add nsw i64 %indvars.iv429, -1
@@ -9387,7 +9387,7 @@ hwloc_compare_levels_structure.argprom.exit.thread: ; preds = %103, %.lr.ph.spli
   %486 = trunc nuw i64 %indvars.iv429 to i32
   br i1 %.not237, label %._crit_edge392, label %21, !llvm.loop !90
 
-._crit_edge392:                                   ; preds = %hwloc_compare_levels_structure.argprom.exit.thread
+._crit_edge392:                                   ; preds = %hwloc_compare_levels_structure.exit.thread
   %487 = icmp sgt i32 %.1221, 0
   br i1 %487, label %488, label %.critedge
 
@@ -9920,8 +9920,8 @@ hwloc_hide_errors.exit:                           ; preds = %8, %13
   br i1 %15, label %16, label %47
 
 16:                                               ; preds = %hwloc_hide_errors.exit
-  call fastcc void @report_insert_error_format_obj.argelim(ptr noundef %5, ptr noundef %0)
-  call fastcc void @report_insert_error_format_obj.argelim(ptr noundef %6, ptr noundef nonnull %1)
+  call fastcc void @report_insert_error_format_obj(ptr noundef %5, ptr noundef %0)
+  call fastcc void @report_insert_error_format_obj(ptr noundef %6, ptr noundef nonnull %1)
   %17 = load ptr, ptr @stderr, align 8
   %18 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 77, i64 1, ptr %17) #39
   %19 = load ptr, ptr @stderr, align 8
@@ -9960,7 +9960,7 @@ hwloc_hide_errors.exit:                           ; preds = %8, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @report_insert_error_format_obj.argelim(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @report_insert_error_format_obj(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) unnamed_addr #5 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

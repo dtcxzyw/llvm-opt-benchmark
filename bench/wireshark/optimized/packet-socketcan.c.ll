@@ -474,7 +474,7 @@ define internal i32 @dissect_socketcan_classic(ptr noundef %0, ptr noundef %1, p
   %5 = load i32, ptr @byte_swap, align 4
   %.not = icmp eq i32 %5, 0
   %6 = select i1 %.not, i32 -2147483648, i32 0
-  %7 = tail call fastcc i32 @dissect_socketcan_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef 0)
+  %7 = tail call fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   ret i32 %7
 }
 
@@ -483,7 +483,7 @@ define internal i32 @dissect_socketcan_bigendian(ptr noundef %0, ptr noundef %1,
   %5 = load i32, ptr @byte_swap, align 4
   %.not = icmp eq i32 %5, 0
   %6 = select i1 %.not, i32 0, i32 -2147483648
-  %7 = tail call fastcc i32 @dissect_socketcan_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef 3)
+  %7 = tail call fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef 3)
   ret i32 %7
 }
 
@@ -492,7 +492,7 @@ define internal i32 @dissect_socketcan_fd(ptr noundef %0, ptr noundef %1, ptr no
   %5 = load i32, ptr @byte_swap, align 4
   %.not = icmp eq i32 %5, 0
   %6 = select i1 %.not, i32 -2147483648, i32 0
-  %7 = tail call fastcc i32 @dissect_socketcan_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef 1)
+  %7 = tail call fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef 1)
   ret i32 %7
 }
 
@@ -501,7 +501,7 @@ define internal i32 @dissect_socketcan_xl(ptr noundef %0, ptr noundef %1, ptr no
   %5 = load i32, ptr @byte_swap, align 4
   %.not = icmp eq i32 %5, 0
   %6 = select i1 %.not, i32 -2147483648, i32 0
-  %7 = tail call fastcc i32 @dissect_socketcan_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef 2)
+  %7 = tail call fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef 2)
   ret i32 %7
 }
 
@@ -986,7 +986,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_socketcan_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.can_info, align 4

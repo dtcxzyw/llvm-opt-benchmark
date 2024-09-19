@@ -1763,7 +1763,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %16
 
 32:                                               ; preds = %20
   %33 = fptosi double %1 to i32
-  invoke fastcc void @_ZL14setModeWindow_RKSt10shared_ptrI8CvWindowEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %33)
+  invoke fastcc void @_ZL14setModeWindow_RKSt10shared_ptrI8CvWindowEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %33)
           to label %34 unwind label %72
 
 34:                                               ; preds = %32
@@ -1865,7 +1865,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %34, %53, %66, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14setModeWindow_RKSt10shared_ptrI8CvWindowEi.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZL14setModeWindow_RKSt10shared_ptrI8CvWindowEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 68
   %5 = load i32, ptr %4, align 4
@@ -4898,7 +4898,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %46
           to label %56 unwind label %154
 
 56:                                               ; preds = %54
-  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias writable align 8 %16, ptr nonnull %51, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr nonnull %51, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %57 unwind label %156
 
 57:                                               ; preds = %56
@@ -5636,7 +5636,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %28
           to label %37 unwind label %40
 
 37:                                               ; preds = %36
-  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias writable align 8 %8, ptr nonnull %33, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr nonnull %33, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %38 unwind label %42
 
 38:                                               ; preds = %37
@@ -5833,7 +5833,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %.not = icmp eq ptr %.0.val, null
@@ -6209,7 +6209,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %31
           to label %40 unwind label %46
 
 40:                                               ; preds = %39
-  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull %36, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull %36, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %41 unwind label %48
 
 41:                                               ; preds = %40
@@ -6264,7 +6264,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %31
   br label %96
 
 56:                                               ; preds = %41
-  invoke fastcc void @_ZL15setTrackbarPos_RKSt10shared_ptrI10CvTrackbarEi.argprom(ptr nonnull %42, i32 noundef %2)
+  invoke fastcc void @_ZL15setTrackbarPos_RKSt10shared_ptrI10CvTrackbarEi(ptr nonnull %42, i32 noundef %2)
           to label %57 unwind label %94
 
 57:                                               ; preds = %56
@@ -6445,7 +6445,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit:            ; preds = %_ZNSt10shared_ptrI1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15setTrackbarPos_RKSt10shared_ptrI10CvTrackbarEi.argprom(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15setTrackbarPos_RKSt10shared_ptrI10CvTrackbarEi(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %.not10 = icmp eq ptr %.0.val, null
@@ -6606,7 +6606,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %29
           to label %38 unwind label %41
 
 38:                                               ; preds = %37
-  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %39 unwind label %43
 
 39:                                               ; preds = %38
@@ -6936,7 +6936,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %29
           to label %38 unwind label %41
 
 38:                                               ; preds = %37
-  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZL21icvFindTrackbarByNameRKSt10shared_ptrI8CvWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %39 unwind label %43
 
 39:                                               ; preds = %38
@@ -12743,7 +12743,7 @@ _ZNKSt8weak_ptrI8CvWindowE4lockEv.exit:           ; preds = %_ZNKSt14__shared_co
 
 35:                                               ; preds = %32
   %36 = fptosi double %2 to i32
-  invoke fastcc void @_ZL14setModeWindow_RKSt10shared_ptrI8CvWindowEi.retelim(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %36)
+  invoke fastcc void @_ZL14setModeWindow_RKSt10shared_ptrI8CvWindowEi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %36)
           to label %39 unwind label %37
 
 37:                                               ; preds = %35
@@ -15525,7 +15525,7 @@ _ZNKSt8weak_ptrI10CvTrackbarE4lockEv.exit:        ; preds = %_ZNKSt14__shared_co
   br label %66
 
 30:                                               ; preds = %_ZNKSt8weak_ptrI10CvTrackbarE4lockEv.exit
-  invoke fastcc void @_ZL15setTrackbarPos_RKSt10shared_ptrI10CvTrackbarEi.argprom(ptr nonnull %21, i32 noundef %1)
+  invoke fastcc void @_ZL15setTrackbarPos_RKSt10shared_ptrI10CvTrackbarEi(ptr nonnull %21, i32 noundef %1)
           to label %31 unwind label %64
 
 31:                                               ; preds = %30

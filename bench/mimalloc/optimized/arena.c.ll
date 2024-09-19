@@ -115,7 +115,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br i1 %cmp7.i, label %if.then9.i, label %if.end23.thread
 
 if.then9.i:                                       ; preds = %if.then5.i
-  %call12.i = tail call fastcc ptr @mi_arena_try_alloc_at_id.argelim(i32 noundef %req_arena_id, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef nonnull %memid, ptr noundef readonly %tld) #12
+  %call12.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %req_arena_id, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef nonnull %memid, ptr noundef readonly %tld) #12
   %cmp13.not.i = icmp eq ptr %call12.i, null
   br i1 %cmp13.not.i, label %if.end23.thread, label %return
 
@@ -128,7 +128,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.cond
   %i.035.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end.i ]
   %conv.i31.i = trunc i64 %i.035.i to i32
   %add.i.i = add nsw i32 %conv.i31.i, 1
-  %call24.i = tail call fastcc ptr @mi_arena_try_alloc_at_id.argelim(i32 noundef %add.i.i, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef readonly %tld) #12
+  %call24.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %add.i.i, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef readonly %tld) #12
   %cmp25.not.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.not.i, label %for.cond.i, label %return
 
@@ -145,7 +145,7 @@ for.body36.i:                                     ; preds = %for.end.i, %for.con
   %i32.036.i = phi i64 [ %inc47.i, %for.cond33.i ], [ 0, %for.end.i ]
   %conv.i32.i = trunc i64 %i32.036.i to i32
   %add.i33.i = add nsw i32 %conv.i32.i, 1
-  %call41.i = tail call fastcc ptr @mi_arena_try_alloc_at_id.argelim(i32 noundef %add.i33.i, i1 noundef zeroext false, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef readonly %tld) #12
+  %call41.i = tail call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %add.i33.i, i1 noundef zeroext false, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef readonly %tld) #12
   %cmp42.not.i = icmp eq ptr %call41.i, null
   br i1 %cmp42.not.i, label %for.cond33.i, label %return
 
@@ -201,7 +201,7 @@ mi_arena_reserve.exit:                            ; preds = %if.then25.i, %if.el
 
 if.then14:                                        ; preds = %mi_arena_reserve.exit
   %3 = load i32, ptr %arena_id, align 4
-  %call17 = call fastcc ptr @mi_arena_try_alloc_at_id.argelim(i32 noundef %3, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef %tld) #12
+  %call17 = call fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %3, i1 noundef zeroext true, i32 noundef %retval.0.i, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef 0, ptr noundef %memid, ptr noundef %tld) #12
   %cmp18.not = icmp eq ptr %call17, null
   br i1 %cmp18.not, label %if.end23, label %return
 
@@ -242,7 +242,7 @@ return:                                           ; preds = %for.body.i, %for.bo
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_arena_try_alloc_at_id.argelim(i32 noundef %arena_id, i1 noundef zeroext %match_numa_node, i32 noundef %numa_node, i64 noundef range(i64 16777216, 0) %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr nocapture noundef writeonly %memid, ptr nocapture noundef readonly %tld) unnamed_addr #2 {
+define internal fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %arena_id, i1 noundef zeroext %match_numa_node, i32 noundef %numa_node, i64 noundef range(i64 16777216, 0) %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr nocapture noundef writeonly %memid, ptr nocapture noundef readonly %tld) unnamed_addr #2 {
 entry:
   %bitmap_index.i = alloca i64, align 8
   %any_uncommitted.i = alloca i8, align 1
@@ -1009,18 +1009,18 @@ if.end.i:                                         ; preds = %if.then4.i, %land.l
   %9 = load i32, ptr %memkind.i.i, align 4
   %10 = add i32 %9, -3
   %11 = icmp ult i32 %10, 3
-  br i1 %11, label %if.then.i.i, label %mi_arena_meta_free.argprom.exit.i
+  br i1 %11, label %if.then.i.i, label %mi_arena_meta_free.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   tail call void @_mi_os_free(ptr noundef nonnull %2, i64 noundef %8, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %meta_memid15.i, ptr noundef nonnull @_mi_stats_main) #11
-  br label %mi_arena_meta_free.argprom.exit.i
+  br label %mi_arena_meta_free.exit.i
 
-mi_arena_meta_free.argprom.exit.i:                ; preds = %if.then.i.i, %if.end.i
+mi_arena_meta_free.exit.i:                        ; preds = %if.then.i.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %meta_memid15.i)
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %mi_arena_meta_free.argprom.exit.i, %for.body.i
-  %new_max_arena.2.i = phi i64 [ %new_max_arena.1.i, %mi_arena_meta_free.argprom.exit.i ], [ %new_max_arena.019.i, %for.body.i ]
+for.inc.i:                                        ; preds = %mi_arena_meta_free.exit.i, %for.body.i
+  %new_max_arena.2.i = phi i64 [ %new_max_arena.1.i, %mi_arena_meta_free.exit.i ], [ %new_max_arena.019.i, %for.body.i ]
   %inc.i = add nuw i64 %i.017.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %0
   br i1 %exitcond.not.i, label %mi_arenas_unsafe_destroy.exit, label %for.body.i, !llvm.loop !15
@@ -1321,8 +1321,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %arrayidx8.i = getelementptr inbounds i8, ptr %buf.i, i64 64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %mi_debug_show_bitmap.argprom.exit
-  %i.010 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %mi_debug_show_bitmap.argprom.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %mi_debug_show_bitmap.exit
+  %i.010 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %mi_debug_show_bitmap.exit ]
   %arrayidx = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.010
   %1 = load atomic i64, ptr %arrayidx monotonic, align 8
   %cmp2 = icmp eq i64 %1, 0
@@ -1339,7 +1339,7 @@ if.end:                                           ; preds = %for.body
   %5 = load i64, ptr %field_count, align 8
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %buf.i)
   %cmp3.not.i = icmp eq i64 %5, 0
-  br i1 %cmp3.not.i, label %mi_debug_show_bitmap.argprom.exit, label %for.body.i
+  br i1 %cmp3.not.i, label %mi_debug_show_bitmap.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %for.end.i
   %inuse_count.05.i = phi i64 [ %spec.select8.i, %for.end.i ], [ 0, %if.end ]
@@ -1369,9 +1369,9 @@ for.end.i:                                        ; preds = %for.body3.i
   call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8, ptr noundef nonnull %buf.i) #11
   %inc10.i = add nuw i64 %i.04.i, 1
   %exitcond6.not.i = icmp eq i64 %inc10.i, %5
-  br i1 %exitcond6.not.i, label %mi_debug_show_bitmap.argprom.exit, label %for.body.i, !llvm.loop !24
+  br i1 %exitcond6.not.i, label %mi_debug_show_bitmap.exit, label %for.body.i, !llvm.loop !24
 
-mi_debug_show_bitmap.argprom.exit:                ; preds = %for.end.i, %if.end
+mi_debug_show_bitmap.exit:                        ; preds = %for.end.i, %if.end
   %inuse_count.0.lcssa.i = phi i64 [ 0, %if.end ], [ %spec.select8.i, %for.end.i ]
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %buf.i)
   call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.9, i64 noundef %inuse_count.0.lcssa.i) #11
@@ -1379,7 +1379,7 @@ mi_debug_show_bitmap.argprom.exit:                ; preds = %for.end.i, %if.end
   %exitcond.not = icmp eq i64 %inc, %0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
-for.end:                                          ; preds = %mi_debug_show_bitmap.argprom.exit, %for.body, %entry
+for.end:                                          ; preds = %mi_debug_show_bitmap.exit, %for.body, %entry
   ret void
 }
 

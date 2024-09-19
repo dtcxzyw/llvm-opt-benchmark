@@ -4172,7 +4172,7 @@ _ZL24calcBoardCornerPositionsN2cv5Size_IiEEfRSt6vectorINS_7Point3_IfEESaIS4_EEN8
           cleanup
   br label %.body.i
 
-.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i: ; preds = %620, %587, %585, %583, %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit147.i, %.noexc145.i, %.noexc144.i, %.noexc143.i, %.noexc142.i, %.noexc141.i, %.noexc140.i, %566, %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit139.i, %.noexc137.i, %.noexc136.i, %.noexc135.i, %.noexc134.i, %.noexc133.i, %.noexc132.i, %544, %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit131.i, %.noexc129.i, %.noexc128.i, %.noexc127.i, %.noexc126.i, %.noexc125.i, %.noexc124.i, %525, %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit.i, %.noexc122.i, %.noexc121.i, %.noexc120.i, %.noexc119.i, %.noexc118.i, %.noexc117.i, %510, %508, %506, %353, %_ZL24calcBoardCornerPositionsN2cv5Size_IiEEfRSt6vectorINS_7Point3_IfEESaIS4_EEN8Settings7PatternE.exit.thread208.i, %.split.us107.i.invoke.i
+.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i: ; preds = %620, %587, %585, %583, %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit147.i, %.noexc145.i, %.noexc144.i, %.noexc143.i, %.noexc142.i, %.noexc141.i, %.noexc140.i, %566, %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit139.i, %.noexc137.i, %.noexc136.i, %.noexc135.i, %.noexc134.i, %.noexc133.i, %.noexc132.i, %544, %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit131.i, %.noexc129.i, %.noexc128.i, %.noexc127.i, %.noexc126.i, %.noexc125.i, %.noexc124.i, %525, %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit.i, %.noexc122.i, %.noexc121.i, %.noexc120.i, %.noexc119.i, %.noexc118.i, %.noexc117.i, %510, %508, %506, %353, %_ZL24calcBoardCornerPositionsN2cv5Size_IiEEfRSt6vectorINS_7Point3_IfEESaIS4_EEN8Settings7PatternE.exit.thread208.i, %.split.us107.i.invoke.i
   %lpad.loopexit.split-lp179.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -4658,13 +4658,13 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit116.i: ; preds = %462, %459
 
 .noexc122.i:                                      ; preds = %.noexc121.i
   %523 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %522, ptr noundef nonnull @.str.49)
-          to label %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit.i unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
+          to label %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit.i unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
 
-_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit.i: ; preds = %.noexc122.i
+_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit.i:      ; preds = %.noexc122.i
   %524 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %525 unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
 
-525:                                              ; preds = %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit.i
+525:                                              ; preds = %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit.i
   %526 = load i32, ptr %0, align 8
   %527 = load ptr, ptr %138, align 8
   %528 = sext i32 %526 to i64
@@ -4700,13 +4700,13 @@ _ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit.i: ; preds = %.noexc122.i
 
 .noexc129.i:                                      ; preds = %.noexc128.i
   %542 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %541, ptr noundef nonnull @.str.49)
-          to label %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit131.i unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
+          to label %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit131.i unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
 
-_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit131.i: ; preds = %.noexc129.i
+_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit131.i:   ; preds = %.noexc129.i
   %543 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %544 unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
 
-544:                                              ; preds = %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit131.i
+544:                                              ; preds = %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit131.i
   %545 = load i32, ptr %0, align 8
   %546 = getelementptr inbounds i8, ptr %0, i64 4
   %547 = load i32, ptr %546, align 4
@@ -4745,13 +4745,13 @@ _ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit131.i: ; preds = %.noexc129.i
 
 .noexc137.i:                                      ; preds = %.noexc136.i
   %564 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %563, ptr noundef nonnull @.str.49)
-          to label %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit139.i unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
+          to label %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit139.i unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
 
-_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit139.i: ; preds = %.noexc137.i
+_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit139.i:   ; preds = %.noexc137.i
   %565 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %566 unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
 
-566:                                              ; preds = %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit139.i
+566:                                              ; preds = %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit139.i
   %567 = getelementptr inbounds i8, ptr %138, i64 8
   %568 = load ptr, ptr %567, align 8
   %569 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.47)
@@ -4785,13 +4785,13 @@ _ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit139.i: ; preds = %.noexc137.i
 
 .noexc145.i:                                      ; preds = %.noexc144.i
   %581 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %580, ptr noundef nonnull @.str.49)
-          to label %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit147.i unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
+          to label %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit147.i unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
 
-_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit147.i: ; preds = %.noexc145.i
+_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit147.i:   ; preds = %.noexc145.i
   %582 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %583 unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
 
-583:                                              ; preds = %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.argprom.exit147.i, %505
+583:                                              ; preds = %_ZN2cvlsIfEERSoS1_RKNS_7Point3_IT_EE.exit147.i, %505
   %584 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.42)
           to label %585 unwind label %.loopexit.split-lp170.loopexit.split-lp.loopexit.split-lp.i
 

@@ -176,7 +176,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
 
 34:                                               ; preds = %29
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %12, ptr noundef %2) #12
-  br label %AndersonAccelerate.argprom.exit
+  br label %AndersonAccelerate.exit
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds i8, ptr %30, i64 144
@@ -243,7 +243,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
 
 77:                                               ; preds = %76
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %12, ptr noundef %2) #12
-  br label %AndersonAccelerate.argprom.exit
+  br label %AndersonAccelerate.exit
 
 78:                                               ; preds = %76
   %79 = zext nneg i32 %68 to i64
@@ -647,9 +647,9 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.thread124.i, %._crit_edge42.thread.i, %._crit_edge42.i
   %.1.i = phi i32 [ %200, %._crit_edge42.i ], [ %250, %.loopexit.loopexit.i ], [ 1, %._crit_edge42.thread.i ], [ 2, %.thread124.i ]
   %251 = tail call i32 @N_VLinearCombination(i32 noundef %.1.i, ptr noundef nonnull %51, ptr noundef nonnull %53, ptr noundef %2) #12
-  br label %AndersonAccelerate.argprom.exit
+  br label %AndersonAccelerate.exit
 
-AndersonAccelerate.argprom.exit:                  ; preds = %.loopexit.i, %77, %34
+AndersonAccelerate.exit:                          ; preds = %.loopexit.i, %77, %34
   %252 = load ptr, ptr %0, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 152
   %254 = load i64, ptr %253, align 8
@@ -667,11 +667,11 @@ AndersonAccelerate.argprom.exit:                  ; preds = %.loopexit.i, %77, %
     i32 901, label %264
   ]
 
-262:                                              ; preds = %AndersonAccelerate.argprom.exit
+262:                                              ; preds = %AndersonAccelerate.exit
   %263 = load ptr, ptr %0, align 8
   br label %.loopexit.sink.split
 
-264:                                              ; preds = %AndersonAccelerate.argprom.exit
+264:                                              ; preds = %AndersonAccelerate.exit
   %265 = load ptr, ptr %0, align 8
   %266 = getelementptr inbounds i8, ptr %265, i64 144
   %267 = load i32, ptr %266, align 8
@@ -694,8 +694,8 @@ AndersonAccelerate.argprom.exit:                  ; preds = %.loopexit.i, %77, %
   store i64 %277, ptr %275, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %AndersonAccelerate.argprom.exit, %.lr.ph, %.loopexit.sink.split
-  %.0 = phi i32 [ %.0.ph, %.loopexit.sink.split ], [ %261, %AndersonAccelerate.argprom.exit ], [ %28, %.lr.ph ]
+.loopexit:                                        ; preds = %AndersonAccelerate.exit, %.lr.ph, %.loopexit.sink.split
+  %.0 = phi i32 [ %.0.ph, %.loopexit.sink.split ], [ %261, %AndersonAccelerate.exit ], [ %28, %.lr.ph ]
   ret i32 %.0
 }
 

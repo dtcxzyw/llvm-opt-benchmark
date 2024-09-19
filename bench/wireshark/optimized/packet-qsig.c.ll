@@ -4069,14 +4069,14 @@ get_err.exit.thread:                              ; preds = %18, %46, %51, %48, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_qsig_ie_cs4(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @dissect_qsig_ie.argprom(ptr noundef %0, ptr noundef %2, i32 noundef 4)
+  tail call fastcc void @dissect_qsig_ie(ptr noundef %0, ptr noundef %2, i32 noundef 4)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_qsig_ie_cs5(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @dissect_qsig_ie.argprom(ptr noundef %0, ptr noundef %2, i32 noundef 5)
+  tail call fastcc void @dissect_qsig_ie(ptr noundef %0, ptr noundef %2, i32 noundef 5)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %5
 }
@@ -4267,7 +4267,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_qsig_ie.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 6) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_qsig_ie(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 4, 6) %2) unnamed_addr #0 {
   %4 = load i32, ptr @proto_qsig, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %.not.i = icmp eq ptr %5, null

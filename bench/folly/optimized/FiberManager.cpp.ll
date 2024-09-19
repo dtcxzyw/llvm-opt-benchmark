@@ -1117,7 +1117,7 @@ lpad.i:                                           ; preds = %if.end.i.i, %if.the
   %guard.sroa.0.0.i = phi i8 [ 1, %if.end.i.i ], [ 0, %if.then.i.i ], [ 0, %cond.false20.i.i ], [ 0, %if.then.i.i.i ], [ 0, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i ], [ 0, %if.then.i16.i ]
   %33 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIPNS_6fibers12FiberManagerEZNS5_22getCurrentFiberManagerEvE3TagNS0_11DefaultMakeIS6_EES7_E7WrapperES7_vE5resetEPSB_EUlvE_Lb1EED2Ev.argprom(i8 %guard.sroa.0.0.i, ptr %call2.i) #12
+  call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIPNS_6fibers12FiberManagerEZNS5_22getCurrentFiberManagerEvE3TagNS0_11DefaultMakeIS6_EES7_E7WrapperES7_vE5resetEPSB_EUlvE_Lb1EED2Ev(i8 %guard.sroa.0.0.i, ptr %call2.i) #12
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rlock.i) #12
   resume { ptr, i32 } %33
@@ -1935,7 +1935,7 @@ declare noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowER
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIPNS_6fibers12FiberManagerEZNS5_22getCurrentFiberManagerEvE3TagNS0_11DefaultMakeIS6_EES7_E7WrapperES7_vE5resetEPSB_EUlvE_Lb1EED2Ev.argprom(i8 range(i8 0, 2) %this.0.val, ptr %this.8.val.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIPNS_6fibers12FiberManagerEZNS5_22getCurrentFiberManagerEvE3TagNS0_11DefaultMakeIS6_EES7_E7WrapperES7_vE5resetEPSB_EUlvE_Lb1EED2Ev(i8 range(i8 0, 2) %this.0.val, ptr %this.8.val.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp ne i8 %this.0.val, 0
   %isnull.i.i = icmp eq ptr %this.8.val.0.val, null
@@ -4094,7 +4094,7 @@ lpad.i:                                           ; preds = %if.end.i.i, %if.the
   %guard.sroa.0.0.i = phi i8 [ 1, %if.end.i.i ], [ 0, %if.then.i.i ], [ 0, %cond.false20.i.i ], [ 0, %if.then.i.i.i ], [ 0, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i ], [ 0, %if.then.i15.i ]
   %28 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS0_10DefaultTagENS0_11DefaultMakeIS6_EEvE7WrapperEvvE5resetEPSB_EUlvE_Lb1EED2Ev.argprom(i8 %guard.sroa.0.0.i, ptr %call2.i) #12
+  call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS0_10DefaultTagENS0_11DefaultMakeIS6_EEvE7WrapperEvvE5resetEPSB_EUlvE_Lb1EED2Ev(i8 %guard.sroa.0.0.i, ptr %call2.i) #12
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rlock.i) #12
   resume { ptr, i32 } %28
@@ -4492,7 +4492,7 @@ for.inc21:                                        ; preds = %if.then, %for.body9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS0_10DefaultTagENS0_11DefaultMakeIS6_EEvE7WrapperEvvE5resetEPSB_EUlvE_Lb1EED2Ev.argprom(i8 range(i8 0, 2) %this.0.val, ptr %this.8.val.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalINS_6fibers12_GLOBAL__N_126ScopedAlternateSignalStackENS0_10DefaultTagENS0_11DefaultMakeIS6_EEvE7WrapperEvvE5resetEPSB_EUlvE_Lb1EED2Ev(i8 range(i8 0, 2) %this.0.val, ptr %this.8.val.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i.i.i.i = alloca %struct.stack_t, align 8
   %tobool.not = icmp ne i8 %this.0.val, 0

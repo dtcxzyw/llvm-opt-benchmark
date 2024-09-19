@@ -636,9 +636,9 @@ if.then.i:                                        ; preds = %do.end
   store i64 %1, ptr %status, align 8, !alias.scope !7
   store i64 54, ptr %ref.tmp.i, align 8, !noalias !7
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 0
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom.exit.thread
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit.thread
 
-_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom.exit.thread: ; preds = %if.then.i
+_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit.thread: ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i)
@@ -659,11 +659,11 @@ invoke.cont.i:                                    ; preds = %if.then.i.i.i.i
   %.pre.i = load i64, ptr %ref.tmp.i, align 8, !noalias !7
   %and.i.i.i.i = and i64 %.pre.i, 1
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom.exit, label %if.then.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre.i)
-          to label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom.exit unwind label %terminate.lpad.i.i
+          to label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
@@ -956,7 +956,7 @@ ehcleanup.i.i:                                    ; preds = %_ZNSt10unique_ptrIN
 ehcleanup31.i.i:                                  ; preds = %ehcleanup.i.i, %_ZNSt10unique_ptrIN9grpc_core28ServerConfigSelectorProvider27ServerConfigSelectorWatcherESt14default_deleteIS2_EED2Ev.exit20.i.i, %lpad3.i.i
   %.pn3.i.i = phi { ptr, i32 } [ %7, %lpad3.i.i ], [ %44, %ehcleanup.i.i ], [ %32, %_ZNSt10unique_ptrIN9grpc_core28ServerConfigSelectorProvider27ServerConfigSelectorWatcherESt14default_deleteIS2_EED2Ev.exit20.i.i ]
   %state_.val8.i.i = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8, !noalias !7
-  call fastcc void @_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom(ptr %state_.val8.i.i) #27, !noalias !7
+  call fastcc void @_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev(ptr %state_.val8.i.i) #27, !noalias !7
   br label %ehcleanup32.i.i
 
 ehcleanup32.i.i:                                  ; preds = %ehcleanup31.i.i, %lpad.i.i
@@ -1014,7 +1014,7 @@ invoke.cont6.i:                                   ; preds = %if.else.i.i.i.i.i.i
   call void @_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1.i) #27, !noalias !7
   %54 = load ptr, ptr %agg.tmp2.i, align 8, !noalias !7
   %cmp.not.i.i = icmp eq ptr %54, null
-  br i1 %cmp.not.i.i, label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom.exit, label %if.then.i9.i
+  br i1 %cmp.not.i.i, label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %invoke.cont6.i
   %refs_.i.i10.i = getelementptr inbounds i8, ptr %54, i64 8
@@ -1032,14 +1032,14 @@ if.then.i.i13.i:                                  ; preds = %if.then.i9.i
 if.end.i.i.i:                                     ; preds = %if.then.i.i13.i, %if.then.i9.i
   %57 = atomicrmw sub ptr %refs_.i.i10.i, i64 1 acq_rel, align 8, !noalias !7
   %cmp.not.i.i.i.i = icmp eq i64 %57, 1
-  br i1 %cmp.not.i.i.i.i, label %delete.notnull.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom.exit
+  br i1 %cmp.not.i.i.i.i, label %delete.notnull.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit
 
 delete.notnull.i.i.i.i:                           ; preds = %if.end.i.i.i
   %vtable.i.i.i11.i = load ptr, ptr %54, align 8, !noalias !7
   %vfn.i.i.i12.i = getelementptr inbounds i8, ptr %vtable.i.i.i11.i, i64 16
   %58 = load ptr, ptr %vfn.i.i.i12.i, align 8, !noalias !7
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %54) #27, !noalias !7
-  br label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom.exit
+  br label %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit
 
 terminate.lpad.i14.i:                             ; preds = %if.then.i.i13.i
   %59 = landingpad { ptr, i32 }
@@ -1062,7 +1062,7 @@ common.resume:                                    ; preds = %lpad.i.i.i, %ehclea
   %common.resume.op = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad.i.i.i ], [ %.pn.i, %ehcleanup.i ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom.exit: ; preds = %invoke.cont.i, %if.then.i.i.i, %invoke.cont6.i, %if.end.i.i.i, %delete.notnull.i.i.i.i
+_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit: ; preds = %invoke.cont.i, %if.then.i.i.i, %invoke.cont6.i, %if.end.i.i.i, %delete.notnull.i.i.i.i
   %status.val.pr = load i64, ptr %status, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
@@ -1070,7 +1070,7 @@ _ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArg
   %cmp.i.i = icmp eq i64 %status.val.pr, 0
   br i1 %cmp.i.i, label %invoke.cont11, label %if.then1
 
-if.then1:                                         ; preds = %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom.exit.thread, %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom.exit
+if.then1:                                         ; preds = %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit.thread, %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit
   %channel_data = getelementptr inbounds i8, ptr %elem, i64 8
   %62 = load ptr, ptr %channel_data, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
@@ -1126,7 +1126,7 @@ lpad7:                                            ; preds = %invoke.cont6
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3) #27
   br label %ehcleanup
 
-invoke.cont11:                                    ; preds = %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom.exit
+invoke.cont11:                                    ; preds = %_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.exit
   %channel_data10 = getelementptr inbounds i8, ptr %elem, i64 8
   %72 = load ptr, ptr %channel_data10, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %72, align 8
@@ -2091,7 +2091,7 @@ if.end:                                           ; preds = %if.then, %entry
   %2 = getelementptr inbounds i8, ptr %this, i64 40
   %state_.val = load ptr, ptr %2, align 8
   %cmp.not.i.i.i = icmp eq ptr %state_.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %state_.val, i64 8
@@ -2127,7 +2127,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %4, %if.then.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %state_.val, align 8
@@ -2152,21 +2152,21 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %10, %if.then.i.i.i.i.i.i.i ], [ %11, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %state_.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %state_.val) #27
-  br label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit
 
-_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit: ; preds = %if.end, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit: ; preds = %if.end, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %13 = load ptr, ptr %server_config_selector_provider_, align 8
   %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_28ServerConfigSelectorProviderEED2Ev.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit
+if.then.i:                                        ; preds = %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit
   %refs_.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = atomicrmw add ptr %refs_.i.i, i64 -4294967295 acq_rel, align 8
   %shr.i.mask.i.i = and i64 %14, -4294967296
@@ -2198,7 +2198,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   tail call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
-_ZN9grpc_core13RefCountedPtrINS_28ServerConfigSelectorProviderEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit, %if.end.i.i, %delete.notnull.i.i.i
+_ZN9grpc_core13RefCountedPtrINS_28ServerConfigSelectorProviderEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit, %if.end.i.i, %delete.notnull.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %20 = load ptr, ptr %_M_refcount.i.i.i, align 8
@@ -2378,10 +2378,10 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core13RefCountedP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom(ptr %this.8.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev(ptr %this.8.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -2417,7 +2417,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -2442,16 +2442,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #27
-  br label %_ZNSt12__shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -3106,7 +3106,7 @@ entry:
   %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.argprom.exit
+  br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.exit
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
   %config_selector.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -3119,29 +3119,29 @@ _ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i
   %2 = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %2, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.argprom.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i.i.i.i.i.i
   %refs_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = atomicrmw sub ptr %refs_.i.i.i.i.i.i.i.i.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i2.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.argprom.exit
+  br i1 %cmp.i.i.i1.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i2.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.exit
 
 if.then.i.i2.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
-  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.argprom.exit
+  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.exit
 
 if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i
   %and.i.i.i3.i.i.i.i.i.i.i.i.i.i = and i64 %1, 1
   %cmp.i.i.i4.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i3.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i4.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.argprom.exit, label %if.then.i.i5.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i4.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.exit, label %if.then.i.i5.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i5.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.else.i.i.i.i.i.i.i.i.i.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %1)
-          to label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.argprom.exit unwind label %terminate.lpad.i6.i.i.i.i.i.i.i.i.i.i
+          to label %_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.exit unwind label %terminate.lpad.i6.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i6.i.i.i.i.i.i.i.i.i.i:            ; preds = %if.then.i.i5.i.i.i.i.i.i.i.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -3150,7 +3150,7 @@ terminate.lpad.i6.i.i.i.i.i.i.i.i.i.i:            ; preds = %if.then.i.i5.i.i.i.
   tail call void @__clang_call_terminate(ptr %7) #26
   unreachable
 
-_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.argprom.exit: ; preds = %entry, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i2.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i5.i.i.i.i.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEEEvRS0_PT_.exit: ; preds = %entry, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i2.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i5.i.i.i.i.i.i.i.i.i.i
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i) #27
   ret void
@@ -3158,7 +3158,7 @@ _ZNSt16allocator_traitsISaIvEE7destroyIN9grpc_core12_GLOBAL__N_126ServerConfigSe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
   ret void
 }
@@ -3208,7 +3208,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %state_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp eq ptr %state_.val, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %state_.val, i64 8
@@ -3244,7 +3244,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.i.0.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i ], [ %5, %if.else.i.i.i.i.i ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %state_.val, align 8
@@ -3269,16 +3269,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %state_.val, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %state_.val) #27
-  br label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit
 
-_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 
@@ -4108,8 +4108,8 @@ attributes #30 = { builtin allocsize(0) }
 !5 = distinct !{!5, !6, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
 !6 = distinct !{!6, !"_ZN4absl12lts_202308028OkStatusEv"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom: %agg.result"}
-!9 = distinct !{!9, !"_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE.argprom"}
+!8 = distinct !{!8, !9, !"_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE: %agg.result"}
+!9 = distinct !{!9, !"_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE"}
 !10 = !{!11}
 !11 = distinct !{!11, !12, !"_ZN9grpc_core14DualRefCountedINS_28ServerConfigSelectorProviderEE3RefEv: %agg.result"}
 !12 = distinct !{!12, !"_ZN9grpc_core14DualRefCountedINS_28ServerConfigSelectorProviderEE3RefEv"}
@@ -4119,8 +4119,8 @@ attributes #30 = { builtin allocsize(0) }
 !16 = distinct !{!16, !"_ZSt11make_sharedIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
 !17 = !{!15, !8}
 !18 = !{!19, !8}
-!19 = distinct !{!19, !20, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherEJRSt10shared_ptrINS2_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!20 = distinct !{!20, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherEJRSt10shared_ptrINS2_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!19 = distinct !{!19, !20, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherEJRSt10shared_ptrINS2_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!20 = distinct !{!20, !"_ZSt11make_uniqueIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherEJRSt10shared_ptrINS2_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZN4absl12lts_202308028OkStatusEv: %agg.result"}
 !23 = distinct !{!23, !"_ZN4absl12lts_202308028OkStatusEv"}

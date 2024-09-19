@@ -2859,9 +2859,9 @@ define void @_ZN3spv11DisassembleERSoRKSt6vectorIjSaIjEE(ptr noundef nonnull ali
   store ptr @.str.162, ptr %23, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 82
-  br i1 %exitcond.not.i, label %_ZN3spvL23GLSLstd450GetDebugNamesEPPKc.argprom.exit, label %22, !llvm.loop !38
+  br i1 %exitcond.not.i, label %_ZN3spvL23GLSLstd450GetDebugNamesEPPKc.exit, label %22, !llvm.loop !38
 
-_ZN3spvL23GLSLstd450GetDebugNamesEPPKc.argprom.exit: ; preds = %22
+_ZN3spvL23GLSLstd450GetDebugNamesEPPKc.exit:      ; preds = %22
   store ptr @.str.163, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 8), align 8
   store ptr @.str.164, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 16), align 16
   store ptr @.str.165, ptr getelementptr inbounds (i8, ptr @GlslStd450DebugNames, i64 24), align 8

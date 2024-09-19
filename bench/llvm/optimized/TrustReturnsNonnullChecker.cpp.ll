@@ -113,7 +113,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %44 = load ptr, ptr %39, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   store ptr %45, ptr %39, align 8
-  br label %_ZN5clang4ento14CheckerManager15registerCheckerIN12_GLOBAL__N_126TrustReturnsNonnullCheckerEJRNS_10ASTContextEEEEPT_DpOT0_.argprom.exit
+  br label %_ZN5clang4ento14CheckerManager15registerCheckerIN12_GLOBAL__N_126TrustReturnsNonnullCheckerEJRNS_10ASTContextEEEEPT_DpOT0_.exit
 
 46:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_.exit.i
   %47 = load ptr, ptr %38, align 8
@@ -175,9 +175,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9
   store ptr %65, ptr %39, align 8
   %67 = getelementptr inbounds %"class.clang::ento::CheckerFn", ptr %61, i64 %57
   store ptr %67, ptr %41, align 8
-  br label %_ZN5clang4ento14CheckerManager15registerCheckerIN12_GLOBAL__N_126TrustReturnsNonnullCheckerEJRNS_10ASTContextEEEEPT_DpOT0_.argprom.exit
+  br label %_ZN5clang4ento14CheckerManager15registerCheckerIN12_GLOBAL__N_126TrustReturnsNonnullCheckerEJRNS_10ASTContextEEEEPT_DpOT0_.exit
 
-_ZN5clang4ento14CheckerManager15registerCheckerIN12_GLOBAL__N_126TrustReturnsNonnullCheckerEJRNS_10ASTContextEEEEPT_DpOT0_.argprom.exit: ; preds = %43, %_ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i
+_ZN5clang4ento14CheckerManager15registerCheckerIN12_GLOBAL__N_126TrustReturnsNonnullCheckerEJRNS_10ASTContextEEEEPT_DpOT0_.exit: ; preds = %43, %_ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i
   %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   call void @_ZN5clang4ento14CheckerManager20_registerForPostCallENS0_9CheckerFnIFvRKNS0_9CallEventERNS0_14CheckerContextEEEE(ptr noundef nonnull align 8 dereferenceable(1552) %0, ptr nonnull @_ZN5clang4ento5check8PostCall10_checkCallIN12_GLOBAL__N_126TrustReturnsNonnullCheckerEEEvPvRKNS0_9CallEventERNS0_14CheckerContextE, ptr nonnull %34) #14
   store ptr %34, ptr %68, align 8
@@ -602,7 +602,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i16, ptr %40, align 8
   %42 = icmp eq i16 %41, 326
-  br i1 %42, label %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.argprom.exit.i, label %43
+  br i1 %42, label %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.exit.i, label %43
 
 43:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %44 = getelementptr inbounds i8, ptr %.sroa.07.1.i.i.i.i.i.i, i64 8
@@ -619,20 +619,20 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load i16, ptr %47, align 8
   %49 = icmp eq i16 %48, 326
-  br i1 %49, label %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.argprom.exit.i, label %50
+  br i1 %49, label %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.exit.i, label %50
 
 50:                                               ; preds = %.lr.ph.i4.i.i.i.i.i.i
   %51 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i.i.i, i64 8
   %.not.i5.i.i.i.i.i.i = icmp eq ptr %51, %35
   br i1 %.not.i5.i.i.i.i.i.i, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i, label %.lr.ph.i4.i.i.i.i.i.i, !llvm.loop !13
 
-_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.argprom.exit.i: ; preds = %.lr.ph.i4.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
+_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.exit.i: ; preds = %.lr.ph.i4.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %35, %.lr.ph.i4.i.i.i.i.i.i ]
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i.i, %.lr.ph.i4.i.i.i.i.i.i ]
   %.not.i = icmp eq ptr %.sroa.07.0.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i
   br i1 %.not.i, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i, label %52
 
-52:                                               ; preds = %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.argprom.exit.i
+52:                                               ; preds = %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.exit.i
   %53 = tail call { ptr, i8 } @_ZNK5clang4ento9CallEvent14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #14
   %.fca.1.extract.i = extractvalue { ptr, i8 } %53, 1
   %54 = add i8 %.fca.1.extract.i, -2
@@ -664,8 +664,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %11) #14
   br label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i
 
-_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i: ; preds = %50, %43, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %52, %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.argprom.exit.i, %45, %29, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
-  %.sroa.05.0.i = phi ptr [ %62, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %11, %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.argprom.exit.i ], [ %11, %52 ], [ %11, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ %11, %29 ], [ %11, %45 ], [ %11, %43 ], [ %11, %50 ]
+_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i: ; preds = %50, %43, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %52, %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.exit.i, %45, %29, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
+  %.sroa.05.0.i = phi ptr [ %62, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %11, %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker12isNonNullPtrERKN5clang4ento9CallEventE.exit.i ], [ %11, %52 ], [ %11, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ %11, %29 ], [ %11, %45 ], [ %11, %43 ], [ %11, %50 ]
   %.not.i.i9.i = icmp eq ptr %.sroa.05.0.i, null
   br i1 %.not.i.i9.i, label %63, label %.thread.i.i
 
@@ -678,7 +678,7 @@ _ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i: ; preds = %50, %4
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %.pr.i.i = load ptr, ptr %65, align 8
   %.not.i.i.i11.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i.i11.i, label %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit, label %66
+  br i1 %.not.i.i.i11.i, label %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %66
 
 66:                                               ; preds = %63, %.thread.i.i
   %.sroa.09.0.i = phi ptr [ %.pr.i.i, %63 ], [ %.sroa.05.0.i, %.thread.i.i ]
@@ -721,14 +721,14 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i: ; pre
 _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, %66
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.09.0.i) #14
-  br i1 %.not.i.i9.i, label %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit, label %79
+  br i1 %.not.i.i9.i, label %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %79
 
 79:                                               ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.05.0.i) #14
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.05.0.i) #14
-  br label %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit: ; preds = %63, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, %79
+_ZNK12_GLOBAL__N_126TrustReturnsNonnullChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %63, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, %79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 }

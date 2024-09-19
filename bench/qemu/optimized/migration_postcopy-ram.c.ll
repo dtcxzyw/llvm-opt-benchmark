@@ -560,9 +560,9 @@ if.then4:                                         ; preds = %entry
   store i64 0, ptr %1, align 8
   %call.i = tail call i32 @uffd_open(i32 noundef 524288) #16
   %cmp.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.i, label %receive_ufd_features.argprom.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %receive_ufd_features.exit.thread, label %if.end.i
 
-receive_ufd_features.argprom.exit.thread:         ; preds = %if.then4
+receive_ufd_features.exit.thread:                 ; preds = %if.then4
   %call1.i = tail call ptr @__errno_location() #18
   %2 = load i32, ptr %call1.i, align 4
   %call2.i = tail call ptr @strerror(i32 noundef %2) #16
@@ -575,9 +575,9 @@ if.end.i:                                         ; preds = %if.then4
   store i64 0, ptr %features3.i, align 8
   %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %call.i, i64 noundef 3222841919, ptr noundef nonnull %api_struct.i) #16
   %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %receive_ufd_features.argprom.exit.thread24, label %receive_ufd_features.argprom.exit
+  br i1 %tobool.not.i, label %receive_ufd_features.exit.thread24, label %receive_ufd_features.exit
 
-receive_ufd_features.argprom.exit.thread24:       ; preds = %if.end.i
+receive_ufd_features.exit.thread24:               ; preds = %if.end.i
   %3 = load i64, ptr %features3.i, align 8
   store i64 %3, ptr @ufd_check_and_apply.supported_features, align 8
   %call10.i25 = call i32 @close(i32 noundef %call.i) #16
@@ -585,7 +585,7 @@ receive_ufd_features.argprom.exit.thread24:       ; preds = %if.end.i
   %.pre = load i64, ptr @ufd_check_and_apply.supported_features, align 8
   br label %if.end7
 
-receive_ufd_features.argprom.exit:                ; preds = %if.end.i
+receive_ufd_features.exit:                        ; preds = %if.end.i
   %call6.i = tail call ptr @__errno_location() #18
   %4 = load i32, ptr %call6.i, align 4
   %call7.i = call ptr @strerror(i32 noundef %4) #16
@@ -593,13 +593,13 @@ receive_ufd_features.argprom.exit:                ; preds = %if.end.i
   %call10.i = call i32 @close(i32 noundef %call.i) #16
   br label %if.then5
 
-if.then5:                                         ; preds = %receive_ufd_features.argprom.exit, %receive_ufd_features.argprom.exit.thread
+if.then5:                                         ; preds = %receive_ufd_features.exit, %receive_ufd_features.exit.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %api_struct.i)
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 300, ptr noundef nonnull @__func__.ufd_check_and_apply, ptr noundef nonnull @.str.21) #16
   br label %cleanup
 
-if.end7:                                          ; preds = %receive_ufd_features.argprom.exit.thread24, %entry
-  %5 = phi i64 [ %.pre, %receive_ufd_features.argprom.exit.thread24 ], [ %0, %entry ]
+if.end7:                                          ; preds = %receive_ufd_features.exit.thread24, %entry
+  %5 = phi i64 [ %.pre, %receive_ufd_features.exit.thread24 ], [ %0, %entry ]
   %and = and i64 %5, 256
   %tobool8.not = icmp eq i64 %and, 0
   br i1 %tobool8.not, label %if.end18, label %if.then9
@@ -1487,7 +1487,7 @@ trace_postcopy_request_shared_page_present.exit:  ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %trace_postcopy_request_shared_page.exit
-  tail call fastcc void @postcopy_request_page.retelim(ptr noundef %call1, ptr noundef %rb, i64 noundef %and, i64 noundef %client_addr)
+  tail call fastcc void @postcopy_request_page(ptr noundef %call1, ptr noundef %rb, i64 noundef %and, i64 noundef %client_addr)
   br label %return
 
 return:                                           ; preds = %if.end, %trace_postcopy_request_shared_page_present.exit
@@ -1498,7 +1498,7 @@ return:                                           ; preds = %if.end, %trace_post
 declare zeroext i1 @ramblock_recv_bitmap_test_byte_offset(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @postcopy_request_page.retelim(ptr noundef %mis, ptr noundef %rb, i64 noundef %start, i64 noundef %haddr) unnamed_addr #0 {
+define internal fastcc void @postcopy_request_page(ptr noundef %mis, ptr noundef %rb, i64 noundef %start, i64 noundef %haddr) unnamed_addr #0 {
 entry:
   %call = tail call i64 @qemu_ram_pagesize(ptr noundef %rb) #16
   %sub = sub i64 0, %call
@@ -3666,13 +3666,13 @@ out:                                              ; preds = %if.end, %if.then4, 
 
 cleanup:                                          ; preds = %out, %trace_postcopy_preempt_tls_handshake.exit
   %tobool.not.i.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_QIOChannel.argprom.exit, label %if.then.i.i7
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_QIOChannel.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %cleanup
   call void @object_unref(ptr noundef nonnull %call.i) #16
-  br label %glib_autoptr_cleanup_QIOChannel.argprom.exit
+  br label %glib_autoptr_cleanup_QIOChannel.exit
 
-glib_autoptr_cleanup_QIOChannel.argprom.exit:     ; preds = %cleanup, %if.then.i.i7
+glib_autoptr_cleanup_QIOChannel.exit:             ; preds = %cleanup, %if.then.i.i7
   ret void
 }
 
@@ -3874,13 +3874,13 @@ entry:
   %0 = load ptr, ptr %local_err, align 8
   call fastcc void @postcopy_preempt_send_channel_done(ptr noundef %opaque, ptr noundef %call.i, ptr noundef %0)
   %tobool.not.i.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_QIOChannel.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_QIOChannel.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   call void @object_unref(ptr noundef nonnull %call.i) #16
-  br label %glib_autoptr_cleanup_QIOChannel.argprom.exit
+  br label %glib_autoptr_cleanup_QIOChannel.exit
 
-glib_autoptr_cleanup_QIOChannel.argprom.exit:     ; preds = %entry, %if.then.i.i
+glib_autoptr_cleanup_QIOChannel.exit:             ; preds = %entry, %if.then.i.i
   ret void
 }
 

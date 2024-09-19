@@ -91,7 +91,7 @@ if.end7:                                          ; preds = %if.end3
   %block_size = getelementptr inbounds i8, ptr %0, i64 48
   %call9 = tail call i32 @bdrv_pread(ptr noundef %1, i64 noundef 128, i64 noundef 4, ptr noundef nonnull %block_size, i32 noundef 0) #10
   %cmp10 = icmp slt i32 %call9, 0
-  br i1 %cmp10, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end12
+  br i1 %cmp10, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end12
 
 if.end12:                                         ; preds = %if.end7
   %2 = load i32, ptr %block_size, align 8
@@ -103,7 +103,7 @@ if.end12:                                         ; preds = %if.end7
 
 if.then17:                                        ; preds = %if.end12
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 94, ptr noundef nonnull @__func__.cloop_open, ptr noundef nonnull @.str.4, i32 noundef %3) #10
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end19:                                         ; preds = %if.end12
   %cmp21 = icmp eq i32 %2, 0
@@ -111,7 +111,7 @@ if.end19:                                         ; preds = %if.end12
 
 if.then22:                                        ; preds = %if.end19
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 98, ptr noundef nonnull @__func__.cloop_open, ptr noundef nonnull @.str.5) #10
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end23:                                         ; preds = %if.end19
   %cmp25 = icmp ugt i32 %3, 67108864
@@ -119,14 +119,14 @@ if.end23:                                         ; preds = %if.end19
 
 if.then26:                                        ; preds = %if.end23
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 109, ptr noundef nonnull @__func__.cloop_open, ptr noundef nonnull @.str.6, i32 noundef %3, i32 noundef 64) #10
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end28:                                         ; preds = %if.end23
   %4 = load ptr, ptr %file, align 8
   %n_blocks = getelementptr inbounds i8, ptr %0, i64 52
   %call30 = tail call i32 @bdrv_pread(ptr noundef %4, i64 noundef 132, i64 noundef 4, ptr noundef nonnull %n_blocks, i32 noundef 0) #10
   %cmp31 = icmp slt i32 %call30, 0
-  br i1 %cmp31, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end33
+  br i1 %cmp31, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end33
 
 if.end33:                                         ; preds = %if.end28
   %5 = load i32, ptr %n_blocks, align 4
@@ -137,7 +137,7 @@ if.end33:                                         ; preds = %if.end28
 
 if.then40:                                        ; preds = %if.end33
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 124, ptr noundef nonnull @__func__.cloop_open, ptr noundef nonnull @.str.7, i32 noundef %6, i64 noundef 536870911) #10
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end42:                                         ; preds = %if.end33
   %add = shl nuw i32 %6, 3
@@ -147,7 +147,7 @@ if.end42:                                         ; preds = %if.end33
 
 if.then48:                                        ; preds = %if.end42
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 134, ptr noundef nonnull @__func__.cloop_open, ptr noundef nonnull @.str.8) #10
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end49:                                         ; preds = %if.end42
   %conv50 = zext nneg i32 %mul to i64
@@ -159,7 +159,7 @@ if.end49:                                         ; preds = %if.end42
 
 if.then55:                                        ; preds = %if.end49
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 140, ptr noundef nonnull @__func__.cloop_open, ptr noundef nonnull @.str.9) #10
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end56:                                         ; preds = %if.end49
   %7 = load ptr, ptr %file, align 8
@@ -273,7 +273,7 @@ if.end126:                                        ; preds = %if.end121
   %total_sectors = getelementptr inbounds i8, ptr %bs, i64 16888
   store i64 %conv132, ptr %total_sectors, align 8
   tail call void @qemu_co_mutex_init(ptr noundef nonnull %0) #10
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 fail:                                             ; preds = %if.end121, %if.end56, %if.then120, %if.then112, %if.then98, %if.then86
   %ret.0 = phi i32 [ %call60, %if.end56 ], [ -22, %if.then86 ], [ -22, %if.then98 ], [ -12, %if.then112 ], [ -12, %if.then120 ], [ -22, %if.end121 ]
@@ -285,15 +285,15 @@ fail:                                             ; preds = %if.end121, %if.end5
   %uncompressed_block135 = getelementptr inbounds i8, ptr %0, i64 80
   %27 = load ptr, ptr %uncompressed_block135, align 8
   tail call void @g_free(ptr noundef %27) #10
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end28, %if.end7, %fail, %if.end126, %if.then55, %if.then48, %if.then40, %if.then26, %if.then22, %if.then17
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end28, %if.end7, %fail, %if.end126, %if.then55, %if.then48, %if.then40, %if.then26, %if.then22, %if.then17
   %retval.1 = phi i32 [ -22, %if.then17 ], [ -22, %if.then22 ], [ -22, %if.then26 ], [ -22, %if.then40 ], [ -22, %if.then48 ], [ -12, %if.then55 ], [ %ret.0, %fail ], [ 0, %if.end126 ], [ %call9, %if.end7 ], [ %call30, %if.end28 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #10
   br label %return
 
-return:                                           ; preds = %if.end3, %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
-  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %call1, %do.end ], [ %call4, %if.end3 ]
+return:                                           ; preds = %if.end3, %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call1, %do.end ], [ %call4, %if.end3 ]
   ret i32 %retval.0
 }
 

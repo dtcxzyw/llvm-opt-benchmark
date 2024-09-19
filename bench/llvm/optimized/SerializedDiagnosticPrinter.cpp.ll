@@ -297,15 +297,15 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticOptionsEEC2EPS2_.exit.i.i.i.i.i.
 
 54:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticOptionsEEC2EPS2_.exit.i.i.i.i.i.i.i.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #18, !noalias !13
-  br label %_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom.exit.i.i
+  br label %_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.exit.i.i
 
 55:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticOptionsEEC2EPS2_.exit.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #18, !noalias !14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %27) #18, !noalias !13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #18, !noalias !13
-  br label %_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom.exit.i.i
+  br label %_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.exit.i.i
 
-_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom.exit.i.i: ; preds = %55, %54
+_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.exit.i.i: ; preds = %55, %54
   %56 = getelementptr inbounds nuw i8, ptr %29, i64 40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27), !noalias !13
   %57 = getelementptr inbounds nuw i8, ptr %37, i64 1256
@@ -330,7 +330,7 @@ _ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefE
   store ptr %40, ptr %36, align 8, !alias.scope !7, !noalias !4
   br i1 %4, label %67, label %89
 
-67:                                               ; preds = %_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom.exit.i.i
+67:                                               ; preds = %_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26), !noalias !4
   %68 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i8 4, ptr %68, align 8, !noalias !4
@@ -387,8 +387,8 @@ _ZN12_GLOBAL__N_112SDiagsWriter20RemoveOldDiagnosticsEv.exit.i.i: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26), !noalias !4
   br label %89
 
-89:                                               ; preds = %_ZN12_GLOBAL__N_112SDiagsWriter20RemoveOldDiagnosticsEv.exit.i.i, %_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom.exit.i.i
-  %.val.i4.i.i = phi ptr [ %.val.i4.pre.i.i, %_ZN12_GLOBAL__N_112SDiagsWriter20RemoveOldDiagnosticsEv.exit.i.i ], [ %40, %_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom.exit.i.i ]
+89:                                               ; preds = %_ZN12_GLOBAL__N_112SDiagsWriter20RemoveOldDiagnosticsEv.exit.i.i, %_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.exit.i.i
+  %.val.i4.i.i = phi ptr [ %.val.i4.pre.i.i, %_ZN12_GLOBAL__N_112SDiagsWriter20RemoveOldDiagnosticsEv.exit.i.i ], [ %40, %_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.exit.i.i ]
   %90 = getelementptr inbounds nuw i8, ptr %.val.i4.i.i, i64 1104
   %91 = load i32, ptr %90, align 8, !noalias !4
   %92 = shl i32 68, %91
@@ -2738,7 +2738,7 @@ define internal void @_ZN12_GLOBAL__N_112SDiagsWriterD2Ev(ptr noundef nonnull al
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_112SDiagsWriter11SharedStateEED2Ev.argprom.exit, label %3
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_112SDiagsWriter11SharedStateEED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -2774,7 +2774,7 @@ define internal void @_ZN12_GLOBAL__N_112SDiagsWriterD2Ev(ptr noundef nonnull al
 19:                                               ; preds = %17, %15
   %.0.i.i.i.i = phi i32 [ %7, %15 ], [ %18, %17 ]
   %20 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %20, label %21, label %_ZNSt10shared_ptrIN12_GLOBAL__N_112SDiagsWriter11SharedStateEED2Ev.argprom.exit
+  br i1 %20, label %21, label %_ZNSt10shared_ptrIN12_GLOBAL__N_112SDiagsWriter11SharedStateEED2Ev.exit
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %.val, align 8
@@ -2799,16 +2799,16 @@ define internal void @_ZN12_GLOBAL__N_112SDiagsWriterD2Ev(ptr noundef nonnull al
 32:                                               ; preds = %30, %27
   %.0.i.i.i.i.i.i = phi i32 [ %28, %27 ], [ %31, %30 ]
   %33 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %33, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_112SDiagsWriter11SharedStateEED2Ev.argprom.exit
+  br i1 %33, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_112SDiagsWriter11SharedStateEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %32, %8
   %34 = load ptr, ptr %.val, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %.val) #18
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_112SDiagsWriter11SharedStateEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_112SDiagsWriter11SharedStateEED2Ev.exit
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_112SDiagsWriter11SharedStateEED2Ev.argprom.exit: ; preds = %1, %19, %32, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN12_GLOBAL__N_112SDiagsWriter11SharedStateEED2Ev.exit: ; preds = %1, %19, %32, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   tail call void @_ZN5clang18DiagnosticConsumerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   ret void
 }
@@ -3688,27 +3688,27 @@ _ZN4llvm11SmallVectorImLj64EED2Ev.exit.i.i.i:     ; preds = %34, %_ZN4llvm11Smal
 _ZN4llvm11SmallStringILj1024EED2Ev.exit.i.i.i:    ; preds = %46, %_ZN4llvm11SmallVectorImLj64EED2Ev.exit.i.i.i
   %47 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_112SDiagsWriter11SharedStateEEEvRS0_PT_.argprom.exit, label %48
+  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_112SDiagsWriter11SharedStateEEEvRS0_PT_.exit, label %48
 
 48:                                               ; preds = %_ZN4llvm11SmallStringILj1024EED2Ev.exit.i.i.i
   %49 = load i32, ptr %47, align 4
   %50 = add i32 %49, -1
   store i32 %50, ptr %47, align 4
   %.not.i.i.i.i.i.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %51, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_112SDiagsWriter11SharedStateEEEvRS0_PT_.argprom.exit
+  br i1 %.not.i.i.i.i.i.i.i, label %51, label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_112SDiagsWriter11SharedStateEEEvRS0_PT_.exit
 
 51:                                               ; preds = %48
   tail call void @_ZN5clang17DiagnosticOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %47) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef 232) #19
-  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_112SDiagsWriter11SharedStateEEEvRS0_PT_.argprom.exit
+  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_112SDiagsWriter11SharedStateEEEvRS0_PT_.exit
 
-_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_112SDiagsWriter11SharedStateEEEvRS0_PT_.argprom.exit: ; preds = %_ZN4llvm11SmallStringILj1024EED2Ev.exit.i.i.i, %48, %51
+_ZNSt16allocator_traitsISaIvEE7destroyIN12_GLOBAL__N_112SDiagsWriter11SharedStateEEEvRS0_PT_.exit: ; preds = %_ZN4llvm11SmallStringILj1024EED2Ev.exit.i.i.i, %48, %51
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SDiagsWriter11SharedStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(2176) %0) unnamed_addr #0 align 2 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SDiagsWriter11SharedStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SDiagsWriter11SharedStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 2176) #19
   ret void
 }
@@ -13148,11 +13148,11 @@ attributes #21 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_112SDiagsWriterEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_112SDiagsWriterEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_112SDiagsWriterEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_112SDiagsWriterEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom"}
+!8 = distinct !{!8, !9, !"_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_: argument 0"}
+!9 = distinct !{!9, !"_ZSt11make_sharedIN12_GLOBAL__N_112SDiagsWriter11SharedStateEJRN4llvm9StringRefERPN5clang17DiagnosticOptionsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"}
 !10 = !{!11, !8, !5}
 !11 = distinct !{!11, !12, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SDiagsWriter11SharedStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_: argument 0"}
 !12 = distinct !{!12, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SDiagsWriter11SharedStateESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_"}

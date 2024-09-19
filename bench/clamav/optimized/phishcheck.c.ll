@@ -670,15 +670,15 @@ define i32 @phishingScan(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %147 = icmp eq ptr %.fr118.i.i, null
   br i1 %147, label %.lr.ph.us.us.i.i, label %.lr.ph.us.i.i
 
-.lr.ph.us.us.i.i:                                 ; preds = %.split.us.i.i, %hash_match.argprom.exit.us.us.us.preheader.i.i
-  %.05799.us.us.i.i = phi i64 [ %148, %hash_match.argprom.exit.us.us.us.preheader.i.i ], [ %.2.i.i, %.split.us.i.i ]
+.lr.ph.us.us.i.i:                                 ; preds = %.split.us.i.i, %hash_match.exit.us.us.us.preheader.i.i
+  %.05799.us.us.i.i = phi i64 [ %148, %hash_match.exit.us.us.us.preheader.i.i ], [ %.2.i.i, %.split.us.i.i ]
   %148 = add nsw i64 %.05799.us.us.i.i, -1
   %149 = getelementptr inbounds [6 x i64], ptr %11, i64 0, i64 %148
   %150 = load i64, ptr %149, align 8
   %.not71.us.us.i.i = icmp ugt i64 %150, %130
-  br i1 %.not71.us.us.i.i, label %.split114.us.i.i, label %hash_match.argprom.exit.us.us.us.preheader.i.i
+  br i1 %.not71.us.us.i.i, label %.split114.us.i.i, label %hash_match.exit.us.us.us.preheader.i.i
 
-hash_match.argprom.exit.us.us.us.preheader.i.i:   ; preds = %.lr.ph.us.us.i.i
+hash_match.exit.us.us.us.preheader.i.i:           ; preds = %.lr.ph.us.us.i.i
   %.not70.us.us.i.i = icmp eq i64 %148, 0
   br i1 %.not70.us.us.i.i, label %.loopexit.thread.i, label %.lr.ph.us.us.i.i
 
@@ -825,7 +825,7 @@ hash_match.argprom.exit.us.us.us.preheader.i.i:   ; preds = %.lr.ph.us.us.i.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, ptr noundef %197) #18
   br label %.thread134.i
 
-.loopexit.thread.i:                               ; preds = %..loopexit_crit_edge.split.us104.i.i, %hash_match.argprom.exit.us.us.us.preheader.i.i, %.loopexit83.i.i, %107, %101
+.loopexit.thread.i:                               ; preds = %..loopexit_crit_edge.split.us104.i.i, %hash_match.exit.us.us.us.preheader.i.i, %.loopexit83.i.i, %107, %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -851,8 +851,8 @@ hash_match.argprom.exit.us.us.us.preheader.i.i:   ; preds = %.lr.ph.us.us.i.i
   br i1 %.not.i48, label %212, label %207
 
 207:                                              ; preds = %204
-  call fastcc void @cleanupURL.retelim(ptr noundef %16, ptr noundef null, i32 noundef 1)
-  call fastcc void @cleanupURL.retelim(ptr noundef %34, ptr noundef nonnull %38, i32 noundef 0)
+  call fastcc void @cleanupURL(ptr noundef %16, ptr noundef null, i32 noundef 1)
+  call fastcc void @cleanupURL(ptr noundef %34, ptr noundef nonnull %38, i32 noundef 0)
   %208 = load ptr, ptr %37, align 8
   %.not10.i = icmp eq ptr %208, null
   %.pre = load ptr, ptr %33, align 8
@@ -1468,7 +1468,7 @@ define range(i32 0, 27) i32 @phishing_init(ptr nocapture noundef %0) local_unnam
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull @numeric_url_regex) #18
   %15 = tail call i32 @cli_regcomp(ptr noundef nonnull %.0, ptr noundef nonnull @numeric_url_regex, i32 noundef 7) #18
   %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %build_regex.argprom.exit, label %16
+  br i1 %.not.i, label %build_regex.exit, label %16
 
 16:                                               ; preds = %14
   %17 = tail call i64 @cli_regerror(i32 noundef %15, ptr noundef nonnull %.0, ptr noundef null, i64 noundef 0) #18
@@ -1493,14 +1493,14 @@ define range(i32 0, 27) i32 @phishing_init(ptr nocapture noundef %0) local_unnam
   store ptr null, ptr %2, align 8
   br label %26
 
-build_regex.argprom.exit:                         ; preds = %14
+build_regex.exit:                                 ; preds = %14
   %25 = getelementptr inbounds i8, ptr %.0, i64 32
   store i32 0, ptr %25, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #18
   br label %26
 
-26:                                               ; preds = %11, %build_regex.argprom.exit, %22, %8
-  %.013 = phi i32 [ 26, %22 ], [ 0, %build_regex.argprom.exit ], [ 20, %8 ], [ 0, %11 ]
+26:                                               ; preds = %11, %build_regex.exit, %22, %8
+  %.013 = phi i32 [ 26, %22 ], [ 0, %build_regex.exit ], [ 20, %8 ], [ 0, %11 ]
   ret i32 %.013
 }
 
@@ -2553,7 +2553,7 @@ define internal fastcc range(i32 0, 101) i32 @url_get_host(ptr nocapture noundef
   %. = select i1 %.not.not, i64 32, i64 8
   %13 = getelementptr inbounds i8, ptr %0, i64 %.
   %14 = load ptr, ptr %13, align 8
-  call fastcc void @get_host.retelim(ptr noundef %14, i32 noundef %2, ptr noundef %3, ptr noundef %10, ptr noundef %11)
+  call fastcc void @get_host(ptr noundef %14, i32 noundef %2, ptr noundef %3, ptr noundef %10, ptr noundef %11)
   %15 = load ptr, ptr %10, align 8
   %16 = icmp ne ptr %15, null
   %17 = load ptr, ptr %11, align 8
@@ -2600,7 +2600,7 @@ string_assign_null.exit:                          ; preds = %.preheader.i, %24, 
   %35 = add nsw i64 %34, 1
   %36 = tail call ptr @cli_max_malloc(i64 noundef %35) #18
   %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %string_assign_concatenated.argprom.exit, label %37
+  br i1 %.not.i, label %string_assign_concatenated.exit, label %37
 
 37:                                               ; preds = %30
   %38 = tail call ptr @strncpy(ptr noundef nonnull %36, ptr noundef nonnull dereferenceable(2) @.str.326, i64 noundef %35) #18
@@ -2619,7 +2619,7 @@ string_assign_null.exit:                          ; preds = %.preheader.i, %24, 
   %47 = add nsw i32 %46, -1
   store i32 %47, ptr %45, align 8
   %.not.i.i44 = icmp eq i32 %47, 0
-  br i1 %.not.i.i44, label %48, label %string_assign_concatenated.argprom.exit.thread
+  br i1 %.not.i.i44, label %48, label %string_assign_concatenated.exit.thread
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %.0.i.i43, align 8
@@ -2630,25 +2630,25 @@ string_assign_null.exit:                          ; preds = %.preheader.i, %24, 
   %51 = getelementptr inbounds i8, ptr %.0.i.i43, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not9.i.i46 = icmp eq ptr %52, null
-  br i1 %.not9.i.i46, label %string_assign_concatenated.argprom.exit.thread, label %53
+  br i1 %.not9.i.i46, label %string_assign_concatenated.exit.thread, label %53
 
 53:                                               ; preds = %50
   tail call void @free(ptr noundef nonnull %52) #18
-  br label %string_assign_concatenated.argprom.exit.thread
+  br label %string_assign_concatenated.exit.thread
 
-string_assign_concatenated.argprom.exit.thread:   ; preds = %44, %50, %53
+string_assign_concatenated.exit.thread:           ; preds = %44, %50, %53
   %54 = getelementptr inbounds i8, ptr %12, i64 16
   store i32 1, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %36, ptr %55, align 8
   br label %56
 
-string_assign_concatenated.argprom.exit:          ; preds = %30
+string_assign_concatenated.exit:                  ; preds = %30
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.333) #18
   br label %103
 
-56:                                               ; preds = %string_assign_concatenated.argprom.exit.thread, %string_assign_null.exit
-  %57 = phi ptr [ %36, %string_assign_concatenated.argprom.exit.thread ], [ @empty_string, %string_assign_null.exit ]
+56:                                               ; preds = %string_assign_concatenated.exit.thread, %string_assign_null.exit
+  %57 = phi ptr [ %36, %string_assign_concatenated.exit.thread ], [ @empty_string, %string_assign_null.exit ]
   store ptr null, ptr %12, align 8
   %58 = getelementptr inbounds i8, ptr %12, i64 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.327, ptr noundef nonnull %57) #18
@@ -2755,8 +2755,8 @@ isNumeric.exit.thread:                            ; preds = %72, %80, %76
   store i8 0, ptr %102, align 1
   br label %103
 
-103:                                              ; preds = %string_assign_concatenated.argprom.exit, %91, %92, %71
-  %.0 = phi i32 [ 100, %71 ], [ 20, %string_assign_concatenated.argprom.exit ], [ 0, %92 ], [ 0, %91 ]
+103:                                              ; preds = %string_assign_concatenated.exit, %91, %92, %71
+  %.0 = phi i32 [ 100, %71 ], [ 20, %string_assign_concatenated.exit ], [ 0, %92 ], [ 0, %91 ]
   ret i32 %.0
 }
 
@@ -2790,7 +2790,7 @@ declare i32 @cl_finish_hash(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @cli_bm_scanbuff(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cleanupURL.retelim(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @cleanupURL(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3571,7 +3571,7 @@ declare i32 @cli_regexec(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32
 declare i32 @allow_list_match(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_host.retelim(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc void @get_host(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %7
 

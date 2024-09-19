@@ -1505,7 +1505,7 @@ define dso_local i32 @blkcg_init_disk(ptr noundef %0) local_unnamed_addr #1 alig
 
 28:                                               ; preds = %25
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @blkg_destroy_all.argprom(ptr %.val)
+  tail call fastcc void @blkg_destroy_all(ptr %.val)
   br label %41
 
 29:                                               ; preds = %9
@@ -1544,7 +1544,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local i32 @blk_ioprio_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @blkg_destroy_all.argprom(ptr %.80.val) unnamed_addr #1 align 16 {
+define internal fastcc void @blkg_destroy_all(ptr %.80.val) unnamed_addr #1 align 16 {
   %1 = getelementptr inbounds i8, ptr %.80.val, i64 96
   %2 = getelementptr inbounds i8, ptr %.80.val, i64 440
   tail call void @_raw_spin_lock_irq(ptr noundef %1) #16
@@ -1709,7 +1709,7 @@ blkg_destroy.exit:                                ; preds = %16, %67
 define dso_local void @blkcg_exit_disk(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 80
   %.val = load ptr, ptr %2, align 8
-  tail call fastcc void @blkg_destroy_all.argprom(ptr %.val)
+  tail call fastcc void @blkg_destroy_all(ptr %.val)
   ret void
 }
 
@@ -1953,7 +1953,7 @@ define internal void @blkcg_rstat_flush(ptr nocapture noundef readonly %0, i32 n
 7:                                                ; preds = %2
   %8 = getelementptr i8, ptr %0, i64 304
   %.val = load ptr, ptr %8, align 8
-  tail call fastcc void @__blkcg_rstat_flush.argprom(ptr %.val, i32 noundef %1)
+  tail call fastcc void @__blkcg_rstat_flush(ptr %.val, i32 noundef %1)
   br label %9
 
 9:                                                ; preds = %7, %2
@@ -3717,7 +3717,7 @@ define internal void @__blkg_release(ptr noundef %0) #1 align 16 {
 
 15:                                               ; preds = %11
   %.val = load ptr, ptr %4, align 8
-  tail call fastcc void @__blkcg_rstat_flush.argprom(ptr %.val, i32 noundef %13)
+  tail call fastcc void @__blkcg_rstat_flush(ptr %.val, i32 noundef %13)
   %16 = add nuw nsw i64 %12, 1
   %17 = and i64 %16, 127
   %18 = icmp ugt i64 %17, 63
@@ -3787,7 +3787,7 @@ define internal void @__blkg_release(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__blkcg_rstat_flush.argprom(ptr %.304.val, i32 noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @__blkcg_rstat_flush(ptr %.304.val, i32 noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca %struct.blkg_iostat, align 8
   %3 = alloca %struct.blkg_iostat, align 8
   %4 = alloca %struct.blkg_iostat, align 8

@@ -364,23 +364,23 @@ rev_fwd_xform_int32_3.exit.i.i:                   ; preds = %167, %rev_fwd_xform
   store i32 %174, ptr %.04.i.i46.i, align 4
   %176 = add nsw i32 %.0.i.i47.i, -1
   %.not.i.i48.i = icmp eq i32 %176, 0
-  br i1 %.not.i.i48.i, label %fwd_order_int32.argprom.exit.i.i, label %rev_fwd_xform_int32_3.exit.i.i
+  br i1 %.not.i.i48.i, label %fwd_order_int32.exit.i.i, label %rev_fwd_xform_int32_3.exit.i.i
 
-select.unfold.preheader.i.i.i:                    ; preds = %fwd_order_int32.argprom.exit.i.i
+select.unfold.preheader.i.i.i:                    ; preds = %fwd_order_int32.exit.i.i
   %177 = tail call i32 @llvm.usub.sat.i32(i32 %118, i32 %.029.i)
   %.not1824.i.i.i = icmp eq i32 %181, 0
   br i1 %.not1824.i.i.i, label %rev_precision_uint32.exit.i.i, label %select.unfold.i.i.i
 
-fwd_order_int32.argprom.exit.i.i:                 ; preds = %rev_fwd_xform_int32_3.exit.i.i, %fwd_order_int32.argprom.exit.i.i
-  %.023.i.i.i = phi i32 [ %181, %fwd_order_int32.argprom.exit.i.i ], [ 0, %rev_fwd_xform_int32_3.exit.i.i ]
-  %.01522.i.i.i = phi i32 [ %178, %fwd_order_int32.argprom.exit.i.i ], [ 64, %rev_fwd_xform_int32_3.exit.i.i ]
-  %.01621.i.i.i = phi ptr [ %179, %fwd_order_int32.argprom.exit.i.i ], [ %6, %rev_fwd_xform_int32_3.exit.i.i ]
+fwd_order_int32.exit.i.i:                         ; preds = %rev_fwd_xform_int32_3.exit.i.i, %fwd_order_int32.exit.i.i
+  %.023.i.i.i = phi i32 [ %181, %fwd_order_int32.exit.i.i ], [ 0, %rev_fwd_xform_int32_3.exit.i.i ]
+  %.01522.i.i.i = phi i32 [ %178, %fwd_order_int32.exit.i.i ], [ 64, %rev_fwd_xform_int32_3.exit.i.i ]
+  %.01621.i.i.i = phi ptr [ %179, %fwd_order_int32.exit.i.i ], [ %6, %rev_fwd_xform_int32_3.exit.i.i ]
   %178 = add nsw i32 %.01522.i.i.i, -1
   %179 = getelementptr inbounds i8, ptr %.01621.i.i.i, i64 4
   %180 = load i32, ptr %.01621.i.i.i, align 4
   %181 = or i32 %180, %.023.i.i.i
   %.not.i23.i.i = icmp eq i32 %178, 0
-  br i1 %.not.i23.i.i, label %select.unfold.preheader.i.i.i, label %fwd_order_int32.argprom.exit.i.i
+  br i1 %.not.i23.i.i, label %select.unfold.preheader.i.i.i, label %fwd_order_int32.exit.i.i
 
 select.unfold.i.i.i:                              ; preds = %select.unfold.preheader.i.i.i, %select.unfold.i.i.i
   %.127.i.i.i = phi i32 [ %spec.select20.i.i.i, %select.unfold.i.i.i ], [ %181, %select.unfold.preheader.i.i.i ]
@@ -436,7 +436,7 @@ stream_write_bits.exit.i.i:                       ; preds = %198, %rev_precision
   store i64 %210, ptr %193, align 8
   %reass.sub = sub i32 %120, %.029.i
   %211 = add i32 %reass.sub, -5
-  %212 = call fastcc i32 @encode_ints_uint32.argelim(ptr noundef nonnull %117, i32 noundef %211, i32 noundef %188, ptr noundef %6)
+  %212 = call fastcc i32 @encode_ints_uint32(ptr noundef nonnull %117, i32 noundef %211, i32 noundef %188, ptr noundef %6)
   %213 = add i32 %212, 5
   %214 = icmp ult i32 %213, %177
   br i1 %214, label %215, label %rev_encode_block_int32_3.exit.i
@@ -741,16 +741,16 @@ fwd_xform_int32_3.exit.i.i:                       ; preds = %363, %fwd_xform_int
   store i32 %370, ptr %.04.i.i.i27, align 4
   %372 = add nsw i32 %.0.i.i.i29, -1
   %.not.i.i.i30 = icmp eq i32 %372, 0
-  br i1 %.not.i.i.i30, label %fwd_order_int32.argprom.exit.i.i31, label %fwd_xform_int32_3.exit.i.i
+  br i1 %.not.i.i.i30, label %fwd_order_int32.exit.i.i31, label %fwd_xform_int32_3.exit.i.i
 
-fwd_order_int32.argprom.exit.i.i31:               ; preds = %fwd_xform_int32_3.exit.i.i
+fwd_order_int32.exit.i.i31:                       ; preds = %fwd_xform_int32_3.exit.i.i
   %373 = tail call i32 @llvm.usub.sat.i32(i32 %286, i32 9)
   %374 = add i32 %288, -9
-  %375 = call fastcc i32 @encode_ints_uint32.argelim(ptr noundef %285, i32 noundef %374, i32 noundef %248, ptr noundef %3)
+  %375 = call fastcc i32 @encode_ints_uint32(ptr noundef %285, i32 noundef %374, i32 noundef %248, ptr noundef %3)
   %376 = icmp ult i32 %375, %373
   br i1 %376, label %377, label %encode_block_int32_3.exit.i
 
-377:                                              ; preds = %fwd_order_int32.argprom.exit.i.i31
+377:                                              ; preds = %fwd_order_int32.exit.i.i31
   %378 = sub nuw i32 %373, %375
   %379 = zext i32 %378 to i64
   %380 = load i64, ptr %285, align 8
@@ -781,8 +781,8 @@ stream_pad.exit.i.i33:                            ; preds = %385, %377
   store i64 %.0.lcssa.i.i.i34, ptr %285, align 8
   br label %encode_block_int32_3.exit.i
 
-encode_block_int32_3.exit.i:                      ; preds = %stream_pad.exit.i.i33, %fwd_order_int32.argprom.exit.i.i31
-  %.0.i39.i = phi i32 [ %373, %stream_pad.exit.i.i33 ], [ %375, %fwd_order_int32.argprom.exit.i.i31 ]
+encode_block_int32_3.exit.i:                      ; preds = %stream_pad.exit.i.i33, %fwd_order_int32.exit.i.i31
+  %.0.i39.i = phi i32 [ %373, %stream_pad.exit.i.i33 ], [ %375, %fwd_order_int32.exit.i.i31 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
   %391 = add i32 %.0.i39.i, 9
   br label %encode_block_float_3.exit
@@ -867,7 +867,7 @@ declare float @ldexpf(float noundef, i32 noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @encode_ints_uint32.argelim(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull readonly %3) unnamed_addr #5 {
+define internal fastcc i32 @encode_ints_uint32(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull readonly %3) unnamed_addr #5 {
   %.sroa.24.i = alloca { ptr, ptr }, align 8
   %5 = shl i32 %2, 6
   %6 = or disjoint i32 %5, 63

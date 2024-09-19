@@ -80,24 +80,24 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %29, %28, %26
 
 35:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
   %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str, i64 noundef 1) #5
-  br label %_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.argprom.exit
+  br label %_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.exit
 
 37:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
   store i8 32, ptr %32, align 1
   %38 = load ptr, ptr %15, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 1
   store ptr %39, ptr %15, align 8
-  br label %_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.argprom.exit
+  br label %_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.exit
 
-_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.argprom.exit: ; preds = %37, %35
+_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.exit: ; preds = %37, %35
   %40 = call noundef zeroext i1 @_ZNK5clang13SourceManager19isMacroArgExpansionENS_14SourceLocationEPS1_(ptr noundef nonnull align 8 dereferenceable(696) %11, i32 %.sroa.0.09, ptr noundef null) #5
   br i1 %40, label %41, label %43
 
-41:                                               ; preds = %_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.argprom.exit
+41:                                               ; preds = %_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.exit
   %42 = call i32 @_ZNK5clang13SourceManager23getImmediateSpellingLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %11, i32 %.sroa.0.09) #5
   br label %_ZNK5clang13SourceManager26getImmediateMacroCallerLocENS_14SourceLocationE.exit
 
-43:                                               ; preds = %_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.argprom.exit
+43:                                               ; preds = %_ZN5clang15data_collectionL14printMacroNameERN4llvm18raw_string_ostreamERNS_10ASTContextENS_14SourceLocationE.exit
   %44 = call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %11, i32 %.sroa.0.09) #5
   %.fca.0.extract.i = extractvalue { i64, i8 } %44, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %.fca.0.extract.i to i32

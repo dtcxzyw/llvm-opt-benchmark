@@ -2691,7 +2691,7 @@ _ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i: ; preds = %._crit_edge.loopex
   br i1 %232, label %.preheader.i, label %.preheader6.i
 
 .preheader6.i:                                    ; preds = %.loopexit
-  br i1 %245, label %.lr.ph.i36, label %_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.argprom.exit
+  br i1 %245, label %.lr.ph.i36, label %_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.exit
 
 .lr.ph.i36:                                       ; preds = %.preheader6.i
   %246 = sext i32 %236 to i64
@@ -2699,7 +2699,7 @@ _ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i: ; preds = %._crit_edge.loopex
   br label %248
 
 .preheader.i:                                     ; preds = %.loopexit
-  br i1 %245, label %.lr.ph10.i, label %_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.argprom.exit
+  br i1 %245, label %.lr.ph10.i, label %_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.exit
 
 .lr.ph10.i:                                       ; preds = %.preheader.i
   %247 = sext i32 %236 to i64
@@ -2736,7 +2736,7 @@ _ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i: ; preds = %._crit_edge.loopex
   store i32 %269, ptr %270, align 4
   %indvars.iv.next.i38 = add nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i
-  br i1 %exitcond.not.i39, label %_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.argprom.exit, label %248, !llvm.loop !36
+  br i1 %exitcond.not.i39, label %_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.exit, label %248, !llvm.loop !36
 
 271:                                              ; preds = %_ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i, %.lr.ph10.i
   %indvars.iv13.i = phi i64 [ %247, %.lr.ph10.i ], [ %indvars.iv.next14.i, %_ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i ]
@@ -2797,7 +2797,7 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i: ; preds = %300
   store i32 %302, ptr %303, align 4
   %indvars.iv.next14.i = add nsw i64 %indvars.iv13.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next14.i, %wide.trip.count16.i
-  br i1 %exitcond17.not.i, label %_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.argprom.exit, label %271, !llvm.loop !39
+  br i1 %exitcond17.not.i, label %_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.exit, label %271, !llvm.loop !39
 
 304:                                              ; preds = %.invoke, %53, %15
   %305 = landingpad { ptr, i32 }
@@ -2837,7 +2837,7 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i: ; preds = %300
   %328 = getelementptr inbounds i8, ptr %317, i64 416
   %329 = load ptr, ptr %328, align 8
   %330 = icmp slt i32 %327, %325
-  br i1 %330, label %.lr.ph34.i, label %_ZL12calc_cg_moveP8_IO_FILElP12gmx_domdec_tP7t_statePKiPA3_fPKfSA_RK10MoveLimitsiiN3gmx8ArrayRefIiEE.argprom.exit
+  br i1 %330, label %.lr.ph34.i, label %_ZL12calc_cg_moveP8_IO_FILElP12gmx_domdec_tP7t_statePKiPA3_fPKfSA_RK10MoveLimitsiiN3gmx8ArrayRefIiEE.exit
 
 .lr.ph34.i:                                       ; preds = %313
   %331 = getelementptr inbounds i8, ptr %316, i64 136
@@ -3327,14 +3327,14 @@ _ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i45: ; preds = %._crit_edge.loop
   %indvars.iv.next54.i = add nsw i64 %indvars.iv53.i, 1
   %lftr.wideiv.i46 = trunc i64 %indvars.iv.next54.i to i32
   %exitcond56.not.i = icmp eq i32 %325, %lftr.wideiv.i46
-  br i1 %exitcond56.not.i, label %_ZL12calc_cg_moveP8_IO_FILElP12gmx_domdec_tP7t_statePKiPA3_fPKfSA_RK10MoveLimitsiiN3gmx8ArrayRefIiEE.argprom.exit, label %350, !llvm.loop !44
+  br i1 %exitcond56.not.i, label %_ZL12calc_cg_moveP8_IO_FILElP12gmx_domdec_tP7t_statePKiPA3_fPKfSA_RK10MoveLimitsiiN3gmx8ArrayRefIiEE.exit, label %350, !llvm.loop !44
 
-_ZL12calc_cg_moveP8_IO_FILElP12gmx_domdec_tP7t_statePKiPA3_fPKfSA_RK10MoveLimitsiiN3gmx8ArrayRefIiEE.argprom.exit: ; preds = %_ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i45, %313
+_ZL12calc_cg_moveP8_IO_FILElP12gmx_domdec_tP7t_statePKiPA3_fPKfSA_RK10MoveLimitsiiN3gmx8ArrayRefIiEE.exit: ; preds = %_ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i45, %313
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17)
-  br label %_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.argprom.exit
+  br label %_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.exit
 
-_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.argprom.exit: ; preds = %248, %_ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i, %.preheader.i, %.preheader6.i, %_ZL12calc_cg_moveP8_IO_FILElP12gmx_domdec_tP7t_statePKiPA3_fPKfSA_RK10MoveLimitsiiN3gmx8ArrayRefIiEE.argprom.exit
+_ZL23applyPbcAndSetMoveFlagsRKN3gmx15UpdateGroupsCogENS_8ArrayRefIK10PbcAndFlagEEbPA3_KfiiNS3_INS_11BasicVectorIfEEEESC_NS3_IiEE.exit: ; preds = %248, %_ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i, %.preheader.i, %.preheader6.i, %_ZL12calc_cg_moveP8_IO_FILElP12gmx_domdec_tP7t_statePKiPA3_fPKfSA_RK10MoveLimitsiiN3gmx8ArrayRefIiEE.exit
   ret void
 
 609:                                              ; preds = %310

@@ -810,7 +810,7 @@ define internal i32 @dissect_pcp_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %55
-  tail call fastcc void @dissect_pcp_message_error.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %30)
+  tail call fastcc void @dissect_pcp_message_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %30)
   br label %dissect_pcp_message_creds.exit
 
 59:                                               ; preds = %55
@@ -1857,7 +1857,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pcp_message_error.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_pcp_message_error(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_append_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.394) #5

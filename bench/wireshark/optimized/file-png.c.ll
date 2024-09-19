@@ -260,8 +260,8 @@ define internal noundef i32 @dissect_png(ptr noundef %0, ptr noundef %1, ptr nou
   %20 = getelementptr inbounds i8, ptr %1, i64 408
   br label %21
 
-21:                                               ; preds = %.lr.ph, %dissect_png_bkgd.argprom.exit
-  %.08792 = phi i32 [ 8, %.lr.ph ], [ %165, %dissect_png_bkgd.argprom.exit ]
+21:                                               ; preds = %.lr.ph, %dissect_png_bkgd.exit
+  %.08792 = phi i32 [ 8, %.lr.ph ], [ %165, %dissect_png_bkgd.exit ]
   %22 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.08792) #2
   %23 = add i32 %.08792, 4
   %24 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %23) #2
@@ -317,11 +317,11 @@ define internal noundef i32 @dissect_png(ptr noundef %0, ptr noundef %1, ptr nou
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %58, ptr noundef %46, i32 noundef 11, i32 noundef 1, i32 noundef 0) #2
   %60 = load i32, ptr @hf_png_ihdr_interlace_method, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %60, ptr noundef %46, i32 noundef 12, i32 noundef 1, i32 noundef 0) #2
-  br label %dissect_png_bkgd.argprom.exit
+  br label %dissect_png_bkgd.exit
 
 62:                                               ; preds = %36
   %63 = tail call i32 @tvb_reported_length(ptr noundef %46) #2
-  switch i32 %63, label %dissect_png_bkgd.argprom.exit [
+  switch i32 %63, label %dissect_png_bkgd.exit [
     i32 1, label %64
     i32 2, label %67
     i32 6, label %70
@@ -330,12 +330,12 @@ define internal noundef i32 @dissect_png(ptr noundef %0, ptr noundef %1, ptr nou
 64:                                               ; preds = %62
   %65 = load i32, ptr @hf_png_bkgd_palette_index, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %65, ptr noundef %46, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
-  br label %dissect_png_bkgd.argprom.exit
+  br label %dissect_png_bkgd.exit
 
 67:                                               ; preds = %62
   %68 = load i32, ptr @hf_png_bkgd_greyscale, align 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %68, ptr noundef %46, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
-  br label %dissect_png_bkgd.argprom.exit
+  br label %dissect_png_bkgd.exit
 
 70:                                               ; preds = %62
   %71 = load i32, ptr @hf_png_bkgd_red, align 4
@@ -344,7 +344,7 @@ define internal noundef i32 @dissect_png(ptr noundef %0, ptr noundef %1, ptr nou
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %73, ptr noundef %46, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
   %75 = load i32, ptr @hf_png_bkgd_blue, align 4
   %76 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %75, ptr noundef %46, i32 noundef 4, i32 noundef 2, i32 noundef 0) #2
-  br label %dissect_png_bkgd.argprom.exit
+  br label %dissect_png_bkgd.exit
 
 77:                                               ; preds = %36
   %78 = tail call i32 @tvb_get_ntohl(ptr noundef %46, i32 noundef 0) #2
@@ -387,7 +387,7 @@ define internal noundef i32 @dissect_png(ptr noundef %0, ptr noundef %1, ptr nou
   %115 = fdiv float %114, 1.000000e+05
   %116 = load i32, ptr @hf_png_chrm_blue_y, align 4
   %117 = tail call ptr @proto_tree_add_float(ptr noundef %30, i32 noundef %116, ptr noundef %46, i32 noundef 28, i32 noundef 4, float noundef %115) #2
-  br label %dissect_png_bkgd.argprom.exit
+  br label %dissect_png_bkgd.exit
 
 118:                                              ; preds = %36
   %119 = tail call i32 @tvb_get_ntohl(ptr noundef %46, i32 noundef 0) #2
@@ -395,7 +395,7 @@ define internal noundef i32 @dissect_png(ptr noundef %0, ptr noundef %1, ptr nou
   %121 = fdiv float %120, 1.000000e+05
   %122 = load i32, ptr @hf_png_gama_gamma, align 4
   %123 = tail call ptr @proto_tree_add_float(ptr noundef %30, i32 noundef %122, ptr noundef %46, i32 noundef 0, i32 noundef 4, float noundef %121) #2
-  br label %dissect_png_bkgd.argprom.exit
+  br label %dissect_png_bkgd.exit
 
 124:                                              ; preds = %36
   %125 = load i32, ptr @hf_png_phys_horiz, align 4
@@ -404,18 +404,18 @@ define internal noundef i32 @dissect_png(ptr noundef %0, ptr noundef %1, ptr nou
   %128 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %127, ptr noundef %46, i32 noundef 4, i32 noundef 4, i32 noundef 0) #2
   %129 = load i32, ptr @hf_png_phys_unit, align 4
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %129, ptr noundef %46, i32 noundef 8, i32 noundef 1, i32 noundef 0) #2
-  br label %dissect_png_bkgd.argprom.exit
+  br label %dissect_png_bkgd.exit
 
 131:                                              ; preds = %36
   %132 = load i32, ptr @hf_png_srgb_intent, align 4
   %133 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %132, ptr noundef %46, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
-  br label %dissect_png_bkgd.argprom.exit
+  br label %dissect_png_bkgd.exit
 
 134:                                              ; preds = %36
   %135 = tail call i32 @tvb_captured_length_remaining(ptr noundef %46, i32 noundef 0) #2
   %136 = tail call i32 @tvb_find_guint8(ptr noundef %46, i32 noundef 0, i32 noundef %135, i8 noundef zeroext 0) #2
   %137 = icmp slt i32 %136, 1
-  br i1 %137, label %dissect_png_bkgd.argprom.exit, label %138
+  br i1 %137, label %dissect_png_bkgd.exit, label %138
 
 138:                                              ; preds = %134
   %139 = load i32, ptr @hf_png_text_keyword, align 4
@@ -424,7 +424,7 @@ define internal noundef i32 @dissect_png(ptr noundef %0, ptr noundef %1, ptr nou
   %142 = load i32, ptr @hf_png_text_string, align 4
   %143 = tail call i32 @tvb_captured_length_remaining(ptr noundef %46, i32 noundef %141) #2
   %144 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %142, ptr noundef %46, i32 noundef %141, i32 noundef %143, i32 noundef 10) #2
-  br label %dissect_png_bkgd.argprom.exit
+  br label %dissect_png_bkgd.exit
 
 145:                                              ; preds = %36
   %146 = load i32, ptr @hf_png_time_year, align 4
@@ -439,18 +439,18 @@ define internal noundef i32 @dissect_png(ptr noundef %0, ptr noundef %1, ptr nou
   %155 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %154, ptr noundef %46, i32 noundef 5, i32 noundef 1, i32 noundef 0) #2
   %156 = load i32, ptr @hf_png_time_second, align 4
   %157 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %156, ptr noundef %46, i32 noundef 6, i32 noundef 1, i32 noundef 0) #2
-  br label %dissect_png_bkgd.argprom.exit
+  br label %dissect_png_bkgd.exit
 
 158:                                              ; preds = %36
   %.not89 = icmp eq i32 %22, 0
-  br i1 %.not89, label %dissect_png_bkgd.argprom.exit, label %159
+  br i1 %.not89, label %dissect_png_bkgd.exit, label %159
 
 159:                                              ; preds = %158
   %160 = load i32, ptr @hf_png_chunk_data, align 4
   %161 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %160, ptr noundef %0, i32 noundef %45, i32 noundef %22, i32 noundef 0) #2
-  br label %dissect_png_bkgd.argprom.exit
+  br label %dissect_png_bkgd.exit
 
-dissect_png_bkgd.argprom.exit:                    ; preds = %138, %134, %70, %67, %64, %62, %158, %159, %145, %131, %124, %118, %77, %47
+dissect_png_bkgd.exit:                            ; preds = %138, %134, %70, %67, %64, %62, %158, %159, %145, %131, %124, %118, %77, %47
   %162 = add i32 %22, %45
   %163 = load i32, ptr @hf_png_chunk_crc, align 4
   %164 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %163, ptr noundef %0, i32 noundef %162, i32 noundef 4, i32 noundef 0) #2
@@ -459,8 +459,8 @@ dissect_png_bkgd.argprom.exit:                    ; preds = %138, %134, %70, %67
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %21, label %.loopexit, !llvm.loop !4
 
-.loopexit:                                        ; preds = %dissect_png_bkgd.argprom.exit, %9, %7, %4, %34
-  %.0 = phi i32 [ %23, %34 ], [ 0, %4 ], [ 0, %7 ], [ 8, %9 ], [ %165, %dissect_png_bkgd.argprom.exit ]
+.loopexit:                                        ; preds = %dissect_png_bkgd.exit, %9, %7, %4, %34
+  %.0 = phi i32 [ %23, %34 ], [ 0, %4 ], [ 0, %7 ], [ 8, %9 ], [ %165, %dissect_png_bkgd.exit ]
   ret i32 %.0
 }
 

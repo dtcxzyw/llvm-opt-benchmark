@@ -1117,7 +1117,7 @@ define dso_local i32 @io_sqe_buffers_register(ptr noundef %0, ptr noundef %1, i3
   %52 = phi i64 [ %84, %83 ], [ 0, %22 ]
   %53 = trunc i64 %52 to i32
   %.val = load i16, ptr %29, align 4
-  %54 = call fastcc i32 @io_copy_iov.argprom(i16 %.val, ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %53)
+  %54 = call fastcc i32 @io_copy_iov(i16 %.val, ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %53)
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %.thread
 
@@ -2197,7 +2197,7 @@ declare dso_local void @unpin_user_pages(ptr noundef, i64 noundef) local_unnamed
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -14, 1) i32 @io_copy_iov.argprom(i16 %.4.val, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -14, 1) i32 @io_copy_iov(i16 %.4.val, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.compat_iovec, align 8
   %5 = and i16 %.4.val, 1024
   %6 = icmp eq i16 %5, 0

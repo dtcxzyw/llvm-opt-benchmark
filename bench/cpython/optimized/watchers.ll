@@ -1340,7 +1340,7 @@ declare i32 @PyCode_AddWatcher(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @first_code_object_callback(i32 noundef %event, ptr nocapture readnone %co) #3 {
 entry:
-  switch i32 %event, label %handle_code_object_event.argprom.exit [
+  switch i32 %event, label %handle_code_object_event.exit [
     i32 0, label %return.sink.split.i
     i32 1, label %if.then2.i
   ]
@@ -1353,9 +1353,9 @@ return.sink.split.i:                              ; preds = %if.then2.i, %entry
   %0 = load i32, ptr %num_code_object_created_events.sink.i, align 4
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %num_code_object_created_events.sink.i, align 4
-  br label %handle_code_object_event.argprom.exit
+  br label %handle_code_object_event.exit
 
-handle_code_object_event.argprom.exit:            ; preds = %entry, %return.sink.split.i
+handle_code_object_event.exit:                    ; preds = %entry, %return.sink.split.i
   %retval.0.i = phi i32 [ -1, %entry ], [ 0, %return.sink.split.i ]
   ret i32 %retval.0.i
 }
@@ -1363,7 +1363,7 @@ handle_code_object_event.argprom.exit:            ; preds = %entry, %return.sink
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @second_code_object_callback(i32 noundef %event, ptr nocapture readnone %co) #3 {
 entry:
-  switch i32 %event, label %handle_code_object_event.argprom.exit [
+  switch i32 %event, label %handle_code_object_event.exit [
     i32 0, label %return.sink.split.i
     i32 1, label %if.then2.i
   ]
@@ -1377,9 +1377,9 @@ return.sink.split.i:                              ; preds = %if.then2.i, %entry
   %0 = load i32, ptr %arrayidx.i, align 4
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %arrayidx.i, align 4
-  br label %handle_code_object_event.argprom.exit
+  br label %handle_code_object_event.exit
 
-handle_code_object_event.argprom.exit:            ; preds = %entry, %return.sink.split.i
+handle_code_object_event.exit:                    ; preds = %entry, %return.sink.split.i
   %retval.0.i = phi i32 [ -1, %entry ], [ 0, %return.sink.split.i ]
   ret i32 %retval.0.i
 }

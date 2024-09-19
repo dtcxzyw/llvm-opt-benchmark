@@ -998,7 +998,7 @@ init.check.i:                                     ; preds = %if.end.i
   br i1 %tobool.not.i, label %init.end.i, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  call fastcc void @_ZN6hermes2vmL26getReturnThisRegexBytecodeEv.argprom()
+  call fastcc void @_ZN6hermes2vmL26getReturnThisRegexBytecodeEv()
   %45 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIhSaIhEED2Ev, ptr nonnull @_ZZN6hermes2vmL12isReturnThisENS0_6HandleINS0_15StringPrimitiveEEERNS0_7RuntimeEE8bytecode, ptr nonnull @__dso_handle) #15
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN6hermes2vmL12isReturnThisENS0_6HandleINS0_15StringPrimitiveEEERNS0_7RuntimeEE8bytecode) #15
   br label %init.end.i
@@ -2017,7 +2017,7 @@ declare { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7Run
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes2vmL26getReturnThisRegexBytecodeEv.argprom() unnamed_addr #0 {
+define internal fastcc void @_ZN6hermes2vmL26getReturnThisRegexBytecodeEv() unnamed_addr #0 {
 entry:
   %header.i = alloca %"struct.hermes::regex::RegexBytecodeHeader", align 2
   %bcs.i = alloca %"class.hermes::regex::RegexBytecodeStream", align 8

@@ -178,7 +178,7 @@ widen_snapshot_xid.exit30:                        ; preds = %53, %55
   %66 = load i32, ptr %43, align 4
   %67 = zext i32 %66 to i64
   %68 = icmp ult i32 %66, 2
-  br i1 %68, label %qunique.argprom.exit.i, label %.preheader.i.i
+  br i1 %68, label %qunique.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %63, %78
   %.02.i.i = phi i64 [ %.1.i.i, %78 ], [ 0, %63 ]
@@ -212,15 +212,15 @@ widen_snapshot_xid.exit30:                        ; preds = %53, %55
 80:                                               ; preds = %78
   %81 = trunc i64 %.1.i.i to i32
   %82 = add i32 %81, 1
-  br label %qunique.argprom.exit.i
+  br label %qunique.exit.i
 
-qunique.argprom.exit.i:                           ; preds = %80, %63
+qunique.exit.i:                                   ; preds = %80, %63
   %.024.i.i = phi i32 [ %82, %80 ], [ %66, %63 ]
   store i32 %.024.i.i, ptr %43, align 4
   br label %sort_snapshot.exit
 
-sort_snapshot.exit:                               ; preds = %widen_snapshot_xid.exit27, %._crit_edge, %qunique.argprom.exit.i
-  %83 = phi i32 [ %.pre, %._crit_edge ], [ %.024.i.i, %qunique.argprom.exit.i ], [ 0, %widen_snapshot_xid.exit27 ]
+sort_snapshot.exit:                               ; preds = %widen_snapshot_xid.exit27, %._crit_edge, %qunique.exit.i
+  %83 = phi i32 [ %.pre, %._crit_edge ], [ %.024.i.i, %qunique.exit.i ], [ 0, %widen_snapshot_xid.exit27 ]
   %84 = shl i32 %83, 5
   %85 = add i32 %84, 96
   store i32 %85, ptr %14, align 4

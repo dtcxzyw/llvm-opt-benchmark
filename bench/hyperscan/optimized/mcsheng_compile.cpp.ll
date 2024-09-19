@@ -544,7 +544,7 @@ for.body.i:                                       ; preds = %invoke.cont6.i, %fo
   %.val45.i = load i16, ptr %21, align 4
   %sub.i.i.i = add i16 %.val45.i, -1
   %cmp5.not.i.i = icmp eq i16 %sub.i.i.i, 0
-  br i1 %cmp5.not.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i, label %for.body.lr.ph.i.i
+  br i1 %cmp5.not.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.body.i
   %conv2.i.i = zext i16 %19 to i64
@@ -578,20 +578,20 @@ for.body15.i.i:                                   ; preds = %for.cond11.i.i, %if
   %cmp21.i.i = icmp eq i16 %25, %19
   %cmp27.i.i = icmp eq i16 %25, %23
   %or.cond.i.i = or i1 %cmp21.i.i, %cmp27.i.i
-  br i1 %or.cond.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i, label %for.cond11.i.i
+  br i1 %or.cond.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i, label %for.cond11.i.i
 
 for.inc30.i.i:                                    ; preds = %for.cond11.i.i, %for.body.i.i
   %indvars.iv.next12.i.i = add nuw nsw i64 %indvars.iv11.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next12.i.i, %wide.trip.count14.i.i
-  br i1 %exitcond15.not.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i, label %for.body.i.i, !llvm.loop !10
+  br i1 %exitcond15.not.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i, label %for.body.i.i, !llvm.loop !10
 
-_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i: ; preds = %for.inc30.i.i, %for.body15.i.i, %for.body.i
+_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i:  ; preds = %for.inc30.i.i, %for.body15.i.i, %for.body.i
   %cmp3.i.i = phi i1 [ false, %for.body.i ], [ true, %for.body15.i.i ], [ false, %for.inc30.i.i ]
   %grey.val.i = load i8, ptr %17, align 1, !noalias !5
-  invoke fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %conv3.i, i1 noundef zeroext %cmp3.i.i, i8 %grey.val.i)
+  invoke fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %conv3.i, i1 noundef zeroext %cmp3.i.i, i8 %grey.val.i)
           to label %invoke.cont6.i unwind label %lpad.loopexit.i
 
-invoke.cont6.i:                                   ; preds = %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i
+invoke.cont6.i:                                   ; preds = %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i
   %inc.i = add i32 %i.0138.i, 1
   %conv1.i = zext i32 %inc.i to i64
   %info.val42.i = load ptr, ptr %states, align 8, !noalias !5
@@ -605,7 +605,7 @@ invoke.cont6.i:                                   ; preds = %_ZN3ue2L14is_cyclic
   %cmp2.i = icmp ugt i64 %sub.ptr.div.i.i.i, %conv1.i
   br i1 %cmp2.i, label %for.body.i, label %if.end.i, !llvm.loop !11
 
-lpad.loopexit.i:                                  ; preds = %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i
+lpad.loopexit.i:                                  ; preds = %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i
   %lpad.loopexit127.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup96.i
@@ -693,7 +693,7 @@ invoke.cont48.i:                                  ; preds = %invoke.cont40.i
   %40 = getelementptr i8, ptr %info.val47.i, i64 8
   %info.val.val5.i.i = load ptr, ptr %40, align 8
   %cmp1.not.i.i = icmp eq ptr %info.val.val5.i.i, %info.val.val.i.i
-  br i1 %cmp1.not.i.i, label %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.argprom.exit.i, label %for.body.preheader.i.i
+  br i1 %cmp1.not.i.i, label %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %invoke.cont48.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %info.val.val5.i.i to i64
@@ -719,15 +719,15 @@ for.body.i53.i:                                   ; preds = %for.body.i53.i, %fo
 for.end.loopexit.i.i:                             ; preds = %for.body.i53.i
   %42 = add i64 %spec.select.i.i, 15
   %43 = and i64 %42, -16
-  br label %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.argprom.exit.i
+  br label %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i
 
-_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.argprom.exit.i: ; preds = %for.end.loopexit.i.i, %invoke.cont48.i
+_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i: ; preds = %for.end.loopexit.i.i, %invoke.cont48.i
   %rv.0.lcssa.i.i = phi i64 [ 0, %invoke.cont48.i ], [ %43, %for.end.loopexit.i.i ]
   %add59.i = add i64 %rv.0.lcssa.i.i, %and56.i
   invoke void @_ZN3ue212bytecode_ptrI3NFAEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i64 noundef %add59.i, i64 noundef 64)
           to label %invoke.cont61.i unwind label %lpad26.i
 
-invoke.cont61.i:                                  ; preds = %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.argprom.exit.i
+invoke.cont61.i:                                  ; preds = %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i
   %44 = load ptr, ptr %ref.tmp, align 8, !alias.scope !13
   call void @llvm.memset.p0.i64(ptr align 64 %44, i8 0, i64 %add59.i, i1 false)
   %45 = load ptr, ptr %ref.tmp, align 8, !alias.scope !5
@@ -759,7 +759,7 @@ invoke.cont73.i:                                  ; preds = %invoke.cont72.i
   %50 = load ptr, ptr %ref.tmp, align 8, !alias.scope !5
   %conv87.i = trunc i64 %add44.i to i32
   %51 = load ptr, ptr %ri.i, align 8, !noalias !5
-  invoke fastcc void @_ZN3ue2L16fill_in_aux_infoEP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE.argelim(ptr noundef %50, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv67.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i, i32 noundef %conv87.i, ptr noundef nonnull align 8 dereferenceable(8) %51)
+  invoke fastcc void @_ZN3ue2L16fill_in_aux_infoEP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %50, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv67.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i, i32 noundef %conv87.i, ptr noundef nonnull align 8 dereferenceable(8) %51)
           to label %invoke.cont89.i unwind label %lpad62.i
 
 invoke.cont89.i:                                  ; preds = %invoke.cont73.i
@@ -800,15 +800,15 @@ land.lhs.true.i.i.i:                              ; preds = %for.body.i59.i
   %sheng_id.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val19.i.i, i64 %57, i32 3
   %58 = load i8, ptr %sheng_id.i.i.i.i, align 2
   %cmp.i.not.i.i.i = icmp eq i8 %58, -1
-  br i1 %cmp.i.not.i.i.i, label %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i, label %for.inc23.i.i
+  br i1 %cmp.i.not.i.i.i, label %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i, label %for.inc23.i.i
 
-_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i: ; preds = %land.lhs.true.i.i.i
+_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i: ; preds = %land.lhs.true.i.i.i
   %shermanState.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val19.i.i, i64 %57, i32 1
   %59 = load i8, ptr %shermanState.i.i.i.i, align 2
   %tobool.i.i.i.i = trunc i8 %59 to i1
   br i1 %tobool.i.i.i.i, label %for.inc23.i.i, label %if.end.i66.i
 
-if.end.i66.i:                                     ; preds = %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i
+if.end.i66.i:                                     ; preds = %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i
   %impl_id.i.i.i = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val.val44.i.i, i64 %57, i32 2
   %60 = load i16, ptr %impl_id.i.i.i, align 2
   %conv6.i.i = zext i16 %60 to i32
@@ -876,11 +876,11 @@ for.inc23.loopexit.i.i:                           ; preds = %for.body12.i.i
   %info.val.val.pre.i.i = load ptr, ptr %info.val.pre.i.i, align 8
   br label %for.inc23.i.i
 
-for.inc23.i.i:                                    ; preds = %for.inc23.loopexit.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i, %land.lhs.true.i.i.i, %for.body.i59.i
-  %73 = phi i16 [ %72, %for.inc23.loopexit.i.i ], [ %55, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %55, %for.body.i59.i ], [ %55, %land.lhs.true.i.i.i ], [ %55, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i ]
-  %info.val.val.i60.i = phi ptr [ %info.val.val.pre.i.i, %for.inc23.loopexit.i.i ], [ %info.val.val44.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %info.val.val44.i.i, %for.body.i59.i ], [ %info.val.val44.i.i, %land.lhs.true.i.i.i ], [ %info.val.val44.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i ]
-  %info.val.i.i = phi ptr [ %info.val.pre.i.i, %for.inc23.loopexit.i.i ], [ %info.val42.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %info.val42.i.i, %for.body.i59.i ], [ %info.val42.i.i, %land.lhs.true.i.i.i ], [ %info.val42.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i ]
-  %74 = phi i16 [ %72, %for.inc23.loopexit.i.i ], [ 0, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %56, %for.body.i59.i ], [ %56, %land.lhs.true.i.i.i ], [ %56, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i ]
+for.inc23.i.i:                                    ; preds = %for.inc23.loopexit.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i, %land.lhs.true.i.i.i, %for.body.i59.i
+  %73 = phi i16 [ %72, %for.inc23.loopexit.i.i ], [ %55, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %55, %for.body.i59.i ], [ %55, %land.lhs.true.i.i.i ], [ %55, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i ]
+  %info.val.val.i60.i = phi ptr [ %info.val.val.pre.i.i, %for.inc23.loopexit.i.i ], [ %info.val.val44.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %info.val.val44.i.i, %for.body.i59.i ], [ %info.val.val44.i.i, %land.lhs.true.i.i.i ], [ %info.val.val44.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i ]
+  %info.val.i.i = phi ptr [ %info.val.pre.i.i, %for.inc23.loopexit.i.i ], [ %info.val42.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %info.val42.i.i, %for.body.i59.i ], [ %info.val42.i.i, %land.lhs.true.i.i.i ], [ %info.val42.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i ]
+  %74 = phi i16 [ %72, %for.inc23.loopexit.i.i ], [ 0, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %56, %for.body.i59.i ], [ %56, %land.lhs.true.i.i.i ], [ %56, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i ]
   %inc24.i.i = add nuw i64 %i.039.i.i, 1
   %75 = getelementptr i8, ptr %info.val.i.i, i64 8
   %info.val.val18.i.i = load ptr, ptr %75, align 8
@@ -1081,7 +1081,7 @@ for.inc87.i.i:                                    ; preds = %for.inc84.i.i, %for
   %cmp.i84.i = icmp ult i64 %inc88.i.i, %sub.ptr.div.i.i.i83.i
   br i1 %cmp.i84.i, label %for.body.i73.i, label %nrvo.skipdtor.i, !llvm.loop !20
 
-lpad26.i:                                         ; preds = %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.argprom.exit.i, %invoke.cont40.i, %invoke.cont27.i
+lpad26.i:                                         ; preds = %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i, %invoke.cont40.i, %invoke.cont27.i
   %115 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
@@ -1320,7 +1320,7 @@ invoke.cont57.i:                                  ; preds = %invoke.cont56.i
   %150 = load ptr, ptr %ref.tmp34, align 8, !alias.scope !21
   %conv63.i = trunc i64 %add17.i to i32
   %151 = load ptr, ptr %ri.i19, align 8, !noalias !21
-  invoke fastcc void @_ZN3ue2L16fill_in_aux_infoEP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE.argelim(ptr noundef %150, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv52.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i15, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i16, i32 noundef %conv63.i, ptr noundef nonnull align 8 dereferenceable(8) %151)
+  invoke fastcc void @_ZN3ue2L16fill_in_aux_infoEP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %150, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv52.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i15, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i16, i32 noundef %conv63.i, ptr noundef nonnull align 8 dereferenceable(8) %151)
           to label %invoke.cont65.i unwind label %lpad48.i
 
 invoke.cont65.i:                                  ; preds = %invoke.cont57.i
@@ -1360,15 +1360,15 @@ land.lhs.true.i.i.i50:                            ; preds = %for.body.i.i48
   %sheng_id.i.i.i.i51 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val15.i.i, i64 %157, i32 3
   %158 = load i8, ptr %sheng_id.i.i.i.i51, align 2
   %cmp.i.not.i.i.i52 = icmp eq i8 %158, -1
-  br i1 %cmp.i.not.i.i.i52, label %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i67, label %for.inc19.i.i
+  br i1 %cmp.i.not.i.i.i52, label %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i67, label %for.inc19.i.i
 
-_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i67: ; preds = %land.lhs.true.i.i.i50
+_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i67: ; preds = %land.lhs.true.i.i.i50
   %shermanState.i.i.i.i68 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val15.i.i, i64 %157, i32 1
   %159 = load i8, ptr %shermanState.i.i.i.i68, align 2
   %tobool.i.i.i.i69 = trunc i8 %159 to i1
   br i1 %tobool.i.i.i.i69, label %for.inc19.i.i, label %if.end.i.i70
 
-if.end.i.i70:                                     ; preds = %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i67
+if.end.i.i70:                                     ; preds = %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i67
   %impl_id.i.i.i71 = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val.val40.i.i, i64 %157, i32 2
   %160 = load i16, ptr %impl_id.i.i.i71, align 2
   %conv6.i.i72 = zext i16 %160 to i32
@@ -1429,10 +1429,10 @@ for.inc19.loopexit.i.i:                           ; preds = %for.body12.i.i80
   %info.val.val.pre.i.i87 = load ptr, ptr %info.val.pre.i.i86, align 8
   br label %for.inc19.i.i
 
-for.inc19.i.i:                                    ; preds = %for.inc19.loopexit.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i77, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i67, %land.lhs.true.i.i.i50, %for.body.i.i48
-  %info.val.val.i.i53 = phi ptr [ %info.val.val.pre.i.i87, %for.inc19.loopexit.i.i ], [ %info.val.val40.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i77 ], [ %info.val.val40.i.i, %for.body.i.i48 ], [ %info.val.val40.i.i, %land.lhs.true.i.i.i50 ], [ %info.val.val40.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i67 ]
-  %info.val.i.i54 = phi ptr [ %info.val.pre.i.i86, %for.inc19.loopexit.i.i ], [ %info.val38.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i77 ], [ %info.val38.i.i, %for.body.i.i48 ], [ %info.val38.i.i, %land.lhs.true.i.i.i50 ], [ %info.val38.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i67 ]
-  %169 = phi i16 [ %168, %for.inc19.loopexit.i.i ], [ 0, %_ZN3ue29verify_u8IiEEhT_.exit.i.i77 ], [ %156, %for.body.i.i48 ], [ %156, %land.lhs.true.i.i.i50 ], [ %156, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i67 ]
+for.inc19.i.i:                                    ; preds = %for.inc19.loopexit.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i77, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i67, %land.lhs.true.i.i.i50, %for.body.i.i48
+  %info.val.val.i.i53 = phi ptr [ %info.val.val.pre.i.i87, %for.inc19.loopexit.i.i ], [ %info.val.val40.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i77 ], [ %info.val.val40.i.i, %for.body.i.i48 ], [ %info.val.val40.i.i, %land.lhs.true.i.i.i50 ], [ %info.val.val40.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i67 ]
+  %info.val.i.i54 = phi ptr [ %info.val.pre.i.i86, %for.inc19.loopexit.i.i ], [ %info.val38.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i77 ], [ %info.val38.i.i, %for.body.i.i48 ], [ %info.val38.i.i, %land.lhs.true.i.i.i50 ], [ %info.val38.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i67 ]
+  %169 = phi i16 [ %168, %for.inc19.loopexit.i.i ], [ 0, %_ZN3ue29verify_u8IiEEhT_.exit.i.i77 ], [ %156, %for.body.i.i48 ], [ %156, %land.lhs.true.i.i.i50 ], [ %156, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i67 ]
   %inc20.i.i = add nuw i64 %i.035.i.i, 1
   %170 = getelementptr i8, ptr %info.val.i.i54, i64 8
   %info.val.val14.i.i = load ptr, ptr %170, align 8
@@ -1721,18 +1721,18 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 96
   %cmp.i.i = icmp ugt i64 %sub.ptr.div.i, 1537228672809129301
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #24
   unreachable
 
-_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i: ; preds = %entry
+_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %extra, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %1, %2
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.argprom.exit.i
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.exit.i
 
-_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.argprom.exit.i: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i
+_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %sub.ptr.div.i, 6
   %call5.i.i.i.i2.i.i7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
   store ptr %call5.i.i.i.i2.i.i7, ptr %extra, align 8
@@ -1741,9 +1741,9 @@ _ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.argprom.
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.argprom.exit.i
-  %__cur.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i7, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.argprom.exit.i ]
-  %__n.addr.05.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.ptr.div.i, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.argprom.exit.i ]
+for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.exit.i
+  %__cur.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i7, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.exit.i ]
+  %__n.addr.05.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.ptr.div.i, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EEC2EmRKS3_.exit.i ]
   %sheng_id.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.06.i.i.i.i.i, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %__cur.06.i.i.i.i.i, i8 0, i64 6, i1 false)
   store i8 -1, ptr %sheng_id.i.i.i.i.i.i.i, align 2
@@ -1752,8 +1752,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %cmp.not.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !30
 
-invoke.cont:                                      ; preds = %for.body.i.i.i.i.i, %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
+invoke.cont:                                      ; preds = %for.body.i.i.i.i.i, %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %_M_finish.i.i5.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i5.i, align 8
   %alpha_size = getelementptr inbounds i8, ptr %this, i64 48
@@ -2508,7 +2508,7 @@ if.end235:                                        ; preds = %invoke.cont222
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %cache.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  %call.i = invoke fastcc noundef double @_ZN3ue2L9leakinessERKNS_9RdfaGraphERNS_12_GLOBAL__N_18dfa_infoERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RdfaVertexPropsENS_13RdfaEdgePropsEEEEESt4lessISD_ESaISD_EEESD_jRSt13unordered_mapISt4pairISD_jEdNS_10ue2_hasherESt8equal_toISM_ESaISL_IKSM_dEEE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull readonly align 8 dereferenceable(40) %sheng_states, ptr nonnull %agg.tmp.sroa.0.0.copyload, i64 %base_cyclic.sroa.6.0.copyload, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(56) %cache.i)
+  %call.i = invoke fastcc noundef double @_ZN3ue2L9leakinessERKNS_9RdfaGraphERNS_12_GLOBAL__N_18dfa_infoERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RdfaVertexPropsENS_13RdfaEdgePropsEEEEESt4lessISD_ESaISD_EEESD_jRSt13unordered_mapISt4pairISD_jEdNS_10ue2_hasherESt8equal_toISM_ESaISL_IKSM_dEEE(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull readonly align 8 dereferenceable(40) %sheng_states, ptr nonnull %agg.tmp.sroa.0.0.copyload, i64 %base_cyclic.sroa.6.0.copyload, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(56) %cache.i)
           to label %invoke.cont.i unwind label %lpad.i117
 
 invoke.cont.i:                                    ; preds = %if.end235
@@ -3272,13 +3272,13 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %entry, %if.then.i.i
   %extra = getelementptr inbounds i8, ptr %this, i64 24
   %extra.val = load ptr, ptr %extra, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %extra.val, null
-  br i1 %tobool.not.i.i.i2, label %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EED2Ev.argprom.argprom.exit, label %if.then.i.i.i3
+  br i1 %tobool.not.i.i.i2, label %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %extra.val) #25
-  br label %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EED2Ev.argprom.argprom.exit
+  br label %_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EED2Ev.argprom.argprom.exit: ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, %if.then.i.i.i3
+_ZNSt6vectorIN3ue212_GLOBAL__N_112dstate_extraESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit, %if.then.i.i.i3
   ret void
 }
 
@@ -3445,7 +3445,7 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
   %.val45.i = load i16, ptr %19, align 4
   %sub.i.i.i = add i16 %.val45.i, -1
   %cmp5.not.i.i = icmp eq i16 %sub.i.i.i, 0
-  br i1 %cmp5.not.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i, label %for.body.lr.ph.i.i
+  br i1 %cmp5.not.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.body.i
   %conv2.i.i = zext i16 %17 to i64
@@ -3479,20 +3479,20 @@ for.body15.i.i:                                   ; preds = %for.cond11.i.i, %if
   %cmp21.i.i = icmp eq i16 %23, %17
   %cmp27.i.i = icmp eq i16 %23, %21
   %or.cond.i.i = or i1 %cmp21.i.i, %cmp27.i.i
-  br i1 %or.cond.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i, label %for.cond11.i.i
+  br i1 %or.cond.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i, label %for.cond11.i.i
 
 for.inc30.i.i:                                    ; preds = %for.cond11.i.i, %for.body.i.i
   %indvars.iv.next12.i.i = add nuw nsw i64 %indvars.iv11.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next12.i.i, %wide.trip.count14.i.i
-  br i1 %exitcond15.not.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i, label %for.body.i.i, !llvm.loop !10
+  br i1 %exitcond15.not.i.i, label %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i, label %for.body.i.i, !llvm.loop !10
 
-_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i: ; preds = %for.inc30.i.i, %for.body15.i.i, %for.body.i
+_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i:  ; preds = %for.inc30.i.i, %for.body15.i.i, %for.body.i
   %cmp3.i.i = phi i1 [ false, %for.body.i ], [ true, %for.body15.i.i ], [ false, %for.inc30.i.i ]
   %grey.val.i = load i8, ptr %15, align 1, !noalias !74
-  invoke fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %conv3.i, i1 noundef zeroext %cmp3.i.i, i8 %grey.val.i)
+  invoke fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE(ptr noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %conv3.i, i1 noundef zeroext %cmp3.i.i, i8 %grey.val.i)
           to label %invoke.cont.i unwind label %lpad.loopexit.i
 
-invoke.cont.i:                                    ; preds = %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i
+invoke.cont.i:                                    ; preds = %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i
   %inc.i = add i32 %i.0138.i, 1
   %conv1.i = zext i32 %inc.i to i64
   %info.val42.i = load ptr, ptr %13, align 8, !noalias !74
@@ -3506,7 +3506,7 @@ invoke.cont.i:                                    ; preds = %_ZN3ue2L14is_cyclic
   %cmp2.i = icmp ugt i64 %sub.ptr.div.i.i.i, %conv1.i
   br i1 %cmp2.i, label %for.body.i, label %if.end.i, !llvm.loop !77
 
-lpad.loopexit.i:                                  ; preds = %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.argprom.exit.i
+lpad.loopexit.i:                                  ; preds = %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i
   %lpad.loopexit127.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup89.i
@@ -3595,7 +3595,7 @@ invoke.cont47.i:                                  ; preds = %invoke.cont39.i
   %39 = getelementptr i8, ptr %info.val47.i, i64 8
   %info.val.val5.i.i = load ptr, ptr %39, align 8
   %cmp1.not.i.i = icmp eq ptr %info.val.val5.i.i, %info.val.val.i.i
-  br i1 %cmp1.not.i.i, label %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.argprom.exit.i, label %for.body.preheader.i.i
+  br i1 %cmp1.not.i.i, label %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %invoke.cont47.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %info.val.val5.i.i to i64
@@ -3621,15 +3621,15 @@ for.body.i53.i:                                   ; preds = %for.body.i53.i, %fo
 for.end.loopexit.i.i:                             ; preds = %for.body.i53.i
   %41 = add i64 %spec.select.i.i, 15
   %42 = and i64 %41, -16
-  br label %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.argprom.exit.i
+  br label %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i
 
-_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.argprom.exit.i: ; preds = %for.end.loopexit.i.i, %invoke.cont47.i
+_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i: ; preds = %for.end.loopexit.i.i, %invoke.cont47.i
   %rv.0.lcssa.i.i = phi i64 [ 0, %invoke.cont47.i ], [ %42, %for.end.loopexit.i.i ]
   %add57.i = add i64 %rv.0.lcssa.i.i, %and55.i
   invoke void @_ZN3ue212bytecode_ptrI3NFAEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i64 noundef %add57.i, i64 noundef 64)
           to label %invoke.cont59.i unwind label %lpad25.i
 
-invoke.cont59.i:                                  ; preds = %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.argprom.exit.i
+invoke.cont59.i:                                  ; preds = %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i
   %43 = load ptr, ptr %ref.tmp, align 8, !alias.scope !78
   call void @llvm.memset.p0.i64(ptr align 64 %43, i8 0, i64 %add57.i, i1 false)
   %44 = load ptr, ptr %ref.tmp, align 8, !alias.scope !74
@@ -3661,7 +3661,7 @@ invoke.cont69.i:                                  ; preds = %invoke.cont68.i
   %49 = load ptr, ptr %ref.tmp, align 8, !alias.scope !74
   %conv82.i = trunc i64 %add43.i to i32
   %50 = load ptr, ptr %ri.i, align 8, !noalias !74
-  invoke fastcc void @_ZN3ue2L18fill_in_aux_info64EP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE.argelim(ptr noundef %49, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv63.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i, i32 noundef %conv82.i, ptr noundef nonnull align 8 dereferenceable(8) %50)
+  invoke fastcc void @_ZN3ue2L18fill_in_aux_info64EP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %49, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv63.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i, i32 noundef %conv82.i, ptr noundef nonnull align 8 dereferenceable(8) %50)
           to label %invoke.cont84.i unwind label %lpad67.i
 
 invoke.cont84.i:                                  ; preds = %invoke.cont69.i
@@ -3702,15 +3702,15 @@ land.lhs.true.i.i.i:                              ; preds = %for.body.i59.i
   %sheng_id.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val19.i.i, i64 %56, i32 3
   %57 = load i8, ptr %sheng_id.i.i.i.i, align 2
   %cmp.i.not.i.i.i = icmp eq i8 %57, -1
-  br i1 %cmp.i.not.i.i.i, label %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i, label %for.inc23.i.i
+  br i1 %cmp.i.not.i.i.i, label %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i, label %for.inc23.i.i
 
-_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i: ; preds = %land.lhs.true.i.i.i
+_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i: ; preds = %land.lhs.true.i.i.i
   %shermanState.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val19.i.i, i64 %56, i32 1
   %58 = load i8, ptr %shermanState.i.i.i.i, align 2
   %tobool.i.i.i.i = trunc i8 %58 to i1
   br i1 %tobool.i.i.i.i, label %for.inc23.i.i, label %if.end.i66.i
 
-if.end.i66.i:                                     ; preds = %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i
+if.end.i66.i:                                     ; preds = %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i
   %impl_id.i.i.i = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val.val44.i.i, i64 %56, i32 2
   %59 = load i16, ptr %impl_id.i.i.i, align 2
   %conv6.i.i = zext i16 %59 to i32
@@ -3778,11 +3778,11 @@ for.inc23.loopexit.i.i:                           ; preds = %for.body12.i.i
   %info.val.val.pre.i.i = load ptr, ptr %info.val.pre.i.i, align 8
   br label %for.inc23.i.i
 
-for.inc23.i.i:                                    ; preds = %for.inc23.loopexit.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i, %land.lhs.true.i.i.i, %for.body.i59.i
-  %72 = phi i16 [ %71, %for.inc23.loopexit.i.i ], [ %54, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %54, %for.body.i59.i ], [ %54, %land.lhs.true.i.i.i ], [ %54, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i ]
-  %info.val.val.i60.i = phi ptr [ %info.val.val.pre.i.i, %for.inc23.loopexit.i.i ], [ %info.val.val44.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %info.val.val44.i.i, %for.body.i59.i ], [ %info.val.val44.i.i, %land.lhs.true.i.i.i ], [ %info.val.val44.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i ]
-  %info.val.i.i = phi ptr [ %info.val.pre.i.i, %for.inc23.loopexit.i.i ], [ %info.val42.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %info.val42.i.i, %for.body.i59.i ], [ %info.val42.i.i, %land.lhs.true.i.i.i ], [ %info.val42.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i ]
-  %73 = phi i16 [ %71, %for.inc23.loopexit.i.i ], [ 0, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %55, %for.body.i59.i ], [ %55, %land.lhs.true.i.i.i ], [ %55, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i ]
+for.inc23.i.i:                                    ; preds = %for.inc23.loopexit.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i, %land.lhs.true.i.i.i, %for.body.i59.i
+  %72 = phi i16 [ %71, %for.inc23.loopexit.i.i ], [ %54, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %54, %for.body.i59.i ], [ %54, %land.lhs.true.i.i.i ], [ %54, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i ]
+  %info.val.val.i60.i = phi ptr [ %info.val.val.pre.i.i, %for.inc23.loopexit.i.i ], [ %info.val.val44.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %info.val.val44.i.i, %for.body.i59.i ], [ %info.val.val44.i.i, %land.lhs.true.i.i.i ], [ %info.val.val44.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i ]
+  %info.val.i.i = phi ptr [ %info.val.pre.i.i, %for.inc23.loopexit.i.i ], [ %info.val42.i.i, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %info.val42.i.i, %for.body.i59.i ], [ %info.val42.i.i, %land.lhs.true.i.i.i ], [ %info.val42.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i ]
+  %73 = phi i16 [ %71, %for.inc23.loopexit.i.i ], [ 0, %_ZN3ue210verify_u16IiEEtT_.exit.i.i ], [ %55, %for.body.i59.i ], [ %55, %land.lhs.true.i.i.i ], [ %55, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i ]
   %inc24.i.i = add nuw i64 %i.039.i.i, 1
   %74 = getelementptr i8, ptr %info.val.i.i, i64 8
   %info.val.val18.i.i = load ptr, ptr %74, align 8
@@ -3983,7 +3983,7 @@ for.inc87.i.i:                                    ; preds = %for.inc84.i.i, %for
   %cmp.i84.i = icmp ult i64 %inc88.i.i, %sub.ptr.div.i.i.i83.i
   br i1 %cmp.i84.i, label %for.body.i73.i, label %nrvo.skipdtor.i, !llvm.loop !85
 
-lpad25.i:                                         ; preds = %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.argprom.exit.i, %invoke.cont39.i, %invoke.cont26.i
+lpad25.i:                                         ; preds = %_ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i, %invoke.cont39.i, %invoke.cont26.i
   %114 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
@@ -4220,7 +4220,7 @@ invoke.cont57.i:                                  ; preds = %invoke.cont56.i
   %149 = load ptr, ptr %ref.tmp35, align 8, !alias.scope !86
   %conv63.i41 = trunc i64 %add17.i to i32
   %150 = load ptr, ptr %ri.i19, align 8, !noalias !86
-  invoke fastcc void @_ZN3ue2L18fill_in_aux_info64EP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE.argelim(ptr noundef %149, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv52.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i15, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i16, i32 noundef %conv63.i41, ptr noundef nonnull align 8 dereferenceable(8) %150)
+  invoke fastcc void @_ZN3ue2L18fill_in_aux_info64EP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %149, ptr noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %conv52.i, ptr noundef nonnull align 8 dereferenceable(24) %reports.i15, ptr noundef nonnull align 8 dereferenceable(24) %reports_eod.i16, i32 noundef %conv63.i41, ptr noundef nonnull align 8 dereferenceable(8) %150)
           to label %invoke.cont65.i unwind label %lpad48.i
 
 invoke.cont65.i:                                  ; preds = %invoke.cont57.i
@@ -4260,15 +4260,15 @@ land.lhs.true.i.i.i53:                            ; preds = %for.body.i.i51
   %sheng_id.i.i.i.i54 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val15.i.i, i64 %156, i32 3
   %157 = load i8, ptr %sheng_id.i.i.i.i54, align 2
   %cmp.i.not.i.i.i55 = icmp eq i8 %157, -1
-  br i1 %cmp.i.not.i.i.i55, label %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i70, label %for.inc19.i.i
+  br i1 %cmp.i.not.i.i.i55, label %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i70, label %for.inc19.i.i
 
-_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i70: ; preds = %land.lhs.true.i.i.i53
+_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i70: ; preds = %land.lhs.true.i.i.i53
   %shermanState.i.i.i.i71 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val15.i.i, i64 %156, i32 1
   %158 = load i8, ptr %shermanState.i.i.i.i71, align 2
   %tobool.i.i.i.i72 = trunc i8 %158 to i1
   br i1 %tobool.i.i.i.i72, label %for.inc19.i.i, label %if.end.i.i73
 
-if.end.i.i73:                                     ; preds = %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i70
+if.end.i.i73:                                     ; preds = %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i70
   %impl_id.i.i.i74 = getelementptr inbounds %"struct.ue2::dstate", ptr %info.val.val40.i.i, i64 %156, i32 2
   %159 = load i16, ptr %impl_id.i.i.i74, align 2
   %conv6.i.i75 = zext i16 %159 to i32
@@ -4329,10 +4329,10 @@ for.inc19.loopexit.i.i:                           ; preds = %for.body12.i.i83
   %info.val.val.pre.i.i90 = load ptr, ptr %info.val.pre.i.i89, align 8
   br label %for.inc19.i.i
 
-for.inc19.i.i:                                    ; preds = %for.inc19.loopexit.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i80, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i70, %land.lhs.true.i.i.i53, %for.body.i.i51
-  %info.val.val.i.i56 = phi ptr [ %info.val.val.pre.i.i90, %for.inc19.loopexit.i.i ], [ %info.val.val40.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i80 ], [ %info.val.val40.i.i, %for.body.i.i51 ], [ %info.val.val40.i.i, %land.lhs.true.i.i.i53 ], [ %info.val.val40.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i70 ]
-  %info.val.i.i57 = phi ptr [ %info.val.pre.i.i89, %for.inc19.loopexit.i.i ], [ %info.val38.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i80 ], [ %info.val38.i.i, %for.body.i.i51 ], [ %info.val38.i.i, %land.lhs.true.i.i.i53 ], [ %info.val38.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i70 ]
-  %168 = phi i16 [ %167, %for.inc19.loopexit.i.i ], [ 0, %_ZN3ue29verify_u8IiEEhT_.exit.i.i80 ], [ %155, %for.body.i.i51 ], [ %155, %land.lhs.true.i.i.i53 ], [ %155, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.argprom.exit.i.i70 ]
+for.inc19.i.i:                                    ; preds = %for.inc19.loopexit.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i80, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i70, %land.lhs.true.i.i.i53, %for.body.i.i51
+  %info.val.val.i.i56 = phi ptr [ %info.val.val.pre.i.i90, %for.inc19.loopexit.i.i ], [ %info.val.val40.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i80 ], [ %info.val.val40.i.i, %for.body.i.i51 ], [ %info.val.val40.i.i, %land.lhs.true.i.i.i53 ], [ %info.val.val40.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i70 ]
+  %info.val.i.i57 = phi ptr [ %info.val.pre.i.i89, %for.inc19.loopexit.i.i ], [ %info.val38.i.i, %_ZN3ue29verify_u8IiEEhT_.exit.i.i80 ], [ %info.val38.i.i, %for.body.i.i51 ], [ %info.val38.i.i, %land.lhs.true.i.i.i53 ], [ %info.val38.i.i, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i70 ]
+  %168 = phi i16 [ %167, %for.inc19.loopexit.i.i ], [ 0, %_ZN3ue29verify_u8IiEEhT_.exit.i.i80 ], [ %155, %for.body.i.i51 ], [ %155, %land.lhs.true.i.i.i53 ], [ %155, %_ZNK3ue212_GLOBAL__N_18dfa_info9is_normalEt.exit.i.i70 ]
   %inc20.i.i = add nuw i64 %i.035.i.i, 1
   %169 = getelementptr i8, ptr %info.val.i.i57, i64 8
   %info.val.val14.i.i = load ptr, ptr %169, align 8
@@ -9538,7 +9538,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i22
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN3ue2L9leakinessERKNS_9RdfaGraphERNS_12_GLOBAL__N_18dfa_infoERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RdfaVertexPropsENS_13RdfaEdgePropsEEEEESt4lessISD_ESaISD_EEESD_jRSt13unordered_mapISt4pairISD_jEdNS_10ue2_hasherESt8equal_toISM_ESaISL_IKSM_dEEE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %sheng_states, ptr %u.coerce0, i64 %u.coerce1, i32 noundef range(i32 1, -1) %depth, ptr noundef nonnull align 8 dereferenceable(56) %cache) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN3ue2L9leakinessERKNS_9RdfaGraphERNS_12_GLOBAL__N_18dfa_infoERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RdfaVertexPropsENS_13RdfaEdgePropsEEEEESt4lessISD_ESaISD_EEESD_jRSt13unordered_mapISt4pairISD_jEdNS_10ue2_hasherESt8equal_toISM_ESaISL_IKSM_dEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %sheng_states, ptr %u.coerce0, i64 %u.coerce1, i32 noundef range(i32 1, -1) %depth, ptr noundef nonnull align 8 dereferenceable(56) %cache) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"struct.std::pair.388", align 8
   %ref.tmp29 = alloca %"struct.std::pair.388", align 8
@@ -9798,7 +9798,7 @@ if.else:                                          ; preds = %_ZNKSt4lessIN3ue212
   br i1 %cmp21, label %if.then22, label %for.inc
 
 if.then22:                                        ; preds = %if.else
-  %call24 = tail call fastcc noundef double @_ZN3ue2L9leakinessERKNS_9RdfaGraphERNS_12_GLOBAL__N_18dfa_infoERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RdfaVertexPropsENS_13RdfaEdgePropsEEEEESt4lessISD_ESaISD_EEESD_jRSt13unordered_mapISt4pairISD_jEdNS_10ue2_hasherESt8equal_toISM_ESaISL_IKSM_dEEE.argprom(ptr noundef nonnull align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(40) %sheng_states, ptr %14, i64 %15, i32 noundef %sub, ptr noundef nonnull align 8 dereferenceable(56) %cache)
+  %call24 = tail call fastcc noundef double @_ZN3ue2L9leakinessERKNS_9RdfaGraphERNS_12_GLOBAL__N_18dfa_infoERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RdfaVertexPropsENS_13RdfaEdgePropsEEEEESt4lessISD_ESaISD_EEESD_jRSt13unordered_mapISt4pairISD_jEdNS_10ue2_hasherESt8equal_toISM_ESaISL_IKSM_dEEE(ptr noundef nonnull align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(40) %sheng_states, ptr %14, i64 %15, i32 noundef %sub, ptr noundef nonnull align 8 dereferenceable(56) %cache)
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then.i.i4.i.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RdfaGraphENS0_15RdfaVertexPropsENS0_13RdfaEdgePropsEEEEEEclERKS8_SB_.exit.i.i, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RdfaGraphENS3_15RdfaVertexPropsENS3_13RdfaEdgePropsEEEEELb1EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit.i.i, %if.then22
@@ -10152,7 +10152,7 @@ _ZNSt10_HashtableISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %curr_id, i1 noundef zeroext %any_cyclic_near_anchored_state, i8 %grey.51.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_infoEtbRKNS_4GreyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i16 noundef zeroext %curr_id, i1 noundef zeroext %any_cyclic_near_anchored_state, i8 %grey.51.val) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %candidate.addr.i28.i = alloca i16, align 2
   %tmp.i29.i = alloca %"struct.std::pair", align 8
@@ -11776,7 +11776,7 @@ _ZNSt6vectorISt5arrayIhLm16EESaIS1_EED2Ev.exit82: ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16fill_in_aux_infoEP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE.argelim(ptr noundef %nfa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %accel_offset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %reports, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %reports_eod, i32 noundef %report_base_offset, ptr noundef nonnull align 8 dereferenceable(8) %ri) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L16fill_in_aux_infoEP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %nfa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %accel_offset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %reports, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %reports_eod, i32 noundef %report_base_offset, ptr noundef nonnull align 8 dereferenceable(8) %ri) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %reportOffsets = alloca %"class.std::vector.414", align 8
   %add.ptr = getelementptr inbounds i8, ptr %nfa, i64 64
@@ -13074,7 +13074,7 @@ _ZNSt6vectorISt5arrayIhLm64EESaIS1_EED2Ev.exit82: ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L18fill_in_aux_info64EP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE.argelim(ptr noundef %nfa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %accel_offset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %reports, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %reports_eod, i32 noundef %report_base_offset, ptr noundef nonnull align 8 dereferenceable(8) %ri) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L18fill_in_aux_info64EP3NFARKNS_12_GLOBAL__N_18dfa_infoERKSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEEjjRKSt6vectorIjSaIjEESL_jRKNS_15raw_report_infoE(ptr noundef %nfa, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, ptr noundef nonnull align 8 dereferenceable(48) %accel_escape_info, i32 noundef %accel_offset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %reports, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %reports_eod, i32 noundef %report_base_offset, ptr noundef nonnull align 8 dereferenceable(8) %ri) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %reportOffsets = alloca %"class.std::vector.414", align 8
   %add.ptr = getelementptr inbounds i8, ptr %nfa, i64 64

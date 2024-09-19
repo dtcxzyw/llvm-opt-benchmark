@@ -1348,7 +1348,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %.0.i.i.i.i.i = phi ptr [ %121, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i.i ], [ %104, %96 ], [ %118, %112 ]
   %124 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store i8 %92, ptr %124, align 1
-  br label %"_ZZN4llvm14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPKNS_10BasicBlockE.argprom.exit.i.i"
+  br label %"_ZZN4llvm14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPKNS_10BasicBlockE.exit.i.i"
 
 _ZN4llvm10successorsEPKNS_10BasicBlockE.exit.i.i.i: ; preds = %_ZN4llvm10succ_emptyEPKNS_10BasicBlockE.exit.i.i.i
   %125 = ashr i32 %77, 2
@@ -1378,7 +1378,7 @@ _ZN4llvm10successorsEPKNS_10BasicBlockE.exit.i.i.i: ; preds = %_ZN4llvm10succ_em
   %139 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %128, i64 %138
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %127, %140
-  br i1 %141, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %141, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %131, %147
   %142 = phi ptr [ %154, %147 ], [ %140, %131 ]
@@ -1406,7 +1406,7 @@ _ZN4llvm10successorsEPKNS_10BasicBlockE.exit.i.i.i: ; preds = %_ZN4llvm10succ_em
   %153 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %128, i64 %152
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %127, %154
-  br i1 %155, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %155, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !26
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %145, %.lr.ph.i.i.i.i.i.i.i.i
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %146, %145 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i ]
@@ -1415,9 +1415,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   store ptr %157, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store i8 0, ptr %158, align 1
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit.i.i.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit.i.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit.i.i.i.i.i.i.i.i": ; preds = %147, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %131
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit.i.i.i.i.i.i.i.i": ; preds = %147, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %131
   %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %156, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %139, %131 ], [ %153, %147 ]
   %159 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %160 = load i8, ptr %159, align 1
@@ -1425,7 +1425,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br i1 %161, label %162, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i"
 
-162:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit.i.i.i.i.i.i.i.i"
+162:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit.i.i.i.i.i.i.i.i"
   %163 = or disjoint i32 %.sroa.15.0201.i.i.i.i.i.i.i.i, 1
   %164 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %72, i32 noundef %163) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -1447,7 +1447,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %176 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %165, i64 %175
   %177 = load ptr, ptr %176, align 8
   %178 = icmp eq ptr %164, %177
-  br i1 %178, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit74.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i63.i.i.i.i.i.i.i.i
+  br i1 %178, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit74.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i63.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i63.i.i.i.i.i.i.i.i:             ; preds = %168, %184
   %179 = phi ptr [ %191, %184 ], [ %177, %168 ]
@@ -1475,7 +1475,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %190 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %165, i64 %189
   %191 = load ptr, ptr %190, align 8
   %192 = icmp eq ptr %164, %191
-  br i1 %192, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit74.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i63.i.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %192, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit74.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i63.i.i.i.i.i.i.i.i, !llvm.loop !26
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i72.i.i.i.i.i.i.i.i: ; preds = %182, %162
   %.sink.i.i.i.i.i.i73.i.i.i.i.i.i.i.i = phi ptr [ %183, %182 ], [ null, %162 ]
@@ -1484,9 +1484,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   store ptr %194, ptr %193, align 8
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store i8 0, ptr %195, align 1
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit74.i.i.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit74.i.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit74.i.i.i.i.i.i.i.i": ; preds = %184, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i72.i.i.i.i.i.i.i.i, %168
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit74.i.i.i.i.i.i.i.i": ; preds = %184, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i72.i.i.i.i.i.i.i.i, %168
   %.0.i.i.i.i70.i.i.i.i.i.i.i.i = phi ptr [ %193, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i72.i.i.i.i.i.i.i.i ], [ %176, %168 ], [ %190, %184 ]
   %196 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i70.i.i.i.i.i.i.i.i, i64 8
   %197 = load i8, ptr %196, align 1
@@ -1494,7 +1494,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br i1 %198, label %199, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i"
 
-199:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit74.i.i.i.i.i.i.i.i"
+199:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit74.i.i.i.i.i.i.i.i"
   %200 = or disjoint i32 %.sroa.15.0201.i.i.i.i.i.i.i.i, 2
   %201 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %72, i32 noundef %200) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -1516,7 +1516,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %213 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %202, i64 %212
   %214 = load ptr, ptr %213, align 8
   %215 = icmp eq ptr %201, %214
-  br i1 %215, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit87.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i76.i.i.i.i.i.i.i.i
+  br i1 %215, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit87.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i76.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i76.i.i.i.i.i.i.i.i:             ; preds = %205, %221
   %216 = phi ptr [ %228, %221 ], [ %214, %205 ]
@@ -1544,7 +1544,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %227 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %202, i64 %226
   %228 = load ptr, ptr %227, align 8
   %229 = icmp eq ptr %201, %228
-  br i1 %229, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit87.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i76.i.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %229, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit87.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i76.i.i.i.i.i.i.i.i, !llvm.loop !26
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i85.i.i.i.i.i.i.i.i: ; preds = %219, %199
   %.sink.i.i.i.i.i.i86.i.i.i.i.i.i.i.i = phi ptr [ %220, %219 ], [ null, %199 ]
@@ -1553,9 +1553,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   store ptr %231, ptr %230, align 8
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i8 0, ptr %232, align 1
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit87.i.i.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit87.i.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit87.i.i.i.i.i.i.i.i": ; preds = %221, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i85.i.i.i.i.i.i.i.i, %205
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit87.i.i.i.i.i.i.i.i": ; preds = %221, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i85.i.i.i.i.i.i.i.i, %205
   %.0.i.i.i.i83.i.i.i.i.i.i.i.i = phi ptr [ %230, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i85.i.i.i.i.i.i.i.i ], [ %213, %205 ], [ %227, %221 ]
   %233 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i83.i.i.i.i.i.i.i.i, i64 8
   %234 = load i8, ptr %233, align 1
@@ -1563,7 +1563,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br i1 %235, label %236, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i"
 
-236:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit87.i.i.i.i.i.i.i.i"
+236:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit87.i.i.i.i.i.i.i.i"
   %237 = or disjoint i32 %.sroa.15.0201.i.i.i.i.i.i.i.i, 3
   %238 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %72, i32 noundef %237) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1585,7 +1585,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %250 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %239, i64 %249
   %251 = load ptr, ptr %250, align 8
   %252 = icmp eq ptr %238, %251
-  br i1 %252, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit100.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i89.i.i.i.i.i.i.i.i
+  br i1 %252, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit100.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i89.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i89.i.i.i.i.i.i.i.i:             ; preds = %242, %258
   %253 = phi ptr [ %265, %258 ], [ %251, %242 ]
@@ -1613,7 +1613,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %264 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %239, i64 %263
   %265 = load ptr, ptr %264, align 8
   %266 = icmp eq ptr %238, %265
-  br i1 %266, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit100.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i89.i.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %266, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit100.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i89.i.i.i.i.i.i.i.i, !llvm.loop !26
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i98.i.i.i.i.i.i.i.i: ; preds = %256, %236
   %.sink.i.i.i.i.i.i99.i.i.i.i.i.i.i.i = phi ptr [ %257, %256 ], [ null, %236 ]
@@ -1622,9 +1622,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   store ptr %268, ptr %267, align 8
   %269 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store i8 0, ptr %269, align 1
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit100.i.i.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit100.i.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit100.i.i.i.i.i.i.i.i": ; preds = %258, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i98.i.i.i.i.i.i.i.i, %242
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit100.i.i.i.i.i.i.i.i": ; preds = %258, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i98.i.i.i.i.i.i.i.i, %242
   %.0.i.i.i.i96.i.i.i.i.i.i.i.i = phi ptr [ %267, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i98.i.i.i.i.i.i.i.i ], [ %250, %242 ], [ %264, %258 ]
   %270 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i96.i.i.i.i.i.i.i.i, i64 8
   %271 = load i8, ptr %270, align 1
@@ -1632,7 +1632,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br i1 %272, label %273, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i"
 
-273:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit100.i.i.i.i.i.i.i.i"
+273:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit100.i.i.i.i.i.i.i.i"
   %274 = add nuw nsw i32 %.sroa.15.0201.i.i.i.i.i.i.i.i, 4
   %275 = add nsw i32 %.0202.i.i.i.i.i.i.i.i, -1
   %276 = icmp sgt i32 %.0202.i.i.i.i.i.i.i.i, 1
@@ -1668,7 +1668,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %291 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %280, i64 %290
   %292 = load ptr, ptr %291, align 8
   %293 = icmp eq ptr %279, %292
-  br i1 %293, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit113.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i102.i.i.i.i.i.i.i.i
+  br i1 %293, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit113.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i102.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i102.i.i.i.i.i.i.i.i:            ; preds = %283, %299
   %294 = phi ptr [ %306, %299 ], [ %292, %283 ]
@@ -1696,7 +1696,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %305 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %280, i64 %304
   %306 = load ptr, ptr %305, align 8
   %307 = icmp eq ptr %279, %306
-  br i1 %307, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit113.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i102.i.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %307, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit113.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i102.i.i.i.i.i.i.i.i, !llvm.loop !26
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i111.i.i.i.i.i.i.i.i: ; preds = %297, %278
   %.sink.i.i.i.i.i.i112.i.i.i.i.i.i.i.i = phi ptr [ %298, %297 ], [ null, %278 ]
@@ -1705,9 +1705,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   store ptr %309, ptr %308, align 8
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 8
   store i8 0, ptr %310, align 1
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit113.i.i.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit113.i.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit113.i.i.i.i.i.i.i.i": ; preds = %299, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i111.i.i.i.i.i.i.i.i, %283
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit113.i.i.i.i.i.i.i.i": ; preds = %299, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i111.i.i.i.i.i.i.i.i, %283
   %.0.i.i.i.i109.i.i.i.i.i.i.i.i = phi ptr [ %308, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i111.i.i.i.i.i.i.i.i ], [ %291, %283 ], [ %305, %299 ]
   %311 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i109.i.i.i.i.i.i.i.i, i64 8
   %312 = load i8, ptr %311, align 1
@@ -1715,7 +1715,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br i1 %313, label %314, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i"
 
-314:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit113.i.i.i.i.i.i.i.i"
+314:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit113.i.i.i.i.i.i.i.i"
   %315 = add nsw i32 %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i, 1
   br label %316
 
@@ -1741,7 +1741,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %329 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %318, i64 %328
   %330 = load ptr, ptr %329, align 8
   %331 = icmp eq ptr %317, %330
-  br i1 %331, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit126.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i115.i.i.i.i.i.i.i.i
+  br i1 %331, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit126.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i115.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i115.i.i.i.i.i.i.i.i:            ; preds = %321, %337
   %332 = phi ptr [ %344, %337 ], [ %330, %321 ]
@@ -1769,7 +1769,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %343 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %318, i64 %342
   %344 = load ptr, ptr %343, align 8
   %345 = icmp eq ptr %317, %344
-  br i1 %345, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit126.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i115.i.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %345, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit126.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i115.i.i.i.i.i.i.i.i, !llvm.loop !26
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i124.i.i.i.i.i.i.i.i: ; preds = %335, %316
   %.sink.i.i.i.i.i.i125.i.i.i.i.i.i.i.i = phi ptr [ %336, %335 ], [ null, %316 ]
@@ -1778,9 +1778,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   store ptr %347, ptr %346, align 8
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 8
   store i8 0, ptr %348, align 1
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit126.i.i.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit126.i.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit126.i.i.i.i.i.i.i.i": ; preds = %337, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i124.i.i.i.i.i.i.i.i, %321
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit126.i.i.i.i.i.i.i.i": ; preds = %337, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i124.i.i.i.i.i.i.i.i, %321
   %.0.i.i.i.i122.i.i.i.i.i.i.i.i = phi ptr [ %346, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i124.i.i.i.i.i.i.i.i ], [ %329, %321 ], [ %343, %337 ]
   %349 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i122.i.i.i.i.i.i.i.i, i64 8
   %350 = load i8, ptr %349, align 1
@@ -1788,7 +1788,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br i1 %351, label %352, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i"
 
-352:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit126.i.i.i.i.i.i.i.i"
+352:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit126.i.i.i.i.i.i.i.i"
   %353 = add nsw i32 %.sroa.15.1.i.i.i.i.i.i.i.i, 1
   br label %354
 
@@ -1814,7 +1814,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %367 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %356, i64 %366
   %368 = load ptr, ptr %367, align 8
   %369 = icmp eq ptr %355, %368
-  br i1 %369, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit139.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i128.i.i.i.i.i.i.i.i
+  br i1 %369, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit139.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i128.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i128.i.i.i.i.i.i.i.i:            ; preds = %359, %375
   %370 = phi ptr [ %382, %375 ], [ %368, %359 ]
@@ -1842,7 +1842,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %381 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %356, i64 %380
   %382 = load ptr, ptr %381, align 8
   %383 = icmp eq ptr %355, %382
-  br i1 %383, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit139.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i128.i.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %383, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit139.i.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i128.i.i.i.i.i.i.i.i, !llvm.loop !26
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i137.i.i.i.i.i.i.i.i: ; preds = %373, %354
   %.sink.i.i.i.i.i.i138.i.i.i.i.i.i.i.i = phi ptr [ %374, %373 ], [ null, %354 ]
@@ -1851,9 +1851,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   store ptr %385, ptr %384, align 8
   %386 = getelementptr inbounds nuw i8, ptr %384, i64 8
   store i8 0, ptr %386, align 1
-  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit139.i.i.i.i.i.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit139.i.i.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit139.i.i.i.i.i.i.i.i": ; preds = %375, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i137.i.i.i.i.i.i.i.i, %359
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit139.i.i.i.i.i.i.i.i": ; preds = %375, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i137.i.i.i.i.i.i.i.i, %359
   %.0.i.i.i.i135.i.i.i.i.i.i.i.i = phi ptr [ %384, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i.i137.i.i.i.i.i.i.i.i ], [ %367, %359 ], [ %381, %375 ]
   %387 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i135.i.i.i.i.i.i.i.i, i64 8
   %388 = load i8, ptr %387, align 1
@@ -1861,11 +1861,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %389, label %390, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i"
 
-390:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit139.i.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i.i
+390:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit139.i.i.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i.i.i
   br label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i"
 
-"_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit100.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit87.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit74.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit.i.i.i.i.i.i.i.i", %390, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit139.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit126.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit113.i.i.i.i.i.i.i.i"
-  %.sroa.9.0.i.i.i.i.i.i.i.i = phi i32 [ %77, %390 ], [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit113.i.i.i.i.i.i.i.i" ], [ %.sroa.15.1.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit126.i.i.i.i.i.i.i.i" ], [ %.sroa.15.2.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit139.i.i.i.i.i.i.i.i" ], [ %.sroa.15.0201.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit.i.i.i.i.i.i.i.i" ], [ %163, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit74.i.i.i.i.i.i.i.i" ], [ %200, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit87.i.i.i.i.i.i.i.i" ], [ %237, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.argprom.exit100.i.i.i.i.i.i.i.i" ]
+"_ZN4llvm6all_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZZNS_14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPS6_EUlSH_E_EEbOT_T0_.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit100.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit87.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit74.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit.i.i.i.i.i.i.i.i", %390, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit139.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit126.i.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit113.i.i.i.i.i.i.i.i"
+  %.sroa.9.0.i.i.i.i.i.i.i.i = phi i32 [ %77, %390 ], [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit113.i.i.i.i.i.i.i.i" ], [ %.sroa.15.1.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit126.i.i.i.i.i.i.i.i" ], [ %.sroa.15.2.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit139.i.i.i.i.i.i.i.i" ], [ %.sroa.15.0201.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit.i.i.i.i.i.i.i.i" ], [ %163, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit74.i.i.i.i.i.i.i.i" ], [ %200, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit87.i.i.i.i.i.i.i.i" ], [ %237, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm14DOTGraphTraitsIPNS2_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS2_8FunctionEENK3$_0clEPKNS2_10BasicBlockEEUlSD_E_EclINS2_12SuccIteratorIKNS2_11InstructionESC_EEEEbT_.exit100.i.i.i.i.i.i.i.i" ]
   %391 = icmp eq i32 %77, %.sroa.9.0.i.i.i.i.i.i.i.i
   %392 = load ptr, ptr %35, align 8
   %393 = load i32, ptr %36, align 8
@@ -1929,9 +1929,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %424 = getelementptr inbounds nuw i8, ptr %.0.i.i11.i.i.i, i64 8
   %425 = zext i1 %391 to i8
   store i8 %425, ptr %424, align 1
-  br label %"_ZZN4llvm14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPKNS_10BasicBlockE.argprom.exit.i.i"
+  br label %"_ZZN4llvm14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPKNS_10BasicBlockE.exit.i.i"
 
-"_ZZN4llvm14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPKNS_10BasicBlockE.argprom.exit.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_EixERKS4_.exit15.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_EixERKS4_.exit.i.i.i
+"_ZZN4llvm14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPKNS_10BasicBlockE.exit.i.i": ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_EixERKS4_.exit15.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_EixERKS4_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %426 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #19
   %427 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #19
@@ -1941,11 +1941,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEbNS_12DenseMapInfoIS4_vEEN
   %430 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #19
   br i1 %430, label %_ZN4llvm11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.backedge, label %431
 
-431:                                              ; preds = %"_ZZN4llvm14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPKNS_10BasicBlockE.argprom.exit.i.i"
+431:                                              ; preds = %"_ZZN4llvm14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPKNS_10BasicBlockE.exit.i.i"
   call void @_ZN4llvm11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEE13traverseChildEv(ptr noundef nonnull align 8 dereferenceable(432) %11)
   br label %_ZN4llvm11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.backedge
 
-_ZN4llvm11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.backedge: ; preds = %431, %"_ZZN4llvm14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPKNS_10BasicBlockE.argprom.exit.i.i"
+_ZN4llvm11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i.backedge: ; preds = %431, %"_ZZN4llvm14DOTGraphTraitsIPNS_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS_8FunctionEENK3$_0clEPKNS_10BasicBlockE.exit.i.i"
   br label %_ZN4llvm11po_iteratorIPKNS_10BasicBlockENS_11SmallPtrSetIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEppEv.exit.i.i, !llvm.loop !28
 
 "_ZSt8for_eachIN4llvm11po_iteratorIPKNS0_10BasicBlockENS0_11SmallPtrSetIS4_Lj8EEELb0ENS0_11GraphTraitsIS4_EEEEZNS0_14DOTGraphTraitsIPNS0_11DOTFuncInfoEE30computeDeoptOrUnreachablePathsEPKNS0_8FunctionEE3$_0ET0_T_SJ_SI_.exit.i": ; preds = %39, %60

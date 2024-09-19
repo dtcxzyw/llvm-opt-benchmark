@@ -4045,14 +4045,14 @@ php_cli_server_parse_addr.exit.i:                 ; preds = %75, %73, %66, %64
 .thread58.i:                                      ; preds = %php_cli_server_parse_addr.exit.i, %php_cli_server_parse_addr.exit.thread.i
   %81 = load ptr, ptr @stderr, align 8
   %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.103, ptr noundef nonnull %.020.ph) #33
-  br label %php_cli_server_ctor.argprom.exit.thread
+  br label %php_cli_server_ctor.exit.thread
 
 83:                                               ; preds = %php_cli_server_parse_addr.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %84 = call i32 @php_network_getaddresses(ptr noundef nonnull %80, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %10) #29
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %php_network_listen_socket.argprom.exit.thread.i, label %86
+  br i1 %85, label %php_network_listen_socket.exit.thread.i, label %86
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %7, align 8
@@ -4239,7 +4239,7 @@ php_cli_server_parse_addr.exit.i:                 ; preds = %75, %73, %66, %64
   %.317.i35.i = phi i32 [ %.317.i34.i, %.thread40.i.thread.i ], [ %.317.ph.i.i, %.thread40.i.i ]
   %.533.i = phi i32 [ %.532.i, %.thread40.i.thread.i ], [ %.4.i, %.thread40.i.i ]
   %.not75.i.i = icmp eq i32 %.35915.i37.i, 0
-  br i1 %.not75.i.i, label %php_network_listen_socket.argprom.exit.i, label %147
+  br i1 %.not75.i.i, label %php_network_listen_socket.exit.i, label %147
 
 147:                                              ; preds = %146
   %148 = icmp sgt i32 %.317.i35.i, -1
@@ -4253,22 +4253,22 @@ php_cli_server_parse_addr.exit.i:                 ; preds = %75, %73, %66, %64
   %152 = sext i32 %.35915.i37.i to i64
   %153 = call ptr @php_socket_error_str(i64 noundef %152) #29
   store ptr %153, ptr %10, align 8
-  br label %php_network_listen_socket.argprom.exit.thread.i
+  br label %php_network_listen_socket.exit.thread.i
 
-php_network_listen_socket.argprom.exit.thread.i:  ; preds = %151, %83
+php_network_listen_socket.exit.thread.i:          ; preds = %151, %83
   %.6.ph.i = phi i32 [ %.533.i, %151 ], [ %76, %83 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %155
 
-php_network_listen_socket.argprom.exit.i:         ; preds = %146
+php_network_listen_socket.exit.i:                 ; preds = %146
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %154 = icmp eq i32 %.317.i35.i, -1
   br i1 %154, label %155, label %170
 
-155:                                              ; preds = %php_network_listen_socket.argprom.exit.i, %php_network_listen_socket.argprom.exit.thread.i
-  %.640.i = phi i32 [ %.6.ph.i, %php_network_listen_socket.argprom.exit.thread.i ], [ %.533.i, %php_network_listen_socket.argprom.exit.i ]
+155:                                              ; preds = %php_network_listen_socket.exit.i, %php_network_listen_socket.exit.thread.i
+  %.640.i = phi i32 [ %.6.ph.i, %php_network_listen_socket.exit.thread.i ], [ %.533.i, %php_network_listen_socket.exit.i ]
   %156 = load ptr, ptr %10, align 8
   %.not66.i = icmp eq ptr %156, null
   %157 = getelementptr inbounds i8, ptr %156, i64 24
@@ -4298,7 +4298,7 @@ php_network_listen_socket.argprom.exit.i:         ; preds = %146
   call void @_efree(ptr noundef nonnull %159) #29
   br label %.thread95.i
 
-170:                                              ; preds = %php_network_listen_socket.argprom.exit.i
+170:                                              ; preds = %php_network_listen_socket.exit.i
   %171 = call i32 @php_set_sock_blocking(i32 noundef %.317.i35.i, i32 noundef 0) #29
   %.not63.i = icmp eq i32 %171, 0
   br i1 %.not63.i, label %172, label %235
@@ -4444,19 +4444,19 @@ php_cli_server_poller_add.exit.i:                 ; preds = %215, %212
 
 .thread95.i:                                      ; preds = %169, %164, %160, %155
   call void @free(ptr noundef nonnull %80) #29
-  br label %php_cli_server_ctor.argprom.exit.thread
+  br label %php_cli_server_ctor.exit.thread
 
 235:                                              ; preds = %170
   call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 2, ptr noundef nonnull @.str.106)
   call void @free(ptr noundef nonnull %80) #29
   %236 = icmp sgt i32 %.317.i35.i, -1
-  br i1 %236, label %237, label %php_cli_server_ctor.argprom.exit.thread
+  br i1 %236, label %237, label %php_cli_server_ctor.exit.thread
 
 237:                                              ; preds = %235
   %238 = call i32 @close(i32 noundef %.317.i35.i) #29
-  br label %php_cli_server_ctor.argprom.exit.thread
+  br label %php_cli_server_ctor.exit.thread
 
-php_cli_server_ctor.argprom.exit.thread:          ; preds = %235, %237, %.thread58.i, %.thread95.i
+php_cli_server_ctor.exit.thread:                  ; preds = %235, %237, %.thread58.i, %.thread95.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %333
 
@@ -4478,7 +4478,7 @@ php_cli_server_ctor.argprom.exit.thread:          ; preds = %235, %237, %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %247 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 528), align 8
   %.not1.i = icmp eq i32 %247, 0
-  br i1 %.not1.i, label %php_cli_server_do_event_loop.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %php_cli_server_do_event_loop.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %239
   %248 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4502,7 +4502,7 @@ php_cli_server_ctor.argprom.exit.thread:          ; preds = %235, %237, %.thread
   store ptr @php_cli_server_send_event, ptr %249, align 8
   %256 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 520), align 8
   %.not3.i.i.i = icmp slt i32 %256, 0
-  br i1 %.not3.i.i.i, label %php_cli_server_do_event_for_each_fd.argprom.exit.i, label %.lr.ph.i.i.i
+  br i1 %.not3.i.i.i, label %php_cli_server_do_event_for_each_fd.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %255, %275
   %.05.i.i.i = phi i32 [ %.2.i.i.i, %275 ], [ 0, %255 ]
@@ -4546,17 +4546,17 @@ php_cli_server_ctor.argprom.exit.thread:          ; preds = %235, %237, %.thread
   %.2.i.i.i = phi i32 [ %.1.ph.i.i.i, %269 ], [ %spec.select23.i.i.i, %273 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
   %276 = add nuw i32 %.0184.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %.0184.i.i.i, %256
-  br i1 %exitcond.not.i.i.i, label %php_cli_server_poller_iter_on_active.argprom.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %exitcond.not.i.i.i, label %php_cli_server_poller_iter_on_active.exit.i.i, label %.lr.ph.i.i.i
 
-php_cli_server_poller_iter_on_active.argprom.exit.i.i: ; preds = %275
+php_cli_server_poller_iter_on_active.exit.i.i:    ; preds = %275
   %.not.i.i33 = icmp eq i32 %.2.i.i.i, 0
-  br i1 %.not.i.i33, label %php_cli_server_do_event_for_each_fd.argprom.exit.i, label %277
+  br i1 %.not.i.i33, label %php_cli_server_do_event_for_each_fd.exit.i, label %277
 
-277:                                              ; preds = %php_cli_server_poller_iter_on_active.argprom.exit.i.i
+277:                                              ; preds = %php_cli_server_poller_iter_on_active.exit.i.i
   call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 2, ptr noundef nonnull @.str.2233)
-  br label %php_cli_server_do_event_for_each_fd.argprom.exit.i
+  br label %php_cli_server_do_event_for_each_fd.exit.i
 
-php_cli_server_do_event_for_each_fd.argprom.exit.i: ; preds = %277, %php_cli_server_poller_iter_on_active.argprom.exit.i.i, %255
+php_cli_server_do_event_for_each_fd.exit.i:       ; preds = %277, %php_cli_server_poller_iter_on_active.exit.i.i, %255
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %289
 
@@ -4573,21 +4573,21 @@ php_cli_server_do_event_for_each_fd.argprom.exit.i: ; preds = %277, %php_cli_ser
 283:                                              ; preds = %280
   %284 = load i32, ptr @php_cli_server_log_level, align 4
   %285 = icmp sgt i32 %284, 1
-  br i1 %285, label %286, label %php_cli_server_do_event_loop.argprom.exit
+  br i1 %285, label %286, label %php_cli_server_do_event_loop.exit
 
 286:                                              ; preds = %283
   %287 = sext i32 %282 to i64
   %288 = call ptr @php_socket_strerror(i64 noundef %287, ptr noundef null, i64 noundef 0) #29
   call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 2, ptr noundef nonnull @.str.2232, ptr noundef %288)
   call void @_efree(ptr noundef %288) #29
-  br label %php_cli_server_do_event_loop.argprom.exit
+  br label %php_cli_server_do_event_loop.exit
 
-289:                                              ; preds = %280, %278, %php_cli_server_do_event_for_each_fd.argprom.exit.i
+289:                                              ; preds = %280, %278, %php_cli_server_do_event_for_each_fd.exit.i
   %290 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 528), align 8
   %.not.i32 = icmp eq i32 %290, 0
-  br i1 %.not.i32, label %php_cli_server_do_event_loop.argprom.exit, label %250
+  br i1 %.not.i32, label %php_cli_server_do_event_loop.exit, label %250
 
-php_cli_server_do_event_loop.argprom.exit:        ; preds = %289, %239, %286, %283
+php_cli_server_do_event_loop.exit:                ; preds = %289, %239, %286, %283
   %291 = phi i32 [ 1, %283 ], [ 1, %286 ], [ 0, %239 ], [ 0, %289 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -4597,11 +4597,11 @@ php_cli_server_do_event_loop.argprom.exit:        ; preds = %289, %239, %286, %2
   %293 = icmp sgt i32 %292, -1
   br i1 %293, label %294, label %296
 
-294:                                              ; preds = %php_cli_server_do_event_loop.argprom.exit
+294:                                              ; preds = %php_cli_server_do_event_loop.exit
   %295 = call i32 @close(i32 noundef %292) #29
   br label %296
 
-296:                                              ; preds = %294, %php_cli_server_do_event_loop.argprom.exit
+296:                                              ; preds = %294, %php_cli_server_do_event_loop.exit
   %297 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 536), align 8
   %.not.i34 = icmp eq ptr %297, null
   br i1 %.not.i34, label %299, label %298
@@ -4634,13 +4634,13 @@ php_cli_server_do_event_loop.argprom.exit:        ; preds = %289, %239, %286, %2
   %308 = load ptr, ptr @php_cli_server_workers, align 8
   %309 = icmp ne ptr %308, null
   %or.cond.i = select i1 %307, i1 %309, i1 false
-  br i1 %or.cond.i, label %310, label %php_cli_server_dtor.argprom.exit
+  br i1 %or.cond.i, label %310, label %php_cli_server_dtor.exit
 
 310:                                              ; preds = %305
   %311 = call i32 @getpid() #29
   %312 = load i32, ptr @php_cli_server_master, align 4
   %313 = icmp eq i32 %311, %312
-  br i1 %313, label %.preheader1.i, label %php_cli_server_dtor.argprom.exit
+  br i1 %313, label %.preheader1.i, label %php_cli_server_dtor.exit
 
 .preheader1.i:                                    ; preds = %310
   %314 = load i64, ptr @php_cli_server_workers_max, align 8
@@ -4680,14 +4680,14 @@ php_cli_server_do_event_loop.argprom.exit:        ; preds = %289, %239, %286, %2
 ._crit_edge.i:                                    ; preds = %.critedge.i, %.preheader1.i
   %332 = load ptr, ptr @php_cli_server_workers, align 8
   call void @free(ptr noundef %332) #29
-  br label %php_cli_server_dtor.argprom.exit
+  br label %php_cli_server_dtor.exit
 
-php_cli_server_dtor.argprom.exit:                 ; preds = %305, %310, %._crit_edge.i
+php_cli_server_dtor.exit:                         ; preds = %305, %310, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %333
 
-333:                                              ; preds = %php_cli_server_ctor.argprom.exit.thread, %php_cli_server_dtor.argprom.exit, %37, %29
-  %.0 = phi i32 [ 1, %29 ], [ %291, %php_cli_server_dtor.argprom.exit ], [ 1, %37 ], [ 1, %php_cli_server_ctor.argprom.exit.thread ]
+333:                                              ; preds = %php_cli_server_ctor.exit.thread, %php_cli_server_dtor.exit, %37, %29
+  %.0 = phi i32 [ 1, %29 ], [ %291, %php_cli_server_dtor.exit ], [ 1, %37 ], [ 1, %php_cli_server_ctor.exit.thread ]
   ret i32 %.0
 }
 
@@ -6518,26 +6518,26 @@ php_cli_server_poller_remove.exit:                ; preds = %95, %._crit_edge.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @sapi_globals, i64 96), i8 0, i64 24, i1 false)
   %154 = call ptr @zend_hash_str_find(ptr noundef nonnull %153, ptr noundef nonnull @.str.2259, i64 noundef 12) #29
   %.not.i.i.i = icmp eq ptr %154, null
-  br i1 %.not.i.i.i, label %php_cli_server_client_populate_request_info.argprom.exit.i.i, label %155
+  br i1 %.not.i.i.i, label %php_cli_server_client_populate_request_info.exit.i.i, label %155
 
 155:                                              ; preds = %137
   %156 = load ptr, ptr %154, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 24
   store ptr %157, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 64), align 8
-  br label %php_cli_server_client_populate_request_info.argprom.exit.i.i
+  br label %php_cli_server_client_populate_request_info.exit.i.i
 
-php_cli_server_client_populate_request_info.argprom.exit.i.i: ; preds = %155, %137
+php_cli_server_client_populate_request_info.exit.i.i: ; preds = %155, %137
   %158 = call ptr @zend_hash_str_find(ptr noundef nonnull %153, ptr noundef nonnull @.str.2258, i64 noundef 13) #29
   %.not.i.i = icmp eq ptr %158, null
   br i1 %.not.i.i, label %163, label %159
 
-159:                                              ; preds = %php_cli_server_client_populate_request_info.argprom.exit.i.i
+159:                                              ; preds = %php_cli_server_client_populate_request_info.exit.i.i
   %160 = load ptr, ptr %158, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 24
   %162 = call i32 @php_handle_auth_data(ptr noundef nonnull %161) #29
   br label %163
 
-163:                                              ; preds = %159, %php_cli_server_client_populate_request_info.argprom.exit.i.i
+163:                                              ; preds = %159, %php_cli_server_client_populate_request_info.exit.i.i
   store i32 200, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
   %164 = call i32 @php_request_startup() #29
   %165 = icmp eq i32 %164, -1
@@ -6566,7 +6566,7 @@ php_cli_server_client_populate_request_info.argprom.exit.i.i: ; preds = %155, %1
   br i1 %.not45.i, label %185, label %175
 
 175:                                              ; preds = %174
-  %176 = call fastcc zeroext i1 @php_cli_server_dispatch_router.argprom(ptr noundef nonnull %0)
+  %176 = call fastcc zeroext i1 @php_cli_server_dispatch_router(ptr noundef nonnull %0)
   br i1 %176, label %185, label %177
 
 177:                                              ; preds = %175
@@ -9147,7 +9147,7 @@ define internal noundef i32 @php_cli_server_client_read_request_on_message_compl
   tail call void @free(ptr noundef %22) #29
   %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 128
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %php_cli_server_request_translate_vpath.argprom.exit
+  br label %php_cli_server_request_translate_vpath.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %37
   %.0827.i37 = phi ptr [ %.5.i, %37 ], [ %.0.i, %.lr.ph.i ]
@@ -9216,15 +9216,15 @@ define internal noundef i32 @php_cli_server_client_read_request_on_message_compl
   store i64 %84, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %4, i64 336
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %87, ptr noundef nonnull align 8 dereferenceable(144) %2, i64 144, i1 false)
-  br label %php_cli_server_request_translate_vpath.argprom.exit
+  br label %php_cli_server_request_translate_vpath.exit
 
-php_cli_server_request_translate_vpath.argprom.exit: ; preds = %63, %.loopexit.thread.i
+php_cli_server_request_translate_vpath.exit:      ; preds = %63, %.loopexit.thread.i
   %88 = phi ptr [ %.pre, %63 ], [ %82, %.loopexit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
   %.not = icmp eq ptr %88, null
   br i1 %.not, label %.loopexit, label %89
 
-89:                                               ; preds = %php_cli_server_request_translate_vpath.argprom.exit
+89:                                               ; preds = %php_cli_server_request_translate_vpath.exit
   %90 = load i64, ptr %19, align 8
   %91 = getelementptr inbounds i8, ptr %88, i64 %90
   %92 = getelementptr inbounds i8, ptr %4, i64 320
@@ -9252,7 +9252,7 @@ php_cli_server_request_translate_vpath.argprom.exit: ; preds = %63, %.loopexit.t
   store i64 %103, ptr %93, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %94, %100, %php_cli_server_request_translate_vpath.argprom.exit
+.loopexit:                                        ; preds = %94, %100, %php_cli_server_request_translate_vpath.exit
   %104 = getelementptr inbounds i8, ptr %4, i64 72
   store i8 1, ptr %104, align 8
   ret i32 0
@@ -9498,7 +9498,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 declare i32 @isatty(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @php_cli_server_dispatch_router.argprom(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @php_cli_server_dispatch_router(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct._zend_file_handle, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = alloca %struct._zval_struct, align 8

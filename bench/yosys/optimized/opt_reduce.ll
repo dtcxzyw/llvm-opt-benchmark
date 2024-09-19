@@ -13642,9 +13642,9 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i851: ; preds = 
 5824:                                             ; preds = %5822, %5818, %.critedge172.thread
   %5825 = load i32, ptr @_ZZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEvE2id, align 4, !noalias !123
   %.not.i.i.i854 = icmp eq i32 %5825, 0
-  br i1 %.not.i.i.i854, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.argprom.exit
+  br i1 %.not.i.i.i854, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.exit.thread, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.exit
 
-_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.argprom.exit.thread: ; preds = %5824
+_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.exit.thread: ; preds = %5824
   %5826 = load i32, ptr %5151, align 4
   %5827 = icmp eq i32 %5826, 0
   br i1 %5827, label %5849, label %6957
@@ -13655,7 +13655,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlv
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEvE2id) #20, !noalias !123
   br label %.body762
 
-_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.argprom.exit: ; preds = %5824
+_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.exit: ; preds = %5824
   %5830 = sext i32 %5825 to i64
   %5831 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !123
   %5832 = getelementptr inbounds i32, ptr %5831, i64 %5830
@@ -13668,7 +13668,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlv
   %5838 = trunc i8 %5837 to i1
   br i1 %5838, label %5839, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit859
 
-5839:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.argprom.exit
+5839:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.exit
   %5840 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %5841 = getelementptr inbounds i32, ptr %5840, i64 %5830
   %5842 = load i32, ptr %5841, align 4
@@ -13688,10 +13688,10 @@ _ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlv
   call void @__clang_call_terminate(ptr %5848) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit859:             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.argprom.exit, %5839, %5845
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit859:             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.exit, %5839, %5845
   br i1 %5836, label %5849, label %6957
 
-5849:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit859
+5849:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit859
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %182)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %183)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %184)
@@ -16575,7 +16575,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1604: ; preds =
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %232) #20
   br label %.body762
 
-6957:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit859
+6957:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit859
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %165)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %166)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %167)
@@ -17391,9 +17391,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit97.i:             ; preds = %_ZN5Yosys5RTLIL7Sig
 7294:                                             ; preds = %7292, %7288, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit97.i
   %7295 = load i32, ptr @_ZZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEvE2id, align 4, !noalias !144
   %.not.i.i.i.i874 = icmp eq i32 %7295, 0
-  br i1 %.not.i.i.i.i874, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom.exit.thread.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom.exit.i
+  br i1 %.not.i.i.i.i874, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.exit.thread.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.exit.i
 
-_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom.exit.thread.i: ; preds = %7294
+_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.exit.thread.i: ; preds = %7294
   %7296 = load i32, ptr %5151, align 4
   %.not428.i = icmp eq i32 %7296, 0
   br i1 %.not428.i, label %7353, label %7317
@@ -17404,7 +17404,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_cl
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEvE2id) #20, !noalias !144
   br label %.body.i
 
-_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom.exit.i: ; preds = %7294
+_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.exit.i: ; preds = %7294
   %7299 = sext i32 %7295 to i64
   %7300 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !144
   %7301 = getelementptr inbounds i32, ptr %7300, i64 %7299
@@ -17417,7 +17417,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_cl
   %7306 = trunc i8 %7305 to i1
   br i1 %7306, label %7307, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i
 
-7307:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom.exit.i
+7307:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.exit.i
   %7308 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %7309 = getelementptr inbounds i32, ptr %7308, i64 %7299
   %7310 = load i32, ptr %7309, align 4
@@ -17437,10 +17437,10 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_cl
   call void @__clang_call_terminate(ptr %7316) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %7313, %7307, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom.exit.i
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %7313, %7307, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.exit.i
   br i1 %.not427.i, label %7353, label %7317
 
-7317:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom.exit.thread.i
+7317:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.exit.thread.i
   %7318 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %5150, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1BE)
           to label %7319 unwind label %7349
 
@@ -17591,7 +17591,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i122.i: ; preds 
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %170) #20
   br label %.body.i
 
-7353:                                             ; preds = %7346, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i122.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom.exit.thread.i
+7353:                                             ; preds = %7346, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i122.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.exit.thread.i
   store i32 0, ptr %171, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1281, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %1280, i8 0, i64 60, i1 false)
@@ -19280,9 +19280,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit200.i:            ; preds = %8000, %_ZSt8_Destro
 8034:                                             ; preds = %8032, %8028, %8025
   %8035 = load i32, ptr @_ZZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEvE2id, align 4, !noalias !155
   %.not.i.i.i206.i = icmp eq i32 %8035, 0
-  br i1 %.not.i.i.i206.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom.exit.thread.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom.exit.i
+  br i1 %.not.i.i.i206.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.exit.thread.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.exit.i
 
-_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom.exit.thread.i: ; preds = %8034
+_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.exit.thread.i: ; preds = %8034
   %8036 = load i32, ptr %5151, align 4
   %.not430.i = icmp eq i32 %8036, 0
   br i1 %.not430.i, label %8070, label %8057
@@ -19293,7 +19293,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_c
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEvE2id) #20, !noalias !155
   br label %.body208.i
 
-_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom.exit.i: ; preds = %8034
+_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.exit.i: ; preds = %8034
   %8039 = sext i32 %8035 to i64
   %8040 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !155
   %8041 = getelementptr inbounds i32, ptr %8040, i64 %8039
@@ -19306,7 +19306,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_c
   %8046 = trunc i8 %8045 to i1
   br i1 %8046, label %8047, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit211.i
 
-8047:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom.exit.i
+8047:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.exit.i
   %8048 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %8049 = getelementptr inbounds i32, ptr %8048, i64 %8039
   %8050 = load i32, ptr %8049, align 4
@@ -19326,10 +19326,10 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_c
   call void @__clang_call_terminate(ptr %8056) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit211.i:           ; preds = %8053, %8047, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom.exit.i
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit211.i:           ; preds = %8053, %8047, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.exit.i
   br i1 %.not429.i, label %8070, label %8057
 
-8057:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit211.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom.exit.thread.i
+8057:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit211.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.exit.thread.i
   %8058 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %5150, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
           to label %8059 unwind label %.loopexit5743
 
@@ -19357,7 +19357,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit211.i:           ; preds = %8053, %8047, %_ZZN1
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.47, ptr noundef %8060, ptr noundef %8064, ptr noundef %8068)
           to label %8079 unwind label %.loopexit5743
 
-8070:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit211.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom.exit.thread.i
+8070:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit211.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.exit.thread.i
   %8071 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %5150, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
           to label %8072 unwind label %.loopexit5743
 
@@ -19534,9 +19534,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit229.i:            ; preds = %8119, %_ZSt8_Destro
 8128:                                             ; preds = %8126, %8122, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit229.i
   %8129 = load i32, ptr @_ZZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEvE2id, align 4, !noalias !159
   %.not.i.i.i230.i = icmp eq i32 %8129, 0
-  br i1 %.not.i.i.i230.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom.exit.thread.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom.exit.i
+  br i1 %.not.i.i.i230.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.exit.thread.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.exit.i
 
-_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom.exit.thread.i: ; preds = %8128
+_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.exit.thread.i: ; preds = %8128
   %8130 = load i32, ptr %5151, align 4
   %.not432.i = icmp eq i32 %8130, 0
   br i1 %.not432.i, label %.lr.ph597.preheader.i, label %8151
@@ -19547,7 +19547,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_c
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEvE2id) #20, !noalias !159
   br label %.body232.i
 
-_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom.exit.i: ; preds = %8128
+_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.exit.i: ; preds = %8128
   %8133 = sext i32 %8129 to i64
   %8134 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !159
   %8135 = getelementptr inbounds i32, ptr %8134, i64 %8133
@@ -19560,7 +19560,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_c
   %8140 = trunc i8 %8139 to i1
   br i1 %8140, label %8141, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit235.i
 
-8141:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom.exit.i
+8141:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.exit.i
   %8142 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %8143 = getelementptr inbounds i32, ptr %8142, i64 %8133
   %8144 = load i32, ptr %8143, align 4
@@ -19580,10 +19580,10 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_c
   call void @__clang_call_terminate(ptr %8150) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit235.i:           ; preds = %8147, %8141, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom.exit.i
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit235.i:           ; preds = %8147, %8141, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.exit.i
   br i1 %.not431.i, label %.lr.ph597.preheader.i, label %8151
 
-8151:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit235.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom.exit.thread.i
+8151:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit235.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.exit.thread.i
   store i32 0, ptr %176, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1303, i8 0, i64 56, i1 false)
   %8152 = load i32, ptr %167, align 8
@@ -19809,7 +19809,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1831: ; preds =
   call void @_ZdlPv(ptr noundef nonnull %8210) #21
   br label %.body232.i
 
-.lr.ph597.preheader.i:                            ; preds = %8199, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i264.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit235.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom.exit.thread.i
+.lr.ph597.preheader.i:                            ; preds = %8199, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i264.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit235.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.exit.thread.i
   store i32 0, ptr %178, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1310, i8 0, i64 56, i1 false)
   br label %.lr.ph597.i
@@ -19969,9 +19969,9 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit.i885:              ; preds = %8249, %_ZN5Yosys5RT
 8258:                                             ; preds = %8256, %8252, %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i885
   %8259 = load i32, ptr @_ZZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEvE2id, align 4, !noalias !163
   %.not.i.i.i287.i = icmp eq i32 %8259, 0
-  br i1 %.not.i.i.i287.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.argprom.exit.thread.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.argprom.exit.i
+  br i1 %.not.i.i.i287.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.exit.thread.i, label %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.exit.i
 
-_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.argprom.exit.thread.i: ; preds = %8258
+_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.exit.thread.i: ; preds = %8258
   %8260 = load i32, ptr %5151, align 4
   %.not435.i = icmp eq i32 %8260, 0
   br i1 %.not435.i, label %8300, label %8281
@@ -19982,7 +19982,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_c
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEvE2id) #20, !noalias !163
   br label %.body289.i
 
-_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.argprom.exit.i: ; preds = %8258
+_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.exit.i: ; preds = %8258
   %8263 = sext i32 %8259 to i64
   %8264 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !163
   %8265 = getelementptr inbounds i32, ptr %8264, i64 %8263
@@ -19995,7 +19995,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_c
   %8270 = trunc i8 %8269 to i1
   br i1 %8270, label %8271, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit292.i
 
-8271:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.argprom.exit.i
+8271:                                             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.exit.i
   %8272 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %8273 = getelementptr inbounds i32, ptr %8272, i64 %8263
   %8274 = load i32, ptr %8273, align 4
@@ -20015,10 +20015,10 @@ _ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_c
   call void @__clang_call_terminate(ptr %8280) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit292.i:           ; preds = %8277, %8271, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.argprom.exit.i
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit292.i:           ; preds = %8277, %8271, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.exit.i
   br i1 %.not434.i, label %8300, label %8281
 
-8281:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit292.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.argprom.exit.thread.i
+8281:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit292.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.exit.thread.i
   %8282 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %5150, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
           to label %8283 unwind label %.loopexit.split-lp.i882.loopexit
 
@@ -20063,7 +20063,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit292.i:           ; preds = %8277, %8271, %_ZZN1
   call void @_ZdlPv(ptr noundef nonnull %8298) #21
   br label %.body289.i
 
-8300:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit292.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.argprom.exit.thread.i
+8300:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit292.i, %_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.exit.thread.i
   %8301 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %5150, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
           to label %8302 unwind label %.loopexit.split-lp.i882.loopexit
 
@@ -27406,9 +27406,9 @@ _ZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellE.exit: ; preds =
 10851:                                            ; preds = %10849, %10845, %10842
   %10852 = load i32, ptr @_ZZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEvE2id, align 4, !noalias !203
   %.not.i.i.i962 = icmp eq i32 %10852, 0
-  br i1 %.not.i.i.i962, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.argprom.exit
+  br i1 %.not.i.i.i962, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.exit.thread, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.exit
 
-_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.argprom.exit.thread: ; preds = %10851
+_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.exit.thread: ; preds = %10851
   %10853 = load i32, ptr %5151, align 4
   %10854 = icmp eq i32 %10853, 0
   br i1 %10854, label %10876, label %12034
@@ -27419,7 +27419,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlv
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEvE2id) #20, !noalias !203
   br label %.body762
 
-_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.argprom.exit: ; preds = %10851
+_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.exit: ; preds = %10851
   %10857 = sext i32 %10852 to i64
   %10858 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !203
   %10859 = getelementptr inbounds i32, ptr %10858, i64 %10857
@@ -27432,7 +27432,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlv
   %10865 = trunc i8 %10864 to i1
   br i1 %10865, label %10866, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit967
 
-10866:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.argprom.exit
+10866:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.exit
   %10867 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %10868 = getelementptr inbounds i32, ptr %10867, i64 %10857
   %10869 = load i32, ptr %10868, align 4
@@ -27452,10 +27452,10 @@ _ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlv
   call void @__clang_call_terminate(ptr %10875) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit967:             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.argprom.exit, %10866, %10872
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit967:             ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.exit, %10866, %10872
   br i1 %10863, label %10876, label %12034
 
-10876:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit967
+10876:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit967
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %114)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %115)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %116)
@@ -30386,7 +30386,7 @@ _ZN12_GLOBAL__N_115OptReduceWorker8opt_bmuxEPN5Yosys5RTLIL4CellE.exit: ; preds =
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %129)
   br label %13253
 
-12034:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit967
+12034:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit967
   %12035 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEvE2id acquire, align 8, !noalias !218
   %12036 = icmp eq i8 %12035, 0
   br i1 %12036, label %12037, label %12043, !prof !13
@@ -30409,9 +30409,9 @@ _ZN12_GLOBAL__N_115OptReduceWorker8opt_bmuxEPN5Yosys5RTLIL4CellE.exit: ; preds =
 12043:                                            ; preds = %12041, %12037, %12034
   %12044 = load i32, ptr @_ZZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEvE2id, align 4, !noalias !218
   %.not.i.i.i1022 = icmp eq i32 %12044, 0
-  br i1 %.not.i.i.i1022, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.argprom.exit
+  br i1 %.not.i.i.i1022, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.exit.thread, label %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.exit
 
-_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.argprom.exit.thread: ; preds = %12043
+_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.exit.thread: ; preds = %12043
   %12045 = load i32, ptr %5151, align 4
   %12046 = icmp eq i32 %12045, 0
   br i1 %12046, label %12068, label %13253
@@ -30422,7 +30422,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlv
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEvE2id) #20, !noalias !218
   br label %.body762
 
-_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.argprom.exit: ; preds = %12043
+_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.exit: ; preds = %12043
   %12049 = sext i32 %12044 to i64
   %12050 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !218
   %12051 = getelementptr inbounds i32, ptr %12050, i64 %12049
@@ -30435,7 +30435,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlv
   %12057 = trunc i8 %12056 to i1
   br i1 %12057, label %12058, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1027
 
-12058:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.argprom.exit
+12058:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.exit
   %12059 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %12060 = getelementptr inbounds i32, ptr %12059, i64 %12049
   %12061 = load i32, ptr %12060, align 4
@@ -30455,10 +30455,10 @@ _ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlv
   call void @__clang_call_terminate(ptr %12067) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit1027:            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.argprom.exit, %12058, %12064
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit1027:            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.exit, %12058, %12064
   br i1 %12055, label %12068, label %13253
 
-12068:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1027
+12068:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1027
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %96)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %97)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %98)
@@ -33408,7 +33408,7 @@ _ZN12_GLOBAL__N_115OptReduceWorker9opt_demuxEPN5Yosys5RTLIL4CellE.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %113)
   br label %13253
 
-13253:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.argprom.exit.thread, %_ZN12_GLOBAL__N_115OptReduceWorker9opt_demuxEPN5Yosys5RTLIL4CellE.exit, %_ZN12_GLOBAL__N_115OptReduceWorker8opt_bmuxEPN5Yosys5RTLIL4CellE.exit, %_ZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellE.exit, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1027, %8452, %6955, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit784
+13253:                                            ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.exit.thread, %_ZN12_GLOBAL__N_115OptReduceWorker9opt_demuxEPN5Yosys5RTLIL4CellE.exit, %_ZN12_GLOBAL__N_115OptReduceWorker8opt_bmuxEPN5Yosys5RTLIL4CellE.exit, %_ZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellE.exit, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1027, %8452, %6955, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit784
   %13254 = getelementptr inbounds i8, ptr %.sroa.05255.010935, i64 8
   %.not5487 = icmp eq ptr %13254, %5147
   br i1 %.not5487, label %._crit_edge10938.loopexit, label %.lr.ph10937
@@ -34291,9 +34291,9 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit:             ; preds = %199
 214:                                              ; preds = %212, %208, %205
   %215 = load i32, ptr @_ZZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEvE2id, align 4, !noalias !250
   %.not.i.i.i53 = icmp eq i32 %215, 0
-  br i1 %.not.i.i.i53, label %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.argprom.exit
+  br i1 %.not.i.i.i53, label %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.exit.thread, label %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.exit
 
-_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.argprom.exit.thread: ; preds = %214
+_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.exit.thread: ; preds = %214
   %216 = load i32, ptr %165, align 4
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %239, label %578
@@ -34304,7 +34304,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLI
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEvE2id) #20, !noalias !250
   br label %.body
 
-_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.argprom.exit: ; preds = %214
+_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.exit: ; preds = %214
   %220 = sext i32 %215 to i64
   %221 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !250
   %222 = getelementptr inbounds i32, ptr %221, i64 %220
@@ -34317,7 +34317,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLI
   %228 = trunc i8 %227 to i1
   br i1 %228, label %229, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-229:                                              ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.argprom.exit
+229:                                              ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.exit
   %230 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %231 = getelementptr inbounds i32, ptr %230, i64 %220
   %232 = load i32, ptr %231, align 4
@@ -34337,10 +34337,10 @@ _ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLI
   call void @__clang_call_terminate(ptr %238) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.argprom.exit, %229, %235
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.exit, %229, %235
   br i1 %226, label %239, label %578
 
-239:                                              ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+239:                                              ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %240 = load ptr, ptr %11, align 8
   %241 = load ptr, ptr %181, align 8
   %.not.i.i.i55 = icmp eq ptr %241, %240
@@ -34416,9 +34416,9 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE5clearEv.exit.invoke
 260:                                              ; preds = %258, %254, %251
   %261 = load i32, ptr @_ZZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEvE2id, align 4, !noalias !253
   %.not.i.i.i58 = icmp eq i32 %261, 0
-  br i1 %.not.i.i.i58, label %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.argprom.exit.thread, label %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.argprom.exit
+  br i1 %.not.i.i.i58, label %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.exit.thread, label %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.exit
 
-_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.argprom.exit.thread: ; preds = %260
+_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.exit.thread: ; preds = %260
   %262 = load i32, ptr %165, align 4
   %263 = icmp eq i32 %262, 0
   br i1 %263, label %285, label %578
@@ -34429,7 +34429,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLI
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEvE2id) #20, !noalias !253
   br label %.body
 
-_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.argprom.exit: ; preds = %260
+_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.exit: ; preds = %260
   %266 = sext i32 %261 to i64
   %267 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !253
   %268 = getelementptr inbounds i32, ptr %267, i64 %266
@@ -34442,7 +34442,7 @@ _ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLI
   %274 = trunc i8 %273 to i1
   br i1 %274, label %275, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit63
 
-275:                                              ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.argprom.exit
+275:                                              ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.exit
   %276 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %277 = getelementptr inbounds i32, ptr %276, i64 %266
   %278 = load i32, ptr %277, align 4
@@ -34462,10 +34462,10 @@ _ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLI
   call void @__clang_call_terminate(ptr %284) #24
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit63:              ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.argprom.exit, %275, %281
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit63:              ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.exit, %275, %281
   br i1 %272, label %285, label %578
 
-285:                                              ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.argprom.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit63
+285:                                              ; preds = %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit63
   %286 = load ptr, ptr %11, align 8
   %287 = load ptr, ptr %181, align 8
   %.not.i.i.i64 = icmp eq ptr %287, %286
@@ -35197,7 +35197,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEED2Ev.exit: ; preds =
   call void @_ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #20
   br label %.body
 
-578:                                              ; preds = %.invoke, %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.argprom.exit.thread, %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.argprom.exit.thread, %_ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EED2Ev.exit, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit63, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
+578:                                              ; preds = %.invoke, %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.exit.thread, %_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.exit.thread, %_ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EED2Ev.exit, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit63, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not238 = icmp eq i64 %indvars.iv.next, %186
   br i1 %.not238, label %.loopexit248, label %187
@@ -45446,12 +45446,12 @@ attributes #25 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE_clEv.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE_clEv.argprom"}
+!11 = distinct !{!11, !12, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE_clEv: argument 0"}
+!12 = distinct !{!12, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE_clEv"}
 !13 = !{!"branch_weights", i32 1, i32 1048575}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE0_clEv.argprom: argument 0"}
-!16 = distinct !{!16, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE0_clEv.argprom"}
+!15 = distinct !{!15, !16, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE0_clEv: argument 0"}
+!16 = distinct !{!16, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE0_clEv"}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !19 = distinct !{!19, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
@@ -45462,11 +45462,11 @@ attributes #25 = { nounwind willreturn memory(read) }
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE1_clEv.argprom: argument 0"}
-!28 = distinct !{!28, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE1_clEv.argprom"}
+!27 = distinct !{!27, !28, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE1_clEv: argument 0"}
+!28 = distinct !{!28, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE1_clEv"}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE2_clEv.argprom: argument 0"}
-!31 = distinct !{!31, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE2_clEv.argprom"}
+!30 = distinct !{!30, !31, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE2_clEv: argument 0"}
+!31 = distinct !{!31, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE2_clEv"}
 !32 = !{!33}
 !33 = distinct !{!33, !34, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !34 = distinct !{!34, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
@@ -45474,8 +45474,8 @@ attributes #25 = { nounwind willreturn memory(read) }
 !36 = distinct !{!36, !37, !"_ZN5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE6insertEOS3_: argument 0"}
 !37 = distinct !{!37, !"_ZN5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE6insertEOS3_"}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE3_clEv.argprom: argument 0"}
-!40 = distinct !{!40, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE3_clEv.argprom"}
+!39 = distinct !{!39, !40, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE3_clEv: argument 0"}
+!40 = distinct !{!40, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE3_clEv"}
 !41 = !{!42}
 !42 = distinct !{!42, !43, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !43 = distinct !{!43, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
@@ -45487,8 +45487,8 @@ attributes #25 = { nounwind willreturn memory(read) }
 !49 = distinct !{!49, !"_ZN5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE6insertEOS3_"}
 !50 = distinct !{!50, !7}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE4_clEv.argprom: argument 0"}
-!53 = distinct !{!53, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE4_clEv.argprom"}
+!52 = distinct !{!52, !53, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE4_clEv: argument 0"}
+!53 = distinct !{!53, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE4_clEv"}
 !54 = distinct !{!54, !7}
 !55 = distinct !{!55, !7}
 !56 = !{!57}
@@ -45518,11 +45518,11 @@ attributes #25 = { nounwind willreturn memory(read) }
 !80 = distinct !{!80, !"_ZN5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE6insertEOS3_"}
 !81 = distinct !{!81, !7}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE5_clEv.argprom: argument 0"}
-!84 = distinct !{!84, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE5_clEv.argprom"}
+!83 = distinct !{!83, !84, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE5_clEv: argument 0"}
+!84 = distinct !{!84, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE5_clEv"}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE6_clEv.argprom: argument 0"}
-!87 = distinct !{!87, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE6_clEv.argprom"}
+!86 = distinct !{!86, !87, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE6_clEv: argument 0"}
+!87 = distinct !{!87, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE6_clEv"}
 !88 = !{!89}
 !89 = distinct !{!89, !90, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !90 = distinct !{!90, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
@@ -45544,23 +45544,23 @@ attributes #25 = { nounwind willreturn memory(read) }
 !106 = distinct !{!106, !7}
 !107 = distinct !{!107, !7}
 !108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE7_clEv.argprom: argument 0"}
-!110 = distinct !{!110, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE7_clEv.argprom"}
+!109 = distinct !{!109, !110, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE7_clEv: argument 0"}
+!110 = distinct !{!110, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE7_clEv"}
 !111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE8_clEv.argprom: argument 0"}
-!113 = distinct !{!113, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE8_clEv.argprom"}
+!112 = distinct !{!112, !113, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE8_clEv: argument 0"}
+!113 = distinct !{!113, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE8_clEv"}
 !114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE9_clEv.argprom: argument 0"}
-!116 = distinct !{!116, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE9_clEv.argprom"}
+!115 = distinct !{!115, !116, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE9_clEv: argument 0"}
+!116 = distinct !{!116, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE9_clEv"}
 !117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE10_clEv.argprom: argument 0"}
-!119 = distinct !{!119, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE10_clEv.argprom"}
+!118 = distinct !{!118, !119, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE10_clEv: argument 0"}
+!119 = distinct !{!119, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE10_clEv"}
 !120 = !{!121}
 !121 = distinct !{!121, !122, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !122 = distinct !{!122, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
 !123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.argprom: argument 0"}
-!125 = distinct !{!125, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv.argprom"}
+!124 = distinct !{!124, !125, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv: argument 0"}
+!125 = distinct !{!125, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE11_clEv"}
 !126 = !{!127}
 !127 = distinct !{!127, !128, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !128 = distinct !{!128, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
@@ -45580,8 +45580,8 @@ attributes #25 = { nounwind willreturn memory(read) }
 !142 = distinct !{!142, !143, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !143 = distinct !{!143, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
 !144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom: argument 0"}
-!146 = distinct !{!146, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom"}
+!145 = distinct !{!145, !146, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv: argument 0"}
+!146 = distinct !{!146, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE_clEv"}
 !147 = !{!148}
 !148 = distinct !{!148, !149, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !149 = distinct !{!149, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
@@ -45591,23 +45591,23 @@ attributes #25 = { nounwind willreturn memory(read) }
 !153 = distinct !{!153, !7}
 !154 = distinct !{!154, !7}
 !155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom: argument 0"}
-!157 = distinct !{!157, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom"}
+!156 = distinct !{!156, !157, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv: argument 0"}
+!157 = distinct !{!157, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE0_clEv"}
 !158 = distinct !{!158, !7}
 !159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom: argument 0"}
-!161 = distinct !{!161, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom"}
+!160 = distinct !{!160, !161, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv: argument 0"}
+!161 = distinct !{!161, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE1_clEv"}
 !162 = distinct !{!162, !7}
 !163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.argprom: argument 0"}
-!165 = distinct !{!165, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv.argprom"}
+!164 = distinct !{!164, !165, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv: argument 0"}
+!165 = distinct !{!165, !"_ZZN12_GLOBAL__N_115OptReduceWorker12opt_mux_bitsEPN5Yosys5RTLIL4CellEENKUlvE2_clEv"}
 !166 = distinct !{!166, !7}
 !167 = !{!168}
-!168 = distinct !{!168, !169, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE12_clEv.argprom: argument 0"}
-!169 = distinct !{!169, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE12_clEv.argprom"}
+!168 = distinct !{!168, !169, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE12_clEv: argument 0"}
+!169 = distinct !{!169, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE12_clEv"}
 !170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE13_clEv.argprom: argument 0"}
-!172 = distinct !{!172, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE13_clEv.argprom"}
+!171 = distinct !{!171, !172, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE13_clEv: argument 0"}
+!172 = distinct !{!172, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE13_clEv"}
 !173 = !{!174}
 !174 = distinct !{!174, !175, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !175 = distinct !{!175, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
@@ -45624,23 +45624,23 @@ attributes #25 = { nounwind willreturn memory(read) }
 !186 = distinct !{!186, !7}
 !187 = distinct !{!187, !7}
 !188 = !{!189}
-!189 = distinct !{!189, !190, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom: argument 0"}
-!190 = distinct !{!190, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom"}
+!189 = distinct !{!189, !190, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE_clEv: argument 0"}
+!190 = distinct !{!190, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE_clEv"}
 !191 = !{!192}
 !192 = distinct !{!192, !193, !"_ZN5Yosys7hashlib4poolINS_5RTLIL7SigSpecENS0_8hash_opsIS3_EEE6insertERKS3_: argument 0"}
 !193 = distinct !{!193, !"_ZN5Yosys7hashlib4poolINS_5RTLIL7SigSpecENS0_8hash_opsIS3_EEE6insertERKS3_"}
 !194 = distinct !{!194, !7}
 !195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom: argument 0"}
-!197 = distinct !{!197, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE0_clEv.argprom"}
+!196 = distinct !{!196, !197, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE0_clEv: argument 0"}
+!197 = distinct !{!197, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE0_clEv"}
 !198 = !{!199}
-!199 = distinct !{!199, !200, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom: argument 0"}
-!200 = distinct !{!200, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE1_clEv.argprom"}
+!199 = distinct !{!199, !200, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE1_clEv: argument 0"}
+!200 = distinct !{!200, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_pmuxEPN5Yosys5RTLIL4CellEENKUlvE1_clEv"}
 !201 = distinct !{!201, !7}
 !202 = distinct !{!202, !7}
 !203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.argprom: argument 0"}
-!205 = distinct !{!205, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv.argprom"}
+!204 = distinct !{!204, !205, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv: argument 0"}
+!205 = distinct !{!205, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE14_clEv"}
 !206 = !{!207}
 !207 = distinct !{!207, !208, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !208 = distinct !{!208, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
@@ -45651,11 +45651,11 @@ attributes #25 = { nounwind willreturn memory(read) }
 !213 = distinct !{!213, !7}
 !214 = distinct !{!214, !7}
 !215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_bmuxEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom: argument 0"}
-!217 = distinct !{!217, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_bmuxEPN5Yosys5RTLIL4CellEENKUlvE_clEv.argprom"}
+!216 = distinct !{!216, !217, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_bmuxEPN5Yosys5RTLIL4CellEENKUlvE_clEv: argument 0"}
+!217 = distinct !{!217, !"_ZZN12_GLOBAL__N_115OptReduceWorker8opt_bmuxEPN5Yosys5RTLIL4CellEENKUlvE_clEv"}
 !218 = !{!219}
-!219 = distinct !{!219, !220, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.argprom: argument 0"}
-!220 = distinct !{!220, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv.argprom"}
+!219 = distinct !{!219, !220, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv: argument 0"}
+!220 = distinct !{!220, !"_ZZN12_GLOBAL__N_115OptReduceWorkerC1EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbENKUlvE15_clEv"}
 !221 = !{!222}
 !222 = distinct !{!222, !223, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !223 = distinct !{!223, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
@@ -45686,11 +45686,11 @@ attributes #25 = { nounwind willreturn memory(read) }
 !248 = distinct !{!248, !249, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !249 = distinct !{!249, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
 !250 = !{!251}
-!251 = distinct !{!251, !252, !"_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.argprom: argument 0"}
-!252 = distinct !{!252, !"_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv.argprom"}
+!251 = distinct !{!251, !252, !"_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv: argument 0"}
+!252 = distinct !{!252, !"_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE_clEv"}
 !253 = !{!254}
-!254 = distinct !{!254, !255, !"_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.argprom: argument 0"}
-!255 = distinct !{!255, !"_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv.argprom"}
+!254 = distinct !{!254, !255, !"_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv: argument 0"}
+!255 = distinct !{!255, !"_ZZN12_GLOBAL__N_115OptReduceWorker10opt_reduceERN5Yosys7hashlib4poolIPNS1_5RTLIL4CellENS2_8hash_opsIS6_EEEERNS1_6SigSetIS6_vEES6_ENKUlvE0_clEv"}
 !256 = !{!257}
 !257 = distinct !{!257, !258, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE: argument 0"}
 !258 = distinct !{!258, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}

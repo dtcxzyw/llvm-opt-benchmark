@@ -256,7 +256,7 @@ entry:
   %ref.tmp125 = alloca %"class.std::allocator", align 1
   %0 = load atomic i32, ptr @_ZZN3re23RE24InitEN4absl7debian211string_viewERKNS0_7OptionsEE10empty_once acquire, align 4
   %cmp.not.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i, label %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit", label %if.then.i
+  br i1 %cmp.not.i, label %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = cmpxchg ptr @_ZZN3re23RE24InitEN4absl7debian211string_viewERKNS0_7OptionsEE10empty_once, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -266,7 +266,7 @@ if.then.i:                                        ; preds = %entry
 lor.lhs.false.i.i:                                ; preds = %if.then.i
   %call1.i.i = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull @_ZZN3re23RE24InitEN4absl7debian211string_viewERKNS0_7OptionsEE10empty_once, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZN3re23RE24InitENS0_11string_viewERKNS4_7OptionsEE3$_0JEEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %release.i.i.i, label %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br i1 %cmp.i.i, label %release.i.i.i, label %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 release.i.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.then.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZN3re2L13empty_storageE) #30
@@ -282,23 +282,23 @@ release.i.i.i:                                    ; preds = %lor.lhs.false.i.i, 
   store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN3re2L13empty_storageE, i64 120), align 8
   %3 = atomicrmw xchg ptr @_ZZN3re23RE24InitEN4absl7debian211string_viewERKNS0_7OptionsEE10empty_once, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %3, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
   tail call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull @_ZZN3re23RE24InitEN4absl7debian211string_viewERKNS0_7OptionsEE10empty_once, i1 noundef zeroext true)
-  br label %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br label %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
-"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
+"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %pattern.coerce0, null
   br i1 %tobool.not.i, label %if.then.i8, label %if.end.i
 
-if.then.i8:                                       ; preds = %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+if.then.i8:                                       ; preds = %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call) #30
   br label %invoke.cont
 
-if.end.i:                                         ; preds = %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+if.end.i:                                         ; preds = %"_ZN4absl7debian29call_onceIZN3re23RE24InitENS0_11string_viewERKNS3_7OptionsEE3$_0JEEEvRNS0_9once_flagEOT_DpOT0_.exit"
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #30, !noalias !4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull %pattern.coerce0, i64 noundef %pattern.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1228,7 +1228,7 @@ entry:
   %rprog_once_ = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load atomic i32, ptr %rprog_once_ acquire, align 8
   %cmp.not.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit", label %if.then.i
+  br i1 %cmp.not.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = cmpxchg ptr %rprog_once_, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -1238,7 +1238,7 @@ if.then.i:                                        ; preds = %entry
 lor.lhs.false.i.i:                                ; preds = %if.then.i
   %call1.i.i = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %rprog_once_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZNK3re23RE211ReverseProgEvE3$_0JPKS4_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %ref.tmp.i.i.i.i.i)
@@ -1338,17 +1338,17 @@ release.i.i.i:                                    ; preds = %invoke.cont14.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp9.i.i.i.i.i)
   %10 = atomicrmw xchg ptr %rprog_once_, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %10, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
   call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull %rprog_once_, i1 noundef zeroext true)
-  br label %"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br label %"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 lpad.body.i.i:                                    ; preds = %ehcleanup.i.i.i.i.i, %lpad.i.i.i.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %6, %lpad.i.i.i.i.i.i ], [ %.pn.i.i.i.i.i, %ehcleanup.i.i.i.i.i ]
   resume { ptr, i32 } %eh.lpad-body.i.i
 
-"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
+"_ZN4absl7debian29call_onceIZNK3re23RE211ReverseProgEvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
   %rprog_ = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %rprog_, align 8
   ret ptr %11
@@ -1726,7 +1726,7 @@ entry:
   %named_groups_once_ = getelementptr inbounds i8, ptr %this, i64 140
   %0 = load atomic i32, ptr %named_groups_once_ acquire, align 4
   %cmp.not.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit", label %if.then.i
+  br i1 %cmp.not.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = cmpxchg ptr %named_groups_once_, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -1736,7 +1736,7 @@ if.then.i:                                        ; preds = %entry
 lor.lhs.false.i.i:                                ; preds = %if.then.i
   %call1.i.i = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %named_groups_once_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS4_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
   %suffix_regexp_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -1768,13 +1768,13 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
 release.i.i.i:                                    ; preds = %if.then5.i.i.i.i.i, %if.end.i.i.i.i.i
   %5 = atomicrmw xchg ptr %named_groups_once_, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %5, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
   tail call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull %named_groups_once_, i1 noundef zeroext true)
-  br label %"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br label %"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
-"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
+"_ZN4absl7debian29call_onceIZNK3re23RE220NamedCapturingGroupsB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
   %named_groups_ = getelementptr inbounds i8, ptr %this, i64 120
   %6 = load ptr, ptr %named_groups_, align 8
   ret ptr %6
@@ -1786,7 +1786,7 @@ entry:
   %group_names_once_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load atomic i32, ptr %group_names_once_ acquire, align 8
   %cmp.not.i = icmp eq i32 %0, 221
-  br i1 %cmp.not.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit", label %if.then.i
+  br i1 %cmp.not.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = cmpxchg ptr %group_names_once_, i32 0, i32 1707250555 monotonic monotonic, align 4
@@ -1796,7 +1796,7 @@ if.then.i:                                        ; preds = %entry
 lor.lhs.false.i.i:                                ; preds = %if.then.i
   %call1.i.i = tail call noundef i32 @_ZN4absl7debian213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %group_names_once_, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl7debian213base_internal12CallOnceImplIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS4_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 1)
   %cmp.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br i1 %cmp.i.i, label %if.then.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, %if.then.i
   %suffix_regexp_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -1828,13 +1828,13 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
 release.i.i.i:                                    ; preds = %if.then5.i.i.i.i.i, %if.end.i.i.i.i.i
   %5 = atomicrmw xchg ptr %group_names_once_, i32 221 release, align 4
   %cmp4.i.i = icmp eq i32 %5, 94570706
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
 if.then5.i.i:                                     ; preds = %release.i.i.i
   tail call void @AbslInternalSpinLockWake_debian2(ptr noundef nonnull %group_names_once_, i1 noundef zeroext true)
-  br label %"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit"
+  br label %"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit"
 
-"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.argprom.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
+"_ZN4absl7debian29call_onceIZNK3re23RE219CapturingGroupNamesB5cxx11EvE3$_0JPKS3_EEEvRNS0_9once_flagEOT_DpOT0_.exit": ; preds = %entry, %lor.lhs.false.i.i, %release.i.i.i, %if.then5.i.i
   %group_names_ = getelementptr inbounds i8, ptr %this, i64 128
   %6 = load ptr, ptr %group_names_, align 8
   ret ptr %6

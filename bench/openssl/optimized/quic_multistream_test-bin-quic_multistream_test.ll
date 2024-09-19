@@ -1121,24 +1121,24 @@ s_checked_out_p.exit.i:                           ; preds = %for.cond, %cond.fal
   %cond.i.i = phi ptr [ %s_checked_out1.i.i, %cond.false.i.i ], [ %s_checked_out.i.i, %for.cond ]
   %3 = load ptr, ptr %m.i, align 8
   %cmp.i439 = icmp eq ptr %3, null
-  br i1 %cmp.i439, label %s_unlock.argprom.exit, label %lor.lhs.false.i
+  br i1 %cmp.i439, label %s_unlock.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %s_checked_out_p.exit.i
   %4 = load i32, ptr %cond.i.i, align 4
   %tobool.not.i440 = icmp eq i32 %4, 0
-  br i1 %tobool.not.i440, label %s_unlock.argprom.exit, label %if.end.i441
+  br i1 %tobool.not.i440, label %s_unlock.exit, label %if.end.i441
 
 if.end.i441:                                      ; preds = %lor.lhs.false.i
   store i32 0, ptr %cond.i.i, align 4
   store ptr null, ptr %s.i, align 8
   %5 = load ptr, ptr %m.i, align 8
   call void @ossl_crypto_mutex_unlock(ptr noundef %5) #14
-  br label %s_unlock.argprom.exit
+  br label %s_unlock.exit
 
-s_unlock.argprom.exit:                            ; preds = %s_checked_out_p.exit.i, %lor.lhs.false.i, %if.end.i441
+s_unlock.exit:                                    ; preds = %s_checked_out_p.exit.i, %lor.lhs.false.i, %if.end.i441
   br i1 %tobool5.not, label %if.else, label %if.end19
 
-if.else:                                          ; preds = %s_unlock.argprom.exit
+if.else:                                          ; preds = %s_unlock.exit
   %tobool7.not = icmp eq i32 %first.0, 0
   %inc = zext i1 %tobool7.not to i64
   %spec.select = add i64 %op_idx.1, %inc
@@ -1146,11 +1146,11 @@ if.else:                                          ; preds = %s_unlock.argprom.ex
   %retval.sroa.0.0.i = call i64 @llvm.uadd.sat.i64(i64 %call10, i64 60000000000)
   br label %if.end19
 
-if.end19:                                         ; preds = %s_unlock.argprom.exit, %if.else
-  %op_deadline.sroa.0.1 = phi i64 [ %retval.sroa.0.0.i, %if.else ], [ %op_deadline.sroa.0.0, %s_unlock.argprom.exit ]
-  %first.1 = phi i32 [ 0, %if.else ], [ %first.0, %s_unlock.argprom.exit ]
-  %op_idx.2 = phi i64 [ %spec.select, %if.else ], [ %op_idx.1, %s_unlock.argprom.exit ]
-  %offset.1 = phi i64 [ 0, %if.else ], [ %offset.0, %s_unlock.argprom.exit ]
+if.end19:                                         ; preds = %s_unlock.exit, %if.else
+  %op_deadline.sroa.0.1 = phi i64 [ %retval.sroa.0.0.i, %if.else ], [ %op_deadline.sroa.0.0, %s_unlock.exit ]
+  %first.1 = phi i32 [ 0, %if.else ], [ %first.0, %s_unlock.exit ]
+  %op_idx.2 = phi i64 [ %spec.select, %if.else ], [ %op_idx.1, %s_unlock.exit ]
+  %offset.1 = phi i64 [ 0, %if.else ], [ %offset.0, %s_unlock.exit ]
   %call21 = call i64 @ossl_time_now() #14
   %retval.0.i442 = call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %call21, i64 %op_deadline.sroa.0.1)
   %call26 = call i32 @test_int_le(ptr noundef nonnull @.str.14, i32 noundef 1059, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.32, i32 noundef %retval.0.i442, i32 noundef 0) #14
@@ -1179,7 +1179,7 @@ if.then.i:                                        ; preds = %if.then32
   %hl_.val412 = load ptr, ptr %hl_, align 8
   %c_conn.i = getelementptr inbounds i8, ptr %hl_.val412, i64 112
   %7 = load ptr, ptr %c_conn.i, align 8
-  br label %helper_local_get_c_stream.argprom.exit
+  br label %helper_local_get_c_stream.exit
 
 if.end.i445:                                      ; preds = %if.then32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i.i)
@@ -1212,20 +1212,20 @@ if.end10.i.i:                                     ; preds = %if.then6.i.i
 
 get_stream_info.exit.thread.i:                    ; preds = %if.then6.i.i, %if.end.i.i, %if.end.i445
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i)
-  br label %helper_local_get_c_stream.argprom.exit
+  br label %helper_local_get_c_stream.exit
 
 if.end3.i:                                        ; preds = %if.end10.i.i, %if.end4.i.i
   %retval.0.i.i = phi ptr [ %call7.i.i, %if.end10.i.i ], [ %call.i.i.i, %if.end4.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i)
   %c_stream.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %8 = load ptr, ptr %c_stream.i, align 8
-  br label %helper_local_get_c_stream.argprom.exit
+  br label %helper_local_get_c_stream.exit
 
-helper_local_get_c_stream.argprom.exit:           ; preds = %if.then.i, %get_stream_info.exit.thread.i, %if.end3.i
+helper_local_get_c_stream.exit:                   ; preds = %if.then.i, %get_stream_info.exit.thread.i, %if.end3.i
   %retval.0.i448 = phi ptr [ %8, %if.end3.i ], [ %7, %if.then.i ], [ null, %get_stream_info.exit.thread.i ]
   br i1 %cmp35, label %if.then37, label %if.end66.thread
 
-if.then37:                                        ; preds = %helper_local_get_c_stream.argprom.exit
+if.then37:                                        ; preds = %helper_local_get_c_stream.exit
   %9 = load ptr, ptr %stream_name, align 8
   %call.i450 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.154) #16
   %tobool.not.i451 = icmp eq i32 %call.i450, 0
@@ -1302,8 +1302,8 @@ if.then53:                                        ; preds = %land.lhs.true
   call void @ossl_crypto_mutex_unlock(ptr noundef %17) #14
   br label %if.end66
 
-if.end66.thread:                                  ; preds = %if.end42, %helper_local_get_c_stream.argprom.exit
-  %c_tgt.01014.ph = phi ptr [ %1, %if.end42 ], [ %retval.0.i448, %helper_local_get_c_stream.argprom.exit ]
+if.end66.thread:                                  ; preds = %if.end42, %helper_local_get_c_stream.exit
+  %c_tgt.01014.ph = phi ptr [ %1, %if.end42 ], [ %retval.0.i448, %helper_local_get_c_stream.exit ]
   %18 = load ptr, ptr %c_conn, align 8
   %call721046 = call i32 @SSL_handle_events(ptr noundef %18) #14
   %19 = load i32, ptr %arrayidx, align 8
@@ -1447,7 +1447,7 @@ if.then111:                                       ; preds = %if.then109
 
 if.end112:                                        ; preds = %if.then111, %if.then109
   %hl_.val414 = load i32, ptr %thread_idx2.i, align 8
-  call fastcc void @s_lock.argprom.retelim(ptr noundef nonnull %h, i32 %hl_.val414)
+  call fastcc void @s_lock(ptr noundef nonnull %h, i32 %hl_.val414)
   %28 = load ptr, ptr %s.i, align 8
   %call115 = call i32 @ossl_quic_tserver_tick(ptr noundef %28) #14
   br label %for.inc
@@ -1518,13 +1518,13 @@ if.else153:                                       ; preds = %if.end145
   %35 = load i64, ptr %arrayidx155, align 8
   br label %for.cond.backedge
 
-for.cond.backedge:                                ; preds = %for.cond998, %if.end127, %if.end138, %if.end198, %s_lock.argprom.exit530, %if.end354, %if.end405, %if.end539, %if.end685, %s_lock.argprom.exit809, %sw.bb1043, %sw.bb1077, %s_lock.argprom.exit965, %sw.bb1123, %sw.bb134, %if.end169, %if.end220, %land.lhs.true224, %if.end205, %lor.lhs.false245, %lor.lhs.false265, %sw.bb271, %if.end290, %if.end436, %s_lock.argprom.exit595, %helper_local_set_c_stream.argprom.exit, %helper_local_set_c_stream.argprom.exit658, %helper_local_set_c_stream.argprom.exit681, %if.end588, %helper_local_set_c_stream.argprom.exit724, %if.end644, %sw.bb653, %if.end690, %if.end704, %if.end728, %lor.lhs.false786, %lor.lhs.false827, %if.end844, %if.end863, %lor.lhs.false884, %s_lock.argprom.exit914, %if.end918, %if.end942, %s_lock.argprom.exit937, %if.end972, %if.end1053, %sw.bb1059, %sw.bb1068, %sw.bb1079, %sw.bb1091, %sw.bb1105, %if.end1133, %s_lock.argprom.exit986, %if.end145, %if.end995, %if.else153, %s_lock.argprom.exit, %s_lock.argprom.exit572, %s_lock.argprom.exit616, %s_lock.argprom.exit766, %s_lock.argprom.exit872, %if.then215, %if.then296, %if.then327, %if.then337, %if.then426, %if.then612, %if.then731, %if.then767, %if.then945
-  %repeat_stack_len.1.be = phi i64 [ %repeat_stack_len.1, %s_lock.argprom.exit872 ], [ %repeat_stack_len.1, %s_lock.argprom.exit766 ], [ %repeat_stack_len.1, %s_lock.argprom.exit616 ], [ %repeat_stack_len.1, %s_lock.argprom.exit572 ], [ %repeat_stack_len.1, %s_lock.argprom.exit ], [ %repeat_stack_len.1, %if.else153 ], [ %repeat_stack_len.1, %if.then215 ], [ %repeat_stack_len.1, %if.then296 ], [ %repeat_stack_len.1, %if.then327 ], [ %repeat_stack_len.1, %if.then337 ], [ %repeat_stack_len.1, %if.then426 ], [ %repeat_stack_len.1, %if.then612 ], [ %repeat_stack_len.1, %if.then731 ], [ %repeat_stack_len.1, %if.then767 ], [ %repeat_stack_len.1, %if.then945 ], [ %repeat_stack_len.1, %s_lock.argprom.exit986 ], [ %repeat_stack_len.1, %if.end1133 ], [ %repeat_stack_len.1, %sw.bb1123 ], [ %repeat_stack_len.1, %s_lock.argprom.exit965 ], [ %repeat_stack_len.1, %sw.bb1105 ], [ %repeat_stack_len.1, %sw.bb1091 ], [ %repeat_stack_len.1, %sw.bb1079 ], [ %repeat_stack_len.1, %sw.bb1077 ], [ %repeat_stack_len.1, %sw.bb1068 ], [ %repeat_stack_len.1, %sw.bb1059 ], [ %repeat_stack_len.1, %if.end1053 ], [ %repeat_stack_len.1, %sw.bb1043 ], [ %repeat_stack_len.1, %if.end972 ], [ %repeat_stack_len.1, %s_lock.argprom.exit937 ], [ %repeat_stack_len.1, %if.end942 ], [ %repeat_stack_len.1, %if.end918 ], [ %repeat_stack_len.1, %s_lock.argprom.exit914 ], [ %repeat_stack_len.1, %lor.lhs.false884 ], [ %repeat_stack_len.1, %if.end863 ], [ %repeat_stack_len.1, %if.end844 ], [ %repeat_stack_len.1, %lor.lhs.false827 ], [ %repeat_stack_len.1, %lor.lhs.false786 ], [ %repeat_stack_len.1, %s_lock.argprom.exit809 ], [ %repeat_stack_len.1, %if.end728 ], [ %repeat_stack_len.1, %if.end704 ], [ %repeat_stack_len.1, %if.end690 ], [ %repeat_stack_len.1, %if.end685 ], [ %repeat_stack_len.1, %sw.bb653 ], [ %repeat_stack_len.1, %if.end644 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.argprom.exit724 ], [ %repeat_stack_len.1, %if.end588 ], [ %repeat_stack_len.1, %if.end539 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.argprom.exit681 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.argprom.exit658 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.argprom.exit ], [ %repeat_stack_len.1, %s_lock.argprom.exit595 ], [ %repeat_stack_len.1, %if.end436 ], [ %repeat_stack_len.1, %if.end405 ], [ %repeat_stack_len.1, %if.end354 ], [ %repeat_stack_len.1, %if.end290 ], [ %repeat_stack_len.1, %s_lock.argprom.exit530 ], [ %repeat_stack_len.1, %sw.bb271 ], [ %repeat_stack_len.1, %lor.lhs.false265 ], [ %repeat_stack_len.1, %lor.lhs.false245 ], [ %repeat_stack_len.1, %land.lhs.true224 ], [ %repeat_stack_len.1, %if.end220 ], [ %repeat_stack_len.1, %if.end205 ], [ %repeat_stack_len.1, %if.end198 ], [ %repeat_stack_len.1, %if.end169 ], [ %repeat_stack_len.1, %sw.bb134 ], [ %repeat_stack_len.1, %if.end138 ], [ %inc133, %if.end127 ], [ %sub, %if.end145 ], [ %repeat_stack_len.1, %if.end995 ], [ %repeat_stack_len.1, %for.cond998 ]
-  %tobool5.not.be = phi i1 [ false, %s_lock.argprom.exit872 ], [ false, %s_lock.argprom.exit766 ], [ false, %s_lock.argprom.exit616 ], [ false, %s_lock.argprom.exit572 ], [ false, %s_lock.argprom.exit ], [ false, %if.else153 ], [ false, %if.then215 ], [ false, %if.then296 ], [ false, %if.then327 ], [ false, %if.then337 ], [ false, %if.then426 ], [ false, %if.then612 ], [ false, %if.then731 ], [ false, %if.then767 ], [ false, %if.then945 ], [ true, %s_lock.argprom.exit986 ], [ true, %if.end1133 ], [ true, %sw.bb1123 ], [ true, %s_lock.argprom.exit965 ], [ true, %sw.bb1105 ], [ true, %sw.bb1091 ], [ true, %sw.bb1079 ], [ true, %sw.bb1077 ], [ true, %sw.bb1068 ], [ true, %sw.bb1059 ], [ true, %if.end1053 ], [ true, %sw.bb1043 ], [ true, %if.end972 ], [ true, %s_lock.argprom.exit937 ], [ true, %if.end942 ], [ true, %if.end918 ], [ true, %s_lock.argprom.exit914 ], [ true, %lor.lhs.false884 ], [ true, %if.end863 ], [ true, %if.end844 ], [ true, %lor.lhs.false827 ], [ true, %lor.lhs.false786 ], [ true, %s_lock.argprom.exit809 ], [ true, %if.end728 ], [ true, %if.end704 ], [ true, %if.end690 ], [ true, %if.end685 ], [ true, %sw.bb653 ], [ true, %if.end644 ], [ true, %helper_local_set_c_stream.argprom.exit724 ], [ true, %if.end588 ], [ true, %if.end539 ], [ true, %helper_local_set_c_stream.argprom.exit681 ], [ true, %helper_local_set_c_stream.argprom.exit658 ], [ true, %helper_local_set_c_stream.argprom.exit ], [ true, %s_lock.argprom.exit595 ], [ true, %if.end436 ], [ true, %if.end405 ], [ true, %if.end354 ], [ true, %if.end290 ], [ true, %s_lock.argprom.exit530 ], [ true, %sw.bb271 ], [ true, %lor.lhs.false265 ], [ true, %lor.lhs.false245 ], [ true, %land.lhs.true224 ], [ true, %if.end220 ], [ true, %if.end205 ], [ true, %if.end198 ], [ true, %if.end169 ], [ true, %sw.bb134 ], [ true, %if.end138 ], [ true, %if.end127 ], [ true, %if.end145 ], [ true, %if.end995 ], [ true, %for.cond998 ]
-  %op_idx.1.be = phi i64 [ %op_idx.2, %s_lock.argprom.exit872 ], [ %op_idx.2, %s_lock.argprom.exit766 ], [ %op_idx.2, %s_lock.argprom.exit616 ], [ %op_idx.2, %s_lock.argprom.exit572 ], [ %op_idx.2, %s_lock.argprom.exit ], [ %35, %if.else153 ], [ %op_idx.2, %if.then215 ], [ %op_idx.2, %if.then296 ], [ %op_idx.2, %if.then327 ], [ %op_idx.2, %if.then337 ], [ %op_idx.2, %if.then426 ], [ %op_idx.2, %if.then612 ], [ %op_idx.2, %if.then731 ], [ %op_idx.2, %if.then767 ], [ %op_idx.2, %if.then945 ], [ %op_idx.2, %s_lock.argprom.exit986 ], [ %op_idx.2, %if.end1133 ], [ %op_idx.2, %sw.bb1123 ], [ %op_idx.2, %s_lock.argprom.exit965 ], [ %op_idx.2, %sw.bb1105 ], [ %op_idx.2, %sw.bb1091 ], [ %op_idx.2, %sw.bb1079 ], [ %op_idx.2, %sw.bb1077 ], [ %op_idx.2, %sw.bb1068 ], [ %op_idx.2, %sw.bb1059 ], [ %op_idx.2, %if.end1053 ], [ %op_idx.2, %sw.bb1043 ], [ %op_idx.2, %if.end972 ], [ %op_idx.2, %s_lock.argprom.exit937 ], [ %op_idx.2, %if.end942 ], [ %op_idx.2, %if.end918 ], [ %op_idx.2, %s_lock.argprom.exit914 ], [ %op_idx.2, %lor.lhs.false884 ], [ %op_idx.2, %if.end863 ], [ %op_idx.2, %if.end844 ], [ %op_idx.2, %lor.lhs.false827 ], [ %op_idx.2, %lor.lhs.false786 ], [ %op_idx.2, %s_lock.argprom.exit809 ], [ %op_idx.2, %if.end728 ], [ %op_idx.2, %if.end704 ], [ %op_idx.2, %if.end690 ], [ %op_idx.2, %if.end685 ], [ %op_idx.2, %sw.bb653 ], [ %op_idx.2, %if.end644 ], [ %op_idx.2, %helper_local_set_c_stream.argprom.exit724 ], [ %op_idx.2, %if.end588 ], [ %op_idx.2, %if.end539 ], [ %op_idx.2, %helper_local_set_c_stream.argprom.exit681 ], [ %op_idx.2, %helper_local_set_c_stream.argprom.exit658 ], [ %op_idx.2, %helper_local_set_c_stream.argprom.exit ], [ %op_idx.2, %s_lock.argprom.exit595 ], [ %op_idx.2, %if.end436 ], [ %op_idx.2, %if.end405 ], [ %op_idx.2, %if.end354 ], [ %op_idx.2, %if.end290 ], [ %op_idx.2, %s_lock.argprom.exit530 ], [ %op_idx.2, %sw.bb271 ], [ %op_idx.2, %lor.lhs.false265 ], [ %op_idx.2, %lor.lhs.false245 ], [ %op_idx.2, %land.lhs.true224 ], [ %op_idx.2, %if.end220 ], [ %op_idx.2, %if.end205 ], [ %op_idx.2, %if.end198 ], [ %op_idx.2, %if.end169 ], [ %op_idx.2, %sw.bb134 ], [ %add140, %if.end138 ], [ %op_idx.2, %if.end127 ], [ %op_idx.2, %if.end145 ], [ %op_idx.2, %if.end995 ], [ %op_idx.2, %for.cond998 ]
-  %offset.0.be = phi i64 [ %offset.1, %s_lock.argprom.exit872 ], [ %offset.1, %s_lock.argprom.exit766 ], [ %offset.1, %s_lock.argprom.exit616 ], [ %add385, %s_lock.argprom.exit572 ], [ %offset.1, %s_lock.argprom.exit ], [ %offset.1, %if.else153 ], [ %offset.1, %if.then215 ], [ %offset.1, %if.then296 ], [ %offset.1, %if.then327 ], [ %add333, %if.then337 ], [ %offset.1, %if.then426 ], [ %offset.1, %if.then612 ], [ %offset.1, %if.then731 ], [ %offset.1, %if.then767 ], [ %offset.1, %if.then945 ], [ %offset.1, %s_lock.argprom.exit986 ], [ %offset.1, %if.end1133 ], [ %offset.1, %sw.bb1123 ], [ %offset.1, %s_lock.argprom.exit965 ], [ %offset.1, %sw.bb1105 ], [ %offset.1, %sw.bb1091 ], [ %offset.1, %sw.bb1079 ], [ %offset.1, %sw.bb1077 ], [ %offset.1, %sw.bb1068 ], [ %offset.1, %sw.bb1059 ], [ %offset.1, %if.end1053 ], [ %offset.1, %sw.bb1043 ], [ %offset.1, %if.end972 ], [ %offset.1, %s_lock.argprom.exit937 ], [ %offset.1, %if.end942 ], [ %offset.1, %if.end918 ], [ %offset.1, %s_lock.argprom.exit914 ], [ %offset.1, %lor.lhs.false884 ], [ %offset.1, %if.end863 ], [ %offset.1, %if.end844 ], [ %offset.1, %lor.lhs.false827 ], [ %offset.1, %lor.lhs.false786 ], [ %offset.1, %s_lock.argprom.exit809 ], [ %offset.1, %if.end728 ], [ %offset.1, %if.end704 ], [ %offset.1, %if.end690 ], [ %offset.1, %if.end685 ], [ %offset.1, %sw.bb653 ], [ %offset.1, %if.end644 ], [ %offset.1, %helper_local_set_c_stream.argprom.exit724 ], [ %offset.1, %if.end588 ], [ %offset.1, %if.end539 ], [ %offset.1, %helper_local_set_c_stream.argprom.exit681 ], [ %offset.1, %helper_local_set_c_stream.argprom.exit658 ], [ %offset.1, %helper_local_set_c_stream.argprom.exit ], [ %offset.1, %s_lock.argprom.exit595 ], [ %offset.1, %if.end436 ], [ %offset.1, %if.end405 ], [ %offset.1, %if.end354 ], [ %offset.1, %if.end290 ], [ %offset.1, %s_lock.argprom.exit530 ], [ %offset.1, %sw.bb271 ], [ %offset.1, %lor.lhs.false265 ], [ %offset.1, %lor.lhs.false245 ], [ %offset.1, %land.lhs.true224 ], [ %offset.1, %if.end220 ], [ %offset.1, %if.end205 ], [ %offset.1, %if.end198 ], [ %offset.1, %if.end169 ], [ %offset.1, %sw.bb134 ], [ %offset.1, %if.end138 ], [ %offset.1, %if.end127 ], [ %offset.1, %if.end145 ], [ %offset.1, %if.end995 ], [ %offset.1, %for.cond998 ]
-  %connect_started.0.be = phi i32 [ %connect_started.0, %s_lock.argprom.exit872 ], [ %connect_started.0, %s_lock.argprom.exit766 ], [ %connect_started.0, %s_lock.argprom.exit616 ], [ %connect_started.0, %s_lock.argprom.exit572 ], [ %connect_started.0, %s_lock.argprom.exit ], [ %connect_started.0, %if.else153 ], [ 1, %if.then215 ], [ %connect_started.0, %if.then296 ], [ %connect_started.0, %if.then327 ], [ %connect_started.0, %if.then337 ], [ %connect_started.0, %if.then426 ], [ %connect_started.0, %if.then612 ], [ %connect_started.0, %if.then731 ], [ %connect_started.0, %if.then767 ], [ %connect_started.0, %if.then945 ], [ %connect_started.0, %s_lock.argprom.exit986 ], [ %connect_started.0, %if.end1133 ], [ %connect_started.0, %sw.bb1123 ], [ %connect_started.0, %s_lock.argprom.exit965 ], [ %connect_started.0, %sw.bb1105 ], [ %connect_started.0, %sw.bb1091 ], [ %connect_started.0, %sw.bb1079 ], [ %connect_started.0, %sw.bb1077 ], [ %connect_started.0, %sw.bb1068 ], [ %connect_started.0, %sw.bb1059 ], [ %connect_started.0, %if.end1053 ], [ %connect_started.0, %sw.bb1043 ], [ %connect_started.0, %if.end972 ], [ %connect_started.0, %s_lock.argprom.exit937 ], [ %connect_started.0, %if.end942 ], [ %connect_started.0, %if.end918 ], [ %connect_started.0, %s_lock.argprom.exit914 ], [ %connect_started.0, %lor.lhs.false884 ], [ %connect_started.0, %if.end863 ], [ %connect_started.0, %if.end844 ], [ %connect_started.0, %lor.lhs.false827 ], [ %connect_started.0, %lor.lhs.false786 ], [ %connect_started.0, %s_lock.argprom.exit809 ], [ %connect_started.0, %if.end728 ], [ %connect_started.0, %if.end704 ], [ %connect_started.0, %if.end690 ], [ %connect_started.0, %if.end685 ], [ %connect_started.0, %sw.bb653 ], [ %connect_started.0, %if.end644 ], [ %connect_started.0, %helper_local_set_c_stream.argprom.exit724 ], [ %connect_started.0, %if.end588 ], [ %connect_started.0, %if.end539 ], [ %connect_started.0, %helper_local_set_c_stream.argprom.exit681 ], [ %connect_started.0, %helper_local_set_c_stream.argprom.exit658 ], [ %connect_started.0, %helper_local_set_c_stream.argprom.exit ], [ %connect_started.0, %s_lock.argprom.exit595 ], [ %connect_started.0, %if.end436 ], [ %connect_started.0, %if.end405 ], [ %connect_started.0, %if.end354 ], [ %connect_started.0, %if.end290 ], [ %connect_started.0, %s_lock.argprom.exit530 ], [ %connect_started.0, %sw.bb271 ], [ %connect_started.0, %lor.lhs.false265 ], [ %connect_started.0, %lor.lhs.false245 ], [ 1, %land.lhs.true224 ], [ 1, %if.end220 ], [ 1, %if.end205 ], [ %connect_started.0, %if.end198 ], [ %connect_started.0, %if.end169 ], [ %connect_started.0, %sw.bb134 ], [ %connect_started.0, %if.end138 ], [ %connect_started.0, %if.end127 ], [ %connect_started.0, %if.end145 ], [ %connect_started.0, %if.end995 ], [ %connect_started.0, %for.cond998 ]
-  %tmp_buf.1.be = phi ptr [ %tmp_buf.1, %s_lock.argprom.exit872 ], [ %tmp_buf.1, %s_lock.argprom.exit766 ], [ %tmp_buf.1, %s_lock.argprom.exit616 ], [ %tmp_buf.4, %s_lock.argprom.exit572 ], [ %tmp_buf.1, %s_lock.argprom.exit ], [ %tmp_buf.1, %if.else153 ], [ %tmp_buf.1, %if.then215 ], [ %tmp_buf.1, %if.then296 ], [ %tmp_buf.3, %if.then327 ], [ %tmp_buf.3, %if.then337 ], [ %tmp_buf.1, %if.then426 ], [ %tmp_buf.1, %if.then612 ], [ %tmp_buf.1, %if.then731 ], [ %tmp_buf.1, %if.then767 ], [ %tmp_buf.1, %if.then945 ], [ %tmp_buf.1, %s_lock.argprom.exit986 ], [ %tmp_buf.1, %if.end1133 ], [ %tmp_buf.1, %sw.bb1123 ], [ %tmp_buf.1, %s_lock.argprom.exit965 ], [ %tmp_buf.1, %sw.bb1105 ], [ %tmp_buf.1, %sw.bb1091 ], [ %tmp_buf.1, %sw.bb1079 ], [ %tmp_buf.1, %sw.bb1077 ], [ %tmp_buf.1, %sw.bb1068 ], [ %tmp_buf.1, %sw.bb1059 ], [ %tmp_buf.1, %if.end1053 ], [ %tmp_buf.1, %sw.bb1043 ], [ %tmp_buf.1, %if.end972 ], [ %tmp_buf.1, %s_lock.argprom.exit937 ], [ %tmp_buf.1, %if.end942 ], [ %tmp_buf.1, %if.end918 ], [ %tmp_buf.1, %s_lock.argprom.exit914 ], [ %tmp_buf.1, %lor.lhs.false884 ], [ %tmp_buf.1, %if.end863 ], [ %tmp_buf.1, %if.end844 ], [ %tmp_buf.1, %lor.lhs.false827 ], [ %tmp_buf.1, %lor.lhs.false786 ], [ %tmp_buf.1, %s_lock.argprom.exit809 ], [ %tmp_buf.1, %if.end728 ], [ %tmp_buf.1, %if.end704 ], [ %tmp_buf.1, %if.end690 ], [ %tmp_buf.1, %if.end685 ], [ %tmp_buf.1, %sw.bb653 ], [ %tmp_buf.1, %if.end644 ], [ %tmp_buf.1, %helper_local_set_c_stream.argprom.exit724 ], [ %tmp_buf.1, %if.end588 ], [ %tmp_buf.1, %if.end539 ], [ %tmp_buf.1, %helper_local_set_c_stream.argprom.exit681 ], [ %tmp_buf.1, %helper_local_set_c_stream.argprom.exit658 ], [ %tmp_buf.1, %helper_local_set_c_stream.argprom.exit ], [ %tmp_buf.1, %s_lock.argprom.exit595 ], [ %tmp_buf.1, %if.end436 ], [ null, %if.end405 ], [ null, %if.end354 ], [ %tmp_buf.1, %if.end290 ], [ %tmp_buf.1, %s_lock.argprom.exit530 ], [ %tmp_buf.1, %sw.bb271 ], [ %tmp_buf.1, %lor.lhs.false265 ], [ %tmp_buf.1, %lor.lhs.false245 ], [ %tmp_buf.1, %land.lhs.true224 ], [ %tmp_buf.1, %if.end220 ], [ %tmp_buf.1, %if.end205 ], [ null, %if.end198 ], [ %tmp_buf.1, %if.end169 ], [ %tmp_buf.1, %sw.bb134 ], [ %tmp_buf.1, %if.end138 ], [ %tmp_buf.1, %if.end127 ], [ %tmp_buf.1, %if.end145 ], [ %tmp_buf.1, %if.end995 ], [ %tmp_buf.1, %for.cond998 ]
+for.cond.backedge:                                ; preds = %for.cond998, %if.end127, %if.end138, %if.end198, %s_lock.exit530, %if.end354, %if.end405, %if.end539, %if.end685, %s_lock.exit809, %sw.bb1043, %sw.bb1077, %s_lock.exit965, %sw.bb1123, %sw.bb134, %if.end169, %if.end220, %land.lhs.true224, %if.end205, %lor.lhs.false245, %lor.lhs.false265, %sw.bb271, %if.end290, %if.end436, %s_lock.exit595, %helper_local_set_c_stream.exit, %helper_local_set_c_stream.exit658, %helper_local_set_c_stream.exit681, %if.end588, %helper_local_set_c_stream.exit724, %if.end644, %sw.bb653, %if.end690, %if.end704, %if.end728, %lor.lhs.false786, %lor.lhs.false827, %if.end844, %if.end863, %lor.lhs.false884, %s_lock.exit914, %if.end918, %if.end942, %s_lock.exit937, %if.end972, %if.end1053, %sw.bb1059, %sw.bb1068, %sw.bb1079, %sw.bb1091, %sw.bb1105, %if.end1133, %s_lock.exit986, %if.end145, %if.end995, %if.else153, %s_lock.exit, %s_lock.exit572, %s_lock.exit616, %s_lock.exit766, %s_lock.exit872, %if.then215, %if.then296, %if.then327, %if.then337, %if.then426, %if.then612, %if.then731, %if.then767, %if.then945
+  %repeat_stack_len.1.be = phi i64 [ %repeat_stack_len.1, %s_lock.exit872 ], [ %repeat_stack_len.1, %s_lock.exit766 ], [ %repeat_stack_len.1, %s_lock.exit616 ], [ %repeat_stack_len.1, %s_lock.exit572 ], [ %repeat_stack_len.1, %s_lock.exit ], [ %repeat_stack_len.1, %if.else153 ], [ %repeat_stack_len.1, %if.then215 ], [ %repeat_stack_len.1, %if.then296 ], [ %repeat_stack_len.1, %if.then327 ], [ %repeat_stack_len.1, %if.then337 ], [ %repeat_stack_len.1, %if.then426 ], [ %repeat_stack_len.1, %if.then612 ], [ %repeat_stack_len.1, %if.then731 ], [ %repeat_stack_len.1, %if.then767 ], [ %repeat_stack_len.1, %if.then945 ], [ %repeat_stack_len.1, %s_lock.exit986 ], [ %repeat_stack_len.1, %if.end1133 ], [ %repeat_stack_len.1, %sw.bb1123 ], [ %repeat_stack_len.1, %s_lock.exit965 ], [ %repeat_stack_len.1, %sw.bb1105 ], [ %repeat_stack_len.1, %sw.bb1091 ], [ %repeat_stack_len.1, %sw.bb1079 ], [ %repeat_stack_len.1, %sw.bb1077 ], [ %repeat_stack_len.1, %sw.bb1068 ], [ %repeat_stack_len.1, %sw.bb1059 ], [ %repeat_stack_len.1, %if.end1053 ], [ %repeat_stack_len.1, %sw.bb1043 ], [ %repeat_stack_len.1, %if.end972 ], [ %repeat_stack_len.1, %s_lock.exit937 ], [ %repeat_stack_len.1, %if.end942 ], [ %repeat_stack_len.1, %if.end918 ], [ %repeat_stack_len.1, %s_lock.exit914 ], [ %repeat_stack_len.1, %lor.lhs.false884 ], [ %repeat_stack_len.1, %if.end863 ], [ %repeat_stack_len.1, %if.end844 ], [ %repeat_stack_len.1, %lor.lhs.false827 ], [ %repeat_stack_len.1, %lor.lhs.false786 ], [ %repeat_stack_len.1, %s_lock.exit809 ], [ %repeat_stack_len.1, %if.end728 ], [ %repeat_stack_len.1, %if.end704 ], [ %repeat_stack_len.1, %if.end690 ], [ %repeat_stack_len.1, %if.end685 ], [ %repeat_stack_len.1, %sw.bb653 ], [ %repeat_stack_len.1, %if.end644 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit724 ], [ %repeat_stack_len.1, %if.end588 ], [ %repeat_stack_len.1, %if.end539 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit681 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit658 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit ], [ %repeat_stack_len.1, %s_lock.exit595 ], [ %repeat_stack_len.1, %if.end436 ], [ %repeat_stack_len.1, %if.end405 ], [ %repeat_stack_len.1, %if.end354 ], [ %repeat_stack_len.1, %if.end290 ], [ %repeat_stack_len.1, %s_lock.exit530 ], [ %repeat_stack_len.1, %sw.bb271 ], [ %repeat_stack_len.1, %lor.lhs.false265 ], [ %repeat_stack_len.1, %lor.lhs.false245 ], [ %repeat_stack_len.1, %land.lhs.true224 ], [ %repeat_stack_len.1, %if.end220 ], [ %repeat_stack_len.1, %if.end205 ], [ %repeat_stack_len.1, %if.end198 ], [ %repeat_stack_len.1, %if.end169 ], [ %repeat_stack_len.1, %sw.bb134 ], [ %repeat_stack_len.1, %if.end138 ], [ %inc133, %if.end127 ], [ %sub, %if.end145 ], [ %repeat_stack_len.1, %if.end995 ], [ %repeat_stack_len.1, %for.cond998 ]
+  %tobool5.not.be = phi i1 [ false, %s_lock.exit872 ], [ false, %s_lock.exit766 ], [ false, %s_lock.exit616 ], [ false, %s_lock.exit572 ], [ false, %s_lock.exit ], [ false, %if.else153 ], [ false, %if.then215 ], [ false, %if.then296 ], [ false, %if.then327 ], [ false, %if.then337 ], [ false, %if.then426 ], [ false, %if.then612 ], [ false, %if.then731 ], [ false, %if.then767 ], [ false, %if.then945 ], [ true, %s_lock.exit986 ], [ true, %if.end1133 ], [ true, %sw.bb1123 ], [ true, %s_lock.exit965 ], [ true, %sw.bb1105 ], [ true, %sw.bb1091 ], [ true, %sw.bb1079 ], [ true, %sw.bb1077 ], [ true, %sw.bb1068 ], [ true, %sw.bb1059 ], [ true, %if.end1053 ], [ true, %sw.bb1043 ], [ true, %if.end972 ], [ true, %s_lock.exit937 ], [ true, %if.end942 ], [ true, %if.end918 ], [ true, %s_lock.exit914 ], [ true, %lor.lhs.false884 ], [ true, %if.end863 ], [ true, %if.end844 ], [ true, %lor.lhs.false827 ], [ true, %lor.lhs.false786 ], [ true, %s_lock.exit809 ], [ true, %if.end728 ], [ true, %if.end704 ], [ true, %if.end690 ], [ true, %if.end685 ], [ true, %sw.bb653 ], [ true, %if.end644 ], [ true, %helper_local_set_c_stream.exit724 ], [ true, %if.end588 ], [ true, %if.end539 ], [ true, %helper_local_set_c_stream.exit681 ], [ true, %helper_local_set_c_stream.exit658 ], [ true, %helper_local_set_c_stream.exit ], [ true, %s_lock.exit595 ], [ true, %if.end436 ], [ true, %if.end405 ], [ true, %if.end354 ], [ true, %if.end290 ], [ true, %s_lock.exit530 ], [ true, %sw.bb271 ], [ true, %lor.lhs.false265 ], [ true, %lor.lhs.false245 ], [ true, %land.lhs.true224 ], [ true, %if.end220 ], [ true, %if.end205 ], [ true, %if.end198 ], [ true, %if.end169 ], [ true, %sw.bb134 ], [ true, %if.end138 ], [ true, %if.end127 ], [ true, %if.end145 ], [ true, %if.end995 ], [ true, %for.cond998 ]
+  %op_idx.1.be = phi i64 [ %op_idx.2, %s_lock.exit872 ], [ %op_idx.2, %s_lock.exit766 ], [ %op_idx.2, %s_lock.exit616 ], [ %op_idx.2, %s_lock.exit572 ], [ %op_idx.2, %s_lock.exit ], [ %35, %if.else153 ], [ %op_idx.2, %if.then215 ], [ %op_idx.2, %if.then296 ], [ %op_idx.2, %if.then327 ], [ %op_idx.2, %if.then337 ], [ %op_idx.2, %if.then426 ], [ %op_idx.2, %if.then612 ], [ %op_idx.2, %if.then731 ], [ %op_idx.2, %if.then767 ], [ %op_idx.2, %if.then945 ], [ %op_idx.2, %s_lock.exit986 ], [ %op_idx.2, %if.end1133 ], [ %op_idx.2, %sw.bb1123 ], [ %op_idx.2, %s_lock.exit965 ], [ %op_idx.2, %sw.bb1105 ], [ %op_idx.2, %sw.bb1091 ], [ %op_idx.2, %sw.bb1079 ], [ %op_idx.2, %sw.bb1077 ], [ %op_idx.2, %sw.bb1068 ], [ %op_idx.2, %sw.bb1059 ], [ %op_idx.2, %if.end1053 ], [ %op_idx.2, %sw.bb1043 ], [ %op_idx.2, %if.end972 ], [ %op_idx.2, %s_lock.exit937 ], [ %op_idx.2, %if.end942 ], [ %op_idx.2, %if.end918 ], [ %op_idx.2, %s_lock.exit914 ], [ %op_idx.2, %lor.lhs.false884 ], [ %op_idx.2, %if.end863 ], [ %op_idx.2, %if.end844 ], [ %op_idx.2, %lor.lhs.false827 ], [ %op_idx.2, %lor.lhs.false786 ], [ %op_idx.2, %s_lock.exit809 ], [ %op_idx.2, %if.end728 ], [ %op_idx.2, %if.end704 ], [ %op_idx.2, %if.end690 ], [ %op_idx.2, %if.end685 ], [ %op_idx.2, %sw.bb653 ], [ %op_idx.2, %if.end644 ], [ %op_idx.2, %helper_local_set_c_stream.exit724 ], [ %op_idx.2, %if.end588 ], [ %op_idx.2, %if.end539 ], [ %op_idx.2, %helper_local_set_c_stream.exit681 ], [ %op_idx.2, %helper_local_set_c_stream.exit658 ], [ %op_idx.2, %helper_local_set_c_stream.exit ], [ %op_idx.2, %s_lock.exit595 ], [ %op_idx.2, %if.end436 ], [ %op_idx.2, %if.end405 ], [ %op_idx.2, %if.end354 ], [ %op_idx.2, %if.end290 ], [ %op_idx.2, %s_lock.exit530 ], [ %op_idx.2, %sw.bb271 ], [ %op_idx.2, %lor.lhs.false265 ], [ %op_idx.2, %lor.lhs.false245 ], [ %op_idx.2, %land.lhs.true224 ], [ %op_idx.2, %if.end220 ], [ %op_idx.2, %if.end205 ], [ %op_idx.2, %if.end198 ], [ %op_idx.2, %if.end169 ], [ %op_idx.2, %sw.bb134 ], [ %add140, %if.end138 ], [ %op_idx.2, %if.end127 ], [ %op_idx.2, %if.end145 ], [ %op_idx.2, %if.end995 ], [ %op_idx.2, %for.cond998 ]
+  %offset.0.be = phi i64 [ %offset.1, %s_lock.exit872 ], [ %offset.1, %s_lock.exit766 ], [ %offset.1, %s_lock.exit616 ], [ %add385, %s_lock.exit572 ], [ %offset.1, %s_lock.exit ], [ %offset.1, %if.else153 ], [ %offset.1, %if.then215 ], [ %offset.1, %if.then296 ], [ %offset.1, %if.then327 ], [ %add333, %if.then337 ], [ %offset.1, %if.then426 ], [ %offset.1, %if.then612 ], [ %offset.1, %if.then731 ], [ %offset.1, %if.then767 ], [ %offset.1, %if.then945 ], [ %offset.1, %s_lock.exit986 ], [ %offset.1, %if.end1133 ], [ %offset.1, %sw.bb1123 ], [ %offset.1, %s_lock.exit965 ], [ %offset.1, %sw.bb1105 ], [ %offset.1, %sw.bb1091 ], [ %offset.1, %sw.bb1079 ], [ %offset.1, %sw.bb1077 ], [ %offset.1, %sw.bb1068 ], [ %offset.1, %sw.bb1059 ], [ %offset.1, %if.end1053 ], [ %offset.1, %sw.bb1043 ], [ %offset.1, %if.end972 ], [ %offset.1, %s_lock.exit937 ], [ %offset.1, %if.end942 ], [ %offset.1, %if.end918 ], [ %offset.1, %s_lock.exit914 ], [ %offset.1, %lor.lhs.false884 ], [ %offset.1, %if.end863 ], [ %offset.1, %if.end844 ], [ %offset.1, %lor.lhs.false827 ], [ %offset.1, %lor.lhs.false786 ], [ %offset.1, %s_lock.exit809 ], [ %offset.1, %if.end728 ], [ %offset.1, %if.end704 ], [ %offset.1, %if.end690 ], [ %offset.1, %if.end685 ], [ %offset.1, %sw.bb653 ], [ %offset.1, %if.end644 ], [ %offset.1, %helper_local_set_c_stream.exit724 ], [ %offset.1, %if.end588 ], [ %offset.1, %if.end539 ], [ %offset.1, %helper_local_set_c_stream.exit681 ], [ %offset.1, %helper_local_set_c_stream.exit658 ], [ %offset.1, %helper_local_set_c_stream.exit ], [ %offset.1, %s_lock.exit595 ], [ %offset.1, %if.end436 ], [ %offset.1, %if.end405 ], [ %offset.1, %if.end354 ], [ %offset.1, %if.end290 ], [ %offset.1, %s_lock.exit530 ], [ %offset.1, %sw.bb271 ], [ %offset.1, %lor.lhs.false265 ], [ %offset.1, %lor.lhs.false245 ], [ %offset.1, %land.lhs.true224 ], [ %offset.1, %if.end220 ], [ %offset.1, %if.end205 ], [ %offset.1, %if.end198 ], [ %offset.1, %if.end169 ], [ %offset.1, %sw.bb134 ], [ %offset.1, %if.end138 ], [ %offset.1, %if.end127 ], [ %offset.1, %if.end145 ], [ %offset.1, %if.end995 ], [ %offset.1, %for.cond998 ]
+  %connect_started.0.be = phi i32 [ %connect_started.0, %s_lock.exit872 ], [ %connect_started.0, %s_lock.exit766 ], [ %connect_started.0, %s_lock.exit616 ], [ %connect_started.0, %s_lock.exit572 ], [ %connect_started.0, %s_lock.exit ], [ %connect_started.0, %if.else153 ], [ 1, %if.then215 ], [ %connect_started.0, %if.then296 ], [ %connect_started.0, %if.then327 ], [ %connect_started.0, %if.then337 ], [ %connect_started.0, %if.then426 ], [ %connect_started.0, %if.then612 ], [ %connect_started.0, %if.then731 ], [ %connect_started.0, %if.then767 ], [ %connect_started.0, %if.then945 ], [ %connect_started.0, %s_lock.exit986 ], [ %connect_started.0, %if.end1133 ], [ %connect_started.0, %sw.bb1123 ], [ %connect_started.0, %s_lock.exit965 ], [ %connect_started.0, %sw.bb1105 ], [ %connect_started.0, %sw.bb1091 ], [ %connect_started.0, %sw.bb1079 ], [ %connect_started.0, %sw.bb1077 ], [ %connect_started.0, %sw.bb1068 ], [ %connect_started.0, %sw.bb1059 ], [ %connect_started.0, %if.end1053 ], [ %connect_started.0, %sw.bb1043 ], [ %connect_started.0, %if.end972 ], [ %connect_started.0, %s_lock.exit937 ], [ %connect_started.0, %if.end942 ], [ %connect_started.0, %if.end918 ], [ %connect_started.0, %s_lock.exit914 ], [ %connect_started.0, %lor.lhs.false884 ], [ %connect_started.0, %if.end863 ], [ %connect_started.0, %if.end844 ], [ %connect_started.0, %lor.lhs.false827 ], [ %connect_started.0, %lor.lhs.false786 ], [ %connect_started.0, %s_lock.exit809 ], [ %connect_started.0, %if.end728 ], [ %connect_started.0, %if.end704 ], [ %connect_started.0, %if.end690 ], [ %connect_started.0, %if.end685 ], [ %connect_started.0, %sw.bb653 ], [ %connect_started.0, %if.end644 ], [ %connect_started.0, %helper_local_set_c_stream.exit724 ], [ %connect_started.0, %if.end588 ], [ %connect_started.0, %if.end539 ], [ %connect_started.0, %helper_local_set_c_stream.exit681 ], [ %connect_started.0, %helper_local_set_c_stream.exit658 ], [ %connect_started.0, %helper_local_set_c_stream.exit ], [ %connect_started.0, %s_lock.exit595 ], [ %connect_started.0, %if.end436 ], [ %connect_started.0, %if.end405 ], [ %connect_started.0, %if.end354 ], [ %connect_started.0, %if.end290 ], [ %connect_started.0, %s_lock.exit530 ], [ %connect_started.0, %sw.bb271 ], [ %connect_started.0, %lor.lhs.false265 ], [ %connect_started.0, %lor.lhs.false245 ], [ 1, %land.lhs.true224 ], [ 1, %if.end220 ], [ 1, %if.end205 ], [ %connect_started.0, %if.end198 ], [ %connect_started.0, %if.end169 ], [ %connect_started.0, %sw.bb134 ], [ %connect_started.0, %if.end138 ], [ %connect_started.0, %if.end127 ], [ %connect_started.0, %if.end145 ], [ %connect_started.0, %if.end995 ], [ %connect_started.0, %for.cond998 ]
+  %tmp_buf.1.be = phi ptr [ %tmp_buf.1, %s_lock.exit872 ], [ %tmp_buf.1, %s_lock.exit766 ], [ %tmp_buf.1, %s_lock.exit616 ], [ %tmp_buf.4, %s_lock.exit572 ], [ %tmp_buf.1, %s_lock.exit ], [ %tmp_buf.1, %if.else153 ], [ %tmp_buf.1, %if.then215 ], [ %tmp_buf.1, %if.then296 ], [ %tmp_buf.3, %if.then327 ], [ %tmp_buf.3, %if.then337 ], [ %tmp_buf.1, %if.then426 ], [ %tmp_buf.1, %if.then612 ], [ %tmp_buf.1, %if.then731 ], [ %tmp_buf.1, %if.then767 ], [ %tmp_buf.1, %if.then945 ], [ %tmp_buf.1, %s_lock.exit986 ], [ %tmp_buf.1, %if.end1133 ], [ %tmp_buf.1, %sw.bb1123 ], [ %tmp_buf.1, %s_lock.exit965 ], [ %tmp_buf.1, %sw.bb1105 ], [ %tmp_buf.1, %sw.bb1091 ], [ %tmp_buf.1, %sw.bb1079 ], [ %tmp_buf.1, %sw.bb1077 ], [ %tmp_buf.1, %sw.bb1068 ], [ %tmp_buf.1, %sw.bb1059 ], [ %tmp_buf.1, %if.end1053 ], [ %tmp_buf.1, %sw.bb1043 ], [ %tmp_buf.1, %if.end972 ], [ %tmp_buf.1, %s_lock.exit937 ], [ %tmp_buf.1, %if.end942 ], [ %tmp_buf.1, %if.end918 ], [ %tmp_buf.1, %s_lock.exit914 ], [ %tmp_buf.1, %lor.lhs.false884 ], [ %tmp_buf.1, %if.end863 ], [ %tmp_buf.1, %if.end844 ], [ %tmp_buf.1, %lor.lhs.false827 ], [ %tmp_buf.1, %lor.lhs.false786 ], [ %tmp_buf.1, %s_lock.exit809 ], [ %tmp_buf.1, %if.end728 ], [ %tmp_buf.1, %if.end704 ], [ %tmp_buf.1, %if.end690 ], [ %tmp_buf.1, %if.end685 ], [ %tmp_buf.1, %sw.bb653 ], [ %tmp_buf.1, %if.end644 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit724 ], [ %tmp_buf.1, %if.end588 ], [ %tmp_buf.1, %if.end539 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit681 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit658 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit ], [ %tmp_buf.1, %s_lock.exit595 ], [ %tmp_buf.1, %if.end436 ], [ null, %if.end405 ], [ null, %if.end354 ], [ %tmp_buf.1, %if.end290 ], [ %tmp_buf.1, %s_lock.exit530 ], [ %tmp_buf.1, %sw.bb271 ], [ %tmp_buf.1, %lor.lhs.false265 ], [ %tmp_buf.1, %lor.lhs.false245 ], [ %tmp_buf.1, %land.lhs.true224 ], [ %tmp_buf.1, %if.end220 ], [ %tmp_buf.1, %if.end205 ], [ null, %if.end198 ], [ %tmp_buf.1, %if.end169 ], [ %tmp_buf.1, %sw.bb134 ], [ %tmp_buf.1, %if.end138 ], [ %tmp_buf.1, %if.end127 ], [ %tmp_buf.1, %if.end145 ], [ %tmp_buf.1, %if.end995 ], [ %tmp_buf.1, %for.cond998 ]
   %hl_.val.pre = load i32, ptr %thread_idx2.i, align 8
   br label %for.cond
 
@@ -1557,21 +1557,21 @@ s_checked_out_p.exit.i476:                        ; preds = %if.then164, %cond.f
   %cond.i.i477 = phi ptr [ %s_checked_out1.i.i475, %cond.false.i.i472 ], [ %s_checked_out.i.i, %if.then164 ]
   %39 = load ptr, ptr %m.i, align 8
   %cmp.i479 = icmp eq ptr %39, null
-  br i1 %cmp.i479, label %s_lock.argprom.exit, label %lor.lhs.false.i480
+  br i1 %cmp.i479, label %s_lock.exit, label %lor.lhs.false.i480
 
 lor.lhs.false.i480:                               ; preds = %s_checked_out_p.exit.i476
   %40 = load i32, ptr %cond.i.i477, align 4
   %tobool.not.i481 = icmp eq i32 %40, 0
-  br i1 %tobool.not.i481, label %if.end.i485, label %s_lock.argprom.exit
+  br i1 %tobool.not.i481, label %if.end.i485, label %s_lock.exit
 
 if.end.i485:                                      ; preds = %lor.lhs.false.i480
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %39) #14
   %41 = load ptr, ptr %s_priv.i982, align 8
   store ptr %41, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i477, align 4
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
-s_lock.argprom.exit:                              ; preds = %s_checked_out_p.exit.i476, %lor.lhs.false.i480, %if.end.i485
+s_lock.exit:                                      ; preds = %s_checked_out_p.exit.i476, %lor.lhs.false.i480, %if.end.i485
   %42 = load ptr, ptr %s.i, align 8
   %call168 = call i32 @ossl_quic_tserver_tick(ptr noundef %42) #14
   br label %for.cond.backedge
@@ -1710,21 +1710,21 @@ s_checked_out_p.exit.i494:                        ; preds = %if.end256, %cond.fa
   %cond.i.i495 = phi ptr [ %s_checked_out1.i.i493, %cond.false.i.i490 ], [ %s_checked_out.i.i, %if.end256 ]
   %56 = load ptr, ptr %m.i, align 8
   %cmp.i497 = icmp eq ptr %56, null
-  br i1 %cmp.i497, label %s_lock.argprom.exit509, label %lor.lhs.false.i498
+  br i1 %cmp.i497, label %s_lock.exit509, label %lor.lhs.false.i498
 
 lor.lhs.false.i498:                               ; preds = %s_checked_out_p.exit.i494
   %57 = load i32, ptr %cond.i.i495, align 4
   %tobool.not.i499 = icmp eq i32 %57, 0
-  br i1 %tobool.not.i499, label %if.end.i504, label %s_lock.argprom.exit509
+  br i1 %tobool.not.i499, label %if.end.i504, label %s_lock.exit509
 
 if.end.i504:                                      ; preds = %lor.lhs.false.i498
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %56) #14
   %58 = load ptr, ptr %s_priv.i982, align 8
   store ptr %58, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i495, align 4
-  br label %s_lock.argprom.exit509
+  br label %s_lock.exit509
 
-s_lock.argprom.exit509:                           ; preds = %s_checked_out_p.exit.i494, %lor.lhs.false.i498, %if.end.i504
+s_lock.exit509:                                   ; preds = %s_checked_out_p.exit.i494, %lor.lhs.false.i498, %if.end.i504
   %retval.0.i503 = load ptr, ptr %s.i, align 8
   %arg0258 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %59 = load ptr, ptr %arg0258, align 8
@@ -1737,7 +1737,7 @@ s_lock.argprom.exit509:                           ; preds = %s_checked_out_p.exi
   %tobool264.not = icmp eq i32 %call263, 0
   br i1 %tobool264.not, label %out, label %lor.lhs.false265
 
-lor.lhs.false265:                                 ; preds = %s_lock.argprom.exit509
+lor.lhs.false265:                                 ; preds = %s_lock.exit509
   %61 = load i64, ptr %bytes_written252, align 8
   %62 = load i64, ptr %arg1259, align 8
   %call267 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1275, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.68, i64 noundef %61, i64 noundef %62) #14
@@ -1772,21 +1772,21 @@ s_checked_out_p.exit.i515:                        ; preds = %if.end283, %cond.fa
   %cond.i.i516 = phi ptr [ %s_checked_out1.i.i514, %cond.false.i.i511 ], [ %s_checked_out.i.i, %if.end283 ]
   %64 = load ptr, ptr %m.i, align 8
   %cmp.i518 = icmp eq ptr %64, null
-  br i1 %cmp.i518, label %s_lock.argprom.exit530, label %lor.lhs.false.i519
+  br i1 %cmp.i518, label %s_lock.exit530, label %lor.lhs.false.i519
 
 lor.lhs.false.i519:                               ; preds = %s_checked_out_p.exit.i515
   %65 = load i32, ptr %cond.i.i516, align 4
   %tobool.not.i520 = icmp eq i32 %65, 0
-  br i1 %tobool.not.i520, label %if.end.i525, label %s_lock.argprom.exit530
+  br i1 %tobool.not.i520, label %if.end.i525, label %s_lock.exit530
 
 if.end.i525:                                      ; preds = %lor.lhs.false.i519
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %64) #14
   %66 = load ptr, ptr %s_priv.i982, align 8
   store ptr %66, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i516, align 4
-  br label %s_lock.argprom.exit530
+  br label %s_lock.exit530
 
-s_lock.argprom.exit530:                           ; preds = %s_checked_out_p.exit.i515, %lor.lhs.false.i519, %if.end.i525
+s_lock.exit530:                                   ; preds = %s_checked_out_p.exit.i515, %lor.lhs.false.i519, %if.end.i525
   %retval.0.i524 = load ptr, ptr %s.i, align 8
   %call285 = call i32 @ossl_quic_tserver_conclude(ptr noundef %retval.0.i524, i64 noundef %s_stream_id.0101210321036) #14
   br label %for.cond.backedge
@@ -1923,21 +1923,21 @@ s_checked_out_p.exit.i536:                        ; preds = %if.end373, %cond.fa
   %cond.i.i537 = phi ptr [ %s_checked_out1.i.i535, %cond.false.i.i532 ], [ %s_checked_out.i.i, %if.end373 ]
   %78 = load ptr, ptr %m.i, align 8
   %cmp.i539 = icmp eq ptr %78, null
-  br i1 %cmp.i539, label %s_lock.argprom.exit551, label %lor.lhs.false.i540
+  br i1 %cmp.i539, label %s_lock.exit551, label %lor.lhs.false.i540
 
 lor.lhs.false.i540:                               ; preds = %s_checked_out_p.exit.i536
   %79 = load i32, ptr %cond.i.i537, align 4
   %tobool.not.i541 = icmp eq i32 %79, 0
-  br i1 %tobool.not.i541, label %if.end.i546, label %s_lock.argprom.exit551
+  br i1 %tobool.not.i541, label %if.end.i546, label %s_lock.exit551
 
 if.end.i546:                                      ; preds = %lor.lhs.false.i540
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %78) #14
   %80 = load ptr, ptr %s_priv.i982, align 8
   store ptr %80, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i537, align 4
-  br label %s_lock.argprom.exit551
+  br label %s_lock.exit551
 
-s_lock.argprom.exit551:                           ; preds = %s_checked_out_p.exit.i536, %lor.lhs.false.i540, %if.end.i546
+s_lock.exit551:                                   ; preds = %s_checked_out_p.exit.i536, %lor.lhs.false.i540, %if.end.i546
   %retval.0.i545 = load ptr, ptr %s.i, align 8
   %add.ptr375 = getelementptr inbounds i8, ptr %tmp_buf.4, i64 %offset.1
   %81 = load i64, ptr %arg1361, align 8
@@ -1949,7 +1949,7 @@ s_lock.argprom.exit551:                           ; preds = %s_checked_out_p.exi
   %tobool382.not = icmp eq i32 %call381, 0
   br i1 %tobool382.not, label %out, label %if.end384
 
-if.end384:                                        ; preds = %s_lock.argprom.exit551
+if.end384:                                        ; preds = %s_lock.exit551
   %82 = load i64, ptr %bytes_read356, align 8
   %add385 = add i64 %82, %offset.1
   %83 = load i64, ptr %arg1361, align 8
@@ -1971,21 +1971,21 @@ s_checked_out_p.exit.i557:                        ; preds = %if.then389, %cond.f
   %cond.i.i558 = phi ptr [ %s_checked_out1.i.i556, %cond.false.i.i553 ], [ %s_checked_out.i.i, %if.then389 ]
   %85 = load ptr, ptr %m.i, align 8
   %cmp.i560 = icmp eq ptr %85, null
-  br i1 %cmp.i560, label %s_lock.argprom.exit572, label %lor.lhs.false.i561
+  br i1 %cmp.i560, label %s_lock.exit572, label %lor.lhs.false.i561
 
 lor.lhs.false.i561:                               ; preds = %s_checked_out_p.exit.i557
   %86 = load i32, ptr %cond.i.i558, align 4
   %tobool.not.i562 = icmp eq i32 %86, 0
-  br i1 %tobool.not.i562, label %if.end.i567, label %s_lock.argprom.exit572
+  br i1 %tobool.not.i562, label %if.end.i567, label %s_lock.exit572
 
 if.end.i567:                                      ; preds = %lor.lhs.false.i561
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %85) #14
   %87 = load ptr, ptr %s_priv.i982, align 8
   store ptr %87, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i558, align 4
-  br label %s_lock.argprom.exit572
+  br label %s_lock.exit572
 
-s_lock.argprom.exit572:                           ; preds = %s_checked_out_p.exit.i557, %lor.lhs.false.i561, %if.end.i567
+s_lock.exit572:                                   ; preds = %s_checked_out_p.exit.i557, %lor.lhs.false.i561, %if.end.i567
   %88 = load ptr, ptr %s.i, align 8
   %call393 = call i32 @ossl_quic_tserver_tick(ptr noundef %88) #14
   br label %for.cond.backedge
@@ -2072,27 +2072,27 @@ s_checked_out_p.exit.i580:                        ; preds = %if.end446, %cond.fa
   %cond.i.i581 = phi ptr [ %s_checked_out1.i.i579, %cond.false.i.i576 ], [ %s_checked_out.i.i, %if.end446 ]
   %94 = load ptr, ptr %m.i, align 8
   %cmp.i583 = icmp eq ptr %94, null
-  br i1 %cmp.i583, label %s_lock.argprom.exit595, label %lor.lhs.false.i584
+  br i1 %cmp.i583, label %s_lock.exit595, label %lor.lhs.false.i584
 
 lor.lhs.false.i584:                               ; preds = %s_checked_out_p.exit.i580
   %95 = load i32, ptr %cond.i.i581, align 4
   %tobool.not.i585 = icmp eq i32 %95, 0
-  br i1 %tobool.not.i585, label %if.end.i590, label %s_lock.argprom.exit595
+  br i1 %tobool.not.i585, label %if.end.i590, label %s_lock.exit595
 
 if.end.i590:                                      ; preds = %lor.lhs.false.i584
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %94) #14
   %96 = load ptr, ptr %s_priv.i982, align 8
   store ptr %96, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i581, align 4
-  br label %s_lock.argprom.exit595
+  br label %s_lock.exit595
 
-s_lock.argprom.exit595:                           ; preds = %s_checked_out_p.exit.i580, %lor.lhs.false.i584, %if.end.i590
+s_lock.exit595:                                   ; preds = %s_checked_out_p.exit.i580, %lor.lhs.false.i584, %if.end.i590
   %retval.0.i589 = load ptr, ptr %s.i, align 8
   %call448 = call i32 @ossl_quic_tserver_has_read_ended(ptr noundef %retval.0.i589, i64 noundef %s_stream_id.0101210321036) #14
   %tobool449.not = icmp eq i32 %call448, 0
   br i1 %tobool449.not, label %if.then450, label %for.cond.backedge
 
-if.then450:                                       ; preds = %s_lock.argprom.exit595
+if.then450:                                       ; preds = %s_lock.exit595
   %hl_.val421 = load i32, ptr %thread_idx2.i, align 8
   %cmp.i.i596 = icmp slt i32 %hl_.val421, 0
   br i1 %cmp.i.i596, label %s_checked_out_p.exit.i601, label %cond.false.i.i597
@@ -2107,21 +2107,21 @@ s_checked_out_p.exit.i601:                        ; preds = %if.then450, %cond.f
   %cond.i.i602 = phi ptr [ %s_checked_out1.i.i600, %cond.false.i.i597 ], [ %s_checked_out.i.i, %if.then450 ]
   %98 = load ptr, ptr %m.i, align 8
   %cmp.i604 = icmp eq ptr %98, null
-  br i1 %cmp.i604, label %s_lock.argprom.exit616, label %lor.lhs.false.i605
+  br i1 %cmp.i604, label %s_lock.exit616, label %lor.lhs.false.i605
 
 lor.lhs.false.i605:                               ; preds = %s_checked_out_p.exit.i601
   %99 = load i32, ptr %cond.i.i602, align 4
   %tobool.not.i606 = icmp eq i32 %99, 0
-  br i1 %tobool.not.i606, label %if.end.i611, label %s_lock.argprom.exit616
+  br i1 %tobool.not.i606, label %if.end.i611, label %s_lock.exit616
 
 if.end.i611:                                      ; preds = %lor.lhs.false.i605
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %98) #14
   %100 = load ptr, ptr %s_priv.i982, align 8
   store ptr %100, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i602, align 4
-  br label %s_lock.argprom.exit616
+  br label %s_lock.exit616
 
-s_lock.argprom.exit616:                           ; preds = %s_checked_out_p.exit.i601, %lor.lhs.false.i605, %if.end.i611
+s_lock.exit616:                                   ; preds = %s_checked_out_p.exit.i601, %lor.lhs.false.i605, %if.end.i611
   %101 = load ptr, ptr %s.i, align 8
   %call453 = call i32 @ossl_quic_tserver_tick(ptr noundef %101) #14
   br label %for.cond.backedge
@@ -2177,7 +2177,7 @@ if.end10.i.i633:                                  ; preds = %if.then6.i.i630
 
 get_stream_info.exit.thread.i636:                 ; preds = %if.then6.i.i630, %if.end.i.i620, %if.end470
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i617)
-  br label %helper_local_set_c_stream.argprom.exit
+  br label %helper_local_set_c_stream.exit
 
 if.end.i626:                                      ; preds = %if.end10.i.i633, %if.end4.i.i623
   %retval.0.i.i627 = phi ptr [ %call7.i.i631, %if.end10.i.i633 ], [ %call.i.i.i624, %if.end4.i.i623 ]
@@ -2186,9 +2186,9 @@ if.end.i626:                                      ; preds = %if.end10.i.i633, %i
   store ptr %call466, ptr %c_stream1.i, align 8
   %s_stream_id.i628 = getelementptr inbounds i8, ptr %retval.0.i.i627, i64 16
   store i64 -1, ptr %s_stream_id.i628, align 8
-  br label %helper_local_set_c_stream.argprom.exit
+  br label %helper_local_set_c_stream.exit
 
-helper_local_set_c_stream.argprom.exit:           ; preds = %get_stream_info.exit.thread.i636, %if.end.i626
+helper_local_set_c_stream.exit:                   ; preds = %get_stream_info.exit.thread.i636, %if.end.i626
   %retval.0.i629 = phi i32 [ 1, %if.end.i626 ], [ 0, %get_stream_info.exit.thread.i636 ]
   %call475 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1419, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i629) #14
   %tobool476.not = icmp eq i32 %call475, 0
@@ -2247,7 +2247,7 @@ if.end10.i.i654:                                  ; preds = %if.then6.i.i651
 
 get_stream_info.exit.thread.i657:                 ; preds = %if.then6.i.i651, %if.end.i.i640, %if.end496
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i637)
-  br label %helper_local_set_c_stream.argprom.exit658
+  br label %helper_local_set_c_stream.exit658
 
 if.end.i646:                                      ; preds = %if.end10.i.i654, %if.end4.i.i643
   %retval.0.i.i647 = phi ptr [ %call7.i.i652, %if.end10.i.i654 ], [ %call.i.i.i644, %if.end4.i.i643 ]
@@ -2256,9 +2256,9 @@ if.end.i646:                                      ; preds = %if.end10.i.i654, %i
   store ptr null, ptr %c_stream1.i648, align 8
   %s_stream_id.i649 = getelementptr inbounds i8, ptr %retval.0.i.i647, i64 16
   store i64 -1, ptr %s_stream_id.i649, align 8
-  br label %helper_local_set_c_stream.argprom.exit658
+  br label %helper_local_set_c_stream.exit658
 
-helper_local_set_c_stream.argprom.exit658:        ; preds = %get_stream_info.exit.thread.i657, %if.end.i646
+helper_local_set_c_stream.exit658:                ; preds = %get_stream_info.exit.thread.i657, %if.end.i646
   %retval.0.i650 = phi i32 [ 1, %if.end.i646 ], [ 0, %get_stream_info.exit.thread.i657 ]
   %call501 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1435, ptr noundef nonnull @.str.97, i32 noundef %retval.0.i650) #14
   %tobool502.not = icmp eq i32 %call501, 0
@@ -2356,7 +2356,7 @@ if.end10.i.i677:                                  ; preds = %if.then6.i.i674
 
 get_stream_info.exit.thread.i680:                 ; preds = %if.then6.i.i674, %if.end.i.i663, %if.end550
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i660)
-  br label %helper_local_set_c_stream.argprom.exit681
+  br label %helper_local_set_c_stream.exit681
 
 if.end.i669:                                      ; preds = %if.end10.i.i677, %if.end4.i.i666
   %retval.0.i.i670 = phi ptr [ %call7.i.i675, %if.end10.i.i677 ], [ %call.i.i.i667, %if.end4.i.i666 ]
@@ -2365,9 +2365,9 @@ if.end.i669:                                      ; preds = %if.end10.i.i677, %i
   store ptr %call521, ptr %c_stream1.i671, align 8
   %s_stream_id.i672 = getelementptr inbounds i8, ptr %retval.0.i.i670, i64 16
   store i64 -1, ptr %s_stream_id.i672, align 8
-  br label %helper_local_set_c_stream.argprom.exit681
+  br label %helper_local_set_c_stream.exit681
 
-helper_local_set_c_stream.argprom.exit681:        ; preds = %get_stream_info.exit.thread.i680, %if.end.i669
+helper_local_set_c_stream.exit681:                ; preds = %get_stream_info.exit.thread.i680, %if.end.i669
   %retval.0.i673 = phi i32 [ 1, %if.end.i669 ], [ 0, %get_stream_info.exit.thread.i680 ]
   %call555 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1472, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i673) #14
   %tobool556.not = icmp eq i32 %call555, 0
@@ -2400,21 +2400,21 @@ s_checked_out_p.exit.i687:                        ; preds = %if.end568, %cond.fa
   %cond.i.i688 = phi ptr [ %s_checked_out1.i.i686, %cond.false.i.i683 ], [ %s_checked_out.i.i, %if.end568 ]
   %117 = load ptr, ptr %m.i, align 8
   %cmp.i690 = icmp eq ptr %117, null
-  br i1 %cmp.i690, label %s_lock.argprom.exit702, label %lor.lhs.false.i691
+  br i1 %cmp.i690, label %s_lock.exit702, label %lor.lhs.false.i691
 
 lor.lhs.false.i691:                               ; preds = %s_checked_out_p.exit.i687
   %118 = load i32, ptr %cond.i.i688, align 4
   %tobool.not.i692 = icmp eq i32 %118, 0
-  br i1 %tobool.not.i692, label %if.end.i697, label %s_lock.argprom.exit702
+  br i1 %tobool.not.i692, label %if.end.i697, label %s_lock.exit702
 
 if.end.i697:                                      ; preds = %lor.lhs.false.i691
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %117) #14
   %119 = load ptr, ptr %s_priv.i982, align 8
   store ptr %119, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i688, align 4
-  br label %s_lock.argprom.exit702
+  br label %s_lock.exit702
 
-s_lock.argprom.exit702:                           ; preds = %s_checked_out_p.exit.i687, %lor.lhs.false.i691, %if.end.i697
+s_lock.exit702:                                   ; preds = %s_checked_out_p.exit.i687, %lor.lhs.false.i691, %if.end.i697
   %retval.0.i696 = load ptr, ptr %s.i, align 8
   %arg1570 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %120 = load i64, ptr %arg1570, align 8
@@ -2427,7 +2427,7 @@ s_lock.argprom.exit702:                           ; preds = %s_checked_out_p.exi
   %tobool577.not = icmp eq i32 %call576, 0
   br i1 %tobool577.not, label %out, label %if.end579
 
-if.end579:                                        ; preds = %s_lock.argprom.exit702
+if.end579:                                        ; preds = %s_lock.exit702
   %arg2580 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %121 = load i64, ptr %arg2580, align 8
   %cmp581.not = icmp eq i64 %121, -1
@@ -2506,7 +2506,7 @@ if.end10.i.i720:                                  ; preds = %if.then6.i.i717
 
 get_stream_info.exit.thread.i723:                 ; preds = %if.then6.i.i717, %if.end.i.i706, %if.end617
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i703)
-  br label %helper_local_set_c_stream.argprom.exit724
+  br label %helper_local_set_c_stream.exit724
 
 if.end.i712:                                      ; preds = %if.end10.i.i720, %if.end4.i.i709
   %retval.0.i.i713 = phi ptr [ %call7.i.i718, %if.end10.i.i720 ], [ %call.i.i.i710, %if.end4.i.i709 ]
@@ -2515,9 +2515,9 @@ if.end.i712:                                      ; preds = %if.end10.i.i720, %i
   store ptr %call609, ptr %c_stream1.i714, align 8
   %s_stream_id.i715 = getelementptr inbounds i8, ptr %retval.0.i.i713, i64 16
   store i64 -1, ptr %s_stream_id.i715, align 8
-  br label %helper_local_set_c_stream.argprom.exit724
+  br label %helper_local_set_c_stream.exit724
 
-helper_local_set_c_stream.argprom.exit724:        ; preds = %get_stream_info.exit.thread.i723, %if.end.i712
+helper_local_set_c_stream.exit724:                ; preds = %get_stream_info.exit.thread.i723, %if.end.i712
   %retval.0.i716 = phi i32 [ 1, %if.end.i712 ], [ 0, %get_stream_info.exit.thread.i723 ]
   %call622 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1516, ptr noundef nonnull @.str.95, i32 noundef %retval.0.i716) #14
   %tobool623.not = icmp eq i32 %call622, 0
@@ -2549,27 +2549,27 @@ s_checked_out_p.exit.i730:                        ; preds = %if.end635, %cond.fa
   %cond.i.i731 = phi ptr [ %s_checked_out1.i.i729, %cond.false.i.i726 ], [ %s_checked_out.i.i, %if.end635 ]
   %131 = load ptr, ptr %m.i, align 8
   %cmp.i733 = icmp eq ptr %131, null
-  br i1 %cmp.i733, label %s_lock.argprom.exit745, label %lor.lhs.false.i734
+  br i1 %cmp.i733, label %s_lock.exit745, label %lor.lhs.false.i734
 
 lor.lhs.false.i734:                               ; preds = %s_checked_out_p.exit.i730
   %132 = load i32, ptr %cond.i.i731, align 4
   %tobool.not.i735 = icmp eq i32 %132, 0
-  br i1 %tobool.not.i735, label %if.end.i740, label %s_lock.argprom.exit745
+  br i1 %tobool.not.i735, label %if.end.i740, label %s_lock.exit745
 
 if.end.i740:                                      ; preds = %lor.lhs.false.i734
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %131) #14
   %133 = load ptr, ptr %s_priv.i982, align 8
   store ptr %133, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i731, align 4
-  br label %s_lock.argprom.exit745
+  br label %s_lock.exit745
 
-s_lock.argprom.exit745:                           ; preds = %s_checked_out_p.exit.i730, %lor.lhs.false.i734, %if.end.i740
+s_lock.exit745:                                   ; preds = %s_checked_out_p.exit.i730, %lor.lhs.false.i734, %if.end.i740
   %retval.0.i739 = load ptr, ptr %s.i, align 8
   %call637 = call i64 @ossl_quic_tserver_pop_incoming_stream(ptr noundef %retval.0.i739) #14
   %cmp638 = icmp eq i64 %call637, -1
   br i1 %cmp638, label %if.then640, label %if.end644
 
-if.then640:                                       ; preds = %s_lock.argprom.exit745
+if.then640:                                       ; preds = %s_lock.exit745
   %hl_.val424 = load i32, ptr %thread_idx2.i, align 8
   %cmp.i.i746 = icmp slt i32 %hl_.val424, 0
   br i1 %cmp.i.i746, label %s_checked_out_p.exit.i751, label %cond.false.i.i747
@@ -2584,26 +2584,26 @@ s_checked_out_p.exit.i751:                        ; preds = %if.then640, %cond.f
   %cond.i.i752 = phi ptr [ %s_checked_out1.i.i750, %cond.false.i.i747 ], [ %s_checked_out.i.i, %if.then640 ]
   %135 = load ptr, ptr %m.i, align 8
   %cmp.i754 = icmp eq ptr %135, null
-  br i1 %cmp.i754, label %s_lock.argprom.exit766, label %lor.lhs.false.i755
+  br i1 %cmp.i754, label %s_lock.exit766, label %lor.lhs.false.i755
 
 lor.lhs.false.i755:                               ; preds = %s_checked_out_p.exit.i751
   %136 = load i32, ptr %cond.i.i752, align 4
   %tobool.not.i756 = icmp eq i32 %136, 0
-  br i1 %tobool.not.i756, label %if.end.i761, label %s_lock.argprom.exit766
+  br i1 %tobool.not.i756, label %if.end.i761, label %s_lock.exit766
 
 if.end.i761:                                      ; preds = %lor.lhs.false.i755
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %135) #14
   %137 = load ptr, ptr %s_priv.i982, align 8
   store ptr %137, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i752, align 4
-  br label %s_lock.argprom.exit766
+  br label %s_lock.exit766
 
-s_lock.argprom.exit766:                           ; preds = %s_checked_out_p.exit.i751, %lor.lhs.false.i755, %if.end.i761
+s_lock.exit766:                                   ; preds = %s_checked_out_p.exit.i751, %lor.lhs.false.i755, %if.end.i761
   %138 = load ptr, ptr %s.i, align 8
   %call643 = call i32 @ossl_quic_tserver_tick(ptr noundef %138) #14
   br label %for.cond.backedge
 
-if.end644:                                        ; preds = %s_lock.argprom.exit745
+if.end644:                                        ; preds = %s_lock.exit745
   %139 = load ptr, ptr %stream_name, align 8
   %call646 = call fastcc i32 @helper_set_s_stream(ptr noundef nonnull %h, ptr noundef %139, i64 noundef %call637)
   %call649 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1535, ptr noundef nonnull @.str.106, i32 noundef %call646) #14
@@ -2673,7 +2673,7 @@ if.end10.i.i784:                                  ; preds = %if.then6.i.i781
 
 get_stream_info.exit.thread.i787:                 ; preds = %if.then6.i.i781, %if.end.i.i770, %if.end677
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key.i.i767)
-  br label %helper_local_set_c_stream.argprom.exit788
+  br label %helper_local_set_c_stream.exit788
 
 if.end.i776:                                      ; preds = %if.end10.i.i784, %if.end4.i.i773
   %retval.0.i.i777 = phi ptr [ %call7.i.i782, %if.end10.i.i784 ], [ %call.i.i.i774, %if.end4.i.i773 ]
@@ -2682,15 +2682,15 @@ if.end.i776:                                      ; preds = %if.end10.i.i784, %i
   store ptr null, ptr %c_stream1.i778, align 8
   %s_stream_id.i779 = getelementptr inbounds i8, ptr %retval.0.i.i777, i64 16
   store i64 -1, ptr %s_stream_id.i779, align 8
-  br label %helper_local_set_c_stream.argprom.exit788
+  br label %helper_local_set_c_stream.exit788
 
-helper_local_set_c_stream.argprom.exit788:        ; preds = %get_stream_info.exit.thread.i787, %if.end.i776
+helper_local_set_c_stream.exit788:                ; preds = %get_stream_info.exit.thread.i787, %if.end.i776
   %retval.0.i780 = phi i32 [ 1, %if.end.i776 ], [ 0, %get_stream_info.exit.thread.i787 ]
   %call682 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 1561, ptr noundef nonnull @.str.97, i32 noundef %retval.0.i780) #14
   %tobool683.not = icmp eq i32 %call682, 0
   br i1 %tobool683.not, label %out, label %if.end685
 
-if.end685:                                        ; preds = %helper_local_set_c_stream.argprom.exit788
+if.end685:                                        ; preds = %helper_local_set_c_stream.exit788
   call void @SSL_free(ptr noundef %c_tgt.0101410301038) #14
   br label %for.cond.backedge
 
@@ -2774,21 +2774,21 @@ s_checked_out_p.exit.i794:                        ; preds = %sw.bb737, %cond.fal
   %cond.i.i795 = phi ptr [ %s_checked_out1.i.i793, %cond.false.i.i790 ], [ %s_checked_out.i.i, %sw.bb737 ]
   %150 = load ptr, ptr %m.i, align 8
   %cmp.i797 = icmp eq ptr %150, null
-  br i1 %cmp.i797, label %s_lock.argprom.exit809, label %lor.lhs.false.i798
+  br i1 %cmp.i797, label %s_lock.exit809, label %lor.lhs.false.i798
 
 lor.lhs.false.i798:                               ; preds = %s_checked_out_p.exit.i794
   %151 = load i32, ptr %cond.i.i795, align 4
   %tobool.not.i799 = icmp eq i32 %151, 0
-  br i1 %tobool.not.i799, label %if.end.i804, label %s_lock.argprom.exit809
+  br i1 %tobool.not.i799, label %if.end.i804, label %s_lock.exit809
 
 if.end.i804:                                      ; preds = %lor.lhs.false.i798
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %150) #14
   %152 = load ptr, ptr %s_priv.i982, align 8
   store ptr %152, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i795, align 4
-  br label %s_lock.argprom.exit809
+  br label %s_lock.exit809
 
-s_lock.argprom.exit809:                           ; preds = %s_checked_out_p.exit.i794, %lor.lhs.false.i798, %if.end.i804
+s_lock.exit809:                                   ; preds = %s_checked_out_p.exit.i794, %lor.lhs.false.i798, %if.end.i804
   %retval.0.i803 = load ptr, ptr %s.i, align 8
   %arg1739 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %153 = load i64, ptr %arg1739, align 8
@@ -2888,21 +2888,21 @@ s_checked_out_p.exit.i815:                        ; preds = %sw.bb792, %cond.fal
   %cond.i.i816 = phi ptr [ %s_checked_out1.i.i814, %cond.false.i.i811 ], [ %s_checked_out.i.i, %sw.bb792 ]
   %169 = load ptr, ptr %m.i, align 8
   %cmp.i818 = icmp eq ptr %169, null
-  br i1 %cmp.i818, label %s_lock.argprom.exit830, label %lor.lhs.false.i819
+  br i1 %cmp.i818, label %s_lock.exit830, label %lor.lhs.false.i819
 
 lor.lhs.false.i819:                               ; preds = %s_checked_out_p.exit.i815
   %170 = load i32, ptr %cond.i.i816, align 4
   %tobool.not.i820 = icmp eq i32 %170, 0
-  br i1 %tobool.not.i820, label %if.end.i825, label %s_lock.argprom.exit830
+  br i1 %tobool.not.i820, label %if.end.i825, label %s_lock.exit830
 
 if.end.i825:                                      ; preds = %lor.lhs.false.i819
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %169) #14
   %171 = load ptr, ptr %s_priv.i982, align 8
   store ptr %171, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i816, align 4
-  br label %s_lock.argprom.exit830
+  br label %s_lock.exit830
 
-s_lock.argprom.exit830:                           ; preds = %s_checked_out_p.exit.i815, %lor.lhs.false.i819, %if.end.i825
+s_lock.exit830:                                   ; preds = %s_checked_out_p.exit.i815, %lor.lhs.false.i819, %if.end.i825
   %retval.0.i824 = load ptr, ptr %s.i, align 8
   %call806 = call i32 @ossl_quic_tserver_is_term_any(ptr noundef %retval.0.i824) #14
   %tobool807.not = icmp eq i32 %call806, 0
@@ -2910,7 +2910,7 @@ s_lock.argprom.exit830:                           ; preds = %s_checked_out_p.exi
   %cmp.i.i831 = icmp slt i32 %hl_.val427, 0
   br i1 %tobool807.not, label %if.then808, label %if.end814
 
-if.then808:                                       ; preds = %s_lock.argprom.exit830
+if.then808:                                       ; preds = %s_lock.exit830
   br i1 %cmp.i.i831, label %s_checked_out_p.exit.i836, label %cond.false.i.i832
 
 cond.false.i.i832:                                ; preds = %if.then808
@@ -2923,57 +2923,57 @@ s_checked_out_p.exit.i836:                        ; preds = %if.then808, %cond.f
   %cond.i.i837 = phi ptr [ %s_checked_out1.i.i835, %cond.false.i.i832 ], [ %s_checked_out.i.i, %if.then808 ]
   %173 = load ptr, ptr %m.i, align 8
   %cmp.i839 = icmp eq ptr %173, null
-  br i1 %cmp.i839, label %s_lock.argprom.exit851, label %lor.lhs.false.i840
+  br i1 %cmp.i839, label %s_lock.exit851, label %lor.lhs.false.i840
 
 lor.lhs.false.i840:                               ; preds = %s_checked_out_p.exit.i836
   %174 = load i32, ptr %cond.i.i837, align 4
   %tobool.not.i841 = icmp eq i32 %174, 0
-  br i1 %tobool.not.i841, label %if.end.i846, label %s_lock.argprom.exit851
+  br i1 %tobool.not.i841, label %if.end.i846, label %s_lock.exit851
 
 if.end.i846:                                      ; preds = %lor.lhs.false.i840
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %173) #14
   %175 = load ptr, ptr %s_priv.i982, align 8
   store ptr %175, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i837, align 4
-  br label %s_lock.argprom.exit851
+  br label %s_lock.exit851
 
-s_lock.argprom.exit851:                           ; preds = %s_checked_out_p.exit.i836, %lor.lhs.false.i840, %if.end.i846
+s_lock.exit851:                                   ; preds = %s_checked_out_p.exit.i836, %lor.lhs.false.i840, %if.end.i846
   %retval.0.i845 = load ptr, ptr %s.i, align 8
   %call810 = call i32 @ossl_quic_tserver_ping(ptr noundef %retval.0.i845) #14
   %hl_.val428 = load i32, ptr %thread_idx2.i, align 8
   %cmp.i.i852 = icmp slt i32 %hl_.val428, 0
   br i1 %cmp.i.i852, label %s_checked_out_p.exit.i857, label %cond.false.i.i853
 
-cond.false.i.i853:                                ; preds = %s_lock.argprom.exit851
+cond.false.i.i853:                                ; preds = %s_lock.exit851
   %176 = load ptr, ptr %threads.i.i, align 8
   %idxprom.i.i855 = zext nneg i32 %hl_.val428 to i64
   %s_checked_out1.i.i856 = getelementptr inbounds %struct.child_thread_args, ptr %176, i64 %idxprom.i.i855, i32 8
   br label %s_checked_out_p.exit.i857
 
-s_checked_out_p.exit.i857:                        ; preds = %s_lock.argprom.exit851, %cond.false.i.i853
-  %cond.i.i858 = phi ptr [ %s_checked_out1.i.i856, %cond.false.i.i853 ], [ %s_checked_out.i.i, %s_lock.argprom.exit851 ]
+s_checked_out_p.exit.i857:                        ; preds = %s_lock.exit851, %cond.false.i.i853
+  %cond.i.i858 = phi ptr [ %s_checked_out1.i.i856, %cond.false.i.i853 ], [ %s_checked_out.i.i, %s_lock.exit851 ]
   %177 = load ptr, ptr %m.i, align 8
   %cmp.i860 = icmp eq ptr %177, null
-  br i1 %cmp.i860, label %s_lock.argprom.exit872, label %lor.lhs.false.i861
+  br i1 %cmp.i860, label %s_lock.exit872, label %lor.lhs.false.i861
 
 lor.lhs.false.i861:                               ; preds = %s_checked_out_p.exit.i857
   %178 = load i32, ptr %cond.i.i858, align 4
   %tobool.not.i862 = icmp eq i32 %178, 0
-  br i1 %tobool.not.i862, label %if.end.i867, label %s_lock.argprom.exit872
+  br i1 %tobool.not.i862, label %if.end.i867, label %s_lock.exit872
 
 if.end.i867:                                      ; preds = %lor.lhs.false.i861
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %177) #14
   %179 = load ptr, ptr %s_priv.i982, align 8
   store ptr %179, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i858, align 4
-  br label %s_lock.argprom.exit872
+  br label %s_lock.exit872
 
-s_lock.argprom.exit872:                           ; preds = %s_checked_out_p.exit.i857, %lor.lhs.false.i861, %if.end.i867
+s_lock.exit872:                                   ; preds = %s_checked_out_p.exit.i857, %lor.lhs.false.i861, %if.end.i867
   %180 = load ptr, ptr %s.i, align 8
   %call813 = call i32 @ossl_quic_tserver_tick(ptr noundef %180) #14
   br label %for.cond.backedge
 
-if.end814:                                        ; preds = %s_lock.argprom.exit830
+if.end814:                                        ; preds = %s_lock.exit830
   br i1 %cmp.i.i831, label %s_checked_out_p.exit.i878, label %cond.false.i.i874
 
 cond.false.i.i874:                                ; preds = %if.end814
@@ -2986,28 +2986,28 @@ s_checked_out_p.exit.i878:                        ; preds = %if.end814, %cond.fa
   %cond.i.i879 = phi ptr [ %s_checked_out1.i.i877, %cond.false.i.i874 ], [ %s_checked_out.i.i, %if.end814 ]
   %182 = load ptr, ptr %m.i, align 8
   %cmp.i881 = icmp eq ptr %182, null
-  br i1 %cmp.i881, label %s_lock.argprom.exit893, label %lor.lhs.false.i882
+  br i1 %cmp.i881, label %s_lock.exit893, label %lor.lhs.false.i882
 
 lor.lhs.false.i882:                               ; preds = %s_checked_out_p.exit.i878
   %183 = load i32, ptr %cond.i.i879, align 4
   %tobool.not.i883 = icmp eq i32 %183, 0
-  br i1 %tobool.not.i883, label %if.end.i888, label %s_lock.argprom.exit893
+  br i1 %tobool.not.i883, label %if.end.i888, label %s_lock.exit893
 
 if.end.i888:                                      ; preds = %lor.lhs.false.i882
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %182) #14
   %184 = load ptr, ptr %s_priv.i982, align 8
   store ptr %184, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i879, align 4
-  br label %s_lock.argprom.exit893
+  br label %s_lock.exit893
 
-s_lock.argprom.exit893:                           ; preds = %s_checked_out_p.exit.i878, %lor.lhs.false.i882, %if.end.i888
+s_lock.exit893:                                   ; preds = %s_checked_out_p.exit.i878, %lor.lhs.false.i882, %if.end.i888
   %retval.0.i887 = load ptr, ptr %s.i, align 8
   %call816 = call ptr @ossl_quic_tserver_get_terminate_cause(ptr noundef %retval.0.i887) #14
   %call817 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1662, ptr noundef nonnull @.str.119, ptr noundef %call816) #14
   %tobool818.not = icmp eq i32 %call817, 0
   br i1 %tobool818.not, label %out, label %if.end820
 
-if.end820:                                        ; preds = %s_lock.argprom.exit893
+if.end820:                                        ; preds = %s_lock.exit893
   %185 = load i64, ptr %call816, align 8
   %call822 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 1665, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.120, i64 noundef %167, i64 noundef %185) #14
   %tobool823.not = icmp eq i32 %call822, 0
@@ -3109,21 +3109,21 @@ s_checked_out_p.exit.i899:                        ; preds = %if.end894, %cond.fa
   %cond.i.i900 = phi ptr [ %s_checked_out1.i.i898, %cond.false.i.i895 ], [ %s_checked_out.i.i, %if.end894 ]
   %192 = load ptr, ptr %m.i, align 8
   %cmp.i902 = icmp eq ptr %192, null
-  br i1 %cmp.i902, label %s_lock.argprom.exit914, label %lor.lhs.false.i903
+  br i1 %cmp.i902, label %s_lock.exit914, label %lor.lhs.false.i903
 
 lor.lhs.false.i903:                               ; preds = %s_checked_out_p.exit.i899
   %193 = load i32, ptr %cond.i.i900, align 4
   %tobool.not.i904 = icmp eq i32 %193, 0
-  br i1 %tobool.not.i904, label %if.end.i909, label %s_lock.argprom.exit914
+  br i1 %tobool.not.i904, label %if.end.i909, label %s_lock.exit914
 
 if.end.i909:                                      ; preds = %lor.lhs.false.i903
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %192) #14
   %194 = load ptr, ptr %s_priv.i982, align 8
   store ptr %194, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i900, align 4
-  br label %s_lock.argprom.exit914
+  br label %s_lock.exit914
 
-s_lock.argprom.exit914:                           ; preds = %s_checked_out_p.exit.i899, %lor.lhs.false.i903, %if.end.i909
+s_lock.exit914:                                   ; preds = %s_checked_out_p.exit.i899, %lor.lhs.false.i903, %if.end.i909
   %retval.0.i908 = load ptr, ptr %s.i, align 8
   %call896 = call i32 @ossl_quic_tserver_write(ptr noundef %retval.0.i908, i64 noundef %s_stream_id.0101210321036, ptr noundef nonnull @.str.125, i64 noundef 5, ptr noundef nonnull %bytes_written890) #14
   %cmp897 = icmp ne i32 %call896, 0
@@ -3206,21 +3206,21 @@ s_checked_out_p.exit.i922:                        ; preds = %if.end957, %cond.fa
   %cond.i.i923 = phi ptr [ %s_checked_out1.i.i921, %cond.false.i.i918 ], [ %s_checked_out.i.i, %if.end957 ]
   %198 = load ptr, ptr %m.i, align 8
   %cmp.i925 = icmp eq ptr %198, null
-  br i1 %cmp.i925, label %s_lock.argprom.exit937, label %lor.lhs.false.i926
+  br i1 %cmp.i925, label %s_lock.exit937, label %lor.lhs.false.i926
 
 lor.lhs.false.i926:                               ; preds = %s_checked_out_p.exit.i922
   %199 = load i32, ptr %cond.i.i923, align 4
   %tobool.not.i927 = icmp eq i32 %199, 0
-  br i1 %tobool.not.i927, label %if.end.i932, label %s_lock.argprom.exit937
+  br i1 %tobool.not.i927, label %if.end.i932, label %s_lock.exit937
 
 if.end.i932:                                      ; preds = %lor.lhs.false.i926
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %198) #14
   %200 = load ptr, ptr %s_priv.i982, align 8
   store ptr %200, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i923, align 4
-  br label %s_lock.argprom.exit937
+  br label %s_lock.exit937
 
-s_lock.argprom.exit937:                           ; preds = %s_checked_out_p.exit.i922, %lor.lhs.false.i926, %if.end.i932
+s_lock.exit937:                                   ; preds = %s_checked_out_p.exit.i922, %lor.lhs.false.i926, %if.end.i932
   %retval.0.i931 = load ptr, ptr %s.i, align 8
   %call960 = call i32 @ossl_quic_tserver_read(ptr noundef %retval.0.i931, i64 noundef %s_stream_id.0101210321036, ptr noundef nonnull %buf953, i64 noundef 1, ptr noundef nonnull %bytes_read952) #14
   %cmp961 = icmp ne i32 %call960, 0
@@ -3432,21 +3432,21 @@ s_checked_out_p.exit.i950:                        ; preds = %sw.bb1119, %cond.fa
   %cond.i.i951 = phi ptr [ %s_checked_out1.i.i949, %cond.false.i.i946 ], [ %s_checked_out.i.i, %sw.bb1119 ]
   %232 = load ptr, ptr %m.i, align 8
   %cmp.i953 = icmp eq ptr %232, null
-  br i1 %cmp.i953, label %s_lock.argprom.exit965, label %lor.lhs.false.i954
+  br i1 %cmp.i953, label %s_lock.exit965, label %lor.lhs.false.i954
 
 lor.lhs.false.i954:                               ; preds = %s_checked_out_p.exit.i950
   %233 = load i32, ptr %cond.i.i951, align 4
   %tobool.not.i955 = icmp eq i32 %233, 0
-  br i1 %tobool.not.i955, label %if.end.i960, label %s_lock.argprom.exit965
+  br i1 %tobool.not.i955, label %if.end.i960, label %s_lock.exit965
 
 if.end.i960:                                      ; preds = %lor.lhs.false.i954
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %232) #14
   %234 = load ptr, ptr %s_priv.i982, align 8
   store ptr %234, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i951, align 4
-  br label %s_lock.argprom.exit965
+  br label %s_lock.exit965
 
-s_lock.argprom.exit965:                           ; preds = %s_checked_out_p.exit.i950, %lor.lhs.false.i954, %if.end.i960
+s_lock.exit965:                                   ; preds = %s_checked_out_p.exit.i950, %lor.lhs.false.i954, %if.end.i960
   %arg11121 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %235 = load i64, ptr %arg11121, align 8
   store i64 %235, ptr %inject_word0, align 8
@@ -3494,21 +3494,21 @@ s_checked_out_p.exit.i971:                        ; preds = %sw.bb1142, %cond.fa
   %cond.i.i972 = phi ptr [ %s_checked_out1.i.i970, %cond.false.i.i967 ], [ %s_checked_out.i.i, %sw.bb1142 ]
   %241 = load ptr, ptr %m.i, align 8
   %cmp.i974 = icmp eq ptr %241, null
-  br i1 %cmp.i974, label %s_lock.argprom.exit986, label %lor.lhs.false.i975
+  br i1 %cmp.i974, label %s_lock.exit986, label %lor.lhs.false.i975
 
 lor.lhs.false.i975:                               ; preds = %s_checked_out_p.exit.i971
   %242 = load i32, ptr %cond.i.i972, align 4
   %tobool.not.i976 = icmp eq i32 %242, 0
-  br i1 %tobool.not.i976, label %if.end.i981, label %s_lock.argprom.exit986
+  br i1 %tobool.not.i976, label %if.end.i981, label %s_lock.exit986
 
 if.end.i981:                                      ; preds = %lor.lhs.false.i975
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %241) #14
   %243 = load ptr, ptr %s_priv.i982, align 8
   store ptr %243, ptr %s.i, align 8
   store i32 1, ptr %cond.i.i972, align 4
-  br label %s_lock.argprom.exit986
+  br label %s_lock.exit986
 
-s_lock.argprom.exit986:                           ; preds = %s_checked_out_p.exit.i971, %lor.lhs.false.i975, %if.end.i981
+s_lock.exit986:                                   ; preds = %s_checked_out_p.exit.i971, %lor.lhs.false.i975, %if.end.i981
   %retval.0.i980 = load ptr, ptr %s.i, align 8
   %call1144 = call i32 @ossl_quic_tserver_new_ticket(ptr noundef %retval.0.i980) #14
   %cmp1145 = icmp ne i32 %call1144, 0
@@ -3521,12 +3521,12 @@ sw.default1151:                                   ; preds = %if.end80
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 1939, ptr noundef nonnull @.str.141) #14
   br label %out
 
-out:                                              ; preds = %s_lock.argprom.exit986, %if.end1133, %sw.bb1129, %sw.bb1105, %sw.bb1091, %sw.bb1079, %sw.bb1068, %sw.bb1059, %if.end1053, %sw.bb1046, %if.end987, %if.end972, %sw.bb967, %s_lock.argprom.exit937, %sw.bb951, %if.end938, %if.end930, %sw.bb923, %if.end918, %if.end910, %sw.bb903, %s_lock.argprom.exit914, %sw.bb889, %if.end878, %lor.lhs.false884, %sw.bb872, %if.end863, %if.end858, %sw.bb854, %if.end844, %if.end839, %sw.bb835, %if.end820, %lor.lhs.false824, %lor.lhs.false827, %s_lock.argprom.exit893, %land.lhs.true757, %sw.bb741, %if.end721, %sw.bb714, %if.end704, %sw.bb700, %if.end690, %sw.bb686, %helper_local_set_c_stream.argprom.exit788, %if.end672, %sw.bb661, %lor.lhs.false664, %if.end644, %if.end630, %sw.bb626, %helper_local_set_c_stream.argprom.exit724, %if.end602, %sw.bb597, %if.end588, %land.lhs.true583, %s_lock.argprom.exit702, %if.end563, %sw.bb559, %helper_local_set_c_stream.argprom.exit681, %land.lhs.true544, %if.then532, %land.lhs.true523, %if.end514, %sw.bb505, %helper_local_set_c_stream.argprom.exit658, %if.end488, %if.end483, %sw.bb479, %helper_local_set_c_stream.argprom.exit, %if.end464, %if.end459, %sw.bb455, %sw.bb442, %if.end436, %if.end431, %sw.bb406, %lor.lhs.false414, %lor.lhs.false419, %land.lhs.true398, %s_lock.argprom.exit551, %land.lhs.true367, %sw.bb355, %land.lhs.true347, %if.end317, %land.lhs.true311, %sw.bb286, %sw.bb279, %sw.bb271, %s_lock.argprom.exit509, %lor.lhs.false265, %sw.bb251, %if.end234, %lor.lhs.false242, %lor.lhs.false245, %sw.bb230, %land.lhs.true224, %sw.bb199, %if.end186, %sw.bb176, %lor.lhs.false180, %if.end169, %sw.bb141, %if.end123, %sw.bb119, %if.end1027, %for.body1002, %sw.bb82, %helper_local_init.exit, %sw.default1151, %if.then986, %if.then948, %if.then790, %if.then770, %if.then734, %if.then659, %if.then615, %if.then429, %if.then341, %if.then330, %if.then299, %if.then218, %if.end118, %sw.default, %if.then28
-  %repeat_stack_len.0 = phi i64 [ %repeat_stack_len.1, %sw.default ], [ %repeat_stack_len.1, %sw.default1151 ], [ %repeat_stack_len.1, %if.then986 ], [ %repeat_stack_len.1, %if.then948 ], [ %repeat_stack_len.1, %if.then790 ], [ %repeat_stack_len.1, %if.then770 ], [ %repeat_stack_len.1, %if.then734 ], [ %repeat_stack_len.1, %if.then659 ], [ %repeat_stack_len.1, %if.then615 ], [ %repeat_stack_len.1, %if.then429 ], [ %repeat_stack_len.1, %if.then341 ], [ %repeat_stack_len.1, %if.then330 ], [ %repeat_stack_len.1, %if.then299 ], [ %repeat_stack_len.1, %if.then218 ], [ %repeat_stack_len.1, %if.end118 ], [ %repeat_stack_len.1, %sw.bb82 ], [ %repeat_stack_len.1, %if.then28 ], [ 0, %helper_local_init.exit ], [ %repeat_stack_len.1, %for.body1002 ], [ %repeat_stack_len.1, %if.end1027 ], [ %repeat_stack_len.1, %sw.bb119 ], [ %repeat_stack_len.1, %if.end123 ], [ %repeat_stack_len.1, %sw.bb141 ], [ %repeat_stack_len.1, %if.end169 ], [ %repeat_stack_len.1, %lor.lhs.false180 ], [ %repeat_stack_len.1, %sw.bb176 ], [ %repeat_stack_len.1, %if.end186 ], [ %repeat_stack_len.1, %sw.bb199 ], [ %repeat_stack_len.1, %land.lhs.true224 ], [ %repeat_stack_len.1, %sw.bb230 ], [ %repeat_stack_len.1, %lor.lhs.false245 ], [ %repeat_stack_len.1, %lor.lhs.false242 ], [ %repeat_stack_len.1, %if.end234 ], [ %repeat_stack_len.1, %sw.bb251 ], [ %repeat_stack_len.1, %lor.lhs.false265 ], [ %repeat_stack_len.1, %s_lock.argprom.exit509 ], [ %repeat_stack_len.1, %sw.bb271 ], [ %repeat_stack_len.1, %sw.bb279 ], [ %repeat_stack_len.1, %sw.bb286 ], [ %repeat_stack_len.1, %land.lhs.true311 ], [ %repeat_stack_len.1, %if.end317 ], [ %repeat_stack_len.1, %land.lhs.true347 ], [ %repeat_stack_len.1, %sw.bb355 ], [ %repeat_stack_len.1, %land.lhs.true367 ], [ %repeat_stack_len.1, %s_lock.argprom.exit551 ], [ %repeat_stack_len.1, %land.lhs.true398 ], [ %repeat_stack_len.1, %lor.lhs.false419 ], [ %repeat_stack_len.1, %lor.lhs.false414 ], [ %repeat_stack_len.1, %sw.bb406 ], [ %repeat_stack_len.1, %if.end431 ], [ %repeat_stack_len.1, %if.end436 ], [ %repeat_stack_len.1, %sw.bb442 ], [ %repeat_stack_len.1, %sw.bb455 ], [ %repeat_stack_len.1, %if.end459 ], [ %repeat_stack_len.1, %if.end464 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.argprom.exit ], [ %repeat_stack_len.1, %sw.bb479 ], [ %repeat_stack_len.1, %if.end483 ], [ %repeat_stack_len.1, %if.end488 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.argprom.exit658 ], [ %repeat_stack_len.1, %sw.bb505 ], [ %repeat_stack_len.1, %if.end514 ], [ %repeat_stack_len.1, %land.lhs.true523 ], [ %repeat_stack_len.1, %if.then532 ], [ %repeat_stack_len.1, %land.lhs.true544 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.argprom.exit681 ], [ %repeat_stack_len.1, %sw.bb559 ], [ %repeat_stack_len.1, %if.end563 ], [ %repeat_stack_len.1, %s_lock.argprom.exit702 ], [ %repeat_stack_len.1, %land.lhs.true583 ], [ %repeat_stack_len.1, %if.end588 ], [ %repeat_stack_len.1, %sw.bb597 ], [ %repeat_stack_len.1, %if.end602 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.argprom.exit724 ], [ %repeat_stack_len.1, %sw.bb626 ], [ %repeat_stack_len.1, %if.end630 ], [ %repeat_stack_len.1, %if.end644 ], [ %repeat_stack_len.1, %lor.lhs.false664 ], [ %repeat_stack_len.1, %sw.bb661 ], [ %repeat_stack_len.1, %if.end672 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.argprom.exit788 ], [ %repeat_stack_len.1, %sw.bb686 ], [ %repeat_stack_len.1, %if.end690 ], [ %repeat_stack_len.1, %sw.bb700 ], [ %repeat_stack_len.1, %if.end704 ], [ %repeat_stack_len.1, %sw.bb714 ], [ %repeat_stack_len.1, %if.end721 ], [ %repeat_stack_len.1, %sw.bb741 ], [ %repeat_stack_len.1, %land.lhs.true757 ], [ %repeat_stack_len.1, %s_lock.argprom.exit893 ], [ %repeat_stack_len.1, %lor.lhs.false827 ], [ %repeat_stack_len.1, %lor.lhs.false824 ], [ %repeat_stack_len.1, %if.end820 ], [ %repeat_stack_len.1, %sw.bb835 ], [ %repeat_stack_len.1, %if.end839 ], [ %repeat_stack_len.1, %if.end844 ], [ %repeat_stack_len.1, %sw.bb854 ], [ %repeat_stack_len.1, %if.end858 ], [ %repeat_stack_len.1, %if.end863 ], [ %repeat_stack_len.1, %sw.bb872 ], [ %repeat_stack_len.1, %lor.lhs.false884 ], [ %repeat_stack_len.1, %if.end878 ], [ %repeat_stack_len.1, %sw.bb889 ], [ %repeat_stack_len.1, %s_lock.argprom.exit914 ], [ %repeat_stack_len.1, %sw.bb903 ], [ %repeat_stack_len.1, %if.end910 ], [ %repeat_stack_len.1, %if.end918 ], [ %repeat_stack_len.1, %sw.bb923 ], [ %repeat_stack_len.1, %if.end930 ], [ %repeat_stack_len.1, %if.end938 ], [ %repeat_stack_len.1, %sw.bb951 ], [ %repeat_stack_len.1, %s_lock.argprom.exit937 ], [ %repeat_stack_len.1, %sw.bb967 ], [ %repeat_stack_len.1, %if.end972 ], [ %repeat_stack_len.1, %if.end987 ], [ %repeat_stack_len.1, %sw.bb1046 ], [ %repeat_stack_len.1, %if.end1053 ], [ %repeat_stack_len.1, %sw.bb1059 ], [ %repeat_stack_len.1, %sw.bb1068 ], [ %repeat_stack_len.1, %sw.bb1079 ], [ %repeat_stack_len.1, %sw.bb1091 ], [ %repeat_stack_len.1, %sw.bb1105 ], [ %repeat_stack_len.1, %sw.bb1129 ], [ %repeat_stack_len.1, %if.end1133 ], [ %repeat_stack_len.1, %s_lock.argprom.exit986 ]
-  %op_idx.0 = phi i64 [ %op_idx.2, %sw.default ], [ %op_idx.2, %sw.default1151 ], [ %op_idx.2, %if.then986 ], [ %op_idx.2, %if.then948 ], [ %op_idx.2, %if.then790 ], [ %op_idx.2, %if.then770 ], [ %op_idx.2, %if.then734 ], [ %op_idx.2, %if.then659 ], [ %op_idx.2, %if.then615 ], [ %op_idx.2, %if.then429 ], [ %op_idx.2, %if.then341 ], [ %op_idx.2, %if.then330 ], [ %op_idx.2, %if.then299 ], [ %op_idx.2, %if.then218 ], [ %op_idx.2, %if.end118 ], [ %op_idx.2, %sw.bb82 ], [ %op_idx.2, %if.then28 ], [ 0, %helper_local_init.exit ], [ %op_idx.2, %for.body1002 ], [ %op_idx.2, %if.end1027 ], [ %op_idx.2, %sw.bb119 ], [ %op_idx.2, %if.end123 ], [ %op_idx.2, %sw.bb141 ], [ %op_idx.2, %if.end169 ], [ %op_idx.2, %lor.lhs.false180 ], [ %op_idx.2, %sw.bb176 ], [ %op_idx.2, %if.end186 ], [ %op_idx.2, %sw.bb199 ], [ %op_idx.2, %land.lhs.true224 ], [ %op_idx.2, %sw.bb230 ], [ %op_idx.2, %lor.lhs.false245 ], [ %op_idx.2, %lor.lhs.false242 ], [ %op_idx.2, %if.end234 ], [ %op_idx.2, %sw.bb251 ], [ %op_idx.2, %lor.lhs.false265 ], [ %op_idx.2, %s_lock.argprom.exit509 ], [ %op_idx.2, %sw.bb271 ], [ %op_idx.2, %sw.bb279 ], [ %op_idx.2, %sw.bb286 ], [ %op_idx.2, %land.lhs.true311 ], [ %op_idx.2, %if.end317 ], [ %op_idx.2, %land.lhs.true347 ], [ %op_idx.2, %sw.bb355 ], [ %op_idx.2, %land.lhs.true367 ], [ %op_idx.2, %s_lock.argprom.exit551 ], [ %op_idx.2, %land.lhs.true398 ], [ %op_idx.2, %lor.lhs.false419 ], [ %op_idx.2, %lor.lhs.false414 ], [ %op_idx.2, %sw.bb406 ], [ %op_idx.2, %if.end431 ], [ %op_idx.2, %if.end436 ], [ %op_idx.2, %sw.bb442 ], [ %op_idx.2, %sw.bb455 ], [ %op_idx.2, %if.end459 ], [ %op_idx.2, %if.end464 ], [ %op_idx.2, %helper_local_set_c_stream.argprom.exit ], [ %op_idx.2, %sw.bb479 ], [ %op_idx.2, %if.end483 ], [ %op_idx.2, %if.end488 ], [ %op_idx.2, %helper_local_set_c_stream.argprom.exit658 ], [ %op_idx.2, %sw.bb505 ], [ %op_idx.2, %if.end514 ], [ %op_idx.2, %land.lhs.true523 ], [ %op_idx.2, %if.then532 ], [ %op_idx.2, %land.lhs.true544 ], [ %op_idx.2, %helper_local_set_c_stream.argprom.exit681 ], [ %op_idx.2, %sw.bb559 ], [ %op_idx.2, %if.end563 ], [ %op_idx.2, %s_lock.argprom.exit702 ], [ %op_idx.2, %land.lhs.true583 ], [ %op_idx.2, %if.end588 ], [ %op_idx.2, %sw.bb597 ], [ %op_idx.2, %if.end602 ], [ %op_idx.2, %helper_local_set_c_stream.argprom.exit724 ], [ %op_idx.2, %sw.bb626 ], [ %op_idx.2, %if.end630 ], [ %op_idx.2, %if.end644 ], [ %op_idx.2, %lor.lhs.false664 ], [ %op_idx.2, %sw.bb661 ], [ %op_idx.2, %if.end672 ], [ %op_idx.2, %helper_local_set_c_stream.argprom.exit788 ], [ %op_idx.2, %sw.bb686 ], [ %op_idx.2, %if.end690 ], [ %op_idx.2, %sw.bb700 ], [ %op_idx.2, %if.end704 ], [ %op_idx.2, %sw.bb714 ], [ %op_idx.2, %if.end721 ], [ %op_idx.2, %sw.bb741 ], [ %op_idx.2, %land.lhs.true757 ], [ %op_idx.2, %s_lock.argprom.exit893 ], [ %op_idx.2, %lor.lhs.false827 ], [ %op_idx.2, %lor.lhs.false824 ], [ %op_idx.2, %if.end820 ], [ %op_idx.2, %sw.bb835 ], [ %op_idx.2, %if.end839 ], [ %op_idx.2, %if.end844 ], [ %op_idx.2, %sw.bb854 ], [ %op_idx.2, %if.end858 ], [ %op_idx.2, %if.end863 ], [ %op_idx.2, %sw.bb872 ], [ %op_idx.2, %lor.lhs.false884 ], [ %op_idx.2, %if.end878 ], [ %op_idx.2, %sw.bb889 ], [ %op_idx.2, %s_lock.argprom.exit914 ], [ %op_idx.2, %sw.bb903 ], [ %op_idx.2, %if.end910 ], [ %op_idx.2, %if.end918 ], [ %op_idx.2, %sw.bb923 ], [ %op_idx.2, %if.end930 ], [ %op_idx.2, %if.end938 ], [ %op_idx.2, %sw.bb951 ], [ %op_idx.2, %s_lock.argprom.exit937 ], [ %op_idx.2, %sw.bb967 ], [ %op_idx.2, %if.end972 ], [ %op_idx.2, %if.end987 ], [ %op_idx.2, %sw.bb1046 ], [ %op_idx.2, %if.end1053 ], [ %op_idx.2, %sw.bb1059 ], [ %op_idx.2, %sw.bb1068 ], [ %op_idx.2, %sw.bb1079 ], [ %op_idx.2, %sw.bb1091 ], [ %op_idx.2, %sw.bb1105 ], [ %op_idx.2, %sw.bb1129 ], [ %op_idx.2, %if.end1133 ], [ %op_idx.2, %s_lock.argprom.exit986 ]
-  %tmp_buf.0 = phi ptr [ %tmp_buf.1, %sw.default ], [ %tmp_buf.1, %sw.default1151 ], [ %tmp_buf.1, %if.then986 ], [ %tmp_buf.1, %if.then948 ], [ %tmp_buf.1, %if.then790 ], [ %tmp_buf.1, %if.then770 ], [ %tmp_buf.1, %if.then734 ], [ %tmp_buf.1, %if.then659 ], [ %tmp_buf.1, %if.then615 ], [ %tmp_buf.1, %if.then429 ], [ %tmp_buf.3, %if.then341 ], [ %tmp_buf.3, %if.then330 ], [ %tmp_buf.1, %if.then299 ], [ %tmp_buf.1, %if.then218 ], [ %tmp_buf.1, %if.end118 ], [ %tmp_buf.1, %sw.bb82 ], [ %tmp_buf.1, %if.then28 ], [ null, %helper_local_init.exit ], [ %tmp_buf.1, %for.body1002 ], [ %tmp_buf.1, %if.end1027 ], [ %tmp_buf.1, %s_lock.argprom.exit986 ], [ %tmp_buf.1, %if.end1133 ], [ %tmp_buf.1, %sw.bb1129 ], [ %tmp_buf.1, %sw.bb1105 ], [ %tmp_buf.1, %sw.bb1091 ], [ %tmp_buf.1, %sw.bb1079 ], [ %tmp_buf.1, %sw.bb1068 ], [ %tmp_buf.1, %sw.bb1059 ], [ %tmp_buf.1, %if.end1053 ], [ %tmp_buf.1, %sw.bb1046 ], [ %tmp_buf.1, %if.end987 ], [ %tmp_buf.1, %if.end972 ], [ %tmp_buf.1, %sw.bb967 ], [ %tmp_buf.1, %s_lock.argprom.exit937 ], [ %tmp_buf.1, %sw.bb951 ], [ %tmp_buf.1, %if.end938 ], [ %tmp_buf.1, %if.end930 ], [ %tmp_buf.1, %sw.bb923 ], [ %tmp_buf.1, %if.end918 ], [ %tmp_buf.1, %if.end910 ], [ %tmp_buf.1, %sw.bb903 ], [ %tmp_buf.1, %s_lock.argprom.exit914 ], [ %tmp_buf.1, %sw.bb889 ], [ %tmp_buf.1, %if.end878 ], [ %tmp_buf.1, %lor.lhs.false884 ], [ %tmp_buf.1, %sw.bb872 ], [ %tmp_buf.1, %if.end863 ], [ %tmp_buf.1, %if.end858 ], [ %tmp_buf.1, %sw.bb854 ], [ %tmp_buf.1, %if.end844 ], [ %tmp_buf.1, %if.end839 ], [ %tmp_buf.1, %sw.bb835 ], [ %tmp_buf.1, %if.end820 ], [ %tmp_buf.1, %lor.lhs.false824 ], [ %tmp_buf.1, %lor.lhs.false827 ], [ %tmp_buf.1, %s_lock.argprom.exit893 ], [ %tmp_buf.1, %land.lhs.true757 ], [ %tmp_buf.1, %sw.bb741 ], [ %tmp_buf.1, %if.end721 ], [ %tmp_buf.1, %sw.bb714 ], [ %tmp_buf.1, %if.end704 ], [ %tmp_buf.1, %sw.bb700 ], [ %tmp_buf.1, %if.end690 ], [ %tmp_buf.1, %sw.bb686 ], [ %tmp_buf.1, %helper_local_set_c_stream.argprom.exit788 ], [ %tmp_buf.1, %if.end672 ], [ %tmp_buf.1, %sw.bb661 ], [ %tmp_buf.1, %lor.lhs.false664 ], [ %tmp_buf.1, %if.end644 ], [ %tmp_buf.1, %if.end630 ], [ %tmp_buf.1, %sw.bb626 ], [ %tmp_buf.1, %helper_local_set_c_stream.argprom.exit724 ], [ %tmp_buf.1, %if.end602 ], [ %tmp_buf.1, %sw.bb597 ], [ %tmp_buf.1, %if.end588 ], [ %tmp_buf.1, %land.lhs.true583 ], [ %tmp_buf.1, %s_lock.argprom.exit702 ], [ %tmp_buf.1, %if.end563 ], [ %tmp_buf.1, %sw.bb559 ], [ %tmp_buf.1, %helper_local_set_c_stream.argprom.exit681 ], [ %tmp_buf.1, %land.lhs.true544 ], [ %tmp_buf.1, %if.then532 ], [ %tmp_buf.1, %land.lhs.true523 ], [ %tmp_buf.1, %if.end514 ], [ %tmp_buf.1, %sw.bb505 ], [ %tmp_buf.1, %helper_local_set_c_stream.argprom.exit658 ], [ %tmp_buf.1, %if.end488 ], [ %tmp_buf.1, %if.end483 ], [ %tmp_buf.1, %sw.bb479 ], [ %tmp_buf.1, %helper_local_set_c_stream.argprom.exit ], [ %tmp_buf.1, %if.end464 ], [ %tmp_buf.1, %if.end459 ], [ %tmp_buf.1, %sw.bb455 ], [ %tmp_buf.1, %sw.bb442 ], [ %tmp_buf.1, %if.end436 ], [ %tmp_buf.1, %if.end431 ], [ %tmp_buf.1, %sw.bb406 ], [ %tmp_buf.1, %lor.lhs.false414 ], [ %tmp_buf.1, %lor.lhs.false419 ], [ %tmp_buf.4, %land.lhs.true398 ], [ %tmp_buf.4, %s_lock.argprom.exit551 ], [ %call369, %land.lhs.true367 ], [ %tmp_buf.1, %sw.bb355 ], [ %tmp_buf.3, %land.lhs.true347 ], [ %tmp_buf.3, %if.end317 ], [ %call313, %land.lhs.true311 ], [ %tmp_buf.1, %sw.bb286 ], [ %tmp_buf.1, %sw.bb279 ], [ %tmp_buf.1, %sw.bb271 ], [ %tmp_buf.1, %s_lock.argprom.exit509 ], [ %tmp_buf.1, %lor.lhs.false265 ], [ %tmp_buf.1, %sw.bb251 ], [ %tmp_buf.1, %if.end234 ], [ %tmp_buf.1, %lor.lhs.false242 ], [ %tmp_buf.1, %lor.lhs.false245 ], [ %tmp_buf.1, %sw.bb230 ], [ %tmp_buf.1, %land.lhs.true224 ], [ %tmp_buf.1, %sw.bb199 ], [ %call182, %if.end186 ], [ %tmp_buf.1, %sw.bb176 ], [ %call182, %lor.lhs.false180 ], [ %tmp_buf.1, %if.end169 ], [ %tmp_buf.1, %sw.bb141 ], [ %tmp_buf.1, %if.end123 ], [ %tmp_buf.1, %sw.bb119 ]
-  %tobool1153.not = phi i1 [ true, %sw.default ], [ true, %sw.default1151 ], [ true, %if.then986 ], [ true, %if.then948 ], [ true, %if.then790 ], [ true, %if.then770 ], [ true, %if.then734 ], [ true, %if.then659 ], [ true, %if.then615 ], [ true, %if.then429 ], [ true, %if.then341 ], [ true, %if.then330 ], [ true, %if.then299 ], [ true, %if.then218 ], [ false, %if.end118 ], [ true, %sw.bb82 ], [ true, %if.then28 ], [ true, %helper_local_init.exit ], [ true, %for.body1002 ], [ true, %if.end1027 ], [ true, %sw.bb119 ], [ true, %if.end123 ], [ true, %sw.bb141 ], [ true, %if.end169 ], [ true, %lor.lhs.false180 ], [ true, %sw.bb176 ], [ true, %if.end186 ], [ true, %sw.bb199 ], [ true, %land.lhs.true224 ], [ true, %sw.bb230 ], [ true, %lor.lhs.false245 ], [ true, %lor.lhs.false242 ], [ true, %if.end234 ], [ true, %sw.bb251 ], [ true, %lor.lhs.false265 ], [ true, %s_lock.argprom.exit509 ], [ true, %sw.bb271 ], [ true, %sw.bb279 ], [ true, %sw.bb286 ], [ true, %land.lhs.true311 ], [ true, %if.end317 ], [ true, %land.lhs.true347 ], [ true, %sw.bb355 ], [ true, %land.lhs.true367 ], [ true, %s_lock.argprom.exit551 ], [ true, %land.lhs.true398 ], [ true, %lor.lhs.false419 ], [ true, %lor.lhs.false414 ], [ true, %sw.bb406 ], [ true, %if.end431 ], [ true, %if.end436 ], [ true, %sw.bb442 ], [ true, %sw.bb455 ], [ true, %if.end459 ], [ true, %if.end464 ], [ true, %helper_local_set_c_stream.argprom.exit ], [ true, %sw.bb479 ], [ true, %if.end483 ], [ true, %if.end488 ], [ true, %helper_local_set_c_stream.argprom.exit658 ], [ true, %sw.bb505 ], [ true, %if.end514 ], [ true, %land.lhs.true523 ], [ true, %if.then532 ], [ true, %land.lhs.true544 ], [ true, %helper_local_set_c_stream.argprom.exit681 ], [ true, %sw.bb559 ], [ true, %if.end563 ], [ true, %s_lock.argprom.exit702 ], [ true, %land.lhs.true583 ], [ true, %if.end588 ], [ true, %sw.bb597 ], [ true, %if.end602 ], [ true, %helper_local_set_c_stream.argprom.exit724 ], [ true, %sw.bb626 ], [ true, %if.end630 ], [ true, %if.end644 ], [ true, %lor.lhs.false664 ], [ true, %sw.bb661 ], [ true, %if.end672 ], [ true, %helper_local_set_c_stream.argprom.exit788 ], [ true, %sw.bb686 ], [ true, %if.end690 ], [ true, %sw.bb700 ], [ true, %if.end704 ], [ true, %sw.bb714 ], [ true, %if.end721 ], [ true, %sw.bb741 ], [ true, %land.lhs.true757 ], [ true, %s_lock.argprom.exit893 ], [ true, %lor.lhs.false827 ], [ true, %lor.lhs.false824 ], [ true, %if.end820 ], [ true, %sw.bb835 ], [ true, %if.end839 ], [ true, %if.end844 ], [ true, %sw.bb854 ], [ true, %if.end858 ], [ true, %if.end863 ], [ true, %sw.bb872 ], [ true, %lor.lhs.false884 ], [ true, %if.end878 ], [ true, %sw.bb889 ], [ true, %s_lock.argprom.exit914 ], [ true, %sw.bb903 ], [ true, %if.end910 ], [ true, %if.end918 ], [ true, %sw.bb923 ], [ true, %if.end930 ], [ true, %if.end938 ], [ true, %sw.bb951 ], [ true, %s_lock.argprom.exit937 ], [ true, %sw.bb967 ], [ true, %if.end972 ], [ true, %if.end987 ], [ true, %sw.bb1046 ], [ true, %if.end1053 ], [ true, %sw.bb1059 ], [ true, %sw.bb1068 ], [ true, %sw.bb1079 ], [ true, %sw.bb1091 ], [ true, %sw.bb1105 ], [ true, %sw.bb1129 ], [ true, %if.end1133 ], [ true, %s_lock.argprom.exit986 ]
-  %testresult.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.default1151 ], [ 0, %if.then986 ], [ 0, %if.then948 ], [ 0, %if.then790 ], [ 0, %if.then770 ], [ 0, %if.then734 ], [ 0, %if.then659 ], [ 0, %if.then615 ], [ 0, %if.then429 ], [ 0, %if.then341 ], [ 0, %if.then330 ], [ 0, %if.then299 ], [ 0, %if.then218 ], [ 1, %if.end118 ], [ 0, %sw.bb82 ], [ 0, %if.then28 ], [ 0, %helper_local_init.exit ], [ 0, %for.body1002 ], [ 0, %if.end1027 ], [ 0, %sw.bb119 ], [ 0, %if.end123 ], [ 0, %sw.bb141 ], [ 0, %if.end169 ], [ 0, %lor.lhs.false180 ], [ 0, %sw.bb176 ], [ 0, %if.end186 ], [ 0, %sw.bb199 ], [ 0, %land.lhs.true224 ], [ 0, %sw.bb230 ], [ 0, %lor.lhs.false245 ], [ 0, %lor.lhs.false242 ], [ 0, %if.end234 ], [ 0, %sw.bb251 ], [ 0, %lor.lhs.false265 ], [ 0, %s_lock.argprom.exit509 ], [ 0, %sw.bb271 ], [ 0, %sw.bb279 ], [ 0, %sw.bb286 ], [ 0, %land.lhs.true311 ], [ 0, %if.end317 ], [ 0, %land.lhs.true347 ], [ 0, %sw.bb355 ], [ 0, %land.lhs.true367 ], [ 0, %s_lock.argprom.exit551 ], [ 0, %land.lhs.true398 ], [ 0, %lor.lhs.false419 ], [ 0, %lor.lhs.false414 ], [ 0, %sw.bb406 ], [ 0, %if.end431 ], [ 0, %if.end436 ], [ 0, %sw.bb442 ], [ 0, %sw.bb455 ], [ 0, %if.end459 ], [ 0, %if.end464 ], [ 0, %helper_local_set_c_stream.argprom.exit ], [ 0, %sw.bb479 ], [ 0, %if.end483 ], [ 0, %if.end488 ], [ 0, %helper_local_set_c_stream.argprom.exit658 ], [ 0, %sw.bb505 ], [ 0, %if.end514 ], [ 0, %land.lhs.true523 ], [ 0, %if.then532 ], [ 0, %land.lhs.true544 ], [ 0, %helper_local_set_c_stream.argprom.exit681 ], [ 0, %sw.bb559 ], [ 0, %if.end563 ], [ 0, %s_lock.argprom.exit702 ], [ 0, %land.lhs.true583 ], [ 0, %if.end588 ], [ 0, %sw.bb597 ], [ 0, %if.end602 ], [ 0, %helper_local_set_c_stream.argprom.exit724 ], [ 0, %sw.bb626 ], [ 0, %if.end630 ], [ 0, %if.end644 ], [ 0, %lor.lhs.false664 ], [ 0, %sw.bb661 ], [ 0, %if.end672 ], [ 0, %helper_local_set_c_stream.argprom.exit788 ], [ 0, %sw.bb686 ], [ 0, %if.end690 ], [ 0, %sw.bb700 ], [ 0, %if.end704 ], [ 0, %sw.bb714 ], [ 0, %if.end721 ], [ 0, %sw.bb741 ], [ 0, %land.lhs.true757 ], [ 0, %s_lock.argprom.exit893 ], [ 0, %lor.lhs.false827 ], [ 0, %lor.lhs.false824 ], [ 0, %if.end820 ], [ 0, %sw.bb835 ], [ 0, %if.end839 ], [ 0, %if.end844 ], [ 0, %sw.bb854 ], [ 0, %if.end858 ], [ 0, %if.end863 ], [ 0, %sw.bb872 ], [ 0, %lor.lhs.false884 ], [ 0, %if.end878 ], [ 0, %sw.bb889 ], [ 0, %s_lock.argprom.exit914 ], [ 0, %sw.bb903 ], [ 0, %if.end910 ], [ 0, %if.end918 ], [ 0, %sw.bb923 ], [ 0, %if.end930 ], [ 0, %if.end938 ], [ 0, %sw.bb951 ], [ 0, %s_lock.argprom.exit937 ], [ 0, %sw.bb967 ], [ 0, %if.end972 ], [ 0, %if.end987 ], [ 0, %sw.bb1046 ], [ 0, %if.end1053 ], [ 0, %sw.bb1059 ], [ 0, %sw.bb1068 ], [ 0, %sw.bb1079 ], [ 0, %sw.bb1091 ], [ 0, %sw.bb1105 ], [ 0, %sw.bb1129 ], [ 0, %if.end1133 ], [ 0, %s_lock.argprom.exit986 ]
+out:                                              ; preds = %s_lock.exit986, %if.end1133, %sw.bb1129, %sw.bb1105, %sw.bb1091, %sw.bb1079, %sw.bb1068, %sw.bb1059, %if.end1053, %sw.bb1046, %if.end987, %if.end972, %sw.bb967, %s_lock.exit937, %sw.bb951, %if.end938, %if.end930, %sw.bb923, %if.end918, %if.end910, %sw.bb903, %s_lock.exit914, %sw.bb889, %if.end878, %lor.lhs.false884, %sw.bb872, %if.end863, %if.end858, %sw.bb854, %if.end844, %if.end839, %sw.bb835, %if.end820, %lor.lhs.false824, %lor.lhs.false827, %s_lock.exit893, %land.lhs.true757, %sw.bb741, %if.end721, %sw.bb714, %if.end704, %sw.bb700, %if.end690, %sw.bb686, %helper_local_set_c_stream.exit788, %if.end672, %sw.bb661, %lor.lhs.false664, %if.end644, %if.end630, %sw.bb626, %helper_local_set_c_stream.exit724, %if.end602, %sw.bb597, %if.end588, %land.lhs.true583, %s_lock.exit702, %if.end563, %sw.bb559, %helper_local_set_c_stream.exit681, %land.lhs.true544, %if.then532, %land.lhs.true523, %if.end514, %sw.bb505, %helper_local_set_c_stream.exit658, %if.end488, %if.end483, %sw.bb479, %helper_local_set_c_stream.exit, %if.end464, %if.end459, %sw.bb455, %sw.bb442, %if.end436, %if.end431, %sw.bb406, %lor.lhs.false414, %lor.lhs.false419, %land.lhs.true398, %s_lock.exit551, %land.lhs.true367, %sw.bb355, %land.lhs.true347, %if.end317, %land.lhs.true311, %sw.bb286, %sw.bb279, %sw.bb271, %s_lock.exit509, %lor.lhs.false265, %sw.bb251, %if.end234, %lor.lhs.false242, %lor.lhs.false245, %sw.bb230, %land.lhs.true224, %sw.bb199, %if.end186, %sw.bb176, %lor.lhs.false180, %if.end169, %sw.bb141, %if.end123, %sw.bb119, %if.end1027, %for.body1002, %sw.bb82, %helper_local_init.exit, %sw.default1151, %if.then986, %if.then948, %if.then790, %if.then770, %if.then734, %if.then659, %if.then615, %if.then429, %if.then341, %if.then330, %if.then299, %if.then218, %if.end118, %sw.default, %if.then28
+  %repeat_stack_len.0 = phi i64 [ %repeat_stack_len.1, %sw.default ], [ %repeat_stack_len.1, %sw.default1151 ], [ %repeat_stack_len.1, %if.then986 ], [ %repeat_stack_len.1, %if.then948 ], [ %repeat_stack_len.1, %if.then790 ], [ %repeat_stack_len.1, %if.then770 ], [ %repeat_stack_len.1, %if.then734 ], [ %repeat_stack_len.1, %if.then659 ], [ %repeat_stack_len.1, %if.then615 ], [ %repeat_stack_len.1, %if.then429 ], [ %repeat_stack_len.1, %if.then341 ], [ %repeat_stack_len.1, %if.then330 ], [ %repeat_stack_len.1, %if.then299 ], [ %repeat_stack_len.1, %if.then218 ], [ %repeat_stack_len.1, %if.end118 ], [ %repeat_stack_len.1, %sw.bb82 ], [ %repeat_stack_len.1, %if.then28 ], [ 0, %helper_local_init.exit ], [ %repeat_stack_len.1, %for.body1002 ], [ %repeat_stack_len.1, %if.end1027 ], [ %repeat_stack_len.1, %sw.bb119 ], [ %repeat_stack_len.1, %if.end123 ], [ %repeat_stack_len.1, %sw.bb141 ], [ %repeat_stack_len.1, %if.end169 ], [ %repeat_stack_len.1, %lor.lhs.false180 ], [ %repeat_stack_len.1, %sw.bb176 ], [ %repeat_stack_len.1, %if.end186 ], [ %repeat_stack_len.1, %sw.bb199 ], [ %repeat_stack_len.1, %land.lhs.true224 ], [ %repeat_stack_len.1, %sw.bb230 ], [ %repeat_stack_len.1, %lor.lhs.false245 ], [ %repeat_stack_len.1, %lor.lhs.false242 ], [ %repeat_stack_len.1, %if.end234 ], [ %repeat_stack_len.1, %sw.bb251 ], [ %repeat_stack_len.1, %lor.lhs.false265 ], [ %repeat_stack_len.1, %s_lock.exit509 ], [ %repeat_stack_len.1, %sw.bb271 ], [ %repeat_stack_len.1, %sw.bb279 ], [ %repeat_stack_len.1, %sw.bb286 ], [ %repeat_stack_len.1, %land.lhs.true311 ], [ %repeat_stack_len.1, %if.end317 ], [ %repeat_stack_len.1, %land.lhs.true347 ], [ %repeat_stack_len.1, %sw.bb355 ], [ %repeat_stack_len.1, %land.lhs.true367 ], [ %repeat_stack_len.1, %s_lock.exit551 ], [ %repeat_stack_len.1, %land.lhs.true398 ], [ %repeat_stack_len.1, %lor.lhs.false419 ], [ %repeat_stack_len.1, %lor.lhs.false414 ], [ %repeat_stack_len.1, %sw.bb406 ], [ %repeat_stack_len.1, %if.end431 ], [ %repeat_stack_len.1, %if.end436 ], [ %repeat_stack_len.1, %sw.bb442 ], [ %repeat_stack_len.1, %sw.bb455 ], [ %repeat_stack_len.1, %if.end459 ], [ %repeat_stack_len.1, %if.end464 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit ], [ %repeat_stack_len.1, %sw.bb479 ], [ %repeat_stack_len.1, %if.end483 ], [ %repeat_stack_len.1, %if.end488 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit658 ], [ %repeat_stack_len.1, %sw.bb505 ], [ %repeat_stack_len.1, %if.end514 ], [ %repeat_stack_len.1, %land.lhs.true523 ], [ %repeat_stack_len.1, %if.then532 ], [ %repeat_stack_len.1, %land.lhs.true544 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit681 ], [ %repeat_stack_len.1, %sw.bb559 ], [ %repeat_stack_len.1, %if.end563 ], [ %repeat_stack_len.1, %s_lock.exit702 ], [ %repeat_stack_len.1, %land.lhs.true583 ], [ %repeat_stack_len.1, %if.end588 ], [ %repeat_stack_len.1, %sw.bb597 ], [ %repeat_stack_len.1, %if.end602 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit724 ], [ %repeat_stack_len.1, %sw.bb626 ], [ %repeat_stack_len.1, %if.end630 ], [ %repeat_stack_len.1, %if.end644 ], [ %repeat_stack_len.1, %lor.lhs.false664 ], [ %repeat_stack_len.1, %sw.bb661 ], [ %repeat_stack_len.1, %if.end672 ], [ %repeat_stack_len.1, %helper_local_set_c_stream.exit788 ], [ %repeat_stack_len.1, %sw.bb686 ], [ %repeat_stack_len.1, %if.end690 ], [ %repeat_stack_len.1, %sw.bb700 ], [ %repeat_stack_len.1, %if.end704 ], [ %repeat_stack_len.1, %sw.bb714 ], [ %repeat_stack_len.1, %if.end721 ], [ %repeat_stack_len.1, %sw.bb741 ], [ %repeat_stack_len.1, %land.lhs.true757 ], [ %repeat_stack_len.1, %s_lock.exit893 ], [ %repeat_stack_len.1, %lor.lhs.false827 ], [ %repeat_stack_len.1, %lor.lhs.false824 ], [ %repeat_stack_len.1, %if.end820 ], [ %repeat_stack_len.1, %sw.bb835 ], [ %repeat_stack_len.1, %if.end839 ], [ %repeat_stack_len.1, %if.end844 ], [ %repeat_stack_len.1, %sw.bb854 ], [ %repeat_stack_len.1, %if.end858 ], [ %repeat_stack_len.1, %if.end863 ], [ %repeat_stack_len.1, %sw.bb872 ], [ %repeat_stack_len.1, %lor.lhs.false884 ], [ %repeat_stack_len.1, %if.end878 ], [ %repeat_stack_len.1, %sw.bb889 ], [ %repeat_stack_len.1, %s_lock.exit914 ], [ %repeat_stack_len.1, %sw.bb903 ], [ %repeat_stack_len.1, %if.end910 ], [ %repeat_stack_len.1, %if.end918 ], [ %repeat_stack_len.1, %sw.bb923 ], [ %repeat_stack_len.1, %if.end930 ], [ %repeat_stack_len.1, %if.end938 ], [ %repeat_stack_len.1, %sw.bb951 ], [ %repeat_stack_len.1, %s_lock.exit937 ], [ %repeat_stack_len.1, %sw.bb967 ], [ %repeat_stack_len.1, %if.end972 ], [ %repeat_stack_len.1, %if.end987 ], [ %repeat_stack_len.1, %sw.bb1046 ], [ %repeat_stack_len.1, %if.end1053 ], [ %repeat_stack_len.1, %sw.bb1059 ], [ %repeat_stack_len.1, %sw.bb1068 ], [ %repeat_stack_len.1, %sw.bb1079 ], [ %repeat_stack_len.1, %sw.bb1091 ], [ %repeat_stack_len.1, %sw.bb1105 ], [ %repeat_stack_len.1, %sw.bb1129 ], [ %repeat_stack_len.1, %if.end1133 ], [ %repeat_stack_len.1, %s_lock.exit986 ]
+  %op_idx.0 = phi i64 [ %op_idx.2, %sw.default ], [ %op_idx.2, %sw.default1151 ], [ %op_idx.2, %if.then986 ], [ %op_idx.2, %if.then948 ], [ %op_idx.2, %if.then790 ], [ %op_idx.2, %if.then770 ], [ %op_idx.2, %if.then734 ], [ %op_idx.2, %if.then659 ], [ %op_idx.2, %if.then615 ], [ %op_idx.2, %if.then429 ], [ %op_idx.2, %if.then341 ], [ %op_idx.2, %if.then330 ], [ %op_idx.2, %if.then299 ], [ %op_idx.2, %if.then218 ], [ %op_idx.2, %if.end118 ], [ %op_idx.2, %sw.bb82 ], [ %op_idx.2, %if.then28 ], [ 0, %helper_local_init.exit ], [ %op_idx.2, %for.body1002 ], [ %op_idx.2, %if.end1027 ], [ %op_idx.2, %sw.bb119 ], [ %op_idx.2, %if.end123 ], [ %op_idx.2, %sw.bb141 ], [ %op_idx.2, %if.end169 ], [ %op_idx.2, %lor.lhs.false180 ], [ %op_idx.2, %sw.bb176 ], [ %op_idx.2, %if.end186 ], [ %op_idx.2, %sw.bb199 ], [ %op_idx.2, %land.lhs.true224 ], [ %op_idx.2, %sw.bb230 ], [ %op_idx.2, %lor.lhs.false245 ], [ %op_idx.2, %lor.lhs.false242 ], [ %op_idx.2, %if.end234 ], [ %op_idx.2, %sw.bb251 ], [ %op_idx.2, %lor.lhs.false265 ], [ %op_idx.2, %s_lock.exit509 ], [ %op_idx.2, %sw.bb271 ], [ %op_idx.2, %sw.bb279 ], [ %op_idx.2, %sw.bb286 ], [ %op_idx.2, %land.lhs.true311 ], [ %op_idx.2, %if.end317 ], [ %op_idx.2, %land.lhs.true347 ], [ %op_idx.2, %sw.bb355 ], [ %op_idx.2, %land.lhs.true367 ], [ %op_idx.2, %s_lock.exit551 ], [ %op_idx.2, %land.lhs.true398 ], [ %op_idx.2, %lor.lhs.false419 ], [ %op_idx.2, %lor.lhs.false414 ], [ %op_idx.2, %sw.bb406 ], [ %op_idx.2, %if.end431 ], [ %op_idx.2, %if.end436 ], [ %op_idx.2, %sw.bb442 ], [ %op_idx.2, %sw.bb455 ], [ %op_idx.2, %if.end459 ], [ %op_idx.2, %if.end464 ], [ %op_idx.2, %helper_local_set_c_stream.exit ], [ %op_idx.2, %sw.bb479 ], [ %op_idx.2, %if.end483 ], [ %op_idx.2, %if.end488 ], [ %op_idx.2, %helper_local_set_c_stream.exit658 ], [ %op_idx.2, %sw.bb505 ], [ %op_idx.2, %if.end514 ], [ %op_idx.2, %land.lhs.true523 ], [ %op_idx.2, %if.then532 ], [ %op_idx.2, %land.lhs.true544 ], [ %op_idx.2, %helper_local_set_c_stream.exit681 ], [ %op_idx.2, %sw.bb559 ], [ %op_idx.2, %if.end563 ], [ %op_idx.2, %s_lock.exit702 ], [ %op_idx.2, %land.lhs.true583 ], [ %op_idx.2, %if.end588 ], [ %op_idx.2, %sw.bb597 ], [ %op_idx.2, %if.end602 ], [ %op_idx.2, %helper_local_set_c_stream.exit724 ], [ %op_idx.2, %sw.bb626 ], [ %op_idx.2, %if.end630 ], [ %op_idx.2, %if.end644 ], [ %op_idx.2, %lor.lhs.false664 ], [ %op_idx.2, %sw.bb661 ], [ %op_idx.2, %if.end672 ], [ %op_idx.2, %helper_local_set_c_stream.exit788 ], [ %op_idx.2, %sw.bb686 ], [ %op_idx.2, %if.end690 ], [ %op_idx.2, %sw.bb700 ], [ %op_idx.2, %if.end704 ], [ %op_idx.2, %sw.bb714 ], [ %op_idx.2, %if.end721 ], [ %op_idx.2, %sw.bb741 ], [ %op_idx.2, %land.lhs.true757 ], [ %op_idx.2, %s_lock.exit893 ], [ %op_idx.2, %lor.lhs.false827 ], [ %op_idx.2, %lor.lhs.false824 ], [ %op_idx.2, %if.end820 ], [ %op_idx.2, %sw.bb835 ], [ %op_idx.2, %if.end839 ], [ %op_idx.2, %if.end844 ], [ %op_idx.2, %sw.bb854 ], [ %op_idx.2, %if.end858 ], [ %op_idx.2, %if.end863 ], [ %op_idx.2, %sw.bb872 ], [ %op_idx.2, %lor.lhs.false884 ], [ %op_idx.2, %if.end878 ], [ %op_idx.2, %sw.bb889 ], [ %op_idx.2, %s_lock.exit914 ], [ %op_idx.2, %sw.bb903 ], [ %op_idx.2, %if.end910 ], [ %op_idx.2, %if.end918 ], [ %op_idx.2, %sw.bb923 ], [ %op_idx.2, %if.end930 ], [ %op_idx.2, %if.end938 ], [ %op_idx.2, %sw.bb951 ], [ %op_idx.2, %s_lock.exit937 ], [ %op_idx.2, %sw.bb967 ], [ %op_idx.2, %if.end972 ], [ %op_idx.2, %if.end987 ], [ %op_idx.2, %sw.bb1046 ], [ %op_idx.2, %if.end1053 ], [ %op_idx.2, %sw.bb1059 ], [ %op_idx.2, %sw.bb1068 ], [ %op_idx.2, %sw.bb1079 ], [ %op_idx.2, %sw.bb1091 ], [ %op_idx.2, %sw.bb1105 ], [ %op_idx.2, %sw.bb1129 ], [ %op_idx.2, %if.end1133 ], [ %op_idx.2, %s_lock.exit986 ]
+  %tmp_buf.0 = phi ptr [ %tmp_buf.1, %sw.default ], [ %tmp_buf.1, %sw.default1151 ], [ %tmp_buf.1, %if.then986 ], [ %tmp_buf.1, %if.then948 ], [ %tmp_buf.1, %if.then790 ], [ %tmp_buf.1, %if.then770 ], [ %tmp_buf.1, %if.then734 ], [ %tmp_buf.1, %if.then659 ], [ %tmp_buf.1, %if.then615 ], [ %tmp_buf.1, %if.then429 ], [ %tmp_buf.3, %if.then341 ], [ %tmp_buf.3, %if.then330 ], [ %tmp_buf.1, %if.then299 ], [ %tmp_buf.1, %if.then218 ], [ %tmp_buf.1, %if.end118 ], [ %tmp_buf.1, %sw.bb82 ], [ %tmp_buf.1, %if.then28 ], [ null, %helper_local_init.exit ], [ %tmp_buf.1, %for.body1002 ], [ %tmp_buf.1, %if.end1027 ], [ %tmp_buf.1, %s_lock.exit986 ], [ %tmp_buf.1, %if.end1133 ], [ %tmp_buf.1, %sw.bb1129 ], [ %tmp_buf.1, %sw.bb1105 ], [ %tmp_buf.1, %sw.bb1091 ], [ %tmp_buf.1, %sw.bb1079 ], [ %tmp_buf.1, %sw.bb1068 ], [ %tmp_buf.1, %sw.bb1059 ], [ %tmp_buf.1, %if.end1053 ], [ %tmp_buf.1, %sw.bb1046 ], [ %tmp_buf.1, %if.end987 ], [ %tmp_buf.1, %if.end972 ], [ %tmp_buf.1, %sw.bb967 ], [ %tmp_buf.1, %s_lock.exit937 ], [ %tmp_buf.1, %sw.bb951 ], [ %tmp_buf.1, %if.end938 ], [ %tmp_buf.1, %if.end930 ], [ %tmp_buf.1, %sw.bb923 ], [ %tmp_buf.1, %if.end918 ], [ %tmp_buf.1, %if.end910 ], [ %tmp_buf.1, %sw.bb903 ], [ %tmp_buf.1, %s_lock.exit914 ], [ %tmp_buf.1, %sw.bb889 ], [ %tmp_buf.1, %if.end878 ], [ %tmp_buf.1, %lor.lhs.false884 ], [ %tmp_buf.1, %sw.bb872 ], [ %tmp_buf.1, %if.end863 ], [ %tmp_buf.1, %if.end858 ], [ %tmp_buf.1, %sw.bb854 ], [ %tmp_buf.1, %if.end844 ], [ %tmp_buf.1, %if.end839 ], [ %tmp_buf.1, %sw.bb835 ], [ %tmp_buf.1, %if.end820 ], [ %tmp_buf.1, %lor.lhs.false824 ], [ %tmp_buf.1, %lor.lhs.false827 ], [ %tmp_buf.1, %s_lock.exit893 ], [ %tmp_buf.1, %land.lhs.true757 ], [ %tmp_buf.1, %sw.bb741 ], [ %tmp_buf.1, %if.end721 ], [ %tmp_buf.1, %sw.bb714 ], [ %tmp_buf.1, %if.end704 ], [ %tmp_buf.1, %sw.bb700 ], [ %tmp_buf.1, %if.end690 ], [ %tmp_buf.1, %sw.bb686 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit788 ], [ %tmp_buf.1, %if.end672 ], [ %tmp_buf.1, %sw.bb661 ], [ %tmp_buf.1, %lor.lhs.false664 ], [ %tmp_buf.1, %if.end644 ], [ %tmp_buf.1, %if.end630 ], [ %tmp_buf.1, %sw.bb626 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit724 ], [ %tmp_buf.1, %if.end602 ], [ %tmp_buf.1, %sw.bb597 ], [ %tmp_buf.1, %if.end588 ], [ %tmp_buf.1, %land.lhs.true583 ], [ %tmp_buf.1, %s_lock.exit702 ], [ %tmp_buf.1, %if.end563 ], [ %tmp_buf.1, %sw.bb559 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit681 ], [ %tmp_buf.1, %land.lhs.true544 ], [ %tmp_buf.1, %if.then532 ], [ %tmp_buf.1, %land.lhs.true523 ], [ %tmp_buf.1, %if.end514 ], [ %tmp_buf.1, %sw.bb505 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit658 ], [ %tmp_buf.1, %if.end488 ], [ %tmp_buf.1, %if.end483 ], [ %tmp_buf.1, %sw.bb479 ], [ %tmp_buf.1, %helper_local_set_c_stream.exit ], [ %tmp_buf.1, %if.end464 ], [ %tmp_buf.1, %if.end459 ], [ %tmp_buf.1, %sw.bb455 ], [ %tmp_buf.1, %sw.bb442 ], [ %tmp_buf.1, %if.end436 ], [ %tmp_buf.1, %if.end431 ], [ %tmp_buf.1, %sw.bb406 ], [ %tmp_buf.1, %lor.lhs.false414 ], [ %tmp_buf.1, %lor.lhs.false419 ], [ %tmp_buf.4, %land.lhs.true398 ], [ %tmp_buf.4, %s_lock.exit551 ], [ %call369, %land.lhs.true367 ], [ %tmp_buf.1, %sw.bb355 ], [ %tmp_buf.3, %land.lhs.true347 ], [ %tmp_buf.3, %if.end317 ], [ %call313, %land.lhs.true311 ], [ %tmp_buf.1, %sw.bb286 ], [ %tmp_buf.1, %sw.bb279 ], [ %tmp_buf.1, %sw.bb271 ], [ %tmp_buf.1, %s_lock.exit509 ], [ %tmp_buf.1, %lor.lhs.false265 ], [ %tmp_buf.1, %sw.bb251 ], [ %tmp_buf.1, %if.end234 ], [ %tmp_buf.1, %lor.lhs.false242 ], [ %tmp_buf.1, %lor.lhs.false245 ], [ %tmp_buf.1, %sw.bb230 ], [ %tmp_buf.1, %land.lhs.true224 ], [ %tmp_buf.1, %sw.bb199 ], [ %call182, %if.end186 ], [ %tmp_buf.1, %sw.bb176 ], [ %call182, %lor.lhs.false180 ], [ %tmp_buf.1, %if.end169 ], [ %tmp_buf.1, %sw.bb141 ], [ %tmp_buf.1, %if.end123 ], [ %tmp_buf.1, %sw.bb119 ]
+  %tobool1153.not = phi i1 [ true, %sw.default ], [ true, %sw.default1151 ], [ true, %if.then986 ], [ true, %if.then948 ], [ true, %if.then790 ], [ true, %if.then770 ], [ true, %if.then734 ], [ true, %if.then659 ], [ true, %if.then615 ], [ true, %if.then429 ], [ true, %if.then341 ], [ true, %if.then330 ], [ true, %if.then299 ], [ true, %if.then218 ], [ false, %if.end118 ], [ true, %sw.bb82 ], [ true, %if.then28 ], [ true, %helper_local_init.exit ], [ true, %for.body1002 ], [ true, %if.end1027 ], [ true, %sw.bb119 ], [ true, %if.end123 ], [ true, %sw.bb141 ], [ true, %if.end169 ], [ true, %lor.lhs.false180 ], [ true, %sw.bb176 ], [ true, %if.end186 ], [ true, %sw.bb199 ], [ true, %land.lhs.true224 ], [ true, %sw.bb230 ], [ true, %lor.lhs.false245 ], [ true, %lor.lhs.false242 ], [ true, %if.end234 ], [ true, %sw.bb251 ], [ true, %lor.lhs.false265 ], [ true, %s_lock.exit509 ], [ true, %sw.bb271 ], [ true, %sw.bb279 ], [ true, %sw.bb286 ], [ true, %land.lhs.true311 ], [ true, %if.end317 ], [ true, %land.lhs.true347 ], [ true, %sw.bb355 ], [ true, %land.lhs.true367 ], [ true, %s_lock.exit551 ], [ true, %land.lhs.true398 ], [ true, %lor.lhs.false419 ], [ true, %lor.lhs.false414 ], [ true, %sw.bb406 ], [ true, %if.end431 ], [ true, %if.end436 ], [ true, %sw.bb442 ], [ true, %sw.bb455 ], [ true, %if.end459 ], [ true, %if.end464 ], [ true, %helper_local_set_c_stream.exit ], [ true, %sw.bb479 ], [ true, %if.end483 ], [ true, %if.end488 ], [ true, %helper_local_set_c_stream.exit658 ], [ true, %sw.bb505 ], [ true, %if.end514 ], [ true, %land.lhs.true523 ], [ true, %if.then532 ], [ true, %land.lhs.true544 ], [ true, %helper_local_set_c_stream.exit681 ], [ true, %sw.bb559 ], [ true, %if.end563 ], [ true, %s_lock.exit702 ], [ true, %land.lhs.true583 ], [ true, %if.end588 ], [ true, %sw.bb597 ], [ true, %if.end602 ], [ true, %helper_local_set_c_stream.exit724 ], [ true, %sw.bb626 ], [ true, %if.end630 ], [ true, %if.end644 ], [ true, %lor.lhs.false664 ], [ true, %sw.bb661 ], [ true, %if.end672 ], [ true, %helper_local_set_c_stream.exit788 ], [ true, %sw.bb686 ], [ true, %if.end690 ], [ true, %sw.bb700 ], [ true, %if.end704 ], [ true, %sw.bb714 ], [ true, %if.end721 ], [ true, %sw.bb741 ], [ true, %land.lhs.true757 ], [ true, %s_lock.exit893 ], [ true, %lor.lhs.false827 ], [ true, %lor.lhs.false824 ], [ true, %if.end820 ], [ true, %sw.bb835 ], [ true, %if.end839 ], [ true, %if.end844 ], [ true, %sw.bb854 ], [ true, %if.end858 ], [ true, %if.end863 ], [ true, %sw.bb872 ], [ true, %lor.lhs.false884 ], [ true, %if.end878 ], [ true, %sw.bb889 ], [ true, %s_lock.exit914 ], [ true, %sw.bb903 ], [ true, %if.end910 ], [ true, %if.end918 ], [ true, %sw.bb923 ], [ true, %if.end930 ], [ true, %if.end938 ], [ true, %sw.bb951 ], [ true, %s_lock.exit937 ], [ true, %sw.bb967 ], [ true, %if.end972 ], [ true, %if.end987 ], [ true, %sw.bb1046 ], [ true, %if.end1053 ], [ true, %sw.bb1059 ], [ true, %sw.bb1068 ], [ true, %sw.bb1079 ], [ true, %sw.bb1091 ], [ true, %sw.bb1105 ], [ true, %sw.bb1129 ], [ true, %if.end1133 ], [ true, %s_lock.exit986 ]
+  %testresult.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.default1151 ], [ 0, %if.then986 ], [ 0, %if.then948 ], [ 0, %if.then790 ], [ 0, %if.then770 ], [ 0, %if.then734 ], [ 0, %if.then659 ], [ 0, %if.then615 ], [ 0, %if.then429 ], [ 0, %if.then341 ], [ 0, %if.then330 ], [ 0, %if.then299 ], [ 0, %if.then218 ], [ 1, %if.end118 ], [ 0, %sw.bb82 ], [ 0, %if.then28 ], [ 0, %helper_local_init.exit ], [ 0, %for.body1002 ], [ 0, %if.end1027 ], [ 0, %sw.bb119 ], [ 0, %if.end123 ], [ 0, %sw.bb141 ], [ 0, %if.end169 ], [ 0, %lor.lhs.false180 ], [ 0, %sw.bb176 ], [ 0, %if.end186 ], [ 0, %sw.bb199 ], [ 0, %land.lhs.true224 ], [ 0, %sw.bb230 ], [ 0, %lor.lhs.false245 ], [ 0, %lor.lhs.false242 ], [ 0, %if.end234 ], [ 0, %sw.bb251 ], [ 0, %lor.lhs.false265 ], [ 0, %s_lock.exit509 ], [ 0, %sw.bb271 ], [ 0, %sw.bb279 ], [ 0, %sw.bb286 ], [ 0, %land.lhs.true311 ], [ 0, %if.end317 ], [ 0, %land.lhs.true347 ], [ 0, %sw.bb355 ], [ 0, %land.lhs.true367 ], [ 0, %s_lock.exit551 ], [ 0, %land.lhs.true398 ], [ 0, %lor.lhs.false419 ], [ 0, %lor.lhs.false414 ], [ 0, %sw.bb406 ], [ 0, %if.end431 ], [ 0, %if.end436 ], [ 0, %sw.bb442 ], [ 0, %sw.bb455 ], [ 0, %if.end459 ], [ 0, %if.end464 ], [ 0, %helper_local_set_c_stream.exit ], [ 0, %sw.bb479 ], [ 0, %if.end483 ], [ 0, %if.end488 ], [ 0, %helper_local_set_c_stream.exit658 ], [ 0, %sw.bb505 ], [ 0, %if.end514 ], [ 0, %land.lhs.true523 ], [ 0, %if.then532 ], [ 0, %land.lhs.true544 ], [ 0, %helper_local_set_c_stream.exit681 ], [ 0, %sw.bb559 ], [ 0, %if.end563 ], [ 0, %s_lock.exit702 ], [ 0, %land.lhs.true583 ], [ 0, %if.end588 ], [ 0, %sw.bb597 ], [ 0, %if.end602 ], [ 0, %helper_local_set_c_stream.exit724 ], [ 0, %sw.bb626 ], [ 0, %if.end630 ], [ 0, %if.end644 ], [ 0, %lor.lhs.false664 ], [ 0, %sw.bb661 ], [ 0, %if.end672 ], [ 0, %helper_local_set_c_stream.exit788 ], [ 0, %sw.bb686 ], [ 0, %if.end690 ], [ 0, %sw.bb700 ], [ 0, %if.end704 ], [ 0, %sw.bb714 ], [ 0, %if.end721 ], [ 0, %sw.bb741 ], [ 0, %land.lhs.true757 ], [ 0, %s_lock.exit893 ], [ 0, %lor.lhs.false827 ], [ 0, %lor.lhs.false824 ], [ 0, %if.end820 ], [ 0, %sw.bb835 ], [ 0, %if.end839 ], [ 0, %if.end844 ], [ 0, %sw.bb854 ], [ 0, %if.end858 ], [ 0, %if.end863 ], [ 0, %sw.bb872 ], [ 0, %lor.lhs.false884 ], [ 0, %if.end878 ], [ 0, %sw.bb889 ], [ 0, %s_lock.exit914 ], [ 0, %sw.bb903 ], [ 0, %if.end910 ], [ 0, %if.end918 ], [ 0, %sw.bb923 ], [ 0, %if.end930 ], [ 0, %if.end938 ], [ 0, %sw.bb951 ], [ 0, %s_lock.exit937 ], [ 0, %sw.bb967 ], [ 0, %if.end972 ], [ 0, %if.end987 ], [ 0, %sw.bb1046 ], [ 0, %if.end1053 ], [ 0, %sw.bb1059 ], [ 0, %sw.bb1068 ], [ 0, %sw.bb1079 ], [ 0, %sw.bb1091 ], [ 0, %sw.bb1105 ], [ 0, %sw.bb1129 ], [ 0, %if.end1133 ], [ 0, %s_lock.exit986 ]
   %hl_.val411 = load i32, ptr %thread_idx2.i, align 8
   %cmp.i.i987 = icmp slt i32 %hl_.val411, 0
   br i1 %cmp.i.i987, label %cond.true.i.i1000, label %cond.false.i.i988
@@ -3547,12 +3547,12 @@ s_checked_out_p.exit.i992:                        ; preds = %cond.false.i.i988, 
   %m.i994 = getelementptr inbounds i8, ptr %h, i64 288
   %245 = load ptr, ptr %m.i994, align 8
   %cmp.i995 = icmp eq ptr %245, null
-  br i1 %cmp.i995, label %s_unlock.argprom.exit1002, label %lor.lhs.false.i996
+  br i1 %cmp.i995, label %s_unlock.exit1002, label %lor.lhs.false.i996
 
 lor.lhs.false.i996:                               ; preds = %s_checked_out_p.exit.i992
   %246 = load i32, ptr %cond.i.i993, align 4
   %tobool.not.i997 = icmp eq i32 %246, 0
-  br i1 %tobool.not.i997, label %s_unlock.argprom.exit1002, label %if.end.i998
+  br i1 %tobool.not.i997, label %s_unlock.exit1002, label %if.end.i998
 
 if.end.i998:                                      ; preds = %lor.lhs.false.i996
   store i32 0, ptr %cond.i.i993, align 4
@@ -3560,12 +3560,12 @@ if.end.i998:                                      ; preds = %lor.lhs.false.i996
   store ptr null, ptr %s.i999, align 8
   %247 = load ptr, ptr %m.i994, align 8
   call void @ossl_crypto_mutex_unlock(ptr noundef %247) #14
-  br label %s_unlock.argprom.exit1002
+  br label %s_unlock.exit1002
 
-s_unlock.argprom.exit1002:                        ; preds = %s_checked_out_p.exit.i992, %lor.lhs.false.i996, %if.end.i998
+s_unlock.exit1002:                                ; preds = %s_checked_out_p.exit.i992, %lor.lhs.false.i996, %if.end.i998
   br i1 %tobool1153.not, label %if.then1154, label %if.end1254
 
-if.then1154:                                      ; preds = %s_unlock.argprom.exit1002
+if.then1154:                                      ; preds = %s_unlock.exit1002
   %add1156 = add i64 %op_idx.0, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 1952, ptr noundef nonnull @.str.142, ptr noundef %script_name, i64 noundef %add1156, i32 noundef %thread_idx) #14
   %cmp11581122.not = icmp eq i64 %repeat_stack_len.0, 0
@@ -3663,7 +3663,7 @@ if.then1217:                                      ; preds = %cond.end1213
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 2007, ptr noundef nonnull @.str.151, i64 noundef %262, ptr noundef nonnull %spec.store.select5, i64 noundef %263, ptr noundef nonnull %spec.store.select7, ptr noundef nonnull %cond1238, ptr noundef nonnull %cond1244, ptr noundef nonnull %spec.select410) #14
   br label %if.end1254
 
-if.end1254:                                       ; preds = %if.end1205, %cond.end1213, %if.then1217, %s_unlock.argprom.exit1002
+if.end1254:                                       ; preds = %if.end1205, %cond.end1213, %if.then1217, %s_unlock.exit1002
   call void @CRYPTO_free(ptr noundef %tmp_buf.0, ptr noundef nonnull @.str.14, i32 noundef 2011) #14
   %266 = load ptr, ptr %hl_, align 8
   %cmp.i1003 = icmp ne ptr %266, null
@@ -4074,7 +4074,7 @@ declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @s_lock.argprom.retelim(ptr nocapture noundef %h, i32 %hl.16.val) unnamed_addr #1 {
+define internal fastcc void @s_lock(ptr nocapture noundef %h, i32 %hl.16.val) unnamed_addr #1 {
 entry:
   %cmp.i = icmp slt i32 %hl.16.val, 0
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
@@ -4466,7 +4466,7 @@ lor.lhs.false.i:                                  ; preds = %s_checked_out_p.exi
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %s_checked_out_p.exit.i
   %s.i = getelementptr inbounds i8, ptr %h, i64 56
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @ossl_crypto_mutex_lock(ptr noundef nonnull %4) #14
@@ -4475,16 +4475,16 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %s3.i = getelementptr inbounds i8, ptr %h, i64 56
   store ptr %6, ptr %s3.i, align 8
   store i32 1, ptr %cond.i.i, align 4
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
-s_lock.argprom.exit:                              ; preds = %if.then.i, %if.end.i
+s_lock.exit:                                      ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %s.i, %if.then.i ], [ %s3.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   %call1 = tail call i32 @ossl_quic_tserver_stream_has_peer_stop_sending(ptr noundef %retval.0.i, i64 noundef %1, ptr noundef null) #14
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %s_lock.argprom.exit
+lor.lhs.false:                                    ; preds = %s_lock.exit
   %hl.val = load i32, ptr %2, align 8
   %cmp.i.i7 = icmp slt i32 %hl.val, 0
   br i1 %cmp.i.i7, label %cond.true.i.i25, label %cond.false.i.i8
@@ -4513,7 +4513,7 @@ lor.lhs.false.i16:                                ; preds = %s_checked_out_p.exi
 
 if.then.i18:                                      ; preds = %lor.lhs.false.i16, %s_checked_out_p.exit.i12
   %s.i19 = getelementptr inbounds i8, ptr %h, i64 56
-  br label %s_lock.argprom.exit27
+  br label %s_lock.exit27
 
 if.end.i22:                                       ; preds = %lor.lhs.false.i16
   tail call void @ossl_crypto_mutex_lock(ptr noundef nonnull %8) #14
@@ -4522,22 +4522,22 @@ if.end.i22:                                       ; preds = %lor.lhs.false.i16
   %s3.i24 = getelementptr inbounds i8, ptr %h, i64 56
   store ptr %10, ptr %s3.i24, align 8
   store i32 1, ptr %cond.i.i13, align 4
-  br label %s_lock.argprom.exit27
+  br label %s_lock.exit27
 
-s_lock.argprom.exit27:                            ; preds = %if.then.i18, %if.end.i22
+s_lock.exit27:                                    ; preds = %if.then.i18, %if.end.i22
   %retval.0.in.i20 = phi ptr [ %s.i19, %if.then.i18 ], [ %s3.i24, %if.end.i22 ]
   %retval.0.i21 = load ptr, ptr %retval.0.in.i20, align 8
   %call3 = tail call i32 @ossl_quic_tserver_stream_has_peer_reset_stream(ptr noundef %retval.0.i21, i64 noundef %1, ptr noundef null) #14
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.then, label %return
 
-if.then:                                          ; preds = %s_lock.argprom.exit27, %s_lock.argprom.exit
+if.then:                                          ; preds = %s_lock.exit27, %s_lock.exit
   %check_spin_again = getelementptr inbounds i8, ptr %h, i64 200
   store i32 1, ptr %check_spin_again, align 8
   br label %return
 
-return:                                           ; preds = %s_lock.argprom.exit27, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %s_lock.argprom.exit27 ]
+return:                                           ; preds = %s_lock.exit27, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %s_lock.exit27 ]
   ret i32 %retval.0
 }
 
@@ -4584,7 +4584,7 @@ lor.lhs.false.i:                                  ; preds = %s_checked_out_p.exi
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %s_checked_out_p.exit.i
   %s.i = getelementptr inbounds i8, ptr %h, i64 56
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @ossl_crypto_mutex_lock(ptr noundef nonnull %4) #14
@@ -4593,21 +4593,21 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %s3.i = getelementptr inbounds i8, ptr %h, i64 56
   store ptr %6, ptr %s3.i, align 8
   store i32 1, ptr %cond.i.i, align 4
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
-s_lock.argprom.exit:                              ; preds = %if.then.i, %if.end.i
+s_lock.exit:                                      ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %s.i, %if.then.i ], [ %s3.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   %call1 = call i32 @ossl_quic_tserver_stream_has_peer_reset_stream(ptr noundef %retval.0.i, i64 noundef %1, ptr noundef nonnull %aec) #14
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %s_lock.argprom.exit
+if.then:                                          ; preds = %s_lock.exit
   %check_spin_again = getelementptr inbounds i8, ptr %h, i64 200
   store i32 1, ptr %check_spin_again, align 8
   br label %return
 
-if.end:                                           ; preds = %s_lock.argprom.exit
+if.end:                                           ; preds = %s_lock.exit
   %7 = load i64, ptr %aec, align 8
   %call2 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 374, ptr noundef nonnull @.str.182, ptr noundef nonnull @.str.183, i64 noundef %7, i64 noundef 42) #14
   br label %return
@@ -4654,7 +4654,7 @@ lor.lhs.false.i:                                  ; preds = %s_checked_out_p.exi
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %s_checked_out_p.exit.i
   %s.i = getelementptr inbounds i8, ptr %h, i64 56
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @ossl_crypto_mutex_lock(ptr noundef nonnull %4) #14
@@ -4663,22 +4663,22 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %s3.i = getelementptr inbounds i8, ptr %h, i64 56
   store ptr %6, ptr %s3.i, align 8
   store i32 1, ptr %cond.i.i, align 4
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
-s_lock.argprom.exit:                              ; preds = %if.then.i, %if.end.i
+s_lock.exit:                                      ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %s.i, %if.then.i ], [ %s3.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   %call1 = tail call i32 @ossl_quic_tserver_stream_has_peer_stop_sending(ptr noundef %retval.0.i, i64 noundef %1, ptr noundef null) #14
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %return
 
-if.then:                                          ; preds = %s_lock.argprom.exit
+if.then:                                          ; preds = %s_lock.exit
   %check_spin_again = getelementptr inbounds i8, ptr %h, i64 200
   store i32 1, ptr %check_spin_again, align 8
   br label %return
 
-return:                                           ; preds = %s_lock.argprom.exit, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %s_lock.argprom.exit ]
+return:                                           ; preds = %s_lock.exit, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %s_lock.exit ]
   ret i32 %retval.0
 }
 
@@ -5612,7 +5612,7 @@ lor.lhs.false.i:                                  ; preds = %s_checked_out_p.exi
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %s_checked_out_p.exit.i
   %s.i = getelementptr inbounds i8, ptr %h, i64 56
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @ossl_crypto_mutex_lock(ptr noundef nonnull %2) #14
@@ -5621,9 +5621,9 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %s3.i = getelementptr inbounds i8, ptr %h, i64 56
   store ptr %4, ptr %s3.i, align 8
   store i32 1, ptr %cond.i.i, align 4
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
-s_lock.argprom.exit:                              ; preds = %if.then.i, %if.end.i
+s_lock.exit:                                      ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %s.i, %if.then.i ], [ %s3.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   tail call void @ossl_quic_tserver_set_msg_callback(ptr noundef %retval.0.i, ptr noundef nonnull @script_41_trace, ptr noundef nonnull %h) #14
@@ -5911,7 +5911,7 @@ lor.lhs.false.i:                                  ; preds = %s_checked_out_p.exi
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %s_checked_out_p.exit.i
   %s.i = getelementptr inbounds i8, ptr %h, i64 56
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @ossl_crypto_mutex_lock(ptr noundef nonnull %2) #14
@@ -5920,9 +5920,9 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %s3.i = getelementptr inbounds i8, ptr %h, i64 56
   store ptr %4, ptr %s3.i, align 8
   store i32 1, ptr %cond.i.i, align 4
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
-s_lock.argprom.exit:                              ; preds = %if.then.i, %if.end.i
+s_lock.exit:                                      ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %s.i, %if.then.i ], [ %s3.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   %call1 = tail call ptr @ossl_quic_tserver_get_channel(ptr noundef %retval.0.i) #14
@@ -5934,11 +5934,11 @@ s_lock.argprom.exit:                              ; preds = %if.then.i, %if.end.
   %cmp.i.i5 = icmp slt i32 %hl.val, 0
   br i1 %cmp.i.i5, label %cond.true.i.i23, label %cond.false.i.i6
 
-cond.true.i.i23:                                  ; preds = %s_lock.argprom.exit
+cond.true.i.i23:                                  ; preds = %s_lock.exit
   %s_checked_out.i.i24 = getelementptr inbounds i8, ptr %h, i64 312
   br label %s_checked_out_p.exit.i10
 
-cond.false.i.i6:                                  ; preds = %s_lock.argprom.exit
+cond.false.i.i6:                                  ; preds = %s_lock.exit
   %threads.i.i7 = getelementptr inbounds i8, ptr %h, i64 128
   %5 = load ptr, ptr %threads.i.i7, align 8
   %idxprom.i.i8 = zext nneg i32 %hl.val to i64
@@ -5958,7 +5958,7 @@ lor.lhs.false.i14:                                ; preds = %s_checked_out_p.exi
 
 if.then.i16:                                      ; preds = %lor.lhs.false.i14, %s_checked_out_p.exit.i10
   %s.i17 = getelementptr inbounds i8, ptr %h, i64 56
-  br label %s_lock.argprom.exit25
+  br label %s_lock.exit25
 
 if.end.i20:                                       ; preds = %lor.lhs.false.i14
   tail call void @ossl_crypto_mutex_lock(ptr noundef nonnull %6) #14
@@ -5967,9 +5967,9 @@ if.end.i20:                                       ; preds = %lor.lhs.false.i14
   %s3.i22 = getelementptr inbounds i8, ptr %h, i64 56
   store ptr %8, ptr %s3.i22, align 8
   store i32 1, ptr %cond.i.i11, align 4
-  br label %s_lock.argprom.exit25
+  br label %s_lock.exit25
 
-s_lock.argprom.exit25:                            ; preds = %if.then.i16, %if.end.i20
+s_lock.exit25:                                    ; preds = %if.then.i16, %if.end.i20
   %retval.0.in.i18 = phi ptr [ %s.i17, %if.then.i16 ], [ %s3.i22, %if.end.i20 ]
   %retval.0.i19 = load ptr, ptr %retval.0.in.i18, align 8
   %call4 = tail call i32 @ossl_quic_tserver_ping(ptr noundef %retval.0.i19) #14
@@ -6014,7 +6014,7 @@ lor.lhs.false.i:                                  ; preds = %s_checked_out_p.exi
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %s_checked_out_p.exit.i
   %s.i = getelementptr inbounds i8, ptr %h, i64 56
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @ossl_crypto_mutex_lock(ptr noundef nonnull %2) #14
@@ -6023,9 +6023,9 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %s3.i = getelementptr inbounds i8, ptr %h, i64 56
   store ptr %4, ptr %s3.i, align 8
   store i32 1, ptr %cond.i.i, align 4
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
-s_lock.argprom.exit:                              ; preds = %if.then.i, %if.end.i
+s_lock.exit:                                      ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %s.i, %if.then.i ], [ %s3.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   %call1 = tail call ptr @ossl_quic_tserver_get_channel(ptr noundef %retval.0.i) #14
@@ -6036,13 +6036,13 @@ s_lock.argprom.exit:                              ; preds = %if.then.i, %if.end.
   %cmp = icmp eq i64 %5, %conv
   br i1 %cmp, label %if.then, label %return
 
-if.then:                                          ; preds = %s_lock.argprom.exit
+if.then:                                          ; preds = %s_lock.exit
   %check_spin_again = getelementptr inbounds i8, ptr %h, i64 200
   store i32 1, ptr %check_spin_again, align 8
   br label %return
 
-return:                                           ; preds = %s_lock.argprom.exit, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %s_lock.argprom.exit ]
+return:                                           ; preds = %s_lock.exit, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %s_lock.exit ]
   ret i32 %retval.0
 }
 
@@ -6558,7 +6558,7 @@ lor.lhs.false.i:                                  ; preds = %s_checked_out_p.exi
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %s_checked_out_p.exit.i
   %s.i = getelementptr inbounds i8, ptr %h, i64 56
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @ossl_crypto_mutex_lock(ptr noundef nonnull %2) #14
@@ -6567,21 +6567,21 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %s3.i = getelementptr inbounds i8, ptr %h, i64 56
   store ptr %4, ptr %s3.i, align 8
   store i32 1, ptr %cond.i.i, align 4
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
-s_lock.argprom.exit:                              ; preds = %if.then.i, %if.end.i
+s_lock.exit:                                      ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %s.i, %if.then.i ], [ %s3.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   %call1 = tail call ptr @ossl_quic_tserver_get_terminate_cause(ptr noundef %retval.0.i) #14
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then, label %if.end
 
-if.then:                                          ; preds = %s_lock.argprom.exit
+if.then:                                          ; preds = %s_lock.exit
   %check_spin_again = getelementptr inbounds i8, ptr %h, i64 200
   store i32 1, ptr %check_spin_again, align 8
   br label %return
 
-if.end:                                           ; preds = %s_lock.argprom.exit
+if.end:                                           ; preds = %s_lock.exit
   %reason_len = getelementptr inbounds i8, ptr %call1, i64 24
   %5 = load i64, ptr %reason_len, align 8
   %call2 = tail call i32 @test_size_t_ge(ptr noundef nonnull @.str.14, i32 noundef 4354, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.246, i64 noundef %5, i64 noundef 50) #14
@@ -6933,7 +6933,7 @@ lor.lhs.false.i:                                  ; preds = %s_checked_out_p.exi
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %s_checked_out_p.exit.i
   %s.i = getelementptr inbounds i8, ptr %h, i64 56
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @ossl_crypto_mutex_lock(ptr noundef nonnull %2) #14
@@ -6942,9 +6942,9 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %s3.i = getelementptr inbounds i8, ptr %h, i64 56
   store ptr %4, ptr %s3.i, align 8
   store i32 1, ptr %cond.i.i, align 4
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
-s_lock.argprom.exit:                              ; preds = %if.then.i, %if.end.i
+s_lock.exit:                                      ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %s.i, %if.then.i ], [ %s3.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   %check_op = getelementptr inbounds i8, ptr %hl, i64 24
@@ -7140,7 +7140,7 @@ lor.lhs.false.i:                                  ; preds = %s_checked_out_p.exi
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %s_checked_out_p.exit.i
   %s.i = getelementptr inbounds i8, ptr %h, i64 56
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   tail call void @ossl_crypto_mutex_lock(ptr noundef nonnull %2) #14
@@ -7149,9 +7149,9 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %s3.i = getelementptr inbounds i8, ptr %h, i64 56
   store ptr %4, ptr %s3.i, align 8
   store i32 1, ptr %cond.i.i, align 4
-  br label %s_lock.argprom.exit
+  br label %s_lock.exit
 
-s_lock.argprom.exit:                              ; preds = %if.then.i, %if.end.i
+s_lock.exit:                                      ; preds = %if.then.i, %if.end.i
   %retval.0.in.i = phi ptr [ %s.i, %if.then.i ], [ %s3.i, %if.end.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   %call1 = tail call i32 @ossl_quic_tserver_new_ticket(ptr noundef %retval.0.i) #14

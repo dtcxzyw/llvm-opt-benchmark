@@ -830,7 +830,7 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
   %129 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %117, ptr noundef nonnull %1, ptr noundef nonnull @ei_invalid_auth_size, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.454, i32 noundef %126) #5
   %.pr.pre.i.i = load i32, ptr %20, align 4
   %130 = icmp eq i32 %.pr.pre.i.i, 0
-  br i1 %130, label %dissect_auth_command.argprom.exit.i, label %.lr.ph.i51.i.preheader
+  br i1 %130, label %dissect_auth_command.exit.i, label %.lr.ph.i51.i.preheader
 
 .lr.ph.i51.i.preheader:                           ; preds = %128, %122
   br label %.lr.ph.i51.i
@@ -877,13 +877,13 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i51.i
   %158 = icmp ugt i32 %157, 3
-  br i1 %158, label %159, label %dissect_auth_command.argprom.exit.i
+  br i1 %158, label %159, label %dissect_auth_command.exit.i
 
 159:                                              ; preds = %._crit_edge.i.i
   %160 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %117, ptr noundef %1, ptr noundef nonnull @ei_invalid_num_sessions, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.455, i32 noundef %157) #5
-  br label %dissect_auth_command.argprom.exit.i
+  br label %dissect_auth_command.exit.i
 
-dissect_auth_command.argprom.exit.i:              ; preds = %159, %._crit_edge.i.i, %128
+dissect_auth_command.exit.i:                      ; preds = %159, %._crit_edge.i.i, %128
   %.4.i = phi i32 [ %125, %128 ], [ %154, %159 ], [ %154, %._crit_edge.i.i ]
   %.0.lcssa6.i.i = phi i32 [ 0, %128 ], [ %157, %159 ], [ %157, %._crit_edge.i.i ]
   %161 = getelementptr inbounds i8, ptr %120, i64 12
@@ -896,8 +896,8 @@ dissect_auth_command.argprom.exit.i:              ; preds = %159, %._crit_edge.i
   %164 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %50, ptr noundef %1, ptr noundef nonnull @ei_invalid_tag, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.453, i32 noundef %163) #5
   br label %165
 
-165:                                              ; preds = %162, %dissect_auth_command.argprom.exit.i, %.loopexit.i
-  %.2.i = phi i32 [ %.092.i, %162 ], [ %.092.i, %.loopexit.i ], [ %.4.i, %dissect_auth_command.argprom.exit.i ]
+165:                                              ; preds = %162, %dissect_auth_command.exit.i, %.loopexit.i
+  %.2.i = phi i32 [ %.092.i, %162 ], [ %.092.i, %.loopexit.i ], [ %.4.i, %dissect_auth_command.exit.i ]
   %.val.i = load i32, ptr %34, align 4
   store i32 %.val.i, ptr @last_command_pnum, align 4
   switch i32 %58, label %dissect_tpm20_tpm_command.exit [
@@ -971,7 +971,7 @@ dissect_auth_command.argprom.exit.i:              ; preds = %159, %._crit_edge.i
   %214 = add i32 %208, 3
   %215 = load i32, ptr %16, align 4
   %.not.i.i.i = icmp eq i32 %215, 16
-  br i1 %.not.i.i.i, label %dissect_start_auth_session.argprom.exit.i.i, label %216
+  br i1 %.not.i.i.i, label %dissect_start_auth_session.exit.i.i, label %216
 
 216:                                              ; preds = %192
   %217 = load i32, ptr @hf_alg_sym_keybits, align 4
@@ -980,9 +980,9 @@ dissect_auth_command.argprom.exit.i:              ; preds = %159, %._crit_edge.i
   %220 = load i32, ptr @hf_alg_sym_mode, align 4
   %221 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %220, ptr noundef %0, i32 noundef %219, i32 noundef 2, i32 noundef 0) #5
   %222 = add i32 %208, 7
-  br label %dissect_start_auth_session.argprom.exit.i.i
+  br label %dissect_start_auth_session.exit.i.i
 
-dissect_start_auth_session.argprom.exit.i.i:      ; preds = %216, %192
+dissect_start_auth_session.exit.i.i:              ; preds = %216, %192
   %223 = phi i32 [ %222, %216 ], [ %214, %192 ]
   %224 = load i32, ptr @hf_alg_hash, align 4
   %225 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %224, ptr noundef %0, i32 noundef %223, i32 noundef 2, i32 noundef 0) #5
@@ -1012,7 +1012,7 @@ dissect_start_auth_session.argprom.exit.i.i:      ; preds = %216, %192
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   br label %dissect_tpm20_tpm_command.exit
 
-dissect_tpm20_tpm_command.exit:                   ; preds = %165, %166, %169, %dissect_start_auth_session.argprom.exit.i.i, %226
+dissect_tpm20_tpm_command.exit:                   ; preds = %165, %166, %169, %dissect_start_auth_session.exit.i.i, %226
   store i1 false, ptr @response_size, align 1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21)
   br label %389
@@ -1213,7 +1213,7 @@ get_num_hndl.exit.thread.i:                       ; preds = %.loopexit.i.thread.
   %329 = load i32, ptr @ett_tpm_params, align 4
   %330 = tail call ptr @proto_item_add_subtree(ptr noundef %328, i32 noundef %329) #5
   %.val.i50 = load i32, ptr %34, align 4
-  call fastcc void @dissect_response.argprom(ptr noundef %0, i32 %.val.i50, ptr noundef %330, ptr noundef %7, i32 noundef %322)
+  call fastcc void @dissect_response(ptr noundef %0, i32 %.val.i50, ptr noundef %330, ptr noundef %7, i32 noundef %322)
   br label %331
 
 331:                                              ; preds = %326, %321
@@ -1284,7 +1284,7 @@ get_command_entry.exit.i.i:                       ; preds = %get_command_entry.e
 
 368:                                              ; preds = %get_num_hndl.exit.thread.i
   %.val65.i = load i32, ptr %34, align 4
-  call fastcc void @dissect_response.argprom(ptr noundef %0, i32 %.val65.i, ptr noundef %50, ptr noundef %7, i32 noundef 0)
+  call fastcc void @dissect_response(ptr noundef %0, i32 %.val65.i, ptr noundef %50, ptr noundef %7, i32 noundef 0)
   br label %dissect_tpm20_tpm_response.exit
 
 369:                                              ; preds = %get_num_hndl.exit.thread.i
@@ -1414,7 +1414,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @proto_tree_add_bitmask_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_response.argprom(ptr noundef %0, i32 %.20.val, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_response(ptr noundef %0, i32 %.20.val, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

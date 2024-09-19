@@ -5262,14 +5262,14 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_s1ap_SourceeNB_ToTar
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_s1ap_s1ap_SourceeNB_ToTargeteNB_TransparentContainer_PDU, align 4
-  %7 = call fastcc i32 @dissect_s1ap_SourceeNB_ToTargeteNB_TransparentContainer.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_s1ap_SourceeNB_ToTargeteNB_TransparentContainer(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s1ap_SourceeNB_ToTargeteNB_TransparentContainer.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_s1ap_SourceeNB_ToTargeteNB_TransparentContainer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -5389,14 +5389,14 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_s1ap_TargeteNB_ToSou
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_s1ap_s1ap_TargeteNB_ToSourceeNB_TransparentContainer_PDU, align 4
-  %7 = call fastcc i32 @dissect_s1ap_TargeteNB_ToSourceeNB_TransparentContainer.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_s1ap_TargeteNB_ToSourceeNB_TransparentContainer(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s1ap_TargeteNB_ToSourceeNB_TransparentContainer.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_s1ap_TargeteNB_ToSourceeNB_TransparentContainer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -7680,7 +7680,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapability_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_s1ap_UERadioCapability_PDU, align 4
-  %7 = call fastcc i32 @dissect_s1ap_UERadioCapability.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_s1ap_UERadioCapability(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
@@ -8003,7 +8003,7 @@ s1ap_get_private_data.exit.i:                     ; preds = %23, %16
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %39) #7
   %40 = load i32, ptr @hf_s1ap_s1ap_SourceeNB_ToTargeteNB_TransparentContainer_PDU, align 4
-  %41 = call fastcc i32 @dissect_s1ap_SourceeNB_ToTargeteNB_TransparentContainer.argelim(ptr noundef %38, ptr noundef %5, ptr noundef %34, i32 noundef %40)
+  %41 = call fastcc i32 @dissect_s1ap_SourceeNB_ToTargeteNB_TransparentContainer(ptr noundef %38, ptr noundef %5, ptr noundef %34, i32 noundef %40)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5)
   br label %59
 
@@ -8439,7 +8439,7 @@ s1ap_get_private_data.exit.i:                     ; preds = %23, %16
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %36) #7
   %37 = load i32, ptr @hf_s1ap_s1ap_TargeteNB_ToSourceeNB_TransparentContainer_PDU, align 4
-  %38 = call fastcc i32 @dissect_s1ap_TargeteNB_ToSourceeNB_TransparentContainer.argelim(ptr noundef %35, ptr noundef %5, ptr noundef %31, i32 noundef %37)
+  %38 = call fastcc i32 @dissect_s1ap_TargeteNB_ToSourceeNB_TransparentContainer(ptr noundef %35, ptr noundef %5, ptr noundef %31, i32 noundef %37)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5)
   br label %dissect_s1ap_Target_ToSource_TransparentContainer.exit
 
@@ -9097,7 +9097,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityF
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_s1ap_UERadioCapabilityForPaging_PDU, align 4
-  %7 = call fastcc i32 @dissect_s1ap_UERadioCapabilityForPaging.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_s1ap_UERadioCapabilityForPaging(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
@@ -10352,7 +10352,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UE_HistoryInformat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_s1ap_UE_HistoryInformationFromTheUE_PDU, align 4
-  %7 = call fastcc i32 @dissect_s1ap_UE_HistoryInformationFromTheUE.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_s1ap_UE_HistoryInformationFromTheUE(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
@@ -10743,7 +10743,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_RLF_Report_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_s1ap_NB_IoT_RLF_Report_Container_PDU, align 4
-  %7 = call fastcc i32 @dissect_s1ap_NB_IoT_RLF_Report_Container.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_s1ap_NB_IoT_RLF_Report_Container(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
@@ -15897,7 +15897,7 @@ define internal i32 @dissect_s1ap_BPLMNs(ptr noundef %0, i32 noundef %1, ptr nou
 declare void @dissect_a21_ie_common(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s1ap_UERadioCapability.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_s1ap_UERadioCapability(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -16646,7 +16646,7 @@ define internal i32 @dissect_s1ap_SourceOfUEActivityBehaviourInformation(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s1ap_UERadioCapabilityForPaging.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_s1ap_UERadioCapabilityForPaging(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -18020,7 +18020,7 @@ define internal i32 @dissect_s1ap_EARFCN(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s1ap_UE_HistoryInformationFromTheUE.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_s1ap_UE_HistoryInformationFromTheUE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -18608,7 +18608,7 @@ define internal i32 @dissect_s1ap_SourceNodeID_Extension(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_s1ap_NB_IoT_RLF_Report_Container.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_s1ap_NB_IoT_RLF_Report_Container(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8

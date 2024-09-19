@@ -1295,13 +1295,13 @@ for.end17:                                        ; preds = %for.inc15
 cleanup:                                          ; preds = %for.end17, %if.then
   %retval.0 = phi ptr [ null, %if.then ], [ %call18, %for.end17 ]
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #12
-  br label %glib_autoptr_cleanup_GString.argprom.exit
+  br label %glib_autoptr_cleanup_GString.exit
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GString.exit:                ; preds = %cleanup, %if.then.i.i
   ret ptr %retval.0
 }
 

@@ -886,7 +886,7 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i: ; preds = %34, %32, %22
   %.val = load ptr, ptr %8, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 32
   %.val15 = load ptr, ptr %45, align 8
-  %46 = call fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom(ptr %.val, ptr %.val15, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %3)
+  %46 = call fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi(ptr %.val, ptr %.val15, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %3)
   br i1 %46, label %_ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.thread, label %_ZN3gmx12_GLOBAL__N_118gridToSubgridIndexERKNS_8BiasGridEPKiS5_iPi.exit
 
 _ZN3gmx12_GLOBAL__N_118gridToSubgridIndexERKNS_8BiasGridEPKiS5_iPi.exit: ; preds = %21, %9, %44
@@ -939,7 +939,7 @@ _ZN3gmx12_GLOBAL__N_118gridToSubgridIndexERKNS_8BiasGridEPKiS5_iPi.exit: ; preds
   %.lcssa = phi i32 [ %60, %.lr.ph.preheader.i ], [ %68, %.lr.ph.i18 ]
   %73 = add nsw i32 %.lcssa, 1
   store i32 %73, ptr %.lcssa24, align 4
-  %74 = call fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom(ptr %51, ptr %50, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %3)
+  %74 = call fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi(ptr %51, ptr %50, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %3)
   br i1 %74, label %_ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.thread, label %49, !llvm.loop !15
 
 _ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.thread: ; preds = %49, %.lr.ph.i18._crit_edge, %.lr.ph, %44
@@ -948,7 +948,7 @@ _ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.thread: ; preds = %49, %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom(ptr %.24.val, ptr %.32.val, ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi(ptr %.24.val, ptr %.32.val, ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
   %4 = alloca [4 x i32], align 16
   %5 = alloca [4 x i32], align 16
   %6 = ptrtoint ptr %.32.val to i64
@@ -2388,14 +2388,14 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i: ; preds = %221, %219, %209
   %249 = getelementptr inbounds i8, ptr %248, i64 16
   %250 = load double, ptr %249, align 8
   %251 = fcmp ogt double %250, 0.000000e+00
-  br i1 %251, label %256, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106.thread
+  br i1 %251, label %256, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106.thread
 
 .thread.i83:                                      ; preds = %244
   %252 = getelementptr inbounds %"class.gmx::GridAxis", ptr %.val.i, i64 %indvars.iv.i81
   %253 = getelementptr inbounds i8, ptr %252, i64 16
   %254 = load double, ptr %253, align 8
   %255 = fcmp ogt double %254, 0.000000e+00
-  br i1 %255, label %264, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106.thread
+  br i1 %255, label %264, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106.thread
 
 256:                                              ; preds = %247
   %257 = getelementptr inbounds i8, ptr %248, i64 36
@@ -2405,7 +2405,7 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i: ; preds = %221, %219, %209
   %261 = add i32 %258, %241
   %262 = sub i32 %261, %260
   %263 = icmp ugt i32 %262, -2147483648
-  br i1 %263, label %.critedge.sink.split.i85, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106.thread
+  br i1 %263, label %.critedge.sink.split.i85, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106.thread
 
 264:                                              ; preds = %.thread.i83
   %265 = getelementptr inbounds i8, ptr %252, i64 36
@@ -2413,7 +2413,7 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i: ; preds = %221, %219, %209
   %.neg1.i84 = add nuw i32 %241, 1
   %267 = sub i32 %.neg1.i84, %266
   %268 = icmp sgt i32 %267, 0
-  br i1 %268, label %269, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106.thread
+  br i1 %268, label %269, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106.thread
 
 269:                                              ; preds = %264
   %270 = add nsw i32 %267, -1
@@ -2451,7 +2451,7 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i: ; preds = %221, %219, %209
 
 ._crit_edge.i.i.i97:                              ; preds = %.lr.ph.i.i.i94, %._crit_edge.i90
   %275 = icmp sgt i32 %235, 0
-  br i1 %275, label %.lr.ph.preheader.i.i.i.i100, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106
+  br i1 %275, label %.lr.ph.preheader.i.i.i.i100, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106
 
 .lr.ph.preheader.i.i.i.i100:                      ; preds = %._crit_edge.i.i.i97
   %276 = and i64 %234, 2147483647
@@ -2470,22 +2470,22 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i: ; preds = %221, %219, %209
   %282 = load i32, ptr %281, align 4
   %283 = mul nsw i32 %282, %.01112.i.i.i.i104
   %284 = icmp ugt i64 %indvars.iv.i.i.i.i102, 1
-  br i1 %284, label %.lr.ph.i.i.i.i101, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106, !llvm.loop !12
+  br i1 %284, label %.lr.ph.i.i.i.i101, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106, !llvm.loop !12
 
-_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106.thread: ; preds = %.thread.i83, %247, %256, %264
+_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106.thread: ; preds = %.thread.i83, %247, %256, %264
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %.lr.ph.preheader.i.i.lr.ph
 
-_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106: ; preds = %.lr.ph.i.i.i.i101, %._crit_edge.i.i.i97
+_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106: ; preds = %.lr.ph.i.i.i.i101, %._crit_edge.i.i.i97
   %.010.lcssa.i.i.i.i99 = phi i32 [ 0, %._crit_edge.i.i.i97 ], [ %280, %.lr.ph.i.i.i.i101 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %.noexc63
 
-.lr.ph.preheader.i.i.lr.ph:                       ; preds = %208, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106.thread
-  %.pre-phi180.ph = phi i64 [ %234, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106.thread ], [ %203, %208 ]
-  %.ph = phi ptr [ %.val.i, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106.thread ], [ %199, %208 ]
-  %.ph184 = phi ptr [ %.val15.i, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106.thread ], [ %198, %208 ]
+.lr.ph.preheader.i.i.lr.ph:                       ; preds = %208, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106.thread
+  %.pre-phi180.ph = phi i64 [ %234, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106.thread ], [ %203, %208 ]
+  %.ph = phi ptr [ %.val.i, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106.thread ], [ %199, %208 ]
+  %.ph184 = phi ptr [ %.val15.i, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106.thread ], [ %198, %208 ]
   %285 = and i64 %.pre-phi180.ph, 2147483647
   %indvars.iv.next.i2026.i = add nsw i64 %285, -1
   %286 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.next.i2026.i
@@ -2494,7 +2494,7 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit10
   %289 = add nsw i32 %288, -1
   br label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit, %.lr.ph.preheader.i.i.lr.ph
+.lr.ph.preheader.i.i:                             ; preds = %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit, %.lr.ph.preheader.i.i.lr.ph
   %290 = load i32, ptr %286, align 4
   %291 = icmp slt i32 %290, %289
   br i1 %291, label %.lr.ph.preheader.i, label %.lr.ph.i65
@@ -2548,14 +2548,14 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit10
   %313 = getelementptr inbounds i8, ptr %312, i64 16
   %314 = load double, ptr %313, align 8
   %315 = fcmp ogt double %314, 0.000000e+00
-  br i1 %315, label %320, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit
+  br i1 %315, label %320, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit
 
 .thread.i:                                        ; preds = %308
   %316 = getelementptr inbounds %"class.gmx::GridAxis", ptr %.ph, i64 %indvars.iv.i71
   %317 = getelementptr inbounds i8, ptr %316, i64 16
   %318 = load double, ptr %317, align 8
   %319 = fcmp ogt double %318, 0.000000e+00
-  br i1 %319, label %328, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit
+  br i1 %319, label %328, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit
 
 320:                                              ; preds = %311
   %321 = getelementptr inbounds i8, ptr %312, i64 36
@@ -2565,7 +2565,7 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit10
   %325 = add i32 %322, %305
   %326 = sub i32 %325, %324
   %327 = icmp ugt i32 %326, -2147483648
-  br i1 %327, label %.critedge.sink.split.i, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit
+  br i1 %327, label %.critedge.sink.split.i, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit
 
 328:                                              ; preds = %.thread.i
   %329 = getelementptr inbounds i8, ptr %316, i64 36
@@ -2573,7 +2573,7 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit10
   %.neg1.i = add nuw i32 %305, 1
   %331 = sub i32 %.neg1.i, %330
   %332 = icmp sgt i32 %331, 0
-  br i1 %332, label %333, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit
+  br i1 %332, label %333, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit
 
 333:                                              ; preds = %328
   %334 = add nsw i32 %331, -1
@@ -2625,14 +2625,14 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit10
   %344 = load i32, ptr %343, align 4
   %345 = mul nsw i32 %344, %.01112.i.i.i.i
   %346 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
-  br i1 %346, label %.lr.ph.i.i.i.i, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit.thread, !llvm.loop !12
+  br i1 %346, label %.lr.ph.i.i.i.i, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit.thread, !llvm.loop !12
 
-_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit.thread: ; preds = %.lr.ph.i.i.i.i
+_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit.thread: ; preds = %.lr.ph.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %.noexc63
 
-_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit: ; preds = %311, %.thread.i, %320, %328
+_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit: ; preds = %311, %.thread.i, %320, %328
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %.lr.ph.preheader.i.i
 
@@ -2640,8 +2640,8 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit: 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %347
 
-.noexc63:                                         ; preds = %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit.thread
-  %.pr157 = phi i32 [ %.010.lcssa.i.i.i.i99, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit106 ], [ %342, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.argprom.exit.thread ]
+.noexc63:                                         ; preds = %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit.thread
+  %.pr157 = phi i32 [ %.010.lcssa.i.i.i.i99, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106 ], [ %342, %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %166
 

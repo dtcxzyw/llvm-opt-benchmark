@@ -542,7 +542,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %call = tail call fastcc i32 @set_random.argelim(ptr noundef nonnull %transactionID, ptr noundef nonnull %ctx)
+  %call = tail call fastcc i32 @set_random(ptr noundef nonnull %transactionID, ptr noundef nonnull %ctx)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -573,7 +573,7 @@ return:                                           ; preds = %if.then, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_random.argelim(ptr noundef %tgt, ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
+define internal fastcc i32 @set_random(ptr noundef %tgt, ptr nocapture noundef readonly %ctx) unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 142) #4
   %cmp = icmp eq ptr %call, null
@@ -799,7 +799,7 @@ if.end79:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp.i, label %if.then.i, label %ossl_cmp_hdr_set_transactionID.exit
 
 if.then.i:                                        ; preds = %if.end79
-  %call.i68 = tail call fastcc i32 @set_random.argelim(ptr noundef nonnull %transactionID.i, ptr noundef nonnull %ctx)
+  %call.i68 = tail call fastcc i32 @set_random(ptr noundef nonnull %transactionID.i, ptr noundef nonnull %ctx)
   %tobool.not.i = icmp eq i32 %call.i68, 0
   br i1 %tobool.not.i, label %return, label %if.end.i69
 
@@ -827,7 +827,7 @@ ossl_cmp_hdr_set_transactionID.exit:              ; preds = %if.end79, %if.end8.
 
 if.end83:                                         ; preds = %ossl_cmp_hdr_set_transactionID.exit
   %senderNonce = getelementptr inbounds i8, ptr %hdr, i64 64
-  %call84 = tail call fastcc i32 @set_random.argelim(ptr noundef nonnull %senderNonce, ptr noundef nonnull %ctx)
+  %call84 = tail call fastcc i32 @set_random(ptr noundef nonnull %senderNonce, ptr noundef nonnull %ctx)
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %return, label %if.end87
 

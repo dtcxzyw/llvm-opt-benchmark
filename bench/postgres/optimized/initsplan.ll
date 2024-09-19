@@ -3286,9 +3286,9 @@ list_length.exit:                                 ; preds = %79
   %82 = getelementptr inbounds i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
   %.not127 = icmp eq i32 %83, 2
-  br i1 %.not127, label %get_rightop.argprom.exit, label %.critedge131
+  br i1 %.not127, label %get_rightop.exit, label %.critedge131
 
-get_rightop.argprom.exit:                         ; preds = %list_length.exit
+get_rightop.exit:                                 ; preds = %list_length.exit
   %84 = getelementptr i8, ptr %81, i64 16
   %.val.i = load ptr, ptr %84, align 8
   %85 = load ptr, ptr %.val.i, align 8
@@ -3297,8 +3297,8 @@ get_rightop.argprom.exit:                         ; preds = %list_length.exit
   %.not128148 = icmp eq ptr %85, null
   br i1 %.not128148, label %.critedge131, label %.lr.ph
 
-.lr.ph:                                           ; preds = %get_rightop.argprom.exit, %89
-  %.0102149 = phi ptr [ %91, %89 ], [ %85, %get_rightop.argprom.exit ]
+.lr.ph:                                           ; preds = %get_rightop.exit, %89
+  %.0102149 = phi ptr [ %91, %89 ], [ %85, %get_rightop.exit ]
   %88 = load i32, ptr %.0102149, align 4
   switch i32 %88, label %.critedge131 [
     i32 25, label %89
@@ -3411,8 +3411,8 @@ get_rightop.argprom.exit:                         ; preds = %list_length.exit
   store i32 %145, ptr %46, align 4
   br label %.critedge131
 
-.critedge131:                                     ; preds = %89, %.lr.ph, %93, %.lr.ph153, %.critedge131.sink.split, %get_rightop.argprom.exit, %.preheader, %79, %114, %138, %130, %127, %123, %119, %.lr.ph193, %list_length.exit
-  %.1107 = phi i32 [ %.0106155192, %list_length.exit ], [ %.0106155192, %114 ], [ %.2, %138 ], [ %.0106155192, %130 ], [ %.0106155192, %127 ], [ %.0106155192, %123 ], [ %.0106155192, %119 ], [ %.0106155192, %.lr.ph193 ], [ %.0106155192, %79 ], [ %.0106155192, %.preheader ], [ %.0106155192, %get_rightop.argprom.exit ], [ %.1107.ph, %.critedge131.sink.split ], [ %.0106155192, %.lr.ph153 ], [ %.0106155192, %93 ], [ %.0106155192, %.lr.ph ], [ %.0106155192, %89 ]
+.critedge131:                                     ; preds = %89, %.lr.ph, %93, %.lr.ph153, %.critedge131.sink.split, %get_rightop.exit, %.preheader, %79, %114, %138, %130, %127, %123, %119, %.lr.ph193, %list_length.exit
+  %.1107 = phi i32 [ %.0106155192, %list_length.exit ], [ %.0106155192, %114 ], [ %.2, %138 ], [ %.0106155192, %130 ], [ %.0106155192, %127 ], [ %.0106155192, %123 ], [ %.0106155192, %119 ], [ %.0106155192, %.lr.ph193 ], [ %.0106155192, %79 ], [ %.0106155192, %.preheader ], [ %.0106155192, %get_rightop.exit ], [ %.1107.ph, %.critedge131.sink.split ], [ %.0106155192, %.lr.ph153 ], [ %.0106155192, %93 ], [ %.0106155192, %.lr.ph ], [ %.0106155192, %89 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv191, 1
   %146 = load i32, ptr %66, align 4
   %147 = sext i32 %146 to i64

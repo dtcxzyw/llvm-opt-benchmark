@@ -250,12 +250,12 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @catapult_dct2000_open.linebuff) #19
   %95 = icmp ugt i64 %94, 50
-  br i1 %95, label %get_file_time_stamp.argprom.exit.thread, label %96
+  br i1 %95, label %get_file_time_stamp.exit.thread, label %96
 
 96:                                               ; preds = %.thread64
   %97 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @catapult_dct2000_open.linebuff, ptr noundef nonnull @.str.28, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #17
   %.not.i = icmp eq i32 %97, 7
-  br i1 %.not.i, label %98, label %get_file_time_stamp.argprom.exit.thread
+  br i1 %.not.i, label %98, label %get_file_time_stamp.exit.thread
 
 98:                                               ; preds = %96
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %5, ptr noundef nonnull dereferenceable(8) @.str.29, i64 8)
@@ -315,9 +315,9 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
 120:                                              ; preds = %118
   %bcmp17.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %5, ptr noundef nonnull dereferenceable(9) @.str.40, i64 9)
   %121 = icmp eq i32 %bcmp17.i, 0
-  br i1 %121, label %123, label %get_file_time_stamp.argprom.exit.thread
+  br i1 %121, label %123, label %get_file_time_stamp.exit.thread
 
-get_file_time_stamp.argprom.exit.thread:          ; preds = %.thread64, %96, %120
+get_file_time_stamp.exit.thread:                  ; preds = %.thread64, %96, %120
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -327,7 +327,7 @@ get_file_time_stamp.argprom.exit.thread:          ; preds = %.thread64, %96, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %122
 
-122:                                              ; preds = %get_file_time_stamp.argprom.exit.thread, %thread-pre-split
+122:                                              ; preds = %get_file_time_stamp.exit.thread, %thread-pre-split
   call void @g_free(ptr noundef nonnull %57) #17
   br label %.thread
 

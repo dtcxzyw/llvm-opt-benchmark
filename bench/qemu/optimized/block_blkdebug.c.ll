@@ -718,9 +718,9 @@ for.inc11:                                        ; preds = %for.inc, %for.body
   %ret.1.lcssa = phi i32 [ %ret.015, %for.body ], [ %ret.2, %for.inc ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 48
-  br i1 %exitcond.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body, !llvm.loop !10
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.inc11
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.inc11
   %call13 = tail call fastcc i32 @resume_req_by_tag(ptr noundef %0, ptr noundef %tag, i1 noundef zeroext true)
   %cmp14 = icmp eq i32 %call13, 0
   %spec.select = select i1 %cmp14, i32 0, i32 %ret.1.lcssa
@@ -730,7 +730,7 @@ glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.inc11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -2, 1) i32 @blkdebug_debug_resume(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %tag) #0 {
-glib_autoptr_cleanup_QemuLockable.argprom.exit:
+glib_autoptr_cleanup_QemuLockable.exit:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %lock = getelementptr inbounds i8, ptr %0, i64 488
@@ -754,13 +754,13 @@ entry:
   %suspended_reqs = getelementptr inbounds i8, ptr %0, i64 480
   %r.05 = load ptr, ptr %suspended_reqs, align 8
   %tobool.not6.not = icmp eq ptr %r.05, null
-  br i1 %tobool.not6.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.body
+  br i1 %tobool.not6.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body
 
 for.cond:                                         ; preds = %for.body
   %next = getelementptr inbounds i8, ptr %r.07, i64 16
   %r.0 = load ptr, ptr %next, align 8
   %tobool.not.not = icmp eq ptr %r.0, null
-  br i1 %tobool.not.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.body, !llvm.loop !11
+  br i1 %tobool.not.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body, !llvm.loop !11
 
 for.body:                                         ; preds = %entry, %for.cond
   %r.07 = phi ptr [ %r.0, %for.cond ], [ %r.05, %entry ]
@@ -768,9 +768,9 @@ for.body:                                         ; preds = %entry, %for.cond
   %3 = load ptr, ptr %tag4, align 8
   %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %tag) #14
   %tobool6.not = icmp eq i32 %call5, 0
-  br i1 %tobool6.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.cond
+  br i1 %tobool6.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.cond
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.body, %for.cond, %entry
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body, %for.cond, %entry
   %tobool.not.lcssa = phi i1 [ false, %entry ], [ %tobool6.not, %for.cond ], [ %tobool6.not, %for.body ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str.53, i32 noundef 132) #13
   ret i1 %tobool.not.lcssa

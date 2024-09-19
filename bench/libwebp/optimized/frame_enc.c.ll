@@ -1428,21 +1428,21 @@ GetPSNR.exit:                                     ; preds = %188, %186, %176
   %201 = getelementptr inbounds i8, ptr %200, i64 128
   %202 = load ptr, ptr %201, align 8
   %.not.i106 = icmp eq ptr %202, null
-  br i1 %.not.i106, label %ResetSideInfo.argprom.exit, label %203
+  br i1 %.not.i106, label %ResetSideInfo.exit, label %203
 
 203:                                              ; preds = %198
   %204 = getelementptr inbounds i8, ptr %.val, i64 23604
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %204, i8 0, i64 12, i1 false)
-  br label %ResetSideInfo.argprom.exit
+  br label %ResetSideInfo.exit
 
-ResetSideInfo.argprom.exit:                       ; preds = %198, %203
+ResetSideInfo.exit:                               ; preds = %198, %203
   %205 = getelementptr inbounds i8, ptr %.val, i64 23512
   %206 = getelementptr inbounds i8, ptr %.val, i64 23544
   store i64 0, ptr %206, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %205, i8 0, i64 24, i1 false)
   br label %.backedge
 
-.backedge:                                        ; preds = %ResetSideInfo.argprom.exit, %196
+.backedge:                                        ; preds = %ResetSideInfo.exit, %196
   br label %96
 
 207:                                              ; preds = %GetPSNR.exit

@@ -8551,9 +8551,9 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1379:             ; preds = %_ZSt8_DestroyIPN5Yo
 3281:                                             ; preds = %3279, %3275, %3272
   %3282 = load i32, ptr @"_ZZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEvE2id", align 4, !noalias !61
   %.not.i.i.i1380 = icmp eq i32 %3282, 0
-  br i1 %.not.i.i.i1380, label %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.argprom.exit.thread", label %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.argprom.exit"
+  br i1 %.not.i.i.i1380, label %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.exit.thread", label %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.exit"
 
-"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.argprom.exit.thread": ; preds = %3281
+"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.exit.thread": ; preds = %3281
   %3283 = getelementptr inbounds i8, ptr %3271, i64 72
   %3284 = load i32, ptr %3283, align 4
   %3285 = icmp eq i32 %3284, 0
@@ -8565,7 +8565,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1379:             ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEvE2id") #27, !noalias !61
   br label %.body1382
 
-"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.argprom.exit": ; preds = %3281
+"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.exit": ; preds = %3281
   %3288 = sext i32 %3282 to i64
   %3289 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !61
   %3290 = getelementptr inbounds i32, ptr %3289, i64 %3288
@@ -8579,7 +8579,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1379:             ; preds = %_ZSt8_DestroyIPN5Yo
   %3297 = trunc i8 %3296 to i1
   br i1 %3297, label %3298, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1385
 
-3298:                                             ; preds = %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.argprom.exit"
+3298:                                             ; preds = %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.exit"
   %3299 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %3300 = getelementptr inbounds i32, ptr %3299, i64 %3288
   %3301 = load i32, ptr %3300, align 4
@@ -8599,14 +8599,14 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1379:             ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__clang_call_terminate(ptr %3307) #33
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit1385:            ; preds = %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.argprom.exit", %3298, %3304
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit1385:            ; preds = %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.exit", %3298, %3304
   br i1 %3295, label %3308, label %3309
 
-3308:                                             ; preds = %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1385
+3308:                                             ; preds = %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1385
   br label %3309
 
-3309:                                             ; preds = %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.argprom.exit.thread", %3308, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1385
-  %.4 = phi i8 [ 2, %3308 ], [ %spec.select1834, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1385 ], [ %spec.select1834, %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.argprom.exit.thread" ]
+3309:                                             ; preds = %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.exit.thread", %3308, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1385
+  %.4 = phi i8 [ 2, %3308 ], [ %spec.select1834, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1385 ], [ %spec.select1834, %"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.exit.thread" ]
   %3310 = load ptr, ptr %18, align 8
   invoke void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %213, ptr noundef nonnull align 8 dereferenceable(64) %208)
           to label %.noexc1386 unwind label %.loopexit.split-lp1886
@@ -19137,17 +19137,17 @@ attributes #34 = { nounwind allocsize(1) }
 !24 = distinct !{!24, !25, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !25 = distinct !{!25, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_0clEv.argprom: argument 0"}
-!28 = distinct !{!28, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_0clEv.argprom"}
+!27 = distinct !{!27, !28, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_0clEv: argument 0"}
+!28 = distinct !{!28, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_0clEv"}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_1clEv.argprom: argument 0"}
-!31 = distinct !{!31, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_1clEv.argprom"}
+!30 = distinct !{!30, !31, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_1clEv: argument 0"}
+!31 = distinct !{!31, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_1clEv"}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_2clEv.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_2clEv.argprom"}
+!33 = distinct !{!33, !34, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_2clEv: argument 0"}
+!34 = distinct !{!34, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_2clEv"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_3clEv.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_3clEv.argprom"}
+!36 = distinct !{!36, !37, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_3clEv: argument 0"}
+!37 = distinct !{!37, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_3clEv"}
 !38 = distinct !{!38, !10}
 !39 = !{!40}
 !40 = distinct !{!40, !41, !"_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
@@ -19172,14 +19172,14 @@ attributes #34 = { nounwind allocsize(1) }
 !59 = distinct !{!59, !10}
 !60 = distinct !{!60, !10}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.argprom: argument 0"}
-!63 = distinct !{!63, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv.argprom"}
+!62 = distinct !{!62, !63, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv: argument 0"}
+!63 = distinct !{!63, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_5clEv"}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_6clEv.argprom: argument 0"}
-!66 = distinct !{!66, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_6clEv.argprom"}
+!65 = distinct !{!65, !66, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_6clEv: argument 0"}
+!66 = distinct !{!66, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_6clEv"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_7clEv.argprom: argument 0"}
-!69 = distinct !{!69, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_7clEv.argprom"}
+!68 = distinct !{!68, !69, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_7clEv: argument 0"}
+!69 = distinct !{!69, !"_ZZN5Yosys10parse_blifEPNS_5RTLIL6DesignERSiNS0_8IdStringEbbbENK3$_7clEv"}
 !70 = distinct !{!70, !10}
 !71 = distinct !{!71, !10}
 !72 = distinct !{!72, !10}

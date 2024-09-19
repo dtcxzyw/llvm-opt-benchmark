@@ -613,7 +613,7 @@ for.end:                                          ; preds = %for.inc
   %21 = getelementptr i8, ptr %cpu, i64 544
   %cpu.val = load ptr, ptr %21, align 16
   %tobool.not.i11 = icmp eq ptr %cpu.val, null
-  br i1 %tobool.not.i11, label %tb_jmp_cache_clear_page.argprom.exit24, label %if.end.i12
+  br i1 %tobool.not.i11, label %tb_jmp_cache_clear_page.exit24, label %if.end.i12
 
 if.end.i12:                                       ; preds = %for.end
   %sub = add i64 %addr, -4096
@@ -631,14 +631,14 @@ while.end.i:                                      ; preds = %while.end.i, %if.en
   store atomic i64 0, ptr %arrayidx.i13 monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %tb_jmp_cache_clear_page.argprom.exit, label %while.end.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %tb_jmp_cache_clear_page.exit, label %while.end.i, !llvm.loop !17
 
-tb_jmp_cache_clear_page.argprom.exit:             ; preds = %while.end.i
+tb_jmp_cache_clear_page.exit:                     ; preds = %while.end.i
   %cpu.val10.pr = load ptr, ptr %21, align 16
   %tobool.not.i14 = icmp eq ptr %cpu.val10.pr, null
-  br i1 %tobool.not.i14, label %tb_jmp_cache_clear_page.argprom.exit24, label %if.end.i15
+  br i1 %tobool.not.i14, label %tb_jmp_cache_clear_page.exit24, label %if.end.i15
 
-if.end.i15:                                       ; preds = %tb_jmp_cache_clear_page.argprom.exit
+if.end.i15:                                       ; preds = %tb_jmp_cache_clear_page.exit
   %25 = lshr i64 %addr, 6
   %shr1.i.i16 = xor i64 %shr1.i.i.i, %25
   %conv.i.i17 = and i64 %shr1.i.i16, 4032
@@ -652,9 +652,9 @@ while.end.i19:                                    ; preds = %while.end.i19, %if.
   store atomic i64 0, ptr %arrayidx.i21 monotonic, align 8
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 64
-  br i1 %exitcond.not.i23, label %tb_jmp_cache_clear_page.argprom.exit24, label %while.end.i19, !llvm.loop !17
+  br i1 %exitcond.not.i23, label %tb_jmp_cache_clear_page.exit24, label %while.end.i19, !llvm.loop !17
 
-tb_jmp_cache_clear_page.argprom.exit24:           ; preds = %while.end.i19, %for.end, %tb_jmp_cache_clear_page.argprom.exit
+tb_jmp_cache_clear_page.exit24:                   ; preds = %while.end.i19, %for.end, %tb_jmp_cache_clear_page.exit
   ret void
 }
 
@@ -1282,7 +1282,7 @@ for.body18.preheader:                             ; preds = %if.end12
   %sub = add i64 %5, -4096
   br label %for.body18
 
-for.body18thread-pre-split:                       ; preds = %tb_jmp_cache_clear_page.argprom.exit
+for.body18thread-pre-split:                       ; preds = %tb_jmp_cache_clear_page.exit
   %inc23 = add nuw nsw i64 %i.014, 1
   %add21 = add i64 %41, 4096
   %cpu.val.pr = load ptr, ptr %38, align 16
@@ -1293,7 +1293,7 @@ for.body18:                                       ; preds = %for.body18.preheade
   %41 = phi i64 [ %add21, %for.body18thread-pre-split ], [ %sub, %for.body18.preheader ]
   %i.014 = phi i64 [ %inc23, %for.body18thread-pre-split ], [ 0, %for.body18.preheader ]
   %tobool.not.i10 = icmp eq ptr %cpu.val, null
-  br i1 %tobool.not.i10, label %tb_jmp_cache_clear_page.argprom.exit, label %if.end.i11
+  br i1 %tobool.not.i10, label %tb_jmp_cache_clear_page.exit, label %if.end.i11
 
 if.end.i11:                                       ; preds = %for.body18
   %42 = lshr i64 %41, 12
@@ -1310,13 +1310,13 @@ while.end.i:                                      ; preds = %while.end.i, %if.en
   store atomic i64 0, ptr %arrayidx.i12 monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %tb_jmp_cache_clear_page.argprom.exit, label %while.end.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %tb_jmp_cache_clear_page.exit, label %while.end.i, !llvm.loop !17
 
-tb_jmp_cache_clear_page.argprom.exit:             ; preds = %while.end.i, %for.body18
+tb_jmp_cache_clear_page.exit:                     ; preds = %while.end.i, %for.body18
   %exitcond22.not = icmp eq i64 %i.014, %div9
   br i1 %exitcond22.not, label %for.end24, label %for.body18thread-pre-split, !llvm.loop !26
 
-for.end24:                                        ; preds = %tb_jmp_cache_clear_page.argprom.exit, %if.end12, %if.then11
+for.end24:                                        ; preds = %tb_jmp_cache_clear_page.exit, %if.end12, %if.then11
   ret void
 }
 
@@ -2294,7 +2294,7 @@ if.then:                                          ; preds = %entry
   %cond = tail call i32 @llvm.umax.i32(i32 %size, i32 1)
   %0 = load ptr, ptr %pfull, align 8
   %.val = load i64, ptr %0, align 8
-  tail call fastcc void @notdirty_write.argprom(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %cond, i64 %.val, i64 noundef %retaddr)
+  tail call fastcc void @notdirty_write(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %cond, i64 %.val, i64 noundef %retaddr)
   %and7 = and i32 %call1, 3071
   br label %if.end
 
@@ -2471,7 +2471,7 @@ return:                                           ; preds = %if.end41, %if.then4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @notdirty_write.argprom(ptr nocapture noundef %cpu, i64 noundef %mem_vaddr, i32 noundef %size, i64 %full.0.val, i64 noundef %retaddr) unnamed_addr #0 {
+define internal fastcc void @notdirty_write(ptr nocapture noundef %cpu, i64 noundef %mem_vaddr, i32 noundef %size, i64 %full.0.val, i64 noundef %retaddr) unnamed_addr #0 {
 entry:
   %_now.i.i10 = alloca %struct.timeval, align 8
   %blocks.i = alloca [3 x ptr], align 16
@@ -2770,7 +2770,7 @@ if.then:                                          ; preds = %entry
   %cond14 = tail call i32 @llvm.umax.i32(i32 %size, i32 1)
   %0 = load ptr, ptr %cond5, align 8
   %.val = load i64, ptr %0, align 8
-  tail call fastcc void @notdirty_write.argprom(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %cond14, i64 %.val, i64 noundef 0)
+  tail call fastcc void @notdirty_write(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %cond14, i64 %.val, i64 noundef 0)
   %and16 = and i32 %call6, 3071
   br label %if.end
 
@@ -2804,7 +2804,7 @@ if.then7:                                         ; preds = %do.end
   %cond = tail call i32 @llvm.umax.i32(i32 %size, i32 1)
   %0 = load ptr, ptr %full, align 8
   %.val = load i64, ptr %0, align 8
-  tail call fastcc void @notdirty_write.argprom(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %cond, i64 %.val, i64 noundef %retaddr)
+  tail call fastcc void @notdirty_write(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %cond, i64 %.val, i64 noundef %retaddr)
   %and11 = and i32 %call2, 3071
   br label %if.end12
 
@@ -2861,7 +2861,7 @@ if.end18:                                         ; preds = %if.then13, %if.then
 if.then21:                                        ; preds = %if.end18
   %2 = load ptr, ptr %full, align 8
   %.val = load i64, ptr %2, align 8
-  tail call fastcc void @notdirty_write.argprom(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %size, i64 %.val, i64 noundef %retaddr)
+  tail call fastcc void @notdirty_write(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %size, i64 %.val, i64 noundef %retaddr)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end18, %if.then21, %if.end6
@@ -3238,7 +3238,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end34.i.i
   %22 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %21) #23, !srcloc !50
   %retval.sroa.0.0.extract.trunc.i.i.i.i.i = extractelement <2 x i64> %22, i64 0
   %retval.sroa.2.0.extract.trunc.i.i.i.i.i = extractelement <2 x i64> %22, i64 1
-  br label %load_atom_extract_al16_or_exit.argprom.exit.i.i
+  br label %load_atom_extract_al16_or_exit.exit.i.i
 
 atomic16_read_rw.exit.i.i.i.i:                    ; preds = %if.end34.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 16) ]
@@ -3247,9 +3247,9 @@ atomic16_read_rw.exit.i.i.i.i:                    ; preds = %if.end34.i.i
   %extract.t2.i.i.i.i.i = trunc i128 %24 to i64
   %extract4.i.i.i.i.i = lshr i128 %24, 64
   %extract.t5.i.i.i.i.i = trunc nuw i128 %extract4.i.i.i.i.i to i64
-  br label %load_atom_extract_al16_or_exit.argprom.exit.i.i
+  br label %load_atom_extract_al16_or_exit.exit.i.i
 
-load_atom_extract_al16_or_exit.argprom.exit.i.i:  ; preds = %atomic16_read_rw.exit.i.i.i.i, %if.then.i.i.i.i
+load_atom_extract_al16_or_exit.exit.i.i:          ; preds = %atomic16_read_rw.exit.i.i.i.i, %if.then.i.i.i.i
   %retval.sroa.0.0.extract.trunc.i.pn.i.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i.i, %atomic16_read_rw.exit.i.i.i.i ]
   %retval.sroa.2.0.extract.trunc.i.pn.i.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i.i, %atomic16_read_rw.exit.i.i.i.i ]
   %a.sroa.2.0.insert.ext.i.i23.i.i = zext i64 %retval.sroa.2.0.extract.trunc.i.pn.i.i.i.i to i128
@@ -3264,8 +3264,8 @@ do.body.i.i:                                      ; preds = %required_atomicity.
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 428, ptr noundef nonnull @__func__.load_atom_2, ptr noundef null) #22
   unreachable
 
-load_atom_2.exit.i:                               ; preds = %load_atom_extract_al16_or_exit.argprom.exit.i.i, %if.then31.i.i, %sw.bb.i.i, %load_atom_extract_al16_or_al8.exit.i.i, %if.then.i.i
-  %retval.0.i.i = phi i16 [ %8, %if.then.i.i ], [ %conv21.i.i, %load_atom_extract_al16_or_al8.exit.i.i ], [ %conv33.i.i, %if.then31.i.i ], [ %conv36.i.i, %load_atom_extract_al16_or_exit.argprom.exit.i.i ], [ %pv.val.i.i, %sw.bb.i.i ]
+load_atom_2.exit.i:                               ; preds = %load_atom_extract_al16_or_exit.exit.i.i, %if.then31.i.i, %sw.bb.i.i, %load_atom_extract_al16_or_al8.exit.i.i, %if.then.i.i
+  %retval.0.i.i = phi i16 [ %8, %if.then.i.i ], [ %conv21.i.i, %load_atom_extract_al16_or_al8.exit.i.i ], [ %conv33.i.i, %if.then31.i.i ], [ %conv36.i.i, %load_atom_extract_al16_or_exit.exit.i.i ], [ %pv.val.i.i, %sw.bb.i.i ]
   %and8.i = and i32 %1, 16
   %tobool9.not.i = icmp eq i32 %and8.i, 0
   %25 = tail call i16 @llvm.bswap.i16(i16 %retval.0.i.i)
@@ -3569,7 +3569,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end31.i.i
   %27 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %26) #23, !srcloc !50
   %retval.sroa.0.0.extract.trunc.i.i.i.i.i = extractelement <2 x i64> %27, i64 0
   %retval.sroa.2.0.extract.trunc.i.i.i.i.i = extractelement <2 x i64> %27, i64 1
-  br label %load_atom_extract_al16_or_exit.argprom.exit.i.i
+  br label %load_atom_extract_al16_or_exit.exit.i.i
 
 atomic16_read_rw.exit.i.i.i.i:                    ; preds = %if.end31.i.i
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 16) ]
@@ -3578,9 +3578,9 @@ atomic16_read_rw.exit.i.i.i.i:                    ; preds = %if.end31.i.i
   %extract.t2.i.i.i.i.i = trunc i128 %29 to i64
   %extract4.i.i.i.i.i = lshr i128 %29, 64
   %extract.t5.i.i.i.i.i = trunc nuw i128 %extract4.i.i.i.i.i to i64
-  br label %load_atom_extract_al16_or_exit.argprom.exit.i.i
+  br label %load_atom_extract_al16_or_exit.exit.i.i
 
-load_atom_extract_al16_or_exit.argprom.exit.i.i:  ; preds = %atomic16_read_rw.exit.i.i.i.i, %if.then.i.i.i.i
+load_atom_extract_al16_or_exit.exit.i.i:          ; preds = %atomic16_read_rw.exit.i.i.i.i, %if.then.i.i.i.i
   %retval.sroa.0.0.extract.trunc.i.pn.i.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i.i, %atomic16_read_rw.exit.i.i.i.i ]
   %retval.sroa.2.0.extract.trunc.i.pn.i.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i.i, %atomic16_read_rw.exit.i.i.i.i ]
   %30 = trunc i64 %7 to i32
@@ -3599,8 +3599,8 @@ do.body.i.i:                                      ; preds = %required_atomicity.
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 473, ptr noundef nonnull @__func__.load_atom_4, ptr noundef null) #22
   unreachable
 
-load_atom_4.exit.i:                               ; preds = %load_atom_extract_al16_or_exit.argprom.exit.i.i, %if.then29.i.i, %sw.bb.i.i, %load_atom_extract_al16_or_al8.exit.i.i, %if.then.i.i
-  %retval.0.i.i = phi i32 [ %8, %if.then.i.i ], [ %conv21.i.i, %load_atom_extract_al16_or_al8.exit.i.i ], [ %conv33.i.i, %load_atom_extract_al16_or_exit.argprom.exit.i.i ], [ %conv3.i.i.i, %if.then29.i.i ], [ %or.i.i.i, %sw.bb.i.i ]
+load_atom_4.exit.i:                               ; preds = %load_atom_extract_al16_or_exit.exit.i.i, %if.then29.i.i, %sw.bb.i.i, %load_atom_extract_al16_or_al8.exit.i.i, %if.then.i.i
+  %retval.0.i.i = phi i32 [ %8, %if.then.i.i ], [ %conv21.i.i, %load_atom_extract_al16_or_al8.exit.i.i ], [ %conv33.i.i, %load_atom_extract_al16_or_exit.exit.i.i ], [ %conv3.i.i.i, %if.then29.i.i ], [ %or.i.i.i, %sw.bb.i.i ]
   %and8.i = and i32 %0, 16
   %tobool9.not.i = icmp eq i32 %and8.i, 0
   %31 = tail call i32 @llvm.bswap.i32(i32 %retval.0.i.i)
@@ -11746,7 +11746,7 @@ if.end62:                                         ; preds = %if.end51
 
 if.then72:                                        ; preds = %if.end62
   %arrayidx63.val = load i64, ptr %arrayidx63, align 8
-  tail call fastcc void @notdirty_write.argprom(ptr noundef nonnull %cpu, i64 noundef %addr, i32 noundef %size, i64 %arrayidx63.val, i64 noundef %sub98)
+  tail call fastcc void @notdirty_write(ptr noundef nonnull %cpu, i64 noundef %addr, i32 noundef %size, i64 %arrayidx63.val, i64 noundef %sub98)
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then72, %if.end62
@@ -12346,7 +12346,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then8.i:                                       ; preds = %if.end.i
   %.val.i = load i64, ptr %4, align 8
-  tail call fastcc void @notdirty_write.argprom(ptr noundef %cpu, i64 noundef %5, i32 noundef %6, i64 %.val.i, i64 noundef %ra)
+  tail call fastcc void @notdirty_write(ptr noundef %cpu, i64 noundef %5, i32 noundef %6, i64 %.val.i, i64 noundef %ra)
   %and9.i = and i32 %flags.0.i, -1025
   br label %mmu_watch_or_dirty.exit
 
@@ -12429,7 +12429,7 @@ if.end.i81:                                       ; preds = %if.then.i75, %if.th
 
 if.then8.i85:                                     ; preds = %if.end.i81
   %.val.i86 = load i64, ptr %15, align 8
-  tail call fastcc void @notdirty_write.argprom(ptr noundef %cpu, i64 noundef %16, i32 noundef %17, i64 %.val.i86, i64 noundef %ra)
+  tail call fastcc void @notdirty_write(ptr noundef %cpu, i64 noundef %16, i32 noundef %17, i64 %.val.i86, i64 noundef %ra)
   %and9.i87 = and i32 %flags.0.i82, -1025
   br label %mmu_watch_or_dirty.exit89
 
@@ -12462,7 +12462,7 @@ if.end.i101:                                      ; preds = %if.then.i95, %mmu_w
 
 if.then8.i105:                                    ; preds = %if.end.i101
   %.val.i106 = load i64, ptr %19, align 8
-  tail call fastcc void @notdirty_write.argprom(ptr noundef %cpu, i64 noundef %20, i32 noundef %22, i64 %.val.i106, i64 noundef %ra)
+  tail call fastcc void @notdirty_write(ptr noundef %cpu, i64 noundef %20, i32 noundef %22, i64 %.val.i106, i64 noundef %ra)
   %and9.i107 = and i32 %flags.0.i102, -1025
   br label %mmu_watch_or_dirty.exit109
 
@@ -13071,9 +13071,9 @@ cpu_in_serial_context.exit.i.i:                   ; preds = %sw.epilog.i.i
   %tobool.i.i.not.i.i = icmp eq i32 %cs.val.i.fr.i.i, 0
   %cmp14.i = icmp eq i32 %atmax.0.i.i, 3
   %or.cond.i = select i1 %tobool.i.i.not.i.i, i1 %cmp14.i, i1 false
-  br i1 %or.cond.i, label %load_atom_extract_al16_or_exit.argprom.exit.i, label %if.end18.i
+  br i1 %or.cond.i, label %load_atom_extract_al16_or_exit.exit.i, label %if.end18.i
 
-load_atom_extract_al16_or_exit.argprom.exit.i:    ; preds = %cpu_in_serial_context.exit.i.i
+load_atom_extract_al16_or_exit.exit.i:            ; preds = %cpu_in_serial_context.exit.i.i
   %and1.i10.i = and i64 %5, -8
   %18 = inttoptr i64 %and1.i10.i to ptr
   call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 16) ]
@@ -13108,8 +13108,8 @@ if.end18.i:                                       ; preds = %cpu_in_serial_conte
   %or.i.i = or i64 %shl.i.i, %shr.i.i
   br label %load_atom_8.exit
 
-load_atom_8.exit:                                 ; preds = %if.then.i, %load_atom_extract_al16_or_al8.exit.i, %load_atom_extract_al16_or_exit.argprom.exit.i, %if.end18.i
-  %retval.0.i = phi i64 [ %6, %if.then.i ], [ %retval.sroa.0.0.extract.trunc.i.i.i, %load_atom_extract_al16_or_al8.exit.i ], [ %retval.sroa.0.0.extract.trunc.i.i20.i, %load_atom_extract_al16_or_exit.argprom.exit.i ], [ %or.i.i, %if.end18.i ]
+load_atom_8.exit:                                 ; preds = %if.then.i, %load_atom_extract_al16_or_al8.exit.i, %load_atom_extract_al16_or_exit.exit.i, %if.end18.i
+  %retval.0.i = phi i64 [ %6, %if.then.i ], [ %retval.sroa.0.0.extract.trunc.i.i.i, %load_atom_extract_al16_or_al8.exit.i ], [ %retval.sroa.0.0.extract.trunc.i.i20.i, %load_atom_extract_al16_or_exit.exit.i ], [ %or.i.i, %if.end18.i ]
   %and7 = and i32 %memop, 16
   %tobool8.not = icmp eq i32 %and7, 0
   %26 = tail call i64 @llvm.bswap.i64(i64 %retval.0.i)
@@ -13380,19 +13380,19 @@ sw.epilog.i:                                      ; preds = %sw.default.i, %sw.b
   %add.ptr.i = getelementptr i8, ptr %haddr.0.i, i64 %idx.ext.i
   %sub.i = sub i32 %size.0.i, %n.0.i
   %cmp.not.i = icmp eq i32 %sub.i, 0
-  br i1 %cmp.not.i, label %do_ld_parts_beN.argprom.exit, label %do.body.i, !llvm.loop !185
+  br i1 %cmp.not.i, label %do_ld_parts_beN.exit, label %do.body.i, !llvm.loop !185
 
-do_ld_parts_beN.argprom.exit:                     ; preds = %sw.epilog.i
+do_ld_parts_beN.exit:                             ; preds = %sw.epilog.i
   %idx.ext = sext i32 %sub to i64
   %add.ptr = getelementptr i8, ptr %p.val31, i64 %idx.ext
   store ptr %add.ptr, ptr %5, align 8
   store i32 8, ptr %size1, align 4
   br label %do.body.i35
 
-do.body.i35:                                      ; preds = %sw.epilog.i45, %do_ld_parts_beN.argprom.exit
-  %ret_be.addr.0.i36 = phi i64 [ 0, %do_ld_parts_beN.argprom.exit ], [ %or14.i50, %sw.epilog.i45 ]
-  %haddr.0.i37 = phi ptr [ %add.ptr, %do_ld_parts_beN.argprom.exit ], [ %add.ptr.i52, %sw.epilog.i45 ]
-  %size.0.i38 = phi i32 [ 8, %do_ld_parts_beN.argprom.exit ], [ %sub.i53, %sw.epilog.i45 ]
+do.body.i35:                                      ; preds = %sw.epilog.i45, %do_ld_parts_beN.exit
+  %ret_be.addr.0.i36 = phi i64 [ 0, %do_ld_parts_beN.exit ], [ %or14.i50, %sw.epilog.i45 ]
+  %haddr.0.i37 = phi ptr [ %add.ptr, %do_ld_parts_beN.exit ], [ %add.ptr.i52, %sw.epilog.i45 ]
+  %size.0.i38 = phi i32 [ 8, %do_ld_parts_beN.exit ], [ %sub.i53, %sw.epilog.i45 ]
   %12 = ptrtoint ptr %haddr.0.i37 to i64
   %conv.i39 = zext i32 %size.0.i38 to i64
   %or.i40 = or i64 %conv.i39, %12
@@ -13457,7 +13457,7 @@ if.then.i.i:                                      ; preds = %sw.bb10
   %21 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %add.ptr.i61) #23, !srcloc !50
   %retval.sroa.0.0.extract.trunc.i.i.i = extractelement <2 x i64> %21, i64 0
   %retval.sroa.2.0.extract.trunc.i.i.i = extractelement <2 x i64> %21, i64 1
-  br label %do_ld_whole_be16.argprom.exit
+  br label %do_ld_whole_be16.exit
 
 atomic16_read_rw.exit.i.i:                        ; preds = %sw.bb10
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i61, i64 16) ]
@@ -13467,9 +13467,9 @@ atomic16_read_rw.exit.i.i:                        ; preds = %sw.bb10
   %extract4.i.i.i = lshr i128 %23, 64
   %extract.t5.i.i.i = trunc nuw i128 %extract4.i.i.i to i64
   %.pre = load i32, ptr %size1, align 4
-  br label %do_ld_whole_be16.argprom.exit
+  br label %do_ld_whole_be16.exit
 
-do_ld_whole_be16.argprom.exit:                    ; preds = %if.then.i.i, %atomic16_read_rw.exit.i.i
+do_ld_whole_be16.exit:                            ; preds = %if.then.i.i, %atomic16_read_rw.exit.i.i
   %24 = phi i32 [ %0, %if.then.i.i ], [ %.pre, %atomic16_read_rw.exit.i.i ]
   %retval.sroa.0.0.extract.trunc.i.pn.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i, %if.then.i.i ], [ %extract.t2.i.i.i, %atomic16_read_rw.exit.i.i ]
   %retval.sroa.2.0.extract.trunc.i.pn.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i, %if.then.i.i ], [ %extract.t5.i.i.i, %atomic16_read_rw.exit.i.i ]
@@ -13504,7 +13504,7 @@ sw.bb13:                                          ; preds = %if.end, %if.end, %i
   %31 = getelementptr i8, ptr %p, i64 8
   %p.val33 = load ptr, ptr %31, align 8
   %cmp1.i = icmp sgt i32 %sub14, 0
-  br i1 %cmp1.i, label %for.body.preheader.i, label %do_ld_bytes_beN.argprom.exit
+  br i1 %cmp1.i, label %for.body.preheader.i, label %do_ld_bytes_beN.exit
 
 for.body.preheader.i:                             ; preds = %sw.bb13
   %wide.trip.count.i = zext nneg i32 %sub14 to i64
@@ -13520,9 +13520,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %or.i64 = or disjoint i64 %shl.i, %conv.i63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %do_ld_bytes_beN.argprom.exit, label %for.body.i, !llvm.loop !186
+  br i1 %exitcond.not.i, label %do_ld_bytes_beN.exit, label %for.body.i, !llvm.loop !186
 
-do_ld_bytes_beN.argprom.exit:                     ; preds = %for.body.i, %sw.bb13
+do_ld_bytes_beN.exit:                             ; preds = %for.body.i, %sw.bb13
   %ret_be.addr.0.lcssa.i = phi i64 [ %a, %sw.bb13 ], [ %or.i64, %for.body.i ]
   %idx.ext18 = sext i32 %0 to i64
   %add.ptr19 = getelementptr i8, ptr %p.val33, i64 %idx.ext18
@@ -13535,15 +13535,15 @@ do.body:                                          ; preds = %if.end
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2294, ptr noundef nonnull @__func__.do_ld16_beN, ptr noundef null) #22
   unreachable
 
-sw.epilog:                                        ; preds = %sw.epilog.i45, %do_ld_bytes_beN.argprom.exit
-  %b.0 = phi i64 [ %33, %do_ld_bytes_beN.argprom.exit ], [ %or14.i50, %sw.epilog.i45 ]
-  %a.addr.0 = phi i64 [ %ret_be.addr.0.lcssa.i, %do_ld_bytes_beN.argprom.exit ], [ %or14.i, %sw.epilog.i45 ]
+sw.epilog:                                        ; preds = %sw.epilog.i45, %do_ld_bytes_beN.exit
+  %b.0 = phi i64 [ %33, %do_ld_bytes_beN.exit ], [ %or14.i50, %sw.epilog.i45 ]
+  %a.addr.0 = phi i64 [ %ret_be.addr.0.lcssa.i, %do_ld_bytes_beN.exit ], [ %or14.i, %sw.epilog.i45 ]
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %b.0, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %a.addr.0, 1
   br label %return
 
-return:                                           ; preds = %sw.epilog, %do_ld_whole_be16.argprom.exit, %if.then
-  %call.pn = phi { i64, i64 } [ %call, %if.then ], [ %.fca.1.insert.i, %sw.epilog ], [ %.fca.1.insert.i38.i, %do_ld_whole_be16.argprom.exit ]
+return:                                           ; preds = %sw.epilog, %do_ld_whole_be16.exit, %if.then
+  %call.pn = phi { i64, i64 } [ %call, %if.then ], [ %.fca.1.insert.i, %sw.epilog ], [ %.fca.1.insert.i38.i, %do_ld_whole_be16.exit ]
   ret { i64, i64 } %call.pn
 }
 

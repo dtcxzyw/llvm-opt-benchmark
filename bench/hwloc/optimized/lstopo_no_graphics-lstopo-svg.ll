@@ -119,20 +119,20 @@ define internal void @native_svg_box(ptr nocapture noundef readonly %0, ptr noca
   %18 = icmp ne i32 %.val, 0
   %19 = icmp ne ptr %7, null
   %or.cond.i = and i1 %19, %18
-  br i1 %or.cond.i, label %20, label %lstopo_obj_cpukind_style.argprom.exit
+  br i1 %or.cond.i, label %20, label %lstopo_obj_cpukind_style.exit
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds i8, ptr %7, i64 232
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %lstopo_obj_cpukind_style.argprom.exit, label %23
+  br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %22, i64 68
   %25 = load i32, ptr %24, align 4
-  br label %lstopo_obj_cpukind_style.argprom.exit
+  br label %lstopo_obj_cpukind_style.exit
 
-lstopo_obj_cpukind_style.argprom.exit:            ; preds = %9, %20, %23
+lstopo_obj_cpukind_style.exit:                    ; preds = %9, %20, %23
   %.0.i = phi i32 [ %25, %23 ], [ 0, %20 ], [ 0, %9 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 944
   %27 = load i32, ptr %26, align 8
@@ -148,11 +148,11 @@ lstopo_obj_cpukind_style.argprom.exit:            ; preds = %9, %20, %23
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %35, label %33
 
-33:                                               ; preds = %lstopo_obj_cpukind_style.argprom.exit
+33:                                               ; preds = %lstopo_obj_cpukind_style.exit
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 12, ptr noundef nonnull @.str.4, i32 noundef %8) #8
   br label %35
 
-35:                                               ; preds = %33, %lstopo_obj_cpukind_style.argprom.exit
+35:                                               ; preds = %33, %lstopo_obj_cpukind_style.exit
   %.not27 = icmp eq ptr %7, null
   br i1 %.not27, label %42, label %36
 
@@ -238,13 +238,13 @@ define internal void @native_svg_text(ptr nocapture noundef readonly %0, ptr noc
   %17 = icmp ne i32 %.val, 0
   %18 = icmp ne ptr %7, null
   %or.cond.i = and i1 %18, %17
-  br i1 %or.cond.i, label %19, label %lstopo_obj_cpukind_style.argprom.exit
+  br i1 %or.cond.i, label %19, label %lstopo_obj_cpukind_style.exit
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds i8, ptr %7, i64 232
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %lstopo_obj_cpukind_style.argprom.exit, label %22
+  br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %21, i64 68
@@ -252,9 +252,9 @@ define internal void @native_svg_text(ptr nocapture noundef readonly %0, ptr noc
   %25 = and i32 %24, 1
   %26 = icmp eq i32 %25, 0
   %27 = select i1 %26, ptr @.str.13, ptr @.str.16
-  br label %lstopo_obj_cpukind_style.argprom.exit
+  br label %lstopo_obj_cpukind_style.exit
 
-lstopo_obj_cpukind_style.argprom.exit:            ; preds = %9, %19, %22
+lstopo_obj_cpukind_style.exit:                    ; preds = %9, %19, %22
   %.0.i = phi ptr [ %27, %22 ], [ @.str.13, %19 ], [ @.str.13, %9 ]
   %28 = load i32, ptr %1, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 4
@@ -267,11 +267,11 @@ lstopo_obj_cpukind_style.argprom.exit:            ; preds = %9, %19, %22
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %35, label %33
 
-33:                                               ; preds = %lstopo_obj_cpukind_style.argprom.exit
+33:                                               ; preds = %lstopo_obj_cpukind_style.exit
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 12, ptr noundef nonnull @.str.4, i32 noundef %8) #8
   br label %35
 
-35:                                               ; preds = %33, %lstopo_obj_cpukind_style.argprom.exit
+35:                                               ; preds = %33, %lstopo_obj_cpukind_style.exit
   %.not23 = icmp eq ptr %7, null
   br i1 %.not23, label %42, label %36
 

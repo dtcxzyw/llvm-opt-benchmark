@@ -86,7 +86,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %16, %ompi_comm_inva
   %.val.i = load i32, ptr %27, align 4
   %28 = and i32 %.val.i, 1
   %.not1.i = icmp eq i32 %28, 0
-  br i1 %.not1.i, label %ompi_op_is_valid.argprom.exit, label %29
+  br i1 %.not1.i, label %ompi_op_is_valid.exit, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr i8, ptr %3, i64 16
@@ -110,7 +110,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %16, %ompi_comm_inva
   %42 = getelementptr inbounds [43 x ptr], ptr %40, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %ompi_op_is_valid.argprom.exit
+  br i1 %44, label %45, label %ompi_op_is_valid.exit
 
 45:                                               ; preds = %39, %32
   %46 = getelementptr inbounds i8, ptr %4, i64 16
@@ -144,7 +144,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %16, %ompi_comm_inva
   call void @free(ptr noundef %64) #5
   br label %199
 
-ompi_op_is_valid.argprom.exit:                    ; preds = %39, %26
+ompi_op_is_valid.exit:                            ; preds = %39, %26
   %65 = getelementptr i8, ptr %6, i64 220
   %.val = load i32, ptr %65, align 4
   %66 = icmp ne i32 %.val, %5
@@ -152,7 +152,7 @@ ompi_op_is_valid.argprom.exit:                    ; preds = %39, %26
   %or.cond4 = and i1 %67, %66
   br i1 %or.cond4, label %ompi_errcode_get_mpi_code.exit, label %68
 
-68:                                               ; preds = %ompi_op_is_valid.argprom.exit
+68:                                               ; preds = %ompi_op_is_valid.exit
   %69 = icmp eq i32 %.val, %5
   br i1 %69, label %70, label %75
 
@@ -183,8 +183,8 @@ ompi_op_is_valid.argprom.exit:                    ; preds = %39, %26
   %or.cond154 = icmp eq i16 %82, 4
   br i1 %or.cond154, label %88, label %ompi_errcode_get_mpi_code.exit
 
-ompi_errcode_get_mpi_code.exit:                   ; preds = %80, %78, %75, %70, %ompi_op_is_valid.argprom.exit, %72, %23
-  %.1.ph = phi i32 [ 3, %80 ], [ 2, %78 ], [ 3, %75 ], [ 13, %70 ], [ 13, %ompi_op_is_valid.argprom.exit ], [ 13, %72 ], [ 10, %23 ]
+ompi_errcode_get_mpi_code.exit:                   ; preds = %80, %78, %75, %70, %ompi_op_is_valid.exit, %72, %23
+  %.1.ph = phi i32 [ 3, %80 ], [ 2, %78 ], [ 3, %75 ], [ 13, %70 ], [ 13, %ompi_op_is_valid.exit ], [ 13, %72 ], [ 10, %23 ]
   %83 = getelementptr inbounds i8, ptr %6, i64 296
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %6, i64 304
@@ -356,7 +356,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i128, %156
   %.pre15.i133 = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph.i134
 
-169:                                              ; preds = %opal_pointer_array_get_item.argprom.exit.i137
+169:                                              ; preds = %opal_pointer_array_get_item.exit.i137
   %indvars.iv.next.i138 = add nuw nsw i64 %indvars.iv.i135, 1
   %170 = load i32, ptr @ompi_errcode_intern_lastused, align 4
   %171 = sext i32 %170 to i64
@@ -384,21 +384,21 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i128, %156
   %182 = getelementptr inbounds ptr, ptr %181, i64 %indvars.iv.i135
   %183 = load ptr, ptr %182, align 8
   %184 = trunc i8 %180 to i1
-  br i1 %184, label %185, label %opal_pointer_array_get_item.argprom.exit.i137
+  br i1 %184, label %185, label %opal_pointer_array_get_item.exit.i137
 
 185:                                              ; preds = %179
   %186 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #5
   %.pre.i139 = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_pointer_array_get_item.argprom.exit.i137
+  br label %opal_pointer_array_get_item.exit.i137
 
-opal_pointer_array_get_item.argprom.exit.i137:    ; preds = %185, %179
+opal_pointer_array_get_item.exit.i137:            ; preds = %185, %179
   %187 = phi i8 [ %180, %179 ], [ %.pre.i139, %185 ]
   %188 = getelementptr inbounds i8, ptr %183, i64 16
   %189 = load i32, ptr %188, align 8
   %190 = icmp eq i32 %189, %145
   br i1 %190, label %191, label %169
 
-191:                                              ; preds = %opal_pointer_array_get_item.argprom.exit.i137
+191:                                              ; preds = %opal_pointer_array_get_item.exit.i137
   %192 = getelementptr inbounds i8, ptr %183, i64 20
   %193 = load i32, ptr %192, align 4
   br label %ompi_errcode_get_mpi_code.exit141

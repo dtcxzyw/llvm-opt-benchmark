@@ -1490,7 +1490,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %126, label %132, label %127
 
 127:                                              ; preds = %122
-  %128 = tail call fastcc i32 @ext4_xattr_credits_for_new_inode.argelim(ptr noundef nonnull %2, i32 noundef %34)
+  %128 = tail call fastcc i32 @ext4_xattr_credits_for_new_inode(ptr noundef nonnull %2, i32 noundef %34)
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %.thread55, label %130
 
@@ -2369,9 +2369,9 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %641 = load i32, ptr %640, align 8
   %642 = getelementptr i8, ptr %26, i64 1280
   %.val = load ptr, ptr %642, align 64
-  %643 = call fastcc i32 @ext4_chksum.argprom(ptr %.val, i32 noundef %641, ptr noundef nonnull %15)
+  %643 = call fastcc i32 @ext4_chksum(ptr %.val, i32 noundef %641, ptr noundef nonnull %15)
   %.val50 = load ptr, ptr %642, align 64
-  %644 = call fastcc i32 @ext4_chksum.argprom(ptr %.val50, i32 noundef %643, ptr noundef nonnull %16)
+  %644 = call fastcc i32 @ext4_chksum(ptr %.val50, i32 noundef %643, ptr noundef nonnull %16)
   %645 = getelementptr i8, ptr %56, i64 840
   store i32 %644, ptr %645, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #10
@@ -2535,7 +2535,7 @@ declare dso_local ptr @new_inode(ptr noundef) local_unnamed_addr #3
 declare dso_local void @inode_init_owner(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_xattr_credits_for_new_inode.argelim(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_xattr_credits_for_new_inode(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @get_inode_acl(ptr noundef nonnull %0, i32 noundef 16384) #10
@@ -3116,7 +3116,7 @@ define internal fastcc range(i32 0, 2) i32 @ext4_has_metadata_csum(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_chksum.argprom(ptr %.1280.val, i32 noundef %0, ptr noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc i32 @ext4_chksum(ptr %.1280.val, i32 noundef %0, ptr noundef %1) unnamed_addr #5 align 16 {
   %3 = alloca %struct.anon.46, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   %4 = load i32, ptr %.1280.val, align 8

@@ -53,10 +53,10 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.val.i.i = load ptr, ptr %5, align 8, !nonnull !12
   br label %6
 
-6:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit", %1
-  %7 = phi i64 [ %10, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit" ], [ %.promoted, %1 ]
+6:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit", %1
+  %7 = phi i64 [ %10, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit" ], [ %.promoted, %1 ]
   %8 = icmp ult i64 %7, %4
-  br i1 %8, label %9, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.thread"
+  br i1 %8, label %9, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.thread"
 
 9:                                                ; preds = %6
   %10 = add nuw i64 %7, 1
@@ -74,17 +74,17 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 18:                                               ; preds = %9
   %19 = icmp eq i64 %17, 0
-  br i1 %19, label %.critedge.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.thread"
+  br i1 %19, label %.critedge.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.thread"
 
 20:                                               ; preds = %9
   %21 = icmp eq i64 %14, %17
-  br i1 %21, label %.critedge.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.thread"
+  br i1 %21, label %.critedge.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.thread"
 
 .critedge.i.i.i.i:                                ; preds = %20, %18
   %22 = load i64, ptr %11, align 8, !alias.scope !13, !noalias !16, !noundef !12
   %23 = load i64, ptr %12, align 8, !alias.scope !16, !noalias !13, !noundef !12
   %24 = icmp eq i64 %22, %23
-  br i1 %24, label %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.thread"
+  br i1 %24, label %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i", label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.thread"
 
 "_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i": ; preds = %.critedge.i.i.i.i
   %25 = getelementptr inbounds i8, ptr %11, i64 8
@@ -92,7 +92,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %27 = getelementptr inbounds i8, ptr %12, i64 8
   %28 = load i64, ptr %27, align 8, !alias.scope !16, !noalias !13, !noundef !12
   %29 = icmp eq i64 %26, %28
-  br i1 %29, label %30, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.thread"
+  br i1 %29, label %30, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.thread"
 
 30:                                               ; preds = %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i"
   %31 = getelementptr inbounds i8, ptr %11, i64 24
@@ -172,14 +172,14 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.sroa.4.0.i8.i.i.i = phi i64 [ %52, %69 ], [ %67, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i" ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i" ]
   %.sroa.0.0.i9.i.i.i = phi ptr [ %70, %69 ], [ %68, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i" ], [ @anon.54d1238a97b1c6004641ef7cadf6f06f.1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i" ]
   %.not.i.i.i.i = icmp eq i64 %.sroa.4.0.i.i.i.i, %.sroa.4.0.i8.i.i.i
-  br i1 %.not.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit", label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.thread"
+  br i1 %.not.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit", label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.thread"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit": ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i"
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit": ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i"
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.sroa.0.0.i.i.i.i, ptr nonnull readonly %.sroa.0.0.i9.i.i.i, i64 %.sroa.4.0.i.i.i.i), !alias.scope !25
   %.not = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not, label %6, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.thread"
+  br i1 %.not, label %6, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.thread"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.thread": ; preds = %6, %18, %.critedge.i.i.i.i, %20, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i", %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit"
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.thread": ; preds = %6, %18, %.critedge.i.i.i.i, %20, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i", %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit"
   ret i1 %8
 }
 
@@ -195,8 +195,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.not = icmp eq i64 %1, %3
   br i1 %.not, label %.preheader, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit"
 
-.preheader:                                       ; preds = %4, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.i"
-  %5 = phi i64 [ %7, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.i" ], [ 0, %4 ]
+.preheader:                                       ; preds = %4, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.i"
+  %5 = phi i64 [ %7, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.i" ], [ 0, %4 ]
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit", label %6
 
@@ -313,15 +313,15 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.sroa.4.0.i8.i.i.i.i = phi i64 [ %49, %66 ], [ %64, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i.i" ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i.i" ]
   %.sroa.0.0.i9.i.i.i.i = phi ptr [ %67, %66 ], [ %65, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i6.i.i.i.i" ], [ @anon.54d1238a97b1c6004641ef7cadf6f06f.1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit.i.i.i.i" ]
   %.not.i.i.i.i.i = icmp eq i64 %.sroa.4.0.i.i.i.i.i, %.sroa.4.0.i8.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.i", label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit"
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.i", label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.i": ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i.i"
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.i": ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i.i"
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.sroa.0.0.i.i.i.i.i, ptr nonnull readonly %.sroa.0.0.i9.i.i.i.i, i64 %.sroa.4.0.i.i.i.i.i), !alias.scope !45, !noalias !38
   %.not.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not.i, label %.preheader, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit"
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit": ; preds = %.preheader, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i.i", %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i.i", %.critedge.i.i.i.i.i, %17, %15, %4
-  %.0 = phi i1 [ false, %4 ], [ %exitcond.not, %15 ], [ %exitcond.not, %17 ], [ %exitcond.not, %.critedge.i.i.i.i.i ], [ %exitcond.not, %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i.i" ], [ %exitcond.not, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i.i" ], [ %exitcond.not, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.argprom.exit.i" ], [ %exitcond.not, %.preheader ]
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3fba1e84352cc888E.llvm.4428398105249161175.exit": ; preds = %.preheader, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i.i", %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i.i", %.critedge.i.i.i.i.i, %17, %15, %4
+  %.0 = phi i1 [ false, %4 ], [ %exitcond.not, %15 ], [ %exitcond.not, %17 ], [ %exitcond.not, %.critedge.i.i.i.i.i ], [ %exitcond.not, %"_ZN73_$LT$markup5ever..interface..QualName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5068dbc38f72d19bE.exit.i.i.i.i" ], [ %exitcond.not, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h4d73af8b1cc9df89E.exit10.i.i.i.i" ], [ %exitcond.not, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h8dd8e878df54bd20E.exit.i" ], [ %exitcond.not, %.preheader ]
   ret i1 %.0
 }
 

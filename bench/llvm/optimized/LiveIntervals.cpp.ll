@@ -3057,7 +3057,7 @@ _ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.i: ; preds = %_Z
 _ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.i
   %.0.i = phi ptr [ %27, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.i ], [ %26, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.i ]
   %28 = icmp eq i64 %4, 0
-  br i1 %28, label %"_ZZN4llvm13LiveIntervals20extendSegmentsToUsesERNS_9LiveRangeERNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_6VNInfoEELj16EEENS_8RegisterENS_11LaneBitmaskEENK3$_0clERKNS_12LiveIntervalESC_.argprom.exit", label %.preheader.i
+  br i1 %28, label %"_ZZN4llvm13LiveIntervals20extendSegmentsToUsesERNS_9LiveRangeERNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_6VNInfoEELj16EEENS_8RegisterENS_11LaneBitmaskEENK3$_0clERKNS_12LiveIntervalESC_.exit", label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit, %.preheader.i
   %.pn.i = phi ptr [ %.sroa.02.0.i, %.preheader.i ], [ %.0.i, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ]
@@ -3067,14 +3067,14 @@ _ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13L
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, %4
   %.not.i55 = icmp eq i64 %31, 0
-  br i1 %.not.i55, label %.preheader.i, label %"_ZZN4llvm13LiveIntervals20extendSegmentsToUsesERNS_9LiveRangeERNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_6VNInfoEELj16EEENS_8RegisterENS_11LaneBitmaskEENK3$_0clERKNS_12LiveIntervalESC_.argprom.exit"
+  br i1 %.not.i55, label %.preheader.i, label %"_ZZN4llvm13LiveIntervals20extendSegmentsToUsesERNS_9LiveRangeERNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_6VNInfoEELj16EEENS_8RegisterENS_11LaneBitmaskEENK3$_0clERKNS_12LiveIntervalESC_.exit"
 
-"_ZZN4llvm13LiveIntervals20extendSegmentsToUsesERNS_9LiveRangeERNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_6VNInfoEELj16EEENS_8RegisterENS_11LaneBitmaskEENK3$_0clERKNS_12LiveIntervalESC_.argprom.exit": ; preds = %.preheader.i, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit
+"_ZZN4llvm13LiveIntervals20extendSegmentsToUsesERNS_9LiveRangeERNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_6VNInfoEELj16EEENS_8RegisterENS_11LaneBitmaskEENK3$_0clERKNS_12LiveIntervalESC_.exit": ; preds = %.preheader.i, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit
   %.0.i56 = phi ptr [ %.0.i, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ %.sroa.02.0.i, %.preheader.i ]
   %32 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
   br i1 %32, label %._crit_edge, label %.lr.ph149
 
-.lr.ph149:                                        ; preds = %"_ZZN4llvm13LiveIntervals20extendSegmentsToUsesERNS_9LiveRangeERNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_6VNInfoEELj16EEENS_8RegisterENS_11LaneBitmaskEENK3$_0clERKNS_12LiveIntervalESC_.argprom.exit"
+.lr.ph149:                                        ; preds = %"_ZZN4llvm13LiveIntervals20extendSegmentsToUsesERNS_9LiveRangeERNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_6VNInfoEELj16EEENS_8RegisterENS_11LaneBitmaskEENK3$_0clERKNS_12LiveIntervalESC_.exit"
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = getelementptr inbounds i8, ptr %2, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3499,7 +3499,7 @@ _ZNK4llvm9LiveRange15getVNInfoBeforeENS_9SlotIndexE.exit.thread: ; preds = %.lr.
   %.not51 = icmp eq ptr %260, %177
   br i1 %.not51, label %.backedge, label %.lr.ph148, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %.backedge, %"_ZZN4llvm13LiveIntervals20extendSegmentsToUsesERNS_9LiveRangeERNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_6VNInfoEELj16EEENS_8RegisterENS_11LaneBitmaskEENK3$_0clERKNS_12LiveIntervalESC_.argprom.exit"
+._crit_edge:                                      ; preds = %.backedge, %"_ZZN4llvm13LiveIntervals20extendSegmentsToUsesERNS_9LiveRangeERNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_6VNInfoEELj16EEENS_8RegisterENS_11LaneBitmaskEENK3$_0clERKNS_12LiveIntervalESC_.exit"
   %261 = load ptr, ptr %15, align 8
   %262 = load ptr, ptr %7, align 8
   %263 = icmp eq ptr %261, %262
@@ -9546,24 +9546,24 @@ _ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13L
   %260 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i.i.i.i, i64 104
   %261 = load ptr, ptr %260, align 8
   %.not.i.i.i.i.i = icmp eq ptr %261, null
-  br i1 %.not.i.i.i.i.i, label %"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.argprom.exit.thread", label %.lr.ph.i.i.i.i.i120, !llvm.loop !138
+  br i1 %.not.i.i.i.i.i, label %"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.exit.thread", label %.lr.ph.i.i.i.i.i120, !llvm.loop !138
 
-"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.argprom.exit.thread": ; preds = %259
+"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.exit.thread": ; preds = %259
   %262 = load ptr, ptr %173, align 8
   %263 = getelementptr inbounds ptr, ptr %262, i64 %.pre243
   %264 = load ptr, ptr %263, align 8
   %265 = icmp eq ptr %264, null
   br i1 %265, label %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.sink.split, label %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.sink.split.sink.split
 
-_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.sink.split.sink.split: ; preds = %"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.argprom.exit.thread", %241
-  %.sink264 = phi ptr [ %244, %241 ], [ %264, %"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.argprom.exit.thread" ]
+_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.sink.split.sink.split: ; preds = %"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.exit.thread", %241
+  %.sink264 = phi ptr [ %244, %241 ], [ %264, %"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.exit.thread" ]
   call void @_ZN4llvm12LiveIntervalD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.sink264) #16
   call void @_ZdlPvm(ptr noundef nonnull %.sink264, i64 noundef 120) #19
   %.pre.i121 = load ptr, ptr %173, align 8
   br label %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.sink.split
 
-_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.sink.split: ; preds = %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.sink.split.sink.split, %"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.argprom.exit.thread", %241
-  %.sink263 = phi ptr [ %242, %241 ], [ %262, %"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.argprom.exit.thread" ], [ %.pre.i121, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.sink.split.sink.split ]
+_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.sink.split: ; preds = %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.sink.split.sink.split, %"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.exit.thread", %241
+  %.sink263 = phi ptr [ %242, %241 ], [ %262, %"_ZN4llvm7none_ofINS_14iterator_rangeINS_12LiveInterval24SingleLinkedListIteratorINS2_8SubRangeEEEEEZNS_13LiveIntervals22repairIntervalsInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEESC_NS_8ArrayRefINS_8RegisterEEEE3$_0EEbOT_T0_.exit.thread" ], [ %.pre.i121, %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.sink.split.sink.split ]
   %266 = getelementptr inbounds ptr, ptr %.sink263, i64 %.pre243
   store ptr null, ptr %266, align 8
   br label %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread

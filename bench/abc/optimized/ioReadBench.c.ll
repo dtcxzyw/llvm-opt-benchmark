@@ -96,19 +96,19 @@ define ptr @Io_ReadBench(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 24:                                               ; preds = %20
   %25 = load i32, ptr %17, align 4
   %26 = icmp slt i32 %23, %25
-  br i1 %26, label %Extra_ProgressBarUpdate.argprom.exit.i, label %27
+  br i1 %26, label %Extra_ProgressBarUpdate.exit.i, label %27
 
 27:                                               ; preds = %24, %20
   call void @Extra_ProgressBarUpdate_int(ptr noundef %17, i32 noundef %23, ptr noundef null) #12
-  br label %Extra_ProgressBarUpdate.argprom.exit.i
+  br label %Extra_ProgressBarUpdate.exit.i
 
-Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %27, %24
+Extra_ProgressBarUpdate.exit.i:                   ; preds = %27, %24
   %28 = getelementptr inbounds i8, ptr %22, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %31, label %35
 
-31:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+31:                                               ; preds = %Extra_ProgressBarUpdate.exit.i
   %32 = call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %32)
   %.not.i231.i = icmp eq ptr %21, null
@@ -122,7 +122,7 @@ Vec_StrFree.exit.i:                               ; preds = %34, %31
   call void @free(ptr noundef nonnull %11) #12
   br label %Io_ReadBenchNetwork.exit.thread
 
-35:                                               ; preds = %Extra_ProgressBarUpdate.argprom.exit.i
+35:                                               ; preds = %Extra_ProgressBarUpdate.exit.i
   %36 = getelementptr inbounds i8, ptr %22, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8

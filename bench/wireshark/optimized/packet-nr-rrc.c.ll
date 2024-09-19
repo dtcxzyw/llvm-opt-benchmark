@@ -50390,22 +50390,22 @@ define internal i32 @dissect_nr_rrc_T_sl_MeasResultsCandRelay_r17(ptr noundef %0
   %18 = load i32, ptr @proto_nr_rrc, align 4
   %19 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %18, ptr noundef %15, i32 noundef 0, i32 noundef -1, i32 noundef 0) #11
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %dissect_SL_MeasResultListRelay_r17_PDU.argprom.exit, label %20
+  br i1 %.not.i.i, label %dissect_SL_MeasResultListRelay_r17_PDU.exit, label %20
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds i8, ptr %19, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not5.i.i = icmp eq ptr %22, null
-  br i1 %.not5.i.i, label %dissect_SL_MeasResultListRelay_r17_PDU.argprom.exit, label %23
+  br i1 %.not5.i.i, label %dissect_SL_MeasResultListRelay_r17_PDU.exit, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %22, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, 1
   store i32 %26, ptr %24, align 4
-  br label %dissect_SL_MeasResultListRelay_r17_PDU.argprom.exit
+  br label %dissect_SL_MeasResultListRelay_r17_PDU.exit
 
-dissect_SL_MeasResultListRelay_r17_PDU.argprom.exit: ; preds = %10, %20, %23
+dissect_SL_MeasResultListRelay_r17_PDU.exit:      ; preds = %10, %20, %23
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext false, ptr noundef %17) #11
   %27 = load i32, ptr @hf_nr_rrc_SL_MeasResultListRelay_r17_PDU, align 4
   %28 = load i32, ptr @ett_nr_rrc_SL_MeasResultListRelay_r17, align 4
@@ -50413,7 +50413,7 @@ dissect_SL_MeasResultListRelay_r17_PDU.argprom.exit: ; preds = %10, %20, %23
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6)
   br label %30
 
-30:                                               ; preds = %dissect_SL_MeasResultListRelay_r17_PDU.argprom.exit, %5
+30:                                               ; preds = %dissect_SL_MeasResultListRelay_r17_PDU.exit, %5
   ret i32 %8
 }
 
@@ -51019,22 +51019,22 @@ define internal i32 @dissect_nr_rrc_T_sl_MeasResultServingRelay_r17(ptr noundef 
   %18 = load i32, ptr @proto_nr_rrc, align 4
   %19 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %18, ptr noundef %15, i32 noundef 0, i32 noundef -1, i32 noundef 0) #11
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %dissect_SL_MeasResultRelay_r17_PDU.argprom.exit, label %20
+  br i1 %.not.i.i, label %dissect_SL_MeasResultRelay_r17_PDU.exit, label %20
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds i8, ptr %19, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not5.i.i = icmp eq ptr %22, null
-  br i1 %.not5.i.i, label %dissect_SL_MeasResultRelay_r17_PDU.argprom.exit, label %23
+  br i1 %.not5.i.i, label %dissect_SL_MeasResultRelay_r17_PDU.exit, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %22, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, 1
   store i32 %26, ptr %24, align 4
-  br label %dissect_SL_MeasResultRelay_r17_PDU.argprom.exit
+  br label %dissect_SL_MeasResultRelay_r17_PDU.exit
 
-dissect_SL_MeasResultRelay_r17_PDU.argprom.exit:  ; preds = %10, %20, %23
+dissect_SL_MeasResultRelay_r17_PDU.exit:          ; preds = %10, %20, %23
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext false, ptr noundef %17) #11
   %27 = load i32, ptr @hf_nr_rrc_SL_MeasResultRelay_r17_PDU, align 4
   %28 = load i32, ptr @ett_nr_rrc_SL_MeasResultRelay_r17, align 4
@@ -51042,7 +51042,7 @@ dissect_SL_MeasResultRelay_r17_PDU.argprom.exit:  ; preds = %10, %20, %23
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6)
   br label %30
 
-30:                                               ; preds = %dissect_SL_MeasResultRelay_r17_PDU.argprom.exit, %5
+30:                                               ; preds = %dissect_SL_MeasResultRelay_r17_PDU.exit, %5
   ret i32 %8
 }
 
@@ -62768,7 +62768,7 @@ define internal i32 @dissect_nr_rrc_T_sl_CapabilityInformationSidelink_r16(ptr n
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
-  call fastcc void @dissect_UECapabilityInformationSidelink_PDU.argprom.retelim(ptr noundef %14, ptr noundef %16, ptr noundef %13)
+  call fastcc void @dissect_UECapabilityInformationSidelink_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13)
   br label %17
 
 17:                                               ; preds = %9, %5
@@ -62848,7 +62848,7 @@ define internal i32 @dissect_nr_rrc_SL_TypeTxSync_r16(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_UECapabilityInformationSidelink_PDU.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_UECapabilityInformationSidelink_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
   %5 = load i32, ptr @proto_nr_rrc, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #11
@@ -63407,7 +63407,7 @@ define internal i32 @dissect_nr_rrc_T_sl_CapabilityInformationSidelink_r17(ptr n
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
-  call fastcc void @dissect_UECapabilityInformationSidelink_PDU.argprom.retelim(ptr noundef %14, ptr noundef %16, ptr noundef %13)
+  call fastcc void @dissect_UECapabilityInformationSidelink_PDU(ptr noundef %14, ptr noundef %16, ptr noundef %13)
   br label %17
 
 17:                                               ; preds = %9, %5

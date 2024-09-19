@@ -6005,7 +6005,7 @@ for.body.i.i.i:                                   ; preds = %if.else.i21.i, %if.
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %21, i64 %.pre.i.i.i
   %cmp11.i.i.i = icmp ult ptr %stringView.sroa.4.0.copyload.i.i, %add.ptr.i.i.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 %cmp11.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_119computeStringOffsetENS0_10StringViewERKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS7_EE.argprom.exit.i.i, label %if.end.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_119computeStringOffsetENS0_10StringViewERKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS7_EE.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %22 = trunc i64 %.pre.i.i.i to i32
@@ -6018,7 +6018,7 @@ for.end.i.i.i:                                    ; preds = %if.else.i21.i, %if.
   call void @llvm.trap()
   unreachable
 
-_ZN8facebook5velox12_GLOBAL__N_119computeStringOffsetENS0_10StringViewERKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS7_EE.argprom.exit.i.i: ; preds = %for.body.i.i.i
+_ZN8facebook5velox12_GLOBAL__N_119computeStringOffsetENS0_10StringViewERKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS7_EE.exit.i.i: ; preds = %for.body.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %stringView.sroa.4.0.copyload.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -6029,7 +6029,7 @@ _ZN8facebook5velox12_GLOBAL__N_119computeStringOffsetENS0_10StringViewERKSt6vect
   %call.i14.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %ref.tmp14.i.i, i64 noundef 8)
   br label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_119computeStringOffsetENS0_10StringViewERKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS7_EE.argprom.exit.i.i, %if.then.i23.i
+for.inc.i.i:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_119computeStringOffsetENS0_10StringViewERKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS7_EE.exit.i.i, %if.then.i23.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN8facebook5velox12_GLOBAL__N_116writeStringViewsEiRKN5boost13intrusive_ptrINS0_6BufferEEERKSt6vectorIS5_SaIS5_EERSo.exit.i, label %for.body.i.i, !llvm.loop !8
@@ -8821,7 +8821,7 @@ land.lhs.true.i.i.i:                              ; preds = %for.body.i.i.i
   %conv7.i.i.i = sext i32 %totalOffset.05.i.i.i to i64
   %add.i.i.i = add i64 %192, %conv7.i.i.i
   %cmp8.i.i.i = icmp ugt i64 %add.i.i.i, %conv.i.i.i
-  br i1 %cmp8.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_120computeStringPointerEiRKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS6_EE.argprom.exit.i.i, label %if.end.i.i.i
+  br i1 %cmp8.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_120computeStringPointerEiRKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS6_EE.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i.i, %for.body.i.i.i
   %193 = trunc i64 %192 to i32
@@ -8834,15 +8834,15 @@ for.end.i.i.i:                                    ; preds = %if.then.i24.i, %if.
   call void @llvm.trap()
   unreachable
 
-_ZN8facebook5velox12_GLOBAL__N_120computeStringPointerEiRKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS6_EE.argprom.exit.i.i: ; preds = %land.lhs.true.i.i.i
+_ZN8facebook5velox12_GLOBAL__N_120computeStringPointerEiRKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS6_EE.exit.i.i: ; preds = %land.lhs.true.i.i.i
   %cmp.i.i.i = icmp slt i32 %value.sroa.0.0.copyload.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i13.i.i, label %_ZN8facebook5velox10StringViewC2EPKci.exit.i.i
 
-if.then.i13.i.i:                                  ; preds = %_ZN8facebook5velox12_GLOBAL__N_120computeStringPointerEiRKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS6_EE.argprom.exit.i.i
+if.then.i13.i.i:                                  ; preds = %_ZN8facebook5velox12_GLOBAL__N_120computeStringPointerEiRKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS6_EE.exit.i.i
   call void @llvm.trap()
   unreachable
 
-_ZN8facebook5velox10StringViewC2EPKci.exit.i.i:   ; preds = %_ZN8facebook5velox12_GLOBAL__N_120computeStringPointerEiRKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS6_EE.argprom.exit.i.i
+_ZN8facebook5velox10StringViewC2EPKci.exit.i.i:   ; preds = %_ZN8facebook5velox12_GLOBAL__N_120computeStringPointerEiRKSt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS6_EE.exit.i.i
   %data_.i.i.i.i = getelementptr inbounds i8, ptr %191, i64 16
   %194 = load ptr, ptr %data_.i.i.i.i, align 8, !noalias !47
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %194, i64 %conv.i.i.i
@@ -14809,7 +14809,7 @@ invoke.cont4.i127:                                ; preds = %if.end8.sink.split.
   %909 = getelementptr inbounds i8, ptr %type, i64 8
   %type.val4.i = load ptr, ptr %909, align 8, !noalias !293
   %call5.i.i.i3.i.i.i.i1022 = invoke noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #36
-          to label %call5.i.i.i3.i.i.i.i.noexc1021 unwind label %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEEclEPS3_.argprom.exit.i
+          to label %call5.i.i.i3.i.i.i.i.noexc1021 unwind label %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEEclEPS3_.exit.i
 
 call5.i.i.i3.i.i.i.i.noexc1021:                   ; preds = %invoke.cont4.i127
   %_M_use_count.i.i.i.i.i.i1000 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i1022, i64 8
@@ -15030,7 +15030,7 @@ lpad5.i128.body.thread:                           ; preds = %lpad.i.i.i.i.i.i.i,
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i1022) #37, !noalias !299
   br label %ehcleanup.i125
 
-_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEEclEPS3_.argprom.exit.i: ; preds = %invoke.cont4.i127
+_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEEclEPS3_.exit.i: ; preds = %invoke.cont4.i127
   %940 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i = load ptr, ptr %call.i1036, align 8, !noalias !293
@@ -15039,8 +15039,8 @@ _ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEEclEPS3_
   call void %941(ptr noundef nonnull align 8 dereferenceable(24) %call.i1036) #34, !noalias !293
   br label %ehcleanup.i125
 
-ehcleanup.i125:                                   ; preds = %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEEclEPS3_.argprom.exit.i, %lpad5.i128.body.thread, %lpad.i124
-  %.pn.i126 = phi { ptr, i32 } [ %891, %lpad.i124 ], [ %937, %lpad5.i128.body.thread ], [ %940, %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEEclEPS3_.argprom.exit.i ]
+ehcleanup.i125:                                   ; preds = %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEEclEPS3_.exit.i, %lpad5.i128.body.thread, %lpad.i124
+  %.pn.i126 = phi { ptr, i32 } [ %891, %lpad.i124 ], [ %937, %lpad5.i128.body.thread ], [ %940, %_ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEEclEPS3_.exit.i ]
   call void @_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %loadedVector.i) #34, !noalias !293
   br label %lpad.body
 
@@ -245107,11 +245107,11 @@ attributes #41 = { nounwind willreturn memory(none) }
 !294 = distinct !{!294, !295, !"_ZN8facebook5velox12_GLOBAL__N_114readLazyVectorERKSt10shared_ptrIKNS0_4TypeEEiRSiPNS0_6memory10MemoryPoolE: %agg.result"}
 !295 = distinct !{!295, !"_ZN8facebook5velox12_GLOBAL__N_114readLazyVectorERKSt10shared_ptrIKNS0_4TypeEEiRSiPNS0_6memory10MemoryPoolE"}
 !296 = !{!297, !294}
-!297 = distinct !{!297, !298, !"_ZSt11make_uniqueIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEJRSt10shared_ptrINS1_10BaseVectorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!298 = distinct !{!298, !"_ZSt11make_uniqueIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEJRSt10shared_ptrINS1_10BaseVectorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!297 = distinct !{!297, !298, !"_ZSt11make_uniqueIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEJRSt10shared_ptrINS1_10BaseVectorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!298 = distinct !{!298, !"_ZSt11make_uniqueIN8facebook5velox12_GLOBAL__N_116LoadedVectorShimEJRSt10shared_ptrINS1_10BaseVectorEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !299 = !{!300, !294}
-!300 = distinct !{!300, !301, !"_ZSt11make_sharedIN8facebook5velox10LazyVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEERiSt10unique_ptrINS1_12_GLOBAL__N_116LoadedVectorShimESt14default_deleteISG_EEEES7_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_.argprom: %agg.result"}
-!301 = distinct !{!301, !"_ZSt11make_sharedIN8facebook5velox10LazyVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEERiSt10unique_ptrINS1_12_GLOBAL__N_116LoadedVectorShimESt14default_deleteISG_EEEES7_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_.argprom"}
+!300 = distinct !{!300, !301, !"_ZSt11make_sharedIN8facebook5velox10LazyVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEERiSt10unique_ptrINS1_12_GLOBAL__N_116LoadedVectorShimESt14default_deleteISG_EEEES7_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_: %agg.result"}
+!301 = distinct !{!301, !"_ZSt11make_sharedIN8facebook5velox10LazyVectorEJRPNS1_6memory10MemoryPoolERKSt10shared_ptrIKNS1_4TypeEERiSt10unique_ptrINS1_12_GLOBAL__N_116LoadedVectorShimESt14default_deleteISG_EEEES7_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESL_E4typeEEDpOT0_"}
 !302 = !{!303}
 !303 = distinct !{!303, !304, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRPKcS7_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSC_: %agg.result"}
 !304 = distinct !{!304, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRPKcS7_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSC_"}

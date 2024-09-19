@@ -6720,7 +6720,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIbEERKT_v.exit.i.i.i: ; preds
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i: ; preds = %252, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIbEERKT_v.exit.i.i.i
   store ptr null, ptr %226, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #18
-  br i1 %247, label %541, label %"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__25UsdUtilsStitchValueStatusERZL12TestCallbackvE3$_0JRKNS0_7TfTokenERKNS0_7SdfPathERKNS0_9TfWeakPtrINS0_8SdfLayerEEEbSE_bPNS0_7VtValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br i1 %247, label %541, label %"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__25UsdUtilsStitchValueStatusERZL12TestCallbackvE3$_0JRKNS0_7TfTokenERKNS0_7SdfPathERKNS0_9TfWeakPtrINS0_8SdfLayerEEEbSE_bPNS0_7VtValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
 260:                                              ; preds = %.noexc.i.i.i, %114
   %261 = landingpad { ptr, i32 }
@@ -7444,7 +7444,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit171.i.i.i: ; preds = %502,
   store ptr null, ptr %494, align 8
   %510 = load ptr, ptr %44, align 8
   %.not.i.i172.i.i.i = icmp eq ptr %510, null
-  br i1 %.not.i.i172.i.i.i, label %"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__25UsdUtilsStitchValueStatusERZL12TestCallbackvE3$_0JRKNS0_7TfTokenERKNS0_7SdfPathERKNS0_9TfWeakPtrINS0_8SdfLayerEEEbSE_bPNS0_7VtValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %511
+  br i1 %.not.i.i172.i.i.i, label %"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__25UsdUtilsStitchValueStatusERZL12TestCallbackvE3$_0JRKNS0_7TfTokenERKNS0_7SdfPathERKNS0_9TfWeakPtrINS0_8SdfLayerEEEbSE_bPNS0_7VtValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %511
 
 511:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit171.i.i.i
   %512 = getelementptr inbounds i8, ptr %510, i64 16
@@ -7461,7 +7461,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit171.i.i.i: ; preds = %502,
 
 _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i.i.i: ; preds = %511
   call void @_ZdlPvm(ptr noundef nonnull %510, i64 noundef 48) #21
-  br label %"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__25UsdUtilsStitchValueStatusERZL12TestCallbackvE3$_0JRKNS0_7TfTokenERKNS0_7SdfPathERKNS0_9TfWeakPtrINS0_8SdfLayerEEEbSE_bPNS0_7VtValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__25UsdUtilsStitchValueStatusERZL12TestCallbackvE3$_0JRKNS0_7TfTokenERKNS0_7SdfPathERKNS0_9TfWeakPtrINS0_8SdfLayerEEEbSE_bPNS0_7VtValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
 517:                                              ; preds = %.noexc95.i.i.i, %299
   %518 = landingpad { ptr, i32 }
@@ -7559,9 +7559,9 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %common.resume.i.i.i
 
 541:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit94.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i
-  br label %"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__25UsdUtilsStitchValueStatusERZL12TestCallbackvE3$_0JRKNS0_7TfTokenERKNS0_7SdfPathERKNS0_9TfWeakPtrINS0_8SdfLayerEEEbSE_bPNS0_7VtValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__25UsdUtilsStitchValueStatusERZL12TestCallbackvE3$_0JRKNS0_7TfTokenERKNS0_7SdfPathERKNS0_9TfWeakPtrINS0_8SdfLayerEEEbSE_bPNS0_7VtValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
-"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__25UsdUtilsStitchValueStatusERZL12TestCallbackvE3$_0JRKNS0_7TfTokenERKNS0_7SdfPathERKNS0_9TfWeakPtrINS0_8SdfLayerEEEbSE_bPNS0_7VtValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit171.i.i.i, %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i.i.i, %541
+"_ZSt10__invoke_rIN32pxrInternal_v0_24__pxrReserved__25UsdUtilsStitchValueStatusERZL12TestCallbackvE3$_0JRKNS0_7TfTokenERKNS0_7SdfPathERKNS0_9TfWeakPtrINS0_8SdfLayerEEEbSE_bPNS0_7VtValueEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit171.i.i.i, %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i.i.i, %541
   %.132.i.i.i = phi i32 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i ], [ 1, %541 ], [ 2, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit171.i.i.i ], [ 2, %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
@@ -7598,16 +7598,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN32pxrInternal_v0
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZL12TestCallbackvE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 3, label %43
     i32 2, label %7
   ]
@@ -7697,19 +7697,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEC2ERKS2_.exit.i.i.i
 
 "_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i": ; preds = %37, %36, %31, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEC2ERKS2_.exit.i.i.i.i
   store ptr %8, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
 43:                                               ; preds = %6
   %.val7.i = load ptr, ptr %0, align 8
   %44 = icmp eq ptr %.val7.i, null
-  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit", label %45
+  br i1 %44, label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit", label %45
 
 45:                                               ; preds = %43
   tail call fastcc void @"_ZZL12TestCallbackvEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %.val7.i) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 16) #21
-  br label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.argprom.exit": ; preds = %45, %43, %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit": ; preds = %45, %43, %"_ZNSt14_Function_base13_Base_managerIZL12TestCallbackvE3$_0E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_.exit.i", %6, %5, %4
   ret i1 false
 }
 

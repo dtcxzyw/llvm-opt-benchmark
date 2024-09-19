@@ -345,20 +345,20 @@ lor.lhs.false:                                    ; preds = %if.then29
   %call.i = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %vmacctx.val) #5
   %conv.i = sext i32 %call.i to i64
   %cmp.not.i = icmp eq i64 %4, %conv.i
-  br i1 %cmp.not.i, label %gmac_setkey.argprom.exit, label %gmac_setkey.argprom.exit.thread
+  br i1 %cmp.not.i, label %gmac_setkey.exit, label %gmac_setkey.exit.thread
 
-gmac_setkey.argprom.exit.thread:                  ; preds = %lor.lhs.false
+gmac_setkey.exit.thread:                          ; preds = %lor.lhs.false
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 106, ptr noundef nonnull @__func__.gmac_setkey) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef null) #5
   br label %return
 
-gmac_setkey.argprom.exit:                         ; preds = %lor.lhs.false
+gmac_setkey.exit:                                 ; preds = %lor.lhs.false
   %call3.i = tail call i32 @EVP_EncryptInit_ex(ptr noundef %vmacctx.val, ptr noundef null, ptr noundef null, ptr noundef %3, ptr noundef null) #5
   %tobool.not.i.not = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i.not, label %return, label %if.end35
 
-if.end35:                                         ; preds = %gmac_setkey.argprom.exit, %if.end26
+if.end35:                                         ; preds = %gmac_setkey.exit, %if.end26
   %call36 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.6) #5
   %cmp37.not = icmp eq ptr %call36, null
   br i1 %cmp37.not, label %if.end53, label %if.then38
@@ -387,8 +387,8 @@ lor.lhs.false47:                                  ; preds = %if.end42
 if.end53:                                         ; preds = %lor.lhs.false47, %if.end35
   br label %return
 
-return:                                           ; preds = %gmac_setkey.argprom.exit.thread, %if.end42, %lor.lhs.false47, %if.then38, %if.then29, %gmac_setkey.argprom.exit, %if.end17, %if.then8, %if.end, %entry, %if.end53, %if.then16
-  %retval.0 = phi i32 [ 0, %if.then16 ], [ 1, %if.end53 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then8 ], [ 0, %if.end17 ], [ 0, %gmac_setkey.argprom.exit ], [ 0, %if.then29 ], [ 0, %if.then38 ], [ 0, %lor.lhs.false47 ], [ 0, %if.end42 ], [ 0, %gmac_setkey.argprom.exit.thread ]
+return:                                           ; preds = %gmac_setkey.exit.thread, %if.end42, %lor.lhs.false47, %if.then38, %if.then29, %gmac_setkey.exit, %if.end17, %if.then8, %if.end, %entry, %if.end53, %if.then16
+  %retval.0 = phi i32 [ 0, %if.then16 ], [ 1, %if.end53 ], [ 1, %entry ], [ 0, %if.end ], [ 0, %if.then8 ], [ 0, %if.end17 ], [ 0, %gmac_setkey.exit ], [ 0, %if.then29 ], [ 0, %if.then38 ], [ 0, %lor.lhs.false47 ], [ 0, %if.end42 ], [ 0, %gmac_setkey.exit.thread ]
   ret i32 %retval.0
 }
 

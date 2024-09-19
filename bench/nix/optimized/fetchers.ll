@@ -2950,7 +2950,7 @@ _ZNSt10shared_ptrIN3nix8fetchers11InputSchemeEEC2ERKS3_.exit: ; preds = %89, %86
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEEaSERKSH_.exit.i: ; preds = %92
   invoke fastcc void @_ZN3nix8fetchersL10fixupInputERNS0_5InputE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-          to label %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom.exit" unwind label %101
+          to label %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.exit" unwind label %101
 
 101:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEEaSERKSH_.exit.i, %92
   %102 = landingpad { ptr, i32 }
@@ -3186,7 +3186,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i53: ; preds = %_ZNSt1
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEEaSERKSH_.exit.i59: ; preds = %175
   invoke fastcc void @_ZN3nix8fetchersL10fixupInputERNS0_5InputE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-          to label %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom.exit62" unwind label %184
+          to label %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.exit62" unwind label %184
 
 184:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEEaSERKSH_.exit.i59, %175
   %185 = landingpad { ptr, i32 }
@@ -3384,7 +3384,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3
   store i8 0, ptr %269, align 8
   %270 = load i8, ptr %268, align 8
   %271 = trunc i8 %270 to i1
-  br i1 %271, label %272, label %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom.exit62"
+  br i1 %271, label %272, label %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.exit62"
 
 272:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2EOSH_.exit.i
   %273 = getelementptr inbounds i8, ptr %0, i64 80
@@ -3421,23 +3421,23 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 0, ptr %284, align 8
   store i8 0, ptr %275, align 8
   store i8 1, ptr %269, align 8
-  br label %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom.exit62"
+  br label %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.exit62"
 
-"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom.exit62": ; preds = %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2EOSH_.exit.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEEaSERKSH_.exit.i59
+"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.exit62": ; preds = %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJS5_EEEvDpOT_.exit.i.i.i.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2EOSH_.exit.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEEaSERKSH_.exit.i59
   %286 = load i8, ptr %172, align 8
   %287 = trunc i8 %286 to i1
   br i1 %287, label %288, label %_ZNSt8optionalIN3nix8fetchers5InputEED2Ev.exit68
 
-288:                                              ; preds = %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom.exit62"
+288:                                              ; preds = %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.exit62"
   store i8 0, ptr %172, align 8
   call void @_ZN3nix8fetchers5InputD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %14) #29
   br label %_ZNSt8optionalIN3nix8fetchers5InputEED2Ev.exit68
 
-_ZNSt8optionalIN3nix8fetchers5InputEED2Ev.exit68: ; preds = %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom.exit62", %288
+_ZNSt8optionalIN3nix8fetchers5InputEED2Ev.exit68: ; preds = %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.exit62", %288
   %289 = getelementptr inbounds i8, ptr %11, i64 16
   %290 = load ptr, ptr %289, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %290)
-          to label %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom.exit" unwind label %291
+          to label %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.exit" unwind label %291
 
 291:                                              ; preds = %_ZNSt8optionalIN3nix8fetchers5InputEED2Ev.exit68
   %292 = landingpad { ptr, i32 }
@@ -3451,13 +3451,13 @@ _ZNSt8optionalIN3nix8fetchers5InputEED2Ev.exit:   ; preds = %190, %.body60, %162
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #29
   br label %.body
 
-"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom.exit": ; preds = %_ZNSt8optionalIN3nix8fetchers5InputEED2Ev.exit68, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEEaSERKSH_.exit.i
+"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.exit": ; preds = %_ZNSt8optionalIN3nix8fetchers5InputEED2Ev.exit68, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEEaSERKSH_.exit.i
   %294 = getelementptr inbounds i8, ptr %9, i64 8
   %295 = load ptr, ptr %294, align 8
   %.not.i.i.i69 = icmp eq ptr %295, null
   br i1 %.not.i.i.i69, label %_ZNSt10shared_ptrIN3nix8fetchers11InputSchemeEED2Ev.exit, label %296
 
-296:                                              ; preds = %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom.exit"
+296:                                              ; preds = %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.exit"
   %297 = getelementptr inbounds i8, ptr %295, i64 8
   %298 = load atomic i64, ptr %297 acquire, align 8
   %299 = icmp eq i64 %298, 4294967297
@@ -3525,7 +3525,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %329(ptr noundef nonnull align 8 dereferenceable(16) %295) #29
   br label %_ZNSt10shared_ptrIN3nix8fetchers11InputSchemeEED2Ev.exit
 
-_ZNSt10shared_ptrIN3nix8fetchers11InputSchemeEED2Ev.exit: ; preds = %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom.exit", %312, %325, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i74
+_ZNSt10shared_ptrIN3nix8fetchers11InputSchemeEED2Ev.exit: ; preds = %"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.exit", %312, %325, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i74
   %330 = load ptr, ptr %3, align 8
   %331 = icmp eq ptr %330, %41
   br i1 %331, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75
@@ -5180,7 +5180,7 @@ _ZN3nix3refINS_5StoreEEC2ERKS2_.exit.i:           ; preds = %218, %215, %208
 223:                                              ; preds = %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit.i
   %224 = load ptr, ptr %211, align 8, !noalias !28
   %.not.i.i.i.i12.i = icmp eq ptr %224, null
-  br i1 %.not.i.i.i.i12.i, label %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.argprom.argprom.exit", label %225
+  br i1 %.not.i.i.i.i12.i, label %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.exit", label %225
 
 225:                                              ; preds = %223
   %226 = getelementptr inbounds i8, ptr %224, i64 8
@@ -5216,7 +5216,7 @@ _ZN3nix3refINS_5StoreEEC2ERKS2_.exit.i:           ; preds = %218, %215, %208
 241:                                              ; preds = %239, %237
   %.0.i.i.i.i.i.i = phi i32 [ %229, %237 ], [ %240, %239 ]
   %242 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %242, label %243, label %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.argprom.argprom.exit"
+  br i1 %242, label %243, label %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.exit"
 
 243:                                              ; preds = %241
   %244 = load ptr, ptr %224, align 8
@@ -5241,14 +5241,14 @@ _ZN3nix3refINS_5StoreEEC2ERKS2_.exit.i:           ; preds = %218, %215, %208
 254:                                              ; preds = %252, %249
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %250, %249 ], [ %253, %252 ]
   %255 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %255, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.argprom.argprom.exit"
+  br i1 %255, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %254, %230
   %256 = load ptr, ptr %224, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 24
   %258 = load ptr, ptr %257, align 8
   call void %258(ptr noundef nonnull align 8 dereferenceable(16) %224) #29
-  br label %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.argprom.argprom.exit"
+  br label %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.exit"
 
 259:                                              ; preds = %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit.i
   %260 = landingpad { ptr, i32 }
@@ -5317,7 +5317,7 @@ common.resume:                                    ; preds = %173, %.body143, %68
 280:                                              ; preds = %268
   unreachable
 
-"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.argprom.argprom.exit": ; preds = %223, %241, %254, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
+"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.exit": ; preds = %223, %241, %254, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -5326,7 +5326,7 @@ common.resume:                                    ; preds = %173, %.body143, %68
   invoke void @_ZN3nix5Store13queryPathInfoERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.174") align 8 %29, ptr noundef nonnull align 8 dereferenceable(264) %282, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %283 unwind label %358
 
-283:                                              ; preds = %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.argprom.argprom.exit"
+283:                                              ; preds = %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.exit"
   %284 = load ptr, ptr %29, align 8
   %285 = getelementptr inbounds i8, ptr %284, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull align 8 dereferenceable(80) %285, i64 80, i1 false)
@@ -5502,7 +5502,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   invoke void @__cxa_throw(ptr nonnull %347, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #33
           to label %490 unwind label %374
 
-358:                                              ; preds = %420, %445, %438, %412, %407, %386, %379, %343, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133, %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.argprom.argprom.exit"
+358:                                              ; preds = %420, %445, %438, %412, %407, %386, %379, %343, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133, %"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.exit"
   %359 = landingpad { ptr, i32 }
           cleanup
   br label %.body143
@@ -31303,20 +31303,20 @@ attributes #35 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !15, !"_ZSt16forward_as_tupleIJSt10shared_ptrIN3nix8fetchers11InputSchemeEEEESt5tupleIJDpOT_EES8_: argument 0"}
 !15 = distinct !{!15, !"_ZSt16forward_as_tupleIJSt10shared_ptrIN3nix8fetchers11InputSchemeEEEESt5tupleIJDpOT_EES8_"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom: argument 0"}
-!18 = distinct !{!18, !"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom"}
+!17 = distinct !{!17, !18, !"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv: argument 0"}
+!18 = distinct !{!18, !"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv"}
 !19 = distinct !{!19, !8}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom: argument 0"}
-!22 = distinct !{!22, !"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv.argprom"}
+!21 = distinct !{!21, !22, !"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv: argument 0"}
+!22 = distinct !{!22, !"_ZZN3nix8fetchers5Input9fromAttrsEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS8_mNS_8ExplicitIbEEEESt4lessIS8_ESaISt4pairIKS8_SC_EEEENK3$_0clEv"}
 !23 = distinct !{!23, !8}
 !24 = distinct !{!24, !8}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZN3nix3fmtIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEES6_RKS6_DpRKT_: argument 0"}
 !27 = distinct !{!27, !"_ZN3nix3fmtIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEES6_RKS6_DpRKT_"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.argprom.argprom: argument 0"}
-!30 = distinct !{!30, !"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv.argprom.argprom"}
+!29 = distinct !{!29, !30, !"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv: argument 0"}
+!30 = distinct !{!30, !"_ZZNK3nix8fetchers5Input5fetchENS_3refINS_5StoreEEEENK3$_0clEv"}
 !31 = distinct !{!31, !8}
 !32 = !{!33}
 !33 = distinct !{!33, !34, !"_ZSt16forward_as_tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJDpOT_EES9_: argument 0"}

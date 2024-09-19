@@ -2175,7 +2175,7 @@ define hidden noundef i64 @_ZN10JfrStorage10write_fullEv(ptr nocapture noundef n
   %26 = getelementptr inbounds i8, ptr %22, i64 24
   %27 = call noundef ptr @_ZN27JfrConcurrentLinkedListHostI18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjE8HeadNodeS5_E6removeEPS4_PKS4_S9_b(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, i1 noundef zeroext false)
   %.not.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i, label %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.argprom.exit, label %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i
+  br i1 %.not.i.i, label %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.exit, label %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i
 
 _ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i: ; preds = %21
   %28 = load ptr, ptr %18, align 8
@@ -2189,7 +2189,7 @@ _ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i: ; p
   %36 = getelementptr inbounds i8, ptr %32, i64 40
   call void @_ZNK27JfrConcurrentLinkedListHostI18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjE8HeadNodeS5_E11insert_tailEPS4_S9_S9_PKS4_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %27, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36)
   %37 = icmp eq ptr %31, null
-  br i1 %37, label %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.argprom.exit, label %38
+  br i1 %37, label %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.exit, label %38
 
 38:                                               ; preds = %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i
   %39 = call noundef ptr @_ZNK9JfrBuffer3topEv(ptr noundef nonnull align 8 dereferenceable(48) %31) #16
@@ -2220,14 +2220,14 @@ _ZN18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9R
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
   %53 = getelementptr inbounds i8, ptr %50, i64 40
   %.not.i = icmp eq ptr %52, %53
-  br i1 %.not.i, label %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.argprom.exit, label %21, !llvm.loop !31
+  br i1 %.not.i, label %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.exit, label %21, !llvm.loop !31
 
-_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.argprom.exit: ; preds = %21, %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i, %_ZN18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS2_11JfrCHeapObjE13JfrLinkedListIS2_SA_ELb0EEE21CompositeOperationAndE7processEPS2_.exit.i
+_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.exit: ; preds = %21, %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i, %_ZN18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS2_11JfrCHeapObjE13JfrLinkedListIS2_SA_ELb0EEE21CompositeOperationAndE7processEPS2_.exit.i
   %.1.i = phi i64 [ %.0.i, %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i ], [ %49, %_ZN18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS2_11JfrCHeapObjE13JfrLinkedListIS2_SA_ELb0EEE21CompositeOperationAndE7processEPS2_.exit.i ], [ %.0.i, %21 ]
   %.not = icmp eq i64 %.1.i, 0
   br i1 %.not, label %_ZL3logmmb.exit, label %54
 
-54:                                               ; preds = %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.argprom.exit
+54:                                               ; preds = %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.exit
   %55 = getelementptr inbounds i8, ptr %2, i64 16
   %56 = load i64, ptr %55, align 8
   %57 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -2243,8 +2243,8 @@ _ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunk
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.16, i64 noundef %.1.i, i64 noundef %56, ptr noundef nonnull @.str.18)
   br label %_ZL3logmmb.exit
 
-_ZL3logmmb.exit:                                  ; preds = %60, %58, %54, %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.argprom.exit, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.argprom.exit ], [ %.1.i, %54 ], [ %.1.i, %58 ], [ %.1.i, %60 ]
+_ZL3logmmb.exit:                                  ; preds = %60, %58, %54, %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.exit, %1
+  %.0 = phi i64 [ 0, %1 ], [ 0, %_ZL12process_fullI18CompositeOperationI14MutexedWriteOpI22UnBufferedWriteToChunkI9JfrBufferEE9ReleaseOpI14JfrMemorySpaceI10JfrStorage24JfrMspaceRemoveRetrieval18JfrConcurrentQueueIS3_11JfrCHeapObjE13JfrLinkedListIS3_SB_ELb0EEE21CompositeOperationAndEEmRT_P14JfrFullStorageIPS3_12JfrValueNodeSB_ER17JfrStorageControl.exit ], [ %.1.i, %54 ], [ %.1.i, %58 ], [ %.1.i, %60 ]
   ret i64 %.0
 }
 
@@ -2455,7 +2455,7 @@ define hidden noundef i64 @_ZN10JfrStorage10clear_fullEv(ptr nocapture noundef n
   %19 = getelementptr inbounds i8, ptr %15, i64 24
   %20 = tail call noundef ptr @_ZN27JfrConcurrentLinkedListHostI18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjE8HeadNodeS5_E6removeEPS4_PKS4_S9_b(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i1 noundef zeroext false)
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.argprom.exit, label %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i
+  br i1 %.not.i.i, label %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.exit, label %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i
 
 _ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i: ; preds = %14
   %21 = load ptr, ptr %11, align 8
@@ -2469,7 +2469,7 @@ _ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i: ; p
   %29 = getelementptr inbounds i8, ptr %25, i64 40
   tail call void @_ZNK27JfrConcurrentLinkedListHostI18JfrConcurrentQueueI12JfrValueNodeIP9JfrBufferE11JfrCHeapObjE8HeadNodeS5_E11insert_tailEPS4_S9_S9_PKS4_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %20, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29)
   %30 = icmp eq ptr %24, null
-  br i1 %30, label %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.argprom.exit, label %31
+  br i1 %30, label %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.exit, label %31
 
 31:                                               ; preds = %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i
   %32 = tail call noundef ptr @_ZNK9JfrBuffer3topEv(ptr noundef nonnull align 8 dereferenceable(48) %24) #16
@@ -2497,15 +2497,15 @@ _ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit: ; preds = %31, 
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
   %46 = getelementptr inbounds i8, ptr %43, i64 40
   %.not.i = icmp eq ptr %45, %46
-  br i1 %.not.i, label %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.argprom.exit, label %14, !llvm.loop !34
+  br i1 %.not.i, label %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.exit, label %14, !llvm.loop !34
 
-_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.argprom.exit: ; preds = %14, %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit
+_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.exit: ; preds = %14, %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit
   %.sroa.3.1 = phi i64 [ %.sroa.3.0, %14 ], [ %.sroa.3.0, %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i ], [ %.sroa.3.2, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit ]
   %.1.i = phi i64 [ %.0.i, %14 ], [ %.0.i, %_ZN14JfrFullStorageIP9JfrBuffer12JfrValueNode11JfrCHeapObjE6removeEv.exit.i ], [ %42, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit ]
   %.not = icmp eq i64 %.1.i, 0
   br i1 %.not, label %_ZL3logmmb.exit, label %47
 
-47:                                               ; preds = %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.argprom.exit
+47:                                               ; preds = %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.exit
   %48 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i5 = icmp eq ptr %48, null
   br i1 %.not.i5, label %_ZL3logmmb.exit, label %49
@@ -2519,8 +2519,8 @@ _ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStora
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.16, i64 noundef %.1.i, i64 noundef %.sroa.3.1, ptr noundef nonnull @.str.18)
   br label %_ZL3logmmb.exit
 
-_ZL3logmmb.exit:                                  ; preds = %51, %49, %47, %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.argprom.exit, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.argprom.exit ], [ %.1.i, %47 ], [ %.1.i, %49 ], [ %.1.i, %51 ]
+_ZL3logmmb.exit:                                  ; preds = %51, %49, %47, %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.exit, %1
+  %.0 = phi i64 [ 0, %1 ], [ 0, %_ZL12process_fullI9DiscardOpI16DefaultDiscarderI9JfrBufferEEEmRT_P14JfrFullStorageIPS2_12JfrValueNode11JfrCHeapObjER17JfrStorageControl.exit ], [ %.1.i, %47 ], [ %.1.i, %49 ], [ %.1.i, %51 ]
   ret i64 %.0
 }
 

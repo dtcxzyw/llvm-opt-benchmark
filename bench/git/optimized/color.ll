@@ -707,19 +707,19 @@ if.end162:                                        ; preds = %while.end62, %do.bo
 bad:                                              ; preds = %if.end49, %parse_attr.exit, %for.inc.i
   %37 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i118 = icmp eq i32 %37, 0
-  br i1 %tobool1.not.i118, label %_.argprom.exit, label %if.end3.i
+  br i1 %tobool1.not.i118, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %bad
   %call.i119 = tail call ptr @gettext(ptr noundef nonnull @.str.17) #15
-  br label %_.argprom.exit
+  br label %_.exit
 
-_.argprom.exit:                                   ; preds = %bad, %if.end3.i
+_.exit:                                           ; preds = %bad, %if.end3.i
   %retval.0.i120 = phi ptr [ %call.i119, %if.end3.i ], [ @.str.17, %bad ]
   %call166 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i120, i32 noundef %value_len, ptr noundef %value) #15
   br label %return
 
-return:                                           ; preds = %_.argprom.exit, %if.end162, %if.then
-  %retval.0 = phi i32 [ -1, %_.argprom.exit ], [ 0, %if.end162 ], [ 0, %if.then ]
+return:                                           ; preds = %_.exit, %if.end162, %if.then
+  %retval.0 = phi i32 [ -1, %_.exit ], [ 0, %if.end162 ], [ 0, %if.then ]
   ret i32 %retval.0
 }
 

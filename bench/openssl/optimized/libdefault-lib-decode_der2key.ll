@@ -135,12 +135,12 @@ entry:
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -153,9 +153,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -495,12 +495,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -513,9 +513,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 1
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -541,12 +541,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @type_specific_params_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -559,9 +559,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 2
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -587,12 +587,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @DH_der2dh_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -605,9 +605,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 2
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -633,12 +633,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -651,9 +651,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -679,12 +679,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -697,9 +697,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 1
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -725,12 +725,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @type_specific_params_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -743,9 +743,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 2
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -771,12 +771,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @DHX_der2dhx_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -789,9 +789,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 2
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -817,12 +817,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -835,9 +835,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -863,12 +863,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -881,9 +881,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 1
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -909,12 +909,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @type_specific_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -922,9 +922,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp2.not.i, label %for.cond.i, label %der2key_check_selection.argprom.exit
+  br i1 %cmp2.not.i, label %for.cond.i, label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.body.i, %for.cond.i, %entry
+der2key_check_selection.exit:                     ; preds = %for.body.i, %for.cond.i, %entry
   %retval.0.i = phi i32 [ 1, %entry ], [ 1, %for.body.i ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -950,12 +950,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @DSA_der2dsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -963,9 +963,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp2.not.i, label %for.cond.i, label %der2key_check_selection.argprom.exit
+  br i1 %cmp2.not.i, label %for.cond.i, label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.body.i, %for.cond.i, %entry
+der2key_check_selection.exit:                     ; preds = %for.body.i, %for.cond.i, %entry
   %retval.0.i = phi i32 [ 1, %entry ], [ 1, %for.body.i ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -991,12 +991,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1009,9 +1009,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1037,12 +1037,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1055,9 +1055,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 1
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1083,12 +1083,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @type_specific_no_pub_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1102,9 +1102,9 @@ if.then7.i:                                       ; preds = %for.body.i
   %1 = and i64 %i.01.i, 9223372036854775805
   %cmp5.i = icmp eq i64 %1, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1130,12 +1130,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @EC_der2ec_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1149,9 +1149,9 @@ if.then7.i:                                       ; preds = %for.body.i
   %1 = and i64 %i.01.i, 9223372036854775805
   %cmp5.i = icmp eq i64 %1, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1177,12 +1177,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1195,9 +1195,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1223,12 +1223,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2x25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1241,9 +1241,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 1
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1269,12 +1269,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1287,9 +1287,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1315,12 +1315,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2x448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1333,9 +1333,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 1
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1361,12 +1361,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1379,9 +1379,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1407,12 +1407,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ed25519_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1425,9 +1425,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 1
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1453,12 +1453,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1471,9 +1471,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1499,12 +1499,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2ed448_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1517,9 +1517,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 1
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1545,12 +1545,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2sm2_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1563,9 +1563,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1591,12 +1591,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2sm2_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1609,9 +1609,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 1
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1637,12 +1637,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @type_specific_no_pub_der2sm2_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1656,9 +1656,9 @@ if.then7.i:                                       ; preds = %for.body.i
   %1 = and i64 %i.01.i, 9223372036854775805
   %cmp5.i = icmp eq i64 %1, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1684,12 +1684,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1702,9 +1702,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1730,12 +1730,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1748,9 +1748,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 1
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1776,12 +1776,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @type_specific_keypair_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1794,9 +1794,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp ult i64 %i.01.i, 2
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1822,12 +1822,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @RSA_der2rsa_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1840,9 +1840,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp ult i64 %i.01.i, 2
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1868,12 +1868,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsapss_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1886,9 +1886,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 0
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
@@ -1914,12 +1914,12 @@ der2key_newctx.exit:                              ; preds = %entry, %if.then.i
 define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2rsapss_does_selection(ptr nocapture readnone %provctx, i32 noundef %selection) #1 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
-  br i1 %cmp.i, label %der2key_check_selection.argprom.exit, label %for.body.i
+  br i1 %cmp.i, label %der2key_check_selection.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.01.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %der2key_check_selection.argprom.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %der2key_check_selection.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
@@ -1932,9 +1932,9 @@ for.body.i:                                       ; preds = %entry, %for.cond.i
 if.then7.i:                                       ; preds = %for.body.i
   %cmp5.i = icmp eq i64 %i.01.i, 1
   %conv6.i = zext i1 %cmp5.i to i32
-  br label %der2key_check_selection.argprom.exit
+  br label %der2key_check_selection.exit
 
-der2key_check_selection.argprom.exit:             ; preds = %for.cond.i, %entry, %if.then7.i
+der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry, %if.then7.i
   %retval.0.i = phi i32 [ %conv6.i, %if.then7.i ], [ 1, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }

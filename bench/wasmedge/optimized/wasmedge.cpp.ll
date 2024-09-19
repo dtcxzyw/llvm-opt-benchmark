@@ -5469,7 +5469,7 @@ define i32 @WasmEdge_CompilerCompile(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %2, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ24WasmEdge_CompilerCompileE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %19
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ24WasmEdge_CompilerCompileE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %19
 
 19:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
@@ -5599,16 +5599,16 @@ _ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit.i.i
   store i8 0, ptr %13, align 4, !alias.scope !75, !noalias !40
   %58 = getelementptr inbounds i8, ptr %13, i64 4
   store i32 %56, ptr %58, align 4, !alias.scope !75, !noalias !40
-  br label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i"
+  br label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i"
 
 "_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.i.i": ; preds = %_ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i
   %.val.pre.i.i = load i8, ptr %13, align 4, !noalias !40
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %13, i64 4
   %.val12.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !noalias !40
   %59 = trunc i8 %.val.pre.i.i to i1
-  br i1 %59, label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i.i", label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i"
+  br i1 %59, label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i.i", label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i"
 
-"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i": ; preds = %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.i.i", %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.thread.i.i"
+"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i": ; preds = %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.i.i", %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.thread.i.i"
   %.val1271.i.i = phi i32 [ %56, %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.thread.i.i" ], [ %.val12.pre.i.i, %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.i.i" ]
   %.sroa.0.05470.i.i = phi ptr [ %.sroa.0.055.i.i, %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.thread.i.i" ], [ %33, %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.i.i" ]
   %.sroa.10.05866.i.i = phi i64 [ %.sroa.10.059.i.i, %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.thread.i.i" ], [ %48, %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.i.i" ]
@@ -5618,20 +5618,20 @@ _ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit.i.i
   store i32 %.val1271.i.i, ptr %61, align 8, !alias.scope !76, !noalias !40
   br label %75
 
-"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i.i": ; preds = %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.i.i"
+"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i.i": ; preds = %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E0_EEDaOSC_.exit.i.i"
   call void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST6ModuleE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1885") align 8 %12, ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(705) %51) #38, !noalias !40
   %.pre49.i.i = load i8, ptr %12, align 8, !noalias !40
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %62 = trunc i8 %.pre49.i.i to i1
   %63 = getelementptr inbounds i8, ptr %12, i64 8
-  br i1 %62, label %64, label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i"
+  br i1 %62, label %64, label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i"
 
-"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i": ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i.i"
+"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i": ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i.i"
   %.pre2.i = load i32, ptr %63, align 8, !noalias !87
   br label %75
 
-64:                                               ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i.i"
+64:                                               ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6), !noalias !88
   call void @_ZN8WasmEdge4LLVM4DataC1EOS1_(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) %63) #38, !noalias !93
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4), !noalias !93
@@ -5685,13 +5685,13 @@ _ZNSt10filesystem7__cxx114pathC2ERKS1_.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc.i
   %.pre50.i.i = load i8, ptr %12, align 8, !noalias !40
   br label %"_ZNO5cxx208expectedIN8WasmEdge4LLVM4DataENS1_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E1_EEDaOS8_.exit.i.i"
 
-75:                                               ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i", %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i"
-  %76 = phi i32 [ %.val1271.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i" ], [ %.pre2.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i" ]
-  %77 = phi ptr [ %61, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i" ], [ %63, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i" ]
-  %78 = phi i8 [ 0, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i" ], [ %.pre49.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i" ]
-  %79 = phi ptr [ %60, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i" ], [ %49, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i" ]
-  %.sroa.10.0586578.i.i = phi i64 [ %.sroa.10.05866.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i" ], [ %48, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i" ]
-  %.sroa.0.0546976.i.i = phi ptr [ %.sroa.0.05470.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i" ], [ %33, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i" ]
+75:                                               ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i", %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i"
+  %76 = phi i32 [ %.val1271.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i" ], [ %.pre2.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i" ]
+  %77 = phi ptr [ %61, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i" ], [ %63, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i" ]
+  %78 = phi i8 [ 0, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i" ], [ %.pre49.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i" ]
+  %79 = phi ptr [ %60, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i" ], [ %49, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i" ]
+  %.sroa.10.0586578.i.i = phi i64 [ %.sroa.10.05866.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i" ], [ %48, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i" ]
+  %.sroa.0.0546976.i.i = phi ptr [ %.sroa.0.05470.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i" ], [ %33, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i" ]
   store i8 0, ptr %16, align 4, !alias.scope !87
   %80 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %76, ptr %80, align 4, !alias.scope !87
@@ -5834,12 +5834,12 @@ _ZNSt6vectorIhSaIhEED2Ev.exit28.i.i:              ; preds = %_ZNSt10filesystem7_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   %119 = load i8, ptr %16, align 4
   %120 = trunc i8 %119 to i1
-  br i1 %120, label %"_ZN12_GLOBAL__N_14wrapIZ24WasmEdge_CompilerCompileE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %121
+  br i1 %120, label %"_ZN12_GLOBAL__N_14wrapIZ24WasmEdge_CompilerCompileE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %121
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds i8, ptr %16, i64 4
   %.val4.i = load i32, ptr %122, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ24WasmEdge_CompilerCompileE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ24WasmEdge_CompilerCompileE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 123:                                              ; preds = %19
   %124 = landingpad { ptr, i32 }
@@ -5852,7 +5852,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit28.i.i:              ; preds = %_ZNSt10filesystem7_
   call void @__clang_call_terminate(ptr %125) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ24WasmEdge_CompilerCompileE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %3, %118, %121
+"_ZN12_GLOBAL__N_14wrapIZ24WasmEdge_CompilerCompileE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %3, %118, %121
   %.sroa.0.0.i = phi i32 [ %.val4.i, %121 ], [ 0, %118 ], [ 4, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   ret i32 %.sroa.0.0.i
@@ -5881,7 +5881,7 @@ define i32 @WasmEdge_CompilerCompileFromBytes(ptr noundef %0, i32 %1, ptr %2, pt
   store ptr %3, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_CompilerCompileFromBytesE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %16
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_CompilerCompileFromBytesE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %16
 
 16:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
@@ -5950,36 +5950,36 @@ _ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit.i.i
   %33 = getelementptr inbounds i8, ptr %12, i64 4
   %34 = load i32, ptr %26, align 8, !noalias !108
   store i32 %34, ptr %33, align 4, !alias.scope !119, !noalias !99
-  br label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i"
+  br label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i"
 
 "_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E_EEDaOSC_.exit.i.i": ; preds = %_ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i.i
   %.val.pre.i.i = load i8, ptr %12, align 4, !noalias !99
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %12, i64 4
   %.val8.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !noalias !99
   %35 = trunc i8 %.val.pre.i.i to i1
-  br i1 %35, label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i.i", label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i"
+  br i1 %35, label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.i.i", label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i"
 
-"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i": ; preds = %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E_EEDaOSC_.exit.i.i", %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E_EEDaOSC_.exit.thread.i.i"
+"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i": ; preds = %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E_EEDaOSC_.exit.i.i", %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E_EEDaOSC_.exit.thread.i.i"
   %.val833.i.i = phi i32 [ %34, %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E_EEDaOSC_.exit.thread.i.i" ], [ %.val8.pre.i.i, %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E_EEDaOSC_.exit.i.i" ]
   store i8 0, ptr %11, align 8, !alias.scope !120, !noalias !99
   %36 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 %.val833.i.i, ptr %36, align 8, !alias.scope !120, !noalias !99
   br label %50
 
-"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i.i": ; preds = %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E_EEDaOSC_.exit.i.i"
+"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.i.i": ; preds = %"_ZNO5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E_EEDaOSC_.exit.i.i"
   call void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST6ModuleE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1885") align 8 %11, ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(705) %28) #38, !noalias !99
   %.pre29.i.i = load i8, ptr %11, align 8, !noalias !99
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %37 = trunc i8 %.pre29.i.i to i1
   %38 = getelementptr inbounds i8, ptr %11, i64 8
-  br i1 %37, label %39, label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i"
+  br i1 %37, label %39, label %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i"
 
-"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i": ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i.i"
+"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i": ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.i.i"
   %.pre.i = load i32, ptr %38, align 8, !noalias !131
   br label %50
 
-39:                                               ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i.i"
+39:                                               ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %7), !noalias !132
   call void @_ZN8WasmEdge4LLVM4DataC1EOS1_(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) %38) #38, !noalias !137
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5), !noalias !137
@@ -6033,10 +6033,10 @@ _ZNSt10filesystem7__cxx114pathC2ERKS1_.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc.i
   %.pre30.i.i = load i8, ptr %11, align 8, !noalias !99
   br label %"_ZNO5cxx208expectedIN8WasmEdge4LLVM4DataENS1_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E0_EEDaOS8_.exit.i.i"
 
-50:                                               ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i", %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i"
-  %51 = phi i32 [ %.val833.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i" ], [ %.pre.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i" ]
-  %52 = phi ptr [ %36, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i" ], [ %38, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i" ]
-  %53 = phi i8 [ 0, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.thread.i.i" ], [ %.pre29.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom.exit.i._crit_edge.i" ]
+50:                                               ; preds = %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i", %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i"
+  %51 = phi i32 [ %.val833.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i" ], [ %.pre.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i" ]
+  %52 = phi ptr [ %36, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i" ], [ %38, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i" ]
+  %53 = phi i8 [ 0, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.thread.i.i" ], [ %.pre29.i.i, %"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.exit.i._crit_edge.i" ]
   store i8 0, ptr %14, align 4, !alias.scope !131
   %54 = getelementptr inbounds i8, ptr %14, i64 4
   store i32 %51, ptr %54, align 4, !alias.scope !131
@@ -6119,12 +6119,12 @@ _ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EED2Ev.exit.i.i: ;
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %73 = load i8, ptr %14, align 4
   %74 = trunc i8 %73 to i1
-  br i1 %74, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_CompilerCompileFromBytesE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %75
+  br i1 %74, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_CompilerCompileFromBytesE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %75
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds i8, ptr %14, i64 4
   %.val4.i = load i32, ptr %76, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_CompilerCompileFromBytesE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_CompilerCompileFromBytesE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 77:                                               ; preds = %16
   %78 = landingpad { ptr, i32 }
@@ -6137,7 +6137,7 @@ _ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EED2Ev.exit.i.i: ;
   call void @__clang_call_terminate(ptr %79) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_CompilerCompileFromBytesE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %4, %72, %75
+"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_CompilerCompileFromBytesE3$_0RNS_4$_10EJ24WasmEdge_CompilerContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %4, %72, %75
   %.sroa.0.0.i = phi i32 [ %.val4.i, %75 ], [ 0, %72 ], [ 4, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   ret i32 %.sroa.0.0.i
@@ -6505,7 +6505,7 @@ define i32 @WasmEdge_LoaderParseFromFile(ptr noundef %0, ptr noundef writeonly %
   %8 = icmp ne ptr %0, null
   %9 = icmp ne ptr %1, null
   %spec.select.i.i = and i1 %8, %9
-  br i1 %spec.select.i.i, label %10, label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_LoaderParseFromFileE3$_0Z28WasmEdge_LoaderParseFromFileE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br i1 %spec.select.i.i, label %10, label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_LoaderParseFromFileE3$_0Z28WasmEdge_LoaderParseFromFileE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -6571,12 +6571,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %15, %12
 
 28:                                               ; preds = %24
   %.val5.i = load i32, ptr %27, align 8
-  br label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_LoaderParseFromFileE3$_0Z28WasmEdge_LoaderParseFromFileE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_LoaderParseFromFileE3$_0Z28WasmEdge_LoaderParseFromFileE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %27, align 8
   store ptr %30, ptr %1, align 8
-  br label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_LoaderParseFromFileE3$_0Z28WasmEdge_LoaderParseFromFileE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_LoaderParseFromFileE3$_0Z28WasmEdge_LoaderParseFromFileE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 31:                                               ; preds = %10
   %32 = landingpad { ptr, i32 }
@@ -6589,7 +6589,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %15, %12
   call void @__clang_call_terminate(ptr %33) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_LoaderParseFromFileE3$_0Z28WasmEdge_LoaderParseFromFileE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %29, %28, %3
+"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_LoaderParseFromFileE3$_0Z28WasmEdge_LoaderParseFromFileE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %29, %28, %3
   %.sroa.0.1.i = phi i32 [ %.val5.i, %28 ], [ 4, %3 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret i32 %.sroa.0.1.i
@@ -6611,19 +6611,19 @@ define i32 @WasmEdge_LoaderParseFromBuffer(ptr noundef %0, ptr noundef writeonly
   %spec.select.i.i.i.i = select i1 %.not8.i.i.i.i, ptr null, ptr %2
   %spec.select7.i.i.i.i = select i1 %.not.i.i.i.i, i64 0, i64 %9
   invoke void @_ZN8WasmEdge6Loader6Loader11parseModuleEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1906") align 8 %5, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr %spec.select.i.i.i.i, i64 %spec.select7.i.i.i.i)
-          to label %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.argprom.argprom.exit.i.i" unwind label %16
+          to label %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i.i" unwind label %16
 
-"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.argprom.argprom.exit.i.i": ; preds = %8
+"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i.i": ; preds = %8
   %10 = load i8, ptr %5, align 8
   %11 = trunc i8 %10 to i1
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %11, label %14, label %13
 
-13:                                               ; preds = %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.argprom.argprom.exit.i.i"
+13:                                               ; preds = %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i.i"
   %.val5.i.i = load i32, ptr %12, align 8
   br label %WasmEdge_LoaderParseFromBytes.exit
 
-14:                                               ; preds = %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.argprom.argprom.exit.i.i"
+14:                                               ; preds = %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i.i"
   %15 = load ptr, ptr %12, align 8
   store ptr %15, ptr %1, align 8
   br label %WasmEdge_LoaderParseFromBytes.exit
@@ -6648,7 +6648,7 @@ define i32 @WasmEdge_LoaderParseFromBytes(ptr noundef %0, ptr noundef writeonly 
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %spec.select.i.i = and i1 %6, %7
-  br i1 %spec.select.i.i, label %8, label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_LoaderParseFromBytesE3$_0Z29WasmEdge_LoaderParseFromBytesE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br i1 %spec.select.i.i, label %8, label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_LoaderParseFromBytesE3$_0Z29WasmEdge_LoaderParseFromBytesE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 8:                                                ; preds = %4
   %.not.i.i.i = icmp eq ptr %3, null
@@ -6657,22 +6657,22 @@ define i32 @WasmEdge_LoaderParseFromBytes(ptr noundef %0, ptr noundef writeonly 
   %spec.select.i.i.i = select i1 %.not8.i.i.i, ptr null, ptr %3
   %spec.select7.i.i.i = select i1 %.not.i.i.i, i64 0, i64 %9
   invoke void @_ZN8WasmEdge6Loader6Loader11parseModuleEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1906") align 8 %5, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr %spec.select.i.i.i, i64 %spec.select7.i.i.i)
-          to label %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.argprom.argprom.exit.i" unwind label %16
+          to label %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i" unwind label %16
 
-"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.argprom.argprom.exit.i": ; preds = %8
+"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i": ; preds = %8
   %10 = load i8, ptr %5, align 8
   %11 = trunc i8 %10 to i1
   %12 = getelementptr inbounds i8, ptr %5, i64 8
   br i1 %11, label %14, label %13
 
-13:                                               ; preds = %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.argprom.argprom.exit.i"
+13:                                               ; preds = %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i"
   %.val5.i = load i32, ptr %12, align 8
-  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_LoaderParseFromBytesE3$_0Z29WasmEdge_LoaderParseFromBytesE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_LoaderParseFromBytesE3$_0Z29WasmEdge_LoaderParseFromBytesE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
-14:                                               ; preds = %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.argprom.argprom.exit.i"
+14:                                               ; preds = %"_ZZ29WasmEdge_LoaderParseFromBytesENK3$_0clEv.exit.i"
   %15 = load ptr, ptr %12, align 8
   store ptr %15, ptr %1, align 8
-  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_LoaderParseFromBytesE3$_0Z29WasmEdge_LoaderParseFromBytesE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_LoaderParseFromBytesE3$_0Z29WasmEdge_LoaderParseFromBytesE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 16:                                               ; preds = %8
   %17 = landingpad { ptr, i32 }
@@ -6681,7 +6681,7 @@ define i32 @WasmEdge_LoaderParseFromBytes(ptr noundef %0, ptr noundef writeonly 
   call void @__clang_call_terminate(ptr %18) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_LoaderParseFromBytesE3$_0Z29WasmEdge_LoaderParseFromBytesE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %14, %13, %4
+"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_LoaderParseFromBytesE3$_0Z29WasmEdge_LoaderParseFromBytesE3$_1J22WasmEdge_LoaderContextP25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %14, %13, %4
   %.sroa.0.1.i = phi i32 [ %.val5.i, %13 ], [ 4, %4 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret i32 %.sroa.0.1.i
@@ -6692,25 +6692,25 @@ define i32 @WasmEdge_LoaderSerializeASTModule(ptr noundef %0, ptr noundef %1, pt
   %4 = alloca %"class.cxx20::expected.1919", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %.not.i.i = icmp eq ptr %0, null
-  br i1 %.not.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %_ZN12_GLOBAL__N_19isContextI22WasmEdge_LoaderContextJK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEEbPT_DpPT0_.exit.i
+  br i1 %.not.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %_ZN12_GLOBAL__N_19isContextI22WasmEdge_LoaderContextJK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEEbPT_DpPT0_.exit.i
 
 _ZN12_GLOBAL__N_19isContextI22WasmEdge_LoaderContextJK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEEbPT_DpPT0_.exit.i: ; preds = %3
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %spec.select.i.i.i = and i1 %5, %6
-  br i1 %spec.select.i.i.i, label %7, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br i1 %spec.select.i.i.i, label %7, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 7:                                                ; preds = %_ZN12_GLOBAL__N_19isContextI22WasmEdge_LoaderContextJK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEEbPT_DpPT0_.exit.i
   invoke void @_ZN8WasmEdge6Loader6Loader15serializeModuleERKNS_3AST6ModuleE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1919") align 8 %4, ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(705) %1)
-          to label %"_ZZ33WasmEdge_LoaderSerializeASTModuleENK3$_0clEv.argprom.argprom.exit.i" unwind label %28
+          to label %"_ZZ33WasmEdge_LoaderSerializeASTModuleENK3$_0clEv.exit.i" unwind label %28
 
-"_ZZ33WasmEdge_LoaderSerializeASTModuleENK3$_0clEv.argprom.argprom.exit.i": ; preds = %7
+"_ZZ33WasmEdge_LoaderSerializeASTModuleENK3$_0clEv.exit.i": ; preds = %7
   %8 = load i8, ptr %4, align 8
   %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   br i1 %9, label %11, label %20
 
-11:                                               ; preds = %"_ZZ33WasmEdge_LoaderSerializeASTModuleENK3$_0clEv.argprom.argprom.exit.i"
+11:                                               ; preds = %"_ZZ33WasmEdge_LoaderSerializeASTModuleENK3$_0clEv.exit.i"
   %.val9.i = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 16
   %.val10.i = load ptr, ptr %12, align 8
@@ -6730,16 +6730,16 @@ _ZSt8__copy_nIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEjS2_ET1_T_T0_S
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %.val9.i, i64 %17, i1 false)
   br label %21
 
-20:                                               ; preds = %"_ZZ33WasmEdge_LoaderSerializeASTModuleENK3$_0clEv.argprom.argprom.exit.i"
+20:                                               ; preds = %"_ZZ33WasmEdge_LoaderSerializeASTModuleENK3$_0clEv.exit.i"
   %.val6.i = load i32, ptr %10, align 8
-  br label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 21:                                               ; preds = %.noexc.i, %_ZSt8__copy_nIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEjS2_ET1_T_T0_S7_St26random_access_iterator_tag.exit.i.i.i
   store i32 %16, ptr %2, align 8
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %18, ptr %22, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val9.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %23
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %4, i64 24
@@ -6747,7 +6747,7 @@ _ZSt8__copy_nIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEjS2_ET1_T_T0_S
   %26 = ptrtoint ptr %25 to i64
   %27 = sub i64 %26, %14
   call void @_ZdlPvm(ptr noundef nonnull %.val9.i, i64 noundef %27) #37
-  br label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 28:                                               ; preds = %11, %7
   %29 = landingpad { ptr, i32 }
@@ -6756,7 +6756,7 @@ _ZSt8__copy_nIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEjS2_ET1_T_T0_S
   call void @__clang_call_terminate(ptr %30) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %20, %3, %_ZN12_GLOBAL__N_19isContextI22WasmEdge_LoaderContextJK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEEbPT_DpPT0_.exit.i, %21, %23
+"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_LoaderSerializeASTModuleE3$_0Z33WasmEdge_LoaderSerializeASTModuleE3$_1J22WasmEdge_LoaderContextK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %20, %3, %_ZN12_GLOBAL__N_19isContextI22WasmEdge_LoaderContextJK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEEbPT_DpPT0_.exit.i, %21, %23
   %.sroa.0.1.i = phi i32 [ %.val6.i, %20 ], [ 0, %21 ], [ 0, %23 ], [ 4, %_ZN12_GLOBAL__N_19isContextI22WasmEdge_LoaderContextJK25WasmEdge_ASTModuleContext14WasmEdge_BytesEEEbPT_DpPT0_.exit.i ], [ 4, %3 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret i32 %.sroa.0.1.i
@@ -7002,21 +7002,21 @@ define i32 @WasmEdge_ValidatorValidate(ptr noundef %0, ptr noundef %1) local_unn
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %spec.select.i.i = and i1 %4, %5
-  br i1 %spec.select.i.i, label %6, label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_ValidatorValidateE3$_0RNS_4$_10EJ25WasmEdge_ValidatorContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br i1 %spec.select.i.i, label %6, label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_ValidatorValidateE3$_0RNS_4$_10EJ25WasmEdge_ValidatorContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 6:                                                ; preds = %2
   invoke void @_ZN8WasmEdge9Validator9Validator8validateERKNS_3AST6ModuleE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.737") align 4 %3, ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(705) %1)
-          to label %"_ZZ26WasmEdge_ValidatorValidateENK3$_0clEv.argprom.argprom.exit.i" unwind label %11
+          to label %"_ZZ26WasmEdge_ValidatorValidateENK3$_0clEv.exit.i" unwind label %11
 
-"_ZZ26WasmEdge_ValidatorValidateENK3$_0clEv.argprom.argprom.exit.i": ; preds = %6
+"_ZZ26WasmEdge_ValidatorValidateENK3$_0clEv.exit.i": ; preds = %6
   %7 = load i8, ptr %3, align 4
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_ValidatorValidateE3$_0RNS_4$_10EJ25WasmEdge_ValidatorContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %9
+  br i1 %8, label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_ValidatorValidateE3$_0RNS_4$_10EJ25WasmEdge_ValidatorContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %9
 
-9:                                                ; preds = %"_ZZ26WasmEdge_ValidatorValidateENK3$_0clEv.argprom.argprom.exit.i"
+9:                                                ; preds = %"_ZZ26WasmEdge_ValidatorValidateENK3$_0clEv.exit.i"
   %10 = getelementptr inbounds i8, ptr %3, i64 4
   %.val5.i = load i32, ptr %10, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_ValidatorValidateE3$_0RNS_4$_10EJ25WasmEdge_ValidatorContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_ValidatorValidateE3$_0RNS_4$_10EJ25WasmEdge_ValidatorContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
@@ -7025,8 +7025,8 @@ define i32 @WasmEdge_ValidatorValidate(ptr noundef %0, ptr noundef %1) local_unn
   call void @__clang_call_terminate(ptr %13) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_ValidatorValidateE3$_0RNS_4$_10EJ25WasmEdge_ValidatorContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %2, %"_ZZ26WasmEdge_ValidatorValidateENK3$_0clEv.argprom.argprom.exit.i", %9
-  %.sroa.0.0.i = phi i32 [ %.val5.i, %9 ], [ 0, %"_ZZ26WasmEdge_ValidatorValidateENK3$_0clEv.argprom.argprom.exit.i" ], [ 4, %2 ]
+"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_ValidatorValidateE3$_0RNS_4$_10EJ25WasmEdge_ValidatorContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %2, %"_ZZ26WasmEdge_ValidatorValidateENK3$_0clEv.exit.i", %9
+  %.sroa.0.0.i = phi i32 [ %.val5.i, %9 ], [ 0, %"_ZZ26WasmEdge_ValidatorValidateENK3$_0clEv.exit.i" ], [ 4, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i32 %.sroa.0.0.i
 }
@@ -7494,13 +7494,13 @@ define i32 @WasmEdge_ExecutorRegisterImport(ptr noundef %0, ptr noundef %1, ptr 
   %4 = alloca %"class.cxx20::expected.737", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %.not.i.i = icmp eq ptr %0, null
-  br i1 %.not.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_ExecutorRegisterImportE3$_0RNS_4$_10EJ24WasmEdge_ExecutorContext21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %_ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJ21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEEbPT_DpPT0_.exit.i
+  br i1 %.not.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_ExecutorRegisterImportE3$_0RNS_4$_10EJ24WasmEdge_ExecutorContext21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %_ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJ21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEEbPT_DpPT0_.exit.i
 
 _ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJ21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEEbPT_DpPT0_.exit.i: ; preds = %3
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %spec.select.i.i.i = and i1 %5, %6
-  br i1 %spec.select.i.i.i, label %7, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_ExecutorRegisterImportE3$_0RNS_4$_10EJ24WasmEdge_ExecutorContext21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br i1 %spec.select.i.i.i, label %7, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_ExecutorRegisterImportE3$_0RNS_4$_10EJ24WasmEdge_ExecutorContext21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 7:                                                ; preds = %_ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJ21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEEbPT_DpPT0_.exit.i
   invoke void @_ZN8WasmEdge8Executor8Executor14registerModuleERNS_7Runtime12StoreManagerERKNS2_8Instance14ModuleInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.737") align 4 %4, ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(920) %2)
@@ -7509,12 +7509,12 @@ _ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJ21WasmEdge_StoreContextK3
 "_ZZ31WasmEdge_ExecutorRegisterImportENK3$_0clEv.exit.i": ; preds = %7
   %8 = load i8, ptr %4, align 4
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_ExecutorRegisterImportE3$_0RNS_4$_10EJ24WasmEdge_ExecutorContext21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %10
+  br i1 %9, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_ExecutorRegisterImportE3$_0RNS_4$_10EJ24WasmEdge_ExecutorContext21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %10
 
 10:                                               ; preds = %"_ZZ31WasmEdge_ExecutorRegisterImportENK3$_0clEv.exit.i"
   %11 = getelementptr inbounds i8, ptr %4, i64 4
   %.val6.i = load i32, ptr %11, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_ExecutorRegisterImportE3$_0RNS_4$_10EJ24WasmEdge_ExecutorContext21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_ExecutorRegisterImportE3$_0RNS_4$_10EJ24WasmEdge_ExecutorContext21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 12:                                               ; preds = %7
   %13 = landingpad { ptr, i32 }
@@ -7523,7 +7523,7 @@ _ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJ21WasmEdge_StoreContextK3
   call void @__clang_call_terminate(ptr %14) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_ExecutorRegisterImportE3$_0RNS_4$_10EJ24WasmEdge_ExecutorContext21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %3, %_ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJ21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEEbPT_DpPT0_.exit.i, %"_ZZ31WasmEdge_ExecutorRegisterImportENK3$_0clEv.exit.i", %10
+"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_ExecutorRegisterImportE3$_0RNS_4$_10EJ24WasmEdge_ExecutorContext21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %3, %_ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJ21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEEbPT_DpPT0_.exit.i, %"_ZZ31WasmEdge_ExecutorRegisterImportENK3$_0clEv.exit.i", %10
   %.sroa.0.0.i = phi i32 [ %.val6.i, %10 ], [ 0, %"_ZZ31WasmEdge_ExecutorRegisterImportENK3$_0clEv.exit.i" ], [ 4, %_ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJ21WasmEdge_StoreContextK30WasmEdge_ModuleInstanceContextEEEbPT_DpPT0_.exit.i ], [ 4, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i32 %.sroa.0.0.i
@@ -7569,7 +7569,7 @@ define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef 
   %30 = load i8, ptr %8, align 8
   %31 = trunc i8 %30 to i1
   %32 = getelementptr inbounds i8, ptr %8, i64 8
-  br i1 %31, label %33, label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8"
+  br i1 %31, label %33, label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8"
 
 33:                                               ; preds = %29
   %.val8.i = load ptr, ptr %32, align 8
@@ -7582,7 +7582,7 @@ define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef 
   %39 = icmp ne ptr %4, null
   %40 = icmp ne i32 %5, 0
   %or.cond.i.i.i = and i1 %39, %40
-  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread"
+  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread"
 
 .lr.ph.preheader.i.i.i:                           ; preds = %33
   %wide.trip.count.i.i.i = zext i32 %5 to i64
@@ -7591,7 +7591,7 @@ define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph.i.i.i:                                     ; preds = %41, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %41 ]
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %38
-  br i1 %exitcond.not.i.i.i, label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread", label %41
+  br i1 %exitcond.not.i.i.i, label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", label %41
 
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds %"struct.std::pair.1955", ptr %.val8.i, i64 %indvars.iv.i.i.i
@@ -7604,17 +7604,17 @@ define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i64 %.val10.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond17.not.i.i.i, label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
+  br i1 %exitcond17.not.i.i.i, label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8": ; preds = %29
+"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8": ; preds = %29
   %.val5.i = load i32, ptr %32, align 8
   br label %"_ZN12_GLOBAL__N_14wrapIZ23WasmEdge_ExecutorInvokeE3$_0Z23WasmEdge_ExecutorInvokeE3$_1J24WasmEdge_ExecutorContextK32WasmEdge_FunctionInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
-"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread": ; preds = %.lr.ph.i.i.i, %33
+"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread": ; preds = %.lr.ph.i.i.i, %33
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ23WasmEdge_ExecutorInvokeE3$_0Z23WasmEdge_ExecutorInvokeE3$_1J24WasmEdge_ExecutorContextK32WasmEdge_FunctionInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread"
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ23WasmEdge_ExecutorInvokeE3$_0Z23WasmEdge_ExecutorInvokeE3$_1J24WasmEdge_ExecutorContextK32WasmEdge_FunctionInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
 
-"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread": ; preds = %41, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread"
+"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread": ; preds = %41, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread"
   %45 = getelementptr inbounds i8, ptr %8, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
@@ -7629,8 +7629,8 @@ define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef 
   call void @__clang_call_terminate(ptr %51) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ23WasmEdge_ExecutorInvokeE3$_0Z23WasmEdge_ExecutorInvokeE3$_1J24WasmEdge_ExecutorContextK32WasmEdge_FunctionInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8", %6, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread", %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread"
-  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread" ], [ 0, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread" ], [ 4, %6 ], [ %.val5.i, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8" ]
+"_ZN12_GLOBAL__N_14wrapIZ23WasmEdge_ExecutorInvokeE3$_0Z23WasmEdge_ExecutorInvokeE3$_1J24WasmEdge_ExecutorContextK32WasmEdge_FunctionInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8", %6, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
+  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %6 ], [ %.val5.i, %"_ZZ23WasmEdge_ExecutorInvokeENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %52 = getelementptr inbounds i8, ptr %9, i64 24
   %53 = load ptr, ptr %52, align 8
@@ -11867,7 +11867,7 @@ define i32 @WasmEdge_TableInstanceGetData(ptr noundef %0, ptr noundef writeonly 
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %spec.select.i.i = and i1 %5, %6
-  br i1 %spec.select.i.i, label %7, label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceGetDataE3$_0Z29WasmEdge_TableInstanceGetDataE3$_1JK29WasmEdge_TableInstanceContext14WasmEdge_ValueEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br i1 %spec.select.i.i, label %7, label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceGetDataE3$_0Z29WasmEdge_TableInstanceGetDataE3$_1JK29WasmEdge_TableInstanceContext14WasmEdge_ValueEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 7:                                                ; preds = %3
   call void @_ZNK8WasmEdge7Runtime8Instance13TableInstance10getRefAddrEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1981") align 16 %4, ptr noundef nonnull align 16 dereferenceable(64) %0, i32 noundef %2) #38
@@ -11882,14 +11882,14 @@ define i32 @WasmEdge_TableInstanceGetData(ptr noundef %0, ptr noundef writeonly 
   store i128 %.sroa.0.0.copyload.i.i, ptr %1, align 16
   %.sroa.2.0..0.val.0.val.sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %.val9.val.val.i, ptr %.sroa.2.0..0.val.0.val.sroa_idx.i.i, align 16
-  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceGetDataE3$_0Z29WasmEdge_TableInstanceGetDataE3$_1JK29WasmEdge_TableInstanceContext14WasmEdge_ValueEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceGetDataE3$_0Z29WasmEdge_TableInstanceGetDataE3$_1JK29WasmEdge_TableInstanceContext14WasmEdge_ValueEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %4, i64 16
   %.val5.i = load i32, ptr %13, align 16
-  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceGetDataE3$_0Z29WasmEdge_TableInstanceGetDataE3$_1JK29WasmEdge_TableInstanceContext14WasmEdge_ValueEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceGetDataE3$_0Z29WasmEdge_TableInstanceGetDataE3$_1JK29WasmEdge_TableInstanceContext14WasmEdge_ValueEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
-"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceGetDataE3$_0Z29WasmEdge_TableInstanceGetDataE3$_1JK29WasmEdge_TableInstanceContext14WasmEdge_ValueEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %3, %10, %12
+"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceGetDataE3$_0Z29WasmEdge_TableInstanceGetDataE3$_1JK29WasmEdge_TableInstanceContext14WasmEdge_ValueEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %3, %10, %12
   %.sroa.0.0.i = phi i32 [ 0, %10 ], [ %.val5.i, %12 ], [ 4, %3 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret i32 %.sroa.0.0.i
@@ -11907,7 +11907,7 @@ define i32 @WasmEdge_TableInstanceSetData(ptr noundef %0, ptr nocapture noundef 
   %11 = alloca %"class.cxx20::expected.737", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceSetDataE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %12
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceSetDataE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %12
 
 12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -12080,7 +12080,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit4.i.i.i: ; preds = %43, %_ZNSt6
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceSetDataE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceSetDataE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 66:                                               ; preds = %65
   %.pre.i = load i8, ptr %11, align 4
@@ -12089,12 +12089,12 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit4.i.i.i: ; preds = %43, %_ZNSt6
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br i1 %67, label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceSetDataE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %._crit_edge
+  br i1 %67, label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceSetDataE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %._crit_edge
 
 ._crit_edge:                                      ; preds = %66
   %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 4
   %.val4.i.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceSetDataE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceSetDataE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 68:                                               ; preds = %65, %.noexc6.i, %63, %.noexc.i, %18
   %69 = landingpad { ptr, i32 }
@@ -12107,7 +12107,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit4.i.i.i: ; preds = %43, %_ZNSt6
   call void @__clang_call_terminate(ptr %70) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceSetDataE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %.thread.i, %._crit_edge, %3, %66
+"_ZN12_GLOBAL__N_14wrapIZ29WasmEdge_TableInstanceSetDataE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %.thread.i, %._crit_edge, %3, %66
   %.sroa.0.0.i = phi i32 [ 0, %66 ], [ 4, %3 ], [ %.val4.i.pre, %._crit_edge ], [ %.sink.i, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   ret i32 %.sroa.0.0.i
@@ -12133,7 +12133,7 @@ define range(i32 0, 1032) i32 @WasmEdge_TableInstanceGrow(ptr noundef %0, i32 no
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca i32, align 4
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_TableInstanceGrowE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %5
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_TableInstanceGrowE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %5
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -12234,7 +12234,7 @@ _ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.thread.i.i: ; pred
 .sink.split.i:                                    ; preds = %47, %46
   %.sroa.0.0.ph.i = phi i32 [ 1031, %47 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_TableInstanceGrowE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_TableInstanceGrowE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 48:                                               ; preds = %.noexc.i, %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.thread.i.i
   %49 = landingpad { ptr, i32 }
@@ -12243,7 +12243,7 @@ _ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.thread.i.i: ; pred
   call void @__clang_call_terminate(ptr %50) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_TableInstanceGrowE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %2, %.sink.split.i
+"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_TableInstanceGrowE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi i32 [ 4, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
   ret i32 %.sroa.0.0.i
 }
@@ -12383,7 +12383,7 @@ define i32 @WasmEdge_MemoryInstanceSetData(ptr noundef %0, ptr noundef %1, i32 n
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %spec.select.i.i = and i1 %6, %7
-  br i1 %spec.select.i.i, label %8, label %"_ZN12_GLOBAL__N_14wrapIZ30WasmEdge_MemoryInstanceSetDataE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextKhEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br i1 %spec.select.i.i, label %8, label %"_ZN12_GLOBAL__N_14wrapIZ30WasmEdge_MemoryInstanceSetDataE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextKhEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 8:                                                ; preds = %4
   %.not8.i.i.i = icmp eq i32 %3, 0
@@ -12392,14 +12392,14 @@ define i32 @WasmEdge_MemoryInstanceSetData(ptr noundef %0, ptr noundef %1, i32 n
   call void @_ZN8WasmEdge7Runtime8Instance14MemoryInstance8setBytesEN5cxx204spanIKhLm18446744073709551615EEEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.737") align 4 %5, ptr noundef nonnull align 8 dereferenceable(28) %0, ptr %spec.select.i.i.i, i64 %9, i32 noundef %2, i32 noundef 0, i32 noundef %3) #38
   %10 = load i8, ptr %5, align 4
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %"_ZN12_GLOBAL__N_14wrapIZ30WasmEdge_MemoryInstanceSetDataE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextKhEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %12
+  br i1 %11, label %"_ZN12_GLOBAL__N_14wrapIZ30WasmEdge_MemoryInstanceSetDataE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextKhEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %5, i64 4
   %.val5.i = load i32, ptr %13, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ30WasmEdge_MemoryInstanceSetDataE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextKhEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ30WasmEdge_MemoryInstanceSetDataE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextKhEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
-"_ZN12_GLOBAL__N_14wrapIZ30WasmEdge_MemoryInstanceSetDataE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextKhEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %4, %8, %12
+"_ZN12_GLOBAL__N_14wrapIZ30WasmEdge_MemoryInstanceSetDataE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextKhEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %4, %8, %12
   %.sroa.0.0.i = phi i32 [ %.val5.i, %12 ], [ 0, %8 ], [ 4, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i32 %.sroa.0.0.i
@@ -12476,7 +12476,7 @@ define range(i32 0, 1033) i32 @WasmEdge_MemoryInstanceGrowPage(ptr noundef %0, i
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca i32, align 4
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_MemoryInstanceGrowPageE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %6
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_MemoryInstanceGrowPageE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %6
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -12561,7 +12561,7 @@ define range(i32 0, 1033) i32 @WasmEdge_MemoryInstanceGrowPage(ptr noundef %0, i
 .sink.split.i:                                    ; preds = %38, %35, %6
   %.sroa.0.0.ph.i = phi i32 [ 1032, %38 ], [ 0, %35 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_MemoryInstanceGrowPageE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_MemoryInstanceGrowPageE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 39:                                               ; preds = %.noexc8.i, %36, %.noexc.i, %27
   %40 = landingpad { ptr, i32 }
@@ -12570,7 +12570,7 @@ define range(i32 0, 1033) i32 @WasmEdge_MemoryInstanceGrowPage(ptr noundef %0, i
   call void @__clang_call_terminate(ptr %41) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_MemoryInstanceGrowPageE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %2, %.sink.split.i
+"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_MemoryInstanceGrowPageE3$_0RNS_4$_10EJ30WasmEdge_MemoryInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi i32 [ 4, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
   ret i32 %.sroa.0.0.i
 }
@@ -12841,7 +12841,7 @@ define noundef i32 @WasmEdge_GlobalInstanceSetValue(ptr noundef %0, ptr nocaptur
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_GlobalInstanceSetValueE3$_0RNS_4$_10EJ30WasmEdge_GlobalInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %13
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_GlobalInstanceSetValueE3$_0RNS_4$_10EJ30WasmEdge_GlobalInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %13
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -13073,7 +13073,7 @@ _ZN8WasmEdgeneERKNS_7ValTypeES2_.exit.thread.i.i: ; preds = %70
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  br label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_GlobalInstanceSetValueE3$_0RNS_4$_10EJ30WasmEdge_GlobalInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_GlobalInstanceSetValueE3$_0RNS_4$_10EJ30WasmEdge_GlobalInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 78:                                               ; preds = %.noexc12.i, %_ZN8WasmEdgeneERKNS_7ValTypeES2_.exit.thread.i.i, %.noexc10.i, %68, %.noexc8.i, %24, %.noexc.i, %16
   %79 = landingpad { ptr, i32 }
@@ -13086,7 +13086,7 @@ _ZN8WasmEdgeneERKNS_7ValTypeES2_.exit.thread.i.i: ; preds = %70
   call void @__clang_call_terminate(ptr %80) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_GlobalInstanceSetValueE3$_0RNS_4$_10EJ30WasmEdge_GlobalInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %2, %.sink.split.i
+"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_GlobalInstanceSetValueE3$_0RNS_4$_10EJ30WasmEdge_GlobalInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi i32 [ 4, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
   ret i32 %.sroa.0.0.i
 }
@@ -13344,7 +13344,7 @@ _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_j
 ; Function Attrs: mustprogress nounwind uwtable
 define i32 @WasmEdge_AsyncGet(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %4
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %4
 
 4:                                                ; preds = %3
   %5 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZNKSt14__basic_futureIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEEE13_M_get_resultEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -13440,7 +13440,7 @@ _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_j
   %40 = icmp ne ptr %1, null
   %41 = icmp ne i32 %2, 0
   %or.cond.i.i.i = and i1 %40, %41
-  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i"
+  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i"
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEEC2ERKSN_.exit.i
   %wide.trip.count.i.i.i = zext i32 %2 to i64
@@ -13449,7 +13449,7 @@ _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_j
 .lr.ph.i.i.i:                                     ; preds = %42, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %42 ]
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %39
-  br i1 %exitcond.not.i.i.i, label %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i", label %42
+  br i1 %exitcond.not.i.i.i, label %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i", label %42
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds %"struct.std::pair.1955", ptr %.sroa.4.0.i, i64 %indvars.iv.i.i.i
@@ -13462,27 +13462,27 @@ _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_j
   store i64 %.val10.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond17.not.i.i.i, label %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.thread.i", label %.lr.ph.i.i.i, !llvm.loop !149
+  br i1 %exitcond17.not.i.i.i, label %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.thread.i", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i": ; preds = %.lr.ph.i.i.i, %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEEC2ERKSN_.exit.i
+"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i": ; preds = %.lr.ph.i.i.i, %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEEC2ERKSN_.exit.i
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.4.0.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %47, label %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.thread.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %47, label %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.thread.i"
 
-"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.thread.i": ; preds = %42, %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i"
+"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.thread.i": ; preds = %42, %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i"
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.4.0.i, i64 noundef %36) #37
   br label %47
 
 _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEED2Ev.exit.i: ; preds = %.noexc.i
   %46 = load i32, ptr %9, align 8
-  br label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
-47:                                               ; preds = %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i", %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.thread.i"
+47:                                               ; preds = %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i", %"_ZZ17WasmEdge_AsyncGetENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.thread.i"
   %.not.i.i.i.i.i.i.i.i.i.i.i.i12.i = icmp eq ptr %35, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i12.i, label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %48
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i12.i, label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %48
 
 48:                                               ; preds = %47
   tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %16) #37
-  br label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 49:                                               ; preds = %4
   %50 = landingpad { ptr, i32 }
@@ -13495,7 +13495,7 @@ _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_j
   tail call void @__clang_call_terminate(ptr %51) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEED2Ev.exit.i, %3, %47, %48
+"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEED2Ev.exit.i, %3, %47, %48
   %.sroa.0.1.i = phi i32 [ %46, %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEED2Ev.exit.i ], [ 0, %47 ], [ 0, %48 ], [ 4, %3 ]
   ret i32 %.sroa.0.1.i
 }
@@ -13722,7 +13722,7 @@ define i32 @WasmEdge_VMRegisterModuleFromFile(ptr noundef %0, i32 %1, ptr %2, pt
   store ptr %3, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_VMRegisterModuleFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %9
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_VMRegisterModuleFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %9
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
@@ -13808,12 +13808,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %22, %18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %32 = load i8, ptr %7, align 4
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_VMRegisterModuleFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %34
+  br i1 %33, label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_VMRegisterModuleFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %7, i64 4
   %.val4.i = load i32, ptr %35, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_VMRegisterModuleFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_VMRegisterModuleFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
@@ -13826,7 +13826,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %22, %18
   call void @__clang_call_terminate(ptr %38) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_VMRegisterModuleFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %4, %31, %34
+"_ZN12_GLOBAL__N_14wrapIZ33WasmEdge_VMRegisterModuleFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %4, %31, %34
   %.sroa.0.0.i = phi i32 [ %.val4.i, %34 ], [ 0, %31 ], [ 4, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret i32 %.sroa.0.0.i
@@ -13843,7 +13843,7 @@ define i32 @WasmEdge_VMRegisterModuleFromBytes(ptr noundef %0, i32 %1, ptr %2, i
   %6 = alloca %"class.cxx20::expected.737", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ34WasmEdge_VMRegisterModuleFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %7
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ34WasmEdge_VMRegisterModuleFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 400
@@ -13878,12 +13878,12 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_l
   %17 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %8) #38
   %18 = load i8, ptr %6, align 4
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %"_ZN12_GLOBAL__N_14wrapIZ34WasmEdge_VMRegisterModuleFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %20
+  br i1 %19, label %"_ZN12_GLOBAL__N_14wrapIZ34WasmEdge_VMRegisterModuleFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %6, i64 4
   %.val4.i = load i32, ptr %21, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ34WasmEdge_VMRegisterModuleFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ34WasmEdge_VMRegisterModuleFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 22:                                               ; preds = %11
   %23 = landingpad { ptr, i32 }
@@ -13896,7 +13896,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_l
   call void @__clang_call_terminate(ptr %24) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ34WasmEdge_VMRegisterModuleFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %5, %16, %20
+"_ZN12_GLOBAL__N_14wrapIZ34WasmEdge_VMRegisterModuleFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %5, %16, %20
   %.sroa.0.0.i = phi i32 [ %.val4.i, %20 ], [ 0, %16 ], [ 4, %5 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i32 %.sroa.0.0.i
@@ -13909,7 +13909,7 @@ define i32 @WasmEdge_VMRegisterModuleFromASTModule(ptr noundef %0, i32 %1, ptr %
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %3, null
   %spec.select.i.i = and i1 %6, %7
-  br i1 %spec.select.i.i, label %8, label %"_ZN12_GLOBAL__N_14wrapIZ38WasmEdge_VMRegisterModuleFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br i1 %spec.select.i.i, label %8, label %"_ZN12_GLOBAL__N_14wrapIZ38WasmEdge_VMRegisterModuleFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 400
@@ -13939,12 +13939,12 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i.i.i: ; preds = %_ZNSt11unique_l
   %17 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %9) #38
   %18 = load i8, ptr %5, align 4
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %"_ZN12_GLOBAL__N_14wrapIZ38WasmEdge_VMRegisterModuleFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %20
+  br i1 %19, label %"_ZN12_GLOBAL__N_14wrapIZ38WasmEdge_VMRegisterModuleFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %5, i64 4
   %.val5.i = load i32, ptr %21, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ38WasmEdge_VMRegisterModuleFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ38WasmEdge_VMRegisterModuleFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 22:                                               ; preds = %12
   %23 = landingpad { ptr, i32 }
@@ -13957,7 +13957,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i.i.i: ; preds = %_ZNSt11unique_l
   call void @__clang_call_terminate(ptr %24) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ38WasmEdge_VMRegisterModuleFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %4, %16, %20
+"_ZN12_GLOBAL__N_14wrapIZ38WasmEdge_VMRegisterModuleFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %4, %16, %20
   %.sroa.0.0.i = phi i32 [ %.val5.i, %20 ], [ 0, %16 ], [ 4, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i32 %.sroa.0.0.i
@@ -13970,7 +13970,7 @@ define i32 @WasmEdge_VMRegisterModuleFromImport(ptr noundef %0, ptr noundef %1) 
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %spec.select.i.i = and i1 %4, %5
-  br i1 %spec.select.i.i, label %6, label %"_ZN12_GLOBAL__N_14wrapIZ35WasmEdge_VMRegisterModuleFromImportE3$_0RNS_4$_10EJ18WasmEdge_VMContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br i1 %spec.select.i.i, label %6, label %"_ZN12_GLOBAL__N_14wrapIZ35WasmEdge_VMRegisterModuleFromImportE3$_0RNS_4$_10EJ18WasmEdge_VMContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 400
@@ -13999,12 +13999,12 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11unique_l
   %14 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %7) #38
   %15 = load i8, ptr %3, align 4
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %"_ZN12_GLOBAL__N_14wrapIZ35WasmEdge_VMRegisterModuleFromImportE3$_0RNS_4$_10EJ18WasmEdge_VMContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %17
+  br i1 %16, label %"_ZN12_GLOBAL__N_14wrapIZ35WasmEdge_VMRegisterModuleFromImportE3$_0RNS_4$_10EJ18WasmEdge_VMContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %3, i64 4
   %.val5.i = load i32, ptr %18, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ35WasmEdge_VMRegisterModuleFromImportE3$_0RNS_4$_10EJ18WasmEdge_VMContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ35WasmEdge_VMRegisterModuleFromImportE3$_0RNS_4$_10EJ18WasmEdge_VMContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 19:                                               ; preds = %10
   %20 = landingpad { ptr, i32 }
@@ -14017,7 +14017,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11unique_l
   call void @__clang_call_terminate(ptr %21) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ35WasmEdge_VMRegisterModuleFromImportE3$_0RNS_4$_10EJ18WasmEdge_VMContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %2, %13, %17
+"_ZN12_GLOBAL__N_14wrapIZ35WasmEdge_VMRegisterModuleFromImportE3$_0RNS_4$_10EJ18WasmEdge_VMContextK30WasmEdge_ModuleInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %2, %13, %17
   %.sroa.0.0.i = phi i32 [ %.val5.i, %17 ], [ 0, %13 ], [ 4, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i32 %.sroa.0.0.i
@@ -14202,7 +14202,7 @@ _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_j
   %76 = icmp ne ptr %6, null
   %77 = icmp ne i32 %7, 0
   %or.cond.i.i.i = and i1 %76, %77
-  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i"
+  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i"
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEEC2ERKSN_.exit.i
   %wide.trip.count.i.i.i = zext i32 %7 to i64
@@ -14211,7 +14211,7 @@ _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_j
 .lr.ph.i.i.i:                                     ; preds = %78, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %78 ]
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %75
-  br i1 %exitcond.not.i.i.i, label %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i", label %78
+  br i1 %exitcond.not.i.i.i, label %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i", label %78
 
 78:                                               ; preds = %.lr.ph.i.i.i
   %79 = getelementptr inbounds %"struct.std::pair.1955", ptr %.sroa.4.0.i, i64 %indvars.iv.i.i.i
@@ -14224,13 +14224,13 @@ _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_j
   store i64 %.val10.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond17.not.i.i.i, label %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.thread.i", label %.lr.ph.i.i.i, !llvm.loop !149
+  br i1 %exitcond17.not.i.i.i, label %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.thread.i", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i": ; preds = %.lr.ph.i.i.i, %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEEC2ERKSN_.exit.i
+"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i": ; preds = %.lr.ph.i.i.i, %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEEC2ERKSN_.exit.i
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.4.0.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEED2Ev.exit.i, label %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.thread.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEED2Ev.exit.i, label %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.thread.i"
 
-"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.thread.i": ; preds = %78, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i"
+"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.thread.i": ; preds = %78, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i"
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.4.0.i, i64 noundef %65) #37
   %.pre = load i8, ptr %13, align 8
   br label %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEED2Ev.exit.i
@@ -14239,9 +14239,9 @@ _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_j
   %.val4.i = load i32, ptr %58, align 8
   br label %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEED2Ev.exit.i
 
-_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEED2Ev.exit.i: ; preds = %82, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.thread.i", %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i"
-  %83 = phi i8 [ %56, %82 ], [ %56, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i" ], [ %.pre, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.thread.i" ]
-  %.sroa.0.0.i = phi i32 [ %.val4.i, %82 ], [ 0, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.i" ], [ 0, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.argprom.argprom.exit.thread.i" ]
+_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEED2Ev.exit.i: ; preds = %82, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.thread.i", %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i"
+  %83 = phi i8 [ %56, %82 ], [ %56, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i" ], [ %.pre, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.thread.i" ]
+  %.sroa.0.0.i = phi i32 [ %.val4.i, %82 ], [ 0, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.i" ], [ 0, %"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_1clIN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaT_.exit.thread.i" ]
   %84 = trunc i8 %83 to i1
   br i1 %84, label %85, label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_VMRunWasmFromFileE3$_0Z26WasmEdge_VMRunWasmFromFileE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
@@ -14381,7 +14381,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_l
   %42 = load i8, ptr %12, align 8
   %43 = trunc i8 %42 to i1
   %44 = getelementptr inbounds i8, ptr %12, i64 8
-  br i1 %43, label %45, label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8"
+  br i1 %43, label %45, label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8"
 
 45:                                               ; preds = %40
   %.val7.i = load ptr, ptr %44, align 8
@@ -14394,7 +14394,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_l
   %51 = icmp ne ptr %7, null
   %52 = icmp ne i32 %8, 0
   %or.cond.i.i.i = and i1 %51, %52
-  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread"
+  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread"
 
 .lr.ph.preheader.i.i.i:                           ; preds = %45
   %wide.trip.count.i.i.i = zext i32 %8 to i64
@@ -14403,7 +14403,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_l
 .lr.ph.i.i.i:                                     ; preds = %53, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %53 ]
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %50
-  br i1 %exitcond.not.i.i.i, label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread", label %53
+  br i1 %exitcond.not.i.i.i, label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", label %53
 
 53:                                               ; preds = %.lr.ph.i.i.i
   %54 = getelementptr inbounds %"struct.std::pair.1955", ptr %.val7.i, i64 %indvars.iv.i.i.i
@@ -14416,17 +14416,17 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_l
   store i64 %.val10.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond17.not.i.i.i, label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
+  br i1 %exitcond17.not.i.i.i, label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8": ; preds = %40
+"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8": ; preds = %40
   %.val4.i = load i32, ptr %44, align 8
   br label %"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMRunWasmFromBytesE3$_0Z27WasmEdge_VMRunWasmFromBytesE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
-"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread": ; preds = %.lr.ph.i.i.i, %45
+"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread": ; preds = %.lr.ph.i.i.i, %45
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val7.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMRunWasmFromBytesE3$_0Z27WasmEdge_VMRunWasmFromBytesE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread"
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMRunWasmFromBytesE3$_0Z27WasmEdge_VMRunWasmFromBytesE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
 
-"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread": ; preds = %53, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread"
+"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread": ; preds = %53, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread"
   %57 = getelementptr inbounds i8, ptr %12, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = ptrtoint ptr %58 to i64
@@ -14445,8 +14445,8 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit5.i.i.i: ; preds = %_ZNSt11unique_l
   call void @__clang_call_terminate(ptr %63) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMRunWasmFromBytesE3$_0Z27WasmEdge_VMRunWasmFromBytesE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8", %9, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread", %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread"
-  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread" ], [ 0, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread" ], [ 4, %9 ], [ %.val4.i, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8" ]
+"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMRunWasmFromBytesE3$_0Z27WasmEdge_VMRunWasmFromBytesE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8", %9, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
+  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %9 ], [ %.val4.i, %"_ZZ27WasmEdge_VMRunWasmFromBytesENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %64 = getelementptr inbounds i8, ptr %13, i64 24
   %65 = load ptr, ptr %64, align 8
@@ -14547,7 +14547,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i.i.i: ; preds = %_ZNSt11unique_l
   %42 = load i8, ptr %11, align 8
   %43 = trunc i8 %42 to i1
   %44 = getelementptr inbounds i8, ptr %11, i64 8
-  br i1 %43, label %45, label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8"
+  br i1 %43, label %45, label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8"
 
 45:                                               ; preds = %40
   %.val8.i = load ptr, ptr %44, align 8
@@ -14560,7 +14560,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i.i.i: ; preds = %_ZNSt11unique_l
   %51 = icmp ne ptr %6, null
   %52 = icmp ne i32 %7, 0
   %or.cond.i.i.i = and i1 %51, %52
-  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread"
+  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread"
 
 .lr.ph.preheader.i.i.i:                           ; preds = %45
   %wide.trip.count.i.i.i = zext i32 %7 to i64
@@ -14569,7 +14569,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i.i.i: ; preds = %_ZNSt11unique_l
 .lr.ph.i.i.i:                                     ; preds = %53, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %53 ]
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %50
-  br i1 %exitcond.not.i.i.i, label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread", label %53
+  br i1 %exitcond.not.i.i.i, label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", label %53
 
 53:                                               ; preds = %.lr.ph.i.i.i
   %54 = getelementptr inbounds %"struct.std::pair.1955", ptr %.val8.i, i64 %indvars.iv.i.i.i
@@ -14582,17 +14582,17 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i.i.i: ; preds = %_ZNSt11unique_l
   store i64 %.val10.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond17.not.i.i.i, label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
+  br i1 %exitcond17.not.i.i.i, label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8": ; preds = %40
+"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8": ; preds = %40
   %.val5.i = load i32, ptr %44, align 8
   br label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_VMRunWasmFromASTModuleE3$_0Z31WasmEdge_VMRunWasmFromASTModuleE3$_1J18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
-"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread": ; preds = %.lr.ph.i.i.i, %45
+"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread": ; preds = %.lr.ph.i.i.i, %45
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_VMRunWasmFromASTModuleE3$_0Z31WasmEdge_VMRunWasmFromASTModuleE3$_1J18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread"
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_VMRunWasmFromASTModuleE3$_0Z31WasmEdge_VMRunWasmFromASTModuleE3$_1J18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
 
-"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread": ; preds = %53, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread"
+"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread": ; preds = %53, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread"
   %57 = getelementptr inbounds i8, ptr %11, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = ptrtoint ptr %58 to i64
@@ -14611,8 +14611,8 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit6.i.i.i: ; preds = %_ZNSt11unique_l
   call void @__clang_call_terminate(ptr %63) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_VMRunWasmFromASTModuleE3$_0Z31WasmEdge_VMRunWasmFromASTModuleE3$_1J18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8", %8, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread", %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread"
-  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread" ], [ 0, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread" ], [ 4, %8 ], [ %.val5.i, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8" ]
+"_ZN12_GLOBAL__N_14wrapIZ31WasmEdge_VMRunWasmFromASTModuleE3$_0Z31WasmEdge_VMRunWasmFromASTModuleE3$_1J18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8", %8, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
+  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %8 ], [ %.val5.i, %"_ZZ31WasmEdge_VMRunWasmFromASTModuleENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %64 = getelementptr inbounds i8, ptr %12, i64 24
   %65 = load ptr, ptr %64, align 8
@@ -15183,7 +15183,7 @@ define i32 @WasmEdge_VMLoadWasmFromFile(ptr noundef %0, ptr noundef %1) local_un
   store ptr %1, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMLoadWasmFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %7
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMLoadWasmFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -15268,12 +15268,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %19, %15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %29 = load i8, ptr %5, align 4
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMLoadWasmFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %31
+  br i1 %30, label %"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMLoadWasmFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %5, i64 4
   %.val4.i = load i32, ptr %32, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMLoadWasmFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMLoadWasmFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 33:                                               ; preds = %7
   %34 = landingpad { ptr, i32 }
@@ -15286,7 +15286,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %19, %15
   call void @__clang_call_terminate(ptr %35) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMLoadWasmFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %2, %28, %31
+"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMLoadWasmFromFileE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %2, %28, %31
   %.sroa.0.0.i = phi i32 [ %.val4.i, %31 ], [ 0, %28 ], [ 4, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i32 %.sroa.0.0.i
@@ -15303,7 +15303,7 @@ define i32 @WasmEdge_VMLoadWasmFromBytes(ptr noundef %0, i32 %1, ptr %2) local_u
   %4 = alloca %"class.cxx20::expected.737", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMLoadWasmFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %5
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMLoadWasmFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 400
@@ -15337,12 +15337,12 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit3.i.i.i: ; preds = %_ZNSt11unique_l
   %14 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %6) #38
   %15 = load i8, ptr %4, align 4
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMLoadWasmFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %17
+  br i1 %16, label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMLoadWasmFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %4, i64 4
   %.val4.i = load i32, ptr %18, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMLoadWasmFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMLoadWasmFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 19:                                               ; preds = %9
   %20 = landingpad { ptr, i32 }
@@ -15355,7 +15355,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit3.i.i.i: ; preds = %_ZNSt11unique_l
   call void @__clang_call_terminate(ptr %21) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMLoadWasmFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %3, %13, %17
+"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMLoadWasmFromBytesE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %3, %13, %17
   %.sroa.0.0.i = phi i32 [ %.val4.i, %17 ], [ 0, %13 ], [ 4, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i32 %.sroa.0.0.i
@@ -15368,7 +15368,7 @@ define i32 @WasmEdge_VMLoadWasmFromASTModule(ptr noundef %0, ptr noundef %1) loc
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %spec.select.i.i = and i1 %4, %5
-  br i1 %spec.select.i.i, label %6, label %"_ZN12_GLOBAL__N_14wrapIZ32WasmEdge_VMLoadWasmFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br i1 %spec.select.i.i, label %6, label %"_ZN12_GLOBAL__N_14wrapIZ32WasmEdge_VMLoadWasmFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 400
@@ -15397,12 +15397,12 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11unique_l
   %14 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %7) #38
   %15 = load i8, ptr %3, align 4
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %"_ZN12_GLOBAL__N_14wrapIZ32WasmEdge_VMLoadWasmFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %17
+  br i1 %16, label %"_ZN12_GLOBAL__N_14wrapIZ32WasmEdge_VMLoadWasmFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %3, i64 4
   %.val5.i = load i32, ptr %18, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ32WasmEdge_VMLoadWasmFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ32WasmEdge_VMLoadWasmFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 19:                                               ; preds = %10
   %20 = landingpad { ptr, i32 }
@@ -15415,7 +15415,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11unique_l
   call void @__clang_call_terminate(ptr %21) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ32WasmEdge_VMLoadWasmFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %2, %13, %17
+"_ZN12_GLOBAL__N_14wrapIZ32WasmEdge_VMLoadWasmFromASTModuleE3$_0RNS_4$_10EJ18WasmEdge_VMContextK25WasmEdge_ASTModuleContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %2, %13, %17
   %.sroa.0.0.i = phi i32 [ %.val5.i, %17 ], [ 0, %13 ], [ 4, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i32 %.sroa.0.0.i
@@ -15426,7 +15426,7 @@ define i32 @WasmEdge_VMValidate(ptr noundef %0) local_unnamed_addr #10 personali
   %2 = alloca %"class.cxx20::expected.737", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ19WasmEdge_VMValidateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %3
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ19WasmEdge_VMValidateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 400
@@ -15455,12 +15455,12 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit3.i.i.i: ; preds = %_ZNSt11unique_l
   %11 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #38
   %12 = load i8, ptr %2, align 4
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %"_ZN12_GLOBAL__N_14wrapIZ19WasmEdge_VMValidateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %14
+  br i1 %13, label %"_ZN12_GLOBAL__N_14wrapIZ19WasmEdge_VMValidateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %2, i64 4
   %.val4.i = load i32, ptr %15, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ19WasmEdge_VMValidateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ19WasmEdge_VMValidateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 16:                                               ; preds = %7
   %17 = landingpad { ptr, i32 }
@@ -15473,7 +15473,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit3.i.i.i: ; preds = %_ZNSt11unique_l
   call void @__clang_call_terminate(ptr %18) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ19WasmEdge_VMValidateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %1, %10, %14
+"_ZN12_GLOBAL__N_14wrapIZ19WasmEdge_VMValidateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %1, %10, %14
   %.sroa.0.0.i = phi i32 [ %.val4.i, %14 ], [ 0, %10 ], [ 4, %1 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret i32 %.sroa.0.0.i
@@ -15484,7 +15484,7 @@ define i32 @WasmEdge_VMInstantiate(ptr noundef %0) local_unnamed_addr #10 person
   %2 = alloca %"class.cxx20::expected.737", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ22WasmEdge_VMInstantiateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %3
+  br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ22WasmEdge_VMInstantiateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 400
@@ -15513,12 +15513,12 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit3.i.i.i: ; preds = %_ZNSt11unique_l
   %11 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #38
   %12 = load i8, ptr %2, align 4
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %"_ZN12_GLOBAL__N_14wrapIZ22WasmEdge_VMInstantiateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit", label %14
+  br i1 %13, label %"_ZN12_GLOBAL__N_14wrapIZ22WasmEdge_VMInstantiateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %2, i64 4
   %.val4.i = load i32, ptr %15, align 4
-  br label %"_ZN12_GLOBAL__N_14wrapIZ22WasmEdge_VMInstantiateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit"
+  br label %"_ZN12_GLOBAL__N_14wrapIZ22WasmEdge_VMInstantiateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
 16:                                               ; preds = %7
   %17 = landingpad { ptr, i32 }
@@ -15531,7 +15531,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit3.i.i.i: ; preds = %_ZNSt11unique_l
   call void @__clang_call_terminate(ptr %18) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ22WasmEdge_VMInstantiateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.argprom.exit": ; preds = %1, %10, %14
+"_ZN12_GLOBAL__N_14wrapIZ22WasmEdge_VMInstantiateE3$_0RNS_4$_10EJ18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %1, %10, %14
   %.sroa.0.0.i = phi i32 [ %.val4.i, %14 ], [ 0, %10 ], [ 4, %1 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret i32 %.sroa.0.0.i
@@ -15601,7 +15601,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11shared_l
   %37 = load i8, ptr %9, align 8
   %38 = trunc i8 %37 to i1
   %39 = getelementptr inbounds i8, ptr %9, i64 8
-  br i1 %38, label %40, label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread6"
+  br i1 %38, label %40, label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread6"
 
 40:                                               ; preds = %35
   %.val7.i = load ptr, ptr %39, align 8
@@ -15614,7 +15614,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11shared_l
   %46 = icmp ne ptr %5, null
   %47 = icmp ne i32 %6, 0
   %or.cond.i.i.i = and i1 %46, %47
-  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread"
+  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread"
 
 .lr.ph.preheader.i.i.i:                           ; preds = %40
   %wide.trip.count.i.i.i = zext i32 %6 to i64
@@ -15623,7 +15623,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11shared_l
 .lr.ph.i.i.i:                                     ; preds = %48, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %48 ]
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %45
-  br i1 %exitcond.not.i.i.i, label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread", label %48
+  br i1 %exitcond.not.i.i.i, label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", label %48
 
 48:                                               ; preds = %.lr.ph.i.i.i
   %49 = getelementptr inbounds %"struct.std::pair.1955", ptr %.val7.i, i64 %indvars.iv.i.i.i
@@ -15636,17 +15636,17 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11shared_l
   store i64 %.val10.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond17.not.i.i.i, label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
+  br i1 %exitcond17.not.i.i.i, label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread6": ; preds = %35
+"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread6": ; preds = %35
   %.val4.i = load i32, ptr %39, align 8
   br label %"_ZN12_GLOBAL__N_14wrapIZ18WasmEdge_VMExecuteE3$_0Z18WasmEdge_VMExecuteE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
-"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread": ; preds = %.lr.ph.i.i.i, %40
+"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread": ; preds = %.lr.ph.i.i.i, %40
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val7.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ18WasmEdge_VMExecuteE3$_0Z18WasmEdge_VMExecuteE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread"
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ18WasmEdge_VMExecuteE3$_0Z18WasmEdge_VMExecuteE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
 
-"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread": ; preds = %48, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread"
+"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread": ; preds = %48, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread"
   %52 = getelementptr inbounds i8, ptr %9, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
@@ -15665,8 +15665,8 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11shared_l
   call void @__clang_call_terminate(ptr %58) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ18WasmEdge_VMExecuteE3$_0Z18WasmEdge_VMExecuteE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread6", %7, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread", %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread"
-  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread" ], [ 0, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread" ], [ 4, %7 ], [ %.val4.i, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread6" ]
+"_ZN12_GLOBAL__N_14wrapIZ18WasmEdge_VMExecuteE3$_0Z18WasmEdge_VMExecuteE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread6", %7, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
+  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %7 ], [ %.val4.i, %"_ZZ18WasmEdge_VMExecuteENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread6" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %59 = getelementptr inbounds i8, ptr %10, i64 24
   %60 = load ptr, ptr %59, align 8
@@ -15771,7 +15771,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit8.i.i.i: ; preds = %_ZNSt11shared_l
   %42 = load i8, ptr %12, align 8
   %43 = trunc i8 %42 to i1
   %44 = getelementptr inbounds i8, ptr %12, i64 8
-  br i1 %43, label %45, label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8"
+  br i1 %43, label %45, label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8"
 
 45:                                               ; preds = %40
   %.val7.i = load ptr, ptr %44, align 8
@@ -15784,7 +15784,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit8.i.i.i: ; preds = %_ZNSt11shared_l
   %51 = icmp ne ptr %7, null
   %52 = icmp ne i32 %8, 0
   %or.cond.i.i.i = and i1 %51, %52
-  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread"
+  br i1 %or.cond.i.i.i, label %.lr.ph.preheader.i.i.i, label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread"
 
 .lr.ph.preheader.i.i.i:                           ; preds = %45
   %wide.trip.count.i.i.i = zext i32 %8 to i64
@@ -15793,7 +15793,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit8.i.i.i: ; preds = %_ZNSt11shared_l
 .lr.ph.i.i.i:                                     ; preds = %53, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %53 ]
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.i.i.i, %50
-  br i1 %exitcond.not.i.i.i, label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread", label %53
+  br i1 %exitcond.not.i.i.i, label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", label %53
 
 53:                                               ; preds = %.lr.ph.i.i.i
   %54 = getelementptr inbounds %"struct.std::pair.1955", ptr %.val7.i, i64 %indvars.iv.i.i.i
@@ -15806,17 +15806,17 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit8.i.i.i: ; preds = %_ZNSt11shared_l
   store i64 %.val10.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond17.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond17.not.i.i.i, label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
+  br i1 %exitcond17.not.i.i.i, label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread", label %.lr.ph.i.i.i, !llvm.loop !149
 
-"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8": ; preds = %40
+"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8": ; preds = %40
   %.val4.i = load i32, ptr %44, align 8
   br label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMExecuteRegisteredE3$_0Z28WasmEdge_VMExecuteRegisteredE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
-"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread": ; preds = %.lr.ph.i.i.i, %45
+"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread": ; preds = %.lr.ph.i.i.i, %45
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val7.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMExecuteRegisteredE3$_0Z28WasmEdge_VMExecuteRegisteredE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread"
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMExecuteRegisteredE3$_0Z28WasmEdge_VMExecuteRegisteredE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
 
-"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread": ; preds = %53, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread"
+"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread": ; preds = %53, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread"
   %57 = getelementptr inbounds i8, ptr %12, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = ptrtoint ptr %58 to i64
@@ -15835,8 +15835,8 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit8.i.i.i: ; preds = %_ZNSt11shared_l
   call void @__clang_call_terminate(ptr %63) #40
   unreachable
 
-"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMExecuteRegisteredE3$_0Z28WasmEdge_VMExecuteRegisteredE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8", %9, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread", %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread"
-  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread" ], [ 0, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread.thread" ], [ 4, %9 ], [ %.val4.i, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.argprom.argprom.exit.i.thread8" ]
+"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMExecuteRegisteredE3$_0Z28WasmEdge_VMExecuteRegisteredE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8", %9, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread", %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread"
+  %.sroa.0.1.i = phi i32 [ 0, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread" ], [ 0, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread.thread" ], [ 4, %9 ], [ %.val4.i, %"_ZZ28WasmEdge_VMExecuteRegisteredENK3$_1clIRN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS5_10RefVariantENS5_10StrVariantEEEENS5_7ValTypeEESaISL_EENS5_7ErrCodeEEEEEDaOT_.exit.i.thread8" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   %64 = getelementptr inbounds i8, ptr %13, i64 24
   %65 = load ptr, ptr %64, align 8
@@ -60646,26 +60646,26 @@ attributes #40 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIiEE14WasmEdge_ValueRKT_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIiEE14WasmEdge_ValueRKT_.argprom"}
+!5 = distinct !{!5, !6, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIiEE14WasmEdge_ValueRKT_: argument 0"}
+!6 = distinct !{!6, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIiEE14WasmEdge_ValueRKT_"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIlEE14WasmEdge_ValueRKT_.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIlEE14WasmEdge_ValueRKT_.argprom"}
+!8 = distinct !{!8, !9, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIlEE14WasmEdge_ValueRKT_: argument 0"}
+!9 = distinct !{!9, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIlEE14WasmEdge_ValueRKT_"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIfEE14WasmEdge_ValueRKT_.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIfEE14WasmEdge_ValueRKT_.argprom"}
+!11 = distinct !{!11, !12, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIfEE14WasmEdge_ValueRKT_: argument 0"}
+!12 = distinct !{!12, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIfEE14WasmEdge_ValueRKT_"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIdEE14WasmEdge_ValueRKT_.argprom: argument 0"}
-!15 = distinct !{!15, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIdEE14WasmEdge_ValueRKT_.argprom"}
+!14 = distinct !{!14, !15, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIdEE14WasmEdge_ValueRKT_: argument 0"}
+!15 = distinct !{!15, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueIdEE14WasmEdge_ValueRKT_"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueInEE14WasmEdge_ValueRKT_.argprom: argument 0"}
-!18 = distinct !{!18, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueInEE14WasmEdge_ValueRKT_.argprom"}
+!17 = distinct !{!17, !18, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueInEE14WasmEdge_ValueRKT_: argument 0"}
+!18 = distinct !{!18, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueInEE14WasmEdge_ValueRKT_"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueERKN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEERKNS0_7ValTypeE.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueERKN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEERKNS0_7ValTypeE.argprom"}
+!20 = distinct !{!20, !21, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueERKN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEERKNS0_7ValTypeE: argument 0"}
+!21 = distinct !{!21, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueERKN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEERKNS0_7ValTypeE"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueERKN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEERKNS0_7ValTypeE.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueERKN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEERKNS0_7ValTypeE.argprom"}
+!23 = distinct !{!23, !24, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueERKN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEERKNS0_7ValTypeE: argument 0"}
+!24 = distinct !{!24, !"_ZN12_GLOBAL__N_117genWasmEdge_ValueERKN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEERKNS0_7ValTypeE"}
 !25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
 !27 = distinct !{!27, !26}
@@ -60718,10 +60718,10 @@ attributes #40 = { noreturn nounwind }
 !74 = distinct !{!74, !"_ZZZ24WasmEdge_CompilerCompileENK3$_0clEvENKUlT_E0_clISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS6_EEEEDaS0_"}
 !75 = !{!59, !61}
 !76 = !{!77, !79}
-!77 = distinct !{!77, !78, !"_ZN5cxx206detail22expected_and_then_implINS_8expectedIvN8WasmEdge7ErrCodeEEEZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_vTnPNSt9enable_ifIX9is_void_vIT1_EEvE4typeELPv0ENS2_INS3_4LLVM4DataES4_EEEEDaOT_OT0_.argprom: argument 0"}
-!78 = distinct !{!78, !"_ZN5cxx206detail22expected_and_then_implINS_8expectedIvN8WasmEdge7ErrCodeEEEZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_vTnPNSt9enable_ifIX9is_void_vIT1_EEvE4typeELPv0ENS2_INS3_4LLVM4DataES4_EEEEDaOT_OT0_.argprom"}
-!79 = distinct !{!79, !80, !"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom: argument 0"}
-!80 = distinct !{!80, !"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_.argprom"}
+!77 = distinct !{!77, !78, !"_ZN5cxx206detail22expected_and_then_implINS_8expectedIvN8WasmEdge7ErrCodeEEEZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_vTnPNSt9enable_ifIX9is_void_vIT1_EEvE4typeELPv0ENS2_INS3_4LLVM4DataES4_EEEEDaOT_OT0_: argument 0"}
+!78 = distinct !{!78, !"_ZN5cxx206detail22expected_and_then_implINS_8expectedIvN8WasmEdge7ErrCodeEEEZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_vTnPNSt9enable_ifIX9is_void_vIT1_EEvE4typeELPv0ENS2_INS3_4LLVM4DataES4_EEEEDaOT_OT0_"}
+!79 = distinct !{!79, !80, !"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_: argument 0"}
+!80 = distinct !{!80, !"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlvE_EEDaOT_"}
 !81 = !{!82}
 !82 = distinct !{!82, !83, !"_ZNO5cxx208expectedIN8WasmEdge4LLVM4DataENS1_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E1_EEDaOS8_: argument 0"}
 !83 = distinct !{!83, !"_ZNO5cxx208expectedIN8WasmEdge4LLVM4DataENS1_7ErrCodeEE8and_thenIZZ24WasmEdge_CompilerCompileENK3$_0clEvEUlT_E1_EEDaOS8_"}
@@ -60762,10 +60762,10 @@ attributes #40 = { noreturn nounwind }
 !118 = distinct !{!118, !"_ZZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvENKUlT_E_clISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS6_EEEEDaS0_"}
 !119 = !{!106, !103}
 !120 = !{!121, !123}
-!121 = distinct !{!121, !122, !"_ZN5cxx206detail22expected_and_then_implINS_8expectedIvN8WasmEdge7ErrCodeEEEZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_vTnPNSt9enable_ifIX9is_void_vIT1_EEvE4typeELPv0ENS2_INS3_4LLVM4DataES4_EEEEDaOT_OT0_.argprom: argument 0"}
-!122 = distinct !{!122, !"_ZN5cxx206detail22expected_and_then_implINS_8expectedIvN8WasmEdge7ErrCodeEEEZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_vTnPNSt9enable_ifIX9is_void_vIT1_EEvE4typeELPv0ENS2_INS3_4LLVM4DataES4_EEEEDaOT_OT0_.argprom"}
-!123 = distinct !{!123, !124, !"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom: argument 0"}
-!124 = distinct !{!124, !"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_.argprom"}
+!121 = distinct !{!121, !122, !"_ZN5cxx206detail22expected_and_then_implINS_8expectedIvN8WasmEdge7ErrCodeEEEZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_vTnPNSt9enable_ifIX9is_void_vIT1_EEvE4typeELPv0ENS2_INS3_4LLVM4DataES4_EEEEDaOT_OT0_: argument 0"}
+!122 = distinct !{!122, !"_ZN5cxx206detail22expected_and_then_implINS_8expectedIvN8WasmEdge7ErrCodeEEEZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_vTnPNSt9enable_ifIX9is_void_vIT1_EEvE4typeELPv0ENS2_INS3_4LLVM4DataES4_EEEEDaOT_OT0_"}
+!123 = distinct !{!123, !124, !"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_: argument 0"}
+!124 = distinct !{!124, !"_ZNO5cxx208expectedIvN8WasmEdge7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlvE_EEDaOT_"}
 !125 = !{!126}
 !126 = distinct !{!126, !127, !"_ZNO5cxx208expectedIN8WasmEdge4LLVM4DataENS1_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E0_EEDaOS8_: argument 0"}
 !127 = distinct !{!127, !"_ZNO5cxx208expectedIN8WasmEdge4LLVM4DataENS1_7ErrCodeEE8and_thenIZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvEUlT_E0_EEDaOS8_"}
@@ -60785,8 +60785,8 @@ attributes #40 = { noreturn nounwind }
 !141 = distinct !{!141, !142, !"_ZZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvENKUlT_E0_clIN8WasmEdge4LLVM4DataEEEDaS0_: argument 0"}
 !142 = distinct !{!142, !"_ZZZ33WasmEdge_CompilerCompileFromBytesENK3$_0clEvENKUlT_E0_clIN8WasmEdge4LLVM4DataEEEDaS0_"}
 !143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZZ28WasmEdge_LoaderParseFromFileENK3$_0clEv.argprom.argprom: argument 0"}
-!145 = distinct !{!145, !"_ZZ28WasmEdge_LoaderParseFromFileENK3$_0clEv.argprom.argprom"}
+!144 = distinct !{!144, !145, !"_ZZ28WasmEdge_LoaderParseFromFileENK3$_0clEv: argument 0"}
+!145 = distinct !{!145, !"_ZZ28WasmEdge_LoaderParseFromFileENK3$_0clEv"}
 !146 = !{!147}
 !147 = distinct !{!147, !148, !"_ZZ23WasmEdge_ExecutorInvokeENK3$_0clEv: argument 0"}
 !148 = distinct !{!148, !"_ZZ23WasmEdge_ExecutorInvokeENK3$_0clEv"}
@@ -60803,25 +60803,25 @@ attributes #40 = { noreturn nounwind }
 !159 = distinct !{!159, !26}
 !160 = distinct !{!160, !26}
 !161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZSt11make_uniqueIN12_GLOBAL__N_112CAPIHostFuncEJPKN8WasmEdge3AST12FunctionTypeERPF15WasmEdge_ResultPvPK28WasmEdge_CallingFrameContextPK14WasmEdge_ValuePSC_ERS8_RKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!163 = distinct !{!163, !"_ZSt11make_uniqueIN12_GLOBAL__N_112CAPIHostFuncEJPKN8WasmEdge3AST12FunctionTypeERPF15WasmEdge_ResultPvPK28WasmEdge_CallingFrameContextPK14WasmEdge_ValuePSC_ERS8_RKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!162 = distinct !{!162, !163, !"_ZSt11make_uniqueIN12_GLOBAL__N_112CAPIHostFuncEJPKN8WasmEdge3AST12FunctionTypeERPF15WasmEdge_ResultPvPK28WasmEdge_CallingFrameContextPK14WasmEdge_ValuePSC_ERS8_RKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!163 = distinct !{!163, !"_ZSt11make_uniqueIN12_GLOBAL__N_112CAPIHostFuncEJPKN8WasmEdge3AST12FunctionTypeERPF15WasmEdge_ResultPvPK28WasmEdge_CallingFrameContextPK14WasmEdge_ValuePSC_ERS8_RKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZSt11make_uniqueIN12_GLOBAL__N_112CAPIHostFuncEJPKN8WasmEdge3AST12FunctionTypeERPF15WasmEdge_ResultPvS8_PK28WasmEdge_CallingFrameContextPK14WasmEdge_ValuejPSC_jERS8_SJ_RKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!166 = distinct !{!166, !"_ZSt11make_uniqueIN12_GLOBAL__N_112CAPIHostFuncEJPKN8WasmEdge3AST12FunctionTypeERPF15WasmEdge_ResultPvS8_PK28WasmEdge_CallingFrameContextPK14WasmEdge_ValuejPSC_jERS8_SJ_RKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!165 = distinct !{!165, !166, !"_ZSt11make_uniqueIN12_GLOBAL__N_112CAPIHostFuncEJPKN8WasmEdge3AST12FunctionTypeERPF15WasmEdge_ResultPvS8_PK28WasmEdge_CallingFrameContextPK14WasmEdge_ValuejPSC_jERS8_SJ_RKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!166 = distinct !{!166, !"_ZSt11make_uniqueIN12_GLOBAL__N_112CAPIHostFuncEJPKN8WasmEdge3AST12FunctionTypeERPF15WasmEdge_ResultPvS8_PK28WasmEdge_CallingFrameContextPK14WasmEdge_ValuejPSC_jERS8_SJ_RKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !167 = distinct !{!167, !26}
 !168 = !{!169}
 !169 = distinct !{!169, !170, !"_ZZ29WasmEdge_TableInstanceSetDataENK3$_0clEv: argument 0"}
 !170 = distinct !{!170, !"_ZZ29WasmEdge_TableInstanceSetDataENK3$_0clEv"}
 !171 = !{!172}
-!172 = distinct !{!172, !173, !"_ZZ26WasmEdge_TableInstanceGrowENK3$_0clEv.argprom.argprom: argument 0"}
-!173 = distinct !{!173, !"_ZZ26WasmEdge_TableInstanceGrowENK3$_0clEv.argprom.argprom"}
+!172 = distinct !{!172, !173, !"_ZZ26WasmEdge_TableInstanceGrowENK3$_0clEv: argument 0"}
+!173 = distinct !{!173, !"_ZZ26WasmEdge_TableInstanceGrowENK3$_0clEv"}
 !174 = distinct !{!174, !26}
 !175 = !{!176}
-!176 = distinct !{!176, !177, !"_ZZ31WasmEdge_MemoryInstanceGrowPageENK3$_0clEv.argprom.argprom: argument 0"}
-!177 = distinct !{!177, !"_ZZ31WasmEdge_MemoryInstanceGrowPageENK3$_0clEv.argprom.argprom"}
+!176 = distinct !{!176, !177, !"_ZZ31WasmEdge_MemoryInstanceGrowPageENK3$_0clEv: argument 0"}
+!177 = distinct !{!177, !"_ZZ31WasmEdge_MemoryInstanceGrowPageENK3$_0clEv"}
 !178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZZ31WasmEdge_GlobalInstanceSetValueENK3$_0clEv.argprom.argprom: argument 0"}
-!180 = distinct !{!180, !"_ZZ31WasmEdge_GlobalInstanceSetValueENK3$_0clEv.argprom.argprom"}
+!179 = distinct !{!179, !180, !"_ZZ31WasmEdge_GlobalInstanceSetValueENK3$_0clEv: argument 0"}
+!180 = distinct !{!180, !"_ZZ31WasmEdge_GlobalInstanceSetValueENK3$_0clEv"}
 !181 = !{!182}
 !182 = distinct !{!182, !183, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj: argument 0"}
 !183 = distinct !{!183, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance9getMemoryEj"}
@@ -60849,8 +60849,8 @@ attributes #40 = { noreturn nounwind }
 !205 = !{!206, !208}
 !206 = distinct !{!206, !207, !"_ZN8WasmEdge2VM2VM14registerModuleERKNS_7Runtime8Instance14ModuleInstanceE: argument 0"}
 !207 = distinct !{!207, !"_ZN8WasmEdge2VM2VM14registerModuleERKNS_7Runtime8Instance14ModuleInstanceE"}
-!208 = distinct !{!208, !209, !"_ZZ35WasmEdge_VMRegisterModuleFromImportENK3$_0clEv.argprom.argprom: argument 0"}
-!209 = distinct !{!209, !"_ZZ35WasmEdge_VMRegisterModuleFromImportENK3$_0clEv.argprom.argprom"}
+!208 = distinct !{!208, !209, !"_ZZ35WasmEdge_VMRegisterModuleFromImportENK3$_0clEv: argument 0"}
+!209 = distinct !{!209, !"_ZZ35WasmEdge_VMRegisterModuleFromImportENK3$_0clEv"}
 !210 = !{!211}
 !211 = distinct !{!211, !212, !"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_0clEv: argument 0"}
 !212 = distinct !{!212, !"_ZZ26WasmEdge_VMRunWasmFromFileENK3$_0clEv"}
@@ -60870,31 +60870,31 @@ attributes #40 = { noreturn nounwind }
 !226 = distinct !{!226, !227, !"_ZN8WasmEdge2VM2VM11runWasmFileERKNS_3AST6ModuleESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENSB_IKNS_7ValTypeELm18446744073709551615EEE: argument 0"}
 !227 = distinct !{!227, !"_ZN8WasmEdge2VM2VM11runWasmFileERKNS_3AST6ModuleESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENSB_IKNS_7ValTypeELm18446744073709551615EEE"}
 !228 = !{!229}
-!229 = distinct !{!229, !230, !"_ZZ27WasmEdge_VMLoadWasmFromFileENK3$_0clEv.argprom.argprom: argument 0"}
-!230 = distinct !{!230, !"_ZZ27WasmEdge_VMLoadWasmFromFileENK3$_0clEv.argprom.argprom"}
+!229 = distinct !{!229, !230, !"_ZZ27WasmEdge_VMLoadWasmFromFileENK3$_0clEv: argument 0"}
+!230 = distinct !{!230, !"_ZZ27WasmEdge_VMLoadWasmFromFileENK3$_0clEv"}
 !231 = !{!232, !229}
 !232 = distinct !{!232, !233, !"_ZN8WasmEdge2VM2VM8loadWasmERKNSt10filesystem7__cxx114pathE: argument 0"}
 !233 = distinct !{!233, !"_ZN8WasmEdge2VM2VM8loadWasmERKNSt10filesystem7__cxx114pathE"}
 !234 = !{!235, !237}
 !235 = distinct !{!235, !236, !"_ZN8WasmEdge2VM2VM8loadWasmEN5cxx204spanIKhLm18446744073709551615EEE: argument 0"}
 !236 = distinct !{!236, !"_ZN8WasmEdge2VM2VM8loadWasmEN5cxx204spanIKhLm18446744073709551615EEE"}
-!237 = distinct !{!237, !238, !"_ZZ28WasmEdge_VMLoadWasmFromBytesENK3$_0clEv.argprom.argprom: argument 0"}
-!238 = distinct !{!238, !"_ZZ28WasmEdge_VMLoadWasmFromBytesENK3$_0clEv.argprom.argprom"}
+!237 = distinct !{!237, !238, !"_ZZ28WasmEdge_VMLoadWasmFromBytesENK3$_0clEv: argument 0"}
+!238 = distinct !{!238, !"_ZZ28WasmEdge_VMLoadWasmFromBytesENK3$_0clEv"}
 !239 = !{!240, !242}
 !240 = distinct !{!240, !241, !"_ZN8WasmEdge2VM2VM8loadWasmERKNS_3AST6ModuleE: argument 0"}
 !241 = distinct !{!241, !"_ZN8WasmEdge2VM2VM8loadWasmERKNS_3AST6ModuleE"}
-!242 = distinct !{!242, !243, !"_ZZ32WasmEdge_VMLoadWasmFromASTModuleENK3$_0clEv.argprom.argprom: argument 0"}
-!243 = distinct !{!243, !"_ZZ32WasmEdge_VMLoadWasmFromASTModuleENK3$_0clEv.argprom.argprom"}
+!242 = distinct !{!242, !243, !"_ZZ32WasmEdge_VMLoadWasmFromASTModuleENK3$_0clEv: argument 0"}
+!243 = distinct !{!243, !"_ZZ32WasmEdge_VMLoadWasmFromASTModuleENK3$_0clEv"}
 !244 = !{!245, !247}
 !245 = distinct !{!245, !246, !"_ZN8WasmEdge2VM2VM8validateEv: argument 0"}
 !246 = distinct !{!246, !"_ZN8WasmEdge2VM2VM8validateEv"}
-!247 = distinct !{!247, !248, !"_ZZ19WasmEdge_VMValidateENK3$_0clEv.argprom.argprom: argument 0"}
-!248 = distinct !{!248, !"_ZZ19WasmEdge_VMValidateENK3$_0clEv.argprom.argprom"}
+!247 = distinct !{!247, !248, !"_ZZ19WasmEdge_VMValidateENK3$_0clEv: argument 0"}
+!248 = distinct !{!248, !"_ZZ19WasmEdge_VMValidateENK3$_0clEv"}
 !249 = !{!250, !252}
 !250 = distinct !{!250, !251, !"_ZN8WasmEdge2VM2VM11instantiateEv: argument 0"}
 !251 = distinct !{!251, !"_ZN8WasmEdge2VM2VM11instantiateEv"}
-!252 = distinct !{!252, !253, !"_ZZ22WasmEdge_VMInstantiateENK3$_0clEv.argprom.argprom: argument 0"}
-!253 = distinct !{!253, !"_ZZ22WasmEdge_VMInstantiateENK3$_0clEv.argprom.argprom"}
+!252 = distinct !{!252, !253, !"_ZZ22WasmEdge_VMInstantiateENK3$_0clEv: argument 0"}
+!253 = distinct !{!253, !"_ZZ22WasmEdge_VMInstantiateENK3$_0clEv"}
 !254 = !{!255}
 !255 = distinct !{!255, !256, !"_ZZ18WasmEdge_VMExecuteENK3$_0clEv: argument 0"}
 !256 = distinct !{!256, !"_ZZ18WasmEdge_VMExecuteENK3$_0clEv"}

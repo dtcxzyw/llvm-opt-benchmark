@@ -426,7 +426,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
   %114 = extractvalue { ptr, ptr } %113, 0
   %115 = extractvalue { ptr, ptr } %113, 1
   %.not7.i = icmp eq ptr %114, %115
-  br i1 %.not7.i, label %_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.argprom.exit, label %.lr.ph.i
+  br i1 %.not7.i, label %_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit, %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i
   %.sroa.01.08.i = phi ptr [ %spec.select.i.i.i1.i.i, %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i ], [ %114, %_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit ]
@@ -477,19 +477,19 @@ _ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i: ; preds 
   %141 = icmp eq i8 %140, 84
   %spec.select.i.i.i1.i.i = select i1 %141, ptr %139, ptr null
   %.not.i83 = icmp eq ptr %spec.select.i.i.i1.i.i, %115
-  br i1 %.not.i83, label %_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i83, label %_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.exit, label %.lr.ph.i
 
-_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.argprom.exit: ; preds = %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i, %_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit
+_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.exit: ; preds = %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i, %_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit
   %142 = getelementptr i8, ptr %spec.select.i.i, i64 -64
   %.val75 = load ptr, ptr %142, align 8
   %143 = call { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80) %.val75) #14
   %144 = extractvalue { ptr, ptr } %143, 0
   %145 = extractvalue { ptr, ptr } %143, 1
   %.not7.i84 = icmp eq ptr %144, %145
-  br i1 %.not7.i84, label %_ZL25fixupPHINodeForUnwindDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_S3_.argprom.exit, label %.lr.ph.i85
+  br i1 %.not7.i84, label %_ZL25fixupPHINodeForUnwindDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_S3_.exit, label %.lr.ph.i85
 
-.lr.ph.i85:                                       ; preds = %_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.argprom.exit, %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i92
-  %.sroa.01.08.i86 = phi ptr [ %spec.select.i.i.i1.i.i94, %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i92 ], [ %144, %_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.argprom.exit ]
+.lr.ph.i85:                                       ; preds = %_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.exit, %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i92
+  %.sroa.01.08.i86 = phi ptr [ %spec.select.i.i.i1.i.i94, %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i92 ], [ %144, %_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.exit ]
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i86, i64 4
   %147 = load i32, ptr %146, align 4
   %148 = and i32 %147, 134217727
@@ -615,14 +615,14 @@ _ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i92: ; pred
   %213 = icmp eq i8 %212, 84
   %spec.select.i.i.i1.i.i94 = select i1 %213, ptr %211, ptr null
   %.not.i95 = icmp eq ptr %spec.select.i.i.i1.i.i94, %145
-  br i1 %.not.i95, label %_ZL25fixupPHINodeForUnwindDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_S3_.argprom.exit, label %.lr.ph.i85
+  br i1 %.not.i95, label %_ZL25fixupPHINodeForUnwindDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_S3_.exit, label %.lr.ph.i85
 
-_ZL25fixupPHINodeForUnwindDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_S3_.argprom.exit: ; preds = %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i92, %_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.argprom.exit
+_ZL25fixupPHINodeForUnwindDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_S3_.exit: ; preds = %_ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.thread.i92, %_ZL25fixupPHINodeForNormalDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_.exit
   %214 = load ptr, ptr %98, align 8
   %.not.i.i.i97 = icmp eq ptr %214, null
   br i1 %.not.i.i.i97, label %223, label %215
 
-215:                                              ; preds = %_ZL25fixupPHINodeForUnwindDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_S3_.argprom.exit
+215:                                              ; preds = %_ZL25fixupPHINodeForUnwindDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_S3_.exit
   %216 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -88
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 -80
@@ -637,7 +637,7 @@ _ZL25fixupPHINodeForUnwindDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_S3_.argpro
   store ptr %221, ptr %222, align 8
   br label %223
 
-223:                                              ; preds = %_ZL25fixupPHINodeForUnwindDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_S3_.argprom.exit, %215, %220
+223:                                              ; preds = %_ZL25fixupPHINodeForUnwindDestPN4llvm10InvokeInstEPNS_10BasicBlockES3_S3_.exit, %215, %220
   store ptr %80, ptr %98, align 8
   %224 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %225 = load ptr, ptr %224, align 8

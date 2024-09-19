@@ -499,9 +499,9 @@ define noundef zeroext i1 @_Z22pme_gpu_supports_inputRK10t_inputrecPNSt7__cxx111
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN3gmx22MessageStringCollectorC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
   invoke void @_ZN3gmx22MessageStringCollector12startContextEPKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str)
-          to label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit unwind label %24
+          to label %_ZL8usingPmeRK22CoulombInteractionType.exit unwind label %24
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %2
+_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 340
   %.val = load i32, ptr %5, align 4
   %6 = icmp ugt i32 %.val, 15
@@ -512,7 +512,7 @@ _ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %2
   invoke void @_ZN3gmx22MessageStringCollector8appendIfEbPKc(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %7, ptr noundef nonnull @.str.4)
           to label %8 unwind label %24
 
-8:                                                ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+8:                                                ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit
   %9 = getelementptr inbounds i8, ptr %0, i64 152
   %10 = load i32, ptr %9, align 8
   %11 = icmp ne i32 %10, 4
@@ -554,7 +554,7 @@ switch.edge:                                      ; preds = %12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   br label %26
 
-24:                                               ; preds = %26, %21, %19, %switch.edge, %12, %8, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit, %2
+24:                                               ; preds = %26, %21, %19, %switch.edge, %12, %8, %_ZL8usingPmeRK22CoulombInteractionType.exit, %2
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx22MessageStringCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
@@ -3012,17 +3012,17 @@ _ZNSt10shared_ptrI15PmeGridsStorageED2Ev.exit:    ; preds = %74, %69
   %221 = getelementptr inbounds i8, ptr %2, i64 340
   %.val = load i32, ptr %221, align 4
   switch i32 %.val, label %222 [
-    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
-    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
-    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
-    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
-    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.exit
+    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.exit
+    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.exit
+    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.exit
+    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.exit
   ]
 
 222:                                              ; preds = %220
-  br label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+  br label %_ZL8usingPmeRK22CoulombInteractionType.exit
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %220, %220, %220, %220, %220, %222
+_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %220, %220, %220, %220, %220, %222
   %223 = phi i8 [ 1, %220 ], [ 0, %222 ], [ 1, %220 ], [ 1, %220 ], [ 1, %220 ], [ 1, %220 ]
   %224 = getelementptr inbounds i8, ptr %54, i64 73
   store i8 %223, ptr %224, align 1
@@ -3061,14 +3061,14 @@ _ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %220, %220, %220,
   %248 = icmp eq i32 %.val, 5
   br i1 %248, label %253, label %249
 
-249:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+249:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit
   %250 = call ptr @getenv(ptr noundef nonnull @.str.27) #7
   %251 = icmp ne ptr %250, null
   %252 = zext i1 %251 to i8
   br label %253
 
-253:                                              ; preds = %249, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
-  %254 = phi i8 [ 1, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit ], [ %252, %249 ]
+253:                                              ; preds = %249, %_ZL8usingPmeRK22CoulombInteractionType.exit
+  %254 = phi i8 [ 1, %_ZL8usingPmeRK22CoulombInteractionType.exit ], [ %252, %249 ]
   %255 = getelementptr inbounds i8, ptr %54, i64 92
   store i8 %254, ptr %255, align 4
   %256 = getelementptr inbounds i8, ptr %2, i64 152

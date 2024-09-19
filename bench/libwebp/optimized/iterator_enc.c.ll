@@ -180,16 +180,16 @@ VP8IteratorSetRow.exit:                           ; preds = %1, %38
   %58 = getelementptr inbounds i8, ptr %.val, i64 23696
   %59 = load ptr, ptr %58, align 8
   %.not.i = icmp eq ptr %59, null
-  br i1 %.not.i, label %InitTop.argprom.exit, label %60
+  br i1 %.not.i, label %InitTop.exit, label %60
 
 60:                                               ; preds = %VP8IteratorSetRow.exit
   %61 = load i32, ptr %46, align 8
   %62 = sext i32 %61 to i64
   %63 = shl nsw i64 %62, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %59, i8 0, i64 %63, i1 false)
-  br label %InitTop.argprom.exit
+  br label %InitTop.exit
 
-InitTop.argprom.exit:                             ; preds = %VP8IteratorSetRow.exit, %60
+InitTop.exit:                                     ; preds = %VP8IteratorSetRow.exit, %60
   %64 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %64, i8 0, i64 96, i1 false)
   %65 = getelementptr inbounds i8, ptr %0, i64 328

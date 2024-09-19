@@ -248,16 +248,16 @@ define dso_local i64 @gtsvector_compress(ptr nocapture noundef readonly %0) loca
   %.1.i = phi i64 [ %67, %68 ], [ %.0231.i, %66 ], [ %.02.i, %.preheader.i ]
   %72 = add nuw i64 %.0231.i, 1
   %exitcond.not.i = icmp eq i64 %72, %58
-  br i1 %exitcond.not.i, label %qunique.argprom.exit, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %qunique.exit, label %.preheader.i, !llvm.loop !8
 
-qunique.argprom.exit:                             ; preds = %71
+qunique.exit:                                     ; preds = %71
   %73 = trunc i64 %.1.i to i32
   %74 = add i32 %73, 1
   %.pre105 = load i32, ptr %21, align 4
   %.not87 = icmp eq i32 %.pre105, %74
   br i1 %.not87, label %thread-pre-split, label %75
 
-75:                                               ; preds = %qunique.argprom.exit
+75:                                               ; preds = %qunique.exit
   %76 = shl i32 %74, 2
   %77 = add i32 %76, 8
   %78 = sext i32 %77 to i64
@@ -266,7 +266,7 @@ qunique.argprom.exit:                             ; preds = %71
   store i32 %80, ptr %79, align 4
   br label %81
 
-thread-pre-split:                                 ; preds = %._crit_edge103, %qunique.argprom.exit
+thread-pre-split:                                 ; preds = %._crit_edge103, %qunique.exit
   %.pr = load i32, ptr %26, align 4
   br label %81
 

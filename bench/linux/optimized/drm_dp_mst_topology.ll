@@ -1310,7 +1310,7 @@ define dso_local void @drm_dp_mst_put_port_malloc(ptr noundef %0) #3 align 16 {
   %34 = load volatile i32, ptr %33, align 4
   %35 = add i32 %34, -1
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %32, i32 noundef 1, ptr noundef nonnull @.str.102, ptr noundef %22, i32 noundef %35) #21
-  tail call fastcc void @kref_put.argprom(ptr noundef %33) #23
+  tail call fastcc void @kref_put(ptr noundef %33) #23
   tail call void @kfree(ptr noundef %0) #21
   br label %.thread
 
@@ -1319,7 +1319,7 @@ define dso_local void @drm_dp_mst_put_port_malloc(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @kref_put.argprom(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc void @kref_put(ptr noundef %0) unnamed_addr #6 align 16 {
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #21, !srcloc !25
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %7, label %4
@@ -7717,7 +7717,7 @@ define internal void @drm_dp_delayed_destroy_work(ptr noundef %0) #3 align 16 {
   %83 = load volatile i32, ptr %82, align 4
   %84 = add i32 %83, -1
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %81, i32 noundef 1, ptr noundef nonnull @.str.102, ptr noundef %71, i32 noundef %84) #21
-  tail call fastcc void @kref_put.argprom(ptr noundef %82) #28
+  tail call fastcc void @kref_put(ptr noundef %82) #28
   tail call void @kfree(ptr noundef %25) #21
   br label %drm_dp_mst_topology_put_port.exit
 
@@ -7891,7 +7891,7 @@ drm_dp_mst_topology_put_port.exit:                ; preds = %80, %68, %66, %44, 
   %183 = load volatile i32, ptr %182, align 4
   %184 = add i32 %183, -1
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %181, i32 noundef 1, ptr noundef nonnull @.str.102, ptr noundef %171, i32 noundef %184) #21
-  tail call fastcc void @kref_put.argprom(ptr noundef %182) #28
+  tail call fastcc void @kref_put(ptr noundef %182) #28
   tail call void @kfree(ptr noundef nonnull %148) #21
   br label %drm_dp_mst_put_port_malloc.exit
 
@@ -8083,7 +8083,7 @@ drm_dp_mst_topology_put_mstb.exit:                ; preds = %232, %234, %235
   %287 = load volatile i32, ptr %286, align 4
   %288 = add i32 %287, -1
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %285, i32 noundef 1, ptr noundef nonnull @.str.102, ptr noundef %275, i32 noundef %288) #21
-  tail call fastcc void @kref_put.argprom(ptr noundef %286) #28
+  tail call fastcc void @kref_put(ptr noundef %286) #28
   tail call void @kfree(ptr noundef nonnull %195) #21
   br label %drm_dp_mst_put_port_malloc.exit12
 

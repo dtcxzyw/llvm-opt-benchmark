@@ -851,7 +851,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   %378 = load ptr, ptr %377, align 8
   %379 = getelementptr inbounds i8, ptr %378, i64 232
   %380 = load ptr, ptr %379, align 8
-  %381 = tail call fastcc ptr @expand_.argelim(ptr noundef %380)
+  %381 = tail call fastcc ptr @expand_(ptr noundef %380)
   %382 = load ptr, ptr %377, align 8
   %383 = getelementptr inbounds i8, ptr %382, i64 232
   store ptr %381, ptr %383, align 8
@@ -1394,7 +1394,7 @@ declare zeroext i1 @sema_analyse_decl(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @sema_ct_eval_expr(ptr noundef, i1 noundef zeroext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @expand_.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @expand_(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %5
 

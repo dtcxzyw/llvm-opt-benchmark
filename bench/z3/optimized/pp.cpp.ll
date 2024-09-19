@@ -395,7 +395,7 @@ sw.bb103:                                         ; preds = %invoke.cont33
 land.lhs.true110:                                 ; preds = %sw.bb103
   %m_args.i119 = getelementptr inbounds i8, ptr %pair.sroa.0.0.copyload, i64 32
   %42 = load ptr, ptr %m_args.i119, align 8
-  %call.i123 = invoke fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app.argprom(ptr noundef %42)
+  %call.i123 = invoke fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %42)
           to label %invoke.cont115 unwind label %lpad26.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont115:                                   ; preds = %land.lhs.true110
@@ -783,7 +783,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZL21space_upto_line_breakR11ast_managerP3app.argprom(ptr nocapture noundef readonly %f) unnamed_addr #3 {
+define internal fastcc range(i64 0, 8589934592) i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr nocapture noundef readonly %f) unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %class.symbol, align 8
   %m_decl.i.i = getelementptr inbounds i8, ptr %f, i64 16
@@ -837,7 +837,7 @@ _ZNK9parameter10get_symbolEv.exit:                ; preds = %sw.bb
 sw.bb7:                                           ; preds = %_ZNK3app13get_decl_kindEv.exit
   %m_args.i = getelementptr inbounds i8, ptr %f, i64 32
   %6 = load ptr, ptr %m_args.i, align 8
-  %call10 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app.argprom(ptr noundef %6)
+  %call10 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %6)
   %retval.sroa.0.0.extract.trunc3 = trunc i64 %call10 to i32
   br label %return
 
@@ -853,7 +853,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %r.025 = phi i32 [ %add, %for.cond ], [ 0, %for.cond.preheader ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i10, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx.i, align 8
-  %call15 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app.argprom(ptr noundef %9)
+  %call15 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %9)
   %pair.sroa.0.0.extract.trunc = trunc i64 %call15 to i32
   %add = add i32 %r.025, %pair.sroa.0.0.extract.trunc
   %tobool.not = icmp ult i64 %call15, 4294967296
@@ -862,7 +862,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 sw.bb20:                                          ; preds = %_ZNK3app13get_decl_kindEv.exit
   %m_args.i21 = getelementptr inbounds i8, ptr %f, i64 32
   %10 = load ptr, ptr %m_args.i21, align 8
-  %call23 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app.argprom(ptr noundef %10)
+  %call23 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %10)
   %retval.sroa.0.0.extract.trunc6 = trunc i64 %call23 to i32
   br label %return
 

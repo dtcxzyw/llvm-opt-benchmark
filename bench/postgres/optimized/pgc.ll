@@ -1361,7 +1361,7 @@ addlit.exit:                                      ; preds = %._crit_edge.i, %230
   br i1 %or.cond, label %481, label %482
 
 481:                                              ; preds = %477
-  tail call fastcc void @yyunput.argelim(ptr noundef %480)
+  tail call fastcc void @yyunput(ptr noundef %480)
   br label %.loopexit.backedge
 
 482:                                              ; preds = %477
@@ -1583,12 +1583,12 @@ addlit.exit:                                      ; preds = %._crit_edge.i, %230
 
 569:                                              ; preds = %.loopexit525
   %570 = load ptr, ptr @base_yytext, align 8
-  %571 = tail call fastcc i32 @process_integer_literal.argprom(ptr noundef %570, i32 noundef 10)
+  %571 = tail call fastcc i32 @process_integer_literal(ptr noundef %570, i32 noundef 10)
   br label %1445
 
 572:                                              ; preds = %.loopexit525
   %573 = load ptr, ptr @base_yytext, align 8
-  %574 = tail call fastcc i32 @process_integer_literal.argprom(ptr noundef %573, i32 noundef 16)
+  %574 = tail call fastcc i32 @process_integer_literal(ptr noundef %573, i32 noundef 16)
   br label %1445
 
 575:                                              ; preds = %.loopexit525
@@ -1646,7 +1646,7 @@ addlit.exit:                                      ; preds = %._crit_edge.i, %230
   store i8 0, ptr %594, align 1
   store ptr %594, ptr @yy_c_buf_p, align 8
   %596 = load ptr, ptr @base_yytext, align 8
-  %597 = tail call fastcc i32 @process_integer_literal.argprom(ptr noundef %596, i32 noundef 10)
+  %597 = tail call fastcc i32 @process_integer_literal(ptr noundef %596, i32 noundef 10)
   br label %1445
 
 598:                                              ; preds = %.loopexit525
@@ -1704,17 +1704,17 @@ addlit.exit:                                      ; preds = %._crit_edge.i, %230
   store i8 0, ptr %617, align 1
   store ptr %617, ptr @yy_c_buf_p, align 8
   %619 = load ptr, ptr @base_yytext, align 8
-  %620 = tail call fastcc i32 @process_integer_literal.argprom(ptr noundef %619, i32 noundef 10)
+  %620 = tail call fastcc i32 @process_integer_literal(ptr noundef %619, i32 noundef 10)
   br label %1445
 
 621:                                              ; preds = %.loopexit525
   %622 = load ptr, ptr @base_yytext, align 8
-  %623 = tail call fastcc i32 @process_integer_literal.argprom(ptr noundef %622, i32 noundef 8)
+  %623 = tail call fastcc i32 @process_integer_literal(ptr noundef %622, i32 noundef 8)
   br label %1445
 
 624:                                              ; preds = %.loopexit525
   %625 = load ptr, ptr @base_yytext, align 8
-  %626 = tail call fastcc i32 @process_integer_literal.argprom(ptr noundef %625, i32 noundef 2)
+  %626 = tail call fastcc i32 @process_integer_literal(ptr noundef %625, i32 noundef 2)
   br label %1445
 
 627:                                              ; preds = %.loopexit525
@@ -3845,7 +3845,7 @@ declare ptr @mm_strdup(ptr noundef) local_unnamed_addr #4
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yyunput.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @yyunput(ptr noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr @yy_c_buf_p, align 8
   %3 = load i8, ptr @yy_hold_char, align 1
   store i8 %3, ptr %2, align 1
@@ -3935,7 +3935,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
 declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 330, 337) i32 @process_integer_literal.argprom(ptr noundef %0, i32 noundef range(i32 2, 17) %1) unnamed_addr #0 {
+define internal fastcc range(i32 330, 337) i32 @process_integer_literal(ptr noundef %0, i32 noundef range(i32 2, 17) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #32
   store i32 0, ptr %4, align 4

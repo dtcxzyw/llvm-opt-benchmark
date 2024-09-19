@@ -263,7 +263,7 @@ define dso_local i32 @__generic_remap_file_range_prep(ptr noundef %0, i64 nounde
 161:                                              ; preds = %153, %151
   %162 = getelementptr i8, ptr %11, i64 142
   %.val = load i8, ptr %162, align 2
-  %163 = call fastcc i32 @generic_remap_check_len.argprom(i8 %.val, ptr noundef %13, i64 noundef %3, ptr noundef %4, i32 noundef %5)
+  %163 = call fastcc i32 @generic_remap_check_len(i8 %.val, ptr noundef %13, i64 noundef %3, ptr noundef %4, i32 noundef %5)
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %.thread
 
@@ -523,7 +523,7 @@ define internal fastcc i32 @vfs_dedupe_file_range_compare(ptr noundef %0, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef range(i32 -52, 1) i32 @generic_remap_check_len.argprom(i8 %.142.val, ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -52, 1) i32 @generic_remap_check_len(i8 %.142.val, ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #3 align 16 {
   %5 = zext nneg i8 %.142.val to i32
   %6 = shl nsw i32 -1, %5
   %7 = xor i32 %6, -1

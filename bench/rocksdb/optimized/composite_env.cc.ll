@@ -16237,13 +16237,13 @@ if.then.i.i.i:                                    ; preds = %entry
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %__args3.val.val, ptr noundef nonnull align 8 dereferenceable(80) %__args, ptr noundef %__args5.val.val, ptr noundef %__args7.val)
-  br label %"_ZSt10__invoke_rIbRN7rocksdb12_GLOBAL__N_13$_1EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSG_PSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRN7rocksdb12_GLOBAL__N_13$_1EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSG_PSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 if.else.i.i.i:                                    ; preds = %entry
   %cmp5.i.i.i = icmp eq ptr %__args5.val.val, null
-  br label %"_ZSt10__invoke_rIbRN7rocksdb12_GLOBAL__N_13$_1EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSG_PSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRN7rocksdb12_GLOBAL__N_13$_1EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSG_PSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
-"_ZSt10__invoke_rIbRN7rocksdb12_GLOBAL__N_13$_1EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSG_PSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
+"_ZSt10__invoke_rIbRN7rocksdb12_GLOBAL__N_13$_1EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSG_PSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
   %retval.0.i.i.i = phi i1 [ %call.i.i.i, %if.then.i.i.i ], [ %cmp5.i.i.i, %if.else.i.i.i ]
   ret i1 %retval.0.i.i.i
 }
@@ -16280,7 +16280,7 @@ entry:
 if.else.i.i.i:                                    ; preds = %entry
   %1 = load ptr, ptr %__args3.val, align 8, !noalias !19
   %cmp5.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp5.i.i.i, label %if.then6.i.i.i, label %"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br i1 %cmp5.i.i.i, label %if.then6.i.i.i, label %"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
   %call7.i.i.i = tail call noundef ptr @_ZN7rocksdb3Env7DefaultEv(), !noalias !19
@@ -16289,9 +16289,9 @@ if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
 if.end9.sink.split.i.i.i:                         ; preds = %if.then6.i.i.i, %entry
   %call7.sink.i.i.i = phi ptr [ %call7.i.i.i, %if.then6.i.i.i ], [ %0, %entry ]
   store ptr %call7.sink.i.i.i, ptr %__args3.val, align 8, !noalias !19
-  br label %"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
 
-"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %if.else.i.i.i, %if.end9.sink.split.i.i.i
+"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %if.else.i.i.i, %if.end9.sink.split.i.i.i
   %2 = phi ptr [ %1, %if.else.i.i.i ], [ %call7.sink.i.i.i, %if.end9.sink.split.i.i.i ]
   %vtable.i.i.i = load ptr, ptr %2, align 8, !noalias !19
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 40
@@ -16340,16 +16340,16 @@ if.then.i.i.i:                                    ; preds = %entry
   %size_.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i.i, i64 8
   store i64 0, ptr %size_.i2.i.i.i, align 8, !noalias !31
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i, i8 noundef zeroext 0)
-  br label %"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 if.else.i.i.i:                                    ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %__args5.val.val, align 8, !noalias !31
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %0 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !31
   tail call void %0(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__args5.val.val, ptr noundef nonnull align 8 dereferenceable(688) %__args, ptr noundef nonnull align 8 dereferenceable(820) %__args1)
-  br label %"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
-"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.argprom.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
+"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %if.then.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i), !noalias !26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i), !noalias !26
   ret void
@@ -17642,20 +17642,20 @@ attributes #25 = { noreturn }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = !{!20, !22, !24}
-!20 = distinct !{!20, !21, !"_ZNK7rocksdb12_GLOBAL__N_13$_2clERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPv.argprom: %agg.result"}
-!21 = distinct !{!21, !"_ZNK7rocksdb12_GLOBAL__N_13$_2clERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPv.argprom"}
-!22 = distinct !{!22, !23, !"_ZSt13__invoke_implIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!23 = distinct !{!23, !"_ZSt13__invoke_implIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!24 = distinct !{!24, !25, !"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom: %agg.result"}
-!25 = distinct !{!25, !"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom"}
+!20 = distinct !{!20, !21, !"_ZNK7rocksdb12_GLOBAL__N_13$_2clERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPv: %agg.result"}
+!21 = distinct !{!21, !"_ZNK7rocksdb12_GLOBAL__N_13$_2clERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPv"}
+!22 = distinct !{!22, !23, !"_ZSt13__invoke_implIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!23 = distinct !{!23, !"_ZSt13__invoke_implIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEET_St14__invoke_otherOT0_DpOT1_"}
+!24 = distinct !{!24, !25, !"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_: %agg.result"}
+!25 = distinct !{!25, !"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_2EJRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_"}
 !26 = !{!27, !29}
-!27 = distinct !{!27, !28, !"_ZSt13__invoke_implIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom: %agg.result"}
-!28 = distinct !{!28, !"_ZSt13__invoke_implIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom"}
-!29 = distinct !{!29, !30, !"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.argprom: %agg.result"}
-!30 = distinct !{!30, !"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.argprom"}
+!27 = distinct !{!27, !28, !"_ZSt13__invoke_implIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!28 = distinct !{!28, !"_ZSt13__invoke_implIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEET_St14__invoke_otherOT0_DpOT1_"}
+!29 = distinct !{!29, !30, !"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_: %agg.result"}
+!30 = distinct !{!30, !"_ZSt10__invoke_rIN7rocksdb6StatusERNS0_12_GLOBAL__N_13$_3EJRKNS0_9DBOptionsERKNS0_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_"}
 !31 = !{!32, !27, !29}
-!32 = distinct !{!32, !33, !"_ZNK7rocksdb12_GLOBAL__N_13$_3clERKNS_9DBOptionsERKNS_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKv.argprom: %agg.result"}
-!33 = distinct !{!33, !"_ZNK7rocksdb12_GLOBAL__N_13$_3clERKNS_9DBOptionsERKNS_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKv.argprom"}
+!32 = distinct !{!32, !33, !"_ZNK7rocksdb12_GLOBAL__N_13$_3clERKNS_9DBOptionsERKNS_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKv: %agg.result"}
+!33 = distinct !{!33, !"_ZNK7rocksdb12_GLOBAL__N_13$_3clERKNS_9DBOptionsERKNS_19ColumnFamilyOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKv"}
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}

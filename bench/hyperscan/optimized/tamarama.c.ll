@@ -782,7 +782,7 @@ entry:
   %1 = load i32, ptr %add.ptr, align 32
   %2 = getelementptr i8, ptr %n, i64 68
   %add.ptr.val = load i8, ptr %2, align 4
-  switch i8 %add.ptr.val, label %storeActiveIdx.argprom.exit [
+  switch i8 %add.ptr.val, label %storeActiveIdx.exit [
     i8 4, label %sw.bb.i.i
     i8 3, label %sw.bb1.i.i
     i8 2, label %sw.bb3.i.i
@@ -791,7 +791,7 @@ entry:
 
 sw.bb.i.i:                                        ; preds = %entry
   store i32 %1, ptr %0, align 1
-  br label %storeActiveIdx.argprom.exit
+  br label %storeActiveIdx.exit
 
 sw.bb1.i.i:                                       ; preds = %entry
   %conv.i.i = trunc i32 %1 to i16
@@ -800,19 +800,19 @@ sw.bb1.i.i:                                       ; preds = %entry
   %conv2.i.i = trunc i32 %shr.i.i to i8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %conv2.i.i, ptr %add.ptr.i.i, align 1
-  br label %storeActiveIdx.argprom.exit
+  br label %storeActiveIdx.exit
 
 sw.bb3.i.i:                                       ; preds = %entry
   %conv4.i.i = trunc i32 %1 to i16
   store i16 %conv4.i.i, ptr %0, align 1
-  br label %storeActiveIdx.argprom.exit
+  br label %storeActiveIdx.exit
 
 sw.bb5.i.i:                                       ; preds = %entry
   %conv6.i.i = trunc i32 %1 to i8
   store i8 %conv6.i.i, ptr %0, align 1
-  br label %storeActiveIdx.argprom.exit
+  br label %storeActiveIdx.exit
 
-storeActiveIdx.argprom.exit:                      ; preds = %entry, %sw.bb.i.i, %sw.bb1.i.i, %sw.bb3.i.i, %sw.bb5.i.i
+storeActiveIdx.exit:                              ; preds = %entry, %sw.bb.i.i, %sw.bb1.i.i, %sw.bb3.i.i, %sw.bb5.i.i
   ret i8 0
 }
 

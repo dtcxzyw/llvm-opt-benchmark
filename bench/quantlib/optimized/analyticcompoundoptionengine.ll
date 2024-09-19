@@ -3329,7 +3329,7 @@ if.then.i.i363:                                   ; preds = %cond.false.i357, %_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %N2) #27
   %290 = atomicrmw sub ptr %use_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i365 = icmp eq i32 %290, 1
-  br i1 %cmp.i.i.i365, label %if.then.i.i.i366, label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i365, label %if.then.i.i.i366, label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev.exit
 
 if.then.i.i.i366:                                 ; preds = %if.then.i.i363
   %vtable.i.i.i367 = load ptr, ptr %call.i.i.i, align 8, !tbaa !35
@@ -3341,14 +3341,14 @@ if.then.i.i.i366:                                 ; preds = %if.then.i.i363
 .noexc.i.i370:                                    ; preds = %if.then.i.i.i366
   %292 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i372 = icmp eq i32 %292, 1
-  br i1 %cmp.i.i.i.i372, label %if.then.i.i.i.i373, label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i372, label %if.then.i.i.i.i373, label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev.exit
 
 if.then.i.i.i.i373:                               ; preds = %.noexc.i.i370
   %vtable.i.i.i.i374 = load ptr, ptr %call.i.i.i, align 8, !tbaa !35
   %vfn.i.i.i.i375 = getelementptr inbounds i8, ptr %vtable.i.i.i.i374, i64 24
   %293 = load ptr, ptr %vfn.i.i.i.i375, align 8
   invoke void %293(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i)
-          to label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev.argprom.exit unwind label %terminate.lpad.i.i369
+          to label %_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev.exit unwind label %terminate.lpad.i.i369
 
 terminate.lpad.i.i369:                            ; preds = %if.then.i.i.i.i373, %if.then.i.i.i366
   %294 = landingpad { ptr, i32 }
@@ -3357,7 +3357,7 @@ terminate.lpad.i.i369:                            ; preds = %if.then.i.i.i.i373,
   call void @__clang_call_terminate(ptr %295) #28
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev.argprom.exit: ; preds = %if.then.i.i363, %.noexc.i.i370, %if.then.i.i.i.i373
+_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev.exit: ; preds = %if.then.i.i363, %.noexc.i.i370, %if.then.i.i.i.i373
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %f) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %helpMaturity) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %helpDate) #27
@@ -3527,7 +3527,7 @@ ehcleanup368:                                     ; preds = %lpad192, %lpad198, 
 ehcleanup373:                                     ; preds = %lpad164.loopexit, %lpad164.loopexit.split-lp, %ehcleanup154.i.i, %ehcleanup362.i, %ehcleanup312.i, %ehcleanup262.i, %ehcleanup80.i, %lpad174, %lpad180, %ehcleanup368, %lpad183, %lpad177
   %.pn81.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %298, %lpad174 ], [ %299, %lpad177 ], [ %300, %lpad180 ], [ %.pn81.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup368 ], [ %301, %lpad183 ], [ %.pn.pn.pn.pn.i.i, %ehcleanup154.i.i ], [ %.pn31.pn.pn.pn.i, %ehcleanup362.i ], [ %.pn26.pn.pn.pn.i, %ehcleanup312.i ], [ %.pn21.pn.pn.pn.i, %ehcleanup262.i ], [ %.pn.pn.pn.pn.i, %ehcleanup80.i ], [ %lpad.loopexit, %lpad164.loopexit ], [ %lpad.loopexit.split-lp, %lpad164.loopexit.split-lp ]
   %f.val109 = load ptr, ptr %pn.i, align 8, !tbaa !37
-  call fastcc void @_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev.argprom(ptr %f.val109) #27
+  call fastcc void @_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev(ptr %f.val109) #27
   br label %ehcleanup377
 
 ehcleanup377:                                     ; preds = %ehcleanup158, %cleanup.action160, %ehcleanup373
@@ -5415,7 +5415,7 @@ _ZNK8QuantLib28AnalyticCompoundOptionEngine20residualTimeDaughterEv.exit: ; pred
 declare double @llvm.fmuladd.f64(double, double, double) #15
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev.argprom(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost10shared_ptrIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEED2Ev(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i = icmp eq ptr %this.8.val, null
   br i1 %cmp.not.i, label %_ZN5boost6detail12shared_countD2Ev.exit, label %if.then.i
@@ -7797,13 +7797,13 @@ delete.notnull:                                   ; preds = %entry
   %0 = getelementptr i8, ptr %x, i64 40
   %x.val = load ptr, ptr %0, align 8, !tbaa !37
   %cmp.not.i.i.i = icmp eq ptr %x.val, null
-  br i1 %cmp.not.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %delete.notnull
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %x.val, i64 8
   %1 = atomicrmw sub ptr %use_count_.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i = icmp eq i32 %1, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %x.val, align 8, !tbaa !35
@@ -7816,14 +7816,14 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x.val, i64 12
   %3 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %3, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %x.val, align 8, !tbaa !35
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %x.val)
-          to label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit unwind label %terminate.lpad.i.i.i
+          to label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i
   %5 = landingpad { ptr, i32 }
@@ -7832,11 +7832,11 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, 
   tail call void @__clang_call_terminate(ptr %6) #28
   unreachable
 
-_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit: ; preds = %delete.notnull, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
+_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit: ; preds = %delete.notnull, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %x, i64 noundef 48) #32
   br label %delete.end
 
-delete.end:                                       ; preds = %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit, %entry
+delete.end:                                       ; preds = %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit, %entry
   ret void
 }
 
@@ -7865,13 +7865,13 @@ delete.notnull.i:                                 ; preds = %entry
   %1 = getelementptr i8, ptr %0, i64 40
   %x.val.i = load ptr, ptr %1, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %x.val.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit.i, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
   %use_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x.val.i, i64 8
   %2 = atomicrmw sub ptr %use_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %2, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit.i
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %x.val.i, align 8, !tbaa !35
@@ -7884,14 +7884,14 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %weak_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x.val.i, i64 12
   %4 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %x.val.i, align 8, !tbaa !35
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %x.val.i)
-          to label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit.i unwind label %terminate.lpad.i.i.i.i
+          to label %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -7900,11 +7900,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %7) #28
   unreachable
 
-_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit.i: ; preds = %if.then.i.i.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i, %delete.notnull.i
+_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i, %delete.notnull.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #32
   br label %_ZN5boost14checked_deleteIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEEEvPT_.exit
 
-_ZN5boost14checked_deleteIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEEEvPT_.exit: ; preds = %entry, %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.argprom.exit.i
+_ZN5boost14checked_deleteIN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperEEEvPT_.exit: ; preds = %entry, %_ZN8QuantLib12_GLOBAL__N_117ImpliedSpotHelperD2Ev.exit.i
   ret void
 }
 

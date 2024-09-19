@@ -394,7 +394,7 @@ if.end4.thread:                                   ; preds = %entry
 
 if.then11:                                        ; preds = %if.end4
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.qemu_set_log_internal, ptr noundef nonnull @.str.59) #15
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end12:                                         ; preds = %if.end4.thread
   %tobool.not.i = icmp eq ptr %filename, null
@@ -419,7 +419,7 @@ lor.lhs.false.i:                                  ; preds = %if.then2.i
 
 if.then6.i:                                       ; preds = %lor.lhs.false.i, %if.then2.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 193, ptr noundef nonnull @__func__.valid_filename_template, ptr noundef nonnull @.str.64, ptr noundef nonnull %filename) #15
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool675.not, label %sw.bb18, label %if.end26
@@ -432,7 +432,7 @@ if.end10.i.thread:                                ; preds = %if.then.i
 
 if.then12.i:                                      ; preds = %if.end10.i.thread, %if.end10.i
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 200, ptr noundef nonnull @__func__.valid_filename_template, ptr noundef nonnull @.str.65) #15
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 sw.bb18:                                          ; preds = %if.end.i
   %call19 = tail call i32 @getpid() #15
@@ -468,11 +468,11 @@ lor.lhs.false.i62:                                ; preds = %if.then2.i57
 
 if.then6.i60:                                     ; preds = %lor.lhs.false.i62, %if.then2.i57
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 193, ptr noundef nonnull @__func__.valid_filename_template, ptr noundef nonnull @.str.64, ptr noundef nonnull %6) #15
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end10.i67:                                     ; preds = %if.then.i54, %land.lhs.true
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 200, ptr noundef nonnull @__func__.valid_filename_template, ptr noundef nonnull @.str.65) #15
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end26.thread110:                               ; preds = %sw.bb18, %if.end10.i
   %8 = phi ptr [ %.pre, %sw.bb18 ], [ %4, %if.end10.i ]
@@ -548,7 +548,7 @@ if.end58:                                         ; preds = %if.end54, %if.end42
   %logfile.1 = select i1 %brmerge.not, ptr %14, ptr %logfile.0
   %tobool64.not = icmp eq ptr %logfile.1, null
   %brmerge50.not = select i1 %tobool64.not, i1 %need_to_open_file.0.in, i1 false
-  br i1 %brmerge50.not, label %if.then67, label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br i1 %brmerge50.not, label %if.then67, label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.then67:                                        ; preds = %if.end58
   %tobool68.not = icmp eq ptr %filename.addr.0104, null
@@ -560,7 +560,7 @@ if.then69:                                        ; preds = %if.then67
 if.then71:                                        ; preds = %if.then69
   %call72 = tail call fastcc ptr @qemu_log_trylock_with_err(ptr noundef %errp)
   %tobool73.not = icmp eq ptr %call72, null
-  br i1 %tobool73.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then.i71
+  br i1 %tobool73.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then.i71
 
 if.then.i71:                                      ; preds = %if.then71
   %call.i = tail call i32 @fflush(ptr noundef nonnull %call72)
@@ -608,7 +608,7 @@ if.then79:                                        ; preds = %if.else76
   %call80 = tail call ptr @__errno_location() #16
   %17 = load i32, ptr %call80, align 4
   tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 323, ptr noundef nonnull @__func__.qemu_set_log_internal, i32 noundef %17, ptr noundef nonnull @.str.60, ptr noundef nonnull %filename.addr.0104) #15
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end82:                                         ; preds = %while.end21.i.i, %while.end.i.i, %if.end.i.i, %if.then.i71, %if.else76
   %logfile.2 = phi ptr [ %call77, %if.else76 ], [ %call72, %if.then.i71 ], [ %call72, %if.end.i.i ], [ %call72, %while.end.i.i ], [ %call72, %while.end21.i.i ]
@@ -635,15 +635,15 @@ if.end94:                                         ; preds = %if.end82
 
 if.then98:                                        ; preds = %if.end94
   store ptr %19, ptr %13, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 while.end106:                                     ; preds = %if.end93, %if.end82, %if.end94
   %logfile.3116 = phi ptr [ %19, %if.end94 ], [ %18, %if.end93 ], [ %logfile.2, %if.end82 ]
   %20 = ptrtoint ptr %logfile.3116 to i64
   store atomic i64 %20, ptr @global_file release, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.end10.i67, %if.then6.i60, %if.then12.i, %if.then6.i, %while.end106, %if.then98, %if.end58, %if.then71, %if.then79, %if.then11
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end10.i67, %if.then6.i60, %if.then12.i, %if.then6.i, %while.end106, %if.then98, %if.end58, %if.then71, %if.then79, %if.then11
   %retval.0 = phi i1 [ false, %if.then11 ], [ false, %if.then79 ], [ false, %if.then71 ], [ true, %if.end58 ], [ true, %if.then98 ], [ true, %while.end106 ], [ false, %if.then6.i ], [ false, %if.then12.i ], [ false, %if.then6.i60 ], [ false, %if.end10.i67 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @global_mutex, ptr noundef nonnull @.str.62, i32 noundef 132) #15
   ret i1 %retval.0

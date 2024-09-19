@@ -664,7 +664,7 @@ fill_rect.exit365:                                ; preds = %._crit_edge.us.i362
   %232 = icmp sgt i32 %.0291, 0
   %233 = icmp sgt i32 %223, 0
   %or.cond.i.i = and i1 %232, %233
-  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %copy_sb8_16.argprom.exit.thread
+  br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %copy_sb8_16.exit.thread
 
 .preheader.us.preheader.i.i:                      ; preds = %224
   %234 = sext i32 %222 to i64
@@ -693,7 +693,7 @@ fill_rect.exit365:                                ; preds = %._crit_edge.us.i362
 ._crit_edge.us.i.i:                               ; preds = %236
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %exitcond24.not.i.i = icmp eq i64 %indvars.iv.next21.i.i, %wide.trip.count23.i.i
-  br i1 %exitcond24.not.i.i, label %copy_sb8_16.argprom.exit, label %.preheader.us.i.i, !llvm.loop !12
+  br i1 %exitcond24.not.i.i, label %copy_sb8_16.exit, label %.preheader.us.i.i, !llvm.loop !12
 
 238:                                              ; preds = %fill_rect.exit365
   %239 = mul nsw i32 %222, %219
@@ -703,7 +703,7 @@ fill_rect.exit365:                                ; preds = %._crit_edge.us.i362
   %243 = icmp sgt i32 %.0291, 0
   %244 = icmp sgt i32 %223, 0
   %or.cond.i20.i = and i1 %243, %244
-  br i1 %or.cond.i20.i, label %.preheader.us.preheader.i21.i, label %copy_sb8_16.argprom.exit.thread652
+  br i1 %or.cond.i20.i, label %.preheader.us.preheader.i21.i, label %copy_sb8_16.exit.thread652
 
 .preheader.us.preheader.i21.i:                    ; preds = %238
   %245 = sext i32 %222 to i64
@@ -733,32 +733,32 @@ fill_rect.exit365:                                ; preds = %._crit_edge.us.i362
 ._crit_edge.us.i29.i:                             ; preds = %247
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %exitcond23.not.i.i = icmp eq i64 %indvars.iv.next20.i.i, %wide.trip.count22.i.i
-  br i1 %exitcond23.not.i.i, label %copy_sb8_16.argprom.exit, label %.preheader.us.i23.i, !llvm.loop !10
+  br i1 %exitcond23.not.i.i, label %copy_sb8_16.exit, label %.preheader.us.i23.i, !llvm.loop !10
 
-copy_sb8_16.argprom.exit:                         ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i29.i
+copy_sb8_16.exit:                                 ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i29.i
   %250 = load i8, ptr %186, align 1
   %.not317 = icmp eq i8 %250, 0
   br i1 %.not317, label %255, label %280
 
-copy_sb8_16.argprom.exit.thread652:               ; preds = %238
+copy_sb8_16.exit.thread652:                       ; preds = %238
   %251 = load i8, ptr %186, align 1
   %.not317653 = icmp eq i8 %251, 0
   br i1 %.not317653, label %.thread654, label %280
 
-.thread654:                                       ; preds = %copy_sb8_16.argprom.exit.thread652
+.thread654:                                       ; preds = %copy_sb8_16.exit.thread652
   %252 = add nsw i32 %219, -3
   br label %268
 
-copy_sb8_16.argprom.exit.thread:                  ; preds = %224
+copy_sb8_16.exit.thread:                          ; preds = %224
   %253 = load i8, ptr %186, align 1
   %.not317651 = icmp eq i8 %253, 0
   br i1 %.not317651, label %.thread, label %280
 
-.thread:                                          ; preds = %copy_sb8_16.argprom.exit.thread
+.thread:                                          ; preds = %copy_sb8_16.exit.thread
   %254 = add nsw i32 %219, -3
   br label %257
 
-255:                                              ; preds = %copy_sb8_16.argprom.exit
+255:                                              ; preds = %copy_sb8_16.exit
   %256 = add nsw i32 %219, -3
   br i1 %.not.i366, label %268, label %._crit_edge750
 
@@ -776,7 +776,7 @@ copy_sb8_16.argprom.exit.thread:                  ; preds = %224
   %261 = sext i32 %260 to i64
   %262 = getelementptr inbounds i16, ptr %.pre-phi763, i64 %261
   %263 = icmp sgt i32 %195, 0
-  br i1 %263, label %.preheader.us.preheader.i.i369, label %copy_sb8_16.argprom.exit398.thread
+  br i1 %263, label %.preheader.us.preheader.i.i369, label %copy_sb8_16.exit398.thread
 
 .preheader.us.preheader.i.i369:                   ; preds = %257
   %264 = sext i32 %222 to i64
@@ -804,7 +804,7 @@ copy_sb8_16.argprom.exit.thread:                  ; preds = %224
 ._crit_edge.us.i.i380:                            ; preds = %266
   %indvars.iv.next21.i.i381 = add nuw nsw i64 %indvars.iv20.i.i372, 1
   %exitcond24.not.i.i382 = icmp eq i64 %indvars.iv.next21.i.i381, 3
-  br i1 %exitcond24.not.i.i382, label %copy_sb8_16.argprom.exit398, label %.preheader.us.i.i371, !llvm.loop !12
+  br i1 %exitcond24.not.i.i382, label %copy_sb8_16.exit398, label %.preheader.us.i.i371, !llvm.loop !12
 
 268:                                              ; preds = %.thread654, %255
   %269 = phi i32 [ %252, %.thread654 ], [ %256, %255 ]
@@ -813,7 +813,7 @@ copy_sb8_16.argprom.exit.thread:                  ; preds = %224
   %272 = sext i32 %271 to i64
   %273 = getelementptr inbounds i8, ptr %217, i64 %272
   %274 = icmp sgt i32 %195, 0
-  br i1 %274, label %.preheader.us.preheader.i21.i384, label %copy_sb8_16.argprom.exit398.thread657
+  br i1 %274, label %.preheader.us.preheader.i21.i384, label %copy_sb8_16.exit398.thread657
 
 .preheader.us.preheader.i21.i384:                 ; preds = %268
   %275 = sext i32 %222 to i64
@@ -842,9 +842,9 @@ copy_sb8_16.argprom.exit.thread:                  ; preds = %224
 ._crit_edge.us.i29.i395:                          ; preds = %277
   %indvars.iv.next20.i.i396 = add nuw nsw i64 %indvars.iv19.i.i387, 1
   %exitcond23.not.i.i397 = icmp eq i64 %indvars.iv.next20.i.i396, 3
-  br i1 %exitcond23.not.i.i397, label %copy_sb8_16.argprom.exit398, label %.preheader.us.i23.i386, !llvm.loop !10
+  br i1 %exitcond23.not.i.i397, label %copy_sb8_16.exit398, label %.preheader.us.i23.i386, !llvm.loop !10
 
-280:                                              ; preds = %copy_sb8_16.argprom.exit.thread652, %copy_sb8_16.argprom.exit.thread, %copy_sb8_16.argprom.exit
+280:                                              ; preds = %copy_sb8_16.exit.thread652, %copy_sb8_16.exit.thread, %copy_sb8_16.exit
   br i1 %83, label %290, label %281
 
 281:                                              ; preds = %280
@@ -853,7 +853,7 @@ copy_sb8_16.argprom.exit.thread:                  ; preds = %224
   %284 = sext i32 %201 to i64
   %285 = getelementptr inbounds i16, ptr %283, i64 %284
   %286 = icmp sgt i32 %195, 0
-  br i1 %286, label %.preheader.us.preheader.i400, label %copy_sb8_16.argprom.exit398
+  br i1 %286, label %.preheader.us.preheader.i400, label %copy_sb8_16.exit398
 
 .preheader.us.preheader.i400:                     ; preds = %281
   %wide.trip.count.i401 = zext nneg i32 %195 to i64
@@ -880,11 +880,11 @@ copy_sb8_16.argprom.exit.thread:                  ; preds = %224
 ._crit_edge.us.i408:                              ; preds = %288
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next21.i, 3
-  br i1 %exitcond24.not.i, label %copy_sb8_16.argprom.exit398, label %.preheader.us.i402, !llvm.loop !19
+  br i1 %exitcond24.not.i, label %copy_sb8_16.exit398, label %.preheader.us.i402, !llvm.loop !19
 
 290:                                              ; preds = %280
   %291 = icmp sgt i32 %195, 0
-  br i1 %291, label %.preheader.us.preheader.i410, label %copy_sb8_16.argprom.exit398
+  br i1 %291, label %.preheader.us.preheader.i410, label %copy_sb8_16.exit398
 
 .preheader.us.preheader.i410:                     ; preds = %290
   %wide.trip.count.i411 = zext nneg i32 %195 to i64
@@ -907,34 +907,34 @@ copy_sb8_16.argprom.exit.thread:                  ; preds = %224
 ._crit_edge.us.i419:                              ; preds = %292
   %indvars.iv.next17.i420 = add nuw nsw i64 %indvars.iv16.i413, 1
   %exitcond20.not.i421 = icmp eq i64 %indvars.iv.next17.i420, 3
-  br i1 %exitcond20.not.i421, label %copy_sb8_16.argprom.exit398, label %.preheader.us.i412, !llvm.loop !16
+  br i1 %exitcond20.not.i421, label %copy_sb8_16.exit398, label %.preheader.us.i412, !llvm.loop !16
 
-copy_sb8_16.argprom.exit398:                      ; preds = %._crit_edge.us.i408, %._crit_edge.us.i419, %._crit_edge.us.i.i380, %._crit_edge.us.i29.i395, %290, %281
+copy_sb8_16.exit398:                              ; preds = %._crit_edge.us.i408, %._crit_edge.us.i419, %._crit_edge.us.i.i380, %._crit_edge.us.i29.i395, %290, %281
   %293 = load i8, ptr %188, align 1
   %.not319 = icmp eq i8 %293, 0
   br i1 %.not319, label %300, label %326
 
-copy_sb8_16.argprom.exit398.thread657:            ; preds = %268
+copy_sb8_16.exit398.thread657:                    ; preds = %268
   %294 = load i8, ptr %188, align 1
   %.not319658 = icmp eq i8 %294, 0
   br i1 %.not319658, label %.thread659, label %326
 
-.thread659:                                       ; preds = %copy_sb8_16.argprom.exit398.thread657
+.thread659:                                       ; preds = %copy_sb8_16.exit398.thread657
   %295 = add nsw i32 %219, -3
   %296 = add nsw i32 %201, -8
   br label %314
 
-copy_sb8_16.argprom.exit398.thread:               ; preds = %257
+copy_sb8_16.exit398.thread:                       ; preds = %257
   %297 = load i8, ptr %188, align 1
   %.not319655 = icmp eq i8 %297, 0
   br i1 %.not319655, label %.thread656, label %326
 
-.thread656:                                       ; preds = %copy_sb8_16.argprom.exit398.thread
+.thread656:                                       ; preds = %copy_sb8_16.exit398.thread
   %298 = add nsw i32 %219, -3
   %299 = add nsw i32 %201, -8
   br label %303
 
-300:                                              ; preds = %copy_sb8_16.argprom.exit398
+300:                                              ; preds = %copy_sb8_16.exit398
   %301 = add nsw i32 %219, -3
   %302 = add nsw i32 %201, -8
   br i1 %.not.i366, label %314, label %._crit_edge751
@@ -977,7 +977,7 @@ copy_sb8_16.argprom.exit398.thread:               ; preds = %257
 ._crit_edge.us.i.i434:                            ; preds = %312
   %indvars.iv.next21.i.i435 = add nuw nsw i64 %indvars.iv20.i.i426, 1
   %exitcond24.not.i.i436 = icmp eq i64 %indvars.iv.next21.i.i435, 3
-  br i1 %exitcond24.not.i.i436, label %copy_sb8_16.argprom.exit450, label %.preheader.us.i.i425, !llvm.loop !12
+  br i1 %exitcond24.not.i.i436, label %copy_sb8_16.exit450, label %.preheader.us.i.i425, !llvm.loop !12
 
 314:                                              ; preds = %.thread659, %300
   %315 = phi i32 [ %296, %.thread659 ], [ %302, %300 ]
@@ -1011,9 +1011,9 @@ copy_sb8_16.argprom.exit398.thread:               ; preds = %257
 ._crit_edge.us.i29.i447:                          ; preds = %323
   %indvars.iv.next20.i.i448 = add nuw nsw i64 %indvars.iv19.i.i439, 1
   %exitcond23.not.i.i449 = icmp eq i64 %indvars.iv.next20.i.i448, 3
-  br i1 %exitcond23.not.i.i449, label %copy_sb8_16.argprom.exit450, label %.preheader.us.i23.i438, !llvm.loop !10
+  br i1 %exitcond23.not.i.i449, label %copy_sb8_16.exit450, label %.preheader.us.i23.i438, !llvm.loop !10
 
-326:                                              ; preds = %copy_sb8_16.argprom.exit398.thread657, %copy_sb8_16.argprom.exit398.thread, %copy_sb8_16.argprom.exit398
+326:                                              ; preds = %copy_sb8_16.exit398.thread657, %copy_sb8_16.exit398.thread, %copy_sb8_16.exit398
   br i1 %or.cond7, label %327, label %.preheader.us.i466
 
 327:                                              ; preds = %326
@@ -1045,7 +1045,7 @@ copy_sb8_16.argprom.exit398.thread:               ; preds = %257
 ._crit_edge.us.i461:                              ; preds = %334
   %indvars.iv.next21.i462 = add nuw nsw i64 %indvars.iv20.i453, 1
   %exitcond24.not.i463 = icmp eq i64 %indvars.iv.next21.i462, 3
-  br i1 %exitcond24.not.i463, label %copy_sb8_16.argprom.exit450, label %.preheader.us.i452, !llvm.loop !19
+  br i1 %exitcond24.not.i463, label %copy_sb8_16.exit450, label %.preheader.us.i452, !llvm.loop !19
 
 .preheader.us.i466:                               ; preds = %326, %._crit_edge.us.i473
   %indvars.iv16.i467 = phi i64 [ %indvars.iv.next17.i474, %._crit_edge.us.i473 ], [ 0, %326 ]
@@ -1064,16 +1064,16 @@ copy_sb8_16.argprom.exit398.thread:               ; preds = %257
 ._crit_edge.us.i473:                              ; preds = %336
   %indvars.iv.next17.i474 = add nuw nsw i64 %indvars.iv16.i467, 1
   %exitcond20.not.i475 = icmp eq i64 %indvars.iv.next17.i474, 3
-  br i1 %exitcond20.not.i475, label %copy_sb8_16.argprom.exit450, label %.preheader.us.i466, !llvm.loop !16
+  br i1 %exitcond20.not.i475, label %copy_sb8_16.exit450, label %.preheader.us.i466, !llvm.loop !16
 
-copy_sb8_16.argprom.exit450:                      ; preds = %._crit_edge.us.i473, %._crit_edge.us.i461, %._crit_edge.us.i.i434, %._crit_edge.us.i29.i447
+copy_sb8_16.exit450:                              ; preds = %._crit_edge.us.i473, %._crit_edge.us.i461, %._crit_edge.us.i.i434, %._crit_edge.us.i29.i447
   %337 = load i8, ptr %185, align 1
   %.not320 = icmp eq i8 %337, 0
   %338 = sext i32 %199 to i64
   %339 = getelementptr inbounds [19296 x i16], ptr %4, i64 0, i64 %338
   br i1 %.not320, label %340, label %365
 
-340:                                              ; preds = %copy_sb8_16.argprom.exit450
+340:                                              ; preds = %copy_sb8_16.exit450
   %341 = add nsw i32 %219, -3
   %342 = add nsw i32 %201, %195
   br i1 %.not.i366, label %355, label %343
@@ -1110,7 +1110,7 @@ copy_sb8_16.argprom.exit450:                      ; preds = %._crit_edge.us.i473
 ._crit_edge.us.i.i488:                            ; preds = %353
   %indvars.iv.next21.i.i489 = add nuw nsw i64 %indvars.iv20.i.i480, 1
   %exitcond24.not.i.i490 = icmp eq i64 %indvars.iv.next21.i.i489, 3
-  br i1 %exitcond24.not.i.i490, label %copy_sb8_16.argprom.exit504, label %.preheader.us.i.i479, !llvm.loop !12
+  br i1 %exitcond24.not.i.i490, label %copy_sb8_16.exit504, label %.preheader.us.i.i479, !llvm.loop !12
 
 355:                                              ; preds = %340
   %356 = mul nsw i32 %222, %341
@@ -1142,9 +1142,9 @@ copy_sb8_16.argprom.exit450:                      ; preds = %._crit_edge.us.i473
 ._crit_edge.us.i29.i501:                          ; preds = %362
   %indvars.iv.next20.i.i502 = add nuw nsw i64 %indvars.iv19.i.i493, 1
   %exitcond23.not.i.i503 = icmp eq i64 %indvars.iv.next20.i.i502, 3
-  br i1 %exitcond23.not.i.i503, label %copy_sb8_16.argprom.exit504, label %.preheader.us.i23.i492, !llvm.loop !10
+  br i1 %exitcond23.not.i.i503, label %copy_sb8_16.exit504, label %.preheader.us.i23.i492, !llvm.loop !10
 
-365:                                              ; preds = %copy_sb8_16.argprom.exit450
+365:                                              ; preds = %copy_sb8_16.exit450
   br i1 %or.cond328, label %366, label %.preheader.us.i520
 
 366:                                              ; preds = %365
@@ -1176,7 +1176,7 @@ copy_sb8_16.argprom.exit450:                      ; preds = %._crit_edge.us.i473
 ._crit_edge.us.i515:                              ; preds = %373
   %indvars.iv.next21.i516 = add nuw nsw i64 %indvars.iv20.i507, 1
   %exitcond24.not.i517 = icmp eq i64 %indvars.iv.next21.i516, 3
-  br i1 %exitcond24.not.i517, label %copy_sb8_16.argprom.exit504, label %.preheader.us.i506, !llvm.loop !19
+  br i1 %exitcond24.not.i517, label %copy_sb8_16.exit504, label %.preheader.us.i506, !llvm.loop !19
 
 .preheader.us.i520:                               ; preds = %365, %._crit_edge.us.i527
   %indvars.iv16.i521 = phi i64 [ %indvars.iv.next17.i528, %._crit_edge.us.i527 ], [ 0, %365 ]
@@ -1195,14 +1195,14 @@ copy_sb8_16.argprom.exit450:                      ; preds = %._crit_edge.us.i473
 ._crit_edge.us.i527:                              ; preds = %375
   %indvars.iv.next17.i528 = add nuw nsw i64 %indvars.iv16.i521, 1
   %exitcond20.not.i529 = icmp eq i64 %indvars.iv.next17.i528, 3
-  br i1 %exitcond20.not.i529, label %copy_sb8_16.argprom.exit504, label %.preheader.us.i520, !llvm.loop !16
+  br i1 %exitcond20.not.i529, label %copy_sb8_16.exit504, label %.preheader.us.i520, !llvm.loop !16
 
-copy_sb8_16.argprom.exit504:                      ; preds = %._crit_edge.us.i527, %._crit_edge.us.i515, %._crit_edge.us.i.i488, %._crit_edge.us.i29.i501
+copy_sb8_16.exit504:                              ; preds = %._crit_edge.us.i527, %._crit_edge.us.i515, %._crit_edge.us.i.i488, %._crit_edge.us.i29.i501
   %.phi.trans.insert = getelementptr inbounds [3 x ptr], ptr %6, i64 0, i64 %indvars.iv726
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not312, label %copy_rect.exit545, label %376
 
-376:                                              ; preds = %copy_sb8_16.argprom.exit504
+376:                                              ; preds = %copy_sb8_16.exit504
   %377 = icmp sgt i32 %.0291, -3
   br i1 %377, label %.preheader.us.preheader.i532, label %copy_rect.exit561
 
@@ -1234,7 +1234,7 @@ copy_sb8_16.argprom.exit504:                      ; preds = %._crit_edge.us.i527
   %exitcond24.not.i544 = icmp eq i64 %indvars.iv.next21.i543, %wide.trip.count23.i
   br i1 %exitcond24.not.i544, label %copy_rect.exit545, label %.preheader.us.i533, !llvm.loop !19
 
-copy_rect.exit545:                                ; preds = %._crit_edge.us.i542, %copy_sb8_16.argprom.exit504
+copy_rect.exit545:                                ; preds = %._crit_edge.us.i542, %copy_sb8_16.exit504
   %381 = sext i32 %195 to i64
   %382 = getelementptr inbounds i16, ptr %4, i64 %381
   %383 = icmp sgt i32 %.0291, -3
@@ -1296,7 +1296,7 @@ copy_rect.exit561:                                ; preds = %copy_rect.exit561.l
   %401 = sext i32 %400 to i64
   %402 = getelementptr inbounds i16, ptr %398, i64 %401
   %403 = icmp sgt i32 %195, 0
-  br i1 %403, label %.preheader.us.preheader.i.i564, label %copy_sb8_16.argprom.exit593
+  br i1 %403, label %.preheader.us.preheader.i.i564, label %copy_sb8_16.exit593
 
 .preheader.us.preheader.i.i564:                   ; preds = %395
   %404 = sext i32 %387 to i64
@@ -1324,7 +1324,7 @@ copy_rect.exit561:                                ; preds = %copy_rect.exit561.l
 ._crit_edge.us.i.i575:                            ; preds = %407
   %indvars.iv.next21.i.i576 = add nuw nsw i64 %indvars.iv20.i.i567, 1
   %exitcond24.not.i.i577 = icmp eq i64 %indvars.iv.next21.i.i576, 3
-  br i1 %exitcond24.not.i.i577, label %copy_sb8_16.argprom.exit593, label %.preheader.us.i.i566, !llvm.loop !12
+  br i1 %exitcond24.not.i.i577, label %copy_sb8_16.exit593, label %.preheader.us.i.i566, !llvm.loop !12
 
 409:                                              ; preds = %copy_rect.exit561
   %410 = mul nsw i32 %387, %394
@@ -1332,7 +1332,7 @@ copy_rect.exit561:                                ; preds = %copy_rect.exit561.l
   %412 = sext i32 %411 to i64
   %413 = getelementptr inbounds i8, ptr %388, i64 %412
   %414 = icmp sgt i32 %195, 0
-  br i1 %414, label %.preheader.us.preheader.i21.i579, label %copy_sb8_16.argprom.exit593
+  br i1 %414, label %.preheader.us.preheader.i21.i579, label %copy_sb8_16.exit593
 
 .preheader.us.preheader.i21.i579:                 ; preds = %409
   %415 = sext i32 %387 to i64
@@ -1361,14 +1361,14 @@ copy_rect.exit561:                                ; preds = %copy_rect.exit561.l
 ._crit_edge.us.i29.i590:                          ; preds = %418
   %indvars.iv.next20.i.i591 = add nuw nsw i64 %indvars.iv19.i.i582, 1
   %exitcond23.not.i.i592 = icmp eq i64 %indvars.iv.next20.i.i591, 3
-  br i1 %exitcond23.not.i.i592, label %copy_sb8_16.argprom.exit593, label %.preheader.us.i23.i581, !llvm.loop !10
+  br i1 %exitcond23.not.i.i592, label %copy_sb8_16.exit593, label %.preheader.us.i23.i581, !llvm.loop !10
 
-copy_sb8_16.argprom.exit593:                      ; preds = %._crit_edge.us.i.i575, %._crit_edge.us.i29.i590, %395, %409
+copy_sb8_16.exit593:                              ; preds = %._crit_edge.us.i.i575, %._crit_edge.us.i29.i590, %395, %409
   %421 = icmp sgt i32 %195, -16
   %or.cond660 = select i1 %83, i1 %421, i1 false
   br i1 %or.cond660, label %.preheader.us.preheader.i595, label %fill_rect.exit607
 
-.preheader.us.preheader.i595:                     ; preds = %copy_sb8_16.argprom.exit593
+.preheader.us.preheader.i595:                     ; preds = %copy_sb8_16.exit593
   %422 = add nsw i32 %195, 16
   %wide.trip.count.i596 = zext nneg i32 %422 to i64
   br label %.preheader.us.i597
@@ -1392,7 +1392,7 @@ copy_sb8_16.argprom.exit593:                      ; preds = %._crit_edge.us.i.i5
   %exitcond20.not.i606 = icmp eq i64 %indvars.iv.next17.i605, 3
   br i1 %exitcond20.not.i606, label %fill_rect.exit607, label %.preheader.us.i597, !llvm.loop !16
 
-fill_rect.exit607:                                ; preds = %._crit_edge.us.i604, %copy_sb8_16.argprom.exit593
+fill_rect.exit607:                                ; preds = %._crit_edge.us.i604, %copy_sb8_16.exit593
   %424 = icmp sgt i32 %198, -6
   %or.cond661 = select i1 %125, i1 %424, i1 false
   br i1 %or.cond661, label %.preheader.us.preheader.i609, label %fill_rect.exit621

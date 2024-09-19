@@ -433,7 +433,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21HdPrefixingSceneIndex7GetPr
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit, label %29
+  br i1 %.not, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit, label %29
 
 29:                                               ; preds = %26
   %30 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath18IsAbsoluteRootPathEv(ptr noundef nonnull align 4 dereferenceable(8) %7)
@@ -735,14 +735,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %164 = load ptr, ptr %32, align 8
   store ptr %112, ptr %32, align 8
   %.not.i.i.i.i17 = icmp eq ptr %164, null
-  br i1 %.not.i.i.i.i17, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit, label %165
+  br i1 %.not.i.i.i.i17, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit, label %165
 
 165:                                              ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %167 = load atomic i64, ptr %166 acquire, align 8
   %168 = icmp eq i64 %167, 4294967297
   %169 = trunc i64 %167 to i32
-  br i1 %168, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit.sink.split.sink.split, label %170
+  br i1 %168, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit.sink.split.sink.split, label %170
 
 170:                                              ; preds = %165
   %171 = load i8, ptr @__libc_single_threaded, align 1
@@ -761,7 +761,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 176:                                              ; preds = %174, %172
   %.0.i.i.i.i.i19 = phi i32 [ %169, %172 ], [ %175, %174 ]
   %177 = icmp eq i32 %.0.i.i.i.i.i19, 1
-  br i1 %177, label %178, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit
+  br i1 %177, label %178, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit
 
 178:                                              ; preds = %176
   %179 = load ptr, ptr %164, align 8
@@ -786,14 +786,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 189:                                              ; preds = %187, %184
   %.0.i.i.i.i.i.i.i21 = phi i32 [ %185, %184 ], [ %188, %187 ]
   %190 = icmp eq i32 %.0.i.i.i.i.i.i.i21, 1
-  br i1 %190, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit.sink.split, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit
+  br i1 %190, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit
 
 191:                                              ; preds = %17, %22
   %192 = landingpad { ptr, i32 }
           cleanup
   br label %456
 
-193:                                              ; preds = %195, %33, %325, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit, %29
+193:                                              ; preds = %195, %33, %325, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit, %29
   %194 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -999,7 +999,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %288 = load ptr, ptr %32, align 8
   store ptr %234, ptr %32, align 8
   %.not.i.i.i.i40 = icmp eq ptr %288, null
-  br i1 %.not.i.i.i.i40, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit, label %289
+  br i1 %.not.i.i.i.i40, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit, label %289
 
 289:                                              ; preds = %287
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 8
@@ -1035,7 +1035,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 305:                                              ; preds = %303, %301
   %.0.i.i.i.i.i42 = phi i32 [ %293, %301 ], [ %304, %303 ]
   %306 = icmp eq i32 %.0.i.i.i.i.i42, 1
-  br i1 %306, label %307, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit
+  br i1 %306, label %307, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit
 
 307:                                              ; preds = %305
   %308 = load ptr, ptr %288, align 8
@@ -1060,21 +1060,21 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 318:                                              ; preds = %316, %313
   %.0.i.i.i.i.i.i.i44 = phi i32 [ %314, %313 ], [ %317, %316 ]
   %319 = icmp eq i32 %.0.i.i.i.i.i.i.i44, 1
-  br i1 %319, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit
+  br i1 %319, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45: ; preds = %318, %294
   %320 = load ptr, ptr %288, align 8
   %321 = getelementptr inbounds i8, ptr %320, i64 24
   %322 = load ptr, ptr %321, align 8
   call void %322(ptr noundef nonnull align 8 dereferenceable(16) %288) #22
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45, %318, %305, %287
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i45, %318, %305, %287
   %323 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsRootPrimPathEv(ptr noundef nonnull align 4 dereferenceable(8) %7)
           to label %324 unwind label %193
 
-324:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit
-  br i1 %323, label %325, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit
+324:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit
+  br i1 %323, label %325, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit
 
 325:                                              ; preds = %324
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14HdSystemSchema23ComposeAsPrimDataSourceERKNS_8TfRefPtrINS_16HdSceneIndexBaseEEERKNS_7SdfPathEPS6_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef null)
@@ -1240,14 +1240,14 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSou
   %401 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %402 = load ptr, ptr %401, align 8
   %.not.i.i.i64 = icmp eq ptr %402, null
-  br i1 %.not.i.i.i64, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit, label %403
+  br i1 %.not.i.i.i64, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit, label %403
 
 403:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSourceEED2Ev.exit
   %404 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %405 = load atomic i64, ptr %404 acquire, align 8
   %406 = icmp eq i64 %405, 4294967297
   %407 = trunc i64 %405 to i32
-  br i1 %406, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit.sink.split.sink.split, label %408
+  br i1 %406, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit.sink.split.sink.split, label %408
 
 408:                                              ; preds = %403
   %409 = load i8, ptr @__libc_single_threaded, align 1
@@ -1266,7 +1266,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSou
 414:                                              ; preds = %412, %410
   %.0.i.i.i.i66 = phi i32 [ %407, %410 ], [ %413, %412 ]
   %415 = icmp eq i32 %.0.i.i.i.i66, 1
-  br i1 %415, label %416, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit
+  br i1 %415, label %416, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit
 
 416:                                              ; preds = %414
   %417 = load ptr, ptr %402, align 8
@@ -1291,7 +1291,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSou
 427:                                              ; preds = %425, %422
   %.0.i.i.i.i.i.i68 = phi i32 [ %423, %422 ], [ %426, %425 ]
   %428 = icmp eq i32 %.0.i.i.i.i.i.i68, 1
-  br i1 %428, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit.sink.split, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit
+  br i1 %428, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit
 
 429:                                              ; preds = %326
   %430 = landingpad { ptr, i32 }
@@ -1299,7 +1299,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSou
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #22
   br label %.body
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit.sink.split.sink.split: ; preds = %403, %165
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit.sink.split.sink.split: ; preds = %403, %165
   %.sink87 = phi ptr [ %166, %165 ], [ %404, %403 ]
   %.sink86 = phi ptr [ %164, %165 ], [ %402, %403 ]
   store i32 0, ptr %.sink87, align 8
@@ -1309,22 +1309,22 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_Prefixin
   %433 = getelementptr inbounds i8, ptr %432, i64 16
   %434 = load ptr, ptr %433, align 8
   call void %434(ptr noundef nonnull align 8 dereferenceable(16) %.sink86) #22
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit.sink.split
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit.sink.split
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit.sink.split: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit.sink.split.sink.split, %427, %189
-  %.sink80 = phi ptr [ %164, %189 ], [ %402, %427 ], [ %.sink86, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit.sink.split.sink.split ]
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit.sink.split: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit.sink.split.sink.split, %427, %189
+  %.sink80 = phi ptr [ %164, %189 ], [ %402, %427 ], [ %.sink86, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit.sink.split.sink.split ]
   %435 = load ptr, ptr %.sink80, align 8
   %436 = getelementptr inbounds i8, ptr %435, i64 24
   %437 = load ptr, ptr %436, align 8
   call void %437(ptr noundef nonnull align 8 dereferenceable(16) %.sink80) #22
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit.sink.split, %427, %414, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSourceEED2Ev.exit, %163, %176, %189, %26, %324
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit.sink.split, %427, %414, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSourceEED2Ev.exit, %163, %176, %189, %26, %324
   %438 = load i32, ptr %7, align 4
   %.not.i.i = icmp eq i32 %438, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, label %439
 
-439:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit
+439:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit
   %440 = and i32 %438, 255
   %441 = lshr i32 %438, 8
   %442 = zext nneg i32 %440 to i64
@@ -1360,7 +1360,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_Prefixin
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %7) #22
   resume { ptr, i32 } %.pn.pn
 
-_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %452, %439, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.argprom.exit, %12
+_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %452, %439, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSourceEED2Ev.exit, %12
   ret void
 }
 
@@ -4066,7 +4066,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexConta
   store ptr %33, ptr %81, align 8, !noalias !34
   %82 = load ptr, ptr %35, align 8, !noalias !34
   %.not.i.i.i4.i = icmp eq ptr %82, null
-  br i1 %.not.i.i.i4.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit, label %83
+  br i1 %.not.i.i.i4.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit, label %83
 
 83:                                               ; preds = %78
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -4102,7 +4102,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexConta
 99:                                               ; preds = %97, %95
   %.0.i.i.i.i.i = phi i32 [ %87, %95 ], [ %98, %97 ]
   %100 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %100, label %101, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit
+  br i1 %100, label %101, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr %82, align 8, !noalias !34
@@ -4127,20 +4127,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexConta
 112:                                              ; preds = %110, %107
   %.0.i.i.i.i.i.i.i = phi i32 [ %108, %107 ], [ %111, %110 ]
   %113 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %113, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit
+  br i1 %113, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %112, %88
   %114 = load ptr, ptr %82, align 8, !noalias !34
   %115 = getelementptr inbounds i8, ptr %114, i64 24
   %116 = load ptr, ptr %115, align 8, !noalias !34
   call void %116(ptr noundef nonnull align 8 dereferenceable(16) %82) #22, !noalias !34
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit
 
 .body.i:                                          ; preds = %72
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22, !noalias !34
   br label %.body
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit: ; preds = %78, %99, %112, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit: ; preds = %78, %99, %112, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   store ptr %33, ptr %0, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4149,7 +4149,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_Prefixin
   %.not.i.i.i26 = icmp eq ptr %118, null
   br i1 %.not.i.i.i26, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %119
 
-119:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit
+119:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %121 = load atomic i64, ptr %120 acquire, align 8
   %122 = icmp eq i64 %121, 4294967297
@@ -4469,7 +4469,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathD
   store ptr %209, ptr %264, align 8, !noalias !44
   %265 = load ptr, ptr %210, align 8, !noalias !44
   %.not.i.i.i6.i = icmp eq ptr %265, null
-  br i1 %.not.i.i.i6.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.argprom.exit, label %266
+  br i1 %.not.i.i.i6.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.exit, label %266
 
 266:                                              ; preds = %261
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 8
@@ -4505,7 +4505,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathD
 282:                                              ; preds = %280, %278
   %.0.i.i.i.i.i50 = phi i32 [ %270, %278 ], [ %281, %280 ]
   %283 = icmp eq i32 %.0.i.i.i.i.i50, 1
-  br i1 %283, label %284, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.argprom.exit
+  br i1 %283, label %284, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.exit
 
 284:                                              ; preds = %282
   %285 = load ptr, ptr %265, align 8, !noalias !44
@@ -4530,20 +4530,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathD
 295:                                              ; preds = %293, %290
   %.0.i.i.i.i.i.i.i52 = phi i32 [ %291, %290 ], [ %294, %293 ]
   %296 = icmp eq i32 %.0.i.i.i.i.i.i.i52, 1
-  br i1 %296, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i53, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.argprom.exit
+  br i1 %296, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i53, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i53: ; preds = %295, %271
   %297 = load ptr, ptr %265, align 8, !noalias !44
   %298 = getelementptr inbounds i8, ptr %297, i64 24
   %299 = load ptr, ptr %298, align 8, !noalias !44
   call void %299(ptr noundef nonnull align 8 dereferenceable(16) %265) #22, !noalias !44
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.exit
 
 .body.i49:                                        ; preds = %255
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7SdfPathEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #22, !noalias !44
   br label %.body55
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.argprom.exit: ; preds = %261, %282, %295, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i53
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.exit: ; preds = %261, %282, %295, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   store ptr %209, ptr %0, align 8
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4552,7 +4552,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_Prefixin
   %.not.i.i.i63 = icmp eq ptr %301, null
   br i1 %.not.i.i.i63, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %302
 
-302:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.argprom.exit
+302:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.exit
   %303 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %304 = load atomic i64, ptr %303 acquire, align 8
   %305 = icmp eq i64 %304, 4294967297
@@ -4872,7 +4872,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathA
   store ptr %392, ptr %447, align 8, !noalias !54
   %448 = load ptr, ptr %393, align 8, !noalias !54
   %.not.i.i.i6.i87 = icmp eq ptr %448, null
-  br i1 %.not.i.i.i6.i87, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.argprom.exit, label %449
+  br i1 %.not.i.i.i6.i87, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.exit, label %449
 
 449:                                              ; preds = %444
   %450 = getelementptr inbounds nuw i8, ptr %448, i64 8
@@ -4908,7 +4908,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathA
 465:                                              ; preds = %463, %461
   %.0.i.i.i.i.i89 = phi i32 [ %453, %461 ], [ %464, %463 ]
   %466 = icmp eq i32 %.0.i.i.i.i.i89, 1
-  br i1 %466, label %467, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.argprom.exit
+  br i1 %466, label %467, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.exit
 
 467:                                              ; preds = %465
   %468 = load ptr, ptr %448, align 8, !noalias !54
@@ -4933,20 +4933,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathA
 478:                                              ; preds = %476, %473
   %.0.i.i.i.i.i.i.i91 = phi i32 [ %474, %473 ], [ %477, %476 ]
   %479 = icmp eq i32 %.0.i.i.i.i.i.i.i91, 1
-  br i1 %479, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.argprom.exit
+  br i1 %479, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92: ; preds = %478, %454
   %480 = load ptr, ptr %448, align 8, !noalias !54
   %481 = getelementptr inbounds i8, ptr %480, i64 24
   %482 = load ptr, ptr %481, align 8, !noalias !54
   call void %482(ptr noundef nonnull align 8 dereferenceable(16) %448) #22, !noalias !54
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.exit
 
 .body.i86:                                        ; preds = %438
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayINS0_7SdfPathEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #22, !noalias !54
   br label %.body94
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.argprom.exit: ; preds = %444, %465, %478, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.exit: ; preds = %444, %465, %478, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i92
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   store ptr %392, ptr %0, align 8
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4955,7 +4955,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_Prefixin
   %.not.i.i.i102 = icmp eq ptr %484, null
   br i1 %.not.i.i.i102, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %485
 
-485:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.argprom.exit
+485:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.exit
   %486 = getelementptr inbounds nuw i8, ptr %484, i64 8
   %487 = load atomic i64, ptr %486 acquire, align 8
   %488 = icmp eq i64 %487, 4294967297
@@ -5118,7 +5118,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   store ptr null, ptr %7, align 8
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i107, %514, %501, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.argprom.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i68, %331, %318, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.argprom.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31, %148, %135, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.argprom.exit, %14, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayINS0_7SdfPathEEEEEED2Ev.exit114
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i107, %514, %501, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSourceEED2Ev.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i68, %331, %318, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSourceEED2Ev.exit, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31, %148, %135, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSourceEED2Ev.exit, %14, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayINS0_7SdfPathEEEEEED2Ev.exit114
   %561 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %562 = load ptr, ptr %561, align 8
   %.not.i.i.i115 = icmp eq ptr %562, null
@@ -8499,11 +8499,11 @@ attributes #26 = { allocsize(0) }
 !5 = distinct !{!5, !6, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdPrefixingSceneIndex17_RemovePathPrefixERKNS_7SdfPathE: argument 0"}
 !6 = distinct !{!6, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdPrefixingSceneIndex17_RemovePathPrefixERKNS_7SdfPathE"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_21HdContainerDataSourceEEEEES6_IS1_EDpOT_.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_21HdContainerDataSourceEEEEES6_IS1_EDpOT_.argprom"}
+!8 = distinct !{!8, !9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_21HdContainerDataSourceEEEEES6_IS1_EDpOT_: argument 0"}
+!9 = distinct !{!9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_157Hd_PrefixingSceneIndexAbsoluteRootPrimContainerDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_21HdContainerDataSourceEEEEES6_IS1_EDpOT_"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_21HdContainerDataSourceEEEEES6_IS1_EDpOT_.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_21HdContainerDataSourceEEEEES6_IS1_EDpOT_.argprom"}
+!11 = distinct !{!11, !12, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_21HdContainerDataSourceEEEEES6_IS1_EDpOT_: argument 0"}
+!12 = distinct !{!12, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexContainerDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_21HdContainerDataSourceEEEEES6_IS1_EDpOT_"}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdPrefixingSceneIndex17_RemovePathPrefixERKNS_7SdfPathE: argument 0"}
 !15 = distinct !{!15, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdPrefixingSceneIndex17_RemovePathPrefixERKNS_7SdfPathE"}
@@ -8536,8 +8536,8 @@ attributes #26 = { allocsize(0) }
 !42 = distinct !{!42, !"_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7SdfPathEEENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS5_IT0_E"}
 !43 = !{!41, !38}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_24HdTypedSampledDataSourceIS3_EEEEEES6_IS1_EDpOT_.argprom: argument 0"}
-!46 = distinct !{!46, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_24HdTypedSampledDataSourceIS3_EEEEEES6_IS1_EDpOT_.argprom"}
+!45 = distinct !{!45, !46, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_24HdTypedSampledDataSourceIS3_EEEEEES6_IS1_EDpOT_: argument 0"}
+!46 = distinct !{!46, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_136Hd_PrefixingSceneIndexPathDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_24HdTypedSampledDataSourceIS3_EEEEEES6_IS1_EDpOT_"}
 !47 = !{!48}
 !48 = distinct !{!48, !49, !"_ZN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7SdfPathEEEE4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE: argument 0"}
 !49 = distinct !{!49, !"_ZN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7VtArrayINS_7SdfPathEEEE4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE"}
@@ -8546,8 +8546,8 @@ attributes #26 = { allocsize(0) }
 !52 = distinct !{!52, !"_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayINS0_7SdfPathEEEEENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS7_IT0_E"}
 !53 = !{!51, !48}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayIS3_EEEEEEEES6_IS1_EDpOT_.argprom: argument 0"}
-!56 = distinct !{!56, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayIS3_EEEEEEEES6_IS1_EDpOT_.argprom"}
+!55 = distinct !{!55, !56, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayIS3_EEEEEEEES6_IS1_EDpOT_: argument 0"}
+!56 = distinct !{!56, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_141Hd_PrefixingSceneIndexPathArrayDataSource3NewIJRKNS_7SdfPathERSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayIS3_EEEEEEEES6_IS1_EDpOT_"}
 !57 = !{!58}
 !58 = distinct !{!58, !59, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7SdfPathEvE19GetProxiedAsVtValueERKS2_: argument 0"}
 !59 = distinct !{!59, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7SdfPathEvE19GetProxiedAsVtValueERKS2_"}

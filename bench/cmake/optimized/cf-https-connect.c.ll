@@ -56,7 +56,7 @@ define internal void @cf_hc_destroy(ptr noundef %0, ptr noundef %1) #0 {
 thread-pre-split:                                 ; preds = %5, %9, %14, %2
   %.val = phi ptr [ %4, %2 ], [ %.val.pr.pre, %14 ], [ %4, %9 ], [ %4, %5 ]
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %cf_hc_reset.argprom.exit, label %15
+  br i1 %.not.i, label %cf_hc_reset.exit, label %15
 
 15:                                               ; preds = %thread-pre-split
   %16 = getelementptr inbounds i8, ptr %.val, i64 48
@@ -101,9 +101,9 @@ cf_hc_baller_reset.exit13.i:                      ; preds = %23, %cf_hc_baller_r
   %30 = lshr i32 %28, 1
   %31 = getelementptr inbounds i8, ptr %.val, i64 136
   store i32 %30, ptr %31, align 8
-  br label %cf_hc_reset.argprom.exit
+  br label %cf_hc_reset.exit
 
-cf_hc_reset.argprom.exit:                         ; preds = %thread-pre-split, %cf_hc_baller_reset.exit13.i
+cf_hc_reset.exit:                                 ; preds = %thread-pre-split, %cf_hc_baller_reset.exit13.i
   %32 = load ptr, ptr @Curl_cfree, align 8
   tail call void %32(ptr noundef %4) #4
   ret void
@@ -637,7 +637,7 @@ define internal void @cf_hc_close(ptr noundef %0, ptr noundef %1) #0 {
   %16 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %cf_hc_reset.argprom.exit, label %17
+  br i1 %.not.i, label %cf_hc_reset.exit, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %.val, i64 48
@@ -682,9 +682,9 @@ cf_hc_baller_reset.exit13.i:                      ; preds = %25, %cf_hc_baller_r
   %32 = lshr i32 %30, 1
   %33 = getelementptr inbounds i8, ptr %.val, i64 136
   store i32 %32, ptr %33, align 8
-  br label %cf_hc_reset.argprom.exit
+  br label %cf_hc_reset.exit
 
-cf_hc_reset.argprom.exit:                         ; preds = %15, %cf_hc_baller_reset.exit13.i
+cf_hc_reset.exit:                                 ; preds = %15, %cf_hc_baller_reset.exit13.i
   %34 = getelementptr inbounds i8, ptr %0, i64 36
   %35 = load i8, ptr %34, align 4
   %36 = and i8 %35, -2
@@ -694,7 +694,7 @@ cf_hc_reset.argprom.exit:                         ; preds = %15, %cf_hc_baller_r
   %.not18 = icmp eq ptr %38, null
   br i1 %.not18, label %43, label %39
 
-39:                                               ; preds = %cf_hc_reset.argprom.exit
+39:                                               ; preds = %cf_hc_reset.exit
   %40 = load ptr, ptr %38, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
@@ -702,7 +702,7 @@ cf_hc_reset.argprom.exit:                         ; preds = %15, %cf_hc_baller_r
   tail call void @Curl_conn_cf_discard_chain(ptr noundef nonnull %37, ptr noundef %1) #4
   br label %43
 
-43:                                               ; preds = %39, %cf_hc_reset.argprom.exit
+43:                                               ; preds = %39, %cf_hc_reset.exit
   ret void
 }
 
@@ -888,7 +888,7 @@ define internal i32 @cf_hc_query(ptr nocapture noundef readonly %0, ptr noundef 
 10:                                               ; preds = %9
   %11 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %11, align 8
-  %12 = tail call fastcc { i64, i32 } @cf_get_max_baller_time.argprom(ptr %.val, ptr noundef %1, i32 noundef 4)
+  %12 = tail call fastcc { i64, i32 } @cf_get_max_baller_time(ptr %.val, ptr noundef %1, i32 noundef 4)
   %13 = extractvalue { i64, i32 } %12, 0
   %14 = extractvalue { i64, i32 } %12, 1
   store i64 %13, ptr %4, align 8
@@ -899,7 +899,7 @@ define internal i32 @cf_hc_query(ptr nocapture noundef readonly %0, ptr noundef 
 15:                                               ; preds = %9
   %16 = getelementptr i8, ptr %0, i64 16
   %.val22 = load ptr, ptr %16, align 8
-  %17 = tail call fastcc { i64, i32 } @cf_get_max_baller_time.argprom(ptr %.val22, ptr noundef %1, i32 noundef 5)
+  %17 = tail call fastcc { i64, i32 } @cf_get_max_baller_time(ptr %.val22, ptr noundef %1, i32 noundef 5)
   %18 = extractvalue { i64, i32 } %17, 0
   %19 = extractvalue { i64, i32 } %17, 1
   store i64 %18, ptr %4, align 8
@@ -1252,7 +1252,7 @@ declare i32 @Curl_conn_cf_cntrl(ptr noundef, ptr noundef, i1 noundef zeroext, i3
 declare void @Curl_conn_cf_adjust_pollset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @cf_get_max_baller_time.argprom(ptr nocapture readonly %.16.val, ptr noundef %0, i32 noundef range(i32 4, 6) %1) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @cf_get_max_baller_time(ptr nocapture readonly %.16.val, ptr noundef %0, i32 noundef range(i32 4, 6) %1) unnamed_addr #0 {
   %3 = alloca %struct.curltime, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %.16.val, i64 132

@@ -143,7 +143,7 @@ _Z11do_per_stepll.exit:                           ; preds = %3, %8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %1, %12
   %or.cond = select i1 %.0.i, i1 true, i1 %13
-  br i1 %or.cond, label %14, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit
+  br i1 %or.cond, label %14, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
 
 14:                                               ; preds = %_Z11do_per_stepll.exit
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -151,7 +151,7 @@ _Z11do_per_stepll.exit:                           ; preds = %3, %8
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %.val6 = load ptr, ptr %16, align 8
   %.not4.i = icmp eq ptr %.val, %.val6
-  br i1 %.not4.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %_ZNKSt8functionIFvldEEclEld.exit.i
   %.sroa.01.05.i = phi ptr [ %22, %_ZNKSt8functionIFvldEEclEld.exit.i ], [ %.val, %14 ]
@@ -176,9 +176,9 @@ _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %22 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
   %.not.i7 = icmp eq ptr %22, %.val6
-  br i1 %.not.i7, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i7, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
 
-_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %14, %_Z11do_per_stepll.exit
+_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %14, %_Z11do_per_stepll.exit
   ret void
 }
 
@@ -293,7 +293,7 @@ define void @_ZN3gmx17LastStepSignaller6signalEld(ptr nocapture noundef nonnull 
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit, label %9
+  br i1 %8, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 56
@@ -331,7 +331,7 @@ _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit: ; preds = %16, %20
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %1, %27
   %brmerge = or i1 %24, %28
-  br i1 %brmerge, label %29, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit
+  br i1 %brmerge, label %29, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
 
 29:                                               ; preds = %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit.thread, %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit
   %30 = getelementptr inbounds i8, ptr %0, i64 16
@@ -339,7 +339,7 @@ _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit: ; preds = %16, %20
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   %.val5 = load ptr, ptr %31, align 8
   %.not4.i = icmp eq ptr %.val, %.val5
-  br i1 %.not4.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %29, %_ZNKSt8functionIFvldEEclEld.exit.i
   %.sroa.01.05.i = phi ptr [ %37, %_ZNKSt8functionIFvldEEclEld.exit.i ], [ %.val, %29 ]
@@ -364,9 +364,9 @@ _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %37 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
   %.not.i = icmp eq ptr %37, %.val5
-  br i1 %.not.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
 
-_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %29, %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit, %3
+_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %29, %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit, %3
   ret void
 }
 
@@ -640,7 +640,7 @@ _Z11do_per_stepll.exit:                           ; preds = %3, %8
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 2
   %or.cond9 = select i1 %17, i1 %20, i1 false
-  br i1 %or.cond9, label %21, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit
+  br i1 %or.cond9, label %21, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
 
 21:                                               ; preds = %14, %_Z11do_per_stepll.exit
   %22 = getelementptr inbounds i8, ptr %0, i64 16
@@ -648,7 +648,7 @@ _Z11do_per_stepll.exit:                           ; preds = %3, %8
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %.val10 = load ptr, ptr %23, align 8
   %.not4.i = icmp eq ptr %.val, %.val10
-  br i1 %.not4.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %_ZNKSt8functionIFvldEEclEld.exit.i
   %.sroa.01.05.i = phi ptr [ %29, %_ZNKSt8functionIFvldEEclEld.exit.i ], [ %.val, %21 ]
@@ -673,9 +673,9 @@ _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %29 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
   %.not.i11 = icmp eq ptr %29, %.val10
-  br i1 %.not.i11, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i11, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
 
-_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %21, %14
+_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %21, %14
   ret void
 }
 
@@ -1342,7 +1342,7 @@ _Z11do_per_stepll.exit32:                         ; preds = %24, %_Z11do_per_ste
 _Z11do_per_stepll.exit35:                         ; preds = %_Z11do_per_stepll.exit32, %40
   %.0.i34 = phi i1 [ %43, %40 ], [ false, %_Z11do_per_stepll.exit32 ]
   %44 = or i1 %36, %.0.i34
-  br i1 %36, label %45, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit
+  br i1 %36, label %45, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
 
 45:                                               ; preds = %_Z11do_per_stepll.exit35
   %46 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1350,7 +1350,7 @@ _Z11do_per_stepll.exit35:                         ; preds = %_Z11do_per_stepll.e
   %47 = getelementptr inbounds i8, ptr %0, i64 32
   %.val22 = load ptr, ptr %47, align 8
   %.not4.i = icmp eq ptr %.val, %.val22
-  br i1 %.not4.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %45, %_ZNKSt8functionIFvldEEclEld.exit.i
   %.sroa.01.05.i = phi ptr [ %53, %_ZNKSt8functionIFvldEEclEld.exit.i ], [ %.val, %45 ]
@@ -1375,18 +1375,18 @@ _ZNKSt8functionIFvldEEclEld.exit.i:               ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %53 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 32
   %.not.i36 = icmp eq ptr %53, %.val22
-  br i1 %.not.i36, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i36, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit, label %.lr.ph.i
 
-_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %45, %_Z11do_per_stepll.exit35
-  br i1 %37, label %54, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit43
+_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i, %45, %_Z11do_per_stepll.exit35
+  br i1 %37, label %54, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit43
 
-54:                                               ; preds = %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit
+54:                                               ; preds = %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
   %55 = getelementptr inbounds i8, ptr %0, i64 48
   %.val23 = load ptr, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 56
   %.val24 = load ptr, ptr %56, align 8
   %.not4.i37 = icmp eq ptr %.val23, %.val24
-  br i1 %.not4.i37, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit43, label %.lr.ph.i38
+  br i1 %.not4.i37, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit43, label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %54, %_ZNKSt8functionIFvldEEclEld.exit.i41
   %.sroa.01.05.i39 = phi ptr [ %62, %_ZNKSt8functionIFvldEEclEld.exit.i41 ], [ %.val23, %54 ]
@@ -1411,18 +1411,18 @@ _ZNKSt8functionIFvldEEclEld.exit.i41:             ; preds = %.lr.ph.i38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %62 = getelementptr inbounds i8, ptr %.sroa.01.05.i39, i64 32
   %.not.i42 = icmp eq ptr %62, %.val24
-  br i1 %.not.i42, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit43, label %.lr.ph.i38
+  br i1 %.not.i42, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit43, label %.lr.ph.i38
 
-_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit43: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i41, %54, %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit
-  br i1 %44, label %63, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit50
+_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit43: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i41, %54, %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
+  br i1 %44, label %63, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit50
 
-63:                                               ; preds = %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit43
+63:                                               ; preds = %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit43
   %64 = getelementptr inbounds i8, ptr %0, i64 72
   %.val25 = load ptr, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 80
   %.val26 = load ptr, ptr %65, align 8
   %.not4.i44 = icmp eq ptr %.val25, %.val26
-  br i1 %.not4.i44, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit50, label %.lr.ph.i45
+  br i1 %.not4.i44, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit50, label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %63, %_ZNKSt8functionIFvldEEclEld.exit.i48
   %.sroa.01.05.i46 = phi ptr [ %71, %_ZNKSt8functionIFvldEEclEld.exit.i48 ], [ %.val25, %63 ]
@@ -1447,9 +1447,9 @@ _ZNKSt8functionIFvldEEclEld.exit.i48:             ; preds = %.lr.ph.i45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %71 = getelementptr inbounds i8, ptr %.sroa.01.05.i46, i64 32
   %.not.i49 = icmp eq ptr %71, %.val26
-  br i1 %.not.i49, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit50, label %.lr.ph.i45
+  br i1 %.not.i49, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit50, label %.lr.ph.i45
 
-_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit50: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i48, %63, %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.argprom.exit43
+_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit50: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i48, %63, %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit43
   ret void
 }
 

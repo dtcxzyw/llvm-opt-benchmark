@@ -1705,7 +1705,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
 82:                                               ; preds = %76
   %83 = getelementptr i8, ptr %0, i64 3188
   %.val23 = load i32, ptr %83, align 4
-  %84 = tail call fastcc i32 @intel_dp_force_dsc_pipe_bpp.argprom(ptr %80, i32 %.val23, ptr noundef %2, ptr noundef %3)
+  %84 = tail call fastcc i32 @intel_dp_force_dsc_pipe_bpp(ptr %80, i32 %.val23, ptr noundef %2, ptr noundef %3)
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %152
 
@@ -1918,7 +1918,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %7, i8 0, i64 3, i1 false)
   %221 = getelementptr i8, ptr %0, i64 3188
   %.val25 = load i32, ptr %221, align 4
-  %222 = tail call fastcc i32 @intel_dp_force_dsc_pipe_bpp.argprom(ptr %80, i32 %.val25, ptr noundef %2, ptr noundef %3)
+  %222 = tail call fastcc i32 @intel_dp_force_dsc_pipe_bpp(ptr %80, i32 %.val25, ptr noundef %2, ptr noundef %3)
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %227, label %224
 
@@ -2744,14 +2744,14 @@ define dso_local i32 @intel_dp_compute_config(ptr noundef %0, ptr noundef %1, pt
 40:                                               ; preds = %33
   %41 = tail call i32 @intel_panel_compute_config(ptr noundef %16, ptr noundef %5) #14
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %intel_dp_compute_hdr_metadata_infoframe_sdp.argprom.exit
+  br i1 %42, label %43, label %intel_dp_compute_hdr_metadata_infoframe_sdp.exit
 
 43:                                               ; preds = %40, %33
   %44 = getelementptr inbounds i8, ptr %1, i64 632
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 32
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %intel_dp_compute_hdr_metadata_infoframe_sdp.argprom.exit
+  br i1 %47, label %48, label %intel_dp_compute_hdr_metadata_infoframe_sdp.exit
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds i8, ptr %16, i64 148
@@ -2763,7 +2763,7 @@ define dso_local i32 @intel_dp_compute_config(ptr noundef %0, ptr noundef %1, pt
   %55 = and i32 %45, 4096
   %56 = icmp eq i32 %55, 0
   %57 = and i1 %56, %54
-  br i1 %57, label %58, label %intel_dp_compute_hdr_metadata_infoframe_sdp.argprom.exit
+  br i1 %57, label %58, label %intel_dp_compute_hdr_metadata_infoframe_sdp.exit
 
 58:                                               ; preds = %48
   %59 = getelementptr inbounds i8, ptr %1, i64 640
@@ -2778,7 +2778,7 @@ define dso_local i32 @intel_dp_compute_config(ptr noundef %0, ptr noundef %1, pt
   %66 = load i16, ptr %65, align 4
   %67 = and i16 %66, 8
   %68 = icmp eq i16 %67, 0
-  br i1 %68, label %intel_dp_compute_hdr_metadata_infoframe_sdp.argprom.exit, label %69
+  br i1 %68, label %intel_dp_compute_hdr_metadata_infoframe_sdp.exit, label %69
 
 69:                                               ; preds = %62, %58
   %70 = tail call fastcc i32 @intel_dp_compute_output_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
@@ -2788,7 +2788,7 @@ define dso_local i32 @intel_dp_compute_config(ptr noundef %0, ptr noundef %1, pt
 72:                                               ; preds = %69
   %73 = tail call fastcc i32 @intel_dp_compute_output_format(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread, label %intel_dp_compute_hdr_metadata_infoframe_sdp.argprom.exit
+  br i1 %74, label %.thread, label %intel_dp_compute_hdr_metadata_infoframe_sdp.exit
 
 .thread:                                          ; preds = %69, %72
   %75 = load i32, ptr %35, align 8
@@ -2805,7 +2805,7 @@ define dso_local i32 @intel_dp_compute_config(ptr noundef %0, ptr noundef %1, pt
 82:                                               ; preds = %78, %.thread
   %83 = tail call i32 @intel_panel_fitting(ptr noundef %1, ptr noundef %2) #14
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %._crit_edge, label %intel_dp_compute_hdr_metadata_infoframe_sdp.argprom.exit
+  br i1 %84, label %._crit_edge, label %intel_dp_compute_hdr_metadata_infoframe_sdp.exit
 
 ._crit_edge:                                      ; preds = %82
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 4744
@@ -3240,7 +3240,7 @@ intel_dp_compute_vsc_sdp.exit:                    ; preds = %intel_dp_drrs_compu
   %364 = getelementptr inbounds i8, ptr %2, i64 152
   %365 = load ptr, ptr %364, align 8
   %366 = icmp eq ptr %365, null
-  br i1 %366, label %intel_dp_compute_hdr_metadata_infoframe_sdp.argprom.exit, label %367
+  br i1 %366, label %intel_dp_compute_hdr_metadata_infoframe_sdp.exit, label %367
 
 367:                                              ; preds = %intel_dp_compute_vsc_sdp.exit
   %368 = getelementptr inbounds i8, ptr %1, i64 4528
@@ -3260,16 +3260,16 @@ intel_dp_compute_vsc_sdp.exit:                    ; preds = %intel_dp_drrs_compu
 376:                                              ; preds = %373, %371
   %377 = phi ptr [ %375, %373 ], [ null, %371 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %377, i32 noundef 2, ptr noundef nonnull @.str.80) #14
-  br label %intel_dp_compute_hdr_metadata_infoframe_sdp.argprom.exit
+  br label %intel_dp_compute_hdr_metadata_infoframe_sdp.exit
 
 378:                                              ; preds = %367
   %379 = tail call i32 @intel_hdmi_infoframe_enable(i32 noundef 10) #14
   %380 = load i32, ptr %349, align 4
   %381 = or i32 %380, %379
   store i32 %381, ptr %349, align 4
-  br label %intel_dp_compute_hdr_metadata_infoframe_sdp.argprom.exit
+  br label %intel_dp_compute_hdr_metadata_infoframe_sdp.exit
 
-intel_dp_compute_hdr_metadata_infoframe_sdp.argprom.exit: ; preds = %378, %376, %intel_dp_compute_vsc_sdp.exit, %82, %72, %62, %48, %43, %40
+intel_dp_compute_hdr_metadata_infoframe_sdp.exit: ; preds = %378, %376, %intel_dp_compute_vsc_sdp.exit, %82, %72, %62, %48, %43, %40
   %382 = phi i32 [ %41, %40 ], [ -22, %43 ], [ -22, %48 ], [ -22, %62 ], [ %73, %72 ], [ %83, %82 ], [ 0, %intel_dp_compute_vsc_sdp.exit ], [ 0, %376 ], [ 0, %378 ]
   ret i32 %382
 }
@@ -3341,7 +3341,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_output_fo
   store i32 %34, ptr %35, align 4
   %36 = getelementptr i8, ptr %15, i64 1976
   %.val = load ptr, ptr %36, align 8
-  %37 = tail call fastcc i32 @intel_dp_output_format.argprom(ptr %.val, i32 noundef %34)
+  %37 = tail call fastcc i32 @intel_dp_output_format(ptr %.val, i32 noundef %34)
   %38 = getelementptr inbounds i8, ptr %1, i64 4744
   store i32 %37, ptr %38, align 8
   %39 = tail call fastcc i32 @intel_dp_compute_link_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3), !range !53
@@ -3366,7 +3366,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_dp_compute_output_fo
 50:                                               ; preds = %48
   store i32 1, ptr %35, align 4
   %.val2 = load ptr, ptr %36, align 8
-  %51 = tail call fastcc i32 @intel_dp_output_format.argprom(ptr %.val2, i32 noundef 1)
+  %51 = tail call fastcc i32 @intel_dp_output_format(ptr %.val2, i32 noundef 1)
   store i32 %51, ptr %38, align 8
   %52 = tail call fastcc i32 @intel_dp_compute_link_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3), !range !53
   br label %53
@@ -3582,13 +3582,13 @@ define dso_local void @intel_dp_sink_enable_decompression(ptr nocapture noundef 
   %40 = getelementptr i8, ptr %1, i64 2416
   %.val2 = load ptr, ptr %40, align 8
   %41 = icmp eq ptr %.val2, null
-  br i1 %41, label %intel_dp_sink_set_dsc_passthrough.argprom.exit, label %42
+  br i1 %41, label %intel_dp_sink_set_dsc_passthrough.exit, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds i8, ptr %.val2, i64 1344
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %intel_dp_sink_set_dsc_passthrough.argprom.exitthread-pre-split, label %46
+  br i1 %45, label %intel_dp_sink_set_dsc_passthrough.exitthread-pre-split, label %46
 
 46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
@@ -3609,7 +3609,7 @@ define dso_local void @intel_dp_sink_enable_decompression(ptr nocapture noundef 
   %54 = and i64 %53, 2147483648
   %55 = icmp eq i64 %54, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
-  br i1 %55, label %intel_dp_sink_set_dsc_passthrough.argprom.exitthread-pre-split, label %57
+  br i1 %55, label %intel_dp_sink_set_dsc_passthrough.exitthread-pre-split, label %57
 
 56:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
@@ -3627,14 +3627,14 @@ define dso_local void @intel_dp_sink_enable_decompression(ptr nocapture noundef 
 62:                                               ; preds = %59, %57
   %63 = phi ptr [ %61, %59 ], [ null, %57 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.91) #14
-  br label %intel_dp_sink_set_dsc_passthrough.argprom.exitthread-pre-split
+  br label %intel_dp_sink_set_dsc_passthrough.exitthread-pre-split
 
-intel_dp_sink_set_dsc_passthrough.argprom.exitthread-pre-split: ; preds = %62, %50, %42
+intel_dp_sink_set_dsc_passthrough.exitthread-pre-split: ; preds = %62, %50, %42
   %.pr = load ptr, ptr %1, align 8
-  br label %intel_dp_sink_set_dsc_passthrough.argprom.exit
+  br label %intel_dp_sink_set_dsc_passthrough.exit
 
-intel_dp_sink_set_dsc_passthrough.argprom.exit:   ; preds = %intel_dp_sink_set_dsc_passthrough.argprom.exitthread-pre-split, %39
-  %64 = phi ptr [ %.pr, %intel_dp_sink_set_dsc_passthrough.argprom.exitthread-pre-split ], [ %.val, %39 ]
+intel_dp_sink_set_dsc_passthrough.exit:           ; preds = %intel_dp_sink_set_dsc_passthrough.exitthread-pre-split, %39
+  %64 = phi ptr [ %.pr, %intel_dp_sink_set_dsc_passthrough.exitthread-pre-split ], [ %.val, %39 ]
   %65 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #14
   store i8 0, ptr %7, align 1, !annotation !60
@@ -3643,7 +3643,7 @@ intel_dp_sink_set_dsc_passthrough.argprom.exit:   ; preds = %intel_dp_sink_set_d
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %69, label %75
 
-69:                                               ; preds = %intel_dp_sink_set_dsc_passthrough.argprom.exit
+69:                                               ; preds = %intel_dp_sink_set_dsc_passthrough.exit
   %70 = load i8, ptr %7, align 1
   %71 = or i8 %70, 1
   store i8 %71, ptr %7, align 1
@@ -3656,7 +3656,7 @@ intel_dp_sink_set_dsc_passthrough.argprom.exit:   ; preds = %intel_dp_sink_set_d
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #14
   br i1 %74, label %83, label %76
 
-75:                                               ; preds = %intel_dp_sink_set_dsc_passthrough.argprom.exit
+75:                                               ; preds = %intel_dp_sink_set_dsc_passthrough.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #14
   br label %76
 
@@ -3689,7 +3689,7 @@ define dso_local void @intel_dp_sink_disable_decompression(ptr nocapture noundef
   %10 = getelementptr inbounds i8, ptr %2, i64 4756
   %11 = load i8, ptr %10, align 4, !range !10, !noundef !11
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %intel_dp_sink_set_dsc_passthrough.argprom.exit, label %13
+  br i1 %12, label %intel_dp_sink_set_dsc_passthrough.exit, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %1, i64 2432
@@ -3726,14 +3726,14 @@ define dso_local void @intel_dp_sink_disable_decompression(ptr nocapture noundef
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 3195, i32 2313, i64 12) #14, !srcloc !63
   tail call void asm sideeffect "1048: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1048b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1048) #14, !srcloc !64
   tail call void asm sideeffect "1049: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1049b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1049) #14, !srcloc !65
-  br label %intel_dp_sink_set_dsc_passthrough.argprom.exit
+  br label %intel_dp_sink_set_dsc_passthrough.exit
 
 34:                                               ; preds = %17
   %35 = and i8 %19, -3
   store i8 %35, ptr %18, align 1
   %36 = tail call fastcc i32 @intel_dp_dsc_aux_ref_count(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %intel_dp_sink_set_dsc_passthrough.argprom.exit
+  br i1 %37, label %38, label %intel_dp_sink_set_dsc_passthrough.exit
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %1, align 8
@@ -3781,13 +3781,13 @@ define dso_local void @intel_dp_sink_disable_decompression(ptr nocapture noundef
   %59 = getelementptr i8, ptr %1, i64 2416
   %.val2 = load ptr, ptr %59, align 8
   %60 = icmp eq ptr %.val2, null
-  br i1 %60, label %intel_dp_sink_set_dsc_passthrough.argprom.exit, label %61
+  br i1 %60, label %intel_dp_sink_set_dsc_passthrough.exit, label %61
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %.val2, i64 1344
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %intel_dp_sink_set_dsc_passthrough.argprom.exit, label %65
+  br i1 %64, label %intel_dp_sink_set_dsc_passthrough.exit, label %65
 
 65:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
@@ -3808,7 +3808,7 @@ define dso_local void @intel_dp_sink_disable_decompression(ptr nocapture noundef
   %73 = and i64 %72, 2147483648
   %74 = icmp eq i64 %73, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
-  br i1 %74, label %intel_dp_sink_set_dsc_passthrough.argprom.exit, label %76
+  br i1 %74, label %intel_dp_sink_set_dsc_passthrough.exit, label %76
 
 75:                                               ; preds = %65
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
@@ -3826,9 +3826,9 @@ define dso_local void @intel_dp_sink_disable_decompression(ptr nocapture noundef
 81:                                               ; preds = %78, %76
   %82 = phi ptr [ %80, %78 ], [ null, %76 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %82, i32 noundef 2, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.92) #14
-  br label %intel_dp_sink_set_dsc_passthrough.argprom.exit
+  br label %intel_dp_sink_set_dsc_passthrough.exit
 
-intel_dp_sink_set_dsc_passthrough.argprom.exit:   ; preds = %81, %69, %61, %58, %34, %32, %3
+intel_dp_sink_set_dsc_passthrough.exit:           ; preds = %81, %69, %61, %58, %34, %32, %3
   ret void
 }
 
@@ -9231,7 +9231,7 @@ declare dso_local ptr @intel_panel_preferred_fixed_mode(ptr noundef) local_unnam
 declare dso_local zeroext i1 @intel_dsc_source_support(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 256) i32 @intel_dp_force_dsc_pipe_bpp.argprom(ptr readonly %.-392.val, i32 %.3188.val, ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 0, 256) i32 @intel_dp_force_dsc_pipe_bpp(ptr readonly %.-392.val, i32 %.3188.val, ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 16 {
   %3 = icmp eq i32 %.3188.val, 0
   br i1 %3, label %45, label %4
 
@@ -9658,7 +9658,7 @@ declare dso_local i32 @drm_dsc_compute_rc_parameters(ptr noundef) local_unnamed_
 declare dso_local zeroext i1 @drm_mode_is_420_only(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_dp_output_format.argprom(ptr nocapture readonly %.1976.val, i32 noundef range(i32 0, 2) %0) unnamed_addr #3 align 16 {
+define internal fastcc noundef i32 @intel_dp_output_format(ptr nocapture readonly %.1976.val, i32 noundef range(i32 0, 2) %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %.1976.val, i64 128
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %7 [
@@ -10566,7 +10566,7 @@ intel_dp_max_link_rate.exit:                      ; preds = %49, %64
 declare dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 17) i32 @intel_dp_tmds_clock_valid.argelim(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 0, 17) i32 @intel_dp_tmds_clock_valid(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 align 16 {
   %3 = tail call i32 @intel_hdmi_tmds_clock(i32 noundef %1, i32 noundef 8, i32 noundef 1) #14
   %4 = getelementptr inbounds i8, ptr %0, i64 3104
   %5 = load i32, ptr %4, align 8
@@ -13118,7 +13118,7 @@ intel_dp_max_lane_count.exit:                     ; preds = %intel_dp_max_link_r
   %127 = tail call zeroext i1 @drm_mode_is_420_only(ptr noundef %126, ptr noundef %1) #14
   %128 = zext i1 %127 to i32
   %.val.i = load ptr, ptr %3, align 8
-  %129 = tail call fastcc i32 @intel_dp_output_format.argprom(ptr %.val.i, i32 noundef %128)
+  %129 = tail call fastcc i32 @intel_dp_output_format(ptr %.val.i, i32 noundef %128)
   %130 = icmp eq i32 %129, 0
   %131 = select i1 %130, i32 18, i32 24
   %132 = icmp eq i32 %129, 1
@@ -13143,7 +13143,7 @@ intel_dp_max_lane_count.exit:                     ; preds = %intel_dp_max_link_r
   %147 = tail call zeroext i1 @drm_mode_is_420_only(ptr noundef %126, ptr noundef %1) #14
   %148 = zext i1 %147 to i32
   %.val = load ptr, ptr %3, align 8
-  %149 = tail call fastcc i32 @intel_dp_output_format.argprom(ptr %.val, i32 noundef %148)
+  %149 = tail call fastcc i32 @intel_dp_output_format(ptr %.val, i32 noundef %148)
   %150 = tail call i32 @intel_dp_dsc_compute_max_bpp(ptr noundef %0, i8 noundef zeroext -1), !range !228
   %151 = load i32, ptr %26, align 8
   %152 = icmp eq i32 %151, 8
@@ -13583,7 +13583,7 @@ define internal fastcc range(i32 0, 17) i32 @intel_dp_mode_valid_downstream(ptr 
   %20 = tail call zeroext i1 @drm_mode_is_420_only(ptr noundef %15, ptr noundef %1) #14
   %21 = zext i1 %20 to i32
   %.val = load ptr, ptr %4, align 8
-  %22 = tail call fastcc i32 @intel_dp_output_format.argprom(ptr %.val, i32 noundef %21)
+  %22 = tail call fastcc i32 @intel_dp_output_format(ptr %.val, i32 noundef %21)
   %23 = icmp eq i32 %22, 0
   %24 = select i1 %23, i32 18, i32 24
   %25 = icmp eq i32 %22, 1
@@ -13653,7 +13653,7 @@ define internal fastcc range(i32 0, 17) i32 @intel_dp_mode_valid_downstream(ptr 
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %71
-  %74 = tail call fastcc i32 @intel_dp_tmds_clock_valid.argelim(ptr noundef %14, i32 noundef %2)
+  %74 = tail call fastcc i32 @intel_dp_tmds_clock_valid(ptr noundef %14, i32 noundef %2)
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %77
 

@@ -1330,7 +1330,7 @@ define dso_local noundef range(i32 0, 2) i32 @ip6_err_gen_icmpv6_unreach(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @pskb_may_pull.argelim(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef %0) unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 116
@@ -2300,7 +2300,7 @@ define internal noundef i32 @icmpv6_rcv(ptr noundef %0) #0 align 16 {
   br label %375
 
 349:                                              ; preds = %324
-  %350 = tail call fastcc zeroext i1 @pskb_may_pull.argelim(ptr noundef %0)
+  %350 = tail call fastcc zeroext i1 @pskb_may_pull(ptr noundef %0)
   br i1 %350, label %351, label %390
 
 351:                                              ; preds = %349

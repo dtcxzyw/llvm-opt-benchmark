@@ -187,7 +187,7 @@ findCenterNode.exit:                              ; preds = %.lr.ph33.i, %._crit
 88:                                               ; preds = %findCenterNode.exit
   %89 = load ptr, ptr @stderr, align 8
   %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.5, i64 noundef 16) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 push.exit.cont.i.i:                               ; preds = %findCenterNode.exit
@@ -218,7 +218,7 @@ pull.exit.usthread-pre-split.i.i:                 ; preds = %.loopexit.us.i.i
   %101 = add i64 %100, 1
   %102 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %94) #13
   %.not3451.us.i.i = icmp eq ptr %102, null
-  br i1 %.not3451.us.i.i, label %.loopexit.us.i.i, label %streq.argprom.exit.thread.us.us.i.i
+  br i1 %.not3451.us.i.i, label %.loopexit.us.i.i, label %streq.exit.thread.us.us.i.i
 
 .loopexit.us.i.i:                                 ; preds = %push.exit41.cont.us.us.i.i, %.lr.ph24.i
   %.sroa.0.1.lcssa.us.i.i = phi ptr [ %93, %.lr.ph24.i ], [ %.sroa.0.2.us.us.i.i, %push.exit41.cont.us.us.i.i ]
@@ -226,7 +226,7 @@ pull.exit.usthread-pre-split.i.i:                 ; preds = %.loopexit.us.i.i
   %.not.i37.us.i.i = icmp eq ptr %.sroa.0.1.lcssa.us.i.i, null
   br i1 %.not.i37.us.i.i, label %setNStepsToCenter.exit.i, label %pull.exit.usthread-pre-split.i.i
 
-streq.argprom.exit.thread.us.us.i.i:              ; preds = %.lr.ph24.i, %push.exit41.cont.us.us.i.i
+streq.exit.thread.us.us.i.i:                      ; preds = %.lr.ph24.i, %push.exit41.cont.us.us.i.i
   %.054.us.us.i.i = phi ptr [ %137, %push.exit41.cont.us.us.i.i ], [ %102, %.lr.ph24.i ]
   %.sroa.6.153.us.us.i.i = phi ptr [ %.sroa.6.2.us.us.i.i, %push.exit41.cont.us.us.i.i ], [ %spec.select48.us.i.i, %.lr.ph24.i ]
   %.sroa.0.152.us.us.i.i = phi ptr [ %.sroa.0.2.us.us.i.i, %push.exit41.cont.us.us.i.i ], [ %93, %.lr.ph24.i ]
@@ -240,7 +240,7 @@ streq.argprom.exit.thread.us.us.i.i:              ; preds = %.lr.ph24.i, %push.e
   %109 = icmp eq ptr %108, %94
   br i1 %109, label %110, label %115
 
-110:                                              ; preds = %streq.argprom.exit.thread.us.us.i.i
+110:                                              ; preds = %streq.exit.thread.us.us.i.i
   %111 = icmp eq i32 %104, 2
   %.idx36.us.us.i.i = select i1 %111, i64 0, i64 -64
   %112 = getelementptr inbounds i8, ptr %.054.us.us.i.i, i64 %.idx36.us.us.i.i
@@ -248,8 +248,8 @@ streq.argprom.exit.thread.us.us.i.i:              ; preds = %.lr.ph24.i, %push.e
   %114 = load ptr, ptr %113, align 8
   br label %115
 
-115:                                              ; preds = %110, %streq.argprom.exit.thread.us.us.i.i
-  %.029.us.us.i.i = phi ptr [ %114, %110 ], [ %108, %streq.argprom.exit.thread.us.us.i.i ]
+115:                                              ; preds = %110, %streq.exit.thread.us.us.i.i
+  %.029.us.us.i.i = phi ptr [ %114, %110 ], [ %108, %streq.exit.thread.us.us.i.i ]
   %116 = getelementptr inbounds i8, ptr %.029.us.us.i.i, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 152
@@ -292,7 +292,7 @@ push.exit41.cont.us.us.i.i:                       ; preds = %push.exit41.else.us
   %.sroa.6.2.us.us.i.i = phi ptr [ %.sroa.6.153.us.us.i.i, %115 ], [ %134, %push.exit41.else.us.us.i.i ], [ %134, %push.exit41.us.us.i.i ]
   %137 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.054.us.us.i.i, ptr noundef nonnull %94) #13
   %.not34.us.us.i.i = icmp eq ptr %137, null
-  br i1 %.not34.us.us.i.i, label %.loopexit.us.i.i, label %streq.argprom.exit.thread.us.us.i.i
+  br i1 %.not34.us.us.i.i, label %.loopexit.us.i.i, label %streq.exit.thread.us.us.i.i
 
 .loopexit.i.i:                                    ; preds = %push.exit41.cont.i.i, %.lr.ph.i29
   %.sroa.0.1.lcssa.i.i = phi ptr [ %140, %.lr.ph.i29 ], [ %.sroa.0.2.i.i, %push.exit41.cont.i.i ]
@@ -332,15 +332,15 @@ pull.exitthread-pre-split.i.i:                    ; preds = %.loopexit.i.i
   %150 = tail call ptr @agxget(ptr noundef nonnull %.054.i.i, ptr noundef nonnull %.fr.i.i) #13
   %151 = load i8, ptr %150, align 1
   %.not.i38.i.i = icmp eq i8 %151, 48
-  br i1 %.not.i38.i.i, label %streq.argprom.exit.i.i, label %streq.argprom.exit.thread.i.i
+  br i1 %.not.i38.i.i, label %streq.exit.i.i, label %streq.exit.thread.i.i
 
-streq.argprom.exit.i.i:                           ; preds = %.lr.ph.i.i30
+streq.exit.i.i:                                   ; preds = %.lr.ph.i.i30
   %152 = getelementptr inbounds i8, ptr %150, i64 1
   %153 = load i8, ptr %152, align 1
   %154 = icmp eq i8 %153, 0
-  br i1 %154, label %push.exit41.cont.i.i, label %streq.argprom.exit.thread.i.i
+  br i1 %154, label %push.exit41.cont.i.i, label %streq.exit.thread.i.i
 
-streq.argprom.exit.thread.i.i:                    ; preds = %streq.argprom.exit.i.i, %.lr.ph.i.i30
+streq.exit.thread.i.i:                            ; preds = %streq.exit.i.i, %.lr.ph.i.i30
   %155 = load i32, ptr %.054.i.i, align 8
   %156 = and i32 %155, 3
   %157 = icmp eq i32 %156, 3
@@ -351,7 +351,7 @@ streq.argprom.exit.thread.i.i:                    ; preds = %streq.argprom.exit.
   %161 = icmp eq ptr %160, %141
   br i1 %161, label %162, label %167
 
-162:                                              ; preds = %streq.argprom.exit.thread.i.i
+162:                                              ; preds = %streq.exit.thread.i.i
   %163 = icmp eq i32 %156, 2
   %.idx36.i.i = select i1 %163, i64 0, i64 -64
   %164 = getelementptr inbounds i8, ptr %.054.i.i, i64 %.idx36.i.i
@@ -359,8 +359,8 @@ streq.argprom.exit.thread.i.i:                    ; preds = %streq.argprom.exit.
   %166 = load ptr, ptr %165, align 8
   br label %167
 
-167:                                              ; preds = %162, %streq.argprom.exit.thread.i.i
-  %.029.i.i32 = phi ptr [ %166, %162 ], [ %160, %streq.argprom.exit.thread.i.i ]
+167:                                              ; preds = %162, %streq.exit.thread.i.i
+  %.029.i.i32 = phi ptr [ %166, %162 ], [ %160, %streq.exit.thread.i.i ]
   %168 = getelementptr inbounds i8, ptr %.029.i.i32, i64 16
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 152
@@ -391,7 +391,7 @@ streq.argprom.exit.thread.i.i:                    ; preds = %streq.argprom.exit.
 .split.us.i.i:                                    ; preds = %175, %123
   %188 = load ptr, ptr @stderr, align 8
   %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %188, ptr noundef nonnull @.str.5, i64 noundef 16) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 push.exit41.i.i:                                  ; preds = %175
@@ -404,9 +404,9 @@ push.exit41.else.i.i:                             ; preds = %push.exit41.i.i
   store ptr %186, ptr %190, align 8
   br label %push.exit41.cont.i.i
 
-push.exit41.cont.i.i:                             ; preds = %push.exit41.else.i.i, %push.exit41.i.i, %167, %streq.argprom.exit.i.i
-  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.152.i.i, %167 ], [ %.sroa.0.152.i.i, %streq.argprom.exit.i.i ], [ %.sroa.0.152.i.i, %push.exit41.else.i.i ], [ %186, %push.exit41.i.i ]
-  %.sroa.6.2.i.i = phi ptr [ %.sroa.6.153.i.i, %167 ], [ %.sroa.6.153.i.i, %streq.argprom.exit.i.i ], [ %186, %push.exit41.else.i.i ], [ %186, %push.exit41.i.i ]
+push.exit41.cont.i.i:                             ; preds = %push.exit41.else.i.i, %push.exit41.i.i, %167, %streq.exit.i.i
+  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.152.i.i, %167 ], [ %.sroa.0.152.i.i, %streq.exit.i.i ], [ %.sroa.0.152.i.i, %push.exit41.else.i.i ], [ %186, %push.exit41.i.i ]
+  %.sroa.6.2.i.i = phi ptr [ %.sroa.6.153.i.i, %167 ], [ %.sroa.6.153.i.i, %streq.exit.i.i ], [ %186, %push.exit41.else.i.i ], [ %186, %push.exit41.i.i ]
   %191 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.054.i.i, ptr noundef nonnull %141) #13
   %.not34.i.i = icmp eq ptr %191, null
   br i1 %.not34.i.i, label %.loopexit.i.i, label %.lr.ph.i.i30
@@ -527,7 +527,7 @@ setSubtreeSize.exit:                              ; preds = %.loopexit.i37, %211
 240:                                              ; preds = %setSubtreeSize.exit
   %241 = load ptr, ptr @stderr, align 8
   %242 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %241, ptr noundef nonnull @.str.4, i64 noundef %239, i64 noundef 8) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 243:                                              ; preds = %setSubtreeSize.exit
@@ -539,7 +539,7 @@ setSubtreeSize.exit:                              ; preds = %.loopexit.i37, %211
   %247 = load ptr, ptr @stderr, align 8
   %248 = shl nuw i64 %239, 3
   %249 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %247, ptr noundef nonnull @.str.5, i64 noundef %248) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 gv_calloc.exit.i.i:                               ; preds = %243
@@ -770,7 +770,7 @@ declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_un
 declare ptr @agxget(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #3 {
+define internal fastcc void @graphviz_exit() unnamed_addr #3 {
   tail call void @exit(i32 noundef 1) #18
   unreachable
 }

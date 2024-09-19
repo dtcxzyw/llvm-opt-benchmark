@@ -41,7 +41,7 @@ Saig_ObjIsPo.exit.thread:                         ; preds = %8
   %15 = getelementptr i8, ptr %0, i64 32
   br label %22
 
-16:                                               ; preds = %Aig_ManObj.argprom.exit
+16:                                               ; preds = %Aig_ManObj.exit
   %17 = add nuw nsw i32 %.02755, 1
   %18 = load i64, ptr %9, align 8
   %19 = trunc i64 %18 to i32
@@ -76,7 +76,7 @@ Saig_ObjIsPo.exit.thread:                         ; preds = %8
   %35 = load i32, ptr %34, align 4
   %.val41 = load ptr, ptr %15, align 8
   %.not.i48 = icmp eq ptr %.val41, null
-  br i1 %.not.i48, label %Aig_ManObj.argprom.exit, label %36
+  br i1 %.not.i48, label %Aig_ManObj.exit, label %36
 
 36:                                               ; preds = %32
   %37 = ashr i32 %35, 1
@@ -85,15 +85,15 @@ Saig_ObjIsPo.exit.thread:                         ; preds = %8
   %39 = sext i32 %37 to i64
   %40 = getelementptr inbounds ptr, ptr %.val.i49, i64 %39
   %41 = load ptr, ptr %40, align 8
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %32, %36
+Aig_ManObj.exit:                                  ; preds = %32, %36
   %42 = phi ptr [ %41, %36 ], [ null, %32 ]
   %43 = tail call i32 @Llb_ManTracePaths_rec(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %2)
   %.not35 = icmp eq i32 %43, 0
   br i1 %.not35, label %44, label %16
 
-44:                                               ; preds = %Aig_ManObj.argprom.exit
+44:                                               ; preds = %Aig_ManObj.exit
   %.val42 = load i32, ptr %4, align 8
   %45 = add nsw i32 %.val42, -1
   br label %Saig_ObjIsPo.exit.sink.split

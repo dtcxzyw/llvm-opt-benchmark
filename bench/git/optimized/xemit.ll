@@ -337,7 +337,7 @@ while.body:                                       ; preds = %while.cond.preheade
 
 if.then.i.i:                                      ; preds = %while.body
   %cmp.i.i.i = icmp sgt i64 %33, 0
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %is_func_rec.argprom.exit.thread
+  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %is_func_rec.exit.thread
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i
   %35 = load i8, ptr %32, align 1
@@ -350,7 +350,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then.i.i
   br i1 %cmp1.not.not.i.i.i, label %switch.early.test.i.i.i, label %post_context_calculation.critedge
 
 switch.early.test.i.i.i:                          ; preds = %land.lhs.true.i.i.i
-  switch i8 %35, label %is_func_rec.argprom.exit.thread [
+  switch i8 %35, label %is_func_rec.exit.thread [
     i8 95, label %post_context_calculation.critedge
     i8 36, label %post_context_calculation.critedge
   ]
@@ -366,12 +366,12 @@ if.end.i.i.if.end29_crit_edge:                    ; preds = %if.end.i.i
   %.pre = load i64, ptr %nrec23, align 8
   br label %if.end29
 
-is_func_rec.argprom.exit.thread:                  ; preds = %switch.early.test.i.i.i, %if.then.i.i
+is_func_rec.exit.thread:                          ; preds = %switch.early.test.i.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dummy.i)
   br label %if.end29
 
-if.end29:                                         ; preds = %if.end.i.i.if.end29_crit_edge, %is_func_rec.argprom.exit.thread
-  %40 = phi i64 [ %.pre, %if.end.i.i.if.end29_crit_edge ], [ %30, %is_func_rec.argprom.exit.thread ]
+if.end29:                                         ; preds = %if.end.i.i.if.end29_crit_edge, %is_func_rec.exit.thread
+  %40 = phi i64 [ %.pre, %if.end.i.i.if.end29_crit_edge ], [ %30, %is_func_rec.exit.thread ]
   %inc = add nsw i64 %i221.0524, 1
   %cmp24 = icmp slt i64 %inc, %40
   br i1 %cmp24, label %while.body, label %while.end.loopexit, !llvm.loop !8
@@ -408,7 +408,7 @@ for.body.i155:                                    ; preds = %land.rhs.i154
   %45 = load i64, ptr %size.i.i.i158, align 8
   %46 = load ptr, ptr %find_func.i.i, align 8
   %tobool.not.i.i159 = icmp eq ptr %46, null
-  br i1 %tobool.not.i.i159, label %if.then.i.i165, label %match_func_rec.argprom.exit.i
+  br i1 %tobool.not.i.i159, label %if.then.i.i165, label %match_func_rec.exit.i
 
 if.then.i.i165:                                   ; preds = %for.body.i155
   %cmp.i.i.i166 = icmp sgt i64 %45, 0
@@ -430,13 +430,13 @@ switch.early.test.i.i.i173:                       ; preds = %land.lhs.true.i.i.i
     i8 36, label %get_func_line.exit
   ]
 
-match_func_rec.argprom.exit.i:                    ; preds = %for.body.i155
+match_func_rec.exit.i:                            ; preds = %for.body.i155
   %50 = load ptr, ptr %find_func_priv.i.i, align 8
   %call3.i.i160 = call i64 %46(ptr noundef %44, i64 noundef %45, ptr noundef nonnull %dummy.i149, i64 noundef 1, ptr noundef %50) #7
   %cmp13.i = icmp sgt i64 %call3.i.i160, -1
   br i1 %cmp13.i, label %get_func_line.exit, label %for.inc.i161
 
-for.inc.i161:                                     ; preds = %match_func_rec.argprom.exit.i, %switch.early.test.i.i.i173, %if.then.i.i165
+for.inc.i161:                                     ; preds = %match_func_rec.exit.i, %switch.early.test.i.i.i173, %if.then.i.i165
   %add.i162 = add nsw i64 %l.029.i, %conv.i
   %cmp8.i = icmp sgt i64 %add.i162, -1
   br i1 %cmp8.i, label %land.rhs.i154, label %get_func_line.exit.thread, !llvm.loop !9
@@ -445,7 +445,7 @@ get_func_line.exit.thread:                        ; preds = %land.rhs.i154, %for
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dummy.i149)
   br label %while.end46
 
-get_func_line.exit:                               ; preds = %match_func_rec.argprom.exit.i, %land.lhs.true.i.i.i167, %switch.early.test.i.i.i173, %switch.early.test.i.i.i173
+get_func_line.exit:                               ; preds = %match_func_rec.exit.i, %land.lhs.true.i.i.i167, %switch.early.test.i.i.i173, %switch.early.test.i.i.i173
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dummy.i149)
   %cmp36525 = icmp sgt i64 %l.029.i, 0
   br i1 %cmp36525, label %land.lhs.true, label %while.end46
@@ -459,7 +459,7 @@ land.lhs.true:                                    ; preds = %get_func_line.exit,
   %size.i.i = getelementptr inbounds i8, ptr %51, i64 16
   %52 = load i64, ptr %size.i.i, align 8
   %cmp1.i = icmp sgt i64 %52, 0
-  br i1 %cmp1.i, label %land.rhs.preheader.i, label %is_empty_rec.argprom.exit
+  br i1 %cmp1.i, label %land.rhs.preheader.i, label %is_empty_rec.exit
 
 land.rhs.preheader.i:                             ; preds = %land.lhs.true
   %ptr.i.i = getelementptr inbounds i8, ptr %51, i64 8
@@ -483,7 +483,7 @@ while.body.i:                                     ; preds = %land.rhs.i175
   %cmp.i176 = icmp sgt i64 %len.03.i, 1
   br i1 %cmp.i176, label %land.rhs.i175, label %while.end46, !llvm.loop !10
 
-is_empty_rec.argprom.exit:                        ; preds = %land.lhs.true
+is_empty_rec.exit:                                ; preds = %land.lhs.true
   %tobool.not.i174.not = icmp eq i64 %52, 0
   br i1 %tobool.not.i174.not, label %while.end46, label %land.rhs.thread
 
@@ -491,15 +491,15 @@ land.rhs:                                         ; preds = %land.rhs.i175
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %dummy.i177)
   %57 = load ptr, ptr %find_func.i.i, align 8
   %tobool.not.i.i182 = icmp eq ptr %57, null
-  br i1 %tobool.not.i.i182, label %land.lhs.true.i.i.i190, label %is_func_rec.argprom.exit197
+  br i1 %tobool.not.i.i182, label %land.lhs.true.i.i.i190, label %is_func_rec.exit197
 
-land.rhs.thread:                                  ; preds = %is_empty_rec.argprom.exit
+land.rhs.thread:                                  ; preds = %is_empty_rec.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %dummy.i177)
   %ptr.i.i.i179424 = getelementptr inbounds i8, ptr %51, i64 8
   %58 = load ptr, ptr %ptr.i.i.i179424, align 8
   %59 = load ptr, ptr %find_func.i.i, align 8
   %tobool.not.i.i182426 = icmp eq ptr %59, null
-  br i1 %tobool.not.i.i182426, label %is_func_rec.argprom.exit197.thread, label %is_func_rec.argprom.exit197
+  br i1 %tobool.not.i.i182426, label %is_func_rec.exit197.thread, label %is_func_rec.exit197
 
 land.lhs.true.i.i.i190:                           ; preds = %land.rhs
   %60 = load i8, ptr %53, align 1
@@ -509,23 +509,23 @@ land.lhs.true.i.i.i190:                           ; preds = %land.rhs
   %.fr13.i.i.i193 = freeze i8 %61
   %62 = and i8 %.fr13.i.i.i193, 4
   %cmp1.not.not.i.i.i194 = icmp eq i8 %62, 0
-  br i1 %cmp1.not.not.i.i.i194, label %switch.early.test.i.i.i196, label %is_func_rec.argprom.exit197.thread429
+  br i1 %cmp1.not.not.i.i.i194, label %switch.early.test.i.i.i196, label %is_func_rec.exit197.thread429
 
 switch.early.test.i.i.i196:                       ; preds = %land.lhs.true.i.i.i190
-  switch i8 %60, label %is_func_rec.argprom.exit197.thread [
-    i8 95, label %is_func_rec.argprom.exit197.thread429
-    i8 36, label %is_func_rec.argprom.exit197.thread429
+  switch i8 %60, label %is_func_rec.exit197.thread [
+    i8 95, label %is_func_rec.exit197.thread429
+    i8 36, label %is_func_rec.exit197.thread429
   ]
 
-is_func_rec.argprom.exit197.thread429:            ; preds = %land.lhs.true.i.i.i190, %switch.early.test.i.i.i196, %switch.early.test.i.i.i196
+is_func_rec.exit197.thread429:                    ; preds = %land.lhs.true.i.i.i190, %switch.early.test.i.i.i196, %switch.early.test.i.i.i196
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dummy.i177)
   br label %while.end46
 
-is_func_rec.argprom.exit197.thread:               ; preds = %switch.early.test.i.i.i196, %land.rhs.thread
+is_func_rec.exit197.thread:                       ; preds = %switch.early.test.i.i.i196, %land.rhs.thread
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dummy.i177)
   br label %while.body45
 
-is_func_rec.argprom.exit197:                      ; preds = %land.rhs, %land.rhs.thread
+is_func_rec.exit197:                              ; preds = %land.rhs, %land.rhs.thread
   %63 = phi ptr [ %59, %land.rhs.thread ], [ %57, %land.rhs ]
   %64 = phi ptr [ %58, %land.rhs.thread ], [ %53, %land.rhs ]
   %65 = load ptr, ptr %find_func_priv.i.i, align 8
@@ -534,12 +534,12 @@ is_func_rec.argprom.exit197:                      ; preds = %land.rhs, %land.rhs
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dummy.i177)
   br i1 %66, label %while.body45, label %while.end46
 
-while.body45:                                     ; preds = %is_func_rec.argprom.exit197.thread, %is_func_rec.argprom.exit197
+while.body45:                                     ; preds = %is_func_rec.exit197.thread, %is_func_rec.exit197
   %cmp36 = icmp sgt i64 %fs1.0526, 1
   br i1 %cmp36, label %land.lhs.true, label %while.end46, !llvm.loop !11
 
-while.end46:                                      ; preds = %is_func_rec.argprom.exit197, %while.body45, %is_empty_rec.argprom.exit, %while.body.i, %get_func_line.exit.thread, %get_func_line.exit, %is_func_rec.argprom.exit197.thread429
-  %fs1.0466 = phi i64 [ %fs1.0526, %is_func_rec.argprom.exit197.thread429 ], [ %l.029.i, %get_func_line.exit ], [ -1, %get_func_line.exit.thread ], [ %fs1.0526, %while.body.i ], [ %fs1.0526, %is_func_rec.argprom.exit197 ], [ 0, %while.body45 ], [ %fs1.0526, %is_empty_rec.argprom.exit ]
+while.end46:                                      ; preds = %is_func_rec.exit197, %while.body45, %is_empty_rec.exit, %while.body.i, %get_func_line.exit.thread, %get_func_line.exit, %is_func_rec.exit197.thread429
+  %fs1.0466 = phi i64 [ %fs1.0526, %is_func_rec.exit197.thread429 ], [ %l.029.i, %get_func_line.exit ], [ -1, %get_func_line.exit.thread ], [ %fs1.0526, %while.body.i ], [ %fs1.0526, %is_func_rec.exit197 ], [ 0, %while.body45 ], [ %fs1.0526, %is_empty_rec.exit ]
   %spec.store.select = call i64 @llvm.smax.i64(i64 %fs1.0466, i64 0)
   %cmp50 = icmp sgt i64 %sub575, %spec.store.select
   br i1 %cmp50, label %if.then51, label %post_context_calculation.preheader
@@ -649,7 +649,7 @@ for.body.i211:                                    ; preds = %land.rhs.i208
   %84 = load i64, ptr %size.i.i.i215, align 8
   %85 = load ptr, ptr %find_func.i.i, align 8
   %tobool.not.i.i216 = icmp eq ptr %85, null
-  br i1 %tobool.not.i.i216, label %if.then.i.i227, label %match_func_rec.argprom.exit.i217
+  br i1 %tobool.not.i.i216, label %if.then.i.i227, label %match_func_rec.exit.i217
 
 if.then.i.i227:                                   ; preds = %for.body.i211
   %cmp.i.i.i228 = icmp sgt i64 %84, 0
@@ -671,13 +671,13 @@ switch.early.test.i.i.i248:                       ; preds = %land.lhs.true.i.i.i
     i8 36, label %get_func_line.exit249
   ]
 
-match_func_rec.argprom.exit.i217:                 ; preds = %for.body.i211
+match_func_rec.exit.i217:                         ; preds = %for.body.i211
   %89 = load ptr, ptr %find_func_priv.i.i, align 8
   %call3.i.i218 = call i64 %85(ptr noundef %83, i64 noundef %84, ptr noundef nonnull %dummy.i198, i64 noundef 1, ptr noundef %89) #7
   %cmp13.i219 = icmp sgt i64 %call3.i.i218, -1
   br i1 %cmp13.i219, label %get_func_line.exit249, label %for.inc.i220
 
-for.inc.i220:                                     ; preds = %match_func_rec.argprom.exit.i217, %switch.early.test.i.i.i248, %if.then.i.i227
+for.inc.i220:                                     ; preds = %match_func_rec.exit.i217, %switch.early.test.i.i.i248, %if.then.i.i227
   %add.i221 = add nsw i64 %l.029.i209, %conv.i200
   %cmp6.i222 = icmp ne i64 %add.i221, %74
   %cmp8.i223 = icmp sgt i64 %add.i221, -1
@@ -688,7 +688,7 @@ while.end141.thread:                              ; preds = %for.inc.i220, %land
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dummy.i198)
   br label %if.then143
 
-get_func_line.exit249:                            ; preds = %match_func_rec.argprom.exit.i217, %land.lhs.true.i.i.i229, %switch.early.test.i.i.i248, %switch.early.test.i.i.i248
+get_func_line.exit249:                            ; preds = %match_func_rec.exit.i217, %land.lhs.true.i.i.i229, %switch.early.test.i.i.i248, %switch.early.test.i.i.i248
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dummy.i198)
   %cmp132588 = icmp sgt i64 %l.029.i209, 0
   br i1 %cmp132588, label %land.rhs133.lr.ph, label %while.end141
@@ -705,7 +705,7 @@ land.rhs133:                                      ; preds = %land.rhs133.lr.ph, 
   %size.i.i251 = getelementptr inbounds i8, ptr %90, i64 16
   %91 = load i64, ptr %size.i.i251, align 8
   %cmp1.i252 = icmp sgt i64 %91, 0
-  br i1 %cmp1.i252, label %land.rhs.preheader.i256, label %is_empty_rec.argprom.exit268
+  br i1 %cmp1.i252, label %land.rhs.preheader.i256, label %is_empty_rec.exit268
 
 land.rhs.preheader.i256:                          ; preds = %land.rhs133
   %ptr.i.i257 = getelementptr inbounds i8, ptr %90, i64 8
@@ -729,11 +729,11 @@ while.body.i264:                                  ; preds = %land.rhs.i258
   %cmp.i267 = icmp sgt i64 %len.03.i259, 1
   br i1 %cmp.i267, label %land.rhs.i258, label %while.body139, !llvm.loop !10
 
-is_empty_rec.argprom.exit268:                     ; preds = %land.rhs133
+is_empty_rec.exit268:                             ; preds = %land.rhs133
   %tobool.not.i254.not = icmp eq i64 %91, 0
   br i1 %tobool.not.i254.not, label %while.body139, label %if.end146
 
-while.body139:                                    ; preds = %while.body.i264, %is_empty_rec.argprom.exit268
+while.body139:                                    ; preds = %while.body.i264, %is_empty_rec.exit268
   %cmp132 = icmp sgt i64 %fe1.0589, 1
   br i1 %cmp132, label %land.rhs133, label %if.end146, !llvm.loop !13
 
@@ -746,8 +746,8 @@ if.then143:                                       ; preds = %while.end141.thread
   %96 = load i64, ptr %nrec, align 8
   br label %if.end146
 
-if.end146:                                        ; preds = %while.body139, %is_empty_rec.argprom.exit268, %if.then143, %while.end141
-  %fe1.1 = phi i64 [ %96, %if.then143 ], [ %fe1.0499, %while.end141 ], [ 0, %while.body139 ], [ %fe1.0589, %is_empty_rec.argprom.exit268 ]
+if.end146:                                        ; preds = %while.body139, %is_empty_rec.exit268, %if.then143, %while.end141
+  %fe1.1 = phi i64 [ %96, %if.then143 ], [ %fe1.0499, %while.end141 ], [ 0, %while.body139 ], [ %fe1.0589, %is_empty_rec.exit268 ]
   %cmp147 = icmp sgt i64 %fe1.1, %add116
   br i1 %cmp147, label %if.then148, label %if.end162
 
@@ -801,7 +801,7 @@ for.body.i283:                                    ; preds = %land.rhs.i280
   %105 = load i64, ptr %size.i.i.i287, align 8
   %106 = load ptr, ptr %find_func.i.i, align 8
   %tobool.not.i.i288 = icmp eq ptr %106, null
-  br i1 %tobool.not.i.i288, label %if.then.i.i299, label %match_func_rec.argprom.exit.i289
+  br i1 %tobool.not.i.i288, label %if.then.i.i299, label %match_func_rec.exit.i289
 
 if.then.i.i299:                                   ; preds = %for.body.i283
   %cmp.i.i.i300 = icmp sgt i64 %105, 0
@@ -823,13 +823,13 @@ switch.early.test.i.i.i320:                       ; preds = %land.lhs.true.i.i.i
     i8 36, label %if.end190.sink.split
   ]
 
-match_func_rec.argprom.exit.i289:                 ; preds = %for.body.i283
+match_func_rec.exit.i289:                         ; preds = %for.body.i283
   %110 = load ptr, ptr %find_func_priv.i.i, align 8
   %call3.i.i290 = call i64 %106(ptr noundef %104, i64 noundef %105, ptr noundef nonnull %dummy.i269, i64 noundef 1, ptr noundef %110) #7
   %cmp13.i291 = icmp sgt i64 %call3.i.i290, -1
   br i1 %cmp13.i291, label %if.end190.sink.split, label %for.inc.i292
 
-for.inc.i292:                                     ; preds = %match_func_rec.argprom.exit.i289, %switch.early.test.i.i.i320, %if.then.i.i299
+for.inc.i292:                                     ; preds = %match_func_rec.exit.i289, %switch.early.test.i.i.i320, %if.then.i.i299
   %add.i293 = add nsw i64 %l.029.i281, %conv.i271
   %cmp6.i294 = icmp ne i64 %add.i293, %e1.1
   %cmp8.i295 = icmp sgt i64 %add.i293, -1
@@ -844,7 +844,7 @@ if.then186:                                       ; preds = %get_func_line.exit3
   %111 = load ptr, ptr %xche.0, align 8
   br label %post_context_calculation
 
-if.end190.sink.split:                             ; preds = %match_func_rec.argprom.exit.i289, %land.lhs.true.i.i.i301, %switch.early.test.i.i.i320, %switch.early.test.i.i.i320
+if.end190.sink.split:                             ; preds = %match_func_rec.exit.i289, %land.lhs.true.i.i.i301, %switch.early.test.i.i.i320, %switch.early.test.i.i.i320
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dummy.i269)
   br label %if.end190
 
@@ -883,7 +883,7 @@ for.body.i337:                                    ; preds = %land.rhs.i334
   %116 = load i64, ptr %size.i.i.i341, align 8
   %117 = load ptr, ptr %find_func.i.i, align 8
   %tobool.not.i.i342 = icmp eq ptr %117, null
-  br i1 %tobool.not.i.i342, label %if.then.i.i353, label %match_func_rec.argprom.exit.i343
+  br i1 %tobool.not.i.i342, label %if.then.i.i353, label %match_func_rec.exit.i343
 
 if.then.i.i353:                                   ; preds = %for.body.i337
   %cmp.i.i.i354 = icmp sgt i64 %116, 0
@@ -919,30 +919,30 @@ land.rhs.i.i.i363:                                ; preds = %while.body.i.i.i369
   %122 = load i8, ptr %arrayidx17.i.i.i367, align 1
   %123 = and i8 %122, 1
   %cmp20.not.i.i.i368 = icmp eq i8 %123, 0
-  br i1 %cmp20.not.i.i.i368, label %match_func_rec.argprom.exit.thread16.i372, label %while.body.i.i.i369
+  br i1 %cmp20.not.i.i.i368, label %match_func_rec.exit.thread16.i372, label %while.body.i.i.i369
 
 while.body.i.i.i369:                              ; preds = %land.rhs.i.i.i363
   %dec.i.i.i370 = add nsw i64 %len.addr.114.i.i.i364, -1
   %cmp13.i.i.i371 = icmp sgt i64 %len.addr.114.i.i.i364, 1
-  br i1 %cmp13.i.i.i371, label %land.rhs.i.i.i363, label %match_func_rec.argprom.exit.thread16.i372, !llvm.loop !14
+  br i1 %cmp13.i.i.i371, label %land.rhs.i.i.i363, label %match_func_rec.exit.thread16.i372, !llvm.loop !14
 
-match_func_rec.argprom.exit.thread16.i372:        ; preds = %while.body.i.i.i369, %land.rhs.i.i.i363
+match_func_rec.exit.thread16.i372:                ; preds = %while.body.i.i.i369, %land.rhs.i.i.i363
   %len.addr.1.lcssa.i.i.i373 = phi i64 [ 0, %while.body.i.i.i369 ], [ %len.addr.114.i.i.i364, %land.rhs.i.i.i363 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %buf1.i, ptr nonnull readonly align 1 %115, i64 %len.addr.1.lcssa.i.i.i373, i1 false)
   br label %if.then.i351
 
-match_func_rec.argprom.exit.i343:                 ; preds = %for.body.i337
+match_func_rec.exit.i343:                         ; preds = %for.body.i337
   %124 = load ptr, ptr %find_func_priv.i.i, align 8
   %call3.i.i344 = call i64 %117(ptr noundef %115, i64 noundef %116, ptr noundef nonnull %buf1.i, i64 noundef 80, ptr noundef %124) #7
   %cmp13.i345 = icmp sgt i64 %call3.i.i344, -1
   br i1 %cmp13.i345, label %if.then.i351, label %for.inc.i346
 
-if.then.i351:                                     ; preds = %match_func_rec.argprom.exit.i343, %match_func_rec.argprom.exit.thread16.i372
-  %retval.0.i19.i352 = phi i64 [ %len.addr.1.lcssa.i.i.i373, %match_func_rec.argprom.exit.thread16.i372 ], [ %call3.i.i344, %match_func_rec.argprom.exit.i343 ]
+if.then.i351:                                     ; preds = %match_func_rec.exit.i343, %match_func_rec.exit.thread16.i372
+  %retval.0.i19.i352 = phi i64 [ %len.addr.1.lcssa.i.i.i373, %match_func_rec.exit.thread16.i372 ], [ %call3.i.i344, %match_func_rec.exit.i343 ]
   store i64 %retval.0.i19.i352, ptr %func_line, align 8
   br label %if.end198
 
-for.inc.i346:                                     ; preds = %match_func_rec.argprom.exit.i343, %switch.early.test.i.i.i374, %if.then.i.i353
+for.inc.i346:                                     ; preds = %match_func_rec.exit.i343, %switch.early.test.i.i.i374, %if.then.i.i353
   %add.i347 = add nsw i64 %l.029.i335, %conv.i324
   %cmp6.i348 = icmp ne i64 %add.i347, %funclineprev.0616
   %cmp8.i349 = icmp sgt i64 %add.i347, -1

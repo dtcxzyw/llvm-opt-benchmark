@@ -1150,20 +1150,20 @@ if.end74:                                         ; preds = %if.then68, %for.con
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %migration_blocker, ptr noundef nonnull @.str.1, i32 noundef 1102, ptr noundef nonnull @__func__.vhdx_open, ptr noundef nonnull @.str.25, ptr noundef %call75) #17
   %call77 = call i32 @migrate_add_blocker_normal(ptr noundef nonnull %migration_blocker, ptr noundef %errp) #17
   %cmp78 = icmp slt i32 %call77, 0
-  br i1 %cmp78, label %fail, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %cmp78, label %fail, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 fail:                                             ; preds = %vhdx_parse_metadata.exit.thread, %vhdx_open_region_tables.exit.thread, %if.end35, %if.end28, %if.end10, %if.end74, %if.then68, %if.end47, %if.end16, %if.end3, %if.then15
   %ret.0 = phi i32 [ %call7, %if.end3 ], [ -22, %if.then15 ], [ %call17, %if.end16 ], [ %call54, %if.end47 ], [ %call77, %if.end74 ], [ %call69, %if.then68 ], [ -22, %if.end10 ], [ -22, %if.end28 ], [ -12, %if.end35 ], [ %ret.0.i68.ph, %vhdx_open_region_tables.exit.thread ], [ %ret.0.i83.ph, %vhdx_parse_metadata.exit.thread ]
   call void @vhdx_close(ptr noundef %bs)
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end74, %fail
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end74, %fail
   %retval.1 = phi i32 [ %ret.0, %fail ], [ 0, %if.end74 ]
   call void @bdrv_graph_rdunlock_main_loop() #17
   br label %return
 
-return:                                           ; preds = %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
-  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %call1, %do.end ]
+return:                                           ; preds = %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call1, %do.end ]
   ret i32 %retval.0
 }
 
@@ -1197,7 +1197,7 @@ entry:
   %6 = getelementptr i8, ptr %0, i64 592
   %.val = load ptr, ptr %6, align 8
   %tobool.not1.i = icmp eq ptr %.val, null
-  br i1 %tobool.not1.i, label %vhdx_region_unregister_all.argprom.exit, label %land.rhs.i.preheader
+  br i1 %tobool.not1.i, label %vhdx_region_unregister_all.exit, label %land.rhs.i.preheader
 
 land.rhs.i.preheader:                             ; preds = %entry
   %entries.i12 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -1231,9 +1231,9 @@ for.end.critedge.i:                               ; preds = %if.then.i, %land.rh
   store ptr null, ptr %.pre3.i.lcssa, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i.lcssa, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %r.02.i.lcssa) #17
-  br label %vhdx_region_unregister_all.argprom.exit
+  br label %vhdx_region_unregister_all.exit
 
-vhdx_region_unregister_all.argprom.exit:          ; preds = %entry, %for.end.critedge.i
+vhdx_region_unregister_all.exit:                  ; preds = %entry, %for.end.critedge.i
   ret void
 }
 
@@ -2386,16 +2386,16 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call4 = call fastcc i32 @vhdx_write_header(ptr noundef nonnull %0, ptr noundef nonnull %call2, i64 noundef 65536, i1 noundef zeroext false)
   %cmp = icmp slt i32 %call4, 0
-  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockable.argprom.exit, label %if.end7
+  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockable.exit, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %2 = load i64, ptr %sequence_number, align 1
   %inc = add i64 %2, 1
   store i64 %inc, ptr %sequence_number, align 1
   %call9 = call fastcc i32 @vhdx_write_header(ptr noundef nonnull %0, ptr noundef nonnull %call2, i64 noundef 131072, i1 noundef zeroext false)
-  br label %glib_autoptr_cleanup_GraphLockable.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockable.exit
 
-glib_autoptr_cleanup_GraphLockable.argprom.exit:  ; preds = %if.end7, %if.end
+glib_autoptr_cleanup_GraphLockable.exit:          ; preds = %if.end7, %if.end
   %ret.0 = phi i32 [ %call4, %if.end ], [ %call9, %if.end7 ]
   call void @g_free(ptr noundef nonnull %call2) #17
   call void @bdrv_graph_co_rdunlock() #17

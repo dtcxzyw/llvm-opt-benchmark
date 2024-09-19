@@ -538,7 +538,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %262 = getelementptr i8, ptr %248, i64 8
   %.val312 = load ptr, ptr %262, align 8
   %.not.i = icmp eq ptr %.val312, null
-  br i1 %.not.i, label %Aig_ObjFaninId0.argprom.exit, label %263
+  br i1 %.not.i, label %Aig_ObjFaninId0.exit, label %263
 
 263:                                              ; preds = %257
   %264 = ptrtoint ptr %.val312 to i64
@@ -546,9 +546,9 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %266 = inttoptr i64 %265 to ptr
   %267 = getelementptr inbounds i8, ptr %266, i64 36
   %268 = load i32, ptr %267, align 4
-  br label %Aig_ObjFaninId0.argprom.exit
+  br label %Aig_ObjFaninId0.exit
 
-Aig_ObjFaninId0.argprom.exit:                     ; preds = %257, %263
+Aig_ObjFaninId0.exit:                             ; preds = %257, %263
   %269 = phi i32 [ %268, %263 ], [ -1, %257 ]
   %270 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.52, i32 noundef %269) #5
   %271 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 2, i64 1, ptr %13)
@@ -567,14 +567,14 @@ Aig_ObjFaninId0.argprom.exit:                     ; preds = %257, %263
   %narrow.i317 = icmp ult i32 %279, -2
   br i1 %narrow.i317, label %.critedge12, label %280
 
-280:                                              ; preds = %Aig_ObjFaninId0.argprom.exit
+280:                                              ; preds = %Aig_ObjFaninId0.exit
   %281 = load i32, ptr %258, align 4
   %282 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.52, i32 noundef %281) #5
   %283 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 4, i64 1, ptr %13)
   %284 = getelementptr i8, ptr %248, i64 16
   %.val314 = load ptr, ptr %284, align 8
   %.not.i318 = icmp eq ptr %.val314, null
-  br i1 %.not.i318, label %Aig_ObjFaninId1.argprom.exit, label %285
+  br i1 %.not.i318, label %Aig_ObjFaninId1.exit, label %285
 
 285:                                              ; preds = %280
   %286 = ptrtoint ptr %.val314 to i64
@@ -582,9 +582,9 @@ Aig_ObjFaninId0.argprom.exit:                     ; preds = %257, %263
   %288 = inttoptr i64 %287 to ptr
   %289 = getelementptr inbounds i8, ptr %288, i64 36
   %290 = load i32, ptr %289, align 4
-  br label %Aig_ObjFaninId1.argprom.exit
+  br label %Aig_ObjFaninId1.exit
 
-Aig_ObjFaninId1.argprom.exit:                     ; preds = %280, %285
+Aig_ObjFaninId1.exit:                             ; preds = %280, %285
   %291 = phi i32 [ %290, %285 ], [ -1, %280 ]
   %292 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.52, i32 noundef %291) #5
   %293 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 2, i64 1, ptr %13)
@@ -598,7 +598,7 @@ Aig_ObjFaninId1.argprom.exit:                     ; preds = %280, %285
   %298 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 2, i64 1, ptr %13)
   br label %.critedge12
 
-.critedge12:                                      ; preds = %255, %Aig_ObjFaninId1.argprom.exit, %.lr.ph358, %Aig_ObjFaninId0.argprom.exit
+.critedge12:                                      ; preds = %255, %Aig_ObjFaninId1.exit, %.lr.ph358, %Aig_ObjFaninId0.exit
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %299 = load ptr, ptr %227, align 8
   %300 = getelementptr i8, ptr %299, i64 4

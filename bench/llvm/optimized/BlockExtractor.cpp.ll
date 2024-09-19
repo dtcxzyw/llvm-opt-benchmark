@@ -703,7 +703,7 @@ _ZN12_GLOBAL__N_114BlockExtractor4initERKSt6vectorIS1_IPN4llvm10BasicBlockESaIS4
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 72
   %.sroa.014.026.i.i = load ptr, ptr %127, align 8
   %.not1727.i.i = icmp eq ptr %.sroa.014.026.i.i, %128
-  br i1 %.not1727.i.i, label %_ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE.argprom.exit.i, label %.lr.ph30.i.i
+  br i1 %.not1727.i.i, label %_ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE.exit.i, label %.lr.ph30.i.i
 
 .lr.ph30.i.i:                                     ; preds = %123, %._crit_edge.i.i2
   %.sroa.014.028.i.i = phi ptr [ %.sroa.014.0.i.i, %._crit_edge.i.i2 ], [ %.sroa.014.026.i.i, %123 ]
@@ -823,9 +823,9 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %162
   %190 = getelementptr inbounds nuw i8, ptr %.sroa.014.028.i.i, i64 8
   %.sroa.014.0.i.i = load ptr, ptr %190, align 8
   %.not17.i.i = icmp eq ptr %.sroa.014.0.i.i, %128
-  br i1 %.not17.i.i, label %_ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE.argprom.exit.i, label %.lr.ph30.i.i
+  br i1 %.not17.i.i, label %_ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE.exit.i, label %.lr.ph30.i.i
 
-_ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE.argprom.exit.i: ; preds = %._crit_edge.i.i2, %123
+_ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE.exit.i: ; preds = %._crit_edge.i.i2, %123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %191 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
@@ -834,11 +834,11 @@ _ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE.argpro
   %.not.i.i.i.i3 = icmp ugt i64 %192, %193
   br i1 %.not.i.i.i.i3, label %194, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit.i
 
-194:                                              ; preds = %_ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE.argprom.exit.i
+194:                                              ; preds = %_ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE.exit.i
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %119, i64 noundef %192, i64 noundef 8) #16
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit.i: ; preds = %194, %_ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE.argprom.exit.i
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit.i: ; preds = %194, %_ZN12_GLOBAL__N_114BlockExtractor20splitLandingPadPredsERN4llvm8FunctionE.exit.i
   %195 = load ptr, ptr %7, align 8
   %196 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %197 = getelementptr inbounds ptr, ptr %195, i64 %196

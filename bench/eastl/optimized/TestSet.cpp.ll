@@ -4463,22 +4463,22 @@ _ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE35D
   %call18.val.i.i.i.i.i = phi i32 [ %call18.val.i.pre.i.i.i.i, %if.then12.i.i.i.i.i ], [ %call.val.i.i.i.i.i, %while.end.i.i.i.i.i ]
   %pLowerBound.0.lcssa23.i.i.i.i.i = phi ptr [ %pLowerBound.0.lcssa22.i.i.i.i.i, %if.then12.i.i.i.i.i ], [ %pCurrent.018.i.i.i.i.i, %while.end.i.i.i.i.i ]
   %cmp.i.i15.i.i.i.i.i = icmp slt i32 %call18.val.i.i.i.i.i, %key.val14.i.i.i.i.i
-  br i1 %cmp.i.i15.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i15.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.exit.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKi.exit.i.i.i.i, %if.then7.i.i.i.i.i
   %call3.val.i.i.i.i = phi i32 [ %key.val14.i.i.i.i.i, %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKi.exit.i.i.i.i ], [ %7, %if.then7.i.i.i.i.i ]
   %retval.0.i14.i.i.i.i = phi ptr [ %pLowerBound.0.lcssa23.i.i.i.i.i, %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKi.exit.i.i.i.i ], [ %pLowerBound.0.lcssa22.i.i.i.i.i, %if.then7.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq ptr %retval.0.i14.i.i.i.i, %a
-  br i1 %cmp.i.i.i.i.i, label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKiPNS_11rbtree_nodeIiEE.argprom.exit.i.i.i.i, label %lor.lhs.false2.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKiPNS_11rbtree_nodeIiEE.exit.i.i.i.i, label %lor.lhs.false2.i.i.i.i.i
 
 lor.lhs.false2.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i
   %mValue.i6.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i14.i.i.i.i, i64 32
   %call.val.i7.i.i.i.i = load i32, ptr %mValue.i6.i.i.i.i, align 4
   %cmp.i.i.i8.i.i.i.i = icmp sge i32 %call3.val.i.i.i.i, %call.val.i7.i.i.i.i
   %spec.select.i.i.i.i.i = zext i1 %cmp.i.i.i8.i.i.i.i to i32
-  br label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKiPNS_11rbtree_nodeIiEE.argprom.exit.i.i.i.i
+  br label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKiPNS_11rbtree_nodeIiEE.exit.i.i.i.i
 
-_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKiPNS_11rbtree_nodeIiEE.argprom.exit.i.i.i.i: ; preds = %lor.lhs.false2.i.i.i.i.i, %if.then.i.i.i.i
+_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKiPNS_11rbtree_nodeIiEE.exit.i.i.i.i: ; preds = %lor.lhs.false2.i.i.i.i.i, %if.then.i.i.i.i
   %side.0.i.i.i.i.i = phi i32 [ 0, %if.then.i.i.i.i ], [ %spec.select.i.i.i.i.i, %lor.lhs.false2.i.i.i.i.i ]
   call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %call.i.i.i.i.i.i.i.i, ptr noundef nonnull %retval.0.i14.i.i.i.i, ptr noundef nonnull %a, i32 noundef %side.0.i.i.i.i.i)
   %9 = load i64, ptr %mnSize.i.i, align 8
@@ -4486,23 +4486,23 @@ _ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE17D
   store i64 %inc.i.i.i.i.i, ptr %mnSize.i.i, align 8
   br label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE6insertERKi.exit.i.i
 
-_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.argprom.exit.i.i.i.i: ; preds = %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKi.exit.i.i.i.i
+_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.exit.i.i.i.i: ; preds = %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKi.exit.i.i.i.i
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i.i.i.i) #13
   br label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE6insertERKi.exit.i.i
 
-_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE6insertERKi.exit.i.i: ; preds = %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.argprom.exit.i.i.i.i, %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKiPNS_11rbtree_nodeIiEE.argprom.exit.i.i.i.i
+_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE6insertERKi.exit.i.i: ; preds = %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.exit.i.i.i.i, %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKiPNS_11rbtree_nodeIiEE.exit.i.i.i.i
   %first.addr.02.i.add.i = add nuw nsw i64 %first.addr.02.i.idx.i, 4
   %cmp.not.i.i = icmp eq i64 %first.addr.02.i.add.i, 20
-  br i1 %cmp.not.i.i, label %_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.argprom.exit, label %for.body.i.i, !llvm.loop !37
+  br i1 %cmp.not.i.i, label %_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.exit, label %for.body.i.i, !llvm.loop !37
 
-_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.argprom.exit: ; preds = %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE6insertERKi.exit.i.i
+_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.exit: ; preds = %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE6insertERKi.exit.i.i
   %pCurrent.01.i = load ptr, ptr %mpNodeParent.i.i.i, align 8
   %tobool.not2.i = icmp eq ptr %pCurrent.01.i, null
   br i1 %tobool.not2.i, label %if.end16.i, label %while.body.i
 
-while.body.i:                                     ; preds = %_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.argprom.exit, %while.body.i
-  %pCurrent.04.i = phi ptr [ %pCurrent.0.i, %while.body.i ], [ %pCurrent.01.i, %_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.argprom.exit ]
-  %pRangeEnd.03.i = phi ptr [ %pRangeEnd.1.i, %while.body.i ], [ %a, %_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.argprom.exit ]
+while.body.i:                                     ; preds = %_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.exit, %while.body.i
+  %pCurrent.04.i = phi ptr [ %pCurrent.0.i, %while.body.i ], [ %pCurrent.01.i, %_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.exit ]
+  %pRangeEnd.03.i = phi ptr [ %pRangeEnd.1.i, %while.body.i ], [ %a, %_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.exit ]
   %mValue.i = getelementptr inbounds i8, ptr %pCurrent.04.i, i64 32
   %call.val.i = load i32, ptr %mValue.i, align 4
   %cmp.i.i.i = icmp slt i32 %call.val.i, 42
@@ -4524,7 +4524,7 @@ land.rhs.i:                                       ; preds = %while.end.i
   %cmp.i.i9.not.i = icmp sgt i32 %call10.val.i, 42
   br i1 %cmp.i.i9.not.i, label %if.end16.i, label %invoke.cont39
 
-if.end16.i:                                       ; preds = %land.rhs.i, %while.end.i, %_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.argprom.exit
+if.end16.i:                                       ; preds = %land.rhs.i, %while.end.i, %_ZN5eastl3setIiZ7TestSetvE7my_lessNS_9allocatorEEC2ESt16initializer_listIiERKS1_RKS2_.exit
   br label %invoke.cont39
 
 invoke.cont39:                                    ; preds = %if.end16.i, %land.rhs.i
@@ -4535,7 +4535,7 @@ invoke.cont39:                                    ; preds = %if.end16.i, %land.r
 
 invoke.cont46:                                    ; preds = %invoke.cont39
   %a.val = load ptr, ptr %mpNodeParent.i.i.i, align 8
-  call fastcc void @_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE.argprom(ptr noundef %a.val)
+  call fastcc void @_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef %a.val)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp50, ptr noundef nonnull align 4 dereferenceable(20) @constinit.3, i64 20, i1 false)
   call void @_ZN5eastl3setIiNS_4lessIiEENS_9allocatorEEC1ESt16initializer_listIiERKS2_RKS3_(ptr noundef nonnull align 8 dereferenceable(41) %s, ptr nonnull %ref.tmp50, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp55, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56)
   %mnSize.i.i13 = getelementptr inbounds i8, ptr %s, i64 32
@@ -5034,7 +5034,7 @@ lpad38:                                           ; preds = %invoke.cont39
   %64 = landingpad { ptr, i32 }
           cleanup
   %a.val9 = load ptr, ptr %mpNodeParent.i.i.i, align 8
-  call fastcc void @_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE.argprom(ptr noundef %a.val9)
+  call fastcc void @_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef %a.val9)
   br label %common.resume
 
 lpad58.loopexit:                                  ; preds = %_ZN5eastl3setIiNS_4lessIiEENS_9allocatorEE5eraseENS_15rbtree_iteratorIiPKiRS6_EE.exit.i, %call.i.i.i.i.noexc, %if.else.i
@@ -44733,22 +44733,22 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE.argprom(ptr noundef %pNode) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef %pNode) unnamed_addr #2 align 2 {
 entry:
   %tobool.not1 = icmp eq ptr %pNode, null
-  br i1 %tobool.not1, label %while.end, label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.argprom.exit
+  br i1 %tobool.not1, label %while.end, label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.exit
 
-_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.argprom.exit: ; preds = %entry, %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.argprom.exit
-  %pNode.addr.02 = phi ptr [ %1, %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.argprom.exit ], [ %pNode, %entry ]
+_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.exit: ; preds = %entry, %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.exit
+  %pNode.addr.02 = phi ptr [ %1, %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.exit ], [ %pNode, %entry ]
   %0 = load ptr, ptr %pNode.addr.02, align 8
-  tail call fastcc void @_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE.argprom(ptr noundef %0)
+  tail call fastcc void @_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE13DoNukeSubtreeEPNS_16rbtree_node_baseE(ptr noundef %0)
   %mpNodeLeft = getelementptr inbounds i8, ptr %pNode.addr.02, i64 8
   %1 = load ptr, ptr %mpNodeLeft, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %pNode.addr.02) #13
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %while.end, label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.argprom.exit, !llvm.loop !176
+  br i1 %tobool.not, label %while.end, label %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.exit, !llvm.loop !176
 
-while.end:                                        ; preds = %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.argprom.exit, %entry
+while.end:                                        ; preds = %_ZN5eastl6rbtreeIiiZ7TestSetvE7my_lessNS_9allocatorENS_8use_selfIiEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeIiEE.exit, %entry
   ret void
 }
 

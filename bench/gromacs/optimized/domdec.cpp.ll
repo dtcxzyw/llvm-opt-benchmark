@@ -5546,7 +5546,7 @@ switch.lookup:                                    ; preds = %183
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: ; preds = %.noexc49.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %54) #26, !noalias !50
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE.retelim(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
           to label %.sink.split.i.i unwind label %212
 
 210:                                              ; preds = %.noexc.i.i, %206
@@ -5590,7 +5590,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i: ; preds = %.noexc51.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %56) #26, !noalias !50
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE.retelim(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
           to label %.sink.split.i.i unwind label %222
 
 220:                                              ; preds = %.noexc50.i.i, %216
@@ -5628,7 +5628,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i
           to label %.noexc59 unwind label %.loopexit.split-lp
 
 .noexc59:                                         ; preds = %.noexc58
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE.retelim(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
           to label %.sink.split.i.i unwind label %227
 
 227:                                              ; preds = %.noexc59
@@ -5661,7 +5661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59.i.i: ; preds = %.noexc56.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #26, !noalias !50
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE.retelim(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
           to label %.sink.split.i.i unwind label %236
 
 234:                                              ; preds = %.noexc55.i.i, %230
@@ -5682,7 +5682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59.i.i
 
 238:                                              ; preds = %229
   %239 = trunc i8 %.val24.i to i1
-  br i1 %239, label %240, label %_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.argprom.exit.i
+  br i1 %239, label %240, label %_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.exit.i
 
 240:                                              ; preds = %238
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #26, !noalias !50
@@ -5732,7 +5732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i
   br label %.body.i
 
 249:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE.retelim(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
           to label %.sink.split.i.i unwind label %247
 
 .invoke.i.i:                                      ; preds = %246, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i
@@ -5759,7 +5759,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i
   br label %.body.i
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i: ; preds = %.noexc.i
-  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE.retelim(i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
+  invoke fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull readonly align 8 dereferenceable(40) %137)
           to label %256 unwind label %257
 
 256:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i
@@ -5798,9 +5798,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.sink.i.i = phi ptr [ %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i ], [ %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i ], [ %57, %.noexc59 ], [ %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59.i.i ], [ %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i ], [ %60, %249 ], [ %60, %256 ]
   %.039.ph.i.i = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit54.i.i ], [ 1, %.noexc59 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59.i.i ], [ %switch.load, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i.i ], [ 1, %249 ], [ 1, %256 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i) #26, !noalias !50
-  br label %_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.argprom.exit.i
+  br label %_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.exit.i
 
-_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.argprom.exit.i: ; preds = %.sink.split.i.i, %238
+_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.exit.i: ; preds = %.sink.split.i.i, %238
   %.039.i.i = phi i32 [ %switch.load, %238 ], [ %.039.ph.i.i, %.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50), !noalias !50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51), !noalias !50
@@ -5821,7 +5821,7 @@ _ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12Mdrun
   %266 = icmp eq ptr %265, null
   br i1 %266, label %279, label %267
 
-267:                                              ; preds = %_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.argprom.exit.i
+267:                                              ; preds = %_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, i8 0, i64 40, i1 false), !noalias !50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #26, !noalias !50
   %268 = getelementptr inbounds i8, ptr %66, i64 32
@@ -5849,7 +5849,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit28.i: ; preds = %273
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #26, !noalias !50
   br label %.body
 
-279:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit28.i, %_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.argprom.exit.i
+279:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit28.i, %_ZL24determineInitialDlbStateRKN3gmx8MDLoggerERKNS_13DomdecOptionsEbRKNS_12MdrunOptionsERK10t_inputrecbb.exit.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %64)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %65)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %66)
@@ -6805,27 +6805,27 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit77.i: ; preds = %650
   %.val43 = load i32, ptr %677, align 4
   %switch.tableidx173 = add i32 %.val43, -3
   %678 = icmp ult i32 %switch.tableidx173, 13
-  br i1 %678, label %switch.hole_check, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+  br i1 %678, label %switch.hole_check, label %_ZL8usingPmeRK22CoulombInteractionType.exit
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %switch.hole_check, %675
+_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %switch.hole_check, %675
   %679 = getelementptr inbounds i8, ptr %676, i64 368
   %.val44 = load i32, ptr %679, align 4
   %680 = icmp eq i32 %.val44, 5
-  br label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
+  br label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
 
 switch.hole_check:                                ; preds = %675
   %switch.maskindex = trunc nuw i32 %switch.tableidx173 to i16
   %switch.shifted = lshr i16 7173, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+  br i1 %switch.lobit, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread, label %_ZL8usingPmeRK22CoulombInteractionType.exit
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread: ; preds = %switch.hole_check, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
-  %681 = phi i1 [ %680, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit ], [ true, %switch.hole_check ]
+_ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %switch.hole_check, %_ZL8usingPmeRK22CoulombInteractionType.exit
+  %681 = phi i1 [ %680, %_ZL8usingPmeRK22CoulombInteractionType.exit ], [ true, %switch.hole_check ]
   %682 = load i32, ptr %185, align 8
   invoke void @_Z30checkForValidRankCountRequestsibiRKN3gmx25SeparatePmeRanksPermittedEb(i32 noundef %670, i1 noundef zeroext %681, i32 noundef %682, ptr noundef nonnull align 8 dereferenceable(32) %69, i1 noundef zeroext %673)
           to label %683 unwind label %688
 
-683:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
+683:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
   %.val46 = load i32, ptr %87, align 4
   %spec.select.i = icmp ugt i32 %.val46, 1
   %684 = and i1 %15, %16
@@ -6838,7 +6838,7 @@ _ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread: ; preds = %switch.ho
   %687 = icmp eq ptr %686, null
   br i1 %687, label %698, label %690
 
-688:                                              ; preds = %798, %794, %782, %781, %745, %717, %698, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
+688:                                              ; preds = %798, %794, %782, %781, %745, %717, %698, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
   %689 = landingpad { ptr, i32 }
           cleanup
   br label %.body90
@@ -7151,21 +7151,21 @@ _ZN11DDRankSetupC2Ev.exit.i:                      ; preds = %826
   store i32 %845, ptr %846, align 4, !alias.scope !62
   %847 = getelementptr inbounds i8, ptr %807, i64 340
   %.val.i97 = load i32, ptr %847, align 4, !noalias !62
-  switch i32 %.val.i97, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i [
-    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
+  switch i32 %.val.i97, label %_ZL8usingPmeRK22CoulombInteractionType.exit.i [
+    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
+    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
+    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
+    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
+    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
   ]
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i: ; preds = %_ZN11DDRankSetupC2Ev.exit.i
+_ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %_ZN11DDRankSetupC2Ev.exit.i
   %848 = getelementptr inbounds i8, ptr %807, i64 368
   %.val37.i = load i32, ptr %848, align 4, !noalias !62
   %849 = icmp eq i32 %.val37.i, 5
-  br i1 %849, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i, label %888
+  br i1 %849, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i, label %888
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i: ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i, %_ZN11DDRankSetupC2Ev.exit.i, %_ZN11DDRankSetupC2Ev.exit.i, %_ZN11DDRankSetupC2Ev.exit.i, %_ZN11DDRankSetupC2Ev.exit.i, %_ZN11DDRankSetupC2Ev.exit.i
+_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i: ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.i, %_ZN11DDRankSetupC2Ev.exit.i, %_ZN11DDRankSetupC2Ev.exit.i, %_ZN11DDRankSetupC2Ev.exit.i, %_ZN11DDRankSetupC2Ev.exit.i, %_ZN11DDRankSetupC2Ev.exit.i
   %850 = getelementptr inbounds i8, ptr %0, i64 448
   %851 = load i32, ptr %850, align 8, !noalias !62
   %852 = icmp sgt i32 %851, 1
@@ -7177,7 +7177,7 @@ _ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i: ; preds = %_ZL8usi
   %or.cond36.i = select i1 %or.cond.i98, i1 %856, i1 false
   br i1 %or.cond36.i, label %857, label %868
 
-857:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
+857:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
   %858 = icmp sgt i32 %845, %835
   br i1 %858, label %859, label %.thread.i99
 
@@ -7202,7 +7202,7 @@ _ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i: ; preds = %_ZL8usi
   store i32 1, ptr %825, align 8, !alias.scope !62
   br label %872
 
-868:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
+868:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
   store i32 1, ptr %825, align 8, !alias.scope !62
   %869 = icmp eq i32 %853, 1
   br i1 %869, label %870, label %872
@@ -7252,7 +7252,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit38.i: ; preds = %882
   call void @_ZN11DDRankSetupD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %73) #26
   br label %.body90
 
-888:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i
+888:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.i
   store i32 0, ptr %825, align 8, !alias.scope !62
   %889 = getelementptr inbounds i8, ptr %73, i64 32
   store i32 0, ptr %889, align 8, !alias.scope !62
@@ -8285,7 +8285,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #17
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE.retelim(i32 noundef range(i32 0, 6) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17forceDlbOffOrBail8DlbStateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3gmx8MDLoggerE(i32 noundef range(i32 0, 6) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.151", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9245,7 +9245,7 @@ _ZL20average_cellsize_minRK11gmx_ddbox_tPKi.exit.i: ; preds = %230
   %or.cond.i.i = or i1 %.not.i98.i, %301
   %302 = icmp eq ptr %.val84.i, null
   %or.cond2.i.i = select i1 %or.cond.i.i, i1 true, i1 %302
-  br i1 %or.cond2.i.i, label %_ZL21check_dd_restrictionsPK12gmx_domdec_tRK10t_inputrecRKN3gmx8MDLoggerE.argprom.exit.i, label %303
+  br i1 %or.cond2.i.i, label %_ZL21check_dd_restrictionsPK12gmx_domdec_tRK10t_inputrecRKN3gmx8MDLoggerE.exit.i, label %303
 
 303:                                              ; preds = %298
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 40, i1 false)
@@ -9264,7 +9264,7 @@ _ZN3gmx14LogEntryWriter10appendTextEPKc.exit.i.i: ; preds = %303
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i.i: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #26
-  br label %_ZL21check_dd_restrictionsPK12gmx_domdec_tRK10t_inputrecRKN3gmx8MDLoggerE.argprom.exit.i
+  br label %_ZL21check_dd_restrictionsPK12gmx_domdec_tRK10t_inputrecRKN3gmx8MDLoggerE.exit.i
 
 309:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit.i.i, %303
   %310 = landingpad { ptr, i32 }
@@ -9272,13 +9272,13 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i.i: ; preds = %_ZN3gmx14L
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #26
   br label %.body
 
-_ZL21check_dd_restrictionsPK12gmx_domdec_tRK10t_inputrecRKN3gmx8MDLoggerE.argprom.exit.i: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i.i, %298
+_ZL21check_dd_restrictionsPK12gmx_domdec_tRK10t_inputrecRKN3gmx8MDLoggerE.exit.i: ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i.i, %298
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25)
   br label %311
 
-311:                                              ; preds = %_ZL21check_dd_restrictionsPK12gmx_domdec_tRK10t_inputrecRKN3gmx8MDLoggerE.argprom.exit.i, %268
+311:                                              ; preds = %_ZL21check_dd_restrictionsPK12gmx_domdec_tRK10t_inputrecRKN3gmx8MDLoggerE.exit.i, %268
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
@@ -10084,26 +10084,26 @@ _ZNSt10unique_ptrI16AtomDistributionSt14default_deleteIS0_EEaSEOS3_.exit.i: ; pr
   %730 = load ptr, ptr %327, align 8
   %731 = getelementptr inbounds i8, ptr %729, i64 340
   %.val.i55 = load i32, ptr %731, align 4
-  switch i32 %.val.i55, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i [
-    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
+  switch i32 %.val.i55, label %_ZL8usingPmeRK22CoulombInteractionType.exit.i [
+    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
+    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
+    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
+    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
+    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
   ]
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i: ; preds = %724
+_ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %724
   %732 = getelementptr inbounds i8, ptr %729, i64 368
   %.val46.i = load i32, ptr %732, align 4
   %733 = icmp eq i32 %.val46.i, 5
-  br i1 %733, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i, label %740
+  br i1 %733, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i, label %740
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i: ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i, %724, %724, %724, %724, %724
+_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i: ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.i, %724, %724, %724, %724, %724
   %734 = getelementptr inbounds i8, ptr %730, i64 72
   invoke fastcc void @_ZL10init_ddpmeP12gmx_domdec_tP9gmx_ddpmei(ptr noundef nonnull %325, ptr noundef nonnull %734, i32 noundef 0)
           to label %.noexc72 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc72:                                         ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i
+.noexc72:                                         ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i
   %735 = getelementptr inbounds i8, ptr %730, i64 56
   %736 = load i32, ptr %735, align 8
   %737 = icmp sgt i32 %736, 1
@@ -10114,7 +10114,7 @@ _ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i: ; preds = %_ZL8usi
   invoke fastcc void @_ZL10init_ddpmeP12gmx_domdec_tP9gmx_ddpmei(ptr noundef nonnull %325, ptr noundef nonnull %739, i32 noundef 1)
           to label %.noexc73 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-740:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.i
+740:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.i
   %741 = getelementptr inbounds i8, ptr %730, i64 60
   store i32 0, ptr %741, align 4
   %742 = getelementptr inbounds i8, ptr %325, i64 48
@@ -11353,7 +11353,7 @@ _ZL24setup_neighbor_relationsP12gmx_domdec_t.exit: ; preds = %_ZNSt6vectorI18DDC
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %.noexc.i.i.invoke, %1308, %_ZNSt10unique_ptrIN3gmx20LocalTopologyCheckerESt14default_deleteIS1_EED2Ev.exit, %1331, %_ZSt11make_uniqueI12gmx_domdec_tJRK10t_inputrecEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZN11DDRankSetupaSERKS_.exit, %.noexc10, %98, %.noexc14, %122, %.noexc16, %156, %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %_ZNSt6vectorIfSaIfEED2Ev.exit89.i, %282, %294, %370, %376, %396, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i, %431, %447, %464, %.noexc91.i.i, %606, %.noexc17.i.i, %653, %662, %668, %683, %_ZL16receive_vir_enerPK12gmx_domdec_tN3gmx8ArrayRefIKiEEPK9t_commrec.exit.sink.split.i, %712, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread.i, %738, %745, %.thread.i.i, %904, %956, %980, %1199, %1231, %1253, %1262, %1309
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %.noexc.i.i.invoke, %1308, %_ZNSt10unique_ptrIN3gmx20LocalTopologyCheckerESt14default_deleteIS1_EED2Ev.exit, %1331, %_ZSt11make_uniqueI12gmx_domdec_tJRK10t_inputrecEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZN11DDRankSetupaSERKS_.exit, %.noexc10, %98, %.noexc14, %122, %.noexc16, %156, %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %_ZNSt6vectorIfSaIfEED2Ev.exit89.i, %282, %294, %370, %376, %396, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i, %431, %447, %464, %.noexc91.i.i, %606, %.noexc17.i.i, %653, %662, %668, %683, %_ZL16receive_vir_enerPK12gmx_domdec_tN3gmx8ArrayRefIKiEEPK9t_commrec.exit.sink.split.i, %712, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread.i, %738, %745, %.thread.i.i, %904, %956, %980, %1199, %1231, %1253, %1262, %1309
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -15610,8 +15610,8 @@ attributes #29 = { builtin nounwind }
 !51 = distinct !{!51, !52, !"_ZL13getDDSettingsRKN3gmx8MDLoggerERKNS_13DomdecOptionsERKNS_12MdrunOptionsERK10t_inputrecbb: argument 0"}
 !52 = distinct !{!52, !"_ZL13getDDSettingsRKN3gmx8MDLoggerERKNS_13DomdecOptionsERKNS_12MdrunOptionsERK10t_inputrecbb"}
 !53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZL13getSystemInfoRKN3gmx8MDLoggerE6DDRoleP10tmpi_comm_RKNS_13DomdecOptionsERK10gmx_mtop_tRK10t_inputrecPA3_KfNS_8ArrayRefIKNS_17RangePartitioningEEEbfNSI_IKNS_11BasicVectorIfEEEE.argprom: argument 0"}
-!55 = distinct !{!55, !"_ZL13getSystemInfoRKN3gmx8MDLoggerE6DDRoleP10tmpi_comm_RKNS_13DomdecOptionsERK10gmx_mtop_tRK10t_inputrecPA3_KfNS_8ArrayRefIKNS_17RangePartitioningEEEbfNSI_IKNS_11BasicVectorIfEEEE.argprom"}
+!54 = distinct !{!54, !55, !"_ZL13getSystemInfoRKN3gmx8MDLoggerE6DDRoleP10tmpi_comm_RKNS_13DomdecOptionsERK10gmx_mtop_tRK10t_inputrecPA3_KfNS_8ArrayRefIKNS_17RangePartitioningEEEbfNSI_IKNS_11BasicVectorIfEEEE: argument 0"}
+!55 = distinct !{!55, !"_ZL13getSystemInfoRKN3gmx8MDLoggerE6DDRoleP10tmpi_comm_RKNS_13DomdecOptionsERK10gmx_mtop_tRK10t_inputrecPA3_KfNS_8ArrayRefIKNS_17RangePartitioningEEEbfNSI_IKNS_11BasicVectorIfEEEE"}
 !56 = distinct !{!56, !6}
 !57 = !{!58, !54}
 !58 = distinct !{!58, !59, !"_ZL13extractIListsRKSt5arrayI15InteractionListLm94EEi: argument 0"}

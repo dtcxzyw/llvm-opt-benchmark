@@ -1107,15 +1107,15 @@ dissect_gadu_gadu_stringz_cp1250.exit.i267:       ; preds = %240, %gadu_gadu_sta
   ]
 
 327:                                              ; preds = %326
-  %328 = tail call fastcc i32 @dissect_gadu_gadu_login.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+  %328 = tail call fastcc i32 @dissect_gadu_gadu_login(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 329:                                              ; preds = %326
-  %330 = tail call fastcc i32 @dissect_gadu_gadu_login70.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+  %330 = tail call fastcc i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 331:                                              ; preds = %326
-  %332 = tail call fastcc i32 @dissect_gadu_gadu_login80.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+  %332 = tail call fastcc i32 @dissect_gadu_gadu_login80(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 333:                                              ; preds = %326
@@ -1126,22 +1126,22 @@ dissect_gadu_gadu_stringz_cp1250.exit.i267:       ; preds = %240, %gadu_gadu_sta
 334:                                              ; preds = %326
   %.val243 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val243, i32 noundef 25, ptr noundef nonnull @.str.273) #2
-  %335 = tail call fastcc noundef i32 @dissect_gadu_gadu_notify_common.argprom.argelim(ptr noundef %0, ptr noundef %.0)
+  %335 = tail call fastcc noundef i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 336:                                              ; preds = %326
   %.val244 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %.val244, i32 noundef 25, ptr noundef nonnull @.str.275) #2
-  %337 = tail call fastcc noundef i32 @dissect_gadu_gadu_notify_common.argprom.argelim(ptr noundef %0, ptr noundef %.0)
+  %337 = tail call fastcc noundef i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 338:                                              ; preds = %326
-  %339 = tail call fastcc i32 @dissect_gadu_gadu_notify105.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+  %339 = tail call fastcc i32 @dissect_gadu_gadu_notify105(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 340:                                              ; preds = %326
   %.val245 = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_gadu_gadu_add_notify.argprom.argelim(ptr noundef %0, ptr %.val245, ptr noundef %.0)
+  tail call fastcc void @dissect_gadu_gadu_add_notify(ptr noundef %0, ptr %.val245, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 341:                                              ; preds = %326
@@ -1165,7 +1165,7 @@ dissect_gadu_gadu_stringz_cp1250.exit.i267:       ; preds = %240, %gadu_gadu_sta
 
 357:                                              ; preds = %326
   %.val246 = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_gadu_gadu_remove_notify.argprom.argelim(ptr noundef %0, ptr %.val246, ptr noundef %.0)
+  tail call fastcc void @dissect_gadu_gadu_remove_notify(ptr noundef %0, ptr %.val246, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 358:                                              ; preds = %326
@@ -1194,7 +1194,7 @@ dissect_gadu_gadu_stringz_cp1250.exit.i267:       ; preds = %240, %gadu_gadu_sta
 
 375:                                              ; preds = %326
   %.val232 = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_gadu_gadu_typing_notify.argprom.argelim(ptr noundef %0, ptr %.val232, ptr noundef %.0)
+  tail call fastcc void @dissect_gadu_gadu_typing_notify(ptr noundef %0, ptr %.val232, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 376:                                              ; preds = %326
@@ -1323,7 +1323,7 @@ dissect_gadu_gadu_send_msg.exit:                  ; preds = %proto_item_set_gene
   br label %dissect_gadu_gadu_user_data.exit
 
 440:                                              ; preds = %326
-  tail call fastcc void @dissect_gadu_gadu_send_msg80.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+  tail call fastcc void @dissect_gadu_gadu_send_msg80(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 441:                                              ; preds = %326
@@ -1335,35 +1335,35 @@ dissect_gadu_gadu_send_msg.exit:                  ; preds = %proto_item_set_gene
 
 444:                                              ; preds = %326
   %.val249 = load ptr, ptr %5, align 8
-  %445 = tail call fastcc i32 @dissect_gadu_gadu_new_status.argprom.argelim(ptr noundef %0, ptr %.val249, ptr noundef %.0)
+  %445 = tail call fastcc i32 @dissect_gadu_gadu_new_status(ptr noundef %0, ptr %.val249, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 446:                                              ; preds = %326
   %.val250 = load ptr, ptr %5, align 8
-  %447 = tail call fastcc i32 @dissect_gadu_gadu_new_status80.argprom.argelim(ptr noundef %0, ptr %.val250, ptr noundef %.0)
+  %447 = tail call fastcc i32 @dissect_gadu_gadu_new_status80(ptr noundef %0, ptr %.val250, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 448:                                              ; preds = %326
   %.val251 = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_gadu_gadu_dcc7_id_request.argprom.argelim(ptr noundef %0, ptr %.val251, ptr noundef %.0)
+  tail call fastcc void @dissect_gadu_gadu_dcc7_id_request(ptr noundef %0, ptr %.val251, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 449:                                              ; preds = %326
   %.val252 = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_gadu_gadu_dcc7_new.argprom.argelim(ptr noundef %0, ptr %.val252, ptr noundef %.0)
+  tail call fastcc void @dissect_gadu_gadu_dcc7_new(ptr noundef %0, ptr %.val252, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 450:                                              ; preds = %326
   %.val253 = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_gadu_gadu_dcc7_id_abort.argprom.argelim(ptr noundef %0, ptr %.val253, ptr noundef %.0)
+  tail call fastcc void @dissect_gadu_gadu_dcc7_id_abort(ptr noundef %0, ptr %.val253, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 451:                                              ; preds = %326
-  %452 = tail call fastcc i32 @dissect_gadu_gadu_userlist_request80.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+  %452 = tail call fastcc i32 @dissect_gadu_gadu_userlist_request80(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 453:                                              ; preds = %326
-  %454 = tail call fastcc i32 @dissect_gadu_gadu_userlist_request100.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
+  %454 = tail call fastcc i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0)
   br label %dissect_gadu_gadu_user_data.exit
 
 455:                                              ; preds = %326
@@ -1427,7 +1427,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gadu_gadu_typing_notify.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_gadu_gadu_typing_notify(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.223) #2
   %3 = load i32, ptr @hf_gadu_gadu_typing_notify_type, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648) #2
@@ -1441,7 +1441,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 30, 94) i32 @dissect_gadu_gadu_login.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 30, 94) i32 @dissect_gadu_gadu_login(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1534,7 +1534,7 @@ dissect_gadu_gadu_login_protocol.exit:            ; preds = %_tvb_memcpy_reverse
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 92, 95) i32 @dissect_gadu_gadu_login70.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 92, 95) i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.270) #2
@@ -1599,7 +1599,7 @@ dissect_gadu_gadu_login_protocol.exit:            ; preds = %gadu_gadu_create_co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 81, 84) i32 @dissect_gadu_gadu_login80.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 81, 84) i32 @dissect_gadu_gadu_login80(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.271) #2
@@ -1631,7 +1631,7 @@ gadu_gadu_create_conversation.exit:               ; preds = %3, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_gadu_gadu_notify105.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_gadu_gadu_notify105(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1678,7 +1678,7 @@ define internal fastcc noundef i32 @dissect_gadu_gadu_notify105.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gadu_gadu_add_notify.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_gadu_gadu_add_notify(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.278) #2
   %3 = load i32, ptr @hf_gadu_gadu_contact_uin, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
@@ -1688,7 +1688,7 @@ define internal fastcc void @dissect_gadu_gadu_add_notify.argprom.argelim(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gadu_gadu_remove_notify.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_gadu_gadu_remove_notify(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.280) #2
   %3 = load i32, ptr @hf_gadu_gadu_contact_uin, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
@@ -1698,7 +1698,7 @@ define internal fastcc void @dissect_gadu_gadu_remove_notify.argprom.argelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gadu_gadu_send_msg80.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_gadu_gadu_send_msg80(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.284) #2
@@ -1815,7 +1815,7 @@ proto_item_set_generated.exit50:                  ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gadu_gadu_new_status.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gadu_gadu_new_status(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.286) #2
   %3 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #2
   %4 = load i32, ptr @hf_gadu_gadu_new_status_status, align 4
@@ -1861,7 +1861,7 @@ dissect_gadu_gadu_stringz_cp1250.exit:            ; preds = %gadu_gadu_status_ha
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gadu_gadu_new_status80.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gadu_gadu_new_status80(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.287) #2
   %3 = load i32, ptr @hf_gadu_gadu_new_status_status, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
@@ -1876,7 +1876,7 @@ define internal fastcc i32 @dissect_gadu_gadu_new_status80.argprom.argelim(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gadu_gadu_dcc7_id_request.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_gadu_gadu_dcc7_id_request(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.288) #2
   %3 = load i32, ptr @hf_dcc_type, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #2
@@ -1884,7 +1884,7 @@ define internal fastcc void @dissect_gadu_gadu_dcc7_id_request.argprom.argelim(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gadu_gadu_dcc7_new.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_gadu_gadu_dcc7_new(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.289) #2
   %3 = load i32, ptr @hf_dcc_id, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #2
@@ -1900,7 +1900,7 @@ define internal fastcc void @dissect_gadu_gadu_dcc7_new.argprom.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gadu_gadu_dcc7_id_abort.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_gadu_gadu_dcc7_id_abort(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.290) #2
   %3 = load i32, ptr @hf_dcc_id, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #2
@@ -1912,7 +1912,7 @@ define internal fastcc void @dissect_gadu_gadu_dcc7_id_abort.argprom.argelim(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist_request80.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist_request80(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.291) #2
@@ -1951,7 +1951,7 @@ proto_item_set_generated.exit:                    ; preds = %3, %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist_request100.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 9, -2147483633) i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.292) #2
@@ -2128,7 +2128,7 @@ _tvb_memcpy_reverse.exit:                         ; preds = %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_gadu_gadu_notify_common.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #2
   %4 = icmp sgt i32 %3, 4
   br i1 %4, label %.lr.ph, label %._crit_edge

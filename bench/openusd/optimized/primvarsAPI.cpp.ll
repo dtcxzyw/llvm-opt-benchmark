@@ -3950,7 +3950,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i: ; preds = %32, %19, 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i, %38, %41
   %.val = load ptr, ptr %1, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_AddPrimToInheritedPrimvarsERKNS_7UsdPrimERKNS_7TfTokenEPKSt6vectorINS_14UsdGeomPrimvarESaIS7_EEPS9_b.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val, ptr noundef %2, ptr noundef %2, i1 noundef zeroext %3)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_AddPrimToInheritedPrimvarsERKNS_7UsdPrimERKNS_7TfTokenEPKSt6vectorINS_14UsdGeomPrimvarESaIS7_EEPS9_b(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val, ptr noundef %2, ptr noundef %2, i1 noundef zeroext %3)
   br label %42
 
 42:                                               ; preds = %4, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
@@ -4116,7 +4116,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread27: ; preds = %
 
 51:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread27
   %.val = load ptr, ptr %50, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_AddPrimToInheritedPrimvarsERKNS_7UsdPrimERKNS_7TfTokenEPKSt6vectorINS_14UsdGeomPrimvarESaIS7_EEPS9_b.argprom(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr %.val, ptr noundef nonnull %2, ptr noundef nonnull %0, i1 noundef zeroext false)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_AddPrimToInheritedPrimvarsERKNS_7UsdPrimERKNS_7TfTokenEPKSt6vectorINS_14UsdGeomPrimvarESaIS7_EEPS9_b(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr %.val, ptr noundef nonnull %2, ptr noundef nonnull %0, i1 noundef zeroext false)
           to label %52 unwind label %46
 
 52:                                               ; preds = %51, %43
@@ -4223,7 +4223,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit13: ; preds = %89,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_AddPrimToInheritedPrimvarsERKNS_7UsdPrimERKNS_7TfTokenEPKSt6vectorINS_14UsdGeomPrimvarESaIS7_EEPS9_b.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.0.val, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_AddPrimToInheritedPrimvarsERKNS_7UsdPrimERKNS_7TfTokenEPKSt6vectorINS_14UsdGeomPrimvarESaIS7_EEPS9_b(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.0.val, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.88", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomPrimvar", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
@@ -6602,7 +6602,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread28: ; preds = %
 
 59:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread28
   %.val = load ptr, ptr %58, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_AddPrimToInheritedPrimvarsERKNS_7UsdPrimERKNS_7TfTokenEPKSt6vectorINS_14UsdGeomPrimvarESaIS7_EEPS9_b.argprom(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr %.val, ptr noundef nonnull %2, ptr noundef nonnull %6, i1 noundef zeroext true)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_AddPrimToInheritedPrimvarsERKNS_7UsdPrimERKNS_7TfTokenEPKSt6vectorINS_14UsdGeomPrimvarESaIS7_EEPS9_b(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr %.val, ptr noundef nonnull %2, ptr noundef nonnull %6, i1 noundef zeroext true)
           to label %60 unwind label %54
 
 60:                                               ; preds = %59

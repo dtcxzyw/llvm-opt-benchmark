@@ -2728,9 +2728,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13TfTypeInfoMapIPNS_6TfType9_TypeInfoEE4Fi
   %102 = load i32, ptr %23, align 8
   %103 = icmp sgt i32 %102, -1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  br i1 %103, label %"_ZZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_infoENK3$_0clEv.argprom.exit.i.i", label %.invoke
+  br i1 %103, label %"_ZZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_infoENK3$_0clEv.exit.i.i", label %.invoke
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_infoENK3$_0clEv.argprom.exit.i.i": ; preds = %101
+"_ZZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_infoENK3$_0clEv.exit.i.i": ; preds = %101
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %104 = load ptr, ptr %9, align 8
   %105 = zext nneg i32 %102 to i64
@@ -2742,7 +2742,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13TfTypeInfoMapIPNS_6TfType9_TypeInfoEE4Fi
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex13_AcquireWriteEv(ptr noundef nonnull align 8 dereferenceable(9) %109)
           to label %.noexc14 unwind label %132
 
-.noexc14:                                         ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_infoENK3$_0clEv.argprom.exit.i.i"
+.noexc14:                                         ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_infoENK3$_0clEv.exit.i.i"
   store i32 -2, ptr %23, align 8
   %110 = load ptr, ptr %83, align 8
   %111 = load i8, ptr %110, align 1
@@ -2833,7 +2833,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfTypeInfoMapIPNS_6TfType9_TypeInfoEE12_C
   %.not = icmp eq ptr %131, null
   br i1 %.not, label %134, label %153
 
-132:                                              ; preds = %.invoke, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv.exit.i, %"_ZZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_infoENK3$_0clEv.argprom.exit.i.i", %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7ReleaseEv.exit
+132:                                              ; preds = %.invoke, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv.exit.i, %"_ZZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_infoENK3$_0clEv.exit.i.i", %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7ReleaseEv.exit
   %133 = landingpad { ptr, i32 }
           cleanup
   br label %.body

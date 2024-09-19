@@ -10827,7 +10827,7 @@ if.then.i.i:                                      ; preds = %for.cond.cleanup
 for.body.lr.ph.i.i.i.i:                           ; preds = %if.then.i.i
   %scevgep.i.i.i.val = load ptr, ptr %scevgep.i.i.i, align 8
   %.val = load ptr, ptr %.pre28, align 8
-  %call8.i.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %scevgep.i.i.i.val, ptr %.val)
+  %call8.i.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %scevgep.i.i.i.val, ptr %.val)
   br i1 %call8.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i.i, label %if.else.i.i.i.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i.i: ; preds = %for.body.lr.ph.i.i.i.i
@@ -10845,7 +10845,7 @@ for.inc.i.i.i.i:                                  ; preds = %if.else.i.i.i.i, %_
   %.val11 = phi ptr [ %.val11.pre, %if.else.i.i.i.i ], [ %scevgep.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i.i ]
   %__i.sroa.0.040.i.ptr.1.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 16
   %__i.sroa.0.040.i.ptr.1.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.1.i.i.i, align 8
-  %call8.i.1.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.1.i.i.i.val, ptr %.val11)
+  %call8.i.1.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.1.i.i.i.val, ptr %.val11)
   br i1 %call8.i.1.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.1.i.i.i, label %if.else.i.1.i.i.i
 
 if.else.i.1.i.i.i:                                ; preds = %for.inc.i.i.i.i
@@ -10862,7 +10862,7 @@ for.inc.i.1.i.i.i:                                ; preds = %_ZSt13move_backward
   %.val12 = phi ptr [ %__i.sroa.0.040.i.ptr.1.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.1.i.i.i ], [ %.val12.pre, %if.else.i.1.i.i.i ]
   %__i.sroa.0.040.i.ptr.2.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 24
   %__i.sroa.0.040.i.ptr.2.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.2.i.i.i, align 8
-  %call8.i.2.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.2.i.i.i.val, ptr %.val12)
+  %call8.i.2.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.2.i.i.i.val, ptr %.val12)
   br i1 %call8.i.2.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.2.i.i.i, label %if.else.i.2.i.i.i
 
 if.else.i.2.i.i.i:                                ; preds = %for.inc.i.1.i.i.i
@@ -10879,7 +10879,7 @@ for.inc.i.2.i.i.i:                                ; preds = %_ZSt13move_backward
   %.val13 = phi ptr [ %__i.sroa.0.040.i.ptr.2.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.2.i.i.i ], [ %.val13.pre, %if.else.i.2.i.i.i ]
   %__i.sroa.0.040.i.ptr.3.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 32
   %__i.sroa.0.040.i.ptr.3.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.3.i.i.i, align 8
-  %call8.i.3.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.3.i.i.i.val, ptr %.val13)
+  %call8.i.3.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.3.i.i.i.val, ptr %.val13)
   br i1 %call8.i.3.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.3.i.i.i, label %if.else.i.3.i.i.i
 
 if.else.i.3.i.i.i:                                ; preds = %for.inc.i.2.i.i.i
@@ -10896,7 +10896,7 @@ for.inc.i.3.i.i.i:                                ; preds = %_ZSt13move_backward
   %.val14 = phi ptr [ %__i.sroa.0.040.i.ptr.3.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.3.i.i.i ], [ %.val14.pre, %if.else.i.3.i.i.i ]
   %__i.sroa.0.040.i.ptr.4.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 40
   %__i.sroa.0.040.i.ptr.4.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.4.i.i.i, align 8
-  %call8.i.4.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.4.i.i.i.val, ptr %.val14)
+  %call8.i.4.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.4.i.i.i.val, ptr %.val14)
   br i1 %call8.i.4.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.4.i.i.i, label %if.else.i.4.i.i.i
 
 if.else.i.4.i.i.i:                                ; preds = %for.inc.i.3.i.i.i
@@ -10913,7 +10913,7 @@ for.inc.i.4.i.i.i:                                ; preds = %_ZSt13move_backward
   %.val15 = phi ptr [ %__i.sroa.0.040.i.ptr.4.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.4.i.i.i ], [ %.val15.pre, %if.else.i.4.i.i.i ]
   %__i.sroa.0.040.i.ptr.5.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 48
   %__i.sroa.0.040.i.ptr.5.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.5.i.i.i, align 8
-  %call8.i.5.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.5.i.i.i.val, ptr %.val15)
+  %call8.i.5.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.5.i.i.i.val, ptr %.val15)
   br i1 %call8.i.5.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.5.i.i.i, label %if.else.i.5.i.i.i
 
 if.else.i.5.i.i.i:                                ; preds = %for.inc.i.4.i.i.i
@@ -10930,7 +10930,7 @@ for.inc.i.5.i.i.i:                                ; preds = %_ZSt13move_backward
   %.val16 = phi ptr [ %__i.sroa.0.040.i.ptr.5.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.5.i.i.i ], [ %.val16.pre, %if.else.i.5.i.i.i ]
   %__i.sroa.0.040.i.ptr.6.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 56
   %__i.sroa.0.040.i.ptr.6.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.6.i.i.i, align 8
-  %call8.i.6.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.6.i.i.i.val, ptr %.val16)
+  %call8.i.6.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.6.i.i.i.val, ptr %.val16)
   br i1 %call8.i.6.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.6.i.i.i, label %if.else.i.6.i.i.i
 
 if.else.i.6.i.i.i:                                ; preds = %for.inc.i.5.i.i.i
@@ -10947,7 +10947,7 @@ for.inc.i.6.i.i.i:                                ; preds = %_ZSt13move_backward
   %.val17 = phi ptr [ %__i.sroa.0.040.i.ptr.6.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.6.i.i.i ], [ %.val17.pre, %if.else.i.6.i.i.i ]
   %__i.sroa.0.040.i.ptr.7.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 64
   %__i.sroa.0.040.i.ptr.7.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.7.i.i.i, align 8
-  %call8.i.7.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.7.i.i.i.val, ptr %.val17)
+  %call8.i.7.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.7.i.i.i.val, ptr %.val17)
   br i1 %call8.i.7.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.7.i.i.i, label %if.else.i.7.i.i.i
 
 if.else.i.7.i.i.i:                                ; preds = %for.inc.i.6.i.i.i
@@ -10964,7 +10964,7 @@ for.inc.i.7.i.i.i:                                ; preds = %_ZSt13move_backward
   %.val18 = phi ptr [ %__i.sroa.0.040.i.ptr.7.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.7.i.i.i ], [ %.val18.pre, %if.else.i.7.i.i.i ]
   %__i.sroa.0.040.i.ptr.8.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 72
   %__i.sroa.0.040.i.ptr.8.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.8.i.i.i, align 8
-  %call8.i.8.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.8.i.i.i.val, ptr %.val18)
+  %call8.i.8.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.8.i.i.i.val, ptr %.val18)
   br i1 %call8.i.8.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.8.i.i.i, label %if.else.i.8.i.i.i
 
 if.else.i.8.i.i.i:                                ; preds = %for.inc.i.7.i.i.i
@@ -10981,7 +10981,7 @@ for.inc.i.8.i.i.i:                                ; preds = %_ZSt13move_backward
   %.val19 = phi ptr [ %__i.sroa.0.040.i.ptr.8.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.8.i.i.i ], [ %.val19.pre, %if.else.i.8.i.i.i ]
   %__i.sroa.0.040.i.ptr.9.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 80
   %__i.sroa.0.040.i.ptr.9.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.9.i.i.i, align 8
-  %call8.i.9.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.9.i.i.i.val, ptr %.val19)
+  %call8.i.9.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.9.i.i.i.val, ptr %.val19)
   br i1 %call8.i.9.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.9.i.i.i, label %if.else.i.9.i.i.i
 
 if.else.i.9.i.i.i:                                ; preds = %for.inc.i.8.i.i.i
@@ -10998,7 +10998,7 @@ for.inc.i.9.i.i.i:                                ; preds = %_ZSt13move_backward
   %.val20 = phi ptr [ %__i.sroa.0.040.i.ptr.9.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.9.i.i.i ], [ %.val20.pre, %if.else.i.9.i.i.i ]
   %__i.sroa.0.040.i.ptr.10.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 88
   %__i.sroa.0.040.i.ptr.10.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.10.i.i.i, align 8
-  %call8.i.10.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.10.i.i.i.val, ptr %.val20)
+  %call8.i.10.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.10.i.i.i.val, ptr %.val20)
   br i1 %call8.i.10.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.10.i.i.i, label %if.else.i.10.i.i.i
 
 if.else.i.10.i.i.i:                               ; preds = %for.inc.i.9.i.i.i
@@ -11015,7 +11015,7 @@ for.inc.i.10.i.i.i:                               ; preds = %_ZSt13move_backward
   %.val21 = phi ptr [ %__i.sroa.0.040.i.ptr.10.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.10.i.i.i ], [ %.val21.pre, %if.else.i.10.i.i.i ]
   %__i.sroa.0.040.i.ptr.11.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 96
   %__i.sroa.0.040.i.ptr.11.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.11.i.i.i, align 8
-  %call8.i.11.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.11.i.i.i.val, ptr %.val21)
+  %call8.i.11.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.11.i.i.i.val, ptr %.val21)
   br i1 %call8.i.11.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.11.i.i.i, label %if.else.i.11.i.i.i
 
 if.else.i.11.i.i.i:                               ; preds = %for.inc.i.10.i.i.i
@@ -11032,7 +11032,7 @@ for.inc.i.11.i.i.i:                               ; preds = %_ZSt13move_backward
   %.val22 = phi ptr [ %__i.sroa.0.040.i.ptr.11.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.11.i.i.i ], [ %.val22.pre, %if.else.i.11.i.i.i ]
   %__i.sroa.0.040.i.ptr.12.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 104
   %__i.sroa.0.040.i.ptr.12.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.12.i.i.i, align 8
-  %call8.i.12.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.12.i.i.i.val, ptr %.val22)
+  %call8.i.12.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.12.i.i.i.val, ptr %.val22)
   br i1 %call8.i.12.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.12.i.i.i, label %if.else.i.12.i.i.i
 
 if.else.i.12.i.i.i:                               ; preds = %for.inc.i.11.i.i.i
@@ -11049,7 +11049,7 @@ for.inc.i.12.i.i.i:                               ; preds = %_ZSt13move_backward
   %.val23 = phi ptr [ %__i.sroa.0.040.i.ptr.12.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.12.i.i.i ], [ %.val23.pre, %if.else.i.12.i.i.i ]
   %__i.sroa.0.040.i.ptr.13.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 112
   %__i.sroa.0.040.i.ptr.13.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.13.i.i.i, align 8
-  %call8.i.13.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.13.i.i.i.val, ptr %.val23)
+  %call8.i.13.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.13.i.i.i.val, ptr %.val23)
   br i1 %call8.i.13.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.13.i.i.i, label %if.else.i.13.i.i.i
 
 if.else.i.13.i.i.i:                               ; preds = %for.inc.i.12.i.i.i
@@ -11066,7 +11066,7 @@ for.inc.i.13.i.i.i:                               ; preds = %_ZSt13move_backward
   %.val24 = phi ptr [ %__i.sroa.0.040.i.ptr.13.i.i.i.val, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.13.i.i.i ], [ %.val24.pre, %if.else.i.13.i.i.i ]
   %__i.sroa.0.040.i.ptr.14.i.i.i = getelementptr inbounds i8, ptr %.pre28, i64 120
   %__i.sroa.0.040.i.ptr.14.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i.ptr.14.i.i.i, align 8
-  %call8.i.14.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i.ptr.14.i.i.i.val, ptr %.val24)
+  %call8.i.14.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i.ptr.14.i.i.i.val, ptr %.val24)
   br i1 %call8.i.14.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.14.i.i.i, label %if.else.i.14.i.i.i
 
 if.else.i.14.i.i.i:                               ; preds = %for.inc.i.13.i.i.i
@@ -11099,7 +11099,7 @@ for.body.i30.i.i.i:                               ; preds = %if.else.i.i.i, %for
   %__first.coerce.pn39.i32.i.i.i = phi ptr [ %__i.sroa.0.040.i31.i.i.i, %for.inc.i35.i.i.i ], [ %.pre28, %if.else.i.i.i ]
   %__i.sroa.0.040.i31.i.i.i.val = load ptr, ptr %__i.sroa.0.040.i31.i.i.i, align 8
   %.val25 = load ptr, ptr %.pre28, align 8
-  %call8.i33.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %__i.sroa.0.040.i31.i.i.i.val, ptr %.val25)
+  %call8.i33.i.i.i = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %__i.sroa.0.040.i31.i.i.i.val, ptr %.val25)
   br i1 %call8.i33.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i38.i.i.i, label %if.else.i34.i.i.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb18SchemaCatalogEntryEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i38.i.i.i: ; preds = %for.body.i30.i.i.i
@@ -47024,7 +47024,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %add.ptr.i30.i = getelementptr inbounds i8, ptr %storemerge3857, i64 -8
   %add.ptr.i29.i.val = load ptr, ptr %add.ptr.i29.i, align 8
   %add.ptr.i.i.val = load ptr, ptr %add.ptr.i.i, align 8
-  %call.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %add.ptr.i29.i.val, ptr %add.ptr.i.i.val)
+  %call.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %add.ptr.i29.i.val, ptr %add.ptr.i.i.val)
   %1 = ptrtoint ptr %add.ptr.i.i.val to i64
   %2 = ptrtoint ptr %add.ptr.i29.i.val to i64
   %add.ptr.i30.i.val = load ptr, ptr %add.ptr.i30.i, align 8
@@ -47032,7 +47032,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   br i1 %call.i.i, label %if.then.i.i, label %if.else33.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %call11.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %add.ptr.i.i.val, ptr %add.ptr.i30.i.val)
+  %call11.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %add.ptr.i.i.val, ptr %add.ptr.i30.i.val)
   br i1 %call11.i.i, label %if.then12.i.i, label %if.else.i.i
 
 if.then12.i.i:                                    ; preds = %if.then.i.i
@@ -47042,7 +47042,7 @@ if.then12.i.i:                                    ; preds = %if.then.i.i
   br label %while.body.i.i25.preheader
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %call21.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %add.ptr.i29.i.val, ptr %add.ptr.i30.i.val)
+  %call21.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %add.ptr.i29.i.val, ptr %add.ptr.i30.i.val)
   %__tmp.sroa.0.0.copyload.i.i63.i.i = load ptr, ptr %__first.coerce, align 8
   br i1 %call21.i.i, label %if.then22.i.i, label %if.else27.i.i
 
@@ -47057,7 +47057,7 @@ if.else27.i.i:                                    ; preds = %if.else.i.i
   br label %while.body.i.i25.preheader
 
 if.else33.i.i:                                    ; preds = %if.end
-  %call38.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %add.ptr.i29.i.val, ptr %add.ptr.i30.i.val)
+  %call38.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %add.ptr.i29.i.val, ptr %add.ptr.i30.i.val)
   br i1 %call38.i.i, label %if.then39.i.i, label %if.else44.i.i
 
 if.then39.i.i:                                    ; preds = %if.else33.i.i
@@ -47067,7 +47067,7 @@ if.then39.i.i:                                    ; preds = %if.else33.i.i
   br label %while.body.i.i25.preheader
 
 if.else44.i.i:                                    ; preds = %if.else33.i.i
-  %call49.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %add.ptr.i.i.val, ptr %add.ptr.i30.i.val)
+  %call49.i.i = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %add.ptr.i.i.val, ptr %add.ptr.i30.i.val)
   %__tmp.sroa.0.0.copyload.i.i66.i.i = load ptr, ptr %__first.coerce, align 8
   br i1 %call49.i.i, label %if.then50.i.i, label %if.else55.i.i
 
@@ -47285,7 +47285,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr nocapture readonly %__it1.coerce.0.val, ptr nocapture readonly %__it2.coerce.0.val) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr nocapture readonly %__it1.coerce.0.val, ptr nocapture readonly %__it2.coerce.0.val) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %catalog.i = getelementptr inbounds i8, ptr %__it1.coerce.0.val, i64 96
   %0 = load ptr, ptr %catalog.i, align 8, !tbaa !114
@@ -47391,7 +47391,7 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr.i55 = getelementptr inbounds %"class.std::reference_wrapper", ptr %__first.coerce, i64 %sub4
   %add.ptr.i.val = load ptr, ptr %add.ptr.i, align 8
   %add.ptr.i55.val = load ptr, ptr %add.ptr.i55, align 8
-  %call9 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_.argprom"(ptr %add.ptr.i.val, ptr %add.ptr.i55.val)
+  %call9 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdb7Catalog13GetAllSchemasERNS2_13ClientContextEE3$_0EclINS_17__normal_iteratorIPSt17reference_wrapperINS2_18SchemaCatalogEntryEESt6vectorISC_SaISC_EEEESH_EEbT_T0_"(ptr %add.ptr.i.val, ptr %add.ptr.i55.val)
   %spec.select = select i1 %call9, i64 %sub4, i64 %mul
   %add.ptr.i56 = getelementptr inbounds %"class.std::reference_wrapper", ptr %__first.coerce, i64 %spec.select
   %add.ptr.i57 = getelementptr inbounds %"class.std::reference_wrapper", ptr %__first.coerce, i64 %__holeIndex.addr.066

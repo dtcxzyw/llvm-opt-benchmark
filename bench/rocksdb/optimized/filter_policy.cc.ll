@@ -1343,7 +1343,7 @@ _ZNSt10shared_ptrIN7rocksdb23CacheReservationManagerEEC2ERKS2_.exit: ; preds = %
   %detect_filter_construct_corruption = getelementptr inbounds i8, ptr %35, i64 201
   %36 = load i8, ptr %detect_filter_construct_corruption, align 1
   %tobool28 = trunc i8 %36 to i1
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilderC2EiPSt6atomicIlESt10shared_ptrINS_23CacheReservationManagerEEb.argprom(ptr noundef nonnull align 8 dereferenceable(292) %call21, i32 noundef %28, ptr noundef %cond26, ptr %agg.tmp.val, ptr %34, i1 noundef zeroext %tobool28)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilderC2EiPSt6atomicIlESt10shared_ptrINS_23CacheReservationManagerEEb(ptr noundef nonnull align 8 dereferenceable(292) %call21, i32 noundef %28, ptr noundef %cond26, ptr %agg.tmp.val, ptr %34, i1 noundef zeroext %tobool28)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %_ZNSt10shared_ptrIN7rocksdb23CacheReservationManagerEEC2ERKS2_.exit
@@ -1566,7 +1566,7 @@ lpad:                                             ; preds = %_ZNK7rocksdb21Bloom
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilderC2EiPSt6atomicIlESt10shared_ptrINS_23CacheReservationManagerEEb.argprom(ptr noundef nonnull align 8 dereferenceable(292) %this, i32 noundef %millibits_per_key, ptr noundef %aggregate_rounding_balance, ptr %cache_res_mgr.0.val, ptr %cache_res_mgr.8.val, i1 noundef zeroext %detect_filter_construct_corruption) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilderC2EiPSt6atomicIlESt10shared_ptrINS_23CacheReservationManagerEEb(ptr noundef nonnull align 8 dereferenceable(292) %this, i32 noundef %millibits_per_key, ptr noundef %aggregate_rounding_balance, ptr %cache_res_mgr.0.val, ptr %cache_res_mgr.8.val, i1 noundef zeroext %detect_filter_construct_corruption) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.22", align 8
   store ptr %cache_res_mgr.0.val, ptr %agg.tmp, align 8
@@ -2205,7 +2205,7 @@ if.else.i.i.i.i.i20.i:                            ; preds = %if.then.i.i.i15.i
 _ZNSt10shared_ptrIN7rocksdb23CacheReservationManagerEEC2ERKS2_.exit21.i: ; preds = %if.else.i.i.i.i.i20.i, %if.then.i.i.i.i.i18.i, %_ZNSt10shared_ptrIN7rocksdb23CacheReservationManagerEED2Ev.exit.i
   %66 = phi ptr [ null, %_ZNSt10shared_ptrIN7rocksdb23CacheReservationManagerEED2Ev.exit.i ], [ %62, %if.then.i.i.i.i.i18.i ], [ %agg.tmp2.val4.pre.i, %if.else.i.i.i.i.i20.i ]
   %agg.tmp2.val.i = phi ptr [ %61, %_ZNSt10shared_ptrIN7rocksdb23CacheReservationManagerEED2Ev.exit.i ], [ %61, %if.then.i.i.i.i.i18.i ], [ %agg.tmp2.val.pre.i, %if.else.i.i.i.i.i20.i ]
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilderC2EiPSt6atomicIlESt10shared_ptrINS_23CacheReservationManagerEEb.argprom(ptr noundef nonnull align 8 dereferenceable(292) %bloom_fallback_.i, i32 noundef %29, ptr noundef %cond26, ptr %agg.tmp2.val.i, ptr %66, i1 noundef zeroext %tobool28146)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilderC2EiPSt6atomicIlESt10shared_ptrINS_23CacheReservationManagerEEb(ptr noundef nonnull align 8 dereferenceable(292) %bloom_fallback_.i, i32 noundef %29, ptr noundef %cond26, ptr %agg.tmp2.val.i, ptr %66, i1 noundef zeroext %tobool28146)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %_ZNSt10shared_ptrIN7rocksdb23CacheReservationManagerEEC2ERKS2_.exit21.i
@@ -5790,55 +5790,55 @@ if.end:                                           ; preds = %_ZN7rocksdb6StatusD
   %tobool.not.i = icmp eq ptr %this.val, null
   %actual_millibits_per_key.0.i = select i1 %tobool.not.i, i32 %this.val13, i32 %conv.i
   %cmp.i1.i = icmp slt i32 %actual_millibits_per_key.0.i, 2081
-  br i1 %cmp.i1.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else.i.i
+  br i1 %cmp.i1.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
   %cmp1.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 3581
-  br i1 %cmp1.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else3.i.i
+  br i1 %cmp1.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
   %cmp4.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 5101
-  br i1 %cmp4.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else6.i.i
+  br i1 %cmp4.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else3.i.i
   %cmp7.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 6641
-  br i1 %cmp7.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else9.i.i
+  br i1 %cmp7.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else9.i.i
 
 if.else9.i.i:                                     ; preds = %if.else6.i.i
   %cmp10.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 8301
-  br i1 %cmp10.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else12.i.i
+  br i1 %cmp10.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else9.i.i
   %cmp13.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 10071
-  br i1 %cmp13.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else15.i.i
+  br i1 %cmp13.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else15.i.i
 
 if.else15.i.i:                                    ; preds = %if.else12.i.i
   %cmp16.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 11721
-  br i1 %cmp16.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else18.i.i
+  br i1 %cmp16.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else18.i.i
 
 if.else18.i.i:                                    ; preds = %if.else15.i.i
   %cmp19.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 14002
-  br i1 %cmp19.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else21.i.i
+  br i1 %cmp19.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else21.i.i
 
 if.else21.i.i:                                    ; preds = %if.else18.i.i
   %cmp22.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 16051
-  br i1 %cmp22.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else24.i.i
+  br i1 %cmp22.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else24.i.i
 
 if.else24.i.i:                                    ; preds = %if.else21.i.i
   %cmp25.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 18301
-  br i1 %cmp25.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else27.i.i
+  br i1 %cmp25.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else27.i.i
 
 if.else27.i.i:                                    ; preds = %if.else24.i.i
   %cmp28.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 22002
-  br i1 %cmp28.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else30.i.i
+  br i1 %cmp28.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else30.i.i
 
 if.else30.i.i:                                    ; preds = %if.else27.i.i
   %cmp31.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 25502
-  br i1 %cmp31.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else33.i.i
+  br i1 %cmp31.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else33.i.i
 
 if.else33.i.i:                                    ; preds = %if.else30.i.i
   %cmp34.i.i = icmp ugt i32 %actual_millibits_per_key.0.i, 50000
-  br i1 %cmp34.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else36.i.i
+  br i1 %cmp34.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else36.i.i
 
 if.else36.i.i:                                    ; preds = %if.else33.i.i
   %14 = trunc nuw i32 %actual_millibits_per_key.0.i to i16
@@ -5846,16 +5846,16 @@ if.else36.i.i:                                    ; preds = %if.else33.i.i
   %div14.i.i = udiv i16 %div.lhs.trunc.i.i, 2000
   %div.zext.i.i = zext nneg i16 %div14.i.i to i32
   %sub37.i.i = add nsw i32 %div.zext.i.i, -1
-  br label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit
 
-_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit: ; preds = %if.end, %if.else.i.i, %if.else3.i.i, %if.else6.i.i, %if.else9.i.i, %if.else12.i.i, %if.else15.i.i, %if.else18.i.i, %if.else21.i.i, %if.else24.i.i, %if.else27.i.i, %if.else30.i.i, %if.else33.i.i, %if.else36.i.i
+_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit: ; preds = %if.end, %if.else.i.i, %if.else3.i.i, %if.else6.i.i, %if.else9.i.i, %if.else12.i.i, %if.else15.i.i, %if.else18.i.i, %if.else21.i.i, %if.else24.i.i, %if.else27.i.i, %if.else30.i.i, %if.else33.i.i, %if.else36.i.i
   %retval.0.i.i = phi i32 [ %sub37.i.i, %if.else36.i.i ], [ 1, %if.end ], [ 2, %if.else.i.i ], [ 3, %if.else3.i.i ], [ 4, %if.else6.i.i ], [ 5, %if.else9.i.i ], [ 6, %if.else12.i.i ], [ 7, %if.else15.i.i ], [ 8, %if.else18.i.i ], [ 9, %if.else21.i.i ], [ 10, %if.else24.i.i ], [ 11, %if.else27.i.i ], [ 12, %if.else30.i.i ], [ 24, %if.else33.i.i ]
   %15 = trunc i64 %call3 to i32
   %conv = add i32 %15, -5
   %cmp.not = icmp eq i32 %conv, 0
   br i1 %cmp.not, label %if.end29, label %if.then14
 
-if.then14:                                        ; preds = %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit
+if.then14:                                        ; preds = %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit
   %16 = load ptr, ptr %mutable_buf, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %hashes.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %byte_offsets.i)
@@ -6219,7 +6219,7 @@ _ZN7rocksdb6StatusD2Ev.exit34:                    ; preds = %if.end29.critedge, 
   store ptr null, ptr %state_.i31, align 8
   br label %if.end29
 
-if.end29:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit34, %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit
+if.end29:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit34, %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit
   %detect_filter_construct_corruption_ = getelementptr inbounds i8, ptr %this, i64 112
   %50 = load i8, ptr %detect_filter_construct_corruption_, align 8
   %tobool30 = trunc i8 %50 to i1
@@ -6688,55 +6688,55 @@ entry:
   %tobool.not.i = icmp eq ptr %this.val, null
   %actual_millibits_per_key.0.i = select i1 %tobool.not.i, i32 %this.val3, i32 %conv.i
   %cmp.i1.i = icmp slt i32 %actual_millibits_per_key.0.i, 2081
-  br i1 %cmp.i1.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else.i.i
+  br i1 %cmp.i1.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   %cmp1.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 3581
-  br i1 %cmp1.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else3.i.i
+  br i1 %cmp1.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
   %cmp4.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 5101
-  br i1 %cmp4.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else6.i.i
+  br i1 %cmp4.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else3.i.i
   %cmp7.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 6641
-  br i1 %cmp7.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else9.i.i
+  br i1 %cmp7.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else9.i.i
 
 if.else9.i.i:                                     ; preds = %if.else6.i.i
   %cmp10.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 8301
-  br i1 %cmp10.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else12.i.i
+  br i1 %cmp10.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else9.i.i
   %cmp13.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 10071
-  br i1 %cmp13.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else15.i.i
+  br i1 %cmp13.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else15.i.i
 
 if.else15.i.i:                                    ; preds = %if.else12.i.i
   %cmp16.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 11721
-  br i1 %cmp16.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else18.i.i
+  br i1 %cmp16.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else18.i.i
 
 if.else18.i.i:                                    ; preds = %if.else15.i.i
   %cmp19.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 14002
-  br i1 %cmp19.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else21.i.i
+  br i1 %cmp19.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else21.i.i
 
 if.else21.i.i:                                    ; preds = %if.else18.i.i
   %cmp22.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 16051
-  br i1 %cmp22.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else24.i.i
+  br i1 %cmp22.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else24.i.i
 
 if.else24.i.i:                                    ; preds = %if.else21.i.i
   %cmp25.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 18301
-  br i1 %cmp25.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else27.i.i
+  br i1 %cmp25.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else27.i.i
 
 if.else27.i.i:                                    ; preds = %if.else24.i.i
   %cmp28.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 22002
-  br i1 %cmp28.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else30.i.i
+  br i1 %cmp28.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else30.i.i
 
 if.else30.i.i:                                    ; preds = %if.else27.i.i
   %cmp31.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 25502
-  br i1 %cmp31.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else33.i.i
+  br i1 %cmp31.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else33.i.i
 
 if.else33.i.i:                                    ; preds = %if.else30.i.i
   %cmp34.i.i = icmp ugt i32 %actual_millibits_per_key.0.i, 50000
-  br i1 %cmp34.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, label %if.else36.i.i
+  br i1 %cmp34.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else36.i.i
 
 if.else36.i.i:                                    ; preds = %if.else33.i.i
   %3 = trunc nuw i32 %actual_millibits_per_key.0.i to i16
@@ -6744,9 +6744,9 @@ if.else36.i.i:                                    ; preds = %if.else33.i.i
   %div14.i.i = udiv i16 %div.lhs.trunc.i.i, 2000
   %div.zext.i.i = zext nneg i16 %div14.i.i to i32
   %sub37.i.i = add nsw i32 %div.zext.i.i, -1
-  br label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit
 
-_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit: ; preds = %entry, %if.else.i.i, %if.else3.i.i, %if.else6.i.i, %if.else9.i.i, %if.else12.i.i, %if.else15.i.i, %if.else18.i.i, %if.else21.i.i, %if.else24.i.i, %if.else27.i.i, %if.else30.i.i, %if.else33.i.i, %if.else36.i.i
+_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit: ; preds = %entry, %if.else.i.i, %if.else3.i.i, %if.else6.i.i, %if.else9.i.i, %if.else12.i.i, %if.else15.i.i, %if.else18.i.i, %if.else21.i.i, %if.else24.i.i, %if.else27.i.i, %if.else30.i.i, %if.else33.i.i, %if.else36.i.i
   %retval.0.i.i = phi i32 [ %sub37.i.i, %if.else36.i.i ], [ 1, %entry ], [ 2, %if.else.i.i ], [ 3, %if.else3.i.i ], [ 4, %if.else6.i.i ], [ 5, %if.else9.i.i ], [ 6, %if.else12.i.i ], [ 7, %if.else15.i.i ], [ 8, %if.else18.i.i ], [ 9, %if.else21.i.i ], [ 10, %if.else24.i.i ], [ 11, %if.else27.i.i ], [ 12, %if.else30.i.i ], [ 24, %if.else33.i.i ]
   %sub = add i64 %len_with_metadata, -5
   %conv.i4 = uitofp i64 %sub to double
@@ -6756,7 +6756,7 @@ _ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.ex
   %cmp.i.i = fcmp ugt double %div.i6, 0.000000e+00
   br i1 %cmp.i.i, label %if.end.i.i, label %cdce.end
 
-if.end.i.i:                                       ; preds = %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit
+if.end.i.i:                                       ; preds = %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit
   %div.i.i = fdiv double 5.120000e+02, %div.i6
   %sqrt.i = tail call double @llvm.sqrt.f64(double %div.i.i)
   %add.i.i = fadd double %div.i.i, %sqrt.i
@@ -6778,8 +6778,8 @@ if.end.i.i:                                       ; preds = %_ZN7rocksdb12_GLOBA
   %div8.i.i = fmul double %add7.i.i, 5.000000e-01
   br label %cdce.end
 
-cdce.end:                                         ; preds = %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit, %if.end.i.i
-  %retval.0.i.i7 = phi double [ %div8.i.i, %if.end.i.i ], [ 1.000000e+00, %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.argprom.exit ]
+cdce.end:                                         ; preds = %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, %if.end.i.i
+  %retval.0.i.i7 = phi double [ %div8.i.i, %if.end.i.i ], [ 1.000000e+00, %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit ]
   %mul.i.i = fmul double %conv1.i, 0x3BF0000000000000
   %cmp.i3.i = fcmp ogt double %mul.i.i, 1.000000e-04
   %fneg.i.i = fneg double %mul.i.i
@@ -8574,7 +8574,7 @@ entry:
   %sext = shl i64 %sub.ptr.sub.i, 30
   %2 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not.i.i = icmp eq i64 %sext, 0
-  br i1 %cmp.not.i.i, label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.argprom.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %conv2 = ashr exact i64 %sext, 32
@@ -8589,9 +8589,9 @@ if.then.i.i:                                      ; preds = %entry
   %4 = xor i32 %3, 512
   %spec.select.i.i.i = or i32 %4, %div3.i.i.i
   %div7.i.i = lshr exact i32 %spec.select.i.i.i, 9
-  br label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.argprom.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit
 
-_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.argprom.exit: ; preds = %entry, %if.then.i.i
+_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit: ; preds = %entry, %if.then.i.i
   %spec.select.i.sink.i.i = phi i32 [ %spec.select.i.i.i, %if.then.i.i ], [ 0, %entry ]
   %storemerge.i.i = phi i32 [ %div7.i.i, %if.then.i.i ], [ 0, %entry ]
   %div48.i.i = lshr i32 %spec.select.i.sink.i.i, 3
@@ -8604,7 +8604,7 @@ _ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.argprom.e
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
   br i1 %or.cond, label %for.cond.preheader, label %if.end29
 
-for.cond.preheader:                               ; preds = %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.argprom.exit
+for.cond.preheader:                               ; preds = %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit
   %cmp.i.not68 = icmp eq ptr %1, %0
   br i1 %cmp.i.not68, label %for.end, label %for.body.lr.ph
 
@@ -8614,8 +8614,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp9.i.i = icmp sgt i32 %this.val16, 0
   br i1 %cmp9.i.i, label %for.body.us, label %for.end
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.argprom.exit.loopexit.us
-  %__begin3.sroa.0.069.us = phi ptr [ %incdec.ptr.i.us, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.argprom.exit.loopexit.us ], [ %1, %for.body.lr.ph ]
+for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us
+  %__begin3.sroa.0.069.us = phi ptr [ %incdec.ptr.i.us, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us ], [ %1, %for.body.lr.ph ]
   %6 = load i32, ptr %__begin3.sroa.0.069.us, align 4
   %rem.i.i.i.us = urem i32 %6, %storemerge.i.i
   %shl.i.i.us = shl nuw nsw i32 %rem.i.i.i.us, 6
@@ -8640,14 +8640,14 @@ for.body.i.i.us:                                  ; preds = %for.body.us, %for.b
   %add6.i.i.us = add i32 %h.addr.011.i.i.us, %or.i.i.us
   %inc.i1.i.us = add nuw nsw i32 %i.010.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i32 %inc.i1.i.us, %this.val16
-  br i1 %exitcond.not.i.i.us, label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.argprom.exit.loopexit.us, label %for.body.i.i.us, !llvm.loop !123
+  br i1 %exitcond.not.i.i.us, label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us, label %for.body.i.i.us, !llvm.loop !123
 
-_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.argprom.exit.loopexit.us: ; preds = %for.body.i.i.us
+_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us: ; preds = %for.body.i.i.us
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %__begin3.sroa.0.069.us, i64 4
   %cmp.i.not.us = icmp eq ptr %incdec.ptr.i.us, %0
   br i1 %cmp.i.not.us, label %for.end, label %for.body.us
 
-for.end:                                          ; preds = %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.argprom.exit.loopexit.us, %for.body.lr.ph, %for.cond.preheader
+for.end:                                          ; preds = %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us, %for.body.lr.ph, %for.cond.preheader
   %cmp12 = icmp ugt i64 %sub.ptr.div.i, 2999999
   br i1 %cmp12, label %if.then13, label %if.end29
 
@@ -8759,7 +8759,7 @@ if.then22:                                        ; preds = %_ZN7rocksdb23Legacy
   tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 2, ptr noundef %19, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 93), double noundef %div25, i32 noundef %20, double noundef %div27)
   br label %if.end29
 
-if.end29:                                         ; preds = %for.end, %if.then22, %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit56, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.argprom.exit
+if.end29:                                         ; preds = %for.end, %if.then22, %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit56, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit
   %num_probes_30 = getelementptr inbounds i8, ptr %this, i64 12
   %21 = load i32, ptr %num_probes_30, align 4
   %conv31 = trunc i32 %21 to i8
@@ -8830,7 +8830,7 @@ for.end:                                          ; preds = %for.body, %for.inc
 define internal noundef range(i64 5, 536870912) i64 @_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder14CalculateSpaceEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %num_entries) unnamed_addr #17 align 2 {
 entry:
   %cmp.not.i = icmp eq i64 %num_entries, 0
-  br i1 %cmp.not.i, label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder14CalculateSpaceEmPjS2_.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder14CalculateSpaceEmPjS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -8847,9 +8847,9 @@ if.then.i:                                        ; preds = %entry
   %3 = lshr exact i32 %spec.select.i.i, 3
   %4 = or disjoint i32 %3, 5
   %5 = zext nneg i32 %4 to i64
-  br label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder14CalculateSpaceEmPjS2_.argprom.exit
+  br label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder14CalculateSpaceEmPjS2_.exit
 
-_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder14CalculateSpaceEmPjS2_.argprom.exit: ; preds = %entry, %if.then.i
+_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder14CalculateSpaceEmPjS2_.exit: ; preds = %entry, %if.then.i
   %spec.select.i.sink.i = phi i64 [ %5, %if.then.i ], [ 5, %entry ]
   ret i64 %spec.select.i.sink.i
 }
@@ -9514,13 +9514,13 @@ for.cond.i.i.i.i:                                 ; preds = %_ZNSt15_Deque_itera
   %cmp.i27.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload23.i.i.i.i.i, 0
   %cmp3.i28.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload25.i.i.i.i.i, 0
   %96 = select i1 %cmp.i27.i.i.i.i.i, i1 %cmp3.i28.i.i.i.i.i, i1 false
-  br i1 %96, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit.thread.i.i.i.i, label %if.end.i.preheader.i.i.i.i
+  br i1 %96, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.thread.i.i.i.i, label %if.end.i.preheader.i.i.i.i
 
 if.end.i.preheader.i.i.i.i:                       ; preds = %for.cond.i.i.i.i
   %conv18.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr11.i.i.i.i.i.i.i to i32
   br label %if.end.i.i.i.i.i
 
-_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit.thread.i.i.i.i: ; preds = %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i, %for.cond.i.i.i.i
+_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.thread.i.i.i.i: ; preds = %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i, %for.cond.i.i.i.i
   %arrayidx.i.i.lcssa20.i.i.i.i.i = phi ptr [ %arrayidx.i.i22.i.i.i.i.i, %for.cond.i.i.i.i ], [ %arrayidx.i.i.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
   %cr.sroa.0.0.lcssa.i.i.i.i.i = phi i64 [ %or.i.i.i.i.i.i.i, %for.cond.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
   %cr.sroa.8.0.lcssa.i.i.i.i.i = phi i64 [ %mul.i.i.i.i.i, %for.cond.i.i.i.i ], [ %retval.sroa.2.0.i.i.i.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i ]
@@ -9548,7 +9548,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZN7rocksdbrSERNS_1
   %cmp.i16.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload33.i.i.i.i.i, %cr.sroa.0.029.i.i.i.i.i
   %cmp3.i19.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload34.i.i.i.i.i, %cr.sroa.8.030.i.i.i.i.i
   %98 = select i1 %cmp.i16.i.i.i.i.i, i1 %cmp3.i19.i.i.i.i.i, i1 false
-  br i1 %98, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit.i.i.i.i, label %if.end5.i.i.i.i.i
+  br i1 %98, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i, label %if.end5.i.i.i.i.i
 
 if.end5.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   %xor.i.i.i.i.i = xor i32 %97, %rr.addr.032.i.i.i.i.i
@@ -9590,13 +9590,13 @@ _ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload.i.i.i.i.i, 0
   %cmp3.i.i.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload.i.i.i.i.i, 0
   %101 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i, i1 false
-  br i1 %101, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit.thread.i.i.i.i, label %if.end.i.i.i.i.i, !llvm.loop !132
+  br i1 %101, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.thread.i.i.i.i, label %if.end.i.i.i.i.i, !llvm.loop !132
 
-_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i
+_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i: ; preds = %if.end.i.i.i.i.i
   %cmp.i51.i.i.i.i = icmp eq i32 %rr.addr.032.i.i.i.i.i, %97
   br i1 %cmp.i51.i.i.i.i, label %if.end13.i.i.i.i, label %if.end.i
 
-if.end13.i.i.i.i:                                 ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit.thread.i.i.i.i
+if.end13.i.i.i.i:                                 ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.thread.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cur.sroa.0.0.i.i.i.i, i64 8
   %cmp.i53.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %cur.sroa.18.0.i.i.i.i
   br i1 %cmp.i53.i.i.i.i, label %if.then.i55.i.i.i.i, label %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i
@@ -9671,9 +9671,9 @@ if.then33.i.i.i.i:                                ; preds = %_ZNSt15_Deque_itera
   %cmp.i27.i95.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload23.i92.i.i.i.i, 0
   %cmp3.i28.i96.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload25.i94.i.i.i.i, 0
   %106 = select i1 %cmp.i27.i95.i.i.i.i, i1 %cmp3.i28.i96.i.i.i.i, i1 false
-  br i1 %106, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit153.thread.i.i.i.i, label %if.end.i97.i.i.i.i
+  br i1 %106, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.thread.i.i.i.i, label %if.end.i97.i.i.i.i
 
-_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit153.thread.i.i.i.i: ; preds = %if.then33.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i
+_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.thread.i.i.i.i: ; preds = %if.then33.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i
   %arrayidx.i.i.lcssa20.i138.i.i.i.i = phi ptr [ %arrayidx.i.i.i131.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %arrayidx.i.i22.i91.i.i.i.i, %if.then33.i.i.i.i ]
   %cr.sroa.0.0.lcssa.i139.i.i.i.i = phi i64 [ %storemerge.i.i.i129.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %or.i.i.i74.i.i.i.i, %if.then33.i.i.i.i ]
   %cr.sroa.8.0.lcssa.i140.i.i.i.i = phi i64 [ %retval.sroa.2.0.i.i.i128.i.i.i.i, %_ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i ], [ %mul.i71.i.i.i.i, %if.then33.i.i.i.i ]
@@ -9701,7 +9701,7 @@ if.end.i97.i.i.i.i:                               ; preds = %if.then33.i.i.i.i, 
   %cmp.i16.i108.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload33.i100.i.i.i.i, %cr.sroa.0.029.i104.i.i.i.i
   %cmp3.i19.i109.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload34.i99.i.i.i.i, %cr.sroa.8.030.i103.i.i.i.i
   %108 = select i1 %cmp.i16.i108.i.i.i.i, i1 %cmp3.i19.i109.i.i.i.i, i1 false
-  br i1 %108, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit153.i.i.i.i, label %if.end5.i110.i.i.i.i
+  br i1 %108, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i, label %if.end5.i110.i.i.i.i
 
 if.end5.i110.i.i.i.i:                             ; preds = %if.end.i97.i.i.i.i
   %xor.i111.i.i.i.i = xor i32 %107, %rr.addr.032.i101.i.i.i.i
@@ -9743,9 +9743,9 @@ _ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i127.i.i.i.i: ; preds = %if.else.i.i.i118
   %cmp.i.i135.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload.i132.i.i.i.i, 0
   %cmp3.i.i136.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload.i134.i.i.i.i, 0
   %111 = select i1 %cmp.i.i135.i.i.i.i, i1 %cmp3.i.i136.i.i.i.i, i1 false
-  br i1 %111, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit153.thread.i.i.i.i, label %if.end.i97.i.i.i.i, !llvm.loop !132
+  br i1 %111, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.thread.i.i.i.i, label %if.end.i97.i.i.i.i, !llvm.loop !132
 
-_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit153.i.i.i.i: ; preds = %if.end.i97.i.i.i.i
+_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i: ; preds = %if.end.i97.i.i.i.i
   %cmp.i152.i.i.i.i = icmp eq i32 %rr.addr.032.i101.i.i.i.i, %107
   br i1 %cmp.i152.i.i.i.i, label %if.end81, label %if.end.i
 
@@ -9801,7 +9801,7 @@ if.end.i178.i.i.i.i:                              ; preds = %if.end38.i.i.i.i, %
   %cmp.i16.i189.i.i.i.i = icmp eq i64 %cr_at_i.sroa.0.0.copyload33.i181.i.i.i.i, %cr.sroa.0.029.i185.i.i.i.i
   %cmp3.i19.i190.i.i.i.i = icmp eq i64 %cr_at_i.sroa.4.0.copyload34.i180.i.i.i.i, %cr.sroa.8.030.i184.i.i.i.i
   %114 = select i1 %cmp.i16.i189.i.i.i.i, i1 %cmp3.i19.i190.i.i.i.i, i1 false
-  br i1 %114, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit234.i.i.i.i, label %if.end5.i191.i.i.i.i
+  br i1 %114, label %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit234.i.i.i.i, label %if.end5.i191.i.i.i.i
 
 if.end5.i191.i.i.i.i:                             ; preds = %if.end.i178.i.i.i.i
   %xor.i192.i.i.i.i = xor i32 %113, %rr.addr.032.i182.i.i.i.i
@@ -9845,15 +9845,15 @@ _ZN7rocksdbrSERNS_11Unsigned128Ej.exit.i208.i.i.i.i: ; preds = %if.else.i.i.i199
   %117 = select i1 %cmp.i.i216.i.i.i.i, i1 %cmp3.i.i217.i.i.i.i, i1 false
   br i1 %117, label %if.then.i218.i.i.i.i, label %if.end.i178.i.i.i.i, !llvm.loop !132
 
-_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit234.i.i.i.i: ; preds = %if.end.i178.i.i.i.i
+_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit234.i.i.i.i: ; preds = %if.end.i178.i.i.i.i
   %cmp.i233.i.i.i.i = icmp eq i32 %rr.addr.032.i182.i.i.i.i, %113
   br i1 %cmp.i233.i.i.i.i, label %for.cond26.i.i.i.i.backedge, label %if.end.i
 
-for.cond26.i.i.i.i.backedge:                      ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit234.i.i.i.i, %if.then.i218.i.i.i.i
+for.cond26.i.i.i.i.backedge:                      ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit234.i.i.i.i, %if.then.i218.i.i.i.i
   br label %for.cond26.i.i.i.i, !llvm.loop !134
 
-if.end.i:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit234.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit153.i.i.i.i
-  %118 = phi ptr [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit153.i.i.i.i ], [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit234.i.i.i.i ], [ %95, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit.i.i.i.i ]
+if.end.i:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit234.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i
+  %118 = phi ptr [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i ], [ %bs.val42.i.i.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit234.i.i.i.i ], [ %95, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit.i.i.i.i ]
   %add.i221 = add nuw nsw i32 %cur_ordinal_seed.0.i, 1
   %and3.i = and i32 %add.i221, 255
   %cmp.not.i222 = icmp eq i32 %and3.i, %entropy.0
@@ -9976,8 +9976,8 @@ invoke.cont79:                                    ; preds = %invoke.cont77
   %145 = extractvalue { ptr, i64 } %call80, 1
   br label %cleanup160
 
-if.end81:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit153.i.i.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit153.thread.i.i.i.i
-  %conv2.i.i439 = phi i32 [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit153.thread.i.i.i.i ], [ %conv2.i.i.us, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us ], [ %conv2.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i ], [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.argprom.exit153.i.i.i.i ]
+if.end81:                                         ; preds = %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.thread.i.i.i.i
+  %conv2.i.i439 = phi i32 [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.thread.i.i.i.i ], [ %conv2.i.i.us, %_ZN7rocksdb6ribbon15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE5ResetEjj.exit.i.us ], [ %conv2.i.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i.i.i.i ], [ %conv2.i.i, %_ZN7rocksdb6ribbon10BandingAddILb1ENS0_15StandardBandingINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEEZNS0_15BandingAddRangeIS7_S7_St15_Deque_iteratorImRmPmEEEbPT_RKT0_T1_SI_E20NoopBacktrackStorageEEbPSF_NSF_5IndexENSF_9ResultRowENSF_8CoeffRowEPSI_PSL_.exit153.i.i.i.i ]
   invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_122XXPH3FilterBitsBuilder30MaybeVerifyHashEntriesChecksumEv(ptr noalias align 8 %verify_hash_entries_checksum_status, ptr noundef nonnull align 8 dereferenceable(288) %this)
           to label %invoke.cont82 unwind label %lpad44.loopexit.split-lp
 
@@ -11299,7 +11299,7 @@ entry:
   %add.i.i = add i32 %cond8.i.i, %sub6.i.i
   %iss.val17.i.i = load ptr, ptr %soln_, align 8
   %cmp.i18.i.i = icmp eq i32 %add.i.i, 0
-  br i1 %cmp.i18.i.i, label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.argprom.exit, label %if.end.i.i.i
+  br i1 %cmp.i18.i.i, label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   %conv.i.i.i = zext i32 %sub.i.i to i64
@@ -11325,10 +11325,10 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i.i.i
   tail call void @llvm.prefetch.p0(ptr readonly %add.ptr5.i.i.i, i32 0, i32 1, i32 1)
-  br label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.argprom.exit
+  br label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit
 
-_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.argprom.exit: ; preds = %entry, %while.end.i.i.i
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN7rocksdb6ribbon22InterleavedFilterQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEbNT0_4HashENT_5IndexESD_SD_RKSA_RKSC_.argprom(i64 noundef %mul.i.i.i.i, i32 noundef %sub.i.i, i32 noundef %sub6.i.i, i32 noundef %rem.i.i, ptr %iss.val17.i.i)
+_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit: ; preds = %entry, %while.end.i.i.i
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN7rocksdb6ribbon22InterleavedFilterQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEbNT0_4HashENT_5IndexESD_SD_RKSA_RKSC_(i64 noundef %mul.i.i.i.i, i32 noundef %sub.i.i, i32 noundef %sub6.i.i, i32 noundef %rem.i.i, ptr %iss.val17.i.i)
   ret i1 %call.i
 }
 
@@ -11348,13 +11348,13 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext nneg i32 %num_keys to i64
   br label %for.body
 
-for.body12.lr.ph:                                 ; preds = %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.argprom.exit
+for.body12.lr.ph:                                 ; preds = %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.exit
   %soln_26 = getelementptr inbounds i8, ptr %this, i64 8
   %wide.trip.count29 = zext nneg i32 %num_keys to i64
   br label %for.body12
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.argprom.exit
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.argprom.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.exit
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.exit ]
   %arrayidx = getelementptr inbounds ptr, ptr %keys, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load ptr, ptr %3, align 8
@@ -11394,7 +11394,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.i = add i32 %cond8.i, %sub6.i
   %iss.val17.i = load ptr, ptr %soln_, align 8
   %cmp.i18.i = icmp eq i32 %add.i, 0
-  br i1 %cmp.i18.i, label %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.argprom.exit, label %if.end.i.i
+  br i1 %cmp.i18.i, label %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body
   %conv.i.i = zext i32 %sub.i to i64
@@ -11420,9 +11420,9 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %if.end.i.i
   tail call void @llvm.prefetch.p0(ptr readonly %add.ptr5.i.i, i32 0, i32 1, i32 1)
-  br label %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.argprom.exit
+  br label %_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.exit
 
-_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.argprom.exit: ; preds = %for.body, %while.end.i.i
+_ZN7rocksdb6ribbon23InterleavedPrepareQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEvRKNT0_3KeyERKSA_RKT_PNSA_4HashEPNSG_5IndexESM_SM_.exit: ; preds = %for.body, %while.end.i.i
   store i64 %mul.i.i.i, ptr %arrayidx.i.i, align 8
   store i32 %sub.i, ptr %segment_num, align 8
   store i32 %sub6.i, ptr %num_columns, align 4
@@ -11442,7 +11442,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %start_bits24 = getelementptr inbounds i8, ptr %arrayidx.i.i17, i64 16
   %9 = load i32, ptr %start_bits24, align 8
   %soln_26.val = load ptr, ptr %soln_26, align 8
-  %call27 = tail call fastcc noundef zeroext i1 @_ZN7rocksdb6ribbon22InterleavedFilterQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEbNT0_4HashENT_5IndexESD_SD_RKSA_RKSC_.argprom(i64 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr %soln_26.val)
+  %call27 = tail call fastcc noundef zeroext i1 @_ZN7rocksdb6ribbon22InterleavedFilterQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEbNT0_4HashENT_5IndexESD_SD_RKSA_RKSC_(i64 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr %soln_26.val)
   %arrayidx29 = getelementptr inbounds i8, ptr %may_match, i64 %indvars.iv26
   %frombool = zext i1 %call27 to i8
   store i8 %frombool, ptr %arrayidx29, align 1
@@ -11491,7 +11491,7 @@ entry:
   %add.i.i = add i32 %cond8.i.i, %sub6.i.i
   %iss.val17.i.i = load ptr, ptr %soln_, align 8
   %cmp.i18.i.i = icmp eq i32 %add.i.i, 0
-  br i1 %cmp.i18.i.i, label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.argprom.exit, label %if.end.i.i.i
+  br i1 %cmp.i18.i.i, label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   %conv.i.i.i = zext i32 %sub.i.i to i64
@@ -11517,15 +11517,15 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.i.i.i
   tail call void @llvm.prefetch.p0(ptr readonly %add.ptr5.i.i.i, i32 0, i32 1, i32 1)
-  br label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.argprom.exit
+  br label %_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit
 
-_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.argprom.exit: ; preds = %entry, %while.end.i.i.i
-  %call.i = tail call fastcc noundef zeroext i1 @_ZN7rocksdb6ribbon22InterleavedFilterQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEbNT0_4HashENT_5IndexESD_SD_RKSA_RKSC_.argprom(i64 noundef %mul.i.i.i.i, i32 noundef %sub.i.i, i32 noundef %sub6.i.i, i32 noundef %rem.i.i, ptr %iss.val17.i.i)
+_ZNK7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE11FilterQueryINS0_14StandardHasherIS5_EEEEbRKmRKT_.exit: ; preds = %entry, %while.end.i.i.i
+  %call.i = tail call fastcc noundef zeroext i1 @_ZN7rocksdb6ribbon22InterleavedFilterQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEbNT0_4HashENT_5IndexESD_SD_RKSA_RKSC_(i64 noundef %mul.i.i.i.i, i32 noundef %sub.i.i, i32 noundef %sub6.i.i, i32 noundef %rem.i.i, ptr %iss.val17.i.i)
   ret i1 %call.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN7rocksdb6ribbon22InterleavedFilterQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEbNT0_4HashENT_5IndexESD_SD_RKSA_RKSC_.argprom(i64 noundef %hash, i32 noundef %segment_num, i32 noundef %num_columns, i32 noundef %start_bit, ptr nocapture readonly %iss.0.val) unnamed_addr #17 {
+define internal fastcc noundef zeroext i1 @_ZN7rocksdb6ribbon22InterleavedFilterQueryINS0_31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEEENS0_14StandardHasherIS6_EEEEbNT0_4HashENT_5IndexESD_SD_RKSA_RKSC_(i64 noundef %hash, i32 noundef %segment_num, i32 noundef %num_columns, i32 noundef %start_bit, ptr nocapture readonly %iss.0.val) unnamed_addr #17 {
 entry:
   %mul.i = mul i64 %hash, -4427176413096506387
   %0 = and i64 %mul.i, -2
@@ -14869,7 +14869,7 @@ _ZN7rocksdb13ObjectLibrary12PatternEntryD2Ev.exit436.i.i.i.i.i.i: ; preds = %if.
   %name_.i435.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp147.i.i.i.i.i.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_.i435.i.i.i.i.i.i) #33
   %call156.i12.i.i.i.i.i = invoke noundef i64 @_ZNK7rocksdb13ObjectLibrary15GetFactoryCountEPm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %num_types.i.i.i.i.i.i)
-          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12FilterPolicy16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSM_ENKUlvE_clEv.argprom.exit" unwind label %lpad4.i.i.i.i.i
+          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12FilterPolicy16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSM_ENKUlvE_clEv.exit" unwind label %lpad4.i.i.i.i.i
 
 lpad.i3.i.i.i.i.i:                                ; preds = %call.i.noexc.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i
   %121 = landingpad { ptr, i32 }
@@ -15244,7 +15244,7 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad4.body.i.i.i.i.
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i.i.i.i) #33
   resume { ptr, i32 } %.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12FilterPolicy16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSM_ENKUlvE_clEv.argprom.exit": ; preds = %_ZN7rocksdb13ObjectLibrary12PatternEntryD2Ev.exit436.i.i.i.i.i.i
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb12FilterPolicy16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIKS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSM_ENKUlvE_clEv.exit": ; preds = %_ZN7rocksdb13ObjectLibrary12PatternEntryD2Ev.exit436.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i.i.i.i.i)
@@ -16609,7 +16609,7 @@ entry:
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds = %entry
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -16617,9 +16617,9 @@ _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
-"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %entry, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %entry, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
   %2 = phi ptr [ %call.i.i.i, %entry ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i ]
   ret ptr %2
 }
@@ -17024,7 +17024,7 @@ entry:
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds = %entry
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -17032,9 +17032,9 @@ _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
-"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %entry, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %entry, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
   %2 = phi ptr [ %call.i.i.i, %entry ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i ]
   ret ptr %2
 }
@@ -17278,7 +17278,7 @@ entry:
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds = %entry
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -17286,9 +17286,9 @@ _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #33
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
-"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %entry, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %entry, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
   %2 = phi ptr [ %call.i.i.i, %entry ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i ]
   ret ptr %2
 }
@@ -17375,11 +17375,11 @@ invoke.contthread-pre-split.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.
 invoke.cont.i.i.i.i:                              ; preds = %invoke.contthread-pre-split.i.i.i.i, %_ZNSt10unique_ptrIKN7rocksdb12FilterPolicyESt14default_deleteIS2_EE5resetEPS2_.exit.i.i.i
   %7 = phi ptr [ %.pr.i.i.i.i, %invoke.contthread-pre-split.i.i.i.i ], [ %5, %_ZNSt10unique_ptrIKN7rocksdb12FilterPolicyESt14default_deleteIS2_EE5resetEPS2_.exit.i.i.i ]
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit", label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %7) #32
-  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
 lpad.i.i.i:                                       ; preds = %invoke.cont.i.i.i, %entry
   %8 = landingpad { ptr, i32 }
@@ -17391,7 +17391,7 @@ lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %lpad.i
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vals.i.i.i) #33
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
-"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %vals.i.i.i)
   ret ptr %4
 }
@@ -17478,11 +17478,11 @@ invoke.contthread-pre-split.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.
 invoke.cont.i.i.i.i:                              ; preds = %invoke.contthread-pre-split.i.i.i.i, %_ZNSt10unique_ptrIKN7rocksdb12FilterPolicyESt14default_deleteIS2_EE5resetEPS2_.exit.i.i.i
   %7 = phi ptr [ %.pr.i.i.i.i, %invoke.contthread-pre-split.i.i.i.i ], [ %5, %_ZNSt10unique_ptrIKN7rocksdb12FilterPolicyESt14default_deleteIS2_EE5resetEPS2_.exit.i.i.i ]
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit", label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %7) #32
-  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
 lpad.i.i.i:                                       ; preds = %invoke.cont.i.i.i, %entry
   %8 = landingpad { ptr, i32 }
@@ -17494,7 +17494,7 @@ lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %lpad.i
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vals.i.i.i) #33
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
-"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %vals.i.i.i)
   ret ptr %4
 }
@@ -17587,11 +17587,11 @@ invoke.contthread-pre-split.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.
 invoke.cont.i.i.i.i:                              ; preds = %invoke.contthread-pre-split.i.i.i.i, %_ZNSt10unique_ptrIKN7rocksdb12FilterPolicyESt14default_deleteIS2_EE5resetEPS2_.exit.i.i.i
   %8 = phi ptr [ %.pr.i.i.i.i, %invoke.contthread-pre-split.i.i.i.i ], [ %6, %_ZNSt10unique_ptrIKN7rocksdb12FilterPolicyESt14default_deleteIS2_EE5resetEPS2_.exit.i.i.i ]
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_5JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit", label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_5JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %8) #32
-  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_5JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_5JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
 lpad.i.i.i:                                       ; preds = %invoke.cont4.i.i.i, %invoke.cont.i.i.i, %entry
   %9 = landingpad { ptr, i32 }
@@ -17603,7 +17603,7 @@ lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %lpad.i
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vals.i.i.i) #33
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
-"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_5JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_5JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %invoke.cont.i.i.i.i, %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %vals.i.i.i)
   ret ptr %5
 }
@@ -17686,7 +17686,7 @@ _ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test23LegacyBloomF
   %5 = load ptr, ptr %__args1.val, align 8
   store ptr %call3.i.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_6JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_6JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds = %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test23LegacyBloomFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %5, align 8
@@ -17694,9 +17694,9 @@ _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_6JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_6JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
-"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_6JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test23LegacyBloomFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_6JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test23LegacyBloomFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
   %7 = phi ptr [ %call3.i.i.i.i, %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test23LegacyBloomFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i ]
   ret ptr %7
 }
@@ -17777,7 +17777,7 @@ _ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test26FastLocalBlo
   %5 = load ptr, ptr %__args1.val, align 8
   store ptr %call3.i.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_7JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_7JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds = %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test26FastLocalBloomFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %5, align 8
@@ -17785,9 +17785,9 @@ _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_7JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_7JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
-"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_7JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test26FastLocalBloomFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_7JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test26FastLocalBloomFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
   %7 = phi ptr [ %call3.i.i.i.i, %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test26FastLocalBloomFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i ]
   ret ptr %7
 }
@@ -17868,7 +17868,7 @@ _ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test29Standard128R
   %5 = load ptr, ptr %__args1.val, align 8
   store ptr %call3.i.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_8JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_8JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds = %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test29Standard128RibbonFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %5, align 8
@@ -17876,9 +17876,9 @@ _ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i: ; preds
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_8JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_8JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
-"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_8JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test29Standard128RibbonFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPKN7rocksdb12FilterPolicyERZNS0_12_GLOBAL__N_129RegisterBuiltinFilterPoliciesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_8JSE_PSt10unique_ptrIS2_St14default_deleteIS2_EEPSC_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test29Standard128RibbonFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i
   %7 = phi ptr [ %call3.i.i.i.i, %_ZN7rocksdb12_GLOBAL__N_130NewBuiltinFilterPolicyWithBitsINS_4test29Standard128RibbonFilterPolicyEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIKN7rocksdb12FilterPolicyEEclEPS2_.exit.i.i.i.i.i ]
   ret ptr %7
 }

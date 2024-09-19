@@ -360,7 +360,7 @@ if.end9.i:                                        ; preds = %if.then187.i.i, %if
 if.then13.i:                                      ; preds = %if.end9.i
   %incdec.ptr14.i = getelementptr i8, ptr %storemerge.i, i64 1
   store ptr %incdec.ptr14.i, ptr %str.addr.i, align 8
-  call fastcc void @rfc3986_parse_query.retelim(ptr noundef %uri, ptr noundef %str.addr.i)
+  call fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr noundef %str.addr.i)
   %.pre24.i = load ptr, ptr %str.addr.i, align 8
   %.pre25.i = load i8, ptr %.pre24.i, align 1
   br label %if.end20.i
@@ -374,7 +374,7 @@ if.end20.i:                                       ; preds = %if.then13.i, %if.en
 if.then24.i:                                      ; preds = %if.end20.i
   %incdec.ptr25.i = getelementptr i8, ptr %30, i64 1
   store ptr %incdec.ptr25.i, ptr %str.addr.i, align 8
-  call fastcc void @rfc3986_parse_fragment.retelim(ptr noundef %uri, ptr noundef %str.addr.i)
+  call fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr noundef %str.addr.i)
   %.pre26.i = load ptr, ptr %str.addr.i, align 8
   %.pre27.i = load i8, ptr %.pre26.i, align 1
   br label %if.end31.i
@@ -647,7 +647,7 @@ if.end192.i:                                      ; preds = %if.then187.i, %if.e
 if.then196.i:                                     ; preds = %if.end192.i
   %incdec.ptr.i12 = getelementptr i8, ptr %51, i64 1
   store ptr %incdec.ptr.i12, ptr %str.addr.i10, align 8
-  call fastcc void @rfc3986_parse_query.retelim(ptr noundef %uri, ptr noundef %str.addr.i10)
+  call fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr noundef %str.addr.i10)
   %.pre63.i = load ptr, ptr %str.addr.i10, align 8
   %.pre64.i = load i8, ptr %.pre63.i, align 1
   br label %if.end202.i
@@ -661,7 +661,7 @@ if.end202.i:                                      ; preds = %if.then196.i, %if.e
 if.then206.i:                                     ; preds = %if.end202.i
   %incdec.ptr207.i = getelementptr i8, ptr %54, i64 1
   store ptr %incdec.ptr207.i, ptr %str.addr.i10, align 8
-  call fastcc void @rfc3986_parse_fragment.retelim(ptr noundef %uri, ptr noundef %str.addr.i10)
+  call fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr noundef %str.addr.i10)
   %.pre65.i = load ptr, ptr %str.addr.i10, align 8
   %.pre66.i = load i8, ptr %.pre65.i, align 1
   br label %if.end213.i
@@ -2444,7 +2444,7 @@ if.end261:                                        ; preds = %while.body251, %if.
   %arrayidx264 = getelementptr i8, ptr %55, i64 %idxprom263
   store i8 0, ptr %arrayidx264, align 1
   %56 = load ptr, ptr %path170, align 8
-  tail call fastcc void @normalize_uri_path.retelim(ptr noundef %56)
+  tail call fastcc void @normalize_uri_path(ptr noundef %56)
   br label %step_7
 
 step_7:                                           ; preds = %if.end261, %if.then144, %if.end113, %if.end74
@@ -2466,7 +2466,7 @@ done:                                             ; preds = %entry, %if.then20, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @normalize_uri_path.retelim(ptr noundef %path) unnamed_addr #6 {
+define internal fastcc void @normalize_uri_path(ptr noundef %path) unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %path, null
   br i1 %cmp, label %return, label %while.cond
@@ -3293,7 +3293,7 @@ return:                                           ; preds = %next, %entry, %lor.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rfc3986_parse_query.retelim(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
+define internal fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %cmp160.not = icmp eq ptr %uri, null
@@ -3515,7 +3515,7 @@ if.end203:                                        ; preds = %lor.lhs.false21.us,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rfc3986_parse_fragment.retelim(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
+define internal fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %cmp168.not = icmp eq ptr %uri, null

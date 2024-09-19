@@ -382,13 +382,13 @@ return:                                           ; preds = %entry, %if.end42
 define internal void @bdrv_qed_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
-  br i1 %call, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.else
+  br i1 %call, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.16, i32 noundef 636, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_qed_close) #19
   unreachable
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %entry
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #18
   tail call fastcc void @bdrv_qed_do_close(ptr noundef %bs)
   tail call void @bdrv_graph_rdunlock_main_loop() #18
@@ -1280,7 +1280,7 @@ declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_qed_open_entry(ptr nocapture noundef %opaque) #0 {
-glib_autoptr_cleanup_GraphLockable.argprom.exit:
+glib_autoptr_cleanup_GraphLockable.exit:
   %0 = load ptr, ptr %opaque, align 8
   %opaque1 = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque1, align 8
@@ -2031,7 +2031,7 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qed_need_check_timer_entry(ptr noundef %opaque) #0 {
-glib_autoptr_cleanup_GraphLockable.argprom.exit:
+glib_autoptr_cleanup_GraphLockable.exit:
   tail call void @bdrv_graph_co_rdlock() #18
   tail call void @qed_need_check_timer(ptr noundef %opaque)
   %0 = load ptr, ptr %opaque, align 8
@@ -2388,13 +2388,13 @@ entry:
   %3 = load i16, ptr @_TRACE_QED_AIO_SETUP_DSTATE, align 2
   %tobool4.i.i = icmp ne i16 %3, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
-  br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_qed_aio_setup.argprom.exit
+  br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_qed_aio_setup.exit
 
 land.lhs.true5.i.i:                               ; preds = %entry
   %4 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i = and i32 %4, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
-  br i1 %cmp.i.not.i.i, label %trace_qed_aio_setup.argprom.exit, label %if.then.i.i
+  br i1 %cmp.i.not.i.i, label %trace_qed_aio_setup.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
@@ -2408,13 +2408,13 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, ptr noundef nonnull %acb, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef null, i32 noundef %flags) #18
-  br label %trace_qed_aio_setup.argprom.exit
+  br label %trace_qed_aio_setup.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, ptr noundef %1, ptr noundef nonnull %acb, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef null, i32 noundef %flags) #18
-  br label %trace_qed_aio_setup.argprom.exit
+  br label %trace_qed_aio_setup.exit
 
-trace_qed_aio_setup.argprom.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
+trace_qed_aio_setup.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call = call i32 @qed_aio_next_io(ptr noundef nonnull %acb)
   ret i32 %call

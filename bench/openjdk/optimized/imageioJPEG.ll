@@ -3174,7 +3174,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %113
-  call fastcc void @setQTables.retelim(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef %14, i32 noundef 1)
+  call fastcc void @setQTables(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef %14, i32 noundef 1)
   br label %118
 
 118:                                              ; preds = %117, %113, %112
@@ -3188,7 +3188,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
   br i1 %122, label %123, label %124
 
 123:                                              ; preds = %119
-  call fastcc void @setHTables.retelim(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull %15, ptr noundef %16, i32 noundef 1)
+  call fastcc void @setHTables(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull %15, ptr noundef %16, i32 noundef 1)
   br label %124
 
 124:                                              ; preds = %123, %119, %118
@@ -3701,7 +3701,7 @@ define internal fastcc range(i32 0, 2) i32 @setPixelBuffer(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setQTables.retelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #1 {
+define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1368
   %7 = load ptr, ptr %6, align 8
@@ -3796,7 +3796,7 @@ define internal fastcc void @setQTables.retelim(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setHTables.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
+define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 1368
   %8 = load ptr, ptr %7, align 8
@@ -5036,7 +5036,7 @@ GET_ARRAYS.exit:                                  ; preds = %67, %64
   br i1 %.not36, label %98, label %97
 
 97:                                               ; preds = %GET_ARRAYS.exit
-  call fastcc void @setQTables.retelim(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %3, i32 noundef 1)
+  call fastcc void @setQTables(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %3, i32 noundef 1)
   br label %98
 
 98:                                               ; preds = %97, %GET_ARRAYS.exit
@@ -5044,7 +5044,7 @@ GET_ARRAYS.exit:                                  ; preds = %67, %64
   br i1 %.not37, label %100, label %99
 
 99:                                               ; preds = %98
-  call fastcc void @setHTables.retelim(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1)
+  call fastcc void @setHTables(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1)
   br label %100
 
 100:                                              ; preds = %99, %98
@@ -5484,13 +5484,13 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
 218:                                              ; preds = %213
   call void @jSuppressTables(ptr noundef nonnull %112, i32 noundef 1) #13
   %219 = zext i8 %14 to i32
-  call fastcc void @setQTables.retelim(ptr noundef nonnull %0, ptr noundef nonnull %112, ptr noundef %13, i32 noundef %219)
+  call fastcc void @setQTables(ptr noundef nonnull %0, ptr noundef nonnull %112, ptr noundef %13, i32 noundef %219)
   %.not413 = icmp eq i8 %18, 0
   br i1 %.not413, label %220, label %222
 
 220:                                              ; preds = %218
   %221 = zext i8 %17 to i32
-  call fastcc void @setHTables.retelim(ptr noundef nonnull %0, ptr noundef nonnull %112, ptr noundef %15, ptr noundef %16, i32 noundef %221)
+  call fastcc void @setHTables(ptr noundef nonnull %0, ptr noundef nonnull %112, ptr noundef %15, ptr noundef %16, i32 noundef %221)
   br label %222
 
 222:                                              ; preds = %220, %218

@@ -4062,7 +4062,7 @@ if.then16.i.i.i.i:                                ; preds = %if.end12.i.i.i.i
   %461 = extractvalue { i64, ptr } %call19.i.i.i.i, 0
   %462 = extractvalue { i64, ptr } %call19.i.i.i.i, 1
   %options.val.i.i.i.i = load i8, ptr %options, align 8, !noalias !61
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE.argprom(ptr noalias align 8 %php_namespace.i.i.i, i64 %461, ptr %462, i8 %options.val.i.i.i.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr noalias align 8 %php_namespace.i.i.i, i64 %461, ptr %462, i8 %options.val.i.i.i.i)
           to label %invoke.cont.i.i.i41 unwind label %lpad.i.i.i113
 
 if.end20.i.i.i.i:                                 ; preds = %if.end12.i.i.i.i
@@ -16945,7 +16945,7 @@ cleanup.action:                                   ; preds = %invoke.cont25
 
 cleanup.done:                                     ; preds = %cleanup.action, %invoke.cont25
   %message.val = load ptr, ptr %all_names_.i, align 8
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b.argprom(ptr noalias align 8 %ref.tmp31, ptr %message.val, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias align 8 %ref.tmp31, ptr %message.val, i1 noundef zeroext true)
           to label %invoke.cont33 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont33:                                    ; preds = %cleanup.done
@@ -17182,7 +17182,7 @@ lpad.i122:                                        ; preds = %invoke.cont72
 invoke.cont73:                                    ; preds = %invoke.cont72
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb.argelim(ptr noalias align 8 %ref.tmp74, ptr noundef nonnull %call52)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias align 8 %ref.tmp74, ptr noundef nonnull %call52)
           to label %invoke.cont76 unwind label %lpad75
 
 invoke.cont76:                                    ; preds = %invoke.cont73
@@ -17611,7 +17611,7 @@ lpad.i162:                                        ; preds = %invoke.cont102
 invoke.cont103:                                   ; preds = %invoke.cont102
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i160) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i160)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb.argelim(ptr noalias align 8 %ref.tmp104, ptr noundef nonnull %add.ptr.i72)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias align 8 %ref.tmp104, ptr noundef nonnull %add.ptr.i72)
           to label %invoke.cont106 unwind label %lpad105
 
 invoke.cont106:                                   ; preds = %invoke.cont103
@@ -17801,7 +17801,7 @@ lpad.i220:                                        ; preds = %invoke.cont149
 invoke.cont150:                                   ; preds = %invoke.cont149
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i218) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i218)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb.argelim(ptr noalias align 8 %ref.tmp151, ptr noundef nonnull %add.ptr.i177)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias align 8 %ref.tmp151, ptr noundef nonnull %add.ptr.i177)
           to label %invoke.cont153 unwind label %lpad152
 
 invoke.cont153:                                   ; preds = %invoke.cont150
@@ -18048,7 +18048,7 @@ entry:
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr i8, ptr %en, i64 8
   %en.val = load ptr, ptr %0, align 8
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b.argprom(ptr noalias align 8 %ref.tmp, ptr %en.val, i1 noundef zeroext true)
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias align 8 %ref.tmp, ptr %en.val, i1 noundef zeroext true)
   %1 = load ptr, ptr %0, align 8
   invoke void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA11_cSA_EEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 72, ptr nonnull @.str.72, ptr noundef nonnull align 1 dereferenceable(5) @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(11) @.str.51, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont1 unwind label %lpad
@@ -19616,7 +19616,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b.argprom(ptr noalias nonnull align 8 %agg.result, ptr %desc.8.val, i1 noundef zeroext %is_internal) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias nonnull align 8 %agg.result, ptr %desc.8.val, i1 noundef zeroext %is_internal) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -19921,7 +19921,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb.argelim(ptr noalias nonnull align 8 %agg.result, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias nonnull align 8 %agg.result, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -20009,7 +20009,7 @@ call3.i.noexc:                                    ; preds = %invoke.cont5.i
   %tobool.i = trunc i8 %8 to i1
   %9 = getelementptr i8, ptr %call3.i3, i64 8
   %call3.val.i = load ptr, ptr %9, align 8, !noalias !583
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b.argprom(ptr noalias align 8 %ref.tmp2.i, ptr %call3.val.i, i1 noundef zeroext %tobool.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias align 8 %ref.tmp2.i, ptr %call3.val.i, i1 noundef zeroext %tobool.i)
           to label %.noexc4 unwind label %lpad
 
 .noexc4:                                          ; preds = %call3.i.noexc
@@ -20091,7 +20091,7 @@ call13.i.noexc:                                   ; preds = %invoke.cont19.i
   %tobool15.i = trunc i8 %23 to i1
   %24 = getelementptr i8, ptr %call13.i8, i64 8
   %call13.val.i = load ptr, ptr %24, align 8, !noalias !583
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b.argprom(ptr noalias align 8 %ref.tmp12.i, ptr %call13.val.i, i1 noundef zeroext %tobool15.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias align 8 %ref.tmp12.i, ptr %call13.val.i, i1 noundef zeroext %tobool15.i)
           to label %.noexc9 unwind label %lpad
 
 .noexc9:                                          ; preds = %call13.i.noexc
@@ -20540,7 +20540,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b.argprom(ptr noalias nonnull align 8 %agg.result, ptr %desc.8.val, i1 noundef zeroext %is_internal) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias nonnull align 8 %agg.result, ptr %desc.8.val, i1 noundef zeroext %is_internal) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -23833,7 +23833,7 @@ if.then16:                                        ; preds = %if.end12
   %19 = extractvalue { i64, ptr } %call19, 0
   %20 = extractvalue { i64, ptr } %call19, 1
   %options.val = load i8, ptr %options, align 8
-  tail call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE.argprom(ptr noalias align 8 %agg.result, i64 %19, ptr %20, i8 %options.val)
+  tail call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr noalias align 8 %agg.result, i64 %19, ptr %20, i8 %options.val)
   br label %return
 
 if.end20:                                         ; preds = %if.end12
@@ -23878,7 +23878,7 @@ eh.resume:                                        ; preds = %lpad22, %lpad.i16, 
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE.argprom(ptr noalias nonnull align 8 %agg.result, i64 %full_name.coerce0, ptr nocapture readonly %full_name.coerce1, i8 %options.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr noalias nonnull align 8 %agg.result, i64 %full_name.coerce0, ptr nocapture readonly %full_name.coerce1, i8 %options.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator.7", align 1
@@ -28505,7 +28505,7 @@ if.then16:                                        ; preds = %if.end12
   %19 = extractvalue { i64, ptr } %call19, 0
   %20 = extractvalue { i64, ptr } %call19, 1
   %options.val = load i8, ptr %options, align 8
-  tail call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE.argprom(ptr noalias align 8 %agg.result, i64 %19, ptr %20, i8 %options.val)
+  tail call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr noalias align 8 %agg.result, i64 %19, ptr %20, i8 %options.val)
   br label %return
 
 if.end20:                                         ; preds = %if.end12
@@ -32665,8 +32665,8 @@ attributes #32 = { allocsize(0) }
 !210 = distinct !{!210, !"_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7emplaceIJRKSt17basic_string_viewIcS7_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbEDpOSL_"}
 !211 = distinct !{!211, !5}
 !212 = !{!213}
-!213 = distinct !{!213, !214, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE.argprom: %agg.result"}
-!214 = distinct !{!214, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE.argprom"}
+!213 = distinct !{!213, !214, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE: %agg.result"}
+!214 = distinct !{!214, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE"}
 !215 = !{!216}
 !216 = distinct !{!216, !217, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
 !217 = distinct !{!217, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
@@ -32690,8 +32690,8 @@ attributes #32 = { allocsize(0) }
 !235 = distinct !{!235, !236, !"_ZN4absl12lts_2023080211MakeCleanupIJEZN6google8protobuf2io7Printer8WithVarsINS0_13flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEESB_NS0_18container_internal10StringHashENSC_8StringEqESaISt4pairIKSB_SB_EEEEEEDaPKT_EUlvE_EENS0_7CleanupINS0_16cleanup_internal3TagET0_EESR_: %agg.result"}
 !236 = distinct !{!236, !"_ZN4absl12lts_2023080211MakeCleanupIJEZN6google8protobuf2io7Printer8WithVarsINS0_13flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEESB_NS0_18container_internal10StringHashENSC_8StringEqESaISt4pairIKSB_SB_EEEEEEDaPKT_EUlvE_EENS0_7CleanupINS0_16cleanup_internal3TagET0_EESR_"}
 !237 = !{!238}
-!238 = distinct !{!238, !239, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE.argprom: %agg.result"}
-!239 = distinct !{!239, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE.argprom"}
+!238 = distinct !{!238, !239, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE: %agg.result"}
+!239 = distinct !{!239, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE"}
 !240 = !{!241}
 !241 = distinct !{!241, !242, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE: %agg.result"}
 !242 = distinct !{!242, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE"}
@@ -32738,8 +32738,8 @@ attributes #32 = { allocsize(0) }
 !283 = distinct !{!283, !284, !"_ZN4absl12lts_2023080211MakeCleanupIJEZN6google8protobuf2io7Printer8WithVarsINS0_13flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEESB_NS0_18container_internal10StringHashENSC_8StringEqESaISt4pairIKSB_SB_EEEEEEDaPKT_EUlvE_EENS0_7CleanupINS0_16cleanup_internal3TagET0_EESR_: %agg.result"}
 !284 = distinct !{!284, !"_ZN4absl12lts_2023080211MakeCleanupIJEZN6google8protobuf2io7Printer8WithVarsINS0_13flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEESB_NS0_18container_internal10StringHashENSC_8StringEqESaISt4pairIKSB_SB_EEEEEEDaPKT_EUlvE_EENS0_7CleanupINS0_16cleanup_internal3TagET0_EESR_"}
 !285 = !{!286}
-!286 = distinct !{!286, !287, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE.argprom: %agg.result"}
-!287 = distinct !{!287, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE.argprom"}
+!286 = distinct !{!286, !287, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE: %agg.result"}
+!287 = distinct !{!287, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE"}
 !288 = !{!289}
 !289 = distinct !{!289, !290, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
 !290 = distinct !{!290, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
@@ -32939,8 +32939,8 @@ attributes #32 = { allocsize(0) }
 !484 = distinct !{!484, !485, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE: %agg.result"}
 !485 = distinct !{!485, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE"}
 !486 = !{!487}
-!487 = distinct !{!487, !488, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113LabelForFieldB5cxx11EPKNS0_15FieldDescriptorE.argprom: %agg.result"}
-!488 = distinct !{!488, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113LabelForFieldB5cxx11EPKNS0_15FieldDescriptorE.argprom"}
+!487 = distinct !{!487, !488, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113LabelForFieldB5cxx11EPKNS0_15FieldDescriptorE: %agg.result"}
+!488 = distinct !{!488, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113LabelForFieldB5cxx11EPKNS0_15FieldDescriptorE"}
 !489 = !{!490}
 !490 = distinct !{!490, !491, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE: %agg.result"}
 !491 = distinct !{!491, !"_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumE"}
@@ -33487,8 +33487,8 @@ attributes #32 = { allocsize(0) }
 !1032 = distinct !{!1032, !"_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE7emplaceIJRS7_SH_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESB_INSF_8iteratorEbEDpOSJ_"}
 !1033 = distinct !{!1033, !5}
 !1034 = !{!1035}
-!1035 = distinct !{!1035, !1036, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE.argprom: %agg.result"}
-!1036 = distinct !{!1036, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE.argprom"}
+!1035 = distinct !{!1035, !1036, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE: %agg.result"}
+!1036 = distinct !{!1036, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE"}
 !1037 = distinct !{!1037, !5}
 !1038 = distinct !{!1038, !5}
 !1039 = distinct !{!1039, !5}
@@ -33496,8 +33496,8 @@ attributes #32 = { allocsize(0) }
 !1041 = distinct !{!1041, !5}
 !1042 = distinct !{!1042, !5}
 !1043 = !{!1044}
-!1044 = distinct !{!1044, !1045, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE.argprom: %agg.result"}
-!1045 = distinct !{!1045, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE.argprom"}
+!1044 = distinct !{!1044, !1045, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE: %agg.result"}
+!1045 = distinct !{!1045, !"_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FilenameCNameB5cxx11EPKNS0_14FileDescriptorE"}
 !1046 = distinct !{!1046, !5}
 !1047 = distinct !{!1047, !5}
 !1048 = distinct !{!1048, !5}

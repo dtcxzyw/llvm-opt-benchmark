@@ -1055,15 +1055,15 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h534351db47379484E.99" = private unnamed_addr constant [31 x ptr] [ptr @anon.b05fb5003af99ead400dd576f4a4fe71.472, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.473, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.474, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.475, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.476, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.477, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.478, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.479, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.480, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.481, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.482, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.483, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.484, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.485, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.486, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.487, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.488, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.489, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.490, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.491, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.492, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.493, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.494, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.495, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.496, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.497, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.498, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.499, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.500, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.141, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.501], align 8
 @"switch.table._ZN74_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba41852bcdc79cfE" = private unnamed_addr constant [7 x i64] [i64 3, i64 12, i64 10, i64 10, i64 10, i64 10, i64 11], align 8
 @"switch.table._ZN74_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba41852bcdc79cfE.101" = private unnamed_addr constant [7 x ptr] [ptr @anon.b05fb5003af99ead400dd576f4a4fe71.340, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.461, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.462, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.463, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.464, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.465, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.466], align 8
-@"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom" = private unnamed_addr constant [31 x ptr] [ptr @anon.b05fb5003af99ead400dd576f4a4fe71.798, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.799, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.800, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.801, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.802, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.803, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.804, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.805, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.806, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.807, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.808, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.809, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.810, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.811, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.812, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.813, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.814, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.815, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.816, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.817, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.510, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.818, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.819, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.820, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.821, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.822, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.823, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.824, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.825, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.826, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.827], align 8
-@"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom.107" = private unnamed_addr constant [31 x i64] [i64 4, i64 7, i64 4, i64 4, i64 11, i64 13, i64 5, i64 14, i64 3, i64 12, i64 4, i64 13, i64 9, i64 18, i64 8, i64 17, i64 5, i64 6, i64 11, i64 10, i64 3, i64 9, i64 10, i64 9, i64 4, i64 8, i64 8, i64 7, i64 4, i64 14, i64 14], align 8
-@"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E.argprom" = private unnamed_addr constant [48 x ptr] [ptr @anon.b05fb5003af99ead400dd576f4a4fe71.755, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.756, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.757, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.758, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.759, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.615, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.670, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.667, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.679, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.759, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.615, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.667, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.760, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.761, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.670, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.762, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.763, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.764, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.765, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.766, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.767, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.768, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.769, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.770, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.771, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.772, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.773, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.774, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.775, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.776, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.777, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.778, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.697, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.700, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.779, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.780, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.781, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.673, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.782, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.542, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.544, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.783, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.784, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.590, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.46, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.746, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.785, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.786], align 8
-@"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E.argprom.119" = private unnamed_addr constant [48 x i64] [i64 3, i64 5, i64 6, i64 8, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 3, i64 3, i64 2, i64 2, i64 1, i64 1, i64 2, i64 2, i64 1, i64 2, i64 2, i64 2, i64 2, i64 1, i64 3, i64 2, i64 2, i64 2, i64 2, i64 3], align 8
+@"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E" = private unnamed_addr constant [31 x ptr] [ptr @anon.b05fb5003af99ead400dd576f4a4fe71.798, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.799, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.800, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.801, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.802, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.803, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.804, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.805, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.806, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.807, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.808, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.809, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.810, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.811, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.812, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.813, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.814, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.815, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.816, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.817, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.510, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.818, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.819, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.820, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.821, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.822, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.823, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.824, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.825, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.826, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.827], align 8
+@"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.107" = private unnamed_addr constant [31 x i64] [i64 4, i64 7, i64 4, i64 4, i64 11, i64 13, i64 5, i64 14, i64 3, i64 12, i64 4, i64 13, i64 9, i64 18, i64 8, i64 17, i64 5, i64 6, i64 11, i64 10, i64 3, i64 9, i64 10, i64 9, i64 4, i64 8, i64 8, i64 7, i64 4, i64 14, i64 14], align 8
+@"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E" = private unnamed_addr constant [48 x ptr] [ptr @anon.b05fb5003af99ead400dd576f4a4fe71.755, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.756, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.757, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.758, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.759, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.615, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.670, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.667, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.679, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.759, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.615, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.667, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.760, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.761, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.670, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.762, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.763, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.764, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.765, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.766, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.767, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.768, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.769, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.770, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.771, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.772, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.773, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.774, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.775, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.776, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.777, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.778, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.697, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.700, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.779, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.780, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.781, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.673, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.782, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.542, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.544, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.783, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.784, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.590, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.46, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.746, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.785, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.786], align 8
+@"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E.119" = private unnamed_addr constant [48 x i64] [i64 3, i64 5, i64 6, i64 8, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 3, i64 3, i64 2, i64 2, i64 1, i64 1, i64 2, i64 2, i64 1, i64 2, i64 2, i64 2, i64 2, i64 1, i64 3, i64 2, i64 2, i64 2, i64 2, i64 3], align 8
 @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE" = private unnamed_addr constant [7 x ptr] [ptr @anon.b05fb5003af99ead400dd576f4a4fe71.787, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.788, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.789, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.790, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.791, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.792, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.793], align 8
 @"switch.table._ZN95_$LT$cpp_demangle..ast..PointerToMemberType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc732e8bb3e35511fE.121" = private unnamed_addr constant [7 x i64] [i64 3, i64 14, i64 17, i64 11, i64 49, i64 12, i64 50], align 8
 @switch.table._ZN8wasmtime7runtime5types8HeapType3top17h894f8caa6fd26bebE = private unnamed_addr constant [7 x i64] [i64 0, i64 1, i64 1, i64 1, i64 4, i64 4, i64 4], align 8
-@switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom = private unnamed_addr constant [23 x i64] [i64 4, i64 2, i64 2, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 7, i64 7, i64 4, i64 6, i64 4, i64 6, i64 5, i64 7, i64 4, i64 6, i64 6, i64 5, i64 3, i64 6], align 8
-@switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom.122 = private unnamed_addr constant [23 x ptr] [ptr @anon.b05fb5003af99ead400dd576f4a4fe71.800, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1011, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1012, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1013, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1014, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1015, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1016, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1017, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1018, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1019, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1020, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.801, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.10, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1021, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1022, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1023, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1024, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1025, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1026, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1027, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1028, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1029, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1030], align 8
+@switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E = private unnamed_addr constant [23 x i64] [i64 4, i64 2, i64 2, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 7, i64 7, i64 4, i64 6, i64 4, i64 6, i64 5, i64 7, i64 4, i64 6, i64 6, i64 5, i64 3, i64 6], align 8
+@switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.122 = private unnamed_addr constant [23 x ptr] [ptr @anon.b05fb5003af99ead400dd576f4a4fe71.800, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1011, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1012, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1013, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1014, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1015, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1016, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1017, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1018, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1019, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1020, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.801, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.10, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1021, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1022, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1023, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1024, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1025, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1026, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1027, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1028, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1029, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.1030], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden { i32, ptr } @"_ZN100_$LT$cranelift_entity..iter..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h149c81fbbbfc9273E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -1564,7 +1564,7 @@ switch.lookup:                                    ; preds = %31
 
 60:                                               ; preds = %28
   %61 = getelementptr inbounds i8, ptr %0, i64 8
-  %62 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %61, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %62 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %61, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %71
 
 63:                                               ; preds = %28
@@ -3822,7 +3822,7 @@ define internal fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleConte
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$6ensure17h0696e24667fd3917E.argelim"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$6ensure17h0696e24667fd3917E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 {
   %2 = alloca [1 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca i32, align 4
@@ -6693,7 +6693,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
   %65 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %65, align 8, !alias.scope !929, !noalias !932, !noundef !9
   %66 = icmp eq ptr %.val.i, null
-  br i1 %66, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit.i", label %67
+  br i1 %66, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit.i", label %67
 
 67:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !940
@@ -6712,7 +6712,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i.i": ; preds = %69, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !940
-  br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit.i"
+  br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit.i"
 
 71:                                               ; preds = %69, %67
   %72 = landingpad { ptr, i32 }
@@ -6720,12 +6720,12 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
   store ptr %63, ptr %65, align 8, !alias.scope !929, !noalias !932
   resume { ptr, i32 } %72
 
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i.i", %64
+"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i.i", %64
   store ptr %63, ptr %65, align 8, !alias.scope !929, !noalias !932
   br label %"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h95538bad6d38a316E.exit"
 
-"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h95538bad6d38a316E.exit": ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread.i", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.i", %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit.i"
-  %73 = phi i1 [ false, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread.i" ], [ false, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.i" ], [ true, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit.i" ]
+"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h95538bad6d38a316E.exit": ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread.i", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.i", %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit.i"
+  %73 = phi i1 [ false, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread.i" ], [ false, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.i" ], [ true, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret i1 %73
 }
@@ -6819,7 +6819,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
   %57 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %57, align 8, !alias.scope !954, !noalias !957, !noundef !9
   %58 = icmp eq ptr %.val.i, null
-  br i1 %58, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit.i", label %59
+  br i1 %58, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit.i", label %59
 
 59:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !959
@@ -6838,7 +6838,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i.i": ; preds = %61, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !959
-  br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit.i"
+  br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit.i"
 
 63:                                               ; preds = %61, %59
   %64 = landingpad { ptr, i32 }
@@ -6846,11 +6846,11 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %10, 
   store ptr %54, ptr %57, align 8, !alias.scope !954, !noalias !957
   resume { ptr, i32 } %64
 
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i.i", %56
+"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i.i", %56
   store ptr %54, ptr %57, align 8, !alias.scope !954, !noalias !957
   br label %"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h71897ecd052ab20eE.exit"
 
-"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h71897ecd052ab20eE.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit.i"
+"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h71897ecd052ab20eE.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit.i"
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret i1 %55
 }
@@ -14285,13 +14285,13 @@ define hidden { i64, ptr } @_ZN6object4read4coff7section12SectionTable15section_
   %.val3.i.i.i.i.i = load i64, ptr %12, align 8, !noalias !2051
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val3.i.i.i.i.i, %3
   %or.cond.i.i.i.i = select i1 %18, i1 %.not.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i, label %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.argprom.exit.i.i.i", label %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.argprom.exit.thread.i.i.i"
+  br i1 %or.cond.i.i.i.i, label %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.exit.i.i.i", label %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.exit.thread.i.i.i"
 
-"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.argprom.exit.thread.i.i.i": ; preds = %14
+"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.exit.thread.i.i.i": ; preds = %14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2051
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hcf3a44369acbde59E.exit.i"
 
-"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.argprom.exit.i.i.i": ; preds = %14
+"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.exit.i.i.i": ; preds = %14
   %.val6.i.i.i.i.i = load ptr, ptr %13, align 8, !alias.scope !2061, !noalias !2064, !nonnull !9, !align !284, !noundef !9
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val6.i.i.i.i.i, ptr nonnull readonly %2, i64 %3), !noalias !2066
   %bcmp.i.i.i.i.fr.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i.i
@@ -14299,13 +14299,13 @@ define hidden { i64, ptr } @_ZN6object4read4coff7section12SectionTable15section_
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2051
   br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h01866a7398cf9cc4E.exit.loopexit, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hcf3a44369acbde59E.exit.i"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hcf3a44369acbde59E.exit.i": ; preds = %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.argprom.exit.i.i.i", %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.argprom.exit.thread.i.i.i"
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hcf3a44369acbde59E.exit.i": ; preds = %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.exit.i.i.i", %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.exit.thread.i.i.i"
   %20 = add nuw nsw i64 %.sroa.7.0, 1
   %21 = icmp eq ptr %16, %10
   br i1 %21, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h01866a7398cf9cc4E.exit.loopexit, label %14
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h01866a7398cf9cc4E.exit.loopexit: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hcf3a44369acbde59E.exit.i", %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.argprom.exit.i.i.i"
-  %.sroa.3.0.i.ph = phi ptr [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hcf3a44369acbde59E.exit.i" ], [ %15, %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.argprom.exit.i.i.i" ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h01866a7398cf9cc4E.exit.loopexit: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hcf3a44369acbde59E.exit.i", %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.exit.i.i.i"
+  %.sroa.3.0.i.ph = phi ptr [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hcf3a44369acbde59E.exit.i" ], [ %15, %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h6c864751c7a97a44E.exit.i.i.i" ]
   %22 = add nuw i64 %.sroa.7.0, 1
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h01866a7398cf9cc4E.exit
 
@@ -17209,7 +17209,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..DemangleContex
 
 31:                                               ; preds = %14
   %32 = zext nneg i8 %23 to i32
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit21.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit19.i.i.i"
   %33 = icmp ne ptr %1, %26
@@ -17227,7 +17227,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..DemangleContex
   %41 = and i8 %23, 63
   %42 = zext nneg i8 %41 to i32
   %43 = or disjoint i32 %40, %42
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit23.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit21.i.i.i"
   %44 = icmp ne ptr %1, %34
@@ -17250,7 +17250,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..DemangleContex
   %57 = or disjoint i32 %54, %56
   br label %39
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.argprom.exit": ; preds = %31, %39
+"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit": ; preds = %31, %39
   %58 = phi i32 [ %32, %31 ], [ %43, %39 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %58, ptr %59, align 8
@@ -17260,7 +17260,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..DemangleContex
   store i64 %62, ptr %60, align 8
   br label %63
 
-63:                                               ; preds = %3, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.argprom.exit"
+63:                                               ; preds = %3, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit"
   ret i1 false
 }
 
@@ -17445,7 +17445,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u2
 
 93:                                               ; preds = %87, %90
   %.041.val.i = phi i8 [ %89, %87 ], [ %92, %90 ]
-  %94 = invoke fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$6ensure17h0696e24667fd3917E.argelim"(ptr noalias noundef align 8 dereferenceable(104) %1)
+  %94 = invoke fastcc noundef zeroext i1 @"_ZN12cpp_demangle3ast24DemangleContext$LT$W$GT$6ensure17h0696e24667fd3917E"(ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %95 unwind label %99
 
 .thread71:                                        ; preds = %90, %87, %98
@@ -17455,7 +17455,7 @@ define internal fastcc noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Name$u2
   br i1 %94, label %"_ZN86_$LT$cpp_demangle..ast..NestedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h19a1d396e74aca53E.exit.sink.split", label %96
 
 96:                                               ; preds = %95
-  %97 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom"(i8 %.041.val.i, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %97 = invoke fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E"(i8 %.041.val.i, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %98 unwind label %99, !noalias !2280
 
 98:                                               ; preds = %96
@@ -18038,7 +18038,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 77:                                               ; preds = %74
   %78 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i111 = load i8, ptr %78, align 1, !alias.scope !2363, !noalias !2368
-  %79 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"(i8 %.val.i111, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %79 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i111, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN103_$LT$cpp_demangle..ast..TemplateTemplateParamHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hacbf8acd46d65510E.exit" unwind label %224
 
 80:                                               ; preds = %74
@@ -18156,7 +18156,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 128:                                              ; preds = %124
   %129 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i116 = load i8, ptr %129, align 1, !alias.scope !2388, !noalias !2393
-  %130 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"(i8 %.val.i116, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %130 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i116, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %224
 
 131:                                              ; preds = %124
@@ -18171,7 +18171,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 139:                                              ; preds = %124
   %140 = getelementptr inbounds i8, ptr %0, i64 16
-  %141 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %140, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %141 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %140, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %224
 
 142:                                              ; preds = %124
@@ -18202,7 +18202,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 153:                                              ; preds = %149
   %154 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i124 = load i8, ptr %154, align 1, !alias.scope !2397, !noalias !2402
-  %155 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"(i8 %.val.i124, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %155 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i124, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit130" unwind label %224
 
 156:                                              ; preds = %149
@@ -18217,7 +18217,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 164:                                              ; preds = %149
   %165 = getelementptr inbounds i8, ptr %0, i64 16
-  %166 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %165, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %166 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %165, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit130" unwind label %224
 
 167:                                              ; preds = %149
@@ -18250,7 +18250,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 178:                                              ; preds = %174
   %179 = getelementptr inbounds i8, ptr %0, i64 25
   %.val.i133 = load i8, ptr %179, align 1, !alias.scope !2406, !noalias !2411
-  %180 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"(i8 %.val.i133, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %180 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i133, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit139" unwind label %224
 
 181:                                              ; preds = %174
@@ -18265,7 +18265,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 189:                                              ; preds = %174
   %190 = getelementptr inbounds i8, ptr %0, i64 32
-  %191 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %190, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %191 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %190, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit139" unwind label %224
 
 192:                                              ; preds = %174
@@ -18296,7 +18296,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 203:                                              ; preds = %199
   %204 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i142 = load i8, ptr %204, align 1, !alias.scope !2415, !noalias !2420
-  %205 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"(i8 %.val.i142, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %205 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i142, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit148" unwind label %224
 
 206:                                              ; preds = %199
@@ -18311,7 +18311,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 214:                                              ; preds = %199
   %215 = getelementptr inbounds i8, ptr %0, i64 16
-  %216 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %215, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %216 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %215, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit148" unwind label %224
 
 217:                                              ; preds = %199
@@ -18380,7 +18380,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 243:                                              ; preds = %232
   %244 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i151 = load i8, ptr %244, align 1, !alias.scope !2424, !noalias !2429
-  %245 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"(i8 %.val.i151, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %245 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i151, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit157" unwind label %224
 
 246:                                              ; preds = %232
@@ -18395,7 +18395,7 @@ default.unreachable:                              ; preds = %287, %232, %199, %1
 
 254:                                              ; preds = %232
   %255 = getelementptr inbounds i8, ptr %0, i64 16
-  %256 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %255, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %256 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %255, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit157" unwind label %224
 
 257:                                              ; preds = %232
@@ -18557,7 +18557,7 @@ switch.lookup:                                    ; preds = %297
 
 326:                                              ; preds = %287
   %327 = getelementptr inbounds i8, ptr %0, i64 16
-  %328 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %327, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %328 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %327, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit169" unwind label %224
 
 329:                                              ; preds = %287
@@ -18687,7 +18687,7 @@ switch.lookup:                                    ; preds = %297
   %.val108 = load i64, ptr %378, align 8
   %379 = getelementptr inbounds i8, ptr %0, i64 16
   %.val109 = load i64, ptr %379, align 8
-  %380 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val108, i64 %.val109, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %380 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val108, i64 %.val109, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %381 unwind label %224
 
 381:                                              ; preds = %377
@@ -18765,7 +18765,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %9, align 8, !noundef !9
   %10 = icmp eq ptr %.val, null
-  br i1 %10, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit", label %11
+  br i1 %10, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit", label %11
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2477
@@ -18784,9 +18784,9 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i": ; preds = %13, %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2477
-  br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit"
+  br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit"
 
-15:                                               ; preds = %3, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit"
+15:                                               ; preds = %3, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit"
   ret i1 %7
 
 16:                                               ; preds = %13, %11
@@ -18795,7 +18795,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   store ptr %6, ptr %9, align 8
   resume { ptr, i32 } %17
 
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i", %8
+"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i", %8
   store ptr %6, ptr %9, align 8
   br label %15
 }
@@ -18830,7 +18830,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %17, align 8, !noundef !9
   %18 = icmp eq ptr %.val, null
-  br i1 %18, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit", label %19
+  br i1 %18, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit", label %19
 
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2492
@@ -18849,10 +18849,10 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i": ; preds = %21, %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2492
-  br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit"
+  br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit"
 
-23:                                               ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit", %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit"
-  %24 = phi i1 [ false, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread" ], [ false, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit" ], [ true, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit" ]
+23:                                               ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit", %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit"
+  %24 = phi i1 [ false, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit.thread" ], [ false, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h4448aaf0d8be98b6E.exit" ], [ true, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit" ]
   ret i1 %24
 
 25:                                               ; preds = %21, %19
@@ -18861,7 +18861,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   store ptr %15, ptr %17, align 8
   resume { ptr, i32 } %26
 
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.argprom.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i", %16
+"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h9c78f25e1ef0dd40E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h1e525c113250bdf4E.exit.i", %16
   store ptr %15, ptr %17, align 8
   br label %23
 }
@@ -19137,7 +19137,7 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$
   %102 = getelementptr inbounds i8, ptr %0, i64 24
   %.val43 = load i64, ptr %102, align 8
   store i32 %98, ptr %11, align 8, !alias.scope !2516
-  %103 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val43, i64 %.val44, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %103 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val43, i64 %.val44, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.sink.split" unwind label %104
 
 104:                                              ; preds = %100
@@ -19642,7 +19642,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 181:                                              ; preds = %95
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %43), !noalias !2542
-  br i1 %100, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %182
+  br i1 %100, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %182
 
 182:                                              ; preds = %181
   %183 = getelementptr inbounds i8, ptr %0, i64 16
@@ -19650,7 +19650,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
           to label %185 unwind label %179
 
 185:                                              ; preds = %182
-  br i1 %184, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %186
+  br i1 %184, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %186
 
 186:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %42), !noalias !2542
@@ -19668,14 +19668,14 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 192:                                              ; preds = %186
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %42), !noalias !2542
-  br i1 %191, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split"
+  br i1 %191, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split"
 
-"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread": ; preds = %328, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread157", %375, %374, %300, %297, %296, %293, %292, %285, %281, %279, %266, %265, %258, %253, %246, %242, %235, %231, %230, %223, %218, %211, %207, %206, %205, %204, %197, %193, %192, %185, %181
+"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread": ; preds = %328, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread157", %375, %374, %300, %297, %296, %293, %292, %285, %281, %279, %266, %265, %258, %253, %246, %242, %235, %231, %230, %223, %218, %211, %207, %206, %205, %204, %197, %193, %192, %185, %181
   br label %"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split"
 
 193:                                              ; preds = %101
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41), !noalias !2542
-  br i1 %106, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %194
+  br i1 %106, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %194
 
 194:                                              ; preds = %193
   %195 = getelementptr inbounds i8, ptr %0, i64 16
@@ -19683,7 +19683,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
           to label %197 unwind label %179
 
 197:                                              ; preds = %194
-  br i1 %196, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %198
+  br i1 %196, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %198
 
 198:                                              ; preds = %197
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %40), !noalias !2542
@@ -19701,27 +19701,27 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 204:                                              ; preds = %198
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %40), !noalias !2542
-  br i1 %203, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split"
+  br i1 %203, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split"
 
 205:                                              ; preds = %107
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %39), !noalias !2542
-  br i1 %112, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %.invoke178
+  br i1 %112, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %.invoke178
 
 206:                                              ; preds = %113
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38), !noalias !2542
-  br i1 %118, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %.invoke178
+  br i1 %118, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %.invoke178
 
 207:                                              ; preds = %119
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37), !noalias !2542
-  br i1 %124, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %208
+  br i1 %124, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %208
 
 208:                                              ; preds = %207
   %209 = getelementptr inbounds i8, ptr %0, i64 16
-  %210 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %209, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %210 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias noundef readonly align 8 dereferenceable(24) %209, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %211 unwind label %179, !noalias !2543
 
 211:                                              ; preds = %208
-  br i1 %210, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %212
+  br i1 %210, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %212
 
 212:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36), !noalias !2542
@@ -19739,7 +19739,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 218:                                              ; preds = %212
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36), !noalias !2542
-  br i1 %217, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %219
+  br i1 %217, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %219
 
 219:                                              ; preds = %218
   %220 = getelementptr inbounds i8, ptr %0, i64 40
@@ -19748,7 +19748,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
           to label %223 unwind label %179, !noalias !2531
 
 223:                                              ; preds = %219
-  br i1 %222, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %224
+  br i1 %222, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %224
 
 224:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35), !noalias !2542
@@ -19766,19 +19766,19 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 230:                                              ; preds = %224
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35), !noalias !2542
-  br i1 %229, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split"
+  br i1 %229, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split"
 
 231:                                              ; preds = %125
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34), !noalias !2542
-  br i1 %130, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %232
+  br i1 %130, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %232
 
 232:                                              ; preds = %231
   %233 = getelementptr inbounds i8, ptr %0, i64 16
-  %234 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %233, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %234 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias noundef readonly align 8 dereferenceable(24) %233, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %235 unwind label %179, !noalias !2543
 
 235:                                              ; preds = %232
-  br i1 %234, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %236
+  br i1 %234, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %236
 
 236:                                              ; preds = %235
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33), !noalias !2542
@@ -19796,15 +19796,15 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 242:                                              ; preds = %236
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %33), !noalias !2542
-  br i1 %241, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %243
+  br i1 %241, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %243
 
 243:                                              ; preds = %242
   %244 = getelementptr inbounds i8, ptr %0, i64 40
-  %245 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %244, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %245 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias noundef readonly align 8 dereferenceable(24) %244, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %246 unwind label %179, !noalias !2543
 
 246:                                              ; preds = %243
-  br i1 %245, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %247
+  br i1 %245, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %247
 
 247:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32), !noalias !2542
@@ -19822,7 +19822,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 253:                                              ; preds = %247
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32), !noalias !2542
-  br i1 %252, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %254
+  br i1 %252, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %254
 
 254:                                              ; preds = %253
   %255 = getelementptr inbounds i8, ptr %0, i64 64
@@ -19831,7 +19831,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
           to label %258 unwind label %179, !noalias !2531
 
 258:                                              ; preds = %254
-  br i1 %257, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %259
+  br i1 %257, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %259
 
 259:                                              ; preds = %258
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31), !noalias !2542
@@ -19849,11 +19849,11 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 265:                                              ; preds = %259
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31), !noalias !2542
-  br i1 %264, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split"
+  br i1 %264, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split"
 
 266:                                              ; preds = %131
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30), !noalias !2542
-  br i1 %136, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %.invoke177
+  br i1 %136, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %.invoke177
 
 267:                                              ; preds = %90
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29), !noalias !2542
@@ -19888,7 +19888,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 279:                                              ; preds = %276
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29), !noalias !2542
-  br label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread"
+  br label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread"
 
 280:                                              ; preds = %277
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29), !noalias !2542
@@ -19896,7 +19896,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 281:                                              ; preds = %137
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26), !noalias !2542
-  br i1 %142, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %282
+  br i1 %142, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %282
 
 282:                                              ; preds = %281
   %283 = getelementptr inbounds i8, ptr %0, i64 16
@@ -19907,7 +19907,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 285:                                              ; preds = %282
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18), !noalias !2542
-  br i1 %284, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %286
+  br i1 %284, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %286
 
 286:                                              ; preds = %285
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25), !noalias !2542
@@ -19925,11 +19925,11 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 292:                                              ; preds = %286
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25), !noalias !2542
-  br i1 %291, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %.invoke178
+  br i1 %291, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %.invoke178
 
 293:                                              ; preds = %143
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24), !noalias !2542
-  br i1 %148, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %.invoke178
+  br i1 %148, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %.invoke178
 
 .invoke178:                                       ; preds = %293, %292, %206, %205
   %.sink = phi i64 [ 16, %205 ], [ 16, %206 ], [ 48, %292 ], [ 16, %293 ]
@@ -19939,11 +19939,11 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 296:                                              ; preds = %149
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23), !noalias !2542
-  br i1 %154, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %.invoke177
+  br i1 %154, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %.invoke177
 
 297:                                              ; preds = %155
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22), !noalias !2542
-  br i1 %160, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %.invoke177
+  br i1 %160, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %.invoke177
 
 .invoke177:                                       ; preds = %297, %296, %266
   %298 = getelementptr inbounds i8, ptr %0, i64 16
@@ -19952,7 +19952,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 300:                                              ; preds = %161
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19), !noalias !2542
-  br i1 %166, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %301
+  br i1 %166, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %301
 
 301:                                              ; preds = %300
   %302 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19989,9 +19989,9 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
   %.pre = load i32, ptr %53, align 8, !alias.scope !2551, !noalias !2539
   br label %328
 
-328:                                              ; preds = %.lr.ph, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit"
-  %329 = phi i32 [ %.pre, %.lr.ph ], [ %.sink.i, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit" ]
-  %.sroa.0.0169 = phi ptr [ %.val230.i, %.lr.ph ], [ %330, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit" ]
+328:                                              ; preds = %.lr.ph, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit"
+  %329 = phi i32 [ %.pre, %.lr.ph ], [ %.sink.i, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit" ]
+  %.sroa.0.0169 = phi ptr [ %.val230.i, %.lr.ph ], [ %330, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit" ]
   %330 = getelementptr inbounds i8, ptr %.sroa.0.0169, i64 16
   %.val232.i = load i64, ptr %.sroa.0.0169, align 8, !noalias !2539
   %331 = getelementptr i8, ptr %.sroa.0.0169, i64 8
@@ -20000,17 +20000,17 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
   %332 = add i32 %329, 1
   %333 = load i32, ptr %56, align 4, !alias.scope !2551, !noalias !2539, !noundef !9
   %.not.i.not.i.i = icmp ult i32 %332, %333
-  br i1 %.not.i.not.i.i, label %334, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread"
+  br i1 %.not.i.not.i.i, label %334, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread"
 
 334:                                              ; preds = %328
   store i32 %332, ptr %53, align 8, !alias.scope !2551, !noalias !2539
   %335 = icmp ult i64 %.val232.i, %.val233.i
-  br i1 %335, label %.lr.ph.i, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit"
+  br i1 %335, label %.lr.ph.i, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit"
 
 ._crit_edge.loopexit.i:                           ; preds = %352
   %.pre.i109 = load i32, ptr %53, align 8, !alias.scope !2556, !noalias !2539
   %336 = add i32 %.pre.i109, -1
-  br label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit"
+  br label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit"
 
 .lr.ph.i:                                         ; preds = %334, %352
   %.03119.i = phi i64 [ %353, %352 ], [ %.val232.i, %334 ]
@@ -20070,13 +20070,13 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 357:                                              ; preds = %355
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !2557
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2557
-  br i1 %356, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread157", label %352
+  br i1 %356, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread157", label %352
 
-"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread157": ; preds = %357, %362, %365, %369
+"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread157": ; preds = %357, %362, %365, %369
   %358 = load i32, ptr %53, align 8, !alias.scope !2556, !noalias !2539, !noundef !9
   %359 = add i32 %358, -1
   store i32 %359, ptr %53, align 8, !alias.scope !2556, !noalias !2539
-  br label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread"
+  br label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread"
 
 360:                                              ; preds = %347
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !2557
@@ -20094,7 +20094,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 362:                                              ; preds = %360
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !2557
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !2557
-  br i1 %361, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread157", label %352
+  br i1 %361, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread157", label %352
 
 363:                                              ; preds = %347
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !2557
@@ -20112,7 +20112,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 365:                                              ; preds = %363
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !2557
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2557
-  br i1 %364, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread157", label %352
+  br i1 %364, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread157", label %352
 
 366:                                              ; preds = %339
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !2557
@@ -20134,7 +20134,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !2557
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !2557
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2557
-  br i1 %368, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread157", label %352
+  br i1 %368, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread157", label %352
 
 .loopexit.i:                                      ; preds = %366, %363, %360, %355
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -20153,7 +20153,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
   store i32 %372, ptr %53, align 8, !alias.scope !2556, !noalias !2539
   br label %379
 
-"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit": ; preds = %334, %._crit_edge.loopexit.i
+"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit": ; preds = %334, %._crit_edge.loopexit.i
   %.sink.i = phi i32 [ %336, %._crit_edge.loopexit.i ], [ %329, %334 ]
   store i32 %.sink.i, ptr %53, align 8, !alias.scope !2556, !noalias !2539
   %373 = icmp eq ptr %330, %304
@@ -20161,11 +20161,11 @@ define internal noundef zeroext i1 @"_ZN84_$LT$cpp_demangle..ast..Encoding$u20$a
 
 374:                                              ; preds = %167
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21), !noalias !2542
-  br i1 %172, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %.invoke
+  br i1 %172, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %.invoke
 
 375:                                              ; preds = %173
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20), !noalias !2542
-  br i1 %178, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread", label %.invoke
+  br i1 %178, label %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread", label %.invoke
 
 .invoke:                                          ; preds = %375, %374
   %376 = getelementptr inbounds i8, ptr %0, i64 16
@@ -20336,7 +20336,7 @@ default.unreachable:                              ; preds = %426
 432:                                              ; preds = %426
   %433 = getelementptr inbounds i8, ptr %428, i64 1
   %.val.i90 = load i8, ptr %433, align 1, !alias.scope !2583, !noalias !2588
-  %434 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"(i8 %.val.i90, ptr noalias noundef align 8 dereferenceable(104) %429)
+  %434 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i90, ptr noalias noundef align 8 dereferenceable(104) %429)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %382
 
 435:                                              ; preds = %426
@@ -20351,7 +20351,7 @@ default.unreachable:                              ; preds = %426
 
 443:                                              ; preds = %426
   %444 = getelementptr inbounds i8, ptr %428, i64 8
-  %445 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %444, ptr noalias noundef align 8 dereferenceable(104) %429)
+  %445 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %444, ptr noalias noundef align 8 dereferenceable(104) %429)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %382
 
 446:                                              ; preds = %426
@@ -20636,8 +20636,8 @@ default.unreachable:                              ; preds = %426
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47)
   br label %542
 
-"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split": ; preds = %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit", %192, %204, %230, %265, %280, %301, %.invoke, %.invoke177, %.invoke178, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread"
-  %.2.i.ph = phi i1 [ true, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit.thread" ], [ %278, %280 ], [ false, %192 ], [ false, %204 ], [ false, %230 ], [ false, %265 ], [ false, %301 ], [ %378, %.invoke ], [ %299, %.invoke177 ], [ %295, %.invoke178 ], [ false, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom.exit" ]
+"_ZN87_$LT$cpp_demangle..ast..SpecialName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8760f3129f482ef4E.exit.sink.split": ; preds = %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit", %192, %204, %230, %265, %280, %301, %.invoke, %.invoke177, %.invoke178, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread"
+  %.2.i.ph = phi i1 [ true, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit.thread" ], [ %278, %280 ], [ false, %192 ], [ false, %204 ], [ false, %230 ], [ false, %265 ], [ false, %301 ], [ %378, %.invoke ], [ %299, %.invoke177 ], [ %295, %.invoke178 ], [ false, %"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.exit" ]
   %558 = load i32, ptr %53, align 8, !noalias !2543, !noundef !9
   %559 = add i32 %558, -1
   store i32 %559, ptr %53, align 8, !noalias !2543
@@ -20839,7 +20839,7 @@ switch.lookup:                                    ; preds = %34
 
 63:                                               ; preds = %21
   %64 = getelementptr inbounds i8, ptr %31, i64 8
-  %65 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %64, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %65 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %64, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 66:                                               ; preds = %21
@@ -20941,7 +20941,7 @@ define internal void @"_ZN85_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E.argprom"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..CallOffset$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf61f0ab61349e872E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca [2 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca i64, align 8
@@ -21612,7 +21612,7 @@ default.unreachable:                              ; preds = %122
   %.val986 = load i64, ptr %299, align 8
   %300 = getelementptr inbounds i8, ptr %0, i64 16
   %.val987 = load i64, ptr %300, align 8
-  %301 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE.argprom"(i64 %.val986, i64 %.val987, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %301 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE"(i64 %.val986, i64 %.val987, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 302:                                              ; preds = %122
@@ -21750,7 +21750,7 @@ default.unreachable:                              ; preds = %122
   br i1 %361, label %.loopexit1160, label %363
 
 363:                                              ; preds = %362
-  %364 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E.argprom"(i8 %355, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %364 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E"(i8 %355, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit1160:                                    ; preds = %1026, %1027, %761, %762, %725, %726, %689, %690, %653, %654, %604, %605, %571, %572, %514, %515, %1037, %1036, %1035, %1021, %1002, %1001, %989, %988, %977, %976, %969, %968, %961, %958, %951, %950, %938, %937, %925, %924, %913, %912, %900, %899, %888, %887, %875, %874, %863, %862, %850, %843, %839, %838, %826, %819, %815, %814, %802, %795, %791, %790, %778, %771, %767, %766, %765, %764, %763, %750, %746, %727, %714, %710, %691, %678, %674, %655, %642, %638, %619, %618, %606, %599, %580, %573, %566, %547, %540, %539, %527, %520, %516, %509, %490, %483, %482, %478, %477, %465, %458, %453, %446, %441, %434, %433, %426, %421, %414, %407, %404, %391, %384, %379, %365, %362, %1028, %994, %981, %943, %930, %917, %905, %892, %880, %867, %855, %831, %807, %783, %756, %720, %684, %648, %611, %532, %470, %396
@@ -23351,7 +23351,7 @@ default.unreachable:                              ; preds = %122
   %.val988 = load i64, ptr %991, align 8
   %992 = getelementptr inbounds i8, ptr %0, i64 16
   %.val989 = load i64, ptr %992, align 8
-  %993 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE.argprom"(i64 %.val988, i64 %.val989, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %993 = invoke fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE"(i64 %.val988, i64 %.val989, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %994 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 994:                                              ; preds = %990
@@ -23629,7 +23629,7 @@ define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..MemberN
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.0.val, i64 %.8.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.0.val, i64 %.8.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
@@ -23650,7 +23650,7 @@ define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceN
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2709)
   %15 = add i32 %10, 2
   %.not.i.not.i.i = icmp ult i32 %15, %13
-  br i1 %.not.i.not.i.i, label %16, label %"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.argprom.exit"
+  br i1 %.not.i.not.i.i, label %16, label %"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.exit"
 
 16:                                               ; preds = %14
   store i32 %15, ptr %9, align 8, !alias.scope !2712
@@ -23865,7 +23865,7 @@ define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceN
   %93 = add i32 %92, -1
   store i32 %93, ptr %9, align 8, !alias.scope !2709
   %94 = add i32 %92, -2
-  br label %"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.argprom.exit"
+  br label %"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.exit"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hffa8a68e30251570E.exit28.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he1bee15603eaa80eE.exit.i26.i", %80
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !2709
@@ -23884,14 +23884,14 @@ define internal fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceN
   store i32 %99, ptr %9, align 8
   resume { ptr, i32 } %.pn.i
 
-"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.argprom.exit": ; preds = %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i", %14
+"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.exit": ; preds = %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i", %14
   %100 = phi i32 [ %10, %14 ], [ %94, %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i" ]
   %.2.i = phi i1 [ true, %14 ], [ %.2.ph.i, %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i" ]
   store i32 %100, ptr %9, align 8
   br label %101
 
-101:                                              ; preds = %1, %"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.argprom.exit"
-  %.0 = phi i1 [ %.2.i, %"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.argprom.exit" ], [ true, %1 ]
+101:                                              ; preds = %1, %"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.exit"
+  %.0 = phi i1 [ %.2.i, %"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.exit" ], [ true, %1 ]
   ret i1 %.0
 }
 
@@ -23923,7 +23923,7 @@ default.unreachable:                              ; preds = %3
   %14 = getelementptr inbounds i8, ptr %1, i64 84
   %15 = load i32, ptr %14, align 4, !alias.scope !2759, !noundef !9
   %.not.i.not.i.i = icmp ult i32 %13, %15
-  br i1 %.not.i.not.i.i, label %switch.lookup, label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br i1 %.not.i.not.i.i, label %switch.lookup, label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 switch.lookup:                                    ; preds = %9
   store i32 %13, ptr %11, align 8, !alias.scope !2759
@@ -23961,7 +23961,7 @@ switch.lookup:                                    ; preds = %9
   store i32 %27, ptr %11, align 8, !alias.scope !2756
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2756
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2756
-  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 28:                                               ; preds = %switch.lookup
   %29 = landingpad { ptr, i32 }
@@ -23983,14 +23983,14 @@ switch.lookup:                                    ; preds = %9
 
 40:                                               ; preds = %3
   %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = tail call fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %41, ptr noalias noundef align 8 dereferenceable(104) %1)
-  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  %42 = tail call fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %41, ptr noalias noundef align 8 dereferenceable(104) %1)
+  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 43:                                               ; preds = %3
   %44 = tail call fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..QualifiedBuiltin$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4eb2e2088850f98eE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
-  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
-"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit": ; preds = %25, %9, %45, %43, %40
+"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit": ; preds = %25, %9, %45, %43, %40
   %.0.in = phi i1 [ %44, %43 ], [ %42, %40 ], [ %49, %45 ], [ %24, %25 ], [ true, %9 ]
   ret i1 %.0.in
 
@@ -23999,7 +23999,7 @@ switch.lookup:                                    ; preds = %9
   %47 = load ptr, ptr %46, align 8, !nonnull !9, !noundef !9
   %48 = getelementptr inbounds [0 x { i8, [159 x i8] }], ptr %47, i64 0, i64 %34
   %49 = tail call fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %48, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
-  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 50:                                               ; preds = %32
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %34, i64 noundef %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.610) #42
@@ -24147,7 +24147,7 @@ switch.lookup:                                    ; preds = %33
 
 62:                                               ; preds = %21
   %63 = getelementptr inbounds i8, ptr %.012, i64 8
-  %64 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %63, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %64 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %63, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 65:                                               ; preds = %21
@@ -24225,7 +24225,7 @@ switch.lookup:                                    ; preds = %33
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -24249,7 +24249,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..Builtin
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2809)
   %15 = add i32 %7, 2
   %.not.i.not.i.i = icmp ult i32 %15, %10
-  br i1 %.not.i.not.i.i, label %switch.lookup, label %"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom.exit"
+  br i1 %.not.i.not.i.i, label %switch.lookup, label %"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit"
 
 switch.lookup:                                    ; preds = %13
   store i32 %15, ptr %6, align 8, !alias.scope !2812
@@ -24258,10 +24258,10 @@ switch.lookup:                                    ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2809
   %16 = getelementptr inbounds i8, ptr %3, i64 8
   %17 = sext i8 %.val8 to i64
-  %switch.gep = getelementptr inbounds [31 x ptr], ptr @"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom", i64 0, i64 %17
+  %switch.gep = getelementptr inbounds [31 x ptr], ptr @"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E", i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   %18 = sext i8 %.val8 to i64
-  %switch.gep3 = getelementptr inbounds [31 x i64], ptr @"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom.107", i64 0, i64 %18
+  %switch.gep3 = getelementptr inbounds [31 x i64], ptr @"switch.table._ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.107", i64 0, i64 %18
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   store ptr %switch.load, ptr %3, align 8, !noalias !2809
   store i64 %switch.load4, ptr %16, align 8, !noalias !2809
@@ -24287,7 +24287,7 @@ switch.lookup:                                    ; preds = %13
   store i32 %27, ptr %6, align 8, !alias.scope !2809
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2809
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2809
-  br label %"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom.exit"
+  br label %"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit"
 
 28:                                               ; preds = %switch.lookup
   %29 = landingpad { ptr, i32 }
@@ -24302,12 +24302,12 @@ switch.lookup:                                    ; preds = %13
   %.val6 = load i64, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 16
   %.val7 = load i64, ptr %34, align 8
-  %35 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val6, i64 %.val7, ptr noalias noundef align 8 dereferenceable(104) %1)
-          to label %"._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom.exit_crit_edge" unwind label %36
+  %35 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val6, i64 %.val7, ptr noalias noundef align 8 dereferenceable(104) %1)
+          to label %"._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit_crit_edge" unwind label %36
 
-"._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom.exit_crit_edge": ; preds = %32
+"._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit_crit_edge": ; preds = %32
   %.pre2 = load i32, ptr %6, align 8
-  br label %"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom.exit"
+  br label %"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit"
 
 36:                                               ; preds = %32
   %37 = landingpad { ptr, i32 }
@@ -24315,15 +24315,15 @@ switch.lookup:                                    ; preds = %13
   %.pre = load i32, ptr %6, align 8
   br label %41
 
-"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom.exit": ; preds = %"._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom.exit_crit_edge", %25, %13
-  %38 = phi i32 [ %.pre2, %"._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom.exit_crit_edge" ], [ %27, %25 ], [ %8, %13 ]
-  %.1.in = phi i1 [ %35, %"._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom.exit_crit_edge" ], [ %24, %25 ], [ true, %13 ]
+"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit": ; preds = %"._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit_crit_edge", %25, %13
+  %38 = phi i32 [ %.pre2, %"._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit_crit_edge" ], [ %27, %25 ], [ %8, %13 ]
+  %.1.in = phi i1 [ %35, %"._ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit_crit_edge" ], [ %24, %25 ], [ true, %13 ]
   %39 = add i32 %38, -1
   store i32 %39, ptr %6, align 8
   br label %40
 
-40:                                               ; preds = %2, %"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom.exit"
-  %.0 = phi i1 [ %.1.in, %"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom.exit" ], [ true, %2 ]
+40:                                               ; preds = %2, %"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit"
+  %.0 = phi i1 [ %.1.in, %"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.exit" ], [ true, %2 ]
   ret i1 %.0
 
 41:                                               ; preds = %36, %28
@@ -24579,7 +24579,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
 
 138:                                              ; preds = %121
   %139 = zext nneg i8 %130 to i32
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.argprom.exit.i.i"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit21.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit19.i.i.i.i.i"
   %140 = icmp ne ptr %107, %133
@@ -24597,7 +24597,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
   %148 = and i8 %130, 63
   %149 = zext nneg i8 %148 to i32
   %150 = or disjoint i32 %147, %149
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.argprom.exit.i.i"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit.i.i"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit23.i.i.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h92a730e7328c8c0fE.exit21.i.i.i.i.i"
   %151 = icmp ne ptr %107, %141
@@ -24620,7 +24620,7 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..ExprPri
   %164 = or disjoint i32 %161, %163
   br label %146
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.argprom.exit.i.i": ; preds = %146, %138
+"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit.i.i": ; preds = %146, %138
   %165 = phi i32 [ %139, %138 ], [ %150, %146 ]
   %166 = getelementptr inbounds i8, ptr %1, i64 80
   store i32 %165, ptr %166, align 8, !alias.scope !2835, !noalias !2833
@@ -24910,7 +24910,7 @@ default.unreachable123:                           ; preds = %284
 286:                                              ; preds = %284
   %287 = getelementptr inbounds i8, ptr %0, i64 9
   %.val.i = load i8, ptr %287, align 1, !alias.scope !2858, !noalias !2863
-  %288 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"(i8 %.val.i, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %288 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.val.i, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %315
 
 289:                                              ; preds = %284
@@ -24923,7 +24923,7 @@ default.unreachable123:                           ; preds = %284
   br i1 %295, label %300, label %.invoke128, !prof !127
 
 296:                                              ; preds = %284
-  %297 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %30, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %297 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %30, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %315
 
 298:                                              ; preds = %284
@@ -24963,8 +24963,8 @@ default.unreachable123:                           ; preds = %284
   store i8 %35, ptr %34, align 8
   br label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
-"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.argprom.exit.i.i", %110, %.noexc121, %.noexc118, %218, %261, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit", %202, %215, %225, %248, %257, %283, %311, %200, %201, %275, %276, %312
-  %.2.ph = phi i1 [ %175, %276 ], [ %274, %275 ], [ %199, %201 ], [ %193, %200 ], [ %36, %312 ], [ true, %311 ], [ true, %283 ], [ true, %257 ], [ true, %248 ], [ true, %225 ], [ true, %215 ], [ true, %202 ], [ true, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" ], [ true, %261 ], [ true, %218 ], [ true, %.noexc118 ], [ true, %.noexc121 ], [ false, %110 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.argprom.exit.i.i" ]
+"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit.i.i", %110, %.noexc121, %.noexc118, %218, %261, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit", %202, %215, %225, %248, %257, %283, %311, %200, %201, %275, %276, %312
+  %.2.ph = phi i1 [ %175, %276 ], [ %274, %275 ], [ %199, %201 ], [ %193, %200 ], [ %36, %312 ], [ true, %311 ], [ true, %283 ], [ true, %257 ], [ true, %248 ], [ true, %225 ], [ true, %215 ], [ true, %202 ], [ true, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" ], [ true, %261 ], [ true, %218 ], [ true, %.noexc118 ], [ true, %.noexc121 ], [ false, %110 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5980d9bcd8ee26f8E.exit.i.i" ]
   %313 = load i32, ptr %18, align 8, !noundef !9
   %314 = add i32 %313, -1
   store i32 %314, ptr %18, align 8
@@ -25261,7 +25261,7 @@ switch.lookup:                                    ; preds = %50
 
 77:                                               ; preds = %46
   %78 = getelementptr inbounds i8, ptr %0, i64 16
-  %79 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %78, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %79 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %78, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %167
 
 80:                                               ; preds = %46
@@ -25499,7 +25499,7 @@ switch.lookup:                                    ; preds = %50
 
 169:                                              ; preds = %38
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24)
-  br i1 %39, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread", label %170
+  br i1 %39, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread", label %170
 
 170:                                              ; preds = %169
   %171 = getelementptr inbounds i8, ptr %0, i64 112
@@ -25545,8 +25545,8 @@ switch.lookup:                                    ; preds = %50
   %206 = getelementptr inbounds i8, ptr %16, i64 24
   br label %207
 
-207:                                              ; preds = %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit", %178
-  %.sroa.0.0 = phi ptr [ %.val30, %178 ], [ %210, %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit" ]
+207:                                              ; preds = %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit", %178
+  %.sroa.0.0 = phi ptr [ %.val30, %178 ], [ %210, %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit" ]
   %208 = icmp eq ptr %.sroa.0.0, %180
   br i1 %208, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %209
 
@@ -25558,7 +25558,7 @@ switch.lookup:                                    ; preds = %50
   %212 = add i32 %211, 1
   %213 = load i32, ptr %29, align 4, !alias.scope !2941, !noalias !2936, !noundef !9
   %.not.i.not.i.i = icmp ult i32 %212, %213
-  br i1 %.not.i.not.i.i, label %214, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread"
+  br i1 %.not.i.not.i.i, label %214, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread"
 
 214:                                              ; preds = %209
   store i32 %212, ptr %26, align 8, !alias.scope !2941, !noalias !2936
@@ -25584,7 +25584,7 @@ switch.lookup:                                    ; preds = %50
 216:                                              ; preds = %214
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20), !noalias !2944
   %.pre14.i = load i32, ptr %26, align 8, !alias.scope !2939, !noalias !2936
-  br i1 %215, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread74", label %217
+  br i1 %215, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread74", label %217
 
 217:                                              ; preds = %216
   %218 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 24
@@ -25595,7 +25595,7 @@ switch.lookup:                                    ; preds = %50
   %220 = add i32 %.pre14.i, 1
   %221 = load i32, ptr %29, align 4, !alias.scope !2948, !noalias !2936, !noundef !9
   %.not.i.not.i.i.i = icmp ult i32 %220, %221
-  br i1 %.not.i.not.i.i.i, label %222, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread74"
+  br i1 %.not.i.not.i.i.i, label %222, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread74"
 
 222:                                              ; preds = %217
   store i32 %220, ptr %26, align 8, !alias.scope !2948, !noalias !2936
@@ -25712,7 +25712,7 @@ switch.lookup:                                    ; preds = %50
   call void @llvm.experimental.noalias.scope.decl(metadata !2977)
   %252 = load i64, ptr %15, align 8, !range !600, !alias.scope !2977, !noalias !2953, !noundef !9
   %253 = icmp eq i64 %252, -9223372036854775808
-  br i1 %253, label %"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.argprom.exit.i", label %254
+  br i1 %253, label %"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.exit.i", label %254
 
 254:                                              ; preds = %251
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !2980
@@ -25738,7 +25738,7 @@ switch.lookup:                                    ; preds = %50
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he1bee15603eaa80eE.exit.i20.i.i": ; preds = %261, %257, %.noexc21.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !2980
-  br label %"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.argprom.exit.i"
+  br label %"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.exit.i"
 
 263:                                              ; preds = %233
   %264 = landingpad { ptr, i32 }
@@ -25753,12 +25753,12 @@ switch.lookup:                                    ; preds = %50
   store i32 %267, ptr %26, align 8, !alias.scope !2951, !noalias !2936
   br label %284
 
-"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.argprom.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he1bee15603eaa80eE.exit.i20.i.i", %251
+"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he1bee15603eaa80eE.exit.i20.i.i", %251
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !2953
   %268 = load i32, ptr %26, align 8, !alias.scope !2951, !noalias !2936, !noundef !9
   %269 = add i32 %268, -1
   store i32 %269, ptr %26, align 8, !alias.scope !2951, !noalias !2936
-  br label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread74"
+  br label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread74"
 
 270:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he1bee15603eaa80eE.exit.i.i.i", %241
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !2953
@@ -25781,7 +25781,7 @@ switch.lookup:                                    ; preds = %50
   store ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %205, align 8, !noalias !2944
   store i64 0, ptr %206, align 8, !noalias !2944
   %277 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %16)
-          to label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit" unwind label %.loopexit.split-lp.i, !noalias !2936
+          to label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit" unwind label %.loopexit.split-lp.i, !noalias !2936
 
 .lr.ph.i:                                         ; preds = %270, %281
   %.sroa.0.012.i = phi ptr [ %278, %281 ], [ %.val36.i, %270 ]
@@ -25812,7 +25812,7 @@ switch.lookup:                                    ; preds = %50
 
 283:                                              ; preds = %280
   %.pre.i = load i32, ptr %26, align 8, !alias.scope !2939, !noalias !2936
-  br label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread74"
+  br label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread74"
 
 284:                                              ; preds = %265, %.loopexit.split-lp.i, %.loopexit.i
   %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.i.i, %265 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
@@ -25821,25 +25821,25 @@ switch.lookup:                                    ; preds = %50
   store i32 %286, ptr %26, align 8, !alias.scope !2939, !noalias !2936
   br label %296
 
-"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread74": ; preds = %217, %216, %"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.argprom.exit.i", %283
-  %.sink15.i.ph = phi i32 [ %.pre.i, %283 ], [ %269, %"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.argprom.exit.i" ], [ %.pre14.i, %216 ], [ %.pre14.i, %217 ]
+"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread74": ; preds = %217, %216, %"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.exit.i", %283
+  %.sink15.i.ph = phi i32 [ %.pre.i, %283 ], [ %269, %"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.exit.i" ], [ %.pre14.i, %216 ], [ %.pre14.i, %217 ]
   %287 = add i32 %.sink15.i.ph, -1
   store i32 %287, ptr %26, align 8, !alias.scope !2939, !noalias !2936
-  br label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread"
+  br label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread"
 
-"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit": ; preds = %._crit_edge.i
+"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit": ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16), !noalias !2944
   %.pre13.i = load i32, ptr %26, align 8, !alias.scope !2939, !noalias !2936
   %288 = add i32 %.pre13.i, -1
   store i32 %288, ptr %26, align 8, !alias.scope !2939, !noalias !2936
-  br i1 %277, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread", label %207
+  br i1 %277, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread", label %207
 
-"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread": ; preds = %209, %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit", %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread74", %289, %169, %293
+"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread": ; preds = %209, %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit", %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread74", %289, %169, %293
   br label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
 289:                                              ; preds = %40
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25)
-  br i1 %45, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread", label %290
+  br i1 %45, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread", label %290
 
 290:                                              ; preds = %289
   %291 = getelementptr inbounds i8, ptr %0, i64 24
@@ -25847,10 +25847,10 @@ switch.lookup:                                    ; preds = %50
           to label %293 unwind label %167
 
 293:                                              ; preds = %290
-  br i1 %292, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread", label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
+  br i1 %292, label %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread", label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
-"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %207, %170, %174, %293, %82, %80, %77, %50, %62, %159, %156, %88, %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread"
-  %.2.ph = phi i1 [ true, %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom.exit.thread" ], [ false, %170 ], [ false, %174 ], [ false, %293 ], [ %61, %62 ], [ true, %50 ], [ %79, %77 ], [ %81, %80 ], [ %86, %82 ], [ %155, %156 ], [ true, %159 ], [ true, %88 ], [ false, %207 ]
+"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %207, %170, %174, %293, %82, %80, %77, %50, %62, %159, %156, %88, %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread"
+  %.2.ph = phi i1 [ true, %"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.exit.thread" ], [ false, %170 ], [ false, %174 ], [ false, %293 ], [ %61, %62 ], [ true, %50 ], [ %79, %77 ], [ %81, %80 ], [ %86, %82 ], [ %155, %156 ], [ true, %159 ], [ true, %88 ], [ false, %207 ]
   %294 = load i32, ptr %26, align 8, !noundef !9
   %295 = add i32 %294, -1
   store i32 %295, ptr %26, align 8
@@ -25976,7 +25976,7 @@ switch.lookup:                                    ; preds = %20
 
 47:                                               ; preds = %16
   %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %48, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %49 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %48, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %.loopexit.split-lp
 
 50:                                               ; preds = %16
@@ -26900,7 +26900,7 @@ default.unreachable93:                            ; preds = %"_ZN4core6option15O
   %.val62 = load i64, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   %.val63 = load i64, ptr %30, align 8
-  %31 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val62, i64 %.val63, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %31 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val62, i64 %.val63, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %118 unwind label %51
 
 32:                                               ; preds = %23
@@ -26912,11 +26912,11 @@ default.unreachable93:                            ; preds = %"_ZN4core6option15O
   %.val60 = load i64, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %.val61 = load i64, ptr %36, align 8
-  %37 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val60, i64 %.val61, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %37 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val60, i64 %.val61, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %126 unwind label %51
 
 38:                                               ; preds = %.thread, %53, %25
-  %39 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E.argprom"(i8 %27, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %39 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E"(i8 %27, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %54 unwind label %51
 
 40:                                               ; preds = %25
@@ -27115,7 +27115,7 @@ switch.lookup:                                    ; preds = %79
 
 107:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h6347003d90449eb5E.exit"
   %108 = getelementptr inbounds i8, ptr %0, i64 16
-  %109 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %108, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %109 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %108, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %51
 
 110:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h6347003d90449eb5E.exit"
@@ -27240,7 +27240,7 @@ default.unreachable:                              ; preds = %3
   %14 = getelementptr inbounds i8, ptr %1, i64 84
   %15 = load i32, ptr %14, align 4, !alias.scope !3169, !noundef !9
   %.not.i.not.i.i = icmp ult i32 %13, %15
-  br i1 %.not.i.not.i.i, label %switch.lookup, label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br i1 %.not.i.not.i.i, label %switch.lookup, label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 switch.lookup:                                    ; preds = %9
   store i32 %13, ptr %11, align 8, !alias.scope !3169
@@ -27278,7 +27278,7 @@ switch.lookup:                                    ; preds = %9
   store i32 %27, ptr %11, align 8, !alias.scope !3166
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3166
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !3166
-  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 common.resume:                                    ; preds = %78, %94, %30
   %.sink = phi ptr [ %86, %94 ], [ %11, %30 ], [ %56, %78 ]
@@ -27312,9 +27312,9 @@ common.resume:                                    ; preds = %78, %94, %30
   %44 = load i64, ptr %41, align 8, !alias.scope !3178, !noalias !3185, !noundef !9
   %45 = tail call noundef align 8 dereferenceable(160) ptr @_ZN12cpp_demangle4subs17SubstitutionTable16non_substitution17hb0e2056dba983a16E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %43, i64 noundef %44), !noalias !3186
   %46 = tail call fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..subs..Substitutable$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h37667d7bcfe221b6E"(ptr noalias noundef readonly align 8 dereferenceable(160) %45, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2), !noalias !3178
-  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
-"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit": ; preds = %102, %99, %83, %55, %"_ZN88_$LT$cpp_demangle..ast..UnscopedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h311493baf008e79bE.exit", %85, %96, %25, %9, %40
+"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit": ; preds = %102, %99, %83, %55, %"_ZN88_$LT$cpp_demangle..ast..UnscopedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h311493baf008e79bE.exit", %85, %96, %25, %9, %40
   %.0.in = phi i1 [ %46, %40 ], [ %24, %25 ], [ true, %9 ], [ %104, %102 ], [ %101, %99 ], [ %84, %83 ], [ %.2.i, %"_ZN88_$LT$cpp_demangle..ast..UnscopedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h311493baf008e79bE.exit" ], [ true, %55 ], [ %93, %96 ], [ true, %85 ]
   ret i1 %.0.in
 
@@ -27344,7 +27344,7 @@ common.resume:                                    ; preds = %78, %94, %30
   %59 = getelementptr inbounds i8, ptr %1, i64 84
   %60 = load i32, ptr %59, align 4, !noalias !9, !noundef !9
   %.not.i.not.i.i7 = icmp ult i32 %58, %60
-  br i1 %.not.i.not.i.i7, label %61, label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br i1 %.not.i.not.i.i7, label %61, label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 61:                                               ; preds = %55
   store i32 %58, ptr %56, align 8, !alias.scope !3193, !noalias !3198
@@ -27404,11 +27404,11 @@ common.resume:                                    ; preds = %78, %94, %30
   %82 = phi i32 [ %57, %61 ], [ %77, %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i" ]
   %.2.i = phi i1 [ true, %61 ], [ %.2.ph.i, %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i" ]
   store i32 %82, ptr %56, align 8, !noalias !3213
-  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 83:                                               ; preds = %47
   %84 = tail call noundef zeroext i1 @"_ZN80_$LT$cpp_demangle..ast..Type$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hc6db9ac680238f42E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %50, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2)
-  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 85:                                               ; preds = %47
   %86 = getelementptr inbounds i8, ptr %1, i64 88
@@ -27417,7 +27417,7 @@ common.resume:                                    ; preds = %78, %94, %30
   %89 = getelementptr inbounds i8, ptr %1, i64 84
   %90 = load i32, ptr %89, align 4, !alias.scope !3214, !noalias !3219, !noundef !9
   %.not.i.not.i.i5 = icmp ult i32 %88, %90
-  br i1 %.not.i.not.i.i5, label %91, label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br i1 %.not.i.not.i.i5, label %91, label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 91:                                               ; preds = %85
   %92 = getelementptr inbounds i8, ptr %50, i64 8
@@ -27434,17 +27434,17 @@ common.resume:                                    ; preds = %78, %94, %30
   %97 = load i32, ptr %86, align 8, !noalias !3222, !noundef !9
   %98 = add i32 %97, -1
   store i32 %98, ptr %86, align 8, !noalias !3222
-  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 99:                                               ; preds = %47
   %100 = getelementptr inbounds i8, ptr %50, i64 8
   %101 = tail call fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..UnresolvedType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h7306d89d47061716E"(ptr noalias noundef readonly align 8 dereferenceable(128) %100, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
-  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 102:                                              ; preds = %47
   %103 = getelementptr inbounds i8, ptr %50, i64 8
   %104 = tail call fastcc noundef zeroext i1 @"_ZN82_$LT$cpp_demangle..ast..Prefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfd6133a5ffa92414E"(ptr noalias noundef readonly align 8 dereferenceable(128) %103, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2)
-  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom.exit"
+  br label %"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.exit"
 
 105:                                              ; preds = %32
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %34, i64 noundef %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.690) #42
@@ -27452,7 +27452,7 @@ common.resume:                                    ; preds = %78, %94, %30
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom"(i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E"(i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -27926,7 +27926,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE.argprom"(i64 %.0.val, i64 %.8.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN89_$LT$cpp_demangle..ast..FunctionParam$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb11e8a85eca1b35fE"(i64 %.0.val, i64 %.8.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca i64, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -28147,7 +28147,7 @@ switch.lookup:                                    ; preds = %33
 
 62:                                               ; preds = %30
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  %64 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %63, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %64 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %63, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %20
 
 65:                                               ; preds = %30
@@ -28438,8 +28438,8 @@ default.unreachable5:                             ; preds = %22, %2
   %.val = load i64, ptr %19, align 8
   %20 = getelementptr i8, ptr %19, i64 8
   %.val1 = load i64, ptr %20, align 8
-  %21 = tail call fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val, i64 %.val1, ptr noalias noundef align 8 dereferenceable(104) %1)
-  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom.exit"
+  %21 = tail call fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val, i64 %.val1, ptr noalias noundef align 8 dereferenceable(104) %1)
+  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds i8, ptr %0, i64 8
@@ -28472,7 +28472,7 @@ default.unreachable5:                             ; preds = %22, %2
   store i64 0, ptr %30, align 8, !noalias !3356
   %31 = call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !3356
-  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom.exit"
+  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
 32:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !3356
@@ -28487,7 +28487,7 @@ default.unreachable5:                             ; preds = %22, %2
   store i64 0, ptr %36, align 8, !noalias !3356
   %37 = call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13), !noalias !3356
-  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom.exit"
+  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
 38:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !3356
@@ -28502,7 +28502,7 @@ default.unreachable5:                             ; preds = %22, %2
   store i64 0, ptr %42, align 8, !noalias !3356
   %43 = call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !3356
-  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom.exit"
+  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
 44:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !3356
@@ -28517,7 +28517,7 @@ default.unreachable5:                             ; preds = %22, %2
   store i64 0, ptr %48, align 8, !noalias !3356
   %49 = call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !3356
-  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom.exit"
+  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
 50:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !3356
@@ -28532,7 +28532,7 @@ default.unreachable5:                             ; preds = %22, %2
   store i64 0, ptr %54, align 8, !noalias !3356
   %55 = call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !3356
-  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom.exit"
+  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
 56:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !3356
@@ -28547,7 +28547,7 @@ default.unreachable5:                             ; preds = %22, %2
   store i64 0, ptr %60, align 8, !noalias !3356
   %61 = call noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !3356
-  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom.exit"
+  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
 62:                                               ; preds = %2
   %63 = getelementptr inbounds i8, ptr %0, i64 8
@@ -28556,7 +28556,7 @@ default.unreachable5:                             ; preds = %22, %2
   store ptr null, ptr %15, align 8
   %65 = call fastcc noundef zeroext i1 @"_ZN91_$LT$cpp_demangle..ast..ClosureTypeName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h414376902bbb16f9E"(ptr noalias noundef readonly align 8 dereferenceable(40) %64, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %15)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
-  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom.exit"
+  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
 66:                                               ; preds = %2
   %67 = getelementptr inbounds i8, ptr %0, i64 8
@@ -28571,7 +28571,7 @@ default.unreachable5:                             ; preds = %22, %2
   %73 = getelementptr inbounds i8, ptr %1, i64 84
   %74 = load i32, ptr %73, align 4, !alias.scope !3362, !noundef !9
   %.not.i.not.i.i = icmp ult i32 %72, %74
-  br i1 %.not.i.not.i.i, label %75, label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom.exit"
+  br i1 %.not.i.not.i.i, label %75, label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
 75:                                               ; preds = %66
   store i32 %72, ptr %70, align 8, !alias.scope !3362
@@ -28647,7 +28647,7 @@ default.unreachable5:                             ; preds = %22, %2
   %99 = load i32, ptr %70, align 8, !alias.scope !3359, !noundef !9
   %100 = add i32 %99, -1
   store i32 %100, ptr %70, align 8, !alias.scope !3359
-  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom.exit"
+  br label %"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit"
 
 101:                                              ; preds = %90, %78
   %102 = landingpad { ptr, i32 }
@@ -28657,7 +28657,7 @@ default.unreachable5:                             ; preds = %22, %2
   store i32 %104, ptr %70, align 8, !alias.scope !3359
   resume { ptr, i32 } %102
 
-"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom.exit": ; preds = %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i", %66, %56, %50, %44, %38, %32, %26, %62, %17
+"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.exit": ; preds = %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i", %66, %56, %50, %44, %38, %32, %26, %62, %17
   %.0.in = phi i1 [ %65, %62 ], [ %21, %17 ], [ %61, %56 ], [ %55, %50 ], [ %49, %44 ], [ %43, %38 ], [ %37, %32 ], [ %31, %26 ], [ true, %66 ], [ %.2.ph.i, %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i" ]
   ret i1 %.0.in
 }
@@ -28747,7 +28747,7 @@ define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..Unresol
   %.val16.i259 = load i64, ptr %47, align 8, !alias.scope !3391, !noalias !3401
   %48 = getelementptr inbounds i8, ptr %33, i64 40
   %.val17.i260 = load i64, ptr %48, align 8, !alias.scope !3391, !noalias !3401
-  %49 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val16.i259, i64 %.val17.i260, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %49 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i259, i64 %.val17.i260, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %50 unwind label %59, !noalias !3399
 
 50:                                               ; preds = %46
@@ -28938,7 +28938,7 @@ switch.lookup:                                    ; preds = %86
   %.val16.i.i = load i64, ptr %126, align 8, !alias.scope !3451, !noalias !3452
   %127 = getelementptr inbounds i8, ptr %33, i64 40
   %.val17.i.i = load i64, ptr %127, align 8, !alias.scope !3451, !noalias !3452
-  %128 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val16.i.i, i64 %.val17.i.i, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %128 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i.i, i64 %.val17.i.i, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %133 unwind label %129, !noalias !3449
 
 129:                                              ; preds = %135, %125
@@ -29251,7 +29251,7 @@ switch.lookup344:                                 ; preds = %169
   %.val16.i = load i64, ptr %246, align 8, !alias.scope !3483, !noalias !3493
   %247 = getelementptr i8, ptr %.sroa.0.0, i64 32
   %.val17.i = load i64, ptr %247, align 8, !alias.scope !3483, !noalias !3493
-  %248 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val16.i, i64 %.val17.i, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %248 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i, i64 %.val17.i, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %253 unwind label %249, !noalias !3491
 
 249:                                              ; preds = %256, %245
@@ -29341,7 +29341,7 @@ switch.lookup344:                                 ; preds = %169
   %.val16.i124 = load i64, ptr %279, align 8, !alias.scope !3504, !noalias !3514
   %280 = getelementptr i8, ptr %.sroa.0167.0, i64 32
   %.val17.i125 = load i64, ptr %280, align 8, !alias.scope !3504, !noalias !3514
-  %281 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val16.i124, i64 %.val17.i125, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %281 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i124, i64 %.val17.i125, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %286 unwind label %282, !noalias !3512
 
 282:                                              ; preds = %289, %278
@@ -29447,7 +29447,7 @@ switch.lookup344:                                 ; preds = %169
   %.val16.i142 = load i64, ptr %323, align 8, !alias.scope !3525, !noalias !3535
   %324 = getelementptr i8, ptr %.sroa.0169.0, i64 32
   %.val17.i143 = load i64, ptr %324, align 8, !alias.scope !3525, !noalias !3535
-  %325 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val16.i142, i64 %.val17.i143, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %325 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val16.i142, i64 %.val17.i143, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %330 unwind label %326, !noalias !3533
 
 326:                                              ; preds = %333, %322
@@ -30569,7 +30569,7 @@ switch.lookup:                                    ; preds = %51
 
 73:                                               ; preds = %48
   %74 = getelementptr inbounds i8, ptr %.sroa.0.072, i64 8
-  %75 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %74, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %75 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %74, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit.i" unwind label %.loopexit
 
 76:                                               ; preds = %48
@@ -31005,7 +31005,7 @@ default.unreachable43:                            ; preds = %21
   br i1 %97, label %"_ZN88_$LT$cpp_demangle..ast..CtorDtorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3df889dcc7d4aac7E.exit.sink.split", label %99
 
 99:                                               ; preds = %98
-  %100 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.val15, i64 %.val16, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %100 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.val15, i64 %.val16, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %101 unwind label %109
 
 101:                                              ; preds = %99
@@ -31056,7 +31056,7 @@ default.unreachable43:                            ; preds = %21
   %.08.val = load i64, ptr %.08, align 8
   %121 = getelementptr inbounds i8, ptr %0, i64 16
   %.08.val12 = load i64, ptr %121, align 8
-  %122 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E.argprom"(i64 %.08.val, i64 %.08.val12, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %122 = invoke fastcc noundef zeroext i1 @"_ZN86_$LT$cpp_demangle..ast..SourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h79bc49e38347e2e1E"(i64 %.08.val, i64 %.08.val12, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %19
 
 "_ZN88_$LT$cpp_demangle..ast..CtorDtorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3df889dcc7d4aac7E.exit.sink.split": ; preds = %98, %101, %108, %83, %64, %65
@@ -31745,7 +31745,7 @@ switch.lookup:                                    ; preds = %36
 
 65:                                               ; preds = %33
   %66 = getelementptr inbounds i8, ptr %32, i64 8
-  %67 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %66, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %67 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %66, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %22
 
 68:                                               ; preds = %33
@@ -32452,7 +32452,7 @@ switch.lookup:                                    ; preds = %211
 
 233:                                              ; preds = %208
   %234 = getelementptr inbounds i8, ptr %.sroa.0.0131, i64 8
-  %235 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %234, ptr noalias noundef align 8 dereferenceable(104) %2)
+  %235 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %234, ptr noalias noundef align 8 dereferenceable(104) %2)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %.loopexit
 
 236:                                              ; preds = %208
@@ -32542,7 +32542,7 @@ define internal fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..Qualifi
   %22 = load i64, ptr %11, align 8, !alias.scope !3891, !noalias !3894, !noundef !9
   %23 = add i64 %22, 1
   store i64 %23, ptr %11, align 8, !alias.scope !3891, !noalias !3894
-  %24 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %24 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %25 unwind label %45
 
 25:                                               ; preds = %16
@@ -32809,7 +32809,7 @@ define hidden noundef align 8 dereferenceable_or_null(3000) ptr @"_ZN94_$LT$core
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E.argprom"(i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E"(i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -32828,10 +32828,10 @@ switch.lookup:                                    ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds [48 x ptr], ptr @"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E.argprom", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [48 x ptr], ptr @"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E", i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = sext i8 %.0.val to i64
-  %switch.gep2 = getelementptr inbounds [48 x i64], ptr @"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E.argprom.119", i64 0, i64 %12
+  %switch.gep2 = getelementptr inbounds [48 x i64], ptr @"switch.table._ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E.119", i64 0, i64 %12
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   store ptr %switch.load, ptr %2, align 8
   store i64 %switch.load3, ptr %10, align 8
@@ -32873,7 +32873,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"(i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"(i8 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i64 }, align 8
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -33048,7 +33048,7 @@ define internal noundef zeroext i1 @"_ZN95_$LT$cpp_demangle..ast..FunctionType$u
   br label %65
 
 30:                                               ; preds = %.critedge
-  br i1 %27, label %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit.thread", label %31
+  br i1 %27, label %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit.thread", label %31
 
 31:                                               ; preds = %19, %30
   %32 = getelementptr inbounds i8, ptr %0, i64 149
@@ -33060,7 +33060,7 @@ define internal noundef zeroext i1 @"_ZN95_$LT$cpp_demangle..ast..FunctionType$u
   %.pre40 = load i32, ptr %10, align 8
   br label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
-"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit.thread": ; preds = %47, %30, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit", %46
+"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit.thread": ; preds = %47, %30, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit", %46
   %34 = load i32, ptr %10, align 8, !noundef !9
   br label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
@@ -33099,7 +33099,7 @@ define internal noundef zeroext i1 @"_ZN95_$LT$cpp_demangle..ast..FunctionType$u
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !3977
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !3977
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br i1 %45, label %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit.thread", label %47
+  br i1 %45, label %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit.thread", label %47
 
 47:                                               ; preds = %.thread, %46
   call void @llvm.experimental.noalias.scope.decl(metadata !3986)
@@ -33107,7 +33107,7 @@ define internal noundef zeroext i1 @"_ZN95_$LT$cpp_demangle..ast..FunctionType$u
   %49 = add i32 %48, 1
   %50 = load i32, ptr %13, align 4, !alias.scope !3989, !noundef !9
   %.not.i.not.i.i = icmp ult i32 %49, %50
-  br i1 %.not.i.not.i.i, label %51, label %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit.thread"
+  br i1 %.not.i.not.i.i, label %51, label %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit.thread"
 
 51:                                               ; preds = %47
   store i32 %49, ptr %10, align 8, !alias.scope !3989
@@ -33133,7 +33133,7 @@ define internal noundef zeroext i1 @"_ZN95_$LT$cpp_demangle..ast..FunctionType$u
   %57 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 1, ptr %57, align 8, !alias.scope !3992, !noalias !3995
   %58 = invoke noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b05fb5003af99ead400dd576f4a4fe71.7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
-          to label %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit" unwind label %59
+          to label %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit" unwind label %59
 
 59:                                               ; preds = %51
   %60 = landingpad { ptr, i32 }
@@ -33143,14 +33143,14 @@ define internal noundef zeroext i1 @"_ZN95_$LT$cpp_demangle..ast..FunctionType$u
   store i32 %62, ptr %10, align 8, !alias.scope !3986
   br label %65
 
-"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit": ; preds = %51
+"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit": ; preds = %51
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !3986
   %63 = load i32, ptr %10, align 8, !alias.scope !3986, !noundef !9
   %64 = add i32 %63, -1
   store i32 %64, ptr %10, align 8, !alias.scope !3986
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3986
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3986
-  br i1 %58, label %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit.thread", label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
+  br i1 %58, label %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit.thread", label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
 65:                                               ; preds = %28, %59
   %66 = phi i32 [ %.pre, %28 ], [ %62, %59 ]
@@ -33159,9 +33159,9 @@ define internal noundef zeroext i1 @"_ZN95_$LT$cpp_demangle..ast..FunctionType$u
   store i32 %67, ptr %10, align 8
   resume { ptr, i32 } %eh.lpad-body
 
-"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit", %._crit_edge, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit.thread"
-  %.sink41 = phi i32 [ %34, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit.thread" ], [ %.pre40, %._crit_edge ], [ %64, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit" ]
-  %.2.ph = phi i1 [ true, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit.thread" ], [ false, %._crit_edge ], [ false, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom.exit" ]
+"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit", %._crit_edge, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit.thread"
+  %.sink41 = phi i32 [ %34, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit.thread" ], [ %.pre40, %._crit_edge ], [ %64, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit" ]
+  %.2.ph = phi i1 [ true, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit.thread" ], [ false, %._crit_edge ], [ false, %"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.exit" ]
   %68 = add i32 %.sink41, -1
   store i32 %68, ptr %10, align 8
   br label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread"
@@ -33314,7 +33314,7 @@ switch.lookup:                                    ; preds = %32
 
 61:                                               ; preds = %21
   %62 = getelementptr inbounds i8, ptr %0, i64 40
-  %63 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(24) %62, ptr noalias noundef align 8 dereferenceable(104) %1)
+  %63 = invoke fastcc noundef zeroext i1 @"_ZN87_$LT$cpp_demangle..ast..BuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h86851c9cf60da354E"(ptr noalias noundef readonly align 8 dereferenceable(24) %62, ptr noalias noundef align 8 dereferenceable(104) %1)
           to label %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" unwind label %19
 
 64:                                               ; preds = %21
@@ -43173,7 +43173,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8wasmtime7runtime9com
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom(i64 %5)
+  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %5)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   store ptr %11, ptr %2, align 8
@@ -43212,7 +43212,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8wasmtime7runtime9com
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom(i64 %5)
+  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %5)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   store ptr %11, ptr %2, align 8
@@ -43251,7 +43251,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8wasmtime7runtime9com
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom(i64 %5)
+  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %5)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   store ptr %11, ptr %2, align 8
@@ -43290,7 +43290,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8wasmtime7runtime9com
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom(i64 %5)
+  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %5)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   store ptr %11, ptr %2, align 8
@@ -43329,7 +43329,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8wasmtime7runtime9com
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom(i64 %5)
+  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %5)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   store ptr %11, ptr %2, align 8
@@ -43368,7 +43368,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8wasmtime7runtime9com
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom(i64 %5)
+  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %5)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   store ptr %11, ptr %2, align 8
@@ -43407,7 +43407,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8wasmtime7runtime9com
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom(i64 %5)
+  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %5)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   store ptr %11, ptr %2, align 8
@@ -43446,7 +43446,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN8wasmtime7runtime9com
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom(i64 %5)
+  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %5)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   store ptr %11, ptr %2, align 8
@@ -43485,7 +43485,7 @@ define noundef nonnull align 16 dereferenceable(32) ptr @_ZN8wasmtime7runtime9co
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom(i64 %5)
+  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %5)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   store ptr %11, ptr %2, align 8
@@ -43524,7 +43524,7 @@ define noundef nonnull align 16 dereferenceable(32) ptr @_ZN8wasmtime7runtime9co
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom(i64 %5)
+  %10 = tail call fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %5)
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   store ptr %11, ptr %2, align 8
@@ -43655,13 +43655,13 @@ default.unreachable80:                            ; preds = %3
   %27 = load ptr, ptr %.val1, align 8, !alias.scope !6048, !noalias !6041, !nonnull !9, !noundef !9
   %28 = atomicrmw add ptr %27, i64 1 monotonic, align 8, !noalias !6051
   %29 = icmp slt i64 %28, 0
-  br i1 %29, label %30, label %_ZN8wasmtime7runtime9component5types6Record4from17h5641af54ef7f58cbE.argprom.exit
+  br i1 %29, label %30, label %_ZN8wasmtime7runtime9component5types6Record4from17h5641af54ef7f58cbE.exit
 
 30:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i"
   tail call void @llvm.trap()
   unreachable
 
-_ZN8wasmtime7runtime9component5types6Record4from17h5641af54ef7f58cbE.argprom.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i"
+_ZN8wasmtime7runtime9component5types6Record4from17h5641af54ef7f58cbE.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i"
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %22, ptr %31, align 8
   %.sroa.447.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -43694,13 +43694,13 @@ _ZN8wasmtime7runtime9component5types6Record4from17h5641af54ef7f58cbE.argprom.exi
   %41 = load ptr, ptr %.val3, align 8, !alias.scope !6067, !noalias !6060, !nonnull !9, !noundef !9
   %42 = atomicrmw add ptr %41, i64 1 monotonic, align 8, !noalias !6070
   %43 = icmp slt i64 %42, 0
-  br i1 %43, label %44, label %_ZN8wasmtime7runtime9component5types7Variant4from17hff594addd0861911E.argprom.exit
+  br i1 %43, label %44, label %_ZN8wasmtime7runtime9component5types7Variant4from17hff594addd0861911E.exit
 
 44:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i16"
   tail call void @llvm.trap()
   unreachable
 
-_ZN8wasmtime7runtime9component5types7Variant4from17hff594addd0861911E.argprom.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i16"
+_ZN8wasmtime7runtime9component5types7Variant4from17hff594addd0861911E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i16"
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %36, ptr %45, align 8
   %.sroa.455.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -43733,13 +43733,13 @@ _ZN8wasmtime7runtime9component5types7Variant4from17hff594addd0861911E.argprom.ex
   %55 = load ptr, ptr %.val5, align 8, !alias.scope !6086, !noalias !6079, !nonnull !9, !noundef !9
   %56 = atomicrmw add ptr %55, i64 1 monotonic, align 8, !noalias !6089
   %57 = icmp slt i64 %56, 0
-  br i1 %57, label %58, label %_ZN8wasmtime7runtime9component5types4List4from17haafbbf5dae24876aE.argprom.exit
+  br i1 %57, label %58, label %_ZN8wasmtime7runtime9component5types4List4from17haafbbf5dae24876aE.exit
 
 58:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i19"
   tail call void @llvm.trap()
   unreachable
 
-_ZN8wasmtime7runtime9component5types4List4from17haafbbf5dae24876aE.argprom.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i19"
+_ZN8wasmtime7runtime9component5types4List4from17haafbbf5dae24876aE.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i19"
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %50, ptr %59, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -43772,13 +43772,13 @@ _ZN8wasmtime7runtime9component5types4List4from17haafbbf5dae24876aE.argprom.exit:
   %69 = load ptr, ptr %.val7, align 8, !alias.scope !6105, !noalias !6098, !nonnull !9, !noundef !9
   %70 = atomicrmw add ptr %69, i64 1 monotonic, align 8, !noalias !6108
   %71 = icmp slt i64 %70, 0
-  br i1 %71, label %72, label %_ZN8wasmtime7runtime9component5types5Tuple4from17h1fa2cd18a68a2805E.argprom.exit
+  br i1 %71, label %72, label %_ZN8wasmtime7runtime9component5types5Tuple4from17h1fa2cd18a68a2805E.exit
 
 72:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i22"
   tail call void @llvm.trap()
   unreachable
 
-_ZN8wasmtime7runtime9component5types5Tuple4from17h1fa2cd18a68a2805E.argprom.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i22"
+_ZN8wasmtime7runtime9component5types5Tuple4from17h1fa2cd18a68a2805E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i22"
   %73 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %64, ptr %73, align 8
   %.sroa.451.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -43811,13 +43811,13 @@ _ZN8wasmtime7runtime9component5types5Tuple4from17h1fa2cd18a68a2805E.argprom.exit
   %83 = load ptr, ptr %.val9, align 8, !alias.scope !6124, !noalias !6117, !nonnull !9, !noundef !9
   %84 = atomicrmw add ptr %83, i64 1 monotonic, align 8, !noalias !6127
   %85 = icmp slt i64 %84, 0
-  br i1 %85, label %86, label %_ZN8wasmtime7runtime9component5types5Flags4from17h4d7388957b4c5255E.argprom.exit
+  br i1 %85, label %86, label %_ZN8wasmtime7runtime9component5types5Flags4from17h4d7388957b4c5255E.exit
 
 86:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i25"
   tail call void @llvm.trap()
   unreachable
 
-_ZN8wasmtime7runtime9component5types5Flags4from17h4d7388957b4c5255E.argprom.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i25"
+_ZN8wasmtime7runtime9component5types5Flags4from17h4d7388957b4c5255E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i25"
   %87 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %78, ptr %87, align 8
   %.sroa.471.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -43850,13 +43850,13 @@ _ZN8wasmtime7runtime9component5types5Flags4from17h4d7388957b4c5255E.argprom.exit
   %97 = load ptr, ptr %.val11, align 8, !alias.scope !6143, !noalias !6136, !nonnull !9, !noundef !9
   %98 = atomicrmw add ptr %97, i64 1 monotonic, align 8, !noalias !6146
   %99 = icmp slt i64 %98, 0
-  br i1 %99, label %100, label %_ZN8wasmtime7runtime9component5types4Enum4from17hf3949bb208f97fc4E.argprom.exit
+  br i1 %99, label %100, label %_ZN8wasmtime7runtime9component5types4Enum4from17hf3949bb208f97fc4E.exit
 
 100:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i28"
   tail call void @llvm.trap()
   unreachable
 
-_ZN8wasmtime7runtime9component5types4Enum4from17hf3949bb208f97fc4E.argprom.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i28"
+_ZN8wasmtime7runtime9component5types4Enum4from17hf3949bb208f97fc4E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i28"
   %101 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %92, ptr %101, align 8
   %.sroa.459.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -43889,13 +43889,13 @@ _ZN8wasmtime7runtime9component5types4Enum4from17hf3949bb208f97fc4E.argprom.exit:
   %111 = load ptr, ptr %.val13, align 8, !alias.scope !6162, !noalias !6155, !nonnull !9, !noundef !9
   %112 = atomicrmw add ptr %111, i64 1 monotonic, align 8, !noalias !6165
   %113 = icmp slt i64 %112, 0
-  br i1 %113, label %114, label %_ZN8wasmtime7runtime9component5types10OptionType4from17h5f1411b5cf789055E.argprom.exit
+  br i1 %113, label %114, label %_ZN8wasmtime7runtime9component5types10OptionType4from17h5f1411b5cf789055E.exit
 
 114:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i31"
   tail call void @llvm.trap()
   unreachable
 
-_ZN8wasmtime7runtime9component5types10OptionType4from17h5f1411b5cf789055E.argprom.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i31"
+_ZN8wasmtime7runtime9component5types10OptionType4from17h5f1411b5cf789055E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i31"
   %115 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %106, ptr %115, align 8
   %.sroa.463.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -43928,13 +43928,13 @@ _ZN8wasmtime7runtime9component5types10OptionType4from17h5f1411b5cf789055E.argpro
   %125 = load ptr, ptr %.val15, align 8, !alias.scope !6181, !noalias !6174, !nonnull !9, !noundef !9
   %126 = atomicrmw add ptr %125, i64 1 monotonic, align 8, !noalias !6184
   %127 = icmp slt i64 %126, 0
-  br i1 %127, label %128, label %_ZN8wasmtime7runtime9component5types10ResultType4from17h790be7e752e3eb93E.argprom.exit
+  br i1 %127, label %128, label %_ZN8wasmtime7runtime9component5types10ResultType4from17h790be7e752e3eb93E.exit
 
 128:                                              ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i34"
   tail call void @llvm.trap()
   unreachable
 
-_ZN8wasmtime7runtime9component5types10ResultType4from17h790be7e752e3eb93E.argprom.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i34"
+_ZN8wasmtime7runtime9component5types10ResultType4from17h790be7e752e3eb93E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i34"
   %129 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %120, ptr %129, align 8
   %.sroa.467.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -44084,16 +44084,16 @@ _ZN8wasmtime7runtime9component8matching12InstanceType13resource_type17hd120347ac
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.879)
   br label %188
 
-188:                                              ; preds = %_ZN8wasmtime7runtime9component8matching12InstanceType13resource_type17hd120347ace997133E.exit45, %_ZN8wasmtime7runtime9component8matching12InstanceType13resource_type17hd120347ace997133E.exit, %_ZN8wasmtime7runtime9component5types10ResultType4from17h790be7e752e3eb93E.argprom.exit, %_ZN8wasmtime7runtime9component5types10OptionType4from17h5f1411b5cf789055E.argprom.exit, %_ZN8wasmtime7runtime9component5types4Enum4from17hf3949bb208f97fc4E.argprom.exit, %_ZN8wasmtime7runtime9component5types5Flags4from17h4d7388957b4c5255E.argprom.exit, %_ZN8wasmtime7runtime9component5types5Tuple4from17h1fa2cd18a68a2805E.argprom.exit, %_ZN8wasmtime7runtime9component5types4List4from17haafbbf5dae24876aE.argprom.exit, %_ZN8wasmtime7runtime9component5types7Variant4from17hff594addd0861911E.argprom.exit, %_ZN8wasmtime7runtime9component5types6Record4from17h5641af54ef7f58cbE.argprom.exit, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
+188:                                              ; preds = %_ZN8wasmtime7runtime9component8matching12InstanceType13resource_type17hd120347ace997133E.exit45, %_ZN8wasmtime7runtime9component8matching12InstanceType13resource_type17hd120347ace997133E.exit, %_ZN8wasmtime7runtime9component5types10ResultType4from17h790be7e752e3eb93E.exit, %_ZN8wasmtime7runtime9component5types10OptionType4from17h5f1411b5cf789055E.exit, %_ZN8wasmtime7runtime9component5types4Enum4from17hf3949bb208f97fc4E.exit, %_ZN8wasmtime7runtime9component5types5Flags4from17h4d7388957b4c5255E.exit, %_ZN8wasmtime7runtime9component5types5Tuple4from17h1fa2cd18a68a2805E.exit, %_ZN8wasmtime7runtime9component5types4List4from17haafbbf5dae24876aE.exit, %_ZN8wasmtime7runtime9component5types7Variant4from17hff594addd0861911E.exit, %_ZN8wasmtime7runtime9component5types6Record4from17h5641af54ef7f58cbE.exit, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom(i64 %.0.val) unnamed_addr #5 {
+define internal fastcc { ptr, i64 } @_ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E(i64 %.0.val) unnamed_addr #5 {
 switch.lookup:
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom, i64 0, i64 %.0.val
+  %switch.gep = getelementptr inbounds [23 x i64], ptr @switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E, i64 0, i64 %.0.val
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds [23 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.argprom.122, i64 0, i64 %.0.val
+  %switch.gep1 = getelementptr inbounds [23 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component5types4Type4desc17h4009c40b222d7964E.122, i64 0, i64 %.0.val
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %0 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %1 = insertvalue { ptr, i64 } %0, i64 %switch.load, 1
@@ -44635,13 +44635,13 @@ _ZN8wasmtime7runtime9component5types9Component4from17h5f7404c28167874cE.exit: ; 
   %37 = load ptr, ptr %.val2, align 8, !alias.scope !6324, !noalias !6317, !nonnull !9, !noundef !9
   %38 = atomicrmw add ptr %37, i64 1 monotonic, align 8, !noalias !6327
   %39 = icmp slt i64 %38, 0
-  br i1 %39, label %40, label %_ZN8wasmtime7runtime9component5types17ComponentInstance4from17h9dd85bc2fe3d5df1E.argprom.exit
+  br i1 %39, label %40, label %_ZN8wasmtime7runtime9component5types17ComponentInstance4from17h9dd85bc2fe3d5df1E.exit
 
 40:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i7"
   tail call void @llvm.trap()
   unreachable
 
-_ZN8wasmtime7runtime9component5types17ComponentInstance4from17h9dd85bc2fe3d5df1E.argprom.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i7"
+_ZN8wasmtime7runtime9component5types17ComponentInstance4from17h9dd85bc2fe3d5df1E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i7"
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %32, ptr %41, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -44674,13 +44674,13 @@ _ZN8wasmtime7runtime9component5types17ComponentInstance4from17h9dd85bc2fe3d5df1E
   %51 = load ptr, ptr %.val4, align 8, !alias.scope !6343, !noalias !6336, !nonnull !9, !noundef !9
   %52 = atomicrmw add ptr %51, i64 1 monotonic, align 8, !noalias !6346
   %53 = icmp slt i64 %52, 0
-  br i1 %53, label %54, label %_ZN8wasmtime7runtime9component5types13ComponentFunc4from17h518311525bacbe03E.argprom.exit
+  br i1 %53, label %54, label %_ZN8wasmtime7runtime9component5types13ComponentFunc4from17h518311525bacbe03E.exit
 
 54:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i10"
   tail call void @llvm.trap()
   unreachable
 
-_ZN8wasmtime7runtime9component5types13ComponentFunc4from17h518311525bacbe03E.argprom.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i10"
+_ZN8wasmtime7runtime9component5types13ComponentFunc4from17h518311525bacbe03E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i10"
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %46, ptr %55, align 8
   %.sroa.423.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -44720,13 +44720,13 @@ _ZN8wasmtime7runtime9component5types13ComponentFunc4from17h518311525bacbe03E.arg
   %66 = load ptr, ptr %.val6, align 8, !alias.scope !6362, !noalias !6355, !nonnull !9, !noundef !9
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6365
   %68 = icmp slt i64 %67, 0
-  br i1 %68, label %69, label %_ZN8wasmtime7runtime9component5types6Module4from17h660cd2770e86e375E.argprom.exit
+  br i1 %68, label %69, label %_ZN8wasmtime7runtime9component5types6Module4from17h660cd2770e86e375E.exit
 
 69:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i13"
   tail call void @llvm.trap()
   unreachable
 
-_ZN8wasmtime7runtime9component5types6Module4from17h660cd2770e86e375E.argprom.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i13"
+_ZN8wasmtime7runtime9component5types6Module4from17h660cd2770e86e375E.exit: ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd2546f2327268cf8E.llvm.5281577753466666573.exit.i.i13"
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %61, ptr %70, align 8
   %.sroa.427.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -44878,7 +44878,7 @@ _ZN8wasmtime7runtime9component5types6Module4from17h660cd2770e86e375E.argprom.exi
   %.not = icmp ugt i64 %139, %140
   br i1 %.not, label %145, label %142
 
-141:                                              ; preds = %149, %"_ZN67_$LT$wasmtime_types..WasmFuncType$u20$as$u20$core..clone..Clone$GT$5clone17h838264847af821eaE.llvm.14851531119274094909.exit", %_ZN8wasmtime7runtime9component5types6Module4from17h660cd2770e86e375E.argprom.exit, %56, %_ZN8wasmtime7runtime9component5types13ComponentFunc4from17h518311525bacbe03E.argprom.exit, %_ZN8wasmtime7runtime9component5types17ComponentInstance4from17h9dd85bc2fe3d5df1E.argprom.exit, %_ZN8wasmtime7runtime9component5types9Component4from17h5f7404c28167874cE.exit
+141:                                              ; preds = %149, %"_ZN67_$LT$wasmtime_types..WasmFuncType$u20$as$u20$core..clone..Clone$GT$5clone17h838264847af821eaE.llvm.14851531119274094909.exit", %_ZN8wasmtime7runtime9component5types6Module4from17h660cd2770e86e375E.exit, %56, %_ZN8wasmtime7runtime9component5types13ComponentFunc4from17h518311525bacbe03E.exit, %_ZN8wasmtime7runtime9component5types17ComponentInstance4from17h9dd85bc2fe3d5df1E.exit, %_ZN8wasmtime7runtime9component5types9Component4from17h5f7404c28167874cE.exit
   ret void
 
 142:                                              ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h2bb2c2a0d96a9affE.exit"
@@ -47042,8 +47042,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !110 = !{!108, !111}
 !111 = distinct !{!111, !106, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!114 = distinct !{!114, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!113 = distinct !{!113, !114, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!114 = distinct !{!114, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !115 = !{!116, !113}
 !116 = distinct !{!116, !117, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !117 = distinct !{!117, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -48981,8 +48981,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2049 = !{!2039, !2042, !2044, !2046}
 !2050 = !{!2041, !2045, !2048}
 !2051 = !{!2052, !2054, !2056, !2057, !2059}
-!2052 = distinct !{!2052, !2053, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h63e833c788bdffa5E.argprom: argument 0"}
-!2053 = distinct !{!2053, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h63e833c788bdffa5E.argprom"}
+!2052 = distinct !{!2052, !2053, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h63e833c788bdffa5E: argument 0"}
+!2053 = distinct !{!2053, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h63e833c788bdffa5E"}
 !2054 = distinct !{!2054, !2055, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hcf3a44369acbde59E: argument 0"}
 !2055 = distinct !{!2055, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hcf3a44369acbde59E"}
 !2056 = distinct !{!2056, !2055, !"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hcf3a44369acbde59E: argument 1"}
@@ -49236,8 +49236,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2304 = !{!2303, !2305}
 !2305 = distinct !{!2305, !2301, !"_ZN102_$LT$cpp_demangle..ast..UnscopedTemplateNameHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h309295a9a4ba2685E: argument 2"}
 !2306 = !{!2307}
-!2307 = distinct !{!2307, !2308, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!2308 = distinct !{!2308, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!2307 = distinct !{!2307, !2308, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!2308 = distinct !{!2308, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !2309 = !{!2310, !2307}
 !2310 = distinct !{!2310, !2311, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2311 = distinct !{!2311, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -49384,8 +49384,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2452 = !{!2451, !2453}
 !2453 = distinct !{!2453, !2449, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !2454 = !{!2455}
-!2455 = distinct !{!2455, !2456, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!2456 = distinct !{!2456, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!2455 = distinct !{!2455, !2456, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!2456 = distinct !{!2456, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !2457 = !{!2458, !2455}
 !2458 = distinct !{!2458, !2459, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2459 = distinct !{!2459, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -49448,8 +49448,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2516 = !{!2517, !2519}
 !2517 = distinct !{!2517, !2518, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2518 = distinct !{!2518, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
-!2519 = distinct !{!2519, !2520, !"_ZN92_$LT$cpp_demangle..ast..DataMemberPrefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfad09f3133448a6cE.argprom: argument 0"}
-!2520 = distinct !{!2520, !"_ZN92_$LT$cpp_demangle..ast..DataMemberPrefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfad09f3133448a6cE.argprom"}
+!2519 = distinct !{!2519, !2520, !"_ZN92_$LT$cpp_demangle..ast..DataMemberPrefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfad09f3133448a6cE: argument 0"}
+!2520 = distinct !{!2520, !"_ZN92_$LT$cpp_demangle..ast..DataMemberPrefix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hfad09f3133448a6cE"}
 !2521 = !{!2519}
 !2522 = !{!2523}
 !2523 = distinct !{!2523, !2524, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
@@ -49483,8 +49483,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2551 = !{!2552, !2554}
 !2552 = distinct !{!2552, !2553, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2553 = distinct !{!2553, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
-!2554 = distinct !{!2554, !2555, !"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom: argument 0"}
-!2555 = distinct !{!2555, !"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E.argprom"}
+!2554 = distinct !{!2554, !2555, !"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E: argument 0"}
+!2555 = distinct !{!2555, !"_ZN88_$LT$cpp_demangle..ast..ResourceName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hb3e2532c7a700781E"}
 !2556 = !{!2554}
 !2557 = !{!2554, !2532, !2540}
 !2558 = !{!2559}
@@ -49592,8 +49592,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2660 = !{!2659, !2661}
 !2661 = distinct !{!2661, !2657, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !2662 = !{!2663}
-!2663 = distinct !{!2663, !2664, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!2664 = distinct !{!2664, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!2663 = distinct !{!2663, !2664, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!2664 = distinct !{!2664, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !2665 = !{!2666, !2663}
 !2666 = distinct !{!2666, !2667, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2667 = distinct !{!2667, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -49639,8 +49639,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2707 = distinct !{!2707, !2708, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2708 = distinct !{!2708, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
 !2709 = !{!2710}
-!2710 = distinct !{!2710, !2711, !"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.argprom: argument 0"}
-!2711 = distinct !{!2711, !"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E.argprom"}
+!2710 = distinct !{!2710, !2711, !"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E: argument 0"}
+!2711 = distinct !{!2711, !"_ZN86_$LT$cpp_demangle..ast..Identifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17ha9f4868a542264a8E"}
 !2712 = !{!2713, !2710}
 !2713 = distinct !{!2713, !2714, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2714 = distinct !{!2714, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -49686,8 +49686,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2754 = distinct !{!2754, !2755, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he1bee15603eaa80eE: argument 0"}
 !2755 = distinct !{!2755, !"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he1bee15603eaa80eE"}
 !2756 = !{!2757}
-!2757 = distinct !{!2757, !2758, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!2758 = distinct !{!2758, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!2757 = distinct !{!2757, !2758, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!2758 = distinct !{!2758, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !2759 = !{!2760, !2757}
 !2760 = distinct !{!2760, !2761, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2761 = distinct !{!2761, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -49713,8 +49713,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2781 = !{!2780, !2782}
 !2782 = distinct !{!2782, !2778, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !2783 = !{!2784}
-!2784 = distinct !{!2784, !2785, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!2785 = distinct !{!2785, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!2784 = distinct !{!2784, !2785, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!2785 = distinct !{!2785, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !2786 = !{!2787, !2784}
 !2787 = distinct !{!2787, !2788, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2788 = distinct !{!2788, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -49739,8 +49739,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2807 = distinct !{!2807, !2808, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2808 = distinct !{!2808, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
 !2809 = !{!2810}
-!2810 = distinct !{!2810, !2811, !"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom: argument 0"}
-!2811 = distinct !{!2811, !"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E.argprom"}
+!2810 = distinct !{!2810, !2811, !"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E: argument 0"}
+!2811 = distinct !{!2811, !"_ZN95_$LT$cpp_demangle..ast..StandardBuiltinType$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h8ebcb0f87915c0b6E"}
 !2812 = !{!2813, !2810}
 !2813 = distinct !{!2813, !2814, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2814 = distinct !{!2814, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -49810,8 +49810,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2878 = !{!2877, !2879}
 !2879 = distinct !{!2879, !2875, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !2880 = !{!2881}
-!2881 = distinct !{!2881, !2882, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!2882 = distinct !{!2882, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!2881 = distinct !{!2881, !2882, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!2882 = distinct !{!2882, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !2883 = !{!2884, !2881}
 !2884 = distinct !{!2884, !2885, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2885 = distinct !{!2885, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -49866,17 +49866,17 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !2934 = distinct !{!2934, !2935, !"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$$RF$dyn$u20$cpp_demangle..ast..DemangleAsInner$LT$alloc..string..String$GT$$GT$$GT$17hbb90770999f1315bE: argument 0"}
 !2935 = distinct !{!2935, !"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$$RF$dyn$u20$cpp_demangle..ast..DemangleAsInner$LT$alloc..string..String$GT$$GT$$GT$17hbb90770999f1315bE"}
 !2936 = !{!2937}
-!2937 = distinct !{!2937, !2938, !"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom: argument 0"}
-!2938 = distinct !{!2938, !"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom"}
+!2937 = distinct !{!2937, !2938, !"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E: argument 0"}
+!2938 = distinct !{!2938, !"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E"}
 !2939 = !{!2940}
-!2940 = distinct !{!2940, !2938, !"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E.argprom: argument 1"}
+!2940 = distinct !{!2940, !2938, !"_ZN87_$LT$cpp_demangle..ast..CloneSuffix$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h41ef3116fd16f8e5E: argument 1"}
 !2941 = !{!2942, !2940}
 !2942 = distinct !{!2942, !2943, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2943 = distinct !{!2943, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
 !2944 = !{!2937, !2940}
 !2945 = !{!2946}
-!2946 = distinct !{!2946, !2947, !"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.argprom: argument 0"}
-!2947 = distinct !{!2947, !"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE.argprom"}
+!2946 = distinct !{!2946, !2947, !"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE: argument 0"}
+!2947 = distinct !{!2947, !"_ZN95_$LT$cpp_demangle..ast..CloneTypeIdentifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h28de3fed8be5295eE"}
 !2948 = !{!2949, !2946, !2940}
 !2949 = distinct !{!2949, !2950, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !2950 = distinct !{!2950, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -49935,8 +49935,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3003 = !{!3002, !3004}
 !3004 = distinct !{!3004, !3000, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !3005 = !{!3006}
-!3006 = distinct !{!3006, !3007, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!3007 = distinct !{!3007, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!3006 = distinct !{!3006, !3007, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!3007 = distinct !{!3007, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !3008 = !{!3009, !3006}
 !3009 = distinct !{!3009, !3010, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3010 = distinct !{!3010, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50076,8 +50076,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3144 = !{!3143, !3145}
 !3145 = distinct !{!3145, !3141, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !3146 = !{!3147}
-!3147 = distinct !{!3147, !3148, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!3148 = distinct !{!3148, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!3147 = distinct !{!3147, !3148, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!3148 = distinct !{!3148, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !3149 = !{!3150, !3147}
 !3150 = distinct !{!3150, !3151, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3151 = distinct !{!3151, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50096,8 +50096,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3164 = distinct !{!3164, !3162, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.14851531119274094909: argument 1"}
 !3165 = distinct !{!3165, !3162, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.14851531119274094909: argument 2"}
 !3166 = !{!3167}
-!3167 = distinct !{!3167, !3168, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!3168 = distinct !{!3168, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!3167 = distinct !{!3167, !3168, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!3168 = distinct !{!3168, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !3169 = !{!3170, !3167}
 !3170 = distinct !{!3170, !3171, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3171 = distinct !{!3171, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50243,8 +50243,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3311 = !{!3310, !3312}
 !3312 = distinct !{!3312, !3308, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !3313 = !{!3314}
-!3314 = distinct !{!3314, !3315, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!3315 = distinct !{!3315, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!3314 = distinct !{!3314, !3315, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!3315 = distinct !{!3315, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !3316 = !{!3317, !3314}
 !3317 = distinct !{!3317, !3318, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3318 = distinct !{!3318, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50286,11 +50286,11 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3354 = !{!3351, !3346}
 !3355 = !{!3349}
 !3356 = !{!3357}
-!3357 = distinct !{!3357, !3358, !"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom: argument 0"}
-!3358 = distinct !{!3358, !"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE.argprom"}
+!3357 = distinct !{!3357, !3358, !"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE: argument 0"}
+!3358 = distinct !{!3358, !"_ZN100_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17he32be3855bea30ebE"}
 !3359 = !{!3360}
-!3360 = distinct !{!3360, !3361, !"_ZN97_$LT$cpp_demangle..ast..UnnamedTypeName$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17h82abcaba9954e048E.argprom: argument 0"}
-!3361 = distinct !{!3361, !"_ZN97_$LT$cpp_demangle..ast..UnnamedTypeName$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17h82abcaba9954e048E.argprom"}
+!3360 = distinct !{!3360, !3361, !"_ZN97_$LT$cpp_demangle..ast..UnnamedTypeName$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17h82abcaba9954e048E: argument 0"}
+!3361 = distinct !{!3361, !"_ZN97_$LT$cpp_demangle..ast..UnnamedTypeName$u20$as$u20$cpp_demangle..ast..DemangleAsLeaf$LT$W$GT$$GT$16demangle_as_leaf17h82abcaba9954e048E"}
 !3362 = !{!3363, !3360}
 !3363 = distinct !{!3363, !3364, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3364 = distinct !{!3364, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50354,8 +50354,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3422 = !{!3420, !3423, !3384, !3389}
 !3423 = distinct !{!3423, !3418, !"_ZN96_$LT$cpp_demangle..ast..UnresolvedTypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h39cb44ce6ada5015E: argument 2"}
 !3424 = !{!3425}
-!3425 = distinct !{!3425, !3426, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!3426 = distinct !{!3426, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!3425 = distinct !{!3425, !3426, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!3426 = distinct !{!3426, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !3427 = !{!3428, !3425, !3420, !3384}
 !3428 = distinct !{!3428, !3429, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3429 = distinct !{!3429, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50391,8 +50391,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3459 = !{!3458, !3460}
 !3460 = distinct !{!3460, !3456, !"_ZN96_$LT$cpp_demangle..ast..UnresolvedTypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h39cb44ce6ada5015E: argument 2"}
 !3461 = !{!3462}
-!3462 = distinct !{!3462, !3463, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!3463 = distinct !{!3463, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!3462 = distinct !{!3462, !3463, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!3463 = distinct !{!3463, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !3464 = !{!3465, !3462}
 !3465 = distinct !{!3465, !3466, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3466 = distinct !{!3466, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50539,8 +50539,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3607 = !{!3606, !3608, !3594, !3599}
 !3608 = distinct !{!3608, !3604, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !3609 = !{!3610}
-!3610 = distinct !{!3610, !3611, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!3611 = distinct !{!3611, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!3610 = distinct !{!3610, !3611, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!3611 = distinct !{!3611, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !3612 = !{!3613, !3610}
 !3613 = distinct !{!3613, !3614, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3614 = distinct !{!3614, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50587,8 +50587,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3655 = !{!3644, !3649}
 !3656 = !{i8 0, i8 6}
 !3657 = !{!3658}
-!3658 = distinct !{!3658, !3659, !"_ZN91_$LT$cpp_demangle..ast..UnnamedTypeName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3b568dd5bad25619E.argprom: argument 0"}
-!3659 = distinct !{!3659, !"_ZN91_$LT$cpp_demangle..ast..UnnamedTypeName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3b568dd5bad25619E.argprom"}
+!3658 = distinct !{!3658, !3659, !"_ZN91_$LT$cpp_demangle..ast..UnnamedTypeName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3b568dd5bad25619E: argument 0"}
+!3659 = distinct !{!3659, !"_ZN91_$LT$cpp_demangle..ast..UnnamedTypeName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h3b568dd5bad25619E"}
 !3660 = !{!3661, !3658}
 !3661 = distinct !{!3661, !3662, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3662 = distinct !{!3662, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50599,8 +50599,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3667 = distinct !{!3667, !3665, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.14851531119274094909: argument 1"}
 !3668 = distinct !{!3668, !3665, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.14851531119274094909: argument 2"}
 !3669 = !{!3670}
-!3670 = distinct !{!3670, !3671, !"_ZN86_$LT$cpp_demangle..ast..TaggedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf267c14a519c58b5E.argprom: argument 0"}
-!3671 = distinct !{!3671, !"_ZN86_$LT$cpp_demangle..ast..TaggedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf267c14a519c58b5E.argprom"}
+!3670 = distinct !{!3670, !3671, !"_ZN86_$LT$cpp_demangle..ast..TaggedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf267c14a519c58b5E: argument 0"}
+!3671 = distinct !{!3671, !"_ZN86_$LT$cpp_demangle..ast..TaggedName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hf267c14a519c58b5E"}
 !3672 = !{!3673, !3670}
 !3673 = distinct !{!3673, !3674, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3674 = distinct !{!3674, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50674,8 +50674,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3742 = !{!3741, !3743}
 !3743 = distinct !{!3743, !3739, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !3744 = !{!3745}
-!3745 = distinct !{!3745, !3746, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!3746 = distinct !{!3746, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!3745 = distinct !{!3745, !3746, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!3746 = distinct !{!3746, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !3747 = !{!3748, !3745}
 !3748 = distinct !{!3748, !3749, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3749 = distinct !{!3749, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50804,8 +50804,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3872 = !{!3871, !3873}
 !3873 = distinct !{!3873, !3869, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !3874 = !{!3875}
-!3875 = distinct !{!3875, !3876, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!3876 = distinct !{!3876, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!3875 = distinct !{!3875, !3876, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!3876 = distinct !{!3876, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !3877 = !{!3878, !3875}
 !3878 = distinct !{!3878, !3879, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3879 = distinct !{!3879, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50916,8 +50916,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !3984 = distinct !{!3984, !3982, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.14851531119274094909: argument 1"}
 !3985 = distinct !{!3985, !3982, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.14851531119274094909: argument 2"}
 !3986 = !{!3987}
-!3987 = distinct !{!3987, !3988, !"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom: argument 0"}
-!3988 = distinct !{!3988, !"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E.argprom"}
+!3987 = distinct !{!3987, !3988, !"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E: argument 0"}
+!3988 = distinct !{!3988, !"_ZN88_$LT$cpp_demangle..ast..RefQualifier$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17hd69cce2e3d9804a2E"}
 !3989 = !{!3990, !3987}
 !3990 = distinct !{!3990, !3991, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !3991 = distinct !{!3991, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -50943,8 +50943,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !4011 = !{!4010, !4012}
 !4012 = distinct !{!4012, !4008, !"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE: argument 2"}
 !4013 = !{!4014}
-!4014 = distinct !{!4014, !4015, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom: argument 0"}
-!4015 = distinct !{!4015, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE.argprom"}
+!4014 = distinct !{!4014, !4015, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE: argument 0"}
+!4015 = distinct !{!4015, !"_ZN94_$LT$cpp_demangle..ast..WellKnownComponent$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17he158d97b80d657bfE"}
 !4016 = !{!4017, !4014}
 !4017 = distinct !{!4017, !4018, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE: argument 0"}
 !4018 = distinct !{!4018, !"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE"}
@@ -52974,8 +52974,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !6042 = distinct !{!6042, !6043, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hbf815a125d639eb1E: argument 0"}
 !6043 = distinct !{!6043, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hbf815a125d639eb1E"}
 !6044 = distinct !{!6044, !6043, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hbf815a125d639eb1E: argument 1"}
-!6045 = distinct !{!6045, !6046, !"_ZN8wasmtime7runtime9component5types6Record4from17h5641af54ef7f58cbE.argprom: argument 0"}
-!6046 = distinct !{!6046, !"_ZN8wasmtime7runtime9component5types6Record4from17h5641af54ef7f58cbE.argprom"}
+!6045 = distinct !{!6045, !6046, !"_ZN8wasmtime7runtime9component5types6Record4from17h5641af54ef7f58cbE: argument 0"}
+!6046 = distinct !{!6046, !"_ZN8wasmtime7runtime9component5types6Record4from17h5641af54ef7f58cbE"}
 !6047 = !{!6039, !6042, !6044, !6045}
 !6048 = !{!6049}
 !6049 = distinct !{!6049, !6050, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haa2722c8a9c189ddE.llvm.5281577753466666573: argument 0"}
@@ -52993,8 +52993,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !6061 = distinct !{!6061, !6062, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hf051611e2a02bf6dE: argument 0"}
 !6062 = distinct !{!6062, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hf051611e2a02bf6dE"}
 !6063 = distinct !{!6063, !6062, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hf051611e2a02bf6dE: argument 1"}
-!6064 = distinct !{!6064, !6065, !"_ZN8wasmtime7runtime9component5types7Variant4from17hff594addd0861911E.argprom: argument 0"}
-!6065 = distinct !{!6065, !"_ZN8wasmtime7runtime9component5types7Variant4from17hff594addd0861911E.argprom"}
+!6064 = distinct !{!6064, !6065, !"_ZN8wasmtime7runtime9component5types7Variant4from17hff594addd0861911E: argument 0"}
+!6065 = distinct !{!6065, !"_ZN8wasmtime7runtime9component5types7Variant4from17hff594addd0861911E"}
 !6066 = !{!6058, !6061, !6063, !6064}
 !6067 = !{!6068}
 !6068 = distinct !{!6068, !6069, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haa2722c8a9c189ddE.llvm.5281577753466666573: argument 0"}
@@ -53012,8 +53012,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !6080 = distinct !{!6080, !6081, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hc9a333a3bbbb9546E: argument 0"}
 !6081 = distinct !{!6081, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hc9a333a3bbbb9546E"}
 !6082 = distinct !{!6082, !6081, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hc9a333a3bbbb9546E: argument 1"}
-!6083 = distinct !{!6083, !6084, !"_ZN8wasmtime7runtime9component5types4List4from17haafbbf5dae24876aE.argprom: argument 0"}
-!6084 = distinct !{!6084, !"_ZN8wasmtime7runtime9component5types4List4from17haafbbf5dae24876aE.argprom"}
+!6083 = distinct !{!6083, !6084, !"_ZN8wasmtime7runtime9component5types4List4from17haafbbf5dae24876aE: argument 0"}
+!6084 = distinct !{!6084, !"_ZN8wasmtime7runtime9component5types4List4from17haafbbf5dae24876aE"}
 !6085 = !{!6077, !6080, !6082, !6083}
 !6086 = !{!6087}
 !6087 = distinct !{!6087, !6088, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haa2722c8a9c189ddE.llvm.5281577753466666573: argument 0"}
@@ -53031,8 +53031,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !6099 = distinct !{!6099, !6100, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h066c18e78fdf6f85E: argument 0"}
 !6100 = distinct !{!6100, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h066c18e78fdf6f85E"}
 !6101 = distinct !{!6101, !6100, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h066c18e78fdf6f85E: argument 1"}
-!6102 = distinct !{!6102, !6103, !"_ZN8wasmtime7runtime9component5types5Tuple4from17h1fa2cd18a68a2805E.argprom: argument 0"}
-!6103 = distinct !{!6103, !"_ZN8wasmtime7runtime9component5types5Tuple4from17h1fa2cd18a68a2805E.argprom"}
+!6102 = distinct !{!6102, !6103, !"_ZN8wasmtime7runtime9component5types5Tuple4from17h1fa2cd18a68a2805E: argument 0"}
+!6103 = distinct !{!6103, !"_ZN8wasmtime7runtime9component5types5Tuple4from17h1fa2cd18a68a2805E"}
 !6104 = !{!6096, !6099, !6101, !6102}
 !6105 = !{!6106}
 !6106 = distinct !{!6106, !6107, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haa2722c8a9c189ddE.llvm.5281577753466666573: argument 0"}
@@ -53050,8 +53050,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !6118 = distinct !{!6118, !6119, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h7a1bce8d18fb01deE: argument 0"}
 !6119 = distinct !{!6119, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h7a1bce8d18fb01deE"}
 !6120 = distinct !{!6120, !6119, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h7a1bce8d18fb01deE: argument 1"}
-!6121 = distinct !{!6121, !6122, !"_ZN8wasmtime7runtime9component5types5Flags4from17h4d7388957b4c5255E.argprom: argument 0"}
-!6122 = distinct !{!6122, !"_ZN8wasmtime7runtime9component5types5Flags4from17h4d7388957b4c5255E.argprom"}
+!6121 = distinct !{!6121, !6122, !"_ZN8wasmtime7runtime9component5types5Flags4from17h4d7388957b4c5255E: argument 0"}
+!6122 = distinct !{!6122, !"_ZN8wasmtime7runtime9component5types5Flags4from17h4d7388957b4c5255E"}
 !6123 = !{!6115, !6118, !6120, !6121}
 !6124 = !{!6125}
 !6125 = distinct !{!6125, !6126, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haa2722c8a9c189ddE.llvm.5281577753466666573: argument 0"}
@@ -53069,8 +53069,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !6137 = distinct !{!6137, !6138, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17heb00e0f8f9a4a637E: argument 0"}
 !6138 = distinct !{!6138, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17heb00e0f8f9a4a637E"}
 !6139 = distinct !{!6139, !6138, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17heb00e0f8f9a4a637E: argument 1"}
-!6140 = distinct !{!6140, !6141, !"_ZN8wasmtime7runtime9component5types4Enum4from17hf3949bb208f97fc4E.argprom: argument 0"}
-!6141 = distinct !{!6141, !"_ZN8wasmtime7runtime9component5types4Enum4from17hf3949bb208f97fc4E.argprom"}
+!6140 = distinct !{!6140, !6141, !"_ZN8wasmtime7runtime9component5types4Enum4from17hf3949bb208f97fc4E: argument 0"}
+!6141 = distinct !{!6141, !"_ZN8wasmtime7runtime9component5types4Enum4from17hf3949bb208f97fc4E"}
 !6142 = !{!6134, !6137, !6139, !6140}
 !6143 = !{!6144}
 !6144 = distinct !{!6144, !6145, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haa2722c8a9c189ddE.llvm.5281577753466666573: argument 0"}
@@ -53088,8 +53088,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !6156 = distinct !{!6156, !6157, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hd2d56f4d4ab92422E: argument 0"}
 !6157 = distinct !{!6157, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hd2d56f4d4ab92422E"}
 !6158 = distinct !{!6158, !6157, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hd2d56f4d4ab92422E: argument 1"}
-!6159 = distinct !{!6159, !6160, !"_ZN8wasmtime7runtime9component5types10OptionType4from17h5f1411b5cf789055E.argprom: argument 0"}
-!6160 = distinct !{!6160, !"_ZN8wasmtime7runtime9component5types10OptionType4from17h5f1411b5cf789055E.argprom"}
+!6159 = distinct !{!6159, !6160, !"_ZN8wasmtime7runtime9component5types10OptionType4from17h5f1411b5cf789055E: argument 0"}
+!6160 = distinct !{!6160, !"_ZN8wasmtime7runtime9component5types10OptionType4from17h5f1411b5cf789055E"}
 !6161 = !{!6153, !6156, !6158, !6159}
 !6162 = !{!6163}
 !6163 = distinct !{!6163, !6164, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haa2722c8a9c189ddE.llvm.5281577753466666573: argument 0"}
@@ -53107,8 +53107,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !6175 = distinct !{!6175, !6176, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17ha493bfb8b07348d1E: argument 0"}
 !6176 = distinct !{!6176, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17ha493bfb8b07348d1E"}
 !6177 = distinct !{!6177, !6176, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17ha493bfb8b07348d1E: argument 1"}
-!6178 = distinct !{!6178, !6179, !"_ZN8wasmtime7runtime9component5types10ResultType4from17h790be7e752e3eb93E.argprom: argument 0"}
-!6179 = distinct !{!6179, !"_ZN8wasmtime7runtime9component5types10ResultType4from17h790be7e752e3eb93E.argprom"}
+!6178 = distinct !{!6178, !6179, !"_ZN8wasmtime7runtime9component5types10ResultType4from17h790be7e752e3eb93E: argument 0"}
+!6179 = distinct !{!6179, !"_ZN8wasmtime7runtime9component5types10ResultType4from17h790be7e752e3eb93E"}
 !6180 = !{!6172, !6175, !6177, !6178}
 !6181 = !{!6182}
 !6182 = distinct !{!6182, !6183, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haa2722c8a9c189ddE.llvm.5281577753466666573: argument 0"}
@@ -53250,8 +53250,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !6318 = distinct !{!6318, !6319, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h5a091560555190f3E: argument 0"}
 !6319 = distinct !{!6319, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h5a091560555190f3E"}
 !6320 = distinct !{!6320, !6319, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h5a091560555190f3E: argument 1"}
-!6321 = distinct !{!6321, !6322, !"_ZN8wasmtime7runtime9component5types17ComponentInstance4from17h9dd85bc2fe3d5df1E.argprom: argument 0"}
-!6322 = distinct !{!6322, !"_ZN8wasmtime7runtime9component5types17ComponentInstance4from17h9dd85bc2fe3d5df1E.argprom"}
+!6321 = distinct !{!6321, !6322, !"_ZN8wasmtime7runtime9component5types17ComponentInstance4from17h9dd85bc2fe3d5df1E: argument 0"}
+!6322 = distinct !{!6322, !"_ZN8wasmtime7runtime9component5types17ComponentInstance4from17h9dd85bc2fe3d5df1E"}
 !6323 = !{!6315, !6318, !6320, !6321}
 !6324 = !{!6325}
 !6325 = distinct !{!6325, !6326, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haa2722c8a9c189ddE.llvm.5281577753466666573: argument 0"}
@@ -53269,8 +53269,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !6337 = distinct !{!6337, !6338, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hd32ecaff3888d19eE: argument 0"}
 !6338 = distinct !{!6338, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hd32ecaff3888d19eE"}
 !6339 = distinct !{!6339, !6338, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17hd32ecaff3888d19eE: argument 1"}
-!6340 = distinct !{!6340, !6341, !"_ZN8wasmtime7runtime9component5types13ComponentFunc4from17h518311525bacbe03E.argprom: argument 0"}
-!6341 = distinct !{!6341, !"_ZN8wasmtime7runtime9component5types13ComponentFunc4from17h518311525bacbe03E.argprom"}
+!6340 = distinct !{!6340, !6341, !"_ZN8wasmtime7runtime9component5types13ComponentFunc4from17h518311525bacbe03E: argument 0"}
+!6341 = distinct !{!6341, !"_ZN8wasmtime7runtime9component5types13ComponentFunc4from17h518311525bacbe03E"}
 !6342 = !{!6334, !6337, !6339, !6340}
 !6343 = !{!6344}
 !6344 = distinct !{!6344, !6345, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haa2722c8a9c189ddE.llvm.5281577753466666573: argument 0"}
@@ -53288,8 +53288,8 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !6356 = distinct !{!6356, !6357, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h10caa489b895ff36E: argument 0"}
 !6357 = distinct !{!6357, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h10caa489b895ff36E"}
 !6358 = distinct !{!6358, !6357, !"_ZN8wasmtime7runtime9component5types15Handle$LT$T$GT$3new17h10caa489b895ff36E: argument 1"}
-!6359 = distinct !{!6359, !6360, !"_ZN8wasmtime7runtime9component5types6Module4from17h660cd2770e86e375E.argprom: argument 0"}
-!6360 = distinct !{!6360, !"_ZN8wasmtime7runtime9component5types6Module4from17h660cd2770e86e375E.argprom"}
+!6359 = distinct !{!6359, !6360, !"_ZN8wasmtime7runtime9component5types6Module4from17h660cd2770e86e375E: argument 0"}
+!6360 = distinct !{!6360, !"_ZN8wasmtime7runtime9component5types6Module4from17h660cd2770e86e375E"}
 !6361 = !{!6353, !6356, !6358, !6359}
 !6362 = !{!6363}
 !6363 = distinct !{!6363, !6364, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haa2722c8a9c189ddE.llvm.5281577753466666573: argument 0"}

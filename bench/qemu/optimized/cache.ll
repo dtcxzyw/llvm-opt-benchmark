@@ -279,12 +279,12 @@ if.then107:                                       ; preds = %if.else102
   %arrayidx109 = getelementptr inbounds i8, ptr %call7, i64 8
   %26 = load ptr, ptr %arrayidx109, align 8
   %call110 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %25, ptr noundef %26, ptr noundef nonnull @use_l2) #11
-  br i1 %call110, label %for.inc, label %glib_auto_cleanup_GStrv.argprom.exit
+  br i1 %call110, label %for.inc, label %glib_auto_cleanup_GStrv.exit
 
 if.else113:                                       ; preds = %if.else102
   %call115 = tail call i32 @g_strcmp0(ptr noundef %25, ptr noundef nonnull @.str.14) #11
   %cmp116 = icmp eq i32 %call115, 0
-  br i1 %cmp116, label %if.then118, label %glib_auto_cleanup_GStrv.argprom.exit
+  br i1 %cmp116, label %if.then118, label %glib_auto_cleanup_GStrv.exit
 
 if.then118:                                       ; preds = %if.else113
   %arrayidx119 = getelementptr inbounds i8, ptr %call7, i64 8
@@ -311,13 +311,13 @@ if.else130:                                       ; preds = %if.else124
   %29 = load ptr, ptr %arrayidx119, align 8
   %call132 = tail call i32 @g_strcmp0(ptr noundef %29, ptr noundef nonnull @.str.17) #11
   %cmp133 = icmp eq i32 %call132, 0
-  br i1 %cmp133, label %if.then135, label %glib_auto_cleanup_GStrv.argprom.exit
+  br i1 %cmp133, label %if.then135, label %glib_auto_cleanup_GStrv.exit
 
 if.then135:                                       ; preds = %if.else130
   store i32 1, ptr @policy, align 4
   br label %for.inc
 
-glib_auto_cleanup_GStrv.argprom.exit:             ; preds = %if.else113, %if.else130, %if.then107
+glib_auto_cleanup_GStrv.exit:                     ; preds = %if.else113, %if.else130, %if.then107
   %.str.19.sink = phi ptr [ @.str.13, %if.then107 ], [ @.str.18, %if.else130 ], [ @.str.19, %if.else113 ]
   %30 = load ptr, ptr @stderr, align 8
   %call142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull %.str.19.sink, ptr noundef %1) #12
@@ -502,8 +502,8 @@ cond.end197:                                      ; preds = %if.end186, %cond.tr
   store ptr %call199, ptr @miss_ht, align 8
   br label %return
 
-return:                                           ; preds = %glib_auto_cleanup_GStrv.argprom.exit, %cond.end197, %cache_config_error.exit40, %cache_config_error.exit31, %cache_config_error.exit
-  %retval.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.argprom.exit ], [ 0, %cond.end197 ], [ -1, %cache_config_error.exit40 ], [ -1, %cache_config_error.exit31 ], [ -1, %cache_config_error.exit ]
+return:                                           ; preds = %glib_auto_cleanup_GStrv.exit, %cond.end197, %cache_config_error.exit40, %cache_config_error.exit31, %cache_config_error.exit
+  %retval.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.exit ], [ 0, %cond.end197 ], [ -1, %cache_config_error.exit40 ], [ -1, %cache_config_error.exit31 ], [ -1, %cache_config_error.exit ]
   ret i32 %retval.2
 }
 

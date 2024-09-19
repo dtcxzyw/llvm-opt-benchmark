@@ -8135,7 +8135,7 @@ cip_get_service.exit:                             ; preds = %86, %91, %94, %102
   br i1 %111, label %118, label %119
 
 118:                                              ; preds = %117
-  call fastcc void @dissect_cip_object_specific_service.retelim(ptr noundef %1, ptr noundef %3, ptr noundef %24, ptr noundef %5, ptr noundef %.0.i)
+  call fastcc void @dissect_cip_object_specific_service(ptr noundef %1, ptr noundef %3, ptr noundef %24, ptr noundef %5, ptr noundef %.0.i)
   br label %277
 
 119:                                              ; preds = %117
@@ -8458,7 +8458,7 @@ dissect_cip_generic_service_req.exit:             ; preds = %260, %264
 
 .thread214:                                       ; preds = %.thread, %273
   %.0.i204210213216 = phi ptr [ %.0.i204, %273 ], [ @cip_obj_spec_service_table, %.thread ]
-  call fastcc void @dissect_cip_object_specific_service.retelim(ptr noundef %1, ptr noundef %3, ptr noundef %24, ptr noundef %5, ptr noundef %.0.i204210213216)
+  call fastcc void @dissect_cip_object_specific_service(ptr noundef %1, ptr noundef %3, ptr noundef %24, ptr noundef %5, ptr noundef %.0.i204210213216)
   br label %277
 
 274:                                              ; preds = %273
@@ -9658,7 +9658,7 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cip_object_specific_service.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #3 {
+define internal fastcc void @dissect_cip_object_specific_service(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #3 {
   %6 = alloca ptr, align 8
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #13
   %.not = icmp sgt i8 %7, -1
@@ -9721,27 +9721,27 @@ should_dissect_cip_response.exit:                 ; preds = %switch.early.test.i
   %32 = getelementptr i8, ptr %4, i64 16
   %.val = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %dissect_cip_service.argprom.exit, label %33
+  br i1 %.not.i, label %dissect_cip_service.exit, label %33
 
 33:                                               ; preds = %should_dissect_cip_response.exit
   %34 = load ptr, ptr %6, align 8
   %35 = zext i1 %.not to i32
   %36 = call i32 %.val(ptr noundef %1, ptr noundef %28, ptr noundef %34, ptr noundef %0, i32 noundef %14, i32 noundef %35) #13
-  br label %dissect_cip_service.argprom.exit
+  br label %dissect_cip_service.exit
 
-dissect_cip_service.argprom.exit:                 ; preds = %should_dissect_cip_response.exit, %33
+dissect_cip_service.exit:                         ; preds = %should_dissect_cip_response.exit, %33
   %.0.i50 = phi i32 [ %36, %33 ], [ 0, %should_dissect_cip_response.exit ]
   %37 = add i32 %.0.i50, %14
   %38 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %37) #13
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %43
 
-40:                                               ; preds = %dissect_cip_service.argprom.exit
+40:                                               ; preds = %dissect_cip_service.exit
   %41 = load i32, ptr @hf_cip_data, align 4
   %42 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %41, ptr noundef %0, i32 noundef %37, i32 noundef %38, i32 noundef 0) #13
   br label %43
 
-43:                                               ; preds = %40, %dissect_cip_service.argprom.exit
+43:                                               ; preds = %40, %dissect_cip_service.exit
   %44 = call i32 @tvb_reported_length(ptr noundef %0) #13
   br label %should_dissect_cip_response.exit.thread
 
@@ -10235,7 +10235,7 @@ cip_get_service.exit.i:                           ; preds = %98, %91, %88, %prot
   br i1 %106, label %113, label %114
 
 113:                                              ; preds = %112
-  call fastcc void @dissect_cip_object_specific_service.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %40, ptr noundef null, ptr noundef %.0.i.i)
+  call fastcc void @dissect_cip_object_specific_service(ptr noundef %0, ptr noundef %1, ptr noundef %40, ptr noundef null, ptr noundef %.0.i.i)
   br label %117
 
 114:                                              ; preds = %112
@@ -12202,7 +12202,7 @@ load_cip_request_data.exit.i:                     ; preds = %34, %33
   %66 = add nuw nsw i32 %41, 6
   %67 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %65, ptr noundef %0, i32 noundef %66, i32 noundef 2, i32 noundef -2147483648) #13
   %68 = add nuw nsw i32 %41, 8
-  call fastcc void @dissect_cip_cco_all_attribute_common.retelim(ptr noundef %46, ptr noundef %8, ptr noundef %0, i32 noundef %68, i32 noundef %11, ptr noundef nonnull %1)
+  call fastcc void @dissect_cip_cco_all_attribute_common(ptr noundef %46, ptr noundef %8, ptr noundef %0, i32 noundef %68, i32 noundef %11, ptr noundef nonnull %1)
   br label %dissect_cip_cco_data.exit
 
 69:                                               ; preds = %48
@@ -12257,7 +12257,7 @@ load_cip_request_data.exit.i:                     ; preds = %34, %33
   br label %dissect_cip_cco_data.exit
 
 98:                                               ; preds = %91
-  call fastcc void @dissect_cip_cco_all_attribute_common.retelim(ptr noundef %84, ptr noundef %8, ptr noundef %0, i32 noundef %82, i32 noundef %11, ptr noundef nonnull %1)
+  call fastcc void @dissect_cip_cco_all_attribute_common(ptr noundef %84, ptr noundef %8, ptr noundef %0, i32 noundef %82, i32 noundef %11, ptr noundef nonnull %1)
   br label %dissect_cip_cco_data.exit
 
 99:                                               ; preds = %81
@@ -14270,7 +14270,7 @@ declare void @display_fwd_open_connection_path(ptr noundef, ptr noundef, ptr nou
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cip_cco_all_attribute_common.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 513) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 {
+define internal fastcc void @dissect_cip_cco_all_attribute_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 513) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

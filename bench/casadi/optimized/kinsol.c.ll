@@ -261,73 +261,73 @@ define range(i32 -4, 1) i32 @KINInit(ptr noundef %0, ptr noundef %1, ptr noundef
   %.val = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %.val, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %KINCheckNvector.argprom.exit.thread, label %15
+  br i1 %14, label %KINCheckNvector.exit.thread, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %.val, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %KINCheckNvector.argprom.exit.thread, label %19
+  br i1 %18, label %KINCheckNvector.exit.thread, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %.val, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %KINCheckNvector.argprom.exit.thread, label %23
+  br i1 %22, label %KINCheckNvector.exit.thread, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %.val, i64 64
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %KINCheckNvector.argprom.exit.thread, label %27
+  br i1 %26, label %KINCheckNvector.exit.thread, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %.val, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %KINCheckNvector.argprom.exit.thread, label %31
+  br i1 %30, label %KINCheckNvector.exit.thread, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %.val, i64 80
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %KINCheckNvector.argprom.exit.thread, label %35
+  br i1 %34, label %KINCheckNvector.exit.thread, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %.val, i64 88
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %KINCheckNvector.argprom.exit.thread, label %39
+  br i1 %38, label %KINCheckNvector.exit.thread, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %.val, i64 96
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %KINCheckNvector.argprom.exit.thread, label %43
+  br i1 %42, label %KINCheckNvector.exit.thread, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %.val, i64 120
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %KINCheckNvector.argprom.exit.thread, label %47
+  br i1 %46, label %KINCheckNvector.exit.thread, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %.val, i64 144
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %KINCheckNvector.argprom.exit.thread, label %KINCheckNvector.argprom.exit
+  br i1 %50, label %KINCheckNvector.exit.thread, label %KINCheckNvector.exit
 
-KINCheckNvector.argprom.exit:                     ; preds = %47
+KINCheckNvector.exit:                             ; preds = %47
   %51 = getelementptr inbounds i8, ptr %.val, i64 152
   %52 = load ptr, ptr %51, align 8
   %.not35 = icmp eq ptr %52, null
-  br i1 %.not35, label %KINCheckNvector.argprom.exit.thread, label %53
+  br i1 %.not35, label %KINCheckNvector.exit.thread, label %53
 
-KINCheckNvector.argprom.exit.thread:              ; preds = %11, %15, %19, %23, %27, %31, %35, %39, %43, %47, %KINCheckNvector.argprom.exit
+KINCheckNvector.exit.thread:                      ; preds = %11, %15, %19, %23, %27, %31, %35, %39, %43, %47, %KINCheckNvector.exit
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6)
   br label %245
 
-53:                                               ; preds = %KINCheckNvector.argprom.exit
+53:                                               ; preds = %KINCheckNvector.exit
   %54 = getelementptr inbounds i8, ptr %.val, i64 24
   %55 = load ptr, ptr %54, align 8
   %.not28 = icmp eq ptr %55, null
@@ -674,8 +674,8 @@ KINAllocVectors.exit:                             ; preds = %229, %172, %119, %1
   store i32 1, ptr %244, align 8
   br label %245
 
-245:                                              ; preds = %KINAllocVectors.exit, %240, %KINCheckNvector.argprom.exit.thread, %10, %7
-  %.0 = phi i32 [ -1, %7 ], [ -2, %10 ], [ 0, %KINAllocVectors.exit ], [ -4, %240 ], [ -2, %KINCheckNvector.argprom.exit.thread ]
+245:                                              ; preds = %KINAllocVectors.exit, %240, %KINCheckNvector.exit.thread, %10, %7
+  %.0 = phi i32 [ -1, %7 ], [ -2, %10 ], [ 0, %KINAllocVectors.exit ], [ -4, %240 ], [ -2, %KINCheckNvector.exit.thread ]
   ret i32 %.0
 }
 
@@ -798,7 +798,7 @@ define i32 @KINSol(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %
   %70 = load ptr, ptr %50, align 8
   %71 = load ptr, ptr %14, align 8
   %72 = trunc i64 %.056.i304 to i32
-  tail call fastcc void @AndersenAcc.retelim(ptr noundef %0, ptr noundef %69, ptr noundef %44, ptr noundef %70, ptr noundef %71, i32 noundef %72, ptr noundef %40, ptr noundef %42)
+  tail call fastcc void @AndersenAcc(ptr noundef %0, ptr noundef %69, ptr noundef %44, ptr noundef %70, ptr noundef %71, i32 noundef %72, ptr noundef %40, ptr noundef %42)
   br label %73
 
 73:                                               ; preds = %67, %65
@@ -1393,7 +1393,7 @@ KINSolInit.exit:                                  ; preds = %254, %243
   %393 = load ptr, ptr %308, align 8
   %394 = load ptr, ptr %14, align 8
   %395 = trunc i64 %.07992.i to i32
-  tail call fastcc void @AndersenAcc.retelim(ptr noundef %0, ptr noundef %310, ptr noundef %322, ptr noundef %393, ptr noundef %394, i32 noundef %395, ptr noundef %318, ptr noundef %320)
+  tail call fastcc void @AndersenAcc(ptr noundef %0, ptr noundef %310, ptr noundef %322, ptr noundef %393, ptr noundef %394, i32 noundef %395, ptr noundef %318, ptr noundef %320)
   br label %396
 
 396:                                              ; preds = %390, %388
@@ -3125,7 +3125,7 @@ declare double @SUNRexp(double noundef) local_unnamed_addr #4
 declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AndersenAcc.retelim(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) unnamed_addr #0 {
+define internal fastcc void @AndersenAcc(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 408
   %10 = load i64, ptr %9, align 8
   %11 = shl i64 %10, 2

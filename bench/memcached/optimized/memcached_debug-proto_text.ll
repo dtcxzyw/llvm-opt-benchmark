@@ -1211,7 +1211,7 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp44, label %if.then46, label %if.else48
 
 if.then46:                                        ; preds = %do.end
-  call fastcc void @process_get_command.argelim(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @process_get_command(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %return
 
 if.else48:                                        ; preds = %do.end
@@ -1220,7 +1220,7 @@ if.else48:                                        ; preds = %do.end
   br i1 %cmp52, label %if.then54, label %if.else56
 
 if.then54:                                        ; preds = %if.else48
-  call fastcc void @process_get_command.argelim(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @process_get_command(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %return
 
 if.else56:                                        ; preds = %if.else48
@@ -1229,7 +1229,7 @@ if.else56:                                        ; preds = %if.else48
   br i1 %cmp60, label %if.then62, label %if.else64
 
 if.then62:                                        ; preds = %if.else56
-  call fastcc void @process_get_command.argelim(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @process_get_command(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %return
 
 if.else64:                                        ; preds = %if.else56
@@ -1238,7 +1238,7 @@ if.else64:                                        ; preds = %if.else56
   br i1 %cmp68, label %if.then70, label %if.else72
 
 if.then70:                                        ; preds = %if.else64
-  call fastcc void @process_get_command.argelim(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext true, i1 noundef zeroext true)
+  call fastcc void @process_get_command(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %return
 
 if.else72:                                        ; preds = %if.else64
@@ -1280,7 +1280,7 @@ if.else107:                                       ; preds = %if.else99
 if.then113:                                       ; preds = %if.else107
   %12 = getelementptr inbounds i8, ptr %tokens, i64 16
   %tokens.val = load ptr, ptr %12, align 16
-  tail call fastcc void @process_shutdown_command.argprom(ptr noundef %c, ptr %tokens.val, i64 noundef %inc35.i)
+  tail call fastcc void @process_shutdown_command(ptr noundef %c, ptr %tokens.val, i64 noundef %inc35.i)
   br label %return
 
 if.else115:                                       ; preds = %if.else107
@@ -1430,7 +1430,7 @@ if.else262:                                       ; preds = %if.else245
 do.end274:                                        ; preds = %if.else262
   %19 = getelementptr inbounds i8, ptr %tokens, i64 16
   %tokens.val146 = load ptr, ptr %19, align 16
-  tail call fastcc void @process_debugtime_command.argprom.argelim(ptr noundef %c, ptr %tokens.val146)
+  tail call fastcc void @process_debugtime_command(ptr noundef %c, ptr %tokens.val146)
   br label %return
 
 if.else276:                                       ; preds = %if.else262
@@ -1497,7 +1497,7 @@ if.then338:                                       ; preds = %do.body335
   br label %return
 
 do.end340:                                        ; preds = %do.body335
-  call fastcc void @process_get_command.argelim(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @process_get_command(ptr noundef %c, ptr noundef %tokens, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %return
 
 if.else342:                                       ; preds = %if.else328
@@ -3761,7 +3761,7 @@ return:                                           ; preds = %if.end115, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_get_command.argelim(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i1 noundef zeroext %return_cas, i1 noundef zeroext %should_touch) unnamed_addr #0 {
+define internal fastcc void @process_get_command(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i1 noundef zeroext %return_cas, i1 noundef zeroext %should_touch) unnamed_addr #0 {
 entry:
   %exptime_int = alloca i32, align 4
   %overflow = alloca i8, align 1
@@ -4643,7 +4643,7 @@ if.end86:                                         ; preds = %if.else64, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_shutdown_command.argprom(ptr noundef %c, ptr nocapture readonly %tokens.16.val, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_shutdown_command(ptr noundef %c, ptr nocapture readonly %tokens.16.val, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 168), align 8
   %tobool = trunc i8 %0 to i1
@@ -5153,7 +5153,7 @@ return:                                           ; preds = %if.end56, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_debugtime_command.argprom.argelim(ptr noundef %c, ptr %tokens.16.val) unnamed_addr #0 {
+define internal fastcc void @process_debugtime_command(ptr noundef %c, ptr %tokens.16.val) unnamed_addr #0 {
 entry:
   %time_delta = alloca i64, align 8
   %0 = load i8, ptr %tokens.16.val, align 1

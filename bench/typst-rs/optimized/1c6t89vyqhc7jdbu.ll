@@ -25,7 +25,7 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
 
 8:                                                ; preds = %4
   store ptr null, ptr %0, align 8
-  br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.argprom.exit6"
+  br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit6"
 
 9:                                                ; preds = %4
   %10 = tail call { i64, i32 } @_ZN3std4time10SystemTime3now17h7abd419117abb24dE()
@@ -49,13 +49,13 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %19 = cmpxchg weak ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 0, i8 1 acquire monotonic, align 1
   %20 = extractvalue { i8, i1 } %19, 1
-  br i1 %20, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.argprom.exit", label %21
+  br i1 %20, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit", label %21
 
 21:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit"
   %22 = call noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17hab3c003b90560b92E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 undef, i32 noundef 1000000000)
-  br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.argprom.exit"
+  br label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
 
-"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.argprom.exit": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit", %21
+"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hde273738ae2a6ee0E.exit", %21
   %23 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 32), align 8, !noundef !5
   %24 = add i64 %23, 1
   store i64 %24, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 32), align 8
@@ -64,7 +64,7 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
   %27 = icmp eq i64 %25, %26
   br i1 %27, label %28, label %34
 
-28:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.argprom.exit"
+28:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb25d327088fa66b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 8), i64 noundef %25)
           to label %.noexc unwind label %29
 
@@ -72,7 +72,7 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
   %.pre.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !alias.scope !16, !noalias !19
   br label %34
 
-"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.argprom.exit6": ; preds = %42, %34, %8
+"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit6": ; preds = %42, %34, %8
   ret void
 
 29:                                               ; preds = %28
@@ -80,14 +80,14 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
           cleanup
   %31 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
   %32 = extractvalue { i8, i1 } %31, 1
-  br i1 %32, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.argprom.exit", label %33
+  br i1 %32, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit", label %33
 
 33:                                               ; preds = %29
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h8341eb7c85773489E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.argprom.exit" unwind label %43
+          to label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit" unwind label %43
 
-34:                                               ; preds = %.noexc, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.argprom.exit"
-  %35 = phi i64 [ %.pre.i, %.noexc ], [ %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.argprom.exit" ]
+34:                                               ; preds = %.noexc, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
+  %35 = phi i64 [ %.pre.i, %.noexc ], [ %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit" ]
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 16), align 8, !alias.scope !16, !noalias !19, !nonnull !5, !noundef !5
   %37 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { ptr, i64 }, i64, i64, i64, i8, [7 x i8] }, ptr %36, i64 %35
   store i64 %11, ptr %37, align 8
@@ -119,11 +119,11 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
   store i64 %23, ptr %.sroa.7.0..sroa_idx, align 8
   %40 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
   %41 = extractvalue { i8, i1 } %40, 1
-  br i1 %41, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.argprom.exit6", label %42
+  br i1 %41, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit6", label %42
 
 42:                                               ; preds = %34
   call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h8341eb7c85773489E(ptr noundef nonnull align 1 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i1 noundef zeroext false)
-  br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.argprom.exit6"
+  br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit6"
 
 43:                                               ; preds = %33
   %44 = landingpad { ptr, i32 }
@@ -131,7 +131,7 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #7
   unreachable
 
-"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.argprom.exit": ; preds = %29, %33
+"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$typst_timing..Recorder$GT$$GT$17h0d8840c46c7a8f2cE.exit": ; preds = %29, %33
   resume { ptr, i32 } %30
 }
 

@@ -76776,7 +76776,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndicators(ptr noundef %0, i3
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndicators.argprom(ptr noundef %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndicators(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -76934,7 +76934,7 @@ define internal i32 @dissect_lte_rrc_InterRAT_BandInfo(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lte_rrc_featureGroupIndicators.argprom(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
+define internal fastcc void @dissect_lte_rrc_featureGroupIndicators(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
   %2 = load i32, ptr @ett_lte_rrc_featureGroupIndicators, align 4
   %3 = tail call ptr @proto_item_add_subtree(ptr noundef %.24.val, i32 noundef %2) #11
   %4 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_1, align 4
@@ -77358,7 +77358,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndRel9Add_r9(ptr noundef %0,
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndRel9Add.argprom(ptr noundef %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndRel9Add(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -77380,7 +77380,7 @@ define internal i32 @dissect_lte_rrc_UE_EUTRA_Capability_v9c0_IEs(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lte_rrc_featureGroupIndRel9Add.argprom(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
+define internal fastcc void @dissect_lte_rrc_featureGroupIndRel9Add(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
   %2 = load i32, ptr @ett_lte_rrc_featureGroupIndRel9Add, align 4
   %3 = tail call ptr @proto_item_add_subtree(ptr noundef %.24.val, i32 noundef %2) #11
   %4 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_33, align 4
@@ -77462,7 +77462,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndicators_r9(ptr noundef %0,
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndicators.argprom(ptr noundef %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndicators(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -77481,7 +77481,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndRel9Add_r9_01(ptr noundef 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndRel9Add.argprom(ptr noundef %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndRel9Add(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -78530,7 +78530,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndRel10_r10(ptr noundef %0, 
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndRel10.argprom(ptr noundef %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndRel10(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -78759,7 +78759,7 @@ define internal i32 @dissect_lte_rrc_BandCombinationListEUTRA_r10(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lte_rrc_featureGroupIndRel10.argprom(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
+define internal fastcc void @dissect_lte_rrc_featureGroupIndRel10(ptr noundef nonnull %0, ptr %.24.val) unnamed_addr #1 {
   %2 = load i32, ptr @ett_lte_rrc_featureGroupIndRel10, align 4
   %3 = tail call ptr @proto_item_add_subtree(ptr noundef %.24.val, i32 noundef %2) #11
   %4 = load i32, ptr @hf_lte_rrc_eutra_cap_feat_group_ind_101, align 4
@@ -78886,7 +78886,7 @@ define internal i32 @dissect_lte_rrc_T_featureGroupIndRel10_v1060(ptr noundef %0
 9:                                                ; preds = %5
   %10 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @dissect_lte_rrc_featureGroupIndRel10.argprom(ptr noundef %8, ptr %.val)
+  call fastcc void @dissect_lte_rrc_featureGroupIndRel10(ptr noundef %8, ptr %.val)
   br label %11
 
 11:                                               ; preds = %9, %5

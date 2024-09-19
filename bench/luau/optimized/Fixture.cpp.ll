@@ -3234,11 +3234,11 @@ _ZN4Luau15FrontendOptionsD2Ev.exit:               ; preds = %50, %69, %82, %_ZNS
   store ptr %108, ptr %104, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EZN4Luau7FixtureC1EbbE3$_1E9_M_invokeERKSt9_Any_dataS7_OS5_", ptr %107, align 8
   %.not.i.i.i = icmp eq ptr %106, null
-  br i1 %.not.i.i.i, label %"_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEaSIZN4Luau7FixtureC1EbbE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSE_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISG_E4typeEE4typeES9_EE5valueESt5decayISG_EE4type4typeESt15__invoke_resultIRSR_JS7_S5_EEEE5valueERS9_E4typeEOSG_.argprom.exit", label %109
+  br i1 %.not.i.i.i, label %"_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEaSIZN4Luau7FixtureC1EbbE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSE_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISG_E4typeEE4typeES9_EE5valueESt5decayISG_EE4type4typeESt15__invoke_resultIRSR_JS7_S5_EEEE5valueERS9_E4typeEOSG_.exit", label %109
 
 109:                                              ; preds = %101
   %110 = invoke noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %"_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEaSIZN4Luau7FixtureC1EbbE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSE_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISG_E4typeEE4typeES9_EE5valueESt5decayISG_EE4type4typeESt15__invoke_resultIRSR_JS7_S5_EEEE5valueERS9_E4typeEOSG_.argprom.exit" unwind label %111
+          to label %"_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEaSIZN4Luau7FixtureC1EbbE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSE_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISG_E4typeEE4typeES9_EE5valueESt5decayISG_EE4type4typeESt15__invoke_resultIRSR_JS7_S5_EEEE5valueERS9_E4typeEOSG_.exit" unwind label %111
 
 111:                                              ; preds = %109
   %112 = landingpad { ptr, i32 }
@@ -3247,7 +3247,7 @@ _ZN4Luau15FrontendOptionsD2Ev.exit:               ; preds = %50, %69, %82, %_ZNS
   call void @__clang_call_terminate(ptr %113) #25
   unreachable
 
-"_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEaSIZN4Luau7FixtureC1EbbE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSE_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISG_E4typeEE4typeES9_EE5valueESt5decayISG_EE4type4typeESt15__invoke_resultIRSR_JS7_S5_EEEE5valueERS9_E4typeEOSG_.argprom.exit": ; preds = %101, %109
+"_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEaSIZN4Luau7FixtureC1EbbE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSE_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISG_E4typeEE4typeES9_EE5valueESt5decayISG_EE4type4typeESt15__invoke_resultIRSR_JS7_S5_EEEE5valueERS9_E4typeEOSG_.exit": ; preds = %101, %109
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %120
 
@@ -3269,7 +3269,7 @@ _ZN4Luau15FrontendOptionsD2Ev.exit:               ; preds = %50, %69, %82, %_ZNS
   call void @_ZN4Luau8FrontendD2Ev(ptr noundef nonnull align 8 dereferenceable(1744) %41) #27
   br label %121
 
-120:                                              ; preds = %"_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEaSIZN4Luau7FixtureC1EbbE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSE_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISG_E4typeEE4typeES9_EE5valueESt5decayISG_EE4type4typeESt15__invoke_resultIRSR_JS7_S5_EEEE5valueERS9_E4typeEOSG_.argprom.exit", %98
+120:                                              ; preds = %"_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEaSIZN4Luau7FixtureC1EbbE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSE_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISG_E4typeEE4typeES9_EE5valueESt5decayISG_EE4type4typeESt15__invoke_resultIRSR_JS7_S5_EEEE5valueERS9_E4typeEOSG_.exit", %98
   ret void
 
 121:                                              ; preds = %118, %116
@@ -21949,7 +21949,7 @@ _ZN7doctest6detail14MessageBuildermlIA19_cEERS1_RKT_.exit.i.i.i: ; preds = %25
 
 36:                                               ; preds = %31, %30
   invoke void @_ZN7doctest6detail14MessageBuilder5reactEv(ptr noundef nonnull align 8 dereferenceable(49) %7)
-          to label %"_ZSt10__invoke_rIvRZN4Luau7FixtureC1EbbE3$_1JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit" unwind label %34
+          to label %"_ZSt10__invoke_rIvRZN4Luau7FixtureC1EbbE3$_1JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit" unwind label %34
 
 37:                                               ; preds = %34, %32
   %.pn.i.i.i = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
@@ -21966,7 +21966,7 @@ _ZN7doctest6detail14MessageBuildermlIA19_cEERS1_RKT_.exit.i.i.i: ; preds = %25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   resume { ptr, i32 } %eh.lpad-body.i.i
 
-"_ZSt10__invoke_rIvRZN4Luau7FixtureC1EbbE3$_1JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.argprom.exit": ; preds = %36
+"_ZSt10__invoke_rIvRZN4Luau7FixtureC1EbbE3$_1JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %36
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %7) #27
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %6) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
@@ -24044,7 +24044,7 @@ define internal void @"_ZNK7doctest6detail12ContextScopeIZN4Luau7Fixture14loadDe
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %1, ptr %4, align 8
   %5 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA47_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef nonnull align 1 dereferenceable(47) @.str.112)
-          to label %"_ZZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEPSo.argprom.exit" unwind label %6
+          to label %"_ZZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEPSo.exit" unwind label %6
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
@@ -24052,7 +24052,7 @@ define internal void @"_ZNK7doctest6detail12ContextScopeIZN4Luau7Fixture14loadDe
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #27
   resume { ptr, i32 } %7
 
-"_ZZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEPSo.argprom.exit": ; preds = %2
+"_ZZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEPSo.exit": ; preds = %2
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #27
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -25626,8 +25626,8 @@ attributes #30 = { noreturn }
 !95 = !{i64 2152897011}
 !96 = !{i64 2152898450}
 !97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN7doctest6detail16MakeContextScopeIZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EENS0_12ContextScopeIT_EERKSE_.argprom: argument 0"}
-!99 = distinct !{!99, !"_ZN7doctest6detail16MakeContextScopeIZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EENS0_12ContextScopeIT_EERKSE_.argprom"}
+!98 = distinct !{!98, !99, !"_ZN7doctest6detail16MakeContextScopeIZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EENS0_12ContextScopeIT_EERKSE_: argument 0"}
+!99 = distinct !{!99, !"_ZN7doctest6detail16MakeContextScopeIZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EENS0_12ContextScopeIT_EERKSE_"}
 !100 = !{i64 2152906496}
 !101 = distinct !{!101, !6}
 !102 = distinct !{!102, !6}

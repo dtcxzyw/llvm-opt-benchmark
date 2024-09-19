@@ -1143,22 +1143,22 @@ sw.bb.i:                                          ; preds = %if.then114.i
 
 sw.bb115.i:                                       ; preds = %sw.bb.i
   %96 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %96, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %96, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb118.i:                                       ; preds = %sw.bb.i
   %97 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhtEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %97, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %97, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb121.i:                                       ; preds = %sw.bb.i
   %98 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %98, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %98, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb124.i:                                       ; preds = %sw.bb.i
   %99 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %99, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %99, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb127.i:                                       ; preds = %if.then114.i
@@ -1171,22 +1171,22 @@ sw.bb127.i:                                       ; preds = %if.then114.i
 
 sw.bb128.i:                                       ; preds = %sw.bb127.i
   %100 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIthEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %100, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIthEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %100, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb131.i:                                       ; preds = %sw.bb127.i
   %101 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIttEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %101, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIttEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %101, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb134.i:                                       ; preds = %sw.bb127.i
   %102 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %102, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %102, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb137.i:                                       ; preds = %sw.bb127.i
   %103 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %103, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %103, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb141.i:                                       ; preds = %if.then114.i
@@ -1199,22 +1199,22 @@ sw.bb141.i:                                       ; preds = %if.then114.i
 
 sw.bb142.i:                                       ; preds = %sw.bb141.i
   %104 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %104, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %104, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb145.i:                                       ; preds = %sw.bb141.i
   %105 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjtEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %105, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %105, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb148.i:                                       ; preds = %sw.bb141.i
   %106 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %106, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %106, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb151.i:                                       ; preds = %sw.bb141.i
   %107 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %107, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %107, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb155.i:                                       ; preds = %if.then114.i
@@ -1227,22 +1227,22 @@ sw.bb155.i:                                       ; preds = %if.then114.i
 
 sw.bb156.i:                                       ; preds = %sw.bb155.i
   %108 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %108, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %108, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb159.i:                                       ; preds = %sw.bb155.i
   %109 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIltEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %109, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIltEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %109, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb162.i:                                       ; preds = %sw.bb155.i
   %110 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIljEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %110, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIljEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %110, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb165.i:                                       ; preds = %sw.bb155.i
   %111 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %111, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %111, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 if.else170.i:                                     ; preds = %invoke.cont112.i
@@ -1391,22 +1391,22 @@ sw.bb233.i:                                       ; preds = %if.else232.i
 
 sw.bb234.i:                                       ; preds = %sw.bb233.i
   %129 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %129, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %129, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb237.i:                                       ; preds = %sw.bb233.i
   %130 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhtEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %130, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %130, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb240.i:                                       ; preds = %sw.bb233.i
   %131 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %131, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %131, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb243.i:                                       ; preds = %sw.bb233.i
   %132 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %132, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %132, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb247.i:                                       ; preds = %if.else232.i
@@ -1419,22 +1419,22 @@ sw.bb247.i:                                       ; preds = %if.else232.i
 
 sw.bb248.i:                                       ; preds = %sw.bb247.i
   %133 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIthEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %133, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIthEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %133, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb251.i:                                       ; preds = %sw.bb247.i
   %134 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIttEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %134, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIttEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %134, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb254.i:                                       ; preds = %sw.bb247.i
   %135 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorItjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %135, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorItjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %135, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb257.i:                                       ; preds = %sw.bb247.i
   %136 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorItmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %136, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorItmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %136, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb261.i:                                       ; preds = %if.else232.i
@@ -1447,22 +1447,22 @@ sw.bb261.i:                                       ; preds = %if.else232.i
 
 sw.bb262.i:                                       ; preds = %sw.bb261.i
   %137 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %137, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %137, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb265.i:                                       ; preds = %sw.bb261.i
   %138 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjtEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %138, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %138, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb268.i:                                       ; preds = %sw.bb261.i
   %139 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %139, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %139, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb271.i:                                       ; preds = %sw.bb261.i
   %140 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %140, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %140, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb275.i:                                       ; preds = %if.else232.i
@@ -1475,22 +1475,22 @@ sw.bb275.i:                                       ; preds = %if.else232.i
 
 sw.bb276.i:                                       ; preds = %sw.bb275.i
   %141 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIlhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %141, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIlhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %141, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb279.i:                                       ; preds = %sw.bb275.i
   %142 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIltEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %142, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIltEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %142, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb282.i:                                       ; preds = %sw.bb275.i
   %143 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIljEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %143, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIljEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %143, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 sw.bb285.i:                                       ; preds = %sw.bb275.i
   %144 = load ptr, ptr %tensor_.i, align 8, !noalias !4
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIlmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %144, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIlmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %144, ptr noundef %cond.i270.i, ptr noundef %cond.i300.i)
           to label %if.end292.i unwind label %lpad86.i
 
 if.end292.i:                                      ; preds = %if.end108.i, %if.end108.us517.i, %if.end108.us.i, %if.end108.us.i.us, %sw.bb285.i, %sw.bb282.i, %sw.bb279.i, %sw.bb276.i, %sw.bb271.i, %sw.bb268.i, %sw.bb265.i, %sw.bb262.i, %sw.bb257.i, %sw.bb254.i, %sw.bb251.i, %sw.bb248.i, %sw.bb243.i, %sw.bb240.i, %sw.bb237.i, %sw.bb234.i, %sw.bb165.i, %sw.bb162.i, %sw.bb159.i, %sw.bb156.i, %sw.bb151.i, %sw.bb148.i, %sw.bb145.i, %sw.bb142.i, %sw.bb137.i, %sw.bb134.i, %sw.bb131.i, %sw.bb128.i, %sw.bb124.i, %sw.bb121.i, %sw.bb118.i, %sw.bb115.i, %sw.bb275.i, %sw.bb261.i, %sw.bb247.i, %sw.bb233.i, %if.else232.i, %sw.bb227.i, %sw.bb224.i, %sw.bb221.i, %sw.bb218.i, %sw.bb217.i, %sw.bb213.i, %sw.bb210.i, %sw.bb207.i, %sw.bb204.i, %sw.bb203.i, %sw.bb199.i, %sw.bb196.i, %sw.bb193.i, %sw.bb190.i, %sw.bb189.i, %sw.bb185.i, %sw.bb182.i, %sw.bb179.i, %sw.bb176.i, %sw.bb175.i, %if.then174.i, %sw.bb155.i, %sw.bb141.i, %sw.bb127.i, %sw.bb.i, %if.then114.i, %cond.end.i
@@ -3731,7 +3731,7 @@ lpad4:                                            ; preds = %cond.false
 declare noundef zeroext i1 @_ZNK5arrow6Tensor12is_row_majorEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -3935,7 +3935,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhtEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -4139,7 +4139,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -4343,7 +4343,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -4547,7 +4547,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIthEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIthEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -4752,7 +4752,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIttEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIttEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -4957,7 +4957,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -5162,7 +5162,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -5367,7 +5367,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -5572,7 +5572,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjtEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -5777,7 +5777,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -5982,7 +5982,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -6187,7 +6187,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -6388,7 +6388,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIltEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIltEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -6589,7 +6589,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIljEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIljEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -6790,7 +6790,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -7077,7 +7077,7 @@ if.then.i.i.i.i.i.i.i.i.i32:                      ; preds = %call5.i.i.i.i1.i.i.
 
 invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i32, %call5.i.i.i.i1.i.i.noexc38, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i24
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i1.i.i39, %call5.i.i.i.i1.i.i.noexc38 ], [ %call5.i.i.i.i1.i.i39, %if.then.i.i.i.i.i.i.i.i.i32 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i24 ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %2, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %2, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -7546,7 +7546,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i34, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i34, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhtEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %2, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %2, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -8016,7 +8016,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i34, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i34, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %2, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %2, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -8486,7 +8486,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i34, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i34, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %2, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %2, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -8941,7 +8941,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %call5.i.i.i.i1.i.i.
 
 invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i1.i.i34, %call5.i.i.i.i1.i.i.noexc ], [ %call5.i.i.i.i1.i.i34, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIthEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIthEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -9412,7 +9412,7 @@ if.end.i.i.i.i.i.i.i32:                           ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i32, %call5.i.i.i.i2.i.i.noexc38, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i24
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i39, %call5.i.i.i.i2.i.i.noexc38 ], [ %call5.i.i.i.i2.i.i39, %if.end.i.i.i.i.i.i.i32 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i24 ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIttEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIttEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -9884,7 +9884,7 @@ if.end.i.i.i.i.i.i.i31:                           ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i31, %call5.i.i.i.i2.i.i.noexc36, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i37, %call5.i.i.i.i2.i.i.noexc36 ], [ %call5.i.i.i.i2.i.i37, %if.end.i.i.i.i.i.i.i31 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -10356,7 +10356,7 @@ if.end.i.i.i.i.i.i.i31:                           ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i31, %call5.i.i.i.i2.i.i.noexc36, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i37, %call5.i.i.i.i2.i.i.noexc36 ], [ %call5.i.i.i.i2.i.i37, %if.end.i.i.i.i.i.i.i31 ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -10812,7 +10812,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %call5.i.i.i.i1.i.i.
 
 invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i1.i.i34, %call5.i.i.i.i1.i.i.noexc ], [ %call5.i.i.i.i1.i.i34, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -11283,7 +11283,7 @@ if.end.i.i.i.i.i.i.i31:                           ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i31, %call5.i.i.i.i2.i.i.noexc36, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i37, %call5.i.i.i.i2.i.i.noexc36 ], [ %call5.i.i.i.i2.i.i37, %if.end.i.i.i.i.i.i.i31 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjtEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -11755,7 +11755,7 @@ if.end.i.i.i.i.i.i.i32:                           ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i32, %call5.i.i.i.i2.i.i.noexc38, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i24
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i39, %call5.i.i.i.i2.i.i.noexc38 ], [ %call5.i.i.i.i2.i.i39, %if.end.i.i.i.i.i.i.i32 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i24 ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -12227,7 +12227,7 @@ if.end.i.i.i.i.i.i.i31:                           ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i31, %call5.i.i.i.i2.i.i.noexc36, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i37, %call5.i.i.i.i2.i.i.noexc36 ], [ %call5.i.i.i.i2.i.i37, %if.end.i.i.i.i.i.i.i31 ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -12683,7 +12683,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %call5.i.i.i.i1.i.i.
 
 invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i1.i.i34, %call5.i.i.i.i1.i.i.noexc ], [ %call5.i.i.i.i1.i.i34, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -13153,7 +13153,7 @@ if.end.i.i.i.i.i.i.i31:                           ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i31, %call5.i.i.i.i2.i.i.noexc36, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i37, %call5.i.i.i.i2.i.i.noexc36 ], [ %call5.i.i.i.i2.i.i37, %if.end.i.i.i.i.i.i.i31 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIltEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIltEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -13624,7 +13624,7 @@ if.end.i.i.i.i.i.i.i31:                           ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i31, %call5.i.i.i.i2.i.i.noexc36, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i37, %call5.i.i.i.i2.i.i.noexc36 ], [ %call5.i.i.i.i2.i.i37, %if.end.i.i.i.i.i.i.i31 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIljEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIljEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -14095,7 +14095,7 @@ if.end.i.i.i.i.i.i.i31:                           ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i.i.i31, %call5.i.i.i.i2.i.i.noexc36, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %values.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i37, %call5.i.i.i.i2.i.i.noexc36 ], [ %call5.i.i.i.i2.i.i37, %if.end.i.i.i.i.i.i.i31 ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr noundef %3, ptr noundef %values.sroa.0.0)
           to label %for.cond.preheader unwind label %lpad6
 
 for.cond.preheader:                               ; preds = %invoke.cont3
@@ -14465,7 +14465,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i76, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -14640,7 +14640,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhtEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -14815,7 +14815,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -14990,7 +14990,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIhmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -15165,7 +15165,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIthEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIthEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -15340,7 +15340,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIttEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIttEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -15515,7 +15515,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorItjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorItjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -15690,7 +15690,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorItmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorItmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -15865,7 +15865,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -16040,7 +16040,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjtEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -16215,7 +16215,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjjEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -16390,7 +16390,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIjmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -16565,7 +16565,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIlhEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIlhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -16739,7 +16739,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIltEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIltEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -16913,7 +16913,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIljEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIljEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -17087,7 +17087,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIlmEEvRKNS_6TensorEPT_PT0_l.argelim(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_120ConvertStridedTensorIlmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %tensor, ptr nocapture noundef writeonly %indices, ptr nocapture noundef writeonly %values) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %shape_.i = getelementptr inbounds i8, ptr %tensor, i64 40
   %_M_finish.i.i = getelementptr inbounds i8, ptr %tensor, i64 48
@@ -18018,14 +18018,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -18047,16 +18047,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i6.i.i = getelementptr i8, ptr %4, i64 %indvars.iv.i.i
   %6 = load i8, ptr %add.ptr.i6.i.i, align 1
   %cmp10.i.i = icmp ult i8 %5, %6
-  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp13.i.i = icmp ugt i8 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp13.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !115
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !115
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -18065,8 +18065,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !262
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -18422,14 +18422,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -18451,16 +18451,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i6.i.i = getelementptr i8, ptr %4, i64 %indvars.iv.i.i
   %6 = load i8, ptr %add.ptr.i6.i.i, align 1
   %cmp10.i.i = icmp ult i8 %5, %6
-  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp13.i.i = icmp ugt i8 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp13.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !122
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !122
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -18469,8 +18469,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !268
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -18823,14 +18823,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -18852,16 +18852,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i6.i.i = getelementptr i8, ptr %4, i64 %indvars.iv.i.i
   %6 = load i8, ptr %add.ptr.i6.i.i, align 1
   %cmp10.i.i = icmp ult i8 %5, %6
-  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp13.i.i = icmp ugt i8 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp13.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !129
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !129
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -18870,8 +18870,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !274
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -19224,14 +19224,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -19253,16 +19253,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i6.i.i = getelementptr i8, ptr %4, i64 %indvars.iv.i.i
   %6 = load i8, ptr %add.ptr.i6.i.i, align 1
   %cmp10.i.i = icmp ult i8 %5, %6
-  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp13.i.i = icmp ugt i8 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp13.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !136
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !136
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -19271,8 +19271,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !280
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -19625,14 +19625,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -19654,16 +19654,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i6.i.i = getelementptr i16, ptr %4, i64 %indvars.iv.i.i
   %6 = load i16, ptr %add.ptr.i6.i.i, align 2
   %cmp10.i.i = icmp ult i16 %5, %6
-  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp13.i.i = icmp ugt i16 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp13.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !143
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !143
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -19672,8 +19672,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !286
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -20026,14 +20026,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -20055,16 +20055,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i6.i.i = getelementptr i16, ptr %4, i64 %indvars.iv.i.i
   %6 = load i16, ptr %add.ptr.i6.i.i, align 2
   %cmp10.i.i = icmp ult i16 %5, %6
-  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp13.i.i = icmp ugt i16 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp13.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !150
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !150
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -20073,8 +20073,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !292
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -20427,14 +20427,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -20456,16 +20456,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i6.i.i = getelementptr i16, ptr %4, i64 %indvars.iv.i.i
   %6 = load i16, ptr %add.ptr.i6.i.i, align 2
   %cmp10.i.i = icmp ult i16 %5, %6
-  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp13.i.i = icmp ugt i16 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp13.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !157
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !157
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -20474,8 +20474,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !298
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -20828,14 +20828,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -20857,16 +20857,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i6.i.i = getelementptr i16, ptr %4, i64 %indvars.iv.i.i
   %6 = load i16, ptr %add.ptr.i6.i.i, align 2
   %cmp10.i.i = icmp ult i16 %5, %6
-  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp10.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp13.i.i = icmp ugt i16 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp13.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !164
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !164
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -20875,8 +20875,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !304
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -21229,14 +21229,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -21258,16 +21258,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i7.i.i = getelementptr i32, ptr %4, i64 %indvars.iv.i.i
   %6 = load i32, ptr %add.ptr.i7.i.i, align 4
   %cmp8.i.i = icmp ult i32 %5, %6
-  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp9.i.i = icmp ugt i32 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !171
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !171
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -21276,8 +21276,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !310
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -21630,14 +21630,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -21659,16 +21659,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i7.i.i = getelementptr i32, ptr %4, i64 %indvars.iv.i.i
   %6 = load i32, ptr %add.ptr.i7.i.i, align 4
   %cmp8.i.i = icmp ult i32 %5, %6
-  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp9.i.i = icmp ugt i32 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !178
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !178
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -21677,8 +21677,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !316
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -22031,14 +22031,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -22060,16 +22060,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i7.i.i = getelementptr i32, ptr %4, i64 %indvars.iv.i.i
   %6 = load i32, ptr %add.ptr.i7.i.i, align 4
   %cmp8.i.i = icmp ult i32 %5, %6
-  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp9.i.i = icmp ugt i32 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !185
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !185
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -22078,8 +22078,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !322
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -22432,14 +22432,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -22461,16 +22461,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i7.i.i = getelementptr i32, ptr %4, i64 %indvars.iv.i.i
   %6 = load i32, ptr %add.ptr.i7.i.i, align 4
   %cmp8.i.i = icmp ult i32 %5, %6
-  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp9.i.i = icmp ugt i32 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !192
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !192
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -22479,8 +22479,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !328
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -22833,14 +22833,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -22862,16 +22862,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i7.i.i = getelementptr i64, ptr %4, i64 %indvars.iv.i.i
   %6 = load i64, ptr %add.ptr.i7.i.i, align 8
   %cmp8.i.i = icmp slt i64 %5, %6
-  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp9.i.i = icmp sgt i64 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !199
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !199
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -22880,8 +22880,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !334
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -23234,14 +23234,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -23263,16 +23263,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i7.i.i = getelementptr i64, ptr %4, i64 %indvars.iv.i.i
   %6 = load i64, ptr %add.ptr.i7.i.i, align 8
   %cmp8.i.i = icmp slt i64 %5, %6
-  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp9.i.i = icmp sgt i64 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !206
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !206
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -23281,8 +23281,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !340
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -23635,14 +23635,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -23664,16 +23664,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i7.i.i = getelementptr i64, ptr %4, i64 %indvars.iv.i.i
   %6 = load i64, ptr %add.ptr.i7.i.i, align 8
   %cmp8.i.i = icmp slt i64 %5, %6
-  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp9.i.i = icmp sgt i64 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !213
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !213
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -23682,8 +23682,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !346
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33
@@ -24036,14 +24036,14 @@ entry:
   %cmp31 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp31, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
-  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
+  %__holeIndex.addr.032 = phi i64 [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
   %sub3 = or disjoint i64 %add, 1
   %__comp.val.val = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i = icmp sgt i32 %__comp.val.val, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %while.body
   %add.ptr.i18 = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub3
@@ -24065,16 +24065,16 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %add.ptr.i7.i.i = getelementptr i64, ptr %4, i64 %indvars.iv.i.i
   %6 = load i64, ptr %add.ptr.i7.i.i, align 8
   %cmp8.i.i = icmp slt i64 %5, %6
-  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %if.end.i.i
+  br i1 %cmp8.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp9.i.i = icmp sgt i64 %5, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %conv.i.i
   %or.cond.i.i = select i1 %cmp9.i.i, i1 true, i1 %exitcond.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, label %for.body.i.i, !llvm.loop !220
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, label %for.body.i.i, !llvm.loop !220
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit: ; preds = %if.end.i.i, %for.body.i.i, %while.body
   %7 = phi i64 [ %mul, %while.body ], [ %mul, %if.end.i.i ], [ %sub3, %for.body.i.i ]
   %add.ptr.i19 = getelementptr inbounds i64, ptr %__first.coerce, i64 %7
   %8 = load i64, ptr %add.ptr.i19, align 8
@@ -24083,8 +24083,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertCol
   %cmp = icmp slt i64 %7, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !352
 
-while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.argprom.argprom.exit ]
+while.end:                                        ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %7, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS2_6TensorEPT_PT0_lEUlllE_EclINS_17__normal_iteratorIPlSt6vectorIlSaIlEEEESL_EEbS9_SB_.exit ]
   %and = and i64 %__len, 1
   %cmp16 = icmp eq i64 %and, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end33

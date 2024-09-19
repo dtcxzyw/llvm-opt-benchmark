@@ -149,14 +149,14 @@ entry:
   %len.i.i = getelementptr inbounds i8, ptr %worktree_path.i, i64 8
   %1 = load i64, ptr %len.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %1, 5
-  br i1 %cmp.i.i.i, label %strbuf_strip_suffix.argprom.exit.i, label %lor.lhs.false.i.i.i
+  br i1 %cmp.i.i.i, label %strbuf_strip_suffix.exit.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %entry
   %sub.i.i.i = add i64 %1, -5
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.i.i.i
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.44, i64 5)
   %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_strip_suffix.argprom.exit.i
+  br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_strip_suffix.exit.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i, ptr %len.i.i, align 8
@@ -171,13 +171,13 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.end.i5.i.i:                                    ; preds = %if.then.i.i
   %cmp3.not.i.i.i = icmp eq ptr %0, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i.i, label %strbuf_strip_suffix.argprom.exit.i, label %if.then4.i.i.i
+  br i1 %cmp3.not.i.i.i, label %strbuf_strip_suffix.exit.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i5.i.i
   store i8 0, ptr %add.ptr.i.i.i, align 1
-  br label %strbuf_strip_suffix.argprom.exit.i
+  br label %strbuf_strip_suffix.exit.i
 
-strbuf_strip_suffix.argprom.exit.i:               ; preds = %if.then4.i.i.i, %if.end.i5.i.i, %lor.lhs.false.i.i.i, %entry
+strbuf_strip_suffix.exit.i:                       ; preds = %if.then4.i.i.i, %if.end.i5.i.i, %lor.lhs.false.i.i.i, %entry
   %call2.i = call ptr @xcalloc(i64 noundef 1, i64 noundef 96) #17
   %call3.i = call ptr @strbuf_detach(ptr noundef nonnull %worktree_path.i, ptr noundef null) #17
   store ptr %call3.i, ptr %call2.i, align 8
@@ -185,14 +185,14 @@ strbuf_strip_suffix.argprom.exit.i:               ; preds = %if.then4.i.i.i, %if
   %cmp.i = icmp eq i32 %3, 1
   br i1 %cmp.i, label %lor.end.i, label %lor.rhs.i
 
-lor.rhs.i:                                        ; preds = %strbuf_strip_suffix.argprom.exit.i
+lor.rhs.i:                                        ; preds = %strbuf_strip_suffix.exit.i
   %call4.i = call i32 @is_bare_repository() #17
   %tobool.i = icmp ne i32 %call4.i, 0
   %4 = zext i1 %tobool.i to i32
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %lor.rhs.i, %strbuf_strip_suffix.argprom.exit.i
-  %lor.ext.i = phi i32 [ 1, %strbuf_strip_suffix.argprom.exit.i ], [ %4, %lor.rhs.i ]
+lor.end.i:                                        ; preds = %lor.rhs.i, %strbuf_strip_suffix.exit.i
+  %lor.ext.i = phi i32 [ 1, %strbuf_strip_suffix.exit.i ], [ %4, %lor.rhs.i ]
   %is_bare.i = getelementptr inbounds i8, ptr %call2.i, i64 80
   store i32 %lor.ext.i, ptr %is_bare.i, align 8
   %tobool5.not.i = icmp eq i32 %skip_reading_head, 0
@@ -276,14 +276,14 @@ if.end2.i:                                        ; preds = %while.body
   %9 = load ptr, ptr %buf.i.i30, align 8
   %10 = load i64, ptr %len.i.i31, align 8
   %cmp.i.i.i32 = icmp ult i64 %10, 5
-  br i1 %cmp.i.i.i32, label %strbuf_strip_suffix.argprom.exit.i38, label %lor.lhs.false.i.i.i33
+  br i1 %cmp.i.i.i32, label %strbuf_strip_suffix.exit.i38, label %lor.lhs.false.i.i.i33
 
 lor.lhs.false.i.i.i33:                            ; preds = %if.end2.i
   %sub.i.i.i34 = add i64 %10, -5
   %add.ptr.i.i.i35 = getelementptr inbounds i8, ptr %9, i64 %sub.i.i.i34
   %bcmp.i.i.i36 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i35, ptr noundef nonnull dereferenceable(5) @.str.44, i64 5)
   %tobool.not.i.i.i37 = icmp eq i32 %bcmp.i.i.i36, 0
-  br i1 %tobool.not.i.i.i37, label %if.then.i.i53, label %strbuf_strip_suffix.argprom.exit.i38
+  br i1 %tobool.not.i.i.i37, label %if.then.i.i53, label %strbuf_strip_suffix.exit.i38
 
 if.then.i.i53:                                    ; preds = %lor.lhs.false.i.i.i33
   store i64 %sub.i.i.i34, ptr %len.i.i31, align 8
@@ -298,13 +298,13 @@ if.then.i.i.i59:                                  ; preds = %if.then.i.i53
 
 if.end.i5.i.i56:                                  ; preds = %if.then.i.i53
   %cmp3.not.i.i.i57 = icmp eq ptr %9, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i.i57, label %strbuf_strip_suffix.argprom.exit.i38, label %if.then4.i.i.i58
+  br i1 %cmp3.not.i.i.i57, label %strbuf_strip_suffix.exit.i38, label %if.then4.i.i.i58
 
 if.then4.i.i.i58:                                 ; preds = %if.end.i5.i.i56
   store i8 0, ptr %add.ptr.i.i.i35, align 1
-  br label %strbuf_strip_suffix.argprom.exit.i38
+  br label %strbuf_strip_suffix.exit.i38
 
-strbuf_strip_suffix.argprom.exit.i38:             ; preds = %if.then4.i.i.i58, %if.end.i5.i.i56, %lor.lhs.false.i.i.i33, %if.end2.i
+strbuf_strip_suffix.exit.i38:                     ; preds = %if.then4.i.i.i58, %if.end.i5.i.i56, %lor.lhs.false.i.i.i33, %if.end2.i
   %call4.i39 = call ptr @xcalloc(i64 noundef 1, i64 noundef 96) #17
   %call5.i = call ptr @strbuf_detach(ptr noundef nonnull %worktree_path.i27, ptr noundef null) #17
   store ptr %call5.i, ptr %call4.i39, align 8
@@ -313,7 +313,7 @@ strbuf_strip_suffix.argprom.exit.i38:             ; preds = %if.then4.i.i.i58, %
   store ptr %call7.i, ptr %id8.i, align 8
   br i1 %tobool5.not.i, label %if.then10.i, label %get_linked_worktree.exit
 
-if.then10.i:                                      ; preds = %strbuf_strip_suffix.argprom.exit.i38
+if.then10.i:                                      ; preds = %strbuf_strip_suffix.exit.i38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i.i26)
   %call.i.i40 = call ptr @get_worktree_ref_store(ptr noundef nonnull %call4.i39) #17
   %head_oid.i.i41 = getelementptr inbounds i8, ptr %call4.i39, i64 40
@@ -342,8 +342,8 @@ add_head_info.exit.i50:                           ; preds = %if.else.i.i51, %if.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i.i26)
   br label %get_linked_worktree.exit
 
-get_linked_worktree.exit:                         ; preds = %while.body, %strbuf_strip_suffix.argprom.exit.i38, %add_head_info.exit.i50
-  %worktree.0.i = phi ptr [ null, %while.body ], [ %call4.i39, %strbuf_strip_suffix.argprom.exit.i38 ], [ %call4.i39, %add_head_info.exit.i50 ]
+get_linked_worktree.exit:                         ; preds = %while.body, %strbuf_strip_suffix.exit.i38, %add_head_info.exit.i50
+  %worktree.0.i = phi ptr [ null, %while.body ], [ %call4.i39, %strbuf_strip_suffix.exit.i38 ], [ %call4.i39, %add_head_info.exit.i50 ]
   call void @strbuf_release(ptr noundef nonnull %path.i) #17
   call void @strbuf_release(ptr noundef nonnull %worktree_path.i27) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %path.i)
@@ -1308,28 +1308,28 @@ do.body.i:                                        ; preds = %do.cond.i, %land.lh
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.12, i64 %prefix.addr.0.idx.i
   %3 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 11
-  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %4 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %4, %3
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !12
+  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !12
 
-skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
+skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
   %target.addr.0 = phi ptr [ %target, %do.cond.i ], [ %scevgep.i, %do.body.i ]
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %land.rhs, label %land.end
 
-land.rhs:                                         ; preds = %skip_prefix.argprom.exit
+land.rhs:                                         ; preds = %skip_prefix.exit
   %call8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %target.addr.0) #19
   %tobool9.not = icmp eq i32 %call8, 0
   %5 = zext i1 %tobool9.not to i32
   br label %land.end
 
-land.end:                                         ; preds = %land.lhs.true, %land.rhs, %skip_prefix.argprom.exit, %entry
-  %land.ext = phi i32 [ 0, %skip_prefix.argprom.exit ], [ 0, %entry ], [ %5, %land.rhs ], [ 0, %land.lhs.true ]
+land.end:                                         ; preds = %land.lhs.true, %land.rhs, %skip_prefix.exit, %entry
+  %land.ext = phi i32 [ 0, %skip_prefix.exit ], [ 0, %entry ], [ %5, %land.rhs ], [ 0, %land.lhs.true ]
   call void @wt_status_state_free_buffers(ptr noundef nonnull %state) #17
   ret i32 %land.ext
 }
@@ -1367,28 +1367,28 @@ do.body.i:                                        ; preds = %do.cond.i, %land.lh
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.12, i64 %prefix.addr.0.idx.i
   %1 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 11
-  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %2 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %2, %1
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !12
+  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !12
 
-skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
+skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
   %target.addr.0 = phi ptr [ %target, %do.cond.i ], [ %scevgep.i, %do.body.i ]
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %land.rhs, label %land.end
 
-land.rhs:                                         ; preds = %skip_prefix.argprom.exit
+land.rhs:                                         ; preds = %skip_prefix.exit
   %call5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %target.addr.0) #19
   %tobool6.not = icmp eq i32 %call5, 0
   %3 = zext i1 %tobool6.not to i32
   br label %land.end
 
-land.end:                                         ; preds = %land.rhs, %skip_prefix.argprom.exit, %entry
-  %land.ext = phi i32 [ 0, %skip_prefix.argprom.exit ], [ 0, %entry ], [ %3, %land.rhs ]
+land.end:                                         ; preds = %land.rhs, %skip_prefix.exit, %entry
+  %land.ext = phi i32 [ 0, %skip_prefix.exit ], [ 0, %entry ], [ %3, %land.rhs ]
   call void @wt_status_state_free_buffers(ptr noundef nonnull %state) #17
   ret i32 %land.ext
 }
@@ -1448,26 +1448,26 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %land.
   %prefix.addr.0.ptr.i.i = getelementptr inbounds i8, ptr @.str.12, i64 %prefix.addr.0.idx.i.i
   %5 = load i8, ptr %prefix.addr.0.ptr.i.i, align 1
   %exitcond.i.i = icmp eq i64 %prefix.addr.0.idx.i.i, 11
-  br i1 %exitcond.i.i, label %skip_prefix.argprom.exit.i, label %do.cond.i.i
+  br i1 %exitcond.i.i, label %skip_prefix.exit.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
   %6 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.add.i.i = add nuw nsw i64 %prefix.addr.0.idx.i.i, 1
   %cmp.i.i = icmp eq i8 %6, %5
-  br i1 %cmp.i.i, label %do.body.i.i, label %skip_prefix.argprom.exit.i, !llvm.loop !12
+  br i1 %cmp.i.i, label %do.body.i.i, label %skip_prefix.exit.i, !llvm.loop !12
 
-skip_prefix.argprom.exit.i:                       ; preds = %do.cond.i.i, %do.body.i.i
+skip_prefix.exit.i:                               ; preds = %do.cond.i.i, %do.body.i.i
   %target.addr.0.i = phi ptr [ %target, %do.cond.i.i ], [ %scevgep.i.i, %do.body.i.i ]
   %tobool.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i, label %is_worktree_being_rebased.exit, label %is_worktree_being_rebased.exit.thread
 
-is_worktree_being_rebased.exit.thread:            ; preds = %skip_prefix.argprom.exit.i, %if.then3, %land.lhs.true.i
+is_worktree_being_rebased.exit.thread:            ; preds = %skip_prefix.exit.i, %if.then3, %land.lhs.true.i
   call void @wt_status_state_free_buffers(ptr noundef nonnull %state.i) #17
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %state.i)
   br label %if.end7
 
-is_worktree_being_rebased.exit:                   ; preds = %skip_prefix.argprom.exit.i
+is_worktree_being_rebased.exit:                   ; preds = %skip_prefix.exit.i
   %call8.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %target.addr.0.i) #19
   %tobool9.not.i.not = icmp eq i32 %call8.i, 0
   call void @wt_status_state_free_buffers(ptr noundef nonnull %state.i) #17
@@ -1495,26 +1495,26 @@ do.body.i.i15:                                    ; preds = %do.cond.i.i20, %lan
   %prefix.addr.0.ptr.i.i18 = getelementptr inbounds i8, ptr @.str.12, i64 %prefix.addr.0.idx.i.i17
   %8 = load i8, ptr %prefix.addr.0.ptr.i.i18, align 1
   %exitcond.i.i19 = icmp eq i64 %prefix.addr.0.idx.i.i17, 11
-  br i1 %exitcond.i.i19, label %skip_prefix.argprom.exit.i24, label %do.cond.i.i20
+  br i1 %exitcond.i.i19, label %skip_prefix.exit.i24, label %do.cond.i.i20
 
 do.cond.i.i20:                                    ; preds = %do.body.i.i15
   %incdec.ptr.i.i21 = getelementptr inbounds i8, ptr %str.addr.0.i.i16, i64 1
   %9 = load i8, ptr %str.addr.0.i.i16, align 1
   %prefix.addr.0.add.i.i22 = add nuw nsw i64 %prefix.addr.0.idx.i.i17, 1
   %cmp.i.i23 = icmp eq i8 %9, %8
-  br i1 %cmp.i.i23, label %do.body.i.i15, label %skip_prefix.argprom.exit.i24, !llvm.loop !12
+  br i1 %cmp.i.i23, label %do.body.i.i15, label %skip_prefix.exit.i24, !llvm.loop !12
 
-skip_prefix.argprom.exit.i24:                     ; preds = %do.cond.i.i20, %do.body.i.i15
+skip_prefix.exit.i24:                             ; preds = %do.cond.i.i20, %do.body.i.i15
   %target.addr.0.i25 = phi ptr [ %target, %do.cond.i.i20 ], [ %scevgep.i.i14, %do.body.i.i15 ]
   %tobool.not.i.i26 = icmp eq i8 %8, 0
   br i1 %tobool.not.i.i26, label %is_worktree_being_bisected.exit, label %is_worktree_being_bisected.exit.thread
 
-is_worktree_being_bisected.exit.thread:           ; preds = %skip_prefix.argprom.exit.i24, %if.end7
+is_worktree_being_bisected.exit.thread:           ; preds = %skip_prefix.exit.i24, %if.end7
   call void @wt_status_state_free_buffers(ptr noundef nonnull %state.i9) #17
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %state.i9)
   br label %if.end12
 
-is_worktree_being_bisected.exit:                  ; preds = %skip_prefix.argprom.exit.i24
+is_worktree_being_bisected.exit:                  ; preds = %skip_prefix.exit.i24
   %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %target.addr.0.i25) #19
   %tobool6.not.i.not = icmp eq i32 %call5.i, 0
   call void @wt_status_state_free_buffers(ptr noundef nonnull %state.i9) #17
@@ -1988,14 +1988,14 @@ entry:
   %len.i.i = getelementptr inbounds i8, ptr %target.i, i64 8
   %1 = load i64, ptr %len.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %1, 5
-  br i1 %cmp.i.i.i, label %strbuf_strip_suffix.argprom.exit.i, label %lor.lhs.false.i.i.i
+  br i1 %cmp.i.i.i, label %strbuf_strip_suffix.exit.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %entry
   %sub.i.i.i = add i64 %1, -5
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.i.i.i
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.44, i64 5)
   %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_strip_suffix.argprom.exit.i
+  br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_strip_suffix.exit.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i.i.i
   store i64 %sub.i.i.i, ptr %len.i.i, align 8
@@ -2010,13 +2010,13 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.end.i5.i.i:                                    ; preds = %if.then.i.i
   %cmp3.not.i.i.i = icmp eq ptr %0, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i.i, label %strbuf_strip_suffix.argprom.exit.i, label %if.then4.i.i.i
+  br i1 %cmp3.not.i.i.i, label %strbuf_strip_suffix.exit.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i5.i.i
   store i8 0, ptr %add.ptr.i.i.i, align 1
-  br label %strbuf_strip_suffix.argprom.exit.i
+  br label %strbuf_strip_suffix.exit.i
 
-strbuf_strip_suffix.argprom.exit.i:               ; preds = %if.then4.i.i.i, %if.end.i5.i.i, %lor.lhs.false.i.i.i, %entry
+strbuf_strip_suffix.exit.i:                       ; preds = %if.then4.i.i.i, %if.end.i5.i.i, %lor.lhs.false.i.i.i, %entry
   %call1.i = call ptr @get_git_common_dir() #17
   call void @strbuf_add_real_path(ptr noundef nonnull %maindir.i, ptr noundef %call1.i) #17
   %buf.i1.i = getelementptr inbounds i8, ptr %maindir.i, i64 16
@@ -2026,7 +2026,7 @@ strbuf_strip_suffix.argprom.exit.i:               ; preds = %if.then4.i.i.i, %if
   %cmp.i.i3.i = icmp ult i64 %4, 5
   br i1 %cmp.i.i3.i, label %is_main_worktree_path.exit, label %lor.lhs.false.i.i4.i
 
-lor.lhs.false.i.i4.i:                             ; preds = %strbuf_strip_suffix.argprom.exit.i
+lor.lhs.false.i.i4.i:                             ; preds = %strbuf_strip_suffix.exit.i
   %sub.i.i5.i = add i64 %4, -5
   %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %3, i64 %sub.i.i5.i
   %bcmp.i.i7.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %add.ptr.i.i6.i, ptr noundef nonnull dereferenceable(5) @.str.44, i64 5)
@@ -2053,8 +2053,8 @@ if.then4.i.i15.i:                                 ; preds = %if.end.i5.i13.i
   %.pre.i = load ptr, ptr %buf.i1.i, align 8
   br label %is_main_worktree_path.exit
 
-is_main_worktree_path.exit:                       ; preds = %strbuf_strip_suffix.argprom.exit.i, %lor.lhs.false.i.i4.i, %if.end.i5.i13.i, %if.then4.i.i15.i
-  %6 = phi ptr [ %3, %strbuf_strip_suffix.argprom.exit.i ], [ %3, %lor.lhs.false.i.i4.i ], [ @strbuf_slopbuf, %if.end.i5.i13.i ], [ %.pre.i, %if.then4.i.i15.i ]
+is_main_worktree_path.exit:                       ; preds = %strbuf_strip_suffix.exit.i, %lor.lhs.false.i.i4.i, %if.end.i5.i13.i, %if.then4.i.i15.i
+  %6 = phi ptr [ %3, %strbuf_strip_suffix.exit.i ], [ %3, %lor.lhs.false.i.i4.i ], [ @strbuf_slopbuf, %if.end.i5.i13.i ], [ %.pre.i, %if.then4.i.i15.i ]
   %7 = load ptr, ptr %buf.i.i, align 8
   %call4.i = call i32 @fspathcmp(ptr noundef %6, ptr noundef %7) #17
   call void @strbuf_release(ptr noundef nonnull %maindir.i) #17

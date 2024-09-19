@@ -7663,24 +7663,24 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustRecord(ptr noundef %0, i
 52:                                               ; preds = %50
   %53 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData_top_level_name, align 4
   %54 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, i32 poison)
-  br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.argprom.exit
+  br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit
 
 55:                                               ; preds = %50
   %56 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData_top_level_name_ex, align 4
   %57 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 poison)
-  br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.argprom.exit
+  br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit
 
 58:                                               ; preds = %50
   %59 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData_domain_info, align 4
   %60 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustDomainInfo(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, i32 poison)
-  br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.argprom.exit
+  br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit
 
 61:                                               ; preds = %50
   %62 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData_data, align 4
   %63 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustBinaryData(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 poison)
-  br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.argprom.exit
+  br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit
 
-lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.argprom.exit: ; preds = %52, %55, %58, %61
+lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit: ; preds = %52, %55, %58, %61
   %.1.i.i = phi i32 [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ]
   %64 = load ptr, ptr %9, align 8
   %65 = sub i32 %.1.i.i, %27
@@ -7696,7 +7696,7 @@ lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.argprom.exit: ; p
   %.not46 = icmp eq i32 %70, 0
   br i1 %.not46, label %77, label %71
 
-71:                                               ; preds = %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.argprom.exit
+71:                                               ; preds = %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit
   %72 = load i32, ptr %12, align 4
   %.not47 = icmp ne i32 %72, 0
   %73 = and i32 %.1.i.i, 7
@@ -7709,8 +7709,8 @@ lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.argprom.exit: ; p
   %76 = add i32 %75, 8
   br label %77
 
-77:                                               ; preds = %71, %74, %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.argprom.exit
-  %.1 = phi i32 [ %.1.i.i, %71 ], [ %76, %74 ], [ %.1.i.i, %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.argprom.exit ]
+77:                                               ; preds = %71, %74, %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit
+  %.1 = phi i32 [ %.1.i.i, %71 ], [ %76, %74 ], [ %.1.i.i, %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit ]
   ret i32 %.1
 }
 
@@ -8172,7 +8172,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustRecord2(ptr noundef %0, 
 50:                                               ; preds = %47, %45, %42, %40
   %.0.i.i = phi i32 [ %33, %40 ], [ %44, %42 ], [ %33, %45 ], [ %49, %47 ]
   %51 = load i32, ptr %10, align 4
-  switch i32 %51, label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit [
+  switch i32 %51, label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit [
     i32 0, label %52
     i32 1, label %55
     i32 2, label %58
@@ -8183,29 +8183,29 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustRecord2(ptr noundef %0, 
 52:                                               ; preds = %50
   %53 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData2_top_level_name, align 4
   %54 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, i32 poison)
-  br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit
+  br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
 
 55:                                               ; preds = %50
   %56 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData2_top_level_name_ex, align 4
   %57 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 poison)
-  br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit
+  br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
 
 58:                                               ; preds = %50
   %59 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData2_domain_info, align 4
   %60 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustDomainInfo(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, i32 poison)
-  br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit
+  br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
 
 61:                                               ; preds = %50
   %62 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData2_data, align 4
   %63 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustBinaryData(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 poison)
-  br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit
+  br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
 
 64:                                               ; preds = %50
   %65 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData2_scanner_info, align 4
   %66 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustDomainInfo(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, i32 poison)
-  br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit
+  br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
 
-lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit: ; preds = %50, %52, %55, %58, %61, %64
+lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit: ; preds = %50, %52, %55, %58, %61, %64
   %.1.i.i = phi i32 [ %.0.i.i, %50 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ]
   %67 = load ptr, ptr %9, align 8
   %68 = sub i32 %.1.i.i, %27
@@ -8221,7 +8221,7 @@ lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit: ; 
   %.not46 = icmp eq i32 %73, 0
   br i1 %.not46, label %80, label %74
 
-74:                                               ; preds = %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit
+74:                                               ; preds = %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
   %75 = load i32, ptr %12, align 4
   %.not47 = icmp ne i32 %75, 0
   %76 = and i32 %.1.i.i, 7
@@ -8234,8 +8234,8 @@ lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit: ; 
   %79 = add i32 %78, 8
   br label %80
 
-80:                                               ; preds = %74, %77, %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit
-  %.1 = phi i32 [ %.1.i.i, %74 ], [ %79, %77 ], [ %.1.i.i, %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.argprom.exit ]
+80:                                               ; preds = %74, %77, %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
+  %.1 = phi i32 [ %.1.i.i, %74 ], [ %79, %77 ], [ %.1.i.i, %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit ]
   ret i32 %.1
 }
 
@@ -13321,12 +13321,12 @@ define internal i32 @lsarpc_dissect_element_lsa_QueryInfoPolicy_info_(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_QueryInfoPolicy_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_QueryInfoPolicy_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_PolicyInformation.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_PolicyInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lsarpc_dissect_lsa_PolicyInformation.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @lsarpc_dissect_lsa_PolicyInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   store ptr null, ptr %8, align 8
@@ -13490,7 +13490,7 @@ define internal i32 @lsarpc_dissect_element_lsa_SetInfoPolicy_handle_(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_SetInfoPolicy_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_SetInfoPolicy_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_PolicyInformation.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_PolicyInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -13823,12 +13823,12 @@ define internal i32 @lsarpc_dissect_element_lsa_QueryTrustedDomainInfo_info_(ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_QueryTrustedDomainInfo_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_QueryTrustedDomainInfo_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -13990,7 +13990,7 @@ define internal i32 @lsarpc_dissect_element_lsa_SetInformationTrustedDomain_trus
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_SetInformationTrustedDomain_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_SetInformationTrustedDomain_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -14259,7 +14259,7 @@ define internal i32 @lsarpc_dissect_element_lsa_QueryTrustedDomainInfoBySid_info
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_QueryTrustedDomainInfoBySid_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_QueryTrustedDomainInfoBySid_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -14279,7 +14279,7 @@ define internal i32 @lsarpc_dissect_element_lsa_SetTrustedDomainInfo_dom_sid_(pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_SetTrustedDomainInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_SetTrustedDomainInfo_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -14424,7 +14424,7 @@ define internal i32 @lsarpc_dissect_element_lsa_QueryInfoPolicy2_info_(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_QueryInfoPolicy2_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_QueryInfoPolicy2_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_PolicyInformation.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_PolicyInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -14438,7 +14438,7 @@ define internal i32 @lsarpc_dissect_element_lsa_SetInfoPolicy2_handle_(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_SetInfoPolicy2_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_SetInfoPolicy2_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_PolicyInformation.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_PolicyInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -14466,7 +14466,7 @@ define internal i32 @lsarpc_dissect_element_lsa_QueryTrustedDomainInfoByName_inf
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_QueryTrustedDomainInfoByName_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_QueryTrustedDomainInfoByName_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -14487,7 +14487,7 @@ define internal i32 @lsarpc_dissect_element_lsa_SetTrustedDomainInfoByName_trust
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_SetTrustedDomainInfoByName_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_SetTrustedDomainInfoByName_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -14564,12 +14564,12 @@ define internal i32 @lsarpc_dissect_element_lsa_QueryDomainInformationPolicy_inf
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_QueryDomainInformationPolicy_info__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_QueryDomainInformationPolicy_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_DomainInformationPolicy.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_DomainInformationPolicy(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lsarpc_dissect_lsa_DomainInformationPolicy.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @lsarpc_dissect_lsa_DomainInformationPolicy(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -14633,7 +14633,7 @@ define internal i32 @lsarpc_dissect_element_lsa_SetDomainInformationPolicy_handl
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_SetDomainInformationPolicy_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_SetDomainInformationPolicy_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_DomainInformationPolicy.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_DomainInformationPolicy(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -14965,12 +14965,12 @@ define internal i32 @lsarpc_dissect_element_lsa_OpenPolicy3_attr_(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_OpenPolicy3_in_revision_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_OpenPolicy3_in_revision_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_revision_info.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_revision_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lsarpc_dissect_lsa_revision_info.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @lsarpc_dissect_lsa_revision_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -15021,7 +15021,7 @@ define internal i32 @lsarpc_dissect_element_lsa_OpenPolicy3_out_version_(ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @lsarpc_dissect_element_lsa_OpenPolicy3_out_revision_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_lsarpc_lsa_OpenPolicy3_out_revision_info, align 4
-  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_revision_info.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @lsarpc_dissect_lsa_revision_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 

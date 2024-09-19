@@ -4122,7 +4122,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_configure_endpoint(p
   %.val = load i32, ptr %24, align 4
   %341 = getelementptr i8, ptr %24, i64 4
   %.val20 = load i32, ptr %341, align 4
-  tail call fastcc void @xhci_free_host_resources.argprom(ptr noundef %0, i32 %.val, i32 %.val20)
+  tail call fastcc void @xhci_free_host_resources(ptr noundef %0, i32 %.val, i32 %.val20)
   br label %342
 
 342:                                              ; preds = %340, %.loopexit
@@ -5860,7 +5860,7 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare dso_local i32 @__SCT__tp_func_xhci_add_endpoint(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xhci_free_host_resources.argprom(ptr noundef %0, i32 %.0.val, i32 %.4.val) unnamed_addr #0 align 16 {
+define internal fastcc void @xhci_free_host_resources(ptr noundef %0, i32 %.0.val, i32 %.4.val) unnamed_addr #0 align 16 {
   %2 = lshr i32 %.4.val, 2
   %3 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %2) #24, !srcloc !47
   %4 = and i32 %.4.val, %.0.val
@@ -9390,7 +9390,7 @@ define internal noundef range(i32 -108, 1) i32 @xhci_set_usb2_hardware_lpm(ptr n
   %.val2.val = load ptr, ptr %115, align 8
   %116 = getelementptr i8, ptr %.val2.val, i64 3
   %.val2.val.val = load i32, ptr %116, align 1
-  %117 = tail call fastcc i32 @xhci_calculate_hird_besl.argprom.argprom.argprom(i32 %.val, i32 %.val2.val.val)
+  %117 = tail call fastcc i32 @xhci_calculate_hird_besl(i32 %.val, i32 %.val2.val.val)
   br label %118
 
 118:                                              ; preds = %112, %91
@@ -10371,7 +10371,7 @@ define internal fastcc i32 @xhci_setup_device(ptr noundef %0, ptr noundef %1, i3
   %186 = load ptr, ptr %185, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %186, ptr noundef nonnull @.str.156, ptr noundef nonnull %6, i32 noundef %166) #22
   %187 = load ptr, ptr %35, align 8
-  tail call fastcc void @trace_xhci_address_ctx.argelim(ptr noundef %14, ptr noundef %187)
+  tail call fastcc void @trace_xhci_address_ctx(ptr noundef %14, ptr noundef %187)
   br label %.thread
 
 188:                                              ; preds = %162
@@ -10574,7 +10574,7 @@ declare dso_local i32 @xhci_setup_addressable_virt_dev(ptr noundef, ptr noundef)
 declare dso_local void @xhci_copy_ep0_dequeue_into_input_ctx(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_xhci_address_ctx.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc void @trace_xhci_address_ctx(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_xhci_address_ctx, i64 8), i32 2) #21
           to label %23 [label %3], !srcloc !12
 
@@ -10776,7 +10776,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_change_max_exit_late
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(none)
-define internal fastcc range(i32 -2147483648, 16) i32 @xhci_calculate_hird_besl.argprom.argprom.argprom(i32 %.56.val, i32 %.920.val.8.val.3.val) unnamed_addr #19 align 16 {
+define internal fastcc range(i32 -2147483648, 16) i32 @xhci_calculate_hird_besl(i32 %.56.val, i32 %.920.val.8.val.3.val) unnamed_addr #19 align 16 {
   %1 = lshr i32 %.56.val, 16
   %2 = and i32 %.920.val.8.val.3.val, 4
   %3 = icmp eq i32 %2, 0

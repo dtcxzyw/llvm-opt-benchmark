@@ -845,41 +845,41 @@ declare void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef) local_unname
 
 ; Function Attrs: mustprogress uwtable
 define noundef float @_Z25ewald_spline3_table_scaleRK19interaction_const_tbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
-  br i1 %1, label %4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.thread
+  br i1 %1, label %4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.thread
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 68
   %.val = load i32, ptr %5, align 4
   switch i32 %.val, label %6 [
-    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
-    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
-    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
-    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
-    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
-    i32 4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
+    i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
+    i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
+    i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
+    i32 15, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
+    i32 5, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
+    i32 4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
   ]
 
 6:                                                ; preds = %4
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ25ewald_spline3_table_scaleRK19interaction_const_tbbENK3$_0clEv", ptr noundef nonnull @.str, i32 noundef 332) #25
   unreachable
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread: ; preds = %4, %4, %4, %4, %4, %4
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %4, %4, %4, %4, %4, %4
   %.val23 = load i32, ptr %0, align 8
   %7 = icmp ne i32 %.val23, 5
   %or.cond.not = select i1 %2, i1 %7, i1 false
   br i1 %or.cond.not, label %9, label %10
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.thread: ; preds = %3
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.thread: ; preds = %3
   %.val2335 = load i32, ptr %0, align 8
   %8 = icmp ne i32 %.val2335, 5
   %or.cond.not36 = select i1 %2, i1 %8, i1 false
   br i1 %or.cond.not36, label %9, label %.thread
 
-9:                                                ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.thread, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
+9:                                                ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.thread, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ25ewald_spline3_table_scaleRK19interaction_const_tbbENK3$_0clEv", ptr noundef nonnull @.str, i32 noundef 334) #25
   unreachable
 
-10:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread
+10:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread
   %11 = getelementptr inbounds i8, ptr %0, i64 84
   %12 = load float, ptr %11, align 4
   %13 = fcmp ogt float %12, 0.000000e+00
@@ -926,8 +926,8 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.thread: ; pre
   %.sroa.speculated28 = select i1 %41, float %34, float 0.000000e+00
   br label %.thread
 
-.thread:                                          ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.thread, %40
-  %.0 = phi float [ %.sroa.speculated28, %40 ], [ 0.000000e+00, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.argprom.exit.thread.thread ]
+.thread:                                          ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.thread, %40
+  %.0 = phi float [ %.sroa.speculated28, %40 ], [ 0.000000e+00, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread.thread ]
   br i1 %2, label %42, label %81
 
 42:                                               ; preds = %.thread
@@ -1914,8 +1914,8 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   %234 = select i1 %26, ptr @.str.13, ptr @.str.14
   br label %235
 
-235:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit
-  %indvars.iv153 = phi i64 [ 0, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ], [ %indvars.iv.next154, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit ]
+235:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit
+  %indvars.iv153 = phi i64 [ 0, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ], [ %indvars.iv.next154, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit ]
   %236 = getelementptr inbounds [3 x i32], ptr %17, i64 0, i64 %indvars.iv153
   %237 = load i32, ptr %236, align 4
   %.not67 = icmp eq i32 %237, 17
@@ -2791,7 +2791,7 @@ switch.hole_check:                                ; preds = %288
   %698 = load ptr, ptr %697, align 8
   %699 = load ptr, ptr %195, align 8
   %700 = icmp sgt i32 %690, 0
-  br i1 %700, label %.lr.ph.i94, label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit
+  br i1 %700, label %.lr.ph.i94, label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit
 
 .lr.ph.i94:                                       ; preds = %689
   %701 = load i32, ptr %117, align 4
@@ -2874,14 +2874,14 @@ switch.hole_check:                                ; preds = %288
   %gep11.i = getelementptr float, ptr %invariant.gep10.i, i64 %741
   store float %750, ptr %gep11.i, align 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit, label %706, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit, label %706, !llvm.loop !22
 
-_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit: ; preds = %738, %689
+_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit: ; preds = %738, %689
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next154, 3
   br i1 %exitcond156.not, label %751, label %235, !llvm.loop !23
 
-751:                                              ; preds = %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit
+751:                                              ; preds = %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit
   %752 = load ptr, ptr %18, align 8
   %753 = getelementptr inbounds i8, ptr %18, i64 8
   %754 = load ptr, ptr %753, align 8
@@ -4801,7 +4801,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.thread:        ; preds = %47
   %53 = getelementptr inbounds i8, ptr %5, i64 40
   %54 = getelementptr inbounds i8, ptr %5, i64 64
   %55 = load ptr, ptr %54, align 8
-  br label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit
+  br label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit
 
 56:                                               ; preds = %47
   %57 = shl nsw i32 %49, 2
@@ -4819,7 +4819,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %56
   %63 = getelementptr inbounds i8, ptr %5, i64 64
   %64 = load ptr, ptr %63, align 8
   %65 = icmp sgt i32 %.pre30, 0
-  br i1 %65, label %.lr.ph.i, label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit
+  br i1 %65, label %.lr.ph.i, label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %66 = add nsw i32 %.pre30, -1
@@ -4894,24 +4894,24 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %56
   %gep11.i = getelementptr float, ptr %invariant.gep10.i, i64 %104
   store float %.035.i, ptr %gep11.i, align 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit.loopexit, label %68, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit.loopexit, label %68, !llvm.loop !22
 
-_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit.loopexit: ; preds = %102
+_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit.loopexit: ; preds = %102
   %.pre32 = load ptr, ptr %63, align 8
-  br label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit
+  br label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit
 
-_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit: ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.thread, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit.loopexit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %108 = phi ptr [ %61, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit.loopexit ], [ %61, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %53, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.thread ]
-  %109 = phi ptr [ %59, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit.loopexit ], [ %59, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %52, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.thread ]
-  %110 = phi ptr [ %.pre32, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit.loopexit ], [ %64, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %55, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.thread ]
+_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit: ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.thread, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit.loopexit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %108 = phi ptr [ %61, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit.loopexit ], [ %61, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %53, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.thread ]
+  %109 = phi ptr [ %59, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit.loopexit ], [ %59, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %52, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.thread ]
+  %110 = phi ptr [ %.pre32, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit.loopexit ], [ %64, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %55, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.thread ]
   %.not.i.i.i.i17 = icmp eq ptr %110, null
   br i1 %.not.i.i.i.i17, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i, label %111
 
-111:                                              ; preds = %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit
+111:                                              ; preds = %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit
   call void @_ZdlPv(ptr noundef nonnull %110) #28
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
-_ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %111, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.argprom.exit
+_ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %111, %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit
   %112 = load ptr, ptr %108, align 8
   %.not.i.i.i1.i = icmp eq ptr %112, null
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i, label %113

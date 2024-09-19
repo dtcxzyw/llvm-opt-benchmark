@@ -221,7 +221,7 @@ define internal i32 @dissect_fcgi_record(ptr noundef %0, ptr nocapture noundef r
   %57 = zext i16 %25 to i32
   %58 = load i32, ptr @ett_fcgi_params, align 4
   %59 = tail call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef 8, i32 noundef %57, i32 noundef %58, ptr noundef null, ptr noundef nonnull @.str.53) #2
-  tail call fastcc void @dissect_nv_pairs.argelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %59, i16 noundef zeroext %25)
+  tail call fastcc void @dissect_nv_pairs(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %59, i16 noundef zeroext %25)
   %60 = add nuw nsw i32 %57, 8
   br label %77
 
@@ -229,7 +229,7 @@ define internal i32 @dissect_fcgi_record(ptr noundef %0, ptr nocapture noundef r
   %62 = zext i16 %25 to i32
   %63 = load i32, ptr @ett_fcgi_params, align 4
   %64 = tail call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef 8, i32 noundef %62, i32 noundef %63, ptr noundef null, ptr noundef nonnull @.str.56) #2
-  tail call fastcc void @dissect_nv_pairs.argelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i16 noundef zeroext %25)
+  tail call fastcc void @dissect_nv_pairs(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %64, i16 noundef zeroext %25)
   %65 = add nuw nsw i32 %62, 8
   br label %77
 
@@ -237,7 +237,7 @@ define internal i32 @dissect_fcgi_record(ptr noundef %0, ptr nocapture noundef r
   %67 = zext i16 %25 to i32
   %68 = load i32, ptr @ett_fcgi_params, align 4
   %69 = tail call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef 8, i32 noundef %67, i32 noundef %68, ptr noundef null, ptr noundef nonnull @.str.56) #2
-  tail call fastcc void @dissect_nv_pairs.argelim(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %69, i16 noundef zeroext %25)
+  tail call fastcc void @dissect_nv_pairs(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %69, i16 noundef zeroext %25)
   %70 = add nuw nsw i32 %67, 8
   br label %77
 
@@ -293,7 +293,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nv_pairs.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @dissect_nv_pairs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = zext i16 %3 to i32
   %6 = add nuw nsw i32 %5, 8
   %.not49 = icmp eq i16 %3, 0

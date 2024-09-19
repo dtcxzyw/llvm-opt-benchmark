@@ -877,19 +877,19 @@ cleanup.i:                                        ; preds = %_ZN7testing15Assert
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EEE, i64 16), ptr %matcher.i, align 8, !noalias !27
   %21 = load ptr, ptr %vtable_.i.i.i.i.i.i.i.i.i, align 8, !noalias !27
   %cmp.not.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i
 
 _ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i: ; preds = %cleanup.i
   %shared_destroy.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %shared_destroy.i.i.i.i.i, align 8
   %cmp3.i.not.i.i.i.i = icmp eq ptr %22, null
-  br i1 %cmp3.i.not.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit, label %land.lhs.true.i.i.i.i
+  br i1 %cmp3.i.not.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i
   %23 = load ptr, ptr %buffer_.i.i.i.i.i.i.i.i.i, align 8, !noalias !27
   %24 = atomicrmw sub ptr %23, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %24, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
   %25 = load ptr, ptr %vtable_.i.i.i.i.i.i.i.i.i, align 8, !noalias !27
@@ -897,7 +897,7 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %26 = load ptr, ptr %shared_destroy.i.i.i.i, align 8
   %27 = load ptr, ptr %buffer_.i.i.i.i.i.i.i.i.i, align 8, !noalias !27
   invoke void %26(ptr noundef %27)
-          to label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit unwind label %terminate.lpad.i.i.i
+          to label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %28 = landingpad { ptr, i32 }
@@ -915,7 +915,7 @@ ehcleanup42.i:                                    ; preds = %ehcleanup41.i, %lpa
   call void @_ZN7testing7MatcherIRKN4absl15random_internal4U256EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matcher.i) #20
   br label %common.resume
 
-_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit: ; preds = %cleanup.i, %_ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i.i
+_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit: ; preds = %cleanup.i, %_ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %matcher.i)
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i)
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %listener.i)
@@ -931,7 +931,7 @@ lpad:                                             ; preds = %if.else
           cleanup
   br label %ehcleanup14
 
-if.else:                                          ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit
+if.else:                                          ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
           to label %invoke.cont6 unwind label %lpad
 
@@ -999,7 +999,7 @@ _ZN7testing7MessageD2Ev.exit81:                   ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp5, align 8
   br label %ehcleanup14
 
-if.end:                                           ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %39 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i82 = icmp eq ptr %39, null
@@ -1312,19 +1312,19 @@ cleanup.i176:                                     ; preds = %_ZN7testing15Assert
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EEE, i64 16), ptr %matcher.i88, align 8, !noalias !53
   %63 = load ptr, ptr %vtable_.i.i.i.i.i.i.i.i.i97, align 8, !noalias !53
   %cmp.not.i.i.i.i.i177 = icmp eq ptr %63, null
-  br i1 %cmp.not.i.i.i.i.i177, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i178
+  br i1 %cmp.not.i.i.i.i.i177, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i178
 
 _ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i178: ; preds = %cleanup.i176
   %shared_destroy.i.i.i.i.i179 = getelementptr inbounds i8, ptr %63, i64 24
   %64 = load ptr, ptr %shared_destroy.i.i.i.i.i179, align 8
   %cmp3.i.not.i.i.i.i180 = icmp eq ptr %64, null
-  br i1 %cmp3.i.not.i.i.i.i180, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit, label %land.lhs.true.i.i.i.i181
+  br i1 %cmp3.i.not.i.i.i.i180, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit, label %land.lhs.true.i.i.i.i181
 
 land.lhs.true.i.i.i.i181:                         ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i178
   %65 = load ptr, ptr %buffer_.i.i.i.i.i.i.i.i.i98, align 8, !noalias !53
   %66 = atomicrmw sub ptr %65, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i182 = icmp eq i32 %66, 1
-  br i1 %cmp.i.i.i.i.i182, label %if.then.i.i.i.i183, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit
+  br i1 %cmp.i.i.i.i.i182, label %if.then.i.i.i.i183, label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit
 
 if.then.i.i.i.i183:                               ; preds = %land.lhs.true.i.i.i.i181
   %67 = load ptr, ptr %vtable_.i.i.i.i.i.i.i.i.i97, align 8, !noalias !53
@@ -1332,7 +1332,7 @@ if.then.i.i.i.i183:                               ; preds = %land.lhs.true.i.i.i
   %68 = load ptr, ptr %shared_destroy.i.i.i.i184, align 8
   %69 = load ptr, ptr %buffer_.i.i.i.i.i.i.i.i.i98, align 8, !noalias !53
   invoke void %68(ptr noundef %69)
-          to label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit unwind label %terminate.lpad.i.i.i185
+          to label %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit unwind label %terminate.lpad.i.i.i185
 
 terminate.lpad.i.i.i185:                          ; preds = %if.then.i.i.i.i183
   %70 = landingpad { ptr, i32 }
@@ -1346,7 +1346,7 @@ ehcleanup42.i103:                                 ; preds = %ehcleanup41.i118, %
   call void @_ZN7testing7MatcherIRKN4absl15random_internal4U256EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %matcher.i88) #20
   br label %common.resume
 
-_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit: ; preds = %cleanup.i176, %_ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i178, %land.lhs.true.i.i.i.i181, %if.then.i.i.i.i183
+_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit: ; preds = %cleanup.i176, %_ZNK7testing8internal11MatcherBaseIRKN4absl15random_internal4U256EE8IsSharedEv.exit.i.i.i.i178, %land.lhs.true.i.i.i.i181, %if.then.i.i.i.i183
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %matcher.i88)
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i89)
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %listener.i90)
@@ -1367,7 +1367,7 @@ lpad24:                                           ; preds = %if.else28
           cleanup
   br label %ehcleanup41
 
-if.else28:                                        ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit
+if.else28:                                        ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp29)
           to label %invoke.cont30 unwind label %lpad24
 
@@ -1435,7 +1435,7 @@ _ZN7testing7MessageD2Ev.exit205:                  ; preds = %ehcleanup39, %_ZNKS
   store ptr null, ptr %ref.tmp29, align 8
   br label %ehcleanup41
 
-if.end40:                                         ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom.exit, %_ZN7testing7MessageD2Ev.exit200
+if.end40:                                         ; preds = %_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.exit, %_ZN7testing7MessageD2Ev.exit200
   %message_.i206 = getelementptr inbounds i8, ptr %gtest_ar15, i64 8
   %81 = load ptr, ptr %message_.i206, align 8
   %cmp.not.i.i207 = icmp eq ptr %81, null
@@ -7154,26 +7154,26 @@ attributes #24 = { noreturn }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN7testing15SafeMatcherCastIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!7 = distinct !{!7, !"_ZN7testing15SafeMatcherCastIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!6 = distinct !{!6, !7, !"_ZN7testing15SafeMatcherCastIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!7 = distinct !{!7, !"_ZN7testing15SafeMatcherCastIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEEENS_7MatcherIT_EERKT0_"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN7testing11MatcherCastIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEEENS_7MatcherIT_EERKT0_.argprom: %agg.result"}
-!10 = distinct !{!10, !"_ZN7testing11MatcherCastIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEEENS_7MatcherIT_EERKT0_.argprom"}
+!9 = distinct !{!9, !10, !"_ZN7testing11MatcherCastIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEEENS_7MatcherIT_EERKT0_: %agg.result"}
+!10 = distinct !{!10, !"_ZN7testing11MatcherCastIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEEENS_7MatcherIT_EERKT0_"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN7testing8internal15MatcherCastImplIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEE4CastERKS9_.argprom: %agg.result"}
-!13 = distinct !{!13, !"_ZN7testing8internal15MatcherCastImplIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEE4CastERKS9_.argprom"}
+!12 = distinct !{!12, !13, !"_ZN7testing8internal15MatcherCastImplIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEE4CastERKS9_: %agg.result"}
+!13 = distinct !{!13, !"_ZN7testing8internal15MatcherCastImplIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEE4CastERKS9_"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN7testing8internal15MatcherCastImplIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEE8CastImplILb0EEENS_7MatcherIS6_EERKS9_St17integral_constantIbLb1EESG_IbXT_EE.argprom: %agg.result"}
-!16 = distinct !{!16, !"_ZN7testing8internal15MatcherCastImplIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEE8CastImplILb0EEENS_7MatcherIS6_EERKS9_St17integral_constantIbLb1EESG_IbXT_EE.argprom"}
+!15 = distinct !{!15, !16, !"_ZN7testing8internal15MatcherCastImplIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEE8CastImplILb0EEENS_7MatcherIS6_EERKS9_St17integral_constantIbLb1EESG_IbXT_EE: %agg.result"}
+!16 = distinct !{!16, !"_ZN7testing8internal15MatcherCastImplIRKN4absl15random_internal4U256EN12_GLOBAL__N_114Eq256MatcherP2IiiEEE8CastImplILb0EEENS_7MatcherIS6_EERKS9_St17integral_constantIbLb1EESG_IbXT_EE"}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEcvNS_7MatcherIT_EEIRKN4absl15random_internal4U256EEEv.argprom: %agg.result"}
-!19 = distinct !{!19, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEcvNS_7MatcherIT_EEIRKN4absl15random_internal4U256EEEv.argprom"}
+!18 = distinct !{!18, !19, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEcvNS_7MatcherIT_EEIRKN4absl15random_internal4U256EEEv: %agg.result"}
+!19 = distinct !{!19, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEcvNS_7MatcherIT_EEIRKN4absl15random_internal4U256EEEv"}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114Eq256MatcherP2IiiEEE5ApplyIRKN4absl15random_internal4U256EJLm0ELm1EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom: %agg.result"}
-!22 = distinct !{!22, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114Eq256MatcherP2IiiEEE5ApplyIRKN4absl15random_internal4U256EJLm0ELm1EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE.argprom"}
+!21 = distinct !{!21, !22, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114Eq256MatcherP2IiiEEE5ApplyIRKN4absl15random_internal4U256EJLm0ELm1EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
+!22 = distinct !{!22, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114Eq256MatcherP2IiiEEE5ApplyIRKN4absl15random_internal4U256EJLm0ELm1EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !23 = !{!21, !18, !15, !12, !9, !6, !24}
-!24 = distinct !{!24, !25, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom: %agg.result"}
-!25 = distinct !{!25, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom"}
+!24 = distinct !{!24, !25, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_: %agg.result"}
+!25 = distinct !{!25, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IiiEEEclIN4absl15random_internal4U256EEENS_15AssertionResultEPKcRKT_"}
 !26 = !{!21, !18, !15, !12, !9, !6}
 !27 = !{!24}
 !28 = !{!29}
@@ -7198,8 +7198,8 @@ attributes #24 = { noreturn }
 !47 = distinct !{!47, !48, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEE5ApplyIRKNS4_15random_internal4U256EJLm0ELm1EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE: %agg.result"}
 !48 = distinct !{!48, !"_ZNK7testing8internal15MatcherBaseImplIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEE5ApplyIRKNS4_15random_internal4U256EJLm0ELm1EEEENS_7MatcherIT_EENS0_13IndexSequenceIJXspT0_EEEE"}
 !49 = !{!47, !44, !41, !38, !35, !32, !50}
-!50 = distinct !{!50, !51, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom: %agg.result"}
-!51 = distinct !{!51, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_.argprom"}
+!50 = distinct !{!50, !51, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_: %agg.result"}
+!51 = distinct !{!51, !"_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_114Eq256MatcherP2IN4absl7uint128EiEEEclINS4_15random_internal4U256EEENS_15AssertionResultEPKcRKT_"}
 !52 = !{!47, !44, !41, !38, !35, !32}
 !53 = !{!50}
 !54 = !{!55}

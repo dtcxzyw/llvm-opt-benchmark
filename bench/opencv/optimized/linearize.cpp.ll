@@ -1176,7 +1176,7 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %137, %.n
   %156 = getelementptr inbounds i8, ptr %.val.i, i64 8
   %157 = load i32, ptr %156, align 8, !noalias !11
   %.not8.i.i.i = icmp slt i32 %157, 0
-  br i1 %.not8.i.i.i, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i", label %.lr.ph.i.i.i
+  br i1 %.not8.i.i.i, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i
   %158 = getelementptr inbounds i8, ptr %.val.i, i64 32
@@ -1200,22 +1200,22 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %137, %.n
   %171 = load i32, ptr %156, align 8, !noalias !11
   %172 = sext i32 %171 to i64
   %.not.not.i.i.i = icmp slt i64 %indvars.iv.i.i.i, %172
-  br i1 %.not.not.i.i.i, label %160, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.loopexit.i", !llvm.loop !20
+  br i1 %.not.not.i.i.i, label %160, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.loopexit.i", !llvm.loop !20
 
-"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.loopexit.i": ; preds = %160
+"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.loopexit.i": ; preds = %160
   %.pre100.i = load ptr, ptr %127, align 8, !noalias !11
-  br label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i"
+  br label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i"
 
-"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i": ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.loopexit.i", %.lr.ph.i
-  %173 = phi ptr [ %.val2973.i, %.lr.ph.i ], [ %.pre100.i, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.loopexit.i" ]
-  %.07.lcssa.i.i.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %170, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.loopexit.i" ]
+"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i": ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.loopexit.i", %.lr.ph.i
+  %173 = phi ptr [ %.val2973.i, %.lr.ph.i ], [ %.pre100.i, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.loopexit.i" ]
+  %.07.lcssa.i.i.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %170, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.loopexit.i" ]
   store double %.07.lcssa.i.i.i, ptr %173, align 8, !noalias !11
   %174 = load ptr, ptr %13, align 8, !noalias !11
   %.not.i.i39.i = icmp eq ptr %174, null
   %.val29.pre102.i = load ptr, ptr %127, align 8, !noalias !11
   br i1 %.not.i.i39.i, label %_ZN2cv12MatIterator_IdEppEv.exit.i, label %175
 
-175:                                              ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i"
+175:                                              ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i"
   %176 = load i64, ptr %126, align 8, !noalias !11
   %177 = getelementptr inbounds i8, ptr %.val29.pre102.i, i64 %176
   store ptr %177, ptr %127, align 8, !noalias !11
@@ -1233,9 +1233,9 @@ _ZN2cv3Mat3endIdEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noexc14, %137, %.n
   %.val29.pre.i = load ptr, ptr %127, align 8, !noalias !11
   br label %_ZN2cv12MatIterator_IdEppEv.exit.i
 
-_ZN2cv12MatIterator_IdEppEv.exit.i:               ; preds = %.noexc15, %175, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i"
-  %.val29.i = phi ptr [ %.val29.pre102.i, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i" ], [ %177, %175 ], [ %.val29.pre.i, %.noexc15 ]
-  %.val28.i = phi ptr [ null, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i" ], [ %174, %175 ], [ %.val28.pre.i, %.noexc15 ]
+_ZN2cv12MatIterator_IdEppEv.exit.i:               ; preds = %.noexc15, %175, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i"
+  %.val29.i = phi ptr [ %.val29.pre102.i, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i" ], [ %177, %175 ], [ %.val29.pre.i, %.noexc15 ]
+  %.val28.i = phi ptr [ null, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i" ], [ %174, %175 ], [ %.val28.pre.i, %.noexc15 ]
   %.not.i.i = icmp ne ptr %.val28.i, %150
   %180 = icmp ne ptr %.val29.i, %152
   %181 = select i1 %.not.i.i, i1 true, i1 %180
@@ -1356,7 +1356,7 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noex
   %223 = load double, ptr %222, align 8, !noalias !11
   %224 = load i32, ptr %218, align 8, !noalias !11
   %.not8.i.i44.i = icmp slt i32 %224, 0
-  br i1 %.not8.i.i44.i, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit51.i", label %.lr.ph.i.i45.i
+  br i1 %.not8.i.i44.i, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit51.i", label %.lr.ph.i.i45.i
 
 .lr.ph.i.i45.i:                                   ; preds = %.preheader.i, %.lr.ph.i.i45.i
   %indvars.iv.i.i46.i = phi i64 [ %indvars.iv.next.i.i48.i, %.lr.ph.i.i45.i ], [ 0, %.preheader.i ]
@@ -1375,26 +1375,26 @@ _ZN2cv3Mat3endINS_3VecIdLi3EEEEENS_12MatIterator_IT_EEv.exit.i: ; preds = %.noex
   %235 = load i32, ptr %218, align 8, !noalias !11
   %236 = sext i32 %235 to i64
   %.not.not.i.i49.i = icmp slt i64 %indvars.iv.i.i46.i, %236
-  br i1 %.not.not.i.i49.i, label %.lr.ph.i.i45.i, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit51.loopexit.i", !llvm.loop !20
+  br i1 %.not.not.i.i49.i, label %.lr.ph.i.i45.i, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit51.loopexit.i", !llvm.loop !20
 
-"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit51.loopexit.i": ; preds = %.lr.ph.i.i45.i
+"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit51.loopexit.i": ; preds = %.lr.ph.i.i45.i
   %.pre86.i = load ptr, ptr %190, align 8, !noalias !11
-  br label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit51.i"
+  br label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit51.i"
 
-"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit51.i": ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit51.loopexit.i", %.preheader.i
-  %237 = phi ptr [ %221, %.preheader.i ], [ %.pre86.i, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit51.loopexit.i" ]
-  %.07.lcssa.i.i50.i = phi double [ 0.000000e+00, %.preheader.i ], [ %234, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit51.loopexit.i" ]
+"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit51.i": ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit51.loopexit.i", %.preheader.i
+  %237 = phi ptr [ %221, %.preheader.i ], [ %.pre86.i, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit51.loopexit.i" ]
+  %.07.lcssa.i.i50.i = phi double [ 0.000000e+00, %.preheader.i ], [ %234, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit51.loopexit.i" ]
   %238 = getelementptr inbounds [3 x double], ptr %237, i64 0, i64 %indvars.iv.i
   store double %.07.lcssa.i.i50.i, ptr %238, align 8, !noalias !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %239, label %.preheader.i.backedge
 
-.preheader.i.backedge:                            ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit51.i", %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i
-  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit51.i" ], [ 0, %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i ]
+.preheader.i.backedge:                            ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit51.i", %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i
+  %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit51.i" ], [ 0, %_ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i ]
   br label %.preheader.i, !llvm.loop !28
 
-239:                                              ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit51.i"
+239:                                              ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit51.i"
   %240 = load ptr, ptr %16, align 8, !noalias !11
   %.not.i.i52.i = icmp eq ptr %240, null
   %.val33.pre88.i = load ptr, ptr %190, align 8, !noalias !11
@@ -5308,7 +5308,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %10 = load i32, ptr %9, align 4
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %7)
   %11 = icmp slt i32 %6, %.sroa.speculated.i.i.i
-  br i1 %11, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNS1_7PolyfitclERKNS0_3MatEE3$_0EES4_S6_OT_S4_EUlRKNS0_5RangeEE_JSC_EENSt9enable_ifIXsr6__and_ISt7is_voidIS8_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSJ_DpOSK_.argprom.exit"
+  br i1 %11, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNS1_7PolyfitclERKNS0_3MatEE3$_0EES4_S6_OT_S4_EUlRKNS0_5RangeEE_JSC_EENSt9enable_ifIXsr6__and_ISt7is_voidIS8_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSJ_DpOSK_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %12 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -5318,8 +5318,8 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %wide.trip.count.i.i.i = sext i32 %.sroa.speculated.i.i.i to i64
   br label %16
 
-16:                                               ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i.i.i" ]
+16:                                               ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i.i.i", %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i.i.i" ]
   %17 = load ptr, ptr %12, align 8
   %18 = load ptr, ptr %13, align 8
   %19 = load ptr, ptr %18, align 8
@@ -5329,7 +5329,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %22 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 8
   %23 = load i32, ptr %22, align 8
   %.not8.i.i.i.i.i = icmp slt i32 %23, 0
-  br i1 %.not8.i.i.i.i.i, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i.i.i", label %.lr.ph.i.i.i.i.i
+  br i1 %.not8.i.i.i.i.i, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i.i.i", label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %16
   %24 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 32
@@ -5353,9 +5353,9 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   %37 = load i32, ptr %22, align 8
   %38 = sext i32 %37 to i64
   %.not.not.i.i.i.i.i = icmp slt i64 %indvars.iv.i.i.i.i.i, %38
-  br i1 %.not.not.i.i.i.i.i, label %26, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i.i.i", !llvm.loop !20
+  br i1 %.not.not.i.i.i.i.i, label %26, label %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i.i.i", !llvm.loop !20
 
-"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i.i.i": ; preds = %26, %16
+"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i.i.i": ; preds = %26, %16
   %.07.lcssa.i.i.i.i.i = phi double [ 0.000000e+00, %16 ], [ %36, %26 ]
   %39 = load ptr, ptr %14, align 8
   %40 = load ptr, ptr %39, align 8
@@ -5363,15 +5363,15 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
   store double %.07.lcssa.i.i.i.i.i, ptr %41, align 8
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNS1_7PolyfitclERKNS0_3MatEE3$_0EES4_S6_OT_S4_EUlRKNS0_5RangeEE_JSC_EENSt9enable_ifIXsr6__and_ISt7is_voidIS8_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSJ_DpOSK_.argprom.exit", label %16, !llvm.loop !56
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNS1_7PolyfitclERKNS0_3MatEE3$_0EES4_S6_OT_S4_EUlRKNS0_5RangeEE_JSC_EENSt9enable_ifIXsr6__and_ISt7is_voidIS8_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSJ_DpOSK_.exit", label %16, !llvm.loop !56
 
-"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNS1_7PolyfitclERKNS0_3MatEE3$_0EES4_S6_OT_S4_EUlRKNS0_5RangeEE_JSC_EENSt9enable_ifIXsr6__and_ISt7is_voidIS8_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.argprom.exit.i.i.i", %2
+"_ZSt10__invoke_rIvRZN2cv3ccm11elementWiseIZNS1_7PolyfitclERKNS0_3MatEE3$_0EES4_S6_OT_S4_EUlRKNS0_5RangeEE_JSC_EENSt9enable_ifIXsr6__and_ISt7is_voidIS8_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSJ_DpOSK_.exit": ; preds = %"_ZZN2cv3ccm7PolyfitclERKNS_3MatEENK3$_0clEd.exit.i.i.i", %2
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11elementWiseIZNS5_7PolyfitclERKNS0_3MatEE3$_0EES8_SA_OT_S8_EUlS3_E_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -5380,30 +5380,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN2cv3ccm11elementWiseIZNS0_7PolyfitclERKNS_3MatEE3$_0EES3_S5_OT_S3_EUlRKNS_5RangeEE_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val6, i64 40, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #22
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN2cv3ccm11elementWiseIZNS2_7PolyfitclERKNS1_3MatEE3$_0EES5_S7_OT_S5_EUlRKNS1_5RangeEE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

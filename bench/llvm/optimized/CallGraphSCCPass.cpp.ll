@@ -1286,7 +1286,7 @@ _ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9
 118:                                              ; preds = %116
   %.val.i.i = load ptr, ptr %54, align 8
   %.val51.i.i = load ptr, ptr %61, align 8
-  %119 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEb.argprom.argelim(ptr %.val.i.i, ptr %.val51.i.i, ptr noundef nonnull align 8 dereferenceable(72) %24)
+  %119 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEb(ptr %.val.i.i, ptr %.val51.i.i, ptr noundef nonnull align 8 dereferenceable(72) %24)
   %120 = or i1 %.038, %119
   br label %121
 
@@ -1479,7 +1479,7 @@ _ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCE
 186:                                              ; preds = %._crit_edge.i
   %.val26.i = load ptr, ptr %54, align 8
   %.val27.i = load ptr, ptr %61, align 8
-  %187 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEb.argprom.argelim(ptr %.val26.i, ptr %.val27.i, ptr noundef nonnull align 8 dereferenceable(72) %24)
+  %187 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEb(ptr %.val26.i, ptr %.val27.i, ptr noundef nonnull align 8 dereferenceable(72) %24)
   %188 = or i1 %.2, %187
   br label %_ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9CallGraphERb.exit
 
@@ -2785,7 +2785,7 @@ declare void @_ZN4llvm13PMDataManager23recordAvailableAnalysisEPNS_4PassE(ptr no
 declare void @_ZN4llvm13PMDataManager16removeDeadPassesEPNS_4PassENS_9StringRefENS_19PassDebuggingStringE(ptr noundef nonnull align 8 dereferenceable(380), ptr noundef, ptr, i64, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEb.argprom.argelim(ptr readonly %.16.val, ptr readnone %.24.val, ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEb(ptr readonly %.16.val, ptr readnone %.24.val, ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::optional.208", align 8
   %4 = alloca ptr, align 8

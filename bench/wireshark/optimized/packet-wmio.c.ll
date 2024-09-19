@@ -380,10 +380,10 @@ define internal fastcc i32 @dissect_wmio_objectblock(ptr noundef %0, i32 noundef
 24:                                               ; preds = %22
   %25 = load i32, ptr @hf_parentclass, align 4
   %26 = load i32, ptr @ett_parentclass, align 4
-  %27 = tail call fastcc i32 @dissect_wmio_encoding_classandmethodspart.argelim(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, i32 noundef %25, i32 noundef %26)
+  %27 = tail call fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, i32 noundef %25, i32 noundef %26)
   %28 = load i32, ptr @hf_currentclass, align 4
   %29 = load i32, ptr @ett_currentclass, align 4
-  %30 = tail call fastcc i32 @dissect_wmio_encoding_classandmethodspart.argelim(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3, i32 noundef %28, i32 noundef %29)
+  %30 = tail call fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3, i32 noundef %28, i32 noundef %29)
   br label %31
 
 31:                                               ; preds = %24, %22
@@ -546,7 +546,7 @@ declare ptr @proto_tree_add_item_ret_length(ptr noundef, i32 noundef, ptr nounde
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wmio_encoding_classandmethodspart.argelim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

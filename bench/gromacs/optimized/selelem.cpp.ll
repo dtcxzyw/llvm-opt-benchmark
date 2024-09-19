@@ -3136,7 +3136,7 @@ define void @_ZN3gmx20SelectionTreeElement26resolveIndexGroupReferenceEP19gmx_an
   invoke void @__cxa_throw(ptr %47, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx22InconsistentInputErrorD2Ev) #21
           to label %103 unwind label %57
 
-53:                                               ; preds = %96, %89, %100, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit, %82, %66, %61, %43, %40
+53:                                               ; preds = %96, %89, %100, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit, %82, %66, %61, %43, %40
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %102
@@ -3260,9 +3260,9 @@ define void @_ZN3gmx20SelectionTreeElement26resolveIndexGroupReferenceEP19gmx_an
 89:                                               ; preds = %85, %84
   %90 = load ptr, ptr %38, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.20, i32 noundef 443, ptr noundef %90)
-          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit unwind label %53
+          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit unwind label %53
 
-_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit:   ; preds = %89
+_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit:           ; preds = %89
   store i32 0, ptr %0, align 8
   %91 = load i32, ptr %8, align 8
   %92 = getelementptr inbounds i8, ptr %8, i64 8
@@ -3272,7 +3272,7 @@ _ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit:   ; preds = %89
   invoke void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %38, i32 noundef %91, ptr noundef %93, i32 noundef %95)
           to label %96 unwind label %53
 
-96:                                               ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit
+96:                                               ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit
   %97 = getelementptr inbounds i8, ptr %0, i64 128
   %98 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %_ZN3gmx20SelectionTreeElement7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %53

@@ -2664,23 +2664,23 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPSt3mapINSt7__cxx1
 
 74:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt17_Rb_tree_iteratorISE_EEneISH_SJ_EEbRKNS1_IT_T0_EE.exit
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12CastToTypeidERKS0_RKSt9type_info(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dE)
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit"
 
 75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt17_Rb_tree_iteratorISE_EEneISH_SJ_EEbRKNS1_IT_T0_EE.exit
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %76, align 8, !alias.scope !30
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERKS0_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit"
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit": ; preds = %74, %75
+"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit": ; preds = %74, %75
   %.not.i = icmp eq ptr %2, %5
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit, label %77
 
-77:                                               ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit"
+77:                                               ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit"
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2) #25
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit: ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit", %77
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit: ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit", %77
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = ptrtoint ptr %79 to i64
@@ -2735,23 +2735,23 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPSt3mapINSt7__cxx1
 
 106:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt17_Rb_tree_iteratorISE_EEneISH_SJ_EEbRKNS1_IT_T0_EE.exit22
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12CastToTypeidERKS0_RKSt9type_info(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dE)
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit23"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit23"
 
 107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt17_Rb_tree_iteratorISE_EEneISH_SJ_EEbRKNS1_IT_T0_EE.exit22
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %108, align 8, !alias.scope !33
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERKS0_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit23"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit23"
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit23": ; preds = %106, %107
+"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit23": ; preds = %106, %107
   %.not.i24 = icmp eq ptr %2, %6
   br i1 %.not.i24, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit25, label %109
 
-109:                                              ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit23"
+109:                                              ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit23"
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2) #25
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit25
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit25: ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit23", %109
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit25: ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit23", %109
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = ptrtoint ptr %111 to i64
@@ -2805,23 +2805,23 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPSt3mapINSt7__cxx1
 
 137:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt17_Rb_tree_iteratorISE_EEneISH_SJ_EEbRKNS1_IT_T0_EE.exit30
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12CastToTypeidERKS0_RKSt9type_info(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dE)
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit31"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit31"
 
 138:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary8IteratorIPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VtValueESt4lessIvESaISt4pairIKS8_S9_EEESt17_Rb_tree_iteratorISE_EEneISH_SJ_EEbRKNS1_IT_T0_EE.exit30
   %139 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %139, align 8, !alias.scope !36
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERKS0_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit31"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit31"
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit31": ; preds = %137, %138
+"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit31": ; preds = %137, %138
   %.not.i32 = icmp eq ptr %2, %7
   br i1 %.not.i32, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit33, label %140
 
-140:                                              ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit31"
+140:                                              ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit31"
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %2) #25
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit33
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit33: ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom.exit31", %140
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit33: ; preds = %"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.exit31", %140
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %142 = load ptr, ptr %141, align 8
   %143 = ptrtoint ptr %142 to i64
@@ -13344,14 +13344,14 @@ attributes #29 = { nounwind willreturn memory(read) }
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom: argument 0"}
-!32 = distinct !{!32, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom"}
+!31 = distinct !{!31, !32, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_: argument 0"}
+!32 = distinct !{!32, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_"}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom: argument 0"}
-!35 = distinct !{!35, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom"}
+!34 = distinct !{!34, !35, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_: argument 0"}
+!35 = distinct !{!35, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_"}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom: argument 0"}
-!38 = distinct !{!38, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_.argprom"}
+!37 = distinct !{!37, !38, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_: argument 0"}
+!38 = distinct !{!38, !"_ZZNK32pxrInternal_v0_24__pxrReserved__16Hio_OpenEXRImage11GetMetadataERKNS_7TfTokenEPNS_7VtValueEENK3$_0clERKS4_"}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
 !41 = distinct !{!41, !5}

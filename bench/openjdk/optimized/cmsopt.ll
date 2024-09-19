@@ -39,7 +39,7 @@ define hidden void @_cmsAllocOptimizationPluginChunk(ptr nocapture noundef %0, p
   %9 = load ptr, ptr %6, align 8
   %10 = tail call ptr @_cmsSubAllocDup(ptr noundef %9, ptr noundef nonnull %.05.i, i32 noundef 16) #10
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %DupPluginOptimizationList.argprom.exit, label %12
+  br i1 %11, label %DupPluginOptimizationList.exit, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %10, i64 8
@@ -68,9 +68,9 @@ define hidden void @_cmsAllocOptimizationPluginChunk(ptr nocapture noundef %0, p
   %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #10
   %22 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %21, ptr %22, align 8
-  br label %DupPluginOptimizationList.argprom.exit
+  br label %DupPluginOptimizationList.exit
 
-DupPluginOptimizationList.argprom.exit:           ; preds = %7, %._crit_edge.i
+DupPluginOptimizationList.exit:                   ; preds = %7, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %28
 
@@ -82,7 +82,7 @@ DupPluginOptimizationList.argprom.exit:           ; preds = %7, %._crit_edge.i
   store ptr %26, ptr %27, align 8
   br label %28
 
-28:                                               ; preds = %23, %DupPluginOptimizationList.argprom.exit
+28:                                               ; preds = %23, %DupPluginOptimizationList.exit
   ret void
 }
 
@@ -2231,7 +2231,7 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr nocapture noundef 
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %93, i64 8
   %99 = load ptr, ptr %98, align 8
-  call fastcc void @SetMatShaper.retelim(ptr noundef nonnull %71, ptr noundef %97, ptr noundef %10, ptr noundef %61, ptr noundef %99, ptr noundef nonnull %3)
+  call fastcc void @SetMatShaper(ptr noundef nonnull %71, ptr noundef %97, ptr noundef %10, ptr noundef %61, ptr noundef %99, ptr noundef nonnull %3)
   br label %100
 
 100:                                              ; preds = %89, %87
@@ -3199,7 +3199,7 @@ declare i32 @_cmsMAT3isIdentity(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SetMatShaper.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @SetMatShaper(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr %5, align 4
   %8 = tail call i32 @_cmsFormatterIs8bit(i32 noundef %7) #10
   %9 = getelementptr inbounds i8, ptr %0, i64 56

@@ -17527,16 +17527,16 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNS0_14p
   %.val2 = load i64, ptr %3, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.val, null
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm14printBlockFreqERKNS0_25MachineBlockFrequencyInfoENS0_14BlockFrequencyEE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit", label %4
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm14printBlockFreqERKNS0_25MachineBlockFrequencyInfoENS0_14BlockFrequencyEE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.val.val, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm14printBlockFreqERKNS0_25MachineBlockFrequencyInfoENS0_14BlockFrequencyEE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm14printBlockFreqERKNS0_25MachineBlockFrequencyInfoENS0_14BlockFrequencyEE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm14printBlockFreqERKNS0_25MachineBlockFrequencyInfoENS0_14BlockFrequencyEE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.argprom.exit": ; preds = %2, %4
+"_ZSt10__invoke_rIvRZN4llvm14printBlockFreqERKNS0_25MachineBlockFrequencyInfoENS0_14BlockFrequencyEE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %2, %4
   %.sroa.0.0.i.i.i.i = phi i64 [ %8, %4 ], [ 0, %2 ]
   tail call void @_ZN4llvm22printRelativeBlockFreqERNS_11raw_ostreamENS_14BlockFrequencyES2_(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 %.sroa.0.0.i.i.i.i, i64 %.val2) #22
   ret void

@@ -694,7 +694,7 @@ define void @_ZN2cv4gapi3ocl7backendEv(ptr dead_on_unwind noalias nocapture writ
 
 14:                                               ; preds = %9
   call void @_ZNSt10shared_ptrIN2cv4gapi8GBackend4PrivEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
-  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GOCLBackendImplEED2Ev.argprom(ptr null) #24
+  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GOCLBackendImplEED2Ev(ptr null) #24
   %15 = call i32 @__cxa_atexit(ptr nonnull @_ZN2cv4gapi8GBackendD2Ev, ptr nonnull @_ZZN2cv4gapi3ocl7backendEvE12this_backend, ptr nonnull @__dso_handle) #24
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv4gapi3ocl7backendEvE12this_backend) #24
   br label %16
@@ -736,7 +736,7 @@ _ZN2cv4gapi8GBackendC2ERKS1_.exit:                ; preds = %16, %23, %26
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN2cv4gapi8GBackend4PrivEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
-  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GOCLBackendImplEED2Ev.argprom(ptr null) #24
+  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GOCLBackendImplEED2Ev(ptr null) #24
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -832,9 +832,9 @@ _ZNSt12__shared_ptrIN2cv4gapi8GBackend4PrivELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GOCLBackendImplEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GOCLBackendImplEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GOCLBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GOCLBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -870,7 +870,7 @@ define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GOCLBackendImplE
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GOCLBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GOCLBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -895,16 +895,16 @@ define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115GOCLBackendImplE
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GOCLBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GOCLBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #24
-  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GOCLBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_115GOCLBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN12_GLOBAL__N_115GOCLBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIN12_GLOBAL__N_115GOCLBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
@@ -3293,7 +3293,7 @@ define hidden void @_ZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcD
 
 .noexc83:                                         ; preds = %.noexc82
   %50 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %48, ptr noundef nonnull align 8 dereferenceable(80) %15)
-          to label %"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.argprom.exit" unwind label %51
+          to label %"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.exit" unwind label %51
 
 51:                                               ; preds = %.noexc83
   %52 = landingpad { ptr, i32 }
@@ -3301,7 +3301,7 @@ define hidden void @_ZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcD
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #24
   br label %.body
 
-"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.argprom.exit": ; preds = %.noexc83
+"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.exit": ; preds = %.noexc83
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %15) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15)
   br label %53
@@ -3361,7 +3361,7 @@ define hidden void @_ZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcD
           cleanup
   br label %.body
 
-53:                                               ; preds = %"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.argprom.exit", %43
+53:                                               ; preds = %"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.exit", %43
   %54 = getelementptr inbounds i8, ptr %.sroa.0258.0418, i64 208
   %.not = icmp eq ptr %54, %39
   br i1 %.not, label %._crit_edge, label %41
@@ -3404,7 +3404,7 @@ define hidden void @_ZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcD
 
 .noexc86:                                         ; preds = %.noexc85
   %68 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %66, ptr noundef nonnull align 8 dereferenceable(80) %14)
-          to label %"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.argprom.exit89" unwind label %69
+          to label %"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.exit89" unwind label %69
 
 69:                                               ; preds = %.noexc86
   %70 = landingpad { ptr, i32 }
@@ -3412,12 +3412,12 @@ define hidden void @_ZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcD
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #24
   br label %.body
 
-"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.argprom.exit89": ; preds = %.noexc86
+"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.exit89": ; preds = %.noexc86
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %14) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14)
   br label %71
 
-71:                                               ; preds = %"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.argprom.exit89", %61
+71:                                               ; preds = %"_ZZN2cv5gimpl14GOCLExecutable3runEOSt6vectorISt4pairINS0_6RcDescENS_7GRunArgEESaIS6_EEOS2_IS3_IS4_NS_4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSN_9OpaqueRefEEEEESaISR_EEENK3$_1clERKS4_.exit89", %61
   %72 = getelementptr inbounds i8, ptr %.sroa.0254.0420, i64 80
   %.not277 = icmp eq ptr %72, %57
   br i1 %.not277, label %._crit_edge423, label %59
@@ -6586,7 +6586,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115GOCLBacken
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115GOCLBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115GOCLBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_115GOCLBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
 }

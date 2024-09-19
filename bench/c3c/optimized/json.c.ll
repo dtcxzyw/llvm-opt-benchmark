@@ -877,19 +877,19 @@ json_parse_number.exit:                           ; preds = %.lr.ph39.i, %._crit
   %152 = getelementptr inbounds i8, ptr %.0.i34, i64 1
   %153 = load i8, ptr %.0.i34, align 1
   %.not8.i = icmp eq i8 %151, %153
-  br i1 %.not8.i, label %.preheader54, label %json_match.argprom.exit, !llvm.loop !13
+  br i1 %.not8.i, label %.preheader54, label %json_match.exit, !llvm.loop !13
 
-json_match.argprom.exit:                          ; preds = %150
+json_match.exit:                                  ; preds = %150
   %154 = getelementptr inbounds i8, ptr %0, i64 24
   %155 = load ptr, ptr %154, align 8
   %.not.i36 = icmp eq ptr %155, null
   br i1 %.not.i36, label %156, label %json_error.exit
 
-156:                                              ; preds = %json_match.argprom.exit
+156:                                              ; preds = %json_match.exit
   store ptr @.str.7, ptr %154, align 8
   br label %json_error.exit
 
-json_error.exit:                                  ; preds = %json_match.argprom.exit, %156
+json_error.exit:                                  ; preds = %json_match.exit, %156
   %157 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 8, ptr %157, align 8
   br label %json_parse_string.exit
@@ -914,19 +914,19 @@ json_error.exit:                                  ; preds = %json_match.argprom.
   %163 = getelementptr inbounds i8, ptr %.0.i38, i64 1
   %164 = load i8, ptr %.0.i38, align 1
   %.not8.i40 = icmp eq i8 %162, %164
-  br i1 %.not8.i40, label %.preheader53, label %json_match.argprom.exit41, !llvm.loop !13
+  br i1 %.not8.i40, label %.preheader53, label %json_match.exit41, !llvm.loop !13
 
-json_match.argprom.exit41:                        ; preds = %161
+json_match.exit41:                                ; preds = %161
   %165 = getelementptr inbounds i8, ptr %0, i64 24
   %166 = load ptr, ptr %165, align 8
   %.not.i42 = icmp eq ptr %166, null
   br i1 %.not.i42, label %167, label %json_error.exit43
 
-167:                                              ; preds = %json_match.argprom.exit41
+167:                                              ; preds = %json_match.exit41
   store ptr @.str.9, ptr %165, align 8
   br label %json_error.exit43
 
-json_error.exit43:                                ; preds = %json_match.argprom.exit41, %167
+json_error.exit43:                                ; preds = %json_match.exit41, %167
   %168 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 8, ptr %168, align 8
   br label %json_parse_string.exit
@@ -951,19 +951,19 @@ json_error.exit43:                                ; preds = %json_match.argprom.
   %174 = getelementptr inbounds i8, ptr %.0.i45, i64 1
   %175 = load i8, ptr %.0.i45, align 1
   %.not8.i47 = icmp eq i8 %173, %175
-  br i1 %.not8.i47, label %.preheader, label %json_match.argprom.exit48, !llvm.loop !13
+  br i1 %.not8.i47, label %.preheader, label %json_match.exit48, !llvm.loop !13
 
-json_match.argprom.exit48:                        ; preds = %172
+json_match.exit48:                                ; preds = %172
   %176 = getelementptr inbounds i8, ptr %0, i64 24
   %177 = load ptr, ptr %176, align 8
   %.not.i49 = icmp eq ptr %177, null
   br i1 %.not.i49, label %178, label %json_error.exit50
 
-178:                                              ; preds = %json_match.argprom.exit48
+178:                                              ; preds = %json_match.exit48
   store ptr @.str.11, ptr %176, align 8
   br label %json_error.exit50
 
-json_error.exit50:                                ; preds = %json_match.argprom.exit48, %178
+json_error.exit50:                                ; preds = %json_match.exit48, %178
   %179 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 8, ptr %179, align 8
   br label %json_parse_string.exit

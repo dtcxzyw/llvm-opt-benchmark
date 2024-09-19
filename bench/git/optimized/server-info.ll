@@ -154,21 +154,21 @@ do.body.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i, %i
   %prefix.addr.0.ptr.i.i.i.i = getelementptr inbounds i8, ptr @.str.12, i64 %prefix.addr.0.idx.i.i.i.i
   %9 = load i8, ptr %prefix.addr.0.ptr.i.i.i.i, align 1
   %exitcond.i.i.i.i = icmp eq i64 %prefix.addr.0.idx.i.i.i.i, 2
-  br i1 %exitcond.i.i.i.i, label %skip_prefix.argprom.exit.i.i.i, label %do.cond.i.i.i.i
+  br i1 %exitcond.i.i.i.i, label %skip_prefix.exit.i.i.i, label %do.cond.i.i.i.i
 
 do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i.i.i, i64 1
   %10 = load i8, ptr %str.addr.0.i.i.i.i, align 1
   %prefix.addr.0.add.i.i.i.i = add nuw nsw i64 %prefix.addr.0.idx.i.i.i.i, 1
   %cmp.i.i.i.i = icmp eq i8 %10, %9
-  br i1 %cmp.i.i.i.i, label %do.body.i.i.i.i, label %skip_prefix.argprom.exit.i.i.i, !llvm.loop !8
+  br i1 %cmp.i.i.i.i, label %do.body.i.i.i.i, label %skip_prefix.exit.i.i.i, !llvm.loop !8
 
-skip_prefix.argprom.exit.i.i.i:                   ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
+skip_prefix.exit.i.i.i:                           ; preds = %do.cond.i.i.i.i, %do.body.i.i.i.i
   %arg.1.i.i.i = phi ptr [ %arg.0.ph.i.i.i, %do.cond.i.i.i.i ], [ %scevgep.i.i.i.i, %do.body.i.i.i.i ]
   %tobool.not.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i.i, label %if.then6.i.i.i, label %if.else.i.i.i
 
-if.then6.i.i.i:                                   ; preds = %skip_prefix.argprom.exit.i.i.i
+if.then6.i.i.i:                                   ; preds = %skip_prefix.exit.i.i.i
   %inc.i.i.i = add nuw nsw i32 %old_cnt.0.ph.i.i.i.ph, 1
   %11 = load i32, ptr @num_pack, align 4
   %cmp4.i.i.i.i.i = icmp sgt i32 %11, 0
@@ -204,7 +204,7 @@ parse_pack_def.exit.i.i.i:                        ; preds = %find_pack_by_name.e
   store i32 %old_cnt.0.ph.i.i.i.ph, ptr %old_num.i.i.i.i, align 8
   br label %while.cond.outer.i.i.i.outer, !llvm.loop !7
 
-if.else.i.i.i:                                    ; preds = %skip_prefix.argprom.exit.i.i.i
+if.else.i.i.i:                                    ; preds = %skip_prefix.exit.i.i.i
   %19 = load i8, ptr %8, align 1
   switch i8 %19, label %if.else22.i.i.i [
     i8 68, label %if.end29.i.i
@@ -254,21 +254,21 @@ for.body33.i.i:                                   ; preds = %for.body33.i.i, %fo
 for.end42.i.i:                                    ; preds = %for.body33.i.i, %if.end29.thread.i.i, %if.end29.i.thread.i, %if.end29.i.i
   %26 = phi i32 [ %22, %if.end29.thread.i.i ], [ %20, %if.end29.i.i ], [ %21, %if.end29.i.thread.i ], [ %23, %for.body33.i.i ]
   %cmp.i19.i.i = icmp ugt i32 %26, 1
-  br i1 %cmp.i19.i.i, label %if.then.i20.i.i, label %sane_qsort.argprom.exit.i.i
+  br i1 %cmp.i19.i.i, label %if.then.i20.i.i, label %sane_qsort.exit.i.i
 
 if.then.i20.i.i:                                  ; preds = %for.end42.i.i
   %conv43.i.i = sext i32 %26 to i64
   %27 = load ptr, ptr @info, align 8
   call void @qsort(ptr noundef %27, i64 noundef %conv43.i.i, i64 noundef 8, ptr noundef nonnull @compare_info) #13
   %.pre.i.i = load i32, ptr @num_pack, align 4
-  br label %sane_qsort.argprom.exit.i.i
+  br label %sane_qsort.exit.i.i
 
-sane_qsort.argprom.exit.i.i:                      ; preds = %if.then.i20.i.i, %for.end42.i.i
+sane_qsort.exit.i.i:                              ; preds = %if.then.i20.i.i, %for.end42.i.i
   %28 = phi i32 [ %26, %for.end42.i.i ], [ %.pre.i.i, %if.then.i20.i.i ]
   %cmp4533.i.i = icmp sgt i32 %28, 0
   br i1 %cmp4533.i.i, label %for.body47.lr.ph.i.i, label %init_pack_info.exit.i
 
-for.body47.lr.ph.i.i:                             ; preds = %sane_qsort.argprom.exit.i.i
+for.body47.lr.ph.i.i:                             ; preds = %sane_qsort.exit.i.i
   %29 = load ptr, ptr @info, align 8
   %wide.trip.count46.i.i = zext nneg i32 %28 to i64
   br label %for.body47.i.i
@@ -284,7 +284,7 @@ for.body47.i.i:                                   ; preds = %for.body47.i.i, %fo
   %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next44.i.i, %wide.trip.count46.i.i
   br i1 %exitcond47.not.i.i, label %init_pack_info.exit.i, label %for.body47.i.i, !llvm.loop !11
 
-init_pack_info.exit.i:                            ; preds = %for.body47.i.i, %sane_qsort.argprom.exit.i.i
+init_pack_info.exit.i:                            ; preds = %for.body47.i.i, %sane_qsort.exit.i.i
   %call2.i = call fastcc i32 @update_info_file(ptr noundef %call1.i5, ptr noundef nonnull @write_pack_info_file, i32 noundef %force)
   %32 = load i32, ptr @num_pack, align 4
   %cmp3.i.i = icmp sgt i32 %32, 0

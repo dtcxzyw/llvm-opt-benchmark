@@ -4729,9 +4729,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %172 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %5, i32 noundef 1516)
   %.not.i137 = icmp eq ptr %172, null
   %or.cond.i = or i1 %163, %.not.i137
-  br i1 %or.cond.i, label %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.argprom.exit.thread, label %174
+  br i1 %or.cond.i, label %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.exit.thread, label %174
 
-_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.argprom.exit.thread: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
+_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.exit.thread: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
@@ -4766,7 +4766,7 @@ _ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6Trip
   %184 = load ptr, ptr %183, align 8, !noalias !90
   %185 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %183) #20, !noalias !90
   %.not4.i.i.i.i.i.i.i = icmp eq i64 %185, 0
-  br i1 %.not4.i.i.i.i.i.i.i, label %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.argprom.exit, label %.lr.ph.i.preheader.i.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i.i.i, label %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.exit, label %.lr.ph.i.preheader.i.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i.i:                   ; preds = %174
   %186 = getelementptr inbounds %"class.clang::FixItHint", ptr %184, i64 %185
@@ -4778,9 +4778,9 @@ _ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6Trip
   %188 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %188) #20, !noalias !90
   %.not.i.i.i.i.i.i.i = icmp eq ptr %184, %187
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.argprom.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !29
 
-_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.argprom.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %174
+_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %174
   %189 = getelementptr inbounds nuw i8, ptr %175, i64 912
   store i32 0, ptr %189, align 8, !noalias !90
   %190 = getelementptr inbounds nuw i8, ptr %175, i64 377
@@ -4797,7 +4797,7 @@ _ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6Trip
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   br label %433
 
-198:                                              ; preds = %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.argprom.exit.thread
+198:                                              ; preds = %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.exit.thread
   %199 = getelementptr inbounds nuw i8, ptr %173, i64 48
   %200 = load ptr, ptr %199, align 8
   %201 = load ptr, ptr %200, align 8
@@ -4808,9 +4808,9 @@ _ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6Trip
   %203 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %201) #20
   br label %_ZN4llvm9StringRefC2EPKc.exit.i
 
-_ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %202, %198, %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.argprom.exit.thread
-  %.sroa.05.0.i = phi ptr [ @.str.255, %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.argprom.exit.thread ], [ null, %198 ], [ %201, %202 ]
-  %.sroa.4.0.i = phi i64 [ 4, %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.argprom.exit.thread ], [ 0, %198 ], [ %203, %202 ]
+_ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %202, %198, %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.exit.thread
+  %.sroa.05.0.i = phi ptr [ @.str.255, %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.exit.thread ], [ null, %198 ], [ %201, %202 ]
+  %.sroa.4.0.i = phi i64 [ 4, %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.exit.thread ], [ 0, %198 ], [ %203, %202 ]
   %204 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #20
   %205 = add i64 %204, 1
   %206 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #20
@@ -5143,7 +5143,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit57.i: ; preds = %36
 368:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit57.i, %331
   %369 = call noundef ptr @_ZN5clang6driver5tools20getLastProfileUseArgERKN4llvm3opt7ArgListE(ptr noundef nonnull align 8 dereferenceable(176) %5) #20
   %.not36.i = icmp eq ptr %369, null
-  br i1 %.not36.i, label %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoERKNSD_9JobActionE.argprom.exit, label %370
+  br i1 %.not36.i, label %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoERKNSD_9JobActionE.exit, label %370
 
 370:                                              ; preds = %368
   %371 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #20
@@ -5184,7 +5184,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit61.i: ; preds = %38
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %39, i64 noundef %388) #20
   %389 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %5, i32 noundef 598)
   %.not37.i = icmp eq ptr %389, null
-  br i1 %.not37.i, label %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoERKNSD_9JobActionE.argprom.exit, label %390
+  br i1 %.not37.i, label %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoERKNSD_9JobActionE.exit, label %390
 
 390:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit61.i
   %391 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #20
@@ -5272,9 +5272,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit66.i: ; preds = %42
   %432 = add i64 %431, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %39, i64 noundef %432) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #20
-  br label %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoERKNSD_9JobActionE.argprom.exit
+  br label %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoERKNSD_9JobActionE.exit
 
-_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoERKNSD_9JobActionE.argprom.exit: ; preds = %368, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit61.i, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit66.i
+_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoERKNSD_9JobActionE.exit: ; preds = %368, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit61.i, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit66.i
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
@@ -5288,7 +5288,7 @@ _ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
   br label %433
 
-433:                                              ; preds = %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.argprom.exit, %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoERKNSD_9JobActionE.argprom.exit, %_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit136
+433:                                              ; preds = %_ZL19checkRemarksOptionsRKN5clang6driver6DriverERKN4llvm3opt7ArgListERKNS4_6TripleE.exit, %_ZL20renderRemarksOptionsRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEERKNS_6TripleERKN5clang6driver9InputInfoERKNSD_9JobActionE.exit, %_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE.exit136
   %434 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDES6_EEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %5, i32 noundef 2673, i32 noundef 2551)
   %.not = icmp eq ptr %434, null
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread330, label %435
@@ -6732,7 +6732,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %5, %25
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   %33 = icmp eq i32 %.val, 29
-  br i1 %33, label %34, label %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.argprom.exit
+  br i1 %33, label %34, label %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.exit
 
 34:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -6750,9 +6750,9 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %5, %25
   store i16 257, ptr %39, align 8
   store i16 257, ptr %40, align 8
   call void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(34) %10) #20
-  br label %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.argprom.exit
+  br label %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.exit
 
-_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.argprom.exit: ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %34
+_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.exit: ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %34
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
@@ -6789,7 +6789,7 @@ _ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.argprom.exit
   %58 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(34) %16) #20
   br i1 %58, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %91
 
-_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.argprom.exit
+_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6850,7 +6850,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %_ZNK4l
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %60, i64 noundef %90) #20
   br label %91
 
-91:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit, %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.argprom.exit
+91:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit, %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.exit
   %92 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #20
   %93 = load ptr, ptr %11, align 8
   %94 = icmp eq ptr %93, %29
@@ -9110,7 +9110,7 @@ _ZNK5clang11ObjCRuntime15hasSubscriptingEv.exit.thread45: ; preds = %53, %82, %_
   %117 = getelementptr i8, ptr %115, i64 48
   %.val = load ptr, ptr %117, align 8
   %.val.val = load ptr, ptr %.val, align 8
-  %118 = call fastcc noundef zeroext i1 @"_ZZNK5clang6driver10toolchains11DarwinClang14AddLinkARCArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEPKNS4_3ArgE.argprom.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr %.val.val)
+  %118 = call fastcc noundef zeroext i1 @"_ZZNK5clang6driver10toolchains11DarwinClang14AddLinkARCArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEPKNS4_3ArgE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr %.val.val)
   br i1 %118, label %123, label %.critedge
 
 .critedge:                                        ; preds = %113, %116
@@ -9122,7 +9122,7 @@ _ZNK5clang11ObjCRuntime15hasSubscriptingEv.exit.thread45: ; preds = %53, %82, %_
   %121 = getelementptr i8, ptr %119, i64 48
   %.val14 = load ptr, ptr %121, align 8
   %.val14.val = load ptr, ptr %.val14, align 8
-  %122 = call fastcc noundef zeroext i1 @"_ZZNK5clang6driver10toolchains11DarwinClang14AddLinkARCArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEPKNS4_3ArgE.argprom.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr %.val14.val)
+  %122 = call fastcc noundef zeroext i1 @"_ZZNK5clang6driver10toolchains11DarwinClang14AddLinkARCArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEPKNS4_3ArgE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr %.val14.val)
   br label %123
 
 123:                                              ; preds = %116, %120, %.critedge, %_ZNK5clang11ObjCRuntime15hasSubscriptingEv.exit.thread45
@@ -9407,7 +9407,7 @@ declare void @_ZN4llvm3sys4path15remove_filenameERNS_15SmallVectorImplIcEENS1_5S
 declare noundef nonnull align 8 dereferenceable(12) ptr @_ZNK5clang6driver9ToolChain6getVFSEv(ptr noundef nonnull align 8 dereferenceable(2168)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK5clang6driver10toolchains11DarwinClang14AddLinkARCArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEPKNS4_3ArgE.argprom.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr %.48.val.0.val) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK5clang6driver10toolchains11DarwinClang14AddLinkARCArgsERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEENK3$_0clEPKNS4_3ArgE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr %.48.val.0.val) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -12182,7 +12182,7 @@ _ZN12_GLOBAL__N_132getDeploymentTargetFromTargetArgERN4llvm3opt14DerivedArgListE
   %531 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %532 = load ptr, ptr %531, align 8, !noalias !261
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %73, ptr noundef nonnull align 8 dereferenceable(88) %532, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit16.i:              ; preds = %528
   %533 = getelementptr inbounds nuw i8, ptr %72, i64 80
@@ -12207,9 +12207,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i:              ; preds = %528
   %543 = getelementptr inbounds nuw i8, ptr %51, i64 33
   store i8 4, ptr %543, align 1, !alias.scope !269, !noalias !261
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %73, ptr noundef nonnull align 8 dereferenceable(34) %51) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit: ; preds = %530, %_ZN4llvmplERKNS_5TwineES2_.exit16.i
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit: ; preds = %530, %_ZN4llvmplERKNS_5TwineES2_.exit16.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %52)
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %74, ptr noundef nonnull align 8 dereferenceable(88) %527, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
@@ -12245,7 +12245,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %.not4.i.i.i.i.i.i211 = icmp eq i64 %559, 0
   br i1 %.not4.i.i.i.i.i.i211, label %_ZNK5clang6driver6Driver4DiagEj.exit216, label %.lr.ph.i.preheader.i.i.i.i.i212
 
-.lr.ph.i.preheader.i.i.i.i.i212:                  ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit
+.lr.ph.i.preheader.i.i.i.i.i212:                  ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit
   %560 = getelementptr inbounds %"class.clang::FixItHint", ptr %558, i64 %559
   br label %.lr.ph.i.i.i.i.i.i213
 
@@ -12257,7 +12257,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %.not.i.i.i.i.i.i215 = icmp eq ptr %558, %561
   br i1 %.not.i.i.i.i.i.i215, label %_ZNK5clang6driver6Driver4DiagEj.exit216, label %.lr.ph.i.i.i.i.i.i213, !llvm.loop !29
 
-_ZNK5clang6driver6Driver4DiagEj.exit216:          ; preds = %.lr.ph.i.i.i.i.i.i213, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit
+_ZNK5clang6driver6Driver4DiagEj.exit216:          ; preds = %.lr.ph.i.i.i.i.i.i213, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit
   %563 = getelementptr inbounds nuw i8, ptr %545, i64 912
   store i32 0, ptr %563, align 8, !noalias !283
   %564 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %73) #20
@@ -12498,7 +12498,7 @@ _ZNK12_GLOBAL__N_114DarwinPlatform12getOSVersionEv.exit238: ; preds = %655, %661
   %678 = getelementptr inbounds nuw i8, ptr %76, i64 72
   %679 = load ptr, ptr %678, align 8, !noalias !284
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %85, ptr noundef nonnull align 8 dereferenceable(88) %679, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit242
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit242
 
 _ZN4llvmplERKNS_5TwineES2_.exit16.i240:           ; preds = %675
   %680 = getelementptr inbounds nuw i8, ptr %76, i64 80
@@ -12523,9 +12523,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i240:           ; preds = %675
   %690 = getelementptr inbounds nuw i8, ptr %46, i64 33
   store i8 4, ptr %690, align 1, !alias.scope !292, !noalias !284
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %85, ptr noundef nonnull align 8 dereferenceable(34) %46) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit242
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit242
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit242: ; preds = %677, %_ZN4llvmplERKNS_5TwineES2_.exit16.i240
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit242: ; preds = %677, %_ZN4llvmplERKNS_5TwineES2_.exit16.i240
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %46)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %44)
@@ -12534,13 +12534,13 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %switch.i243 = icmp eq i32 %691, 3
   br i1 %switch.i243, label %_ZN4llvmplERKNS_5TwineES2_.exit16.i244, label %692
 
-692:                                              ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit242
+692:                                              ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit242
   %693 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %694 = load ptr, ptr %693, align 8, !noalias !297
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %86, ptr noundef nonnull align 8 dereferenceable(88) %694, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit246
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit246
 
-_ZN4llvmplERKNS_5TwineES2_.exit16.i244:           ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit242
+_ZN4llvmplERKNS_5TwineES2_.exit16.i244:           ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit242
   %695 = getelementptr inbounds nuw i8, ptr %72, i64 80
   %696 = load ptr, ptr %695, align 8, !noalias !297
   %697 = getelementptr inbounds nuw i8, ptr %72, i64 88
@@ -12563,9 +12563,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i244:           ; preds = %_ZN12_GLOBAL__N_114
   %705 = getelementptr inbounds nuw i8, ptr %44, i64 33
   store i8 4, ptr %705, align 1, !alias.scope !305, !noalias !297
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %86, ptr noundef nonnull align 8 dereferenceable(34) %44) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit246
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit246
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit246: ; preds = %692, %_ZN4llvmplERKNS_5TwineES2_.exit16.i244
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit246: ; preds = %692, %_ZN4llvmplERKNS_5TwineES2_.exit16.i244
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %45)
   %706 = load ptr, ptr %120, align 8
@@ -12600,7 +12600,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %.not4.i.i.i.i.i.i247 = icmp eq i64 %721, 0
   br i1 %.not4.i.i.i.i.i.i247, label %_ZNK5clang6driver6Driver4DiagEj.exit252, label %.lr.ph.i.preheader.i.i.i.i.i248
 
-.lr.ph.i.preheader.i.i.i.i.i248:                  ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit246
+.lr.ph.i.preheader.i.i.i.i.i248:                  ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit246
   %722 = getelementptr inbounds %"class.clang::FixItHint", ptr %720, i64 %721
   br label %.lr.ph.i.i.i.i.i.i249
 
@@ -12612,7 +12612,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %.not.i.i.i.i.i.i251 = icmp eq ptr %720, %723
   br i1 %.not.i.i.i.i.i.i251, label %_ZNK5clang6driver6Driver4DiagEj.exit252, label %.lr.ph.i.i.i.i.i.i249, !llvm.loop !29
 
-_ZNK5clang6driver6Driver4DiagEj.exit252:          ; preds = %.lr.ph.i.i.i.i.i.i249, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit246
+_ZNK5clang6driver6Driver4DiagEj.exit252:          ; preds = %.lr.ph.i.i.i.i.i.i249, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit246
   %725 = getelementptr inbounds nuw i8, ptr %707, i64 912
   store i32 0, ptr %725, align 8, !noalias !319
   %726 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %85) #20
@@ -13142,7 +13142,7 @@ _ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit277: ; preds = %_ZN12_G
   %930 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %931 = load ptr, ptr %930, align 8, !noalias !356
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %90, ptr noundef nonnull align 8 dereferenceable(88) %931, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit281
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit281
 
 _ZN4llvmplERKNS_5TwineES2_.exit16.i279:           ; preds = %927
   %932 = getelementptr inbounds nuw i8, ptr %72, i64 80
@@ -13167,9 +13167,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i279:           ; preds = %927
   %942 = getelementptr inbounds nuw i8, ptr %31, i64 33
   store i8 4, ptr %942, align 1, !alias.scope !364, !noalias !356
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %90, ptr noundef nonnull align 8 dereferenceable(34) %31) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit281
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit281
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit281: ; preds = %929, %_ZN4llvmplERKNS_5TwineES2_.exit16.i279
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit281: ; preds = %929, %_ZN4llvmplERKNS_5TwineES2_.exit16.i279
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29)
@@ -13178,13 +13178,13 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %switch.i282 = icmp eq i32 %943, 3
   br i1 %switch.i282, label %_ZN4llvmplERKNS_5TwineES2_.exit16.i283, label %944
 
-944:                                              ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit281
+944:                                              ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit281
   %945 = getelementptr inbounds nuw i8, ptr %89, i64 72
   %946 = load ptr, ptr %945, align 8, !noalias !369
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %91, ptr noundef nonnull align 8 dereferenceable(88) %946, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit285
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit285
 
-_ZN4llvmplERKNS_5TwineES2_.exit16.i283:           ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit281
+_ZN4llvmplERKNS_5TwineES2_.exit16.i283:           ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit281
   %947 = getelementptr inbounds nuw i8, ptr %89, i64 80
   %948 = load ptr, ptr %947, align 8, !noalias !369
   %949 = getelementptr inbounds nuw i8, ptr %89, i64 88
@@ -13207,9 +13207,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i283:           ; preds = %_ZN12_GLOBAL__N_114
   %957 = getelementptr inbounds nuw i8, ptr %29, i64 33
   store i8 4, ptr %957, align 1, !alias.scope !377, !noalias !369
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %91, ptr noundef nonnull align 8 dereferenceable(34) %29) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit285
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit285
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit285: ; preds = %944, %_ZN4llvmplERKNS_5TwineES2_.exit16.i283
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit285: ; preds = %944, %_ZN4llvmplERKNS_5TwineES2_.exit16.i283
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30)
   %958 = load ptr, ptr %120, align 8
@@ -13244,7 +13244,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %.not4.i.i.i.i.i.i286 = icmp eq i64 %973, 0
   br i1 %.not4.i.i.i.i.i.i286, label %_ZNK5clang6driver6Driver4DiagEj.exit291, label %.lr.ph.i.preheader.i.i.i.i.i287
 
-.lr.ph.i.preheader.i.i.i.i.i287:                  ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit285
+.lr.ph.i.preheader.i.i.i.i.i287:                  ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit285
   %974 = getelementptr inbounds %"class.clang::FixItHint", ptr %972, i64 %973
   br label %.lr.ph.i.i.i.i.i.i288
 
@@ -13256,7 +13256,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %.not.i.i.i.i.i.i290 = icmp eq ptr %972, %975
   br i1 %.not.i.i.i.i.i.i290, label %_ZNK5clang6driver6Driver4DiagEj.exit291, label %.lr.ph.i.i.i.i.i.i288, !llvm.loop !29
 
-_ZNK5clang6driver6Driver4DiagEj.exit291:          ; preds = %.lr.ph.i.i.i.i.i.i288, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit285
+_ZNK5clang6driver6Driver4DiagEj.exit291:          ; preds = %.lr.ph.i.i.i.i.i.i288, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit285
   %977 = getelementptr inbounds nuw i8, ptr %959, i64 912
   store i32 0, ptr %977, align 8, !noalias !391
   %978 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %90) #20
@@ -14215,7 +14215,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit352:          ; preds = %.lr.ph.i.i.i.i.i.i3
 1355:                                             ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit352
   %1356 = load ptr, ptr %1291, align 8, !noalias !432
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %103, ptr noundef nonnull align 8 dereferenceable(88) %1356, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit356
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit356
 
 _ZN4llvmplERKNS_5TwineES2_.exit16.i354:           ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit352
   %1357 = getelementptr inbounds nuw i8, ptr %72, i64 80
@@ -14240,9 +14240,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i354:           ; preds = %_ZNK5clang6driver6D
   %1367 = getelementptr inbounds nuw i8, ptr %17, i64 33
   store i8 4, ptr %1367, align 1, !alias.scope !440, !noalias !432
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %103, ptr noundef nonnull align 8 dereferenceable(34) %17) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit356
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit356
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit356: ; preds = %1355, %_ZN4llvmplERKNS_5TwineES2_.exit16.i354
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit356: ; preds = %1355, %_ZN4llvmplERKNS_5TwineES2_.exit16.i354
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18)
   %1368 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %103) #20
@@ -14253,7 +14253,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %1371 = trunc i8 %1370 to i1
   br i1 %1371, label %1372, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i357
 
-1372:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit356
+1372:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit356
   %1373 = load ptr, ptr %1341, align 8
   %1374 = load i8, ptr %1343, align 1
   %1375 = trunc i8 %1374 to i1
@@ -14263,7 +14263,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   store i8 0, ptr %1343, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i357
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i357:    ; preds = %1372, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit356
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i357:    ; preds = %1372, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit356
   %1377 = load ptr, ptr %102, align 8
   %.not.i.i.i358 = icmp eq ptr %1377, null
   br i1 %.not.i.i.i358, label %_ZN5clang17DiagnosticBuilderD2Ev.exit362, label %1378
@@ -14399,7 +14399,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit375:          ; preds = %.lr.ph.i.i.i.i.i.i3
 1437:                                             ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit375
   %1438 = load ptr, ptr %1291, align 8, !noalias !455
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %105, ptr noundef nonnull align 8 dereferenceable(88) %1438, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit379
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit379
 
 _ZN4llvmplERKNS_5TwineES2_.exit16.i377:           ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit375
   %1439 = getelementptr inbounds nuw i8, ptr %72, i64 80
@@ -14424,9 +14424,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i377:           ; preds = %_ZNK5clang6driver6D
   %1449 = getelementptr inbounds nuw i8, ptr %15, i64 33
   store i8 4, ptr %1449, align 1, !alias.scope !463, !noalias !455
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %105, ptr noundef nonnull align 8 dereferenceable(34) %15) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit379
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit379
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit379: ; preds = %1437, %_ZN4llvmplERKNS_5TwineES2_.exit16.i377
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit379: ; preds = %1437, %_ZN4llvmplERKNS_5TwineES2_.exit16.i377
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   %1450 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %105) #20
@@ -14437,7 +14437,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %1453 = trunc i8 %1452 to i1
   br i1 %1453, label %1454, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i380
 
-1454:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit379
+1454:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit379
   %1455 = load ptr, ptr %1423, align 8
   %1456 = load i8, ptr %1425, align 1
   %1457 = trunc i8 %1456 to i1
@@ -14447,7 +14447,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   store i8 0, ptr %1425, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i380
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i380:    ; preds = %1454, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit379
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i380:    ; preds = %1454, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit379
   %1459 = load ptr, ptr %104, align 8
   %.not.i.i.i381 = icmp eq ptr %1459, null
   br i1 %.not.i.i.i381, label %_ZN5clang17DiagnosticBuilderD2Ev.exit385, label %1460
@@ -14558,7 +14558,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit391:          ; preds = %.lr.ph.i.i.i.i.i.i3
 1504:                                             ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit391
   %1505 = load ptr, ptr %1291, align 8, !noalias !478
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %107, ptr noundef nonnull align 8 dereferenceable(88) %1505, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit395
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit395
 
 _ZN4llvmplERKNS_5TwineES2_.exit16.i393:           ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit391
   %1506 = getelementptr inbounds nuw i8, ptr %72, i64 80
@@ -14583,9 +14583,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i393:           ; preds = %_ZNK5clang6driver6D
   %1516 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 4, ptr %1516, align 1, !alias.scope !486, !noalias !478
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %107, ptr noundef nonnull align 8 dereferenceable(34) %13) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit395
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit395
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit395: ; preds = %1504, %_ZN4llvmplERKNS_5TwineES2_.exit16.i393
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit395: ; preds = %1504, %_ZN4llvmplERKNS_5TwineES2_.exit16.i393
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   %1517 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %107) #20
@@ -14596,7 +14596,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %1520 = trunc i8 %1519 to i1
   br i1 %1520, label %1521, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i396
 
-1521:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit395
+1521:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit395
   %1522 = load ptr, ptr %1490, align 8
   %1523 = load i8, ptr %1492, align 1
   %1524 = trunc i8 %1523 to i1
@@ -14606,7 +14606,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   store i8 0, ptr %1492, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i396
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i396:    ; preds = %1521, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit395
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i396:    ; preds = %1521, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit395
   %1526 = load ptr, ptr %106, align 8
   %.not.i.i.i397 = icmp eq ptr %1526, null
   br i1 %.not.i.i.i397, label %_ZN5clang17DiagnosticBuilderD2Ev.exit401, label %1527
@@ -14760,7 +14760,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit419:          ; preds = %.lr.ph.i.i.i.i.i.i4
 1587:                                             ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit419
   %1588 = load ptr, ptr %1291, align 8, !noalias !509
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %109, ptr noundef nonnull align 8 dereferenceable(88) %1588, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit423
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit423
 
 _ZN4llvmplERKNS_5TwineES2_.exit16.i421:           ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit419
   %1589 = getelementptr inbounds nuw i8, ptr %72, i64 80
@@ -14785,9 +14785,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i421:           ; preds = %_ZNK5clang6driver6D
   %1599 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 4, ptr %1599, align 1, !alias.scope !517, !noalias !509
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %109, ptr noundef nonnull align 8 dereferenceable(34) %11) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit423
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit423
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit423: ; preds = %1587, %_ZN4llvmplERKNS_5TwineES2_.exit16.i421
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit423: ; preds = %1587, %_ZN4llvmplERKNS_5TwineES2_.exit16.i421
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   %1600 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %109) #20
@@ -14798,7 +14798,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %1603 = trunc i8 %1602 to i1
   br i1 %1603, label %1604, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i424
 
-1604:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit423
+1604:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit423
   %1605 = load ptr, ptr %1573, align 8
   %1606 = load i8, ptr %1575, align 1
   %1607 = trunc i8 %1606 to i1
@@ -14808,7 +14808,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   store i8 0, ptr %1575, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i424
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i424:    ; preds = %1604, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit423
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i424:    ; preds = %1604, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit423
   %1609 = load ptr, ptr %108, align 8
   %.not.i.i.i425 = icmp eq ptr %1609, null
   br i1 %.not.i.i.i425, label %_ZN5clang17DiagnosticBuilderD2Ev.exit362, label %1610
@@ -14950,7 +14950,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit442:          ; preds = %.lr.ph.i.i.i.i.i.i4
 1670:                                             ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit442
   %1671 = load ptr, ptr %1291, align 8, !noalias !532
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %111, ptr noundef nonnull align 8 dereferenceable(88) %1671, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit446
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit446
 
 _ZN4llvmplERKNS_5TwineES2_.exit16.i444:           ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit442
   %1672 = getelementptr inbounds nuw i8, ptr %72, i64 80
@@ -14975,9 +14975,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i444:           ; preds = %_ZNK5clang6driver6D
   %1682 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 4, ptr %1682, align 1, !alias.scope !540, !noalias !532
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %111, ptr noundef nonnull align 8 dereferenceable(34) %9) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit446
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit446
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit446: ; preds = %1670, %_ZN4llvmplERKNS_5TwineES2_.exit16.i444
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit446: ; preds = %1670, %_ZN4llvmplERKNS_5TwineES2_.exit16.i444
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   %1683 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %111) #20
@@ -14988,7 +14988,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %1686 = trunc i8 %1685 to i1
   br i1 %1686, label %1687, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i447
 
-1687:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit446
+1687:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit446
   %1688 = load ptr, ptr %1656, align 8
   %1689 = load i8, ptr %1658, align 1
   %1690 = trunc i8 %1689 to i1
@@ -14998,7 +14998,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   store i8 0, ptr %1658, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i447
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i447:    ; preds = %1687, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit446
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i447:    ; preds = %1687, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit446
   %1692 = load ptr, ptr %110, align 8
   %.not.i.i.i448 = icmp eq ptr %1692, null
   br i1 %.not.i.i.i448, label %_ZN5clang17DiagnosticBuilderD2Ev.exit362, label %1693
@@ -15134,7 +15134,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit465:          ; preds = %.lr.ph.i.i.i.i.i.i4
 1752:                                             ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit465
   %1753 = load ptr, ptr %1291, align 8, !noalias !555
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %113, ptr noundef nonnull align 8 dereferenceable(88) %1753, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit469
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit469
 
 _ZN4llvmplERKNS_5TwineES2_.exit16.i467:           ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit465
   %1754 = getelementptr inbounds nuw i8, ptr %72, i64 80
@@ -15159,9 +15159,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i467:           ; preds = %_ZNK5clang6driver6D
   %1764 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 4, ptr %1764, align 1, !alias.scope !563, !noalias !555
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %113, ptr noundef nonnull align 8 dereferenceable(34) %7) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit469
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit469
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit469: ; preds = %1752, %_ZN4llvmplERKNS_5TwineES2_.exit16.i467
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit469: ; preds = %1752, %_ZN4llvmplERKNS_5TwineES2_.exit16.i467
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   %1765 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %113) #20
@@ -15172,7 +15172,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %1768 = trunc i8 %1767 to i1
   br i1 %1768, label %1769, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i470
 
-1769:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit469
+1769:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit469
   %1770 = load ptr, ptr %1738, align 8
   %1771 = load i8, ptr %1740, align 1
   %1772 = trunc i8 %1771 to i1
@@ -15182,7 +15182,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   store i8 0, ptr %1740, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i470
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i470:    ; preds = %1769, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit469
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i470:    ; preds = %1769, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit469
   %1774 = load ptr, ptr %112, align 8
   %.not.i.i.i471 = icmp eq ptr %1774, null
   br i1 %.not.i.i.i471, label %_ZN5clang17DiagnosticBuilderD2Ev.exit362, label %1775
@@ -15319,7 +15319,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit488:          ; preds = %.lr.ph.i.i.i.i.i.i4
 1835:                                             ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit488
   %1836 = load ptr, ptr %1291, align 8, !noalias !578
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %115, ptr noundef nonnull align 8 dereferenceable(88) %1836, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit492
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit492
 
 _ZN4llvmplERKNS_5TwineES2_.exit16.i490:           ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit488
   %1837 = getelementptr inbounds nuw i8, ptr %72, i64 80
@@ -15344,9 +15344,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i490:           ; preds = %_ZNK5clang6driver6D
   %1847 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 4, ptr %1847, align 1, !alias.scope !586, !noalias !578
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %115, ptr noundef nonnull align 8 dereferenceable(34) %5) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit492
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit492
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit492: ; preds = %1835, %_ZN4llvmplERKNS_5TwineES2_.exit16.i490
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit492: ; preds = %1835, %_ZN4llvmplERKNS_5TwineES2_.exit16.i490
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %1848 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %115) #20
@@ -15357,7 +15357,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %1851 = trunc i8 %1850 to i1
   br i1 %1851, label %1852, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i493
 
-1852:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit492
+1852:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit492
   %1853 = load ptr, ptr %1821, align 8
   %1854 = load i8, ptr %1823, align 1
   %1855 = trunc i8 %1854 to i1
@@ -15367,7 +15367,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   store i8 0, ptr %1823, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i493
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i493:    ; preds = %1852, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit492
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i493:    ; preds = %1852, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit492
   %1857 = load ptr, ptr %114, align 8
   %.not.i.i.i494 = icmp eq ptr %1857, null
   br i1 %.not.i.i.i494, label %_ZN5clang17DiagnosticBuilderD2Ev.exit362, label %1858
@@ -15506,7 +15506,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit511:          ; preds = %.lr.ph.i.i.i.i.i.i5
 1919:                                             ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit511
   %1920 = load ptr, ptr %1291, align 8, !noalias !601
   call void @_ZNK4llvm3opt3Arg11getAsStringB5cxx11ERKNS0_7ArgListE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %117, ptr noundef nonnull align 8 dereferenceable(88) %1920, ptr noundef nonnull align 8 dereferenceable(176) %1) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit515
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit515
 
 _ZN4llvmplERKNS_5TwineES2_.exit16.i513:           ; preds = %_ZNK5clang6driver6Driver4DiagEj.exit511
   %1921 = getelementptr inbounds nuw i8, ptr %72, i64 80
@@ -15531,9 +15531,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.i513:           ; preds = %_ZNK5clang6driver6D
   %1931 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 4, ptr %1931, align 1, !alias.scope !609, !noalias !601
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %117, ptr noundef nonnull align 8 dereferenceable(34) %3) #20
-  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit515
+  br label %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit515
 
-_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit515: ; preds = %1919, %_ZN4llvmplERKNS_5TwineES2_.exit16.i513
+_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit515: ; preds = %1919, %_ZN4llvmplERKNS_5TwineES2_.exit16.i513
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %1932 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #20
@@ -15544,7 +15544,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   %1935 = trunc i8 %1934 to i1
   br i1 %1935, label %1936, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i516
 
-1936:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit515
+1936:                                             ; preds = %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit515
   %1937 = load ptr, ptr %1905, align 8
   %1938 = load i8, ptr %1907, align 1
   %1939 = trunc i8 %1938 to i1
@@ -15554,7 +15554,7 @@ _ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgLis
   store i8 0, ptr %1907, align 1
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i516
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i516:    ; preds = %1936, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom.exit515
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i516:    ; preds = %1936, %_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.exit515
   %1941 = load ptr, ptr %116, align 8
   %.not.i.i.i517 = icmp eq ptr %1941, null
   br i1 %.not.i.i.i517, label %_ZN5clang17DiagnosticBuilderD2Ev.exit362, label %1942
@@ -16917,7 +16917,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %13, %17
 56:                                               ; preds = %52
   %.sroa.03.0.copyload = load ptr, ptr %5, align 8
   %.sroa.24.0.copyload = load i64, ptr %22, align 8
-  call fastcc void @"_ZZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEEENK3$_0clENS0_9StringRefE.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %6, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload)
+  call fastcc void @"_ZZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEEENK3$_0clENS0_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %6, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload)
   %57 = getelementptr i8, ptr %0, i64 160
   %.val = load i8, ptr %57, align 8
   %58 = trunc i8 %.val to i1
@@ -16951,7 +16951,7 @@ _ZNK4llvm9StringRef4findEcm.exit.i:               ; preds = %_ZNSt11char_traitsI
 _ZN12_GLOBAL__N_117dropSDKNamePrefixEN4llvm9StringRefE.exit: ; preds = %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %_ZNK4llvm9StringRef4findEcm.exit.i, %64
   %.sroa.04.0.i = phi ptr [ %66, %64 ], [ @.str.47, %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit ], [ @.str.47, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ @.str.47, %_ZNK4llvm9StringRef4findEcm.exit.i ]
   %.sroa.35.0.i = phi i64 [ %67, %64 ], [ 0, %_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEED2Ev.exit ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ 0, %_ZNK4llvm9StringRef4findEcm.exit.i ]
-  call fastcc void @"_ZZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEEENK3$_0clENS0_9StringRefE.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %6, ptr %.sroa.04.0.i, i64 %.sroa.35.0.i)
+  call fastcc void @"_ZZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEEENK3$_0clENS0_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %6, ptr %.sroa.04.0.i, i64 %.sroa.35.0.i)
   br label %.critedge
 
 .critedge:                                        ; preds = %56, %_ZN12_GLOBAL__N_117dropSDKNamePrefixEN4llvm9StringRefE.exit, %54
@@ -17022,7 +17022,7 @@ define hidden void @_ZNK5clang6driver10toolchains11DarwinClang19GetEffectiveSysr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %35 = icmp eq i32 %.val, 29
-  br i1 %35, label %36, label %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.argprom.exit
+  br i1 %35, label %36, label %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.exit
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -17040,16 +17040,16 @@ define hidden void @_ZNK5clang6driver10toolchains11DarwinClang19GetEffectiveSysr
   store i16 257, ptr %41, align 8
   store i16 257, ptr %42, align 8
   call void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(34) %7) #20
-  br label %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.argprom.exit
+  br label %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.exit
 
-_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.argprom.exit: ; preds = %33, %36
+_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.exit: ; preds = %33, %36
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   br label %43
 
-43:                                               ; preds = %30, %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.argprom.exit
+43:                                               ; preds = %30, %_ZL20AppendPlatformPrefixRN4llvm11SmallStringILj128EEERKNS_6TripleE.exit
   ret void
 }
 
@@ -19759,28 +19759,28 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit45: ; preds = %_ZNK
   %.val = load i32, ptr %171, align 8
   %.val15 = load i32, ptr %172, align 4
   %switch.i = icmp ult i32 %.val15, 3
-  br i1 %switch.i, label %174, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread
+  br i1 %switch.i, label %174, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread
 
 174:                                              ; preds = %170
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 2312
   %176 = load i8, ptr %175, align 8
   %177 = trunc i8 %176 to i1
-  br i1 %177, label %178, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread107
+  br i1 %177, label %178, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread107
 
 178:                                              ; preds = %174
   %.sroa.013.0.copyload.i = load i64, ptr %173, align 8
-  switch i32 %.val, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread [
+  switch i32 %.val, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread [
     i32 0, label %179
     i32 1, label %182
     i32 2, label %188
     i32 3, label %191
-    i32 5, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit
+    i32 5, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit
   ]
 
 179:                                              ; preds = %178
   %180 = trunc i64 %.sroa.013.0.copyload.i to i32
   %181 = icmp ugt i32 %180, 14
-  br i1 %181, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread107
+  br i1 %181, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread107
 
 182:                                              ; preds = %178
   %cond.i = icmp eq i32 %.val15, 2
@@ -19789,40 +19789,40 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit45: ; preds = %_ZNK
 
 184:                                              ; preds = %182
   %185 = icmp ugt i32 %183, 14
-  br i1 %185, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread107
+  br i1 %185, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread107
 
 186:                                              ; preds = %182
   %187 = icmp ugt i32 %183, 17
-  br i1 %187, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread107
+  br i1 %187, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread107
 
 188:                                              ; preds = %178
   %189 = trunc i64 %.sroa.013.0.copyload.i to i32
   %190 = icmp ugt i32 %189, 17
-  br i1 %190, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread107
+  br i1 %190, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread107
 
 191:                                              ; preds = %178
   %192 = trunc i64 %.sroa.013.0.copyload.i to i32
   %193 = icmp ugt i32 %192, 10
-  br i1 %193, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread107
+  br i1 %193, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread107
 
-_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit: ; preds = %178
+_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit: ; preds = %178
   %194 = and i64 %.sroa.013.0.copyload.i, 4294967294
   %.not120 = icmp eq i64 %194, 0
-  br i1 %.not120, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread107, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread
+  br i1 %.not120, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread107, label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread
 
-_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread107: ; preds = %174, %191, %188, %186, %184, %179, %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit
+_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread107: ; preds = %174, %191, %188, %186, %184, %179, %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit
   %195 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %196 = add i64 %195, 1
   %197 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %.not.i.i.i47 = icmp ugt i64 %196, %197
   br i1 %.not.i.i.i47, label %198, label %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit48
 
-198:                                              ; preds = %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread107
+198:                                              ; preds = %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread107
   %199 = getelementptr inbounds i8, ptr %2, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %199, i64 noundef %196, i64 noundef 8) #20
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit48
 
-_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit48: ; preds = %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread107, %198
+_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit48: ; preds = %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread107, %198
   %200 = load ptr, ptr %2, align 8
   %201 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %202 = getelementptr inbounds ptr, ptr %200, i64 %201
@@ -19830,9 +19830,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit48: ; preds = %_ZL2
   %203 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %204 = add i64 %203, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %204) #20
-  br label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread
+  br label %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread
 
-_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread: ; preds = %178, %170, %191, %188, %186, %184, %179, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit48, %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit
+_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread: ; preds = %178, %170, %191, %188, %186, %184, %179, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit48, %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store i32 583, ptr %5, align 4, !noalias !700
@@ -19854,8 +19854,8 @@ _ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatfor
   %.not1116.i.i.i.i.i52 = icmp eq i64 %.sroa.22.0.extract.shift.i.i.i49, %209
   br i1 %.not1116.i.i.i.i.i52, label %_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDES6_EEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i.i65, label %.lr.ph.i.i.i.i.i53
 
-.lr.ph.i.i.i.i.i53:                               ; preds = %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread, %.loopexit.i.i.i.i.i61
-  %212 = phi ptr [ %213, %.loopexit.i.i.i.i.i61 ], [ %208, %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread ]
+.lr.ph.i.i.i.i.i53:                               ; preds = %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread, %.loopexit.i.i.i.i.i61
+  %212 = phi ptr [ %213, %.loopexit.i.i.i.i.i61 ], [ %208, %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread ]
   %213 = getelementptr inbounds i8, ptr %212, i64 -8
   %214 = load ptr, ptr %213, align 8, !noalias !700
   %.not.i.i.i.i.i54 = icmp eq ptr %214, null
@@ -19887,8 +19887,8 @@ _ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDES6_EEENS_14it
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %_ZNK4llvm3opt7ArgList13hasArgNoClaimIJN5clang6driver7options2IDES6_EEEbDpT_.exit67.thread
 
-_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDES6_EEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i.i65: ; preds = %217, %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread
-  %219 = phi ptr [ %208, %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.argprom.exit.thread ], [ %212, %217 ]
+_ZNK4llvm3opt7ArgList16filtered_reverseIJN5clang6driver7options2IDES6_EEENS_14iterator_rangeINS0_12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEEXsZT_EEEEEDpT_.exit.i.i65: ; preds = %217, %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread
+  %219 = phi ptr [ %208, %_ZL25sdkSupportsBuiltinModulesRKN5clang6driver10toolchains6Darwin18DarwinPlatformKindERKNS2_21DarwinEnvironmentKindERKSt8optionalINS_13DarwinSDKInfoEE.exit.thread ], [ %212, %217 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.not.i.i66 = icmp eq ptr %219, %210
@@ -22090,7 +22090,7 @@ define hidden void @_ZNK5clang6driver10toolchains6Darwin22addStartObjectFileArgs
   %20 = and i64 %17, 9223372036854775807
   %or.cond.i = icmp eq i64 %20, 3
   %or.cond1.i = or i1 %19, %or.cond.i
-  br i1 %or.cond1.i, label %21, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br i1 %or.cond1.i, label %21, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 21:                                               ; preds = %15
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
@@ -22101,7 +22101,7 @@ define hidden void @_ZNK5clang6driver10toolchains6Darwin22addStartObjectFileArgs
 
 25:                                               ; preds = %8
   %26 = icmp eq i32 %10, 0
-  br i1 %26, label %27, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br i1 %26, label %27, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 27:                                               ; preds = %25
   %28 = tail call noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin17isMacosxVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(3824) %0, i32 noundef 10, i32 noundef 5, i32 noundef 0)
@@ -22116,7 +22116,7 @@ define hidden void @_ZNK5clang6driver10toolchains6Darwin22addStartObjectFileArgs
 
 33:                                               ; preds = %27
   %34 = tail call noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin17isMacosxVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(3824) %0, i32 noundef 10, i32 noundef 6, i32 noundef 0)
-  br i1 %34, label %35, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br i1 %34, label %35, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 35:                                               ; preds = %33
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
@@ -22141,7 +22141,7 @@ _ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.sink.split.i:
   %43 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %44 = add i64 %43, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %44) #20
-  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 45:                                               ; preds = %3
   %46 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 167)
@@ -22151,7 +22151,7 @@ _ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.sink.split.i:
 47:                                               ; preds = %45
   %48 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 3176)
   %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %49, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br i1 %.not.i, label %49, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 2216
@@ -22172,15 +22172,15 @@ _ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.sink.split.i:
   %61 = and i64 %58, 9223372036854775807
   %or.cond.i23 = icmp eq i64 %61, 3
   %or.cond8.i = or i1 %60, %or.cond.i23
-  br i1 %or.cond8.i, label %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.thread.i, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br i1 %or.cond8.i, label %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.thread.i, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 _ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.i: ; preds = %49
   %62 = icmp eq i32 %51, 0
-  br i1 %62, label %63, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br i1 %62, label %63, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 63:                                               ; preds = %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.i
   %64 = tail call noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin17isMacosxVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(3824) %0, i32 noundef 10, i32 noundef 6, i32 noundef 0)
-  br i1 %64, label %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.thread.i, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br i1 %64, label %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.thread.i, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 _ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.thread.i: ; preds = %63, %56
   %65 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
@@ -22202,7 +22202,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i: ; preds = %68, 
   %73 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %74 = add i64 %73, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %74) #20
-  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 75:                                               ; preds = %45
   %76 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 3011)
@@ -22272,7 +22272,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i26: ; preds = %_Z
   %107 = add i64 %106, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %107) #20
   %108 = tail call noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin17isMacosxVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(3824) %0, i32 noundef 10, i32 noundef 8, i32 noundef 0)
-  br i1 %108, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit, label %109
+  br i1 %108, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit, label %109
 
 109:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i26
   %110 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
@@ -22294,7 +22294,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit14.i: ; preds = %11
   %118 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %119 = add i64 %118, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %119) #20
-  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 120:                                              ; preds = %86, %82
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22359,7 +22359,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %140, %_ZNK5clang6dr
   %154 = getelementptr inbounds [10 x i64], ptr %152, i64 0, i64 %150
   store i64 %147, ptr %154, align 8
   %155 = tail call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticEb(ptr noundef nonnull align 8 dereferenceable(1304) %123, i1 noundef zeroext false) #20
-  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 156:                                              ; preds = %77, %75
   %157 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 3176)
@@ -22396,7 +22396,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %162, %
   %171 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %172 = add i64 %171, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %172) #20
-  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 173:                                              ; preds = %160
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 2216
@@ -22413,7 +22413,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %162, %
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %182 = load i32, ptr %181, align 8
   %183 = icmp eq i32 %182, 3
-  br i1 %183, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit, label %184
+  br i1 %183, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit, label %184
 
 184:                                              ; preds = %180
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 2224
@@ -22440,7 +22440,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %162, %
 
 _ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.i35: ; preds = %189
   %197 = icmp ult i32 %187, 6
-  br i1 %197, label %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.thread1.i, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br i1 %197, label %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.thread1.i, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 _ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.thread1.i: ; preds = %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.i35, %190
   %198 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
@@ -22451,7 +22451,7 @@ _ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.thread1.i: ; 
 
 201:                                              ; preds = %173
   %202 = icmp eq i32 %175, 0
-  br i1 %202, label %203, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br i1 %202, label %203, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 203:                                              ; preds = %201
   %204 = tail call noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin17isMacosxVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(3824) %0, i32 noundef 10, i32 noundef 5, i32 noundef 0)
@@ -22477,7 +22477,7 @@ _ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.thread1.i: ; 
 
 215:                                              ; preds = %209
   %216 = tail call noundef zeroext i1 @_ZNK5clang6driver10toolchains6Darwin17isMacosxVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(3824) %0, i32 noundef 10, i32 noundef 8, i32 noundef 0)
-  br i1 %216, label %217, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br i1 %216, label %217, label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
 217:                                              ; preds = %215
   %218 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
@@ -22502,15 +22502,15 @@ _ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit13.sink.split.
   %225 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
   %226 = add i64 %225, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %226) #20
-  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+  br label %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
 
-_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit: ; preds = %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit13.sink.split.i, %215, %201, %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.i35, %180, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit14.i, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i26, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i, %63, %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.i, %56, %47, %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.sink.split.i, %33, %25, %15, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit
+_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit: ; preds = %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit13.sink.split.i, %215, %201, %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.i35, %180, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit14.i, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i26, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i, %63, %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.i, %56, %47, %_ZNK5clang6driver10toolchains6Darwin19isIPhoneOSVersionLTEjjj.exit.sink.split.i, %33, %25, %15, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   %228 = load i32, ptr %227, align 8
   %229 = icmp eq i32 %228, 0
   br i1 %229, label %230, label %260
 
-230:                                              ; preds = %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+230:                                              ; preds = %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
   %231 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 3142)
   %.not44 = icmp eq ptr %231, null
   br i1 %.not44, label %260, label %232
@@ -22570,7 +22570,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit38: ; preds = %_ZNK
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %259) #20
   br label %260
 
-260:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit38, %232, %230, %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.argprom.exit
+260:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit38, %232, %230, %_ZL21addDynamicLibLinkArgsRKN5clang6driver10toolchains6DarwinERKN4llvm3opt7ArgListERNS5_11SmallVectorIPKcLj16EEE.exit
   ret void
 }
 
@@ -26040,7 +26040,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i64 @_ZNK4llvm9StringRef12find_last_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEEENK3$_0clENS0_9StringRefE.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_128inferDeploymentTargetFromSDKERN4llvm3opt14DerivedArgListERKSt8optionalIN5clang13DarwinSDKInfoEEENK3$_0clENS0_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -27417,8 +27417,8 @@ attributes #23 = { noreturn nounwind }
 !259 = distinct !{!259, !"_ZN12_GLOBAL__N_114DarwinPlatform16createFromTargetERKN4llvm6TripleENS1_9StringRefEPNS1_3opt3ArgESt8optionalIS2_ERKS9_IN5clang13DarwinSDKInfoEE"}
 !260 = !{!258, !240}
 !261 = !{!262}
-!262 = distinct !{!262, !263, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!263 = distinct !{!263, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!262 = distinct !{!262, !263, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!263 = distinct !{!263, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !264 = !{!265, !267}
 !265 = distinct !{!265, !266, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !266 = distinct !{!266, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27440,8 +27440,8 @@ attributes #23 = { noreturn nounwind }
 !282 = distinct !{!282, !"_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj"}
 !283 = !{!281, !278, !275}
 !284 = !{!285}
-!285 = distinct !{!285, !286, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!286 = distinct !{!286, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!285 = distinct !{!285, !286, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!286 = distinct !{!286, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !287 = !{!288, !290}
 !288 = distinct !{!288, !289, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !289 = distinct !{!289, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27453,8 +27453,8 @@ attributes #23 = { noreturn nounwind }
 !295 = distinct !{!295, !296, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
 !296 = distinct !{!296, !"_ZN4llvmplERKNS_5TwineES2_"}
 !297 = !{!298}
-!298 = distinct !{!298, !299, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!299 = distinct !{!299, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!298 = distinct !{!298, !299, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!299 = distinct !{!299, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !300 = !{!301, !303}
 !301 = distinct !{!301, !302, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !302 = distinct !{!302, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27512,8 +27512,8 @@ attributes #23 = { noreturn nounwind }
 !354 = distinct !{!354, !"_ZN12_GLOBAL__N_114DarwinPlatform19createFromMTargetOSEN4llvm6Triple6OSTypeENS1_12VersionTupleENS2_15EnvironmentTypeEPNS1_3opt3ArgERKSt8optionalIN5clang13DarwinSDKInfoEE"}
 !355 = !{!353, !321}
 !356 = !{!357}
-!357 = distinct !{!357, !358, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!358 = distinct !{!358, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!357 = distinct !{!357, !358, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!358 = distinct !{!358, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !359 = !{!360, !362}
 !360 = distinct !{!360, !361, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !361 = distinct !{!361, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27525,8 +27525,8 @@ attributes #23 = { noreturn nounwind }
 !367 = distinct !{!367, !368, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
 !368 = distinct !{!368, !"_ZN4llvmplERKNS_5TwineES2_"}
 !369 = !{!370}
-!370 = distinct !{!370, !371, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!371 = distinct !{!371, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!370 = distinct !{!370, !371, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!371 = distinct !{!371, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !372 = !{!373, !375}
 !373 = distinct !{!373, !374, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !374 = distinct !{!374, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27588,8 +27588,8 @@ attributes #23 = { noreturn nounwind }
 !430 = distinct !{!430, !"_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj"}
 !431 = !{!429, !426, !423}
 !432 = !{!433}
-!433 = distinct !{!433, !434, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!434 = distinct !{!434, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!433 = distinct !{!433, !434, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!434 = distinct !{!434, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !435 = !{!436, !438}
 !436 = distinct !{!436, !437, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !437 = distinct !{!437, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27611,8 +27611,8 @@ attributes #23 = { noreturn nounwind }
 !453 = distinct !{!453, !"_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj"}
 !454 = !{!452, !449, !446}
 !455 = !{!456}
-!456 = distinct !{!456, !457, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!457 = distinct !{!457, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!456 = distinct !{!456, !457, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!457 = distinct !{!457, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !458 = !{!459, !461}
 !459 = distinct !{!459, !460, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !460 = distinct !{!460, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27634,8 +27634,8 @@ attributes #23 = { noreturn nounwind }
 !476 = distinct !{!476, !"_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj"}
 !477 = !{!475, !472, !469}
 !478 = !{!479}
-!479 = distinct !{!479, !480, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!480 = distinct !{!480, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!479 = distinct !{!479, !480, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!480 = distinct !{!480, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !481 = !{!482, !484}
 !482 = distinct !{!482, !483, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !483 = distinct !{!483, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27665,8 +27665,8 @@ attributes #23 = { noreturn nounwind }
 !507 = distinct !{!507, !"_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj"}
 !508 = !{!506, !503, !500}
 !509 = !{!510}
-!510 = distinct !{!510, !511, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!511 = distinct !{!511, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!510 = distinct !{!510, !511, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!511 = distinct !{!511, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !512 = !{!513, !515}
 !513 = distinct !{!513, !514, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !514 = distinct !{!514, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27688,8 +27688,8 @@ attributes #23 = { noreturn nounwind }
 !530 = distinct !{!530, !"_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj"}
 !531 = !{!529, !526, !523}
 !532 = !{!533}
-!533 = distinct !{!533, !534, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!534 = distinct !{!534, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!533 = distinct !{!533, !534, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!534 = distinct !{!534, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !535 = !{!536, !538}
 !536 = distinct !{!536, !537, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !537 = distinct !{!537, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27711,8 +27711,8 @@ attributes #23 = { noreturn nounwind }
 !553 = distinct !{!553, !"_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj"}
 !554 = !{!552, !549, !546}
 !555 = !{!556}
-!556 = distinct !{!556, !557, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!557 = distinct !{!557, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!556 = distinct !{!556, !557, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!557 = distinct !{!557, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !558 = !{!559, !561}
 !559 = distinct !{!559, !560, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !560 = distinct !{!560, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27734,8 +27734,8 @@ attributes #23 = { noreturn nounwind }
 !576 = distinct !{!576, !"_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj"}
 !577 = !{!575, !572, !569}
 !578 = !{!579}
-!579 = distinct !{!579, !580, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!580 = distinct !{!580, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!579 = distinct !{!579, !580, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!580 = distinct !{!580, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !581 = !{!582, !584}
 !582 = distinct !{!582, !583, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !583 = distinct !{!583, !"_ZNK4llvm5Twine6concatERKS0_"}
@@ -27757,8 +27757,8 @@ attributes #23 = { noreturn nounwind }
 !599 = distinct !{!599, !"_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj"}
 !600 = !{!598, !595, !592}
 !601 = !{!602}
-!602 = distinct !{!602, !603, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom: argument 0"}
-!603 = distinct !{!603, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE.argprom"}
+!602 = distinct !{!602, !603, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE: argument 0"}
+!603 = distinct !{!603, !"_ZN12_GLOBAL__N_114DarwinPlatform11getAsStringB5cxx11ERN4llvm3opt14DerivedArgListERKNS2_8OptTableE"}
 !604 = !{!605, !607}
 !605 = distinct !{!605, !606, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
 !606 = distinct !{!606, !"_ZNK4llvm5Twine6concatERKS0_"}

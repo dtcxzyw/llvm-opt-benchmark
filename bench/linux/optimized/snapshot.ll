@@ -556,7 +556,7 @@ define dso_local noundef range(i32 -12, 1) i32 @create_basic_memory_bitmaps() lo
   %119 = phi ptr [ %122, %.preheader19 ], [ %117, %.preheader21 ]
   %120 = getelementptr inbounds i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8
-  tail call fastcc void @free_image_page.argelim(ptr noundef %121)
+  tail call fastcc void @free_image_page(ptr noundef %121)
   %122 = load ptr, ptr %119, align 8
   %123 = icmp eq ptr %122, %116
   br i1 %123, label %.loopexit20, label %.preheader19, !llvm.loop !31
@@ -571,7 +571,7 @@ define dso_local noundef range(i32 -12, 1) i32 @create_basic_memory_bitmaps() lo
   %127 = phi ptr [ %130, %.preheader17 ], [ %125, %.loopexit20 ]
   %128 = getelementptr inbounds i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8
-  tail call fastcc void @free_image_page.argelim(ptr noundef %129)
+  tail call fastcc void @free_image_page(ptr noundef %129)
   %130 = load ptr, ptr %127, align 8
   %131 = icmp eq ptr %130, %124
   br i1 %131, label %.loopexit18, label %.preheader17, !llvm.loop !32
@@ -590,7 +590,7 @@ define dso_local noundef range(i32 -12, 1) i32 @create_basic_memory_bitmaps() lo
 .preheader:                                       ; preds = %.loopexit22, %.preheader
   %137 = phi ptr [ %138, %.preheader ], [ %135, %.loopexit22 ]
   %138 = load ptr, ptr %137, align 1
-  tail call fastcc void @free_image_page.argelim(ptr noundef nonnull %137)
+  tail call fastcc void @free_image_page(ptr noundef nonnull %137)
   %139 = icmp eq ptr %138, null
   br i1 %139, label %.loopexit, label %.preheader, !llvm.loop !34
 
@@ -1121,7 +1121,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   %286 = phi ptr [ %289, %.preheader84 ], [ %284, %.thread53 ]
   %287 = getelementptr inbounds i8, ptr %286, i64 16
   %288 = load ptr, ptr %287, align 8
-  call fastcc void @free_image_page.argelim(ptr noundef %288)
+  call fastcc void @free_image_page(ptr noundef %288)
   %289 = load ptr, ptr %286, align 8
   %290 = icmp eq ptr %289, %129
   br i1 %290, label %.loopexit85, label %.preheader84, !llvm.loop !31
@@ -1135,7 +1135,7 @@ define internal fastcc range(i32 -12, 1) i32 @memory_bm_create(ptr noundef %0, i
   %293 = phi ptr [ %296, %.preheader83 ], [ %291, %.loopexit85 ]
   %294 = getelementptr inbounds i8, ptr %293, i64 16
   %295 = load ptr, ptr %294, align 8
-  call fastcc void @free_image_page.argelim(ptr noundef %295)
+  call fastcc void @free_image_page(ptr noundef %295)
   %296 = load ptr, ptr %293, align 8
   %297 = icmp eq ptr %296, %131
   br i1 %297, label %.thread70, label %.preheader83, !llvm.loop !32
@@ -1416,7 +1416,7 @@ thread-pre-split:                                 ; preds = %.loopexit79
 .preheader76:                                     ; preds = %431, %.preheader76
   %434 = phi ptr [ %435, %.preheader76 ], [ %432, %431 ]
   %435 = load ptr, ptr %434, align 1
-  call fastcc void @free_image_page.argelim(ptr noundef nonnull %434)
+  call fastcc void @free_image_page(ptr noundef nonnull %434)
   %436 = icmp eq ptr %435, null
   br i1 %436, label %.loopexit77, label %.preheader76, !llvm.loop !34
 
@@ -2105,7 +2105,7 @@ free_image_page.exit12:                           ; preds = %315, %.loopexit136
 .preheader134:                                    ; preds = %.loopexit153, %.preheader134
   %410 = phi ptr [ %411, %.preheader134 ], [ %408, %.loopexit153 ]
   %411 = load ptr, ptr %410, align 1
-  tail call fastcc void @free_image_page.argelim(ptr noundef nonnull %410)
+  tail call fastcc void @free_image_page(ptr noundef nonnull %410)
   %412 = icmp eq ptr %411, null
   br i1 %412, label %.loopexit135, label %.preheader134, !llvm.loop !34
 
@@ -2767,7 +2767,7 @@ free_image_page.exit14:                           ; preds = %721, %.loopexit116
 .preheader:                                       ; preds = %.loopexit133, %.preheader
   %816 = phi ptr [ %817, %.preheader ], [ %814, %.loopexit133 ]
   %817 = load ptr, ptr %816, align 1
-  tail call fastcc void @free_image_page.argelim(ptr noundef nonnull %816)
+  tail call fastcc void @free_image_page(ptr noundef nonnull %816)
   %818 = icmp eq ptr %817, null
   br i1 %818, label %.loopexit, label %.preheader, !llvm.loop !34
 
@@ -6241,7 +6241,7 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, i8 0, i64 64, i1 false), !annotation !6
   %272 = load ptr, ptr @buffer, align 8
-  call fastcc void @free_image_page.argelim(ptr noundef %272)
+  call fastcc void @free_image_page(ptr noundef %272)
   store ptr null, ptr @buffer, align 8
   %273 = load ptr, ptr @free_pages_map, align 8
   %274 = load ptr, ptr %273, align 8
@@ -6895,7 +6895,7 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
   %641 = phi ptr [ %644, %.preheader96 ], [ %639, %.preheader114 ]
   %642 = getelementptr inbounds i8, ptr %641, i64 16
   %643 = load ptr, ptr %642, align 8
-  call fastcc void @free_image_page.argelim(ptr noundef %643)
+  call fastcc void @free_image_page(ptr noundef %643)
   %644 = load ptr, ptr %641, align 8
   %645 = icmp eq ptr %644, %638
   br i1 %645, label %.loopexit97, label %.preheader96, !llvm.loop !31
@@ -6910,7 +6910,7 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
   %649 = phi ptr [ %652, %.preheader ], [ %647, %.loopexit97 ]
   %650 = getelementptr inbounds i8, ptr %649, i64 16
   %651 = load ptr, ptr %650, align 8
-  call fastcc void @free_image_page.argelim(ptr noundef %651)
+  call fastcc void @free_image_page(ptr noundef %651)
   %652 = load ptr, ptr %649, align 8
   %653 = icmp eq ptr %652, %646
   br i1 %653, label %.loopexit, label %.preheader, !llvm.loop !32
@@ -6928,7 +6928,7 @@ define dso_local i32 @snapshot_write_next(ptr nocapture noundef %0) local_unname
 .preheader112:                                    ; preds = %.loopexit115, %.preheader112
   %658 = phi ptr [ %659, %.preheader112 ], [ %656, %.loopexit115 ]
   %659 = load ptr, ptr %658, align 1
-  call fastcc void @free_image_page.argelim(ptr noundef nonnull %658)
+  call fastcc void @free_image_page(ptr noundef nonnull %658)
   %660 = icmp eq ptr %659, null
   br i1 %660, label %.loopexit113, label %.preheader112, !llvm.loop !34
 
@@ -7759,7 +7759,7 @@ declare void @llvm.assume(i1 noundef) #14
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @free_image_page.argelim(ptr noundef %0) unnamed_addr #16 align 16 {
+define internal fastcc void @free_image_page(ptr noundef %0) unnamed_addr #16 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8

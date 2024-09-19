@@ -2384,7 +2384,7 @@ define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %0) unname
   %95 = urem i32 %.098, 1000
   %96 = icmp eq i32 %95, 0
   %or.cond = select i1 %94, i1 %96, i1 false
-  br i1 %or.cond, label %97, label %Extra_ProgressBarUpdate.argprom.exit
+  br i1 %or.cond, label %97, label %Extra_ProgressBarUpdate.exit
 
 97:                                               ; preds = %.critedge
   %98 = load ptr, ptr %73, align 8
@@ -2394,13 +2394,13 @@ define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %0) unname
 100:                                              ; preds = %97
   %101 = load i32, ptr %.0100, align 4
   %102 = icmp slt i32 %99, %101
-  br i1 %102, label %Extra_ProgressBarUpdate.argprom.exit, label %103
+  br i1 %102, label %Extra_ProgressBarUpdate.exit, label %103
 
 103:                                              ; preds = %100, %97
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %.0100, i32 noundef %99, ptr noundef null) #15
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %103, %100, %.critedge
+Extra_ProgressBarUpdate.exit:                     ; preds = %103, %100, %.critedge
   %104 = load ptr, ptr %14, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
@@ -2409,7 +2409,7 @@ Extra_ProgressBarUpdate.argprom.exit:             ; preds = %103, %100, %.crited
   %.not107 = icmp eq i32 %108, 0
   br i1 %.not107, label %109, label %557
 
-109:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
+109:                                              ; preds = %Extra_ProgressBarUpdate.exit
   %110 = load ptr, ptr %13, align 8
   %111 = getelementptr inbounds i8, ptr %104, i64 4
   %112 = load i32, ptr %111, align 4
@@ -3344,7 +3344,7 @@ Vec_StrPush.exit158.i:                            ; preds = %521, %Vec_StrGrow.e
   %556 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %551, ptr noundef nonnull @.str.69, ptr noundef %552, i32 noundef %549, ptr noundef nonnull %77) #15
   br label %Io_ReadBlifNetworkNames.exit
 
-557:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
+557:                                              ; preds = %Extra_ProgressBarUpdate.exit
   %558 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(6) @.str.15) #17
   %.not108 = icmp eq i32 %558, 0
   br i1 %.not108, label %559, label %701

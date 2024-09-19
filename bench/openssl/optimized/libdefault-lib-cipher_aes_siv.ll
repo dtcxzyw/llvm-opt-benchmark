@@ -106,7 +106,7 @@ define internal range(i32 0, 2) i32 @siv_einit(ptr noundef %vctx, ptr noundef %k
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %siv_init.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %siv_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %enc1.i = getelementptr inbounds i8, ptr %vctx, i64 4
@@ -126,7 +126,7 @@ if.then5.i:                                       ; preds = %if.then2.i
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 90, ptr noundef nonnull @__func__.siv_init) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef null) #3
-  br label %siv_init.argprom.exit
+  br label %siv_init.exit
 
 if.end6.i:                                        ; preds = %if.then2.i
   %hw.i = getelementptr inbounds i8, ptr %vctx, i64 104
@@ -134,13 +134,13 @@ if.end6.i:                                        ; preds = %if.then2.i
   %2 = load ptr, ptr %1, align 8
   %call8.i = tail call i32 %2(ptr noundef nonnull %vctx, ptr noundef nonnull %key, i64 noundef %keylen) #3
   %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %siv_init.argprom.exit, label %if.end12.i
+  br i1 %tobool9.not.i, label %siv_init.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end6.i, %if.end.i
   %call13.i = tail call i32 @aes_siv_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params)
-  br label %siv_init.argprom.exit
+  br label %siv_init.exit
 
-siv_init.argprom.exit:                            ; preds = %entry, %if.then5.i, %if.end6.i, %if.end12.i
+siv_init.exit:                                    ; preds = %entry, %if.then5.i, %if.end6.i, %if.end12.i
   %retval.0.i = phi i32 [ 0, %if.then5.i ], [ %call13.i, %if.end12.i ], [ 0, %entry ], [ 0, %if.end6.i ]
   ret i32 %retval.0.i
 }
@@ -150,7 +150,7 @@ define internal range(i32 0, 2) i32 @siv_dinit(ptr noundef %vctx, ptr noundef %k
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %siv_init.argprom.exit, label %if.end.i
+  br i1 %tobool.not.i, label %siv_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %enc1.i = getelementptr inbounds i8, ptr %vctx, i64 4
@@ -170,7 +170,7 @@ if.then5.i:                                       ; preds = %if.then2.i
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 90, ptr noundef nonnull @__func__.siv_init) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef null) #3
-  br label %siv_init.argprom.exit
+  br label %siv_init.exit
 
 if.end6.i:                                        ; preds = %if.then2.i
   %hw.i = getelementptr inbounds i8, ptr %vctx, i64 104
@@ -178,13 +178,13 @@ if.end6.i:                                        ; preds = %if.then2.i
   %2 = load ptr, ptr %1, align 8
   %call8.i = tail call i32 %2(ptr noundef nonnull %vctx, ptr noundef nonnull %key, i64 noundef %keylen) #3
   %tobool9.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool9.not.i, label %siv_init.argprom.exit, label %if.end12.i
+  br i1 %tobool9.not.i, label %siv_init.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end6.i, %if.end.i
   %call13.i = tail call i32 @aes_siv_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef %params)
-  br label %siv_init.argprom.exit
+  br label %siv_init.exit
 
-siv_init.argprom.exit:                            ; preds = %entry, %if.then5.i, %if.end6.i, %if.end12.i
+siv_init.exit:                                    ; preds = %entry, %if.then5.i, %if.end6.i, %if.end12.i
   %retval.0.i = phi i32 [ 0, %if.then5.i ], [ %call13.i, %if.end12.i ], [ 0, %entry ], [ 0, %if.end6.i ]
   ret i32 %retval.0.i
 }

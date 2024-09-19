@@ -221,7 +221,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %59
 opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %79, %78
   %.02.i = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_op_base_framework, i64 112), align 8
   %.not3.i = icmp eq ptr %.02.i, getelementptr inbounds (i8, ptr @ompi_op_base_framework, i64 96)
-  br i1 %.not3.i, label %check_components.argprom.exit, label %.lr.ph.i154
+  br i1 %.not3.i, label %check_components.exit, label %.lr.ph.i154
 
 .lr.ph.i154:                                      ; preds = %opal_obj_new.exit.i
   %86 = getelementptr inbounds i8, ptr %74, i64 16
@@ -350,16 +350,16 @@ opal_obj_new.exit21.i:                            ; preds = %.lr.ph.i.i18.i, %13
   %147 = getelementptr inbounds i8, ptr %.04.i, i64 16
   %.0.i155 = load volatile ptr, ptr %147, align 8
   %.not.i156 = icmp eq ptr %.0.i155, getelementptr inbounds (i8, ptr @ompi_op_base_framework, i64 96)
-  br i1 %.not.i156, label %check_components.argprom.exit, label %89, !llvm.loop !8
+  br i1 %.not.i156, label %check_components.exit, label %89, !llvm.loop !8
 
-check_components.argprom.exit:                    ; preds = %146, %opal_obj_new.exit.i
+check_components.exit:                            ; preds = %146, %opal_obj_new.exit.i
   %148 = call i32 @opal_list_sort(ptr noundef %74, ptr noundef nonnull @avail_op_compare) #8
   %149 = getelementptr inbounds i8, ptr %74, i64 56
   %150 = load volatile i64, ptr %149, align 8
   %151 = icmp eq i64 %150, 0
   br i1 %151, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %check_components.argprom.exit
+.lr.ph:                                           ; preds = %check_components.exit
   %152 = load volatile i64, ptr %149, align 8
   %153 = add i64 %152, -1
   store volatile i64 %153, ptr %149, align 8
@@ -782,7 +782,7 @@ opal_list_remove_first.exit205:                   ; preds = %346
   store volatile ptr %357, ptr %162, align 8
   br label %163, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %346, %check_components.argprom.exit
+._crit_edge:                                      ; preds = %346, %check_components.exit
   %358 = getelementptr inbounds i8, ptr %74, i64 8
   %359 = load i8, ptr @opal_uses_threads, align 1
   %360 = trunc i8 %359 to i1

@@ -1129,8 +1129,8 @@ define hidden void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops.
   invoke void %28(ptr noalias noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %31, i64 noundef %33)
           to label %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i" unwind label %34
 
-common.resume:                                    ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i", %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$http..header..value..HeaderValue$GT$$GT$17h8502e2220a3850a7E.argprom.exit.i"
-  %common.resume.op = phi { ptr, i32 } [ %56, %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$http..header..value..HeaderValue$GT$$GT$17h8502e2220a3850a7E.argprom.exit.i" ], [ %22, %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i" ]
+common.resume:                                    ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i", %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$http..header..value..HeaderValue$GT$$GT$17h8502e2220a3850a7E.exit.i"
+  %common.resume.op = phi { ptr, i32 } [ %56, %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$http..header..value..HeaderValue$GT$$GT$17h8502e2220a3850a7E.exit.i" ], [ %22, %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i" ]
   resume { ptr, i32 } %common.resume.op
 
 34:                                               ; preds = %23
@@ -1173,7 +1173,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr53drop
 "_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i.i.i": ; preds = %57, %55
   %.1.i.i.i = phi i64 [ %45, %55 ], [ %59, %57 ]
   %54 = icmp eq i64 %.1.i.i.i, %41
-  br i1 %54, label %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$http..header..value..HeaderValue$GT$$GT$17h8502e2220a3850a7E.argprom.exit.i", label %57
+  br i1 %54, label %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$http..header..value..HeaderValue$GT$$GT$17h8502e2220a3850a7E.exit.i", label %57
 
 55:                                               ; preds = %43
   %56 = landingpad { ptr, i32 }
@@ -1203,7 +1203,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr53drop
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13, !noalias !324
   unreachable
 
-"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$http..header..value..HeaderValue$GT$$GT$17h8502e2220a3850a7E.argprom.exit.i": ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i.i.i"
+"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$http..header..value..HeaderValue$GT$$GT$17h8502e2220a3850a7E.exit.i": ; preds = %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h4e02beeeadfaa177E.exit7.i.i.i"
   %70 = mul nuw i64 %3, 40
   tail call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef %70, i64 noundef 8) #15, !noalias !324
   br label %common.resume

@@ -1829,22 +1829,22 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %.loopexit56, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %9, %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.argprom.exit.backedge.i"
-  %15 = phi ptr [ %16, %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.argprom.exit.backedge.i" ], [ %11, %9 ]
+.lr.ph.i:                                         ; preds = %9, %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i"
+  %15 = phi ptr [ %16, %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i" ], [ %11, %9 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = getelementptr i8, ptr %15, i64 16
   %.val5.i = load i64, ptr %17, align 8, !noalias !255, !noundef !4
   %.not.i.i.i = icmp eq i64 %.val5.i, 1
-  br i1 %.not.i.i.i, label %18, label %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.argprom.exit.backedge.i"
+  br i1 %.not.i.i.i, label %18, label %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i"
 
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr i8, ptr %15, i64 8
   %.val.i = load ptr, ptr %19, align 8, !noalias !255, !nonnull !4, !noundef !4
   %lhsc.i.i = load i8, ptr %.val.i, align 1, !noalias !255
   %20 = icmp eq i8 %lhsc.i.i, 42
-  br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a946f8da4ef5f74E.exit", label %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.argprom.exit.backedge.i"
+  br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a946f8da4ef5f74E.exit", label %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i"
 
-"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.argprom.exit.backedge.i": ; preds = %18, %.lr.ph.i
+"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i": ; preds = %18, %.lr.ph.i
   %.not11.i = icmp eq ptr %16, %14
   br i1 %.not11.i, label %.loopexit56, label %.lr.ph.i
 
@@ -1852,7 +1852,7 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %27
 
-.loopexit56:                                      ; preds = %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.argprom.exit.backedge.i", %9
+.loopexit56:                                      ; preds = %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i", %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %22
 
@@ -1896,22 +1896,22 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   %.not.i11 = icmp eq i64 %37, 0
   br i1 %.not.i11, label %.loopexit, label %.lr.ph.i12
 
-.lr.ph.i12:                                       ; preds = %33, %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.argprom.exit.backedge.i"
-  %39 = phi ptr [ %40, %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.argprom.exit.backedge.i" ], [ %35, %33 ]
+.lr.ph.i12:                                       ; preds = %33, %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.exit.backedge.i"
+  %39 = phi ptr [ %40, %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.exit.backedge.i" ], [ %35, %33 ]
   %40 = getelementptr inbounds i8, ptr %39, i64 24
   %41 = getelementptr i8, ptr %39, i64 16
   %.val5.i13 = load i64, ptr %41, align 8, !noalias !258, !noundef !4
   %.not.i.i.i14 = icmp eq i64 %.val5.i13, 1
-  br i1 %.not.i.i.i14, label %42, label %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.argprom.exit.backedge.i"
+  br i1 %.not.i.i.i14, label %42, label %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.exit.backedge.i"
 
 42:                                               ; preds = %.lr.ph.i12
   %43 = getelementptr i8, ptr %39, i64 8
   %.val.i19 = load ptr, ptr %43, align 8, !noalias !258, !nonnull !4, !noundef !4
   %lhsc.i.i20 = load i8, ptr %.val.i19, align 1, !noalias !258
   %44 = icmp eq i8 %lhsc.i.i20, 42
-  br i1 %44, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h65e8b3ea274ac959E.exit", label %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.argprom.exit.backedge.i"
+  br i1 %44, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h65e8b3ea274ac959E.exit", label %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.exit.backedge.i"
 
-"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.argprom.exit.backedge.i": ; preds = %42, %.lr.ph.i12
+"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.exit.backedge.i": ; preds = %42, %.lr.ph.i12
   %.not11.i15 = icmp eq ptr %40, %38
   br i1 %.not11.i15, label %.loopexit, label %.lr.ph.i12
 
@@ -1920,7 +1920,7 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.463.0..sroa_idx, i64 16, i1 false)
   br label %52
 
-.loopexit:                                        ; preds = %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.argprom.exit.backedge.i", %33
+.loopexit:                                        ; preds = %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.exit.backedge.i", %33
   %.sroa.061.0.copyload = load i64, ptr %3, align 8
   %46 = getelementptr inbounds i8, ptr %1, i64 440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false)
@@ -7435,8 +7435,8 @@ attributes #22 = { nounwind }
 !474 = distinct !{!474, !"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$3get17h54ebb348ed0a1d6cE"}
 !475 = distinct !{!475, !476, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE: argument 0"}
 !476 = distinct !{!476, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE"}
-!477 = distinct !{!477, !478, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE.argprom: argument 0"}
-!478 = distinct !{!478, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE.argprom"}
+!477 = distinct !{!477, !478, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE: argument 0"}
+!478 = distinct !{!478, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE"}
 !479 = !{!477, !469, !471}
 !480 = !{!481, !483, !469, !471}
 !481 = distinct !{!481, !482, !"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17h1be8900c2bee83a2E: argument 0"}
@@ -7458,12 +7458,12 @@ attributes #22 = { nounwind }
 !497 = distinct !{!497, !"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$3get17h54ebb348ed0a1d6cE"}
 !498 = distinct !{!498, !499, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE: argument 0"}
 !499 = distinct !{!499, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE"}
-!500 = distinct !{!500, !501, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE.argprom: argument 0"}
-!501 = distinct !{!501, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE.argprom"}
+!500 = distinct !{!500, !501, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE: argument 0"}
+!501 = distinct !{!501, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE"}
 !502 = !{!500, !492, !494}
 !503 = !{!504, !492, !494}
-!504 = distinct !{!504, !505, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h53c89366c447ffe9E.argprom: argument 0"}
-!505 = distinct !{!505, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h53c89366c447ffe9E.argprom"}
+!504 = distinct !{!504, !505, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h53c89366c447ffe9E: argument 0"}
+!505 = distinct !{!505, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h53c89366c447ffe9E"}
 !506 = !{!507, !509, !510, !512, !513, !515, !516, !518, !492, !494}
 !507 = distinct !{!507, !508, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha25e59fe31f81d9bE: argument 0"}
 !508 = distinct !{!508, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha25e59fe31f81d9bE"}
@@ -7537,12 +7537,12 @@ attributes #22 = { nounwind }
 !576 = distinct !{!576, !"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$3get17h54ebb348ed0a1d6cE"}
 !577 = distinct !{!577, !578, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE: argument 0"}
 !578 = distinct !{!578, !"_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE"}
-!579 = distinct !{!579, !580, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE.argprom: argument 0"}
-!580 = distinct !{!580, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE.argprom"}
+!579 = distinct !{!579, !580, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE: argument 0"}
+!580 = distinct !{!580, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939489f152aE"}
 !581 = !{!579, !571, !573}
 !582 = !{!583, !571, !573}
-!583 = distinct !{!583, !584, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h53c89366c447ffe9E.argprom: argument 0"}
-!584 = distinct !{!584, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h53c89366c447ffe9E.argprom"}
+!583 = distinct !{!583, !584, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h53c89366c447ffe9E: argument 0"}
+!584 = distinct !{!584, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h53c89366c447ffe9E"}
 !585 = !{!586, !588, !589, !591, !592, !594, !595, !597, !571, !573}
 !586 = distinct !{!586, !587, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha25e59fe31f81d9bE: argument 0"}
 !587 = distinct !{!587, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha25e59fe31f81d9bE"}
@@ -7665,8 +7665,8 @@ attributes #22 = { nounwind }
 !704 = distinct !{!704, !702, !"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6fc76e60d878b3a2E: argument 1"}
 !705 = !{i8 0, i8 2}
 !706 = !{!707}
-!707 = distinct !{!707, !708, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!708 = distinct !{!708, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!707 = distinct !{!707, !708, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!708 = distinct !{!708, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !709 = !{!710}
 !710 = distinct !{!710, !711, !"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E: argument 1"}
 !711 = distinct !{!711, !"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E"}

@@ -1227,10 +1227,10 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h182ba6429db4f694
   %24 = load ptr, ptr %20, align 8, !nonnull !7, !align !14
   br label %25
 
-25:                                               ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.argprom.exit.i", %.lr.ph.i
-  %.025 = phi i64 [ 0, %.lr.ph.i ], [ %.val.i, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.argprom.exit.i" ]
-  %.024 = phi i64 [ %17, %.lr.ph.i ], [ %35, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.argprom.exit.i" ]
-  %.sroa.2.012.i = phi ptr [ %16, %.lr.ph.i ], [ %26, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.argprom.exit.i" ]
+25:                                               ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i", %.lr.ph.i
+  %.025 = phi i64 [ 0, %.lr.ph.i ], [ %.val.i, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i" ]
+  %.024 = phi i64 [ %17, %.lr.ph.i ], [ %35, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i" ]
+  %.sroa.2.012.i = phi ptr [ %16, %.lr.ph.i ], [ %26, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i" ]
   %26 = getelementptr inbounds i8, ptr %.sroa.2.012.i, i64 -8
   %.val.i = load i64, ptr %26, align 8, !noalias !360, !noundef !7
   %or.cond.i.i = icmp ugt i64 %.024, 59
@@ -1242,7 +1242,7 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h182ba6429db4f694
   %29 = load i64, ptr %24, align 8, !noalias !368, !noundef !7
   tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull %.sroa.412.0.copyload, ptr noundef nonnull %.sroa.412.0.copyload, ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23, i64 noundef %29, i64 noundef %27), !noalias !372
   %30 = icmp ult i64 %28, 64
-  br i1 %30, label %.lr.ph.i.i.preheader, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.argprom.exit.i"
+  br i1 %30, label %.lr.ph.i.i.preheader, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i"
 
 .lr.ph.i.i.preheader:                             ; preds = %.critedge.i.i, %25
   %.2.ph = phi i64 [ %.024, %25 ], [ %28, %.critedge.i.i ]
@@ -1255,15 +1255,15 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h182ba6429db4f694
   %33 = load i64, ptr %24, align 8, !noalias !374, !noundef !7
   tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull %.sroa.412.0.copyload, ptr noundef nonnull %.sroa.412.0.copyload, ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23, i64 noundef %33, i64 noundef %31), !noalias !378
   %34 = icmp ult i64 %32, 64
-  br i1 %34, label %.lr.ph.i.i, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.argprom.exit.i"
+  br i1 %34, label %.lr.ph.i.i, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i"
 
-"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.argprom.exit.i": ; preds = %.lr.ph.i.i, %.critedge.i.i
+"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i": ; preds = %.lr.ph.i.i, %.critedge.i.i
   %.lcssa.i.i = phi i64 [ %28, %.critedge.i.i ], [ %32, %.lr.ph.i.i ]
   %35 = add i64 %.lcssa.i.i, 64
   %36 = icmp eq ptr %0, %26
   br i1 %36, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E.exit, label %25
 
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E.exit: ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.argprom.exit.i"
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E.exit: ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.exit.i"
   %37 = insertvalue { ptr, i64 } poison, ptr %.sroa.412.0.copyload, 0
   %38 = insertvalue { ptr, i64 } %37, i64 %.sroa.5.0.copyload, 1
   ret { ptr, i64 } %38
@@ -1308,10 +1308,10 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h847f698419fd7a90
   %24 = load ptr, ptr %20, align 8, !nonnull !7, !align !14
   br label %25
 
-25:                                               ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.argprom.exit.i", %.lr.ph.i
-  %.025 = phi i64 [ 0, %.lr.ph.i ], [ %.val.i, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.argprom.exit.i" ]
-  %.024 = phi i64 [ %17, %.lr.ph.i ], [ %35, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.argprom.exit.i" ]
-  %.sroa.2.012.i = phi ptr [ %16, %.lr.ph.i ], [ %26, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.argprom.exit.i" ]
+25:                                               ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i", %.lr.ph.i
+  %.025 = phi i64 [ 0, %.lr.ph.i ], [ %.val.i, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i" ]
+  %.024 = phi i64 [ %17, %.lr.ph.i ], [ %35, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i" ]
+  %.sroa.2.012.i = phi ptr [ %16, %.lr.ph.i ], [ %26, %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i" ]
   %26 = getelementptr inbounds i8, ptr %.sroa.2.012.i, i64 -8
   %.val.i = load i64, ptr %26, align 8, !noalias !382, !noundef !7
   %or.cond.i.i = icmp ugt i64 %.024, 59
@@ -1323,7 +1323,7 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h847f698419fd7a90
   %29 = load i64, ptr %24, align 8, !noalias !390, !noundef !7
   tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull %.sroa.412.0.copyload, ptr noundef nonnull %.sroa.412.0.copyload, ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23, i64 noundef %29, i64 noundef %27), !noalias !394
   %30 = icmp ult i64 %28, 64
-  br i1 %30, label %.lr.ph.i.i.preheader, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.argprom.exit.i"
+  br i1 %30, label %.lr.ph.i.i.preheader, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i"
 
 .lr.ph.i.i.preheader:                             ; preds = %.critedge.i.i, %25
   %.2.ph = phi i64 [ %.024, %25 ], [ %28, %.critedge.i.i ]
@@ -1336,15 +1336,15 @@ define hidden { ptr, i64 } @_ZN4ring4limb18fold_5_bit_windows17h847f698419fd7a90
   %33 = load i64, ptr %24, align 8, !noalias !396, !noundef !7
   tail call void @ring_core_0_17_8__bn_power5(ptr noundef nonnull %.sroa.412.0.copyload, ptr noundef nonnull %.sroa.412.0.copyload, ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23, i64 noundef %33, i64 noundef %31), !noalias !400
   %34 = icmp ult i64 %32, 64
-  br i1 %34, label %.lr.ph.i.i, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.argprom.exit.i"
+  br i1 %34, label %.lr.ph.i.i, label %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i"
 
-"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.argprom.exit.i": ; preds = %.lr.ph.i.i, %.critedge.i.i
+"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i": ; preds = %.lr.ph.i.i, %.critedge.i.i
   %.lcssa.i.i = phi i64 [ %28, %.critedge.i.i ], [ %32, %.lr.ph.i.i ]
   %35 = add i64 %.lcssa.i.i, 64
   %36 = icmp eq ptr %0, %26
   br i1 %36, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E.exit, label %25
 
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E.exit: ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.argprom.exit.i"
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E.exit: ; preds = %"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.exit.i"
   %37 = insertvalue { ptr, i64 } poison, ptr %.sroa.412.0.copyload, 0
   %38 = insertvalue { ptr, i64 } %37, i64 %.sroa.5.0.copyload, 1
   ret { ptr, i64 } %38
@@ -2354,8 +2354,8 @@ attributes #21 = { cold }
 !123 = distinct !{!123, !124, !"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17ha3f9d22f78dc62dbE: argument 0"}
 !124 = distinct !{!124, !"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17ha3f9d22f78dc62dbE"}
 !125 = !{!126, !111}
-!126 = distinct !{!126, !127, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E.argprom: argument 0"}
-!127 = distinct !{!127, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E.argprom"}
+!126 = distinct !{!126, !127, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E: argument 0"}
+!127 = distinct !{!127, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E"}
 !128 = !{!129}
 !129 = distinct !{!129, !130, !"_ZN4core5array25try_from_trusted_iterator17h55af298352255ed7E.llvm.5814777820638942741: argument 0"}
 !130 = distinct !{!130, !"_ZN4core5array25try_from_trusted_iterator17h55af298352255ed7E.llvm.5814777820638942741"}
@@ -2448,8 +2448,8 @@ attributes #21 = { cold }
 !217 = distinct !{!217, !218, !"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17ha3f9d22f78dc62dbE: argument 0"}
 !218 = distinct !{!218, !"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17ha3f9d22f78dc62dbE"}
 !219 = !{!220, !204, !201}
-!220 = distinct !{!220, !221, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E.argprom: argument 0"}
-!221 = distinct !{!221, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E.argprom"}
+!220 = distinct !{!220, !221, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E: argument 0"}
+!221 = distinct !{!221, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E"}
 !222 = !{!223}
 !223 = distinct !{!223, !224, !"_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17ha6c348b23b6bab8bE.llvm.5814777820638942741: argument 0"}
 !224 = distinct !{!224, !"_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17ha6c348b23b6bab8bE.llvm.5814777820638942741"}
@@ -2474,8 +2474,8 @@ attributes #21 = { cold }
 !243 = distinct !{!243, !"_ZN4core5array25try_from_trusted_iterator4next28_$u7b$$u7b$closure$u7d$$u7d$17ha3f9d22f78dc62dbE"}
 !244 = !{!226, !223}
 !245 = !{!246, !229, !226, !223}
-!246 = distinct !{!246, !247, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E.argprom: argument 0"}
-!247 = distinct !{!247, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E.argprom"}
+!246 = distinct !{!246, !247, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E: argument 0"}
+!247 = distinct !{!247, !"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he6e42fe938c9c4e7E"}
 !248 = !{!249, !251, !253}
 !249 = distinct !{!249, !250, !"_ZN4core5array11try_from_fn17h73bf5684886c1f1fE: argument 0"}
 !250 = distinct !{!250, !"_ZN4core5array11try_from_fn17h73bf5684886c1f1fE"}
@@ -2593,9 +2593,9 @@ attributes #21 = { cold }
 !362 = distinct !{!362, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E"}
 !363 = distinct !{!363, !362, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hd72182f069108e24E: argument 1"}
 !364 = !{!365, !367, !363}
-!365 = distinct !{!365, !366, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.argprom: argument 0"}
-!366 = distinct !{!366, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.argprom"}
-!367 = distinct !{!367, !366, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E.argprom: argument 1"}
+!365 = distinct !{!365, !366, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E: argument 0"}
+!366 = distinct !{!366, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E"}
+!367 = distinct !{!367, !366, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h4a60ffd4f1a45d14E: argument 1"}
 !368 = !{!369, !371, !365, !367, !363}
 !369 = distinct !{!369, !370, !"_ZN4ring10arithmetic6bigint18elem_exp_consttime28_$u7b$$u7b$closure$u7d$$u7d$17hd51d5130e8d1a502E: argument 0"}
 !370 = distinct !{!370, !"_ZN4ring10arithmetic6bigint18elem_exp_consttime28_$u7b$$u7b$closure$u7d$$u7d$17hd51d5130e8d1a502E"}
@@ -2615,9 +2615,9 @@ attributes #21 = { cold }
 !384 = distinct !{!384, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E"}
 !385 = distinct !{!385, !384, !"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfold17hb160ad6756f962f3E: argument 1"}
 !386 = !{!387, !389, !385}
-!387 = distinct !{!387, !388, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.argprom: argument 0"}
-!388 = distinct !{!388, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.argprom"}
-!389 = distinct !{!389, !388, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE.argprom: argument 1"}
+!387 = distinct !{!387, !388, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE: argument 0"}
+!388 = distinct !{!388, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE"}
+!389 = distinct !{!389, !388, !"_ZN4ring4limb18fold_5_bit_windows28_$u7b$$u7b$closure$u7d$$u7d$17h5c16a37c8e46fd0cE: argument 1"}
 !390 = !{!391, !393, !387, !389, !385}
 !391 = distinct !{!391, !392, !"_ZN4ring10arithmetic6bigint18elem_exp_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h9e89874312ab29ebE: argument 0"}
 !392 = distinct !{!392, !"_ZN4ring10arithmetic6bigint18elem_exp_consttime28_$u7b$$u7b$closure$u7d$$u7d$17h9e89874312ab29ebE"}

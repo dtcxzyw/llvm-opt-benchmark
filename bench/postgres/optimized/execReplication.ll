@@ -72,7 +72,7 @@ define dso_local noundef zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %0
   %18 = getelementptr inbounds i8, ptr %17, i64 10
   %19 = load i16, ptr %18, align 2
   %20 = icmp sgt i16 %19, 0
-  br i1 %20, label %.lr.ph.i, label %build_replindex_scan_key.argprom.exit
+  br i1 %20, label %.lr.ph.i, label %build_replindex_scan_key.exit
 
 .lr.ph.i:                                         ; preds = %5
   %21 = inttoptr i64 %16 to ptr
@@ -158,9 +158,9 @@ define dso_local noundef zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %0
   %71 = load i16, ptr %70, align 2
   %72 = sext i16 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next.i, %72
-  br i1 %73, label %27, label %build_replindex_scan_key.argprom.exit, !llvm.loop !5
+  br i1 %73, label %27, label %build_replindex_scan_key.exit, !llvm.loop !5
 
-build_replindex_scan_key.argprom.exit:            ; preds = %68, %5
+build_replindex_scan_key.exit:                    ; preds = %68, %5
   %.041.lcssa.i = phi i32 [ 0, %5 ], [ %.1.i, %68 ]
   %74 = call ptr @index_beginscan(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %.041.lcssa.i, i32 noundef 0) #5
   %75 = getelementptr inbounds i8, ptr %4, i64 16
@@ -173,8 +173,8 @@ build_replindex_scan_key.argprom.exit:            ; preds = %68, %5
   %82 = getelementptr inbounds i8, ptr %8, i64 2
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %build_replindex_scan_key.argprom.exit
-  %.031 = phi ptr [ null, %build_replindex_scan_key.argprom.exit ], [ %.us-phi48, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %build_replindex_scan_key.exit
+  %.031 = phi ptr [ null, %build_replindex_scan_key.exit ], [ %.us-phi48, %.backedge.backedge ]
   call void @index_rescan(ptr noundef %74, ptr noundef nonnull %6, i32 noundef %.041.lcssa.i, ptr noundef null, i32 noundef 0) #5
   br i1 %11, label %.split.us, label %.split
 

@@ -1748,9 +1748,9 @@ define hidden void @_ZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNo
   %.not19.i.i = icmp eq ptr %.01118.i.i, null
   br i1 %.not19.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.argprom.argprom.argprom.exit.i.i"
-  %.01121.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.argprom.argprom.argprom.exit.i.i" ], [ %.01118.i.i, %.preheader.i.i ]
-  %.120.i.i = phi i32 [ %65, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.argprom.argprom.argprom.exit.i.i" ], [ %.01223.i.i, %.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.exit.i.i"
+  %.01121.i.i = phi ptr [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.exit.i.i" ], [ %.01118.i.i, %.preheader.i.i ]
+  %.120.i.i = phi i32 [ %65, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.exit.i.i" ], [ %.01223.i.i, %.preheader.i.i ]
   %21 = getelementptr inbounds i8, ptr %.01121.i.i, i64 8
   %22 = getelementptr inbounds i8, ptr %.01121.i.i, i64 16
   %.val13.i.i = load ptr, ptr %21, align 8
@@ -1759,7 +1759,7 @@ define hidden void @_ZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNo
   %.val13.val.i.i = load ptr, ptr %23, align 8
   %.val13.val.val.i.i = load ptr, ptr %.val13.val.i.i, align 8
   %24 = icmp eq ptr %.val13.val.val.i.i, %1
-  br i1 %24, label %25, label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.argprom.argprom.argprom.exit.i.i"
+  br i1 %24, label %25, label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.exit.i.i"
 
 25:                                               ; preds = %.lr.ph.i.i
   %26 = load ptr, ptr %13, align 8
@@ -1832,16 +1832,16 @@ _ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit.i.i.i.i: ; preds = %60, %_ZN12PhaseI
   %62 = zext i32 %58 to i64
   %63 = getelementptr inbounds ptr, ptr %61, i64 %62
   store ptr %19, ptr %63, align 8
-  br label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.argprom.argprom.argprom.exit.i.i"
+  br label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.exit.i.i"
 
-"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.argprom.argprom.argprom.exit.i.i": ; preds = %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit.i.i.i.i, %.lr.ph.i.i
+"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.exit.i.i": ; preds = %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit.i.i.i.i, %.lr.ph.i.i
   %64 = getelementptr inbounds i8, ptr %.01121.i.i, i64 24
   %65 = add nsw i32 %.120.i.i, -1
   %.011.i.i = load ptr, ptr %64, align 8
   %.not.i.i = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
-._crit_edge.loopexit.i.i:                         ; preds = %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.argprom.argprom.argprom.exit.i.i"
+._crit_edge.loopexit.i.i:                         ; preds = %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11iterate_allIZN14PhaseIdealLoop29fix_cloned_data_node_controlsEPK8ProjNodeS2_RK27ResizeableResourceHashtableIS2_S2_LS4_1ELS5_7EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_ENKUlRS2_SN_E_clESN_SN_.exit.i.i"
   %.pre.i.i = load ptr, ptr %5, align 8
   br label %._crit_edge.i.i
 

@@ -2687,15 +2687,15 @@ if.then:                                          ; preds = %entry
   %2 = getelementptr i8, ptr %1, i64 104
   %call.val = load ptr, ptr %2, align 8
   %cmp.i = icmp eq ptr %call.val, null
-  br i1 %cmp.i, label %if.then3, label %_PyErr_Occurred.argprom.exit
+  br i1 %cmp.i, label %if.then3, label %_PyErr_Occurred.exit
 
-_PyErr_Occurred.argprom.exit:                     ; preds = %if.then
+_PyErr_Occurred.exit:                             ; preds = %if.then
   %3 = getelementptr i8, ptr %call.val, i64 8
   %.val.i = load ptr, ptr %3, align 8
   %tobool.not = icmp eq ptr %.val.i, null
   br i1 %tobool.not, label %if.then3, label %return
 
-if.then3:                                         ; preds = %if.then, %_PyErr_Occurred.argprom.exit
+if.then3:                                         ; preds = %if.then, %_PyErr_Occurred.exit
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.1, i32 noundef 946) #17
   br label %return
 
@@ -2876,8 +2876,8 @@ do_richcompare.exit:                              ; preds = %if.then.i, %if.then
   store i32 %inc.i, ptr %c_recursion_remaining.i.i, align 4
   br label %return
 
-return:                                           ; preds = %_Py_EnterRecursiveCallTstate.exit, %_PyErr_Occurred.argprom.exit, %if.then3, %do_richcompare.exit
-  %retval.0 = phi ptr [ %retval.0.i6, %do_richcompare.exit ], [ null, %if.then3 ], [ null, %_PyErr_Occurred.argprom.exit ], [ null, %_Py_EnterRecursiveCallTstate.exit ]
+return:                                           ; preds = %_Py_EnterRecursiveCallTstate.exit, %_PyErr_Occurred.exit, %if.then3, %do_richcompare.exit
+  %retval.0 = phi ptr [ %retval.0.i6, %do_richcompare.exit ], [ null, %if.then3 ], [ null, %_PyErr_Occurred.exit ], [ null, %_Py_EnterRecursiveCallTstate.exit ]
   ret ptr %retval.0
 }
 
@@ -3120,7 +3120,7 @@ if.end20:                                         ; preds = %if.end13, %if.then5
   br i1 %cmp21, label %if.then22, label %return
 
 if.then22:                                        ; preds = %if.end20.thread, %if.end20
-  tail call fastcc void @set_attribute_error_context.retelim(ptr noundef nonnull %v, ptr noundef nonnull %name)
+  tail call fastcc void @set_attribute_error_context(ptr noundef nonnull %v, ptr noundef nonnull %name)
   br label %return
 
 return:                                           ; preds = %if.end20, %if.then22, %if.then9, %if.then
@@ -3706,7 +3706,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_attribute_error_context.retelim(ptr noundef %v, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @set_attribute_error_context(ptr noundef %v, ptr noundef %name) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @PyExc_AttributeError, align 8
   %call = tail call i32 @PyErr_ExceptionMatches(ptr noundef %0) #17
@@ -4026,7 +4026,7 @@ if.then100:                                       ; preds = %if.end98
   %tp_name101 = getelementptr inbounds i8, ptr %obj.val61, i64 24
   %28 = load ptr, ptr %tp_name101, align 8
   %call102 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.28, ptr noundef %28, ptr noundef nonnull %name) #17
-  call fastcc void @set_attribute_error_context.retelim(ptr noundef nonnull %obj, ptr noundef nonnull %name)
+  call fastcc void @set_attribute_error_context(ptr noundef nonnull %obj, ptr noundef nonnull %name)
   br label %Py_XDECREF.exit
 
 done:                                             ; preds = %if.then84, %land.lhs.true90, %if.then93, %if.then72, %land.lhs.true74, %Py_DECREF.exit133, %if.then44, %if.then51
@@ -4612,7 +4612,7 @@ if.end66:                                         ; preds = %if.end63
   %tp_name = getelementptr inbounds i8, ptr %obj.val65, i64 24
   %39 = load ptr, ptr %tp_name, align 8
   %call67 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %38, ptr noundef nonnull @.str.28, ptr noundef %39, ptr noundef nonnull %name) #17
-  tail call fastcc void @set_attribute_error_context.retelim(ptr noundef nonnull %obj, ptr noundef nonnull %name)
+  tail call fastcc void @set_attribute_error_context(ptr noundef nonnull %obj, ptr noundef nonnull %name)
   br label %return
 
 return:                                           ; preds = %if.then1.i.i87, %if.end.i.i84, %if.then.i81, %Py_DECREF.exit98, %if.then1.i.i, %if.end.i.i, %if.then.i, %if.then38, %if.end.i78, %if.then1.i, %if.then60, %if.end.i102, %if.then1.i105, %if.then22, %if.then, %if.end66, %if.then65, %if.then57, %if.then8
@@ -4792,7 +4792,7 @@ if.then46:                                        ; preds = %if.then44
   %21 = load ptr, ptr %tp_name49, align 8
   %.str.35..str.28 = select i1 %cmp47, ptr @.str.35, ptr @.str.28
   %call50 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull %.str.35..str.28, ptr noundef %21, ptr noundef nonnull %name) #17
-  tail call fastcc void @set_attribute_error_context.retelim(ptr noundef nonnull %obj, ptr noundef nonnull %name)
+  tail call fastcc void @set_attribute_error_context(ptr noundef nonnull %obj, ptr noundef nonnull %name)
   br label %Py_XDECREF.exit
 
 if.else56:                                        ; preds = %if.then44
@@ -4869,7 +4869,7 @@ if.then75:                                        ; preds = %land.lhs.true72
   %tp_name82 = getelementptr inbounds i8, ptr %obj.val.obj, i64 24
   %31 = load ptr, ptr %tp_name82, align 8
   %call83 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %30, ptr noundef nonnull %.str.28..str.37, ptr noundef %31, ptr noundef nonnull %name) #17
-  tail call fastcc void @set_attribute_error_context.retelim(ptr noundef nonnull %obj, ptr noundef nonnull %name)
+  tail call fastcc void @set_attribute_error_context(ptr noundef nonnull %obj, ptr noundef nonnull %name)
   br label %done
 
 done:                                             ; preds = %error_check, %land.lhs.true72, %if.then75, %if.then32

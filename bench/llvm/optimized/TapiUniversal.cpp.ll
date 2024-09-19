@@ -86,7 +86,7 @@ _ZNSt10unique_ptrIN4llvm5MachO13InterfaceFileESt14default_deleteIS2_EEaSEOS5_.ex
 .preheader.i.i.i.i:                               ; preds = %_ZNSt10unique_ptrIN4llvm5MachO13InterfaceFileESt14default_deleteIS2_EEaSEOS5_.exit, %26
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %26 ], [ 0, %_ZNSt10unique_ptrIN4llvm5MachO13InterfaceFileESt14default_deleteIS2_EEaSEOS5_.exit ]
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.i.i.i, 31
-  br i1 %exitcond.not.i.i, label %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.argprom.exit", label %26
+  br i1 %exitcond.not.i.i, label %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.exit", label %26
 
 26:                                               ; preds = %.preheader.i.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -197,7 +197,7 @@ _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE17_M_realloc_insertIJS
 63:                                               ; preds = %65, %.preheader.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %65 ], [ %62, %.preheader.i.i.i ]
   %64 = icmp ult i64 %indvars.iv.i.i, 31
-  br i1 %64, label %65, label %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.argprom.exit"
+  br i1 %64, label %65, label %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.exit"
 
 65:                                               ; preds = %63
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -210,7 +210,7 @@ _ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit.i: ; preds = %65
   %68 = trunc nuw i64 %indvars.iv.next.i.i to i32
   br label %32
 
-"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.argprom.exit": ; preds = %.preheader.i.i.i.i, %63
+"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.exit": ; preds = %.preheader.i.i.i.i, %63
   %69 = load ptr, ptr %5, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 400
   %71 = load ptr, ptr %70, align 8
@@ -219,13 +219,13 @@ _ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit.i: ; preds = %65
   %.not53 = icmp eq ptr %71, %73
   br i1 %.not53, label %.loopexitthread-pre-split, label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.exit"
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %76
 
-76:                                               ; preds = %.lr.ph, %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.argprom.exit"
-  %.sroa.043.054 = phi ptr [ %71, %.lr.ph ], [ %129, %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.argprom.exit" ]
+76:                                               ; preds = %.lr.ph, %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.exit"
+  %.sroa.043.054 = phi ptr [ %71, %.lr.ph ], [ %129, %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.exit" ]
   %77 = load ptr, ptr %.sroa.043.054, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 272
   %79 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %78) #10
@@ -243,7 +243,7 @@ _ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit.i: ; preds = %65
 .preheader.i.i.i.i36:                             ; preds = %76, %88
   %indvars.iv.i.i.i37 = phi i64 [ %indvars.iv.next.i.i.i39, %88 ], [ 0, %76 ]
   %exitcond.not.i.i38 = icmp eq i64 %indvars.iv.i.i.i37, 31
-  br i1 %exitcond.not.i.i38, label %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.argprom.exit", label %88
+  br i1 %exitcond.not.i.i38, label %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.exit", label %88
 
 88:                                               ; preds = %.preheader.i.i.i.i36
   %indvars.iv.next.i.i.i39 = add nuw nsw i64 %indvars.iv.i.i.i37, 1
@@ -352,7 +352,7 @@ _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE17_M_realloc_insertIJS
 123:                                              ; preds = %125, %.preheader.i.i.i16
   %indvars.iv.i.i17 = phi i64 [ %indvars.iv.next.i.i18, %125 ], [ %122, %.preheader.i.i.i16 ]
   %124 = icmp ult i64 %indvars.iv.i.i17, 31
-  br i1 %124, label %125, label %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.argprom.exit"
+  br i1 %124, label %125, label %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.exit"
 
 125:                                              ; preds = %123
   %indvars.iv.next.i.i18 = add nuw nsw i64 %indvars.iv.i.i17, 1
@@ -365,12 +365,12 @@ _ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit.i20: ; preds = %125
   %128 = trunc nuw i64 %indvars.iv.next.i.i18 to i32
   br label %92
 
-"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.argprom.exit": ; preds = %.preheader.i.i.i.i36, %123
+"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.exit": ; preds = %.preheader.i.i.i.i36, %123
   %129 = getelementptr inbounds i8, ptr %.sroa.043.054, i64 16
   %.not = icmp eq ptr %129, %73
   br i1 %.not, label %.loopexitthread-pre-split, label %76
 
-.loopexitthread-pre-split:                        ; preds = %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.argprom.exit", %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.argprom.exit"
+.loopexitthread-pre-split:                        ; preds = %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.exit", %"_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.exit"
   %.pr = load ptr, ptr %4, align 8
   br label %.loopexit
 

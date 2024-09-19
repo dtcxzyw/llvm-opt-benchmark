@@ -359,7 +359,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   br label %291
 
 102:                                              ; preds = %98, %92
-  %103 = tail call fastcc ptr @pmix_obj_new_tma.argprom(ptr noundef nonnull @prte_job_t_class)
+  %103 = tail call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @prte_job_t_class)
   %104 = getelementptr inbounds i8, ptr %103, i64 168
   tail call void @PMIx_Load_nspace(ptr noundef nonnull %104, ptr noundef nonnull @prte_process_info) #16
   %105 = tail call i32 @prte_set_job_data_object(ptr noundef %103) #16
@@ -375,7 +375,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   br label %291
 
 112:                                              ; preds = %102
-  %113 = tail call fastcc ptr @pmix_obj_new_tma.argprom(ptr noundef nonnull @prte_app_context_t_class)
+  %113 = tail call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @prte_app_context_t_class)
   %114 = getelementptr inbounds i8, ptr %103, i64 440
   %115 = load ptr, ptr %114, align 8
   %116 = tail call i32 @pmix_pointer_array_set_item(ptr noundef %115, i32 noundef 0, ptr noundef %113) #16
@@ -383,7 +383,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   %118 = load i32, ptr %117, align 8
   %119 = add i32 %118, 1
   store i32 %119, ptr %117, align 8
-  %120 = tail call fastcc ptr @pmix_obj_new_tma.argprom(ptr noundef nonnull @prte_proc_t_class)
+  %120 = tail call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @prte_proc_t_class)
   %121 = getelementptr inbounds i8, ptr %120, i64 144
   %122 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 256), align 8
   tail call void @PMIx_Load_procid(ptr noundef nonnull %121, ptr noundef nonnull @prte_process_info, i32 noundef %122) #16
@@ -674,7 +674,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   br label %291
 
 244:                                              ; preds = %240
-  %245 = call fastcc ptr @pmix_obj_new_tma.argprom(ptr noundef nonnull @prte_topology_t_class)
+  %245 = call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @prte_topology_t_class)
   %246 = load ptr, ptr @prte_hwloc_topology, align 8
   %247 = getelementptr inbounds i8, ptr %245, i64 128
   store ptr %246, ptr %247, align 8
@@ -1039,7 +1039,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #7
 declare i32 @prte_plm_base_select() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pmix_obj_new_tma.argprom(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @pmix_obj_new_tma(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #17

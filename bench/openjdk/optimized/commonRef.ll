@@ -345,15 +345,15 @@ define hidden i64 @commonRef_refToID(ptr noundef %0, ptr noundef %1) local_unnam
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 4
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %findNodeByRef.argprom.exit, label %13
+  br i1 %.not.i, label %findNodeByRef.exit, label %13
 
 13:                                               ; preds = %5
   tail call void @log_message_begin(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, i32 noundef 246) #5
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.16) #5
   %.pre.i = load ptr, ptr @gdata, align 8
-  br label %findNodeByRef.argprom.exit
+  br label %findNodeByRef.exit
 
-findNodeByRef.argprom.exit:                       ; preds = %5, %13
+findNodeByRef.exit:                               ; preds = %5, %13
   %14 = phi ptr [ %9, %5 ], [ %.pre.i, %13 ]
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
@@ -367,7 +367,7 @@ findNodeByRef.argprom.exit:                       ; preds = %5, %13
   %23 = select i1 %20, i1 true, i1 %22
   br i1 %23, label %24, label %142
 
-24:                                               ; preds = %findNodeByRef.argprom.exit
+24:                                               ; preds = %findNodeByRef.exit
   %25 = load ptr, ptr @gdata, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 552
   %27 = load i32, ptr %26, align 8
@@ -589,7 +589,7 @@ newCommonRef.exit:                                ; preds = %82, %._crit_edge29.
   %141 = load i64, ptr %30, align 8
   br label %newCommonRef.exit.thread
 
-142:                                              ; preds = %findNodeByRef.argprom.exit
+142:                                              ; preds = %findNodeByRef.exit
   %143 = inttoptr i64 %21 to ptr
   %144 = load i64, ptr %143, align 8
   %145 = getelementptr inbounds i8, ptr %143, i64 24
@@ -637,7 +637,7 @@ define hidden ptr @commonRef_idToRef(ptr noundef %0, i64 noundef %1) local_unnam
   %.03.i = phi ptr [ %.0.i, %19 ], [ %.01.i, %2 ]
   %17 = load i64, ptr %.03.i, align 8
   %18 = icmp eq i64 %1, %17
-  br i1 %18, label %findNodeByID.argprom.exit, label %19
+  br i1 %18, label %findNodeByID.exit, label %19
 
 19:                                               ; preds = %.lr.ph.i
   %20 = getelementptr inbounds i8, ptr %.03.i, i64 16
@@ -645,19 +645,19 @@ define hidden ptr @commonRef_idToRef(ptr noundef %0, i64 noundef %1) local_unnam
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %deleteNodeByID.exit, label %.lr.ph.i, !llvm.loop !11
 
-findNodeByID.argprom.exit:                        ; preds = %.lr.ph.i
+findNodeByID.exit:                                ; preds = %.lr.ph.i
   %21 = getelementptr inbounds i8, ptr %.03.i, i64 28
   %22 = load i8, ptr %21, align 4
   %.not.i20 = icmp eq i8 %22, 0
   br i1 %.not.i20, label %isStrong.exit, label %isStrong.exit.thread
 
-isStrong.exit:                                    ; preds = %findNodeByID.argprom.exit
+isStrong.exit:                                    ; preds = %findNodeByID.exit
   %23 = getelementptr inbounds i8, ptr %.03.i, i64 29
   %24 = load i8, ptr %23, align 1
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %27, label %isStrong.exit.thread
 
-isStrong.exit.thread:                             ; preds = %findNodeByID.argprom.exit, %isStrong.exit
+isStrong.exit.thread:                             ; preds = %findNodeByID.exit, %isStrong.exit
   %25 = getelementptr inbounds i8, ptr %.03.i, i64 8
   %26 = load ptr, ptr %25, align 8
   call void @saveGlobalRef(ptr noundef %0, ptr noundef %26, ptr noundef nonnull %3) #5
@@ -912,7 +912,7 @@ define hidden range(i32 0, 206) i32 @commonRef_pin(i64 noundef %0) local_unnamed
   %.03.i = phi ptr [ %.0.i, %20 ], [ %.01.i, %3 ]
   %18 = load i64, ptr %.03.i, align 8
   %19 = icmp eq i64 %0, %18
-  br i1 %19, label %findNodeByID.argprom.exit, label %20
+  br i1 %19, label %findNodeByID.exit, label %20
 
 20:                                               ; preds = %.lr.ph.i
   %21 = getelementptr inbounds i8, ptr %.03.i, i64 16
@@ -920,13 +920,13 @@ define hidden range(i32 0, 206) i32 @commonRef_pin(i64 noundef %0) local_unnamed
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %deleteNodeByID.exit, label %.lr.ph.i, !llvm.loop !11
 
-findNodeByID.argprom.exit:                        ; preds = %.lr.ph.i
+findNodeByID.exit:                                ; preds = %.lr.ph.i
   %22 = tail call fastcc ptr @strengthenNode(ptr noundef %7, ptr noundef %.03.i, i8 noundef zeroext 0)
   %23 = icmp eq ptr %22, null
   %.pre27 = load ptr, ptr @gdata, align 8
   br i1 %23, label %24, label %deleteNodeByID.exit
 
-24:                                               ; preds = %findNodeByID.argprom.exit
+24:                                               ; preds = %findNodeByID.exit
   %25 = getelementptr inbounds i8, ptr %.pre27, i64 568
   %26 = load i32, ptr %25, align 8
   %27 = add nsw i32 %26, -1
@@ -979,9 +979,9 @@ findNodeByID.argprom.exit:                        ; preds = %.lr.ph.i
   %.not.i15 = icmp eq ptr %.019.i, null
   br i1 %.not.i15, label %deleteNodeByID.exit, label %.lr.ph.i14, !llvm.loop !12
 
-deleteNodeByID.exit:                              ; preds = %20, %.lr.ph, %3, %44, %24, %findNodeByID.argprom.exit
-  %47 = phi ptr [ %.pre27, %findNodeByID.argprom.exit ], [ %.pre27, %24 ], [ %.pre, %44 ], [ %9, %3 ], [ %.pre27, %.lr.ph ], [ %9, %20 ]
-  %.011 = phi i32 [ 0, %findNodeByID.argprom.exit ], [ 205, %24 ], [ 205, %44 ], [ 205, %3 ], [ 205, %.lr.ph ], [ 205, %20 ]
+deleteNodeByID.exit:                              ; preds = %20, %.lr.ph, %3, %44, %24, %findNodeByID.exit
+  %47 = phi ptr [ %.pre27, %findNodeByID.exit ], [ %.pre27, %24 ], [ %.pre, %44 ], [ %9, %3 ], [ %.pre27, %.lr.ph ], [ %9, %20 ]
+  %.011 = phi i32 [ 0, %findNodeByID.exit ], [ 205, %24 ], [ 205, %44 ], [ 205, %3 ], [ 205, %.lr.ph ], [ 205, %20 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 536
   %49 = load ptr, ptr %48, align 8
   tail call void @debugMonitorExit(ptr noundef %49) #5
@@ -1107,30 +1107,30 @@ define hidden range(i32 0, 189) i32 @commonRef_unpin(i64 noundef %0) local_unnam
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
   %.01.i = load ptr, ptr %15, align 8
   %.not2.i = icmp eq ptr %.01.i, null
-  br i1 %.not2.i, label %findNodeByID.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not2.i, label %findNodeByID.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %18
   %.03.i = phi ptr [ %.0.i, %18 ], [ %.01.i, %1 ]
   %16 = load i64, ptr %.03.i, align 8
   %17 = icmp eq i64 %0, %16
-  br i1 %17, label %findNodeByID.argprom.exit, label %18
+  br i1 %17, label %findNodeByID.exit, label %18
 
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds i8, ptr %.03.i, i64 16
   %.0.i = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %findNodeByID.argprom.exit.thread, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %findNodeByID.exit.thread, label %.lr.ph.i, !llvm.loop !11
 
-findNodeByID.argprom.exit:                        ; preds = %.lr.ph.i
+findNodeByID.exit:                                ; preds = %.lr.ph.i
   %20 = tail call fastcc ptr @weakenNode(ptr noundef %5, ptr noundef %.03.i, i8 noundef zeroext 0)
   %21 = icmp eq ptr %20, null
   %spec.select = select i1 %21, i32 188, i32 0
   %.pre = load ptr, ptr @gdata, align 8
-  br label %findNodeByID.argprom.exit.thread
+  br label %findNodeByID.exit.thread
 
-findNodeByID.argprom.exit.thread:                 ; preds = %18, %1, %findNodeByID.argprom.exit
-  %22 = phi ptr [ %.pre, %findNodeByID.argprom.exit ], [ %7, %1 ], [ %7, %18 ]
-  %.0 = phi i32 [ %spec.select, %findNodeByID.argprom.exit ], [ 0, %1 ], [ 0, %18 ]
+findNodeByID.exit.thread:                         ; preds = %18, %1, %findNodeByID.exit
+  %22 = phi ptr [ %.pre, %findNodeByID.exit ], [ %7, %1 ], [ %7, %18 ]
+  %.0 = phi i32 [ %spec.select, %findNodeByID.exit ], [ 0, %1 ], [ 0, %18 ]
   %23 = getelementptr inbounds i8, ptr %22, i64 536
   %24 = load ptr, ptr %23, align 8
   tail call void @debugMonitorExit(ptr noundef %24) #5

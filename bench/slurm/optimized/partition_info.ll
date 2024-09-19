@@ -1015,13 +1015,13 @@ define range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr nocapture
   br label %131
 
 131:                                              ; preds = %130, %._crit_edge22.i
-  br i1 %.063.lcssa.i, label %132, label %_load_fed_parts.argprom.exit
+  br i1 %.063.lcssa.i, label %132, label %_load_fed_parts.exit
 
 132:                                              ; preds = %131
   call void @slurm_seterrno(i32 noundef -1) #11
-  br label %_load_fed_parts.argprom.exit
+  br label %_load_fed_parts.exit
 
-_load_fed_parts.argprom.exit:                     ; preds = %131, %132
+_load_fed_parts.exit:                             ; preds = %131, %132
   %.059.i = phi i32 [ -1, %132 ], [ 0, %131 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -1076,8 +1076,8 @@ _load_cluster_parts.exit:                         ; preds = %133, %147, %148, %1
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4)
   br label %150
 
-150:                                              ; preds = %_load_cluster_parts.exit, %_load_fed_parts.argprom.exit
-  %.0 = phi i32 [ %.059.i, %_load_fed_parts.argprom.exit ], [ %.0.i, %_load_cluster_parts.exit ]
+150:                                              ; preds = %_load_cluster_parts.exit, %_load_fed_parts.exit
+  %.0 = phi i32 [ %.059.i, %_load_fed_parts.exit ], [ %.0.i, %_load_cluster_parts.exit ]
   %151 = load ptr, ptr %11, align 8
   %.not23 = icmp eq ptr %151, null
   br i1 %.not23, label %153, label %152

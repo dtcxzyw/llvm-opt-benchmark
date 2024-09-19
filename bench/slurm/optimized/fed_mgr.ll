@@ -2644,7 +2644,7 @@ _is_fed_job.exit:                                 ; preds = %12
   %62 = load i16, ptr %61, align 8
   store i16 %62, ptr %54, align 2
   %63 = load i32, ptr %13, align 8
-  %64 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %57, ptr noundef %5, i32 noundef %63)
+  %64 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %57, ptr noundef %5, i32 noundef %63)
   %65 = or i32 %64, %.024.ph39.us
   %66 = call ptr @list_next(ptr noundef %52) #17
   %.not2934.us = icmp eq ptr %66, null
@@ -2682,7 +2682,7 @@ _is_fed_job.exit:                                 ; preds = %12
   %82 = load i16, ptr %81, align 8
   store i16 %82, ptr %54, align 2
   %83 = load i32, ptr %13, align 8
-  %84 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %69, ptr noundef %5, i32 noundef %83)
+  %84 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %69, ptr noundef %5, i32 noundef %83)
   %85 = or i32 %84, %.024.ph39
   %86 = call ptr @list_next(ptr noundef %52) #17
   %.not2934 = icmp eq ptr %86, null
@@ -4244,7 +4244,7 @@ _find_fed_job_info.exit:                          ; preds = %12
   %58 = load i16, ptr %28, align 2
   store i16 %58, ptr %36, align 2
   store ptr %7, ptr %37, align 8
-  %59 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %41, ptr noundef %5, i32 noundef 0)
+  %59 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %41, ptr noundef %5, i32 noundef 0)
   %.not.i33 = icmp eq ptr %54, null
   br i1 %.not.i33, label %_persist_update_job.exit, label %60
 
@@ -4480,7 +4480,7 @@ _get_all_sibling_bits.exit:                       ; preds = %9, %11, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_queue_rpc.argelim(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -5329,7 +5329,7 @@ define internal fastcc i32 @_submit_sibling_jobs(ptr nocapture noundef %0, ptr n
   %.141 = phi i16 [ %78, %73 ], [ %.040.ph58, %70 ], [ %.040.ph58, %65 ]
   %.1 = phi ptr [ %75, %73 ], [ %.039.ph59, %70 ], [ %.039.ph59, %65 ]
   store i16 %79, ptr %48, align 2
-  %80 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %51, ptr noundef %7, i32 noundef 0)
+  %80 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %51, ptr noundef %7, i32 noundef 0)
   %.not49 = icmp eq i32 %80, 0
   br i1 %.not49, label %81, label %.outer
 
@@ -5651,7 +5651,7 @@ _is_fed_job.exit:                                 ; preds = %15
   %100 = load i16, ptr %99, align 8
   store i16 %100, ptr %72, align 2
   store ptr %7, ptr %73, align 8
-  %101 = call fastcc i32 @_send_recv_msg.argelim(ptr noundef nonnull %93, ptr noundef %5, ptr noundef %6)
+  %101 = call fastcc i32 @_send_recv_msg(ptr noundef nonnull %93, ptr noundef %5, ptr noundef %6)
   %.not.i.i.i = icmp eq i32 %101, 0
   br i1 %.not.i.i.i, label %102, label %_persist_fed_job_lock.exit.thread.i
 
@@ -5718,7 +5718,7 @@ _persist_fed_job_lock.exit.thread.i:              ; preds = %97, %.sink.split.i.
 
 .loopexit.i:                                      ; preds = %83, %.critedge.i, %_persist_fed_job_lock.exit.thread.i
   %.02947.i = phi i64 [ %.02951.i, %_persist_fed_job_lock.exit.thread.i ], [ %.029.lcssa.i, %.critedge.i ], [ %.02951.i, %83 ]
-  call fastcc void @_job_unlock_spec_sibs.argelim(ptr noundef nonnull readonly %0, i64 noundef %.02947.i)
+  call fastcc void @_job_unlock_spec_sibs(ptr noundef nonnull readonly %0, i64 noundef %.02947.i)
   br label %_is_fed_job.exit.thread
 
 121:                                              ; preds = %52, %49, %47
@@ -5742,7 +5742,7 @@ _persist_fed_job_lock.exit.thread.i:              ; preds = %97, %.sink.split.i.
   store i16 %127, ptr %128, align 2
   %129 = getelementptr inbounds i8, ptr %2, i64 192
   store ptr %4, ptr %129, align 8
-  %130 = call fastcc i32 @_send_recv_msg.argelim(ptr noundef nonnull %39, ptr noundef %2, ptr noundef %3)
+  %130 = call fastcc i32 @_send_recv_msg(ptr noundef nonnull %39, ptr noundef %2, ptr noundef %3)
   %.not.i.i = icmp eq i32 %130, 0
   br i1 %.not.i.i, label %131, label %_job_lock_all_sibs.exit.thread48
 
@@ -6216,7 +6216,7 @@ _is_fed_job.exit:                                 ; preds = %10
   %51 = shl nuw i64 1, %50
   %52 = xor i64 %51, -1
   %53 = and i64 %48, %52
-  call fastcc void @_job_unlock_spec_sibs.argelim(ptr noundef nonnull %0, i64 noundef %53)
+  call fastcc void @_job_unlock_spec_sibs(ptr noundef nonnull %0, i64 noundef %53)
   br label %71
 
 54:                                               ; preds = %42
@@ -6237,7 +6237,7 @@ _is_fed_job.exit:                                 ; preds = %10
   store i16 %59, ptr %60, align 2
   %61 = getelementptr inbounds i8, ptr %2, i64 192
   store ptr %4, ptr %61, align 8
-  %62 = call fastcc i32 @_send_recv_msg.argelim(ptr noundef nonnull %34, ptr noundef %2, ptr noundef %3)
+  %62 = call fastcc i32 @_send_recv_msg(ptr noundef nonnull %34, ptr noundef %2, ptr noundef %3)
   %.not.i.i = icmp eq i32 %62, 0
   br i1 %.not.i.i, label %63, label %.thread43
 
@@ -6291,7 +6291,7 @@ _is_fed_job.exit.thread:                          ; preds = %14, %17, %1, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_job_unlock_spec_sibs.argelim(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_job_unlock_spec_sibs(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.sib_msg_t, align 8
@@ -6356,7 +6356,7 @@ define internal fastcc void @_job_unlock_spec_sibs.argelim(ptr nocapture noundef
   %35 = load i16, ptr %34, align 8
   store i16 %35, ptr %13, align 2
   store ptr %5, ptr %14, align 8
-  %36 = call fastcc i32 @_send_recv_msg.argelim(ptr noundef nonnull %31, ptr noundef %3, ptr noundef %4)
+  %36 = call fastcc i32 @_send_recv_msg(ptr noundef nonnull %31, ptr noundef %3, ptr noundef %4)
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %37, label %_persist_fed_job_unlock.exit
 
@@ -6526,7 +6526,7 @@ _is_fed_job.exit:                                 ; preds = %11
   store i16 %74, ptr %75, align 2
   %76 = getelementptr inbounds i8, ptr %4, i64 192
   store ptr %5, ptr %76, align 8
-  %77 = call fastcc range(i32 -1, 1) i32 @_queue_rpc.argelim(ptr noundef nonnull %35, ptr noundef %4, i32 noundef %66)
+  %77 = call fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr noundef nonnull %35, ptr noundef %4, i32 noundef %66)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
   %.not61 = icmp eq i32 %77, 0
@@ -6736,7 +6736,7 @@ define internal fastcc void @_revoke_sibling_jobs(i32 noundef %0, i32 noundef %1
   %40 = load i16, ptr %39, align 8
   store i16 %40, ptr %16, align 2
   store ptr %6, ptr %17, align 8
-  %41 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %28, ptr noundef %5, i32 noundef %0)
+  %41 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %28, ptr noundef %5, i32 noundef %0)
   br label %_persist_fed_job_revoke.exit
 
 _persist_fed_job_revoke.exit:                     ; preds = %31, %34, %38
@@ -6933,7 +6933,7 @@ _is_fed_job.exit:                                 ; preds = %14
   store i16 %69, ptr %70, align 2
   %71 = getelementptr inbounds i8, ptr %4, i64 192
   store ptr %5, ptr %71, align 8
-  %72 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %46, ptr noundef %4, i32 noundef %52)
+  %72 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %46, ptr noundef %4, i32 noundef %52)
   br label %_persist_fed_job_revoke.exit
 
 _persist_fed_job_revoke.exit:                     ; preds = %51, %57, %61
@@ -7329,7 +7329,7 @@ _is_fed_job.exit:                                 ; preds = %13
   store i16 %56, ptr %57, align 2
   %58 = getelementptr inbounds i8, ptr %5, i64 192
   store ptr %7, ptr %58, align 8
-  %59 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %27, ptr noundef %5, i32 noundef %38)
+  %59 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %27, ptr noundef %5, i32 noundef %38)
   %.not.i28 = icmp eq ptr %46, null
   br i1 %.not.i28, label %_persist_fed_job_requeue.exit, label %60
 
@@ -7455,7 +7455,7 @@ define internal fastcc range(i32 -1, 1) i32 @_persist_fed_job_cancel(ptr nocaptu
   store i16 %31, ptr %32, align 2
   %33 = getelementptr inbounds i8, ptr %6, i64 192
   store ptr %8, ptr %33, align 8
-  %34 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %1)
+  %34 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %1)
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %36, label %35
 
@@ -7597,7 +7597,7 @@ _find_fed_job_info.exit:                          ; preds = %27
   %59 = load ptr, ptr %6, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 32
   %61 = load i64, ptr %60, align 8
-  call fastcc void @_prepare_submit_siblings.argelim(ptr noundef nonnull %0, i64 noundef %61)
+  call fastcc void @_prepare_submit_siblings(ptr noundef nonnull %0, i64 noundef %61)
   call void @job_state_unset_flag(ptr noundef nonnull %0, i32 noundef 1048576) #17
   %62 = load ptr, ptr %6, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 32
@@ -7657,7 +7657,7 @@ _is_fed_job.exit.thread:                          ; preds = %11, %14, %1, %85, %
 declare void @job_state_unset_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_prepare_submit_siblings.argelim(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_prepare_submit_siblings(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not.i = icmp eq ptr %4, null
@@ -8572,7 +8572,7 @@ fed_mgr_is_origin_job.exit.thread:                ; preds = %40, %43, %29, %fed_
   %65 = load ptr, ptr %7, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 32
   %67 = load i64, ptr %66, align 8
-  call fastcc void @_prepare_submit_siblings.argelim(ptr noundef nonnull %0, i64 noundef %67)
+  call fastcc void @_prepare_submit_siblings(ptr noundef nonnull %0, i64 noundef %67)
   br label %68
 
 68:                                               ; preds = %64, %59
@@ -9633,7 +9633,7 @@ define dso_local void @fed_mgr_test_remote_dependencies() local_unnamed_addr #0 
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #17
   store i16 4506, ptr %28, align 4
   store ptr %6, ptr %29, align 8
-  %73 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %41, ptr noundef %5, i32 noundef 0)
+  %73 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %41, ptr noundef %5, i32 noundef 0)
   %.not.i = icmp eq i32 %73, 0
   br i1 %.not.i, label %_update_origin_job_dep.exit, label %_update_origin_job_dep.exit.sink.split
 
@@ -9681,7 +9681,7 @@ _update_origin_job_dep.exit:                      ; preds = %_update_origin_job_
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #17
   store i16 4506, ptr %25, align 4
   store ptr %4, ptr %26, align 8
-  %91 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %41, ptr noundef %3, i32 noundef 0)
+  %91 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %41, ptr noundef %3, i32 noundef 0)
   %.not.i39 = icmp eq i32 %91, 0
   br i1 %.not.i39, label %_update_origin_job_dep.exit40, label %_update_origin_job_dep.exit40.sink.split
 
@@ -9730,7 +9730,7 @@ _update_origin_job_dep.exit40:                    ; preds = %_update_origin_job_
   call void @slurm_msg_t_init(ptr noundef nonnull %1) #17
   store i16 4506, ptr %31, align 4
   store ptr %2, ptr %32, align 8
-  %110 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %41, ptr noundef %1, i32 noundef 0)
+  %110 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %41, ptr noundef %1, i32 noundef 0)
   %.not.i41 = icmp eq i32 %110, 0
   br i1 %.not.i41, label %_update_origin_job_dep.exit42, label %_update_origin_job_dep.exit42.sink.split
 
@@ -10003,7 +10003,7 @@ define internal noalias noundef ptr @_agent_thread(ptr nocapture readnone %0) #0
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #17
   store i16 4500, ptr %13, align 4
   store ptr %5, ptr %14, align 8
-  %97 = call fastcc i32 @_send_recv_msg.argelim(ptr noundef nonnull %48, ptr noundef %3, ptr noundef %4)
+  %97 = call fastcc i32 @_send_recv_msg(ptr noundef nonnull %48, ptr noundef %3, ptr noundef %4)
   %98 = icmp eq i32 %97, 0
   %99 = load i16, ptr %15, align 4
   %100 = zext i16 %99 to i32
@@ -11024,7 +11024,7 @@ fed_mgr_get_cluster_by_name.exit.thread.i.i.i:    ; preds = %fed_mgr_get_cluster
   %371 = load i16, ptr %370, align 8
   store i16 %371, ptr %50, align 2
   store ptr %13, ptr %51, align 8
-  %372 = call fastcc range(i32 -1, 1) i32 @_queue_rpc.argelim(ptr noundef %.0.i3750.i.i.i, ptr noundef %12, i32 noundef %369)
+  %372 = call fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr noundef %.0.i3750.i.i.i, ptr noundef %12, i32 noundef %369)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13)
   br label %_handle_fed_job_submission.exit.i
@@ -11837,7 +11837,7 @@ fed_mgr_get_cluster_by_name.exit.thread.i44.i:    ; preds = %fed_mgr_get_cluster
   %761 = load i16, ptr %760, align 8
   store i16 %761, ptr %44, align 2
   store ptr %8, ptr %45, align 8
-  %762 = call fastcc range(i32 -1, 1) i32 @_queue_rpc.argelim(ptr noundef nonnull %756, ptr noundef %7, i32 noundef %759)
+  %762 = call fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr noundef nonnull %756, ptr noundef %7, i32 noundef %759)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   br label %_handle_fed_job_update.exit.i
@@ -11977,7 +11977,7 @@ fed_mgr_get_cluster_by_name.exit.i59.i:           ; preds = %805
 fed_mgr_get_cluster_by_name.exit.thread.i63.i:    ; preds = %fed_mgr_get_cluster_by_name.exit.i59.i, %805
   %811 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.146, ptr noundef nonnull @__func__._handle_fed_send_job_sync, ptr noundef %.val17.i) #17
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._handle_fed_send_job_sync.job_read_lock) #17
-  br label %_handle_fed_send_job_sync.argprom.exit.i
+  br label %_handle_fed_send_job_sync.exit.i
 
 812:                                              ; preds = %fed_mgr_get_cluster_by_name.exit.i59.i
   %813 = getelementptr inbounds i8, ptr %810, i64 232
@@ -12028,7 +12028,7 @@ fed_mgr_get_cluster_by_name.exit.thread.i63.i:    ; preds = %fed_mgr_get_cluster
 832:                                              ; preds = %830
   %833 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.147, ptr noundef nonnull @__func__._handle_fed_send_job_sync, ptr noundef %.val17.i) #17
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._handle_fed_send_job_sync.job_read_lock) #17
-  br label %_handle_fed_send_job_sync.argprom.exit.i
+  br label %_handle_fed_send_job_sync.exit.i
 
 834:                                              ; preds = %830
   %835 = call i64 @time(ptr noundef null) #17
@@ -12135,7 +12135,7 @@ _get_sync_jobid_list.exit.i.i:                    ; preds = %873, %834
   store ptr %5, ptr %38, align 8
   %886 = getelementptr inbounds i8, ptr %810, i64 221
   store i8 1, ptr %886, align 1
-  %887 = call fastcc i32 @_queue_rpc.argelim(ptr noundef nonnull %810, ptr noundef %3, i32 noundef 0)
+  %887 = call fastcc i32 @_queue_rpc(ptr noundef nonnull %810, ptr noundef %3, i32 noundef 0)
   %.not46.i.i = icmp eq ptr %877, null
   br i1 %.not46.i.i, label %889, label %888
 
@@ -12145,13 +12145,13 @@ _get_sync_jobid_list.exit.i.i:                    ; preds = %873, %834
 
 889:                                              ; preds = %888, %879
   %.not47.i.i = icmp eq ptr %881, null
-  br i1 %.not47.i.i, label %_handle_fed_send_job_sync.argprom.exit.i, label %890
+  br i1 %.not47.i.i, label %_handle_fed_send_job_sync.exit.i, label %890
 
 890:                                              ; preds = %889
   call void @free_buf(ptr noundef nonnull %881) #17
-  br label %_handle_fed_send_job_sync.argprom.exit.i
+  br label %_handle_fed_send_job_sync.exit.i
 
-_handle_fed_send_job_sync.argprom.exit.i:         ; preds = %890, %889, %832, %fed_mgr_get_cluster_by_name.exit.thread.i63.i
+_handle_fed_send_job_sync.exit.i:                 ; preds = %890, %889, %832, %fed_mgr_get_cluster_by_name.exit.thread.i63.i
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
@@ -12163,7 +12163,7 @@ _handle_fed_send_job_sync.argprom.exit.i:         ; preds = %890, %889, %832, %f
   %894 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.109, i32 noundef %95, i32 noundef %893) #17
   br label %_destroy_fed_job_update_info.exit
 
-_destroy_fed_job_update_info.exit:                ; preds = %76, %79, %_handle_fed_job_complete.exit.i, %154, %162, %172, %187, %210, %_handle_fed_job_requeue.exit.i, %226, %236, %251, %296, %_handle_fed_job_submission.exit.i, %_handle_fed_job_sync.exit.i, %_handle_fed_job_update.exit.i, %772, %fed_mgr_get_cluster_by_name.exit.thread.i53.i, %804, %_handle_fed_send_job_sync.argprom.exit.i, %891
+_destroy_fed_job_update_info.exit:                ; preds = %76, %79, %_handle_fed_job_complete.exit.i, %154, %162, %172, %187, %210, %_handle_fed_job_requeue.exit.i, %226, %236, %251, %296, %_handle_fed_job_submission.exit.i, %_handle_fed_job_sync.exit.i, %_handle_fed_job_update.exit.i, %772, %fed_mgr_get_cluster_by_name.exit.thread.i53.i, %804, %_handle_fed_send_job_sync.exit.i, %891
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %74, ptr %2, align 8
   %895 = getelementptr inbounds i8, ptr %74, i64 64
@@ -12756,7 +12756,7 @@ declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #2
 declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_send_recv_msg.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i32 @_send_recv_msg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   tail call void @slurm_msg_t_init(ptr noundef nonnull %2) #17
   %4 = getelementptr inbounds i8, ptr %0, i64 232
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #17

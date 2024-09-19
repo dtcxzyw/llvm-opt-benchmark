@@ -289,7 +289,7 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr nocapture noundef readon
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.lr.ph.i, label %dissect_nbifom_routing_rules.argprom.exit
+  br i1 %49, label %.lr.ph.i, label %dissect_nbifom_routing_rules.exit
 
 .lr.ph.i:                                         ; preds = %47, %167
   %.02.i = phi i32 [ %.14.i, %167 ], [ %30, %47 ]
@@ -513,14 +513,14 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr nocapture noundef readon
   %.14.i = phi i32 [ %166, %163 ], [ %.13.i, %160 ]
   %168 = sub i32 %.14.i, %30
   %169 = icmp slt i32 %168, %48
-  br i1 %169, label %.lr.ph.i, label %dissect_nbifom_routing_rules.argprom.exit.loopexit, !llvm.loop !4
+  br i1 %169, label %.lr.ph.i, label %dissect_nbifom_routing_rules.exit.loopexit, !llvm.loop !4
 
-dissect_nbifom_routing_rules.argprom.exit.loopexit: ; preds = %167
+dissect_nbifom_routing_rules.exit.loopexit:       ; preds = %167
   %.pre = load i32, ptr %9, align 4
-  br label %dissect_nbifom_routing_rules.argprom.exit
+  br label %dissect_nbifom_routing_rules.exit
 
-dissect_nbifom_routing_rules.argprom.exit:        ; preds = %dissect_nbifom_routing_rules.argprom.exit.loopexit, %47
-  %170 = phi i32 [ %.pre, %dissect_nbifom_routing_rules.argprom.exit.loopexit ], [ %48, %47 ]
+dissect_nbifom_routing_rules.exit:                ; preds = %dissect_nbifom_routing_rules.exit.loopexit, %47
+  %170 = phi i32 [ %.pre, %dissect_nbifom_routing_rules.exit.loopexit ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -559,8 +559,8 @@ dissect_nbifom_routing_rules.argprom.exit:        ; preds = %dissect_nbifom_rout
   %190 = add i32 %.062, 3
   br label %191
 
-191:                                              ; preds = %.lr.ph, %186, %189, %179, %182, %172, %175, %44, %dissect_nbifom_routing_rules.argprom.exit, %40, %36, %32
-  %.1 = phi i32 [ %30, %.lr.ph ], [ %190, %189 ], [ %30, %186 ], [ %185, %182 ], [ %30, %179 ], [ %178, %175 ], [ %30, %172 ], [ %171, %dissect_nbifom_routing_rules.argprom.exit ], [ %30, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ]
+191:                                              ; preds = %.lr.ph, %186, %189, %179, %182, %172, %175, %44, %dissect_nbifom_routing_rules.exit, %40, %36, %32
+  %.1 = phi i32 [ %30, %.lr.ph ], [ %190, %189 ], [ %30, %186 ], [ %185, %182 ], [ %30, %179 ], [ %178, %175 ], [ %30, %172 ], [ %171, %dissect_nbifom_routing_rules.exit ], [ %30, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ]
   %192 = sub i32 %.1, %30
   %193 = load i32, ptr %9, align 4
   %194 = icmp slt i32 %192, %193

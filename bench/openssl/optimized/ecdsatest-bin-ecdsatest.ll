@@ -4937,7 +4937,7 @@ lor.lhs.false92:                                  ; preds = %lor.lhs.false86
   br i1 %cmp9, label %land.lhs.true95, label %lor.lhs.false98
 
 land.lhs.true95:                                  ; preds = %lor.lhs.false92
-  %call96 = call fastcc i32 @set_sm2_id.argprom(ptr noundef %call16)
+  %call96 = call fastcc i32 @set_sm2_id(ptr noundef %call16)
   %tobool97.not = icmp eq i32 %call96, 0
   br i1 %tobool97.not, label %err, label %lor.lhs.false98
 
@@ -4977,7 +4977,7 @@ lor.lhs.false122:                                 ; preds = %lor.lhs.false116
   br i1 %cmp9, label %land.lhs.true125, label %lor.lhs.false128
 
 land.lhs.true125:                                 ; preds = %lor.lhs.false122
-  %call126 = call fastcc i32 @set_sm2_id.argprom(ptr noundef %call16)
+  %call126 = call fastcc i32 @set_sm2_id(ptr noundef %call16)
   %tobool127.not = icmp eq i32 %call126, 0
   br i1 %tobool127.not, label %err, label %lor.lhs.false128
 
@@ -5008,7 +5008,7 @@ lor.lhs.false145:                                 ; preds = %lor.lhs.false139
   br i1 %cmp9, label %land.lhs.true148, label %lor.lhs.false151
 
 land.lhs.true148:                                 ; preds = %lor.lhs.false145
-  %call149 = call fastcc i32 @set_sm2_id.argprom(ptr noundef %call16)
+  %call149 = call fastcc i32 @set_sm2_id(ptr noundef %call16)
   %tobool150.not = icmp eq i32 %call149, 0
   br i1 %tobool150.not, label %err, label %lor.lhs.false151
 
@@ -5040,7 +5040,7 @@ lor.lhs.false168:                                 ; preds = %lor.lhs.false162
   br i1 %cmp9, label %land.lhs.true171, label %lor.lhs.false174
 
 land.lhs.true171:                                 ; preds = %lor.lhs.false168
-  %call172 = call fastcc i32 @set_sm2_id.argprom(ptr noundef %call16)
+  %call172 = call fastcc i32 @set_sm2_id(ptr noundef %call16)
   %tobool173.not = icmp eq i32 %call172, 0
   br i1 %tobool173.not, label %err, label %lor.lhs.false174
 
@@ -5074,7 +5074,7 @@ lor.lhs.false195:                                 ; preds = %if.end186
   br i1 %cmp9, label %land.lhs.true198, label %lor.lhs.false201
 
 land.lhs.true198:                                 ; preds = %lor.lhs.false195
-  %call199 = call fastcc i32 @set_sm2_id.argprom(ptr noundef %call16)
+  %call199 = call fastcc i32 @set_sm2_id(ptr noundef %call16)
   %tobool200.not = icmp eq i32 %call199, 0
   br i1 %tobool200.not, label %err, label %lor.lhs.false201
 
@@ -5108,7 +5108,7 @@ lor.lhs.false223:                                 ; preds = %if.end213
   br i1 %cmp9, label %land.lhs.true226, label %lor.lhs.false229
 
 land.lhs.true226:                                 ; preds = %lor.lhs.false223
-  %call227 = call fastcc i32 @set_sm2_id.argprom(ptr noundef %call16)
+  %call227 = call fastcc i32 @set_sm2_id(ptr noundef %call16)
   %tobool228.not = icmp eq i32 %call227, 0
   br i1 %tobool228.not, label %err, label %lor.lhs.false229
 
@@ -5150,7 +5150,7 @@ lor.lhs.false263:                                 ; preds = %if.end241
   br i1 %cmp9, label %land.lhs.true266, label %lor.lhs.false269
 
 land.lhs.true266:                                 ; preds = %lor.lhs.false263
-  %call267 = call fastcc i32 @set_sm2_id.argprom(ptr noundef %call16)
+  %call267 = call fastcc i32 @set_sm2_id(ptr noundef %call16)
   %tobool268.not = icmp eq i32 %call267, 0
   br i1 %tobool268.not, label %err, label %lor.lhs.false269
 
@@ -5184,7 +5184,7 @@ lor.lhs.false293:                                 ; preds = %if.end281
   br i1 %cmp9, label %land.lhs.true296, label %lor.lhs.false299
 
 land.lhs.true296:                                 ; preds = %lor.lhs.false293
-  %call297 = call fastcc i32 @set_sm2_id.argprom(ptr noundef %call16)
+  %call297 = call fastcc i32 @set_sm2_id(ptr noundef %call16)
   %tobool298.not = icmp eq i32 %call297, 0
   br i1 %tobool298.not, label %err, label %lor.lhs.false299
 
@@ -5255,7 +5255,7 @@ declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @EVP_DigestSignInit(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @set_sm2_id.argprom(ptr noundef %mctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @set_sm2_id(ptr noundef %mctx) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef %mctx) #4
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 182, ptr noundef nonnull @.str.40, ptr noundef %call) #4

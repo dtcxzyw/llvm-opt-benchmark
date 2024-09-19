@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @PaUtil_CreateAllocationGroup() local_unnamed_addr #0 {
   %1 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 256) #2
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %AllocateLinks.argprom.exit.thread, label %2
+  br i1 %.not.i, label %AllocateLinks.exit.thread, label %2
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -44,13 +44,13 @@ define ptr @PaUtil_CreateAllocationGroup() local_unnamed_addr #0 {
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %14, align 8
-  br label %AllocateLinks.argprom.exit.thread
+  br label %AllocateLinks.exit.thread
 
 15:                                               ; preds = %7
   tail call void @PaUtil_FreeMemory(ptr noundef nonnull %1) #2
-  br label %AllocateLinks.argprom.exit.thread
+  br label %AllocateLinks.exit.thread
 
-AllocateLinks.argprom.exit.thread:                ; preds = %0, %10, %15
+AllocateLinks.exit.thread:                        ; preds = %0, %10, %15
   %.0 = phi ptr [ %9, %10 ], [ null, %15 ], [ null, %0 ]
   ret ptr %.0
 }

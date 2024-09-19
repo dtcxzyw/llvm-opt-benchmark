@@ -699,13 +699,13 @@ define dso_local void @uv_sem_destroy(ptr noundef %0) local_unnamed_addr #0 {
 uv_cond_destroy.exit.i:                           ; preds = %3
   %7 = tail call i32 @pthread_mutex_destroy(ptr noundef %.val) #10
   %.not.i4.i = icmp eq i32 %7, 0
-  br i1 %.not.i4.i, label %uv__custom_sem_destroy.argprom.exit, label %8
+  br i1 %.not.i4.i, label %uv__custom_sem_destroy.exit, label %8
 
 8:                                                ; preds = %uv_cond_destroy.exit.i
   tail call void @abort() #11
   unreachable
 
-uv__custom_sem_destroy.argprom.exit:              ; preds = %uv_cond_destroy.exit.i
+uv__custom_sem_destroy.exit:                      ; preds = %uv_cond_destroy.exit.i
   tail call void @uv__free(ptr noundef %.val) #10
   br label %uv__sem_destroy.exit
 
@@ -718,7 +718,7 @@ uv__custom_sem_destroy.argprom.exit:              ; preds = %uv_cond_destroy.exi
   tail call void @abort() #11
   unreachable
 
-uv__sem_destroy.exit:                             ; preds = %9, %uv__custom_sem_destroy.argprom.exit
+uv__sem_destroy.exit:                             ; preds = %9, %uv__custom_sem_destroy.exit
   ret void
 }
 
@@ -759,7 +759,7 @@ uv_mutex_lock.exit.i:                             ; preds = %3
 uv_cond_signal.exit.i:                            ; preds = %10, %uv_mutex_lock.exit.i
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.val) #10
   %.not.i7.i = icmp eq i32 %14, 0
-  br i1 %.not.i7.i, label %uv__custom_sem_post.argprom.exit, label %15
+  br i1 %.not.i7.i, label %uv__custom_sem_post.exit, label %15
 
 15:                                               ; preds = %uv_cond_signal.exit.i
   tail call void @abort() #11
@@ -768,13 +768,13 @@ uv_cond_signal.exit.i:                            ; preds = %10, %uv_mutex_lock.
 16:                                               ; preds = %1
   %17 = tail call i32 @sem_post(ptr noundef %0) #10
   %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %uv__custom_sem_post.argprom.exit, label %18
+  br i1 %.not.i, label %uv__custom_sem_post.exit, label %18
 
 18:                                               ; preds = %16
   tail call void @abort() #11
   unreachable
 
-uv__custom_sem_post.argprom.exit:                 ; preds = %16, %uv_cond_signal.exit.i
+uv__custom_sem_post.exit:                         ; preds = %16, %uv_cond_signal.exit.i
   ret void
 }
 
@@ -818,7 +818,7 @@ uv_mutex_lock.exit.i:                             ; preds = %10, %uv_mutex_lock.
   store i32 %14, ptr %5, align 8
   %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.val) #10
   %.not.i8.i = icmp eq i32 %15, 0
-  br i1 %.not.i8.i, label %uv__custom_sem_wait.argprom.exit, label %16
+  br i1 %.not.i8.i, label %uv__custom_sem_wait.exit, label %16
 
 16:                                               ; preds = %13
   tail call void @abort() #11
@@ -828,7 +828,7 @@ uv_mutex_lock.exit.i:                             ; preds = %10, %uv_mutex_lock.
   %17 = tail call i32 @sem_wait(ptr noundef %0) #10
   switch i32 %17, label %.critedge.i [
     i32 -1, label %18
-    i32 0, label %uv__custom_sem_wait.argprom.exit
+    i32 0, label %uv__custom_sem_wait.exit
   ]
 
 18:                                               ; preds = %.preheader
@@ -841,7 +841,7 @@ uv_mutex_lock.exit.i:                             ; preds = %10, %uv_mutex_lock.
   tail call void @abort() #11
   unreachable
 
-uv__custom_sem_wait.argprom.exit:                 ; preds = %.preheader, %13
+uv__custom_sem_wait.exit:                         ; preds = %.preheader, %13
   ret void
 }
 
@@ -856,8 +856,8 @@ define dso_local range(i32 -11, 1) i32 @uv_sem_trywait(ptr noundef %0) local_unn
   %4 = tail call i32 @pthread_mutex_trylock(ptr noundef %.val) #10
   switch i32 %4, label %5 [
     i32 0, label %6
-    i32 16, label %uv__custom_sem_trywait.argprom.exit
-    i32 11, label %uv__custom_sem_trywait.argprom.exit
+    i32 16, label %uv__custom_sem_trywait.exit
+    i32 11, label %uv__custom_sem_trywait.exit
   ]
 
 5:                                                ; preds = %3
@@ -873,7 +873,7 @@ define dso_local range(i32 -11, 1) i32 @uv_sem_trywait(ptr noundef %0) local_unn
 10:                                               ; preds = %6
   %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.val) #10
   %.not.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i, label %uv__custom_sem_trywait.argprom.exit, label %12
+  br i1 %.not.i.i, label %uv__custom_sem_trywait.exit, label %12
 
 12:                                               ; preds = %10
   tail call void @abort() #11
@@ -884,7 +884,7 @@ define dso_local range(i32 -11, 1) i32 @uv_sem_trywait(ptr noundef %0) local_unn
   store i32 %14, ptr %7, align 8
   %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.val) #10
   %.not.i7.i = icmp eq i32 %15, 0
-  br i1 %.not.i7.i, label %uv__custom_sem_trywait.argprom.exit, label %16
+  br i1 %.not.i7.i, label %uv__custom_sem_trywait.exit, label %16
 
 16:                                               ; preds = %13
   tail call void @abort() #11
@@ -894,7 +894,7 @@ define dso_local range(i32 -11, 1) i32 @uv_sem_trywait(ptr noundef %0) local_unn
   %17 = tail call i32 @sem_trywait(ptr noundef %0) #10
   switch i32 %17, label %..critedge_crit_edge.i [
     i32 -1, label %18
-    i32 0, label %uv__custom_sem_trywait.argprom.exit
+    i32 0, label %uv__custom_sem_trywait.exit
   ]
 
 ..critedge_crit_edge.i:                           ; preds = %.preheader
@@ -911,13 +911,13 @@ define dso_local range(i32 -11, 1) i32 @uv_sem_trywait(ptr noundef %0) local_unn
 .critedge.i:                                      ; preds = %18, %..critedge_crit_edge.i
   %22 = phi i32 [ %.pr.i, %..critedge_crit_edge.i ], [ %20, %18 ]
   %23 = icmp eq i32 %22, 11
-  br i1 %23, label %uv__custom_sem_trywait.argprom.exit, label %24
+  br i1 %23, label %uv__custom_sem_trywait.exit, label %24
 
 24:                                               ; preds = %.critedge.i
   tail call void @abort() #11
   unreachable
 
-uv__custom_sem_trywait.argprom.exit:              ; preds = %.preheader, %.critedge.i, %13, %10, %3, %3
+uv__custom_sem_trywait.exit:                      ; preds = %.preheader, %.critedge.i, %13, %10, %3, %3
   %.0 = phi i32 [ -11, %3 ], [ -11, %3 ], [ -11, %10 ], [ 0, %13 ], [ -11, %.critedge.i ], [ %17, %.preheader ]
   ret i32 %.0
 }

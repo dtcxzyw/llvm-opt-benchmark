@@ -544,7 +544,7 @@ if.then130:                                       ; preds = %riscv_cpu_validate_
   br label %return
 
 if.end131:                                        ; preds = %riscv_cpu_validate_v.exit
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 50)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 50)
   br label %if.end132
 
 if.end132:                                        ; preds = %if.end131, %if.end124
@@ -554,7 +554,7 @@ if.end132:                                        ; preds = %if.end131, %if.end1
   br i1 %tobool134, label %if.then135, label %if.end136
 
 if.then135:                                       ; preds = %if.end132
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 49)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 49)
   br label %if.end136
 
 if.end136:                                        ; preds = %if.then135, %if.end132
@@ -564,7 +564,7 @@ if.end136:                                        ; preds = %if.then135, %if.end
   br i1 %tobool138, label %if.then139, label %if.end140
 
 if.then139:                                       ; preds = %if.end136
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 48)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 48)
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then139, %if.end136
@@ -605,7 +605,7 @@ if.end157:                                        ; preds = %land.lhs.true153, %
   br i1 %tobool159, label %if.then160, label %if.end161
 
 if.then160:                                       ; preds = %if.end157
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 71)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 71)
   br label %if.end161
 
 if.end161:                                        ; preds = %if.then160, %if.end157
@@ -678,7 +678,7 @@ if.end208:                                        ; preds = %land.lhs.true194, %
   br i1 %tobool210, label %if.then211, label %if.end212
 
 if.then211:                                       ; preds = %if.end208
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 7)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 7)
   br label %if.end212
 
 if.end212:                                        ; preds = %if.then211, %if.end208
@@ -740,10 +740,10 @@ if.end237:                                        ; preds = %if.end232, %if.end2
   br i1 %tobool239, label %if.then240, label %if.end248
 
 if.then240:                                       ; preds = %if.end237
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 7)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 8)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 12)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 13)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 7)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 8)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 12)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 13)
   %env1.val225 = load i32, ptr %0, align 8
   %78 = and i32 %env1.val225, 32
   %tobool242.not = icmp eq i32 %78, 0
@@ -756,7 +756,7 @@ land.lhs.true243:                                 ; preds = %if.then240
   br i1 %cmp244, label %if.then246, label %if.end248
 
 if.then246:                                       ; preds = %land.lhs.true243
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 11)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 11)
   br label %if.end248
 
 if.end248:                                        ; preds = %if.then240, %land.lhs.true243, %if.then246, %if.end237
@@ -772,7 +772,7 @@ land.lhs.true251:                                 ; preds = %if.end248
   br i1 %cmp252, label %if.then254, label %if.end267
 
 if.then254:                                       ; preds = %land.lhs.true251
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 7)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 7)
   %env1.val227 = load i32, ptr %0, align 8
   %82 = and i32 %env1.val227, 32
   %tobool256.not = icmp eq i32 %82, 0
@@ -785,7 +785,7 @@ land.lhs.true257:                                 ; preds = %if.then254
   br i1 %cmp259, label %if.then261, label %if.end262
 
 if.then261:                                       ; preds = %land.lhs.true257
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 11)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 11)
   %env1.val228.pre = load i32, ptr %0, align 8
   br label %if.end262
 
@@ -796,7 +796,7 @@ if.end262:                                        ; preds = %if.then261, %land.l
   br i1 %tobool264.not, label %if.end267, label %if.then265
 
 if.then265:                                       ; preds = %if.end262
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 9)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 9)
   br label %if.end267
 
 if.end267:                                        ; preds = %if.end262, %if.then265, %land.lhs.true251, %if.end248
@@ -939,8 +939,8 @@ if.end345:                                        ; preds = %land.lhs.true340, %
   br i1 %tobool347, label %if.then348, label %if.end349
 
 if.then348:                                       ; preds = %if.end345
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 61)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 52)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 61)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 52)
   br label %if.end349
 
 if.end349:                                        ; preds = %if.then348, %if.end345
@@ -950,8 +950,8 @@ if.end349:                                        ; preds = %if.then348, %if.end
   br i1 %tobool351, label %if.then352, label %if.end353
 
 if.then352:                                       ; preds = %if.end349
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 61)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 54)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 61)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 54)
   br label %if.end353
 
 if.end353:                                        ; preds = %if.then352, %if.end349
@@ -961,10 +961,10 @@ if.end353:                                        ; preds = %if.then352, %if.end
   br i1 %tobool355, label %if.then356, label %if.end357
 
 if.then356:                                       ; preds = %if.end353
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 55)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 57)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 53)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 60)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 55)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 57)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 53)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 60)
   br label %if.end357
 
 if.end357:                                        ; preds = %if.then356, %if.end353
@@ -974,8 +974,8 @@ if.end357:                                        ; preds = %if.then356, %if.end
   br i1 %tobool359, label %if.then360, label %if.end361
 
 if.then360:                                       ; preds = %if.end357
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 64)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 52)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 64)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 52)
   br label %if.end361
 
 if.end361:                                        ; preds = %if.then360, %if.end357
@@ -985,8 +985,8 @@ if.end361:                                        ; preds = %if.then360, %if.end
   br i1 %tobool363, label %if.then364, label %if.end365
 
 if.then364:                                       ; preds = %if.end361
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 64)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 54)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 64)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 54)
   br label %if.end365
 
 if.end365:                                        ; preds = %if.then364, %if.end361
@@ -996,10 +996,10 @@ if.end365:                                        ; preds = %if.then364, %if.end
   br i1 %tobool367, label %if.then368, label %if.end369
 
 if.then368:                                       ; preds = %if.end365
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 58)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 59)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 53)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 60)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 58)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 59)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 53)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 60)
   br label %if.end369
 
 if.end369:                                        ; preds = %if.then368, %if.end365
@@ -1009,8 +1009,8 @@ if.end369:                                        ; preds = %if.then368, %if.end
   br i1 %tobool371, label %if.then372, label %if.end373
 
 if.then372:                                       ; preds = %if.end369
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 51)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 52)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 51)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 52)
   br label %if.end373
 
 if.end373:                                        ; preds = %if.then372, %if.end369
@@ -1092,9 +1092,9 @@ if.end419:                                        ; preds = %land.lhs.true414, %
   br i1 %tobool421, label %if.then422, label %if.end423
 
 if.then422:                                       ; preds = %if.end419
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 15)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 19)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 23)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 15)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 19)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 23)
   br label %if.end423
 
 if.end423:                                        ; preds = %if.then422, %if.end419
@@ -1104,12 +1104,12 @@ if.end423:                                        ; preds = %if.then422, %if.end
   br i1 %tobool425, label %if.then426, label %if.end427
 
 if.then426:                                       ; preds = %if.end423
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 3)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 4)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 5)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 17)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 16)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 18)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 3)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 4)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 5)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 17)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 16)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 18)
   br label %if.end427
 
 if.end427:                                        ; preds = %if.then426, %if.end423
@@ -1119,11 +1119,11 @@ if.end427:                                        ; preds = %if.then426, %if.end
   br i1 %tobool429, label %if.then430, label %if.end431
 
 if.then430:                                       ; preds = %if.end427
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 3)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 4)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 5)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 21)
-  call fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef nonnull %cpu, i32 noundef 22)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 3)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 4)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 5)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 21)
+  call fastcc void @cpu_cfg_ext_auto_update(ptr noundef nonnull %cpu, i32 noundef 22)
   br label %if.end431
 
 if.end431:                                        ; preds = %if.then430, %if.end427
@@ -1200,7 +1200,7 @@ return:                                           ; preds = %if.end465, %if.then
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @cpu_cfg_ext_auto_update.argelim(ptr noundef %cpu, i32 noundef %ext_offset) unnamed_addr #0 {
+define internal fastcc void @cpu_cfg_ext_auto_update(ptr noundef %cpu, i32 noundef %ext_offset) unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @isa_ext_is_enabled(ptr noundef %cpu, i32 noundef %ext_offset) #11
   br i1 %call, label %return, label %if.end

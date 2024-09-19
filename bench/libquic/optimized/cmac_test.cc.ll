@@ -42,22 +42,22 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress norecurse uwtable
 define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_.argprom.argelim(ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut1)
+  %call.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut1)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %call1.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_.argprom.argelim(ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg2, i64 noundef 16, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut2)
+  %call1.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg2, i64 noundef 16, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut2)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %return, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %call4.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_.argprom.argelim(ptr noundef nonnull @.str.3, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg3, i64 noundef 40, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut3)
+  %call4.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.3, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg3, i64 noundef 40, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut3)
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %return, label %_ZL21rfc_4493_test_vectorsv.exit
 
 _ZL21rfc_4493_test_vectorsv.exit:                 ; preds = %lor.lhs.false3.i
-  %call7.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_.argprom.argelim(ptr noundef nonnull @.str.4, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg4, i64 noundef 64, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut4)
+  %call7.i = tail call fastcc noundef i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef nonnull @.str.4, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kMsg4, i64 noundef 64, ptr noundef nonnull @_ZZL21rfc_4493_test_vectorsvE5kOut4)
   %tobool.not = icmp eq i32 %call7.i, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -71,7 +71,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_.argprom.argelim(ptr noundef %name, ptr noundef %msg, i64 noundef range(i64 0, 65) %msg_len, ptr noundef %expected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef %name, ptr noundef %msg, i64 noundef range(i64 0, 65) %msg_len, ptr noundef %expected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca [16 x i8], align 16
   %ctx = alloca %"class.std::unique_ptr", align 8
@@ -230,7 +230,7 @@ if.then51:                                        ; preds = %if.end49.us
 if.then60:                                        ; preds = %invoke.cont57.us
   %12 = load ptr, ptr @stderr, align 8
   %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.12, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
-  invoke fastcc void @_ZL4dumpPKhS0_m.argelim(ptr noundef %out, ptr noundef %expected)
+  invoke fastcc void @_ZL4dumpPKhS0_m(ptr noundef %out, ptr noundef %expected)
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %for.inc.us, %if.then60, %if.then51, %if.then46, %if.then37, %if.then24, %if.then15
@@ -262,7 +262,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL4dumpPKhS0_m.argelim(ptr noundef nonnull %got, ptr noundef %want) unnamed_addr #0 {
+define internal fastcc void @_ZL4dumpPKhS0_m(ptr noundef nonnull %got, ptr noundef %want) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   tail call void @hexdump(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %got, i64 noundef 16)

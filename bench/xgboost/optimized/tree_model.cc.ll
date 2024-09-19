@@ -34130,7 +34130,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost13Tree
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7)
-          to label %"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_0EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit" unwind label %8
+          to label %"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_0EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit" unwind label %8
 
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
@@ -34138,7 +34138,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost13Tree
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 416) #34
   resume { ptr, i32 } %9
 
-"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_0EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %4
+"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_0EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %4
   %10 = and i8 %.val, 1
   %11 = getelementptr inbounds i8, ptr %5, i64 408
   store i8 %10, ptr %11, align 8
@@ -38541,7 +38541,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost13Tree
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7)
-          to label %"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_1EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit" unwind label %8
+          to label %"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_1EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit" unwind label %8
 
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
@@ -38549,7 +38549,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost13Tree
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 416) #34
   resume { ptr, i32 } %9
 
-"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_1EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %4
+"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_1EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %4
   %10 = and i8 %.val, 1
   %11 = getelementptr inbounds i8, ptr %5, i64 408
   store i8 %10, ptr %11, align 8
@@ -41724,7 +41724,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost13Tree
 .noexc.i.i:                                       ; preds = %4
   %8 = trunc i8 %6 to i1
   invoke void @_ZN7xgboost17GraphvizGeneratorC2ERKNS_10FeatureMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(616) %7, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext %8)
-          to label %"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_2EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit" unwind label %9
+          to label %"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_2EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit" unwind label %9
 
 9:                                                ; preds = %.noexc.i.i
   %10 = landingpad { ptr, i32 }
@@ -41742,7 +41742,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost13Tree
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   resume { ptr, i32 } %eh.lpad-body.i.i
 
-"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_2EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %.noexc.i.i
+"_ZSt10__invoke_rIPN7xgboost13TreeGeneratorERNS0_3$_2EJRKNS0_10FeatureMapENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %.noexc.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   ret ptr %7

@@ -2267,7 +2267,7 @@ if.end261.i:                                      ; preds = %if.then254.i, %if.e
   %call291.i = call fastcc zeroext i16 @ip_checksum(ptr noundef nonnull %add.ptr129.i, i64 noundef %conv146.i)
   store i16 %call291.i, ptr %ip_sum289.i, align 2
   %add299.i = add nuw nsw i32 %add297.i, %chunk_size.0.in.i
-  call fastcc void @rtl8139_transfer_frame.argelim(ptr noundef %s, ptr noundef nonnull %16, i32 noundef %add299.i, ptr noundef %dot1q_buffer.0.i)
+  call fastcc void @rtl8139_transfer_frame(ptr noundef %s, ptr noundef nonnull %16, i32 noundef %add299.i, ptr noundef %dot1q_buffer.0.i)
   %th_seq.val221.i = load i32, ptr %th_seq.i, align 1
   %43 = call i32 @llvm.bswap.i32(i32 %th_seq.val221.i)
   %add305.i = add i32 %43, %chunk_size.0.in.i
@@ -2341,7 +2341,7 @@ skip_offload.i:                                   ; preds = %if.end261.i, %if.en
   %47 = load i64, ptr %tally_counters.i, align 16
   %inc380.i = add i64 %47, 1
   store i64 %inc380.i, ptr %tally_counters.i, align 16
-  call fastcc void @rtl8139_transfer_frame.argelim(ptr noundef %s, ptr noundef %16, i32 noundef %saved_size.0.i, ptr noundef %dot1q_buffer.0.i)
+  call fastcc void @rtl8139_transfer_frame(ptr noundef %s, ptr noundef %16, i32 noundef %saved_size.0.i, ptr noundef %dot1q_buffer.0.i)
   %48 = load ptr, ptr %cplus_txbuffer.i, align 16
   %tobool383.not.i = icmp eq ptr %48, null
   br i1 %tobool383.not.i, label %if.then384.i, label %if.else388.i
@@ -2464,7 +2464,7 @@ ones_complement_sum.exit:                         ; preds = %while.body.i, %if.e
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rtl8139_transfer_frame.argelim(ptr nocapture noundef readonly %s, ptr noundef %buf, i32 noundef %size, ptr noundef %dot1q_buf) unnamed_addr #0 {
+define internal fastcc void @rtl8139_transfer_frame(ptr nocapture noundef readonly %s, ptr noundef %buf, i32 noundef %size, ptr noundef %dot1q_buf) unnamed_addr #0 {
 entry:
   %vlan_iov = alloca [3 x %struct.iovec], align 16
   %tobool.not = icmp eq i32 %size, 0

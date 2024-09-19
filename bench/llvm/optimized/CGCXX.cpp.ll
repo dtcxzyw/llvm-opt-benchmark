@@ -1213,7 +1213,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread.i: ; preds = %59, %
 
 _ZN5clang10GlobalDeclC2EPKNS_12FunctionDeclEj.exit: ; preds = %62, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread.i, %27
   %storemerge.i.sink = phi i64 [ %34, %27 ], [ %70, %62 ], [ %61, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread.i ]
-  tail call fastcc void @_ZL25BuildAppleKextVirtualCallRN5clang7CodeGen15CodeGenFunctionENS_10GlobalDeclEPN4llvm4TypeEPKNS_13CXXRecordDeclE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %storemerge.i.sink, i32 0, ptr noundef %22)
+  tail call fastcc void @_ZL25BuildAppleKextVirtualCallRN5clang7CodeGen15CodeGenFunctionENS_10GlobalDeclEPN4llvm4TypeEPKNS_13CXXRecordDeclE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %storemerge.i.sink, i32 0, ptr noundef %22)
   ret void
 }
 
@@ -1233,12 +1233,12 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction35BuildAppleKextVirtual
   %17 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes15GetFunctionTypeERKNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(240) %16, ptr noundef nonnull align 8 dereferenceable(40) %13) #10
   %18 = zext i32 %3 to i64
   %19 = or i64 %11, %18
-  tail call fastcc void @_ZL25BuildAppleKextVirtualCallRN5clang7CodeGen15CodeGenFunctionENS_10GlobalDeclEPN4llvm4TypeEPKNS_13CXXRecordDeclE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %19, i32 0, ptr noundef %4)
+  tail call fastcc void @_ZL25BuildAppleKextVirtualCallRN5clang7CodeGen15CodeGenFunctionENS_10GlobalDeclEPN4llvm4TypeEPKNS_13CXXRecordDeclE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %19, i32 0, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25BuildAppleKextVirtualCallRN5clang7CodeGen15CodeGenFunctionENS_10GlobalDeclEPN4llvm4TypeEPKNS_13CXXRecordDeclE.argprom(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, i32 %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL25BuildAppleKextVirtualCallRN5clang7CodeGen15CodeGenFunctionENS_10GlobalDeclEPN4llvm4TypeEPKNS_13CXXRecordDeclE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, i32 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8

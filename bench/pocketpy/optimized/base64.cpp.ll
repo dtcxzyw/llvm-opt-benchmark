@@ -408,11 +408,11 @@ _ZN4pkpyL13base64_encodeEPKhjPc.exit.i:           ; preds = %._crit_edge.thread.
 _ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %_ZN4pkpyL13base64_encodeEPKhjPc.exit.i
   %80 = load ptr, ptr %4, align 8
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.argprom.exit", label %82
+  br i1 %81, label %"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit", label %82
 
 82:                                               ; preds = %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
   call void @_ZdaPv(ptr noundef nonnull %80) #19
-  br label %"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit"
 
 83:                                               ; preds = %_ZN4pkpyL13base64_encodeEPKhjPc.exit.i
   %84 = landingpad { ptr, i32 }
@@ -428,7 +428,7 @@ _ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %_ZN4pkp
 _ZN4pkpy5BytesD2Ev.exit9.i:                       ; preds = %87, %83
   resume { ptr, i32 } %84
 
-"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %82
+"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %82
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret ptr %79
 }
@@ -1220,11 +1220,11 @@ _ZN4pkpyL13base64_decodeEPKcjPh.exit.i:           ; preds = %69, %29, %27, %.lr.
 _ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %_ZN4pkpyL13base64_decodeEPKcjPh.exit.i
   %73 = load ptr, ptr %4, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.argprom.exit", label %75
+  br i1 %74, label %"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.exit", label %75
 
 75:                                               ; preds = %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
   call void @_ZdaPv(ptr noundef nonnull %73) #19
-  br label %"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.exit"
 
 76:                                               ; preds = %_ZN4pkpyL13base64_decodeEPKcjPh.exit.i
   %77 = landingpad { ptr, i32 }
@@ -1240,7 +1240,7 @@ _ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %_ZN4pkp
 _ZN4pkpy5BytesD2Ev.exit9.i:                       ; preds = %80, %76
   resume { ptr, i32 } %77
 
-"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %75
+"_ZZN4pkpy17add_module_base64EPNS_2VMEENK3$_1clES1_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy6py_varINS_5BytesEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %75
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret ptr %72
 }

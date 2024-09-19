@@ -13899,7 +13899,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %call1.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2.i.i.i.i, ptr noundef nonnull @.str.41)
-  br label %"_ZSt10__invoke_rIvRZN3euf6solverC1ER11ast_managerRN3sat16sat_internalizerERK10params_refE3$_0JRSoPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN3euf6solverC1ER11ast_managerRN3sat16sat_internalizerERK10params_refE3$_0JRSoPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %2 = and i32 %1, 16
@@ -13908,7 +13908,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %call3.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2.i.i.i.i, ptr noundef nonnull %cond.i.i.i.i.i)
   %shr.i.i.i.i.i.i = lshr i32 %1, 5
   %call5.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call3.i.i.i.i.i, i32 noundef %shr.i.i.i.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZN3euf6solverC1ER11ast_managerRN3sat16sat_internalizerERK10params_refE3$_0JRSoPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN3euf6solverC1ER11ast_managerRN3sat16sat_internalizerERK10params_refE3$_0JRSoPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 if.else.i.i.i.i:                                  ; preds = %entry
   %call.val = load ptr, ptr %__functor, align 8
@@ -13917,9 +13917,9 @@ if.else.i.i.i.i:                                  ; preds = %entry
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 232
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call7.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(9136) %call.val, ptr noundef nonnull align 8 dereferenceable(8) %__args, i64 noundef %and.i4.i.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZN3euf6solverC1ER11ast_managerRN3sat16sat_internalizerERK10params_refE3$_0JRSoPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN3euf6solverC1ER11ast_managerRN3sat16sat_internalizerERK10params_refE3$_0JRSoPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
-"_ZSt10__invoke_rIvRZN3euf6solverC1ER11ast_managerRN3sat16sat_internalizerERK10params_refE3$_0JRSoPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.else.i.i.i.i
+"_ZSt10__invoke_rIvRZN3euf6solverC1ER11ast_managerRN3sat16sat_internalizerERK10params_refE3$_0JRSoPvEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.else.i.i.i.i
   ret void
 }
 

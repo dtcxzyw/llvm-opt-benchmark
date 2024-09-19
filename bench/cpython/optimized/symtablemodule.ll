@@ -122,7 +122,7 @@ if.end22:                                         ; preds = %if.end18
   store ptr null, ptr %source_copy.i, align 8
   %call.i = call ptr @_Py_SourceAsString(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull %cf.i, ptr noundef nonnull %source_copy.i) #4
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %_symtable_symtable_impl.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %_symtable_symtable_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end22
   %call1.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call15, ptr noundef nonnull dereferenceable(5) @.str.6) #5
@@ -160,23 +160,23 @@ if.then1.i26.i:                                   ; preds = %if.end.i23.i
 Py_DECREF.exit28.i:                               ; preds = %if.then1.i26.i, %if.end.i23.i, %if.else11.i
   %12 = load ptr, ptr %source_copy.i, align 8
   %cmp.not.i.i = icmp eq ptr %12, null
-  br i1 %cmp.not.i.i, label %_symtable_symtable_impl.argprom.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_symtable_symtable_impl.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %Py_DECREF.exit28.i
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %14, 0
-  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %_symtable_symtable_impl.argprom.exit
+  br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %_symtable_symtable_impl.exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %dec.i.i.i = add i64 %13, -1
   store i64 %dec.i.i.i, ptr %12, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %_symtable_symtable_impl.argprom.exit
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %_symtable_symtable_impl.exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %12) #4
-  br label %_symtable_symtable_impl.argprom.exit
+  br label %_symtable_symtable_impl.exit
 
 if.end14.i:                                       ; preds = %if.else7.i, %if.else.i, %if.end.i
   %start.0.i = phi i32 [ 257, %if.end.i ], [ 258, %if.else.i ], [ 256, %if.else7.i ]
@@ -219,7 +219,7 @@ if.then1.i.i20.i:                                 ; preds = %if.end.i.i17.i
 
 Py_XDECREF.exit21.i:                              ; preds = %if.then1.i.i20.i, %if.end.i.i17.i, %if.then.i14.i, %Py_DECREF.exit.i
   %cmp16.i = icmp eq ptr %call15.i, null
-  br i1 %cmp16.i, label %_symtable_symtable_impl.argprom.exit, label %if.end18.i
+  br i1 %cmp16.i, label %_symtable_symtable_impl.exit, label %if.end18.i
 
 if.end18.i:                                       ; preds = %Py_XDECREF.exit21.i
   %st_top.i = getelementptr inbounds i8, ptr %call15.i, i64 16
@@ -235,16 +235,16 @@ if.end.i.i23.i:                                   ; preds = %if.end18.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i23.i, %if.end18.i
   call void @_PySymtable_Free(ptr noundef nonnull %call15.i) #4
-  br label %_symtable_symtable_impl.argprom.exit
+  br label %_symtable_symtable_impl.exit
 
-_symtable_symtable_impl.argprom.exit:             ; preds = %if.end22, %Py_DECREF.exit28.i, %if.then.i.i, %if.end.i.i.i, %if.then1.i.i.i, %Py_XDECREF.exit21.i, %_Py_NewRef.exit.i
+_symtable_symtable_impl.exit:                     ; preds = %if.end22, %Py_DECREF.exit28.i, %if.then.i.i, %if.end.i.i.i, %if.then1.i.i.i, %Py_XDECREF.exit21.i, %_Py_NewRef.exit.i
   %retval.0.i = phi ptr [ %20, %_Py_NewRef.exit.i ], [ null, %if.end22 ], [ null, %Py_XDECREF.exit21.i ], [ null, %Py_DECREF.exit28.i ], [ null, %if.then.i.i ], [ null, %if.end.i.i.i ], [ null, %if.then1.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %source_copy.i)
   br label %exit
 
-exit:                                             ; preds = %if.end13, %if.end, %lor.lhs.false, %_symtable_symtable_impl.argprom.exit, %if.then21, %if.then11
-  %return_value.0 = phi ptr [ null, %if.end13 ], [ null, %if.then21 ], [ %retval.0.i, %_symtable_symtable_impl.argprom.exit ], [ null, %if.then11 ], [ null, %if.end ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %if.end13, %if.end, %lor.lhs.false, %_symtable_symtable_impl.exit, %if.then21, %if.then11
+  %return_value.0 = phi ptr [ null, %if.end13 ], [ null, %if.then21 ], [ %retval.0.i, %_symtable_symtable_impl.exit ], [ null, %if.then11 ], [ null, %if.end ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 

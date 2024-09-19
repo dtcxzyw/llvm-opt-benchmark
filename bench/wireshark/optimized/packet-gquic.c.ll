@@ -2205,7 +2205,7 @@ define internal i32 @dissect_gquic(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %11 = icmp ult i32 %10, 3
-  br i1 %11, label %dissect_gquic_common.argprom.exit, label %12
+  br i1 %11, label %dissect_gquic_common.exit, label %12
 
 12:                                               ; preds = %9
   %13 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #4
@@ -2350,7 +2350,7 @@ define internal i32 @dissect_gquic(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.2.lcssa.i = phi i32 [ %.0153.i, %.preheader.i ], [ %94, %.lr.ph.i ]
   %97 = load ptr, ptr %24, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %97, i32 noundef 25, ptr noundef nonnull @.str.594, i64 noundef %.0154.i) #4
-  br label %dissect_gquic_common.argprom.exit
+  br label %dissect_gquic_common.exit
 
 98:                                               ; preds = %83
   %99 = load i32, ptr @hf_gquic_version, align 4
@@ -2382,7 +2382,7 @@ define internal i32 @dissect_gquic(ptr noundef %0, ptr noundef %1, ptr noundef %
   %118 = tail call fastcc i32 @dissect_gquic_tag(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %29, i32 noundef %117, i32 noundef %113)
   %119 = load ptr, ptr %24, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %119, i32 noundef 25, ptr noundef nonnull @.str.595, i64 noundef %.0154.i) #4
-  br label %dissect_gquic_common.argprom.exit
+  br label %dissect_gquic_common.exit
 
 120:                                              ; preds = %102
   %121 = load i32, ptr %58, align 4
@@ -2450,14 +2450,14 @@ switch.lookup:                                    ; preds = %133, %126, %123, %1
   %159 = load i64, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %158, i32 noundef 25, ptr noundef nonnull @.str.597, i64 noundef %159) #4
   %.not164.i = icmp eq i64 %.0154.i, 0
-  br i1 %.not164.i, label %dissect_gquic_common.argprom.exit, label %160
+  br i1 %.not164.i, label %dissect_gquic_common.exit, label %160
 
 160:                                              ; preds = %157
   %161 = load ptr, ptr %24, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %161, i32 noundef 25, ptr noundef nonnull @.str.598, i64 noundef %.0154.i) #4
-  br label %dissect_gquic_common.argprom.exit
+  br label %dissect_gquic_common.exit
 
-dissect_gquic_common.argprom.exit:                ; preds = %9, %._crit_edge.i, %104, %157, %160
+dissect_gquic_common.exit:                        ; preds = %9, %._crit_edge.i, %104, %157, %160
   %.0.i = phi i32 [ %.2.lcssa.i, %._crit_edge.i ], [ %118, %104 ], [ 0, %9 ], [ %.4.i, %160 ], [ %.4.i, %157 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %274
@@ -2622,19 +2622,19 @@ dissect_gquic_common.argprom.exit:                ; preds = %9, %._crit_edge.i, 
   %271 = load i64, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %270, i32 noundef 25, ptr noundef nonnull @.str.597, i64 noundef %271) #4
   %.not132.i = icmp eq i64 %.1123.i, 0
-  br i1 %.not132.i, label %dissect_gquic_q046.argprom.exit, label %272
+  br i1 %.not132.i, label %dissect_gquic_q046.exit, label %272
 
 272:                                              ; preds = %269
   %273 = load ptr, ptr %174, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %273, i32 noundef 25, ptr noundef nonnull @.str.598, i64 noundef %.1123.i) #4
-  br label %dissect_gquic_q046.argprom.exit
+  br label %dissect_gquic_q046.exit
 
-dissect_gquic_q046.argprom.exit:                  ; preds = %269, %272
+dissect_gquic_q046.exit:                          ; preds = %269, %272
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %274
 
-274:                                              ; preds = %dissect_gquic_q046.argprom.exit, %dissect_gquic_common.argprom.exit
-  %.0 = phi i32 [ %.0.i, %dissect_gquic_common.argprom.exit ], [ %.1.i12, %dissect_gquic_q046.argprom.exit ]
+274:                                              ; preds = %dissect_gquic_q046.exit, %dissect_gquic_common.exit
+  %.0 = phi i32 [ %.0.i, %dissect_gquic_common.exit ], [ %.1.i12, %dissect_gquic_q046.exit ]
   ret i32 %.0
 }
 

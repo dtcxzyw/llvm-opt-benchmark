@@ -211,7 +211,7 @@ define dso_local void @_ZN4llvm18FixIrreduciblePass3runERNS_8FunctionERNS_15Anal
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm21DominatorTreeAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #15
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = tail call fastcc noundef zeroext i1 @_ZL18FixIrreducibleImplRN4llvm8FunctionERNS_16GenericCycleInfoINS_17GenericSSAContextIS0_EEEERNS_13DominatorTreeEPNS_8LoopInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(124) %10, ptr noundef %.0.i)
+  %11 = tail call fastcc noundef zeroext i1 @_ZL18FixIrreducibleImplRN4llvm8FunctionERNS_16GenericCycleInfoINS_17GenericSSAContextIS0_EEEERNS_13DominatorTreeEPNS_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(124) %10, ptr noundef %.0.i)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %12, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -264,7 +264,7 @@ define dso_local void @_ZN4llvm18FixIrreduciblePass3runERNS_8FunctionERNS_15Anal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL18FixIrreducibleImplRN4llvm8FunctionERNS_16GenericCycleInfoINS_17GenericSSAContextIS0_EEEERNS_13DominatorTreeEPNS_8LoopInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL18FixIrreducibleImplRN4llvm8FunctionERNS_16GenericCycleInfoINS_17GenericSSAContextIS0_EEEERNS_13DominatorTreeEPNS_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %"struct.llvm::ControlFlowHub::BranchDescriptor", align 8
   %5 = alloca %"struct.llvm::ControlFlowHub::BranchDescriptor", align 8
   %6 = alloca %"class.llvm::SmallVector.179", align 8
@@ -3031,29 +3031,29 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %1388 = icmp eq ptr %1385, %1387
   br i1 %1388, label %"_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPPN4llvm4LoopESt6vectorIS4_SaIS4_EEEEZL19reconnectChildLoopsRNS2_8LoopInfoES4_S4_PNS2_10BasicBlockEE3$_0ET_SF_SF_T0_.exit.i.i.i", label %.lr.ph.i.i.i.i109.i
 
-.lr.ph.i.i.i.i109.i:                              ; preds = %1383, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread.i.i.i.i.i"
-  %.sroa.011.024.i.i.i.i.i = phi ptr [ %1404, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread.i.i.i.i.i" ], [ %1385, %1383 ]
-  %.sroa.06.023.i.i.i.i.i = phi ptr [ %.sroa.06.1.i.i.i.i.i, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread.i.i.i.i.i" ], [ %1387, %1383 ]
+.lr.ph.i.i.i.i109.i:                              ; preds = %1383, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread.i.i.i.i.i"
+  %.sroa.011.024.i.i.i.i.i = phi ptr [ %1404, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread.i.i.i.i.i" ], [ %1385, %1383 ]
+  %.sroa.06.023.i.i.i.i.i = phi ptr [ %.sroa.06.1.i.i.i.i.i, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread.i.i.i.i.i" ], [ %1387, %1383 ]
   br label %1389
 
-1389:                                             ; preds = %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.thread.i.i.i.i.i", %.lr.ph.i.i.i.i109.i
-  %.sroa.011.120.i.i.i.i.i = phi ptr [ %.sroa.011.024.i.i.i.i.i, %.lr.ph.i.i.i.i109.i ], [ %1394, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.thread.i.i.i.i.i" ]
+1389:                                             ; preds = %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.thread.i.i.i.i.i", %.lr.ph.i.i.i.i109.i
+  %.sroa.011.120.i.i.i.i.i = phi ptr [ %.sroa.011.024.i.i.i.i.i, %.lr.ph.i.i.i.i109.i ], [ %1394, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.thread.i.i.i.i.i" ]
   %1390 = load ptr, ptr %.sroa.011.120.i.i.i.i.i, align 8
   %1391 = icmp eq ptr %.0.i.i.i.i.i.i.i, %1390
-  br i1 %1391, label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.thread.i.i.i.i.i", label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.i.i.i.i.i"
+  br i1 %1391, label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.thread.i.i.i.i.i", label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.i.i.i.i.i"
 
-"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.i.i.i.i.i": ; preds = %1389
+"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.i.i.i.i.i": ; preds = %1389
   %1392 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %1390) #15
   %1393 = call noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %.0.i.i.i.i.i.i.i, ptr noundef %1392) #15
-  br i1 %1393, label %.preheader.i.i.i.i.i, label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.thread.i.i.i.i.i"
+  br i1 %1393, label %.preheader.i.i.i.i.i, label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.thread.i.i.i.i.i"
 
-"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.thread.i.i.i.i.i": ; preds = %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.i.i.i.i.i", %1389
+"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.thread.i.i.i.i.i": ; preds = %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.i.i.i.i.i", %1389
   %1394 = getelementptr inbounds i8, ptr %.sroa.011.120.i.i.i.i.i, i64 8
   %1395 = icmp eq ptr %1394, %.sroa.06.023.i.i.i.i.i
   br i1 %1395, label %"_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPPN4llvm4LoopESt6vectorIS4_SaIS4_EEEEZL19reconnectChildLoopsRNS2_8LoopInfoES4_S4_PNS2_10BasicBlockEE3$_0ET_SF_SF_T0_.exit.i.i.i", label %1389, !llvm.loop !52
 
-.preheader.i.i.i.i.i:                             ; preds = %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.i.i.i.i.i", %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.i.i.i.i.i"
-  %.sroa.06.0.pn.i.i.i.i.i = phi ptr [ %.sroa.06.1.i.i.i.i.i, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.i.i.i.i.i" ], [ %.sroa.06.023.i.i.i.i.i, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.i.i.i.i.i" ]
+.preheader.i.i.i.i.i:                             ; preds = %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.i.i.i.i.i", %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.i.i.i.i.i"
+  %.sroa.06.0.pn.i.i.i.i.i = phi ptr [ %.sroa.06.1.i.i.i.i.i, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.i.i.i.i.i" ], [ %.sroa.06.023.i.i.i.i.i, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.i.i.i.i.i" ]
   %.sroa.06.1.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.06.0.pn.i.i.i.i.i, i64 -8
   %1396 = icmp eq ptr %.sroa.011.120.i.i.i.i.i, %.sroa.06.1.i.i.i.i.i
   br i1 %1396, label %"_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPPN4llvm4LoopESt6vectorIS4_SaIS4_EEEEZL19reconnectChildLoopsRNS2_8LoopInfoES4_S4_PNS2_10BasicBlockEE3$_0ET_SF_SF_T0_.exit.i.i.i", label %1397
@@ -3061,19 +3061,19 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
 1397:                                             ; preds = %.preheader.i.i.i.i.i
   %1398 = load ptr, ptr %.sroa.06.1.i.i.i.i.i, align 8
   %1399 = icmp eq ptr %.0.i.i.i.i.i.i.i, %1398
-  br i1 %1399, label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread.i.i.i.i.i", label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.i.i.i.i.i"
+  br i1 %1399, label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread.i.i.i.i.i", label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.i.i.i.i.i"
 
-"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.i.i.i.i.i": ; preds = %1397
+"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.i.i.i.i.i": ; preds = %1397
   %1400 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %1398) #15
   %1401 = call noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %.0.i.i.i.i.i.i.i, ptr noundef %1400) #15
-  br i1 %1401, label %.preheader.i.i.i.i.i, label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5._ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread_crit_edge.i.i.i.i.i", !llvm.loop !53
+  br i1 %1401, label %.preheader.i.i.i.i.i, label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5._ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread_crit_edge.i.i.i.i.i", !llvm.loop !53
 
-"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5._ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread_crit_edge.i.i.i.i.i": ; preds = %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.i.i.i.i.i"
+"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5._ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread_crit_edge.i.i.i.i.i": ; preds = %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.i.i.i.i.i"
   %.pre.i.i.i.i.i = load ptr, ptr %.sroa.06.1.i.i.i.i.i, align 8
-  br label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread.i.i.i.i.i"
+  br label %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread.i.i.i.i.i"
 
-"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread.i.i.i.i.i": ; preds = %1397, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5._ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread_crit_edge.i.i.i.i.i"
-  %1402 = phi ptr [ %.pre.i.i.i.i.i, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5._ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread_crit_edge.i.i.i.i.i" ], [ %1398, %1397 ]
+"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread.i.i.i.i.i": ; preds = %1397, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5._ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread_crit_edge.i.i.i.i.i"
+  %1402 = phi ptr [ %.pre.i.i.i.i.i, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5._ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread_crit_edge.i.i.i.i.i" ], [ %1398, %1397 ]
   %1403 = load ptr, ptr %.sroa.011.120.i.i.i.i.i, align 8
   store ptr %1402, ptr %.sroa.011.120.i.i.i.i.i, align 8
   store ptr %1403, ptr %.sroa.06.1.i.i.i.i.i, align 8
@@ -3081,8 +3081,8 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %1405 = icmp eq ptr %1404, %.sroa.06.1.i.i.i.i.i
   br i1 %1405, label %"_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPPN4llvm4LoopESt6vectorIS4_SaIS4_EEEEZL19reconnectChildLoopsRNS2_8LoopInfoES4_S4_PNS2_10BasicBlockEE3$_0ET_SF_SF_T0_.exit.i.i.i", label %.lr.ph.i.i.i.i109.i, !llvm.loop !54
 
-"_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPPN4llvm4LoopESt6vectorIS4_SaIS4_EEEEZL19reconnectChildLoopsRNS2_8LoopInfoES4_S4_PNS2_10BasicBlockEE3$_0ET_SF_SF_T0_.exit.i.i.i": ; preds = %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread.i.i.i.i.i", %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.thread.i.i.i.i.i", %.preheader.i.i.i.i.i, %1383
-  %.sroa.011.118.i.i.i.i.i = phi ptr [ %1385, %1383 ], [ %.sroa.011.120.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %1394, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit.thread.i.i.i.i.i" ], [ %1404, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.argprom.argprom.exit5.thread.i.i.i.i.i" ]
+"_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPPN4llvm4LoopESt6vectorIS4_SaIS4_EEEEZL19reconnectChildLoopsRNS2_8LoopInfoES4_S4_PNS2_10BasicBlockEE3$_0ET_SF_SF_T0_.exit.i.i.i": ; preds = %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread.i.i.i.i.i", %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.thread.i.i.i.i.i", %.preheader.i.i.i.i.i, %1383
+  %.sroa.011.118.i.i.i.i.i = phi ptr [ %1385, %1383 ], [ %.sroa.011.120.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %1394, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit.thread.i.i.i.i.i" ], [ %1404, %"_ZZL19reconnectChildLoopsRN4llvm8LoopInfoEPNS_4LoopES3_PNS_10BasicBlockEENK3$_0clES3_.exit5.thread.i.i.i.i.i" ]
   %1406 = load ptr, ptr %1386, align 8
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %58, i64 noundef 8) #15
   %1407 = ptrtoint ptr %1406 to i64
@@ -3707,7 +3707,7 @@ _ZNK4llvm4Pass11getAnalysisINS_24DominatorTreeWrapperPassEEERT_v.exit: ; preds =
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef nonnull align 8 dereferenceable(160) ptr %41(ptr noundef nonnull align 8 dereferenceable(28) %38, ptr noundef nonnull @_ZN4llvm24DominatorTreeWrapperPass2IDE) #15
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %44 = tail call fastcc noundef zeroext i1 @_ZL18FixIrreducibleImplRN4llvm8FunctionERNS_16GenericCycleInfoINS_17GenericSSAContextIS0_EEEERNS_13DominatorTreeEPNS_8LoopInfoE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(124) %43, ptr noundef %11)
+  %44 = tail call fastcc noundef zeroext i1 @_ZL18FixIrreducibleImplRN4llvm8FunctionERNS_16GenericCycleInfoINS_17GenericSSAContextIS0_EEEERNS_13DominatorTreeEPNS_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(80) %36, ptr noundef nonnull align 8 dereferenceable(124) %43, ptr noundef %11)
   ret i1 %44
 }
 

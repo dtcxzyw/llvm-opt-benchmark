@@ -5628,7 +5628,7 @@ _ZN10open_spiel12_GLOBAL__N_117StatefulRandomBotD2Ev.exit: ; preds = %1, %_ZNKSt
 define internal void @_ZN10open_spiel12_GLOBAL__N_117StatefulRandomBot12InformActionERKNS_5StateEil(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5024) %0, ptr noundef nonnull align 8 dereferenceable(60) %1, i32 %2, i64 noundef %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_ZNK10open_spiel12_GLOBAL__N_117StatefulRandomBot16CheckStatesEqualERKNS_5StateES4_.argprom(ptr noundef nonnull align 8 dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(60) %6)
+  tail call fastcc void @_ZNK10open_spiel12_GLOBAL__N_117StatefulRandomBot16CheckStatesEqualERKNS_5StateES4_(ptr noundef nonnull align 8 dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(60) %6)
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 24
@@ -5826,7 +5826,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
 define internal void @_ZN10open_spiel12_GLOBAL__N_117StatefulRandomBot9GetPolicyERKNS_5StateE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.101") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5024) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 5016
   %5 = load ptr, ptr %4, align 8
-  tail call fastcc void @_ZNK10open_spiel12_GLOBAL__N_117StatefulRandomBot16CheckStatesEqualERKNS_5StateES4_.argprom(ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef nonnull align 8 dereferenceable(60) %5)
+  tail call fastcc void @_ZNK10open_spiel12_GLOBAL__N_117StatefulRandomBot16CheckStatesEqualERKNS_5StateES4_(ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef nonnull align 8 dereferenceable(60) %5)
   %6 = load ptr, ptr %4, align 8
   tail call void @_ZN10open_spiel12_GLOBAL__N_116UniformRandomBot9GetPolicyERKNS_5StateE(ptr dead_on_unwind writable sret(%"class.std::vector.101") align 8 %0, ptr noundef nonnull align 8 dereferenceable(5016) %1, ptr noundef nonnull align 8 dereferenceable(60) %6)
   ret void
@@ -5897,7 +5897,7 @@ _ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117StatefulRandomBotESt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK10open_spiel12_GLOBAL__N_117StatefulRandomBot16CheckStatesEqualERKNS_5StateES4_.argprom(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK10open_spiel12_GLOBAL__N_117StatefulRandomBot16CheckStatesEqualERKNS_5StateES4_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8315,25 +8315,25 @@ attributes #26 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_116UniformRandomBotEJRiS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_116UniformRandomBotEJRiS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_116UniformRandomBotEJRiS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_116UniformRandomBotEJRiS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_19PolicyBotEJRiSt10shared_ptrINS0_6PolicyEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!11 = distinct !{!11, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_19PolicyBotEJRiSt10shared_ptrINS0_6PolicyEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!10 = distinct !{!10, !11, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_19PolicyBotEJRiSt10shared_ptrINS0_6PolicyEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!11 = distinct !{!11, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_19PolicyBotEJRiSt10shared_ptrINS0_6PolicyEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZN10open_spiel13MakePolicyBotEiSt10shared_ptrINS_6PolicyEE: argument 0"}
 !14 = distinct !{!14, !"_ZN10open_spiel13MakePolicyBotEiSt10shared_ptrINS_6PolicyEE"}
 !15 = !{!16, !13}
-!16 = distinct !{!16, !17, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_19PolicyBotEJRiSt10shared_ptrINS0_6PolicyEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!17 = distinct !{!17, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_19PolicyBotEJRiSt10shared_ptrINS0_6PolicyEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!16 = distinct !{!16, !17, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_19PolicyBotEJRiSt10shared_ptrINS0_6PolicyEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!17 = distinct !{!17, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_19PolicyBotEJRiSt10shared_ptrINS0_6PolicyEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotEJRiRKSt6vectorIlSaIlEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotEJRiRKSt6vectorIlSaIlEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!19 = distinct !{!19, !20, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotEJRiRKSt6vectorIlSaIlEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!20 = distinct !{!20, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotEJRiRKSt6vectorIlSaIlEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_117StatefulRandomBotEJRKNS0_4GameERiS6_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!23 = distinct !{!23, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_117StatefulRandomBotEJRKNS0_4GameERiS6_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!22 = distinct !{!22, !23, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_117StatefulRandomBotEJRKNS0_4GameERiS6_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!23 = distinct !{!23, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_117StatefulRandomBotEJRKNS0_4GameERiS6_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !24 = !{!"branch_weights", i32 1, i32 1048575}
 !25 = distinct !{!25, !8}
 !26 = !{!27, !29}
@@ -8369,8 +8369,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !56 = distinct !{!56, !57, !"_ZN10open_spiel20MakeUniformRandomBotEii: argument 0"}
 !57 = distinct !{!57, !"_ZN10open_spiel20MakeUniformRandomBotEii"}
 !58 = !{!59, !56}
-!59 = distinct !{!59, !60, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_116UniformRandomBotEJRiS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!60 = distinct !{!60, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_116UniformRandomBotEJRiS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!59 = distinct !{!59, !60, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_116UniformRandomBotEJRiS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!60 = distinct !{!60, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_116UniformRandomBotEJRiS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !61 = distinct !{!61, !8}
 !62 = distinct !{!62, !8}
 !63 = !{!64}
@@ -8387,8 +8387,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !74 = distinct !{!74, !8}
 !75 = distinct !{!75, !8}
 !76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN10open_spiel12_GLOBAL__N_114ActionsFromStrERKN4absl7debian211string_viewES5_.argprom: argument 0"}
-!78 = distinct !{!78, !"_ZN10open_spiel12_GLOBAL__N_114ActionsFromStrERKN4absl7debian211string_viewES5_.argprom"}
+!77 = distinct !{!77, !78, !"_ZN10open_spiel12_GLOBAL__N_114ActionsFromStrERKN4absl7debian211string_viewES5_: argument 0"}
+!78 = distinct !{!78, !"_ZN10open_spiel12_GLOBAL__N_114ActionsFromStrERKN4absl7debian211string_viewES5_"}
 !79 = !{!80}
 !80 = distinct !{!80, !81, !"_ZN4absl7debian28StrSplitINS0_11string_viewEEENS0_16strings_internal8SplitterINS3_15SelectDelimiterIT_E4typeENS0_10AllowEmptyES2_EENS3_23ConvertibleToStringViewES6_: argument 0"}
 !81 = distinct !{!81, !"_ZN4absl7debian28StrSplitINS0_11string_viewEEENS0_16strings_internal8SplitterINS3_15SelectDelimiterIT_E4typeENS0_10AllowEmptyES2_EENS3_23ConvertibleToStringViewES6_"}
@@ -8397,8 +8397,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !84 = distinct !{!84, !85, !"_ZN10open_spiel28MakeFixedActionPreferenceBotEiRKSt6vectorIlSaIlEE: argument 0"}
 !85 = distinct !{!85, !"_ZN10open_spiel28MakeFixedActionPreferenceBotEiRKSt6vectorIlSaIlEE"}
 !86 = !{!87, !84}
-!87 = distinct !{!87, !88, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotEJRiRKSt6vectorIlSaIlEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!88 = distinct !{!88, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotEJRiRKSt6vectorIlSaIlEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!87 = distinct !{!87, !88, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotEJRiRKSt6vectorIlSaIlEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!88 = distinct !{!88, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_124FixedActionPreferenceBotEJRiRKSt6vectorIlSaIlEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !89 = !{!90}
 !90 = distinct !{!90, !91, !"_ZNK10open_spiel5State7GetGameEv: argument 0"}
 !91 = distinct !{!91, !"_ZNK10open_spiel5State7GetGameEv"}

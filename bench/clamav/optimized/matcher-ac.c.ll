@@ -425,7 +425,7 @@ insert_list.exit:                                 ; preds = %102, %.thread, %80,
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 21) i32 @cli_ac_buildtrie(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %ac_maketrans.argprom.exit, label %2
+  br i1 %.not, label %ac_maketrans.exit, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 264
@@ -435,7 +435,7 @@ define range(i32 0, 21) i32 @cli_ac_buildtrie(ptr noundef readonly %0) local_unn
 
 5:                                                ; preds = %2
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #18
-  br label %ac_maketrans.argprom.exit
+  br label %ac_maketrans.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 320
@@ -754,7 +754,7 @@ bfs_enqueue.exit132.thread.i:                     ; preds = %121, %119, %.prehea
 
 .preheader54.i:                                   ; preds = %bfs_enqueue.exit136.thread.i
   %.not.i13789.i = icmp eq ptr %.1022.i, null
-  br i1 %.not.i13789.i, label %ac_maketrans.argprom.exit, label %bfs_dequeue.exit139.i
+  br i1 %.not.i13789.i, label %ac_maketrans.exit, label %bfs_dequeue.exit139.i
 
 bfs_dequeue.exit.thread.i:                        ; preds = %bfs_dequeue.exit.thread.i.preheader, %bfs_enqueue.exit136.thread.i
   %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %bfs_enqueue.exit136.thread.i ], [ 0, %bfs_dequeue.exit.thread.i.preheader ]
@@ -798,7 +798,7 @@ bfs_dequeue.exit139.i:                            ; preds = %.preheader54.i, %.b
   %134 = load ptr, ptr %.112390.i, align 8
   tail call void @free(ptr noundef nonnull %.112390.i) #18
   %.not102.i = icmp eq ptr %134, null
-  br i1 %.not102.i, label %ac_maketrans.argprom.exit, label %135
+  br i1 %.not102.i, label %ac_maketrans.exit, label %135
 
 135:                                              ; preds = %bfs_dequeue.exit139.i
   %136 = icmp eq ptr %.112390.i, %.1291.i
@@ -812,7 +812,7 @@ bfs_dequeue.exit139.i:                            ; preds = %.preheader54.i, %.b
   %.1123.be.i = phi ptr [ %133, %135 ], [ %.1527.i, %bfs_enqueue.exit143.thread.i ]
   %.12.be.i = phi ptr [ %spec.select52.i, %135 ], [ %.17.i, %bfs_enqueue.exit143.thread.i ]
   %.not.i137.i = icmp eq ptr %.1123.be.i, null
-  br i1 %.not.i137.i, label %ac_maketrans.argprom.exit, label %bfs_dequeue.exit139.i
+  br i1 %.not.i137.i, label %ac_maketrans.exit, label %bfs_dequeue.exit139.i
 
 .preheader53.i:                                   ; preds = %135, %bfs_enqueue.exit143.thread.i
   %indvars.iv104.i = phi i64 [ %indvars.iv.next105.i, %bfs_enqueue.exit143.thread.i ], [ 0, %135 ]
@@ -908,9 +908,9 @@ bfs_enqueue.exit143.thread.i:                     ; preds = %167, %165, %156, %1
 
 bfs_dequeue.exit139.thread.sink.split.i:          ; preds = %87, %116, %126, %.thread.i
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.68) #18
-  br label %ac_maketrans.argprom.exit
+  br label %ac_maketrans.exit
 
-ac_maketrans.argprom.exit:                        ; preds = %.backedge.i, %bfs_dequeue.exit139.i, %bfs_dequeue.exit139.thread.sink.split.i, %.preheader54.i, %1, %5
+ac_maketrans.exit:                                ; preds = %.backedge.i, %bfs_dequeue.exit139.i, %bfs_dequeue.exit139.thread.sink.split.i, %.preheader54.i, %1, %5
   %.0 = phi i32 [ 0, %5 ], [ 4, %1 ], [ 0, %.preheader54.i ], [ 20, %bfs_dequeue.exit139.thread.sink.split.i ], [ 0, %bfs_dequeue.exit139.i ], [ 0, %.backedge.i ]
   ret i32 %.0
 }

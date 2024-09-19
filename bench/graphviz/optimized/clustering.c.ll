@@ -202,7 +202,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.3, i64 noundef %0, i64 noundef %1) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 8:                                                ; preds = %4
@@ -214,7 +214,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, i64 noundef %13) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -288,7 +288,7 @@ define internal fastcc noalias noundef ptr @Multilevel_Modularity_Clustering_ini
 7:                                                ; preds = %2
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.4, i64 noundef 88) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 gv_alloc.exit:                                    ; preds = %2
@@ -862,7 +862,7 @@ declare ptr @SparseMatrix_transpose(ptr noundef) local_unnamed_addr #1
 declare ptr @SparseMatrix_multiply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #18
   unreachable
 }

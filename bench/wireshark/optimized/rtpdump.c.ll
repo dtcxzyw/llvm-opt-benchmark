@@ -370,7 +370,7 @@ define internal i32 @rtpdump_read(ptr nocapture noundef readonly %0, ptr noundef
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %10, align 8
-  %11 = tail call fastcc i32 @rtpdump_read_packet.argprom(ptr %.val, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %11 = tail call fastcc i32 @rtpdump_read_packet(ptr %.val, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %11
 }
 
@@ -386,7 +386,7 @@ define internal i32 @rtpdump_seek_read(ptr nocapture noundef readonly %0, i64 no
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %13, align 8
-  %14 = tail call fastcc i32 @rtpdump_read_packet.argprom(ptr %.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %14 = tail call fastcc i32 @rtpdump_read_packet(ptr %.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %15
 
 15:                                               ; preds = %6, %11
@@ -408,7 +408,7 @@ declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) loc
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rtpdump_read_packet.argprom(ptr %.96.val, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @rtpdump_read_packet(ptr %.96.val, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2

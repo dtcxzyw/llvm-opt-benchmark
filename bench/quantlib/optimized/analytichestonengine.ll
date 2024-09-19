@@ -3397,7 +3397,7 @@ if.then:                                          ; preds = %entry
   %mul = fmul double %add, 5.000000e-01
   %mul3 = fmul double %11, 0x3FF0000002AF31DC
   %mul4 = fmul double %div30.i, 0x3FEFFFFFFAA19C47
-  %call5 = call fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd.argprom"(ptr noundef nonnull align 8 dereferenceable(74) %ref.tmp, ptr nonnull %this, double noundef %10, double noundef %mul, double noundef %mul3, double noundef %mul4)
+  %call5 = call fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd"(ptr noundef nonnull align 8 dereferenceable(74) %ref.tmp, ptr nonnull %this, double noundef %10, double noundef %mul, double noundef %mul3, double noundef %mul4)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp) #35
   br label %do.body
 
@@ -3443,7 +3443,7 @@ if.then16:                                        ; preds = %if.then7
   %mul22 = fmul double %add21, 5.000000e-01
   %mul24 = fmul double %12, 0x3FF0000002AF31DC
   %mul25 = fmul double %div30.i25, 0x3FEFFFFFFAA19C47
-  %call26 = call fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd.argprom"(ptr noundef nonnull align 8 dereferenceable(74) %ref.tmp18, ptr nonnull %this, double noundef %21, double noundef %mul22, double noundef %mul24, double noundef %mul25)
+  %call26 = call fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd"(ptr noundef nonnull align 8 dereferenceable(74) %ref.tmp18, ptr nonnull %this, double noundef %21, double noundef %mul22, double noundef %mul24, double noundef %mul25)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp18) #35
   br label %do.body
 
@@ -3459,7 +3459,7 @@ if.else28:                                        ; preds = %if.then7
   %add32 = fadd double %12, 1.000000e+00
   %mul33 = fmul double %add32, 5.000000e-01
   %mul35 = fmul double %12, 0x3FEFFFFFFAA19C47
-  %call36 = call fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd.argprom"(ptr noundef nonnull align 8 dereferenceable(74) %ref.tmp29, ptr nonnull %this, double noundef %22, double noundef %mul33, double noundef 0x3FF0000002AF31DC, double noundef %mul35)
+  %call36 = call fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd"(ptr noundef nonnull align 8 dereferenceable(74) %ref.tmp29, ptr nonnull %this, double noundef %22, double noundef %mul33, double noundef 0x3FF0000002AF31DC, double noundef %mul35)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp29) #35
   br label %do.body
 
@@ -3494,7 +3494,7 @@ if.else38:                                        ; preds = %if.else
   %mul45 = fmul double %add44, 5.000000e-01
   %mul47 = fmul double %30, 0x3FF0000002AF31DC
   %mul48 = fmul double %div30.i42, 0x3FEFFFFFFAA19C47
-  %call49 = call fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd.argprom"(ptr noundef nonnull align 8 dereferenceable(74) %ref.tmp41, ptr nonnull %this, double noundef %29, double noundef %mul45, double noundef %mul47, double noundef %mul48)
+  %call49 = call fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd"(ptr noundef nonnull align 8 dereferenceable(74) %ref.tmp41, ptr nonnull %this, double noundef %29, double noundef %mul45, double noundef %mul47, double noundef %mul48)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp41) #35
   br label %do.body
 
@@ -3671,7 +3671,7 @@ unreachable:                                      ; preds = %invoke.cont68
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd.argprom"(ptr nocapture noundef nonnull align 8 dereferenceable(74) %this, ptr nocapture readonly %f.0.val, double noundef %accuracy, double noundef %guess, double noundef %xMin, double noundef %xMax) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_dddd"(ptr nocapture noundef nonnull align 8 dereferenceable(74) %this, ptr nocapture readonly %f.0.val, double noundef %accuracy, double noundef %guess, double noundef %xMin, double noundef %xMax) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4476,7 +4476,7 @@ if.then.i.i165:                                   ; preds = %do.end187
   %div.i.i = fdiv double %sub11.i.i, %add.i.i
   %call12.i.i = tail call double @log(double noundef %div.i.i) #35, !tbaa !50
   %div13.i.i = fdiv double %call12.i.i, %call.i.i166
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit"
 
 if.else.i.i:                                      ; preds = %do.end187
   %fneg.i.i = fneg double %102
@@ -4488,9 +4488,9 @@ if.else.i.i:                                      ; preds = %do.end187
   %call26.i.i = tail call double @atan(double noundef %div25.i.i) #35, !tbaa !50
   %sub27.i.i = fsub double %cond.i.i, %call26.i.i
   %mul28.i.i = fmul double %div23.i.i, %sub27.i.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit"
 
-"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit": ; preds = %if.then.i.i165, %if.else.i.i
+"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit": ; preds = %if.then.i.i165, %if.else.i.i
   %retval.0.i.i = phi double [ %div13.i.i, %if.then.i.i165 ], [ %mul28.i.i, %if.else.i.i ]
   %103 = load double, ptr %f.0.val, align 8, !tbaa !61
   %sub.i = fsub double %retval.0.i.i, %103
@@ -4502,7 +4502,7 @@ if.else.i.i:                                      ; preds = %do.end187
   %or.cond = or i1 %cmp.i167, %cmp4.i
   br i1 %or.cond, label %return, label %if.end194
 
-if.end194:                                        ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit"
+if.end194:                                        ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit"
   %105 = tail call double @llvm.fmuladd.f64(double %neg.i.i, double %xMax, double %94)
   %cmp.i.i174 = fcmp ult double %xMax, %99
   %106 = load double, ptr %kp_.i.i, align 8
@@ -4522,7 +4522,7 @@ if.then.i.i182:                                   ; preds = %if.end194
   %div.i.i186 = fdiv double %sub11.i.i184, %add.i.i185
   %call12.i.i187 = tail call double @log(double noundef %div.i.i186) #35, !tbaa !50
   %div13.i.i188 = fdiv double %call12.i.i187, %call.i.i183
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit201"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit201"
 
 if.else.i.i191:                                   ; preds = %if.end194
   %fneg.i.i192 = fneg double %108
@@ -4534,9 +4534,9 @@ if.else.i.i191:                                   ; preds = %if.end194
   %call26.i.i198 = tail call double @atan(double noundef %div25.i.i197) #35, !tbaa !50
   %sub27.i.i199 = fsub double %cond.i.i196, %call26.i.i198
   %mul28.i.i200 = fmul double %div23.i.i194, %sub27.i.i199
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit201"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit201"
 
-"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit201": ; preds = %if.then.i.i182, %if.else.i.i191
+"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit201": ; preds = %if.then.i.i182, %if.else.i.i191
   %retval.0.i.i189 = phi double [ %div13.i.i188, %if.then.i.i182 ], [ %mul28.i.i200, %if.else.i.i191 ]
   %sub.i190 = fsub double %retval.0.i.i189, %103
   %fxMax_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -4547,7 +4547,7 @@ if.else.i.i191:                                   ; preds = %if.end194
   %or.cond131 = or i1 %cmp.i202, %cmp4.i207
   br i1 %or.cond131, label %return, label %if.end201
 
-if.end201:                                        ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit201"
+if.end201:                                        ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit201"
   %evaluationNumber_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 2, ptr %evaluationNumber_, align 8, !tbaa !111
   %mul = fmul double %sub.i, %sub.i190
@@ -5130,7 +5130,7 @@ if.then.i.i.i:                                    ; preds = %do.end365
   %div.i.i.i = fdiv double %sub11.i.i.i, %add.i.i.i335
   %call12.i.i.i = tail call double @log(double noundef %div.i.i.i) #35, !tbaa !50
   %div13.i.i.i = fdiv double %call12.i.i.i, %call.i.i.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit.i"
 
 if.else.i.i.i:                                    ; preds = %do.end365
   %fneg.i.i.i = fneg double %183
@@ -5142,9 +5142,9 @@ if.else.i.i.i:                                    ; preds = %do.end365
   %call26.i.i.i = tail call double @atan(double noundef %div25.i.i.i) #35, !tbaa !50
   %sub27.i.i.i = fsub double %cond.i.i.i, %call26.i.i.i
   %mul28.i.i.i = fmul double %div23.i.i.i, %sub27.i.i.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit.i"
 
-"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit.i": ; preds = %if.else.i.i.i, %if.then.i.i.i
+"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit.i": ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi double [ %div13.i.i.i, %if.then.i.i.i ], [ %mul28.i.i.i, %if.else.i.i.i ]
   %sub.i.i = fsub double %retval.0.i.i.i, %103
   store i64 3, ptr %evaluationNumber_, align 8, !tbaa !111
@@ -5152,12 +5152,12 @@ if.else.i.i.i:                                    ; preds = %do.end365
   %cmp.i336 = fcmp olt double %mul.i, 0.000000e+00
   br i1 %cmp.i336, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit.i"
+if.then.i:                                        ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit.i"
   store double %xMin, ptr %xMax_, align 8, !tbaa !104
   store double %sub.i, ptr %fxMax_, align 8, !tbaa !110
   br label %if.end.i337
 
-if.else.i:                                        ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit.i"
+if.else.i:                                        ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit.i"
   store double %xMax, ptr %xMin_, align 8, !tbaa !103
   store double %sub.i190, ptr %fxMin_, align 8, !tbaa !109
   br label %if.end.i337
@@ -5175,15 +5175,15 @@ while.body.lr.ph.i:                               ; preds = %if.end.i337
   %mul45.i = fmul double %.sroa.speculated, 5.000000e-01
   br label %while.body.i
 
-while.body.i:                                     ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i", %while.body.lr.ph.i
-  %187 = phi double [ %185, %while.body.lr.ph.i ], [ %200, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i" ]
-  %188 = phi double [ %guess, %while.body.lr.ph.i ], [ %storemerge.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i" ]
-  %189 = phi double [ %184, %while.body.lr.ph.i ], [ %froot.1.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i" ]
-  %190 = phi double [ %185, %while.body.lr.ph.i ], [ %201, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i" ]
-  %191 = phi i64 [ 3, %while.body.lr.ph.i ], [ %inc126.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i" ]
-  %e.029.i = phi double [ %sub.i338, %while.body.lr.ph.i ], [ %e.2.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i" ]
-  %d.028.i = phi double [ %sub.i338, %while.body.lr.ph.i ], [ %d.2.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i" ]
-  %froot.027.i = phi double [ %sub.i.i, %while.body.lr.ph.i ], [ %sub.i115.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i" ]
+while.body.i:                                     ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i", %while.body.lr.ph.i
+  %187 = phi double [ %185, %while.body.lr.ph.i ], [ %200, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i" ]
+  %188 = phi double [ %guess, %while.body.lr.ph.i ], [ %storemerge.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i" ]
+  %189 = phi double [ %184, %while.body.lr.ph.i ], [ %froot.1.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i" ]
+  %190 = phi double [ %185, %while.body.lr.ph.i ], [ %201, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i" ]
+  %191 = phi i64 [ 3, %while.body.lr.ph.i ], [ %inc126.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i" ]
+  %e.029.i = phi double [ %sub.i338, %while.body.lr.ph.i ], [ %e.2.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i" ]
+  %d.028.i = phi double [ %sub.i338, %while.body.lr.ph.i ], [ %d.2.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i" ]
+  %froot.027.i = phi double [ %sub.i.i, %while.body.lr.ph.i ], [ %sub.i115.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i" ]
   %cmp11.i = fcmp ogt double %froot.027.i, 0.000000e+00
   %192 = load double, ptr %fxMax_, align 8
   %cmp13.i = fcmp ogt double %192, 0.000000e+00
@@ -5259,18 +5259,18 @@ if.then.i.i66.i:                                  ; preds = %if.then52.i
   %add.i.i69.i = fadd double %206, %call.i.i67.i
   %div.i.i70.i = fdiv double %sub11.i.i68.i, %add.i.i69.i
   %210 = fcmp ugt double %div.i.i70.i, 0.000000e+00
-  br i1 %210, label %"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.argprom.exit", label %cdce.call, !prof !115
+  br i1 %210, label %"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.exit", label %cdce.call, !prof !115
 
 cdce.call:                                        ; preds = %if.then.i.i66.i
   %call12.i.i71.i = tail call double @log(double noundef %div.i.i70.i) #35, !tbaa !50
-  br label %"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.argprom.exit"
+  br label %"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.exit"
 
 if.else.i.i75.i:                                  ; preds = %if.then52.i
   %fneg.i.i76.i = fneg double %209
   %call22.i.i77.i = tail call double @sqrt(double noundef %fneg.i.i76.i) #35, !tbaa !50
   %div25.i.i81.i = fdiv double %call22.i.i77.i, %206
   %call26.i.i82.i = tail call double @atan(double noundef %div25.i.i81.i) #35, !tbaa !50
-  br label %"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.argprom.exit"
+  br label %"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.exit"
 
 if.end58.i:                                       ; preds = %if.end40.i
   %211 = tail call double @llvm.fabs.f64(double %e.1.i)
@@ -5394,7 +5394,7 @@ if.then.i.i107.i:                                 ; preds = %if.end122.i
   %div.i.i111.i = fdiv double %sub11.i.i109.i, %add.i.i110.i
   %call12.i.i112.i = tail call double @log(double noundef %div.i.i111.i) #35, !tbaa !50
   %div13.i.i113.i = fdiv double %call12.i.i112.i, %call.i.i108.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i"
 
 if.else.i.i116.i:                                 ; preds = %if.end122.i
   %fneg.i.i117.i = fneg double %227
@@ -5406,9 +5406,9 @@ if.else.i.i116.i:                                 ; preds = %if.end122.i
   %call26.i.i123.i = tail call double @atan(double noundef %div25.i.i122.i) #35, !tbaa !50
   %sub27.i.i124.i = fsub double %cond.i.i121.i, %call26.i.i123.i
   %mul28.i.i125.i = fmul double %div23.i.i119.i, %sub27.i.i124.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i"
 
-"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i": ; preds = %if.else.i.i116.i, %if.then.i.i107.i
+"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i": ; preds = %if.else.i.i116.i, %if.then.i.i107.i
   %retval.0.i.i114.i = phi double [ %div13.i.i113.i, %if.then.i.i107.i ], [ %mul28.i.i125.i, %if.else.i.i116.i ]
   %sub.i115.i = fsub double %retval.0.i.i114.i, %103
   %inc126.i = add i64 %191, 1
@@ -5416,7 +5416,7 @@ if.else.i.i116.i:                                 ; preds = %if.end122.i
   %cmp10.not.i = icmp ugt i64 %inc126.i, %186
   br i1 %cmp10.not.i, label %do.body.i, label %while.body.i, !llvm.loop !116
 
-do.body.i:                                        ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit126.i", %if.end.i337
+do.body.i:                                        ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit126.i", %if.end.i337
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream.i) #35
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream.i)
   %call1.i129.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream.i, ptr noundef nonnull @.str.99, i64 noundef 40)
@@ -5588,13 +5588,13 @@ ehcleanup154.i:                                   ; preds = %cleanup.action.i, %
 unreachable.i:                                    ; preds = %invoke.cont144.i
   unreachable
 
-"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.argprom.exit": ; preds = %cdce.call, %if.then.i.i66.i, %if.else.i.i75.i
+"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.exit": ; preds = %cdce.call, %if.then.i.i66.i, %if.else.i.i75.i
   %inc56.i = add i64 %191, 1
   store i64 %inc56.i, ptr %evaluationNumber_, align 8, !tbaa !111
   br label %return
 
-return:                                           ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit201", %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit", %"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.argprom.exit"
-  %retval.0 = phi double [ %201, %"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.argprom.exit" ], [ %xMin, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit" ], [ %xMax, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.argprom.exit201" ]
+return:                                           ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit201", %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit", %"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.exit"
+  %retval.0 = phi double [ %201, %"_ZNK8QuantLib5Brent9solveImplIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdE3$_0EEdRKT_d.exit" ], [ %xMin, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit" ], [ %xMax, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit201" ]
   ret double %retval.0
 
 unreachable:                                      ; preds = %invoke.cont346, %invoke.cont296, %invoke.cont246, %invoke.cont168, %invoke.cont115, %invoke.cont64, %invoke.cont17
@@ -6283,7 +6283,7 @@ if.then.i.i165.i:                                 ; preds = %do.end187.i
   %div.i.i.i = fdiv double %sub11.i.i.i, %add.i.i.i
   %call12.i.i.i = tail call double @log(double noundef %div.i.i.i) #35, !tbaa !50
   %div13.i.i.i = fdiv double %call12.i.i.i, %call.i.i166.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i"
 
 if.else.i.i.i:                                    ; preds = %do.end187.i
   %fneg.i.i.i = fneg double %56
@@ -6295,18 +6295,18 @@ if.else.i.i.i:                                    ; preds = %do.end187.i
   %call26.i.i.i = tail call double @atan(double noundef %div25.i.i.i) #35, !tbaa !50
   %sub27.i.i.i = fsub double %cond.i.i.i, %call26.i.i.i
   %mul28.i.i.i = fmul double %div23.i.i.i, %sub27.i.i.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i"
 
-"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i": ; preds = %if.else.i.i.i, %if.then.i.i165.i
+"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i": ; preds = %if.else.i.i.i, %if.then.i.i165.i
   %retval.0.i.i.i = phi double [ %div13.i.i.i, %if.then.i.i165.i ], [ %mul28.i.i.i, %if.else.i.i.i ]
   %sub.i.i = fsub double %retval.0.i.i.i, %4
   %cmp.i167.i = fcmp oeq double %sub.i.i, 0.000000e+00
   %57 = tail call double @llvm.fabs.f64(double %sub.i.i)
   %cmp4.i.i = fcmp olt double %57, 0x3A1B900000000000
   %or.cond.i = or i1 %cmp.i167.i, %cmp4.i.i
-  br i1 %or.cond.i, label %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.argprom.exit", label %if.end194.i
+  br i1 %or.cond.i, label %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.exit", label %if.end194.i
 
-if.end194.i:                                      ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i"
+if.end194.i:                                      ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i"
   %58 = tail call double @llvm.fmuladd.f64(double %neg.i.i.i, double %mul4, double %2)
   %cmp.i.i174.i = fcmp ult double %mul4, %10
   %59 = load double, ptr %kp_.i.i.i, align 8
@@ -6326,7 +6326,7 @@ if.then.i.i182.i:                                 ; preds = %if.end194.i
   %div.i.i186.i = fdiv double %sub11.i.i184.i, %add.i.i185.i
   %call12.i.i187.i = tail call double @log(double noundef %div.i.i186.i) #35, !tbaa !50
   %div13.i.i188.i = fdiv double %call12.i.i187.i, %call.i.i183.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit201.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit201.i"
 
 if.else.i.i191.i:                                 ; preds = %if.end194.i
   %fneg.i.i192.i = fneg double %61
@@ -6338,18 +6338,18 @@ if.else.i.i191.i:                                 ; preds = %if.end194.i
   %call26.i.i198.i = tail call double @atan(double noundef %div25.i.i197.i) #35, !tbaa !50
   %sub27.i.i199.i = fsub double %cond.i.i196.i, %call26.i.i198.i
   %mul28.i.i200.i = fmul double %div23.i.i194.i, %sub27.i.i199.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit201.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit201.i"
 
-"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit201.i": ; preds = %if.else.i.i191.i, %if.then.i.i182.i
+"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit201.i": ; preds = %if.else.i.i191.i, %if.then.i.i182.i
   %retval.0.i.i189.i = phi double [ %div13.i.i188.i, %if.then.i.i182.i ], [ %mul28.i.i200.i, %if.else.i.i191.i ]
   %sub.i190.i = fsub double %retval.0.i.i189.i, %4
   %cmp.i202.i = fcmp oeq double %sub.i190.i, 0.000000e+00
   %62 = tail call double @llvm.fabs.f64(double %sub.i190.i)
   %cmp4.i207.i = fcmp olt double %62, 0x3A1B900000000000
   %or.cond131.i = or i1 %cmp.i202.i, %cmp4.i207.i
-  br i1 %or.cond131.i, label %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.argprom.exit", label %if.end201.i
+  br i1 %or.cond131.i, label %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.exit", label %if.end201.i
 
-if.end201.i:                                      ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit201.i"
+if.end201.i:                                      ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit201.i"
   %mul.i = fmul double %sub.i.i, %sub.i190.i
   %cmp205.i = fcmp olt double %mul.i, 0.000000e+00
   br i1 %cmp205.i, label %do.body266.i, label %if.then206.i
@@ -6923,7 +6923,7 @@ if.then.i.i.i.i:                                  ; preds = %do.end365.i
   %div.i.i.i.i = fdiv double %sub11.i.i.i.i, %add.i.i.i335.i
   %call12.i.i.i.i = tail call double @log(double noundef %div.i.i.i.i) #35, !tbaa !50
   %div13.i.i.i.i = fdiv double %call12.i.i.i.i, %call.i.i.i.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i"
 
 if.else.i.i.i.i:                                  ; preds = %do.end365.i
   %fneg.i.i.i.i = fneg double %130
@@ -6935,9 +6935,9 @@ if.else.i.i.i.i:                                  ; preds = %do.end365.i
   %call26.i.i.i.i = tail call double @atan(double noundef %div25.i.i.i.i) #35, !tbaa !50
   %sub27.i.i.i.i = fsub double %cond.i.i.i.i, %call26.i.i.i.i
   %mul28.i.i.i.i = fmul double %div23.i.i.i.i, %sub27.i.i.i.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i"
 
-"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i": ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
+"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i": ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi double [ %div13.i.i.i.i, %if.then.i.i.i.i ], [ %mul28.i.i.i.i, %if.else.i.i.i.i ]
   %sub.i.i.i = fsub double %retval.0.i.i.i.i, %4
   %mul.i.i7 = fmul double %sub.i.i, %sub.i.i.i
@@ -6948,16 +6948,16 @@ if.else.i.i.i.i:                                  ; preds = %do.end365.i
   %mul45.i.i = fmul double %.sroa.speculated.i, 5.000000e-01
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i", %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i"
-  %ref.tmp.sroa.27.1 = phi double [ %ref.tmp.sroa.27.0, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i" ], [ %ref.tmp.sroa.27.3, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i" ]
-  %132 = phi double [ %131, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i" ], [ %142, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i" ]
-  %133 = phi double [ %mul, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i" ], [ %storemerge.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i" ]
-  %134 = phi double [ %ref.tmp.sroa.27.0, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i" ], [ %froot.1.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i" ]
-  %135 = phi double [ %131, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i" ], [ %143, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i" ]
-  %136 = phi i64 [ 3, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i" ], [ %inc126.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i" ]
-  %e.029.i.i = phi double [ %sub.i338.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i" ], [ %e.2.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i" ]
-  %d.028.i.i = phi double [ %sub.i338.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i" ], [ %d.2.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i" ]
-  %froot.027.i.i = phi double [ %sub.i.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i.i" ], [ %sub.i115.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i", %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i"
+  %ref.tmp.sroa.27.1 = phi double [ %ref.tmp.sroa.27.0, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i" ], [ %ref.tmp.sroa.27.3, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i" ]
+  %132 = phi double [ %131, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i" ], [ %142, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i" ]
+  %133 = phi double [ %mul, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i" ], [ %storemerge.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i" ]
+  %134 = phi double [ %ref.tmp.sroa.27.0, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i" ], [ %froot.1.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i" ]
+  %135 = phi double [ %131, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i" ], [ %143, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i" ]
+  %136 = phi i64 [ 3, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i" ], [ %inc126.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i" ]
+  %e.029.i.i = phi double [ %sub.i338.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i" ], [ %e.2.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i" ]
+  %d.028.i.i = phi double [ %sub.i338.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i" ], [ %d.2.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i" ]
+  %froot.027.i.i = phi double [ %sub.i.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i" ], [ %sub.i115.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i" ]
   %cmp11.i.i = fcmp ogt double %froot.027.i.i, 0.000000e+00
   %cmp13.i.i = fcmp ogt double %ref.tmp.sroa.27.1, 0.000000e+00
   %or.cond.i.i = select i1 %cmp11.i.i, i1 %cmp13.i.i, i1 false
@@ -7025,18 +7025,18 @@ if.then.i.i66.i.i:                                ; preds = %if.then52.i.i
   %add.i.i69.i.i = fadd double %148, %call.i.i67.i.i
   %div.i.i70.i.i = fdiv double %sub11.i.i68.i.i, %add.i.i69.i.i
   %152 = fcmp ugt double %div.i.i70.i.i, 0.000000e+00
-  br i1 %152, label %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.argprom.exit", label %cdce.call, !prof !115
+  br i1 %152, label %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.exit", label %cdce.call, !prof !115
 
 cdce.call:                                        ; preds = %if.then.i.i66.i.i
   %call12.i.i71.i.i = tail call double @log(double noundef %div.i.i70.i.i) #35, !tbaa !50
-  br label %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.argprom.exit"
+  br label %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.exit"
 
 if.else.i.i75.i.i:                                ; preds = %if.then52.i.i
   %fneg.i.i76.i.i = fneg double %151
   %call22.i.i77.i.i = tail call double @sqrt(double noundef %fneg.i.i76.i.i) #35, !tbaa !50
   %div25.i.i81.i.i = fdiv double %call22.i.i77.i.i, %148
   %call26.i.i82.i.i = tail call double @atan(double noundef %div25.i.i81.i.i) #35, !tbaa !50
-  br label %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.argprom.exit"
+  br label %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.exit"
 
 if.end58.i.i:                                     ; preds = %if.end40.i.i
   %153 = tail call double @llvm.fabs.f64(double %e.1.i.i)
@@ -7157,7 +7157,7 @@ if.then.i.i107.i.i:                               ; preds = %if.end122.i.i
   %div.i.i111.i.i = fdiv double %sub11.i.i109.i.i, %add.i.i110.i.i
   %call12.i.i112.i.i = tail call double @log(double noundef %div.i.i111.i.i) #35, !tbaa !50
   %div13.i.i113.i.i = fdiv double %call12.i.i112.i.i, %call.i.i108.i.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i"
 
 if.else.i.i116.i.i:                               ; preds = %if.end122.i.i
   %fneg.i.i117.i.i = fneg double %169
@@ -7169,16 +7169,16 @@ if.else.i.i116.i.i:                               ; preds = %if.end122.i.i
   %call26.i.i123.i.i = tail call double @atan(double noundef %div25.i.i122.i.i) #35, !tbaa !50
   %sub27.i.i124.i.i = fsub double %cond.i.i121.i.i, %call26.i.i123.i.i
   %mul28.i.i125.i.i = fmul double %div23.i.i119.i.i, %sub27.i.i124.i.i
-  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i"
+  br label %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i"
 
-"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i": ; preds = %if.else.i.i116.i.i, %if.then.i.i107.i.i
+"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i": ; preds = %if.else.i.i116.i.i, %if.then.i.i107.i.i
   %retval.0.i.i114.i.i = phi double [ %div13.i.i113.i.i, %if.then.i.i107.i.i ], [ %mul28.i.i125.i.i, %if.else.i.i116.i.i ]
   %sub.i115.i.i = fsub double %retval.0.i.i114.i.i, %4
   %inc126.i.i = add nuw nsw i64 %136, 1
   %exitcond = icmp eq i64 %inc126.i.i, 101
   br i1 %exitcond, label %do.body.i.i, label %while.body.i.i, !llvm.loop !119
 
-do.body.i.i:                                      ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit126.i.i"
+do.body.i.i:                                      ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit126.i.i"
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream.i.i) #35
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream.i.i)
   %call1.i129.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream.i.i, ptr noundef nonnull @.str.99, i64 noundef 40)
@@ -7352,13 +7352,13 @@ unreachable.i.i:                                  ; preds = %invoke.cont144.i.i
 unreachable.i:                                    ; preds = %invoke.cont346.i, %invoke.cont296.i, %invoke.cont246.i, %invoke.cont64.i, %invoke.cont17.i
   unreachable
 
-"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.argprom.exit": ; preds = %cdce.call, %if.then.i.i66.i.i, %if.else.i.i75.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i", %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit201.i"
-  %retval.0.i = phi double [ %mul2, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit.i" ], [ %mul4, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.argprom.exit201.i" ], [ %143, %if.else.i.i75.i.i ], [ %143, %if.then.i.i66.i.i ], [ %143, %cdce.call ]
+"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.exit": ; preds = %cdce.call, %if.then.i.i66.i.i, %if.else.i.i75.i.i, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i", %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit201.i"
+  %retval.0.i = phi double [ %mul2, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i" ], [ %mul4, %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit201.i" ], [ %143, %if.else.i.i75.i.i ], [ %143, %if.then.i.i66.i.i ], [ %143, %cdce.call ]
   %sub = fadd double %retval.0.i, -1.000000e+00
   %cmp = fcmp ugt double %sub, -1.000000e+00
   br i1 %cmp, label %if.then, label %do.end
 
-if.then:                                          ; preds = %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.argprom.exit"
+if.then:                                          ; preds = %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.exit"
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #35
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
   %call1.i9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, ptr noundef nonnull @.str.10, i64 noundef 40)
@@ -7514,7 +7514,7 @@ ehcleanup29:                                      ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream) #35
   br label %common.resume
 
-do.end:                                           ; preds = %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.argprom.exit"
+do.end:                                           ; preds = %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_20AnalyticHestonEngine12OptimalAlpha8alphaMinEdE3$_0EEdRKT_dddd.exit"
   ret double %sub
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -31786,13 +31786,13 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__functor.val, i64 24
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !202
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEERKS3_IFdvEEdE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEERKS3_IFdvEEdE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #37
   unreachable
 
-"_ZSt10__invoke_rIdRZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEERKS3_IFdvEEdE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rIdRZNK8QuantLib20AnalyticHestonEngine11Integration9calculateEdRKSt8functionIFddEERKS3_IFdvEEdE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %entry
   %2 = getelementptr inbounds nuw i8, ptr %__functor.val, i64 8
   %_M_invoker.i.i.i.i = getelementptr inbounds nuw i8, ptr %__functor.val, i64 32
   %3 = load ptr, ptr %_M_invoker.i.i.i.i, align 8, !tbaa !199
@@ -31917,7 +31917,7 @@ entry:
   %0 = load double, ptr %__functor.val, align 8, !tbaa !225
   %mul.i.i.i = fmul double %__args.val, %0
   %cmp.i.i.i = fcmp ogt double %mul.i.i.i, 0x3CB0000000000000
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand2EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand2EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit
 
 if.then.i.i.i:                                    ; preds = %entry
   %call2.i.i.i = tail call double @log(double noundef %__args.val) #35, !tbaa !50
@@ -31943,9 +31943,9 @@ _ZNKSt8functionIFddEEclEd.exit.i.i.i:             ; preds = %if.then.i.i.i
   %3 = load double, ptr %__functor.val, align 8, !tbaa !225
   %mul6.i.i.i = fmul double %__args.val, %3
   %div7.i.i.i = fdiv double %call2.i.i.i.i, %mul6.i.i.i
-  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand2EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit
+  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand2EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit
 
-_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand2EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit: ; preds = %entry, %_ZNKSt8functionIFddEEclEd.exit.i.i.i
+_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand2EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit: ; preds = %entry, %_ZNKSt8functionIFddEEclEd.exit.i.i.i
   %retval.0.i.i.i = phi double [ %div7.i.i.i, %_ZNKSt8functionIFddEEclEd.exit.i.i.i ], [ 0.000000e+00, %entry ]
   ret double %retval.0.i.i.i
 }
@@ -32067,7 +32067,7 @@ entry:
   %0 = load double, ptr %__functor.val, align 8, !tbaa !225
   %mul.i.i.i.i = fmul double %sub.i.i.i, %0
   %cmp.i.i.i.i = fcmp ogt double %mul.i.i.i.i, 0x3CB0000000000000
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand3EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand3EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %call2.i.i.i.i = tail call double @log(double noundef %sub.i.i.i) #35, !tbaa !50
@@ -32093,9 +32093,9 @@ _ZNKSt8functionIFddEEclEd.exit.i.i.i.i:           ; preds = %if.then.i.i.i.i
   %3 = load double, ptr %__functor.val, align 8, !tbaa !225
   %mul6.i.i.i.i = fmul double %sub.i.i.i, %3
   %div7.i.i.i.i = fdiv double %call2.i.i.i.i.i, %mul6.i.i.i.i
-  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand3EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit
+  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand3EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit
 
-_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand3EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit: ; preds = %entry, %_ZNKSt8functionIFddEEclEd.exit.i.i.i.i
+_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_110integrand3EJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit: ; preds = %entry, %_ZNKSt8functionIFddEEclEd.exit.i.i.i.i
   %retval.0.i.i.i.i = phi double [ %div7.i.i.i.i, %_ZNKSt8functionIFddEEclEd.exit.i.i.i.i ], [ 0.000000e+00, %entry ]
   ret double %retval.0.i.i.i.i
 }

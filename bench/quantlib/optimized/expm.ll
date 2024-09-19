@@ -1551,7 +1551,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %entry
 
 invoke.cont.thread.i.i.i:                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !98
-  br label %_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
+  br label %_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %mul.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %1, 3
@@ -1581,7 +1581,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %invoke.cont.i.i.i, 
 
 for.body.us.preheader.i.i.i:                      ; preds = %for.body.lr.ph.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call5.i.i.i.i2.i.i5.i.i.i, i8 0, i64 %mul.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !72, !noalias !98
-  br label %_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit
+  br label %_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit
 
 for.body.i.i.i:                                   ; preds = %for.body.lr.ph.i.i.i, %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES3_dET1_T_S9_T0_S8_.exit.loopexit.i.i.i
   %i.02.i.i.i = phi i64 [ %inc.i.i.i, %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES3_dET1_T_S9_T0_S8_.exit.loopexit.i.i.i ], [ 0, %for.body.lr.ph.i.i.i ]
@@ -1606,9 +1606,9 @@ _ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES3_dET1
   store double %8, ptr %add.ptr.i7.i.i.i, align 8, !tbaa !72, !noalias !98
   %inc.i.i.i = add nuw i64 %i.02.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %1
-  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit, label %for.body.i.i.i, !llvm.loop !100
+  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit, label %for.body.i.i.i, !llvm.loop !100
 
-_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit: ; preds = %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES3_dET1_T_S9_T0_S8_.exit.loopexit.i.i.i, %invoke.cont.thread.i.i.i, %for.body.us.preheader.i.i.i
+_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES3_dET1_T_S9_T0_S8_.exit.loopexit.i.i.i, %invoke.cont.thread.i.i.i, %for.body.us.preheader.i.i.i
   ret void
 }
 
@@ -3255,14 +3255,14 @@ attributes #24 = { noreturn nounwind }
 !87 = distinct !{!87, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_"}
 !88 = distinct !{!88, !75}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom: %agg.result"}
-!91 = distinct !{!91, !"_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom"}
+!90 = distinct !{!90, !91, !"_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_: %agg.result"}
+!91 = distinct !{!91, !"_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_"}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZSt13__invoke_implISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!94 = distinct !{!94, !"_ZSt13__invoke_implISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!93 = distinct !{!93, !94, !"_ZSt13__invoke_implISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!94 = distinct !{!94, !"_ZSt13__invoke_implISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EET_St14__invoke_otherOT0_DpOT1_"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctclEdRKSt6vectorIdSaIdEE.argprom: %agg.result"}
-!97 = distinct !{!97, !"_ZN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctclEdRKSt6vectorIdSaIdEE.argprom"}
+!96 = distinct !{!96, !97, !"_ZN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctclEdRKSt6vectorIdSaIdEE: %agg.result"}
+!97 = distinct !{!97, !"_ZN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctclEdRKSt6vectorIdSaIdEE"}
 !98 = !{!96, !93, !90}
 !99 = distinct !{!99, !75}
 !100 = distinct !{!100, !75}

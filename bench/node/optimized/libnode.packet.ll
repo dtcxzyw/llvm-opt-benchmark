@@ -2337,9 +2337,9 @@ for.body9.i:                                      ; preds = %for.body.i, %for.bo
   %mul12.i = mul i32 %xor11.i, 16777619
   %p.1.add.i = add nuw nsw i64 %p.1.idx5.i, 1
   %cmp8.not.i = icmp eq i64 %p.1.add.i, 4
-  br i1 %cmp8.not.i, label %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.argprom.argprom.exit", label %for.body9.i, !llvm.loop !42
+  br i1 %cmp8.not.i, label %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit", label %for.body9.i, !llvm.loop !42
 
-"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.argprom.argprom.exit": ; preds = %for.body9.i
+"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit": ; preds = %for.body9.i
   %and.i = and i32 %mul12.i, -252645136
   %or.i = or disjoint i32 %and.i, 168430090
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ver.i)
@@ -2365,13 +2365,13 @@ for.body9.i:                                      ; preds = %for.body.i, %for.bo
   %10 = ptrtoint ptr %8 to i64
   br i1 %cmp.i.not.i, label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit, label %cond.false.i
 
-cond.false.i:                                     ; preds = %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.argprom.argprom.exit"
+cond.false.i:                                     ; preds = %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit"
   %buf_.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %buf_.i.i.i, align 8
   br label %_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit
 
-_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit:       ; preds = %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.argprom.argprom.exit", %cond.false.i
-  %retval.sroa.0.0.i = phi ptr [ %11, %cond.false.i ], [ null, %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.argprom.argprom.exit" ]
+_ZNK4node4quic6Packetcv10ngtcp2_vecEv.exit:       ; preds = %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit", %cond.false.i
+  %retval.sroa.0.0.i = phi ptr [ %11, %cond.false.i ], [ null, %"_ZZN4node4quic6Packet30CreateVersionNegotiationPacketEPNS_11EnvironmentEPNS1_8ListenerERKNS0_14PathDescriptorEENK3$_0clEv.exit" ]
   %12 = load ptr, ptr %dcid, align 8
   %call9 = tail call noundef ptr @_ZNK4node4quic3CIDcvPKhEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #22
   %13 = load ptr, ptr %dcid, align 8

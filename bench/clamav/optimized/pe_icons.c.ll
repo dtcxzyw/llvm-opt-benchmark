@@ -1274,7 +1274,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %.0526.i = phi i32 [ %.4..4..4..4..4..i, %._crit_edge683.i ], [ %.0533.i, %472 ], [ %.4..4..4..4..4..i, %.preheader631.i ], [ %420, %._crit_edge686.i ]
   %.0522.i = phi ptr [ %156, %._crit_edge683.i ], [ %451, %472 ], [ %156, %.preheader631.i ], [ %156, %._crit_edge686.i ]
   call fastcc void @makebmp(ptr noundef nonnull @.str.25, ptr noundef %33, i32 noundef %.0526.i, i32 noundef %.0529.i, ptr noundef %.0522.i)
-  call fastcc void @getmetrics.retelim(i32 noundef %.0526.i, ptr noundef %.0522.i, ptr noundef %7, ptr noundef %33)
+  call fastcc void @getmetrics(i32 noundef %.0526.i, ptr noundef %.0522.i, ptr noundef %7, ptr noundef %33)
   call void @free(ptr noundef %.0522.i) #14
   %473 = lshr i32 %.0526.i, 3
   %474 = add nsw i32 %473, -2
@@ -1743,7 +1743,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getmetrics.retelim(i32 noundef range(i32 16, 257) %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @getmetrics(i32 noundef range(i32 16, 257) %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [6 x i32], align 16
   %6 = alloca [6 x i32], align 16
   %7 = alloca [6 x i32], align 16

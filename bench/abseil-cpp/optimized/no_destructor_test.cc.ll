@@ -1689,7 +1689,7 @@ invoke.cont193:                                   ; preds = %for.body.i
   store i32 %add.i, ptr %b188, align 4
   %moved_out.i.i.i229 = getelementptr inbounds i8, ptr %b188, i64 4
   store i8 0, ptr %moved_out.i.i.i229, align 4
-  call fastcc void @_ZN12_GLOBAL__N_14BlobD2Ev.argprom(i8 1) #20
+  call fastcc void @_ZN12_GLOBAL__N_14BlobD2Ev(i8 1) #20
   store i32 88, ptr %ref.tmp196, align 4
   %74 = load i32, ptr %b188, align 4, !noalias !15
   %cmp.i.i230 = icmp eq i32 %74, 88
@@ -2011,7 +2011,7 @@ eh.resume:                                        ; preds = %lpad245, %_ZN7testi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_14BlobD2Ev.argprom(i8 %this.4.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_14BlobD2Ev(i8 %this.4.val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %death_message = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1

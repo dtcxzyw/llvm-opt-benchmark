@@ -2985,7 +2985,7 @@ entry:
   %call.val = load ptr, ptr %__functor, align 8
   %__begin2.sroa.0.03.i.i.i = load ptr, ptr %call.val, align 8
   %cmp.i.not4.i.i.i = icmp eq ptr %__begin2.sroa.0.03.i.i.i, %call.val
-  br i1 %cmp.i.not4.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes18ConsoleHostContextC1ERNS0_2vm7RuntimeEE3$_0JPNS2_7HadesGCERNS2_12RootAcceptorEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", label %for.body.i.i.i
+  br i1 %cmp.i.not4.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes18ConsoleHostContextC1ERNS0_2vm7RuntimeEE3$_0JPNS2_7HadesGCERNS2_12RootAcceptorEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__begin2.sroa.0.05.i.i.i = phi ptr [ %__begin2.sroa.0.0.i.i.i, %for.body.i.i.i ], [ %__begin2.sroa.0.03.i.i.i, %entry ]
@@ -2996,9 +2996,9 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %second.i.i.i) #16
   %__begin2.sroa.0.0.i.i.i = load ptr, ptr %__begin2.sroa.0.05.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i.i, %call.val
-  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes18ConsoleHostContextC1ERNS0_2vm7RuntimeEE3$_0JPNS2_7HadesGCERNS2_12RootAcceptorEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", label %for.body.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes18ConsoleHostContextC1ERNS0_2vm7RuntimeEE3$_0JPNS2_7HadesGCERNS2_12RootAcceptorEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %for.body.i.i.i
 
-"_ZSt10__invoke_rIvRZN6hermes18ConsoleHostContextC1ERNS0_2vm7RuntimeEE3$_0JPNS2_7HadesGCERNS2_12RootAcceptorEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %for.body.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN6hermes18ConsoleHostContextC1ERNS0_2vm7RuntimeEE3$_0JPNS2_7HadesGCERNS2_12RootAcceptorEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %for.body.i.i.i, %entry
   ret void
 }
 

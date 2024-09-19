@@ -931,7 +931,7 @@ define internal i32 @dissect_selfm_tcp(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = tail call fastcc i32 @dissect_selfm.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %12 = tail call fastcc i32 @dissect_selfm(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %89
 
 13:                                               ; preds = %9
@@ -1078,7 +1078,7 @@ clean_telnet_iac.exit:                            ; preds = %.outer.i, %45, %.th
   %82 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.057, i32 noundef %81) #4
   %83 = zext i8 %82 to i32
   %84 = tail call ptr @tvb_new_subset_length(ptr noundef %.057, i32 noundef %.05675, i32 noundef %83) #4
-  %85 = tail call fastcc i32 @dissect_selfm.argprom(ptr noundef %84, ptr noundef %1, ptr noundef %2)
+  %85 = tail call fastcc i32 @dissect_selfm(ptr noundef %84, ptr noundef %1, ptr noundef %2)
   %86 = add i32 %85, %.05675
   %87 = icmp slt i32 %86, %55
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -1126,7 +1126,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_selfm.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_selfm(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 34, ptr noundef nonnull @.str.307) #4

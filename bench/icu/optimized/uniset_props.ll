@@ -1085,7 +1085,7 @@ lpad.i:                                           ; preds = %new.notnull.i
 
 cleanup.thread:                                   ; preds = %if.then.i
   store i32 7, ptr %ec, align 4
-  br label %_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.argprom.exit
+  br label %_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.exit
 
 if.end112:                                        ; preds = %new.notnull.i, %if.then104, %if.end102
   %scratch.sroa.0.5 = phi ptr [ %scratch.sroa.0.1341, %if.end102 ], [ %scratch.sroa.0.1341, %if.then104 ], [ %call.i, %new.notnull.i ]
@@ -1570,25 +1570,25 @@ cleanup.sink.split:                               ; preds = %invoke.cont13, %sw.
 cleanup:                                          ; preds = %invoke.cont260, %invoke.cont117, %invoke.cont53, %invoke.cont39, %invoke.cont21, %invoke.cont234, %cleanup.sink.split, %invoke.cont186, %if.end353
   %scratch.sroa.0.4 = phi ptr [ %scratch.sroa.0.2.ph, %if.end353 ], [ %scratch.sroa.0.1341, %invoke.cont186 ], [ %scratch.sroa.0.4.ph, %cleanup.sink.split ], [ %scratch.sroa.0.1341, %invoke.cont234 ], [ %scratch.sroa.0.1341, %invoke.cont21 ], [ %scratch.sroa.0.1341, %invoke.cont39 ], [ %scratch.sroa.0.1341, %invoke.cont53 ], [ %scratch.sroa.0.5, %invoke.cont117 ], [ %scratch.sroa.0.1341, %invoke.cont260 ]
   %isnull.i = icmp eq ptr %scratch.sroa.0.4, null
-  br i1 %isnull.i, label %_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.argprom.exit, label %delete.notnull.i
+  br i1 %isnull.i, label %_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %cleanup
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %scratch.sroa.0.4) #16
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %scratch.sroa.0.4) #16
-  br label %_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.argprom.exit
+  br label %_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.exit
 
-_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.argprom.exit: ; preds = %cleanup.thread, %cleanup, %delete.notnull.i
+_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.exit: ; preds = %cleanup.thread, %cleanup, %delete.notnull.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %buf) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %patLocal) #16
   br label %cleanup.cont
 
-cleanup.cont:                                     ; preds = %entry, %_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.argprom.exit, %if.then2
+cleanup.cont:                                     ; preds = %entry, %_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.exit, %if.then2
   ret void
 
 ehcleanup:                                        ; preds = %lpad9.loopexit.split-lp.loopexit.loopexit, %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad9.loopexit, %lpad9.loopexit.split-lp.loopexit.split-lp, %lpad.i, %lpad198
   %scratch.sroa.0.3 = phi ptr [ %scratch.sroa.0.1341, %lpad198 ], [ null, %lpad.i ], [ %scratch.sroa.0.1341, %lpad9.loopexit ], [ %scratch.sroa.0.0.ph.ph268, %lpad9.loopexit.split-lp.loopexit.split-lp ], [ %scratch.sroa.0.0.ph.ph.ph, %lpad9.loopexit.split-lp.loopexit.loopexit ], [ %scratch.sroa.0.1341, %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %13, %lpad198 ], [ %9, %lpad.i ], [ %lpad.loopexit, %lpad9.loopexit ], [ %lpad.loopexit.split-lp270, %lpad9.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit406, %lpad9.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.argprom(ptr %scratch.sroa.0.3) #16
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev(ptr %scratch.sroa.0.3) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %buf) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %patLocal) #16
   resume { ptr, i32 } %.pn
@@ -1970,7 +1970,7 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7510UnicodeSet16_generatePatternERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.argprom(ptr %this.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev(ptr %this.0.val) unnamed_addr #0 align 2 {
 entry:
   %isnull = icmp eq ptr %this.0.val, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -2535,7 +2535,7 @@ if.end97:                                         ; preds = %sw.bb
 
 sw.bb101:                                         ; preds = %if.else85
   %29 = load ptr, ptr %vname, align 8
-  %call105 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci.argelim(ptr noundef %buf, ptr noundef %29)
+  %call105 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr noundef %buf, ptr noundef %29)
   %tobool106.not = icmp eq i8 %call105, 0
   br i1 %tobool106.not, label %cleanup.sink.split, label %if.end111
 
@@ -2558,7 +2558,7 @@ invoke.cont119:                                   ; preds = %if.then118
 
 sw.bb132:                                         ; preds = %if.else85
   %31 = load ptr, ptr %vname, align 8
-  %call138 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci.argelim(ptr noundef %buf133, ptr noundef %31)
+  %call138 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr noundef %buf133, ptr noundef %31)
   %tobool139.not = icmp eq i8 %call138, 0
   br i1 %tobool139.not, label %cleanup.sink.split, label %if.end144
 
@@ -2713,7 +2713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci.argelim(ptr nocapture noundef nonnull %dst, ptr nocapture noundef readonly %src) unnamed_addr #11 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr nocapture noundef nonnull %dst, ptr nocapture noundef readonly %src) unnamed_addr #11 {
 entry:
   %invariant.gep = getelementptr i8, ptr %dst, i64 -1
   br label %while.cond.outer

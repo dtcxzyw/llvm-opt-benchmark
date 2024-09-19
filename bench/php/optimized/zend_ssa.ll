@@ -937,7 +937,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   %127 = load ptr, ptr %95, align 8
   %128 = load i32, ptr %127, align 4
   %129 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %130 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %129, i32 noundef %128, i32 noundef %126)
+  %130 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %129, i32 noundef %128, i32 noundef %126)
   %.not542.i = icmp eq ptr %130, null
   br i1 %.not542.i, label %.thread665.i, label %131
 
@@ -965,7 +965,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   %145 = getelementptr inbounds i8, ptr %144, i64 4
   %146 = load i32, ptr %145, align 4
   %147 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %148 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %147, i32 noundef %146, i32 noundef %143)
+  %148 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %147, i32 noundef %146, i32 noundef %143)
   %.not.i = icmp eq ptr %148, null
   br i1 %.not.i, label %.thread665.i, label %149
 
@@ -1028,7 +1028,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 177:                                              ; preds = %169
   %178 = getelementptr inbounds i8, ptr %103, i64 -56
   %179 = load i32, ptr %178, align 8
-  %180 = call fastcc i32 @find_adjusted_tmp_var.argelim(ptr noundef nonnull %2, ptr noundef nonnull %104, i32 noundef %179, ptr noundef %7)
+  %180 = call fastcc i32 @find_adjusted_tmp_var(ptr noundef nonnull %2, ptr noundef nonnull %104, i32 noundef %179, ptr noundef %7)
   br label %181
 
 181:                                              ; preds = %177, %172, %169
@@ -1054,7 +1054,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 190:                                              ; preds = %181
   %191 = getelementptr inbounds i8, ptr %103, i64 -52
   %192 = load i32, ptr %191, align 4
-  %193 = call fastcc i32 @find_adjusted_tmp_var.argelim(ptr noundef nonnull %2, ptr noundef nonnull %104, i32 noundef %192, ptr noundef %6)
+  %193 = call fastcc i32 @find_adjusted_tmp_var(ptr noundef nonnull %2, ptr noundef nonnull %104, i32 noundef %192, ptr noundef %6)
   br label %194
 
 194:                                              ; preds = %190, %185
@@ -1254,7 +1254,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 297:                                              ; preds = %296
   %298 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %299 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %298, i32 noundef %.0488.i, i32 noundef %.1656.i)
+  %299 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %298, i32 noundef %.0488.i, i32 noundef %.1656.i)
   %.not576.i = icmp eq ptr %299, null
   br i1 %.not576.i, label %312, label %300
 
@@ -1283,7 +1283,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %312
 
 312:                                              ; preds = %300, %297
-  %313 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %298, i32 noundef %.0489.i, i32 noundef %.1656.i)
+  %313 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %298, i32 noundef %.0489.i, i32 noundef %.1656.i)
   %.not577.i = icmp eq ptr %313, null
   br i1 %.not577.i, label %.critedge.thread.i, label %314
 
@@ -1313,7 +1313,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 326:                                              ; preds = %296
   %327 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %328 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %327, i32 noundef %.0489.i, i32 noundef %.1656.i)
+  %328 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %327, i32 noundef %.0489.i, i32 noundef %.1656.i)
   %.not574.i = icmp eq ptr %328, null
   br i1 %.not574.i, label %341, label %329
 
@@ -1342,7 +1342,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %341
 
 341:                                              ; preds = %329, %326
-  %342 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %327, i32 noundef %.0488.i, i32 noundef %.1656.i)
+  %342 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %327, i32 noundef %.0488.i, i32 noundef %.1656.i)
   %.not575.i = icmp eq ptr %342, null
   br i1 %.not575.i, label %.critedge.thread.i, label %343
 
@@ -1377,7 +1377,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br i1 %.not571.i, label %._crit_edge678.i, label %357
 
 357:                                              ; preds = %355
-  %358 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre681.i, i32 noundef %.0488.i, i32 noundef %.1656.i)
+  %358 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre681.i, i32 noundef %.0488.i, i32 noundef %.1656.i)
   %.not572.i = icmp eq ptr %358, null
   br i1 %.not572.i, label %._crit_edge678.i, label %359
 
@@ -1406,7 +1406,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br label %._crit_edge678.i
 
 ._crit_edge678.i:                                 ; preds = %359, %357, %355
-  %371 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre681.i, i32 noundef %.0489.i, i32 noundef %.1656.i)
+  %371 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre681.i, i32 noundef %.0489.i, i32 noundef %.1656.i)
   %.not573.i = icmp eq ptr %371, null
   br i1 %.not573.i, label %.critedge.thread.i, label %372
 
@@ -1435,7 +1435,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
 
 383:                                              ; preds = %296
   %384 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %385 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %384, i32 noundef %.0488.i, i32 noundef %.1656.i)
+  %385 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %384, i32 noundef %.0488.i, i32 noundef %.1656.i)
   %.not568.i = icmp eq ptr %385, null
   %.pre676.i = load i64, ptr %7, align 8
   br i1 %.not568.i, label %397, label %386
@@ -1468,7 +1468,7 @@ define range(i32 -1, 1) i32 @zend_build_ssa(ptr nocapture noundef %0, ptr nounde
   br i1 %.not569.i, label %.critedge.thread.i, label %398
 
 398:                                              ; preds = %397
-  %399 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %384, i32 noundef %.0489.i, i32 noundef %.1656.i)
+  %399 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %384, i32 noundef %.0489.i, i32 noundef %.1656.i)
   %.not570.i = icmp eq ptr %399, null
   br i1 %.not570.i, label %.critedge.thread.i, label %400
 
@@ -1516,7 +1516,7 @@ default.unreachable.i:                            ; preds = %296
 
 415:                                              ; preds = %413
   %416 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %417 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %416, i32 noundef %.0488.i, i32 noundef %.1492650.i)
+  %417 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %416, i32 noundef %.0488.i, i32 noundef %.1492650.i)
   %.not586.i = icmp eq ptr %417, null
   br i1 %.not586.i, label %430, label %418
 
@@ -1545,7 +1545,7 @@ default.unreachable.i:                            ; preds = %296
   br label %430
 
 430:                                              ; preds = %418, %415
-  %431 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %416, i32 noundef %.0489.i, i32 noundef %.1492650.i)
+  %431 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %416, i32 noundef %.0489.i, i32 noundef %.1492650.i)
   %.not587.i = icmp eq ptr %431, null
   br i1 %.not587.i, label %.thread665.i, label %432
 
@@ -1575,7 +1575,7 @@ default.unreachable.i:                            ; preds = %296
 
 444:                                              ; preds = %413
   %445 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %446 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %445, i32 noundef %.0489.i, i32 noundef %.1492650.i)
+  %446 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %445, i32 noundef %.0489.i, i32 noundef %.1492650.i)
   %.not584.i = icmp eq ptr %446, null
   br i1 %.not584.i, label %459, label %447
 
@@ -1604,7 +1604,7 @@ default.unreachable.i:                            ; preds = %296
   br label %459
 
 459:                                              ; preds = %447, %444
-  %460 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %445, i32 noundef %.0488.i, i32 noundef %.1492650.i)
+  %460 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %445, i32 noundef %.0488.i, i32 noundef %.1492650.i)
   %.not585.i = icmp eq ptr %460, null
   br i1 %.not585.i, label %.thread665.i, label %461
 
@@ -1639,7 +1639,7 @@ default.unreachable.i:                            ; preds = %296
   br i1 %.not581.i, label %._crit_edge679.i, label %475
 
 475:                                              ; preds = %473
-  %476 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre680.i, i32 noundef %.0488.i, i32 noundef %.1492650.i)
+  %476 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre680.i, i32 noundef %.0488.i, i32 noundef %.1492650.i)
   %.not582.i = icmp eq ptr %476, null
   br i1 %.not582.i, label %._crit_edge679.i, label %477
 
@@ -1668,7 +1668,7 @@ default.unreachable.i:                            ; preds = %296
   br label %._crit_edge679.i
 
 ._crit_edge679.i:                                 ; preds = %477, %475, %473
-  %489 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre680.i, i32 noundef %.0489.i, i32 noundef %.1492650.i)
+  %489 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %.pre680.i, i32 noundef %.0489.i, i32 noundef %.1492650.i)
   %.not583.i = icmp eq ptr %489, null
   br i1 %.not583.i, label %.thread665.i, label %490
 
@@ -1697,7 +1697,7 @@ default.unreachable.i:                            ; preds = %296
 
 501:                                              ; preds = %413
   %502 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %503 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %502, i32 noundef %.0488.i, i32 noundef %.1492650.i)
+  %503 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %502, i32 noundef %.0488.i, i32 noundef %.1492650.i)
   %.not578.i = icmp eq ptr %503, null
   %.pre677.i = load i64, ptr %6, align 8
   br i1 %.not578.i, label %515, label %504
@@ -1730,7 +1730,7 @@ default.unreachable.i:                            ; preds = %296
   br i1 %.not579.i, label %.thread665.i, label %516
 
 516:                                              ; preds = %515
-  %517 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %502, i32 noundef %.0489.i, i32 noundef %.1492650.i)
+  %517 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %502, i32 noundef %.0489.i, i32 noundef %.1492650.i)
   %.not580.i = icmp eq ptr %517, null
   br i1 %.not580.i, label %.thread665.i, label %518
 
@@ -1786,7 +1786,7 @@ default.unreachable.i:                            ; preds = %296
   %546 = add nsw i32 %545, -5
   %switch672.i = icmp eq i8 %162, 37
   %547 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %548 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %547, i32 noundef %.0489.i, i32 noundef %546)
+  %548 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %547, i32 noundef %.0489.i, i32 noundef %546)
   %.not563.i = icmp eq ptr %548, null
   br i1 %switch672.i, label %549, label %566
 
@@ -1809,7 +1809,7 @@ default.unreachable.i:                            ; preds = %296
   br label %557
 
 557:                                              ; preds = %550, %549
-  %558 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %547, i32 noundef %.0488.i, i32 noundef %546)
+  %558 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %547, i32 noundef %.0488.i, i32 noundef %546)
   %.not564.i = icmp eq ptr %558, null
   br i1 %.not564.i, label %.thread665.i, label %559
 
@@ -1849,7 +1849,7 @@ default.unreachable.i:                            ; preds = %296
   br label %575
 
 575:                                              ; preds = %567, %566
-  %576 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %547, i32 noundef %.0488.i, i32 noundef %546)
+  %576 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %547, i32 noundef %.0488.i, i32 noundef %546)
   %.not562.i = icmp eq ptr %576, null
   br i1 %.not562.i, label %.thread665.i, label %577
 
@@ -1890,7 +1890,7 @@ default.unreachable.i:                            ; preds = %296
   %598 = lshr i32 %597, 4
   %599 = add nsw i32 %598, -5
   %600 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %601 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %600, i32 noundef %.0489.i, i32 noundef %599)
+  %601 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %600, i32 noundef %.0489.i, i32 noundef %599)
   %.not559.i = icmp eq ptr %601, null
   br i1 %.not559.i, label %607, label %602
 
@@ -1906,7 +1906,7 @@ default.unreachable.i:                            ; preds = %296
   br label %607
 
 607:                                              ; preds = %602, %595
-  %608 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %600, i32 noundef %.0488.i, i32 noundef %599)
+  %608 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %600, i32 noundef %.0488.i, i32 noundef %599)
   %.not560.i = icmp eq ptr %608, null
   br i1 %.not560.i, label %.thread665.i, label %609
 
@@ -1947,7 +1947,7 @@ default.unreachable.i:                            ; preds = %296
   %631 = getelementptr inbounds i8, ptr %103, i64 -44
   %632 = load i32, ptr %631, align 4
   %633 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %634 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %633, i32 noundef %.0488.i, i32 noundef %630)
+  %634 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %633, i32 noundef %.0488.i, i32 noundef %630)
   %.not556.i = icmp eq ptr %634, null
   br i1 %.not556.i, label %642, label %635
 
@@ -1973,7 +1973,7 @@ default.unreachable.i:                            ; preds = %296
   br i1 %.not557.i, label %.thread665.i, label %643
 
 643:                                              ; preds = %642
-  %644 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %633, i32 noundef %.0489.i, i32 noundef %630)
+  %644 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %633, i32 noundef %.0489.i, i32 noundef %630)
   %.not558.i = icmp eq ptr %644, null
   br i1 %.not558.i, label %.thread665.i, label %645
 
@@ -2093,7 +2093,7 @@ default.unreachable.i:                            ; preds = %296
   br i1 %710, label %712, label %728
 
 712:                                              ; preds = %707
-  %713 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %711, i32 noundef %.0488.i, i32 noundef %.0487.i)
+  %713 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %711, i32 noundef %.0488.i, i32 noundef %.0487.i)
   %.not554.i = icmp eq ptr %713, null
   br i1 %.not554.i, label %719, label %714
 
@@ -2111,7 +2111,7 @@ default.unreachable.i:                            ; preds = %296
   br label %719
 
 719:                                              ; preds = %714, %712
-  %720 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %711, i32 noundef %.0489.i, i32 noundef %.0487.i)
+  %720 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %711, i32 noundef %.0489.i, i32 noundef %.0487.i)
   %.not555.i = icmp eq ptr %720, null
   br i1 %.not555.i, label %.thread665.i, label %721
 
@@ -2131,7 +2131,7 @@ default.unreachable.i:                            ; preds = %296
   br label %.thread665.i
 
 728:                                              ; preds = %707
-  %729 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %711, i32 noundef %.0489.i, i32 noundef %.0487.i)
+  %729 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %711, i32 noundef %.0489.i, i32 noundef %.0487.i)
   %.not552.i = icmp eq ptr %729, null
   br i1 %.not552.i, label %735, label %730
 
@@ -2149,7 +2149,7 @@ default.unreachable.i:                            ; preds = %296
   br label %735
 
 735:                                              ; preds = %730, %728
-  %736 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %711, i32 noundef %.0488.i, i32 noundef %.0487.i)
+  %736 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %711, i32 noundef %.0488.i, i32 noundef %.0487.i)
   %.not553.i = icmp eq ptr %736, null
   br i1 %.not553.i, label %.thread665.i, label %737
 
@@ -2227,7 +2227,7 @@ default.unreachable.i:                            ; preds = %296
 
 783:                                              ; preds = %778
   %784 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %785 = call fastcc ptr @add_pi.argprom(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %784, i32 noundef %.0488.i, i32 noundef %764)
+  %785 = call fastcc ptr @add_pi(ptr noundef %0, ptr noundef readonly %8, ptr noundef nonnull readonly %4, i32 noundef %784, i32 noundef %.0488.i, i32 noundef %764)
   %.not545.i = icmp eq ptr %785, null
   br i1 %.not545.i, label %.thread665.i, label %786
 
@@ -2710,7 +2710,7 @@ zend_bitset_empty.exit.thread:                    ; preds = %876, %zend_bitset_e
 ._crit_edge706:                                   ; preds = %.lr.ph705, %983
   %997 = getelementptr inbounds i8, ptr %4, i64 40
   store i32 %988, ptr %997, align 8
-  call fastcc void @zend_ssa_rename.retelim(ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %865, i32 noundef 0)
+  call fastcc void @zend_ssa_rename(ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %865, i32 noundef 0)
   br i1 %861, label %998, label %999
 
 998:                                              ; preds = %._crit_edge706
@@ -2746,7 +2746,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #4
 declare void @zend_dump_phi_placement(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_ssa_rename.retelim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #1 {
+define internal fastcc void @zend_ssa_rename(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 48
@@ -3886,7 +3886,7 @@ define internal fastcc void @zend_ssa_rename.retelim(ptr nocapture noundef reado
 
 .lr.ph587:                                        ; preds = %._crit_edge582, %.lr.ph587
   %.3472585 = phi i32 [ %.3472, %.lr.ph587 ], [ %.3472584, %._crit_edge582 ]
-  call fastcc void @zend_ssa_rename.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0467, i32 noundef %.3472585)
+  call fastcc void @zend_ssa_rename(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0467, i32 noundef %.3472585)
   %644 = zext nneg i32 %.3472585 to i64
   %645 = getelementptr inbounds %struct._zend_basic_block, ptr %7, i64 %644, i32 11
   %.3472 = load i32, ptr %645, align 4
@@ -5302,7 +5302,7 @@ zend_ssa_remove_uses_of_phi_sources.exit:         ; preds = %zend_ssa_remove_use
   %88 = getelementptr inbounds %struct._zend_ssa_block, ptr %.val, i64 %.pre-phi
   %89 = load ptr, ptr %88, align 8
   %.not1.i = icmp eq ptr %89, %1
-  br i1 %.not1.i, label %zend_ssa_remove_phi_from_block.argprom.exit, label %.lr.ph.i12
+  br i1 %.not1.i, label %zend_ssa_remove_phi_from_block.exit, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %zend_ssa_remove_uses_of_phi_sources.exit, %.lr.ph.i12
   %90 = phi ptr [ %92, %.lr.ph.i12 ], [ %89, %zend_ssa_remove_uses_of_phi_sources.exit ]
@@ -5310,9 +5310,9 @@ zend_ssa_remove_uses_of_phi_sources.exit:         ; preds = %zend_ssa_remove_use
   tail call void @llvm.assume(i1 %91)
   %92 = load ptr, ptr %90, align 8
   %.not.i = icmp eq ptr %92, %1
-  br i1 %.not.i, label %zend_ssa_remove_phi_from_block.argprom.exit, label %.lr.ph.i12
+  br i1 %.not.i, label %zend_ssa_remove_phi_from_block.exit, label %.lr.ph.i12
 
-zend_ssa_remove_phi_from_block.argprom.exit:      ; preds = %.lr.ph.i12, %zend_ssa_remove_uses_of_phi_sources.exit
+zend_ssa_remove_phi_from_block.exit:              ; preds = %.lr.ph.i12, %zend_ssa_remove_uses_of_phi_sources.exit
   %.0.lcssa.i = phi ptr [ %88, %zend_ssa_remove_uses_of_phi_sources.exit ], [ %90, %.lr.ph.i12 ]
   %.lcssa.i = phi ptr [ %89, %zend_ssa_remove_uses_of_phi_sources.exit ], [ %92, %.lr.ph.i12 ]
   %93 = load ptr, ptr %.lcssa.i, align 8
@@ -6308,7 +6308,7 @@ define internal fastcc void @propagate_phi_type_widening(ptr nocapture noundef r
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @add_pi.argprom(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 -5, 268435451) %5) unnamed_addr #1 {
+define internal fastcc noundef ptr @add_pi(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 -5, 268435451) %5) unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 4
@@ -6324,7 +6324,7 @@ define internal fastcc noundef ptr @add_pi.argprom(ptr nocapture noundef %0, ptr
   %19 = shl nuw i64 1, %18
   %20 = and i64 %17, %19
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %needs_pi.argprom.exit, label %21
+  br i1 %.not.i, label %needs_pi.exit, label %21
 
 21:                                               ; preds = %6
   %22 = getelementptr inbounds i8, ptr %2, i64 8
@@ -6340,7 +6340,7 @@ define internal fastcc noundef ptr @add_pi.argprom(ptr nocapture noundef %0, ptr
   %31 = getelementptr inbounds i8, ptr %29, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %30, %32
-  br i1 %33, label %needs_pi.argprom.exit, label %34
+  br i1 %33, label %needs_pi.exit, label %34
 
 34:                                               ; preds = %21
   %35 = sext i32 %4 to i64
@@ -6408,7 +6408,7 @@ define internal fastcc noundef ptr @add_pi.argprom(ptr nocapture noundef %0, ptr
 dominates.exit.i.i:                               ; preds = %.lr.ph.i.i.i, %62
   %.0.lcssa.i.i.i = phi i32 [ %52, %62 ], [ %70, %.lr.ph.i.i.i ]
   %75 = icmp eq i32 %..i, %.0.lcssa.i.i.i
-  br i1 %75, label %needs_pi.argprom.exit, label %76
+  br i1 %75, label %needs_pi.exit, label %76
 
 76:                                               ; preds = %dominates.exit.i.i, %54, %51
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -6523,7 +6523,7 @@ dominates.exit.i.i:                               ; preds = %.lr.ph.i.i.i, %62
   %151 = getelementptr inbounds %struct._zend_basic_block, ptr %150, i64 %35, i32 5
   %152 = load i32, ptr %151, align 8
   %153 = icmp sgt i32 %152, 1
-  br i1 %153, label %154, label %needs_pi.argprom.exit
+  br i1 %153, label %154, label %needs_pi.exit
 
 154:                                              ; preds = %110
   %155 = getelementptr inbounds i8, ptr %1, i64 24
@@ -6536,15 +6536,15 @@ dominates.exit.i.i:                               ; preds = %.lr.ph.i.i.i, %62
   %162 = load i64, ptr %161, align 8
   %163 = or i64 %162, %144
   store i64 %163, ptr %161, align 8
-  br label %needs_pi.argprom.exit
+  br label %needs_pi.exit
 
-needs_pi.argprom.exit:                            ; preds = %dominates.exit.i.i, %21, %6, %110, %154
+needs_pi.exit:                                    ; preds = %dominates.exit.i.i, %21, %6, %110, %154
   %.0130 = phi ptr [ %.0, %154 ], [ %.0, %110 ], [ null, %6 ], [ null, %21 ], [ null, %dominates.exit.i.i ]
   ret ptr %.0130
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -5, 268435451) i32 @find_adjusted_tmp_var.argelim(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #12 {
+define internal fastcc range(i32 -5, 268435451) i32 @find_adjusted_tmp_var(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #12 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %.not68 = icmp eq ptr %1, %6

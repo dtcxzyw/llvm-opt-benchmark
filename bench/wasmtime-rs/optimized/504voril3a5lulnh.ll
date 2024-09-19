@@ -655,7 +655,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit:
   switch i64 %6, label %default.unreachable [
     i64 2, label %15
     i64 3, label %13
-    i64 0, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit
+    i64 0, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
     i64 1, label %16
   ]
 
@@ -664,81 +664,81 @@ default.unreachable:                              ; preds = %12
 
 13:                                               ; preds = %12
   switch i32 %8, label %14 [
-    i32 0, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread20.invoke
-    i32 1, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread23
-    i32 2, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 3, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 4, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 5, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 6, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 7, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 8, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 9, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 10, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 11, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 12, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread26
-    i32 13, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread29
-    i32 14, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 15, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 16, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 17, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 18, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 19, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 20, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread32
-    i32 21, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 22, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 23, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 24, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 25, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 26, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 27, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 28, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 29, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 30, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 31, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 32, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 33, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 34, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 35, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 39, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 37, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 36, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 38, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
-    i32 40, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread
+    i32 0, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke
+    i32 1, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23
+    i32 2, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 3, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 4, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 5, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 6, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 7, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 8, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 9, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 10, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 11, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 12, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread26
+    i32 13, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread29
+    i32 14, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 15, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 16, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 17, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 18, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 19, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 20, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread32
+    i32 21, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 22, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 23, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 24, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 25, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 26, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 27, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 28, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 29, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 30, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 31, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 32, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 33, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 34, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 35, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 39, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 37, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 36, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 38, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+    i32 40, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
   ]
 
 14:                                               ; preds = %13
   unreachable
 
 15:                                               ; preds = %12
-  switch i32 %8, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread [
-    i32 11, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread29
-    i32 1, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread23
-    i32 13, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread23
-    i32 2, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread20.invoke
-    i32 22, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread32
-    i32 17, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread26
+  switch i32 %8, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread [
+    i32 11, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread29
+    i32 1, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23
+    i32 13, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23
+    i32 2, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke
+    i32 22, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread32
+    i32 17, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread26
   ]
 
 16:                                               ; preds = %12
   %17 = getelementptr i8, ptr %0, i64 -1
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
-  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit
+  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
 
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit: ; preds = %12, %16
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit: ; preds = %12, %16
   %.sink = phi i64 [ 15, %16 ], [ 16, %12 ]
   %19 = getelementptr i8, ptr %0, i64 %.sink
   %.0.i = load i8, ptr %19, align 8, !range !20, !noundef !5
-  switch i8 %.0.i, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread [
-    i8 0, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread20.invoke
-    i8 1, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread23
-    i8 12, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread26
-    i8 13, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread29
-    i8 20, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread32
+  switch i8 %.0.i, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread [
+    i8 0, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke
+    i8 1, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23
+    i8 12, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread26
+    i8 13, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread29
+    i8 20, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread32
   ]
 
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread: ; preds = %15, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread: ; preds = %15, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
   %20 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h3c3e713cfe52752dE"(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -753,29 +753,29 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread: ; preds = %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %26
 
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread20.invoke: ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit, %13, %15, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread32, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread29, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread26, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread23
-  %24 = phi i8 [ 63, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread23 ], [ 20, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread26 ], [ 6, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread29 ], [ 28, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread32 ], [ 44, %15 ], [ 44, %13 ], [ 44, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit ]
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke: ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit, %13, %15, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread32, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread29, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread26, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23
+  %24 = phi i8 [ 63, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23 ], [ 20, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread26 ], [ 6, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread29 ], [ 28, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread32 ], [ 44, %15 ], [ 44, %13 ], [ 44, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit ]
   %25 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hef1ee2547ce057e8E"(i8 noundef %24)
           to label %27 unwind label %32
 
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread23: ; preds = %15, %15, %13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit
-  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread20.invoke
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread23: ; preds = %15, %15, %13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
+  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke
 
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread26: ; preds = %15, %13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit
-  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread20.invoke
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread26: ; preds = %15, %13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
+  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke
 
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread29: ; preds = %15, %13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit
-  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread20.invoke
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread29: ; preds = %15, %13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
+  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke
 
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread32: ; preds = %15, %13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit
-  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread20.invoke
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread32: ; preds = %15, %13, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
+  br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke
 
-26:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit"
-  %.036 = phi ptr [ %.0.ph, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ], [ %23, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread ]
+26:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit"
+  %.036 = phi ptr [ %.0.ph, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ], [ %23, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread ]
   ret ptr %.036
 
-27:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread20.invoke, %10
-  %.0.ph = phi ptr [ %9, %10 ], [ %25, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread20.invoke ]
+27:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke, %10
+  %.0.ph = phi ptr [ %9, %10 ], [ %25, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1), !noalias !24
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h818a02e413cc4ce9E.llvm.1938814379164664089(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %1, ptr noundef nonnull %0), !noalias !24
   %28 = load i8, ptr %1, align 8, !range !31, !alias.scope !32, !noalias !24, !noundef !5
@@ -794,7 +794,7 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread32: ; preds =
 31:                                               ; preds = %32
   resume { ptr, i32 } %lpad.thr_comm
 
-32:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.argprom.exit.thread20.invoke, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit
+32:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #19

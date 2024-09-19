@@ -3120,7 +3120,7 @@ declare zeroext i1 @background_threads_disable(ptr noundef) local_unnamed_addr #
 define internal range(i32 0, 23) i32 @thread_arena_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef writeonly %oldp, ptr noundef %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %oldind = alloca i32, align 4
-  %call = tail call fastcc ptr @arena_choose.argprom(ptr noundef %tsd)
+  %call = tail call fastcc ptr @arena_choose(ptr noundef %tsd)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -3400,7 +3400,7 @@ if.end7:                                          ; preds = %if.then6, %do.end
   br i1 %cmp8, label %if.then9, label %label_return
 
 if.then9:                                         ; preds = %if.end7
-  %call10 = tail call fastcc ptr @arena_choose.argprom(ptr noundef nonnull %tsd)
+  %call10 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %tsd)
   %cmp11.not = icmp eq ptr %call10, null
   br i1 %cmp11.not, label %label_return, label %if.then12
 
@@ -3414,7 +3414,7 @@ label_return:                                     ; preds = %if.end7, %if.then12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @arena_choose.argprom(ptr noundef %tsd) unnamed_addr #0 {
+define internal fastcc ptr @arena_choose(ptr noundef %tsd) unnamed_addr #0 {
 entry:
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
   %0 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i, align 1
@@ -3425,11 +3425,11 @@ if.then5.i:                                       ; preds = %entry
   %1 = load atomic i64, ptr @arenas acquire, align 8
   %2 = inttoptr i64 %1 to ptr
   %cmp.i44.i = icmp eq i64 %1, 0
-  br i1 %cmp.i44.i, label %if.then3.i.i, label %arena_choose_impl.argprom.exit
+  br i1 %cmp.i44.i, label %if.then3.i.i, label %arena_choose_impl.exit
 
 if.then3.i.i:                                     ; preds = %if.then5.i
   %call4.i.i = tail call ptr @arena_init(ptr noundef nonnull %tsd, i32 noundef 0, ptr noundef nonnull @arena_config_default) #14
-  br label %arena_choose_impl.argprom.exit
+  br label %arena_choose_impl.exit
 
 cond.end.i:                                       ; preds = %entry
   %cant_access_tsd_items_directly_use_a_getter_or_setter_arena.i119.i = getelementptr inbounds i8, ptr %tsd, i64 144
@@ -3467,7 +3467,7 @@ if.end43.i:                                       ; preds = %if.else.i, %if.then
   %ret.0.i = phi ptr [ %call23.i, %if.then37.i ], [ %call23.i, %do.end33.i ], [ %call23.i, %if.else.i ], [ %call23.i, %if.then21.i ], [ %3, %cond.end.i ]
   %6 = load i32, ptr @opt_percpu_arena, align 4
   %cmp44.i = icmp ugt i32 %6, 2
-  br i1 %cmp44.i, label %land.lhs.true47.i, label %arena_choose_impl.argprom.exit
+  br i1 %cmp44.i, label %land.lhs.true47.i, label %arena_choose_impl.exit
 
 land.lhs.true47.i:                                ; preds = %if.end43.i
   %7 = getelementptr i8, ptr %ret.0.i, i64 78944
@@ -3481,13 +3481,13 @@ land.lhs.true47.i:                                ; preds = %if.end43.i
   %spec.select1.i = add nuw i32 %div3.i40.i, %rem.i.i
   %retval.i.0.i = select i1 %or.cond.i, i32 %spec.select1.i, i32 %8
   %cmp50.i = icmp ult i32 %ret.0.val43.i, %retval.i.0.i
-  br i1 %cmp50.i, label %land.lhs.true52.i, label %arena_choose_impl.argprom.exit
+  br i1 %cmp50.i, label %land.lhs.true52.i, label %arena_choose_impl.exit
 
 land.lhs.true52.i:                                ; preds = %land.lhs.true47.i
   %last_thd.i = getelementptr inbounds i8, ptr %ret.0.i, i64 16
   %9 = load ptr, ptr %last_thd.i, align 16
   %cmp54.not.i = icmp eq ptr %9, %tsd
-  br i1 %cmp54.not.i, label %arena_choose_impl.argprom.exit, label %if.then56.i
+  br i1 %cmp54.not.i, label %arena_choose_impl.exit, label %if.then56.i
 
 if.then56.i:                                      ; preds = %land.lhs.true52.i
   %call.i120.i = tail call i32 @sched_getcpu() #14
@@ -3549,9 +3549,9 @@ if.end63.i:                                       ; preds = %percpu_arena_update
   %ret.2.i = phi ptr [ %17, %percpu_arena_update.exit.i ], [ %ret.0.i, %percpu_arena_choose.exit.i ]
   %last_thd65.i = getelementptr inbounds i8, ptr %ret.2.i, i64 16
   store ptr %tsd, ptr %last_thd65.i, align 16
-  br label %arena_choose_impl.argprom.exit
+  br label %arena_choose_impl.exit
 
-arena_choose_impl.argprom.exit:                   ; preds = %if.then5.i, %if.then3.i.i, %if.end43.i, %land.lhs.true47.i, %land.lhs.true52.i, %if.end63.i
+arena_choose_impl.exit:                           ; preds = %if.then5.i, %if.then3.i.i, %if.end43.i, %land.lhs.true47.i, %land.lhs.true52.i, %if.end63.i
   %retval.0.i = phi ptr [ %ret.2.i, %if.end63.i ], [ %ret.0.i, %land.lhs.true52.i ], [ %ret.0.i, %land.lhs.true47.i ], [ %ret.0.i, %if.end43.i ], [ %call4.i.i, %if.then3.i.i ], [ %2, %if.then5.i ]
   ret ptr %retval.0.i
 }
@@ -7239,7 +7239,7 @@ entry:
   %mib.val = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %oldval.i)
   %cmp.i = icmp ugt i64 %mib.val, 4294967295
-  br i1 %cmp.i, label %arena_i_decay_ms_ctl_impl.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %conv.i = trunc nuw i64 %mib.val to i32
@@ -7247,7 +7247,7 @@ if.end.i:                                         ; preds = %entry
   %1 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %2 = inttoptr i64 %1 to ptr
   %cmp3.i = icmp eq i64 %1, 0
-  br i1 %cmp3.i, label %arena_i_decay_ms_ctl_impl.argprom.exit, label %if.end6.i
+  br i1 %cmp3.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %cmp8.i = icmp ne ptr %oldp, null
@@ -7266,7 +7266,7 @@ if.then23.i:                                      ; preds = %if.then12.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %3, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
-  br label %arena_i_decay_ms_ctl_impl.argprom.exit
+  br label %arena_i_decay_ms_ctl_impl.exit
 
 if.end27.i:                                       ; preds = %if.then12.i
   store i64 %call13.i, ptr %oldp, align 8
@@ -7278,7 +7278,7 @@ if.end30.i:                                       ; preds = %if.end27.i, %if.end
 
 if.then33.i:                                      ; preds = %if.end30.i
   %cmp34.not.i = icmp eq i64 %newlen, 8
-  br i1 %cmp34.not.i, label %if.end37.i, label %arena_i_decay_ms_ctl_impl.argprom.exit
+  br i1 %cmp34.not.i, label %if.end37.i, label %arena_i_decay_ms_ctl_impl.exit
 
 if.end37.i:                                       ; preds = %if.then33.i
   %call38.i = tail call zeroext i1 @arena_is_huge(i32 noundef %conv.i) #14
@@ -7289,7 +7289,7 @@ if.end37.i:                                       ; preds = %if.then33.i
 
 if.then43.i:                                      ; preds = %if.end37.i
   %call44.i = tail call zeroext i1 @background_thread_create(ptr noundef %tsd, i32 noundef %conv.i) #14
-  br i1 %call44.i, label %arena_i_decay_ms_ctl_impl.argprom.exit, label %if.then43.if.end47_crit_edge.i
+  br i1 %call44.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.then43.if.end47_crit_edge.i
 
 if.then43.if.end47_crit_edge.i:                   ; preds = %if.then43.i
   %.pre.i = load i64, ptr %newp, align 8
@@ -7298,12 +7298,12 @@ if.then43.if.end47_crit_edge.i:                   ; preds = %if.then43.i
 if.end47.i:                                       ; preds = %if.then43.if.end47_crit_edge.i, %if.end37.i
   %4 = phi i64 [ %.pre.i, %if.then43.if.end47_crit_edge.i ], [ %.pre1.i, %if.end37.i ]
   %call49.i = tail call zeroext i1 @arena_decay_ms_set(ptr noundef %tsd, ptr noundef nonnull %2, i32 noundef 1, i64 noundef %4) #14
-  br i1 %call49.i, label %arena_i_decay_ms_ctl_impl.argprom.exit, label %if.end52.i
+  br i1 %call49.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.end47.i, %if.end30.i
-  br label %arena_i_decay_ms_ctl_impl.argprom.exit
+  br label %arena_i_decay_ms_ctl_impl.exit
 
-arena_i_decay_ms_ctl_impl.argprom.exit:           ; preds = %entry, %if.end.i, %if.then23.i, %if.then33.i, %if.then43.i, %if.end47.i, %if.end52.i
+arena_i_decay_ms_ctl_impl.exit:                   ; preds = %entry, %if.end.i, %if.then23.i, %if.then33.i, %if.then43.i, %if.end47.i, %if.end52.i
   %ret.0.i = phi i32 [ 22, %if.then23.i ], [ 0, %if.end52.i ], [ 14, %entry ], [ 14, %if.end.i ], [ 22, %if.then33.i ], [ 14, %if.then43.i ], [ 14, %if.end47.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oldval.i)
   ret i32 %ret.0.i
@@ -7317,7 +7317,7 @@ entry:
   %mib.val = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %oldval.i)
   %cmp.i = icmp ugt i64 %mib.val, 4294967295
-  br i1 %cmp.i, label %arena_i_decay_ms_ctl_impl.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %conv.i = trunc nuw i64 %mib.val to i32
@@ -7325,7 +7325,7 @@ if.end.i:                                         ; preds = %entry
   %1 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %2 = inttoptr i64 %1 to ptr
   %cmp3.i = icmp eq i64 %1, 0
-  br i1 %cmp3.i, label %arena_i_decay_ms_ctl_impl.argprom.exit, label %if.end6.i
+  br i1 %cmp3.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %cmp8.i = icmp ne ptr %oldp, null
@@ -7344,7 +7344,7 @@ if.then23.i:                                      ; preds = %if.then12.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %3, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
-  br label %arena_i_decay_ms_ctl_impl.argprom.exit
+  br label %arena_i_decay_ms_ctl_impl.exit
 
 if.end27.i:                                       ; preds = %if.then12.i
   store i64 %call13.i, ptr %oldp, align 8
@@ -7356,7 +7356,7 @@ if.end30.i:                                       ; preds = %if.end27.i, %if.end
 
 if.then33.i:                                      ; preds = %if.end30.i
   %cmp34.not.i = icmp eq i64 %newlen, 8
-  br i1 %cmp34.not.i, label %if.end37.i, label %arena_i_decay_ms_ctl_impl.argprom.exit
+  br i1 %cmp34.not.i, label %if.end37.i, label %arena_i_decay_ms_ctl_impl.exit
 
 if.end37.i:                                       ; preds = %if.then33.i
   %call38.i = tail call zeroext i1 @arena_is_huge(i32 noundef %conv.i) #14
@@ -7367,7 +7367,7 @@ if.end37.i:                                       ; preds = %if.then33.i
 
 if.then43.i:                                      ; preds = %if.end37.i
   %call44.i = tail call zeroext i1 @background_thread_create(ptr noundef %tsd, i32 noundef %conv.i) #14
-  br i1 %call44.i, label %arena_i_decay_ms_ctl_impl.argprom.exit, label %if.then43.if.end47_crit_edge.i
+  br i1 %call44.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.then43.if.end47_crit_edge.i
 
 if.then43.if.end47_crit_edge.i:                   ; preds = %if.then43.i
   %.pre.i = load i64, ptr %newp, align 8
@@ -7376,12 +7376,12 @@ if.then43.if.end47_crit_edge.i:                   ; preds = %if.then43.i
 if.end47.i:                                       ; preds = %if.then43.if.end47_crit_edge.i, %if.end37.i
   %4 = phi i64 [ %.pre.i, %if.then43.if.end47_crit_edge.i ], [ %.pre1.i, %if.end37.i ]
   %call49.i = tail call zeroext i1 @arena_decay_ms_set(ptr noundef %tsd, ptr noundef nonnull %2, i32 noundef 2, i64 noundef %4) #14
-  br i1 %call49.i, label %arena_i_decay_ms_ctl_impl.argprom.exit, label %if.end52.i
+  br i1 %call49.i, label %arena_i_decay_ms_ctl_impl.exit, label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.end47.i, %if.end30.i
-  br label %arena_i_decay_ms_ctl_impl.argprom.exit
+  br label %arena_i_decay_ms_ctl_impl.exit
 
-arena_i_decay_ms_ctl_impl.argprom.exit:           ; preds = %entry, %if.end.i, %if.then23.i, %if.then33.i, %if.then43.i, %if.end47.i, %if.end52.i
+arena_i_decay_ms_ctl_impl.exit:                   ; preds = %entry, %if.end.i, %if.then23.i, %if.then33.i, %if.then43.i, %if.end47.i, %if.end52.i
   %ret.0.i = phi i32 [ 22, %if.then23.i ], [ 0, %if.end52.i ], [ 14, %entry ], [ 14, %if.end.i ], [ 22, %if.then33.i ], [ 14, %if.then43.i ], [ 14, %if.end47.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oldval.i)
   ret i32 %ret.0.i
@@ -8043,7 +8043,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %0, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
-  br label %arenas_decay_ms_ctl_impl.argprom.exit
+  br label %arenas_decay_ms_ctl_impl.exit
 
 if.end.i:                                         ; preds = %if.then.i
   store i64 %call.i, ptr %oldp, align 8
@@ -8055,17 +8055,17 @@ if.end15.i:                                       ; preds = %if.end.i, %entry
 
 if.then17.i:                                      ; preds = %if.end15.i
   %cmp18.not.i = icmp eq i64 %newlen, 8
-  br i1 %cmp18.not.i, label %if.end20.i, label %arenas_decay_ms_ctl_impl.argprom.exit
+  br i1 %cmp18.not.i, label %if.end20.i, label %arenas_decay_ms_ctl_impl.exit
 
 if.end20.i:                                       ; preds = %if.then17.i
   %1 = load i64, ptr %newp, align 8
   %call23.i = tail call zeroext i1 @arena_dirty_decay_ms_default_set(i64 noundef %1) #14
-  br i1 %call23.i, label %arenas_decay_ms_ctl_impl.argprom.exit, label %if.end28.i
+  br i1 %call23.i, label %arenas_decay_ms_ctl_impl.exit, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end20.i, %if.end15.i
-  br label %arenas_decay_ms_ctl_impl.argprom.exit
+  br label %arenas_decay_ms_ctl_impl.exit
 
-arenas_decay_ms_ctl_impl.argprom.exit:            ; preds = %if.then8.i, %if.then17.i, %if.end20.i, %if.end28.i
+arenas_decay_ms_ctl_impl.exit:                    ; preds = %if.then8.i, %if.then17.i, %if.end20.i, %if.end28.i
   %ret.0.i = phi i32 [ 22, %if.then8.i ], [ 0, %if.end28.i ], [ 22, %if.then17.i ], [ 14, %if.end20.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oldval.i)
   ret i32 %ret.0.i
@@ -8092,7 +8092,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %0, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 8 %oldval.i, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %oldlenp, align 8
-  br label %arenas_decay_ms_ctl_impl.argprom.exit
+  br label %arenas_decay_ms_ctl_impl.exit
 
 if.end.i:                                         ; preds = %if.then.i
   store i64 %call2.i, ptr %oldp, align 8
@@ -8104,17 +8104,17 @@ if.end15.i:                                       ; preds = %if.end.i, %entry
 
 if.then17.i:                                      ; preds = %if.end15.i
   %cmp18.not.i = icmp eq i64 %newlen, 8
-  br i1 %cmp18.not.i, label %if.end20.i, label %arenas_decay_ms_ctl_impl.argprom.exit
+  br i1 %cmp18.not.i, label %if.end20.i, label %arenas_decay_ms_ctl_impl.exit
 
 if.end20.i:                                       ; preds = %if.then17.i
   %1 = load i64, ptr %newp, align 8
   %call25.i = tail call zeroext i1 @arena_muzzy_decay_ms_default_set(i64 noundef %1) #14
-  br i1 %call25.i, label %arenas_decay_ms_ctl_impl.argprom.exit, label %if.end28.i
+  br i1 %call25.i, label %arenas_decay_ms_ctl_impl.exit, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end20.i, %if.end15.i
-  br label %arenas_decay_ms_ctl_impl.argprom.exit
+  br label %arenas_decay_ms_ctl_impl.exit
 
-arenas_decay_ms_ctl_impl.argprom.exit:            ; preds = %if.then8.i, %if.then17.i, %if.end20.i, %if.end28.i
+arenas_decay_ms_ctl_impl.exit:                    ; preds = %if.then8.i, %if.then17.i, %if.end20.i, %if.end28.i
   %ret.0.i = phi i32 [ 22, %if.then8.i ], [ 0, %if.end28.i ], [ 22, %if.then17.i ], [ 14, %if.end20.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oldval.i)
   ret i32 %ret.0.i
@@ -8477,12 +8477,12 @@ do.end:                                           ; preds = %malloc_mutex_lock.e
 
 if.then.i31:                                      ; preds = %do.end
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #14
-  %call1.i20 = call fastcc zeroext i1 @rtree_read_independent.argprom(ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %ptr.0, ptr noundef %contents.i)
+  %call1.i20 = call fastcc zeroext i1 @rtree_read_independent(ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %ptr.0, ptr noundef %contents.i)
   br label %tsdn_rtree_ctx.exit
 
 if.end.i30.split:                                 ; preds = %do.end
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i = getelementptr inbounds i8, ptr %tsd, i64 440
-  %call1.i21 = call fastcc zeroext i1 @rtree_read_independent.argprom(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %ptr.0, ptr noundef %contents.i)
+  %call1.i21 = call fastcc zeroext i1 @rtree_read_independent(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %ptr.0, ptr noundef %contents.i)
   br label %tsdn_rtree_ctx.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %if.end.i30.split, %if.then.i31
@@ -8903,7 +8903,7 @@ return:                                           ; preds = %if.then.i, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @rtree_read_independent.argprom(ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key, ptr nocapture noundef nonnull writeonly %r_contents) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @rtree_read_independent(ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key, ptr nocapture noundef nonnull writeonly %r_contents) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15

@@ -97,8 +97,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
     i32 63, label %316
   ]
 
-.backedge:                                        ; preds = %16, %323, %setOne.argprom.exit115.i, %readOne.exit.i, %setTwoTwoOpt.argprom.exit.i, %setTwoTwoOpt.argprom.exit.thread20.i, %212, %setOne.argprom.exit101.i, %190, %setOne.argprom.exit97.i, %openFile.argprom.exit.i, %160, %158, %setOne.argprom.exit93.i, %138, %setOne.argprom.exit89.i, %118, %114, %setOne.argprom.exit85.i, %setOne.argprom.exit81.i, %setTwo.argprom.exit.i, %42, %38, %34, %setOne.argprom.exit.i
-  %.0.i.be = phi i32 [ %.0.i, %323 ], [ 16, %setOne.argprom.exit115.i ], [ %.0.i, %readOne.exit.i ], [ 7, %setTwoTwoOpt.argprom.exit.i ], [ 6, %212 ], [ 15, %setOne.argprom.exit101.i ], [ 13, %190 ], [ 5, %setOne.argprom.exit97.i ], [ %.0.i, %openFile.argprom.exit.i ], [ %.0.i, %160 ], [ %.0.i, %158 ], [ 11, %setOne.argprom.exit93.i ], [ 10, %138 ], [ 17, %setOne.argprom.exit89.i ], [ 12, %118 ], [ 4, %114 ], [ 3, %setOne.argprom.exit85.i ], [ 14, %setOne.argprom.exit81.i ], [ 1, %setTwo.argprom.exit.i ], [ %.0.i, %42 ], [ 9, %38 ], [ 8, %34 ], [ 2, %setOne.argprom.exit.i ], [ 7, %setTwoTwoOpt.argprom.exit.thread20.i ], [ %.0.i, %16 ]
+.backedge:                                        ; preds = %16, %323, %setOne.exit115.i, %readOne.exit.i, %setTwoTwoOpt.exit.i, %setTwoTwoOpt.exit.thread20.i, %212, %setOne.exit101.i, %190, %setOne.exit97.i, %openFile.exit.i, %160, %158, %setOne.exit93.i, %138, %setOne.exit89.i, %118, %114, %setOne.exit85.i, %setOne.exit81.i, %setTwo.exit.i, %42, %38, %34, %setOne.exit.i
+  %.0.i.be = phi i32 [ %.0.i, %323 ], [ 16, %setOne.exit115.i ], [ %.0.i, %readOne.exit.i ], [ 7, %setTwoTwoOpt.exit.i ], [ 6, %212 ], [ 15, %setOne.exit101.i ], [ 13, %190 ], [ 5, %setOne.exit97.i ], [ %.0.i, %openFile.exit.i ], [ %.0.i, %160 ], [ %.0.i, %158 ], [ 11, %setOne.exit93.i ], [ 10, %138 ], [ 17, %setOne.exit89.i ], [ 12, %118 ], [ 4, %114 ], [ 3, %setOne.exit85.i ], [ 14, %setOne.exit81.i ], [ 1, %setTwo.exit.i ], [ %.0.i, %42 ], [ 9, %38 ], [ 8, %34 ], [ 2, %setOne.exit.i ], [ 7, %setTwoTwoOpt.exit.thread20.i ], [ %.0.i, %16 ]
   br label %16
 
 18:                                               ; preds = %16
@@ -118,14 +118,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 27:                                               ; preds = %18
   %28 = icmp slt i64 %20, 1
-  br i1 %28, label %29, label %setOne.argprom.exit.i
+  br i1 %28, label %29, label %setOne.exit.i
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr @stderr, align 8
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.13, ptr noundef %19, i32 noundef 1) #12
   br label %33
 
-setOne.argprom.exit.i:                            ; preds = %27
+setOne.exit.i:                                    ; preds = %27
   %32 = trunc nuw nsw i64 %20 to i32
   store i32 %32, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -138,7 +138,7 @@ setOne.argprom.exit.i:                            ; preds = %27
 
 34:                                               ; preds = %16
   %35 = load ptr, ptr @optarg, align 8
-  %36 = tail call fastcc i32 @setTwo.argprom(ptr noundef %35)
+  %36 = tail call fastcc i32 @setTwo(ptr noundef %35)
   %.not75.i = icmp eq i32 %36, 0
   br i1 %.not75.i, label %.backedge, label %37
 
@@ -148,7 +148,7 @@ setOne.argprom.exit.i:                            ; preds = %27
 
 38:                                               ; preds = %16
   %39 = load ptr, ptr @optarg, align 8
-  %40 = tail call fastcc i32 @setTwo.argprom(ptr noundef %39)
+  %40 = tail call fastcc i32 @setTwo(ptr noundef %39)
   %.not74.i = icmp eq i32 %40, 0
   br i1 %.not74.i, label %.backedge, label %41
 
@@ -168,14 +168,14 @@ setOne.argprom.exit.i:                            ; preds = %27
   %45 = load ptr, ptr @optarg, align 8
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 102
-  br i1 %47, label %48, label %setFold.argprom.exit.i
+  br i1 %47, label %48, label %setFold.exit.i
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %45, i64 1
   store i1 true, ptr @opts.7, align 8
-  br label %setFold.argprom.exit.i
+  br label %setFold.exit.i
 
-setFold.argprom.exit.i:                           ; preds = %48, %44
+setFold.exit.i:                                   ; preds = %48, %44
   %.0.i.i = phi ptr [ %49, %48 ], [ %45, %44 ]
   store ptr %.0.i.i, ptr @optarg, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -186,12 +186,12 @@ setFold.argprom.exit.i:                           ; preds = %48, %44
   %or.cond.i.i.i = select i1 %52, i1 true, i1 %53
   br i1 %or.cond.i.i.i, label %54, label %57
 
-54:                                               ; preds = %setFold.argprom.exit.i
+54:                                               ; preds = %setFold.exit.i
   %55 = load ptr, ptr @stderr, align 8
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.12, ptr noundef nonnull %.0.i.i) #12
   br label %.loopexit.i
 
-57:                                               ; preds = %setFold.argprom.exit.i
+57:                                               ; preds = %setFold.exit.i
   %58 = icmp slt i64 %50, 1
   br i1 %58, label %59, label %readPos.exit.i.i
 
@@ -237,9 +237,9 @@ readPos.exit.i.i:                                 ; preds = %57
 
 readPos.exit16.i.i:                               ; preds = %76
   %.not3.i.i = icmp eq i64 %69, 1
-  br i1 %.not3.i.i, label %.loopexit.i, label %setTwo.argprom.exit.i
+  br i1 %.not3.i.i, label %.loopexit.i, label %setTwo.exit.i
 
-setTwo.argprom.exit.i:                            ; preds = %readPos.exit16.i.i
+setTwo.exit.i:                                    ; preds = %readPos.exit16.i.i
   %81 = trunc nuw nsw i64 %69 to i32
   store i32 %81, ptr @opts.1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -267,14 +267,14 @@ setTwo.argprom.exit.i:                            ; preds = %readPos.exit16.i.i
 
 91:                                               ; preds = %82
   %92 = icmp slt i64 %84, 1
-  br i1 %92, label %93, label %setOne.argprom.exit81.i
+  br i1 %92, label %93, label %setOne.exit81.i
 
 93:                                               ; preds = %91
   %94 = load ptr, ptr @stderr, align 8
   %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.13, ptr noundef %83, i32 noundef 1) #12
   br label %97
 
-setOne.argprom.exit81.i:                          ; preds = %91
+setOne.exit81.i:                                  ; preds = %91
   %96 = trunc nuw nsw i64 %84 to i32
   store i32 %96, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -302,14 +302,14 @@ setOne.argprom.exit81.i:                          ; preds = %91
 
 107:                                              ; preds = %98
   %108 = icmp slt i64 %100, 1
-  br i1 %108, label %109, label %setOne.argprom.exit85.i
+  br i1 %108, label %109, label %setOne.exit85.i
 
 109:                                              ; preds = %107
   %110 = load ptr, ptr @stderr, align 8
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.13, ptr noundef %99, i32 noundef 1) #12
   br label %113
 
-setOne.argprom.exit85.i:                          ; preds = %107
+setOne.exit85.i:                                  ; preds = %107
   %112 = trunc nuw nsw i64 %100 to i32
   store i32 %112, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -322,7 +322,7 @@ setOne.argprom.exit85.i:                          ; preds = %107
 
 114:                                              ; preds = %16
   %115 = load ptr, ptr @optarg, align 8
-  %116 = tail call fastcc i32 @setTwo.argprom(ptr noundef %115)
+  %116 = tail call fastcc i32 @setTwo(ptr noundef %115)
   %.not70.i = icmp eq i32 %116, 0
   br i1 %.not70.i, label %.backedge, label %117
 
@@ -332,7 +332,7 @@ setOne.argprom.exit85.i:                          ; preds = %107
 
 118:                                              ; preds = %16
   %119 = load ptr, ptr @optarg, align 8
-  %120 = tail call fastcc i32 @setTwo.argprom(ptr noundef %119)
+  %120 = tail call fastcc i32 @setTwo(ptr noundef %119)
   %.not69.i = icmp eq i32 %120, 0
   br i1 %.not69.i, label %.backedge, label %121
 
@@ -357,14 +357,14 @@ setOne.argprom.exit85.i:                          ; preds = %107
 
 131:                                              ; preds = %122
   %132 = icmp slt i64 %124, 1
-  br i1 %132, label %133, label %setOne.argprom.exit89.i
+  br i1 %132, label %133, label %setOne.exit89.i
 
 133:                                              ; preds = %131
   %134 = load ptr, ptr @stderr, align 8
   %135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.13, ptr noundef %123, i32 noundef 1) #12
   br label %137
 
-setOne.argprom.exit89.i:                          ; preds = %131
+setOne.exit89.i:                                  ; preds = %131
   %136 = trunc nuw nsw i64 %124 to i32
   store i32 %136, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -377,7 +377,7 @@ setOne.argprom.exit89.i:                          ; preds = %131
 
 138:                                              ; preds = %16
   %139 = load ptr, ptr @optarg, align 8
-  %140 = tail call fastcc i32 @setTwo.argprom(ptr noundef %139)
+  %140 = tail call fastcc i32 @setTwo(ptr noundef %139)
   %.not67.i = icmp eq i32 %140, 0
   br i1 %.not67.i, label %.backedge, label %141
 
@@ -402,14 +402,14 @@ setOne.argprom.exit89.i:                          ; preds = %131
 
 151:                                              ; preds = %142
   %152 = icmp slt i64 %144, 1
-  br i1 %152, label %153, label %setOne.argprom.exit93.i
+  br i1 %152, label %153, label %setOne.exit93.i
 
 153:                                              ; preds = %151
   %154 = load ptr, ptr @stderr, align 8
   %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.13, ptr noundef %143, i32 noundef 1) #12
   br label %157
 
-setOne.argprom.exit93.i:                          ; preds = %151
+setOne.exit93.i:                                  ; preds = %151
   %156 = trunc nuw nsw i64 %144 to i32
   store i32 %156, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -435,7 +435,7 @@ setOne.argprom.exit93.i:                          ; preds = %151
   %164 = load ptr, ptr @optarg, align 8
   %165 = tail call noalias ptr @fopen(ptr noundef %164, ptr noundef nonnull @.str.4)
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %167, label %openFile.argprom.exit.i
+  br i1 %166, label %167, label %openFile.exit.i
 
 167:                                              ; preds = %162
   %168 = load ptr, ptr @stderr, align 8
@@ -444,7 +444,7 @@ setOne.argprom.exit93.i:                          ; preds = %151
   tail call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
-openFile.argprom.exit.i:                          ; preds = %162
+openFile.exit.i:                                  ; preds = %162
   store ptr %165, ptr @opts.9, align 8
   br label %.backedge
 
@@ -465,14 +465,14 @@ openFile.argprom.exit.i:                          ; preds = %162
 
 179:                                              ; preds = %170
   %180 = icmp slt i64 %172, 1
-  br i1 %180, label %181, label %setOne.argprom.exit97.i
+  br i1 %180, label %181, label %setOne.exit97.i
 
 181:                                              ; preds = %179
   %182 = load ptr, ptr @stderr, align 8
   %183 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.13, ptr noundef %171, i32 noundef 1) #12
   br label %185
 
-setOne.argprom.exit97.i:                          ; preds = %179
+setOne.exit97.i:                                  ; preds = %179
   %184 = trunc nuw nsw i64 %172 to i32
   store i32 %184, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -485,7 +485,7 @@ setOne.argprom.exit97.i:                          ; preds = %179
 
 186:                                              ; preds = %16
   %187 = load ptr, ptr @optarg, align 8
-  %188 = tail call fastcc i32 @setTwoOpt.argprom.argelim(ptr noundef %187)
+  %188 = tail call fastcc i32 @setTwoOpt(ptr noundef %187)
   %.not64.i = icmp eq i32 %188, 0
   br i1 %.not64.i, label %190, label %189
 
@@ -521,14 +521,14 @@ setOne.argprom.exit97.i:                          ; preds = %179
 
 205:                                              ; preds = %196
   %206 = icmp slt i64 %198, 1
-  br i1 %206, label %207, label %setOne.argprom.exit101.i
+  br i1 %206, label %207, label %setOne.exit101.i
 
 207:                                              ; preds = %205
   %208 = load ptr, ptr @stderr, align 8
   %209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef nonnull @.str.13, ptr noundef %197, i32 noundef 1) #12
   br label %211
 
-setOne.argprom.exit101.i:                         ; preds = %205
+setOne.exit101.i:                                 ; preds = %205
   %210 = trunc nuw nsw i64 %198 to i32
   store i32 %210, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -541,7 +541,7 @@ setOne.argprom.exit101.i:                         ; preds = %205
 
 212:                                              ; preds = %16
   %213 = load ptr, ptr @optarg, align 8
-  %214 = tail call fastcc i32 @setTwoOpt.argprom.argelim(ptr noundef %213)
+  %214 = tail call fastcc i32 @setTwoOpt(ptr noundef %213)
   %.not62.i = icmp eq i32 %214, 0
   br i1 %.not62.i, label %.backedge, label %215
 
@@ -562,7 +562,7 @@ setOne.argprom.exit101.i:                         ; preds = %205
 222:                                              ; preds = %216
   %223 = load ptr, ptr @stderr, align 8
   %224 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %223, ptr noundef nonnull @.str.12, ptr noundef %217) #12
-  br label %setTwoTwoOpt.argprom.exit.thread.i
+  br label %setTwoTwoOpt.exit.thread.i
 
 225:                                              ; preds = %216
   %226 = icmp slt i64 %218, 1
@@ -571,7 +571,7 @@ setOne.argprom.exit101.i:                         ; preds = %205
 227:                                              ; preds = %225
   %228 = load ptr, ptr @stderr, align 8
   %229 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.13, ptr noundef %217, i32 noundef 1) #12
-  br label %setTwoTwoOpt.argprom.exit.thread.i
+  br label %setTwoTwoOpt.exit.thread.i
 
 readPos.exit.i103.i:                              ; preds = %225
   %230 = trunc nuw nsw i64 %218 to i32
@@ -583,7 +583,7 @@ readPos.exit.i103.i:                              ; preds = %225
 232:                                              ; preds = %readPos.exit.i103.i
   %233 = load ptr, ptr @stderr, align 8
   %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.11, ptr noundef %217) #12
-  br label %setTwoTwoOpt.argprom.exit.thread.i
+  br label %setTwoTwoOpt.exit.thread.i
 
 235:                                              ; preds = %readPos.exit.i103.i
   %236 = getelementptr inbounds i8, ptr %219, i64 1
@@ -597,7 +597,7 @@ readPos.exit.i103.i:                              ; preds = %225
 241:                                              ; preds = %235
   %242 = load ptr, ptr @stderr, align 8
   %243 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %242, ptr noundef nonnull @.str.12, ptr noundef nonnull %236) #12
-  br label %setTwoTwoOpt.argprom.exit.thread20.i
+  br label %setTwoTwoOpt.exit.thread20.i
 
 244:                                              ; preds = %235
   %245 = icmp slt i64 %237, 1
@@ -606,7 +606,7 @@ readPos.exit.i103.i:                              ; preds = %225
 246:                                              ; preds = %244
   %247 = load ptr, ptr @stderr, align 8
   %248 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %247, ptr noundef nonnull @.str.13, ptr noundef nonnull %236, i32 noundef 1) #12
-  br label %setTwoTwoOpt.argprom.exit.thread20.i
+  br label %setTwoTwoOpt.exit.thread20.i
 
 readPos.exit30.i.i:                               ; preds = %244
   %249 = trunc nuw nsw i64 %237 to i32
@@ -618,7 +618,7 @@ readPos.exit30.i.i:                               ; preds = %244
 251:                                              ; preds = %readPos.exit30.i.i
   store i32 0, ptr @opts.4, align 8
   store i32 0, ptr @opts.3, align 8
-  br label %setTwoTwoOpt.argprom.exit.thread20.i
+  br label %setTwoTwoOpt.exit.thread20.i
 
 252:                                              ; preds = %readPos.exit30.i.i
   %253 = getelementptr inbounds i8, ptr %238, i64 1
@@ -632,7 +632,7 @@ readPos.exit30.i.i:                               ; preds = %244
 258:                                              ; preds = %252
   %259 = load ptr, ptr @stderr, align 8
   %260 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %259, ptr noundef nonnull @.str.12, ptr noundef nonnull %253) #12
-  br label %setTwoTwoOpt.argprom.exit.thread.i
+  br label %setTwoTwoOpt.exit.thread.i
 
 261:                                              ; preds = %252
   %262 = icmp slt i64 %254, 1
@@ -641,7 +641,7 @@ readPos.exit30.i.i:                               ; preds = %244
 263:                                              ; preds = %261
   %264 = load ptr, ptr @stderr, align 8
   %265 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %264, ptr noundef nonnull @.str.13, ptr noundef nonnull %253, i32 noundef 1) #12
-  br label %setTwoTwoOpt.argprom.exit.thread.i
+  br label %setTwoTwoOpt.exit.thread.i
 
 readPos.exit33.i.i:                               ; preds = %261
   %266 = trunc nuw nsw i64 %254 to i32
@@ -652,7 +652,7 @@ readPos.exit33.i.i:                               ; preds = %261
 
 268:                                              ; preds = %readPos.exit33.i.i
   store i32 0, ptr @opts.4, align 8
-  br label %setTwoTwoOpt.argprom.exit.thread20.i
+  br label %setTwoTwoOpt.exit.thread20.i
 
 269:                                              ; preds = %readPos.exit33.i.i
   %270 = getelementptr inbounds i8, ptr %255, i64 1
@@ -667,33 +667,33 @@ readPos.exit33.i.i:                               ; preds = %261
 275:                                              ; preds = %269
   %276 = load ptr, ptr @stderr, align 8
   %277 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef nonnull @.str.12, ptr noundef nonnull %270) #12
-  br label %setTwoTwoOpt.argprom.exit.thread24.i
+  br label %setTwoTwoOpt.exit.thread24.i
 
 278:                                              ; preds = %269
   %279 = icmp slt i64 %271, 1
-  br i1 %279, label %280, label %setTwoTwoOpt.argprom.exit.i
+  br i1 %279, label %280, label %setTwoTwoOpt.exit.i
 
 280:                                              ; preds = %278
   %281 = load ptr, ptr @stderr, align 8
   %282 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %281, ptr noundef nonnull @.str.13, ptr noundef nonnull %270, i32 noundef 1) #12
-  br label %setTwoTwoOpt.argprom.exit.thread24.i
+  br label %setTwoTwoOpt.exit.thread24.i
 
-setTwoTwoOpt.argprom.exit.thread20.i:             ; preds = %268, %251, %246, %241
+setTwoTwoOpt.exit.thread20.i:                     ; preds = %268, %251, %246, %241
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.backedge
 
-setTwoTwoOpt.argprom.exit.thread24.i:             ; preds = %280, %275
+setTwoTwoOpt.exit.thread24.i:                     ; preds = %280, %275
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %setTwoTwoOpt.argprom.exit.thread.i
+  br label %setTwoTwoOpt.exit.thread.i
 
-setTwoTwoOpt.argprom.exit.i:                      ; preds = %278
+setTwoTwoOpt.exit.i:                              ; preds = %278
   %283 = trunc nuw nsw i64 %271 to i32
   store i32 %283, ptr @opts.4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.backedge
 
-setTwoTwoOpt.argprom.exit.thread.i:               ; preds = %setTwoTwoOpt.argprom.exit.thread24.i, %263, %258, %232, %227, %222
+setTwoTwoOpt.exit.thread.i:                       ; preds = %setTwoTwoOpt.exit.thread24.i, %263, %258, %232, %227, %222
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   tail call fastcc void @errexit(i32 noundef 84)
   unreachable
@@ -750,14 +750,14 @@ readOne.exit.i:                                   ; preds = %293
 
 309:                                              ; preds = %300
   %310 = icmp slt i64 %302, 1
-  br i1 %310, label %311, label %setOne.argprom.exit115.i
+  br i1 %310, label %311, label %setOne.exit115.i
 
 311:                                              ; preds = %309
   %312 = load ptr, ptr @stderr, align 8
   %313 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %312, ptr noundef nonnull @.str.13, ptr noundef %301, i32 noundef 1) #12
   br label %315
 
-setOne.argprom.exit115.i:                         ; preds = %309
+setOne.exit115.i:                                 ; preds = %309
   %314 = trunc nuw nsw i64 %302 to i32
   store i32 %314, ptr @opts.0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -807,7 +807,7 @@ setOne.argprom.exit115.i:                         ; preds = %309
 336:                                              ; preds = %334, %332
   %337 = phi ptr [ %335, %334 ], [ %333, %332 ]
   %338 = icmp eq i32 %.0.i, 0
-  br i1 %338, label %339, label %init.argprom.exit
+  br i1 %338, label %339, label %init.exit
 
 339:                                              ; preds = %336
   %340 = load ptr, ptr @stderr, align 8
@@ -818,7 +818,7 @@ setOne.argprom.exit115.i:                         ; preds = %309
   tail call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
-init.argprom.exit:                                ; preds = %336
+init.exit:                                        ; preds = %336
   %.b416 = load i1, ptr @opts.8, align 8
   %345 = load ptr, ptr @opts.11, align 8
   %.str.2..str.1 = select i1 %.b416, ptr @.str.1, ptr @.str.2
@@ -844,7 +844,7 @@ init.argprom.exit:                                ; preds = %336
     i32 16, label %415
   ]
 
-347:                                              ; preds = %init.argprom.exit
+347:                                              ; preds = %init.exit
   %348 = load i32, ptr @opts.0, align 8
   %349 = load i32, ptr @opts.1, align 8
   %.b414 = load i1, ptr @opts.7, align 8
@@ -854,17 +854,17 @@ init.argprom.exit:                                ; preds = %336
   tail call void @makeSquareGrid(i32 noundef %348, i32 noundef %349, i32 noundef %350, i32 noundef %351, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-352:                                              ; preds = %init.argprom.exit
+352:                                              ; preds = %init.exit
   %353 = load i32, ptr @opts.0, align 8
   tail call void @makeCircle(i32 noundef %353, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-354:                                              ; preds = %init.argprom.exit
+354:                                              ; preds = %init.exit
   %355 = load i32, ptr @opts.0, align 8
   tail call void @makePath(i32 noundef %355, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-356:                                              ; preds = %init.argprom.exit
+356:                                              ; preds = %init.exit
   %357 = load i32, ptr @opts.1, align 8
   %358 = icmp eq i32 %357, 2
   %359 = load i32, ptr @opts.0, align 8
@@ -878,18 +878,18 @@ init.argprom.exit:                                ; preds = %336
   tail call void @makeTree(i32 noundef %359, i32 noundef %357, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-362:                                              ; preds = %init.argprom.exit
+362:                                              ; preds = %init.exit
   %363 = load i32, ptr @opts.0, align 8
   tail call void @makeTriMesh(i32 noundef %363, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-364:                                              ; preds = %init.argprom.exit
+364:                                              ; preds = %init.exit
   %365 = load i32, ptr @opts.0, align 8
   %366 = load i32, ptr @opts.1, align 8
   tail call void @makeBall(i32 noundef %365, i32 noundef %366, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-367:                                              ; preds = %init.argprom.exit
+367:                                              ; preds = %init.exit
   %368 = load i32, ptr @opts.3, align 8
   %369 = icmp eq i32 %368, 0
   %370 = load i32, ptr @opts.4, align 8
@@ -907,19 +907,19 @@ init.argprom.exit:                                ; preds = %336
   tail call void @makeTwistedTorus(i32 noundef %372, i32 noundef %373, i32 noundef %368, i32 noundef %370, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-376:                                              ; preds = %init.argprom.exit
+376:                                              ; preds = %init.exit
   %377 = load i32, ptr @opts.0, align 8
   %378 = load i32, ptr @opts.1, align 8
   tail call void @makeCylinder(i32 noundef %377, i32 noundef %378, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-379:                                              ; preds = %init.argprom.exit
+379:                                              ; preds = %init.exit
   %380 = load i32, ptr @opts.0, align 8
   %381 = load i32, ptr @opts.1, align 8
   tail call void @makeMobius(i32 noundef %380, i32 noundef %381, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-382:                                              ; preds = %init.argprom.exit
+382:                                              ; preds = %init.exit
   %383 = load i32, ptr @opts.1, align 8
   %384 = icmp eq i32 %383, 2
   %385 = load i32, ptr @opts.0, align 8
@@ -933,18 +933,18 @@ init.argprom.exit:                                ; preds = %336
   tail call void @makeTetrix(i32 noundef %385, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-388:                                              ; preds = %init.argprom.exit
+388:                                              ; preds = %init.exit
   %389 = load i32, ptr @opts.0, align 8
   tail call void @makeComplete(i32 noundef %389, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-390:                                              ; preds = %init.argprom.exit
+390:                                              ; preds = %init.exit
   %391 = load i32, ptr @opts.0, align 8
   %392 = load i32, ptr @opts.1, align 8
   tail call void @makeRandom(i32 noundef %391, i32 noundef %392, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-393:                                              ; preds = %init.argprom.exit
+393:                                              ; preds = %init.exit
   %394 = load i32, ptr @opts.0, align 8
   %395 = tail call ptr @makeTreeGen(i32 noundef %394) #11
   %396 = load i32, ptr @opts.2, align 8
@@ -984,28 +984,28 @@ closeOpen.exit:                                   ; preds = %402, %400, %.lr.ph
   tail call void @makeRandom(i32 noundef %406, i32 noundef %407, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-408:                                              ; preds = %init.argprom.exit
+408:                                              ; preds = %init.exit
   %409 = load i32, ptr @opts.0, align 8
   %410 = load i32, ptr @opts.1, align 8
   tail call void @makeCompleteB(i32 noundef %409, i32 noundef %410, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-411:                                              ; preds = %init.argprom.exit
+411:                                              ; preds = %init.exit
   %412 = load i32, ptr @opts.0, align 8
   tail call void @makeHypercube(i32 noundef %412, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-413:                                              ; preds = %init.argprom.exit
+413:                                              ; preds = %init.exit
   %414 = load i32, ptr @opts.0, align 8
   tail call void @makeStar(i32 noundef %414, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-415:                                              ; preds = %init.argprom.exit
+415:                                              ; preds = %init.exit
   %416 = load i32, ptr @opts.0, align 8
   tail call void @makeWheel(i32 noundef %416, ptr noundef nonnull %undirfn.dirfn) #11
   br label %417
 
-417:                                              ; preds = %init.argprom.exit, %386, %387, %374, %375, %360, %361, %415, %413, %411, %408, %._crit_edge, %390, %388, %379, %376, %364, %362, %354, %352, %347
+417:                                              ; preds = %init.exit, %386, %387, %374, %375, %360, %361, %415, %413, %411, %408, %._crit_edge, %390, %388, %379, %376, %364, %362, %354, %352, %347
   %418 = load ptr, ptr @opts.9, align 8
   %419 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 2, i64 1, ptr %418)
   tail call fastcc void @graphviz_exit(i32 noundef 0) #14
@@ -1120,7 +1120,7 @@ define internal fastcc void @errexit(i32 noundef range(i32 0, -1) %0) unnamed_ad
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @setTwo.argprom(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @setTwo(ptr noundef %0) unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 10) #11
   %4 = load ptr, ptr %2, align 8
@@ -1193,7 +1193,7 @@ readPos.exit.thread:                              ; preds = %31, %26, %12, %7, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @setTwoOpt.argprom.argelim(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @setTwoOpt(ptr noundef %0) unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 10) #11
   %4 = load ptr, ptr %2, align 8

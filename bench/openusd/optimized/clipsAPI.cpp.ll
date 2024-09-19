@@ -5418,7 +5418,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %64, %67, %79
 _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit: ; preds = %86
   %96 = getelementptr inbounds i8, ptr %8, i64 8
   %.val = load ptr, ptr %96, align 8
-  %97 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ComputeClipSetDefinitionERKNS_7UsdPrimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_21Usd_ClipSetDefinitionE.argprom(ptr %.val, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %7)
+  %97 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ComputeClipSetDefinitionERKNS_7UsdPrimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_21Usd_ClipSetDefinitionE(ptr %.val, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %7)
           to label %98 unwind label %168
 
 98:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit
@@ -5913,7 +5913,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEC2ERKS2_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ComputeClipSetDefinitionERKNS_7UsdPrimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_21Usd_ClipSetDefinitionE.argprom(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ComputeClipSetDefinitionERKNS_7UsdPrimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_21Usd_ClipSetDefinitionE(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.252", align 8
   %4 = alloca %"class.std::vector.95", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -7645,7 +7645,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %60, %63, %75
 _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit: ; preds = %82
   %92 = getelementptr inbounds i8, ptr %7, i64 8
   %.val = load ptr, ptr %92, align 8
-  %93 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ComputeClipSetDefinitionERKNS_7UsdPrimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_21Usd_ClipSetDefinitionE.argprom(ptr %.val, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %6)
+  %93 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ComputeClipSetDefinitionERKNS_7UsdPrimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_21Usd_ClipSetDefinitionE(ptr %.val, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %6)
           to label %94 unwind label %130
 
 94:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase7GetPrimEv.exit

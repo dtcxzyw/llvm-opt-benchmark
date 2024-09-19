@@ -1959,14 +1959,14 @@ do_inherit_class_constant.exit:                   ; preds = %606, %538, %535, %5
   %758 = getelementptr inbounds i8, ptr %.0.i1188, i64 8
   %759 = load ptr, ptr %758, align 8
   %.not78.i = icmp eq ptr %759, null
-  br i1 %.not78.i, label %zend_duplicate_internal_function.argprom.exit, label %760
+  br i1 %.not78.i, label %zend_duplicate_internal_function.exit, label %760
 
 760:                                              ; preds = %757
   %761 = getelementptr inbounds i8, ptr %759, i64 4
   %762 = load i32, ptr %761, align 4
   %763 = and i32 %762, 64
   %.not79.i = icmp eq i32 %763, 0
-  br i1 %.not79.i, label %zend_duplicate_internal_function.argprom.exit.sink.split, label %zend_duplicate_internal_function.argprom.exit
+  br i1 %.not79.i, label %zend_duplicate_internal_function.exit.sink.split, label %zend_duplicate_internal_function.exit
 
 764:                                              ; preds = %726
   %765 = getelementptr inbounds i8, ptr %652, i64 120
@@ -1984,25 +1984,25 @@ do_inherit_class_constant.exit:                   ; preds = %606, %538, %535, %5
   %771 = getelementptr inbounds i8, ptr %652, i64 8
   %772 = load ptr, ptr %771, align 8
   %.not1164 = icmp eq ptr %772, null
-  br i1 %.not1164, label %zend_duplicate_internal_function.argprom.exit, label %773
+  br i1 %.not1164, label %zend_duplicate_internal_function.exit, label %773
 
 773:                                              ; preds = %770
   %774 = getelementptr inbounds i8, ptr %772, i64 4
   %775 = load i32, ptr %774, align 4
   %776 = and i32 %775, 64
   %.not1165 = icmp eq i32 %776, 0
-  br i1 %.not1165, label %zend_duplicate_internal_function.argprom.exit.sink.split, label %zend_duplicate_internal_function.argprom.exit
+  br i1 %.not1165, label %zend_duplicate_internal_function.exit.sink.split, label %zend_duplicate_internal_function.exit
 
-zend_duplicate_internal_function.argprom.exit.sink.split: ; preds = %773, %760
+zend_duplicate_internal_function.exit.sink.split: ; preds = %773, %760
   %.sink1363 = phi ptr [ %759, %760 ], [ %772, %773 ]
   %.01038.ph = phi ptr [ %.0.i1188, %760 ], [ %652, %773 ]
   %777 = load i32, ptr %.sink1363, align 4
   %778 = add i32 %777, 1
   store i32 %778, ptr %.sink1363, align 4
-  br label %zend_duplicate_internal_function.argprom.exit
+  br label %zend_duplicate_internal_function.exit
 
-zend_duplicate_internal_function.argprom.exit:    ; preds = %zend_duplicate_internal_function.argprom.exit.sink.split, %760, %757, %773, %770
-  %.01038 = phi ptr [ %652, %773 ], [ %652, %770 ], [ %.0.i1188, %757 ], [ %.0.i1188, %760 ], [ %.01038.ph, %zend_duplicate_internal_function.argprom.exit.sink.split ]
+zend_duplicate_internal_function.exit:            ; preds = %zend_duplicate_internal_function.exit.sink.split, %760, %757, %773, %770
+  %.01038 = phi ptr [ %652, %773 ], [ %652, %770 ], [ %.0.i1188, %757 ], [ %.0.i1188, %760 ], [ %.01038.ph, %zend_duplicate_internal_function.exit.sink.split ]
   %779 = load i32, ptr %641, align 8
   %780 = add i32 %779, 1
   store i32 %780, ptr %641, align 8
@@ -2018,7 +2018,7 @@ zend_duplicate_internal_function.argprom.exit:    ; preds = %zend_duplicate_inte
   %.not1166 = icmp eq i32 %787, 0
   br i1 %.not1166, label %788, label %801
 
-788:                                              ; preds = %zend_duplicate_internal_function.argprom.exit
+788:                                              ; preds = %zend_duplicate_internal_function.exit
   %789 = load i32, ptr %643, align 8
   %790 = and i32 %789, -17
   store i32 %790, ptr %643, align 8
@@ -2043,7 +2043,7 @@ zend_duplicate_internal_function.argprom.exit:    ; preds = %zend_duplicate_inte
   %800 = call i64 @zend_string_hash_func(ptr noundef nonnull %651) #16
   br label %801
 
-801:                                              ; preds = %799, %796, %zend_duplicate_internal_function.argprom.exit
+801:                                              ; preds = %799, %796, %zend_duplicate_internal_function.exit
   %802 = getelementptr inbounds i8, ptr %783, i64 24
   store ptr %651, ptr %802, align 8
   %803 = getelementptr inbounds i8, ptr %651, i64 8
@@ -2181,14 +2181,14 @@ zend_duplicate_internal_function.argprom.exit:    ; preds = %zend_duplicate_inte
   %879 = getelementptr inbounds i8, ptr %.0.i1191, i64 8
   %880 = load ptr, ptr %879, align 8
   %.not78.i1192 = icmp eq ptr %880, null
-  br i1 %.not78.i1192, label %zend_duplicate_internal_function.argprom.exit1196, label %881
+  br i1 %.not78.i1192, label %zend_duplicate_internal_function.exit1196, label %881
 
 881:                                              ; preds = %878
   %882 = getelementptr inbounds i8, ptr %880, i64 4
   %883 = load i32, ptr %882, align 4
   %884 = and i32 %883, 64
   %.not79.i1193 = icmp eq i32 %884, 0
-  br i1 %.not79.i1193, label %zend_duplicate_internal_function.argprom.exit1196.sink.split, label %zend_duplicate_internal_function.argprom.exit1196
+  br i1 %.not79.i1193, label %zend_duplicate_internal_function.exit1196.sink.split, label %zend_duplicate_internal_function.exit1196
 
 885:                                              ; preds = %847
   %886 = getelementptr inbounds i8, ptr %832, i64 120
@@ -2206,25 +2206,25 @@ zend_duplicate_internal_function.argprom.exit:    ; preds = %zend_duplicate_inte
   %892 = getelementptr inbounds i8, ptr %832, i64 8
   %893 = load ptr, ptr %892, align 8
   %.not1152 = icmp eq ptr %893, null
-  br i1 %.not1152, label %zend_duplicate_internal_function.argprom.exit1196, label %894
+  br i1 %.not1152, label %zend_duplicate_internal_function.exit1196, label %894
 
 894:                                              ; preds = %891
   %895 = getelementptr inbounds i8, ptr %893, i64 4
   %896 = load i32, ptr %895, align 4
   %897 = and i32 %896, 64
   %.not1153 = icmp eq i32 %897, 0
-  br i1 %.not1153, label %zend_duplicate_internal_function.argprom.exit1196.sink.split, label %zend_duplicate_internal_function.argprom.exit1196
+  br i1 %.not1153, label %zend_duplicate_internal_function.exit1196.sink.split, label %zend_duplicate_internal_function.exit1196
 
-zend_duplicate_internal_function.argprom.exit1196.sink.split: ; preds = %894, %881
+zend_duplicate_internal_function.exit1196.sink.split: ; preds = %894, %881
   %.sink1367 = phi ptr [ %880, %881 ], [ %893, %894 ]
   %.01036.ph = phi ptr [ %.0.i1191, %881 ], [ %832, %894 ]
   %898 = load i32, ptr %.sink1367, align 4
   %899 = add i32 %898, 1
   store i32 %899, ptr %.sink1367, align 4
-  br label %zend_duplicate_internal_function.argprom.exit1196
+  br label %zend_duplicate_internal_function.exit1196
 
-zend_duplicate_internal_function.argprom.exit1196: ; preds = %zend_duplicate_internal_function.argprom.exit1196.sink.split, %881, %878, %894, %891
-  %.01036 = phi ptr [ %832, %894 ], [ %832, %891 ], [ %.0.i1191, %878 ], [ %.0.i1191, %881 ], [ %.01036.ph, %zend_duplicate_internal_function.argprom.exit1196.sink.split ]
+zend_duplicate_internal_function.exit1196:        ; preds = %zend_duplicate_internal_function.exit1196.sink.split, %881, %878, %894, %891
+  %.01036 = phi ptr [ %832, %894 ], [ %832, %891 ], [ %.0.i1191, %878 ], [ %.0.i1191, %881 ], [ %.01036.ph, %zend_duplicate_internal_function.exit1196.sink.split ]
   %900 = load i32, ptr %821, align 8
   %901 = add i32 %900, 1
   store i32 %901, ptr %821, align 8
@@ -2240,7 +2240,7 @@ zend_duplicate_internal_function.argprom.exit1196: ; preds = %zend_duplicate_int
   %.not1154 = icmp eq i32 %908, 0
   br i1 %.not1154, label %909, label %922
 
-909:                                              ; preds = %zend_duplicate_internal_function.argprom.exit1196
+909:                                              ; preds = %zend_duplicate_internal_function.exit1196
   %910 = load i32, ptr %823, align 8
   %911 = and i32 %910, -17
   store i32 %911, ptr %823, align 8
@@ -2265,7 +2265,7 @@ zend_duplicate_internal_function.argprom.exit1196: ; preds = %zend_duplicate_int
   %921 = call i64 @zend_string_hash_func(ptr noundef nonnull %831) #16
   br label %922
 
-922:                                              ; preds = %920, %917, %zend_duplicate_internal_function.argprom.exit1196
+922:                                              ; preds = %920, %917, %zend_duplicate_internal_function.exit1196
   %923 = getelementptr inbounds i8, ptr %904, i64 24
   store ptr %831, ptr %923, align 8
   %924 = getelementptr inbounds i8, ptr %831, i64 8
@@ -3330,14 +3330,14 @@ do_inherit_iface_constant.exit:                   ; preds = %22, %66
   %135 = getelementptr inbounds i8, ptr %.0.i347, i64 8
   %136 = load ptr, ptr %135, align 8
   %.not78.i = icmp eq ptr %136, null
-  br i1 %.not78.i, label %zend_duplicate_internal_function.argprom.exit, label %137
+  br i1 %.not78.i, label %zend_duplicate_internal_function.exit, label %137
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds i8, ptr %136, i64 4
   %139 = load i32, ptr %138, align 4
   %140 = and i32 %139, 64
   %.not79.i = icmp eq i32 %140, 0
-  br i1 %.not79.i, label %zend_duplicate_internal_function.argprom.exit.sink.split, label %zend_duplicate_internal_function.argprom.exit
+  br i1 %.not79.i, label %zend_duplicate_internal_function.exit.sink.split, label %zend_duplicate_internal_function.exit
 
 141:                                              ; preds = %101
   %142 = getelementptr inbounds i8, ptr %91, i64 120
@@ -3355,38 +3355,38 @@ do_inherit_iface_constant.exit:                   ; preds = %22, %66
   %148 = getelementptr inbounds i8, ptr %91, i64 8
   %149 = load ptr, ptr %148, align 8
   %.not343 = icmp eq ptr %149, null
-  br i1 %.not343, label %zend_duplicate_internal_function.argprom.exit, label %150
+  br i1 %.not343, label %zend_duplicate_internal_function.exit, label %150
 
 150:                                              ; preds = %147
   %151 = getelementptr inbounds i8, ptr %149, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 64
   %.not344 = icmp eq i32 %153, 0
-  br i1 %.not344, label %zend_duplicate_internal_function.argprom.exit.sink.split, label %zend_duplicate_internal_function.argprom.exit
+  br i1 %.not344, label %zend_duplicate_internal_function.exit.sink.split, label %zend_duplicate_internal_function.exit
 
-zend_duplicate_internal_function.argprom.exit.sink.split: ; preds = %150, %137
+zend_duplicate_internal_function.exit.sink.split: ; preds = %150, %137
   %.sink = phi ptr [ %136, %137 ], [ %149, %150 ]
   %.0313.ph = phi ptr [ %.0.i347, %137 ], [ %91, %150 ]
   %154 = load i32, ptr %.sink, align 4
   %155 = add i32 %154, 1
   store i32 %155, ptr %.sink, align 4
-  br label %zend_duplicate_internal_function.argprom.exit
+  br label %zend_duplicate_internal_function.exit
 
-zend_duplicate_internal_function.argprom.exit:    ; preds = %zend_duplicate_internal_function.argprom.exit.sink.split, %137, %134, %150, %147
-  %.0313 = phi ptr [ %91, %150 ], [ %91, %147 ], [ %.0.i347, %134 ], [ %.0.i347, %137 ], [ %.0313.ph, %zend_duplicate_internal_function.argprom.exit.sink.split ]
+zend_duplicate_internal_function.exit:            ; preds = %zend_duplicate_internal_function.exit.sink.split, %137, %134, %150, %147
+  %.0313 = phi ptr [ %91, %150 ], [ %91, %147 ], [ %.0.i347, %134 ], [ %.0.i347, %137 ], [ %.0313.ph, %zend_duplicate_internal_function.exit.sink.split ]
   store ptr %.0313, ptr %4, align 8
   store i32 13, ptr %83, align 8
   %156 = call ptr @zend_hash_add_new(ptr noundef nonnull %81, ptr noundef %90, ptr noundef nonnull %4) #16
   %.not345 = icmp eq ptr %156, null
   br i1 %.not345, label %160, label %157
 
-157:                                              ; preds = %zend_duplicate_internal_function.argprom.exit
+157:                                              ; preds = %zend_duplicate_internal_function.exit
   %158 = load ptr, ptr %156, align 8
   %159 = icmp ne ptr %158, null
   call void @llvm.assume(i1 %159)
   br label %160
 
-160:                                              ; preds = %zend_duplicate_internal_function.argprom.exit, %93, %96, %157, %84
+160:                                              ; preds = %zend_duplicate_internal_function.exit, %93, %96, %157, %84
   %161 = getelementptr inbounds i8, ptr %.0353, i64 32
   %.not339 = icmp eq ptr %161, %77
   br i1 %.not339, label %._crit_edge356, label %84
@@ -5825,7 +5825,7 @@ zend_do_traits_constant_binding.exit.i:           ; preds = %.loopexit.i21.i
 1057:                                             ; preds = %1054, %1050, %1047
   %1058 = getelementptr inbounds i8, ptr %842, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %1058, i64 16, i1 false)
-  call fastcc void @zend_type_copy_ctor.argelim(ptr noundef nonnull %10)
+  call fastcc void @zend_type_copy_ctor(ptr noundef nonnull %10)
   %1059 = call ptr @zend_declare_typed_property(ptr noundef nonnull %.0329, ptr noundef %841, ptr noundef nonnull %1040, i32 noundef %.0176.i.i, ptr noundef %1049, ptr noundef nonnull byval(%struct.zend_type) align 8 %10) #16
   %1060 = getelementptr inbounds i8, ptr %842, i64 24
   %1061 = load ptr, ptr %1060, align 8
@@ -7088,7 +7088,7 @@ define internal fastcc noundef ptr @zend_lazy_class_load(ptr noundef readonly %0
   %265 = getelementptr inbounds i8, ptr %.0698, i64 32
   store ptr %.0, ptr %265, align 8
   %266 = getelementptr inbounds i8, ptr %.0698, i64 40
-  tail call fastcc void @zend_type_copy_ctor.argelim(ptr noundef nonnull %266)
+  tail call fastcc void @zend_type_copy_ctor(ptr noundef nonnull %266)
   %267 = getelementptr inbounds i8, ptr %.1746, i64 32
   %.not725 = icmp eq ptr %267, %240
   br i1 %.not725, label %.loopexit731, label %.lr.ph747
@@ -8470,7 +8470,7 @@ resolve_class_name.exit.i:                        ; preds = %.sink.split.i.i75, 
   %152 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %153 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %152, i64 noundef %148, ptr noundef nonnull %121, i64 noundef %148) #16
   %.not41.i = icmp eq i32 %153, 0
-  br i1 %.not41.i, label %zend_is_intersection_subtype_of_class.argprom.exit, label %154
+  br i1 %.not41.i, label %zend_is_intersection_subtype_of_class.exit, label %154
 
 154:                                              ; preds = %151, %resolve_class_name.exit.i
   %.not42.i = icmp eq ptr %.031.i, null
@@ -8601,7 +8601,7 @@ lookup_class_ex.exit:                             ; preds = %168, %172, %179, %1
 215:                                              ; preds = %213
   call fastcc void @track_class_dependency(ptr noundef %.043.i, ptr noundef nonnull %.0.i.i)
   call fastcc void @track_class_dependency(ptr noundef %.1.i, ptr noundef nonnull %.0.i6293)
-  br label %zend_is_intersection_subtype_of_class.argprom.exit
+  br label %zend_is_intersection_subtype_of_class.exit
 
 lookup_class_ex.exit.thread:                      ; preds = %185, %207, %201, %213, %lookup_class_ex.exit
   %.136.i = phi i8 [ %.035.i, %213 ], [ 1, %lookup_class_ex.exit ], [ 1, %201 ], [ 1, %207 ], [ 1, %185 ]
@@ -8613,15 +8613,15 @@ lookup_class_ex.exit.thread:                      ; preds = %185, %207, %201, %2
   %219 = and i8 %.136.i, 1
   %220 = zext nneg i8 %219 to i32
   %221 = sub nsw i32 0, %220
-  br label %zend_is_intersection_subtype_of_class.argprom.exit
+  br label %zend_is_intersection_subtype_of_class.exit
 
-zend_is_intersection_subtype_of_class.argprom.exit: ; preds = %151, %215, %218
+zend_is_intersection_subtype_of_class.exit:       ; preds = %151, %215, %218
   %.0.i73 = phi i32 [ 2, %215 ], [ %221, %218 ], [ 2, %151 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %222
 
-222:                                              ; preds = %zend_is_intersection_subtype_of_class.argprom.exit, %81
-  %.041 = phi i32 [ %85, %81 ], [ %.0.i73, %zend_is_intersection_subtype_of_class.argprom.exit ]
+222:                                              ; preds = %zend_is_intersection_subtype_of_class.exit, %81
+  %.041 = phi i32 [ %85, %81 ], [ %.0.i73, %zend_is_intersection_subtype_of_class.exit ]
   %223 = xor i32 %.041, %57
   %224 = icmp eq i32 %223, 2
   br i1 %224, label %.loopexit, label %225
@@ -11508,7 +11508,7 @@ declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @zend_function_dtor(ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_type_copy_ctor.argelim(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @zend_type_copy_ctor(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 4194304
@@ -11578,7 +11578,7 @@ define internal fastcc void @zend_type_copy_ctor.argelim(ptr nocapture noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0.i11 = phi ptr [ %39, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  tail call fastcc void @zend_type_copy_ctor.argelim(ptr noundef nonnull %.0.i11)
+  tail call fastcc void @zend_type_copy_ctor(ptr noundef nonnull %.0.i11)
   %39 = getelementptr inbounds i8, ptr %.0.i11, i64 16
   %40 = icmp ult ptr %39, %.ptr12
   br i1 %40, label %.lr.ph, label %zend_type_list_copy_ctor.exit
@@ -11677,7 +11677,7 @@ define internal fastcc void @zend_traits_copy_functions(ptr noundef %0, ptr noca
   %39 = and i32 %storemerge, 36
   %40 = icmp eq i32 %39, 36
   %or.cond.i = select i1 %.not.i, i1 %40, i1 false
-  br i1 %or.cond.i, label %41, label %zend_traits_check_private_final_inheritance.argprom.exit
+  br i1 %or.cond.i, label %41, label %zend_traits_check_private_final_inheritance.exit
 
 41:                                               ; preds = %31
   %42 = getelementptr inbounds i8, ptr %37, i64 16
@@ -11689,13 +11689,13 @@ define internal fastcc void @zend_traits_copy_functions(ptr noundef %0, ptr noca
   %46 = getelementptr inbounds i8, ptr %37, i64 24
   %47 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %46, i64 noundef 11, ptr noundef nonnull @.str.73, i64 noundef 11) #16
   %.not4.i = icmp eq i32 %47, 0
-  br i1 %.not4.i, label %zend_traits_check_private_final_inheritance.argprom.exit, label %48
+  br i1 %.not4.i, label %zend_traits_check_private_final_inheritance.exit, label %48
 
 48:                                               ; preds = %45, %41
   call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.74) #16
-  br label %zend_traits_check_private_final_inheritance.argprom.exit
+  br label %zend_traits_check_private_final_inheritance.exit
 
-zend_traits_check_private_final_inheritance.argprom.exit: ; preds = %31, %45, %48
+zend_traits_check_private_final_inheritance.exit: ; preds = %31, %45, %48
   %49 = load ptr, ptr %15, align 8
   %50 = call ptr @zend_string_tolower_ex(ptr noundef %49, i1 noundef zeroext false) #16
   %51 = load ptr, ptr %15, align 8
@@ -11706,7 +11706,7 @@ zend_traits_check_private_final_inheritance.argprom.exit: ; preds = %31, %45, %4
   %.not91 = icmp eq i32 %54, 0
   br i1 %.not91, label %55, label %61
 
-55:                                               ; preds = %zend_traits_check_private_final_inheritance.argprom.exit
+55:                                               ; preds = %zend_traits_check_private_final_inheritance.exit
   %56 = load i32, ptr %50, align 4
   %57 = icmp ne i32 %56, 0
   call void @llvm.assume(i1 %57)
@@ -11719,7 +11719,7 @@ zend_traits_check_private_final_inheritance.argprom.exit: ; preds = %31, %45, %4
   call void @_efree(ptr noundef nonnull %50) #16
   br label %61
 
-61:                                               ; preds = %zend_traits_check_private_final_inheritance.argprom.exit, %60, %55, %28, %22, %17, %14
+61:                                               ; preds = %zend_traits_check_private_final_inheritance.exit, %60, %55, %28, %22, %17, %14
   %62 = getelementptr inbounds i8, ptr %.073101, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.071 = load ptr, ptr %62, align 8
@@ -11821,7 +11821,7 @@ zend_traits_check_private_final_inheritance.argprom.exit: ; preds = %31, %45, %4
   %109 = and i32 %.val92, 36
   %110 = icmp eq i32 %109, 36
   %or.cond.i94 = select i1 %.not.i93, i1 %110, i1 false
-  br i1 %or.cond.i94, label %111, label %zend_traits_check_private_final_inheritance.argprom.exit96
+  br i1 %or.cond.i94, label %111, label %zend_traits_check_private_final_inheritance.exit96
 
 111:                                              ; preds = %.loopexit
   %112 = getelementptr inbounds i8, ptr %0, i64 16
@@ -11833,19 +11833,19 @@ zend_traits_check_private_final_inheritance.argprom.exit: ; preds = %31, %45, %4
   %116 = getelementptr inbounds i8, ptr %0, i64 24
   %117 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %116, i64 noundef 11, ptr noundef nonnull @.str.73, i64 noundef 11) #16
   %.not4.i95 = icmp eq i32 %117, 0
-  br i1 %.not4.i95, label %zend_traits_check_private_final_inheritance.argprom.exit96, label %118
+  br i1 %.not4.i95, label %zend_traits_check_private_final_inheritance.exit96, label %118
 
 118:                                              ; preds = %115, %111
   call void (i32, ptr, ...) @zend_error(i32 noundef 128, ptr noundef nonnull @.str.74) #16
-  br label %zend_traits_check_private_final_inheritance.argprom.exit96
+  br label %zend_traits_check_private_final_inheritance.exit96
 
-zend_traits_check_private_final_inheritance.argprom.exit96: ; preds = %.loopexit, %115, %118
+zend_traits_check_private_final_inheritance.exit96: ; preds = %.loopexit, %115, %118
   %119 = getelementptr inbounds i8, ptr %1, i64 8
   %120 = load ptr, ptr %119, align 8
   call fastcc void @zend_add_trait_method(ptr noundef %2, ptr noundef %120, ptr noundef %0, ptr noundef %6)
   br label %121
 
-121:                                              ; preds = %zend_traits_check_private_final_inheritance.argprom.exit96, %64
+121:                                              ; preds = %zend_traits_check_private_final_inheritance.exit96, %64
   ret void
 }
 

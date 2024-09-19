@@ -347,13 +347,13 @@ define dso_local void @_ZNK5clang8cross_tu10IndexError3logERN4llvm11raw_ostreamE
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load atomic i64, ptr @_ZN5clang8cross_tu12_GLOBAL__N_18CategoryE acquire, align 8
   %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %5, label %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEptEv.argprom.exit
+  br i1 %.not.i.i, label %5, label %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEptEv.exit
 
 5:                                                ; preds = %2
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5clang8cross_tu12_GLOBAL__N_18CategoryE, ptr noundef nonnull @_ZN4llvm14object_creatorIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryEE4callEPv) #18
-  br label %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEptEv.argprom.exit
+  br label %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEptEv.exit
 
-_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEptEv.argprom.exit: ; preds = %2, %5
+_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEptEv.exit: ; preds = %2, %5
   %6 = load atomic i64, ptr @_ZN5clang8cross_tu12_GLOBAL__N_18CategoryE monotonic, align 8
   %.0.i2.i.i = inttoptr i64 %6 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -372,11 +372,11 @@ _ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14
   %.not.i = icmp ult ptr %16, %18
   br i1 %.not.i, label %21, label %19
 
-19:                                               ; preds = %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEptEv.argprom.exit
+19:                                               ; preds = %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEptEv.exit
   %20 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 noundef zeroext 10) #18
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-21:                                               ; preds = %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEptEv.argprom.exit
+21:                                               ; preds = %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEptEv.exit
   %22 = getelementptr inbounds i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
@@ -396,13 +396,13 @@ define dso_local { i32, ptr } @_ZNK5clang8cross_tu10IndexError18convertToErrorCo
   %3 = load i32, ptr %2, align 8
   %4 = load atomic i64, ptr @_ZN5clang8cross_tu12_GLOBAL__N_18CategoryE acquire, align 8
   %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %5, label %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEdeEv.argprom.exit
+  br i1 %.not.i, label %5, label %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEdeEv.exit
 
 5:                                                ; preds = %1
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5clang8cross_tu12_GLOBAL__N_18CategoryE, ptr noundef nonnull @_ZN4llvm14object_creatorIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryEE4callEPv) #18
-  br label %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEdeEv.argprom.exit
+  br label %_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEdeEv.exit
 
-_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEdeEv.argprom.exit: ; preds = %1, %5
+_ZN4llvm13ManagedStaticIN5clang8cross_tu12_GLOBAL__N_118IndexErrorCategoryENS_14object_creatorIS4_EENS_14object_deleterIS4_EEEdeEv.exit: ; preds = %1, %5
   %6 = load atomic i64, ptr @_ZN5clang8cross_tu12_GLOBAL__N_18CategoryE monotonic, align 8
   %.0.i2.i = inttoptr i64 %6 to ptr
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %3, 0
@@ -9488,14 +9488,14 @@ attributes #22 = { noreturn nounwind }
 !263 = distinct !{!263, !"_ZN4llvm15handleErrorImplIZN5clang8cross_tu27CrossTranslationUnitContext9ASTLoader22lazyInitInvocationListEvE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_"}
 !264 = !{!262, !259}
 !265 = !{!266, !262, !259}
-!266 = distinct !{!266, !267, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNS2_27CrossTranslationUnitContext9ASTLoader22lazyInitInvocationListEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE.argprom.argprom: argument 0"}
-!267 = distinct !{!267, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNS2_27CrossTranslationUnitContext9ASTLoader22lazyInitInvocationListEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE.argprom.argprom"}
+!266 = distinct !{!266, !267, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNS2_27CrossTranslationUnitContext9ASTLoader22lazyInitInvocationListEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE: argument 0"}
+!267 = distinct !{!267, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNS2_27CrossTranslationUnitContext9ASTLoader22lazyInitInvocationListEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE"}
 !268 = !{!269, !259}
 !269 = distinct !{!269, !270, !"_ZN4llvm15handleErrorImplIZN5clang8cross_tu27CrossTranslationUnitContext9ASTLoader22lazyInitInvocationListEvE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_: argument 0"}
 !270 = distinct !{!270, !"_ZN4llvm15handleErrorImplIZN5clang8cross_tu27CrossTranslationUnitContext9ASTLoader22lazyInitInvocationListEvE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS8_EEOT_DpOT0_"}
 !271 = !{!272, !269, !259}
-!272 = distinct !{!272, !273, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNS2_27CrossTranslationUnitContext9ASTLoader22lazyInitInvocationListEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE.argprom.argprom: argument 0"}
-!273 = distinct !{!273, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNS2_27CrossTranslationUnitContext9ASTLoader22lazyInitInvocationListEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE.argprom.argprom"}
+!272 = distinct !{!272, !273, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNS2_27CrossTranslationUnitContext9ASTLoader22lazyInitInvocationListEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE: argument 0"}
+!273 = distinct !{!273, !"_ZN4llvm18ErrorHandlerTraitsIRFvRN5clang8cross_tu10IndexErrorEEE5applyIZNS2_27CrossTranslationUnitContext9ASTLoader22lazyInitInvocationListEvE3$_0EENS_5ErrorEOT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISG_EE"}
 !274 = !{!275, !277}
 !275 = distinct !{!275, !276, !"_ZSt11make_uniqueIN5clang8cross_tu10IndexErrorEJRNS1_16index_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !276 = distinct !{!276, !"_ZSt11make_uniqueIN5clang8cross_tu10IndexErrorEJRNS1_16index_error_codeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

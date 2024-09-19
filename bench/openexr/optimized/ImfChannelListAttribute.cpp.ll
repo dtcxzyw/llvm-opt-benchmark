@@ -671,9 +671,9 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %or.cond.i = select i1 %cmp1.i, i1 %cmp.i, i1 false
   br i1 %or.cond.i, label %while.body.i.backedge, label %_ZN7Imf_3_23Xdr4readINS_8StreamIOENS_7IStreamEEEvRT0_iPc.exit
 
-while.body.i.backedge:                            ; preds = %while.body.i, %_ZN7Imf_3_212_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_.argprom.exit
-  %v.addr.06.i.be = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %name, %_ZN7Imf_3_212_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_.argprom.exit ]
-  %n.addr.05.i.be = phi i32 [ %dec.i, %while.body.i ], [ 255, %_ZN7Imf_3_212_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_.argprom.exit ]
+while.body.i.backedge:                            ; preds = %while.body.i, %_ZN7Imf_3_212_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_.exit
+  %v.addr.06.i.be = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %name, %_ZN7Imf_3_212_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_.exit ]
+  %n.addr.05.i.be = phi i32 [ %dec.i, %while.body.i ], [ 255, %_ZN7Imf_3_212_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_.exit ]
   br label %while.body.i, !llvm.loop !10
 
 _ZN7Imf_3_23Xdr4readINS_8StreamIOENS_7IStreamEEEvRT0_iPc.exit: ; preds = %while.body.i
@@ -695,7 +695,7 @@ for.body.i:                                       ; preds = %for.cond.i, %if.end
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr %name, i64 0, i64 %i.01.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %cmp1.i7 = icmp eq i8 %3, 0
-  br i1 %cmp1.i7, label %_ZN7Imf_3_212_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_.argprom.exit, label %for.cond.i
+  br i1 %cmp1.i7, label %_ZN7Imf_3_212_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_.exit, label %for.cond.i
 
 for.end.i:                                        ; preds = %for.cond.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %s.i)
@@ -747,7 +747,7 @@ ehcleanup.i:                                      ; preds = %lpad10.i, %lpad.i
 unreachable.i:                                    ; preds = %invoke.cont11.i
   unreachable
 
-_ZN7Imf_3_212_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_.argprom.exit: ; preds = %for.body.i
+_ZN7Imf_3_212_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_.exit: ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %s.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   %vtable.i.i.i = load ptr, ptr %is, align 8

@@ -1323,7 +1323,7 @@ define dso_local i32 @acpi_pci_set_power_state(ptr noundef %0, i32 noundef %1) l
 
 42:                                               ; preds = %40
   %.val = load ptr, ptr %4, align 8
-  tail call fastcc void @acpi_pci_config_space_access.argprom.argelim(ptr %.val)
+  tail call fastcc void @acpi_pci_config_space_access(ptr %.val)
   br label %43
 
 43:                                               ; preds = %42, %40, %33, %18, %14, %10, %2
@@ -1335,7 +1335,7 @@ define dso_local i32 @acpi_pci_set_power_state(ptr noundef %0, i32 noundef %1) l
 declare dso_local i32 @dev_pm_qos_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_pci_config_space_access.argprom.argelim(ptr %.816.val) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_pci_config_space_access(ptr %.816.val) unnamed_addr #0 align 16 {
   %1 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %.816.val) #9
   %2 = getelementptr i8, ptr %.816.val, i64 -16
   %3 = icmp ne ptr %2, null

@@ -392,8 +392,8 @@ define hidden noundef ptr @_ZN7MemNode28optimize_simple_memory_chainEP4NodePK10T
   %41 = getelementptr inbounds i8, ptr %3, i64 40
   br label %42
 
-42:                                               ; preds = %.lr.ph, %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
-  %.06370 = phi ptr [ %0, %.lr.ph ], [ %.2, %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit ]
+42:                                               ; preds = %.lr.ph, %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
+  %.06370 = phi ptr [ %0, %.lr.ph ], [ %.2, %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit ]
   %43 = getelementptr inbounds i8, ptr %.06370, i64 44
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 15
@@ -432,14 +432,14 @@ define hidden noundef ptr @_ZN7MemNode28optimize_simple_memory_chainEP4NodePK10T
   %67 = getelementptr inbounds i8, ptr %66, i64 224
   %68 = load ptr, ptr %67, align 8
   %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(128) %54, ptr noundef nonnull %1, ptr noundef %3) #13
-  br i1 %69, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit, label %70
+  br i1 %69, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit, label %70
 
 70:                                               ; preds = %.thread
   %71 = getelementptr inbounds i8, ptr %54, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
-  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 75:                                               ; preds = %63
   %76 = icmp eq i32 %57, 49
@@ -464,10 +464,10 @@ define hidden noundef ptr @_ZN7MemNode28optimize_simple_memory_chainEP4NodePK10T
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
-  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 90:                                               ; preds = %84
-  br i1 %31, label %91, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br i1 %31, label %91, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds i8, ptr %78, i64 8
@@ -486,7 +486,7 @@ define hidden noundef ptr @_ZN7MemNode28optimize_simple_memory_chainEP4NodePK10T
   %105 = getelementptr inbounds i8, ptr %104, i64 272
   %106 = load ptr, ptr %105, align 8
   %107 = call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(64) %103) #13
-  br i1 %107, label %108, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br i1 %107, label %108, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 108:                                              ; preds = %91
   %109 = load ptr, ptr %103, align 8
@@ -498,14 +498,14 @@ define hidden noundef ptr @_ZN7MemNode28optimize_simple_memory_chainEP4NodePK10T
   %115 = load ptr, ptr %114, align 8
   %116 = call noundef ptr %115(ptr noundef nonnull align 8 dereferenceable(80) %1) #13
   %117 = icmp eq ptr %112, %116
-  br i1 %117, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit, label %118
+  br i1 %117, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit, label %118
 
 118:                                              ; preds = %108
   %119 = getelementptr inbounds i8, ptr %54, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8
-  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 .thread64:                                        ; preds = %75
   %123 = and i32 %56, 31
@@ -522,13 +522,13 @@ define hidden noundef ptr @_ZN7MemNode28optimize_simple_memory_chainEP4NodePK10T
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8
-  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 132:                                              ; preds = %.thread64
   %133 = getelementptr inbounds i8, ptr %54, i64 16
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %.loopexit, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br i1 %135, label %.loopexit, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 136:                                              ; preds = %47, %42
   %137 = and i32 %44, 32767
@@ -559,7 +559,7 @@ _ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit.thread: ; preds = 
   %storemerge.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
   %storemerge.i = load ptr, ptr %storemerge.in.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 _ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit: ; preds = %140
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -568,7 +568,7 @@ _ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit: ; preds = %140
 149:                                              ; preds = %136
   %150 = and i32 %44, 255
   %151 = icmp eq i32 %150, 128
-  br i1 %151, label %152, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br i1 %151, label %152, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 152:                                              ; preds = %149
   %153 = load ptr, ptr %35, align 8
@@ -579,7 +579,7 @@ _ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit: ; preds = %140
   %or.cond.i.i = icmp ult i32 %157, 3
   %158 = select i1 %or.cond.i.i, ptr %1, ptr null
   %.not.i55 = icmp eq i32 %156, 18
-  br i1 %.not.i55, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit, label %159
+  br i1 %.not.i55, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit, label %159
 
 159:                                              ; preds = %152
   %.not16.i = icmp eq ptr %158, null
@@ -606,7 +606,7 @@ _ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit: ; preds = %140
   %173 = getelementptr inbounds i8, ptr %158, i64 36
   %174 = load i32, ptr %173, align 4
   %175 = icmp eq i32 %174, -2000000001
-  br i1 %175, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit, label %176
+  br i1 %175, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit, label %176
 
 176:                                              ; preds = %172, %163, %160, %159
   %177 = load ptr, ptr %3, align 8
@@ -616,7 +616,7 @@ _ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit: ; preds = %140
   %181 = load i32, ptr %180, align 4
   %182 = and i32 %181, 255
   %183 = icmp eq i32 %182, 128
-  br i1 %183, label %184, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br i1 %183, label %184, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 184:                                              ; preds = %176
   %185 = getelementptr inbounds i8, ptr %179, i64 24
@@ -632,22 +632,22 @@ _ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit: ; preds = %140
   %194 = getelementptr inbounds i8, ptr %193, i64 16
   %195 = load ptr, ptr %194, align 8
   %196 = icmp eq ptr %195, null
-  br i1 %196, label %197, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br i1 %196, label %197, label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
 197:                                              ; preds = %184
   %198 = getelementptr inbounds i8, ptr %189, i64 16
   %199 = load ptr, ptr %198, align 8
-  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit
+  br label %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit
 
-_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit: ; preds = %197, %184, %176, %172, %152, %_ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit.thread, %149, %90, %118, %108, %91, %85, %132, %127, %.thread, %70
+_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit: ; preds = %197, %184, %176, %172, %152, %_ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit.thread, %149, %90, %118, %108, %91, %85, %132, %127, %.thread, %70
   %.2 = phi ptr [ %.06370, %.thread ], [ %74, %70 ], [ %89, %85 ], [ %.06370, %108 ], [ %122, %118 ], [ %.06370, %91 ], [ %.06370, %90 ], [ %131, %127 ], [ %.06370, %132 ], [ %.06370, %149 ], [ %storemerge.i, %_ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit.thread ], [ %.06370, %172 ], [ %.06370, %152 ], [ %179, %176 ], [ %199, %197 ], [ %193, %184 ]
   %.not = icmp eq ptr %.06370, %.2
   %200 = icmp eq ptr %.2, %38
   %or.cond53 = or i1 %200, %.not
   br i1 %or.cond53, label %.loopexit, label %42, !llvm.loop !6
 
-.loopexit:                                        ; preds = %139, %132, %125, %77, %80, %59, %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit, %32, %_ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit, %30
-  %.0 = phi ptr [ %0, %30 ], [ %.06370, %_ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit ], [ %0, %32 ], [ %.06370, %139 ], [ %.06370, %132 ], [ %.06370, %125 ], [ %.06370, %77 ], [ %.06370, %80 ], [ %.06370, %59 ], [ %.2, %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom.exit ]
+.loopexit:                                        ; preds = %139, %132, %125, %77, %80, %59, %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit, %32, %_ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit, %30
+  %.0 = phi ptr [ %0, %30 ], [ %.06370, %_ZN14ClearArrayNode12step_throughEPP4NodejP11PhaseValues.exit ], [ %0, %32 ], [ %.06370, %139 ], [ %.06370, %132 ], [ %.06370, %125 ], [ %.06370, %77 ], [ %.06370, %80 ], [ %.06370, %59 ], [ %.2, %_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.exit ]
   ret ptr %.0
 }
 
@@ -689,7 +689,7 @@ define hidden noundef zeroext i1 @_ZN14ClearArrayNode12step_throughEPP4NodejP11P
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr @_ZN7Compile15find_alias_typeEPK7TypePtrbP7ciField(ptr noundef nonnull align 8 dereferenceable(2316) %5, ptr noundef %2, i1 noundef zeroext false, ptr noundef null) #13
@@ -1548,7 +1548,7 @@ _ZN9Node_List4pushEP4Node.exit.i147:              ; preds = %340, %334
   %388 = getelementptr inbounds i8, ptr %387, i64 48
   %389 = load ptr, ptr %388, align 8
   %390 = tail call noundef ptr %389(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
-  %391 = tail call fastcc noundef ptr @_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream.argprom(ptr noundef nonnull %1, ptr noundef nonnull %114, ptr noundef nonnull %171)
+  %391 = tail call fastcc noundef ptr @_ZL21step_through_mergememP8PhaseGVNP12MergeMemNodePK7TypePtrS5_P12outputStream(ptr noundef nonnull %1, ptr noundef nonnull %114, ptr noundef nonnull %171)
   %.not113 = icmp eq ptr %391, %114
   br i1 %.not113, label %_ZN16Unique_Node_List4pushEP4Node.exit, label %392
 

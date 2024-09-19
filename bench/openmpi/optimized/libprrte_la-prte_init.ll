@@ -1031,7 +1031,7 @@ define i32 @prte_init(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 24:                                               ; preds = %22
   tail call void @pmix_server_register_params() #11
   %25 = tail call i32 @prte_hwloc_base_open() #11
-  %26 = tail call fastcc ptr @pmix_obj_new_tma.argprom()
+  %26 = tail call fastcc ptr @pmix_obj_new_tma()
   store ptr %26, ptr @prte_job_data, align 8
   %27 = tail call i32 @pmix_pointer_array_init(ptr noundef %26, i32 noundef 64, i32 noundef 2147483647, i32 noundef 64) #11
   switch i32 %27, label %.sink.split [
@@ -1040,7 +1040,7 @@ define i32 @prte_init(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   ]
 
 28:                                               ; preds = %24
-  %29 = tail call fastcc ptr @pmix_obj_new_tma.argprom()
+  %29 = tail call fastcc ptr @pmix_obj_new_tma()
   store ptr %29, ptr @prte_node_pool, align 8
   %30 = tail call i32 @pmix_pointer_array_init(ptr noundef %29, i32 noundef 64, i32 noundef 2147483647, i32 noundef 64) #11
   switch i32 %30, label %.sink.split [
@@ -1049,7 +1049,7 @@ define i32 @prte_init(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   ]
 
 31:                                               ; preds = %28
-  %32 = tail call fastcc ptr @pmix_obj_new_tma.argprom()
+  %32 = tail call fastcc ptr @pmix_obj_new_tma()
   store ptr %32, ptr @prte_node_topologies, align 8
   %33 = tail call i32 @pmix_pointer_array_init(ptr noundef %32, i32 noundef 64, i32 noundef 2147483647, i32 noundef 64) #11
   switch i32 %33, label %.sink.split [
@@ -1091,7 +1091,7 @@ define i32 @prte_init(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 47:                                               ; preds = %42
   tail call void @pmix_ifgetaliases(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_process_info, i64 808)) #11
-  %48 = tail call fastcc ptr @pmix_obj_new_tma.argprom()
+  %48 = tail call fastcc ptr @pmix_obj_new_tma()
   store ptr %48, ptr @prte_cache, align 8
   %49 = tail call i32 @pmix_pointer_array_init(ptr noundef %48, i32 noundef 1, i32 noundef 2147483647, i32 noundef 1) #11
   %50 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_init_lock, i64 128)) #11
@@ -1159,7 +1159,7 @@ declare void @pmix_server_register_params() local_unnamed_addr #1
 declare i32 @prte_hwloc_base_open() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pmix_obj_new_tma.argprom() unnamed_addr #0 {
+define internal fastcc noundef ptr @pmix_obj_new_tma() unnamed_addr #0 {
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_pointer_array_t_class, i64 56), align 8
   %2 = tail call noalias noundef ptr @malloc(i64 noundef %1) #16
   %3 = load i32, ptr @pmix_class_init_epoch, align 4

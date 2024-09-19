@@ -548,7 +548,7 @@ onig_bbuf_init.exit.thread:                       ; preds = %21
 
 76:                                               ; preds = %70
   %77 = load ptr, ptr %9, align 8
-  %78 = call fastcc i32 @subexp_recursive_check_trav.argprom(ptr noundef %77)
+  %78 = call fastcc i32 @subexp_recursive_check_trav(ptr noundef %77)
   %79 = load ptr, ptr %9, align 8
   %80 = call fastcc i32 @subexp_inf_recursive_check_trav(ptr noundef %79, ptr noundef %10)
   %.not87 = icmp eq i32 %80, 0
@@ -778,7 +778,7 @@ comp_opt_exact_or_map_info.exit.thread.i:         ; preds = %186, %184, %147, %1
   %211 = load ptr, ptr %104, align 8
   %212 = load ptr, ptr %103, align 8
   %213 = getelementptr inbounds i8, ptr %0, i64 152
-  %214 = call fastcc i32 @set_bm_skip.argprom(ptr noundef %211, ptr noundef %212, ptr noundef nonnull %0, ptr noundef nonnull %213, i32 noundef 1)
+  %214 = call fastcc i32 @set_bm_skip(ptr noundef %211, ptr noundef %212, ptr noundef nonnull %0, ptr noundef nonnull %213, i32 noundef 1)
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %216, label %230
 
@@ -800,7 +800,7 @@ comp_opt_exact_or_map_info.exit.thread.i:         ; preds = %186, %184, %147, %1
   %223 = load ptr, ptr %104, align 8
   %224 = load ptr, ptr %103, align 8
   %225 = getelementptr inbounds i8, ptr %0, i64 152
-  %226 = call fastcc i32 @set_bm_skip.argprom(ptr noundef %223, ptr noundef %224, ptr noundef nonnull %0, ptr noundef nonnull %225, i32 noundef 0)
+  %226 = call fastcc i32 @set_bm_skip(ptr noundef %223, ptr noundef %224, ptr noundef nonnull %0, ptr noundef nonnull %225, i32 noundef 0)
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %228, label %230
 
@@ -1115,7 +1115,7 @@ define internal fastcc i32 @disable_noname_group_capture(ptr nocapture noundef n
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %3
   store i32 0, ptr %4, align 4
-  call fastcc void @noname_disable_map.retelim(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %4)
+  call fastcc void @noname_disable_map(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %4)
   %14 = load ptr, ptr %0, align 8
   %15 = load i32, ptr %5, align 4
   %16 = call fastcc i32 @renumber_by_map(ptr noundef %14, ptr noundef %10, i32 noundef %15)
@@ -1477,7 +1477,7 @@ tailrecurse.backedge:                             ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @subexp_recursive_check_trav.argprom(ptr nocapture noundef %0) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @subexp_recursive_check_trav(ptr nocapture noundef %0) unnamed_addr #12 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %24, %1
@@ -1499,7 +1499,7 @@ tailrecurse:                                      ; preds = %24, %1
   %.031 = phi ptr [ %8, %3 ], [ %.tr, %.preheader ]
   %4 = getelementptr inbounds i8, ptr %.031, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc i32 @subexp_recursive_check_trav.argprom(ptr noundef %5)
+  %6 = tail call fastcc i32 @subexp_recursive_check_trav(ptr noundef %5)
   %.not = icmp eq i32 %6, 0
   %spec.select13 = select i1 %.not, i32 %.032, i32 1
   %7 = getelementptr inbounds i8, ptr %.031, i64 16
@@ -1510,7 +1510,7 @@ tailrecurse:                                      ; preds = %24, %1
 9:                                                ; preds = %tailrecurse
   %10 = getelementptr inbounds i8, ptr %.tr, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call fastcc i32 @subexp_recursive_check_trav.argprom(ptr noundef %11)
+  %12 = tail call fastcc i32 @subexp_recursive_check_trav(ptr noundef %11)
   %13 = getelementptr inbounds i8, ptr %.tr, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
@@ -1575,7 +1575,7 @@ common.ret25:                                     ; preds = %17, %9, %3, %19, %t
 41:                                               ; preds = %38, %27
   %42 = getelementptr inbounds i8, ptr %.tr, i64 24
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call fastcc i32 @subexp_recursive_check_trav.argprom(ptr noundef %43)
+  %44 = tail call fastcc i32 @subexp_recursive_check_trav(ptr noundef %43)
   %45 = load i32, ptr %28, align 4
   %46 = lshr i32 %45, 8
   %47 = and i32 %46, 1
@@ -2786,7 +2786,7 @@ tailrecurse.backedge:                             ; preds = %509, %515, %436
 523:                                              ; preds = %515
   %524 = getelementptr inbounds i8, ptr %.tr, i64 8
   %525 = load ptr, ptr %524, align 8
-  %526 = tail call fastcc i32 @check_type_tree.argelim(ptr noundef %525, i32 noundef 3)
+  %526 = tail call fastcc i32 @check_type_tree(ptr noundef %525, i32 noundef 3)
   %.not282 = icmp eq i32 %526, 0
   br i1 %.not282, label %527, label %common.ret760
 
@@ -2802,7 +2802,7 @@ tailrecurse.backedge:                             ; preds = %509, %515, %436
 531:                                              ; preds = %515
   %532 = getelementptr inbounds i8, ptr %.tr, i64 8
   %533 = load ptr, ptr %532, align 8
-  %534 = tail call fastcc i32 @check_type_tree.argelim(ptr noundef %533, i32 noundef 2)
+  %534 = tail call fastcc i32 @check_type_tree(ptr noundef %533, i32 noundef 2)
   %.not279 = icmp eq i32 %534, 0
   br i1 %.not279, label %535, label %common.ret760
 
@@ -3099,7 +3099,7 @@ add_opcode_rel_addr.exit.thread:                  ; preds = %75, %68, %25
   %135 = ptrtoint ptr %131 to i64
   %136 = ptrtoint ptr %.val to i64
   %137 = sub i64 %135, %136
-  tail call fastcc void @add_compile_string.argelim(ptr noundef %.val, i32 noundef 1, i64 noundef %137, ptr noundef %1, i32 noundef 0)
+  tail call fastcc void @add_compile_string(ptr noundef %.val, i32 noundef 1, i64 noundef %137, ptr noundef %1, i32 noundef 0)
   br label %common.ret
 
 138:                                              ; preds = %126
@@ -3198,7 +3198,7 @@ add_opcode_rel_addr.exit.thread:                  ; preds = %75, %68, %25
 
 186:                                              ; preds = %181
   %187 = sext i32 %.05563.i to i64
-  tail call fastcc void @add_compile_string.argelim(ptr noundef %.05265.i, i32 noundef %.05166.i, i64 noundef %187, ptr noundef %1, i32 noundef %.lobit.i)
+  tail call fastcc void @add_compile_string(ptr noundef %.05265.i, i32 noundef %.05166.i, i64 noundef %187, ptr noundef %1, i32 noundef %.lobit.i)
   br label %188
 
 188:                                              ; preds = %186, %184
@@ -3215,7 +3215,7 @@ add_opcode_rel_addr.exit.thread:                  ; preds = %75, %68, %25
   %.052.lcssa.i = phi ptr [ %142, %152 ], [ %.153.i, %188 ], [ %142, %161 ], [ %142, %170 ]
   %.051.lcssa.i = phi i32 [ %153, %152 ], [ %.1.i, %188 ], [ %153, %161 ], [ %153, %170 ]
   %192 = sext i32 %.055.lcssa.i to i64
-  tail call fastcc void @add_compile_string.argelim(ptr noundef %.052.lcssa.i, i32 noundef %.051.lcssa.i, i64 noundef %192, ptr noundef %1, i32 noundef %.lobit.i)
+  tail call fastcc void @add_compile_string(ptr noundef %.052.lcssa.i, i32 noundef %.051.lcssa.i, i64 noundef %192, ptr noundef %1, i32 noundef %.lobit.i)
   br label %common.ret
 
 193:                                              ; preds = %tailrecurse
@@ -6426,7 +6426,7 @@ onig_is_code_in_cc_len.exit:                      ; preds = %.thread, %._crit_ed
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @noname_disable_map.retelim(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #4 {
+define internal fastcc void @noname_disable_map(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #4 {
   br label %tailrecurse.outer
 
 tailrecurse.outer:                                ; preds = %tailrecurse.outer.backedge, %3
@@ -6450,7 +6450,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
 6:                                                ; preds = %.preheader, %6
   %.041 = phi ptr [ %9, %6 ], [ %4, %.preheader ]
   %7 = getelementptr inbounds i8, ptr %.041, i64 8
-  tail call fastcc void @noname_disable_map.retelim(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @noname_disable_map(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2)
   %8 = getelementptr inbounds i8, ptr %.041, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not48 = icmp eq ptr %9, null
@@ -6459,7 +6459,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
 10:                                               ; preds = %tailrecurse
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call fastcc void @noname_disable_map.retelim(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @noname_disable_map(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2)
   %13 = load ptr, ptr %11, align 8
   %.not47 = icmp eq ptr %13, %12
   br i1 %.not47, label %.critedge, label %14
@@ -7307,7 +7307,7 @@ define internal fastcc void @swap_node(ptr noundef %0, ptr noundef %1) unnamed_a
 declare ptr @onig_node_list_add(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @check_type_tree.argelim(ptr nocapture noundef readonly %0, i32 noundef range(i32 2, 4) %1) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @check_type_tree(ptr nocapture noundef readonly %0, i32 noundef range(i32 2, 4) %1) unnamed_addr #11 {
   %3 = load i32, ptr %0, align 8
   %4 = shl nuw i32 1, %3
   %5 = and i32 %4, 2031
@@ -7332,7 +7332,7 @@ define internal fastcc range(i32 0, 2) i32 @check_type_tree.argelim(ptr nocaptur
   %.031 = phi ptr [ %15, %13 ], [ %.tr42, %.preheader ]
   %9 = getelementptr inbounds i8, ptr %.031, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call fastcc i32 @check_type_tree.argelim(ptr noundef %10, i32 noundef %1)
+  %11 = tail call fastcc i32 @check_type_tree(ptr noundef %10, i32 noundef %1)
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %.critedge
 
@@ -11012,7 +11012,7 @@ select.unfold:                                    ; preds = %46, %48
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -6, 2) i32 @set_bm_skip.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #4 {
+define internal fastcc range(i32 -6, 2) i32 @set_bm_skip(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #4 {
   %6 = alloca [13 x [18 x i8]], align 16
   %7 = alloca [13 x %struct.OnigCaseFoldCodeItem], align 16
   %8 = getelementptr inbounds i8, ptr %2, i64 72
@@ -11250,9 +11250,9 @@ define internal fastcc i32 @compile_length_tree(ptr nocapture noundef readonly %
   %31 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %31, align 8
   %.not.i = icmp ugt ptr %29, %.val
-  br i1 %.not.i, label %add_compile_string_length.argprom.exit.i, label %common.ret146
+  br i1 %.not.i, label %add_compile_string_length.exit.i, label %common.ret146
 
-add_compile_string_length.argprom.exit.i:         ; preds = %30
+add_compile_string_length.exit.i:                 ; preds = %30
   %32 = ptrtoint ptr %29 to i64
   %33 = ptrtoint ptr %.val to i64
   %34 = sub i64 %32, %33
@@ -11359,36 +11359,36 @@ add_compile_string_length.argprom.exit.i:         ; preds = %30
   %83 = add nsw i64 %81, -1
   %84 = add nsw i64 %83, %82
   %85 = udiv i64 %84, %82
-  switch i32 %.0591.us12.i, label %add_compile_string_length.argprom.exit.us.i [
+  switch i32 %.0591.us12.i, label %add_compile_string_length.exit.us.i [
     i32 1, label %88
     i32 2, label %86
     i32 3, label %select_str_opcode.exit.thread.i.us.i
   ]
 
 select_str_opcode.exit.thread.i.us.i:             ; preds = %80
-  br label %add_compile_string_length.argprom.exit.us.i
+  br label %add_compile_string_length.exit.us.i
 
 86:                                               ; preds = %80
   %switch.tableidx = add i64 %85, -1
   %87 = icmp ult i64 %switch.tableidx, 3
-  br i1 %87, label %switch.lookup, label %add_compile_string_length.argprom.exit.us.i
+  br i1 %87, label %switch.lookup, label %add_compile_string_length.exit.us.i
 
 88:                                               ; preds = %80
   %switch.tableidx114 = add i64 %85, -1
   %89 = icmp ult i64 %switch.tableidx114, 5
-  br i1 %89, label %switch.lookup113, label %add_compile_string_length.argprom.exit.us.i
+  br i1 %89, label %switch.lookup113, label %add_compile_string_length.exit.us.i
 
 switch.lookup:                                    ; preds = %86
   %switch.idx.cast = trunc nuw i64 %switch.tableidx to i32
   %switch.offset = or disjoint i32 %switch.idx.cast, 8
-  br label %add_compile_string_length.argprom.exit.us.i
+  br label %add_compile_string_length.exit.us.i
 
 switch.lookup113:                                 ; preds = %88
   %switch.idx.cast115 = trunc nuw i64 %switch.tableidx114 to i32
   %switch.offset116 = add nuw nsw i32 %switch.idx.cast115, 2
-  br label %add_compile_string_length.argprom.exit.us.i
+  br label %add_compile_string_length.exit.us.i
 
-add_compile_string_length.argprom.exit.us.i:      ; preds = %88, %switch.lookup113, %86, %switch.lookup, %select_str_opcode.exit.thread.i.us.i, %80
+add_compile_string_length.exit.us.i:              ; preds = %88, %switch.lookup113, %86, %switch.lookup, %select_str_opcode.exit.thread.i.us.i, %80
   %.0.i3.i.us.i = phi i32 [ 13, %80 ], [ 12, %select_str_opcode.exit.thread.i.us.i ], [ %switch.offset, %switch.lookup ], [ 11, %86 ], [ %switch.offset116, %switch.lookup113 ], [ 7, %88 ]
   %90 = phi i32 [ 5, %80 ], [ 1, %select_str_opcode.exit.thread.i.us.i ], [ 1, %switch.lookup ], [ 1, %86 ], [ 1, %switch.lookup113 ], [ 1, %88 ]
   %91 = add nsw i32 %.0.i3.i.us.i, -11
@@ -11406,9 +11406,9 @@ add_compile_string_length.argprom.exit.us.i:      ; preds = %88, %switch.lookup1
   %99 = add i32 %.0572.us11.i, %56
   br label %100
 
-100:                                              ; preds = %98, %add_compile_string_length.argprom.exit.us.i
-  %.158.us14.i = phi i32 [ %99, %98 ], [ %56, %add_compile_string_length.argprom.exit.us.i ]
-  %.156.us15.i = phi i32 [ %.0553.us10.i, %98 ], [ %97, %add_compile_string_length.argprom.exit.us.i ]
+100:                                              ; preds = %98, %add_compile_string_length.exit.us.i
+  %.158.us14.i = phi i32 [ %99, %98 ], [ %56, %add_compile_string_length.exit.us.i ]
+  %.156.us15.i = phi i32 [ %.0553.us10.i, %98 ], [ %97, %add_compile_string_length.exit.us.i ]
   %101 = getelementptr i8, ptr %.0544.us9.i, i64 %77
   %102 = icmp ult ptr %101, %51
   br i1 %102, label %78, label %._crit_edge.i, !llvm.loop !90
@@ -11443,7 +11443,7 @@ add_compile_string_length.argprom.exit.us.i:      ; preds = %88, %switch.lookup1
   %117 = add nsw i64 %115, -1
   %118 = add nsw i64 %117, %116
   %119 = udiv i64 %118, %116
-  switch i32 %.0591.i, label %add_compile_string_length.argprom.exit.i62 [
+  switch i32 %.0591.i, label %add_compile_string_length.exit.i62 [
     i32 1, label %120
     i32 2, label %122
     i32 3, label %select_str_opcode.exit.thread.i.i
@@ -11452,27 +11452,27 @@ add_compile_string_length.argprom.exit.us.i:      ; preds = %88, %switch.lookup1
 120:                                              ; preds = %114
   %switch.tableidx118 = add i64 %119, -1
   %121 = icmp ult i64 %switch.tableidx118, 5
-  br i1 %121, label %switch.lookup117, label %add_compile_string_length.argprom.exit.i62
+  br i1 %121, label %switch.lookup117, label %add_compile_string_length.exit.i62
 
 122:                                              ; preds = %114
   %switch.tableidx122 = add i64 %119, -1
   %123 = icmp ult i64 %switch.tableidx122, 3
-  br i1 %123, label %switch.lookup121, label %add_compile_string_length.argprom.exit.i62
+  br i1 %123, label %switch.lookup121, label %add_compile_string_length.exit.i62
 
 select_str_opcode.exit.thread.i.i:                ; preds = %114
-  br label %add_compile_string_length.argprom.exit.i62
+  br label %add_compile_string_length.exit.i62
 
 switch.lookup117:                                 ; preds = %120
   %switch.idx.cast119 = trunc nuw i64 %switch.tableidx118 to i32
   %switch.offset120 = add nuw nsw i32 %switch.idx.cast119, 2
-  br label %add_compile_string_length.argprom.exit.i62
+  br label %add_compile_string_length.exit.i62
 
 switch.lookup121:                                 ; preds = %122
   %switch.idx.cast123 = trunc nuw i64 %switch.tableidx122 to i32
   %switch.offset124 = or disjoint i32 %switch.idx.cast123, 8
-  br label %add_compile_string_length.argprom.exit.i62
+  br label %add_compile_string_length.exit.i62
 
-add_compile_string_length.argprom.exit.i62:       ; preds = %122, %switch.lookup121, %120, %switch.lookup117, %select_str_opcode.exit.thread.i.i, %114
+add_compile_string_length.exit.i62:               ; preds = %122, %switch.lookup121, %120, %switch.lookup117, %select_str_opcode.exit.thread.i.i, %114
   %.0.i3.i.i = phi i32 [ 13, %114 ], [ 12, %select_str_opcode.exit.thread.i.i ], [ %switch.offset120, %switch.lookup117 ], [ 7, %120 ], [ %switch.offset124, %switch.lookup121 ], [ 11, %122 ]
   %124 = phi i32 [ 5, %114 ], [ 1, %select_str_opcode.exit.thread.i.i ], [ 1, %switch.lookup117 ], [ 1, %120 ], [ 1, %switch.lookup121 ], [ 1, %122 ]
   %125 = add nsw i32 %.0.i3.i.i, -11
@@ -11486,10 +11486,10 @@ add_compile_string_length.argprom.exit.i62:       ; preds = %122, %switch.lookup
   %131 = add i32 %130, %.1.i.i
   br label %132
 
-132:                                              ; preds = %add_compile_string_length.argprom.exit.i62, %112
-  %.160.i = phi i32 [ %.0591.i, %112 ], [ %110, %add_compile_string_length.argprom.exit.i62 ]
-  %.158.i = phi i32 [ %113, %112 ], [ %110, %add_compile_string_length.argprom.exit.i62 ]
-  %.156.i = phi i32 [ %.0553.i, %112 ], [ %131, %add_compile_string_length.argprom.exit.i62 ]
+132:                                              ; preds = %add_compile_string_length.exit.i62, %112
+  %.160.i = phi i32 [ %.0591.i, %112 ], [ %110, %add_compile_string_length.exit.i62 ]
+  %.158.i = phi i32 [ %113, %112 ], [ %110, %add_compile_string_length.exit.i62 ]
+  %.156.i = phi i32 [ %.0553.i, %112 ], [ %131, %add_compile_string_length.exit.i62 ]
   %133 = sext i32 %110 to i64
   %134 = getelementptr i8, ptr %.0544.i, i64 %133
   %135 = load ptr, ptr %28, align 8
@@ -11514,10 +11514,10 @@ add_compile_string_length.argprom.exit.i62:       ; preds = %122, %switch.lookup
 141:                                              ; preds = %._crit_edge.i
   %cond.i.i68.i = icmp eq i64 %140, 1
   %..i.i69.i = select i1 %cond.i.i68.i, i32 14, i32 15
-  br label %add_compile_string_length.argprom.exit74.i
+  br label %add_compile_string_length.exit74.i
 
 142:                                              ; preds = %._crit_edge.i
-  switch i32 %.059.lcssa.i, label %add_compile_string_length.argprom.exit74.i [
+  switch i32 %.059.lcssa.i, label %add_compile_string_length.exit74.i [
     i32 1, label %143
     i32 2, label %145
     i32 3, label %select_str_opcode.exit.thread.i73.i
@@ -11526,27 +11526,27 @@ add_compile_string_length.argprom.exit.i62:       ; preds = %122, %switch.lookup
 143:                                              ; preds = %142
   %switch.tableidx126 = add i64 %140, -1
   %144 = icmp ult i64 %switch.tableidx126, 5
-  br i1 %144, label %switch.lookup125, label %add_compile_string_length.argprom.exit74.i
+  br i1 %144, label %switch.lookup125, label %add_compile_string_length.exit74.i
 
 145:                                              ; preds = %142
   %switch.tableidx130 = add i64 %140, -1
   %146 = icmp ult i64 %switch.tableidx130, 3
-  br i1 %146, label %switch.lookup129, label %add_compile_string_length.argprom.exit74.i
+  br i1 %146, label %switch.lookup129, label %add_compile_string_length.exit74.i
 
 select_str_opcode.exit.thread.i73.i:              ; preds = %142
-  br label %add_compile_string_length.argprom.exit74.i
+  br label %add_compile_string_length.exit74.i
 
 switch.lookup125:                                 ; preds = %143
   %switch.idx.cast127 = trunc nuw i64 %switch.tableidx126 to i32
   %switch.offset128 = add nuw nsw i32 %switch.idx.cast127, 2
-  br label %add_compile_string_length.argprom.exit74.i
+  br label %add_compile_string_length.exit74.i
 
 switch.lookup129:                                 ; preds = %145
   %switch.idx.cast131 = trunc nuw i64 %switch.tableidx130 to i32
   %switch.offset132 = or disjoint i32 %switch.idx.cast131, 8
-  br label %add_compile_string_length.argprom.exit74.i
+  br label %add_compile_string_length.exit74.i
 
-add_compile_string_length.argprom.exit74.i:       ; preds = %145, %switch.lookup129, %143, %switch.lookup125, %select_str_opcode.exit.thread.i73.i, %142, %141
+add_compile_string_length.exit74.i:               ; preds = %145, %switch.lookup129, %143, %switch.lookup125, %select_str_opcode.exit.thread.i73.i, %142, %141
   %.0.i3.i70.i = phi i32 [ 13, %142 ], [ %..i.i69.i, %141 ], [ 12, %select_str_opcode.exit.thread.i73.i ], [ %switch.offset128, %switch.lookup125 ], [ 7, %143 ], [ %switch.offset132, %switch.lookup129 ], [ 11, %145 ]
   %147 = phi i32 [ 5, %142 ], [ 1, %141 ], [ 1, %select_str_opcode.exit.thread.i73.i ], [ 1, %switch.lookup125 ], [ 1, %143 ], [ 1, %switch.lookup129 ], [ 1, %145 ]
   %148 = add nsw i32 %.0.i3.i70.i, -11
@@ -11790,8 +11790,8 @@ bitset_is_empty.exit.i:                           ; preds = %168, %167, %159
   %281 = icmp eq i32 %280, 2
   br i1 %281, label %282, label %290
 
-common.ret146:                                    ; preds = %363, %361, %359, %357, %352, %349, %344, %340, %335, %330, %325, %321, %319, %315, %313, %296, %293, %.thread, %275, %._crit_edge91, %257, %248, %245, %242, %224, %222, %198, %bitset_is_empty.exit.i, %155, %add_compile_string_length.argprom.exit74.i, %37, %add_compile_string_length.argprom.exit.i, %30, %21, %197, %194, %180, %189, %185, %2, %365, %317, %8, %.preheader, %.preheader72, %282
-  %common.ret146.op = phi i32 [ %289, %282 ], [ -6, %2 ], [ 5, %197 ], [ %182, %180 ], [ %196, %194 ], [ %23, %21 ], [ 3, %185 ], [ %193, %189 ], [ 1, %365 ], [ %36, %add_compile_string_length.argprom.exit.i ], [ 0, %30 ], [ %154, %add_compile_string_length.argprom.exit74.i ], [ 0, %37 ], [ %173, %bitset_is_empty.exit.i ], [ 33, %155 ], [ %223, %222 ], [ %225, %224 ], [ %206, %198 ], [ %244, %242 ], [ %247, %245 ], [ %250, %248 ], [ %258, %257 ], [ %277, %.thread ], [ %276, %275 ], [ %270, %._crit_edge91 ], [ %294, %293 ], [ %328, %325 ], [ -11, %330 ], [ %338, %335 ], [ -11, %321 ], [ -6, %296 ], [ %345, %344 ], [ %320, %319 ], [ %314, %313 ], [ %316, %315 ], [ %spec.select.i69, %340 ], [ %350, %349 ], [ %364, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ], [ 1, %352 ], [ %318, %317 ], [ %9, %8 ], [ %6, %.preheader ], [ %14, %.preheader72 ]
+common.ret146:                                    ; preds = %363, %361, %359, %357, %352, %349, %344, %340, %335, %330, %325, %321, %319, %315, %313, %296, %293, %.thread, %275, %._crit_edge91, %257, %248, %245, %242, %224, %222, %198, %bitset_is_empty.exit.i, %155, %add_compile_string_length.exit74.i, %37, %add_compile_string_length.exit.i, %30, %21, %197, %194, %180, %189, %185, %2, %365, %317, %8, %.preheader, %.preheader72, %282
+  %common.ret146.op = phi i32 [ %289, %282 ], [ -6, %2 ], [ 5, %197 ], [ %182, %180 ], [ %196, %194 ], [ %23, %21 ], [ 3, %185 ], [ %193, %189 ], [ 1, %365 ], [ %36, %add_compile_string_length.exit.i ], [ 0, %30 ], [ %154, %add_compile_string_length.exit74.i ], [ 0, %37 ], [ %173, %bitset_is_empty.exit.i ], [ 33, %155 ], [ %223, %222 ], [ %225, %224 ], [ %206, %198 ], [ %244, %242 ], [ %247, %245 ], [ %250, %248 ], [ %258, %257 ], [ %277, %.thread ], [ %276, %275 ], [ %270, %._crit_edge91 ], [ %294, %293 ], [ %328, %325 ], [ -11, %330 ], [ %338, %335 ], [ -11, %321 ], [ -6, %296 ], [ %345, %344 ], [ %320, %319 ], [ %314, %313 ], [ %316, %315 ], [ %spec.select.i69, %340 ], [ %350, %349 ], [ %364, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ], [ 1, %352 ], [ %318, %317 ], [ %9, %8 ], [ %6, %.preheader ], [ %14, %.preheader72 ]
   ret i32 %common.ret146.op
 
 282:                                              ; preds = %278
@@ -12212,7 +12212,7 @@ define internal fastcc range(i32 -5, 1) i32 @add_mem_num(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @add_compile_string.argelim(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #4 {
+define internal fastcc void @add_compile_string(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #4 {
   %6 = sext i32 %1 to i64
   %7 = add nsw i64 %6, -1
   %8 = add i64 %7, %2

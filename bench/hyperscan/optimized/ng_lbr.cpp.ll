@@ -235,7 +235,7 @@ invoke.cont.i.i.i:                                ; preds = %_ZNK3ue25depthcvjEv
   %type.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store i8 11, ptr %type.i.i.i, align 8, !noalias !12
   %cmp.not.i.i.i.i.i = icmp ult i64 %tableLen.0.i.i.i, 4294967296
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i, label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
   %exception.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 48) #14, !noalias !12
@@ -265,7 +265,7 @@ common.resume.i:                                  ; preds = %lpad.body.i260.i, %
   call void @_ZN3ue212bytecode_ptrI3NFAED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %nfa.i) #14, !noalias !12
   resume { ptr, i32 } %common.resume.op.i
 
-_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i: ; preds = %invoke.cont.i.i.i
+_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i: ; preds = %invoke.cont.i.i.i
   %conv.i.i.i.i.i = trunc nuw i64 %tableLen.0.i.i.i to i32
   %length.i.i.i = getelementptr inbounds i8, ptr %14, i64 4
   store i32 %conv.i.i.i.i.i, ptr %length.i.i.i, align 4, !noalias !12
@@ -274,7 +274,7 @@ _ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTy
   invoke void @_ZN3ue215RepeatStateInfoC1E10RepeatTypeRKNS_5depthES4_j(ptr noundef nonnull align 8 dereferenceable(80) %rsi.i.i.i, i32 noundef %call1.i.i, ptr noundef nonnull align 4 dereferenceable(4) %bounds, ptr noundef nonnull align 4 dereferenceable(4) %max, i32 noundef %call10)
           to label %.noexc.i.i unwind label %lpad.i.i, !noalias !12
 
-.noexc.i.i:                                       ; preds = %_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i
+.noexc.i.i:                                       ; preds = %_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 64
   store i32 8, ptr %add.ptr.i.i, align 4, !noalias !12
   %report1.i.i.i = getelementptr inbounds i8, ptr %17, i64 68
@@ -512,7 +512,7 @@ _ZN3ue2L7fillNfaI7lbr_dotEEvP3NFAP10lbr_commonjRKNS_5depthES8_j10RepeatType.exit
   %42 = icmp eq ptr %.pr.i, null
   br i1 %42, label %if.then.i, label %if.end32.i
 
-lpad.i.i:                                         ; preds = %_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i
+lpad.i.i:                                         ; preds = %_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
@@ -563,7 +563,7 @@ if.end.i28.i:                                     ; preds = %_ZNK3ue29CharReachc
 
 call1.i29.noexc.i:                                ; preds = %if.end.i28.i
   %repeatMax.val.i30.i = load i32, ptr %max, align 4, !noalias !32
-  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom(ptr noalias align 8 %ref.tmp.i, i32 noundef 12, i32 noundef %call1.i2940.i, i32 %repeatMax.val.i30.i)
+  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias align 8 %ref.tmp.i, i32 noundef 12, i32 noundef %call1.i2940.i, i32 %repeatMax.val.i30.i)
           to label %.noexc.i unwind label %lpad.i, !noalias !12
 
 .noexc.i:                                         ; preds = %call1.i29.noexc.i
@@ -692,7 +692,7 @@ if.end.i52.i:                                     ; preds = %if.then6.i
 
 call1.i53.noexc.i:                                ; preds = %if.end.i52.i
   %repeatMax.val.i54.i = load i32, ptr %max, align 4, !noalias !40
-  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom(ptr noalias align 8 %ref.tmp7.i, i32 noundef 13, i32 noundef %call1.i5370.i, i32 %repeatMax.val.i54.i)
+  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias align 8 %ref.tmp7.i, i32 noundef 13, i32 noundef %call1.i5370.i, i32 %repeatMax.val.i54.i)
           to label %.noexc71.i unwind label %lpad.i, !noalias !12
 
 .noexc71.i:                                       ; preds = %call1.i53.noexc.i
@@ -823,7 +823,7 @@ invoke.cont.i.i88.i:                              ; preds = %_ZNK3ue25depthcvjEv
   %type.i.i90.i = getelementptr inbounds i8, ptr %82, i64 8
   store i8 14, ptr %type.i.i90.i, align 8, !noalias !44
   %cmp.not.i.i.i.i91.i = icmp ult i64 %tableLen.0.i.i89.i, 4294967296
-  br i1 %cmp.not.i.i.i.i91.i, label %_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i, label %if.then.i.i.i.i92.i
+  br i1 %cmp.not.i.i.i.i91.i, label %_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i, label %if.then.i.i.i.i92.i
 
 if.then.i.i.i.i92.i:                              ; preds = %.noexc225.i
   %exception.i.i.i.i93.i = call ptr @__cxa_allocate_exception(i64 48) #14, !noalias !44
@@ -853,7 +853,7 @@ common.resume.i95.i:                              ; preds = %lpad.i102.i, %lpad.
   call void @_ZN3ue212bytecode_ptrI3NFAED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %nfa.i.i) #14, !noalias !44
   br label %common.resume.i
 
-_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i: ; preds = %.noexc225.i
+_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i: ; preds = %.noexc225.i
   %conv.i.i.i.i100.i = trunc nuw i64 %tableLen.0.i.i89.i to i32
   %length.i.i101.i = getelementptr inbounds i8, ptr %82, i64 4
   store i32 %conv.i.i.i.i100.i, ptr %length.i.i101.i, align 4, !noalias !44
@@ -862,7 +862,7 @@ _ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatT
   invoke void @_ZN3ue215RepeatStateInfoC1E10RepeatTypeRKNS_5depthES4_j(ptr noundef nonnull align 8 dereferenceable(80) %rsi.i.i85.i, i32 noundef %call.i222.i, ptr noundef nonnull align 4 dereferenceable(4) %bounds, ptr noundef nonnull align 4 dereferenceable(4) %max, i32 noundef %call10)
           to label %.noexc.i103.i unwind label %lpad.i102.i, !noalias !44
 
-.noexc.i103.i:                                    ; preds = %_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i
+.noexc.i103.i:                                    ; preds = %_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i
   %add.ptr.i104.i = getelementptr inbounds i8, ptr %85, i64 64
   store i32 48, ptr %add.ptr.i104.i, align 4, !noalias !44
   %report1.i.i105.i = getelementptr inbounds i8, ptr %85, i64 68
@@ -1119,7 +1119,7 @@ invoke.cont4.i.i:                                 ; preds = %invoke.cont3.i.i
   %cmp.i.i11 = icmp eq i32 %call5.i.i, -1
   br i1 %cmp.i.i11, label %cleanup.i.i, label %cleanup.thread.i.i
 
-lpad.i102.i:                                      ; preds = %invoke.cont3.i.i, %_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i
+lpad.i102.i:                                      ; preds = %invoke.cont3.i.i, %_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i
   %111 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i95.i
@@ -1226,7 +1226,7 @@ invoke.cont.i.i243.i:                             ; preds = %_ZNK3ue25depthcvjEv
   %type.i.i245.i = getelementptr inbounds i8, ptr %121, i64 8
   store i8 15, ptr %type.i.i245.i, align 8, !noalias !12
   %cmp.not.i.i.i.i246.i = icmp ult i64 %tableLen.0.i.i244.i, 4294967296
-  br i1 %cmp.not.i.i.i.i246.i, label %_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i, label %if.then.i.i.i.i247.i
+  br i1 %cmp.not.i.i.i.i246.i, label %_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i, label %if.then.i.i.i.i247.i
 
 if.then.i.i.i.i247.i:                             ; preds = %.noexc396.i
   %exception.i.i.i.i248.i = call ptr @__cxa_allocate_exception(i64 48) #14, !noalias !12
@@ -1256,7 +1256,7 @@ lpad.body.i.i250.i:                               ; preds = %lpad.i.i255.i, %lpa
   call void @_ZN3ue212bytecode_ptrI3NFAED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp23.i) #14, !noalias !12
   br label %common.resume.i
 
-_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i: ; preds = %.noexc396.i
+_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i: ; preds = %.noexc396.i
   %conv.i.i.i.i257.i = trunc nuw i64 %tableLen.0.i.i244.i to i32
   %length.i.i258.i = getelementptr inbounds i8, ptr %121, i64 4
   store i32 %conv.i.i.i.i257.i, ptr %length.i.i258.i, align 4, !noalias !12
@@ -1265,7 +1265,7 @@ _ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatT
   invoke void @_ZN3ue215RepeatStateInfoC1E10RepeatTypeRKNS_5depthES4_j(ptr noundef nonnull align 8 dereferenceable(80) %rsi.i.i239.i, i32 noundef %call.i393.i, ptr noundef nonnull align 4 dereferenceable(4) %bounds, ptr noundef nonnull align 4 dereferenceable(4) %max, i32 noundef %call10)
           to label %.noexc.i262.i unwind label %lpad.i259.i, !noalias !12
 
-.noexc.i262.i:                                    ; preds = %_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i
+.noexc.i262.i:                                    ; preds = %_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i
   %add.ptr.i263.i = getelementptr inbounds i8, ptr %124, i64 64
   store i32 48, ptr %add.ptr.i263.i, align 4, !noalias !12
   %report1.i.i264.i = getelementptr inbounds i8, ptr %124, i64 68
@@ -1518,7 +1518,7 @@ invoke.cont3.i344.i:                              ; preds = %for.body.i.i.i.i338
   invoke void @_ZN3ue217truffleBuildMasksERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i240.i, ptr noundef nonnull %mask1.i.i, ptr noundef nonnull %mask2.i.i)
           to label %invoke.cont25.i unwind label %lpad.i259.i, !noalias !12
 
-lpad.i259.i:                                      ; preds = %invoke.cont3.i344.i, %_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom.exit.i.i
+lpad.i259.i:                                      ; preds = %invoke.cont3.i344.i, %_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i
   %150 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i260.i
@@ -1962,7 +1962,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom(ptr noalias nonnull align 8 %agg.result, i32 noundef range(i32 12, 14) %nfa_type, i32 noundef %rtype, i32 %repeatMax.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias nonnull align 8 %agg.result, i32 noundef range(i32 12, 14) %nfa_type, i32 noundef %rtype, i32 %repeatMax.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i32 %rtype, 5
   br i1 %cmp, label %if.then, label %invoke.cont
@@ -2384,8 +2384,8 @@ attributes #17 = { noreturn nounwind }
 !19 = !{!"llvm.loop.mustprogress"}
 !20 = !{!16, !13}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom: %agg.result"}
-!23 = distinct !{!23, !"_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom"}
+!22 = distinct !{!22, !23, !"_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE: %agg.result"}
+!23 = distinct !{!23, !"_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE"}
 !24 = !{!22, !13}
 !25 = !{!26, !22, !16}
 !26 = distinct !{!26, !27, !"_ZN3ue224make_zeroed_bytecode_ptrI3NFAEENS_12bytecode_ptrIT_EEmm: %agg.result"}
@@ -2410,8 +2410,8 @@ attributes #17 = { noreturn nounwind }
 !45 = !{!46, !48}
 !46 = distinct !{!46, !47, !"_ZN3ue224make_zeroed_bytecode_ptrI3NFAEENS_12bytecode_ptrIT_EEmm: %agg.result"}
 !47 = distinct !{!47, !"_ZN3ue224make_zeroed_bytecode_ptrI3NFAEENS_12bytecode_ptrIT_EEmm"}
-!48 = distinct !{!48, !49, !"_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom: %agg.result"}
-!49 = distinct !{!49, !"_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom"}
+!48 = distinct !{!48, !49, !"_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE: %agg.result"}
+!49 = distinct !{!49, !"_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE"}
 !50 = !{!48}
 !51 = !{!52}
 !52 = distinct !{!52, !53, !"_ZNK3ue29CharReachcoEv: %agg.result"}
@@ -2423,8 +2423,8 @@ attributes #17 = { noreturn nounwind }
 !58 = !{!59, !61, !55}
 !59 = distinct !{!59, !60, !"_ZN3ue224make_zeroed_bytecode_ptrI3NFAEENS_12bytecode_ptrIT_EEmm: %agg.result"}
 !60 = distinct !{!60, !"_ZN3ue224make_zeroed_bytecode_ptrI3NFAEENS_12bytecode_ptrIT_EEmm"}
-!61 = distinct !{!61, !62, !"_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom: %agg.result"}
-!62 = distinct !{!62, !"_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.argprom"}
+!61 = distinct !{!61, !62, !"_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE: %agg.result"}
+!62 = distinct !{!62, !"_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE"}
 !63 = !{!61, !55}
 !64 = !{!65}
 !65 = distinct !{!65, !66, !"_ZNK3ue29CharReachcoEv: %agg.result"}

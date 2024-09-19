@@ -3766,7 +3766,7 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfldEZN3gmx20NoseHoover
   %5 = getelementptr i8, ptr %.val, i64 48
   %.val.val5 = load ptr, ptr %5, align 8
   %.not6.i.i.i.i.i = icmp eq ptr %.val.val, %.val.val5
-  br i1 %.not6.i.i.i.i.i, label %"_ZSt10__invoke_rIfRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit", label %.lr.ph.i.i.i.i.i
+  br i1 %.not6.i.i.i.i.i, label %"_ZSt10__invoke_rIfRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %3, %.lr.ph.i.i.i.i.i
   %6 = phi double [ %8, %.lr.ph.i.i.i.i.i ], [ 0.000000e+00, %3 ]
@@ -3776,14 +3776,14 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfldEZN3gmx20NoseHoover
   %8 = fadd double %6, %.val1.i.i.i.i.i
   %9 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i.i.i.i, i64 112
   %.not.i.i.i.i.i = icmp eq ptr %9, %.val.val5
-  br i1 %.not.i.i.i.i.i, label %"_ZSt13__invoke_implIdRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom.exit.loopexit.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !48
+  br i1 %.not.i.i.i.i.i, label %"_ZSt13__invoke_implIdRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEET_St14__invoke_otherOT0_DpOT1_.exit.loopexit.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !48
 
-"_ZSt13__invoke_implIdRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom.exit.loopexit.i": ; preds = %.lr.ph.i.i.i.i.i
+"_ZSt13__invoke_implIdRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEET_St14__invoke_otherOT0_DpOT1_.exit.loopexit.i": ; preds = %.lr.ph.i.i.i.i.i
   %10 = fptrunc double %8 to float
-  br label %"_ZSt10__invoke_rIfRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit"
+  br label %"_ZSt10__invoke_rIfRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
-"_ZSt10__invoke_rIfRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.argprom.exit": ; preds = %3, %"_ZSt13__invoke_implIdRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom.exit.loopexit.i"
-  %.0.i.i.i.i = phi float [ 0.000000e+00, %3 ], [ %10, %"_ZSt13__invoke_implIdRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom.exit.loopexit.i" ]
+"_ZSt10__invoke_rIfRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %3, %"_ZSt13__invoke_implIdRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEET_St14__invoke_otherOT0_DpOT1_.exit.loopexit.i"
+  %.0.i.i.i.i = phi float [ 0.000000e+00, %3 ], [ %10, %"_ZSt13__invoke_implIdRZN3gmx20NoseHooverChainsData5buildENS0_8NhcUsageEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_10EnergyDataEE3$_1JldEET_St14__invoke_otherOT0_DpOT1_.exit.loopexit.i" ]
   ret float %.0.i.i.i.i
 }
 
@@ -6578,7 +6578,7 @@ _ZNK3gmx18KeyValueTreeObjectixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTIi, i64 8), align 8
   %41 = icmp eq ptr %39, %40
-  br i1 %41, label %_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLOBAL__N_117CheckpointVersionEEENSt9enable_ifIXsr18IsSerializableEnumIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_.argprom.exit.i, label %42
+  br i1 %41, label %_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLOBAL__N_117CheckpointVersionEEENSt9enable_ifIXsr18IsSerializableEnumIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_.exit.i, label %42
 
 42:                                               ; preds = %.noexc17
   %43 = load i8, ptr %39, align 1
@@ -6592,7 +6592,7 @@ _ZNK3gmx3Any6isTypeIiEEbv.exit.i.i.i.i.i:         ; preds = %42
   %46 = getelementptr inbounds i8, ptr %40, i64 %.idx.i.i.i.i.i.i.i.i
   %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %46) #26
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLOBAL__N_117CheckpointVersionEEENSt9enable_ifIXsr18IsSerializableEnumIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_.argprom.exit.i, label %.invoke
+  br i1 %48, label %_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLOBAL__N_117CheckpointVersionEEENSt9enable_ifIXsr18IsSerializableEnumIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_.exit.i, label %.invoke
 
 .invoke:                                          ; preds = %_ZNK3gmx18KeyValueTreeObjectixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i, %42, %_ZNK3gmx3Any6isTypeIiEEbv.exit.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %49 = phi ptr [ @.str.35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ], [ @.str.28, %_ZNK3gmx3Any6isTypeIiEEbv.exit.i.i.i.i.i ], [ @.str.28, %42 ], [ @.str.28, %_ZNK3gmx18KeyValueTreeObjectixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i ]
@@ -6606,14 +6606,14 @@ _ZNK3gmx3Any6isTypeIiEEbv.exit.i.i.i.i.i:         ; preds = %42
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLOBAL__N_117CheckpointVersionEEENSt9enable_ifIXsr18IsSerializableEnumIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_.argprom.exit.i: ; preds = %_ZNK3gmx3Any6isTypeIiEEbv.exit.i.i.i.i.i, %.noexc17
+_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLOBAL__N_117CheckpointVersionEEENSt9enable_ifIXsr18IsSerializableEnumIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_.exit.i: ; preds = %_ZNK3gmx3Any6isTypeIiEEbv.exit.i.i.i.i.i, %.noexc17
   %54 = load ptr, ptr %31, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %58, label %71
 
-58:                                               ; preds = %_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLOBAL__N_117CheckpointVersionEEENSt9enable_ifIXsr18IsSerializableEnumIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_.argprom.exit.i
+58:                                               ; preds = %_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLOBAL__N_117CheckpointVersionEEENSt9enable_ifIXsr18IsSerializableEnumIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_.exit.i
   %59 = call ptr @__cxa_allocate_exception(i64 24) #26
   %60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.34, ptr noundef %60)
@@ -6661,7 +6661,7 @@ _ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLO
 70:                                               ; preds = %64
   unreachable
 
-71:                                               ; preds = %_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLOBAL__N_117CheckpointVersionEEENSt9enable_ifIXsr18IsSerializableEnumIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_.argprom.exit.i
+71:                                               ; preds = %_ZNK3gmx14CheckpointDataILNS_23CheckpointDataOperationE0EE10enumScalarINS_12_GLOBAL__N_117CheckpointVersionEEENSt9enable_ifIXsr18IsSerializableEnumIT_EE5valueEvE4typeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_.exit.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
@@ -9762,7 +9762,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN3gmx20PropagatorConnectionE
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN3gmx20PropagatorConnectionEEZNS0_23NoseHooverChainsElement21getElementPointerImplEPNS0_19LegacySimulatorDataEPNS0_38ModularSimulatorAlgorithmBuilderHelperEPNS0_19StatePropagatorDataEPNS0_10EnergyDataEPNS0_26FreeEnergyPerturbationDataEPNS0_25GlobalCommunicationHelperEPNS0_18ObservablesReducerENS0_8NhcUsageENS0_6OffsetENS0_13UseFullStepKEENS0_18ScheduleOnInitStepERKNS0_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #1 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %13
@@ -9771,12 +9771,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN3gmx20Propaga
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS_19LegacySimulatorDataEPNS_38ModularSimulatorAlgorithmBuilderHelperEPNS_19StatePropagatorDataEPNS_10EnergyDataEPNS_26FreeEnergyPerturbationDataEPNS_25GlobalCommunicationHelperEPNS_18ObservablesReducerENS_8NhcUsageENS_6OffsetENS_13UseFullStepKEENS_18ScheduleOnInitStepERKNS_13PropagatorTagEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -9796,20 +9796,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN3gmx20Propaga
 
 "_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E15_M_init_functorIRKSO_EEvRSt9_Any_dataOT_.exit.i": ; preds = %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
 13:                                               ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %14 = icmp eq ptr %.val7.i, null
-  br i1 %14, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit", label %15
+  br i1 %14, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit", label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %.val7.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #26
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #27
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.argprom.exit": ; preds = %3, %15, %13, %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E15_M_init_functorIRKSO_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation.exit": ; preds = %3, %15, %13, %"_ZNSt14_Function_base13_Base_managerIZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS1_19LegacySimulatorDataEPNS1_38ModularSimulatorAlgorithmBuilderHelperEPNS1_19StatePropagatorDataEPNS1_10EnergyDataEPNS1_26FreeEnergyPerturbationDataEPNS1_25GlobalCommunicationHelperEPNS1_18ObservablesReducerENS1_8NhcUsageENS1_6OffsetENS1_13UseFullStepKEENS1_18ScheduleOnInitStepERKNS1_13PropagatorTagEE3$_0E15_M_init_functorIRKSO_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 

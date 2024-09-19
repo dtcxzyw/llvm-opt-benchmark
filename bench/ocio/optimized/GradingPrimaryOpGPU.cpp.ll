@@ -2799,7 +2799,7 @@ invoke.cont228.i:                                 ; preds = %invoke.cont226.i
 
 invoke.cont230.i:                                 ; preds = %invoke.cont228.i
   %call233.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %call231.i, ptr noundef nonnull @.str.53)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit unwind label %lpad217.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit unwind label %lpad217.i
 
 lpad.i91:                                         ; preds = %sw.bb87
   %197 = landingpad { ptr, i32 }
@@ -3002,7 +3002,7 @@ ehcleanup235.i:                                   ; preds = %lpad217.i, %lpad201
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i) #12
   br label %ehcleanup
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit: ; preds = %invoke.cont230.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %invoke.cont230.i
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp215.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pxl.i)
@@ -3509,7 +3509,7 @@ invoke.cont257.i:                                 ; preds = %invoke.cont255.i
 
 invoke.cont259.i:                                 ; preds = %invoke.cont257.i
   %call262.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %call260.i, ptr noundef nonnull @.str.24)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit unwind label %lpad254.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit unwind label %lpad254.i
 
 lpad.i145:                                        ; preds = %sw.bb89
   %222 = landingpad { ptr, i32 }
@@ -3730,7 +3730,7 @@ ehcleanup264.i:                                   ; preds = %lpad254.i, %lpad229
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i133) #12
   br label %ehcleanup
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit: ; preds = %invoke.cont259.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %invoke.cont259.i
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp252.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i133) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pxl.i133)
@@ -3766,7 +3766,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp252.i)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit, %if.end86
+sw.epilog:                                        ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %if.end86
   br i1 %20, label %if.then92, label %sw.epilog172
 
 if.then92:                                        ; preds = %sw.epilog
@@ -5220,7 +5220,7 @@ invoke.cont153.i:                                 ; preds = %invoke.cont151.i556
 
 invoke.cont155.i559:                              ; preds = %invoke.cont153.i
   %call158.i560 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %call156.i558, ptr noundef nonnull @.str.53)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit unwind label %lpad142.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit unwind label %lpad142.i
 
 lpad.i446:                                        ; preds = %sw.bb122
   %381 = landingpad { ptr, i32 }
@@ -5369,7 +5369,7 @@ ehcleanup160.i450:                                ; preds = %lpad142.i, %lpad126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i431) #12
   br label %ehcleanup
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit: ; preds = %invoke.cont155.i559
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %invoke.cont155.i559
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp140.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i431) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pxl.i431)
@@ -5742,7 +5742,7 @@ invoke.cont182.i733:                              ; preds = %invoke.cont180.i731
 
 invoke.cont184.i736:                              ; preds = %invoke.cont182.i733
   %call187.i737 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %call185.i735, ptr noundef nonnull @.str.24)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit unwind label %lpad179.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit unwind label %lpad179.i
 
 lpad.i587:                                        ; preds = %sw.bb124
   %400 = landingpad { ptr, i32 }
@@ -5909,7 +5909,7 @@ ehcleanup189.i:                                   ; preds = %lpad179.i, %lpad167
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i564) #12
   br label %ehcleanup
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit: ; preds = %invoke.cont184.i736
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %invoke.cont184.i736
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp177.i585) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i564) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pxl.i564)
@@ -5937,7 +5937,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp177.i585)
   br label %sw.epilog126
 
-sw.epilog126:                                     ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit, %if.end121
+sw.epilog126:                                     ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %if.end121
   br i1 %20, label %if.then128, label %sw.epilog172
 
 if.then128:                                       ; preds = %sw.epilog126
@@ -7614,7 +7614,7 @@ invoke.cont231.i:                                 ; preds = %invoke.cont229.i116
 
 invoke.cont233.i:                                 ; preds = %invoke.cont231.i
   %call236.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %call234.i, ptr noundef nonnull @.str.53)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit unwind label %lpad220.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit unwind label %lpad220.i
 
 lpad.i993:                                        ; preds = %sw.bb158
   %563 = landingpad { ptr, i32 }
@@ -7817,7 +7817,7 @@ ehcleanup238.i:                                   ; preds = %lpad220.i, %lpad204
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i972) #12
   br label %ehcleanup
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit: ; preds = %invoke.cont233.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %invoke.cont233.i
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp218.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i972) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pxl.i972)
@@ -8324,7 +8324,7 @@ invoke.cont258.i:                                 ; preds = %invoke.cont256.i
 
 invoke.cont260.i:                                 ; preds = %invoke.cont258.i
   %call263.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %call261.i, ptr noundef nonnull @.str.53)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit unwind label %lpad255.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit unwind label %lpad255.i
 
 lpad.i1197:                                       ; preds = %sw.bb160
   %588 = landingpad { ptr, i32 }
@@ -8545,7 +8545,7 @@ ehcleanup265.i:                                   ; preds = %lpad255.i, %lpad229
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i1166) #12
   br label %ehcleanup
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit: ; preds = %invoke.cont260.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %invoke.cont260.i
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp253.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pxl.i1166) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pxl.i1166)
@@ -8581,7 +8581,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrI
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp253.i)
   br label %sw.epilog162
 
-sw.epilog162:                                     ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.argprom.exit, %if.end157
+sw.epilog162:                                     ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %if.end157
   br i1 %20, label %if.then164, label %sw.epilog172
 
 if.then164:                                       ; preds = %sw.epilog162

@@ -199,7 +199,7 @@ define dso_local zeroext i1 @inet_rcv_saddr_equal(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ipv6_rcv_saddr_equal.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ipv6_rcv_saddr_equal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = tail call i32 @__ipv6_addr_type(ptr noundef %0) #12
   %8 = and i32 %7, 65535
   %9 = icmp eq ptr %1, null
@@ -453,7 +453,7 @@ define dso_local void @inet_csk_update_fastreuse(ptr noundef %0, ptr noundef %1)
   %83 = icmp ne i8 %82, 0
   %84 = and i8 %53, 32
   %85 = icmp ne i8 %84, 0
-  %86 = tail call fastcc zeroext i1 @ipv6_rcv_saddr_equal.argelim(ptr noundef %71, ptr noundef %76, i32 noundef %78, i32 noundef %80, i1 noundef zeroext %83, i1 noundef zeroext %85)
+  %86 = tail call fastcc zeroext i1 @ipv6_rcv_saddr_equal(ptr noundef %71, ptr noundef %76, i32 noundef %78, i32 noundef %80, i1 noundef zeroext %83, i1 noundef zeroext %85)
   br i1 %86, label %114, label %98
 
 87:                                               ; preds = %66
@@ -882,7 +882,7 @@ define dso_local noundef range(i32 -98, 1) i32 @inet_csk_get_port(ptr noundef %0
   %251 = icmp ne i8 %250, 0
   %252 = and i8 %221, 32
   %253 = icmp ne i8 %252, 0
-  %254 = tail call fastcc zeroext i1 @ipv6_rcv_saddr_equal.argelim(ptr noundef %239, ptr noundef %244, i32 noundef %246, i32 noundef %248, i1 noundef zeroext %251, i1 noundef zeroext %253)
+  %254 = tail call fastcc zeroext i1 @ipv6_rcv_saddr_equal(ptr noundef %239, ptr noundef %244, i32 noundef %246, i32 noundef %248, i1 noundef zeroext %251, i1 noundef zeroext %253)
   br i1 %254, label %278, label %266
 
 255:                                              ; preds = %234

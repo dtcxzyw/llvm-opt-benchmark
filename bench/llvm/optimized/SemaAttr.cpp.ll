@@ -2285,12 +2285,12 @@ define dso_local void @_ZN5clang4Sema11PragmaStackINS0_13AlignPackInfoEE3ActENS_
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %1, ptr %21, align 8
   %22 = call noundef nonnull align 8 dereferenceable(28) ptr @_ZN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEE12emplace_backIJS6_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %7)
-  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread"
+  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread"
 
 23:                                               ; preds = %14
   %24 = and i32 %2, 4
   %.not11 = icmp eq i32 %24, 0
-  br i1 %.not11, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread", label %25
+  br i1 %.not11, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread", label %25
 
 25:                                               ; preds = %23
   %26 = icmp eq i64 %.val.val27.i.fr.i.i.i, 0
@@ -2308,66 +2308,66 @@ define dso_local void @_ZN5clang4Sema11PragmaStackINS0_13AlignPackInfoEE3ActENS_
   %36 = icmp sgt i64 %35, 0
   br i1 %36, label %.lr.ph.i.split.split.split.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.split.split.split.i.i.i:                 ; preds = %27, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit40.thread70.i.i.i.i"
-  %37 = phi ptr [ %47, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit40.thread70.i.i.i.i" ], [ %30, %27 ]
-  %.093.i.i.i.i = phi i64 [ %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit40.thread70.i.i.i.i" ], [ %35, %27 ]
+.lr.ph.i.split.split.split.i.i.i:                 ; preds = %27, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit40.thread70.i.i.i.i"
+  %37 = phi ptr [ %47, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit40.thread70.i.i.i.i" ], [ %30, %27 ]
+  %.093.i.i.i.i = phi i64 [ %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit40.thread70.i.i.i.i" ], [ %35, %27 ]
   %38 = getelementptr i8, ptr %37, i64 -24
   %.val2.val28.i.i.i.i = load i64, ptr %38, align 8, !noalias !44
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.val2.val28.i.i.i.i, %.val.val27.i.fr.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit.thread61.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit.thread61.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit.i.i.i.i": ; preds = %.lr.ph.i.split.split.split.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit.i.i.i.i": ; preds = %.lr.ph.i.split.split.split.i.i.i
   %39 = getelementptr i8, ptr %37, i64 -32
   %.val2.val.i.i.i.i = load ptr, ptr %39, align 8, !noalias !44
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val2.val.i.i.i.i, ptr readonly %3, i64 %.val.val27.i.fr.i.i.i), !noalias !44
   %40 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %40, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit.thread61.i.i.i.i"
+  br i1 %40, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit.thread61.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit.thread61.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit.i.i.i.i", %.lr.ph.i.split.split.split.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit.thread61.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit.i.i.i.i", %.lr.ph.i.split.split.split.i.i.i
   %41 = getelementptr i8, ptr %37, i64 -56
   %.val4.val26.i.i.i.i = load i64, ptr %41, align 8, !noalias !44
   %.not.i.i.i29.i.i.i.i = icmp eq i64 %.val4.val26.i.i.i.i, %.val.val27.i.fr.i.i.i
-  br i1 %.not.i.i.i29.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit32.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit32.thread64.i.i.i.i"
+  br i1 %.not.i.i.i29.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit32.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit32.thread64.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit32.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit.thread61.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit32.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit.thread61.i.i.i.i"
   %42 = getelementptr i8, ptr %37, i64 -64
   %.val4.val.i.i.i.i = load ptr, ptr %42, align 8, !noalias !44
   %bcmp.i.i.i31.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val4.val.i.i.i.i, ptr readonly %3, i64 %.val.val27.i.fr.i.i.i), !noalias !44
   %43 = icmp eq i32 %bcmp.i.i.i31.i.i.i.i, 0
-  br i1 %43, label %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit10.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit32.thread64.i.i.i.i"
+  br i1 %43, label %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit10.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit32.thread64.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit32.thread64.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit32.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit.thread61.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit32.thread64.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit32.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit.thread61.i.i.i.i"
   %44 = getelementptr i8, ptr %37, i64 -88
   %.val6.val24.i.i.i.i = load i64, ptr %44, align 8, !noalias !44
   %.not.i.i.i33.i.i.i.i = icmp eq i64 %.val6.val24.i.i.i.i, %.val.val27.i.fr.i.i.i
-  br i1 %.not.i.i.i33.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit36.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit36.thread67.i.i.i.i"
+  br i1 %.not.i.i.i33.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit36.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit36.thread67.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit36.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit32.thread64.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit36.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit32.thread64.i.i.i.i"
   %45 = getelementptr i8, ptr %37, i64 -96
   %.val6.val.i.i.i.i = load ptr, ptr %45, align 8, !noalias !44
   %bcmp.i.i.i35.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val6.val.i.i.i.i, ptr readonly %3, i64 %.val.val27.i.fr.i.i.i), !noalias !44
   %46 = icmp eq i32 %bcmp.i.i.i35.i.i.i.i, 0
-  br i1 %46, label %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit6.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit36.thread67.i.i.i.i"
+  br i1 %46, label %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit6.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit36.thread67.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit36.thread67.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit36.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit32.thread64.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit36.thread67.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit36.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit32.thread64.i.i.i.i"
   %47 = getelementptr i8, ptr %37, i64 -128
   %48 = getelementptr i8, ptr %37, i64 -120
   %.val8.val22.i.i.i.i = load i64, ptr %48, align 8, !noalias !44
   %.not.i.i.i37.i.i.i.i = icmp eq i64 %.val8.val22.i.i.i.i, %.val.val27.i.fr.i.i.i
-  br i1 %.not.i.i.i37.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit40.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit40.thread70.i.i.i.i"
+  br i1 %.not.i.i.i37.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit40.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit40.thread70.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit40.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit36.thread67.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit40.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit36.thread67.i.i.i.i"
   %.val8.val.i.i.i.i = load ptr, ptr %47, align 8, !noalias !44
   %bcmp.i.i.i39.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val8.val.i.i.i.i, ptr readonly %3, i64 %.val.val27.i.fr.i.i.i), !noalias !44
   %49 = icmp eq i32 %bcmp.i.i.i39.i.i.i.i, 0
-  br i1 %49, label %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit40.thread70.i.i.i.i"
+  br i1 %49, label %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit40.thread70.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit40.thread70.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit40.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit36.thread67.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit40.thread70.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit40.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit36.thread67.i.i.i.i"
   %50 = add nsw i64 %.093.i.i.i.i, -1
   %51 = icmp sgt i64 %.093.i.i.i.i, 1
   br i1 %51, label %.lr.ph.i.split.split.split.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !53
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit40.thread70.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit40.thread70.i.i.i.i"
   %.pn.i.i.i = mul nsw i64 %35, -128
   %.us-phi30.i.i.i = getelementptr i8, ptr %30, i64 %.pn.i.i.i
   %.pre111.i.i.i.i = ptrtoint ptr %.us-phi30.i.i.i to i64
@@ -2378,10 +2378,10 @@ define dso_local void @_ZN5clang4Sema11PragmaStackINS0_13AlignPackInfoEE3ActENS_
   %.pre-phi115.i.i.i.i = phi i64 [ %.pre114.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %34, %27 ]
   %52 = phi ptr [ %.us-phi30.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %30, %27 ]
   %53 = ashr exact i64 %.pre-phi115.i.i.i.i, 5
-  switch i64 %53, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread" [
+  switch i64 %53, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread" [
     i64 3, label %54
-    i64 2, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.thread73.i.i.i.i"
-    i64 1, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.thread76.i.i.i.i"
+    i64 2, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.thread73.i.i.i.i"
+    i64 1, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.thread76.i.i.i.i"
   ]
 
 54:                                               ; preds = %._crit_edge.i.i.i.i
@@ -2389,60 +2389,60 @@ define dso_local void @_ZN5clang4Sema11PragmaStackINS0_13AlignPackInfoEE3ActENS_
   %56 = getelementptr i8, ptr %52, i64 -24
   %.val10.val20.i.i.i.i = load i64, ptr %56, align 8, !noalias !44
   %.not.i.i.i41.i.i.i.i = icmp eq i64 %.val10.val20.i.i.i.i, %.val.val27.i.fr.i.i.i
-  br i1 %.not.i.i.i41.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.thread73.i.i.i.i"
+  br i1 %.not.i.i.i41.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.thread73.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.i.i.i.i": ; preds = %54
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.i.i.i.i": ; preds = %54
   %.val10.val.i.i.i.i = load ptr, ptr %55, align 8, !noalias !44
   %bcmp.i.i.i43.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val10.val.i.i.i.i, ptr readonly %3, i64 %.val.val27.i.fr.i.i.i), !noalias !44
   %57 = icmp eq i32 %bcmp.i.i.i43.i.i.i.i, 0
-  br i1 %57, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.thread73.i.i.i.i"
+  br i1 %57, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.thread73.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.thread73.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.i.i.i.i", %54, %._crit_edge.i.i.i.i
-  %58 = phi ptr [ %55, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.i.i.i.i" ], [ %55, %54 ], [ %52, %._crit_edge.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.thread73.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.i.i.i.i", %54, %._crit_edge.i.i.i.i
+  %58 = phi ptr [ %55, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.i.i.i.i" ], [ %55, %54 ], [ %52, %._crit_edge.i.i.i.i ]
   %59 = getelementptr i8, ptr %58, i64 -32
   %60 = getelementptr i8, ptr %58, i64 -24
   %.val12.val18.i.i.i.i = load i64, ptr %60, align 8, !noalias !44
   %.not.i.i.i45.i.i.i.i = icmp eq i64 %.val12.val18.i.i.i.i, %.val.val27.i.fr.i.i.i
-  br i1 %.not.i.i.i45.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.thread76.i.i.i.i"
+  br i1 %.not.i.i.i45.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.thread76.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.thread73.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.thread73.i.i.i.i"
   %.val12.val.i.i.i.i = load ptr, ptr %59, align 8, !noalias !44
   %bcmp.i.i.i47.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val12.val.i.i.i.i, ptr readonly %3, i64 %.val.val27.i.fr.i.i.i), !noalias !44
   %61 = icmp eq i32 %bcmp.i.i.i47.i.i.i.i, 0
-  br i1 %61, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.thread76.i.i.i.i"
+  br i1 %61, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.thread76.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.thread76.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.thread73.i.i.i.i", %._crit_edge.i.i.i.i
-  %62 = phi ptr [ %59, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.i.i.i.i" ], [ %59, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.thread73.i.i.i.i" ], [ %52, %._crit_edge.i.i.i.i ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.thread76.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.thread73.i.i.i.i", %._crit_edge.i.i.i.i
+  %62 = phi ptr [ %59, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.i.i.i.i" ], [ %59, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.thread73.i.i.i.i" ], [ %52, %._crit_edge.i.i.i.i ]
   %63 = getelementptr i8, ptr %62, i64 -24
   %.val14.val16.i.i.i.i = load i64, ptr %63, align 8, !noalias !44
   %.not.i.i.i49.i.i.i.i = icmp eq i64 %.val14.val16.i.i.i.i, %.val.val27.i.fr.i.i.i
-  br i1 %.not.i.i.i49.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit52.i.i.i.i", label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread"
+  br i1 %.not.i.i.i49.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit52.i.i.i.i", label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit52.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.thread76.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit52.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.thread76.i.i.i.i"
   %64 = getelementptr i8, ptr %62, i64 -32
   %.val14.val.i.i.i.i = load ptr, ptr %64, align 8, !noalias !44
   %bcmp.i.i.i51.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val14.val.i.i.i.i, ptr readonly %3, i64 %.val.val27.i.fr.i.i.i), !noalias !44
   %65 = icmp eq i32 %bcmp.i.i.i51.i.i.i.i, 0
-  br i1 %65, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit", label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread"
+  br i1 %65, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit", label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread"
 
-"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit40.i.i.i.i"
+"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit40.i.i.i.i"
   %66 = getelementptr i8, ptr %37, i64 -96
-  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit"
 
-"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit6.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit36.i.i.i.i"
+"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit6.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit36.i.i.i.i"
   %67 = getelementptr i8, ptr %37, i64 -64
-  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit"
 
-"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit10.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit32.i.i.i.i"
+"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit10.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit32.i.i.i.i"
   %68 = getelementptr i8, ptr %37, i64 -32
-  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit52.i.i.i.i", %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i.i", %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit6.i.i.i", %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit10.i.i.i"
-  %.sink.i.i.i.i = phi ptr [ %52, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit44.i.i.i.i" ], [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.i.i.i.i" ], [ %62, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit52.i.i.i.i" ], [ %66, %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i.i" ], [ %67, %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit6.i.i.i" ], [ %68, %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit10.i.i.i" ], [ %37, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit.i.i.i.i" ]
+"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit52.i.i.i.i", %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i.i", %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit6.i.i.i", %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit10.i.i.i"
+  %.sink.i.i.i.i = phi ptr [ %52, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit44.i.i.i.i" ], [ %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.i.i.i.i" ], [ %62, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit52.i.i.i.i" ], [ %66, %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i.i" ], [ %67, %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit6.i.i.i" ], [ %68, %"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit10.i.i.i" ], [ %37, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit.i.i.i.i" ]
   %.not39 = icmp eq ptr %.sink.i.i.i.i, %31
-  br i1 %.not39, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread", label %69
+  br i1 %.not39, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread", label %69
 
-69:                                               ; preds = %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit"
+69:                                               ; preds = %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit"
   %70 = getelementptr inbounds i8, ptr %.sink.i.i.i.i, i64 -32
   %71 = getelementptr inbounds i8, ptr %.sink.i.i.i.i, i64 -16
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -2476,7 +2476,7 @@ _ZN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEE
   %91 = sub i64 %89, %90
   %92 = ashr exact i64 %91, 5
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %92) #22
-  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread"
+  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread"
 
 93:                                               ; preds = %25
   %94 = and i32 %5, 16777216
@@ -2498,11 +2498,11 @@ _ZN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEE
   %103 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22, !noalias !54
   %104 = getelementptr inbounds %"struct.clang::Sema::PragmaStack<clang::Sema::AlignPackInfo>::Slot", ptr %102, i64 %103
   %105 = load ptr, ptr %0, align 8, !noalias !65
-  call fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_1EEDaOT_T0_.argprom"(ptr dead_on_unwind noalias writable align 8 %8, ptr %104, ptr %105)
+  call fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_1EEDaOT_T0_"(ptr dead_on_unwind noalias writable align 8 %8, ptr %104, ptr %105)
   %106 = load ptr, ptr %0, align 8
   %107 = load ptr, ptr %8, align 8
   %.not40 = icmp eq ptr %107, %106
-  br i1 %.not40, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread", label %108
+  br i1 %.not40, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread", label %108
 
 108:                                              ; preds = %101
   %109 = getelementptr inbounds i8, ptr %107, i64 -32
@@ -2518,7 +2518,7 @@ _ZN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEE
   store i32 %116, ptr %98, align 4
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %1, ptr %117, align 8
-  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread"
+  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread"
 
 118:                                              ; preds = %108
   %119 = load ptr, ptr %0, align 8
@@ -2535,15 +2535,15 @@ _ZN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEE
   %129 = load i32, ptr %127, align 4
   store i32 %129, ptr %128, align 8
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotELb1EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread"
+  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread"
 
 130:                                              ; preds = %97, %95
   %131 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
-  br i1 %131, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread", label %133
+  br i1 %131, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread", label %133
 
 .thread:                                          ; preds = %93
   %132 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
-  br i1 %132, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread", label %.thread35
+  br i1 %132, label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread", label %.thread35
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -2571,14 +2571,14 @@ _ZN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEE
   %150 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %151 = add i64 %150, -1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %151) #22
-  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread"
+  br label %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread"
 
-"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit48.thread76.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.argprom.argprom.exit52.i.i.i.i", %._crit_edge.i.i.i.i, %.thread, %23, %114, %118, %101, %.thread35, %130, %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit", %_ZN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEE5eraseEPKS6_S9_.exit, %16
+"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit48.thread76.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema11PragmaStackINS3_13AlignPackInfoEE3ActENS2_14SourceLocationENS3_19PragmaMsStackActionEN4llvm9StringRefES5_E3$_0EclISt16reverse_iteratorIPNS6_4SlotEEEEbT_.exit52.i.i.i.i", %._crit_edge.i.i.i.i, %.thread, %23, %114, %118, %101, %.thread35, %130, %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit", %_ZN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEE5eraseEPKS6_S9_.exit, %16
   %152 = and i32 %2, 1
   %.not12 = icmp eq i32 %152, 0
   br i1 %.not12, label %156, label %153
 
-153:                                              ; preds = %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread"
+153:                                              ; preds = %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread"
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %5, ptr %154, align 4
   br label %.sink.split
@@ -2588,7 +2588,7 @@ _ZN4llvm15SmallVectorImplIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEE
   store i32 %1, ptr %155, align 8
   br label %156
 
-156:                                              ; preds = %.sink.split, %133, %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom.exit.thread"
+156:                                              ; preds = %.sink.split, %133, %"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.exit.thread"
   ret void
 }
 
@@ -6365,7 +6365,7 @@ _ZSt4moveIPN5clang4Sema11PragmaStackINS1_13AlignPackInfoEE4SlotES6_ET0_T_S8_S7_.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_1EEDaOT_T0_.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #8 {
+define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_1EEDaOT_T0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val) unnamed_addr #8 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
@@ -6387,7 +6387,7 @@ define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_i
   %9 = getelementptr i8, ptr %8, i64 -16
   %.val.val.i.i.i = load i8, ptr %9, align 1, !noalias !170
   %10 = trunc i8 %.val.val.i.i.i to i1
-  br i1 %10, label %11, label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.argprom.exit"
+  br i1 %10, label %11, label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.exit"
 
 11:                                               ; preds = %.lr.ph.i.i.i
   %12 = getelementptr i8, ptr %8, i64 -48
@@ -6397,7 +6397,7 @@ define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_i
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %8, i64 -32
-  br label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.argprom.exit"
+  br label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.exit"
 
 16:                                               ; preds = %11
   %17 = getelementptr i8, ptr %8, i64 -80
@@ -6407,7 +6407,7 @@ define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_i
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %8, i64 -64
-  br label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.argprom.exit"
+  br label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.exit"
 
 21:                                               ; preds = %16
   %22 = getelementptr i8, ptr %8, i64 -112
@@ -6417,7 +6417,7 @@ define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_i
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %8, i64 -96
-  br label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.argprom.exit"
+  br label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.exit"
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %8, i64 -128
@@ -6434,7 +6434,7 @@ define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_i
   %.pre-phi36.i.i.i = phi i64 [ %.pre35.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %4, %1 ]
   %30 = phi ptr [ %scevgep.i.i, %._crit_edge.loopexit.i.i.i ], [ %.0.val, %1 ]
   %31 = ashr exact i64 %.pre-phi36.i.i.i, 5
-  switch i64 %31, label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.argprom.exit" [
+  switch i64 %31, label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.exit" [
     i64 3, label %32
     i64 2, label %37
     i64 1, label %43
@@ -6444,7 +6444,7 @@ define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_i
   %33 = getelementptr i8, ptr %30, i64 -16
   %.val5.val.i.i.i = load i8, ptr %33, align 1, !noalias !170
   %34 = trunc i8 %.val5.val.i.i.i to i1
-  br i1 %34, label %35, label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.argprom.exit"
+  br i1 %34, label %35, label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.exit"
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds i8, ptr %30, i64 -32
@@ -6455,7 +6455,7 @@ define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_i
   %39 = getelementptr i8, ptr %38, i64 -16
   %.val6.val.i.i.i = load i8, ptr %39, align 1, !noalias !170
   %40 = trunc i8 %.val6.val.i.i.i to i1
-  br i1 %40, label %41, label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.argprom.exit"
+  br i1 %40, label %41, label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.exit"
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %38, i64 -32
@@ -6467,9 +6467,9 @@ define internal fastcc void @"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_i
   %.val7.val.i.i.i = load i8, ptr %45, align 1, !noalias !170
   %46 = trunc i8 %.val7.val.i.i.i to i1
   %spec.select.i.i = select i1 %46, ptr %.8.val, ptr %44
-  br label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.argprom.exit"
+  br label %"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.exit"
 
-"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i, %14, %19, %24, %._crit_edge.i.i.i, %32, %37, %43
+"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.exit": ; preds = %.lr.ph.i.i.i, %14, %19, %24, %._crit_edge.i.i.i, %32, %37, %43
   %.sink.i.i.i = phi ptr [ %25, %24 ], [ %20, %19 ], [ %15, %14 ], [ %30, %32 ], [ %38, %37 ], [ %.8.val, %._crit_edge.i.i.i ], [ %spec.select.i.i, %43 ], [ %8, %.lr.ph.i.i.i ]
   store ptr %.sink.i.i.i, ptr %0, align 8, !alias.scope !170
   ret void
@@ -17779,12 +17779,12 @@ attributes #26 = { noreturn nounwind }
 !44 = !{!45, !47, !49, !51}
 !45 = distinct !{!45, !46, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag: argument 0"}
 !46 = distinct !{!46, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_St26random_access_iterator_tag"}
-!47 = distinct !{!47, !48, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_.argprom: argument 0"}
-!48 = distinct !{!48, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_.argprom"}
-!49 = distinct !{!49, !50, !"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0ET_SE_SE_T0_.argprom: argument 0"}
-!50 = distinct !{!50, !"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0ET_SE_SE_T0_.argprom"}
-!51 = distinct !{!51, !52, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom: argument 0"}
-!52 = distinct !{!52, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_.argprom"}
+!47 = distinct !{!47, !48, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_: argument 0"}
+!48 = distinct !{!48, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0EEET_SI_SI_T0_"}
+!49 = distinct !{!49, !50, !"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0ET_SE_SE_T0_: argument 0"}
+!50 = distinct !{!50, !"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_0ET_SE_SE_T0_"}
+!51 = distinct !{!51, !52, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_: argument 0"}
+!52 = distinct !{!52, !"_ZN4llvm7find_ifINS_14iterator_rangeISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS4_13AlignPackInfoEE4SlotEEEEZNS7_3ActENS3_14SourceLocationENS4_19PragmaMsStackActionENS_9StringRefES6_E3$_0EEDaOT_T0_"}
 !53 = distinct !{!53, !26}
 !54 = !{!55, !57, !59, !61, !63}
 !55 = distinct !{!55, !56, !"_ZN4llvm25SmallVectorTemplateCommonIN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEvE6rbeginEv: argument 0"}
@@ -17894,11 +17894,11 @@ attributes #26 = { noreturn nounwind }
 !159 = distinct !{!159, !160, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS1_14MSVtorDispModeEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_EUlRKS6_E_EEET_SK_SK_T0_: argument 0"}
 !160 = distinct !{!160, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS1_14MSVtorDispModeEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_EUlRKS6_E_EEET_SK_SK_T0_"}
 !161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.argprom: argument 0"}
-!163 = distinct !{!163, !"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_.argprom"}
+!162 = distinct !{!162, !163, !"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_: argument 0"}
+!163 = distinct !{!163, !"_ZSt7find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1ET_SE_SE_T0_"}
 !164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1EEET_SI_SI_T0_.argprom: argument 0"}
-!166 = distinct !{!166, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1EEET_SI_SI_T0_.argprom"}
+!165 = distinct !{!165, !166, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1EEET_SI_SI_T0_: argument 0"}
+!166 = distinct !{!166, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1EEET_SI_SI_T0_"}
 !167 = !{!168}
 !168 = distinct !{!168, !169, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1EEET_SI_SI_T0_St26random_access_iterator_tag: argument 0"}
 !169 = distinct !{!169, !"_ZSt9__find_ifISt16reverse_iteratorIPN5clang4Sema11PragmaStackINS2_13AlignPackInfoEE4SlotEEN9__gnu_cxx5__ops10_Iter_predIZNS5_3ActENS1_14SourceLocationENS2_19PragmaMsStackActionEN4llvm9StringRefES4_E3$_1EEET_SI_SI_T0_St26random_access_iterator_tag"}

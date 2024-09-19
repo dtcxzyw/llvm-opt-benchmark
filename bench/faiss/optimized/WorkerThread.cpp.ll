@@ -2486,7 +2486,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5faiss
   %12 = getelementptr inbounds i8, ptr %.val, i64 152
   %13 = load ptr, ptr %12, align 8, !noalias !47
   %.not8.i.i.i.i.i.i = icmp eq ptr %11, %13
-  br i1 %.not8.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN5faiss12WorkerThread11startThreadEvE3$_0EEEclEv.argprom.exit", label %.lr.ph.preheader.i.i.i.i.i.i
+  br i1 %.not8.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN5faiss12WorkerThread11startThreadEvE3$_0EEEclEv.exit", label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %9
   %14 = getelementptr inbounds i8, ptr %.val, i64 144
@@ -2516,9 +2516,9 @@ _ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEESt7promiseIbEERS6_PS6_EppEv.exit
   %.sroa.8.1.i.i.i.i.i.i = phi ptr [ %24, %21 ], [ %.sroa.8.010.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.sroa.11.1.i.i.i.i.i.i = phi ptr [ %22, %21 ], [ %.sroa.11.011.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.05.1.i.i.i.i.i.i, %13
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN5faiss12WorkerThread11startThreadEvE3$_0EEEclEv.argprom.exit", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN5faiss12WorkerThread11startThreadEvE3$_0EEEclEv.exit", label %.lr.ph.i.i.i.i.i.i
 
-"_ZNSt6thread8_InvokerISt5tupleIJZN5faiss12WorkerThread11startThreadEvE3$_0EEEclEv.argprom.exit": ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEESt7promiseIbEERS6_PS6_EppEv.exit.i.i.i.i.i.i, %9
+"_ZNSt6thread8_InvokerISt5tupleIJZN5faiss12WorkerThread11startThreadEvE3$_0EEEclEv.exit": ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEESt7promiseIbEERS6_PS6_EppEv.exit.i.i.i.i.i.i, %9
   ret void
 }
 
@@ -2771,13 +2771,13 @@ define linkonce_odr void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #24
           to label %18 unwind label %19
 
@@ -2791,7 +2791,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)

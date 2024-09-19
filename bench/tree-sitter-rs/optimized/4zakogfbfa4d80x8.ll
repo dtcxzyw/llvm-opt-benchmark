@@ -153,7 +153,7 @@ _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds
 ._crit_edge.i.i:                                  ; preds = %64, %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h6de4d70830d0f71cE.exit._crit_edge.i"
   %69 = load i64, ptr %.pre.i, align 8, !range !25, !noalias !35, !noundef !4
   %trunc.i.i.i = trunc nuw i64 %69 to i1
-  br i1 %trunc.i.i.i, label %70, label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i
+  br i1 %trunc.i.i.i, label %70, label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i
 
 70:                                               ; preds = %._crit_edge.i.i
   %71 = getelementptr inbounds i8, ptr %.pre.i, i64 8
@@ -173,28 +173,28 @@ _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.
   %77 = getelementptr inbounds i8, ptr %.pre.i, i64 60
   %78 = load i32, ptr %77, align 4, !noalias !46, !noundef !4
   %79 = trunc i32 %78 to i1
-  br i1 %79, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i, label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i
+  br i1 %79, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i, label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i, %75
   %80 = getelementptr inbounds i8, ptr %.pre.i, i64 64
   %81 = load i32, ptr %80, align 8, !noalias !32, !noundef !4
   %82 = and i32 %81, 2
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i, label %84
+  br i1 %83, label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i, label %84
 
 84:                                               ; preds = %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i
   %85 = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %86 = load i64, ptr %85, align 8, !range !25, !noalias !32, !noundef !4
   %trunc9.i.i.i = trunc nuw i64 %86 to i1
-  br i1 %trunc9.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i, label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i
+  br i1 %trunc9.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i, label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i: ; preds = %84
   %87 = getelementptr inbounds i8, ptr %.pre.i, i64 24
   %88 = load i64, ptr %87, align 8, !noalias !32
   %89 = icmp ugt i64 %73, %88
-  br i1 %89, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit", label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i
+  br i1 %89, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit", label %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i
 
-_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i, %84, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i, %._crit_edge.i.i
+_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i, %84, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i, %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i, %._crit_edge.i.i
   %90 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %91 = load ptr, ptr %90, align 8, !noalias !32, !nonnull !4, !noundef !4
   %92 = getelementptr inbounds i8, ptr %.val.i, i64 24
@@ -216,7 +216,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argp
   %trunc.i5.i = trunc nuw i32 %.fca.0.extract.i.i to i1
   br i1 %trunc.i5.i, label %103, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit"
 
-103:                                              ; preds = %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i
+103:                                              ; preds = %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %104 = getelementptr inbounds i8, ptr %51, i64 32
   %105 = load ptr, ptr %104, align 8, !alias.scope !55, !noalias !56, !nonnull !4, !noundef !4
@@ -278,11 +278,11 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argp
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0335a70b866b932772266027cc677848.13) #8, !noalias !63
   unreachable
 
-"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit": ; preds = %49, %64, %70, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i, %109, %116, %120, %125, %129
-  %.sroa.3.0.i10.i = phi i32 [ %.fca.1.extract.i.i, %125 ], [ %.fca.1.extract.i.i, %120 ], [ %.fca.1.extract.i.i, %116 ], [ %.fca.1.extract.i.i, %109 ], [ %.fca.1.extract.i.i, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i ], [ %.fca.1.extract.i.i, %129 ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i ], [ undef, %49 ], [ undef, %64 ], [ undef, %70 ]
-  %.sroa.5.0.i = phi i64 [ undef, %125 ], [ undef, %120 ], [ undef, %116 ], [ undef, %109 ], [ undef, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i ], [ %131, %129 ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i ], [ undef, %49 ], [ undef, %64 ], [ undef, %70 ]
-  %.sroa.4.0.i = phi i64 [ undef, %125 ], [ undef, %120 ], [ undef, %116 ], [ undef, %109 ], [ undef, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i ], [ %130, %129 ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i ], [ undef, %49 ], [ undef, %64 ], [ undef, %70 ]
-  %.sink.i.i = phi i64 [ 0, %125 ], [ 0, %120 ], [ 0, %116 ], [ 0, %109 ], [ 0, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom.exit.i ], [ 1, %129 ], [ 0, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i ], [ 0, %49 ], [ 0, %64 ], [ 0, %70 ]
+"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit": ; preds = %49, %64, %70, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i, %109, %116, %120, %125, %129
+  %.sroa.3.0.i10.i = phi i32 [ %.fca.1.extract.i.i, %125 ], [ %.fca.1.extract.i.i, %120 ], [ %.fca.1.extract.i.i, %116 ], [ %.fca.1.extract.i.i, %109 ], [ %.fca.1.extract.i.i, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i ], [ %.fca.1.extract.i.i, %129 ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i ], [ undef, %49 ], [ undef, %64 ], [ undef, %70 ]
+  %.sroa.5.0.i = phi i64 [ undef, %125 ], [ undef, %120 ], [ undef, %116 ], [ undef, %109 ], [ undef, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i ], [ %131, %129 ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i ], [ undef, %49 ], [ undef, %64 ], [ undef, %70 ]
+  %.sroa.4.0.i = phi i64 [ undef, %125 ], [ undef, %120 ], [ undef, %116 ], [ undef, %109 ], [ undef, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i ], [ %130, %129 ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i ], [ undef, %49 ], [ undef, %64 ], [ undef, %70 ]
+  %.sink.i.i = phi i64 [ 0, %125 ], [ 0, %120 ], [ 0, %116 ], [ 0, %109 ], [ 0, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit.i ], [ 1, %129 ], [ 0, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i ], [ 0, %49 ], [ 0, %64 ], [ 0, %70 ]
   store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !13, !noalias !64
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !13, !noalias !64
@@ -471,13 +471,13 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit
   %90 = getelementptr inbounds i8, ptr %83, i64 104
   %91 = load ptr, ptr %90, align 8, !invariant.load !4, !noalias !87, !nonnull !4
   call void %91(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noundef align 1 %89, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.0.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %16), !noalias !100
-  br label %"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.argprom.exit"
+  br label %"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.exit"
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread4.i.i: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.i.i, %60, %54, %47
   store i64 0, ptr %6, align 8, !alias.scope !82, !noalias !101
-  br label %"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.argprom.exit"
+  br label %"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.exit"
 
-"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.argprom.exit": ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread.i.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread4.i.i
+"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.exit": ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread.i.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread4.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !73
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !76
   ret void
@@ -541,10 +541,10 @@ attributes #8 = { noreturn }
 !6 = distinct !{!6, !7, !"_ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E: argument 0"}
 !7 = distinct !{!7, !"_ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
-!10 = distinct !{!10, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
+!9 = distinct !{!9, !10, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
+!10 = distinct !{!10, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
 !11 = !{!12, !6}
-!12 = distinct !{!12, !10, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
+!12 = distinct !{!12, !10, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E: argument 0"}
 !15 = distinct !{!15, !"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E"}
@@ -562,11 +562,11 @@ attributes #8 = { noreturn }
 !27 = !{i64 0, i64 4}
 !28 = !{!23, !14, !17, !19}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom: argument 1"}
-!31 = distinct !{!31, !"_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom"}
+!30 = distinct !{!30, !31, !"_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE: argument 1"}
+!31 = distinct !{!31, !"_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE"}
 !32 = !{!33, !30, !34, !14, !17, !19}
-!33 = distinct !{!33, !31, !"_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom: argument 0"}
-!34 = distinct !{!34, !31, !"_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.argprom: argument 2"}
+!33 = distinct !{!33, !31, !"_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE: argument 0"}
+!34 = distinct !{!34, !31, !"_ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE: argument 2"}
 !35 = !{!36, !38, !33, !30, !34, !14, !17, !19}
 !36 = distinct !{!36, !37, !"_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E: argument 0"}
 !37 = distinct !{!37, !"_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E"}
@@ -601,26 +601,26 @@ attributes #8 = { noreturn }
 !66 = distinct !{!66, !67, !"_ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E: argument 0"}
 !67 = distinct !{!67, !"_ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E"}
 !68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 0"}
-!70 = distinct !{!70, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom"}
+!69 = distinct !{!69, !70, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 0"}
+!70 = distinct !{!70, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E"}
 !71 = !{!72, !66}
-!72 = distinct !{!72, !70, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.argprom: argument 1"}
+!72 = distinct !{!72, !70, !"_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E: argument 1"}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.argprom: argument 1"}
-!75 = distinct !{!75, !"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.argprom"}
+!74 = distinct !{!74, !75, !"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E: argument 1"}
+!75 = distinct !{!75, !"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E"}
 !76 = !{!77, !74}
-!77 = distinct !{!77, !75, !"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.argprom: argument 0"}
+!77 = distinct !{!77, !75, !"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E: argument 0"}
 !78 = !{!79}
 !79 = distinct !{!79, !80, !"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h6de4d70830d0f71cE: argument 0"}
 !80 = distinct !{!80, !"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h6de4d70830d0f71cE"}
 !81 = !{!79, !77, !74}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN14regex_automata4meta5regex5Regex11search_with17h6342b99ead3e9485E.argprom: argument 0"}
-!84 = distinct !{!84, !"_ZN14regex_automata4meta5regex5Regex11search_with17h6342b99ead3e9485E.argprom"}
+!83 = distinct !{!83, !84, !"_ZN14regex_automata4meta5regex5Regex11search_with17h6342b99ead3e9485E: argument 0"}
+!84 = distinct !{!84, !"_ZN14regex_automata4meta5regex5Regex11search_with17h6342b99ead3e9485E"}
 !85 = !{!86}
-!86 = distinct !{!86, !84, !"_ZN14regex_automata4meta5regex5Regex11search_with17h6342b99ead3e9485E.argprom: argument 2"}
+!86 = distinct !{!86, !84, !"_ZN14regex_automata4meta5regex5Regex11search_with17h6342b99ead3e9485E: argument 2"}
 !87 = !{!83, !88, !86, !77, !74}
-!88 = distinct !{!88, !84, !"_ZN14regex_automata4meta5regex5Regex11search_with17h6342b99ead3e9485E.argprom: argument 1"}
+!88 = distinct !{!88, !84, !"_ZN14regex_automata4meta5regex5Regex11search_with17h6342b99ead3e9485E: argument 1"}
 !89 = !{!90, !92, !83, !88, !86, !77, !74}
 !90 = distinct !{!90, !91, !"_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E: argument 0"}
 !91 = distinct !{!91, !"_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E"}

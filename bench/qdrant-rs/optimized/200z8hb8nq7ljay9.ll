@@ -20,7 +20,7 @@ define hidden nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf3f6835a3d5df5f4E(
   %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   %7 = inttoptr i64 %1 to ptr
-  br label %_ZN5alloc5alloc6Global10alloc_impl17h1d5aaca1867688d8E.argprom.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17h1d5aaca1867688d8E.exit
 
 8:                                                ; preds = %2
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -28,17 +28,17 @@ define hidden nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf3f6835a3d5df5f4E(
   %11 = icmp sgt i64 %10, -1
   tail call void @llvm.assume(i1 %11)
   %12 = tail call ptr @__rust_alloc(i64 %0, i64 %1) #5
-  br label %_ZN5alloc5alloc6Global10alloc_impl17h1d5aaca1867688d8E.argprom.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17h1d5aaca1867688d8E.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17h1d5aaca1867688d8E.argprom.exit: ; preds = %4, %8
+_ZN5alloc5alloc6Global10alloc_impl17h1d5aaca1867688d8E.exit: ; preds = %4, %8
   %.sroa.05.0.i = phi ptr [ %7, %4 ], [ %12, %8 ]
   %.not = icmp eq ptr %.sroa.05.0.i, null
   br i1 %.not, label %14, label %13
 
-13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h1d5aaca1867688d8E.argprom.exit
+13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h1d5aaca1867688d8E.exit
   ret ptr %.sroa.05.0.i
 
-14:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h1d5aaca1867688d8E.argprom.exit
+14:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h1d5aaca1867688d8E.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 %1, i64 %0) #6
   unreachable
 }

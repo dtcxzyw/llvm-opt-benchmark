@@ -390,7 +390,7 @@ define dso_local i32 @nc_connect_entry(ptr nocapture noundef readonly %0) local_
   %13 = load i32, ptr %12, align 4
   %14 = call ptr @cli_strerror(i32 noundef %13, ptr noundef nonnull %7, i64 noundef 256) #13
   %15 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.20, ptr noundef %14) #13
-  br label %nc_socket.argprom.argprom.exit.thread
+  br label %nc_socket.exit.thread
 
 16:                                               ; preds = %1
   %17 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %9, i32 noundef 3, i32 noundef 0) #13
@@ -403,7 +403,7 @@ define dso_local i32 @nc_connect_entry(ptr nocapture noundef readonly %0) local_
   %22 = call ptr @cli_strerror(i32 noundef %21, ptr noundef nonnull %7, i64 noundef 256) #13
   %23 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.21, ptr noundef %22) #13
   %24 = call i32 @close(i32 noundef %9) #13
-  br label %nc_socket.argprom.argprom.exit.thread
+  br label %nc_socket.exit.thread
 
 25:                                               ; preds = %16
   %26 = or i32 %17, 2048
@@ -417,9 +417,9 @@ define dso_local i32 @nc_connect_entry(ptr nocapture noundef readonly %0) local_
   %32 = call ptr @cli_strerror(i32 noundef %31, ptr noundef nonnull %7, i64 noundef 256) #13
   %33 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.22, ptr noundef %32) #13
   %34 = call i32 @close(i32 noundef %9) #13
-  br label %nc_socket.argprom.argprom.exit.thread
+  br label %nc_socket.exit.thread
 
-nc_socket.argprom.argprom.exit.thread:            ; preds = %11, %19, %29
+nc_socket.exit.thread:                            ; preds = %11, %19, %29
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
   br label %85
 
@@ -531,8 +531,8 @@ nc_connect.exit:                                  ; preds = %45, %75, %81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %85
 
-85:                                               ; preds = %84, %nc_connect.exit, %nc_socket.argprom.argprom.exit.thread
-  %.0 = phi i32 [ -1, %nc_socket.argprom.argprom.exit.thread ], [ %9, %84 ], [ -1, %nc_connect.exit ]
+85:                                               ; preds = %84, %nc_connect.exit, %nc_socket.exit.thread
+  %.0 = phi i32 [ -1, %nc_socket.exit.thread ], [ %9, %84 ], [ -1, %nc_connect.exit ]
   ret i32 %.0
 }
 

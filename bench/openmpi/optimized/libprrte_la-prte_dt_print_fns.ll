@@ -1100,13 +1100,13 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %hwloc_get_obj_by_ty
 ._crit_edge.i:                                    ; preds = %111, %92, %74, %hwloc_get_nbobjs_by_type.exit43.i, %49
   call void @hwloc_bitmap_free(ptr noundef %50) #8
   %.not.i79 = icmp eq ptr %.0.i78, null
-  br i1 %.not.i79, label %display_cpus.argprom.exit, label %113
+  br i1 %.not.i79, label %display_cpus.exit, label %113
 
 113:                                              ; preds = %._crit_edge.i
   call void @hwloc_bitmap_free(ptr noundef nonnull %.0.i78) #8
-  br label %display_cpus.argprom.exit
+  br label %display_cpus.exit
 
-display_cpus.argprom.exit:                        ; preds = %._crit_edge.i, %113
+display_cpus.exit:                                ; preds = %._crit_edge.i, %113
   %114 = load ptr, ptr %5, align 8
   %115 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.55, ptr noundef %114) #8
   %116 = load ptr, ptr %5, align 8
@@ -1127,8 +1127,8 @@ display_cpus.argprom.exit:                        ; preds = %._crit_edge.i, %113
   %.pre111 = load ptr, ptr @prte_node_topologies, align 8
   br label %123
 
-123:                                              ; preds = %pmix_pointer_array_get_item.exit, %display_cpus.argprom.exit
-  %124 = phi ptr [ %27, %pmix_pointer_array_get_item.exit ], [ %.pre111, %display_cpus.argprom.exit ]
+123:                                              ; preds = %pmix_pointer_array_get_item.exit, %display_cpus.exit
+  %124 = phi ptr [ %27, %pmix_pointer_array_get_item.exit ], [ %.pre111, %display_cpus.exit ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %125 = getelementptr inbounds i8, ptr %124, i64 128
   %126 = load i32, ptr %125, align 8

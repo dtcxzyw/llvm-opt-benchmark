@@ -74,8 +74,8 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %14
   %.not31 = icmp eq ptr %23, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph47, %Aig_TableFind.argprom.exit
-  %.02842.sink = phi ptr [ %24, %Aig_TableFind.argprom.exit ], [ %23, %.lr.ph47 ]
+.lr.ph:                                           ; preds = %.lr.ph47, %Aig_TableFind.exit
+  %.02842.sink = phi ptr [ %24, %Aig_TableFind.exit ], [ %23, %.lr.ph47 ]
   %24 = load ptr, ptr %.02842.sink, align 8
   %.val35 = load ptr, ptr %3, align 8
   %.val36 = load i32, ptr %5, align 8
@@ -121,15 +121,15 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %14
   %.not.i38 = icmp eq ptr %57, null
   %58 = icmp eq ptr %57, %.02842.sink
   %or.cond.i = or i1 %.not.i38, %58
-  br i1 %or.cond.i, label %Aig_TableFind.argprom.exit, label %56, !llvm.loop !7
+  br i1 %or.cond.i, label %Aig_TableFind.exit, label %56, !llvm.loop !7
 
-Aig_TableFind.argprom.exit:                       ; preds = %56
+Aig_TableFind.exit:                               ; preds = %56
   store ptr %.02842.sink, ptr %.0.i37, align 8
   store ptr null, ptr %.02842.sink, align 8
   %.not33 = icmp eq ptr %24, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %Aig_TableFind.argprom.exit, %.lr.ph47
+._crit_edge:                                      ; preds = %Aig_TableFind.exit, %.lr.ph47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge48, label %.lr.ph47, !llvm.loop !9
@@ -473,9 +473,9 @@ define void @Aig_TableInsert(ptr nocapture noundef %0, ptr noundef %1) local_unn
   %.not.i = icmp eq ptr %51, null
   %52 = icmp eq ptr %51, %1
   %or.cond.i = or i1 %.not.i, %52
-  br i1 %or.cond.i, label %Aig_TableFind.argprom.exit, label %50, !llvm.loop !7
+  br i1 %or.cond.i, label %Aig_TableFind.exit, label %50, !llvm.loop !7
 
-Aig_TableFind.argprom.exit:                       ; preds = %50
+Aig_TableFind.exit:                               ; preds = %50
   store ptr %1, ptr %.0.i, align 8
   ret void
 }
@@ -528,9 +528,9 @@ define void @Aig_TableDelete(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %.not.i = icmp eq ptr %37, null
   %38 = icmp eq ptr %37, %1
   %or.cond.i = or i1 %.not.i, %38
-  br i1 %or.cond.i, label %Aig_TableFind.argprom.exit, label %36, !llvm.loop !7
+  br i1 %or.cond.i, label %Aig_TableFind.exit, label %36, !llvm.loop !7
 
-Aig_TableFind.argprom.exit:                       ; preds = %36
+Aig_TableFind.exit:                               ; preds = %36
   %39 = load ptr, ptr %1, align 8
   store ptr %39, ptr %.0.i, align 8
   store ptr null, ptr %1, align 8

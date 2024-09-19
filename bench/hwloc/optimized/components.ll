@@ -96,9 +96,9 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
   store i32 0, ptr @hwloc_component_finalize_cb_count, align 4
   br label %11
 
-11:                                               ; preds = %8, %hwloc_disc_component_register.argprom.exit
-  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %hwloc_disc_component_register.argprom.exit ]
-  %12 = phi ptr [ @hwloc_noos_component, %8 ], [ %138, %hwloc_disc_component_register.argprom.exit ]
+11:                                               ; preds = %8, %hwloc_disc_component_register.exit
+  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %hwloc_disc_component_register.exit ]
+  %12 = phi ptr [ @hwloc_noos_component, %8 ], [ %138, %hwloc_disc_component_register.exit ]
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   %14 = load i64, ptr %13, align 8
   %.not25 = icmp eq i64 %14, 0
@@ -107,13 +107,13 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 15:                                               ; preds = %11
   %16 = tail call i32 @hwloc_hide_errors() #22
   %17 = icmp slt i32 %16, 2
-  br i1 %17, label %18, label %hwloc_disc_component_register.argprom.exit
+  br i1 %17, label %18, label %hwloc_disc_component_register.exit
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr @stderr, align 8
   %20 = load i64, ptr %13, align 8
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.1, i64 noundef %20) #25
-  br label %hwloc_disc_component_register.argprom.exit
+  br label %hwloc_disc_component_register.exit
 
 22:                                               ; preds = %11
   %23 = getelementptr inbounds i8, ptr %12, i64 8
@@ -129,12 +129,12 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 28:                                               ; preds = %25
   %29 = load i32, ptr @hwloc_components_verbose, align 4
   %.not28 = icmp eq i32 %29, 0
-  br i1 %.not28, label %hwloc_disc_component_register.argprom.exit, label %30
+  br i1 %.not28, label %hwloc_disc_component_register.exit, label %30
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr @stderr, align 8
   %32 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 55, i64 1, ptr %31) #26
-  br label %hwloc_disc_component_register.argprom.exit
+  br label %hwloc_disc_component_register.exit
 
 33:                                               ; preds = %25, %22
   %34 = getelementptr inbounds i8, ptr %12, i64 16
@@ -155,7 +155,7 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 42:                                               ; preds = %36, %33
   %43 = getelementptr inbounds i8, ptr %12, i64 24
   %44 = load i32, ptr %43, align 8
-  switch i32 %44, label %hwloc_disc_component_register.argprom.exit [
+  switch i32 %44, label %hwloc_disc_component_register.exit [
     i32 0, label %45
     i32 1, label %134
   ]
@@ -171,12 +171,12 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 50:                                               ; preds = %45
   %51 = load i32, ptr @hwloc_components_verbose, align 4
   %.not47.i = icmp eq i32 %51, 0
-  br i1 %.not47.i, label %hwloc_disc_component_register.argprom.exit, label %52
+  br i1 %.not47.i, label %hwloc_disc_component_register.exit, label %52
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr @stderr, align 8
   %54 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 69, i64 1, ptr %53) #26
-  br label %hwloc_disc_component_register.argprom.exit
+  br label %hwloc_disc_component_register.exit
 
 55:                                               ; preds = %45
   %56 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %48, i32 noundef 45) #23
@@ -197,12 +197,12 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 62:                                               ; preds = %59, %57, %55
   %63 = load i32, ptr @hwloc_components_verbose, align 4
   %.not60.i = icmp eq i32 %63, 0
-  br i1 %.not60.i, label %hwloc_disc_component_register.argprom.exit, label %64
+  br i1 %.not60.i, label %hwloc_disc_component_register.exit, label %64
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr @stderr, align 8
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.25, ptr noundef %48, i32 noundef 45) #25
-  br label %hwloc_disc_component_register.argprom.exit
+  br label %hwloc_disc_component_register.exit
 
 67:                                               ; preds = %59
   %68 = getelementptr inbounds i8, ptr %47, i64 8
@@ -220,14 +220,14 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
 72:                                               ; preds = %70, %67
   %73 = tail call i32 @hwloc_hide_errors() #22
   %74 = icmp slt i32 %73, 2
-  br i1 %74, label %75, label %hwloc_disc_component_register.argprom.exit
+  br i1 %74, label %75, label %hwloc_disc_component_register.exit
 
 75:                                               ; preds = %72
   %76 = load ptr, ptr @stderr, align 8
   %77 = load ptr, ptr %47, align 8
   %78 = load i32, ptr %68, align 8
   %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.26, ptr noundef %77, i32 noundef %78) #25
-  br label %hwloc_disc_component_register.argprom.exit
+  br label %hwloc_disc_component_register.exit
 
 80:                                               ; preds = %70, %67
   %81 = load ptr, ptr @hwloc_disc_components, align 8
@@ -273,12 +273,12 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
   br label %106
 
 102:                                              ; preds = %88
-  br i1 %.not59.i, label %hwloc_disc_component_register.argprom.exit, label %103
+  br i1 %.not59.i, label %hwloc_disc_component_register.exit, label %103
 
 103:                                              ; preds = %102
   %104 = load ptr, ptr @stderr, align 8
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.28, ptr noundef %86, i32 noundef %91, i32 noundef %90) #25
-  br label %hwloc_disc_component_register.argprom.exit
+  br label %hwloc_disc_component_register.exit
 
 106:                                              ; preds = %98, %83
   %107 = phi ptr [ %101, %98 ], [ %84, %83 ]
@@ -338,22 +338,22 @@ define hidden void @hwloc_components_init() local_unnamed_addr #0 {
   %133 = getelementptr inbounds i8, ptr %47, i64 32
   store ptr %.lcssa.i, ptr %133, align 8
   store ptr %47, ptr %.1.lcssa.i, align 8
-  br label %hwloc_disc_component_register.argprom.exit
+  br label %hwloc_disc_component_register.exit
 
 134:                                              ; preds = %42
   %135 = getelementptr inbounds i8, ptr %12, i64 40
   %136 = load ptr, ptr %135, align 8
   tail call void @hwloc_xml_callbacks_register(ptr noundef %136) #22
-  br label %hwloc_disc_component_register.argprom.exit
+  br label %hwloc_disc_component_register.exit
 
-hwloc_disc_component_register.argprom.exit:       ; preds = %._crit_edge10.i, %103, %102, %75, %72, %64, %62, %52, %50, %42, %134, %28, %30, %15, %18
+hwloc_disc_component_register.exit:               ; preds = %._crit_edge10.i, %103, %102, %75, %72, %64, %62, %52, %50, %42, %134, %28, %30, %15, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %137 = getelementptr inbounds [12 x ptr], ptr @hwloc_static_components, i64 0, i64 %indvars.iv.next
   %138 = load ptr, ptr %137, align 8
   %.not24 = icmp eq i64 %indvars.iv.next, 11
   br i1 %.not24, label %.loopexit, label %11, !llvm.loop !7
 
-.loopexit:                                        ; preds = %hwloc_disc_component_register.argprom.exit, %0
+.loopexit:                                        ; preds = %hwloc_disc_component_register.exit, %0
   %139 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @hwloc_components_mutex) #22
   ret void
 }
@@ -1167,7 +1167,7 @@ hwloc_disc_component_find.exit:                   ; preds = %55
   br i1 %.not125, label %72, label %66
 
 66:                                               ; preds = %.loopexit137
-  tail call fastcc void @hwloc_disc_component_try_enable.retelim(ptr noundef nonnull %0, ptr noundef %.01726.i, i32 noundef 1, i32 noundef %.090)
+  tail call fastcc void @hwloc_disc_component_try_enable(ptr noundef nonnull %0, ptr noundef %.01726.i, i32 noundef 1, i32 noundef %.090)
   br label %72
 
 .loopexit138:                                     ; preds = %53, %48
@@ -1361,7 +1361,7 @@ declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_disc_component_try_enable.retelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @hwloc_disc_component_try_enable(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 836

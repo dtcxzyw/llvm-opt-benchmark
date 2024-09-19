@@ -534,7 +534,7 @@ entry:
 
 invoke.cont.i:                                    ; preds = %entry
   %tobool.not.i = icmp eq i32 %call1.i2.i, 0
-  br i1 %tobool.not.i, label %"_ZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit", label %if.then.i
+  br i1 %tobool.not.i, label %"_ZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %call1.i2.i) #25
@@ -554,7 +554,7 @@ lpad.i:                                           ; preds = %if.then.i, %entry
   store ptr null, ptr %1, align 8
   br label %common.resume
 
-"_ZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit": ; preds = %invoke.cont.i
+"_ZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %invoke.cont.i
   store ptr null, ptr %0, align 8
   store ptr null, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__callable.i)
@@ -577,7 +577,7 @@ lpad.i:                                           ; preds = %if.then.i, %entry
   invoke void @_ZN7rocksdb12Customizable13GetOptionsMapERKNS_13ConfigOptionsEPKS0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSB_PSt13unordered_mapISB_SB_St4hashISB_ESt8equal_toISB_ESaISt4pairISC_SB_EEE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %status.i, ptr noundef nonnull align 8 dereferenceable(80) %options, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull %id.i, ptr noundef nonnull %opt_map.i)
           to label %invoke.cont2.i unwind label %lpad.i1, !noalias !9
 
-invoke.cont2.i:                                   ; preds = %"_ZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit"
+invoke.cont2.i:                                   ; preds = %"_ZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit"
   %4 = load i8, ptr %status.i, align 8, !noalias !9
   %cmp.i.i = icmp eq i8 %4, 0
   br i1 %cmp.i.i, label %if.else.i, label %if.then.i2
@@ -625,7 +625,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i2
   store ptr %10, ptr %state_.i.i.i, align 8, !alias.scope !9
   br label %cleanup.i
 
-lpad.i1:                                          ; preds = %"_ZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.argprom.exit"
+lpad.i1:                                          ; preds = %"_ZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit"
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
@@ -2459,11 +2459,11 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i.i
 invoke.cont5.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i.i.i
   %5 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSL_ENKUlvE_clEv.argprom.exit", label %if.then.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSL_ENKUlvE_clEv.exit", label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont5.i.i.i.i.i.i
   %call.i.i4.i.i.i.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2.i.i.i.i.i.i, i32 noundef 3)
-          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSL_ENKUlvE_clEv.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i.i.i
+          to label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSL_ENKUlvE_clEv.exit" unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i
   %6 = landingpad { ptr, i32 }
@@ -2515,7 +2515,7 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad.i.i.i.i.i, %eh
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i.i.i.i) #22
   resume { ptr, i32 } %.pn.i.i.i.i.i
 
-"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSL_ENKUlvE_clEv.argprom.exit": ; preds = %invoke.cont5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN7rocksdb21SstPartitionerFactory16CreateFromStringERKNS3_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS4_EE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSL_ENKUlvE_clEv.exit": ; preds = %invoke.cont5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i.i.i.i.i.i) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i)
@@ -3370,7 +3370,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
   %0 = load ptr, ptr %__args1.val, align 8
   store ptr %call.i.i.i, ptr %__args1.val, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb21SstPartitionerFactoryERZNS0_12_GLOBAL__N_131RegisterSstPartitionerFactoriesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %_ZNKSt14default_deleteIN7rocksdb21SstPartitionerFactoryEEclEPS1_.exit.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIPN7rocksdb21SstPartitionerFactoryERZNS0_12_GLOBAL__N_131RegisterSstPartitionerFactoriesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %_ZNKSt14default_deleteIN7rocksdb21SstPartitionerFactoryEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb21SstPartitionerFactoryEEclEPS1_.exit.i.i.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -3378,7 +3378,7 @@ _ZNKSt14default_deleteIN7rocksdb21SstPartitionerFactoryEEclEPS1_.exit.i.i.i.i.i:
   %1 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
   %.pre.i.i.i = load ptr, ptr %__args1.val, align 8
-  br label %"_ZSt10__invoke_rIPN7rocksdb21SstPartitionerFactoryERZNS0_12_GLOBAL__N_131RegisterSstPartitionerFactoriesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPN7rocksdb21SstPartitionerFactoryERZNS0_12_GLOBAL__N_131RegisterSstPartitionerFactoriesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
   %2 = landingpad { ptr, i32 }
@@ -3386,7 +3386,7 @@ lpad.i.i.i:                                       ; preds = %entry
   tail call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #23
   resume { ptr, i32 } %2
 
-"_ZSt10__invoke_rIPN7rocksdb21SstPartitionerFactoryERZNS0_12_GLOBAL__N_131RegisterSstPartitionerFactoriesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIN7rocksdb21SstPartitionerFactoryEEclEPS1_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIPN7rocksdb21SstPartitionerFactoryERZNS0_12_GLOBAL__N_131RegisterSstPartitionerFactoriesERNS0_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JSD_PSt10unique_ptrIS1_St14default_deleteIS1_EEPSB_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIN7rocksdb21SstPartitionerFactoryEEclEPS1_.exit.i.i.i.i.i
   %3 = phi ptr [ %call.i.i.i, %invoke.cont.i.i.i ], [ %.pre.i.i.i, %_ZNKSt14default_deleteIN7rocksdb21SstPartitionerFactoryEEclEPS1_.exit.i.i.i.i.i ]
   ret ptr %3
 }

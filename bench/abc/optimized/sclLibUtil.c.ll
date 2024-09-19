@@ -2121,16 +2121,16 @@ Abc_SclFindInvertor.exit:                         ; preds = %10, %16
   %28 = getelementptr i8, ptr %27, i64 12
   %.val7.i = load i32, ptr %28, align 4
   %29 = icmp eq i32 %.val7.i, 0
-  br i1 %29, label %Abc_SclFindInvertor.exit.thread, label %Scl_CellPinTime.argprom.exit
+  br i1 %29, label %Abc_SclFindInvertor.exit.thread, label %Scl_CellPinTime.exit
 
-Scl_CellPinTime.argprom.exit:                     ; preds = %20
+Scl_CellPinTime.exit:                             ; preds = %20
   %30 = getelementptr i8, ptr %27, i64 16
   %.val.i13 = load ptr, ptr %30, align 8
   %31 = load ptr, ptr %.val.i13, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %Abc_SclFindInvertor.exit.thread, label %33
 
-33:                                               ; preds = %Scl_CellPinTime.argprom.exit
+33:                                               ; preds = %Scl_CellPinTime.exit
   %34 = getelementptr i8, ptr %31, i64 36
   %.val = load i32, ptr %34, align 4
   %35 = sdiv i32 %.val, 3
@@ -2141,8 +2141,8 @@ Scl_CellPinTime.argprom.exit:                     ; preds = %20
   %39 = load float, ptr %38, align 4
   br label %Abc_SclFindInvertor.exit.thread
 
-Abc_SclFindInvertor.exit.thread:                  ; preds = %20, %1, %Scl_CellPinTime.argprom.exit, %Abc_SclFindInvertor.exit, %33
-  %.0 = phi float [ %39, %33 ], [ 0.000000e+00, %Abc_SclFindInvertor.exit ], [ 0.000000e+00, %Scl_CellPinTime.argprom.exit ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %20 ]
+Abc_SclFindInvertor.exit.thread:                  ; preds = %20, %1, %Scl_CellPinTime.exit, %Abc_SclFindInvertor.exit, %33
+  %.0 = phi float [ %39, %33 ], [ 0.000000e+00, %Abc_SclFindInvertor.exit ], [ 0.000000e+00, %Scl_CellPinTime.exit ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %20 ]
   ret float %.0
 }
 
@@ -2180,16 +2180,16 @@ define range(i32 0, 2) i32 @Abc_SclComputeParametersPin(ptr nocapture readnone %
   %26 = getelementptr i8, ptr %25, i64 12
   %.val7.i = load i32, ptr %26, align 4
   %27 = icmp eq i32 %.val7.i, 0
-  br i1 %27, label %Scl_CellPinTime.argprom.exit.thread, label %Scl_CellPinTime.argprom.exit
+  br i1 %27, label %Scl_CellPinTime.exit.thread, label %Scl_CellPinTime.exit
 
-Scl_CellPinTime.argprom.exit:                     ; preds = %6
+Scl_CellPinTime.exit:                             ; preds = %6
   %28 = getelementptr i8, ptr %25, i64 16
   %.val.i = load ptr, ptr %28, align 8
   %29 = load ptr, ptr %.val.i, align 8
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %Scl_CellPinTime.argprom.exit.thread, label %30
+  br i1 %.not, label %Scl_CellPinTime.exit.thread, label %30
 
-30:                                               ; preds = %Scl_CellPinTime.argprom.exit
+30:                                               ; preds = %Scl_CellPinTime.exit
   %31 = getelementptr i8, ptr %29, i64 52
   %.val24 = load i32, ptr %31, align 4
   %32 = icmp eq i32 %.val24, 1
@@ -2203,7 +2203,7 @@ Scl_CellPinTime.argprom.exit:                     ; preds = %6
   %36 = getelementptr i8, ptr %35, i64 8
   %.val27 = load ptr, ptr %36, align 8
   %37 = load float, ptr %.val27, align 4
-  br label %Scl_CellPinTime.argprom.exit.thread.sink.split
+  br label %Scl_CellPinTime.exit.thread.sink.split
 
 38:                                               ; preds = %30
   %39 = getelementptr inbounds i8, ptr %7, i64 4
@@ -2265,15 +2265,15 @@ Scl_CellPinTime.argprom.exit:                     ; preds = %6
   %85 = fdiv float %73, %84
   %86 = fdiv float %72, %85
   store float %86, ptr %4, align 4
-  br label %Scl_CellPinTime.argprom.exit.thread.sink.split
+  br label %Scl_CellPinTime.exit.thread.sink.split
 
-Scl_CellPinTime.argprom.exit.thread.sink.split:   ; preds = %33, %38
+Scl_CellPinTime.exit.thread.sink.split:           ; preds = %33, %38
   %.sink = phi float [ %55, %38 ], [ %37, %33 ]
   store float %.sink, ptr %5, align 4
-  br label %Scl_CellPinTime.argprom.exit.thread
+  br label %Scl_CellPinTime.exit.thread
 
-Scl_CellPinTime.argprom.exit.thread:              ; preds = %Scl_CellPinTime.argprom.exit.thread.sink.split, %6, %Scl_CellPinTime.argprom.exit
-  %.0 = phi i32 [ 0, %Scl_CellPinTime.argprom.exit ], [ 0, %6 ], [ 1, %Scl_CellPinTime.argprom.exit.thread.sink.split ]
+Scl_CellPinTime.exit.thread:                      ; preds = %Scl_CellPinTime.exit.thread.sink.split, %6, %Scl_CellPinTime.exit
+  %.0 = phi i32 [ 0, %Scl_CellPinTime.exit ], [ 0, %6 ], [ 1, %Scl_CellPinTime.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -2472,16 +2472,16 @@ define void @Abc_SclComputeParametersClass(ptr nocapture noundef readnone %0, pt
   %17 = getelementptr i8, ptr %16, i64 12
   %.val7.i.i = load i32, ptr %17, align 4
   %18 = icmp eq i32 %.val7.i.i, 0
-  br i1 %18, label %Abc_SclComputeParametersCell.exit, label %Scl_CellPinTime.argprom.exit.i
+  br i1 %18, label %Abc_SclComputeParametersCell.exit, label %Scl_CellPinTime.exit.i
 
-Scl_CellPinTime.argprom.exit.i:                   ; preds = %.lr.ph.i
+Scl_CellPinTime.exit.i:                           ; preds = %.lr.ph.i
   %19 = getelementptr i8, ptr %16, i64 16
   %.val.i.i = load ptr, ptr %19, align 8
   %20 = load ptr, ptr %.val.i.i, align 8
   %.not.i21 = icmp eq ptr %20, null
   br i1 %.not.i21, label %Abc_SclComputeParametersCell.exit, label %21
 
-21:                                               ; preds = %Scl_CellPinTime.argprom.exit.i
+21:                                               ; preds = %Scl_CellPinTime.exit.i
   %22 = getelementptr i8, ptr %20, i64 52
   %.val24.i = load i32, ptr %22, align 4
   %23 = icmp eq i32 %.val24.i, 1
@@ -2699,9 +2699,9 @@ Abc_SclComputeParametersPin.exit:                 ; preds = %Scl_LibPinArrival.e
   %167 = fdiv float %.017.lcssa.i, %165
   br label %Abc_SclComputeParametersCell.exit
 
-Abc_SclComputeParametersCell.exit:                ; preds = %.lr.ph.i, %Scl_CellPinTime.argprom.exit.i, %.critedge.i
-  %.1118 = phi float [ %166, %.critedge.i ], [ %.0117128, %Scl_CellPinTime.argprom.exit.i ], [ %.0117128, %.lr.ph.i ]
-  %.1 = phi float [ %167, %.critedge.i ], [ %.0116129, %Scl_CellPinTime.argprom.exit.i ], [ %.0116129, %.lr.ph.i ]
+Abc_SclComputeParametersCell.exit:                ; preds = %.lr.ph.i, %Scl_CellPinTime.exit.i, %.critedge.i
+  %.1118 = phi float [ %166, %.critedge.i ], [ %.0117128, %Scl_CellPinTime.exit.i ], [ %.0117128, %.lr.ph.i ]
+  %.1 = phi float [ %167, %.critedge.i ], [ %.0116129, %Scl_CellPinTime.exit.i ], [ %.0116129, %.lr.ph.i ]
   %168 = fadd float %.019132, %.1118
   %169 = fadd float %.018133, %.1
   %170 = add nuw nsw i32 %.0135, 1
@@ -3002,16 +3002,16 @@ Abc_SclFindInvertor.exit.i:                       ; preds = %22, %16
   %34 = getelementptr i8, ptr %33, i64 12
   %.val7.i.i = load i32, ptr %34, align 4
   %35 = icmp eq i32 %.val7.i.i, 0
-  br i1 %35, label %Abc_SclComputeAverageSlew.exit, label %Scl_CellPinTime.argprom.exit.i
+  br i1 %35, label %Abc_SclComputeAverageSlew.exit, label %Scl_CellPinTime.exit.i
 
-Scl_CellPinTime.argprom.exit.i:                   ; preds = %26
+Scl_CellPinTime.exit.i:                           ; preds = %26
   %36 = getelementptr i8, ptr %33, i64 16
   %.val.i13.i = load ptr, ptr %36, align 8
   %37 = load ptr, ptr %.val.i13.i, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %Abc_SclComputeAverageSlew.exit, label %39
 
-39:                                               ; preds = %Scl_CellPinTime.argprom.exit.i
+39:                                               ; preds = %Scl_CellPinTime.exit.i
   %40 = getelementptr i8, ptr %37, i64 36
   %.val.i = load i32, ptr %40, align 4
   %41 = sdiv i32 %.val.i, 3
@@ -3022,8 +3022,8 @@ Scl_CellPinTime.argprom.exit.i:                   ; preds = %26
   %45 = load float, ptr %44, align 4
   br label %Abc_SclComputeAverageSlew.exit
 
-Abc_SclComputeAverageSlew.exit:                   ; preds = %39, %Scl_CellPinTime.argprom.exit.i, %26, %Abc_SclFindInvertor.exit.i, %7, %5
-  %46 = phi float [ %1, %5 ], [ %45, %39 ], [ 0.000000e+00, %Abc_SclFindInvertor.exit.i ], [ 0.000000e+00, %Scl_CellPinTime.argprom.exit.i ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %26 ]
+Abc_SclComputeAverageSlew.exit:                   ; preds = %39, %Scl_CellPinTime.exit.i, %26, %Abc_SclFindInvertor.exit.i, %7, %5
+  %46 = phi float [ %1, %5 ], [ %45, %39 ], [ 0.000000e+00, %Abc_SclFindInvertor.exit.i ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %26 ]
   %47 = load ptr, ptr %0, align 8
   %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %47)
   %49 = getelementptr i8, ptr %0, i64 100
@@ -3137,16 +3137,16 @@ Abc_SclComputeAverageSlew.exit:                   ; preds = %39, %Scl_CellPinTim
   %101 = getelementptr i8, ptr %100, i64 12
   %.val7.i.i102.us = load i32, ptr %101, align 4
   %102 = icmp eq i32 %.val7.i.i102.us, 0
-  br i1 %102, label %Abc_SclComputeParametersCell.exit.thread.us, label %Scl_CellPinTime.argprom.exit.i103.us
+  br i1 %102, label %Abc_SclComputeParametersCell.exit.thread.us, label %Scl_CellPinTime.exit.i103.us
 
-Scl_CellPinTime.argprom.exit.i103.us:             ; preds = %.lr.ph.i.us
+Scl_CellPinTime.exit.i103.us:                     ; preds = %.lr.ph.i.us
   %103 = getelementptr i8, ptr %100, i64 16
   %.val.i.i104.us = load ptr, ptr %103, align 8
   %104 = load ptr, ptr %.val.i.i104.us, align 8
   %.not.i105.us = icmp eq ptr %104, null
   br i1 %.not.i105.us, label %Abc_SclComputeParametersCell.exit.thread.us, label %105
 
-105:                                              ; preds = %Scl_CellPinTime.argprom.exit.i103.us
+105:                                              ; preds = %Scl_CellPinTime.exit.i103.us
   %106 = getelementptr i8, ptr %104, i64 52
   %.val24.i.us = load i32, ptr %106, align 4
   %107 = icmp eq i32 %.val24.i.us, 1
@@ -4830,7 +4830,7 @@ SC_CellPinCapAve.exit.us:                         ; preds = %992, %.loopexit.us
   %1026 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, double noundef %1025)
   br label %Abc_SclComputeParametersCell.exit.thread.us
 
-Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %.lr.ph.i.us, %Scl_CellPinTime.argprom.exit.i103.us, %SC_CellPinCapAve.exit.us, %71
+Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %.lr.ph.i.us, %Scl_CellPinTime.exit.i103.us, %SC_CellPinCapAve.exit.us, %71
   %putchar88.us = tail call i32 @putchar(i32 10)
   %1027 = getelementptr inbounds i8, ptr %.11049.us, i64 72
   %1028 = load ptr, ptr %1027, align 8
@@ -7057,16 +7057,16 @@ Abc_SclClassCellNum.exit94:                       ; preds = %.preheader
   %82 = getelementptr i8, ptr %81, i64 12
   %.val7.i.i = load i32, ptr %82, align 4
   %83 = icmp eq i32 %.val7.i.i, 0
-  br i1 %83, label %Abc_SclComputeParametersPin.exit, label %Scl_CellPinTime.argprom.exit.i
+  br i1 %83, label %Abc_SclComputeParametersPin.exit, label %Scl_CellPinTime.exit.i
 
-Scl_CellPinTime.argprom.exit.i:                   ; preds = %73
+Scl_CellPinTime.exit.i:                           ; preds = %73
   %84 = getelementptr i8, ptr %81, i64 16
   %.val.i.i = load ptr, ptr %84, align 8
   %85 = load ptr, ptr %.val.i.i, align 8
   %.not.i122 = icmp eq ptr %85, null
   br i1 %.not.i122, label %Abc_SclComputeParametersPin.exit, label %86
 
-86:                                               ; preds = %Scl_CellPinTime.argprom.exit.i
+86:                                               ; preds = %Scl_CellPinTime.exit.i
   %87 = getelementptr i8, ptr %85, i64 52
   %.val24.i = load i32, ptr %87, align 4
   %88 = icmp eq i32 %.val24.i, 1
@@ -8673,9 +8673,9 @@ Scl_LibPinArrival.exit:                           ; preds = %Scl_LibLookup.exit2
   %959 = fmul double %958, 1.000000e-02
   br label %Abc_SclComputeParametersPin.exit
 
-Abc_SclComputeParametersPin.exit:                 ; preds = %89, %Scl_LibPinArrival.exit, %73, %Scl_CellPinTime.argprom.exit.i
-  %.1983 = phi double [ 0.000000e+00, %73 ], [ 0.000000e+00, %Scl_CellPinTime.argprom.exit.i ], [ 0.000000e+00, %89 ], [ %959, %Scl_LibPinArrival.exit ]
-  %.0981 = phi float [ 0.000000e+00, %73 ], [ 0.000000e+00, %Scl_CellPinTime.argprom.exit.i ], [ %93, %89 ], [ %932, %Scl_LibPinArrival.exit ]
+Abc_SclComputeParametersPin.exit:                 ; preds = %89, %Scl_LibPinArrival.exit, %73, %Scl_CellPinTime.exit.i
+  %.1983 = phi double [ 0.000000e+00, %73 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %89 ], [ %959, %Scl_LibPinArrival.exit ]
+  %.0981 = phi float [ 0.000000e+00, %73 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ %93, %89 ], [ %932, %Scl_LibPinArrival.exit ]
   %960 = fpext float %.0981 to double
   %961 = tail call double @llvm.fmuladd.f64(double %.1983, double %29, double %960)
   %962 = fptrunc double %961 to float
@@ -9214,16 +9214,16 @@ Abc_SclClassCellNum.exit100:                      ; preds = %.preheader
   %93 = getelementptr i8, ptr %92, i64 12
   %.val7.i.i = load i32, ptr %93, align 4
   %94 = icmp eq i32 %.val7.i.i, 0
-  br i1 %94, label %Abc_SclComputeParametersPin.exit, label %Scl_CellPinTime.argprom.exit.i
+  br i1 %94, label %Abc_SclComputeParametersPin.exit, label %Scl_CellPinTime.exit.i
 
-Scl_CellPinTime.argprom.exit.i:                   ; preds = %84
+Scl_CellPinTime.exit.i:                           ; preds = %84
   %95 = getelementptr i8, ptr %92, i64 16
   %.val.i.i = load ptr, ptr %95, align 8
   %96 = load ptr, ptr %.val.i.i, align 8
   %.not.i128 = icmp eq ptr %96, null
   br i1 %.not.i128, label %Abc_SclComputeParametersPin.exit, label %97
 
-97:                                               ; preds = %Scl_CellPinTime.argprom.exit.i
+97:                                               ; preds = %Scl_CellPinTime.exit.i
   %98 = getelementptr i8, ptr %96, i64 52
   %.val24.i = load i32, ptr %98, align 4
   %99 = icmp eq i32 %.val24.i, 1
@@ -10830,9 +10830,9 @@ Scl_LibPinArrival.exit:                           ; preds = %Scl_LibLookup.exit2
   %970 = fmul double %969, 1.000000e-02
   br label %Abc_SclComputeParametersPin.exit
 
-Abc_SclComputeParametersPin.exit:                 ; preds = %100, %Scl_LibPinArrival.exit, %84, %Scl_CellPinTime.argprom.exit.i
-  %.1989 = phi double [ 0.000000e+00, %84 ], [ 0.000000e+00, %Scl_CellPinTime.argprom.exit.i ], [ 0.000000e+00, %100 ], [ %970, %Scl_LibPinArrival.exit ]
-  %.0987 = phi float [ 0.000000e+00, %84 ], [ 0.000000e+00, %Scl_CellPinTime.argprom.exit.i ], [ %104, %100 ], [ %943, %Scl_LibPinArrival.exit ]
+Abc_SclComputeParametersPin.exit:                 ; preds = %100, %Scl_LibPinArrival.exit, %84, %Scl_CellPinTime.exit.i
+  %.1989 = phi double [ 0.000000e+00, %84 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %100 ], [ %970, %Scl_LibPinArrival.exit ]
+  %.0987 = phi float [ 0.000000e+00, %84 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ %104, %100 ], [ %943, %Scl_LibPinArrival.exit ]
   %971 = fpext float %.0987 to double
   %972 = tail call double @llvm.fmuladd.f64(double %.1989, double %31, double %971)
   %973 = fptrunc double %972 to float
@@ -11251,16 +11251,16 @@ Abc_SclFindInvertor.exit.i:                       ; preds = %24, %18
   %36 = getelementptr i8, ptr %35, i64 12
   %.val7.i.i = load i32, ptr %36, align 4
   %37 = icmp eq i32 %.val7.i.i, 0
-  br i1 %37, label %Abc_SclComputeAverageSlew.exit, label %Scl_CellPinTime.argprom.exit.i
+  br i1 %37, label %Abc_SclComputeAverageSlew.exit, label %Scl_CellPinTime.exit.i
 
-Scl_CellPinTime.argprom.exit.i:                   ; preds = %28
+Scl_CellPinTime.exit.i:                           ; preds = %28
   %38 = getelementptr i8, ptr %35, i64 16
   %.val.i13.i = load ptr, ptr %38, align 8
   %39 = load ptr, ptr %.val.i13.i, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %Abc_SclComputeAverageSlew.exit, label %41
 
-41:                                               ; preds = %Scl_CellPinTime.argprom.exit.i
+41:                                               ; preds = %Scl_CellPinTime.exit.i
   %42 = getelementptr i8, ptr %39, i64 36
   %.val.i = load i32, ptr %42, align 4
   %43 = sdiv i32 %.val.i, 3
@@ -11271,8 +11271,8 @@ Scl_CellPinTime.argprom.exit.i:                   ; preds = %28
   %47 = load float, ptr %46, align 4
   br label %Abc_SclComputeAverageSlew.exit
 
-Abc_SclComputeAverageSlew.exit:                   ; preds = %41, %Scl_CellPinTime.argprom.exit.i, %28, %Abc_SclFindInvertor.exit.i, %9, %5
-  %48 = phi float [ %2, %5 ], [ %47, %41 ], [ 0.000000e+00, %Abc_SclFindInvertor.exit.i ], [ 0.000000e+00, %Scl_CellPinTime.argprom.exit.i ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %28 ]
+Abc_SclComputeAverageSlew.exit:                   ; preds = %41, %Scl_CellPinTime.exit.i, %28, %Abc_SclFindInvertor.exit.i, %9, %5
+  %48 = phi float [ %2, %5 ], [ %47, %41 ], [ 0.000000e+00, %Abc_SclFindInvertor.exit.i ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %28 ]
   %49 = icmp eq ptr %0, null
   br i1 %49, label %50, label %55
 
@@ -11390,16 +11390,16 @@ Abc_SclFindInvertor.exit.i:                       ; preds = %24, %18
   %36 = getelementptr i8, ptr %35, i64 12
   %.val7.i.i = load i32, ptr %36, align 4
   %37 = icmp eq i32 %.val7.i.i, 0
-  br i1 %37, label %Abc_SclComputeAverageSlew.exit, label %Scl_CellPinTime.argprom.exit.i
+  br i1 %37, label %Abc_SclComputeAverageSlew.exit, label %Scl_CellPinTime.exit.i
 
-Scl_CellPinTime.argprom.exit.i:                   ; preds = %28
+Scl_CellPinTime.exit.i:                           ; preds = %28
   %38 = getelementptr i8, ptr %35, i64 16
   %.val.i13.i = load ptr, ptr %38, align 8
   %39 = load ptr, ptr %.val.i13.i, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %Abc_SclComputeAverageSlew.exit, label %41
 
-41:                                               ; preds = %Scl_CellPinTime.argprom.exit.i
+41:                                               ; preds = %Scl_CellPinTime.exit.i
   %42 = getelementptr i8, ptr %39, i64 36
   %.val.i = load i32, ptr %42, align 4
   %43 = sdiv i32 %.val.i, 3
@@ -11410,8 +11410,8 @@ Scl_CellPinTime.argprom.exit.i:                   ; preds = %28
   %47 = load float, ptr %46, align 4
   br label %Abc_SclComputeAverageSlew.exit
 
-Abc_SclComputeAverageSlew.exit:                   ; preds = %41, %Scl_CellPinTime.argprom.exit.i, %28, %Abc_SclFindInvertor.exit.i, %9, %6
-  %48 = phi float [ %2, %6 ], [ %47, %41 ], [ 0.000000e+00, %Abc_SclFindInvertor.exit.i ], [ 0.000000e+00, %Scl_CellPinTime.argprom.exit.i ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %28 ]
+Abc_SclComputeAverageSlew.exit:                   ; preds = %41, %Scl_CellPinTime.exit.i, %28, %Abc_SclFindInvertor.exit.i, %9, %6
+  %48 = phi float [ %2, %6 ], [ %47, %41 ], [ 0.000000e+00, %Abc_SclFindInvertor.exit.i ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %9 ], [ 0.000000e+00, %28 ]
   %49 = icmp eq ptr %1, null
   br i1 %49, label %50, label %52
 
@@ -11533,16 +11533,16 @@ Abc_SclFindInvertor.exit.i:                       ; preds = %22, %16
   %34 = getelementptr i8, ptr %33, i64 12
   %.val7.i.i = load i32, ptr %34, align 4
   %35 = icmp eq i32 %.val7.i.i, 0
-  br i1 %35, label %Abc_SclComputeAverageSlew.exit, label %Scl_CellPinTime.argprom.exit.i
+  br i1 %35, label %Abc_SclComputeAverageSlew.exit, label %Scl_CellPinTime.exit.i
 
-Scl_CellPinTime.argprom.exit.i:                   ; preds = %26
+Scl_CellPinTime.exit.i:                           ; preds = %26
   %36 = getelementptr i8, ptr %33, i64 16
   %.val.i13.i = load ptr, ptr %36, align 8
   %37 = load ptr, ptr %.val.i13.i, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %Abc_SclComputeAverageSlew.exit, label %39
 
-39:                                               ; preds = %Scl_CellPinTime.argprom.exit.i
+39:                                               ; preds = %Scl_CellPinTime.exit.i
   %40 = getelementptr i8, ptr %37, i64 36
   %.val.i = load i32, ptr %40, align 4
   %41 = sdiv i32 %.val.i, 3
@@ -11553,8 +11553,8 @@ Scl_CellPinTime.argprom.exit.i:                   ; preds = %26
   %45 = load float, ptr %44, align 4
   br label %Abc_SclComputeAverageSlew.exit
 
-Abc_SclComputeAverageSlew.exit:                   ; preds = %39, %Scl_CellPinTime.argprom.exit.i, %26, %Abc_SclFindInvertor.exit.i, %7, %4
-  %46 = phi float [ %1, %4 ], [ %45, %39 ], [ 0.000000e+00, %Abc_SclFindInvertor.exit.i ], [ 0.000000e+00, %Scl_CellPinTime.argprom.exit.i ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %26 ]
+Abc_SclComputeAverageSlew.exit:                   ; preds = %39, %Scl_CellPinTime.exit.i, %26, %Abc_SclFindInvertor.exit.i, %7, %4
+  %46 = phi float [ %1, %4 ], [ %45, %39 ], [ 0.000000e+00, %Abc_SclFindInvertor.exit.i ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %26 ]
   %47 = getelementptr i8, ptr %0, i64 100
   %.val = load i32, ptr %47, align 4
   store i32 %.val, ptr %5, align 4

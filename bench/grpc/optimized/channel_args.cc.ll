@@ -224,13 +224,13 @@ define internal void @"_ZN9grpc_core11ChannelArgs5Value3$_48__invokeEPv"(ptr nou
 entry:
   %0 = atomicrmw sub ptr %p, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %0, 1
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %"_ZNK9grpc_core11ChannelArgs5Value3$_4clEPv.argprom.exit"
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %"_ZNK9grpc_core11ChannelArgs5Value3$_4clEPv.exit"
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZN9grpc_core16RefCountedString7DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %p)
-  br label %"_ZNK9grpc_core11ChannelArgs5Value3$_4clEPv.argprom.exit"
+  br label %"_ZNK9grpc_core11ChannelArgs5Value3$_4clEPv.exit"
 
-"_ZNK9grpc_core11ChannelArgs5Value3$_4clEPv.argprom.exit": ; preds = %entry, %if.then.i.i
+"_ZNK9grpc_core11ChannelArgs5Value3$_4clEPv.exit": ; preds = %entry, %if.then.i.i
   ret void
 }
 
@@ -250,16 +250,16 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %entry
   %payload_.i.i = getelementptr inbounds i8, ptr %p1, i64 16
   %call.i.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %payload_.i.i, ptr noundef nonnull readonly %payload_.i1.i, i64 noundef %.sroa.speculated.i.i.i) #29
   %cmp.i.i.i = icmp eq i32 %call.i.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZNK9grpc_core11ChannelArgs5Value3$_5clEPvS3_.argprom.exit"
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZNK9grpc_core11ChannelArgs5Value3$_5clEPvS3_.exit"
 
 if.then.i.i.i:                                    ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %entry
   %sub.i.i.i.i = sub i64 %0, %1
   %spec.select3.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i, i64 -2147483648)
   %retval.04.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select3.i.i.i.i, i64 2147483647)
   %retval.0.i3.i.i.i = trunc nsw i64 %retval.04.i.i.i.i to i32
-  br label %"_ZNK9grpc_core11ChannelArgs5Value3$_5clEPvS3_.argprom.exit"
+  br label %"_ZNK9grpc_core11ChannelArgs5Value3$_5clEPvS3_.exit"
 
-"_ZNK9grpc_core11ChannelArgs5Value3$_5clEPvS3_.argprom.exit": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %if.then.i.i.i
+"_ZNK9grpc_core11ChannelArgs5Value3$_5clEPvS3_.exit": ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %if.then.i.i.i
   %__ret.0.i.i.i = phi i32 [ %retval.0.i3.i.i.i, %if.then.i.i.i ], [ %call.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   ret i32 %__ret.0.i.i.i
 }
@@ -4970,8 +4970,8 @@ entry:
   %cmp8 = icmp eq ptr %n, null
   br i1 %cmp8, label %return, label %if.end
 
-if.end:                                           ; preds = %entry, %"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.argprom.exit"
-  %n.tr9 = phi ptr [ %9, %"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.argprom.exit" ], [ %n, %entry ]
+if.end:                                           ; preds = %entry, %"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit"
+  %n.tr9 = phi ptr [ %9, %"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit" ], [ %n, %entry ]
   %left = getelementptr inbounds i8, ptr %n.tr9, i64 32
   %0 = load ptr, ptr %left, align 8
   tail call fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_3ToCEvE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %f)
@@ -5013,7 +5013,7 @@ if.then.i.i.i:                                    ; preds = %if.end
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  br label %"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.argprom.exit"
+  br label %"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit"
 
 if.else.i.i.i:                                    ; preds = %if.end
   %7 = load ptr, ptr %f.val, align 8
@@ -5074,15 +5074,15 @@ _ZNSt6vectorI8grpc_argSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr19.i.i.i.i = getelementptr inbounds %struct.grpc_arg, ptr %cond.i10.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  br label %"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.argprom.exit"
+  br label %"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit"
 
-"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.argprom.exit": ; preds = %if.then.i.i.i, %_ZNSt6vectorI8grpc_argSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i
+"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit": ; preds = %if.then.i.i.i, %_ZNSt6vectorI8grpc_argSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i
   %right = getelementptr inbounds i8, ptr %n.tr9, i64 40
   %9 = load ptr, ptr %right, align 8
   %cmp = icmp eq ptr %9, null
   br i1 %cmp, label %return, label %if.end
 
-return:                                           ; preds = %"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.argprom.exit", %entry
+return:                                           ; preds = %"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit", %entry
   ret void
 }
 
@@ -9227,12 +9227,12 @@ _ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i: ; preds = %cond.
 
 lor.rhs.i.i:                                      ; preds = %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i
   %cmp.not.i.i = icmp ult i64 %retval.sroa.0.0.i.i, %agg.tmp2.sroa.0.0.copyload.i
-  br i1 %cmp.not.i.i, label %"_ZZNK9grpc_core11ChannelArgs23RemoveAllKeysWithPrefixESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.argprom.exit", label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
+  br i1 %cmp.not.i.i, label %"_ZZNK9grpc_core11ChannelArgs23RemoveAllKeysWithPrefixESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit", label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %lor.rhs.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr %retval.sroa.3.0.i.i, ptr %agg.tmp2.sroa.2.0.copyload.i, i64 %agg.tmp2.sroa.0.0.copyload.i)
   %cmp7.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %cmp7.i.i, label %if.then.i, label %"_ZZNK9grpc_core11ChannelArgs23RemoveAllKeysWithPrefixESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.argprom.exit"
+  br i1 %cmp7.i.i, label %if.then.i, label %"_ZZNK9grpc_core11ChannelArgs23RemoveAllKeysWithPrefixESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit"
 
 if.then.i:                                        ; preds = %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %_ZNK9grpc_core21RefCountedStringValue14as_string_viewEv.exit.i
   %4 = getelementptr inbounds i8, ptr %f, i64 8
@@ -9263,16 +9263,16 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
 
 _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEEaSEOS4_.exit.i: ; preds = %if.then.i.i.i.i, %if.then.i
   call void @_ZN9grpc_core13RefCountedPtrINS_3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE4NodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #29
-  br label %"_ZZNK9grpc_core11ChannelArgs23RemoveAllKeysWithPrefixESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.argprom.exit"
+  br label %"_ZZNK9grpc_core11ChannelArgs23RemoveAllKeysWithPrefixESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit"
 
-"_ZZNK9grpc_core11ChannelArgs23RemoveAllKeysWithPrefixESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.argprom.exit": ; preds = %lor.rhs.i.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEEaSEOS4_.exit.i
+"_ZZNK9grpc_core11ChannelArgs23RemoveAllKeysWithPrefixESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit": ; preds = %lor.rhs.i.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, %_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEEaSEOS4_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   %right = getelementptr inbounds i8, ptr %n, i64 40
   %11 = load ptr, ptr %right, align 8
   call fastcc void @"_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE11ForEachImplIZNKS2_23RemoveAllKeysWithPrefixESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EEvPKNS4_4NodeEOT_"(ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %f)
   br label %return
 
-return:                                           ; preds = %entry, %"_ZZNK9grpc_core11ChannelArgs23RemoveAllKeysWithPrefixESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.argprom.exit"
+return:                                           ; preds = %entry, %"_ZZNK9grpc_core11ChannelArgs23RemoveAllKeysWithPrefixESt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit"
   ret void
 }
 

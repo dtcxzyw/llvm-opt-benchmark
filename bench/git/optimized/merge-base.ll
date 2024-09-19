@@ -170,7 +170,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool.not, label %if.end70, label %if.then68
 
 if.then68:                                        ; preds = %if.end
-  %call69 = call fastcc ptr @_.argprom()
+  %call69 = call fastcc ptr @_()
   call void (ptr, ...) @die(ptr noundef %call69, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #9
   unreachable
 
@@ -244,7 +244,7 @@ if.end72:                                         ; preds = %entry
   br i1 %or.cond, label %if.then75, label %if.end77
 
 if.then75:                                        ; preds = %if.end72
-  %call76 = call fastcc ptr @_.argprom()
+  %call76 = call fastcc ptr @_()
   call void (ptr, ...) @die(ptr noundef %call76, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12) #9
   unreachable
 
@@ -575,7 +575,7 @@ declare void @usage_with_options(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @die(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_.argprom() unnamed_addr #0 {
+define internal fastcc ptr @_() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

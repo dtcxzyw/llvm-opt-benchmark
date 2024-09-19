@@ -2879,7 +2879,7 @@ lustre_get_trans.exit:                            ; preds = %33, %39
   %91 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %90, ptr noundef %0, i32 noundef 60, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9) #8
   %92 = load i32, ptr %9, align 4
   %.not4.i = icmp eq i32 %92, 0
-  br i1 %.not4.i, label %dissect_struct_msg_v1.argprom.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %dissect_struct_msg_v1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %62, %.lr.ph.i
   %.02.i = phi i32 [ %95, %.lr.ph.i ], [ 64, %62 ]
@@ -2895,15 +2895,15 @@ lustre_get_trans.exit:                            ; preds = %33, %39
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %99 = and i32 %97, 1
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %dissect_struct_msg_v1.argprom.exit, label %101
+  br i1 %100, label %dissect_struct_msg_v1.exit, label %101
 
 101:                                              ; preds = %._crit_edge.i
   %102 = load i32, ptr @hf_lustre_extra_padding, align 4
   %103 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %102, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef 0) #8
   %104 = add i32 %.02.i, 8
-  br label %dissect_struct_msg_v1.argprom.exit
+  br label %dissect_struct_msg_v1.exit
 
-dissect_struct_msg_v1.argprom.exit:               ; preds = %62, %._crit_edge.i, %101
+dissect_struct_msg_v1.exit:                       ; preds = %62, %._crit_edge.i, %101
   %.1.i = phi i32 [ %104, %101 ], [ %95, %._crit_edge.i ], [ 64, %62 ]
   call void @proto_item_set_len(ptr noundef %60, i32 noundef %.1.i) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -3102,8 +3102,8 @@ dissect_struct_msg_v2.exit:                       ; preds = %213, %221
   %237 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %60, ptr noundef nonnull @ei_lustre_badmagic) #8
   br label %238
 
-238:                                              ; preds = %236, %dissect_struct_msg_v2.exit, %dissect_struct_msg_v1.argprom.exit
-  %.0 = phi i32 [ 0, %236 ], [ %235, %dissect_struct_msg_v2.exit ], [ %.1.i, %dissect_struct_msg_v1.argprom.exit ]
+238:                                              ; preds = %236, %dissect_struct_msg_v2.exit, %dissect_struct_msg_v1.exit
+  %.0 = phi i32 [ 0, %236 ], [ %235, %dissect_struct_msg_v2.exit ], [ %.1.i, %dissect_struct_msg_v1.exit ]
   ret i32 %.0
 }
 
@@ -3169,7 +3169,7 @@ define internal fastcc i32 @lustre_opcode_process(ptr noundef %0, i32 noundef %1
   %14 = select i1 %13, i32 0, i32 60
   %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %14) #8
   %16 = icmp eq i32 %15, 1
-  br i1 %16, label %process_opcode_ost.argprom.exit, label %17
+  br i1 %16, label %process_opcode_ost.exit, label %17
 
 17:                                               ; preds = %6
   %18 = load i32, ptr %4, align 8
@@ -3178,7 +3178,7 @@ define internal fastcc i32 @lustre_opcode_process(ptr noundef %0, i32 noundef %1
 
 20:                                               ; preds = %17
   switch i32 %18, label %164 [
-    i32 0, label %process_opcode_ost.argprom.exit
+    i32 0, label %process_opcode_ost.exit
     i32 1, label %21
     i32 2, label %21
     i32 10, label %21
@@ -3189,9 +3189,9 @@ define internal fastcc i32 @lustre_opcode_process(ptr noundef %0, i32 noundef %1
     i32 6, label %42
     i32 7, label %48
     i32 8, label %54
-    i32 9, label %process_opcode_ost.argprom.exit
-    i32 11, label %process_opcode_ost.argprom.exit
-    i32 12, label %process_opcode_ost.argprom.exit
+    i32 9, label %process_opcode_ost.exit
+    i32 11, label %process_opcode_ost.exit
+    i32 12, label %process_opcode_ost.exit
     i32 13, label %58
     i32 17, label %62
     i32 18, label %69
@@ -3203,115 +3203,115 @@ define internal fastcc i32 @lustre_opcode_process(ptr noundef %0, i32 noundef %1
 21:                                               ; preds = %20, %20, %20, %20
   %22 = tail call fastcc i32 @dissect_struct_ost_body(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   %23 = icmp eq i32 %5, 4711
-  br i1 %23, label %24, label %process_opcode_ost.argprom.exit
+  br i1 %23, label %24, label %process_opcode_ost.exit
 
 24:                                               ; preds = %21
   %25 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %22, ptr noundef %3, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 26:                                               ; preds = %20
   %27 = tail call fastcc i32 @dissect_struct_ost_body(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   %28 = icmp eq i32 %5, 4711
-  br i1 %28, label %29, label %process_opcode_ost.argprom.exit
+  br i1 %28, label %29, label %process_opcode_ost.exit
 
 29:                                               ; preds = %26
-  %30 = tail call fastcc i32 @dissect_struct_obd_ioobj.argelim(ptr noundef %0, i32 noundef %27, ptr noundef %3)
-  %31 = tail call fastcc i32 @dissect_struct_niobuf_remote.argprom(ptr noundef %0, i32 noundef %30, ptr noundef %3, i32 noundef 3)
+  %30 = tail call fastcc i32 @dissect_struct_obd_ioobj(ptr noundef %0, i32 noundef %27, ptr noundef %3)
+  %31 = tail call fastcc i32 @dissect_struct_niobuf_remote(ptr noundef %0, i32 noundef %30, ptr noundef %3, i32 noundef 3)
   %32 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %31, ptr noundef %3, i32 noundef 4)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 33:                                               ; preds = %20
   %34 = tail call fastcc i32 @dissect_struct_ost_body(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread.i
     i32 4713, label %38
   ]
 
 .thread.i:                                        ; preds = %33
-  %35 = tail call fastcc i32 @dissect_struct_obd_ioobj.argelim(ptr noundef %0, i32 noundef %34, ptr noundef %3)
-  %36 = tail call fastcc i32 @dissect_struct_niobuf_remote.argprom(ptr noundef %0, i32 noundef %35, ptr noundef %3, i32 noundef 3)
+  %35 = tail call fastcc i32 @dissect_struct_obd_ioobj(ptr noundef %0, i32 noundef %34, ptr noundef %3)
+  %36 = tail call fastcc i32 @dissect_struct_niobuf_remote(ptr noundef %0, i32 noundef %35, ptr noundef %3, i32 noundef 3)
   %37 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %36, ptr noundef %3, i32 noundef 4)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 38:                                               ; preds = %33
-  %39 = tail call fastcc i32 @dissect_rc_array.argprom(ptr noundef %0, i32 noundef %34, ptr noundef %3, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  %39 = tail call fastcc i32 @dissect_rc_array(ptr noundef %0, i32 noundef %34, ptr noundef %3, i32 noundef 2)
+  br label %process_opcode_ost.exit
 
 40:                                               ; preds = %20
   %41 = tail call fastcc i32 @dissect_struct_ost_body(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 42:                                               ; preds = %20
   %43 = tail call fastcc i32 @dissect_struct_ost_body(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   %44 = icmp eq i32 %5, 4713
-  br i1 %44, label %process_opcode_ost.argprom.exit, label %45
+  br i1 %44, label %process_opcode_ost.exit, label %45
 
 45:                                               ; preds = %42
   %46 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 2)
   %47 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %46, ptr noundef %3, i32 noundef 3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 48:                                               ; preds = %20
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread2.i
     i32 4713, label %51
   ]
 
 .thread2.i:                                       ; preds = %48
   %49 = load i32, ptr @hf_lustre_ost_key, align 4
-  %50 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %49, i32 noundef 1)
-  br label %process_opcode_ost.argprom.exit
+  %50 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %49, i32 noundef 1)
+  br label %process_opcode_ost.exit
 
 51:                                               ; preds = %48
   %52 = load i32, ptr @hf_lustre_ost_val, align 4
-  %53 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %52, i32 noundef 1)
-  br label %process_opcode_ost.argprom.exit
+  %53 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %52, i32 noundef 1)
+  br label %process_opcode_ost.exit
 
 54:                                               ; preds = %20
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread4.i
     i32 4713, label %56
   ]
 
 .thread4.i:                                       ; preds = %54
-  %55 = tail call fastcc i32 @dissect_generic_connect.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  %55 = tail call fastcc i32 @dissect_generic_connect(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  br label %process_opcode_ost.exit
 
 56:                                               ; preds = %54
-  %57 = tail call fastcc i32 @dissect_struct_obd_connect_data.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  %57 = tail call fastcc i32 @dissect_struct_obd_connect_data(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  br label %process_opcode_ost.exit
 
 58:                                               ; preds = %20
   %59 = icmp eq i32 %5, 4711
-  br i1 %59, label %process_opcode_ost.argprom.exit, label %60
+  br i1 %59, label %process_opcode_ost.exit, label %60
 
 60:                                               ; preds = %58
   %61 = tail call fastcc i32 @dissect_struct_obd_statfs(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 62:                                               ; preds = %20
   %63 = icmp eq i32 %5, 4713
-  br i1 %63, label %process_opcode_ost.argprom.exit, label %64
+  br i1 %63, label %process_opcode_ost.exit, label %64
 
 64:                                               ; preds = %62
   %65 = load i32, ptr @hf_lustre_ost_key, align 4
-  %66 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %65, i32 noundef 1)
+  %66 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %65, i32 noundef 1)
   %67 = load i32, ptr @hf_lustre_ost_val, align 4
-  %68 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %66, i32 noundef %67, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  %68 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %66, i32 noundef %67, i32 noundef 2)
+  br label %process_opcode_ost.exit
 
 69:                                               ; preds = %20
   %70 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_obsopc) #8
   %71 = icmp eq i32 %5, 4711
-  br i1 %71, label %72, label %process_opcode_ost.argprom.exit
+  br i1 %71, label %72, label %process_opcode_ost.exit
 
 72:                                               ; preds = %69
   %73 = tail call fastcc i32 @dissect_struct_obd_quotactl(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 74:                                               ; preds = %20
   %75 = tail call fastcc i32 @dissect_struct_obd_quotactl(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 76:                                               ; preds = %20
   %77 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_obsopc) #8
@@ -3321,7 +3321,7 @@ define internal fastcc i32 @lustre_opcode_process(ptr noundef %0, i32 noundef %1
   %81 = select i1 %80, i32 0, i32 60
   %82 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %81) #8
   %83 = icmp ult i32 %82, 2
-  br i1 %83, label %process_opcode_ost.argprom.exit, label %84
+  br i1 %83, label %process_opcode_ost.exit, label %84
 
 84:                                               ; preds = %76
   %85 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -3329,7 +3329,7 @@ define internal fastcc i32 @lustre_opcode_process(ptr noundef %0, i32 noundef %1
   %87 = select i1 %86, i32 36, i32 64
   %88 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %87) #8
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %process_opcode_ost.argprom.exit, label %90
+  br i1 %89, label %process_opcode_ost.exit, label %90
 
 90:                                               ; preds = %84
   %91 = load i32, ptr @hf_lustre_quota_adjust_qunit, align 4
@@ -3351,12 +3351,12 @@ define internal fastcc i32 @lustre_opcode_process(ptr noundef %0, i32 noundef %1
   %107 = load i32, ptr @hf_lustre_quota_adjust_qunit_padding1, align 4
   %108 = tail call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %107, ptr noundef %0, i32 noundef %106, i32 noundef 8, i32 noundef -2147483648) #8
   %109 = add i32 %1, 32
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 110:                                              ; preds = %20
   %111 = tail call fastcc i32 @dissect_struct_ost_body(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   %112 = icmp eq i32 %5, 4713
-  br i1 %112, label %process_opcode_ost.argprom.exit, label %113
+  br i1 %112, label %process_opcode_ost.exit, label %113
 
 113:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -3417,11 +3417,11 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
   %161 = load i32, ptr @hf_lustre_lu_ladvise_value4, align 4
   %162 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %161, ptr noundef %0, i32 noundef %160, i32 noundef 4, i32 noundef -2147483648) #8
   %163 = add i32 %111, 64
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 164:                                              ; preds = %20
   %165 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1752, i32 noundef %18, i32 noundef %5) #8
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 166:                                              ; preds = %17
   %167 = add i32 %18, -33
@@ -3435,7 +3435,7 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
     i32 35, label %183
     i32 36, label %194
     i32 38, label %198
-    i32 39, label %process_opcode_ost.argprom.exit
+    i32 39, label %process_opcode_ost.exit
     i32 40, label %205
     i32 41, label %211
     i32 37, label %215
@@ -3461,7 +3461,7 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
 
 169:                                              ; preds = %168, %168
   %170 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %171
     i32 4713, label %178
   ]
@@ -3470,22 +3470,22 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
   %172 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %170, ptr noundef %3, i32 noundef 2)
   %173 = load i32, ptr %4, align 8
   %174 = icmp eq i32 %173, 34
-  br i1 %174, label %175, label %process_opcode_ost.argprom.exit
+  br i1 %174, label %175, label %process_opcode_ost.exit
 
 175:                                              ; preds = %171
   %176 = load i32, ptr @hf_lustre_name, align 4
-  %177 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %172, i32 noundef %176, i32 noundef 3)
-  br label %process_opcode_ost.argprom.exit
+  %177 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %172, i32 noundef %176, i32 noundef 3)
+  br label %process_opcode_ost.exit
 
 178:                                              ; preds = %169
   %179 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %170, ptr noundef %2, ptr noundef %3, i32 noundef 2)
-  %180 = tail call fastcc i32 @dissect_struct_acl.argprom(ptr noundef %0, i32 noundef %179, ptr noundef %3, i32 noundef 3)
+  %180 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %179, ptr noundef %3, i32 noundef 3)
   %181 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %180, ptr noundef %3, i32 noundef 4)
   %182 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %181, ptr noundef %3, i32 noundef 5)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 183:                                              ; preds = %168
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread278.i
     i32 4713, label %188
   ]
@@ -3495,7 +3495,7 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
   %185 = tail call fastcc i32 @dissect_struct_mdt_rec_reint(ptr noundef %0, i32 noundef %184, ptr noundef %2, ptr noundef %3, i32 noundef 2)
   %186 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %185, ptr noundef %3, i32 noundef 3)
   %187 = tail call fastcc i32 @dissect_struct_close_data(ptr noundef %0, i32 noundef %186, ptr noundef %3, i32 noundef 4)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 188:                                              ; preds = %183
   %189 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
@@ -3503,104 +3503,104 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
   %191 = tail call fastcc i32 @dissect_struct_llog_cookie_array(ptr noundef %0, i32 noundef %190, ptr noundef %3, i32 noundef 3)
   %192 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %191, ptr noundef %3, i32 noundef 4)
   %193 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %192, ptr noundef %3, i32 noundef 5)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 194:                                              ; preds = %168
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread280.i
     i32 4713, label %196
   ]
 
 .thread280.i:                                     ; preds = %194
   %195 = tail call fastcc i32 @process_opcode_reint_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 196:                                              ; preds = %194
   %197 = tail call fastcc i32 @process_opcode_reint_rep(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 198:                                              ; preds = %168
   %199 = icmp eq i32 %5, 4711
   br i1 %199, label %.thread282.i, label %201
 
 .thread282.i:                                     ; preds = %198
-  %200 = tail call fastcc i32 @dissect_generic_connect.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  %200 = tail call fastcc i32 @dissect_generic_connect(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  br label %process_opcode_ost.exit
 
 201:                                              ; preds = %198
   %202 = and i32 %5, -2
   %or.cond.i = icmp eq i32 %202, 4712
-  br i1 %or.cond.i, label %203, label %process_opcode_ost.argprom.exit
+  br i1 %or.cond.i, label %203, label %process_opcode_ost.exit
 
 203:                                              ; preds = %201
-  %204 = tail call fastcc i32 @dissect_struct_obd_connect_data.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  %204 = tail call fastcc i32 @dissect_struct_obd_connect_data(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  br label %process_opcode_ost.exit
 
 205:                                              ; preds = %168
   %206 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread285.i
     i32 4713, label %209
   ]
 
 .thread285.i:                                     ; preds = %205
   %207 = load i32, ptr @hf_lustre_name, align 4
-  %208 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %206, i32 noundef %207, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  %208 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %206, i32 noundef %207, i32 noundef 2)
+  br label %process_opcode_ost.exit
 
 209:                                              ; preds = %205
   %210 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %206, ptr noundef %3, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 211:                                              ; preds = %168
   %212 = icmp eq i32 %5, 4713
-  br i1 %212, label %213, label %process_opcode_ost.argprom.exit
+  br i1 %212, label %213, label %process_opcode_ost.exit
 
 213:                                              ; preds = %211
   %214 = tail call fastcc i32 @dissect_struct_obd_statfs(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 215:                                              ; preds = %168, %168
   %216 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
   %217 = icmp eq i32 %5, 4711
-  br i1 %217, label %218, label %process_opcode_ost.argprom.exit
+  br i1 %217, label %218, label %process_opcode_ost.exit
 
 218:                                              ; preds = %215
   %219 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %216, ptr noundef %3, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 220:                                              ; preds = %168
   %221 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_obsopc) #8
   %222 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 223:                                              ; preds = %168
   %224 = icmp eq i32 %5, 4711
-  br i1 %224, label %225, label %process_opcode_ost.argprom.exit
+  br i1 %224, label %225, label %process_opcode_ost.exit
 
 225:                                              ; preds = %223
   %226 = load i32, ptr @hf_lustre_filename, align 4
-  %227 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %226, i32 noundef 1)
+  %227 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %226, i32 noundef 1)
   %228 = load i32, ptr @hf_lustre_mdt_val, align 4
-  %229 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %227, i32 noundef %228, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  %229 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %227, i32 noundef %228, i32 noundef 2)
+  br label %process_opcode_ost.exit
 
 230:                                              ; preds = %168
   %231 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_obsopc) #8
   %232 = icmp eq i32 %5, 4711
-  br i1 %232, label %233, label %process_opcode_ost.argprom.exit
+  br i1 %232, label %233, label %process_opcode_ost.exit
 
 233:                                              ; preds = %230
   %234 = tail call fastcc i32 @dissect_struct_obd_quotactl(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 235:                                              ; preds = %168
   %236 = tail call fastcc i32 @dissect_struct_obd_quotactl(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 237:                                              ; preds = %168
   %238 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread287.i
     i32 4713, label %243
   ]
@@ -3608,132 +3608,132 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
 .thread287.i:                                     ; preds = %237
   %239 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %238, ptr noundef %3, i32 noundef 2)
   %240 = load i32, ptr @hf_lustre_name, align 4
-  %241 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %239, i32 noundef %240, i32 noundef 3)
-  %242 = tail call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %241, ptr noundef %3, i32 noundef 4)
-  br label %process_opcode_ost.argprom.exit
+  %241 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %239, i32 noundef %240, i32 noundef 3)
+  %242 = tail call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %241, ptr noundef %3, i32 noundef 4)
+  br label %process_opcode_ost.exit
 
 243:                                              ; preds = %237
-  %244 = tail call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %238, ptr noundef %3, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  %244 = tail call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %238, ptr noundef %3, i32 noundef 2)
+  br label %process_opcode_ost.exit
 
 245:                                              ; preds = %168
   %246 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_obsopc) #8
   %247 = icmp eq i32 %5, 4711
-  br i1 %247, label %248, label %process_opcode_ost.argprom.exit
+  br i1 %247, label %248, label %process_opcode_ost.exit
 
 248:                                              ; preds = %245
   %249 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 250:                                              ; preds = %168
   %251 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1758) #8
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 252:                                              ; preds = %168
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread289.i
     i32 4713, label %257
   ]
 
 .thread289.i:                                     ; preds = %252
   %253 = load i32, ptr @hf_lustre_mdt_key, align 4
-  %254 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %253, i32 noundef 1)
+  %254 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %253, i32 noundef 1)
   %255 = load i32, ptr @hf_lustre_mdt_vallen, align 4
   %256 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %255, ptr noundef %0, i32 noundef %254, i32 noundef 4, i32 noundef -2147483648) #8
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 257:                                              ; preds = %252
-  %258 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1, ptr noundef null)
-  br label %process_opcode_ost.argprom.exit
+  %258 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1, ptr noundef null)
+  br label %process_opcode_ost.exit
 
 259:                                              ; preds = %168
   %260 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread291.i
     i32 4713, label %262
   ]
 
 .thread291.i:                                     ; preds = %259
   %261 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %260, ptr noundef %3, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 262:                                              ; preds = %259
-  %263 = tail call fastcc i32 @dissect_struct_hsm_user_state.argelim(ptr noundef %0, i32 noundef %260, ptr noundef %2, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  %263 = tail call fastcc i32 @dissect_struct_hsm_user_state(ptr noundef %0, i32 noundef %260, ptr noundef %2, ptr noundef %3)
+  br label %process_opcode_ost.exit
 
 264:                                              ; preds = %168
   %265 = icmp eq i32 %5, 4711
-  br i1 %265, label %266, label %process_opcode_ost.argprom.exit
+  br i1 %265, label %266, label %process_opcode_ost.exit
 
 266:                                              ; preds = %264
   %267 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
   %268 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %267, ptr noundef %3, i32 noundef 2)
-  %269 = tail call fastcc i32 @dissect_struct_hsm_state_set.argelim(ptr noundef %0, i32 noundef %268, ptr noundef %2, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  %269 = tail call fastcc i32 @dissect_struct_hsm_state_set(ptr noundef %0, i32 noundef %268, ptr noundef %2, ptr noundef %3)
+  br label %process_opcode_ost.exit
 
 270:                                              ; preds = %168
   %271 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread293.i
     i32 4713, label %273
   ]
 
 .thread293.i:                                     ; preds = %270
   %272 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %271, ptr noundef %3, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 273:                                              ; preds = %270
-  %274 = tail call fastcc i32 @dissect_struct_hsm_current_action.argelim(ptr noundef %0, i32 noundef %271, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  %274 = tail call fastcc i32 @dissect_struct_hsm_current_action(ptr noundef %0, i32 noundef %271, ptr noundef %3)
+  br label %process_opcode_ost.exit
 
 275:                                              ; preds = %168
   %276 = icmp eq i32 %5, 4711
-  br i1 %276, label %277, label %process_opcode_ost.argprom.exit
+  br i1 %276, label %277, label %process_opcode_ost.exit
 
 277:                                              ; preds = %275
   %278 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
   %279 = tail call fastcc i32 @dissect_struct_hsm_progress(ptr noundef %0, i32 noundef %278, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 280:                                              ; preds = %168
   %281 = icmp eq i32 %5, 4711
-  br i1 %281, label %282, label %process_opcode_ost.argprom.exit
+  br i1 %281, label %282, label %process_opcode_ost.exit
 
 282:                                              ; preds = %280
   %283 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
   %284 = tail call fastcc i32 @dissect_struct_hsm_request(ptr noundef %0, i32 noundef %283, ptr noundef %3)
-  %285 = tail call fastcc i32 @dissect_struct_hsm_user_item_array.argelim(ptr noundef %0, i32 noundef %284, ptr noundef %3)
-  %286 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %285, ptr noundef %3, i32 noundef 4, ptr noundef null)
-  br label %process_opcode_ost.argprom.exit
+  %285 = tail call fastcc i32 @dissect_struct_hsm_user_item_array(ptr noundef %0, i32 noundef %284, ptr noundef %3)
+  %286 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %285, ptr noundef %3, i32 noundef 4, ptr noundef null)
+  br label %process_opcode_ost.exit
 
 287:                                              ; preds = %168
   %288 = icmp eq i32 %5, 4711
-  br i1 %288, label %289, label %process_opcode_ost.argprom.exit
+  br i1 %288, label %289, label %process_opcode_ost.exit
 
 289:                                              ; preds = %287
   %290 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
-  %291 = tail call fastcc i32 @dissect_hsm_archive.argelim(ptr noundef %0, i32 noundef %290, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  %291 = tail call fastcc i32 @dissect_hsm_archive(ptr noundef %0, i32 noundef %290, ptr noundef %3)
+  br label %process_opcode_ost.exit
 
 292:                                              ; preds = %168
   %293 = icmp eq i32 %5, 4711
-  br i1 %293, label %294, label %process_opcode_ost.argprom.exit
+  br i1 %293, label %294, label %process_opcode_ost.exit
 
 294:                                              ; preds = %292
   %295 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 296:                                              ; preds = %168
   %297 = icmp eq i32 %5, 4711
-  br i1 %297, label %298, label %process_opcode_ost.argprom.exit
+  br i1 %297, label %298, label %process_opcode_ost.exit
 
 298:                                              ; preds = %296
   %299 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
-  %300 = tail call fastcc i32 @dissect_struct_mdc_swap_layouts.argelim(ptr noundef %0, i32 noundef %299, ptr noundef %3)
+  %300 = tail call fastcc i32 @dissect_struct_mdc_swap_layouts(ptr noundef %0, i32 noundef %299, ptr noundef %3)
   %301 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %300, ptr noundef %3, i32 noundef 3)
   %302 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %301, ptr noundef %3, i32 noundef 4)
   %303 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %302, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 5)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 304:                                              ; preds = %168
   %305 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
@@ -3743,7 +3743,7 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
   %309 = select i1 %308, i32 0, i32 60
   %310 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %309) #8
   %311 = icmp ult i32 %310, 3
-  br i1 %311, label %dissect_struct_fid_array.argprom.exit.i, label %312
+  br i1 %311, label %dissect_struct_fid_array.exit.i, label %312
 
 312:                                              ; preds = %304
   %313 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -3751,7 +3751,7 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
   %315 = select i1 %314, i32 40, i32 68
   %316 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %315) #8
   %317 = icmp eq i32 %316, 0
-  br i1 %317, label %dissect_struct_fid_array.argprom.exit.i, label %318
+  br i1 %317, label %dissect_struct_fid_array.exit.i, label %318
 
 318:                                              ; preds = %312
   %319 = load i32, ptr @hf_lustre_fid_array, align 4
@@ -3776,33 +3776,33 @@ dissect_struct_lu_ladvise_hdr.exit.i:             ; preds = %121, %113
   %327 = sub i32 0, %.029.lcssa.i.i
   %328 = and i32 %327, 7
   %.not.i.i.i = icmp eq i32 %328, 0
-  br i1 %.not.i.i.i, label %dissect_struct_fid_array.argprom.exit.i, label %329
+  br i1 %.not.i.i.i, label %dissect_struct_fid_array.exit.i, label %329
 
 329:                                              ; preds = %._crit_edge.i.i
   %330 = load i32, ptr @hf_lustre_extra_padding, align 4
   %331 = tail call ptr @proto_tree_add_item(ptr noundef %322, i32 noundef %330, ptr noundef %0, i32 noundef %.029.lcssa.i.i, i32 noundef %328, i32 noundef 0) #8
   %332 = add i32 %328, %.029.lcssa.i.i
-  br label %dissect_struct_fid_array.argprom.exit.i
+  br label %dissect_struct_fid_array.exit.i
 
-dissect_struct_fid_array.argprom.exit.i:          ; preds = %329, %._crit_edge.i.i, %312, %304
+dissect_struct_fid_array.exit.i:                  ; preds = %329, %._crit_edge.i.i, %312, %304
   %.0.i.i = phi i32 [ %305, %312 ], [ %332, %329 ], [ %.029.lcssa.i.i, %._crit_edge.i.i ], [ %305, %304 ]
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %333
     i32 4713, label %336
   ]
 
-333:                                              ; preds = %dissect_struct_fid_array.argprom.exit.i
+333:                                              ; preds = %dissect_struct_fid_array.exit.i
   %334 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %3, i32 noundef 3)
   %335 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %334, ptr noundef %3, i32 noundef 4)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
-336:                                              ; preds = %dissect_struct_fid_array.argprom.exit.i
-  %337 = tail call fastcc i32 @dissect_rc_array.argprom(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %3, i32 noundef 3)
-  br label %process_opcode_ost.argprom.exit
+336:                                              ; preds = %dissect_struct_fid_array.exit.i
+  %337 = tail call fastcc i32 @dissect_rc_array(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %3, i32 noundef 3)
+  br label %process_opcode_ost.exit
 
 338:                                              ; preds = %168
   %339 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1759, i32 noundef %18, i32 noundef %5) #8
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 340:                                              ; preds = %166
   %341 = add i32 %18, -101
@@ -3810,7 +3810,7 @@ dissect_struct_fid_array.argprom.exit.i:          ; preds = %329, %._crit_edge.i
   br i1 %or.cond112, label %342, label %891
 
 342:                                              ; preds = %340
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %343
     i32 4713, label %670
   ]
@@ -3834,7 +3834,7 @@ dissect_struct_fid_array.argprom.exit.i:          ; preds = %329, %._crit_edge.i
   %349 = select i1 %348, i32 0, i32 60
   %350 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %349) #8
   %351 = icmp ult i32 %350, 3
-  br i1 %351, label %process_opcode_ost.argprom.exit, label %352
+  br i1 %351, label %process_opcode_ost.exit, label %352
 
 352:                                              ; preds = %344
   %353 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -4063,39 +4063,39 @@ dissect_struct_ldlm_intent.exit.i.i:              ; preds = %444, %359, %352
   %450 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %449, ptr noundef %3, i32 noundef 4)
   %451 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %450, ptr noundef %3, i32 noundef 5)
   %452 = load i32, ptr @hf_lustre_filename, align 4
-  %453 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %451, i32 noundef %452, i32 noundef 6)
-  %454 = tail call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %453, ptr noundef %3, i32 noundef 7)
+  %453 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %451, i32 noundef %452, i32 noundef 6)
+  %454 = tail call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %453, ptr noundef %3, i32 noundef 7)
   %455 = load i32, ptr @hf_lustre_secctx_name, align 4
-  %456 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %454, i32 noundef %455, i32 noundef 8)
-  %457 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %456, ptr noundef %3, i32 noundef 9, ptr noundef nonnull @.str.1767)
-  br label %process_opcode_ost.argprom.exit
+  %456 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %454, i32 noundef %455, i32 noundef 8)
+  %457 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %456, ptr noundef %3, i32 noundef 9, ptr noundef nonnull @.str.1767)
+  br label %process_opcode_ost.exit
 
 458:                                              ; preds = %dissect_struct_ldlm_intent.exit.i.i
   %459 = tail call fastcc i32 @dissect_struct_mdt_rec_reint(ptr noundef %0, i32 noundef %.0.i.i.i, ptr noundef %2, ptr noundef %3, i32 noundef 3)
   %460 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %459, ptr noundef %3, i32 noundef 4)
   %461 = load i32, ptr @hf_lustre_filename, align 4
-  %462 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %460, i32 noundef %461, i32 noundef 5)
-  %463 = tail call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %462, ptr noundef %3, i32 noundef 6)
+  %462 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %460, i32 noundef %461, i32 noundef 5)
+  %463 = tail call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %462, ptr noundef %3, i32 noundef 6)
   %464 = load i32, ptr @hf_lustre_secctx_name, align 4
-  %465 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %463, i32 noundef %464, i32 noundef 7)
-  %466 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %465, ptr noundef %3, i32 noundef 8, ptr noundef nonnull @.str.1767)
+  %465 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %463, i32 noundef %464, i32 noundef 7)
+  %466 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %465, ptr noundef %3, i32 noundef 8, ptr noundef nonnull @.str.1767)
   %467 = load i32, ptr @hf_lustre_selinux_pol, align 4
-  %468 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %466, i32 noundef %467, i32 noundef 9)
-  br label %process_opcode_ost.argprom.exit
+  %468 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %466, i32 noundef %467, i32 noundef 9)
+  br label %process_opcode_ost.exit
 
 469:                                              ; preds = %dissect_struct_ldlm_intent.exit.i.i, %dissect_struct_ldlm_intent.exit.i.i
   %470 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %.0.i.i.i, ptr noundef %3, i32 noundef 1)
   %471 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %470, ptr noundef %3, i32 noundef 4)
   %472 = load i32, ptr @hf_lustre_filename, align 4
-  %473 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %471, i32 noundef %472, i32 noundef 5)
-  br label %process_opcode_ost.argprom.exit
+  %473 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %471, i32 noundef %472, i32 noundef 5)
+  br label %process_opcode_ost.exit
 
 474:                                              ; preds = %dissect_struct_ldlm_intent.exit.i.i
   %475 = tail call fastcc i32 @dissect_struct_mdt_rec_reint(ptr noundef %0, i32 noundef %.0.i.i.i, ptr noundef %2, ptr noundef %3, i32 noundef 3)
   %476 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %475, ptr noundef %3, i32 noundef 4)
   %477 = load i32, ptr @hf_lustre_filename, align 4
-  %478 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %476, i32 noundef %477, i32 noundef 5)
-  br label %process_opcode_ost.argprom.exit
+  %478 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %476, i32 noundef %477, i32 noundef 5)
+  br label %process_opcode_ost.exit
 
 479:                                              ; preds = %dissect_struct_ldlm_intent.exit.i.i
   %480 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -4143,21 +4143,21 @@ dissect_struct_ldlm_intent.exit.i.i:              ; preds = %444, %359, %352
 
 dissect_struct_layout_intent.exit.i.i:            ; preds = %499, %486, %479
   %.0.i109.i.i = phi i32 [ %511, %499 ], [ %.0.i.i.i, %486 ], [ %.0.i.i.i, %479 ]
-  %512 = tail call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %.0.i109.i.i, ptr noundef %3, i32 noundef 4)
-  br label %process_opcode_ost.argprom.exit
+  %512 = tail call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %.0.i109.i.i, ptr noundef %3, i32 noundef 4)
+  br label %process_opcode_ost.exit
 
 513:                                              ; preds = %dissect_struct_ldlm_intent.exit.i.i
   %514 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %.0.i.i.i, ptr noundef %3, i32 noundef 1)
   %515 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %514, ptr noundef %3, i32 noundef 4)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 516:                                              ; preds = %dissect_struct_ldlm_intent.exit.i.i, %dissect_struct_ldlm_intent.exit.i.i
   %517 = tail call fastcc i32 @dissect_struct_quota_body(ptr noundef %0, i32 noundef %.0.i.i.i, ptr noundef %3, i32 noundef 3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 518:                                              ; preds = %dissect_struct_ldlm_intent.exit.i.i
   %519 = tail call fastcc i32 @dissect_struct_mdt_rec_reint(ptr noundef %0, i32 noundef %.0.i.i.i, ptr noundef %2, ptr noundef %3, i32 noundef 3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 520:                                              ; preds = %343
   %521 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4168,7 +4168,7 @@ dissect_struct_layout_intent.exit.i.i:            ; preds = %499, %486, %479
   %526 = select i1 %525, i32 0, i32 60
   %527 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %526) #8
   %528 = icmp ult i32 %527, 3
-  br i1 %528, label %process_opcode_ost.argprom.exit, label %529
+  br i1 %528, label %process_opcode_ost.exit, label %529
 
 529:                                              ; preds = %520
   %530 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -4176,7 +4176,7 @@ dissect_struct_layout_intent.exit.i.i:            ; preds = %499, %486, %479
   %532 = select i1 %531, i32 40, i32 68
   %533 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %532) #8
   %534 = icmp eq i32 %533, 0
-  br i1 %534, label %process_opcode_ost.argprom.exit, label %535
+  br i1 %534, label %process_opcode_ost.exit, label %535
 
 535:                                              ; preds = %529
   %536 = load i64, ptr %521, align 8
@@ -4224,7 +4224,7 @@ dissect_struct_ldlm_gl_barrier_desc.exit.i.i:     ; preds = %550, %544, %537
   %565 = sub i32 %564, %.0.i.i65.i
   %566 = load i32, ptr @hf_lustre_extra_padding, align 4
   %567 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %566, ptr noundef %0, i32 noundef %.0.i.i65.i, i32 noundef %565, i32 noundef 0) #8
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 568:                                              ; preds = %535
   %569 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -4233,7 +4233,7 @@ dissect_struct_ldlm_gl_barrier_desc.exit.i.i:     ; preds = %550, %544, %537
   %572 = select i1 %571, i32 0, i32 60
   %573 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %572) #8
   %574 = icmp ult i32 %573, 3
-  br i1 %574, label %process_opcode_ost.argprom.exit, label %575
+  br i1 %574, label %process_opcode_ost.exit, label %575
 
 575:                                              ; preds = %568
   %576 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -4241,7 +4241,7 @@ dissect_struct_ldlm_gl_barrier_desc.exit.i.i:     ; preds = %550, %544, %537
   %578 = select i1 %577, i32 40, i32 68
   %579 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %578) #8
   %580 = icmp eq i32 %579, 0
-  br i1 %580, label %process_opcode_ost.argprom.exit, label %581
+  br i1 %580, label %process_opcode_ost.exit, label %581
 
 581:                                              ; preds = %575
   %582 = load i32, ptr @hf_lustre_ldlm_gl_lquota_desc, align 4
@@ -4277,15 +4277,15 @@ dissect_struct_ldlm_gl_barrier_desc.exit.i.i:     ; preds = %550, %544, %537
   %612 = load i32, ptr @hf_lustre_ldlm_gl_lquota_desc_pad2, align 4
   %613 = tail call ptr @proto_tree_add_item(ptr noundef %585, i32 noundef %612, ptr noundef %0, i32 noundef %611, i32 noundef 8, i32 noundef 0) #8
   %614 = add i32 %522, 64
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 615:                                              ; preds = %535
-  %616 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %522, ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.1789)
-  br label %process_opcode_ost.argprom.exit
+  %616 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %522, ptr noundef %3, i32 noundef 2, ptr noundef nonnull @.str.1789)
+  br label %process_opcode_ost.exit
 
 617:                                              ; preds = %343, %343, %343
   %618 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 1)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 619:                                              ; preds = %343
   %620 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 1)
@@ -4295,7 +4295,7 @@ dissect_struct_ldlm_gl_barrier_desc.exit.i.i:     ; preds = %550, %544, %537
   %624 = select i1 %623, i32 0, i32 60
   %625 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %624) #8
   %626 = icmp ult i32 %625, 3
-  br i1 %626, label %process_opcode_ost.argprom.exit, label %627
+  br i1 %626, label %process_opcode_ost.exit, label %627
 
 627:                                              ; preds = %619
   %628 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -4303,7 +4303,7 @@ dissect_struct_ldlm_gl_barrier_desc.exit.i.i:     ; preds = %550, %544, %537
   %630 = select i1 %629, i32 40, i32 68
   %631 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %630) #8
   %632 = icmp eq i32 %631, 0
-  br i1 %632, label %process_opcode_ost.argprom.exit, label %633
+  br i1 %632, label %process_opcode_ost.exit, label %633
 
 633:                                              ; preds = %627
   %634 = load i32, ptr @hf_lustre_ost_lvb, align 4
@@ -4337,14 +4337,14 @@ dissect_struct_ldlm_gl_barrier_desc.exit.i.i:     ; preds = %550, %544, %537
   %662 = load i32, ptr @hf_lustre_ost_lvb_padding, align 4
   %663 = tail call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %662, ptr noundef %0, i32 noundef %661, i32 noundef 4, i32 noundef 0) #8
   %664 = add i32 %620, 56
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 665:                                              ; preds = %343
   %666 = load i32, ptr @hf_lustre_ldlm_key, align 4
-  %667 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %666, i32 noundef 1)
+  %667 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %666, i32 noundef 1)
   %668 = load i32, ptr @hf_lustre_ldlm_val, align 4
-  %669 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %667, i32 noundef %668, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  %669 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %667, i32 noundef %668, i32 noundef 2)
+  br label %process_opcode_ost.exit
 
 default.unreachable:                              ; preds = %343
   unreachable
@@ -4353,15 +4353,15 @@ default.unreachable:                              ; preds = %343
   switch i32 %18, label %default.unreachable137 [
     i32 101, label %671
     i32 102, label %862
-    i32 103, label %process_opcode_ost.argprom.exit
-    i32 104, label %process_opcode_ost.argprom.exit
-    i32 105, label %process_opcode_ost.argprom.exit
+    i32 103, label %process_opcode_ost.exit
+    i32 104, label %process_opcode_ost.exit
+    i32 105, label %process_opcode_ost.exit
     i32 106, label %864
-    i32 107, label %process_opcode_ost.argprom.exit
+    i32 107, label %process_opcode_ost.exit
   ]
 
 671:                                              ; preds = %670
-  %672 = tail call fastcc i32 @dissect_struct_ldlm_reply.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
+  %672 = tail call fastcc i32 @dissect_struct_ldlm_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   %673 = getelementptr inbounds i8, ptr %4, i64 8
   %674 = load i64, ptr %673, align 8
   switch i64 %674, label %858 [
@@ -4378,14 +4378,14 @@ default.unreachable:                              ; preds = %343
 
 675:                                              ; preds = %671, %671
   %676 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %672, ptr noundef %2, ptr noundef %3, i32 noundef 2)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 677:                                              ; preds = %671, %671
   %678 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %672, ptr noundef %3, i32 noundef 2)
   %679 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %678, ptr noundef %2, ptr noundef %3, i32 noundef 3)
-  %680 = tail call fastcc i32 @dissect_struct_acl.argprom(ptr noundef %0, i32 noundef %679, ptr noundef %3, i32 noundef 4)
+  %680 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %679, ptr noundef %3, i32 noundef 4)
   %681 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %680, ptr noundef %3, i32 noundef 5)
-  %682 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %681, ptr noundef %3, i32 noundef 6, ptr noundef nonnull @.str.1767)
+  %682 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %681, ptr noundef %3, i32 noundef 6, ptr noundef nonnull @.str.1767)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %683 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -4447,7 +4447,7 @@ default.unreachable:                              ; preds = %343
   %731 = load i32, ptr %8, align 4
   %732 = icmp eq i32 %731, 215157968
   %733 = select i1 %730, i1 %732, i1 false
-  br i1 %733, label %.lr.ph.i.i.i, label %add_extra_padding.argprom.exit.i.i.i
+  br i1 %733, label %.lr.ph.i.i.i, label %add_extra_padding.exit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
   %.079.i.i.i = phi i32 [ %746, %.lr.ph.i.i.i ], [ 0, %.preheader.i.i.i ]
@@ -4470,31 +4470,31 @@ default.unreachable:                              ; preds = %343
   %749 = load i32, ptr %8, align 4
   %750 = icmp eq i32 %749, 215157968
   %751 = select i1 %748, i1 %750, i1 false
-  br i1 %751, label %.lr.ph.i.i.i, label %add_extra_padding.argprom.exit.i.i.i, !llvm.loop !9
+  br i1 %751, label %.lr.ph.i.i.i, label %add_extra_padding.exit.i.i.i, !llvm.loop !9
 
 752:                                              ; preds = %695
   %753 = sub i32 0, %682
   %754 = and i32 %753, 7
   %.not.i.i.i.i = icmp eq i32 %754, 0
-  br i1 %.not.i.i.i.i, label %add_extra_padding.argprom.exit.i.i.i, label %755
+  br i1 %.not.i.i.i.i, label %add_extra_padding.exit.i.i.i, label %755
 
 755:                                              ; preds = %752
   %756 = load i32, ptr @hf_lustre_extra_padding, align 4
   %757 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %756, ptr noundef %0, i32 noundef %726, i32 noundef %754, i32 noundef 0) #8
   %758 = add i32 %754, %726
-  br label %add_extra_padding.argprom.exit.i.i.i
+  br label %add_extra_padding.exit.i.i.i
 
-add_extra_padding.argprom.exit.i.i.i:             ; preds = %.lr.ph.i.i.i, %755, %752, %.preheader.i.i.i
+add_extra_padding.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i, %755, %752, %.preheader.i.i.i
   %.1.i.i.i = phi i32 [ %758, %755 ], [ %726, %752 ], [ %726, %.preheader.i.i.i ], [ %745, %.lr.ph.i.i.i ]
   %759 = sub i32 %.1.i.i.i, %682
   %.not77.i.i.i = icmp eq i32 %759, %693
   br i1 %.not77.i.i.i, label %762, label %760
 
-760:                                              ; preds = %add_extra_padding.argprom.exit.i.i.i
+760:                                              ; preds = %add_extra_padding.exit.i.i.i
   %761 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %699, ptr noundef nonnull @ei_lustre_buflen) #8
   br label %762
 
-762:                                              ; preds = %760, %add_extra_padding.argprom.exit.i.i.i
+762:                                              ; preds = %760, %add_extra_padding.exit.i.i.i
   call void @proto_item_set_len(ptr noundef %697, i32 noundef %759) #8
   br label %dissect_struct_lmv_user_md.exit.i.i
 
@@ -4502,28 +4502,28 @@ dissect_struct_lmv_user_md.exit.i.i:              ; preds = %762, %689, %677
   %.073.i.i.i = phi i32 [ %.1.i.i.i, %762 ], [ %682, %689 ], [ %682, %677 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %763 = call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %.073.i.i.i, ptr noundef %3, i32 noundef 8, ptr noundef nonnull @.str.1790)
-  br label %process_opcode_ost.argprom.exit
+  %763 = call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %.073.i.i.i, ptr noundef %3, i32 noundef 8, ptr noundef nonnull @.str.1790)
+  br label %process_opcode_ost.exit
 
 764:                                              ; preds = %671, %671
   %765 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %672, ptr noundef %3, i32 noundef 2)
   %766 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %765, ptr noundef %2, ptr noundef %3, i32 noundef 3)
-  %767 = tail call fastcc i32 @dissect_struct_acl.argprom(ptr noundef %0, i32 noundef %766, ptr noundef %3, i32 noundef 4)
+  %767 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %766, ptr noundef %3, i32 noundef 4)
   %768 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %767, ptr noundef %3, i32 noundef 5)
   %769 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %768, ptr noundef %3, i32 noundef 6)
-  %770 = tail call fastcc i32 @dissect_struct_niobuf_remote.argprom(ptr noundef %0, i32 noundef %769, ptr noundef %3, i32 noundef 7)
-  %771 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %770, ptr noundef %3, i32 noundef 8, ptr noundef nonnull @.str.1767)
-  br label %process_opcode_ost.argprom.exit
+  %770 = tail call fastcc i32 @dissect_struct_niobuf_remote(ptr noundef %0, i32 noundef %769, ptr noundef %3, i32 noundef 7)
+  %771 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %770, ptr noundef %3, i32 noundef 8, ptr noundef nonnull @.str.1767)
+  br label %process_opcode_ost.exit
 
 772:                                              ; preds = %671, %671
   %773 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %672, ptr noundef %2, ptr noundef %3, i32 noundef 2)
   %774 = tail call fastcc i32 @dissect_struct_quota_body(ptr noundef %0, i32 noundef %773, ptr noundef %3, i32 noundef 3)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 775:                                              ; preds = %671
   %776 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %672, ptr noundef %3, i32 noundef 2)
   %777 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %776, ptr noundef %2, ptr noundef %3, i32 noundef 3)
-  %778 = tail call fastcc i32 @dissect_struct_acl.argprom(ptr noundef %0, i32 noundef %777, ptr noundef %3, i32 noundef 4)
+  %778 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %777, ptr noundef %3, i32 noundef 4)
   %779 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %780 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %781 = icmp eq i32 %780, 198183891
@@ -4580,11 +4580,11 @@ dissect_struct_lmv_user_md.exit.i.i:              ; preds = %762, %689, %677
   %820 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %819, ptr noundef %0, i32 noundef %778, i32 noundef -1, i32 noundef 0) #8
   %821 = load i32, ptr @ett_lustre_xattrs, align 4
   %822 = tail call ptr @proto_item_add_subtree(ptr noundef %820, i32 noundef %821) #8
-  %823 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %778, ptr noundef %822, i32 noundef 5, ptr noundef nonnull @.str.1791)
-  %824 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %823, ptr noundef %822, i32 noundef 6, ptr noundef nonnull @.str.1792)
-  %825 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %824, ptr noundef %822, i32 noundef 7, ptr noundef nonnull @.str.1793)
+  %823 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %778, ptr noundef %822, i32 noundef 5, ptr noundef nonnull @.str.1791)
+  %824 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %823, ptr noundef %822, i32 noundef 6, ptr noundef nonnull @.str.1792)
+  %825 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %824, ptr noundef %822, i32 noundef 7, ptr noundef nonnull @.str.1793)
   %826 = icmp sgt i32 %818, 0
-  br i1 %826, label %.lr.ph.i93.i.i, label %dissect_xattr_buffers.argprom.exit.i.i
+  br i1 %826, label %.lr.ph.i93.i.i, label %dissect_xattr_buffers.exit.i.i
 
 .lr.ph.i93.i.i:                                   ; preds = %817
   %827 = add i32 %791, %778
@@ -4622,25 +4622,25 @@ dissect_struct_lmv_user_md.exit.i.i:              ; preds = %762, %689, %677
   %852 = add i32 %.0981.i.i.i, 4
   %853 = add nuw nsw i32 %.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %853, %818
-  br i1 %exitcond.not.i.i.i, label %dissect_xattr_buffers.argprom.exit.i.i, label %835, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %dissect_xattr_buffers.exit.i.i, label %835, !llvm.loop !10
 
-dissect_xattr_buffers.argprom.exit.i.i:           ; preds = %835, %817
+dissect_xattr_buffers.exit.i.i:                   ; preds = %835, %817
   %854 = sub i32 0, %825
   %855 = and i32 %854, 7
   %856 = add i32 %855, %825
   %857 = sub i32 %856, %778
   tail call void @proto_item_set_len(ptr noundef %822, i32 noundef %857) #8
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 858:                                              ; preds = %671
   %859 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %672, ptr noundef %3, i32 noundef 2)
   %860 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %859, ptr noundef %2, ptr noundef %3, i32 noundef 3)
-  %861 = tail call fastcc i32 @dissect_struct_acl.argprom(ptr noundef %0, i32 noundef %860, ptr noundef %3, i32 noundef 4)
-  br label %process_opcode_ost.argprom.exit
+  %861 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %860, ptr noundef %3, i32 noundef 4)
+  br label %process_opcode_ost.exit
 
 862:                                              ; preds = %670
-  %863 = tail call fastcc i32 @dissect_struct_ldlm_reply.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  %863 = tail call fastcc i32 @dissect_struct_ldlm_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
+  br label %process_opcode_ost.exit
 
 864:                                              ; preds = %670
   %865 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -4649,7 +4649,7 @@ dissect_xattr_buffers.argprom.exit.i.i:           ; preds = %835, %817
   %868 = select i1 %867, i32 0, i32 60
   %869 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %868) #8
   %870 = icmp ult i32 %869, 2
-  br i1 %870, label %process_opcode_ost.argprom.exit, label %871
+  br i1 %870, label %process_opcode_ost.exit, label %871
 
 871:                                              ; preds = %864
   %872 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -4657,7 +4657,7 @@ dissect_xattr_buffers.argprom.exit.i.i:           ; preds = %835, %817
   %874 = select i1 %873, i32 36, i32 64
   %875 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %874) #8
   %876 = icmp eq i32 %875, 0
-  br i1 %876, label %process_opcode_ost.argprom.exit, label %877
+  br i1 %876, label %process_opcode_ost.exit, label %877
 
 877:                                              ; preds = %871
   %878 = load i32, ptr @hf_lustre_barrier_lvb, align 4
@@ -4673,7 +4673,7 @@ dissect_xattr_buffers.argprom.exit.i.i:           ; preds = %835, %817
   %888 = load i32, ptr @hf_lustre_barrier_lvb_padding, align 4
   %889 = tail call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %888, ptr noundef %0, i32 noundef %887, i32 noundef 8, i32 noundef 0) #8
   %890 = add i32 %1, 16
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 default.unreachable137:                           ; preds = %670
   unreachable
@@ -4686,10 +4686,10 @@ default.unreachable137:                           ; preds = %670
 893:                                              ; preds = %891
   switch i32 %18, label %default.unreachable138 [
     i32 250, label %894
-    i32 251, label %process_opcode_ost.argprom.exit
-    i32 252, label %process_opcode_ost.argprom.exit
+    i32 251, label %process_opcode_ost.exit
+    i32 252, label %process_opcode_ost.exit
     i32 253, label %901
-    i32 254, label %process_opcode_ost.argprom.exit
+    i32 254, label %process_opcode_ost.exit
     i32 255, label %962
     i32 256, label %965
   ]
@@ -4699,17 +4699,17 @@ default.unreachable137:                           ; preds = %670
   br i1 %895, label %.thread.i136, label %897
 
 .thread.i136:                                     ; preds = %894
-  %896 = tail call fastcc i32 @dissect_generic_connect.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  %896 = tail call fastcc i32 @dissect_generic_connect(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  br label %process_opcode_ost.exit
 
 897:                                              ; preds = %894
   %898 = and i32 %5, -2
   %or.cond.i135 = icmp eq i32 %898, 4712
-  br i1 %or.cond.i135, label %899, label %process_opcode_ost.argprom.exit
+  br i1 %or.cond.i135, label %899, label %process_opcode_ost.exit
 
 899:                                              ; preds = %897
-  %900 = tail call fastcc i32 @dissect_struct_obd_connect_data.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %3)
-  br label %process_opcode_ost.argprom.exit
+  %900 = tail call fastcc i32 @dissect_struct_obd_connect_data(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  br label %process_opcode_ost.exit
 
 901:                                              ; preds = %893
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -4719,7 +4719,7 @@ default.unreachable137:                           ; preds = %670
   %905 = select i1 %904, i32 0, i32 60
   %906 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %905) #8
   %907 = icmp ult i32 %906, 2
-  br i1 %907, label %dissect_struct_mgs_target_info.argprom.exit.i, label %908
+  br i1 %907, label %dissect_struct_mgs_target_info.exit.i, label %908
 
 908:                                              ; preds = %901
   %909 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -4727,7 +4727,7 @@ default.unreachable137:                           ; preds = %670
   %911 = select i1 %910, i32 36, i32 64
   %912 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %911) #8
   %913 = icmp eq i32 %912, 0
-  br i1 %913, label %dissect_struct_mgs_target_info.argprom.exit.i, label %914
+  br i1 %913, label %dissect_struct_mgs_target_info.exit.i, label %914
 
 914:                                              ; preds = %908
   %915 = load i32, ptr @hf_lustre_mgs_target_info, align 4
@@ -4794,20 +4794,20 @@ default.unreachable137:                           ; preds = %670
   %960 = add i32 %spec.select.i.i, %956
   %961 = sub i32 %960, %1
   call void @proto_item_set_len(ptr noundef %916, i32 noundef %961) #8
-  br label %dissect_struct_mgs_target_info.argprom.exit.i
+  br label %dissect_struct_mgs_target_info.exit.i
 
-dissect_struct_mgs_target_info.argprom.exit.i:    ; preds = %._crit_edge.i.i134, %908, %901
+dissect_struct_mgs_target_info.exit.i:            ; preds = %._crit_edge.i.i134, %908, %901
   %.079.i.i = phi i32 [ %960, %._crit_edge.i.i134 ], [ %1, %908 ], [ %1, %901 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 962:                                              ; preds = %893
   %963 = load i32, ptr @hf_lustre_mgs_send_param, align 4
-  %964 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %963, i32 noundef 1)
-  br label %process_opcode_ost.argprom.exit
+  %964 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %963, i32 noundef 1)
+  br label %process_opcode_ost.exit
 
 965:                                              ; preds = %893
-  switch i32 %5, label %process_opcode_ost.argprom.exit [
+  switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread39.i
     i32 4713, label %991
   ]
@@ -4839,7 +4839,7 @@ dissect_struct_mgs_target_info.argprom.exit.i:    ; preds = %._crit_edge.i.i134,
   %988 = load i32, ptr @hf_lustre_mgs_config_body_units, align 4
   %989 = tail call ptr @proto_tree_add_item(ptr noundef %969, i32 noundef %988, ptr noundef %0, i32 noundef %987, i32 noundef 4, i32 noundef -2147483648) #8
   %990 = add i32 %1, 80
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 991:                                              ; preds = %965
   %992 = load i32, ptr @hf_lustre_mgs_config_res, align 4
@@ -4857,7 +4857,7 @@ dissect_struct_mgs_target_info.argprom.exit.i:    ; preds = %._crit_edge.i.i134,
   %1002 = select i1 %1001, i32 %hf_lustre_mgs_config_res_nm_cur_pass.val.i.i, i32 %hf_lustre_mgs_config_res_size.val.i.i
   %1003 = tail call ptr @proto_tree_add_item(ptr noundef %995, i32 noundef %1002, ptr noundef %0, i32 noundef %998, i32 noundef 8, i32 noundef -2147483648) #8
   %1004 = add i32 %1, 16
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 default.unreachable138:                           ; preds = %893
   unreachable
@@ -4868,8 +4868,8 @@ default.unreachable138:                           ; preds = %893
   br i1 %or.cond114, label %1007, label %1009
 
 1007:                                             ; preds = %1005
-  %1008 = tail call fastcc i32 @process_opcode_obd.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
-  br label %process_opcode_ost.argprom.exit
+  %1008 = tail call fastcc i32 @process_opcode_obd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
+  br label %process_opcode_ost.exit
 
 1009:                                             ; preds = %1005
   %1010 = add i32 %18, -501
@@ -4877,8 +4877,8 @@ default.unreachable138:                           ; preds = %893
   br i1 %or.cond115, label %1011, label %1013
 
 1011:                                             ; preds = %1009
-  %1012 = tail call fastcc i32 @process_opcode_llog.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
-  br label %process_opcode_ost.argprom.exit
+  %1012 = tail call fastcc i32 @process_opcode_llog(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
+  br label %process_opcode_ost.exit
 
 1013:                                             ; preds = %1009
   %1014 = add i32 %18, -601
@@ -4886,8 +4886,8 @@ default.unreachable138:                           ; preds = %893
   br i1 %or.cond116, label %1015, label %1017
 
 1015:                                             ; preds = %1013
-  %1016 = tail call fastcc i32 @process_opcode_quota.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
-  br label %process_opcode_ost.argprom.exit
+  %1016 = tail call fastcc i32 @process_opcode_quota(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
+  br label %process_opcode_ost.exit
 
 1017:                                             ; preds = %1013
   %1018 = icmp eq i32 %18, 700
@@ -4895,12 +4895,12 @@ default.unreachable138:                           ; preds = %893
 
 1019:                                             ; preds = %1017
   %1020 = tail call fastcc i32 @process_opcode_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 1021:                                             ; preds = %1017
   %1022 = add i32 %18, -801
   %or.cond118 = icmp ult i32 %1022, 3
-  br i1 %or.cond118, label %process_opcode_ost.argprom.exit, label %1023
+  br i1 %or.cond118, label %process_opcode_ost.exit, label %1023
 
 1023:                                             ; preds = %1021
   %1024 = and i32 %18, -2
@@ -4909,15 +4909,15 @@ default.unreachable138:                           ; preds = %893
 
 1025:                                             ; preds = %1023
   %1026 = tail call fastcc i32 @process_opcode_fld(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5)
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
 1027:                                             ; preds = %1023
   %1028 = icmp eq i32 %18, 1000
   br i1 %1028, label %1029, label %1031
 
 1029:                                             ; preds = %1027
-  %1030 = tail call fastcc i32 @process_opcode_out_update.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 1000, i32 noundef %5)
-  br label %process_opcode_ost.argprom.exit
+  %1030 = tail call fastcc i32 @process_opcode_out_update(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 1000, i32 noundef %5)
+  br label %process_opcode_ost.exit
 
 1031:                                             ; preds = %1027
   %1032 = add i32 %18, -1101
@@ -4925,15 +4925,15 @@ default.unreachable138:                           ; preds = %893
   br i1 %or.cond121, label %1033, label %1035
 
 1033:                                             ; preds = %1031
-  %1034 = tail call fastcc i32 @process_opcode_lfsck.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
-  br label %process_opcode_ost.argprom.exit
+  %1034 = tail call fastcc i32 @process_opcode_lfsck(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
+  br label %process_opcode_ost.exit
 
 1035:                                             ; preds = %1031
   %1036 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1751, i32 noundef %18, i32 noundef %5) #8
-  br label %process_opcode_ost.argprom.exit
+  br label %process_opcode_ost.exit
 
-process_opcode_ost.argprom.exit:                  ; preds = %991, %.thread39.i, %965, %962, %dissect_struct_mgs_target_info.argprom.exit.i, %899, %897, %.thread.i136, %893, %893, %893, %877, %871, %864, %862, %858, %dissect_xattr_buffers.argprom.exit.i.i, %772, %764, %dissect_struct_lmv_user_md.exit.i.i, %675, %670, %670, %670, %670, %665, %633, %627, %619, %617, %615, %581, %575, %568, %dissect_struct_ldlm_gl_barrier_desc.exit.i.i, %529, %520, %518, %516, %513, %dissect_struct_layout_intent.exit.i.i, %474, %469, %458, %448, %344, %342, %338, %336, %333, %dissect_struct_fid_array.argprom.exit.i, %298, %296, %294, %292, %289, %287, %282, %280, %277, %275, %273, %.thread293.i, %270, %266, %264, %262, %.thread291.i, %259, %257, %.thread289.i, %252, %250, %248, %245, %243, %.thread287.i, %237, %235, %233, %230, %225, %223, %220, %218, %215, %213, %211, %209, %.thread285.i, %205, %203, %201, %.thread282.i, %196, %.thread280.i, %194, %188, %.thread278.i, %183, %178, %175, %171, %169, %168, %164, %dissect_struct_lu_ladvise_hdr.exit.i, %110, %90, %84, %76, %74, %72, %69, %64, %62, %60, %58, %56, %.thread4.i, %54, %51, %.thread2.i, %48, %45, %42, %40, %38, %.thread.i, %33, %29, %26, %24, %21, %20, %20, %20, %20, %1021, %6, %1035, %1033, %1029, %1025, %1019, %1015, %1011, %1007
-  %.0 = phi i32 [ %1008, %1007 ], [ %1012, %1011 ], [ %1016, %1015 ], [ %1020, %1019 ], [ %1026, %1025 ], [ %1030, %1029 ], [ %1034, %1033 ], [ %1, %1035 ], [ %1, %6 ], [ %1, %1021 ], [ %1, %164 ], [ %111, %110 ], [ %163, %dissect_struct_lu_ladvise_hdr.exit.i ], [ %75, %74 ], [ %73, %72 ], [ %1, %69 ], [ %1, %62 ], [ %68, %64 ], [ %1, %58 ], [ %61, %60 ], [ %57, %56 ], [ %53, %51 ], [ %43, %42 ], [ %47, %45 ], [ %41, %40 ], [ %39, %38 ], [ %32, %29 ], [ %27, %26 ], [ %25, %24 ], [ %22, %21 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %37, %.thread.i ], [ %50, %.thread2.i ], [ %55, %.thread4.i ], [ %109, %90 ], [ %1, %84 ], [ %1, %76 ], [ %34, %33 ], [ %1, %48 ], [ %1, %54 ], [ %1, %338 ], [ %335, %333 ], [ %337, %336 ], [ %303, %298 ], [ %1, %296 ], [ %295, %294 ], [ %1, %292 ], [ %291, %289 ], [ %1, %287 ], [ %286, %282 ], [ %1, %280 ], [ %279, %277 ], [ %1, %275 ], [ %274, %273 ], [ %269, %266 ], [ %1, %264 ], [ %263, %262 ], [ %258, %257 ], [ %1, %250 ], [ %249, %248 ], [ %1, %245 ], [ %244, %243 ], [ %236, %235 ], [ %234, %233 ], [ %1, %230 ], [ %229, %225 ], [ %1, %223 ], [ %222, %220 ], [ %219, %218 ], [ %216, %215 ], [ %214, %213 ], [ %1, %211 ], [ %210, %209 ], [ %1, %168 ], [ %204, %203 ], [ %1, %201 ], [ %197, %196 ], [ %193, %188 ], [ %182, %178 ], [ %.0.i.i, %dissect_struct_fid_array.argprom.exit.i ], [ %187, %.thread278.i ], [ %195, %.thread280.i ], [ %200, %.thread282.i ], [ %208, %.thread285.i ], [ %242, %.thread287.i ], [ %254, %.thread289.i ], [ %261, %.thread291.i ], [ %272, %.thread293.i ], [ %172, %171 ], [ %177, %175 ], [ %170, %169 ], [ %1, %183 ], [ %1, %194 ], [ %206, %205 ], [ %238, %237 ], [ %1, %252 ], [ %260, %259 ], [ %271, %270 ], [ %1, %670 ], [ %1, %670 ], [ %1, %670 ], [ %1, %670 ], [ %863, %862 ], [ %861, %858 ], [ %856, %dissect_xattr_buffers.argprom.exit.i.i ], [ %774, %772 ], [ %771, %764 ], [ %763, %dissect_struct_lmv_user_md.exit.i.i ], [ %676, %675 ], [ %890, %877 ], [ %1, %871 ], [ %1, %864 ], [ %620, %619 ], [ %620, %627 ], [ %664, %633 ], [ %522, %568 ], [ %522, %575 ], [ %614, %581 ], [ %522, %520 ], [ %564, %dissect_struct_ldlm_gl_barrier_desc.exit.i.i ], [ %616, %615 ], [ %522, %529 ], [ %457, %448 ], [ %468, %458 ], [ %473, %469 ], [ %478, %474 ], [ %512, %dissect_struct_layout_intent.exit.i.i ], [ %515, %513 ], [ %517, %516 ], [ %519, %518 ], [ %345, %344 ], [ %618, %617 ], [ %669, %665 ], [ %1, %342 ], [ %1004, %991 ], [ %964, %962 ], [ %.079.i.i, %dissect_struct_mgs_target_info.argprom.exit.i ], [ %1, %893 ], [ %1, %893 ], [ %1, %893 ], [ %900, %899 ], [ %1, %897 ], [ %896, %.thread.i136 ], [ %990, %.thread39.i ], [ %1, %965 ]
+process_opcode_ost.exit:                          ; preds = %991, %.thread39.i, %965, %962, %dissect_struct_mgs_target_info.exit.i, %899, %897, %.thread.i136, %893, %893, %893, %877, %871, %864, %862, %858, %dissect_xattr_buffers.exit.i.i, %772, %764, %dissect_struct_lmv_user_md.exit.i.i, %675, %670, %670, %670, %670, %665, %633, %627, %619, %617, %615, %581, %575, %568, %dissect_struct_ldlm_gl_barrier_desc.exit.i.i, %529, %520, %518, %516, %513, %dissect_struct_layout_intent.exit.i.i, %474, %469, %458, %448, %344, %342, %338, %336, %333, %dissect_struct_fid_array.exit.i, %298, %296, %294, %292, %289, %287, %282, %280, %277, %275, %273, %.thread293.i, %270, %266, %264, %262, %.thread291.i, %259, %257, %.thread289.i, %252, %250, %248, %245, %243, %.thread287.i, %237, %235, %233, %230, %225, %223, %220, %218, %215, %213, %211, %209, %.thread285.i, %205, %203, %201, %.thread282.i, %196, %.thread280.i, %194, %188, %.thread278.i, %183, %178, %175, %171, %169, %168, %164, %dissect_struct_lu_ladvise_hdr.exit.i, %110, %90, %84, %76, %74, %72, %69, %64, %62, %60, %58, %56, %.thread4.i, %54, %51, %.thread2.i, %48, %45, %42, %40, %38, %.thread.i, %33, %29, %26, %24, %21, %20, %20, %20, %20, %1021, %6, %1035, %1033, %1029, %1025, %1019, %1015, %1011, %1007
+  %.0 = phi i32 [ %1008, %1007 ], [ %1012, %1011 ], [ %1016, %1015 ], [ %1020, %1019 ], [ %1026, %1025 ], [ %1030, %1029 ], [ %1034, %1033 ], [ %1, %1035 ], [ %1, %6 ], [ %1, %1021 ], [ %1, %164 ], [ %111, %110 ], [ %163, %dissect_struct_lu_ladvise_hdr.exit.i ], [ %75, %74 ], [ %73, %72 ], [ %1, %69 ], [ %1, %62 ], [ %68, %64 ], [ %1, %58 ], [ %61, %60 ], [ %57, %56 ], [ %53, %51 ], [ %43, %42 ], [ %47, %45 ], [ %41, %40 ], [ %39, %38 ], [ %32, %29 ], [ %27, %26 ], [ %25, %24 ], [ %22, %21 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %37, %.thread.i ], [ %50, %.thread2.i ], [ %55, %.thread4.i ], [ %109, %90 ], [ %1, %84 ], [ %1, %76 ], [ %34, %33 ], [ %1, %48 ], [ %1, %54 ], [ %1, %338 ], [ %335, %333 ], [ %337, %336 ], [ %303, %298 ], [ %1, %296 ], [ %295, %294 ], [ %1, %292 ], [ %291, %289 ], [ %1, %287 ], [ %286, %282 ], [ %1, %280 ], [ %279, %277 ], [ %1, %275 ], [ %274, %273 ], [ %269, %266 ], [ %1, %264 ], [ %263, %262 ], [ %258, %257 ], [ %1, %250 ], [ %249, %248 ], [ %1, %245 ], [ %244, %243 ], [ %236, %235 ], [ %234, %233 ], [ %1, %230 ], [ %229, %225 ], [ %1, %223 ], [ %222, %220 ], [ %219, %218 ], [ %216, %215 ], [ %214, %213 ], [ %1, %211 ], [ %210, %209 ], [ %1, %168 ], [ %204, %203 ], [ %1, %201 ], [ %197, %196 ], [ %193, %188 ], [ %182, %178 ], [ %.0.i.i, %dissect_struct_fid_array.exit.i ], [ %187, %.thread278.i ], [ %195, %.thread280.i ], [ %200, %.thread282.i ], [ %208, %.thread285.i ], [ %242, %.thread287.i ], [ %254, %.thread289.i ], [ %261, %.thread291.i ], [ %272, %.thread293.i ], [ %172, %171 ], [ %177, %175 ], [ %170, %169 ], [ %1, %183 ], [ %1, %194 ], [ %206, %205 ], [ %238, %237 ], [ %1, %252 ], [ %260, %259 ], [ %271, %270 ], [ %1, %670 ], [ %1, %670 ], [ %1, %670 ], [ %1, %670 ], [ %863, %862 ], [ %861, %858 ], [ %856, %dissect_xattr_buffers.exit.i.i ], [ %774, %772 ], [ %771, %764 ], [ %763, %dissect_struct_lmv_user_md.exit.i.i ], [ %676, %675 ], [ %890, %877 ], [ %1, %871 ], [ %1, %864 ], [ %620, %619 ], [ %620, %627 ], [ %664, %633 ], [ %522, %568 ], [ %522, %575 ], [ %614, %581 ], [ %522, %520 ], [ %564, %dissect_struct_ldlm_gl_barrier_desc.exit.i.i ], [ %616, %615 ], [ %522, %529 ], [ %457, %448 ], [ %468, %458 ], [ %473, %469 ], [ %478, %474 ], [ %512, %dissect_struct_layout_intent.exit.i.i ], [ %515, %513 ], [ %517, %516 ], [ %519, %518 ], [ %345, %344 ], [ %618, %617 ], [ %669, %665 ], [ %1, %342 ], [ %1004, %991 ], [ %964, %962 ], [ %.079.i.i, %dissect_struct_mgs_target_info.exit.i ], [ %1, %893 ], [ %1, %893 ], [ %1, %893 ], [ %900, %899 ], [ %1, %897 ], [ %896, %.thread.i136 ], [ %990, %.thread39.i ], [ %1, %965 ]
   ret i32 %.0
 }
 
@@ -4944,7 +4944,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_opcode_obd.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %.0.val, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @process_opcode_obd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %.0.val, i32 noundef %4) unnamed_addr #0 {
   switch i32 %.0.val, label %62 [
     i32 400, label %dissect_struct_idx_info.exit
     i32 401, label %6
@@ -5030,7 +5030,7 @@ dissect_struct_idx_info.exit:                     ; preds = %25, %19, %12, %6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process_opcode_llog.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %.0.val, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @process_opcode_llog(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %.0.val, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -5049,18 +5049,18 @@ define internal fastcc i32 @process_opcode_llog.argprom(ptr noundef %0, i32 noun
   ]
 
 11:                                               ; preds = %5
-  %12 = tail call fastcc i32 @dissect_struct_llogd_body.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  %12 = tail call fastcc i32 @dissect_struct_llogd_body(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   %13 = icmp eq i32 %4, 4711
   br i1 %13, label %14, label %dissect_llog_eadata.exit
 
 14:                                               ; preds = %11
   %15 = load i32, ptr @hf_lustre_name, align 4
-  %16 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %12, i32 noundef %15, i32 noundef 2)
+  %16 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %12, i32 noundef %15, i32 noundef 2)
   %17 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %16, ptr noundef %3, i32 noundef 3)
   br label %dissect_llog_eadata.exit
 
 18:                                               ; preds = %5, %5
-  %19 = tail call fastcc i32 @dissect_struct_llogd_body.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  %19 = tail call fastcc i32 @dissect_struct_llogd_body(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   %20 = icmp eq i32 %4, 4713
   br i1 %20, label %21, label %dissect_llog_eadata.exit
 
@@ -5121,15 +5121,15 @@ define internal fastcc i32 @process_opcode_llog.argprom(ptr noundef %0, i32 noun
   %46 = sub i32 0, %45
   %47 = and i32 %46, 7
   %.not.i.i = icmp eq i32 %47, 0
-  br i1 %.not.i.i, label %add_extra_padding.argprom.exit.i, label %48
+  br i1 %.not.i.i, label %add_extra_padding.exit.i, label %48
 
 48:                                               ; preds = %38
   %49 = load i32, ptr @hf_lustre_extra_padding, align 4
   %50 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %49, ptr noundef %0, i32 noundef %45, i32 noundef %47, i32 noundef 0) #8
   %51 = add i32 %47, %45
-  br label %add_extra_padding.argprom.exit.i
+  br label %add_extra_padding.exit.i
 
-add_extra_padding.argprom.exit.i:                 ; preds = %48, %38
+add_extra_padding.exit.i:                         ; preds = %48, %38
   %.0.i.i = phi i32 [ %51, %48 ], [ %45, %38 ]
   %52 = load i32, ptr @hf_lustre_llog_rec_tail, align 4
   %53 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %52, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 8, i32 noundef 0) #8
@@ -5372,30 +5372,30 @@ add_extra_padding.argprom.exit.i:                 ; preds = %48, %38
   %264 = sub i32 0, %.077.lcssa.i.i
   %265 = and i32 %264, 7
   %.not.i.i.i = icmp eq i32 %265, 0
-  br i1 %.not.i.i.i, label %add_extra_padding.argprom.exit.i.i, label %266
+  br i1 %.not.i.i.i, label %add_extra_padding.exit.i.i, label %266
 
 266:                                              ; preds = %._crit_edge.i.i
   %267 = load i32, ptr @hf_lustre_extra_padding, align 4
   %268 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %267, ptr noundef %0, i32 noundef %.077.lcssa.i.i, i32 noundef %265, i32 noundef 0) #8
   %269 = add i32 %265, %.077.lcssa.i.i
-  br label %add_extra_padding.argprom.exit.i.i
+  br label %add_extra_padding.exit.i.i
 
-add_extra_padding.argprom.exit.i.i:               ; preds = %266, %._crit_edge.i.i
+add_extra_padding.exit.i.i:                       ; preds = %266, %._crit_edge.i.i
   %.0.i.i.i = phi i32 [ %269, %266 ], [ %.077.lcssa.i.i, %._crit_edge.i.i ]
   %270 = load i32, ptr %10, align 4
   %271 = call ptr @val_to_str(i32 noundef %270, ptr noundef nonnull @lcfg_command_type_vals, ptr noundef nonnull @.str.1800) #8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %234, ptr noundef nonnull @.str.1768, ptr noundef %271) #8
   %272 = load i32, ptr %10, align 4
-  switch i32 %272, label %add_extra_padding.argprom.exit._crit_edge.i.i [
+  switch i32 %272, label %add_extra_padding.exit._crit_edge.i.i [
     i32 847888, label %273
     i32 847875, label %302
   ]
 
-add_extra_padding.argprom.exit._crit_edge.i.i:    ; preds = %add_extra_padding.argprom.exit.i.i
+add_extra_padding.exit._crit_edge.i.i:            ; preds = %add_extra_padding.exit.i.i
   %.pre.i.i = load i32, ptr %9, align 4
   br label %352
 
-273:                                              ; preds = %add_extra_padding.argprom.exit.i.i
+273:                                              ; preds = %add_extra_padding.exit.i.i
   %274 = load i32, ptr @hf_lustre_cfg_marker, align 4
   %275 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %274, ptr noundef %0, i32 noundef %.0.i.i.i, i32 noundef 160, i32 noundef 0) #8
   %276 = load i32, ptr @ett_lustre_cfg_marker, align 4
@@ -5426,7 +5426,7 @@ add_extra_padding.argprom.exit._crit_edge.i.i:    ; preds = %add_extra_padding.a
   %301 = add i32 %.0.i.i.i, 160
   br label %dissect_struct_lustre_cfg.exit.i
 
-302:                                              ; preds = %add_extra_padding.argprom.exit.i.i
+302:                                              ; preds = %add_extra_padding.exit.i.i
   %303 = load i32, ptr %9, align 4
   %304 = icmp eq i32 %303, 2
   br i1 %304, label %305, label %352
@@ -5480,8 +5480,8 @@ add_extra_padding.argprom.exit._crit_edge.i.i:    ; preds = %add_extra_padding.a
   %351 = add i32 %313, 88
   br label %dissect_struct_lustre_cfg.exit.i
 
-352:                                              ; preds = %302, %add_extra_padding.argprom.exit._crit_edge.i.i
-  %353 = phi i32 [ %.pre.i.i, %add_extra_padding.argprom.exit._crit_edge.i.i ], [ %303, %302 ]
+352:                                              ; preds = %302, %add_extra_padding.exit._crit_edge.i.i
+  %353 = phi i32 [ %.pre.i.i, %add_extra_padding.exit._crit_edge.i.i ], [ %303, %302 ]
   %.not86.i.i = icmp eq i32 %353, 0
   br i1 %.not86.i.i, label %dissect_struct_lustre_cfg.exit.i, label %.lr.ph84.i.i
 
@@ -5525,7 +5525,7 @@ dissect_struct_lustre_cfg.exit.i:                 ; preds = %.lr.ph84.i.i, %352,
   %379 = load i32, ptr @hf_lustre_llog_rec_hdr, align 4
   %380 = call fastcc i32 @dissect_struct_llog_rec_hdr(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef %379)
   %381 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_obsopc) #8
-  %382 = call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef 2)
+  %382 = call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef 2)
   br label %540
 
 383:                                              ; preds = %35
@@ -5564,7 +5564,7 @@ dissect_struct_lustre_cfg.exit.i:                 ; preds = %.lr.ph84.i.i, %352,
   %414 = load i32, ptr @hf_lustre_llog_rec_hdr, align 4
   %415 = call fastcc i32 @dissect_struct_llog_rec_hdr(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef %414)
   %416 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_obsopc) #8
-  %417 = call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %415, ptr noundef %3, i32 noundef 2)
+  %417 = call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %415, ptr noundef %3, i32 noundef 2)
   br label %540
 
 418:                                              ; preds = %35
@@ -5697,19 +5697,19 @@ dissect_struct_changelog_rec.exit.i:              ; preds = %486, %484
 502:                                              ; preds = %35
   %503 = load i32, ptr @hf_lustre_llog_rec_hdr, align 4
   %504 = call fastcc i32 @dissect_struct_llog_rec_hdr(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef %503)
-  %505 = call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef 2)
+  %505 = call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef 2)
   br label %540
 
 506:                                              ; preds = %35
   %507 = load i32, ptr @hf_lustre_llog_rec_hdr, align 4
   %508 = call fastcc i32 @dissect_struct_llog_rec_hdr(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef %507)
-  %509 = call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef 2)
+  %509 = call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef 2)
   br label %540
 
 510:                                              ; preds = %35
   %511 = load i32, ptr @hf_lustre_llog_rec_hdr, align 4
   %512 = call fastcc i32 @dissect_struct_llog_rec_hdr(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef %511)
-  %513 = call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef 2)
+  %513 = call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %.0308.i, ptr noundef %3, i32 noundef 2)
   br label %540
 
 514:                                              ; preds = %35
@@ -5744,9 +5744,9 @@ dissect_struct_changelog_rec.exit.i:              ; preds = %486, %484
   %539 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1797, i32 noundef %37) #8
   br label %540
 
-540:                                              ; preds = %538, %516, %514, %510, %506, %502, %dissect_struct_changelog_rec.exit.i, %413, %383, %378, %dissect_struct_lustre_cfg.exit.i, %177, %144, %119, %92, %87, %62, %add_extra_padding.argprom.exit.i
-  %.2.i = phi i32 [ %.0308.i, %538 ], [ %537, %516 ], [ %515, %514 ], [ %513, %510 ], [ %509, %506 ], [ %505, %502 ], [ %501, %dissect_struct_changelog_rec.exit.i ], [ %417, %413 ], [ %412, %383 ], [ %382, %378 ], [ %377, %dissect_struct_lustre_cfg.exit.i ], [ %224, %177 ], [ %176, %144 ], [ %143, %119 ], [ %118, %92 ], [ %89, %87 ], [ %86, %62 ], [ %61, %add_extra_padding.argprom.exit.i ]
-  %.0307.i = phi i32 [ %34, %538 ], [ %34, %516 ], [ %34, %514 ], [ %34, %510 ], [ %34, %506 ], [ %34, %502 ], [ %419, %dissect_struct_changelog_rec.exit.i ], [ %34, %413 ], [ %34, %383 ], [ %34, %378 ], [ %226, %dissect_struct_lustre_cfg.exit.i ], [ %34, %177 ], [ %34, %144 ], [ %34, %119 ], [ %34, %92 ], [ %34, %87 ], [ %34, %62 ], [ %39, %add_extra_padding.argprom.exit.i ]
+540:                                              ; preds = %538, %516, %514, %510, %506, %502, %dissect_struct_changelog_rec.exit.i, %413, %383, %378, %dissect_struct_lustre_cfg.exit.i, %177, %144, %119, %92, %87, %62, %add_extra_padding.exit.i
+  %.2.i = phi i32 [ %.0308.i, %538 ], [ %537, %516 ], [ %515, %514 ], [ %513, %510 ], [ %509, %506 ], [ %505, %502 ], [ %501, %dissect_struct_changelog_rec.exit.i ], [ %417, %413 ], [ %412, %383 ], [ %382, %378 ], [ %377, %dissect_struct_lustre_cfg.exit.i ], [ %224, %177 ], [ %176, %144 ], [ %143, %119 ], [ %118, %92 ], [ %89, %87 ], [ %86, %62 ], [ %61, %add_extra_padding.exit.i ]
+  %.0307.i = phi i32 [ %34, %538 ], [ %34, %516 ], [ %34, %514 ], [ %34, %510 ], [ %34, %506 ], [ %34, %502 ], [ %419, %dissect_struct_changelog_rec.exit.i ], [ %34, %413 ], [ %34, %383 ], [ %34, %378 ], [ %226, %dissect_struct_lustre_cfg.exit.i ], [ %34, %177 ], [ %34, %144 ], [ %34, %119 ], [ %34, %92 ], [ %34, %87 ], [ %34, %62 ], [ %39, %add_extra_padding.exit.i ]
   %541 = sub i32 %.2.i, %.0308.i
   %.not312.i = icmp eq i32 %541, %.0307.i
   br i1 %.not312.i, label %.preheader.i, label %542, !llvm.loop !14
@@ -5776,7 +5776,7 @@ dissect_struct_changelog_rec.exit.i:              ; preds = %486, %484
   ]
 
 .thread:                                          ; preds = %551
-  %552 = tail call fastcc i32 @dissect_struct_llogd_body.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  %552 = tail call fastcc i32 @dissect_struct_llogd_body(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   br label %dissect_llog_eadata.exit
 
 553:                                              ; preds = %551
@@ -5827,7 +5827,7 @@ dissect_struct_changelog_rec.exit.i:              ; preds = %486, %484
   br label %dissect_llog_eadata.exit
 
 590:                                              ; preds = %5
-  %591 = tail call fastcc i32 @dissect_struct_llogd_body.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  %591 = tail call fastcc i32 @dissect_struct_llogd_body(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   br label %dissect_llog_eadata.exit
 
 592:                                              ; preds = %5
@@ -5848,7 +5848,7 @@ dissect_llog_eadata.exit:                         ; preds = %551, %570, %564, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_opcode_quota.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %.0.val, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @process_opcode_quota(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %.0.val, i32 noundef %4) unnamed_addr #0 {
   switch i32 %.0.val, label %8 [
     i32 601, label %6
     i32 602, label %10
@@ -5892,15 +5892,15 @@ define internal fastcc noundef i32 @process_opcode_seq(ptr noundef %0, i32 nound
   %17 = sub i32 4, %1
   %18 = and i32 %17, 7
   %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %add_extra_padding.argprom.exit, label %19
+  br i1 %.not.i, label %add_extra_padding.exit, label %19
 
 19:                                               ; preds = %.split
   %20 = load i32, ptr @hf_lustre_extra_padding, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %16, i32 noundef %18, i32 noundef 0) #8
   %22 = add i32 %18, %16
-  br label %add_extra_padding.argprom.exit
+  br label %add_extra_padding.exit
 
-add_extra_padding.argprom.exit:                   ; preds = %.split, %19
+add_extra_padding.exit:                           ; preds = %.split, %19
   %.0.i = phi i32 [ %22, %19 ], [ %16, %.split ]
   %23 = tail call fastcc i32 @dissect_struct_seq_range(ptr noundef %0, i32 noundef %.0.i, ptr noundef %3, i32 noundef 2)
   br label %26
@@ -5909,8 +5909,8 @@ add_extra_padding.argprom.exit:                   ; preds = %.split, %19
   %25 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1803, i32 noundef %7, i32 noundef %5) #8
   br label %26
 
-26:                                               ; preds = %add_extra_padding.argprom.exit, %.split23, %24
-  %.1 = phi i32 [ %1, %24 ], [ %23, %add_extra_padding.argprom.exit ], [ %10, %.split23 ]
+26:                                               ; preds = %add_extra_padding.exit, %.split23, %24
+  %.1 = phi i32 [ %1, %24 ], [ %23, %add_extra_padding.exit ], [ %10, %.split23 ]
   ret i32 %.1
 }
 
@@ -5941,15 +5941,15 @@ define internal fastcc i32 @process_opcode_fld(ptr noundef %0, i32 noundef %1, p
   %17 = sub i32 4, %1
   %18 = and i32 %17, 7
   %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %add_extra_padding.argprom.exit, label %19
+  br i1 %.not.i, label %add_extra_padding.exit, label %19
 
 19:                                               ; preds = %.split
   %20 = load i32, ptr @hf_lustre_extra_padding, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %16, i32 noundef %18, i32 noundef 0) #8
   %22 = add i32 %18, %16
-  br label %add_extra_padding.argprom.exit
+  br label %add_extra_padding.exit
 
-add_extra_padding.argprom.exit:                   ; preds = %.split, %19
+add_extra_padding.exit:                           ; preds = %.split, %19
   %.0.i = phi i32 [ %22, %19 ], [ %16, %.split ]
   %23 = tail call fastcc i32 @dissect_struct_seq_range(ptr noundef %0, i32 noundef %.0.i, ptr noundef %3, i32 noundef 2)
   br label %30
@@ -5965,20 +5965,20 @@ add_extra_padding.argprom.exit:                   ; preds = %.split, %19
   br label %30
 
 26:                                               ; preds = %24
-  %27 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1, ptr noundef null)
+  %27 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1, ptr noundef null)
   br label %30
 
 28:                                               ; preds = %6
   %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1804, i32 noundef %7, i32 noundef %5) #8
   br label %30
 
-30:                                               ; preds = %24, %.thread, %add_extra_padding.argprom.exit, %.split34, %26, %28
-  %.1 = phi i32 [ %1, %28 ], [ %27, %26 ], [ %23, %add_extra_padding.argprom.exit ], [ %10, %.split34 ], [ %25, %.thread ], [ %1, %24 ]
+30:                                               ; preds = %24, %.thread, %add_extra_padding.exit, %.split34, %26, %28
+  %.1 = phi i32 [ %1, %28 ], [ %27, %26 ], [ %23, %add_extra_padding.exit ], [ %10, %.split34 ], [ %25, %.thread ], [ %1, %24 ]
   ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process_opcode_out_update.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %.0.val, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @process_opcode_out_update(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %.0.val, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -6094,9 +6094,9 @@ define internal fastcc i32 @process_opcode_out_update.argprom(ptr noundef %0, i3
   %.not31.i.i = icmp eq i32 %81, 0
   br i1 %.not31.i.i, label %dissect_struct_object_update_request.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %73, %dissect_struct_object_update.argprom.exit.i.i
-  %.030.i.i = phi i32 [ %.0.lcssa.i.i.i, %dissect_struct_object_update.argprom.exit.i.i ], [ %80, %73 ]
-  %.02829.i.i = phi i32 [ %147, %dissect_struct_object_update.argprom.exit.i.i ], [ 0, %73 ]
+.lr.ph.i.i:                                       ; preds = %73, %dissect_struct_object_update.exit.i.i
+  %.030.i.i = phi i32 [ %.0.lcssa.i.i.i, %dissect_struct_object_update.exit.i.i ], [ %80, %73 ]
+  %.02829.i.i = phi i32 [ %147, %dissect_struct_object_update.exit.i.i ], [ 0, %73 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   %82 = load i32, ptr @hf_lustre_obj_update, align 4
@@ -6146,11 +6146,11 @@ define internal fastcc i32 @process_opcode_out_update.argprom(ptr noundef %0, i3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %120 = load i32, ptr %11, align 4
   %.not.i.i.i = icmp eq i32 %120, 0
-  br i1 %.not.i.i.i, label %dissect_struct_object_update.argprom.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %dissect_struct_object_update.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i, %add_extra_padding.argprom.exit.i.i.i
-  %.02.i.i.i = phi i32 [ %.0.i.i.i.i, %add_extra_padding.argprom.exit.i.i.i ], [ %119, %.lr.ph.i.i ]
-  %.0601.i.i.i = phi i32 [ %143, %add_extra_padding.argprom.exit.i.i.i ], [ 0, %.lr.ph.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i, %add_extra_padding.exit.i.i.i
+  %.02.i.i.i = phi i32 [ %.0.i.i.i.i, %add_extra_padding.exit.i.i.i ], [ %119, %.lr.ph.i.i ]
+  %.0601.i.i.i = phi i32 [ %143, %add_extra_padding.exit.i.i.i ], [ 0, %.lr.ph.i.i ]
   %121 = load i32, ptr @hf_lustre_obj_update_param, align 4
   %122 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %121, ptr noundef %0, i32 noundef %.02.i.i.i, i32 noundef -1, i32 noundef 0) #8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %122, ptr noundef nonnull @.str.1806, i32 noundef %.0601.i.i.i) #8
@@ -6172,23 +6172,23 @@ define internal fastcc i32 @process_opcode_out_update.argprom(ptr noundef %0, i3
   %137 = sub i32 0, %135
   %138 = and i32 %137, 7
   %.not.i.i.i.i = icmp eq i32 %138, 0
-  br i1 %.not.i.i.i.i, label %add_extra_padding.argprom.exit.i.i.i, label %139
+  br i1 %.not.i.i.i.i, label %add_extra_padding.exit.i.i.i, label %139
 
 139:                                              ; preds = %.lr.ph.i.i.i
   %140 = load i32, ptr @hf_lustre_extra_padding, align 4
   %141 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %140, ptr noundef %0, i32 noundef %135, i32 noundef %138, i32 noundef 0) #8
   %142 = add i32 %138, %135
-  br label %add_extra_padding.argprom.exit.i.i.i
+  br label %add_extra_padding.exit.i.i.i
 
-add_extra_padding.argprom.exit.i.i.i:             ; preds = %139, %.lr.ph.i.i.i
+add_extra_padding.exit.i.i.i:                     ; preds = %139, %.lr.ph.i.i.i
   %.0.i.i.i.i = phi i32 [ %142, %139 ], [ %135, %.lr.ph.i.i.i ]
   %143 = add nuw i32 %.0601.i.i.i, 1
   %144 = load i32, ptr %11, align 4
   %145 = icmp ult i32 %143, %144
-  br i1 %145, label %.lr.ph.i.i.i, label %dissect_struct_object_update.argprom.exit.i.i, !llvm.loop !15
+  br i1 %145, label %.lr.ph.i.i.i, label %dissect_struct_object_update.exit.i.i, !llvm.loop !15
 
-dissect_struct_object_update.argprom.exit.i.i:    ; preds = %add_extra_padding.argprom.exit.i.i.i, %.lr.ph.i.i
-  %.0.lcssa.i.i.i = phi i32 [ %119, %.lr.ph.i.i ], [ %.0.i.i.i.i, %add_extra_padding.argprom.exit.i.i.i ]
+dissect_struct_object_update.exit.i.i:            ; preds = %add_extra_padding.exit.i.i.i, %.lr.ph.i.i
+  %.0.lcssa.i.i.i = phi i32 [ %119, %.lr.ph.i.i ], [ %.0.i.i.i.i, %add_extra_padding.exit.i.i.i ]
   %146 = sub i32 %.0.lcssa.i.i.i, %.030.i.i
   call void @proto_item_set_len(ptr noundef %85, i32 noundef %146) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
@@ -6198,8 +6198,8 @@ dissect_struct_object_update.argprom.exit.i.i:    ; preds = %add_extra_padding.a
   %149 = icmp ult i32 %147, %148
   br i1 %149, label %.lr.ph.i.i, label %dissect_struct_object_update_request.exit.i, !llvm.loop !16
 
-dissect_struct_object_update_request.exit.i:      ; preds = %dissect_struct_object_update.argprom.exit.i.i, %73
-  %.0.lcssa.i.i = phi i32 [ %80, %73 ], [ %.0.lcssa.i.i.i, %dissect_struct_object_update.argprom.exit.i.i ]
+dissect_struct_object_update_request.exit.i:      ; preds = %dissect_struct_object_update.exit.i.i, %73
+  %.0.lcssa.i.i = phi i32 [ %80, %73 ], [ %.0.lcssa.i.i.i, %dissect_struct_object_update.exit.i.i ]
   %150 = sub i32 %.0.lcssa.i.i, %.179.i
   call void @proto_item_set_len(ptr noundef %67, i32 noundef %150) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -6443,7 +6443,7 @@ dissect_struct_obj_update_reply.exit:             ; preds = %200, %206, %267
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_opcode_lfsck.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %.0.val, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @process_opcode_lfsck(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %.0.val, i32 noundef %4) unnamed_addr #0 {
   switch i32 %.0.val, label %39 [
     i32 1101, label %6
     i32 1102, label %10
@@ -6454,7 +6454,7 @@ define internal fastcc noundef i32 @process_opcode_lfsck.argprom(ptr noundef %0,
   br i1 %7, label %8, label %dissect_struct_lfsck_reply.exit
 
 8:                                                ; preds = %6
-  %9 = tail call fastcc i32 @dissect_struct_lfsck_request.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  %9 = tail call fastcc i32 @dissect_struct_lfsck_request(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   br label %dissect_struct_lfsck_reply.exit
 
 10:                                               ; preds = %5
@@ -6464,7 +6464,7 @@ define internal fastcc noundef i32 @process_opcode_lfsck.argprom(ptr noundef %0,
   ]
 
 .thread:                                          ; preds = %10
-  %11 = tail call fastcc i32 @dissect_struct_lfsck_request.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+  %11 = tail call fastcc i32 @dissect_struct_lfsck_request(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   br label %dissect_struct_lfsck_reply.exit
 
 12:                                               ; preds = %10
@@ -6706,7 +6706,7 @@ define internal fastcc noundef i32 @dissect_struct_capa(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_obd_ioobj.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_obd_ioobj(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = icmp eq i32 %5, 198183891
@@ -6754,7 +6754,7 @@ define internal fastcc noundef i32 @dissect_struct_obd_ioobj.argelim(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_struct_niobuf_remote.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 3, 8) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_niobuf_remote(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 3, 8) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -6800,21 +6800,21 @@ define internal fastcc i32 @dissect_struct_niobuf_remote.argprom(ptr noundef %0,
   %32 = sub i32 0, %.034.lcssa
   %33 = and i32 %32, 7
   %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %add_extra_padding.argprom.exit, label %34
+  br i1 %.not.i, label %add_extra_padding.exit, label %34
 
 34:                                               ; preds = %._crit_edge
   %35 = load i32, ptr @hf_lustre_extra_padding, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %.034.lcssa, i32 noundef %33, i32 noundef 0) #8
   %37 = add i32 %33, %.034.lcssa
-  br label %add_extra_padding.argprom.exit
+  br label %add_extra_padding.exit
 
-add_extra_padding.argprom.exit:                   ; preds = %._crit_edge, %34
+add_extra_padding.exit:                           ; preds = %._crit_edge, %34
   %.0.i = phi i32 [ %37, %34 ], [ %.034.lcssa, %._crit_edge ]
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rc_array.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 2, 4) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rc_array(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 2, 4) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -6857,15 +6857,15 @@ define internal fastcc i32 @dissect_rc_array.argprom(ptr noundef %0, i32 noundef
   %28 = sub i32 0, %.025.lcssa
   %29 = and i32 %28, 7
   %.not.i = icmp eq i32 %29, 0
-  br i1 %.not.i, label %add_extra_padding.argprom.exit, label %30
+  br i1 %.not.i, label %add_extra_padding.exit, label %30
 
 30:                                               ; preds = %._crit_edge
   %31 = load i32, ptr @hf_lustre_extra_padding, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %31, ptr noundef %0, i32 noundef %.025.lcssa, i32 noundef %29, i32 noundef 0) #8
   %33 = add i32 %29, %.025.lcssa
-  br label %add_extra_padding.argprom.exit
+  br label %add_extra_padding.exit
 
-add_extra_padding.argprom.exit:                   ; preds = %._crit_edge, %30
+add_extra_padding.exit:                           ; preds = %._crit_edge, %30
   %.0.i = phi i32 [ %33, %30 ], [ %.025.lcssa, %._crit_edge ]
   ret i32 %.0.i
 }
@@ -6943,14 +6943,14 @@ define internal fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 1, 10) %4) unnamed_addr #0 {
+define internal fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 1, 10) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %8 = icmp eq i32 %7, 198183891
   %9 = select i1 %8, i32 0, i32 60
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %9) #8
   %.not = icmp ugt i32 %10, %4
-  br i1 %.not, label %11, label %add_extra_padding.argprom.exit
+  br i1 %.not, label %11, label %add_extra_padding.exit
 
 11:                                               ; preds = %5
   %12 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -6960,7 +6960,7 @@ define internal fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr no
   %16 = add nuw nsw i32 %14, %15
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %16) #8
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %add_extra_padding.argprom.exit, label %19
+  br i1 %18, label %add_extra_padding.exit, label %19
 
 19:                                               ; preds = %11
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef %17, i32 noundef 0) #8
@@ -6968,21 +6968,21 @@ define internal fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr no
   %22 = sub i32 0, %21
   %23 = and i32 %22, 7
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %add_extra_padding.argprom.exit, label %24
+  br i1 %.not.i, label %add_extra_padding.exit, label %24
 
 24:                                               ; preds = %19
   %25 = load i32, ptr @hf_lustre_extra_padding, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %25, ptr noundef %0, i32 noundef %21, i32 noundef %23, i32 noundef 0) #8
   %27 = add i32 %23, %21
-  br label %add_extra_padding.argprom.exit
+  br label %add_extra_padding.exit
 
-add_extra_padding.argprom.exit:                   ; preds = %5, %24, %19, %11
+add_extra_padding.exit:                           ; preds = %5, %24, %19, %11
   %.0 = phi i32 [ %2, %11 ], [ %27, %24 ], [ %21, %19 ], [ %2, %5 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_generic_connect.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_generic_connect(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_lustre_target_uuid, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 40, i32 noundef 0) #8
   %6 = load i32, ptr @ett_lustre_obd_uuid, align 4
@@ -7004,12 +7004,12 @@ define internal fastcc noundef i32 @dissect_generic_connect.argprom(ptr noundef 
   %22 = load i32, ptr @hf_lustre_lustre_handle_cookie, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %17, i32 noundef 8, i32 noundef -2147483648) #8
   %24 = add i32 %1, 88
-  %25 = tail call fastcc i32 @dissect_struct_obd_connect_data.argprom(ptr noundef %0, i32 noundef %24, ptr noundef %2)
+  %25 = tail call fastcc i32 @dissect_struct_obd_connect_data(ptr noundef %0, i32 noundef %24, ptr noundef %2)
   ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_obd_connect_data.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_obd_connect_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_lustre_obd_connect_data, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0) #8
@@ -7433,15 +7433,15 @@ define internal fastcc i32 @dissect_struct_ldlm_lock_desc(ptr noundef %0, i32 no
   %111 = sub i32 0, %.1
   %112 = and i32 %111, 7
   %.not.i = icmp eq i32 %112, 0
-  br i1 %.not.i, label %add_extra_padding.argprom.exit, label %113
+  br i1 %.not.i, label %add_extra_padding.exit, label %113
 
 113:                                              ; preds = %110
   %114 = load i32, ptr @hf_lustre_extra_padding, align 4
   %115 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %114, ptr noundef %0, i32 noundef %.1, i32 noundef %112, i32 noundef 0) #8
   %116 = add i32 %112, %.1
-  br label %add_extra_padding.argprom.exit
+  br label %add_extra_padding.exit
 
-add_extra_padding.argprom.exit:                   ; preds = %110, %113
+add_extra_padding.exit:                           ; preds = %110, %113
   %.0.i = phi i32 [ %116, %113 ], [ %.1, %110 ]
   ret i32 %.0.i
 }
@@ -7625,7 +7625,7 @@ define internal fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 nounde
   %28 = select i1 %27, i32 0, i32 60
   %29 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %28) #8
   %.not.i = icmp ugt i32 %29, %4
-  br i1 %.not.i, label %30, label %dissect_struct_lmv_mds_md_v1.argprom.exit
+  br i1 %.not.i, label %30, label %dissect_struct_lmv_mds_md_v1.exit
 
 30:                                               ; preds = %24
   %31 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -7635,7 +7635,7 @@ define internal fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 nounde
   %35 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %34) #8
   store i32 %35, ptr %6, align 4
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %dissect_struct_lmv_mds_md_v1.argprom.exit, label %37
+  br i1 %36, label %dissect_struct_lmv_mds_md_v1.exit, label %37
 
 37:                                               ; preds = %30
   %38 = load i32, ptr @hf_lustre_lmv_mds_md, align 4
@@ -7689,16 +7689,16 @@ define internal fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 nounde
   %.056.lcssa.i = phi i32 [ %64, %37 ], [ %71, %.lr.ph.i ]
   %78 = sub i32 %.056.lcssa.i, %1
   call void @proto_item_set_len(ptr noundef %39, i32 noundef %78) #8
-  br label %dissect_struct_lmv_mds_md_v1.argprom.exit
+  br label %dissect_struct_lmv_mds_md_v1.exit
 
-dissect_struct_lmv_mds_md_v1.argprom.exit:        ; preds = %24, %30, %._crit_edge.i
+dissect_struct_lmv_mds_md_v1.exit:                ; preds = %24, %30, %._crit_edge.i
   %.055.i = phi i32 [ %.056.lcssa.i, %._crit_edge.i ], [ %1, %30 ], [ %1, %24 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %.thread
 
 79:                                               ; preds = %22
-  %80 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @.str.1762)
+  %80 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @.str.1762)
   br label %.thread
 
 81:                                               ; preds = %22
@@ -7838,20 +7838,20 @@ dissect_struct_lmv_mds_md_v1.argprom.exit:        ; preds = %24, %30, %._crit_ed
   call void @proto_item_set_len(ptr noundef %.0108118, i32 noundef %20) #8
   br label %.thread
 
-.thread:                                          ; preds = %5, %14, %175, %79, %dissect_struct_lmv_mds_md_v1.argprom.exit
-  %.0 = phi i32 [ %80, %79 ], [ %.055.i, %dissect_struct_lmv_mds_md_v1.argprom.exit ], [ %.2.lcssa, %175 ], [ %1, %14 ], [ %1, %5 ]
+.thread:                                          ; preds = %5, %14, %175, %79, %dissect_struct_lmv_mds_md_v1.exit
+  %.0 = phi i32 [ %80, %79 ], [ %.055.i, %dissect_struct_lmv_mds_md_v1.exit ], [ %.2.lcssa, %175 ], [ %1, %14 ], [ %1, %5 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_struct_acl.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 3, 5) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 3, 5) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
   %8 = select i1 %7, i32 0, i32 60
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %8) #8
   %.not = icmp ugt i32 %9, %3
-  br i1 %.not, label %10, label %add_extra_padding.argprom.exit
+  br i1 %.not, label %10, label %add_extra_padding.exit
 
 10:                                               ; preds = %4
   %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -7861,7 +7861,7 @@ define internal fastcc i32 @dissect_struct_acl.argprom(ptr noundef %0, i32 nound
   %15 = add nuw nsw i32 %13, %14
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %15) #8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %add_extra_padding.argprom.exit, label %18
+  br i1 %17, label %add_extra_padding.exit, label %18
 
 18:                                               ; preds = %10
   %19 = load i32, ptr @hf_lustre_acl, align 4
@@ -7874,15 +7874,15 @@ define internal fastcc i32 @dissect_struct_acl.argprom(ptr noundef %0, i32 nound
   %26 = sub i32 0, %25
   %27 = and i32 %26, 7
   %.not.i = icmp eq i32 %27, 0
-  br i1 %.not.i, label %add_extra_padding.argprom.exit, label %28
+  br i1 %.not.i, label %add_extra_padding.exit, label %28
 
 28:                                               ; preds = %18
   %29 = load i32, ptr @hf_lustre_extra_padding, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %25, i32 noundef %27, i32 noundef 0) #8
   %31 = add i32 %27, %25
-  br label %add_extra_padding.argprom.exit
+  br label %add_extra_padding.exit
 
-add_extra_padding.argprom.exit:                   ; preds = %4, %28, %18, %10
+add_extra_padding.exit:                           ; preds = %4, %28, %18, %10
   %.0 = phi i32 [ %1, %10 ], [ %31, %28 ], [ %25, %18 ], [ %1, %4 ]
   ret i32 %.0
 }
@@ -7944,7 +7944,7 @@ define internal fastcc noundef i32 @dissect_struct_mdt_rec_reint(ptr noundef %0,
   %10 = select i1 %9, i32 0, i32 60
   %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %10) #8
   %.not = icmp ugt i32 %11, %4
-  br i1 %.not, label %12, label %add_extra_padding.argprom.exit
+  br i1 %.not, label %12, label %add_extra_padding.exit
 
 12:                                               ; preds = %5
   %13 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -7954,7 +7954,7 @@ define internal fastcc noundef i32 @dissect_struct_mdt_rec_reint(ptr noundef %0,
   %17 = add nuw nsw i32 %15, %16
   %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %17) #8
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %add_extra_padding.argprom.exit, label %20
+  br i1 %19, label %add_extra_padding.exit, label %20
 
 20:                                               ; preds = %12
   %21 = load i32, ptr @hf_lustre_mdt_rec_reint, align 4
@@ -8185,15 +8185,15 @@ define internal fastcc noundef i32 @dissect_struct_mdt_rec_reint(ptr noundef %0,
   %184 = sub i32 4, %180
   %185 = and i32 %184, 7
   %.not.i = icmp eq i32 %185, 0
-  br i1 %.not.i, label %add_extra_padding.argprom.exit, label %186
+  br i1 %.not.i, label %add_extra_padding.exit, label %186
 
 186:                                              ; preds = %179
   %187 = load i32, ptr @hf_lustre_extra_padding, align 4
   %188 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %187, ptr noundef %0, i32 noundef %183, i32 noundef %185, i32 noundef 0) #8
   %189 = add i32 %185, %183
-  br label %add_extra_padding.argprom.exit
+  br label %add_extra_padding.exit
 
-add_extra_padding.argprom.exit:                   ; preds = %5, %186, %179, %12
+add_extra_padding.exit:                           ; preds = %5, %186, %179, %12
   %.0 = phi i32 [ %1, %12 ], [ %189, %186 ], [ %183, %179 ], [ %1, %5 ]
   ret i32 %.0
 }
@@ -8321,66 +8321,66 @@ define internal fastcc i32 @process_opcode_reint_req(ptr noundef %0, i32 noundef
 
 15:                                               ; preds = %12
   %16 = tail call fastcc i32 @dissect_struct_mdt_ioepoch(ptr noundef %0, i32 noundef %13, ptr noundef %3, i32 noundef 3)
-  %17 = tail call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %16, ptr noundef %3, i32 noundef 4)
+  %17 = tail call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %16, ptr noundef %3, i32 noundef 4)
   %18 = tail call fastcc i32 @dissect_struct_llog_cookie_array(ptr noundef %0, i32 noundef %17, ptr noundef %3, i32 noundef 5)
   %19 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 6)
   br label %66
 
 20:                                               ; preds = %12
   %21 = load i32, ptr @hf_lustre_filename, align 4
-  %22 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %13, i32 noundef %21, i32 noundef 3)
-  %23 = tail call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %22, ptr noundef %3, i32 noundef 4)
+  %22 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %13, i32 noundef %21, i32 noundef 3)
+  %23 = tail call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %22, ptr noundef %3, i32 noundef 4)
   %24 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 5)
   %25 = load i32, ptr @hf_lustre_secctx_name, align 4
-  %26 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %24, i32 noundef %25, i32 noundef 6)
-  %27 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %26, ptr noundef %3, i32 noundef 7, ptr noundef nonnull @.str.1767)
+  %26 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %24, i32 noundef %25, i32 noundef 6)
+  %27 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %26, ptr noundef %3, i32 noundef 7, ptr noundef nonnull @.str.1767)
   br label %66
 
 28:                                               ; preds = %12
   %29 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %13, ptr noundef %3, i32 noundef 3)
   %30 = load i32, ptr @hf_lustre_filename, align 4
-  %31 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %29, i32 noundef %30, i32 noundef 4)
+  %31 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %29, i32 noundef %30, i32 noundef 4)
   %32 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 5)
   br label %66
 
 33:                                               ; preds = %12
   %34 = load i32, ptr @hf_lustre_filename, align 4
-  %35 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %13, i32 noundef %34, i32 noundef 3)
+  %35 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %13, i32 noundef %34, i32 noundef 3)
   %36 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 4)
   br label %66
 
 37:                                               ; preds = %12
   %38 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %13, ptr noundef %3, i32 noundef 3)
   %39 = load i32, ptr @hf_lustre_filename, align 4
-  %40 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %38, i32 noundef %39, i32 noundef 4)
+  %40 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %38, i32 noundef %39, i32 noundef 4)
   %41 = load i32, ptr @hf_lustre_target, align 4
-  %42 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %40, i32 noundef %41, i32 noundef 5)
+  %42 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %40, i32 noundef %41, i32 noundef 5)
   %43 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 6)
   br label %66
 
 44:                                               ; preds = %12
   %45 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %13, ptr noundef %3, i32 noundef 3)
   %46 = load i32, ptr @hf_lustre_filename, align 4
-  %47 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %45, i32 noundef %46, i32 noundef 4)
-  %48 = tail call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %47, ptr noundef %3, i32 noundef 5)
+  %47 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %45, i32 noundef %46, i32 noundef 4)
+  %48 = tail call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %47, ptr noundef %3, i32 noundef 5)
   %49 = load i32, ptr @hf_lustre_secctx_name, align 4
-  %50 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %48, i32 noundef %49, i32 noundef 6)
-  %51 = tail call fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %50, ptr noundef %3, i32 noundef 7, ptr noundef nonnull @.str.1767)
+  %50 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %48, i32 noundef %49, i32 noundef 6)
+  %51 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %50, ptr noundef %3, i32 noundef 7, ptr noundef nonnull @.str.1767)
   br label %66
 
 52:                                               ; preds = %12
   %53 = load i32, ptr @hf_lustre_filename, align 4
-  %54 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %13, i32 noundef %53, i32 noundef 3)
-  %55 = tail call fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %54, ptr noundef %3, i32 noundef 4)
+  %54 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %13, i32 noundef %53, i32 noundef 3)
+  %55 = tail call fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %54, ptr noundef %3, i32 noundef 4)
   %56 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 5)
   br label %66
 
 57:                                               ; preds = %12
   %58 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %13, ptr noundef %3, i32 noundef 3)
   %59 = load i32, ptr @hf_lustre_filename, align 4
-  %60 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %58, i32 noundef %59, i32 noundef 4)
+  %60 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %58, i32 noundef %59, i32 noundef 4)
   %61 = load i32, ptr @hf_lustre_secctx_name, align 4
-  %62 = tail call fastcc i32 @display_buffer_string.argprom(ptr noundef %0, ptr noundef %3, i32 noundef %60, i32 noundef %61, i32 noundef 5)
+  %62 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %60, i32 noundef %61, i32 noundef 5)
   %63 = tail call fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %62, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef 6)
   %64 = tail call fastcc i32 @dissect_struct_mdt_ioepoch(ptr noundef %0, i32 noundef %63, ptr noundef %3, i32 noundef 7)
   %65 = tail call fastcc i32 @dissect_struct_close_data(ptr noundef %0, i32 noundef %64, ptr noundef %3, i32 noundef 8)
@@ -8407,7 +8407,7 @@ define internal fastcc noundef i32 @process_opcode_reint_rep(ptr noundef %0, i32
 
 9:                                                ; preds = %5, %5
   %10 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %6, ptr noundef %2, ptr noundef %3, i32 noundef 2)
-  %11 = tail call fastcc i32 @dissect_struct_acl.argprom(ptr noundef %0, i32 noundef %10, ptr noundef %3, i32 noundef 3)
+  %11 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %10, ptr noundef %3, i32 noundef 3)
   %12 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %11, ptr noundef %3, i32 noundef 4)
   %13 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %12, ptr noundef %3, i32 noundef 5)
   br label %21
@@ -8429,14 +8429,14 @@ define internal fastcc noundef i32 @process_opcode_reint_rep(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 2, 8) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 2, 8) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
   %8 = select i1 %7, i32 0, i32 60
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %8) #8
   %.not = icmp ugt i32 %9, %3
-  br i1 %.not, label %10, label %add_extra_padding.argprom.exit
+  br i1 %.not, label %10, label %add_extra_padding.exit
 
 10:                                               ; preds = %4
   %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -8446,7 +8446,7 @@ define internal fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 no
   %15 = add nuw nsw i32 %13, %14
   %16 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %15) #8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %add_extra_padding.argprom.exit, label %18
+  br i1 %17, label %add_extra_padding.exit, label %18
 
 18:                                               ; preds = %10
   %19 = load i32, ptr @hf_lustre_eadata, align 4
@@ -8455,28 +8455,28 @@ define internal fastcc i32 @dissect_struct_eadata.argprom(ptr noundef %0, i32 no
   %22 = sub i32 0, %21
   %23 = and i32 %22, 7
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %add_extra_padding.argprom.exit, label %24
+  br i1 %.not.i, label %add_extra_padding.exit, label %24
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_lustre_extra_padding, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %21, i32 noundef %23, i32 noundef 0) #8
   %27 = add i32 %23, %21
-  br label %add_extra_padding.argprom.exit
+  br label %add_extra_padding.exit
 
-add_extra_padding.argprom.exit:                   ; preds = %4, %24, %18, %10
+add_extra_padding.exit:                           ; preds = %4, %24, %18, %10
   %.0 = phi i32 [ %1, %10 ], [ %27, %24 ], [ %21, %18 ], [ %1, %4 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 10) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 10) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %8 = icmp eq i32 %7, 198183891
   %9 = select i1 %8, i32 0, i32 60
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %9) #8
   %.not = icmp ugt i32 %10, %3
-  br i1 %.not, label %11, label %add_extra_padding.argprom.exit
+  br i1 %.not, label %11, label %add_extra_padding.exit
 
 11:                                               ; preds = %5
   %12 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -8486,7 +8486,7 @@ define internal fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noun
   %16 = add nuw nsw i32 %14, %15
   %17 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %16) #8
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %add_extra_padding.argprom.exit, label %19
+  br i1 %18, label %add_extra_padding.exit, label %19
 
 19:                                               ; preds = %11
   %20 = load i32, ptr @hf_lustre_data, align 4
@@ -8503,21 +8503,21 @@ define internal fastcc i32 @display_buffer_data.argprom(ptr noundef %0, i32 noun
   %25 = sub i32 0, %22
   %26 = and i32 %25, 7
   %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %add_extra_padding.argprom.exit, label %27
+  br i1 %.not.i, label %add_extra_padding.exit, label %27
 
 27:                                               ; preds = %24
   %28 = load i32, ptr @hf_lustre_extra_padding, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %22, i32 noundef %26, i32 noundef 0) #8
   %30 = add i32 %26, %22
-  br label %add_extra_padding.argprom.exit
+  br label %add_extra_padding.exit
 
-add_extra_padding.argprom.exit:                   ; preds = %5, %27, %24, %11
+add_extra_padding.exit:                           ; preds = %5, %27, %24, %11
   %.0 = phi i32 [ %1, %11 ], [ %30, %27 ], [ %22, %24 ], [ %1, %5 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_struct_hsm_user_state.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_hsm_user_state(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -8585,7 +8585,7 @@ define internal fastcc i32 @dissect_struct_hsm_user_state.argelim(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_hsm_state_set.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_hsm_state_set(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -8635,7 +8635,7 @@ define internal fastcc noundef i32 @dissect_struct_hsm_state_set.argelim(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_hsm_current_action.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_hsm_current_action(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = icmp eq i32 %5, 198183891
@@ -8744,7 +8744,7 @@ define internal fastcc noundef i32 @dissect_struct_hsm_request(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_hsm_user_item_array.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_hsm_user_item_array(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = icmp eq i32 %5, 198183891
@@ -8796,7 +8796,7 @@ define internal fastcc noundef i32 @dissect_struct_hsm_user_item_array.argelim(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_hsm_archive.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_hsm_archive(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = icmp eq i32 %5, 198183891
@@ -8837,21 +8837,21 @@ define internal fastcc i32 @dissect_hsm_archive.argelim(ptr noundef %0, i32 noun
   %26 = sub i32 0, %.024.lcssa
   %27 = and i32 %26, 7
   %.not.i = icmp eq i32 %27, 0
-  br i1 %.not.i, label %add_extra_padding.argprom.exit, label %28
+  br i1 %.not.i, label %add_extra_padding.exit, label %28
 
 28:                                               ; preds = %._crit_edge
   %29 = load i32, ptr @hf_lustre_extra_padding, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %29, ptr noundef %0, i32 noundef %.024.lcssa, i32 noundef %27, i32 noundef 0) #8
   %31 = add i32 %27, %.024.lcssa
-  br label %add_extra_padding.argprom.exit
+  br label %add_extra_padding.exit
 
-add_extra_padding.argprom.exit:                   ; preds = %._crit_edge, %28
+add_extra_padding.exit:                           ; preds = %._crit_edge, %28
   %.0.i = phi i32 [ %31, %28 ], [ %.024.lcssa, %._crit_edge ]
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_mdc_swap_layouts.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_mdc_swap_layouts(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = icmp eq i32 %5, 198183891
@@ -8911,7 +8911,7 @@ define internal fastcc noundef i32 @dissect_struct_llog_logid(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_ldlm_reply.argprom.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_ldlm_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -9046,7 +9046,7 @@ declare i32 @lnet_dissect_struct_nid(ptr noundef, ptr noundef, i32 noundef, i32 
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_llogd_body.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_llogd_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = icmp eq i32 %5, 198183891
@@ -9274,7 +9274,7 @@ define internal fastcc noundef i32 @dissect_struct_seq_range(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_lfsck_request.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_lfsck_request(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8

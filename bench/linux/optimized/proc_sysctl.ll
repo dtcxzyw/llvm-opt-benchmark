@@ -3359,7 +3359,7 @@ define internal i32 @proc_sys_readdir(ptr nocapture noundef readonly %0, ptr nou
 
 91:                                               ; preds = %84
   %.val = load ptr, ptr %74, align 8
-  %92 = tail call fastcc zeroext i1 @proc_sys_fill_cache.argprom(ptr %.val, ptr noundef %1, ptr noundef nonnull %80, ptr noundef %79)
+  %92 = tail call fastcc zeroext i1 @proc_sys_fill_cache(ptr %.val, ptr noundef %1, ptr noundef nonnull %80, ptr noundef %79)
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %91, %89
@@ -3519,7 +3519,7 @@ define internal fastcc zeroext i1 @proc_sys_link_fill_cache(ptr nocapture nounde
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr i8, ptr %0, i64 160
   %.val = load ptr, ptr %21, align 8
-  %22 = tail call fastcc zeroext i1 @proc_sys_fill_cache.argprom(ptr %.val, ptr noundef %1, ptr noundef %18, ptr noundef %20)
+  %22 = tail call fastcc zeroext i1 @proc_sys_fill_cache(ptr %.val, ptr noundef %1, ptr noundef %18, ptr noundef %20)
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %15, %19
@@ -3557,7 +3557,7 @@ thread-pre-split:                                 ; preds = %15, %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @proc_sys_fill_cache.argprom(ptr %.160.val, ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @proc_sys_fill_cache(ptr %.160.val, ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.qstr, align 8
   %5 = alloca %struct.wait_queue_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19

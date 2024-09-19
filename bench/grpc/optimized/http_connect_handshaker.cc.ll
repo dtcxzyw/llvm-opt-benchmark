@@ -204,22 +204,22 @@ _ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_121HttpConnectHandshakerEJEEENS_13
 invoke.cont:                                      ; preds = %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_121HttpConnectHandshakerEJEEENS_13RefCountedPtrIT_EEDpOT0_.exit
   %3 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121HttpConnectHandshakerEED2Ev.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121HttpConnectHandshakerEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
   %refs_.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %4, 1
-  br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121HttpConnectHandshakerEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121HttpConnectHandshakerEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
-  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121HttpConnectHandshakerEED2Ev.argprom.exit
+  br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121HttpConnectHandshakerEED2Ev.exit
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121HttpConnectHandshakerEED2Ev.argprom.exit: ; preds = %if.then.i.i, %if.then.i, %invoke.cont
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121HttpConnectHandshakerEED2Ev.exit: ; preds = %if.then.i.i, %if.then.i, %invoke.cont
   ret void
 
 lpad:                                             ; preds = %_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_121HttpConnectHandshakerEJEEENS_13RefCountedPtrIT_EEDpOT0_.exit

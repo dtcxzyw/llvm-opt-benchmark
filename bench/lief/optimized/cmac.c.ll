@@ -601,52 +601,52 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_cmac_self_test(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call fastcc i32 @cmac_test_subkeys.argelim(i32 noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @aes_128_key, i32 noundef 128, ptr noundef nonnull @aes_128_subkeys, i32 noundef 2, i32 noundef 16)
+  %2 = tail call fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @aes_128_key, i32 noundef 128, ptr noundef nonnull @aes_128_subkeys, i32 noundef 2, i32 noundef 16)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %25
 
 3:                                                ; preds = %1
-  %4 = tail call fastcc i32 @cmac_test_wth_cipher.argprom.argelim(i32 noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @aes_128_key, i32 noundef 128, ptr noundef nonnull @aes_message_lengths, ptr noundef nonnull @aes_128_expected_result, i32 noundef 2, i32 noundef 16)
+  %4 = tail call fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @aes_128_key, i32 noundef 128, ptr noundef nonnull @aes_message_lengths, ptr noundef nonnull @aes_128_expected_result, i32 noundef 2, i32 noundef 16)
   %.not35 = icmp eq i32 %4, 0
   br i1 %.not35, label %5, label %25
 
 5:                                                ; preds = %3
-  %6 = tail call fastcc i32 @cmac_test_subkeys.argelim(i32 noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @aes_192_key, i32 noundef 192, ptr noundef nonnull @aes_192_subkeys, i32 noundef 3, i32 noundef 16)
+  %6 = tail call fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @aes_192_key, i32 noundef 192, ptr noundef nonnull @aes_192_subkeys, i32 noundef 3, i32 noundef 16)
   %.not36 = icmp eq i32 %6, 0
   br i1 %.not36, label %7, label %25
 
 7:                                                ; preds = %5
-  %8 = tail call fastcc i32 @cmac_test_wth_cipher.argprom.argelim(i32 noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @aes_192_key, i32 noundef 192, ptr noundef nonnull @aes_message_lengths, ptr noundef nonnull @aes_192_expected_result, i32 noundef 3, i32 noundef 16)
+  %8 = tail call fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @aes_192_key, i32 noundef 192, ptr noundef nonnull @aes_message_lengths, ptr noundef nonnull @aes_192_expected_result, i32 noundef 3, i32 noundef 16)
   %.not37 = icmp eq i32 %8, 0
   br i1 %.not37, label %9, label %25
 
 9:                                                ; preds = %7
-  %10 = tail call fastcc i32 @cmac_test_subkeys.argelim(i32 noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @aes_256_key, i32 noundef 256, ptr noundef nonnull @aes_256_subkeys, i32 noundef 4, i32 noundef 16)
+  %10 = tail call fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @aes_256_key, i32 noundef 256, ptr noundef nonnull @aes_256_subkeys, i32 noundef 4, i32 noundef 16)
   %.not38 = icmp eq i32 %10, 0
   br i1 %.not38, label %11, label %25
 
 11:                                               ; preds = %9
-  %12 = tail call fastcc i32 @cmac_test_wth_cipher.argprom.argelim(i32 noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @aes_256_key, i32 noundef 256, ptr noundef nonnull @aes_message_lengths, ptr noundef nonnull @aes_256_expected_result, i32 noundef 4, i32 noundef 16)
+  %12 = tail call fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @aes_256_key, i32 noundef 256, ptr noundef nonnull @aes_message_lengths, ptr noundef nonnull @aes_256_expected_result, i32 noundef 4, i32 noundef 16)
   %.not39 = icmp eq i32 %12, 0
   br i1 %.not39, label %13, label %25
 
 13:                                               ; preds = %11
-  %14 = tail call fastcc i32 @cmac_test_subkeys.argelim(i32 noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @des3_2key_key, i32 noundef 192, ptr noundef nonnull @des3_2key_subkeys, i32 noundef 36, i32 noundef 8)
+  %14 = tail call fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @des3_2key_key, i32 noundef 192, ptr noundef nonnull @des3_2key_subkeys, i32 noundef 36, i32 noundef 8)
   %.not40 = icmp eq i32 %14, 0
   br i1 %.not40, label %15, label %25
 
 15:                                               ; preds = %13
-  %16 = tail call fastcc i32 @cmac_test_wth_cipher.argprom.argelim(i32 noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @des3_2key_key, i32 noundef 192, ptr noundef nonnull @des3_message_lengths, ptr noundef nonnull @des3_2key_expected_result, i32 noundef 36, i32 noundef 8)
+  %16 = tail call fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @des3_2key_key, i32 noundef 192, ptr noundef nonnull @des3_message_lengths, ptr noundef nonnull @des3_2key_expected_result, i32 noundef 36, i32 noundef 8)
   %.not41 = icmp eq i32 %16, 0
   br i1 %.not41, label %17, label %25
 
 17:                                               ; preds = %15
-  %18 = tail call fastcc i32 @cmac_test_subkeys.argelim(i32 noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @des3_3key_key, i32 noundef 192, ptr noundef nonnull @des3_3key_subkeys, i32 noundef 36, i32 noundef 8)
+  %18 = tail call fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @des3_3key_key, i32 noundef 192, ptr noundef nonnull @des3_3key_subkeys, i32 noundef 36, i32 noundef 8)
   %.not42 = icmp eq i32 %18, 0
   br i1 %.not42, label %19, label %25
 
 19:                                               ; preds = %17
-  %20 = tail call fastcc i32 @cmac_test_wth_cipher.argprom.argelim(i32 noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @des3_3key_key, i32 noundef 192, ptr noundef nonnull @des3_message_lengths, ptr noundef nonnull @des3_3key_expected_result, i32 noundef 36, i32 noundef 8)
+  %20 = tail call fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @des3_3key_key, i32 noundef 192, ptr noundef nonnull @des3_message_lengths, ptr noundef nonnull @des3_3key_expected_result, i32 noundef 36, i32 noundef 8)
   %.not43 = icmp eq i32 %20, 0
   br i1 %.not43, label %21, label %25
 
@@ -669,7 +669,7 @@ define hidden i32 @mbedtls_cmac_self_test(i32 noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmac_test_subkeys.argelim(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 128, 257) %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 2, 37) %5, i32 noundef range(i32 8, 17) %6) unnamed_addr #0 {
+define internal fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 128, 257) %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 2, 37) %5, i32 noundef range(i32 8, 17) %6) unnamed_addr #0 {
   %8 = alloca %struct.mbedtls_cipher_context_t, align 8
   %9 = alloca [16 x i8], align 16
   %10 = alloca [16 x i8], align 16
@@ -773,7 +773,7 @@ define internal fastcc i32 @cmac_test_subkeys.argelim(i32 noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmac_test_wth_cipher.argprom.argelim(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 128, 257) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 2, 37) %6, i32 noundef range(i32 8, 17) %7) unnamed_addr #0 {
+define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 128, 257) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 2, 37) %6, i32 noundef range(i32 8, 17) %7) unnamed_addr #0 {
   %9 = alloca [16 x i8], align 16
   %10 = tail call ptr @mbedtls_cipher_info_from_type(i32 noundef %6) #10
   %11 = icmp eq ptr %10, null

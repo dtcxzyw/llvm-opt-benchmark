@@ -1857,14 +1857,14 @@ define internal i32 @dissect_isi_network(ptr noundef %0, ptr noundef %1, ptr nou
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   switch i8 %11, label %91 [
-    i8 7, label %dissect_isi_network_status.argprom.exit.sink.split
+    i8 7, label %dissect_isi_network_status.exit.sink.split
     i8 32, label %14
     i8 -30, label %15
     i8 66, label %52
   ]
 
 14:                                               ; preds = %4
-  br label %dissect_isi_network_status.argprom.exit.sink.split
+  br label %dissect_isi_network_status.exit.sink.split
 
 15:                                               ; preds = %4
   tail call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.611) #2
@@ -1873,7 +1873,7 @@ define internal i32 @dissect_isi_network(ptr noundef %0, ptr noundef %1, ptr nou
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %17, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %19 = zext i8 %16 to i32
   %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %dissect_isi_network_status.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i, label %dissect_isi_network_status.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %49
   %.02.i = phi i32 [ %51, %49 ], [ 0, %15 ]
@@ -1920,7 +1920,7 @@ define internal i32 @dissect_isi_network(ptr noundef %0, ptr noundef %1, ptr nou
   %50 = add i32 %.0391.i, %23
   %51 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %51, %19
-  br i1 %exitcond.not.i, label %dissect_isi_network_status.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %dissect_isi_network_status.exit, label %.lr.ph.i, !llvm.loop !4
 
 52:                                               ; preds = %4
   tail call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.612) #2
@@ -1929,7 +1929,7 @@ define internal i32 @dissect_isi_network(ptr noundef %0, ptr noundef %1, ptr nou
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %54, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %56 = zext i8 %53 to i32
   %.not.i26 = icmp eq i8 %53, 0
-  br i1 %.not.i26, label %dissect_isi_network_status.argprom.exit, label %.lr.ph.i27
+  br i1 %.not.i26, label %dissect_isi_network_status.exit, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %52, %88
   %.044.i = phi i32 [ %90, %88 ], [ 0, %52 ]
@@ -1983,18 +1983,18 @@ define internal i32 @dissect_isi_network(ptr noundef %0, ptr noundef %1, ptr nou
   %89 = add i32 %.04243.i, %60
   %90 = add nuw nsw i32 %.044.i, 1
   %exitcond.not.i28 = icmp eq i32 %90, %56
-  br i1 %exitcond.not.i28, label %dissect_isi_network_status.argprom.exit, label %.lr.ph.i27, !llvm.loop !6
+  br i1 %exitcond.not.i28, label %dissect_isi_network_status.exit, label %.lr.ph.i27, !llvm.loop !6
 
 91:                                               ; preds = %4
-  br label %dissect_isi_network_status.argprom.exit.sink.split
+  br label %dissect_isi_network_status.exit.sink.split
 
-dissect_isi_network_status.argprom.exit.sink.split: ; preds = %4, %14, %91
+dissect_isi_network_status.exit.sink.split:       ; preds = %4, %14, %91
   %.str.613.sink = phi ptr [ @.str.613, %91 ], [ @.str.610, %14 ], [ @.str.609, %4 ]
   tail call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull %.str.613.sink) #2
   %92 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %6, ptr noundef nonnull @ei_isi_unsupported_packet) #2
-  br label %dissect_isi_network_status.argprom.exit
+  br label %dissect_isi_network_status.exit
 
-dissect_isi_network_status.argprom.exit:          ; preds = %88, %49, %dissect_isi_network_status.argprom.exit.sink.split, %52, %15
+dissect_isi_network_status.exit:                  ; preds = %88, %49, %dissect_isi_network_status.exit.sink.split, %52, %15
   %93 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %93
 }
@@ -2148,25 +2148,25 @@ define internal i32 @dissect_isi_gps(ptr noundef %0, ptr nocapture noundef reado
   %19 = zext i8 %18 to i32
   %20 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @isi_gps_status, ptr noundef nonnull @.str.623) #2
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.622, ptr noundef %20) #2
-  br label %dissect_isi_gps_data.argprom.exit
+  br label %dissect_isi_gps_data.exit
 
 21:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.624, i32 noundef %12) #2
-  br label %dissect_isi_gps_data.argprom.exit
+  br label %dissect_isi_gps_data.exit
 
 24:                                               ; preds = %4
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @col_set_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.625) #2
-  br label %dissect_isi_gps_data.argprom.exit
+  br label %dissect_isi_gps_data.exit
 
 27:                                               ; preds = %4
   %28 = getelementptr inbounds i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @col_set_str(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.626) #2
-  br label %dissect_isi_gps_data.argprom.exit
+  br label %dissect_isi_gps_data.exit
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2177,7 +2177,7 @@ define internal i32 @dissect_isi_gps(ptr noundef %0, ptr nocapture noundef reado
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %34, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #2
   %36 = zext i8 %33 to i32
   %.not.i = icmp eq i8 %33, 0
-  br i1 %.not.i, label %dissect_isi_gps_data.argprom.exit, label %.lr.ph4.i
+  br i1 %.not.i, label %dissect_isi_gps_data.exit, label %.lr.ph4.i
 
 .lr.ph4.i:                                        ; preds = %30, %.loopexit.i
   %.03.i = phi i32 [ %218, %.loopexit.i ], [ 0, %30 ]
@@ -2397,15 +2397,15 @@ define internal i32 @dissect_isi_gps(ptr noundef %0, ptr nocapture noundef reado
   %217 = add i32 %.01792.i, %41
   %218 = add nuw nsw i32 %.03.i, 1
   %exitcond6.not.i = icmp eq i32 %218, %36
-  br i1 %exitcond6.not.i, label %dissect_isi_gps_data.argprom.exit, label %.lr.ph4.i, !llvm.loop !8
+  br i1 %exitcond6.not.i, label %dissect_isi_gps_data.exit, label %.lr.ph4.i, !llvm.loop !8
 
 219:                                              ; preds = %4
   %220 = getelementptr inbounds i8, ptr %1, i64 8
   %221 = load ptr, ptr %220, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %221, i32 noundef 25, ptr noundef nonnull @.str.628, i32 noundef %12) #2
-  br label %dissect_isi_gps_data.argprom.exit
+  br label %dissect_isi_gps_data.exit
 
-dissect_isi_gps_data.argprom.exit:                ; preds = %.loopexit.i, %30, %219, %27, %24, %21, %13
+dissect_isi_gps_data.exit:                        ; preds = %.loopexit.i, %30, %219, %27, %24, %21, %13
   %222 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %222
 }

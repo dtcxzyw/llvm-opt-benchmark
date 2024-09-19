@@ -141,7 +141,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
 71:                                               ; preds = %65, %63
   %72 = phi i32 [ %52, %65 ], [ %49, %63 ]
   %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %prev_badblocks.argprom.exit.thread7, label %.thread.i
+  br i1 %73, label %prev_badblocks.exit.thread7, label %.thread.i
 
 .thread.i:                                        ; preds = %57, %54, %50, %71, %..thread_crit_edge.i
   %74 = phi ptr [ %.pre.i, %..thread_crit_edge.i ], [ %46, %71 ], [ %46, %50 ], [ %46, %54 ], [ %46, %57 ]
@@ -149,7 +149,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   %76 = lshr i64 %75, 9
   %77 = and i64 %76, 18014398509481983
   %78 = icmp ugt i64 %77, %38
-  br i1 %78, label %prev_badblocks.argprom.exit.thread, label %79
+  br i1 %78, label %prev_badblocks.exit.thread, label %79
 
 79:                                               ; preds = %.thread.i
   %80 = add i32 %40, -1
@@ -159,7 +159,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   %84 = lshr i64 %83, 9
   %85 = and i64 %84, 18014398509481983
   %86 = icmp ugt i64 %85, %38
-  br i1 %86, label %.preheader.i, label %prev_badblocks.argprom.exit
+  br i1 %86, label %.preheader.i, label %prev_badblocks.exit
 
 .preheader.i:                                     ; preds = %79, %91
   %87 = phi i32 [ %101, %91 ], [ 0, %79 ]
@@ -181,7 +181,7 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   %101 = select i1 %100, i32 %93, i32 %87
   %102 = icmp ugt i64 %98, %38
   %103 = select i1 %102, i32 %93, i32 %88
-  br i1 %99, label %prev_badblocks.argprom.exit, label %.preheader.i
+  br i1 %99, label %prev_badblocks.exit, label %.preheader.i
 
 104:                                              ; preds = %.preheader.i
   %105 = sext i32 %87 to i64
@@ -190,16 +190,16 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   %108 = lshr i64 %107, 9
   %109 = and i64 %108, 18014398509481983
   %110 = icmp ugt i64 %109, %38
-  br i1 %110, label %prev_badblocks.argprom.exit.thread, label %prev_badblocks.argprom.exit
+  br i1 %110, label %prev_badblocks.exit.thread, label %prev_badblocks.exit
 
-prev_badblocks.argprom.exit:                      ; preds = %91, %104, %79
+prev_badblocks.exit:                              ; preds = %91, %104, %79
   %111 = phi i32 [ %80, %79 ], [ %87, %104 ], [ %93, %91 ]
   %112 = icmp sgt i32 %111, -1
-  br i1 %112, label %prev_badblocks.argprom.exit.thread7, label %prev_badblocks.argprom.exit.thread
+  br i1 %112, label %prev_badblocks.exit.thread7, label %prev_badblocks.exit.thread
 
-prev_badblocks.argprom.exit.thread7:              ; preds = %71, %prev_badblocks.argprom.exit
-  %113 = phi ptr [ %74, %prev_badblocks.argprom.exit ], [ %46, %71 ]
-  %114 = phi i32 [ %111, %prev_badblocks.argprom.exit ], [ %72, %71 ]
+prev_badblocks.exit.thread7:                      ; preds = %71, %prev_badblocks.exit
+  %113 = phi ptr [ %74, %prev_badblocks.exit ], [ %46, %71 ]
+  %114 = phi i32 [ %111, %prev_badblocks.exit ], [ %72, %71 ]
   %115 = add nuw i32 %114, 1
   %116 = icmp slt i32 %115, %40
   %.phi.trans.insert = zext nneg i32 %114 to i64
@@ -207,9 +207,9 @@ prev_badblocks.argprom.exit.thread7:              ; preds = %71, %prev_badblocks
   %.pre = load i64, ptr %.phi.trans.insert33, align 8
   %.pre35 = lshr i64 %.pre, 9
   %.pre37 = and i64 %.pre35, 18014398509481983
-  br i1 %116, label %prev_badblocks.argprom.exit.thread7._crit_edge, label %117
+  br i1 %116, label %prev_badblocks.exit.thread7._crit_edge, label %117
 
-117:                                              ; preds = %prev_badblocks.argprom.exit.thread7
+117:                                              ; preds = %prev_badblocks.exit.thread7
   %118 = icmp ult i64 %38, %.pre37
   br i1 %118, label %175, label %119
 
@@ -218,18 +218,18 @@ prev_badblocks.argprom.exit.thread7:              ; preds = %71, %prev_badblocks
   %121 = add nuw nsw i64 %120, 1
   %122 = add nuw nsw i64 %121, %.pre37
   %123 = icmp ult i64 %38, %122
-  br i1 %123, label %prev_badblocks.argprom.exit.thread7._crit_edge, label %175
+  br i1 %123, label %prev_badblocks.exit.thread7._crit_edge, label %175
 
-prev_badblocks.argprom.exit.thread7._crit_edge:   ; preds = %prev_badblocks.argprom.exit.thread7, %119
+prev_badblocks.exit.thread7._crit_edge:           ; preds = %prev_badblocks.exit.thread7, %119
   %124 = icmp ult i64 %38, %.pre37
-  br i1 %124, label %prev_badblocks.argprom.exit.thread, label %125
+  br i1 %124, label %prev_badblocks.exit.thread, label %125
 
-125:                                              ; preds = %prev_badblocks.argprom.exit.thread7._crit_edge
+125:                                              ; preds = %prev_badblocks.exit.thread7._crit_edge
   %126 = and i64 %.pre, 511
   %127 = add nuw nsw i64 %126, 1
   %128 = add nuw nsw i64 %127, %.pre37
   %129 = icmp ult i64 %38, %128
-  br i1 %129, label %130, label %prev_badblocks.argprom.exit.thread
+  br i1 %129, label %130, label %prev_badblocks.exit.thread
 
 130:                                              ; preds = %125
   %131 = getelementptr i64, ptr %28, i64 %.phi.trans.insert
@@ -262,14 +262,14 @@ prev_badblocks.argprom.exit.thread7._crit_edge:   ; preds = %prev_badblocks.argp
   store i32 %154, ptr %4, align 4
   br label %175
 
-prev_badblocks.argprom.exit.thread:               ; preds = %104, %.thread.i, %125, %prev_badblocks.argprom.exit.thread7._crit_edge, %prev_badblocks.argprom.exit
-  %155 = phi ptr [ %113, %125 ], [ %113, %prev_badblocks.argprom.exit.thread7._crit_edge ], [ %74, %prev_badblocks.argprom.exit ], [ %74, %.thread.i ], [ %74, %104 ]
-  %156 = phi i32 [ %114, %125 ], [ %114, %prev_badblocks.argprom.exit.thread7._crit_edge ], [ %111, %prev_badblocks.argprom.exit ], [ -1, %.thread.i ], [ -1, %104 ]
+prev_badblocks.exit.thread:                       ; preds = %104, %.thread.i, %125, %prev_badblocks.exit.thread7._crit_edge, %prev_badblocks.exit
+  %155 = phi ptr [ %113, %125 ], [ %113, %prev_badblocks.exit.thread7._crit_edge ], [ %74, %prev_badblocks.exit ], [ %74, %.thread.i ], [ %74, %104 ]
+  %156 = phi i32 [ %114, %125 ], [ %114, %prev_badblocks.exit.thread7._crit_edge ], [ %111, %prev_badblocks.exit ], [ -1, %.thread.i ], [ -1, %104 ]
   %157 = add i32 %156, 1
   %158 = icmp slt i32 %157, %40
   br i1 %158, label %159, label %175
 
-159:                                              ; preds = %prev_badblocks.argprom.exit.thread
+159:                                              ; preds = %prev_badblocks.exit.thread
   %160 = sext i32 %157 to i64
   %161 = getelementptr i64, ptr %155, i64 %160
   %162 = load i64, ptr %161, align 8
@@ -289,12 +289,12 @@ prev_badblocks.argprom.exit.thread:               ; preds = %104, %.thread.i, %1
   %174 = trunc i64 %173 to i32
   br label %175
 
-175:                                              ; preds = %169, %159, %prev_badblocks.argprom.exit.thread, %150, %130, %119, %117, %.split
-  %176 = phi i32 [ %148, %150 ], [ %148, %130 ], [ %174, %169 ], [ %37, %.split ], [ %37, %prev_badblocks.argprom.exit.thread ], [ %37, %119 ], [ %37, %117 ], [ %37, %159 ]
-  %177 = phi i32 [ 1, %150 ], [ 1, %130 ], [ %33, %169 ], [ %33, %.split ], [ %33, %prev_badblocks.argprom.exit.thread ], [ %33, %119 ], [ %33, %117 ], [ %33, %159 ]
-  %178 = phi i32 [ %34, %150 ], [ %34, %130 ], [ %157, %169 ], [ %34, %.split ], [ %34, %prev_badblocks.argprom.exit.thread ], [ %34, %119 ], [ %34, %117 ], [ %34, %159 ]
-  %179 = phi i32 [ %136, %150 ], [ %136, %130 ], [ %35, %169 ], [ %35, %.split ], [ %35, %prev_badblocks.argprom.exit.thread ], [ %35, %119 ], [ %35, %117 ], [ %35, %159 ]
-  %180 = phi i32 [ %138, %150 ], [ %138, %130 ], [ %36, %169 ], [ %36, %.split ], [ %36, %prev_badblocks.argprom.exit.thread ], [ %36, %119 ], [ %36, %117 ], [ %36, %159 ]
+175:                                              ; preds = %169, %159, %prev_badblocks.exit.thread, %150, %130, %119, %117, %.split
+  %176 = phi i32 [ %148, %150 ], [ %148, %130 ], [ %174, %169 ], [ %37, %.split ], [ %37, %prev_badblocks.exit.thread ], [ %37, %119 ], [ %37, %117 ], [ %37, %159 ]
+  %177 = phi i32 [ 1, %150 ], [ 1, %130 ], [ %33, %169 ], [ %33, %.split ], [ %33, %prev_badblocks.exit.thread ], [ %33, %119 ], [ %33, %117 ], [ %33, %159 ]
+  %178 = phi i32 [ %34, %150 ], [ %34, %130 ], [ %157, %169 ], [ %34, %.split ], [ %34, %prev_badblocks.exit.thread ], [ %34, %119 ], [ %34, %117 ], [ %34, %159 ]
+  %179 = phi i32 [ %136, %150 ], [ %136, %130 ], [ %35, %169 ], [ %35, %.split ], [ %35, %prev_badblocks.exit.thread ], [ %35, %119 ], [ %35, %117 ], [ %35, %159 ]
+  %180 = phi i32 [ %138, %150 ], [ %138, %130 ], [ %36, %169 ], [ %36, %.split ], [ %36, %prev_badblocks.exit.thread ], [ %36, %119 ], [ %36, %117 ], [ %36, %159 ]
   %181 = sext i32 %176 to i64
   %182 = add i64 %38, %181
   %183 = sub i32 %37, %176
@@ -389,7 +389,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   br label %437
 
 47:                                               ; preds = %26
-  %48 = tail call fastcc i32 @prev_badblocks.argprom(ptr noundef %0, i64 %32, i32 noundef %27)
+  %48 = tail call fastcc i32 @prev_badblocks(ptr noundef %0, i64 %32, i32 noundef %27)
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %50, label %109
 
@@ -1172,7 +1172,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
   br label %192
 
 28:                                               ; preds = %.split
-  %29 = tail call fastcc i32 @prev_badblocks.argprom(ptr noundef %0, i64 %23, i32 noundef %21)
+  %29 = tail call fastcc i32 @prev_badblocks(ptr noundef %0, i64 %23, i32 noundef %21)
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %49
 
@@ -1878,7 +1878,7 @@ declare dso_local void @devm_kfree(ptr noundef, ptr noundef) local_unnamed_addr 
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc i32 @prev_badblocks.argprom(ptr nocapture noundef readonly %0, i64 %.0.val, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc i32 @prev_badblocks(ptr nocapture noundef readonly %0, i64 %.0.val, i32 noundef %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0

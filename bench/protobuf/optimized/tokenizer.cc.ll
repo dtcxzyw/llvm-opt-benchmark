@@ -1345,7 +1345,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #22
-  br label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.argprom.exit
+  br label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %if.then.i18
   %10 = landingpad { ptr, i32 }
@@ -1453,7 +1453,7 @@ _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit: ; preds = %if.then15.i, %_ZN6g
   br i1 %or.cond.i4.i, label %do.body.i.backedge, label %switch.early.test4.i
 
 switch.early.test4.i:                             ; preds = %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit
-  switch i8 %.fr6.i, label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.argprom.exit [
+  switch i8 %.fr6.i, label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit [
     i8 102, label %do.body.i.backedge
     i8 101, label %do.body.i.backedge
     i8 100, label %do.body.i.backedge
@@ -1471,7 +1471,7 @@ switch.early.test4.i:                             ; preds = %_ZN6google8protobuf
 do.body.i.backedge:                               ; preds = %switch.early.test4.i, %switch.early.test4.i, %switch.early.test4.i, %switch.early.test4.i, %switch.early.test4.i, %switch.early.test4.i, %switch.early.test4.i, %switch.early.test4.i, %switch.early.test4.i, %switch.early.test4.i, %switch.early.test4.i, %switch.early.test4.i, %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit
   br label %do.body.i
 
-_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.argprom.exit: ; preds = %switch.early.test4.i, %invoke.cont4.i
+_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit: ; preds = %switch.early.test4.i, %invoke.cont4.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
   br label %if.end36
@@ -1646,7 +1646,7 @@ invoke.cont.i62:                                  ; preds = %.noexc.i60
 invoke.cont4.i70:                                 ; preds = %invoke.cont.i62
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i51) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i52) #22
-  br label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.argprom.exit
+  br label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit
 
 lpad.i56:                                         ; preds = %call.i.noexc.i59, %if.then.i54
   %72 = landingpad { ptr, i32 }
@@ -1664,15 +1664,15 @@ do.body.i71:                                      ; preds = %lor.end, %do.body.i
   %74 = load i8, ptr %current_char_.i35, align 8
   %75 = add i8 %74, -48
   %76 = icmp ult i8 %75, 10
-  br i1 %76, label %do.body.i71, label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.argprom.exit, !llvm.loop !9
+  br i1 %76, label %do.body.i71, label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit, !llvm.loop !9
 
-_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.argprom.exit: ; preds = %do.body.i71, %invoke.cont4.i70
+_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit: ; preds = %do.body.i71, %invoke.cont4.i70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i51)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i52)
   br label %if.end27
 
-if.end27:                                         ; preds = %if.end20, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.argprom.exit
-  %is_float.2 = phi i8 [ 1, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.argprom.exit ], [ %is_float.1, %if.end20 ]
+if.end27:                                         ; preds = %if.end20, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit
+  %is_float.2 = phi i8 [ 1, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_15DigitEEEvPKc.exit ], [ %is_float.1, %if.end20 ]
   %allow_f_after_float_ = getelementptr inbounds i8, ptr %this, i64 180
   %77 = load i8, ptr %allow_f_after_float_, align 4
   %tobool28 = trunc i8 %77 to i1
@@ -1693,8 +1693,8 @@ _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread: ; preds = %land.lh
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
   br label %if.end36
 
-if.end36:                                         ; preds = %while.body.i21, %land.lhs.true29, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit75.thread, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread, %invoke.cont12, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit, %if.end27, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.argprom.exit
-  %is_float.0 = phi i8 [ 0, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.argprom.exit ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit ], [ %is_float.2, %if.end27 ], [ 0, %invoke.cont12 ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit75.thread ], [ %is_float.2, %land.lhs.true29 ], [ 0, %while.body.i21 ]
+if.end36:                                         ; preds = %while.body.i21, %land.lhs.true29, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit75.thread, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread, %invoke.cont12, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit, %if.end27, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit
+  %is_float.0 = phi i8 [ 0, %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit ], [ 0, %_ZN6google8protobuf2io9Tokenizer17ConsumeZeroOrMoreINS1_12_GLOBAL__N_110OctalDigitEEEvv.exit ], [ %is_float.2, %if.end27 ], [ 0, %invoke.cont12 ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit79.thread ], [ 1, %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit75.thread ], [ %is_float.2, %land.lhs.true29 ], [ 0, %while.body.i21 ]
   %79 = getelementptr inbounds i8, ptr %this, i64 128
   %this.val12 = load i8, ptr %79, align 8
   %80 = and i8 %this.val12, -33

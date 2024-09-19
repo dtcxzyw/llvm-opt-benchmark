@@ -320,7 +320,7 @@ define void @update_xz_tilde(ptr nocapture noundef readonly %0, i64 noundef %1) 
   %24 = getelementptr inbounds i8, ptr %4, i64 104
   %25 = load ptr, ptr %24, align 8
   tail call void @OSQPVectorf_add_scaled(ptr noundef %23, double noundef -1.000000e+00, ptr noundef %23, double noundef 1.000000e+00, ptr noundef %25) #9
-  br label %compute_rhs.argprom.exit
+  br label %compute_rhs.exit
 
 26:                                               ; preds = %2
   %27 = getelementptr inbounds i8, ptr %4, i64 104
@@ -331,9 +331,9 @@ define void @update_xz_tilde(ptr nocapture noundef readonly %0, i64 noundef %1) 
   %32 = getelementptr inbounds i8, ptr %4, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void @OSQPVectorf_add_scaled(ptr noundef %17, double noundef 1.000000e+00, ptr noundef %28, double noundef %31, ptr noundef %33) #9
-  br label %compute_rhs.argprom.exit
+  br label %compute_rhs.exit
 
-compute_rhs.argprom.exit:                         ; preds = %18, %26
+compute_rhs.exit:                                 ; preds = %18, %26
   %34 = getelementptr inbounds i8, ptr %4, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 16
@@ -958,7 +958,7 @@ define void @update_info(ptr nocapture noundef readonly %0, i64 noundef %1, i64 
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %compute_prim_res.argprom.exit, label %31
+  br i1 %30, label %compute_prim_res.exit, label %31
 
 31:                                               ; preds = %26
   %.val = load ptr, ptr %0, align 8
@@ -980,13 +980,13 @@ define void @update_info(ptr nocapture noundef readonly %0, i64 noundef %1, i64 
   %43 = getelementptr inbounds i8, ptr %.val, i64 48
   %44 = load i64, ptr %43, align 8
   %.not.i = icmp eq i64 %44, 0
-  br i1 %.not.i, label %compute_prim_res.argprom.exit, label %45
+  br i1 %.not.i, label %compute_prim_res.exit, label %45
 
 45:                                               ; preds = %31
   %46 = getelementptr inbounds i8, ptr %.val, i64 200
   %47 = load i64, ptr %46, align 8
   %.not16.i = icmp eq i64 %47, 0
-  br i1 %.not16.i, label %48, label %compute_prim_res.argprom.exit
+  br i1 %.not16.i, label %48, label %compute_prim_res.exit
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %.val44, i64 200
@@ -995,9 +995,9 @@ define void @update_info(ptr nocapture noundef readonly %0, i64 noundef %1, i64 
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %37, align 8
   %54 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %52, ptr noundef %53) #9
-  br label %compute_prim_res.argprom.exit
+  br label %compute_prim_res.exit
 
-compute_prim_res.argprom.exit:                    ; preds = %48, %45, %31, %26
+compute_prim_res.exit:                            ; preds = %48, %45, %31, %26
   %storemerge = phi double [ 0.000000e+00, %26 ], [ %54, %48 ], [ %41, %45 ], [ %41, %31 ]
   store double %storemerge, ptr %.038, align 8
   %.val45 = load ptr, ptr %0, align 8
@@ -1023,7 +1023,7 @@ compute_prim_res.argprom.exit:                    ; preds = %48, %45, %31, %26
   %.not.i47 = icmp eq i64 %69, 0
   br i1 %.not.i47, label %77, label %70
 
-70:                                               ; preds = %compute_prim_res.argprom.exit
+70:                                               ; preds = %compute_prim_res.exit
   %71 = getelementptr inbounds i8, ptr %67, i64 24
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %.val46, i64 128
@@ -1034,7 +1034,7 @@ compute_prim_res.argprom.exit:                    ; preds = %48, %45, %31, %26
   tail call void @OSQPVectorf_plus(ptr noundef %75, ptr noundef %75, ptr noundef %76) #9
   br label %77
 
-77:                                               ; preds = %70, %compute_prim_res.argprom.exit
+77:                                               ; preds = %70, %compute_prim_res.exit
   %78 = load ptr, ptr %55, align 8
   %79 = tail call double @OSQPVectorf_norm_inf(ptr noundef %78) #9
   %80 = getelementptr inbounds i8, ptr %.val46, i64 216
@@ -1042,13 +1042,13 @@ compute_prim_res.argprom.exit:                    ; preds = %48, %45, %31, %26
   %81 = getelementptr inbounds i8, ptr %.val45, i64 48
   %82 = load i64, ptr %81, align 8
   %.not26.i = icmp eq i64 %82, 0
-  br i1 %.not26.i, label %compute_dual_res.argprom.exit, label %83
+  br i1 %.not26.i, label %compute_dual_res.exit, label %83
 
 83:                                               ; preds = %77
   %84 = getelementptr inbounds i8, ptr %.val45, i64 200
   %85 = load i64, ptr %84, align 8
   %.not27.i = icmp eq i64 %85, 0
-  br i1 %.not27.i, label %86, label %compute_dual_res.argprom.exit
+  br i1 %.not27.i, label %86, label %compute_dual_res.exit
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds i8, ptr %.val46, i64 200
@@ -1060,15 +1060,15 @@ compute_prim_res.argprom.exit:                    ; preds = %48, %45, %31, %26
   %93 = load ptr, ptr %55, align 8
   %94 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %92, ptr noundef %93) #9
   %95 = fmul double %90, %94
-  br label %compute_dual_res.argprom.exit
+  br label %compute_dual_res.exit
 
-compute_dual_res.argprom.exit:                    ; preds = %77, %83, %86
+compute_dual_res.exit:                            ; preds = %77, %83, %86
   %.0.i48 = phi double [ %95, %86 ], [ %79, %83 ], [ %79, %77 ]
   store double %.0.i48, ptr %.037, align 8
   %.not43 = icmp eq i64 %2, 0
   br i1 %.not43, label %115, label %96
 
-96:                                               ; preds = %compute_dual_res.argprom.exit
+96:                                               ; preds = %compute_dual_res.exit
   %97 = load ptr, ptr %7, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 120
   %99 = load ptr, ptr %98, align 8
@@ -1097,7 +1097,7 @@ compute_obj_val.exit:                             ; preds = %96, %109
   store double %.0.i50, ptr %.039, align 8
   br label %115
 
-115:                                              ; preds = %compute_obj_val.exit, %compute_dual_res.argprom.exit
+115:                                              ; preds = %compute_obj_val.exit, %compute_dual_res.exit
   %116 = getelementptr inbounds i8, ptr %6, i64 %.sink
   %117 = getelementptr inbounds i8, ptr %8, i64 232
   %118 = load ptr, ptr %117, align 8
@@ -1222,7 +1222,7 @@ define range(i64 0, 2) i64 @check_termination(ptr nocapture noundef readonly %0,
   %57 = tail call double @OSQPVectorf_scaled_norm_inf(ptr noundef %54, ptr noundef %56) #9
   %58 = fcmp ogt double %51, %57
   %59 = select i1 %58, double %51, double %57
-  br label %compute_prim_tol.argprom.exit
+  br label %compute_prim_tol.exit
 
 60:                                               ; preds = %41, %38
   %61 = getelementptr inbounds i8, ptr %7, i64 64
@@ -1233,23 +1233,23 @@ define range(i64 0, 2) i64 @check_termination(ptr nocapture noundef readonly %0,
   %66 = tail call double @OSQPVectorf_norm_inf(ptr noundef %65) #9
   %67 = fcmp ogt double %63, %66
   %68 = select i1 %67, double %63, double %66
-  br label %compute_prim_tol.argprom.exit
+  br label %compute_prim_tol.exit
 
-compute_prim_tol.argprom.exit:                    ; preds = %44, %60
+compute_prim_tol.exit:                            ; preds = %44, %60
   %.0.i = phi double [ %68, %60 ], [ %59, %44 ]
   %69 = tail call double @llvm.fmuladd.f64(double %.060, double %.0.i, double %.061)
   %70 = load double, ptr %16, align 8
   %71 = fcmp olt double %70, %69
   br i1 %71, label %75, label %72
 
-72:                                               ; preds = %compute_prim_tol.argprom.exit
+72:                                               ; preds = %compute_prim_tol.exit
   %73 = tail call i64 @is_primal_infeasible(ptr noundef nonnull %0, double noundef %.058)
   %74 = icmp eq i64 %73, 0
   br label %75
 
-75:                                               ; preds = %compute_prim_tol.argprom.exit, %33, %72
-  %76 = phi i1 [ false, %72 ], [ true, %33 ], [ true, %compute_prim_tol.argprom.exit ]
-  %.063 = phi i1 [ %74, %72 ], [ true, %33 ], [ true, %compute_prim_tol.argprom.exit ]
+75:                                               ; preds = %compute_prim_tol.exit, %33, %72
+  %76 = phi i1 [ false, %72 ], [ true, %33 ], [ true, %compute_prim_tol.exit ]
+  %.063 = phi i1 [ %74, %72 ], [ true, %33 ], [ true, %compute_prim_tol.exit ]
   %.val74 = load ptr, ptr %0, align 8
   %.val75 = load ptr, ptr %6, align 8
   %77 = getelementptr inbounds i8, ptr %.val74, i64 48
@@ -1292,7 +1292,7 @@ compute_prim_tol.argprom.exit:                    ; preds = %44, %60
   %108 = getelementptr inbounds i8, ptr %107, i64 24
   %109 = load double, ptr %108, align 8
   %110 = fmul double %106, %109
-  br label %compute_dual_tol.argprom.exit
+  br label %compute_dual_tol.exit
 
 111:                                              ; preds = %79, %75
   %112 = load ptr, ptr %.val75, align 8
@@ -1309,16 +1309,16 @@ compute_prim_tol.argprom.exit:                    ; preds = %44, %60
   %123 = tail call double @OSQPVectorf_norm_inf(ptr noundef %122) #9
   %124 = fcmp ogt double %120, %123
   %125 = select i1 %124, double %120, double %123
-  br label %compute_dual_tol.argprom.exit
+  br label %compute_dual_tol.exit
 
-compute_dual_tol.argprom.exit:                    ; preds = %82, %111
+compute_dual_tol.exit:                            ; preds = %82, %111
   %.0.i77 = phi double [ %125, %111 ], [ %110, %82 ]
   %126 = tail call double @llvm.fmuladd.f64(double %.060, double %.0.i77, double %.061)
   %127 = load double, ptr %20, align 8
   %128 = fcmp olt double %127, %126
   br i1 %128, label %129, label %136
 
-129:                                              ; preds = %compute_dual_tol.argprom.exit
+129:                                              ; preds = %compute_dual_tol.exit
   br i1 %76, label %130, label %.thread81
 
 130:                                              ; preds = %129
@@ -1337,7 +1337,7 @@ compute_dual_tol.argprom.exit:                    ; preds = %82, %111
   tail call void @c_strcpy(ptr noundef nonnull %4, ptr noundef %135) #9
   br label %.thread84
 
-136:                                              ; preds = %compute_dual_tol.argprom.exit
+136:                                              ; preds = %compute_dual_tol.exit
   %137 = tail call i64 @is_dual_infeasible(ptr noundef nonnull %0, double noundef %.059)
   br i1 %.063, label %155, label %138
 

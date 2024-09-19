@@ -385,7 +385,7 @@ define dso_local i32 @tty_set_ldisc(ptr noundef %0, i32 noundef %1) #0 align 16 
   %.val = load ptr, ptr %19, align 8
   %64 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i32, ptr %64, align 8
-  tail call fastcc void @tty_ldisc_restore.argprom.argprom(ptr noundef %0, i32 %.val.val)
+  tail call fastcc void @tty_ldisc_restore(ptr noundef %0, i32 %.val.val)
   br label %.thread8
 
 .thread8:                                         ; preds = %53, %58, %63, %61
@@ -560,7 +560,7 @@ define internal fastcc void @tty_ldisc_put(ptr noundef %0) unnamed_addr #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tty_ldisc_restore.argprom.argprom(ptr noundef %0, i32 %.0.val.8.val) unnamed_addr #0 align 16 {
+define internal fastcc void @tty_ldisc_restore(ptr noundef %0, i32 %.0.val.8.val) unnamed_addr #0 align 16 {
   %2 = tail call fastcc i32 @tty_ldisc_failto(ptr noundef %0, i32 noundef %.0.val.8.val)
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %13

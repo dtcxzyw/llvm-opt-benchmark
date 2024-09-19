@@ -3366,7 +3366,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIPNS_12MachineInstrELj4EEEN
   %.val.i = load ptr, ptr %258, align 8
   %259 = getelementptr i8, ptr %.sroa.0237.0292.i, i64 68
   %.val102.i = load i16, ptr %259, align 4
-  call fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE.argprom(ptr dead_on_unwind noalias writable align 8 %15, ptr %.val.i, i16 %.val102.i)
+  call fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on_unwind noalias writable align 8 %15, ptr %.val.i, i16 %.val102.i)
   %.val105.i = load i8, ptr %79, align 8
   %260 = trunc i8 %.val105.i to i1
   br i1 %260, label %261, label %342
@@ -3402,9 +3402,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIPNS_12MachineInstrELj4EEEN
   %279 = load i32, ptr %276, align 8
   %trunc.i.i = trunc i32 %279 to i8
   switch i8 %trunc.i.i, label %288 [
-    i8 10, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit.i
-    i8 9, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit.i
-    i8 6, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit.i
+    i8 10, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit.i
+    i8 9, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit.i
+    i8 6, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit.i
     i8 0, label %280
   ]
 
@@ -3432,9 +3432,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIPNS_12MachineInstrELj4EEEN
   %296 = shl i64 %.0.i.i, 8
   %297 = and i64 %296, 16128
   %298 = or i64 %295, %297
-  br label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit.i
+  br label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit.i
 
-_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit.i: ; preds = %292, %278, %278, %278
+_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit.i: ; preds = %292, %278, %278, %278
   %.sroa.01.0.i.i = phi i64 [ %298, %292 ], [ 0, %278 ], [ 0, %278 ], [ 0, %278 ]
   %.sroa.2.0.i.i = phi i64 [ 4294967296, %292 ], [ 0, %278 ], [ 0, %278 ], [ 0, %278 ]
   %.sroa.01.0.insert.insert.i.i = or i64 %.sroa.2.0.i.i, %.sroa.01.0.i.i
@@ -3444,7 +3444,7 @@ _ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18Loa
   %300 = trunc nuw nsw i64 %.sroa.01.0.i.i to i32
   br i1 %.not355.i, label %342, label %301
 
-301:                                              ; preds = %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit.i
+301:                                              ; preds = %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit.i
   %302 = load ptr, ptr %75, align 8
   %303 = load i32, ptr %78, align 8
   %304 = icmp eq i32 %303, 0
@@ -3523,7 +3523,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i:
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %330, i64 noundef %341) #18
   br label %342
 
-342:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i, %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit.i, %.lr.ph.i
+342:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i, %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit.i, %.lr.ph.i
   %343 = icmp ne ptr %.sroa.0237.0292.i, null
   call void @llvm.assume(i1 %343)
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0237.0292.i, align 8
@@ -3716,7 +3716,7 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit.i:      ; preds = %_ZNK4llvm14ilist_it
   %.val103.i = load ptr, ptr %406, align 8
   %407 = getelementptr i8, ptr %.sroa.0225.0318.i, i64 68
   %.val104.i = load i16, ptr %407, align 4
-  call fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE.argprom(ptr dead_on_unwind noalias writable align 8 %18, ptr %.val103.i, i16 %.val104.i)
+  call fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on_unwind noalias writable align 8 %18, ptr %.val103.i, i16 %.val104.i)
   %.val106.i = load i8, ptr %86, align 8
   %408 = trunc i8 %.val106.i to i1
   br i1 %408, label %409, label %_ZN4llvm8DebugLocD2Ev.exit184.i
@@ -3754,9 +3754,9 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit.i:      ; preds = %_ZNK4llvm14ilist_it
   %424 = load i32, ptr %.sroa.10223.0.copyload.i, align 8
   %trunc.i116.i = trunc i32 %424 to i8
   switch i8 %trunc.i116.i, label %433 [
-    i8 10, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit121.i
-    i8 9, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit121.i
-    i8 6, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit121.i
+    i8 10, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit121.i
+    i8 9, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit121.i
+    i8 6, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit121.i
     i8 0, label %425
   ]
 
@@ -3784,9 +3784,9 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit.i:      ; preds = %_ZNK4llvm14ilist_it
   %441 = shl i64 %.0.i117.i, 8
   %442 = and i64 %441, 16128
   %443 = or i64 %440, %442
-  br label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit121.i
+  br label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit121.i
 
-_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit121.i: ; preds = %437, %423, %423, %423
+_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit121.i: ; preds = %437, %423, %423, %423
   %.sroa.01.0.i118.i = phi i64 [ %443, %437 ], [ 0, %423 ], [ 0, %423 ], [ 0, %423 ]
   %.sroa.2.0.i119.i = phi i64 [ 4294967296, %437 ], [ 0, %423 ], [ 0, %423 ], [ 0, %423 ]
   %.sroa.01.0.insert.insert.i120.i = or i64 %.sroa.2.0.i119.i, %.sroa.01.0.i118.i
@@ -3796,7 +3796,7 @@ _ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18Loa
   %445 = trunc nuw nsw i64 %.sroa.01.0.i118.i to i32
   br i1 %.not356.i, label %_ZN4llvm8DebugLocD2Ev.exit184.i, label %446
 
-446:                                              ; preds = %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit121.i
+446:                                              ; preds = %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit121.i
   %447 = load ptr, ptr %75, align 8
   %448 = load i32, ptr %78, align 8
   %449 = icmp eq i32 %448, 0
@@ -4034,9 +4034,9 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i139.i:      ; preds = %546
   %580 = load i32, ptr %.sroa.10223.0.copyload.i, align 8
   %trunc.i145.i = trunc i32 %580 to i8
   switch i8 %trunc.i145.i, label %588 [
-    i8 10, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit150.i
-    i8 9, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit150.i
-    i8 6, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit150.i
+    i8 10, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit150.i
+    i8 9, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit150.i
+    i8 6, label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit150.i
     i8 0, label %581
   ]
 
@@ -4063,14 +4063,14 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i139.i:      ; preds = %546
   %596 = and i64 %595, 16128
   %597 = or i64 %594, %596
   %598 = trunc nuw nsw i64 %597 to i32
-  br label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit150.i
+  br label %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit150.i
 
-_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit150.i: ; preds = %591, %579, %579, %579
+_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit150.i: ; preds = %591, %579, %579, %579
   %.sroa.01.0.i147.i = phi i32 [ %598, %591 ], [ 0, %579 ], [ 0, %579 ], [ 0, %579 ]
   store i32 %.sroa.01.0.i147.i, ptr %20, align 4
   br i1 %533, label %.loopexit.i, label %599
 
-599:                                              ; preds = %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit150.i
+599:                                              ; preds = %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit150.i
   %600 = mul nuw nsw i32 %.sroa.01.0.i147.i, 37
   %.01517.i.i.i.i.i = and i32 %600, %534
   %601 = zext nneg i32 %.01517.i.i.i.i.i to i64
@@ -4096,7 +4096,7 @@ _ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18Loa
   %612 = icmp eq i32 %.sroa.01.0.i147.i, %611
   br i1 %612, label %_ZNK4llvm12LiveRegUnits9availableEt.exit.i, label %.lr.ph.i.i.i.i151.i, !llvm.loop !71
 
-.loopexit.i:                                      ; preds = %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit150.i, %.lr.ph.i.i.i.i151.i
+.loopexit.i:                                      ; preds = %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit150.i, %.lr.ph.i.i.i.i151.i
   %613 = getelementptr inbounds nuw i8, ptr %.sroa.0225.0318.i, i64 56
   %614 = load ptr, ptr %613, align 8
   store ptr %614, ptr %21, align 8
@@ -4594,7 +4594,7 @@ _ZNK4llvm12LiveRegUnits9availableEt.exit.i:       ; preds = %546, %606, %599, %.
   %.not99.not.i = icmp eq ptr %770, %522
   br i1 %.not99.not.i, label %_ZN4llvm8DebugLocD2Ev.exit184.i, label %535
 
-_ZN4llvm8DebugLocD2Ev.exit184.i:                  ; preds = %_ZNK4llvm12LiveRegUnits9availableEt.exit.i, %769, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit182.i, %._crit_edge307.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIPNS_12MachineInstrELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixERKj.exit134.i, %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.argprom.exit121.i, %405, %.lr.ph319.i
+_ZN4llvm8DebugLocD2Ev.exit184.i:                  ; preds = %_ZNK4llvm12LiveRegUnits9availableEt.exit.i, %769, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit182.i, %._crit_edge307.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIPNS_12MachineInstrELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixERKj.exit134.i, %_ZL6getTagPKN4llvm18TargetRegisterInfoERKNS_12MachineInstrERKN12_GLOBAL__N_18LoadInfoE.exit121.i, %405, %.lr.ph319.i
   call void @_ZN4llvm12LiveRegUnits12stepBackwardERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(80) %17, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0225.0318.i) #18
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0225.0318.i, align 8
   %771 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
@@ -4892,7 +4892,7 @@ _ZN4llvm11df_iteratorIPNS_11MachineLoopENS_23df_iterator_default_setIS2_Lj8EEELb
 declare { ptr, i64 } @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE9getBlocksEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.32.val, i16 %.68.val) unnamed_addr #11 {
+define internal fastcc void @_ZL11getLoadInfoRKN4llvm12MachineInstrE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.32.val, i16 %.68.val) unnamed_addr #11 {
   switch i16 %.68.val, label %28 [
     i16 4023, label %15
     i16 4071, label %15

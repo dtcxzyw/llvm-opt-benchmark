@@ -696,7 +696,7 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_10ReturnStmtEE10_checkStmt
   %9 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit, label %10
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -756,7 +756,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %34
   %45 = load i32, ptr %42, align 16
   %46 = and i32 %45, 267911168
   %47 = icmp eq i32 %46, 224395264
-  br i1 %47, label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit, label %.critedge.i
+  br i1 %47, label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit, label %.critedge.i
 
 48:                                               ; preds = %33
   %49 = load ptr, ptr %27, align 8
@@ -790,15 +790,15 @@ _ZNK5clang4Type10isVoidTypeEv.exit27.i:           ; preds = %56
   %68 = load i32, ptr %65, align 16
   %69 = and i32 %68, 267911168
   %70 = icmp eq i32 %69, 224395264
-  br i1 %70, label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit, label %.critedge.i
+  br i1 %70, label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit27.i, %56, %48, %_ZNK5clang4Type10isVoidTypeEv.exit.i, %34
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call fastcc void @_ZL7emitBugRN5clang4ento14CheckerContextERKNS0_7BugTypeEN4llvm9StringRefEPKNS_4ExprESA_(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(97) %71, ptr nonnull @.str.3, i64 45, ptr noundef %.val, ptr noundef null)
-  br label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit
 
 72:                                               ; preds = %10
-  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit, label %73
+  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit, label %73
 
 73:                                               ; preds = %72
   %74 = and i64 %31, -16
@@ -813,7 +813,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit27.i:           ; preds = %56
   %82 = load i8, ptr %81, align 16
   %83 = and i8 %82, -2
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %83, 42
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %84, label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %84, label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit
 
 84:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -929,9 +929,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit17.i.i: ; pre
 
 _ZNK12_GLOBAL__N_118ReturnUndefChecker14checkReferenceERN5clang4ento14CheckerContextEPKNS1_4ExprENS2_20DefinedOrUnknownSValE.exit.i: ; preds = %119, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit17.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.argprom.exit: ; preds = %3, %_ZNK5clang4Type10isVoidTypeEv.exit.i, %_ZNK5clang4Type10isVoidTypeEv.exit27.i, %.critedge.i, %72, %73, %_ZNK12_GLOBAL__N_118ReturnUndefChecker14checkReferenceERN5clang4ento14CheckerContextEPKNS1_4ExprENS2_20DefinedOrUnknownSValE.exit.i
+_ZNK12_GLOBAL__N_118ReturnUndefChecker12checkPreStmtEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextE.exit: ; preds = %3, %_ZNK5clang4Type10isVoidTypeEv.exit.i, %_ZNK5clang4Type10isVoidTypeEv.exit27.i, %.critedge.i, %72, %73, %_ZNK12_GLOBAL__N_118ReturnUndefChecker14checkReferenceERN5clang4ento14CheckerContextEPKNS1_4ExprENS2_20DefinedOrUnknownSValE.exit.i
   ret void
 }
 

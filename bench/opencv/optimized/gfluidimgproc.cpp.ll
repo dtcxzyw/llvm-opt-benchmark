@@ -2117,7 +2117,7 @@ define linkonce_odr hidden void @_ZN2cv6detail15FluidCallHelperINS_4gapi5fluid14
   %.val.i.i = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 8
   %.val5.i.i = load ptr, ptr %11, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL12run_rgb2grayERNS1_6BufferERKNS1_4ViewEfff.argprom(ptr %.val.i.i, ptr %.val5.i.i, float noundef 0x3FBD2F1AA0000000, float noundef 0x3FE2C8B440000000, float noundef 0x3FD322D0E0000000)
+  tail call fastcc void @_ZN2cv4gapi5fluidL12run_rgb2grayERNS1_6BufferERKNS1_4ViewEfff(ptr %.val.i.i, ptr %.val5.i.i, float noundef 0x3FBD2F1AA0000000, float noundef 0x3FE2C8B440000000, float noundef 0x3FD322D0E0000000)
   ret void
 }
 
@@ -2483,7 +2483,7 @@ _ZNSt8functionIFiRKSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL12run_rgb2grayERNS1_6BufferERKNS1_4ViewEfff.argprom(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1, float noundef %0, float noundef %1, float noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL12run_rgb2grayERNS1_6BufferERKNS1_4ViewEfff(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1, float noundef %0, float noundef %1, float noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.26", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7340,7 +7340,7 @@ define linkonce_odr hidden void @_ZN2cv6detail15FluidCallHelperINS_4gapi5fluid14
   %.val.i.i = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 8
   %.val5.i.i = load ptr, ptr %11, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL12run_rgb2grayERNS1_6BufferERKNS1_4ViewEfff.argprom(ptr %.val.i.i, ptr %.val5.i.i, float noundef 0x3FD322D0E0000000, float noundef 0x3FE2C8B440000000, float noundef 0x3FBD2F1AA0000000)
+  tail call fastcc void @_ZN2cv4gapi5fluidL12run_rgb2grayERNS1_6BufferERKNS1_4ViewEfff(ptr %.val.i.i, ptr %.val5.i.i, float noundef 0x3FD322D0E0000000, float noundef 0x3FE2C8B440000000, float noundef 0x3FBD2F1AA0000000)
   ret void
 }
 
@@ -8088,7 +8088,7 @@ define linkonce_odr hidden void @_ZN2cv6detail15FluidCallHelperINS_4gapi5fluid20
   %.val.i.i = load ptr, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %7, i64 8
   %.val5.i.i = load ptr, ptr %23, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL12run_rgb2grayERNS1_6BufferERKNS1_4ViewEfff.argprom(ptr %.val.i.i, ptr %.val5.i.i, float noundef %11, float noundef %15, float noundef %19)
+  tail call fastcc void @_ZN2cv4gapi5fluidL12run_rgb2grayERNS1_6BufferERKNS1_4ViewEfff(ptr %.val.i.i, ptr %.val5.i.i, float noundef %11, float noundef %15, float noundef %19)
   ret void
 }
 
@@ -9166,7 +9166,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidRGB2YUV3runERKNS1_4Vie
   %61 = getelementptr inbounds i8, ptr %.val, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %60, %62
-  br i1 %63, label %_ZN2cv4gapi5fluidL11run_rgb2yuvERNS1_6BufferERKNS1_4ViewEPKf.argprom.exit, label %64
+  br i1 %63, label %_ZN2cv4gapi5fluidL11run_rgb2yuvERNS1_6BufferERKNS1_4ViewEPKf.exit, label %64
 
 64:                                               ; preds = %58
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #24
@@ -9197,7 +9197,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidRGB2YUV3runERKNS1_4Vie
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #24
   resume { ptr, i32 } %.pn27.pn.i
 
-_ZN2cv4gapi5fluidL11run_rgb2yuvERNS1_6BufferERKNS1_4ViewEPKf.argprom.exit: ; preds = %58
+_ZN2cv4gapi5fluidL11run_rgb2yuvERNS1_6BufferERKNS1_4ViewEPKf.exit: ; preds = %58
   %72 = getelementptr inbounds i8, ptr %.val2, i64 72
   %73 = load i32, ptr %72, align 8
   %74 = sext i32 %73 to i64
@@ -10055,7 +10055,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidYUV2RGB3runERKNS1_4Vie
   %61 = getelementptr inbounds i8, ptr %.val, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %60, %62
-  br i1 %63, label %_ZN2cv4gapi5fluidL11run_yuv2rgbERNS1_6BufferERKNS1_4ViewEPKf.argprom.exit, label %64
+  br i1 %63, label %_ZN2cv4gapi5fluidL11run_yuv2rgbERNS1_6BufferERKNS1_4ViewEPKf.exit, label %64
 
 64:                                               ; preds = %58
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #24
@@ -10086,7 +10086,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidYUV2RGB3runERKNS1_4Vie
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #24
   resume { ptr, i32 } %.pn27.pn.i
 
-_ZN2cv4gapi5fluidL11run_yuv2rgbERNS1_6BufferERKNS1_4ViewEPKf.argprom.exit: ; preds = %58
+_ZN2cv4gapi5fluidL11run_yuv2rgbERNS1_6BufferERKNS1_4ViewEPKf.exit: ; preds = %58
   %72 = getelementptr inbounds i8, ptr %.val2, i64 72
   %73 = load i32, ptr %72, align 8
   %74 = sext i32 %73 to i64
@@ -10944,7 +10944,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidRGB2Lab3runERKNS1_4Vie
   %61 = getelementptr inbounds i8, ptr %.val, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %60, %62
-  br i1 %63, label %_ZN2cv4gapi5fluidL14run_rgb2labluvILNS1_6LabLUVE0ELi2EEEvRNS1_6BufferERKNS1_4ViewE.argprom.exit, label %64
+  br i1 %63, label %_ZN2cv4gapi5fluidL14run_rgb2labluvILNS1_6LabLUVE0ELi2EEEvRNS1_6BufferERKNS1_4ViewE.exit, label %64
 
 64:                                               ; preds = %58
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #24
@@ -10975,7 +10975,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidRGB2Lab3runERKNS1_4Vie
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #24
   resume { ptr, i32 } %.pn38.pn.i
 
-_ZN2cv4gapi5fluidL14run_rgb2labluvILNS1_6LabLUVE0ELi2EEEvRNS1_6BufferERKNS1_4ViewE.argprom.exit: ; preds = %58
+_ZN2cv4gapi5fluidL14run_rgb2labluvILNS1_6LabLUVE0ELi2EEEvRNS1_6BufferERKNS1_4ViewE.exit: ; preds = %58
   %72 = getelementptr inbounds i8, ptr %.val2, i64 72
   %73 = load i32, ptr %72, align 8
   %74 = sext i32 %73 to i64
@@ -11834,7 +11834,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidBGR2LUV3runERKNS1_4Vie
   %61 = getelementptr inbounds i8, ptr %.val, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %60, %62
-  br i1 %63, label %_ZN2cv4gapi5fluidL14run_rgb2labluvILNS1_6LabLUVE1ELi0EEEvRNS1_6BufferERKNS1_4ViewE.argprom.exit, label %64
+  br i1 %63, label %_ZN2cv4gapi5fluidL14run_rgb2labluvILNS1_6LabLUVE1ELi0EEEvRNS1_6BufferERKNS1_4ViewE.exit, label %64
 
 64:                                               ; preds = %58
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #24
@@ -11865,7 +11865,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid13GFluidBGR2LUV3runERKNS1_4Vie
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #24
   resume { ptr, i32 } %.pn38.pn.i
 
-_ZN2cv4gapi5fluidL14run_rgb2labluvILNS1_6LabLUVE1ELi0EEEvRNS1_6BufferERKNS1_4ViewE.argprom.exit: ; preds = %58
+_ZN2cv4gapi5fluidL14run_rgb2labluvILNS1_6LabLUVE1ELi0EEEvRNS1_6BufferERKNS1_4ViewE.exit: ; preds = %58
   %72 = getelementptr inbounds i8, ptr %.val2, i64 72
   %73 = load i32, ptr %72, align 8
   %74 = sext i32 %73 to i64
@@ -12643,7 +12643,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidBlur3runERKNS1_4ViewER
   br i1 %64, label %65, label %.thread64
 
 65:                                               ; preds = %62
-  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %42, i32 3, i32 3, i1 noundef zeroext true, ptr noundef %12)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %42, i32 3, i32 3, i1 noundef zeroext true, ptr noundef %12)
   br label %84
 
 66:                                               ; preds = %40
@@ -12652,7 +12652,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidBlur3runERKNS1_4ViewER
   br i1 %68, label %69, label %.thread64
 
 69:                                               ; preds = %66
-  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIttEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %42, i32 3, i32 3, i1 noundef zeroext true, ptr noundef %12)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIttEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %42, i32 3, i32 3, i1 noundef zeroext true, ptr noundef %12)
   br label %84
 
 70:                                               ; preds = %40
@@ -12661,7 +12661,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidBlur3runERKNS1_4ViewER
   br i1 %72, label %73, label %.thread64
 
 73:                                               ; preds = %70
-  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIssEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %42, i32 3, i32 3, i1 noundef zeroext true, ptr noundef %12)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIssEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %42, i32 3, i32 3, i1 noundef zeroext true, ptr noundef %12)
   br label %84
 
 74:                                               ; preds = %40
@@ -12670,7 +12670,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidBlur3runERKNS1_4ViewER
   br i1 %76, label %77, label %.thread64
 
 77:                                               ; preds = %74
-  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIffEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %42, i32 3, i32 3, i1 noundef zeroext true, ptr noundef %12)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIffEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull %42, i32 3, i32 3, i1 noundef zeroext true, ptr noundef %12)
   br label %84
 
 .thread64:                                        ; preds = %40, %62, %66, %70, %74
@@ -12707,7 +12707,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidBlur3runERKNS1_4ViewER
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.26", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13009,7 +13009,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIhhEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIttEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIttEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.26", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13311,7 +13311,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIttEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIssEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIssEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.26", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13597,7 +13597,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIssEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIffEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIffEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.26", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15332,7 +15332,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidSepFilter3runERKNS1_4V
   br i1 %112, label %113, label %.thread180
 
 113:                                              ; preds = %110
-  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %91, ptr noundef %87, i32 noundef %83, ptr noundef %89, i32 noundef 3, float noundef %105, ptr noundef %37)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %91, ptr noundef %87, i32 noundef %83, ptr noundef %89, i32 noundef 3, float noundef %105, ptr noundef %37)
   br label %284
 
 114:                                              ; preds = %82
@@ -15417,7 +15417,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidSepFilter3runERKNS1_4V
   store ptr %142, ptr %143, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL13run_sepfilterIshEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit, label %138, !llvm.loop !133
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL13run_sepfilterIshEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit, label %138, !llvm.loop !133
 
 common.resume:                                    ; preds = %78, %80, %64, %66, %48, %50, %280, %282, %245, %247, %257, %259, %202, %204, %214, %216, %161, %163, %173, %175, %122, %124, %134, %136
   %.sink = phi ptr [ %27, %124 ], [ %27, %122 ], [ %29, %136 ], [ %29, %134 ], [ %22, %163 ], [ %22, %161 ], [ %24, %175 ], [ %24, %173 ], [ %17, %204 ], [ %17, %202 ], [ %19, %216 ], [ %19, %214 ], [ %12, %247 ], [ %12, %245 ], [ %14, %259 ], [ %14, %257 ], [ %39, %282 ], [ %39, %280 ], [ %32, %50 ], [ %32, %48 ], [ %34, %66 ], [ %34, %64 ], [ %36, %80 ], [ %36, %78 ]
@@ -15425,7 +15425,7 @@ common.resume:                                    ; preds = %78, %80, %64, %66, 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #24
   resume { ptr, i32 } %common.resume.op
 
-_ZN2cv4gapi5fluidL13run_sepfilterIshEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit: ; preds = %138
+_ZN2cv4gapi5fluidL13run_sepfilterIshEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit: ; preds = %138
   %144 = load ptr, ptr %107, align 8
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds i8, ptr %107, i64 32
@@ -15528,9 +15528,9 @@ _ZN2cv4gapi5fluidL13run_sepfilterIshEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Po
   store ptr %181, ptr %182, align 8
   %indvars.iv.next.i151 = add nuw nsw i64 %indvars.iv.i149, 1
   %exitcond.not.i152 = icmp eq i64 %indvars.iv.next.i151, 3
-  br i1 %exitcond.not.i152, label %_ZN2cv4gapi5fluidL13run_sepfilterIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit, label %177, !llvm.loop !134
+  br i1 %exitcond.not.i152, label %_ZN2cv4gapi5fluidL13run_sepfilterIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit, label %177, !llvm.loop !134
 
-_ZN2cv4gapi5fluidL13run_sepfilterIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit: ; preds = %177
+_ZN2cv4gapi5fluidL13run_sepfilterIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit: ; preds = %177
   %183 = load ptr, ptr %107, align 8
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds i8, ptr %107, i64 32
@@ -15555,7 +15555,7 @@ _ZN2cv4gapi5fluidL13run_sepfilterIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Po
   br i1 %195, label %196, label %.thread180
 
 196:                                              ; preds = %193
-  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIttEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %91, ptr noundef %87, i32 noundef %83, ptr noundef %89, i32 noundef 3, float noundef %105, ptr noundef %37)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIttEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %91, ptr noundef %87, i32 noundef %83, ptr noundef %89, i32 noundef 3, float noundef %105, ptr noundef %37)
   br label %284
 
 197:                                              ; preds = %154
@@ -15635,9 +15635,9 @@ _ZN2cv4gapi5fluidL13run_sepfilterIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Po
   store ptr %222, ptr %223, align 8
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i157, 1
   %exitcond.not.i160 = icmp eq i64 %indvars.iv.next.i159, 3
-  br i1 %exitcond.not.i160, label %_ZN2cv4gapi5fluidL13run_sepfilterIftEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit, label %218, !llvm.loop !135
+  br i1 %exitcond.not.i160, label %_ZN2cv4gapi5fluidL13run_sepfilterIftEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit, label %218, !llvm.loop !135
 
-_ZN2cv4gapi5fluidL13run_sepfilterIftEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit: ; preds = %218
+_ZN2cv4gapi5fluidL13run_sepfilterIftEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit: ; preds = %218
   %224 = load ptr, ptr %107, align 8
   %225 = load ptr, ptr %224, align 8
   %226 = getelementptr inbounds i8, ptr %107, i64 32
@@ -15662,7 +15662,7 @@ _ZN2cv4gapi5fluidL13run_sepfilterIftEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Po
   br i1 %236, label %237, label %.thread180
 
 237:                                              ; preds = %234
-  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIssEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %91, ptr noundef %87, i32 noundef %83, ptr noundef %89, i32 noundef 3, float noundef %105, ptr noundef %37)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIssEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %91, ptr noundef %87, i32 noundef %83, ptr noundef %89, i32 noundef 3, float noundef %105, ptr noundef %37)
   br label %284
 
 238:                                              ; preds = %154
@@ -15749,9 +15749,9 @@ _ZN2cv4gapi5fluidL13run_sepfilterIftEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Po
   store ptr %265, ptr %266, align 8
   %indvars.iv.next.i167 = add nuw nsw i64 %indvars.iv.i165, 1
   %exitcond.not.i168 = icmp eq i64 %indvars.iv.next.i167, 3
-  br i1 %exitcond.not.i168, label %_ZN2cv4gapi5fluidL13run_sepfilterIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit, label %261, !llvm.loop !136
+  br i1 %exitcond.not.i168, label %_ZN2cv4gapi5fluidL13run_sepfilterIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit, label %261, !llvm.loop !136
 
-_ZN2cv4gapi5fluidL13run_sepfilterIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit: ; preds = %261
+_ZN2cv4gapi5fluidL13run_sepfilterIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit: ; preds = %261
   %267 = load ptr, ptr %107, align 8
   %268 = load ptr, ptr %267, align 8
   %269 = getelementptr inbounds i8, ptr %107, i64 32
@@ -15771,7 +15771,7 @@ _ZN2cv4gapi5fluidL13run_sepfilterIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Po
   br label %284
 
 277:                                              ; preds = %238
-  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIffEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %91, ptr noundef %87, i32 noundef %83, ptr noundef %89, i32 noundef 3, float noundef %105, ptr noundef %37)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIffEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %91, ptr noundef %87, i32 noundef %83, ptr noundef %89, i32 noundef 3, float noundef %105, ptr noundef %37)
   br label %284
 
 .thread180:                                       ; preds = %238, %82, %193, %110, %234
@@ -15797,12 +15797,12 @@ _ZN2cv4gapi5fluidL13run_sepfilterIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Po
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #24
   br label %common.resume
 
-284:                                              ; preds = %277, %_ZN2cv4gapi5fluidL13run_sepfilterIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit, %237, %_ZN2cv4gapi5fluidL13run_sepfilterIftEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit, %196, %_ZN2cv4gapi5fluidL13run_sepfilterIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit, %_ZN2cv4gapi5fluidL13run_sepfilterIshEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.exit, %113
+284:                                              ; preds = %277, %_ZN2cv4gapi5fluidL13run_sepfilterIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit, %237, %_ZN2cv4gapi5fluidL13run_sepfilterIftEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit, %196, %_ZN2cv4gapi5fluidL13run_sepfilterIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit, %_ZN2cv4gapi5fluidL13run_sepfilterIshEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.exit, %113
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16092,7 +16092,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIhhEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIttEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIttEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16389,7 +16389,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIttEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIssEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIssEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16678,7 +16678,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIssEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIffEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIffEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19133,7 +19133,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidBoxFilter3runERKNS1_4V
   br i1 %72, label %73, label %.thread253
 
 73:                                               ; preds = %70
-  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull %50, i32 3, i32 3, i1 noundef zeroext %4, ptr noundef %20)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull %50, i32 3, i32 3, i1 noundef zeroext %4, ptr noundef %20)
   br label %148
 
 74:                                               ; preds = %48
@@ -19165,9 +19165,9 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidBoxFilter3runERKNS1_4V
   store ptr %83, ptr %84, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL13run_boxfilterIfhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom.exit, label %79, !llvm.loop !212
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL13run_boxfilterIfhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.exit, label %79, !llvm.loop !212
 
-_ZN2cv4gapi5fluidL13run_boxfilterIfhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom.exit: ; preds = %79
+_ZN2cv4gapi5fluidL13run_boxfilterIfhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.exit: ; preds = %79
   %85 = load ptr, ptr %67, align 8
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %67, i64 32
@@ -19191,7 +19191,7 @@ _ZN2cv4gapi5fluidL13run_boxfilterIfhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEER
   br i1 %97, label %98, label %.thread253
 
 98:                                               ; preds = %95
-  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIttEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull %50, i32 3, i32 3, i1 noundef zeroext %4, ptr noundef %20)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIttEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull %50, i32 3, i32 3, i1 noundef zeroext %4, ptr noundef %20)
   br label %148
 
 .lr.ph.i124:                                      ; preds = %74
@@ -19214,9 +19214,9 @@ _ZN2cv4gapi5fluidL13run_boxfilterIfhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEER
   store ptr %106, ptr %107, align 8
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i127, 1
   %exitcond.not.i130 = icmp eq i64 %indvars.iv.next.i129, 3
-  br i1 %exitcond.not.i130, label %_ZN2cv4gapi5fluidL13run_boxfilterIftEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom.exit, label %102, !llvm.loop !213
+  br i1 %exitcond.not.i130, label %_ZN2cv4gapi5fluidL13run_boxfilterIftEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.exit, label %102, !llvm.loop !213
 
-_ZN2cv4gapi5fluidL13run_boxfilterIftEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom.exit: ; preds = %102
+_ZN2cv4gapi5fluidL13run_boxfilterIftEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.exit: ; preds = %102
   %108 = load ptr, ptr %67, align 8
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %67, i64 32
@@ -19240,7 +19240,7 @@ _ZN2cv4gapi5fluidL13run_boxfilterIftEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEER
   br i1 %120, label %121, label %.thread253
 
 121:                                              ; preds = %118
-  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIssEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull %50, i32 3, i32 3, i1 noundef zeroext %4, ptr noundef %20)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIssEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull %50, i32 3, i32 3, i1 noundef zeroext %4, ptr noundef %20)
   br label %148
 
 .lr.ph.i195:                                      ; preds = %74
@@ -19263,9 +19263,9 @@ _ZN2cv4gapi5fluidL13run_boxfilterIftEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEER
   store ptr %129, ptr %130, align 8
   %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i198, 1
   %exitcond.not.i201 = icmp eq i64 %indvars.iv.next.i200, 3
-  br i1 %exitcond.not.i201, label %_ZN2cv4gapi5fluidL13run_boxfilterIfsEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom.exit, label %125, !llvm.loop !214
+  br i1 %exitcond.not.i201, label %_ZN2cv4gapi5fluidL13run_boxfilterIfsEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.exit, label %125, !llvm.loop !214
 
-_ZN2cv4gapi5fluidL13run_boxfilterIfsEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom.exit: ; preds = %125
+_ZN2cv4gapi5fluidL13run_boxfilterIfsEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.exit: ; preds = %125
   %131 = load ptr, ptr %67, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %67, i64 32
@@ -19284,7 +19284,7 @@ _ZN2cv4gapi5fluidL13run_boxfilterIfsEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEER
   br label %148
 
 141:                                              ; preds = %74
-  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIffEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull %50, i32 3, i32 3, i1 noundef zeroext %4, ptr noundef %20)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIffEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull %50, i32 3, i32 3, i1 noundef zeroext %4, ptr noundef %20)
   br label %148
 
 .thread253:                                       ; preds = %74, %48, %95, %118, %70
@@ -19310,7 +19310,7 @@ _ZN2cv4gapi5fluidL13run_boxfilterIfsEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEER
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #24
   br label %149
 
-148:                                              ; preds = %141, %_ZN2cv4gapi5fluidL13run_boxfilterIfsEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom.exit, %121, %_ZN2cv4gapi5fluidL13run_boxfilterIftEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom.exit, %98, %_ZN2cv4gapi5fluidL13run_boxfilterIfhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.argprom.exit, %73
+148:                                              ; preds = %141, %_ZN2cv4gapi5fluidL13run_boxfilterIfsEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.exit, %121, %_ZN2cv4gapi5fluidL13run_boxfilterIftEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.exit, %98, %_ZN2cv4gapi5fluidL13run_boxfilterIfhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf.exit, %73
   ret void
 
 149:                                              ; preds = %144, %146, %44, %46, %31, %33
@@ -20903,9 +20903,9 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid14GFluidFilter2D3runERKNS1_4Vi
   store ptr %73, ptr %74, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL12run_filter2dIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, label %69, !llvm.loop !227
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL12run_filter2dIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, label %69, !llvm.loop !227
 
-_ZN2cv4gapi5fluidL12run_filter2dIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit: ; preds = %69
+_ZN2cv4gapi5fluidL12run_filter2dIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit: ; preds = %69
   %75 = load ptr, ptr %57, align 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %57, i64 32
@@ -20943,9 +20943,9 @@ _ZN2cv4gapi5fluidL12run_filter2dIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_
   store ptr %94, ptr %95, align 8
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i124, 1
   %exitcond.not.i127 = icmp eq i64 %indvars.iv.next.i126, 3
-  br i1 %exitcond.not.i127, label %_ZN2cv4gapi5fluidL12run_filter2dIttEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, label %90, !llvm.loop !228
+  br i1 %exitcond.not.i127, label %_ZN2cv4gapi5fluidL12run_filter2dIttEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, label %90, !llvm.loop !228
 
-_ZN2cv4gapi5fluidL12run_filter2dIttEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit: ; preds = %90
+_ZN2cv4gapi5fluidL12run_filter2dIttEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit: ; preds = %90
   %96 = load ptr, ptr %57, align 8
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %57, i64 32
@@ -20983,9 +20983,9 @@ _ZN2cv4gapi5fluidL12run_filter2dIttEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_
   store ptr %115, ptr %116, align 8
   %indvars.iv.next.i176 = add nuw nsw i64 %indvars.iv.i174, 1
   %exitcond.not.i177 = icmp eq i64 %indvars.iv.next.i176, 3
-  br i1 %exitcond.not.i177, label %_ZN2cv4gapi5fluidL12run_filter2dIssEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, label %111, !llvm.loop !229
+  br i1 %exitcond.not.i177, label %_ZN2cv4gapi5fluidL12run_filter2dIssEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, label %111, !llvm.loop !229
 
-_ZN2cv4gapi5fluidL12run_filter2dIssEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit: ; preds = %111
+_ZN2cv4gapi5fluidL12run_filter2dIssEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit: ; preds = %111
   %117 = load ptr, ptr %57, align 8
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %57, i64 32
@@ -21027,9 +21027,9 @@ _ZN2cv4gapi5fluidL12run_filter2dIssEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_
   store ptr %135, ptr %136, align 8
   %indvars.iv.next.i191 = add nuw nsw i64 %indvars.iv.i189, 1
   %exitcond.not.i192 = icmp eq i64 %indvars.iv.next.i191, 3
-  br i1 %exitcond.not.i192, label %_ZN2cv4gapi5fluidL12run_filter2dIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, label %131, !llvm.loop !230
+  br i1 %exitcond.not.i192, label %_ZN2cv4gapi5fluidL12run_filter2dIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, label %131, !llvm.loop !230
 
-_ZN2cv4gapi5fluidL12run_filter2dIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit: ; preds = %131
+_ZN2cv4gapi5fluidL12run_filter2dIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit: ; preds = %131
   %137 = load ptr, ptr %57, align 8
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %57, i64 32
@@ -21059,9 +21059,9 @@ _ZN2cv4gapi5fluidL12run_filter2dIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_
   store ptr %150, ptr %151, align 8
   %indvars.iv.next.i239 = add nuw nsw i64 %indvars.iv.i237, 1
   %exitcond.not.i240 = icmp eq i64 %indvars.iv.next.i239, 3
-  br i1 %exitcond.not.i240, label %_ZN2cv4gapi5fluidL12run_filter2dIftEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, label %146, !llvm.loop !231
+  br i1 %exitcond.not.i240, label %_ZN2cv4gapi5fluidL12run_filter2dIftEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, label %146, !llvm.loop !231
 
-_ZN2cv4gapi5fluidL12run_filter2dIftEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit: ; preds = %146
+_ZN2cv4gapi5fluidL12run_filter2dIftEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit: ; preds = %146
   %152 = load ptr, ptr %57, align 8
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr %57, i64 32
@@ -21091,9 +21091,9 @@ _ZN2cv4gapi5fluidL12run_filter2dIftEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_
   store ptr %165, ptr %166, align 8
   %indvars.iv.next.i287 = add nuw nsw i64 %indvars.iv.i285, 1
   %exitcond.not.i288 = icmp eq i64 %indvars.iv.next.i287, 3
-  br i1 %exitcond.not.i288, label %_ZN2cv4gapi5fluidL12run_filter2dIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, label %161, !llvm.loop !232
+  br i1 %exitcond.not.i288, label %_ZN2cv4gapi5fluidL12run_filter2dIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, label %161, !llvm.loop !232
 
-_ZN2cv4gapi5fluidL12run_filter2dIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit: ; preds = %161
+_ZN2cv4gapi5fluidL12run_filter2dIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit: ; preds = %161
   %167 = load ptr, ptr %57, align 8
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds i8, ptr %57, i64 32
@@ -21123,9 +21123,9 @@ _ZN2cv4gapi5fluidL12run_filter2dIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_
   store ptr %180, ptr %181, align 8
   %indvars.iv.next.i335 = add nuw nsw i64 %indvars.iv.i333, 1
   %exitcond.not.i336 = icmp eq i64 %indvars.iv.next.i335, 3
-  br i1 %exitcond.not.i336, label %_ZN2cv4gapi5fluidL12run_filter2dIffEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, label %176, !llvm.loop !233
+  br i1 %exitcond.not.i336, label %_ZN2cv4gapi5fluidL12run_filter2dIffEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, label %176, !llvm.loop !233
 
-_ZN2cv4gapi5fluidL12run_filter2dIffEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit: ; preds = %176
+_ZN2cv4gapi5fluidL12run_filter2dIffEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit: ; preds = %176
   %182 = load ptr, ptr %57, align 8
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds i8, ptr %57, i64 32
@@ -21159,7 +21159,7 @@ _ZN2cv4gapi5fluidL12run_filter2dIffEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #24
   br label %195
 
-194:                                              ; preds = %_ZN2cv4gapi5fluidL12run_filter2dIffEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, %_ZN2cv4gapi5fluidL12run_filter2dIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, %_ZN2cv4gapi5fluidL12run_filter2dIftEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, %_ZN2cv4gapi5fluidL12run_filter2dIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, %_ZN2cv4gapi5fluidL12run_filter2dIssEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, %_ZN2cv4gapi5fluidL12run_filter2dIttEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit, %_ZN2cv4gapi5fluidL12run_filter2dIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.argprom.exit
+194:                                              ; preds = %_ZN2cv4gapi5fluidL12run_filter2dIffEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, %_ZN2cv4gapi5fluidL12run_filter2dIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, %_ZN2cv4gapi5fluidL12run_filter2dIftEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, %_ZN2cv4gapi5fluidL12run_filter2dIfhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, %_ZN2cv4gapi5fluidL12run_filter2dIssEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, %_ZN2cv4gapi5fluidL12run_filter2dIttEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit, %_ZN2cv4gapi5fluidL12run_filter2dIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiiRKNS_6Point_IiEEf.exit
   ret void
 
 195:                                              ; preds = %190, %192, %45, %47, %31, %33
@@ -22912,9 +22912,9 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidErode3runERKNS1_4ViewE
   store ptr %82, ptr %83, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, label %78, !llvm.loop !264
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, label %78, !llvm.loop !264
 
-_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit: ; preds = %78
+_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit: ; preds = %78
   %84 = load ptr, ptr %65, align 8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %65, i64 32
@@ -22952,9 +22952,9 @@ _ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10Morp
   store ptr %104, ptr %105, align 8
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, 3
-  br i1 %exitcond.not.i80, label %_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, label %100, !llvm.loop !265
+  br i1 %exitcond.not.i80, label %_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, label %100, !llvm.loop !265
 
-_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit: ; preds = %100
+_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit: ; preds = %100
   %106 = load ptr, ptr %65, align 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %65, i64 32
@@ -22992,9 +22992,9 @@ _ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10Morp
   store ptr %126, ptr %127, align 8
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, 3
-  br i1 %exitcond.not.i85, label %_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, label %122, !llvm.loop !266
+  br i1 %exitcond.not.i85, label %_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, label %122, !llvm.loop !266
 
-_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit: ; preds = %122
+_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit: ; preds = %122
   %128 = load ptr, ptr %65, align 8
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %65, i64 32
@@ -23032,9 +23032,9 @@ _ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10Morp
   store ptr %148, ptr %149, align 8
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i87, 1
   %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, 3
-  br i1 %exitcond.not.i90, label %_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, label %144, !llvm.loop !267
+  br i1 %exitcond.not.i90, label %_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, label %144, !llvm.loop !267
 
-_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit: ; preds = %144
+_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit: ; preds = %144
   %150 = load ptr, ptr %65, align 8
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %65, i64 32
@@ -23068,7 +23068,7 @@ _ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10Morp
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
   br label %163
 
-162:                                              ; preds = %_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, %_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, %_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, %_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit
+162:                                              ; preds = %_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, %_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, %_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, %_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit
   ret void
 
 163:                                              ; preds = %158, %160, %52, %54, %43, %45, %29, %31
@@ -25060,9 +25060,9 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid12GFluidDilate3runERKNS1_4View
   store ptr %82, ptr %83, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, label %78, !llvm.loop !264
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, label %78, !llvm.loop !264
 
-_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit: ; preds = %78
+_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit: ; preds = %78
   %84 = load ptr, ptr %65, align 8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %65, i64 32
@@ -25100,9 +25100,9 @@ _ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10Morp
   store ptr %104, ptr %105, align 8
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, 3
-  br i1 %exitcond.not.i80, label %_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, label %100, !llvm.loop !265
+  br i1 %exitcond.not.i80, label %_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, label %100, !llvm.loop !265
 
-_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit: ; preds = %100
+_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit: ; preds = %100
   %106 = load ptr, ptr %65, align 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %65, i64 32
@@ -25140,9 +25140,9 @@ _ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10Morp
   store ptr %126, ptr %127, align 8
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, 3
-  br i1 %exitcond.not.i85, label %_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, label %122, !llvm.loop !266
+  br i1 %exitcond.not.i85, label %_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, label %122, !llvm.loop !266
 
-_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit: ; preds = %122
+_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit: ; preds = %122
   %128 = load ptr, ptr %65, align 8
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %65, i64 32
@@ -25180,9 +25180,9 @@ _ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10Morp
   store ptr %148, ptr %149, align 8
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i87, 1
   %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, 3
-  br i1 %exitcond.not.i90, label %_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, label %144, !llvm.loop !267
+  br i1 %exitcond.not.i90, label %_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, label %144, !llvm.loop !267
 
-_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit: ; preds = %144
+_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit: ; preds = %144
   %150 = load ptr, ptr %65, align 8
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %65, i64 32
@@ -25216,7 +25216,7 @@ _ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10Morp
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
   br label %163
 
-162:                                              ; preds = %_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, %_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, %_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit, %_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.argprom.exit
+162:                                              ; preds = %_ZN2cv4gapi5fluidL14run_morphologyIffEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, %_ZN2cv4gapi5fluidL14run_morphologyIssEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, %_ZN2cv4gapi5fluidL14run_morphologyIttEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit, %_ZN2cv4gapi5fluidL14run_morphologyIhhEEvRNS1_6BufferERKNS1_4ViewEPKhiiNS1_10MorphShapeERKNS_6Point_IiEENS1_10MorphologyE.exit
   ret void
 
 163:                                              ; preds = %158, %160, %52, %54, %43, %45, %29, %31
@@ -26919,9 +26919,9 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid16GFluidMedianBlur3runERKNS1_4
   store ptr %39, ptr %40, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL14run_medianblurIhhEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit, label %35, !llvm.loop !330
+  br i1 %exitcond.not.i, label %_ZN2cv4gapi5fluidL14run_medianblurIhhEEvRNS1_6BufferERKNS1_4ViewEi.exit, label %35, !llvm.loop !330
 
-_ZN2cv4gapi5fluidL14run_medianblurIhhEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit: ; preds = %35
+_ZN2cv4gapi5fluidL14run_medianblurIhhEEvRNS1_6BufferERKNS1_4ViewEi.exit: ; preds = %35
   %41 = load ptr, ptr %22, align 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %22, i64 32
@@ -26959,9 +26959,9 @@ _ZN2cv4gapi5fluidL14run_medianblurIhhEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit:
   store ptr %61, ptr %62, align 8
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, 3
-  br i1 %exitcond.not.i41, label %_ZN2cv4gapi5fluidL14run_medianblurIttEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit, label %57, !llvm.loop !331
+  br i1 %exitcond.not.i41, label %_ZN2cv4gapi5fluidL14run_medianblurIttEEvRNS1_6BufferERKNS1_4ViewEi.exit, label %57, !llvm.loop !331
 
-_ZN2cv4gapi5fluidL14run_medianblurIttEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit: ; preds = %57
+_ZN2cv4gapi5fluidL14run_medianblurIttEEvRNS1_6BufferERKNS1_4ViewEi.exit: ; preds = %57
   %63 = load ptr, ptr %22, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %22, i64 32
@@ -26999,9 +26999,9 @@ _ZN2cv4gapi5fluidL14run_medianblurIttEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit:
   store ptr %83, ptr %84, align 8
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
-  br i1 %exitcond.not.i46, label %_ZN2cv4gapi5fluidL14run_medianblurIssEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit, label %79, !llvm.loop !332
+  br i1 %exitcond.not.i46, label %_ZN2cv4gapi5fluidL14run_medianblurIssEEvRNS1_6BufferERKNS1_4ViewEi.exit, label %79, !llvm.loop !332
 
-_ZN2cv4gapi5fluidL14run_medianblurIssEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit: ; preds = %79
+_ZN2cv4gapi5fluidL14run_medianblurIssEEvRNS1_6BufferERKNS1_4ViewEi.exit: ; preds = %79
   %85 = load ptr, ptr %22, align 8
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %22, i64 32
@@ -27039,9 +27039,9 @@ _ZN2cv4gapi5fluidL14run_medianblurIssEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit:
   store ptr %105, ptr %106, align 8
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 3
-  br i1 %exitcond.not.i51, label %_ZN2cv4gapi5fluidL14run_medianblurIffEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit, label %101, !llvm.loop !333
+  br i1 %exitcond.not.i51, label %_ZN2cv4gapi5fluidL14run_medianblurIffEEvRNS1_6BufferERKNS1_4ViewEi.exit, label %101, !llvm.loop !333
 
-_ZN2cv4gapi5fluidL14run_medianblurIffEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit: ; preds = %101
+_ZN2cv4gapi5fluidL14run_medianblurIffEEvRNS1_6BufferERKNS1_4ViewEi.exit: ; preds = %101
   %107 = load ptr, ptr %22, align 8
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %22, i64 32
@@ -27075,7 +27075,7 @@ _ZN2cv4gapi5fluidL14run_medianblurIffEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #24
   br label %120
 
-119:                                              ; preds = %_ZN2cv4gapi5fluidL14run_medianblurIffEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit, %_ZN2cv4gapi5fluidL14run_medianblurIssEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit, %_ZN2cv4gapi5fluidL14run_medianblurIttEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit, %_ZN2cv4gapi5fluidL14run_medianblurIhhEEvRNS1_6BufferERKNS1_4ViewEi.argprom.exit
+119:                                              ; preds = %_ZN2cv4gapi5fluidL14run_medianblurIffEEvRNS1_6BufferERKNS1_4ViewEi.exit, %_ZN2cv4gapi5fluidL14run_medianblurIssEEvRNS1_6BufferERKNS1_4ViewEi.exit, %_ZN2cv4gapi5fluidL14run_medianblurIttEEvRNS1_6BufferERKNS1_4ViewEi.exit, %_ZN2cv4gapi5fluidL14run_medianblurIhhEEvRNS1_6BufferERKNS1_4ViewEi.exit
   ret void
 
 120:                                              ; preds = %115, %117, %16, %18
@@ -28007,7 +28007,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidGaussBlur3runERKNS1_4V
   br i1 %62, label %63, label %.thread83
 
 63:                                               ; preds = %60
-  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %42, ptr noundef %38, i32 noundef %17, ptr noundef %40, i32 noundef %17, float noundef 0.000000e+00, ptr noundef %13)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %42, ptr noundef %38, i32 noundef %17, ptr noundef %40, i32 noundef %17, float noundef 0.000000e+00, ptr noundef %13)
   br label %82
 
 64:                                               ; preds = %._crit_edge
@@ -28016,7 +28016,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidGaussBlur3runERKNS1_4V
   br i1 %66, label %67, label %.thread83
 
 67:                                               ; preds = %64
-  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIttEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %42, ptr noundef %38, i32 noundef %17, ptr noundef %40, i32 noundef %17, float noundef 0.000000e+00, ptr noundef %13)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIttEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %42, ptr noundef %38, i32 noundef %17, ptr noundef %40, i32 noundef %17, float noundef 0.000000e+00, ptr noundef %13)
   br label %82
 
 68:                                               ; preds = %._crit_edge
@@ -28025,7 +28025,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidGaussBlur3runERKNS1_4V
   br i1 %70, label %71, label %.thread83
 
 71:                                               ; preds = %68
-  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIssEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %42, ptr noundef %38, i32 noundef %17, ptr noundef %40, i32 noundef %17, float noundef 0.000000e+00, ptr noundef %13)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIssEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %42, ptr noundef %38, i32 noundef %17, ptr noundef %40, i32 noundef %17, float noundef 0.000000e+00, ptr noundef %13)
   br label %82
 
 72:                                               ; preds = %._crit_edge
@@ -28034,7 +28034,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid15GFluidGaussBlur3runERKNS1_4V
   br i1 %74, label %75, label %.thread83
 
 75:                                               ; preds = %72
-  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIffEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %42, ptr noundef %38, i32 noundef %17, ptr noundef %40, i32 noundef %17, float noundef 0.000000e+00, ptr noundef %13)
+  call fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIffEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %42, ptr noundef %38, i32 noundef %17, ptr noundef %40, i32 noundef %17, float noundef 0.000000e+00, ptr noundef %13)
   br label %82
 
 .thread83:                                        ; preds = %._crit_edge, %60, %64, %68, %72
@@ -29913,7 +29913,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidSobel3runERKNS1_4ViewE
   br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %50
-  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIhhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %52, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
+  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIhhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %52, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
   br label %87
 
 57:                                               ; preds = %24
@@ -29925,7 +29925,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidSobel3runERKNS1_4ViewE
   br i1 %62, label %63, label %.thread
 
 63:                                               ; preds = %57
-  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIttEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %59, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
+  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIttEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %59, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
   br label %87
 
 64:                                               ; preds = %24
@@ -29940,15 +29940,15 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidSobel3runERKNS1_4ViewE
   ]
 
 69:                                               ; preds = %64
-  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIshEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %66, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
+  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIshEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %66, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
   br label %87
 
 70:                                               ; preds = %64
-  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIstEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %66, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
+  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIstEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %66, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
   br label %87
 
 71:                                               ; preds = %64
-  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIssEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %66, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
+  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIssEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %66, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
   br label %87
 
 72:                                               ; preds = %24
@@ -29964,19 +29964,19 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidSobel3runERKNS1_4ViewE
   ]
 
 77:                                               ; preds = %72
-  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %74, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
+  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %74, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
   br label %87
 
 78:                                               ; preds = %72
-  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIftEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %74, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
+  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIftEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %74, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
   br label %87
 
 79:                                               ; preds = %72
-  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfsEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %74, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
+  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfsEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %74, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
   br label %87
 
 80:                                               ; preds = %72
-  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIffEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %74, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
+  call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIffEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %74, ptr noundef %30, ptr noundef nonnull %32, i32 noundef %26, float noundef %47, float noundef %48, ptr noundef nonnull %14)
   br label %87
 
 .thread:                                          ; preds = %72, %64, %24, %50, %57
@@ -30013,7 +30013,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidSobel3runERKNS1_4ViewE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIhhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIhhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30093,7 +30093,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIhhEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIttEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIttEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30173,7 +30173,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIttEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIshEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIshEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30253,7 +30253,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIshEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIstEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIstEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30333,7 +30333,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIstEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIssEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIssEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30413,7 +30413,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIssEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30493,7 +30493,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfhEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIftEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIftEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30573,7 +30573,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIftEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfsEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfsEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30653,7 +30653,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfsEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIffEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIffEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -32720,7 +32720,7 @@ define linkonce_odr hidden void @_ZZN2cv4gapi5fluid13GFluidSobelXY3runERKNS1_4Vi
   %26 = load float, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIhhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %14, ptr noundef %3, ptr noundef %4, i32 noundef %20, float noundef %23, float noundef %26, ptr noundef %28)
+  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIhhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %14, ptr noundef %3, ptr noundef %4, i32 noundef %20, float noundef %23, float noundef %26, ptr noundef %28)
   br label %140
 
 29:                                               ; preds = %5
@@ -32742,7 +32742,7 @@ define linkonce_odr hidden void @_ZZN2cv4gapi5fluid13GFluidSobelXY3runERKNS1_4Vi
   %43 = load float, ptr %42, align 4
   %44 = getelementptr inbounds i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIttEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %31, ptr noundef %3, ptr noundef %4, i32 noundef %37, float noundef %40, float noundef %43, ptr noundef %45)
+  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIttEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %31, ptr noundef %3, ptr noundef %4, i32 noundef %37, float noundef %40, float noundef %43, ptr noundef %45)
   br label %140
 
 46:                                               ; preds = %5
@@ -32767,7 +32767,7 @@ define linkonce_odr hidden void @_ZZN2cv4gapi5fluid13GFluidSobelXY3runERKNS1_4Vi
   %59 = load float, ptr %58, align 4
   %60 = getelementptr inbounds i8, ptr %0, i64 24
   %61 = load ptr, ptr %60, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIshEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %48, ptr noundef %3, ptr noundef %4, i32 noundef %53, float noundef %56, float noundef %59, ptr noundef %61)
+  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIshEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %48, ptr noundef %3, ptr noundef %4, i32 noundef %53, float noundef %56, float noundef %59, ptr noundef %61)
   br label %140
 
 62:                                               ; preds = %46
@@ -32781,7 +32781,7 @@ define linkonce_odr hidden void @_ZZN2cv4gapi5fluid13GFluidSobelXY3runERKNS1_4Vi
   %70 = load float, ptr %69, align 4
   %71 = getelementptr inbounds i8, ptr %0, i64 24
   %72 = load ptr, ptr %71, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIstEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %48, ptr noundef %3, ptr noundef %4, i32 noundef %64, float noundef %67, float noundef %70, ptr noundef %72)
+  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIstEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %48, ptr noundef %3, ptr noundef %4, i32 noundef %64, float noundef %67, float noundef %70, ptr noundef %72)
   br label %140
 
 73:                                               ; preds = %46
@@ -32795,7 +32795,7 @@ define linkonce_odr hidden void @_ZZN2cv4gapi5fluid13GFluidSobelXY3runERKNS1_4Vi
   %81 = load float, ptr %80, align 4
   %82 = getelementptr inbounds i8, ptr %0, i64 24
   %83 = load ptr, ptr %82, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIssEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %48, ptr noundef %3, ptr noundef %4, i32 noundef %75, float noundef %78, float noundef %81, ptr noundef %83)
+  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIssEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %48, ptr noundef %3, ptr noundef %4, i32 noundef %75, float noundef %78, float noundef %81, ptr noundef %83)
   br label %140
 
 84:                                               ; preds = %5
@@ -32821,7 +32821,7 @@ define linkonce_odr hidden void @_ZZN2cv4gapi5fluid13GFluidSobelXY3runERKNS1_4Vi
   %97 = load float, ptr %96, align 4
   %98 = getelementptr inbounds i8, ptr %0, i64 24
   %99 = load ptr, ptr %98, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %86, ptr noundef %3, ptr noundef %4, i32 noundef %91, float noundef %94, float noundef %97, ptr noundef %99)
+  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %86, ptr noundef %3, ptr noundef %4, i32 noundef %91, float noundef %94, float noundef %97, ptr noundef %99)
   br label %140
 
 100:                                              ; preds = %84
@@ -32835,7 +32835,7 @@ define linkonce_odr hidden void @_ZZN2cv4gapi5fluid13GFluidSobelXY3runERKNS1_4Vi
   %108 = load float, ptr %107, align 4
   %109 = getelementptr inbounds i8, ptr %0, i64 24
   %110 = load ptr, ptr %109, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIftEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %86, ptr noundef %3, ptr noundef %4, i32 noundef %102, float noundef %105, float noundef %108, ptr noundef %110)
+  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIftEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %86, ptr noundef %3, ptr noundef %4, i32 noundef %102, float noundef %105, float noundef %108, ptr noundef %110)
   br label %140
 
 111:                                              ; preds = %84
@@ -32849,7 +32849,7 @@ define linkonce_odr hidden void @_ZZN2cv4gapi5fluid13GFluidSobelXY3runERKNS1_4Vi
   %119 = load float, ptr %118, align 4
   %120 = getelementptr inbounds i8, ptr %0, i64 24
   %121 = load ptr, ptr %120, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfsEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %86, ptr noundef %3, ptr noundef %4, i32 noundef %113, float noundef %116, float noundef %119, ptr noundef %121)
+  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfsEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %86, ptr noundef %3, ptr noundef %4, i32 noundef %113, float noundef %116, float noundef %119, ptr noundef %121)
   br label %140
 
 122:                                              ; preds = %84
@@ -32863,7 +32863,7 @@ define linkonce_odr hidden void @_ZZN2cv4gapi5fluid13GFluidSobelXY3runERKNS1_4Vi
   %130 = load float, ptr %129, align 4
   %131 = getelementptr inbounds i8, ptr %0, i64 24
   %132 = load ptr, ptr %131, align 8
-  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIffEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %86, ptr noundef %3, ptr noundef %4, i32 noundef %124, float noundef %127, float noundef %130, ptr noundef %132)
+  tail call fastcc void @_ZN2cv4gapi5fluidL9run_sobelIffEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %86, ptr noundef %3, ptr noundef %4, i32 noundef %124, float noundef %127, float noundef %130, ptr noundef %132)
   br label %140
 
 .thread:                                          ; preds = %84, %46, %5, %12, %29

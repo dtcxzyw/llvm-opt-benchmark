@@ -1246,7 +1246,7 @@ _ZN4absl7debian212c_accumulateINS0_4SpanIdEEdEENSt5decayIT0_E4typeERKT_OS5_.exit
   store double %24, ptr %.06.i.i.us, align 8
   %26 = getelementptr inbounds i8, ptr %.06.i.i.us, i64 8
   %.not.i.i7.us = icmp eq ptr %26, %13
-  br i1 %.not.i.i7.us, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.argprom.exit", label %.lr.ph.i.i6.us, !llvm.loop !13
+  br i1 %.not.i.i7.us, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit", label %.lr.ph.i.i6.us, !llvm.loop !13
 
 .lr.ph.i.i6:                                      ; preds = %22, %.lr.ph.i.i6
   %.06.i.i = phi ptr [ %29, %.lr.ph.i.i6 ], [ %0, %22 ]
@@ -1255,9 +1255,9 @@ _ZN4absl7debian212c_accumulateINS0_4SpanIdEEdEENSt5decayIT0_E4typeERKT_OS5_.exit
   store double %28, ptr %.06.i.i, align 8
   %29 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
   %.not.i.i7 = icmp eq ptr %29, %13
-  br i1 %.not.i.i7, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.argprom.exit", label %.lr.ph.i.i6, !llvm.loop !13
+  br i1 %.not.i.i7, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit", label %.lr.ph.i.i6, !llvm.loop !13
 
-"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.argprom.exit": ; preds = %.lr.ph.i.i6, %.lr.ph.i.i6.us
+"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit": ; preds = %.lr.ph.i.i6, %.lr.ph.i.i6.us
   ret void
 
 30:                                               ; preds = %20, %10

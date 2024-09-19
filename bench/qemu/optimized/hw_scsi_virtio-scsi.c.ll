@@ -568,13 +568,13 @@ if.then17:                                        ; preds = %if.end15
   store i32 %9, ptr %lun, align 4
   %call1.val = load ptr, ptr %ctx, align 8
   %tobool.not.i = icmp eq ptr %call1.val, null
-  br i1 %tobool.not.i, label %virtio_scsi_acquire.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %virtio_scsi_acquire.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then17
   tail call void @aio_context_acquire(ptr noundef nonnull %call1.val) #13
-  br label %virtio_scsi_acquire.argprom.exit
+  br label %virtio_scsi_acquire.exit
 
-virtio_scsi_acquire.argprom.exit:                 ; preds = %if.then17, %if.then.i
+virtio_scsi_acquire.exit:                         ; preds = %if.then17, %if.then.i
   call fastcc void @virtio_scsi_push_event(ptr noundef nonnull %call.i15, ptr noundef %info)
   %bus = getelementptr inbounds i8, ptr %call.i15, i64 664
   %sense_code_REPORTED_LUNS_CHANGED.coerce.0.copyload = load i24, ptr @sense_code_REPORTED_LUNS_CHANGED, align 1
@@ -583,11 +583,11 @@ virtio_scsi_acquire.argprom.exit:                 ; preds = %if.then17, %if.then
   %tobool.not.i17 = icmp eq ptr %call1.val14, null
   br i1 %tobool.not.i17, label %if.end20, label %if.then.i18
 
-if.then.i18:                                      ; preds = %virtio_scsi_acquire.argprom.exit
+if.then.i18:                                      ; preds = %virtio_scsi_acquire.exit
   tail call void @aio_context_release(ptr noundef nonnull %call1.val14) #13
   br label %if.end20
 
-if.end20:                                         ; preds = %if.then.i18, %virtio_scsi_acquire.argprom.exit, %if.end, %if.then, %if.end15
+if.end20:                                         ; preds = %if.then.i18, %virtio_scsi_acquire.exit, %if.end, %if.then, %if.end15
   ret void
 }
 
@@ -613,9 +613,9 @@ entry:
   %ctx = getelementptr inbounds i8, ptr %call.i15, i64 840
   %3 = load ptr, ptr %ctx, align 8
   %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %if.end, label %virtio_scsi_acquire.argprom.exit
+  br i1 %tobool.not, label %if.end, label %virtio_scsi_acquire.exit
 
-virtio_scsi_acquire.argprom.exit:                 ; preds = %entry
+virtio_scsi_acquire.exit:                         ; preds = %entry
   tail call void @aio_context_acquire(ptr noundef nonnull %3) #13
   %conf = getelementptr inbounds i8, ptr %call.i16, i64 184
   %4 = load ptr, ptr %conf, align 8
@@ -625,11 +625,11 @@ virtio_scsi_acquire.argprom.exit:                 ; preds = %entry
   %tobool.not.i17 = icmp eq ptr %call1.val13, null
   br i1 %tobool.not.i17, label %if.end, label %if.then.i18
 
-if.then.i18:                                      ; preds = %virtio_scsi_acquire.argprom.exit
+if.then.i18:                                      ; preds = %virtio_scsi_acquire.exit
   tail call void @aio_context_release(ptr noundef nonnull %call1.val13) #13
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i18, %virtio_scsi_acquire.argprom.exit, %entry
+if.end:                                           ; preds = %if.then.i18, %virtio_scsi_acquire.exit, %entry
   %5 = getelementptr i8, ptr %call.i, i64 184
   %call.val = load i64, ptr %5, align 8
   %and.i.i = and i64 %call.val, 2
@@ -639,13 +639,13 @@ if.end:                                           ; preds = %if.then.i18, %virti
 if.then8:                                         ; preds = %if.end
   %call1.val12 = load ptr, ptr %ctx, align 8
   %tobool.not.i19 = icmp eq ptr %call1.val12, null
-  br i1 %tobool.not.i19, label %virtio_scsi_acquire.argprom.exit21, label %if.then.i20
+  br i1 %tobool.not.i19, label %virtio_scsi_acquire.exit21, label %if.then.i20
 
 if.then.i20:                                      ; preds = %if.then8
   tail call void @aio_context_acquire(ptr noundef nonnull %call1.val12) #13
-  br label %virtio_scsi_acquire.argprom.exit21
+  br label %virtio_scsi_acquire.exit21
 
-virtio_scsi_acquire.argprom.exit21:               ; preds = %if.then8, %if.then.i20
+virtio_scsi_acquire.exit21:                       ; preds = %if.then8, %if.then.i20
   call fastcc void @virtio_scsi_push_event(ptr noundef nonnull %call.i15, ptr noundef %info)
   %bus = getelementptr inbounds i8, ptr %call.i15, i64 664
   %sense_code_REPORTED_LUNS_CHANGED.coerce.0.copyload = load i24, ptr @sense_code_REPORTED_LUNS_CHANGED, align 1
@@ -654,11 +654,11 @@ virtio_scsi_acquire.argprom.exit21:               ; preds = %if.then8, %if.then.
   %tobool.not.i22 = icmp eq ptr %call1.val14, null
   br i1 %tobool.not.i22, label %if.end9, label %if.then.i23
 
-if.then.i23:                                      ; preds = %virtio_scsi_acquire.argprom.exit21
+if.then.i23:                                      ; preds = %virtio_scsi_acquire.exit21
   tail call void @aio_context_release(ptr noundef nonnull %call1.val14) #13
   br label %if.end9
 
-if.end9:                                          ; preds = %if.then.i23, %virtio_scsi_acquire.argprom.exit21, %if.end
+if.end9:                                          ; preds = %if.then.i23, %virtio_scsi_acquire.exit21, %if.end
   ret void
 }
 
@@ -673,7 +673,7 @@ entry:
   %ctx.i = getelementptr inbounds i8, ptr %vdev, i64 840
   %0 = load ptr, ptr %ctx.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %virtio_scsi_acquire.argprom.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %virtio_scsi_acquire.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %dataplane_started.i = getelementptr inbounds i8, ptr %vdev, i64 848
@@ -691,14 +691,14 @@ virtio_scsi_defer_to_dataplane.exit:              ; preds = %lor.lhs.false.i
 if.end:                                           ; preds = %virtio_scsi_defer_to_dataplane.exit
   %vdev.val.pr.pre = load ptr, ptr %ctx.i, align 8
   %tobool.not.i5 = icmp eq ptr %vdev.val.pr.pre, null
-  br i1 %tobool.not.i5, label %virtio_scsi_acquire.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i5, label %virtio_scsi_acquire.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end
   %vdev.val.pr18 = phi ptr [ %vdev.val.pr.pre, %if.end ], [ %0, %lor.lhs.false.i ]
   tail call void @aio_context_acquire(ptr noundef nonnull %vdev.val.pr18) #13
-  br label %virtio_scsi_acquire.argprom.exit
+  br label %virtio_scsi_acquire.exit
 
-virtio_scsi_acquire.argprom.exit:                 ; preds = %entry, %if.end, %if.then.i
+virtio_scsi_acquire.exit:                         ; preds = %entry, %if.end, %if.then.i
   %cdb_size.i.i = getelementptr inbounds i8, ptr %vdev, i64 636
   %3 = load i32, ptr %cdb_size.i.i, align 4
   %conv.i7.i = zext i32 %3 to i64
@@ -707,7 +707,7 @@ virtio_scsi_acquire.argprom.exit:                 ; preds = %entry, %if.end, %if
   %tobool.not.i10.i = icmp eq ptr %call.i9.i, null
   br i1 %tobool.not.i10.i, label %virtio_scsi_handle_ctrl_vq.exit, label %while.body.lr.ph.i
 
-while.body.lr.ph.i:                               ; preds = %virtio_scsi_acquire.argprom.exit
+while.body.lr.ph.i:                               ; preds = %virtio_scsi_acquire.exit
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %bus.i.i.i.i = getelementptr inbounds i8, ptr %vdev, i64 664
   %dataplane_started.i.i.i.i = getelementptr inbounds i8, ptr %vdev, i64 848
@@ -1263,7 +1263,7 @@ virtio_scsi_handle_ctrl_req.exit.i:               ; preds = %if.end57.i.i, %if.e
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %virtio_scsi_handle_ctrl_vq.exit, label %while.body.i, !llvm.loop !10
 
-virtio_scsi_handle_ctrl_vq.exit:                  ; preds = %virtio_scsi_handle_ctrl_req.exit.i, %virtio_scsi_acquire.argprom.exit
+virtio_scsi_handle_ctrl_vq.exit:                  ; preds = %virtio_scsi_handle_ctrl_req.exit.i, %virtio_scsi_acquire.exit
   %vdev.val4 = load ptr, ptr %ctx.i, align 8
   %tobool.not.i7 = icmp eq ptr %vdev.val4, null
   br i1 %tobool.not.i7, label %return, label %if.then.i8
@@ -1284,7 +1284,7 @@ entry:
   %ctx.i = getelementptr inbounds i8, ptr %call.i, i64 840
   %0 = load ptr, ptr %ctx.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %virtio_scsi_acquire.argprom.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %virtio_scsi_acquire.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %dataplane_started.i = getelementptr inbounds i8, ptr %call.i, i64 848
@@ -1302,36 +1302,36 @@ virtio_scsi_defer_to_dataplane.exit:              ; preds = %lor.lhs.false.i
 if.end:                                           ; preds = %virtio_scsi_defer_to_dataplane.exit
   %call.val.pr.pre = load ptr, ptr %ctx.i, align 8
   %tobool.not.i6 = icmp eq ptr %call.val.pr.pre, null
-  br i1 %tobool.not.i6, label %virtio_scsi_acquire.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i6, label %virtio_scsi_acquire.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end
   %call.val.pr19 = phi ptr [ %call.val.pr.pre, %if.end ], [ %0, %lor.lhs.false.i ]
   tail call void @aio_context_acquire(ptr noundef nonnull %call.val.pr19) #13
-  br label %virtio_scsi_acquire.argprom.exit
+  br label %virtio_scsi_acquire.exit
 
-virtio_scsi_acquire.argprom.exit:                 ; preds = %entry, %if.end, %if.then.i
+virtio_scsi_acquire.exit:                         ; preds = %entry, %if.end, %if.then.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %info.i)
   %events_dropped.i = getelementptr inbounds i8, ptr %call.i, i64 812
   %3 = load i8, ptr %events_dropped.i, align 4
   %tobool.i = trunc i8 %3 to i1
-  br i1 %tobool.i, label %if.then.i9, label %virtio_scsi_handle_event_vq.argprom.exit
+  br i1 %tobool.i, label %if.then.i9, label %virtio_scsi_handle_event_vq.exit
 
-if.then.i9:                                       ; preds = %virtio_scsi_acquire.argprom.exit
+if.then.i9:                                       ; preds = %virtio_scsi_acquire.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %info.i, i8 0, i64 16, i1 false)
   call fastcc void @virtio_scsi_push_event(ptr noundef nonnull %call.i, ptr noundef %info.i)
-  br label %virtio_scsi_handle_event_vq.argprom.exit
+  br label %virtio_scsi_handle_event_vq.exit
 
-virtio_scsi_handle_event_vq.argprom.exit:         ; preds = %virtio_scsi_acquire.argprom.exit, %if.then.i9
+virtio_scsi_handle_event_vq.exit:                 ; preds = %virtio_scsi_acquire.exit, %if.then.i9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %info.i)
   %call.val4 = load ptr, ptr %ctx.i, align 8
   %tobool.not.i10 = icmp eq ptr %call.val4, null
   br i1 %tobool.not.i10, label %return, label %if.then.i11
 
-if.then.i11:                                      ; preds = %virtio_scsi_handle_event_vq.argprom.exit
+if.then.i11:                                      ; preds = %virtio_scsi_handle_event_vq.exit
   tail call void @aio_context_release(ptr noundef nonnull %call.val4) #13
   br label %return
 
-return:                                           ; preds = %if.then.i11, %virtio_scsi_handle_event_vq.argprom.exit, %virtio_scsi_defer_to_dataplane.exit
+return:                                           ; preds = %if.then.i11, %virtio_scsi_handle_event_vq.exit, %virtio_scsi_defer_to_dataplane.exit
   ret void
 }
 
@@ -1345,7 +1345,7 @@ entry:
   %ctx.i = getelementptr inbounds i8, ptr %vdev, i64 840
   %0 = load ptr, ptr %ctx.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %virtio_scsi_acquire.argprom.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %virtio_scsi_acquire.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %dataplane_started.i = getelementptr inbounds i8, ptr %vdev, i64 848
@@ -1363,14 +1363,14 @@ virtio_scsi_defer_to_dataplane.exit:              ; preds = %lor.lhs.false.i
 if.end:                                           ; preds = %virtio_scsi_defer_to_dataplane.exit
   %vdev.val.pr.pre = load ptr, ptr %ctx.i, align 8
   %tobool.not.i5 = icmp eq ptr %vdev.val.pr.pre, null
-  br i1 %tobool.not.i5, label %virtio_scsi_acquire.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i5, label %virtio_scsi_acquire.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %if.end
   %vdev.val.pr19 = phi ptr [ %vdev.val.pr.pre, %if.end ], [ %0, %lor.lhs.false.i ]
   tail call void @aio_context_acquire(ptr noundef nonnull %vdev.val.pr19) #13
-  br label %virtio_scsi_acquire.argprom.exit
+  br label %virtio_scsi_acquire.exit
 
-virtio_scsi_acquire.argprom.exit:                 ; preds = %entry, %if.end, %if.then.i
+virtio_scsi_acquire.exit:                         ; preds = %entry, %if.end, %if.then.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %reqs.i)
   %call.i7 = tail call zeroext i1 @virtio_queue_get_notification(ptr noundef %vq) #13
   store ptr null, ptr %reqs.i, align 8
@@ -1384,8 +1384,8 @@ virtio_scsi_acquire.argprom.exit:                 ; preds = %entry, %if.end, %if
   %tv_usec.i.i.i91.i = getelementptr inbounds i8, ptr %_now.i.i.i64.i, i64 8
   br label %do.body.i
 
-do.body.i:                                        ; preds = %land.rhs.i, %virtio_scsi_acquire.argprom.exit
-  %ret.0.i = phi i32 [ 0, %virtio_scsi_acquire.argprom.exit ], [ %ret.1.lcssa.i, %land.rhs.i ]
+do.body.i:                                        ; preds = %land.rhs.i, %virtio_scsi_acquire.exit
+  %ret.0.i = phi i32 [ 0, %virtio_scsi_acquire.exit ], [ %ret.1.lcssa.i, %land.rhs.i ]
   br i1 %call.i7, label %if.then.i9, label %if.end.i8
 
 if.then.i9:                                       ; preds = %do.body.i
@@ -1876,27 +1876,27 @@ do.end54.i:                                       ; preds = %land.rhs.i, %do.con
   %tobool55.not143.i = icmp eq ptr %77, null
   br i1 %tobool55.not143.i, label %virtio_scsi_handle_cmd_vq.exit, label %land.rhs56.i
 
-land.rhs56.i:                                     ; preds = %do.end54.i, %virtio_scsi_handle_cmd_req_submit.argprom.exit.i
-  %req.0144.i = phi ptr [ %78, %virtio_scsi_handle_cmd_req_submit.argprom.exit.i ], [ %77, %do.end54.i ]
+land.rhs56.i:                                     ; preds = %do.end54.i, %virtio_scsi_handle_cmd_req_submit.exit.i
+  %req.0144.i = phi ptr [ %78, %virtio_scsi_handle_cmd_req_submit.exit.i ], [ %77, %do.end54.i ]
   %next57.i = getelementptr inbounds i8, ptr %req.0144.i, i64 152
   %78 = load ptr, ptr %next57.i, align 8
   %79 = getelementptr i8, ptr %req.0144.i, i64 176
   %req.0.val.i = load ptr, ptr %79, align 8
   %call.i36.i = call i32 @scsi_req_enqueue(ptr noundef %req.0.val.i) #13
   %tobool.not.i37.i = icmp eq i32 %call.i36.i, 0
-  br i1 %tobool.not.i37.i, label %virtio_scsi_handle_cmd_req_submit.argprom.exit.i, label %if.then.i38.i
+  br i1 %tobool.not.i37.i, label %virtio_scsi_handle_cmd_req_submit.exit.i, label %if.then.i38.i
 
 if.then.i38.i:                                    ; preds = %land.rhs56.i
   call void @scsi_req_continue(ptr noundef %req.0.val.i) #13
-  br label %virtio_scsi_handle_cmd_req_submit.argprom.exit.i
+  br label %virtio_scsi_handle_cmd_req_submit.exit.i
 
-virtio_scsi_handle_cmd_req_submit.argprom.exit.i: ; preds = %if.then.i38.i, %land.rhs56.i
+virtio_scsi_handle_cmd_req_submit.exit.i:         ; preds = %if.then.i38.i, %land.rhs56.i
   call void @defer_call_end() #13
   call void @scsi_req_unref(ptr noundef %req.0.val.i) #13
   %tobool55.not.i = icmp eq ptr %78, null
   br i1 %tobool55.not.i, label %virtio_scsi_handle_cmd_vq.exit, label %land.rhs56.i, !llvm.loop !14
 
-virtio_scsi_handle_cmd_vq.exit:                   ; preds = %virtio_scsi_handle_cmd_req_submit.argprom.exit.i, %do.end54.i
+virtio_scsi_handle_cmd_vq.exit:                   ; preds = %virtio_scsi_handle_cmd_req_submit.exit.i, %do.end54.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %reqs.i)
   %vdev.val4 = load ptr, ptr %ctx.i, align 8
   %tobool.not.i10 = icmp eq ptr %vdev.val4, null
@@ -2321,19 +2321,19 @@ do.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %opaque, i64 840
   %opaque.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %opaque.val, null
-  br i1 %tobool.not.i, label %virtio_scsi_acquire.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %virtio_scsi_acquire.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end
   call void @aio_context_acquire(ptr noundef nonnull %opaque.val) #13
-  br label %virtio_scsi_acquire.argprom.exit
+  br label %virtio_scsi_acquire.exit
 
-virtio_scsi_acquire.argprom.exit:                 ; preds = %do.end, %if.then.i
+virtio_scsi_acquire.exit:                         ; preds = %do.end, %if.then.i
   %tmf_bh_list = getelementptr inbounds i8, ptr %opaque, i64 824
   %1 = load ptr, ptr %tmf_bh_list, align 8
   %tobool.not39 = icmp eq ptr %1, null
   br i1 %tobool.not39, label %for.end, label %land.rhs.lr.ph
 
-land.rhs.lr.ph:                                   ; preds = %virtio_scsi_acquire.argprom.exit
+land.rhs.lr.ph:                                   ; preds = %virtio_scsi_acquire.exit
   %tql_prev13 = getelementptr inbounds i8, ptr %opaque, i64 832
   br label %land.rhs
 
@@ -2357,26 +2357,26 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %la
   store ptr %next, ptr %tql_prev, align 8
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !16
 
-for.end:                                          ; preds = %land.rhs, %virtio_scsi_acquire.argprom.exit
+for.end:                                          ; preds = %land.rhs, %virtio_scsi_acquire.exit
   %tmf_bh = getelementptr inbounds i8, ptr %opaque, i64 816
   %6 = load ptr, ptr %tmf_bh, align 8
   call void @qemu_bh_delete(ptr noundef %6) #13
   store ptr null, ptr %tmf_bh, align 8
   %opaque.val34 = load ptr, ptr %0, align 8
   %tobool.not.i35 = icmp eq ptr %opaque.val34, null
-  br i1 %tobool.not.i35, label %virtio_scsi_release.argprom.exit, label %if.then.i36
+  br i1 %tobool.not.i35, label %virtio_scsi_release.exit, label %if.then.i36
 
 if.then.i36:                                      ; preds = %for.end
   call void @aio_context_release(ptr noundef nonnull %opaque.val34) #13
-  br label %virtio_scsi_release.argprom.exit
+  br label %virtio_scsi_release.exit
 
-virtio_scsi_release.argprom.exit:                 ; preds = %for.end, %if.then.i36
+virtio_scsi_release.exit:                         ; preds = %for.end, %if.then.i36
   %7 = load ptr, ptr %reqs, align 8
   %tobool37.not41 = icmp eq ptr %7, null
   br i1 %tobool37.not41, label %for.end67, label %land.rhs38
 
-land.rhs38:                                       ; preds = %virtio_scsi_release.argprom.exit, %virtio_scsi_do_one_tmf_bh.exit
-  %req.142 = phi ptr [ %8, %virtio_scsi_do_one_tmf_bh.exit ], [ %7, %virtio_scsi_release.argprom.exit ]
+land.rhs38:                                       ; preds = %virtio_scsi_release.exit, %virtio_scsi_do_one_tmf_bh.exit
+  %req.142 = phi ptr [ %8, %virtio_scsi_do_one_tmf_bh.exit ], [ %7, %virtio_scsi_release.exit ]
   %next39 = getelementptr inbounds i8, ptr %req.142, i64 152
   %8 = load ptr, ptr %next39, align 8
   %cmp44.not = icmp eq ptr %8, null
@@ -2574,26 +2574,26 @@ out.i:                                            ; preds = %rcu_read_unlock.exi
   %34 = getelementptr i8, ptr %11, i64 840
   %.val.i = load ptr, ptr %34, align 8
   %tobool.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %tobool.not.i.i, label %virtio_scsi_acquire.argprom.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %virtio_scsi_acquire.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %out.i
   call void @aio_context_acquire(ptr noundef nonnull %.val.i) #13
-  br label %virtio_scsi_acquire.argprom.exit.i
+  br label %virtio_scsi_acquire.exit.i
 
-virtio_scsi_acquire.argprom.exit.i:               ; preds = %if.then.i.i, %out.i
+virtio_scsi_acquire.exit.i:                       ; preds = %if.then.i.i, %out.i
   call fastcc void @virtio_scsi_complete_req(ptr noundef nonnull %req.142)
   %.val22.i = load ptr, ptr %34, align 8
   %tobool.not.i32.i = icmp eq ptr %.val22.i, null
   br i1 %tobool.not.i32.i, label %virtio_scsi_do_one_tmf_bh.exit, label %if.then.i33.i
 
-if.then.i33.i:                                    ; preds = %virtio_scsi_acquire.argprom.exit.i
+if.then.i33.i:                                    ; preds = %virtio_scsi_acquire.exit.i
   call void @aio_context_release(ptr noundef nonnull %.val22.i) #13
   br label %virtio_scsi_do_one_tmf_bh.exit
 
-virtio_scsi_do_one_tmf_bh.exit:                   ; preds = %virtio_scsi_acquire.argprom.exit.i, %if.then.i33.i
+virtio_scsi_do_one_tmf_bh.exit:                   ; preds = %virtio_scsi_acquire.exit.i, %if.then.i33.i
   br i1 %cmp44.not, label %for.end67, label %land.rhs38, !llvm.loop !22
 
-for.end67:                                        ; preds = %virtio_scsi_do_one_tmf_bh.exit, %virtio_scsi_release.argprom.exit
+for.end67:                                        ; preds = %virtio_scsi_do_one_tmf_bh.exit, %virtio_scsi_release.exit
   ret void
 }
 
@@ -3076,23 +3076,23 @@ if.then:                                          ; preds = %land.lhs.true
   %5 = getelementptr i8, ptr %bus, i64 176
   %add.ptr.val = load ptr, ptr %5, align 8
   %tobool.not.i = icmp eq ptr %add.ptr.val, null
-  br i1 %tobool.not.i, label %virtio_scsi_acquire.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %virtio_scsi_acquire.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   tail call void @aio_context_acquire(ptr noundef nonnull %add.ptr.val) #13
-  br label %virtio_scsi_acquire.argprom.exit
+  br label %virtio_scsi_acquire.exit
 
-virtio_scsi_acquire.argprom.exit:                 ; preds = %if.then, %if.then.i
+virtio_scsi_acquire.exit:                         ; preds = %if.then, %if.then.i
   call fastcc void @virtio_scsi_push_event(ptr noundef %add.ptr, ptr noundef %info)
   %add.ptr.val7 = load ptr, ptr %5, align 8
   %tobool.not.i8 = icmp eq ptr %add.ptr.val7, null
   br i1 %tobool.not.i8, label %if.end, label %if.then.i9
 
-if.then.i9:                                       ; preds = %virtio_scsi_acquire.argprom.exit
+if.then.i9:                                       ; preds = %virtio_scsi_acquire.exit
   tail call void @aio_context_release(ptr noundef nonnull %add.ptr.val7) #13
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i9, %virtio_scsi_acquire.argprom.exit, %land.lhs.true, %entry
+if.end:                                           ; preds = %if.then.i9, %virtio_scsi_acquire.exit, %land.lhs.true, %entry
   ret void
 }
 
@@ -3327,24 +3327,24 @@ do.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %s, i64 840
   %s.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %s.val, null
-  br i1 %tobool.not.i, label %virtio_scsi_acquire.argprom.exit, label %if.then.i
+  br i1 %tobool.not.i, label %virtio_scsi_acquire.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end
   tail call void @aio_context_acquire(ptr noundef nonnull %s.val) #13
-  br label %virtio_scsi_acquire.argprom.exit
+  br label %virtio_scsi_acquire.exit
 
-virtio_scsi_acquire.argprom.exit:                 ; preds = %do.end, %if.then.i
+virtio_scsi_acquire.exit:                         ; preds = %do.end, %if.then.i
   %tmf_bh = getelementptr inbounds i8, ptr %s, i64 816
   %1 = load ptr, ptr %tmf_bh, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end4, label %if.then1
 
-if.then1:                                         ; preds = %virtio_scsi_acquire.argprom.exit
+if.then1:                                         ; preds = %virtio_scsi_acquire.exit
   tail call void @qemu_bh_delete(ptr noundef nonnull %1) #13
   store ptr null, ptr %tmf_bh, align 8
   br label %if.end4
 
-if.end4:                                          ; preds = %if.then1, %virtio_scsi_acquire.argprom.exit
+if.end4:                                          ; preds = %if.then1, %virtio_scsi_acquire.exit
   %tmf_bh_list = getelementptr inbounds i8, ptr %s, i64 824
   %2 = load ptr, ptr %tmf_bh_list, align 8
   %tobool5.not23 = icmp eq ptr %2, null
@@ -3375,13 +3375,13 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %la
 for.end:                                          ; preds = %land.rhs, %if.end4
   %s.val20 = load ptr, ptr %0, align 8
   %tobool.not.i21 = icmp eq ptr %s.val20, null
-  br i1 %tobool.not.i21, label %virtio_scsi_release.argprom.exit, label %if.then.i22
+  br i1 %tobool.not.i21, label %virtio_scsi_release.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %for.end
   tail call void @aio_context_release(ptr noundef nonnull %s.val20) #13
-  br label %virtio_scsi_release.argprom.exit
+  br label %virtio_scsi_release.exit
 
-virtio_scsi_release.argprom.exit:                 ; preds = %for.end, %if.then.i22
+virtio_scsi_release.exit:                         ; preds = %for.end, %if.then.i22
   ret void
 }
 

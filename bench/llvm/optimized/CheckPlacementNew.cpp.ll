@@ -982,13 +982,13 @@ _ZN4llvm5APIntC2Ejmbb.exit.i.i.i:                 ; preds = %109, %102
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i: ; preds = %119, %116, %_ZN4llvm5APIntC2Ejmbb.exit.i.i.i, %81, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit45.i.i.i, %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit.i.i.i
   %.sroa.042.0.i.i.i = phi ptr [ %113, %116 ], [ %113, %119 ], [ %113, %_ZN4llvm5APIntC2Ejmbb.exit.i.i.i ], [ %.fca.0.extract4.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit45.i.i.i ], [ %.fca.0.extract4.i.i.i, %81 ], [ null, %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit.i.i.i ]
   %.sroa.4.0.i.i.i = phi i8 [ 6, %116 ], [ 6, %119 ], [ 6, %_ZN4llvm5APIntC2Ejmbb.exit.i.i.i ], [ %.fca.1.extract5.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit45.i.i.i ], [ %.fca.1.extract5.i.i.i, %81 ], [ 1, %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit.i.i.i ]
-  br i1 %.not.i.i.i.i.i, label %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.argprom.exit.i.i, label %120
+  br i1 %.not.i.i.i.i.i, label %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.exit.i.i, label %120
 
 120:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %36) #17
-  br label %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.argprom.exit.i.i
+  br label %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.exit.i.i
 
-_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.argprom.exit.i.i: ; preds = %120, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i
+_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.exit.i.i: ; preds = %120, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
@@ -1010,16 +1010,16 @@ _ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXX
   %.not.i.i.i16.i.i = icmp eq ptr %131, null
   br i1 %.not.i.i.i16.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i18.i.i, label %132
 
-132:                                              ; preds = %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.argprom.exit.i.i
+132:                                              ; preds = %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.exit.i.i
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %131) #17
   %.pre.i17.i.i = load ptr, ptr %33, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.pre.i17.i.i, i64 56
   %.pre1.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i18.i.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i18.i.i: ; preds = %132, %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.argprom.exit.i.i
-  %133 = phi ptr [ null, %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.argprom.exit.i.i ], [ %.pre1.i.i.i, %132 ]
-  %134 = phi ptr [ %129, %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.argprom.exit.i.i ], [ %.pre.i17.i.i, %132 ]
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i18.i.i: ; preds = %132, %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.exit.i.i
+  %133 = phi ptr [ null, %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.exit.i.i ], [ %.pre1.i.i.i, %132 ]
+  %134 = phi ptr [ %129, %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.exit.i.i ], [ %.pre.i17.i.i, %132 ]
   %.sroa.1.0..sroa_idx.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %134, i64 24
   %.sroa.1.0.copyload.i.i.i.i20.i.i = load i64, ptr %.sroa.1.0..sroa_idx.i.i.i.i19.i.i, align 8
   %135 = and i64 %.sroa.1.0.copyload.i.i.i.i20.i.i, -8
@@ -1038,13 +1038,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i18.i.i:
   %143 = call { ptr, i8 } @_ZN5clang4ento26getDynamicExtentWithOffsetEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValE(ptr noundef nonnull %13, ptr %.fca.0.extract1.i.i.i, i8 %.fca.1.extract2.i.i.i) #17
   %144 = load ptr, ptr %13, align 8
   %.not.i.i12.i.i.i = icmp eq ptr %144, null
-  br i1 %.not.i.i12.i.i.i, label %_ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.argprom.exit.i.i, label %145
+  br i1 %.not.i.i12.i.i.i, label %_ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit.i.i, label %145
 
 145:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i18.i.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %144) #17
-  br label %_ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.argprom.exit.i.i
+  br label %_ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit.i.i
 
-_ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.argprom.exit.i.i: ; preds = %145, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i18.i.i
+_ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit.i.i: ; preds = %145, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i18.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %.fca.0.extract.i.i = extractvalue { ptr, i8 } %143, 0
   %146 = icmp eq i8 %.sroa.4.0.i.i.i, 6
@@ -1053,7 +1053,7 @@ _ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewE
   %or.cond.i.i = select i1 %146, i1 %147, i1 false
   br i1 %or.cond.i.i, label %148, label %289
 
-148:                                              ; preds = %_ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.argprom.exit.i.i
+148:                                              ; preds = %_ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit.i.i
   %149 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 12
   %150 = load i8, ptr %149, align 4
   %151 = trunc i8 %150 to i1
@@ -1414,7 +1414,7 @@ _ZNK12_GLOBAL__N_119PlacementNewChecker30checkPlaceCapacityIsSufficientEPKN5clan
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %24)
   br label %_ZNK12_GLOBAL__N_119PlacementNewChecker12checkPreStmtEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit
 
-289:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i, %_ZNK4llvm6APSIntgeERKS0_.exit.i.i, %157, %_ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.argprom.exit.i.i
+289:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i, %_ZNK4llvm6APSIntgeERKS0_.exit.i.i, %157, %_ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %20)

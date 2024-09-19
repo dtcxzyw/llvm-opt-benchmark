@@ -10051,7 +10051,7 @@ _ZN12_GLOBAL__N_113xilinx_srl_pm28block_subpattern_fixed_setupEi.exit.i.i.i: ; p
   br i1 %.not.i.i.i41, label %4032, label %4037
 
 4032:                                             ; preds = %_ZN12_GLOBAL__N_113xilinx_srl_pm28block_subpattern_fixed_setupEi.exit.i.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm7block_1Ei.argelim(ptr noundef nonnull align 8 dereferenceable(1136) %70)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm7block_1Ei(ptr noundef nonnull align 8 dereferenceable(1136) %70)
           to label %4037 unwind label %.loopexit.split-lp.i
 
 4033:                                             ; preds = %492
@@ -10274,7 +10274,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i.i.i.i65:      ; preds = %4097, %_ZN5Yosys5RT
   br label %_ZN12_GLOBAL__N_113xilinx_srl_pm8block_12Ei.exit.i.i
 
 _ZN12_GLOBAL__N_113xilinx_srl_pm8block_12Ei.exit.i.i: ; preds = %4100, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i.i.i.i65
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm8block_13Ei.argelim(ptr noundef nonnull align 8 dereferenceable(1136) %70)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm8block_13Ei(ptr noundef nonnull align 8 dereferenceable(1136) %70)
           to label %4105 unwind label %4112
 
 4101:                                             ; preds = %4086
@@ -10695,7 +10695,7 @@ define internal void @_ZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmE(ptr nound
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.invoke, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit189, %797, %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit361, %1621, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit, %1638, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit410, %1655, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit423, %1762, %1927, %1929, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit, %2076, %370, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit462
+.loopexit.split-lp:                               ; preds = %.invoke, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit189, %797, %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit361, %1621, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit, %1638, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit410, %1655, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit423, %1762, %1927, %1929, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit, %2076, %370, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit462
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -10892,7 +10892,7 @@ define internal void @_ZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmE(ptr nound
 189:                                              ; preds = %187, %183, %180
   %190 = load i32, ptr @"_ZZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEvE2id", align 4, !noalias !96
   %.not.i.i.i146 = icmp eq i32 %190, 0
-  br i1 %.not.i.i.i146, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.argprom.exit", label %191
+  br i1 %.not.i.i.i146, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.exit", label %191
 
 191:                                              ; preds = %189
   %192 = sext i32 %190 to i64
@@ -10901,7 +10901,7 @@ define internal void @_ZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmE(ptr nound
   %195 = load i32, ptr %194, align 4, !noalias !96
   %196 = add nsw i32 %195, 1
   store i32 %196, ptr %194, align 4, !noalias !96
-  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.exit"
 
 .body148:                                         ; preds = %185
   %197 = landingpad { ptr, i32 }
@@ -10910,7 +10910,7 @@ define internal void @_ZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmE(ptr nound
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #23
   br label %.body144
 
-"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.argprom.exit": ; preds = %191, %189
+"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.exit": ; preds = %191, %189
   %198 = load i32, ptr %85, align 4
   %199 = load i32, ptr %7, align 4
   %200 = icmp eq i32 %198, %199
@@ -10934,7 +10934,7 @@ define internal void @_ZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmE(ptr nound
   %or.cond.i.i = and i1 %213, %212
   br i1 %or.cond.i.i, label %214, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
 
-214:                                              ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.argprom.exit"
+214:                                              ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.exit"
   %215 = sext i32 %190 to i64
   %216 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %217 = getelementptr inbounds i32, ptr %216, i64 %215
@@ -10955,7 +10955,7 @@ define internal void @_ZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmE(ptr nound
   call void @__clang_call_terminate(ptr %224) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.argprom.exit", %214, %221
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.exit", %214, %221
   %225 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %226 = trunc i8 %225 to i1
   %227 = icmp ne i32 %207, 0
@@ -11332,7 +11332,7 @@ _ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit165: ; preds = %.loopexit
 403:                                              ; preds = %401, %397, %394
   %404 = load i32, ptr @"_ZZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEvE2id", align 4, !noalias !103
   %.not.i.i.i170 = icmp eq i32 %404, 0
-  br i1 %.not.i.i.i170, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.argprom.exit", label %405
+  br i1 %.not.i.i.i170, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.exit", label %405
 
 405:                                              ; preds = %403
   %406 = sext i32 %404 to i64
@@ -11341,7 +11341,7 @@ _ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit165: ; preds = %.loopexit
   %409 = load i32, ptr %408, align 4, !noalias !103
   %410 = add nsw i32 %409, 1
   store i32 %410, ptr %408, align 4, !noalias !103
-  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.exit"
 
 .body172:                                         ; preds = %399
   %411 = landingpad { ptr, i32 }
@@ -11350,7 +11350,7 @@ _ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit165: ; preds = %.loopexit
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #23
   br label %.body
 
-"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.argprom.exit": ; preds = %405, %403
+"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.exit": ; preds = %405, %403
   %412 = load i32, ptr %85, align 4
   %413 = load i32, ptr %12, align 4
   %414 = icmp eq i32 %412, %413
@@ -11362,7 +11362,7 @@ _ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit165: ; preds = %.loopexit
   %or.cond.i.i174 = and i1 %418, %417
   br i1 %or.cond.i.i174, label %419, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit175
 
-419:                                              ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.argprom.exit"
+419:                                              ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.exit"
   %420 = sext i32 %404 to i64
   %421 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %422 = getelementptr inbounds i32, ptr %421, i64 %420
@@ -11383,7 +11383,7 @@ _ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit165: ; preds = %.loopexit
   call void @__clang_call_terminate(ptr %429) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit175:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.argprom.exit", %419, %426
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit175:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.exit", %419, %426
   %430 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %431 = trunc i8 %430 to i1
   %432 = icmp ne i32 %413, 0
@@ -11447,8 +11447,8 @@ _ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit181: ; preds = %450
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %452
 
-.invoke:                                          ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit177, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit238, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit514, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit314, %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit.thread"
-  %451 = phi i32 [ 80, %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit.thread" ], [ 80, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit314 ], [ 99, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit514 ], [ 102, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit238 ], [ 57, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit177 ]
+.invoke:                                          ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit177, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit238, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit514, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit314, %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.exit.thread"
+  %451 = phi i32 [ 80, %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.exit.thread" ], [ 80, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit314 ], [ 99, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit514 ], [ 102, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit238 ], [ 57, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit177 ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.68, i32 noundef %451) #26
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -12338,7 +12338,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit240:                ; preds = %811, %814
 861:                                              ; preds = %859, %855, %852
   %862 = load i32, ptr @"_ZZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEvE2id", align 4, !noalias !139
   %.not.i.i.i249 = icmp eq i32 %862, 0
-  br i1 %.not.i.i.i249, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.argprom.exit", label %863
+  br i1 %.not.i.i.i249, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.exit", label %863
 
 863:                                              ; preds = %861
   %864 = sext i32 %862 to i64
@@ -12347,7 +12347,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit240:                ; preds = %811, %814
   %867 = load i32, ptr %866, align 4, !noalias !139
   %868 = add nsw i32 %867, 1
   store i32 %868, ptr %866, align 4, !noalias !139
-  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.exit"
 
 .body251:                                         ; preds = %857
   %869 = landingpad { ptr, i32 }
@@ -12356,7 +12356,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit240:                ; preds = %811, %814
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %29) #23
   br label %.body247
 
-"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.argprom.exit": ; preds = %863, %861
+"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.exit": ; preds = %863, %861
   %870 = load i32, ptr %517, align 4
   %871 = load i32, ptr %28, align 4
   %872 = icmp eq i32 %870, %871
@@ -12371,7 +12371,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit240:                ; preds = %811, %814
   %or.cond.i.i254 = and i1 %878, %877
   br i1 %or.cond.i.i254, label %879, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit255
 
-879:                                              ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.argprom.exit"
+879:                                              ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.exit"
   %880 = sext i32 %862 to i64
   %881 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %882 = getelementptr inbounds i32, ptr %881, i64 %880
@@ -12392,7 +12392,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit240:                ; preds = %811, %814
   call void @__clang_call_terminate(ptr %889) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit255:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.argprom.exit", %879, %886
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit255:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.exit", %879, %886
   %890 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %891 = trunc i8 %890 to i1
   %892 = icmp ne i32 %873, 0
@@ -12812,7 +12812,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit273:                ; preds = %985, %981, %979
 1052:                                             ; preds = %1050, %1046, %1043
   %1053 = load i32, ptr @"_ZZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEvE2id", align 4, !noalias !154
   %.not.i.i.i286 = icmp eq i32 %1053, 0
-  br i1 %.not.i.i.i286, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.argprom.exit", label %1054
+  br i1 %.not.i.i.i286, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.exit", label %1054
 
 1054:                                             ; preds = %1052
   %1055 = sext i32 %1053 to i64
@@ -12821,7 +12821,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit273:                ; preds = %985, %981, %979
   %1058 = load i32, ptr %1057, align 4, !noalias !154
   %1059 = add nsw i32 %1058, 1
   store i32 %1059, ptr %1057, align 4, !noalias !154
-  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.exit"
 
 .body288:                                         ; preds = %1048
   %1060 = landingpad { ptr, i32 }
@@ -12830,7 +12830,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit273:                ; preds = %985, %981, %979
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %34) #23
   br label %.body284
 
-"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.argprom.exit": ; preds = %1054, %1052
+"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.exit": ; preds = %1054, %1052
   %1061 = load i32, ptr %517, align 4
   %1062 = load i32, ptr %32, align 4
   %1063 = icmp eq i32 %1061, %1062
@@ -12848,7 +12848,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit273:                ; preds = %985, %981, %979
   %or.cond.i.i291 = and i1 %1072, %1071
   br i1 %or.cond.i.i291, label %1073, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit292
 
-1073:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.argprom.exit"
+1073:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.exit"
   %1074 = sext i32 %1053 to i64
   %1075 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1076 = getelementptr inbounds i32, ptr %1075, i64 %1074
@@ -12869,7 +12869,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit273:                ; preds = %985, %981, %979
   call void @__clang_call_terminate(ptr %1083) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit292:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.argprom.exit", %1073, %1080
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit292:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.exit", %1073, %1080
   %1084 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1085 = trunc i8 %1084 to i1
   %1086 = icmp ne i32 %1066, 0
@@ -13100,9 +13100,9 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit308:                ; preds = %1172, %1168, %1166
 1182:                                             ; preds = %1180, %1176, %1173
   %1183 = load i32, ptr @"_ZZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEvE2id", align 4, !noalias !160
   %.not.i.i.i309 = icmp eq i32 %1183, 0
-  br i1 %.not.i.i.i309, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit"
+  br i1 %.not.i.i.i309, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.exit.thread", label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.exit"
 
-"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit.thread": ; preds = %1182
+"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.exit.thread": ; preds = %1182
   %1184 = load i32, ptr %517, align 4
   %1185 = icmp eq i32 %1184, 0
   br i1 %1185, label %1207, label %.invoke
@@ -13113,7 +13113,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit308:                ; preds = %1172, %1168, %1166
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEvE2id") #23, !noalias !160
   br label %.body
 
-"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit": ; preds = %1182
+"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.exit": ; preds = %1182
   %1188 = sext i32 %1183 to i64
   %1189 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !160
   %1190 = getelementptr inbounds i32, ptr %1189, i64 %1188
@@ -13126,7 +13126,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit308:                ; preds = %1172, %1168, %1166
   %1196 = trunc i8 %1195 to i1
   br i1 %1196, label %1197, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit314
 
-1197:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit"
+1197:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.exit"
   %1198 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1199 = getelementptr inbounds i32, ptr %1198, i64 %1188
   %1200 = load i32, ptr %1199, align 4
@@ -13146,10 +13146,10 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit308:                ; preds = %1172, %1168, %1166
   call void @__clang_call_terminate(ptr %1206) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit314:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit", %1197, %1203
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit314:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.exit", %1197, %1203
   br i1 %1194, label %1207, label %.invoke
 
-1207:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit314
+1207:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit314
   call void @llvm.experimental.noalias.scope.decl(metadata !163)
   %1208 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_27clEvE2id" acquire, align 8, !noalias !163
   %1209 = icmp eq i8 %1208, 0
@@ -13524,7 +13524,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit267:             ; preds = %1331, %1324, %_ZN5Y
 1369:                                             ; preds = %1367, %1363, %1360
   %1370 = load i32, ptr @"_ZZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEvE2id", align 4, !noalias !175
   %.not.i.i.i345 = icmp eq i32 %1370, 0
-  br i1 %.not.i.i.i345, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.argprom.exit", label %1371
+  br i1 %.not.i.i.i345, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.exit", label %1371
 
 1371:                                             ; preds = %1369
   %1372 = sext i32 %1370 to i64
@@ -13533,7 +13533,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit267:             ; preds = %1331, %1324, %_ZN5Y
   %1375 = load i32, ptr %1374, align 4, !noalias !175
   %1376 = add nsw i32 %1375, 1
   store i32 %1376, ptr %1374, align 4, !noalias !175
-  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.exit"
 
 .body347:                                         ; preds = %1365
   %1377 = landingpad { ptr, i32 }
@@ -13542,7 +13542,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit267:             ; preds = %1331, %1324, %_ZN5Y
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %42) #23
   br label %.body
 
-"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.argprom.exit": ; preds = %1371, %1369
+"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.exit": ; preds = %1371, %1369
   %1378 = load i32, ptr %517, align 4
   %1379 = load i32, ptr %42, align 4
   %1380 = icmp eq i32 %1378, %1379
@@ -13554,7 +13554,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit267:             ; preds = %1331, %1324, %_ZN5Y
   %or.cond.i.i350 = and i1 %1384, %1383
   br i1 %or.cond.i.i350, label %1385, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit351
 
-1385:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.argprom.exit"
+1385:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.exit"
   %1386 = sext i32 %1370 to i64
   %1387 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1388 = getelementptr inbounds i32, ptr %1387, i64 %1386
@@ -13575,7 +13575,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit267:             ; preds = %1331, %1324, %_ZN5Y
   call void @__clang_call_terminate(ptr %1395) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit351:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.argprom.exit", %1385, %1392
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit351:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.exit", %1385, %1392
   %1396 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1397 = trunc i8 %1396 to i1
   %1398 = icmp ne i32 %1379, 0
@@ -13782,7 +13782,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit363:                ; preds = %1456, %1452, %1450
 1485:                                             ; preds = %1483, %1479, %1476
   %1486 = load i32, ptr @"_ZZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEvE2id", align 4, !noalias !184
   %.not.i.i.i368 = icmp eq i32 %1486, 0
-  br i1 %.not.i.i.i368, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.argprom.exit", label %1487
+  br i1 %.not.i.i.i368, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.exit", label %1487
 
 1487:                                             ; preds = %1485
   %1488 = sext i32 %1486 to i64
@@ -13791,7 +13791,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit363:                ; preds = %1456, %1452, %1450
   %1491 = load i32, ptr %1490, align 4, !noalias !184
   %1492 = add nsw i32 %1491, 1
   store i32 %1492, ptr %1490, align 4, !noalias !184
-  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.exit"
 
 .body370:                                         ; preds = %1481
   %1493 = landingpad { ptr, i32 }
@@ -13800,7 +13800,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit363:                ; preds = %1456, %1452, %1450
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %45) #23
   br label %.body
 
-"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.argprom.exit": ; preds = %1487, %1485
+"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.exit": ; preds = %1487, %1485
   %1494 = load i32, ptr %517, align 4
   %1495 = load i32, ptr %45, align 4
   %1496 = icmp eq i32 %1494, %1495
@@ -13812,7 +13812,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit363:                ; preds = %1456, %1452, %1450
   %or.cond.i.i373 = and i1 %1500, %1499
   br i1 %or.cond.i.i373, label %1501, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit374
 
-1501:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.argprom.exit"
+1501:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.exit"
   %1502 = sext i32 %1486 to i64
   %1503 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1504 = getelementptr inbounds i32, ptr %1503, i64 %1502
@@ -13833,7 +13833,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit363:                ; preds = %1456, %1452, %1450
   call void @__clang_call_terminate(ptr %1511) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit374:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.argprom.exit", %1501, %1508
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit374:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.exit", %1501, %1508
   %1512 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1513 = trunc i8 %1512 to i1
   %1514 = icmp ne i32 %1495, 0
@@ -14391,7 +14391,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit436:              ; preds = %_ZSt8_DestroyIPN5Yo
 1721:                                             ; preds = %1719, %1715, %1712
   %1722 = load i32, ptr @"_ZZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEvE2id", align 4, !noalias !196
   %.not.i.i.i441 = icmp eq i32 %1722, 0
-  br i1 %.not.i.i.i441, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.argprom.exit", label %1723
+  br i1 %.not.i.i.i441, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.exit", label %1723
 
 1723:                                             ; preds = %1721
   %1724 = sext i32 %1722 to i64
@@ -14400,7 +14400,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit436:              ; preds = %_ZSt8_DestroyIPN5Yo
   %1727 = load i32, ptr %1726, align 4, !noalias !196
   %1728 = add nsw i32 %1727, 1
   store i32 %1728, ptr %1726, align 4, !noalias !196
-  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.exit"
 
 .body443:                                         ; preds = %1717
   %1729 = landingpad { ptr, i32 }
@@ -14409,7 +14409,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit436:              ; preds = %_ZSt8_DestroyIPN5Yo
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %54) #23
   br label %.body
 
-"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.argprom.exit": ; preds = %1723, %1721
+"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.exit": ; preds = %1723, %1721
   %1730 = load i32, ptr %517, align 4
   %1731 = load i32, ptr %54, align 4
   %1732 = icmp eq i32 %1730, %1731
@@ -14421,7 +14421,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit436:              ; preds = %_ZSt8_DestroyIPN5Yo
   %or.cond.i.i446 = and i1 %1736, %1735
   br i1 %or.cond.i.i446, label %1737, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit447
 
-1737:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.argprom.exit"
+1737:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.exit"
   %1738 = sext i32 %1722 to i64
   %1739 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1740 = getelementptr inbounds i32, ptr %1739, i64 %1738
@@ -14442,7 +14442,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit436:              ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__clang_call_terminate(ptr %1747) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit447:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.argprom.exit", %1737, %1744
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit447:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.exit", %1737, %1744
   %1748 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1749 = trunc i8 %1748 to i1
   %1750 = icmp ne i32 %1731, 0
@@ -14703,7 +14703,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i460: ; preds = 
 1853:                                             ; preds = %1851, %1847, %1844
   %1854 = load i32, ptr @"_ZZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEvE2id", align 4, !noalias !208
   %.not.i.i.i475 = icmp eq i32 %1854, 0
-  br i1 %.not.i.i.i475, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.argprom.exit", label %1855
+  br i1 %.not.i.i.i475, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.exit", label %1855
 
 1855:                                             ; preds = %1853
   %1856 = sext i32 %1854 to i64
@@ -14712,7 +14712,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i460: ; preds = 
   %1859 = load i32, ptr %1858, align 4, !noalias !208
   %1860 = add nsw i32 %1859, 1
   store i32 %1860, ptr %1858, align 4, !noalias !208
-  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.exit"
 
 .body477:                                         ; preds = %1849
   %1861 = landingpad { ptr, i32 }
@@ -14721,7 +14721,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i460: ; preds = 
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %58) #23
   br label %.body473
 
-"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.argprom.exit": ; preds = %1855, %1853
+"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.exit": ; preds = %1855, %1853
   %1862 = load i32, ptr %517, align 4
   %1863 = load i32, ptr %56, align 4
   %1864 = icmp eq i32 %1862, %1863
@@ -14739,7 +14739,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i460: ; preds = 
   %or.cond.i.i481 = and i1 %1873, %1872
   br i1 %or.cond.i.i481, label %1874, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit482
 
-1874:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.argprom.exit"
+1874:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.exit"
   %1875 = sext i32 %1854 to i64
   %1876 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1877 = getelementptr inbounds i32, ptr %1876, i64 %1875
@@ -14760,7 +14760,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i460: ; preds = 
   call void @__clang_call_terminate(ptr %1884) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit482:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.argprom.exit", %1874, %1881
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit482:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.exit", %1874, %1881
   %1885 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1886 = trunc i8 %1885 to i1
   %1887 = icmp ne i32 %1867, 0
@@ -14983,7 +14983,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i499: ; preds = 
 1974:                                             ; preds = %1972, %1968, %1965
   %1975 = load i32, ptr @"_ZZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEvE2id", align 4, !noalias !214
   %.not.i.i.i506 = icmp eq i32 %1975, 0
-  br i1 %.not.i.i.i506, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.argprom.exit", label %1976
+  br i1 %.not.i.i.i506, label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.exit", label %1976
 
 1976:                                             ; preds = %1974
   %1977 = sext i32 %1975 to i64
@@ -14992,7 +14992,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i499: ; preds = 
   %1980 = load i32, ptr %1979, align 4, !noalias !214
   %1981 = add nsw i32 %1980, 1
   store i32 %1981, ptr %1979, align 4, !noalias !214
-  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.exit"
 
 .body508:                                         ; preds = %1970
   %1982 = landingpad { ptr, i32 }
@@ -15001,7 +15001,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i499: ; preds = 
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %60) #23
   br label %.body
 
-"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.argprom.exit": ; preds = %1976, %1974
+"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.exit": ; preds = %1976, %1974
   %1983 = load i32, ptr %517, align 4
   %1984 = load i32, ptr %60, align 4
   %1985 = icmp eq i32 %1983, %1984
@@ -15013,7 +15013,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i499: ; preds = 
   %or.cond.i.i511 = and i1 %1989, %1988
   br i1 %or.cond.i.i511, label %1990, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit512
 
-1990:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.argprom.exit"
+1990:                                             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.exit"
   %1991 = sext i32 %1975 to i64
   %1992 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1993 = getelementptr inbounds i32, ptr %1992, i64 %1991
@@ -15034,7 +15034,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i499: ; preds = 
   call void @__clang_call_terminate(ptr %2000) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit512:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.argprom.exit", %1990, %1997
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit512:             ; preds = %"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.exit", %1990, %1997
   %2001 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %2002 = trunc i8 %2001 to i1
   %2003 = icmp ne i32 %1984, 0
@@ -15219,14 +15219,14 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit462.sink.split:   ; preds = %_ZSt8_DestroyIPN5Yo
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit462:              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit462.sink.split, %2063, %2056, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit531, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i499, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i460
   %2072 = getelementptr inbounds i8, ptr %483, i64 72
   %2073 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %2072)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit unwind label %.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit: ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit462
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit: ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit462
   %2074 = getelementptr inbounds i8, ptr %483, i64 76
   %2075 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %2074)
           to label %2076 unwind label %.loopexit.split-lp
 
-2076:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit
+2076:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.69, ptr noundef %2073, ptr noundef %2075)
           to label %2077 unwind label %.loopexit.split-lp
 
@@ -15426,7 +15426,7 @@ define internal void @_ZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmE(ptr n
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.invoke919, %.invoke, %._crit_edge, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit192, %800, %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit, %2283, %_ZN5Yosys5RTLIL5ConstD2Ev.exit602
+.loopexit.split-lp:                               ; preds = %.invoke919, %.invoke, %._crit_edge, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit192, %800, %_ZN5Yosys5RTLIL5ConstD2Ev.exit, %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit, %2283, %_ZN5Yosys5RTLIL5ConstD2Ev.exit602
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -17049,7 +17049,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit248:                ; preds = %814, %817
 864:                                              ; preds = %862, %858, %855
   %865 = load i32, ptr @"_ZZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEvE2id", align 4, !noalias !277
   %.not.i.i.i257 = icmp eq i32 %865, 0
-  br i1 %.not.i.i.i257, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.argprom.exit", label %866
+  br i1 %.not.i.i.i257, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.exit", label %866
 
 866:                                              ; preds = %864
   %867 = sext i32 %865 to i64
@@ -17058,7 +17058,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit248:                ; preds = %814, %817
   %870 = load i32, ptr %869, align 4, !noalias !277
   %871 = add nsw i32 %870, 1
   store i32 %871, ptr %869, align 4, !noalias !277
-  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.exit"
 
 .body259:                                         ; preds = %860
   %872 = landingpad { ptr, i32 }
@@ -17067,7 +17067,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit248:                ; preds = %814, %817
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %28) #23
   br label %.body255
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.argprom.exit": ; preds = %866, %864
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.exit": ; preds = %866, %864
   %873 = load i32, ptr %520, align 4
   %874 = load i32, ptr %27, align 4
   %875 = icmp eq i32 %873, %874
@@ -17082,7 +17082,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit248:                ; preds = %814, %817
   %or.cond.i.i262 = and i1 %881, %880
   br i1 %or.cond.i.i262, label %882, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit263
 
-882:                                              ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.argprom.exit"
+882:                                              ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.exit"
   %883 = sext i32 %865 to i64
   %884 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %885 = getelementptr inbounds i32, ptr %884, i64 %883
@@ -17103,7 +17103,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit248:                ; preds = %814, %817
   call void @__clang_call_terminate(ptr %892) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit263:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.argprom.exit", %882, %889
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit263:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.exit", %882, %889
   %893 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %894 = trunc i8 %893 to i1
   %895 = icmp ne i32 %876, 0
@@ -17437,7 +17437,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
 1012:                                             ; preds = %1010, %1006, %1003
   %1013 = load i32, ptr @"_ZZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEvE2id", align 4, !noalias !286
   %.not.i.i.i285 = icmp eq i32 %1013, 0
-  br i1 %.not.i.i.i285, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.argprom.exit", label %1014
+  br i1 %.not.i.i.i285, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.exit", label %1014
 
 1014:                                             ; preds = %1012
   %1015 = sext i32 %1013 to i64
@@ -17446,7 +17446,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   %1018 = load i32, ptr %1017, align 4, !noalias !286
   %1019 = add nsw i32 %1018, 1
   store i32 %1019, ptr %1017, align 4, !noalias !286
-  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.exit"
 
 .body287:                                         ; preds = %1008
   %1020 = landingpad { ptr, i32 }
@@ -17455,7 +17455,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %31) #23
   br label %.body283
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.argprom.exit": ; preds = %1014, %1012
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.exit": ; preds = %1014, %1012
   %1021 = load i32, ptr %520, align 4
   %1022 = load i32, ptr %30, align 4
   %1023 = icmp eq i32 %1021, %1022
@@ -17470,7 +17470,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   %or.cond.i.i291 = and i1 %1029, %1028
   br i1 %or.cond.i.i291, label %1030, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit292
 
-1030:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.argprom.exit"
+1030:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.exit"
   %1031 = sext i32 %1013 to i64
   %1032 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1033 = getelementptr inbounds i32, ptr %1032, i64 %1031
@@ -17491,7 +17491,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   call void @__clang_call_terminate(ptr %1040) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit292:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.argprom.exit", %1030, %1037
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit292:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.exit", %1030, %1037
   %1041 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1042 = trunc i8 %1041 to i1
   %1043 = icmp ne i32 %1024, 0
@@ -17680,7 +17680,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i643:
 1118:                                             ; preds = %1116, %1112, %1109
   %1119 = load i32, ptr @"_ZZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEvE2id", align 4, !noalias !292
   %.not.i.i.i307 = icmp eq i32 %1119, 0
-  br i1 %.not.i.i.i307, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.argprom.exit", label %1120
+  br i1 %.not.i.i.i307, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.exit", label %1120
 
 1120:                                             ; preds = %1118
   %1121 = sext i32 %1119 to i64
@@ -17689,7 +17689,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i643:
   %1124 = load i32, ptr %1123, align 4, !noalias !292
   %1125 = add nsw i32 %1124, 1
   store i32 %1125, ptr %1123, align 4, !noalias !292
-  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.exit"
 
 .body309:                                         ; preds = %1114
   %1126 = landingpad { ptr, i32 }
@@ -17698,7 +17698,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i643:
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %33) #23
   br label %.body
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.argprom.exit": ; preds = %1120, %1118
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.exit": ; preds = %1120, %1118
   %1127 = load i32, ptr %520, align 4
   %1128 = load i32, ptr %33, align 4
   %1129 = icmp eq i32 %1127, %1128
@@ -17710,7 +17710,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i643:
   %or.cond.i.i311 = and i1 %1133, %1132
   br i1 %or.cond.i.i311, label %1134, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit312
 
-1134:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.argprom.exit"
+1134:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.exit"
   %1135 = sext i32 %1119 to i64
   %1136 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1137 = getelementptr inbounds i32, ptr %1136, i64 %1135
@@ -17731,7 +17731,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i643:
   call void @__clang_call_terminate(ptr %1144) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit312:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.argprom.exit", %1134, %1141
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit312:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.exit", %1134, %1141
   %1145 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1146 = trunc i8 %1145 to i1
   %1147 = icmp ne i32 %1128, 0
@@ -17881,7 +17881,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit270:                ; preds = %_ZSt4copyIN9__gnu_c
 1205:                                             ; preds = %1203, %1199, %1196
   %1206 = load i32, ptr @"_ZZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEvE2id", align 4, !noalias !298
   %.not.i.i.i321 = icmp eq i32 %1206, 0
-  br i1 %.not.i.i.i321, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit", label %1207
+  br i1 %.not.i.i.i321, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.exit", label %1207
 
 1207:                                             ; preds = %1205
   %1208 = sext i32 %1206 to i64
@@ -17890,7 +17890,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit270:                ; preds = %_ZSt4copyIN9__gnu_c
   %1211 = load i32, ptr %1210, align 4, !noalias !298
   %1212 = add nsw i32 %1211, 1
   store i32 %1212, ptr %1210, align 4, !noalias !298
-  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.exit"
 
 .body323:                                         ; preds = %1201
   %1213 = landingpad { ptr, i32 }
@@ -17899,7 +17899,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit270:                ; preds = %_ZSt4copyIN9__gnu_c
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %34) #23
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit605
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit": ; preds = %1207, %1205
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.exit": ; preds = %1207, %1205
   %1214 = load i32, ptr %520, align 4
   %1215 = load i32, ptr %34, align 4
   %1216 = icmp eq i32 %1214, %1215
@@ -17911,7 +17911,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit270:                ; preds = %_ZSt4copyIN9__gnu_c
   %or.cond.i.i326 = and i1 %1220, %1219
   br i1 %or.cond.i.i326, label %1221, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit327
 
-1221:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit"
+1221:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.exit"
   %1222 = sext i32 %1206 to i64
   %1223 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1224 = getelementptr inbounds i32, ptr %1223, i64 %1222
@@ -17932,7 +17932,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit270:                ; preds = %_ZSt4copyIN9__gnu_c
   call void @__clang_call_terminate(ptr %1231) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit327:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.argprom.exit", %1221, %1228
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit327:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.exit", %1221, %1228
   %1232 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1233 = trunc i8 %1232 to i1
   %1234 = icmp ne i32 %1215, 0
@@ -18088,7 +18088,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i688:
 1295:                                             ; preds = %1293, %1289, %1286
   %1296 = load i32, ptr @"_ZZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEvE2id", align 4, !noalias !304
   %.not.i.i.i340 = icmp eq i32 %1296, 0
-  br i1 %.not.i.i.i340, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.argprom.exit", label %1297
+  br i1 %.not.i.i.i340, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.exit", label %1297
 
 1297:                                             ; preds = %1295
   %1298 = sext i32 %1296 to i64
@@ -18097,7 +18097,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i688:
   %1301 = load i32, ptr %1300, align 4, !noalias !304
   %1302 = add nsw i32 %1301, 1
   store i32 %1302, ptr %1300, align 4, !noalias !304
-  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.exit"
 
 .body342:                                         ; preds = %1291
   %1303 = landingpad { ptr, i32 }
@@ -18106,7 +18106,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i688:
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %36) #23
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit605
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.argprom.exit": ; preds = %1297, %1295
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.exit": ; preds = %1297, %1295
   %1304 = load i32, ptr %520, align 4
   %1305 = load i32, ptr %36, align 4
   %1306 = icmp eq i32 %1304, %1305
@@ -18118,7 +18118,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i688:
   %or.cond.i.i345 = and i1 %1310, %1309
   br i1 %or.cond.i.i345, label %1311, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit346
 
-1311:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.argprom.exit"
+1311:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.exit"
   %1312 = sext i32 %1296 to i64
   %1313 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1314 = getelementptr inbounds i32, ptr %1313, i64 %1312
@@ -18139,7 +18139,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i688:
   call void @__clang_call_terminate(ptr %1321) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit346:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.argprom.exit", %1311, %1318
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit346:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.exit", %1311, %1318
   %1322 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1323 = trunc i8 %1322 to i1
   %1324 = icmp ne i32 %1305, 0
@@ -18253,9 +18253,9 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i711:
 1366:                                             ; preds = %1364, %1360, %1357
   %1367 = load i32, ptr @"_ZZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEvE2id", align 4, !noalias !307
   %.not.i.i.i355 = icmp eq i32 %1367, 0
-  br i1 %.not.i.i.i355, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.argprom.exit"
+  br i1 %.not.i.i.i355, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.exit.thread", label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.exit"
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.argprom.exit.thread": ; preds = %1366
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.exit.thread": ; preds = %1366
   %1368 = load i32, ptr %520, align 4
   %1369 = icmp eq i32 %1368, 0
   br i1 %1369, label %1391, label %1408
@@ -18266,7 +18266,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i711:
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEvE2id") #23, !noalias !307
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit605
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.argprom.exit": ; preds = %1366
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.exit": ; preds = %1366
   %1372 = sext i32 %1367 to i64
   %1373 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !307
   %1374 = getelementptr inbounds i32, ptr %1373, i64 %1372
@@ -18279,7 +18279,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i711:
   %1380 = trunc i8 %1379 to i1
   br i1 %1380, label %1381, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit360
 
-1381:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.argprom.exit"
+1381:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.exit"
   %1382 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1383 = getelementptr inbounds i32, ptr %1382, i64 %1372
   %1384 = load i32, ptr %1383, align 4
@@ -18299,10 +18299,10 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i711:
   call void @__clang_call_terminate(ptr %1390) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit360:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.argprom.exit", %1381, %1387
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit360:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.exit", %1381, %1387
   br i1 %1378, label %1391, label %1408
 
-1391:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit360
+1391:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit360
   %1392 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Yosys5RTLIL4Cell8getParamERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %460, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID11EN_POLARITYE)
           to label %1393 unwind label %959
 
@@ -18346,7 +18346,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys5RTLIL5StateESt6vectorIS4_SaIS
   %1407 = getelementptr inbounds i8, ptr %.sroa.6.6, i64 %1401
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit333
 
-1408:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit360
+1408:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit360
   invoke void @_ZN5Yosys5RTLIL5ConstC1Eii(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 2, i32 noundef 32)
           to label %1409 unwind label %959
 
@@ -18902,7 +18902,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit393:             ; preds = %_ZN5Yosys5RTLIL5Con
 1640:                                             ; preds = %1638, %1634, %1631
   %1641 = load i32, ptr @"_ZZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEvE2id", align 4, !noalias !331
   %.not.i.i.i414 = icmp eq i32 %1641, 0
-  br i1 %.not.i.i.i414, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.argprom.exit", label %1642
+  br i1 %.not.i.i.i414, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.exit", label %1642
 
 1642:                                             ; preds = %1640
   %1643 = sext i32 %1641 to i64
@@ -18911,7 +18911,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit393:             ; preds = %_ZN5Yosys5RTLIL5Con
   %1646 = load i32, ptr %1645, align 4, !noalias !331
   %1647 = add nsw i32 %1646, 1
   store i32 %1647, ptr %1645, align 4, !noalias !331
-  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.exit"
 
 .body416:                                         ; preds = %1636
   %1648 = landingpad { ptr, i32 }
@@ -18920,7 +18920,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit393:             ; preds = %_ZN5Yosys5RTLIL5Con
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %47) #23
   br label %.body412
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.argprom.exit": ; preds = %1642, %1640
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.exit": ; preds = %1642, %1640
   %1649 = load i32, ptr %520, align 4
   %1650 = load i32, ptr %43, align 4
   %1651 = icmp eq i32 %1649, %1650
@@ -18944,7 +18944,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit393:             ; preds = %_ZN5Yosys5RTLIL5Con
   %or.cond.i.i420 = and i1 %1664, %1663
   br i1 %or.cond.i.i420, label %1665, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit421
 
-1665:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.argprom.exit"
+1665:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.exit"
   %1666 = sext i32 %1641 to i64
   %1667 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1668 = getelementptr inbounds i32, ptr %1667, i64 %1666
@@ -18965,7 +18965,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit393:             ; preds = %_ZN5Yosys5RTLIL5Con
   call void @__clang_call_terminate(ptr %1675) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit421:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.argprom.exit", %1665, %1672
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit421:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.exit", %1665, %1672
   %1676 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1677 = trunc i8 %1676 to i1
   %1678 = icmp ne i32 %1658, 0
@@ -19296,7 +19296,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit438:                ; preds = %1774, %1771, %1769
 1805:                                             ; preds = %1803, %1799, %1796
   %1806 = load i32, ptr @"_ZZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEvE2id", align 4, !noalias !337
   %.not.i.i.i443 = icmp eq i32 %1806, 0
-  br i1 %.not.i.i.i443, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.argprom.exit", label %1807
+  br i1 %.not.i.i.i443, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.exit", label %1807
 
 1807:                                             ; preds = %1805
   %1808 = sext i32 %1806 to i64
@@ -19305,7 +19305,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit438:                ; preds = %1774, %1771, %1769
   %1811 = load i32, ptr %1810, align 4, !noalias !337
   %1812 = add nsw i32 %1811, 1
   store i32 %1812, ptr %1810, align 4, !noalias !337
-  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.exit"
 
 .body445:                                         ; preds = %1801
   %1813 = landingpad { ptr, i32 }
@@ -19314,7 +19314,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit438:                ; preds = %1774, %1771, %1769
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %49) #23
   br label %.body251
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.argprom.exit": ; preds = %1807, %1805
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.exit": ; preds = %1807, %1805
   %1814 = load i32, ptr %520, align 4
   %1815 = load i32, ptr %49, align 4
   %1816 = icmp eq i32 %1814, %1815
@@ -19326,7 +19326,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit438:                ; preds = %1774, %1771, %1769
   %or.cond.i.i448 = and i1 %1820, %1819
   br i1 %or.cond.i.i448, label %1821, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit449
 
-1821:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.argprom.exit"
+1821:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.exit"
   %1822 = sext i32 %1806 to i64
   %1823 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1824 = getelementptr inbounds i32, ptr %1823, i64 %1822
@@ -19347,7 +19347,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit438:                ; preds = %1774, %1771, %1769
   call void @__clang_call_terminate(ptr %1831) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit449:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.argprom.exit", %1821, %1828
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit449:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.exit", %1821, %1828
   %1832 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1833 = trunc i8 %1832 to i1
   %1834 = icmp ne i32 %1815, 0
@@ -19763,7 +19763,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit508:              ; preds = %_ZSt8_DestroyIPN5Yo
 1982:                                             ; preds = %1980, %1976, %1973
   %1983 = load i32, ptr @"_ZZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEvE2id", align 4, !noalias !346
   %.not.i.i.i517 = icmp eq i32 %1983, 0
-  br i1 %.not.i.i.i517, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.argprom.exit", label %1984
+  br i1 %.not.i.i.i517, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.exit", label %1984
 
 1984:                                             ; preds = %1982
   %1985 = sext i32 %1983 to i64
@@ -19772,7 +19772,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit508:              ; preds = %_ZSt8_DestroyIPN5Yo
   %1988 = load i32, ptr %1987, align 4, !noalias !346
   %1989 = add nsw i32 %1988, 1
   store i32 %1989, ptr %1987, align 4, !noalias !346
-  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.exit"
 
 .body519:                                         ; preds = %1978
   %1990 = landingpad { ptr, i32 }
@@ -19781,7 +19781,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit508:              ; preds = %_ZSt8_DestroyIPN5Yo
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %55) #23
   br label %.body515
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.argprom.exit": ; preds = %1984, %1982
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.exit": ; preds = %1984, %1982
   %1991 = load i32, ptr %520, align 4
   %1992 = load i32, ptr %54, align 4
   %1993 = icmp eq i32 %1991, %1992
@@ -19796,7 +19796,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit508:              ; preds = %_ZSt8_DestroyIPN5Yo
   %or.cond.i.i523 = and i1 %1999, %1998
   br i1 %or.cond.i.i523, label %2000, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit524
 
-2000:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.argprom.exit"
+2000:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.exit"
   %2001 = sext i32 %1983 to i64
   %2002 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2003 = getelementptr inbounds i32, ptr %2002, i64 %2001
@@ -19817,7 +19817,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit508:              ; preds = %_ZSt8_DestroyIPN5Yo
   call void @__clang_call_terminate(ptr %2010) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit524:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.argprom.exit", %2000, %2007
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit524:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.exit", %2000, %2007
   %2011 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %2012 = trunc i8 %2011 to i1
   %2013 = icmp ne i32 %1994, 0
@@ -20105,7 +20105,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i539: ; preds = 
 2128:                                             ; preds = %2126, %2122, %2119
   %2129 = load i32, ptr @"_ZZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEvE2id", align 4, !noalias !358
   %.not.i.i.i554 = icmp eq i32 %2129, 0
-  br i1 %.not.i.i.i554, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.argprom.exit", label %2130
+  br i1 %.not.i.i.i554, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.exit", label %2130
 
 2130:                                             ; preds = %2128
   %2131 = sext i32 %2129 to i64
@@ -20114,7 +20114,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i539: ; preds = 
   %2134 = load i32, ptr %2133, align 4, !noalias !358
   %2135 = add nsw i32 %2134, 1
   store i32 %2135, ptr %2133, align 4, !noalias !358
-  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.exit"
 
 .body556:                                         ; preds = %2124
   %2136 = landingpad { ptr, i32 }
@@ -20123,7 +20123,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i539: ; preds = 
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %59) #23
   br label %.body552
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.argprom.exit": ; preds = %2130, %2128
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.exit": ; preds = %2130, %2128
   %2137 = load i32, ptr %520, align 4
   %2138 = load i32, ptr %57, align 4
   %2139 = icmp eq i32 %2137, %2138
@@ -20141,7 +20141,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i539: ; preds = 
   %or.cond.i.i559 = and i1 %2148, %2147
   br i1 %or.cond.i.i559, label %2149, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit560
 
-2149:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.argprom.exit"
+2149:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.exit"
   %2150 = sext i32 %2129 to i64
   %2151 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2152 = getelementptr inbounds i32, ptr %2151, i64 %2150
@@ -20162,7 +20162,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i539: ; preds = 
   call void @__clang_call_terminate(ptr %2159) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit560:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.argprom.exit", %2149, %2156
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit560:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.exit", %2149, %2156
   %2160 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %2161 = trunc i8 %2160 to i1
   %2162 = icmp ne i32 %2142, 0
@@ -20343,9 +20343,9 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i577: ; preds = 
 2230:                                             ; preds = %2228, %2224, %2221
   %2231 = load i32, ptr @"_ZZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEvE2id", align 4, !noalias !361
   %.not.i.i.i580 = icmp eq i32 %2231, 0
-  br i1 %.not.i.i.i580, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.argprom.exit.thread", label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.argprom.exit"
+  br i1 %.not.i.i.i580, label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.exit.thread", label %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.exit"
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.argprom.exit.thread": ; preds = %2230
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.exit.thread": ; preds = %2230
   %2232 = load i32, ptr %520, align 4
   %2233 = icmp eq i32 %2232, 0
   br i1 %2233, label %2255, label %.invoke921
@@ -20356,7 +20356,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i577: ; preds = 
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEvE2id") #23, !noalias !361
   br label %.body251
 
-"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.argprom.exit": ; preds = %2230
+"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.exit": ; preds = %2230
   %2236 = sext i32 %2231 to i64
   %2237 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !361
   %2238 = getelementptr inbounds i32, ptr %2237, i64 %2236
@@ -20369,7 +20369,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i577: ; preds = 
   %2244 = trunc i8 %2243 to i1
   br i1 %2244, label %2245, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit585
 
-2245:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.argprom.exit"
+2245:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.exit"
   %2246 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2247 = getelementptr inbounds i32, ptr %2246, i64 %2236
   %2248 = load i32, ptr %2247, align 4
@@ -20389,10 +20389,10 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i577: ; preds = 
   call void @__clang_call_terminate(ptr %2254) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit585:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.argprom.exit", %2245, %2251
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit585:             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.exit", %2245, %2251
   br i1 %2242, label %2255, label %.invoke921
 
-2255:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit585
+2255:                                             ; preds = %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit585
   %2256 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %460, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID2ENE)
           to label %2257 unwind label %959
 
@@ -20453,8 +20453,8 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i596: ; preds = 
   call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %61) #23
   br label %.body251
 
-.invoke921:                                       ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit585, %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit451
-  %2274 = phi i32 [ 170, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit451 ], [ 181, %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.argprom.exit.thread" ], [ 181, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit585 ]
+.invoke921:                                       ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit585, %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit451
+  %2274 = phi i32 [ 170, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit451 ], [ 181, %"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.exit.thread" ], [ 181, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit585 ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.68, i32 noundef %2274) #26
           to label %.cont922 unwind label %959
 
@@ -20485,7 +20485,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit600:                ; preds = %_ZN5Yosys5RTLIL7Sig
 _ZN5Yosys5RTLIL5ConstD2Ev.exit602:                ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit600, %2276
   %2277 = getelementptr inbounds i8, ptr %486, i64 72
   %2278 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %2277)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit unwind label %.loopexit.split-lp
+          to label %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit unwind label %.loopexit.split-lp
 
 .body251:                                         ; preds = %1445, %1553, %1952, %959, %2234, %2079, %1794, %1499, %2272, %2219, %.body548, %2060, %.body515, %2058, %2056, %2054, %1863, %.body445, %1775, %.body400, %_ZN5Yosys5RTLIL5ConstD2Ev.exit438, %_ZN5Yosys5RTLIL5ConstD2Ev.exit436
   %.sroa.5.3 = phi ptr [ %.sroa.5.2, %2060 ], [ %.sroa.5.0, %959 ], [ %.sroa.5.2, %2219 ], [ %.sroa.5.2, %2272 ], [ %.sroa.5.2, %2234 ], [ %.sroa.5.2, %.body548 ], [ %.sroa.5.2, %2079 ], [ %.sroa.5.2, %.body515 ], [ %.sroa.5.2, %1952 ], [ %.sroa.5.2, %2058 ], [ %.sroa.5.2, %2056 ], [ %.sroa.5.2, %2054 ], [ %.sroa.5.2, %1775 ], [ %.sroa.5.2, %1863 ], [ %.sroa.5.2, %.body445 ], [ %.sroa.5.2, %1794 ], [ %.sroa.5.2, %.body400 ], [ %.sroa.5.2, %1553 ], [ %.sroa.5.2, %_ZN5Yosys5RTLIL5ConstD2Ev.exit438 ], [ %.sroa.5.2, %1499 ], [ %.sroa.5.2, %_ZN5Yosys5RTLIL5ConstD2Ev.exit436 ], [ %.sroa.5.2, %1445 ]
@@ -20508,12 +20508,12 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit605:                ; preds = %1194, %.body323, %1
   call void @_ZdlPv(ptr noundef nonnull %.sroa.5.3905) #24
   br label %.body
 
-_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit: ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit602
+_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit: ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit602
   %2281 = getelementptr inbounds i8, ptr %486, i64 76
   %2282 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %2281)
           to label %2283 unwind label %.loopexit.split-lp
 
-2283:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.argprom.exit
+2283:                                             ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.69, ptr noundef %2278, ptr noundef %2282)
           to label %2284 unwind label %.loopexit.split-lp
 
@@ -23114,7 +23114,7 @@ _ZNK5Yosys5RTLIL4Cell13has_keep_attrEv.exit.thread: ; preds = %615, %618, %621, 
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit437:         ; preds = %632, %634
   store i32 %633, ptr %18, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %427, ptr noundef %18)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %427, ptr noundef %18)
           to label %640 unwind label %660
 
 640:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit437
@@ -23210,7 +23210,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit442:                ; preds = %665, %662, %660
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit444:         ; preds = %669, %671
   store i32 %670, ptr %20, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %427, ptr noundef %20)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %427, ptr noundef %20)
           to label %677 unwind label %697
 
 677:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit444
@@ -24039,7 +24039,7 @@ _ZNK5Yosys5RTLIL4Cell13has_keep_attrEv.exit532.thread: ; preds = %1023, %1026, %
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit534:         ; preds = %1040, %1042
   store i32 %1041, ptr %28, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull %427, ptr noundef %28)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull %427, ptr noundef %28)
           to label %1048 unwind label %1068
 
 1048:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit534
@@ -24135,7 +24135,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit540:                ; preds = %1073, %1070, %1068
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit542:         ; preds = %1077, %1079
   store i32 %1078, ptr %30, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull %427, ptr noundef %30)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull %427, ptr noundef %30)
           to label %1085 unwind label %1105
 
 1085:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit542
@@ -26773,7 +26773,7 @@ _ZNK5Yosys5RTLIL4Cell13has_keep_attrEv.exit909.thread: ; preds = %2134, %2137, %
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit911:         ; preds = %_ZNK5Yosys5RTLIL4Cell13has_keep_attrEv.exit909.thread, %2149
   store i32 %2148, ptr %56, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef nonnull %427, ptr noundef %56)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef nonnull %427, ptr noundef %56)
           to label %2155 unwind label %2175
 
 2155:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit911
@@ -36119,7 +36119,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 declare noundef nonnull align 8 dereferenceable(49) ptr @_ZNK5Yosys5RTLIL4Cell11connectionsEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Yosys5RTLIL4Cell8getParamERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %5 unwind label %28
 
@@ -44835,7 +44835,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictISt5tupleIJNS0_5RTLIL8IdStringENS4_6SigB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm7block_1Ei.argelim(ptr noundef nonnull align 8 dereferenceable(1136) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm7block_1Ei(ptr noundef nonnull align 8 dereferenceable(1136) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -49411,7 +49411,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit175.thread:      ; preds = %325, %_ZN5Yosys5RTL
 
 419:                                              ; preds = %413, %410
   store i32 %412, ptr %16, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %411, ptr noundef %16)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %411, ptr noundef %16)
           to label %420 unwind label %469
 
 420:                                              ; preds = %419
@@ -49435,7 +49435,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit175.thread:      ; preds = %325, %_ZN5Yosys5RTL
 
 431:                                              ; preds = %425, %422
   store i32 %424, ptr %18, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %423, ptr noundef %18)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %423, ptr noundef %18)
           to label %432 unwind label %473
 
 432:                                              ; preds = %431
@@ -49599,7 +49599,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit159:                ; preds = %481, %479, %469
 
 495:                                              ; preds = %489, %486
   store i32 %488, ptr %20, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %487, ptr noundef %20)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %487, ptr noundef %20)
           to label %496 unwind label %545
 
 496:                                              ; preds = %495
@@ -49623,7 +49623,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit159:                ; preds = %481, %479, %469
 
 507:                                              ; preds = %501, %498
   store i32 %500, ptr %22, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %499, ptr noundef %22)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %499, ptr noundef %22)
           to label %508 unwind label %549
 
 508:                                              ; preds = %507
@@ -49787,7 +49787,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit143:                ; preds = %557, %555, %545
 
 571:                                              ; preds = %565, %562
   store i32 %564, ptr %24, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %563, ptr noundef %24)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %563, ptr noundef %24)
           to label %572 unwind label %621
 
 572:                                              ; preds = %571
@@ -49811,7 +49811,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit143:                ; preds = %557, %555, %545
 
 583:                                              ; preds = %577, %574
   store i32 %576, ptr %26, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef %575, ptr noundef %26)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef %575, ptr noundef %26)
           to label %584 unwind label %625
 
 584:                                              ; preds = %583
@@ -51473,13 +51473,13 @@ define internal void @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_113xilinx_srl_
   %2 = getelementptr inbounds i8, ptr %.val, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i.i.i, label %4, label %_ZSt10__invoke_rIvRZN12_GLOBAL__N_113xilinx_srl_pm9run_fixedESt8functionIFvRS1_EEEUlvE_JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %4, label %_ZSt10__invoke_rIvRZN12_GLOBAL__N_113xilinx_srl_pm9run_fixedESt8functionIFvRS1_EEEUlvE_JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit
 
 4:                                                ; preds = %1
   tail call void @_ZSt25__throw_bad_function_callv() #26
   unreachable
 
-_ZSt10__invoke_rIvRZN12_GLOBAL__N_113xilinx_srl_pm9run_fixedESt8functionIFvRS1_EEEUlvE_JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit: ; preds = %1
+_ZSt10__invoke_rIvRZN12_GLOBAL__N_113xilinx_srl_pm9run_fixedESt8functionIFvRS1_EEEUlvE_JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit: ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -51815,7 +51815,7 @@ _ZNSt14_Function_base13_Base_managerIPFvRN12_GLOBAL__N_113xilinx_srl_pmEEE10_M_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm8block_13Ei.argelim(ptr noundef nonnull align 8 dereferenceable(1136) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm8block_13Ei(ptr noundef nonnull align 8 dereferenceable(1136) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %3 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -52153,7 +52153,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit.th
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit.thread125, %269
   store i32 %268, ptr %52, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef %267, ptr noundef %52)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef %267, ptr noundef %52)
           to label %275 unwind label %296
 
 275:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit
@@ -52249,7 +52249,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit70:                 ; preds = %301, %298, %296
 
 _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i:          ; preds = %308, %302
   store i32 %307, ptr %50, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef %306, ptr noundef %50)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef %306, ptr noundef %50)
           to label %314 unwind label %1402
 
 314:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit.i
@@ -57248,7 +57248,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit283.thread: ; preds = %532
 
 544:                                              ; preds = %538, %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit283.thread
   store i32 %537, ptr %20, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %536, ptr noundef %20)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %536, ptr noundef %20)
           to label %545 unwind label %623
 
 545:                                              ; preds = %544
@@ -57272,7 +57272,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit283.thread: ; preds = %532
 
 556:                                              ; preds = %550, %547
   store i32 %549, ptr %22, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %548, ptr noundef %22)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %548, ptr noundef %22)
           to label %557 unwind label %627
 
 557:                                              ; preds = %556
@@ -57488,7 +57488,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit264:                ; preds = %635, %633, %623
 
 650:                                              ; preds = %644, %642
   store i32 %643, ptr %24, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %637, ptr noundef %24)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %637, ptr noundef %24)
           to label %651 unwind label %700
 
 651:                                              ; preds = %650
@@ -57512,7 +57512,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit264:                ; preds = %635, %633, %623
 
 662:                                              ; preds = %656, %653
   store i32 %655, ptr %26, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef %654, ptr noundef %26)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef %654, ptr noundef %26)
           to label %663 unwind label %704
 
 663:                                              ; preds = %662
@@ -58352,7 +58352,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit195:             ; preds = %983, %988, %995
 
 1035:                                             ; preds = %1029, %1026
   store i32 %1028, ptr %51, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef %841, ptr noundef %51)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef %841, ptr noundef %51)
           to label %1036 unwind label %1167
 
 1036:                                             ; preds = %1035
@@ -58887,7 +58887,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit138:                ; preds = %1179, %1176, %1167
 
 1232:                                             ; preds = %1226, %1223
   store i32 %1225, ptr %67, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef %841, ptr noundef %67)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef %841, ptr noundef %67)
           to label %1233 unwind label %1413
 
 1233:                                             ; preds = %1232
@@ -58911,7 +58911,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit138:                ; preds = %1179, %1176, %1167
 
 1244:                                             ; preds = %1238, %1235
   store i32 %1237, ptr %69, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %68, ptr noundef %841, ptr noundef %69)
+  invoke fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE(ptr dead_on_unwind noalias writable align 8 %68, ptr noundef %841, ptr noundef %69)
           to label %1245 unwind label %1417
 
 1245:                                             ; preds = %1244
@@ -60578,13 +60578,13 @@ define internal void @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_113xilinx_srl_
   %2 = getelementptr inbounds i8, ptr %.val, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i.i.i, label %4, label %_ZSt10__invoke_rIvRZN12_GLOBAL__N_113xilinx_srl_pm12run_variableESt8functionIFvRS1_EEEUlvE_JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %4, label %_ZSt10__invoke_rIvRZN12_GLOBAL__N_113xilinx_srl_pm12run_variableESt8functionIFvRS1_EEEUlvE_JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit
 
 4:                                                ; preds = %1
   tail call void @_ZSt25__throw_bad_function_callv() #26
   unreachable
 
-_ZSt10__invoke_rIvRZN12_GLOBAL__N_113xilinx_srl_pm12run_variableESt8functionIFvRS1_EEEUlvE_JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.argprom.exit: ; preds = %1
+_ZSt10__invoke_rIvRZN12_GLOBAL__N_113xilinx_srl_pm12run_variableESt8functionIFvRS1_EEEUlvE_JEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESA_E4typeEOSD_DpOSE_.exit: ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -60797,311 +60797,311 @@ attributes #28 = { builtin allocsize(0) }
 !56 = distinct !{!56, !"_ZNK5Yosys6SigMapclENS_5RTLIL7SigSpecE"}
 !57 = !{!55, !52}
 !58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom: argument 0"}
-!60 = distinct !{!60, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom"}
+!59 = distinct !{!59, !60, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE: argument 0"}
+!60 = distinct !{!60, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom: argument 0"}
-!63 = distinct !{!63, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom"}
+!62 = distinct !{!62, !63, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE: argument 0"}
+!63 = distinct !{!63, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE"}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom: argument 0"}
-!66 = distinct !{!66, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom"}
+!65 = distinct !{!65, !66, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE: argument 0"}
+!66 = distinct !{!66, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom: argument 0"}
-!69 = distinct !{!69, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom"}
+!68 = distinct !{!68, !69, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE: argument 0"}
+!69 = distinct !{!69, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE"}
 !70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom: argument 0"}
-!72 = distinct !{!72, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom"}
+!71 = distinct !{!71, !72, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE: argument 0"}
+!72 = distinct !{!72, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE"}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom: argument 0"}
-!75 = distinct !{!75, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE.argprom"}
+!74 = distinct !{!74, !75, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE: argument 0"}
+!75 = distinct !{!75, !"_ZN12_GLOBAL__N_113xilinx_srl_pm5paramEPN5Yosys5RTLIL4CellENS2_8IdStringE"}
 !76 = distinct !{!76, !7}
 !77 = distinct !{!77, !7}
 !78 = distinct !{!78, !7}
 !79 = distinct !{!79, !7}
 !80 = distinct !{!80, !7}
 !81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_0clEv.argprom: argument 0"}
-!83 = distinct !{!83, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_0clEv.argprom"}
+!82 = distinct !{!82, !83, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_0clEv: argument 0"}
+!83 = distinct !{!83, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_0clEv"}
 !84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_1clEv.argprom: argument 0"}
-!86 = distinct !{!86, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_1clEv.argprom"}
+!85 = distinct !{!85, !86, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_1clEv: argument 0"}
+!86 = distinct !{!86, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_1clEv"}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_2clEv.argprom: argument 0"}
-!89 = distinct !{!89, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_2clEv.argprom"}
+!88 = distinct !{!88, !89, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_2clEv: argument 0"}
+!89 = distinct !{!89, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_2clEv"}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_3clEv.argprom: argument 0"}
-!92 = distinct !{!92, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_3clEv.argprom"}
+!91 = distinct !{!91, !92, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_3clEv: argument 0"}
+!92 = distinct !{!92, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_3clEv"}
 !93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_4clEv.argprom: argument 0"}
-!95 = distinct !{!95, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_4clEv.argprom"}
+!94 = distinct !{!94, !95, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_4clEv: argument 0"}
+!95 = distinct !{!95, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_4clEv"}
 !96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.argprom: argument 0"}
-!98 = distinct !{!98, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv.argprom"}
+!97 = distinct !{!97, !98, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv: argument 0"}
+!98 = distinct !{!98, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_5clEv"}
 !99 = distinct !{!99, !7}
 !100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_6clEv.argprom: argument 0"}
-!102 = distinct !{!102, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_6clEv.argprom"}
+!101 = distinct !{!101, !102, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_6clEv: argument 0"}
+!102 = distinct !{!102, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_6clEv"}
 !103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.argprom: argument 0"}
-!105 = distinct !{!105, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv.argprom"}
+!104 = distinct !{!104, !105, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv: argument 0"}
+!105 = distinct !{!105, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_7clEv"}
 !106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_8clEv.argprom: argument 0"}
-!108 = distinct !{!108, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_8clEv.argprom"}
+!107 = distinct !{!107, !108, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_8clEv: argument 0"}
+!108 = distinct !{!108, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_8clEv"}
 !109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_9clEv.argprom: argument 0"}
-!111 = distinct !{!111, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_9clEv.argprom"}
+!110 = distinct !{!110, !111, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_9clEv: argument 0"}
+!111 = distinct !{!111, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK3$_9clEv"}
 !112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_10clEv.argprom: argument 0"}
-!114 = distinct !{!114, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_10clEv.argprom"}
+!113 = distinct !{!113, !114, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_10clEv: argument 0"}
+!114 = distinct !{!114, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_10clEv"}
 !115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_11clEv.argprom: argument 0"}
-!117 = distinct !{!117, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_11clEv.argprom"}
+!116 = distinct !{!116, !117, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_11clEv: argument 0"}
+!117 = distinct !{!117, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_11clEv"}
 !118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_12clEv.argprom: argument 0"}
-!120 = distinct !{!120, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_12clEv.argprom"}
+!119 = distinct !{!119, !120, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_12clEv: argument 0"}
+!120 = distinct !{!120, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_12clEv"}
 !121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_13clEv.argprom: argument 0"}
-!123 = distinct !{!123, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_13clEv.argprom"}
+!122 = distinct !{!122, !123, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_13clEv: argument 0"}
+!123 = distinct !{!123, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_13clEv"}
 !124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_14clEv.argprom: argument 0"}
-!126 = distinct !{!126, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_14clEv.argprom"}
+!125 = distinct !{!125, !126, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_14clEv: argument 0"}
+!126 = distinct !{!126, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_14clEv"}
 !127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_15clEv.argprom: argument 0"}
-!129 = distinct !{!129, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_15clEv.argprom"}
+!128 = distinct !{!128, !129, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_15clEv: argument 0"}
+!129 = distinct !{!129, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_15clEv"}
 !130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_16clEv.argprom: argument 0"}
-!132 = distinct !{!132, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_16clEv.argprom"}
+!131 = distinct !{!131, !132, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_16clEv: argument 0"}
+!132 = distinct !{!132, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_16clEv"}
 !133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_17clEv.argprom: argument 0"}
-!135 = distinct !{!135, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_17clEv.argprom"}
+!134 = distinct !{!134, !135, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_17clEv: argument 0"}
+!135 = distinct !{!135, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_17clEv"}
 !136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_18clEv.argprom: argument 0"}
-!138 = distinct !{!138, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_18clEv.argprom"}
+!137 = distinct !{!137, !138, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_18clEv: argument 0"}
+!138 = distinct !{!138, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_18clEv"}
 !139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.argprom: argument 0"}
-!141 = distinct !{!141, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv.argprom"}
+!140 = distinct !{!140, !141, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv: argument 0"}
+!141 = distinct !{!141, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_19clEv"}
 !142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_20clEv.argprom: argument 0"}
-!144 = distinct !{!144, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_20clEv.argprom"}
+!143 = distinct !{!143, !144, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_20clEv: argument 0"}
+!144 = distinct !{!144, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_20clEv"}
 !145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_21clEv.argprom: argument 0"}
-!147 = distinct !{!147, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_21clEv.argprom"}
+!146 = distinct !{!146, !147, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_21clEv: argument 0"}
+!147 = distinct !{!147, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_21clEv"}
 !148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_22clEv.argprom: argument 0"}
-!150 = distinct !{!150, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_22clEv.argprom"}
+!149 = distinct !{!149, !150, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_22clEv: argument 0"}
+!150 = distinct !{!150, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_22clEv"}
 !151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_23clEv.argprom: argument 0"}
-!153 = distinct !{!153, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_23clEv.argprom"}
+!152 = distinct !{!152, !153, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_23clEv: argument 0"}
+!153 = distinct !{!153, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_23clEv"}
 !154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.argprom: argument 0"}
-!156 = distinct !{!156, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv.argprom"}
+!155 = distinct !{!155, !156, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv: argument 0"}
+!156 = distinct !{!156, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_24clEv"}
 !157 = !{!158}
-!158 = distinct !{!158, !159, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_25clEv.argprom: argument 0"}
-!159 = distinct !{!159, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_25clEv.argprom"}
+!158 = distinct !{!158, !159, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_25clEv: argument 0"}
+!159 = distinct !{!159, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_25clEv"}
 !160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.argprom: argument 0"}
-!162 = distinct !{!162, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv.argprom"}
+!161 = distinct !{!161, !162, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv: argument 0"}
+!162 = distinct !{!162, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_26clEv"}
 !163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_27clEv.argprom: argument 0"}
-!165 = distinct !{!165, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_27clEv.argprom"}
+!164 = distinct !{!164, !165, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_27clEv: argument 0"}
+!165 = distinct !{!165, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_27clEv"}
 !166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_28clEv.argprom: argument 0"}
-!168 = distinct !{!168, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_28clEv.argprom"}
+!167 = distinct !{!167, !168, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_28clEv: argument 0"}
+!168 = distinct !{!168, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_28clEv"}
 !169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_29clEv.argprom: argument 0"}
-!171 = distinct !{!171, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_29clEv.argprom"}
+!170 = distinct !{!170, !171, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_29clEv: argument 0"}
+!171 = distinct !{!171, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_29clEv"}
 !172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_30clEv.argprom: argument 0"}
-!174 = distinct !{!174, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_30clEv.argprom"}
+!173 = distinct !{!173, !174, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_30clEv: argument 0"}
+!174 = distinct !{!174, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_30clEv"}
 !175 = !{!176}
-!176 = distinct !{!176, !177, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.argprom: argument 0"}
-!177 = distinct !{!177, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv.argprom"}
+!176 = distinct !{!176, !177, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv: argument 0"}
+!177 = distinct !{!177, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_31clEv"}
 !178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_32clEv.argprom: argument 0"}
-!180 = distinct !{!180, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_32clEv.argprom"}
+!179 = distinct !{!179, !180, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_32clEv: argument 0"}
+!180 = distinct !{!180, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_32clEv"}
 !181 = !{!182}
-!182 = distinct !{!182, !183, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_33clEv.argprom: argument 0"}
-!183 = distinct !{!183, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_33clEv.argprom"}
+!182 = distinct !{!182, !183, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_33clEv: argument 0"}
+!183 = distinct !{!183, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_33clEv"}
 !184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.argprom: argument 0"}
-!186 = distinct !{!186, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv.argprom"}
+!185 = distinct !{!185, !186, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv: argument 0"}
+!186 = distinct !{!186, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_34clEv"}
 !187 = !{!188}
-!188 = distinct !{!188, !189, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_35clEv.argprom: argument 0"}
-!189 = distinct !{!189, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_35clEv.argprom"}
+!188 = distinct !{!188, !189, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_35clEv: argument 0"}
+!189 = distinct !{!189, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_35clEv"}
 !190 = !{!191}
-!191 = distinct !{!191, !192, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_36clEv.argprom: argument 0"}
-!192 = distinct !{!192, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_36clEv.argprom"}
+!191 = distinct !{!191, !192, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_36clEv: argument 0"}
+!192 = distinct !{!192, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_36clEv"}
 !193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_37clEv.argprom: argument 0"}
-!195 = distinct !{!195, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_37clEv.argprom"}
+!194 = distinct !{!194, !195, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_37clEv: argument 0"}
+!195 = distinct !{!195, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_37clEv"}
 !196 = !{!197}
-!197 = distinct !{!197, !198, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.argprom: argument 0"}
-!198 = distinct !{!198, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv.argprom"}
+!197 = distinct !{!197, !198, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv: argument 0"}
+!198 = distinct !{!198, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_38clEv"}
 !199 = !{!200}
-!200 = distinct !{!200, !201, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_39clEv.argprom: argument 0"}
-!201 = distinct !{!201, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_39clEv.argprom"}
+!200 = distinct !{!200, !201, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_39clEv: argument 0"}
+!201 = distinct !{!201, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_39clEv"}
 !202 = !{!203}
-!203 = distinct !{!203, !204, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_40clEv.argprom: argument 0"}
-!204 = distinct !{!204, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_40clEv.argprom"}
+!203 = distinct !{!203, !204, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_40clEv: argument 0"}
+!204 = distinct !{!204, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_40clEv"}
 !205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_41clEv.argprom: argument 0"}
-!207 = distinct !{!207, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_41clEv.argprom"}
+!206 = distinct !{!206, !207, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_41clEv: argument 0"}
+!207 = distinct !{!207, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_41clEv"}
 !208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.argprom: argument 0"}
-!210 = distinct !{!210, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv.argprom"}
+!209 = distinct !{!209, !210, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv: argument 0"}
+!210 = distinct !{!210, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_42clEv"}
 !211 = !{!212}
-!212 = distinct !{!212, !213, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_43clEv.argprom: argument 0"}
-!213 = distinct !{!213, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_43clEv.argprom"}
+!212 = distinct !{!212, !213, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_43clEv: argument 0"}
+!213 = distinct !{!213, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_43clEv"}
 !214 = !{!215}
-!215 = distinct !{!215, !216, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.argprom: argument 0"}
-!216 = distinct !{!216, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv.argprom"}
+!215 = distinct !{!215, !216, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv: argument 0"}
+!216 = distinct !{!216, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_44clEv"}
 !217 = !{!218}
-!218 = distinct !{!218, !219, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_45clEv.argprom: argument 0"}
-!219 = distinct !{!219, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_45clEv.argprom"}
+!218 = distinct !{!218, !219, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_45clEv: argument 0"}
+!219 = distinct !{!219, !"_ZZN12_GLOBAL__N_19run_fixedERNS_13xilinx_srl_pmEENK4$_45clEv"}
 !220 = !{!221}
-!221 = distinct !{!221, !222, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_0clEv.argprom: argument 0"}
-!222 = distinct !{!222, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_0clEv.argprom"}
+!221 = distinct !{!221, !222, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_0clEv: argument 0"}
+!222 = distinct !{!222, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_0clEv"}
 !223 = !{!224}
-!224 = distinct !{!224, !225, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_1clEv.argprom: argument 0"}
-!225 = distinct !{!225, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_1clEv.argprom"}
+!224 = distinct !{!224, !225, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_1clEv: argument 0"}
+!225 = distinct !{!225, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_1clEv"}
 !226 = !{!227}
-!227 = distinct !{!227, !228, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_2clEv.argprom: argument 0"}
-!228 = distinct !{!228, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_2clEv.argprom"}
+!227 = distinct !{!227, !228, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_2clEv: argument 0"}
+!228 = distinct !{!228, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_2clEv"}
 !229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_3clEv.argprom: argument 0"}
-!231 = distinct !{!231, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_3clEv.argprom"}
+!230 = distinct !{!230, !231, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_3clEv: argument 0"}
+!231 = distinct !{!231, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_3clEv"}
 !232 = !{!233}
-!233 = distinct !{!233, !234, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_4clEv.argprom: argument 0"}
-!234 = distinct !{!234, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_4clEv.argprom"}
+!233 = distinct !{!233, !234, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_4clEv: argument 0"}
+!234 = distinct !{!234, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_4clEv"}
 !235 = !{!236}
-!236 = distinct !{!236, !237, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_5clEv.argprom: argument 0"}
-!237 = distinct !{!237, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_5clEv.argprom"}
+!236 = distinct !{!236, !237, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_5clEv: argument 0"}
+!237 = distinct !{!237, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_5clEv"}
 !238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_6clEv.argprom: argument 0"}
-!240 = distinct !{!240, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_6clEv.argprom"}
+!239 = distinct !{!239, !240, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_6clEv: argument 0"}
+!240 = distinct !{!240, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_6clEv"}
 !241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_7clEv.argprom: argument 0"}
-!243 = distinct !{!243, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_7clEv.argprom"}
+!242 = distinct !{!242, !243, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_7clEv: argument 0"}
+!243 = distinct !{!243, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_7clEv"}
 !244 = !{!245}
-!245 = distinct !{!245, !246, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_8clEv.argprom: argument 0"}
-!246 = distinct !{!246, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_8clEv.argprom"}
+!245 = distinct !{!245, !246, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_8clEv: argument 0"}
+!246 = distinct !{!246, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_8clEv"}
 !247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_9clEv.argprom: argument 0"}
-!249 = distinct !{!249, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_9clEv.argprom"}
+!248 = distinct !{!248, !249, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_9clEv: argument 0"}
+!249 = distinct !{!249, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK3$_9clEv"}
 !250 = !{!251}
-!251 = distinct !{!251, !252, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_10clEv.argprom: argument 0"}
-!252 = distinct !{!252, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_10clEv.argprom"}
+!251 = distinct !{!251, !252, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_10clEv: argument 0"}
+!252 = distinct !{!252, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_10clEv"}
 !253 = !{!254}
-!254 = distinct !{!254, !255, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_11clEv.argprom: argument 0"}
-!255 = distinct !{!255, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_11clEv.argprom"}
+!254 = distinct !{!254, !255, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_11clEv: argument 0"}
+!255 = distinct !{!255, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_11clEv"}
 !256 = !{!257}
-!257 = distinct !{!257, !258, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_12clEv.argprom: argument 0"}
-!258 = distinct !{!258, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_12clEv.argprom"}
+!257 = distinct !{!257, !258, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_12clEv: argument 0"}
+!258 = distinct !{!258, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_12clEv"}
 !259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_13clEv.argprom: argument 0"}
-!261 = distinct !{!261, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_13clEv.argprom"}
+!260 = distinct !{!260, !261, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_13clEv: argument 0"}
+!261 = distinct !{!261, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_13clEv"}
 !262 = !{!263}
-!263 = distinct !{!263, !264, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_14clEv.argprom: argument 0"}
-!264 = distinct !{!264, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_14clEv.argprom"}
+!263 = distinct !{!263, !264, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_14clEv: argument 0"}
+!264 = distinct !{!264, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_14clEv"}
 !265 = !{!266}
-!266 = distinct !{!266, !267, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_15clEv.argprom: argument 0"}
-!267 = distinct !{!267, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_15clEv.argprom"}
+!266 = distinct !{!266, !267, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_15clEv: argument 0"}
+!267 = distinct !{!267, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_15clEv"}
 !268 = !{!269}
-!269 = distinct !{!269, !270, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_16clEv.argprom: argument 0"}
-!270 = distinct !{!270, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_16clEv.argprom"}
+!269 = distinct !{!269, !270, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_16clEv: argument 0"}
+!270 = distinct !{!270, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_16clEv"}
 !271 = !{!272}
-!272 = distinct !{!272, !273, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_17clEv.argprom: argument 0"}
-!273 = distinct !{!273, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_17clEv.argprom"}
+!272 = distinct !{!272, !273, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_17clEv: argument 0"}
+!273 = distinct !{!273, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_17clEv"}
 !274 = !{!275}
-!275 = distinct !{!275, !276, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_18clEv.argprom: argument 0"}
-!276 = distinct !{!276, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_18clEv.argprom"}
+!275 = distinct !{!275, !276, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_18clEv: argument 0"}
+!276 = distinct !{!276, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_18clEv"}
 !277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.argprom: argument 0"}
-!279 = distinct !{!279, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv.argprom"}
+!278 = distinct !{!278, !279, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv: argument 0"}
+!279 = distinct !{!279, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_19clEv"}
 !280 = !{!281}
-!281 = distinct !{!281, !282, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_20clEv.argprom: argument 0"}
-!282 = distinct !{!282, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_20clEv.argprom"}
+!281 = distinct !{!281, !282, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_20clEv: argument 0"}
+!282 = distinct !{!282, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_20clEv"}
 !283 = !{!284}
-!284 = distinct !{!284, !285, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_21clEv.argprom: argument 0"}
-!285 = distinct !{!285, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_21clEv.argprom"}
+!284 = distinct !{!284, !285, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_21clEv: argument 0"}
+!285 = distinct !{!285, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_21clEv"}
 !286 = !{!287}
-!287 = distinct !{!287, !288, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.argprom: argument 0"}
-!288 = distinct !{!288, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv.argprom"}
+!287 = distinct !{!287, !288, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv: argument 0"}
+!288 = distinct !{!288, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_22clEv"}
 !289 = !{!290}
-!290 = distinct !{!290, !291, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_23clEv.argprom: argument 0"}
-!291 = distinct !{!291, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_23clEv.argprom"}
+!290 = distinct !{!290, !291, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_23clEv: argument 0"}
+!291 = distinct !{!291, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_23clEv"}
 !292 = !{!293}
-!293 = distinct !{!293, !294, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.argprom: argument 0"}
-!294 = distinct !{!294, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv.argprom"}
+!293 = distinct !{!293, !294, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv: argument 0"}
+!294 = distinct !{!294, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_24clEv"}
 !295 = !{!296}
-!296 = distinct !{!296, !297, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_25clEv.argprom: argument 0"}
-!297 = distinct !{!297, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_25clEv.argprom"}
+!296 = distinct !{!296, !297, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_25clEv: argument 0"}
+!297 = distinct !{!297, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_25clEv"}
 !298 = !{!299}
-!299 = distinct !{!299, !300, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.argprom: argument 0"}
-!300 = distinct !{!300, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv.argprom"}
+!299 = distinct !{!299, !300, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv: argument 0"}
+!300 = distinct !{!300, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_26clEv"}
 !301 = !{!302}
-!302 = distinct !{!302, !303, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_27clEv.argprom: argument 0"}
-!303 = distinct !{!303, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_27clEv.argprom"}
+!302 = distinct !{!302, !303, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_27clEv: argument 0"}
+!303 = distinct !{!303, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_27clEv"}
 !304 = !{!305}
-!305 = distinct !{!305, !306, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.argprom: argument 0"}
-!306 = distinct !{!306, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv.argprom"}
+!305 = distinct !{!305, !306, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv: argument 0"}
+!306 = distinct !{!306, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_28clEv"}
 !307 = !{!308}
-!308 = distinct !{!308, !309, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.argprom: argument 0"}
-!309 = distinct !{!309, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv.argprom"}
+!308 = distinct !{!308, !309, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv: argument 0"}
+!309 = distinct !{!309, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_29clEv"}
 !310 = !{!311}
-!311 = distinct !{!311, !312, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_30clEv.argprom: argument 0"}
-!312 = distinct !{!312, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_30clEv.argprom"}
+!311 = distinct !{!311, !312, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_30clEv: argument 0"}
+!312 = distinct !{!312, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_30clEv"}
 !313 = !{!314}
-!314 = distinct !{!314, !315, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_31clEv.argprom: argument 0"}
-!315 = distinct !{!315, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_31clEv.argprom"}
+!314 = distinct !{!314, !315, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_31clEv: argument 0"}
+!315 = distinct !{!315, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_31clEv"}
 !316 = !{!317}
-!317 = distinct !{!317, !318, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_32clEv.argprom: argument 0"}
-!318 = distinct !{!318, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_32clEv.argprom"}
+!317 = distinct !{!317, !318, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_32clEv: argument 0"}
+!318 = distinct !{!318, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_32clEv"}
 !319 = !{!320}
-!320 = distinct !{!320, !321, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_33clEv.argprom: argument 0"}
-!321 = distinct !{!321, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_33clEv.argprom"}
+!320 = distinct !{!320, !321, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_33clEv: argument 0"}
+!321 = distinct !{!321, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_33clEv"}
 !322 = !{!323}
-!323 = distinct !{!323, !324, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_34clEv.argprom: argument 0"}
-!324 = distinct !{!324, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_34clEv.argprom"}
+!323 = distinct !{!323, !324, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_34clEv: argument 0"}
+!324 = distinct !{!324, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_34clEv"}
 !325 = !{!326}
-!326 = distinct !{!326, !327, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_35clEv.argprom: argument 0"}
-!327 = distinct !{!327, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_35clEv.argprom"}
+!326 = distinct !{!326, !327, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_35clEv: argument 0"}
+!327 = distinct !{!327, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_35clEv"}
 !328 = !{!329}
-!329 = distinct !{!329, !330, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_36clEv.argprom: argument 0"}
-!330 = distinct !{!330, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_36clEv.argprom"}
+!329 = distinct !{!329, !330, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_36clEv: argument 0"}
+!330 = distinct !{!330, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_36clEv"}
 !331 = !{!332}
-!332 = distinct !{!332, !333, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.argprom: argument 0"}
-!333 = distinct !{!333, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv.argprom"}
+!332 = distinct !{!332, !333, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv: argument 0"}
+!333 = distinct !{!333, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_37clEv"}
 !334 = !{!335}
-!335 = distinct !{!335, !336, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_38clEv.argprom: argument 0"}
-!336 = distinct !{!336, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_38clEv.argprom"}
+!335 = distinct !{!335, !336, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_38clEv: argument 0"}
+!336 = distinct !{!336, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_38clEv"}
 !337 = !{!338}
-!338 = distinct !{!338, !339, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.argprom: argument 0"}
-!339 = distinct !{!339, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv.argprom"}
+!338 = distinct !{!338, !339, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv: argument 0"}
+!339 = distinct !{!339, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_39clEv"}
 !340 = !{!341}
-!341 = distinct !{!341, !342, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_40clEv.argprom: argument 0"}
-!342 = distinct !{!342, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_40clEv.argprom"}
+!341 = distinct !{!341, !342, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_40clEv: argument 0"}
+!342 = distinct !{!342, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_40clEv"}
 !343 = !{!344}
-!344 = distinct !{!344, !345, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_41clEv.argprom: argument 0"}
-!345 = distinct !{!345, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_41clEv.argprom"}
+!344 = distinct !{!344, !345, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_41clEv: argument 0"}
+!345 = distinct !{!345, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_41clEv"}
 !346 = !{!347}
-!347 = distinct !{!347, !348, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.argprom: argument 0"}
-!348 = distinct !{!348, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv.argprom"}
+!347 = distinct !{!347, !348, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv: argument 0"}
+!348 = distinct !{!348, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_42clEv"}
 !349 = !{!350}
-!350 = distinct !{!350, !351, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_43clEv.argprom: argument 0"}
-!351 = distinct !{!351, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_43clEv.argprom"}
+!350 = distinct !{!350, !351, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_43clEv: argument 0"}
+!351 = distinct !{!351, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_43clEv"}
 !352 = !{!353}
-!353 = distinct !{!353, !354, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_44clEv.argprom: argument 0"}
-!354 = distinct !{!354, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_44clEv.argprom"}
+!353 = distinct !{!353, !354, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_44clEv: argument 0"}
+!354 = distinct !{!354, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_44clEv"}
 !355 = !{!356}
-!356 = distinct !{!356, !357, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_45clEv.argprom: argument 0"}
-!357 = distinct !{!357, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_45clEv.argprom"}
+!356 = distinct !{!356, !357, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_45clEv: argument 0"}
+!357 = distinct !{!357, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_45clEv"}
 !358 = !{!359}
-!359 = distinct !{!359, !360, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.argprom: argument 0"}
-!360 = distinct !{!360, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv.argprom"}
+!359 = distinct !{!359, !360, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv: argument 0"}
+!360 = distinct !{!360, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_46clEv"}
 !361 = !{!362}
-!362 = distinct !{!362, !363, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.argprom: argument 0"}
-!363 = distinct !{!363, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv.argprom"}
+!362 = distinct !{!362, !363, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv: argument 0"}
+!363 = distinct !{!363, !"_ZZN12_GLOBAL__N_112run_variableERNS_13xilinx_srl_pmEENK4$_47clEv"}
 !364 = distinct !{!364, !7}
 !365 = distinct !{!365, !7}
 !366 = distinct !{!366, !7}

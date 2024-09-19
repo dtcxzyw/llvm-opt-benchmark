@@ -1763,7 +1763,7 @@ qemu_chr_find.exit:                               ; preds = %entry
 
 cleanup.thread27:                                 ; preds = %qemu_chr_find.exit
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.2, i32 noundef 1010, ptr noundef nonnull @__func__.qmp_chardev_add, ptr noundef nonnull @.str.90, ptr noundef %id) #13
-  br label %glib_autoptr_cleanup_Chardev.argprom.exit
+  br label %glib_autoptr_cleanup_Chardev.exit
 
 if.end5:                                          ; preds = %entry, %qemu_chr_find.exit
   %0 = load i32, ptr %backend, align 8
@@ -1801,7 +1801,7 @@ if.then24:                                        ; preds = %if.end20
 
 cleanup.thread32:                                 ; preds = %if.end5, %if.end10
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.92, ptr noundef %id) #13
-  br label %glib_autoptr_cleanup_Chardev.argprom.exit
+  br label %glib_autoptr_cleanup_Chardev.exit
 
 cleanup:                                          ; preds = %if.end15
   call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.92, ptr noundef %id) #13
@@ -1810,9 +1810,9 @@ cleanup:                                          ; preds = %if.end15
 if.then.i.i:                                      ; preds = %if.then24, %if.end20, %cleanup
   %retval.025 = phi ptr [ null, %cleanup ], [ %call21, %if.end20 ], [ %call21, %if.then24 ]
   call void @object_unref(ptr noundef nonnull %call12) #13
-  br label %glib_autoptr_cleanup_Chardev.argprom.exit
+  br label %glib_autoptr_cleanup_Chardev.exit
 
-glib_autoptr_cleanup_Chardev.argprom.exit:        ; preds = %cleanup.thread32, %cleanup.thread27, %if.then.i.i
+glib_autoptr_cleanup_Chardev.exit:                ; preds = %cleanup.thread32, %cleanup.thread27, %if.then.i.i
   %retval.026 = phi ptr [ %retval.025, %if.then.i.i ], [ null, %cleanup.thread27 ], [ null, %cleanup.thread32 ]
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val15 = load ptr, ptr %errp1, align 8

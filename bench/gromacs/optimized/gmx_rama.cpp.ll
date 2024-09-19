@@ -107,21 +107,21 @@ define noundef i32 @_Z8gmx_ramaiPPc(i32 noundef %0, ptr noundef %1) local_unname
           cleanup
   br label %127
 
-.loopexit.split-lp:                               ; preds = %2, %_ZL13gmx_snew_implI7t_xramaEvPKcS2_iRPT_m.argprom.exit, %32, %34, %36, %38, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %53, %55, %57, %107, %109, %112, %28
+.loopexit.split-lp:                               ; preds = %2, %_ZL13gmx_snew_implI7t_xramaEvPKcS2_iRPT_m.exit, %32, %34, %36, %38, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %53, %55, %57, %107, %109, %112, %28
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %127
 
 28:                                               ; preds = %27
   %29 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 87, i64 noundef 1, i64 noundef 128)
-          to label %_ZL13gmx_snew_implI7t_xramaEvPKcS2_iRPT_m.argprom.exit unwind label %.loopexit.split-lp
+          to label %_ZL13gmx_snew_implI7t_xramaEvPKcS2_iRPT_m.exit unwind label %.loopexit.split-lp
 
-_ZL13gmx_snew_implI7t_xramaEvPKcS2_iRPT_m.argprom.exit: ; preds = %28
+_ZL13gmx_snew_implI7t_xramaEvPKcS2_iRPT_m.exit:   ; preds = %28
   %30 = load ptr, ptr %5, align 8
   %31 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 1, i32 noundef 3, ptr noundef nonnull %6)
           to label %32 unwind label %.loopexit.split-lp
 
-32:                                               ; preds = %_ZL13gmx_snew_implI7t_xramaEvPKcS2_iRPT_m.argprom.exit
+32:                                               ; preds = %_ZL13gmx_snew_implI7t_xramaEvPKcS2_iRPT_m.exit
   %33 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 26, i32 noundef 3, ptr noundef nonnull %6)
           to label %34 unwind label %.loopexit.split-lp
 

@@ -1392,9 +1392,9 @@ define hidden zeroext i1 @dfvm_apply_full(ptr nocapture noundef %0, ptr noundef 
   %21 = getelementptr inbounds i8, ptr %0, i64 88
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %stack_pop.argprom.exit
-  %.0940 = phi i32 [ 0, %.preheader.lr.ph ], [ %1488, %stack_pop.argprom.exit ]
-  %.0159939 = phi i8 [ 1, %.preheader.lr.ph ], [ %.1160, %stack_pop.argprom.exit ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %stack_pop.exit
+  %.0940 = phi i32 [ 0, %.preheader.lr.ph ], [ %1488, %stack_pop.exit ]
+  %.0159939 = phi i8 [ 1, %.preheader.lr.ph ], [ %.1160, %stack_pop.exit ]
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = trunc i8 %.0159939 to i1
@@ -1409,7 +1409,7 @@ define hidden zeroext i1 @dfvm_apply_full(ptr nocapture noundef %0, ptr noundef 
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 4
   %32 = load i32, ptr %31, align 4
-  switch i32 %32, label %stack_pop.argprom.exit [
+  switch i32 %32, label %stack_pop.exit [
     i32 3, label %33
     i32 4, label %44
     i32 7, label %72
@@ -1465,27 +1465,27 @@ define hidden zeroext i1 @dfvm_apply_full(ptr nocapture noundef %0, ptr noundef 
   %34 = getelementptr i8, ptr %30, i64 8
   %.val = load ptr, ptr %34, align 8
   %.not125.not16.i = icmp eq ptr %.val, null
-  br i1 %.not125.not16.i, label %stack_pop.argprom.exit, label %.lr.ph.split.us.i
+  br i1 %.not125.not16.i, label %stack_pop.exit, label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %33, %check_exists_finfos.argprom.exit.thread.us.i
-  %.096.us.i = phi ptr [ %43, %check_exists_finfos.argprom.exit.thread.us.i ], [ %.val, %33 ]
+.lr.ph.split.us.i:                                ; preds = %33, %check_exists_finfos.exit.thread.us.i
+  %.096.us.i = phi ptr [ %43, %check_exists_finfos.exit.thread.us.i ], [ %.val, %33 ]
   %35 = getelementptr i8, ptr %.096.us.i, i64 48
   %.09.val.us.i = load i32, ptr %35, align 8
   %36 = call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.09.val.us.i) #11
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %check_exists_finfos.argprom.exit.thread.us.i, label %38
+  br i1 %37, label %check_exists_finfos.exit.thread.us.i, label %38
 
 38:                                               ; preds = %.lr.ph.split.us.i
   %39 = getelementptr inbounds i8, ptr %36, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %check_exists_finfos.argprom.exit.thread.us.i, label %stack_pop.argprom.exit
+  br i1 %41, label %check_exists_finfos.exit.thread.us.i, label %stack_pop.exit
 
-check_exists_finfos.argprom.exit.thread.us.i:     ; preds = %38, %.lr.ph.split.us.i
+check_exists_finfos.exit.thread.us.i:             ; preds = %38, %.lr.ph.split.us.i
   %42 = getelementptr inbounds i8, ptr %.096.us.i, i64 64
   %43 = load ptr, ptr %42, align 8
   %.not12.us.not.i = icmp eq ptr %43, null
-  br i1 %.not12.us.not.i, label %stack_pop.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !10
+  br i1 %.not12.us.not.i, label %stack_pop.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 44:                                               ; preds = %25
   %45 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1500,11 +1500,11 @@ check_exists_finfos.argprom.exit.thread.us.i:     ; preds = %38, %.lr.ph.split.u
   %50 = load ptr, ptr %49, align 8
   %51 = freeze ptr %50
   %.not125.not.i = icmp eq ptr %.val164, null
-  br i1 %.not125.not.i, label %stack_pop.argprom.exit, label %.lr.ph.i
+  br i1 %.not125.not.i, label %stack_pop.exit, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %44
   %.not125.not16.i206 = icmp eq ptr %.val164, null
-  br i1 %.not125.not16.i206, label %stack_pop.argprom.exit, label %.lr.ph.split.us.i201.preheader
+  br i1 %.not125.not16.i206, label %stack_pop.exit, label %.lr.ph.split.us.i201.preheader
 
 .lr.ph.i:                                         ; preds = %48
   %52 = icmp eq ptr %51, null
@@ -1513,50 +1513,50 @@ check_exists_finfos.argprom.exit.thread.us.i:     ; preds = %38, %.lr.ph.split.u
 .lr.ph.split.us.i201.preheader:                   ; preds = %.lr.ph.i, %.thread.i
   br label %.lr.ph.split.us.i201
 
-.lr.ph.split.us.i201:                             ; preds = %.lr.ph.split.us.i201.preheader, %check_exists_finfos.argprom.exit.thread.us.i204
-  %.096.us.i202 = phi ptr [ %61, %check_exists_finfos.argprom.exit.thread.us.i204 ], [ %.val164, %.lr.ph.split.us.i201.preheader ]
+.lr.ph.split.us.i201:                             ; preds = %.lr.ph.split.us.i201.preheader, %check_exists_finfos.exit.thread.us.i204
+  %.096.us.i202 = phi ptr [ %61, %check_exists_finfos.exit.thread.us.i204 ], [ %.val164, %.lr.ph.split.us.i201.preheader ]
   %53 = getelementptr i8, ptr %.096.us.i202, i64 48
   %.09.val.us.i203 = load i32, ptr %53, align 8
   %54 = call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.09.val.us.i203) #11
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %check_exists_finfos.argprom.exit.thread.us.i204, label %56
+  br i1 %55, label %check_exists_finfos.exit.thread.us.i204, label %56
 
 56:                                               ; preds = %.lr.ph.split.us.i201
   %57 = getelementptr inbounds i8, ptr %54, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %check_exists_finfos.argprom.exit.thread.us.i204, label %stack_pop.argprom.exit
+  br i1 %59, label %check_exists_finfos.exit.thread.us.i204, label %stack_pop.exit
 
-check_exists_finfos.argprom.exit.thread.us.i204:  ; preds = %56, %.lr.ph.split.us.i201
+check_exists_finfos.exit.thread.us.i204:          ; preds = %56, %.lr.ph.split.us.i201
   %60 = getelementptr inbounds i8, ptr %.096.us.i202, i64 64
   %61 = load ptr, ptr %60, align 8
   %.not12.us.not.i205 = icmp eq ptr %61, null
-  br i1 %.not12.us.not.i205, label %stack_pop.argprom.exit, label %.lr.ph.split.us.i201, !llvm.loop !10
+  br i1 %.not12.us.not.i205, label %stack_pop.exit, label %.lr.ph.split.us.i201, !llvm.loop !10
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %check_exists_finfos.argprom.exit.thread.i
-  %.096.i = phi ptr [ %71, %check_exists_finfos.argprom.exit.thread.i ], [ %.val164, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %check_exists_finfos.exit.thread.i
+  %.096.i = phi ptr [ %71, %check_exists_finfos.exit.thread.i ], [ %.val164, %.lr.ph.i ]
   %62 = getelementptr i8, ptr %.096.i, i64 48
   %.09.val.i = load i32, ptr %62, align 8
   %63 = call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.09.val.i) #11
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %check_exists_finfos.argprom.exit.thread.i, label %65
+  br i1 %64, label %check_exists_finfos.exit.thread.i, label %65
 
 65:                                               ; preds = %.lr.ph.split.i
   %66 = getelementptr inbounds i8, ptr %63, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %check_exists_finfos.argprom.exit.thread.i, label %check_exists_finfos.argprom.exit.i
+  br i1 %68, label %check_exists_finfos.exit.thread.i, label %check_exists_finfos.exit.i
 
-check_exists_finfos.argprom.exit.i:               ; preds = %65
+check_exists_finfos.exit.i:                       ; preds = %65
   %69 = call fastcc i64 @filter_finfo_fvalues(ptr noundef null, ptr noundef %63, ptr noundef readonly %51, i1 noundef zeroext false)
   %.not4.i = icmp eq i64 %69, 0
-  br i1 %.not4.i, label %check_exists_finfos.argprom.exit.thread.i, label %stack_pop.argprom.exit
+  br i1 %.not4.i, label %check_exists_finfos.exit.thread.i, label %stack_pop.exit
 
-check_exists_finfos.argprom.exit.thread.i:        ; preds = %check_exists_finfos.argprom.exit.i, %65, %.lr.ph.split.i
+check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos.exit.i, %65, %.lr.ph.split.i
   %70 = getelementptr inbounds i8, ptr %.096.i, i64 64
   %71 = load ptr, ptr %70, align 8
   %.not12.not.i = icmp eq ptr %71, null
-  br i1 %.not12.not.i, label %stack_pop.argprom.exit, label %.lr.ph.split.i, !llvm.loop !10
+  br i1 %.not12.not.i, label %stack_pop.exit, label %.lr.ph.split.i, !llvm.loop !10
 
 72:                                               ; preds = %25
   %73 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1566,9 +1566,9 @@ check_exists_finfos.argprom.exit.thread.i:        ; preds = %check_exists_finfos
   %.val166 = load ptr, ptr %75, align 8
   %76 = getelementptr i8, ptr %74, i64 8
   %.val167 = load i32, ptr %76, align 8
-  %77 = call fastcc zeroext i1 @read_tree.argprom(ptr noundef nonnull %0, ptr noundef %1, i32 %.val165, ptr %.val166, i32 %.val167, ptr noundef null)
+  %77 = call fastcc zeroext i1 @read_tree(ptr noundef nonnull %0, ptr noundef %1, i32 %.val165, ptr %.val166, i32 %.val167, ptr noundef null)
   %78 = zext i1 %77 to i8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 79:                                               ; preds = %25
   %80 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1580,9 +1580,9 @@ check_exists_finfos.argprom.exit.thread.i:        ; preds = %check_exists_finfos
   %.val169 = load ptr, ptr %84, align 8
   %85 = getelementptr i8, ptr %81, i64 8
   %.val170 = load i32, ptr %85, align 8
-  %86 = call fastcc zeroext i1 @read_tree.argprom(ptr noundef nonnull %0, ptr noundef %1, i32 %.val168, ptr %.val169, i32 %.val170, ptr noundef %83)
+  %86 = call fastcc zeroext i1 @read_tree(ptr noundef nonnull %0, ptr noundef %1, i32 %.val168, ptr %.val169, i32 %.val170, ptr noundef %83)
   %87 = zext i1 %86 to i8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 88:                                               ; preds = %25
   %89 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1592,9 +1592,9 @@ check_exists_finfos.argprom.exit.thread.i:        ; preds = %check_exists_finfos
   %.val172 = load ptr, ptr %91, align 8
   %92 = getelementptr i8, ptr %90, i64 8
   %.val173 = load i32, ptr %92, align 8
-  %93 = call fastcc zeroext i1 @read_reference.argprom(ptr noundef nonnull %0, i32 %.val171, ptr %.val172, i32 %.val173, ptr noundef null)
+  %93 = call fastcc zeroext i1 @read_reference(ptr noundef nonnull %0, i32 %.val171, ptr %.val172, i32 %.val173, ptr noundef null)
   %94 = zext i1 %93 to i8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 95:                                               ; preds = %25
   %96 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1606,9 +1606,9 @@ check_exists_finfos.argprom.exit.thread.i:        ; preds = %check_exists_finfos
   %.val175 = load ptr, ptr %100, align 8
   %101 = getelementptr i8, ptr %97, i64 8
   %.val176 = load i32, ptr %101, align 8
-  %102 = call fastcc zeroext i1 @read_reference.argprom(ptr noundef nonnull %0, i32 %.val174, ptr %.val175, i32 %.val176, ptr noundef %99)
+  %102 = call fastcc zeroext i1 @read_reference(ptr noundef nonnull %0, i32 %.val174, ptr %.val175, i32 %.val176, ptr noundef %99)
   %103 = zext i1 %102 to i8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 104:                                              ; preds = %25
   %105 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1624,7 +1624,7 @@ check_exists_finfos.argprom.exit.thread.i:        ; preds = %check_exists_finfos
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %112, align 8
   call void @df_cell_append(ptr noundef %109, ptr noundef %113) #11
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 114:                                              ; preds = %25
   %115 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1646,7 +1646,7 @@ check_exists_finfos.argprom.exit.thread.i:        ; preds = %check_exists_finfos
   %127 = load ptr, ptr %21, align 8
   %128 = call zeroext i1 %126(ptr noundef %127, i32 noundef %.val181, ptr noundef %124) #11
   %129 = zext i1 %128 to i8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 130:                                              ; preds = %25
   %131 = load i32, ptr %30, align 8
@@ -1679,13 +1679,13 @@ stack_push.exit:                                  ; preds = %132, %136
   %144 = load ptr, ptr %21, align 8
   %145 = call ptr @g_slist_prepend(ptr noundef %144, ptr noundef %.0.i) #11
   store ptr %145, ptr %21, align 8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 146:                                              ; preds = %25
   %147 = getelementptr i8, ptr %30, i64 8
   %.val182 = load i32, ptr %147, align 8
   %.not2.i = icmp eq i32 %.val182, 0
-  br i1 %.not2.i, label %stack_pop.argprom.exit, label %.lr.ph.i208
+  br i1 %.not2.i, label %stack_pop.exit, label %.lr.ph.i208
 
 .lr.ph.i208:                                      ; preds = %146
   %.pre.i = load ptr, ptr %21, align 8
@@ -1709,7 +1709,7 @@ stack_push.exit:                                  ; preds = %132, %136
   store ptr %154, ptr %21, align 8
   %155 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %155, %.val182
-  br i1 %exitcond.not.i, label %stack_pop.argprom.exit, label %148, !llvm.loop !11
+  br i1 %exitcond.not.i, label %stack_pop.exit, label %148, !llvm.loop !11
 
 156:                                              ; preds = %25
   %157 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1733,7 +1733,7 @@ stack_push.exit:                                  ; preds = %132, %136
   call void @df_cell_iter_init(ptr noundef %169, ptr noundef nonnull %15) #11
   %172 = call ptr @df_cell_iter_next(ptr noundef nonnull %15) #11
   %.not1.i = icmp eq ptr %172, null
-  br i1 %.not1.i, label %mk_slice.argprom.exit, label %.lr.ph.i210
+  br i1 %.not1.i, label %mk_slice.exit, label %.lr.ph.i210
 
 .lr.ph.i210:                                      ; preds = %156, %.lr.ph.i210
   %173 = phi ptr [ %175, %.lr.ph.i210 ], [ %172, %156 ]
@@ -1741,11 +1741,11 @@ stack_push.exit:                                  ; preds = %132, %136
   call void @df_cell_append(ptr noundef %164, ptr noundef %174) #11
   %175 = call ptr @df_cell_iter_next(ptr noundef nonnull %15) #11
   %.not.i211 = icmp eq ptr %175, null
-  br i1 %.not.i211, label %mk_slice.argprom.exit, label %.lr.ph.i210, !llvm.loop !12
+  br i1 %.not.i211, label %mk_slice.exit, label %.lr.ph.i210, !llvm.loop !12
 
-mk_slice.argprom.exit:                            ; preds = %.lr.ph.i210, %156
+mk_slice.exit:                                    ; preds = %.lr.ph.i210, %156
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 176:                                              ; preds = %25
   %177 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1765,7 +1765,7 @@ mk_slice.argprom.exit:                            ; preds = %.lr.ph.i210, %156
   call void @df_cell_iter_init(ptr noundef %187, ptr noundef nonnull %14) #11
   %188 = call ptr @df_cell_iter_next(ptr noundef nonnull %14) #11
   %.not1.i212 = icmp eq ptr %188, null
-  br i1 %.not1.i212, label %mk_length.argprom.exit, label %.lr.ph.i213
+  br i1 %.not1.i212, label %mk_length.exit, label %.lr.ph.i213
 
 .lr.ph.i213:                                      ; preds = %176, %.lr.ph.i213
   %189 = phi ptr [ %193, %.lr.ph.i213 ], [ %188, %176 ]
@@ -1776,11 +1776,11 @@ mk_slice.argprom.exit:                            ; preds = %.lr.ph.i210, %156
   call void @df_cell_append(ptr noundef %182, ptr noundef %190) #11
   %193 = call ptr @df_cell_iter_next(ptr noundef nonnull %14) #11
   %.not.i214 = icmp eq ptr %193, null
-  br i1 %.not.i214, label %mk_length.argprom.exit, label %.lr.ph.i213, !llvm.loop !13
+  br i1 %.not.i214, label %mk_length.exit, label %.lr.ph.i213, !llvm.loop !13
 
-mk_length.argprom.exit:                           ; preds = %.lr.ph.i213, %176
+mk_length.exit:                                   ; preds = %.lr.ph.i213, %176
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 194:                                              ; preds = %25
   %195 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1805,7 +1805,7 @@ mk_length.argprom.exit:                           ; preds = %.lr.ph.i213, %176
   call void @df_cell_iter_init(ptr noundef %208, ptr noundef nonnull %12) #11
   %209 = call ptr @df_cell_iter_next(ptr noundef nonnull %12) #11
   %.not5.i = icmp eq ptr %209, null
-  br i1 %.not5.i, label %mk_value_string.argprom.exit, label %.lr.ph.i215
+  br i1 %.not5.i, label %mk_value_string.exit, label %.lr.ph.i215
 
 .lr.ph.i215:                                      ; preds = %194
   %210 = getelementptr inbounds i8, ptr %.val185, i64 20
@@ -1938,15 +1938,15 @@ try_value_string.exit.i:                          ; preds = %253, %236, %231, %2
 261:                                              ; preds = %259, %try_value_string.exit.i, %try_value_string.exit.thread.i
   %262 = call ptr @df_cell_iter_next(ptr noundef nonnull %12) #11
   %.not.i216 = icmp eq ptr %262, null
-  br i1 %.not.i216, label %mk_value_string.argprom.exit, label %212, !llvm.loop !14
+  br i1 %.not.i216, label %mk_value_string.exit, label %212, !llvm.loop !14
 
-mk_value_string.argprom.exit:                     ; preds = %261, %194
+mk_value_string.exit:                             ; preds = %261, %194
   %263 = call zeroext i1 @df_cell_is_empty(ptr noundef %203) #11
   %264 = xor i1 %263, true
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %13)
   %265 = zext i1 %264 to i8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 266:                                              ; preds = %25
   %267 = getelementptr inbounds i8, ptr %28, i64 16
@@ -2004,7 +2004,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %291 = getelementptr inbounds i8, ptr %.013.i, i64 8
   %292 = load i32, ptr %291, align 8
   %.not44.i.i = icmp eq i32 %292, 0
-  br i1 %.not44.i.i, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i332
+  br i1 %.not44.i.i, label %stack_pop.exit, label %.preheader.lr.ph.i.i332
 
 .preheader.lr.ph.i.i332:                          ; preds = %290
   %293 = getelementptr inbounds i8, ptr %.0.i331, i64 8
@@ -2027,7 +2027,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %300 = getelementptr ptr, ptr %299, i64 %.025.us26.i.i
   %301 = load ptr, ptr %300, align 8
   %302 = call zeroext i1 @fvalue_eq(ptr noundef %298, ptr noundef %301) #11
-  br i1 %302, label %303, label %stack_pop.argprom.exit
+  br i1 %302, label %303, label %stack_pop.exit
 
 303:                                              ; preds = %.lr.ph.i.i335
   %304 = add nuw nsw i64 %.025.us26.i.i, 1
@@ -2046,7 +2046,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %310 = add nuw nsw i64 %.01830.i.i, 1
   %311 = zext i32 %308 to i64
   %312 = icmp ult i64 %310, %311
-  br i1 %312, label %.preheader.i.i333, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %312, label %.preheader.i.i333, label %stack_pop.exit, !llvm.loop !16
 
 313:                                              ; preds = %25
   %314 = getelementptr inbounds i8, ptr %28, i64 16
@@ -2104,7 +2104,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %338 = getelementptr inbounds i8, ptr %.013.i338, i64 8
   %339 = load i32, ptr %338, align 8
   %.not44.i.i341 = icmp eq i32 %339, 0
-  br i1 %.not44.i.i341, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i342
+  br i1 %.not44.i.i341, label %stack_pop.exit, label %.preheader.lr.ph.i.i342
 
 .preheader.lr.ph.i.i342:                          ; preds = %337
   %340 = getelementptr inbounds i8, ptr %.0.i340, i64 8
@@ -2128,7 +2128,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %345 = add nuw nsw i64 %.01830.us.us.i.i, 1
   %346 = zext i32 %343 to i64
   %347 = icmp ult i64 %345, %346
-  br i1 %347, label %.preheader.us.us.i.i, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %347, label %.preheader.us.us.i.i, label %stack_pop.exit, !llvm.loop !16
 
 .lr.ph.us.us.i.i:                                 ; preds = %.preheader.us.us.i.i, %355
   %.025.us.us33.us.i.i = phi i64 [ %356, %355 ], [ 0, %.preheader.us.us.i.i ]
@@ -2139,7 +2139,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %352 = getelementptr ptr, ptr %351, i64 %.025.us.us33.us.i.i
   %353 = load ptr, ptr %352, align 8
   %354 = call zeroext i1 @fvalue_eq(ptr noundef %350, ptr noundef %353) #11
-  br i1 %354, label %stack_pop.argprom.exit, label %355
+  br i1 %354, label %stack_pop.exit, label %355
 
 355:                                              ; preds = %.lr.ph.us.us.i.i
   %356 = add nuw nsw i64 %.025.us.us33.us.i.i, 1
@@ -2204,7 +2204,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %385 = getelementptr inbounds i8, ptr %.013.i347, i64 8
   %386 = load i32, ptr %385, align 8
   %.not44.i.i350 = icmp eq i32 %386, 0
-  br i1 %.not44.i.i350, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i351
+  br i1 %.not44.i.i350, label %stack_pop.exit, label %.preheader.lr.ph.i.i351
 
 .preheader.lr.ph.i.i351:                          ; preds = %384
   %387 = getelementptr inbounds i8, ptr %.0.i349, i64 8
@@ -2227,7 +2227,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %394 = getelementptr ptr, ptr %393, i64 %.025.us26.i.i357
   %395 = load ptr, ptr %394, align 8
   %396 = call zeroext i1 @fvalue_ne(ptr noundef %392, ptr noundef %395) #11
-  br i1 %396, label %397, label %stack_pop.argprom.exit
+  br i1 %396, label %397, label %stack_pop.exit
 
 397:                                              ; preds = %.lr.ph.i.i356
   %398 = add nuw nsw i64 %.025.us26.i.i357, 1
@@ -2246,7 +2246,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %404 = add nuw nsw i64 %.01830.i.i354, 1
   %405 = zext i32 %402 to i64
   %406 = icmp ult i64 %404, %405
-  br i1 %406, label %.preheader.i.i353, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %406, label %.preheader.i.i353, label %stack_pop.exit, !llvm.loop !16
 
 407:                                              ; preds = %25
   %408 = getelementptr inbounds i8, ptr %28, i64 16
@@ -2304,7 +2304,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %432 = getelementptr inbounds i8, ptr %.013.i364, i64 8
   %433 = load i32, ptr %432, align 8
   %.not44.i.i367 = icmp eq i32 %433, 0
-  br i1 %.not44.i.i367, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i368
+  br i1 %.not44.i.i367, label %stack_pop.exit, label %.preheader.lr.ph.i.i368
 
 .preheader.lr.ph.i.i368:                          ; preds = %431
   %434 = getelementptr inbounds i8, ptr %.0.i366, i64 8
@@ -2328,7 +2328,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %439 = add nuw nsw i64 %.01830.us.us.i.i371, 1
   %440 = zext i32 %437 to i64
   %441 = icmp ult i64 %439, %440
-  br i1 %441, label %.preheader.us.us.i.i370, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %441, label %.preheader.us.us.i.i370, label %stack_pop.exit, !llvm.loop !16
 
 .lr.ph.us.us.i.i373:                              ; preds = %.preheader.us.us.i.i370, %449
   %.025.us.us33.us.i.i374 = phi i64 [ %450, %449 ], [ 0, %.preheader.us.us.i.i370 ]
@@ -2339,7 +2339,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %446 = getelementptr ptr, ptr %445, i64 %.025.us.us33.us.i.i374
   %447 = load ptr, ptr %446, align 8
   %448 = call zeroext i1 @fvalue_ne(ptr noundef %444, ptr noundef %447) #11
-  br i1 %448, label %stack_pop.argprom.exit, label %449
+  br i1 %448, label %stack_pop.exit, label %449
 
 449:                                              ; preds = %.lr.ph.us.us.i.i373
   %450 = add nuw nsw i64 %.025.us.us33.us.i.i374, 1
@@ -2404,7 +2404,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %479 = getelementptr inbounds i8, ptr %.013.i381, i64 8
   %480 = load i32, ptr %479, align 8
   %.not44.i.i384 = icmp eq i32 %480, 0
-  br i1 %.not44.i.i384, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i385
+  br i1 %.not44.i.i384, label %stack_pop.exit, label %.preheader.lr.ph.i.i385
 
 .preheader.lr.ph.i.i385:                          ; preds = %478
   %481 = getelementptr inbounds i8, ptr %.0.i383, i64 8
@@ -2427,7 +2427,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %488 = getelementptr ptr, ptr %487, i64 %.025.us26.i.i391
   %489 = load ptr, ptr %488, align 8
   %490 = call zeroext i1 @fvalue_gt(ptr noundef %486, ptr noundef %489) #11
-  br i1 %490, label %491, label %stack_pop.argprom.exit
+  br i1 %490, label %491, label %stack_pop.exit
 
 491:                                              ; preds = %.lr.ph.i.i390
   %492 = add nuw nsw i64 %.025.us26.i.i391, 1
@@ -2446,7 +2446,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %498 = add nuw nsw i64 %.01830.i.i388, 1
   %499 = zext i32 %496 to i64
   %500 = icmp ult i64 %498, %499
-  br i1 %500, label %.preheader.i.i387, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %500, label %.preheader.i.i387, label %stack_pop.exit, !llvm.loop !16
 
 501:                                              ; preds = %25
   %502 = getelementptr inbounds i8, ptr %28, i64 16
@@ -2504,7 +2504,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %526 = getelementptr inbounds i8, ptr %.013.i398, i64 8
   %527 = load i32, ptr %526, align 8
   %.not44.i.i401 = icmp eq i32 %527, 0
-  br i1 %.not44.i.i401, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i402
+  br i1 %.not44.i.i401, label %stack_pop.exit, label %.preheader.lr.ph.i.i402
 
 .preheader.lr.ph.i.i402:                          ; preds = %525
   %528 = getelementptr inbounds i8, ptr %.0.i400, i64 8
@@ -2528,7 +2528,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %533 = add nuw nsw i64 %.01830.us.us.i.i405, 1
   %534 = zext i32 %531 to i64
   %535 = icmp ult i64 %533, %534
-  br i1 %535, label %.preheader.us.us.i.i404, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %535, label %.preheader.us.us.i.i404, label %stack_pop.exit, !llvm.loop !16
 
 .lr.ph.us.us.i.i407:                              ; preds = %.preheader.us.us.i.i404, %543
   %.025.us.us33.us.i.i408 = phi i64 [ %544, %543 ], [ 0, %.preheader.us.us.i.i404 ]
@@ -2539,7 +2539,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %540 = getelementptr ptr, ptr %539, i64 %.025.us.us33.us.i.i408
   %541 = load ptr, ptr %540, align 8
   %542 = call zeroext i1 @fvalue_gt(ptr noundef %538, ptr noundef %541) #11
-  br i1 %542, label %stack_pop.argprom.exit, label %543
+  br i1 %542, label %stack_pop.exit, label %543
 
 543:                                              ; preds = %.lr.ph.us.us.i.i407
   %544 = add nuw nsw i64 %.025.us.us33.us.i.i408, 1
@@ -2604,7 +2604,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %573 = getelementptr inbounds i8, ptr %.013.i415, i64 8
   %574 = load i32, ptr %573, align 8
   %.not44.i.i418 = icmp eq i32 %574, 0
-  br i1 %.not44.i.i418, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i419
+  br i1 %.not44.i.i418, label %stack_pop.exit, label %.preheader.lr.ph.i.i419
 
 .preheader.lr.ph.i.i419:                          ; preds = %572
   %575 = getelementptr inbounds i8, ptr %.0.i417, i64 8
@@ -2627,7 +2627,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %582 = getelementptr ptr, ptr %581, i64 %.025.us26.i.i425
   %583 = load ptr, ptr %582, align 8
   %584 = call zeroext i1 @fvalue_ge(ptr noundef %580, ptr noundef %583) #11
-  br i1 %584, label %585, label %stack_pop.argprom.exit
+  br i1 %584, label %585, label %stack_pop.exit
 
 585:                                              ; preds = %.lr.ph.i.i424
   %586 = add nuw nsw i64 %.025.us26.i.i425, 1
@@ -2646,7 +2646,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %592 = add nuw nsw i64 %.01830.i.i422, 1
   %593 = zext i32 %590 to i64
   %594 = icmp ult i64 %592, %593
-  br i1 %594, label %.preheader.i.i421, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %594, label %.preheader.i.i421, label %stack_pop.exit, !llvm.loop !16
 
 595:                                              ; preds = %25
   %596 = getelementptr inbounds i8, ptr %28, i64 16
@@ -2704,7 +2704,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %620 = getelementptr inbounds i8, ptr %.013.i432, i64 8
   %621 = load i32, ptr %620, align 8
   %.not44.i.i435 = icmp eq i32 %621, 0
-  br i1 %.not44.i.i435, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i436
+  br i1 %.not44.i.i435, label %stack_pop.exit, label %.preheader.lr.ph.i.i436
 
 .preheader.lr.ph.i.i436:                          ; preds = %619
   %622 = getelementptr inbounds i8, ptr %.0.i434, i64 8
@@ -2728,7 +2728,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %627 = add nuw nsw i64 %.01830.us.us.i.i439, 1
   %628 = zext i32 %625 to i64
   %629 = icmp ult i64 %627, %628
-  br i1 %629, label %.preheader.us.us.i.i438, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %629, label %.preheader.us.us.i.i438, label %stack_pop.exit, !llvm.loop !16
 
 .lr.ph.us.us.i.i441:                              ; preds = %.preheader.us.us.i.i438, %637
   %.025.us.us33.us.i.i442 = phi i64 [ %638, %637 ], [ 0, %.preheader.us.us.i.i438 ]
@@ -2739,7 +2739,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %634 = getelementptr ptr, ptr %633, i64 %.025.us.us33.us.i.i442
   %635 = load ptr, ptr %634, align 8
   %636 = call zeroext i1 @fvalue_ge(ptr noundef %632, ptr noundef %635) #11
-  br i1 %636, label %stack_pop.argprom.exit, label %637
+  br i1 %636, label %stack_pop.exit, label %637
 
 637:                                              ; preds = %.lr.ph.us.us.i.i441
   %638 = add nuw nsw i64 %.025.us.us33.us.i.i442, 1
@@ -2804,7 +2804,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %667 = getelementptr inbounds i8, ptr %.013.i449, i64 8
   %668 = load i32, ptr %667, align 8
   %.not44.i.i452 = icmp eq i32 %668, 0
-  br i1 %.not44.i.i452, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i453
+  br i1 %.not44.i.i452, label %stack_pop.exit, label %.preheader.lr.ph.i.i453
 
 .preheader.lr.ph.i.i453:                          ; preds = %666
   %669 = getelementptr inbounds i8, ptr %.0.i451, i64 8
@@ -2827,7 +2827,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %676 = getelementptr ptr, ptr %675, i64 %.025.us26.i.i459
   %677 = load ptr, ptr %676, align 8
   %678 = call zeroext i1 @fvalue_lt(ptr noundef %674, ptr noundef %677) #11
-  br i1 %678, label %679, label %stack_pop.argprom.exit
+  br i1 %678, label %679, label %stack_pop.exit
 
 679:                                              ; preds = %.lr.ph.i.i458
   %680 = add nuw nsw i64 %.025.us26.i.i459, 1
@@ -2846,7 +2846,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %686 = add nuw nsw i64 %.01830.i.i456, 1
   %687 = zext i32 %684 to i64
   %688 = icmp ult i64 %686, %687
-  br i1 %688, label %.preheader.i.i455, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %688, label %.preheader.i.i455, label %stack_pop.exit, !llvm.loop !16
 
 689:                                              ; preds = %25
   %690 = getelementptr inbounds i8, ptr %28, i64 16
@@ -2904,7 +2904,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %714 = getelementptr inbounds i8, ptr %.013.i466, i64 8
   %715 = load i32, ptr %714, align 8
   %.not44.i.i469 = icmp eq i32 %715, 0
-  br i1 %.not44.i.i469, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i470
+  br i1 %.not44.i.i469, label %stack_pop.exit, label %.preheader.lr.ph.i.i470
 
 .preheader.lr.ph.i.i470:                          ; preds = %713
   %716 = getelementptr inbounds i8, ptr %.0.i468, i64 8
@@ -2928,7 +2928,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %721 = add nuw nsw i64 %.01830.us.us.i.i473, 1
   %722 = zext i32 %719 to i64
   %723 = icmp ult i64 %721, %722
-  br i1 %723, label %.preheader.us.us.i.i472, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %723, label %.preheader.us.us.i.i472, label %stack_pop.exit, !llvm.loop !16
 
 .lr.ph.us.us.i.i475:                              ; preds = %.preheader.us.us.i.i472, %731
   %.025.us.us33.us.i.i476 = phi i64 [ %732, %731 ], [ 0, %.preheader.us.us.i.i472 ]
@@ -2939,7 +2939,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %728 = getelementptr ptr, ptr %727, i64 %.025.us.us33.us.i.i476
   %729 = load ptr, ptr %728, align 8
   %730 = call zeroext i1 @fvalue_lt(ptr noundef %726, ptr noundef %729) #11
-  br i1 %730, label %stack_pop.argprom.exit, label %731
+  br i1 %730, label %stack_pop.exit, label %731
 
 731:                                              ; preds = %.lr.ph.us.us.i.i475
   %732 = add nuw nsw i64 %.025.us.us33.us.i.i476, 1
@@ -3004,7 +3004,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %761 = getelementptr inbounds i8, ptr %.013.i483, i64 8
   %762 = load i32, ptr %761, align 8
   %.not44.i.i486 = icmp eq i32 %762, 0
-  br i1 %.not44.i.i486, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i487
+  br i1 %.not44.i.i486, label %stack_pop.exit, label %.preheader.lr.ph.i.i487
 
 .preheader.lr.ph.i.i487:                          ; preds = %760
   %763 = getelementptr inbounds i8, ptr %.0.i485, i64 8
@@ -3027,7 +3027,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %770 = getelementptr ptr, ptr %769, i64 %.025.us26.i.i493
   %771 = load ptr, ptr %770, align 8
   %772 = call zeroext i1 @fvalue_le(ptr noundef %768, ptr noundef %771) #11
-  br i1 %772, label %773, label %stack_pop.argprom.exit
+  br i1 %772, label %773, label %stack_pop.exit
 
 773:                                              ; preds = %.lr.ph.i.i492
   %774 = add nuw nsw i64 %.025.us26.i.i493, 1
@@ -3046,7 +3046,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %780 = add nuw nsw i64 %.01830.i.i490, 1
   %781 = zext i32 %778 to i64
   %782 = icmp ult i64 %780, %781
-  br i1 %782, label %.preheader.i.i489, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %782, label %.preheader.i.i489, label %stack_pop.exit, !llvm.loop !16
 
 783:                                              ; preds = %25
   %784 = getelementptr inbounds i8, ptr %28, i64 16
@@ -3104,7 +3104,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %808 = getelementptr inbounds i8, ptr %.013.i500, i64 8
   %809 = load i32, ptr %808, align 8
   %.not44.i.i503 = icmp eq i32 %809, 0
-  br i1 %.not44.i.i503, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i504
+  br i1 %.not44.i.i503, label %stack_pop.exit, label %.preheader.lr.ph.i.i504
 
 .preheader.lr.ph.i.i504:                          ; preds = %807
   %810 = getelementptr inbounds i8, ptr %.0.i502, i64 8
@@ -3128,7 +3128,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %815 = add nuw nsw i64 %.01830.us.us.i.i507, 1
   %816 = zext i32 %813 to i64
   %817 = icmp ult i64 %815, %816
-  br i1 %817, label %.preheader.us.us.i.i506, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %817, label %.preheader.us.us.i.i506, label %stack_pop.exit, !llvm.loop !16
 
 .lr.ph.us.us.i.i509:                              ; preds = %.preheader.us.us.i.i506, %825
   %.025.us.us33.us.i.i510 = phi i64 [ %826, %825 ], [ 0, %.preheader.us.us.i.i506 ]
@@ -3139,7 +3139,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
   %822 = getelementptr ptr, ptr %821, i64 %.025.us.us33.us.i.i510
   %823 = load ptr, ptr %822, align 8
   %824 = call zeroext i1 @fvalue_le(ptr noundef %820, ptr noundef %823) #11
-  br i1 %824, label %stack_pop.argprom.exit, label %825
+  br i1 %824, label %stack_pop.exit, label %825
 
 825:                                              ; preds = %.lr.ph.us.us.i.i509
   %826 = add nuw nsw i64 %.025.us.us33.us.i.i510, 1
@@ -3282,7 +3282,7 @@ mk_value_string.argprom.exit:                     ; preds = %261, %194
 
 mk_binary.exit:                                   ; preds = %._crit_edge.i.i, %856
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 896:                                              ; preds = %25
   %897 = getelementptr inbounds i8, ptr %28, i64 16
@@ -3418,7 +3418,7 @@ mk_binary.exit:                                   ; preds = %._crit_edge.i.i, %8
 
 mk_binary.exit237:                                ; preds = %._crit_edge.i.i236, %922
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 962:                                              ; preds = %25
   %963 = getelementptr inbounds i8, ptr %28, i64 16
@@ -3554,7 +3554,7 @@ mk_binary.exit237:                                ; preds = %._crit_edge.i.i236,
 
 mk_binary.exit255:                                ; preds = %._crit_edge.i.i254, %988
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1028:                                             ; preds = %25
   %1029 = getelementptr inbounds i8, ptr %28, i64 16
@@ -3690,7 +3690,7 @@ mk_binary.exit255:                                ; preds = %._crit_edge.i.i254,
 
 mk_binary.exit273:                                ; preds = %._crit_edge.i.i272, %1054
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1094:                                             ; preds = %25
   %1095 = getelementptr inbounds i8, ptr %28, i64 16
@@ -3826,7 +3826,7 @@ mk_binary.exit273:                                ; preds = %._crit_edge.i.i272,
 
 mk_binary.exit291:                                ; preds = %._crit_edge.i.i290, %1120
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1160:                                             ; preds = %25
   %1161 = getelementptr inbounds i8, ptr %28, i64 16
@@ -3962,7 +3962,7 @@ mk_binary.exit291:                                ; preds = %._crit_edge.i.i290,
 
 mk_binary.exit309:                                ; preds = %._crit_edge.i.i308, %1186
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1226:                                             ; preds = %25
   %.val187 = load ptr, ptr %.phi.trans.insert.i321, align 8
@@ -3973,19 +3973,19 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1230 = call ptr @df_cell_array(ptr noundef %1229) #11
   %1231 = call i64 @df_cell_size(ptr noundef %1229) #11
   %1232 = icmp eq i64 %1231, 0
-  br i1 %1232, label %stack_pop.argprom.exit, label %.lr.ph.i.i310
+  br i1 %1232, label %stack_pop.exit, label %.lr.ph.i.i310
 
 1233:                                             ; preds = %.lr.ph.i.i310
   %1234 = add nuw i64 %.01.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %1234, %1231
-  br i1 %exitcond.not.i.i, label %stack_pop.argprom.exit, label %.lr.ph.i.i310, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %stack_pop.exit, label %.lr.ph.i.i310, !llvm.loop !19
 
 .lr.ph.i.i310:                                    ; preds = %1226, %1233
   %.01.i.i = phi i64 [ %1234, %1233 ], [ 0, %1226 ]
   %1235 = getelementptr ptr, ptr %1230, i64 %.01.i.i
   %1236 = load ptr, ptr %1235, align 8
   %1237 = call zeroext i1 @fvalue_is_zero(ptr noundef %1236) #11
-  br i1 %1237, label %1233, label %stack_pop.argprom.exit
+  br i1 %1237, label %1233, label %stack_pop.exit
 
 1238:                                             ; preds = %25
   %1239 = getelementptr inbounds i8, ptr %28, i64 16
@@ -4043,7 +4043,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1263 = getelementptr inbounds i8, ptr %.013.i517, i64 8
   %1264 = load i32, ptr %1263, align 8
   %.not44.i.i520 = icmp eq i32 %1264, 0
-  br i1 %.not44.i.i520, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i521
+  br i1 %.not44.i.i520, label %stack_pop.exit, label %.preheader.lr.ph.i.i521
 
 .preheader.lr.ph.i.i521:                          ; preds = %1262
   %1265 = getelementptr inbounds i8, ptr %.0.i519, i64 8
@@ -4066,7 +4066,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1272 = getelementptr ptr, ptr %1271, i64 %.025.us26.i.i527
   %1273 = load ptr, ptr %1272, align 8
   %1274 = call zeroext i1 @fvalue_contains(ptr noundef %1270, ptr noundef %1273) #11
-  br i1 %1274, label %1275, label %stack_pop.argprom.exit
+  br i1 %1274, label %1275, label %stack_pop.exit
 
 1275:                                             ; preds = %.lr.ph.i.i526
   %1276 = add nuw nsw i64 %.025.us26.i.i527, 1
@@ -4085,7 +4085,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1282 = add nuw nsw i64 %.01830.i.i524, 1
   %1283 = zext i32 %1280 to i64
   %1284 = icmp ult i64 %1282, %1283
-  br i1 %1284, label %.preheader.i.i523, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %1284, label %.preheader.i.i523, label %stack_pop.exit, !llvm.loop !16
 
 1285:                                             ; preds = %25
   %1286 = getelementptr inbounds i8, ptr %28, i64 16
@@ -4143,7 +4143,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1310 = getelementptr inbounds i8, ptr %.013.i534, i64 8
   %1311 = load i32, ptr %1310, align 8
   %.not44.i.i537 = icmp eq i32 %1311, 0
-  br i1 %.not44.i.i537, label %stack_pop.argprom.exit, label %.preheader.lr.ph.i.i538
+  br i1 %.not44.i.i537, label %stack_pop.exit, label %.preheader.lr.ph.i.i538
 
 .preheader.lr.ph.i.i538:                          ; preds = %1309
   %1312 = getelementptr inbounds i8, ptr %.0.i536, i64 8
@@ -4167,7 +4167,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1317 = add nuw nsw i64 %.01830.us.us.i.i541, 1
   %1318 = zext i32 %1315 to i64
   %1319 = icmp ult i64 %1317, %1318
-  br i1 %1319, label %.preheader.us.us.i.i540, label %stack_pop.argprom.exit, !llvm.loop !16
+  br i1 %1319, label %.preheader.us.us.i.i540, label %stack_pop.exit, !llvm.loop !16
 
 .lr.ph.us.us.i.i543:                              ; preds = %.preheader.us.us.i.i540, %1327
   %.025.us.us33.us.i.i544 = phi i64 [ %1328, %1327 ], [ 0, %.preheader.us.us.i.i540 ]
@@ -4178,7 +4178,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1324 = getelementptr ptr, ptr %1323, i64 %.025.us.us33.us.i.i544
   %1325 = load ptr, ptr %1324, align 8
   %1326 = call zeroext i1 @fvalue_contains(ptr noundef %1322, ptr noundef %1325) #11
-  br i1 %1326, label %stack_pop.argprom.exit, label %1327
+  br i1 %1326, label %stack_pop.exit, label %1327
 
 1327:                                             ; preds = %.lr.ph.us.us.i.i543
   %1328 = add nuw nsw i64 %.025.us.us33.us.i.i544, 1
@@ -4200,20 +4200,20 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1339 = call ptr @df_cell_array(ptr noundef %1338) #11
   %1340 = call i64 @df_cell_size(ptr noundef %1338) #11
   %1341 = icmp eq i64 %1340, 0
-  br i1 %1341, label %stack_pop.argprom.exit, label %.lr.ph.i311
+  br i1 %1341, label %stack_pop.exit, label %.lr.ph.i311
 
 1342:                                             ; preds = %.lr.ph.i311
   %1343 = add nuw i64 %.03.i, 1
   %1344 = call i64 @df_cell_size(ptr noundef %1338) #11
   %.not.i312 = icmp ult i64 %1343, %1344
-  br i1 %.not.i312, label %.lr.ph.i311, label %stack_pop.argprom.exit, !llvm.loop !20
+  br i1 %.not.i312, label %.lr.ph.i311, label %stack_pop.exit, !llvm.loop !20
 
 .lr.ph.i311:                                      ; preds = %1332, %1342
   %.03.i = phi i64 [ %1343, %1342 ], [ 0, %1332 ]
   %1345 = getelementptr ptr, ptr %1339, i64 %.03.i
   %1346 = load ptr, ptr %1345, align 8
   %1347 = call zeroext i1 @fvalue_matches(ptr noundef %1346, ptr noundef %.val191) #11
-  br i1 %1347, label %1342, label %stack_pop.argprom.exit
+  br i1 %1347, label %1342, label %stack_pop.exit
 
 1348:                                             ; preds = %25
   %1349 = getelementptr inbounds i8, ptr %28, i64 16
@@ -4228,20 +4228,20 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1355 = call ptr @df_cell_array(ptr noundef %1354) #11
   %1356 = call i64 @df_cell_size(ptr noundef %1354) #11
   %.not.i313 = icmp eq i64 %1356, 0
-  br i1 %.not.i313, label %stack_pop.argprom.exit, label %.lr.ph.i314
+  br i1 %.not.i313, label %stack_pop.exit, label %.lr.ph.i314
 
 1357:                                             ; preds = %.lr.ph.i314
   %1358 = add nuw i64 %.03.i315, 1
   %1359 = call i64 @df_cell_size(ptr noundef %1354) #11
   %1360 = icmp ult i64 %1358, %1359
-  br i1 %1360, label %.lr.ph.i314, label %stack_pop.argprom.exit, !llvm.loop !21
+  br i1 %1360, label %.lr.ph.i314, label %stack_pop.exit, !llvm.loop !21
 
 .lr.ph.i314:                                      ; preds = %1348, %1357
   %.03.i315 = phi i64 [ %1358, %1357 ], [ 0, %1348 ]
   %1361 = getelementptr ptr, ptr %1355, i64 %.03.i315
   %1362 = load ptr, ptr %1361, align 8
   %1363 = call zeroext i1 @fvalue_matches(ptr noundef %1362, ptr noundef %.val194) #11
-  br i1 %1363, label %stack_pop.argprom.exit, label %1357
+  br i1 %1363, label %stack_pop.exit, label %1357
 
 1364:                                             ; preds = %25
   %1365 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 2, i64 noundef 8) #12
@@ -4274,7 +4274,7 @@ set_push.exit:                                    ; preds = %1367, %1369
   %1376 = load ptr, ptr %20, align 8
   %1377 = call ptr @g_slist_prepend(ptr noundef %1376, ptr noundef nonnull %1365) #11
   store ptr %1377, ptr %20, align 8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1378:                                             ; preds = %25
   %1379 = getelementptr inbounds i8, ptr %28, i64 16
@@ -4343,43 +4343,43 @@ set_push.exit320:                                 ; preds = %1392, %.sink.split.
   %1406 = load ptr, ptr %20, align 8
   %1407 = call ptr @g_slist_prepend(ptr noundef %1406, ptr noundef nonnull %1381) #11
   store ptr %1407, ptr %20, align 8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1408:                                             ; preds = %25
   %1409 = getelementptr i8, ptr %30, i64 8
   %.val195 = load i32, ptr %1409, align 8
-  %1410 = call fastcc zeroext i1 @all_in.argprom(ptr noundef nonnull %0, i32 %.val195)
+  %1410 = call fastcc zeroext i1 @all_in(ptr noundef nonnull %0, i32 %.val195)
   %1411 = zext i1 %1410 to i8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1412:                                             ; preds = %25
   %1413 = getelementptr i8, ptr %30, i64 8
   %.val197 = load i32, ptr %1413, align 8
-  %1414 = call fastcc zeroext i1 @any_in.argprom(ptr noundef nonnull %0, i32 %.val197)
+  %1414 = call fastcc zeroext i1 @any_in(ptr noundef nonnull %0, i32 %.val197)
   %1415 = zext i1 %1414 to i8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1416:                                             ; preds = %25
   %1417 = getelementptr i8, ptr %30, i64 8
   %.val196 = load i32, ptr %1417, align 8
-  %1418 = call fastcc zeroext i1 @all_in.argprom(ptr noundef nonnull %0, i32 %.val196)
+  %1418 = call fastcc zeroext i1 @all_in(ptr noundef nonnull %0, i32 %.val196)
   %1419 = xor i1 %1418, true
   %1420 = zext i1 %1419 to i8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1421:                                             ; preds = %25
   %1422 = getelementptr i8, ptr %30, i64 8
   %.val198 = load i32, ptr %1422, align 8
-  %1423 = call fastcc zeroext i1 @any_in.argprom(ptr noundef nonnull %0, i32 %.val198)
+  %1423 = call fastcc zeroext i1 @any_in(ptr noundef nonnull %0, i32 %.val198)
   %1424 = xor i1 %1423, true
   %1425 = zext i1 %1424 to i8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1426:                                             ; preds = %25
   %1427 = load ptr, ptr %20, align 8
   call void @g_slist_free_full(ptr noundef %1427, ptr noundef nonnull @g_free) #11
   store ptr null, ptr %20, align 8
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1428:                                             ; preds = %25
   %1429 = getelementptr inbounds i8, ptr %28, i64 16
@@ -4451,11 +4451,11 @@ set_push.exit320:                                 ; preds = %1392, %.sink.split.
 
 mk_minus.exit:                                    ; preds = %1457, %1441
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1462:                                             ; preds = %25
   %1463 = xor i8 %.0159939, 1
-  br label %stack_pop.argprom.exit
+  br label %stack_pop.exit
 
 1464:                                             ; preds = %25
   %1465 = icmp ne ptr %2, null
@@ -4500,7 +4500,7 @@ free_register_overhead.exit:                      ; preds = %.lr.ph.i328, %1477
   ret i1 %24
 
 1485:                                             ; preds = %25
-  br i1 %24, label %.backedge, label %stack_pop.argprom.exit
+  br i1 %24, label %.backedge, label %stack_pop.exit
 
 .backedge:                                        ; preds = %1486, %1485
   %.1.be.in = getelementptr inbounds i8, ptr %30, i64 8
@@ -4508,25 +4508,25 @@ free_register_overhead.exit:                      ; preds = %.lr.ph.i328, %1477
   br label %25
 
 1486:                                             ; preds = %25
-  br i1 %24, label %stack_pop.argprom.exit, label %.backedge
+  br i1 %24, label %stack_pop.exit, label %.backedge
 
 1487:                                             ; preds = %25
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.57, i32 noundef 7, ptr noundef nonnull @.str.58, i64 noundef 1878, ptr noundef nonnull @__func__.dfvm_apply_full, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str) #13
   unreachable
 
-stack_pop.argprom.exit:                           ; preds = %25, %1485, %1486, %.lr.ph.i314, %1357, %.lr.ph.i311, %1342, %._crit_edge.split.us.split.us34.us.i.i547, %._crit_edge.split.split.us.i.i531, %.lr.ph.i.i310, %1233, %._crit_edge.split.us.split.us34.us.i.i513, %._crit_edge.split.split.us.i.i497, %._crit_edge.split.us.split.us34.us.i.i479, %._crit_edge.split.split.us.i.i463, %._crit_edge.split.us.split.us34.us.i.i445, %._crit_edge.split.split.us.i.i429, %._crit_edge.split.us.split.us34.us.i.i411, %._crit_edge.split.split.us.i.i395, %._crit_edge.split.us.split.us34.us.i.i377, %._crit_edge.split.split.us.i.i361, %._crit_edge.split.us.split.us34.us.i.i, %._crit_edge.split.split.us.i.i, %152, %check_exists_finfos.argprom.exit.thread.i, %check_exists_finfos.argprom.exit.i, %check_exists_finfos.argprom.exit.thread.us.i204, %56, %check_exists_finfos.argprom.exit.thread.us.i, %38, %.lr.ph.us.us.i.i543, %.lr.ph.i.i526, %.lr.ph.us.us.i.i509, %.lr.ph.i.i492, %.lr.ph.us.us.i.i475, %.lr.ph.i.i458, %.lr.ph.us.us.i.i441, %.lr.ph.i.i424, %.lr.ph.us.us.i.i407, %.lr.ph.i.i390, %.lr.ph.us.us.i.i373, %.lr.ph.i.i356, %.lr.ph.us.us.i.i, %.lr.ph.i.i335, %1348, %1332, %1309, %1262, %1226, %807, %760, %713, %666, %619, %572, %525, %478, %431, %384, %337, %290, %.thread.i, %48, %33, %146, %72, %79, %88, %95, %104, %114, %stack_push.exit, %mk_slice.argprom.exit, %mk_length.argprom.exit, %mk_value_string.argprom.exit, %mk_binary.exit, %mk_binary.exit237, %mk_binary.exit255, %mk_binary.exit273, %mk_binary.exit291, %mk_binary.exit309, %set_push.exit, %set_push.exit320, %1408, %1412, %1416, %1421, %1426, %mk_minus.exit, %1462
-  %.1160 = phi i8 [ %1463, %1462 ], [ %.0159939, %mk_minus.exit ], [ %.0159939, %1426 ], [ %1425, %1421 ], [ %1420, %1416 ], [ %1415, %1412 ], [ %1411, %1408 ], [ %.0159939, %set_push.exit320 ], [ %.0159939, %set_push.exit ], [ %.0159939, %mk_binary.exit309 ], [ %.0159939, %mk_binary.exit291 ], [ %.0159939, %mk_binary.exit273 ], [ %.0159939, %mk_binary.exit255 ], [ %.0159939, %mk_binary.exit237 ], [ %.0159939, %mk_binary.exit ], [ %265, %mk_value_string.argprom.exit ], [ %.0159939, %mk_length.argprom.exit ], [ %.0159939, %mk_slice.argprom.exit ], [ %.0159939, %stack_push.exit ], [ %129, %114 ], [ %.0159939, %104 ], [ %103, %95 ], [ %94, %88 ], [ %87, %79 ], [ %78, %72 ], [ %.0159939, %146 ], [ 0, %33 ], [ 0, %48 ], [ 0, %.thread.i ], [ 1, %290 ], [ 0, %337 ], [ 1, %384 ], [ 0, %431 ], [ 1, %478 ], [ 0, %525 ], [ 1, %572 ], [ 0, %619 ], [ 1, %666 ], [ 0, %713 ], [ 1, %760 ], [ 0, %807 ], [ 0, %1226 ], [ 1, %1262 ], [ 0, %1309 ], [ 1, %1332 ], [ 0, %1348 ], [ 0, %.lr.ph.i.i335 ], [ 1, %.lr.ph.us.us.i.i ], [ 0, %.lr.ph.i.i356 ], [ 1, %.lr.ph.us.us.i.i373 ], [ 0, %.lr.ph.i.i390 ], [ 1, %.lr.ph.us.us.i.i407 ], [ 0, %.lr.ph.i.i424 ], [ 1, %.lr.ph.us.us.i.i441 ], [ 0, %.lr.ph.i.i458 ], [ 1, %.lr.ph.us.us.i.i475 ], [ 0, %.lr.ph.i.i492 ], [ 1, %.lr.ph.us.us.i.i509 ], [ 0, %.lr.ph.i.i526 ], [ 1, %.lr.ph.us.us.i.i543 ], [ 0, %check_exists_finfos.argprom.exit.thread.us.i ], [ 1, %38 ], [ 0, %check_exists_finfos.argprom.exit.thread.us.i204 ], [ 1, %56 ], [ 1, %check_exists_finfos.argprom.exit.i ], [ 0, %check_exists_finfos.argprom.exit.thread.i ], [ %.0159939, %152 ], [ 1, %._crit_edge.split.split.us.i.i ], [ 0, %._crit_edge.split.us.split.us34.us.i.i ], [ 1, %._crit_edge.split.split.us.i.i361 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i377 ], [ 1, %._crit_edge.split.split.us.i.i395 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i411 ], [ 1, %._crit_edge.split.split.us.i.i429 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i445 ], [ 1, %._crit_edge.split.split.us.i.i463 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i479 ], [ 1, %._crit_edge.split.split.us.i.i497 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i513 ], [ 1, %.lr.ph.i.i310 ], [ 0, %1233 ], [ 1, %._crit_edge.split.split.us.i.i531 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i547 ], [ 1, %1342 ], [ 0, %.lr.ph.i311 ], [ 0, %1357 ], [ 1, %.lr.ph.i314 ], [ %.0159939, %1486 ], [ %.0159939, %1485 ], [ %.0159939, %25 ]
+stack_pop.exit:                                   ; preds = %25, %1485, %1486, %.lr.ph.i314, %1357, %.lr.ph.i311, %1342, %._crit_edge.split.us.split.us34.us.i.i547, %._crit_edge.split.split.us.i.i531, %.lr.ph.i.i310, %1233, %._crit_edge.split.us.split.us34.us.i.i513, %._crit_edge.split.split.us.i.i497, %._crit_edge.split.us.split.us34.us.i.i479, %._crit_edge.split.split.us.i.i463, %._crit_edge.split.us.split.us34.us.i.i445, %._crit_edge.split.split.us.i.i429, %._crit_edge.split.us.split.us34.us.i.i411, %._crit_edge.split.split.us.i.i395, %._crit_edge.split.us.split.us34.us.i.i377, %._crit_edge.split.split.us.i.i361, %._crit_edge.split.us.split.us34.us.i.i, %._crit_edge.split.split.us.i.i, %152, %check_exists_finfos.exit.thread.i, %check_exists_finfos.exit.i, %check_exists_finfos.exit.thread.us.i204, %56, %check_exists_finfos.exit.thread.us.i, %38, %.lr.ph.us.us.i.i543, %.lr.ph.i.i526, %.lr.ph.us.us.i.i509, %.lr.ph.i.i492, %.lr.ph.us.us.i.i475, %.lr.ph.i.i458, %.lr.ph.us.us.i.i441, %.lr.ph.i.i424, %.lr.ph.us.us.i.i407, %.lr.ph.i.i390, %.lr.ph.us.us.i.i373, %.lr.ph.i.i356, %.lr.ph.us.us.i.i, %.lr.ph.i.i335, %1348, %1332, %1309, %1262, %1226, %807, %760, %713, %666, %619, %572, %525, %478, %431, %384, %337, %290, %.thread.i, %48, %33, %146, %72, %79, %88, %95, %104, %114, %stack_push.exit, %mk_slice.exit, %mk_length.exit, %mk_value_string.exit, %mk_binary.exit, %mk_binary.exit237, %mk_binary.exit255, %mk_binary.exit273, %mk_binary.exit291, %mk_binary.exit309, %set_push.exit, %set_push.exit320, %1408, %1412, %1416, %1421, %1426, %mk_minus.exit, %1462
+  %.1160 = phi i8 [ %1463, %1462 ], [ %.0159939, %mk_minus.exit ], [ %.0159939, %1426 ], [ %1425, %1421 ], [ %1420, %1416 ], [ %1415, %1412 ], [ %1411, %1408 ], [ %.0159939, %set_push.exit320 ], [ %.0159939, %set_push.exit ], [ %.0159939, %mk_binary.exit309 ], [ %.0159939, %mk_binary.exit291 ], [ %.0159939, %mk_binary.exit273 ], [ %.0159939, %mk_binary.exit255 ], [ %.0159939, %mk_binary.exit237 ], [ %.0159939, %mk_binary.exit ], [ %265, %mk_value_string.exit ], [ %.0159939, %mk_length.exit ], [ %.0159939, %mk_slice.exit ], [ %.0159939, %stack_push.exit ], [ %129, %114 ], [ %.0159939, %104 ], [ %103, %95 ], [ %94, %88 ], [ %87, %79 ], [ %78, %72 ], [ %.0159939, %146 ], [ 0, %33 ], [ 0, %48 ], [ 0, %.thread.i ], [ 1, %290 ], [ 0, %337 ], [ 1, %384 ], [ 0, %431 ], [ 1, %478 ], [ 0, %525 ], [ 1, %572 ], [ 0, %619 ], [ 1, %666 ], [ 0, %713 ], [ 1, %760 ], [ 0, %807 ], [ 0, %1226 ], [ 1, %1262 ], [ 0, %1309 ], [ 1, %1332 ], [ 0, %1348 ], [ 0, %.lr.ph.i.i335 ], [ 1, %.lr.ph.us.us.i.i ], [ 0, %.lr.ph.i.i356 ], [ 1, %.lr.ph.us.us.i.i373 ], [ 0, %.lr.ph.i.i390 ], [ 1, %.lr.ph.us.us.i.i407 ], [ 0, %.lr.ph.i.i424 ], [ 1, %.lr.ph.us.us.i.i441 ], [ 0, %.lr.ph.i.i458 ], [ 1, %.lr.ph.us.us.i.i475 ], [ 0, %.lr.ph.i.i492 ], [ 1, %.lr.ph.us.us.i.i509 ], [ 0, %.lr.ph.i.i526 ], [ 1, %.lr.ph.us.us.i.i543 ], [ 0, %check_exists_finfos.exit.thread.us.i ], [ 1, %38 ], [ 0, %check_exists_finfos.exit.thread.us.i204 ], [ 1, %56 ], [ 1, %check_exists_finfos.exit.i ], [ 0, %check_exists_finfos.exit.thread.i ], [ %.0159939, %152 ], [ 1, %._crit_edge.split.split.us.i.i ], [ 0, %._crit_edge.split.us.split.us34.us.i.i ], [ 1, %._crit_edge.split.split.us.i.i361 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i377 ], [ 1, %._crit_edge.split.split.us.i.i395 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i411 ], [ 1, %._crit_edge.split.split.us.i.i429 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i445 ], [ 1, %._crit_edge.split.split.us.i.i463 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i479 ], [ 1, %._crit_edge.split.split.us.i.i497 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i513 ], [ 1, %.lr.ph.i.i310 ], [ 0, %1233 ], [ 1, %._crit_edge.split.split.us.i.i531 ], [ 0, %._crit_edge.split.us.split.us34.us.i.i547 ], [ 1, %1342 ], [ 0, %.lr.ph.i311 ], [ 0, %1357 ], [ 1, %.lr.ph.i314 ], [ %.0159939, %1486 ], [ %.0159939, %1485 ], [ %.0159939, %25 ]
   %1488 = add i32 %.1, 1
   %1489 = icmp slt i32 %1488, %18
   br i1 %1489, label %.preheader, label %._crit_edge, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %stack_pop.argprom.exit, %3
+._crit_edge:                                      ; preds = %stack_pop.exit, %3
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.57, i32 noundef 7, ptr noundef nonnull @.str.58, i64 noundef 1882, ptr noundef nonnull @__func__.dfvm_apply_full, ptr noundef nonnull @.str.60) #13
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @read_tree.argprom(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %.0.val, ptr readonly %.8.val, i32 %.8.val1, ptr noundef readonly %2) unnamed_addr #2 {
+define internal fastcc zeroext i1 @read_tree(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %.0.val, ptr readonly %.8.val, i32 %.8.val1, ptr noundef readonly %2) unnamed_addr #2 {
   %4 = icmp eq i32 %.0.val, 3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %5
@@ -4558,19 +4558,19 @@ define internal fastcc zeroext i1 @read_tree.argprom(ptr nocapture noundef reado
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %4, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %read_tree_finfos.argprom.exit.us.us
-  %.0205.us.us = phi ptr [ %45, %read_tree_finfos.argprom.exit.us.us ], [ %.8.val, %.lr.ph.split.us ]
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %read_tree_finfos.exit.us.us
+  %.0205.us.us = phi ptr [ %45, %read_tree_finfos.exit.us.us ], [ %.8.val, %.lr.ph.split.us ]
   %16 = getelementptr i8, ptr %.0205.us.us, i64 48
   %.020.val.us.us = load i32, ptr %16, align 8
   %17 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.020.val.us.us) #11
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %read_tree_finfos.argprom.exit.us.us, label %19
+  br i1 %18, label %read_tree_finfos.exit.us.us, label %19
 
 19:                                               ; preds = %.lr.ph.split.us.split.us
   %20 = getelementptr inbounds i8, ptr %17, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %read_tree_finfos.argprom.exit.us.us, label %.lr.ph.split.us.i.us.us
+  br i1 %22, label %read_tree_finfos.exit.us.us, label %.lr.ph.split.us.i.us.us
 
 .lr.ph.split.us.i.us.us:                          ; preds = %19, %dfvm_get_raw_fvalue.exit.us.i.us.us
   %indvars.iv5.i.us.us = phi i64 [ %indvars.iv.next6.i.us.us, %dfvm_get_raw_fvalue.exit.us.i.us.us ], [ 0, %19 ]
@@ -4605,27 +4605,27 @@ dfvm_get_raw_fvalue.exit.us.i.us.us:              ; preds = %32, %.lr.ph.split.u
   %41 = load i32, ptr %20, align 8
   %42 = zext i32 %41 to i64
   %43 = icmp ult i64 %indvars.iv.next6.i.us.us, %42
-  br i1 %43, label %.lr.ph.split.us.i.us.us, label %read_tree_finfos.argprom.exit.us.us, !llvm.loop !25
+  br i1 %43, label %.lr.ph.split.us.i.us.us, label %read_tree_finfos.exit.us.us, !llvm.loop !25
 
-read_tree_finfos.argprom.exit.us.us:              ; preds = %dfvm_get_raw_fvalue.exit.us.i.us.us, %19, %.lr.ph.split.us.split.us
+read_tree_finfos.exit.us.us:                      ; preds = %dfvm_get_raw_fvalue.exit.us.i.us.us, %19, %.lr.ph.split.us.split.us
   %44 = getelementptr inbounds i8, ptr %.0205.us.us, i64 64
   %45 = load ptr, ptr %44, align 8
   %.not23.us.us = icmp eq ptr %45, null
   br i1 %.not23.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !26
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %read_tree_finfos.argprom.exit.us
-  %.0205.us = phi ptr [ %62, %read_tree_finfos.argprom.exit.us ], [ %.8.val, %.lr.ph.split.us ]
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %read_tree_finfos.exit.us
+  %.0205.us = phi ptr [ %62, %read_tree_finfos.exit.us ], [ %.8.val, %.lr.ph.split.us ]
   %46 = getelementptr i8, ptr %.0205.us, i64 48
   %.020.val.us = load i32, ptr %46, align 8
   %47 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.020.val.us) #11
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %read_tree_finfos.argprom.exit.us, label %49
+  br i1 %48, label %read_tree_finfos.exit.us, label %49
 
 49:                                               ; preds = %.lr.ph.split.us.split
   %50 = getelementptr inbounds i8, ptr %47, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %read_tree_finfos.argprom.exit.us, label %dfvm_get_raw_fvalue.exit.i.us
+  br i1 %52, label %read_tree_finfos.exit.us, label %dfvm_get_raw_fvalue.exit.i.us
 
 dfvm_get_raw_fvalue.exit.i.us:                    ; preds = %49, %dfvm_get_raw_fvalue.exit.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %dfvm_get_raw_fvalue.exit.i.us ], [ 0, %49 ]
@@ -4639,46 +4639,46 @@ dfvm_get_raw_fvalue.exit.i.us:                    ; preds = %49, %dfvm_get_raw_f
   %58 = load i32, ptr %50, align 8
   %59 = zext i32 %58 to i64
   %60 = icmp ult i64 %indvars.iv.next.i.us, %59
-  br i1 %60, label %dfvm_get_raw_fvalue.exit.i.us, label %read_tree_finfos.argprom.exit.us, !llvm.loop !25
+  br i1 %60, label %dfvm_get_raw_fvalue.exit.i.us, label %read_tree_finfos.exit.us, !llvm.loop !25
 
-read_tree_finfos.argprom.exit.us:                 ; preds = %dfvm_get_raw_fvalue.exit.i.us, %49, %.lr.ph.split.us.split
+read_tree_finfos.exit.us:                         ; preds = %dfvm_get_raw_fvalue.exit.i.us, %49, %.lr.ph.split.us.split
   %61 = getelementptr inbounds i8, ptr %.0205.us, i64 64
   %62 = load ptr, ptr %61, align 8
   %.not23.us = icmp eq ptr %62, null
   br i1 %.not23.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !26
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %read_tree_finfos.argprom.exit
-  %.0205 = phi ptr [ %73, %read_tree_finfos.argprom.exit ], [ %.8.val, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %read_tree_finfos.exit
+  %.0205 = phi ptr [ %73, %read_tree_finfos.exit ], [ %.8.val, %.lr.ph ]
   %63 = getelementptr i8, ptr %.0205, i64 48
   %.020.val = load i32, ptr %63, align 8
   %64 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %1, i32 noundef %.020.val) #11
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %read_tree_finfos.argprom.exit, label %66
+  br i1 %65, label %read_tree_finfos.exit, label %66
 
 66:                                               ; preds = %.lr.ph.split
   %67 = getelementptr inbounds i8, ptr %64, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %read_tree_finfos.argprom.exit, label %70
+  br i1 %69, label %read_tree_finfos.exit, label %70
 
 70:                                               ; preds = %66
   %71 = tail call fastcc i64 @filter_finfo_fvalues(ptr noundef %13, ptr noundef %64, ptr noundef readonly %.021, i1 noundef zeroext %4)
-  br label %read_tree_finfos.argprom.exit
+  br label %read_tree_finfos.exit
 
-read_tree_finfos.argprom.exit:                    ; preds = %.lr.ph.split, %66, %70
+read_tree_finfos.exit:                            ; preds = %.lr.ph.split, %66, %70
   %72 = getelementptr inbounds i8, ptr %.0205, i64 64
   %73 = load ptr, ptr %72, align 8
   %.not23 = icmp eq ptr %73, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %read_tree_finfos.argprom.exit, %read_tree_finfos.argprom.exit.us, %read_tree_finfos.argprom.exit.us.us, %15, %9
+._crit_edge:                                      ; preds = %read_tree_finfos.exit, %read_tree_finfos.exit.us, %read_tree_finfos.exit.us.us, %15, %9
   %74 = tail call zeroext i1 @df_cell_is_empty(ptr noundef %13) #11
   %.0 = xor i1 %74, true
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @read_reference.argprom(ptr nocapture noundef readonly %0, i32 %.0.val, ptr %.8.val, i32 %.8.val1, ptr noundef readonly %1) unnamed_addr #2 {
+define internal fastcc zeroext i1 @read_reference(ptr nocapture noundef readonly %0, i32 %.0.val, ptr %.8.val, i32 %.8.val1, ptr noundef readonly %1) unnamed_addr #2 {
   %3 = icmp eq i32 %.0.val, 3
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
@@ -4864,7 +4864,7 @@ declare zeroext i1 @fvalue_is_zero(ptr noundef) local_unnamed_addr #4
 declare zeroext i1 @fvalue_contains(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @all_in.argprom(ptr nocapture noundef readonly %0, i32 %.8.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @all_in(ptr nocapture noundef readonly %0, i32 %.8.val) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = zext i32 %.8.val to i64
@@ -4879,8 +4879,8 @@ define internal fastcc noundef zeroext i1 @all_in.argprom(ptr nocapture noundef 
   %10 = getelementptr inbounds i8, ptr %0, i64 96
   br label %11
 
-11:                                               ; preds = %.lr.ph13, %test_in_internal.argprom.exit
-  %.012 = phi i64 [ 0, %.lr.ph13 ], [ %48, %test_in_internal.argprom.exit ]
+11:                                               ; preds = %.lr.ph13, %test_in_internal.exit
+  %.012 = phi i64 [ 0, %.lr.ph13 ], [ %48, %test_in_internal.exit ]
   %.0147 = load ptr, ptr %10, align 8
   %.not.not8.not.not = icmp ne ptr %.0147, null
   br i1 %.not.not8.not.not, label %.lr.ph, label %.critedge
@@ -4943,7 +4943,7 @@ define internal fastcc noundef zeroext i1 @all_in.argprom(ptr nocapture noundef 
   %36 = getelementptr ptr, ptr %35, i64 %indvars.iv23.i
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i1 @fvalue_ge(ptr noundef %14, ptr noundef %37) #11
-  br i1 %38, label %test_in_internal.argprom.exit, label %31
+  br i1 %38, label %test_in_internal.exit, label %31
 
 39:                                               ; preds = %.lr.ph12.i
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
@@ -4958,7 +4958,7 @@ define internal fastcc noundef zeroext i1 @all_in.argprom(ptr nocapture noundef 
   %44 = getelementptr ptr, ptr %43, i64 %indvars.iv26.i
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i1 @fvalue_eq(ptr noundef %14, ptr noundef %45) #11
-  br i1 %46, label %test_in_internal.argprom.exit, label %39
+  br i1 %46, label %test_in_internal.exit, label %39
 
 .loopexit:                                        ; preds = %21, %31, %39, %.preheader.i, %.preheader1.i, %.preheader4.i
   %47 = getelementptr inbounds i8, ptr %.0149, i64 8
@@ -4966,20 +4966,20 @@ define internal fastcc noundef zeroext i1 @all_in.argprom(ptr nocapture noundef 
   %.not.not = icmp eq ptr %.014, null
   br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !32
 
-test_in_internal.argprom.exit:                    ; preds = %.lr.ph8.i, %.lr.ph12.i
+test_in_internal.exit:                            ; preds = %.lr.ph8.i, %.lr.ph12.i
   %48 = add nuw nsw i64 %.012, 1
   %49 = load i32, ptr %7, align 8
   %50 = zext i32 %49 to i64
   %.not = icmp ult i64 %48, %50
   br i1 %.not, label %11, label %.critedge, !llvm.loop !33
 
-.critedge:                                        ; preds = %test_in_internal.argprom.exit, %11, %.loopexit, %1
-  %51 = phi i1 [ true, %1 ], [ false, %.loopexit ], [ %.not.not8.not.not, %11 ], [ %.not.not8.not.not, %test_in_internal.argprom.exit ]
+.critedge:                                        ; preds = %test_in_internal.exit, %11, %.loopexit, %1
+  %51 = phi i1 [ true, %1 ], [ false, %.loopexit ], [ %.not.not8.not.not, %11 ], [ %.not.not8.not.not, %test_in_internal.exit ]
   ret i1 %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @any_in.argprom(ptr nocapture noundef readonly %0, i32 %.8.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @any_in(ptr nocapture noundef readonly %0, i32 %.8.val) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = zext i32 %.8.val to i64
@@ -4988,13 +4988,13 @@ define internal fastcc noundef zeroext i1 @any_in.argprom(ptr nocapture noundef 
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %test_in_internal.argprom.exit, label %.lr.ph12
+  br i1 %.not, label %test_in_internal.exit, label %.lr.ph12
 
 .lr.ph12:                                         ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %test_in_internal.argprom.exit, label %.lr.ph12.split
+  br i1 %11, label %test_in_internal.exit, label %.lr.ph12.split
 
 .lr.ph12.splitthread-pre-split:                   ; preds = %.critedge
   %.0148.pr = load ptr, ptr %9, align 8
@@ -5065,7 +5065,7 @@ define internal fastcc noundef zeroext i1 @any_in.argprom(ptr nocapture noundef 
   %37 = getelementptr ptr, ptr %36, i64 %indvars.iv23.i
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @fvalue_ge(ptr noundef %15, ptr noundef %38) #11
-  br i1 %39, label %test_in_internal.argprom.exit, label %32
+  br i1 %39, label %test_in_internal.exit, label %32
 
 40:                                               ; preds = %.lr.ph12.i
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
@@ -5080,7 +5080,7 @@ define internal fastcc noundef zeroext i1 @any_in.argprom(ptr nocapture noundef 
   %45 = getelementptr ptr, ptr %44, i64 %indvars.iv26.i
   %46 = load ptr, ptr %45, align 8
   %47 = tail call zeroext i1 @fvalue_eq(ptr noundef %15, ptr noundef %46) #11
-  br i1 %47, label %test_in_internal.argprom.exit, label %40
+  br i1 %47, label %test_in_internal.exit, label %40
 
 .loopexit:                                        ; preds = %22, %32, %40, %.preheader.i, %.preheader1.i, %.preheader4.i
   %48 = getelementptr inbounds i8, ptr %.01410, i64 8
@@ -5097,9 +5097,9 @@ define internal fastcc noundef zeroext i1 @any_in.argprom(ptr nocapture noundef 
   %50 = add nuw nsw i64 %.011, 1
   %51 = zext i32 %49 to i64
   %52 = icmp ult i64 %50, %51
-  br i1 %52, label %.lr.ph12.splitthread-pre-split, label %test_in_internal.argprom.exit, !llvm.loop !35
+  br i1 %52, label %.lr.ph12.splitthread-pre-split, label %test_in_internal.exit, !llvm.loop !35
 
-test_in_internal.argprom.exit:                    ; preds = %.critedge, %.lr.ph8.i, %.lr.ph12.i, %.lr.ph12, %1
+test_in_internal.exit:                            ; preds = %.critedge, %.lr.ph8.i, %.lr.ph12.i, %.lr.ph12, %1
   %53 = phi i1 [ false, %1 ], [ false, %.lr.ph12 ], [ true, %.lr.ph12.i ], [ true, %.lr.ph8.i ], [ false, %.critedge ]
   ret i1 %53
 }

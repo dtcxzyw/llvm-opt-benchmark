@@ -980,13 +980,13 @@ land.lhs.true.i.i:                                ; preds = %if.else222.i
   %109 = load ptr, ptr %targetLimit.i, align 8
   %call.i.i = call signext i8 @ucnv_extInitialMatchToU_75(ptr noundef nonnull %8, ptr noundef nonnull %.val.i, i32 noundef 1, ptr noundef nonnull %source.i, ptr noundef nonnull %10, ptr noundef nonnull %target.i, ptr noundef %109, ptr noundef nonnull %offsets.i, i32 noundef %sourceIndex.4.i, i8 noundef signext %108, ptr noundef nonnull %pErrorCode)
   %tobool.not.i.i = icmp eq i8 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i
+  br i1 %tobool.not.i.i, label %if.end.i.i, label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.else222.i
   store i32 10, ptr %pErrorCode, align 4
-  br label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i
+  br label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i
 
-_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i: ; preds = %if.end.i.i, %land.lhs.true.i.i
+_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i: ; preds = %if.end.i.i, %land.lhs.true.i.i
   %retval.0.i.i = phi i8 [ 1, %if.end.i.i ], [ 0, %land.lhs.true.i.i ]
   store i8 %retval.0.i.i, ptr %toULength.i, align 8
   %110 = load ptr, ptr %source.i, align 8
@@ -1000,7 +1000,7 @@ _ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCo
   %cmp.i122.i = icmp slt i32 %111, 1
   br i1 %cmp.i122.i, label %if.end236.i, label %while.end251.i
 
-if.end236.i:                                      ; preds = %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i
+if.end236.i:                                      ; preds = %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i
   %112 = load ptr, ptr %targetLimit.i, align 8
   %113 = load ptr, ptr %target.i, align 8
   %sub.ptr.lhs.cast238.i = ptrtoint ptr %112 to i64
@@ -1013,10 +1013,10 @@ if.end236.i:                                      ; preds = %_ZL7_extToUP10UConv
   %spec.select121.i = call i32 @llvm.smin.i32(i32 %conv246.i, i32 %conv242.i)
   br label %unrolled.i
 
-while.end251.i:                                   ; preds = %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i, %if.end220.i, %if.end170.i, %while.cond171.outer.backedge.i, %while.cond171.i
-  %114 = phi ptr [ %incdec.ptr176143.i, %while.cond171.i ], [ %source.promoted.i, %while.cond171.outer.backedge.i ], [ %source.promoted.i380, %if.end170.i ], [ %.pre.pre.i, %if.end220.i ], [ %110, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i ]
-  %sourceIndex.3.i = phi i32 [ %sourceIndex.1.i, %while.cond171.i ], [ %sourceIndex.1.i, %while.cond171.outer.backedge.i ], [ %sourceIndex.1.i, %if.end170.i ], [ %sourceIndex.4.i, %if.end220.i ], [ %add232.i, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i ]
-  %lastSource.2.i = phi ptr [ %lastSource.1.i, %while.cond171.i ], [ %lastSource.1.i, %while.cond171.outer.backedge.i ], [ %lastSource.1.i, %if.end170.i ], [ %lastSource.1.i, %if.end220.i ], [ %.pre.pre.i, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i ]
+while.end251.i:                                   ; preds = %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i, %if.end220.i, %if.end170.i, %while.cond171.outer.backedge.i, %while.cond171.i
+  %114 = phi ptr [ %incdec.ptr176143.i, %while.cond171.i ], [ %source.promoted.i, %while.cond171.outer.backedge.i ], [ %source.promoted.i380, %if.end170.i ], [ %.pre.pre.i, %if.end220.i ], [ %110, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i ]
+  %sourceIndex.3.i = phi i32 [ %sourceIndex.1.i, %while.cond171.i ], [ %sourceIndex.1.i, %while.cond171.outer.backedge.i ], [ %sourceIndex.1.i, %if.end170.i ], [ %sourceIndex.4.i, %if.end220.i ], [ %add232.i, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i ]
+  %lastSource.2.i = phi ptr [ %lastSource.1.i, %while.cond171.i ], [ %lastSource.1.i, %while.cond171.outer.backedge.i ], [ %lastSource.1.i, %if.end170.i ], [ %lastSource.1.i, %if.end220.i ], [ %.pre.pre.i, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i ]
   %115 = load i32, ptr %pErrorCode, align 4
   %cmp.i124.i = icmp slt i32 %115, 1
   %cmp254.i = icmp ult ptr %114, %10
@@ -1146,8 +1146,8 @@ if.end21.i:                                       ; preds = %if.then19.i, %if.th
   %inc.i259 = add nsw i32 %sourceIndex.059.i, 1
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i249, %if.else75.i, %if.end65.i, %if.end54.i, %if.end21.i
-  %sourceIndex.0.be.i = phi i32 [ %inc.i259, %if.end21.i ], [ %inc55.i, %if.end54.i ], [ %inc66.i, %if.end65.i ], [ %add89.i, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i249 ], [ %inc76.i, %if.else75.i ]
+while.cond.backedge.i:                            ; preds = %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i249, %if.else75.i, %if.end65.i, %if.end54.i, %if.end21.i
+  %sourceIndex.0.be.i = phi i32 [ %inc.i259, %if.end21.i ], [ %inc55.i, %if.end54.i ], [ %inc66.i, %if.end65.i ], [ %add89.i, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i249 ], [ %inc76.i, %if.else75.i ]
   %136 = load ptr, ptr %source.i221, align 8
   %cmp10.i = icmp ult ptr %136, %125
   br i1 %cmp10.i, label %while.body.i239, label %while.end.loopexit.i.loopexit, !llvm.loop !21
@@ -1265,13 +1265,13 @@ land.lhs.true.i.i246:                             ; preds = %if.else82.i
   %150 = load i8, ptr %flush.i237, align 2
   %call.i.i247 = call signext i8 @ucnv_extInitialMatchToU_75(ptr noundef nonnull %123, ptr noundef nonnull %.val.i244, i32 noundef 1, ptr noundef nonnull %source.i221, ptr noundef nonnull %125, ptr noundef nonnull %target.i222, ptr noundef nonnull %127, ptr noundef nonnull %offsets.i223, i32 noundef %sourceIndex.059.i, i8 noundef signext %150, ptr noundef nonnull %pErrorCode)
   %tobool.not.i.i248 = icmp eq i8 %call.i.i247, 0
-  br i1 %tobool.not.i.i248, label %if.end.i.i255, label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i249
+  br i1 %tobool.not.i.i248, label %if.end.i.i255, label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i249
 
 if.end.i.i255:                                    ; preds = %land.lhs.true.i.i246, %if.else82.i
   store i32 10, ptr %pErrorCode, align 4
-  br label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i249
+  br label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i249
 
-_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i249: ; preds = %if.end.i.i255, %land.lhs.true.i.i246
+_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i249: ; preds = %if.end.i.i255, %land.lhs.true.i.i246
   %retval.0.i.i250 = phi i8 [ 1, %if.end.i.i255 ], [ 0, %land.lhs.true.i.i246 ]
   store i8 %retval.0.i.i250, ptr %toULength.i238, align 8
   %151 = load ptr, ptr %source.i221, align 8
@@ -1286,8 +1286,8 @@ _ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCo
   %cmp.i56.i = icmp slt i32 %153, 1
   br i1 %cmp.i56.i, label %while.cond.backedge.i, label %while.end.loopexit.i.loopexit
 
-while.end.loopexit.i.loopexit:                    ; preds = %while.cond.backedge.i, %if.end80.i, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i249
-  %.ph391 = phi ptr [ %136, %while.cond.backedge.i ], [ %incdec.ptr.i240, %if.end80.i ], [ %151, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit.i249 ]
+while.end.loopexit.i.loopexit:                    ; preds = %while.cond.backedge.i, %if.end80.i, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i249
+  %.ph391 = phi ptr [ %136, %while.cond.backedge.i ], [ %incdec.ptr.i240, %if.end80.i ], [ %151, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit.i249 ]
   %.pre61.i.pre = load ptr, ptr %target.i222, align 8
   br label %_ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.exit
 
@@ -1640,12 +1640,12 @@ if.then192:                                       ; preds = %if.end190
   %add196 = add i32 %offset.7, %and195
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit, %if.end395, %if.then289, %if.then284, %if.then347, %if.then344, %if.then219, %if.then216, %if.then234, %if.then230, %if.then248, %if.then244, %if.then266, %if.then263, %if.then310, %if.then305, %if.then358, %if.then376, %if.then372, %if.else355, %if.then192
-  %sourceIndex.0.be = phi i32 [ %sourceIndex.6, %if.then192 ], [ %add465, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit ], [ %nextSourceIndex.6, %if.end395 ], [ %nextSourceIndex.6, %if.then289 ], [ %nextSourceIndex.6, %if.then284 ], [ %nextSourceIndex.6, %if.then347 ], [ %nextSourceIndex.6, %if.then344 ], [ %nextSourceIndex.6, %if.then219 ], [ %nextSourceIndex.6, %if.then216 ], [ %nextSourceIndex.6, %if.then234 ], [ %nextSourceIndex.6, %if.then230 ], [ %nextSourceIndex.6, %if.then248 ], [ %nextSourceIndex.6, %if.then244 ], [ %nextSourceIndex.6, %if.then266 ], [ %nextSourceIndex.6, %if.then263 ], [ %nextSourceIndex.6, %if.then310 ], [ %nextSourceIndex.6, %if.then305 ], [ %nextSourceIndex.6, %if.then358 ], [ %nextSourceIndex.6, %if.then376 ], [ %nextSourceIndex.6, %if.then372 ], [ %nextSourceIndex.6, %if.else355 ]
-  %nextSourceIndex.0.be = phi i32 [ %nextSourceIndex.6, %if.then192 ], [ %add465, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit ], [ %nextSourceIndex.6, %if.end395 ], [ %nextSourceIndex.6, %if.then289 ], [ %nextSourceIndex.6, %if.then284 ], [ %nextSourceIndex.6, %if.then347 ], [ %nextSourceIndex.6, %if.then344 ], [ %nextSourceIndex.6, %if.then219 ], [ %nextSourceIndex.6, %if.then216 ], [ %nextSourceIndex.6, %if.then234 ], [ %nextSourceIndex.6, %if.then230 ], [ %nextSourceIndex.6, %if.then248 ], [ %nextSourceIndex.6, %if.then244 ], [ %nextSourceIndex.6, %if.then266 ], [ %nextSourceIndex.6, %if.then263 ], [ %nextSourceIndex.6, %if.then310 ], [ %nextSourceIndex.6, %if.then305 ], [ %nextSourceIndex.6, %if.then358 ], [ %nextSourceIndex.6, %if.then376 ], [ %nextSourceIndex.6, %if.then372 ], [ %nextSourceIndex.6, %if.else355 ]
-  %byteIndex.0.be = phi i8 [ %byteIndex.3, %if.then192 ], [ %retval.0.i279, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit ], [ 0, %if.end395 ], [ 0, %if.then289 ], [ 0, %if.then284 ], [ 0, %if.then347 ], [ 0, %if.then344 ], [ 0, %if.then219 ], [ 0, %if.then216 ], [ 0, %if.then234 ], [ 0, %if.then230 ], [ 0, %if.then248 ], [ 0, %if.then244 ], [ 0, %if.then266 ], [ 0, %if.then263 ], [ 0, %if.then310 ], [ 0, %if.then305 ], [ 0, %if.then358 ], [ 0, %if.then376 ], [ 0, %if.then372 ], [ 0, %if.else355 ]
-  %state.1.be = phi i8 [ %conv194, %if.then192 ], [ %state.9, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit ], [ %state.9, %if.end395 ], [ %conv202, %if.then289 ], [ %conv202, %if.then284 ], [ %conv202, %if.then347 ], [ %conv202, %if.then344 ], [ %conv202, %if.then219 ], [ %conv202, %if.then216 ], [ %conv202, %if.then234 ], [ %conv202, %if.then230 ], [ %conv202, %if.then248 ], [ %conv202, %if.then244 ], [ %conv202, %if.then266 ], [ %conv202, %if.then263 ], [ %conv202, %if.then310 ], [ %conv202, %if.then305 ], [ %conv202, %if.then358 ], [ %conv202, %if.then376 ], [ %conv202, %if.then372 ], [ %conv202, %if.else355 ]
-  %offset.0.be = phi i32 [ %add196, %if.then192 ], [ 0, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit ], [ 0, %if.end395 ], [ 0, %if.then289 ], [ 0, %if.then284 ], [ 0, %if.then347 ], [ 0, %if.then344 ], [ 0, %if.then219 ], [ 0, %if.then216 ], [ 0, %if.then234 ], [ 0, %if.then230 ], [ 0, %if.then248 ], [ 0, %if.then244 ], [ 0, %if.then266 ], [ 0, %if.then263 ], [ 0, %if.then310 ], [ 0, %if.then305 ], [ 0, %if.then358 ], [ 0, %if.then376 ], [ 0, %if.then372 ], [ 0, %if.else355 ]
+while.cond.backedge:                              ; preds = %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit, %if.end395, %if.then289, %if.then284, %if.then347, %if.then344, %if.then219, %if.then216, %if.then234, %if.then230, %if.then248, %if.then244, %if.then266, %if.then263, %if.then310, %if.then305, %if.then358, %if.then376, %if.then372, %if.else355, %if.then192
+  %sourceIndex.0.be = phi i32 [ %sourceIndex.6, %if.then192 ], [ %add465, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ], [ %nextSourceIndex.6, %if.end395 ], [ %nextSourceIndex.6, %if.then289 ], [ %nextSourceIndex.6, %if.then284 ], [ %nextSourceIndex.6, %if.then347 ], [ %nextSourceIndex.6, %if.then344 ], [ %nextSourceIndex.6, %if.then219 ], [ %nextSourceIndex.6, %if.then216 ], [ %nextSourceIndex.6, %if.then234 ], [ %nextSourceIndex.6, %if.then230 ], [ %nextSourceIndex.6, %if.then248 ], [ %nextSourceIndex.6, %if.then244 ], [ %nextSourceIndex.6, %if.then266 ], [ %nextSourceIndex.6, %if.then263 ], [ %nextSourceIndex.6, %if.then310 ], [ %nextSourceIndex.6, %if.then305 ], [ %nextSourceIndex.6, %if.then358 ], [ %nextSourceIndex.6, %if.then376 ], [ %nextSourceIndex.6, %if.then372 ], [ %nextSourceIndex.6, %if.else355 ]
+  %nextSourceIndex.0.be = phi i32 [ %nextSourceIndex.6, %if.then192 ], [ %add465, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ], [ %nextSourceIndex.6, %if.end395 ], [ %nextSourceIndex.6, %if.then289 ], [ %nextSourceIndex.6, %if.then284 ], [ %nextSourceIndex.6, %if.then347 ], [ %nextSourceIndex.6, %if.then344 ], [ %nextSourceIndex.6, %if.then219 ], [ %nextSourceIndex.6, %if.then216 ], [ %nextSourceIndex.6, %if.then234 ], [ %nextSourceIndex.6, %if.then230 ], [ %nextSourceIndex.6, %if.then248 ], [ %nextSourceIndex.6, %if.then244 ], [ %nextSourceIndex.6, %if.then266 ], [ %nextSourceIndex.6, %if.then263 ], [ %nextSourceIndex.6, %if.then310 ], [ %nextSourceIndex.6, %if.then305 ], [ %nextSourceIndex.6, %if.then358 ], [ %nextSourceIndex.6, %if.then376 ], [ %nextSourceIndex.6, %if.then372 ], [ %nextSourceIndex.6, %if.else355 ]
+  %byteIndex.0.be = phi i8 [ %byteIndex.3, %if.then192 ], [ %retval.0.i279, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ], [ 0, %if.end395 ], [ 0, %if.then289 ], [ 0, %if.then284 ], [ 0, %if.then347 ], [ 0, %if.then344 ], [ 0, %if.then219 ], [ 0, %if.then216 ], [ 0, %if.then234 ], [ 0, %if.then230 ], [ 0, %if.then248 ], [ 0, %if.then244 ], [ 0, %if.then266 ], [ 0, %if.then263 ], [ 0, %if.then310 ], [ 0, %if.then305 ], [ 0, %if.then358 ], [ 0, %if.then376 ], [ 0, %if.then372 ], [ 0, %if.else355 ]
+  %state.1.be = phi i8 [ %conv194, %if.then192 ], [ %state.9, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ], [ %state.9, %if.end395 ], [ %conv202, %if.then289 ], [ %conv202, %if.then284 ], [ %conv202, %if.then347 ], [ %conv202, %if.then344 ], [ %conv202, %if.then219 ], [ %conv202, %if.then216 ], [ %conv202, %if.then234 ], [ %conv202, %if.then230 ], [ %conv202, %if.then248 ], [ %conv202, %if.then244 ], [ %conv202, %if.then266 ], [ %conv202, %if.then263 ], [ %conv202, %if.then310 ], [ %conv202, %if.then305 ], [ %conv202, %if.then358 ], [ %conv202, %if.then376 ], [ %conv202, %if.then372 ], [ %conv202, %if.else355 ]
+  %offset.0.be = phi i32 [ %add196, %if.then192 ], [ 0, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ], [ 0, %if.end395 ], [ 0, %if.then289 ], [ 0, %if.then284 ], [ 0, %if.then347 ], [ 0, %if.then344 ], [ 0, %if.then219 ], [ 0, %if.then216 ], [ 0, %if.then234 ], [ 0, %if.then230 ], [ 0, %if.then248 ], [ 0, %if.then244 ], [ 0, %if.then266 ], [ 0, %if.then263 ], [ 0, %if.then310 ], [ 0, %if.then305 ], [ 0, %if.then358 ], [ 0, %if.then376 ], [ 0, %if.then372 ], [ 0, %if.else355 ]
   %205 = load ptr, ptr %source, align 8
   %cmp44 = icmp ult ptr %205, %158
   br i1 %cmp44, label %while.body, label %while.end.loopexit398, !llvm.loop !24
@@ -2093,7 +2093,7 @@ land.lhs.true.i:                                  ; preds = %if.else456
   %conv.i277 = sext i8 %byteIndex.3 to i32
   %call.i278 = call signext i8 @ucnv_extInitialMatchToU_75(ptr noundef nonnull %0, ptr noundef nonnull %.val, i32 noundef %conv.i277, ptr noundef nonnull %source, ptr noundef nonnull %158, ptr noundef nonnull %target, ptr noundef nonnull %160, ptr noundef nonnull %offsets, i32 noundef %sourceIndex.6, i8 noundef signext %251, ptr noundef nonnull %pErrorCode)
   %tobool.not.i = icmp eq i8 %call.i278, 0
-  br i1 %tobool.not.i, label %if.end.i, label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit
+  br i1 %tobool.not.i, label %if.end.i, label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.else456
   %cmp2.i280 = icmp eq i8 %byteIndex.3, 4
@@ -2142,7 +2142,7 @@ if.then28.i:                                      ; preds = %land.lhs.true25.i
   %sub.i286 = sub i32 %add20.i, %257
   %add31.i = add i32 %sub.i286, %259
   call void @ucnv_toUWriteCodePoint_75(ptr noundef %0, i32 noundef %add31.i, ptr noundef nonnull %target, ptr noundef nonnull %160, ptr noundef nonnull %offsets, i32 noundef %sourceIndex.6, ptr noundef nonnull %pErrorCode)
-  br label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit
+  br label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit
 
 for.inc.i:                                        ; preds = %land.lhs.true25.i, %for.body.i
   %add.ptr.i287 = getelementptr inbounds i8, ptr %range.02.i, i64 16
@@ -2152,9 +2152,9 @@ for.inc.i:                                        ; preds = %land.lhs.true25.i, 
 
 if.end33.i:                                       ; preds = %for.inc.i, %land.lhs.true3.i, %if.end.i
   store i32 10, ptr %pErrorCode, align 4
-  br label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit
+  br label %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit
 
-_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit: ; preds = %land.lhs.true.i, %if.then28.i, %if.end33.i
+_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit: ; preds = %land.lhs.true.i, %if.then28.i, %if.end33.i
   %retval.0.i279 = phi i8 [ 0, %if.then28.i ], [ %byteIndex.3, %if.end33.i ], [ 0, %land.lhs.true.i ]
   %260 = load ptr, ptr %source, align 8
   %261 = load ptr, ptr %source17, align 8
@@ -2167,10 +2167,10 @@ _ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCo
   %cmp.i289 = icmp slt i32 %262, 1
   br i1 %cmp.i289, label %while.cond.backedge, label %while.end.loopexit398
 
-while.end.loopexit398:                            ; preds = %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit, %if.end168, %while.cond.backedge
-  %byteIndex.1.ph = phi i8 [ %retval.0.i279, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit ], [ %byteIndex.2, %if.end168 ], [ %byteIndex.0.be, %while.cond.backedge ]
-  %state.2.ph = phi i8 [ %state.9, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit ], [ %state.5, %if.end168 ], [ %state.1.be, %while.cond.backedge ]
-  %offset.1.ph = phi i32 [ 0, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.argprom.exit ], [ %offset.4, %if.end168 ], [ %offset.0.be, %while.cond.backedge ]
+while.end.loopexit398:                            ; preds = %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit, %if.end168, %while.cond.backedge
+  %byteIndex.1.ph = phi i8 [ %retval.0.i279, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ], [ %byteIndex.2, %if.end168 ], [ %byteIndex.0.be, %while.cond.backedge ]
+  %state.2.ph = phi i8 [ %state.9, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ], [ %state.5, %if.end168 ], [ %state.1.be, %while.cond.backedge ]
+  %offset.1.ph = phi i32 [ 0, %_ZL7_extToUP10UConverterPK20UConverterSharedDataaPPKhS5_PPDsPKDsPPiiaP10UErrorCode.exit ], [ %offset.4, %if.end168 ], [ %offset.0.be, %while.cond.backedge ]
   %.pre = load ptr, ptr %target, align 8
   br label %while.end
 
@@ -5326,10 +5326,10 @@ for.end59.i:                                      ; preds = %for.inc57.i, %if.en
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %stateProps.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %stateProps.i.i, i8 -1, i64 128, i1 false)
   %85 = load ptr, ptr %stateTable185, align 8
-  call fastcc void @_ZL12getStatePropPA256_KiPai.retelim(ptr noundef %85, ptr noundef %stateProps.i.i, i32 noundef 0)
+  call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef %85, ptr noundef %stateProps.i.i, i32 noundef 0)
   %86 = load i8, ptr %mbcs, align 8
   %cmp2.not.i.i = icmp eq i8 %86, 0
-  br i1 %cmp2.not.i.i, label %_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.argprom.exit.i, label %for.body.i.i
+  br i1 %cmp2.not.i.i, label %_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.end59.i, %for.inc.i.i
   %87 = phi i8 [ %90, %for.inc.i.i ], [ %86, %for.end59.i ]
@@ -5341,7 +5341,7 @@ for.body.i.i:                                     ; preds = %for.end59.i, %for.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %89 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  call fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode.argprom.retelim(ptr noundef nonnull readonly %mbcs, ptr noundef %stateProps.i.i, i32 noundef %89, i32 noundef 0, i32 noundef 0, ptr noundef nonnull readonly %mbcs)
+  call fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef nonnull readonly %mbcs, ptr noundef %stateProps.i.i, i32 noundef %89, i32 noundef 0, i32 noundef 0, ptr noundef nonnull readonly %mbcs)
   %.pre.i.i = load i8, ptr %mbcs, align 8
   br label %for.inc.i.i
 
@@ -5350,13 +5350,13 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %91 = zext i8 %90 to i64
   %cmp.i.i = icmp ult i64 %indvars.iv.next.i.i, %91
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.argprom.exit.i, !llvm.loop !42
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.exit.i, !llvm.loop !42
 
-_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.argprom.exit.i: ; preds = %for.inc.i.i, %for.end59.i
+_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.exit.i: ; preds = %for.inc.i.i, %for.end59.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %stateProps.i.i)
   br label %if.end315
 
-if.end315:                                        ; preds = %_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.argprom.exit.i, %if.then.i, %do.body, %for.end301, %land.lhs.true84, %if.else112, %land.lhs.true117, %land.lhs.true122, %land.lhs.true126, %for.end162, %if.then93, %land.lhs.true102, %if.then106
+if.end315:                                        ; preds = %_ZL22ucnv_MBCSEnumToUnicodeP19UConverterMBCSTablePFaPKvjPiES2_P10UErrorCode.exit.i, %if.then.i, %do.body, %for.end301, %land.lhs.true84, %if.else112, %land.lhs.true117, %land.lhs.true122, %land.lhs.true126, %for.end162, %if.then93, %land.lhs.true102, %if.then106
   %utf8Friendly316 = getelementptr inbounds i8, ptr %sharedData, i64 254
   %92 = load i8, ptr %utf8Friendly316, align 2
   %tobool317.not = icmp eq i8 %92, 0
@@ -6510,7 +6510,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #8
 declare void @udata_getInfo_75(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL12getStatePropPA256_KiPai.retelim(ptr noundef %stateTable, ptr noundef nonnull %stateProps, i32 noundef range(i32 0, 128) %state) unnamed_addr #9 {
+define internal fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef %stateTable, ptr noundef nonnull %stateProps, i32 noundef range(i32 0, 128) %state) unnamed_addr #9 {
 entry:
   %idxprom = zext nneg i32 %state to i64
   %arrayidx = getelementptr inbounds [256 x i32], ptr %stateTable, i64 %idxprom
@@ -6532,7 +6532,7 @@ for.cond:                                         ; preds = %for.inc, %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.cond
-  tail call fastcc void @_ZL12getStatePropPA256_KiPai.retelim(ptr noundef nonnull %stateTable, ptr noundef %stateProps, i32 noundef %and)
+  tail call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef nonnull %stateTable, ptr noundef %stateProps, i32 noundef %and)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.cond
@@ -6586,7 +6586,7 @@ for.body:                                         ; preds = %for.end, %for.inc64
   br i1 %cmp45, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %for.body
-  tail call fastcc void @_ZL12getStatePropPA256_KiPai.retelim(ptr noundef nonnull %stateTable, ptr noundef %stateProps, i32 noundef %and41)
+  tail call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef nonnull %stateTable, ptr noundef %stateProps, i32 noundef %and41)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then46, %for.body
@@ -6648,7 +6648,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp82, label %if.then83, label %if.end85
 
 if.then83:                                        ; preds = %while.body
-  tail call fastcc void @_ZL12getStatePropPA256_KiPai.retelim(ptr noundef nonnull %stateTable, ptr noundef %stateProps, i32 noundef %and78)
+  tail call fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef nonnull %stateTable, ptr noundef %stateProps, i32 noundef %and78)
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then83, %while.body
@@ -6679,7 +6679,7 @@ return:                                           ; preds = %if.end103, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode.argprom.retelim(ptr nocapture noundef readonly %mbcsTable, ptr nocapture noundef nonnull readonly %stateProps, i32 noundef range(i32 -2147483648, 255) %state, i32 noundef %offset, i32 noundef %value, ptr nocapture noundef readonly %context) unnamed_addr #5 {
+define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr nocapture noundef readonly %mbcsTable, ptr nocapture noundef nonnull readonly %stateProps, i32 noundef range(i32 -2147483648, 255) %state, i32 noundef %offset, i32 noundef %value, ptr nocapture noundef readonly %context) unnamed_addr #5 {
 entry:
   %codePoints = alloca [32 x i32], align 16
   %stateTable = getelementptr inbounds i8, ptr %mbcsTable, i64 8
@@ -6753,7 +6753,7 @@ if.then25:                                        ; preds = %if.then20
   %add27 = add i32 %and26, %offset
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %or = or i32 %shl, %9
-  tail call fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode.argprom.retelim(ptr noundef %mbcsTable, ptr noundef %stateProps, i32 noundef %shr, i32 noundef %add27, i32 noundef %or, ptr noundef %context)
+  tail call fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_P10UErrorCode(ptr noundef %mbcsTable, ptr noundef %stateProps, i32 noundef %shr, i32 noundef %add27, i32 noundef %or, ptr noundef %context)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then20, %if.then25

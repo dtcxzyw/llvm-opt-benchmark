@@ -2410,11 +2410,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %195 = load i64, ptr %194, align 8
   %196 = icmp ult i64 %195, 16
   call void @llvm.assume(i1 %196)
-  br label %"_ZN3nix20CharacterizationTest9writeTestIZNS_37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.argprom.exit"
+  br label %"_ZN3nix20CharacterizationTest9writeTestIZNS_37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.exit"
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53.i: ; preds = %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEED2Ev.exit52.i
   call void @_ZdlPv(ptr noundef %191) #31
-  br label %"_ZN3nix20CharacterizationTest9writeTestIZNS_37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.argprom.exit"
+  br label %"_ZN3nix20CharacterizationTest9writeTestIZNS_37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.exit"
 
 .body28.i:                                        ; preds = %185, %_ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEED2Ev.exit3.i.i, %_ZN7testing7MessageD2Ev.exit34.i, %102, %100, %83
   %.pn23.pn.i = phi { ptr, i32 } [ %.pn23.i, %_ZN7testing7MessageD2Ev.exit34.i ], [ %103, %102 ], [ %.pn.pn.pn.i, %185 ], [ %.pn.i.i, %83 ], [ %101, %100 ], [ %129, %_ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEED2Ev.exit3.i.i ]
@@ -2426,7 +2426,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
   resume { ptr, i32 } %.pn23.pn.pn.i
 
-"_ZN3nix20CharacterizationTest9writeTestIZNS_37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.argprom.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53.i
+"_ZN3nix20CharacterizationTest9writeTestIZNS_37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -3497,11 +3497,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %195 = load i64, ptr %194, align 8
   %196 = icmp ult i64 %195, 16
   call void @llvm.assume(i1 %196)
-  br label %"_ZN3nix20CharacterizationTest9writeTestIZNS_39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.argprom.exit"
+  br label %"_ZN3nix20CharacterizationTest9writeTestIZNS_39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.exit"
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53.i: ; preds = %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEED2Ev.exit52.i
   call void @_ZdlPv(ptr noundef %191) #31
-  br label %"_ZN3nix20CharacterizationTest9writeTestIZNS_39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.argprom.exit"
+  br label %"_ZN3nix20CharacterizationTest9writeTestIZNS_39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.exit"
 
 .body28.i:                                        ; preds = %185, %_ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEED2Ev.exit3.i.i, %_ZN7testing7MessageD2Ev.exit34.i, %102, %100, %83
   %.pn23.pn.i = phi { ptr, i32 } [ %.pn23.i, %_ZN7testing7MessageD2Ev.exit34.i ], [ %103, %102 ], [ %.pn.pn.pn.i, %185 ], [ %.pn.i.i, %83 ], [ %101, %100 ], [ %129, %_ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEEED2Ev.exit3.i.i ]
@@ -3513,7 +3513,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
   resume { ptr, i32 } %.pn23.pn.pn.i
 
-"_ZN3nix20CharacterizationTest9writeTestIZNS_39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.argprom.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53.i
+"_ZN3nix20CharacterizationTest9writeTestIZNS_39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvE3$_0ZNS2_8TestBodyEvE3$_1ZNS2_8TestBodyEvE3$_2EEvSt17basic_string_viewIcSt11char_traitsIcEEOT_OT0_OT1_.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -30846,24 +30846,24 @@ attributes #35 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZZN3nix37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvENK3$_0clB5cxx11Ev.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZZN3nix37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvENK3$_0clB5cxx11Ev.argprom"}
+!5 = distinct !{!5, !6, !"_ZZN3nix37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvENK3$_0clB5cxx11Ev: argument 0"}
+!6 = distinct !{!6, !"_ZZN3nix37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvENK3$_0clB5cxx11Ev"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZZN3nix37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvENK3$_1clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRKT_.argprom: argument 0"}
-!11 = distinct !{!11, !"_ZZN3nix37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvENK3$_1clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRKT_.argprom"}
+!10 = distinct !{!10, !11, !"_ZZN3nix37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvENK3$_1clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRKT_: argument 0"}
+!11 = distinct !{!11, !"_ZZN3nix37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEvENK3$_1clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRKT_"}
 !12 = !{!13, !15}
 !13 = distinct !{!13, !14, !"_ZN7testing8internal11CmpHelperEQIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_: argument 0"}
 !14 = distinct !{!14, !"_ZN7testing8internal11CmpHelperEQIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_"}
 !15 = distinct !{!15, !16, !"_ZN7testing8internal8EqHelper7CompareIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEESG_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSQ_RKSI_RKSJ_: argument 0"}
 !16 = distinct !{!16, !"_ZN7testing8internal8EqHelper7CompareIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEEESG_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSQ_RKSI_RKSJ_"}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZZN3nix39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvENK3$_0clB5cxx11Ev.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZZN3nix39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvENK3$_0clB5cxx11Ev.argprom"}
+!18 = distinct !{!18, !19, !"_ZZN3nix39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvENK3$_0clB5cxx11Ev: argument 0"}
+!19 = distinct !{!19, !"_ZZN3nix39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvENK3$_0clB5cxx11Ev"}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZZN3nix39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvENK3$_1clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRKT_.argprom: argument 0"}
-!22 = distinct !{!22, !"_ZZN3nix39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvENK3$_1clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRKT_.argprom"}
+!21 = distinct !{!21, !22, !"_ZZN3nix39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvENK3$_1clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRKT_: argument 0"}
+!22 = distinct !{!22, !"_ZZN3nix39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEvENK3$_1clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaRKT_"}
 !23 = !{!24, !26}
 !24 = distinct !{!24, !25, !"_ZN7testing8internal11CmpHelperEQIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_: argument 0"}
 !25 = distinct !{!25, !"_ZN7testing8internal11CmpHelperEQIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_"}

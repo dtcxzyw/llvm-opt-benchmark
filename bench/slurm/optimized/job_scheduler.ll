@@ -3279,8 +3279,8 @@ define internal fastcc void @_depend_list2str(ptr nocapture noundef readonly %0,
   %28 = getelementptr inbounds i8, ptr %21, i64 4
   %29 = load i16, ptr %28, align 4
   switch i16 %29, label %38 [
-    i16 5, label %_depend_state2str.argprom.exit
-    i16 1, label %_depend_type2str.argprom.exit
+    i16 5, label %_depend_state2str.exit
+    i16 1, label %_depend_type2str.exit
     i16 2, label %32
     i16 3, label %33
     i16 4, label %34
@@ -3289,7 +3289,7 @@ define internal fastcc void @_depend_list2str(ptr nocapture noundef readonly %0,
     i16 8, label %37
   ]
 
-_depend_state2str.argprom.exit:                   ; preds = %26
+_depend_state2str.exit:                           ; preds = %26
   %30 = load ptr, ptr %3, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 128
   %switch.selectcmp = icmp eq i32 %24, 2
@@ -3300,27 +3300,27 @@ _depend_state2str.argprom.exit:                   ; preds = %26
   br label %59
 
 32:                                               ; preds = %26
-  br label %_depend_type2str.argprom.exit
+  br label %_depend_type2str.exit
 
 33:                                               ; preds = %26
-  br label %_depend_type2str.argprom.exit
+  br label %_depend_type2str.exit
 
 34:                                               ; preds = %26
-  br label %_depend_type2str.argprom.exit
+  br label %_depend_type2str.exit
 
 35:                                               ; preds = %26
-  br label %_depend_type2str.argprom.exit
+  br label %_depend_type2str.exit
 
 36:                                               ; preds = %26
-  br label %_depend_type2str.argprom.exit
+  br label %_depend_type2str.exit
 
 37:                                               ; preds = %26
-  br label %_depend_type2str.argprom.exit
+  br label %_depend_type2str.exit
 
 38:                                               ; preds = %26
-  br label %_depend_type2str.argprom.exit
+  br label %_depend_type2str.exit
 
-_depend_type2str.argprom.exit:                    ; preds = %26, %32, %33, %34, %35, %36, %37, %38
+_depend_type2str.exit:                            ; preds = %26, %32, %33, %34, %35, %36, %37, %38
   %.0.i44 = phi ptr [ @.str.96, %38 ], [ @.str.103, %37 ], [ @.str.102, %36 ], [ @.str.101, %35 ], [ @.str.100, %34 ], [ @.str.99, %33 ], [ @.str.98, %32 ], [ @.str.97, %26 ]
   %39 = load i32, ptr %21, align 8
   %40 = load ptr, ptr %3, align 8
@@ -3332,15 +3332,15 @@ _depend_type2str.argprom.exit:                    ; preds = %26, %32, %33, %34, 
     i32 -2, label %45
   ]
 
-44:                                               ; preds = %_depend_type2str.argprom.exit
+44:                                               ; preds = %_depend_type2str.exit
   tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.87, ptr noundef nonnull %.0.ph, ptr noundef nonnull %.0.i44, i32 noundef %43) #16
   br label %47
 
-45:                                               ; preds = %_depend_type2str.argprom.exit
+45:                                               ; preds = %_depend_type2str.exit
   tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.88, ptr noundef nonnull %.0.ph, ptr noundef nonnull %.0.i44, i32 noundef %43) #16
   br label %47
 
-46:                                               ; preds = %_depend_type2str.argprom.exit
+46:                                               ; preds = %_depend_type2str.exit
   tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %41, ptr noundef nonnull @.str.89, ptr noundef nonnull %.0.ph, ptr noundef nonnull %.0.i44, i32 noundef %43, i32 noundef %39) #16
   br label %47
 
@@ -3362,20 +3362,20 @@ _depend_type2str.argprom.exit:                    ; preds = %26, %32, %33, %34, 
   %56 = getelementptr inbounds i8, ptr %55, i64 128
   %.val42 = load i32, ptr %27, align 8
   %57 = icmp ult i32 %.val42, 3
-  br i1 %57, label %switch.lookup, label %_depend_state2str.argprom.exit46
+  br i1 %57, label %switch.lookup, label %_depend_state2str.exit46
 
 switch.lookup:                                    ; preds = %54
   %58 = zext nneg i32 %.val42 to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._depend_list2str, i64 0, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_depend_state2str.argprom.exit46
+  br label %_depend_state2str.exit46
 
-_depend_state2str.argprom.exit46:                 ; preds = %54, %switch.lookup
+_depend_state2str.exit46:                         ; preds = %54, %switch.lookup
   %.0.i45 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.96, %54 ]
   tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %56, ptr noundef nonnull @.str.91, ptr noundef nonnull %.0.i45) #16
   br label %59
 
-59:                                               ; preds = %_depend_state2str.argprom.exit46, %_depend_state2str.argprom.exit
+59:                                               ; preds = %_depend_state2str.exit46, %_depend_state2str.exit
   %60 = getelementptr inbounds i8, ptr %21, i64 6
   %61 = load i16, ptr %60, align 2
   br i1 %1, label %65, label %._crit_edge
@@ -3506,21 +3506,21 @@ define dso_local range(i32 0, 4) i32 @test_job_dependency(ptr noundef %0, ptr no
   %.val = load i16, ptr %45, align 4
   %switch.tableidx = add i16 %.val, -1
   %58 = icmp ult i16 %switch.tableidx, 8
-  br i1 %58, label %switch.lookup, label %_depend_type2str.argprom.exit
+  br i1 %58, label %switch.lookup, label %_depend_type2str.exit
 
 switch.lookup:                                    ; preds = %57
   %59 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.update_job_dependency_list, i64 0, i64 %59
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_depend_type2str.argprom.exit
+  br label %_depend_type2str.exit
 
-_depend_type2str.argprom.exit:                    ; preds = %57, %switch.lookup
+_depend_type2str.exit:                            ; preds = %57, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.96, %57 ]
   %60 = load i32, ptr %48, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.test_job_dependency, ptr noundef %0, ptr noundef nonnull %.0.i, i32 noundef %60) #16
   br label %61
 
-61:                                               ; preds = %51, %54, %_depend_type2str.argprom.exit
+61:                                               ; preds = %51, %54, %_depend_type2str.exit
   store i32 2, ptr %41, align 8
   br label %.thread
 
@@ -3841,15 +3841,15 @@ _test_job_dependency_common.exit.thread.thread193: ; preds = %_test_job_dependen
   %.val110 = load i16, ptr %83, align 4
   %switch.tableidx213 = add i16 %.val110, -1
   %204 = icmp ult i16 %switch.tableidx213, 8
-  br i1 %204, label %switch.lookup212, label %_depend_type2str.argprom.exit117
+  br i1 %204, label %switch.lookup212, label %_depend_type2str.exit117
 
 switch.lookup212:                                 ; preds = %203
   %205 = zext nneg i16 %switch.tableidx213 to i64
   %switch.gep214 = getelementptr inbounds [8 x ptr], ptr @switch.table.update_job_dependency_list, i64 0, i64 %205
   %switch.load215 = load ptr, ptr %switch.gep214, align 8
-  br label %_depend_type2str.argprom.exit117
+  br label %_depend_type2str.exit117
 
-_depend_type2str.argprom.exit117:                 ; preds = %203, %switch.lookup212
+_depend_type2str.exit117:                         ; preds = %203, %switch.lookup212
   %.0.i116 = phi ptr [ %switch.load215, %switch.lookup212 ], [ @.str.96, %203 ]
   %206 = load i32, ptr %78, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.test_job_dependency, ptr noundef %0, ptr noundef nonnull %.0.i116, i32 noundef %206) #16
@@ -3880,22 +3880,22 @@ _test_job_dependency_common.exit.thread.thread:   ; preds = %_test_job_dependenc
   %.val111 = load i16, ptr %83, align 4
   %switch.tableidx217 = add i16 %.val111, -1
   %215 = icmp ult i16 %switch.tableidx217, 8
-  br i1 %215, label %switch.lookup216, label %_depend_type2str.argprom.exit119
+  br i1 %215, label %switch.lookup216, label %_depend_type2str.exit119
 
 switch.lookup216:                                 ; preds = %214
   %216 = zext nneg i16 %switch.tableidx217 to i64
   %switch.gep218 = getelementptr inbounds [8 x ptr], ptr @switch.table.update_job_dependency_list, i64 0, i64 %216
   %switch.load219 = load ptr, ptr %switch.gep218, align 8
-  br label %_depend_type2str.argprom.exit119
+  br label %_depend_type2str.exit119
 
-_depend_type2str.argprom.exit119:                 ; preds = %214, %switch.lookup216
+_depend_type2str.exit119:                         ; preds = %214, %switch.lookup216
   %.0.i118 = phi ptr [ %switch.load219, %switch.lookup216 ], [ @.str.96, %214 ]
   %217 = load i32, ptr %78, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.test_job_dependency, ptr noundef %0, ptr noundef nonnull %.0.i118, i32 noundef %217) #16
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %200, %_depend_type2str.argprom.exit117, %_depend_type2str.argprom.exit119, %211, %_test_job_dependency_common.exit.thread.thread
-  %.2.ph = phi i8 [ %.079153, %_test_job_dependency_common.exit.thread.thread ], [ 1, %211 ], [ 1, %_depend_type2str.argprom.exit119 ], [ 1, %200 ], [ 1, %_depend_type2str.argprom.exit117 ]
+thread-pre-split:                                 ; preds = %200, %_depend_type2str.exit117, %_depend_type2str.exit119, %211, %_test_job_dependency_common.exit.thread.thread
+  %.2.ph = phi i8 [ %.079153, %_test_job_dependency_common.exit.thread.thread ], [ 1, %211 ], [ 1, %_depend_type2str.exit119 ], [ 1, %200 ], [ 1, %_depend_type2str.exit117 ]
   %.pr = load i32, ptr %77, align 8
   br label %218
 
@@ -4279,22 +4279,22 @@ define dso_local noundef zeroext i1 @update_job_dependency_list(ptr noundef %0, 
   %.val = load i16, ptr %24, align 4
   %switch.tableidx = add i16 %.val, -1
   %25 = icmp ult i16 %switch.tableidx, 8
-  br i1 %25, label %switch.lookup, label %_depend_type2str.argprom.exit
+  br i1 %25, label %switch.lookup, label %_depend_type2str.exit
 
 switch.lookup:                                    ; preds = %23
   %26 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.update_job_dependency_list, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_depend_type2str.argprom.exit
+  br label %_depend_type2str.exit
 
-_depend_type2str.argprom.exit:                    ; preds = %23, %switch.lookup
+_depend_type2str.exit:                            ; preds = %23, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.96, %23 ]
   %27 = getelementptr inbounds i8, ptr %11, i64 16
   %28 = load i32, ptr %27, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.update_job_dependency_list, ptr noundef nonnull %.0.i, i32 noundef %28, ptr noundef %0) #16
   br label %.backedge
 
-.backedge:                                        ; preds = %30, %34, %_depend_type2str.argprom.exit, %20, %17, %10, %42
+.backedge:                                        ; preds = %30, %34, %_depend_type2str.exit, %20, %17, %10, %42
   %29 = tail call ptr @list_next(ptr noundef %7) #16
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %.outer._crit_edge, label %10, !llvm.loop !23
@@ -5159,9 +5159,9 @@ _parse_dependency_jobid_old.exit:                 ; preds = %238, %241
   %266 = trunc i64 %265 to i32
   %267 = load ptr, ptr %4, align 8
   %.not101.i = icmp eq ptr %267, null
-  br i1 %.not101.i, label %_parse_dependency_jobid_new.argprom.exit.thread145, label %268
+  br i1 %.not101.i, label %_parse_dependency_jobid_new.exit.thread145, label %268
 
-_parse_dependency_jobid_new.argprom.exit.thread145: ; preds = %264
+_parse_dependency_jobid_new.exit.thread145:       ; preds = %264
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5)
@@ -5196,11 +5196,11 @@ _parse_dependency_jobid_new.argprom.exit.thread145: ; preds = %264
   %282 = icmp eq ptr %281, null
   %283 = icmp eq i32 %266, 0
   %or.cond.i80 = select i1 %282, i1 true, i1 %283
-  br i1 %or.cond.i80, label %_parse_dependency_jobid_new.argprom.exit, label %284
+  br i1 %or.cond.i80, label %_parse_dependency_jobid_new.exit, label %284
 
 284:                                              ; preds = %280
   %285 = load i8, ptr %281, align 1
-  switch i8 %285, label %_parse_dependency_jobid_new.argprom.exit.thread [
+  switch i8 %285, label %_parse_dependency_jobid_new.exit.thread [
     i8 0, label %286
     i8 44, label %286
     i8 63, label %286
@@ -5265,22 +5265,22 @@ _find_dependent_job_ptr.exit.i81:                 ; preds = %286
 306:                                              ; preds = %304, %.split.thread43.i
   %307 = load i32, ptr %120, align 8
   %308 = icmp eq i32 %307, %266
-  br i1 %308, label %_parse_dependency_jobid_new.argprom.exit.thread, label %320
+  br i1 %308, label %_parse_dependency_jobid_new.exit.thread, label %320
 
 309:                                              ; preds = %304
   %310 = icmp eq ptr %0, %.1.i1648.i
-  br i1 %310, label %_parse_dependency_jobid_new.argprom.exit.thread, label %320
+  br i1 %310, label %_parse_dependency_jobid_new.exit.thread, label %320
 
 .split.thread.i:                                  ; preds = %.split.i, %298, %.thread.i.i88
   %.1.i1641.i = phi ptr [ %301, %.split.i ], [ %.019.i.i89, %.thread.i.i88 ], [ %.019.i.i89, %298 ]
   %311 = icmp eq ptr %0, %.1.i1641.i
-  br i1 %311, label %_parse_dependency_jobid_new.argprom.exit.thread, label %320
+  br i1 %311, label %_parse_dependency_jobid_new.exit.thread, label %320
 
 _find_dependent_job_ptr.exit.thread19.i:          ; preds = %_find_dependent_job_ptr.exit.i81
-  br i1 %or.cond4.i, label %_parse_dependency_jobid_new.argprom.exit.thread, label %.split88.i
+  br i1 %or.cond4.i, label %_parse_dependency_jobid_new.exit.thread, label %.split88.i
 
 _find_dependent_job_ptr.exit.thread19.thread.i:   ; preds = %290
-  br i1 %brmerge, label %_parse_dependency_jobid_new.argprom.exit.thread, label %320
+  br i1 %brmerge, label %_parse_dependency_jobid_new.exit.thread, label %320
 
 .split88.i:                                       ; preds = %_find_dependent_job_ptr.exit.thread19.i
   %312 = icmp eq i32 %.08.i, -1
@@ -5299,10 +5299,10 @@ _find_dependent_job_ptr.exit.thread19.thread.i:   ; preds = %290
 317:                                              ; preds = %315, %313
   %318 = load i32, ptr %120, align 8
   %319 = icmp eq i32 %318, %266
-  br i1 %319, label %_parse_dependency_jobid_new.argprom.exit.thread, label %320
+  br i1 %319, label %_parse_dependency_jobid_new.exit.thread, label %320
 
 _depends_on_same_job.exit.i86:                    ; preds = %.split88.i
-  br i1 %122, label %_parse_dependency_jobid_new.argprom.exit.thread, label %320
+  br i1 %122, label %_parse_dependency_jobid_new.exit.thread, label %320
 
 320:                                              ; preds = %_find_dependent_job_ptr.exit.thread19.thread.i, %_depends_on_same_job.exit.i86, %317, %315, %.split.thread.i, %309, %306
   %.191328.i = phi i32 [ -1, %306 ], [ %.08.i, %_depends_on_same_job.exit.i86 ], [ -1, %309 ], [ %.08.i, %.split.thread.i ], [ -1, %317 ], [ -1, %315 ], [ -2, %_find_dependent_job_ptr.exit.thread19.thread.i ]
@@ -5314,32 +5314,32 @@ _depends_on_same_job.exit.i86:                    ; preds = %.split88.i
   %322 = add nsw i32 %.08651.i, 1
   %323 = icmp sgt i32 %.08651.i, 0
   %or.cond6.i = or i1 %323, %.not1081726.i
-  br i1 %or.cond6.i, label %_parse_dependency_jobid_new.argprom.exit.thread, label %324
+  br i1 %or.cond6.i, label %_parse_dependency_jobid_new.exit.thread, label %324
 
 324:                                              ; preds = %321
   %325 = getelementptr inbounds i8, ptr %.1.i1527.i, i64 448
   %326 = load i32, ptr %325, align 8
   %327 = and i32 %326, 255
   %328 = icmp eq i32 %327, 1
-  br i1 %328, label %329, label %_parse_dependency_jobid_new.argprom.exit.thread
+  br i1 %328, label %329, label %_parse_dependency_jobid_new.exit.thread
 
 329:                                              ; preds = %324
   %330 = getelementptr inbounds i8, ptr %.1.i1527.i, i64 752
   %331 = load i32, ptr %330, align 8
   %332 = load i32, ptr %123, align 8
   %.not109.i = icmp eq i32 %331, %332
-  br i1 %.not109.i, label %333, label %_parse_dependency_jobid_new.argprom.exit.thread
+  br i1 %.not109.i, label %333, label %_parse_dependency_jobid_new.exit.thread
 
 333:                                              ; preds = %329
   %334 = getelementptr inbounds i8, ptr %.1.i1527.i, i64 664
   %335 = load ptr, ptr %334, align 8
   %336 = icmp eq ptr %335, null
-  br i1 %336, label %_parse_dependency_jobid_new.argprom.exit.thread, label %337
+  br i1 %336, label %_parse_dependency_jobid_new.exit.thread, label %337
 
 337:                                              ; preds = %333
   %338 = load ptr, ptr %124, align 8
   %.not110.i = icmp eq ptr %335, %338
-  br i1 %.not110.i, label %339, label %_parse_dependency_jobid_new.argprom.exit.thread
+  br i1 %.not110.i, label %339, label %_parse_dependency_jobid_new.exit.thread
 
 339:                                              ; preds = %337, %320
   %.187.i = phi i32 [ %.08651.i, %320 ], [ %322, %337 ]
@@ -5356,7 +5356,7 @@ _depends_on_same_job.exit.i86:                    ; preds = %.split88.i
 
 347:                                              ; preds = %342
   %.pre55.i = load ptr, ptr %4, align 8
-  br label %_parse_dependency_jobid_new.argprom.exit
+  br label %_parse_dependency_jobid_new.exit
 
 348:                                              ; preds = %342
   %349 = mul nuw nsw i32 %345, 60
@@ -5373,7 +5373,7 @@ _depends_on_same_job.exit.i86:                    ; preds = %.split88.i
 353:                                              ; preds = %350
   %354 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %351, i32 noundef 41) #19
   %.not14.i123.i = icmp eq ptr %354, null
-  br i1 %.not14.i123.i, label %_parse_dependency_jobid_new.argprom.exit, label %355
+  br i1 %.not14.i123.i, label %_parse_dependency_jobid_new.exit, label %355
 
 355:                                              ; preds = %353
   store i8 0, ptr %354, align 1
@@ -5528,7 +5528,7 @@ _depend_state_str2state.exit.i.i:                 ; preds = %_depend_state_str2s
 434:                                              ; preds = %433
   %435 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__._parse_dependency_jobid_new) #16
   call void @slurm_xfree(ptr noundef nonnull %3) #16
-  br label %_parse_dependency_jobid_new.argprom.exit
+  br label %_parse_dependency_jobid_new.exit
 
 .thread.i83:                                      ; preds = %433
   %436 = getelementptr inbounds i8, ptr %428, i64 6
@@ -5582,9 +5582,9 @@ _depend_state_str2state.exit.i.i:                 ; preds = %_depend_state_str2s
 _add_dependency_to_list.exit.i:                   ; preds = %456, %451
   %457 = load i8, ptr %363, align 1
   %.not115.i = icmp eq i8 %457, 58
-  br i1 %.not115.i, label %264, label %_parse_dependency_jobid_new.argprom.exit.thread, !llvm.loop !28
+  br i1 %.not115.i, label %264, label %_parse_dependency_jobid_new.exit.thread, !llvm.loop !28
 
-_parse_dependency_jobid_new.argprom.exit.thread:  ; preds = %_find_dependent_job_ptr.exit.thread19.thread.i, %_add_dependency_to_list.exit.i, %284, %_find_dependent_job_ptr.exit.thread19.i, %_depends_on_same_job.exit.i86, %317, %.split.thread.i, %309, %306, %337, %333, %329, %324, %321
+_parse_dependency_jobid_new.exit.thread:          ; preds = %_find_dependent_job_ptr.exit.thread19.thread.i, %_add_dependency_to_list.exit.i, %284, %_find_dependent_job_ptr.exit.thread19.i, %_depends_on_same_job.exit.i86, %317, %.split.thread.i, %309, %306, %337, %333, %329, %324, %321
   %.4.ph = phi i32 [ 2038, %321 ], [ 2038, %324 ], [ 2038, %329 ], [ 2038, %333 ], [ 2038, %337 ], [ 2038, %306 ], [ 2038, %309 ], [ 2038, %.split.thread.i ], [ 2038, %317 ], [ 2038, %_depends_on_same_job.exit.i86 ], [ 2038, %_find_dependent_job_ptr.exit.thread19.i ], [ 2038, %_find_dependent_job_ptr.exit.thread19.thread.i ], [ 2038, %284 ], [ 0, %_add_dependency_to_list.exit.i ]
   %.ph = phi ptr [ %281, %321 ], [ %281, %324 ], [ %281, %329 ], [ %281, %333 ], [ %281, %337 ], [ %281, %306 ], [ %281, %309 ], [ %281, %.split.thread.i ], [ %281, %317 ], [ %281, %_depends_on_same_job.exit.i86 ], [ %281, %_find_dependent_job_ptr.exit.thread19.i ], [ %281, %_find_dependent_job_ptr.exit.thread19.thread.i ], [ %281, %284 ], [ %363, %_add_dependency_to_list.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -5593,7 +5593,7 @@ _parse_dependency_jobid_new.argprom.exit.thread:  ; preds = %_find_dependent_job
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   br label %459
 
-_parse_dependency_jobid_new.argprom.exit:         ; preds = %353, %280, %347, %434
+_parse_dependency_jobid_new.exit:                 ; preds = %353, %280, %347, %434
   %458 = phi ptr [ %363, %434 ], [ %.pre55.i, %347 ], [ %351, %353 ], [ %281, %280 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -5602,9 +5602,9 @@ _parse_dependency_jobid_new.argprom.exit:         ; preds = %353, %280, %347, %4
   %.not58 = icmp eq ptr %458, null
   br i1 %.not58, label %_parse_depend_state.exit.thread153, label %459
 
-459:                                              ; preds = %_parse_dependency_jobid_new.argprom.exit.thread, %_parse_dependency_jobid_new.argprom.exit
-  %460 = phi ptr [ %.ph, %_parse_dependency_jobid_new.argprom.exit.thread ], [ %458, %_parse_dependency_jobid_new.argprom.exit ]
-  %.4141 = phi i32 [ %.4.ph, %_parse_dependency_jobid_new.argprom.exit.thread ], [ 2038, %_parse_dependency_jobid_new.argprom.exit ]
+459:                                              ; preds = %_parse_dependency_jobid_new.exit.thread, %_parse_dependency_jobid_new.exit
+  %460 = phi ptr [ %.ph, %_parse_dependency_jobid_new.exit.thread ], [ %458, %_parse_dependency_jobid_new.exit ]
+  %.4141 = phi i32 [ %.4.ph, %_parse_dependency_jobid_new.exit.thread ], [ 2038, %_parse_dependency_jobid_new.exit ]
   %461 = load i8, ptr %460, align 1
   switch i8 %461, label %_parse_depend_state.exit [
     i8 44, label %.outer.backedge
@@ -5678,8 +5678,8 @@ _parse_depend_state.exit.thread157:               ; preds = %_parse_dependency_j
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.update_job_dependency, ptr noundef nonnull %0, ptr noundef %493) #16
   br label %print_job_dependency.exit
 
-_parse_depend_state.exit.thread153:               ; preds = %.outer.backedge, %_parse_dependency_jobid_new.argprom.exit, %256, %258, %141, %166, %_add_dependency_to_list.exit, %_parse_depend_state.exit.thread157, %_parse_dependency_jobid_new.argprom.exit.thread145, %_parse_dependency_jobid_old.exit.thread, %_parse_depend_state.exit
-  %.2.ph = phi i32 [ %.4141, %_parse_depend_state.exit ], [ 2038, %_parse_dependency_jobid_old.exit.thread ], [ 2038, %_parse_dependency_jobid_new.argprom.exit.thread145 ], [ 2071, %_parse_depend_state.exit.thread157 ], [ 2038, %_add_dependency_to_list.exit ], [ 2038, %166 ], [ 2038, %141 ], [ %.0127.ph.be, %.outer.backedge ], [ 2038, %256 ], [ 2036, %258 ], [ 2038, %_parse_dependency_jobid_new.argprom.exit ]
+_parse_depend_state.exit.thread153:               ; preds = %.outer.backedge, %_parse_dependency_jobid_new.exit, %256, %258, %141, %166, %_add_dependency_to_list.exit, %_parse_depend_state.exit.thread157, %_parse_dependency_jobid_new.exit.thread145, %_parse_dependency_jobid_old.exit.thread, %_parse_depend_state.exit
+  %.2.ph = phi i32 [ %.4141, %_parse_depend_state.exit ], [ 2038, %_parse_dependency_jobid_old.exit.thread ], [ 2038, %_parse_dependency_jobid_new.exit.thread145 ], [ 2071, %_parse_depend_state.exit.thread157 ], [ 2038, %_add_dependency_to_list.exit ], [ 2038, %166 ], [ 2038, %141 ], [ %.0127.ph.be, %.outer.backedge ], [ 2038, %256 ], [ 2036, %258 ], [ 2038, %_parse_dependency_jobid_new.exit ]
   %.not64 = icmp eq ptr %41, null
   br i1 %.not64, label %print_job_dependency.exit, label %494
 

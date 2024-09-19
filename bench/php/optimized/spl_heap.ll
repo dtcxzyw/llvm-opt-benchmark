@@ -724,9 +724,9 @@ define internal i32 @spl_ptr_pqueue_elem_cmp(ptr noundef %0, ptr noundef %1, ptr
   %16 = call ptr @zend_call_method(ptr noundef nonnull %10, ptr noundef %15, ptr noundef nonnull %11, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %18, label %spl_ptr_heap_cmp_cb_helper.argprom.exit.thread
+  br i1 %.not.i, label %18, label %spl_ptr_heap_cmp_cb_helper.exit.thread
 
-spl_ptr_heap_cmp_cb_helper.argprom.exit.thread:   ; preds = %13
+spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %33
 
@@ -758,8 +758,8 @@ spl_ptr_heap_cmp_cb_helper.argprom.exit.thread:   ; preds = %13
   %32 = tail call i32 @zend_compare(ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   br label %33
 
-33:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.argprom.exit.thread, %3, %31, %26
-  %.0 = phi i32 [ %30, %26 ], [ %32, %31 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.argprom.exit.thread ]
+33:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %31, %26
+  %.0 = phi i32 [ %30, %26 ], [ %32, %31 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
   ret i32 %.0
 }
 
@@ -1183,9 +1183,9 @@ define internal i32 @spl_ptr_heap_zval_max_cmp(ptr noundef %0, ptr noundef %1, p
   %14 = call ptr @zend_call_method(ptr noundef nonnull %8, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %0, ptr noundef %1) #15
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %16, label %spl_ptr_heap_cmp_cb_helper.argprom.exit.thread
+  br i1 %.not.i, label %16, label %spl_ptr_heap_cmp_cb_helper.exit.thread
 
-spl_ptr_heap_cmp_cb_helper.argprom.exit.thread:   ; preds = %11
+spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %31
 
@@ -1217,8 +1217,8 @@ spl_ptr_heap_cmp_cb_helper.argprom.exit.thread:   ; preds = %11
   %30 = tail call i32 @zend_compare(ptr noundef %0, ptr noundef %1) #15
   br label %31
 
-31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.argprom.exit.thread, %3, %29, %24
-  %.0 = phi i32 [ %28, %24 ], [ %30, %29 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.argprom.exit.thread ]
+31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %29, %24
+  %.0 = phi i32 [ %28, %24 ], [ %30, %29 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
   ret i32 %.0
 }
 
@@ -1384,9 +1384,9 @@ define internal i32 @spl_ptr_heap_zval_min_cmp(ptr noundef %0, ptr noundef %1, p
   %14 = call ptr @zend_call_method(ptr noundef nonnull %8, ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %0, ptr noundef %1) #15
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %16, label %spl_ptr_heap_cmp_cb_helper.argprom.exit.thread
+  br i1 %.not.i, label %16, label %spl_ptr_heap_cmp_cb_helper.exit.thread
 
-spl_ptr_heap_cmp_cb_helper.argprom.exit.thread:   ; preds = %11
+spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %31
 
@@ -1418,8 +1418,8 @@ spl_ptr_heap_cmp_cb_helper.argprom.exit.thread:   ; preds = %11
   %30 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %0) #15
   br label %31
 
-31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.argprom.exit.thread, %3, %29, %24
-  %.0 = phi i32 [ %28, %24 ], [ %30, %29 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.argprom.exit.thread ]
+31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %29, %24
+  %.0 = phi i32 [ %28, %24 ], [ %30, %29 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
   ret i32 %.0
 }
 

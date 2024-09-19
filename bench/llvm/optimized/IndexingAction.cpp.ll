@@ -2176,7 +2176,7 @@ _ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit: ; preds = %_ZNSt10shared_ptr
   %.val3 = load ptr, ptr %68, align 8
   %69 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13, !noalias !33
   %.not.i.i.i.i6 = icmp eq ptr %.val3, null
-  br i1 %.not.i.i.i.i6, label %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit, label %70
+  br i1 %.not.i.i.i.i6, label %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %70
 
 70:                                               ; preds = %_ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit
   %71 = getelementptr inbounds nuw i8, ptr %.val3, i64 8
@@ -2188,13 +2188,13 @@ _ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit: ; preds = %_ZNSt10shared_ptr
   %74 = load i32, ptr %71, align 4, !noalias !33
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %71, align 4, !noalias !33
-  br label %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br label %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 76:                                               ; preds = %70
   %77 = atomicrmw volatile add ptr %71, i32 1 acq_rel, align 4, !noalias !33
-  br label %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br label %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
-_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit, %73, %76
+_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit, %73, %76
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_116IndexPPCallbacksE, i64 16), ptr %69, align 8, !noalias !33
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %.val, ptr %78, align 8, !noalias !33
@@ -2205,7 +2205,7 @@ _ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5ind
   %.not.i = icmp eq ptr %81, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_116IndexPPCallbacksESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %82 = ptrtoint ptr %81 to i64
   %83 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13, !noalias !36
   %84 = ptrtoint ptr %69 to i64
@@ -2216,8 +2216,8 @@ _ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.
   store i64 %82, ptr %86, align 8, !noalias !36
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_116IndexPPCallbacksESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_116IndexPPCallbacksESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit, %_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i
-  %storemerge = phi ptr [ %83, %_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i ], [ %69, %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit ]
+_ZNSt10unique_ptrIN12_GLOBAL__N_116IndexPPCallbacksESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i
+  %storemerge = phi ptr [ %83, %_ZNSt10unique_ptrIN5clang18PPChainedCallbacksESt14default_deleteIS1_EED2Ev.exit.i ], [ %69, %_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
   store ptr %storemerge, ptr %80, align 8
   ret void
 }
@@ -3322,20 +3322,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5clang4DeclEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5clang4DeclEEZNS0_5index25createIndexingASTConsumerESt10shared_ptrINS5_17IndexDataConsumerEERKNS5_15IndexingOptionsES6_INS0_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #10 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -3349,13 +3349,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5clang4DeclEE
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i.i, label %6, label %"_ZSt10__invoke_rIbRZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS1_17IndexDataConsumerEERKNS1_15IndexingOptionsES2_INS0_12PreprocessorEEE3$_1JPKNS0_4DeclEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit"
+  br i1 %.not.i.i.i.i.i, label %6, label %"_ZSt10__invoke_rIbRZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS1_17IndexDataConsumerEERKNS1_15IndexingOptionsES2_INS0_12PreprocessorEEE3$_1JPKNS0_4DeclEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
 6:                                                ; preds = %2
   tail call void @_ZSt25__throw_bad_function_callv() #16
   unreachable
 
-"_ZSt10__invoke_rIbRZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS1_17IndexDataConsumerEERKNS1_15IndexingOptionsES2_INS0_12PreprocessorEEE3$_1JPKNS0_4DeclEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit": ; preds = %2
+"_ZSt10__invoke_rIbRZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS1_17IndexDataConsumerEERKNS1_15IndexingOptionsES2_INS0_12PreprocessorEEE3$_1JPKNS0_4DeclEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %.val, ptr noundef nonnull align 8 dereferenceable(8) %3) #14
@@ -3367,7 +3367,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5clang4DeclEE
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5clang4DeclEEZNS0_5index25createIndexingASTConsumerESt10shared_ptrINS5_17IndexDataConsumerEERKNS5_15IndexingOptionsES6_INS0_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %17
@@ -3376,11 +3376,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5clang4DeclEE
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
@@ -3403,12 +3403,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5clang4DeclEE
 
 "_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i": ; preds = %10, %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 17:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %18 = icmp eq ptr %.val6.i, null
-  br i1 %18, label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %19
+  br i1 %18, label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
@@ -3422,9 +3422,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN5clang4DeclEE
 
 "_ZZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS0_17IndexDataConsumerEERKNS0_15IndexingOptionsES1_INS_12PreprocessorEEEN3$_1D2Ev.exit.i.i": ; preds = %22, %19
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #15
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS0_17IndexDataConsumerEERKNS0_15IndexingOptionsES1_INS_12PreprocessorEEEN3$_1D2Ev.exit.i.i", %17, %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %"_ZZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS0_17IndexDataConsumerEERKNS0_15IndexingOptionsES1_INS_12PreprocessorEEEN3$_1D2Ev.exit.i.i", %17, %"_ZNSt14_Function_base13_Base_managerIZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS2_17IndexDataConsumerEERKNS2_15IndexingOptionsES3_INS1_12PreprocessorEEE3$_1E15_M_init_functorIRKSB_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -3913,20 +3913,20 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN5clang4DeclEEZ
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN5clang4DeclEEZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERNS0_16CompilerInstanceEN4llvm9StringRefEEUlS3_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #10 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit [
-    i32 1, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit [
+    i32 1, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split
 
-_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split: ; preds = %3, %4
+_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split: ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit: ; preds = %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit.sink.split, %3
+_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit: ; preds = %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit.sink.split, %3
   ret i1 false
 }
 
@@ -4020,8 +4020,8 @@ attributes #16 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexASTConsumerEJRSt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS4_15IndexingOptionsERS2_INS3_12PreprocessorEERSt8functionIFbPKNS3_4DeclEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexASTConsumerEJRSt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS4_15IndexingOptionsERS2_INS3_12PreprocessorEERSt8functionIFbPKNS3_4DeclEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexASTConsumerEJRSt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS4_15IndexingOptionsERS2_INS3_12PreprocessorEERSt8functionIFbPKNS3_4DeclEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexASTConsumerEJRSt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS4_15IndexingOptionsERS2_INS3_12PreprocessorEERSt8functionIFbPKNS3_4DeclEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZSt11make_uniqueIN12_GLOBAL__N_111IndexActionEJSt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS4_15IndexingOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !9 = distinct !{!9, !"_ZSt11make_uniqueIN12_GLOBAL__N_111IndexActionEJSt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS4_15IndexingOptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -4049,8 +4049,8 @@ attributes #16 = { noreturn nounwind }
 !31 = distinct !{!31, !17}
 !32 = distinct !{!32, !17}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!35 = distinct !{!35, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!34 = distinct !{!34, !35, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!35 = distinct !{!35, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5index15IndexingContextEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !36 = !{!37}
 !37 = distinct !{!37, !38, !"_ZSt11make_uniqueIN5clang18PPChainedCallbacksEJSt10unique_ptrINS0_11PPCallbacksESt14default_deleteIS3_EES6_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !38 = distinct !{!38, !"_ZSt11make_uniqueIN5clang18PPChainedCallbacksEJSt10unique_ptrINS0_11PPCallbacksESt14default_deleteIS3_EES6_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -4058,5 +4058,5 @@ attributes #16 = { noreturn nounwind }
 !40 = distinct !{!40, !41, !"_ZN5clang16CompilerInstance18getPreprocessorPtrEv: argument 0"}
 !41 = distinct !{!41, !"_ZN5clang16CompilerInstance18getPreprocessorPtrEv"}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexASTConsumerEJRSt10shared_ptrIN5clang5index17IndexDataConsumerEERNS4_15IndexingOptionsES2_INS3_12PreprocessorEEZNS0_11IndexAction17CreateASTConsumerERNS3_16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!44 = distinct !{!44, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexASTConsumerEJRSt10shared_ptrIN5clang5index17IndexDataConsumerEERNS4_15IndexingOptionsES2_INS3_12PreprocessorEEZNS0_11IndexAction17CreateASTConsumerERNS3_16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!43 = distinct !{!43, !44, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexASTConsumerEJRSt10shared_ptrIN5clang5index17IndexDataConsumerEERNS4_15IndexingOptionsES2_INS3_12PreprocessorEEZNS0_11IndexAction17CreateASTConsumerERNS3_16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!44 = distinct !{!44, !"_ZSt11make_uniqueIN12_GLOBAL__N_116IndexASTConsumerEJRSt10shared_ptrIN5clang5index17IndexDataConsumerEERNS4_15IndexingOptionsES2_INS3_12PreprocessorEEZNS0_11IndexAction17CreateASTConsumerERNS3_16CompilerInstanceEN4llvm9StringRefEEUlPKNS3_4DeclEE_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

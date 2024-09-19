@@ -4629,7 +4629,7 @@ _ZNK8GraphKit9sync_jvmsEv.exit:                   ; preds = %23, %24
   %46 = getelementptr inbounds i8, ptr %44, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, -1
-  br i1 %48, label %49, label %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162
+  br i1 %48, label %49, label %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162
 
 49:                                               ; preds = %32
   %50 = getelementptr inbounds i8, ptr %1, i64 44
@@ -4643,7 +4643,7 @@ _ZNK8GraphKit9sync_jvmsEv.exit:                   ; preds = %23, %24
   %56 = icmp ne ptr %.val126, null
   %57 = icmp ne i32 %.val, -1
   %or.cond.i = and i1 %57, %56
-  br i1 %or.cond.i, label %58, label %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162
+  br i1 %or.cond.i, label %58, label %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162
 
 58:                                               ; preds = %49
   %59 = getelementptr inbounds i8, ptr %.val126, i64 120
@@ -4678,13 +4678,13 @@ _ZN8ciMethod16java_code_at_bciEi.exit.i:          ; preds = %68, %_ZN8ciMethod4c
   %75 = icmp eq i32 %73, 197
   %76 = and i1 %53, %75
   %or.cond = select i1 %74, i1 true, i1 %76
-  br i1 %or.cond, label %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread, label %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162
+  br i1 %or.cond, label %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread, label %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162
 
-_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread: ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit.i
+_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread: ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit.i
   store i32 1, ptr %46, align 8
-  br label %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162
+  br label %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162
 
-_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162: ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit.i, %49, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread, %32
+_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162: ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit.i, %49, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread, %32
   %77 = load ptr, ptr %42, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 744
   %79 = load ptr, ptr %78, align 8
@@ -4695,12 +4695,12 @@ _ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162: ; p
   %83 = getelementptr inbounds i8, ptr %1, i64 8
   br label %84
 
-84:                                               ; preds = %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162, %._crit_edge202
-  %.2208 = phi i8 [ %spec.select123, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162 ], [ %.3, %._crit_edge202 ]
-  %.2105207 = phi i32 [ %spec.select122, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162 ], [ %.3106, %._crit_edge202 ]
-  %.0116206 = phi ptr [ %44, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162 ], [ %375, %._crit_edge202 ]
-  %.0117205 = phi i32 [ %82, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162 ], [ %99, %._crit_edge202 ]
-  %.0118204 = phi ptr [ %9, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.argprom.exit.thread162 ], [ %376, %._crit_edge202 ]
+84:                                               ; preds = %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162, %._crit_edge202
+  %.2208 = phi i8 [ %spec.select123, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162 ], [ %.3, %._crit_edge202 ]
+  %.2105207 = phi i32 [ %spec.select122, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162 ], [ %.3106, %._crit_edge202 ]
+  %.0116206 = phi ptr [ %44, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162 ], [ %375, %._crit_edge202 ]
+  %.0117205 = phi i32 [ %82, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162 ], [ %99, %._crit_edge202 ]
+  %.0118204 = phi ptr [ %9, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162 ], [ %376, %._crit_edge202 ]
   %85 = getelementptr inbounds i8, ptr %.0118204, i64 16
   %86 = load i32, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %.0118204, i64 12
@@ -5604,22 +5604,22 @@ _ZN16ciBytecodeStream4nextEv.exit:                ; preds = %_ZN16ciBytecodeStre
   %165 = getelementptr inbounds [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %52
   %166 = load i8, ptr %165, align 1
   %167 = icmp ult i8 %166, 19
-  br i1 %167, label %168, label %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.argprom.argprom.exit"
+  br i1 %167, label %168, label %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.exit"
 
 168:                                              ; preds = %164
   %169 = zext nneg i8 %166 to i64
   %170 = getelementptr inbounds [20 x i32], ptr @type2size, i64 0, i64 %169
   %171 = load i32, ptr %170, align 4
-  br label %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.argprom.argprom.exit"
+  br label %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.exit"
 
-"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.argprom.argprom.exit": ; preds = %164, %168
+"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.exit": ; preds = %164, %168
   %172 = phi i32 [ %171, %168 ], [ 0, %164 ]
   %173 = sub nsw i32 %172, %55
   store i32 %173, ptr %1, align 4
   br label %.thread50
 
-.thread50:                                        ; preds = %3, %50, %56, %57, %58, %59, %60, %61, %62, %63, %64, %89, %_ZN16ciBytecodeStream4nextEv.exit, %161, %163, %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.argprom.argprom.exit", %86, %84
-  %.0 = phi i1 [ true, %84 ], [ true, %86 ], [ true, %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.argprom.argprom.exit" ], [ true, %163 ], [ true, %161 ], [ true, %_ZN16ciBytecodeStream4nextEv.exit ], [ true, %89 ], [ true, %64 ], [ true, %63 ], [ true, %62 ], [ true, %61 ], [ true, %60 ], [ true, %59 ], [ true, %58 ], [ true, %57 ], [ true, %56 ], [ false, %50 ], [ false, %3 ]
+.thread50:                                        ; preds = %3, %50, %56, %57, %58, %59, %60, %61, %62, %63, %64, %89, %_ZN16ciBytecodeStream4nextEv.exit, %161, %163, %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.exit", %86, %84
+  %.0 = phi i1 [ true, %84 ], [ true, %86 ], [ true, %"_ZZN8GraphKit21compute_stack_effectsERiS0_ENK3$_0clEv.exit" ], [ true, %163 ], [ true, %161 ], [ true, %_ZN16ciBytecodeStream4nextEv.exit ], [ true, %89 ], [ true, %64 ], [ true, %63 ], [ true, %62 ], [ true, %61 ], [ true, %60 ], [ true, %59 ], [ true, %58 ], [ true, %57 ], [ true, %56 ], [ false, %50 ], [ false, %3 ]
   ret i1 %.0
 }
 

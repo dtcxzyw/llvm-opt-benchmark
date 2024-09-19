@@ -1609,7 +1609,7 @@ _handle_mult_rc_ret.exit:                         ; preds = %214, %289
   br i1 %293, label %_get_return_code.exit.thread, label %_get_return_code.exit
 
 _get_return_code.exit:                            ; preds = %290
-  %294 = call fastcc i32 @_unpack_return_code.argelim(ptr noundef nonnull %292)
+  %294 = call fastcc i32 @_unpack_return_code(ptr noundef nonnull %292)
   call void @slurm_free_buf(ptr noundef nonnull %292) #13
   %295 = icmp eq i32 %294, 11
   br i1 %295, label %296, label %_get_return_code.exit.thread
@@ -2036,24 +2036,24 @@ define internal fastcc void @_save_dbd_state() unnamed_addr #0 {
 47:                                               ; preds = %30
   %48 = call i64 @write(i32 noundef %12, ptr noundef nonnull %4, i64 noundef 4) #13
   %.not22.i = icmp eq i64 %48, 4
-  br i1 %.not22.i, label %_save_dbd_rec.argprom.exit, label %.sink.split.i
+  br i1 %.not22.i, label %_save_dbd_rec.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %43, %41, %47, %19
   %49 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.56) #13
-  br label %_save_dbd_rec.argprom.exit
+  br label %_save_dbd_rec.exit
 
-_save_dbd_rec.argprom.exit:                       ; preds = %47, %.sink.split.i
+_save_dbd_rec.exit:                               ; preds = %47, %.sink.split.i
   %.not33 = phi i1 [ true, %47 ], [ false, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.not32 = icmp eq ptr %23, null
   br i1 %.not32, label %51, label %50
 
-50:                                               ; preds = %_save_dbd_rec.argprom.exit
+50:                                               ; preds = %_save_dbd_rec.exit
   call void @slurm_free_buf(ptr noundef nonnull %23) #13
   br label %51
 
-51:                                               ; preds = %50, %_save_dbd_rec.argprom.exit
+51:                                               ; preds = %50, %_save_dbd_rec.exit
   br i1 %.not33, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %51
@@ -2098,7 +2098,7 @@ _save_dbd_rec.argprom.exit:                       ; preds = %47, %.sink.split.i
   store i32 -559074791, ptr %2, align 4
   %68 = call i64 @write(i32 noundef %12, ptr noundef nonnull %1, i64 noundef 4) #13
   %.not.i40 = icmp eq i64 %68, 4
-  br i1 %.not.i40, label %.outer.i43, label %_save_dbd_rec.argprom.exit48
+  br i1 %.not.i40, label %.outer.i43, label %_save_dbd_rec.exit48
 
 69:                                               ; preds = %82, %.outer.i43
   %.018.i46 = phi i64 [ -1, %82 ], [ %.018.ph.i44, %.outer.i43 ]
@@ -2125,20 +2125,20 @@ _save_dbd_rec.argprom.exit:                       ; preds = %47, %.sink.split.i
 
 80:                                               ; preds = %71
   %81 = icmp eq i64 %72, -1
-  br i1 %81, label %82, label %_save_dbd_rec.argprom.exit48
+  br i1 %81, label %82, label %_save_dbd_rec.exit48
 
 82:                                               ; preds = %80
   %83 = tail call ptr @__errno_location() #14
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %84, 4
-  br i1 %85, label %69, label %_save_dbd_rec.argprom.exit48, !llvm.loop !8
+  br i1 %85, label %69, label %_save_dbd_rec.exit48, !llvm.loop !8
 
 86:                                               ; preds = %69
   %87 = call i64 @write(i32 noundef %12, ptr noundef nonnull %2, i64 noundef 4) #13
   %.not22.i47 = icmp eq i64 %87, 4
-  br i1 %.not22.i47, label %.outer, label %_save_dbd_rec.argprom.exit48
+  br i1 %.not22.i47, label %.outer, label %_save_dbd_rec.exit48
 
-_save_dbd_rec.argprom.exit48:                     ; preds = %66, %86, %80, %82
+_save_dbd_rec.exit48:                             ; preds = %66, %86, %80, %82
   %88 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.56) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -2155,8 +2155,8 @@ _save_dbd_rec.argprom.exit48:                     ; preds = %66, %86, %80, %82
   %.not3465 = icmp eq ptr %91, null
   br i1 %.not3465, label %.thread, label %.lr.ph, !llvm.loop !9
 
-.thread:                                          ; preds = %.outer, %.backedge, %.preheader, %51, %_save_dbd_rec.argprom.exit48, %16
-  %.052 = phi i32 [ 0, %16 ], [ 0, %51 ], [ %.1.ph68, %_save_dbd_rec.argprom.exit48 ], [ 0, %.preheader ], [ %.1.ph68, %.backedge ], [ %89, %.outer ]
+.thread:                                          ; preds = %.outer, %.backedge, %.preheader, %51, %_save_dbd_rec.exit48, %16
+  %.052 = phi i32 [ 0, %16 ], [ 0, %51 ], [ %.1.ph68, %_save_dbd_rec.exit48 ], [ 0, %.preheader ], [ %.1.ph68, %.backedge ], [ %89, %.outer ]
   %92 = call i32 @slurm_get_log_level() #13
   %93 = icmp sgt i32 %92, 3
   br i1 %93, label %94, label %95
@@ -2189,7 +2189,7 @@ declare i32 @slurm_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_get_return_codes(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = tail call fastcc i32 @_unpack_return_code.argelim(ptr noundef %0)
+  %3 = tail call fastcc i32 @_unpack_return_code(ptr noundef %0)
   store i32 %3, ptr %1, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %10
@@ -2220,7 +2220,7 @@ declare i32 @slurm_persist_unpack_rc_msg(ptr noundef, ptr noundef, i16 noundef z
 declare void @slurm_persist_free_rc_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_unpack_return_code.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @_unpack_return_code(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.persist_msg_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr @slurmdbd_conn, align 8

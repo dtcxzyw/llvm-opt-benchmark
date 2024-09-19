@@ -2054,7 +2054,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i: ; preds = %713
   %721 = getelementptr inbounds i8, ptr %720, i64 48
   %722 = load ptr, ptr %721, align 8, !noalias !16
   %723 = call noundef zeroext i1 %722(ptr noundef nonnull align 8 dereferenceable(32) %719) #16, !noalias !16
-  br i1 %723, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.argprom.exit.i.i"
+  br i1 %723, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.exit.i.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i, %713
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
@@ -2156,13 +2156,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i189: ; preds = %.lr.ph.i.i.i.i.i.i.i.i186, %"_ZZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERN4llvm8FunctionERNS1_25OptimizationRemarkEmitterEENK3$_0clERNS1_15SmallVectorImplIPNS1_10BasicBlockEEEENKUlvE_clEv.exit.i.i.i"
   %752 = load ptr, ptr %126, align 8, !noalias !16
   %753 = icmp eq ptr %752, %128
-  br i1 %753, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.argprom.exit.i.i", label %754
+  br i1 %753, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.exit.i.i", label %754
 
 754:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i189
   call void @free(ptr noundef %752) #16, !noalias !16
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.argprom.exit.i.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.exit.i.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.argprom.exit.i.i": ; preds = %754, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i189, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.exit.i.i": ; preds = %754, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i.i189, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %12), !noalias !16
   br label %_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoD2Ev.exit.i151
 
@@ -2239,7 +2239,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i170: ; preds = %776
   %784 = getelementptr inbounds i8, ptr %783, i64 48
   %785 = load ptr, ptr %784, align 8, !noalias !16
   %786 = call noundef zeroext i1 %785(ptr noundef nonnull align 8 dereferenceable(32) %782) #16, !noalias !16
-  br i1 %786, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i163, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br i1 %786, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i163, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i163: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i170, %776
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
@@ -2349,13 +2349,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i169: ; preds = %.lr.ph.i.i.i.i.i.i.i166, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERN4llvm8FunctionERNS1_25OptimizationRemarkEmitterEENK3$_2clEv.exit.i.i"
   %811 = load ptr, ptr %148, align 8, !noalias !16
   %812 = icmp eq ptr %811, %150
-  br i1 %812, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i", label %813
+  br i1 %812, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i", label %813
 
 813:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i169
   call void @free(ptr noundef %811) #16, !noalias !16
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i": ; preds = %813, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i169, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i170
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i": ; preds = %813, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i169, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i170
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %8), !noalias !16
   br label %_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoD2Ev.exit.i151
 
@@ -2723,8 +2723,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEbNS_12DenseMapInfoIS3_vEENS
   call void @free(ptr noundef %996) #16, !noalias !16
   br label %_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoD2Ev.exit.i151
 
-_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoD2Ev.exit.i151: ; preds = %998, %._crit_edge322.i, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i", %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERN4llvm8FunctionERNS1_25OptimizationRemarkEmitterEENK3$_0clERNS1_15SmallVectorImplIPNS1_10BasicBlockEEE.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.argprom.exit.i.i", %652, %647
-  %.3.i = phi i1 [ %.1.i, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i" ], [ %.1.i, %647 ], [ %.1.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERN4llvm8FunctionERNS1_25OptimizationRemarkEmitterEENK3$_0clERNS1_15SmallVectorImplIPNS1_10BasicBlockEEE.exit.i" ], [ true, %._crit_edge322.i ], [ true, %998 ], [ %.1.i, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.argprom.exit.i.i" ], [ %.1.i, %652 ]
+_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoD2Ev.exit.i151: ; preds = %998, %._crit_edge322.i, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i", %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERN4llvm8FunctionERNS1_25OptimizationRemarkEmitterEENK3$_0clERNS1_15SmallVectorImplIPNS1_10BasicBlockEEE.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.exit.i.i", %652, %647
+  %.3.i = phi i1 [ %.1.i, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i" ], [ %.1.i, %647 ], [ %.1.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERN4llvm8FunctionERNS1_25OptimizationRemarkEmitterEENK3$_0clERNS1_15SmallVectorImplIPNS1_10BasicBlockEEE.exit.i" ], [ true, %._crit_edge322.i ], [ true, %998 ], [ %.1.i, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERNS_8FunctionERS0_ENK3$_0clERNS_15SmallVectorImplIPNS_10BasicBlockEEEEUlvE_EEvT_PDTclfL0p_EE.exit.i.i" ], [ %.1.i, %652 ]
   %999 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #16, !noalias !16
   %1000 = load ptr, ptr %20, align 8, !noalias !16
   %1001 = icmp eq ptr %1000, %115
@@ -2799,17 +2799,17 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionI
   %1021 = load ptr, ptr %.244.i, align 8, !noalias !16
   %1022 = getelementptr inbounds i8, ptr %.244.i, i64 16
   %1023 = icmp eq ptr %1021, %1022
-  br i1 %1023, label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i.i, label %1024
+  br i1 %1023, label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i.i, label %1024
 
 1024:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i.i
   call void @free(ptr noundef %1021) #16, !noalias !16
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i.i: ; preds = %1024, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i.i: ; preds = %1024, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.244.i, i64 noundef 432) #19, !noalias !16
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_deleteIS1_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i.i, %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EED2Ev.exit.i, %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.thread.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i.i, %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EED2Ev.exit.i, %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.thread.i
   %.not.i131.i = icmp eq ptr %.sroa.0217.0.i, null
   br i1 %.not.i131.i, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERN4llvm8FunctionERNS1_25OptimizationRemarkEmitterE.exit, label %_ZNKSt14default_deleteIN4llvm18BlockFrequencyInfoEEclEPS1_.exit.i.i
 
@@ -2894,17 +2894,17 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionI
   %1038 = load ptr, ptr %1028, align 8
   %1039 = getelementptr inbounds i8, ptr %1028, i64 16
   %1040 = icmp eq ptr %1038, %1039
-  br i1 %1040, label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i.i.i.i.i, label %1041
+  br i1 %1040, label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i.i.i.i.i, label %1041
 
 1041:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i.i.i.i.i
   call void @free(ptr noundef %1038) #16
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i.i.i.i.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i.i.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i.i.i.i.i: ; preds = %1041, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i.i.i.i.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i.i.i.i.i: ; preds = %1041, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %1028, i64 noundef 432) #19
   br label %_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.preheader.i99
 
-_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.preheader.i99: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i.i.i.i.i, %1025
+_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.preheader.i99: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i.i.i.i.i, %1025
   store i32 128, ptr %172, align 8
   %1042 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 8192, i64 noundef 8) #16
   store ptr %1042, ptr %26, align 8
@@ -3637,7 +3637,7 @@ _ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoC2ERKS1_.e
   %1306 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #16
   %1307 = getelementptr inbounds ptr, ptr %1305, i64 %1306
   %.not3.i.i = icmp eq i64 %1306, 0
-  br i1 %.not3.i.i, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.argprom.exit.i", label %_ZN4llvm15InstructionCostpLERKS0_.exit.i.i
+  br i1 %.not3.i.i, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.exit.i", label %_ZN4llvm15InstructionCostpLERKS0_.exit.i.i
 
 _ZN4llvm15InstructionCostpLERKS0_.exit.i.i:       ; preds = %_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoC2ERKS1_.exit.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i.i
   %.06.i.i = phi ptr [ %1316, %_ZN4llvm15InstructionCostpLERKS0_.exit.i.i ], [ %1305, %_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoC2ERKS1_.exit.i ]
@@ -3657,15 +3657,15 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.i.i:       ; preds = %_ZN12_GLOBAL__N_132
   %.0.i.i.i70 = call i64 @llvm.sadd.sat.i64(i64 %.sroa.01.04.i.i, i64 %.fca.0.extract.i.i)
   %1316 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
   %.not.i.i71 = icmp eq ptr %1316, %1307
-  br i1 %.not.i.i71, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.argprom.exit.loopexit.i", label %_ZN4llvm15InstructionCostpLERKS0_.exit.i.i
+  br i1 %.not.i.i71, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.exit.loopexit.i", label %_ZN4llvm15InstructionCostpLERKS0_.exit.i.i
 
-"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.argprom.exit.loopexit.i": ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit.i.i
+"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.exit.loopexit.i": ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit.i.i
   %1317 = icmp eq i32 %spec.select.i.i, 1
-  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.argprom.exit.i"
+  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.exit.i"
 
-"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.argprom.exit.i": ; preds = %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.argprom.exit.loopexit.i", %_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoC2ERKS1_.exit.i
-  %.sroa.01.0.lcssa.i.i = phi i64 [ 0, %_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoC2ERKS1_.exit.i ], [ %.0.i.i.i70, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.argprom.exit.loopexit.i" ]
-  %.sroa.4.0.lcssa.i.i = phi i1 [ false, %_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoC2ERKS1_.exit.i ], [ %1317, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.argprom.exit.loopexit.i" ]
+"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.exit.i": ; preds = %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.exit.loopexit.i", %_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoC2ERKS1_.exit.i
+  %.sroa.01.0.lcssa.i.i = phi i64 [ 0, %_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoC2ERKS1_.exit.i ], [ %.0.i.i.i70, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.exit.loopexit.i" ]
+  %.sroa.4.0.lcssa.i.i = phi i1 [ false, %_ZN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoC2ERKS1_.exit.i ], [ %1317, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.exit.loopexit.i" ]
   %1318 = load ptr, ptr %41, align 8
   %1319 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #16
   %1320 = load ptr, ptr %209, align 8
@@ -3690,12 +3690,12 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.i.i:       ; preds = %_ZN12_GLOBAL__N_132
   %.not16.i = icmp eq i64 %1330, 0
   br i1 %.not16.i, label %1334, label %1331
 
-1331:                                             ; preds = %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.argprom.exit.i"
+1331:                                             ; preds = %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.exit.i"
   %1332 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13ForceLiveExit, i64 128), align 8
   %1333 = trunc i8 %1332 to i1
   br i1 %1333, label %1334, label %1410
 
-1334:                                             ; preds = %1331, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.argprom.exit.i"
+1334:                                             ; preds = %1331, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_1clERN4llvm15SmallVectorImplIPNS3_10BasicBlockEEE.exit.i"
   %1335 = call noundef ptr @_ZN4llvm13CodeExtractor17extractCodeRegionERKNS_26CodeExtractorAnalysisCacheE(ptr noundef nonnull align 8 dereferenceable(240) %42, ptr noundef nonnull align 8 dereferenceable(192) %37) #16
   %.not17.i = icmp eq ptr %1335, null
   br i1 %.not17.i, label %1368, label %1336
@@ -3707,14 +3707,14 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.i.i:       ; preds = %_ZN12_GLOBAL__N_132
   %1339 = load ptr, ptr %1338, align 8
   %1340 = load i8, ptr %1339, align 8
   %1341 = icmp eq i8 %1340, 85
-  br i1 %1341, label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i74, label %1342
+  br i1 %1341, label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i74, label %1342
 
 1342:                                             ; preds = %1336
   %1343 = icmp eq i8 %1340, 34
   call void @llvm.assume(i1 %1343)
-  br label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i74
+  br label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i74
 
-_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i74: ; preds = %1342, %1336
+_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i74: ; preds = %1342, %1336
   %1344 = getelementptr inbounds i8, ptr %1339, i64 40
   %1345 = load ptr, ptr %1344, align 8
   %1346 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %162) #16
@@ -3723,11 +3723,11 @@ _ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argpro
   %.not.i.i.i.i75 = icmp ugt i64 %1347, %1348
   br i1 %.not.i.i.i.i75, label %1349, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEPNS_10BasicBlockEELb1EE9push_backES6_.exit.i76
 
-1349:                                             ; preds = %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i74
+1349:                                             ; preds = %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i74
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull %163, i64 noundef %1347, i64 noundef 16) #16
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEPNS_10BasicBlockEELb1EE9push_backES6_.exit.i76
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEPNS_10BasicBlockEELb1EE9push_backES6_.exit.i76: ; preds = %1349, %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i74
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEPNS_10BasicBlockEELb1EE9push_backES6_.exit.i76: ; preds = %1349, %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i74
   %1350 = load ptr, ptr %162, align 8
   %1351 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %162) #16
   %1352 = getelementptr inbounds %"struct.std::pair.486", ptr %1350, i64 %1351
@@ -3781,7 +3781,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i95: ; preds = %1368
   %1377 = getelementptr inbounds i8, ptr %1376, i64 48
   %1378 = load ptr, ptr %1377, align 8
   %1379 = call noundef zeroext i1 %1378(ptr noundef nonnull align 8 dereferenceable(32) %1375) #16
-  br i1 %1379, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i81, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br i1 %1379, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i81, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.exit.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i81: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i95, %1368
   call void @llvm.experimental.noalias.scope.decl(metadata !60)
@@ -3881,17 +3881,17 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i94: ; preds = %.lr.ph.i.i.i.i.i.i.i91, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_0clEv.exit.i.i"
   %1407 = load ptr, ptr %229, align 8
   %1408 = icmp eq ptr %1407, %231
-  br i1 %1408, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i", label %1409
+  br i1 %1408, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.exit.i", label %1409
 
 1409:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i94
   call void @free(ptr noundef %1407) #16
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.exit.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i": ; preds = %1409, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i94, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i95
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.exit.i": ; preds = %1409, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i94, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i95
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %33)
   br label %1410
 
-1410:                                             ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i", %1359, %_ZN4llvm15InstructionCostpLERKS0_.exit.i78, %1331
+1410:                                             ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.exit.i", %1359, %_ZN4llvm15InstructionCostpLERKS0_.exit.i78, %1331
   call void @_ZN4llvm13CodeExtractorD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %42) #16
   %1411 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #16
   %1412 = load ptr, ptr %41, align 8
@@ -4017,17 +4017,17 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionI
   %1453 = load ptr, ptr %.pr, align 8
   %1454 = getelementptr inbounds i8, ptr %.pr, i64 16
   %1455 = icmp eq ptr %1453, %1454
-  br i1 %1455, label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i, label %1456
+  br i1 %1455, label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i, label %1456
 
 1456:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i
   call void @free(ptr noundef %1453) #16
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i: ; preds = %1456, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i: ; preds = %1456, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef 432) #19
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERN4llvm8FunctionERNS1_25OptimizationRemarkEmitterE.exit, %1443, %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK12_GLOBAL__N_118PartialInlinerImpl31computeOutliningColdRegionsInfoERN4llvm8FunctionERNS1_25OptimizationRemarkEmitterE.exit, %1443, %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i
   store ptr null, ptr %77, align 8
   br label %1457
 
@@ -4052,14 +4052,14 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_
   %spec.select.i.i.i.i = select i1 %1469, ptr %1465, ptr null
   %1470 = load i8, ptr %spec.select.i.i.i.i, align 8, !noalias !63
   %.not.i.i14 = icmp eq i8 %1470, 31
-  br i1 %.not.i.i14, label %1471, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.thread.i
+  br i1 %.not.i.i14, label %1471, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.thread.i
 
 1471:                                             ; preds = %1457
   %1472 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 4
   %1473 = load i32, ptr %1472, align 4, !noalias !63
   %1474 = and i32 %1473, 134217727
   %1475 = icmp eq i32 %1474, 1
-  br i1 %1475, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.thread.i, label %1476
+  br i1 %1475, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.thread.i, label %1476
 
 1476:                                             ; preds = %1471
   %1477 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #18, !noalias !66
@@ -4159,13 +4159,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit.i.i:
   %1528 = zext i8 %1527 to i32
   %1529 = add nsw i32 %1528, -30
   %1530 = icmp ult i32 %1529, 11
-  br i1 %1530, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit.i.i.i"
+  br i1 %1530, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit.i.i.i"
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i.i.i: ; preds = %1526
   %1531 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %1508) #20, !noalias !75
-  br label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit.i.i.i"
+  br label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit.i.i.i"
 
-"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit.i.i.i": ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i.i.i, %1526
+"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit.i.i.i": ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i.i.i, %1526
   %.0.i.i.i15.i.i.i.i.i = phi ptr [ %1508, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i.i.i ], [ null, %1526 ]
   %.sink.i.i.i.i.i.i.i = phi i32 [ %1531, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i.i.i ], [ 0, %1526 ]
   %1532 = call { ptr, i32 } @_ZSt9__find_ifIN4llvm12SuccIteratorINS0_11InstructionENS0_10BasicBlockEEEN9__gnu_cxx5__ops16_Iter_equals_valIKPS3_EEET_SB_SB_T0_St26random_access_iterator_tag(ptr %.0.i.i.i15.i.i.i.i.i, i32 0, ptr %.0.i.i.i15.i.i.i.i.i, i32 %.sink.i.i.i.i.i.i.i, ptr nonnull %71), !noalias !72
@@ -4174,12 +4174,12 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i.i.i: ; preds = %1526
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71), !noalias !72
   br i1 %.not.i.i.i, label %1533, label %1544
 
-1533:                                             ; preds = %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit.i.i.i"
+1533:                                             ; preds = %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit.i.i.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70), !noalias !72
   store ptr %1497, ptr %70, align 8, !noalias !72
   %1534 = load ptr, ptr %1498, align 8, !noalias !78
   %1535 = icmp eq ptr %1498, %1534
-  br i1 %1535, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit5.i.i.i", label %1536
+  br i1 %1535, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit5.i.i.i", label %1536
 
 1536:                                             ; preds = %1533
   %1537 = getelementptr inbounds i8, ptr %1534, i64 -24
@@ -4187,13 +4187,13 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i.i.i: ; preds = %1526
   %1539 = zext i8 %1538 to i32
   %1540 = add nsw i32 %1539, -30
   %1541 = icmp ult i32 %1540, 11
-  br i1 %1541, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i4.i.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit5.i.i.i"
+  br i1 %1541, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i4.i.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit5.i.i.i"
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i4.i.i.i: ; preds = %1536
   %1542 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %1537) #20, !noalias !78
-  br label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit5.i.i.i"
+  br label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit5.i.i.i"
 
-"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit5.i.i.i": ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i4.i.i.i, %1536, %1533
+"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit5.i.i.i": ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i4.i.i.i, %1536, %1533
   %.0.i.i.i15.i.i1.i.i.i = phi ptr [ %1537, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i4.i.i.i ], [ null, %1536 ], [ null, %1533 ]
   %.sink.i.i.i.i2.i.i.i = phi i32 [ %1542, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i4.i.i.i ], [ 0, %1536 ], [ 0, %1533 ]
   %1543 = call { ptr, i32 } @_ZSt9__find_ifIN4llvm12SuccIteratorINS0_11InstructionENS0_10BasicBlockEEEN9__gnu_cxx5__ops16_Iter_equals_valIKPS3_EEET_SB_SB_T0_St26random_access_iterator_tag(ptr %.0.i.i.i15.i.i1.i.i.i, i32 0, ptr %.0.i.i.i15.i.i1.i.i.i, i32 %.sink.i.i.i.i2.i.i.i, ptr nonnull %70), !noalias !72
@@ -4202,8 +4202,8 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i4.i.i.i: ; preds = %1536
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70), !noalias !72
   br i1 %.not8.i.i.i, label %.thread80.i.i, label %1544
 
-1544:                                             ; preds = %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit5.i.i.i", %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit.i.i.i"
-  %.sroa.035.1.ph.i.i = phi ptr [ %1496, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit5.i.i.i" ], [ %1497, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit.i.i.i" ]
+1544:                                             ; preds = %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit5.i.i.i", %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit.i.i.i"
+  %.sroa.035.1.ph.i.i = phi ptr [ %1496, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit5.i.i.i" ], [ %1497, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit.i.i.i" ]
   %1545 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1477) #16, !noalias !63
   %1546 = add i64 %1545, 1
   %1547 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %1477) #16, !noalias !63
@@ -4436,7 +4436,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit.i.i.
 1658:                                             ; preds = %.loopexit44.i.i.i
   %1659 = load ptr, ptr %1522, align 8, !noalias !63
   %.not27.i.i.i = icmp eq ptr %1626, %1659
-  br i1 %.not27.i.i.i, label %_ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5countEPKS2_.exit.i.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i"
+  br i1 %.not27.i.i.i, label %_ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5countEPKS2_.exit.i.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i"
 
 _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5countEPKS2_.exit.i.i.i: ; preds = %1639, %1658, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit.i.i.i, %1627
   %1660 = add nuw nsw i32 %.sroa.2.055.i.i.i, 1
@@ -4468,7 +4468,7 @@ _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEm
   br i1 %1673, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i35.i.i.i, !llvm.loop !92
 
 .lr.ph.i.i.i.i15:                                 ; preds = %.lr.ph.i.i.i.i.i35.i.i.i
-  br i1 %.not.i.i.i.i83.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i", label %.lr.ph.split.i.i.i.i
+  br i1 %.not.i.i.i.i83.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i", label %.lr.ph.split.i.i.i.i
 
 .lr.ph.split.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i87.i.i, %.lr.ph.i.i.i.i15
   %1674 = phi ptr [ %1664, %.lr.ph.i.i.i.i15 ], [ %1699, %.lr.ph.i.i.i.i87.i.i ]
@@ -4492,7 +4492,7 @@ _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEm
   %.01622.i.i.i.i.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i.i.i.i.i, %1688 ], [ %.01620.i.i.i.i.i.i.i.i.i, %.lr.ph.split.i.i.i.i ]
   %.01521.i.i.i.i.i.i.i.i.i = phi i32 [ %1689, %1688 ], [ 1, %.lr.ph.split.i.i.i.i ]
   %1687 = icmp eq ptr %1686, inttoptr (i64 -4096 to ptr)
-  br i1 %1687, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i", label %1688
+  br i1 %1687, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i", label %1688
 
 1688:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %1689 = add i32 %.01521.i.i.i.i.i.i.i.i.i, 1
@@ -4539,7 +4539,7 @@ _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEm
   %1712 = add i32 %1711, 1
   %1713 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL18MaxNumInlineBlocks, i64 128), align 8, !noalias !63
   %1714 = icmp ult i32 %1712, %1713
-  br i1 %1714, label %.lr.ph114.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i"
+  br i1 %1714, label %.lr.ph114.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i"
 
 .lr.ph114.i.i:                                    ; preds = %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_3clEPNS_21FunctionOutliningInfoE.exit.i.i"
   %1715 = add i32 %1592, -1
@@ -4551,7 +4551,7 @@ _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEm
   %1718 = getelementptr inbounds nuw i8, ptr %1717, i64 48
   %1719 = load ptr, ptr %1718, align 8, !noalias !63
   %1720 = icmp eq ptr %1718, %1719
-  br i1 %1720, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i", label %1721
+  br i1 %1720, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i", label %1721
 
 1721:                                             ; preds = %1716
   %1722 = getelementptr inbounds i8, ptr %1719, i64 -24
@@ -4559,12 +4559,12 @@ _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEm
   %1724 = zext i8 %1723 to i32
   %1725 = add nsw i32 %1724, -30
   %1726 = icmp ult i32 %1725, 11
-  br i1 %1726, label %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit91.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i"
+  br i1 %1726, label %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit91.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i"
 
 _ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit91.i.i: ; preds = %1721
   %1727 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %1722) #20, !noalias !63
   %.not51.i.i = icmp eq i32 %1727, 2
-  br i1 %.not51.i.i, label %1728, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i"
+  br i1 %.not51.i.i, label %1728, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i"
 
 1728:                                             ; preds = %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit91.i.i
   %1729 = getelementptr i8, ptr %1717, i64 16
@@ -4591,7 +4591,7 @@ _ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit91.i.i: ; preds = %1721
   br i1 %1741, label %.thread.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !92
 
 .lr.ph.i92.i.i:                                   ; preds = %.lr.ph.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i83.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i", label %.lr.ph.split.i.i.i
+  br i1 %.not.i.i.i.i83.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i", label %.lr.ph.split.i.i.i
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i92.i.i
   %1742 = phi ptr [ %1732, %.lr.ph.i92.i.i ], [ %1767, %.lr.ph.i.i.i.i.i ]
@@ -4615,7 +4615,7 @@ _ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit91.i.i: ; preds = %1721
   %.01622.i.i.i.i.i.i95.i.i = phi i32 [ %.016.i.i.i.i.i.i97.i.i, %1756 ], [ %.01620.i.i.i.i.i.i93.i.i, %.lr.ph.split.i.i.i ]
   %.01521.i.i.i.i.i.i96.i.i = phi i32 [ %1757, %1756 ], [ 1, %.lr.ph.split.i.i.i ]
   %1755 = icmp eq ptr %1754, inttoptr (i64 -4096 to ptr)
-  br i1 %1755, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i", label %1756
+  br i1 %1755, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i", label %1756
 
 1756:                                             ; preds = %.lr.ph.i.i.i.i.i.i94.i.i
   %1757 = add i32 %.01521.i.i.i.i.i.i96.i.i, 1
@@ -4671,20 +4671,20 @@ _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEm
   %1789 = getelementptr inbounds i8, ptr %1787, i64 -24
   %1790 = load i8, ptr %1789, align 8, !noalias !93
   %1791 = icmp eq i8 %1790, 30
-  br i1 %1791, label %1792, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i"
+  br i1 %1791, label %1792, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i"
 
 1792:                                             ; preds = %1785, %.thread.i.i
   %.sroa.03.1.ph.i.i = phi ptr [ %1777, %1785 ], [ %1778, %.thread.i.i ]
   %.sroa.4.1.ph.i.i = phi ptr [ %1778, %1785 ], [ %1777, %.thread.i.i ]
   %1793 = load ptr, ptr %1479, align 8, !noalias !63
   %.not53.i.i = icmp eq ptr %.sroa.4.1.ph.i.i, %1793
-  br i1 %.not53.i.i, label %1794, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i"
+  br i1 %.not53.i.i, label %1794, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i"
 
 1794:                                             ; preds = %1792
   %1795 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.03.1.ph.i.i) #16, !noalias !63
   %1796 = load ptr, ptr %74, align 8, !noalias !63
   %.not54.i.i = icmp eq ptr %1795, %1796
-  br i1 %.not54.i.i, label %1797, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i"
+  br i1 %.not54.i.i, label %1797, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i"
 
 1797:                                             ; preds = %1794
   %1798 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1477) #16, !noalias !63
@@ -4788,9 +4788,9 @@ _ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmp
   %1853 = add i32 %1852, 1
   %1854 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL18MaxNumInlineBlocks, i64 128), align 8, !noalias !63
   %1855 = icmp ult i32 %1853, %1854
-  br i1 %1855, label %1716, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i", !llvm.loop !101
+  br i1 %1855, label %1716, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i", !llvm.loop !101
 
-"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i": ; preds = %.lr.ph.i.i.i.i15, %_ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit134.i.i, %1794, %1792, %1785, %.lr.ph.i92.i.i, %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit91.i.i, %1721, %1716, %1658, %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i94.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_3clEPNS_21FunctionOutliningInfoE.exit.i.i"
+"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i": ; preds = %.lr.ph.i.i.i.i15, %_ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit134.i.i, %1794, %1792, %1785, %.lr.ph.i92.i.i, %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit91.i.i, %1721, %1716, %1658, %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i94.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_3clEPNS_21FunctionOutliningInfoE.exit.i.i"
   %storemerge.i.i = phi ptr [ %1477, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_3clEPNS_21FunctionOutliningInfoE.exit.i.i" ], [ %1477, %.lr.ph.i.i.i.i.i.i94.i.i ], [ null, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ null, %1658 ], [ %1477, %1716 ], [ %1477, %1721 ], [ %1477, %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit91.i.i ], [ %1477, %.lr.ph.i92.i.i ], [ %1477, %1785 ], [ %1477, %1792 ], [ %1477, %1794 ], [ %1477, %_ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit134.i.i ], [ null, %.lr.ph.i.i.i.i15 ]
   %.sroa.047.0.i.i = phi ptr [ null, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_3clEPNS_21FunctionOutliningInfoE.exit.i.i" ], [ null, %.lr.ph.i.i.i.i.i.i94.i.i ], [ %1477, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %1477, %1658 ], [ null, %1716 ], [ null, %1721 ], [ null, %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit91.i.i ], [ null, %.lr.ph.i92.i.i ], [ null, %1785 ], [ null, %1792 ], [ null, %1794 ], [ null, %_ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit134.i.i ], [ %1477, %.lr.ph.i.i.i.i15 ]
   %1856 = zext i32 %1592 to i64
@@ -4806,11 +4806,11 @@ _ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmp
   %1863 = shl nuw nsw i64 %1862, 3
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %1860, i64 noundef %1863, i64 noundef 8) #16, !noalias !63
   %.not.i136.i.i = icmp eq ptr %.sroa.047.0.i.i, null
-  br i1 %.not.i136.i.i, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.i, label %.thread80.i.i
+  br i1 %.not.i136.i.i, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.i, label %.thread80.i.i
 
-.thread80.i.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit81.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit5.i.i.i", %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit.i.i, %1489, %.lr.ph.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i", %1476
-  %.sroa.0.0.i = phi ptr [ %storemerge.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i" ], [ null, %1476 ], [ null, %.lr.ph.i.i ], [ null, %1489 ], [ null, %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit.i.i ], [ null, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit5.i.i.i" ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit81.i.i ]
-  %.sroa.047.183.i.i = phi ptr [ %.sroa.047.0.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i" ], [ %1477, %1476 ], [ %1477, %.lr.ph.i.i ], [ %1477, %1489 ], [ %1477, %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit.i.i ], [ %1477, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.argprom.exit5.i.i.i" ], [ %1477, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit81.i.i ]
+.thread80.i.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit81.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit5.i.i.i", %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit.i.i, %1489, %.lr.ph.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i", %1476
+  %.sroa.0.0.i = phi ptr [ %storemerge.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i" ], [ null, %1476 ], [ null, %.lr.ph.i.i ], [ null, %1489 ], [ null, %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit.i.i ], [ null, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit5.i.i.i" ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit81.i.i ]
+  %.sroa.047.183.i.i = phi ptr [ %.sroa.047.0.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i" ], [ %1477, %1476 ], [ %1477, %.lr.ph.i.i ], [ %1477, %1489 ], [ %1477, %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit.i.i ], [ %1477, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_5clEPNS1_10BasicBlockES6_.exit5.i.i.i" ], [ %1477, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit81.i.i ]
   %1864 = getelementptr inbounds nuw i8, ptr %.sroa.047.183.i.i, i64 64
   %1865 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1864) #16, !noalias !63
   %1866 = load ptr, ptr %1864, align 8, !noalias !63
@@ -4827,31 +4827,31 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i.i: ; preds = %1869
   %1871 = load ptr, ptr %.sroa.047.183.i.i, align 8, !noalias !63
   %1872 = getelementptr inbounds i8, ptr %.sroa.047.183.i.i, i64 16
   %1873 = icmp eq ptr %1871, %1872
-  br i1 %1873, label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i.i, label %1874
+  br i1 %1873, label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i.i, label %1874
 
 1874:                                             ; preds = %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i.i
   call void @free(ptr noundef %1871) #16, !noalias !63
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i.i: ; preds = %1874, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i.i: ; preds = %1874, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.047.183.i.i, i64 noundef 112) #19, !noalias !63
-  br label %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.i
+  br label %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.i
 
-_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.thread.i: ; preds = %1471, %1457
+_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.thread.i: ; preds = %1471, %1457
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_121FunctionOutliningInfoESt14default_deleteIS1_EED2Ev.exit.i
 
-_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i"
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i.i ], [ %storemerge.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.argprom.exit.i.i" ]
+_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i"
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i.i ], [ %storemerge.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_2clEPNS1_10BasicBlockE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %72)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
   %.not48.i = icmp eq ptr %.sroa.0.1.i, null
   br i1 %.not48.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_121FunctionOutliningInfoESt14default_deleteIS1_EED2Ev.exit.i, label %1875
 
-1875:                                             ; preds = %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.i
+1875:                                             ; preds = %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.i
   %.sroa.0.0.copyload.i = load ptr, ptr %160, align 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.25.0..sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
@@ -4899,17 +4899,17 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i.i.i.i: ; preds = %
   %1890 = load ptr, ptr %1881, align 8
   %1891 = getelementptr inbounds i8, ptr %1881, i64 16
   %1892 = icmp eq ptr %1890, %1891
-  br i1 %1892, label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i.i.i.i, label %1893
+  br i1 %1892, label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i.i.i.i, label %1893
 
 1893:                                             ; preds = %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i.i.i.i
   call void @free(ptr noundef %1890) #16
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i.i.i.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i.i.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i.i.i.i: ; preds = %1893, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i.i.i.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i.i.i.i: ; preds = %1893, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %1881, i64 noundef 112) #19
   br label %_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.preheader.i
 
-_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.preheader.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i.i.i.i, %1875
+_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.preheader.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i.i.i.i, %1875
   store i32 128, ptr %251, align 8
   %1894 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 8192, i64 noundef 8) #16
   store ptr %1894, ptr %49, align 8
@@ -5178,7 +5178,7 @@ _ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionClonerC2EPN4llvm8FunctionEPNS_21F
   %1969 = load ptr, ptr %1968, align 8
   %1970 = getelementptr inbounds nuw i8, ptr %1967, i64 48
   %.not.i.i30 = icmp eq ptr %1969, %1970
-  br i1 %.not.i.i30, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_0clEPN4llvm10BasicBlockE.argprom.exit.thread.i", label %1971
+  br i1 %.not.i.i30, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_0clEPN4llvm10BasicBlockE.exit.thread.i", label %1971
 
 1971:                                             ; preds = %1965
   %1972 = icmp eq ptr %1969, null
@@ -5186,9 +5186,9 @@ _ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionClonerC2EPN4llvm8FunctionEPNS_21F
   %1974 = select i1 %1972, ptr null, ptr %1973
   %1975 = load i8, ptr %1974, align 8
   %1976 = icmp eq i8 %1975, 84
-  br i1 %1976, label %1979, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_0clEPN4llvm10BasicBlockE.argprom.exit.thread.i"
+  br i1 %1976, label %1979, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_0clEPN4llvm10BasicBlockE.exit.thread.i"
 
-"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_0clEPN4llvm10BasicBlockE.argprom.exit.thread.i": ; preds = %1971, %1965
+"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_0clEPN4llvm10BasicBlockE.exit.thread.i": ; preds = %1971, %1965
   %1977 = getelementptr inbounds nuw i8, ptr %.val.i28, i64 64
   %1978 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1977) #16
   br label %_ZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEv.exit
@@ -5225,10 +5225,10 @@ _ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionClonerC2EPN4llvm8FunctionEPNS_21F
   %.not128132.i = icmp eq ptr %1994, %1970
   br i1 %.not128132.i, label %._crit_edge138.i, label %.lr.ph137.i
 
-.lr.ph137.i:                                      ; preds = %1987, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.thread.i"
-  %.sroa.050.0135.i = phi ptr [ %.fca.0.extract1.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.thread.i" ], [ %1998, %1987 ]
-  %.pn127134.i = phi i64 [ %.sroa.4.0.i.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.thread.i" ], [ 1, %1987 ]
-  %.sroa.0119.0133.i = phi ptr [ %2168, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.thread.i" ], [ %1994, %1987 ]
+.lr.ph137.i:                                      ; preds = %1987, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.thread.i"
+  %.sroa.050.0135.i = phi ptr [ %.fca.0.extract1.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.thread.i" ], [ %1998, %1987 ]
+  %.pn127134.i = phi i64 [ %.sroa.4.0.i.i.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.thread.i" ], [ 1, %1987 ]
+  %.sroa.0119.0133.i = phi ptr [ %2168, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.thread.i" ], [ %1994, %1987 ]
   %1999 = icmp eq ptr %.sroa.0119.0133.i, null
   %2000 = getelementptr inbounds i8, ptr %.sroa.0119.0133.i, i64 -24
   %2001 = select i1 %1999, ptr null, ptr %2000
@@ -5525,7 +5525,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit.i.i:     ; preds = %2139, %2136
   %.idx.i.i = shl nuw nsw i64 %.pre-phi2.i.i.i.i.i, 5
   %2145 = getelementptr inbounds i8, ptr %2144, i64 %.idx.i.i
   %or.cond.i.i.i = icmp ult i64 %.pre-phi2.i.i.i.i.i, 2
-  br i1 %or.cond.i.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.i", label %.lr.ph.i.i.i.i.i.preheader.i.i
+  br i1 %or.cond.i.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.i", label %.lr.ph.i.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit.i.i
   %2146 = getelementptr inbounds i8, ptr %2144, i64 32
@@ -5537,22 +5537,22 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit.i.i:     ; preds = %2139, %2136
   %2147 = load ptr, ptr %.0810.i.i.i.i.i.i.i, align 8
   %2148 = load ptr, ptr %.011.i.i.i.i.i.i.i, align 8
   %2149 = icmp eq ptr %2147, %2148
-  br i1 %2149, label %2150, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.thread.i"
+  br i1 %2149, label %2150, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.thread.i"
 
 2150:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i38
   %2151 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i.i.i, i64 32
   %2152 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i3.i.i = icmp eq ptr %2151, %2145
-  br i1 %.not.i.i.i.i.i3.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.i", label %.lr.ph.i.i.i.i.i.i.i38, !llvm.loop !118
+  br i1 %.not.i.i.i.i.i3.i.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.i", label %.lr.ph.i.i.i.i.i.i.i38, !llvm.loop !118
 
-"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.i": ; preds = %2150, %_ZN4llvm7PHINode15incoming_valuesEv.exit.i.i
+"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.i": ; preds = %2150, %_ZN4llvm7PHINode15incoming_valuesEv.exit.i.i
   %2153 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i31, i64 -8
   %2154 = load ptr, ptr %2153, align 8
   %2155 = load ptr, ptr %2154, align 8
   %.not82.i = icmp eq ptr %2155, null
-  br i1 %.not82.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.thread.i", label %2156
+  br i1 %.not82.i, label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.thread.i", label %2156
 
-2156:                                             ; preds = %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.i"
+2156:                                             ; preds = %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.i"
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i.i.i31, ptr noundef nonnull %2155) #16
   %2157 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #16
   %2158 = add i64 %2157, 1
@@ -5573,15 +5573,15 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i: 
   %2165 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #16
   %2166 = add i64 %2165, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %53, i64 noundef %2166) #16
-  br label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.thread.i"
+  br label %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.thread.i"
 
-"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.thread.i": ; preds = %.lr.ph.i.i.i.i.i.i.i38, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.i"
+"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.thread.i": ; preds = %.lr.ph.i.i.i.i.i.i.i38, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.i"
   %2167 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0133.i, i64 8
   %2168 = load ptr, ptr %2167, align 8
   %.not128.i = icmp eq ptr %2168, %1970
   br i1 %.not128.i, label %._crit_edge138.i, label %.lr.ph137.i, !llvm.loop !119
 
-._crit_edge138.i:                                 ; preds = %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.argprom.exit.thread.i", %.lr.ph137.i, %1987
+._crit_edge138.i:                                 ; preds = %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_1clEPN4llvm7PHINodeE.exit.thread.i", %.lr.ph137.i, %1987
   %2169 = load ptr, ptr %53, align 8
   %2170 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #16
   %2171 = getelementptr inbounds ptr, ptr %2169, i64 %2170
@@ -5636,7 +5636,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i:     ; preds = %._crit_edge144.i, %
   call void @free(ptr noundef %2193) #16
   br label %_ZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEv.exit
 
-_ZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEv.exit: ; preds = %_ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionClonerC2EPN4llvm8FunctionEPNS_21FunctionOutliningInfoERNS2_25OptimizationRemarkEmitterENS2_12function_refIFPNS2_15AssumptionCacheERS3_EEENS9_IFRNS2_19TargetTransformInfoESC_EEE.exit, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_0clEPN4llvm10BasicBlockE.argprom.exit.thread.i", %1979, %._crit_edge147.i, %2195
+_ZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEv.exit: ; preds = %_ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionClonerC2EPN4llvm8FunctionEPNS_21FunctionOutliningInfoERNS2_25OptimizationRemarkEmitterENS2_12function_refIFPNS2_15AssumptionCacheERS3_EEENS9_IFRNS2_19TargetTransformInfoESC_EEE.exit, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner20normalizeReturnBlockEvENK3$_0clEPN4llvm10BasicBlockE.exit.thread.i", %1979, %._crit_edge147.i, %2195
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %52)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %53)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %54)
@@ -5831,12 +5831,12 @@ _ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_def
   store ptr %.0.lcssa.i.i.i.i.i.i.i23.i, ptr %299, align 8, !alias.scope !124
   br label %2246
 
-2246:                                             ; preds = %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.thread.i", %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i
-  %2247 = phi ptr [ %2245, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.pre118.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.thread.i" ]
-  %2248 = phi ptr [ %.0.lcssa.i.i.i.i.i.i.i23.i, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.pre.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.thread.i" ]
-  %.sroa.18.0.i = phi ptr [ %2208, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.sroa.18.1.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.thread.i" ]
-  %.sroa.9.0.i = phi ptr [ %2208, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.sroa.9.1.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.thread.i" ]
-  %.sroa.058.0.i = phi ptr [ %2206, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.sroa.058.1.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.thread.i" ]
+2246:                                             ; preds = %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.thread.i", %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i
+  %2247 = phi ptr [ %2245, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.pre118.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.thread.i" ]
+  %2248 = phi ptr [ %.0.lcssa.i.i.i.i.i.i.i23.i, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.pre.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.thread.i" ]
+  %.sroa.18.0.i = phi ptr [ %2208, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.sroa.18.1.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.thread.i" ]
+  %.sroa.9.0.i = phi ptr [ %2208, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.sroa.9.1.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.thread.i" ]
+  %.sroa.058.0.i = phi ptr [ %2206, %_ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS3_EEEEE3endEv.exit.i ], [ %.sroa.058.1.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.thread.i" ]
   %2249 = load ptr, ptr %292, align 8
   %2250 = load ptr, ptr %289, align 8
   %2251 = ptrtoint ptr %2249 to i64
@@ -6013,7 +6013,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_defa
   %2333 = getelementptr inbounds nuw i8, ptr %.val16.val.i, i64 48
   %2334 = load ptr, ptr %2333, align 8
   %2335 = icmp eq ptr %2332, %2334
-  br i1 %2335, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.thread.i", label %2336
+  br i1 %2335, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.thread.i", label %2336
 
 2336:                                             ; preds = %.loopexit.i
   %2337 = load ptr, ptr %.val16.val.i, align 8
@@ -6034,25 +6034,25 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_defa
   %.02946.i.i.i.i.i.i = phi ptr [ %2337, %.lr.ph.i.i.i.i.i.i24 ], [ %2359, %2358 ]
   %2344 = load ptr, ptr %.02946.i.i.i.i.i.i, align 8
   %2345 = icmp eq ptr %2344, %2332
-  br i1 %2345, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i", label %2346
+  br i1 %2345, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i", label %2346
 
 2346:                                             ; preds = %2343
   %2347 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 8
   %2348 = load ptr, ptr %2347, align 8
   %2349 = icmp eq ptr %2348, %2332
-  br i1 %2349, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit679", label %2350
+  br i1 %2349, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit679", label %2350
 
 2350:                                             ; preds = %2346
   %2351 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 16
   %2352 = load ptr, ptr %2351, align 8
   %2353 = icmp eq ptr %2352, %2332
-  br i1 %2353, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit677", label %2354
+  br i1 %2353, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit677", label %2354
 
 2354:                                             ; preds = %2350
   %2355 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 24
   %2356 = load ptr, ptr %2355, align 8
   %2357 = icmp eq ptr %2356, %2332
-  br i1 %2357, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit", label %2358
+  br i1 %2357, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit", label %2358
 
 2358:                                             ; preds = %2354
   %2359 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 32
@@ -6076,7 +6076,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_defa
 2363:                                             ; preds = %._crit_edge.i.i.i.i.i.i
   %2364 = load ptr, ptr %.029.lcssa.i.i.i.i.i.i, align 8
   %2365 = icmp eq ptr %2364, %2332
-  br i1 %2365, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i", label %2366
+  br i1 %2365, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i", label %2366
 
 2366:                                             ; preds = %2363
   %2367 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
@@ -6086,7 +6086,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_defa
   %.1.i.i.i.i.i.i = phi ptr [ %2367, %2366 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %2368 = load ptr, ptr %.1.i.i.i.i.i.i, align 8
   %2369 = icmp eq ptr %2368, %2332
-  br i1 %2369, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i", label %2370
+  br i1 %2369, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i", label %2370
 
 2370:                                             ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i
   %2371 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
@@ -6096,37 +6096,37 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_10BasicBlockENS_23df_iterator_defa
   %.2.i.i.i.i.i.i = phi ptr [ %2371, %2370 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %2372 = load ptr, ptr %.2.i.i.i.i.i.i, align 8
   %2373 = icmp eq ptr %2372, %2332
-  br i1 %2373, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i", label %2374
+  br i1 %2373, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i", label %2374
 
 2374:                                             ; preds = %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
-  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i"
+  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i"
 
-"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit": ; preds = %2354
+"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit": ; preds = %2354
   %2375 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 24
-  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i"
+  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i"
 
-"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit677": ; preds = %2350
+"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit677": ; preds = %2350
   %2376 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 16
-  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i"
+  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i"
 
-"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit679": ; preds = %2346
+"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit679": ; preds = %2346
   %2377 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i.i, i64 8
-  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i"
+  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i"
 
-"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i": ; preds = %2343, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit", %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit677", %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit679", %2374, %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %2363
-  %.028.i.i.i.i.i.i = phi ptr [ %2339, %2374 ], [ %.029.lcssa.i.i.i.i.i.i, %2363 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %2375, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit" ], [ %2376, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit677" ], [ %2377, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i.loopexit.split.loop.exit679" ], [ %.02946.i.i.i.i.i.i, %2343 ]
+"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i": ; preds = %2343, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit", %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit677", %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit679", %2374, %._crit_edge._crit_edge52.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %2363
+  %.028.i.i.i.i.i.i = phi ptr [ %2339, %2374 ], [ %.029.lcssa.i.i.i.i.i.i, %2363 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %2375, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit" ], [ %2376, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit677" ], [ %2377, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i.loopexit.split.loop.exit679" ], [ %.02946.i.i.i.i.i.i, %2343 ]
   %2378 = load ptr, ptr %.val16.val.i, align 8
   %2379 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.val16.val.i) #16
   %2380 = getelementptr inbounds ptr, ptr %2378, i64 %2379
   %.not71.i = icmp eq ptr %.028.i.i.i.i.i.i, %2380
-  br i1 %.not71.i, label %2381, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.thread.i"
+  br i1 %.not71.i, label %2381, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.thread.i"
 
-2381:                                             ; preds = %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i"
+2381:                                             ; preds = %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i"
   %.val15.i = load ptr, ptr %247, align 8
   %2382 = getelementptr inbounds nuw i8, ptr %.val15.i, i64 56
   %2383 = load ptr, ptr %2382, align 8
   %.not12.i = icmp eq ptr %2332, %2383
-  br i1 %.not12.i, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.thread.i", label %2384
+  br i1 %.not12.i, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.thread.i", label %2384
 
 2384:                                             ; preds = %2381
   %.not.i31.i = icmp eq ptr %.sroa.9.0.i, %.sroa.18.0.i
@@ -6205,12 +6205,12 @@ _ZN4llvm15InstructionCostpLERKS0_.exit41.i:       ; preds = %2409, %_ZNSt6vector
   %2410 = load i64, ptr %245, align 8
   %.0.i40.i = call i64 @llvm.sadd.sat.i64(i64 %2410, i64 %.fca.0.extract.i)
   store i64 %.0.i40.i, ptr %245, align 8
-  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.thread.i"
+  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.thread.i"
 
-"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.thread.i": ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit41.i, %2381, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i", %.loopexit.i
-  %.sroa.18.1.i = phi ptr [ %.sroa.18.0.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i" ], [ %.sroa.18.0.i, %2381 ], [ %.sroa.18.3.i, %_ZN4llvm15InstructionCostpLERKS0_.exit41.i ], [ %.sroa.18.0.i, %.loopexit.i ]
-  %.sroa.9.1.i = phi ptr [ %.sroa.9.0.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i" ], [ %.sroa.9.0.i, %2381 ], [ %.sroa.9.3.i, %_ZN4llvm15InstructionCostpLERKS0_.exit41.i ], [ %.sroa.9.0.i, %.loopexit.i ]
-  %.sroa.058.1.i = phi ptr [ %.sroa.058.0.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.argprom.argprom.exit.i" ], [ %.sroa.058.0.i, %2381 ], [ %.sroa.058.3.i, %_ZN4llvm15InstructionCostpLERKS0_.exit41.i ], [ %.sroa.058.0.i, %.loopexit.i ]
+"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.thread.i": ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit41.i, %2381, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i", %.loopexit.i
+  %.sroa.18.1.i = phi ptr [ %.sroa.18.0.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i" ], [ %.sroa.18.0.i, %2381 ], [ %.sroa.18.3.i, %_ZN4llvm15InstructionCostpLERKS0_.exit41.i ], [ %.sroa.18.0.i, %.loopexit.i ]
+  %.sroa.9.1.i = phi ptr [ %.sroa.9.0.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i" ], [ %.sroa.9.0.i, %2381 ], [ %.sroa.9.3.i, %_ZN4llvm15InstructionCostpLERKS0_.exit41.i ], [ %.sroa.9.0.i, %.loopexit.i ]
+  %.sroa.058.1.i = phi ptr [ %.sroa.058.0.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_1clEPN4llvm10BasicBlockE.exit.i" ], [ %.sroa.058.0.i, %2381 ], [ %.sroa.058.3.i, %_ZN4llvm15InstructionCostpLERKS0_.exit41.i ], [ %.sroa.058.0.i, %.loopexit.i ]
   call void @_ZN4llvm11df_iteratorIPNS_10BasicBlockENS_23df_iterator_default_setIS2_Lj8EEELb0ENS_11GraphTraitsIS2_EEE6toNextEv(ptr noundef nonnull align 8 dereferenceable(120) %64)
   %.pre.i = load ptr, ptr %299, align 8
   %.pre118.i = load ptr, ptr %296, align 8
@@ -6223,14 +6223,14 @@ _ZN4llvm15InstructionCostpLERKS0_.exit41.i:       ; preds = %2409, %_ZNSt6vector
   %2414 = load ptr, ptr %2413, align 8
   %2415 = load i8, ptr %2414, align 8
   %2416 = icmp eq i8 %2415, 85
-  br i1 %2416, label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i, label %2417
+  br i1 %2416, label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i, label %2417
 
 2417:                                             ; preds = %2411
   %2418 = icmp eq i8 %2415, 34
   call void @llvm.assume(i1 %2418)
-  br label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i
 
-_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i: ; preds = %2417, %2411
+_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i: ; preds = %2417, %2411
   %2419 = getelementptr inbounds i8, ptr %2414, i64 40
   %2420 = load ptr, ptr %2419, align 8
   %2421 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %242) #16
@@ -6239,11 +6239,11 @@ _ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argpro
   %.not.i.i.i42.i = icmp ugt i64 %2422, %2423
   br i1 %.not.i.i.i42.i, label %2424, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEPNS_10BasicBlockEELb1EE9push_backES6_.exit.i
 
-2424:                                             ; preds = %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i
+2424:                                             ; preds = %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %242, ptr noundef nonnull %243, i64 noundef %2422, i64 noundef 16) #16
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEPNS_10BasicBlockEELb1EE9push_backES6_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEPNS_10BasicBlockEELb1EE9push_backES6_.exit.i: ; preds = %2424, %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEPNS_10BasicBlockEELb1EE9push_backES6_.exit.i: ; preds = %2424, %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i
   %2425 = load ptr, ptr %242, align 8
   %2426 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %242) #16
   %2427 = getelementptr inbounds %"struct.std::pair.486", ptr %2425, i64 %2426
@@ -6272,7 +6272,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i: ; preds = %2430
   %2439 = getelementptr inbounds i8, ptr %2438, i64 48
   %2440 = load ptr, ptr %2439, align 8
   %2441 = call noundef zeroext i1 %2440(ptr noundef nonnull align 8 dereferenceable(32) %2437) #16
-  br i1 %2441, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br i1 %2441, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.exit.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i, %2430
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
@@ -6370,17 +6370,17 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i27, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvENK3$_0clEv.exit.i.i"
   %2467 = load ptr, ptr %317, align 8
   %2468 = icmp eq ptr %2467, %319
-  br i1 %2468, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i", label %2469
+  br i1 %2468, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.exit.i", label %2469
 
 2469:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i
   call void @free(ptr noundef %2467) #16
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.exit.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i": ; preds = %2469, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.exit.i": ; preds = %2469, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %58)
   br label %2470
 
-2470:                                             ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.argprom.exit.i", %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEPNS_10BasicBlockEELb1EE9push_backES6_.exit.i
+2470:                                             ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEvE3$_0EEvT_PDTclfL0p_EE.exit.i", %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8FunctionEPNS_10BasicBlockEELb1EE9push_backES6_.exit.i
   call void @_ZN4llvm26CodeExtractorAnalysisCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %66) #16
   %.not.i.i.i47.i = icmp eq ptr %.sroa.058.0.i, null
   br i1 %.not.i.i.i47.i, label %_ZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner31doSingleRegionFunctionOutliningEv.exit, label %2471
@@ -6432,19 +6432,19 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i: ; preds = %2481, 
   %2483 = load ptr, ptr %.sroa.0.1.i, align 8
   %2484 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 16
   %2485 = icmp eq ptr %2483, %2484
-  br i1 %2485, label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i, label %2486
+  br i1 %2485, label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i, label %2486
 
 2486:                                             ; preds = %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i
   call void @free(ptr noundef %2483) #16
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i: ; preds = %2486, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i: ; preds = %2486, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i, i64 noundef 112) #19
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_121FunctionOutliningInfoESt14default_deleteIS1_EED2Ev.exit.i
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_121FunctionOutliningInfoESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.i, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.thread.i, %.critedge.i
-  %.sroa.035.1.i = phi i1 [ true, %.critedge.i ], [ %.sroa.035.3.i, %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i ], [ false, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.thread.i ], [ false, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.i ]
-  %.sroa.11.1.i = phi ptr [ null, %.critedge.i ], [ %.sroa.11.3.i, %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i.i ], [ null, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.thread.i ], [ null, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom.exit.i ]
+_ZNSt10unique_ptrIN12_GLOBAL__N_121FunctionOutliningInfoESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.i, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.thread.i, %.critedge.i
+  %.sroa.035.1.i = phi i1 [ true, %.critedge.i ], [ %.sroa.035.3.i, %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i ], [ false, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.thread.i ], [ false, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.i ]
+  %.sroa.11.1.i = phi ptr [ null, %.critedge.i ], [ %.sroa.11.3.i, %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i.i ], [ null, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.thread.i ], [ null, %_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.exit.i ]
   %2487 = load ptr, ptr %325, align 8
   %.not.i.i24.i = icmp eq ptr %2487, null
   br i1 %.not.i.i24.i, label %_ZN12_GLOBAL__N_118PartialInlinerImpl16unswitchFunctionERN4llvm8FunctionE.exit, label %_ZNKSt14default_deleteIN4llvm18BlockFrequencyInfoEEclEPS1_.exit.i.i.i
@@ -6985,7 +6985,7 @@ _ZNK12_GLOBAL__N_118PartialInlinerImpl21computeOutliningCostsERNS0_14FunctionClo
   %138 = load i8, ptr %137, align 8
   %139 = trunc i8 %138 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %63)
-  br i1 %139, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.argprom.exit, label %140
+  br i1 %139, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.exit, label %140
 
 140:                                              ; preds = %117
   %141 = load ptr, ptr %.val.i, align 8
@@ -7020,7 +7020,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %140, %161
 
 159:                                              ; preds = %154
   %160 = call noundef zeroext i1 @_ZN4llvm17hasBranchWeightMDERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i.i) #16
-  br i1 %160, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.argprom.exit, label %161
+  br i1 %160, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.exit, label %161
 
 161:                                              ; preds = %159, %154, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i
   %162 = getelementptr inbounds i8, ptr %.01320.i.i, i64 8
@@ -7031,16 +7031,16 @@ _ZL14hasProfileDataRKN4llvm8FunctionERKN12_GLOBAL__N_121FunctionOutliningInfoE.e
   call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %64, i32 noundef 45, i32 noundef 100) #16
   %163 = load i32, ptr %64, align 4
   %164 = icmp ult i32 %135, %163
-  br i1 %164, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.argprom.exit, label %165
+  br i1 %164, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.exit, label %165
 
 165:                                              ; preds = %_ZL14hasProfileDataRKN4llvm8FunctionERKN12_GLOBAL__N_121FunctionOutliningInfoE.exit.i
   %166 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL24OutlineRegionFreqPercent, i64 128), align 8
   call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %65, i32 noundef %166, i32 noundef 100) #16
   %.sroa.0.0.copyload.i.i = load i32, ptr %65, align 4
   %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %135, i32 %.sroa.0.0.copyload.i.i)
-  br label %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.exit
 
-_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.argprom.exit: ; preds = %159, %117, %_ZL14hasProfileDataRKN4llvm8FunctionERKN12_GLOBAL__N_121FunctionOutliningInfoE.exit.i, %165
+_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.exit: ; preds = %159, %117, %_ZL14hasProfileDataRKN4llvm8FunctionERKN12_GLOBAL__N_121FunctionOutliningInfoE.exit.i, %165
   %.sroa.05.0.i = phi i32 [ %135, %_ZL14hasProfileDataRKN4llvm8FunctionERKN12_GLOBAL__N_121FunctionOutliningInfoE.exit.i ], [ %.sroa.speculated.i, %165 ], [ %135, %117 ], [ %135, %159 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65)
@@ -7051,8 +7051,8 @@ _ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14Fu
   %168 = load i32, ptr %66, align 4
   br label %169
 
-169:                                              ; preds = %167, %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.argprom.exit
-  %storemerge = phi i32 [ %168, %167 ], [ %.sroa.05.0.i, %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.argprom.exit ]
+169:                                              ; preds = %167, %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.exit
+  %storemerge = phi i32 [ %168, %167 ], [ %.sroa.05.0.i, %_ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14FunctionClonerE.exit ]
   %170 = icmp ne i32 %.sroa.5.0.lcssa.i, 0
   %.not158 = select i1 %113, i1 true, i1 %170
   %spec.select1.i = select i1 %.not158, i64 undef, i64 %.0.i.i50.i
@@ -7084,21 +7084,21 @@ _ZNK12_GLOBAL__N_118PartialInlinerImpl30getOutliningCallBBRelativeFreqERNS0_14Fu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62)
   %185 = load i8, ptr %.val42.val, align 8, !noalias !134
   %186 = icmp eq i8 %185, 85
-  br i1 %186, label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i, label %187
+  br i1 %186, label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i, label %187
 
 187:                                              ; preds = %179
   %188 = icmp eq i8 %185, 34
   call void @llvm.assume(i1 %188)
-  br label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i
 
-_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i: ; preds = %187, %179
+_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i: ; preds = %187, %179
   %189 = getelementptr inbounds nuw i8, ptr %.val42.val, i64 48
   %190 = load ptr, ptr %189, align 8, !noalias !134
   store ptr %190, ptr %62, align 8, !noalias !134
   %.not.i.i.i.i.i = icmp eq ptr %190, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.thread.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i
 
-_ZN4llvm8DebugLocC2ERKS0_.exit.thread.i:          ; preds = %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i
+_ZN4llvm8DebugLocC2ERKS0_.exit.thread.i:          ; preds = %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i
   %191 = getelementptr inbounds i8, ptr %.val42.val, i64 40
   %192 = load ptr, ptr %191, align 8, !noalias !134
   store ptr %192, ptr %70, align 8, !alias.scope !137
@@ -7106,7 +7106,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.thread.i:          ; preds = %_ZN12_GLOBAL__N_118
   store ptr null, ptr %193, align 8, !alias.scope !137
   br label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i
 
-_ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.argprom.exit.i
+_ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %_ZN12_GLOBAL__N_118PartialInlinerImpl16getOneCallSiteToERN4llvm8FunctionE.exit.i
   %194 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %62, ptr noundef nonnull align 4 dereferenceable(8) %190, i64 1) #16, !noalias !134
   %.pr.i = load ptr, ptr %62, align 8, !noalias !134
   %195 = getelementptr inbounds i8, ptr %.val42.val, i64 40
@@ -7157,7 +7157,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i: ; preds = %_ZNSt5tupleIJN
   %211 = getelementptr inbounds i8, ptr %210, i64 48
   %212 = load ptr, ptr %211, align 8
   %213 = call noundef zeroext i1 %212(ptr noundef nonnull align 8 dereferenceable(32) %209) #16
-  br i1 %213, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+  br i1 %213, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.exit"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i, %_ZNSt5tupleIJN4llvm8DebugLocEPNS0_10BasicBlockEEED2Ev.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
@@ -7308,23 +7308,23 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_0clEv.exit.i"
   %259 = load ptr, ptr %233, align 8
   %260 = icmp eq ptr %259, %235
-  br i1 %260, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.argprom.exit", label %261
+  br i1 %260, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.exit", label %261
 
 261:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i
   call void @free(ptr noundef %259) #16
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.exit"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.argprom.exit": ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i, %261
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.exit": ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i, %261
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %61)
   %262 = load ptr, ptr %69, align 8
   %.not.i.i.i.i = icmp eq ptr %262, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit, label %263
 
-263:                                              ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+263:                                              ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.exit"
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %69, ptr noundef nonnull align 4 dereferenceable(8) %262) #16
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.argprom.exit", %263
+_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_0EEvT_PDTclfL0p_EE.exit", %263
   %264 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %265 = load ptr, ptr %264, align 8
   %.not.i.i52 = icmp eq ptr %265, null
@@ -7987,7 +7987,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i: ; preds = %608
   %616 = getelementptr inbounds i8, ptr %615, i64 48
   %617 = load ptr, ptr %616, align 8
   %618 = call noundef zeroext i1 %617(ptr noundef nonnull align 8 dereferenceable(32) %614) #16
-  br i1 %618, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br i1 %618, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.exit.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i, %608
   call void @llvm.experimental.noalias.scope.decl(metadata !148)
@@ -8079,13 +8079,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i73: ; preds = %.lr.ph.i.i.i.i.i.i.i70, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERN4llvm8CallBaseERNS0_14FunctionClonerENS1_14BlockFrequencyERNS1_25OptimizationRemarkEmitterEENK3$_0clEv.exit.i.i"
   %638 = load ptr, ptr %444, align 8
   %639 = icmp eq ptr %638, %446
-  br i1 %639, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.argprom.exit.i", label %640
+  br i1 %639, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.exit.i", label %640
 
 640:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i73
   call void @free(ptr noundef %638) #16
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.exit.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.argprom.exit.i": ; preds = %640, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i73, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.exit.i": ; preds = %640, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i73, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %46)
   br label %785
 
@@ -8105,7 +8105,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i46.i: ; preds = %641
   %649 = getelementptr inbounds i8, ptr %648, i64 48
   %650 = load ptr, ptr %649, align 8
   %651 = call noundef zeroext i1 %650(ptr noundef nonnull align 8 dereferenceable(32) %647) #16
-  br i1 %651, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i33.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br i1 %651, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i33.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.exit.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i33.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i46.i, %641
   call void @llvm.experimental.noalias.scope.decl(metadata !151)
@@ -8211,13 +8211,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i45.i: ; preds = %.lr.ph.i.i.i.i.i.i42.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERN4llvm8CallBaseERNS0_14FunctionClonerENS1_14BlockFrequencyERNS1_25OptimizationRemarkEmitterEENK3$_1clEv.exit.i.i"
   %671 = load ptr, ptr %426, align 8
   %672 = icmp eq ptr %671, %428
-  br i1 %672, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.argprom.exit.i", label %673
+  br i1 %672, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.exit.i", label %673
 
 673:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i45.i
   call void @free(ptr noundef %671) #16
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.exit.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.argprom.exit.i": ; preds = %673, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i45.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i46.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.exit.i": ; preds = %673, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i45.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i46.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %42)
   br label %785
 
@@ -8242,7 +8242,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i62.i: ; preds = %677
   %685 = getelementptr inbounds i8, ptr %684, i64 48
   %686 = load ptr, ptr %685, align 8
   %687 = call noundef zeroext i1 %686(ptr noundef nonnull align 8 dereferenceable(32) %683) #16
-  br i1 %687, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i48.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br i1 %687, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i48.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i48.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i62.i, %677
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
@@ -8378,13 +8378,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i61.i: ; preds = %.lr.ph.i.i.i.i.i.i58.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERN4llvm8CallBaseERNS0_14FunctionClonerENS1_14BlockFrequencyERNS1_25OptimizationRemarkEmitterEENK3$_2clEv.exit.i.i"
   %709 = load ptr, ptr %475, align 8
   %710 = icmp eq ptr %709, %477
-  br i1 %710, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i", label %711
+  br i1 %710, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i", label %711
 
 711:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i61.i
   call void @free(ptr noundef %709) #16
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i": ; preds = %711, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i61.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i62.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i": ; preds = %711, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i61.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i62.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %36)
   br label %785
 
@@ -8411,7 +8411,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i78.i: ; preds = %717
   %725 = getelementptr inbounds i8, ptr %724, i64 48
   %726 = load ptr, ptr %725, align 8
   %727 = call noundef zeroext i1 %726(ptr noundef nonnull align 8 dereferenceable(32) %723) #16
-  br i1 %727, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i64.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br i1 %727, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i64.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.exit.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i64.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i78.i, %717
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
@@ -8546,13 +8546,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i77.i: ; preds = %.lr.ph.i.i.i.i.i.i74.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERN4llvm8CallBaseERNS0_14FunctionClonerENS1_14BlockFrequencyERNS1_25OptimizationRemarkEmitterEENK3$_3clEv.exit.i.i"
   %747 = load ptr, ptr %536, align 8
   %748 = icmp eq ptr %747, %538
-  br i1 %748, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.argprom.exit.i", label %749
+  br i1 %748, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.exit.i", label %749
 
 749:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i77.i
   call void @free(ptr noundef %747) #16
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.exit.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.argprom.exit.i": ; preds = %749, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i77.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i78.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.exit.i": ; preds = %749, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i77.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i78.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %26)
   br label %785
 
@@ -8572,7 +8572,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i94.i: ; preds = %750
   %758 = getelementptr inbounds i8, ptr %757, i64 48
   %759 = load ptr, ptr %758, align 8
   %760 = call noundef zeroext i1 %759(ptr noundef nonnull align 8 dereferenceable(32) %756) #16
-  br i1 %760, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i80.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br i1 %760, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i80.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.exit.i"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i80.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i94.i, %750
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
@@ -8708,18 +8708,18 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i93.i: ; preds = %.lr.ph.i.i.i.i.i.i90.i, %"_ZZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERN4llvm8CallBaseERNS0_14FunctionClonerENS1_14BlockFrequencyERNS1_25OptimizationRemarkEmitterEENK3$_4clEv.exit.i.i"
   %782 = load ptr, ptr %505, align 8
   %783 = icmp eq ptr %782, %507
-  br i1 %783, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.argprom.exit.i", label %784
+  br i1 %783, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.exit.i", label %784
 
 784:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i93.i
   call void @free(ptr noundef %782) #16
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.argprom.exit.i"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.exit.i"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.argprom.exit.i": ; preds = %784, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i93.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i94.i
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.exit.i": ; preds = %784, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i93.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i94.i
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %16)
   br label %785
 
-785:                                              ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.argprom.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.argprom.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.argprom.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.argprom.exit.i"
-  %.1.i66 = phi i1 [ false, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.argprom.exit.i" ], [ false, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.argprom.exit.i" ], [ false, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.argprom.exit.i" ], [ true, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.argprom.exit.i" ], [ false, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.argprom.exit.i" ]
+785:                                              ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.exit.i", %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.exit.i"
+  %.1.i66 = phi i1 [ false, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_0EEvT_PDTclfL0p_EE.exit.i" ], [ false, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_1EEvT_PDTclfL0p_EE.exit.i" ], [ false, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_3EEvT_PDTclfL0p_EE.exit.i" ], [ true, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_4EEvT_PDTclfL0p_EE.exit.i" ], [ false, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERNS_8CallBaseERNS3_14FunctionClonerENS_14BlockFrequencyERS0_E3$_2EEvT_PDTclfL0p_EE.exit.i" ]
   %786 = load i8, ptr %545, align 8
   %787 = trunc i8 %786 to i1
   br i1 %787, label %788, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERN4llvm8CallBaseERNS0_14FunctionClonerENS1_14BlockFrequencyERNS1_25OptimizationRemarkEmitterE.exit
@@ -8996,7 +8996,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i101: ; preds = %881
   %890 = getelementptr inbounds i8, ptr %889, i64 48
   %891 = load ptr, ptr %890, align 8
   %892 = call noundef zeroext i1 %891(ptr noundef nonnull align 8 dereferenceable(32) %888) #16
-  br i1 %892, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i88, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.argprom.exit"
+  br i1 %892, label %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i88, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.exit"
 
 _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i88: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i101, %881
   %.val.val.i = load ptr, ptr %1, align 8
@@ -9058,13 +9058,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %916 = load ptr, ptr %900, align 8, !noalias !164
   %917 = getelementptr inbounds i8, ptr %3, i64 96
   %918 = icmp eq ptr %916, %917
-  br i1 %918, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.argprom.argprom.exit.i", label %919
+  br i1 %918, label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.exit.i", label %919
 
 919:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i94
   call void @free(ptr noundef %916) #16
-  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.argprom.argprom.exit.i"
+  br label %"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.exit.i"
 
-"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.argprom.argprom.exit.i": ; preds = %919, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i94
+"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.exit.i": ; preds = %919, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i.i94
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %3)
   call void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(424) %4) #16
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %4, align 8
@@ -9073,7 +9073,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %.not4.i.i.i.i.i.i95 = icmp eq i64 %921, 0
   br i1 %.not4.i.i.i.i.i.i95, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i100, label %.lr.ph.i.preheader.i.i.i.i.i96
 
-.lr.ph.i.preheader.i.i.i.i.i96:                   ; preds = %"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.argprom.argprom.exit.i"
+.lr.ph.i.preheader.i.i.i.i.i96:                   ; preds = %"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.exit.i"
   %922 = getelementptr inbounds %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %920, i64 %921
   br label %.lr.ph.i.i.i.i.i.i97
 
@@ -9086,28 +9086,28 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %.not.i.i.i.i.i.i99 = icmp eq ptr %920, %923
   br i1 %.not.i.i.i.i.i.i99, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i100, label %.lr.ph.i.i.i.i.i.i97, !llvm.loop !34
 
-_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i100: ; preds = %.lr.ph.i.i.i.i.i.i97, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.argprom.argprom.exit.i"
+_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i100: ; preds = %.lr.ph.i.i.i.i.i.i97, %"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.exit.i"
   %925 = load ptr, ptr %899, align 8
   %926 = icmp eq ptr %925, %901
-  br i1 %926, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.argprom.exit", label %927
+  br i1 %926, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.exit", label %927
 
 927:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i100
   call void @free(ptr noundef %925) #16
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.argprom.exit"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.exit"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.argprom.exit": ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i101, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i100, %927
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.exit": ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i101, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i100, %927
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %4)
   %928 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %929 = load ptr, ptr %928, align 8
   %.not.i.i102 = icmp eq ptr %929, null
   br i1 %.not.i.i102, label %_ZN4llvm25OptimizationRemarkEmitterD2Ev.exit105, label %_ZNKSt14default_deleteIN4llvm18BlockFrequencyInfoEEclEPS1_.exit.i.i103
 
-_ZNKSt14default_deleteIN4llvm18BlockFrequencyInfoEEclEPS1_.exit.i.i103: ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.argprom.exit"
+_ZNKSt14default_deleteIN4llvm18BlockFrequencyInfoEEclEPS1_.exit.i.i103: ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.exit"
   call void @_ZN4llvm18BlockFrequencyInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %929) #16
   call void @_ZdlPvm(ptr noundef nonnull %929, i64 noundef 8) #19
   br label %_ZN4llvm25OptimizationRemarkEmitterD2Ev.exit105
 
-_ZN4llvm25OptimizationRemarkEmitterD2Ev.exit105:  ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.argprom.exit", %_ZNKSt14default_deleteIN4llvm18BlockFrequencyInfoEEclEPS1_.exit.i.i103
+_ZN4llvm25OptimizationRemarkEmitterD2Ev.exit105:  ; preds = %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS3_14FunctionClonerEE3$_1EEvT_PDTclfL0p_EE.exit", %_ZNKSt14default_deleteIN4llvm18BlockFrequencyInfoEEclEPS1_.exit.i.i103
   store ptr null, ptr %928, align 8
   br label %._crit_edge.thread
 
@@ -9211,17 +9211,17 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionI
   %28 = load ptr, ptr %18, align 8
   %29 = getelementptr inbounds i8, ptr %18, i64 16
   %30 = icmp eq ptr %28, %29
-  br i1 %30, label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i, label %31
+  br i1 %30, label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i, label %31
 
 31:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i
   tail call void @free(ptr noundef %28) #16
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i: ; preds = %31, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i: ; preds = %31, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 432) #19
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm18BlockFrequencyInfoESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm18BlockFrequencyInfoESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit.i
   store ptr null, ptr %17, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
@@ -9245,17 +9245,17 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i: ; preds = %40, %34
   %42 = load ptr, ptr %33, align 8
   %43 = getelementptr inbounds i8, ptr %33, i64 16
   %44 = icmp eq ptr %42, %43
-  br i1 %44, label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i, label %45
+  br i1 %44, label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i, label %45
 
 45:                                               ; preds = %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i
   tail call void @free(ptr noundef %42) #16
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i: ; preds = %45, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i: ; preds = %45, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef 112) #19
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_121FunctionOutliningInfoESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_121FunctionOutliningInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.argprom.exit.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_121FunctionOutliningInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN12_GLOBAL__N_121FunctionOutliningInfoEEclEPS1_.exit.i
   store ptr null, ptr %32, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #16
@@ -9309,17 +9309,17 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionI
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = icmp eq ptr %12, %13
-  br i1 %14, label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit, label %15
+  br i1 %14, label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit, label %15
 
 15:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i
   tail call void @free(ptr noundef %12) #16
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i, %15
+_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfo17OutlineRegionInfoELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i, %15
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 432) #19
   br label %16
 
-16:                                               ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.argprom.exit, %1
+16:                                               ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_132FunctionOutliningMultiRegionInfoEEclEPS1_.exit, %1
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -14476,17 +14476,17 @@ attributes #20 = { nounwind willreturn memory(read) }
 !61 = distinct !{!61, !62, !"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_0clEv: argument 0"}
 !62 = distinct !{!62, !"_ZZN12_GLOBAL__N_118PartialInlinerImpl14FunctionCloner30doMultiRegionFunctionOutliningEvENK3$_0clEv"}
 !63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom: argument 0"}
-!65 = distinct !{!65, !"_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE.argprom"}
+!64 = distinct !{!64, !65, !"_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE: argument 0"}
+!65 = distinct !{!65, !"_ZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionE"}
 !66 = !{!67, !64}
 !67 = distinct !{!67, !68, !"_ZSt11make_uniqueIN12_GLOBAL__N_121FunctionOutliningInfoEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !68 = distinct !{!68, !"_ZSt11make_uniqueIN12_GLOBAL__N_121FunctionOutliningInfoEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !69 = !{!70, !64}
-!70 = distinct !{!70, !71, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_0clEPNS1_10BasicBlockES6_.argprom: argument 0"}
-!71 = distinct !{!71, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_0clEPNS1_10BasicBlockES6_.argprom"}
+!70 = distinct !{!70, !71, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_0clEPNS1_10BasicBlockES6_: argument 0"}
+!71 = distinct !{!71, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_0clEPNS1_10BasicBlockES6_"}
 !72 = !{!73, !64}
-!73 = distinct !{!73, !74, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_1clEPNS1_10BasicBlockES6_.argprom: argument 0"}
-!74 = distinct !{!74, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_1clEPNS1_10BasicBlockES6_.argprom"}
+!73 = distinct !{!73, !74, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_1clEPNS1_10BasicBlockES6_: argument 0"}
+!74 = distinct !{!74, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_1clEPNS1_10BasicBlockES6_"}
 !75 = !{!76, !73, !64}
 !76 = distinct !{!76, !77, !"_ZN4llvm10successorsEPNS_10BasicBlockE: argument 0"}
 !77 = distinct !{!77, !"_ZN4llvm10successorsEPNS_10BasicBlockE"}
@@ -14506,8 +14506,8 @@ attributes #20 = { nounwind willreturn memory(read) }
 !91 = distinct !{!91, !14}
 !92 = distinct !{!92, !14}
 !93 = !{!94, !64}
-!94 = distinct !{!94, !95, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_0clEPNS1_10BasicBlockES6_.argprom: argument 0"}
-!95 = distinct !{!95, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_0clEPNS1_10BasicBlockES6_.argprom"}
+!94 = distinct !{!94, !95, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_0clEPNS1_10BasicBlockES6_: argument 0"}
+!95 = distinct !{!95, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl20computeOutliningInfoERN4llvm8FunctionEENK3$_0clEPNS1_10BasicBlockES6_"}
 !96 = !{!97, !99, !64}
 !97 = distinct !{!97, !98, !"_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E11try_emplaceIJRS5_EEESt4pairINS_16DenseMapIteratorIS3_S5_S7_S9_Lb0EEEbERKS3_DpOT_: argument 0"}
 !98 = distinct !{!98, !"_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E11try_emplaceIJRS5_EEESt4pairINS_16DenseMapIteratorIS3_S5_S7_S9_Lb0EEEbERKS3_DpOT_"}
@@ -14547,8 +14547,8 @@ attributes #20 = { nounwind willreturn memory(read) }
 !132 = distinct !{!132, !133, !"_ZNK12_GLOBAL__N_118PartialInlinerImpl21computeOutliningCostsERNS0_14FunctionClonerE: argument 0"}
 !133 = distinct !{!133, !"_ZNK12_GLOBAL__N_118PartialInlinerImpl21computeOutliningCostsERNS0_14FunctionClonerE"}
 !134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZNK12_GLOBAL__N_118PartialInlinerImpl14getOneDebugLocERN4llvm8FunctionE.argprom.argprom: argument 0"}
-!136 = distinct !{!136, !"_ZNK12_GLOBAL__N_118PartialInlinerImpl14getOneDebugLocERN4llvm8FunctionE.argprom.argprom"}
+!135 = distinct !{!135, !136, !"_ZNK12_GLOBAL__N_118PartialInlinerImpl14getOneDebugLocERN4llvm8FunctionE: argument 0"}
+!136 = distinct !{!136, !"_ZNK12_GLOBAL__N_118PartialInlinerImpl14getOneDebugLocERN4llvm8FunctionE"}
 !137 = !{!138, !135}
 !138 = distinct !{!138, !139, !"_ZSt10make_tupleIJRN4llvm8DebugLocERPNS0_10BasicBlockEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS9_: argument 0:thread"}
 !139 = distinct !{!139, !"_ZSt10make_tupleIJRN4llvm8DebugLocERPNS0_10BasicBlockEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS9_"}
@@ -14577,8 +14577,8 @@ attributes #20 = { nounwind willreturn memory(read) }
 !162 = distinct !{!162, !"_ZZNK12_GLOBAL__N_118PartialInlinerImpl19shouldPartialInlineERN4llvm8CallBaseERNS0_14FunctionClonerENS1_14BlockFrequencyERNS1_25OptimizationRemarkEmitterEENK3$_4clEv"}
 !163 = distinct !{!163, !14}
 !164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.argprom.argprom: argument 0"}
-!166 = distinct !{!166, !"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv.argprom.argprom"}
+!165 = distinct !{!165, !166, !"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv: argument 0"}
+!166 = distinct !{!166, !"_ZZN12_GLOBAL__N_118PartialInlinerImpl16tryPartialInlineERNS0_14FunctionClonerEENK3$_1clEv"}
 !167 = !{!168}
 !168 = distinct !{!168, !169, !"_ZNK4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEE5beginEv: argument 0"}
 !169 = distinct !{!169, !"_ZNK4llvm14iterator_rangeINS_20filter_iterator_implINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEESt8functionIFbRS5_EESt26bidirectional_iterator_tagEEE5beginEv"}

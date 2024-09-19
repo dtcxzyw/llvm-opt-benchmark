@@ -447,7 +447,7 @@ dissect_fc_sbccs_sb3_iu_hdr.exit:                 ; preds = %30, %40
 
 68:                                               ; preds = %67
   %.not.i70 = icmp eq ptr %.064, null
-  br i1 %.not.i70, label %dissect_fc_sbccs_dib_data_hdr.argprom.exit, label %69
+  br i1 %.not.i70, label %dissect_fc_sbccs_dib_data_hdr.exit, label %69
 
 69:                                               ; preds = %68
   %70 = load i32, ptr @hf_sbccs_dib_iucnt, align 4
@@ -456,7 +456,7 @@ dissect_fc_sbccs_sb3_iu_hdr.exit:                 ; preds = %30, %40
   %73 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %72, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
   %74 = load i32, ptr @hf_sbccs_lrc, align 4
   %75 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %74, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
-  br label %dissect_fc_sbccs_dib_data_hdr.argprom.exit
+  br label %dissect_fc_sbccs_dib_data_hdr.exit
 
 76:                                               ; preds = %67, %67
   %.val = load ptr, ptr %5, align 8
@@ -465,7 +465,7 @@ dissect_fc_sbccs_sb3_iu_hdr.exit:                 ; preds = %30, %40
   %79 = tail call ptr @val_to_str(i32 noundef %78, ptr noundef nonnull @fc_sbccs_dib_cmd_val, ptr noundef nonnull @.str.204) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.208, ptr noundef %79) #3
   %.not.i71 = icmp eq ptr %.064, null
-  br i1 %.not.i71, label %dissect_fc_sbccs_dib_data_hdr.argprom.exit, label %80
+  br i1 %.not.i71, label %dissect_fc_sbccs_dib_data_hdr.exit, label %80
 
 80:                                               ; preds = %76
   %81 = load i32, ptr @hf_sbccs_dib_ccw_cmd, align 4
@@ -490,7 +490,7 @@ dissect_fc_sbccs_sb3_iu_hdr.exit:                 ; preds = %30, %40
   %100 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %99, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
   %101 = load i32, ptr @hf_sbccs_lrc, align 4
   %102 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %101, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
-  br label %dissect_fc_sbccs_dib_data_hdr.argprom.exit
+  br label %dissect_fc_sbccs_dib_data_hdr.exit
 
 103:                                              ; preds = %67
   %.not.i72 = icmp eq ptr %.064, null
@@ -630,12 +630,12 @@ dissect_status.exit.i:                            ; preds = %147, %145
 172:                                              ; preds = %161, %103
   %173 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 26) #3
   %.not53.i = icmp eq i16 %173, 0
-  br i1 %.not53.i, label %dissect_fc_sbccs_dib_data_hdr.argprom.exit, label %174
+  br i1 %.not53.i, label %dissect_fc_sbccs_dib_data_hdr.exit, label %174
 
 174:                                              ; preds = %172
   %175 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 32) #3
   %176 = tail call i32 @call_data_dissector(ptr noundef %175, ptr noundef nonnull %1, ptr noundef %.064) #3
-  br label %dissect_fc_sbccs_dib_data_hdr.argprom.exit
+  br label %dissect_fc_sbccs_dib_data_hdr.exit
 
 177:                                              ; preds = %67
   %178 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #3
@@ -644,7 +644,7 @@ dissect_status.exit.i:                            ; preds = %147, %145
   %181 = tail call ptr @val_to_str(i32 noundef %180, ptr noundef nonnull @fc_sbccs_dib_ctl_fn_val, ptr noundef nonnull @.str.204) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %179, i32 noundef 25, ptr noundef nonnull @.str.208, ptr noundef %181) #3
   %.not.i73 = icmp eq ptr %.064, null
-  br i1 %.not.i73, label %dissect_fc_sbccs_dib_data_hdr.argprom.exit, label %182
+  br i1 %.not.i73, label %dissect_fc_sbccs_dib_data_hdr.exit, label %182
 
 182:                                              ; preds = %177
   %183 = load i32, ptr @hf_sbccs_dib_ctlfn, align 4
@@ -686,12 +686,12 @@ dissect_status.exit.i:                            ; preds = %147, %145
   %205 = load i32, ptr @hf_sbccs_lrc, align 4
   %206 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %205, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
   %207 = icmp eq i8 %178, -48
-  br i1 %207, label %208, label %dissect_fc_sbccs_dib_data_hdr.argprom.exit
+  br i1 %207, label %208, label %dissect_fc_sbccs_dib_data_hdr.exit
 
 208:                                              ; preds = %200
   %209 = load i32, ptr @hf_sbccs_prg_rsp_errcode, align 4
   %210 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %209, ptr noundef %0, i32 noundef 76, i32 noundef 1, i32 noundef 0) #3
-  br label %dissect_fc_sbccs_dib_data_hdr.argprom.exit
+  br label %dissect_fc_sbccs_dib_data_hdr.exit
 
 211:                                              ; preds = %67
   %212 = load ptr, ptr %5, align 8
@@ -700,7 +700,7 @@ dissect_status.exit.i:                            ; preds = %147, %145
   %215 = tail call ptr @val_to_str(i32 noundef %214, ptr noundef nonnull @fc_sbccs_dib_link_ctl_fn_val, ptr noundef nonnull @.str.204) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %212, i32 noundef 25, ptr noundef nonnull @.str.208, ptr noundef %215) #3
   %.not.i74 = icmp eq ptr %.064, null
-  br i1 %.not.i74, label %dissect_fc_sbccs_dib_data_hdr.argprom.exit, label %216
+  br i1 %.not.i74, label %dissect_fc_sbccs_dib_data_hdr.exit, label %216
 
 216:                                              ; preds = %211
   %217 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 17) #3
@@ -756,13 +756,13 @@ dissect_status.exit.i:                            ; preds = %147, %145
   %248 = load i32, ptr @hf_sbccs_lrc, align 4
   %249 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.064, i32 noundef %248, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
   %250 = icmp eq i8 %217, 1
-  br i1 %250, label %251, label %dissect_fc_sbccs_dib_data_hdr.argprom.exit
+  br i1 %250, label %251, label %dissect_fc_sbccs_dib_data_hdr.exit
 
 251:                                              ; preds = %241
   %252 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 26) #3
   %253 = zext i16 %252 to i32
   %.not59.i = icmp eq i16 %252, 0
-  br i1 %.not59.i, label %dissect_fc_sbccs_dib_data_hdr.argprom.exit, label %.lr.ph.i
+  br i1 %.not59.i, label %dissect_fc_sbccs_dib_data_hdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %251
   %254 = getelementptr inbounds i8, ptr %1, i64 408
@@ -781,20 +781,20 @@ dissect_status.exit.i:                            ; preds = %147, %145
   %263 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef nonnull %.064, i32 noundef %256, ptr noundef %0, i32 noundef %.05557.i, i32 noundef 4, ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef %257, i32 noundef %260, ptr noundef %262) #3
   %264 = add nuw nsw i32 %.05557.i, 4
   %265 = icmp ult i32 %258, %253
-  br i1 %265, label %255, label %dissect_fc_sbccs_dib_data_hdr.argprom.exit, !llvm.loop !4
+  br i1 %265, label %255, label %dissect_fc_sbccs_dib_data_hdr.exit, !llvm.loop !4
 
 266:                                              ; preds = %67
   %267 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 16) #3
   %268 = tail call i32 @call_data_dissector(ptr noundef %267, ptr noundef nonnull %1, ptr noundef %.064) #3
-  br label %dissect_fc_sbccs_dib_data_hdr.argprom.exit
+  br label %dissect_fc_sbccs_dib_data_hdr.exit
 
-dissect_fc_sbccs_dib_data_hdr.argprom.exit:       ; preds = %255, %251, %241, %211, %208, %200, %177, %174, %172, %80, %76, %69, %68, %266
+dissect_fc_sbccs_dib_data_hdr.exit:               ; preds = %255, %251, %241, %211, %208, %200, %177, %174, %172, %80, %76, %69, %68, %266
   %269 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
   %270 = and i8 %269, 7
   %.not68 = icmp eq i8 %270, 3
   br i1 %.not68, label %277, label %271
 
-271:                                              ; preds = %dissect_fc_sbccs_dib_data_hdr.argprom.exit
+271:                                              ; preds = %dissect_fc_sbccs_dib_data_hdr.exit
   %272 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
   %273 = and i8 %272, 7
   %.not69 = icmp eq i8 %273, 5
@@ -805,7 +805,7 @@ dissect_fc_sbccs_dib_data_hdr.argprom.exit:       ; preds = %255, %251, %241, %2
   %276 = tail call i32 @call_data_dissector(ptr noundef %275, ptr noundef nonnull %1, ptr noundef %2) #3
   br label %277
 
-277:                                              ; preds = %274, %271, %dissect_fc_sbccs_dib_data_hdr.argprom.exit
+277:                                              ; preds = %274, %271, %dissect_fc_sbccs_dib_data_hdr.exit
   %278 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %278
 }

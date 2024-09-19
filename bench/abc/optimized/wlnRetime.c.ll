@@ -473,13 +473,13 @@ Vec_IntFill.exit:                                 ; preds = %49, %Vec_IntGrow.ex
 70:                                               ; preds = %65
   %71 = load ptr, ptr %69, align 8
   %72 = getelementptr inbounds i32, ptr %71, i64 %indvars.iv
-  br label %Wln_ObjFanin.argprom.exit
+  br label %Wln_ObjFanin.exit
 
 73:                                               ; preds = %65
   %74 = getelementptr inbounds [2 x i32], ptr %69, i64 0, i64 %indvars.iv
-  br label %Wln_ObjFanin.argprom.exit
+  br label %Wln_ObjFanin.exit
 
-Wln_ObjFanin.argprom.exit:                        ; preds = %70, %73
+Wln_ObjFanin.exit:                                ; preds = %70, %73
   %.in.i = phi ptr [ %72, %70 ], [ %74, %73 ]
   %75 = load i32, ptr %.in.i, align 4
   %76 = load i32, ptr %31, align 4
@@ -487,11 +487,11 @@ Wln_ObjFanin.argprom.exit:                        ; preds = %70, %73
   %78 = icmp eq i32 %76, %77
   br i1 %78, label %79, label %.Vec_IntGrow.exit10_crit_edge.i
 
-.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Wln_ObjFanin.argprom.exit
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Wln_ObjFanin.exit
   %.pre.i = load ptr, ptr %33, align 8
   br label %Vec_IntPush.exit
 
-79:                                               ; preds = %Wln_ObjFanin.argprom.exit
+79:                                               ; preds = %Wln_ObjFanin.exit
   %80 = icmp slt i32 %76, 16
   br i1 %80, label %81, label %88
 
@@ -1415,19 +1415,19 @@ Vec_IntGrow.exit:                                 ; preds = %Wln_NtkCleanRefs.ex
 75:                                               ; preds = %.lr.ph123
   %76 = load ptr, ptr %74, align 8
   %77 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv128
-  br label %Wln_ObjFanin.argprom.exit
+  br label %Wln_ObjFanin.exit
 
 78:                                               ; preds = %.lr.ph123
   %79 = getelementptr inbounds [2 x i32], ptr %74, i64 0, i64 %indvars.iv128
-  br label %Wln_ObjFanin.argprom.exit
+  br label %Wln_ObjFanin.exit
 
-Wln_ObjFanin.argprom.exit:                        ; preds = %75, %78
+Wln_ObjFanin.exit:                                ; preds = %75, %78
   %.in.i = phi ptr [ %77, %75 ], [ %79, %78 ]
   %80 = load i32, ptr %.in.i, align 4
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %172, label %81
 
-81:                                               ; preds = %Wln_ObjFanin.argprom.exit
+81:                                               ; preds = %Wln_ObjFanin.exit
   %.val86 = load ptr, ptr %62, align 8
   %82 = getelementptr inbounds i32, ptr %.val86, i64 %indvars.iv131
   %83 = load i32, ptr %82, align 4
@@ -1608,7 +1608,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %80, ptr %171, align 4
   br label %172
 
-172:                                              ; preds = %Wln_ObjFanin.argprom.exit, %Vec_IntPushTwo.exit, %99
+172:                                              ; preds = %Wln_ObjFanin.exit, %Vec_IntPushTwo.exit, %99
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %.val85 = load ptr, ptr %61, align 8
   %173 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val85, i64 %indvars.iv131, i32 1
@@ -2591,7 +2591,7 @@ define void @Wln_RetFindSources_rec(ptr nocapture noundef %0, i32 noundef %1) lo
   %6 = getelementptr inbounds i32, ptr %.val44, i64 %5
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 3
-  br i1 %.not, label %Wln_ObjCheckTravId.argprom.exit, label %8
+  br i1 %.not, label %Wln_ObjCheckTravId.exit, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %3, i64 176
@@ -2601,7 +2601,7 @@ define void @Wln_RetFindSources_rec(ptr nocapture noundef %0, i32 noundef %1) lo
   %11 = getelementptr inbounds i32, ptr %.val46, i64 %5
   %12 = load i32, ptr %11, align 4
   %.not.i = icmp eq i32 %12, %.val45
-  br i1 %.not.i, label %Wln_ObjCheckTravId.argprom.exit, label %13
+  br i1 %.not.i, label %Wln_ObjCheckTravId.exit, label %13
 
 13:                                               ; preds = %8
   store i32 %.val45, ptr %11, align 4
@@ -2687,7 +2687,7 @@ define void @Wln_RetFindSources_rec(ptr nocapture noundef %0, i32 noundef %1) lo
 
 .critedge:                                        ; preds = %51, %13
   %58 = icmp eq i32 %16, %19
-  br i1 %58, label %59, label %Wln_ObjCheckTravId.argprom.exit
+  br i1 %58, label %59, label %Wln_ObjCheckTravId.exit
 
 59:                                               ; preds = %.critedge
   %60 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2757,9 +2757,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %90 = sext i32 %88 to i64
   %91 = getelementptr inbounds i32, ptr %87, i64 %90
   store i32 %1, ptr %91, align 4
-  br label %Wln_ObjCheckTravId.argprom.exit
+  br label %Wln_ObjCheckTravId.exit
 
-Wln_ObjCheckTravId.argprom.exit:                  ; preds = %8, %2, %Vec_IntPush.exit, %.critedge
+Wln_ObjCheckTravId.exit:                          ; preds = %8, %2, %Vec_IntPush.exit, %.critedge
   ret void
 }
 
@@ -2902,27 +2902,27 @@ define range(i32 0, 2) i32 @Wln_RetMarkPaths_rec(ptr noundef %0, i32 noundef %1,
 22:                                               ; preds = %.lr.ph
   %23 = load ptr, ptr %21, align 8
   %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
-  br label %Wln_ObjFanin.argprom.exit
+  br label %Wln_ObjFanin.exit
 
 25:                                               ; preds = %.lr.ph
   %26 = getelementptr inbounds [2 x i32], ptr %21, i64 0, i64 %indvars.iv
-  br label %Wln_ObjFanin.argprom.exit
+  br label %Wln_ObjFanin.exit
 
-Wln_ObjFanin.argprom.exit:                        ; preds = %22, %25
+Wln_ObjFanin.exit:                                ; preds = %22, %25
   %.in.i = phi ptr [ %24, %22 ], [ %26, %25 ]
   %27 = load i32, ptr %.in.i, align 4
   %.not43 = icmp eq i32 %27, 0
   br i1 %.not43, label %31, label %28
 
-28:                                               ; preds = %Wln_ObjFanin.argprom.exit
+28:                                               ; preds = %Wln_ObjFanin.exit
   %29 = tail call i32 @Wln_RetMarkPaths_rec(ptr noundef nonnull %0, i32 noundef %27, i32 noundef %2)
   %30 = and i32 %29, %.064
   %.val47.pre = load ptr, ptr %15, align 8
   br label %31
 
-31:                                               ; preds = %28, %Wln_ObjFanin.argprom.exit
-  %.val47 = phi ptr [ %.val47.pre, %28 ], [ %.val4767, %Wln_ObjFanin.argprom.exit ]
-  %.1 = phi i32 [ %30, %28 ], [ %.064, %Wln_ObjFanin.argprom.exit ]
+31:                                               ; preds = %28, %Wln_ObjFanin.exit
+  %.val47 = phi ptr [ %.val47.pre, %28 ], [ %.val4767, %Wln_ObjFanin.exit ]
+  %.1 = phi i32 [ %30, %28 ], [ %.064, %Wln_ObjFanin.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val47, i64 %6, i32 1
   %33 = load i32, ptr %32, align 4
@@ -3147,8 +3147,8 @@ Wln_NtkIncrementTravId.exit38:                    ; preds = %Wln_NtkIncrementTra
   %67 = icmp slt i64 %indvars.iv.next, %66
   br i1 %67, label %59, label %.critedge.preheader, !llvm.loop !30
 
-68:                                               ; preds = %.lr.ph45, %Wln_ObjFanin0.argprom.exit
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next48, %Wln_ObjFanin0.argprom.exit ]
+68:                                               ; preds = %.lr.ph45, %Wln_ObjFanin0.exit
+  %indvars.iv47 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next48, %Wln_ObjFanin0.exit ]
   %.val25 = load ptr, ptr %57, align 8
   %69 = getelementptr inbounds i32, ptr %.val25, i64 %indvars.iv47
   %70 = load i32, ptr %69, align 4
@@ -3158,13 +3158,13 @@ Wln_NtkIncrementTravId.exit38:                    ; preds = %Wln_NtkIncrementTra
   %73 = load i32, ptr %72, align 4
   %74 = icmp sgt i32 %73, 2
   %75 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val26, i64 %71, i32 2
-  br i1 %74, label %76, label %Wln_ObjFanin0.argprom.exit
+  br i1 %74, label %76, label %Wln_ObjFanin0.exit
 
 76:                                               ; preds = %68
   %77 = load ptr, ptr %75, align 8
-  br label %Wln_ObjFanin0.argprom.exit
+  br label %Wln_ObjFanin0.exit
 
-Wln_ObjFanin0.argprom.exit:                       ; preds = %68, %76
+Wln_ObjFanin0.exit:                               ; preds = %68, %76
   %.in.i.i = phi ptr [ %77, %76 ], [ %75, %68 ]
   %78 = load i32, ptr %.in.i.i, align 4
   %79 = tail call i32 @Wln_RetMarkPaths_rec(ptr noundef nonnull %0, i32 noundef %78, i32 noundef %1)
@@ -3176,7 +3176,7 @@ Wln_ObjFanin0.argprom.exit:                       ; preds = %68, %76
   %82 = icmp slt i64 %indvars.iv.next48, %81
   br i1 %82, label %68, label %.critedge2, !llvm.loop !31
 
-.critedge2:                                       ; preds = %Wln_ObjFanin0.argprom.exit, %.critedge.preheader
+.critedge2:                                       ; preds = %Wln_ObjFanin0.exit, %.critedge.preheader
   ret void
 }
 
@@ -4862,9 +4862,9 @@ Wln_NtkCleanInstId.exit:                          ; preds = %40, %Vec_IntGrow.ex
   %72 = load i32, ptr %71, align 4
   %73 = icmp sgt i32 %72, 2
   %74 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val62, i64 %70, i32 2
-  br i1 %73, label %Wln_ObjFanin0.argprom.exit, label %Wln_ObjFanin0.argprom.exit.thread
+  br i1 %73, label %Wln_ObjFanin0.exit, label %Wln_ObjFanin0.exit.thread
 
-Wln_ObjFanin0.argprom.exit:                       ; preds = %67
+Wln_ObjFanin0.exit:                               ; preds = %67
   %75 = load ptr, ptr %74, align 8
   %76 = load i32, ptr %75, align 4
   %.val = load ptr, ptr %52, align 8
@@ -4872,27 +4872,27 @@ Wln_ObjFanin0.argprom.exit:                       ; preds = %67
   %78 = getelementptr inbounds i32, ptr %.val, i64 %77
   %79 = load i32, ptr %78, align 4
   %.not43 = icmp eq i32 %79, 75
-  br i1 %.not43, label %85, label %Wln_ObjFanin0.argprom.exit70
+  br i1 %.not43, label %85, label %Wln_ObjFanin0.exit70
 
-Wln_ObjFanin0.argprom.exit.thread:                ; preds = %67
+Wln_ObjFanin0.exit.thread:                        ; preds = %67
   %80 = load i32, ptr %74, align 4
   %.val72 = load ptr, ptr %52, align 8
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i32, ptr %.val72, i64 %81
   %83 = load i32, ptr %82, align 4
   %.not4373 = icmp eq i32 %83, 75
-  br i1 %.not4373, label %85, label %Wln_ObjFanin0.argprom.exit70
+  br i1 %.not4373, label %85, label %Wln_ObjFanin0.exit70
 
-Wln_ObjFanin0.argprom.exit70:                     ; preds = %Wln_ObjFanin0.argprom.exit, %Wln_ObjFanin0.argprom.exit.thread
-  %.pre-phi = phi i64 [ %81, %Wln_ObjFanin0.argprom.exit.thread ], [ %77, %Wln_ObjFanin0.argprom.exit ]
+Wln_ObjFanin0.exit70:                             ; preds = %Wln_ObjFanin0.exit, %Wln_ObjFanin0.exit.thread
+  %.pre-phi = phi i64 [ %81, %Wln_ObjFanin0.exit.thread ], [ %77, %Wln_ObjFanin0.exit ]
   %.val67 = load ptr, ptr %53, align 8
   %84 = getelementptr inbounds i32, ptr %.val67, i64 %.pre-phi
   store i32 1, ptr %84, align 4
   %.val59.pre = load i32, ptr %48, align 4
   br label %85
 
-85:                                               ; preds = %Wln_ObjFanin0.argprom.exit.thread, %Wln_ObjFanin0.argprom.exit, %Wln_ObjFanin0.argprom.exit70
-  %.val59 = phi i32 [ %.val5993, %Wln_ObjFanin0.argprom.exit.thread ], [ %.val5993, %Wln_ObjFanin0.argprom.exit ], [ %.val59.pre, %Wln_ObjFanin0.argprom.exit70 ]
+85:                                               ; preds = %Wln_ObjFanin0.exit.thread, %Wln_ObjFanin0.exit, %Wln_ObjFanin0.exit70
+  %.val59 = phi i32 [ %.val5993, %Wln_ObjFanin0.exit.thread ], [ %.val5993, %Wln_ObjFanin0.exit ], [ %.val59.pre, %Wln_ObjFanin0.exit70 ]
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %86 = sext i32 %.val59 to i64
   %87 = icmp slt i64 %indvars.iv.next89, %86
@@ -5273,7 +5273,7 @@ Wln_RetCheckBackward.exit:                        ; preds = %Wln_RetCheckBackwar
   %165 = icmp sgt i32 %.val147, 0
   %166 = icmp sgt i32 %.val149, 0
   %167 = select i1 %165, i1 %166, i1 false
-  br i1 %167, label %.lr.ph.i172, label %Vec_IntTwoCountCommon.argprom.exit.thread
+  br i1 %167, label %.lr.ph.i172, label %Vec_IntTwoCountCommon.exit.thread
 
 .lr.ph.i172:                                      ; preds = %160, %181
   %.07.i = phi i32 [ %.1.i, %181 ], [ 0, %160 ]
@@ -5309,20 +5309,20 @@ Wln_RetCheckBackward.exit:                        ; preds = %Wln_RetCheckBackwar
   %182 = icmp ult ptr %.120.i, %162
   %183 = icmp ult ptr %.122.i, %164
   %184 = select i1 %182, i1 %183, i1 false
-  br i1 %184, label %.lr.ph.i172, label %Vec_IntTwoCountCommon.argprom.exit, !llvm.loop !46
+  br i1 %184, label %.lr.ph.i172, label %Vec_IntTwoCountCommon.exit, !llvm.loop !46
 
-Vec_IntTwoCountCommon.argprom.exit:               ; preds = %181
+Vec_IntTwoCountCommon.exit:                       ; preds = %181
   %.not128 = icmp eq i32 %.1.i, 0
-  br i1 %.not128, label %Vec_IntTwoCountCommon.argprom.exit.thread, label %.loopexit.sink.split
+  br i1 %.not128, label %Vec_IntTwoCountCommon.exit.thread, label %.loopexit.sink.split
 
-Vec_IntTwoCountCommon.argprom.exit.thread:        ; preds = %160, %Vec_IntTwoCountCommon.argprom.exit
+Vec_IntTwoCountCommon.exit.thread:                ; preds = %160, %Vec_IntTwoCountCommon.exit
   %185 = add nuw nsw i32 %.0111, 1
   store i32 0, ptr %59, align 4
   %186 = icmp ne i32 %.0120, 0
   %or.cond3 = and i1 %186, %155
   br i1 %or.cond3, label %193, label %187
 
-187:                                              ; preds = %Vec_IntTwoCountCommon.argprom.exit.thread
+187:                                              ; preds = %Vec_IntTwoCountCommon.exit.thread
   %188 = icmp ne i32 %.0118, 0
   %or.cond5 = and i1 %188, %157
   br i1 %or.cond5, label %199, label %189
@@ -5338,7 +5338,7 @@ Vec_IntTwoCountCommon.argprom.exit.thread:        ; preds = %160, %Vec_IntTwoCou
   %or.cond243 = select i1 %or.cond9, i1 %192, i1 false
   br i1 %or.cond243, label %193, label %199
 
-193:                                              ; preds = %191, %189, %Vec_IntTwoCountCommon.argprom.exit.thread
+193:                                              ; preds = %191, %189, %Vec_IntTwoCountCommon.exit.thread
   tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %7, ptr noundef nonnull %5)
   %.val1925.i = load i32, ptr %59, align 4
   %194 = icmp sgt i32 %.val1925.i, 0
@@ -5491,8 +5491,8 @@ Vec_IntPrint.exit231:                             ; preds = %.lr.ph.i226, %Vec_I
 Vec_IntGrow.exit.backedge:                        ; preds = %244, %234, %231
   br label %Vec_IntGrow.exit, !llvm.loop !48
 
-.loopexit.sink.split:                             ; preds = %Vec_IntTwoCountCommon.argprom.exit, %Wln_RetCheckBackward.exit
-  %str.5.sink = phi ptr [ @str.4, %Wln_RetCheckBackward.exit ], [ @str.5, %Vec_IntTwoCountCommon.argprom.exit ]
+.loopexit.sink.split:                             ; preds = %Vec_IntTwoCountCommon.exit, %Wln_RetCheckBackward.exit
+  %str.5.sink = phi ptr [ @str.4, %Wln_RetCheckBackward.exit ], [ @str.5, %Vec_IntTwoCountCommon.exit ]
   %puts131 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.5.sink)
   br label %.loopexit
 

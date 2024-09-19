@@ -3885,12 +3885,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37.i: 
 
 71:                                               ; preds = %.sink.split.i, %47
   %72 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  br i1 %72, label %_ZL11loadHistoryPKc.argprom.exit, label %73
+  br i1 %72, label %_ZL11loadHistoryPKc.exit, label %73
 
 73:                                               ; preds = %71
   %74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   invoke void @ic_set_history(ptr noundef %74, i64 noundef -1)
-          to label %_ZL11loadHistoryPKc.argprom.exit unwind label %75
+          to label %_ZL11loadHistoryPKc.exit unwind label %75
 
 75:                                               ; preds = %73
   %76 = landingpad { ptr, i32 }
@@ -3903,7 +3903,7 @@ common.resume:                                    ; preds = %82, %145, %.body.i,
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
   resume { ptr, i32 } %common.resume.op
 
-_ZL11loadHistoryPKc.argprom.exit:                 ; preds = %71, %73
+_ZL11loadHistoryPKc.exit:                         ; preds = %71, %73
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -3919,7 +3919,7 @@ _ZL11loadHistoryPKc.argprom.exit:                 ; preds = %71, %73
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #23
   br label %77
 
-77:                                               ; preds = %_ZNSt10unique_ptrIcPFvPvEED2Ev.exit, %_ZL11loadHistoryPKc.argprom.exit
+77:                                               ; preds = %_ZNSt10unique_ptrIcPFvPvEED2Ev.exit, %_ZL11loadHistoryPKc.exit
   %78 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #23
   %79 = select i1 %78, ptr @.str.118, ptr @.str.119
   %80 = invoke ptr @ic_readline(ptr noundef nonnull %79)

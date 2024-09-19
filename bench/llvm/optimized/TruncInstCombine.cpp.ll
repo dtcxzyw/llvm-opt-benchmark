@@ -2491,7 +2491,7 @@ define dso_local noundef ptr @_ZN4llvm16TruncInstCombine17getReducedOperandEPNS_
   %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i32 %8, -2
   %.not1.i = icmp eq ptr %.val, null
   %.not.i = or i1 %.not1.i, %spec.select.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit, label %9
+  br i1 %.not.i, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 32
@@ -2501,15 +2501,15 @@ define dso_local noundef ptr @_ZN4llvm16TruncInstCombine17getReducedOperandEPNS_
   %.sroa.0.0.insert.ext.i.i.i = zext i32 %11 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
   %13 = tail call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %2, i64 %.sroa.0.0.insert.insert.i.i.i) #13
-  br label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit
+  br label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit
 
-_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit: ; preds = %3, %9
+_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit: ; preds = %3, %9
   %.0.i = phi ptr [ %13, %9 ], [ %2, %3 ]
   %14 = load i8, ptr %1, align 8
   %15 = icmp ugt i8 %14, 21
   br i1 %15, label %23, label %16
 
-16:                                               ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit
+16:                                               ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit
   %17 = tail call noundef ptr @_ZN4llvm12ConstantExpr8getTruncEPNS_8ConstantEPNS_4TypeEb(ptr noundef nonnull %1, ptr noundef %.0.i, i1 noundef zeroext false) #13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -2518,7 +2518,7 @@ _ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit: ; preds = %3, %9
   %22 = tail call noundef ptr @_ZN4llvm20ConstantFoldConstantEPKNS_8ConstantERKNS_10DataLayoutEPKNS_17TargetLibraryInfoE(ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(512) %19, ptr noundef %21) #13
   br label %_ZNK4llvm9MapVectorIPNS_11InstructionENS_16TruncInstCombine4InfoENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S4_ELj0EEEE6lookupERKS2_.exit
 
-23:                                               ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit
+23:                                               ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2687,7 +2687,7 @@ define dso_local void @_ZN4llvm16TruncInstCombine21ReduceExpressionGraphEPNS_4Ty
   %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i32 %52, -2
   %.not1.i = icmp eq ptr %.val119, null
   %.not.i = or i1 %.not1.i, %spec.select.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit, label %53
+  br i1 %.not.i, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit, label %53
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %.val119, i64 32
@@ -2697,9 +2697,9 @@ define dso_local void @_ZN4llvm16TruncInstCombine21ReduceExpressionGraphEPNS_4Ty
   %.sroa.0.0.insert.ext.i.i.i = zext i32 %55 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
   %57 = call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %1, i64 %.sroa.0.0.insert.insert.i.i.i) #13
-  br label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit
+  br label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit
 
-_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit: ; preds = %47, %53
+_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit: ; preds = %47, %53
   %.0.i = phi ptr [ %57, %53 ], [ %1, %47 ]
   %58 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %59 = load i32, ptr %58, align 4
@@ -2707,7 +2707,7 @@ _ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit: ; preds = %47, %53
   %.not.i.i = icmp eq i32 %60, 0
   br i1 %.not.i.i, label %_ZNK4llvm4User10getOperandEj.exit, label %_ZNK4llvm4User10getOperandEj.exit.thread
 
-_ZNK4llvm4User10getOperandEj.exit:                ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit
+_ZNK4llvm4User10getOperandEj.exit:                ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit
   %61 = and i32 %59, 134217727
   %62 = zext nneg i32 %61 to i64
   %63 = sub nsw i64 0, %62
@@ -2718,7 +2718,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %_ZL14getReducedType
   %68 = icmp eq ptr %67, %.0.i
   br i1 %68, label %_ZNK4llvm4User10getOperandEj.exit121, label %_ZNK4llvm4User10getOperandEj.exit123
 
-_ZNK4llvm4User10getOperandEj.exit.thread:         ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit
+_ZNK4llvm4User10getOperandEj.exit.thread:         ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit
   %69 = getelementptr inbounds i8, ptr %42, i64 -8
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %70, align 8
@@ -3152,7 +3152,7 @@ _ZNK4llvm4User10getOperandEj.exit145:             ; preds = %285, %288
   %spec.select.i.i.i.i.i.i.i.i.i146 = icmp ult i32 %303, -2
   %.not1.i147 = icmp eq ptr %.val, null
   %.not.i148 = or i1 %.not1.i147, %spec.select.i.i.i.i.i.i.i.i.i146
-  br i1 %.not.i148, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit153, label %304
+  br i1 %.not.i148, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit153, label %304
 
 304:                                              ; preds = %298
   %305 = getelementptr inbounds nuw i8, ptr %.val, i64 32
@@ -3162,9 +3162,9 @@ _ZNK4llvm4User10getOperandEj.exit145:             ; preds = %285, %288
   %.sroa.0.0.insert.ext.i.i.i150 = zext i32 %306 to i64
   %.sroa.0.0.insert.insert.i.i.i151 = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i149, %.sroa.0.0.insert.ext.i.i.i150
   %308 = call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %1, i64 %.sroa.0.0.insert.insert.i.i.i151) #13
-  br label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit153
+  br label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit153
 
-_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit153: ; preds = %298, %304
+_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit153: ; preds = %298, %304
   %.0.i152 = phi ptr [ %308, %304 ], [ %1, %298 ]
   %309 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %310 = load i32, ptr %309, align 4
@@ -3177,11 +3177,11 @@ _ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit153: ; preds = %298, %30
   %.not.i.i.i154 = icmp ugt i64 %314, %315
   br i1 %.not.i.i.i154, label %316, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_7PHINodeES3_ELb1EE9push_backES4_.exit
 
-316:                                              ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit153
+316:                                              ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit153
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %16, i64 noundef %314, i64 noundef 16) #13
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_7PHINodeES3_ELb1EE9push_backES4_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_7PHINodeES3_ELb1EE9push_backES4_.exit: ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit153, %316
+_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_7PHINodeES3_ELb1EE9push_backES4_.exit: ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit153, %316
   %317 = load ptr, ptr %3, align 8
   %318 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %319 = getelementptr inbounds %"struct.std::pair.56", ptr %317, i64 %318
@@ -3300,7 +3300,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %346, %349
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %373, -2
   %.not1.i.i = icmp eq ptr %.val.i, null
   %.not.i.i158 = or i1 %.not1.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i158, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit.i, label %374
+  br i1 %.not.i.i158, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit.i, label %374
 
 374:                                              ; preds = %367
   %375 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
@@ -3310,22 +3310,22 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %346, %349
   %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %376 to i64
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i
   %378 = call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %1, i64 %.sroa.0.0.insert.insert.i.i.i.i) #13
-  br label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit.i
+  br label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit.i
 
-_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit.i: ; preds = %374, %367
+_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit.i: ; preds = %374, %367
   %.0.i.i159 = phi ptr [ %378, %374 ], [ %1, %367 ]
   %379 = load i8, ptr %368, align 8
   %380 = icmp ugt i8 %379, 21
   br i1 %380, label %386, label %381
 
-381:                                              ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit.i
+381:                                              ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit.i
   %382 = call noundef ptr @_ZN4llvm12ConstantExpr8getTruncEPNS_8ConstantEPNS_4TypeEb(ptr noundef nonnull %368, ptr noundef %.0.i.i159, i1 noundef zeroext false) #13
   %383 = load ptr, ptr %336, align 8
   %384 = load ptr, ptr %337, align 8
   %385 = call noundef ptr @_ZN4llvm20ConstantFoldConstantEPKNS_8ConstantERKNS_10DataLayoutEPKNS_17TargetLibraryInfoE(ptr noundef %382, ptr noundef nonnull align 8 dereferenceable(512) %383, ptr noundef %384) #13
   br label %_ZN4llvm16TruncInstCombine17getReducedOperandEPNS_5ValueEPNS_4TypeE.exit
 
-386:                                              ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.argprom.exit.i
+386:                                              ; preds = %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit.i
   %387 = load ptr, ptr %13, align 8
   %388 = load i32, ptr %338, align 8
   %389 = icmp eq i32 %388, 0

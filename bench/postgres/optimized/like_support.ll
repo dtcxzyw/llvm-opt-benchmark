@@ -1484,11 +1484,11 @@ define internal fastcc range(i32 0, 3) i32 @regex_fixed_prefix(ptr nocapture nou
   br i1 %.not.i, label %44, label %42
 
 42:                                               ; preds = %37, %35
-  %43 = call fastcc double @regex_selectivity_sub.argelim(ptr noundef nonnull %25, i32 noundef %30)
+  %43 = call fastcc double @regex_selectivity_sub(ptr noundef nonnull %25, i32 noundef %30)
   br label %47
 
 44:                                               ; preds = %37, %29, %22
-  %45 = call fastcc double @regex_selectivity_sub.argelim(ptr noundef %25, i32 noundef %27)
+  %45 = call fastcc double @regex_selectivity_sub(ptr noundef %25, i32 noundef %27)
   %46 = fmul double %45, 5.000000e+00
   br label %47
 
@@ -1557,11 +1557,11 @@ regex_selectivity.exit:                           ; preds = %47, %49, %51
   br i1 %.not.i33, label %82, label %80
 
 80:                                               ; preds = %75, %73
-  %81 = call fastcc double @regex_selectivity_sub.argelim(ptr noundef nonnull %61, i32 noundef %68)
+  %81 = call fastcc double @regex_selectivity_sub(ptr noundef nonnull %61, i32 noundef %68)
   br label %85
 
 82:                                               ; preds = %75, %67, %58
-  %83 = call fastcc double @regex_selectivity_sub.argelim(ptr noundef %61, i32 noundef %63)
+  %83 = call fastcc double @regex_selectivity_sub(ptr noundef %61, i32 noundef %63)
   %84 = fmul double %83, 5.000000e+00
   br label %85
 
@@ -1691,7 +1691,7 @@ declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
 declare ptr @regexp_fixed_prefix(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @regex_selectivity_sub.argelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc double @regex_selectivity_sub(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   tail call void @check_stack_depth() #11
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph112.preheader, label %.loopexit
@@ -1733,7 +1733,7 @@ define internal fastcc double @regex_selectivity_sub.argelim(ptr noundef %0, i32
   %20 = sext i32 %19 to i64
   %21 = getelementptr i8, ptr %0, i64 %20
   %22 = sub i32 %.080111, %19
-  %23 = tail call fastcc double @regex_selectivity_sub.argelim(ptr noundef %21, i32 noundef %22)
+  %23 = tail call fastcc double @regex_selectivity_sub(ptr noundef %21, i32 noundef %22)
   %24 = fmul double %.086108, %23
   br label %78
 
@@ -1748,7 +1748,7 @@ define internal fastcc double @regex_selectivity_sub.argelim(ptr noundef %0, i32
   %30 = sext i32 %29 to i64
   %31 = getelementptr i8, ptr %0, i64 %30
   %32 = sub i32 %1, %29
-  %33 = tail call fastcc double @regex_selectivity_sub.argelim(ptr noundef %31, i32 noundef %32)
+  %33 = tail call fastcc double @regex_selectivity_sub(ptr noundef %31, i32 noundef %32)
   %34 = fadd double %.086108, %33
   br label %.loopexit
 
@@ -2054,7 +2054,7 @@ select.unfold:                                    ; preds = %15, %22, %25
 90:                                               ; preds = %._crit_edge.split.us.us, %.lr.ph129.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split.us.us ], [ %89, %.lr.ph129.split.us ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %91 = tail call fastcc zeroext i1 @byte_increment.argelim(ptr noundef %gep) #11
+  %91 = tail call fastcc zeroext i1 @byte_increment(ptr noundef %gep) #11
   br i1 %91, label %.lr.ph.us, label %._crit_edge.split.us.us
 
 ._crit_edge.split.us.us:                          ; preds = %105, %90
@@ -2088,7 +2088,7 @@ select.unfold:                                    ; preds = %15, %22, %25
   %107 = inttoptr i64 %106 to ptr
   tail call void @pfree(ptr noundef %107) #11
   tail call void @pfree(ptr noundef nonnull %101) #11
-  %108 = tail call fastcc zeroext i1 @byte_increment.argelim(ptr noundef %gep) #11
+  %108 = tail call fastcc zeroext i1 @byte_increment(ptr noundef %gep) #11
   br i1 %108, label %97, label %._crit_edge.split.us.us, !llvm.loop !13
 
 .lr.ph129.split:                                  ; preds = %.thread, %._crit_edge.split
@@ -2154,7 +2154,7 @@ declare zeroext i1 @lc_collate_is_c(i32 noundef) local_unnamed_addr #2
 declare i32 @varstr_cmp(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @byte_increment.argelim(ptr nocapture noundef %0) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @byte_increment(ptr nocapture noundef %0) unnamed_addr #9 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp ne i8 %2, -1
   br i1 %3, label %4, label %6

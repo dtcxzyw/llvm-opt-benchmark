@@ -2410,7 +2410,7 @@ define dso_local i32 @cgroup_p_task_addto(i32 noundef %0, ptr noundef %1, i32 no
 
 27:                                               ; preds = %21
   %28 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.104, i32 noundef %3, ptr noundef nonnull %25) #11
-  br label %_handle_task_cgroup.argprom.exit
+  br label %_handle_task_cgroup.exit
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds [5 x ptr], ptr @g_task_list, i64 0, i64 %24
@@ -2441,7 +2441,7 @@ define dso_local i32 @cgroup_p_task_addto(i32 noundef %0, ptr noundef %1, i32 no
   %44 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.105, i32 noundef %43) #11
   call void @slurm_xfree(ptr noundef nonnull %7) #11
   call void @slurm_xfree(ptr noundef nonnull %8) #11
-  br label %_handle_task_cgroup.argprom.exit
+  br label %_handle_task_cgroup.exit
 
 45:                                               ; preds = %37
   %46 = call i32 @common_cgroup_instantiate(ptr noundef nonnull %38) #11
@@ -2457,7 +2457,7 @@ _free_task_cg_info.exit.i:                        ; preds = %45
   %47 = load i32, ptr %6, align 4
   %48 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.106, i32 noundef %47) #11
   call void @slurm_xfree(ptr noundef nonnull %8) #11
-  br label %_handle_task_cgroup.argprom.exit
+  br label %_handle_task_cgroup.exit
 
 49:                                               ; preds = %45
   %50 = call i32 @common_cgroup_set_param(ptr noundef nonnull %38, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #11
@@ -2480,9 +2480,9 @@ _free_task_cg_info.exit.i:                        ; preds = %45
 
 58:                                               ; preds = %56, %55
   call void @slurm_xfree(ptr noundef nonnull %8) #11
-  br label %_handle_task_cgroup.argprom.exit
+  br label %_handle_task_cgroup.exit
 
-_handle_task_cgroup.argprom.exit:                 ; preds = %27, %42, %_free_task_cg_info.exit.i, %58
+_handle_task_cgroup.exit:                         ; preds = %27, %42, %_free_task_cg_info.exit.i, %58
   %.0.i = phi i32 [ -1, %42 ], [ -1, %_free_task_cg_info.exit.i ], [ %51, %58 ], [ -1, %27 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

@@ -865,15 +865,15 @@ cond.end257:                                      ; preds = %cond.end245, %cond.
   %96 = getelementptr inbounds i8, ptr %call23, i64 356
   %r.val5.i = load float, ptr %96, align 4
   %cmp13.i.i = fcmp olt float %cond11.i.i, %r.val5.i
-  br i1 %cmp13.i.i, label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i, label %cond.false16.i.i
+  br i1 %cmp13.i.i, label %_ZL7ImClampRK6ImVec2S1_S_.exit.i, label %cond.false16.i.i
 
 cond.false16.i.i:                                 ; preds = %cond.end257
   %mx.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   %cmp19.i.i = fcmp ogt float %cond11.i.i, %mx.sroa.0.4.vec.extract.i.i
   %mx.sroa.0.4.vec.extract..i.i = select i1 %cmp19.i.i, float %mx.sroa.0.4.vec.extract.i.i, float %cond11.i.i
-  br label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
+  br label %_ZL7ImClampRK6ImVec2S1_S_.exit.i
 
-_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i:         ; preds = %cond.false16.i.i, %cond.end257
+_ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %cond.end257
   %cond27.i.i = phi float [ %r.val5.i, %cond.end257 ], [ %mx.sroa.0.4.vec.extract..i.i, %cond.false16.i.i ]
   %cmp.i.i324 = fcmp olt float %..i.i, %r.val.i323
   %mx.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
@@ -886,14 +886,14 @@ _ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i:         ; preds = %cond.false16.i.i, %
   %cmp13.i9.i = fcmp olt float %cond11.i7.i, %r.val5.i
   br i1 %cmp13.i9.i, label %_ZN6ImRect12ClipWithFullERKS_.exit, label %cond.false16.i10.i
 
-cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
+cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i
   %mx.sroa.0.4.vec.extract.i11.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   %cmp19.i12.i = fcmp ogt float %cond11.i7.i, %mx.sroa.0.4.vec.extract.i11.i
   %mx.sroa.0.4.vec.extract..i13.i = select i1 %cmp19.i12.i, float %mx.sroa.0.4.vec.extract.i11.i, float %cond11.i7.i
   br label %_ZN6ImRect12ClipWithFullERKS_.exit
 
-_ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i, %cond.false16.i10.i
-  %cond27.i14.i = phi float [ %r.val5.i, %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
+_ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i, %cond.false16.i10.i
+  %cond27.i14.i = phi float [ %r.val5.i, %_ZL7ImClampRK6ImVec2S1_S_.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
   %cmp.i15.i = fcmp olt float %..i6.i, %r.val.i323
   %cmp5.i17.i = fcmp ogt float %..i6.i, %mx.sroa.0.0.vec.extract.i.i
   %mx.sroa.0.0.vec.extract..i18.i = select i1 %cmp5.i17.i, float %mx.sroa.0.0.vec.extract.i.i, float %..i6.i
@@ -15113,15 +15113,15 @@ _ZN5ImGui15GetColumnOffsetEi.exit129:             ; preds = %_ZN5ImGui15GetColum
   %r.val.i = load float, ptr %ClipRect, align 4
   %r.val5.i = load float, ptr %32, align 4
   %cmp13.i.i = fcmp ogt float %r.val5.i, 0xC7EFFFFFE0000000
-  br i1 %cmp13.i.i, label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i, label %cond.false16.i.i
+  br i1 %cmp13.i.i, label %_ZL7ImClampRK6ImVec2S1_S_.exit.i, label %cond.false16.i.i
 
 cond.false16.i.i:                                 ; preds = %_ZN5ImGui15GetColumnOffsetEi.exit129
   %mx.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   %cmp19.i.i = fcmp olt float %mx.sroa.0.4.vec.extract.i.i, 0xC7EFFFFFE0000000
   %mx.sroa.0.4.vec.extract..i.i = select i1 %cmp19.i.i, float %mx.sroa.0.4.vec.extract.i.i, float 0xC7EFFFFFE0000000
-  br label %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
+  br label %_ZL7ImClampRK6ImVec2S1_S_.exit.i
 
-_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i:         ; preds = %cond.false16.i.i, %_ZN5ImGui15GetColumnOffsetEi.exit129
+_ZL7ImClampRK6ImVec2S1_S_.exit.i:                 ; preds = %cond.false16.i.i, %_ZN5ImGui15GetColumnOffsetEi.exit129
   %cond27.i.i = phi float [ %r.val5.i, %_ZN5ImGui15GetColumnOffsetEi.exit129 ], [ %mx.sroa.0.4.vec.extract..i.i, %cond.false16.i.i ]
   %cmp.i.i = fcmp ogt float %r.val.i, %conv70179
   %mx.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
@@ -15137,14 +15137,14 @@ _ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i:         ; preds = %cond.false16.i.i, %
   %cmp13.i9.i = fcmp ogt float %r.val8.i, 0x47EFFFFFE0000000
   br i1 %cmp13.i9.i, label %_ZN6ImRect12ClipWithFullERKS_.exit, label %cond.false16.i10.i
 
-cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i
+cond.false16.i10.i:                               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i
   %mx.sroa.0.4.vec.extract.i11.i = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload.i, i64 1
   %cmp19.i12.i = fcmp olt float %mx.sroa.0.4.vec.extract.i11.i, 0x47EFFFFFE0000000
   %mx.sroa.0.4.vec.extract..i13.i = select i1 %cmp19.i12.i, float %mx.sroa.0.4.vec.extract.i11.i, float 0x47EFFFFFE0000000
   br label %_ZN6ImRect12ClipWithFullERKS_.exit
 
-_ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i, %cond.false16.i10.i
-  %cond27.i14.i = phi float [ %r.val8.i, %_ZL7ImClampRK6ImVec2S1_S_.argprom.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
+_ZN6ImRect12ClipWithFullERKS_.exit:               ; preds = %_ZL7ImClampRK6ImVec2S1_S_.exit.i, %cond.false16.i10.i
+  %cond27.i14.i = phi float [ %r.val8.i, %_ZL7ImClampRK6ImVec2S1_S_.exit.i ], [ %mx.sroa.0.4.vec.extract..i13.i, %cond.false16.i10.i ]
   %cmp.i15.i = fcmp ogt float %r.val7.i, %conv79
   %mx.sroa.0.0.vec.extract.i16.i = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload.i, i64 0
   %cmp5.i17.i = fcmp olt float %mx.sroa.0.0.vec.extract.i16.i, %conv79

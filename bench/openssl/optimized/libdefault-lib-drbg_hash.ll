@@ -384,7 +384,7 @@ land.lhs.true:                                    ; preds = %entry
   %2 = getelementptr i8, ptr %drbg, i64 232
   %drbg.val = load i64, ptr %2, align 8
   %drbg.val9 = load ptr, ptr %data, align 8
-  %call3 = tail call fastcc i32 @hash_df.argprom(i64 %drbg.val, ptr %drbg.val9, ptr noundef nonnull %V, i8 noundef zeroext -1, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len)
+  %call3 = tail call fastcc i32 @hash_df(i64 %drbg.val, ptr %drbg.val9, ptr noundef nonnull %V, i8 noundef zeroext -1, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len)
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
@@ -392,7 +392,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   %C = getelementptr inbounds i8, ptr %0, i64 151
   %3 = load i64, ptr %2, align 8
   %drbg.val11 = load ptr, ptr %data, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @hash_df.argprom(i64 %3, ptr %drbg.val11, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @hash_df(i64 %3, ptr %drbg.val11, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true, %entry
@@ -424,7 +424,7 @@ entry:
   %V = getelementptr inbounds i8, ptr %0, i64 40
   %seedlen = getelementptr inbounds i8, ptr %drbg, i64 232
   %1 = load i64, ptr %seedlen, align 8
-  %call = tail call fastcc i32 @hash_df.argprom(i64 %1, ptr %0, ptr noundef nonnull %C, i8 noundef zeroext 1, ptr noundef nonnull %V, i64 noundef %1, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len)
+  %call = tail call fastcc i32 @hash_df(i64 %1, ptr %0, ptr noundef nonnull %C, i8 noundef zeroext 1, ptr noundef nonnull %V, i64 noundef %1, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -433,7 +433,7 @@ if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %V, ptr nonnull align 1 %C, i64 %2, i1 false)
   %3 = load i64, ptr %seedlen, align 8
   %drbg.val13 = load ptr, ptr %data, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @hash_df.argprom(i64 %3, ptr %drbg.val13, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %call.i = tail call fastcc range(i32 0, 2) i32 @hash_df(i64 %3, ptr %drbg.val13, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i64 noundef %3, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -703,7 +703,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hash_df.argprom(i64 %drbg.232.val, ptr %drbg.248.val, ptr noundef %out, i8 noundef zeroext range(i8 -1, 2) %inbyte, ptr noundef %in, i64 noundef %inlen, ptr noundef %in2, i64 noundef %in2len, ptr noundef %in3, i64 noundef %in3len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hash_df(i64 %drbg.232.val, ptr %drbg.248.val, ptr noundef %out, i8 noundef zeroext range(i8 -1, 2) %inbyte, ptr noundef %in, i64 noundef %inlen, ptr noundef %in2, i64 noundef %in2len, ptr noundef %in3, i64 noundef %in3len) unnamed_addr #0 {
 entry:
   %tmp = alloca [6 x i8], align 1
   %ctx1 = getelementptr inbounds i8, ptr %drbg.248.val, i64 24

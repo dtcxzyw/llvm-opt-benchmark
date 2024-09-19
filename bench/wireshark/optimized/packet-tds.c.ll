@@ -3399,7 +3399,7 @@ dissect_tds45_remotepassword.exit.i:              ; preds = %483, %442
   %.val.i = load ptr, ptr %494, align 8
   %495 = getelementptr i8, ptr %.val.i, i64 50
   %.val.val.i = load i16, ptr %495, align 2
-  call fastcc void @set_tds_version.argprom.argprom(i16 %.val.val.i, ptr noundef nonnull %.0, i32 noundef %493)
+  call fastcc void @set_tds_version(i16 %.val.val.i, ptr noundef nonnull %.0, i32 noundef %493)
   %496 = icmp eq i32 %493, 20480
   %497 = select i1 %496, ptr @.str.1357, ptr @.str.1358
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %335, ptr noundef nonnull %497) #11
@@ -3529,7 +3529,7 @@ dissect_tds45_login_name.exit218.i:               ; preds = %559, %558
   %569 = load i32, ptr @ett_tds_token, align 4
   %570 = call ptr @proto_item_add_subtree(ptr noundef %568, i32 noundef %569) #11
   %.val180.i = load i32, ptr %382, align 4
-  %571 = call fastcc i32 @dissect_tds5_capability_token.argprom(ptr noundef %.0181, ptr noundef nonnull %1, i32 noundef 569, ptr noundef %570, i32 %.val180.i)
+  %571 = call fastcc i32 @dissect_tds5_capability_token(ptr noundef %.0181, ptr noundef nonnull %1, i32 noundef 569, ptr noundef %570, i32 %.val180.i)
   br label %dissect_tds45_login.exit
 
 dissect_tds45_login.exit:                         ; preds = %dissect_tds45_login_name.exit218.i, %562, %565
@@ -3552,7 +3552,7 @@ dissect_tds45_login.exit:                         ; preds = %dissect_tds45_login
   %.val.i197 = load ptr, ptr %583, align 8
   %584 = getelementptr i8, ptr %.val.i197, i64 50
   %.val.val.i198 = load i16, ptr %584, align 2
-  call fastcc void @set_tds_version.argprom.argprom(i16 %.val.val.i198, ptr noundef nonnull %.0, i32 noundef %582)
+  call fastcc void @set_tds_version(i16 %.val.val.i198, ptr noundef nonnull %.0, i32 noundef %582)
   %585 = load i32, ptr @hf_tds7login_packet_size, align 4
   %586 = getelementptr inbounds i8, ptr %30, i64 8
   %587 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %576, i32 noundef %585, ptr noundef nonnull %.0181, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %586) #11
@@ -3808,23 +3808,23 @@ dissect_tds_query_packet.exit:                    ; preds = %698, %700, %704, %7
   %.0133.i = phi i32 [ 0, %.lr.ph.i207 ], [ %1109, %1108 ]
   %721 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0181, i32 noundef %.0133.i) #11
   switch i8 %721, label %725 [
-    i8 -3, label %tds_get_fixed_token_size_sybase.argprom.exit.i
-    i8 -2, label %tds_get_fixed_token_size_sybase.argprom.exit.i
-    i8 -1, label %tds_get_fixed_token_size_sybase.argprom.exit.i
-    i8 124, label %tds_get_fixed_token_size_sybase.argprom.exit.i
+    i8 -3, label %tds_get_fixed_token_size_sybase.exit.i
+    i8 -2, label %tds_get_fixed_token_size_sybase.exit.i
+    i8 -1, label %tds_get_fixed_token_size_sybase.exit.i
+    i8 124, label %tds_get_fixed_token_size_sybase.exit.i
     i8 121, label %722
     i8 113, label %723
     i8 120, label %724
   ]
 
 722:                                              ; preds = %720
-  br label %tds_get_fixed_token_size_sybase.argprom.exit.i
+  br label %tds_get_fixed_token_size_sybase.exit.i
 
 723:                                              ; preds = %720
-  br label %tds_get_fixed_token_size_sybase.argprom.exit.i
+  br label %tds_get_fixed_token_size_sybase.exit.i
 
 724:                                              ; preds = %720
-  br label %tds_get_fixed_token_size_sybase.argprom.exit.i
+  br label %tds_get_fixed_token_size_sybase.exit.i
 
 725:                                              ; preds = %720
   %726 = add i32 %.0133.i, 1
@@ -3865,9 +3865,9 @@ tds_get_variable_token_size_sybase.exit.i:        ; preds = %734, %731, %727, %7
   %.0126.i = phi i32 [ 3, %734 ], [ 2, %731 ], [ 5, %727 ], [ 1, %725 ], [ 1, %725 ]
   %.sink.i.i = phi i32 [ %738, %734 ], [ %733, %731 ], [ %730, %727 ], [ 0, %725 ], [ 0, %725 ]
   %739 = add i32 %.sink.i.i, %.0126.i
-  br label %tds_get_fixed_token_size_sybase.argprom.exit.i
+  br label %tds_get_fixed_token_size_sybase.exit.i
 
-tds_get_fixed_token_size_sybase.argprom.exit.i:   ; preds = %tds_get_variable_token_size_sybase.exit.i, %724, %723, %722, %720, %720, %720, %720
+tds_get_fixed_token_size_sybase.exit.i:           ; preds = %tds_get_variable_token_size_sybase.exit.i, %724, %723, %722, %720, %720, %720, %720
   %.076.i = phi i32 [ %739, %tds_get_variable_token_size_sybase.exit.i ], [ 5, %724 ], [ 2, %723 ], [ 5, %722 ], [ 9, %720 ], [ 9, %720 ], [ 9, %720 ], [ 9, %720 ]
   %740 = load i32, ptr @ett_tds_token, align 4
   %741 = zext i8 %721 to i32
@@ -3876,12 +3876,12 @@ tds_get_fixed_token_size_sybase.argprom.exit.i:   ; preds = %tds_get_variable_to
   %744 = icmp slt i32 %.076.i, 1
   br i1 %744, label %745, label %748
 
-745:                                              ; preds = %tds_get_fixed_token_size_sybase.argprom.exit.i
+745:                                              ; preds = %tds_get_fixed_token_size_sybase.exit.i
   %746 = load ptr, ptr %27, align 8
   %747 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %746, ptr noundef nonnull @ei_tds_token_length_invalid, ptr noundef nonnull @.str.1336, i32 noundef %.076.i) #11
   br label %dissect_tds5_tokenized_request_packet.exit
 
-748:                                              ; preds = %tds_get_fixed_token_size_sybase.argprom.exit.i
+748:                                              ; preds = %tds_get_fixed_token_size_sybase.exit.i
   switch i8 %721, label %1108 [
     i8 33, label %749
     i8 -128, label %767
@@ -4947,7 +4947,7 @@ tds45_token_to_idx.exit:                          ; preds = %85, %86, %87, %88, 
 120:                                              ; preds = %tds45_token_to_idx.exit
   %121 = add i32 %.0202332, 1
   %.val = load i32, ptr %74, align 4
-  %122 = call fastcc i32 @dissect_tds5_capability_token.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %121, ptr noundef %119, i32 %.val)
+  %122 = call fastcc i32 @dissect_tds5_capability_token(ptr noundef %0, ptr noundef %1, i32 noundef %121, ptr noundef %119, i32 %.val)
   %123 = add i32 %122, 1
   br label %755
 
@@ -5325,7 +5325,7 @@ dissect_tds_colfmt_token.exit:                    ; preds = %243, %._crit_edge.i
 
 317:                                              ; preds = %.lr.ph.i226
   store i32 256, ptr %43, align 8
-  br label %dissect_tds_control_token.argprom.exit
+  br label %dissect_tds_control_token.exit
 
 318:                                              ; preds = %.lr.ph.i226
   %319 = getelementptr [256 x ptr], ptr %73, i64 0, i64 %indvars.iv.i227
@@ -5351,9 +5351,9 @@ dissect_tds_colfmt_token.exit:                    ; preds = %243, %._crit_edge.i
 ._crit_edge.i225:                                 ; preds = %324, %307
   %.022.lcssa.i = phi i32 [ %313, %307 ], [ %328, %324 ]
   %330 = sub i32 %.022.lcssa.i, %.0202332
-  br label %dissect_tds_control_token.argprom.exit
+  br label %dissect_tds_control_token.exit
 
-dissect_tds_control_token.argprom.exit:           ; preds = %317, %._crit_edge.i225
+dissect_tds_control_token.exit:                   ; preds = %317, %._crit_edge.i225
   %.023.i = phi i32 [ 1, %317 ], [ %330, %._crit_edge.i225 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
   br label %755
@@ -6193,8 +6193,8 @@ dissect_tds_rowfmt2_token.exit:                   ; preds = %573, %753
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   br label %755
 
-755:                                              ; preds = %dissect_tds_rowfmt2_token.exit, %dissect_tds_rowfmt_token.exit, %395, %dissect_tds5_params_token.exit, %363, %359, %355, %335, %331, %dissect_tds_control_token.argprom.exit, %dissect_tds_colfmt_token.exit, %dissect_tds_col_name_token.exit, %190, %140, %136, %132, %128, %124, %120
-  %.0 = phi i32 [ %.0163.i, %dissect_tds_rowfmt2_token.exit ], [ %.0157.i, %dissect_tds_rowfmt_token.exit ], [ %398, %395 ], [ %384, %dissect_tds5_params_token.exit ], [ %366, %363 ], [ %362, %359 ], [ %358, %355 ], [ %338, %335 ], [ %334, %331 ], [ %.023.i, %dissect_tds_control_token.argprom.exit ], [ %.0114.i, %dissect_tds_colfmt_token.exit ], [ %.0.i209, %dissect_tds_col_name_token.exit ], [ %193, %190 ], [ %189, %140 ], [ %139, %136 ], [ %135, %132 ], [ %131, %128 ], [ %127, %124 ], [ %123, %120 ]
+755:                                              ; preds = %dissect_tds_rowfmt2_token.exit, %dissect_tds_rowfmt_token.exit, %395, %dissect_tds5_params_token.exit, %363, %359, %355, %335, %331, %dissect_tds_control_token.exit, %dissect_tds_colfmt_token.exit, %dissect_tds_col_name_token.exit, %190, %140, %136, %132, %128, %124, %120
+  %.0 = phi i32 [ %.0163.i, %dissect_tds_rowfmt2_token.exit ], [ %.0157.i, %dissect_tds_rowfmt_token.exit ], [ %398, %395 ], [ %384, %dissect_tds5_params_token.exit ], [ %366, %363 ], [ %362, %359 ], [ %358, %355 ], [ %338, %335 ], [ %334, %331 ], [ %.023.i, %dissect_tds_control_token.exit ], [ %.0114.i, %dissect_tds_colfmt_token.exit ], [ %.0.i209, %dissect_tds_col_name_token.exit ], [ %193, %190 ], [ %189, %140 ], [ %139, %136 ], [ %135, %132 ], [ %131, %128 ], [ %127, %124 ], [ %123, %120 ]
   %756 = icmp eq i32 %.0, 0
   br i1 %756, label %.thread300, label %.thread
 
@@ -7424,7 +7424,7 @@ detect_tls.exit:                                  ; preds = %17
   %.val.val = load i16, ptr %26, align 2
   %27 = and i16 %.val.val, 8
   %.not.i78 = icmp eq i16 %27, 0
-  br i1 %.not.i78, label %28, label %set_tds_version.argprom.argprom.exit
+  br i1 %.not.i78, label %28, label %set_tds_version.exit
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %3, i64 8
@@ -7435,16 +7435,16 @@ detect_tls.exit:                                  ; preds = %17
   store i32 3, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %3, i64 28
   store i32 120, ptr %32, align 4
-  br label %set_tds_version.argprom.argprom.exit
+  br label %set_tds_version.exit
 
-set_tds_version.argprom.argprom.exit:             ; preds = %24, %28
+set_tds_version.exit:                             ; preds = %24, %28
   %33 = load i32, ptr @ett_tds_message, align 4
   %34 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %33) #11
   %35 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef 0) #11
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %set_tds_version.argprom.argprom.exit
+.lr.ph:                                           ; preds = %set_tds_version.exit
   %.not36.i = icmp eq i32 %4, 0
   %37 = getelementptr inbounds i8, ptr %3, i64 16
   %38 = getelementptr inbounds i8, ptr %3, i64 12
@@ -7454,8 +7454,8 @@ set_tds_version.argprom.argprom.exit:             ; preds = %24, %28
   %42 = getelementptr inbounds i8, ptr %3, i64 28
   br label %43
 
-43:                                               ; preds = %.lr.ph, %set_tds_version_from_prog_version.argprom.argprom.exit
-  %.083 = phi i32 [ 0, %.lr.ph ], [ %62, %set_tds_version_from_prog_version.argprom.argprom.exit ]
+43:                                               ; preds = %.lr.ph, %set_tds_version_from_prog_version.exit
+  %.083 = phi i32 [ 0, %.lr.ph ], [ %62, %set_tds_version_from_prog_version.exit ]
   %44 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %.083) #11
   %45 = icmp eq i8 %44, -1
   %46 = select i1 %45, i32 1, i32 5
@@ -7480,7 +7480,7 @@ set_tds_version.argprom.argprom.exit:             ; preds = %24, %28
   %60 = load i32, ptr @hf_tds_prelogin_option_length, align 4
   %61 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %60, ptr noundef nonnull %0, i32 noundef %58, i32 noundef 2, i32 noundef 0) #11
   %62 = add i32 %.083, 5
-  switch i8 %44, label %set_tds_version_from_prog_version.argprom.argprom.exit [
+  switch i8 %44, label %set_tds_version_from_prog_version.exit [
     i8 0, label %63
     i8 1, label %92
     i8 2, label %98
@@ -7506,7 +7506,7 @@ set_tds_version.argprom.argprom.exit:             ; preds = %24, %28
   %.val77.val = load i16, ptr %72, align 2
   %73 = and i16 %.val77.val, 8
   %.not.i79 = icmp eq i16 %73, 0
-  br i1 %.not.i79, label %74, label %set_tds_version_from_prog_version.argprom.argprom.exit
+  br i1 %.not.i79, label %74, label %set_tds_version_from_prog_version.exit
 
 74:                                               ; preds = %63
   br i1 %.not36.i, label %78, label %75
@@ -7563,7 +7563,7 @@ set_tds_version.argprom.argprom.exit:             ; preds = %24, %28
   store i32 1, ptr %40, align 8
   store i32 3, ptr %41, align 4
   store i32 120, ptr %42, align 4
-  br label %set_tds_version_from_prog_version.argprom.argprom.exit
+  br label %set_tds_version_from_prog_version.exit
 
 92:                                               ; preds = %53
   %93 = load ptr, ptr %6, align 8
@@ -7572,7 +7572,7 @@ set_tds_version.argprom.argprom.exit:             ; preds = %24, %28
   %95 = zext i16 %55 to i32
   %96 = zext i16 %59 to i32
   %97 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %94, ptr noundef nonnull %0, i32 noundef %95, i32 noundef %96, i32 noundef 0) #11
-  br label %set_tds_version_from_prog_version.argprom.argprom.exit
+  br label %set_tds_version_from_prog_version.exit
 
 98:                                               ; preds = %53
   %99 = load ptr, ptr %6, align 8
@@ -7581,20 +7581,20 @@ set_tds_version.argprom.argprom.exit:             ; preds = %24, %28
   %101 = zext i16 %55 to i32
   %102 = zext i16 %59 to i32
   %103 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %100, ptr noundef nonnull %0, i32 noundef %101, i32 noundef %102, i32 noundef 0) #11
-  br label %set_tds_version_from_prog_version.argprom.argprom.exit
+  br label %set_tds_version_from_prog_version.exit
 
 104:                                              ; preds = %53
   %105 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef nonnull @.str.1439) #11
   %.not76 = icmp eq i16 %59, 0
-  br i1 %.not76, label %set_tds_version_from_prog_version.argprom.argprom.exit, label %106
+  br i1 %.not76, label %set_tds_version_from_prog_version.exit, label %106
 
 106:                                              ; preds = %104
   %107 = zext i16 %59 to i32
   %108 = load i32, ptr @hf_tds_prelogin_option_threadid, align 4
   %109 = zext i16 %55 to i32
   %110 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %108, ptr noundef nonnull %0, i32 noundef %109, i32 noundef %107, i32 noundef 0) #11
-  br label %set_tds_version_from_prog_version.argprom.argprom.exit
+  br label %set_tds_version_from_prog_version.exit
 
 111:                                              ; preds = %53
   %112 = load ptr, ptr %6, align 8
@@ -7603,7 +7603,7 @@ set_tds_version.argprom.argprom.exit:             ; preds = %24, %28
   %114 = zext i16 %55 to i32
   %115 = zext i16 %59 to i32
   %116 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %113, ptr noundef nonnull %0, i32 noundef %114, i32 noundef %115, i32 noundef 0) #11
-  br label %set_tds_version_from_prog_version.argprom.argprom.exit
+  br label %set_tds_version_from_prog_version.exit
 
 117:                                              ; preds = %53
   %118 = load ptr, ptr %6, align 8
@@ -7612,7 +7612,7 @@ set_tds_version.argprom.argprom.exit:             ; preds = %24, %28
   %120 = zext i16 %55 to i32
   %121 = zext i16 %59 to i32
   %122 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %119, ptr noundef nonnull %0, i32 noundef %120, i32 noundef %121, i32 noundef 0) #11
-  br label %set_tds_version_from_prog_version.argprom.argprom.exit
+  br label %set_tds_version_from_prog_version.exit
 
 123:                                              ; preds = %53
   %124 = load ptr, ptr %6, align 8
@@ -7621,7 +7621,7 @@ set_tds_version.argprom.argprom.exit:             ; preds = %24, %28
   %126 = zext i16 %55 to i32
   %127 = zext i16 %59 to i32
   %128 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %125, ptr noundef nonnull %0, i32 noundef %126, i32 noundef %127, i32 noundef 0) #11
-  br label %set_tds_version_from_prog_version.argprom.argprom.exit
+  br label %set_tds_version_from_prog_version.exit
 
 129:                                              ; preds = %53
   %130 = load ptr, ptr %6, align 8
@@ -7630,14 +7630,14 @@ set_tds_version.argprom.argprom.exit:             ; preds = %24, %28
   %132 = zext i16 %55 to i32
   %133 = zext i16 %59 to i32
   %134 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %131, ptr noundef nonnull %0, i32 noundef %132, i32 noundef %133, i32 noundef 0) #11
-  br label %set_tds_version_from_prog_version.argprom.argprom.exit
+  br label %set_tds_version_from_prog_version.exit
 
-set_tds_version_from_prog_version.argprom.argprom.exit: ; preds = %91, %63, %104, %106, %129, %123, %117, %111, %98, %92, %53
+set_tds_version_from_prog_version.exit:           ; preds = %91, %63, %104, %106, %129, %123, %117, %111, %98, %92, %53
   %135 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %62) #11
   %136 = icmp sgt i32 %135, 0
   br i1 %136, label %43, label %.loopexit, !llvm.loop !26
 
-.loopexit:                                        ; preds = %set_tds_version_from_prog_version.argprom.argprom.exit, %set_tds_version.argprom.argprom.exit, %51, %detect_tls.exit
+.loopexit:                                        ; preds = %set_tds_version_from_prog_version.exit, %set_tds_version.exit, %51, %detect_tls.exit
   ret void
 }
 
@@ -8126,7 +8126,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %187 = load i32, ptr %1, align 4
   %188 = getelementptr i8, ptr %5, i64 24
   %.val617 = load i32, ptr %188, align 8
-  tail call fastcc void @handle_tds_sql_smallmoney.argprom(ptr noundef %0, i32 noundef %187, ptr noundef %32, i32 %.val617)
+  tail call fastcc void @handle_tds_sql_smallmoney(ptr noundef %0, i32 noundef %187, ptr noundef %32, i32 %.val617)
   %189 = load i32, ptr %1, align 4
   %190 = add i32 %189, 4
   store i32 %190, ptr %1, align 4
@@ -8373,7 +8373,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
 .thread:                                          ; preds = %324
   %333 = getelementptr i8, ptr %5, i64 24
   %.val618 = load i32, ptr %333, align 8
-  tail call fastcc void @handle_tds_sql_smallmoney.argprom(ptr noundef %0, i32 noundef %332, ptr noundef %32, i32 %.val618)
+  tail call fastcc void @handle_tds_sql_smallmoney(ptr noundef %0, i32 noundef %332, ptr noundef %32, i32 %.val618)
   br label %.sink.split
 
 334:                                              ; preds = %324
@@ -9268,7 +9268,7 @@ define internal fastcc void @handle_tds_sql_smalldatetime(ptr noundef nonnull %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @handle_tds_sql_smallmoney.argprom(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 %.24.val) unnamed_addr #0 {
+define internal fastcc void @handle_tds_sql_smallmoney(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 %.24.val) unnamed_addr #0 {
   %4 = icmp eq i32 %.24.val, 0
   %5 = select i1 %4, i32 0, i32 -2147483648
   %6 = tail call i32 @tvb_get_guint32(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %5) #11
@@ -9389,7 +9389,7 @@ declare ptr @proto_tree_add_double_format_value(ptr noundef, i32 noundef, ptr no
 declare i32 @tvb_get_gint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_tds5_capability_token.argprom(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 %.20.val) unnamed_addr #0 {
+define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 %.20.val) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -10367,7 +10367,7 @@ define internal fastcc range(i32 12, 268) i32 @dissect_tds_login_ack_token(ptr n
   %.val34 = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %.val34, i64 50
   %.val34.val = load i16, ptr %20, align 2
-  call fastcc void @set_tds_version.argprom.argprom(i16 %.val34.val, ptr noundef %4, i32 noundef %18)
+  call fastcc void @set_tds_version(i16 %.val34.val, ptr noundef %4, i32 noundef %18)
   %21 = add i32 %2, 7
   %22 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %21) #11
   %23 = getelementptr i8, ptr %4, i64 28
@@ -10970,7 +10970,7 @@ define internal fastcc range(i32 -1, 17) i32 @get_size_by_coltype(i32 noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @set_tds_version.argprom.argprom(i16 %.80.val.50.val, ptr nocapture noundef writeonly %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc void @set_tds_version(i16 %.80.val.50.val, ptr nocapture noundef writeonly %0, i32 noundef %1) unnamed_addr #8 {
   %3 = and i16 %.80.val.50.val, 8
   %.not = icmp eq i16 %3, 0
   br i1 %.not, label %4, label %43

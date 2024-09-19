@@ -104319,7 +104319,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %93, %82
   unreachable
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %67, %_ZN7testing7MessageD2Ev.exit, %113
-  %117 = invoke fastcc noundef zeroext i1 @_ZN11opencv_test12_GLOBAL__N_120compareKMeansOutputsIiNS_8CompareFIN2cv3MatES4_EEEEbRKSt6vectorIT_SaIS7_EESB_RKT0_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %12)
+  %117 = invoke fastcc noundef zeroext i1 @_ZN11opencv_test12_GLOBAL__N_120compareKMeansOutputsIiNS_8CompareFIN2cv3MatES4_EEEEbRKSt6vectorIT_SaIS7_EESB_RKT0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %118 unwind label %71
 
 118:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -108784,7 +108784,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %93, %82
   unreachable
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %67, %_ZN7testing7MessageD2Ev.exit, %113
-  %117 = invoke fastcc noundef zeroext i1 @_ZN11opencv_test12_GLOBAL__N_120compareKMeansOutputsIiNS_8CompareFIN2cv3MatES4_EEEEbRKSt6vectorIT_SaIS7_EESB_RKT0_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %12)
+  %117 = invoke fastcc noundef zeroext i1 @_ZN11opencv_test12_GLOBAL__N_120compareKMeansOutputsIiNS_8CompareFIN2cv3MatES4_EEEEbRKSt6vectorIT_SaIS7_EESB_RKT0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %118 unwind label %71
 
 118:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -310471,7 +310471,7 @@ _ZN2cv4util7variantIJNS_4GMatENS_5GMatPENS_6GFrameENS_7GScalarENS_6detail7GArray
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN11opencv_test12_GLOBAL__N_120compareKMeansOutputsIiNS_8CompareFIN2cv3MatES4_EEEEbRKSt6vectorIT_SaIS7_EESB_RKT0_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN11opencv_test12_GLOBAL__N_120compareKMeansOutputsIiNS_8CompareFIN2cv3MatES4_EEEEbRKSt6vectorIT_SaIS7_EESB_RKT0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::_InputArray", align 8
   %4 = alloca %"class.cv::_InputArray", align 8
   %5 = alloca %"class.std::function.1655", align 8

@@ -651,7 +651,7 @@ define hidden void @"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$L
   %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19582511d94b05d3E.llvm.9153531805506995525"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5) #33, !noalias !80
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE.argprom"(ptr nonnull %5) #33, !noalias !80
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE"(ptr nonnull %5) #33, !noalias !80
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3
@@ -1292,7 +1292,7 @@ define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$tokio..loom..std..
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %.val1.i.i.i.i = load i64, ptr %3, align 8, !alias.scope !427, !noundef !4
   %4 = icmp eq i64 %.val1.i.i.i.i, 0
-  br i1 %4, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d6e3b0002e01211E.argprom.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
+  br i1 %4, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d6e3b0002e01211E.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %1, %"_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$17hb6fa8d6733364a3bE.exit.i.i.i.i.i.i"
   %.07.i.i.i.i.i.i = phi i64 [ %6, %"_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$17hb6fa8d6733364a3bE.exit.i.i.i.i.i.i" ], [ 0, %1 ]
@@ -1312,7 +1312,7 @@ define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$tokio..loom..std..
 
 "_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$17hb6fa8d6733364a3bE.exit.i.i.i.i.i.i": ; preds = %10, %.lr.ph.i.i.i.i.i.i
   %11 = icmp eq i64 %6, %.val1.i.i.i.i
-  br i1 %11, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d6e3b0002e01211E.argprom.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
+  br i1 %11, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d6e3b0002e01211E.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i
 
 12:                                               ; preds = %16, %14
   %.1.i.i.i.i.i.i = phi i64 [ %6, %14 ], [ %18, %16 ]
@@ -1339,21 +1339,21 @@ define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$tokio..loom..std..
 .body.i.i.i.i:                                    ; preds = %12
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %.val3.i.i.i.i = load i64, ptr %21, align 8, !alias.scope !438, !noalias !441, !noundef !4
-  tail call fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$$GT$17hdf9f862441e55569E.argprom"(ptr nonnull %.val.i.i.i.i, i64 %.val3.i.i.i.i) #33, !noalias !427
+  tail call fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$$GT$17hdf9f862441e55569E"(ptr nonnull %.val.i.i.i.i, i64 %.val3.i.i.i.i) #33, !noalias !427
   resume { ptr, i32 } %15
 
-"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d6e3b0002e01211E.argprom.exit.i.i.i.i": ; preds = %"_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$17hb6fa8d6733364a3bE.exit.i.i.i.i.i.i", %1
+"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d6e3b0002e01211E.exit.i.i.i.i": ; preds = %"_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$17hb6fa8d6733364a3bE.exit.i.i.i.i.i.i", %1
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %.val5.i.i.i.i = load i64, ptr %22, align 8, !alias.scope !438, !noalias !441, !noundef !4
   %23 = icmp eq i64 %.val5.i.i.i.i, 0
   br i1 %23, label %"_ZN4core3ptr130drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$tokio..runtime..io..registration_set..Synced$GT$$GT$17h9401dba04705ed70E.exit", label %24
 
-24:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d6e3b0002e01211E.argprom.exit.i.i.i.i"
+24:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d6e3b0002e01211E.exit.i.i.i.i"
   %25 = shl nuw i64 %.val5.i.i.i.i, 3
   tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef %25, i64 noundef 8) #35, !noalias !427
   br label %"_ZN4core3ptr130drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$tokio..runtime..io..registration_set..Synced$GT$$GT$17h9401dba04705ed70E.exit"
 
-"_ZN4core3ptr130drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$tokio..runtime..io..registration_set..Synced$GT$$GT$17h9401dba04705ed70E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d6e3b0002e01211E.argprom.exit.i.i.i.i", %24
+"_ZN4core3ptr130drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$tokio..runtime..io..registration_set..Synced$GT$$GT$17h9401dba04705ed70E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d6e3b0002e01211E.exit.i.i.i.i", %24
   ret void
 }
 
@@ -2122,7 +2122,7 @@ common.resume.i:                                  ; preds = %12, %.body.i.i
   unreachable
 
 .body.i.i:                                        ; preds = %28
-  tail call fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$$GT$17hcbb49805ad81362eE.argprom"(ptr nonnull %5, i64 %3) #33, !noalias !763
+  tail call fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$$GT$17hcbb49805ad81362eE"(ptr nonnull %5, i64 %3) #33, !noalias !763
   br label %common.resume.i
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$$GT$17h6b6262120c698723E.exit.i": ; preds = %"_ZN4core3ptr68drop_in_place$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$17h084c952688cc6803E.exit.i.i.i.i"
@@ -2470,18 +2470,18 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$sql
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$$GT$17hdf9f862441e55569E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
+define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$$GT$17hdf9f862441e55569E"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd760e029f0e477f5E.argprom.exit", label %2
+  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd760e029f0e477f5E.exit", label %2
 
 2:                                                ; preds = %0
   %3 = shl nuw i64 %.8.val, 3
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #35
-  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd760e029f0e477f5E.argprom.exit"
+  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd760e029f0e477f5E.exit"
 
-"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd760e029f0e477f5E.argprom.exit": ; preds = %0, %2
+"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd760e029f0e477f5E.exit": ; preds = %0, %2
   ret void
 }
 
@@ -2652,34 +2652,34 @@ define hidden void @"_ZN4core3ptr120drop_in_place$LT$std..sync..rwlock..RwLock$L
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.argprom"(ptr %.8.val, i64 %.16.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E"(ptr %.8.val, i64 %.16.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = icmp eq i64 %.16.val, 0
-  br i1 %1, label %"_ZN4core3ptr141drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h30be8a75c016672cE.argprom.exit", label %2
+  br i1 %1, label %"_ZN4core3ptr141drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h30be8a75c016672cE.exit", label %2
 
 2:                                                ; preds = %0
   %3 = shl nuw i64 %.16.val, 3
   %4 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef %3, i64 noundef 8) #35
-  br label %"_ZN4core3ptr141drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h30be8a75c016672cE.argprom.exit"
+  br label %"_ZN4core3ptr141drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h30be8a75c016672cE.exit"
 
-"_ZN4core3ptr141drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h30be8a75c016672cE.argprom.exit": ; preds = %0, %2
+"_ZN4core3ptr141drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h30be8a75c016672cE.exit": ; preds = %0, %2
   ret void
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h37c87e316ec7aacbE.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
+define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h37c87e316ec7aacbE"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67f1c58c0dc5b2e0E.argprom.exit", label %2
+  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67f1c58c0dc5b2e0E.exit", label %2
 
 2:                                                ; preds = %0
   %3 = mul nuw i64 %.8.val, 96
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #35
-  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67f1c58c0dc5b2e0E.argprom.exit"
+  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67f1c58c0dc5b2e0E.exit"
 
-"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67f1c58c0dc5b2e0E.argprom.exit": ; preds = %0, %2
+"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67f1c58c0dc5b2e0E.exit": ; preds = %0, %2
   ret void
 }
 
@@ -2963,18 +2963,18 @@ define hidden void @"_ZN4core3ptr128drop_in_place$LT$tokio..runtime..task..Task$
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$17h73e78e87fdf6b143E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
+define internal fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$17h73e78e87fdf6b143E"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd08654e8879592cbE.argprom.exit", label %2
+  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd08654e8879592cbE.exit", label %2
 
 2:                                                ; preds = %0
   %3 = shl nuw i64 %.8.val, 3
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #35
-  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd08654e8879592cbE.argprom.exit"
+  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd08654e8879592cbE.exit"
 
-"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd08654e8879592cbE.argprom.exit": ; preds = %0, %2
+"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd08654e8879592cbE.exit": ; preds = %0, %2
   ret void
 }
 
@@ -3472,18 +3472,18 @@ define hidden void @"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$sqlx_sqlite..column..SqliteColumn$GT$$GT$$GT$$GT$17hc2e8ddd639d609feE.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
+define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$sqlx_sqlite..column..SqliteColumn$GT$$GT$$GT$$GT$17hc2e8ddd639d609feE"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc698947c03e03aa6E.argprom.exit", label %2
+  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc698947c03e03aa6E.exit", label %2
 
 2:                                                ; preds = %0
   %3 = shl nuw i64 %.8.val, 3
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #35
-  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc698947c03e03aa6E.argprom.exit"
+  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc698947c03e03aa6E.exit"
 
-"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc698947c03e03aa6E.argprom.exit": ; preds = %0, %2
+"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc698947c03e03aa6E.exit": ; preds = %0, %2
   ret void
 }
 
@@ -3696,7 +3696,7 @@ define internal fastcc void @"_ZN4core3ptr138drop_in_place$LT$alloc..collections
   unreachable
 
 .body.i:                                          ; preds = %28
-  invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h0a585253b776096bE.argprom"(ptr nonnull %15, i64 %16) #33
+  invoke fastcc void @"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h0a585253b776096bE"(ptr nonnull %15, i64 %16) #33
           to label %.body unwind label %57
 
 "_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$17hab95f394e6e44856E.llvm.9153531805506995525.exit.i.i.i.i": ; preds = %"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$17hab95f394e6e44856E.llvm.9153531805506995525.exit.i.i", %44
@@ -3770,22 +3770,22 @@ define internal fastcc void @"_ZN4core3ptr138drop_in_place$LT$alloc..collections
   %.val2 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 8
   %.val3 = load i64, ptr %61, align 8, !alias.scope !1081, !noalias !1084, !noundef !4
-  tail call fastcc void @"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h37c87e316ec7aacbE.argprom"(ptr %.val2, i64 %.val3) #33
+  tail call fastcc void @"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h37c87e316ec7aacbE"(ptr %.val2, i64 %.val3) #33
   resume { ptr, i32 } %eh.lpad-body
 
 "_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8ce28f54f3a13f5eE.exit": ; preds = %"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$17hab95f394e6e44856E.llvm.9153531805506995525.exit.i.i.i.i"
   %62 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load i64, ptr %62, align 8, !alias.scope !1081, !noalias !1084, !noundef !4
   %63 = icmp eq i64 %.val1, 0
-  br i1 %63, label %"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h37c87e316ec7aacbE.argprom.exit", label %64
+  br i1 %63, label %"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h37c87e316ec7aacbE.exit", label %64
 
 64:                                               ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8ce28f54f3a13f5eE.exit"
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %65 = mul nuw i64 %.val1, 96
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %65, i64 noundef 8) #35
-  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h37c87e316ec7aacbE.argprom.exit"
+  br label %"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h37c87e316ec7aacbE.exit"
 
-"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h37c87e316ec7aacbE.argprom.exit": ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8ce28f54f3a13f5eE.exit", %64
+"_ZN4core3ptr121drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h37c87e316ec7aacbE.exit": ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8ce28f54f3a13f5eE.exit", %64
   ret void
 }
 
@@ -4132,9 +4132,9 @@ define hidden void @"_ZN4core3ptr140drop_in_place$LT$core..cell..UnsafeCell$LT$f
 define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$$GT$17h34bf12920c062b8aE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !694, !noundef !4
   %3 = icmp eq i64 %2, 0
-  br i1 %3, label %"_ZN4core3ptr112drop_in_place$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$17h648c2e94c84dc2b7E.argprom.exit", label %4
+  br i1 %3, label %"_ZN4core3ptr112drop_in_place$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$17h648c2e94c84dc2b7E.exit", label %4
 
-"_ZN4core3ptr112drop_in_place$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$17h648c2e94c84dc2b7E.argprom.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i", %4, %1
+"_ZN4core3ptr112drop_in_place$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$17h648c2e94c84dc2b7E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i", %4, %1
   ret void
 
 4:                                                ; preds = %1
@@ -4145,11 +4145,11 @@ define internal fastcc void @"_ZN4core3ptr140drop_in_place$LT$core..option..Opti
   %.not.i = icmp eq ptr %.val, null
   %7 = icmp eq i64 %.val1, 0
   %or.cond.i = select i1 %.not.i, i1 true, i1 %7
-  br i1 %or.cond.i, label %"_ZN4core3ptr112drop_in_place$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$17h648c2e94c84dc2b7E.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i"
+  br i1 %or.cond.i, label %"_ZN4core3ptr112drop_in_place$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$17h648c2e94c84dc2b7E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i": ; preds = %4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %.val1, i64 noundef 1) #35
-  br label %"_ZN4core3ptr112drop_in_place$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$17h648c2e94c84dc2b7E.argprom.exit"
+  br label %"_ZN4core3ptr112drop_in_place$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$17h648c2e94c84dc2b7E.exit"
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -4307,18 +4307,18 @@ common.resume:                                    ; preds = %5, %11
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr142drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$ahash..hash_map..AHashMap$LT$sqlx_core..ext..ustr..UStr$C$usize$GT$$GT$$GT$$GT$17hf4b995d36f393832E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
+define internal fastcc void @"_ZN4core3ptr142drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$ahash..hash_map..AHashMap$LT$sqlx_core..ext..ustr..UStr$C$usize$GT$$GT$$GT$$GT$17hf4b995d36f393832E"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h077aee39b00ffd65E.argprom.exit", label %2
+  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h077aee39b00ffd65E.exit", label %2
 
 2:                                                ; preds = %0
   %3 = shl nuw i64 %.8.val, 3
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #35
-  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h077aee39b00ffd65E.argprom.exit"
+  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h077aee39b00ffd65E.exit"
 
-"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h077aee39b00ffd65E.argprom.exit": ; preds = %0, %2
+"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h077aee39b00ffd65E.exit": ; preds = %0, %2
   ret void
 }
 
@@ -4959,18 +4959,18 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9153531805506995525.exit.th
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN4core3ptr217drop_in_place$LT$tokio..util..sharded_list..ShardedList$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h0cf6107d60473683E.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i"
+  br i1 %1, label %"_ZN4core3ptr217drop_in_place$LT$tokio..util..sharded_list..ShardedList$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h0cf6107d60473683E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i": ; preds = %0
   %2 = mul nsw i64 %.8.val, 24
   %3 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %3)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %2, i64 noundef 8) #35
-  br label %"_ZN4core3ptr217drop_in_place$LT$tokio..util..sharded_list..ShardedList$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h0cf6107d60473683E.argprom.exit"
+  br label %"_ZN4core3ptr217drop_in_place$LT$tokio..util..sharded_list..ShardedList$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h0cf6107d60473683E.exit"
 
-"_ZN4core3ptr217drop_in_place$LT$tokio..util..sharded_list..ShardedList$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h0cf6107d60473683E.argprom.exit": ; preds = %0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i"
+"_ZN4core3ptr217drop_in_place$LT$tokio..util..sharded_list..ShardedList$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h0cf6107d60473683E.exit": ; preds = %0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i"
   ret void
 }
 
@@ -5186,7 +5186,7 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$smallvec..SmallVec
   unreachable
 
 .body.i.i:                                        ; preds = %24
-  tail call fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$sqlx_sqlite..column..SqliteColumn$GT$$GT$$GT$$GT$17hc2e8ddd639d609feE.argprom"(ptr nonnull %5, i64 %3) #33, !noalias !1375
+  tail call fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$sqlx_sqlite..column..SqliteColumn$GT$$GT$$GT$$GT$17hc2e8ddd639d609feE"(ptr nonnull %5, i64 %3) #33, !noalias !1375
   resume { ptr, i32 } %27
 
 "_ZN4core3ptr124drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$sqlx_sqlite..column..SqliteColumn$GT$$GT$$GT$$GT$17hd75213d91066825eE.exit.i": ; preds = %"_ZN4core3ptr101drop_in_place$LT$alloc..sync..Arc$LT$alloc..vec..Vec$LT$sqlx_sqlite..column..SqliteColumn$GT$$GT$$GT$17h7abdc3b4d71b569fE.llvm.9153531805506995525.exit.i.i.i.i", %13
@@ -6831,7 +6831,7 @@ define internal fastcc void @"_ZN4core3ptr159drop_in_place$LT$smallvec..SmallVec
   unreachable
 
 .body.i.i:                                        ; preds = %24
-  tail call fastcc void @"_ZN4core3ptr142drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$ahash..hash_map..AHashMap$LT$sqlx_core..ext..ustr..UStr$C$usize$GT$$GT$$GT$$GT$17hf4b995d36f393832E.argprom"(ptr nonnull %5, i64 %3) #33, !noalias !1955
+  tail call fastcc void @"_ZN4core3ptr142drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$ahash..hash_map..AHashMap$LT$sqlx_core..ext..ustr..UStr$C$usize$GT$$GT$$GT$$GT$17hf4b995d36f393832E"(ptr nonnull %5, i64 %3) #33, !noalias !1955
   resume { ptr, i32 } %27
 
 "_ZN4core3ptr135drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$ahash..hash_map..AHashMap$LT$sqlx_core..ext..ustr..UStr$C$usize$GT$$GT$$GT$$GT$17h723a4095b92d775aE.exit.i": ; preds = %"_ZN4core3ptr112drop_in_place$LT$alloc..sync..Arc$LT$ahash..hash_map..AHashMap$LT$sqlx_core..ext..ustr..UStr$C$usize$GT$$GT$$GT$17h7788afb0a97e45f2E.llvm.9153531805506995525.exit.i.i.i.i", %13
@@ -7101,7 +7101,7 @@ define internal fastcc void @"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..
 4:                                                ; preds = %6, %1
   %.0.i.i.i.i.i = phi i64 [ 0, %1 ], [ %8, %6 ]
   %5 = icmp eq i64 %.0.i.i.i.i.i, %.val1.i.i.i
-  br i1 %5, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.argprom.exit.i.i.i", label %6
+  br i1 %5, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.exit.i.i.i", label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds [0 x ptr], ptr %.val.i.i.i, i64 0, i64 %.0.i.i.i.i.i
@@ -7134,21 +7134,21 @@ define internal fastcc void @"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..
 .body.i.i.i:                                      ; preds = %9
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %.val3.i.i.i = load i64, ptr %18, align 8, !alias.scope !2023, !noalias !2026, !noundef !4
-  tail call fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$17h73e78e87fdf6b143E.argprom"(ptr nonnull %.val.i.i.i, i64 %.val3.i.i.i) #33, !noalias !2019
+  tail call fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$17h73e78e87fdf6b143E"(ptr nonnull %.val.i.i.i, i64 %.val3.i.i.i) #33, !noalias !2019
   resume { ptr, i32 } %12
 
-"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.argprom.exit.i.i.i": ; preds = %4
+"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.exit.i.i.i": ; preds = %4
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %.val5.i.i.i = load i64, ptr %19, align 8, !alias.scope !2023, !noalias !2026, !noundef !4
   %20 = icmp eq i64 %.val5.i.i.i, 0
   br i1 %20, label %"_ZN4core3ptr187drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17h987b18ad3f5ee344E.exit", label %21
 
-21:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.argprom.exit.i.i.i"
+21:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.exit.i.i.i"
   %22 = shl nuw i64 %.val5.i.i.i, 3
   tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i, i64 noundef %22, i64 noundef 8) #35, !noalias !2019
   br label %"_ZN4core3ptr187drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17h987b18ad3f5ee344E.exit"
 
-"_ZN4core3ptr187drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17h987b18ad3f5ee344E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.argprom.exit.i.i.i", %21
+"_ZN4core3ptr187drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17h987b18ad3f5ee344E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.exit.i.i.i", %21
   ret void
 }
 
@@ -7558,11 +7558,11 @@ define hidden void @"_ZN4core3ptr172drop_in_place$LT$core..cell..UnsafeCell$LT$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr173drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$tokio..runtime..blocking..pool..Task$GT$$GT$17hecbe7b7a096aed51E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr173drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$tokio..runtime..blocking..pool..Task$GT$$GT$17hecbe7b7a096aed51E"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp eq i64 %.8.val, 0
-  br i1 %2, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585f6b12ed7b2b29E.argprom.exit", label %.lr.ph.i.i
+  br i1 %2, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585f6b12ed7b2b29E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %0, %"_ZN4core3ptr57drop_in_place$LT$tokio..runtime..blocking..pool..Task$GT$17h9ca1ec35fb3acfb0E.exit.i.i"
   %.09.i.i = phi i64 [ %4, %"_ZN4core3ptr57drop_in_place$LT$tokio..runtime..blocking..pool..Task$GT$17h9ca1ec35fb3acfb0E.exit.i.i" ], [ 0, %0 ]
@@ -7585,7 +7585,7 @@ define internal fastcc void @"_ZN4core3ptr173drop_in_place$LT$$LT$alloc..collect
 
 "_ZN4core3ptr57drop_in_place$LT$tokio..runtime..blocking..pool..Task$GT$17h9ca1ec35fb3acfb0E.exit.i.i": ; preds = %7, %.noexc7.i.i
   %9 = icmp eq i64 %4, %.8.val
-  br i1 %9, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585f6b12ed7b2b29E.argprom.exit", label %.lr.ph.i.i
+  br i1 %9, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585f6b12ed7b2b29E.exit", label %.lr.ph.i.i
 
 10:                                               ; preds = %14, %12
   %.1.i.i = phi i64 [ %4, %12 ], [ %16, %14 ]
@@ -7612,7 +7612,7 @@ define internal fastcc void @"_ZN4core3ptr173drop_in_place$LT$$LT$alloc..collect
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34
   unreachable
 
-"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585f6b12ed7b2b29E.argprom.exit": ; preds = %"_ZN4core3ptr57drop_in_place$LT$tokio..runtime..blocking..pool..Task$GT$17h9ca1ec35fb3acfb0E.exit.i.i", %0
+"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585f6b12ed7b2b29E.exit": ; preds = %"_ZN4core3ptr57drop_in_place$LT$tokio..runtime..blocking..pool..Task$GT$17h9ca1ec35fb3acfb0E.exit.i.i", %0
   ret void
 }
 
@@ -8194,8 +8194,8 @@ define hidden void @"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %6
 
-6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %7 = phi ptr [ %5, %.lr.ph.i.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i" ]
+6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i", %.lr.ph.i.i.i
+  %7 = phi ptr [ %5, %.lr.ph.i.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i" ]
   %.sroa.23.0.copyload.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !noalias !2291
   %8 = getelementptr inbounds i8, ptr %7, i64 360
   %9 = getelementptr inbounds { [3 x i64] }, ptr %8, i64 %.sroa.23.0.copyload.i.i.i
@@ -8226,9 +8226,9 @@ define hidden void @"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..
   store volatile i8 0, ptr %.ptr.i.i.i.i.i.i.i, align 1, !alias.scope !2320, !noalias !2329
   fence syncscope("singlethread") seq_cst
   %15 = icmp eq i64 %.add.i.i.i.i.i.i.i, 32
-  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i
+  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2291
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2291
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h14eb64c7d1b9ca04E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !2288
@@ -8236,7 +8236,7 @@ define hidden void @"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..
   %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd7a80b5873e4c0c5E.llvm.9153531805506995525.exit", label %6
 
-"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd7a80b5873e4c0c5E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i", %1
+"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd7a80b5873e4c0c5E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2291
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !2288
   ret void
@@ -8255,8 +8255,8 @@ define hidden void @"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %4
 
-4:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i", %.lr.ph.i
-  %5 = phi ptr [ %3, %.lr.ph.i ], [ %14, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i" ]
+4:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i", %.lr.ph.i
+  %5 = phi ptr [ %3, %.lr.ph.i ], [ %14, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i" ]
   %.sroa.23.0.copyload.i = load i64, ptr %.sroa.23.0..sroa_idx.i, align 8, !noalias !2332
   %6 = getelementptr inbounds i8, ptr %5, i64 360
   %7 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.sroa.23.0.copyload.i
@@ -8287,9 +8287,9 @@ define hidden void @"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..
   store volatile i8 0, ptr %.ptr.i.i.i.i.i, align 1, !alias.scope !2359, !noalias !2368
   fence syncscope("singlethread") seq_cst
   %13 = icmp eq i64 %.add.i.i.i.i.i, 32
-  br i1 %13, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i", label %.lr.ph.i.i.i.i.i.i
+  br i1 %13, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i", label %.lr.ph.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2332
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2332
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h14eb64c7d1b9ca04E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
@@ -8297,7 +8297,7 @@ define hidden void @"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa4c0c47fddee930E.llvm.9153531805506995525.exit", label %4
 
-"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa4c0c47fddee930E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i", %1
+"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa4c0c47fddee930E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2332
   ret void
 }
@@ -8851,8 +8851,8 @@ define hidden void @"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %6
 
-6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i", %.lr.ph.i.i.i
-  %7 = phi ptr [ %5, %.lr.ph.i.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i" ]
+6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i", %.lr.ph.i.i.i
+  %7 = phi ptr [ %5, %.lr.ph.i.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i" ]
   %.sroa.23.0.copyload.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !noalias !2483
   %8 = getelementptr inbounds i8, ptr %7, i64 360
   %9 = getelementptr inbounds { [3 x i64] }, ptr %8, i64 %.sroa.23.0.copyload.i.i.i
@@ -8882,9 +8882,9 @@ define hidden void @"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..
   store volatile i8 0, ptr %.ptr.i.i.i.i.i.i.i, align 1, !alias.scope !2509, !noalias !2518
   fence syncscope("singlethread") seq_cst
   %15 = icmp eq i64 %.add.i.i.i.i.i.i.i, 32
-  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i
+  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2483
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2483
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hd8ef62a37bec06bbE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !2480
@@ -8892,7 +8892,7 @@ define hidden void @"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..
   %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7fe17e88677ef419E.llvm.9153531805506995525.exit", label %6
 
-"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7fe17e88677ef419E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i", %1
+"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7fe17e88677ef419E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2483
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !2480
   ret void
@@ -8911,8 +8911,8 @@ define hidden void @"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %4
 
-4:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i", %.lr.ph.i
-  %5 = phi ptr [ %3, %.lr.ph.i ], [ %14, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i" ]
+4:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i", %.lr.ph.i
+  %5 = phi ptr [ %3, %.lr.ph.i ], [ %14, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i" ]
   %.sroa.23.0.copyload.i = load i64, ptr %.sroa.23.0..sroa_idx.i, align 8, !noalias !2521
   %6 = getelementptr inbounds i8, ptr %5, i64 360
   %7 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.sroa.23.0.copyload.i
@@ -8942,9 +8942,9 @@ define hidden void @"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..
   store volatile i8 0, ptr %.ptr.i.i.i.i.i, align 1, !alias.scope !2545, !noalias !2554
   fence syncscope("singlethread") seq_cst
   %13 = icmp eq i64 %.add.i.i.i.i.i, 32
-  br i1 %13, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i", label %.lr.ph.i.i.i.i.i.i
+  br i1 %13, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i", label %.lr.ph.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2521
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2521
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hd8ef62a37bec06bbE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
@@ -8952,7 +8952,7 @@ define hidden void @"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h083ff280c3136b4eE.llvm.9153531805506995525.exit", label %4
 
-"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h083ff280c3136b4eE.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i", %1
+"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h083ff280c3136b4eE.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2521
   ret void
 }
@@ -9075,18 +9075,18 @@ define hidden void @"_ZN4core3ptr195drop_in_place$LT$tokio..time..timeout..Timeo
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h16f0e64de4a36b82E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
+define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h16f0e64de4a36b82E"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ec5899a36ba87faE.argprom.exit", label %2
+  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ec5899a36ba87faE.exit", label %2
 
 2:                                                ; preds = %0
   %3 = shl nuw i64 %.8.val, 4
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #35
-  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ec5899a36ba87faE.argprom.exit"
+  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ec5899a36ba87faE.exit"
 
-"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ec5899a36ba87faE.argprom.exit": ; preds = %0, %2
+"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3ec5899a36ba87faE.exit": ; preds = %0, %2
   ret void
 }
 
@@ -9334,18 +9334,18 @@ define hidden void @"_ZN4core3ptr200drop_in_place$LT$flume..async..RecvFut$LT$co
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr201drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h23bbeaa9572bdca8E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
+define internal fastcc void @"_ZN4core3ptr201drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h23bbeaa9572bdca8E"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb419b90158e8fb0E.argprom.exit", label %2
+  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb419b90158e8fb0E.exit", label %2
 
 2:                                                ; preds = %0
   %3 = mul nuw i64 %.8.val, 48
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #35
-  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb419b90158e8fb0E.argprom.exit"
+  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb419b90158e8fb0E.exit"
 
-"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb419b90158e8fb0E.argprom.exit": ; preds = %0, %2
+"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17heb419b90158e8fb0E.exit": ; preds = %0, %2
   ret void
 }
 
@@ -9592,7 +9592,7 @@ define hidden void @"_ZN4core3ptr205drop_in_place$LT$futures_channel..lock..Lock
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h0a585253b776096bE.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h0a585253b776096bE"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   br label %"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$17hab95f394e6e44856E.llvm.9153531805506995525.exit.i.i"
@@ -9600,7 +9600,7 @@ define internal fastcc void @"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..collect
 "_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$17hab95f394e6e44856E.llvm.9153531805506995525.exit.i.i": ; preds = %9, %0
   %.0.i.i = phi i64 [ 0, %0 ], [ %5, %9 ]
   %2 = icmp eq i64 %.0.i.i, %.8.val
-  br i1 %2, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc0debd825b1c7193E.argprom.exit", label %3
+  br i1 %2, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc0debd825b1c7193E.exit", label %3
 
 3:                                                ; preds = %"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$17hab95f394e6e44856E.llvm.9153531805506995525.exit.i.i"
   %4 = getelementptr inbounds [0 x { { i8, [55 x i8] }, { { i64, [3 x i64] }, ptr } }], ptr %.0.val, i64 0, i64 %.0.i.i
@@ -9655,7 +9655,7 @@ define internal fastcc void @"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..collect
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34
   unreachable
 
-"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc0debd825b1c7193E.argprom.exit": ; preds = %"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$17hab95f394e6e44856E.llvm.9153531805506995525.exit.i.i"
+"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc0debd825b1c7193E.exit": ; preds = %"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$17hab95f394e6e44856E.llvm.9153531805506995525.exit.i.i"
   ret void
 }
 
@@ -10005,7 +10005,7 @@ define internal fastcc void @"_ZN4core3ptr213drop_in_place$LT$alloc..collections
   unreachable
 
 .body.i:                                          ; preds = %25
-  invoke fastcc void @"_ZN4core3ptr282drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17hd14c7035a9b0f647E.argprom"(ptr nonnull %15, i64 %16) #33
+  invoke fastcc void @"_ZN4core3ptr282drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17hd14c7035a9b0f647E"(ptr nonnull %15, i64 %16) #33
           to label %.body unwind label %51
 
 "_ZN4core3ptr176drop_in_place$LT$$u5b$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$u5d$$GT$17hd1d36ff4d48b8cd2E.llvm.9153531805506995525.exit.i": ; preds = %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h2506592217903b2bE.llvm.9153531805506995525.exit.i.i", %.noexc
@@ -10070,22 +10070,22 @@ define internal fastcc void @"_ZN4core3ptr213drop_in_place$LT$alloc..collections
   %.val2 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   %.val3 = load i64, ptr %55, align 8, !alias.scope !2782, !noalias !2785, !noundef !4
-  tail call fastcc void @"_ZN4core3ptr196drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h16f0e64de4a36b82E.argprom"(ptr %.val2, i64 %.val3) #33
+  tail call fastcc void @"_ZN4core3ptr196drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h16f0e64de4a36b82E"(ptr %.val2, i64 %.val3) #33
   resume { ptr, i32 } %eh.lpad-body
 
 "_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f1d8437673e3c3bE.exit": ; preds = %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h2506592217903b2bE.llvm.9153531805506995525.exit.i.i.i.i", %"_ZN4core3ptr176drop_in_place$LT$$u5b$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$u5d$$GT$17hd1d36ff4d48b8cd2E.llvm.9153531805506995525.exit.i"
   %56 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load i64, ptr %56, align 8, !alias.scope !2782, !noalias !2785, !noundef !4
   %57 = icmp eq i64 %.val1, 0
-  br i1 %57, label %"_ZN4core3ptr196drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h16f0e64de4a36b82E.argprom.exit", label %58
+  br i1 %57, label %"_ZN4core3ptr196drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h16f0e64de4a36b82E.exit", label %58
 
 58:                                               ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f1d8437673e3c3bE.exit"
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %59 = shl nuw i64 %.val1, 4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %59, i64 noundef 8) #35
-  br label %"_ZN4core3ptr196drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h16f0e64de4a36b82E.argprom.exit"
+  br label %"_ZN4core3ptr196drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h16f0e64de4a36b82E.exit"
 
-"_ZN4core3ptr196drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h16f0e64de4a36b82E.argprom.exit": ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f1d8437673e3c3bE.exit", %58
+"_ZN4core3ptr196drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h16f0e64de4a36b82E.exit": ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f1d8437673e3c3bE.exit", %58
   ret void
 }
 
@@ -10221,8 +10221,8 @@ define hidden void @"_ZN4core3ptr216drop_in_place$LT$core..cell..UnsafeCell$LT$a
   %.sroa.23.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %6
 
-6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i", %.lr.ph.i.i.i.i
-  %7 = phi ptr [ %5, %.lr.ph.i.i.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i" ]
+6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i", %.lr.ph.i.i.i.i
+  %7 = phi ptr [ %5, %.lr.ph.i.i.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i" ]
   %.sroa.23.0.copyload.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !noalias !2807
   %8 = getelementptr inbounds i8, ptr %7, i64 360
   %9 = getelementptr inbounds { [3 x i64] }, ptr %8, i64 %.sroa.23.0.copyload.i.i.i.i
@@ -10253,9 +10253,9 @@ define hidden void @"_ZN4core3ptr216drop_in_place$LT$core..cell..UnsafeCell$LT$a
   store volatile i8 0, ptr %.ptr.i.i.i.i.i.i.i.i, align 1, !alias.scope !2836, !noalias !2845
   fence syncscope("singlethread") seq_cst
   %15 = icmp eq i64 %.add.i.i.i.i.i.i.i.i, 32
-  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2807
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2807
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h14eb64c7d1b9ca04E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !2802
@@ -10263,7 +10263,7 @@ define hidden void @"_ZN4core3ptr216drop_in_place$LT$core..cell..UnsafeCell$LT$a
   %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$17h11c9a5a6bbad4ba8E.llvm.9153531805506995525.exit", label %6
 
-"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$17h11c9a5a6bbad4ba8E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i", %1
+"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$17h11c9a5a6bbad4ba8E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2807
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !2802
   ret void
@@ -10458,7 +10458,7 @@ define internal fastcc void @"_ZN4core3ptr218drop_in_place$LT$alloc..collections
   unreachable
 
 .body.i:                                          ; preds = %26
-  invoke fastcc void @"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h2681a4134156b9d4E.argprom"(ptr nonnull %15, i64 %16) #33
+  invoke fastcc void @"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h2681a4134156b9d4E"(ptr nonnull %15, i64 %16) #33
           to label %.body unwind label %53
 
 "_ZN4core3ptr181drop_in_place$LT$$u5b$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$u5d$$GT$17heca50946ca1220bcE.exit.i": ; preds = %"_ZN4core3ptr171drop_in_place$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$17hae6cbc2656a49d2bE.llvm.9153531805506995525.exit.i.i", %.noexc
@@ -10524,22 +10524,22 @@ define internal fastcc void @"_ZN4core3ptr218drop_in_place$LT$alloc..collections
   %.val2 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 8
   %.val3 = load i64, ptr %57, align 8, !alias.scope !2904, !noalias !2907, !noundef !4
-  tail call fastcc void @"_ZN4core3ptr201drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h23bbeaa9572bdca8E.argprom"(ptr %.val2, i64 %.val3) #33
+  tail call fastcc void @"_ZN4core3ptr201drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h23bbeaa9572bdca8E"(ptr %.val2, i64 %.val3) #33
   resume { ptr, i32 } %eh.lpad-body
 
 "_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hce8991e392b07864E.exit": ; preds = %"_ZN4core3ptr171drop_in_place$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$17hae6cbc2656a49d2bE.llvm.9153531805506995525.exit.i.i.i.i", %"_ZN4core3ptr181drop_in_place$LT$$u5b$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$u5d$$GT$17heca50946ca1220bcE.exit.i"
   %58 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load i64, ptr %58, align 8, !alias.scope !2904, !noalias !2907, !noundef !4
   %59 = icmp eq i64 %.val1, 0
-  br i1 %59, label %"_ZN4core3ptr201drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h23bbeaa9572bdca8E.argprom.exit", label %60
+  br i1 %59, label %"_ZN4core3ptr201drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h23bbeaa9572bdca8E.exit", label %60
 
 60:                                               ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hce8991e392b07864E.exit"
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %61 = mul nuw i64 %.val1, 48
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %61, i64 noundef 8) #35
-  br label %"_ZN4core3ptr201drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h23bbeaa9572bdca8E.argprom.exit"
+  br label %"_ZN4core3ptr201drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h23bbeaa9572bdca8E.exit"
 
-"_ZN4core3ptr201drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h23bbeaa9572bdca8E.argprom.exit": ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hce8991e392b07864E.exit", %60
+"_ZN4core3ptr201drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h23bbeaa9572bdca8E.exit": ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hce8991e392b07864E.exit", %60
   ret void
 }
 
@@ -10732,8 +10732,8 @@ define hidden void @"_ZN4core3ptr219drop_in_place$LT$std..sync..rwlock..RwLock$L
   %.sroa.23.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %7
 
-7:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %8 = phi ptr [ %6, %.lr.ph.i.i.i.i.i ], [ %17, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i.i" ]
+7:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
+  %8 = phi ptr [ %6, %.lr.ph.i.i.i.i.i ], [ %17, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i.i" ]
   %.sroa.23.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i.i, align 8, !noalias !2983
   %9 = getelementptr inbounds i8, ptr %8, i64 360
   %10 = getelementptr inbounds { [3 x i64] }, ptr %9, i64 %.sroa.23.0.copyload.i.i.i.i.i
@@ -10764,9 +10764,9 @@ define hidden void @"_ZN4core3ptr219drop_in_place$LT$std..sync..rwlock..RwLock$L
   store volatile i8 0, ptr %.ptr.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !3012, !noalias !3021
   fence syncscope("singlethread") seq_cst
   %16 = icmp eq i64 %.add.i.i.i.i.i.i.i.i.i, 32
-  br i1 %16, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  br i1 %16, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2983
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2983
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h14eb64c7d1b9ca04E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !2976
@@ -10774,7 +10774,7 @@ define hidden void @"_ZN4core3ptr219drop_in_place$LT$std..sync..rwlock..RwLock$L
   %.not.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr216drop_in_place$LT$core..cell..UnsafeCell$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$$GT$17h43863722ed7fdc38E.llvm.9153531805506995525.exit", label %7
 
-"_ZN4core3ptr216drop_in_place$LT$core..cell..UnsafeCell$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$$GT$17h43863722ed7fdc38E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i.i", %1
+"_ZN4core3ptr216drop_in_place$LT$core..cell..UnsafeCell$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$$GT$17h43863722ed7fdc38E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2983
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !2976
   ret void
@@ -11020,8 +11020,8 @@ define hidden void @"_ZN4core3ptr224drop_in_place$LT$core..cell..UnsafeCell$LT$a
   %.sroa.23.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %6
 
-6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i", %.lr.ph.i.i.i.i
-  %7 = phi ptr [ %5, %.lr.ph.i.i.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i" ]
+6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i", %.lr.ph.i.i.i.i
+  %7 = phi ptr [ %5, %.lr.ph.i.i.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i" ]
   %.sroa.23.0.copyload.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !noalias !3069
   %8 = getelementptr inbounds i8, ptr %7, i64 360
   %9 = getelementptr inbounds { [3 x i64] }, ptr %8, i64 %.sroa.23.0.copyload.i.i.i.i
@@ -11051,9 +11051,9 @@ define hidden void @"_ZN4core3ptr224drop_in_place$LT$core..cell..UnsafeCell$LT$a
   store volatile i8 0, ptr %.ptr.i.i.i.i.i.i.i.i, align 1, !alias.scope !3095, !noalias !3104
   fence syncscope("singlethread") seq_cst
   %15 = icmp eq i64 %.add.i.i.i.i.i.i.i.i, 32
-  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3069
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3069
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hd8ef62a37bec06bbE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !3064
@@ -11061,7 +11061,7 @@ define hidden void @"_ZN4core3ptr224drop_in_place$LT$core..cell..UnsafeCell$LT$a
   %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$17h19c5ec8d72b2f38cE.llvm.9153531805506995525.exit", label %6
 
-"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$17h19c5ec8d72b2f38cE.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i", %1
+"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$17h19c5ec8d72b2f38cE.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3069
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !3064
   ret void
@@ -11257,8 +11257,8 @@ define hidden void @"_ZN4core3ptr227drop_in_place$LT$std..sync..rwlock..RwLock$L
   %.sroa.23.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %7
 
-7:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %8 = phi ptr [ %6, %.lr.ph.i.i.i.i.i ], [ %17, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i.i" ]
+7:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
+  %8 = phi ptr [ %6, %.lr.ph.i.i.i.i.i ], [ %17, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i.i" ]
   %.sroa.23.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i.i, align 8, !noalias !3137
   %9 = getelementptr inbounds i8, ptr %8, i64 360
   %10 = getelementptr inbounds { [3 x i64] }, ptr %9, i64 %.sroa.23.0.copyload.i.i.i.i.i
@@ -11288,9 +11288,9 @@ define hidden void @"_ZN4core3ptr227drop_in_place$LT$std..sync..rwlock..RwLock$L
   store volatile i8 0, ptr %.ptr.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !3163, !noalias !3172
   fence syncscope("singlethread") seq_cst
   %16 = icmp eq i64 %.add.i.i.i.i.i.i.i.i.i, 32
-  br i1 %16, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i
+  br i1 %16, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3137
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3137
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hd8ef62a37bec06bbE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !3130
@@ -11298,7 +11298,7 @@ define hidden void @"_ZN4core3ptr227drop_in_place$LT$std..sync..rwlock..RwLock$L
   %.not.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr224drop_in_place$LT$core..cell..UnsafeCell$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h7991ce70a6dee84bE.llvm.9153531805506995525.exit", label %7
 
-"_ZN4core3ptr224drop_in_place$LT$core..cell..UnsafeCell$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h7991ce70a6dee84bE.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i.i", %1
+"_ZN4core3ptr224drop_in_place$LT$core..cell..UnsafeCell$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h7991ce70a6dee84bE.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3137
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !3130
   ret void
@@ -12281,8 +12281,8 @@ define hidden void @"_ZN4core3ptr248drop_in_place$LT$alloc..sync..ArcInner$LT$st
   %.sroa.23.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %7
 
-7:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
-  %8 = phi ptr [ %6, %.lr.ph.i.i.i.i.i.i ], [ %17, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i.i.i" ]
+7:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
+  %8 = phi ptr [ %6, %.lr.ph.i.i.i.i.i.i ], [ %17, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i.i.i" ]
   %.sroa.23.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !3467
   %9 = getelementptr inbounds i8, ptr %8, i64 360
   %10 = getelementptr inbounds { [3 x i64] }, ptr %9, i64 %.sroa.23.0.copyload.i.i.i.i.i.i
@@ -12313,9 +12313,9 @@ define hidden void @"_ZN4core3ptr248drop_in_place$LT$alloc..sync..ArcInner$LT$st
   store volatile i8 0, ptr %.ptr.i.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !3496, !noalias !3505
   fence syncscope("singlethread") seq_cst
   %16 = icmp eq i64 %.add.i.i.i.i.i.i.i.i.i.i, 32
-  br i1 %16, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %16, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3467
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3467
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h14eb64c7d1b9ca04E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !3458
@@ -12323,7 +12323,7 @@ define hidden void @"_ZN4core3ptr248drop_in_place$LT$alloc..sync..ArcInner$LT$st
   %.not.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr219drop_in_place$LT$std..sync..rwlock..RwLock$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$$GT$17h129bc54d3c904208E.exit", label %7
 
-"_ZN4core3ptr219drop_in_place$LT$std..sync..rwlock..RwLock$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$$GT$17h129bc54d3c904208E.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i.i.i.i.i", %1
+"_ZN4core3ptr219drop_in_place$LT$std..sync..rwlock..RwLock$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$$GT$17h129bc54d3c904208E.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i.i.i.i.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3467
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !3458
   ret void
@@ -12483,10 +12483,10 @@ define hidden void @"_ZN4core3ptr251drop_in_place$LT$core..pin..Pin$LT$alloc..bo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr251drop_in_place$LT$hashbrown..map..HashMap$LT$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$C$hashlink..linked_hash_map..NullHasher$GT$$GT$17h77b02cb6abd5f284E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr251drop_in_place$LT$hashbrown..map..HashMap$LT$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$C$hashlink..linked_hash_map..NullHasher$GT$$GT$17h77b02cb6abd5f284E"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 {
   %1 = alloca { i64, [2 x i64] }, align 8
   %2 = icmp eq i64 %.8.val, 0
-  br i1 %2, label %"_ZN4core3ptr227drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$$LP$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$RP$$GT$$GT$17h4111990165a7458cE.argprom.exit", label %3
+  br i1 %2, label %"_ZN4core3ptr227drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$$LP$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$RP$$GT$$GT$17h4111990165a7458cE.exit", label %3
 
 3:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !3571
@@ -12501,7 +12501,7 @@ define internal fastcc void @"_ZN4core3ptr251drop_in_place$LT$hashbrown..map..Ha
   %10 = load i64, ptr %9, align 8, !noalias !3571, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1), !noalias !3571
   %11 = icmp eq i64 %8, 0
-  br i1 %11, label %"_ZN4core3ptr227drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$$LP$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$RP$$GT$$GT$17h4111990165a7458cE.argprom.exit", label %12
+  br i1 %11, label %"_ZN4core3ptr227drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$$LP$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$RP$$GT$$GT$17h4111990165a7458cE.exit", label %12
 
 12:                                               ; preds = %3
   %13 = icmp ne ptr %.0.val, null
@@ -12509,9 +12509,9 @@ define internal fastcc void @"_ZN4core3ptr251drop_in_place$LT$hashbrown..map..Ha
   %14 = sub nsw i64 0, %10
   %15 = getelementptr inbounds i8, ptr %.0.val, i64 %14
   tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %8, i64 noundef %5) #35, !noalias !3577
-  br label %"_ZN4core3ptr227drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$$LP$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$RP$$GT$$GT$17h4111990165a7458cE.argprom.exit"
+  br label %"_ZN4core3ptr227drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$$LP$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$RP$$GT$$GT$17h4111990165a7458cE.exit"
 
-"_ZN4core3ptr227drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$$LP$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$RP$$GT$$GT$17h4111990165a7458cE.argprom.exit": ; preds = %0, %3, %12
+"_ZN4core3ptr227drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$$LP$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$RP$$GT$$GT$17h4111990165a7458cE.exit": ; preds = %0, %3, %12
   ret void
 }
 
@@ -12633,8 +12633,8 @@ define hidden void @"_ZN4core3ptr256drop_in_place$LT$alloc..sync..ArcInner$LT$st
   %.sroa.23.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %7
 
-7:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
-  %8 = phi ptr [ %6, %.lr.ph.i.i.i.i.i.i ], [ %17, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i.i.i" ]
+7:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
+  %8 = phi ptr [ %6, %.lr.ph.i.i.i.i.i.i ], [ %17, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i.i.i" ]
   %.sroa.23.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !3597
   %9 = getelementptr inbounds i8, ptr %8, i64 360
   %10 = getelementptr inbounds { [3 x i64] }, ptr %9, i64 %.sroa.23.0.copyload.i.i.i.i.i.i
@@ -12664,9 +12664,9 @@ define hidden void @"_ZN4core3ptr256drop_in_place$LT$alloc..sync..ArcInner$LT$st
   store volatile i8 0, ptr %.ptr.i.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !3623, !noalias !3632
   fence syncscope("singlethread") seq_cst
   %16 = icmp eq i64 %.add.i.i.i.i.i.i.i.i.i.i, 32
-  br i1 %16, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %16, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3597
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !3597
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hd8ef62a37bec06bbE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %4), !noalias !3588
@@ -12674,7 +12674,7 @@ define hidden void @"_ZN4core3ptr256drop_in_place$LT$alloc..sync..ArcInner$LT$st
   %.not.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr227drop_in_place$LT$std..sync..rwlock..RwLock$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17hd62eae0807383b28E.exit", label %7
 
-"_ZN4core3ptr227drop_in_place$LT$std..sync..rwlock..RwLock$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17hd62eae0807383b28E.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i.i.i.i.i", %1
+"_ZN4core3ptr227drop_in_place$LT$std..sync..rwlock..RwLock$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17hd62eae0807383b28E.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i.i.i.i.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3597
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !3588
   ret void
@@ -13641,18 +13641,18 @@ define hidden void @"_ZN4core3ptr276drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr276drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h8b691f05bb8effceE.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
+define internal fastcc void @"_ZN4core3ptr276drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h8b691f05bb8effceE"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8a5aed0700cc5f8bE.argprom.exit", label %2
+  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8a5aed0700cc5f8bE.exit", label %2
 
 2:                                                ; preds = %0
   %3 = shl nuw i64 %.8.val, 4
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #35
-  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8a5aed0700cc5f8bE.argprom.exit"
+  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8a5aed0700cc5f8bE.exit"
 
-"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8a5aed0700cc5f8bE.argprom.exit": ; preds = %0, %2
+"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8a5aed0700cc5f8bE.exit": ; preds = %0, %2
   ret void
 }
 
@@ -13748,11 +13748,11 @@ define hidden void @"_ZN4core3ptr279drop_in_place$LT$lock_api..mutex..MutexGuard
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr282drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17hd14c7035a9b0f647E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr282drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17hd14c7035a9b0f647E"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp eq i64 %.8.val, 0
-  br i1 %2, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3756b663e529edeeE.argprom.exit", label %.lr.ph.i.i
+  br i1 %2, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3756b663e529edeeE.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %0, %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h2506592217903b2bE.llvm.9153531805506995525.exit.i.i"
   %.07.i.i = phi i64 [ %4, %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h2506592217903b2bE.llvm.9153531805506995525.exit.i.i" ], [ 0, %0 ]
@@ -13772,7 +13772,7 @@ define internal fastcc void @"_ZN4core3ptr282drop_in_place$LT$$LT$alloc..collect
 
 "_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h2506592217903b2bE.llvm.9153531805506995525.exit.i.i": ; preds = %8, %.lr.ph.i.i
   %9 = icmp eq i64 %4, %.8.val
-  br i1 %9, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3756b663e529edeeE.argprom.exit", label %.lr.ph.i.i
+  br i1 %9, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3756b663e529edeeE.exit", label %.lr.ph.i.i
 
 10:                                               ; preds = %14, %12
   %.1.i.i = phi i64 [ %4, %12 ], [ %16, %14 ]
@@ -13799,7 +13799,7 @@ define internal fastcc void @"_ZN4core3ptr282drop_in_place$LT$$LT$alloc..collect
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34
   unreachable
 
-"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3756b663e529edeeE.argprom.exit": ; preds = %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h2506592217903b2bE.llvm.9153531805506995525.exit.i.i", %0
+"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3756b663e529edeeE.exit": ; preds = %"_ZN4core3ptr166drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17h2506592217903b2bE.llvm.9153531805506995525.exit.i.i", %0
   ret void
 }
 
@@ -13867,20 +13867,20 @@ define hidden void @"_ZN4core3ptr285drop_in_place$LT$tokio..time..timeout..Timeo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr286drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$ockam_vault..types..secrets..SecretBufferHandle$C$ockam_vault..software..vault_for_secure_channels..types..BufferSecret$C$alloc..alloc..Global$GT$$GT$17hc13efc286cdbdb49E.argprom"(ptr nonnull %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr286drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$ockam_vault..types..secrets..SecretBufferHandle$C$ockam_vault..software..vault_for_secure_channels..types..BufferSecret$C$alloc..alloc..Global$GT$$GT$17hc13efc286cdbdb49E"(ptr nonnull %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca { ptr, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h11618995fe364322E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val)
   %2 = load ptr, ptr %1, align 8, !noundef !4
   %.not2.i = icmp eq ptr %2, null
-  br i1 %.not2.i, label %"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he31d5c85975d3e96E.argprom.exit", label %.lr.ph.i
+  br i1 %.not2.i, label %"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he31d5c85975d3e96E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %0
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
   br label %3
 
-3:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit.i", %.lr.ph.i
-  %4 = phi ptr [ %2, %.lr.ph.i ], [ %33, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit.i" ]
+3:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit.i", %.lr.ph.i
+  %4 = phi ptr [ %2, %.lr.ph.i ], [ %33, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit.i" ]
   %.sroa.21.0.copyload.i = load i64, ptr %.sroa.21.0..sroa_idx.i, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = getelementptr inbounds { [3 x i64] }, ptr %5, i64 %.sroa.21.0.copyload.i
@@ -13964,22 +13964,22 @@ define internal fastcc void @"_ZN4core3ptr286drop_in_place$LT$$LT$alloc..collect
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3944)
   %30 = load i64, ptr %22, align 8, !alias.scope !3947, !noalias !3950, !noundef !4
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i.i.i"
+  br i1 %31, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i.i.i": ; preds = %.loopexit.i.i.i
   %32 = load ptr, ptr %12, align 8, !alias.scope !3947, !noalias !3950, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %30, i64 noundef 1) #35, !noalias !3952
-  br label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit.i"
+  br label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit.i"
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i.i.i", %.loopexit.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i.i.i", %.loopexit.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h11618995fe364322E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %.0.val)
   %33 = load ptr, ptr %1, align 8, !noundef !4
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he31d5c85975d3e96E.argprom.exit", label %3
+  br i1 %.not.i, label %"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he31d5c85975d3e96E.exit", label %3
 
-"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he31d5c85975d3e96E.argprom.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit.i", %0
+"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he31d5c85975d3e96E.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit.i", %0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   ret void
 }
@@ -14018,11 +14018,11 @@ define hidden void @"_ZN4core3ptr286drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h2681a4134156b9d4E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$17h2681a4134156b9d4E"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp eq i64 %.8.val, 0
-  br i1 %2, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb747f2af7d8a80a5E.argprom.exit", label %.lr.ph.i.i
+  br i1 %2, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb747f2af7d8a80a5E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %0, %"_ZN4core3ptr171drop_in_place$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$17hae6cbc2656a49d2bE.llvm.9153531805506995525.exit.i.i"
   %.08.i.i = phi i64 [ %4, %"_ZN4core3ptr171drop_in_place$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$17hae6cbc2656a49d2bE.llvm.9153531805506995525.exit.i.i" ], [ 0, %0 ]
@@ -14043,7 +14043,7 @@ define internal fastcc void @"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..collect
 
 "_ZN4core3ptr171drop_in_place$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$17hae6cbc2656a49d2bE.llvm.9153531805506995525.exit.i.i": ; preds = %9, %7
   %10 = icmp eq i64 %4, %.8.val
-  br i1 %10, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb747f2af7d8a80a5E.argprom.exit", label %.lr.ph.i.i
+  br i1 %10, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb747f2af7d8a80a5E.exit", label %.lr.ph.i.i
 
 11:                                               ; preds = %15, %13
   %.1.i.i = phi i64 [ %4, %13 ], [ %17, %15 ]
@@ -14070,7 +14070,7 @@ define internal fastcc void @"_ZN4core3ptr287drop_in_place$LT$$LT$alloc..collect
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34
   unreachable
 
-"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb747f2af7d8a80a5E.argprom.exit": ; preds = %"_ZN4core3ptr171drop_in_place$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$17hae6cbc2656a49d2bE.llvm.9153531805506995525.exit.i.i", %0
+"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb747f2af7d8a80a5E.exit": ; preds = %"_ZN4core3ptr171drop_in_place$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$GT$17hae6cbc2656a49d2bE.llvm.9153531805506995525.exit.i.i", %0
   ret void
 }
 
@@ -14163,7 +14163,7 @@ define internal fastcc void @"_ZN4core3ptr293drop_in_place$LT$alloc..collections
   unreachable
 
 .body.i:                                          ; preds = %25
-  invoke fastcc void @"_ZN4core3ptr362drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h72833657f9814e7bE.argprom"(ptr nonnull %15, i64 %16) #33
+  invoke fastcc void @"_ZN4core3ptr362drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h72833657f9814e7bE"(ptr nonnull %15, i64 %16) #33
           to label %.body unwind label %51
 
 "_ZN4core3ptr256drop_in_place$LT$$u5b$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$u5d$$GT$17hdb18f2250435c40cE.llvm.9153531805506995525.exit.i": ; preds = %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17hb593de6cc8de2928E.llvm.9153531805506995525.exit.i.i", %.noexc
@@ -14228,22 +14228,22 @@ define internal fastcc void @"_ZN4core3ptr293drop_in_place$LT$alloc..collections
   %.val2 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 8
   %.val3 = load i64, ptr %55, align 8, !alias.scope !3994, !noalias !3997, !noundef !4
-  tail call fastcc void @"_ZN4core3ptr276drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h8b691f05bb8effceE.argprom"(ptr %.val2, i64 %.val3) #33
+  tail call fastcc void @"_ZN4core3ptr276drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h8b691f05bb8effceE"(ptr %.val2, i64 %.val3) #33
   resume { ptr, i32 } %eh.lpad-body
 
 "_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f606d955fb29f2aE.exit": ; preds = %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17hb593de6cc8de2928E.llvm.9153531805506995525.exit.i.i.i.i", %"_ZN4core3ptr256drop_in_place$LT$$u5b$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$u5d$$GT$17hdb18f2250435c40cE.llvm.9153531805506995525.exit.i"
   %56 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1 = load i64, ptr %56, align 8, !alias.scope !3994, !noalias !3997, !noundef !4
   %57 = icmp eq i64 %.val1, 0
-  br i1 %57, label %"_ZN4core3ptr276drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h8b691f05bb8effceE.argprom.exit", label %58
+  br i1 %57, label %"_ZN4core3ptr276drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h8b691f05bb8effceE.exit", label %58
 
 58:                                               ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f606d955fb29f2aE.exit"
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %59 = shl nuw i64 %.val1, 4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %59, i64 noundef 8) #35
-  br label %"_ZN4core3ptr276drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h8b691f05bb8effceE.argprom.exit"
+  br label %"_ZN4core3ptr276drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h8b691f05bb8effceE.exit"
 
-"_ZN4core3ptr276drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h8b691f05bb8effceE.argprom.exit": ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f606d955fb29f2aE.exit", %58
+"_ZN4core3ptr276drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h8b691f05bb8effceE.exit": ; preds = %"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f606d955fb29f2aE.exit", %58
   ret void
 }
 
@@ -14962,11 +14962,11 @@ define hidden void @"_ZN4core3ptr361drop_in_place$LT$futures_util..stream..try_s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr362drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h72833657f9814e7bE.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr362drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h72833657f9814e7bE"(ptr %.0.val, i64 %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp eq i64 %.8.val, 0
-  br i1 %2, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93f836baabbc9c66E.argprom.exit", label %.lr.ph.i.i
+  br i1 %2, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93f836baabbc9c66E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %0, %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17hb593de6cc8de2928E.llvm.9153531805506995525.exit.i.i"
   %.07.i.i = phi i64 [ %4, %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17hb593de6cc8de2928E.llvm.9153531805506995525.exit.i.i" ], [ 0, %0 ]
@@ -14986,7 +14986,7 @@ define internal fastcc void @"_ZN4core3ptr362drop_in_place$LT$$LT$alloc..collect
 
 "_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17hb593de6cc8de2928E.llvm.9153531805506995525.exit.i.i": ; preds = %8, %.lr.ph.i.i
   %9 = icmp eq i64 %4, %.8.val
-  br i1 %9, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93f836baabbc9c66E.argprom.exit", label %.lr.ph.i.i
+  br i1 %9, label %"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93f836baabbc9c66E.exit", label %.lr.ph.i.i
 
 10:                                               ; preds = %14, %12
   %.1.i.i = phi i64 [ %4, %12 ], [ %16, %14 ]
@@ -15013,7 +15013,7 @@ define internal fastcc void @"_ZN4core3ptr362drop_in_place$LT$$LT$alloc..collect
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34
   unreachable
 
-"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93f836baabbc9c66E.argprom.exit": ; preds = %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17hb593de6cc8de2928E.llvm.9153531805506995525.exit.i.i", %0
+"_ZN159_$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h93f836baabbc9c66E.exit": ; preds = %"_ZN4core3ptr246drop_in_place$LT$alloc..sync..Arc$LT$flume..Hook$LT$core..result..Result$LT$either..Either$LT$sqlx_sqlite..query_result..SqliteQueryResult$C$sqlx_sqlite..row..SqliteRow$GT$$C$sqlx_core..error..Error$GT$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$17hb593de6cc8de2928E.llvm.9153531805506995525.exit.i.i", %0
   ret void
 }
 
@@ -15038,7 +15038,7 @@ define hidden void @"_ZN4core3ptr375drop_in_place$LT$futures_util..future..try_f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr38drop_in_place$LT$mio..waker..Waker$GT$17h194b3a49592ab896E.argprom"(i32 %.0.val) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr38drop_in_place$LT$mio..waker..Waker$GT$17h194b3a49592ab896E"(i32 %.0.val) unnamed_addr #1 {
   %1 = tail call noundef i32 @close(i32 noundef %.0.val)
   ret void
 }
@@ -15618,7 +15618,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h
   %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19582511d94b05d3E.llvm.9153531805506995525"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #33, !noalias !4542
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE.argprom"(ptr nonnull %6) #33, !noalias !4542
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE"(ptr nonnull %6) #33, !noalias !4542
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %5
@@ -15811,7 +15811,7 @@ default.unreachable17:                            ; preds = %1
 
 .body:                                            ; preds = %18, %27
   %eh.lpad-body = phi { ptr, i32 } [ %28, %27 ], [ %19, %18 ]
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1d5a519405a26261E.argprom"(ptr nonnull %5) #33, !noalias !4565
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1d5a519405a26261E"(ptr nonnull %5) #33, !noalias !4565
   br label %common.resume
 
 common.resume:                                    ; preds = %153, %139, %124, %85, %.body.i.i.i.i.i, %48, %35, %.body
@@ -15866,7 +15866,7 @@ common.resume:                                    ; preds = %153, %139, %124, %8
           cleanup
   %50 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %50)
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d5c96a20bfeeb1dE.argprom"(ptr nonnull %.val, ptr nonnull %.val1) #33
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d5c96a20bfeeb1dE"(ptr nonnull %.val, ptr nonnull %.val1) #33
   br label %common.resume
 
 51:                                               ; preds = %44
@@ -15913,7 +15913,7 @@ common.resume:                                    ; preds = %153, %139, %124, %8
   %71 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19582511d94b05d3E.llvm.9153531805506995525"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %65) #33, !noalias !4603
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE.argprom"(ptr nonnull %65) #33, !noalias !4603
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE"(ptr nonnull %65) #33, !noalias !4603
   br label %common.resume
 
 72:                                               ; preds = %64
@@ -17068,33 +17068,33 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$tokio..runtime..process..Dri
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %.val1.i.i = load i64, ptr %3, align 8, !alias.scope !5081
   %4 = icmp eq i64 %.val1.i.i, 0
-  br i1 %4, label %"_ZN4core3ptr47drop_in_place$LT$mio..event..events..Events$GT$17h994145781c092f70E.argprom.exit.i.i", label %5
+  br i1 %4, label %"_ZN4core3ptr47drop_in_place$LT$mio..event..events..Events$GT$17h994145781c092f70E.exit.i.i", label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i.i = load ptr, ptr %6, align 8, !alias.scope !5081, !nonnull !4, !noundef !4
   %7 = mul nuw i64 %.val1.i.i, 12
   tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i, i64 noundef %7, i64 noundef 1) #35, !noalias !5081
-  br label %"_ZN4core3ptr47drop_in_place$LT$mio..event..events..Events$GT$17h994145781c092f70E.argprom.exit.i.i"
+  br label %"_ZN4core3ptr47drop_in_place$LT$mio..event..events..Events$GT$17h994145781c092f70E.exit.i.i"
 
-"_ZN4core3ptr47drop_in_place$LT$mio..event..events..Events$GT$17h994145781c092f70E.argprom.exit.i.i": ; preds = %5, %1
+"_ZN4core3ptr47drop_in_place$LT$mio..event..events..Events$GT$17h994145781c092f70E.exit.i.i": ; preds = %5, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   invoke void @"_ZN83_$LT$mio..sys..unix..selector..epoll..Selector$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcab7873a4ec93c88E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %8)
           to label %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..io..driver..Driver$GT$17hcb9ba16b4b93f444E.exit.i" unwind label %9
 
-9:                                                ; preds = %"_ZN4core3ptr47drop_in_place$LT$mio..event..events..Events$GT$17h994145781c092f70E.argprom.exit.i.i"
+9:                                                ; preds = %"_ZN4core3ptr47drop_in_place$LT$mio..event..events..Events$GT$17h994145781c092f70E.exit.i.i"
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %.val.i = load i32, ptr %11, align 8, !alias.scope !5075, !noundef !4
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E.argprom"(i32 %.val.i) #33
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E"(i32 %.val.i) #33
           to label %14 unwind label %21
 
-"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..io..driver..Driver$GT$17hcb9ba16b4b93f444E.exit.i": ; preds = %"_ZN4core3ptr47drop_in_place$LT$mio..event..events..Events$GT$17h994145781c092f70E.argprom.exit.i.i"
+"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..io..driver..Driver$GT$17hcb9ba16b4b93f444E.exit.i": ; preds = %"_ZN4core3ptr47drop_in_place$LT$mio..event..events..Events$GT$17h994145781c092f70E.exit.i.i"
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %.val2.i = load i32, ptr %12, align 8, !alias.scope !5075, !noundef !4
   %13 = invoke noundef i32 @close(i32 noundef %.val2.i)
-          to label %"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E.argprom.exit.i" unwind label %15
+          to label %"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E.exit.i" unwind label %15
 
 14:                                               ; preds = %15, %9
   %.pn.i = phi { ptr, i32 } [ %16, %15 ], [ %10, %9 ]
@@ -17106,7 +17106,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$tokio..runtime..process..Dri
           cleanup
   br label %14
 
-"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E.argprom.exit.i": ; preds = %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..io..driver..Driver$GT$17hcb9ba16b4b93f444E.exit.i"
+"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E.exit.i": ; preds = %"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..io..driver..Driver$GT$17hcb9ba16b4b93f444E.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5082)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5085)
   %17 = load ptr, ptr %2, align 8, !alias.scope !5088, !nonnull !4, !noundef !4
@@ -17114,7 +17114,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$tokio..runtime..process..Dri
   %19 = icmp eq i64 %18, 1
   br i1 %19, label %20, label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..signal..Driver$GT$17h7034190fc8e2da67E.exit"
 
-20:                                               ; preds = %"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E.argprom.exit.i"
+20:                                               ; preds = %"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E.exit.i"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7185f99172bd534bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
           to label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..signal..Driver$GT$17h7034190fc8e2da67E.exit" unwind label %23
@@ -17135,7 +17135,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$tokio..runtime..process..Dri
   tail call void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..signal..Handle$GT$17h43da295ff0a6cf32E.llvm.9153531805506995525"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #33
   resume { ptr, i32 } %eh.lpad-body
 
-"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..signal..Driver$GT$17h7034190fc8e2da67E.exit": ; preds = %"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E.argprom.exit.i", %20
+"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..signal..Driver$GT$17h7034190fc8e2da67E.exit": ; preds = %"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E.exit.i", %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5090)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5093)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5096)
@@ -17227,7 +17227,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$tokio..runtime..driver..IoHa
 10:                                               ; preds = %11, %6
   %.pn.i = phi { ptr, i32 } [ %12, %11 ], [ %7, %6 ]
   %.val2.i = load i32, ptr %2, align 4, !alias.scope !5111, !noundef !4
-  invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$mio..waker..Waker$GT$17h194b3a49592ab896E.argprom"(i32 %.val2.i) #33
+  invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$mio..waker..Waker$GT$17h194b3a49592ab896E"(i32 %.val2.i) #33
           to label %15 unwind label %13
 
 11:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$mio..poll..Registry$GT$17hbc8a7477d7514d03E.exit.i"
@@ -17327,7 +17327,7 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$alloc..sync..Weak$LT$$LP$$RP
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E.argprom"(i32 %.0.val) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$mio..net..uds..stream..UnixStream$GT$17h7bf3f1a011898cd5E"(i32 %.0.val) unnamed_addr #1 {
   %1 = tail call noundef i32 @close(i32 noundef %.0.val)
   ret void
 }
@@ -17548,7 +17548,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..io..driver..
   %.pn = phi { ptr, i32 } [ %10, %9 ], [ %4, %3 ]
   %8 = getelementptr inbounds i8, ptr %0, i64 68
   %.val2 = load i32, ptr %8, align 4, !noundef !4
-  invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$mio..waker..Waker$GT$17h194b3a49592ab896E.argprom"(i32 %.val2) #33
+  invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$mio..waker..Waker$GT$17h194b3a49592ab896E"(i32 %.val2) #33
           to label %16 unwind label %14
 
 9:                                                ; preds = %"_ZN4core3ptr40drop_in_place$LT$mio..poll..Registry$GT$17hbc8a7477d7514d03E.exit"
@@ -17871,14 +17871,14 @@ _ZN8hashlink15linked_hash_map16drop_value_nodes17hb3a25e59c696fda4E.exit.i.i.i.i
 
 19:                                               ; preds = %_ZN8hashlink15linked_hash_map16drop_value_nodes17hb3a25e59c696fda4E.exit.i.i.i.i, %1
   %.not4.i.i.i.i.i = icmp eq ptr %.val1.i.i.i, null
-  br i1 %.not4.i.i.i.i.i, label %"_ZN99_$LT$hashlink..linked_hash_map..LinkedHashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h431594928f20d45cE.argprom.exit.i.i.i", label %.lr.ph.i2.i.i.i.i
+  br i1 %.not4.i.i.i.i.i, label %"_ZN99_$LT$hashlink..linked_hash_map..LinkedHashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h431594928f20d45cE.exit.i.i.i", label %.lr.ph.i2.i.i.i.i
 
 .lr.ph.i2.i.i.i.i:                                ; preds = %19, %.lr.ph.i2.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i2.i.i.i.i ], [ %.val1.i.i.i, %19 ]
   %20 = load ptr, ptr %.05.i.i.i.i.i, align 8, !noalias !5334, !noundef !4
   call void @__rust_dealloc(ptr noundef nonnull %.05.i.i.i.i.i, i64 noundef 168, i64 noundef 8) #35, !noalias !5334
   %.not.i3.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i3.i.i.i.i, label %"_ZN99_$LT$hashlink..linked_hash_map..LinkedHashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h431594928f20d45cE.argprom.exit.i.i.i", label %.lr.ph.i2.i.i.i.i
+  br i1 %.not.i3.i.i.i.i, label %"_ZN99_$LT$hashlink..linked_hash_map..LinkedHashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h431594928f20d45cE.exit.i.i.i", label %.lr.ph.i2.i.i.i.i
 
 21:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$$LP$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$RP$$GT$17h22017f1d755f6958E.exit.i.i.i.i.i"
   %22 = landingpad { ptr, i32 }
@@ -17886,17 +17886,17 @@ _ZN8hashlink15linked_hash_map16drop_value_nodes17hb3a25e59c696fda4E.exit.i.i.i.i
   %.val2.i.i.i = load ptr, ptr %4, align 8, !alias.scope !5334
   %23 = getelementptr inbounds i8, ptr %0, i64 136
   %.val3.i.i.i = load i64, ptr %23, align 8, !alias.scope !5356, !noundef !4
-  invoke fastcc void @"_ZN4core3ptr251drop_in_place$LT$hashbrown..map..HashMap$LT$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$C$hashlink..linked_hash_map..NullHasher$GT$$GT$17h77b02cb6abd5f284E.argprom"(ptr %.val2.i.i.i, i64 %.val3.i.i.i) #33
+  invoke fastcc void @"_ZN4core3ptr251drop_in_place$LT$hashbrown..map..HashMap$LT$core..ptr..non_null..NonNull$LT$hashlink..linked_hash_map..Node$LT$alloc..string..String$C$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$$C$$LP$$RP$$C$hashlink..linked_hash_map..NullHasher$GT$$GT$17h77b02cb6abd5f284E"(ptr %.val2.i.i.i, i64 %.val3.i.i.i) #33
           to label %.body unwind label %39, !noalias !5334
 
-"_ZN99_$LT$hashlink..linked_hash_map..LinkedHashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h431594928f20d45cE.argprom.exit.i.i.i": ; preds = %.lr.ph.i2.i.i.i.i, %19
+"_ZN99_$LT$hashlink..linked_hash_map..LinkedHashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h431594928f20d45cE.exit.i.i.i": ; preds = %.lr.ph.i2.i.i.i.i, %19
   %.val4.i.i.i = load ptr, ptr %4, align 8, !alias.scope !5334
   %24 = getelementptr inbounds i8, ptr %0, i64 136
   %.val5.i.i.i = load i64, ptr %24, align 8, !alias.scope !5356, !noundef !4
   %25 = icmp eq i64 %.val5.i.i.i, 0
   br i1 %25, label %"_ZN4core3ptr128drop_in_place$LT$sqlx_core..common..statement_cache..StatementCache$LT$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$17ha7679272ff764409E.exit", label %26
 
-26:                                               ; preds = %"_ZN99_$LT$hashlink..linked_hash_map..LinkedHashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h431594928f20d45cE.argprom.exit.i.i.i"
+26:                                               ; preds = %"_ZN99_$LT$hashlink..linked_hash_map..LinkedHashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h431594928f20d45cE.exit.i.i.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !5359
   %27 = add i64 %.val5.i.i.i, 1
   invoke void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd42b690389ecd742E.llvm.18098550234714842923(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %2, i64 noundef 8, i64 noundef 16, i64 noundef %27)
@@ -17938,7 +17938,7 @@ _ZN8hashlink15linked_hash_map16drop_value_nodes17hb3a25e59c696fda4E.exit.i.i.i.i
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$17ha6ca247e3cd17282E"(ptr noalias noundef align 8 dereferenceable(128) %0) #33
           to label %48 unwind label %46
 
-"_ZN4core3ptr128drop_in_place$LT$sqlx_core..common..statement_cache..StatementCache$LT$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$17ha7679272ff764409E.exit": ; preds = %35, %.noexc, %"_ZN99_$LT$hashlink..linked_hash_map..LinkedHashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h431594928f20d45cE.argprom.exit.i.i.i"
+"_ZN4core3ptr128drop_in_place$LT$sqlx_core..common..statement_cache..StatementCache$LT$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$17ha7679272ff764409E.exit": ; preds = %35, %.noexc, %"_ZN99_$LT$hashlink..linked_hash_map..LinkedHashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h431594928f20d45cE.exit.i.i.i"
   %43 = load i64, ptr %0, align 8, !range !1168, !alias.scope !5366, !noundef !4
   %44 = icmp eq i64 %43, 2
   br i1 %44, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$sqlx_sqlite..statement..virtual..VirtualStatement$GT$$GT$17ha6ca247e3cd17282E.exit", label %45
@@ -18105,7 +18105,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpack
   %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19582511d94b05d3E.llvm.9153531805506995525"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #33, !noalias !5422
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE.argprom"(ptr nonnull %6) #33, !noalias !5422
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE"(ptr nonnull %6) #33, !noalias !5422
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %5
@@ -18629,7 +18629,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..blocking..po
   unreachable
 
 .body.i.i:                                        ; preds = %26
-  invoke fastcc void @"_ZN4core3ptr173drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$tokio..runtime..blocking..pool..Task$GT$$GT$17hecbe7b7a096aed51E.argprom"(ptr nonnull %16, i64 %17) #33
+  invoke fastcc void @"_ZN4core3ptr173drop_in_place$LT$$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..Dropper$LT$tokio..runtime..blocking..pool..Task$GT$$GT$17hecbe7b7a096aed51E"(ptr nonnull %16, i64 %17) #33
           to label %.body.i unwind label %52
 
 "_ZN4core3ptr67drop_in_place$LT$$u5b$tokio..runtime..blocking..pool..Task$u5d$$GT$17h67222491ea7d707eE.exit.i.i": ; preds = %"_ZN4core3ptr57drop_in_place$LT$tokio..runtime..blocking..pool..Task$GT$17h9ca1ec35fb3acfb0E.exit.i.i.i", %.noexc.i
@@ -18697,7 +18697,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..blocking..po
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !5680
   %56 = getelementptr inbounds i8, ptr %0, i64 8
   %.val1.i = load i64, ptr %56, align 8, !alias.scope !5711, !noalias !5714, !noundef !4
-  tail call fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..raw_vec..RawVec$LT$tokio..runtime..blocking..pool..Task$GT$$GT$17h87990732e9ed8920E.argprom"(ptr %.val.i, i64 %.val1.i) #33
+  tail call fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..raw_vec..RawVec$LT$tokio..runtime..blocking..pool..Task$GT$$GT$17h87990732e9ed8920E"(ptr %.val.i, i64 %.val1.i) #33
   %57 = getelementptr inbounds i8, ptr %0, i64 80
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokio..runtime..blocking..shutdown..Sender$GT$$GT$17h37a565ee7b476210E"(ptr noalias noundef align 8 dereferenceable(8) %57) #33
           to label %69 unwind label %97
@@ -19238,37 +19238,37 @@ common.resume:                                    ; preds = %114, %96, %86, %76,
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %.val7 = load i64, ptr %15, align 8, !noundef !4
   %16 = icmp eq i64 %.val7, 0
-  br i1 %16, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i"
+  br i1 %16, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i": ; preds = %14
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val6, i64 noundef %.val7, i64 noundef 1) #35
-  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit"
+  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit"
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %.val5 = load i64, ptr %19, align 8, !noundef !4
   %20 = icmp eq i64 %.val5, 0
-  br i1 %20, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit9", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i8"
+  br i1 %20, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit9", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i8"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i8": ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %.val4 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4, i64 noundef %.val5, i64 noundef 1) #35
-  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit9"
+  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit9"
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds i8, ptr %0, i64 40
   %.val3 = load i64, ptr %23, align 8, !noundef !4
   %24 = icmp eq i64 %.val3, 0
-  br i1 %24, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit11", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i10"
+  br i1 %24, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit11", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i10"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i10": ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %.val3, i64 noundef 1) #35
-  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit11"
+  br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit11"
 
 26:                                               ; preds = %1
   %27 = getelementptr inbounds i8, ptr %0, i64 8
@@ -19429,7 +19429,7 @@ common.resume:                                    ; preds = %114, %96, %86, %76,
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34
   unreachable
 
-"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i", %14
+"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i", %14
   %83 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5950)
   %84 = load ptr, ptr %83, align 8, !alias.scope !5950, !nonnull !4, !noundef !4
@@ -19437,13 +19437,13 @@ common.resume:                                    ; preds = %114, %96, %86, %76,
   invoke void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h4dfe1c7eae1b7379E"(ptr noundef nonnull align 8 %85)
           to label %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h70c80d493e558719E.llvm.9153531805506995525.exit.i" unwind label %86, !noalias !5950
 
-86:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit"
+86:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit"
   %87 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr177drop_in_place$LT$alloc..sync..Arc$LT$futures_channel..oneshot..Inner$LT$core..result..Result$LT$sqlx_sqlite..statement..SqliteStatement$C$sqlx_core..error..Error$GT$$GT$$GT$$GT$17hdc776988a47d636aE.llvm.9153531805506995525"(ptr noalias noundef nonnull align 8 dereferenceable(8) %83) #33
           to label %common.resume unwind label %91
 
-"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h70c80d493e558719E.llvm.9153531805506995525.exit.i": ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit"
+"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h70c80d493e558719E.llvm.9153531805506995525.exit.i": ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit"
   %88 = atomicrmw sub ptr %84, i64 1 release, align 8, !noalias !5953
   %89 = icmp eq i64 %88, 1
   br i1 %89, label %90, label %"_ZN4core3ptr69drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$GT$17ha0e72eaf6c795d0fE.exit"
@@ -19459,7 +19459,7 @@ common.resume:                                    ; preds = %114, %96, %86, %76,
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34
   unreachable
 
-"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit9": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i8", %18
+"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit9": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i8", %18
   %93 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5958)
   %94 = load ptr, ptr %93, align 8, !alias.scope !5958, !nonnull !4, !noundef !4
@@ -19467,13 +19467,13 @@ common.resume:                                    ; preds = %114, %96, %86, %76,
   invoke void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hfbe76b099172e639E"(ptr noundef nonnull align 8 %95)
           to label %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he429ebd40e95157dE.llvm.9153531805506995525.exit.i" unwind label %96, !noalias !5958
 
-96:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit9"
+96:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit9"
   %97 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr204drop_in_place$LT$alloc..sync..Arc$LT$futures_channel..oneshot..Inner$LT$core..result..Result$LT$sqlx_core..describe..Describe$LT$sqlx_sqlite..database..Sqlite$GT$$C$sqlx_core..error..Error$GT$$GT$$GT$$GT$17he8685a6253200089E.llvm.9153531805506995525"(ptr noalias noundef nonnull align 8 dereferenceable(8) %93) #33
           to label %common.resume unwind label %101
 
-"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he429ebd40e95157dE.llvm.9153531805506995525.exit.i": ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit9"
+"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he429ebd40e95157dE.llvm.9153531805506995525.exit.i": ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit9"
   %98 = atomicrmw sub ptr %94, i64 1 release, align 8, !noalias !5961
   %99 = icmp eq i64 %98, 1
   br i1 %99, label %100, label %"_ZN4core3ptr69drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$GT$17ha0e72eaf6c795d0fE.exit"
@@ -19489,17 +19489,17 @@ common.resume:                                    ; preds = %114, %96, %86, %76,
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #34
   unreachable
 
-"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit11": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i10", %22
+"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit11": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i10", %22
   %103 = getelementptr inbounds i8, ptr %0, i64 8
   %104 = load ptr, ptr %103, align 8, !alias.scope !5966, !noundef !4
   %105 = icmp eq ptr %104, null
   br i1 %105, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$sqlx_sqlite..arguments..SqliteArguments$GT$$GT$17hea781fc4ce013f33E.llvm.9153531805506995525.exit", label %106
 
-106:                                              ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit11"
+106:                                              ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit11"
   tail call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$sqlx_sqlite..arguments..SqliteArgumentValue$GT$$GT$17h20474e2776678730E.llvm.9153531805506995525"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %103)
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$sqlx_sqlite..arguments..SqliteArguments$GT$$GT$17hea781fc4ce013f33E.llvm.9153531805506995525.exit"
 
-"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$sqlx_sqlite..arguments..SqliteArguments$GT$$GT$17hea781fc4ce013f33E.llvm.9153531805506995525.exit": ; preds = %106, %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.argprom.exit11"
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$sqlx_sqlite..arguments..SqliteArguments$GT$$GT$17hea781fc4ce013f33E.llvm.9153531805506995525.exit": ; preds = %106, %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h8bcceed26bd71567E.exit11"
   %107 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5969)
   %108 = load ptr, ptr %107, align 8, !alias.scope !5969, !nonnull !4, !noundef !4
@@ -20561,7 +20561,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io
   %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19582511d94b05d3E.llvm.9153531805506995525"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2) #33
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE.argprom"(ptr nonnull %2) #33
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE"(ptr nonnull %2) #33
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %1
@@ -21715,17 +21715,17 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Weak$LT$str$C$$
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h53a044daf1462617E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h53a044daf1462617E"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h9626e4b3ffa6e644E.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i"
+  br i1 %1, label %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h9626e4b3ffa6e644E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i": ; preds = %0
   %2 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %2)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %.8.val, i64 noundef 1) #35
-  br label %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h9626e4b3ffa6e644E.argprom.exit"
+  br label %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h9626e4b3ffa6e644E.exit"
 
-"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h9626e4b3ffa6e644E.argprom.exit": ; preds = %0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i"
+"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h9626e4b3ffa6e644E.exit": ; preds = %0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i"
   ret void
 }
 
@@ -21940,17 +21940,17 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$tokio..runtime..scheduler..m
   unreachable
 
 .body.i:                                          ; preds = %24
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57d280d336a30d69E.argprom"(ptr %3, i64 %5) #33, !noalias !6868
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57d280d336a30d69E"(ptr %3, i64 %5) #33, !noalias !6868
   %33 = getelementptr inbounds i8, ptr %0, i64 88
   %.val9 = load ptr, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 96
   %.val10 = load i64, ptr %34, align 8, !noundef !4
-  tail call fastcc void @"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.argprom"(ptr %.val9, i64 %.val10) #33
+  tail call fastcc void @"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE"(ptr %.val9, i64 %.val10) #33
   %35 = getelementptr inbounds i8, ptr %0, i64 184
   %.val13 = load ptr, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 192
   %.val14 = load i64, ptr %36, align 8
-  tail call fastcc void @"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.argprom"(ptr %.val13, i64 %.val14) #33
+  tail call fastcc void @"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E"(ptr %.val13, i64 %.val14) #33
   %37 = getelementptr inbounds i8, ptr %0, i64 232
   invoke fastcc void @"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17hcfd3f654db2baf07E"(ptr noalias noundef align 8 dereferenceable(32) %37) #33
           to label %.body15 unwind label %88
@@ -21964,29 +21964,29 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$tokio..runtime..scheduler..m
   %39 = getelementptr inbounds i8, ptr %0, i64 96
   %.val8 = load i64, ptr %39, align 8, !noundef !4
   %40 = icmp eq i64 %.val8, 0
-  br i1 %40, label %"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i"
+  br i1 %40, label %"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i": ; preds = %"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tokio..runtime..scheduler..multi_thread..worker..Remote$u5d$$GT$$GT$17h4b5b3fe1902ed0beE.exit"
   %41 = getelementptr inbounds i8, ptr %0, i64 88
   %.val = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
   %42 = mul nsw i64 %.val8, 24
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %42, i64 noundef 8) #35
-  br label %"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.argprom.exit"
+  br label %"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.exit"
 
-"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.argprom.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i", %"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tokio..runtime..scheduler..multi_thread..worker..Remote$u5d$$GT$$GT$17h4b5b3fe1902ed0beE.exit"
+"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i", %"_ZN4core3ptr111drop_in_place$LT$alloc..boxed..Box$LT$$u5b$tokio..runtime..scheduler..multi_thread..worker..Remote$u5d$$GT$$GT$17h4b5b3fe1902ed0beE.exit"
   %43 = getelementptr inbounds i8, ptr %0, i64 192
   %.val12 = load i64, ptr %43, align 8
   %44 = icmp eq i64 %.val12, 0
-  br i1 %44, label %"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.argprom.exit", label %45
+  br i1 %44, label %"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.exit", label %45
 
-45:                                               ; preds = %"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.argprom.exit"
+45:                                               ; preds = %"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.exit"
   %46 = getelementptr inbounds i8, ptr %0, i64 184
   %.val11 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
   %47 = shl nuw i64 %.val12, 3
   tail call void @__rust_dealloc(ptr noundef nonnull %.val11, i64 noundef %47, i64 noundef 8) #35
-  br label %"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.argprom.exit"
+  br label %"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.exit"
 
-"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.argprom.exit": ; preds = %45, %"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.argprom.exit"
+"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.exit": ; preds = %45, %"_ZN4core3ptr146drop_in_place$LT$tokio..runtime..task..list..OwnedTasks$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h7d36cae45779308fE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6898)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6901)
   %48 = getelementptr inbounds i8, ptr %0, i64 240
@@ -21997,10 +21997,10 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$tokio..runtime..scheduler..m
   %.val1.i.i.i.i = load i64, ptr %49, align 8, !alias.scope !6910, !noundef !4
   br label %50
 
-50:                                               ; preds = %52, %"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.argprom.exit"
-  %.0.i.i.i.i.i.i = phi i64 [ 0, %"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.argprom.exit" ], [ %54, %52 ]
+50:                                               ; preds = %52, %"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.exit"
+  %.0.i.i.i.i.i.i = phi i64 [ 0, %"_ZN4core3ptr120drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17hbc75ef15cfcf13e7E.exit" ], [ %54, %52 ]
   %51 = icmp eq i64 %.0.i.i.i.i.i.i, %.val1.i.i.i.i
-  br i1 %51, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.argprom.exit.i.i.i.i", label %52
+  br i1 %51, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.exit.i.i.i.i", label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds [0 x ptr], ptr %.val.i.i.i.i, i64 0, i64 %.0.i.i.i.i.i.i
@@ -22033,16 +22033,16 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$tokio..runtime..scheduler..m
 .body.i.i.i.i:                                    ; preds = %55
   %64 = getelementptr inbounds i8, ptr %0, i64 248
   %.val3.i.i.i.i = load i64, ptr %64, align 8, !alias.scope !6914, !noalias !6917, !noundef !4
-  tail call fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$17h73e78e87fdf6b143E.argprom"(ptr nonnull %.val.i.i.i.i, i64 %.val3.i.i.i.i) #33, !noalias !6910
+  tail call fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$17h73e78e87fdf6b143E"(ptr nonnull %.val.i.i.i.i, i64 %.val3.i.i.i.i) #33, !noalias !6910
   br label %.body15
 
-"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.argprom.exit.i.i.i.i": ; preds = %50
+"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.exit.i.i.i.i": ; preds = %50
   %65 = getelementptr inbounds i8, ptr %0, i64 248
   %.val5.i.i.i.i = load i64, ptr %65, align 8, !alias.scope !6914, !noalias !6917, !noundef !4
   %66 = icmp eq i64 %.val5.i.i.i.i, 0
   br i1 %66, label %"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17hcfd3f654db2baf07E.exit", label %67
 
-67:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.argprom.exit.i.i.i.i"
+67:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.exit.i.i.i.i"
   %68 = shl nuw i64 %.val5.i.i.i.i, 3
   tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef %68, i64 noundef 8) #35, !noalias !6910
   br label %"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17hcfd3f654db2baf07E.exit"
@@ -22052,7 +22052,7 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$tokio..runtime..scheduler..m
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..config..Config$GT$17ha7931ae75235ef21E.llvm.9153531805506995525"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) #33
           to label %.body17 unwind label %88
 
-"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17hcfd3f654db2baf07E.exit": ; preds = %67, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.argprom.exit.i.i.i.i"
+"_ZN4core3ptr166drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$$GT$$GT$17hcfd3f654db2baf07E.exit": ; preds = %67, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bea2426b627e5cE.exit.i.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6919)
   %69 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6922)
@@ -22565,7 +22565,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
   %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19582511d94b05d3E.llvm.9153531805506995525"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #33, !noalias !7133
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE.argprom"(ptr nonnull %6) #33, !noalias !7133
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE"(ptr nonnull %6) #33, !noalias !7133
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %5
@@ -22800,15 +22800,15 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$tokio..ru
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val3 = load i64, ptr %2, align 8, !alias.scope !7270, !noalias !7273, !noundef !4
   %3 = icmp eq i64 %.val3, 0
-  br i1 %3, label %"_ZN4core3ptr92drop_in_place$LT$alloc..raw_vec..RawVec$LT$tokio..runtime..time..wheel..level..Level$GT$$GT$17h58d7ff633e8ff3a0E.argprom.exit", label %4
+  br i1 %3, label %"_ZN4core3ptr92drop_in_place$LT$alloc..raw_vec..RawVec$LT$tokio..runtime..time..wheel..level..Level$GT$$GT$17h58d7ff633e8ff3a0E.exit", label %4
 
 4:                                                ; preds = %1
   %.val2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = mul nuw i64 %.val3, 1040
   tail call void @__rust_dealloc(ptr noundef nonnull %.val2, i64 noundef %5, i64 noundef 8) #35
-  br label %"_ZN4core3ptr92drop_in_place$LT$alloc..raw_vec..RawVec$LT$tokio..runtime..time..wheel..level..Level$GT$$GT$17h58d7ff633e8ff3a0E.argprom.exit"
+  br label %"_ZN4core3ptr92drop_in_place$LT$alloc..raw_vec..RawVec$LT$tokio..runtime..time..wheel..level..Level$GT$$GT$17h58d7ff633e8ff3a0E.exit"
 
-"_ZN4core3ptr92drop_in_place$LT$alloc..raw_vec..RawVec$LT$tokio..runtime..time..wheel..level..Level$GT$$GT$17h58d7ff633e8ff3a0E.argprom.exit": ; preds = %1, %4
+"_ZN4core3ptr92drop_in_place$LT$alloc..raw_vec..RawVec$LT$tokio..runtime..time..wheel..level..Level$GT$$GT$17h58d7ff633e8ff3a0E.exit": ; preds = %1, %4
   ret void
 }
 
@@ -22935,18 +22935,18 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$sq
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..raw_vec..RawVec$LT$tokio..runtime..blocking..pool..Task$GT$$GT$17h87990732e9ed8920E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
+define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..raw_vec..RawVec$LT$tokio..runtime..blocking..pool..Task$GT$$GT$17h87990732e9ed8920E"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7f1e28cfb009973fE.argprom.exit", label %2
+  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7f1e28cfb009973fE.exit", label %2
 
 2:                                                ; preds = %0
   %3 = shl nuw i64 %.8.val, 4
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #35
-  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7f1e28cfb009973fE.argprom.exit"
+  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7f1e28cfb009973fE.exit"
 
-"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7f1e28cfb009973fE.argprom.exit": ; preds = %0, %2
+"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7f1e28cfb009973fE.exit": ; preds = %0, %2
   ret void
 }
 
@@ -23120,7 +23120,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$sqlx_core..describe..Describ
   %.val3 = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %.val4 = load i64, ptr %6, align 8
-  tail call fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h53a044daf1462617E.argprom"(ptr %.val3, i64 %.val4) #33
+  tail call fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h53a044daf1462617E"(ptr %.val3, i64 %.val4) #33
   resume { ptr, i32 } %4
 
 7:                                                ; preds = %1
@@ -23147,15 +23147,15 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$sqlx_core..describe..Describ
   %14 = getelementptr inbounds i8, ptr %0, i64 64
   %.val2 = load i64, ptr %14, align 8
   %15 = icmp eq i64 %.val2, 0
-  br i1 %15, label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h53a044daf1462617E.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i"
+  br i1 %15, label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h53a044daf1462617E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i": ; preds = %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$$GT$17h34bf12920c062b8aE.exit"
   %16 = getelementptr inbounds i8, ptr %0, i64 56
   %.val = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %.val2, i64 noundef 1) #35
-  br label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h53a044daf1462617E.argprom.exit"
+  br label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h53a044daf1462617E.exit"
 
-"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h53a044daf1462617E.argprom.exit": ; preds = %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$$GT$17h34bf12920c062b8aE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i"
+"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h53a044daf1462617E.exit": ; preds = %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$either..Either$LT$alloc..vec..Vec$LT$sqlx_sqlite..type_info..SqliteTypeInfo$GT$$C$usize$GT$$GT$$GT$17h34bf12920c062b8aE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i"
   ret void
 }
 
@@ -24113,7 +24113,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$std..io..Write..write_fmt..A
   %13 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19582511d94b05d3E.llvm.9153531805506995525"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7) #33, !noalias !7744
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE.argprom"(ptr nonnull %7) #33, !noalias !7744
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE"(ptr nonnull %7) #33, !noalias !7744
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %6
@@ -24815,18 +24815,18 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$alloc..raw_vec..RawVec$LT$oc
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$$GT$17hcbb49805ad81362eE.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
+define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..raw_vec..RawVec$LT$sqlx_sqlite..statement..handle..StatementHandle$GT$$GT$17hcbb49805ad81362eE"(ptr %.0.val, i64 %.8.val) unnamed_addr #4 {
   %1 = icmp eq i64 %.8.val, 0
-  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2dcc706bc8ce7addE.argprom.exit", label %2
+  br i1 %1, label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2dcc706bc8ce7addE.exit", label %2
 
 2:                                                ; preds = %0
   %3 = shl nuw i64 %.8.val, 3
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %3, i64 noundef 8) #35
-  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2dcc706bc8ce7addE.argprom.exit"
+  br label %"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2dcc706bc8ce7addE.exit"
 
-"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2dcc706bc8ce7addE.argprom.exit": ; preds = %0, %2
+"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2dcc706bc8ce7addE.exit": ; preds = %0, %2
   ret void
 }
 
@@ -25163,7 +25163,7 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$L
 
 .body:                                            ; preds = %14, %28
   %eh.lpad-body = phi { ptr, i32 } [ %29, %28 ], [ %.pn.i, %14 ]
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8d640d28b08f3948E.argprom"(ptr nonnull %2) #33
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8d640d28b08f3948E"(ptr nonnull %2) #33
   resume { ptr, i32 } %eh.lpad-body
 
 "_ZN4core3ptr74drop_in_place$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$17h4178dc4eb323e073E.exit": ; preds = %22, %18, %25
@@ -26915,7 +26915,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d5c96a20bfeeb1dE.argprom"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #11 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d5c96a20bfeeb1dE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #11 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null
@@ -26982,7 +26982,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1d5a519405a26261E.argprom"(ptr %.0.val) unnamed_addr #11 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1d5a519405a26261E"(ptr %.0.val) unnamed_addr #11 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 48, i64 noundef 8) #35
@@ -27075,7 +27075,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57d280d336a30d69E.argprom"(ptr %.0.val, i64 %.8.val) unnamed_addr #11 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57d280d336a30d69E"(ptr %.0.val, i64 %.8.val) unnamed_addr #11 {
   %1 = icmp eq i64 %.8.val, 0
   br i1 %1, label %4, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit"
 
@@ -27091,7 +27091,7 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE.argprom"(ptr %.0.val) unnamed_addr #11 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE"(ptr %.0.val) unnamed_addr #11 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 24, i64 noundef 8) #35
@@ -27150,7 +27150,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8d640d28b08f3948E.argprom"(ptr %.0.val) unnamed_addr #11 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8d640d28b08f3948E"(ptr %.0.val) unnamed_addr #11 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 80, i64 noundef 8) #35
@@ -27483,13 +27483,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3086636de5d1b8ebE.llvm.9153531805506995525"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -27507,13 +27507,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %20 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %19, 0
-  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %22
+  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %22
 
 22:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #35
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit": ; preds = %22, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit": ; preds = %22, %8, %1, %4
   ret void
 }
 
@@ -27605,13 +27605,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4274497469af8757E.llvm.9153531805506995525"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -27629,13 +27629,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %20 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %19, 0
-  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %22
+  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %22
 
 22:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #35
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit": ; preds = %22, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit": ; preds = %22, %8, %1, %4
   ret void
 }
 
@@ -27643,13 +27643,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h469af471dad10943E.llvm.9153531805506995525"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -27667,13 +27667,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %20 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %19, 0
-  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %22
+  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %22
 
 22:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #35
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit": ; preds = %22, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit": ; preds = %22, %8, %1, %4
   ret void
 }
 
@@ -27681,13 +27681,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h494435f74d218c0cE.llvm.9153531805506995525"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -27705,13 +27705,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %20 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %19, 0
-  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %22
+  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %22
 
 22:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #35
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit": ; preds = %22, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit": ; preds = %22, %8, %1, %4
   ret void
 }
 
@@ -27740,13 +27740,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4d5f55910ac2c618E.llvm.9153531805506995525"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -27768,13 +27768,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %24 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i64 %23, 0
-  br i1 %25, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %26
+  br i1 %25, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %26
 
 26:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %23, i64 noundef %19) #35
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit": ; preds = %26, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit": ; preds = %26, %8, %1, %4
   ret void
 }
 
@@ -27866,13 +27866,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5a1405fabb8c8ea7E.llvm.9153531805506995525"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -27893,13 +27893,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %23 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %23)
   %24 = icmp eq i64 %22, 0
-  br i1 %24, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %25
+  br i1 %24, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %25
 
 25:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %22, i64 noundef %15) #35
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit": ; preds = %25, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit": ; preds = %25, %8, %1, %4
   ret void
 }
 
@@ -27991,13 +27991,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7484cf6c7dc116c1E.llvm.9153531805506995525"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -28015,13 +28015,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %20 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %19, 0
-  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %22
+  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %22
 
 22:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #35
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit": ; preds = %22, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit": ; preds = %22, %8, %1, %4
   ret void
 }
 
@@ -28239,13 +28239,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha624b8ec38d253e1E.llvm.9153531805506995525"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -28254,13 +28254,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %11 = add i64 %10, 23
   %12 = and i64 %11, -8
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %14
+  br i1 %13, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %14
 
 14:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef 8) #35
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit": ; preds = %14, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit": ; preds = %14, %8, %1, %4
   ret void
 }
 
@@ -28268,13 +28268,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5d53e5310c8ec61E.llvm.9153531805506995525"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -28292,13 +28292,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %20 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %19, 0
-  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %22
+  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %22
 
 22:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #35
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit": ; preds = %22, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit": ; preds = %22, %8, %1, %4
   ret void
 }
 
@@ -28327,13 +28327,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc155cd07eb21f395E.llvm.9153531805506995525"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -28351,13 +28351,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %20 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %19, 0
-  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %22
+  br i1 %21, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %22
 
 22:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %19, i64 noundef %15) #35
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit": ; preds = %22, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit": ; preds = %22, %8, %1, %4
   ret void
 }
 
@@ -28491,13 +28491,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he80332b8fd5fd8b4E.llvm.9153531805506995525"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
-  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %4
+  br i1 %3, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = atomicrmw sub ptr %5, i64 1 release, align 8
   %7 = icmp eq i64 %6, 1
-  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br i1 %7, label %8, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
 8:                                                ; preds = %4
   fence acquire
@@ -28518,13 +28518,13 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
   %23 = icmp ult i64 %14, -9223372036854775807
   tail call void @llvm.assume(i1 %23)
   %24 = icmp eq i64 %22, 0
-  br i1 %24, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit", label %25
+  br i1 %24, label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit", label %25
 
 25:                                               ; preds = %8
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %22, i64 noundef %15) #35
-  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit"
+  br label %"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit"
 
-"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.argprom.exit": ; preds = %25, %8, %1, %4
+"_ZN48_$LT$$RF$A$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hce47ff86d2ecb602E.exit": ; preds = %25, %8, %1, %4
   ret void
 }
 
@@ -28880,7 +28880,7 @@ define hidden void @"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$c
   %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19582511d94b05d3E.llvm.9153531805506995525"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6) #33, !noalias !8541
-  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE.argprom"(ptr nonnull %6) #33, !noalias !8541
+  tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h585a6da59b85994dE"(ptr nonnull %6) #33, !noalias !8541
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %5
@@ -30133,8 +30133,8 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %6
 
-6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i", %.lr.ph.i.i
-  %7 = phi ptr [ %5, %.lr.ph.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i" ]
+6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i", %.lr.ph.i.i
+  %7 = phi ptr [ %5, %.lr.ph.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i" ]
   %.sroa.23.0.copyload.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !noalias !8645
   %8 = getelementptr inbounds i8, ptr %7, i64 360
   %9 = getelementptr inbounds { [3 x i64] }, ptr %8, i64 %.sroa.23.0.copyload.i.i
@@ -30164,9 +30164,9 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store volatile i8 0, ptr %.ptr.i.i.i.i.i.i, align 1, !alias.scope !8671, !noalias !8680
   fence syncscope("singlethread") seq_cst
   %15 = icmp eq i64 %.add.i.i.i.i.i.i, 32
-  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !8645
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !8645
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hd8ef62a37bec06bbE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %4)
@@ -30174,7 +30174,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$17hd6df7fd6b00a2139E.llvm.9153531805506995525.exit", label %6
 
-"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$17hd6df7fd6b00a2139E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit.i.i", %1
+"_ZN4core3ptr194drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$17hd6df7fd6b00a2139E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit.i.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !8645
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   ret void
@@ -30214,8 +30214,8 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %6
 
-6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i", %.lr.ph.i.i
-  %7 = phi ptr [ %5, %.lr.ph.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i" ]
+6:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i", %.lr.ph.i.i
+  %7 = phi ptr [ %5, %.lr.ph.i.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i" ]
   %.sroa.23.0.copyload.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !noalias !8683
   %8 = getelementptr inbounds i8, ptr %7, i64 360
   %9 = getelementptr inbounds { [3 x i64] }, ptr %8, i64 %.sroa.23.0.copyload.i.i
@@ -30246,9 +30246,9 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   store volatile i8 0, ptr %.ptr.i.i.i.i.i.i, align 1, !alias.scope !8712, !noalias !8721
   fence syncscope("singlethread") seq_cst
   %15 = icmp eq i64 %.add.i.i.i.i.i.i, 32
-  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %15, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !8683
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !8683
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h14eb64c7d1b9ca04E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %4)
@@ -30256,7 +30256,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$17h8cb135ecbf1f7448E.llvm.9153531805506995525.exit", label %6
 
-"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$17h8cb135ecbf1f7448E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit.i.i", %1
+"_ZN4core3ptr186drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..AeadSecret$GT$$GT$17h8cb135ecbf1f7448E.llvm.9153531805506995525.exit": ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit.i.i", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !8683
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   ret void
@@ -30275,8 +30275,8 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   br label %4
 
-4:                                                ; preds = %.lr.ph, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit"
-  %5 = phi ptr [ %3, %.lr.ph ], [ %14, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit" ]
+4:                                                ; preds = %.lr.ph, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit"
+  %5 = phi ptr [ %3, %.lr.ph ], [ %14, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit" ]
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 360
   %7 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.sroa.23.0.copyload
@@ -30306,13 +30306,13 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   store volatile i8 0, ptr %.ptr.i.i.i.i, align 1, !alias.scope !8745, !noalias !8754
   fence syncscope("singlethread") seq_cst
   %13 = icmp eq i64 %.add.i.i.i.i, 32
-  br i1 %13, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit", label %.lr.ph.i.i.i.i.i
+  br i1 %13, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit", label %.lr.ph.i.i.i.i.i
 
-._crit_edge:                                      ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit", %1
+._crit_edge:                                      ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf405c8db6816fae5E.exit": ; preds = %.lr.ph.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hd8ef62a37bec06bbE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
@@ -30334,8 +30334,8 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   br label %4
 
-4:                                                ; preds = %.lr.ph, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit"
-  %5 = phi ptr [ %3, %.lr.ph ], [ %33, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit" ]
+4:                                                ; preds = %.lr.ph, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit"
+  %5 = phi ptr [ %3, %.lr.ph ], [ %33, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit" ]
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.sroa.23.0.copyload
@@ -30410,7 +30410,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   %29 = landingpad { ptr, i32 }
           cleanup
   tail call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hceabcfa060b47853E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #33
-  invoke fastcc void @"_ZN4core3ptr286drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$ockam_vault..types..secrets..SecretBufferHandle$C$ockam_vault..software..vault_for_secure_channels..types..BufferSecret$C$alloc..alloc..Global$GT$$GT$17hc13efc286cdbdb49E.argprom"(ptr %0) #33
+  invoke fastcc void @"_ZN4core3ptr286drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$ockam_vault..types..secrets..SecretBufferHandle$C$ockam_vault..software..vault_for_secure_channels..types..BufferSecret$C$alloc..alloc..Global$GT$$GT$17hc13efc286cdbdb49E"(ptr %0) #33
           to label %34 unwind label %35
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i7.i.i.i.i, %.preheader.i.i.i.i.i
@@ -30420,18 +30420,18 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8806)
   %30 = load i64, ptr %23, align 8, !alias.scope !8809, !noalias !8812, !noundef !4
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i.i"
+  br i1 %31, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i.i": ; preds = %.loopexit.i.i
   %32 = load ptr, ptr %13, align 8, !alias.scope !8809, !noalias !8812, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %30, i64 noundef 1) #35, !noalias !8814
-  br label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit"
+  br label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit"
 
-._crit_edge:                                      ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit", %1
+._crit_edge:                                      ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.argprom.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i.i", %.loopexit.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17he4c1c971c6d4fb1cE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.9153531805506995525.exit.i.i.i.i.i", %.loopexit.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h11618995fe364322E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
@@ -30462,8 +30462,8 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   br label %4
 
-4:                                                ; preds = %.lr.ph, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit"
-  %5 = phi ptr [ %3, %.lr.ph ], [ %14, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit" ]
+4:                                                ; preds = %.lr.ph, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit"
+  %5 = phi ptr [ %3, %.lr.ph ], [ %14, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit" ]
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 360
   %7 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.sroa.23.0.copyload
@@ -30494,13 +30494,13 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   store volatile i8 0, ptr %.ptr.i.i.i.i, align 1, !alias.scope !8839, !noalias !8848
   fence syncscope("singlethread") seq_cst
   %13 = icmp eq i64 %.add.i.i.i.i, 32
-  br i1 %13, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit", label %.lr.ph.i.i.i.i.i
+  br i1 %13, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit", label %.lr.ph.i.i.i.i.i
 
-._crit_edge:                                      ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit", %1
+._crit_edge:                                      ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit", %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret void
 
-"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i
+"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hbb5671afc1f1c3b6E.exit": ; preds = %.lr.ph.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h14eb64c7d1b9ca04E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(72) %0)

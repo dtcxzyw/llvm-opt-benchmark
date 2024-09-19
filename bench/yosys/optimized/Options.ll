@@ -188,12 +188,12 @@ _ZN7Minisat6Option13getOptionListEv.exit63:       ; preds = %52, %55, %57
 
 .critedge:                                        ; preds = %_ZN7Minisat6Option13getOptionListEv.exit
   %.pre = load ptr, ptr %6, align 8
-  br i1 %2, label %67, label %_ZN7MinisatL5matchIPcEEbRT_PKc.argprom.exit
+  br i1 %2, label %67, label %_ZN7MinisatL5matchIPcEEbRT_PKc.exit
 
 67:                                               ; preds = %.critedge
   %68 = load i8, ptr %.pre, align 1
   %.not11.i64 = icmp eq i8 %68, 45
-  br i1 %.not11.i64, label %69, label %_ZN7MinisatL5matchIPcEEbRT_PKc.argprom.exit
+  br i1 %.not11.i64, label %69, label %_ZN7MinisatL5matchIPcEEbRT_PKc.exit
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds i8, ptr %.pre, i64 1
@@ -204,15 +204,15 @@ _ZN7Minisat6Option13getOptionListEv.exit63:       ; preds = %52, %55, %57
   tail call void @exit(i32 noundef 1) #12
   unreachable
 
-_ZN7MinisatL5matchIPcEEbRT_PKc.argprom.exit:      ; preds = %67, %.critedge
+_ZN7MinisatL5matchIPcEEbRT_PKc.exit:              ; preds = %67, %.critedge
   %74 = add nsw i32 %.02895, 1
   %75 = sext i32 %.02895 to i64
   %76 = getelementptr inbounds ptr, ptr %1, i64 %75
   store ptr %.pre, ptr %76, align 8
   br label %.critedge31
 
-.critedge31:                                      ; preds = %_ZN7Minisat6Option13getOptionListEv.exit63, %.lr.ph.i52, %_ZN7MinisatL5matchIPcEEbRT_PKc.argprom.exit
-  %.1 = phi i32 [ %74, %_ZN7MinisatL5matchIPcEEbRT_PKc.argprom.exit ], [ %.02895, %.lr.ph.i52 ], [ %.02895, %_ZN7Minisat6Option13getOptionListEv.exit63 ]
+.critedge31:                                      ; preds = %_ZN7Minisat6Option13getOptionListEv.exit63, %.lr.ph.i52, %_ZN7MinisatL5matchIPcEEbRT_PKc.exit
+  %.1 = phi i32 [ %74, %_ZN7MinisatL5matchIPcEEbRT_PKc.exit ], [ %.02895, %.lr.ph.i52 ], [ %.02895, %_ZN7Minisat6Option13getOptionListEv.exit63 ]
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %77 = load i32, ptr %0, align 4
   %78 = sext i32 %77 to i64

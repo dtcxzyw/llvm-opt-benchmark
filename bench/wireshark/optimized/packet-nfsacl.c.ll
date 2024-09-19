@@ -157,7 +157,7 @@ define internal noundef i32 @dissect_nfsacl2_getacl_reply(ptr noundef %0, ptr no
 
 10:                                               ; preds = %4
   %11 = call i32 @dissect_nfs2_fattr(ptr noundef %0, i32 noundef 4, ptr noundef %2, ptr noundef nonnull @.str.59) #2
-  %12 = call fastcc i32 @dissect_nfsacl_secattr.argprom(ptr noundef %0, i32 noundef %11, ptr noundef %2)
+  %12 = call fastcc i32 @dissect_nfsacl_secattr(ptr noundef %0, i32 noundef %11, ptr noundef %2)
   br label %13
 
 13:                                               ; preds = %10, %4
@@ -168,7 +168,7 @@ define internal noundef i32 @dissect_nfsacl2_getacl_reply(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_nfsacl2_setacl_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @dissect_fhandle(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef %3) #2
-  %6 = tail call fastcc i32 @dissect_nfsacl_secattr.argprom(ptr noundef %0, i32 noundef %5, ptr noundef %2)
+  %6 = tail call fastcc i32 @dissect_nfsacl_secattr(ptr noundef %0, i32 noundef %5, ptr noundef %2)
   ret i32 %6
 }
 
@@ -298,7 +298,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare i32 @dissect_nfs2_fattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_nfsacl_secattr.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_nfsacl_secattr(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call fastcc i32 @dissect_nfsacl_mask(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %5 = load i32, ptr @hf_nfsacl_aclcnt, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef %4) #2
@@ -312,7 +312,7 @@ define internal fastcc noundef i32 @dissect_nfsacl_secattr.argprom(ptr noundef %
 .preheader1:                                      ; preds = %3, %.preheader1
   %.04 = phi i32 [ %12, %.preheader1 ], [ 0, %3 ]
   %.1403 = phi i32 [ %11, %.preheader1 ], [ %10, %3 ]
-  %11 = tail call fastcc i32 @dissect_nfsacl_aclent.argprom(ptr noundef %0, i32 noundef %.1403, ptr noundef %9)
+  %11 = tail call fastcc i32 @dissect_nfsacl_aclent(ptr noundef %0, i32 noundef %.1403, ptr noundef %9)
   %12 = add nuw i32 %.04, 1
   %exitcond.not = icmp eq i32 %12, %7
   br i1 %exitcond.not, label %.loopexit2, label %.preheader1, !llvm.loop !4
@@ -331,7 +331,7 @@ define internal fastcc noundef i32 @dissect_nfsacl_secattr.argprom(ptr noundef %
 .preheader:                                       ; preds = %.loopexit2, %.preheader
   %.16 = phi i32 [ %20, %.preheader ], [ 0, %.loopexit2 ]
   %.35 = phi i32 [ %19, %.preheader ], [ %18, %.loopexit2 ]
-  %19 = tail call fastcc i32 @dissect_nfsacl_aclent.argprom(ptr noundef %0, i32 noundef %.35, ptr noundef %17)
+  %19 = tail call fastcc i32 @dissect_nfsacl_aclent(ptr noundef %0, i32 noundef %.35, ptr noundef %17)
   %20 = add nuw i32 %.16, 1
   %exitcond8.not = icmp eq i32 %20, %15
   br i1 %exitcond8.not, label %.loopexit, label %.preheader, !llvm.loop !6
@@ -348,7 +348,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_nfsacl_aclent.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_nfsacl_aclent(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %4
 
@@ -413,7 +413,7 @@ define internal i32 @dissect_nfsacl3_getacl_reply(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %14, label %16
 
 14:                                               ; preds = %4
-  %15 = call fastcc i32 @dissect_nfsacl_secattr.argprom(ptr noundef %0, i32 noundef %12, ptr noundef %11)
+  %15 = call fastcc i32 @dissect_nfsacl_secattr(ptr noundef %0, i32 noundef %12, ptr noundef %11)
   br label %16
 
 16:                                               ; preds = %4, %14
@@ -428,7 +428,7 @@ define internal noundef i32 @dissect_nfsacl3_setacl_call(ptr noundef %0, ptr nou
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %5, i32 noundef -1, i32 noundef 0) #2
   %8 = load i32, ptr @ett_nfsacl_entry, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #2
-  %10 = tail call fastcc i32 @dissect_nfsacl_secattr.argprom(ptr noundef %0, i32 noundef %5, ptr noundef %9)
+  %10 = tail call fastcc i32 @dissect_nfsacl_secattr(ptr noundef %0, i32 noundef %5, ptr noundef %9)
   ret i32 %10
 }
 

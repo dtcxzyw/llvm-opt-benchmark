@@ -149,21 +149,21 @@ while.body.i.i.i.i:                               ; preds = %if.end.split.i.i.i,
   %9 = load i64, ptr %add.ptr.val.i.i.i.i, align 8
   %10 = load i64, ptr %add.ptr2.val.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ugt i64 %9, %10
-  br i1 %cmp.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp2.i.i.i.i.i.i = icmp eq i64 %9, %10
   %cmp3.i.i.i.i.i.i = icmp ugt ptr %add.ptr.val.i.i.i.i, %add.ptr2.val.i.i.i.i
   %cmp2.i.i.fr.i.i.i.i = freeze i1 %cmp2.i.i.i.i.i.i
   %11 = and i1 %cmp3.i.i.i.i.i.i, %cmp2.i.i.fr.i.i.i.i
-  br i1 %11, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i.i, label %while.cond.i.i.i.i
+  br i1 %11, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i.i, label %while.cond.i.i.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i.i, %while.body.i.i.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i.i, %while.body.i.i.i.i
   br label %while.cond.i.i.i.i
 
-while.cond.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i.i
-  %12 = phi ptr [ %add.ptr2.val.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i.i ], [ %add.ptr.val.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i.i ]
-  %13 = phi i64 [ %sub1.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i.i ], [ %mul.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i.i ]
+while.cond.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i.i
+  %12 = phi ptr [ %add.ptr2.val.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i.i ], [ %add.ptr.val.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i.i ]
+  %13 = phi i64 [ %sub1.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i.i ], [ %mul.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i.i ]
   %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__secondChild.025.i.i.i.i
   store ptr %12, ptr %add.ptr4.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i64 %13, %div.i13.i.i.i
@@ -201,22 +201,22 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end16.i.i.i.i, %
   %16 = load i64, ptr %add.ptr.val.i.i.i.i.i, align 8
   %17 = load i64, ptr %8, align 8
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %16, %17
-  br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i.i: ; preds = %land.rhs.i.i.i.i.i
   %cmp2.i.i.i.i.i.i.i = icmp eq i64 %16, %17
   %cmp3.i.i.i.i.i.i.i = icmp ugt ptr %add.ptr.val.i.i.i.i.i, %8
   %18 = and i1 %cmp3.i.i.i.i.i.i.i, %cmp2.i.i.i.i.i.i.i
   br i1 %18, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIPPmlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_T0_SA_T1_T2_.exit.i.i.i
 
-while.body.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i.i, %land.rhs.i.i.i.i.i
+while.body.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i.i, %land.rhs.i.i.i.i.i
   %add.ptr2.i.i.i.i.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__holeIndex.addr.04.i.i.i.i.i
   store ptr %add.ptr.val.i.i.i.i.i, ptr %add.ptr2.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.05.i.i.i.i.i, %div11.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIPPmlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_T0_SA_T1_T2_.exit.i.i.i, !llvm.loop !9
 
-_ZSt13__adjust_heapIPPmlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_T0_SA_T1_T2_.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i.i, %if.end16.i.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end16.i.i.i.i ], [ %__holeIndex.addr.04.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i.i ], [ %__parent.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
+_ZSt13__adjust_heapIPPmlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_T0_SA_T1_T2_.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i.i, %if.end16.i.i.i.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end16.i.i.i.i ], [ %__holeIndex.addr.04.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i.i ], [ %__parent.05.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %add.ptr5.i.i.i.i.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store ptr %8, ptr %add.ptr5.i.i.i.i.i, align 8
   %cmp55.i.i.i = icmp ult i64 %sub.i.i.i, 2
@@ -248,21 +248,21 @@ while.body.i46.i.i.i:                             ; preds = %if.end7.split.i.i.i
   %20 = load i64, ptr %add.ptr.val.i53.i.i.i, align 8
   %21 = load i64, ptr %add.ptr2.val.i54.i.i.i, align 8
   %cmp.i.i.i55.i.i.i = icmp ugt i64 %20, %21
-  br i1 %cmp.i.i.i55.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i63.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i56.i.i.i
+  br i1 %cmp.i.i.i55.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i63.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i56.i.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i56.i.i.i: ; preds = %while.body.i46.i.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i56.i.i.i: ; preds = %while.body.i46.i.i.i
   %cmp2.i.i.i57.i.i.i = icmp eq i64 %20, %21
   %cmp3.i.i.i58.i.i.i = icmp ugt ptr %add.ptr.val.i53.i.i.i, %add.ptr2.val.i54.i.i.i
   %cmp2.i.i.fr.i59.i.i.i = freeze i1 %cmp2.i.i.i57.i.i.i
   %22 = and i1 %cmp3.i.i.i58.i.i.i, %cmp2.i.i.fr.i59.i.i.i
-  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i63.i.i.i, label %while.cond.i60.i.i.i
+  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i63.i.i.i, label %while.cond.i60.i.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i63.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i56.i.i.i, %while.body.i46.i.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i63.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i56.i.i.i, %while.body.i46.i.i.i
   br label %while.cond.i60.i.i.i
 
-while.cond.i60.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i63.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i56.i.i.i
-  %23 = phi ptr [ %add.ptr2.val.i54.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i63.i.i.i ], [ %add.ptr.val.i53.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i56.i.i.i ]
-  %24 = phi i64 [ %sub1.i51.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i63.i.i.i ], [ %mul.i49.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i56.i.i.i ]
+while.cond.i60.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i63.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i56.i.i.i
+  %23 = phi ptr [ %add.ptr2.val.i54.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i63.i.i.i ], [ %add.ptr.val.i53.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i56.i.i.i ]
+  %24 = phi i64 [ %sub1.i51.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i63.i.i.i ], [ %mul.i49.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i56.i.i.i ]
   %add.ptr4.i61.i.i.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__secondChild.025.i47.i.i.i
   store ptr %23, ptr %add.ptr4.i61.i.i.i, align 8
   %cmp.i62.i.i.i = icmp slt i64 %24, %div.i13.i.i.i
@@ -293,22 +293,22 @@ land.rhs.i.i24.i.i.i:                             ; preds = %if.end16.i19.i.i.i,
   %26 = load i64, ptr %add.ptr.val.i.i29.i.i.i, align 8
   %27 = load i64, ptr %19, align 8
   %cmp.i.i.i.i30.i.i.i = icmp ugt i64 %26, %27
-  br i1 %cmp.i.i.i.i30.i.i.i, label %while.body.i.i34.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i31.i.i.i
+  br i1 %cmp.i.i.i.i30.i.i.i, label %while.body.i.i34.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i31.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i31.i.i.i: ; preds = %land.rhs.i.i24.i.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i31.i.i.i: ; preds = %land.rhs.i.i24.i.i.i
   %cmp2.i.i.i.i32.i.i.i = icmp eq i64 %26, %27
   %cmp3.i.i.i.i33.i.i.i = icmp ugt ptr %add.ptr.val.i.i29.i.i.i, %19
   %28 = and i1 %cmp3.i.i.i.i33.i.i.i, %cmp2.i.i.i.i32.i.i.i
   br i1 %28, label %while.body.i.i34.i.i.i, label %_ZSt13__adjust_heapIPPmlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_T0_SA_T1_T2_.exit64.i.i.i
 
-while.body.i.i34.i.i.i:                           ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i31.i.i.i, %land.rhs.i.i24.i.i.i
+while.body.i.i34.i.i.i:                           ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i31.i.i.i, %land.rhs.i.i24.i.i.i
   %add.ptr2.i.i35.i.i.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__holeIndex.addr.04.i.i25.i.i.i
   store ptr %add.ptr.val.i.i29.i.i.i, ptr %add.ptr2.i.i35.i.i.i, align 8
   %cmp.i.i36.not.i.i.i = icmp slt i64 %__parent.05.i.i27.i.i.i, %__parent.06.i.i.i
   br i1 %cmp.i.i36.not.i.i.i, label %_ZSt13__adjust_heapIPPmlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_T0_SA_T1_T2_.exit64.i.i.i, label %land.rhs.i.i24.i.i.i, !llvm.loop !9
 
-_ZSt13__adjust_heapIPPmlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_T0_SA_T1_T2_.exit64.i.i.i: ; preds = %while.body.i.i34.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i31.i.i.i, %if.end16.i19.i.i.i
-  %__holeIndex.addr.0.lcssa.i.i22.i.i.i = phi i64 [ %__holeIndex.addr.1.i20.i.i.i, %if.end16.i19.i.i.i ], [ %__holeIndex.addr.04.i.i25.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i31.i.i.i ], [ %__parent.05.i.i27.i.i.i, %while.body.i.i34.i.i.i ]
+_ZSt13__adjust_heapIPPmlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_T0_SA_T1_T2_.exit64.i.i.i: ; preds = %while.body.i.i34.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i31.i.i.i, %if.end16.i19.i.i.i
+  %__holeIndex.addr.0.lcssa.i.i22.i.i.i = phi i64 [ %__holeIndex.addr.1.i20.i.i.i, %if.end16.i19.i.i.i ], [ %__holeIndex.addr.04.i.i25.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i31.i.i.i ], [ %__parent.05.i.i27.i.i.i, %while.body.i.i34.i.i.i ]
   %add.ptr5.i.i23.i.i.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__holeIndex.addr.0.lcssa.i.i22.i.i.i
   store ptr %19, ptr %add.ptr5.i.i23.i.i.i, align 8
   %cmp5.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -364,21 +364,21 @@ while.body.i.i.i79.i:                             ; preds = %while.body40.i, %wh
   %33 = load i64, ptr %add.ptr.val.i.i.i86.i, align 8
   %34 = load i64, ptr %add.ptr2.val.i.i.i87.i, align 8
   %cmp.i.i.i.i.i88.i = icmp ugt i64 %33, %34
-  br i1 %cmp.i.i.i.i.i88.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i96.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i89.i
+  br i1 %cmp.i.i.i.i.i88.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i96.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i89.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i89.i: ; preds = %while.body.i.i.i79.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i89.i: ; preds = %while.body.i.i.i79.i
   %cmp2.i.i.i.i.i90.i = icmp eq i64 %33, %34
   %cmp3.i.i.i.i.i91.i = icmp ugt ptr %add.ptr.val.i.i.i86.i, %add.ptr2.val.i.i.i87.i
   %cmp2.i.i.fr.i.i.i92.i = freeze i1 %cmp2.i.i.i.i.i90.i
   %35 = and i1 %cmp3.i.i.i.i.i91.i, %cmp2.i.i.fr.i.i.i92.i
-  br i1 %35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i96.i, label %while.cond.i.i.i93.i
+  br i1 %35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i96.i, label %while.cond.i.i.i93.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i96.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i89.i, %while.body.i.i.i79.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i96.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i89.i, %while.body.i.i.i79.i
   br label %while.cond.i.i.i93.i
 
-while.cond.i.i.i93.i:                             ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i96.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i89.i
-  %36 = phi ptr [ %add.ptr2.val.i.i.i87.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i96.i ], [ %add.ptr.val.i.i.i86.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i89.i ]
-  %37 = phi i64 [ %sub1.i.i.i84.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i96.i ], [ %mul.i.i.i82.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i89.i ]
+while.cond.i.i.i93.i:                             ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i96.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i89.i
+  %36 = phi ptr [ %add.ptr2.val.i.i.i87.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i96.i ], [ %add.ptr.val.i.i.i86.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i89.i ]
+  %37 = phi i64 [ %sub1.i.i.i84.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i96.i ], [ %mul.i.i.i82.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i89.i ]
   %add.ptr4.i.i.i94.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__secondChild.025.i.i.i80.i
   store ptr %36, ptr %add.ptr4.i.i.i94.i, align 8
   %cmp.i.i.i95.i = icmp slt i64 %37, %div.i.i.i.i
@@ -408,7 +408,7 @@ if.then9.i.i.i74.i:                               ; preds = %land.lhs.true.i.i.i
 if.end16.i.i.i56.i:                               ; preds = %if.then9.i.i.i74.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i53.i
   %__holeIndex.addr.1.i.i.i57.i = phi i64 [ %sub12.i.i.i76.i, %if.then9.i.i.i74.i ], [ %__secondChild.0.lcssa.i.i.i54.i, %land.lhs.true.i.i.i.i ], [ %__secondChild.0.lcssa.i.i.i54.i, %while.end.i.i.i53.i ]
   %cmp3.i.i.i.i58.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i57.i, 0
-  br i1 %cmp3.i.i.i.i58.i, label %land.rhs.i.i.i.i61.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.argprom.exit.i.i
+  br i1 %cmp3.i.i.i.i58.i, label %land.rhs.i.i.i.i61.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.exit.i.i
 
 land.rhs.i.i.i.i61.i:                             ; preds = %if.end16.i.i.i56.i, %while.body.i.i.i.i70.i
   %__holeIndex.addr.04.i.i.i.i62.i = phi i64 [ %__parent.05.i.i12.i.i.i, %while.body.i.i.i.i70.i ], [ %__holeIndex.addr.1.i.i.i57.i, %if.end16.i.i.i56.i ]
@@ -419,22 +419,22 @@ land.rhs.i.i.i.i61.i:                             ; preds = %if.end16.i.i.i56.i,
   %40 = load i64, ptr %add.ptr.val.i.i.i.i65.i, align 8
   %41 = load i64, ptr %32, align 8
   %cmp.i.i.i.i.i.i66.i = icmp ugt i64 %40, %41
-  br i1 %cmp.i.i.i.i.i.i66.i, label %while.body.i.i.i.i70.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i67.i
+  br i1 %cmp.i.i.i.i.i.i66.i, label %while.body.i.i.i.i70.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i67.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i67.i: ; preds = %land.rhs.i.i.i.i61.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i67.i: ; preds = %land.rhs.i.i.i.i61.i
   %cmp2.i.i.i.i.i.i68.i = icmp eq i64 %40, %41
   %cmp3.i.i.i.i.i.i69.i = icmp ugt ptr %add.ptr.val.i.i.i.i65.i, %32
   %42 = and i1 %cmp3.i.i.i.i.i.i69.i, %cmp2.i.i.i.i.i.i68.i
-  br i1 %42, label %while.body.i.i.i.i70.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.argprom.exit.i.i
+  br i1 %42, label %while.body.i.i.i.i70.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.exit.i.i
 
-while.body.i.i.i.i70.i:                           ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i67.i, %land.rhs.i.i.i.i61.i
+while.body.i.i.i.i70.i:                           ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i67.i, %land.rhs.i.i.i.i61.i
   %add.ptr2.i.i.i.i71.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__holeIndex.addr.04.i.i.i.i62.i
   store ptr %add.ptr.val.i.i.i.i65.i, ptr %add.ptr2.i.i.i.i71.i, align 8
   %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.05.in.i.i.i.i63.i, 2
-  br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.argprom.exit.i.i, label %land.rhs.i.i.i.i61.i, !llvm.loop !9
+  br i1 %cmp.i.i.not.i.i.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.exit.i.i, label %land.rhs.i.i.i.i61.i, !llvm.loop !9
 
-_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.argprom.exit.i.i: ; preds = %while.body.i.i.i.i70.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i67.i, %if.end16.i.i.i56.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i59.i = phi i64 [ %__holeIndex.addr.1.i.i.i57.i, %if.end16.i.i.i56.i ], [ %__holeIndex.addr.04.i.i.i.i62.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i67.i ], [ 0, %while.body.i.i.i.i70.i ]
+_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.exit.i.i: ; preds = %while.body.i.i.i.i70.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i67.i, %if.end16.i.i.i56.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i59.i = phi i64 [ %__holeIndex.addr.1.i.i.i57.i, %if.end16.i.i.i56.i ], [ %__holeIndex.addr.04.i.i.i.i62.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i67.i ], [ 0, %while.body.i.i.i.i70.i ]
   %add.ptr5.i.i.i.i60.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__holeIndex.addr.0.lcssa.i.i.i.i59.i
   store ptr %32, ptr %add.ptr5.i.i.i.i60.i, align 8
   %43 = add nsw i64 %indvars.iv219.i, -1
@@ -447,7 +447,7 @@ _ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112
   %cmp.i100.wide.i = icmp ugt i64 %43, 1
   br i1 %cmp.i100.wide.i, label %if.then.i101.i, label %invoke.cont69.i
 
-if.then.i101.i:                                   ; preds = %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.argprom.exit.i.i
+if.then.i101.i:                                   ; preds = %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.exit.i.i
   %incdec.ptr.i102.i = getelementptr inbounds i8, ptr %arrayidx67.i, i64 -8
   %45 = load ptr, ptr %incdec.ptr.i102.i, align 8
   store ptr %44, ptr %incdec.ptr.i102.i, align 8
@@ -471,21 +471,21 @@ while.body.i.i.i140.i:                            ; preds = %if.then.i101.i, %wh
   %46 = load i64, ptr %add.ptr.val.i.i.i147.i, align 8
   %47 = load i64, ptr %add.ptr2.val.i.i.i148.i, align 8
   %cmp.i.i.i.i.i149.i = icmp ugt i64 %46, %47
-  br i1 %cmp.i.i.i.i.i149.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i157.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i150.i
+  br i1 %cmp.i.i.i.i.i149.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i157.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i150.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i150.i: ; preds = %while.body.i.i.i140.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i150.i: ; preds = %while.body.i.i.i140.i
   %cmp2.i.i.i.i.i151.i = icmp eq i64 %46, %47
   %cmp3.i.i.i.i.i152.i = icmp ugt ptr %add.ptr.val.i.i.i147.i, %add.ptr2.val.i.i.i148.i
   %cmp2.i.i.fr.i.i.i153.i = freeze i1 %cmp2.i.i.i.i.i151.i
   %48 = and i1 %cmp3.i.i.i.i.i152.i, %cmp2.i.i.fr.i.i.i153.i
-  br i1 %48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i157.i, label %while.cond.i.i.i154.i
+  br i1 %48, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i157.i, label %while.cond.i.i.i154.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i157.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i150.i, %while.body.i.i.i140.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i157.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i150.i, %while.body.i.i.i140.i
   br label %while.cond.i.i.i154.i
 
-while.cond.i.i.i154.i:                            ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i157.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i150.i
-  %49 = phi ptr [ %add.ptr2.val.i.i.i148.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i157.i ], [ %add.ptr.val.i.i.i147.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i150.i ]
-  %50 = phi i64 [ %sub1.i.i.i145.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.thread.i.i.i157.i ], [ %mul.i.i.i143.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.argprom.exit.i.i.i150.i ]
+while.cond.i.i.i154.i:                            ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i157.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i150.i
+  %49 = phi ptr [ %add.ptr2.val.i.i.i148.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i157.i ], [ %add.ptr.val.i.i.i147.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i150.i ]
+  %50 = phi i64 [ %sub1.i.i.i145.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.thread.i.i.i157.i ], [ %mul.i.i.i143.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS8_EEbT_T0_.exit.i.i.i150.i ]
   %add.ptr4.i.i.i155.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__secondChild.025.i.i.i141.i
   store ptr %49, ptr %add.ptr4.i.i.i155.i, align 8
   %cmp.i.i.i156.i = icmp slt i64 %50, %div.i.i.i107.i
@@ -515,7 +515,7 @@ if.then9.i.i.i135.i:                              ; preds = %land.lhs.true.i.i.i
 if.end16.i.i.i112.i:                              ; preds = %if.then9.i.i.i135.i, %land.lhs.true.i.i.i131.i, %while.end.i.i.i109.i
   %__holeIndex.addr.1.i.i.i113.i = phi i64 [ %sub12.i.i.i137.i, %if.then9.i.i.i135.i ], [ %__secondChild.0.lcssa.i.i.i110.i, %land.lhs.true.i.i.i131.i ], [ %__secondChild.0.lcssa.i.i.i110.i, %while.end.i.i.i109.i ]
   %cmp3.i.i.i.i114.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i113.i, 0
-  br i1 %cmp3.i.i.i.i114.i, label %land.rhs.i.i.i.i118.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.argprom.exit.i115.i
+  br i1 %cmp3.i.i.i.i114.i, label %land.rhs.i.i.i.i118.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.exit.i115.i
 
 land.rhs.i.i.i.i118.i:                            ; preds = %if.end16.i.i.i112.i, %while.body.i.i.i.i128.i
   %__holeIndex.addr.04.i.i.i.i119.i = phi i64 [ %__parent.05.i.i12.i.i121.i, %while.body.i.i.i.i128.i ], [ %__holeIndex.addr.1.i.i.i113.i, %if.end16.i.i.i112.i ]
@@ -526,27 +526,27 @@ land.rhs.i.i.i.i118.i:                            ; preds = %if.end16.i.i.i112.i
   %53 = load i64, ptr %add.ptr.val.i.i.i.i123.i, align 8
   %54 = load i64, ptr %45, align 8
   %cmp.i.i.i.i.i.i124.i = icmp ugt i64 %53, %54
-  br i1 %cmp.i.i.i.i.i.i124.i, label %while.body.i.i.i.i128.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i125.i
+  br i1 %cmp.i.i.i.i.i.i124.i, label %while.body.i.i.i.i128.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i125.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i125.i: ; preds = %land.rhs.i.i.i.i118.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i125.i: ; preds = %land.rhs.i.i.i.i118.i
   %cmp2.i.i.i.i.i.i126.i = icmp eq i64 %53, %54
   %cmp3.i.i.i.i.i.i127.i = icmp ugt ptr %add.ptr.val.i.i.i.i123.i, %45
   %55 = and i1 %cmp3.i.i.i.i.i.i127.i, %cmp2.i.i.i.i.i.i126.i
-  br i1 %55, label %while.body.i.i.i.i128.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.argprom.exit.i115.i
+  br i1 %55, label %while.body.i.i.i.i128.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.exit.i115.i
 
-while.body.i.i.i.i128.i:                          ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i125.i, %land.rhs.i.i.i.i118.i
+while.body.i.i.i.i128.i:                          ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i125.i, %land.rhs.i.i.i.i118.i
   %add.ptr2.i.i.i.i129.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__holeIndex.addr.04.i.i.i.i119.i
   store ptr %add.ptr.val.i.i.i.i123.i, ptr %add.ptr2.i.i.i.i129.i, align 8
   %cmp.i.i.not.i.i130.i = icmp ult i64 %__parent.05.in.i.i.i.i120.i, 2
-  br i1 %cmp.i.i.not.i.i130.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.argprom.exit.i115.i, label %land.rhs.i.i.i.i118.i, !llvm.loop !9
+  br i1 %cmp.i.i.not.i.i130.i, label %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.exit.i115.i, label %land.rhs.i.i.i.i118.i, !llvm.loop !9
 
-_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.argprom.exit.i115.i: ; preds = %while.body.i.i.i.i128.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i125.i, %if.end16.i.i.i112.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i116.i = phi i64 [ %__holeIndex.addr.1.i.i.i113.i, %if.end16.i.i.i112.i ], [ %__holeIndex.addr.04.i.i.i.i119.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i.i125.i ], [ 0, %while.body.i.i.i.i128.i ]
+_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.exit.i115.i: ; preds = %while.body.i.i.i.i128.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i125.i, %if.end16.i.i.i112.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i116.i = phi i64 [ %__holeIndex.addr.1.i.i.i113.i, %if.end16.i.i.i112.i ], [ %__holeIndex.addr.04.i.i.i.i119.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i.i125.i ], [ 0, %while.body.i.i.i.i128.i ]
   %add.ptr5.i.i.i.i117.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__holeIndex.addr.0.lcssa.i.i.i.i116.i
   store ptr %45, ptr %add.ptr5.i.i.i.i117.i, align 8
   br label %invoke.cont69.i
 
-invoke.cont69.i:                                  ; preds = %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.argprom.exit.i115.i, %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.argprom.exit.i.i
+invoke.cont69.i:                                  ; preds = %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.exit.i115.i, %_ZSt10__pop_heapIPPmN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEEEvT_S9_S9_RT0_.exit.i.i
   %sext.i = shl i64 %sub.ptr.sub.i, 29
   %idxprom70.i = ashr i64 %sext.i, 32
   %arrayidx71.i = getelementptr inbounds i64, ptr %call.i, i64 %idxprom70.i
@@ -571,22 +571,22 @@ land.rhs.i.i.i:                                   ; preds = %invoke.cont69.i, %w
   %59 = load i64, ptr %add.ptr.val.i.i.i, align 8
   %60 = load i64, ptr %58, align 8
   %cmp.i.i.i.i162.i = icmp ugt i64 %59, %60
-  br i1 %cmp.i.i.i.i162.i, label %while.body.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i
+  br i1 %cmp.i.i.i.i162.i, label %while.body.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i: ; preds = %land.rhs.i.i.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i: ; preds = %land.rhs.i.i.i
   %cmp2.i.i.i.i.i = icmp eq i64 %59, %60
   %cmp3.i.i.i.i163.i = icmp ugt ptr %add.ptr.val.i.i.i, %58
   %61 = and i1 %cmp3.i.i.i.i163.i, %cmp2.i.i.i.i.i
   br i1 %61, label %while.body.i.i.i, label %_ZSt9push_heapIPPmN7Imf_3_212_GLOBAL__N_112FHeapCompareEEvT_S5_T0_.exit.i
 
-while.body.i.i.i:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i, %land.rhs.i.i.i
+while.body.i.i.i:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i, %land.rhs.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__holeIndex.addr.04.i.i.i
   store ptr %add.ptr.val.i.i.i, ptr %add.ptr2.i.i.i, align 8
   %cmp.i.not.i.i = icmp ult i64 %__parent.05.in.i.i.i, 2
   br i1 %cmp.i.not.i.i, label %_ZSt9push_heapIPPmN7Imf_3_212_GLOBAL__N_112FHeapCompareEEvT_S5_T0_.exit.i, label %land.rhs.i.i.i, !llvm.loop !9
 
-_ZSt9push_heapIPPmN7Imf_3_212_GLOBAL__N_112FHeapCompareEEvT_S5_T0_.exit.i: ; preds = %while.body.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i, %invoke.cont69.i
-  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %sub.i.i, %invoke.cont69.i ], [ %__holeIndex.addr.04.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.argprom.exit.i.i.i ], [ 0, %while.body.i.i.i ]
+_ZSt9push_heapIPPmN7Imf_3_212_GLOBAL__N_112FHeapCompareEEvT_S5_T0_.exit.i: ; preds = %while.body.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i, %invoke.cont69.i
+  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %sub.i.i, %invoke.cont69.i ], [ %__holeIndex.addr.04.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_212_GLOBAL__N_112FHeapCompareEEclIPPmS7_EEbT_RT0_.exit.i.i.i ], [ 0, %while.body.i.i.i ]
   %add.ptr5.i.i.i = getelementptr inbounds ptr, ptr %call.i4445.i, i64 %__holeIndex.addr.0.lcssa.i.i.i
   store ptr %58, ptr %add.ptr5.i.i.i, align 8
   br label %for.cond83.i
@@ -1512,7 +1512,7 @@ common.resume.i:                                  ; preds = %lpad.i45.i, %lpad.i
   %exception.i44.sink.i = phi ptr [ %exception.i44.i, %lpad.i45.i ], [ %exception.i41.i, %lpad.i42.i ], [ %exception.i23.i, %lpad.i24.i ], [ %exception.i.i, %lpad.i.i ]
   %common.resume.op.i = phi { ptr, i32 } [ %28, %lpad.i45.i ], [ %25, %lpad.i42.i ], [ %12, %lpad.i24.i ], [ %10, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.i44.sink.i) #13
-  br label %_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.argprom.exit173
+  br label %_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.exit173
 
 lpad.i.i:                                         ; preds = %if.then.i
   %10 = landingpad { ptr, i32 }
@@ -1754,7 +1754,7 @@ lpad35:                                           ; preds = %if.else
 lpad37:                                           ; preds = %invoke.cont.i46.i.invoke
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.argprom.exit173
+  br label %_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.exit173
 
 lpad58.loopexit:                                  ; preds = %if.then16.i89, %if.else.i94
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2501,7 +2501,7 @@ lpad71:                                           ; preds = %_ZN7Imf_3_212_GLOBA
   %93 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.argprom.exit173 unwind label %terminate.lpad
+          to label %_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.exit173 unwind label %terminate.lpad
 
 for.body.i158:                                    ; preds = %while.end229.i, %for.inc.i163
   %indvars.iv.i159 = phi i64 [ %indvars.iv.next.i164, %for.inc.i163 ], [ 0, %while.end229.i ]
@@ -2525,13 +2525,13 @@ _ZN7Imf_3_29AutoArrayImLi65537EED2Ev.exit:        ; preds = %for.inc.i163
   tail call void @_ZdaPv(ptr noundef nonnull %call.i) #12
   br label %if.end80
 
-_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.argprom.exit173: ; preds = %lpad37, %common.resume.i, %lpad71
+_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.exit173: ; preds = %lpad37, %common.resume.i, %lpad71
   %.pn = phi { ptr, i32 } [ %93, %lpad71 ], [ %42, %lpad37 ], [ %common.resume.op.i, %common.resume.i ]
   tail call void @_ZdaPv(ptr noundef nonnull %call.i5758) #12
   br label %_ZN7Imf_3_29AutoArrayImLi65537EED2Ev.exit176
 
-_ZN7Imf_3_29AutoArrayImLi65537EED2Ev.exit176:     ; preds = %_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.argprom.exit173, %lpad35
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.argprom.exit173 ], [ %41, %lpad35 ]
+_ZN7Imf_3_29AutoArrayImLi65537EED2Ev.exit176:     ; preds = %_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.exit173, %lpad35
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7Imf_3_29AutoArrayINS_12_GLOBAL__N_16HufDecELi16384EED2Ev.exit173 ], [ %41, %lpad35 ]
   tail call void @_ZdaPv(ptr noundef nonnull %call.i) #12
   br label %common.resume
 

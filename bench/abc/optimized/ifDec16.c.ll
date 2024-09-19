@@ -354,11 +354,11 @@ Abc_TtStretch6.exit:                              ; preds = %._crit_edge.us.i, %
   %37 = getelementptr inbounds i8, ptr %16, i64 84
   %38 = load i32, ptr %37, align 4
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %39, label %Abc_TtMinBase.argprom.exit
+  br i1 %.not, label %39, label %Abc_TtMinBase.exit
 
 39:                                               ; preds = %Abc_TtStretch6.exit
   %40 = icmp sgt i32 %3, 0
-  br i1 %40, label %.lr.ph.i, label %Abc_TtMinBase.argprom.exit
+  br i1 %40, label %.lr.ph.i, label %Abc_TtMinBase.exit
 
 .lr.ph.i:                                         ; preds = %39
   %41 = sext i32 %11 to i64
@@ -427,7 +427,7 @@ Abc_TtHasVar.exit.thread.us.i:                    ; preds = %Abc_TtSwapVars.exit
   %.1.us.i = phi i32 [ %70, %Abc_TtSwapVars.exit.us.i ], [ %.019.us.i, %Abc_TtHasVar.exit.us.i ]
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next31.i, %wide.trip.count33.i
-  br i1 %exitcond34.not.i, label %Abc_TtMinBase.argprom.exit, label %Abc_TtHasVar.exit.us.i, !llvm.loop !15
+  br i1 %exitcond34.not.i, label %Abc_TtMinBase.exit, label %Abc_TtHasVar.exit.us.i, !llvm.loop !15
 
 .lr.ph.split.i:                                   ; preds = %Abc_TtHasVar.exit.thread.i, %.lr.ph.split.preheader.i
   %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i57, %Abc_TtHasVar.exit.thread.i ]
@@ -668,9 +668,9 @@ Abc_TtHasVar.exit.thread.i:                       ; preds = %._crit_edge.us.i.i,
   %.1.i = phi i32 [ %183, %Abc_TtSwapVars.exit.i ], [ %.019.i, %73 ], [ %.019.i, %86 ], [ %.019.i, %.preheader.lr.ph.i.i ], [ %.019.i, %79 ], [ %.019.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i
-  br i1 %exitcond.not.i58, label %Abc_TtMinBase.argprom.exit, label %.lr.ph.split.i, !llvm.loop !15
+  br i1 %exitcond.not.i58, label %Abc_TtMinBase.exit, label %.lr.ph.split.i, !llvm.loop !15
 
-Abc_TtMinBase.argprom.exit:                       ; preds = %Abc_TtHasVar.exit.thread.i, %Abc_TtHasVar.exit.thread.us.i, %39, %Abc_TtStretch6.exit
+Abc_TtMinBase.exit:                               ; preds = %Abc_TtHasVar.exit.thread.i, %Abc_TtHasVar.exit.thread.us.i, %39, %Abc_TtStretch6.exit
   %.049 = phi i32 [ %3, %Abc_TtStretch6.exit ], [ 0, %39 ], [ %.1.us.i, %Abc_TtHasVar.exit.thread.us.i ], [ %.1.i, %Abc_TtHasVar.exit.thread.i ]
   %184 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   %185 = trunc i64 %184 to i32
@@ -678,11 +678,11 @@ Abc_TtMinBase.argprom.exit:                       ; preds = %Abc_TtHasVar.exit.t
   %or.cond = icmp ult i32 %186, -2
   br i1 %or.cond, label %187, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %Abc_TtMinBase.argprom.exit
+.lr.ph.preheader:                                 ; preds = %Abc_TtMinBase.exit
   %wide.trip.count = and i64 %184, 4294967295
   br label %.lr.ph
 
-187:                                              ; preds = %Abc_TtMinBase.argprom.exit
+187:                                              ; preds = %Abc_TtMinBase.exit
   %188 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %4)
   br label %231
 

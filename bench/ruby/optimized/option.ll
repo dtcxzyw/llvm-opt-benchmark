@@ -745,12 +745,12 @@ RSTRING_PTR.exit.i:                               ; preds = %139, %135
 
 141:                                              ; preds = %128
   %142 = load i64, ptr %5, align 8
-  %143 = call fastcc i32 @inspect_errno.argelim(i64 noundef %142, i64 noundef %42)
+  %143 = call fastcc i32 @inspect_errno(i64 noundef %142, i64 noundef %42)
   br label %inspect_int.exit
 
 144:                                              ; preds = %128
   %145 = load i64, ptr %5, align 8
-  %146 = call fastcc i32 @inspect_socktype.argelim(i64 noundef %145, i64 noundef %42)
+  %146 = call fastcc i32 @inspect_socktype(i64 noundef %145, i64 noundef %42)
   br label %inspect_int.exit
 
 147:                                              ; preds = %128
@@ -1005,22 +1005,22 @@ RSTRING_PTR.exit.i260:                            ; preds = %265, %261
 
 267:                                              ; preds = %128
   %268 = load i64, ptr %5, align 8
-  %269 = call fastcc i32 @inspect_linger.argelim(i64 noundef %268, i64 noundef %42)
+  %269 = call fastcc i32 @inspect_linger(i64 noundef %268, i64 noundef %42)
   br label %inspect_int.exit
 
 270:                                              ; preds = %128
   %271 = load i64, ptr %5, align 8
-  %272 = call fastcc i32 @inspect_timeval_as_interval.argelim(i64 noundef %271, i64 noundef %42)
+  %272 = call fastcc i32 @inspect_timeval_as_interval(i64 noundef %271, i64 noundef %42)
   br label %inspect_int.exit
 
 273:                                              ; preds = %128
   %274 = load i64, ptr %5, align 8
-  %275 = call fastcc i32 @inspect_timeval_as_interval.argelim(i64 noundef %274, i64 noundef %42)
+  %275 = call fastcc i32 @inspect_timeval_as_interval(i64 noundef %274, i64 noundef %42)
   br label %inspect_int.exit
 
 276:                                              ; preds = %128
   %277 = load i64, ptr %5, align 8
-  %278 = call fastcc i32 @inspect_peercred.argelim(i64 noundef %277, i64 noundef %42)
+  %278 = call fastcc i32 @inspect_peercred(i64 noundef %277, i64 noundef %42)
   br label %inspect_int.exit
 
 279:                                              ; preds = %127, %127
@@ -1079,7 +1079,7 @@ RSTRING_PTR.exit.i267:                            ; preds = %290, %286
   br label %inspect_ipv4_multicast_if.exit
 
 298:                                              ; preds = %281
-  %299 = call fastcc i32 @inspect_ipv4_mreqn.argelim(i64 noundef %282, i64 noundef %42)
+  %299 = call fastcc i32 @inspect_ipv4_mreqn(i64 noundef %282, i64 noundef %42)
   br label %inspect_ipv4_multicast_if.exit
 
 inspect_ipv4_multicast_if.exit:                   ; preds = %281, %294, %296, %298
@@ -1090,12 +1090,12 @@ inspect_ipv4_multicast_if.exit:                   ; preds = %281, %294, %296, %2
 
 300:                                              ; preds = %280
   %301 = load i64, ptr %5, align 8
-  %302 = call fastcc i32 @inspect_ipv4_add_drop_membership.argelim(i64 noundef %301, i64 noundef %42)
+  %302 = call fastcc i32 @inspect_ipv4_add_drop_membership(i64 noundef %301, i64 noundef %42)
   br label %inspect_int.exit
 
 303:                                              ; preds = %280
   %304 = load i64, ptr %5, align 8
-  %305 = call fastcc i32 @inspect_ipv4_add_drop_membership.argelim(i64 noundef %304, i64 noundef %42)
+  %305 = call fastcc i32 @inspect_ipv4_add_drop_membership(i64 noundef %304, i64 noundef %42)
   br label %inspect_int.exit
 
 306:                                              ; preds = %280
@@ -1186,7 +1186,7 @@ RSTRING_PTR.exit.i286:                            ; preds = %341, %337
 
 343:                                              ; preds = %330
   %344 = load i64, ptr %5, align 8
-  %345 = call fastcc i32 @inspect_ipv6_multicast_if.argelim(i64 noundef %344, i64 noundef %42)
+  %345 = call fastcc i32 @inspect_ipv6_multicast_if(i64 noundef %344, i64 noundef %42)
   br label %inspect_int.exit
 
 346:                                              ; preds = %330
@@ -1216,12 +1216,12 @@ RSTRING_PTR.exit.i293:                            ; preds = %356, %352
 
 358:                                              ; preds = %330
   %359 = load i64, ptr %5, align 8
-  %360 = call fastcc i32 @inspect_ipv6_mreq.argelim(i64 noundef %359, i64 noundef %42)
+  %360 = call fastcc i32 @inspect_ipv6_mreq(i64 noundef %359, i64 noundef %42)
   br label %inspect_int.exit
 
 361:                                              ; preds = %330
   %362 = load i64, ptr %5, align 8
-  %363 = call fastcc i32 @inspect_ipv6_mreq.argelim(i64 noundef %362, i64 noundef %42)
+  %363 = call fastcc i32 @inspect_ipv6_mreq(i64 noundef %362, i64 noundef %42)
   br label %inspect_int.exit
 
 364:                                              ; preds = %330
@@ -2548,7 +2548,7 @@ declare i64 @rsock_intern_iplevel(i32 noundef) local_unnamed_addr #1
 declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @inspect_errno.argelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @inspect_errno(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -2579,7 +2579,7 @@ RSTRING_PTR.exit:                                 ; preds = %7, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @inspect_socktype.argelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @inspect_socktype(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -2619,7 +2619,7 @@ RSTRING_PTR.exit:                                 ; preds = %7, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @inspect_linger.argelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @inspect_linger(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -2669,7 +2669,7 @@ RSTRING_PTR.exit:                                 ; preds = %7, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @inspect_timeval_as_interval.argelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @inspect_timeval_as_interval(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -2701,7 +2701,7 @@ RSTRING_PTR.exit:                                 ; preds = %7, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @inspect_peercred.argelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @inspect_peercred(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -2736,7 +2736,7 @@ RSTRING_PTR.exit:                                 ; preds = %7, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @inspect_ipv4_add_drop_membership.argelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @inspect_ipv4_add_drop_membership(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.ip_mreq, align 8
   %4 = alloca [16 x i8], align 16
   %5 = inttoptr i64 %0 to ptr
@@ -2796,7 +2796,7 @@ inspect_ipv4_mreq.exit:                           ; preds = %24, %26
   br label %30
 
 28:                                               ; preds = %2
-  %29 = tail call fastcc i32 @inspect_ipv4_mreqn.argelim(i64 noundef %0, i64 noundef %1)
+  %29 = tail call fastcc i32 @inspect_ipv4_mreqn(i64 noundef %0, i64 noundef %1)
   br label %30
 
 30:                                               ; preds = %2, %28, %inspect_ipv4_mreq.exit
@@ -2805,7 +2805,7 @@ inspect_ipv4_mreq.exit:                           ; preds = %24, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @inspect_ipv6_multicast_if.argelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @inspect_ipv6_multicast_if(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [48 x i8], align 16
   %5 = inttoptr i64 %0 to ptr
@@ -2835,24 +2835,24 @@ RSTRING_PTR.exit:                                 ; preds = %9, %13
 
 15:                                               ; preds = %RSTRING_PTR.exit
   %16 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %4, i64 noundef 48, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #6
-  br label %rb_if_indextoname.argprom.exit
+  br label %rb_if_indextoname.exit
 
 17:                                               ; preds = %RSTRING_PTR.exit
   %18 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %4, i64 noundef 48, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.25, i32 noundef %.0.copyload) #6
-  br label %rb_if_indextoname.argprom.exit
+  br label %rb_if_indextoname.exit
 
-rb_if_indextoname.argprom.exit:                   ; preds = %15, %17
+rb_if_indextoname.exit:                           ; preds = %15, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %19 = call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull %4) #6
   br label %20
 
-20:                                               ; preds = %2, %rb_if_indextoname.argprom.exit
-  %.0 = phi i32 [ 1, %rb_if_indextoname.argprom.exit ], [ 0, %2 ]
+20:                                               ; preds = %2, %rb_if_indextoname.exit
+  %.0 = phi i32 [ 1, %rb_if_indextoname.exit ], [ 0, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @inspect_ipv6_mreq.argelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @inspect_ipv6_mreq(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca %struct.ipv6_mreq, align 4
   %5 = alloca [46 x i8], align 16
@@ -2899,19 +2899,19 @@ RSTRING_PTR.exit:                                 ; preds = %11, %15
 
 26:                                               ; preds = %22
   %27 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %6, i64 noundef 48, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #6
-  br label %rb_if_indextoname.argprom.exit
+  br label %rb_if_indextoname.exit
 
 28:                                               ; preds = %22
   %29 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %6, i64 noundef 48, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.41, i32 noundef %24) #6
-  br label %rb_if_indextoname.argprom.exit
+  br label %rb_if_indextoname.exit
 
-rb_if_indextoname.argprom.exit:                   ; preds = %26, %28
+rb_if_indextoname.exit:                           ; preds = %26, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %30 = call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull %6) #6
   br label %31
 
-31:                                               ; preds = %2, %rb_if_indextoname.argprom.exit
-  %.0 = phi i32 [ 1, %rb_if_indextoname.argprom.exit ], [ 0, %2 ]
+31:                                               ; preds = %2, %rb_if_indextoname.exit
+  %.0 = phi i32 [ 1, %rb_if_indextoname.exit ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -2943,7 +2943,7 @@ declare i64 @rsock_intern_socktype(i32 noundef) local_unnamed_addr #1
 declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @inspect_ipv4_mreqn.argelim(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @inspect_ipv4_mreqn(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca %struct.ip_mreqn, align 4
   %5 = alloca [16 x i8], align 16
@@ -3004,19 +3004,19 @@ RSTRING_PTR.exit:                                 ; preds = %11, %15
 
 34:                                               ; preds = %30
   %35 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %6, i64 noundef 48, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #6
-  br label %rb_if_indextoname.argprom.exit
+  br label %rb_if_indextoname.exit
 
 36:                                               ; preds = %30
   %37 = call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %6, i64 noundef 48, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.37, i32 noundef %32) #6
-  br label %rb_if_indextoname.argprom.exit
+  br label %rb_if_indextoname.exit
 
-rb_if_indextoname.argprom.exit:                   ; preds = %34, %36
+rb_if_indextoname.exit:                           ; preds = %34, %36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %38 = call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull %6) #6
   br label %39
 
-39:                                               ; preds = %2, %rb_if_indextoname.argprom.exit
-  %.0 = phi i32 [ 1, %rb_if_indextoname.argprom.exit ], [ 0, %2 ]
+39:                                               ; preds = %2, %rb_if_indextoname.exit
+  %.0 = phi i32 [ 1, %rb_if_indextoname.exit ], [ 0, %2 ]
   ret i32 %.0
 }
 

@@ -184,15 +184,15 @@ TreeInsertHelp.exit:                              ; preds = %._crit_edge.i.threa
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %54, align 8
   %.not.i55 = icmp eq ptr %59, %.val
-  br i1 %.not.i55, label %LeftRotate.argprom.exit, label %60
+  br i1 %.not.i55, label %LeftRotate.exit, label %60
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %59, i64 40
   store ptr %.pre72, ptr %61, align 8
   %.pre69 = load ptr, ptr %35, align 8
-  br label %LeftRotate.argprom.exit
+  br label %LeftRotate.exit
 
-LeftRotate.argprom.exit:                          ; preds = %57, %60
+LeftRotate.exit:                                  ; preds = %57, %60
   %62 = phi ptr [ %36, %57 ], [ %.pre69, %60 ]
   %63 = getelementptr inbounds i8, ptr %55, i64 40
   store ptr %62, ptr %63, align 8
@@ -206,9 +206,9 @@ LeftRotate.argprom.exit:                          ; preds = %57, %60
   store ptr %55, ptr %35, align 8
   br label %._crit_edge70
 
-._crit_edge70:                                    ; preds = %53, %LeftRotate.argprom.exit
-  %68 = phi ptr [ %55, %LeftRotate.argprom.exit ], [ %.pre72, %53 ]
-  %.1 = phi ptr [ %.pre72, %LeftRotate.argprom.exit ], [ %.04565, %53 ]
+._crit_edge70:                                    ; preds = %53, %LeftRotate.exit
+  %68 = phi ptr [ %55, %LeftRotate.exit ], [ %.pre72, %53 ]
+  %.1 = phi ptr [ %.pre72, %LeftRotate.exit ], [ %.04565, %53 ]
   %69 = getelementptr inbounds i8, ptr %.1, i64 40
   %70 = getelementptr inbounds i8, ptr %68, i64 16
   store i32 0, ptr %70, align 8
@@ -227,14 +227,14 @@ LeftRotate.argprom.exit:                          ; preds = %57, %60
   %81 = load ptr, ptr %80, align 8
   store ptr %81, ptr %78, align 8
   %.not.i56 = icmp eq ptr %.val53, %81
-  br i1 %.not.i56, label %RightRotate.argprom.exit, label %82
+  br i1 %.not.i56, label %RightRotate.exit, label %82
 
 82:                                               ; preds = %._crit_edge70
   %83 = getelementptr inbounds i8, ptr %81, i64 40
   store ptr %77, ptr %83, align 8
-  br label %RightRotate.argprom.exit
+  br label %RightRotate.exit
 
-RightRotate.argprom.exit:                         ; preds = %._crit_edge70, %82
+RightRotate.exit:                                 ; preds = %._crit_edge70, %82
   %84 = getelementptr inbounds i8, ptr %77, i64 40
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %79, i64 40
@@ -280,15 +280,15 @@ RightRotate.argprom.exit:                         ; preds = %._crit_edge70, %82
   %108 = load ptr, ptr %107, align 8
   store ptr %108, ptr %103, align 8
   %.not.i58 = icmp eq ptr %.val54, %108
-  br i1 %.not.i58, label %RightRotate.argprom.exit60, label %109
+  br i1 %.not.i58, label %RightRotate.exit60, label %109
 
 109:                                              ; preds = %106
   %110 = getelementptr inbounds i8, ptr %108, i64 40
   store ptr %.pre72, ptr %110, align 8
   %.pre66 = load ptr, ptr %35, align 8
-  br label %RightRotate.argprom.exit60
+  br label %RightRotate.exit60
 
-RightRotate.argprom.exit60:                       ; preds = %106, %109
+RightRotate.exit60:                               ; preds = %106, %109
   %111 = phi ptr [ %36, %106 ], [ %.pre66, %109 ]
   %112 = getelementptr inbounds i8, ptr %104, i64 40
   store ptr %111, ptr %112, align 8
@@ -302,9 +302,9 @@ RightRotate.argprom.exit60:                       ; preds = %106, %109
   store ptr %104, ptr %35, align 8
   br label %._crit_edge67
 
-._crit_edge67:                                    ; preds = %102, %RightRotate.argprom.exit60
-  %117 = phi ptr [ %104, %RightRotate.argprom.exit60 ], [ %.pre72, %102 ]
-  %.3 = phi ptr [ %.pre72, %RightRotate.argprom.exit60 ], [ %.04565, %102 ]
+._crit_edge67:                                    ; preds = %102, %RightRotate.exit60
+  %117 = phi ptr [ %104, %RightRotate.exit60 ], [ %.pre72, %102 ]
+  %.3 = phi ptr [ %.pre72, %RightRotate.exit60 ], [ %.04565, %102 ]
   %118 = getelementptr inbounds i8, ptr %.3, i64 40
   %119 = getelementptr inbounds i8, ptr %117, i64 16
   store i32 0, ptr %119, align 8
@@ -323,14 +323,14 @@ RightRotate.argprom.exit60:                       ; preds = %106, %109
   %130 = load ptr, ptr %129, align 8
   store ptr %130, ptr %127, align 8
   %.not.i61 = icmp eq ptr %130, %.val52
-  br i1 %.not.i61, label %LeftRotate.argprom.exit63, label %131
+  br i1 %.not.i61, label %LeftRotate.exit63, label %131
 
 131:                                              ; preds = %._crit_edge67
   %132 = getelementptr inbounds i8, ptr %130, i64 40
   store ptr %126, ptr %132, align 8
-  br label %LeftRotate.argprom.exit63
+  br label %LeftRotate.exit63
 
-LeftRotate.argprom.exit63:                        ; preds = %._crit_edge67, %131
+LeftRotate.exit63:                                ; preds = %._crit_edge67, %131
   %133 = getelementptr inbounds i8, ptr %126, i64 40
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %128, i64 40
@@ -345,8 +345,8 @@ LeftRotate.argprom.exit63:                        ; preds = %._crit_edge67, %131
   store ptr %128, ptr %133, align 8
   br label %140
 
-140:                                              ; preds = %94, %LeftRotate.argprom.exit63, %45, %RightRotate.argprom.exit
-  %.2 = phi ptr [ %52, %45 ], [ %.1, %RightRotate.argprom.exit ], [ %101, %94 ], [ %.3, %LeftRotate.argprom.exit63 ]
+140:                                              ; preds = %94, %LeftRotate.exit63, %45, %RightRotate.exit
+  %.2 = phi ptr [ %52, %45 ], [ %.1, %RightRotate.exit ], [ %101, %94 ], [ %.3, %LeftRotate.exit63 ]
   %141 = getelementptr inbounds i8, ptr %.2, i64 40
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 16
@@ -703,14 +703,14 @@ define internal fastcc void @RBDeleteFixUp(ptr nocapture noundef readonly %0, pt
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %27, align 8
   %.not.i = icmp eq ptr %30, %.val67
-  br i1 %.not.i, label %LeftRotate.argprom.exit, label %31
+  br i1 %.not.i, label %LeftRotate.exit, label %31
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds i8, ptr %30, i64 40
   store ptr %26, ptr %32, align 8
-  br label %LeftRotate.argprom.exit
+  br label %LeftRotate.exit
 
-LeftRotate.argprom.exit:                          ; preds = %23, %31
+LeftRotate.exit:                                  ; preds = %23, %31
   %33 = getelementptr inbounds i8, ptr %26, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %28, i64 40
@@ -728,9 +728,9 @@ LeftRotate.argprom.exit:                          ; preds = %23, %31
   %42 = load ptr, ptr %41, align 8
   br label %43
 
-43:                                               ; preds = %LeftRotate.argprom.exit, %18
-  %44 = phi ptr [ %40, %LeftRotate.argprom.exit ], [ %14, %18 ]
-  %.0 = phi ptr [ %42, %LeftRotate.argprom.exit ], [ %20, %18 ]
+43:                                               ; preds = %LeftRotate.exit, %18
+  %44 = phi ptr [ %40, %LeftRotate.exit ], [ %14, %18 ]
+  %.0 = phi ptr [ %42, %LeftRotate.exit ], [ %20, %18 ]
   %45 = getelementptr inbounds i8, ptr %.0, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 16
@@ -758,14 +758,14 @@ LeftRotate.argprom.exit:                          ; preds = %23, %31
   %60 = load ptr, ptr %59, align 8
   store ptr %60, ptr %55, align 8
   %.not.i71 = icmp eq ptr %.val70, %60
-  br i1 %.not.i71, label %RightRotate.argprom.exit, label %61
+  br i1 %.not.i71, label %RightRotate.exit, label %61
 
 61:                                               ; preds = %54
   %62 = getelementptr inbounds i8, ptr %60, i64 40
   store ptr %.0, ptr %62, align 8
-  br label %RightRotate.argprom.exit
+  br label %RightRotate.exit
 
-RightRotate.argprom.exit:                         ; preds = %54, %61
+RightRotate.exit:                                 ; preds = %54, %61
   %63 = getelementptr inbounds i8, ptr %.0, i64 40
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %58, i64 40
@@ -783,9 +783,9 @@ RightRotate.argprom.exit:                         ; preds = %54, %61
   %72 = load ptr, ptr %71, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %43, %RightRotate.argprom.exit
-  %73 = phi ptr [ %70, %RightRotate.argprom.exit ], [ %44, %43 ]
-  %.1 = phi ptr [ %72, %RightRotate.argprom.exit ], [ %.0, %43 ]
+.loopexit:                                        ; preds = %43, %RightRotate.exit
+  %73 = phi ptr [ %70, %RightRotate.exit ], [ %44, %43 ]
+  %.1 = phi ptr [ %72, %RightRotate.exit ], [ %.0, %43 ]
   %74 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %.1, i64 16
@@ -805,14 +805,14 @@ RightRotate.argprom.exit:                         ; preds = %54, %61
   %86 = load ptr, ptr %85, align 8
   store ptr %86, ptr %83, align 8
   %.not.i73 = icmp eq ptr %86, %.val66
-  br i1 %.not.i73, label %LeftRotate.argprom.exit75, label %87
+  br i1 %.not.i73, label %LeftRotate.exit75, label %87
 
 87:                                               ; preds = %.loopexit
   %88 = getelementptr inbounds i8, ptr %86, i64 40
   store ptr %82, ptr %88, align 8
-  br label %LeftRotate.argprom.exit75
+  br label %LeftRotate.exit75
 
-LeftRotate.argprom.exit75:                        ; preds = %.loopexit, %87
+LeftRotate.exit75:                                ; preds = %.loopexit, %87
   %89 = getelementptr inbounds i8, ptr %82, i64 40
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %84, i64 40
@@ -846,14 +846,14 @@ LeftRotate.argprom.exit75:                        ; preds = %.loopexit, %87
   %106 = load ptr, ptr %105, align 8
   store ptr %106, ptr %103, align 8
   %.not.i76 = icmp eq ptr %.val69, %106
-  br i1 %.not.i76, label %RightRotate.argprom.exit78, label %107
+  br i1 %.not.i76, label %RightRotate.exit78, label %107
 
 107:                                              ; preds = %99
   %108 = getelementptr inbounds i8, ptr %106, i64 40
   store ptr %102, ptr %108, align 8
-  br label %RightRotate.argprom.exit78
+  br label %RightRotate.exit78
 
-RightRotate.argprom.exit78:                       ; preds = %99, %107
+RightRotate.exit78:                               ; preds = %99, %107
   %109 = getelementptr inbounds i8, ptr %102, i64 40
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %104, i64 40
@@ -871,9 +871,9 @@ RightRotate.argprom.exit78:                       ; preds = %99, %107
   %118 = load ptr, ptr %117, align 8
   br label %119
 
-119:                                              ; preds = %RightRotate.argprom.exit78, %96
-  %120 = phi ptr [ %116, %RightRotate.argprom.exit78 ], [ %14, %96 ]
-  %.2 = phi ptr [ %118, %RightRotate.argprom.exit78 ], [ %16, %96 ]
+119:                                              ; preds = %RightRotate.exit78, %96
+  %120 = phi ptr [ %116, %RightRotate.exit78 ], [ %14, %96 ]
+  %.2 = phi ptr [ %118, %RightRotate.exit78 ], [ %16, %96 ]
   %121 = getelementptr inbounds i8, ptr %.2, i64 32
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 16
@@ -904,14 +904,14 @@ RightRotate.argprom.exit78:                       ; preds = %99, %107
   %137 = load ptr, ptr %136, align 8
   store ptr %137, ptr %133, align 8
   %.not.i79 = icmp eq ptr %137, %.val
-  br i1 %.not.i79, label %LeftRotate.argprom.exit81, label %138
+  br i1 %.not.i79, label %LeftRotate.exit81, label %138
 
 138:                                              ; preds = %131
   %139 = getelementptr inbounds i8, ptr %137, i64 40
   store ptr %.2, ptr %139, align 8
-  br label %LeftRotate.argprom.exit81
+  br label %LeftRotate.exit81
 
-LeftRotate.argprom.exit81:                        ; preds = %131, %138
+LeftRotate.exit81:                                ; preds = %131, %138
   %140 = getelementptr inbounds i8, ptr %.2, i64 40
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds i8, ptr %135, i64 40
@@ -929,9 +929,9 @@ LeftRotate.argprom.exit81:                        ; preds = %131, %138
   %149 = load ptr, ptr %148, align 8
   br label %.thread
 
-.thread:                                          ; preds = %129, %LeftRotate.argprom.exit81, %130
-  %150 = phi ptr [ %120, %130 ], [ %147, %LeftRotate.argprom.exit81 ], [ %120, %129 ]
-  %.3 = phi ptr [ %.2, %130 ], [ %149, %LeftRotate.argprom.exit81 ], [ %.2, %129 ]
+.thread:                                          ; preds = %129, %LeftRotate.exit81, %130
+  %150 = phi ptr [ %120, %130 ], [ %147, %LeftRotate.exit81 ], [ %120, %129 ]
+  %.3 = phi ptr [ %.2, %130 ], [ %149, %LeftRotate.exit81 ], [ %.2, %129 ]
   %151 = getelementptr inbounds i8, ptr %150, i64 16
   %152 = load i32, ptr %151, align 8
   %153 = getelementptr inbounds i8, ptr %.3, i64 16
@@ -951,14 +951,14 @@ LeftRotate.argprom.exit81:                        ; preds = %131, %138
   %163 = load ptr, ptr %162, align 8
   store ptr %163, ptr %160, align 8
   %.not.i82 = icmp eq ptr %.val68, %163
-  br i1 %.not.i82, label %RightRotate.argprom.exit84, label %164
+  br i1 %.not.i82, label %RightRotate.exit84, label %164
 
 164:                                              ; preds = %.thread
   %165 = getelementptr inbounds i8, ptr %163, i64 40
   store ptr %159, ptr %165, align 8
-  br label %RightRotate.argprom.exit84
+  br label %RightRotate.exit84
 
-RightRotate.argprom.exit84:                       ; preds = %.thread, %164
+RightRotate.exit84:                               ; preds = %.thread, %164
   %166 = getelementptr inbounds i8, ptr %159, i64 40
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds i8, ptr %161, i64 40
@@ -985,8 +985,8 @@ RightRotate.argprom.exit84:                       ; preds = %.thread, %164
   %179 = select i1 %.not, i1 %178, i1 false
   br i1 %179, label %12, label %._crit_edge
 
-._crit_edge:                                      ; preds = %173, %RightRotate.argprom.exit84, %LeftRotate.argprom.exit75, %2
-  %.055.lcssa = phi ptr [ %1, %2 ], [ %6, %LeftRotate.argprom.exit75 ], [ %6, %RightRotate.argprom.exit84 ], [ %175, %173 ]
+._crit_edge:                                      ; preds = %173, %RightRotate.exit84, %LeftRotate.exit75, %2
+  %.055.lcssa = phi ptr [ %1, %2 ], [ %6, %LeftRotate.exit75 ], [ %6, %RightRotate.exit84 ], [ %175, %173 ]
   %180 = getelementptr inbounds i8, ptr %.055.lcssa, i64 16
   store i32 0, ptr %180, align 8
   ret void

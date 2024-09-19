@@ -684,7 +684,7 @@ cell_id_len.exit.i.i:                             ; preds = %.lr.ph.i.i, %switch
   %243 = load i32, ptr %15, align 4
   %244 = trunc i32 %243 to i8
   %245 = load ptr, ptr %16, align 8
-  %246 = call fastcc i32 @dissect_cell_id_elem.argelim(i8 noundef zeroext %244, ptr noundef %0, ptr noundef %1, i32 noundef %.029.i.i, ptr noundef %242, ptr noundef %245)
+  %246 = call fastcc i32 @dissect_cell_id_elem(i8 noundef zeroext %244, ptr noundef %0, ptr noundef %1, i32 noundef %.029.i.i, ptr noundef %242, ptr noundef %245)
   %247 = icmp slt i32 %246, 1
   br i1 %247, label %cell_id_len.exit._crit_edge.loopexit.i.i, label %248
 
@@ -749,7 +749,7 @@ cell_id_len.exit.i158.i:                          ; preds = %.lr.ph.i157.i, %swi
   %268 = load i32, ptr %11, align 4
   %269 = trunc i32 %268 to i8
   %270 = load ptr, ptr %12, align 8
-  %271 = call fastcc i32 @dissect_cell_id_elem.argelim(i8 noundef zeroext %269, ptr noundef %0, ptr noundef %1, i32 noundef %.037.i.i, ptr noundef %267, ptr noundef %270)
+  %271 = call fastcc i32 @dissect_cell_id_elem(i8 noundef zeroext %269, ptr noundef %0, ptr noundef %1, i32 noundef %.037.i.i, ptr noundef %267, ptr noundef %270)
   %272 = icmp slt i32 %271, 1
   br i1 %272, label %cell_id_len.exit._crit_edge.loopexit.i160.i, label %273
 
@@ -816,7 +816,7 @@ cell_id_len.exit.i165.i:                          ; preds = %.lr.ph.i163.i, %swi
   %298 = add i32 %.035.i164.i, 1
   %299 = call ptr @proto_tree_add_item(ptr noundef %296, i32 noundef %297, ptr noundef %0, i32 noundef %.035.i164.i, i32 noundef 1, i32 noundef 0) #4
   %300 = load ptr, ptr %9, align 8
-  %301 = call fastcc i32 @dissect_cell_id_elem.argelim(i8 noundef zeroext %292, ptr noundef %0, ptr noundef %1, i32 noundef %298, ptr noundef %296, ptr noundef %300)
+  %301 = call fastcc i32 @dissect_cell_id_elem(i8 noundef zeroext %292, ptr noundef %0, ptr noundef %1, i32 noundef %298, ptr noundef %296, ptr noundef %300)
   %302 = icmp slt i32 %301, 1
   br i1 %302, label %dissect_failure_list_ie.exit.i, label %303
 
@@ -881,7 +881,7 @@ cell_id_len.exit.i170.i:                          ; preds = %.lr.ph.i169.i, %swi
   %327 = load i32, ptr %5, align 4
   %328 = trunc i32 %327 to i8
   %329 = load ptr, ptr %8, align 8
-  %330 = call fastcc i32 @dissect_cell_id_elem.argelim(i8 noundef zeroext %328, ptr noundef %0, ptr noundef %1, i32 noundef %.036.i.i, ptr noundef %326, ptr noundef %329)
+  %330 = call fastcc i32 @dissect_cell_id_elem(i8 noundef zeroext %328, ptr noundef %0, ptr noundef %1, i32 noundef %.036.i.i, ptr noundef %326, ptr noundef %329)
   %331 = icmp slt i32 %330, 1
   br i1 %331, label %cell_id_len.exit._crit_edge.loopexit.i173.i, label %332
 
@@ -1005,7 +1005,7 @@ declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr nounde
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_cell_id_elem.argelim(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_cell_id_elem(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   switch i8 %0, label %48 [

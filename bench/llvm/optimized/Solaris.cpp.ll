@@ -2392,16 +2392,16 @@ define hidden void @_ZN5clang6driver10toolchains7SolarisC2ERKNS0_6DriverERKN4llv
   %.val = load i32, ptr %12, align 8
   switch i32 %.val, label %14 [
     i32 30, label %13
-    i32 38, label %_ZL19getSolarisLibSuffixRKN4llvm6TripleE.argprom.exit
+    i32 38, label %_ZL19getSolarisLibSuffixRKN4llvm6TripleE.exit
   ]
 
 13:                                               ; preds = %4
-  br label %_ZL19getSolarisLibSuffixRKN4llvm6TripleE.argprom.exit
+  br label %_ZL19getSolarisLibSuffixRKN4llvm6TripleE.exit
 
 14:                                               ; preds = %4
-  br label %_ZL19getSolarisLibSuffixRKN4llvm6TripleE.argprom.exit
+  br label %_ZL19getSolarisLibSuffixRKN4llvm6TripleE.exit
 
-_ZL19getSolarisLibSuffixRKN4llvm6TripleE.argprom.exit: ; preds = %4, %13, %14
+_ZL19getSolarisLibSuffixRKN4llvm6TripleE.exit:    ; preds = %4, %13, %14
   %.sroa.4.0.i = phi i64 [ 0, %14 ], [ 8, %13 ], [ 6, %4 ]
   %.sroa.0.0.i = phi ptr [ @.str, %14 ], [ @.str.51, %13 ], [ @.str.50, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -2409,7 +2409,7 @@ _ZL19getSolarisLibSuffixRKN4llvm6TripleE.argprom.exit: ; preds = %4, %13, %14
   %17 = trunc i8 %16 to i1
   br i1 %17, label %_ZN4llvmplERKNS_5TwineES2_.exit37, label %31
 
-_ZN4llvmplERKNS_5TwineES2_.exit37:                ; preds = %_ZL19getSolarisLibSuffixRKN4llvm6TripleE.argprom.exit
+_ZN4llvmplERKNS_5TwineES2_.exit37:                ; preds = %_ZL19getSolarisLibSuffixRKN4llvm6TripleE.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2240
   %19 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #13
   %20 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #13
@@ -2441,7 +2441,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit37:                ; preds = %_ZL19getSolarisLibS
   call void @_ZN5clang6driver5tools15addPathIfExistsERKNS0_6DriverERKN4llvm5TwineERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEE(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(528) %15) #13
   br label %31
 
-31:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit37, %_ZL19getSolarisLibSuffixRKN4llvm6TripleE.argprom.exit
+31:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit37, %_ZL19getSolarisLibSuffixRKN4llvm6TripleE.exit
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #13
   %34 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #13

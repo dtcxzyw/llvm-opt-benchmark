@@ -228,12 +228,12 @@ if.then16:                                        ; preds = %if.end14
   %subprime_len2.i = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %subprime_len2.i, align 4
   %cmp.i = icmp ugt i32 %3, 2
-  br i1 %cmp.i, label %ffc_params_generate.argprom.exit.thread, label %if.end.i
+  br i1 %cmp.i, label %ffc_params_generate.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then16
   %call.i = tail call ptr @DH_new() #6
   %cmp3.i = icmp eq ptr %call.i, null
-  br i1 %cmp3.i, label %ffc_params_generate.argprom.exit.thread, label %if.end5.i
+  br i1 %cmp3.i, label %ffc_params_generate.exit.thread, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %cmp6.i = icmp eq i32 %5, -1
@@ -281,9 +281,9 @@ if.end33.i:                                       ; preds = %if.then27.i, %if.th
 
 if.then36.i:                                      ; preds = %if.end33.i, %if.else23.i
   call void @DH_free(ptr noundef nonnull %call.i) #6
-  br label %ffc_params_generate.argprom.exit.thread
+  br label %ffc_params_generate.exit.thread
 
-ffc_params_generate.argprom.exit.thread:          ; preds = %if.then36.i, %if.then16, %if.end.i
+ffc_params_generate.exit.thread:                  ; preds = %if.then36.i, %if.then16, %if.end.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %res.i)
   call void @BN_GENCB_free(ptr noundef %pcb.0) #6
   br label %return
@@ -320,8 +320,8 @@ if.else:                                          ; preds = %if.end26
   tail call void @DH_free(ptr noundef nonnull %call23) #6
   br label %return
 
-return:                                           ; preds = %ffc_params_generate.argprom.exit.thread, %if.then28, %if.else, %if.then9, %if.then, %if.then25, %if.end20, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 1, %if.end20 ], [ 0, %if.then25 ], [ 0, %if.then ], [ 0, %if.then9 ], [ 0, %if.else ], [ %call27, %if.then28 ], [ 0, %ffc_params_generate.argprom.exit.thread ]
+return:                                           ; preds = %ffc_params_generate.exit.thread, %if.then28, %if.else, %if.then9, %if.then, %if.then25, %if.end20, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 1, %if.end20 ], [ 0, %if.then25 ], [ 0, %if.then ], [ 0, %if.then9 ], [ 0, %if.else ], [ %call27, %if.then28 ], [ 0, %ffc_params_generate.exit.thread ]
   ret i32 %retval.0
 }
 

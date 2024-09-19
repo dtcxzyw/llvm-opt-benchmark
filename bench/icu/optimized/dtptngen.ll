@@ -12685,7 +12685,7 @@ invoke.cont27:                                    ; preds = %call.i.noexc39
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #34, !srcloc !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %call30 = call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_122AllowedHourFormatsSink30getHourFormatFromUnicodeStringERKNS_13UnicodeStringE.argprom(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
+  %call30 = call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_122AllowedHourFormatsSink30getHourFormatFromUnicodeStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i38, i64 4
   store i32 %call30, ptr %arrayidx.i, align 4
   br label %for.inc69.sink.split
@@ -12886,7 +12886,7 @@ invoke.cont63:                                    ; preds = %call.i.noexc67
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %38) #34, !srcloc !19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i62)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i63)
-  %call66 = call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_122AllowedHourFormatsSink30getHourFormatFromUnicodeStringERKNS_13UnicodeStringE.argprom(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp62)
+  %call66 = call fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_122AllowedHourFormatsSink30getHourFormatFromUnicodeStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp62)
   br label %for.inc69.sink.split
 
 for.inc69.sink.split:                             ; preds = %invoke.cont63, %invoke.cont27
@@ -13001,7 +13001,7 @@ for.end111:                                       ; preds = %for.cond, %for.body
 declare noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -1, 10) i32 @_ZN6icu_7512_GLOBAL__N_122AllowedHourFormatsSink30getHourFormatFromUnicodeStringERKNS_13UnicodeStringE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %s) unnamed_addr #15 align 2 {
+define internal fastcc noundef range(i32 -1, 10) i32 @_ZN6icu_7512_GLOBAL__N_122AllowedHourFormatsSink30getHourFormatFromUnicodeStringERKNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %s) unnamed_addr #15 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8

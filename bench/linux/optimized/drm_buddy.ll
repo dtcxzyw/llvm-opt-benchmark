@@ -1007,7 +1007,7 @@ define dso_local range(i32 -28, 1) i32 @drm_buddy_alloc_blocks(ptr nocapture nou
   %43 = getelementptr inbounds i8, ptr %0, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %__drm_buddy_alloc_range.argprom.exit, label %46
+  br i1 %45, label %__drm_buddy_alloc_range.exit, label %46
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1029,9 +1029,9 @@ define dso_local range(i32 -28, 1) i32 @drm_buddy_alloc_blocks(ptr nocapture nou
   %57 = add nuw i32 %49, 1
   %58 = load i32, ptr %43, align 8
   %59 = icmp ult i32 %57, %58
-  br i1 %59, label %48, label %__drm_buddy_alloc_range.argprom.exit, !llvm.loop !41
+  br i1 %59, label %48, label %__drm_buddy_alloc_range.exit, !llvm.loop !41
 
-__drm_buddy_alloc_range.argprom.exit:             ; preds = %48, %41
+__drm_buddy_alloc_range.exit:                     ; preds = %48, %41
   %60 = call fastcc range(i32 -28, 1) i32 @__alloc_range(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %1, i64 noundef %3, ptr noundef %5, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
   br label %425
@@ -1667,8 +1667,8 @@ __drm_buddy_alloc_range.argprom.exit:             ; preds = %48, %41
   store ptr %423, ptr %421, align 8
   br label %425
 
-425:                                              ; preds = %420, %417, %362, %360, %__drm_buddy_alloc_range.argprom.exit, %33, %29, %23, %7
-  %426 = phi i32 [ %60, %__drm_buddy_alloc_range.argprom.exit ], [ -28, %362 ], [ %361, %360 ], [ -22, %7 ], [ -22, %23 ], [ -22, %29 ], [ -22, %33 ], [ 0, %417 ], [ 0, %420 ]
+425:                                              ; preds = %420, %417, %362, %360, %__drm_buddy_alloc_range.exit, %33, %29, %23, %7
+  %426 = phi i32 [ %60, %__drm_buddy_alloc_range.exit ], [ -28, %362 ], [ %361, %360 ], [ -22, %7 ], [ -22, %23 ], [ -22, %29 ], [ -22, %33 ], [ 0, %417 ], [ 0, %420 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
   ret i32 %426
 }

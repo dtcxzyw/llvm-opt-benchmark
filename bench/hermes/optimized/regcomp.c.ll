@@ -329,7 +329,7 @@ doemit.exit107.thread:                            ; preds = %if.end39
   %sub41147 = add nsw i64 %10, -1
   %laststate148 = getelementptr inbounds i8, ptr %call11, i64 64
   store i64 %sub41147, ptr %laststate148, align 8
-  br label %categorize.argprom.exit
+  br label %categorize.exit
 
 if.end.i79:                                       ; preds = %if.end39
   %11 = load i64, ptr %ssize, align 8
@@ -393,7 +393,7 @@ doemit.exit107:                                   ; preds = %if.end.i79, %if.the
   store i64 %sub41, ptr %laststate, align 8
   %17 = load ptr, ptr %categories, align 8
   %cmp.not.i108 = icmp eq i32 %pa.val.pr, 0
-  br i1 %cmp.not.i108, label %for.body.i, label %categorize.argprom.exit
+  br i1 %cmp.not.i108, label %for.body.i, label %categorize.exit
 
 for.body.i:                                       ; preds = %doemit.exit107, %for.inc26.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc26.i ], [ -128, %doemit.exit107 ]
@@ -488,21 +488,21 @@ for.inc.i:                                        ; preds = %for.body.i26.i, %if
 for.inc26.i:                                      ; preds = %for.inc.i.i, %for.inc.i, %if.then4.i, %land.lhs.true.i, %for.body.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond15.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond15.not.i, label %categorize.argprom.exitthread-pre-split.loopexit, label %for.body.i, !llvm.loop !9
+  br i1 %exitcond15.not.i, label %categorize.exitthread-pre-split.loopexit, label %for.body.i, !llvm.loop !9
 
-categorize.argprom.exitthread-pre-split.loopexit: ; preds = %for.inc26.i
+categorize.exitthread-pre-split.loopexit:         ; preds = %for.inc26.i
   %.pr.pre = load i64, ptr %slen, align 8
-  br label %categorize.argprom.exit
+  br label %categorize.exit
 
-categorize.argprom.exit:                          ; preds = %doemit.exit107, %categorize.argprom.exitthread-pre-split.loopexit, %doemit.exit107.thread
-  %30 = phi i64 [ %10, %doemit.exit107.thread ], [ %.pr.pre, %categorize.argprom.exitthread-pre-split.loopexit ], [ %16, %doemit.exit107 ]
+categorize.exit:                                  ; preds = %doemit.exit107, %categorize.exitthread-pre-split.loopexit, %doemit.exit107.thread
+  %30 = phi i64 [ %10, %doemit.exit107.thread ], [ %.pr.pre, %categorize.exitthread-pre-split.loopexit ], [ %16, %doemit.exit107 ]
   %nstates.i = getelementptr inbounds i8, ptr %call11, i64 48
   store i64 %30, ptr %nstates.i, align 8
   %cmp.i113 = icmp ugt i64 %30, 2305843009213693951
   %31 = load ptr, ptr %strip, align 8
   br i1 %cmp.i113, label %if.then.i, label %if.end.i115
 
-if.then.i:                                        ; preds = %categorize.argprom.exit
+if.then.i:                                        ; preds = %categorize.exit
   %strip2.i = getelementptr inbounds i8, ptr %call11, i64 8
   store ptr %31, ptr %strip2.i, align 8
   %32 = load i32, ptr %error, align 8
@@ -516,9 +516,9 @@ if.then.i.i119:                                   ; preds = %if.then.i
 seterr.exit.i:                                    ; preds = %if.then.i.i119, %if.then.i
   store ptr @nuls, ptr %pa, align 8
   store ptr @nuls, ptr %end, align 8
-  br label %stripsnug.exit.pluscount.argprom.exit_crit_edge
+  br label %stripsnug.exit.pluscount.exit_crit_edge
 
-if.end.i115:                                      ; preds = %categorize.argprom.exit
+if.end.i115:                                      ; preds = %categorize.exit
   %mul.i116 = shl nuw i64 %30, 3
   %call5.i = call ptr @realloc(ptr noundef %31, i64 noundef %mul.i116) #19
   %strip6.i = getelementptr inbounds i8, ptr %call11, i64 8
@@ -540,14 +540,14 @@ seterr.exit16.i:                                  ; preds = %if.then.i15.i, %if.
   store ptr @nuls, ptr %end, align 8
   %33 = load ptr, ptr %strip, align 8
   store ptr %33, ptr %strip6.i, align 8
-  br label %stripsnug.exit.pluscount.argprom.exit_crit_edge
+  br label %stripsnug.exit.pluscount.exit_crit_edge
 
 stripsnug.exit:                                   ; preds = %if.end.i115
-  br i1 %cmp.i13.i, label %if.end.i121, label %stripsnug.exit.pluscount.argprom.exit_crit_edge
+  br i1 %cmp.i13.i, label %if.end.i121, label %stripsnug.exit.pluscount.exit_crit_edge
 
-stripsnug.exit.pluscount.argprom.exit_crit_edge:  ; preds = %seterr.exit16.i, %seterr.exit.i, %stripsnug.exit
+stripsnug.exit.pluscount.exit_crit_edge:          ; preds = %seterr.exit16.i, %seterr.exit.i, %stripsnug.exit
   %.pre = load i32, ptr %iflags, align 8
-  br label %pluscount.argprom.exit
+  br label %pluscount.exit
 
 if.end.i121:                                      ; preds = %stripsnug.exit
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i, i64 8
@@ -710,18 +710,18 @@ do.cond.i:                                        ; preds = %sw.bb1.i, %sw.bb.i1
 do.end.i:                                         ; preds = %do.cond.i
   %cmp7.not.i = icmp eq i64 %plusnest.1.i, 0
   %.pre162 = load i32, ptr %iflags, align 8
-  br i1 %cmp7.not.i, label %pluscount.argprom.exit, label %if.then8.i
+  br i1 %cmp7.not.i, label %pluscount.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %do.end.i
   %or.i138 = or i32 %.pre162, 4
   store i32 %or.i138, ptr %iflags, align 8
-  br label %pluscount.argprom.exit
+  br label %pluscount.exit
 
-pluscount.argprom.exit:                           ; preds = %stripsnug.exit.pluscount.argprom.exit_crit_edge, %do.end.i, %if.then8.i
-  %cmp.not.i120168 = phi i1 [ true, %if.then8.i ], [ true, %do.end.i ], [ false, %stripsnug.exit.pluscount.argprom.exit_crit_edge ]
-  %pa.val75166 = phi i32 [ %pa.val75.pre, %if.then8.i ], [ %pa.val75.pre, %do.end.i ], [ 1, %stripsnug.exit.pluscount.argprom.exit_crit_edge ]
-  %43 = phi i32 [ %or.i138, %if.then8.i ], [ %.pre162, %do.end.i ], [ %.pre, %stripsnug.exit.pluscount.argprom.exit_crit_edge ]
-  %retval.0.i = phi i64 [ %maxnest.2.i, %if.then8.i ], [ %maxnest.2.i, %do.end.i ], [ 0, %stripsnug.exit.pluscount.argprom.exit_crit_edge ]
+pluscount.exit:                                   ; preds = %stripsnug.exit.pluscount.exit_crit_edge, %do.end.i, %if.then8.i
+  %cmp.not.i120168 = phi i1 [ true, %if.then8.i ], [ true, %do.end.i ], [ false, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %pa.val75166 = phi i32 [ %pa.val75.pre, %if.then8.i ], [ %pa.val75.pre, %do.end.i ], [ 1, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %43 = phi i32 [ %or.i138, %if.then8.i ], [ %.pre162, %do.end.i ], [ %.pre, %stripsnug.exit.pluscount.exit_crit_edge ]
+  %retval.0.i = phi i64 [ %maxnest.2.i, %if.then8.i ], [ %maxnest.2.i, %do.end.i ], [ 0, %stripsnug.exit.pluscount.exit_crit_edge ]
   %nplus = getelementptr inbounds i8, ptr %call11, i64 128
   store i64 %retval.0.i, ptr %nplus, align 8
   store i32 53829, ptr %call11, align 8
@@ -735,7 +735,7 @@ pluscount.argprom.exit:                           ; preds = %stripsnug.exit.plus
   %tobool46.not = icmp eq i32 %and45, 0
   br i1 %tobool46.not, label %if.end49, label %if.then47
 
-if.then47:                                        ; preds = %pluscount.argprom.exit
+if.then47:                                        ; preds = %pluscount.exit
   br i1 %cmp.not.i120168, label %if.then.i145, label %if.end49.thread
 
 if.then.i145:                                     ; preds = %if.then47
@@ -747,7 +747,7 @@ if.end49.thread:                                  ; preds = %if.then.i145, %if.t
   store ptr @nuls, ptr %end, align 8
   br label %if.then52
 
-if.end49:                                         ; preds = %pluscount.argprom.exit
+if.end49:                                         ; preds = %pluscount.exit
   %cmp51.not = icmp eq i32 %pa.val75166, 0
   br i1 %cmp51.not, label %return, label %if.then52
 
@@ -5267,14 +5267,14 @@ for.body.i198:                                    ; preds = %for.body.i198, %for
   %spec.select.i = add nuw nsw i32 %n.03.i, %inc.i202
   %inc5.i = add nuw i64 %i.02.i, 1
   %exitcond.not.i203 = icmp eq i64 %inc5.i, %conv.i194
-  br i1 %exitcond.not.i203, label %nch.argprom.argprom.exit, label %for.body.i198, !llvm.loop !32
+  br i1 %exitcond.not.i203, label %nch.exit, label %for.body.i198, !llvm.loop !32
 
-nch.argprom.argprom.exit:                         ; preds = %for.body.i198
+nch.exit:                                         ; preds = %for.body.i198
   %cmp271 = icmp eq i32 %spec.select.i, 1
   br i1 %cmp271, label %for.body.i208, label %if.else275
 
-for.body.i208:                                    ; preds = %nch.argprom.argprom.exit, %for.inc.i
-  %i.03.i = phi i64 [ %inc.i216, %for.inc.i ], [ 0, %nch.argprom.argprom.exit ]
+for.body.i208:                                    ; preds = %nch.exit, %for.inc.i
+  %i.03.i = phi i64 [ %inc.i216, %for.inc.i ], [ 0, %nch.exit ]
   %idxprom.i209 = and i64 %i.03.i, 255
   %arrayidx.i210 = getelementptr inbounds i8, ptr %185, i64 %idxprom.i209
   %188 = load i8, ptr %arrayidx.i210, align 1
@@ -5286,14 +5286,14 @@ if.then.i213:                                     ; preds = %for.body.i208
   %conv2.i214 = trunc i64 %i.03.i to i32
   %sext.i = shl i32 %conv2.i214, 24
   %conv6.i = ashr exact i32 %sext.i, 24
-  br label %firstch.argprom.argprom.exit
+  br label %firstch.exit
 
 for.inc.i:                                        ; preds = %for.body.i208
   %inc.i216 = add nuw i64 %i.03.i, 1
   %exitcond.not.i217 = icmp eq i64 %inc.i216, %conv.i194
-  br i1 %exitcond.not.i217, label %firstch.argprom.argprom.exit, label %for.body.i208, !llvm.loop !33
+  br i1 %exitcond.not.i217, label %firstch.exit, label %for.body.i208, !llvm.loop !33
 
-firstch.argprom.argprom.exit:                     ; preds = %for.inc.i, %if.then.i213
+firstch.exit:                                     ; preds = %for.inc.i, %if.then.i213
   %retval.0.i215 = phi i32 [ %conv6.i, %if.then.i213 ], [ 0, %for.inc.i ]
   %categories.i = getelementptr inbounds i8, ptr %p.val, i64 88
   %189 = load ptr, ptr %categories.i, align 8
@@ -5301,13 +5301,13 @@ firstch.argprom.argprom.exit:                     ; preds = %for.inc.i, %if.then
   %190 = load i32, ptr %cflags.i, align 8
   %and.i219 = and i32 %190, 2
   %tobool.not.i220 = icmp eq i32 %and.i219, 0
-  br i1 %tobool.not.i220, label %firstch.argprom.argprom.exit.if.else.i228_crit_edge, label %land.lhs.true.i
+  br i1 %tobool.not.i220, label %firstch.exit.if.else.i228_crit_edge, label %land.lhs.true.i
 
-firstch.argprom.argprom.exit.if.else.i228_crit_edge: ; preds = %firstch.argprom.argprom.exit
+firstch.exit.if.else.i228_crit_edge:              ; preds = %firstch.exit
   %.pre385 = and i32 %retval.0.i215, 255
   br label %if.else.i228
 
-land.lhs.true.i:                                  ; preds = %firstch.argprom.argprom.exit
+land.lhs.true.i:                                  ; preds = %firstch.exit
   %call.i221 = tail call ptr @__ctype_b_loc() #20
   %191 = load ptr, ptr %call.i221, align 8
   %conv2.i222 = and i32 %retval.0.i215, 255
@@ -5328,8 +5328,8 @@ if.then.i226:                                     ; preds = %land.lhs.true6.i
   tail call fastcc void @bothcases(ptr noundef %p, i32 noundef %retval.0.i215)
   br label %ordinary.exit
 
-if.else.i228:                                     ; preds = %firstch.argprom.argprom.exit.if.else.i228_crit_edge, %land.lhs.true6.i, %land.lhs.true.i
-  %.pre-phi = phi i32 [ %.pre385, %firstch.argprom.argprom.exit.if.else.i228_crit_edge ], [ %conv2.i222, %land.lhs.true6.i ], [ %conv2.i222, %land.lhs.true.i ]
+if.else.i228:                                     ; preds = %firstch.exit.if.else.i228_crit_edge, %land.lhs.true6.i, %land.lhs.true.i
+  %.pre-phi = phi i32 [ %.pre385, %firstch.exit.if.else.i228_crit_edge ], [ %conv2.i222, %land.lhs.true6.i ], [ %conv2.i222, %land.lhs.true.i ]
   %194 = load i32, ptr %error, align 8
   %cmp.not.i306 = icmp eq i32 %194, 0
   br i1 %cmp.not.i306, label %if.end.i307, label %doemit.exit336
@@ -5460,7 +5460,7 @@ if.then.i255:                                     ; preds = %for.end.i251
   store i32 %dec.i257, ptr %ncsets15.i256, align 4
   br label %if.end278
 
-if.else275:                                       ; preds = %nch.argprom.argprom.exit
+if.else275:                                       ; preds = %nch.exit
   %216 = load i8, ptr %hash.i, align 1
   %sets.i261 = getelementptr inbounds i8, ptr %p.val, i64 24
   %217 = load ptr, ptr %sets.i261, align 8

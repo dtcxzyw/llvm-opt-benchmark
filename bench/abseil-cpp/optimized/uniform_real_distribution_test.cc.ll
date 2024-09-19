@@ -21117,9 +21117,9 @@ for.body.lr.ph.i:                                 ; preds = %entry
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.argprom.exit.i, %for.body.lr.ph.i
-  %urbg.sroa.0.0 = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i.i.i.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.argprom.exit.i ]
-  %__first.sroa.0.05.i.idx = phi i64 [ 0, %for.body.lr.ph.i ], [ %__first.sroa.0.05.i.add, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.argprom.exit.i ]
+for.body.i:                                       ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.i, %for.body.lr.ph.i
+  %urbg.sroa.0.0 = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i.i.i.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.i ]
+  %__first.sroa.0.05.i.idx = phi i64 [ 0, %for.body.lr.ph.i ], [ %__first.sroa.0.05.i.add, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.i ]
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i, %for.body.i
@@ -21129,7 +21129,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN4absl15random_in
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 %rem.i.i.i.i.i.i.i
   %1 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 0
-  br i1 %cmp.i.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.argprom.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
@@ -21143,14 +21143,14 @@ _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EE
   %or2.i.i.i.i.i = add nsw i32 %reass.sub, 1056964608
   %4 = bitcast i32 %or2.i.i.i.i.i to float
   %cmp.i.i.i.i = fcmp uge float %4, 1.000000e+00
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31, !llvm.loop !423
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31, !llvm.loop !423
 
-_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
+_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
   %5 = fadd float %4, 0.000000e+00
-  br label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.argprom.exit.i
+  br label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.i
 
-_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.argprom.exit.i: ; preds = %while.body.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31
-  %retval.0.i.i.i.i.i30 = phi float [ %5, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31 ], [ 0.000000e+00, %while.body.i.i.i.i ]
+_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.i: ; preds = %while.body.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31
+  %retval.0.i.i.i.i.i30 = phi float [ %5, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31 ], [ 0.000000e+00, %while.body.i.i.i.i ]
   %__first.sroa.0.05.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i57, i64 %__first.sroa.0.05.i.idx
   %mul.i.i = fmul float %retval.0.i.i.i.i.i30, 1.000000e+06
   %conv.i.i = fptosi float %mul.i.i to i32
@@ -21159,7 +21159,7 @@ _ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEv
   %cmp.i.not.i = icmp eq i64 %__first.sroa.0.05.i.add, 48
   br i1 %cmp.i.not.i, label %invoke.cont28, label %for.body.i, !llvm.loop !424
 
-invoke.cont28:                                    ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.argprom.exit.i
+invoke.cont28:                                    ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.i
   store i32 932808, ptr %ref.tmp13, align 4
   %agg.tmp148.sroa.4.0.ref.tmp13.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp13, i64 4
   store i32 834451, ptr %agg.tmp148.sroa.4.0.ref.tmp13.sroa_idx, align 4
@@ -25086,9 +25086,9 @@ for.body.lr.ph.i:                                 ; preds = %entry
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.argprom.exit.i, %for.body.lr.ph.i
-  %urbg.sroa.0.0 = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i.i.i.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.argprom.exit.i ]
-  %__first.sroa.0.05.i.idx = phi i64 [ 0, %for.body.lr.ph.i ], [ %__first.sroa.0.05.i.add, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.argprom.exit.i ]
+for.body.i:                                       ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.i, %for.body.lr.ph.i
+  %urbg.sroa.0.0 = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i.i.i.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.i ]
+  %__first.sroa.0.05.i.idx = phi i64 [ 0, %for.body.lr.ph.i ], [ %__first.sroa.0.05.i.add, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.i ]
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i, %for.body.i
@@ -25098,7 +25098,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN4absl15random_in
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 %rem.i.i.i.i.i.i.i
   %1 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 0
-  br i1 %cmp.i.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.argprom.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
@@ -25110,14 +25110,14 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %or2.i.i.i.i.i = add nsw i64 %reass.sub, 4602678819172646912
   %4 = bitcast i64 %or2.i.i.i.i.i to double
   %cmp.i.i.i.i = fcmp uge double %4, 1.000000e+00
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31, !llvm.loop !605
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31, !llvm.loop !605
 
-_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
+_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
   %5 = fadd double %4, 0.000000e+00
-  br label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.argprom.exit.i
+  br label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.i
 
-_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.argprom.exit.i: ; preds = %while.body.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31
-  %retval.0.i.i.i.i.i30 = phi double [ %5, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31 ], [ 0.000000e+00, %while.body.i.i.i.i ]
+_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.i: ; preds = %while.body.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31
+  %retval.0.i.i.i.i.i30 = phi double [ %5, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31 ], [ 0.000000e+00, %while.body.i.i.i.i ]
   %__first.sroa.0.05.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i57, i64 %__first.sroa.0.05.i.idx
   %mul.i.i = fmul double %retval.0.i.i.i.i.i30, 1.000000e+06
   %conv.i.i = fptosi double %mul.i.i to i32
@@ -25126,7 +25126,7 @@ _ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEv
   %cmp.i.not.i = icmp eq i64 %__first.sroa.0.05.i.add, 48
   br i1 %cmp.i.not.i, label %invoke.cont28, label %for.body.i, !llvm.loop !606
 
-invoke.cont28:                                    ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.argprom.exit.i
+invoke.cont28:                                    ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.i
   store i32 932808, ptr %ref.tmp13, align 4
   %agg.tmp148.sroa.4.0.ref.tmp13.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp13, i64 4
   store i32 834451, ptr %agg.tmp148.sroa.4.0.ref.tmp13.sroa_idx, align 4
@@ -25357,9 +25357,9 @@ for.body.lr.ph.i:                                 ; preds = %entry
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.argprom.exit.i, %for.body.lr.ph.i
-  %urbg.sroa.0.0 = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i.i.i.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.argprom.exit.i ]
-  %__first.sroa.0.05.i.idx = phi i64 [ 0, %for.body.lr.ph.i ], [ %__first.sroa.0.05.i.add, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.argprom.exit.i ]
+for.body.i:                                       ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.exit.i, %for.body.lr.ph.i
+  %urbg.sroa.0.0 = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i.i.i.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.exit.i ]
+  %__first.sroa.0.05.i.idx = phi i64 [ 0, %for.body.lr.ph.i ], [ %__first.sroa.0.05.i.add, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.exit.i ]
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i, %for.body.i
@@ -25369,7 +25369,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN4absl15random_in
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 %rem.i.i.i.i.i.i.i
   %1 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 0
-  br i1 %cmp.i.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.argprom.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
@@ -25381,15 +25381,15 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %or2.i.i.i.i.i = add nsw i64 %reass.sub, 4602678819172646912
   %4 = bitcast i64 %or2.i.i.i.i.i to double
   %cmp.i.i.i.i = fcmp uge double %4, 1.000000e+00
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31, !llvm.loop !607
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31, !llvm.loop !607
 
-_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
+_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
   %5 = fpext double %4 to x86_fp80
   %6 = fadd x86_fp80 %5, 0xK00000000000000000000
-  br label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.argprom.exit.i
+  br label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.exit.i
 
-_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.argprom.exit.i: ; preds = %while.body.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31
-  %retval.0.i.i.i.i.i30 = phi x86_fp80 [ %6, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.argprom.exit.i.split.loop.exit31 ], [ 0xK00000000000000000000, %while.body.i.i.i.i ]
+_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.exit.i: ; preds = %while.body.i.i.i.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31
+  %retval.0.i.i.i.i.i30 = phi x86_fp80 [ %6, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.exit.i.split.loop.exit31 ], [ 0xK00000000000000000000, %while.body.i.i.i.i ]
   %__first.sroa.0.05.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i57, i64 %__first.sroa.0.05.i.idx
   %mul.i.i = fmul x86_fp80 %retval.0.i.i.i.i.i30, 0xK4012F424000000000000
   %conv.i.i = fptosi x86_fp80 %mul.i.i to i32
@@ -25398,7 +25398,7 @@ _ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEv
   %cmp.i.not.i = icmp eq i64 %__first.sroa.0.05.i.add, 48
   br i1 %cmp.i.not.i, label %invoke.cont28, label %for.body.i, !llvm.loop !608
 
-invoke.cont28:                                    ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.argprom.exit.i
+invoke.cont28:                                    ; preds = %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIeE8TestBodyEvENKUlvE_clEv.exit.i
   store i32 932808, ptr %ref.tmp13, align 4
   %agg.tmp148.sroa.4.0.ref.tmp13.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp13, i64 4
   store i32 834451, ptr %agg.tmp148.sroa.4.0.ref.tmp13.sroa_idx, align 4

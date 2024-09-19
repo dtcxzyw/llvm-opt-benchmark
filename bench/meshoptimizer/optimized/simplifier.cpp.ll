@@ -592,7 +592,7 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   store i64 8, ptr %count.i.i, align 8
   %arrayidx.i186 = getelementptr inbounds i8, ptr %allocator, i64 56
   store ptr %call.i187, ptr %arrayidx.i186, align 8
-  tail call fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm.retelim(ptr noundef %call.i187, ptr noundef %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride)
+  tail call fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm(ptr noundef %call.i187, ptr noundef %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride)
   %tobool.not = icmp eq i64 %attribute_count, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -638,7 +638,7 @@ for.inc9.i:                                       ; preds = %for.body3.i
   %exitcond13.not.i = icmp eq i64 %inc10.i, %vertex_count
   br i1 %exitcond13.not.i, label %if.end, label %for.cond1.preheader.i, !llvm.loop !19
 
-lpad:                                             ; preds = %invoke.cont49, %invoke.cont47, %invoke.cont45, %_ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.argprom.exit, %invoke.cont25, %if.then24, %if.end, %if.then, %invoke.cont12, %invoke.cont8, %invoke.cont6, %invoke.cont5, %for.end32.i, %_ZN7meshoptL12hashBuckets2Em.exit.i, %invoke.cont2, %_ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit, %call.i.i.noexc, %entry
+lpad:                                             ; preds = %invoke.cont49, %invoke.cont47, %invoke.cont45, %_ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit, %invoke.cont25, %if.then24, %if.end, %if.then, %invoke.cont12, %invoke.cont8, %invoke.cont6, %invoke.cont5, %for.end32.i, %_ZN7meshoptL12hashBuckets2Em.exit.i, %invoke.cont2, %_ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit, %call.i.i.noexc, %entry
   %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %allocator) #16
@@ -1624,7 +1624,7 @@ if.then40:                                        ; preds = %if.end39
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then40, %if.end39
-  br i1 %cmp1059.not.i, label %_ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.argprom.exit, label %for.body.preheader.i
+  br i1 %cmp1059.not.i, label %_ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end42
   %.pre.i403 = load i32, ptr %call.i.i115, align 4
@@ -1650,9 +1650,9 @@ for.body.i404:                                    ; preds = %for.body.i404, %for
 
 for.end.loopexit.i:                               ; preds = %for.body.i404
   %314 = lshr i64 %add8.i, 1
-  br label %_ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.argprom.exit
+  br label %_ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit
 
-_ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.argprom.exit: ; preds = %if.end42, %for.end.loopexit.i
+_ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit: ; preds = %if.end42, %for.end.loopexit.i
   %dual_count.0.lcssa.i = phi i64 [ 0, %if.end42 ], [ %314, %for.end.loopexit.i ]
   %sub9.i = add i64 %index_count, 3
   %add10.i = sub i64 %sub9.i, %dual_count.0.lcssa.i
@@ -1663,7 +1663,7 @@ _ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.argprom.exit: ; preds
   %call.i416 = invoke noundef ptr %315(i64 noundef %cond.i412)
           to label %invoke.cont45 unwind label %lpad
 
-invoke.cont45:                                    ; preds = %_ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.argprom.exit
+invoke.cont45:                                    ; preds = %_ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit
   %316 = load i64, ptr %count.i.i, align 8
   %inc.i414 = add i64 %316, 1
   store i64 %inc.i414, ptr %count.i.i, align 8
@@ -2825,7 +2825,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm.retelim(ptr noundef %result, ptr nocapture noundef readonly %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride) unnamed_addr #2 {
+define internal fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm(ptr noundef %result, ptr nocapture noundef readonly %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride) unnamed_addr #2 {
 entry:
   %minv = alloca [3 x float], align 4
   %maxv = alloca [3 x float], align 4
@@ -3030,7 +3030,7 @@ invoke.cont:                                      ; preds = %entry
   %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i79, ptr %allocator, align 8
-  tail call fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm.retelim(ptr noundef %call.i79, ptr noundef %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride)
+  tail call fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm(ptr noundef %call.i79, ptr noundef %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride)
   %1 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i80 = icmp ugt i64 %vertex_count, 4611686018427387903
   %mul.i81 = shl nuw i64 %vertex_count, 2
@@ -4001,7 +4001,7 @@ invoke.cont:                                      ; preds = %if.end
   %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i63, ptr %allocator, align 8
-  tail call fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm.retelim(ptr noundef %call.i63, ptr noundef %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride)
+  tail call fastcc void @_ZN7meshoptL16rescalePositionsEPNS_7Vector3EPKfmm(ptr noundef %call.i63, ptr noundef %vertex_positions_data, i64 noundef %vertex_count, i64 noundef %vertex_positions_stride)
   %1 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i64 = icmp ugt i64 %vertex_count, 4611686018427387903
   %mul.i65 = shl nuw i64 %vertex_count, 2
@@ -4092,9 +4092,9 @@ for.body.lr.ph.i:                                 ; preds = %for.body.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i79, i8 -1, i64 %mul.i74, i1 false)
   br label %for.body.i84
 
-for.body.i84:                                     ; preds = %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.argprom.exit.i, %for.body.lr.ph.i
-  %result.016.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i87, %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.argprom.exit.i ]
-  %i.015.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i88, %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.argprom.exit.i ]
+for.body.i84:                                     ; preds = %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i, %for.body.lr.ph.i
+  %result.016.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i87, %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i ]
+  %i.015.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i88, %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i ]
   %arrayidx.i85 = getelementptr inbounds i32, ptr %call.i70, i64 %i.015.i
   %9 = load i32, ptr %arrayidx.i85, align 4
   %shr.i.i.i = lshr i32 %9, 13
@@ -4109,7 +4109,7 @@ for.body.i84:                                     ; preds = %_ZN7meshoptL11hashL
   %cmp1.i9.i = icmp eq i32 %10, -1
   %cmp.i.i10.i = icmp eq i32 %10, %9
   %or.cond.i11.i = or i1 %cmp1.i9.i, %cmp.i.i10.i
-  br i1 %or.cond.i11.i, label %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.argprom.exit.i, label %if.end4.i.i
+  br i1 %or.cond.i11.i, label %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %for.body.i84, %if.end4.i.i
   %probe.04.i13.i = phi i64 [ %add.i.i, %if.end4.i.i ], [ 0, %for.body.i84 ]
@@ -4124,9 +4124,9 @@ if.end4.i.i:                                      ; preds = %for.body.i84, %if.e
   %cmp1.i.i = icmp eq i32 %11, -1
   %cmp.i.i.i = icmp eq i32 %11, %9
   %or.cond.i.i = or i1 %cmp1.i.i, %cmp.i.i.i
-  br i1 %or.cond.i.i, label %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.argprom.exit.i, label %if.end4.i.i
+  br i1 %or.cond.i.i, label %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i, label %if.end4.i.i
 
-_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.argprom.exit.i: ; preds = %if.end4.i.i, %for.body.i84
+_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i: ; preds = %if.end4.i.i, %for.body.i84
   %12 = phi i32 [ %10, %for.body.i84 ], [ %11, %if.end4.i.i ]
   %bucket.05.i.lcssa.i = phi i64 [ %bucket.03.i.i, %for.body.i84 ], [ %bucket.0.i.i, %if.end4.i.i ]
   %arrayidx.i.le.i = getelementptr inbounds i32, ptr %call.i79, i64 %bucket.05.i.lcssa.i
@@ -4138,8 +4138,8 @@ _ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.argprom.exit.i: ;
   %exitcond.not.i89 = icmp eq i64 %inc.i88, %vertex_count
   br i1 %exitcond.not.i89, label %invoke.cont20, label %for.body.i84, !llvm.loop !53
 
-invoke.cont20:                                    ; preds = %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.argprom.exit.i, %_ZN7meshoptL16computeVertexIdsEPjPKNS_7Vector3Emi.exit.thread
-  %result.0.lcssa.i = phi i64 [ 0, %_ZN7meshoptL16computeVertexIdsEPjPKNS_7Vector3Emi.exit.thread ], [ %add.i87, %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.argprom.exit.i ]
+invoke.cont20:                                    ; preds = %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i, %_ZN7meshoptL16computeVertexIdsEPjPKNS_7Vector3Emi.exit.thread
+  %result.0.lcssa.i = phi i64 [ 0, %_ZN7meshoptL16computeVertexIdsEPjPKNS_7Vector3Emi.exit.thread ], [ %add.i87, %_ZN7meshoptL11hashLookup2IjNS_8IdHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i ]
   %conv23 = sitofp i32 %min_grid.0214 to float
   %conv24 = uitofp i64 %min_vertices.0212 to float
   %conv25 = sitofp i32 %cond18 to float

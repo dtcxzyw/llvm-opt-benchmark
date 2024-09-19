@@ -726,7 +726,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %60
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds %struct.t_resinfo, ptr %88, i64 %93, i32 1
   %95 = load i32, ptr %94, align 8
-  br label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit
+  br label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
 
 96:                                               ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i
   %97 = getelementptr inbounds i8, ptr %56, i64 16
@@ -741,9 +741,9 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %60
   %.phi.trans.insert = getelementptr inbounds i8, ptr %75, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre58 = sext i32 %104 to i64
-  br label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit
+  br label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
 
-_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit: ; preds = %86, %96
+_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %86, %96
   %.pre-phi = phi i64 [ %93, %86 ], [ %.pre58, %96 ]
   %106 = phi ptr [ %88, %86 ], [ %.pre, %96 ]
   %storemerge.i = phi i32 [ %95, %86 ], [ %105, %96 ]
@@ -757,7 +757,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit: ; pre
   %114 = icmp slt i64 %indvars.iv55, %113
   br i1 %114, label %.preheader, label %125
 
-.preheader:                                       ; preds = %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit
+.preheader:                                       ; preds = %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
   %115 = getelementptr inbounds i8, ptr %110, i64 764
   br label %116
 
@@ -781,7 +781,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit: ; pre
   %124 = uitofp nneg i32 %123 to float
   br label %137
 
-125:                                              ; preds = %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit
+125:                                              ; preds = %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
   %126 = getelementptr inbounds i8, ptr %110, i64 1584
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64

@@ -334,17 +334,17 @@ define internal range(i32 0, 2) i32 @test_PACKET_equal() #0 {
 entry:
   %call1 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 335, ptr noundef nonnull @.str.39, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %return, label %PACKET_equal.argprom.exit
+  br i1 %tobool.not, label %return, label %PACKET_equal.exit
 
-PACKET_equal.argprom.exit:                        ; preds = %entry
+PACKET_equal.exit:                                ; preds = %entry
   %call1.i = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull @smbuf, ptr noundef nonnull @smbuf, i64 noundef 4) #5
   %cmp2.i = icmp eq i32 %call1.i, 0
   %conv.i = zext i1 %cmp2.i to i32
   %call5 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 336, ptr noundef nonnull @.str.40, i32 noundef %conv.i) #5
   %tobool6.not = icmp eq i32 %call5, 0
-  br i1 %tobool6.not, label %return, label %PACKET_equal.argprom.exit18
+  br i1 %tobool6.not, label %return, label %PACKET_equal.exit18
 
-PACKET_equal.argprom.exit18:                      ; preds = %PACKET_equal.argprom.exit
+PACKET_equal.exit18:                              ; preds = %PACKET_equal.exit
   %call1.i15 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull @smbuf, ptr noundef nonnull getelementptr inbounds (i8, ptr @smbuf, i64 1), i64 noundef 4) #5
   %cmp2.i16 = icmp eq i32 %call1.i15, 0
   %conv.i17 = zext i1 %cmp2.i16 to i32
@@ -352,37 +352,37 @@ PACKET_equal.argprom.exit18:                      ; preds = %PACKET_equal.argpro
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %lor.lhs.false13
 
-lor.lhs.false13:                                  ; preds = %PACKET_equal.argprom.exit18
+lor.lhs.false13:                                  ; preds = %PACKET_equal.exit18
   %call17 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 338, ptr noundef nonnull @.str.34, i32 noundef 1) #5
   %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %return, label %PACKET_equal.argprom.exit28
+  br i1 %tobool18.not, label %return, label %PACKET_equal.exit28
 
-PACKET_equal.argprom.exit28:                      ; preds = %lor.lhs.false13
+PACKET_equal.exit28:                              ; preds = %lor.lhs.false13
   %call1.i25 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull @smbuf, ptr noundef nonnull @smbuf, i64 noundef 255) #5
   %cmp2.i26 = icmp eq i32 %call1.i25, 0
   %conv.i27 = zext i1 %cmp2.i26 to i32
   %call23 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 339, ptr noundef nonnull @.str.42, i32 noundef %conv.i27) #5
   %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %return, label %PACKET_equal.argprom.exit35
+  br i1 %tobool24.not, label %return, label %PACKET_equal.exit35
 
-PACKET_equal.argprom.exit35:                      ; preds = %PACKET_equal.argprom.exit28
+PACKET_equal.exit35:                              ; preds = %PACKET_equal.exit28
   %call29 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 340, ptr noundef nonnull @.str.43, i32 noundef 0) #5
   %tobool30.not = icmp eq i32 %call29, 0
-  br i1 %tobool30.not, label %return, label %PACKET_equal.argprom.exit42
+  br i1 %tobool30.not, label %return, label %PACKET_equal.exit42
 
-PACKET_equal.argprom.exit42:                      ; preds = %PACKET_equal.argprom.exit35
+PACKET_equal.exit42:                              ; preds = %PACKET_equal.exit35
   %call35 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 341, ptr noundef nonnull @.str.44, i32 noundef 0) #5
   %tobool36.not = icmp eq i32 %call35, 0
-  br i1 %tobool36.not, label %return, label %PACKET_equal.argprom.exit49
+  br i1 %tobool36.not, label %return, label %PACKET_equal.exit49
 
-PACKET_equal.argprom.exit49:                      ; preds = %PACKET_equal.argprom.exit42
+PACKET_equal.exit49:                              ; preds = %PACKET_equal.exit42
   %call41 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 342, ptr noundef nonnull @.str.45, i32 noundef 0) #5
   %tobool42.not = icmp ne i32 %call41, 0
   %spec.select = zext i1 %tobool42.not to i32
   br label %return
 
-return:                                           ; preds = %PACKET_equal.argprom.exit49, %entry, %PACKET_equal.argprom.exit, %PACKET_equal.argprom.exit18, %lor.lhs.false13, %PACKET_equal.argprom.exit28, %PACKET_equal.argprom.exit35, %PACKET_equal.argprom.exit42
-  %retval.0 = phi i32 [ 0, %PACKET_equal.argprom.exit42 ], [ 0, %PACKET_equal.argprom.exit35 ], [ 0, %PACKET_equal.argprom.exit28 ], [ 0, %lor.lhs.false13 ], [ 0, %PACKET_equal.argprom.exit18 ], [ 0, %PACKET_equal.argprom.exit ], [ 0, %entry ], [ %spec.select, %PACKET_equal.argprom.exit49 ]
+return:                                           ; preds = %PACKET_equal.exit49, %entry, %PACKET_equal.exit, %PACKET_equal.exit18, %lor.lhs.false13, %PACKET_equal.exit28, %PACKET_equal.exit35, %PACKET_equal.exit42
+  %retval.0 = phi i32 [ 0, %PACKET_equal.exit42 ], [ 0, %PACKET_equal.exit35 ], [ 0, %PACKET_equal.exit28 ], [ 0, %lor.lhs.false13 ], [ 0, %PACKET_equal.exit18 ], [ 0, %PACKET_equal.exit ], [ 0, %entry ], [ %spec.select, %PACKET_equal.exit49 ]
   ret i32 %retval.0
 }
 

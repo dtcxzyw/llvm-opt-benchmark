@@ -1285,20 +1285,20 @@ if.end:                                           ; preds = %trace_virtio_net_rs
   %call.i.i = tail call ptr @qemu_get_queue(ptr noundef %n.val) #19
   %call1.i.i = tail call ptr @qemu_get_peer(ptr noundef %call.i.i, i32 noundef 0) #19
   %cmp.i.i = icmp eq ptr %call1.i.i, null
-  br i1 %cmp.i.i, label %virtio_net_detach_epbf_rss.argprom.exit, label %lor.lhs.false.i.i
+  br i1 %cmp.i.i, label %virtio_net_detach_epbf_rss.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end
   %8 = load ptr, ptr %call1.i.i, align 8
   %set_steering_ebpf.i.i = getelementptr inbounds i8, ptr %8, i64 200
   %9 = load ptr, ptr %set_steering_ebpf.i.i, align 8
   %cmp2.i.i = icmp eq ptr %9, null
-  br i1 %cmp2.i.i, label %virtio_net_detach_epbf_rss.argprom.exit, label %if.end.i.i
+  br i1 %cmp2.i.i, label %virtio_net_detach_epbf_rss.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %call5.i.i = tail call zeroext i1 %9(ptr noundef nonnull %call1.i.i, i32 noundef -1) #19
-  br label %virtio_net_detach_epbf_rss.argprom.exit
+  br label %virtio_net_detach_epbf_rss.exit
 
-virtio_net_detach_epbf_rss.argprom.exit:          ; preds = %if.end, %lor.lhs.false.i.i, %if.end.i.i
+virtio_net_detach_epbf_rss.exit:                  ; preds = %if.end, %lor.lhs.false.i.i, %if.end.i.i
   ret void
 }
 
@@ -1515,7 +1515,7 @@ if.end165:                                        ; preds = %if.then160
 if.else:                                          ; preds = %if.end154
   %17 = getelementptr i8, ptr %n, i64 544
   %n.val = load ptr, ptr %17, align 8
-  call fastcc void @virtio_net_detach_epbf_rss.argprom(ptr %n.val)
+  call fastcc void @virtio_net_detach_epbf_rss(ptr %n.val)
   br label %if.end170.sink.split
 
 if.end170.sink.split:                             ; preds = %if.else, %if.end165
@@ -2192,18 +2192,18 @@ if.end5.i15:                                      ; preds = %if.then2.i19, %if.e
   %13 = phi i32 [ %.pre2.i, %if.then2.i19 ], [ %12, %if.end.i13 ]
   %14 = phi ptr [ %.pre.i21, %if.then2.i19 ], [ %5, %if.end.i13 ]
   %cmp9.not.i16 = icmp eq i32 %13, 3
-  br i1 %cmp9.not.i16, label %peer_detach.argprom.exit, label %for.inc
+  br i1 %cmp9.not.i16, label %peer_detach.exit, label %for.inc
 
-peer_detach.argprom.exit:                         ; preds = %if.end5.i15
+peer_detach.exit:                                 ; preds = %if.end5.i15
   %call13.i = tail call i32 @tap_disable(ptr noundef nonnull %14) #19
   %tobool11.not = icmp eq i32 %call13.i, 0
   br i1 %tobool11.not, label %for.inc, label %if.else13
 
-if.else13:                                        ; preds = %peer_detach.argprom.exit
+if.else13:                                        ; preds = %peer_detach.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.2, i32 noundef 777, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_net_set_queue_pairs) #21
   unreachable
 
-for.inc:                                          ; preds = %if.end5.i15, %if.else9, %if.end11.i, %if.end5.i, %if.then5, %peer_attach.exit, %peer_detach.argprom.exit
+for.inc:                                          ; preds = %if.end5.i15, %if.else9, %if.end11.i, %if.end5.i, %if.then5, %peer_attach.exit, %peer_detach.exit
   %inc = add nuw nsw i32 %i.028, 1
   %15 = load i16, ptr %max_queue_pairs, align 4
   %conv = zext i16 %15 to i32
@@ -2215,7 +2215,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_net_detach_epbf_rss.argprom(ptr %n.544.val) unnamed_addr #0 {
+define internal fastcc void @virtio_net_detach_epbf_rss(ptr %n.544.val) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @qemu_get_queue(ptr noundef %n.544.val) #19
   %call1.i = tail call ptr @qemu_get_peer(ptr noundef %call.i, i32 noundef 0) #19
@@ -2622,7 +2622,7 @@ lor.lhs.false68:                                  ; preds = %if.end63
   %13 = getelementptr i8, ptr %call.i139, i64 728
   %call1.val136 = load ptr, ptr %13, align 8
   %tobool.not.i141 = icmp eq ptr %call1.val136, null
-  br i1 %tobool.not.i141, label %virtio_net_max_tx_queue_size.argprom.exit, label %if.end.i142
+  br i1 %tobool.not.i141, label %virtio_net_max_tx_queue_size.exit, label %if.end.i142
 
 if.end.i142:                                      ; preds = %lor.lhs.false68
   %14 = load ptr, ptr %call1.val136, align 8
@@ -2630,9 +2630,9 @@ if.end.i142:                                      ; preds = %lor.lhs.false68
   %16 = and i32 %15, -2
   %switch.i = icmp eq i32 %16, 12
   %..i = select i1 %switch.i, i32 1024, i32 256
-  br label %virtio_net_max_tx_queue_size.argprom.exit
+  br label %virtio_net_max_tx_queue_size.exit
 
-virtio_net_max_tx_queue_size.argprom.exit:        ; preds = %lor.lhs.false68, %if.end.i142
+virtio_net_max_tx_queue_size.exit:                ; preds = %lor.lhs.false68, %if.end.i142
   %retval.0.i143 = phi i32 [ 256, %lor.lhs.false68 ], [ %..i, %if.end.i142 ]
   %cmp73 = icmp uge i32 %retval.0.i143, %conv65
   %17 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %12)
@@ -2640,11 +2640,11 @@ virtio_net_max_tx_queue_size.argprom.exit:        ; preds = %lor.lhs.false68, %i
   %or.cond162 = select i1 %cmp73, i1 %tobool1.not.i146, i1 false
   br i1 %or.cond162, label %if.end85, label %if.then80
 
-if.then80:                                        ; preds = %if.end63.if.then80_crit_edge, %virtio_net_max_tx_queue_size.argprom.exit
-  %conv83.pre-phi = phi i32 [ %.pre181, %if.end63.if.then80_crit_edge ], [ %conv65, %virtio_net_max_tx_queue_size.argprom.exit ]
-  %call1.val137 = phi ptr [ %call1.val137.pre, %if.end63.if.then80_crit_edge ], [ %call1.val136, %virtio_net_max_tx_queue_size.argprom.exit ]
+if.then80:                                        ; preds = %if.end63.if.then80_crit_edge, %virtio_net_max_tx_queue_size.exit
+  %conv83.pre-phi = phi i32 [ %.pre181, %if.end63.if.then80_crit_edge ], [ %conv65, %virtio_net_max_tx_queue_size.exit ]
+  %call1.val137 = phi ptr [ %call1.val137.pre, %if.end63.if.then80_crit_edge ], [ %call1.val136, %virtio_net_max_tx_queue_size.exit ]
   %tobool.not.i149 = icmp eq ptr %call1.val137, null
-  br i1 %tobool.not.i149, label %virtio_net_max_tx_queue_size.argprom.exit154, label %if.end.i150
+  br i1 %tobool.not.i149, label %virtio_net_max_tx_queue_size.exit154, label %if.end.i150
 
 if.end.i150:                                      ; preds = %if.then80
   %18 = load ptr, ptr %call1.val137, align 8
@@ -2652,15 +2652,15 @@ if.end.i150:                                      ; preds = %if.then80
   %20 = and i32 %19, -2
   %switch.i151 = icmp eq i32 %20, 12
   %..i152 = select i1 %switch.i151, i32 1024, i32 256
-  br label %virtio_net_max_tx_queue_size.argprom.exit154
+  br label %virtio_net_max_tx_queue_size.exit154
 
-virtio_net_max_tx_queue_size.argprom.exit154:     ; preds = %if.then80, %if.end.i150
+virtio_net_max_tx_queue_size.exit154:             ; preds = %if.then80, %if.end.i150
   %retval.0.i153 = phi i32 [ 256, %if.then80 ], [ %..i152, %if.end.i150 ]
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 3657, ptr noundef nonnull @__func__.virtio_net_device_realize, ptr noundef nonnull @.str.93, i32 noundef %conv83.pre-phi, i32 noundef 256, i32 noundef %retval.0.i153) #19
   tail call void @virtio_cleanup(ptr noundef %call.i) #19
   br label %if.end249
 
-if.end85:                                         ; preds = %virtio_net_max_tx_queue_size.argprom.exit
+if.end85:                                         ; preds = %virtio_net_max_tx_queue_size.exit
   %nic_conf = getelementptr inbounds i8, ptr %call.i139, i64 720
   %queues = getelementptr inbounds i8, ptr %call.i139, i64 8920
   %21 = load i32, ptr %queues, align 8
@@ -2758,7 +2758,7 @@ if.then139:                                       ; preds = %sub_1, %sub_0, %lan
 if.end143:                                        ; preds = %if.then139, %land.lhs.true134.tail, %land.lhs.true, %if.end123
   %call1.val138 = load ptr, ptr %13, align 8
   %tobool.not.i155 = icmp eq ptr %call1.val138, null
-  br i1 %tobool.not.i155, label %virtio_net_max_tx_queue_size.argprom.exit160, label %if.end.i156
+  br i1 %tobool.not.i155, label %virtio_net_max_tx_queue_size.exit160, label %if.end.i156
 
 if.end.i156:                                      ; preds = %if.end143
   %36 = load ptr, ptr %call1.val138, align 8
@@ -2766,9 +2766,9 @@ if.end.i156:                                      ; preds = %if.end143
   %38 = and i32 %37, -2
   %switch.i157 = icmp eq i32 %38, 12
   %..i158 = select i1 %switch.i157, i32 1024, i32 256
-  br label %virtio_net_max_tx_queue_size.argprom.exit160
+  br label %virtio_net_max_tx_queue_size.exit160
 
-virtio_net_max_tx_queue_size.argprom.exit160:     ; preds = %if.end143, %if.end.i156
+virtio_net_max_tx_queue_size.exit160:             ; preds = %if.end143, %if.end.i156
   %retval.0.i159 = phi i32 [ 256, %if.end143 ], [ %..i158, %if.end.i156 ]
   %39 = load i16, ptr %tx_queue_size, align 2
   %conv147 = zext i16 %39 to i32
@@ -2779,8 +2779,8 @@ virtio_net_max_tx_queue_size.argprom.exit160:     ; preds = %if.end143, %if.end.
   %cmp161167.not = icmp eq i16 %40, 0
   br i1 %cmp161167.not, label %for.end166, label %for.body163
 
-for.body163:                                      ; preds = %virtio_net_max_tx_queue_size.argprom.exit160, %for.body163
-  %i.1168 = phi i32 [ %inc165, %for.body163 ], [ 0, %virtio_net_max_tx_queue_size.argprom.exit160 ]
+for.body163:                                      ; preds = %virtio_net_max_tx_queue_size.exit160, %for.body163
+  %i.1168 = phi i32 [ %inc165, %for.body163 ], [ 0, %virtio_net_max_tx_queue_size.exit160 ]
   tail call fastcc void @virtio_net_add_queue(ptr noundef nonnull %call.i139, i32 noundef %i.1168)
   %inc165 = add nuw nsw i32 %i.1168, 1
   %41 = load i16, ptr %max_queue_pairs105, align 4
@@ -2788,7 +2788,7 @@ for.body163:                                      ; preds = %virtio_net_max_tx_q
   %cmp161 = icmp ult i32 %inc165, %conv160
   br i1 %cmp161, label %for.body163, label %for.end166, !llvm.loop !12
 
-for.end166:                                       ; preds = %for.body163, %virtio_net_max_tx_queue_size.argprom.exit160
+for.end166:                                       ; preds = %for.body163, %virtio_net_max_tx_queue_size.exit160
   %call167 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 64, ptr noundef nonnull @virtio_net_handle_ctrl) #19
   %ctrl_vq = getelementptr inbounds i8, ptr %call.i139, i64 536
   store ptr %call167, ptr %ctrl_vq, align 8
@@ -2930,10 +2930,10 @@ do.body241:                                       ; preds = %if.end215, %land.lh
   br i1 %tobool.i.not, label %if.end249, label %if.then247
 
 if.then247:                                       ; preds = %do.body241
-  call fastcc void @virtio_net_load_ebpf.retelim(ptr noundef nonnull %call.i139)
+  call fastcc void @virtio_net_load_ebpf(ptr noundef nonnull %call.i139)
   br label %if.end249
 
-if.end249:                                        ; preds = %if.then247, %do.body241, %if.then120, %virtio_net_max_tx_queue_size.argprom.exit154, %if.then59, %if.then28, %if.else17
+if.end249:                                        ; preds = %if.then247, %do.body241, %if.then120, %virtio_net_max_tx_queue_size.exit154, %if.then59, %if.then28, %if.else17
   ret void
 }
 
@@ -4736,7 +4736,7 @@ declare i32 @vhost_net_set_config(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare void @net_rx_pkt_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_net_load_ebpf.retelim(ptr noundef %n) unnamed_addr #0 {
+define internal fastcc void @virtio_net_load_ebpf(ptr noundef %n) unnamed_addr #0 {
 entry:
   %nic = getelementptr inbounds i8, ptr %n, i64 544
   %0 = load ptr, ptr %nic, align 8
@@ -6209,7 +6209,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %2, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -6218,14 +6218,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %3 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %3 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #19
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i64 %call1
 }
 
@@ -6529,7 +6529,7 @@ if.then.i:                                        ; preds = %lor.lhs.false15.i, 
   br label %if.end8
 
 if.end.i:                                         ; preds = %lor.lhs.false15.i
-  %call.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data.argprom(ptr noundef %chain, ptr noundef %seg.0, ptr noundef readonly %unit)
+  %call.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data(ptr noundef %chain, ptr noundef %seg.0, ptr noundef readonly %unit)
   br label %if.end8
 
 if.else:                                          ; preds = %land.rhs
@@ -6570,7 +6570,7 @@ if.then.i35:                                      ; preds = %lor.lhs.false14.i, 
   br label %if.end8
 
 if.end.i45:                                       ; preds = %lor.lhs.false14.i
-  %call23.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data.argprom(ptr noundef %chain, ptr noundef %seg.0, ptr noundef readonly %unit)
+  %call23.i = tail call fastcc i32 @virtio_net_rsc_coalesce_data(ptr noundef %chain, ptr noundef %seg.0, ptr noundef readonly %unit)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end.i45, %if.then.i35, %if.end.i, %if.then.i
@@ -6776,7 +6776,7 @@ sw.epilog:                                        ; preds = %sw.bb18, %sw.bb
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @virtio_net_rsc_coalesce_data.argprom(ptr nocapture noundef nonnull %chain, ptr nocapture noundef nonnull %seg, ptr nocapture noundef nonnull readonly %n_unit) unnamed_addr #14 {
+define internal fastcc range(i32 0, 2) i32 @virtio_net_rsc_coalesce_data(ptr nocapture noundef nonnull %chain, ptr nocapture noundef nonnull %seg, ptr nocapture noundef nonnull readonly %n_unit) unnamed_addr #14 {
 entry:
   %ip_plen = getelementptr inbounds i8, ptr %seg, i64 48
   %0 = load ptr, ptr %ip_plen, align 8

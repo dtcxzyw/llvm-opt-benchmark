@@ -120,7 +120,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_msgpack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  call fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
+  call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %6 = load i32, ptr %5, align 4
   ret i32 %6
 }
@@ -143,7 +143,7 @@ define hidden void @proto_reg_handoff_msgpack() local_unnamed_addr #0 {
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #3
   %8 = zext i8 %7 to i32
@@ -192,7 +192,7 @@ define internal fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr 
   %32 = load i32, ptr @hf_msgpack_uint_8, align 4
   %33 = load i32, ptr %4, align 4
   %34 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %33, i32 noundef 1, i32 noundef %8, ptr noundef nonnull @.str.41, ptr noundef nonnull %29, i32 noundef %8) #3
-  br label %dissect_msgpack_integer.argprom.exit
+  br label %dissect_msgpack_integer.exit
 
 35:                                               ; preds = %28
   %.mask.i = and i32 %8, 224
@@ -203,7 +203,7 @@ define internal fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr 
   %38 = load i32, ptr @hf_msgpack_int_8, align 4
   %39 = load i32, ptr %4, align 4
   %40 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef %8, ptr noundef nonnull @.str.41, ptr noundef nonnull %29, i32 noundef %8) #3
-  br label %dissect_msgpack_integer.argprom.exit
+  br label %dissect_msgpack_integer.exit
 
 41:                                               ; preds = %35
   switch i8 %7, label %102 [
@@ -225,7 +225,7 @@ define internal fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr 
   %47 = load i32, ptr %4, align 4
   %48 = zext i8 %45 to i32
   %49 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.41, ptr noundef nonnull %29, i32 noundef %48) #3
-  br label %dissect_msgpack_integer.argprom.exit
+  br label %dissect_msgpack_integer.exit
 
 50:                                               ; preds = %41
   %51 = load i32, ptr %4, align 4
@@ -235,7 +235,7 @@ define internal fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr 
   %55 = load i32, ptr %4, align 4
   %56 = zext i16 %53 to i32
   %57 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 3, i32 noundef %56) #3
-  br label %dissect_msgpack_integer.argprom.exit
+  br label %dissect_msgpack_integer.exit
 
 58:                                               ; preds = %41
   %59 = load i32, ptr %4, align 4
@@ -244,7 +244,7 @@ define internal fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr 
   %62 = load i32, ptr @hf_msgpack_uint_32, align 4
   %63 = load i32, ptr %4, align 4
   %64 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef 5, i32 noundef %61) #3
-  br label %dissect_msgpack_integer.argprom.exit
+  br label %dissect_msgpack_integer.exit
 
 65:                                               ; preds = %41
   %66 = load i32, ptr %4, align 4
@@ -253,7 +253,7 @@ define internal fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr 
   %69 = load i32, ptr @hf_msgpack_uint_64, align 4
   %70 = load i32, ptr %4, align 4
   %71 = tail call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef 9, i64 noundef %68) #3
-  br label %dissect_msgpack_integer.argprom.exit
+  br label %dissect_msgpack_integer.exit
 
 72:                                               ; preds = %41
   %73 = load i32, ptr %4, align 4
@@ -263,7 +263,7 @@ define internal fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr 
   %77 = load i32, ptr %4, align 4
   %78 = sext i8 %75 to i32
   %79 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %76, ptr noundef %0, i32 noundef %77, i32 noundef 2, i32 noundef %78) #3
-  br label %dissect_msgpack_integer.argprom.exit
+  br label %dissect_msgpack_integer.exit
 
 80:                                               ; preds = %41
   %81 = load i32, ptr %4, align 4
@@ -273,7 +273,7 @@ define internal fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr 
   %85 = load i32, ptr %4, align 4
   %86 = sext i16 %83 to i32
   %87 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %85, i32 noundef 3, i32 noundef %86) #3
-  br label %dissect_msgpack_integer.argprom.exit
+  br label %dissect_msgpack_integer.exit
 
 88:                                               ; preds = %41
   %89 = load i32, ptr %4, align 4
@@ -282,7 +282,7 @@ define internal fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr 
   %92 = load i32, ptr @hf_msgpack_int_32, align 4
   %93 = load i32, ptr %4, align 4
   %94 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %92, ptr noundef %0, i32 noundef %93, i32 noundef 5, i32 noundef %91) #3
-  br label %dissect_msgpack_integer.argprom.exit
+  br label %dissect_msgpack_integer.exit
 
 95:                                               ; preds = %41
   %96 = load i32, ptr %4, align 4
@@ -291,13 +291,13 @@ define internal fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr 
   %99 = load i32, ptr @hf_msgpack_int_64, align 4
   %100 = load i32, ptr %4, align 4
   %101 = tail call ptr @proto_tree_add_int64(ptr noundef %2, i32 noundef %99, ptr noundef %0, i32 noundef %100, i32 noundef 9, i64 noundef %98) #3
-  br label %dissect_msgpack_integer.argprom.exit
+  br label %dissect_msgpack_integer.exit
 
 102:                                              ; preds = %41
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 156) #4
   unreachable
 
-dissect_msgpack_integer.argprom.exit:             ; preds = %31, %37, %42, %50, %58, %65, %72, %80, %88, %95
+dissect_msgpack_integer.exit:                     ; preds = %31, %37, %42, %50, %58, %65, %72, %80, %88, %95
   %.sink2.i = phi i32 [ 9, %95 ], [ 5, %88 ], [ 3, %80 ], [ 2, %72 ], [ 9, %65 ], [ 5, %58 ], [ 3, %50 ], [ 2, %42 ], [ 1, %37 ], [ 1, %31 ]
   %103 = load i32, ptr %4, align 4
   %104 = add i32 %103, %.sink2.i
@@ -326,7 +326,7 @@ dissect_msgpack_integer.argprom.exit:             ; preds = %31, %37, %42, %50, 
   %117 = load i32, ptr @hf_msgpack_float, align 4
   %118 = load i32, ptr %4, align 4
   %119 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %117, ptr noundef %0, i32 noundef %118, i32 noundef 4, ptr noundef %116, ptr noundef nonnull @.str.49, ptr noundef nonnull %107, double noundef %115) #3
-  br label %dissect_msgpack_float.argprom.exit
+  br label %dissect_msgpack_float.exit
 
 120:                                              ; preds = %106
   %121 = tail call double @tvb_get_ntohieee_double(ptr noundef %0, i32 noundef %109) #3
@@ -335,9 +335,9 @@ dissect_msgpack_integer.argprom.exit:             ; preds = %31, %37, %42, %50, 
   %124 = load i32, ptr @hf_msgpack_float, align 4
   %125 = load i32, ptr %4, align 4
   %126 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %124, ptr noundef %0, i32 noundef %125, i32 noundef 8, ptr noundef %123, ptr noundef nonnull @.str.49, ptr noundef nonnull %107, double noundef %121) #3
-  br label %dissect_msgpack_float.argprom.exit
+  br label %dissect_msgpack_float.exit
 
-dissect_msgpack_float.argprom.exit:               ; preds = %112, %120
+dissect_msgpack_float.exit:                       ; preds = %112, %120
   %.sink1.i = phi i32 [ 8, %120 ], [ 4, %112 ]
   %127 = load i32, ptr %4, align 4
   %128 = add i32 %127, %.sink1.i
@@ -408,7 +408,7 @@ dissect_msgpack_float.argprom.exit:               ; preds = %112, %120
   %166 = load i32, ptr @hf_msgpack_string_len, align 4
   %167 = load i32, ptr %4, align 4
   %168 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %161, i32 noundef %166, ptr noundef %0, i32 noundef %167, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.53) #3
-  br label %dissect_msgpack_string.argprom.exit
+  br label %dissect_msgpack_string.exit
 
 169:                                              ; preds = %.thread3.i
   %170 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %162, ptr noundef %0, i32 noundef %163, i32 noundef 1, i32 noundef 0) #3
@@ -416,9 +416,9 @@ dissect_msgpack_float.argprom.exit:               ; preds = %112, %120
   %172 = load i32, ptr %4, align 4
   %173 = add i32 %172, 1
   %174 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %171, ptr noundef %0, i32 noundef %173, i32 noundef %.361.i, i32 noundef 0) #3
-  br label %dissect_msgpack_string.argprom.exit
+  br label %dissect_msgpack_string.exit
 
-dissect_msgpack_string.argprom.exit:              ; preds = %164, %169
+dissect_msgpack_string.exit:                      ; preds = %164, %169
   %.sink3 = phi i32 [ 1, %164 ], [ %152, %169 ]
   %175 = load i32, ptr @hf_msgpack_string, align 4
   %176 = load i32, ptr %4, align 4
@@ -437,11 +437,11 @@ dissect_msgpack_string.argprom.exit:              ; preds = %164, %169
   ]
 
 183:                                              ; preds = %181
-  tail call fastcc void @dissect_msgpack_array.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %7, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_msgpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %7, ptr noundef %3, ptr noundef %4)
   br label %192
 
 184:                                              ; preds = %181
-  tail call fastcc void @dissect_msgpack_map.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %7, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_msgpack_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %7, ptr noundef %3, ptr noundef %4)
   br label %192
 
 185:                                              ; preds = %181
@@ -457,7 +457,7 @@ dissect_msgpack_string.argprom.exit:              ; preds = %164, %169
   ]
 
 186:                                              ; preds = %185, %185, %185, %185, %185, %185, %185, %185
-  tail call fastcc void @dissect_msgpack_ext.argprom(ptr noundef %0, ptr noundef %2, i32 noundef %8, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dissect_msgpack_ext(ptr noundef %0, ptr noundef %2, i32 noundef %8, ptr noundef %3, ptr noundef %4)
   br label %192
 
 187:                                              ; preds = %185
@@ -469,7 +469,7 @@ dissect_msgpack_string.argprom.exit:              ; preds = %164, %169
   %191 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_msgpack_unsupported, ptr noundef nonnull @.str.39, i32 noundef %8) #3
   br label %192
 
-192:                                              ; preds = %190, %187, %186, %184, %183, %dissect_msgpack_string.argprom.exit, %dissect_msgpack_float.argprom.exit, %dissect_msgpack_integer.argprom.exit, %18, %10
+192:                                              ; preds = %190, %187, %186, %184, %183, %dissect_msgpack_string.exit, %dissect_msgpack_float.exit, %dissect_msgpack_integer.exit, %18, %10
   ret void
 }
 
@@ -480,7 +480,7 @@ declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_msgpack_array.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @dissect_msgpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = and i8 %3, 15
   %8 = getelementptr inbounds i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
@@ -504,7 +504,7 @@ define internal fastcc void @dissect_msgpack_array.argprom(ptr noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.01 = phi i32 [ %23, %.lr.ph ], [ 0, %6 ]
-  tail call fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef %4, ptr noundef %5)
+  tail call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef %4, ptr noundef %5)
   %23 = add nuw nsw i32 %.01, 1
   %exitcond.not = icmp eq i32 %23, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -514,7 +514,7 @@ define internal fastcc void @dissect_msgpack_array.argprom(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_msgpack_map.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @dissect_msgpack_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = and i8 %3, 15
   %8 = getelementptr inbounds i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
@@ -541,8 +541,8 @@ define internal fastcc void @dissect_msgpack_map.argprom(ptr noundef %0, ptr nou
   %23 = load i32, ptr %5, align 4
   %24 = load i32, ptr @ett_msgpack_map_elem, align 4
   %25 = tail call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef %23, i32 noundef 0, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.57) #3
-  tail call fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef nonnull @.str.61, ptr noundef %5)
-  tail call fastcc void @dissect_msgpack_object.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef nonnull @.str.63, ptr noundef %5)
+  tail call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef nonnull @.str.61, ptr noundef %5)
+  tail call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef nonnull @.str.63, ptr noundef %5)
   %26 = add nuw nsw i32 %.01, 1
   %exitcond.not = icmp eq i32 %26, %11
   br i1 %exitcond.not, label %._crit_edge, label %.split, !llvm.loop !6
@@ -552,7 +552,7 @@ define internal fastcc void @dissect_msgpack_map.argprom(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_msgpack_ext.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 128, 224) %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @dissect_msgpack_ext(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 128, 224) %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %.not = icmp eq ptr %3, null
   %7 = select i1 %.not, ptr @.str.23, ptr %3

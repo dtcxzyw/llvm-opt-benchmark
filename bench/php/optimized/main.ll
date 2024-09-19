@@ -3084,19 +3084,19 @@ define void @php_module_shutdown() local_unnamed_addr #4 {
 13:                                               ; preds = %12, %8
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 112), align 8
   %.not10.i = icmp eq ptr %14, null
-  br i1 %.not10.i, label %core_globals_dtor.argprom.exit, label %15
+  br i1 %.not10.i, label %core_globals_dtor.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @free(ptr noundef nonnull %14) #29
-  br label %core_globals_dtor.argprom.exit
+  br label %core_globals_dtor.exit
 
-core_globals_dtor.argprom.exit:                   ; preds = %13, %15
+core_globals_dtor.exit:                           ; preds = %13, %15
   tail call void @php_shutdown_ticks(ptr noundef nonnull @core_globals) #29
   tail call void @gc_globals_dtor() #29
   tail call void @zend_observer_shutdown() #29
   br label %16
 
-16:                                               ; preds = %0, %core_globals_dtor.argprom.exit
+16:                                               ; preds = %0, %core_globals_dtor.exit
   ret void
 }
 

@@ -115,7 +115,7 @@ define internal range(i32 -1366, 1) i32 @heartbeat_start(ptr noundef %0, i32 nou
 
 28:                                               ; preds = %27, %22
   %.not22.i = icmp eq ptr %24, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %29
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %29
 
 29:                                               ; preds = %28
   %30 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %24, ptr noundef null) #12
@@ -130,7 +130,7 @@ define internal range(i32 -1366, 1) i32 @heartbeat_start(ptr noundef %0, i32 nou
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_heartbeat_trkr_t_class, i64 40), align 8
   %36 = load ptr, ptr %35, align 8
   %.not6.i.i = icmp eq ptr %36, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
   %37 = phi ptr [ %39, %.lr.ph.i.i ], [ %36, %29 ]
@@ -139,21 +139,21 @@ define internal range(i32 -1366, 1) i32 @heartbeat_start(ptr noundef %0, i32 nou
   %38 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %28, %29
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %28, %29
   %40 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #12
   %41 = icmp eq i32 %40, 35
   br i1 %41, label %42, label %44
 
-42:                                               ; preds = %pmix_obj_new_tma.argprom.exit
+42:                                               ; preds = %pmix_obj_new_tma.exit
   %43 = tail call ptr @__errno_location() #15
   store i32 35, ptr %43, align 4
   tail call void @perror(ptr noundef nonnull @.str.13) #16
   tail call void @abort() #17
   unreachable
 
-44:                                               ; preds = %pmix_obj_new_tma.argprom.exit
+44:                                               ; preds = %pmix_obj_new_tma.exit
   %45 = getelementptr inbounds i8, ptr %0, i64 48
   %46 = load i32, ptr %45, align 8
   %47 = add nsw i32 %46, 1
@@ -292,7 +292,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %90
 
 113:                                              ; preds = %112, %107
   %.not22.i61 = icmp eq ptr %109, null
-  br i1 %.not22.i61, label %pmix_obj_new_tma.argprom.exit66, label %114
+  br i1 %.not22.i61, label %pmix_obj_new_tma.exit66, label %114
 
 114:                                              ; preds = %113
   %115 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %109, ptr noundef null) #12
@@ -307,7 +307,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %90
   %120 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_ptl_posted_recv_t_class, i64 40), align 8
   %121 = load ptr, ptr %120, align 8
   %.not6.i.i62 = icmp eq ptr %121, null
-  br i1 %.not6.i.i62, label %pmix_obj_new_tma.argprom.exit66, label %.lr.ph.i.i63
+  br i1 %.not6.i.i62, label %pmix_obj_new_tma.exit66, label %.lr.ph.i.i63
 
 .lr.ph.i.i63:                                     ; preds = %114, %.lr.ph.i.i63
   %122 = phi ptr [ %124, %.lr.ph.i.i63 ], [ %121, %114 ]
@@ -316,9 +316,9 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %90
   %123 = getelementptr inbounds i8, ptr %.07.i.i64, i64 8
   %124 = load ptr, ptr %123, align 8
   %.not.i.i65 = icmp eq ptr %124, null
-  br i1 %.not.i.i65, label %pmix_obj_new_tma.argprom.exit66, label %.lr.ph.i.i63, !llvm.loop !4
+  br i1 %.not.i.i65, label %pmix_obj_new_tma.exit66, label %.lr.ph.i.i63, !llvm.loop !4
 
-pmix_obj_new_tma.argprom.exit66:                  ; preds = %.lr.ph.i.i63, %113, %114
+pmix_obj_new_tma.exit66:                          ; preds = %.lr.ph.i.i63, %113, %114
   %125 = getelementptr inbounds i8, ptr %109, i64 272
   store i32 1, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %109, i64 280
@@ -337,7 +337,7 @@ pmix_obj_new_tma.argprom.exit66:                  ; preds = %.lr.ph.i.i63, %113,
   store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_mca_psensor_heartbeat_component, i64 224), align 8
   br label %133
 
-133:                                              ; preds = %pmix_obj_new_tma.argprom.exit66, %104
+133:                                              ; preds = %pmix_obj_new_tma.exit66, %104
   %134 = getelementptr inbounds i8, ptr %24, i64 296
   %135 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 272), align 8
   %136 = tail call i32 @pmix_event_assign(ptr noundef nonnull %134, ptr noundef %135, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @add_tracker, ptr noundef %24) #12
@@ -365,7 +365,7 @@ define internal noundef i32 @heartbeat_stop(ptr noundef %0, ptr noundef readonly
 
 8:                                                ; preds = %7, %2
   %.not22.i = icmp eq ptr %4, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %9
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %9
 
 9:                                                ; preds = %8
   %10 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %4, ptr noundef null) #12
@@ -380,7 +380,7 @@ define internal noundef i32 @heartbeat_stop(ptr noundef %0, ptr noundef readonly
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @heartbeat_caddy_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %17 = phi ptr [ %19, %.lr.ph.i.i ], [ %16, %9 ]
@@ -389,21 +389,21 @@ define internal noundef i32 @heartbeat_stop(ptr noundef %0, ptr noundef readonly
   %18 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %8, %9
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
   %20 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #12
   %21 = icmp eq i32 %20, 35
   br i1 %21, label %22, label %24
 
-22:                                               ; preds = %pmix_obj_new_tma.argprom.exit
+22:                                               ; preds = %pmix_obj_new_tma.exit
   %23 = tail call ptr @__errno_location() #15
   store i32 35, ptr %23, align 4
   tail call void @perror(ptr noundef nonnull @.str.13) #16
   tail call void @abort() #17
   unreachable
 
-24:                                               ; preds = %pmix_obj_new_tma.argprom.exit
+24:                                               ; preds = %pmix_obj_new_tma.exit
   %25 = getelementptr inbounds i8, ptr %0, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = add nsw i32 %26, 1
@@ -728,7 +728,7 @@ define void @pmix_psensor_heartbeat_recv_beats(ptr noundef %0, ptr nocapture rea
 
 10:                                               ; preds = %9, %4
   %.not22.i = icmp eq ptr %6, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %11
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %11
 
 11:                                               ; preds = %10
   %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %6, ptr noundef null) #12
@@ -743,7 +743,7 @@ define void @pmix_psensor_heartbeat_recv_beats(ptr noundef %0, ptr nocapture rea
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_beat_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i.i = icmp eq ptr %18, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %11, %.lr.ph.i.i
   %19 = phi ptr [ %21, %.lr.ph.i.i ], [ %18, %11 ]
@@ -752,21 +752,21 @@ define void @pmix_psensor_heartbeat_recv_beats(ptr noundef %0, ptr nocapture rea
   %20 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %10, %11
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %10, %11
   %22 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #12
   %23 = icmp eq i32 %22, 35
   br i1 %23, label %24, label %26
 
-24:                                               ; preds = %pmix_obj_new_tma.argprom.exit
+24:                                               ; preds = %pmix_obj_new_tma.exit
   %25 = tail call ptr @__errno_location() #15
   store i32 35, ptr %25, align 4
   tail call void @perror(ptr noundef nonnull @.str.13) #16
   tail call void @abort() #17
   unreachable
 
-26:                                               ; preds = %pmix_obj_new_tma.argprom.exit
+26:                                               ; preds = %pmix_obj_new_tma.exit
   %27 = getelementptr inbounds i8, ptr %0, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = add nsw i32 %28, 1

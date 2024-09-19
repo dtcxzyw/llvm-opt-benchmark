@@ -743,11 +743,11 @@ define void @_ZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEv(ptr noundef 
 40:                                               ; preds = %38, %34, %._crit_edge.i
   %41 = load i32, ptr @"_ZZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEvE2id", align 4, !noalias !17
   %.not.i.i.i.i.i = icmp eq i32 %41, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.argprom.exit.thread.i.i", label %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.argprom.exit.i.i"
+  br i1 %.not.i.i.i.i.i, label %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.exit.thread.i.i", label %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.exit.i.i"
 
-"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.argprom.exit.thread.i.i": ; preds = %40
+"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.exit.thread.i.i": ; preds = %40
   %42 = load i32, ptr %31, align 4
-  br label %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.argprom.exit.i"
+  br label %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.exit.i"
 
 43:                                               ; preds = %36
   %44 = landingpad { ptr, i32 }
@@ -755,7 +755,7 @@ define void @_ZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEv(ptr noundef 
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEvE2id") #21, !noalias !17
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit8
 
-"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.argprom.exit.i.i": ; preds = %40
+"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.exit.i.i": ; preds = %40
   %45 = sext i32 %41 to i64
   %46 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !17
   %47 = getelementptr inbounds i32, ptr %46, i64 %45
@@ -765,20 +765,20 @@ define void @_ZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEv(ptr noundef 
   %50 = load i32, ptr %31, align 4
   %51 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.argprom.exit.i"
+  br i1 %52, label %53, label %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.exit.i"
 
-53:                                               ; preds = %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.argprom.exit.i.i"
+53:                                               ; preds = %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.exit.i.i"
   %54 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %55 = getelementptr inbounds i32, ptr %54, i64 %45
   %56 = load i32, ptr %55, align 4
   %57 = add nsw i32 %56, -1
   store i32 %57, ptr %55, align 4
   %58 = icmp sgt i32 %56, 1
-  br i1 %58, label %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.argprom.exit.i", label %59
+  br i1 %58, label %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.exit.i", label %59
 
 59:                                               ; preds = %53
   invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %41)
-          to label %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.argprom.exit.i" unwind label %60
+          to label %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.exit.i" unwind label %60
 
 60:                                               ; preds = %59
   %61 = landingpad { ptr, i32 }
@@ -787,12 +787,12 @@ define void @_ZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEv(ptr noundef 
   call void @__clang_call_terminate(ptr %62) #20
   unreachable
 
-"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.argprom.exit.i": ; preds = %59, %53, %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.argprom.exit.i.i", %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.argprom.exit.thread.i.i"
-  %.pn.i.i = phi i32 [ %42, %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.argprom.exit.thread.i.i" ], [ %50, %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.argprom.exit.i.i" ], [ %50, %53 ], [ %50, %59 ]
+"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.exit.i": ; preds = %59, %53, %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.exit.i.i", %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.exit.thread.i.i"
+  %.pn.i.i = phi i32 [ %42, %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.exit.thread.i.i" ], [ %50, %"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.exit.i.i" ], [ %50, %53 ], [ %50, %59 ]
   %63 = icmp eq i32 %.pn.i.i, %41
   br i1 %63, label %64, label %_ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EED2Ev.exit.i
 
-64:                                               ; preds = %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.argprom.exit.i"
+64:                                               ; preds = %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.exit.i"
   invoke void @_ZN5Yosys13parse_hdlnameINS_5RTLIL4CellEEESt6vectorINS1_8IdStringESaIS4_EEPKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.78") align 8 %2, ptr noundef nonnull %30)
           to label %.noexc unwind label %113
 
@@ -908,7 +908,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8IdStringES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_Z
   call void @_ZdlPv(ptr noundef nonnull %107) #22
   br label %_ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EED2Ev.exit.i
 
-_ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EED2Ev.exit.i: ; preds = %108, %_ZSt8_DestroyIPN5Yosys5RTLIL8IdStringES2_EvT_S4_RSaIT0_E.exit.i.i, %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.argprom.exit.i"
+_ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EED2Ev.exit.i: ; preds = %108, %_ZSt8_DestroyIPN5Yosys5RTLIL8IdStringES2_EvT_S4_RSaIT0_E.exit.i.i, %"_ZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellE.exit.i"
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %109 = icmp eq i64 %indvars.iv, 0
   br i1 %109, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.loopexit, label %._crit_edge.i
@@ -1697,7 +1697,7 @@ define void @_ZN5Yosys23scopeinfo_get_attributeEPKNS_5RTLIL4CellENS_14ScopeinfoA
 _ZN5YosysL11attr_prefixENS_14ScopeinfoAttrsE.exit: ; preds = %4, %8
   %.0.i = phi ptr [ @.str.12, %8 ], [ @.str.11, %4 ]
   %.val = load i32, ptr %3, align 4, !noalias !27
-  call fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %7, i32 %.val)
+  call fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable align 8 %7, i32 %.val)
   %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, ptr noundef nonnull %.0.i)
           to label %11 unwind label %81
 
@@ -1994,7 +1994,7 @@ define noundef zeroext i1 @_ZN5Yosys23scopeinfo_has_attributeEPKNS_5RTLIL4CellEN
 _ZN5YosysL11attr_prefixENS_14ScopeinfoAttrsE.exit: ; preds = %3, %7
   %.0.i = phi ptr [ @.str.12, %7 ], [ @.str.11, %3 ]
   %.val = load i32, ptr %2, align 4, !noalias !27
-  call fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom(ptr dead_on_unwind noalias writable align 8 %6, i32 %.val)
+  call fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable align 8 %6, i32 %.val)
   %9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull %.0.i)
           to label %10 unwind label %31
 
@@ -2073,7 +2073,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %15, %20, %27
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL10AttrObject13has_attributeERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.94", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -10788,12 +10788,12 @@ attributes #25 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !16, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !16 = distinct !{!16, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv.argprom"}
+!18 = distinct !{!18, !19, !"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv: argument 0"}
+!19 = distinct !{!19, !"_ZZZN5Yosys18ModuleHdlnameIndex21index_scopeinfo_cellsEvENK3$_0clEPNS_5RTLIL4CellEENKUlvE_clEv"}
 !20 = !{!"branch_weights", i32 1, i32 1048575}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZZN5Yosys18ModuleHdlnameIndex13scope_sourcesB5cxx11ENS_6IdTreeINS_10ModuleItemEE6CursorEENK3$_0clEv.argprom: argument 0"}
-!23 = distinct !{!23, !"_ZZN5Yosys18ModuleHdlnameIndex13scope_sourcesB5cxx11ENS_6IdTreeINS_10ModuleItemEE6CursorEENK3$_0clEv.argprom"}
+!22 = distinct !{!22, !23, !"_ZZN5Yosys18ModuleHdlnameIndex13scope_sourcesB5cxx11ENS_6IdTreeINS_10ModuleItemEE6CursorEENK3$_0clEv: argument 0"}
+!23 = distinct !{!23, !"_ZZN5Yosys18ModuleHdlnameIndex13scope_sourcesB5cxx11ENS_6IdTreeINS_10ModuleItemEE6CursorEENK3$_0clEv"}
 !24 = distinct !{!24, !10}
 !25 = distinct !{!25, !10}
 !26 = distinct !{!26, !10}

@@ -545,7 +545,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.463 = private unnamed_addr constant [14 x i8] c"serialization\00", align 1
 @.str.464 = private unnamed_addr constant [9 x i8] c"deadlock\00", align 1
 @.str.465 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
-@switch.table.coerceToBool.argprom = private unnamed_addr constant [4 x ptr] [ptr @.str.233, ptr @.str.391, ptr @.str.399, ptr @.str.400], align 8
+@switch.table.coerceToBool = private unnamed_addr constant [4 x ptr] [ptr @.str.233, ptr @.str.391, ptr @.str.399, ptr @.str.400], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @strtoint64(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
@@ -7398,7 +7398,7 @@ define internal fastcc void @ParseScript(ptr noundef %0, ptr noundef %1, i32 nou
 sub_0.i.i:                                        ; preds = %22
   switch i8 %23, label %35 [
     i8 45, label %.tail.i.i
-    i8 0, label %create_sql_command.argprom.exit.thread
+    i8 0, label %create_sql_command.exit.thread
   ]
 
 .tail.i.i:                                        ; preds = %sub_0.i.i
@@ -7410,7 +7410,7 @@ sub_0.i.i:                                        ; preds = %22
 31:                                               ; preds = %.tail.i.i
   %32 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0.i.i, i32 noundef 10) #28
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %create_sql_command.argprom.exit.thread, label %34
+  br i1 %33, label %create_sql_command.exit.thread, label %34
 
 34:                                               ; preds = %31, %22
   %.0.pn.i.i = phi ptr [ %.0.i.i, %22 ], [ %32, %31 ]
@@ -7435,14 +7435,14 @@ sub_0.i.i:                                        ; preds = %22
   %43 = sext i32 %.048 to i64
   %44 = getelementptr ptr, ptr %.sroa.1069.0.ph, i64 %43
   store ptr %36, ptr %44, align 8
-  br label %create_sql_command.argprom.exit.thread
+  br label %create_sql_command.exit.thread
 
-create_sql_command.argprom.exit.thread:           ; preds = %sub_0.i.i, %31, %35
+create_sql_command.exit.thread:                   ; preds = %sub_0.i.i, %31, %35
   %.149 = phi i32 [ %42, %35 ], [ %.048, %31 ], [ %.048, %sub_0.i.i ]
   %45 = icmp eq i32 %19, 1
   br i1 %45, label %46, label %.loopexit.loopexit
 
-46:                                               ; preds = %create_sql_command.argprom.exit.thread
+46:                                               ; preds = %create_sql_command.exit.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
@@ -7931,8 +7931,8 @@ free_command.exit:                                ; preds = %.lr.ph.i59, %258
   store ptr %52, ptr %276, align 8
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %create_sql_command.argprom.exit.thread, %process_backslash_command.exit
-  %.lcssa244 = phi i32 [ %19, %create_sql_command.argprom.exit.thread ], [ 1, %process_backslash_command.exit ]
+.loopexit.loopexit:                               ; preds = %create_sql_command.exit.thread, %process_backslash_command.exit
+  %.lcssa244 = phi i32 [ %19, %create_sql_command.exit.thread ], [ 1, %process_backslash_command.exit ]
   %277 = and i32 %.lcssa244, -2
   %278 = icmp eq i32 %277, 2
   br label %.loopexit
@@ -9930,7 +9930,7 @@ coerceToDouble.exit.i:                            ; preds = %150, %155, %156, %1
   switch i32 %141, label %208 [
     i32 2, label %197
     i32 4, label %207
-    i32 0, label %valueTypeName.argprom.exit.i152.i
+    i32 0, label %valueTypeName.exit.i152.i
     i32 1, label %206
   ]
 
@@ -9955,15 +9955,15 @@ coerceToDouble.exit.i:                            ; preds = %150, %155, %156, %1
   br label %209
 
 206:                                              ; preds = %196
-  br label %valueTypeName.argprom.exit.i152.i
+  br label %valueTypeName.exit.i152.i
 
 207:                                              ; preds = %196
-  br label %valueTypeName.argprom.exit.i152.i
+  br label %valueTypeName.exit.i152.i
 
 208:                                              ; preds = %196
-  br label %valueTypeName.argprom.exit.i152.i
+  br label %valueTypeName.exit.i152.i
 
-valueTypeName.argprom.exit.i152.i:                ; preds = %208, %207, %206, %196
+valueTypeName.exit.i152.i:                        ; preds = %208, %207, %206, %196
   %.0.i.i153.i = phi ptr [ @.str.391, %206 ], [ @.str.401, %207 ], [ null, %208 ], [ @.str.233, %196 ]
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.421, ptr noundef %.0.i.i153.i) #26
   br label %evalStandardFunc.exit
@@ -10130,7 +10130,7 @@ valueTypeName.argprom.exit.i152.i:                ; preds = %208, %207, %206, %1
   switch i32 %277, label %292 [
     i32 2, label %278
     i32 3, label %281
-    i32 0, label %valueTypeName.argprom.exit.i155.i
+    i32 0, label %valueTypeName.exit.i155.i
     i32 1, label %290
     i32 4, label %291
   ]
@@ -10158,15 +10158,15 @@ valueTypeName.argprom.exit.i152.i:                ; preds = %208, %207, %206, %1
   br label %293
 
 290:                                              ; preds = %276
-  br label %valueTypeName.argprom.exit.i155.i
+  br label %valueTypeName.exit.i155.i
 
 291:                                              ; preds = %276
-  br label %valueTypeName.argprom.exit.i155.i
+  br label %valueTypeName.exit.i155.i
 
 292:                                              ; preds = %276
-  br label %valueTypeName.argprom.exit.i155.i
+  br label %valueTypeName.exit.i155.i
 
-valueTypeName.argprom.exit.i155.i:                ; preds = %292, %291, %290, %276
+valueTypeName.exit.i155.i:                        ; preds = %292, %291, %290, %276
   %.0.i.i156.i = phi ptr [ @.str.391, %290 ], [ @.str.401, %291 ], [ null, %292 ], [ @.str.233, %276 ]
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.421, ptr noundef %.0.i.i156.i) #26
   br label %evalStandardFunc.exit
@@ -10218,7 +10218,7 @@ valueTypeName.argprom.exit.i155.i:                ; preds = %292, %291, %290, %2
   %.val.i = load i32, ptr %4, align 16
   %310 = getelementptr inbounds i8, ptr %4, i64 8
   %.val151.i = load i8, ptr %310, align 8
-  %311 = call fastcc zeroext i1 @coerceToBool.argprom(i32 %.val.i, i8 %.val151.i, ptr noundef %8)
+  %311 = call fastcc zeroext i1 @coerceToBool(i32 %.val.i, i8 %.val151.i, ptr noundef %8)
   br i1 %311, label %312, label %evalStandardFunc.exit
 
 312:                                              ; preds = %309
@@ -10447,12 +10447,12 @@ valueTypeName.argprom.exit.i155.i:                ; preds = %292, %291, %290, %2
   %406 = phi i64 [ %.promoted, %.lr.ph89 ], [ %storemerge.i, %426 ]
   %407 = getelementptr [16 x %struct.PgBenchValue], ptr %4, i64 0, i64 %indvars.iv135
   %408 = load i32, ptr %407, align 16
-  switch i32 %408, label %valueTypeName.argprom.exit.i160.i [
+  switch i32 %408, label %valueTypeName.exit.i160.i [
     i32 2, label %409
     i32 3, label %412
-    i32 0, label %valueTypeName.argprom.exit.i160.i.loopexit
-    i32 1, label %valueTypeName.argprom.exit.i160.i.loopexit163
-    i32 4, label %valueTypeName.argprom.exit.i160.i.loopexit173
+    i32 0, label %valueTypeName.exit.i160.i.loopexit
+    i32 1, label %valueTypeName.exit.i160.i.loopexit163
+    i32 4, label %valueTypeName.exit.i160.i.loopexit173
   ]
 
 409:                                              ; preds = %405
@@ -10477,17 +10477,17 @@ valueTypeName.argprom.exit.i155.i:                ; preds = %292, %291, %290, %2
   %420 = fptosi double %415 to i64
   br label %421
 
-valueTypeName.argprom.exit.i160.i.loopexit:       ; preds = %405
-  br label %valueTypeName.argprom.exit.i160.i
+valueTypeName.exit.i160.i.loopexit:               ; preds = %405
+  br label %valueTypeName.exit.i160.i
 
-valueTypeName.argprom.exit.i160.i.loopexit163:    ; preds = %405
-  br label %valueTypeName.argprom.exit.i160.i
+valueTypeName.exit.i160.i.loopexit163:            ; preds = %405
+  br label %valueTypeName.exit.i160.i
 
-valueTypeName.argprom.exit.i160.i.loopexit173:    ; preds = %405
-  br label %valueTypeName.argprom.exit.i160.i
+valueTypeName.exit.i160.i.loopexit173:            ; preds = %405
+  br label %valueTypeName.exit.i160.i
 
-valueTypeName.argprom.exit.i160.i:                ; preds = %405, %valueTypeName.argprom.exit.i160.i.loopexit173, %valueTypeName.argprom.exit.i160.i.loopexit163, %valueTypeName.argprom.exit.i160.i.loopexit
-  %.0.i.i161.i = phi ptr [ @.str.233, %valueTypeName.argprom.exit.i160.i.loopexit ], [ @.str.391, %valueTypeName.argprom.exit.i160.i.loopexit163 ], [ @.str.401, %valueTypeName.argprom.exit.i160.i.loopexit173 ], [ null, %405 ]
+valueTypeName.exit.i160.i:                        ; preds = %405, %valueTypeName.exit.i160.i.loopexit173, %valueTypeName.exit.i160.i.loopexit163, %valueTypeName.exit.i160.i.loopexit
+  %.0.i.i161.i = phi ptr [ @.str.233, %valueTypeName.exit.i160.i.loopexit ], [ @.str.391, %valueTypeName.exit.i160.i.loopexit163 ], [ @.str.401, %valueTypeName.exit.i160.i.loopexit173 ], [ null, %405 ]
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.421, ptr noundef %.0.i.i161.i) #26
   br label %evalStandardFunc.exit
 
@@ -10754,8 +10754,8 @@ getHashFnv1a.exit.i:                              ; preds = %527
 default.unreachable:                              ; preds = %296
   unreachable
 
-evalStandardFunc.exit:                            ; preds = %.lr.ph, %.lr.ph96.split, %.lr.ph96.split.us, %.critedge.i.thread, %418, %valueTypeName.argprom.exit.i160.i, %287, %valueTypeName.argprom.exit.i155.i, %203, %valueTypeName.argprom.exit.i152.i, %coerceToDouble.exit.i, %135, %137, %.thread147, %.thread, %159, %160, %164, %168, %172, %176, %181, %186, %191, %209, %211, %216, %217, %224, %225, %232, %233, %236, %241, %246, %251, %258, %263, %264, %267, %274, %275, %293, %299, %301, %303, %305, %307, %309, %312, %317, %323, %327, %362, %363, %._crit_edge140, %374, %376, %384, %._crit_edge97, %.critedge.i, %._crit_edge90, %428, %430, %437, %.critedge150.i, %445, %450, %457, %458, %465, %466, %472, %473, %477, %479, %482, %500, %503, %505, %511, %getHashFnv1a.exit.i, %534, %536, %539, %545, %546
-  %.0.i18 = phi i1 [ false, %135 ], [ true, %137 ], [ false, %545 ], [ true, %546 ], [ true, %500 ], [ true, %482 ], [ false, %437 ], [ false, %.critedge150.i ], [ false, %457 ], [ false, %465 ], [ false, %472 ], [ true, %376 ], [ true, %._crit_edge140 ], [ true, %362 ], [ true, %317 ], [ true, %312 ], [ true, %191 ], [ true, %186 ], [ true, %181 ], [ true, %176 ], [ true, %172 ], [ true, %168 ], [ true, %164 ], [ true, %160 ], [ false, %258 ], [ false, %263 ], [ true, %251 ], [ true, %246 ], [ true, %241 ], [ true, %236 ], [ false, %232 ], [ true, %233 ], [ false, %224 ], [ true, %225 ], [ false, %216 ], [ true, %217 ], [ false, %.thread ], [ false, %coerceToDouble.exit.i ], [ false, %209 ], [ true, %267 ], [ true, %264 ], [ true, %275 ], [ true, %274 ], [ false, %211 ], [ false, %159 ], [ false, %293 ], [ true, %301 ], [ true, %305 ], [ true, %307 ], [ true, %303 ], [ true, %299 ], [ false, %309 ], [ true, %327 ], [ true, %323 ], [ false, %363 ], [ false, %374 ], [ false, %384 ], [ false, %.critedge.i ], [ true, %._crit_edge90 ], [ true, %._crit_edge97 ], [ false, %430 ], [ false, %428 ], [ false, %450 ], [ true, %458 ], [ true, %473 ], [ true, %466 ], [ true, %445 ], [ false, %479 ], [ false, %477 ], [ false, %505 ], [ false, %503 ], [ true, %getHashFnv1a.exit.i ], [ true, %511 ], [ false, %539 ], [ false, %536 ], [ false, %534 ], [ false, %.thread147 ], [ false, %valueTypeName.argprom.exit.i152.i ], [ false, %203 ], [ false, %valueTypeName.argprom.exit.i155.i ], [ false, %287 ], [ false, %valueTypeName.argprom.exit.i160.i ], [ false, %418 ], [ false, %.critedge.i.thread ], [ false, %.lr.ph96.split.us ], [ false, %.lr.ph96.split ], [ false, %.lr.ph ]
+evalStandardFunc.exit:                            ; preds = %.lr.ph, %.lr.ph96.split, %.lr.ph96.split.us, %.critedge.i.thread, %418, %valueTypeName.exit.i160.i, %287, %valueTypeName.exit.i155.i, %203, %valueTypeName.exit.i152.i, %coerceToDouble.exit.i, %135, %137, %.thread147, %.thread, %159, %160, %164, %168, %172, %176, %181, %186, %191, %209, %211, %216, %217, %224, %225, %232, %233, %236, %241, %246, %251, %258, %263, %264, %267, %274, %275, %293, %299, %301, %303, %305, %307, %309, %312, %317, %323, %327, %362, %363, %._crit_edge140, %374, %376, %384, %._crit_edge97, %.critedge.i, %._crit_edge90, %428, %430, %437, %.critedge150.i, %445, %450, %457, %458, %465, %466, %472, %473, %477, %479, %482, %500, %503, %505, %511, %getHashFnv1a.exit.i, %534, %536, %539, %545, %546
+  %.0.i18 = phi i1 [ false, %135 ], [ true, %137 ], [ false, %545 ], [ true, %546 ], [ true, %500 ], [ true, %482 ], [ false, %437 ], [ false, %.critedge150.i ], [ false, %457 ], [ false, %465 ], [ false, %472 ], [ true, %376 ], [ true, %._crit_edge140 ], [ true, %362 ], [ true, %317 ], [ true, %312 ], [ true, %191 ], [ true, %186 ], [ true, %181 ], [ true, %176 ], [ true, %172 ], [ true, %168 ], [ true, %164 ], [ true, %160 ], [ false, %258 ], [ false, %263 ], [ true, %251 ], [ true, %246 ], [ true, %241 ], [ true, %236 ], [ false, %232 ], [ true, %233 ], [ false, %224 ], [ true, %225 ], [ false, %216 ], [ true, %217 ], [ false, %.thread ], [ false, %coerceToDouble.exit.i ], [ false, %209 ], [ true, %267 ], [ true, %264 ], [ true, %275 ], [ true, %274 ], [ false, %211 ], [ false, %159 ], [ false, %293 ], [ true, %301 ], [ true, %305 ], [ true, %307 ], [ true, %303 ], [ true, %299 ], [ false, %309 ], [ true, %327 ], [ true, %323 ], [ false, %363 ], [ false, %374 ], [ false, %384 ], [ false, %.critedge.i ], [ true, %._crit_edge90 ], [ true, %._crit_edge97 ], [ false, %430 ], [ false, %428 ], [ false, %450 ], [ true, %458 ], [ true, %473 ], [ true, %466 ], [ true, %445 ], [ false, %479 ], [ false, %477 ], [ false, %505 ], [ false, %503 ], [ true, %getHashFnv1a.exit.i ], [ true, %511 ], [ false, %539 ], [ false, %536 ], [ false, %534 ], [ false, %.thread147 ], [ false, %valueTypeName.exit.i152.i ], [ false, %203 ], [ false, %valueTypeName.exit.i155.i ], [ false, %287 ], [ false, %valueTypeName.exit.i160.i ], [ false, %418 ], [ false, %.critedge.i.thread ], [ false, %.lr.ph96.split.us ], [ false, %.lr.ph96.split ], [ false, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -11098,7 +11098,7 @@ define internal fastcc zeroext i1 @evalLazyFunc(ptr noundef %0, i32 noundef %1, 
   switch i32 %14, label %19 [
     i32 1, label %15
     i32 4, label %20
-    i32 0, label %coerceToBool.argprom.exit
+    i32 0, label %coerceToBool.exit
     i32 3, label %18
     i32 2, label %17
   ]
@@ -11110,15 +11110,15 @@ define internal fastcc zeroext i1 @evalLazyFunc(ptr noundef %0, i32 noundef %1, 
   br label %92
 
 17:                                               ; preds = %13
-  br label %coerceToBool.argprom.exit
+  br label %coerceToBool.exit
 
 18:                                               ; preds = %13
-  br label %coerceToBool.argprom.exit
+  br label %coerceToBool.exit
 
 19:                                               ; preds = %13
-  br label %coerceToBool.argprom.exit
+  br label %coerceToBool.exit
 
-coerceToBool.argprom.exit:                        ; preds = %13, %17, %18, %19
+coerceToBool.exit:                                ; preds = %13, %17, %18, %19
   %.0.i.i = phi ptr [ @.str.399, %17 ], [ @.str.400, %18 ], [ null, %19 ], [ @.str.233, %13 ]
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.398, ptr noundef %.0.i.i) #26
   br label %92
@@ -11154,7 +11154,7 @@ coerceToBool.argprom.exit:                        ; preds = %13, %17, %18, %19
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %6, i64 8
   %.val29 = load i8, ptr %34, align 8
-  %35 = call fastcc zeroext i1 @coerceToBool.argprom(i32 %29, i8 %.val29, ptr noundef %7)
+  %35 = call fastcc zeroext i1 @coerceToBool(i32 %29, i8 %.val29, ptr noundef %7)
   br i1 %35, label %36, label %92
 
 36:                                               ; preds = %33
@@ -11170,7 +11170,7 @@ coerceToBool.argprom.exit:                        ; preds = %13, %17, %18, %19
   switch i32 %41, label %46 [
     i32 1, label %42
     i32 4, label %47
-    i32 0, label %coerceToBool.argprom.exit37
+    i32 0, label %coerceToBool.exit37
     i32 3, label %45
     i32 2, label %44
   ]
@@ -11182,15 +11182,15 @@ coerceToBool.argprom.exit:                        ; preds = %13, %17, %18, %19
   br label %92
 
 44:                                               ; preds = %40
-  br label %coerceToBool.argprom.exit37
+  br label %coerceToBool.exit37
 
 45:                                               ; preds = %40
-  br label %coerceToBool.argprom.exit37
+  br label %coerceToBool.exit37
 
 46:                                               ; preds = %40
-  br label %coerceToBool.argprom.exit37
+  br label %coerceToBool.exit37
 
-coerceToBool.argprom.exit37:                      ; preds = %40, %44, %45, %46
+coerceToBool.exit37:                              ; preds = %40, %44, %45, %46
   %.0.i.i35 = phi ptr [ @.str.399, %44 ], [ @.str.400, %45 ], [ null, %46 ], [ @.str.233, %40 ]
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.398, ptr noundef %.0.i.i35) #26
   br label %92
@@ -11226,7 +11226,7 @@ coerceToBool.argprom.exit37:                      ; preds = %40, %44, %45, %46
 60:                                               ; preds = %55
   %61 = getelementptr inbounds i8, ptr %6, i64 8
   %.val33 = load i8, ptr %61, align 8
-  %62 = call fastcc zeroext i1 @coerceToBool.argprom(i32 %56, i8 %.val33, ptr noundef %7)
+  %62 = call fastcc zeroext i1 @coerceToBool(i32 %56, i8 %.val33, ptr noundef %7)
   br i1 %62, label %63, label %92
 
 63:                                               ; preds = %60
@@ -11285,13 +11285,13 @@ valueTruth.exit.thread:                           ; preds = %67, %69, %72, %valu
   %91 = call fastcc zeroext i1 @evalLazyFunc(ptr noundef %0, i32 noundef 33, ptr noundef nonnull %83, ptr noundef %3)
   br label %92
 
-92:                                               ; preds = %coerceToBool.argprom.exit37, %coerceToBool.argprom.exit, %10, %60, %52, %33, %25, %4, %90, %87, %79, %63, %58, %50, %42, %36, %31, %23, %15
-  %.0 = phi i1 [ %81, %79 ], [ %89, %87 ], [ %91, %90 ], [ true, %42 ], [ true, %50 ], [ true, %58 ], [ true, %63 ], [ true, %15 ], [ true, %31 ], [ true, %36 ], [ true, %23 ], [ false, %4 ], [ false, %coerceToBool.argprom.exit ], [ false, %25 ], [ false, %33 ], [ false, %coerceToBool.argprom.exit37 ], [ false, %52 ], [ false, %60 ], [ false, %10 ]
+92:                                               ; preds = %coerceToBool.exit37, %coerceToBool.exit, %10, %60, %52, %33, %25, %4, %90, %87, %79, %63, %58, %50, %42, %36, %31, %23, %15
+  %.0 = phi i1 [ %81, %79 ], [ %89, %87 ], [ %91, %90 ], [ true, %42 ], [ true, %50 ], [ true, %58 ], [ true, %63 ], [ true, %15 ], [ true, %31 ], [ true, %36 ], [ true, %23 ], [ false, %4 ], [ false, %coerceToBool.exit ], [ false, %25 ], [ false, %33 ], [ false, %coerceToBool.exit37 ], [ false, %52 ], [ false, %60 ], [ false, %10 ]
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @coerceToBool.argprom(i32 %.0.val, i8 %.8.val, ptr nocapture noundef nonnull writeonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @coerceToBool(i32 %.0.val, i8 %.8.val, ptr nocapture noundef nonnull writeonly %0) unnamed_addr #0 {
   %2 = icmp eq i32 %.0.val, 4
   br i1 %2, label %3, label %5
 
@@ -11301,21 +11301,21 @@ define internal fastcc noundef zeroext i1 @coerceToBool.argprom(i32 %.0.val, i8 
 
 5:                                                ; preds = %1
   %6 = icmp ult i32 %.0.val, 4
-  br i1 %6, label %switch.lookup, label %valueTypeName.argprom.exit
+  br i1 %6, label %switch.lookup, label %valueTypeName.exit
 
 switch.lookup:                                    ; preds = %5
   %7 = zext nneg i32 %.0.val to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.coerceToBool.argprom, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.coerceToBool, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %valueTypeName.argprom.exit
+  br label %valueTypeName.exit
 
-valueTypeName.argprom.exit:                       ; preds = %5, %switch.lookup
+valueTypeName.exit:                               ; preds = %5, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ null, %5 ]
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.398, ptr noundef %.0.i) #26
   br label %8
 
-8:                                                ; preds = %valueTypeName.argprom.exit, %3
-  %storemerge = phi i8 [ 0, %valueTypeName.argprom.exit ], [ %4, %3 ]
+8:                                                ; preds = %valueTypeName.exit, %3
+  %storemerge = phi i8 [ 0, %valueTypeName.exit ], [ %4, %3 ]
   store i8 %storemerge, ptr %0, align 1
   ret i1 %2
 }
@@ -11326,7 +11326,7 @@ define internal fastcc noundef zeroext i1 @coerceToDouble(ptr nocapture noundef 
   switch i32 %3, label %13 [
     i32 3, label %4
     i32 2, label %7
-    i32 0, label %valueTypeName.argprom.exit
+    i32 0, label %valueTypeName.exit
     i32 1, label %11
     i32 4, label %12
   ]
@@ -11345,21 +11345,21 @@ define internal fastcc noundef zeroext i1 @coerceToDouble(ptr nocapture noundef 
   br label %14
 
 11:                                               ; preds = %2
-  br label %valueTypeName.argprom.exit
+  br label %valueTypeName.exit
 
 12:                                               ; preds = %2
-  br label %valueTypeName.argprom.exit
+  br label %valueTypeName.exit
 
 13:                                               ; preds = %2
-  br label %valueTypeName.argprom.exit
+  br label %valueTypeName.exit
 
-valueTypeName.argprom.exit:                       ; preds = %2, %11, %12, %13
+valueTypeName.exit:                               ; preds = %2, %11, %12, %13
   %.0.i = phi ptr [ @.str.391, %11 ], [ @.str.401, %12 ], [ null, %13 ], [ @.str.233, %2 ]
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.419, ptr noundef %.0.i) #26
   br label %14
 
-14:                                               ; preds = %valueTypeName.argprom.exit, %7, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %7 ], [ false, %valueTypeName.argprom.exit ]
+14:                                               ; preds = %valueTypeName.exit, %7, %4
+  %.0 = phi i1 [ true, %4 ], [ true, %7 ], [ false, %valueTypeName.exit ]
   ret i1 %.0
 }
 
@@ -11369,7 +11369,7 @@ define internal fastcc noundef zeroext i1 @coerceToInt(ptr nocapture noundef rea
   switch i32 %3, label %18 [
     i32 2, label %4
     i32 3, label %7
-    i32 0, label %valueTypeName.argprom.exit
+    i32 0, label %valueTypeName.exit
     i32 1, label %16
     i32 4, label %17
   ]
@@ -11399,21 +11399,21 @@ define internal fastcc noundef zeroext i1 @coerceToInt(ptr nocapture noundef rea
   br label %19
 
 16:                                               ; preds = %2
-  br label %valueTypeName.argprom.exit
+  br label %valueTypeName.exit
 
 17:                                               ; preds = %2
-  br label %valueTypeName.argprom.exit
+  br label %valueTypeName.exit
 
 18:                                               ; preds = %2
-  br label %valueTypeName.argprom.exit
+  br label %valueTypeName.exit
 
-valueTypeName.argprom.exit:                       ; preds = %2, %16, %17, %18
+valueTypeName.exit:                               ; preds = %2, %16, %17, %18
   %.0.i = phi ptr [ @.str.391, %16 ], [ @.str.401, %17 ], [ null, %18 ], [ @.str.233, %2 ]
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.421, ptr noundef %.0.i) #26
   br label %19
 
-19:                                               ; preds = %valueTypeName.argprom.exit, %14, %13, %4
-  %.0 = phi i1 [ true, %4 ], [ true, %14 ], [ false, %13 ], [ false, %valueTypeName.argprom.exit ]
+19:                                               ; preds = %valueTypeName.exit, %14, %13, %4
+  %.0 = phi i1 [ true, %4 ], [ true, %14 ], [ false, %13 ], [ false, %valueTypeName.exit ]
   ret i1 %.0
 }
 

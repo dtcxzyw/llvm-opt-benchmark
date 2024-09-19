@@ -152,13 +152,13 @@ define noundef nonnull ptr @_ZN6google8protobuf8internal19ImplicitWeakMessage16d
   %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFvvEJEEvRS_OT_DpOT0_EUlvE_EERS6_ENUlvE_8__invokeEv, ptr %3, align 8
   %4 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZN6google8protobuf8internal32implicit_weak_message_once_init_E, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i unwind label %7
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i.i unwind label %7
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i:      ; preds = %0
+_ZL14__gthread_oncePiPFvvE.exit.i.i:              ; preds = %0
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagRFvvEEEEvDpOT_.exit, label %5
 
-5:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i
+5:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %4) #15
           to label %6 unwind label %7
 
@@ -172,7 +172,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i.i:      ; preds = %0
   store ptr null, ptr %3, align 8
   resume { ptr, i32 } %8
 
-_ZN6google8protobuf8internal9call_onceIJRSt9once_flagRFvvEEEEvDpOT_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i.i
+_ZN6google8protobuf8internal9call_onceIJRSt9once_flagRFvvEEEEvDpOT_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)

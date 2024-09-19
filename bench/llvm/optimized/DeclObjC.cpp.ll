@@ -16855,7 +16855,7 @@ _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit: ; preds = %19
   %24 = sub i64 %12, %21
   %25 = ashr exact i64 %24, 4
   %26 = icmp sgt i64 %25, 0
-  br i1 %26, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit
+  br i1 %26, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
 
 _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i
   %.05.i = phi ptr [ %.1.i, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i ], [ %.tr6474, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
@@ -16870,15 +16870,15 @@ _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i: ; preds = %
   %.112.i = select i1 %29, i64 %32, i64 %27
   %.1.i = select i1 %29, ptr %30, ptr %.05.i
   %33 = icmp sgt i64 %.112.i, 0
-  br i1 %33, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !84
+  br i1 %33, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !84
 
-_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit.loopexit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i
+_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i to i64
-  br label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit
+  br label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
 
-_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit.loopexit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit.loopexit ], [ %21, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %.1.i, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit.loopexit ], [ %.tr6474, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
+_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %21, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
+  %.0.lcssa.i = phi ptr [ %.1.i, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %.tr6474, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
   %34 = sub i64 %.pre-phi, %21
   %35 = ashr exact i64 %34, 4
   br label %51
@@ -16891,7 +16891,7 @@ _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit42: ; preds = %
   %39 = sub i64 %21, %38
   %40 = ashr exact i64 %39, 4
   %41 = icmp sgt i64 %40, 0
-  br i1 %41, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i44, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit
+  br i1 %41, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i44, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit
 
 _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i44: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit42, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i44
   %.05.i45 = phi ptr [ %.1.i50, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i44 ], [ %.tr72, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit42 ]
@@ -16906,24 +16906,24 @@ _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i44: ; preds =
   %.112.i49 = select i1 %44, i64 %42, i64 %47
   %.1.i50 = select i1 %44, ptr %.05.i45, ptr %45
   %48 = icmp sgt i64 %.112.i49, 0
-  br i1 %48, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i44, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !85
+  br i1 %48, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i44, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !85
 
-_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit.loopexit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i44
+_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i44
   %.pre81 = ptrtoint ptr %.1.i50 to i64
-  br label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit
+  br label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit
 
-_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit.loopexit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit42
-  %.pre-phi82 = phi i64 [ %.pre81, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit.loopexit ], [ %38, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit42 ]
-  %.0.lcssa.i43 = phi ptr [ %.1.i50, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit.loopexit ], [ %.tr72, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit42 ]
+_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit42
+  %.pre-phi82 = phi i64 [ %.pre81, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %38, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit42 ]
+  %.0.lcssa.i43 = phi ptr [ %.1.i50, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %.tr72, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit42 ]
   %49 = sub i64 %.pre-phi82, %38
   %50 = ashr exact i64 %49, 4
   br label %51
 
-51:                                               ; preds = %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit
-  %.061 = phi ptr [ %23, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit ], [ %.0.lcssa.i43, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit ]
-  %.060 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit ], [ %37, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit ]
-  %.033 = phi i64 [ %35, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit ], [ %36, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit ]
-  %.0 = phi i64 [ %22, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit ], [ %50, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit ]
+51:                                               ; preds = %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
+  %.061 = phi ptr [ %23, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %.0.lcssa.i43, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
+  %.060 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %37, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
+  %.033 = phi i64 [ %35, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %36, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %22, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %50, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
   %52 = icmp eq ptr %.061, %.tr6474
   br i1 %52, label %_ZNSt3_V26rotateIPN12_GLOBAL__N_119SynthesizeIvarChunkEEET_S4_S4_S4_.exit, label %53
 
@@ -17631,7 +17631,7 @@ _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit: ; preds = %61
   %64 = sub i64 %11, %34
   %65 = ashr exact i64 %64, 4
   %66 = icmp sgt i64 %65, 0
-  br i1 %66, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit
+  br i1 %66, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
 
 _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i
   %.05.i = phi ptr [ %.1.i67, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i ], [ %.tr98116, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
@@ -17646,15 +17646,15 @@ _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i: ; preds = %
   %.112.i = select i1 %69, i64 %72, i64 %67
   %.1.i67 = select i1 %69, ptr %70, ptr %.05.i
   %73 = icmp sgt i64 %.112.i, 0
-  br i1 %73, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !84
+  br i1 %73, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !84
 
-_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit.loopexit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i
+_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.1.i67 to i64
-  br label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit
+  br label %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
 
-_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit.loopexit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit.loopexit ], [ %34, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
-  %.0.lcssa.i66 = phi ptr [ %.1.i67, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit.loopexit ], [ %.tr98116, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
+_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %34, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
+  %.0.lcssa.i66 = phi ptr [ %.1.i67, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %.tr98116, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit ]
   %74 = sub i64 %.pre-phi, %34
   %75 = ashr exact i64 %74, 4
   br label %91
@@ -17667,7 +17667,7 @@ _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71: ; preds = %
   %79 = sub i64 %34, %78
   %80 = ashr exact i64 %79, 4
   %81 = icmp sgt i64 %80, 0
-  br i1 %81, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit
+  br i1 %81, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit
 
 _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74
   %.05.i75 = phi ptr [ %.1.i80, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74 ], [ %.tr114, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
@@ -17682,24 +17682,24 @@ _ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74: ; preds =
   %.112.i79 = select i1 %84, i64 %82, i64 %87
   %.1.i80 = select i1 %84, ptr %.05.i75, ptr %85
   %88 = icmp sgt i64 %.112.i79, 0
-  br i1 %88, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !85
+  br i1 %88, label %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74, label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !85
 
-_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit.loopexit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74
+_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit.i74
   %.pre130 = ptrtoint ptr %.1.i80 to i64
-  br label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit
+  br label %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit
 
-_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit.loopexit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71
-  %.pre-phi131 = phi i64 [ %.pre130, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit.loopexit ], [ %78, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
-  %.0.lcssa.i73 = phi ptr [ %.1.i80, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit.loopexit ], [ %.tr114, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
+_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71
+  %.pre-phi131 = phi i64 [ %.pre130, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %78, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
+  %.0.lcssa.i73 = phi ptr [ %.1.i80, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit ], [ %.tr114, %_ZSt7advanceIPN12_GLOBAL__N_119SynthesizeIvarChunkElEvRT_T0_.exit71 ]
   %89 = sub i64 %.pre-phi131, %78
   %90 = ashr exact i64 %89, 4
   br label %91
 
-91:                                               ; preds = %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit
-  %.095 = phi ptr [ %63, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit ], [ %.0.lcssa.i73, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit ]
-  %.094 = phi ptr [ %.0.lcssa.i66, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit ], [ %77, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit ]
-  %.055 = phi i64 [ %75, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit ], [ %76, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit ]
-  %.0 = phi i64 [ %62, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.argprom.exit ], [ %90, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.argprom.exit ]
+91:                                               ; preds = %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
+  %.095 = phi ptr [ %63, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %.0.lcssa.i73, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
+  %.094 = phi ptr [ %.0.lcssa.i66, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %77, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
+  %.055 = phi i64 [ %75, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %76, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %62, %_ZSt13__lower_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit ], [ %90, %_ZSt13__upper_boundIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit ]
   %92 = sub nsw i64 %.tr100118, %.0
   %93 = icmp sle i64 %92, %.055
   %.not.i = icmp sgt i64 %.055, %6

@@ -1191,7 +1191,7 @@ merge_block.exit.thread144:                       ; preds = %227
   %341 = xor i8 %.1.i61, 4
   store i8 %341, ptr %292, align 8
   %342 = getelementptr inbounds i8, ptr %.val.val.i47, i64 156
-  call fastcc void @create_decode_tables.retelim(ptr noundef %7, ptr noundef nonnull %342, i32 noundef 20)
+  call fastcc void @create_decode_tables(ptr noundef %7, ptr noundef nonnull %342, i32 noundef 20)
   br label %343
 
 343:                                              ; preds = %.loopexit.i, %340
@@ -1367,13 +1367,13 @@ parse_tables.exit.thread:                         ; preds = %297, %345, %395, %r
 
 parse_tables.exit:                                ; preds = %.preheader.i, %.loopexit.i
   %430 = getelementptr inbounds i8, ptr %.val.val.i47, i64 3976
-  call fastcc void @create_decode_tables.retelim(ptr noundef %8, ptr noundef nonnull %430, i32 noundef 306)
+  call fastcc void @create_decode_tables(ptr noundef %8, ptr noundef nonnull %430, i32 noundef 306)
   %431 = getelementptr inbounds i8, ptr %.val.val.i47, i64 7796
-  call fastcc void @create_decode_tables.retelim(ptr noundef %68, ptr noundef nonnull %431, i32 noundef 64)
+  call fastcc void @create_decode_tables(ptr noundef %68, ptr noundef nonnull %431, i32 noundef 64)
   %432 = getelementptr inbounds i8, ptr %.val.val.i47, i64 11616
-  call fastcc void @create_decode_tables.retelim(ptr noundef %69, ptr noundef nonnull %432, i32 noundef 16)
+  call fastcc void @create_decode_tables(ptr noundef %69, ptr noundef nonnull %432, i32 noundef 16)
   %433 = getelementptr inbounds i8, ptr %.val.val.i47, i64 15436
-  call fastcc void @create_decode_tables.retelim(ptr noundef %70, ptr noundef nonnull %433, i32 noundef 44)
+  call fastcc void @create_decode_tables(ptr noundef %70, ptr noundef nonnull %433, i32 noundef 44)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 430, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
@@ -1473,7 +1473,7 @@ parse_tables.exit:                                ; preds = %.preheader.i, %.loo
   store i8 %489, ptr %492, align 1
   br label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %copy_string.argprom.argprom.exit165.i.i, %copy_string.argprom.argprom.exit142.thread.i.i, %796, %parse_filter.exit.i.i, %copy_string.argprom.argprom.exit.i.i, %484
+.backedge.i.i:                                    ; preds = %copy_string.exit165.i.i, %copy_string.exit142.thread.i.i, %796, %parse_filter.exit.i.i, %copy_string.exit.i.i, %484
   %493 = load i64, ptr %443, align 8
   %494 = load i64, ptr %444, align 8
   %495 = sub nsw i64 %493, %494
@@ -1749,7 +1749,7 @@ read_consume_bits.exit.i.i:                       ; preds = %610
 
 .preheader.i.i.i:                                 ; preds = %648
   %662 = icmp sgt i32 %.093.i.i, 0
-  br i1 %662, label %.lr.ph.i.i.i51, label %copy_string.argprom.argprom.exit.i.i
+  br i1 %662, label %.lr.ph.i.i.i51, label %copy_string.exit.i.i
 
 .lr.ph.i.i.i51:                                   ; preds = %.preheader.i.i.i
   %663 = sext i32 %.1.i84.i to i64
@@ -1773,9 +1773,9 @@ read_consume_bits.exit.i.i:                       ; preds = %610
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %664
   %.pre.i.i.i = load i64, ptr %654, align 8
-  br label %copy_string.argprom.argprom.exit.i.i
+  br label %copy_string.exit.i.i
 
-copy_string.argprom.argprom.exit.i.i:             ; preds = %._crit_edge.loopexit.i.i.i, %.preheader.i.i.i
+copy_string.exit.i.i:                             ; preds = %._crit_edge.loopexit.i.i.i, %.preheader.i.i.i
   %673 = phi i64 [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %655, %.preheader.i.i.i ]
   %674 = sext i32 %.093.i.i to i64
   %675 = add nsw i64 %673, %674
@@ -2008,7 +2008,7 @@ parse_filter.exit.i.i:                            ; preds = %769, %754
 
 .preheader.i132.i.i:                              ; preds = %798
   %810 = icmp sgt i32 %797, 0
-  br i1 %810, label %.lr.ph.i135.i.i, label %copy_string.argprom.argprom.exit142.thread.i.i
+  br i1 %810, label %.lr.ph.i135.i.i, label %copy_string.exit142.thread.i.i
 
 .lr.ph.i135.i.i:                                  ; preds = %.preheader.i132.i.i
   %811 = sext i32 %799 to i64
@@ -2032,9 +2032,9 @@ parse_filter.exit.i.i:                            ; preds = %769, %754
 
 ._crit_edge.loopexit.i140.i.i:                    ; preds = %812
   %.pre.i141.i.i = load i64, ptr %802, align 8
-  br label %copy_string.argprom.argprom.exit142.thread.i.i
+  br label %copy_string.exit142.thread.i.i
 
-copy_string.argprom.argprom.exit142.thread.i.i:   ; preds = %._crit_edge.loopexit.i140.i.i, %.preheader.i132.i.i
+copy_string.exit142.thread.i.i:                   ; preds = %._crit_edge.loopexit.i140.i.i, %.preheader.i132.i.i
   %821 = phi i64 [ %.pre.i141.i.i, %._crit_edge.loopexit.i140.i.i ], [ %803, %.preheader.i132.i.i ]
   %822 = sext i32 %797 to i64
   %823 = add nsw i64 %821, %822
@@ -2142,7 +2142,7 @@ decode_code_length.exit154.i.i:                   ; preds = %842
 
 .preheader.i155.i.i:                              ; preds = %873
   %884 = icmp sgt i32 %.015.i151195.i.i, 0
-  br i1 %884, label %.lr.ph.i158.i.i, label %copy_string.argprom.argprom.exit165.i.i
+  br i1 %884, label %.lr.ph.i158.i.i, label %copy_string.exit165.i.i
 
 .lr.ph.i158.i.i:                                  ; preds = %.preheader.i155.i.i
   %885 = sext i32 %828 to i64
@@ -2166,9 +2166,9 @@ decode_code_length.exit154.i.i:                   ; preds = %842
 
 ._crit_edge.loopexit.i163.i.i:                    ; preds = %886
   %.pre.i164.i.i = load i64, ptr %876, align 8
-  br label %copy_string.argprom.argprom.exit165.i.i
+  br label %copy_string.exit165.i.i
 
-copy_string.argprom.argprom.exit165.i.i:          ; preds = %._crit_edge.loopexit.i163.i.i, %.preheader.i155.i.i
+copy_string.exit165.i.i:                          ; preds = %._crit_edge.loopexit.i163.i.i, %.preheader.i155.i.i
   %895 = phi i64 [ %.pre.i164.i.i, %._crit_edge.loopexit.i163.i.i ], [ %877, %.preheader.i155.i.i ]
   %896 = sext i32 %.015.i151195.i.i to i64
   %897 = add nsw i64 %895, %896
@@ -2440,21 +2440,21 @@ circular_memcpy.exit.i.i.i:                       ; preds = %1009, %1004
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr nonnull readonly align 1 %1039, i64 %1038, i1 false)
   %1040 = getelementptr inbounds i8, ptr %19, i64 %1038
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1040, ptr nonnull readonly align 1 %1013, i64 %1034, i1 false)
-  br label %read_filter_data.argprom.exit.i.i.i
+  br label %read_filter_data.exit.i.i.i
 
 1041:                                             ; preds = %1025
   %1042 = getelementptr inbounds i8, ptr %1013, i64 %1031
   %1043 = sub nuw nsw i64 %1033, %1031
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %19, ptr noundef nonnull readonly align 1 dereferenceable(1) %1042, i64 %1043, i1 false)
-  br label %read_filter_data.argprom.exit.i.i.i
+  br label %read_filter_data.exit.i.i.i
 
-read_filter_data.argprom.exit.i.i.i:              ; preds = %1041, %1036
+read_filter_data.exit.i.i.i:                      ; preds = %1041, %1036
   %1044 = load i32, ptr %19, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   %.not.i.i.i = icmp sgt i32 %1044, -1
   br i1 %.not.i.i.i, label %1050, label %1045
 
-1045:                                             ; preds = %read_filter_data.argprom.exit.i.i.i
+1045:                                             ; preds = %read_filter_data.exit.i.i.i
   %1046 = add i32 %1044, %1028
   %1047 = icmp sgt i32 %1046, -1
   br i1 %1047, label %1048, label %1065
@@ -2463,7 +2463,7 @@ read_filter_data.argprom.exit.i.i.i:              ; preds = %1041, %1036
   %1049 = add nsw i32 %1044, 16777216
   br label %.sink.split.i.i.i
 
-1050:                                             ; preds = %read_filter_data.argprom.exit.i.i.i
+1050:                                             ; preds = %read_filter_data.exit.i.i.i
   %.not40.i.i.i = icmp ugt i32 %1044, 16777215
   br i1 %.not40.i.i.i, label %1065, label %1051
 
@@ -2574,15 +2574,15 @@ circular_memcpy.exit.i31.i.i:                     ; preds = %1090, %1085
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr nonnull readonly align 1 %1115, i64 %1114, i1 false)
   %1116 = getelementptr inbounds i8, ptr %18, i64 %1114
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1116, ptr nonnull readonly align 1 %1094, i64 %1110, i1 false)
-  br label %read_filter_data.argprom.exit.i34.i.i
+  br label %read_filter_data.exit.i34.i.i
 
 1117:                                             ; preds = %1105
   %1118 = getelementptr inbounds i8, ptr %1094, i64 %1107
   %1119 = sub nuw nsw i64 %1109, %1107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %18, ptr noundef nonnull readonly align 1 dereferenceable(1) %1118, i64 %1119, i1 false)
-  br label %read_filter_data.argprom.exit.i34.i.i
+  br label %read_filter_data.exit.i34.i.i
 
-read_filter_data.argprom.exit.i34.i.i:            ; preds = %1117, %1112
+read_filter_data.exit.i34.i.i:                    ; preds = %1117, %1112
   %1120 = load i32, ptr %18, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   %.neg.i.i.i = sdiv i64 %1097, -4
@@ -2606,8 +2606,8 @@ read_filter_data.argprom.exit.i34.i.i:            ; preds = %1117, %1112
   %.pre.i35.i.i = load i64, ptr %945, align 8
   br label %1132
 
-1132:                                             ; preds = %read_filter_data.argprom.exit.i34.i.i, %.lr.ph.i33.i.i
-  %1133 = phi i64 [ %1093, %.lr.ph.i33.i.i ], [ %.pre.i35.i.i, %read_filter_data.argprom.exit.i34.i.i ]
+1132:                                             ; preds = %read_filter_data.exit.i34.i.i, %.lr.ph.i33.i.i
+  %1133 = phi i64 [ %1093, %.lr.ph.i33.i.i ], [ %.pre.i35.i.i, %read_filter_data.exit.i34.i.i ]
   %1134 = add nuw nsw i64 %.033.i.i.i, 4
   %1135 = add nsw i64 %1133, -3
   %1136 = icmp slt i64 %1134, %1135
@@ -3384,7 +3384,7 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   ]
 
 91:                                               ; preds = %72
-  %92 = call fastcc i32 @process_head_main.argprom(ptr noundef %0, ptr noundef nonnull %.val.val, i64 noundef %73)
+  %92 = call fastcc i32 @process_head_main(ptr noundef %0, ptr noundef nonnull %.val.val, i64 noundef %73)
   %93 = icmp eq i32 %92, 0
   %. = select i1 %93, i32 -10, i32 %92
   br label %read_var_sized.exit
@@ -3409,7 +3409,7 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
   br i1 %.not60, label %read_var_sized.exit, label %102
 
 102:                                              ; preds = %99
-  call fastcc void @scan_for_signature.retelim(ptr noundef %0)
+  call fastcc void @scan_for_signature(ptr noundef %0)
   %103 = getelementptr inbounds i8, ptr %.val.val, i64 21272
   %104 = load i32, ptr %103, align 8
   %105 = icmp eq i32 %104, -1
@@ -3561,7 +3561,7 @@ read_var.exit.thread.thread:                      ; preds = %18, %read_var.exit.
 declare i64 @cm_zlib_crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 2) i32 @process_head_main.argprom(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 2) i32 @process_head_main(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -4563,7 +4563,7 @@ read_var_sized.exit.thread:                       ; preds = %180, %175, %165, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scan_for_signature.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @scan_for_signature(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca [8 x i8], align 1
   br label %4
@@ -5837,7 +5837,7 @@ declare i32 @blake2sp_update(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @create_decode_tables.retelim(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 16, 307) %2) unnamed_addr #9 {
+define internal fastcc void @create_decode_tables(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 16, 307) %2) unnamed_addr #9 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)

@@ -203,9 +203,9 @@ define void @_ZN3gmx18InMemorySerializer8doUShortEPt(ptr nocapture noundef nonnu
   %.06.i.i = phi i32 [ 1, %11 ], [ 0, %12 ]
   %.0.i.i = phi i32 [ 0, %11 ], [ 1, %12 ]
   %13 = icmp ugt i32 %.06.i.i, %.0.i.i
-  br i1 %13, label %12, label %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.argprom.exit.i, !llvm.loop !5
+  br i1 %13, label %12, label %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i, !llvm.loop !5
 
-_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.argprom.exit.i: ; preds = %12
+_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i: ; preds = %12
   %.sroa.4.0.insert.ext.i.i = zext i8 %.sroa.4.0.i.i to i16
   %.sroa.4.0.insert.shift.i.i = shl nuw i16 %.sroa.4.0.insert.ext.i.i, 8
   %.sroa.0.0.insert.ext.i.i = zext i8 %.sroa.0.0.i.i to i16
@@ -218,9 +218,9 @@ _ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.argprom.exit.i: ; preds = %12
   store i16 %7, ptr %4, align 2
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueItEEvT_.exit
 
-_ZN3gmx18InMemorySerializer4Impl7doValueItEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.argprom.exit.i, %14
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %14 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.argprom.exit.i ]
-  %.sink.i = phi ptr [ %4, %14 ], [ %3, %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.argprom.exit.i ]
+_ZN3gmx18InMemorySerializer4Impl7doValueItEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i, %14
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %14 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i ]
+  %.sink.i = phi ptr [ %4, %14 ], [ %3, %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i ]
   %15 = getelementptr inbounds i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %6, align 8
@@ -267,9 +267,9 @@ define void @_ZN3gmx18InMemorySerializer5doIntEPi(ptr nocapture noundef nonnull 
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %18 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i, !llvm.loop !7
+  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i, !llvm.loop !7
 
-_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i: ; preds = %13
+_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %13
   %19 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store i32 %19, ptr %4, align 4
@@ -280,9 +280,9 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i: ; preds = %13
   store i32 %8, ptr %5, align 4
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit
 
-_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i, %20
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i ]
-  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i ]
+_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i, %20
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i ]
+  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i ]
   %21 = getelementptr inbounds i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
@@ -329,9 +329,9 @@ define void @_ZN3gmx18InMemorySerializer7doInt32EPi(ptr nocapture noundef nonnul
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %18 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i, !llvm.loop !7
+  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i, !llvm.loop !7
 
-_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i: ; preds = %13
+_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %13
   %19 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store i32 %19, ptr %4, align 4
@@ -342,9 +342,9 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i: ; preds = %13
   store i32 %8, ptr %5, align 4
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit
 
-_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i, %20
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i ]
-  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i ]
+_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i, %20
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i ]
+  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i ]
   %21 = getelementptr inbounds i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
@@ -391,9 +391,9 @@ define void @_ZN3gmx18InMemorySerializer7doInt64EPl(ptr nocapture noundef nonnul
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %18 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.argprom.exit.i, !llvm.loop !8
+  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i, !llvm.loop !8
 
-_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.argprom.exit.i: ; preds = %13
+_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i: ; preds = %13
   %19 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store i64 %19, ptr %4, align 8
@@ -404,9 +404,9 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.argprom.exit.i: ; preds = %13
   store i64 %8, ptr %5, align 8
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIlEEvT_.exit
 
-_ZN3gmx18InMemorySerializer4Impl7doValueIlEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.argprom.exit.i, %20
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.argprom.exit.i ]
-  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.argprom.exit.i ]
+_ZN3gmx18InMemorySerializer4Impl7doValueIlEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i, %20
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i ]
+  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i ]
   %21 = getelementptr inbounds i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
@@ -453,9 +453,9 @@ define void @_ZN3gmx18InMemorySerializer7doFloatEPf(ptr nocapture noundef nonnul
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %18 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i, !llvm.loop !9
+  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i, !llvm.loop !9
 
-_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i: ; preds = %13
+_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %13
   %19 = load float, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store float %19, ptr %4, align 4
@@ -466,9 +466,9 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i: ; preds = %13
   store float %8, ptr %5, align 4
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit
 
-_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i, %20
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i ]
-  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i ]
+_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i, %20
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i ]
+  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i ]
   %21 = getelementptr inbounds i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
@@ -515,9 +515,9 @@ define void @_ZN3gmx18InMemorySerializer8doDoubleEPd(ptr nocapture noundef nonnu
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %18 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.argprom.exit.i, !llvm.loop !10
+  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i, !llvm.loop !10
 
-_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.argprom.exit.i: ; preds = %13
+_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i: ; preds = %13
   %19 = load double, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store double %19, ptr %4, align 8
@@ -528,9 +528,9 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.argprom.exit.i: ; preds = %13
   store double %8, ptr %5, align 8
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIdEEvT_.exit
 
-_ZN3gmx18InMemorySerializer4Impl7doValueIdEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.argprom.exit.i, %20
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.argprom.exit.i ]
-  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.argprom.exit.i ]
+_ZN3gmx18InMemorySerializer4Impl7doValueIdEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i, %20
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i ]
+  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i ]
   %21 = getelementptr inbounds i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
@@ -577,9 +577,9 @@ define void @_ZN3gmx18InMemorySerializer6doRealEPf(ptr nocapture noundef nonnull
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %18 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i, !llvm.loop !9
+  br i1 %18, label %13, label %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i, !llvm.loop !9
 
-_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i: ; preds = %13
+_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %13
   %19 = load float, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store float %19, ptr %4, align 4
@@ -590,9 +590,9 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i: ; preds = %13
   store float %8, ptr %5, align 4
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit
 
-_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i, %20
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i ]
-  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i ]
+_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i, %20
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i ]
+  %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i ]
   %21 = getelementptr inbounds i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
@@ -831,17 +831,17 @@ define void @_ZN3gmx20InMemoryDeserializer8doUShortEPt(ptr nocapture noundef non
   %.06.i.i = phi i32 [ 1, %14 ], [ 0, %15 ]
   %.0.i.i = phi i32 [ 0, %14 ], [ 1, %15 ]
   %16 = icmp ugt i32 %.06.i.i, %.0.i.i
-  br i1 %16, label %15, label %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.argprom.exit.i, !llvm.loop !5
+  br i1 %16, label %15, label %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i, !llvm.loop !5
 
-_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.argprom.exit.i: ; preds = %15
+_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i: ; preds = %15
   %.sroa.4.0.insert.ext.i.i = zext i8 %.sroa.4.0.i.i to i16
   %.sroa.4.0.insert.shift.i.i = shl nuw i16 %.sroa.4.0.insert.ext.i.i, 8
   %.sroa.0.0.insert.ext.i.i = zext i8 %.sroa.0.0.i.i to i16
   %.sroa.0.0.insert.insert.i.i = or disjoint i16 %.sroa.4.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueItEEvPT_.exit
 
-_ZN3gmx20InMemoryDeserializer4Impl7doValueItEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.argprom.exit.i
-  %storemerge.i = phi i16 [ %.sroa.0.0.insert.insert.i.i, %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.argprom.exit.i ], [ %13, %2 ]
+_ZN3gmx20InMemoryDeserializer4Impl7doValueItEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i
+  %storemerge.i = phi i16 [ %.sroa.0.0.insert.insert.i.i, %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i ], [ %13, %2 ]
   store i16 %storemerge.i, ptr %1, align 2
   %17 = load i64, ptr %8, align 8
   %18 = add i64 %17, 2
@@ -882,15 +882,15 @@ define void @_ZN3gmx20InMemoryDeserializer5doIntEPi(ptr nocapture noundef nonnul
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %21 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i, !llvm.loop !7
+  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i, !llvm.loop !7
 
-_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i: ; preds = %16
+_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %16
   %22 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit
 
-_ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i
-  %storemerge.i = phi i32 [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i ], [ %14, %2 ]
+_ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i
+  %storemerge.i = phi i32 [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i ], [ %14, %2 ]
   store i32 %storemerge.i, ptr %1, align 4
   %23 = load i64, ptr %9, align 8
   %24 = add i64 %23, 4
@@ -931,15 +931,15 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt32EPi(ptr nocapture noundef nonn
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %21 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i, !llvm.loop !7
+  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i, !llvm.loop !7
 
-_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i: ; preds = %16
+_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %16
   %22 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit
 
-_ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i
-  %storemerge.i = phi i32 [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.argprom.exit.i ], [ %14, %2 ]
+_ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i
+  %storemerge.i = phi i32 [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i ], [ %14, %2 ]
   store i32 %storemerge.i, ptr %1, align 4
   %23 = load i64, ptr %9, align 8
   %24 = add i64 %23, 4
@@ -980,15 +980,15 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt64EPl(ptr nocapture noundef nonn
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %21 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.argprom.exit.i, !llvm.loop !8
+  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i, !llvm.loop !8
 
-_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.argprom.exit.i: ; preds = %16
+_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i: ; preds = %16
   %22 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIlEEvPT_.exit
 
-_ZN3gmx20InMemoryDeserializer4Impl7doValueIlEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.argprom.exit.i
-  %storemerge.i = phi i64 [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.argprom.exit.i ], [ %14, %2 ]
+_ZN3gmx20InMemoryDeserializer4Impl7doValueIlEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i
+  %storemerge.i = phi i64 [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i ], [ %14, %2 ]
   store i64 %storemerge.i, ptr %1, align 8
   %23 = load i64, ptr %9, align 8
   %24 = add i64 %23, 8
@@ -1029,15 +1029,15 @@ define void @_ZN3gmx20InMemoryDeserializer7doFloatEPf(ptr nocapture noundef nonn
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %21 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i, !llvm.loop !9
+  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i, !llvm.loop !9
 
-_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i: ; preds = %16
+_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %16
   %22 = load float, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIfEEvPT_.exit
 
-_ZN3gmx20InMemoryDeserializer4Impl7doValueIfEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i
-  %storemerge.i = phi float [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.argprom.exit.i ], [ %14, %2 ]
+_ZN3gmx20InMemoryDeserializer4Impl7doValueIfEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i
+  %storemerge.i = phi float [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i ], [ %14, %2 ]
   store float %storemerge.i, ptr %1, align 4
   %23 = load i64, ptr %9, align 8
   %24 = add i64 %23, 4
@@ -1078,15 +1078,15 @@ define void @_ZN3gmx20InMemoryDeserializer8doDoubleEPd(ptr nocapture noundef non
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %21 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.argprom.exit.i, !llvm.loop !10
+  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i, !llvm.loop !10
 
-_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.argprom.exit.i: ; preds = %16
+_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i: ; preds = %16
   %22 = load double, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueIdEEvPT_.exit
 
-_ZN3gmx20InMemoryDeserializer4Impl7doValueIdEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.argprom.exit.i
-  %storemerge.i = phi double [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.argprom.exit.i ], [ %14, %2 ]
+_ZN3gmx20InMemoryDeserializer4Impl7doValueIdEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i
+  %storemerge.i = phi double [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i ], [ %14, %2 ]
   store double %storemerge.i, ptr %1, align 8
   %23 = load i64, ptr %9, align 8
   %24 = add i64 %23, 8
@@ -1477,9 +1477,9 @@ define linkonce_odr void @_ZN3gmx18InMemorySerializer4Impl8doStringERKNSt7__cxx1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %16 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %16, label %11, label %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.argprom.exit.i, !llvm.loop !14
+  br i1 %16, label %11, label %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i, !llvm.loop !14
 
-_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.argprom.exit.i: ; preds = %11
+_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i: ; preds = %11
   %17 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store i64 %17, ptr %4, align 8
@@ -1490,9 +1490,9 @@ _ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.argprom.exit.i: ; preds = %11
   store i64 %6, ptr %5, align 8
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueImEEvT_.exit
 
-_ZN3gmx18InMemorySerializer4Impl7doValueImEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.argprom.exit.i, %18
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %18 ], [ %.sink.i.sroa.gep7, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.argprom.exit.i ]
-  %.sink.i = phi ptr [ %5, %18 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.argprom.exit.i ]
+_ZN3gmx18InMemorySerializer4Impl7doValueImEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i, %18
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %18 ], [ %.sink.i.sroa.gep7, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i ]
+  %.sink.i = phi ptr [ %5, %18 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i ]
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %0, align 8
@@ -1922,15 +1922,15 @@ define linkonce_odr void @_ZN3gmx20InMemoryDeserializer4Impl8doStringEPNSt7__cxx
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next4.i.i = add nsw i64 %indvars.iv3.i.i, -1
   %21 = icmp sgt i64 %indvars.iv.next4.i.i, %indvars.iv.next.i.i
-  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.argprom.exit.i, !llvm.loop !14
+  br i1 %21, label %16, label %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i, !llvm.loop !14
 
-_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.argprom.exit.i: ; preds = %16
+_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i: ; preds = %16
   %22 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZN3gmx20InMemoryDeserializer4Impl7doValueImEEvPT_.exit
 
-_ZN3gmx20InMemoryDeserializer4Impl7doValueImEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.argprom.exit.i
-  %storemerge.i = phi i64 [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.argprom.exit.i ], [ %14, %2 ]
+_ZN3gmx20InMemoryDeserializer4Impl7doValueImEEvPT_.exit: ; preds = %2, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i
+  %storemerge.i = phi i64 [ %22, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i ], [ %14, %2 ]
   %23 = add i64 %10, 8
   store i64 %23, ptr %9, align 8
   %24 = getelementptr inbounds i8, ptr %12, i64 %23

@@ -3144,7 +3144,7 @@ _ZNK2cv11_InputArray6getMatEi.exit84:             ; preds = %175, %178
   %196 = sitofp i32 %195 to float
   %197 = fmul float %194, %196
   %198 = fpext float %197 to double
-  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_19solveLSQRERKNS_3MatES4_RKNS_12_OutputArrayEdj.argelim(ptr noundef nonnull align 8 dereferenceable(96) %36, ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull align 8 dereferenceable(24) %44, double noundef %198)
+  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_19solveLSQRERKNS_3MatES4_RKNS_12_OutputArrayEdj(ptr noundef nonnull align 8 dereferenceable(96) %36, ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull align 8 dereferenceable(24) %44, double noundef %198)
           to label %199 unwind label %214
 
 199:                                              ; preds = %190
@@ -3156,7 +3156,7 @@ _ZNK2cv11_InputArray6getMatEi.exit84:             ; preds = %175, %178
   %202 = load float, ptr %193, align 4
   %203 = fmul float %202, %196
   %204 = fpext float %203 to double
-  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_19solveLSQRERKNS_3MatES4_RKNS_12_OutputArrayEdj.argelim(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(24) %45, double noundef %204)
+  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_19solveLSQRERKNS_3MatES4_RKNS_12_OutputArrayEdj(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(24) %45, double noundef %204)
           to label %205 unwind label %216
 
 205:                                              ; preds = %199
@@ -3236,7 +3236,7 @@ _ZNK2cv11_InputArray6getMatEi.exit84:             ; preds = %175, %178
   %232 = sitofp i32 %231 to float
   %233 = fmul float %230, %232
   %234 = fpext float %233 to double
-  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_19solveLSQRERKNS_3MatES4_RKNS_12_OutputArrayEdj.argelim(ptr noundef nonnull align 8 dereferenceable(96) %46, ptr noundef nonnull align 8 dereferenceable(96) %47, ptr noundef nonnull align 8 dereferenceable(24) %52, double noundef %234)
+  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_19solveLSQRERKNS_3MatES4_RKNS_12_OutputArrayEdj(ptr noundef nonnull align 8 dereferenceable(96) %46, ptr noundef nonnull align 8 dereferenceable(96) %47, ptr noundef nonnull align 8 dereferenceable(24) %52, double noundef %234)
           to label %235 unwind label %243
 
 235:                                              ; preds = %226
@@ -3248,7 +3248,7 @@ _ZNK2cv11_InputArray6getMatEi.exit84:             ; preds = %175, %178
   %238 = load float, ptr %229, align 4
   %239 = fmul float %238, %232
   %240 = fpext float %239 to double
-  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_19solveLSQRERKNS_3MatES4_RKNS_12_OutputArrayEdj.argelim(ptr noundef nonnull align 8 dereferenceable(96) %46, ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(24) %53, double noundef %240)
+  invoke fastcc void @_ZN2cv7optflow12_GLOBAL__N_19solveLSQRERKNS_3MatES4_RKNS_12_OutputArrayEdj(ptr noundef nonnull align 8 dereferenceable(96) %46, ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(24) %53, double noundef %240)
           to label %248 unwind label %245
 
 241:                                              ; preds = %219
@@ -3986,7 +3986,7 @@ declare void @_ZNK2cv12_OutputArray6createENS_5Size_IiEEiibNS0_9DepthMaskE(ptr n
 declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv7optflow12_GLOBAL__N_19solveLSQRERKNS_3MatES4_RKNS_12_OutputArrayEdj.argelim(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv7optflow12_GLOBAL__N_19solveLSQRERKNS_3MatES4_RKNS_12_OutputArrayEdj(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::_InputArray", align 8
   %6 = alloca %"class.cv::_InputArray", align 8
   %7 = alloca %"class.cv::_OutputArray", align 8
@@ -4509,9 +4509,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %113
   store i32 33619968, ptr %9, align 8
   store ptr %21, ptr %191, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef -1, double noundef %238, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit119 unwind label %.loopexit135
+          to label %_ZN2cvmLERNS_3MatERKd.exit119 unwind label %.loopexit135
 
-_ZN2cvmLERNS_3MatERKd.argprom.exit119:            ; preds = %237
+_ZN2cvmLERNS_3MatERKd.exit119:                    ; preds = %237
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %247
 
@@ -4537,8 +4537,8 @@ _ZN2cvmLERNS_3MatERKd.argprom.exit119:            ; preds = %237
           cleanup
   br label %305
 
-247:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.argprom.exit119, %235, %219
-  %.263 = phi double [ %234, %_ZN2cvmLERNS_3MatERKd.argprom.exit119 ], [ %234, %235 ], [ %.162139, %219 ]
+247:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.exit119, %235, %219
+  %.263 = phi double [ %234, %_ZN2cvmLERNS_3MatERKd.exit119 ], [ %234, %235 ], [ %.162139, %219 ]
   %248 = call double @llvm.fmuladd.f64(double %.064138, double %.064138, double %193)
   %sqrt = call double @llvm.sqrt.f64(double %248)
   %249 = fcmp oeq double %218, 0.000000e+00

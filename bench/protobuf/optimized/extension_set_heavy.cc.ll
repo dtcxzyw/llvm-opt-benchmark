@@ -182,7 +182,7 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
 
 "_ZN6google8protobuf8internal12ExtensionSet7ForEachIN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIiNS2_9ExtensionESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERSF_PSF_EEZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISV_EEE3$_0EET0_T_S11_S10_.exit.i": ; preds = %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp63.i), !noalias !4
-  br label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EEE3$_0EET_SI_.argprom.exit"
+  br label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EEE3$_0EET_SI_.exit"
 
 if.end.i:                                         ; preds = %entry
   %idx.ext.i.i = zext nneg i16 %this.val to i64
@@ -207,9 +207,9 @@ for.body.i7.i:                                    ; preds = %if.end.i, %for.body
 
 "_ZN6google8protobuf8internal12ExtensionSet7ForEachIPKNS2_8KeyValueEZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISG_EEE3$_0EET0_T_SM_SL_.exit.i": ; preds = %for.body.i7.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp96.i), !noalias !4
-  br label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EEE3$_0EET_SI_.argprom.exit"
+  br label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EEE3$_0EET_SI_.exit"
 
-"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EEE3$_0EET_SI_.argprom.exit": ; preds = %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIiNS2_9ExtensionESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERSF_PSF_EEZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISV_EEE3$_0EET0_T_S11_S10_.exit.i", %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIPKNS2_8KeyValueEZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISG_EEE3$_0EET0_T_SM_SL_.exit.i"
+"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EEE3$_0EET_SI_.exit": ; preds = %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIiNS2_9ExtensionESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERSF_PSF_EEZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISV_EEE3$_0EET0_T_S11_S10_.exit.i", %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIPKNS2_8KeyValueEZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISG_EEE3$_0EET0_T_SM_SL_.exit.i"
   ret void
 }
 
@@ -2470,7 +2470,7 @@ if.then.i:                                        ; preds = %entry
   %cmp.i.i21.i.i = icmp ne ptr %4, %5
   %cmp6.i.i22.i.i = icmp ne i8 %6, 0
   %.not.i23.i.i = select i1 %cmp.i.i21.i.i, i1 true, i1 %cmp6.i.i22.i.i
-  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.argprom.exit"
+  br i1 %.not.i23.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit"
 
 for.body.i.i:                                     ; preds = %if.then.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
   %total_size.1 = phi i64 [ %add.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ %mul5, %if.then.i ]
@@ -2538,7 +2538,7 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   %cmp.i.i.i.i = icmp ne ptr %it.sroa.0.2.i.i, %5
   %cmp6.i.i.i.i = icmp ne i32 %it.sroa.9.2.i.i, %conv.i.i.i
   %.not.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp6.i.i.i.i
-  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.argprom.exit", !llvm.loop !20
+  br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit", !llvm.loop !20
 
 if.end.i:                                         ; preds = %entry
   %flat_capacity_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2550,7 +2550,7 @@ if.end.i:                                         ; preds = %entry
   %idx.ext.i.i = zext nneg i16 %0 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %this.val1, i64 %idx.ext.i.i
   %cmp.not4.i.i = icmp eq i16 %0, 0
-  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.argprom.exit", label %for.body.i5.i
+  br i1 %cmp.not4.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit", label %for.body.i5.i
 
 for.body.i5.i:                                    ; preds = %if.end.i, %for.body.i5.i
   %total_size.0 = phi i64 [ %add.i.i8.i, %for.body.i5.i ], [ %mul, %if.end.i ]
@@ -2560,9 +2560,9 @@ for.body.i5.i:                                    ; preds = %if.end.i, %for.body
   %add.i.i8.i = add i64 %call.i.i7.i, %total_size.0
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
-  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.argprom.exit", label %for.body.i5.i, !llvm.loop !21
+  br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit", label %for.body.i5.i, !llvm.loop !21
 
-"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.argprom.exit": ; preds = %for.body.i5.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
+"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit": ; preds = %for.body.i5.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i, %if.then.i, %if.end.i
   %total_size.2 = phi i64 [ %mul5, %if.then.i ], [ %mul, %if.end.i ], [ %add.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i ], [ %add.i.i8.i, %for.body.i5.i ]
   ret i64 %total_size.2
 }
@@ -4097,8 +4097,8 @@ attributes #24 = { allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EEE3$_0EET_SI_.argprom: %agg.result"}
-!6 = distinct !{!6, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EEE3$_0EET_SI_.argprom"}
+!5 = distinct !{!5, !6, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EEE3$_0EET_SI_: %agg.result"}
+!6 = distinct !{!6, !"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISD_EEE3$_0EET_SI_"}
 !7 = !{!8, !5}
 !8 = distinct !{!8, !9, !"_ZN6google8protobuf8internal12ExtensionSet7ForEachIN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIiNS2_9ExtensionESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERSF_PSF_EEZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISV_EEE3$_0EET0_T_S11_S10_: %agg.result"}
 !9 = distinct !{!9, !"_ZN6google8protobuf8internal12ExtensionSet7ForEachIN4absl12lts_2023080218container_internal14btree_iteratorINS6_10btree_nodeINS6_10map_paramsIiNS2_9ExtensionESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERSF_PSF_EEZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISV_EEE3$_0EET0_T_S11_S10_"}

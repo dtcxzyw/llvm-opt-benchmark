@@ -272,7 +272,7 @@ if.end76.i:                                       ; preds = %for.body.i, %if.end
 land.lhs.true.i:                                  ; preds = %if.end76.i
   %call94.i = call i32 @OSSL_ENCODER_CTX_get_num_encoders(ptr noundef nonnull %call) #5
   %cmp95.not.i = icmp eq i32 %call94.i, 0
-  br i1 %cmp95.not.i, label %ossl_encoder_ctx_setup_for_pkey.argprom.exit, label %if.then97.i
+  br i1 %cmp95.not.i, label %ossl_encoder_ctx_setup_for_pkey.exit, label %if.then97.i
 
 if.then97.i:                                      ; preds = %land.lhs.true.i
   %call98.i = call i32 @OSSL_ENCODER_CTX_set_construct(ptr noundef nonnull %call, ptr noundef nonnull @encoder_construct_pkey) #5
@@ -301,12 +301,12 @@ err.i:                                            ; preds = %if.end76.i
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 59, i32 noundef 524303, ptr noundef null) #5
   br label %if.end35.critedge
 
-ossl_encoder_ctx_setup_for_pkey.argprom.exit:     ; preds = %land.lhs.true.i
+ossl_encoder_ctx_setup_for_pkey.exit:             ; preds = %land.lhs.true.i
   %call113.i = call i32 @OSSL_ENCODER_CTX_set_construct_data(ptr noundef nonnull %call, ptr noundef null) #5
   call void @CRYPTO_free(ptr noundef nonnull %call25.i, ptr noundef nonnull @.str.2, i32 noundef 335) #5
   br label %land.lhs.true26
 
-land.lhs.true26:                                  ; preds = %land.lhs.true23, %if.end20.i, %if.end107.i, %ossl_encoder_ctx_setup_for_pkey.argprom.exit
+land.lhs.true26:                                  ; preds = %land.lhs.true23, %if.end20.i, %if.end107.i, %ossl_encoder_ctx_setup_for_pkey.exit
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %encoder_data.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %keymgmt_data.i)
   %call27 = call i32 @OSSL_ENCODER_CTX_add_extra(ptr noundef nonnull %call, ptr noundef %libctx.0, ptr noundef %propquery) #5

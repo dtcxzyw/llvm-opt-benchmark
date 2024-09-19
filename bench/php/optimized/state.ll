@@ -5913,7 +5913,7 @@ define internal noundef ptr @lxb_html_tokenizer_state_char_ref_named(ptr nocaptu
   %.0112.i = phi ptr [ %.1.i, %18 ], [ %.073111, %14 ]
   %16 = load i8, ptr %.0112.i, align 2
   %17 = icmp eq i8 %16, %15
-  br i1 %17, label %lexbor_sbst_entry_static_find.argprom.exit, label %18
+  br i1 %17, label %lexbor_sbst_entry_static_find.exit, label %18
 
 18:                                               ; preds = %.lr.ph.i
   %19 = icmp ugt i8 %15, %16
@@ -5961,13 +5961,13 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %27
   store i32 2, ptr %40, align 8
   br label %159
 
-lexbor_sbst_entry_static_find.argprom.exit:       ; preds = %.lr.ph.i
+lexbor_sbst_entry_static_find.exit:               ; preds = %.lr.ph.i
   %41 = getelementptr inbounds i8, ptr %.0112.i, i64 1
   %42 = load i8, ptr %41, align 1
   %.not80 = icmp eq i8 %42, 0
   br i1 %.not80, label %52, label %43
 
-43:                                               ; preds = %lexbor_sbst_entry_static_find.argprom.exit
+43:                                               ; preds = %lexbor_sbst_entry_static_find.exit
   %44 = load ptr, ptr %8, align 8
   %45 = ptrtoint ptr %.075110 to i64
   %46 = sub i64 %45, %9
@@ -5980,7 +5980,7 @@ lexbor_sbst_entry_static_find.argprom.exit:       ; preds = %.lr.ph.i
   store ptr %.0112.i, ptr %12, align 8
   br label %52
 
-52:                                               ; preds = %43, %lexbor_sbst_entry_static_find.argprom.exit
+52:                                               ; preds = %43, %lexbor_sbst_entry_static_find.exit
   %53 = getelementptr inbounds i8, ptr %.0112.i, i64 12
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i64

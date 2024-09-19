@@ -2775,7 +2775,7 @@ entry:
   %fragments.val = load ptr, ptr %fragments, align 8
   %0 = getelementptr inbounds i8, ptr %fragments, i64 8
   %fragments.val4 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj.argprom(ptr noalias nonnull align 8 %mp, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.val, ptr %fragments.val4, i32 noundef 1, i1 noundef zeroext false, i64 noundef %longLitLengthThreshold, i32 noundef -1)
+  call fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr noalias nonnull align 8 %mp, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.val, ptr %fragments.val4, i32 noundef 1, i1 noundef zeroext false, i64 noundef %longLitLengthThreshold, i32 noundef -1)
   %1 = load ptr, ptr %mp, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %mp, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
@@ -2951,7 +2951,7 @@ unreachable:                                      ; preds = %invoke.cont36
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj.argprom(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.0.val, ptr readnone %fragments.8.val, i32 noundef range(i32 1, 4) %table, i1 noundef zeroext %delay_rebuild, i64 noundef %max_len, i32 noundef range(i32 -1, 33) %max_offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.0.val, ptr readnone %fragments.8.val, i32 noundef range(i32 1, 4) %table, i1 noundef zeroext %delay_rebuild, i64 noundef %max_len, i32 noundef range(i32 -1, 33) %max_offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %msk.i316 = alloca %"class.std::vector.93", align 8
@@ -3310,7 +3310,7 @@ if.end37:                                         ; preds = %if.end29
 if.then39:                                        ; preds = %if.end37
   %35 = getelementptr i8, ptr %storemerge.i.i.i.i.i.i229, i64 8
   %storemerge.i.i.i.i.i.i229.val = load i64, ptr %35, align 8
-  %call42 = invoke fastcc noundef i64 @_ZN3ue2L22literalMinReportOffsetERKNS_13RoseBuildImplERKNS_15rose_literal_idERKNS_17rose_literal_infoE.argprom(ptr noundef nonnull align 8 dereferenceable(780) %build, i64 %storemerge.i.i.i.i.i.i229.val, i32 0, ptr noundef nonnull align 8 dereferenceable(86) %storemerge.i.i.i.i.i)
+  %call42 = invoke fastcc noundef i64 @_ZN3ue2L22literalMinReportOffsetERKNS_13RoseBuildImplERKNS_15rose_literal_idERKNS_17rose_literal_infoE(ptr noundef nonnull align 8 dereferenceable(780) %build, i64 %storemerge.i.i.i.i.i.i229.val, i32 0, ptr noundef nonnull align 8 dereferenceable(86) %storemerge.i.i.i.i.i)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %if.then39
@@ -3591,7 +3591,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i, %if.
   %__trip_count.076.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i, %if.end21.i.i.i.i.i.i.i ], [ %shr.i.i.i.i.i.i.i, %invoke.cont.i ]
   %__first.sroa.0.075.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i56.i.i.i.i.i.i.i, %if.end21.i.i.i.i.i.i.i ], [ %51, %invoke.cont.i ]
   %__first.sroa.0.075.i.i.i.i.i.i.i.val = load i32, ptr %__first.sroa.0.075.i.i.i.i.i.i.i, align 4
-  %call3.i.i.i.i.i.i99.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_.argprom"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %__first.sroa.0.075.i.i.i.i.i.i.i.val)
+  %call3.i.i.i.i.i.i99.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %__first.sroa.0.075.i.i.i.i.i.i.i.val)
           to label %call3.i.i.i.i.i.i.noexc.i unwind label %lpad3.loopexit.i
 
 call3.i.i.i.i.i.i.noexc.i:                        ; preds = %for.body.i.i.i.i.i.i.i
@@ -3600,7 +3600,7 @@ call3.i.i.i.i.i.i.noexc.i:                        ; preds = %for.body.i.i.i.i.i.
 if.end.i.i.i.i.i.i97.i:                           ; preds = %call3.i.i.i.i.i.i.noexc.i
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.075.i.i.i.i.i.i.i, i64 4
   %incdec.ptr.i.i.i.i.i.i.i.i.val = load i32, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 4
-  %call7.i.i.i.i.i.i100.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_.argprom"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %incdec.ptr.i.i.i.i.i.i.i.i.val)
+  %call7.i.i.i.i.i.i100.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %incdec.ptr.i.i.i.i.i.i.i.i.val)
           to label %call7.i.i.i.i.i.i.noexc.i unwind label %lpad3.loopexit.i
 
 call7.i.i.i.i.i.i.noexc.i:                        ; preds = %if.end.i.i.i.i.i.i97.i
@@ -3609,7 +3609,7 @@ call7.i.i.i.i.i.i.noexc.i:                        ; preds = %if.end.i.i.i.i.i.i9
 if.end9.i.i.i.i.i.i.i:                            ; preds = %call7.i.i.i.i.i.i.noexc.i
   %incdec.ptr.i54.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.075.i.i.i.i.i.i.i, i64 8
   %incdec.ptr.i54.i.i.i.i.i.i.i.val = load i32, ptr %incdec.ptr.i54.i.i.i.i.i.i.i, align 4
-  %call13.i.i.i.i.i.i101.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_.argprom"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %incdec.ptr.i54.i.i.i.i.i.i.i.val)
+  %call13.i.i.i.i.i.i101.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %incdec.ptr.i54.i.i.i.i.i.i.i.val)
           to label %call13.i.i.i.i.i.i.noexc.i unwind label %lpad3.loopexit.i
 
 call13.i.i.i.i.i.i.noexc.i:                       ; preds = %if.end9.i.i.i.i.i.i.i
@@ -3618,7 +3618,7 @@ call13.i.i.i.i.i.i.noexc.i:                       ; preds = %if.end9.i.i.i.i.i.i
 if.end15.i.i.i.i.i.i.i:                           ; preds = %call13.i.i.i.i.i.i.noexc.i
   %incdec.ptr.i55.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.075.i.i.i.i.i.i.i, i64 12
   %incdec.ptr.i55.i.i.i.i.i.i.i.val = load i32, ptr %incdec.ptr.i55.i.i.i.i.i.i.i, align 4
-  %call19.i.i.i.i.i.i102.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_.argprom"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %incdec.ptr.i55.i.i.i.i.i.i.i.val)
+  %call19.i.i.i.i.i.i102.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %incdec.ptr.i55.i.i.i.i.i.i.i.val)
           to label %call19.i.i.i.i.i.i.noexc.i unwind label %lpad3.loopexit.i
 
 call19.i.i.i.i.i.i.noexc.i:                       ; preds = %if.end15.i.i.i.i.i.i.i
@@ -3647,7 +3647,7 @@ for.end.i.i.i.i.i.i.i:                            ; preds = %for.end.loopexit.i.
 
 sw.bb.i.i.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i.i.i
   %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i.val = load i32, ptr %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i, align 4
-  %call26.i.i.i.i.i.i103.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_.argprom"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i.val)
+  %call26.i.i.i.i.i.i103.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i.val)
           to label %call26.i.i.i.i.i.i.noexc.i unwind label %lpad3.loopexit.split-lp.i
 
 call26.i.i.i.i.i.i.noexc.i:                       ; preds = %sw.bb.i.i.i.i.i.i.i
@@ -3660,7 +3660,7 @@ if.end28.i.i.i.i.i.i.i:                           ; preds = %call26.i.i.i.i.i.i.
 sw.bb30.i.i.i.i.i.i.i:                            ; preds = %if.end28.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i
   %__first.sroa.0.1.i.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i61.i.i.i.i.i.i.i, %if.end28.i.i.i.i.i.i.i ]
   %__first.sroa.0.1.i.i.i.i.i.i.i.val = load i32, ptr %__first.sroa.0.1.i.i.i.i.i.i.i, align 4
-  %call33.i.i.i.i.i.i104.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_.argprom"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %__first.sroa.0.1.i.i.i.i.i.i.i.val)
+  %call33.i.i.i.i.i.i104.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %__first.sroa.0.1.i.i.i.i.i.i.i.val)
           to label %call33.i.i.i.i.i.i.noexc.i unwind label %lpad3.loopexit.split-lp.i
 
 call33.i.i.i.i.i.i.noexc.i:                       ; preds = %sw.bb30.i.i.i.i.i.i.i
@@ -3673,7 +3673,7 @@ if.end35.i.i.i.i.i.i.i:                           ; preds = %call33.i.i.i.i.i.i.
 sw.bb37.i.i.i.i.i.i.i:                            ; preds = %if.end35.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i
   %__first.sroa.0.2.i.i.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i62.i.i.i.i.i.i.i, %if.end35.i.i.i.i.i.i.i ]
   %__first.sroa.0.2.i.i.i.i.i.i.i.val = load i32, ptr %__first.sroa.0.2.i.i.i.i.i.i.i, align 4
-  %call40.i.i.i.i.i.i105.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_.argprom"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %__first.sroa.0.2.i.i.i.i.i.i.i.val)
+  %call40.i.i.i.i.i.i105.i = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_"(ptr nonnull %build, ptr nonnull %max_len.addr.i.i, i32 %__first.sroa.0.2.i.i.i.i.i.i.i.val)
           to label %call40.i.i.i.i.i.i.noexc.i unwind label %lpad3.loopexit.split-lp.i
 
 call40.i.i.i.i.i.i.noexc.i:                       ; preds = %sw.bb37.i.i.i.i.i.i.i
@@ -4680,7 +4680,7 @@ if.end:                                           ; preds = %entry
   %fragments.val = load ptr, ptr %fragments, align 8
   %2 = getelementptr inbounds i8, ptr %fragments, i64 8
   %fragments.val2 = load ptr, ptr %2, align 8
-  call fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj.argprom(ptr noalias nonnull align 8 %mp, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.val, ptr %fragments.val2, i32 noundef 1, i1 noundef zeroext true, i64 noundef %longLitLengthThreshold, i32 noundef -1)
+  call fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr noalias nonnull align 8 %mp, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.val, ptr %fragments.val2, i32 noundef 1, i1 noundef zeroext true, i64 noundef %longLitLengthThreshold, i32 noundef -1)
   %3 = load ptr, ptr %mp, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %mp, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
@@ -4860,7 +4860,7 @@ if.end6:                                          ; preds = %if.end
   %fragments.val6 = load ptr, ptr %fragments, align 8
   %2 = getelementptr inbounds i8, ptr %fragments, i64 8
   %fragments.val7 = load ptr, ptr %2, align 8
-  call fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj.argprom(ptr noalias nonnull align 8 %mp, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.val6, ptr %fragments.val7, i32 noundef 1, i1 noundef zeroext false, i64 noundef 32, i32 noundef 32)
+  call fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr noalias nonnull align 8 %mp, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.val6, ptr %fragments.val7, i32 noundef 1, i1 noundef zeroext false, i64 noundef 32, i32 noundef 32)
   %3 = load ptr, ptr %mp, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %mp, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
@@ -4886,7 +4886,7 @@ if.end20:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %mp_anchored) #25
   %fragments.val = load ptr, ptr %fragments, align 8
   %fragments.val5 = load ptr, ptr %2, align 8
-  invoke fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj.argprom(ptr noalias nonnull align 8 %mp_anchored, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.val, ptr %fragments.val5, i32 noundef 3, i1 noundef zeroext false, i64 noundef 32, i32 noundef 32)
+  invoke fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr noalias nonnull align 8 %mp_anchored, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.val, ptr %fragments.val5, i32 noundef 3, i1 noundef zeroext false, i64 noundef 32, i32 noundef 32)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end20
@@ -5127,7 +5127,7 @@ entry:
   %fragments.val = load ptr, ptr %fragments, align 8
   %1 = getelementptr inbounds i8, ptr %fragments, i64 8
   %fragments.val2 = load ptr, ptr %1, align 8
-  call fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj.argprom(ptr noalias nonnull align 8 %mp, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.val, ptr %fragments.val2, i32 noundef 2, i1 noundef zeroext false, i64 noundef %conv, i32 noundef -1)
+  call fastcc void @_ZN3ue2L16makeMatcherProtoERKNS_13RoseBuildImplERKSt6vectorINS_11LitFragmentESaIS4_EENS_18rose_literal_tableEbmj(ptr noalias nonnull align 8 %mp, ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %fragments.val, ptr %fragments.val2, i32 noundef 2, i1 noundef zeroext false, i64 noundef %conv, i32 noundef -1)
   %2 = load ptr, ptr %mp, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %mp, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
@@ -5677,7 +5677,7 @@ declare void @_ZN3ue217buildForwardAccelEP4HWLMRKSt6vectorINS_11AccelStringESaIS
 declare void @_ZN3ue221aligned_free_internalEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN3ue2L22literalMinReportOffsetERKNS_13RoseBuildImplERKNS_15rose_literal_idERKNS_17rose_literal_infoE.argprom(ptr noundef nonnull align 8 dereferenceable(780) %build, i64 %lit.8.val, i32 %lit.116.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(86) %info) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN3ue2L22literalMinReportOffsetERKNS_13RoseBuildImplERKNS_15rose_literal_idERKNS_17rose_literal_infoE(ptr noundef nonnull align 8 dereferenceable(780) %build, i64 %lit.8.val, i32 %lit.116.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(86) %info) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp45 = alloca %"struct.ue2::suffix_id", align 8
   %conv.i = zext i32 %lit.116.val to i64
@@ -6266,7 +6266,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit: ; preds = %if.then.i.i
   %storemerge.i.i.i.i.i.i.val = load i64, ptr %98, align 8
   %99 = getelementptr i8, ptr %storemerge.i.i.i.i.i.i, i64 116
   %storemerge.i.i.i.i.i.i.val12 = load i32, ptr %99, align 4
-  %call87 = call fastcc noundef i64 @_ZN3ue2L22literalMinReportOffsetERKNS_13RoseBuildImplERKNS_15rose_literal_idERKNS_17rose_literal_infoE.argprom(ptr noundef nonnull align 8 dereferenceable(780) %build, i64 %storemerge.i.i.i.i.i.i.val, i32 %storemerge.i.i.i.i.i.i.val12, ptr noundef nonnull align 8 dereferenceable(86) %storemerge.i.i.i.i.i)
+  %call87 = call fastcc noundef i64 @_ZN3ue2L22literalMinReportOffsetERKNS_13RoseBuildImplERKNS_15rose_literal_idERKNS_17rose_literal_infoE(ptr noundef nonnull align 8 dereferenceable(780) %build, i64 %storemerge.i.i.i.i.i.i.val, i32 %storemerge.i.i.i.i.i.i.val12, ptr noundef nonnull align 8 dereferenceable(86) %storemerge.i.i.i.i.i)
   %.sroa.speculated174 = call i64 @llvm.umin.i64(i64 %call87, i64 %lit_min_offset.2242)
   %incdec.ptr.i.i.i.i171 = getelementptr inbounds i8, ptr %__begin177.sroa.0.0241, i64 4
   %cmp.i.i.i.i158.not = icmp eq ptr %incdec.ptr.i.i.i.i171, %add.ptr.i.i.i129
@@ -7131,7 +7131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_.argprom"(ptr %this.0.val, ptr nocapture readonly %this.8.val, i32 %__it.coerce.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN3ue2L16isNoRunsFragmentERKNS2_13RoseBuildImplERKNS2_11LitFragmentEmE3$_0EclINS_17__normal_iteratorIPKjSt6vectorIjSaIjEEEEEEbT_"(ptr %this.0.val, ptr nocapture readonly %this.8.val, i32 %__it.coerce.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %literal_info.i = getelementptr inbounds i8, ptr %this.0.val, i64 288
   %conv.i = zext i32 %__it.coerce.0.val to i64

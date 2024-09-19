@@ -960,13 +960,13 @@ Vec_PtrPush.exit431:                              ; preds = %.Vec_PtrGrow.exit11
 318:                                              ; preds = %317
   %319 = load i32, ptr %314, align 4
   %320 = icmp slt i32 %.5286541, %319
-  br i1 %320, label %Extra_ProgressBarUpdate.argprom.exit, label %321
+  br i1 %320, label %Extra_ProgressBarUpdate.exit, label %321
 
 321:                                              ; preds = %318, %317
   call void @Extra_ProgressBarUpdate_int(ptr noundef %314, i32 noundef %.5286541, ptr noundef null) #15
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %318, %321
+Extra_ProgressBarUpdate.exit:                     ; preds = %318, %321
   %322 = add nuw nsw i32 %.5286541, 1
   %323 = add i32 %186, %322
   %324 = shl i32 %323, 1
@@ -976,11 +976,11 @@ Extra_ProgressBarUpdate.argprom.exit:             ; preds = %318, %321
   %.not7.i = icmp sgt i8 %326, -1
   br i1 %.not7.i, label %Io_ReadAigerDecode.exit, label %.lr.ph.i433
 
-.lr.ph.i433:                                      ; preds = %Extra_ProgressBarUpdate.argprom.exit, %.lr.ph.i433
-  %328 = phi i32 [ %337, %.lr.ph.i433 ], [ %327, %Extra_ProgressBarUpdate.argprom.exit ]
-  %329 = phi ptr [ %335, %.lr.ph.i433 ], [ %325, %Extra_ProgressBarUpdate.argprom.exit ]
-  %.09.i434 = phi i32 [ %334, %.lr.ph.i433 ], [ 0, %Extra_ProgressBarUpdate.argprom.exit ]
-  %.068.i = phi i32 [ %331, %.lr.ph.i433 ], [ 0, %Extra_ProgressBarUpdate.argprom.exit ]
+.lr.ph.i433:                                      ; preds = %Extra_ProgressBarUpdate.exit, %.lr.ph.i433
+  %328 = phi i32 [ %337, %.lr.ph.i433 ], [ %327, %Extra_ProgressBarUpdate.exit ]
+  %329 = phi ptr [ %335, %.lr.ph.i433 ], [ %325, %Extra_ProgressBarUpdate.exit ]
+  %.09.i434 = phi i32 [ %334, %.lr.ph.i433 ], [ 0, %Extra_ProgressBarUpdate.exit ]
+  %.068.i = phi i32 [ %331, %.lr.ph.i433 ], [ 0, %Extra_ProgressBarUpdate.exit ]
   %330 = and i32 %328, 127
   %331 = add i32 %.068.i, 1
   %332 = mul i32 %.068.i, 7
@@ -996,11 +996,11 @@ Extra_ProgressBarUpdate.argprom.exit:             ; preds = %318, %321
   %338 = mul i32 %331, 7
   br label %Io_ReadAigerDecode.exit
 
-Io_ReadAigerDecode.exit:                          ; preds = %Extra_ProgressBarUpdate.argprom.exit, %._crit_edge.loopexit.i
-  %.lcssa535537 = phi ptr [ %325, %Extra_ProgressBarUpdate.argprom.exit ], [ %335, %._crit_edge.loopexit.i ]
-  %.06.lcssa.i = phi i32 [ 0, %Extra_ProgressBarUpdate.argprom.exit ], [ %338, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i436 = phi i32 [ 0, %Extra_ProgressBarUpdate.argprom.exit ], [ %334, %._crit_edge.loopexit.i ]
-  %.lcssa.i437 = phi i32 [ %327, %Extra_ProgressBarUpdate.argprom.exit ], [ %337, %._crit_edge.loopexit.i ]
+Io_ReadAigerDecode.exit:                          ; preds = %Extra_ProgressBarUpdate.exit, %._crit_edge.loopexit.i
+  %.lcssa535537 = phi ptr [ %325, %Extra_ProgressBarUpdate.exit ], [ %335, %._crit_edge.loopexit.i ]
+  %.06.lcssa.i = phi i32 [ 0, %Extra_ProgressBarUpdate.exit ], [ %338, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i436 = phi i32 [ 0, %Extra_ProgressBarUpdate.exit ], [ %334, %._crit_edge.loopexit.i ]
+  %.lcssa.i437 = phi i32 [ %327, %Extra_ProgressBarUpdate.exit ], [ %337, %._crit_edge.loopexit.i ]
   %339 = shl i32 %.lcssa.i437, %.06.lcssa.i
   %340 = or i32 %339, %.0.lcssa.i436
   %341 = sub i32 %324, %340

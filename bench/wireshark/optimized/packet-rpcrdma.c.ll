@@ -557,14 +557,14 @@ define internal i32 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr
   store ptr null, ptr @gp_rdmap_info, align 8
   store ptr %3, ptr @gp_infiniband_info, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %add_request_info.argprom.argprom.exit65, label %5
+  br i1 %.not, label %add_request_info.exit65, label %5
 
 5:                                                ; preds = %4
   %6 = tail call fastcc ptr @get_rdma_conv_info(ptr noundef %1)
   %7 = load ptr, ptr @gp_infiniband_info, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr %8, align 8
-  switch i8 %9, label %add_request_info.argprom.argprom.exit65 [
+  switch i8 %9, label %add_request_info.exit65 [
     i8 4, label %108
     i8 23, label %108
     i8 0, label %10
@@ -574,9 +574,9 @@ define internal i32 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr
     i8 10, label %14
     i8 11, label %14
     i8 6, label %19
-    i8 7, label %add_request_info.argprom.argprom.exit
-    i8 8, label %add_request_info.argprom.argprom.exit
-    i8 9, label %add_request_info.argprom.argprom.exit
+    i8 7, label %add_request_info.exit
+    i8 8, label %add_request_info.exit
+    i8 9, label %add_request_info.exit
     i8 12, label %57
     i8 13, label %90
     i8 14, label %.thread
@@ -586,7 +586,7 @@ define internal i32 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr
 
 10:                                               ; preds = %5, %5
   %11 = tail call fastcc ptr @add_send_fragment(ptr noundef %6, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %add_request_info.argprom.argprom.exit65
+  br label %add_request_info.exit65
 
 12:                                               ; preds = %5, %5
   %13 = tail call fastcc ptr @add_send_fragment(ptr noundef %6, ptr noundef %0, ptr noundef %1, ptr noundef %2)
@@ -599,7 +599,7 @@ define internal i32 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr
   %..i = tail call i32 @llvm.umax.i32(i32 %17, i32 %15)
   store i32 %..i, ptr %16, align 8
   %18 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i32 noundef 1, ptr noundef %1, ptr noundef %2)
-  br label %add_request_info.argprom.argprom.exit65
+  br label %add_request_info.exit65
 
 19:                                               ; preds = %5
   %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
@@ -613,7 +613,7 @@ define internal i32 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr
   %.val.val = load i16, ptr %24, align 2
   %25 = and i16 %.val.val, 8
   %.not.i = icmp eq i16 %25, 0
-  br i1 %.not.i, label %26, label %add_request_info.argprom.argprom.exit
+  br i1 %.not.i, label %26, label %add_request_info.exit
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr @gp_infiniband_info, align 8
@@ -624,13 +624,13 @@ define internal i32 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr
   %.val.i = load ptr, ptr %6, align 8
   %32 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val.i, i32 noundef %29) #9
   %.not.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i, label %add_request_info.argprom.argprom.exit, label %33
+  br i1 %.not.i.i, label %add_request_info.exit, label %33
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds i8, ptr %32, i64 8
   %35 = load i64, ptr %34, align 8
   %.not12.i.i = icmp ult i64 %31, %35
-  br i1 %.not12.i.i, label %add_request_info.argprom.argprom.exit, label %36
+  br i1 %.not12.i.i, label %add_request_info.exit, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %32, i64 32
@@ -638,9 +638,9 @@ define internal i32 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr
   %39 = zext i32 %38 to i64
   %40 = add i64 %35, %39
   %41 = icmp ult i64 %31, %40
-  br i1 %41, label %find_segment_info.argprom.exit.i, label %add_request_info.argprom.argprom.exit
+  br i1 %41, label %find_segment_info.exit.i, label %add_request_info.exit
 
-find_segment_info.argprom.exit.i:                 ; preds = %36
+find_segment_info.exit.i:                         ; preds = %36
   %42 = tail call ptr @wmem_file_scope() #9
   %43 = tail call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef 24) #9
   %44 = load ptr, ptr @gp_infiniband_info, align 8
@@ -660,11 +660,11 @@ find_segment_info.argprom.exit.i:                 ; preds = %36
   %54 = getelementptr inbounds i8, ptr %6, i64 8
   %55 = load ptr, ptr %54, align 8
   tail call void @wmem_tree_insert32(ptr noundef %55, i32 noundef %46, ptr noundef nonnull %43) #9
-  br label %add_request_info.argprom.argprom.exit
+  br label %add_request_info.exit
 
-add_request_info.argprom.argprom.exit:            ; preds = %find_segment_info.argprom.exit.i, %36, %33, %26, %19, %5, %5, %5
+add_request_info.exit:                            ; preds = %find_segment_info.exit.i, %36, %33, %26, %19, %5, %5, %5
   %56 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i32 noundef 0, ptr noundef %1, ptr noundef %2)
-  br label %add_request_info.argprom.argprom.exit65
+  br label %add_request_info.exit65
 
 57:                                               ; preds = %5
   %58 = getelementptr i8, ptr %1, i64 80
@@ -673,7 +673,7 @@ add_request_info.argprom.argprom.exit:            ; preds = %find_segment_info.a
   %.val58.val = load i16, ptr %59, align 2
   %60 = and i16 %.val58.val, 8
   %.not.i60 = icmp eq i16 %60, 0
-  br i1 %.not.i60, label %61, label %add_request_info.argprom.argprom.exit65
+  br i1 %.not.i60, label %61, label %add_request_info.exit65
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds i8, ptr %7, i64 12
@@ -683,13 +683,13 @@ add_request_info.argprom.argprom.exit:            ; preds = %find_segment_info.a
   %.val.i61 = load ptr, ptr %6, align 8
   %66 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val.i61, i32 noundef %63) #9
   %.not.i.i62 = icmp eq ptr %66, null
-  br i1 %.not.i.i62, label %add_request_info.argprom.argprom.exit65, label %67
+  br i1 %.not.i.i62, label %add_request_info.exit65, label %67
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds i8, ptr %66, i64 8
   %69 = load i64, ptr %68, align 8
   %.not12.i.i63 = icmp ult i64 %65, %69
-  br i1 %.not12.i.i63, label %add_request_info.argprom.argprom.exit65, label %70
+  br i1 %.not12.i.i63, label %add_request_info.exit65, label %70
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds i8, ptr %66, i64 32
@@ -697,9 +697,9 @@ add_request_info.argprom.argprom.exit:            ; preds = %find_segment_info.a
   %73 = zext i32 %72 to i64
   %74 = add i64 %69, %73
   %75 = icmp ult i64 %65, %74
-  br i1 %75, label %find_segment_info.argprom.exit.i64, label %add_request_info.argprom.argprom.exit65
+  br i1 %75, label %find_segment_info.exit.i64, label %add_request_info.exit65
 
-find_segment_info.argprom.exit.i64:               ; preds = %70
+find_segment_info.exit.i64:                       ; preds = %70
   %76 = tail call ptr @wmem_file_scope() #9
   %77 = tail call noalias ptr @wmem_alloc(ptr noundef %76, i64 noundef 24) #9
   %78 = load ptr, ptr @gp_infiniband_info, align 8
@@ -719,7 +719,7 @@ find_segment_info.argprom.exit.i64:               ; preds = %70
   %88 = getelementptr inbounds i8, ptr %6, i64 8
   %89 = load ptr, ptr %88, align 8
   tail call void @wmem_tree_insert32(ptr noundef %89, i32 noundef %80, ptr noundef nonnull %77) #9
-  br label %add_request_info.argprom.argprom.exit65
+  br label %add_request_info.exit65
 
 90:                                               ; preds = %5
   %91 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
@@ -742,7 +742,7 @@ find_segment_info.argprom.exit.i64:               ; preds = %70
   %98 = getelementptr inbounds i8, ptr %6, i64 48
   %99 = load ptr, ptr %98, align 8
   %.not55 = icmp eq ptr %99, null
-  br i1 %.not55, label %add_request_info.argprom.argprom.exit65, label %100
+  br i1 %.not55, label %add_request_info.exit65, label %100
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds i8, ptr %99, i64 16
@@ -754,26 +754,26 @@ find_segment_info.argprom.exit.i64:               ; preds = %70
 105:                                              ; preds = %.thread, %100
   %.051 = phi ptr [ %104, %100 ], [ %94, %.thread ]
   %.not56 = icmp eq ptr %.051, null
-  br i1 %.not56, label %add_request_info.argprom.argprom.exit65, label %.thread72
+  br i1 %.not56, label %add_request_info.exit65, label %.thread72
 
 .thread72:                                        ; preds = %95, %105
   %.05175 = phi ptr [ %.051, %105 ], [ %96, %95 ]
   %106 = load ptr, ptr @rpc_handler, align 8
   %107 = tail call i32 @call_dissector(ptr noundef %106, ptr noundef nonnull %.05175, ptr noundef %1, ptr noundef %2) #9
-  br label %add_request_info.argprom.argprom.exit65
+  br label %add_request_info.exit65
 
 108:                                              ; preds = %5, %5, %12
   %.052 = phi ptr [ %13, %12 ], [ %0, %5 ], [ %0, %5 ]
   %109 = tail call fastcc i32 @packet_is_rpcordma(ptr noundef %.052)
   %.not57 = icmp eq i32 %109, 0
-  br i1 %.not57, label %add_request_info.argprom.argprom.exit65, label %110
+  br i1 %.not57, label %add_request_info.exit65, label %110
 
 110:                                              ; preds = %108
   %111 = tail call i32 @dissect_rpcrdma(ptr noundef %.052, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %add_request_info.argprom.argprom.exit65
+  br label %add_request_info.exit65
 
-add_request_info.argprom.argprom.exit65:          ; preds = %97, %find_segment_info.argprom.exit.i64, %70, %67, %61, %57, %108, %5, %105, %4, %110, %.thread72, %add_request_info.argprom.argprom.exit, %14, %10
-  %.0 = phi i32 [ %107, %.thread72 ], [ 0, %add_request_info.argprom.argprom.exit ], [ 0, %14 ], [ 1, %110 ], [ 0, %10 ], [ 0, %4 ], [ 0, %105 ], [ 0, %5 ], [ 0, %108 ], [ 0, %57 ], [ 0, %61 ], [ 0, %67 ], [ 0, %70 ], [ 0, %find_segment_info.argprom.exit.i64 ], [ 0, %97 ]
+add_request_info.exit65:                          ; preds = %97, %find_segment_info.exit.i64, %70, %67, %61, %57, %108, %5, %105, %4, %110, %.thread72, %add_request_info.exit, %14, %10
+  %.0 = phi i32 [ %107, %.thread72 ], [ 0, %add_request_info.exit ], [ 0, %14 ], [ 1, %110 ], [ 0, %10 ], [ 0, %4 ], [ 0, %105 ], [ 0, %5 ], [ 0, %108 ], [ 0, %57 ], [ 0, %61 ], [ 0, %67 ], [ 0, %70 ], [ 0, %find_segment_info.exit.i64 ], [ 0, %97 ]
   ret i32 %.0
 }
 
@@ -1151,9 +1151,9 @@ define internal fastcc i32 @get_rdma_list_size(ptr noundef %0, ptr noundef %1) u
   %.not49 = icmp eq i32 %15, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph45, %find_segment_info.argprom.exit.thread
-  %.02841 = phi i32 [ %35, %find_segment_info.argprom.exit.thread ], [ 0, %.lr.ph45 ]
-  %.240 = phi i32 [ %.3, %find_segment_info.argprom.exit.thread ], [ %.142, %.lr.ph45 ]
+.lr.ph:                                           ; preds = %.lr.ph45, %find_segment_info.exit.thread
+  %.02841 = phi i32 [ %35, %find_segment_info.exit.thread ], [ 0, %.lr.ph45 ]
+  %.240 = phi i32 [ %.3, %find_segment_info.exit.thread ], [ %.142, %.lr.ph45 ]
   %16 = load ptr, ptr %13, align 8
   %17 = tail call ptr @wmem_array_index(ptr noundef %16, i32 noundef %.02841) #9
   %18 = getelementptr inbounds i8, ptr %17, i64 4
@@ -1163,13 +1163,13 @@ define internal fastcc i32 @get_rdma_list_size(ptr noundef %0, ptr noundef %1) u
   %.val = load ptr, ptr %10, align 8
   %22 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %19) #9
   %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %find_segment_info.argprom.exit.thread, label %23
+  br i1 %.not.i, label %find_segment_info.exit.thread, label %23
 
 23:                                               ; preds = %.lr.ph
   %24 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load i64, ptr %24, align 8
   %.not12.i = icmp ult i64 %21, %25
-  br i1 %.not12.i, label %find_segment_info.argprom.exit.thread, label %26
+  br i1 %.not12.i, label %find_segment_info.exit.thread, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %22, i64 32
@@ -1177,24 +1177,24 @@ define internal fastcc i32 @get_rdma_list_size(ptr noundef %0, ptr noundef %1) u
   %29 = zext i32 %28 to i64
   %30 = add i64 %25, %29
   %31 = icmp ult i64 %21, %30
-  br i1 %31, label %find_segment_info.argprom.exit, label %find_segment_info.argprom.exit.thread
+  br i1 %31, label %find_segment_info.exit, label %find_segment_info.exit.thread
 
-find_segment_info.argprom.exit:                   ; preds = %26
+find_segment_info.exit:                           ; preds = %26
   %32 = getelementptr inbounds i8, ptr %22, i64 36
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, %.240
-  br label %find_segment_info.argprom.exit.thread
+  br label %find_segment_info.exit.thread
 
-find_segment_info.argprom.exit.thread:            ; preds = %26, %23, %.lr.ph, %find_segment_info.argprom.exit
-  %.3 = phi i32 [ %34, %find_segment_info.argprom.exit ], [ %.240, %.lr.ph ], [ %.240, %23 ], [ %.240, %26 ]
+find_segment_info.exit.thread:                    ; preds = %26, %23, %.lr.ph, %find_segment_info.exit
+  %.3 = phi i32 [ %34, %find_segment_info.exit ], [ %.240, %.lr.ph ], [ %.240, %23 ], [ %.240, %26 ]
   %35 = add nuw i32 %.02841, 1
   %36 = load ptr, ptr %13, align 8
   %37 = tail call i32 @wmem_array_get_count(ptr noundef %36) #9
   %38 = icmp ult i32 %35, %37
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %find_segment_info.argprom.exit.thread, %.lr.ph45
-  %.2.lcssa = phi i32 [ %.142, %.lr.ph45 ], [ %.3, %find_segment_info.argprom.exit.thread ]
+._crit_edge:                                      ; preds = %find_segment_info.exit.thread, %.lr.ph45
+  %.2.lcssa = phi i32 [ %.142, %.lr.ph45 ], [ %.3, %find_segment_info.exit.thread ]
   %39 = add nuw i32 %.02743, 1
   %40 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %0) #9
   %41 = icmp ult i32 %39, %40
@@ -1249,7 +1249,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @end_reassembly(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %is_reassembly_done.argprom.exit.thread12, label %4
+  br i1 %.not, label %is_reassembly_done.exit.thread12, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr i8, ptr %1, i64 16
@@ -1288,14 +1288,14 @@ define internal fastcc ptr @end_reassembly(i32 noundef %0, ptr noundef readonly 
   %21 = icmp eq i32 %17, 0
   %.not15 = icmp ult i32 %19, %18
   %or.cond = select i1 %21, i1 %.not15, i1 false
-  br i1 %or.cond, label %set_fragment_head.exit, label %is_reassembly_done.argprom.exit.thread12
+  br i1 %or.cond, label %set_fragment_head.exit, label %is_reassembly_done.exit.thread12
 
-is_reassembly_done.argprom.exit.thread12:         ; preds = %._crit_edge.i, %3
+is_reassembly_done.exit.thread12:                 ; preds = %._crit_edge.i, %3
   %22 = tail call ptr @fragment_end_seq_next(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %2, i32 noundef %0, ptr noundef null) #9
   %.not.i9 = icmp eq ptr %22, null
   br i1 %.not.i9, label %set_fragment_head.exit, label %23
 
-23:                                               ; preds = %is_reassembly_done.argprom.exit.thread12
+23:                                               ; preds = %is_reassembly_done.exit.thread12
   %24 = tail call ptr @wmem_file_scope() #9
   %25 = load i32, ptr @proto_rpcordma, align 4
   %26 = tail call ptr @p_get_proto_data(ptr noundef %24, ptr noundef %2, i32 noundef %25, i32 noundef 1) #9
@@ -1308,8 +1308,8 @@ is_reassembly_done.argprom.exit.thread12:         ; preds = %._crit_edge.i, %3
   tail call void @p_add_proto_data(ptr noundef %28, ptr noundef %2, i32 noundef %29, i32 noundef 1, ptr noundef nonnull %22) #9
   br label %set_fragment_head.exit
 
-set_fragment_head.exit:                           ; preds = %.lr.ph.i, %._crit_edge.i, %7, %4, %27, %23, %is_reassembly_done.argprom.exit.thread12
-  %.0 = phi ptr [ null, %is_reassembly_done.argprom.exit.thread12 ], [ %22, %23 ], [ %22, %27 ], [ null, %4 ], [ null, %7 ], [ null, %._crit_edge.i ], [ null, %.lr.ph.i ]
+set_fragment_head.exit:                           ; preds = %.lr.ph.i, %._crit_edge.i, %7, %4, %27, %23, %is_reassembly_done.exit.thread12
+  %.0 = phi ptr [ null, %is_reassembly_done.exit.thread12 ], [ %22, %23 ], [ %22, %27 ], [ null, %4 ], [ null, %7 ], [ null, %._crit_edge.i ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -1587,9 +1587,9 @@ define internal fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %1, pt
   %50 = zext i32 %49 to i64
   %51 = add i64 %46, %50
   %52 = icmp ult i64 %42, %51
-  br i1 %52, label %find_segment_info.argprom.exit, label %55
+  br i1 %52, label %find_segment_info.exit, label %55
 
-find_segment_info.argprom.exit:                   ; preds = %47
+find_segment_info.exit:                           ; preds = %47
   %53 = getelementptr inbounds i8, ptr %33, i64 8
   %54 = load i32, ptr %53, align 8
   store i32 %54, ptr %48, align 8
@@ -1643,12 +1643,12 @@ find_segment_info.argprom.exit:                   ; preds = %47
   %.pre = load i32, ptr %67, align 8
   br label %81
 
-81:                                               ; preds = %63, %find_segment_info.argprom.exit
-  %82 = phi i32 [ %54, %find_segment_info.argprom.exit ], [ %.pre, %63 ]
-  %.2154 = phi i32 [ %.1153170, %find_segment_info.argprom.exit ], [ %.3155, %63 ]
-  %.2128 = phi ptr [ %43, %find_segment_info.argprom.exit ], [ %65, %63 ]
-  %.2125 = phi i32 [ %.1124172, %find_segment_info.argprom.exit ], [ 1, %63 ]
-  %.2 = phi ptr [ %.1173, %find_segment_info.argprom.exit ], [ %.3, %63 ]
+81:                                               ; preds = %63, %find_segment_info.exit
+  %82 = phi i32 [ %54, %find_segment_info.exit ], [ %.pre, %63 ]
+  %.2154 = phi i32 [ %.1153170, %find_segment_info.exit ], [ %.3155, %63 ]
+  %.2128 = phi ptr [ %43, %find_segment_info.exit ], [ %65, %63 ]
+  %.2125 = phi i32 [ %.1124172, %find_segment_info.exit ], [ 1, %63 ]
+  %.2 = phi ptr [ %.1173, %find_segment_info.exit ], [ %.3, %63 ]
   %83 = load i32, ptr %12, align 4
   %84 = add i32 %83, %82
   store i32 %84, ptr %12, align 4
@@ -2171,12 +2171,12 @@ define internal fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %1, i32 
   %29 = zext i32 %28 to i64
   %30 = add i64 %25, %29
   %31 = icmp ult i64 %21, %30
-  br i1 %31, label %find_segment_info.argprom.exit, label %32
+  br i1 %31, label %find_segment_info.exit, label %32
 
 32:                                               ; preds = %26, %23, %16
-  br label %find_segment_info.argprom.exit
+  br label %find_segment_info.exit
 
-find_segment_info.argprom.exit:                   ; preds = %26, %32
+find_segment_info.exit:                           ; preds = %26, %32
   %.0.i = phi ptr [ null, %32 ], [ %22, %26 ]
   %33 = load ptr, ptr @gp_infiniband_info, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
@@ -2217,10 +2217,10 @@ find_segment_info.argprom.exit:                   ; preds = %26, %32
   %60 = add nuw i32 %48, 1
   br label %61
 
-61:                                               ; preds = %find_segment_info.argprom.exit, %56
-  %.043 = phi i32 [ 1, %find_segment_info.argprom.exit ], [ %60, %56 ]
-  %.042 = phi ptr [ %.0.i, %find_segment_info.argprom.exit ], [ %58, %56 ]
-  %.0.in = phi ptr [ %34, %find_segment_info.argprom.exit ], [ %59, %56 ]
+61:                                               ; preds = %find_segment_info.exit, %56
+  %.043 = phi i32 [ 1, %find_segment_info.exit ], [ %60, %56 ]
+  %.042 = phi ptr [ %.0.i, %find_segment_info.exit ], [ %58, %56 ]
+  %.0.in = phi ptr [ %34, %find_segment_info.exit ], [ %59, %56 ]
   %.not50 = icmp eq ptr %.042, null
   br i1 %.not50, label %.thread, label %62
 
@@ -2425,7 +2425,7 @@ define internal fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef %1, p
 
 10:                                               ; preds = %4
   %11 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef %3)
-  br label %find_segment_info.argprom.exit.thread
+  br label %find_segment_info.exit.thread
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr @gp_rdmap_info, align 8
@@ -2440,7 +2440,7 @@ define internal fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef %1, p
   %20 = load i32, ptr %19, align 8
   %21 = tail call ptr @wmem_tree_lookup32(ptr noundef %18, i32 noundef %20) #9
   %.not77 = icmp eq ptr %21, null
-  br i1 %.not77, label %find_segment_info.argprom.exit.thread, label %22
+  br i1 %.not77, label %find_segment_info.exit.thread, label %22
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr @gp_rdmap_info, align 8
@@ -2469,13 +2469,13 @@ define internal fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef %1, p
   %.val = load ptr, ptr %1, align 8
   %37 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %.073) #9
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %find_segment_info.argprom.exit.thread, label %38
+  br i1 %.not.i, label %find_segment_info.exit.thread, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %37, i64 8
   %40 = load i64, ptr %39, align 8
   %.not12.i = icmp ult i64 %.072, %40
-  br i1 %.not12.i, label %find_segment_info.argprom.exit.thread, label %41
+  br i1 %.not12.i, label %find_segment_info.exit.thread, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %37, i64 32
@@ -2483,9 +2483,9 @@ define internal fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef %1, p
   %44 = zext i32 %43 to i64
   %45 = add i64 %40, %44
   %46 = icmp ult i64 %.072, %45
-  br i1 %46, label %find_segment_info.argprom.exit, label %find_segment_info.argprom.exit.thread
+  br i1 %46, label %find_segment_info.exit, label %find_segment_info.exit.thread
 
-find_segment_info.argprom.exit:                   ; preds = %41
+find_segment_info.exit:                           ; preds = %41
   %47 = sub i64 %.072, %40
   %48 = trunc i64 %47 to i32
   %49 = getelementptr inbounds i8, ptr %37, i64 20
@@ -2504,7 +2504,7 @@ find_segment_info.argprom.exit:                   ; preds = %41
   %.not79 = icmp eq i32 %59, 0
   br i1 %.not79, label %77, label %60
 
-60:                                               ; preds = %find_segment_info.argprom.exit
+60:                                               ; preds = %find_segment_info.exit
   %61 = getelementptr inbounds i8, ptr %1, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %37, i64 16
@@ -2540,10 +2540,10 @@ find_segment_info.argprom.exit:                   ; preds = %41
   %or.cond83 = select i1 %15, i1 true, i1 %76
   br label %77
 
-77:                                               ; preds = %.loopexit, %find_segment_info.argprom.exit
-  %78 = phi i1 [ true, %find_segment_info.argprom.exit ], [ %or.cond83, %.loopexit ]
-  %.068 = phi i32 [ 0, %find_segment_info.argprom.exit ], [ %.169, %.loopexit ]
-  %.066 = phi i32 [ 0, %find_segment_info.argprom.exit ], [ %.1, %.loopexit ]
+77:                                               ; preds = %.loopexit, %find_segment_info.exit
+  %78 = phi i1 [ true, %find_segment_info.exit ], [ %or.cond83, %.loopexit ]
+  %.068 = phi i32 [ 0, %find_segment_info.exit ], [ %.169, %.loopexit ]
+  %.066 = phi i32 [ 0, %find_segment_info.exit ], [ %.1, %.loopexit ]
   %79 = getelementptr inbounds i8, ptr %37, i64 16
   %80 = load i32, ptr %79, align 8
   %81 = tail call fastcc ptr @add_fragment(ptr noundef %0, i32 noundef 0, i32 noundef %80, i32 noundef %52, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
@@ -2559,7 +2559,7 @@ find_segment_info.argprom.exit:                   ; preds = %41
   %or.cond3.not90 = and i1 %15, %87
   %88 = icmp eq i32 %.068, %.066
   %or.cond84 = select i1 %or.cond3.not90, i1 %88, i1 false
-  br i1 %or.cond84, label %89, label %find_segment_info.argprom.exit.thread
+  br i1 %or.cond84, label %89, label %find_segment_info.exit.thread
 
 89:                                               ; preds = %83, %77
   %90 = load i32, ptr %79, align 8
@@ -2581,15 +2581,15 @@ find_segment_info.argprom.exit:                   ; preds = %41
   br label %add_iwarp_padding.exit
 
 add_iwarp_padding.exit:                           ; preds = %94, %89
-  br i1 %or.cond, label %find_segment_info.argprom.exit.thread, label %102
+  br i1 %or.cond, label %find_segment_info.exit.thread, label %102
 
 102:                                              ; preds = %add_iwarp_padding.exit
   %103 = load i32, ptr %79, align 8
   %104 = tail call fastcc ptr @end_reassembly(i32 noundef %103, ptr noundef nonnull %1, ptr noundef %2)
   %105 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
-  br label %find_segment_info.argprom.exit.thread
+  br label %find_segment_info.exit.thread
 
-find_segment_info.argprom.exit.thread:            ; preds = %83, %41, %38, %35, %102, %add_iwarp_padding.exit, %16, %10
+find_segment_info.exit.thread:                    ; preds = %83, %41, %38, %35, %102, %add_iwarp_padding.exit, %16, %10
   %.065 = phi ptr [ %11, %10 ], [ null, %16 ], [ %81, %add_iwarp_padding.exit ], [ %105, %102 ], [ null, %35 ], [ null, %38 ], [ null, %41 ], [ %81, %83 ]
   ret ptr %.065
 }

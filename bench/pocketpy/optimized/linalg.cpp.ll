@@ -6404,7 +6404,7 @@ _ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
   %14 = getelementptr inbounds i8, ptr %5, i64 56
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 8
-  br i1 %.not.i, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit", label %16
+  br i1 %.not.i, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit", label %16
 
 16:                                               ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.67)
@@ -6417,7 +6417,7 @@ _ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
 
 _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit"
 
 18:                                               ; preds = %.noexc.i, %16
   %19 = landingpad { ptr, i32 }
@@ -6425,7 +6425,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
   resume { ptr, i32 } %19
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %22 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec2EJEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %20, i16 %21)
@@ -7949,7 +7949,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %4 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %5)
-  br i1 %6, label %7, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %6, label %7, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 24
@@ -7961,7 +7961,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
   %15 = fpext float %14 to double
   %16 = fcmp olt double %15, 1.000000e-04
-  br i1 %16, label %_ZNK4pkpy4Vec2eqERKS0_.exit.i, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %16, label %_ZNK4pkpy4Vec2eqERKS0_.exit.i, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 _ZNK4pkpy4Vec2eqERKS0_.exit.i:                    ; preds = %7
   %17 = getelementptr inbounds i8, ptr %1, i64 28
@@ -7972,12 +7972,12 @@ _ZNK4pkpy4Vec2eqERKS0_.exit.i:                    ; preds = %7
   %22 = tail call noundef float @llvm.fabs.f32(float %21)
   %23 = fpext float %22 to double
   %24 = fcmp olt double %23, 1.000000e-04
-  br i1 %24, label %25, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %24, label %25, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 25:                                               ; preds = %_ZNK4pkpy4Vec2eqERKS0_.exit.i
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit": ; preds = %3, %7, %_ZNK4pkpy4Vec2eqERKS0_.exit.i, %25
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit": ; preds = %3, %7, %_ZNK4pkpy4Vec2eqERKS0_.exit.i, %25
   %.sink.i = phi i64 [ 264544, %3 ], [ 264528, %25 ], [ 264536, %_ZNK4pkpy4Vec2eqERKS0_.exit.i ], [ 264536, %7 ]
   %.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i
   %.0.i = load ptr, ptr %.in.i.i, align 8
@@ -8478,7 +8478,7 @@ _ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %30, %_Z
   %96 = fmul float %93, %95
   %97 = tail call float @llvm.fmuladd.f32(float %92, float %94, float %96)
   %98 = fcmp ogt float %97, 0.000000e+00
-  br i1 %98, label %99, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.argprom.exit"
+  br i1 %98, label %99, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit"
 
 99:                                               ; preds = %72
   %100 = fsub <2 x float> %.sroa.06.0.copyload.i.i15.i, %.sroa.06.0.copyload.i.i15.i
@@ -8488,9 +8488,9 @@ _ZN4pkpy7py_castIRNS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %30, %_Z
   %103 = fsub float %.sroa.070.4.vec.extract.i.i, %.sroa.070.4.vec.extract.i.i
   %104 = fdiv float %103, %48
   store float %104, ptr %78, align 4
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.argprom.exit": ; preds = %72, %99
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit": ; preds = %72, %99
   %.092.i.i = phi float [ %.sroa.070.4.vec.extract.i.i, %99 ], [ %90, %72 ]
   %.091.i.i = phi float [ %.sroa.070.0.vec.extract.i.i, %99 ], [ %88, %72 ]
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %.091.i.i, i64 0
@@ -8528,7 +8528,7 @@ _ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %18 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %16, i16 %17)
-  br i1 %18, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_NS_8ArgsViewE.argprom.exit", label %19
+  br i1 %18, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_NS_8ArgsViewE.exit", label %19
 
 19:                                               ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
   %20 = ptrtoint ptr %16 to i64
@@ -8538,9 +8538,9 @@ _ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
   %24 = select i1 %22, ptr @_ZN4pkpy2VM6tp_intE, ptr %23
   %.sroa.0.0.copyload.i.i.i.i6.i = load i16, ptr %24, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %17, i16 %.sroa.0.0.copyload.i.i.i.i6.i)
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %19
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %19
   %25 = getelementptr inbounds i8, ptr %16, i64 24
   %.sroa.06.0.copyload.i.i7.i = load <2 x float>, ptr %25, align 8
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i7.i, i64 1
@@ -8721,11 +8721,11 @@ define internal void @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_98
 23:                                               ; preds = %22
   %24 = load ptr, ptr %9, align 8, !noalias !21
   %.not.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_.argprom.exit", label %25
+  br i1 %.not.i.i.i, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_.exit", label %25
 
 25:                                               ; preds = %23
   call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %24) #33
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_.exit"
 
 26:                                               ; preds = %22, %20, %17, %15, %12, %3
   %27 = landingpad { ptr, i32 }
@@ -8741,7 +8741,7 @@ define internal void @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_98
 _ZN4pkpy7SStreamD2Ev.exit4.i:                     ; preds = %29, %26
   resume { ptr, i32 } %27
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_.argprom.exit": ; preds = %23, %25
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_.exit": ; preds = %23, %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
@@ -9206,7 +9206,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %6)
-  br i1 %7, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit", label %8
 
 8:                                                ; preds = %3
   %9 = ptrtoint ptr %2 to i64
@@ -9216,9 +9216,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %13 = select i1 %11, ptr @_ZN4pkpy2VM6tp_intE, ptr %12
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %13, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %6, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit": ; preds = %3, %8
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
   %16 = load float, ptr %14, align 4
@@ -9246,7 +9246,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %6)
-  br i1 %7, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.argprom.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.exit", label %8
 
 8:                                                ; preds = %3
   %9 = ptrtoint ptr %2 to i64
@@ -9256,9 +9256,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %13 = select i1 %11, ptr @_ZN4pkpy2VM6tp_intE, ptr %12
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %13, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %6, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.argprom.exit": ; preds = %3, %8
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
   %16 = load float, ptr %14, align 4
@@ -9308,7 +9308,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %23 = getelementptr inbounds i8, ptr %2, i64 28
   %24 = load float, ptr %23, align 4
   %25 = fmul float %22, %24
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
 26:                                               ; preds = %3
   %27 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
@@ -9318,9 +9318,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %31 = getelementptr inbounds i8, ptr %1, i64 28
   %32 = load float, ptr %31, align 4
   %33 = fmul float %32, %28
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.argprom.exit": ; preds = %15, %26
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit": ; preds = %15, %26
   %.sink4.i = phi float [ %30, %26 ], [ %20, %15 ]
   %.sink3.i = phi float [ %33, %26 ], [ %25, %15 ]
   %.sink.i = phi ptr [ %5, %26 ], [ %4, %15 ]
@@ -9416,7 +9416,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %10 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %8, i16 %9)
-  br i1 %10, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.argprom.exit", label %11
+  br i1 %10, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.exit", label %11
 
 11:                                               ; preds = %3
   %12 = ptrtoint ptr %8 to i64
@@ -9426,9 +9426,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %16 = select i1 %14, ptr @_ZN4pkpy2VM6tp_intE, ptr %15
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %16, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %9, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %11
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.exit": ; preds = %3, %11
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %19 = load float, ptr %17, align 4
@@ -9457,7 +9457,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %10 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %8, i16 %9)
-  br i1 %10, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_23clES2_NS_8ArgsViewE.argprom.exit", label %11
+  br i1 %10, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_23clES2_NS_8ArgsViewE.exit", label %11
 
 11:                                               ; preds = %3
   %12 = ptrtoint ptr %8 to i64
@@ -9467,9 +9467,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %16 = select i1 %14, ptr @_ZN4pkpy2VM6tp_intE, ptr %15
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %16, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %9, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_23clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_23clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_23clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %11
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_23clES2_NS_8ArgsViewE.exit": ; preds = %3, %11
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %19 = load float, ptr %17, align 4
@@ -9498,7 +9498,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %9 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %7, i16 %8)
-  br i1 %9, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_24clES2_NS_8ArgsViewE.argprom.exit", label %10
+  br i1 %9, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_24clES2_NS_8ArgsViewE.exit", label %10
 
 10:                                               ; preds = %3
   %11 = ptrtoint ptr %7 to i64
@@ -9508,9 +9508,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %15 = select i1 %13, ptr @_ZN4pkpy2VM6tp_intE, ptr %14
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %15, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %8, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_24clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_24clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_24clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %10
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_24clES2_NS_8ArgsViewE.exit": ; preds = %3, %10
   %16 = getelementptr inbounds i8, ptr %4, i64 24
   %17 = getelementptr inbounds i8, ptr %7, i64 24
   %18 = load float, ptr %17, align 4
@@ -9618,7 +9618,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
   %or.cond.i = icmp ugt i64 %7, 1
-  br i1 %or.cond.i, label %8, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_S4_S4_.argprom.exit"
+  br i1 %or.cond.i, label %8, label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_S4_S4_.exit"
 
 8:                                                ; preds = %3
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.79)
@@ -9631,7 +9631,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_
 
 _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
-  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_S4_S4_.exit"
 
 10:                                               ; preds = %.noexc.i, %8
   %11 = landingpad { ptr, i32 }
@@ -9639,7 +9639,7 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   resume { ptr, i32 } %11
 
-"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_S4_S4_.argprom.exit": ; preds = %3, %_ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_S4_S4_.exit": ; preds = %3, %_ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = getelementptr inbounds float, ptr %12, i64 %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -9903,7 +9903,7 @@ _ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
   %14 = getelementptr inbounds i8, ptr %5, i64 56
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 12
-  br i1 %.not.i, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit", label %16
+  br i1 %.not.i, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit", label %16
 
 16:                                               ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.67)
@@ -9916,7 +9916,7 @@ _ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
 
 _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
-  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit"
 
 18:                                               ; preds = %.noexc.i, %16
   %19 = landingpad { ptr, i32 }
@@ -9924,7 +9924,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
   resume { ptr, i32 } %19
 
-"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %22 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %20, i16 %21)
@@ -10511,7 +10511,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %4 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %5)
-  br i1 %6, label %7, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %6, label %7, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 24
@@ -10523,7 +10523,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
   %15 = fpext float %14 to double
   %16 = fcmp olt double %15, 1.000000e-04
-  br i1 %16, label %17, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %16, label %17, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds i8, ptr %1, i64 28
@@ -10534,7 +10534,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %23 = tail call noundef float @llvm.fabs.f32(float %22)
   %24 = fpext float %23 to double
   %25 = fcmp olt double %24, 1.000000e-04
-  br i1 %25, label %_ZNK4pkpy4Vec3eqERKS0_.exit.i, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %25, label %_ZNK4pkpy4Vec3eqERKS0_.exit.i, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 _ZNK4pkpy4Vec3eqERKS0_.exit.i:                    ; preds = %17
   %26 = getelementptr inbounds i8, ptr %1, i64 32
@@ -10545,12 +10545,12 @@ _ZNK4pkpy4Vec3eqERKS0_.exit.i:                    ; preds = %17
   %31 = tail call noundef float @llvm.fabs.f32(float %30)
   %32 = fpext float %31 to double
   %33 = fcmp olt double %32, 1.000000e-04
-  br i1 %33, label %34, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %33, label %34, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 34:                                               ; preds = %_ZNK4pkpy4Vec3eqERKS0_.exit.i
-  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit": ; preds = %3, %7, %17, %_ZNK4pkpy4Vec3eqERKS0_.exit.i, %34
+"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit": ; preds = %3, %7, %17, %_ZNK4pkpy4Vec3eqERKS0_.exit.i, %34
   %.sink.i = phi i64 [ 264544, %3 ], [ 264528, %34 ], [ 264536, %_ZNK4pkpy4Vec3eqERKS0_.exit.i ], [ 264536, %17 ], [ 264536, %7 ]
   %.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i
   %.0.i = load ptr, ptr %.in.i.i, align 8
@@ -10746,11 +10746,11 @@ define internal void @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_78
 28:                                               ; preds = %27
   %29 = load ptr, ptr %9, align 8, !noalias !24
   %.not.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.argprom.exit", label %30
+  br i1 %.not.i.i.i, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.exit", label %30
 
 30:                                               ; preds = %28
   call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %29) #33
-  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.exit"
 
 31:                                               ; preds = %27, %25, %22, %20, %17, %15, %12, %3
   %32 = landingpad { ptr, i32 }
@@ -10766,7 +10766,7 @@ define internal void @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_78
 _ZN4pkpy7SStreamD2Ev.exit4.i:                     ; preds = %34, %31
   resume { ptr, i32 } %32
 
-"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.argprom.exit": ; preds = %28, %30
+"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.exit": ; preds = %28, %30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
@@ -10862,7 +10862,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %6)
-  br i1 %7, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_14clES2_S4_S4_.argprom.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_14clES2_S4_S4_.exit", label %8
 
 8:                                                ; preds = %3
   %9 = ptrtoint ptr %2 to i64
@@ -10872,9 +10872,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %13 = select i1 %11, ptr @_ZN4pkpy2VM6tp_intE, ptr %12
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %13, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %6, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_14clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_14clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_14clES2_S4_S4_.argprom.exit": ; preds = %3, %8
+"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_14clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
   %16 = load float, ptr %14, align 4
@@ -11001,7 +11001,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %6)
-  br i1 %7, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_S4_S4_.argprom.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_S4_S4_.exit", label %8
 
 8:                                                ; preds = %3
   %9 = ptrtoint ptr %2 to i64
@@ -11011,9 +11011,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %13 = select i1 %11, ptr @_ZN4pkpy2VM6tp_intE, ptr %12
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %13, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %6, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_S4_S4_.argprom.exit": ; preds = %3, %8
+"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
   %16 = load float, ptr %14, align 4
@@ -11076,7 +11076,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %28 = getelementptr inbounds i8, ptr %2, i64 32
   %29 = load float, ptr %28, align 4
   %30 = fmul float %27, %29
-  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
 31:                                               ; preds = %3
   %.sink4.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
@@ -11090,9 +11090,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %39 = getelementptr inbounds i8, ptr %1, i64 32
   %40 = load float, ptr %39, align 4
   %41 = fmul float %40, %33
-  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit": ; preds = %15, %31
+"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit": ; preds = %15, %31
   %.sink6.i = phi float [ %35, %31 ], [ %20, %15 ]
   %.sink5.i = phi float [ %38, %31 ], [ %25, %15 ]
   %.sink4.i.sroa.phi = phi ptr [ %.sink4.i.sroa.gep, %31 ], [ %.sink4.i.sroa.gep3, %15 ]
@@ -11178,7 +11178,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %10 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %8, i16 %9)
-  br i1 %10, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_19clES2_NS_8ArgsViewE.argprom.exit", label %11
+  br i1 %10, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_19clES2_NS_8ArgsViewE.exit", label %11
 
 11:                                               ; preds = %3
   %12 = ptrtoint ptr %8 to i64
@@ -11188,9 +11188,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %16 = select i1 %14, ptr @_ZN4pkpy2VM6tp_intE, ptr %15
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %16, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %9, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_19clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_19clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_19clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %11
+"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_19clES2_NS_8ArgsViewE.exit": ; preds = %3, %11
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %19 = load float, ptr %17, align 4
@@ -11225,7 +11225,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %10 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %8, i16 %9)
-  br i1 %10, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_NS_8ArgsViewE.argprom.exit", label %11
+  br i1 %10, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_NS_8ArgsViewE.exit", label %11
 
 11:                                               ; preds = %3
   %12 = ptrtoint ptr %8 to i64
@@ -11235,9 +11235,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %16 = select i1 %14, ptr @_ZN4pkpy2VM6tp_intE, ptr %15
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %16, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %9, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %11
+"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_NS_8ArgsViewE.exit": ; preds = %3, %11
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %19 = getelementptr inbounds i8, ptr %5, i64 28
@@ -11279,7 +11279,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %9 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %7, i16 %8)
-  br i1 %9, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.argprom.exit", label %10
+  br i1 %9, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit", label %10
 
 10:                                               ; preds = %3
   %11 = ptrtoint ptr %7 to i64
@@ -11289,9 +11289,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %15 = select i1 %13, ptr @_ZN4pkpy2VM6tp_intE, ptr %14
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %15, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %8, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %10
+"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit": ; preds = %3, %10
   %16 = getelementptr inbounds i8, ptr %4, i64 24
   %17 = getelementptr inbounds i8, ptr %7, i64 24
   %18 = load float, ptr %17, align 4
@@ -11420,7 +11420,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
   %or.cond.i = icmp ugt i64 %7, 2
-  br i1 %or.cond.i, label %8, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_26clES2_S4_S4_.argprom.exit"
+  br i1 %or.cond.i, label %8, label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_26clES2_S4_S4_.exit"
 
 8:                                                ; preds = %3
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.79)
@@ -11433,7 +11433,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_
 
 _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
-  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_26clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_26clES2_S4_S4_.exit"
 
 10:                                               ; preds = %.noexc.i, %8
   %11 = landingpad { ptr, i32 }
@@ -11441,7 +11441,7 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   resume { ptr, i32 } %11
 
-"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_26clES2_S4_S4_.argprom.exit": ; preds = %3, %_ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_26clES2_S4_S4_.exit": ; preds = %3, %_ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = getelementptr inbounds float, ptr %12, i64 %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -11478,7 +11478,7 @@ _ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
   %14 = getelementptr inbounds i8, ptr %5, i64 56
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 16
-  br i1 %.not.i, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit", label %16
+  br i1 %.not.i, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit", label %16
 
 16:                                               ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.67)
@@ -11491,7 +11491,7 @@ _ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
 
 _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
-  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit"
 
 18:                                               ; preds = %.noexc.i, %16
   %19 = landingpad { ptr, i32 }
@@ -11499,7 +11499,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
   resume { ptr, i32 } %19
 
-"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %22 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec4EJEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %20, i16 %21)
@@ -12082,7 +12082,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %4 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %5)
-  br i1 %6, label %7, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %6, label %7, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 24
@@ -12094,7 +12094,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
   %15 = fpext float %14 to double
   %16 = fcmp olt double %15, 1.000000e-04
-  br i1 %16, label %17, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %16, label %17, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds i8, ptr %1, i64 28
@@ -12105,7 +12105,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %23 = tail call noundef float @llvm.fabs.f32(float %22)
   %24 = fpext float %23 to double
   %25 = fcmp olt double %24, 1.000000e-04
-  br i1 %25, label %26, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %25, label %26, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds i8, ptr %1, i64 32
@@ -12116,7 +12116,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %32 = tail call noundef float @llvm.fabs.f32(float %31)
   %33 = fpext float %32 to double
   %34 = fcmp olt double %33, 1.000000e-04
-  br i1 %34, label %_ZNK4pkpy4Vec4eqERKS0_.exit.i, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %34, label %_ZNK4pkpy4Vec4eqERKS0_.exit.i, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 _ZNK4pkpy4Vec4eqERKS0_.exit.i:                    ; preds = %26
   %35 = getelementptr inbounds i8, ptr %1, i64 36
@@ -12127,12 +12127,12 @@ _ZNK4pkpy4Vec4eqERKS0_.exit.i:                    ; preds = %26
   %40 = tail call noundef float @llvm.fabs.f32(float %39)
   %41 = fpext float %40 to double
   %42 = fcmp olt double %41, 1.000000e-04
-  br i1 %42, label %43, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %42, label %43, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 43:                                               ; preds = %_ZNK4pkpy4Vec4eqERKS0_.exit.i
-  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit": ; preds = %3, %7, %17, %26, %_ZNK4pkpy4Vec4eqERKS0_.exit.i, %43
+"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit": ; preds = %3, %7, %17, %26, %_ZNK4pkpy4Vec4eqERKS0_.exit.i, %43
   %.sink.i = phi i64 [ 264544, %3 ], [ 264528, %43 ], [ 264536, %_ZNK4pkpy4Vec4eqERKS0_.exit.i ], [ 264536, %26 ], [ 264536, %17 ], [ 264536, %7 ]
   %.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i
   %.0.i = load ptr, ptr %.in.i.i, align 8
@@ -12350,11 +12350,11 @@ define internal void @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_78
 33:                                               ; preds = %32
   %34 = load ptr, ptr %9, align 8, !noalias !27
   %.not.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.argprom.exit", label %35
+  br i1 %.not.i.i.i, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.exit", label %35
 
 35:                                               ; preds = %33
   call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %34) #33
-  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.exit"
 
 36:                                               ; preds = %32, %30, %27, %25, %22, %20, %17, %15, %12, %3
   %37 = landingpad { ptr, i32 }
@@ -12370,7 +12370,7 @@ define internal void @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_78
 _ZN4pkpy7SStreamD2Ev.exit4.i:                     ; preds = %39, %36
   resume { ptr, i32 } %37
 
-"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.argprom.exit": ; preds = %33, %35
+"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.exit": ; preds = %33, %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
@@ -12494,7 +12494,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %6)
-  br i1 %7, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit", label %8
 
 8:                                                ; preds = %3
   %9 = ptrtoint ptr %2 to i64
@@ -12504,9 +12504,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %13 = select i1 %11, ptr @_ZN4pkpy2VM6tp_intE, ptr %12
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %13, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %6, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit": ; preds = %3, %8
+"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
   %16 = load float, ptr %14, align 4
@@ -12640,7 +12640,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %6)
-  br i1 %7, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.argprom.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.exit", label %8
 
 8:                                                ; preds = %3
   %9 = ptrtoint ptr %2 to i64
@@ -12650,9 +12650,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %13 = select i1 %11, ptr @_ZN4pkpy2VM6tp_intE, ptr %12
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %13, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %6, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.argprom.exit": ; preds = %3, %8
+"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_S4_S4_.exit": ; preds = %3, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 24
   %15 = getelementptr inbounds i8, ptr %2, i64 24
   %16 = load float, ptr %14, align 4
@@ -12727,7 +12727,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %33 = getelementptr inbounds i8, ptr %2, i64 36
   %34 = load float, ptr %33, align 4
   %35 = fmul float %32, %34
-  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
 36:                                               ; preds = %3
   %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
@@ -12744,9 +12744,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %47 = getelementptr inbounds i8, ptr %1, i64 36
   %48 = load float, ptr %47, align 4
   %49 = fmul float %48, %38
-  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit"
 
-"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.argprom.exit": ; preds = %15, %36
+"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_18clES2_S4_S4_.exit": ; preds = %15, %36
   %.sink7.i = phi float [ %40, %36 ], [ %20, %15 ]
   %.sink6.i = phi float [ %43, %36 ], [ %25, %15 ]
   %.sink5.i = phi float [ %46, %36 ], [ %30, %15 ]
@@ -12845,7 +12845,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %10 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %8, i16 %9)
-  br i1 %10, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.argprom.exit", label %11
+  br i1 %10, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit", label %11
 
 11:                                               ; preds = %3
   %12 = ptrtoint ptr %8 to i64
@@ -12855,9 +12855,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %16 = select i1 %14, ptr @_ZN4pkpy2VM6tp_intE, ptr %15
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %16, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %9, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %11
+"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit": ; preds = %3, %11
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %19 = load float, ptr %17, align 4
@@ -12895,7 +12895,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %9 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %7, i16 %8)
-  br i1 %9, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.argprom.exit", label %10
+  br i1 %9, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.exit", label %10
 
 10:                                               ; preds = %3
   %11 = ptrtoint ptr %7 to i64
@@ -12905,9 +12905,9 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %15 = select i1 %13, ptr @_ZN4pkpy2VM6tp_intE, ptr %14
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %15, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %8, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %10
+"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.exit": ; preds = %3, %10
   %16 = getelementptr inbounds i8, ptr %4, i64 24
   %17 = getelementptr inbounds i8, ptr %7, i64 24
   %18 = load float, ptr %17, align 4
@@ -13057,7 +13057,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec4EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %2)
   %or.cond.i = icmp ugt i64 %7, 3
-  br i1 %or.cond.i, label %8, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_S4_S4_.argprom.exit"
+  br i1 %or.cond.i, label %8, label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_S4_S4_.exit"
 
 8:                                                ; preds = %3
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.79)
@@ -13070,7 +13070,7 @@ define internal noundef ptr @"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_
 
 _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
-  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_S4_S4_.exit"
 
 10:                                               ; preds = %.noexc.i, %8
   %11 = landingpad { ptr, i32 }
@@ -13078,7 +13078,7 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   resume { ptr, i32 } %11
 
-"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_S4_S4_.argprom.exit": ; preds = %3, %_ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_S4_S4_.exit": ; preds = %3, %_ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   %13 = getelementptr inbounds float, ptr %12, i64 %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -13115,7 +13115,7 @@ _ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
   %14 = getelementptr inbounds i8, ptr %5, i64 56
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 36
-  br i1 %.not.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit", label %16
+  br i1 %.not.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit", label %16
 
 16:                                               ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.67)
@@ -13128,7 +13128,7 @@ _ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
 
 _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit"
 
 18:                                               ; preds = %.noexc.i, %16
   %19 = landingpad { ptr, i32 }
@@ -13136,7 +13136,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
   resume { ptr, i32 } %19
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_0clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castIRNS_6StructEEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %22 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %20, i16 %21)
@@ -13729,7 +13729,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %6)
-  br i1 %7, label %8, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br i1 %7, label %8, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
 8:                                                ; preds = %3
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
@@ -13753,9 +13753,9 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
 
 _ZNK4pkpy6Mat3x3eqERKS0_.exit.i:                  ; preds = %11
   %.in.v.i.i = select i1 %19, i64 264528, i64 264536
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.argprom.exit": ; preds = %3, %_ZNK4pkpy6Mat3x3eqERKS0_.exit.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_S4_S4_.exit": ; preds = %3, %_ZNK4pkpy6Mat3x3eqERKS0_.exit.i
   %.in.v.i.sink.i = phi i64 [ %.in.v.i.i, %_ZNK4pkpy6Mat3x3eqERKS0_.exit.i ], [ 264544, %3 ]
   %.in.i.i = getelementptr inbounds i8, ptr %0, i64 %.in.v.i.sink.i
   %.0.i = load ptr, ptr %.in.i.i, align 8
@@ -13793,7 +13793,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %.sroa.012.0.copyload.i = load i16, ptr %18, align 8
   call void @_ZN4pkpy6Mat3x3C1Efffffffff(ptr noundef nonnull align 4 dereferenceable(36) %5, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %19 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %16, i16 %.sroa.012.0.copyload.i, ptr noundef nonnull align 4 dereferenceable(36) %5)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_6clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_6clES2_NS_8ArgsViewE.exit"
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds i8, ptr %1, i64 8
@@ -13865,7 +13865,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i:          ; preds = %.noexc.i
   %50 = getelementptr inbounds i8, ptr %49, i64 24
   %.sroa.04.0.copyload.i = load i16, ptr %50, align 8
   %51 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %48, i16 %.sroa.04.0.copyload.i, ptr noundef nonnull align 4 dereferenceable(36) %7)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_6clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_6clES2_NS_8ArgsViewE.exit"
 
 52:                                               ; preds = %3
   call void @_ZN4pkpy6Mat3x3C1Ev(ptr noundef nonnull align 4 dereferenceable(36) %8)
@@ -13889,7 +13889,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i:          ; preds = %.noexc.i
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %.sroa.0.0.copyload.i = load i16, ptr %62, align 8
   %63 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %60, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 4 dereferenceable(36) %8)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_6clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_6clES2_NS_8ArgsViewE.exit"
 
 64:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -13950,7 +13950,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit31.i:        ; preds = %.noexc29.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #33
   %82 = getelementptr inbounds i8, ptr %0, i64 264520
   %83 = load ptr, ptr %82, align 8
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_6clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_6clES2_NS_8ArgsViewE.exit"
 
 84:                                               ; preds = %.noexc29.i, %_ZN4pkpy2_SIJRA49_KciEEENS_3StrEDpOT_.exit.i
   %85 = landingpad { ptr, i32 }
@@ -13958,7 +13958,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit31.i:        ; preds = %.noexc29.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #33
   br label %common.resume.i
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_6clES2_NS_8ArgsViewE.argprom.exit": ; preds = %15, %47, %59, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit31.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_6clES2_NS_8ArgsViewE.exit": ; preds = %15, %47, %59, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit31.i
   %.0.i = phi ptr [ %19, %15 ], [ %51, %47 ], [ %63, %59 ], [ %83, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit31.i ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -14070,7 +14070,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %9 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %7, i16 %8)
-  br i1 %9, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.argprom.exit", label %10
+  br i1 %9, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit", label %10
 
 10:                                               ; preds = %3
   %11 = ptrtoint ptr %7 to i64
@@ -14080,9 +14080,9 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %15 = select i1 %13, ptr @_ZN4pkpy2VM6tp_intE, ptr %14
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %15, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %8, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %10
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_NS_8ArgsViewE.exit": ; preds = %3, %10
   %16 = getelementptr inbounds i8, ptr %4, i64 24
   %17 = getelementptr inbounds i8, ptr %7, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %16, ptr noundef nonnull align 4 dereferenceable(36) %17, i64 36, i1 false)
@@ -14221,11 +14221,11 @@ define internal void @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_
 79:                                               ; preds = %78
   %80 = load ptr, ptr %8, align 8, !noalias !35
   %.not.i.i.i = icmp eq ptr %80, null
-  br i1 %.not.i.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_S4_.argprom.exit", label %81
+  br i1 %.not.i.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_S4_.exit", label %81
 
 81:                                               ; preds = %79
   call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %80) #33
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_S4_.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_S4_.exit"
 
 82:                                               ; preds = %78, %76, %71, %69, %64, %62, %57, %55, %53, %48, %46, %41, %39, %34, %32, %30, %25, %23, %18, %16, %11, %3
   %83 = landingpad { ptr, i32 }
@@ -14241,7 +14241,7 @@ define internal void @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_
 _ZN4pkpy7SStreamD2Ev.exit13.i:                    ; preds = %85, %82
   resume { ptr, i32 } %83
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_S4_.argprom.exit": ; preds = %79, %81
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_S4_.exit": ; preds = %79, %81
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
 }
@@ -14308,7 +14308,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i:          ; preds = %.noexc.i
   %or.cond.i = icmp ugt i64 %27, 2
   %32 = icmp ugt i64 %31, 2
   %or.cond5.i = or i1 %or.cond.i, %32
-  br i1 %or.cond5.i, label %33, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_S4_.argprom.exit"
+  br i1 %or.cond5.i, label %33, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_S4_.exit"
 
 33:                                               ; preds = %24
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.79)
@@ -14321,7 +14321,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i:          ; preds = %.noexc.i
 
 _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc28.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #33
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_S4_.exit"
 
 35:                                               ; preds = %.noexc28.i, %33
   %36 = landingpad { ptr, i32 }
@@ -14334,7 +14334,7 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc28.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #33
   resume { ptr, i32 } %.pn.i
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_S4_.argprom.exit": ; preds = %24, %_ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_S4_.exit": ; preds = %24, %_ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i
   %38 = getelementptr inbounds i8, ptr %1, i64 24
   %39 = getelementptr inbounds [3 x [3 x float]], ptr %38, i64 0, i64 %27, i64 %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -14410,7 +14410,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i:          ; preds = %.noexc.i
   %or.cond.i = icmp ugt i64 %27, 2
   %32 = icmp ugt i64 %31, 2
   %or.cond5.i = or i1 %or.cond.i, %32
-  br i1 %or.cond5.i, label %33, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_10clES2_S4_S4_S4_.argprom.exit"
+  br i1 %or.cond5.i, label %33, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_10clES2_S4_S4_S4_.exit"
 
 33:                                               ; preds = %24
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.79)
@@ -14423,7 +14423,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i:          ; preds = %.noexc.i
 
 _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc29.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #33
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_10clES2_S4_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_10clES2_S4_S4_S4_.exit"
 
 35:                                               ; preds = %.noexc29.i, %33
   %36 = landingpad { ptr, i32 }
@@ -14436,7 +14436,7 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc29.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #33
   resume { ptr, i32 } %.pn.i
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_10clES2_S4_S4_S4_.argprom.exit": ; preds = %24, %_ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_10clES2_S4_S4_S4_.exit": ; preds = %24, %_ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i
   %38 = getelementptr inbounds i8, ptr %1, i64 24
   %39 = call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %3)
   %40 = fptrunc double %39 to float
@@ -14484,9 +14484,9 @@ _ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %9, %3
   store float %21, ptr %22, align 4, !alias.scope !38
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_11clES2_S4_S4_.argprom.exit", label %16, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_11clES2_S4_S4_.exit", label %16, !llvm.loop !12
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_11clES2_S4_S4_.argprom.exit": ; preds = %16
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_11clES2_S4_S4_.exit": ; preds = %16
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %25 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %23, i16 %24, ptr noundef nonnull align 4 dereferenceable(36) %4)
@@ -14531,9 +14531,9 @@ _ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %9, %3
   store float %21, ptr %22, align 4, !alias.scope !41
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_12clES2_S4_S4_.argprom.exit", label %16, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_12clES2_S4_S4_.exit", label %16, !llvm.loop !13
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_12clES2_S4_S4_.argprom.exit": ; preds = %16
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_12clES2_S4_S4_.exit": ; preds = %16
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %25 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %23, i16 %24, ptr noundef nonnull align 4 dereferenceable(36) %4)
@@ -14562,9 +14562,9 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   store float %12, ptr %13, align 4, !alias.scope !44
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_13clES2_S4_S4_.argprom.exit", label %9, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_13clES2_S4_S4_.exit", label %9, !llvm.loop !14
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_13clES2_S4_S4_.argprom.exit": ; preds = %9
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_13clES2_S4_S4_.exit": ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %16 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %14, i16 %15, ptr noundef nonnull align 4 dereferenceable(36) %4)
@@ -14596,9 +14596,9 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   store float %15, ptr %16, align 4, !alias.scope !47
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_14clES2_NS_8ArgsViewE.argprom.exit", label %12, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_14clES2_NS_8ArgsViewE.exit", label %12, !llvm.loop !14
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_14clES2_NS_8ArgsViewE.argprom.exit": ; preds = %12
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_14clES2_NS_8ArgsViewE.exit": ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %19 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %17, i16 %18, ptr noundef nonnull align 4 dereferenceable(36) %4)
@@ -14627,9 +14627,9 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   store float %12, ptr %13, align 4, !alias.scope !50
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_S4_S4_.argprom.exit", label %9, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_S4_S4_.exit", label %9, !llvm.loop !15
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_S4_S4_.argprom.exit": ; preds = %9
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_S4_S4_.exit": ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %16 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %14, i16 %15, ptr noundef nonnull align 4 dereferenceable(36) %4)
@@ -14741,7 +14741,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %87 = getelementptr inbounds i8, ptr %0, i64 16
   %88 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %89 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %87, i16 %88, ptr noundef nonnull align 4 dereferenceable(36) %4)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
 90:                                               ; preds = %3
   %.sroa.0.0.copyload.i.i18.i = load i16, ptr %12, align 2
@@ -14791,14 +14791,14 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %127 = getelementptr inbounds i8, ptr %0, i64 16
   %128 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %129 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_4Vec3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %127, i16 %128, ptr noundef nonnull align 4 dereferenceable(12) %5)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
 130:                                              ; preds = %90
   %131 = getelementptr inbounds i8, ptr %0, i64 264544
   %132 = load ptr, ptr %131, align 8
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.argprom.exit": ; preds = %15, %93, %130
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_S4_S4_.exit": ; preds = %15, %93, %130
   %.0.i = phi ptr [ %89, %15 ], [ %129, %93 ], [ %132, %130 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
@@ -14923,7 +14923,7 @@ _ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %13, %
   %95 = getelementptr inbounds i8, ptr %0, i64 16
   %96 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %97 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %95, i16 %96, ptr noundef nonnull align 4 dereferenceable(36) %4)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_NS_8ArgsViewE.exit"
 
 98:                                               ; preds = %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit.i
   %99 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
@@ -15024,9 +15024,9 @@ _ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i: ; preds = %101
   store float %175, ptr %176, align 4, !alias.scope !59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %107, ptr noundef nonnull align 4 dereferenceable(36) %5, i64 36, i1 false)
   %177 = load ptr, ptr %22, align 8
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_NS_8ArgsViewE.argprom.exit": ; preds = %25, %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_17clES2_NS_8ArgsViewE.exit": ; preds = %25, %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i
   %.0.i = phi ptr [ %97, %25 ], [ %177, %_ZN4pkpy7py_castIRNS_6Mat3x3EEET_PNS_2VMEPNS_8PyObjectE.exit13.i ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5)
@@ -15140,7 +15140,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   call void @_ZN4pkpy6Mat3x3C1Ev(ptr noundef nonnull align 4 dereferenceable(36) %3)
   %7 = call noundef zeroext i1 @_ZNK4pkpy6Mat3x37inverseERS0_(ptr noundef nonnull readonly align 4 dereferenceable(36) %6, ptr noundef nonnull align 4 dereferenceable(36) %3)
-  br i1 %7, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_S4_.argprom.exit", label %8
+  br i1 %7, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_S4_.exit", label %8
 
 8:                                                ; preds = %2
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.92)
@@ -15153,7 +15153,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
 
 _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_S4_.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_S4_.exit"
 
 10:                                               ; preds = %.noexc.i, %8
   %11 = landingpad { ptr, i32 }
@@ -15161,7 +15161,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
   resume { ptr, i32 } %11
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_S4_.argprom.exit": ; preds = %2, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_S4_.exit": ; preds = %2, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %14 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %12, i16 %13, ptr noundef nonnull align 4 dereferenceable(36) %3)
@@ -15181,7 +15181,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %8 = getelementptr inbounds i8, ptr %6, i64 24
   call void @_ZN4pkpy6Mat3x3C1Ev(ptr noundef nonnull align 4 dereferenceable(36) %4)
   %9 = call noundef zeroext i1 @_ZNK4pkpy6Mat3x37inverseERS0_(ptr noundef nonnull align 4 dereferenceable(36) %8, ptr noundef nonnull align 4 dereferenceable(36) %4)
-  br i1 %9, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.argprom.exit", label %10
+  br i1 %9, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit", label %10
 
 10:                                               ; preds = %3
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.92)
@@ -15194,7 +15194,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
 
 _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit"
 
 12:                                               ; preds = %.noexc.i, %10
   %13 = landingpad { ptr, i32 }
@@ -15202,7 +15202,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   resume { ptr, i32 } %13
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit": ; preds = %3, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6Mat3x3EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %16 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6Mat3x3EJRS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %14, i16 %15, ptr noundef nonnull align 4 dereferenceable(36) %4)
@@ -15222,7 +15222,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %8 = getelementptr inbounds i8, ptr %6, i64 24
   call void @_ZN4pkpy6Mat3x3C1Ev(ptr noundef nonnull align 4 dereferenceable(36) %4)
   %9 = call noundef zeroext i1 @_ZNK4pkpy6Mat3x37inverseERS0_(ptr noundef nonnull align 4 dereferenceable(36) %8, ptr noundef nonnull align 4 dereferenceable(36) %4)
-  br i1 %9, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.argprom.exit", label %10
+  br i1 %9, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.exit", label %10
 
 10:                                               ; preds = %3
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.92)
@@ -15235,7 +15235,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
 
 _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.exit"
 
 12:                                               ; preds = %.noexc.i, %10
   %13 = landingpad { ptr, i32 }
@@ -15243,7 +15243,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   resume { ptr, i32 } %13
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.exit": ; preds = %3, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %8, ptr noundef nonnull align 4 dereferenceable(36) %4, i64 36, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 264520
   %15 = load ptr, ptr %14, align 8
@@ -15367,7 +15367,7 @@ _ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %21 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %19, i16 %20)
-  br i1 %21, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_NS_8ArgsViewE.argprom.exit", label %22
+  br i1 %21, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_NS_8ArgsViewE.exit", label %22
 
 22:                                               ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
   %23 = ptrtoint ptr %19 to i64
@@ -15377,9 +15377,9 @@ _ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
   %27 = select i1 %25, ptr @_ZN4pkpy2VM6tp_intE, ptr %26
   %.sroa.0.0.copyload.i.i.i.i8.i = load i16, ptr %27, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %20, i16 %.sroa.0.0.copyload.i.i.i.i8.i)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %22
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_27clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %22
   %28 = getelementptr inbounds i8, ptr %19, i64 24
   %.sroa.06.0.copyload.i.i9.i = load <2 x float>, ptr %28, align 8
   %29 = fptrunc double %17 to float
@@ -15434,7 +15434,7 @@ _ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %11, %3
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %24 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %22, i16 %23)
-  br i1 %24, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_28clES2_NS_8ArgsViewE.argprom.exit", label %25
+  br i1 %24, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_28clES2_NS_8ArgsViewE.exit", label %25
 
 25:                                               ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
   %26 = ptrtoint ptr %22 to i64
@@ -15444,9 +15444,9 @@ _ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %11, %3
   %30 = select i1 %28, ptr @_ZN4pkpy2VM6tp_intE, ptr %29
   %.sroa.0.0.copyload.i.i.i.i10.i = load i16, ptr %30, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %23, i16 %.sroa.0.0.copyload.i.i.i.i10.i)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_28clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_28clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_28clES2_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %25
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_28clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %25
   %31 = getelementptr inbounds i8, ptr %5, i64 24
   %32 = getelementptr inbounds i8, ptr %22, i64 24
   %.sroa.06.0.copyload.i.i11.i = load <2 x float>, ptr %32, align 8
@@ -15480,7 +15480,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %10 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %8, i16 %9)
-  br i1 %10, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_NS_8ArgsViewE.argprom.exit", label %11
+  br i1 %10, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_NS_8ArgsViewE.exit", label %11
 
 11:                                               ; preds = %3
   %12 = ptrtoint ptr %8 to i64
@@ -15490,9 +15490,9 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %16 = select i1 %14, ptr @_ZN4pkpy2VM6tp_intE, ptr %15
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %16, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %9, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %11
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_29clES2_NS_8ArgsViewE.exit": ; preds = %3, %11
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %.sroa.06.0.copyload.i.i.i = load <2 x float>, ptr %18, align 8
@@ -15580,7 +15580,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %10 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %8, i16 %9)
-  br i1 %10, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_31clES2_NS_8ArgsViewE.argprom.exit", label %11
+  br i1 %10, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_31clES2_NS_8ArgsViewE.exit", label %11
 
 11:                                               ; preds = %3
   %12 = ptrtoint ptr %8 to i64
@@ -15590,9 +15590,9 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %16 = select i1 %14, ptr @_ZN4pkpy2VM6tp_intE, ptr %15
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %16, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %9, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_31clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_31clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_31clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %11
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_31clES2_NS_8ArgsViewE.exit": ; preds = %3, %11
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %.sroa.06.0.copyload.i.i.i = load <2 x float>, ptr %18, align 8
@@ -15638,7 +15638,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %17 = tail call noundef float @llvm.fabs.f32(float %16)
   %18 = fpext float %17 to double
   %19 = fcmp olt double %18, 1.000000e-04
-  br i1 %19, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_32clES2_NS_8ArgsViewE.argprom.exit", label %20
+  br i1 %19, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_32clES2_NS_8ArgsViewE.exit", label %20
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds i8, ptr %4, i64 48
@@ -15648,7 +15648,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %25 = load float, ptr %24, align 4
   %26 = fcmp oeq float %25, 0.000000e+00
   %or.cond.i.i = select i1 %23, i1 %26, i1 false
-  br i1 %or.cond.i.i, label %_ZNK4pkpy6Mat3x39is_affineEv.exit.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_32clES2_NS_8ArgsViewE.argprom.exit"
+  br i1 %or.cond.i.i, label %_ZNK4pkpy6Mat3x39is_affineEv.exit.i, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_32clES2_NS_8ArgsViewE.exit"
 
 _ZNK4pkpy6Mat3x39is_affineEv.exit.i:              ; preds = %20
   %27 = getelementptr inbounds i8, ptr %4, i64 56
@@ -15656,9 +15656,9 @@ _ZNK4pkpy6Mat3x39is_affineEv.exit.i:              ; preds = %20
   %.fr.i = freeze float %28
   %29 = fcmp oeq float %.fr.i, 1.000000e+00
   %spec.select.i = select i1 %29, i64 264528, i64 264536
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_32clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_32clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_32clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %20, %_ZNK4pkpy6Mat3x39is_affineEv.exit.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_32clES2_NS_8ArgsViewE.exit": ; preds = %3, %20, %_ZNK4pkpy6Mat3x39is_affineEv.exit.i
   %30 = phi i64 [ 264536, %3 ], [ 264536, %20 ], [ %spec.select.i, %_ZNK4pkpy6Mat3x39is_affineEv.exit.i ]
   %.in.i.i = getelementptr inbounds i8, ptr %0, i64 %30
   %31 = load ptr, ptr %.in.i.i, align 8
@@ -15743,7 +15743,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %10 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %8, i16 %9)
-  br i1 %10, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_36clES2_NS_8ArgsViewE.argprom.exit", label %11
+  br i1 %10, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_36clES2_NS_8ArgsViewE.exit", label %11
 
 11:                                               ; preds = %3
   %12 = ptrtoint ptr %8 to i64
@@ -15753,9 +15753,9 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %16 = select i1 %14, ptr @_ZN4pkpy2VM6tp_intE, ptr %15
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %16, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %9, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_36clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_36clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_36clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %11
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_36clES2_NS_8ArgsViewE.exit": ; preds = %3, %11
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %.sroa.06.0.copyload.i.i.i = load <2 x float>, ptr %18, align 8
@@ -15820,7 +15820,7 @@ _ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %14, %3
   %.sroa.06.0.copyload.i.i.i = load <2 x float>, ptr %20, align 8
   call void @_ZN4pkpy6Mat3x3C1Ev(ptr noundef nonnull align 4 dereferenceable(36) %4)
   %21 = call noundef zeroext i1 @_ZNK4pkpy6Mat3x37inverseERS0_(ptr noundef nonnull align 4 dereferenceable(36) %9, ptr noundef nonnull align 4 dereferenceable(36) %4)
-  br i1 %21, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_37clES2_NS_8ArgsViewE.argprom.exit", label %22
+  br i1 %21, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_37clES2_NS_8ArgsViewE.exit", label %22
 
 22:                                               ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.92)
@@ -15833,7 +15833,7 @@ _ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %14, %3
 
 _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_37clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_37clES2_NS_8ArgsViewE.exit"
 
 24:                                               ; preds = %.noexc.i, %22
   %25 = landingpad { ptr, i32 }
@@ -15841,7 +15841,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   resume { ptr, i32 } %25
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_37clES2_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_37clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
   %26 = load float, ptr %4, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 0
   %27 = getelementptr inbounds i8, ptr %4, i64 4
@@ -15883,7 +15883,7 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_4Vec2EEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %10 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %8, i16 %9)
-  br i1 %10, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_38clES2_NS_8ArgsViewE.argprom.exit", label %11
+  br i1 %10, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_38clES2_NS_8ArgsViewE.exit", label %11
 
 11:                                               ; preds = %3
   %12 = ptrtoint ptr %8 to i64
@@ -15893,9 +15893,9 @@ define internal noundef ptr @"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES
   %16 = select i1 %14, ptr @_ZN4pkpy2VM6tp_intE, ptr %15
   %.sroa.0.0.copyload.i.i.i.i.i = load i16, ptr %16, align 2
   tail call void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %9, i16 %.sroa.0.0.copyload.i.i.i.i.i)
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_38clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_38clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_38clES2_NS_8ArgsViewE.argprom.exit": ; preds = %3, %11
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_38clES2_NS_8ArgsViewE.exit": ; preds = %3, %11
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   %.sroa.06.0.copyload.i.i.i = load <2 x float>, ptr %18, align 8
@@ -15954,7 +15954,7 @@ _ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %14, %3
   %.sroa.06.0.copyload.i.i.i = load <2 x float>, ptr %20, align 8
   call void @_ZN4pkpy6Mat3x3C1Ev(ptr noundef nonnull align 4 dereferenceable(36) %4)
   %21 = call noundef zeroext i1 @_ZNK4pkpy6Mat3x37inverseERS0_(ptr noundef nonnull align 4 dereferenceable(36) %9, ptr noundef nonnull align 4 dereferenceable(36) %4)
-  br i1 %21, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_39clES2_NS_8ArgsViewE.argprom.exit", label %22
+  br i1 %21, label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_39clES2_NS_8ArgsViewE.exit", label %22
 
 22:                                               ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.92)
@@ -15967,7 +15967,7 @@ _ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %14, %3
 
 _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
-  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_39clES2_NS_8ArgsViewE.argprom.exit"
+  br label %"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_39clES2_NS_8ArgsViewE.exit"
 
 24:                                               ; preds = %.noexc.i, %22
   %25 = landingpad { ptr, i32 }
@@ -15975,7 +15975,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   resume { ptr, i32 } %25
 
-"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_39clES2_NS_8ArgsViewE.argprom.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
+"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_39clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy7py_castINS_4Vec2EEET_PNS_2VMEPNS_8PyObjectE.exit.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i
   %26 = load float, ptr %4, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.06.0.copyload.i.i.i, i64 0
   %27 = getelementptr inbounds i8, ptr %4, i64 4
@@ -18663,22 +18663,22 @@ attributes #38 = { nounwind allocsize(0) }
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_.argprom: argument 0"}
-!23 = distinct !{!23, !"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_.argprom"}
+!22 = distinct !{!22, !23, !"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_: argument 0"}
+!23 = distinct !{!23, !"_ZZN4pkpy4Vec29_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_"}
 !24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.argprom: argument 0"}
-!26 = distinct !{!26, !"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.argprom"}
+!25 = distinct !{!25, !26, !"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_: argument 0"}
+!26 = distinct !{!26, !"_ZZN4pkpy4Vec39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_"}
 !27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.argprom: argument 0"}
-!29 = distinct !{!29, !"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_.argprom"}
+!28 = distinct !{!28, !29, !"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_: argument 0"}
+!29 = distinct !{!29, !"_ZZN4pkpy4Vec49_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_7clES2_S4_"}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = !{!33}
 !33 = distinct !{!33, !34, !"_ZN4pkpy2_SIJRA49_KciEEENS_3StrEDpOT_: argument 0"}
 !34 = distinct !{!34, !"_ZN4pkpy2_SIJRA49_KciEEENS_3StrEDpOT_"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_S4_.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_S4_.argprom"}
+!36 = distinct !{!36, !37, !"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_S4_: argument 0"}
+!37 = distinct !{!37, !"_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_S4_"}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZNK4pkpy6Mat3x3plERKS0_: argument 0"}
 !40 = distinct !{!40, !"_ZNK4pkpy6Mat3x3plERKS0_"}

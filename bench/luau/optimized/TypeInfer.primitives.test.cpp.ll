@@ -6671,12 +6671,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %29 = getelementptr inbounds i8, ptr %5, i64 272
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENKUlPSoE0_clES1_.argprom.exit
+  br i1 %31, label %32, label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENKUlPSoE0_clES1_.exit
 
 32:                                               ; preds = %28
   store i8 0, ptr %29, align 8
   call void @_ZN4Luau9DiffErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5) #14
-  br label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENKUlPSoE0_clES1_.argprom.exit
+  br label %_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENKUlPSoE0_clES1_.exit
 
 33:                                               ; preds = %2
   %34 = landingpad { ptr, i32 }
@@ -6721,7 +6721,7 @@ _ZN4Luau12DifferResultD2Ev.exit10.i:              ; preds = %44, %39, %37
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %4) #14
   resume { ptr, i32 } %.pn.pn.pn.i
 
-_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %28, %32
+_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_151fEvENKUlPSoE0_clES1_.exit: ; preds = %28, %32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %4) #14

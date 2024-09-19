@@ -5916,7 +5916,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %pos.val = load ptr, ptr %pos, align 8
   %23 = getelementptr inbounds i8, ptr %pos, i64 8
   %pos.val15 = load ptr, ptr %23, align 8
-  invoke fastcc void @_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesINS1_12AttributeSet4Util11NameAndTypeEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %vec, ptr %pos.val, ptr %pos.val15)
+  invoke fastcc void @_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesINS1_12AttributeSet4Util11NameAndTypeEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(24) %vec, ptr %pos.val, ptr %pos.val15)
           to label %invoke.cont27 unwind label %lpad4.loopexit.split-lp
 
 invoke.cont27:                                    ; preds = %for.end
@@ -6342,7 +6342,7 @@ if.else94:                                        ; preds = %invoke.cont
   %pos.val16 = load ptr, ptr %pos, align 8
   %72 = getelementptr inbounds i8, ptr %pos, i64 8
   %pos.val17 = load ptr, ptr %72, align 8
-  invoke fastcc void @_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesINS1_12AttributeSet4Util11NameAndTypeEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %vec, ptr %pos.val16, ptr %pos.val17)
+  invoke fastcc void @_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesINS1_12AttributeSet4Util11NameAndTypeEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(24) %vec, ptr %pos.val16, ptr %pos.val17)
           to label %if.end97 unwind label %lpad95
 
 lpad95:                                           ; preds = %if.else94, %_ZNSt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEED2Ev.exit225, %if.end97
@@ -6771,7 +6771,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEEaSERKS5_.exi
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_openvdb_throw_os.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp33.i)
   %cmp.i.i.i = icmp eq ptr %pos.val, %pos.val2
-  br i1 %cmp.i.i.i, label %_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesISt10shared_ptrINS1_14AttributeArrayEEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE.argprom.exit, label %cond.true.i.i.i.i.i
+  br i1 %cmp.i.i.i, label %_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesISt10shared_ptrINS1_14AttributeArrayEEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE.exit, label %cond.true.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEEaSERKS5_.exit
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %pos.val2 to i64
@@ -6956,7 +6956,7 @@ invoke.cont54.i:                                  ; preds = %for.body.i
 
 _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %invoke.cont54.i, %for.cond.preheader.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i6.i.i) #29
-  br label %_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesISt10shared_ptrINS1_14AttributeArrayEEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE.argprom.exit
+  br label %_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesISt10shared_ptrINS1_14AttributeArrayEEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit28.i:                ; preds = %lpad36.i, %lpad.loopexit.split-lp.i, %lpad.loopexit.i
   %.pn4.i = phi { ptr, i32 } [ %37, %lpad36.i ], [ %lpad.loopexit19.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp20.i, %lpad.loopexit.split-lp.i ]
@@ -6966,7 +6966,7 @@ _ZNSt6vectorImSaImEED2Ev.exit28.i:                ; preds = %lpad36.i, %lpad.loo
 unreachable.i:                                    ; preds = %try.cont.i
   unreachable
 
-_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesISt10shared_ptrINS1_14AttributeArrayEEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE.argprom.exit: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEEaSERKS5_.exit, %_ZNSt6vectorImSaImEED2Ev.exit.i
+_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesISt10shared_ptrINS1_14AttributeArrayEEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE.exit: ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEEaSERKS5_.exit, %_ZNSt6vectorImSaImEED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %_openvdb_throw_msg.i)
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_openvdb_throw_os.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp33.i)
@@ -6974,7 +6974,7 @@ _ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesISt10shared_ptrINS1_14Attrib
   call void @_ZN7openvdb5v11_06points12AttributeSet10Descriptor24pruneUnusedDefaultValuesEv(ptr noundef nonnull align 8 dereferenceable(240) %40)
   br label %return
 
-return:                                           ; preds = %entry, %_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesISt10shared_ptrINS1_14AttributeArrayEEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE.argprom.exit
+return:                                           ; preds = %entry, %_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesISt10shared_ptrINS1_14AttributeArrayEEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -11987,7 +11987,7 @@ land.end:                                         ; preds = %entry, %if.end.i.i1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesINS1_12AttributeSet4Util11NameAndTypeEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %vec, ptr %indices.0.val, ptr %indices.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7openvdb5v11_06points12_GLOBAL__N_112eraseIndicesINS1_12AttributeSet4Util11NameAndTypeEEEvRSt6vectorIT_SaIS8_EERKS7_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(24) %vec, ptr %indices.0.val, ptr %indices.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::reverse_iterator", align 8
   %agg.tmp1.i.i = alloca %"class.std::reverse_iterator", align 8

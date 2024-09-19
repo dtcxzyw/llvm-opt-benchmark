@@ -635,7 +635,7 @@ define internal i32 @dissect_dect_mitel_eth(ptr noundef %0, ptr noundef %1, ptr 
   %42 = or disjoint i32 %.0144, 2
   %43 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %42) #3
   %.not1.i = icmp eq i32 %43, 0
-  br i1 %.not1.i, label %dissect_dect_mitel_eth_rfpc.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %dissect_dect_mitel_eth_rfpc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread, %156
   %.02.i = phi i32 [ %.1.i, %156 ], [ %42, %.thread ]
@@ -785,9 +785,9 @@ define internal i32 @dissect_dect_mitel_eth(ptr noundef %0, ptr noundef %1, ptr 
   %.1.i = phi i32 [ %155, %152 ], [ %151, %143 ], [ %142, %139 ], [ %138, %96 ], [ %95, %91 ], [ %90, %83 ], [ %82, %78 ], [ %77, %72 ], [ %71, %59 ]
   %157 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #3
   %.not.i = icmp eq i32 %157, 0
-  br i1 %.not.i, label %dissect_dect_mitel_eth_rfpc.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %dissect_dect_mitel_eth_rfpc.exit, label %.lr.ph.i, !llvm.loop !4
 
-dissect_dect_mitel_eth_rfpc.argprom.exit:         ; preds = %156, %.thread
+dissect_dect_mitel_eth_rfpc.exit:                 ; preds = %156, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.loopexit
 
@@ -835,31 +835,31 @@ dissect_dect_mitel_eth_rfpc.argprom.exit:         ; preds = %156, %.thread
   br label %.loopexit
 
 176:                                              ; preds = %170
-  tail call fastcc void @dissect_dect_mitel_eth_mac_enc_key_req.argprom.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
+  tail call fastcc void @dissect_dect_mitel_eth_mac_enc_key_req(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   br label %.loopexit
 
 177:                                              ; preds = %170
-  tail call fastcc void @dissect_dect_mitel_eth_mac_enc_eks_ind.argprom.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
+  tail call fastcc void @dissect_dect_mitel_eth_mac_enc_eks_ind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   br label %.loopexit
 
 178:                                              ; preds = %170
-  tail call fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_ind.argprom.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
+  tail call fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_ind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   br label %.loopexit
 
 179:                                              ; preds = %170
-  tail call fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_res.argprom.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
+  tail call fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_res(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   br label %.loopexit
 
 180:                                              ; preds = %170
-  tail call fastcc void @dissect_dect_mitel_eth_mac_ho_failed_ind.argprom.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
+  tail call fastcc void @dissect_dect_mitel_eth_mac_ho_failed_ind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   br label %.loopexit
 
 181:                                              ; preds = %170
-  tail call fastcc void @dissect_dect_mitel_eth_mac_con_ind.argprom.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
+  tail call fastcc void @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   br label %.loopexit
 
 182:                                              ; preds = %170
-  tail call fastcc void @dissect_dect_mitel_eth_mac_info_ind.argprom.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
+  tail call fastcc void @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   br label %.loopexit
 
 183:                                              ; preds = %170
@@ -870,17 +870,17 @@ dissect_dect_mitel_eth_rfpc.argprom.exit:         ; preds = %156, %.thread
 186:                                              ; preds = %170
   %187 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 0, ptr %187, align 4
-  %188 = tail call fastcc i32 @dissect_dect_mitel_eth_mcei_field.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
+  %188 = tail call fastcc i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   br label %.loopexit
 
 189:                                              ; preds = %170
-  tail call fastcc void @dissect_dect_mitel_eth_mac_dis_ind.argprom.retelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
+  tail call fastcc void @dissect_dect_mitel_eth_mac_dis_ind(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   br label %.loopexit
 
 190:                                              ; preds = %170
   %191 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 1, ptr %191, align 4
-  %192 = tail call fastcc i32 @dissect_dect_mitel_eth_mcei_field.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
+  %192 = tail call fastcc i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   %193 = load i32, ptr @hf_dect_mitel_eth_subfield, align 4
   %194 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %193, ptr noundef %0, i32 noundef %192, i32 noundef 1, i32 noundef 0) #3
   br label %.loopexit
@@ -915,7 +915,7 @@ dissect_dect_mitel_eth_rfpc.argprom.exit:         ; preds = %156, %.thread
   %213 = tail call i32 @call_dissector(ptr noundef %212, ptr noundef nonnull %210, ptr noundef nonnull %1, ptr noundef %2) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %170, %196, %211, %171, %176, %177, %178, %179, %180, %181, %182, %183, %186, %189, %190, %dissect_dect_mitel_eth_rfpc.argprom.exit, %27
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %170, %196, %211, %171, %176, %177, %178, %179, %180, %181, %182, %183, %186, %189, %190, %dissect_dect_mitel_eth_rfpc.exit, %27
   %214 = call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %215
 
@@ -961,7 +961,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dect_mitel_eth_mac_enc_key_req.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dect_mitel_eth_mac_enc_key_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
@@ -980,7 +980,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_enc_key_req.argprom.rete
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dect_mitel_eth_mac_enc_eks_ind.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dect_mitel_eth_mac_enc_eks_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
@@ -1010,7 +1010,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_enc_eks_ind.argprom.rete
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_ind.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
@@ -1026,7 +1026,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_ind.argpr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_res.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
@@ -1045,7 +1045,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_res.argpr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dect_mitel_eth_mac_ho_failed_ind.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dect_mitel_eth_mac_ho_failed_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
@@ -1061,7 +1061,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_ho_failed_ind.argprom.re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dect_mitel_eth_mac_con_ind.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 1, ptr %5, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
@@ -1083,7 +1083,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_con_ind.argprom.retelim(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dect_mitel_eth_mac_info_ind.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 1, ptr %5, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
@@ -1106,7 +1106,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_info_ind.argprom.retelim
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 8) i32 @dissect_dect_mitel_eth_mcei_field.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 8) i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
@@ -1120,7 +1120,7 @@ define internal fastcc range(i32 2, 8) i32 @dissect_dect_mitel_eth_mcei_field.ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dect_mitel_eth_mac_dis_ind.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dect_mitel_eth_mac_dis_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3

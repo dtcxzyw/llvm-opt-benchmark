@@ -1495,7 +1495,7 @@ if.end54:                                         ; preds = %if.end42, %land.lhs
   br i1 %tobool55.not, label %land.lhs.true56, label %err
 
 land.lhs.true56:                                  ; preds = %if.end54
-  %call57 = call fastcc ptr @create_nonce.argelim()
+  %call57 = call fastcc ptr @create_nonce()
   %cmp58 = icmp eq ptr %call57, null
   br i1 %cmp58, label %if.then72, label %land.lhs.true62
 
@@ -1592,7 +1592,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @TS_REQ_set_policy_id(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_nonce.argelim() unnamed_addr #0 {
+define internal fastcc ptr @create_nonce() unnamed_addr #0 {
 entry:
   %buf = alloca [20 x i8], align 16
   %call = call i32 @RAND_bytes(ptr noundef nonnull %buf, i32 noundef 8) #7

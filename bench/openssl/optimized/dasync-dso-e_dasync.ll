@@ -222,14 +222,14 @@ lor.lhs.false23:                                  ; preds = %lor.lhs.false20
 if.then26:                                        ; preds = %lor.lhs.false23, %lor.lhs.false20, %lor.lhs.false17, %lor.lhs.false14, %lor.lhs.false11, %lor.lhs.false8, %lor.lhs.false5, %ERR_load_DASYNC_strings.exit
   %8 = load i32, ptr @lib_code, align 4
   %cmp.i8 = icmp eq i32 %8, 0
-  br i1 %cmp.i8, label %if.then.i10, label %ERR_DASYNC_error.argprom.exit
+  br i1 %cmp.i8, label %if.then.i10, label %ERR_DASYNC_error.exit
 
 if.then.i10:                                      ; preds = %if.then26
   %call.i11 = tail call i32 @ERR_get_next_error_library() #8
   store i32 %call.i11, ptr @lib_code, align 4
-  br label %ERR_DASYNC_error.argprom.exit
+  br label %ERR_DASYNC_error.exit
 
-ERR_DASYNC_error.argprom.exit:                    ; preds = %if.then26, %if.then.i10
+ERR_DASYNC_error.exit:                            ; preds = %if.then26, %if.then.i10
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 54, ptr noundef nonnull @__func__.ERR_DASYNC_error) #8
   %9 = load i32, ptr @lib_code, align 4
@@ -465,8 +465,8 @@ if.then126:                                       ; preds = %lor.lhs.false123.if
   store ptr null, ptr @_hidden_aes_128_cbc_hmac_sha1, align 8
   br label %return
 
-return:                                           ; preds = %lor.lhs.false123, %if.then126, %entry, %lor.lhs.false, %ERR_DASYNC_error.argprom.exit
-  %retval.0 = phi i32 [ 0, %ERR_DASYNC_error.argprom.exit ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.then126 ], [ 1, %lor.lhs.false123 ]
+return:                                           ; preds = %lor.lhs.false123, %if.then126, %entry, %lor.lhs.false, %ERR_DASYNC_error.exit
+  %retval.0 = phi i32 [ 0, %ERR_DASYNC_error.exit ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.then126 ], [ 1, %lor.lhs.false123 ]
   ret i32 %retval.0
 }
 

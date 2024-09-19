@@ -894,7 +894,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   %16 = getelementptr inbounds i8, ptr %.val3.i, i64 %.val.i
   %17 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %4, ptr noundef %16, ptr noundef nonnull %6) #10
   %.not.i.i = icmp eq i32 %17, 0
-  br i1 %.not.i.i, label %18, label %pk_group_from_specified.argprom.exit.i
+  br i1 %.not.i.i, label %18, label %pk_group_from_specified.exit.i
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %6, align 4
@@ -932,7 +932,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   %34 = getelementptr inbounds i8, ptr %7, i64 8
   %35 = call i32 @mbedtls_asn1_get_mpi(ptr noundef nonnull %4, ptr noundef %26, ptr noundef nonnull %34) #10
   %.not59.i.i = icmp eq i32 %35, 0
-  br i1 %.not59.i.i, label %36, label %pk_group_from_specified.argprom.exit.i
+  br i1 %.not59.i.i, label %36, label %pk_group_from_specified.exit.i
 
 36:                                               ; preds = %32
   %37 = call i64 @mbedtls_mpi_bitlen(ptr noundef nonnull %34) #10
@@ -953,7 +953,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   %45 = getelementptr inbounds i8, ptr %43, i64 %44
   %46 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %4, ptr noundef %45, ptr noundef nonnull %5, i32 noundef 4) #10
   %.not62.i.i = icmp eq i32 %46, 0
-  br i1 %.not62.i.i, label %47, label %pk_group_from_specified.argprom.exit.i
+  br i1 %.not62.i.i, label %47, label %pk_group_from_specified.exit.i
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds i8, ptr %7, i64 32
@@ -961,7 +961,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   %50 = load i64, ptr %5, align 8
   %51 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %48, ptr noundef %49, i64 noundef %50) #10
   %.not63.i.i = icmp eq i32 %51, 0
-  br i1 %.not63.i.i, label %52, label %pk_group_from_specified.argprom.exit.i
+  br i1 %.not63.i.i, label %52, label %pk_group_from_specified.exit.i
 
 52:                                               ; preds = %47
   %53 = load i64, ptr %5, align 8
@@ -970,7 +970,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   store ptr %55, ptr %4, align 8
   %56 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %4, ptr noundef %45, ptr noundef nonnull %5, i32 noundef 4) #10
   %.not64.i.i = icmp eq i32 %56, 0
-  br i1 %.not64.i.i, label %57, label %pk_group_from_specified.argprom.exit.i
+  br i1 %.not64.i.i, label %57, label %pk_group_from_specified.exit.i
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds i8, ptr %7, i64 56
@@ -978,7 +978,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   %60 = load i64, ptr %5, align 8
   %61 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %58, ptr noundef %59, i64 noundef %60) #10
   %.not65.i.i = icmp eq i32 %61, 0
-  br i1 %.not65.i.i, label %62, label %pk_group_from_specified.argprom.exit.i
+  br i1 %.not65.i.i, label %62, label %pk_group_from_specified.exit.i
 
 62:                                               ; preds = %57
   %63 = load i64, ptr %5, align 8
@@ -1004,7 +1004,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
 73:                                               ; preds = %71
   %74 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %4, ptr noundef %16, ptr noundef nonnull %5, i32 noundef 4) #10
   %.not67.i.i = icmp eq i32 %74, 0
-  br i1 %.not67.i.i, label %75, label %pk_group_from_specified.argprom.exit.i
+  br i1 %.not67.i.i, label %75, label %pk_group_from_specified.exit.i
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds i8, ptr %7, i64 80
@@ -1063,9 +1063,9 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   %108 = getelementptr inbounds i8, ptr %7, i64 152
   %109 = call i32 @mbedtls_asn1_get_mpi(ptr noundef nonnull %4, ptr noundef %16, ptr noundef nonnull %108) #10
   %.not76.i.i = icmp eq i32 %109, 0
-  br i1 %.not76.i.i, label %pk_group_from_specified.argprom.exit.thread8.i, label %pk_group_from_specified.argprom.exit.i
+  br i1 %.not76.i.i, label %pk_group_from_specified.exit.thread8.i, label %pk_group_from_specified.exit.i
 
-pk_group_from_specified.argprom.exit.thread8.i:   ; preds = %104
+pk_group_from_specified.exit.thread8.i:           ; preds = %104
   %110 = call i64 @mbedtls_mpi_bitlen(ptr noundef nonnull %108) #10
   %111 = getelementptr inbounds i8, ptr %7, i64 184
   store i64 %110, ptr %111, align 8
@@ -1083,7 +1083,7 @@ pk_group_id_from_specified.exit.thread:           ; preds = %18, %21, %23, %28, 
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %7)
   br label %179
 
-pk_group_from_specified.argprom.exit.i:           ; preds = %104, %73, %57, %52, %47, %42, %32, %13
+pk_group_from_specified.exit.i:                   ; preds = %104, %73, %57, %52, %47, %42, %32, %13
   %.0.i.in.i = phi i32 [ %17, %13 ], [ %35, %32 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %74, %73 ], [ %109, %104 ]
   %.0.i.i = add nsw i32 %.0.i.in.i, -15616
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1092,7 +1092,7 @@ pk_group_from_specified.argprom.exit.i:           ; preds = %104, %73, %57, %52,
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %112, label %pk_group_id_from_specified.exit
 
-112:                                              ; preds = %pk_group_from_specified.argprom.exit.i, %pk_group_from_specified.argprom.exit.thread8.i
+112:                                              ; preds = %pk_group_from_specified.exit.i, %pk_group_from_specified.exit.thread8.i
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %3)
   call void @mbedtls_ecp_group_init(ptr noundef nonnull %3) #10
   %113 = call ptr @mbedtls_ecp_grp_id_list() #10
@@ -1197,9 +1197,9 @@ pk_group_id_from_group.exit.i:                    ; preds = %133, %163, %167, %1
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %3)
   br label %pk_group_id_from_specified.exit
 
-pk_group_id_from_specified.exit:                  ; preds = %pk_group_from_specified.argprom.exit.i, %pk_group_id_from_group.exit.i
-  %173 = phi i32 [ undef, %pk_group_from_specified.argprom.exit.i ], [ %170, %pk_group_id_from_group.exit.i ]
-  %.0.i = phi i32 [ %.0.i.i, %pk_group_from_specified.argprom.exit.i ], [ %spec.select, %pk_group_id_from_group.exit.i ]
+pk_group_id_from_specified.exit:                  ; preds = %pk_group_from_specified.exit.i, %pk_group_id_from_group.exit.i
+  %173 = phi i32 [ undef, %pk_group_from_specified.exit.i ], [ %170, %pk_group_id_from_group.exit.i ]
+  %.0.i = phi i32 [ %.0.i.i, %pk_group_from_specified.exit.i ], [ %spec.select, %pk_group_id_from_group.exit.i ]
   call void @mbedtls_ecp_group_free(ptr noundef nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %7)
   %.not = icmp eq i32 %.0.i, 0

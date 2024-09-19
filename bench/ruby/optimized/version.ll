@@ -110,15 +110,15 @@ define hidden void @ruby_set_yjit_description() local_unnamed_addr #0 {
   %1 = load i64, ptr @rb_cObject, align 8
   %.pr.i = load i64, ptr @ruby_set_yjit_description.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %2 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.12, i64 noundef 16) #4
   store i64 %2, ptr @ruby_set_yjit_description.rbimpl_id, align 8
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !7
 
-rbimpl_intern_const.argprom.exit:                 ; preds = %.lr.ph.i, %0
+rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %0
   %.lcssa.i = phi i64 [ %.pr.i, %0 ], [ %2, %.lr.ph.i ]
   %3 = tail call i64 @rb_const_remove(i64 noundef %1, i64 noundef %.lcssa.i) #4
   %4 = load i32, ptr @ruby_mn_threads_enabled, align 4

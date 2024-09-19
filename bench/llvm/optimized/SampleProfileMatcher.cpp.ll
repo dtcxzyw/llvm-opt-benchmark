@@ -600,7 +600,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit.i:     ; preds = %_ZNK4llvm6MDNode10g
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i8.i:   ; preds = %98, %94
   %.0.i.i.i.i9.i = phi i32 [ %101, %98 ], [ %97, %94 ]
   %102 = icmp eq i32 %.0.i.i.i.i9.i, 2
-  br i1 %102, label %103, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom.exit"
+  br i1 %102, label %103, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.exit"
 
 103:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i8.i
   %104 = load i64, ptr %91, align 8, !noalias !4
@@ -626,9 +626,9 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit14.i:   ; preds = %110, %106
   %115 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i13.i, i64 8
   %116 = load ptr, ptr %115, align 8, !noalias !4
   %.not.i = icmp eq ptr %116, null
-  br i1 %.not.i, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom.exit", label %.preheader, !llvm.loop !7
+  br i1 %.not.i, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.exit", label %.preheader, !llvm.loop !7
 
-"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom.exit": ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i8.i, %_ZNK4llvm10DILocation12getInlinedAtEv.exit14.i
+"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.exit": ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i8.i, %_ZNK4llvm10DILocation12getInlinedAtEv.exit14.i
   %117 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples11ProfileIsFSE, align 1, !noalias !4
   %118 = trunc i8 %117 to i1
   %119 = call i64 @_ZN4llvm10sampleprof15FunctionSamples21getCallSiteIdentifierEPKNS_10DILocationEb(ptr noundef nonnull %.0.i.i.i, i1 noundef zeroext %118) #19, !noalias !4
@@ -637,13 +637,13 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit14.i:   ; preds = %110, %106
   %.not.i.i.i.i.i93 = icmp eq i64 %121, 0
   br i1 %.not.i.i.i.i.i93, label %126, label %122
 
-122:                                              ; preds = %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom.exit"
+122:                                              ; preds = %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.exit"
   %123 = getelementptr inbounds i8, ptr %.0.i, i64 -32
   %124 = load ptr, ptr %123, align 8, !noalias !4
   %125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %123) #19, !noalias !4
   br label %_ZNK4llvm10DILocation8getScopeEv.exit.i
 
-126:                                              ; preds = %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom.exit"
+126:                                              ; preds = %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.exit"
   %127 = lshr i64 %120, 2
   %128 = and i64 %127, 15
   %129 = sub nsw i64 0, %128
@@ -1069,7 +1069,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit.i69:   ; preds = %_ZNK4llvm6MDNode10g
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i8.i72: ; preds = %322, %318
   %.0.i.i.i.i9.i73 = phi i32 [ %325, %322 ], [ %321, %318 ]
   %326 = icmp eq i32 %.0.i.i.i.i9.i73, 2
-  br i1 %326, label %327, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom.exit82"
+  br i1 %326, label %327, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.exit82"
 
 327:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i8.i72
   %328 = load i64, ptr %315, align 8, !noalias !10
@@ -1095,9 +1095,9 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit14.i76: ; preds = %334, %330
   %339 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i13.i77, i64 8
   %340 = load ptr, ptr %339, align 8, !noalias !10
   %.not.i78 = icmp eq ptr %340, null
-  br i1 %.not.i78, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom.exit82", label %288, !llvm.loop !7
+  br i1 %.not.i78, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.exit82", label %288, !llvm.loop !7
 
-"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom.exit82": ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i8.i72, %_ZNK4llvm10DILocation12getInlinedAtEv.exit14.i76
+"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.exit82": ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i8.i72, %_ZNK4llvm10DILocation12getInlinedAtEv.exit14.i76
   %341 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples11ProfileIsFSE, align 1, !noalias !10
   %342 = trunc i8 %341 to i1
   %343 = call i64 @_ZN4llvm10sampleprof15FunctionSamples21getCallSiteIdentifierEPKNS_10DILocationEb(ptr noundef nonnull %.0.i.i.i70, i1 noundef zeroext %342) #19, !noalias !10
@@ -1130,12 +1130,12 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit84: ; preds = %_ZN
   %353 = getelementptr inbounds i8, ptr %.0.i.i83, i64 -32
   %354 = load ptr, ptr %353, align 8
   %.not.i.i.i.i85 = icmp eq ptr %354, null
-  br i1 %.not.i.i.i.i85, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.argprom.exit92", label %355
+  br i1 %.not.i.i.i.i85, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.exit92", label %355
 
 355:                                              ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit84
   %356 = load i8, ptr %354, align 8
   %357 = icmp eq i8 %356, 0
-  br i1 %357, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i90, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.argprom.exit92"
+  br i1 %357, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i90, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.exit92"
 
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i90: ; preds = %355
   %358 = getelementptr inbounds nuw i8, ptr %354, i64 24
@@ -1143,7 +1143,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i90: ; preds =
   %360 = getelementptr inbounds nuw i8, ptr %.0.i.i83, i64 80
   %361 = load ptr, ptr %360, align 8
   %362 = icmp eq ptr %359, %361
-  br i1 %362, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i91, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.argprom.exit92"
+  br i1 %362, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i91, label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.exit92"
 
 _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i91: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i90
   %363 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %354) #19
@@ -1152,9 +1152,9 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i91: ; preds = %_ZN4llvm16dyn_cast_
   %366 = call { ptr, i64 } @_ZN4llvm10sampleprof15FunctionSamples18getCanonicalFnNameENS_9StringRefES2_(ptr %364, i64 %365, ptr nonnull @.str.12, i64 8)
   %367 = extractvalue { ptr, i64 } %366, 0
   %368 = extractvalue { ptr, i64 } %366, 1
-  br label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.argprom.exit92"
+  br label %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.exit92"
 
-"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.argprom.exit92": ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit84, %355, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i90, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i91
+"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.exit92": ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit84, %355, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i90, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i91
   %.sroa.01.0.i86 = phi ptr [ %367, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i91 ], [ @.str.36, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit84 ], [ @.str.36, %355 ], [ @.str.36, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i90 ]
   %.sroa.3.0.i87 = phi i64 [ %368, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i91 ], [ 23, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit84 ], [ 23, %355 ], [ 23, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i90 ]
   store ptr %.sroa.01.0.i86, ptr %9, align 8
@@ -1162,7 +1162,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i91: ; preds = %_ZN4llvm16dyn_cast_
   %369 = call { ptr, i8 } @_ZNSt3mapIN4llvm10sampleprof12LineLocationENS1_10FunctionIdESt4lessIS2_ESaISt4pairIKS2_S3_EEE7emplaceIJRS2_S3_EEES6_ISt17_Rb_tree_iteratorIS8_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %.critedge
 
-.critedge:                                        ; preds = %211, %.thread.i, %245, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread, %35, %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.argprom.exit92", %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom.exit82", %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit56, %.lr.ph
+.critedge:                                        ; preds = %211, %.thread.i, %245, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread, %35, %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clEPKNS_8CallBaseE.exit92", %"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.exit82", %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit56, %.lr.ph
   %370 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0127, i64 8
   %.sroa.0105.0 = load ptr, ptr %370, align 8
   %.not119 = icmp eq ptr %.sroa.0105.0, %26
@@ -1340,8 +1340,8 @@ define dso_local void @_ZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.063.083, i64 36
   br label %17
 
-17:                                               ; preds = %.lr.ph, %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit"
-  %.sroa.059.081 = phi ptr [ %.sroa.059.079, %.lr.ph ], [ %.sroa.059.0, %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit" ]
+17:                                               ; preds = %.lr.ph, %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit"
+  %.sroa.059.081 = phi ptr [ %.sroa.059.079, %.lr.ph ], [ %.sroa.059.0, %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit" ]
   %18 = getelementptr inbounds i8, ptr %.sroa.059.081, i64 8
   %19 = load ptr, ptr %7, align 8
   %.not11.i.i.i.i = icmp eq ptr %19, null
@@ -1446,25 +1446,25 @@ _ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i: ; preds = %37
   %65 = load i64, ptr %9, align 8
   %66 = add i64 %65, 1
   store i64 %66, ptr %9, align 8
-  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit"
+  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit"
 
 67:                                               ; preds = %.critedge.i
   tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef 56) #22
-  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit"
+  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit"
 
 68:                                               ; preds = %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i, %37
   %69 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
   store ptr @.str.36, ptr %69, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 48
   store i64 23, ptr %.sroa.22.0..sroa_idx.i, align 8
-  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit"
+  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit"
 
-"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit": ; preds = %67, %.thread.i.i.i, %68
+"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit": ; preds = %67, %.thread.i.i.i, %68
   %.sroa.059.0 = load ptr, ptr %.sroa.059.081, align 8
   %.not77 = icmp eq ptr %.sroa.059.0, null
   br i1 %.not77, label %.loopexit78, label %17
 
-.loopexit78:                                      ; preds = %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit", %14, %10
+.loopexit78:                                      ; preds = %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit", %14, %10
   %70 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.063.083) #21
   %.not74 = icmp eq ptr %70, %6
   br i1 %.not74, label %._crit_edge, label %10
@@ -1501,8 +1501,8 @@ _ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i: ; preds = %37
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.055.091, i64 36
   br label %86
 
-86:                                               ; preds = %.lr.ph89, %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit26"
-  %.sroa.051.087 = phi ptr [ %83, %.lr.ph89 ], [ %139, %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit26" ]
+86:                                               ; preds = %.lr.ph89, %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit26"
+  %.sroa.051.087 = phi ptr [ %83, %.lr.ph89 ], [ %139, %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit26" ]
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.051.087, i64 32
   %88 = load ptr, ptr %74, align 8
   %.not11.i.i.i.i27 = icmp eq ptr %88, null
@@ -1607,25 +1607,25 @@ _ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i41: ; preds = %1
   %134 = load i64, ptr %76, align 8
   %135 = add i64 %134, 1
   store i64 %135, ptr %76, align 8
-  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit26"
+  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit26"
 
 136:                                              ; preds = %.critedge.i42
   tail call void @_ZdlPvm(ptr noundef nonnull %111, i64 noundef 56) #22
-  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit26"
+  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit26"
 
 137:                                              ; preds = %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i41, %106
   %138 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i33, i64 40
   store ptr @.str.36, ptr %138, align 8
   %.sroa.22.0..sroa_idx.i25 = getelementptr inbounds i8, ptr %.19.i.i.i.i33, i64 48
   store i64 23, ptr %.sroa.22.0..sroa_idx.i25, align 8
-  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit26"
+  br label %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit26"
 
-"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit26": ; preds = %136, %.thread.i.i.i47, %137
+"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit26": ; preds = %136, %.thread.i.i.i47, %137
   %139 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.051.087) #21
   %.not76 = icmp eq ptr %139, %84
   br i1 %.not76, label %.loopexit, label %86
 
-.loopexit:                                        ; preds = %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.argprom.exit26", %81, %77
+.loopexit:                                        ; preds = %"_ZZNK4llvm20SampleProfileMatcher18findProfileAnchorsERKNS_10sampleprof15FunctionSamplesERSt3mapINS1_12LineLocationENS1_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_1clERSB_RKS7_SF_.exit26", %81, %77
   %140 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.055.091) #21
   %.not75 = icmp eq ptr %140, %73
   br i1 %.not75, label %._crit_edge95, label %77
@@ -2824,7 +2824,7 @@ _ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHash
   %72 = load i32, ptr %71, align 4
   %73 = icmp ne i32 %68, %72
   %74 = select i1 %.not.i.i30, i1 true, i1 %73
-  br i1 %74, label %75, label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit"
+  br i1 %74, label %75, label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit"
 
 75:                                               ; preds = %_ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS7_.exit
   %76 = load i64, ptr %24, align 4
@@ -2833,9 +2833,9 @@ _ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHash
   store i64 %77, ptr %15, align 8
   %78 = call { ptr, i8 } @_ZNSt10_HashtableIN4llvm10sampleprof12LineLocationESt4pairIKS2_S2_ESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_16LineLocationHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJS5_EEES3_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 4 dereferenceable(16) %6)
   %.pre70 = load i32, ptr %24, align 4
-  br label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit"
+  br label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit"
 
-"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit": ; preds = %_ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS7_.exit, %75
+"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit": ; preds = %_ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS7_.exit, %75
   %79 = phi i32 [ %67, %_ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS7_.exit ], [ %.pre70, %75 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %80 = load i32, ptr %69, align 4
@@ -2847,19 +2847,19 @@ _ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHash
   %86 = icmp ult i64 %84, %85
   br i1 %86, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit"
+.lr.ph:                                           ; preds = %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit"
   %.not.i.i31.not = icmp eq i32 %81, 0
-  br i1 %.not.i.i31.not, label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32.us", label %.lr.ph.split
+  br i1 %.not.i.i31.not, label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32.us", label %.lr.ph.split
 
-"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32.us": ; preds = %.lr.ph, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32.us"
-  %.02758.us = phi i64 [ %87, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32.us" ], [ %84, %.lr.ph ]
+"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32.us": ; preds = %.lr.ph, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32.us"
+  %.02758.us = phi i64 [ %87, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32.us" ], [ %84, %.lr.ph ]
   %87 = add nuw i64 %.02758.us, 1
   %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   %89 = icmp ult i64 %87, %88
-  br i1 %89, label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32.us", label %.thread, !llvm.loop !29
+  br i1 %89, label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32.us", label %.thread, !llvm.loop !29
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32"
-  %.02758 = phi i64 [ %198, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32" ], [ %84, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32"
+  %.02758 = phi i64 [ %198, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32" ], [ %84, %.lr.ph ]
   %90 = load ptr, ptr %7, align 8
   %91 = getelementptr inbounds %"struct.llvm::sampleprof::LineLocation", ptr %90, i64 %.02758
   %92 = load i32, ptr %91, align 4
@@ -3101,19 +3101,19 @@ _ZNSt10_HashtableIN4llvm10sampleprof12LineLocationESt4pairIKS2_S2_ESaIS5_ENSt8__
   %196 = load i64, ptr %16, align 8
   %197 = add i64 %196, 1
   store i64 %197, ptr %16, align 8
-  br label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32"
+  br label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32"
 
 _ZNKSt10_HashtableIN4llvm10sampleprof12LineLocationESt4pairIKS2_S2_ESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_16LineLocationHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3_ENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i.i, %108
   call void @_ZdlPvm(ptr noundef nonnull %97, i64 noundef 32) #22
-  br label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32"
+  br label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32"
 
-"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32": ; preds = %_ZNKSt10_HashtableIN4llvm10sampleprof12LineLocationESt4pairIKS2_S2_ESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_16LineLocationHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.i, %195
+"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32": ; preds = %_ZNKSt10_HashtableIN4llvm10sampleprof12LineLocationESt4pairIKS2_S2_ESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_16LineLocationHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.i, %195
   %198 = add nuw i64 %.02758, 1
   %199 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   %200 = icmp ult i64 %198, %199
   br i1 %200, label %.lr.ph.split, label %.thread, !llvm.loop !29
 
-.thread:                                          ; preds = %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32", %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit32.us", %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit"
+.thread:                                          ; preds = %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32", %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit32.us", %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit"
   %201 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   store i32 0, ptr %21, align 8
   br label %209
@@ -3123,7 +3123,7 @@ _ZNKSt10_HashtableIN4llvm10sampleprof12LineLocationESt4pairIKS2_S2_ESaIS5_ENSt8_
   %203 = phi i32 [ %46, %39 ], [ %27, %30 ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3_ENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i.i.i ], [ %46, %63 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %.not.i.i33.not = icmp eq i32 %.061, 0
-  br i1 %.not.i.i33.not, label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit34", label %204
+  br i1 %.not.i.i33.not, label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit34", label %204
 
 204:                                              ; preds = %.loopexit
   %205 = add i32 %203, %.061
@@ -3135,15 +3135,15 @@ _ZNKSt10_HashtableIN4llvm10sampleprof12LineLocationESt4pairIKS2_S2_ESaIS5_ENSt8_
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %22, align 8
   %207 = call { ptr, i8 } @_ZNSt10_HashtableIN4llvm10sampleprof12LineLocationESt4pairIKS2_S2_ESaIS5_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_16LineLocationHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJS5_EEES3_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 4 dereferenceable(16) %5)
-  br label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit34"
+  br label %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit34"
 
-"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit34": ; preds = %.loopexit, %204
+"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit34": ; preds = %.loopexit, %204
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %208 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplINS_10sampleprof12LineLocationEE12emplace_backIJRKS2_EEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(8) %24)
   br label %209
 
-209:                                              ; preds = %.thread, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit34"
-  %.151 = phi i32 [ %81, %.thread ], [ %.061, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.argprom.exit34" ]
+209:                                              ; preds = %.thread, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit34"
+  %.151 = phi i32 [ %81, %.thread ], [ %.061, %"_ZZN4llvm20SampleProfileMatcher20matchNonCallsiteLocsERKSt13unordered_mapINS_10sampleprof12LineLocationES3_NS2_16LineLocationHashESt8equal_toIS3_ESaISt4pairIKS3_S3_EEERKSt3mapIS3_NS2_10FunctionIdESt4lessIS3_ESaIS7_IS8_SF_EEERSB_ENK3$_0clERS8_SP_.exit34" ]
   %210 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.044.060) #21
   %.not = icmp eq ptr %210, %11
   br i1 %.not, label %._crit_edge, label %23
@@ -3679,7 +3679,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher25recordCallsiteMatchStates
 31:                                               ; preds = %.lr.ph, %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_10FunctionIdESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread
   %.sroa.068.095 = phi ptr [ %21, %.lr.ph ], [ %152, %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_10FunctionIdESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.068.095, i64 32
-  br i1 %.not, label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.argprom.argprom.exit", label %33
+  br i1 %.not, label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.exit", label %33
 
 33:                                               ; preds = %31
   %34 = load i64, ptr %23, align 8
@@ -3696,7 +3696,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher25recordCallsiteMatchStates
   %.sroa.06.0.in.i.i.i = phi ptr [ %25, %35 ], [ %.sroa.06.0.i.i.i, %40 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, null
-  br i1 %.not.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.argprom.argprom.exit", label %40
+  br i1 %.not.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.exit", label %40
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
@@ -3719,7 +3719,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher25recordCallsiteMatchStates
   %55 = trunc i64 %49 to i32
   %56 = lshr i64 %49, 32
   %57 = trunc nuw i64 %56 to i32
-  br i1 %.not.i.i.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.argprom.argprom.exit", label %58
+  br i1 %.not.i.i.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.exit", label %58
 
 58:                                               ; preds = %48
   %59 = load ptr, ptr %54, align 8
@@ -3746,21 +3746,21 @@ _ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3
 _ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3_ENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i.i.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3_ENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i.i.i.i, %60
   %71 = load ptr, ptr %62, align 8
   %.not16.i.i.i.i.i = icmp eq ptr %71, null
-  br i1 %.not16.i.i.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.argprom.argprom.exit", label %72
+  br i1 %.not16.i.i.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.exit", label %72
 
 72:                                               ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3_ENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i.i.i.i
   %73 = getelementptr inbounds i8, ptr %71, i64 24
   %74 = load i64, ptr %73, align 8
   %75 = urem i64 %74, %50
   %.not17.i.i.i.i.i = icmp eq i64 %75, %51
-  br i1 %.not17.i.i.i.i.i, label %60, label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.argprom.argprom.exit", !llvm.loop !22
+  br i1 %.not17.i.i.i.i.i, label %60, label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.exit", !llvm.loop !22
 
 _ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS7_.exit.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3_ENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i.i.i.i, %40
   %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %40 ], [ %62, %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3_ENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.i.i.i.i.i ]
   %76 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 16
-  br label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.argprom.argprom.exit"
+  br label %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.exit"
 
-"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.argprom.argprom.exit": ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3_ENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i.i.i.i, %72, %39, %31, %48, %_ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS7_.exit.i
+"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.exit": ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3_ENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i.i.i.i, %72, %39, %31, %48, %_ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS7_.exit.i
   %.sroa.0.0.in.i = phi ptr [ %76, %_ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S2_EEE4findERS7_.exit.i ], [ %32, %31 ], [ %32, %48 ], [ %32, %39 ], [ %32, %72 ], [ %32, %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_S3_ENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i.i.i.i ]
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 4
   store i64 %.sroa.0.0.i, ptr %6, align 8
@@ -3771,9 +3771,9 @@ _ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationES2_NS1_16LineLocationHash
   %80 = trunc nuw i64 %79 to i32
   br i1 %.not11.i.i.i, label %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_10FunctionIdESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.argprom.argprom.exit", %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.thread10.i.i.i
-  %.013.i.i.i = phi ptr [ %.1.i.i.i, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.thread10.i.i.i ], [ %77, %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.argprom.argprom.exit" ]
-  %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.thread10.i.i.i ], [ %27, %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.argprom.argprom.exit" ]
+.lr.ph.i.i.i:                                     ; preds = %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.exit", %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.thread10.i.i.i
+  %.013.i.i.i = phi ptr [ %.1.i.i.i, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.thread10.i.i.i ], [ %77, %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.exit" ]
+  %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.thread10.i.i.i ], [ %27, %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.exit" ]
   %81 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
   %82 = load i32, ptr %81, align 4
   %83 = icmp ult i32 %82, %78
@@ -3936,7 +3936,7 @@ _ZNSt13unordered_mapIN4llvm10sampleprof12LineLocationENS0_20SampleProfileMatcher
   store i32 5, ptr %148, align 4
   br label %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_10FunctionIdESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread
 
-_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_10FunctionIdESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread: ; preds = %147, %111, %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_10FunctionIdESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit, %91, %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.argprom.argprom.exit", %_ZNKSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_10FunctionIdEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i, %_ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit, %_ZNSt13unordered_mapIN4llvm10sampleprof12LineLocationENS0_20SampleProfileMatcher10MatchStateENS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERS9_.exit, %151, %150, %.loopexit81
+_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_10FunctionIdESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.thread: ; preds = %147, %111, %_ZNKSt3mapIN4llvm10sampleprof12LineLocationENS1_10FunctionIdESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit, %91, %"_ZZN4llvm20SampleProfileMatcher25recordCallsiteMatchStatesERKNS_8FunctionERKSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEESG_PKSt13unordered_mapIS6_S6_NS5_16LineLocationHashESt8equal_toIS6_ESaISA_ISB_S6_EEEENK3$_0clERSB_.exit", %_ZNKSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_10FunctionIdEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNKSt4lessIN4llvm10sampleprof12LineLocationEEclERKS2_S5_.exit.i.i, %_ZN4llvm10sampleprofeqERKNS0_10FunctionIdES3_.exit, %_ZNSt13unordered_mapIN4llvm10sampleprof12LineLocationENS0_20SampleProfileMatcher10MatchStateENS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERS9_.exit, %151, %150, %.loopexit81
   %152 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.068.095) #21
   %.not77 = icmp eq ptr %152, %22
   br i1 %.not77, label %._crit_edge, label %31
@@ -4435,8 +4435,8 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSa
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %30
 
-30:                                               ; preds = %.lr.ph, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.argprom.exit"
-  %.sroa.058.083 = phi ptr [ %26, %.lr.ph ], [ %83, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.argprom.exit" ]
+30:                                               ; preds = %.lr.ph, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.exit"
+  %.sroa.058.083 = phi ptr [ %26, %.lr.ph ], [ %83, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.exit" ]
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.058.083, i64 32
   %32 = load i64, ptr %21, align 8
   %.not.not.i.i.i = icmp eq i64 %32, 0
@@ -4452,7 +4452,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSa
   %.sroa.06.0.in.i.i.i = phi ptr [ %29, %33 ], [ %.sroa.06.0.i.i.i, %38 ]
   %.sroa.06.0.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, null
-  br i1 %.not.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.argprom.exit", label %38
+  br i1 %.not.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.exit", label %38
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
@@ -4462,7 +4462,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSa
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %36, %43
   %45 = select i1 %41, i1 %44, i1 false
-  br i1 %45, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit", label %37, !llvm.loop !44
+  br i1 %45, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit", label %37, !llvm.loop !44
 
 46:                                               ; preds = %30
   %47 = load i64, ptr %31, align 4
@@ -4475,7 +4475,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSa
   %53 = trunc i64 %47 to i32
   %54 = lshr i64 %47, 32
   %55 = trunc nuw i64 %54 to i32
-  br i1 %.not.i.i.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.argprom.exit", label %56
+  br i1 %.not.i.i.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.exit", label %56
 
 56:                                               ; preds = %46
   %57 = load ptr, ptr %52, align 8
@@ -4497,21 +4497,21 @@ _ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, %55
   %68 = select i1 %64, i1 %67, i1 false
-  br i1 %68, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit", label %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i.i.i
+  br i1 %68, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit", label %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i.i.i
 
 _ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.i.i.i.i.i, %58
   %69 = load ptr, ptr %60, align 8
   %.not16.i.i.i.i.i = icmp eq ptr %69, null
-  br i1 %.not16.i.i.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.argprom.exit", label %70
+  br i1 %.not16.i.i.i.i.i, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.exit", label %70
 
 70:                                               ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i.i.i
   %71 = getelementptr inbounds i8, ptr %69, i64 24
   %72 = load i64, ptr %71, align 8
   %73 = urem i64 %72, %48
   %.not17.i.i.i.i.i = icmp eq i64 %73, %49
-  br i1 %.not17.i.i.i.i.i, label %58, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.argprom.exit", !llvm.loop !35
+  br i1 %.not17.i.i.i.i.i, label %58, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.exit", !llvm.loop !35
 
-"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit": ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.i.i.i.i.i, %38
+"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit": ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.i.i.i.i.i, %38
   %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %38 ], [ %60, %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.i.i.i.i.i ]
   %74 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 16
   %75 = load i32, ptr %74, align 4
@@ -4519,13 +4519,13 @@ _ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS
   %77 = load i64, ptr %76, align 8
   %switch.tableidx = add i32 %75, -2
   %78 = icmp ult i32 %switch.tableidx, 5
-  br i1 %78, label %switch.hole_check, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.argprom.exit"
+  br i1 %78, label %switch.hole_check, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.exit"
 
-switch.hole_check:                                ; preds = %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit"
+switch.hole_check:                                ; preds = %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit"
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.argprom.exit"
+  br i1 %switch.lobit, label %switch.lookup, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.exit"
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %79 = zext nneg i32 %switch.tableidx to i64
@@ -4535,14 +4535,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %81 = load i64, ptr %80, align 8
   %82 = add i64 %81, %77
   store i64 %82, ptr %80, align 8
-  br label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.argprom.exit"
+  br label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.exit"
 
-"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.argprom.exit": ; preds = %70, %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i.i.i, %37, %switch.hole_check, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit", %46, %switch.lookup
+"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.exit": ; preds = %70, %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i.i.i, %37, %switch.hole_check, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit", %46, %switch.lookup
   %83 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.058.083) #21
   %.not = icmp eq ptr %83, %27
   br i1 %.not, label %._crit_edge, label %30
 
-._crit_edge:                                      ; preds = %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.argprom.exit", %24
+._crit_edge:                                      ; preds = %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_0clERKNS0_10MatchStateEm.exit", %24
   %84 = getelementptr inbounds i8, ptr %1, i64 144
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %1, i64 128
@@ -4573,7 +4573,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.sroa.06.0.in.i.i.i37 = phi ptr [ %88, %94 ], [ %.sroa.06.0.i.i.i38, %99 ]
   %.sroa.06.0.i.i.i38 = load ptr, ptr %.sroa.06.0.in.i.i.i37, align 8
   %.not.i.i.i39 = icmp eq ptr %.sroa.06.0.i.i.i38, null
-  br i1 %.not.i.i.i39, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit40", label %99
+  br i1 %.not.i.i.i39, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit40", label %99
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i38, i64 8
@@ -4596,7 +4596,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %114 = trunc i64 %108 to i32
   %115 = lshr i64 %108, 32
   %116 = trunc nuw i64 %115 to i32
-  br i1 %.not.i.i.i.i.i27, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit40", label %117
+  br i1 %.not.i.i.i.i.i27, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit40", label %117
 
 117:                                              ; preds = %107
   %118 = load ptr, ptr %113, align 8
@@ -4623,22 +4623,22 @@ _ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS
 _ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i.i.i30: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.i.i.i.i.i34, %119
   %130 = load ptr, ptr %121, align 8
   %.not16.i.i.i.i.i31 = icmp eq ptr %130, null
-  br i1 %.not16.i.i.i.i.i31, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit40", label %131
+  br i1 %.not16.i.i.i.i.i31, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit40", label %131
 
 131:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i.i.i30
   %132 = getelementptr inbounds i8, ptr %130, i64 24
   %133 = load i64, ptr %132, align 8
   %134 = urem i64 %133, %109
   %.not17.i.i.i.i.i32 = icmp eq i64 %134, %110
-  br i1 %.not17.i.i.i.i.i32, label %119, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit40", !llvm.loop !35
+  br i1 %.not17.i.i.i.i.i32, label %119, label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit40", !llvm.loop !35
 
 _ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationENS0_20SampleProfileMatcher10MatchStateENS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERS9_.exit.i35: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.i.i.i.i.i34, %99
   %.sroa.06.1.i.i.i36 = phi ptr [ %.sroa.06.0.i.i.i38, %99 ], [ %121, %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.i.i.i.i.i34 ]
   %135 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i36, i64 16
   %136 = load i32, ptr %135, align 4
-  br label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit40"
+  br label %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit40"
 
-"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit40": ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i.i.i30, %131, %98, %107, %_ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationENS0_20SampleProfileMatcher10MatchStateENS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERS9_.exit.i35
+"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit40": ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i.i.i30, %131, %98, %107, %_ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationENS0_20SampleProfileMatcher10MatchStateENS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERS9_.exit.i35
   %.0.i33 = phi i32 [ %136, %_ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationENS0_20SampleProfileMatcher10MatchStateENS1_16LineLocationHashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERS9_.exit.i35 ], [ 0, %107 ], [ 0, %98 ], [ 0, %131 ], [ 0, %_ZNKSt8__detail15_Hashtable_baseIN4llvm10sampleprof12LineLocationESt4pairIKS3_NS1_20SampleProfileMatcher10MatchStateEENS_10_Select1stESt8equal_toIS3_ENS2_16LineLocationHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS8_Lb1EEE.exit.thread.i.i.i.i.i30 ]
   %137 = getelementptr inbounds i8, ptr %.sroa.053.094, i64 64
   %138 = load ptr, ptr %137, align 8
@@ -4646,9 +4646,9 @@ _ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationENS0_20SampleProfileMatche
   %.not7185 = icmp eq ptr %138, %139
   br i1 %.not7185, label %._crit_edge89, label %.lr.ph88
 
-.lr.ph88:                                         ; preds = %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit40", %.lr.ph88
-  %.087 = phi i64 [ %142, %.lr.ph88 ], [ 0, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit40" ]
-  %.sroa.048.086 = phi ptr [ %143, %.lr.ph88 ], [ %138, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit40" ]
+.lr.ph88:                                         ; preds = %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit40", %.lr.ph88
+  %.087 = phi i64 [ %142, %.lr.ph88 ], [ 0, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit40" ]
+  %.sroa.048.086 = phi ptr [ %143, %.lr.ph88 ], [ %138, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit40" ]
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.048.086, i64 104
   %141 = load i64, ptr %140, align 8
   %142 = add i64 %141, %.087
@@ -4656,8 +4656,8 @@ _ZNKSt13unordered_mapIN4llvm10sampleprof12LineLocationENS0_20SampleProfileMatche
   %.not71 = icmp eq ptr %143, %139
   br i1 %.not71, label %._crit_edge89, label %.lr.ph88
 
-._crit_edge89:                                    ; preds = %.lr.ph88, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit40"
-  %.0.lcssa = phi i64 [ 0, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.argprom.exit40" ], [ %142, %.lr.ph88 ]
+._crit_edge89:                                    ; preds = %.lr.ph88, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit40"
+  %.0.lcssa = phi i64 [ 0, %"_ZZN4llvm20SampleProfileMatcher30countMismatchedCallsiteSamplesERKNS_10sampleprof15FunctionSamplesEENK3$_1clERKNS1_12LineLocationE.exit40" ], [ %142, %.lr.ph88 ]
   switch i32 %.0.i33, label %_ZN4llvm20SampleProfileMatcher15isMismatchStateERKNS0_10MatchStateE.exit [
     i32 2, label %.sink.split.i41
     i32 4, label %.sink.split.i41
@@ -17092,14 +17092,14 @@ attributes #23 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom"}
+!5 = distinct !{!5, !6, !"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE: argument 0"}
+!6 = distinct !{!6, !"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE.argprom"}
+!11 = distinct !{!11, !12, !"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE: argument 0"}
+!12 = distinct !{!12, !"_ZZNK4llvm20SampleProfileMatcher13findIRAnchorsERKNS_8FunctionERSt3mapINS_10sampleprof12LineLocationENS5_10FunctionIdESt4lessIS6_ESaISt4pairIKS6_S7_EEEENK3$_0clEPKNS_10DILocationE"}
 !13 = !{!14, !11}
 !14 = distinct !{!14, !15, !"_ZSt9make_pairIRN4llvm10sampleprof12LineLocationENS1_10FunctionIdEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_: argument 0"}
 !15 = distinct !{!15, !"_ZSt9make_pairIRN4llvm10sampleprof12LineLocationENS1_10FunctionIdEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_"}

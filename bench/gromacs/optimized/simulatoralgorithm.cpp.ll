@@ -2127,7 +2127,7 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEv(ptr noundef
   store ptr %80, ptr %79, align 8
   %81 = load ptr, ptr %44, align 8
   %.not.i.i.not.i.i.i.i.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.not.i.i.i.i.i, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.thread", label %82
+  br i1 %.not.i.i.not.i.i.i.i.i, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.thread", label %82
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds i8, ptr %76, i64 16
@@ -2135,9 +2135,9 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEv(ptr noundef
   %84 = load ptr, ptr %44, align 8
   store ptr %84, ptr %83, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
-  br label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.thread"
+  br label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.thread"
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.thread": ; preds = %78, %82
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.thread": ; preds = %78, %82
   %85 = load ptr, ptr %46, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 32
   store ptr %86, ptr %46, align 8
@@ -2145,14 +2145,14 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEv(ptr noundef
 
 87:                                               ; preds = %68
   invoke void @_ZNSt6vectorISt8functionIFvvEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %76, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit" unwind label %110
+          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit" unwind label %110
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit": ; preds = %87
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit": ; preds = %87
   %.pre199 = load ptr, ptr %44, align 8
   %.not.i.i41 = icmp eq ptr %.pre199, null
   br i1 %.not.i.i41, label %_ZNSt8functionIFvvEED2Ev.exit, label %88
 
-88:                                               ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit"
+88:                                               ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit"
   %89 = invoke noundef zeroext i1 %.pre199(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %90
 
@@ -2163,7 +2163,7 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEv(ptr noundef
   call void @__clang_call_terminate(ptr %92) #29
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.thread", %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit", %88
+_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.thread", %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit", %88
   %93 = load ptr, ptr %48, align 8
   %94 = load ptr, ptr %49, align 8
   %.not116178 = icmp eq ptr %93, %94
@@ -2432,7 +2432,7 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit61:           ; preds = %156, %158
   store ptr %176, ptr %175, align 8
   %177 = load ptr, ptr %61, align 8
   %.not.i.i.not.i.i.i.i.i65 = icmp eq ptr %177, null
-  br i1 %.not.i.i.not.i.i.i.i.i65, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit68.thread", label %178
+  br i1 %.not.i.i.not.i.i.i.i.i65, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68.thread", label %178
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds i8, ptr %172, i64 16
@@ -2440,9 +2440,9 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit61:           ; preds = %156, %158
   %180 = load ptr, ptr %61, align 8
   store ptr %180, ptr %179, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  br label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit68.thread"
+  br label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68.thread"
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit68.thread": ; preds = %174, %178
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68.thread": ; preds = %174, %178
   %181 = load ptr, ptr %46, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 32
   store ptr %182, ptr %46, align 8
@@ -2450,14 +2450,14 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit61:           ; preds = %156, %158
 
 183:                                              ; preds = %._crit_edge191
   invoke void @_ZNSt6vectorISt8functionIFvvEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %172, ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit68" unwind label %200
+          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68" unwind label %200
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit68": ; preds = %183
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68": ; preds = %183
   %.pre200 = load ptr, ptr %61, align 8
   %.not.i.i69 = icmp eq ptr %.pre200, null
   br i1 %.not.i.i69, label %_ZNSt8functionIFvvEED2Ev.exit70, label %184
 
-184:                                              ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit68"
+184:                                              ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68"
   %185 = invoke noundef zeroext i1 %.pre200(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit70 unwind label %186
 
@@ -2468,7 +2468,7 @@ _ZNSt8functionIFvS_IFvvEEEED2Ev.exit61:           ; preds = %156, %158
   call void @__clang_call_terminate(ptr %188) #29
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit70:                  ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit68.thread", %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit68", %184
+_ZNSt8functionIFvvEED2Ev.exit70:                  ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68.thread", %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit68", %184
   %189 = load i64, ptr %18, align 8
   %190 = add nsw i64 %189, 1
   store i64 %190, ptr %18, align 8
@@ -2542,9 +2542,9 @@ _ZNSt8functionIFvvEED2Ev.exit70:                  ; preds = %"_ZZN3gmx25ModularS
   %219 = load ptr, ptr %46, align 8
   %220 = load ptr, ptr %47, align 8
   %.not.i.i74 = icmp eq ptr %219, %220
-  br i1 %.not.i.i74, label %225, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit78.thread"
+  br i1 %.not.i.i74, label %225, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78.thread"
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit78.thread": ; preds = %215
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78.thread": ; preds = %215
   %221 = getelementptr inbounds i8, ptr %219, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_3E9_M_invokeERKSt9_Any_data", ptr %221, align 8
   %222 = getelementptr inbounds i8, ptr %219, i64 16
@@ -2557,14 +2557,14 @@ _ZNSt8functionIFvvEED2Ev.exit70:                  ; preds = %"_ZZN3gmx25ModularS
 
 225:                                              ; preds = %215
   invoke void @_ZNSt6vectorISt8functionIFvvEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %219, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit78" unwind label %231
+          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78" unwind label %231
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit78": ; preds = %225
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78": ; preds = %225
   %.pre204 = load ptr, ptr %216, align 8
   %.not.i.i79 = icmp eq ptr %.pre204, null
   br i1 %.not.i.i79, label %_ZNSt8functionIFvvEED2Ev.exit80, label %226
 
-226:                                              ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit78"
+226:                                              ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78"
   %227 = invoke noundef zeroext i1 %.pre204(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit80 unwind label %228
 
@@ -2593,7 +2593,7 @@ _ZNSt8functionIFvvEED2Ev.exit70:                  ; preds = %"_ZZN3gmx25ModularS
   call void @__clang_call_terminate(ptr %238) #29
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit80:                  ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit78.thread", %226, %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit78", %.critedge
+_ZNSt8functionIFvvEED2Ev.exit80:                  ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78.thread", %226, %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit78", %.critedge
   ret void
 
 _ZNSt8functionIFvvEED2Ev.exit47:                  ; preds = %234, %231, %203, %200, %166, %164, %142, %139, %120, %118, %113, %110
@@ -3487,7 +3487,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgo
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -3496,30 +3496,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3gmx25Modula
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -3557,15 +3557,15 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i:             ; preds = %9, %2
   %16 = getelementptr inbounds i8, ptr %12, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   store ptr %6, ptr %16, align 8
-  br i1 %.not.i.i.not.i.i.i, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.thread.i.i", label %17
+  br i1 %.not.i.i.not.i.i.i, label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.thread.i.i", label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %12, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store ptr %8, ptr %18, align 8
-  br label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.thread.i.i"
+  br label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.thread.i.i"
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.thread.i.i": ; preds = %17, %15
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.thread.i.i": ; preds = %17, %15
   %19 = load ptr, ptr %11, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 32
   store ptr %20, ptr %11, align 8
@@ -3573,15 +3573,15 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i:             ; preds = %9, %2
 
 21:                                               ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i
   invoke void @_ZNSt6vectorISt8functionIFvvEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %.val.i.i, ptr %12, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.i.i" unwind label %27
+          to label %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.i.i" unwind label %27
 
-"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.i.i": ; preds = %21
+"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.i.i": ; preds = %21
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.not.i.i3.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i3.i.i, label %"_ZSt10__invoke_rIvRZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1JSt8functionIFvvEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %22
 
-22:                                               ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.i.i"
+22:                                               ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.i.i"
   %23 = invoke noundef zeroext i1 %.pre.i.i(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
           to label %"_ZSt10__invoke_rIvRZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1JSt8functionIFvvEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit" unwind label %24
 
@@ -3614,7 +3614,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i:             ; preds = %9, %2
 _ZNSt8functionIFvvEED2Ev.exit5.i.i:               ; preds = %31, %27
   resume { ptr, i32 } %28
 
-"_ZSt10__invoke_rIvRZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1JSt8functionIFvvEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.thread.i.i", %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.argprom.exit.i.i", %22
+"_ZSt10__invoke_rIvRZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_1JSt8functionIFvvEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.thread.i.i", %"_ZZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvENK3$_1clESt8functionIFvvEE.exit.i.i", %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -3657,7 +3657,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgo
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -3666,30 +3666,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3gmx25Modula
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #26
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3gmx25ModularSimulatorAlgorithm17populateTaskQueueEvE3$_2E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

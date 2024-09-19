@@ -154,7 +154,7 @@ define dso_local void @prte_info_do_params(i1 noundef zeroext %0, i1 noundef zer
   tail call void @prte_info_components_open() #8
   %.01.i = load ptr, ptr getelementptr inbounds (i8, ptr @prte_info_cmd_line, i64 360), align 8
   %.not2.i = icmp eq ptr %.01.i, getelementptr inbounds (i8, ptr @prte_info_cmd_line, i64 240)
-  br i1 %.not2.i, label %pmix_cmd_line_get_param.argprom.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %pmix_cmd_line_get_param.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %10
   %.03.i = phi ptr [ %.0.i, %10 ], [ %.01.i, %2 ]
@@ -162,19 +162,19 @@ define dso_local void @prte_info_do_params(i1 noundef zeroext %0, i1 noundef zer
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(6) @.str.18) #9
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %pmix_cmd_line_get_param.argprom.exit, label %10
+  br i1 %9, label %pmix_cmd_line_get_param.exit, label %10
 
 10:                                               ; preds = %.lr.ph.i
   %11 = getelementptr inbounds i8, ptr %.03.i, i64 120
   %.0.i = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %.0.i, getelementptr inbounds (i8, ptr @prte_info_cmd_line, i64 240)
-  br i1 %.not.i, label %pmix_cmd_line_get_param.argprom.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %pmix_cmd_line_get_param.exit, label %.lr.ph.i, !llvm.loop !5
 
-pmix_cmd_line_get_param.argprom.exit:             ; preds = %.lr.ph.i, %10, %2
+pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i, %10, %2
   %.08.i = phi ptr [ null, %2 ], [ %.03.i, %.lr.ph.i ], [ null, %10 ]
   br i1 %0, label %.preheader, label %12
 
-12:                                               ; preds = %pmix_cmd_line_get_param.argprom.exit
+12:                                               ; preds = %pmix_cmd_line_get_param.exit
   %.not = icmp eq ptr %.08.i, null
   br i1 %.not, label %.thread67, label %13
 
@@ -188,13 +188,13 @@ pmix_cmd_line_get_param.argprom.exit:             ; preds = %.lr.ph.i, %10, %2
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.preheader, label %44
 
-.preheader:                                       ; preds = %13, %pmix_cmd_line_get_param.argprom.exit
-  %.03859.ph = phi ptr [ null, %pmix_cmd_line_get_param.argprom.exit ], [ %17, %13 ]
+.preheader:                                       ; preds = %13, %pmix_cmd_line_get_param.exit
+  %.03859.ph = phi ptr [ null, %pmix_cmd_line_get_param.exit ], [ %17, %13 ]
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %pmix_pointer_array_get_item.argprom.exit, label %.loopexit
+  br i1 %22, label %pmix_pointer_array_get_item.exit, label %.loopexit
 
-pmix_pointer_array_get_item.argprom.exit:         ; preds = %.preheader, %40
+pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %40
   %23 = phi i32 [ %41, %40 ], [ %21, %.preheader ]
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %40 ], [ 0, %.preheader ]
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_types, i64 152), align 8
@@ -203,7 +203,7 @@ pmix_pointer_array_get_item.argprom.exit:         ; preds = %.preheader, %40
   %27 = icmp eq ptr %26, null
   br i1 %27, label %40, label %28
 
-28:                                               ; preds = %pmix_pointer_array_get_item.argprom.exit
+28:                                               ; preds = %pmix_pointer_array_get_item.exit
   %29 = load ptr, ptr @prte_info_component_all, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(4) @.str) #9
@@ -224,7 +224,7 @@ pmix_pointer_array_get_item.argprom.exit:         ; preds = %.preheader, %40
   %.sink.i = phi i32 [ %33, %32 ], [ %36, %35 ]
   %38 = call i32 @pmix_mca_base_var_group_get(i32 noundef %.sink.i, ptr noundef nonnull %5) #8
   %39 = load ptr, ptr %5, align 8
-  call fastcc void @prte_info_show_mca_group_params.argelim(ptr noundef %39)
+  call fastcc void @prte_info_show_mca_group_params(ptr noundef %39)
   br label %prte_info_show_mca_params.exit
 
 prte_info_show_mca_params.exit:                   ; preds = %32, %35, %.sink.split.i
@@ -232,12 +232,12 @@ prte_info_show_mca_params.exit:                   ; preds = %32, %35, %.sink.spl
   %.pre = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
   br label %40
 
-40:                                               ; preds = %pmix_pointer_array_get_item.argprom.exit, %prte_info_show_mca_params.exit
-  %41 = phi i32 [ %23, %pmix_pointer_array_get_item.argprom.exit ], [ %.pre, %prte_info_show_mca_params.exit ]
+40:                                               ; preds = %pmix_pointer_array_get_item.exit, %prte_info_show_mca_params.exit
+  %41 = phi i32 [ %23, %pmix_pointer_array_get_item.exit ], [ %.pre, %prte_info_show_mca_params.exit ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next81, %42
-  br i1 %43, label %pmix_pointer_array_get_item.argprom.exit, label %.loopexit, !llvm.loop !7
+  br i1 %43, label %pmix_pointer_array_get_item.exit, label %.loopexit, !llvm.loop !7
 
 44:                                               ; preds = %13
   %45 = getelementptr inbounds i8, ptr %17, i64 8
@@ -256,29 +256,29 @@ prte_info_show_mca_params.exit:                   ; preds = %32, %35, %.sink.spl
   %50 = phi ptr [ %74, %prte_info_show_mca_params.exit51 ], [ %49, %47 ]
   %51 = load i32, ptr getelementptr inbounds (i8, ptr @mca_types, i64 128), align 8
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %pmix_pointer_array_get_item.argprom.exit48.lr.ph, label %.critedge
+  br i1 %52, label %pmix_pointer_array_get_item.exit48.lr.ph, label %.critedge
 
-pmix_pointer_array_get_item.argprom.exit48.lr.ph: ; preds = %.preheader70
+pmix_pointer_array_get_item.exit48.lr.ph:         ; preds = %.preheader70
   %53 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_types, i64 152), align 8
   %wide.trip.count = zext nneg i32 %51 to i64
-  br label %pmix_pointer_array_get_item.argprom.exit48
+  br label %pmix_pointer_array_get_item.exit48
 
-pmix_pointer_array_get_item.argprom.exit48:       ; preds = %pmix_pointer_array_get_item.argprom.exit48.lr.ph, %60
-  %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.argprom.exit48.lr.ph ], [ %indvars.iv.next, %60 ]
+pmix_pointer_array_get_item.exit48:               ; preds = %pmix_pointer_array_get_item.exit48.lr.ph, %60
+  %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit48.lr.ph ], [ %indvars.iv.next, %60 ]
   %54 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %60, label %57
 
-57:                                               ; preds = %pmix_pointer_array_get_item.argprom.exit48
+57:                                               ; preds = %pmix_pointer_array_get_item.exit48
   %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %18) #9
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %62, label %60
 
-60:                                               ; preds = %57, %pmix_pointer_array_get_item.argprom.exit48
+60:                                               ; preds = %57, %pmix_pointer_array_get_item.exit48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %pmix_pointer_array_get_item.argprom.exit48, !llvm.loop !8
+  br i1 %exitcond.not, label %.critedge, label %pmix_pointer_array_get_item.exit48, !llvm.loop !8
 
 .critedge:                                        ; preds = %.preheader70, %60
   %61 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 1, ptr noundef %18) #8
@@ -305,7 +305,7 @@ pmix_pointer_array_get_item.argprom.exit48:       ; preds = %pmix_pointer_array_
   %.sink.i50 = phi i32 [ %66, %65 ], [ %69, %68 ]
   %71 = call i32 @pmix_mca_base_var_group_get(i32 noundef %.sink.i50, ptr noundef nonnull %4) #8
   %72 = load ptr, ptr %4, align 8
-  call fastcc void @prte_info_show_mca_group_params.argelim(ptr noundef %72)
+  call fastcc void @prte_info_show_mca_group_params(ptr noundef %72)
   br label %prte_info_show_mca_params.exit51
 
 prte_info_show_mca_params.exit51:                 ; preds = %65, %68, %.sink.split.i49
@@ -329,7 +329,7 @@ prte_info_show_mca_params.exit51:                 ; preds = %65, %68, %.sink.spl
 .sink.split.i52:                                  ; preds = %75
   %78 = call i32 @pmix_mca_base_var_group_get(i32 noundef %76, ptr noundef nonnull %3) #8
   %79 = load ptr, ptr %3, align 8
-  call fastcc void @prte_info_show_mca_group_params.argelim(ptr noundef %79)
+  call fastcc void @prte_info_show_mca_group_params(ptr noundef %79)
   br label %prte_info_show_mca_params.exit54
 
 prte_info_show_mca_params.exit54:                 ; preds = %75, %.sink.split.i52
@@ -378,7 +378,7 @@ define dso_local void @prte_info_show_mca_params(ptr noundef %0, ptr noundef %1,
   %.sink = phi i32 [ %8, %7 ], [ %11, %10 ]
   %13 = call i32 @pmix_mca_base_var_group_get(i32 noundef %.sink, ptr noundef nonnull %4) #8
   %14 = load ptr, ptr %4, align 8
-  call fastcc void @prte_info_show_mca_group_params.argelim(ptr noundef %14)
+  call fastcc void @prte_info_show_mca_group_params(ptr noundef %14)
   br label %15
 
 15:                                               ; preds = %.sink.split, %10, %7
@@ -397,7 +397,7 @@ declare i32 @pmix_mca_base_var_group_find(ptr noundef, ptr noundef, ptr noundef)
 declare i32 @pmix_mca_base_var_group_get(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prte_info_show_mca_group_params.argelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -511,7 +511,7 @@ define internal fastcc void @prte_info_show_mca_group_params.argelim(ptr noundef
 
 53:                                               ; preds = %.lr.ph34
   %54 = load ptr, ptr %2, align 8
-  call fastcc void @prte_info_show_mca_group_params.argelim(ptr noundef %54)
+  call fastcc void @prte_info_show_mca_group_params(ptr noundef %54)
   br label %55
 
 55:                                               ; preds = %.lr.ph34, %53
@@ -564,7 +564,7 @@ define dso_local void @prte_info_do_path(i1 noundef zeroext %0) local_unnamed_ad
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull readonly dereferenceable(5) @.str.22) #9
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %pmix_cmd_line_get_param.argprom.exit, label %35
+  br i1 %34, label %pmix_cmd_line_get_param.exit, label %35
 
 35:                                               ; preds = %.lr.ph.i
   %36 = getelementptr inbounds i8, ptr %.03.i, i64 120
@@ -572,11 +572,11 @@ define dso_local void @prte_info_do_path(i1 noundef zeroext %0) local_unnamed_ad
   %.not.i = icmp eq ptr %.0.i, getelementptr inbounds (i8, ptr @prte_info_cmd_line, i64 240)
   br i1 %.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !5
 
-pmix_cmd_line_get_param.argprom.exit:             ; preds = %.lr.ph.i
+pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   %.not = icmp eq ptr %.03.i, null
   br i1 %.not, label %.loopexit.thread61, label %.preheader48
 
-.preheader48:                                     ; preds = %pmix_cmd_line_get_param.argprom.exit
+.preheader48:                                     ; preds = %pmix_cmd_line_get_param.exit
   %37 = getelementptr inbounds i8, ptr %.03.i, i64 152
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
@@ -600,7 +600,7 @@ pmix_cmd_line_get_param.argprom.exit:             ; preds = %.lr.ph.i
 .loopexit:                                        ; preds = %40
   br i1 %0, label %.critedge, label %.preheader
 
-.loopexit.thread61:                               ; preds = %pmix_cmd_line_get_param.argprom.exit
+.loopexit.thread61:                               ; preds = %pmix_cmd_line_get_param.exit
   br i1 %0, label %.critedge, label %.thread45
 
 .loopexit.thread:                                 ; preds = %.preheader48

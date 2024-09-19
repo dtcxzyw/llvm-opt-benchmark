@@ -7407,13 +7407,13 @@ invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN9grp
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #27
-  br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 
@@ -9176,12 +9176,12 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_11
 entry:
   %0 = load atomic i8, ptr @_ZGVZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsEE6loader acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsE.argprom.exit, !prof !4
+  br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsE.exit, !prof !4
 
 init.check.i:                                     ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsEE6loader) #23
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %_ZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsE.argprom.exit, label %invoke.cont4.i
+  br i1 %tobool.not.i, label %_ZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsE.exit, label %invoke.cont4.i
 
 invoke.cont4.i:                                   ; preds = %init.check.i
   %call.i1.i = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
@@ -9211,7 +9211,7 @@ invoke.cont5.i:                                   ; preds = %invoke.cont4.i
   store ptr null, ptr %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsEE6loader) #23
-  br label %_ZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsE.argprom.exit
+  br label %_ZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsE.exit
 
 lpad.i:                                           ; preds = %invoke.cont4.i
   %2 = landingpad { ptr, i32 }
@@ -9219,7 +9219,7 @@ lpad.i:                                           ; preds = %invoke.cont4.i
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsEE6loader) #23
   resume { ptr, i32 } %2
 
-_ZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsE.argprom.exit: ; preds = %entry, %init.check.i, %invoke.cont5.i
+_ZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsE.exit: ; preds = %entry, %init.check.i, %invoke.cont5.i
   %3 = load ptr, ptr @_ZZN9grpc_core12_GLOBAL__N_112ChannelCreds10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   %vtable = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %vtable, align 8
@@ -9271,13 +9271,13 @@ if.else.i:                                        ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %this.val.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775760
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.74) #26
   unreachable
 
-_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %if.else.i
+_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 80
   %cmp.i.i.i.i = icmp eq ptr %0, %this.val.i.i
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
@@ -9286,15 +9286,15 @@ _ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPK
   %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 115292150460684697)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 115292150460684697, i64 %4
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.argprom.exit.i.i, label %cond.true.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 80
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #24
-  br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.argprom.exit.i.i
+  br label %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
-  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
+_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i.i, i8 0, i64 80, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #23
@@ -9308,11 +9308,11 @@ _ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocat
   store ptr %5, ptr %_M_right.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 72
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i, align 8
-  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit40.i.i, label %for.body.i.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.argprom.exit.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i
-  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i ], [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.argprom.exit.i.i ]
-  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i ], [ %this.val.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.argprom.exit.i.i ]
+for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i
+  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i ], [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i ]
+  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i ], [ %this.val.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i) #23
@@ -9345,7 +9345,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !104, !noalias !101
-  br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i
+  br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i
   store i32 0, ptr %6, align 8, !alias.scope !101, !noalias !104
@@ -9356,28 +9356,28 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i
   %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 64
   store ptr %6, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !101, !noalias !104
   %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 72
-  br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i
+  br label %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i
 
-_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
+_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
   %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !106
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i) #23
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 80
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 80
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit40.i.i, label %for.body.i.i.i.i.i, !llvm.loop !107
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i, label %for.body.i.i.i.i.i, !llvm.loop !107
 
-_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit40.i.i: ; preds = %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.argprom.exit.i.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.argprom.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i ]
+_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i: ; preds = %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 80
   %tobool.not.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i41.i.i
 
-if.then.i41.i.i:                                  ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit40.i.i
+if.then.i41.i.i:                                  ; preds = %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.i.i) #27
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit40.i.i
+_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112ChannelCredsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i
   store ptr %cond.i12.i.i, ptr %dst, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr19.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::ChannelCreds", ptr %cond.i12.i.i, i64 %cond.i.i.i
@@ -12972,10 +12972,10 @@ attributes #28 = { nounwind willreturn memory(read) }
 !99 = distinct !{!99, !6}
 !100 = distinct !{!100, !6}
 !101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.argprom: %__dest"}
-!103 = distinct !{!103, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.argprom"}
+!102 = distinct !{!102, !103, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!103 = distinct !{!103, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_"}
 !104 = !{!105}
-!105 = distinct !{!105, !103, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_.argprom: %__orig"}
+!105 = distinct !{!105, !103, !"_ZSt19__relocate_object_aIN9grpc_core12_GLOBAL__N_112ChannelCredsES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
 !106 = !{!102, !105}
 !107 = distinct !{!107, !6}
 !108 = distinct !{!108, !6}

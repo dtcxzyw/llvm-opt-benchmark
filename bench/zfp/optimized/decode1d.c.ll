@@ -313,7 +313,7 @@ stream_read_bits.exit.i11:                        ; preds = %148, %138
   %165 = load i32, ptr %164, align 4
   %166 = add i32 %165, -12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %167 = call fastcc i32 @decode_ints_uint64.argelim(ptr noundef %161, i32 noundef %166, i32 noundef %160, ptr noundef %3)
+  %167 = call fastcc i32 @decode_ints_uint64(ptr noundef %161, i32 noundef %166, i32 noundef %160, ptr noundef %3)
   %168 = icmp ult i32 %167, %163
   br i1 %168, label %169, label %192
 
@@ -513,7 +513,7 @@ stream_read_bits.exit:                            ; preds = %10, %20
   %24 = and i32 %23, 63
   %25 = add nuw nsw i32 %24, 1
   %26 = add i32 %2, -6
-  %27 = call fastcc i32 @decode_ints_uint64.argelim(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %25, ptr noundef %5)
+  %27 = call fastcc i32 @decode_ints_uint64(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %25, ptr noundef %5)
   %28 = add i32 %27, 6
   %29 = icmp ult i32 %28, %1
   br i1 %29, label %30, label %52
@@ -573,9 +573,9 @@ stream_skip.exit:                                 ; preds = %30, %47
   store i64 %57, ptr %61, align 8
   %62 = add nsw i32 %.0.i16, -1
   %.not.i = icmp eq i32 %62, 0
-  br i1 %.not.i, label %inv_order_int64.argprom.exit, label %53
+  br i1 %.not.i, label %inv_order_int64.exit, label %53
 
-inv_order_int64.argprom.exit:                     ; preds = %53
+inv_order_int64.exit:                             ; preds = %53
   %63 = load i64, ptr %3, align 8
   %64 = getelementptr inbounds i8, ptr %3, i64 8
   %65 = load i64, ptr %64, align 8
@@ -596,7 +596,7 @@ inv_order_int64.argprom.exit:                     ; preds = %53
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @decode_ints_uint64.argelim(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc i32 @decode_ints_uint64(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = shl i32 %2, 2
   %6 = or disjoint i32 %5, 3
   %.not = icmp ugt i32 %6, %1

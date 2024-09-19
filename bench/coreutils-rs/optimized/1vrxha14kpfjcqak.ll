@@ -54,7 +54,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.1a1f31e4664e8848d60e7ddbe5474640.65 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1a1f31e4664e8848d60e7ddbe5474640.17, [16 x i8] c"`\00\00\00\00\00\00\00+\06\00\00?\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17h16ae09011de7afa1E.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
+define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17h16ae09011de7afa1E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
   %.sroa.230 = alloca [4 x i64], align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [4 x i64] }, align 8
@@ -174,7 +174,7 @@ define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_nu
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17ha8ac8ad00cbbaafbE.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
+define internal fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17ha8ac8ad00cbbaafbE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef align 1 %2, ptr readonly %3, ptr %.32.val) unnamed_addr #0 {
   %.sroa.230 = alloca [4 x i64], align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [4 x i64] }, align 8
@@ -480,7 +480,7 @@ define hidden void @_ZN10fundu_core5parse18ReprParserTemplate5parse17h0fbafb4f72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %46 = load i8, ptr %26, align 1, !noalias !19, !noundef !4
-  switch i8 %46, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread [
+  switch i8 %46, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread [
     i8 43, label %47
     i8 45, label %52
   ]
@@ -491,7 +491,7 @@ define hidden void @_ZN10fundu_core5parse18ReprParserTemplate5parse17h0fbafb4f72
   %50 = add i64 %49, 1
   store i64 %50, ptr %48, align 8, !alias.scope !21, !noalias !22
   %51 = icmp ult i64 %50, %32
-  br i1 %51, label %select.unfold.i, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread510
+  br i1 %51, label %select.unfold.i, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread510
 
 52:                                               ; preds = %27
   %53 = getelementptr inbounds i8, ptr %1, i64 16
@@ -499,9 +499,9 @@ define hidden void @_ZN10fundu_core5parse18ReprParserTemplate5parse17h0fbafb4f72
   %55 = add i64 %54, 1
   store i64 %55, ptr %53, align 8, !alias.scope !21, !noalias !22
   %56 = icmp ult i64 %55, %32
-  br i1 %56, label %select.unfold.i, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread510
+  br i1 %56, label %select.unfold.i, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread510
 
-_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread510: ; preds = %47, %52
+_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread510: ; preds = %47, %52
   %.ph.i = phi i64 [ %50, %47 ], [ %55, %52 ]
   store ptr null, ptr %25, align 8, !alias.scope !21, !noalias !22
   %57 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4ad6d712a8914f53E"(i64 noundef 46, i1 noundef zeroext false), !noalias !23
@@ -527,20 +527,20 @@ select.unfold.i:                                  ; preds = %52, %47
   store ptr %61, ptr %25, align 8, !alias.scope !21, !noalias !22
   store i8 %.sroa.7.sroa.0.09.ph.ph.i, ptr %35, align 1, !alias.scope !14
   %62 = trunc nuw i8 %.val346 to i1
-  br i1 %62, label %63, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread
+  br i1 %62, label %63, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread
 
 63:                                               ; preds = %select.unfold.i
   %64 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %64)
   %65 = load i8, ptr %61, align 1, !noalias !23, !noundef !4
   %66 = tail call noundef zeroext i1 %.val(i8 noundef %65), !noalias !23
-  br i1 %66, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread
+  br i1 %66, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread
 
-_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit: ; preds = %63
+_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit: ; preds = %63
   call void @_ZN10fundu_core5parse5Bytes21try_consume_delimiter17h77b2c63297b730b9E(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %23, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %.val), !noalias !14
   %.pr.pre = load i64, ptr %23, align 8
   %67 = icmp eq i64 %.pr.pre, 8
-  br i1 %67, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread, label %71
+  br i1 %67, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread, label %71
 
 68:                                               ; preds = %9
   %69 = getelementptr inbounds i8, ptr %0, i64 8
@@ -548,14 +548,14 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E
   store i64 2, ptr %0, align 8
   br label %344
 
-_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread: ; preds = %63, %select.unfold.i, %27, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit
+_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread: ; preds = %63, %select.unfold.i, %27, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
   %70 = load ptr, ptr %25, align 8, !align !6, !noundef !4
   %.not477 = icmp eq ptr %70, null
   br i1 %.not477, label %73, label %81
 
-71:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread510, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit
-  %.pr512 = phi i64 [ 1, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread510 ], [ %.pr.pre, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit ]
+71:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread510, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit
+  %.pr512 = phi i64 [ 1, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread510 ], [ %.pr.pre, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit ]
   %.sroa.4163.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2165, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4163.0..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
@@ -566,7 +566,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E
   store i64 2, ptr %0, align 8
   br label %344
 
-73:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread
+73:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread
   %74 = getelementptr inbounds i8, ptr %1, i64 16
   %75 = load i64, ptr %74, align 8, !noundef !4
   %76 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4ad6d712a8914f53E"(i64 noundef 23, i1 noundef zeroext false)
@@ -588,7 +588,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E
   store i64 2, ptr %0, align 8
   br label %344
 
-81:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom.exit.thread
+81:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.exit.thread
   %82 = load i8, ptr %70, align 1, !noundef !4
   %83 = add i8 %82, -58
   %.0331 = icmp ult i8 %83, -10
@@ -700,7 +700,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E
   %or.cond.i = or i1 %134, %135
   %136 = getelementptr inbounds i8, ptr %129, i64 %132
   %.sroa.0.0.i = select i1 %or.cond.i, ptr null, ptr %136
-  %137 = tail call fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h783bd43d15c3ab33E.argelim"(ptr noalias noundef readonly align 1 %.sroa.0.0.i, i64 3, ptr noalias noundef nonnull readonly align 1 @anon.1a1f31e4664e8848d60e7ddbe5474640.11)
+  %137 = tail call fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h783bd43d15c3ab33E"(ptr noalias noundef readonly align 1 %.sroa.0.0.i, i64 3, ptr noalias noundef nonnull readonly align 1 @anon.1a1f31e4664e8848d60e7ddbe5474640.11)
   br i1 %137, label %138, label %145
 
 138:                                              ; preds = %128
@@ -715,7 +715,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E
   store ptr %.0330, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef nonnull align 8 dereferenceable(112) %24, i64 112, i1 false)
-  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17h96105b745590e38cE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %22)
+  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17h96105b745590e38cE"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %22)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %22)
   br label %344
 
@@ -767,12 +767,12 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E
   store i8 %158, ptr %34, align 1
   store i64 %.sroa.13.8.copyload, ptr %41, align 8
   store i16 %.sroa.15.8.copyload, ptr %42, align 8
-  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
+  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
   br label %344
 
 166:                                              ; preds = %180, %161
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
-  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17h16ae09011de7afa1E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(40) %20, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef align 1 %7, ptr %8, ptr %.val)
+  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17h16ae09011de7afa1E(ptr noalias nocapture noundef align 8 dereferenceable(40) %20, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef align 1 %7, ptr %8, ptr %.val)
   %167 = load i64, ptr %20, align 8, !range !7, !noundef !4
   %168 = icmp eq i64 %167, 8
   %169 = getelementptr inbounds i8, ptr %20, i64 8
@@ -844,7 +844,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E
   store i8 %.sroa.0200.0.copyload, ptr %34, align 1
   store i64 %.sroa.5202.0.copyload, ptr %41, align 8
   store i16 %.sroa.6203.0.copyload, ptr %42, align 8
-  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
+  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
   br label %344
 
 186:                                              ; preds = %166
@@ -945,7 +945,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E
   store i8 %.sroa.0252.0.copyload, ptr %34, align 1
   store i64 %.sroa.5254.0.copyload, ptr %41, align 8
   store i16 %.sroa.6255.0.copyload, ptr %42, align 8
-  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
+  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
   br label %222
 
 208:                                              ; preds = %201
@@ -1362,7 +1362,7 @@ _ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17h176a11ae8384d
   br label %344
 
 343:                                              ; preds = %338
-  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
+  call fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef align 8 dereferenceable(112) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias nocapture noundef align 8 dereferenceable(112) %24)
   br label %344
 
 344:                                              ; preds = %71, %_ZN10fundu_core5parse18ReprParserTemplate21parse_number_fraction17h22144648775a462fE.exit, %237, %_ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17h176a11ae8384d84dE.exit, %319, %330, %332, %340, %342, %235, %165, %138, %73, %222, %187, %185, %178, %343, %68
@@ -1447,7 +1447,7 @@ define hidden void @_ZN10fundu_core5parse18ReprParserTemplate5parse17h7bfc577914
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %47 = load i8, ptr %27, align 1, !noalias !85, !noundef !4
-  switch i8 %47, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread [
+  switch i8 %47, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread [
     i8 43, label %48
     i8 45, label %53
   ]
@@ -1458,7 +1458,7 @@ define hidden void @_ZN10fundu_core5parse18ReprParserTemplate5parse17h7bfc577914
   %51 = add i64 %50, 1
   store i64 %51, ptr %49, align 8, !alias.scope !87, !noalias !88
   %52 = icmp ult i64 %51, %33
-  br i1 %52, label %select.unfold.i, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread552
+  br i1 %52, label %select.unfold.i, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread552
 
 53:                                               ; preds = %28
   %54 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1466,9 +1466,9 @@ define hidden void @_ZN10fundu_core5parse18ReprParserTemplate5parse17h7bfc577914
   %56 = add i64 %55, 1
   store i64 %56, ptr %54, align 8, !alias.scope !87, !noalias !88
   %57 = icmp ult i64 %56, %33
-  br i1 %57, label %select.unfold.i, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread552
+  br i1 %57, label %select.unfold.i, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread552
 
-_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread552: ; preds = %48, %53
+_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread552: ; preds = %48, %53
   %.ph.i = phi i64 [ %51, %48 ], [ %56, %53 ]
   store ptr null, ptr %26, align 8, !alias.scope !87, !noalias !88
   %58 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4ad6d712a8914f53E"(i64 noundef 46, i1 noundef zeroext false), !noalias !89
@@ -1494,20 +1494,20 @@ select.unfold.i:                                  ; preds = %53, %48
   store ptr %62, ptr %26, align 8, !alias.scope !87, !noalias !88
   store i8 %.sroa.7.sroa.0.09.ph.ph.i, ptr %36, align 1, !alias.scope !80
   %63 = trunc nuw i8 %.val346 to i1
-  br i1 %63, label %64, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread
+  br i1 %63, label %64, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread
 
 64:                                               ; preds = %select.unfold.i
   %65 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %65)
   %66 = load i8, ptr %62, align 1, !noalias !89, !noundef !4
   %67 = tail call noundef zeroext i1 %.val(i8 noundef %66), !noalias !89
-  br i1 %67, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread
+  br i1 %67, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread
 
-_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit: ; preds = %64
+_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit: ; preds = %64
   call void @_ZN10fundu_core5parse5Bytes21try_consume_delimiter17h77b2c63297b730b9E(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %24, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %.val), !noalias !80
   %.pr.pre = load i64, ptr %24, align 8
   %68 = icmp eq i64 %.pr.pre, 8
-  br i1 %68, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread, label %72
+  br i1 %68, label %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread, label %72
 
 69:                                               ; preds = %9
   %70 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1515,14 +1515,14 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E
   store i64 2, ptr %0, align 8
   br label %425
 
-_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread: ; preds = %64, %select.unfold.i, %28, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit
+_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread: ; preds = %64, %select.unfold.i, %28, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24)
   %71 = load ptr, ptr %26, align 8, !align !6, !noundef !4
   %.not519 = icmp eq ptr %71, null
   br i1 %.not519, label %74, label %82
 
-72:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread552, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit
-  %.pr554 = phi i64 [ 1, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread552 ], [ %.pr.pre, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit ]
+72:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread552, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit
+  %.pr554 = phi i64 [ 1, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread552 ], [ %.pr.pre, %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit ]
   %.sroa.4163.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2165, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4163.0..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24)
@@ -1533,7 +1533,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E
   store i64 2, ptr %0, align 8
   br label %425
 
-74:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread
+74:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread
   %75 = getelementptr inbounds i8, ptr %1, i64 16
   %76 = load i64, ptr %75, align 8, !noundef !4
   %77 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4ad6d712a8914f53E"(i64 noundef 23, i1 noundef zeroext false)
@@ -1555,7 +1555,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E
   store i64 2, ptr %0, align 8
   br label %425
 
-82:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom.exit.thread
+82:                                               ; preds = %_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.exit.thread
   %83 = load i8, ptr %71, align 1, !noundef !4
   %84 = add i8 %83, -58
   %.0331 = icmp ult i8 %84, -10
@@ -1667,7 +1667,7 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E
   %or.cond.i = or i1 %135, %136
   %137 = getelementptr inbounds i8, ptr %130, i64 %133
   %.sroa.0.0.i = select i1 %or.cond.i, ptr null, ptr %137
-  %138 = tail call fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h783bd43d15c3ab33E.argelim"(ptr noalias noundef readonly align 1 %.sroa.0.0.i, i64 3, ptr noalias noundef nonnull readonly align 1 @anon.1a1f31e4664e8848d60e7ddbe5474640.11)
+  %138 = tail call fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h783bd43d15c3ab33E"(ptr noalias noundef readonly align 1 %.sroa.0.0.i, i64 3, ptr noalias noundef nonnull readonly align 1 @anon.1a1f31e4664e8848d60e7ddbe5474640.11)
   br i1 %138, label %139, label %146
 
 139:                                              ; preds = %129
@@ -1711,9 +1711,9 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E
   %.promoted.i.i = load ptr, ptr %26, align 8, !alias.scope !111, !noalias !112
   %.not41.i.i = icmp eq ptr %.promoted.i.i, null
   %.pre47.i.i = load ptr, ptr %1, align 8, !alias.scope !99, !noalias !104
-  br i1 %.not41.i.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.thread.i", label %.lr.ph.i.i
+  br i1 %.not41.i.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.thread.i", label %.lr.ph.i.i
 
-"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.thread.i": ; preds = %._crit_edge.i.i
+"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.thread.i": ; preds = %._crit_edge.i.i
   %.pre49.i.i = load i64, ptr %32, align 8, !alias.scope !99, !noalias !104
   br label %195
 
@@ -1758,15 +1758,15 @@ _ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E
   %179 = add i8 %175, -48
   %.07.i.i.i = icmp ult i8 %179, 10
   %or.cond.i.i = or i1 %178, %.07.i.i.i
-  br i1 %or.cond.i.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit.thread.i.i", label %switch.early.test.i.i
+  br i1 %or.cond.i.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit.thread.i.i", label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %174
   switch i8 %175, label %._crit_edge.i.i [
-    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit.thread.i.i"
-    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit.thread.i.i"
+    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit.thread.i.i"
+    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit.thread.i.i"
   ]
 
-"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit.thread.i.i": ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %174
+"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit.thread.i.i": ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %174
   %180 = getelementptr inbounds i8, ptr %1, i64 40
   %181 = load i64, ptr %180, align 8, !alias.scope !111, !noalias !112, !noundef !4
   %182 = add i64 %181, %150
@@ -1786,28 +1786,28 @@ switch.early.test.i.i:                            ; preds = %174
   %192 = add i8 %190, -48
   %.07.i31.i.i = icmp ult i8 %192, 10
   %or.cond39.i.i = or i1 %191, %.07.i31.i.i
-  br i1 %or.cond39.i.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.i", label %switch.early.test38.i.i
+  br i1 %or.cond39.i.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.i", label %switch.early.test38.i.i
 
 switch.early.test38.i.i:                          ; preds = %187
   switch i8 %190, label %203 [
-    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.i"
-    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.i"
+    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.i"
+    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.i"
   ]
 
-"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.i": ; preds = %203, %switch.early.test38.i.i, %switch.early.test38.i.i, %187
+"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.i": ; preds = %203, %switch.early.test38.i.i, %switch.early.test38.i.i, %187
   %193 = phi i64 [ %189, %switch.early.test38.i.i ], [ %189, %switch.early.test38.i.i ], [ %189, %187 ], [ %204, %203 ]
   %.lcssa.i.i = phi ptr [ %188, %switch.early.test38.i.i ], [ %188, %switch.early.test38.i.i ], [ %188, %187 ], [ null, %203 ]
   %194 = icmp ugt i64 %150, %193
   br i1 %194, label %199, label %195
 
-195:                                              ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.i", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.thread.i"
-  %.lcssa.i30.i = phi ptr [ null, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.thread.i" ], [ %.lcssa.i.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.i" ]
-  %196 = phi i64 [ %.pre49.i.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.thread.i" ], [ %156, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.i" ]
-  %197 = phi i64 [ %150, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.thread.i" ], [ %193, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.i" ]
+195:                                              ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.i", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.thread.i"
+  %.lcssa.i30.i = phi ptr [ null, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.thread.i" ], [ %.lcssa.i.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.i" ]
+  %196 = phi i64 [ %.pre49.i.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.thread.i" ], [ %156, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.i" ]
+  %197 = phi i64 [ %150, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.thread.i" ], [ %193, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.i" ]
   %198 = icmp ugt i64 %197, %196
   br i1 %198, label %200, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i"
 
-199:                                              ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.i"
+199:                                              ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.i"
   tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %150, i64 noundef %193, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a1f31e4664e8848d60e7ddbe5474640.22) #10, !noalias !116
   unreachable
 
@@ -1832,15 +1832,15 @@ switch.early.test38.i.i:                          ; preds = %187
   %205 = getelementptr inbounds i8, ptr %.pre47.i.i, i64 %204
   %.0.i.i = select i1 %.not.i.i, ptr %205, ptr null
   store ptr %.0.i.i, ptr %26, align 8, !alias.scope !111, !noalias !112
-  br i1 %.not.i.i, label %187, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit35.thread.i.i"
+  br i1 %.not.i.i, label %187, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit35.thread.i.i"
 
-_ZN10fundu_core5parse5Bytes19buffered_advance_to17h4a804a50a031f18eE.exit.i: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit.thread.i.i", %166
-  %206 = phi ptr [ %185, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit.thread.i.i" ], [ %.pre47.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ %172, %166 ]
-  %207 = phi i64 [ %183, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit.thread.i.i" ], [ %196, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ %170, %166 ]
-  %.sink50.i.i = phi i64 [ 24, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit.thread.i.i" ], [ 56, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ 24, %166 ]
-  %.025.sink.i.i = phi ptr [ %.025.i.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit.thread.i.i" ], [ %.lcssa.i30.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ %.024.i.i, %166 ]
-  %.sroa.5.0.i.i = phi i64 [ %181, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit.thread.i.i" ], [ %201, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ %168, %166 ]
-  %.sroa.0.0.i.i = phi ptr [ %152, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.argprom.exit.thread.i.i" ], [ %202, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ %152, %166 ]
+_ZN10fundu_core5parse5Bytes19buffered_advance_to17h4a804a50a031f18eE.exit.i: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit.thread.i.i", %166
+  %206 = phi ptr [ %185, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit.thread.i.i" ], [ %.pre47.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ %172, %166 ]
+  %207 = phi i64 [ %183, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit.thread.i.i" ], [ %196, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ %170, %166 ]
+  %.sink50.i.i = phi i64 [ 24, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit.thread.i.i" ], [ 56, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ 24, %166 ]
+  %.025.sink.i.i = phi ptr [ %.025.i.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit.thread.i.i" ], [ %.lcssa.i30.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ %.024.i.i, %166 ]
+  %.sroa.5.0.i.i = phi i64 [ %181, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit.thread.i.i" ], [ %201, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ %168, %166 ]
+  %.sroa.0.0.i.i = phi ptr [ %152, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword28_$u7b$$u7b$closure$u7d$$u7d$17h78b7eeaac1998145E.exit.thread.i.i" ], [ %202, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i.i" ], [ %152, %166 ]
   %208 = getelementptr inbounds i8, ptr %1, i64 %.sink50.i.i
   store ptr %.025.sink.i.i, ptr %208, align 8, !alias.scope !111, !noalias !112
   %209 = icmp eq i64 %.sroa.5.0.i.i, 0
@@ -1966,7 +1966,7 @@ _ZN10fundu_core5parse5Bytes19buffered_advance_to17h4a804a50a031f18eE.exit.i: ; p
 
 243:                                              ; preds = %257, %239
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
-  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17ha8ac8ad00cbbaafbE.argprom(ptr noalias nocapture noundef align 8 dereferenceable(40) %21, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef align 1 %7, ptr %8, ptr %.val)
+  call fastcc void @_ZN10fundu_core5parse18ReprParserTemplate13parse_numeral17ha8ac8ad00cbbaafbE(ptr noalias nocapture noundef align 8 dereferenceable(40) %21, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef align 1 %7, ptr %8, ptr %.val)
   %244 = load i64, ptr %21, align 8, !range !7, !noundef !4
   %245 = icmp eq i64 %244, 8
   %246 = getelementptr inbounds i8, ptr %21, i64 8
@@ -2956,7 +2956,7 @@ default.unreachable:                              ; preds = %1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h783bd43d15c3ab33E.argelim"(ptr noalias noundef readonly align 1 %0, i64 %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h783bd43d15c3ab33E"(ptr noalias noundef readonly align 1 %0, i64 %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { i64, [1 x i64] } }, align 8
   %5 = alloca { i64, { i64, [1 x i64] } }, align 8
   %6 = alloca { ptr, ptr, {} }, align 8
@@ -3439,7 +3439,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit63:  ; preds = %29
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17h96105b745590e38cE.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$24parse_infinity_remainder17h96105b745590e38cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
@@ -3659,7 +3659,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %51
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E.argprom"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(112) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$8finalize17h8cf2517250348512E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(112) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
   %.sroa.5.i.i = alloca [3 x i64], align 8
@@ -3801,9 +3801,9 @@ define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u2
   %.promoted.i = load ptr, ptr %22, align 8, !alias.scope !400, !noalias !403
   %.not41.i = icmp eq ptr %.promoted.i, null
   %.pre47.i = load ptr, ptr %1, align 8
-  br i1 %.not41.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i.thread", label %.lr.ph.i
+  br i1 %.not41.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i.thread", label %.lr.ph.i
 
-"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i.thread": ; preds = %._crit_edge.i
+"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i.thread": ; preds = %._crit_edge.i
   %.phi.trans.insert48.i = getelementptr inbounds i8, ptr %1, i64 8
   %.pre49.i = load i64, ptr %.phi.trans.insert48.i, align 8
   br label %67
@@ -3851,15 +3851,15 @@ define internal fastcc void @"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u2
   %50 = add i8 %46, -48
   %.07.i.i = icmp ult i8 %50, 10
   %or.cond.i = or i1 %49, %.07.i.i
-  br i1 %or.cond.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit.thread.i", label %switch.early.test.i
+  br i1 %or.cond.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit.thread.i", label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %45
   switch i8 %46, label %._crit_edge.i [
-    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit.thread.i"
-    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit.thread.i"
+    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit.thread.i"
+    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit.thread.i"
   ]
 
-"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit.thread.i": ; preds = %switch.early.test.i, %switch.early.test.i, %45
+"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit.thread.i": ; preds = %switch.early.test.i, %switch.early.test.i, %45
   %51 = getelementptr inbounds i8, ptr %1, i64 40
   %52 = load i64, ptr %51, align 8, !alias.scope !400, !noalias !403, !noundef !4
   %53 = add i64 %52, %14
@@ -3880,28 +3880,28 @@ switch.early.test.i:                              ; preds = %45
   %64 = add i8 %62, -48
   %.07.i31.i = icmp ult i8 %64, 10
   %or.cond39.i = or i1 %63, %.07.i31.i
-  br i1 %or.cond39.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i", label %switch.early.test38.i
+  br i1 %or.cond39.i, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i", label %switch.early.test38.i
 
 switch.early.test38.i:                            ; preds = %59
   switch i8 %62, label %75 [
-    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i"
-    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i"
+    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i"
+    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i"
   ]
 
-"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i": ; preds = %75, %switch.early.test38.i, %switch.early.test38.i, %59
+"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i": ; preds = %75, %switch.early.test38.i, %switch.early.test38.i, %59
   %65 = phi i64 [ %61, %switch.early.test38.i ], [ %61, %switch.early.test38.i ], [ %61, %59 ], [ %76, %75 ]
   %.lcssa.i = phi ptr [ %60, %switch.early.test38.i ], [ %60, %switch.early.test38.i ], [ %60, %59 ], [ null, %75 ]
   %66 = icmp ugt i64 %14, %65
   br i1 %66, label %71, label %67
 
-67:                                               ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i.thread", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i"
-  %.lcssa.i134 = phi ptr [ null, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i.thread" ], [ %.lcssa.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i" ]
-  %68 = phi i64 [ %.pre49.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i.thread" ], [ %26, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i" ]
-  %69 = phi i64 [ %14, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i.thread" ], [ %65, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i" ]
+67:                                               ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i.thread", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i"
+  %.lcssa.i134 = phi ptr [ null, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i.thread" ], [ %.lcssa.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i" ]
+  %68 = phi i64 [ %.pre49.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i.thread" ], [ %26, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i" ]
+  %69 = phi i64 [ %14, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i.thread" ], [ %65, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i" ]
   %70 = icmp ugt i64 %69, %68
   br i1 %70, label %72, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i"
 
-71:                                               ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i"
+71:                                               ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i"
   tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %14, i64 noundef %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a1f31e4664e8848d60e7ddbe5474640.22) #10, !noalias !406
   unreachable
 
@@ -3926,7 +3926,7 @@ switch.early.test38.i:                            ; preds = %59
   %77 = getelementptr inbounds i8, ptr %.pre47.i, i64 %76
   %.0.i = select i1 %.not.i, ptr %77, ptr null
   store ptr %.0.i, ptr %22, align 8, !alias.scope !400, !noalias !403
-  br i1 %.not.i, label %59, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit35.thread.i"
+  br i1 %.not.i, label %59, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit35.thread.i"
 
 78:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
@@ -3940,9 +3940,9 @@ switch.early.test38.i:                            ; preds = %59
   %.promoted.i94 = load ptr, ptr %81, align 8, !alias.scope !409, !noalias !412
   %.not41.i95 = icmp eq ptr %.promoted.i94, null
   %.pre49.i96 = load ptr, ptr %1, align 8
-  br i1 %.not41.i95, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i.thread", label %.lr.ph.i97
+  br i1 %.not41.i95, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i.thread", label %.lr.ph.i97
 
-"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i.thread": ; preds = %._crit_edge.i115
+"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i.thread": ; preds = %._crit_edge.i115
   %.phi.trans.insert50.i = getelementptr inbounds i8, ptr %1, i64 8
   %.pre51.i = load i64, ptr %.phi.trans.insert50.i, align 8
   br label %134
@@ -3989,7 +3989,7 @@ switch.early.test38.i:                            ; preds = %59
   %108 = getelementptr inbounds i8, ptr %2, i64 32
   %109 = load ptr, ptr %108, align 8, !alias.scope !412, !noalias !409, !nonnull !4, !noundef !4
   %110 = tail call noundef zeroext i1 %109(i8 noundef %107), !noalias !414
-  br i1 %110, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i", label %111
+  br i1 %110, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i", label %111
 
 111:                                              ; preds = %106
   %112 = getelementptr inbounds i8, ptr %2, i64 40
@@ -3998,15 +3998,15 @@ switch.early.test38.i:                            ; preds = %59
   %115 = add i8 %107, -48
   %.07.i.i110 = icmp ult i8 %115, 10
   %or.cond.i111 = or i1 %.07.i.i110, %114
-  br i1 %or.cond.i111, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i", label %switch.early.test.i112
+  br i1 %or.cond.i111, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i", label %switch.early.test.i112
 
 switch.early.test.i112:                           ; preds = %111
   switch i8 %107, label %._crit_edge.i115 [
-    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i"
-    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i"
+    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i"
+    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i"
   ]
 
-"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i": ; preds = %switch.early.test.i112, %switch.early.test.i112, %111, %106
+"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i": ; preds = %switch.early.test.i112, %switch.early.test.i112, %111, %106
   %116 = getelementptr inbounds i8, ptr %1, i64 40
   %117 = load i64, ptr %116, align 8, !alias.scope !409, !noalias !412, !noundef !4
   %118 = add i64 %117, %14
@@ -4024,35 +4024,35 @@ switch.early.test.i112:                           ; preds = %111
   %126 = phi i64 [ %14, %.lr.ph.i97 ], [ %143, %142 ]
   %127 = load i8, ptr %125, align 1, !noalias !414, !noundef !4
   %128 = tail call noundef zeroext i1 %83(i8 noundef %127), !noalias !414
-  br i1 %128, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i", label %129
+  br i1 %128, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i", label %129
 
 129:                                              ; preds = %124
   %130 = tail call noundef zeroext i1 %85(i8 noundef %127), !noalias !414
   %131 = add i8 %127, -48
   %.07.i31.i98 = icmp ult i8 %131, 10
   %or.cond39.i99 = or i1 %.07.i31.i98, %130
-  br i1 %or.cond39.i99, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i", label %switch.early.test38.i100
+  br i1 %or.cond39.i99, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i", label %switch.early.test38.i100
 
 switch.early.test38.i100:                         ; preds = %129
   switch i8 %127, label %142 [
-    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i"
-    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i"
+    i8 45, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i"
+    i8 43, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i"
   ]
 
-"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i": ; preds = %142, %switch.early.test38.i100, %switch.early.test38.i100, %129, %124
+"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i": ; preds = %142, %switch.early.test38.i100, %switch.early.test38.i100, %129, %124
   %132 = phi i64 [ %126, %switch.early.test38.i100 ], [ %126, %switch.early.test38.i100 ], [ %126, %129 ], [ %126, %124 ], [ %143, %142 ]
   %.lcssa.i101 = phi ptr [ %125, %switch.early.test38.i100 ], [ %125, %switch.early.test38.i100 ], [ %125, %129 ], [ %125, %124 ], [ null, %142 ]
   %133 = icmp ugt i64 %14, %132
   br i1 %133, label %138, label %134
 
-134:                                              ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i.thread", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i"
-  %.lcssa.i101136 = phi ptr [ null, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i.thread" ], [ %.lcssa.i101, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i" ]
-  %135 = phi i64 [ %.pre51.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i.thread" ], [ %87, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i" ]
-  %136 = phi i64 [ %14, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i.thread" ], [ %132, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i" ]
+134:                                              ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i.thread", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i"
+  %.lcssa.i101136 = phi ptr [ null, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i.thread" ], [ %.lcssa.i101, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i" ]
+  %135 = phi i64 [ %.pre51.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i.thread" ], [ %87, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i" ]
+  %136 = phi i64 [ %14, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i.thread" ], [ %132, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i" ]
   %137 = icmp ugt i64 %136, %135
   br i1 %137, label %139, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102"
 
-138:                                              ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i"
+138:                                              ; preds = %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i"
   tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %14, i64 noundef %132, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a1f31e4664e8848d60e7ddbe5474640.22) #10, !noalias !415
   unreachable
 
@@ -4077,15 +4077,15 @@ switch.early.test38.i100:                         ; preds = %129
   %144 = getelementptr inbounds i8, ptr %.pre49.i96, i64 %143
   %.0.i109 = select i1 %.not.i108, ptr %144, ptr null
   store ptr %.0.i109, ptr %81, align 8, !alias.scope !409, !noalias !412
-  br i1 %.not.i108, label %124, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit35.thread.i"
+  br i1 %.not.i108, label %124, label %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit35.thread.i"
 
-_ZN10fundu_core5parse5Bytes19buffered_advance_to17h87c8946ba12c8c3bE.exit: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i", %97, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit.thread.i", %36
-  %.sink52.i.sink = phi i64 [ 24, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit.thread.i" ], [ 56, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ 24, %36 ], [ 24, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i" ], [ 56, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ 24, %97 ]
-  %.025.sink.i105.sink = phi ptr [ %.025.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit.thread.i" ], [ %.lcssa.i134, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ %.024.i, %36 ], [ %.025.i113, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i" ], [ %.lcssa.i101136, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ %.024.i114, %97 ]
-  %145 = phi ptr [ %57, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit.thread.i" ], [ %.pre47.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ %43, %36 ], [ %122, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i" ], [ %.pre49.i96, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ %104, %97 ]
-  %146 = phi i64 [ %55, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit.thread.i" ], [ %68, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ %41, %36 ], [ %120, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i" ], [ %135, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ %102, %97 ]
-  %.sroa.0.0.i107.pn = phi ptr [ %20, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit.thread.i" ], [ %74, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ %20, %36 ], [ %79, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i" ], [ %141, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ %79, %97 ]
-  %.sroa.5.0.i106.pn = phi i64 [ %52, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.argprom.exit.thread.i" ], [ %73, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ %38, %36 ], [ %117, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.argprom.exit.thread.i" ], [ %140, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ %99, %97 ]
+_ZN10fundu_core5parse5Bytes19buffered_advance_to17h87c8946ba12c8c3bE.exit: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i", %97, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i", %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit.thread.i", %36
+  %.sink52.i.sink = phi i64 [ 24, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit.thread.i" ], [ 56, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ 24, %36 ], [ 24, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i" ], [ 56, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ 24, %97 ]
+  %.025.sink.i105.sink = phi ptr [ %.025.i, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit.thread.i" ], [ %.lcssa.i134, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ %.024.i, %36 ], [ %.025.i113, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i" ], [ %.lcssa.i101136, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ %.024.i114, %97 ]
+  %145 = phi ptr [ %57, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit.thread.i" ], [ %.pre47.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ %43, %36 ], [ %122, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i" ], [ %.pre49.i96, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ %104, %97 ]
+  %146 = phi i64 [ %55, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit.thread.i" ], [ %68, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ %41, %36 ], [ %120, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i" ], [ %135, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ %102, %97 ]
+  %.sroa.0.0.i107.pn = phi ptr [ %20, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit.thread.i" ], [ %74, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ %20, %36 ], [ %79, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i" ], [ %141, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ %79, %97 ]
+  %.sroa.5.0.i106.pn = phi i64 [ %52, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h0bd281581afae770E.exit.thread.i" ], [ %73, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i" ], [ %38, %36 ], [ %117, %"_ZN95_$LT$fundu_core..parse..ReprParserMultiple$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$15parse_time_unit28_$u7b$$u7b$closure$u7d$$u7d$17h2b42b8aef43c240fE.exit.thread.i" ], [ %140, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hff67fe1f7f0405d9E.exit.i102" ], [ %99, %97 ]
   %147 = getelementptr inbounds i8, ptr %1, i64 %.sink52.i.sink
   store ptr %.025.sink.i105.sink, ptr %147, align 8, !noalias !4
   %148 = icmp eq i64 %.sroa.5.0.i106.pn, 0
@@ -4949,12 +4949,12 @@ attributes #12 = { cold noreturn nounwind }
 !7 = !{i64 0, i64 9}
 !8 = !{i8 0, i8 10}
 !9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom: argument 0"}
-!11 = distinct !{!11, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom"}
+!10 = distinct !{!10, !11, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E: argument 0"}
+!11 = distinct !{!11, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E"}
 !12 = !{!13}
-!13 = distinct !{!13, !11, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom: argument 1"}
+!13 = distinct !{!13, !11, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E: argument 1"}
 !14 = !{!15}
-!15 = distinct !{!15, !11, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E.argprom: argument 2"}
+!15 = distinct !{!15, !11, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17h883a373b7d930739E: argument 2"}
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"_ZN10fundu_core5parse18ReprParserTemplate22parse_sign_is_negative17hbca3c495e87cdb00E: argument 1"}
 !18 = distinct !{!18, !"_ZN10fundu_core5parse18ReprParserTemplate22parse_sign_is_negative17hbca3c495e87cdb00E"}
@@ -4980,10 +4980,10 @@ attributes #12 = { cold noreturn nounwind }
 !38 = distinct !{!38, !36, !"_ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17h176a11ae8384d84dE: argument 0"}
 !39 = distinct !{!39, !36, !"_ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17h176a11ae8384d84dE: argument 2"}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword17h16a2a520c37877d0E.argprom: argument 1"}
-!42 = distinct !{!42, !"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword17h16a2a520c37877d0E.argprom"}
+!41 = distinct !{!41, !42, !"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword17h16a2a520c37877d0E: argument 1"}
+!42 = distinct !{!42, !"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword17h16a2a520c37877d0E"}
 !43 = !{!44}
-!44 = distinct !{!44, !42, !"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword17h16a2a520c37877d0E.argprom: argument 0"}
+!44 = distinct !{!44, !42, !"_ZN93_$LT$fundu_core..parse..ReprParserSingle$u20$as$u20$fundu_core..parse..ReprParserTemplate$GT$13parse_keyword17h16a2a520c37877d0E: argument 0"}
 !45 = !{!44, !41}
 !46 = !{i8 0, i8 11}
 !47 = !{!48}
@@ -5015,12 +5015,12 @@ attributes #12 = { cold noreturn nounwind }
 !73 = !{!62, !35}
 !74 = !{!69, !38, !39}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom: argument 0"}
-!77 = distinct !{!77, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom"}
+!76 = distinct !{!76, !77, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E: argument 0"}
+!77 = distinct !{!77, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E"}
 !78 = !{!79}
-!79 = distinct !{!79, !77, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom: argument 1"}
+!79 = distinct !{!79, !77, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E: argument 1"}
 !80 = !{!81}
-!81 = distinct !{!81, !77, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E.argprom: argument 2"}
+!81 = distinct !{!81, !77, !"_ZN10fundu_core5parse18ReprParserTemplate17parse_number_sign17hf9e91a8d082aa792E: argument 2"}
 !82 = !{!83}
 !83 = distinct !{!83, !84, !"_ZN10fundu_core5parse18ReprParserTemplate22parse_sign_is_negative17h90a2b902d4c5adb3E: argument 1"}
 !84 = distinct !{!84, !"_ZN10fundu_core5parse18ReprParserTemplate22parse_sign_is_negative17h90a2b902d4c5adb3E"}
@@ -5263,10 +5263,10 @@ attributes #12 = { cold noreturn nounwind }
 !321 = distinct !{!321, !318, !"_ZN4core6option15Option$LT$T$GT$6map_or17hc432dfad790e6321E: argument 3"}
 !322 = !{!317, !319, !320}
 !323 = !{!324, !319, !320, !321}
-!324 = distinct !{!324, !325, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE.argprom: argument 1"}
-!325 = distinct !{!325, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE.argprom"}
+!324 = distinct !{!324, !325, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE: argument 1"}
+!325 = distinct !{!325, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE"}
 !326 = !{!327, !324, !317, !319, !320, !321}
-!327 = distinct !{!327, !325, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE.argprom: argument 0"}
+!327 = distinct !{!327, !325, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE: argument 0"}
 !328 = !{!329, !331, !332, !334, !335, !336, !338, !327, !324, !317, !319, !320, !321}
 !329 = distinct !{!329, !330, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h01fda9f5da2f8ab9E: argument 0"}
 !330 = distinct !{!330, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h01fda9f5da2f8ab9E"}
@@ -5305,8 +5305,8 @@ attributes #12 = { cold noreturn nounwind }
 !363 = distinct !{!363, !364, !"_ZN4core6option15Option$LT$T$GT$6map_or17hc432dfad790e6321E: argument 3"}
 !364 = distinct !{!364, !"_ZN4core6option15Option$LT$T$GT$6map_or17hc432dfad790e6321E"}
 !365 = !{!366}
-!366 = distinct !{!366, !367, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE.argprom: argument 1"}
-!367 = distinct !{!367, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE.argprom"}
+!366 = distinct !{!366, !367, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE: argument 1"}
+!367 = distinct !{!367, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE"}
 !368 = !{!369, !370, !371, !363}
 !369 = distinct !{!369, !364, !"_ZN4core6option15Option$LT$T$GT$6map_or17hc432dfad790e6321E: argument 0"}
 !370 = distinct !{!370, !364, !"_ZN4core6option15Option$LT$T$GT$6map_or17hc432dfad790e6321E: argument 1"}
@@ -5314,7 +5314,7 @@ attributes #12 = { cold noreturn nounwind }
 !372 = !{!369, !370, !371}
 !373 = !{!366, !370, !371, !363}
 !374 = !{!375, !366, !369, !370, !371, !363}
-!375 = distinct !{!375, !367, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE.argprom: argument 0"}
+!375 = distinct !{!375, !367, !"_ZN10fundu_core5parse5Bytes18check_end_of_input28_$u7b$$u7b$closure$u7d$$u7d$17ha3c09f79f30e4cbfE: argument 0"}
 !376 = !{!366, !363}
 !377 = !{!375, !369, !370, !371}
 !378 = !{!379, !381, !382, !384, !385, !386, !388, !375, !366, !369, !370, !371, !363}

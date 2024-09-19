@@ -1199,7 +1199,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %138 = load i8, ptr %137, align 8
   %139 = lshr i8 %138, 4
   %140 = and i8 %139, 7
-  switch i8 %140, label %SummarizeXactRecord.argprom.exit [
+  switch i8 %140, label %SummarizeXactRecord.exit [
     i8 3, label %141
     i8 0, label %141
     i8 4, label %156
@@ -1212,7 +1212,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   call void @ParseCommitRecord(i8 noundef zeroext %138, ptr noundef %143, ptr noundef nonnull %6) #11
   %144 = load i32, ptr %69, align 8
   %145 = icmp sgt i32 %144, 0
-  br i1 %145, label %.preheader.i, label %SummarizeXactRecord.argprom.exit
+  br i1 %145, label %.preheader.i, label %SummarizeXactRecord.exit
 
 .preheader.i:                                     ; preds = %141, %152
   %indvars.iv10.i = phi i64 [ %indvars.iv.next11.i, %152 ], [ 0, %141 ]
@@ -1239,7 +1239,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %153 = load i32, ptr %69, align 8
   %154 = sext i32 %153 to i64
   %155 = icmp slt i64 %indvars.iv.next11.i, %154
-  br i1 %155, label %.preheader.i, label %SummarizeXactRecord.argprom.exit, !llvm.loop !10
+  br i1 %155, label %.preheader.i, label %SummarizeXactRecord.exit, !llvm.loop !10
 
 156:                                              ; preds = %136, %136
   %157 = getelementptr inbounds i8, ptr %108, i64 72
@@ -1247,7 +1247,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   call void @ParseAbortRecord(i8 noundef zeroext %138, ptr noundef %158, ptr noundef nonnull %7) #11
   %159 = load i32, ptr %67, align 8
   %160 = icmp sgt i32 %159, 0
-  br i1 %160, label %.preheader1.i, label %SummarizeXactRecord.argprom.exit
+  br i1 %160, label %.preheader1.i, label %SummarizeXactRecord.exit
 
 .preheader1.i:                                    ; preds = %156, %167
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %167 ], [ 0, %156 ]
@@ -1274,9 +1274,9 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %168 = load i32, ptr %67, align 8
   %169 = sext i32 %168 to i64
   %170 = icmp slt i64 %indvars.iv.next.i, %169
-  br i1 %170, label %.preheader1.i, label %SummarizeXactRecord.argprom.exit, !llvm.loop !12
+  br i1 %170, label %.preheader1.i, label %SummarizeXactRecord.exit, !llvm.loop !12
 
-SummarizeXactRecord.argprom.exit:                 ; preds = %167, %152, %136, %141, %156
+SummarizeXactRecord.exit:                         ; preds = %167, %152, %136, %141, %156
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %7)
   br label %.critedge
@@ -1295,7 +1295,7 @@ SummarizeXactRecord.argprom.exit:                 ; preds = %167, %152, %136, %1
   %176 = icmp ugt i64 %175, %.083
   br i1 %176, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %171, %133, %130, %120, %115, %111, %107, %SummarizeXactRecord.argprom.exit, %174
+.critedge:                                        ; preds = %171, %133, %130, %120, %115, %111, %107, %SummarizeXactRecord.exit, %174
   %177 = load ptr, ptr %66, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 84
   %179 = load i32, ptr %178, align 4

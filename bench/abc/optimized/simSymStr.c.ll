@@ -381,7 +381,7 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %Vec_PtrPush.exit.i.
   %173 = load i32, ptr %172, align 4
   %174 = load i32, ptr %59, align 4
   %175 = icmp sgt i32 %174, 0
-  br i1 %175, label %.lr.ph8.i.i.i, label %Sim_SymmsIsCompatibleWithNodes.argprom.exit.i.i
+  br i1 %175, label %.lr.ph8.i.i.i, label %Sim_SymmsIsCompatibleWithNodes.exit.i.i
 
 .lr.ph8.i.i.i:                                    ; preds = %169
   %176 = lshr i32 %173, 16
@@ -466,14 +466,14 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %Vec_PtrPush.exit.i.
 226:                                              ; preds = %._crit_edge.i.i.i, %190
   %indvars.iv.next16.i.i.i = add nuw nsw i64 %indvars.iv15.i.i.i, 1
   %exitcond19.not.i.i.i = icmp eq i64 %indvars.iv.next16.i.i.i, %wide.trip.count18.i.i.i
-  br i1 %exitcond19.not.i.i.i, label %Sim_SymmsIsCompatibleWithNodes.argprom.exit.i.i, label %190, !llvm.loop !9
+  br i1 %exitcond19.not.i.i.i, label %Sim_SymmsIsCompatibleWithNodes.exit.i.i, label %190, !llvm.loop !9
 
-Sim_SymmsIsCompatibleWithNodes.argprom.exit.i.i:  ; preds = %226, %169
+Sim_SymmsIsCompatibleWithNodes.exit.i.i:          ; preds = %226, %169
   %227 = load i32, ptr %51, align 4
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i, label %229
 
-229:                                              ; preds = %Sim_SymmsIsCompatibleWithNodes.argprom.exit.i.i
+229:                                              ; preds = %Sim_SymmsIsCompatibleWithNodes.exit.i.i
   %230 = and i32 %173, 65535
   %231 = lshr i32 %173, 16
   %232 = icmp sgt i32 %227, 0
@@ -511,7 +511,7 @@ Sim_SymmsIsCompatibleWithGroup.exit.i.i:          ; preds = %234
   %.not.i.i = icmp eq i32 %.117.i.i.i, %.1.i.i.i
   br i1 %.not.i.i, label %Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i, label %Vec_IntPushUnique.exit.i.i
 
-Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i:   ; preds = %Sim_SymmsIsCompatibleWithGroup.exit.i.i, %229, %Sim_SymmsIsCompatibleWithNodes.argprom.exit.i.i
+Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i:   ; preds = %Sim_SymmsIsCompatibleWithGroup.exit.i.i, %229, %Sim_SymmsIsCompatibleWithNodes.exit.i.i
   %247 = load i32, ptr %55, align 4
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %Sim_SymmsIsCompatibleWithGroup.exit39.thread.i.i, label %249
@@ -939,7 +939,7 @@ define internal fastcc void @Sim_SymmsBalanceCollect_rec(ptr noundef %0, ptr noc
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %.tr.lcssa = phi ptr [ %0, %2 ], [ %31, %tailrecurse ]
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %1, ptr noundef %.tr.lcssa)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef %.tr.lcssa)
   br label %33
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
@@ -953,7 +953,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   ]
 
 7:                                                ; preds = %.lr.ph, %.lr.ph
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %1, ptr noundef nonnull %.tr22)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef nonnull %.tr22)
   br label %33
 
 tailrecurse:                                      ; preds = %.lr.ph
@@ -1070,7 +1070,7 @@ define internal fastcc void @Sim_SymmsAppendFromGroup(ptr nocapture noundef read
   %.030 = select i1 %44, i32 %46, i32 %48
   %49 = load i32, ptr %10, align 4
   %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %.lr.ph8.i, label %Sim_SymmsIsCompatibleWithNodes.argprom.exit
+  br i1 %50, label %.lr.ph8.i, label %Sim_SymmsIsCompatibleWithNodes.exit
 
 .lr.ph8.i:                                        ; preds = %.lr.ph
   %51 = lshr i32 %.030, 16
@@ -1155,14 +1155,14 @@ define internal fastcc void @Sim_SymmsAppendFromGroup(ptr nocapture noundef read
 101:                                              ; preds = %._crit_edge.i, %65
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, %wide.trip.count18.i
-  br i1 %exitcond19.not.i, label %Sim_SymmsIsCompatibleWithNodes.argprom.exit, label %65, !llvm.loop !9
+  br i1 %exitcond19.not.i, label %Sim_SymmsIsCompatibleWithNodes.exit, label %65, !llvm.loop !9
 
-Sim_SymmsIsCompatibleWithNodes.argprom.exit:      ; preds = %101, %.lr.ph
+Sim_SymmsIsCompatibleWithNodes.exit:              ; preds = %101, %.lr.ph
   %102 = load i32, ptr %13, align 4
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %.lr.ph.i35, label %._crit_edge.i34
 
-.lr.ph.i35:                                       ; preds = %Sim_SymmsIsCompatibleWithNodes.argprom.exit
+.lr.ph.i35:                                       ; preds = %Sim_SymmsIsCompatibleWithNodes.exit
   %104 = load ptr, ptr %14, align 8
   %wide.trip.count.i36 = zext nneg i32 %102 to i64
   br label %106
@@ -1179,7 +1179,7 @@ Sim_SymmsIsCompatibleWithNodes.argprom.exit:      ; preds = %101, %.lr.ph
   %109 = icmp eq i32 %108, %.030
   br i1 %109, label %Vec_IntPushUnique.exit, label %105
 
-._crit_edge.i34:                                  ; preds = %105, %Sim_SymmsIsCompatibleWithNodes.argprom.exit
+._crit_edge.i34:                                  ; preds = %105, %Sim_SymmsIsCompatibleWithNodes.exit
   %110 = load i32, ptr %3, align 8
   %111 = icmp eq i32 %102, %110
   br i1 %111, label %112, label %.Vec_IntGrow.exit10_crit_edge.i.i
@@ -1257,7 +1257,7 @@ Vec_IntPushUnique.exit:                           ; preds = %._crit_edge.i, %84,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0

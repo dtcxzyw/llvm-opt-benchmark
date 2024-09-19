@@ -4283,7 +4283,7 @@ if.then49:                                        ; preds = %if.end.i978, %if.en
   %conv.i6.i172 = zext i32 %13 to i64
   %add.ptr.i.i173 = getelementptr inbounds %"class.llvh::StringRef", ptr %12, i64 %conv.i6.i172
   %cmp.not.i174.not = icmp eq ptr %call.i.i.i171, %add.ptr.i.i173
-  br i1 %cmp.not.i174.not, label %_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.argprom.exit, label %if.then.i175
+  br i1 %cmp.not.i174.not, label %_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.exit, label %if.then.i175
 
 if.then.i175:                                     ; preds = %if.then49
   %add.ptr.i7.i176 = getelementptr inbounds i8, ptr %call.i.i.i171, i64 16
@@ -4302,9 +4302,9 @@ _ZN4llvh15SmallVectorImplINS_9StringRefEE5eraseEPKS1_.exit.i183: ; preds = %if.t
   %14 = phi i32 [ %13, %if.then.i175 ], [ %.pre.i.i182, %if.then.i.i.i.i.i.i.i178 ]
   %sub.i.i.i184 = add i32 %14, -1
   store i32 %sub.i.i.i184, ptr %Size.i.i.i.i.i, align 8
-  br label %_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.argprom.exit
+  br label %_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.exit
 
-_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.argprom.exit: ; preds = %if.then49, %_ZN4llvh15SmallVectorImplINS_9StringRefEE5eraseEPKS1_.exit.i183
+_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.exit: ; preds = %if.then49, %_ZN4llvh15SmallVectorImplINS_9StringRefEE5eraseEPKS1_.exit.i183
   %15 = phi i32 [ %13, %if.then49 ], [ %sub.i.i.i184, %_ZN4llvh15SmallVectorImplINS_9StringRefEE5eraseEPKS1_.exit.i183 ]
   %cond = phi i32 [ 0, %if.then49 ], [ 4, %_ZN4llvh15SmallVectorImplINS_9StringRefEE5eraseEPKS1_.exit.i183 ]
   %options_.i = getelementptr inbounds i8, ptr %disassembler, i64 16
@@ -4316,11 +4316,11 @@ _ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.ar
     i32 2, label %if.then59
   ]
 
-if.then55:                                        ; preds = %_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.argprom.exit
+if.then55:                                        ; preds = %_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.exit
   call void @_ZN6hermes3hbc20BytecodeDisassembler11disassembleERN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(20) %disassembler, ptr noundef nonnull align 8 dereferenceable(36) %os) #20
   br label %cleanup
 
-if.then59:                                        ; preds = %_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.argprom.exit
+if.then59:                                        ; preds = %_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.exit
   %17 = load ptr, ptr %commandTokens, align 8
   %arrayidx.i1069 = getelementptr inbounds i8, ptr %17, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ULLVal.i189)
@@ -4359,7 +4359,7 @@ if.end72:                                         ; preds = %if.end65
   call void @_ZN6hermes3hbc20BytecodeDisassembler19disassembleFunctionEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(20) %disassembler, i32 noundef %conv.i198, ptr noundef nonnull align 8 dereferenceable(36) %os)
   br label %cleanup
 
-if.else73:                                        ; preds = %_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.argprom.exit
+if.else73:                                        ; preds = %_ZL16findAndRemoveOneIN4llvh11SmallVectorINS0_9StringRefELj8EEEA9_cEbRT_RKT0_.exit
   %hasVal.i.i202 = getelementptr inbounds i8, ptr %agg.tmp74, i64 16
   store i8 1, ptr %hasVal.i.i202, align 8
   store ptr %command.sroa.0.0.copyload, ptr %agg.tmp74, align 8

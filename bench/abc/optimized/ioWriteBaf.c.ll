@@ -294,14 +294,14 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 134:                                              ; preds = %133
   %135 = load i32, ptr %118, align 4
   %136 = icmp slt i32 %.0202, %135
-  br i1 %136, label %Extra_ProgressBarUpdate.argprom.exit, label %137
+  br i1 %136, label %Extra_ProgressBarUpdate.exit, label %137
 
 137:                                              ; preds = %134, %133
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %118, i32 noundef %.0202, ptr noundef null) #5
   %.pre240.pre = load ptr, ptr %82, align 8
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %134, %137
+Extra_ProgressBarUpdate.exit:                     ; preds = %134, %137
   %.pre240 = phi ptr [ %.pre240241, %134 ], [ %.pre240.pre, %137 ]
   %.val146 = load ptr, ptr %129, align 8
   %138 = getelementptr i8, ptr %129, i64 32
@@ -345,10 +345,10 @@ Extra_ProgressBarUpdate.argprom.exit:             ; preds = %134, %137
   store i32 %166, ptr %168, align 4
   br label %169
 
-169:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit, %131, %125
-  %.pre240242 = phi ptr [ %.pre240241, %125 ], [ %.pre240, %Extra_ProgressBarUpdate.argprom.exit ], [ %.pre240241, %131 ]
-  %170 = phi ptr [ %126, %125 ], [ %.pre240, %Extra_ProgressBarUpdate.argprom.exit ], [ %126, %131 ]
-  %.1 = phi i32 [ %.0202, %125 ], [ %167, %Extra_ProgressBarUpdate.argprom.exit ], [ %.0202, %131 ]
+169:                                              ; preds = %Extra_ProgressBarUpdate.exit, %131, %125
+  %.pre240242 = phi ptr [ %.pre240241, %125 ], [ %.pre240, %Extra_ProgressBarUpdate.exit ], [ %.pre240241, %131 ]
+  %170 = phi ptr [ %126, %125 ], [ %.pre240, %Extra_ProgressBarUpdate.exit ], [ %126, %131 ]
+  %.1 = phi i32 [ %.0202, %125 ], [ %167, %Extra_ProgressBarUpdate.exit ], [ %.0202, %131 ]
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %171 = getelementptr i8, ptr %170, i64 4
   %.val131 = load i32, ptr %171, align 4
@@ -370,14 +370,14 @@ Extra_ProgressBarUpdate.argprom.exit:             ; preds = %134, %137
   %179 = load i32, ptr %118, align 4
   %180 = sext i32 %179 to i64
   %181 = icmp slt i64 %indvars.iv232, %180
-  br i1 %181, label %Extra_ProgressBarUpdate.argprom.exit173, label %182
+  br i1 %181, label %Extra_ProgressBarUpdate.exit173, label %182
 
 182:                                              ; preds = %178, %174
   %183 = trunc nsw i64 %indvars.iv232 to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %118, i32 noundef %183, ptr noundef null) #5
-  br label %Extra_ProgressBarUpdate.argprom.exit173
+  br label %Extra_ProgressBarUpdate.exit173
 
-Extra_ProgressBarUpdate.argprom.exit173:          ; preds = %178, %182
+Extra_ProgressBarUpdate.exit173:                  ; preds = %178, %182
   %.val148 = load ptr, ptr %177, align 8
   %184 = getelementptr i8, ptr %177, i64 32
   %.val149 = load ptr, ptr %184, align 8
@@ -406,7 +406,7 @@ Extra_ProgressBarUpdate.argprom.exit173:          ; preds = %178, %182
   %201 = icmp sgt i32 %.val170, 0
   br i1 %201, label %202, label %.critedge10
 
-202:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit173
+202:                                              ; preds = %Extra_ProgressBarUpdate.exit173
   %203 = getelementptr i8, ptr %177, i64 48
   %.val153 = load ptr, ptr %203, align 8
   %.val153.val = load i32, ptr %.val153, align 4
@@ -430,7 +430,7 @@ Extra_ProgressBarUpdate.argprom.exit173:          ; preds = %178, %182
   store i32 %215, ptr %199, align 4
   br label %.critedge10
 
-.critedge10:                                      ; preds = %209, %202, %Extra_ProgressBarUpdate.argprom.exit173
+.critedge10:                                      ; preds = %209, %202, %Extra_ProgressBarUpdate.exit173
   %indvars.iv.next233 = add nsw i64 %indvars.iv232, 1
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %.val163 = load ptr, ptr %111, align 8

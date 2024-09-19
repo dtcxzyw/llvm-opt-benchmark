@@ -1107,7 +1107,7 @@ define dso_local i64 @HUF_decompress1X2_DCtx_wksp(ptr noundef %0, ptr noundef %1
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %3, i64 %9
   %14 = sub nuw i64 %4, %9
-  %15 = tail call fastcc i64 @HUF_decompress1X2_usingDTable_internal.argelim(ptr noundef %1, i64 noundef %2, ptr noundef %13, i64 noundef %14, ptr noundef %0)
+  %15 = tail call fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %13, i64 noundef %14, ptr noundef %0)
   br label %16
 
 16:                                               ; preds = %11, %8, %12
@@ -1116,7 +1116,7 @@ define dso_local i64 @HUF_decompress1X2_DCtx_wksp(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal.argelim(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 {
+define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 {
   %6 = icmp eq i64 %3, 0
   br i1 %6, label %BIT_initDStream.exit.thread, label %7
 
@@ -1803,7 +1803,7 @@ HUF_selectDecoder.exit:                           ; preds = %19, %20
 45:                                               ; preds = %44
   %46 = getelementptr inbounds i8, ptr %3, i64 %42
   %47 = sub nuw i64 %4, %42
-  %48 = tail call fastcc i64 @HUF_decompress1X2_usingDTable_internal.argelim(ptr noundef %1, i64 noundef %2, ptr noundef %46, i64 noundef %47, ptr noundef %0)
+  %48 = tail call fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %46, i64 noundef %47, ptr noundef %0)
   br label %HUF_decompress1X2_DCtx_wksp.exit
 
 49:                                               ; preds = %HUF_selectDecoder.exit
@@ -1818,7 +1818,7 @@ HUF_selectDecoder.exit:                           ; preds = %19, %20
 53:                                               ; preds = %52
   %54 = getelementptr inbounds i8, ptr %3, i64 %50
   %55 = sub nuw i64 %4, %50
-  %56 = tail call fastcc i64 @HUF_decompress1X1_usingDTable_internal.argelim(ptr noundef %1, i64 noundef %2, ptr noundef %54, i64 noundef %55, ptr noundef %0)
+  %56 = tail call fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %54, i64 noundef %55, ptr noundef %0)
   br label %HUF_decompress1X2_DCtx_wksp.exit
 
 HUF_decompress1X2_DCtx_wksp.exit:                 ; preds = %53, %52, %49, %45, %44, %41, %10, %8, %17, %14
@@ -1839,7 +1839,7 @@ define dso_local i64 @HUF_decompress1X1_DCtx_wksp(ptr nocapture noundef %0, ptr 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %3, i64 %9
   %14 = sub nuw i64 %4, %9
-  %15 = tail call fastcc i64 @HUF_decompress1X1_usingDTable_internal.argelim(ptr noundef %1, i64 noundef %2, ptr noundef %13, i64 noundef %14, ptr noundef %0)
+  %15 = tail call fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %13, i64 noundef %14, ptr noundef %0)
   br label %16
 
 16:                                               ; preds = %11, %8, %12
@@ -1855,11 +1855,11 @@ define dso_local i64 @HUF_decompress1X_usingDTable(ptr noundef %0, i64 noundef %
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call fastcc i64 @HUF_decompress1X2_usingDTable_internal.argelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4)
+  %9 = tail call fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4)
   br label %12
 
 10:                                               ; preds = %6
-  %11 = tail call fastcc i64 @HUF_decompress1X1_usingDTable_internal.argelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4)
+  %11 = tail call fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4)
   br label %12
 
 12:                                               ; preds = %10, %8
@@ -1868,7 +1868,7 @@ define dso_local i64 @HUF_decompress1X_usingDTable(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal.argelim(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 {
+define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef writeonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %0, i64 %1
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   %.val = load i32, ptr %4, align 4
@@ -2210,13 +2210,13 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %16 = getelementptr inbounds i8, ptr %0, i64 %1
   %17 = call fastcc i64 @HUF_DecompressFastArgs_init(ptr noundef %12, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
   %18 = icmp ult i64 %17, -119
-  br i1 %18, label %19, label %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit.thread
+  br i1 %18, label %19, label %HUF_decompress4X2_usingDTable_internal_fast.exit.thread
 
 19:                                               ; preds = %14
   %20 = icmp eq i64 %17, 0
-  br i1 %20, label %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit.thread41, label %21
+  br i1 %20, label %HUF_decompress4X2_usingDTable_internal_fast.exit.thread41, label %21
 
-HUF_decompress4X2_usingDTable_internal_fast.argprom.exit.thread41: ; preds = %19
+HUF_decompress4X2_usingDTable_internal_fast.exit.thread41: ; preds = %19
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %12)
   br label %316
 
@@ -2408,7 +2408,7 @@ HUF_decompress4X2_usingDTable_internal_fast_c_loop.exit: ; preds = %56, %.prehea
 113:                                              ; preds = %311
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit, label %114, !llvm.loop !46
+  br i1 %exitcond.not.i, label %HUF_decompress4X2_usingDTable_internal_fast.exit, label %114, !llvm.loop !46
 
 114:                                              ; preds = %113, %HUF_decompress4X2_usingDTable_internal_fast_c_loop.exit
   %indvars.iv.i = phi i64 [ 0, %HUF_decompress4X2_usingDTable_internal_fast_c_loop.exit ], [ %indvars.iv.next.i, %113 ]
@@ -2421,7 +2421,7 @@ HUF_decompress4X2_usingDTable_internal_fast_c_loop.exit: ; preds = %56, %.prehea
   %118 = getelementptr inbounds [4 x ptr], ptr %27, i64 0, i64 %indvars.iv.i
   %119 = load ptr, ptr %118, align 8
   %120 = icmp ugt ptr %119, %.1.i
-  br i1 %120, label %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit.thread, label %121
+  br i1 %120, label %HUF_decompress4X2_usingDTable_internal_fast.exit.thread, label %121
 
 121:                                              ; preds = %114
   %122 = getelementptr inbounds [4 x ptr], ptr %12, i64 0, i64 %indvars.iv.i
@@ -2430,7 +2430,7 @@ HUF_decompress4X2_usingDTable_internal_fast_c_loop.exit: ; preds = %56, %.prehea
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 -8
   %127 = icmp ult ptr %123, %126
-  br i1 %127, label %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit.thread, label %128
+  br i1 %127, label %HUF_decompress4X2_usingDTable_internal_fast.exit.thread, label %128
 
 128:                                              ; preds = %121
   %.val.i.i = load i64, ptr %123, align 1
@@ -2750,19 +2750,19 @@ BIT_reloadDStreamFast.exit415.i:                  ; preds = %.lr.ph
   %315 = getelementptr inbounds i8, ptr %314, i64 %313
   store ptr %315, ptr %118, align 8
   %.not389.i = icmp eq ptr %315, %.1.i
-  br i1 %.not389.i, label %113, label %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit.thread
+  br i1 %.not389.i, label %113, label %HUF_decompress4X2_usingDTable_internal_fast.exit.thread
 
-HUF_decompress4X2_usingDTable_internal_fast.argprom.exit.thread: ; preds = %121, %114, %311, %14
+HUF_decompress4X2_usingDTable_internal_fast.exit.thread: ; preds = %121, %114, %311, %14
   %.0366.i.ph = phi i64 [ %17, %14 ], [ -20, %311 ], [ -20, %114 ], [ -20, %121 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %12)
   br label %2055
 
-HUF_decompress4X2_usingDTable_internal_fast.argprom.exit: ; preds = %113
+HUF_decompress4X2_usingDTable_internal_fast.exit: ; preds = %113
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %12)
   %.not16 = icmp eq i64 %1, 0
   br i1 %.not16, label %316, label %2055
 
-316:                                              ; preds = %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit.thread41, %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit, %6
+316:                                              ; preds = %HUF_decompress4X2_usingDTable_internal_fast.exit.thread41, %HUF_decompress4X2_usingDTable_internal_fast.exit, %6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %317 = icmp ult i64 %3, 10
   br i1 %317, label %HUF_decompress4X2_usingDTable_internal_default.exit, label %318
@@ -5444,8 +5444,8 @@ HUF_decompress4X2_usingDTable_internal_default.exit: ; preds = %316, %318, %344,
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   br label %2055
 
-2055:                                             ; preds = %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit.thread, %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit, %HUF_decompress4X2_usingDTable_internal_default.exit
-  %.0 = phi i64 [ %.01655.i, %HUF_decompress4X2_usingDTable_internal_default.exit ], [ %1, %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit ], [ %.0366.i.ph, %HUF_decompress4X2_usingDTable_internal_fast.argprom.exit.thread ]
+2055:                                             ; preds = %HUF_decompress4X2_usingDTable_internal_fast.exit.thread, %HUF_decompress4X2_usingDTable_internal_fast.exit, %HUF_decompress4X2_usingDTable_internal_default.exit
+  %.0 = phi i64 [ %.01655.i, %HUF_decompress4X2_usingDTable_internal_default.exit ], [ %1, %HUF_decompress4X2_usingDTable_internal_fast.exit ], [ %.0366.i.ph, %HUF_decompress4X2_usingDTable_internal_fast.exit.thread ]
   ret i64 %.0
 }
 
@@ -5466,13 +5466,13 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %15 = getelementptr inbounds i8, ptr %0, i64 %1
   %16 = call fastcc i64 @HUF_DecompressFastArgs_init(ptr noundef %11, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
   %17 = icmp ult i64 %16, -119
-  br i1 %17, label %18, label %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit.thread
+  br i1 %17, label %18, label %HUF_decompress4X1_usingDTable_internal_fast.exit.thread
 
 18:                                               ; preds = %13
   %19 = icmp eq i64 %16, 0
-  br i1 %19, label %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit.thread40, label %20
+  br i1 %19, label %HUF_decompress4X1_usingDTable_internal_fast.exit.thread40, label %20
 
-HUF_decompress4X1_usingDTable_internal_fast.argprom.exit.thread40: ; preds = %18
+HUF_decompress4X1_usingDTable_internal_fast.exit.thread40: ; preds = %18
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %11)
   br label %223
 
@@ -5622,7 +5622,7 @@ HUF_decompress4X1_usingDTable_internal_fast_c_loop.exit: ; preds = %.loopexit.i3
 97:                                               ; preds = %._crit_edge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond62.not.i, label %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit, label %98, !llvm.loop !52
+  br i1 %exitcond62.not.i, label %HUF_decompress4X1_usingDTable_internal_fast.exit, label %98, !llvm.loop !52
 
 98:                                               ; preds = %97, %HUF_decompress4X1_usingDTable_internal_fast_c_loop.exit
   %indvars.iv.i = phi i64 [ 0, %HUF_decompress4X1_usingDTable_internal_fast_c_loop.exit ], [ %indvars.iv.next.i, %97 ]
@@ -5635,7 +5635,7 @@ HUF_decompress4X1_usingDTable_internal_fast_c_loop.exit: ; preds = %.loopexit.i3
   %102 = getelementptr inbounds [4 x ptr], ptr %28, i64 0, i64 %indvars.iv.i
   %103 = load ptr, ptr %102, align 8
   %104 = icmp ugt ptr %103, %.1.i
-  br i1 %104, label %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit.thread, label %105
+  br i1 %104, label %HUF_decompress4X1_usingDTable_internal_fast.exit.thread, label %105
 
 105:                                              ; preds = %98
   %106 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
@@ -5644,7 +5644,7 @@ HUF_decompress4X1_usingDTable_internal_fast_c_loop.exit: ; preds = %.loopexit.i3
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 -8
   %111 = icmp ult ptr %107, %110
-  br i1 %111, label %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit.thread, label %112
+  br i1 %111, label %HUF_decompress4X1_usingDTable_internal_fast.exit.thread, label %112
 
 112:                                              ; preds = %105
   %.val.i.i = load i64, ptr %107, align 1
@@ -5837,19 +5837,19 @@ BIT_reloadDStreamFast.exit239.i:                  ; preds = %190
   %222 = getelementptr inbounds i8, ptr %221, i64 %121
   store ptr %222, ptr %102, align 8
   %.not223.i = icmp eq ptr %222, %.1.i
-  br i1 %.not223.i, label %97, label %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit.thread
+  br i1 %.not223.i, label %97, label %HUF_decompress4X1_usingDTable_internal_fast.exit.thread
 
-HUF_decompress4X1_usingDTable_internal_fast.argprom.exit.thread: ; preds = %105, %98, %._crit_edge.i, %13
+HUF_decompress4X1_usingDTable_internal_fast.exit.thread: ; preds = %105, %98, %._crit_edge.i, %13
   %.0206.i.ph = phi i64 [ %16, %13 ], [ -20, %._crit_edge.i ], [ -20, %98 ], [ -20, %105 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %11)
   br label %1165
 
-HUF_decompress4X1_usingDTable_internal_fast.argprom.exit: ; preds = %97
+HUF_decompress4X1_usingDTable_internal_fast.exit: ; preds = %97
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %11)
   %.not16 = icmp eq i64 %1, 0
   br i1 %.not16, label %223, label %1165
 
-223:                                              ; preds = %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit.thread40, %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit, %6
+223:                                              ; preds = %HUF_decompress4X1_usingDTable_internal_fast.exit.thread40, %HUF_decompress4X1_usingDTable_internal_fast.exit, %6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   %224 = icmp ult i64 %3, 10
   br i1 %224, label %HUF_decompress4X1_usingDTable_internal_default.exit, label %225
@@ -7365,8 +7365,8 @@ HUF_decompress4X1_usingDTable_internal_default.exit: ; preds = %223, %225, %250,
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br label %1165
 
-1165:                                             ; preds = %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit.thread, %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit, %HUF_decompress4X1_usingDTable_internal_default.exit
-  %.0 = phi i64 [ %.0994.i, %HUF_decompress4X1_usingDTable_internal_default.exit ], [ %1, %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit ], [ %.0206.i.ph, %HUF_decompress4X1_usingDTable_internal_fast.argprom.exit.thread ]
+1165:                                             ; preds = %HUF_decompress4X1_usingDTable_internal_fast.exit.thread, %HUF_decompress4X1_usingDTable_internal_fast.exit, %HUF_decompress4X1_usingDTable_internal_default.exit
+  %.0 = phi i64 [ %.0994.i, %HUF_decompress4X1_usingDTable_internal_default.exit ], [ %1, %HUF_decompress4X1_usingDTable_internal_fast.exit ], [ %.0206.i.ph, %HUF_decompress4X1_usingDTable_internal_fast.exit.thread ]
   ret i64 %.0
 }
 

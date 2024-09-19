@@ -204,8 +204,8 @@ for.body.lr.ph:                                   ; preds = %if.end3
   %wide.trip.count33 = zext nneg i32 %call4 to i64
   br i1 %symbolize_stacktrace, label %for.body.us, label %for.body
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.argprom.exit.us
-  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.argprom.exit.us ], [ 0, %for.body.lr.ph ]
+for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us
+  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us ], [ 0, %for.body.lr.ph ]
   %arrayidx.us = getelementptr inbounds ptr, ptr %stack.0, i64 %indvars.iv30
   %0 = load ptr, ptr %arrayidx.us, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %tmp.i)
@@ -218,12 +218,12 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %_Z
 
 lor.lhs.false.i.us:                               ; preds = %for.body.us
   %call2.i.us = call noundef zeroext i1 @_ZN4absl9SymbolizeEPKvPci(ptr noundef %0, ptr noundef nonnull %tmp.i, i32 noundef 1024)
-  br i1 %call2.i.us, label %if.then.i.us, label %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.argprom.exit.us
+  br i1 %call2.i.us, label %if.then.i.us, label %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us
 
 if.then.i.us:                                     ; preds = %lor.lhs.false.i.us, %for.body.us
-  br label %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.argprom.exit.us
+  br label %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us
 
-_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.argprom.exit.us: ; preds = %if.then.i.us, %lor.lhs.false.i.us
+_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us: ; preds = %if.then.i.us, %lor.lhs.false.i.us
   %symbol.0.i.us = phi ptr [ %tmp.i, %if.then.i.us ], [ @.str.3, %lor.lhs.false.i.us ]
   %call5.i.us = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef %0, ptr noundef nonnull %symbol.0.i.us) #8
   call void %writer(ptr noundef nonnull %buf.i, ptr noundef %writer_arg)
@@ -245,7 +245,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count33
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
-for.end:                                          ; preds = %for.body, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.argprom.exit.us, %if.end3
+for.end:                                          ; preds = %for.body, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us, %if.end3
   %4 = load ptr, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_122debug_stack_trace_hookE, align 8
   %cmp13.not = icmp eq ptr %4, null
   br i1 %cmp13.not, label %if.end15, label %if.then14

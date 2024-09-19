@@ -1883,7 +1883,7 @@ _ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLo
   %.sink436 = phi ptr [ %803, %814 ], [ %802, %815 ], [ %801, %816 ], [ %804, %812 ]
   %817 = load i8, ptr %.sink440, align 8
   %818 = trunc i8 %817 to i1
-  call fastcc void @_ZL18PrintModRefResultsPKcbPN4llvm8CallBaseES3_PNS1_6ModuleE.argprom(ptr noundef nonnull %.str.23.sink437, i1 noundef zeroext %818, ptr noundef %806, ptr noundef %810)
+  call fastcc void @_ZL18PrintModRefResultsPKcbPN4llvm8CallBaseES3_PNS1_6ModuleE(ptr noundef nonnull %.str.23.sink437, i1 noundef zeroext %818, ptr noundef %806, ptr noundef %810)
   %819 = load i64, ptr %.sink436, align 8
   %820 = add nsw i64 %819, 1
   store i64 %820, ptr %.sink436, align 8
@@ -2833,7 +2833,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %88, %86, %6
 declare noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18PrintModRefResultsPKcbPN4llvm8CallBaseES3_PNS1_6ModuleE.argprom(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL18PrintModRefResultsPKcbPN4llvm8CallBaseES3_PNS1_6ModuleE(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL8PrintAll, i64 128), align 8
   %6 = trunc i8 %5 to i1
   %brmerge = or i1 %1, %6

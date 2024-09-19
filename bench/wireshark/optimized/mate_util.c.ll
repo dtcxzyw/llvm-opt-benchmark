@@ -217,18 +217,18 @@ define hidden ptr @scs_subscribe_printf(ptr nocapture noundef readonly %0, ptr n
 define hidden void @avp_init() local_unnamed_addr #0 {
   %1 = load ptr, ptr @avp_strings, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %destroy_scs_collection.argprom.exit, label %2
+  br i1 %.not, label %destroy_scs_collection.exit, label %2
 
 2:                                                ; preds = %0
   %.val = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %destroy_scs_collection.argprom.exit, label %3
+  br i1 %.not.i, label %destroy_scs_collection.exit, label %3
 
 3:                                                ; preds = %2
   tail call void @g_hash_table_destroy(ptr noundef nonnull %.val) #12
-  br label %destroy_scs_collection.argprom.exit
+  br label %destroy_scs_collection.exit
 
-destroy_scs_collection.argprom.exit:              ; preds = %3, %2, %0
+destroy_scs_collection.exit:                      ; preds = %3, %2, %0
   %4 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #15
   %5 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #12
   store ptr %5, ptr %4, align 8

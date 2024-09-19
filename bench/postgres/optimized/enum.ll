@@ -70,7 +70,7 @@ define dso_local range(i64 0, 4294967296) i64 @enum_in(ptr nocapture noundef rea
 27:                                               ; preds = %18
   %28 = getelementptr i8, ptr %20, i64 16
   %.val = load ptr, ptr %28, align 8
-  tail call fastcc void @check_safe_enum_use.argprom(ptr %.val)
+  tail call fastcc void @check_safe_enum_use(ptr %.val)
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 22
   %31 = load i8, ptr %30, align 2
@@ -102,7 +102,7 @@ declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_safe_enum_use.argprom(ptr %.16.val) unnamed_addr #0 {
+define internal fastcc void @check_safe_enum_use(ptr %.16.val) unnamed_addr #0 {
   %1 = getelementptr inbounds i8, ptr %.16.val, i64 22
   %2 = load i8, ptr %1, align 2
   %3 = zext i8 %2 to i64
@@ -234,7 +234,7 @@ define dso_local range(i64 0, 4294967296) i64 @enum_recv(ptr nocapture noundef r
 31:                                               ; preds = %22
   %32 = getelementptr i8, ptr %25, i64 16
   %.val = load ptr, ptr %32, align 8
-  call fastcc void @check_safe_enum_use.argprom(ptr %.val)
+  call fastcc void @check_safe_enum_use(ptr %.val)
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 22
   %35 = load i8, ptr %34, align 2
@@ -533,7 +533,7 @@ define internal fastcc i32 @enum_endpoint(i32 noundef range(i32 1, 0) %0, i32 no
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %8, i64 16
   %.val = load ptr, ptr %10, align 8
-  call fastcc void @check_safe_enum_use.argprom(ptr %.val)
+  call fastcc void @check_safe_enum_use(ptr %.val)
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 22
   %13 = load i8, ptr %12, align 2
@@ -671,7 +671,7 @@ define internal fastcc ptr @enum_range_internal(i32 noundef range(i32 1, 0) %0, 
   br i1 %22, label %23, label %34
 
 23:                                               ; preds = %.lr.ph
-  call fastcc void @check_safe_enum_use.argprom(ptr nonnull %14)
+  call fastcc void @check_safe_enum_use(ptr nonnull %14)
   %.not42.us = icmp slt i32 %.033.us52, %.036.us51
   br i1 %.not42.us, label %29, label %24
 
@@ -725,7 +725,7 @@ define internal fastcc ptr @enum_range_internal(i32 noundef range(i32 1, 0) %0, 
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %37
-  call fastcc void @check_safe_enum_use.argprom(ptr nonnull %39)
+  call fastcc void @check_safe_enum_use(ptr nonnull %39)
   %.not42 = icmp slt i32 %.033, %.036
   br i1 %.not42, label %54, label %49
 

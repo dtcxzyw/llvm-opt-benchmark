@@ -204,7 +204,7 @@ define void @_ZN3gmx16HardwareTopology6detectEv(ptr dead_on_unwind noalias writa
   %.val.i = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %2, i64 112
   %.val3.i = load ptr, ptr %16, align 8
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_142translateCpuInfoLogicalProcessorsToMachineERKSt6vectorINS_7CpuInfo16LogicalProcessorESaIS3_EEPNS_16HardwareTopology7MachineE.argprom(ptr %.val.i, ptr %.val3.i, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_142translateCpuInfoLogicalProcessorsToMachineERKSt6vectorINS_7CpuInfo16LogicalProcessorESaIS3_EEPNS_16HardwareTopology7MachineE(ptr %.val.i, ptr %.val3.i, ptr noundef nonnull %11)
           to label %19 unwind label %17
 
 17:                                               ; preds = %14
@@ -1776,7 +1776,7 @@ _ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE9push_backEOS2_.exit: ; pre
   br i1 %472, label %474, label %473
 
 473:                                              ; preds = %._crit_edge367
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_142translateCpuInfoLogicalProcessorsToMachineERKSt6vectorINS_7CpuInfo16LogicalProcessorESaIS3_EEPNS_16HardwareTopology7MachineE.argprom(ptr %.sroa.0118.1, ptr %.sroa.7.1, ptr noundef %0)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_142translateCpuInfoLogicalProcessorsToMachineERKSt6vectorINS_7CpuInfo16LogicalProcessorESaIS3_EEPNS_16HardwareTopology7MachineE(ptr %.sroa.0118.1, ptr %.sroa.7.1, ptr noundef %0)
           to label %474 unwind label %.loopexit.split-lp
 
 474:                                              ; preds = %473, %._crit_edge367
@@ -3054,7 +3054,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare void @_ZN3gmx7CpuInfo6detectEv(ptr dead_on_unwind writable sret(%"class.gmx::CpuInfo") align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_142translateCpuInfoLogicalProcessorsToMachineERKSt6vectorINS_7CpuInfo16LogicalProcessorESaIS3_EEPNS_16HardwareTopology7MachineE.argprom(ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_142translateCpuInfoLogicalProcessorsToMachineERKSt6vectorINS_7CpuInfo16LogicalProcessorESaIS3_EEPNS_16HardwareTopology7MachineE(ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unordered_map", align 8
   %3 = alloca %"class.std::vector.53", align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 48
@@ -6514,7 +6514,7 @@ _ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE9push_backEOS2_.exit: ; pre
   br i1 %50, label %._crit_edge.thread, label %51
 
 51:                                               ; preds = %._crit_edge
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_142translateCpuInfoLogicalProcessorsToMachineERKSt6vectorINS_7CpuInfo16LogicalProcessorESaIS3_EEPNS_16HardwareTopology7MachineE.argprom(ptr %.sroa.031.1, ptr nonnull %.sroa.7.1, ptr noundef nonnull %4)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_142translateCpuInfoLogicalProcessorsToMachineERKSt6vectorINS_7CpuInfo16LogicalProcessorESaIS3_EEPNS_16HardwareTopology7MachineE(ptr %.sroa.031.1, ptr nonnull %.sroa.7.1, ptr noundef nonnull %4)
           to label %52 unwind label %.loopexit.split-lp
 
 52:                                               ; preds = %51

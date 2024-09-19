@@ -4329,7 +4329,7 @@ Vec_IntPush.exit240:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %370, ptr %54, align 4
   %371 = add nsw i32 %370, %.val150.val
   %372 = add nsw i32 %371, 4
-  call fastcc void @Vec_StrFillExtra.argelim(ptr noundef nonnull %53, i32 noundef %372)
+  call fastcc void @Vec_StrFillExtra(ptr noundef nonnull %53, i32 noundef %372)
   %.val163 = load ptr, ptr %56, align 8
   %373 = sext i32 %371 to i64
   %374 = getelementptr i8, ptr %.val163, i64 %373
@@ -4634,7 +4634,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_StrFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483644, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_StrFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483644, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -5769,7 +5769,7 @@ Abc_Clock.exit263:                                ; preds = %395, %398
   store i32 %414, ptr %412, align 4
   %415 = add nsw i32 %414, %.val185.val
   %416 = add nsw i32 %415, 4
-  call fastcc void @Vec_StrFillExtra.argelim(ptr noundef %410, i32 noundef %416)
+  call fastcc void @Vec_StrFillExtra(ptr noundef %410, i32 noundef %416)
   %.val195 = load ptr, ptr %411, align 8
   %417 = sext i32 %415 to i64
   %418 = getelementptr inbounds i8, ptr %.val195, i64 %417
@@ -7026,7 +7026,7 @@ Abc_Clock.exit259:                                ; preds = %391, %394
   store i32 %410, ptr %408, align 4
   %411 = add nsw i32 %410, %4
   %412 = add nsw i32 %411, 4
-  call fastcc void @Vec_StrFillExtra.argelim(ptr noundef %406, i32 noundef %412)
+  call fastcc void @Vec_StrFillExtra(ptr noundef %406, i32 noundef %412)
   %.val191 = load ptr, ptr %407, align 8
   %413 = sext i32 %411 to i64
   %414 = getelementptr inbounds i8, ptr %.val191, i64 %413
@@ -8073,7 +8073,7 @@ Abc_Clock.exit216:                                ; preds = %291, %294
   store i32 %310, ptr %308, align 4
   %311 = add nsw i32 %310, %2
   %312 = add nsw i32 %311, 4
-  call fastcc void @Vec_StrFillExtra.argelim(ptr noundef %306, i32 noundef %312)
+  call fastcc void @Vec_StrFillExtra(ptr noundef %306, i32 noundef %312)
   %.val170 = load ptr, ptr %307, align 8
   %313 = sext i32 %311 to i64
   %314 = getelementptr inbounds i8, ptr %.val170, i64 %313
@@ -9076,7 +9076,7 @@ Abc_Clock.exit217:                                ; preds = %287, %293
   store i32 %312, ptr %310, align 4
   %313 = add nsw i32 %312, %1
   %314 = add nsw i32 %313, 4
-  call fastcc void @Vec_StrFillExtra.argelim(ptr noundef %308, i32 noundef %314)
+  call fastcc void @Vec_StrFillExtra(ptr noundef %308, i32 noundef %314)
   %.val171 = load ptr, ptr %309, align 8
   %315 = sext i32 %313 to i64
   %316 = getelementptr inbounds i8, ptr %.val171, i64 %315

@@ -2843,7 +2843,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
   %4 = load double, ptr %nu_0.addr.i, align 8, !tbaa !87
   %5 = load double, ptr %nu_t.addr.i, align 8, !tbaa !87
   %6 = load double, ptr %dt.addr.i, align 8, !tbaa !87
-  %call8113.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull align 8 dereferenceable(220) %process, double %div.i, double 0.000000e+00, double noundef %4, double noundef %5, double noundef %6)
+  %call8113.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull align 8 dereferenceable(220) %process, double %div.i, double 0.000000e+00, double noundef %4, double noundef %5, double noundef %6)
   %7 = extractvalue { double, double } %call8113.i, 0
   %8 = extractvalue { double, double } %call8113.i, 1
   %9 = fdiv double %7, %div.i
@@ -2855,7 +2855,7 @@ init.end.i:                                       ; preds = %invoke.cont.i, %ini
 while.body.i:                                     ; preds = %init.end.i, %while.body.i
   %storemerge14116.i = phi double [ %mul.i, %while.body.i ], [ %div.i, %init.end.i ]
   %mul.i = fmul double %storemerge14116.i, 2.000000e+00
-  %call8.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull align 8 dereferenceable(220) %process, double %mul.i, double 0.000000e+00, double noundef %4, double noundef %5, double noundef %6)
+  %call8.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull align 8 dereferenceable(220) %process, double %mul.i, double 0.000000e+00, double noundef %4, double noundef %5, double noundef %6)
   %11 = extractvalue { double, double } %call8.i, 0
   %12 = extractvalue { double, double } %call8.i, 1
   %13 = fdiv double %11, %mul.i
@@ -2880,7 +2880,7 @@ cond.true.i:                                      ; preds = %while.end.i
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS1_14DiscretizationEE24gaussLaguerreIntegration, i64 8), align 8, !tbaa !106
   %conv.i.i = trunc i64 %17 to i32
   %cmp1.i.i = icmp sgt i32 %conv.i.i, 0
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %"_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.argprom.exit.i"
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %"_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.exit.i"
 
 for.body.lr.ph.i.i:                               ; preds = %cond.true.i
   %18 = and i64 %17, 2147483647
@@ -2900,14 +2900,14 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %call.i.i.i.i = tail call double @sin(double noundef %mul.i.i.i.i) #34, !tbaa !88
   %mul1.i.i.i.i = fmul double %call.i.i.i.i, 0x3FE45F306DC9C883
   %div.i.i.i.i = fdiv double %mul1.i.i.i.i, %22
-  %call3.i.i.i.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull readonly align 8 dereferenceable(220) %process, double %22, double 0.000000e+00, double noundef %4, double noundef %5, double noundef %6)
+  %call3.i.i.i.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull readonly align 8 dereferenceable(220) %process, double %22, double 0.000000e+00, double noundef %4, double noundef %5, double noundef %6)
   %23 = extractvalue { double, double } %call3.i.i.i.i, 0
   %mul5.i.i.i.i = fmul double %div.i.i.i.i, %23
   %24 = tail call double @llvm.fmuladd.f64(double %20, double %mul5.i.i.i.i, double %sum.02.i.i)
   %cmp.i27.i = icmp ugt i64 %indvars.iv.i.i, 1
-  br i1 %cmp.i27.i, label %for.body.i.i, label %"_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.argprom.exit.i", !llvm.loop !108
+  br i1 %cmp.i27.i, label %for.body.i.i, label %"_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.exit.i", !llvm.loop !108
 
-"_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.argprom.exit.i": ; preds = %for.body.i.i, %cond.true.i
+"_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.exit.i": ; preds = %for.body.i.i, %cond.true.i
   %sum.0.lcssa.i.i = phi double [ 0.000000e+00, %cond.true.i ], [ %24, %for.body.i.i ]
   %cmp.i28.i = fcmp olt double %sum.0.lcssa.i.i, 1.000000e+00
   %25 = select i1 %cmp.i28.i, double %sum.0.lcssa.i.i, double 1.000000e+00
@@ -2917,7 +2917,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 sw.bb20.i:                                        ; preds = %entry
   %div22.i = fmul double %.sroa.speculated83.i, 5.000000e-01
-  %call27109.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull align 8 dereferenceable(220) %process, double %div22.i, double 0.000000e+00, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
+  %call27109.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull align 8 dereferenceable(220) %process, double %div22.i, double 0.000000e+00, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
   %26 = extractvalue { double, double } %call27109.i, 0
   %27 = extractvalue { double, double } %call27109.i, 1
   %28 = fdiv double %26, %div22.i
@@ -2929,7 +2929,7 @@ sw.bb20.i:                                        ; preds = %entry
 while.body33.i:                                   ; preds = %sw.bb20.i, %while.body33.i
   %storemerge112.i = phi double [ %mul34.i, %while.body33.i ], [ %div22.i, %sw.bb20.i ]
   %mul34.i = fmul double %storemerge112.i, 2.000000e+00
-  %call27.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull align 8 dereferenceable(220) %process, double %mul34.i, double 0.000000e+00, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
+  %call27.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull align 8 dereferenceable(220) %process, double %mul34.i, double 0.000000e+00, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
   %30 = extractvalue { double, double } %call27.i, 0
   %31 = extractvalue { double, double } %call27.i, 1
   %32 = fdiv double %30, %mul34.i
@@ -3040,7 +3040,7 @@ do.body.i:                                        ; preds = %do.body.i, %sw.bb94
   %add.i = fadd double %mul98.i, 2.500000e-02
   %mul99.i = fmul double %x, %add.i
   %call100.i = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_12SiEd(double noundef %mul99.i)
-  %call103.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull align 8 dereferenceable(220) %process, double %mul98.i, double 0.000000e+00, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
+  %call103.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull align 8 dereferenceable(220) %process, double %mul98.i, double 0.000000e+00, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
   %44 = extractvalue { double, double } %call103.i, 0
   %45 = extractvalue { double, double } %call103.i, 1
   %mul106.i = fmul double %44, 0x3FE45F306DC9C883
@@ -3215,8 +3215,8 @@ ehcleanup148.i:                                   ; preds = %ehcleanup144.i, %eh
 unreachable.i:                                    ; preds = %invoke.cont129.i
   unreachable
 
-_ZN8QuantLib12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS1_14DiscretizationE.exit: ; preds = %do.body.i, %while.end.i, %"_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.argprom.exit.i", %while.end35.i, %cleanup.action75.i
-  %retval.0.i = phi double [ %.sroa.speculated79.i, %"_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.argprom.exit.i" ], [ 1.000000e+00, %while.end.i ], [ %.sroa.speculated.i, %cleanup.action75.i ], [ 1.000000e+00, %while.end35.i ], [ %46, %do.body.i ]
+_ZN8QuantLib12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS1_14DiscretizationE.exit: ; preds = %do.body.i, %while.end.i, %"_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.exit.i", %while.end35.i, %cleanup.action75.i
+  %retval.0.i = phi double [ %.sroa.speculated79.i, %"_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.exit.i" ], [ 1.000000e+00, %while.end.i ], [ %.sroa.speculated.i, %cleanup.action75.i ], [ 1.000000e+00, %while.end35.i ], [ %46, %do.body.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nu_0.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nu_t.addr.i)
@@ -3548,15 +3548,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_116cornishFisherEpsERKNS_13HestonProcessEdddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %process, double noundef %nu_0, double noundef %nu_t, double noundef %dt, double noundef %eps) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull align 8 dereferenceable(220) %process, double 0.000000e+00, double -2.000000e-02, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
+  %call = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull align 8 dereferenceable(220) %process, double 0.000000e+00, double -2.000000e-02, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
   %0 = extractvalue { double, double } %call, 0
-  %call5 = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull align 8 dereferenceable(220) %process, double 0.000000e+00, double -1.000000e-02, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
+  %call5 = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull align 8 dereferenceable(220) %process, double 0.000000e+00, double -1.000000e-02, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
   %1 = extractvalue { double, double } %call5, 0
-  %call10 = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull align 8 dereferenceable(220) %process, double 0.000000e+00, double 0.000000e+00, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
+  %call10 = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull align 8 dereferenceable(220) %process, double 0.000000e+00, double 0.000000e+00, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
   %2 = extractvalue { double, double } %call10, 0
-  %call15 = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull align 8 dereferenceable(220) %process, double 0.000000e+00, double 1.000000e-02, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
+  %call15 = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull align 8 dereferenceable(220) %process, double 0.000000e+00, double 1.000000e-02, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
   %3 = extractvalue { double, double } %call15, 0
-  %call20 = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull align 8 dereferenceable(220) %process, double 0.000000e+00, double 2.000000e-02, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
+  %call20 = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull align 8 dereferenceable(220) %process, double 0.000000e+00, double 2.000000e-02, double noundef %nu_0, double noundef %nu_t, double noundef %dt)
   %4 = extractvalue { double, double } %call20, 0
   %5 = tail call double @llvm.fmuladd.f64(double %3, double -8.000000e+00, double %4)
   %6 = tail call double @llvm.fmuladd.f64(double %1, double 8.000000e+00, double %5)
@@ -7477,7 +7477,7 @@ _ZN8QuantLib5ArrayD2Ev.exit3:                     ; preds = %_ZN8QuantLib5ArrayD
 declare void @__cxa_guard_abort(ptr) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %process, double %a.0.val, double %a.8.val, double noundef %nu_0, double noundef %nu_t, double noundef %dt) unnamed_addr #7 {
+define internal fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %process, double %a.0.val, double %a.8.val, double noundef %nu_0, double noundef %nu_t, double noundef %dt) unnamed_addr #7 {
 entry:
   %ref.tmp237 = alloca %"class.std::complex", align 8
   %ref.tmp246 = alloca %"class.std::complex", align 8
@@ -8045,7 +8045,7 @@ entry:
   %call.i.i.i.i = tail call double @sin(double noundef %mul.i.i.i.i) #34, !tbaa !88
   %mul1.i.i.i.i = fmul double %call.i.i.i.i, 0x3FE45F306DC9C883
   %div.i.i.i.i = fdiv double %mul1.i.i.i.i, %__args.val
-  %call3.i.i.i.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull readonly align 8 dereferenceable(220) %0, double %__args.val, double 0.000000e+00, double noundef %6, double noundef %9, double noundef %12)
+  %call3.i.i.i.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull readonly align 8 dereferenceable(220) %0, double %__args.val, double 0.000000e+00, double noundef %6, double noundef %9, double noundef %12)
   %13 = extractvalue { double, double } %call3.i.i.i.i, 0
   %mul5.i.i.i.i = fmul double %div.i.i.i.i, %13
   ret double %mul5.i.i.i.i
@@ -8268,7 +8268,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %mul.i.i.i.i.i.i.i = fmul double %0, %29
   %call.i.i.i.i.i.i.i = tail call double @cos(double noundef %mul.i.i.i.i.i.i.i) #34, !tbaa !88
   %mul1.i.i.i.i.i.i.i = fmul double %call.i.i.i.i.i.i.i, 0x3FE45F306DC9C883
-  %call3.i.i.i.i.i.i.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd.argprom(ptr noundef nonnull readonly align 8 dereferenceable(220) %1, double %29, double 0.000000e+00, double noundef %8, double noundef %11, double noundef %14)
+  %call3.i.i.i.i.i.i.i = tail call fastcc { double, double } @_ZN8QuantLib12_GLOBAL__N_13PhiERKNS_13HestonProcessERKSt7complexIdEddd(ptr noundef nonnull readonly align 8 dereferenceable(220) %1, double %29, double 0.000000e+00, double noundef %8, double noundef %11, double noundef %14)
   %30 = extractvalue { double, double } %call3.i.i.i.i.i.i.i, 0
   %mul5.i.i.i.i.i.i.i = fmul double %mul1.i.i.i.i.i.i.i, %30
   %31 = tail call double @llvm.fmuladd.f64(double %27, double %mul5.i.i.i.i.i.i.i, double %sum.02.i.i.i.i.i)

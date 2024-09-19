@@ -351,13 +351,13 @@ while.end:                                        ; preds = %vaarg.end
 if.then5:                                         ; preds = %while.end
   %5 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %5, 0
-  br i1 %tobool1.not.i, label %_.argprom.exit, label %if.end3.i
+  br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then5
   %call.i = call ptr @gettext(ptr noundef nonnull @.str.9) #10
-  br label %_.argprom.exit
+  br label %_.exit
 
-_.argprom.exit:                                   ; preds = %if.then5, %if.end3.i
+_.exit:                                           ; preds = %if.then5, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.9, %if.then5 ]
   %call6 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %cmd) #10
   br label %return
@@ -368,7 +368,7 @@ if.end8:                                          ; preds = %while.end
   %call12 = call i32 @execv_git_cmd(ptr noundef nonnull %argv)
   br label %return
 
-return:                                           ; preds = %if.end8, %_.argprom.exit
+return:                                           ; preds = %if.end8, %_.exit
   ret i32 -1
 }
 

@@ -1564,7 +1564,7 @@ _ZN4Luau7CodeGen14hasSideEffectsENS0_5IrCmdE.exit._crit_edge: ; preds = %_ZN4Lua
   %36 = sub i64 %34, %35
   %37 = sdiv exact i64 %36, 40
   %.not.i = icmp ugt i64 %37, %33
-  br i1 %.not.i, label %38, label %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.argprom.argprom.exit
+  br i1 %.not.i, label %38, label %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit
 
 38:                                               ; preds = %29
   %39 = getelementptr inbounds %"struct.Luau::CodeGen::RegisterSet", ptr %.val.val, i64 %33
@@ -1621,13 +1621,13 @@ _ZN4Luau7CodeGen14hasSideEffectsENS0_5IrCmdE.exit._crit_edge: ; preds = %_ZN4Lua
   %.sroa.0.0.i = phi i32 [ %.sroa.0.0.copyload.i, %65 ], [ %42, %38 ], [ %47, %45 ], [ %52, %50 ], [ %57, %55 ], [ %62, %60 ], [ %spec.select.i, %68 ]
   %74 = and i32 %.sroa.0.0.i, 15
   %75 = icmp eq i32 %74, 5
-  br i1 %75, label %76, label %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.argprom.argprom.exit
+  br i1 %75, label %76, label %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit
 
 76:                                               ; preds = %73
   %77 = lshr i32 %.sroa.0.0.i, 4
   %78 = zext nneg i32 %77 to i64
   %79 = icmp ugt i64 %37, %78
-  br i1 %79, label %80, label %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.argprom.argprom.exit
+  br i1 %79, label %80, label %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit
 
 80:                                               ; preds = %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !noalias !5
@@ -1665,21 +1665,21 @@ _ZStanILm256EESt6bitsetIXT_EERKS1_S3_.exit.i:     ; preds = %87
   %94 = getelementptr inbounds i8, ptr %86, i64 32
   %95 = load i8, ptr %94, align 8, !noalias !5
   %96 = trunc i8 %95 to i1
-  br i1 %96, label %97, label %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.argprom.argprom.exit
+  br i1 %96, label %97, label %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit
 
 97:                                               ; preds = %_ZStanILm256EESt6bitsetIXT_EERKS1_S3_.exit.i
   %98 = getelementptr inbounds i8, ptr %86, i64 33
   %99 = load i8, ptr %98, align 1, !noalias !5
   call void @_ZN4Luau7CodeGen23requireVariadicSequenceERNS0_11RegisterSetERKS1_h(ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(34) %39, i8 noundef zeroext %99)
-  br label %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.argprom.argprom.exit
+  br label %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit
 
-_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.argprom.argprom.exit: ; preds = %29, %73, %76, %_ZStanILm256EESt6bitsetIXT_EERKS1_S3_.exit.i, %97
+_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit: ; preds = %29, %73, %76, %_ZStanILm256EESt6bitsetIXT_EERKS1_S3_.exit.i, %97
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %100
 
-100:                                              ; preds = %100, %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.argprom.argprom.exit
-  %.05.i.i = phi i64 [ 0, %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.argprom.argprom.exit ], [ %103, %100 ]
+100:                                              ; preds = %100, %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit
+  %.05.i.i = phi i64 [ 0, %_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.exit ], [ %103, %100 ]
   %101 = getelementptr inbounds [4 x i64], ptr %9, i64 0, i64 %.05.i.i
   %102 = load i64, ptr %101, align 8
   %.not.not.i.i = icmp ne i64 %102, 0
@@ -2442,7 +2442,7 @@ define dso_local void @_ZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEb(ptr de
           to label %11 unwind label %.loopexit.split-lp
 
 11:                                               ; preds = %10
-  invoke fastcc void @_ZN4Luau7CodeGenL12appendBlocksERNS0_17IrToStringContextERKNS0_10IrFunctionEbbbb.argelim(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(616) %1, i1 noundef zeroext %2, i1 noundef zeroext true, i1 noundef zeroext true)
+  invoke fastcc void @_ZN4Luau7CodeGenL12appendBlocksERNS0_17IrToStringContextERKNS0_10IrFunctionEbbbb(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(616) %1, i1 noundef zeroext %2, i1 noundef zeroext true, i1 noundef zeroext true)
           to label %.preheader91 unwind label %.loopexit.split-lp
 
 .preheader91:                                     ; preds = %11
@@ -2660,7 +2660,7 @@ define dso_local void @_ZN4Luau7CodeGen5toDotB5cxx11ERKNS0_10IrFunctionEb(ptr de
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4Luau7CodeGenL12appendBlocksERNS0_17IrToStringContextERKNS0_10IrFunctionEbbbb.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc void @_ZN4Luau7CodeGenL12appendBlocksERNS0_17IrToStringContextERKNS0_10IrFunctionEbbbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
@@ -2711,7 +2711,7 @@ switch.lookup:                                    ; preds = %.sink.split, %11
   %.val = load ptr, ptr %25, align 8
   %26 = getelementptr i8, ptr %24, i64 200
   %.val50 = load ptr, ptr %26, align 8
-  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val, ptr %.val50, i64 noundef %.057, ptr noundef nonnull @.str.251)
+  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val, ptr %.val50, i64 noundef %.057, ptr noundef nonnull @.str.251)
   br label %27
 
 27:                                               ; preds = %23, %switch.lookup
@@ -2762,7 +2762,7 @@ switch.lookup:                                    ; preds = %.sink.split, %11
   %.val51 = load ptr, ptr %49, align 8
   %50 = getelementptr i8, ptr %48, i64 224
   %.val52 = load ptr, ptr %50, align 8
-  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val51, ptr %.val52, i64 noundef %.057, ptr noundef nonnull @.str.253)
+  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val51, ptr %.val52, i64 noundef %.057, ptr noundef nonnull @.str.253)
   br i1 %4, label %51, label %55
 
 51:                                               ; preds = %.loopexit
@@ -2771,7 +2771,7 @@ switch.lookup:                                    ; preds = %.sink.split, %11
   %.val53 = load ptr, ptr %53, align 8
   %54 = getelementptr i8, ptr %52, i64 248
   %.val54 = load ptr, ptr %54, align 8
-  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc.argprom(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val53, ptr %.val54, i64 noundef %.057, ptr noundef nonnull @.str.254)
+  tail call fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %.val53, ptr %.val54, i64 noundef %.057, ptr noundef nonnull @.str.254)
   br label %55
 
 55:                                               ; preds = %51, %.loopexit
@@ -2812,7 +2812,7 @@ define dso_local void @_ZN4Luau7CodeGen8toDotCfgB5cxx11ERKNS0_10IrFunctionE(ptr 
           to label %10 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 10:                                               ; preds = %9
-  invoke fastcc void @_ZN4Luau7CodeGenL12appendBlocksERNS0_17IrToStringContextERKNS0_10IrFunctionEbbbb.argelim(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(616) %1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN4Luau7CodeGenL12appendBlocksERNS0_17IrToStringContextERKNS0_10IrFunctionEbbbb(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(616) %1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .preheader:                                       ; preds = %10
@@ -3191,7 +3191,7 @@ declare void @_ZN4Luau7CodeGen23requireVariadicSequenceERNS0_11RegisterSetERKS1_
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %.0.val, ptr %.8.val, i64 noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @_ZN4Luau7CodeGenL17appendLabelRegsetERNS0_17IrToStringContextERKSt6vectorINS0_11RegisterSetESaIS4_EEmPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %.0.val, ptr %.8.val, i64 noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = ptrtoint ptr %.8.val to i64
   %5 = ptrtoint ptr %.0.val to i64
   %6 = sub i64 %4, %5
@@ -3327,8 +3327,8 @@ attributes #13 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.argprom.argprom: argument 0"}
-!7 = distinct !{!7, !"_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE.argprom.argprom"}
+!6 = distinct !{!6, !7, !"_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE: argument 0"}
+!7 = distinct !{!7, !"_ZN4Luau7CodeGenL24getJumpTargetExtraLiveInERNS0_17IrToStringContextERKNS0_7IrBlockEjRKNS0_6IrInstE"}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!11}

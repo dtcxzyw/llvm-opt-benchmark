@@ -2692,11 +2692,11 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @gtk_widget_set_sensitive(ptr noundef %9, i32 noundef 0) #21
   tail call void @gtk_menu_shell_append(ptr noundef %5, ptr noundef %9) #21
   %15 = tail call ptr @dt_collection_name(i32 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %15, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %15, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %16 = tail call ptr @dt_collection_name(i32 noundef 1) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %16, i32 noundef 1, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %16, i32 noundef 1, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %17 = tail call ptr @dt_collection_name(i32 noundef 2) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %17, i32 noundef 2, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %17, i32 noundef 2, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %18 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.124, i32 noundef 5) #21
   %19 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %18) #21
   %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %10) #21
@@ -2706,7 +2706,7 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @gtk_widget_set_sensitive(ptr noundef %19, i32 noundef 0) #21
   tail call void @gtk_menu_shell_append(ptr noundef %5, ptr noundef %19) #21
   %23 = tail call ptr @dt_collection_name(i32 noundef 17) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %23, i32 noundef 17, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %23, i32 noundef 17, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %24 = tail call i32 @dt_metadata_get_keyid_by_display_order(i32 noundef 0) #21
   %25 = tail call ptr @dt_metadata_get_name(i32 noundef %24) #21
   %26 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.125, ptr noundef %25) #21
@@ -2721,7 +2721,7 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
 
 33:                                               ; preds = %2
   %34 = tail call ptr @dt_collection_name(i32 noundef 19) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %34, i32 noundef 19, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %34, i32 noundef 19, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   br label %35
 
 35:                                               ; preds = %33, %2
@@ -2739,7 +2739,7 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
 
 45:                                               ; preds = %35
   %46 = tail call ptr @dt_collection_name(i32 noundef 20) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %46, i32 noundef 20, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %46, i32 noundef 20, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   br label %47
 
 47:                                               ; preds = %45, %35
@@ -2757,7 +2757,7 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
 
 57:                                               ; preds = %47
   %58 = tail call ptr @dt_collection_name(i32 noundef 21) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %58, i32 noundef 21, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %58, i32 noundef 21, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   br label %59
 
 59:                                               ; preds = %57, %47
@@ -2775,7 +2775,7 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
 
 69:                                               ; preds = %59
   %70 = tail call ptr @dt_collection_name(i32 noundef 22) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %70, i32 noundef 22, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %70, i32 noundef 22, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   br label %71
 
 71:                                               ; preds = %69, %59
@@ -2793,7 +2793,7 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
 
 81:                                               ; preds = %71
   %82 = tail call ptr @dt_collection_name(i32 noundef 23) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %82, i32 noundef 23, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %82, i32 noundef 23, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   br label %83
 
 83:                                               ; preds = %81, %71
@@ -2811,7 +2811,7 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
 
 93:                                               ; preds = %83
   %94 = tail call ptr @dt_collection_name(i32 noundef 24) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %94, i32 noundef 24, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %94, i32 noundef 24, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   br label %95
 
 95:                                               ; preds = %93, %83
@@ -2829,7 +2829,7 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
 
 105:                                              ; preds = %95
   %106 = tail call ptr @dt_collection_name(i32 noundef 25) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %106, i32 noundef 25, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %106, i32 noundef 25, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   br label %107
 
 107:                                              ; preds = %105, %95
@@ -2847,20 +2847,20 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
 
 117:                                              ; preds = %107
   %118 = tail call ptr @dt_collection_name(i32 noundef 26) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %118, i32 noundef 26, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %118, i32 noundef 26, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   br label %119
 
 119:                                              ; preds = %117, %107
   %120 = tail call ptr @dt_collection_name(i32 noundef 32) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %120, i32 noundef 32, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %120, i32 noundef 32, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %121 = tail call ptr @dt_collection_name(i32 noundef 34) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %121, i32 noundef 34, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %121, i32 noundef 34, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %122 = tail call ptr @dt_collection_name(i32 noundef 18) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %122, i32 noundef 18, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %122, i32 noundef 18, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %123 = tail call ptr @dt_collection_name(i32 noundef 33) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %123, i32 noundef 33, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %123, i32 noundef 33, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %124 = tail call ptr @dt_collection_name(i32 noundef 15) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %124, i32 noundef 15, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %124, i32 noundef 15, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %125 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.126, i32 noundef 5) #21
   %126 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %125) #21
   %127 = tail call ptr @g_type_check_instance_cast(ptr noundef %126, i64 noundef %10) #21
@@ -2870,17 +2870,17 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @gtk_widget_set_sensitive(ptr noundef %126, i32 noundef 0) #21
   tail call void @gtk_menu_shell_append(ptr noundef %5, ptr noundef %126) #21
   %130 = tail call ptr @dt_collection_name(i32 noundef 9) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %130, i32 noundef 9, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %130, i32 noundef 9, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %131 = tail call ptr @dt_collection_name(i32 noundef 10) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %131, i32 noundef 10, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %131, i32 noundef 10, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %132 = tail call ptr @dt_collection_name(i32 noundef 11) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %132, i32 noundef 11, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %132, i32 noundef 11, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %133 = tail call ptr @dt_collection_name(i32 noundef 12) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %133, i32 noundef 12, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %133, i32 noundef 12, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %134 = tail call ptr @dt_collection_name(i32 noundef 13) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %134, i32 noundef 13, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %134, i32 noundef 13, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %135 = tail call ptr @dt_collection_name(i32 noundef 14) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %135, i32 noundef 14, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %135, i32 noundef 14, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %136 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.127, i32 noundef 5) #21
   %137 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %136) #21
   %138 = tail call ptr @g_type_check_instance_cast(ptr noundef %137, i64 noundef %10) #21
@@ -2890,27 +2890,27 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @gtk_widget_set_sensitive(ptr noundef %137, i32 noundef 0) #21
   tail call void @gtk_menu_shell_append(ptr noundef %5, ptr noundef %137) #21
   %141 = tail call ptr @dt_collection_name(i32 noundef 3) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %141, i32 noundef 3, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %141, i32 noundef 3, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %142 = tail call ptr @dt_collection_name(i32 noundef 4) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %142, i32 noundef 4, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %142, i32 noundef 4, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %143 = tail call ptr @dt_collection_name(i32 noundef 5) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %143, i32 noundef 5, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %143, i32 noundef 5, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %144 = tail call ptr @dt_collection_name(i32 noundef 6) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %144, i32 noundef 6, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %144, i32 noundef 6, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %145 = tail call ptr @dt_collection_name(i32 noundef 7) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %145, i32 noundef 7, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %145, i32 noundef 7, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %146 = tail call ptr @dt_collection_name(i32 noundef 8) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %146, i32 noundef 8, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %146, i32 noundef 8, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %147 = tail call ptr @dt_collection_name(i32 noundef 16) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %147, i32 noundef 16, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %147, i32 noundef 16, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %148 = tail call ptr @dt_collection_name(i32 noundef 38) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %148, i32 noundef 38, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %148, i32 noundef 38, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %149 = tail call ptr @dt_collection_name(i32 noundef 39) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %149, i32 noundef 39, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %149, i32 noundef 39, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %150 = tail call ptr @dt_collection_name(i32 noundef 40) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %150, i32 noundef 40, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %150, i32 noundef 40, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %151 = tail call ptr @dt_collection_name(i32 noundef 41) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %151, i32 noundef 41, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %151, i32 noundef 41, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %152 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.128, i32 noundef 5) #21
   %153 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %152) #21
   %154 = tail call ptr @g_type_check_instance_cast(ptr noundef %153, i64 noundef %10) #21
@@ -2920,15 +2920,15 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
   tail call void @gtk_widget_set_sensitive(ptr noundef %153, i32 noundef 0) #21
   tail call void @gtk_menu_shell_append(ptr noundef %5, ptr noundef %153) #21
   %157 = tail call ptr @dt_collection_name(i32 noundef 27) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %157, i32 noundef 27, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %157, i32 noundef 27, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %158 = tail call ptr @dt_collection_name(i32 noundef 28) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %158, i32 noundef 28, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %158, i32 noundef 28, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %159 = tail call ptr @dt_collection_name(i32 noundef 29) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %159, i32 noundef 29, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %159, i32 noundef 29, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %160 = tail call ptr @dt_collection_name(i32 noundef 30) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %160, i32 noundef 30, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %160, i32 noundef 30, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %161 = tail call ptr @dt_collection_name(i32 noundef 31) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %161, i32 noundef 31, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %161, i32 noundef 31, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   %162 = tail call i64 @gtk_menu_get_type() #22
   %163 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %162) #21
   tail call void @dt_gui_menu_popup(ptr noundef %163, ptr noundef %0, i32 noundef 8, i32 noundef 2) #21
@@ -3352,37 +3352,37 @@ define internal void @_sort_show_add_popup(ptr noundef %0, ptr noundef %1) #1 {
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %6) #21
   tail call void @gtk_widget_set_size_request(ptr noundef %7, i32 noundef 200, i32 noundef -1) #21
   %8 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.144, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %8, i32 noundef 0, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %8, i32 noundef 0, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %9 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.145, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %9, i32 noundef 10, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %9, i32 noundef 10, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %10 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.146, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %10, i32 noundef 14, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %10, i32 noundef 14, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %11 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.147, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %11, i32 noundef 1, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %11, i32 noundef 1, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %12 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.148, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %12, i32 noundef 2, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %12, i32 noundef 2, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %13 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.149, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %13, i32 noundef 3, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %13, i32 noundef 3, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %14 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.150, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %14, i32 noundef 4, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %14, i32 noundef 4, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %15 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.151, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %15, i32 noundef 5, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %15, i32 noundef 5, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %16 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.152, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %16, i32 noundef 6, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %16, i32 noundef 6, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %17 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.153, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %17, i32 noundef 8, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %17, i32 noundef 8, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %18 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.154, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %18, i32 noundef 12, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %18, i32 noundef 12, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %19 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.155, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %19, i32 noundef 13, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %19, i32 noundef 13, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %20 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.156, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %20, i32 noundef 9, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %20, i32 noundef 9, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %21 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.157, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %21, i32 noundef 7, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %21, i32 noundef 7, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %22 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.158, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %22, i32 noundef 11, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %22, i32 noundef 11, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %23 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.159, i64 noundef 0) #21
-  tail call fastcc void @_popup_add_item.argelim(ptr noundef %5, ptr noundef %23, i32 noundef 15, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %23, i32 noundef 15, ptr noundef nonnull @_sort_append_sort, ptr noundef %1, float noundef 0.000000e+00)
   %24 = tail call i64 @gtk_menu_get_type() #22
   %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %24) #21
   tail call void @dt_gui_menu_popup(ptr noundef %25, ptr noundef %0, i32 noundef 8, i32 noundef 2) #21
@@ -4933,7 +4933,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_widget_init(ptr noundef %0,
   %140 = icmp eq ptr %2, null
   %141 = select i1 %140, ptr @.str.13, ptr %2
   %142 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %139, i64 noundef 256, ptr noundef nonnull @.str.100, ptr noundef nonnull %141) #21
-  tail call fastcc void @_widget_init_special.argelim(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %7)
+  tail call fastcc void @_widget_init_special(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %7)
   %143 = load i32, ptr %9, align 8, !tbaa !121
   %144 = add nsw i32 %143, -1
   store i32 %144, ptr %9, align 8, !tbaa !121
@@ -4941,7 +4941,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_widget_init(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_widget_init_special.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @_widget_init_special(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8, !tbaa !73
   %6 = icmp eq ptr %5, null
@@ -5573,7 +5573,7 @@ define internal void @_event_rule_change_type(ptr noundef %0, ptr noundef %1) #1
 
 11:                                               ; preds = %2
   store i32 %5, ptr %8, align 4, !tbaa !79
-  tail call fastcc void @_widget_init_special.argelim(ptr noundef nonnull %7, ptr noundef nonnull @.str.13, ptr noundef %1)
+  tail call fastcc void @_widget_init_special(ptr noundef nonnull %7, ptr noundef nonnull @.str.13, ptr noundef %1)
   %12 = load i32, ptr %8, align 4, !tbaa !79
   %13 = tail call fastcc ptr @_filters_get(i32 noundef %12)
   %14 = icmp eq ptr %13, null
@@ -12379,7 +12379,7 @@ declare ptr @gtk_menu_new() local_unnamed_addr #4
 declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_popup_add_item.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, float noundef %5) unnamed_addr #1 {
+define internal fastcc void @_popup_add_item(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, float noundef %5) unnamed_addr #1 {
   %7 = icmp eq ptr %3, @_sort_append_sort
   br i1 %7, label %11, label %8
 

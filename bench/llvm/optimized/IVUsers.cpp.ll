@@ -2389,12 +2389,12 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKNS_14SCEVAddRecE
   %14 = getelementptr inbounds i8, ptr %8, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %.val, ptr noundef %15) #13
-  br i1 %16, label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit", label %17
+  br i1 %16, label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit", label %17
 
 17:                                               ; preds = %2
   %18 = tail call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopLatchEv(ptr noundef nonnull align 8 dereferenceable(152) %.val) #13
   %.not.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i, label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit", label %19
+  br i1 %.not.i.i, label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit", label %19
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %14, align 8
@@ -2406,7 +2406,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKNS_14SCEVAddRecE
   %24 = icmp eq i8 %23, 84
   %25 = icmp ne ptr %11, null
   %or.cond.i.i = and i1 %25, %24
-  br i1 %or.cond.i.i, label %26, label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit"
+  br i1 %or.cond.i.i, label %26, label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit"
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -2436,7 +2436,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKNS_14SCEVAddRecE
   %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.i.i
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %13, ptr noundef nonnull %18, ptr noundef %43) #13
-  br i1 %44, label %45, label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit"
+  br i1 %44, label %45, label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit"
 
 45:                                               ; preds = %38, %33
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2465,7 +2465,7 @@ _ZL26IVUseShouldUsePostIncValuePN4llvm11InstructionEPNS_5ValueEPKNS_4LoopEPNS_13
   %.025.i.i.i = phi ptr [ %61, %60 ], [ %51, %53 ]
   %58 = load ptr, ptr %.025.i.i.i, align 8, !noalias !21
   %59 = icmp eq ptr %58, %.val
-  br i1 %59, label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit", label %60
+  br i1 %59, label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit", label %60
 
 60:                                               ; preds = %.lr.ph.i.i.i
   %61 = getelementptr inbounds i8, ptr %.025.i.i.i, i64 8
@@ -2482,13 +2482,13 @@ _ZL26IVUseShouldUsePostIncValuePN4llvm11InstructionEPNS_5ValueEPKNS_4LoopEPNS_13
   %66 = add nuw i32 %55, 1
   store i32 %66, ptr %54, align 4, !noalias !21
   store ptr %.val, ptr %57, align 8, !noalias !21
-  br label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit"
+  br label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit"
 
 67:                                               ; preds = %._crit_edge.i.i.i, %_ZL26IVUseShouldUsePostIncValuePN4llvm11InstructionEPNS_5ValueEPKNS_4LoopEPNS_13DominatorTreeE.exit.i
   %68 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %48, ptr noundef nonnull %.val) #13, !noalias !21
-  br label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit"
+  br label %"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit"
 
-"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.argprom.exit": ; preds = %38, %.lr.ph.i.i.i, %2, %17, %22, %65, %67
+"_ZZN4llvm7IVUsers21AddUsersIfInterestingEPNS_11InstructionEENK3$_0clEPKNS_14SCEVAddRecExprE.exit": ; preds = %38, %.lr.ph.i.i.i, %2, %17, %22, %65, %67
   %.0.i2.i = phi i1 [ false, %2 ], [ false, %17 ], [ false, %22 ], [ true, %67 ], [ true, %65 ], [ true, %.lr.ph.i.i.i ], [ false, %38 ]
   ret i1 %.0.i2.i
 }

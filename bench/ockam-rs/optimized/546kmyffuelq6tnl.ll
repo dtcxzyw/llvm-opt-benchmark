@@ -268,7 +268,7 @@ define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_valu
 
 19:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h12f45b5a7cdaec2fE.argprom"(ptr %18)
+  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h12f45b5a7cdaec2fE"(ptr %18)
           to label %12 unwind label %.body
 
 20:                                               ; preds = %12
@@ -5159,7 +5159,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h12f45b5a7cdaec2fE.argprom"(ptr %.0.val) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h12f45b5a7cdaec2fE"(ptr %.0.val) unnamed_addr #0 {
   %1 = alloca { i8, [15 x i8] }, align 8
   %2 = icmp eq ptr %.0.val, null
   br i1 %2, label %3, label %4
@@ -18750,10 +18750,10 @@ attributes #21 = { noinline }
 !46 = distinct !{!46, !47, !"_ZN3std9panicking3try17h3f5b57ed9b74693aE: argument 0"}
 !47 = distinct !{!47, !"_ZN3std9panicking3try17h3f5b57ed9b74693aE"}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.argprom: argument 0"}
-!50 = distinct !{!50, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.argprom"}
+!49 = distinct !{!49, !50, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 0"}
+!50 = distinct !{!50, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE"}
 !51 = !{!52}
-!52 = distinct !{!52, !50, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.argprom: argument 1"}
+!52 = distinct !{!52, !50, !"_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE: argument 1"}
 !53 = !{i64 4}
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17h40e1d3ebe4d4550aE: argument 0"}

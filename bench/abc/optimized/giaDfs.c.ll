@@ -1313,7 +1313,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 
 26:                                               ; preds = %22
   %.val17 = load ptr, ptr %18, align 8
-  %27 = tail call fastcc i32 @Gia_ObjLevel.argprom(ptr nonnull %.val, ptr %.val17, ptr noundef nonnull %21)
+  %27 = tail call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val, ptr %.val17, ptr noundef nonnull %21)
   tail call fastcc void @Vec_VecPush(ptr noundef nonnull %4, i32 noundef %27, ptr noundef %21)
   %.pre = load i32, ptr %15, align 8
   br label %28
@@ -1332,7 +1332,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ObjLevel.argprom(ptr %.32.val, ptr nocapture %.160.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @Gia_ObjLevel(ptr %.32.val, ptr nocapture %.160.val, ptr noundef %0) unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = ptrtoint ptr %.32.val to i64
   %4 = sub i64 %2, %3
@@ -1342,7 +1342,7 @@ define internal fastcc i32 @Gia_ObjLevel.argprom(ptr %.32.val, ptr nocapture %.1
   %8 = getelementptr inbounds i8, ptr %.160.val, i64 4
   %9 = load i32, ptr %8, align 4
   %.not.i.not.i.i = icmp sgt i32 %9, %6
-  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.argprom.exit, label %10
+  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.exit, label %10
 
 10:                                               ; preds = %1
   %11 = load i32, ptr %.160.val, align 8
@@ -1427,9 +1427,9 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i:                                ; preds = %40, %Vec_IntGrow.exit.i.i.i
   store i32 %7, ptr %8, align 4
-  br label %Gia_ObjLevelId.argprom.exit
+  br label %Gia_ObjLevelId.exit
 
-Gia_ObjLevelId.argprom.exit:                      ; preds = %1, %._crit_edge.i.i.i
+Gia_ObjLevelId.exit:                              ; preds = %1, %._crit_edge.i.i.i
   %43 = getelementptr i8, ptr %.160.val, i64 8
   %.val.i.i = load ptr, ptr %43, align 8
   %sext = shl i64 %5, 32
@@ -1630,7 +1630,7 @@ Vec_WecStart.exit:                                ; preds = %1, %5
 
 24:                                               ; preds = %20
   %.val23 = load ptr, ptr %15, align 8
-  %25 = tail call fastcc i32 @Gia_ObjLevel.argprom(ptr nonnull %.val, ptr %.val23, ptr noundef nonnull %17)
+  %25 = tail call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val, ptr %.val23, ptr noundef nonnull %17)
   %.not18 = icmp eq i32 %25, 0
   br i1 %.not18, label %84, label %._crit_edge
 
@@ -1641,7 +1641,7 @@ Vec_WecStart.exit:                                ; preds = %1, %5
 26:                                               ; preds = %._crit_edge, %20
   %.val20 = phi ptr [ %.val20.pre, %._crit_edge ], [ %.val, %20 ]
   %.val21 = load ptr, ptr %15, align 8
-  %27 = tail call fastcc i32 @Gia_ObjLevel.argprom(ptr %.val20, ptr %.val21, ptr noundef nonnull %17)
+  %27 = tail call fastcc i32 @Gia_ObjLevel(ptr %.val20, ptr %.val21, ptr noundef nonnull %17)
   %28 = load i32, ptr %9, align 4
   %.not.i24 = icmp sgt i32 %28, %27
   br i1 %.not.i24, label %49, label %29
@@ -1824,7 +1824,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i
   %24 = sub nsw i64 0, %23
   %25 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %21, i64 %24
   %.val65 = load ptr, ptr %13, align 8
-  %26 = tail call fastcc i32 @Gia_ObjLevel.argprom(ptr nonnull %.val60, ptr %.val65, ptr noundef nonnull %25)
+  %26 = tail call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val60, ptr %.val65, ptr noundef nonnull %25)
   tail call fastcc void @Vec_VecPush(ptr noundef nonnull %2, i32 noundef %26, ptr noundef %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load ptr, ptr %9, align 8
@@ -1862,7 +1862,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i
 
 41:                                               ; preds = %37
   %.val63 = load ptr, ptr %33, align 8
-  %42 = tail call fastcc i32 @Gia_ObjLevel.argprom(ptr nonnull %.val55, ptr %.val63, ptr noundef nonnull %36)
+  %42 = tail call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val55, ptr %.val63, ptr noundef nonnull %36)
   tail call fastcc void @Vec_VecPush(ptr noundef nonnull %2, i32 noundef %42, ptr noundef %36)
   %.pre106 = load i32, ptr %7, align 8
   br label %43
@@ -2092,14 +2092,14 @@ define void @Gia_ManCollectSeq_rec(ptr noundef %0, i32 noundef %1, ptr noundef %
   %22 = and i32 %21, 536870911
   %23 = sub nsw i32 %1, %22
   tail call void @Gia_ManCollectSeq_rec(ptr noundef nonnull %0, i32 noundef %23, ptr noundef %2, ptr noundef %3)
-  br label %Gia_ObjIsRo.argprom.exit.thread
+  br label %Gia_ObjIsRo.exit.thread
 
 24:                                               ; preds = %10
   %25 = and i64 %.val45, 2684354559
   %narrow.i48.not = icmp eq i64 %25, 2684354559
-  br i1 %narrow.i48.not, label %Gia_ObjIsRo.argprom.exit, label %73
+  br i1 %narrow.i48.not, label %Gia_ObjIsRo.exit, label %73
 
-Gia_ObjIsRo.argprom.exit:                         ; preds = %24
+Gia_ObjIsRo.exit:                                 ; preds = %24
   %26 = lshr i64 %.val45, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %27, 536870911
@@ -2111,9 +2111,9 @@ Gia_ObjIsRo.argprom.exit:                         ; preds = %24
   %.val5.val.i = load i32, ptr %31, align 4
   %32 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not59 = icmp slt i32 %28, %32
-  br i1 %.not59, label %Gia_ObjIsRo.argprom.exit.thread, label %33
+  br i1 %.not59, label %Gia_ObjIsRo.exit.thread, label %33
 
-33:                                               ; preds = %Gia_ObjIsRo.argprom.exit
+33:                                               ; preds = %Gia_ObjIsRo.exit
   %34 = getelementptr i8, ptr %0, i64 72
   %.val6.i = load ptr, ptr %34, align 8
   %35 = getelementptr i8, ptr %.val6.i, i64 4
@@ -2191,33 +2191,33 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %71 = sext i32 %69 to i64
   %72 = getelementptr inbounds i32, ptr %68, i64 %71
   store i32 %41, ptr %72, align 4
-  br label %Gia_ObjIsRo.argprom.exit.thread
+  br label %Gia_ObjIsRo.exit.thread
 
 73:                                               ; preds = %24
   %.not.i49 = icmp ne i64 %13, 0
   %narrow.i50 = and i1 %.not.i49, %15
-  br i1 %narrow.i50, label %74, label %Gia_ObjIsRo.argprom.exit.thread
+  br i1 %narrow.i50, label %74, label %Gia_ObjIsRo.exit.thread
 
 74:                                               ; preds = %73
   %75 = trunc i64 %.val45 to i32
   %76 = and i32 %75, 536870911
   %77 = sub nsw i32 %1, %76
   tail call void @Gia_ManCollectSeq_rec(ptr noundef nonnull %0, i32 noundef %77, ptr noundef %2, ptr noundef %3)
-  br label %Gia_ObjIsRo.argprom.exit.thread
+  br label %Gia_ObjIsRo.exit.thread
 
-Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %Vec_IntPush.exit, %Gia_ObjIsRo.argprom.exit, %73, %74, %16
+Gia_ObjIsRo.exit.thread:                          ; preds = %Vec_IntPush.exit, %Gia_ObjIsRo.exit, %73, %74, %16
   %78 = getelementptr inbounds i8, ptr %3, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = load i32, ptr %3, align 8
   %81 = icmp eq i32 %79, %80
   br i1 %81, label %82, label %.Vec_IntGrow.exit10_crit_edge.i51
 
-.Vec_IntGrow.exit10_crit_edge.i51:                ; preds = %Gia_ObjIsRo.argprom.exit.thread
+.Vec_IntGrow.exit10_crit_edge.i51:                ; preds = %Gia_ObjIsRo.exit.thread
   %.phi.trans.insert.i52 = getelementptr inbounds i8, ptr %3, i64 8
   %.pre.i53 = load ptr, ptr %.phi.trans.insert.i52, align 8
   br label %Vec_IntPush.exit57
 
-82:                                               ; preds = %Gia_ObjIsRo.argprom.exit.thread
+82:                                               ; preds = %Gia_ObjIsRo.exit.thread
   %83 = icmp slt i32 %79, 16
   br i1 %83, label %84, label %92
 

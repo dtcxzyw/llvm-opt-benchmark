@@ -1769,7 +1769,7 @@ for.body:                                         ; preds = %if.end, %for.cond
   %cmp3 = phi i1 [ true, %if.end ], [ false, %for.cond ]
   %indvars.iv.sroa.phi = phi ptr [ %conns.sroa.0, %if.end ], [ %conns.sroa.3, %for.cond ]
   %0 = load i16, ptr @port, align 2
-  %call4 = tail call fastcc ptr @connect_server.argprom.argelim(i16 noundef zeroext %0, i1 noundef zeroext true)
+  %call4 = tail call fastcc ptr @connect_server(i16 noundef zeroext %0, i1 noundef zeroext true)
   store ptr %call4, ptr %indvars.iv.sroa.phi, align 8
   %tobool9.not = icmp eq ptr %call4, null
   br i1 %tobool9.not, label %if.else, label %if.end11
@@ -1857,7 +1857,7 @@ if.else51:                                        ; preds = %if.end48
 
 if.else53:                                        ; preds = %if.else38
   %7 = load i16, ptr @port, align 2
-  %call55 = tail call fastcc ptr @connect_server.argprom.argelim(i16 noundef zeroext %7, i1 noundef zeroext false)
+  %call55 = tail call fastcc ptr @connect_server(i16 noundef zeroext %7, i1 noundef zeroext false)
   store ptr %call55, ptr @con, align 8
   %tobool56.not = icmp eq ptr %call55, null
   br i1 %tobool56.not, label %if.else58, label %if.end59
@@ -2019,7 +2019,7 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.end
 
 close_conn.exit:                                  ; preds = %entry, %if.end4.i
   %3 = load i16, ptr @port, align 2
-  %call1 = tail call fastcc ptr @connect_server.argprom.argelim(i16 noundef zeroext %3, i1 noundef zeroext false)
+  %call1 = tail call fastcc ptr @connect_server(i16 noundef zeroext %3, i1 noundef zeroext false)
   store ptr %call1, ptr @con, align 8
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %if.else, label %if.end
@@ -2058,7 +2058,7 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.end
 
 close_conn.exit:                                  ; preds = %entry, %if.end4.i
   %3 = load i16, ptr @port, align 2
-  %call = tail call fastcc ptr @connect_server.argprom.argelim(i16 noundef zeroext %3, i1 noundef zeroext false)
+  %call = tail call fastcc ptr @connect_server(i16 noundef zeroext %3, i1 noundef zeroext false)
   store ptr %call, ptr @con, align 8
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %if.else, label %do.body.i
@@ -2176,7 +2176,7 @@ if.end4.i27:                                      ; preds = %if.then2.i28, %if.e
 
 close_conn.exit31:                                ; preds = %if.end13, %if.end4.i27
   %15 = load i16, ptr @port, align 2
-  %call15 = call fastcc ptr @connect_server.argprom.argelim(i16 noundef zeroext %15, i1 noundef zeroext false)
+  %call15 = call fastcc ptr @connect_server(i16 noundef zeroext %15, i1 noundef zeroext false)
   store ptr %call15, ptr @con, align 8
   %tobool16.not = icmp eq ptr %call15, null
   br i1 %tobool16.not, label %if.else18, label %if.end19
@@ -2219,7 +2219,7 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.end
 
 close_conn.exit:                                  ; preds = %entry, %if.end4.i
   %3 = load i16, ptr @port, align 2
-  %call = tail call fastcc ptr @connect_server.argprom.argelim(i16 noundef zeroext %3, i1 noundef zeroext false)
+  %call = tail call fastcc ptr @connect_server(i16 noundef zeroext %3, i1 noundef zeroext false)
   store ptr %call, ptr @con, align 8
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %if.else, label %if.end
@@ -2300,7 +2300,7 @@ if.end4.i11:                                      ; preds = %if.then2.i12, %if.e
 
 close_conn.exit15:                                ; preds = %if.end7, %if.end4.i11
   %13 = load i16, ptr @port, align 2
-  %call9 = call fastcc ptr @connect_server.argprom.argelim(i16 noundef zeroext %13, i1 noundef zeroext false)
+  %call9 = call fastcc ptr @connect_server(i16 noundef zeroext %13, i1 noundef zeroext false)
   store ptr %call9, ptr @con, align 8
   %tobool10.not = icmp eq ptr %call9, null
   br i1 %tobool10.not, label %if.else12, label %if.end13
@@ -2572,7 +2572,7 @@ if.end4.i119:                                     ; preds = %if.then2.i120, %if.
 
 close_conn.exit123:                               ; preds = %if.end56, %if.end4.i119
   %39 = load i16, ptr @port, align 2
-  %call58 = call fastcc ptr @connect_server.argprom.argelim(i16 noundef zeroext %39, i1 noundef zeroext false)
+  %call58 = call fastcc ptr @connect_server(i16 noundef zeroext %39, i1 noundef zeroext false)
   store ptr %call58, ptr @con, align 8
   %tobool59.not = icmp eq ptr %call58, null
   br i1 %tobool59.not, label %if.else61, label %if.end62
@@ -2664,154 +2664,154 @@ safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_quit() #0 {
 entry:
-  tail call fastcc void @test_binary_quit_impl.argelim(i8 noundef zeroext 7)
+  tail call fastcc void @test_binary_quit_impl(i8 noundef zeroext 7)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_quitq() #0 {
 entry:
-  tail call fastcc void @test_binary_quit_impl.argelim(i8 noundef zeroext 23)
+  tail call fastcc void @test_binary_quit_impl(i8 noundef zeroext 23)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_set() #0 {
 entry:
-  tail call fastcc void @test_binary_set_impl.argelim(ptr noundef nonnull @.str.267, i8 noundef zeroext 1)
+  tail call fastcc void @test_binary_set_impl(ptr noundef nonnull @.str.267, i8 noundef zeroext 1)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_setq() #0 {
 entry:
-  tail call fastcc void @test_binary_set_impl.argelim(ptr noundef nonnull @.str.270, i8 noundef zeroext 17)
+  tail call fastcc void @test_binary_set_impl(ptr noundef nonnull @.str.270, i8 noundef zeroext 17)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_add() #0 {
 entry:
-  tail call fastcc void @test_binary_add_impl.argelim(ptr noundef nonnull @.str.271, i8 noundef zeroext 2)
+  tail call fastcc void @test_binary_add_impl(ptr noundef nonnull @.str.271, i8 noundef zeroext 2)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_addq() #0 {
 entry:
-  tail call fastcc void @test_binary_add_impl.argelim(ptr noundef nonnull @.str.272, i8 noundef zeroext 18)
+  tail call fastcc void @test_binary_add_impl(ptr noundef nonnull @.str.272, i8 noundef zeroext 18)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_replace() #0 {
 entry:
-  tail call fastcc void @test_binary_replace_impl.argelim(ptr noundef nonnull @.str.273, i8 noundef zeroext 3)
+  tail call fastcc void @test_binary_replace_impl(ptr noundef nonnull @.str.273, i8 noundef zeroext 3)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_replaceq() #0 {
 entry:
-  tail call fastcc void @test_binary_replace_impl.argelim(ptr noundef nonnull @.str.274, i8 noundef zeroext 19)
+  tail call fastcc void @test_binary_replace_impl(ptr noundef nonnull @.str.274, i8 noundef zeroext 19)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_delete() #0 {
 entry:
-  tail call fastcc void @test_binary_delete_impl.argelim(ptr noundef nonnull @.str.275, i8 noundef zeroext 4)
+  tail call fastcc void @test_binary_delete_impl(ptr noundef nonnull @.str.275, i8 noundef zeroext 4)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_deleteq() #0 {
 entry:
-  tail call fastcc void @test_binary_delete_impl.argelim(ptr noundef nonnull @.str.276, i8 noundef zeroext 20)
+  tail call fastcc void @test_binary_delete_impl(ptr noundef nonnull @.str.276, i8 noundef zeroext 20)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_get() #0 {
 entry:
-  tail call fastcc void @test_binary_get_impl.argelim(ptr noundef nonnull @.str.277, i8 noundef zeroext 0)
+  tail call fastcc void @test_binary_get_impl(ptr noundef nonnull @.str.277, i8 noundef zeroext 0)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_getq() #0 {
 entry:
-  tail call fastcc void @test_binary_getq_impl.argelim(ptr noundef nonnull @.str.278, i8 noundef zeroext 9)
+  tail call fastcc void @test_binary_getq_impl(ptr noundef nonnull @.str.278, i8 noundef zeroext 9)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_getk() #0 {
 entry:
-  tail call fastcc void @test_binary_get_impl.argelim(ptr noundef nonnull @.str.280, i8 noundef zeroext 12)
+  tail call fastcc void @test_binary_get_impl(ptr noundef nonnull @.str.280, i8 noundef zeroext 12)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_getkq() #0 {
 entry:
-  tail call fastcc void @test_binary_getq_impl.argelim(ptr noundef nonnull @.str.281, i8 noundef zeroext 13)
+  tail call fastcc void @test_binary_getq_impl(ptr noundef nonnull @.str.281, i8 noundef zeroext 13)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_gat() #0 {
 entry:
-  tail call fastcc void @test_binary_get_impl.argelim(ptr noundef nonnull @.str.282, i8 noundef zeroext 29)
+  tail call fastcc void @test_binary_get_impl(ptr noundef nonnull @.str.282, i8 noundef zeroext 29)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_gatq() #0 {
 entry:
-  tail call fastcc void @test_binary_getq_impl.argelim(ptr noundef nonnull @.str.283, i8 noundef zeroext 30)
+  tail call fastcc void @test_binary_getq_impl(ptr noundef nonnull @.str.283, i8 noundef zeroext 30)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_gatk() #0 {
 entry:
-  tail call fastcc void @test_binary_get_impl.argelim(ptr noundef nonnull @.str.284, i8 noundef zeroext 35)
+  tail call fastcc void @test_binary_get_impl(ptr noundef nonnull @.str.284, i8 noundef zeroext 35)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_gatkq() #0 {
 entry:
-  tail call fastcc void @test_binary_getq_impl.argelim(ptr noundef nonnull @.str.285, i8 noundef zeroext 36)
+  tail call fastcc void @test_binary_getq_impl(ptr noundef nonnull @.str.285, i8 noundef zeroext 36)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_incr() #0 {
 entry:
-  tail call fastcc void @test_binary_incr_impl.argelim(ptr noundef nonnull @.str.286, i8 noundef zeroext 5)
+  tail call fastcc void @test_binary_incr_impl(ptr noundef nonnull @.str.286, i8 noundef zeroext 5)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_incrq() #0 {
 entry:
-  tail call fastcc void @test_binary_incr_impl.argelim(ptr noundef nonnull @.str.289, i8 noundef zeroext 21)
+  tail call fastcc void @test_binary_incr_impl(ptr noundef nonnull @.str.289, i8 noundef zeroext 21)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_decr() #0 {
 entry:
-  tail call fastcc void @test_binary_decr_impl.argelim(ptr noundef nonnull @.str.290, i8 noundef zeroext 6)
+  tail call fastcc void @test_binary_decr_impl(ptr noundef nonnull @.str.290, i8 noundef zeroext 6)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_decrq() #0 {
 entry:
-  tail call fastcc void @test_binary_decr_impl.argelim(ptr noundef nonnull @.str.292, i8 noundef zeroext 22)
+  tail call fastcc void @test_binary_decr_impl(ptr noundef nonnull @.str.292, i8 noundef zeroext 22)
   ret i32 1
 }
 
@@ -2894,42 +2894,42 @@ safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_flush() #0 {
 entry:
-  tail call fastcc void @test_binary_flush_impl.argelim(ptr noundef nonnull @.str.293, i8 noundef zeroext 8)
+  tail call fastcc void @test_binary_flush_impl(ptr noundef nonnull @.str.293, i8 noundef zeroext 8)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_flushq() #0 {
 entry:
-  tail call fastcc void @test_binary_flush_impl.argelim(ptr noundef nonnull @.str.295, i8 noundef zeroext 24)
+  tail call fastcc void @test_binary_flush_impl(ptr noundef nonnull @.str.295, i8 noundef zeroext 24)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_append() #0 {
 entry:
-  tail call fastcc void @test_binary_concat_impl.argelim(ptr noundef nonnull @.str.296, i8 noundef zeroext 14)
+  tail call fastcc void @test_binary_concat_impl(ptr noundef nonnull @.str.296, i8 noundef zeroext 14)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_appendq() #0 {
 entry:
-  tail call fastcc void @test_binary_concat_impl.argelim(ptr noundef nonnull @.str.302, i8 noundef zeroext 25)
+  tail call fastcc void @test_binary_concat_impl(ptr noundef nonnull @.str.302, i8 noundef zeroext 25)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_prepend() #0 {
 entry:
-  tail call fastcc void @test_binary_concat_impl.argelim(ptr noundef nonnull @.str.303, i8 noundef zeroext 15)
+  tail call fastcc void @test_binary_concat_impl(ptr noundef nonnull @.str.303, i8 noundef zeroext 15)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_binary_prependq() #0 {
 entry:
-  tail call fastcc void @test_binary_concat_impl.argelim(ptr noundef nonnull @.str.304, i8 noundef zeroext 26)
+  tail call fastcc void @test_binary_concat_impl(ptr noundef nonnull @.str.304, i8 noundef zeroext 26)
   ret i32 1
 }
 
@@ -3506,7 +3506,7 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.end
 
 close_conn.exit:                                  ; preds = %entry, %if.end4.i
   %3 = load i16, ptr @port, align 2
-  %call = tail call fastcc ptr @connect_server.argprom.argelim(i16 noundef zeroext %3, i1 noundef zeroext false)
+  %call = tail call fastcc ptr @connect_server(i16 noundef zeroext %3, i1 noundef zeroext false)
   store ptr %call, ptr @con, align 8
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %if.else, label %do.body.i
@@ -4108,7 +4108,7 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @connect_server.argprom.argelim(i16 noundef zeroext %port, i1 noundef zeroext %nonblock) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @connect_server(i16 noundef zeroext %port, i1 noundef zeroext %nonblock) unnamed_addr #0 {
 entry:
   %ai.i = alloca ptr, align 8
   %hints.i = alloca %struct.addrinfo, align 8
@@ -4139,7 +4139,7 @@ if.end:                                           ; preds = %entry
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %service.i, i64 noundef 32, ptr noundef nonnull @.str.222, i32 noundef %conv.i) #20
   %call2.i = call i32 @getaddrinfo(ptr noundef nonnull @.str.211, ptr noundef nonnull %service.i, ptr noundef nonnull %hints.i, ptr noundef nonnull %ai.i) #20
   switch i32 %call2.i, label %if.then6.i [
-    i32 0, label %lookuphost.argprom.exit
+    i32 0, label %lookuphost.exit
     i32 -11, label %if.else.i
   ]
 
@@ -4147,13 +4147,13 @@ if.then6.i:                                       ; preds = %if.end
   %4 = load ptr, ptr @stderr, align 8
   %call7.i = call ptr @gai_strerror(i32 noundef %call2.i) #20
   %call8.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.223, ptr noundef %call7.i) #25
-  br label %lookuphost.argprom.exit
+  br label %lookuphost.exit
 
 if.else.i:                                        ; preds = %if.end
   call void @perror(ptr noundef nonnull @.str.224) #25
-  br label %lookuphost.argprom.exit
+  br label %lookuphost.exit
 
-lookuphost.argprom.exit:                          ; preds = %if.end, %if.then6.i, %if.else.i
+lookuphost.exit:                                  ; preds = %if.end, %if.then6.i, %if.else.i
   %5 = load ptr, ptr %ai.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ai.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i)
@@ -4161,7 +4161,7 @@ lookuphost.argprom.exit:                          ; preds = %if.end, %if.then6.i
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %if.end36, label %if.then6
 
-if.then6:                                         ; preds = %lookuphost.argprom.exit
+if.then6:                                         ; preds = %lookuphost.exit
   %ai_family = getelementptr inbounds i8, ptr %5, i64 4
   %6 = load i32, ptr %ai_family, align 4
   %ai_socktype = getelementptr inbounds i8, ptr %5, i64 8
@@ -4226,8 +4226,8 @@ if.end35:                                         ; preds = %if.then12, %lor.lhs
   call void @freeaddrinfo(ptr noundef nonnull %5) #20
   br label %if.end36
 
-if.end36:                                         ; preds = %if.end35, %lookuphost.argprom.exit
-  %sock.0 = phi i32 [ %sock.1, %if.end35 ], [ -1, %lookuphost.argprom.exit ]
+if.end36:                                         ; preds = %if.end35, %lookuphost.exit
+  %sock.0 = phi i32 [ %sock.1, %if.end35 ], [ -1, %lookuphost.exit ]
   store i32 %sock.0, ptr %call, align 8
   %read = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @tcp_read, ptr %read, align 8
@@ -4919,7 +4919,7 @@ declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #10
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_quit_impl.argelim(i8 noundef zeroext range(i8 7, 24) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_quit_impl(i8 noundef zeroext range(i8 7, 24) %cmd) unnamed_addr #0 {
 entry:
   %buffer = alloca %union.anon.4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
@@ -5032,7 +5032,7 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.end
 
 close_conn.exit:                                  ; preds = %if.end10, %if.end4.i
   %12 = load i16, ptr @port, align 2
-  %call11 = call fastcc ptr @connect_server.argprom.argelim(i16 noundef zeroext %12, i1 noundef zeroext false)
+  %call11 = call fastcc ptr @connect_server(i16 noundef zeroext %12, i1 noundef zeroext false)
   store ptr %call11, ptr @con, align 8
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %if.else14, label %if.end15
@@ -5046,7 +5046,7 @@ if.end15:                                         ; preds = %close_conn.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_set_impl.argelim(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 1, 18) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_set_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 1, 18) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.5, align 8
   %receive = alloca %union.anon.5, align 8
@@ -5274,7 +5274,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_add_impl.argelim(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 2, 19) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_add_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 2, 19) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.8, align 8
   %receive = alloca %union.anon.8, align 8
@@ -5450,7 +5450,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_replace_impl.argelim(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 3, 20) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_replace_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 3, 20) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.9, align 8
   %receive = alloca %union.anon.9, align 8
@@ -5778,7 +5778,7 @@ if.end24:                                         ; preds = %if.then22, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_delete_impl.argelim(ptr noundef readonly %key, i8 noundef zeroext range(i8 4, 21) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_delete_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 4, 21) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.10, align 8
   %receive = alloca %union.anon.10, align 8
@@ -6118,7 +6118,7 @@ safe_recv_packet.exit128:                         ; preds = %safe_send.exit115, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_get_impl.argelim(ptr noundef readonly %key, i8 noundef zeroext range(i8 0, 36) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_get_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 0, 36) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.11, align 8
   %receive = alloca %union.anon.11, align 8
@@ -6454,7 +6454,7 @@ for.end37:                                        ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_getq_impl.argelim(ptr noundef readonly %key, i8 noundef zeroext range(i8 9, 37) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_getq_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 9, 37) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.13, align 8
   %temp = alloca %union.anon.13, align 8
@@ -6662,7 +6662,7 @@ safe_recv_packet.exit65:                          ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_incr_impl.argelim(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 5, 22) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_incr_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 5, 22) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.14, align 8
   %receive = alloca %union.anon.14, align 8
@@ -6836,7 +6836,7 @@ declare i64 @ntohll(i64 noundef) local_unnamed_addr #2
 declare i64 @htonll(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_decr_impl.argelim(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 6, 23) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_decr_impl(ptr nocapture noundef readonly %key, i8 noundef zeroext range(i8 6, 23) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.19, align 8
   %receive = alloca %union.anon.19, align 8
@@ -7071,7 +7071,7 @@ if.end30:                                         ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_flush_impl.argelim(ptr noundef readonly %key, i8 noundef zeroext range(i8 8, 25) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_flush_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 8, 25) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.21, align 8
   %receive = alloca %union.anon.21, align 8
@@ -7640,7 +7640,7 @@ for.end:                                          ; preds = %safe_recv_packet.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_binary_concat_impl.argelim(ptr noundef readonly %key, i8 noundef zeroext range(i8 14, 27) %cmd) unnamed_addr #0 {
+define internal fastcc void @test_binary_concat_impl(ptr noundef readonly %key, i8 noundef zeroext range(i8 14, 27) %cmd) unnamed_addr #0 {
 entry:
   %send = alloca %union.anon.24, align 8
   %receive = alloca %union.anon.24, align 8

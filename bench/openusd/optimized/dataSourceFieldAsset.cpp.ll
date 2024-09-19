@@ -506,7 +506,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKS0_.exit: ; preds = %_ZN32pxrI
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %.noexc3
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolOpenVDBAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv.retelim()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolOpenVDBAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv()
           to label %64 unwind label %124
 
 48:                                               ; preds = %.noexc3
@@ -525,7 +525,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKS0_.exit: ; preds = %_ZN32pxrI
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %.noexc7
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolField3DAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv.retelim()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolField3DAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv()
           to label %64 unwind label %124
 
 53:                                               ; preds = %.noexc7
@@ -1599,7 +1599,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim3IsAINS_18UsdVolOpenVDBAssetEEEbv.
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim3IsAINS_18UsdVolOpenVDBAssetEEEbv.exit
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolOpenVDBAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv.retelim()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolOpenVDBAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv()
           to label %.invoke unwind label %12
 
 12:                                               ; preds = %18, %11, %.invoke, %.noexc16, %.noexc15, %14, %.noexc13, %.noexc, %5, %142, %.split.us, %21
@@ -1625,7 +1625,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim3IsAINS_18UsdVolField3DAssetEEEbv.
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim3IsAINS_18UsdVolField3DAssetEEEbv.exit
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolField3DAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv.retelim()
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolField3DAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv()
           to label %.invoke unwind label %12
 
 .invoke:                                          ; preds = %18, %11
@@ -1954,7 +1954,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit: ; pr
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__24UsdImagingDataSourcePrim10InvalidateERKNS_7UsdPrimERKNS_7TfTokenERKSt6vectorIS4_SaIS4_EENS_34UsdImagingPropertyInvalidationTypeE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolOpenVDBAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv.retelim() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolOpenVDBAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolOpenVDBAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEvE6result acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %12, !prof !4
@@ -2331,7 +2331,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolField3DAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv.retelim() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolField3DAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolField3DAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEvE6result acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %12, !prof !4

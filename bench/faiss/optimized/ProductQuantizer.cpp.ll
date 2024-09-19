@@ -3861,7 +3861,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
 58:                                               ; preds = %56
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %.not.i.i = icmp eq i64 %52, 0
-  br i1 %.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58
   %59 = getelementptr inbounds float, ptr %34, i64 %55
@@ -3911,7 +3911,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i.i:
 90:                                               ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i.i, %.lr.ph.split.us.i.i
   %91 = add nuw i64 %.02728.us.i.i, 1
   %exitcond33.not.i.i = icmp eq i64 %91, %52
-  br i1 %exitcond33.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.split.us.i.i, !llvm.loop !51
+  br i1 %exitcond33.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.split.us.i.i, !llvm.loop !51
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %154
   %.031.i.i = phi ptr [ %109, %154 ], [ %51, %.lr.ph.i.i ]
@@ -4020,7 +4020,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 154:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.i.i, %.lr.ph.split.i.i
   %155 = add nuw i64 %.02728.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %155, %52
-  br i1 %exitcond.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.split.i.i, !llvm.loop !51
+  br i1 %exitcond.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.split.i.i, !llvm.loop !51
 
 156:                                              ; preds = %56
   %157 = and i64 %54, 3
@@ -4029,7 +4029,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .preheader6.i:                                    ; preds = %156
   %.not.i = icmp eq i64 %52, 0
-  br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.lr.ph.i
+  br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %.preheader6.i
   %.not20.i = icmp eq i64 %54, 0
@@ -4042,7 +4042,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 162:                                              ; preds = %156
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %.not.i42.i = icmp eq i64 %52, 0
-  br i1 %.not.i42.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.lr.ph.i.i
+  br i1 %.not.i42.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.lr.ph.i.i
 
 .preheader.lr.ph.i.i:                             ; preds = %162
   %sext.i = shl i64 %54, 32
@@ -4071,7 +4071,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i
 168:                                              ; preds = %._crit_edge.us.us.i.i, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i.i
   %169 = add nuw i64 %.03743.us.us.i.i, 1
   %exitcond75.not.i.i = icmp eq i64 %169, %52
-  br i1 %exitcond75.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.us.us.i.i, !llvm.loop !56
+  br i1 %exitcond75.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.us.us.i.i, !llvm.loop !56
 
 170:                                              ; preds = %170, %.preheader.us.us.i.i
   %.141.us.us.i.i = phi ptr [ %.046.us.us.i.i, %.preheader.us.us.i.i ], [ %191, %170 ]
@@ -4118,7 +4118,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i
 .preheader.lr.ph.split.us.split.i.i:              ; preds = %.preheader.lr.ph.split.us.i.i
   %203 = load float, ptr %43, align 4, !noalias !53
   %204 = fcmp ogt float %203, 0.000000e+00
-  br i1 %204, label %.preheader.us.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+  br i1 %204, label %.preheader.us.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
 
 .preheader.usthread-pre-split.i.i:                ; preds = %207
   %.pr.i.i = load float, ptr %43, align 4, !noalias !53
@@ -4138,7 +4138,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i58.
 207:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i58.i, %.preheader.us.i.i
   %208 = add nuw i64 %.03743.us.i.i, 1
   %exitcond76.not.i.i = icmp eq i64 %208, %52
-  br i1 %exitcond76.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.usthread-pre-split.i.i, !llvm.loop !58
+  br i1 %exitcond76.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.usthread-pre-split.i.i, !llvm.loop !58
 
 .preheader.lr.ph.split.i.i:                       ; preds = %.preheader.lr.ph.i.i
   br i1 %.not65.i.i, label %.preheader.lr.ph.split.split.i.i, label %.preheader.us48.i.i
@@ -4217,7 +4217,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.us.i.i:     ; preds = %_ZN5faiss4CMaxIflE4
 244:                                              ; preds = %._crit_edge.us58.i.i, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us.i.i
   %245 = add nuw i64 %.03743.us50.i.i, 1
   %exitcond.not.i44.i = icmp eq i64 %245, %52
-  br i1 %exitcond.not.i44.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.us48.i.i, !llvm.loop !56
+  br i1 %exitcond.not.i44.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.us48.i.i, !llvm.loop !56
 
 246:                                              ; preds = %246, %.preheader.us48.i.i
   %.141.us53.i.i = phi ptr [ %.046.us49.i.i, %.preheader.us48.i.i ], [ %267, %246 ]
@@ -4272,7 +4272,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 .preheader.lr.ph.split.split.i.i:                 ; preds = %.preheader.lr.ph.split.i.i
   %281 = load float, ptr %43, align 4, !noalias !53
   %282 = fcmp ogt float %281, 0.000000e+00
-  br i1 %282, label %.preheader.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+  br i1 %282, label %.preheader.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
 
 .preheaderthread-pre-split.i.i:                   ; preds = %322
   %.pr77.i.i = load float, ptr %43, align 4, !noalias !53
@@ -4361,7 +4361,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 322:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.i52.i, %.preheader.i.i
   %323 = add nuw i64 %.03743.i.i, 1
   %exitcond74.not.i.i = icmp eq i64 %323, %52
-  br i1 %exitcond74.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheaderthread-pre-split.i.i, !llvm.loop !59
+  br i1 %exitcond74.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheaderthread-pre-split.i.i, !llvm.loop !59
 
 .preheader.i:                                     ; preds = %371, %.preheader.lr.ph.i
   %.03917.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %372, %371 ]
@@ -4475,7 +4475,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i: ; pr
 371:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i, %._crit_edge.i
   %372 = add nuw i64 %.03917.i, 1
   %exitcond33.not.i = icmp eq i64 %372, %52
-  br i1 %exitcond33.not.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.i, !llvm.loop !61
+  br i1 %exitcond33.not.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.i, !llvm.loop !61
 
 373:                                              ; preds = %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit
   %374 = icmp eq i64 %54, 4
@@ -4484,7 +4484,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i: ; pr
 375:                                              ; preds = %373
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
   %.not.i.i141 = icmp eq i64 %52, 0
-  br i1 %.not.i.i141, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.i.i142
+  br i1 %.not.i.i141, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.i.i142
 
 .lr.ph.i.i142:                                    ; preds = %375
   %376 = getelementptr inbounds float, ptr %34, i64 %55
@@ -4534,7 +4534,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i.i1
 407:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i.i165, %.lr.ph.split.us.i.i161
   %408 = add nuw i64 %.02728.us.i.i163, 1
   %exitcond33.not.i.i164 = icmp eq i64 %408, %52
-  br i1 %exitcond33.not.i.i164, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.split.us.i.i161, !llvm.loop !65
+  br i1 %exitcond33.not.i.i164, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.split.us.i.i161, !llvm.loop !65
 
 .lr.ph.split.i.i144:                              ; preds = %.lr.ph.i.i142, %471
   %.031.i.i145 = phi ptr [ %426, %471 ], [ %51, %.lr.ph.i.i142 ]
@@ -4643,7 +4643,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 471:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.i.i155, %.lr.ph.split.i.i144
   %472 = add nuw i64 %.02728.i.i146, 1
   %exitcond.not.i.i147 = icmp eq i64 %472, %52
-  br i1 %exitcond.not.i.i147, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.split.i.i144, !llvm.loop !65
+  br i1 %exitcond.not.i.i147, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.split.i.i144, !llvm.loop !65
 
 473:                                              ; preds = %373
   %474 = and i64 %54, 3
@@ -4652,7 +4652,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .preheader6.i42:                                  ; preds = %473
   %.not.i43 = icmp eq i64 %52, 0
-  br i1 %.not.i43, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.lr.ph.i44
+  br i1 %.not.i43, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.lr.ph.i44
 
 .preheader.lr.ph.i44:                             ; preds = %.preheader6.i42
   %.not20.i45 = icmp eq i64 %54, 0
@@ -4666,7 +4666,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 480:                                              ; preds = %473
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %.not.i42.i76 = icmp eq i64 %52, 0
-  br i1 %.not.i42.i76, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.lr.ph.i.i77
+  br i1 %.not.i42.i76, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.lr.ph.i.i77
 
 .preheader.lr.ph.i.i77:                           ; preds = %480
   %sext.i78 = shl i64 %54, 32
@@ -4695,7 +4695,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i
 486:                                              ; preds = %._crit_edge.us.us.i.i131, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i.i133
   %487 = add nuw i64 %.03743.us.us.i.i126, 1
   %exitcond75.not.i.i132 = icmp eq i64 %487, %52
-  br i1 %exitcond75.not.i.i132, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.us.us.i.i124, !llvm.loop !69
+  br i1 %exitcond75.not.i.i132, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.us.us.i.i124, !llvm.loop !69
 
 488:                                              ; preds = %488, %.preheader.us.us.i.i124
   %.141.us.us.i.i127 = phi ptr [ %.046.us.us.i.i125, %.preheader.us.us.i.i124 ], [ %509, %488 ]
@@ -4742,7 +4742,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i
 .preheader.lr.ph.split.us.split.i.i134:           ; preds = %.preheader.lr.ph.split.us.i.i123
   %521 = load float, ptr %43, align 4, !noalias !66
   %522 = fcmp ogt float %521, 0.000000e+00
-  br i1 %522, label %.preheader.us.i.i135, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+  br i1 %522, label %.preheader.us.i.i135, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
 
 .preheader.usthread-pre-split.i.i138:             ; preds = %525
   %.pr.i.i139 = load float, ptr %43, align 4, !noalias !66
@@ -4762,7 +4762,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i58.
 525:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i58.i140, %.preheader.us.i.i135
   %526 = add nuw i64 %.03743.us.i.i136, 1
   %exitcond76.not.i.i137 = icmp eq i64 %526, %52
-  br i1 %exitcond76.not.i.i137, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.usthread-pre-split.i.i138, !llvm.loop !71
+  br i1 %exitcond76.not.i.i137, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.usthread-pre-split.i.i138, !llvm.loop !71
 
 .preheader.lr.ph.split.i.i81:                     ; preds = %.preheader.lr.ph.i.i77
   br i1 %.not65.i.i79, label %.preheader.lr.ph.split.split.i.i104, label %.preheader.us48.i.i82
@@ -4841,7 +4841,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.us.i.i101:  ; preds = %_ZN5faiss4CMaxIflE4
 562:                                              ; preds = %._crit_edge.us58.i.i89, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us.i.i98
   %563 = add nuw i64 %.03743.us50.i.i84, 1
   %exitcond.not.i44.i90 = icmp eq i64 %563, %52
-  br i1 %exitcond.not.i44.i90, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.us48.i.i82, !llvm.loop !69
+  br i1 %exitcond.not.i44.i90, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.us48.i.i82, !llvm.loop !69
 
 564:                                              ; preds = %564, %.preheader.us48.i.i82
   %.141.us53.i.i85 = phi ptr [ %.046.us49.i.i83, %.preheader.us48.i.i82 ], [ %585, %564 ]
@@ -4896,7 +4896,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 .preheader.lr.ph.split.split.i.i104:              ; preds = %.preheader.lr.ph.split.i.i81
   %599 = load float, ptr %43, align 4, !noalias !66
   %600 = fcmp ogt float %599, 0.000000e+00
-  br i1 %600, label %.preheader.i.i105, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+  br i1 %600, label %.preheader.i.i105, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
 
 .preheaderthread-pre-split.i.i108:                ; preds = %640
   %.pr77.i.i109 = load float, ptr %43, align 4, !noalias !66
@@ -4985,7 +4985,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 640:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.i52.i117, %.preheader.i.i105
   %641 = add nuw i64 %.03743.i.i106, 1
   %exitcond74.not.i.i107 = icmp eq i64 %641, %52
-  br i1 %exitcond74.not.i.i107, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheaderthread-pre-split.i.i108, !llvm.loop !72
+  br i1 %exitcond74.not.i.i107, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheaderthread-pre-split.i.i108, !llvm.loop !72
 
 .preheader.i47:                                   ; preds = %689, %.preheader.lr.ph.i44
   %.03917.i48 = phi i64 [ 0, %.preheader.lr.ph.i44 ], [ %690, %689 ]
@@ -5099,11 +5099,11 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i70: ; 
 689:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i70, %._crit_edge.i59
   %690 = add nuw i64 %.03917.i48, 1
   %exitcond33.not.i62 = icmp eq i64 %690, %52
-  br i1 %exitcond33.not.i62, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.i47, !llvm.loop !74
+  br i1 %exitcond33.not.i62, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.i47, !llvm.loop !74
 
 691:                                              ; preds = %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit
   %.not.i166 = icmp eq i64 %52, 0
-  br i1 %.not.i166, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph44.i
+  br i1 %.not.i166, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph44.i
 
 .lr.ph44.i:                                       ; preds = %691
   %692 = trunc i64 %50 to i32
@@ -5306,19 +5306,19 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i177: ;
 784:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i177, %._crit_edge.i170
   %785 = add nuw i64 %.040.i, 1
   %exitcond51.not.i171 = icmp eq i64 %785, %52
-  br i1 %exitcond51.not.i171, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %699, !llvm.loop !76
+  br i1 %exitcond51.not.i171, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %699, !llvm.loop !76
 
-_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit: ; preds = %689, %562, %640, %486, %525, %471, %407, %371, %244, %322, %168, %207, %154, %90, %784, %691, %.preheader.lr.ph.split.split.i.i104, %.preheader.lr.ph.split.us.split.i.i134, %480, %.preheader6.i42, %375, %.preheader.lr.ph.split.split.i.i, %.preheader.lr.ph.split.us.split.i.i, %162, %.preheader6.i, %58
+_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit: ; preds = %689, %562, %640, %486, %525, %471, %407, %371, %244, %322, %168, %207, %154, %90, %784, %691, %.preheader.lr.ph.split.split.i.i104, %.preheader.lr.ph.split.us.split.i.i134, %480, %.preheader6.i42, %375, %.preheader.lr.ph.split.split.i.i, %.preheader.lr.ph.split.us.split.i.i, %162, %.preheader6.i, %58
   %786 = load i8, ptr %8, align 1
   %787 = trunc i8 %786 to i1
   br i1 %787, label %788, label %791
 
-788:                                              ; preds = %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+788:                                              ; preds = %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
   %789 = load i64, ptr %7, align 8
   %790 = invoke noundef i64 @_ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE(i64 noundef %789, ptr noundef %43, ptr noundef %40)
           to label %791 unwind label %797
 
-791:                                              ; preds = %788, %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+791:                                              ; preds = %788, %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMaxIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
   %792 = add nuw i64 %.0212, 1
   %793 = load i64, ptr %15, align 8
   %794 = add i64 %793, 1
@@ -5711,7 +5711,7 @@ _ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
 58:                                               ; preds = %56
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %.not.i.i = icmp eq i64 %52, 0
-  br i1 %.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58
   %59 = getelementptr inbounds float, ptr %34, i64 %55
@@ -5761,7 +5761,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i.i:
 90:                                               ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i.i, %.lr.ph.split.us.i.i
   %91 = add nuw i64 %.02728.us.i.i, 1
   %exitcond33.not.i.i = icmp eq i64 %91, %52
-  br i1 %exitcond33.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.split.us.i.i, !llvm.loop !84
+  br i1 %exitcond33.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.split.us.i.i, !llvm.loop !84
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %154
   %.031.i.i = phi ptr [ %109, %154 ], [ %51, %.lr.ph.i.i ]
@@ -5870,7 +5870,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 154:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.i.i, %.lr.ph.split.i.i
   %155 = add nuw i64 %.02728.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %155, %52
-  br i1 %exitcond.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.split.i.i, !llvm.loop !84
+  br i1 %exitcond.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.split.i.i, !llvm.loop !84
 
 156:                                              ; preds = %56
   %157 = and i64 %54, 3
@@ -5879,7 +5879,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .preheader6.i:                                    ; preds = %156
   %.not.i = icmp eq i64 %52, 0
-  br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.lr.ph.i
+  br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %.preheader6.i
   %.not20.i = icmp eq i64 %54, 0
@@ -5892,7 +5892,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 162:                                              ; preds = %156
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %.not.i42.i = icmp eq i64 %52, 0
-  br i1 %.not.i42.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.lr.ph.i.i
+  br i1 %.not.i42.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.lr.ph.i.i
 
 .preheader.lr.ph.i.i:                             ; preds = %162
   %sext.i = shl i64 %54, 32
@@ -5921,7 +5921,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i
 168:                                              ; preds = %._crit_edge.us.us.i.i, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i.i
   %169 = add nuw i64 %.03743.us.us.i.i, 1
   %exitcond75.not.i.i = icmp eq i64 %169, %52
-  br i1 %exitcond75.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.us.us.i.i, !llvm.loop !89
+  br i1 %exitcond75.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.us.us.i.i, !llvm.loop !89
 
 170:                                              ; preds = %170, %.preheader.us.us.i.i
   %.141.us.us.i.i = phi ptr [ %.046.us.us.i.i, %.preheader.us.us.i.i ], [ %191, %170 ]
@@ -5968,7 +5968,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i
 .preheader.lr.ph.split.us.split.i.i:              ; preds = %.preheader.lr.ph.split.us.i.i
   %203 = load float, ptr %43, align 4, !noalias !86
   %204 = fcmp olt float %203, 0.000000e+00
-  br i1 %204, label %.preheader.us.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+  br i1 %204, label %.preheader.us.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
 
 .preheader.usthread-pre-split.i.i:                ; preds = %207
   %.pr.i.i = load float, ptr %43, align 4, !noalias !86
@@ -5988,7 +5988,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i58.
 207:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i58.i, %.preheader.us.i.i
   %208 = add nuw i64 %.03743.us.i.i, 1
   %exitcond76.not.i.i = icmp eq i64 %208, %52
-  br i1 %exitcond76.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.usthread-pre-split.i.i, !llvm.loop !91
+  br i1 %exitcond76.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.usthread-pre-split.i.i, !llvm.loop !91
 
 .preheader.lr.ph.split.i.i:                       ; preds = %.preheader.lr.ph.i.i
   br i1 %.not65.i.i, label %.preheader.lr.ph.split.split.i.i, label %.preheader.us48.i.i
@@ -6067,7 +6067,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit54.i.us.i.i:     ; preds = %_ZN5faiss4CMinIflE4
 244:                                              ; preds = %._crit_edge.us58.i.i, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us.i.i
   %245 = add nuw i64 %.03743.us50.i.i, 1
   %exitcond.not.i44.i = icmp eq i64 %245, %52
-  br i1 %exitcond.not.i44.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.us48.i.i, !llvm.loop !89
+  br i1 %exitcond.not.i44.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.us48.i.i, !llvm.loop !89
 
 246:                                              ; preds = %246, %.preheader.us48.i.i
   %.141.us53.i.i = phi ptr [ %.046.us49.i.i, %.preheader.us48.i.i ], [ %267, %246 ]
@@ -6122,7 +6122,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 .preheader.lr.ph.split.split.i.i:                 ; preds = %.preheader.lr.ph.split.i.i
   %281 = load float, ptr %43, align 4, !noalias !86
   %282 = fcmp olt float %281, 0.000000e+00
-  br i1 %282, label %.preheader.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+  br i1 %282, label %.preheader.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
 
 .preheaderthread-pre-split.i.i:                   ; preds = %322
   %.pr77.i.i = load float, ptr %43, align 4, !noalias !86
@@ -6211,7 +6211,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 322:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.i52.i, %.preheader.i.i
   %323 = add nuw i64 %.03743.i.i, 1
   %exitcond74.not.i.i = icmp eq i64 %323, %52
-  br i1 %exitcond74.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheaderthread-pre-split.i.i, !llvm.loop !92
+  br i1 %exitcond74.not.i.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheaderthread-pre-split.i.i, !llvm.loop !92
 
 .preheader.i:                                     ; preds = %371, %.preheader.lr.ph.i
   %.03917.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %372, %371 ]
@@ -6325,7 +6325,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i: ; pr
 371:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i, %._crit_edge.i
   %372 = add nuw i64 %.03917.i, 1
   %exitcond33.not.i = icmp eq i64 %372, %52
-  br i1 %exitcond33.not.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.i, !llvm.loop !94
+  br i1 %exitcond33.not.i, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.i, !llvm.loop !94
 
 373:                                              ; preds = %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit
   %374 = icmp eq i64 %54, 4
@@ -6334,7 +6334,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i: ; pr
 375:                                              ; preds = %373
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %.not.i.i141 = icmp eq i64 %52, 0
-  br i1 %.not.i.i141, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.i.i142
+  br i1 %.not.i.i141, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.i.i142
 
 .lr.ph.i.i142:                                    ; preds = %375
   %376 = getelementptr inbounds float, ptr %34, i64 %55
@@ -6384,7 +6384,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i.i1
 407:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i.i165, %.lr.ph.split.us.i.i161
   %408 = add nuw i64 %.02728.us.i.i163, 1
   %exitcond33.not.i.i164 = icmp eq i64 %408, %52
-  br i1 %exitcond33.not.i.i164, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.split.us.i.i161, !llvm.loop !98
+  br i1 %exitcond33.not.i.i164, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.split.us.i.i161, !llvm.loop !98
 
 .lr.ph.split.i.i144:                              ; preds = %.lr.ph.i.i142, %471
   %.031.i.i145 = phi ptr [ %426, %471 ], [ %51, %.lr.ph.i.i142 ]
@@ -6493,7 +6493,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 471:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.i.i155, %.lr.ph.split.i.i144
   %472 = add nuw i64 %.02728.i.i146, 1
   %exitcond.not.i.i147 = icmp eq i64 %472, %52
-  br i1 %exitcond.not.i.i147, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph.split.i.i144, !llvm.loop !98
+  br i1 %exitcond.not.i.i147, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph.split.i.i144, !llvm.loop !98
 
 473:                                              ; preds = %373
   %474 = and i64 %54, 3
@@ -6502,7 +6502,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .preheader6.i42:                                  ; preds = %473
   %.not.i43 = icmp eq i64 %52, 0
-  br i1 %.not.i43, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.lr.ph.i44
+  br i1 %.not.i43, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.lr.ph.i44
 
 .preheader.lr.ph.i44:                             ; preds = %.preheader6.i42
   %.not20.i45 = icmp eq i64 %54, 0
@@ -6516,7 +6516,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 480:                                              ; preds = %473
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   %.not.i42.i76 = icmp eq i64 %52, 0
-  br i1 %.not.i42.i76, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.lr.ph.i.i77
+  br i1 %.not.i42.i76, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.lr.ph.i.i77
 
 .preheader.lr.ph.i.i77:                           ; preds = %480
   %sext.i78 = shl i64 %54, 32
@@ -6545,7 +6545,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i
 486:                                              ; preds = %._crit_edge.us.us.i.i131, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i.i133
   %487 = add nuw i64 %.03743.us.us.i.i126, 1
   %exitcond75.not.i.i132 = icmp eq i64 %487, %52
-  br i1 %exitcond75.not.i.i132, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.us.us.i.i124, !llvm.loop !102
+  br i1 %exitcond75.not.i.i132, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.us.us.i.i124, !llvm.loop !102
 
 488:                                              ; preds = %488, %.preheader.us.us.i.i124
   %.141.us.us.i.i127 = phi ptr [ %.046.us.us.i.i125, %.preheader.us.us.i.i124 ], [ %509, %488 ]
@@ -6592,7 +6592,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.us.i
 .preheader.lr.ph.split.us.split.i.i134:           ; preds = %.preheader.lr.ph.split.us.i.i123
   %521 = load float, ptr %43, align 4, !noalias !99
   %522 = fcmp olt float %521, 0.000000e+00
-  br i1 %522, label %.preheader.us.i.i135, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+  br i1 %522, label %.preheader.us.i.i135, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
 
 .preheader.usthread-pre-split.i.i138:             ; preds = %525
   %.pr.i.i139 = load float, ptr %43, align 4, !noalias !99
@@ -6612,7 +6612,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i58.
 525:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us.i58.i140, %.preheader.us.i.i135
   %526 = add nuw i64 %.03743.us.i.i136, 1
   %exitcond76.not.i.i137 = icmp eq i64 %526, %52
-  br i1 %exitcond76.not.i.i137, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.usthread-pre-split.i.i138, !llvm.loop !104
+  br i1 %exitcond76.not.i.i137, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.usthread-pre-split.i.i138, !llvm.loop !104
 
 .preheader.lr.ph.split.i.i81:                     ; preds = %.preheader.lr.ph.i.i77
   br i1 %.not65.i.i79, label %.preheader.lr.ph.split.split.i.i104, label %.preheader.us48.i.i82
@@ -6691,7 +6691,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit54.i.us.i.i101:  ; preds = %_ZN5faiss4CMinIflE4
 562:                                              ; preds = %._crit_edge.us58.i.i89, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.us.i.i98
   %563 = add nuw i64 %.03743.us50.i.i84, 1
   %exitcond.not.i44.i90 = icmp eq i64 %563, %52
-  br i1 %exitcond.not.i44.i90, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.us48.i.i82, !llvm.loop !102
+  br i1 %exitcond.not.i44.i90, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.us48.i.i82, !llvm.loop !102
 
 564:                                              ; preds = %564, %.preheader.us48.i.i82
   %.141.us53.i.i85 = phi ptr [ %.046.us49.i.i83, %.preheader.us48.i.i82 ], [ %585, %564 ]
@@ -6746,7 +6746,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 .preheader.lr.ph.split.split.i.i104:              ; preds = %.preheader.lr.ph.split.i.i81
   %599 = load float, ptr %43, align 4, !noalias !99
   %600 = fcmp olt float %599, 0.000000e+00
-  br i1 %600, label %.preheader.i.i105, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+  br i1 %600, label %.preheader.i.i105, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
 
 .preheaderthread-pre-split.i.i108:                ; preds = %640
   %.pr77.i.i109 = load float, ptr %43, align 4, !noalias !99
@@ -6835,7 +6835,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 640:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit.i52.i117, %.preheader.i.i105
   %641 = add nuw i64 %.03743.i.i106, 1
   %exitcond74.not.i.i107 = icmp eq i64 %641, %52
-  br i1 %exitcond74.not.i.i107, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheaderthread-pre-split.i.i108, !llvm.loop !105
+  br i1 %exitcond74.not.i.i107, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheaderthread-pre-split.i.i108, !llvm.loop !105
 
 .preheader.i47:                                   ; preds = %689, %.preheader.lr.ph.i44
   %.03917.i48 = phi i64 [ 0, %.preheader.lr.ph.i44 ], [ %690, %689 ]
@@ -6949,11 +6949,11 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i70: ; 
 689:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i70, %._crit_edge.i59
   %690 = add nuw i64 %.03917.i48, 1
   %exitcond33.not.i62 = icmp eq i64 %690, %52
-  br i1 %exitcond33.not.i62, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.preheader.i47, !llvm.loop !107
+  br i1 %exitcond33.not.i62, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.preheader.i47, !llvm.loop !107
 
 691:                                              ; preds = %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit
   %.not.i166 = icmp eq i64 %52, 0
-  br i1 %.not.i166, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %.lr.ph44.i
+  br i1 %.not.i166, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %.lr.ph44.i
 
 .lr.ph44.i:                                       ; preds = %691
   %692 = trunc i64 %50 to i32
@@ -7156,19 +7156,19 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i177: ;
 784:                                              ; preds = %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i177, %._crit_edge.i170
   %785 = add nuw i64 %.040.i, 1
   %exitcond51.not.i171 = icmp eq i64 %785, %52
-  br i1 %exitcond51.not.i171, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit, label %699, !llvm.loop !109
+  br i1 %exitcond51.not.i171, label %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit, label %699, !llvm.loop !109
 
-_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit: ; preds = %689, %562, %640, %486, %525, %471, %407, %371, %244, %322, %168, %207, %154, %90, %784, %691, %.preheader.lr.ph.split.split.i.i104, %.preheader.lr.ph.split.us.split.i.i134, %480, %.preheader6.i42, %375, %.preheader.lr.ph.split.split.i.i, %.preheader.lr.ph.split.us.split.i.i, %162, %.preheader6.i, %58
+_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit: ; preds = %689, %562, %640, %486, %525, %471, %407, %371, %244, %322, %168, %207, %154, %90, %784, %691, %.preheader.lr.ph.split.split.i.i104, %.preheader.lr.ph.split.us.split.i.i134, %480, %.preheader6.i42, %375, %.preheader.lr.ph.split.split.i.i, %.preheader.lr.ph.split.us.split.i.i, %162, %.preheader6.i, %58
   %786 = load i8, ptr %8, align 1
   %787 = trunc i8 %786 to i1
   br i1 %787, label %788, label %791
 
-788:                                              ; preds = %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+788:                                              ; preds = %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
   %789 = load i64, ptr %7, align 8
   %790 = invoke noundef i64 @_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE(i64 noundef %789, ptr noundef %43, ptr noundef %40)
           to label %791 unwind label %797
 
-791:                                              ; preds = %788, %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.argprom.exit
+791:                                              ; preds = %788, %_ZN5faiss12_GLOBAL__N_125pq_estimators_from_tablesIhNS_4CMinIflEEEEvRKNS_16ProductQuantizerEPKT_mPKfmPfPl.exit
   %792 = add nuw i64 %.0212, 1
   %793 = load i64, ptr %15, align 8
   %794 = add i64 %793, 1

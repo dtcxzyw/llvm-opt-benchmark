@@ -909,7 +909,7 @@ if.then.i97.i.i.i:                                ; preds = %_ZNK17arith_recogni
   %n.val.i.i.i.i = load ptr, ptr %62, align 8
   %63 = getelementptr i8, ptr %42, i64 40
   %n.val8.i.i.i.i = load ptr, ptr %63, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118arith_degree_probe4proc7processEP3app.argprom(ptr noundef nonnull align 8 dereferenceable(804) %p, ptr %n.val.i.i.i.i, ptr %n.val8.i.i.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_118arith_degree_probe4proc7processEP3app(ptr noundef nonnull align 8 dereferenceable(804) %p, ptr %n.val.i.i.i.i, ptr %n.val8.i.i.i.i)
           to label %.noexc98.i.i.i unwind label %lpad.loopexit.i.i.i
 
 .noexc98.i.i.i:                                   ; preds = %if.then.i97.i.i.i
@@ -959,7 +959,7 @@ if.then14.i.i.i.i:                                ; preds = %_ZNK17arith_recogni
   %n.val9.i.i.i.i = load ptr, ptr %m_args.i.i.i.i.i, align 8
   %73 = getelementptr i8, ptr %42, i64 40
   %n.val10.i.i.i.i = load ptr, ptr %73, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118arith_degree_probe4proc7processEP3app.argprom(ptr noundef nonnull align 8 dereferenceable(804) %p, ptr %n.val9.i.i.i.i, ptr %n.val10.i.i.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_118arith_degree_probe4proc7processEP3app(ptr noundef nonnull align 8 dereferenceable(804) %p, ptr %n.val9.i.i.i.i, ptr %n.val10.i.i.i.i)
           to label %while.cond18.backedge.i.i.i unwind label %lpad.loopexit.i.i.i
 
 if.else.i.i.i:                                    ; preds = %sw.bb42.i.i.i
@@ -1070,7 +1070,7 @@ if.then.i185.i.i.i:                               ; preds = %_ZNK17arith_recogni
   %n.val.i186.i.i.i = load ptr, ptr %86, align 8
   %87 = getelementptr i8, ptr %38, i64 40
   %n.val8.i187.i.i.i = load ptr, ptr %87, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118arith_degree_probe4proc7processEP3app.argprom(ptr noundef nonnull align 8 dereferenceable(804) %p, ptr %n.val.i186.i.i.i, ptr %n.val8.i187.i.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_118arith_degree_probe4proc7processEP3app(ptr noundef nonnull align 8 dereferenceable(804) %p, ptr %n.val.i186.i.i.i, ptr %n.val8.i187.i.i.i)
           to label %.noexc189.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 .noexc189.i.i.i:                                  ; preds = %if.then.i185.i.i.i
@@ -1121,7 +1121,7 @@ if.then14.i162.i.i.i:                             ; preds = %_ZNK17arith_recogni
   %n.val9.i163.i.i.i = load ptr, ptr %m_args.i.i158.i.i.i, align 8
   %97 = getelementptr i8, ptr %38, i64 40
   %n.val10.i164.i.i.i = load ptr, ptr %97, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118arith_degree_probe4proc7processEP3app.argprom(ptr noundef nonnull align 8 dereferenceable(804) %p, ptr %n.val9.i163.i.i.i, ptr %n.val10.i164.i.i.i)
+  invoke fastcc void @_ZN12_GLOBAL__N_118arith_degree_probe4proc7processEP3app(ptr noundef nonnull align 8 dereferenceable(804) %p, ptr %n.val9.i163.i.i.i, ptr %n.val10.i164.i.i.i)
           to label %sw.epilog92thread-pre-split.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
 
 sw.bb62.i.i.i:                                    ; preds = %start.i.i.i
@@ -1460,7 +1460,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118arith_degree_probe4proc7processEP3app.argprom(ptr noundef nonnull align 8 dereferenceable(804) %this, ptr %n.32.val, ptr %n.40.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118arith_degree_probe4proc7processEP3app(ptr noundef nonnull align 8 dereferenceable(804) %this, ptr %n.32.val, ptr %n.40.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %p1 = alloca %class.obj_ref, align 8
   %p2 = alloca %class.obj_ref, align 8
@@ -3973,7 +3973,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   unreachable
 
 sw.bb.i.i:                                        ; preds = %start.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP3var.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP3var()
           to label %invoke.cont10.unreachable.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 invoke.cont10.unreachable.i.i:                    ; preds = %sw.bb.i.i
@@ -4448,7 +4448,7 @@ while.end80.i.i:                                  ; preds = %while.cond58.i.i
   %77 = load i32, ptr %m_pos.i.i25.i.i, align 8
   %dec.i249.i.i = add i32 %77, -1
   store i32 %dec.i249.i.i, ptr %m_pos.i.i25.i.i, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP10quantifier.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP10quantifier()
           to label %sw.epilog85.unreachable.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 sw.default83.i.i:                                 ; preds = %start.i.i
@@ -4620,7 +4620,7 @@ _ZN10ptr_bufferI3astLj16EED2Ev.exit:              ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP3var.argprom() unnamed_addr #15 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP3var() unnamed_addr #15 align 2 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #22
   tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN12_GLOBAL__N_121is_non_qflira_functor5foundE, ptr null) #25
@@ -4805,7 +4805,7 @@ return:                                           ; preds = %_ZNK3app13get_famil
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP10quantifier.argprom() unnamed_addr #15 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP10quantifier() unnamed_addr #15 align 2 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #22
   tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN12_GLOBAL__N_121is_non_qflira_functor5foundE, ptr null) #25
@@ -5130,7 +5130,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 sw.bb.i.i.i.i:                                    ; preds = %start.i.i.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP3var.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP3var()
           to label %invoke.cont10.unreachable.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i
 
 invoke.cont10.unreachable.i.i.i.i:                ; preds = %sw.bb.i.i.i.i
@@ -5605,7 +5605,7 @@ while.end80.i.i.i.i:                              ; preds = %while.cond58.i.i.i.
   %78 = load i32, ptr %m_pos.i.i25.i.i.i.i, align 8
   %dec.i249.i.i.i.i = add i32 %78, -1
   store i32 %dec.i249.i.i.i.i, ptr %m_pos.i.i25.i.i.i.i, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP10quantifier.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP10quantifier()
           to label %sw.epilog85.unreachable.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i
 
 sw.default83.i.i.i.i:                             ; preds = %start.i.i.i.i
@@ -5729,7 +5729,7 @@ _ZN12_GLOBAL__N_111is_qfaufliaERK4goal.exit:      ; preds = %invoke.cont.i.i.i, 
 declare void @_ZN10array_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP3var.argprom() unnamed_addr #15 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP3var() unnamed_addr #15 align 2 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #22
   tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN12_GLOBAL__N_124is_non_qfauflira_functor5foundE, ptr null) #25
@@ -5929,7 +5929,7 @@ return:                                           ; preds = %if.end27.thread, %_
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP10quantifier.argprom() unnamed_addr #15 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP10quantifier() unnamed_addr #15 align 2 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #22
   tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN12_GLOBAL__N_124is_non_qfauflira_functor5foundE, ptr null) #25
@@ -6699,7 +6699,7 @@ sw.bb.i.i:                                        ; preds = %start.i.i
   br i1 %tobool.i.i.i, label %if.end.i33.i.i, label %if.then.i32.invoke.i.i
 
 if.then.i32.invoke.i.i:                           ; preds = %while.end80.i.i, %if.end11.i.i.i, %sw.bb.i.i, %if.end11.i98.i.i, %sw.bb31.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_119is_non_nira_functor11throw_foundEP4expr.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_119is_non_nira_functor11throw_foundEP4expr()
           to label %if.then.i32.cont.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 if.then.i32.cont.i.i:                             ; preds = %if.then.i32.invoke.i.i
@@ -8077,7 +8077,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit26.i185.i.i.i: ; preds = %land.rhs.i.i.
   br i1 %83, label %sw.epilog85.i.i.i, label %sw.bb16.i173.invoke.i.i.i
 
 sw.bb16.i173.invoke.i.i.i:                        ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit26.i185.i.i.i, %land.rhs.i.i.i18.i181.i.i.i, %sw.bb10.i174.i.i.i, %_ZNK10arith_util10is_numeralEPK4expr.exit.i203.i.i.i, %land.rhs.i.i.i.i199.i.i.i, %lor.lhs.false.i193.i.i.i, %sw.bb.i189.i.i.i, %_ZNK3app13get_decl_kindEv.exit.i171.i.i.i, %_ZNK10arith_util10is_numeralEPK4expr.exit26.i.i.i.i, %land.rhs.i.i.i18.i.i.i.i, %sw.bb10.i.i.i.i, %_ZNK3app13get_decl_kindEv.exit.i.i.i.i, %_ZNK3app13get_decl_kindEv.exit.i.i.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_19has_nlmul11throw_foundEP4expr.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_19has_nlmul11throw_foundEP4expr()
           to label %sw.bb16.i173.cont.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 sw.bb16.i173.cont.i.i.i:                          ; preds = %sw.bb16.i173.invoke.i.i.i
@@ -8366,11 +8366,11 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont.loopexi
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %115, %m_initial_buffer.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %115, null
   %or.cond.i.i.i.i.i.i = or i1 %cmp.not.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i, label %_Z4testIN12_GLOBAL__N_19has_nlmulEEbRK4goalRT_.argprom.exit, label %if.end.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i, label %_Z4testIN12_GLOBAL__N_19has_nlmulEEbRK4goalRT_.exit, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %invoke.cont.i.i
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %115)
-          to label %_Z4testIN12_GLOBAL__N_19has_nlmulEEbRK4goalRT_.argprom.exit unwind label %terminate.lpad.i.i.i.i
+          to label %_Z4testIN12_GLOBAL__N_19has_nlmulEEbRK4goalRT_.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
   %116 = landingpad { ptr, i32 }
@@ -8384,7 +8384,7 @@ ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.body
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %visited.i) #22
   resume { ptr, i32 } %lpad.val8.merged.i
 
-_Z4testIN12_GLOBAL__N_19has_nlmulEEbRK4goalRT_.argprom.exit: ; preds = %invoke.cont.i.i, %if.end.i.i.i.i.i.i.i
+_Z4testIN12_GLOBAL__N_19has_nlmulEEbRK4goalRT_.exit: ; preds = %invoke.cont.i.i, %if.end.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %visited.i)
   ret i1 %cmp42.i
 }
@@ -8448,7 +8448,7 @@ _ZNK17arith_recognizers7is_realEPK4expr.exit.i:   ; preds = %_ZNK4decl13get_fami
   br i1 %cmp3.i.i.i.i10.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNK17arith_recognizers7is_realEPK4expr.exit.i, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i6.i, %land.lhs.true6.i, %if.end4.i
-  tail call fastcc void @_ZN12_GLOBAL__N_119is_non_nira_functor11throw_foundEP4expr.argprom()
+  tail call fastcc void @_ZN12_GLOBAL__N_119is_non_nira_functor11throw_foundEP4expr()
   unreachable
 
 if.end:                                           ; preds = %_ZNK17arith_recognizers7is_realEPK4expr.exit.i, %_ZNK17arith_recognizers6is_intEPK4expr.exit.i, %entry
@@ -8745,7 +8745,7 @@ invoke.cont97:                                    ; preds = %land.rhs.i95
   br i1 %54, label %cleanup, label %if.end100.invoke
 
 if.end100.invoke:                                 ; preds = %invoke.cont97, %land.lhs.true.i94, %if.end96, %invoke.cont, %if.then8, %sw.bb86, %lor.lhs.false89, %sw.bb80, %sw.bb74, %invoke.cont66, %invoke.cont69, %if.end64, %lor.lhs.false, %invoke.cont45, %invoke.cont35, %land.lhs.true32, %land.rhs.i.i.i51, %invoke.cont23, %land.lhs.true, %land.rhs.i.i.i36, %if.then11
-  invoke fastcc void @_ZN12_GLOBAL__N_119is_non_nira_functor11throw_foundEP4expr.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_119is_non_nira_functor11throw_foundEP4expr()
           to label %if.end100.cont unwind label %lpad
 
 if.end100.cont:                                   ; preds = %if.end100.invoke
@@ -8772,7 +8772,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119is_non_nira_functor11throw_foundEP4expr.argprom() unnamed_addr #15 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119is_non_nira_functor11throw_foundEP4expr() unnamed_addr #15 align 2 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #22
   tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN12_GLOBAL__N_119is_non_nira_functor5foundE, ptr null) #25
@@ -8780,7 +8780,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19has_nlmul11throw_foundEP4expr.argprom() unnamed_addr #15 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_19has_nlmul11throw_foundEP4expr() unnamed_addr #15 align 2 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #22
   tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN12_GLOBAL__N_19has_nlmul5foundE, ptr null) #25
@@ -9407,7 +9407,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 sw.bb.invoke.i.i.i.i:                             ; preds = %start.i.i.i.i, %if.end29.i.i.i.i, %while.end80.i.i.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv.argprom()
+  invoke fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv()
           to label %sw.bb.cont.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i
 
 sw.bb.cont.i.i.i.i:                               ; preds = %sw.bb.invoke.i.i.i.i
@@ -10152,7 +10152,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit45:      ; preds = %land.rhs.i.i.i37
   br i1 %26, label %if.end37, label %if.then27
 
 if.then27:                                        ; preds = %land.rhs.i.i.i37, %sw.bb23, %_ZNK10arith_util10is_numeralEPK4expr.exit45
-  tail call fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv.argprom()
+  tail call fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv()
   unreachable
 
 sw.bb29:                                          ; preds = %_ZNK3app13get_decl_kindEv.exit
@@ -10182,15 +10182,15 @@ _ZNK10arith_util10is_numeralEPK4expr.exit60:      ; preds = %land.rhs.i.i.i52
   br i1 %32, label %if.end37.sink.split, label %if.then33
 
 if.then33:                                        ; preds = %land.rhs.i.i.i52, %sw.bb29, %_ZNK10arith_util10is_numeralEPK4expr.exit60
-  tail call fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv.argprom()
+  tail call fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv()
   unreachable
 
 sw.bb36:                                          ; preds = %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv.argprom()
+  tail call fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv()
   unreachable
 
 sw.default:                                       ; preds = %_ZNK3app13get_decl_kindEv.exit
-  tail call fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv.argprom()
+  tail call fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv()
   unreachable
 
 if.end37.sink.split:                              ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit60, %_ZNK10arith_util10is_numeralEPK4expr.exit30, %land.lhs.true17, %land.rhs.i.i.i22
@@ -10203,7 +10203,7 @@ if.end37:                                         ; preds = %if.end37.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv.argprom() unnamed_addr #15 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv() unnamed_addr #15 align 2 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #22
   tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN12_GLOBAL__N_122is_non_qfufnra_functor5foundE, ptr null) #25

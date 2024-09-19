@@ -143,7 +143,7 @@ if.end5.i20:                                      ; preds = %for.cond.i.i, %if.t
   %call7.i = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef 0) #3
   %call9.i = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
   %cmp10.i = icmp sgt i32 %call9.i, 1
-  br i1 %cmp10.i, label %if.then11.i, label %ocsp_check_issuer.argprom.exit
+  br i1 %cmp10.i, label %if.then11.i, label %ocsp_check_issuer.exit
 
 if.then11.i:                                      ; preds = %if.end5.i20
   %call13.i = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef 1) #3
@@ -153,7 +153,7 @@ if.then11.i:                                      ; preds = %if.end5.i20
 
 if.end17.i:                                       ; preds = %if.then11.i
   %cmp18.not.i = icmp eq i32 %call14.i, 0
-  br i1 %cmp18.not.i, label %ocsp_check_issuer.argprom.exit, label %if.then19.i
+  br i1 %cmp18.not.i, label %ocsp_check_issuer.exit, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end17.i
   %call.i.i = call i32 @X509_get_extension_flags(ptr noundef %call7.i) #3
@@ -173,12 +173,12 @@ land.lhs.true.i.i:                                ; preds = %if.then19.i
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 103, ptr noundef null) #3
   br label %if.end36
 
-ocsp_check_issuer.argprom.exit:                   ; preds = %if.end5.i20, %if.end17.i
+ocsp_check_issuer.exit:                           ; preds = %if.end5.i20, %if.end17.i
   %call25.i = call fastcc i32 @ocsp_match_issuerid(ptr noundef %call7.i, ptr noundef %caid.0.ph.i, ptr noundef %bs.val)
   %cmp34.not = icmp eq i32 %call25.i, 0
   br i1 %cmp34.not, label %if.end36, label %end
 
-if.end36:                                         ; preds = %if.then9.i.i, %9, %ocsp_check_issuer.argprom.exit
+if.end36:                                         ; preds = %if.then9.i.i, %9, %ocsp_check_issuer.exit
   %and37 = and i64 %flags.addr.0, 32
   %cmp38.not = icmp eq i64 %and37, 0
   br i1 %cmp38.not, label %if.end40, label %end
@@ -198,9 +198,9 @@ if.then47:                                        ; preds = %if.end40
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 112, ptr noundef null) #3
   br label %end
 
-end:                                              ; preds = %land.lhs.true.i.i, %if.then.i.i, %if.then11.i, %if.then.i, %if.end40, %if.end28, %if.end36, %ocsp_check_issuer.argprom.exit, %if.end24, %if.end20, %if.then14, %if.end4, %if.then47, %if.then
-  %untrusted.0 = phi ptr [ null, %if.then ], [ null, %if.end4 ], [ null, %if.then14 ], [ %untrusted.1, %if.end24 ], [ %untrusted.1, %ocsp_check_issuer.argprom.exit ], [ %untrusted.1, %if.end36 ], [ %untrusted.1, %if.then47 ], [ %call17, %if.end20 ], [ %untrusted.1, %if.end28 ], [ %untrusted.1, %if.end40 ], [ %untrusted.1, %if.then.i ], [ %untrusted.1, %if.then11.i ], [ %untrusted.1, %if.then.i.i ], [ %untrusted.1, %land.lhs.true.i.i ]
-  %ret.0 = phi i32 [ 0, %if.then ], [ %call5, %if.end4 ], [ -1, %if.then14 ], [ %call25, %if.end24 ], [ %call25.i, %ocsp_check_issuer.argprom.exit ], [ 0, %if.end36 ], [ 0, %if.then47 ], [ -1, %if.end20 ], [ 1, %if.end28 ], [ 1, %if.end40 ], [ -1, %if.then.i ], [ -1, %if.then11.i ], [ -1, %if.then.i.i ], [ 1, %land.lhs.true.i.i ]
+end:                                              ; preds = %land.lhs.true.i.i, %if.then.i.i, %if.then11.i, %if.then.i, %if.end40, %if.end28, %if.end36, %ocsp_check_issuer.exit, %if.end24, %if.end20, %if.then14, %if.end4, %if.then47, %if.then
+  %untrusted.0 = phi ptr [ null, %if.then ], [ null, %if.end4 ], [ null, %if.then14 ], [ %untrusted.1, %if.end24 ], [ %untrusted.1, %ocsp_check_issuer.exit ], [ %untrusted.1, %if.end36 ], [ %untrusted.1, %if.then47 ], [ %call17, %if.end20 ], [ %untrusted.1, %if.end28 ], [ %untrusted.1, %if.end40 ], [ %untrusted.1, %if.then.i ], [ %untrusted.1, %if.then11.i ], [ %untrusted.1, %if.then.i.i ], [ %untrusted.1, %land.lhs.true.i.i ]
+  %ret.0 = phi i32 [ 0, %if.then ], [ %call5, %if.end4 ], [ -1, %if.then14 ], [ %call25, %if.end24 ], [ %call25.i, %ocsp_check_issuer.exit ], [ 0, %if.end36 ], [ 0, %if.then47 ], [ -1, %if.end20 ], [ 1, %if.end28 ], [ 1, %if.end40 ], [ -1, %if.then.i ], [ -1, %if.then11.i ], [ -1, %if.then.i.i ], [ 1, %land.lhs.true.i.i ]
   %11 = load ptr, ptr %chain, align 8
   call void @OSSL_STACK_OF_X509_free(ptr noundef %11) #3
   call void @OPENSSL_sk_free(ptr noundef %untrusted.0) #3

@@ -92,7 +92,7 @@ define dso_local void @_ZN4llvm21RealtimeSanitizerPass3runERNS_8FunctionERNS_15A
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %.sroa.05.012.i = load ptr, ptr %7, align 8
   %.not13.i = icmp eq ptr %.sroa.05.012.i, %17
-  br i1 %.not13.i, label %_ZL33insertCallAtAllFunctionExitPointsRN4llvm8FunctionEPKc.argprom.exit, label %.lr.ph16.i
+  br i1 %.not13.i, label %_ZL33insertCallAtAllFunctionExitPointsRN4llvm8FunctionEPKc.exit, label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %6, %._crit_edge.i
   %.sroa.05.014.i = phi ptr [ %.sroa.05.0.i, %._crit_edge.i ], [ %.sroa.05.012.i, %6 ]
@@ -128,9 +128,9 @@ define dso_local void @_ZN4llvm21RealtimeSanitizerPass3runERNS_8FunctionERNS_15A
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.05.014.i, i64 8
   %.sroa.05.0.i = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %.sroa.05.0.i, %17
-  br i1 %.not.i, label %_ZL33insertCallAtAllFunctionExitPointsRN4llvm8FunctionEPKc.argprom.exit, label %.lr.ph16.i
+  br i1 %.not.i, label %_ZL33insertCallAtAllFunctionExitPointsRN4llvm8FunctionEPKc.exit, label %.lr.ph16.i
 
-_ZL33insertCallAtAllFunctionExitPointsRN4llvm8FunctionEPKc.argprom.exit: ; preds = %._crit_edge.i, %6
+_ZL33insertCallAtAllFunctionExitPointsRN4llvm8FunctionEPKc.exit: ; preds = %._crit_edge.i, %6
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %32, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -180,7 +180,7 @@ _ZL33insertCallAtAllFunctionExitPointsRN4llvm8FunctionEPKc.argprom.exit: ; preds
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %44, align 8, !alias.scope !4, !noalias !7
   br label %55
 
-55:                                               ; preds = %_ZL33insertCallAtAllFunctionExitPointsRN4llvm8FunctionEPKc.argprom.exit, %43
+55:                                               ; preds = %_ZL33insertCallAtAllFunctionExitPointsRN4llvm8FunctionEPKc.exit, %43
   ret void
 }
 

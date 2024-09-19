@@ -540,7 +540,7 @@ _ZN4llvm9StringMapIN5clang19PrecompiledPreamble16PreambleFileHashENS_15MallocAll
   br i1 %.not.i.i.i2, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i, label %46
 
 46:                                               ; preds = %43
-  tail call fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_111TempPCHFileEEclEPS1_.argprom(ptr noundef nonnull %45)
+  tail call fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_111TempPCHFileEEclEPS1_(ptr noundef nonnull %45)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %46, %43
@@ -1488,7 +1488,7 @@ _ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_N
   store i32 2, ptr %0, align 8
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i2.i.i.i100, ptr %258, align 8
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.exit
 
 259:                                              ; preds = %_ZNSt10shared_ptrIN5clang18CompilerInvocationEED2Ev.exit
   %260 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -1534,7 +1534,7 @@ _ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_N
   store i32 5, ptr %0, align 8
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i2.i.i.i104, ptr %282, align 8
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.exit
 
 283:                                              ; preds = %266
   call void @_ZN5clang17DiagnosticsEngine5ResetEb(ptr noundef nonnull align 8 dereferenceable(1304) %4, i1 noundef zeroext false) #21
@@ -1830,7 +1830,7 @@ _ZNSt10shared_ptrIN5clang19DependencyCollectorEED2Ev.exit: ; preds = %_ZN5clang1
 
 .thread:                                          ; preds = %415
   call void @_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE(ptr noundef nonnull align 8 dereferenceable(89) %0, i32 noundef 3, ptr noundef null)
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.argprom.exit.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i
 
 432:                                              ; preds = %415
   %433 = load ptr, ptr %9, align 8
@@ -1966,13 +1966,13 @@ _ZN4llvm5ErrorD2Ev.exit134:                       ; preds = %_ZNSt10unique_ptrIN
   call void %497(ptr noundef nonnull align 8 dereferenceable(104) %419) #21
   %.val69 = load i8, ptr %420, align 8
   %498 = trunc i8 %.val69 to i1
-  br i1 %498, label %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EE5resetEPS1_.argprom.exit, label %499
+  br i1 %498, label %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EE5resetEPS1_.exit, label %499
 
 499:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit134
   call void @_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE(ptr noundef nonnull align 8 dereferenceable(89) %0, i32 noundef 4, ptr noundef null)
   br label %_ZN4llvm5ErrorD2Ev.exit133
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EE5resetEPS1_.argprom.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit134
+_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit134
   %500 = load ptr, ptr %419, align 8
   %501 = getelementptr inbounds i8, ptr %500, i64 64
   %502 = load ptr, ptr %501, align 8
@@ -1987,7 +1987,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS
   %.not65321 = icmp eq ptr %505, %507
   br i1 %.not65321, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EE5resetEPS1_.argprom.exit
+.lr.ph:                                           ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EE5resetEPS1_.exit
   %508 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %509 = getelementptr inbounds nuw i8, ptr %504, i64 448
   br label %510
@@ -2215,7 +2215,7 @@ _ZNK5clang12FileEntryRef7getNameEv.exit161:       ; preds = %581
   %.not65 = icmp eq ptr %589, %507
   br i1 %.not65, label %._crit_edge, label %510
 
-._crit_edge:                                      ; preds = %.critedge3, %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EE5resetEPS1_.argprom.exit
+._crit_edge:                                      ; preds = %.critedge3, %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EE5resetEPS1_.exit
   %.not.i162 = icmp eq ptr %.sroa.0247.3, null
   br i1 %.not.i162, label %_ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EE5resetEPS1_.exit, label %590
 
@@ -2330,9 +2330,9 @@ _ZNKSt14default_deleteIN5clang11PPCallbacksEEclEPS1_.exit.i167: ; preds = %_ZN4l
 641:                                              ; preds = %_ZNKSt14default_deleteIN5clang11PPCallbacksEEclEPS1_.exit.i167, %_ZN4llvm5ErrorD2Ev.exit133
   store ptr null, ptr %44, align 8
   %.not.i169 = icmp eq ptr %.sroa.0235.1, null
-  br i1 %.not.i169, label %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.argprom.exit.i
+  br i1 %.not.i169, label %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.argprom.exit.i: ; preds = %.thread, %641
+_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i: ; preds = %.thread, %641
   %.sroa.0235.0312 = phi ptr [ %419, %.thread ], [ %.sroa.0235.1, %641 ]
   %.sroa.0249.1310 = phi ptr [ %167, %.thread ], [ %.sroa.0249.2, %641 ]
   %.sroa.0247.1308 = phi ptr [ %.sroa.0247.3, %.thread ], [ %.sroa.0247.2, %641 ]
@@ -2342,9 +2342,9 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.argpro
   call void %644(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.0235.0312) #21
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EED2Ev.exit: ; preds = %641, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.argprom.exit.i
-  %.sroa.0249.1311 = phi ptr [ %.sroa.0249.2, %641 ], [ %.sroa.0249.1310, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.argprom.exit.i ]
-  %.sroa.0247.1309 = phi ptr [ %.sroa.0247.2, %641 ], [ %.sroa.0247.1308, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.argprom.exit.i ]
+_ZNSt10unique_ptrIN12_GLOBAL__N_124PrecompilePreambleActionESt14default_deleteIS1_EED2Ev.exit: ; preds = %641, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i
+  %.sroa.0249.1311 = phi ptr [ %.sroa.0249.2, %641 ], [ %.sroa.0249.1310, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
+  %.sroa.0247.1309 = phi ptr [ %.sroa.0247.2, %641 ], [ %.sroa.0247.1308, %_ZNKSt14default_deleteIN12_GLOBAL__N_124PrecompilePreambleActionEEclEPS1_.exit.i ]
   %645 = load ptr, ptr %42, align 8
   %.not.i170 = icmp eq ptr %645, null
   br i1 %.not.i170, label %649, label %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i
@@ -2389,7 +2389,7 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i: ; preds = %_ZNSt10u
 663:                                              ; preds = %661, %659
   %.0.i.i.i.i173 = phi i32 [ %652, %659 ], [ %662, %661 ]
   %664 = icmp eq i32 %.0.i.i.i.i173, 1
-  br i1 %664, label %665, label %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.argprom.exit
+  br i1 %664, label %665, label %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.exit
 
 665:                                              ; preds = %663
   %666 = load ptr, ptr %332, align 8
@@ -2413,23 +2413,23 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i: ; preds = %_ZNSt10u
 675:                                              ; preds = %673, %670
   %.0.i.i.i.i.i.i175 = phi i32 [ %671, %670 ], [ %674, %673 ]
   %676 = icmp eq i32 %.0.i.i.i.i.i.i175, 1
-  br i1 %676, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i176, label %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.argprom.exit
+  br i1 %676, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i176, label %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i176: ; preds = %675, %653
   %677 = load ptr, ptr %332, align 8
   %678 = getelementptr inbounds i8, ptr %677, i64 24
   %679 = load ptr, ptr %678, align 8
   call void %679(ptr noundef nonnull align 8 dereferenceable(16) %332) #21
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.exit
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i176, %675, %663, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit105, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit101
+_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i176, %675, %663, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit105, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit101
   %.sroa.0247.0 = phi ptr [ %.sroa.0247.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit105 ], [ %.sroa.0247.3, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit101 ], [ %.sroa.0247.1309, %663 ], [ %.sroa.0247.1309, %675 ], [ %.sroa.0247.1309, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i176 ]
   %.sroa.0249.0 = phi ptr [ %167, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit105 ], [ %167, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit101 ], [ %.sroa.0249.1311, %663 ], [ %.sroa.0249.1311, %675 ], [ %.sroa.0249.1311, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i176 ]
   %.sroa.4291.1 = phi ptr [ %67, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit105 ], [ %67, %_ZN4llvm7ErrorOrIN5clang19PrecompiledPreambleEEC2INS1_18BuildPreambleErrorEEET_NSt9enable_ifIXoosr3std18is_error_code_enumIS6_EE5valuesr3std23is_error_condition_enumIS6_EE5valueEPvE4typeE.exit101 ], [ null, %663 ], [ null, %675 ], [ null, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i176 ]
   %.not.i.i177 = icmp eq ptr %.sroa.0247.0, null
   br i1 %.not.i.i177, label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang16CompilerInstanceENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, label %680
 
-680:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.argprom.exit
+680:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.exit
   %681 = getelementptr inbounds nuw i8, ptr %.sroa.0247.0, i64 16
   %682 = load i8, ptr %681, align 8
   %683 = trunc i8 %682 to i1
@@ -2441,7 +2441,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.argprom.exi
   call void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27CrashRecoveryContextCleanupE(ptr noundef nonnull align 8 dereferenceable(21) %686, ptr noundef nonnull %.sroa.0247.0) #21
   br label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang16CompilerInstanceENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit
 
-_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang16CompilerInstanceENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.argprom.exit, %680, %684
+_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN5clang16CompilerInstanceENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_127PreambleDependencyCollectorEED2Ev.exit, %680, %684
   %.not.i178 = icmp eq ptr %.sroa.0249.0, null
   br i1 %.not.i178, label %_ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang16CompilerInstanceEEclEPS1_.exit.i
 
@@ -2484,7 +2484,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN
   br i1 %.not.i.i.i211, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i212, label %702
 
 702:                                              ; preds = %699
-  call fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_111TempPCHFileEEclEPS1_.argprom(ptr noundef nonnull %701)
+  call fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_111TempPCHFileEEclEPS1_(ptr noundef nonnull %701)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i212
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i212: ; preds = %702, %699
@@ -4814,7 +4814,7 @@ define linkonce_odr hidden void @_ZNSt15__uniq_ptr_implIN5clang19PrecompiledPrea
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i, label %7
 
 7:                                                ; preds = %4
-  tail call fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_111TempPCHFileEEclEPS1_.argprom(ptr noundef nonnull %6)
+  tail call fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_111TempPCHFileEEclEPS1_(ptr noundef nonnull %6)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %7, %4
@@ -4912,7 +4912,7 @@ define linkonce_odr hidden void @_ZNKSt14default_deleteIN5clang19PrecompiledPrea
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i, label %7
 
 7:                                                ; preds = %4
-  tail call fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_111TempPCHFileEEclEPS1_.argprom(ptr noundef nonnull %6)
+  tail call fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_111TempPCHFileEEclEPS1_(ptr noundef nonnull %6)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_111TempPCHFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %7, %4
@@ -5028,13 +5028,13 @@ _ZN12_GLOBAL__N_114TemporaryFiles11getInstanceEv.exit: ; preds = %2, %5, %7
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZZN12_GLOBAL__N_114TemporaryFiles11getInstanceEvE8Instance) #21
   %.not.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_114TemporaryFiles7addFileEN4llvm9StringRefE.argprom.exit, label %12
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_114TemporaryFiles7addFileEN4llvm9StringRefE.exit, label %12
 
 12:                                               ; preds = %_ZN12_GLOBAL__N_114TemporaryFiles11getInstanceEv.exit
   tail call void @_ZSt20__throw_system_errori(i32 noundef %11) #24
   unreachable
 
-_ZN12_GLOBAL__N_114TemporaryFiles7addFileEN4llvm9StringRefE.argprom.exit: ; preds = %_ZN12_GLOBAL__N_114TemporaryFiles11getInstanceEv.exit
+_ZN12_GLOBAL__N_114TemporaryFiles7addFileEN4llvm9StringRefE.exit: ; preds = %_ZN12_GLOBAL__N_114TemporaryFiles11getInstanceEv.exit
   %13 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %9, i64 %10) #21
   %14 = tail call { ptr, i8 } @_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_114TemporaryFiles11getInstanceEvE8Instance, i64 40), ptr %9, i64 %10, i32 noundef %13)
   %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZZN12_GLOBAL__N_114TemporaryFiles11getInstanceEvE8Instance) #21
@@ -5196,7 +5196,7 @@ declare void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 der
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_111TempPCHFileEEclEPS1_.argprom(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNKSt14default_deleteIN12_GLOBAL__N_111TempPCHFileEEclEPS1_(ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %32, label %4
@@ -7859,7 +7859,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_127PreambleDe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_127PreambleDependencyCollectorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_127PreambleDependencyCollectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_127PreambleDependencyCollectorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
 }

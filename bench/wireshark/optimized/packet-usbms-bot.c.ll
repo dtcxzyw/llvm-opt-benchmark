@@ -203,7 +203,7 @@ usbms_bot_bulk_is_csw.exit.thread:                ; preds = %usbms_bot_bulk_is_c
   br i1 %.not91, label %58, label %60
 
 58:                                               ; preds = %52
-  tail call fastcc void @create_usbms_bot_protocol_tree.retelim(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @create_usbms_bot_protocol_tree(ptr noundef %0, ptr noundef %2)
   %59 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %83
 
@@ -252,7 +252,7 @@ usbms_bot_bulk_is_cbw.exit96.thread:              ; preds = %.usbms_bot_bulk_is_
   br label %83
 
 81:                                               ; preds = %usbms_bot_bulk_is_cbw.exit96.thread
-  tail call fastcc void @create_usbms_bot_protocol_tree.retelim(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @create_usbms_bot_protocol_tree(ptr noundef %0, ptr noundef %2)
   tail call void @dissect_scsi_payload(ptr noundef %63, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %25, ptr noundef nonnull %45, ptr noundef nonnull %57, i32 noundef 0) #3
   %82 = tail call i32 @tvb_captured_length(ptr noundef %63) #3
   br label %83
@@ -567,7 +567,7 @@ define internal fastcc i32 @dissect_usbms_bot_csw(ptr noundef %0, ptr noundef %1
 declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_usbms_bot_protocol_tree.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @create_usbms_bot_protocol_tree(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @proto_usbms_bot, align 4
   %4 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.30) #3
   %5 = load i32, ptr @ett_usbms_bot, align 4

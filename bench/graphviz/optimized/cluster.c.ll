@@ -721,7 +721,7 @@ define void @build_skeleton(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 9:                                                ; preds = %2
   %10 = load ptr, ptr @stderr, align 8
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.1, i64 noundef %8, i64 noundef 8) #10
-  tail call fastcc void @graphviz_exit.argelim() #11
+  tail call fastcc void @graphviz_exit() #11
   unreachable
 
 12:                                               ; preds = %2
@@ -735,7 +735,7 @@ define void @build_skeleton(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %17 = load ptr, ptr @stderr, align 8
   %18 = shl nuw nsw i64 %8, 3
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.2, i64 noundef %18) #10
-  tail call fastcc void @graphviz_exit.argelim() #11
+  tail call fastcc void @graphviz_exit() #11
   unreachable
 
 gv_calloc.exit:                                   ; preds = %12
@@ -1719,7 +1719,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #4 {
+define internal fastcc void @graphviz_exit() unnamed_addr #4 {
   tail call void @exit(i32 noundef 1) #13
   unreachable
 }

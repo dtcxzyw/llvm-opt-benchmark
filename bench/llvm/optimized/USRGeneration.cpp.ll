@@ -6767,7 +6767,7 @@ _ZN4llvm11raw_ostreamlsEc.exit366:                ; preds = %2081, %2083
   %.val.val = load i64, ptr %.val, align 8
   %2088 = getelementptr i8, ptr %.val, i64 88
   %.val.val136 = load i64, ptr %2088, align 8
-  call fastcc void @_ZL14printQualifierRN4llvm11raw_ostreamERN5clang10ASTContextEPNS2_19NestedNameSpecifierE.argprom.argprom(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 %.val.val, i64 %.val.val136, ptr noundef %2086)
+  call fastcc void @_ZL14printQualifierRN4llvm11raw_ostreamERN5clang10ASTContextEPNS2_19NestedNameSpecifierE(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 %.val.val, i64 %.val.val136, ptr noundef %2086)
   %2089 = load ptr, ptr %7, align 8
   %2090 = load ptr, ptr %8, align 8
   %.not.i367 = icmp ult ptr %2089, %2090
@@ -8042,9 +8042,9 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %246, %248
   %254 = getelementptr i8, ptr %85, i64 40
   %.val = load i64, ptr %254, align 8
   %.not.i.i59 = icmp eq i64 %.val, 0
-  br i1 %.not.i.i59, label %256, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br i1 %.not.i.i59, label %256, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
+_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   %255 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %241, i64 %.val) #14
   br label %312
 
@@ -8168,7 +8168,7 @@ _ZN4llvm11raw_ostreamlsEc.exit71:                 ; preds = %308, %310
   tail call void @_ZNK5clang9NamedDecl9printNameERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0.i70) #14
   br label %312
 
-312:                                              ; preds = %_ZNK5clang8EnumDecl11enumeratorsEv.exit, %_ZNK5clang8EnumDecl11enumeratorsEv.exit.thread, %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, %_ZN4llvm11raw_ostreamlsEc.exit63, %283, %_ZN4llvm11raw_ostreamlsEc.exit71, %276
+312:                                              ; preds = %_ZNK5clang8EnumDecl11enumeratorsEv.exit, %_ZNK5clang8EnumDecl11enumeratorsEv.exit.thread, %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, %_ZN4llvm11raw_ostreamlsEc.exit63, %283, %_ZN4llvm11raw_ostreamlsEc.exit71, %276
   %313 = load i32, ptr %110, align 4
   %314 = and i32 %313, 127
   %315 = add nsw i32 %314, -59
@@ -8566,7 +8566,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %.lr.ph, %_ZN4llvm11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14printQualifierRN4llvm11raw_ostreamERN5clang10ASTContextEPNS2_19NestedNameSpecifierE.argprom.argprom(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %.2112.val.0.val, i64 %.2112.val.88.val, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @_ZL14printQualifierRN4llvm11raw_ostreamERN5clang10ASTContextEPNS2_19NestedNameSpecifierE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %.2112.val.0.val, i64 %.2112.val.88.val, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"struct.clang::PrintingPolicy", align 8
   %4 = lshr i64 %.2112.val.0.val, 4
   %5 = and i64 %4, 4194304
@@ -9789,7 +9789,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %19
   %26 = and i16 %25, 127
   %.not.i = icmp eq i16 %26, 20
   %27 = getelementptr inbounds i8, ptr %23, i64 -48
-  br i1 %.not.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit12.i
+  br i1 %.not.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit12.i
 
 _ZNK5clang4Decl14getDeclContextEv.exit.thread.i:  ; preds = %19
   %28 = load ptr, ptr %23, align 8
@@ -9798,26 +9798,26 @@ _ZNK5clang4Decl14getDeclContextEv.exit.thread.i:  ; preds = %19
   %31 = and i16 %30, 127
   %.not4.i = icmp eq i16 %31, 20
   %32 = getelementptr inbounds i8, ptr %28, i64 -48
-  br i1 %.not4.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit12.i
+  br i1 %.not4.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit12.i
 
 _ZNK5clang4Decl14getDeclContextEv.exit12.i:       ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i
   %33 = phi i16 [ %25, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %30, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
   %.0.i.i11.i = phi ptr [ %23, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %28, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
   %34 = and i16 %33, 127
   %.not5.i = icmp eq i16 %34, 19
-  br i1 %.not5.i, label %35, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit
+  br i1 %.not5.i, label %35, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit
 
 35:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit12.i
   %36 = getelementptr inbounds i8, ptr %.0.i.i11.i, i64 -48
   %37 = tail call noundef ptr @_ZNK5clang20ObjCCategoryImplDecl15getCategoryDeclEv(ptr noundef nonnull align 8 dereferenceable(100) %36) #14
-  br label %_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit
+  br label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit
 
-_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit12.i, %35
+_ZL18getCategoryContextPKN5clang9NamedDeclE.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit12.i, %35
   %.0.i = phi ptr [ %37, %35 ], [ %27, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit12.i ], [ %32, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
   tail call fastcc void @_ZN12_GLOBAL__N_112USRGenerator22VisitObjCContainerDeclEPKN5clang17ObjCContainerDeclEPKNS1_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %16, ptr noundef %.0.i)
   br label %38
 
-38:                                               ; preds = %_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit, %13
+38:                                               ; preds = %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit, %13
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = getelementptr inbounds i8, ptr %1, i64 56
   %41 = load i24, ptr %40, align 8
@@ -10064,7 +10064,7 @@ _ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exi
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, label %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread
+  br i1 %23, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, label %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread
 
 24:                                               ; preds = %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread15
   store i8 1, ptr %17, align 8
@@ -10079,7 +10079,7 @@ _ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exi
 
 _ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit.thread: ; preds = %24
   store i8 1, ptr %29, align 8
-  br label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
 _ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit: ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10095,7 +10095,7 @@ _ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit: ; preds = %24
   %41 = tail call fastcc noundef zeroext i1 @_ZL8printLocRN4llvm11raw_ostreamEN5clang14SourceLocationERKNS2_13SourceManagerEb(ptr noundef nonnull align 8 dereferenceable(48) %32, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(696) %40, i1 noundef zeroext %16)
   %42 = zext i1 %41 to i8
   store i8 %42, ptr %29, align 8
-  br i1 %41, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, label %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread
+  br i1 %41, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, label %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread
 
 _ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread: ; preds = %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit, %7, %2, %20, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10231,13 +10231,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %76, %78
   %116 = getelementptr i8, ptr %1, i64 40
   %.val = load i64, ptr %116, align 8
   %.not.i.i13 = icmp eq i64 %.val, 0
-  br i1 %.not.i.i13, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, label %117
+  br i1 %.not.i.i13, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, label %117
 
 117:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %118 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %67, i64 %.val) #14
-  br label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit: ; preds = %117, %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit.thread, %20, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit
+_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit: ; preds = %117, %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit.thread, %20, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit
   ret void
 }
 
@@ -11638,9 +11638,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %45, %47
   %50 = getelementptr i8, ptr %1, i64 40
   %.val = load i64, ptr %50, align 8
   %.not.i.i = icmp eq i64 %.val, 0
-  br i1 %.not.i.i, label %52, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br i1 %.not.i.i, label %52, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
+_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %51 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %30, i64 %.val) #14
   br label %54
 
@@ -11649,7 +11649,7 @@ _ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit:
   store i8 1, ptr %53, align 8
   br label %54
 
-54:                                               ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, %52
+54:                                               ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, %52
   ret void
 }
 
@@ -11783,9 +11783,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %62, %64
   %67 = getelementptr i8, ptr %1, i64 40
   %.val.i = load i64, ptr %67, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
-  br i1 %.not.i.i, label %69, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br i1 %.not.i.i, label %69, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
+_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %68 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %56, i64 %.val.i) #14
   br label %_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit
 
@@ -11794,7 +11794,7 @@ _ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit:
   store i8 1, ptr %70, align 8
   br label %_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit: ; preds = %69, %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit.thread, %8, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit
+_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit: ; preds = %69, %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit.thread, %8, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit
   ret void
 }
 
@@ -11880,9 +11880,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %33, %35
   %38 = getelementptr i8, ptr %1, i64 40
   %.val.i = load i64, ptr %38, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
-  br i1 %.not.i.i, label %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br i1 %.not.i.i, label %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
+_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %27, i64 %.val.i) #14
   br label %_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit
 
@@ -11891,7 +11891,7 @@ _ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit:
   store i8 1, ptr %41, align 8
   br label %_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit: ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, %40
+_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit: ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, %40
   ret void
 }
 
@@ -12460,7 +12460,7 @@ _ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exi
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, label %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread
+  br i1 %22, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, label %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread
 
 23:                                               ; preds = %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread10
   store i8 1, ptr %16, align 8
@@ -12475,7 +12475,7 @@ _ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exi
 
 _ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit.thread: ; preds = %23
   store i8 1, ptr %28, align 8
-  br label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
 _ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit: ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12491,7 +12491,7 @@ _ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit: ; preds = %23
   %40 = tail call fastcc noundef zeroext i1 @_ZL8printLocRN4llvm11raw_ostreamEN5clang14SourceLocationERKNS2_13SourceManagerEb(ptr noundef nonnull align 8 dereferenceable(48) %31, i32 %.sroa.0.0.extract.trunc.i.i, ptr noundef nonnull align 8 dereferenceable(696) %39, i1 noundef zeroext %15)
   %41 = zext i1 %40 to i8
   store i8 %41, ptr %28, align 8
-  br i1 %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, label %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread
+  br i1 %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, label %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread
 
 _ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit.thread: ; preds = %_ZN12_GLOBAL__N_112USRGenerator22ShouldGenerateLocationEPKN5clang9NamedDeclE.exit, %6, %2, %19, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -12577,13 +12577,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %75, %77
   %80 = getelementptr i8, ptr %1, i64 40
   %.val = load i64, ptr %80, align 8
   %.not.i.i = icmp eq i64 %.val, 0
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, label %81
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, label %81
 
 81:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %82 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %66, i64 %.val) #14
-  br label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit: ; preds = %81, %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit.thread, %19, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit
+_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit: ; preds = %81, %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit.thread, %19, %_ZN12_GLOBAL__N_112USRGenerator6GenLocEPKN5clang4DeclEb.exit
   ret void
 }
 
@@ -12610,7 +12610,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %11
   %14 = and i16 %13, 127
   %.not.i = icmp eq i16 %14, 20
   %15 = getelementptr inbounds i8, ptr %10, i64 -48
-  br i1 %.not.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit12.i
+  br i1 %.not.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit12.i
 
 _ZNK5clang4Decl14getDeclContextEv.exit.thread.i:  ; preds = %11
   %16 = load ptr, ptr %10, align 8
@@ -12619,21 +12619,21 @@ _ZNK5clang4Decl14getDeclContextEv.exit.thread.i:  ; preds = %11
   %19 = and i16 %18, 127
   %.not4.i = icmp eq i16 %19, 20
   %20 = getelementptr inbounds i8, ptr %16, i64 -48
-  br i1 %.not4.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit12.i
+  br i1 %.not4.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit12.i
 
 _ZNK5clang4Decl14getDeclContextEv.exit12.i:       ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i
   %21 = phi i16 [ %13, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %18, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
   %.0.i.i11.i = phi ptr [ %10, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %16, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
   %22 = and i16 %21, 127
   %.not5.i = icmp eq i16 %22, 19
-  br i1 %.not5.i, label %23, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit
+  br i1 %.not5.i, label %23, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit
 
 23:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit12.i
   %24 = getelementptr inbounds i8, ptr %.0.i.i11.i, i64 -48
   %25 = tail call noundef ptr @_ZNK5clang20ObjCCategoryImplDecl15getCategoryDeclEv(ptr noundef nonnull align 8 dereferenceable(100) %24) #14
-  br label %_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit
+  br label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit
 
-_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit12.i, %23
+_ZL18getCategoryContextPKN5clang9NamedDeclE.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit12.i, %23
   %.0.i = phi ptr [ %25, %23 ], [ %15, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit12.i ], [ %20, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
   tail call fastcc void @_ZN12_GLOBAL__N_112USRGenerator22VisitObjCContainerDeclEPKN5clang17ObjCContainerDeclEPKNS1_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %5, ptr noundef %.0.i)
   br label %30
@@ -12651,7 +12651,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %26, %27
   tail call fastcc void @_ZN5clang11declvisitor4BaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112USRGeneratorEvE5VisitEPKNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %29)
   br label %30
 
-30:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %_ZL18getCategoryContextPKN5clang9NamedDeclE.argprom.exit
+30:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 7
@@ -12953,13 +12953,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   %41 = getelementptr i8, ptr %1, i64 40
   %.val = load i64, ptr %41, align 8
   %.not.i.i = icmp eq i64 %.val, 0
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, label %42
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, label %42
 
 42:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %43 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %27, i64 %.val) #14
-  br label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %42
+_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %42
   ret void
 }
 
@@ -13049,9 +13049,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %33, %35
   %38 = getelementptr i8, ptr %1, i64 40
   %.val = load i64, ptr %38, align 8
   %.not.i.i = icmp eq i64 %.val, 0
-  br i1 %.not.i.i, label %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br i1 %.not.i.i, label %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
+_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %27, i64 %.val) #14
   br label %42
 
@@ -13060,7 +13060,7 @@ _ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit:
   store i8 1, ptr %41, align 8
   br label %42
 
-42:                                               ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, %40
+42:                                               ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, %40
   ret void
 }
 
@@ -13146,9 +13146,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %33, %35
   %38 = getelementptr i8, ptr %1, i64 40
   %.val.i = load i64, ptr %38, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
-  br i1 %.not.i.i, label %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br i1 %.not.i.i, label %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
+_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %27, i64 %.val.i) #14
   br label %_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit
 
@@ -13157,7 +13157,7 @@ _ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit:
   store i8 1, ptr %41, align 8
   br label %_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit: ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, %40
+_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit: ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, %40
   ret void
 }
 
@@ -13373,9 +13373,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %33, %35
   %38 = getelementptr i8, ptr %1, i64 40
   %.val.i = load i64, ptr %38, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
-  br i1 %.not.i.i, label %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br i1 %.not.i.i, label %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
+_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %27, i64 %.val.i) #14
   br label %_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit
 
@@ -13384,7 +13384,7 @@ _ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit:
   store i8 1, ptr %41, align 8
   br label %_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit: ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, %40
+_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit: ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, %40
   ret void
 }
 
@@ -13470,9 +13470,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %33, %35
   %38 = getelementptr i8, ptr %1, i64 40
   %.val.i = load i64, ptr %38, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
-  br i1 %.not.i.i, label %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit
+  br i1 %.not.i.i, label %40, label %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
+_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48) %27, i64 %.val.i) #14
   br label %_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit
 
@@ -13481,7 +13481,7 @@ _ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit:
   store i8 1, ptr %41, align 8
   br label %_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit
 
-_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit: ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.argprom.exit, %40
+_ZN12_GLOBAL__N_112USRGenerator14VisitNamedDeclEPKN5clang9NamedDeclE.exit: ; preds = %_ZN12_GLOBAL__N_112USRGenerator12EmitDeclNameEPKN5clang9NamedDeclE.exit, %40
   ret void
 }
 

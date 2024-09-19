@@ -499,7 +499,7 @@ if.then97:                                        ; preds = %for.body
   %end_col_offset = getelementptr inbounds i8, ptr %t, i64 32
   %22 = load i32, ptr %end_col_offset, align 8
   %conv101 = sext i32 %22 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef %p, ptr noundef %18, i64 noundef %conv98, i64 noundef %conv99, i64 noundef %conv100, i64 noundef %conv101, ptr nonnull poison)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %18, i64 noundef %conv98, i64 noundef %conv99, i64 noundef %conv100, i64 noundef %conv101, ptr nonnull poison)
   br label %return
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
@@ -536,7 +536,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef range(i64 -2147483648, 2147483648) %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr nocapture readnone %errmsg, ...) unnamed_addr #0 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef range(i64 -2147483648, 2147483648) %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr nocapture readnone %errmsg, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)

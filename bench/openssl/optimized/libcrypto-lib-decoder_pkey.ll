@@ -996,14 +996,14 @@ for.body.lr.ph:                                   ; preds = %do.body
   %total.i = getelementptr inbounds i8, ptr %arg, i64 32
   br label %for.body
 
-for.body:                                         ; preds = %collect_decoder_keymgmt.argprom.exit, %for.body.lr.ph
-  %i.019 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %collect_decoder_keymgmt.argprom.exit ]
+for.body:                                         ; preds = %collect_decoder_keymgmt.exit, %for.body.lr.ph
+  %i.019 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %collect_decoder_keymgmt.exit ]
   %call.i12 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %i.019) #6
   %5 = getelementptr i8, ptr %call.i12, i64 4
   %call10.val = load i32, ptr %5, align 4
   %6 = load i32, ptr %id.i, align 8
   %cmp.not.i = icmp eq i32 %call10.val, %6
-  br i1 %cmp.not.i, label %if.end.i, label %collect_decoder_keymgmt.argprom.exit
+  br i1 %cmp.not.i, label %if.end.i, label %collect_decoder_keymgmt.exit
 
 if.end.i:                                         ; preds = %for.body
   %7 = load ptr, ptr %newctx.i, align 8
@@ -1036,9 +1036,9 @@ if.end12.i:                                       ; preds = %do.body.i
   %10 = load i32, ptr %total.i, align 8
   %inc.i = add nsw i32 %10, 1
   store i32 %inc.i, ptr %total.i, align 8
-  br label %collect_decoder_keymgmt.argprom.exit
+  br label %collect_decoder_keymgmt.exit
 
-collect_decoder_keymgmt.argprom.exit:             ; preds = %for.body, %if.end12.i
+collect_decoder_keymgmt.exit:                     ; preds = %for.body, %if.end12.i
   %.pr = load i8, ptr %error_occurred, align 4
   %tobool12.not = icmp ne i8 %.pr, 0
   %inc = add nuw nsw i32 %i.019, 1
@@ -1050,7 +1050,7 @@ for.end.sink.split:                               ; preds = %if.end.i, %if.then6
   store i8 1, ptr %error_occurred, align 4
   br label %for.end
 
-for.end:                                          ; preds = %collect_decoder_keymgmt.argprom.exit, %for.end.sink.split, %do.body, %land.lhs.true, %entry
+for.end:                                          ; preds = %collect_decoder_keymgmt.exit, %for.end.sink.split, %do.body, %land.lhs.true, %entry
   ret void
 }
 

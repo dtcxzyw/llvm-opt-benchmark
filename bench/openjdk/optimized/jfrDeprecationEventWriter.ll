@@ -1840,38 +1840,38 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %.0.i.i.i41.i.i = phi i64 [ 1, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesImEEmT_.exit.i.i ], [ 2, %36 ], [ 3, %37 ], [ 4, %38 ], [ 5, %39 ], [ 6, %40 ], [ 7, %41 ], [ %..i.i.i40.i.i, %42 ]
   %.sroa.0.0.copyload.i.i = load i64, ptr %1, align 8
   %.not.i.i.i43.i.i = icmp ult i64 %.sroa.0.0.copyload.i.i, 128
-  br i1 %.not.i.i.i43.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.argprom.exit.i, label %43
+  br i1 %.not.i.i.i43.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.exit.i, label %43
 
 43:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesImEEmT_.exit42.i.i
   %.not10.i.i.i44.i.i = icmp ult i64 %.sroa.0.0.copyload.i.i, 16384
-  br i1 %.not10.i.i.i44.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.argprom.exit.i, label %44
+  br i1 %.not10.i.i.i44.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.exit.i, label %44
 
 44:                                               ; preds = %43
   %.not11.i.i.i45.i.i = icmp ult i64 %.sroa.0.0.copyload.i.i, 2097152
-  br i1 %.not11.i.i.i45.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.argprom.exit.i, label %45
+  br i1 %.not11.i.i.i45.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.exit.i, label %45
 
 45:                                               ; preds = %44
   %.not12.i.i.i46.i.i = icmp ult i64 %.sroa.0.0.copyload.i.i, 268435456
-  br i1 %.not12.i.i.i46.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.argprom.exit.i, label %46
+  br i1 %.not12.i.i.i46.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.exit.i, label %46
 
 46:                                               ; preds = %45
   %.not13.i.i.i47.i.i = icmp ult i64 %.sroa.0.0.copyload.i.i, 34359738368
-  br i1 %.not13.i.i.i47.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.argprom.exit.i, label %47
+  br i1 %.not13.i.i.i47.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.exit.i, label %47
 
 47:                                               ; preds = %46
   %.not14.i.i.i48.i.i = icmp ult i64 %.sroa.0.0.copyload.i.i, 4398046511104
-  br i1 %.not14.i.i.i48.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.argprom.exit.i, label %48
+  br i1 %.not14.i.i.i48.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.exit.i, label %48
 
 48:                                               ; preds = %47
   %.not15.i.i.i49.i.i = icmp ult i64 %.sroa.0.0.copyload.i.i, 562949953421312
-  br i1 %.not15.i.i.i49.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.argprom.exit.i, label %49
+  br i1 %.not15.i.i.i49.i.i, label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.exit.i, label %49
 
 49:                                               ; preds = %48
   %.not16.i.i.i50.i.i = icmp ult i64 %.sroa.0.0.copyload.i.i, 72057594037927936
   %..i.i.i51.i.i = select i1 %.not16.i.i.i50.i.i, i64 8, i64 9
-  br label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.argprom.exit.i
+  br label %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.exit.i
 
-_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.argprom.exit.i: ; preds = %49, %48, %47, %46, %45, %44, %43, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesImEEmT_.exit42.i.i
+_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.exit.i: ; preds = %49, %48, %47, %46, %45, %44, %43, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesImEEmT_.exit42.i.i
   %.0.i.i.i52.i.i = phi i64 [ 1, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesImEEmT_.exit42.i.i ], [ 2, %43 ], [ 3, %44 ], [ 4, %45 ], [ 5, %46 ], [ 6, %47 ], [ 7, %48 ], [ %..i.i.i51.i.i, %49 ]
   %50 = add nuw nsw i64 %.0.i.i.i31.i.i, %.0.i.i.i.i.i
   %51 = add nuw nsw i64 %50, %.0.i.i.i41.i.i
@@ -1882,7 +1882,7 @@ _ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI2
   %.not.i.i.i.i = icmp eq i32 %54, -1
   br i1 %.not.i.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI10JfrEventIdEEvT_.exit.i, label %55
 
-55:                                               ; preds = %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.argprom.exit.i
+55:                                               ; preds = %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.exit.i
   %56 = getelementptr inbounds i8, ptr %12, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %12, i64 8
@@ -1938,7 +1938,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   store ptr %79, ptr %58, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI10JfrEventIdEEvT_.exit.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI10JfrEventIdEEvT_.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI10JfrEventIdEEPhPKT_mSD_.exit.i.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i.i, %64, %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.argprom.exit.i
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI10JfrEventIdEEvT_.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeI10JfrEventIdEEPhPKT_mSD_.exit.i.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i.i, %64, %_ZL20calculate_event_sizePK17JfrDeprecatedEdgeR14JfrChunkWriterRK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceEb.exit.i
   %80 = load i64, ptr %0, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(77) %12, i64 noundef %80)
   br i1 %15, label %81, label %84

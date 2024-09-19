@@ -322,22 +322,22 @@ define internal fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, 
 35:                                               ; preds = %30
   %char0.i.i = load i8, ptr %34, align 1
   %.not5.i.i = icmp eq i8 %char0.i.i, 0
-  br i1 %.not5.i.i, label %36, label %dissect_rbm_basic.argprom.exit
+  br i1 %.not5.i.i, label %36, label %dissect_rbm_basic.exit
 
 36:                                               ; preds = %35, %30
   %37 = load ptr, ptr %32, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.52, ptr noundef nonnull %31) #4
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 38:                                               ; preds = %6
   store ptr @.str.4, ptr %15, align 8
   call fastcc void @dissect_rbm_integer(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull %16)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 39:                                               ; preds = %6
   store ptr @.str.30, ptr %15, align 8
   call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.29, ptr noundef %16)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 40:                                               ; preds = %6
   store ptr @.str.31, ptr %15, align 8
@@ -345,7 +345,7 @@ define internal fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, 
   tail call fastcc void @dissect_rbm_integer(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null)
   tail call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null, ptr noundef null)
   tail call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null, ptr noundef null)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 41:                                               ; preds = %6
   store ptr @.str.32, ptr %15, align 8
@@ -356,7 +356,7 @@ define internal fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, 
   %45 = load i32, ptr %3, align 4
   %46 = sub i32 %45, %42
   call void @proto_item_set_len(ptr noundef %44, i32 noundef %46) #4
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 47:                                               ; preds = %6
   store ptr @.str.33, ptr %15, align 8
@@ -417,12 +417,12 @@ dissect_rbm_array.exit:                           ; preds = %.lr.ph, %rbm_set_in
   store ptr %75, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 76:                                               ; preds = %6
   store ptr @.str.34, ptr %15, align 8
   call fastcc void @dissect_rbm_hash(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull %16)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 77:                                               ; preds = %6, %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
@@ -477,7 +477,7 @@ dissect_rbm_link.exit:                            ; preds = %87, %88
   store ptr %99, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 100:                                              ; preds = %6
   store ptr @.str.35, ptr %15, align 8
@@ -527,17 +527,17 @@ dissect_rbm_double.exit:                          ; preds = %104, %105
   store ptr %125, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 126:                                              ; preds = %6
   store ptr @.str.36, ptr %15, align 8
   call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef %16)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 127:                                              ; preds = %6
   store ptr @.str.37, ptr %15, align 8
   call fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.29, ptr noundef %16)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 128:                                              ; preds = %6
   store ptr @.str.13, ptr %15, align 8
@@ -591,7 +591,7 @@ dissect_rbm_struct_data.exit:                     ; preds = %128, %rbm_set_info.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   tail call fastcc void @dissect_rbm_hash(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 152:                                              ; preds = %6
   store ptr @.str.38, ptr %15, align 8
@@ -605,7 +605,7 @@ dissect_rbm_struct_data.exit:                     ; preds = %128, %rbm_set_info.
   tail call fastcc void @dissect_rbm_integer(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null)
   tail call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null, ptr noundef null)
   tail call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null, ptr noundef null)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 158:                                              ; preds = %6
   store ptr @.str.39, ptr %15, align 8
@@ -617,11 +617,11 @@ dissect_rbm_struct_data.exit:                     ; preds = %128, %rbm_set_info.
   %162 = load i32, ptr %3, align 4
   %163 = sub i32 %162, %159
   tail call void @proto_item_set_len(ptr noundef %161, i32 noundef %163) #4
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 164:                                              ; preds = %6
   call void @dissect_rbm_inline(ptr noundef %0, ptr noundef %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef nonnull %15, ptr noundef nonnull %16)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 165:                                              ; preds = %6
   %166 = load i32, ptr %3, align 4
@@ -663,7 +663,7 @@ dissect_rbm_rubyobject.exit:                      ; preds = %.lr.ph132, %rbm_set
   %180 = sub i32 %179, %166
   tail call void @proto_item_set_len(ptr noundef %168, i32 noundef %180) #4
   store ptr @.str.40, ptr %15, align 8
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 181:                                              ; preds = %6
   store ptr @.str.41, ptr %15, align 8
@@ -685,7 +685,7 @@ dissect_rbm_rubyobject.exit:                      ; preds = %.lr.ph132, %rbm_set
 
 rbm_set_info.exit125:                             ; preds = %185, %186
   call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %16)
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 188:                                              ; preds = %6
   store ptr @.str.42, ptr %15, align 8
@@ -713,7 +713,7 @@ rbm_set_info.exit129:                             ; preds = %195, %196
   %198 = load i32, ptr %3, align 4
   %199 = sub i32 %198, %189
   tail call void @proto_item_set_len(ptr noundef %191, i32 noundef %199) #4
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
 200:                                              ; preds = %6
   %201 = zext i8 %18 to i32
@@ -723,9 +723,9 @@ rbm_set_info.exit129:                             ; preds = %195, %196
   %205 = load i32, ptr %3, align 4
   %206 = add i32 %205, %204
   store i32 %206, ptr %3, align 4
-  br label %dissect_rbm_basic.argprom.exit
+  br label %dissect_rbm_basic.exit
 
-dissect_rbm_basic.argprom.exit:                   ; preds = %36, %35, %200, %rbm_set_info.exit129, %rbm_set_info.exit125, %dissect_rbm_rubyobject.exit, %164, %158, %152, %dissect_rbm_struct_data.exit, %127, %126, %dissect_rbm_double.exit, %dissect_rbm_link.exit, %76, %dissect_rbm_array.exit, %41, %40, %39, %38
+dissect_rbm_basic.exit:                           ; preds = %36, %35, %200, %rbm_set_info.exit129, %rbm_set_info.exit125, %dissect_rbm_rubyobject.exit, %164, %158, %152, %dissect_rbm_struct_data.exit, %127, %126, %dissect_rbm_double.exit, %dissect_rbm_link.exit, %76, %dissect_rbm_array.exit, %41, %40, %39, %38
   %207 = load i32, ptr %3, align 4
   %208 = sub i32 %207, %19
   call void @proto_item_set_len(ptr noundef %21, i32 noundef %208) #4
@@ -735,7 +735,7 @@ dissect_rbm_basic.argprom.exit:                   ; preds = %36, %35, %200, %rbm
   %.not = icmp eq ptr %210, null
   br i1 %.not, label %213, label %211
 
-211:                                              ; preds = %dissect_rbm_basic.argprom.exit
+211:                                              ; preds = %dissect_rbm_basic.exit
   %char0 = load i8, ptr %210, align 1
   %.not103 = icmp eq i8 %char0, 0
   br i1 %.not103, label %213, label %212
@@ -744,7 +744,7 @@ dissect_rbm_basic.argprom.exit:                   ; preds = %36, %35, %200, %rbm
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.45, ptr noundef nonnull %210) #4
   br label %213
 
-213:                                              ; preds = %212, %211, %dissect_rbm_basic.argprom.exit
+213:                                              ; preds = %212, %211, %dissect_rbm_basic.exit
   %.not104 = icmp eq ptr %4, null
   br i1 %.not104, label %216, label %214
 

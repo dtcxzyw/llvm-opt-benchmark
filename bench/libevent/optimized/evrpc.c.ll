@@ -1080,7 +1080,7 @@ if.then14:                                        ; preds = %if.end12
   store ptr %6, ptr %tqh_last31.sink, align 8
   %7 = load ptr, ptr %next18, align 8
   store ptr %7, ptr %6, align 8
-  tail call fastcc void @evrpc_schedule_request.retelim(ptr noundef nonnull %connection, ptr noundef %4)
+  tail call fastcc void @evrpc_schedule_request(ptr noundef nonnull %connection, ptr noundef %4)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then14, %if.end12
@@ -1092,7 +1092,7 @@ declare void @evhttp_connection_set_base(ptr noundef, ptr noundef) local_unnamed
 declare void @evhttp_connection_set_timeout(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evrpc_schedule_request.retelim(ptr noundef %connection, ptr noundef nonnull %ctx) unnamed_addr #0 {
+define internal fastcc void @evrpc_schedule_request(ptr noundef %connection, ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %status = alloca %struct.evrpc_status, align 8
   %pool1 = getelementptr inbounds i8, ptr %ctx, i64 24
@@ -1326,7 +1326,7 @@ do.body.i:                                        ; preds = %for.body.i.i
   store ptr %6, ptr %tqh_last.sink.i, align 8
   %7 = load ptr, ptr %next.i, align 8
   store ptr %7, ptr %6, align 8
-  tail call fastcc void @evrpc_schedule_request.retelim(ptr noundef nonnull %connection.0.i.i, ptr noundef %3)
+  tail call fastcc void @evrpc_schedule_request(ptr noundef nonnull %connection.0.i.i, ptr noundef %3)
   br label %evrpc_pool_schedule.exit
 
 evrpc_pool_schedule.exit:                         ; preds = %for.cond.i.i, %entry, %do.body.i
@@ -1570,7 +1570,7 @@ do.body.i.i:                                      ; preds = %for.body.i.i.i
   store ptr %6, ptr %tqh_last.sink.i.i, align 8
   %7 = load ptr, ptr %next.i.i, align 8
   store ptr %7, ptr %6, align 8
-  tail call fastcc void @evrpc_schedule_request.retelim(ptr noundef nonnull %connection.0.i.i.i, ptr noundef %3)
+  tail call fastcc void @evrpc_schedule_request(ptr noundef nonnull %connection.0.i.i.i, ptr noundef %3)
   br label %return
 
 error:                                            ; preds = %if.then5.i, %entry
@@ -1995,7 +1995,7 @@ do.body.i:                                        ; preds = %for.body.i.i
   store ptr %14, ptr %tqh_last.sink.i, align 8
   %15 = load ptr, ptr %next.i, align 8
   store ptr %15, ptr %14, align 8
-  call fastcc void @evrpc_schedule_request.retelim(ptr noundef nonnull %connection.0.i.i, ptr noundef %11)
+  call fastcc void @evrpc_schedule_request(ptr noundef nonnull %connection.0.i.i, ptr noundef %11)
   br label %evrpc_pool_schedule.exit
 
 evrpc_pool_schedule.exit:                         ; preds = %for.cond.i.i, %if.end20, %do.body.i

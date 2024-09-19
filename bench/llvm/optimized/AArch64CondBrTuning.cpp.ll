@@ -338,15 +338,15 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64CondBrTuning20runO
   %44 = getelementptr i8, ptr %43, i64 4
   %.val22 = load i32, ptr %44, align 4
   %45 = icmp slt i32 %.val22, 0
-  br i1 %45, label %_ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.argprom.exit, label %.thread
+  br i1 %45, label %_ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.exit, label %.thread
 
-_ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.argprom.exit: ; preds = %41
+_ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.exit: ; preds = %41
   %.val = load ptr, ptr %27, align 8
   %46 = call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %.val, i32 %.val22) #10
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %.thread, label %47
 
-47:                                               ; preds = %_ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.argprom.exit
+47:                                               ; preds = %_ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.exit
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.038.054, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
@@ -724,7 +724,7 @@ _ZN12_GLOBAL__N_119AArch64CondBrTuning15tryToTuneBranchERN4llvm12MachineInstrES3
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.038.054) #10
   br label %_ZN12_GLOBAL__N_119AArch64CondBrTuning15tryToTuneBranchERN4llvm12MachineInstrES3_.exit._crit_edge
 
-.thread:                                          ; preds = %71, %67, %62, %58, %52, %47, %.lr.ph, %41, %_ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.argprom.exit
+.thread:                                          ; preds = %71, %67, %62, %58, %52, %47, %.lr.ph, %41, %_ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.exit
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.038.054, align 8
   %170 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %170, 0

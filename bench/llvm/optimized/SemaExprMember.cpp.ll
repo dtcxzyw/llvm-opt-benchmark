@@ -821,7 +821,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit88.i: ; pred
   %.01118.i.i.i.i.i = phi ptr [ %194, %193 ], [ %185, %187 ]
   %191 = load ptr, ptr %.01118.i.i.i.i.i, align 8
   %192 = icmp eq ptr %191, %183
-  br i1 %192, label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit.i.i", label %193
+  br i1 %192, label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit.i.i", label %193
 
 193:                                              ; preds = %.lr.ph.i.i.i.i.i
   %194 = getelementptr inbounds i8, ptr %.01118.i.i.i.i.i, i64 8
@@ -830,7 +830,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit88.i: ; pred
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %193, %187
   %195 = getelementptr inbounds ptr, ptr %184, i64 %189
-  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit.i.i"
+  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit.i.i"
 
 196:                                              ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit88.i
   %197 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef %183) #17
@@ -841,7 +841,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit88.i: ; pred
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i: ; preds = %196
   %.pre5.i.i.i.i = load i32, ptr %31, align 4
-  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit.i.i"
+  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit.i.i"
 
 198:                                              ; preds = %196
   %199 = icmp eq ptr %.pre.i.i.i.i, %.pre4.i.i.i.i
@@ -850,9 +850,9 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit88.i: ; pred
   %.v.v.i14.i.i.i.i.i = select i1 %199, i32 %200, i32 %201
   %.v.i15.i.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i.i to i64
   %202 = getelementptr inbounds ptr, ptr %.pre.i.i.i.i, i64 %.v.i15.i.i.i.i.i
-  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit.i.i"
+  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit.i.i"
 
-"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i, %198, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i, %._crit_edge.i.i.i.i.i
+"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i, %198, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i, %._crit_edge.i.i.i.i.i
   %203 = phi i32 [ %188, %._crit_edge.i.i.i.i.i ], [ %200, %198 ], [ %.pre5.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %188, %.lr.ph.i.i.i.i.i ]
   %204 = phi ptr [ %184, %._crit_edge.i.i.i.i.i ], [ %.pre4.i.i.i.i, %198 ], [ %.pre4.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %184, %.lr.ph.i.i.i.i.i ]
   %205 = phi ptr [ %184, %._crit_edge.i.i.i.i.i ], [ %.pre.i.i.i.i, %198 ], [ %.pre.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i.i ], [ %184, %.lr.ph.i.i.i.i.i ]
@@ -863,23 +863,23 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit88.i: ; pred
   %.v.i.i.i.i.i = zext i32 %.v.v.i.i.i.i.i to i64
   %208 = getelementptr inbounds ptr, ptr %205, i64 %.v.i.i.i.i.i
   %.not1.i.i.i = icmp eq ptr %.0.i.i.i.i.i, %208
-  br i1 %.not1.i.i.i, label %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.argprom.exit.i, label %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.argprom.exit.thread.i
+  br i1 %.not1.i.i.i, label %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.exit.i, label %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.exit.thread.i
 
-_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.argprom.exit.thread.i: ; preds = %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit.i.i"
+_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.exit.thread.i: ; preds = %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %213
 
-_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.argprom.exit.i: ; preds = %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit.i.i"
+_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.exit.i: ; preds = %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit.i.i"
   %209 = ptrtoint ptr %7 to i64
   %210 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl11forallBasesEN4llvm12function_refIFbPKS0_EEE(ptr noundef nonnull align 8 dereferenceable(144) %.041.i, ptr nonnull @"_ZN4llvm12function_refIFbPKN5clang13CXXRecordDeclEEE11callback_fnIZL24isProvablyNotDerivedFromRNS1_4SemaEPS2_RKNS_11SmallPtrSetIS4_Lj4EEEE3$_0EEblS4_", i64 %209) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br i1 %210, label %211, label %213
 
-211:                                              ; preds = %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.argprom.exit.i
+211:                                              ; preds = %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.exit.i
   %212 = select i1 %.044.lcssa.i, i32 3, i32 %.not57.i
   br label %215
 
-213:                                              ; preds = %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.argprom.exit.i, %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.argprom.exit.thread.i
+213:                                              ; preds = %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.exit.i, %_ZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEE.exit.thread.i
   %214 = select i1 %.044.lcssa.i, i32 1, i32 4
   br label %215
 
@@ -2420,7 +2420,7 @@ define internal fastcc noundef zeroext i1 @_ZL24LookupMemberExprInRecordRN5clang
   store ptr %12, ptr %32, align 8
   %33 = call noundef zeroext i1 @_ZN5clang4Sema19RequireCompleteTypeENS_14SourceLocationENS_8QualTypeENS0_16CompleteTypeKindERNS0_13TypeDiagnoserE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %4, i64 %3, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %11) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  br i1 %33, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.argprom.exit", label %34
+  br i1 %33, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.exit", label %34
 
 34:                                               ; preds = %30, %28, %21
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2435,7 +2435,7 @@ define internal fastcc noundef zeroext i1 @_ZL24LookupMemberExprInRecordRN5clang
   %.sroa.0.0.insert.ext = zext i32 %8 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, 4294967296
   %39 = call noundef zeroext i1 @_ZN5clang4Sema18LookupTemplateNameERNS_12LookupResultEPNS_5ScopeERNS_12CXXScopeSpecENS_8QualTypeEbNS0_20RequiredTemplateKindEPNS0_19AssumedTemplateKindEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 %spec.select, i1 noundef zeroext false, i64 %.sroa.0.0.insert.insert, ptr noundef null, i1 noundef zeroext true) #17
-  br label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.exit"
 
 40:                                               ; preds = %34
   %41 = call noundef zeroext i1 @_ZN5clang4Sema16LookupParsedNameERNS_12LookupResultEPNS_5ScopeEPNS_12CXXScopeSpecENS_8QualTypeEbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef null, ptr noundef nonnull %6, i64 %spec.select, i1 noundef zeroext false, i1 noundef zeroext false) #17
@@ -2444,7 +2444,7 @@ define internal fastcc noundef zeroext i1 @_ZL24LookupMemberExprInRecordRN5clang
   %44 = load i32, ptr %1, align 8
   %45 = icmp ne i32 %44, 1
   %or.cond67.not = select i1 %43, i1 %45, i1 false
-  br i1 %or.cond67.not, label %46, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.argprom.exit"
+  br i1 %or.cond67.not, label %46, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.exit"
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -2574,36 +2574,36 @@ _ZNSt8functionIFN5clang12ActionResultIPNS0_4ExprELb1EEERNS0_4SemaEPNS0_8TypoExpr
   %112 = getelementptr inbounds i8, ptr %17, i64 84
   %.val50 = load i32, ptr %112, align 4
   %.not.i.i.i = icmp eq i32 %.val50, 0
-  br i1 %.not.i.i.i, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.argprom.exit", label %113
+  br i1 %.not.i.i.i, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.exit", label %113
 
 113:                                              ; preds = %_ZNSt8functionIFN5clang12ActionResultIPNS0_4ExprELb1EEERNS0_4SemaEPNS0_8TypoExprENS0_14TypoCorrectionEEED2Ev.exit
   %114 = getelementptr inbounds i8, ptr %17, i64 72
   %.val49 = load ptr, ptr %114, align 8
   call void @free(ptr noundef %.val49) #17
-  br label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.argprom.exit"
+  br label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.exit"
 
-"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.argprom.exit": ; preds = %_ZNSt8functionIFN5clang12ActionResultIPNS0_4ExprELb1EEERNS0_4SemaEPNS0_8TypoExprENS0_14TypoCorrectionEEED2Ev.exit, %113
+"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.exit": ; preds = %_ZNSt8functionIFN5clang12ActionResultIPNS0_4ExprELb1EEERNS0_4SemaEPNS0_8TypoExprENS0_14TypoCorrectionEEED2Ev.exit, %113
   %115 = load ptr, ptr %84, align 8
   %.not.i.i52 = icmp eq ptr %115, null
   br i1 %.not.i.i52, label %_ZNSt8functionIFvRKN5clang14TypoCorrectionEEED2Ev.exit, label %116
 
-116:                                              ; preds = %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.argprom.exit"
+116:                                              ; preds = %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.exit"
   %117 = call noundef zeroext i1 %115(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 3) #17
   br label %_ZNSt8functionIFvRKN5clang14TypoCorrectionEEED2Ev.exit
 
-_ZNSt8functionIFvRKN5clang14TypoCorrectionEEED2Ev.exit: ; preds = %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.argprom.exit", %116
+_ZNSt8functionIFvRKN5clang14TypoCorrectionEEED2Ev.exit: ; preds = %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.exit", %116
   %118 = getelementptr inbounds i8, ptr %15, i64 52
   %.val48 = load i32, ptr %118, align 4
   %.not.i.i.i53 = icmp eq i32 %.val48, 0
-  br i1 %.not.i.i.i53, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.argprom.exit", label %119
+  br i1 %.not.i.i.i53, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.exit", label %119
 
 119:                                              ; preds = %_ZNSt8functionIFvRKN5clang14TypoCorrectionEEED2Ev.exit
   %120 = getelementptr inbounds i8, ptr %15, i64 40
   %.val = load ptr, ptr %120, align 8
   call void @free(ptr noundef %.val) #17
-  br label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.exit"
 
-"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.argprom.exit": ; preds = %119, %_ZNSt8functionIFvRKN5clang14TypoCorrectionEEED2Ev.exit, %40, %30, %38
+"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.exit": ; preds = %119, %_ZNSt8functionIFvRKN5clang14TypoCorrectionEEED2Ev.exit, %40, %30, %38
   %.0 = phi i1 [ %39, %38 ], [ true, %30 ], [ false, %40 ], [ false, %_ZNSt8functionIFvRKN5clang14TypoCorrectionEEED2Ev.exit ], [ false, %119 ]
   ret i1 %.0
 }
@@ -3904,7 +3904,7 @@ _ZNK5clang14ObjCObjectType8isObjCIdEv.exit621:    ; preds = %_ZNK5clang21ObjCObj
   %669 = or disjoint i64 %668, 1
   store i64 %669, ptr %49, align 8
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %671 = call fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE.argprom(ptr noundef %610, ptr noundef %.0.i613, ptr noundef nonnull align 8 dereferenceable(8) %49)
+  %671 = call fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr noundef %610, ptr noundef %.0.i613, ptr noundef nonnull align 8 dereferenceable(8) %49)
   %.not498 = icmp eq ptr %671, null
   br i1 %.not498, label %707, label %672
 
@@ -3941,7 +3941,7 @@ _ZNK5clang14ObjCObjectType8isObjCIdEv.exit621:    ; preds = %_ZNK5clang21ObjCObj
   %690 = getelementptr inbounds nuw i8, ptr %688, i64 680
   %691 = call i64 @_ZN5clang13SelectorTable23constructSetterSelectorERNS_15IdentifierTableERS0_PKNS_14IdentifierInfoE(ptr noundef nonnull align 8 dereferenceable(128) %689, ptr noundef nonnull align 8 dereferenceable(8) %690, ptr noundef %.0.i613) #17
   store i64 %691, ptr %50, align 8
-  %692 = call fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE.argprom(ptr noundef %610, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %50)
+  %692 = call fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr noundef %610, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %50)
   %.not501 = icmp eq ptr %692, null
   br i1 %.not501, label %698, label %693
 
@@ -7471,7 +7471,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKN5clang13CXXReco
   %.01118.i.i.i = phi ptr [ %20, %19 ], [ %10, %12 ]
   %17 = load ptr, ptr %.01118.i.i.i, align 8
   %18 = icmp eq ptr %17, %7
-  br i1 %18, label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit", label %19
+  br i1 %18, label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit", label %19
 
 19:                                               ; preds = %.lr.ph.i.i.i
   %20 = getelementptr inbounds i8, ptr %.01118.i.i.i, i64 8
@@ -7480,7 +7480,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKN5clang13CXXReco
 
 ._crit_edge.i.i.i:                                ; preds = %19, %12
   %21 = getelementptr inbounds ptr, ptr %9, i64 %15
-  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit"
+  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit"
 
 22:                                               ; preds = %2
   %23 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %.val, ptr noundef %7) #17
@@ -7492,7 +7492,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKN5clang13CXXReco
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i: ; preds = %22
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 20
   %.pre5.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
-  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit"
+  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit"
 
 24:                                               ; preds = %22
   %25 = icmp eq ptr %.pre.i.i, %.pre4.i.i
@@ -7503,9 +7503,9 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbPKN5clang13CXXReco
   %.v.v.i14.i.i.i = select i1 %25, i32 %27, i32 %29
   %.v.i15.i.i.i = zext i32 %.v.v.i14.i.i.i to i64
   %30 = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %.v.i15.i.i.i
-  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit"
+  br label %"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit"
 
-"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.argprom.exit": ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i, %24
+"_ZZL24isProvablyNotDerivedFromRN5clang4SemaEPNS_13CXXRecordDeclERKN4llvm11SmallPtrSetIPKS2_Lj4EEEENK3$_0clES7_.exit": ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i, %24
   %31 = phi i32 [ %14, %._crit_edge.i.i.i ], [ %27, %24 ], [ %.pre5.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %14, %.lr.ph.i.i.i ]
   %32 = phi ptr [ %9, %._crit_edge.i.i.i ], [ %.pre4.i.i, %24 ], [ %.pre4.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %9, %.lr.ph.i.i.i ]
   %33 = phi ptr [ %9, %._crit_edge.i.i.i ], [ %.pre.i.i, %24 ], [ %.pre.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %9, %.lr.ph.i.i.i ]
@@ -9470,7 +9470,7 @@ _ZNK5clang17PartialDiagnosticlsIbEERKS0_RKT_.exit.i.i.i: ; preds = %_ZNK5clang19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN5clang14TypoCorrectionEEZL24LookupMemberExprInRecordRNS0_4SemaERNS0_12LookupResultEPNS0_4ExprENS0_8QualTypeENS0_14SourceLocationEbRNS0_12CXXScopeSpecEbSC_RPNS0_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %17
@@ -9480,11 +9480,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN5clang14TypoC
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
@@ -9504,30 +9504,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN5clang14TypoC
   %16 = getelementptr inbounds nuw i8, ptr %.val5, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(12) %16, i64 12, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 17:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %18 = icmp eq ptr %.val6.i, null
-  br i1 %18, label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit", label %19
+  br i1 %18, label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit", label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr i8, ptr %.val6.i, i64 52
   %.val1.i.i = load i32, ptr %20, align 4
   %.not.i.i.i.i.i = icmp eq i32 %.val1.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.argprom.exit.i.i", label %21
+  br i1 %.not.i.i.i.i.i, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.exit.i.i", label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr i8, ptr %.val6.i, i64 40
   %.val.i.i = load ptr, ptr %22, align 8
   tail call void @free(ptr noundef %.val.i.i) #17
-  br label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.argprom.exit.i.i"
+  br label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.exit.i.i"
 
-"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.argprom.exit.i.i": ; preds = %21, %19
+"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.exit.i.i": ; preds = %21, %19
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 88) #20
-  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.argprom.exit.i.i", %17, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %3, %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_0D2Ev.exit.i.i", %17, %6, %5, %4
   ret i1 false
 }
 
@@ -9789,7 +9789,7 @@ _ZN5clang14TypoCorrection5beginEv.exit.i.i.i:     ; preds = %61, %_ZNK5clang14Ty
   %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   %67 = getelementptr inbounds ptr, ptr %64, i64 %66
   %.not1.i.i.i = icmp eq ptr %65, %67
-  br i1 %.not1.i.i.i, label %"_ZSt10__invoke_rIN5clang12ActionResultIPNS0_4ExprELb1EEERZL24LookupMemberExprInRecordRNS0_4SemaERNS0_12LookupResultES3_NS0_8QualTypeENS0_14SourceLocationEbRNS0_12CXXScopeSpecEbSA_RPNS0_8TypoExprEE3$_1JS6_SE_NS0_14TypoCorrectionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not1.i.i.i, label %"_ZSt10__invoke_rIN5clang12ActionResultIPNS0_4ExprELb1EEERZL24LookupMemberExprInRecordRNS0_4SemaERNS0_12LookupResultES3_NS0_8QualTypeENS0_14SourceLocationEbRNS0_12CXXScopeSpecEbSA_RPNS0_8TypoExprEE3$_1JS6_SE_NS0_14TypoCorrectionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5clang14TypoCorrection5beginEv.exit.i.i.i, %_ZN5clang12LookupResult7addDeclEPNS_9NamedDeclE.exit.i.i.i
   %.02.i.i.i = phi ptr [ %85, %_ZN5clang12LookupResult7addDeclEPNS_9NamedDeclE.exit.i.i.i ], [ %65, %_ZN5clang14TypoCorrection5beginEv.exit.i.i.i ]
@@ -9822,9 +9822,9 @@ _ZN5clang12LookupResult7addDeclEPNS_9NamedDeclE.exit.i.i.i: ; preds = %74, %.lr.
   store i32 2, ptr %5, align 8
   %85 = getelementptr inbounds i8, ptr %.02.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %85, %67
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIN5clang12ActionResultIPNS0_4ExprELb1EEERZL24LookupMemberExprInRecordRNS0_4SemaERNS0_12LookupResultES3_NS0_8QualTypeENS0_14SourceLocationEbRNS0_12CXXScopeSpecEbSA_RPNS0_8TypoExprEE3$_1JS6_SE_NS0_14TypoCorrectionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIN5clang12ActionResultIPNS0_4ExprELb1EEERZL24LookupMemberExprInRecordRNS0_4SemaERNS0_12LookupResultES3_NS0_8QualTypeENS0_14SourceLocationEbRNS0_12CXXScopeSpecEbSA_RPNS0_8TypoExprEE3$_1JS6_SE_NS0_14TypoCorrectionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %.lr.ph.i.i.i
 
-"_ZSt10__invoke_rIN5clang12ActionResultIPNS0_4ExprELb1EEERZL24LookupMemberExprInRecordRNS0_4SemaERNS0_12LookupResultES3_NS0_8QualTypeENS0_14SourceLocationEbRNS0_12CXXScopeSpecEbSA_RPNS0_8TypoExprEE3$_1JS6_SE_NS0_14TypoCorrectionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit": ; preds = %_ZN5clang12LookupResult7addDeclEPNS_9NamedDeclE.exit.i.i.i, %_ZN5clang14TypoCorrection5beginEv.exit.i.i.i
+"_ZSt10__invoke_rIN5clang12ActionResultIPNS0_4ExprELb1EEERZL24LookupMemberExprInRecordRNS0_4SemaERNS0_12LookupResultES3_NS0_8QualTypeENS0_14SourceLocationEbRNS0_12CXXScopeSpecEbSA_RPNS0_8TypoExprEE3$_1JS6_SE_NS0_14TypoCorrectionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %_ZN5clang12LookupResult7addDeclEPNS_9NamedDeclE.exit.i.i.i, %_ZN5clang14TypoCorrection5beginEv.exit.i.i.i
   call void @_ZN5clang12LookupResult11resolveKindEv(ptr noundef nonnull align 8 dereferenceable(168) %5) #17
   %86 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %87 = load ptr, ptr %86, align 8
@@ -9846,7 +9846,7 @@ _ZN5clang12LookupResult7addDeclEPNS_9NamedDeclE.exit.i.i.i: ; preds = %74, %.lr.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5clang12ActionResultIPNS0_4ExprELb1EEERNS0_4SemaEPNS0_8TypoExprENS0_14TypoCorrectionEEZL24LookupMemberExprInRecordS6_RNS0_12LookupResultES3_NS0_8QualTypeENS0_14SourceLocationEbRNS0_12CXXScopeSpecEbSE_RS8_E3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %15
@@ -9856,11 +9856,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5clang12ActionRe
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
@@ -9877,30 +9877,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5clang12ActionRe
   %14 = getelementptr inbounds nuw i8, ptr %.val5, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 15:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %16 = icmp eq ptr %.val6.i, null
-  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit", label %17
+  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit", label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr i8, ptr %.val6.i, i64 84
   %.val1.i.i = load i32, ptr %18, align 4
   %.not.i.i.i.i.i = icmp eq i32 %.val1.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.argprom.exit.i.i", label %19
+  br i1 %.not.i.i.i.i.i, label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.exit.i.i", label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr i8, ptr %.val6.i, i64 72
   %.val.i.i = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %.val.i.i) #17
-  br label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.argprom.exit.i.i"
+  br label %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.exit.i.i"
 
-"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.argprom.exit.i.i": ; preds = %19, %17
+"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.exit.i.i": ; preds = %19, %17
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 104) #20
-  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.argprom.exit.i.i", %15, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZL24LookupMemberExprInRecordRN5clang4SemaERNS1_12LookupResultEPNS1_4ExprENS1_8QualTypeENS1_14SourceLocationEbRNS1_12CXXScopeSpecEbS9_RPNS1_8TypoExprEE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %3, %"_ZZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprEEN3$_1D2Ev.exit.i.i", %15, %6, %5, %4
   ret i1 false
 }
 
@@ -11114,7 +11114,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4sema17FunctionScopeInfo9WeakUseTyELb1E
 declare i64 @_ZN5clang4Sema23DefaultLvalueConversionEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE.argprom(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL24FindGetterSetterNameDeclPKN5clang21ObjCObjectPointerTypeEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %4, align 8
   %5 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -16
@@ -11270,7 +11270,7 @@ _ZNK5clang21ObjCObjectPointerType5qualsEv.exit58: ; preds = %_ZNK5clang21ObjCObj
 .lr.ph11:                                         ; preds = %_ZNK5clang21ObjCObjectPointerType5qualsEv.exit58, %75
   %.03310 = phi ptr [ %76, %75 ], [ %64, %_ZNK5clang21ObjCObjectPointerType5qualsEv.exit58 ]
   %77 = load ptr, ptr %.03310, align 8
-  %78 = tail call fastcc noundef ptr @_ZL40FindGetterSetterNameDeclFromProtocolListPKN5clang16ObjCProtocolDeclEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE.argprom(ptr noundef %77, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %78 = tail call fastcc noundef ptr @_ZL40FindGetterSetterNameDeclFromProtocolListPKN5clang16ObjCProtocolDeclEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr noundef %77, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not45 = icmp eq ptr %78, null
   br i1 %.not45, label %75, label %.thread
 
@@ -13164,7 +13164,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4sema17FunctionScopeInfo9WeakUseTyELb1E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL40FindGetterSetterNameDeclFromProtocolListPKN5clang16ObjCProtocolDeclEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL40FindGetterSetterNameDeclFromProtocolListPKN5clang16ObjCProtocolDeclEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -13243,7 +13243,7 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCPro
 .lr.ph:                                           ; preds = %_ZNK5clang16ObjCProtocolDecl9protocolsEv.exit, %31
   %.0232 = phi ptr [ %32, %31 ], [ %.0.i913.i, %_ZNK5clang16ObjCProtocolDecl9protocolsEv.exit ]
   %33 = load ptr, ptr %.0232, align 8
-  %34 = tail call fastcc noundef ptr @_ZL40FindGetterSetterNameDeclFromProtocolListPKN5clang16ObjCProtocolDeclEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE.argprom(ptr noundef %33, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %34 = tail call fastcc noundef ptr @_ZL40FindGetterSetterNameDeclFromProtocolListPKN5clang16ObjCProtocolDeclEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr noundef %33, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not31 = icmp eq ptr %34, null
   br i1 %.not31, label %31, label %.loopexit
 

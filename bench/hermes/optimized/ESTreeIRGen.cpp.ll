@@ -6312,7 +6312,7 @@ if.then4:                                         ; preds = %if.end
   %conv.i.i = zext i32 %call7.val18 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hermes::SerializedScope::Declaration", ptr %call7.val, i64 %conv.i.i
   %cmp.not1.i = icmp eq i32 %call7.val18, 0
-  br i1 %cmp.not1.i, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit, label %for.body.i
+  br i1 %cmp.not1.i, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then4, %for.inc.i
   %__begin2.02.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call7.val, %if.then4 ]
@@ -6335,20 +6335,20 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.02.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit.loopexit, label %for.body.i
+  br i1 %cmp.not.i, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit.loopexit, label %for.body.i
 
-_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit.loopexit: ; preds = %for.inc.i
+_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit.loopexit: ; preds = %for.inc.i
   %.pre225 = load ptr, ptr %chain, align 8
-  br label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit
+  br label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit
 
-_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit.loopexit, %if.then4
-  %26 = phi ptr [ %.pre225, %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit.loopexit ], [ %1, %if.then4 ]
+_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit.loopexit, %if.then4
+  %26 = phi ptr [ %.pre225, %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit.loopexit ], [ %1, %if.then4 ]
   %_M_refcount3.i.i41 = getelementptr inbounds i8, ptr %chain, i64 8
   %27 = load ptr, ptr %_M_refcount3.i.i41, align 8
   %cmp.not.i.i.i42 = icmp eq ptr %27, null
   br i1 %cmp.not.i.i.i42, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit49, label %if.then.i.i.i43
 
-if.then.i.i.i43:                                  ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit
+if.then.i.i.i43:                                  ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit
   %_M_use_count.i.i.i.i44 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i45 = icmp eq i8 %28, 0
@@ -6364,7 +6364,7 @@ if.else.i.i.i.i.i48:                              ; preds = %if.then.i.i.i43
   %30 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i44, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit49
 
-_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit49: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit, %if.then.i.i.i.i.i46, %if.else.i.i.i.i.i48
+_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit49: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit, %if.then.i.i.i.i.i46, %if.else.i.i.i.i.i48
   %serializedScope_.i50 = getelementptr inbounds i8, ptr %20, i64 128
   store ptr %26, ptr %serializedScope_.i50, align 8
   %_M_refcount3.i.i.i.i52 = getelementptr inbounds i8, ptr %20, i64 136
@@ -6547,7 +6547,7 @@ if.end24:                                         ; preds = %if.else, %if.then18
   %conv.i.i119 = zext i32 %call25.val19 to i64
   %add.ptr.i.i120 = getelementptr inbounds %"struct.hermes::SerializedScope::Declaration", ptr %call25.val, i64 %conv.i.i119
   %cmp.not1.i121 = icmp eq i32 %call25.val19, 0
-  br i1 %cmp.not1.i121, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit135, label %for.body.i122
+  br i1 %cmp.not1.i121, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135, label %for.body.i122
 
 for.body.i122:                                    ; preds = %if.end24, %for.inc.i128
   %__begin2.02.i123 = phi ptr [ %incdec.ptr.i129, %for.inc.i128 ], [ %call25.val, %if.end24 ]
@@ -6570,20 +6570,20 @@ if.then.i131:                                     ; preds = %for.body.i122
 for.inc.i128:                                     ; preds = %if.then.i131, %for.body.i122
   %incdec.ptr.i129 = getelementptr inbounds i8, ptr %__begin2.02.i123, i64 16
   %cmp.not.i130 = icmp eq ptr %incdec.ptr.i129, %add.ptr.i.i120
-  br i1 %cmp.not.i130, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit135.loopexit, label %for.body.i122
+  br i1 %cmp.not.i130, label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135.loopexit, label %for.body.i122
 
-_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit135.loopexit: ; preds = %for.inc.i128
+_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135.loopexit: ; preds = %for.inc.i128
   %.pre224 = load ptr, ptr %chain, align 8
-  br label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit135
+  br label %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135
 
-_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit135: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit135.loopexit, %if.end24
-  %61 = phi ptr [ %.pre224, %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit135.loopexit ], [ %55, %if.end24 ]
+_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135.loopexit, %if.end24
+  %61 = phi ptr [ %.pre224, %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135.loopexit ], [ %55, %if.end24 ]
   %_M_refcount3.i.i137 = getelementptr inbounds i8, ptr %chain, i64 8
   %62 = load ptr, ptr %_M_refcount3.i.i137, align 8
   %cmp.not.i.i.i138 = icmp eq ptr %62, null
   br i1 %cmp.not.i.i.i138, label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit145, label %if.then.i.i.i139
 
-if.then.i.i.i139:                                 ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit135
+if.then.i.i.i139:                                 ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135
   %_M_use_count.i.i.i.i140 = getelementptr inbounds i8, ptr %62, i64 8
   %63 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i141 = icmp eq i8 %63, 0
@@ -6599,7 +6599,7 @@ if.else.i.i.i.i.i144:                             ; preds = %if.then.i.i.i139
   %65 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i140, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit145
 
-_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit145: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.argprom.exit135, %if.then.i.i.i.i.i142, %if.else.i.i.i.i.i144
+_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEC2ERKS3_.exit145: ; preds = %_ZN6hermes5irgenL26populateScopeFromChainLinkERNS_9IRBuilderEPNS_9ScopeDescERKNS_15SerializedScopeE.exit135, %if.then.i.i.i.i.i142, %if.else.i.i.i.i.i144
   store ptr %61, ptr %serializedScope_.i.i, align 8
   %_M_refcount3.i.i.i.i148 = getelementptr inbounds i8, ptr %call.i, i64 136
   %66 = load ptr, ptr %_M_refcount3.i.i.i.i148, align 8

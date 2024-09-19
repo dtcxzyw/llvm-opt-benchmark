@@ -364,9 +364,9 @@ define hidden range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef 
   %.1.i.us.i.i = add nsw i32 %.pn46.i.us.i.i, %.0364.i.us.i.i
   %.138.i.us.i.i = add nsw i32 %.pn.i.us.i.i, %.0373.i.us.i.i
   %70 = icmp slt i32 %68, %40
-  br i1 %70, label %.lr.ph.i.us.i.i, label %stbrp__skyline_find_min_y.argprom.exit.loopexit.us.i.i
+  br i1 %70, label %.lr.ph.i.us.i.i, label %stbrp__skyline_find_min_y.exit.loopexit.us.i.i
 
-71:                                               ; preds = %stbrp__skyline_find_min_y.argprom.exit.loopexit.us.i.i
+71:                                               ; preds = %stbrp__skyline_find_min_y.exit.loopexit.us.i.i
   %72 = add nsw i32 %.140.i.us.i.i, %21
   %.not103.us.i.i = icmp sgt i32 %72, %32
   br i1 %.not103.us.i.i, label %81, label %73
@@ -384,7 +384,7 @@ define hidden range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef 
 78:                                               ; preds = %75, %73
   br label %81
 
-79:                                               ; preds = %stbrp__skyline_find_min_y.argprom.exit.loopexit.us.i.i
+79:                                               ; preds = %stbrp__skyline_find_min_y.exit.loopexit.us.i.i
   %80 = icmp slt i32 %.140.i.us.i.i, %.080129.us.i.i
   %spec.select.us.i.i = tail call i32 @llvm.smin.i32(i32 %.140.i.us.i.i, i32 %.080129.us.i.i)
   %spec.select104.us.i.i = select i1 %80, ptr %.077130.us.i.i, ptr %.0131.us.i.i
@@ -401,22 +401,22 @@ define hidden range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef 
   %.not.us.i.i = icmp sgt i32 %84, %29
   br i1 %.not.us.i.i, label %._crit_edge.i.i, label %.lr.ph.i.preheader.us.i.i
 
-stbrp__skyline_find_min_y.argprom.exit.loopexit.us.i.i: ; preds = %67
+stbrp__skyline_find_min_y.exit.loopexit.us.i.i:   ; preds = %67
   br i1 %39, label %79, label %71
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
-  br i1 %39, label %stbrp__skyline_find_min_y.argprom.exit.us137.i.i, label %stbrp__skyline_find_min_y.argprom.exit.i.i
+  br i1 %39, label %stbrp__skyline_find_min_y.exit.us137.i.i, label %stbrp__skyline_find_min_y.exit.i.i
 
-stbrp__skyline_find_min_y.argprom.exit.us137.i.i: ; preds = %.lr.ph.split.i.i, %stbrp__skyline_find_min_y.argprom.exit.us137.i.i
-  %.074132.us138.i.i = phi ptr [ %.074.us148.i.i, %stbrp__skyline_find_min_y.argprom.exit.us137.i.i ], [ %.074126.i.i, %.lr.ph.split.i.i ]
+stbrp__skyline_find_min_y.exit.us137.i.i:         ; preds = %.lr.ph.split.i.i, %stbrp__skyline_find_min_y.exit.us137.i.i
+  %.074132.us138.i.i = phi ptr [ %.074.us148.i.i, %stbrp__skyline_find_min_y.exit.us137.i.i ], [ %.074126.i.i, %.lr.ph.split.i.i ]
   %85 = getelementptr inbounds i8, ptr %.074132.us138.i.i, i64 8
   %.074.us148.i.i = load ptr, ptr %85, align 8
   %86 = load i32, ptr %.074.us148.i.i, align 8
   %87 = add nsw i32 %86, %28
   %.not.us149.i.i = icmp sgt i32 %87, %29
-  br i1 %.not.us149.i.i, label %stbrp__skyline_find_best_pos.exit.i.thread, label %stbrp__skyline_find_min_y.argprom.exit.us137.i.i
+  br i1 %.not.us149.i.i, label %stbrp__skyline_find_best_pos.exit.i.thread, label %stbrp__skyline_find_min_y.exit.us137.i.i
 
-stbrp__skyline_find_min_y.argprom.exit.i.i:       ; preds = %.lr.ph.split.i.i, %93
+stbrp__skyline_find_min_y.exit.i.i:               ; preds = %.lr.ph.split.i.i, %93
   %.074132.i.i = phi ptr [ %.074.i.i, %93 ], [ %.074126.i.i, %.lr.ph.split.i.i ]
   %.0131.i.i = phi ptr [ %.1.i.i, %93 ], [ null, %.lr.ph.split.i.i ]
   %.077130.i.i = phi ptr [ %94, %93 ], [ %11, %.lr.ph.split.i.i ]
@@ -425,13 +425,13 @@ stbrp__skyline_find_min_y.argprom.exit.i.i:       ; preds = %.lr.ph.split.i.i, %
   %88 = icmp sgt i32 %.080129.i.i, 0
   br i1 %88, label %92, label %89
 
-89:                                               ; preds = %stbrp__skyline_find_min_y.argprom.exit.i.i
+89:                                               ; preds = %stbrp__skyline_find_min_y.exit.i.i
   %90 = icmp eq i32 %.080129.i.i, 0
   %91 = icmp sgt i32 %.088128.i.i, 0
   %or.cond.i.i = select i1 %90, i1 %91, i1 false
   br i1 %or.cond.i.i, label %92, label %93
 
-92:                                               ; preds = %89, %stbrp__skyline_find_min_y.argprom.exit.i.i
+92:                                               ; preds = %89, %stbrp__skyline_find_min_y.exit.i.i
   br label %93
 
 93:                                               ; preds = %92, %89
@@ -443,7 +443,7 @@ stbrp__skyline_find_min_y.argprom.exit.i.i:       ; preds = %.lr.ph.split.i.i, %
   %95 = load i32, ptr %.074.i.i, align 8
   %96 = add nsw i32 %95, %28
   %.not.i.i = icmp sgt i32 %96, %29
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %stbrp__skyline_find_min_y.argprom.exit.i.i
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %stbrp__skyline_find_min_y.exit.i.i
 
 ._crit_edge.i.i:                                  ; preds = %93, %81
   %.088.lcssa.i.i = phi i32 [ %.189.us.i.i, %81 ], [ %.189.i.i, %93 ]
@@ -506,7 +506,7 @@ stbrp__skyline_find_min_y.argprom.exit.i.i:       ; preds = %.lr.ph.split.i.i, %
 113:                                              ; preds = %109
   %114 = load i32, ptr %.276.i.i, align 8
   %115 = icmp slt i32 %114, %107
-  br i1 %115, label %.lr.ph.i110.i.i, label %stbrp__skyline_find_min_y.argprom.exit121.i.i
+  br i1 %115, label %.lr.ph.i110.i.i, label %stbrp__skyline_find_min_y.exit121.i.i
 
 .lr.ph.i110.i.i:                                  ; preds = %113, %141
   %116 = phi i32 [ %142, %141 ], [ %114, %113 ]
@@ -558,9 +558,9 @@ stbrp__skyline_find_min_y.argprom.exit.i.i:       ; preds = %.lr.ph.split.i.i, %
   %.1.i119.i.i = add nsw i32 %.pn46.i118.i.i, %.0364.i111.i.i
   %.138.i120.i.i = add nsw i32 %.pn.i117.i.i, %.0373.i112.i.i
   %144 = icmp slt i32 %142, %107
-  br i1 %144, label %.lr.ph.i110.i.i, label %stbrp__skyline_find_min_y.argprom.exit121.i.i
+  br i1 %144, label %.lr.ph.i110.i.i, label %stbrp__skyline_find_min_y.exit121.i.i
 
-stbrp__skyline_find_min_y.argprom.exit121.i.i:    ; preds = %141, %113
+stbrp__skyline_find_min_y.exit121.i.i:            ; preds = %141, %113
   %.039.lcssa.i108.i.i = phi i32 [ 0, %113 ], [ %.140.i116.i.i, %141 ]
   %.036.lcssa.i109.i.i = phi i32 [ 0, %113 ], [ %.1.i119.i.i, %141 ]
   %145 = add nsw i32 %.039.lcssa.i108.i.i, %21
@@ -569,7 +569,7 @@ stbrp__skyline_find_min_y.argprom.exit121.i.i:    ; preds = %141, %113
   %or.cond106.i.i = select i1 %.not101.i.i, i1 true, i1 %.not102.i.i
   br i1 %or.cond106.i.i, label %153, label %146
 
-146:                                              ; preds = %stbrp__skyline_find_min_y.argprom.exit121.i.i
+146:                                              ; preds = %stbrp__skyline_find_min_y.exit121.i.i
   %147 = icmp slt i32 %.039.lcssa.i108.i.i, %.383179.i.i
   %148 = icmp slt i32 %.036.lcssa.i109.i.i, %.290177.i.i
   %or.cond125.i.i = select i1 %147, i1 true, i1 %148
@@ -584,11 +584,11 @@ stbrp__skyline_find_min_y.argprom.exit121.i.i:    ; preds = %141, %113
 152:                                              ; preds = %149, %146
   br label %153
 
-153:                                              ; preds = %152, %149, %stbrp__skyline_find_min_y.argprom.exit121.i.i
-  %.391.i.i = phi i32 [ %.036.lcssa.i109.i.i, %152 ], [ %.290177.i.i, %149 ], [ %.290177.i.i, %stbrp__skyline_find_min_y.argprom.exit121.i.i ]
-  %.287.i.i = phi i32 [ %108, %152 ], [ %.186178.i.i, %149 ], [ %.186178.i.i, %stbrp__skyline_find_min_y.argprom.exit121.i.i ]
-  %.484.i.i = phi i32 [ %.039.lcssa.i108.i.i, %152 ], [ %.383179.i.i, %149 ], [ %.383179.i.i, %stbrp__skyline_find_min_y.argprom.exit121.i.i ]
-  %.4.i.i = phi ptr [ %.279.i.i, %152 ], [ %.3183.i.i, %149 ], [ %.3183.i.i, %stbrp__skyline_find_min_y.argprom.exit121.i.i ]
+153:                                              ; preds = %152, %149, %stbrp__skyline_find_min_y.exit121.i.i
+  %.391.i.i = phi i32 [ %.036.lcssa.i109.i.i, %152 ], [ %.290177.i.i, %149 ], [ %.290177.i.i, %stbrp__skyline_find_min_y.exit121.i.i ]
+  %.287.i.i = phi i32 [ %108, %152 ], [ %.186178.i.i, %149 ], [ %.186178.i.i, %stbrp__skyline_find_min_y.exit121.i.i ]
+  %.484.i.i = phi i32 [ %.039.lcssa.i108.i.i, %152 ], [ %.383179.i.i, %149 ], [ %.383179.i.i, %stbrp__skyline_find_min_y.exit121.i.i ]
+  %.4.i.i = phi ptr [ %.279.i.i, %152 ], [ %.3183.i.i, %149 ], [ %.3183.i.i, %stbrp__skyline_find_min_y.exit121.i.i ]
   %154 = getelementptr inbounds i8, ptr %.173182.i.i, i64 8
   %155 = load ptr, ptr %154, align 8
   %.not99.i.i = icmp eq ptr %155, null
@@ -601,10 +601,10 @@ stbrp__skyline_find_best_pos.exit.i:              ; preds = %153, %._crit_edge.t
   %156 = icmp eq ptr %.2.i.i, null
   br i1 %156, label %stbrp__skyline_pack_rectangle.exit, label %stbrp__skyline_find_best_pos.exit.i.thread
 
-stbrp__skyline_find_best_pos.exit.i.thread:       ; preds = %stbrp__skyline_find_min_y.argprom.exit.us137.i.i, %stbrp__skyline_find_best_pos.exit.i
-  %.2.i.i87 = phi ptr [ %.2.i.i, %stbrp__skyline_find_best_pos.exit.i ], [ %11, %stbrp__skyline_find_min_y.argprom.exit.us137.i.i ]
-  %.282.i.i86 = phi i32 [ %.282.i.i, %stbrp__skyline_find_best_pos.exit.i ], [ 0, %stbrp__skyline_find_min_y.argprom.exit.us137.i.i ]
-  %.085.i.i85 = phi i32 [ %.085.i.i, %stbrp__skyline_find_best_pos.exit.i ], [ %35, %stbrp__skyline_find_min_y.argprom.exit.us137.i.i ]
+stbrp__skyline_find_best_pos.exit.i.thread:       ; preds = %stbrp__skyline_find_min_y.exit.us137.i.i, %stbrp__skyline_find_best_pos.exit.i
+  %.2.i.i87 = phi ptr [ %.2.i.i, %stbrp__skyline_find_best_pos.exit.i ], [ %11, %stbrp__skyline_find_min_y.exit.us137.i.i ]
+  %.282.i.i86 = phi i32 [ %.282.i.i, %stbrp__skyline_find_best_pos.exit.i ], [ 0, %stbrp__skyline_find_min_y.exit.us137.i.i ]
+  %.085.i.i85 = phi i32 [ %.085.i.i, %stbrp__skyline_find_best_pos.exit.i ], [ %35, %stbrp__skyline_find_min_y.exit.us137.i.i ]
   %157 = add nsw i32 %.282.i.i86, %21
   %158 = icmp sgt i32 %157, %32
   br i1 %158, label %stbrp__skyline_pack_rectangle.exit, label %159
@@ -4198,7 +4198,7 @@ stbtt__find_table.exit335.thread.i.i:             ; preds = %717, %736, %stbtt__
   store i32 %852, ptr %853, align 8
   %.val110 = load ptr, ptr %28, align 8
   %.val111 = load i32, ptr %755, align 8
-  %854 = call fastcc i32 @stbtt_FindGlyphIndex.argprom(ptr %.val110, i32 %.val111, i32 noundef %852)
+  %854 = call fastcc i32 @stbtt_FindGlyphIndex(ptr %.val110, i32 %.val111, i32 noundef %852)
   %855 = icmp sgt i32 %854, 0
   br i1 %855, label %856, label %.loopexit
 
@@ -4221,7 +4221,7 @@ stbtt__find_table.exit335.thread.i.i:             ; preds = %717, %736, %stbtt__
 859:                                              ; preds = %857
   %860 = getelementptr inbounds i8, ptr %853, i64 8
   %861 = getelementptr inbounds i8, ptr %853, i64 4
-  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel.argelim(ptr noundef readonly %26, i32 noundef %854, float noundef %828, float noundef %828, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly %26, i32 noundef %854, float noundef %828, float noundef %828, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
   %862 = load i32, ptr %17, align 4
   %863 = load i32, ptr %15, align 4
   %864 = sub i32 %862, %863
@@ -4246,7 +4246,7 @@ stbtt__find_table.exit335.thread.i.i:             ; preds = %717, %736, %stbtt__
   %875 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   %876 = icmp sgt i32 %858, 0
-  br i1 %876, label %.lr.ph.preheader.i.i.i.i.i, label %stbtt_FlattenCurves.argprom.exit.thread.i.i.i.i
+  br i1 %876, label %.lr.ph.preheader.i.i.i.i.i, label %stbtt_FlattenCurves.exit.thread.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %874
   %wide.trip.count.i.i.i.i.i = zext nneg i32 %858 to i64
@@ -4266,14 +4266,14 @@ stbtt__find_table.exit335.thread.i.i:             ; preds = %717, %736, %stbtt__
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i
   %881 = icmp eq i32 %spec.select.i.i.i.i.i, 0
-  br i1 %881, label %stbtt_FlattenCurves.argprom.exit.thread.i.i.i.i, label %882
+  br i1 %881, label %stbtt_FlattenCurves.exit.thread.i.i.i.i, label %882
 
 882:                                              ; preds = %._crit_edge.i.i.i.i.i
   %883 = zext nneg i32 %spec.select.i.i.i.i.i to i64
   %884 = shl nuw nsw i64 %883, 2
   %885 = call noalias ptr @malloc(i64 noundef %884) #44
   %886 = icmp eq ptr %885, null
-  br i1 %886, label %stbtt_FlattenCurves.argprom.exit.thread.i.i.i.i, label %.preheader.split.us.i.i.i.i.i
+  br i1 %886, label %stbtt_FlattenCurves.exit.thread.i.i.i.i, label %.preheader.split.us.i.i.i.i.i
 
 .preheader.split.us.i.i.i.i.i:                    ; preds = %882, %._crit_edge11.us.i.i.i.i.i
   %887 = phi i32 [ %967, %._crit_edge11.us.i.i.i.i.i ], [ 0, %882 ]
@@ -4349,7 +4349,7 @@ stbtt__find_table.exit335.thread.i.i:             ; preds = %717, %736, %stbtt__
   %930 = getelementptr inbounds i8, ptr %896, i64 2
   %931 = load i16, ptr %930, align 2
   %932 = sitofp i16 %931 to float
-  call fastcc void @stbtt__tesselate_curve.argelim(ptr noundef %.199.us.i.i.i.i.i, ptr noundef %14, float noundef %.0877.us.i.i.i.i.i, float noundef %.08.us.i.i.i.i.i, float noundef %924, float noundef %927, float noundef %929, float noundef %932, float noundef %845, i32 noundef 0)
+  call fastcc void @stbtt__tesselate_curve(ptr noundef %.199.us.i.i.i.i.i, ptr noundef %14, float noundef %.0877.us.i.i.i.i.i, float noundef %.08.us.i.i.i.i.i, float noundef %924, float noundef %927, float noundef %929, float noundef %932, float noundef %845, i32 noundef 0)
   %933 = load i16, ptr %896, align 2
   %934 = sitofp i16 %933 to float
   %935 = load i16, ptr %930, align 2
@@ -4421,23 +4421,23 @@ stbtt__add_point.exit.us.i.i.i.i.i:               ; preds = %963, %955, %945, %9
   %969 = sext i32 %.3.us.i.i.i.i.i to i64
   %970 = getelementptr inbounds i32, ptr %885, i64 %969
   store i32 %968, ptr %970, align 4
-  br i1 %889, label %.preheader.split.us.i.i.i.i.i, label %stbtt_FlattenCurves.argprom.exit.i.i.i.i
+  br i1 %889, label %.preheader.split.us.i.i.i.i.i, label %stbtt_FlattenCurves.exit.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %890
   call void @free(ptr noundef nonnull %885) #42
-  br label %stbtt_FlattenCurves.argprom.exit.thread.i.i.i.i
+  br label %stbtt_FlattenCurves.exit.thread.i.i.i.i
 
-stbtt_FlattenCurves.argprom.exit.thread.i.i.i.i:  ; preds = %.split.us.i.i.i.i.i, %882, %._crit_edge.i.i.i.i.i, %874
+stbtt_FlattenCurves.exit.thread.i.i.i.i:          ; preds = %.split.us.i.i.i.i.i, %882, %._crit_edge.i.i.i.i.i, %874
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br label %stbtt_GetCodepointBitmap.exit
 
-stbtt_FlattenCurves.argprom.exit.i.i.i.i:         ; preds = %._crit_edge11.us.i.i.i.i.i
+stbtt_FlattenCurves.exit.i.i.i.i:                 ; preds = %._crit_edge11.us.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   br i1 %.not.i103.us.i.i.i.i.i, label %stbtt_GetCodepointBitmap.exit, label %.lr.ph.i22.i.i.i.i
 
-.lr.ph.i22.i.i.i.i:                               ; preds = %stbtt_FlattenCurves.argprom.exit.i.i.i.i, %.lr.ph.i22.i.i.i.i
-  %indvars.iv.i23.i.i.i.i = phi i64 [ %indvars.iv.next.i24.i.i.i.i, %.lr.ph.i22.i.i.i.i ], [ 0, %stbtt_FlattenCurves.argprom.exit.i.i.i.i ]
-  %.0834.i.i.i.i.i = phi i32 [ %973, %.lr.ph.i22.i.i.i.i ], [ 0, %stbtt_FlattenCurves.argprom.exit.i.i.i.i ]
+.lr.ph.i22.i.i.i.i:                               ; preds = %stbtt_FlattenCurves.exit.i.i.i.i, %.lr.ph.i22.i.i.i.i
+  %indvars.iv.i23.i.i.i.i = phi i64 [ %indvars.iv.next.i24.i.i.i.i, %.lr.ph.i22.i.i.i.i ], [ 0, %stbtt_FlattenCurves.exit.i.i.i.i ]
+  %.0834.i.i.i.i.i = phi i32 [ %973, %.lr.ph.i22.i.i.i.i ], [ 0, %stbtt_FlattenCurves.exit.i.i.i.i ]
   %971 = getelementptr inbounds i32, ptr %885, i64 %indvars.iv.i23.i.i.i.i
   %972 = load i32, ptr %971, align 4
   %973 = add nsw i32 %972, %.0834.i.i.i.i.i
@@ -4451,7 +4451,7 @@ stbtt_FlattenCurves.argprom.exit.i.i.i.i:         ; preds = %._crit_edge11.us.i.
   %976 = mul nsw i64 %975, 20
   %977 = call noalias ptr @malloc(i64 noundef %976) #44
   %978 = icmp eq ptr %977, null
-  br i1 %978, label %stbtt__rasterize.argprom.exit.i.i.i.i, label %.lr.ph15.i.i.i.i.i
+  br i1 %978, label %stbtt__rasterize.exit.i.i.i.i, label %.lr.ph15.i.i.i.i.i
 
 .lr.ph15.i.i.i.i.i:                               ; preds = %._crit_edge.i26.i.i.i.i, %._crit_edge10.i.i.i.i.i
   %indvars.iv27.i.i.i.i.i = phi i64 [ %indvars.iv.next28.i.i.i.i.i, %._crit_edge10.i.i.i.i.i ], [ 0, %._crit_edge.i26.i.i.i.i ]
@@ -4619,7 +4619,7 @@ stbtt__sort_edges.exit.i.i.i.i.i:                 ; preds = %1032, %._crit_edge1
   %1046 = getelementptr inbounds %struct.stbtt__edge, ptr %977, i64 %1045, i32 1
   store float %1044, ptr %1046, align 4
   %1047 = icmp sgt i32 %867, 0
-  br i1 %1047, label %.lr.ph34.i.i.i.i.i.i, label %stbtt__hheap_cleanup.argprom.exit.i.i.i.i.i.i
+  br i1 %1047, label %.lr.ph34.i.i.i.i.i.i, label %stbtt__hheap_cleanup.exit.i.i.i.i.i.i
 
 .lr.ph34.i.i.i.i.i.i:                             ; preds = %1040
   %1048 = sitofp i32 %863 to float
@@ -4686,17 +4686,17 @@ stbtt__sort_edges.exit.i.i.i.i.i:                 ; preds = %1032, %._crit_edge1
   %.not90.i.i.i.i.i.i = icmp eq ptr %1072, null
   br i1 %.not90.i.i.i.i.i.i, label %.preheader7.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-1073:                                             ; preds = %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i, %.lr.ph15.i.i.i.i.i.i
-  %1074 = phi float [ %1061, %.lr.ph15.i.i.i.i.i.i ], [ %1128, %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i ]
-  %1075 = phi ptr [ %1060, %.lr.ph15.i.i.i.i.i.i ], [ %1127, %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i ]
-  %.114.i.i.i.i.i.i = phi ptr [ %.032.i.i.i.i.i.i, %.lr.ph15.i.i.i.i.i.i ], [ %1126, %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i ]
-  %.sroa.0.113.i.i.i.i.i.i = phi ptr [ %.sroa.0.029.i.i.i.i.i.i, %.lr.ph15.i.i.i.i.i.i ], [ %.sroa.0.5.i.i.i.i.i.i, %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i ]
-  %.sroa.9.112.i.i.i.i.i.i = phi i32 [ %.sroa.9.028.i.i.i.i.i.i, %.lr.ph15.i.i.i.i.i.i ], [ %.sroa.9.4.i.i.i.i.i.i, %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i ]
-  %.sroa.5.311.i.i.i.i.i.i = phi ptr [ %.sroa.5.1.lcssa.i.i.i.i.i.i, %.lr.ph15.i.i.i.i.i.i ], [ %.sroa.5.6.i.i.i.i.i.i, %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i ]
+1073:                                             ; preds = %stbtt__new_active.exit.thread.i.i.i.i.i.i, %.lr.ph15.i.i.i.i.i.i
+  %1074 = phi float [ %1061, %.lr.ph15.i.i.i.i.i.i ], [ %1128, %stbtt__new_active.exit.thread.i.i.i.i.i.i ]
+  %1075 = phi ptr [ %1060, %.lr.ph15.i.i.i.i.i.i ], [ %1127, %stbtt__new_active.exit.thread.i.i.i.i.i.i ]
+  %.114.i.i.i.i.i.i = phi ptr [ %.032.i.i.i.i.i.i, %.lr.ph15.i.i.i.i.i.i ], [ %1126, %stbtt__new_active.exit.thread.i.i.i.i.i.i ]
+  %.sroa.0.113.i.i.i.i.i.i = phi ptr [ %.sroa.0.029.i.i.i.i.i.i, %.lr.ph15.i.i.i.i.i.i ], [ %.sroa.0.5.i.i.i.i.i.i, %stbtt__new_active.exit.thread.i.i.i.i.i.i ]
+  %.sroa.9.112.i.i.i.i.i.i = phi i32 [ %.sroa.9.028.i.i.i.i.i.i, %.lr.ph15.i.i.i.i.i.i ], [ %.sroa.9.4.i.i.i.i.i.i, %stbtt__new_active.exit.thread.i.i.i.i.i.i ]
+  %.sroa.5.311.i.i.i.i.i.i = phi ptr [ %.sroa.5.1.lcssa.i.i.i.i.i.i, %.lr.ph15.i.i.i.i.i.i ], [ %.sroa.5.6.i.i.i.i.i.i, %stbtt__new_active.exit.thread.i.i.i.i.i.i ]
   %1076 = getelementptr inbounds i8, ptr %.114.i.i.i.i.i.i, i64 12
   %1077 = load float, ptr %1076, align 4
   %1078 = fcmp une float %1074, %1077
-  br i1 %1078, label %1079, label %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i
+  br i1 %1078, label %1079, label %stbtt__new_active.exit.thread.i.i.i.i.i.i
 
 1079:                                             ; preds = %1073
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.5.311.i.i.i.i.i.i, null
@@ -4717,7 +4717,7 @@ stbtt__sort_edges.exit.i.i.i.i.i:                 ; preds = %1032, %._crit_edge1
 1085:                                             ; preds = %1082
   %1086 = call noalias dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #44
   %1087 = icmp eq ptr %1086, null
-  br i1 %1087, label %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i, label %1088
+  br i1 %1087, label %stbtt__new_active.exit.thread.i.i.i.i.i.i, label %1088
 
 1088:                                             ; preds = %1085
   store ptr %.sroa.0.113.i.i.i.i.i.i, ptr %1086, align 8
@@ -4788,9 +4788,9 @@ stbtt__sort_edges.exit.i.i.i.i.i:                 ; preds = %1032, %._crit_edge1
   %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..i.i.i.i.i.i = load ptr, ptr %12, align 8
   store ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..i.i.i.i.i.i, ptr %.0.i.ph.i.i.i.i.i.i.i, align 8
   store ptr %.0.i.ph.i.i.i.i.i.i.i, ptr %12, align 8
-  br label %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i
+  br label %stbtt__new_active.exit.thread.i.i.i.i.i.i
 
-stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i: ; preds = %1125, %1085, %1073
+stbtt__new_active.exit.thread.i.i.i.i.i.i:        ; preds = %1125, %1085, %1073
   %.sroa.5.6.i.i.i.i.i.i = phi ptr [ %.sroa.5.4.i.i.i.i.i.i, %1125 ], [ %.sroa.5.311.i.i.i.i.i.i, %1073 ], [ null, %1085 ]
   %.sroa.9.4.i.i.i.i.i.i = phi i32 [ %.sroa.9.2.i.i.i.i.i.i, %1125 ], [ %.sroa.9.112.i.i.i.i.i.i, %1073 ], [ 0, %1085 ]
   %.sroa.0.5.i.i.i.i.i.i = phi ptr [ %.sroa.0.3.i.i.i.i.i.i, %1125 ], [ %.sroa.0.113.i.i.i.i.i.i, %1073 ], [ %.sroa.0.113.i.i.i.i.i.i, %1085 ]
@@ -4800,11 +4800,11 @@ stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i: ; preds = %1125, %1085, %1073
   %1129 = fcmp ugt float %1128, %1059
   br i1 %1129, label %._crit_edge.i.i.i.i.i.i, label %1073
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i, %.preheader7.i.i.i.i.i.i
-  %.sroa.5.3.lcssa.i.i.i.i.i.i = phi ptr [ %.sroa.5.1.lcssa.i.i.i.i.i.i, %.preheader7.i.i.i.i.i.i ], [ %.sroa.5.6.i.i.i.i.i.i, %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i ]
-  %.sroa.9.1.lcssa.i.i.i.i.i.i = phi i32 [ %.sroa.9.028.i.i.i.i.i.i, %.preheader7.i.i.i.i.i.i ], [ %.sroa.9.4.i.i.i.i.i.i, %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i ]
-  %.sroa.0.1.lcssa.i.i.i.i.i.i = phi ptr [ %.sroa.0.029.i.i.i.i.i.i, %.preheader7.i.i.i.i.i.i ], [ %.sroa.0.5.i.i.i.i.i.i, %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i ]
-  %.1.lcssa.i.i.i.i.i.i = phi ptr [ %.032.i.i.i.i.i.i, %.preheader7.i.i.i.i.i.i ], [ %1126, %stbtt__new_active.argprom.exit.thread.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i:                          ; preds = %stbtt__new_active.exit.thread.i.i.i.i.i.i, %.preheader7.i.i.i.i.i.i
+  %.sroa.5.3.lcssa.i.i.i.i.i.i = phi ptr [ %.sroa.5.1.lcssa.i.i.i.i.i.i, %.preheader7.i.i.i.i.i.i ], [ %.sroa.5.6.i.i.i.i.i.i, %stbtt__new_active.exit.thread.i.i.i.i.i.i ]
+  %.sroa.9.1.lcssa.i.i.i.i.i.i = phi i32 [ %.sroa.9.028.i.i.i.i.i.i, %.preheader7.i.i.i.i.i.i ], [ %.sroa.9.4.i.i.i.i.i.i, %stbtt__new_active.exit.thread.i.i.i.i.i.i ]
+  %.sroa.0.1.lcssa.i.i.i.i.i.i = phi ptr [ %.sroa.0.029.i.i.i.i.i.i, %.preheader7.i.i.i.i.i.i ], [ %.sroa.0.5.i.i.i.i.i.i, %stbtt__new_active.exit.thread.i.i.i.i.i.i ]
+  %.1.lcssa.i.i.i.i.i.i = phi ptr [ %.032.i.i.i.i.i.i, %.preheader7.i.i.i.i.i.i ], [ %1126, %stbtt__new_active.exit.thread.i.i.i.i.i.i ]
   %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..0.82.i.i.i.i.i.i = load ptr, ptr %12, align 8
   %.not91.i.i.i.i.i.i = icmp eq ptr %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..0..0.82.i.i.i.i.i.i, null
   br i1 %.not91.i.i.i.i.i.i, label %stbtt__fill_active_edges_new.exit.i.i.i.i.i.i, label %1130
@@ -6534,38 +6534,38 @@ stbtt__fill_active_edges_new.exit.i.i.i.i.i.i:    ; preds = %stbtt__handle_clipp
 
 ._crit_edge35.i.i.i.i.i.i:                        ; preds = %._crit_edge26.i.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i = icmp eq ptr %.sroa.0.1.lcssa.i.i.i.i.i.i, null
-  br i1 %.not1.i.i.i.i.i.i.i, label %stbtt__hheap_cleanup.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i94.i.i.i.i.i.i
+  br i1 %.not1.i.i.i.i.i.i.i, label %stbtt__hheap_cleanup.exit.i.i.i.i.i.i, label %.lr.ph.i94.i.i.i.i.i.i
 
 .lr.ph.i94.i.i.i.i.i.i:                           ; preds = %._crit_edge35.i.i.i.i.i.i, %.lr.ph.i94.i.i.i.i.i.i
   %.02.i.i.i.i.i.i.i = phi ptr [ %2190, %.lr.ph.i94.i.i.i.i.i.i ], [ %.sroa.0.1.lcssa.i.i.i.i.i.i, %._crit_edge35.i.i.i.i.i.i ]
   %2190 = load ptr, ptr %.02.i.i.i.i.i.i.i, align 8
   call void @free(ptr noundef nonnull %.02.i.i.i.i.i.i.i) #42
   %.not.i95.i.i.i.i.i.i = icmp eq ptr %2190, null
-  br i1 %.not.i95.i.i.i.i.i.i, label %stbtt__hheap_cleanup.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i94.i.i.i.i.i.i
+  br i1 %.not.i95.i.i.i.i.i.i, label %stbtt__hheap_cleanup.exit.i.i.i.i.i.i, label %.lr.ph.i94.i.i.i.i.i.i
 
-stbtt__hheap_cleanup.argprom.exit.i.i.i.i.i.i:    ; preds = %.lr.ph.i94.i.i.i.i.i.i, %._crit_edge35.i.i.i.i.i.i, %1040
+stbtt__hheap_cleanup.exit.i.i.i.i.i.i:            ; preds = %.lr.ph.i94.i.i.i.i.i.i, %._crit_edge35.i.i.i.i.i.i, %1040
   %.not.i.i.i.i.i.i = icmp eq ptr %.079.i.i.i.i.i.i, %13
-  br i1 %.not.i.i.i.i.i.i, label %stbtt__rasterize_sorted_edges.argprom.exit.i.i.i.i.i, label %2191
+  br i1 %.not.i.i.i.i.i.i, label %stbtt__rasterize_sorted_edges.exit.i.i.i.i.i, label %2191
 
-2191:                                             ; preds = %stbtt__hheap_cleanup.argprom.exit.i.i.i.i.i.i
+2191:                                             ; preds = %stbtt__hheap_cleanup.exit.i.i.i.i.i.i
   call void @free(ptr noundef %.079.i.i.i.i.i.i) #42
-  br label %stbtt__rasterize_sorted_edges.argprom.exit.i.i.i.i.i
+  br label %stbtt__rasterize_sorted_edges.exit.i.i.i.i.i
 
-stbtt__rasterize_sorted_edges.argprom.exit.i.i.i.i.i: ; preds = %2191, %stbtt__hheap_cleanup.argprom.exit.i.i.i.i.i.i
+stbtt__rasterize_sorted_edges.exit.i.i.i.i.i:     ; preds = %2191, %stbtt__hheap_cleanup.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %13)
   call void @free(ptr noundef %977) #42
-  br label %stbtt__rasterize.argprom.exit.i.i.i.i
+  br label %stbtt__rasterize.exit.i.i.i.i
 
-stbtt__rasterize.argprom.exit.i.i.i.i:            ; preds = %stbtt__rasterize_sorted_edges.argprom.exit.i.i.i.i.i, %._crit_edge.i26.i.i.i.i
+stbtt__rasterize.exit.i.i.i.i:                    ; preds = %stbtt__rasterize_sorted_edges.exit.i.i.i.i.i, %._crit_edge.i26.i.i.i.i
   call void @free(ptr noundef %885) #42
   call void @free(ptr noundef %.199.us.i.i.i.i.i) #42
   br label %stbtt_GetCodepointBitmap.exit
 
-stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_FlattenCurves.argprom.exit.thread.i.i.i.i, %stbtt_FlattenCurves.argprom.exit.i.i.i.i, %stbtt__rasterize.argprom.exit.i.i.i.i, %857
-  %.1149 = phi i32 [ 0, %857 ], [ %864, %stbtt__rasterize.argprom.exit.i.i.i.i ], [ %864, %stbtt_FlattenCurves.argprom.exit.i.i.i.i ], [ %864, %stbtt_FlattenCurves.argprom.exit.thread.i.i.i.i ], [ %864, %870 ], [ %864, %859 ]
-  %.1147 = phi i32 [ 0, %857 ], [ %867, %stbtt__rasterize.argprom.exit.i.i.i.i ], [ %867, %stbtt_FlattenCurves.argprom.exit.i.i.i.i ], [ %867, %stbtt_FlattenCurves.argprom.exit.thread.i.i.i.i ], [ %867, %870 ], [ %867, %859 ]
-  %.0.i.i.i114 = phi ptr [ null, %857 ], [ %873, %stbtt__rasterize.argprom.exit.i.i.i.i ], [ %873, %stbtt_FlattenCurves.argprom.exit.i.i.i.i ], [ %873, %stbtt_FlattenCurves.argprom.exit.thread.i.i.i.i ], [ null, %870 ], [ null, %859 ]
+stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_FlattenCurves.exit.thread.i.i.i.i, %stbtt_FlattenCurves.exit.i.i.i.i, %stbtt__rasterize.exit.i.i.i.i, %857
+  %.1149 = phi i32 [ 0, %857 ], [ %864, %stbtt__rasterize.exit.i.i.i.i ], [ %864, %stbtt_FlattenCurves.exit.i.i.i.i ], [ %864, %stbtt_FlattenCurves.exit.thread.i.i.i.i ], [ %864, %870 ], [ %864, %859 ]
+  %.1147 = phi i32 [ 0, %857 ], [ %867, %stbtt__rasterize.exit.i.i.i.i ], [ %867, %stbtt_FlattenCurves.exit.i.i.i.i ], [ %867, %stbtt_FlattenCurves.exit.thread.i.i.i.i ], [ %867, %870 ], [ %867, %859 ]
+  %.0.i.i.i114 = phi ptr [ null, %857 ], [ %873, %stbtt__rasterize.exit.i.i.i.i ], [ %873, %stbtt_FlattenCurves.exit.i.i.i.i ], [ %873, %stbtt_FlattenCurves.exit.thread.i.i.i.i ], [ null, %870 ], [ null, %859 ]
   %2192 = load ptr, ptr %19, align 8
   call void @free(ptr noundef %2192) #42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
@@ -6590,7 +6590,7 @@ stbtt_GetCodepointBitmap.exit:                    ; preds = %859, %870, %stbtt_F
   br i1 %841, label %stbtt_GetCodepointSDF.exit, label %2197
 
 2197:                                             ; preds = %2194
-  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel.argelim(ptr noundef readonly %26, i32 noundef %854, float noundef %828, float noundef %828, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  call fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly %26, i32 noundef %854, float noundef %828, float noundef %828, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %2198 = load i32, ptr %7, align 4
   %2199 = load i32, ptr %9, align 4
   %2200 = icmp eq i32 %2198, %2199
@@ -7509,13 +7509,13 @@ stbtt_GetCodepointSDF.exit:                       ; preds = %2194, %2197, %2201,
   %2805 = getelementptr inbounds i8, ptr %853, i64 16
   %2806 = load ptr, ptr %2805, align 8
   %.not108 = icmp eq ptr %2806, null
-  br i1 %.not108, label %2845, label %stbtt_GetCodepointHMetrics.argprom.exit
+  br i1 %.not108, label %2845, label %stbtt_GetCodepointHMetrics.exit
 
-stbtt_GetCodepointHMetrics.argprom.exit:          ; preds = %2804
+stbtt_GetCodepointHMetrics.exit:                  ; preds = %2804
   %2807 = getelementptr inbounds i8, ptr %853, i64 12
   %.val.i128 = load ptr, ptr %28, align 8
   %.val4.i = load i32, ptr %755, align 8
-  %2808 = call fastcc i32 @stbtt_FindGlyphIndex.argprom(ptr %.val.i128, i32 %.val4.i, i32 noundef %852)
+  %2808 = call fastcc i32 @stbtt_FindGlyphIndex(ptr %.val.i128, i32 %.val4.i, i32 noundef %852)
   %2809 = load i32, ptr %350, align 4
   %2810 = sext i32 %2809 to i64
   %2811 = getelementptr inbounds i8, ptr %.val.i128, i64 %2810
@@ -7566,15 +7566,15 @@ stbtt_GetCodepointHMetrics.argprom.exit:          ; preds = %2804
   store i32 %2844, ptr %2842, align 8
   br label %2845
 
-2845:                                             ; preds = %stbtt_GetCodepointHMetrics.argprom.exit, %2804
+2845:                                             ; preds = %stbtt_GetCodepointHMetrics.exit, %2804
   %2846 = icmp eq i32 %852, 32
-  br i1 %2846, label %stbtt_GetCodepointHMetrics.argprom.exit141, label %2881
+  br i1 %2846, label %stbtt_GetCodepointHMetrics.exit141, label %2881
 
-stbtt_GetCodepointHMetrics.argprom.exit141:       ; preds = %2845
+stbtt_GetCodepointHMetrics.exit141:               ; preds = %2845
   %2847 = getelementptr inbounds i8, ptr %853, i64 12
   %.val.i132 = load ptr, ptr %28, align 8
   %.val4.i133 = load i32, ptr %755, align 8
-  %2848 = call fastcc i32 @stbtt_FindGlyphIndex.argprom(ptr %.val.i132, i32 %.val4.i133, i32 noundef 32)
+  %2848 = call fastcc i32 @stbtt_FindGlyphIndex(ptr %.val.i132, i32 %.val4.i133, i32 noundef 32)
   %2849 = load i32, ptr %350, align 4
   %2850 = sext i32 %2849 to i64
   %2851 = getelementptr inbounds i8, ptr %.val.i132, i64 %2850
@@ -7625,8 +7625,8 @@ stbtt_GetCodepointHMetrics.argprom.exit141:       ; preds = %2845
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 4
   br label %2881
 
-2881:                                             ; preds = %stbtt_GetCodepointHMetrics.argprom.exit141, %2845
-  %2882 = phi ptr [ %2880, %stbtt_GetCodepointHMetrics.argprom.exit141 ], [ %2806, %2845 ]
+2881:                                             ; preds = %stbtt_GetCodepointHMetrics.exit141, %2845
+  %2882 = phi ptr [ %2880, %stbtt_GetCodepointHMetrics.exit141 ], [ %2806, %2845 ]
   br i1 %849, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2881
@@ -8109,7 +8109,7 @@ define zeroext i1 @IsFontReady(ptr nocapture noundef readonly byval(%struct.Font
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @stbtt_FindGlyphIndex.argprom(ptr readonly %.8.val, i32 %.56.val, i32 noundef %0) unnamed_addr #17 {
+define internal fastcc i32 @stbtt_FindGlyphIndex(ptr readonly %.8.val, i32 %.56.val, i32 noundef %0) unnamed_addr #17 {
   %2 = zext i32 %.56.val to i64
   %3 = getelementptr inbounds i8, ptr %.8.val, i64 %2
   %.val = load i8, ptr %3, align 1
@@ -13146,7 +13146,7 @@ stbtt__GetGlyphShapeT2.exit:                      ; preds = %540, %543
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt_GetGlyphBitmapBoxSubpixel.argelim(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, float noundef %2, float noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #25 {
+define internal fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, float noundef %2, float noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #25 {
   %9 = alloca %struct.stbtt__csctx, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 76
   %11 = load i32, ptr %10, align 4
@@ -15058,7 +15058,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_curve.argelim(ptr noundef %0, ptr nocapture noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #36 {
+define internal fastcc void @stbtt__tesselate_curve(ptr noundef %0, ptr nocapture noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #36 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -15096,7 +15096,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %27 = fadd float %.tr5164, %.tr5366
   %28 = fmul float %27, 5.000000e-01
   %29 = add i32 %.tr5767, 1
-  tail call fastcc void @stbtt__tesselate_curve.argelim(ptr noundef %0, ptr noundef %1, float noundef %.tr5063, float noundef %.tr5164, float noundef %26, float noundef %28, float noundef %14, float noundef %15, float noundef %8, i32 noundef %29)
+  tail call fastcc void @stbtt__tesselate_curve(ptr noundef %0, ptr noundef %1, float noundef %.tr5063, float noundef %.tr5164, float noundef %26, float noundef %28, float noundef %14, float noundef %15, float noundef %8, i32 noundef %29)
   %30 = fadd float %6, %.tr5265
   %31 = fmul float %30, 5.000000e-01
   %32 = fadd float %7, %.tr5366

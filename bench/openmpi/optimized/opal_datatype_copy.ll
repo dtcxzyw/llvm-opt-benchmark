@@ -278,7 +278,7 @@ opal_datatype_accelerator_memcpy.exit164:         ; preds = %63, %64
   %118 = load i64, ptr %117, align 8
   %119 = mul i64 %118, %113
   %.not.i165 = icmp eq i32 %110, 0
-  br i1 %.not.i165, label %non_overlap_accelerator_predefined_data.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i165, label %non_overlap_accelerator_predefined_data.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph197
   %120 = getelementptr inbounds i8, ptr %.1138196, i64 24
@@ -333,9 +333,9 @@ opal_datatype_accelerator_memcpy.exit.i:          ; preds = %133, %132
   %142 = getelementptr inbounds i8, ptr %.0202.i, i64 %140
   %143 = add nuw nsw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %143, %111
-  br i1 %exitcond.not.i, label %non_overlap_accelerator_predefined_data.argprom.exit, label %125, !llvm.loop !8
+  br i1 %exitcond.not.i, label %non_overlap_accelerator_predefined_data.exit, label %125, !llvm.loop !8
 
-non_overlap_accelerator_predefined_data.argprom.exit: ; preds = %opal_datatype_accelerator_memcpy.exit.i, %.lr.ph197
+non_overlap_accelerator_predefined_data.exit:     ; preds = %opal_datatype_accelerator_memcpy.exit.i, %.lr.ph197
   %144 = add i32 %.2147195, 1
   %145 = zext i32 %144 to i64
   %146 = getelementptr inbounds %union.dt_elem_desc, ptr %.0140, i64 %145
@@ -344,12 +344,12 @@ non_overlap_accelerator_predefined_data.argprom.exit: ; preds = %opal_datatype_a
   %149 = icmp eq i16 %148, 0
   br i1 %149, label %150, label %153
 
-150:                                              ; preds = %non_overlap_accelerator_predefined_data.argprom.exit
+150:                                              ; preds = %non_overlap_accelerator_predefined_data.exit
   %151 = getelementptr inbounds i8, ptr %146, i64 8
   %152 = load i32, ptr %151, align 8
   br label %160
 
-153:                                              ; preds = %non_overlap_accelerator_predefined_data.argprom.exit
+153:                                              ; preds = %non_overlap_accelerator_predefined_data.exit
   %154 = getelementptr inbounds i8, ptr %146, i64 4
   %155 = load i32, ptr %154, align 4
   %156 = getelementptr inbounds i8, ptr %146, i64 8
@@ -478,7 +478,7 @@ non_overlap_accelerator_predefined_data.argprom.exit: ; preds = %opal_datatype_a
 
 .preheader.i:                                     ; preds = %208
   %.not.i166 = icmp eq i32 %.4218, 0
-  br i1 %.not.i166, label %non_overlap_accelerator_contiguous_loop.argprom.exit, label %.lr.ph.i167
+  br i1 %.not.i166, label %non_overlap_accelerator_contiguous_loop.exit, label %.lr.ph.i167
 
 223:                                              ; preds = %208
   %224 = mul i64 %219, %209
@@ -518,7 +518,7 @@ opal_datatype_accelerator_memcpy.exit.i174:       ; preds = %232, %231
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %non_overlap_accelerator_contiguous_loop.argprom.exit
+  br label %non_overlap_accelerator_contiguous_loop.exit
 
 .lr.ph.i167:                                      ; preds = %.preheader.i, %opal_datatype_accelerator_memcpy.exit37.i
   %.03.i168 = phi i64 [ %257, %opal_datatype_accelerator_memcpy.exit37.i ], [ 0, %.preheader.i ]
@@ -566,9 +566,9 @@ opal_datatype_accelerator_memcpy.exit37.i:        ; preds = %247, %246
   %256 = getelementptr inbounds i8, ptr %.0292.i, i64 %254
   %257 = add nuw nsw i64 %.03.i168, 1
   %exitcond.not.i169 = icmp eq i64 %257, %209
-  br i1 %exitcond.not.i169, label %non_overlap_accelerator_contiguous_loop.argprom.exit, label %.lr.ph.i167, !llvm.loop !10
+  br i1 %exitcond.not.i169, label %non_overlap_accelerator_contiguous_loop.exit, label %.lr.ph.i167, !llvm.loop !10
 
-non_overlap_accelerator_contiguous_loop.argprom.exit: ; preds = %opal_datatype_accelerator_memcpy.exit37.i, %.preheader.i, %opal_datatype_accelerator_memcpy.exit.i174
+non_overlap_accelerator_contiguous_loop.exit:     ; preds = %opal_datatype_accelerator_memcpy.exit37.i, %.preheader.i, %opal_datatype_accelerator_memcpy.exit.i174
   %258 = load i32, ptr %210, align 4
   %259 = add i32 %258, 1
   br label %269
@@ -588,10 +588,10 @@ non_overlap_accelerator_contiguous_loop.argprom.exit: ; preds = %opal_datatype_a
   %268 = add nsw i32 %.1152216, 1
   br label %269
 
-269:                                              ; preds = %260, %non_overlap_accelerator_contiguous_loop.argprom.exit
-  %.3154 = phi i32 [ %268, %260 ], [ %.1152216, %non_overlap_accelerator_contiguous_loop.argprom.exit ]
-  %.pn = phi i32 [ 1, %260 ], [ %259, %non_overlap_accelerator_contiguous_loop.argprom.exit ]
-  %.3 = phi ptr [ %261, %260 ], [ %.1128222, %non_overlap_accelerator_contiguous_loop.argprom.exit ]
+269:                                              ; preds = %260, %non_overlap_accelerator_contiguous_loop.exit
+  %.3154 = phi i32 [ %268, %260 ], [ %.1152216, %non_overlap_accelerator_contiguous_loop.exit ]
+  %.pn = phi i32 [ 1, %260 ], [ %259, %non_overlap_accelerator_contiguous_loop.exit ]
+  %.3 = phi ptr [ %261, %260 ], [ %.1128222, %non_overlap_accelerator_contiguous_loop.exit ]
   %.5150 = add i32 %.pn, %.3148217
   %270 = getelementptr inbounds i8, ptr %.3, i64 16
   %271 = load i64, ptr %270, align 8
@@ -861,7 +861,7 @@ opal_datatype_accelerator_memmove.exit164:        ; preds = %63, %64
   %118 = load i64, ptr %117, align 8
   %119 = mul i64 %118, %113
   %.not.i165 = icmp eq i32 %110, 0
-  br i1 %.not.i165, label %overlap_accelerator_predefined_data.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i165, label %overlap_accelerator_predefined_data.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph197
   %120 = getelementptr inbounds i8, ptr %.1138196, i64 24
@@ -916,9 +916,9 @@ opal_datatype_accelerator_memmove.exit.i:         ; preds = %133, %132
   %142 = getelementptr inbounds i8, ptr %.0202.i, i64 %140
   %143 = add nuw nsw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %143, %111
-  br i1 %exitcond.not.i, label %overlap_accelerator_predefined_data.argprom.exit, label %125, !llvm.loop !13
+  br i1 %exitcond.not.i, label %overlap_accelerator_predefined_data.exit, label %125, !llvm.loop !13
 
-overlap_accelerator_predefined_data.argprom.exit: ; preds = %opal_datatype_accelerator_memmove.exit.i, %.lr.ph197
+overlap_accelerator_predefined_data.exit:         ; preds = %opal_datatype_accelerator_memmove.exit.i, %.lr.ph197
   %144 = add i32 %.2147195, 1
   %145 = zext i32 %144 to i64
   %146 = getelementptr inbounds %union.dt_elem_desc, ptr %.0140, i64 %145
@@ -927,12 +927,12 @@ overlap_accelerator_predefined_data.argprom.exit: ; preds = %opal_datatype_accel
   %149 = icmp eq i16 %148, 0
   br i1 %149, label %150, label %153
 
-150:                                              ; preds = %overlap_accelerator_predefined_data.argprom.exit
+150:                                              ; preds = %overlap_accelerator_predefined_data.exit
   %151 = getelementptr inbounds i8, ptr %146, i64 8
   %152 = load i32, ptr %151, align 8
   br label %160
 
-153:                                              ; preds = %overlap_accelerator_predefined_data.argprom.exit
+153:                                              ; preds = %overlap_accelerator_predefined_data.exit
   %154 = getelementptr inbounds i8, ptr %146, i64 4
   %155 = load i32, ptr %154, align 4
   %156 = getelementptr inbounds i8, ptr %146, i64 8
@@ -1061,7 +1061,7 @@ overlap_accelerator_predefined_data.argprom.exit: ; preds = %opal_datatype_accel
 
 .preheader.i:                                     ; preds = %208
   %.not.i166 = icmp eq i32 %.4218, 0
-  br i1 %.not.i166, label %overlap_accelerator_contiguous_loop.argprom.exit, label %.lr.ph.i167
+  br i1 %.not.i166, label %overlap_accelerator_contiguous_loop.exit, label %.lr.ph.i167
 
 223:                                              ; preds = %208
   %224 = mul i64 %219, %209
@@ -1101,7 +1101,7 @@ opal_datatype_accelerator_memmove.exit.i174:      ; preds = %232, %231
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %overlap_accelerator_contiguous_loop.argprom.exit
+  br label %overlap_accelerator_contiguous_loop.exit
 
 .lr.ph.i167:                                      ; preds = %.preheader.i, %opal_datatype_accelerator_memmove.exit37.i
   %.03.i168 = phi i64 [ %257, %opal_datatype_accelerator_memmove.exit37.i ], [ 0, %.preheader.i ]
@@ -1149,9 +1149,9 @@ opal_datatype_accelerator_memmove.exit37.i:       ; preds = %247, %246
   %256 = getelementptr inbounds i8, ptr %.0292.i, i64 %254
   %257 = add nuw nsw i64 %.03.i168, 1
   %exitcond.not.i169 = icmp eq i64 %257, %209
-  br i1 %exitcond.not.i169, label %overlap_accelerator_contiguous_loop.argprom.exit, label %.lr.ph.i167, !llvm.loop !15
+  br i1 %exitcond.not.i169, label %overlap_accelerator_contiguous_loop.exit, label %.lr.ph.i167, !llvm.loop !15
 
-overlap_accelerator_contiguous_loop.argprom.exit: ; preds = %opal_datatype_accelerator_memmove.exit37.i, %.preheader.i, %opal_datatype_accelerator_memmove.exit.i174
+overlap_accelerator_contiguous_loop.exit:         ; preds = %opal_datatype_accelerator_memmove.exit37.i, %.preheader.i, %opal_datatype_accelerator_memmove.exit.i174
   %258 = load i32, ptr %210, align 4
   %259 = add i32 %258, 1
   br label %269
@@ -1171,10 +1171,10 @@ overlap_accelerator_contiguous_loop.argprom.exit: ; preds = %opal_datatype_accel
   %268 = add nsw i32 %.1152216, 1
   br label %269
 
-269:                                              ; preds = %260, %overlap_accelerator_contiguous_loop.argprom.exit
-  %.3154 = phi i32 [ %268, %260 ], [ %.1152216, %overlap_accelerator_contiguous_loop.argprom.exit ]
-  %.pn = phi i32 [ 1, %260 ], [ %259, %overlap_accelerator_contiguous_loop.argprom.exit ]
-  %.3 = phi ptr [ %261, %260 ], [ %.1128222, %overlap_accelerator_contiguous_loop.argprom.exit ]
+269:                                              ; preds = %260, %overlap_accelerator_contiguous_loop.exit
+  %.3154 = phi i32 [ %268, %260 ], [ %.1152216, %overlap_accelerator_contiguous_loop.exit ]
+  %.pn = phi i32 [ 1, %260 ], [ %259, %overlap_accelerator_contiguous_loop.exit ]
+  %.3 = phi ptr [ %261, %260 ], [ %.1128222, %overlap_accelerator_contiguous_loop.exit ]
   %.5150 = add i32 %.pn, %.3148217
   %270 = getelementptr inbounds i8, ptr %.3, i64 16
   %271 = load i64, ptr %270, align 8

@@ -3648,7 +3648,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
   br i1 %exitcond111.not.i.i, label %.critedge, label %.preheader.lr.ph.us.us.i.i, !llvm.loop !11
 
 1763:                                             ; preds = %1614
-  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
+  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
   br label %.critedge
 
 1764:                                             ; preds = %1614
@@ -3905,7 +3905,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
   br i1 %exitcond111.not.i96.i, label %.critedge, label %.preheader.lr.ph.us.us.i83.i, !llvm.loop !18
 
 1910:                                             ; preds = %1614
-  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
+  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
   br label %.critedge
 
 1911:                                             ; preds = %1614
@@ -4421,27 +4421,27 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
   br i1 %exitcond111.not.i212.i, label %.critedge, label %.preheader.lr.ph.us.us.i199.i, !llvm.loop !32
 
 2209:                                             ; preds = %1614
-  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
+  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
   br label %.critedge
 
 2210:                                             ; preds = %1614
-  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
+  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
   br label %.critedge
 
 2211:                                             ; preds = %1614
-  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
+  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
   br label %.critedge
 
 2212:                                             ; preds = %1614
-  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
+  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
   br label %.critedge
 
 2213:                                             ; preds = %1614
-  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2EEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
+  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2EEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
   br label %.critedge
 
 2214:                                             ; preds = %1614
-  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2EEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
+  call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2EEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %1587)
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge76.split.us.us.us.i210.i, %._crit_edge76.split.us.us.us.i152.i, %._crit_edge76.split.us.us.us.i94.i, %._crit_edge76.split.us.us.us.i.i, %2214, %2213, %2212, %2211, %2210, %2209, %.lr.ph79.i194.i, %._crit_edge.i191.i, %.lr.ph63.i175.i, %2087, %2069, %.lr.ph79.i136.i, %._crit_edge.i133.i, %.lr.ph63.i117.i, %1938, %1920, %1910, %.lr.ph79.i78.i, %._crit_edge.i75.i, %.lr.ph63.i59.i, %1790, %1773, %1763, %.lr.ph79.i.i, %._crit_edge.i.i, %.lr.ph63.i.i, %1643, %1626, %1614, %1606, %1603
@@ -4633,7 +4633,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %5 = load float, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
-  switch i32 %7, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit [
+  switch i32 %7, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit [
     i32 0, label %8
     i32 1, label %33
     i32 2, label %58
@@ -4660,13 +4660,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %17 = load i32, ptr %16, align 4
   %18 = mul i32 %15, %17
   %19 = icmp sgt i32 %10, 0
-  br i1 %19, label %.lr.ph4.i.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %19, label %.lr.ph4.i.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i.i:                                      ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = icmp sgt i32 %18, 0
-  br i1 %22, label %.lr.ph.us.preheader.i.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %22, label %.lr.ph.us.preheader.i.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i.i:                          ; preds = %.lr.ph4.i.i
   %wide.trip.count11.i.i = zext nneg i32 %10 to i64
@@ -4696,7 +4696,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i.i:                               ; preds = %29
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 1
   %exitcond12.not.i.i = icmp eq i64 %indvars.iv.next9.i.i, %wide.trip.count11.i.i
-  br i1 %exitcond12.not.i.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i.i, !llvm.loop !34
+  br i1 %exitcond12.not.i.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i.i, !llvm.loop !34
 
 33:                                               ; preds = %3
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -4710,13 +4710,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %42 = load i32, ptr %41, align 4
   %43 = mul i32 %40, %42
   %44 = icmp sgt i32 %35, 0
-  br i1 %44, label %.lr.ph4.i47.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %44, label %.lr.ph4.i47.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i47.i:                                    ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = icmp sgt i32 %43, 0
-  br i1 %47, label %.lr.ph.us.preheader.i48.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %47, label %.lr.ph.us.preheader.i48.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i48.i:                        ; preds = %.lr.ph4.i47.i
   %wide.trip.count11.i49.i = zext nneg i32 %35 to i64
@@ -4746,7 +4746,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i56.i:                             ; preds = %54
   %indvars.iv.next9.i57.i = add nuw nsw i64 %indvars.iv8.i52.i, 1
   %exitcond12.not.i58.i = icmp eq i64 %indvars.iv.next9.i57.i, %wide.trip.count11.i49.i
-  br i1 %exitcond12.not.i58.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i51.i, !llvm.loop !36
+  br i1 %exitcond12.not.i58.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i51.i, !llvm.loop !36
 
 58:                                               ; preds = %3
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -4760,13 +4760,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %67 = load i32, ptr %66, align 4
   %68 = mul i32 %65, %67
   %69 = icmp sgt i32 %60, 0
-  br i1 %69, label %.lr.ph4.i59.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %69, label %.lr.ph4.i59.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i59.i:                                    ; preds = %58
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = icmp sgt i32 %68, 0
-  br i1 %72, label %.lr.ph.us.preheader.i60.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %72, label %.lr.ph.us.preheader.i60.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i60.i:                        ; preds = %.lr.ph4.i59.i
   %wide.trip.count11.i61.i = zext nneg i32 %60 to i64
@@ -4796,7 +4796,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i68.i:                             ; preds = %79
   %indvars.iv.next9.i69.i = add nuw nsw i64 %indvars.iv8.i64.i, 1
   %exitcond12.not.i70.i = icmp eq i64 %indvars.iv.next9.i69.i, %wide.trip.count11.i61.i
-  br i1 %exitcond12.not.i70.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i63.i, !llvm.loop !38
+  br i1 %exitcond12.not.i70.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i63.i, !llvm.loop !38
 
 83:                                               ; preds = %3
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -4810,13 +4810,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %92 = load i32, ptr %91, align 4
   %93 = mul i32 %90, %92
   %94 = icmp sgt i32 %85, 0
-  br i1 %94, label %.lr.ph4.i71.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %94, label %.lr.ph4.i71.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i71.i:                                    ; preds = %83
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %97 = icmp sgt i32 %93, 0
-  br i1 %97, label %.lr.ph.us.preheader.i72.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %97, label %.lr.ph.us.preheader.i72.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i72.i:                        ; preds = %.lr.ph4.i71.i
   %wide.trip.count11.i73.i = zext nneg i32 %85 to i64
@@ -4847,7 +4847,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i80.i:                             ; preds = %105
   %indvars.iv.next9.i81.i = add nuw nsw i64 %indvars.iv8.i76.i, 1
   %exitcond12.not.i82.i = icmp eq i64 %indvars.iv.next9.i81.i, %wide.trip.count11.i73.i
-  br i1 %exitcond12.not.i82.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i75.i, !llvm.loop !40
+  br i1 %exitcond12.not.i82.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i75.i, !llvm.loop !40
 
 109:                                              ; preds = %3
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -4861,13 +4861,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %118 = load i32, ptr %117, align 4
   %119 = mul i32 %116, %118
   %120 = icmp sgt i32 %111, 0
-  br i1 %120, label %.lr.ph4.i83.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %120, label %.lr.ph4.i83.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i83.i:                                    ; preds = %109
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %123 = icmp sgt i32 %119, 0
-  br i1 %123, label %.lr.ph.us.preheader.i84.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %123, label %.lr.ph.us.preheader.i84.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i84.i:                        ; preds = %.lr.ph4.i83.i
   %wide.trip.count11.i85.i = zext nneg i32 %111 to i64
@@ -4898,7 +4898,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i92.i:                             ; preds = %130
   %indvars.iv.next9.i93.i = add nuw nsw i64 %indvars.iv8.i88.i, 1
   %exitcond12.not.i94.i = icmp eq i64 %indvars.iv.next9.i93.i, %wide.trip.count11.i85.i
-  br i1 %exitcond12.not.i94.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i87.i, !llvm.loop !42
+  br i1 %exitcond12.not.i94.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i87.i, !llvm.loop !42
 
 135:                                              ; preds = %3
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -4912,13 +4912,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %144 = load i32, ptr %143, align 4
   %145 = mul i32 %142, %144
   %146 = icmp sgt i32 %137, 0
-  br i1 %146, label %.lr.ph4.i95.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %146, label %.lr.ph4.i95.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i95.i:                                    ; preds = %135
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %149 = icmp sgt i32 %145, 0
-  br i1 %149, label %.lr.ph.us.preheader.i96.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %149, label %.lr.ph.us.preheader.i96.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i96.i:                        ; preds = %.lr.ph4.i95.i
   %wide.trip.count11.i97.i = zext nneg i32 %137 to i64
@@ -4949,7 +4949,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i104.i:                            ; preds = %156
   %indvars.iv.next9.i105.i = add nuw nsw i64 %indvars.iv8.i100.i, 1
   %exitcond12.not.i106.i = icmp eq i64 %indvars.iv.next9.i105.i, %wide.trip.count11.i97.i
-  br i1 %exitcond12.not.i106.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i99.i, !llvm.loop !44
+  br i1 %exitcond12.not.i106.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i99.i, !llvm.loop !44
 
 161:                                              ; preds = %3
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -4963,13 +4963,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %170 = load i32, ptr %169, align 4
   %171 = mul i32 %168, %170
   %172 = icmp sgt i32 %163, 0
-  br i1 %172, label %.lr.ph4.i107.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %172, label %.lr.ph4.i107.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i107.i:                                   ; preds = %161
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %175 = icmp sgt i32 %171, 0
-  br i1 %175, label %.lr.ph.us.preheader.i108.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %175, label %.lr.ph.us.preheader.i108.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i108.i:                       ; preds = %.lr.ph4.i107.i
   %wide.trip.count11.i109.i = zext nneg i32 %163 to i64
@@ -4999,7 +4999,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i116.i:                            ; preds = %182
   %indvars.iv.next9.i117.i = add nuw nsw i64 %indvars.iv8.i112.i, 1
   %exitcond12.not.i118.i = icmp eq i64 %indvars.iv.next9.i117.i, %wide.trip.count11.i109.i
-  br i1 %exitcond12.not.i118.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i111.i, !llvm.loop !46
+  br i1 %exitcond12.not.i118.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i111.i, !llvm.loop !46
 
 186:                                              ; preds = %3
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -5013,13 +5013,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %195 = load i32, ptr %194, align 4
   %196 = mul i32 %193, %195
   %197 = icmp sgt i32 %188, 0
-  br i1 %197, label %.lr.ph4.i119.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %197, label %.lr.ph4.i119.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i119.i:                                   ; preds = %186
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %200 = icmp sgt i32 %196, 0
-  br i1 %200, label %.lr.ph.us.preheader.i120.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %200, label %.lr.ph.us.preheader.i120.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i120.i:                       ; preds = %.lr.ph4.i119.i
   %wide.trip.count11.i121.i = zext nneg i32 %188 to i64
@@ -5049,7 +5049,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i128.i:                            ; preds = %207
   %indvars.iv.next9.i129.i = add nuw nsw i64 %indvars.iv8.i124.i, 1
   %exitcond12.not.i130.i = icmp eq i64 %indvars.iv.next9.i129.i, %wide.trip.count11.i121.i
-  br i1 %exitcond12.not.i130.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i123.i, !llvm.loop !48
+  br i1 %exitcond12.not.i130.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i123.i, !llvm.loop !48
 
 211:                                              ; preds = %3
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -5063,13 +5063,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %220 = load i32, ptr %219, align 4
   %221 = mul i32 %218, %220
   %222 = icmp sgt i32 %213, 0
-  br i1 %222, label %.lr.ph4.i131.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %222, label %.lr.ph4.i131.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i131.i:                                   ; preds = %211
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %225 = icmp sgt i32 %221, 0
-  br i1 %225, label %.lr.ph.us.preheader.i132.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %225, label %.lr.ph.us.preheader.i132.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i132.i:                       ; preds = %.lr.ph4.i131.i
   %wide.trip.count11.i133.i = zext nneg i32 %213 to i64
@@ -5099,7 +5099,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i140.i:                            ; preds = %232
   %indvars.iv.next9.i141.i = add nuw nsw i64 %indvars.iv8.i136.i, 1
   %exitcond12.not.i142.i = icmp eq i64 %indvars.iv.next9.i141.i, %wide.trip.count11.i133.i
-  br i1 %exitcond12.not.i142.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i135.i, !llvm.loop !50
+  br i1 %exitcond12.not.i142.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i135.i, !llvm.loop !50
 
 236:                                              ; preds = %3
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -5113,13 +5113,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %245 = load i32, ptr %244, align 4
   %246 = mul i32 %243, %245
   %247 = icmp sgt i32 %238, 0
-  br i1 %247, label %.lr.ph4.i143.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %247, label %.lr.ph4.i143.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i143.i:                                   ; preds = %236
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %250 = icmp sgt i32 %246, 0
-  br i1 %250, label %.lr.ph.us.preheader.i144.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %250, label %.lr.ph.us.preheader.i144.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i144.i:                       ; preds = %.lr.ph4.i143.i
   %wide.trip.count11.i145.i = zext nneg i32 %238 to i64
@@ -5149,7 +5149,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i152.i:                            ; preds = %257
   %indvars.iv.next9.i153.i = add nuw nsw i64 %indvars.iv8.i148.i, 1
   %exitcond12.not.i154.i = icmp eq i64 %indvars.iv.next9.i153.i, %wide.trip.count11.i145.i
-  br i1 %exitcond12.not.i154.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i147.i, !llvm.loop !52
+  br i1 %exitcond12.not.i154.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i147.i, !llvm.loop !52
 
 261:                                              ; preds = %3
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -5163,13 +5163,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %270 = load i32, ptr %269, align 4
   %271 = mul i32 %268, %270
   %272 = icmp sgt i32 %263, 0
-  br i1 %272, label %.lr.ph4.i155.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %272, label %.lr.ph4.i155.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i155.i:                                   ; preds = %261
   %273 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %275 = icmp sgt i32 %271, 0
-  br i1 %275, label %.lr.ph.us.preheader.i156.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %275, label %.lr.ph.us.preheader.i156.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i156.i:                       ; preds = %.lr.ph4.i155.i
   %wide.trip.count11.i157.i = zext nneg i32 %263 to i64
@@ -5199,7 +5199,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i164.i:                            ; preds = %282
   %indvars.iv.next9.i165.i = add nuw nsw i64 %indvars.iv8.i160.i, 1
   %exitcond12.not.i166.i = icmp eq i64 %indvars.iv.next9.i165.i, %wide.trip.count11.i157.i
-  br i1 %exitcond12.not.i166.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i159.i, !llvm.loop !54
+  br i1 %exitcond12.not.i166.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i159.i, !llvm.loop !54
 
 286:                                              ; preds = %3
   %287 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -5213,13 +5213,13 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
   %295 = load i32, ptr %294, align 4
   %296 = mul i32 %293, %295
   %297 = icmp sgt i32 %288, 0
-  br i1 %297, label %.lr.ph4.i167.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %297, label %.lr.ph4.i167.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph4.i167.i:                                   ; preds = %286
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %300 = icmp sgt i32 %296, 0
-  br i1 %300, label %.lr.ph.us.preheader.i168.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit
+  br i1 %300, label %.lr.ph.us.preheader.i168.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i168.i:                       ; preds = %.lr.ph4.i167.i
   %wide.trip.count11.i169.i = zext nneg i32 %288 to i64
@@ -5249,9 +5249,9 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 ._crit_edge.us.i176.i:                            ; preds = %307
   %indvars.iv.next9.i177.i = add nuw nsw i64 %indvars.iv8.i172.i, 1
   %exitcond12.not.i178.i = icmp eq i64 %indvars.iv.next9.i177.i, %wide.trip.count11.i169.i
-  br i1 %exitcond12.not.i178.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit, label %.lr.ph.us.i171.i, !llvm.loop !56
+  br i1 %exitcond12.not.i178.i, label %_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit, label %.lr.ph.us.i171.i, !llvm.loop !56
 
-_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.argprom.exit: ; preds = %._crit_edge.us.i176.i, %._crit_edge.us.i164.i, %._crit_edge.us.i152.i, %._crit_edge.us.i140.i, %._crit_edge.us.i128.i, %._crit_edge.us.i116.i, %._crit_edge.us.i104.i, %._crit_edge.us.i92.i, %._crit_edge.us.i80.i, %._crit_edge.us.i68.i, %._crit_edge.us.i56.i, %._crit_edge.us.i.i, %3, %8, %.lr.ph4.i.i, %33, %.lr.ph4.i47.i, %58, %.lr.ph4.i59.i, %83, %.lr.ph4.i71.i, %109, %.lr.ph4.i83.i, %135, %.lr.ph4.i95.i, %161, %.lr.ph4.i107.i, %186, %.lr.ph4.i119.i, %211, %.lr.ph4.i131.i, %236, %.lr.ph4.i143.i, %261, %.lr.ph4.i155.i, %286, %.lr.ph4.i167.i
+_ZN4ncnnL24binary_op_scalar_inplaceERNS_3MatEfiRKNS_6OptionE.exit: ; preds = %._crit_edge.us.i176.i, %._crit_edge.us.i164.i, %._crit_edge.us.i152.i, %._crit_edge.us.i140.i, %._crit_edge.us.i128.i, %._crit_edge.us.i116.i, %._crit_edge.us.i104.i, %._crit_edge.us.i92.i, %._crit_edge.us.i80.i, %._crit_edge.us.i68.i, %._crit_edge.us.i56.i, %._crit_edge.us.i.i, %3, %8, %.lr.ph4.i.i, %33, %.lr.ph4.i47.i, %58, %.lr.ph4.i59.i, %83, %.lr.ph4.i71.i, %109, %.lr.ph4.i83.i, %135, %.lr.ph4.i95.i, %161, %.lr.ph4.i107.i, %186, %.lr.ph4.i119.i, %211, %.lr.ph4.i131.i, %236, %.lr.ph4.i143.i, %261, %.lr.ph4.i155.i, %286, %.lr.ph4.i167.i
   ret i32 0
 }
 
@@ -5294,7 +5294,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -5576,7 +5576,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -5858,7 +5858,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -6140,7 +6140,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEE
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2EEEvRKNS_3MatES4_RS2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2EEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 44

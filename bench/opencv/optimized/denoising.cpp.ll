@@ -2900,7 +2900,7 @@ define void @_ZN2cv25fastNlMeansDenoisingMultiERKNS_11_InputArrayERKNS_12_Output
   %.val = load ptr, ptr %58, align 8
   %69 = getelementptr inbounds i8, ptr %58, i64 8
   %.val48 = load ptr, ptr %69, align 8
-  invoke fastcc void @_ZL43fastNlMeansDenoisingMultiCheckPreconditionsRKSt6vectorIN2cv3MatESaIS1_EEiiii.argprom(ptr %.val, ptr %.val48, i32 noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %6)
+  invoke fastcc void @_ZL43fastNlMeansDenoisingMultiCheckPreconditionsRKSt6vectorIN2cv3MatESaIS1_EEiiii(ptr %.val, ptr %.val48, i32 noundef %2, i32 noundef %3, i32 noundef %5, i32 noundef %6)
           to label %70 unwind label %88
 
 70:                                               ; preds = %68
@@ -4665,7 +4665,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3M
 declare void @_ZNK2cv11_InputArray12getMatVectorERSt6vectorINS_3MatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL43fastNlMeansDenoisingMultiCheckPreconditionsRKSt6vectorIN2cv3MatESaIS1_EEiiii.argprom(ptr %.0.val, ptr %.8.val, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL43fastNlMeansDenoisingMultiCheckPreconditionsRKSt6vectorIN2cv3MatESaIS1_EEiiii(ptr %.0.val, ptr %.8.val, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.0", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4906,7 +4906,7 @@ define void @_ZN2cv32fastNlMeansDenoisingColoredMultiERKNS_11_InputArrayERKNS_12
   %.val = load ptr, ptr %10, align 8
   %35 = getelementptr inbounds i8, ptr %10, i64 8
   %.val78 = load ptr, ptr %35, align 8
-  invoke fastcc void @_ZL43fastNlMeansDenoisingMultiCheckPreconditionsRKSt6vectorIN2cv3MatESaIS1_EEiiii.argprom(ptr %.val, ptr %.val78, i32 noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef %7)
+  invoke fastcc void @_ZL43fastNlMeansDenoisingMultiCheckPreconditionsRKSt6vectorIN2cv3MatESaIS1_EEiiii(ptr %.val, ptr %.val78, i32 noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef %7)
           to label %36 unwind label %65
 
 36:                                               ; preds = %34

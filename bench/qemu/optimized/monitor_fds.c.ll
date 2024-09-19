@@ -250,7 +250,7 @@ if.end15:                                         ; preds = %do.body, %if.then9
   %6 = load ptr, ptr %monfd.021, align 8
   tail call void @g_free(ptr noundef %6) #9
   tail call void @g_free(ptr noundef nonnull %monfd.021) #9
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 for.inc:                                          ; preds = %for.body
   %next25 = getelementptr inbounds i8, ptr %monfd.021, i64 16
@@ -260,9 +260,9 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 166, ptr noundef nonnull @__func__.monitor_get_fd, ptr noundef nonnull @.str.4, ptr noundef %fdname) #9
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.end, %if.end15
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.end, %if.end15
   %retval.0 = phi i32 [ %3, %if.end15 ], [ -1, %for.end ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mon_lock, ptr noundef nonnull @.str.13, i32 noundef 132) #9
   ret i32 %retval.0
@@ -279,7 +279,7 @@ entry:
   tail call void %1(ptr noundef nonnull @mon_fdsets_lock, ptr noundef nonnull @.str.13, i32 noundef 122) #9
   %2 = load ptr, ptr @mon_fdsets, align 8
   %tobool.not3 = icmp eq ptr %2, null
-  br i1 %tobool.not3, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %land.rhs
+  br i1 %tobool.not3, label %glib_autoptr_cleanup_QemuLockable.exit, label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %land.rhs
   %mon_fdset.04 = phi ptr [ %3, %land.rhs ], [ %2, %entry ]
@@ -287,9 +287,9 @@ land.rhs:                                         ; preds = %entry, %land.rhs
   %3 = load ptr, ptr %next, align 8
   tail call fastcc void @monitor_fdset_cleanup(ptr noundef %mon_fdset.04)
   %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %land.rhs, !llvm.loop !9
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %land.rhs, !llvm.loop !9
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %land.rhs, %entry
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %land.rhs, %entry
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @mon_fdsets_lock, ptr noundef nonnull @.str.13, i32 noundef 132) #9
   ret void
 }
@@ -462,7 +462,7 @@ for.cond16.preheader:                             ; preds = %if.then12
 
 if.then14:                                        ; preds = %if.then12
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 357, ptr noundef nonnull @__func__.monitor_fdset_add_fd, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #9
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 for.body18:                                       ; preds = %for.cond16.preheader, %for.inc23
   %mon_fdset.374 = phi ptr [ %4, %for.inc23 ], [ %mon_fdset.164, %for.cond16.preheader ]
@@ -587,9 +587,9 @@ if.end120:                                        ; preds = %if.then113, %if.end
   %conv = sext i32 %15 to i64
   %fd133 = getelementptr inbounds i8, ptr %call129, i64 8
   store i64 %conv, ptr %fd133, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.end120, %if.then14
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end120, %if.then14
   %retval.0 = phi ptr [ null, %if.then14 ], [ %call129, %if.end120 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @mon_fdsets_lock, ptr noundef nonnull @.str.13, i32 noundef 132) #9
   ret ptr %retval.0
@@ -653,7 +653,7 @@ for.end:                                          ; preds = %for.body4, %for.inc
 
 if.end18:                                         ; preds = %for.end.thread, %for.end
   tail call fastcc void @monitor_fdset_cleanup(ptr noundef %mon_fdset.020)
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 for.inc19:                                        ; preds = %for.body
   %next20 = getelementptr inbounds i8, ptr %mon_fdset.020, i64 24
@@ -674,9 +674,9 @@ if.else26:                                        ; preds = %error
 
 if.end29:                                         ; preds = %if.else26, %if.then24
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 299, ptr noundef nonnull @__func__.qmp_remove_fd, ptr noundef nonnull @.str.2, ptr noundef nonnull %fd_str) #9
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.end29, %if.end18
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end29, %if.end18
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @mon_fdsets_lock, ptr noundef nonnull @.str.13, i32 noundef 132) #9
   ret void
 }
@@ -692,7 +692,7 @@ entry:
   tail call void %1(ptr noundef nonnull @mon_fdsets_lock, ptr noundef nonnull @.str.13, i32 noundef 122) #9
   %mon_fdset.020 = load ptr, ptr @mon_fdsets, align 8
   %tobool.not21 = icmp eq ptr %mon_fdset.020, null
-  br i1 %tobool.not21, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.body
+  br i1 %tobool.not21, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body
 
 for.body:                                         ; preds = %entry, %do.body14
   %mon_fdset.023 = phi ptr [ %mon_fdset.0, %do.body14 ], [ %mon_fdset.020, %entry ]
@@ -739,9 +739,9 @@ do.body14:                                        ; preds = %for.body5, %for.bod
   %next22 = getelementptr inbounds i8, ptr %mon_fdset.023, i64 24
   %mon_fdset.0 = load ptr, ptr %next22, align 8
   %tobool.not = icmp eq ptr %mon_fdset.0, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.body, !llvm.loop !17
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body, !llvm.loop !17
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %do.body14, %entry
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %do.body14, %entry
   %fdset_list.0.lcssa = phi ptr [ null, %entry ], [ %call16, %do.body14 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @mon_fdsets_lock, ptr noundef nonnull @.str.13, i32 noundef 132) #9
   ret ptr %fdset_list.0.lcssa
@@ -782,7 +782,7 @@ for.body4:                                        ; preds = %if.end, %for.inc
   %3 = load i32, ptr %mon_fdset_fd.030, align 8
   %call6 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %3, i32 noundef 3) #9
   %cmp7 = icmp eq i32 %call6, -1
-  br i1 %cmp7, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end9
+  br i1 %cmp7, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end9
 
 if.end9:                                          ; preds = %for.body4
   %4 = xor i32 %call6, %flags
@@ -804,12 +804,12 @@ for.end:                                          ; preds = %if.end9
 if.then16:                                        ; preds = %for.inc, %if.end, %for.end
   %call17 = tail call ptr @__errno_location() #10
   store i32 13, ptr %call17, align 4
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end18:                                         ; preds = %for.end
   %call19 = tail call i32 @qemu_dup_flags(i32 noundef %6, i32 noundef %flags) #9
   %cmp20 = icmp eq i32 %call19, -1
-  br i1 %cmp20, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.end22
+  br i1 %cmp20, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
   %call23 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #14
@@ -830,7 +830,7 @@ if.end35:                                         ; preds = %if.then29, %if.end2
   store ptr %call23, ptr %dup_fds, align 8
   %le_prev41 = getelementptr inbounds i8, ptr %call23, i64 24
   store ptr %dup_fds, ptr %le_prev41, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
 for.inc42:                                        ; preds = %for.body
   %next43 = getelementptr inbounds i8, ptr %mon_fdset.027, i64 24
@@ -841,9 +841,9 @@ for.inc42:                                        ; preds = %for.body
 for.end45:                                        ; preds = %for.inc42, %entry
   %call46 = tail call ptr @__errno_location() #10
   store i32 2, ptr %call46, align 4
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.body4, %if.end18, %for.end45, %if.end35, %if.then16
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body4, %if.end18, %for.end45, %if.end35, %if.then16
   %retval.0 = phi i32 [ -1, %if.then16 ], [ %call19, %if.end35 ], [ -1, %for.end45 ], [ -1, %if.end18 ], [ -1, %for.body4 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @mon_fdsets_lock, ptr noundef nonnull @.str.13, i32 noundef 132) #9
   ret i32 %retval.0

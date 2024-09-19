@@ -499,7 +499,7 @@ audio_pcm_hw_del_sw_out.exit.i:                   ; preds = %if.then.i.i, %audio
 if.then.i4.i:                                     ; preds = %audio_pcm_hw_del_sw_out.exit.i
   %8 = getelementptr i8, ptr %5, i64 136
   %.val.i.i = load ptr, ptr %8, align 8
-  tail call fastcc void @audio_detach_capture.argprom(ptr %.val.i.i)
+  tail call fastcc void @audio_detach_capture(ptr %.val.i.i)
   %entries.i5.i = getelementptr inbounds i8, ptr %5, i64 152
   %9 = load ptr, ptr %entries.i5.i, align 8
   %cmp.not.i6.i = icmp eq ptr %9, null
@@ -972,7 +972,7 @@ audio_pcm_hw_del_sw_out.exit.i:                   ; preds = %if.then.i15.i, %err
 if.then.i18.i:                                    ; preds = %audio_pcm_hw_del_sw_out.exit.i
   %55 = getelementptr i8, ptr %retval.0.i1125.i, i64 136
   %.val.i.i = load ptr, ptr %55, align 8
-  call fastcc void @audio_detach_capture.argprom(ptr %.val.i.i)
+  call fastcc void @audio_detach_capture(ptr %.val.i.i)
   %entries.i19.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 152
   %56 = load ptr, ptr %entries.i19.i, align 8
   %cmp.not.i20.i = icmp eq ptr %56, null
@@ -5657,7 +5657,7 @@ if.end99:                                         ; preds = %if.then92, %if.end7
 
 for.body:                                         ; preds = %if.end99, %for.body
   %hw.072 = phi ptr [ %hw.0, %for.body ], [ %hw.070, %if.end99 ]
-  tail call fastcc void @audio_attach_capture.retelim(ptr noundef nonnull %hw.072)
+  tail call fastcc void @audio_attach_capture(ptr noundef nonnull %hw.072)
   %entries110 = getelementptr inbounds i8, ptr %hw.072, i64 152
   %hw.0 = load ptr, ptr %entries110, align 8
   %tobool108.not = icmp eq ptr %hw.0, null
@@ -5741,12 +5741,12 @@ if.end12:                                         ; preds = %if.else, %if.end
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_attach_capture.retelim(ptr noundef %hw) unnamed_addr #6 {
+define internal fastcc void @audio_attach_capture(ptr noundef %hw) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %hw, align 8
   %1 = getelementptr i8, ptr %hw, i64 136
   %hw.val = load ptr, ptr %1, align 8
-  tail call fastcc void @audio_detach_capture.argprom(ptr %hw.val)
+  tail call fastcc void @audio_detach_capture(ptr %hw.val)
   %cap_head = getelementptr inbounds i8, ptr %0, i64 56
   %cap.033 = load ptr, ptr %cap_head, align 8
   %tobool.not34 = icmp eq ptr %cap.033, null
@@ -6808,7 +6808,7 @@ for.end:                                          ; preds = %do.body, %entry
 declare ptr @qapi_clone(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_detach_capture.argprom(ptr %hw.136.val) unnamed_addr #6 {
+define internal fastcc void @audio_detach_capture(ptr %hw.136.val) unnamed_addr #6 {
 entry:
   %tobool.not2 = icmp eq ptr %hw.136.val, null
   br i1 %tobool.not2, label %while.end, label %while.body
@@ -7129,7 +7129,7 @@ if.end64:                                         ; preds = %if.then58, %if.end5
   %20 = load i32, ptr %nb_hw_voices_out, align 8
   %sub = add i32 %20, -1
   store i32 %sub, ptr %nb_hw_voices_out, align 8
-  tail call fastcc void @audio_attach_capture.retelim(ptr noundef nonnull %call13)
+  tail call fastcc void @audio_attach_capture(ptr noundef nonnull %call13)
   br label %return
 
 err0:                                             ; preds = %if.end12, %if.then27

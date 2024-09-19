@@ -1083,7 +1083,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br i1 %267, label %.loopexit144.i.i, label %268
 
 268:                                              ; preds = %._crit_edge.i.i
-  %269 = invoke fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L44OpenObjectFileContainingPcAndGetStartAddressEmRmS3_PcmE3$_2EEDaT_i.argelim"(ptr nonnull %storemerge49.lcssa.i.i)
+  %269 = invoke fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L44OpenObjectFileContainingPcAndGetStartAddressEmRmS3_PcmE3$_2EEDaT_i"(ptr nonnull %storemerge49.lcssa.i.i)
           to label %270 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 270:                                              ; preds = %268
@@ -1817,7 +1817,7 @@ switch.early.test._crit_edge:                     ; preds = %12, %switch.early.t
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L44OpenObjectFileContainingPcAndGetStartAddressEmRmS3_PcmE3$_2EEDaT_i.argelim"(ptr nocapture readonly %0) unnamed_addr #12 {
+define internal fastcc noundef i32 @"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L44OpenObjectFileContainingPcAndGetStartAddressEmRmS3_PcmE3$_2EEDaT_i"(ptr nocapture readonly %0) unnamed_addr #12 {
   br label %2
 
 2:                                                ; preds = %5, %1

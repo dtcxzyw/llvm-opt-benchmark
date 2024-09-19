@@ -55,7 +55,7 @@ stream_read_bits.exit.i:                          ; preds = %28, %18
   %32 = and i32 %31, 31
   %33 = add nuw nsw i32 %32, 1
   %34 = add i32 %12, -5
-  %35 = call fastcc i32 @decode_ints_uint32.argelim(ptr noundef nonnull %9, i32 noundef %34, i32 noundef %33, ptr noundef %4)
+  %35 = call fastcc i32 @decode_ints_uint32(ptr noundef nonnull %9, i32 noundef %34, i32 noundef %33, ptr noundef %4)
   %36 = add i32 %35, 5
   %37 = icmp ult i32 %36, %10
   br i1 %37, label %38, label %60
@@ -115,10 +115,10 @@ stream_skip.exit.i:                               ; preds = %55, %38
   store i32 %65, ptr %69, align 4
   %70 = add nsw i32 %.0.i16.i, -1
   %.not.i.i = icmp eq i32 %70, 0
-  br i1 %.not.i.i, label %inv_order_int32.argprom.exit.i, label %61
+  br i1 %.not.i.i, label %inv_order_int32.exit.i, label %61
 
-inv_order_int32.argprom.exit.i:                   ; preds = %61, %inv_order_int32.argprom.exit.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %inv_order_int32.argprom.exit.i ], [ 0, %61 ]
+inv_order_int32.exit.i:                           ; preds = %61, %inv_order_int32.exit.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %inv_order_int32.exit.i ], [ 0, %61 ]
   %71 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i.i
   %72 = load i32, ptr %71, align 4
   %73 = getelementptr inbounds i8, ptr %71, i64 16
@@ -138,10 +138,10 @@ inv_order_int32.argprom.exit.i:                   ; preds = %61, %inv_order_int3
   store i32 %82, ptr %73, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %inv_order_int32.argprom.exit.i
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %inv_order_int32.exit.i
 
-.preheader.i.i:                                   ; preds = %inv_order_int32.argprom.exit.i, %.preheader.i.i
-  %indvars.iv11.i.i = phi i64 [ %indvars.iv.next12.i.i, %.preheader.i.i ], [ 0, %inv_order_int32.argprom.exit.i ]
+.preheader.i.i:                                   ; preds = %inv_order_int32.exit.i, %.preheader.i.i
+  %indvars.iv11.i.i = phi i64 [ %indvars.iv.next12.i.i, %.preheader.i.i ], [ 0, %inv_order_int32.exit.i ]
   %.idx.i.i = shl nsw i64 %indvars.iv11.i.i, 4
   %85 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i
   %86 = load i32, ptr %85, align 4
@@ -172,7 +172,7 @@ rev_decode_block_int32_2.exit:                    ; preds = %.preheader.i.i
   %100 = getelementptr inbounds i8, ptr %0, i64 8
   %101 = load i32, ptr %100, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  %102 = call fastcc i32 @decode_ints_uint32.argelim(ptr noundef %9, i32 noundef %12, i32 noundef %101, ptr noundef %3)
+  %102 = call fastcc i32 @decode_ints_uint32(ptr noundef %9, i32 noundef %12, i32 noundef %101, ptr noundef %3)
   %103 = icmp ult i32 %102, %10
   br i1 %103, label %104, label %127
 
@@ -232,10 +232,10 @@ stream_skip.exit.i24:                             ; preds = %121, %104
   store i32 %132, ptr %136, align 4
   %137 = add nsw i32 %.0.i.i, -1
   %.not.i.i13 = icmp eq i32 %137, 0
-  br i1 %.not.i.i13, label %inv_order_int32.argprom.exit.i14, label %128
+  br i1 %.not.i.i13, label %inv_order_int32.exit.i14, label %128
 
-inv_order_int32.argprom.exit.i14:                 ; preds = %128, %inv_order_int32.argprom.exit.i14
-  %indvars.iv.i.i15 = phi i64 [ %indvars.iv.next.i.i16, %inv_order_int32.argprom.exit.i14 ], [ 0, %128 ]
+inv_order_int32.exit.i14:                         ; preds = %128, %inv_order_int32.exit.i14
+  %indvars.iv.i.i15 = phi i64 [ %indvars.iv.next.i.i16, %inv_order_int32.exit.i14 ], [ 0, %128 ]
   %138 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i.i15
   %139 = load i32, ptr %138, align 4
   %140 = getelementptr inbounds i8, ptr %138, i64 16
@@ -266,10 +266,10 @@ inv_order_int32.argprom.exit.i14:                 ; preds = %128, %inv_order_int
   store i32 %161, ptr %138, align 4
   %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i15, 1
   %exitcond.not.i.i17 = icmp eq i64 %indvars.iv.next.i.i16, 4
-  br i1 %exitcond.not.i.i17, label %.preheader.i.i18, label %inv_order_int32.argprom.exit.i14
+  br i1 %exitcond.not.i.i17, label %.preheader.i.i18, label %inv_order_int32.exit.i14
 
-.preheader.i.i18:                                 ; preds = %inv_order_int32.argprom.exit.i14, %.preheader.i.i18
-  %indvars.iv11.i.i19 = phi i64 [ %indvars.iv.next12.i.i21, %.preheader.i.i18 ], [ 0, %inv_order_int32.argprom.exit.i14 ]
+.preheader.i.i18:                                 ; preds = %inv_order_int32.exit.i14, %.preheader.i.i18
+  %indvars.iv11.i.i19 = phi i64 [ %indvars.iv.next12.i.i21, %.preheader.i.i18 ], [ 0, %inv_order_int32.exit.i14 ]
   %.idx.i.i20 = shl nsw i64 %indvars.iv11.i.i19, 4
   %162 = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i20
   %163 = load i32, ptr %162, align 4
@@ -314,7 +314,7 @@ decode_block_int32_2.exit:                        ; preds = %.preheader.i.i18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @decode_ints_uint32.argelim(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc i32 @decode_ints_uint32(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = shl i32 %2, 4
   %6 = or disjoint i32 %5, 15
   %.not = icmp ugt i32 %6, %1

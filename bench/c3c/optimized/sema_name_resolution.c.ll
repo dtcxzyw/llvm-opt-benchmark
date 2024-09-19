@@ -1644,7 +1644,7 @@ matches_subpath.exit:                             ; preds = %80
 
 matches_subpath.exit.thread107:                   ; preds = %58, %59, %matches_subpath.exit
   %.val.val = load ptr, ptr %.val.pre, align 8
-  %84 = tail call fastcc zeroext i1 @decl_is_visible.argprom.argprom(ptr noundef %0, ptr %.val.val)
+  %84 = tail call fastcc zeroext i1 @decl_is_visible(ptr noundef %0, ptr %.val.val)
   br i1 %84, label %87, label %85
 
 85:                                               ; preds = %matches_subpath.exit.thread107
@@ -1728,7 +1728,7 @@ matches_subpath.exit94:                           ; preds = %119
 
 matches_subpath.exit94.thread110:                 ; preds = %97, %100, %matches_subpath.exit94
   %.val88.val = load ptr, ptr %.val88.pre, align 8
-  %123 = tail call fastcc zeroext i1 @decl_is_visible.argprom.argprom(ptr noundef %0, ptr %.val88.val)
+  %123 = tail call fastcc zeroext i1 @decl_is_visible(ptr noundef %0, ptr %.val88.val)
   br i1 %123, label %124, label %matches_subpath.exit94.thread
 
 124:                                              ; preds = %matches_subpath.exit94.thread110
@@ -2667,9 +2667,9 @@ define dso_local noundef zeroext i1 @sema_add_local(ptr nocapture noundef %0, pt
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %6
-  br i1 %27, label %sema_find_ct_local.argprom.exit, label %23
+  br i1 %27, label %sema_find_ct_local.exit, label %23
 
-sema_find_ct_local.argprom.exit:                  ; preds = %.lr.ph.i
+sema_find_ct_local.exit:                          ; preds = %.lr.ph.i
   tail call void @sema_shadow_error(ptr noundef nonnull %1, ptr noundef nonnull %25) #10
   %28 = load i64, ptr %8, align 8
   %29 = and i64 %28, -1024
@@ -2969,8 +2969,8 @@ sema_append_local.exit:                           ; preds = %167, %176
   store i32 %180, ptr %178, align 8
   br label %181
 
-181:                                              ; preds = %sema_find_ct_local.argprom.exit, %61, %2, %sema_append_local.exit, %119
-  %.055 = phi i1 [ true, %sema_append_local.exit ], [ false, %119 ], [ true, %2 ], [ true, %61 ], [ false, %sema_find_ct_local.argprom.exit ]
+181:                                              ; preds = %sema_find_ct_local.exit, %61, %2, %sema_append_local.exit, %119
+  %.055 = phi i1 [ true, %sema_append_local.exit ], [ false, %119 ], [ true, %2 ], [ true, %61 ], [ false, %sema_find_ct_local.exit ]
   ret i1 %.055
 }
 
@@ -3446,7 +3446,7 @@ declare ptr @module_find_symbol(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @decltable_get(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @decl_is_visible.argprom.argprom(ptr nocapture noundef readonly %0, ptr readonly %.56.val.0.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @decl_is_visible(ptr nocapture noundef readonly %0, ptr readonly %.56.val.0.val) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %.56.val.0.val, %2
   br i1 %3, label %.loopexit, label %.preheader4

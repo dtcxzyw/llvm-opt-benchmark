@@ -4251,13 +4251,13 @@ define internal i32 @ftc_snode_new(ptr nocapture noundef writeonly %0, ptr nocap
   %17 = icmp ne i32 %16, 0
   %.not.i = icmp ult i32 %.val, %16
   %or.cond.i = select i1 %17, i1 %.not.i, i1 false
-  br i1 %or.cond.i, label %18, label %FTC_SNode_New.argprom.exit
+  br i1 %or.cond.i, label %18, label %FTC_SNode_New.exit
 
 18:                                               ; preds = %3
   %19 = call ptr @ft_mem_qalloc(ptr noundef %7, i64 noundef 448, ptr noundef nonnull %4) #12
   %20 = load i32, ptr %4, align 4
   %.not39.i = icmp eq i32 %20, 0
-  br i1 %.not39.i, label %21, label %FTC_SNode_New.argprom.exit
+  br i1 %.not39.i, label %21, label %FTC_SNode_New.exit
 
 21:                                               ; preds = %18
   %22 = and i32 %.val, -16
@@ -4299,14 +4299,14 @@ define internal i32 @ftc_snode_new(ptr nocapture noundef writeonly %0, ptr nocap
   %36 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %19, ptr noundef %35, i32 noundef %.val, ptr noundef null)
   store i32 %36, ptr %4, align 4
   %.not40.i = icmp eq i32 %36, 0
-  br i1 %.not40.i, label %FTC_SNode_New.argprom.exit, label %37
+  br i1 %.not40.i, label %FTC_SNode_New.exit, label %37
 
 37:                                               ; preds = %._crit_edge.i
   call void @ftc_snode_free(ptr noundef nonnull %19, ptr noundef nonnull %2)
   %.pre.i = load i32, ptr %4, align 4
-  br label %FTC_SNode_New.argprom.exit
+  br label %FTC_SNode_New.exit
 
-FTC_SNode_New.argprom.exit:                       ; preds = %3, %18, %._crit_edge.i, %37
+FTC_SNode_New.exit:                               ; preds = %3, %18, %._crit_edge.i, %37
   %38 = phi i32 [ %20, %18 ], [ %.pre.i, %37 ], [ 0, %._crit_edge.i ], [ 6, %3 ]
   %.0.i = phi ptr [ %19, %18 ], [ null, %37 ], [ %19, %._crit_edge.i ], [ null, %3 ]
   store ptr %.0.i, ptr %0, align 8

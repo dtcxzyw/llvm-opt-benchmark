@@ -6605,7 +6605,7 @@ invoke.cont72.i.i.i.i.i:                          ; preds = %for.body.i114.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i.i.i.i, i64 16, i1 false)
   %agg.tmp88.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i.i.i.i, align 8
   %agg.tmp88.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp88.sroa.2.0.T_maj.sroa_idx.i.i.i.i.i, align 8
-  %call90.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_.argelim"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i, ptr noundef %agg.tmp82.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp88.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp88.sroa.2.0.copyload.i.i.i.i.i)
+  %call90.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i, ptr noundef %agg.tmp82.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp88.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp88.sroa.2.0.copyload.i.i.i.i.i)
   br i1 %call90.i.i.i.i.i, label %if.end92.i.i.i.i.i, label %while.end120.i.i.i.i.i
 
 if.end92.i.i.i.i.i:                               ; preds = %invoke.cont72.i.i.i.i.i
@@ -6716,7 +6716,7 @@ for.body.i202.i.i.i.i.i:                          ; preds = %for.body.i202.i.i.i
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i, %for.body.i41.i.i.i.i.i, %while.cond.preheader.i.i.i.i.i
   %rng.sroa.0.17 = phi i64 [ %add.i.i171, %while.cond.preheader.i.i.i.i.i ], [ %rng.sroa.0.15, %for.body.i41.i.i.i.i.i ], [ %add.i.i58.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i.i.i.i, i64 16, i1 false)
-  br label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.argprom.exit.i.i.i"
+  br label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i"
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i: ; preds = %for.body.i202.i.i.i.i.i
   %.pre.i.i.i.i = load i8, ptr %called.i.i.i.i.i.i, align 4, !noalias !150
@@ -6733,9 +6733,9 @@ for.body.i.i214.i.i.i.i.i:                        ; preds = %for.body.i.i214.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i216.i.i.i.i.i, align 4
   %indvars.iv.next.i.i217.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i215.i.i.i.i.i, 1
   %exitcond.not.i.i218.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i217.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i218.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.argprom.exit.i.i.i", label %for.body.i.i214.i.i.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i218.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i", label %for.body.i.i214.i.i.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.argprom.exit.i.i.i": ; preds = %for.body.i.i214.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i": ; preds = %for.body.i.i214.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i
   %rng.sroa.0.18 = phi i64 [ %rng.sroa.0.17, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i ], [ %add.i.i58.i.i.i.i.i, %for.body.i.i214.i.i.i.i.i ]
   %.fca.0.load.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i.i, align 8
   %.fca.1.load.i.i.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i.i.i.i, align 8
@@ -7065,7 +7065,7 @@ invoke.cont84.i.i.i.i.i:                          ; preds = %invoke.cont71.i.i.i
   %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i16.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i.i.i.i, align 8
-  %call89.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_.argelim"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i13.i.i.i, ptr noundef %agg.tmp81.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
+  %call89.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i13.i.i.i, ptr noundef %agg.tmp81.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
   br i1 %call89.i.i.i.i.i, label %if.end91.i.i.i.i.i, label %cleanup.loopexit245.i.i.i.i.i
 
 if.end91.i.i.i.i.i:                               ; preds = %invoke.cont84.i.i.i.i.i
@@ -7191,7 +7191,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i.i.i.i: ; 
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i.i.i.i, %cleanup.i.i.i.i.i
-  br i1 %tobool.i.i.i.i.i.i, label %while.cond.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i.i.i.i, label %while.cond.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i"
 
 while.end119.i.i.i.i.i:                           ; preds = %while.cond.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i12.i.i.i, i8 0, i64 16, i1 false)
@@ -7203,9 +7203,9 @@ for.body.i.i213.i.i.i.i.i:                        ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i.i.i.i, 1
   %exitcond.not.i.i217.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.argprom.exit.i.i.i", label %for.body.i.i213.i.i.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i", label %for.body.i.i213.i.i.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i, %for.body.i.i213.i.i.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i, %for.body.i.i213.i.i.i.i.i
   %rng.sroa.0.13 = phi i64 [ %rng.sroa.0.11, %for.body.i.i213.i.i.i.i.i ], [ %rng.sroa.0.12, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i ]
   %.fca.0.load.i.i69.i.i.i = load <2 x float>, ptr %retval.i.i12.i.i.i, align 8
   %.fca.1.load.i.i72.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i71.i.i.i, align 8
@@ -7532,7 +7532,7 @@ invoke.cont84.i.i339.i.i.i:                       ; preds = %invoke.cont71.i.i32
   %agg.tmp83.sroa.2.0.copyload.i.i341.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i193.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i342.i.i.i = load <2 x float>, ptr %T_maj.i.i130.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i343.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i194.i.i.i, align 8
-  %call89.i.i344.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_.argelim"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i127.i.i.i, ptr noundef %agg.tmp81.i.i137.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i340.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i341.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i342.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i343.i.i.i)
+  %call89.i.i344.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i127.i.i.i, ptr noundef %agg.tmp81.i.i137.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i340.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i341.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i342.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i343.i.i.i)
   br i1 %call89.i.i344.i.i.i, label %if.end91.i.i347.i.i.i, label %cleanup.loopexit245.i.i345.i.i.i
 
 if.end91.i.i347.i.i.i:                            ; preds = %invoke.cont84.i.i339.i.i.i
@@ -7658,7 +7658,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i215.i.i.i:
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i209.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i209.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i215.i.i.i, %cleanup.i.i205.i.i.i
-  br i1 %tobool.i.i.i203.i.i.i, label %while.cond.i.i199.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i203.i.i.i, label %while.cond.i.i199.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i"
 
 while.end119.i.i401.i.i.i:                        ; preds = %while.cond.i.i199.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i126.i.i.i, i8 0, i64 16, i1 false)
@@ -7670,9 +7670,9 @@ for.body.i.i213.i.i402.i.i.i:                     ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i404.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i405.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i403.i.i.i, 1
   %exitcond.not.i.i217.i.i406.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i405.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i406.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.argprom.exit.i.i.i", label %for.body.i.i213.i.i402.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i406.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i", label %for.body.i.i213.i.i402.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i209.i.i.i, %for.body.i.i213.i.i402.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i209.i.i.i, %for.body.i.i213.i.i402.i.i.i
   %rng.sroa.0.9 = phi i64 [ %rng.sroa.0.7, %for.body.i.i213.i.i402.i.i.i ], [ %rng.sroa.0.8, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i209.i.i.i ]
   %.fca.0.load.i.i210.i.i.i = load <2 x float>, ptr %retval.i.i126.i.i.i, align 8
   %.fca.1.load.i.i213.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i212.i.i.i, align 8
@@ -7973,7 +7973,7 @@ invoke.cont71.i.i608.i.i.i:                       ; preds = %for.body.i114.i.i60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i478.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i479.i.i.i, i64 16, i1 false)
   %agg.tmp87.sroa.0.0.copyload.i.i617.i.i.i = load <2 x float>, ptr %T_maj.i.i417.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i618.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i480.i.i.i, align 8
-  %call89.i.i619.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_.argelim"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i414.i.i.i, ptr noundef %agg.tmp81.i.i423.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i490.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i491.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i617.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i618.i.i.i)
+  %call89.i.i619.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i414.i.i.i, ptr noundef %agg.tmp81.i.i423.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i490.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i491.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i617.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i618.i.i.i)
   br i1 %call89.i.i619.i.i.i, label %if.end91.i.i626.i.i.i, label %while.end119.i.i620.i.i.i
 
 if.end91.i.i626.i.i.i:                            ; preds = %invoke.cont71.i.i608.i.i.i
@@ -8084,7 +8084,7 @@ for.body.i202.i.i549.i.i.i:                       ; preds = %for.body.i202.i.i54
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i558.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i556.i.i.i, %for.body.i41.i.i671.i.i.i, %while.cond.preheader.i.i468.i.i.i
   %rng.sroa.0.5 = phi i64 [ %add.i.i171, %while.cond.preheader.i.i468.i.i.i ], [ %rng.sroa.0.3, %for.body.i41.i.i671.i.i.i ], [ %add.i.i58.i.i500.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i556.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i413.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i417.i.i.i, i64 16, i1 false)
-  br label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.argprom.exit.i.i.i"
+  br label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i"
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i556.i.i.i: ; preds = %for.body.i202.i.i549.i.i.i
   %.pre.i557.i.i.i = load i8, ptr %called.i.i.i469.i.i.i, align 4, !noalias !160
@@ -8101,9 +8101,9 @@ for.body.i.i214.i.i621.i.i.i:                     ; preds = %for.body.i.i214.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i216.i.i623.i.i.i, align 4
   %indvars.iv.next.i.i217.i.i624.i.i.i = add nuw nsw i64 %indvars.iv.i.i215.i.i622.i.i.i, 1
   %exitcond.not.i.i218.i.i625.i.i.i = icmp eq i64 %indvars.iv.next.i.i217.i.i624.i.i.i, 4
-  br i1 %exitcond.not.i.i218.i.i625.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.argprom.exit.i.i.i", label %for.body.i.i214.i.i621.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i218.i.i625.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i", label %for.body.i.i214.i.i621.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.argprom.exit.i.i.i": ; preds = %for.body.i.i214.i.i621.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i558.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i": ; preds = %for.body.i.i214.i.i621.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i558.i.i.i
   %rng.sroa.0.6 = phi i64 [ %rng.sroa.0.5, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i558.i.i.i ], [ %add.i.i58.i.i500.i.i.i, %for.body.i.i214.i.i621.i.i.i ]
   %.fca.0.load.i.i559.i.i.i = load <2 x float>, ptr %retval.i.i413.i.i.i, align 8
   %.fca.1.load.i.i562.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i561.i.i.i, align 8
@@ -8429,7 +8429,7 @@ invoke.cont84.i.i897.i.i.i:                       ; preds = %invoke.cont71.i.i88
   %agg.tmp83.sroa.2.0.copyload.i.i899.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i751.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i900.i.i.i = load <2 x float>, ptr %T_maj.i.i688.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i901.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i752.i.i.i, align 8
-  %call89.i.i902.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_.argelim"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i685.i.i.i, ptr noundef %agg.tmp81.i.i695.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i898.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i899.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i900.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i901.i.i.i)
+  %call89.i.i902.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i685.i.i.i, ptr noundef %agg.tmp81.i.i695.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i898.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i899.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i900.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i901.i.i.i)
   br i1 %call89.i.i902.i.i.i, label %if.end91.i.i905.i.i.i, label %cleanup.loopexit245.i.i903.i.i.i
 
 if.end91.i.i905.i.i.i:                            ; preds = %invoke.cont84.i.i897.i.i.i
@@ -8555,7 +8555,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i773.i.i.i:
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i767.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i767.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i773.i.i.i, %cleanup.i.i763.i.i.i
-  br i1 %tobool.i.i.i761.i.i.i, label %while.cond.i.i757.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i761.i.i.i, label %while.cond.i.i757.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i"
 
 while.end119.i.i959.i.i.i:                        ; preds = %while.cond.i.i757.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i684.i.i.i, i8 0, i64 16, i1 false)
@@ -8567,9 +8567,9 @@ for.body.i.i213.i.i960.i.i.i:                     ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i962.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i963.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i961.i.i.i, 1
   %exitcond.not.i.i217.i.i964.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i963.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i964.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.argprom.exit.i.i.i", label %for.body.i.i213.i.i960.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i964.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i", label %for.body.i.i213.i.i960.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i767.i.i.i, %for.body.i.i213.i.i960.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i767.i.i.i, %for.body.i.i213.i.i960.i.i.i
   %rng.sroa.0.21 = phi i64 [ %rng.sroa.0.19, %for.body.i.i213.i.i960.i.i.i ], [ %rng.sroa.0.20, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i767.i.i.i ]
   %.fca.0.load.i.i768.i.i.i = load <2 x float>, ptr %retval.i.i684.i.i.i, align 8
   %.fca.1.load.i.i771.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i770.i.i.i, align 8
@@ -8590,10 +8590,10 @@ for.body.i.i213.i.i960.i.i.i:                     ; preds = %for.body.i.i213.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp105.i.i698.i.i.i)
   br label %invoke.cont45
 
-invoke.cont45:                                    ; preds = %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.argprom.exit.i.i.i"
-  %rng.sroa.0.23 = phi i64 [ %rng.sroa.0.21, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %rng.sroa.0.6, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %rng.sroa.0.9, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %rng.sroa.0.13, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %rng.sroa.0.18, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.argprom.exit.i.i.i" ]
-  %.fca.0.load.i.i768.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i768.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i559.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i210.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i69.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.argprom.exit.i.i.i" ]
-  %.fca.1.load.i.i771.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i771.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i562.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i213.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i72.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.argprom.exit.i.i.i" ]
+invoke.cont45:                                    ; preds = %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i"
+  %rng.sroa.0.23 = phi i64 [ %rng.sroa.0.21, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i" ], [ %rng.sroa.0.6, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i" ], [ %rng.sroa.0.9, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i" ], [ %rng.sroa.0.13, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i" ], [ %rng.sroa.0.18, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i" ]
+  %.fca.0.load.i.i768.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i768.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i559.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i210.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i69.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i" ]
+  %.fca.1.load.i.i771.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i771.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13NanoVDBMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i562.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_11CloudMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i213.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_13RGBGridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i72.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_10GridMediumEEEDaSD_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_10Integrator2TrERKNS_11InteractionES4_RKNS_18SampledWavelengthsEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGES7_T_ENKUlSD_E_clIPNS_17HomogeneousMediumEEEDaSD_.exit.i.i.i" ]
   %T_maj.sroa.0.0.vec.extract = extractelement <2 x float> %.fca.0.load.i.i768.pn.i.i.i, i64 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i)
   store <2 x float> %.fca.0.load.i.i768.pn.i.i.i, ptr %ret.i, align 8
@@ -15755,7 +15755,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
 while.cond.preheader.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.i.i
   %58 = load i8, ptr %called.i.i.i.i.i.i, align 4, !noalias !281
   %tobool.i.i19.i.i.i.i = trunc i8 %58 to i1
-  br i1 %tobool.i.i19.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i", label %invoke.cont.i.i.i.i.i
+  br i1 %tobool.i.i19.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i", label %invoke.cont.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %while.cond.preheader.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i
   %u.addr.0297.i20.i.i.i.i = phi float [ %.sroa.speculated.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i ], [ %call3.i.i29, %while.cond.preheader.i.i.i.i.i ]
@@ -15855,7 +15855,7 @@ for.body.i41.i.i.i.i.i:                           ; preds = %for.body.i41.i.i.i.
   store float %mul.i.i.i.i.i.i, ptr %arrayidx.i4.i.i.i.i.i.i, align 4
   %indvars.iv.next.i44.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i42.i.i.i.i.i, 1
   %exitcond.not.i45.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i44.i.i.i.i.i, 4
-  br i1 %exitcond.not.i45.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i", label %for.body.i41.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i45.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i", label %for.body.i41.i.i.i.i.i, !llvm.loop !112
 
 invoke.cont50.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i.i, %invoke.cont93.i.i.i.i.i
   %tMin36.0.i.i.i.i.i = phi float [ %add.i.i.i.i.i, %invoke.cont93.i.i.i.i.i ], [ %seg.sroa.0.0.copyload.i.i.i.i.i, %invoke.cont.i.i.i.i.i ]
@@ -15983,8 +15983,8 @@ invoke.cont71.i.i.i.i.i:                          ; preds = %for.body.i114.i.i.i
   %86 = load i64, ptr %phase3.i.i.i.i.i.i, align 8
   store i64 %86, ptr %phase.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i.i.i.i, i64 16, i1 false)
-  %call89.i.i.i.i.i44 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i, float %add6.i.i.i.i.i.i.i, ptr noundef %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i)
-  br i1 %call89.i.i.i.i.i44, label %if.end91.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i"
+  %call89.i.i.i.i.i44 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i, float %add6.i.i.i.i.i.i.i, ptr noundef %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i)
+  br i1 %call89.i.i.i.i.i44, label %if.end91.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i"
 
 if.end91.i.i.i.i.i:                               ; preds = %invoke.cont71.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp92.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -16094,9 +16094,9 @@ for.body.i202.i.i.i.i.i:                          ; preds = %for.body.i202.i.i.i
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i: ; preds = %for.body.i202.i.i.i.i.i
   %.pre.i.i.i.i = load i8, ptr %called.i.i.i.i.i.i, align 4, !noalias !281
   %99 = trunc i8 %.pre.i.i.i.i to i1
-  br i1 %99, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i", label %invoke.cont.i.i.i.i.i
+  br i1 %99, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i", label %invoke.cont.i.i.i.i.i
 
-"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i, %for.body.i41.i.i.i.i.i, %invoke.cont71.i.i.i.i.i, %while.cond.preheader.i.i.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i, %for.body.i41.i.i.i.i.i, %invoke.cont71.i.i.i.i.i, %while.cond.preheader.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %iter.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %T_maj.i.i.i.i.i)
@@ -16164,7 +16164,7 @@ for.body.i.i.i.i59.i.i.i:                         ; preds = %for.body.i.i.i.i59.
 while.cond.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i59.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i
   %done.0.i.i.i.i.i = phi i1 [ %done.1.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i ], [ false, %for.body.i.i.i.i59.i.i.i ]
   %u.addr.0.i.i.i.i.i = phi float [ %u.addr.1.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i ], [ %call3.i.i29, %for.body.i.i.i.i59.i.i.i ]
-  br i1 %done.0.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.argprom.exit.i.i.i", label %while.body.i.i.i.i.i
+  br i1 %done.0.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i", label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %while.cond.i.i.i.i.i
   call void @_ZN4pbrt19DDAMajorantIterator4NextEv(ptr nonnull sret(%"class.pstd::optional.494") align 4 %seg.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(92) %iter.i.i13.i.i.i)
@@ -16412,7 +16412,7 @@ invoke.cont71.i.i99.i.i.i:                        ; preds = %for.body.i113.i.i.i
 
 invoke.cont84.i.i.i.i.i:                          ; preds = %invoke.cont71.i.i99.i.i.i
   %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %sigma_maj.i.i.i.i.i, align 4
-  %call89.i.i108.i.i.i49 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i105.i.i.i, float %add6.i.i.i.i103.i.i.i, ptr noundef %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i)
+  %call89.i.i108.i.i.i49 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i105.i.i.i, float %add6.i.i.i.i103.i.i.i, ptr noundef %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i)
   br i1 %call89.i.i108.i.i.i49, label %if.end91.i.i109.i.i.i, label %cleanup.loopexit245.i.i.i.i.i
 
 if.end91.i.i109.i.i.i:                            ; preds = %invoke.cont84.i.i.i.i.i
@@ -16537,9 +16537,9 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i.i.i.i: ; 
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i.i.i.i, %cleanup.i.i.i.i.i
-  br i1 %tobool.i.i.i.i.i.i, label %while.cond.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i.i.i.i, label %while.cond.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i"
 
-"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i, %while.cond.i.i.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i, %while.cond.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %iter.i.i13.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i.i14.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %T_maj.i.i15.i.i.i)
@@ -16626,7 +16626,7 @@ while.cond.preheader.i.i203.i.i.i:                ; preds = %for.body.i.i.i.i198
 while.cond.i.i220.i.i.i:                          ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i, %while.cond.preheader.i.i203.i.i.i
   %done.0.i.i221.i.i.i = phi i1 [ %done.1.i.i227.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i ], [ false, %while.cond.preheader.i.i203.i.i.i ]
   %u.addr.0.i.i222.i.i.i = phi float [ %u.addr.1.i.i228.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i ], [ %call3.i.i29, %while.cond.preheader.i.i203.i.i.i ]
-  br i1 %done.0.i.i221.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.argprom.exit.i.i.i", label %while.body.i.i223.i.i.i
+  br i1 %done.0.i.i221.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i", label %while.body.i.i223.i.i.i
 
 while.body.i.i223.i.i.i:                          ; preds = %while.cond.i.i220.i.i.i
   call void @_ZN4pbrt19DDAMajorantIterator4NextEv(ptr nonnull sret(%"class.pstd::optional.494") align 4 %seg.i.i154.i.i.i, ptr noundef nonnull align 8 dereferenceable(92) %iter.i.i151.i.i.i)
@@ -17038,7 +17038,7 @@ _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit58.i:     ; preds = %for.body.i.i47.i
 
 invoke.cont84.i.i360.i.i.i:                       ; preds = %.noexc53
   %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i = load <2 x float>, ptr %sigma_maj.i.i205.i.i.i, align 4
-  %call89.i.i365.i.i.i54 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i358.i.i.i, float %add6.i.i.i.i356.i.i.i, ptr noundef %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i)
+  %call89.i.i365.i.i.i54 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i358.i.i.i, float %add6.i.i.i.i356.i.i.i, ptr noundef %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i)
   br i1 %call89.i.i365.i.i.i54, label %if.end91.i.i368.i.i.i, label %cleanup.loopexit245.i.i366.i.i.i
 
 if.end91.i.i368.i.i.i:                            ; preds = %invoke.cont84.i.i360.i.i.i
@@ -17163,9 +17163,9 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i236.i.i.i:
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i236.i.i.i, %cleanup.i.i226.i.i.i
-  br i1 %tobool.i.i.i224.i.i.i, label %while.cond.i.i220.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i224.i.i.i, label %while.cond.i.i220.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i"
 
-"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i, %while.cond.i.i220.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i, %while.cond.i.i220.i.i.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %iter.i.i151.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i.i152.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %T_maj.i.i153.i.i.i)
@@ -17232,7 +17232,7 @@ for.body.i.i.i.i481.i.i.i:                        ; preds = %for.body.i.i.i.i481
 while.cond.preheader.i.i486.i.i.i:                ; preds = %for.body.i.i.i.i481.i.i.i
   %228 = load i8, ptr %called.i.i.i487.i.i.i, align 4, !noalias !292
   %tobool.i.i19.i503.i.i.i = trunc i8 %228 to i1
-  br i1 %tobool.i.i19.i503.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i", label %invoke.cont.i.i504.i.i.i
+  br i1 %tobool.i.i19.i503.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i", label %invoke.cont.i.i504.i.i.i
 
 invoke.cont.i.i504.i.i.i:                         ; preds = %while.cond.preheader.i.i486.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i575.i.i.i
   %u.addr.0297.i20.i505.i.i.i = phi float [ %.sroa.speculated.i.i.i528.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i575.i.i.i ], [ %call3.i.i29, %while.cond.preheader.i.i486.i.i.i ]
@@ -17332,7 +17332,7 @@ for.body.i41.i.i690.i.i.i:                        ; preds = %for.body.i41.i.i690
   store float %mul.i.i.i694.i.i.i, ptr %arrayidx.i4.i.i.i693.i.i.i, align 4
   %indvars.iv.next.i44.i.i695.i.i.i = add nuw nsw i64 %indvars.iv.i42.i.i691.i.i.i, 1
   %exitcond.not.i45.i.i696.i.i.i = icmp eq i64 %indvars.iv.next.i44.i.i695.i.i.i, 4
-  br i1 %exitcond.not.i45.i.i696.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i", label %for.body.i41.i.i690.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i45.i.i696.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i", label %for.body.i41.i.i690.i.i.i, !llvm.loop !112
 
 invoke.cont50.i.i512.i.i.i:                       ; preds = %invoke.cont.i.i504.i.i.i, %invoke.cont93.i.i651.i.i.i
   %tMin36.0.i.i513.i.i.i = phi float [ %add.i.i517.i.i.i, %invoke.cont93.i.i651.i.i.i ], [ %seg.sroa.0.0.copyload.i.i506.i.i.i, %invoke.cont.i.i504.i.i.i ]
@@ -17460,8 +17460,8 @@ invoke.cont71.i.i627.i.i.i:                       ; preds = %for.body.i114.i.i62
   %256 = load i64, ptr %phase3.i.i.i495.i.i.i, align 8
   store i64 %256, ptr %phase.i.i.i494.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i496.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i497.i.i.i, i64 16, i1 false)
-  %call89.i.i638.i.i.i57 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i635.i.i.i, float %add6.i.i.i.i633.i.i.i, ptr noundef %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i)
-  br i1 %call89.i.i638.i.i.i57, label %if.end91.i.i645.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i"
+  %call89.i.i638.i.i.i57 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i635.i.i.i, float %add6.i.i.i.i633.i.i.i, ptr noundef %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i)
+  br i1 %call89.i.i638.i.i.i57, label %if.end91.i.i645.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i"
 
 if.end91.i.i645.i.i.i:                            ; preds = %invoke.cont71.i.i627.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp92.i.i444.i.i.i, i8 0, i64 16, i1 false)
@@ -17571,9 +17571,9 @@ for.body.i202.i.i568.i.i.i:                       ; preds = %for.body.i202.i.i56
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i575.i.i.i: ; preds = %for.body.i202.i.i568.i.i.i
   %.pre.i576.i.i.i = load i8, ptr %called.i.i.i487.i.i.i, align 4, !noalias !292
   %269 = trunc i8 %.pre.i576.i.i.i to i1
-  br i1 %269, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i", label %invoke.cont.i.i504.i.i.i
+  br i1 %269, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i", label %invoke.cont.i.i504.i.i.i
 
-"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i575.i.i.i, %for.body.i41.i.i690.i.i.i, %invoke.cont71.i.i627.i.i.i, %while.cond.preheader.i.i486.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i575.i.i.i, %for.body.i41.i.i690.i.i.i, %invoke.cont71.i.i627.i.i.i, %while.cond.preheader.i.i486.i.i.i
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %iter.i.i435.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i.i436.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %T_maj.i.i437.i.i.i)
@@ -17641,7 +17641,7 @@ for.body.i.i.i.i751.i.i.i:                        ; preds = %for.body.i.i.i.i751
 while.cond.i.i773.i.i.i:                          ; preds = %for.body.i.i.i.i751.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i
   %done.0.i.i774.i.i.i = phi i1 [ %done.1.i.i780.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i ], [ false, %for.body.i.i.i.i751.i.i.i ]
   %u.addr.0.i.i775.i.i.i = phi float [ %u.addr.1.i.i781.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i ], [ %call3.i.i29, %for.body.i.i.i.i751.i.i.i ]
-  br i1 %done.0.i.i774.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.argprom.exit.i.i.i", label %while.body.i.i776.i.i.i
+  br i1 %done.0.i.i774.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i", label %while.body.i.i776.i.i.i
 
 while.body.i.i776.i.i.i:                          ; preds = %while.cond.i.i773.i.i.i
   call void @_ZN4pbrt19DDAMajorantIterator4NextEv(ptr nonnull sret(%"class.pstd::optional.494") align 4 %seg.i.i707.i.i.i, ptr noundef nonnull align 8 dereferenceable(92) %iter.i.i704.i.i.i)
@@ -17889,7 +17889,7 @@ invoke.cont71.i.i903.i.i.i:                       ; preds = %for.body.i113.i.i89
 
 invoke.cont84.i.i913.i.i.i:                       ; preds = %invoke.cont71.i.i903.i.i.i
   %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i = load <2 x float>, ptr %sigma_maj.i.i758.i.i.i, align 4
-  %call89.i.i918.i.i.i62 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i911.i.i.i, float %add6.i.i.i.i909.i.i.i, ptr noundef %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i)
+  %call89.i.i918.i.i.i62 = call fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp2038, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i911.i.i.i, float %add6.i.i.i.i909.i.i.i, ptr noundef %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i)
   br i1 %call89.i.i918.i.i.i62, label %if.end91.i.i921.i.i.i, label %cleanup.loopexit245.i.i919.i.i.i
 
 if.end91.i.i921.i.i.i:                            ; preds = %invoke.cont84.i.i913.i.i.i
@@ -18014,9 +18014,9 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i789.i.i.i:
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i789.i.i.i, %cleanup.i.i779.i.i.i
-  br i1 %tobool.i.i.i777.i.i.i, label %while.cond.i.i773.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i777.i.i.i, label %while.cond.i.i773.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i"
 
-"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i, %while.cond.i.i773.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i, %while.cond.i.i773.i.i.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %iter.i.i704.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i.i705.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %T_maj.i.i706.i.i.i)
@@ -18032,7 +18032,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i: ; preds
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp105.i.i716.i.i.i)
   br label %if.end
 
-if.end:                                           ; preds = %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i"
+if.end:                                           ; preds = %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %agg.tmp2038)
   %.pre = load i8, ptr %terminated, align 1
   %323 = trunc i8 %.pre to i1
@@ -19590,7 +19590,7 @@ for.body.i202.i.i.i.i.i:                          ; preds = %for.body.i202.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i, %for.body.i41.i.i.i.i.i, %while.cond.preheader.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i.i.i.i, i64 16, i1 false)
-  br label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i"
+  br label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i"
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i: ; preds = %for.body.i202.i.i.i.i.i
   %.pre.i.i.i.i = load i8, ptr %called.i.i.i.i.i.i, align 4, !noalias !302
@@ -19607,9 +19607,9 @@ for.body.i.i214.i.i.i.i.i:                        ; preds = %for.body.i.i214.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i216.i.i.i.i.i, align 4
   %indvars.iv.next.i.i217.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i215.i.i.i.i.i, 1
   %exitcond.not.i.i218.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i217.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i218.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i", label %for.body.i.i214.i.i.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i218.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i", label %for.body.i.i214.i.i.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i": ; preds = %for.body.i.i214.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i": ; preds = %for.body.i.i214.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i
   %.fca.0.load.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i.i, align 8
   %.fca.1.load.i.i.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i.i)
@@ -20061,7 +20061,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i.i.i.i: ; 
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i.i.i.i, %cleanup.i.i.i.i.i
-  br i1 %tobool.i.i.i.i.i.i, label %while.cond.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i.i.i.i, label %while.cond.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i"
 
 while.end119.i.i143.i.i.i:                        ; preds = %while.cond.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i12.i.i.i, i8 0, i64 16, i1 false)
@@ -20073,9 +20073,9 @@ for.body.i.i213.i.i.i.i.i:                        ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i.i.i.i, 1
   %exitcond.not.i.i217.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.argprom.exit.i.i.i", label %for.body.i.i213.i.i.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i", label %for.body.i.i213.i.i.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i, %for.body.i.i213.i.i.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i, %for.body.i.i213.i.i.i.i.i
   %.fca.0.load.i.i72.i.i.i = load <2 x float>, ptr %retval.i.i12.i.i.i, align 8
   %.fca.1.load.i.i75.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i74.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i12.i.i.i)
@@ -20710,7 +20710,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i236.i.i.i:
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i236.i.i.i, %cleanup.i.i226.i.i.i
-  br i1 %tobool.i.i.i224.i.i.i, label %while.cond.i.i220.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i224.i.i.i, label %while.cond.i.i220.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i"
 
 while.end119.i.i422.i.i.i:                        ; preds = %while.cond.i.i220.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i150.i.i.i, i8 0, i64 16, i1 false)
@@ -20722,9 +20722,9 @@ for.body.i.i213.i.i423.i.i.i:                     ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i425.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i426.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i424.i.i.i, 1
   %exitcond.not.i.i217.i.i427.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i426.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i427.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.argprom.exit.i.i.i", label %for.body.i.i213.i.i423.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i427.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i", label %for.body.i.i213.i.i423.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i, %for.body.i.i213.i.i423.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i, %for.body.i.i213.i.i423.i.i.i
   %.fca.0.load.i.i231.i.i.i = load <2 x float>, ptr %retval.i.i150.i.i.i, align 8
   %.fca.1.load.i.i234.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i233.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i150.i.i.i)
@@ -21135,7 +21135,7 @@ for.body.i202.i.i568.i.i.i:                       ; preds = %for.body.i202.i.i56
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i577.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i575.i.i.i, %for.body.i41.i.i690.i.i.i, %while.cond.preheader.i.i486.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i434.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i437.i.i.i, i64 16, i1 false)
-  br label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i"
+  br label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i"
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i575.i.i.i: ; preds = %for.body.i202.i.i568.i.i.i
   %.pre.i576.i.i.i = load i8, ptr %called.i.i.i487.i.i.i, align 4, !noalias !313
@@ -21152,9 +21152,9 @@ for.body.i.i214.i.i640.i.i.i:                     ; preds = %for.body.i.i214.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i216.i.i642.i.i.i, align 4
   %indvars.iv.next.i.i217.i.i643.i.i.i = add nuw nsw i64 %indvars.iv.i.i215.i.i641.i.i.i, 1
   %exitcond.not.i.i218.i.i644.i.i.i = icmp eq i64 %indvars.iv.next.i.i217.i.i643.i.i.i, 4
-  br i1 %exitcond.not.i.i218.i.i644.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i", label %for.body.i.i214.i.i640.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i218.i.i644.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i", label %for.body.i.i214.i.i640.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i": ; preds = %for.body.i.i214.i.i640.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i577.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i": ; preds = %for.body.i.i214.i.i640.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i577.i.i.i
   %.fca.0.load.i.i578.i.i.i = load <2 x float>, ptr %retval.i.i434.i.i.i, align 8
   %.fca.1.load.i.i581.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i580.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i434.i.i.i)
@@ -21606,7 +21606,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i789.i.i.i:
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i789.i.i.i, %cleanup.i.i779.i.i.i
-  br i1 %tobool.i.i.i777.i.i.i, label %while.cond.i.i773.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i777.i.i.i, label %while.cond.i.i773.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i"
 
 while.end119.i.i975.i.i.i:                        ; preds = %while.cond.i.i773.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i703.i.i.i, i8 0, i64 16, i1 false)
@@ -21618,9 +21618,9 @@ for.body.i.i213.i.i976.i.i.i:                     ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i978.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i979.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i977.i.i.i, 1
   %exitcond.not.i.i217.i.i980.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i979.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i980.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.argprom.exit.i.i.i", label %for.body.i.i213.i.i976.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i980.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i", label %for.body.i.i213.i.i976.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i, %for.body.i.i213.i.i976.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i, %for.body.i.i213.i.i976.i.i.i
   %.fca.0.load.i.i784.i.i.i = load <2 x float>, ptr %retval.i.i703.i.i.i, align 8
   %.fca.1.load.i.i787.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i786.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i703.i.i.i)
@@ -21639,9 +21639,9 @@ for.body.i.i213.i.i976.i.i.i:                     ; preds = %for.body.i.i213.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp105.i.i716.i.i.i)
   br label %invoke.cont19
 
-invoke.cont19:                                    ; preds = %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i"
-  %.fca.0.load.i.i784.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i784.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i578.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i231.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i72.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i" ]
-  %.fca.1.load.i.i787.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i787.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i581.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i234.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i75.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.argprom.exit.i.i.i" ]
+invoke.cont19:                                    ; preds = %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i"
+  %.fca.0.load.i.i784.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i784.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i578.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i231.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i72.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i" ]
+  %.fca.1.load.i.i787.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i787.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i581.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i234.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i75.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3$_0EENS_15SampledSpectrumENS_3RayEffRNS_3RNGERKS3_T_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %agg.tmp1880)
   %347 = load i8, ptr %terminated, align 1
   %tobool = trunc i8 %347 to i1
@@ -25030,7 +25030,7 @@ invoke.cont71.i.i.i.i.i:                          ; preds = %for.body.i114.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i.i.i.i, i64 16, i1 false)
   %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i.i.i.i, align 8
-  %call89.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
+  %call89.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i)
   br i1 %call89.i.i.i.i.i, label %if.end91.i.i.i.i.i, label %while.end119.i.i.i.i.i
 
 if.end91.i.i.i.i.i:                               ; preds = %invoke.cont71.i.i.i.i.i
@@ -25140,7 +25140,7 @@ for.body.i202.i.i.i.i.i:                          ; preds = %for.body.i202.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i, %for.body.i41.i.i.i.i.i, %while.cond.preheader.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i.i.i.i, i64 16, i1 false)
-  br label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.argprom.exit.i.i.i"
+  br label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.exit.i.i.i"
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i: ; preds = %for.body.i202.i.i.i.i.i
   %.pre.i.i.i.i = load i8, ptr %called.i.i.i.i.i.i, align 4, !noalias !371
@@ -25157,9 +25157,9 @@ for.body.i.i214.i.i.i.i.i:                        ; preds = %for.body.i.i214.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i216.i.i.i.i.i, align 4
   %indvars.iv.next.i.i217.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i215.i.i.i.i.i, 1
   %exitcond.not.i.i218.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i217.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i218.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.argprom.exit.i.i.i", label %for.body.i.i214.i.i.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i218.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.exit.i.i.i", label %for.body.i.i214.i.i.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.argprom.exit.i.i.i": ; preds = %for.body.i.i214.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.exit.i.i.i": ; preds = %for.body.i.i214.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i
   %.fca.0.load.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i.i, align 8
   %.fca.1.load.i.i.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i.i)
@@ -25489,7 +25489,7 @@ invoke.cont84.i.i.i.i.i:                          ; preds = %invoke.cont71.i.i99
   %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i = load <2 x float>, ptr %T_maj.i.i15.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i70.i.i.i, align 8
-  %call89.i.i108.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i)
+  %call89.i.i108.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i21.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i106.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i107.i.i.i)
   br i1 %call89.i.i108.i.i.i, label %if.end91.i.i109.i.i.i, label %cleanup.loopexit245.i.i.i.i.i
 
 if.end91.i.i109.i.i.i:                            ; preds = %invoke.cont84.i.i.i.i.i
@@ -25614,7 +25614,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i.i.i.i: ; 
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i.i.i.i, %cleanup.i.i.i.i.i
-  br i1 %tobool.i.i.i.i.i.i, label %while.cond.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i.i.i.i, label %while.cond.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.exit.i.i.i"
 
 while.end119.i.i143.i.i.i:                        ; preds = %while.cond.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i12.i.i.i, i8 0, i64 16, i1 false)
@@ -25626,9 +25626,9 @@ for.body.i.i213.i.i.i.i.i:                        ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i.i.i.i, 1
   %exitcond.not.i.i217.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.argprom.exit.i.i.i", label %for.body.i.i213.i.i.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.exit.i.i.i", label %for.body.i.i213.i.i.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i, %for.body.i.i213.i.i.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i, %for.body.i.i213.i.i.i.i.i
   %.fca.0.load.i.i72.i.i.i = load <2 x float>, ptr %retval.i.i12.i.i.i, align 8
   %.fca.1.load.i.i75.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i74.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i12.i.i.i)
@@ -25955,7 +25955,7 @@ invoke.cont84.i.i360.i.i.i:                       ; preds = %invoke.cont71.i.i35
   %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i214.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i = load <2 x float>, ptr %T_maj.i.i153.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i215.i.i.i, align 8
-  %call89.i.i365.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i)
+  %call89.i.i365.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i160.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i361.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i362.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i363.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i364.i.i.i)
   br i1 %call89.i.i365.i.i.i, label %if.end91.i.i368.i.i.i, label %cleanup.loopexit245.i.i366.i.i.i
 
 if.end91.i.i368.i.i.i:                            ; preds = %invoke.cont84.i.i360.i.i.i
@@ -26080,7 +26080,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i236.i.i.i:
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i236.i.i.i, %cleanup.i.i226.i.i.i
-  br i1 %tobool.i.i.i224.i.i.i, label %while.cond.i.i220.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i224.i.i.i, label %while.cond.i.i220.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.exit.i.i.i"
 
 while.end119.i.i422.i.i.i:                        ; preds = %while.cond.i.i220.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i150.i.i.i, i8 0, i64 16, i1 false)
@@ -26092,9 +26092,9 @@ for.body.i.i213.i.i423.i.i.i:                     ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i425.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i426.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i424.i.i.i, 1
   %exitcond.not.i.i217.i.i427.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i426.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i427.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.argprom.exit.i.i.i", label %for.body.i.i213.i.i423.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i427.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.exit.i.i.i", label %for.body.i.i213.i.i423.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i, %for.body.i.i213.i.i423.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i, %for.body.i.i213.i.i423.i.i.i
   %.fca.0.load.i.i231.i.i.i = load <2 x float>, ptr %retval.i.i150.i.i.i, align 8
   %.fca.1.load.i.i234.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i233.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i150.i.i.i)
@@ -26395,7 +26395,7 @@ invoke.cont71.i.i627.i.i.i:                       ; preds = %for.body.i114.i.i62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i496.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i497.i.i.i, i64 16, i1 false)
   %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i = load <2 x float>, ptr %T_maj.i.i437.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i498.i.i.i, align 8
-  %call89.i.i638.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i509.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i)
+  %call89.i.i638.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i443.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i508.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i509.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i636.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i637.i.i.i)
   br i1 %call89.i.i638.i.i.i, label %if.end91.i.i645.i.i.i, label %while.end119.i.i639.i.i.i
 
 if.end91.i.i645.i.i.i:                            ; preds = %invoke.cont71.i.i627.i.i.i
@@ -26505,7 +26505,7 @@ for.body.i202.i.i568.i.i.i:                       ; preds = %for.body.i202.i.i56
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i577.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i575.i.i.i, %for.body.i41.i.i690.i.i.i, %while.cond.preheader.i.i486.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i434.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i437.i.i.i, i64 16, i1 false)
-  br label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.argprom.exit.i.i.i"
+  br label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.exit.i.i.i"
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i575.i.i.i: ; preds = %for.body.i202.i.i568.i.i.i
   %.pre.i576.i.i.i = load i8, ptr %called.i.i.i487.i.i.i, align 4, !noalias !379
@@ -26522,9 +26522,9 @@ for.body.i.i214.i.i640.i.i.i:                     ; preds = %for.body.i.i214.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i216.i.i642.i.i.i, align 4
   %indvars.iv.next.i.i217.i.i643.i.i.i = add nuw nsw i64 %indvars.iv.i.i215.i.i641.i.i.i, 1
   %exitcond.not.i.i218.i.i644.i.i.i = icmp eq i64 %indvars.iv.next.i.i217.i.i643.i.i.i, 4
-  br i1 %exitcond.not.i.i218.i.i644.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.argprom.exit.i.i.i", label %for.body.i.i214.i.i640.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i218.i.i644.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.exit.i.i.i", label %for.body.i.i214.i.i640.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.argprom.exit.i.i.i": ; preds = %for.body.i.i214.i.i640.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i577.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.exit.i.i.i": ; preds = %for.body.i.i214.i.i640.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i577.i.i.i
   %.fca.0.load.i.i578.i.i.i = load <2 x float>, ptr %retval.i.i434.i.i.i, align 8
   %.fca.1.load.i.i581.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i580.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i434.i.i.i)
@@ -26850,7 +26850,7 @@ invoke.cont84.i.i913.i.i.i:                       ; preds = %invoke.cont71.i.i90
   %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i = load <2 x float>, ptr %agg.tmp83.sroa.2.0.sigma_maj86.sroa_idx.i.i767.i.i.i, align 4
   %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i = load <2 x float>, ptr %T_maj.i.i706.i.i.i, align 8
   %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.T_maj.sroa_idx.i.i768.i.i.i, align 8
-  %call89.i.i918.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i)
+  %call89.i.i918.i.i.i = call fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp159312, ptr noundef %agg.tmp81.i.i713.i.i.i, <2 x float> %agg.tmp83.sroa.0.0.copyload.i.i914.i.i.i, <2 x float> %agg.tmp83.sroa.2.0.copyload.i.i915.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i916.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i917.i.i.i)
   br i1 %call89.i.i918.i.i.i, label %if.end91.i.i921.i.i.i, label %cleanup.loopexit245.i.i919.i.i.i
 
 if.end91.i.i921.i.i.i:                            ; preds = %invoke.cont84.i.i913.i.i.i
@@ -26975,7 +26975,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i789.i.i.i:
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i789.i.i.i, %cleanup.i.i779.i.i.i
-  br i1 %tobool.i.i.i777.i.i.i, label %while.cond.i.i773.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i777.i.i.i, label %while.cond.i.i773.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.exit.i.i.i"
 
 while.end119.i.i975.i.i.i:                        ; preds = %while.cond.i.i773.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i703.i.i.i, i8 0, i64 16, i1 false)
@@ -26987,9 +26987,9 @@ for.body.i.i213.i.i976.i.i.i:                     ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i978.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i979.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i977.i.i.i, 1
   %exitcond.not.i.i217.i.i980.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i979.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i980.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.argprom.exit.i.i.i", label %for.body.i.i213.i.i976.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i980.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.exit.i.i.i", label %for.body.i.i213.i.i976.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i, %for.body.i.i213.i.i976.i.i.i
+"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i, %for.body.i.i213.i.i976.i.i.i
   %.fca.0.load.i.i784.i.i.i = load <2 x float>, ptr %retval.i.i703.i.i.i, align 8
   %.fca.1.load.i.i787.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i786.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i703.i.i.i)
@@ -27008,9 +27008,9 @@ for.body.i.i213.i.i976.i.i.i:                     ; preds = %for.body.i.i213.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp105.i.i716.i.i.i)
   br label %invoke.cont160
 
-invoke.cont160:                                   ; preds = %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.argprom.exit.i.i.i"
-  %.fca.0.load.i.i784.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i784.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i578.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i231.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i72.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.argprom.exit.i.i.i" ]
-  %.fca.1.load.i.i787.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i787.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i581.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i234.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i75.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.argprom.exit.i.i.i" ]
+invoke.cont160:                                   ; preds = %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.exit.i.i.i"
+  %.fca.0.load.i.i784.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i784.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i578.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i231.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i72.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.exit.i.i.i" ]
+  %.fca.1.load.i.i787.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i787.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13NanoVDBMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i581.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_11CloudMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i234.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_13RGBGridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i75.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_10GridMediumEEEDaSI_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNKS_17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESB_E3$_0EESB_NS_3RayEffRNS_3RNGERKS8_T_ENKUlSI_E_clIPNS_17HomogeneousMediumEEEDaSI_.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp159312)
   %T_maj.sroa.0.0.vec.extract = extractelement <2 x float> %.fca.0.load.i.i784.pn.i.i.i, i64 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i)
@@ -29829,7 +29829,7 @@ for.body.i202.i.i.i.i.i:                          ; preds = %for.body.i202.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i, %for.body.i41.i.i.i.i.i, %while.cond.preheader.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i.i.i.i, i64 16, i1 false)
-  br label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.argprom.exit.i.i.i"
+  br label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.exit.i.i.i"
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i.i.i.i: ; preds = %for.body.i202.i.i.i.i.i
   %.pre.i.i.i.i = load i8, ptr %called.i.i.i.i.i.i, align 4, !noalias !411
@@ -29846,9 +29846,9 @@ for.body.i.i214.i.i.i.i.i:                        ; preds = %for.body.i.i214.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i216.i.i.i.i.i, align 4
   %indvars.iv.next.i.i217.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i215.i.i.i.i.i, 1
   %exitcond.not.i.i218.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i217.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i218.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.argprom.exit.i.i.i", label %for.body.i.i214.i.i.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i218.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.exit.i.i.i", label %for.body.i.i214.i.i.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.argprom.exit.i.i.i": ; preds = %for.body.i.i214.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i
+"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.exit.i.i.i": ; preds = %for.body.i.i214.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i
   %.fca.0.load.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i.i, align 8
   %.fca.1.load.i.i.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i.i)
@@ -30304,7 +30304,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i.i.i.i: ; 
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i.i.i.i, %cleanup.i.i.i.i.i
-  br i1 %tobool.i.i.i.i.i.i, label %while.cond.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i.i.i.i, label %while.cond.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.exit.i.i.i"
 
 while.end119.i.i143.i.i.i:                        ; preds = %while.cond.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i12.i.i.i, i8 0, i64 16, i1 false)
@@ -30316,9 +30316,9 @@ for.body.i.i213.i.i.i.i.i:                        ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i.i.i.i, 1
   %exitcond.not.i.i217.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.argprom.exit.i.i.i", label %for.body.i.i213.i.i.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.exit.i.i.i", label %for.body.i.i213.i.i.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i, %for.body.i.i213.i.i.i.i.i
+"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i, %for.body.i.i213.i.i.i.i.i
   %.fca.0.load.i.i72.i.i.i = load <2 x float>, ptr %retval.i.i12.i.i.i, align 8
   %.fca.1.load.i.i75.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i74.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i12.i.i.i)
@@ -30771,7 +30771,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i236.i.i.i:
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i236.i.i.i, %cleanup.i.i226.i.i.i
-  br i1 %tobool.i.i.i224.i.i.i, label %while.cond.i.i220.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i224.i.i.i, label %while.cond.i.i220.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.exit.i.i.i"
 
 while.end119.i.i422.i.i.i:                        ; preds = %while.cond.i.i220.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i150.i.i.i, i8 0, i64 16, i1 false)
@@ -30783,9 +30783,9 @@ for.body.i.i213.i.i423.i.i.i:                     ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i425.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i426.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i424.i.i.i, 1
   %exitcond.not.i.i217.i.i427.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i426.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i427.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.argprom.exit.i.i.i", label %for.body.i.i213.i.i423.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i427.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.exit.i.i.i", label %for.body.i.i213.i.i423.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i, %for.body.i.i213.i.i423.i.i.i
+"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i230.i.i.i, %for.body.i.i213.i.i423.i.i.i
   %.fca.0.load.i.i231.i.i.i = load <2 x float>, ptr %retval.i.i150.i.i.i, align 8
   %.fca.1.load.i.i234.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i233.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i150.i.i.i)
@@ -31196,7 +31196,7 @@ for.body.i202.i.i568.i.i.i:                       ; preds = %for.body.i202.i.i56
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i577.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i575.i.i.i, %for.body.i41.i.i690.i.i.i, %while.cond.preheader.i.i486.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i434.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i437.i.i.i, i64 16, i1 false)
-  br label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.argprom.exit.i.i.i"
+  br label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.exit.i.i.i"
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.i.i575.i.i.i: ; preds = %for.body.i202.i.i568.i.i.i
   %.pre.i576.i.i.i = load i8, ptr %called.i.i.i487.i.i.i, align 4, !noalias !419
@@ -31213,9 +31213,9 @@ for.body.i.i214.i.i640.i.i.i:                     ; preds = %for.body.i.i214.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i216.i.i642.i.i.i, align 4
   %indvars.iv.next.i.i217.i.i643.i.i.i = add nuw nsw i64 %indvars.iv.i.i215.i.i641.i.i.i, 1
   %exitcond.not.i.i218.i.i644.i.i.i = icmp eq i64 %indvars.iv.next.i.i217.i.i643.i.i.i, 4
-  br i1 %exitcond.not.i.i218.i.i644.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.argprom.exit.i.i.i", label %for.body.i.i214.i.i640.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i218.i.i644.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.exit.i.i.i", label %for.body.i.i214.i.i640.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.argprom.exit.i.i.i": ; preds = %for.body.i.i214.i.i640.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i577.i.i.i
+"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.exit.i.i.i": ; preds = %for.body.i.i214.i.i640.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i577.i.i.i
   %.fca.0.load.i.i578.i.i.i = load <2 x float>, ptr %retval.i.i434.i.i.i, align 8
   %.fca.1.load.i.i581.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i580.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i434.i.i.i)
@@ -31667,7 +31667,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i789.i.i.i:
   br label %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i
 
 _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i: ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEE5valueEv.exit.i.i211.i.i789.i.i.i, %cleanup.i.i779.i.i.i
-  br i1 %tobool.i.i.i777.i.i.i, label %while.cond.i.i773.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.argprom.exit.i.i.i"
+  br i1 %tobool.i.i.i777.i.i.i, label %while.cond.i.i773.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.exit.i.i.i"
 
 while.end119.i.i975.i.i.i:                        ; preds = %while.cond.i.i773.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i703.i.i.i, i8 0, i64 16, i1 false)
@@ -31679,9 +31679,9 @@ for.body.i.i213.i.i976.i.i.i:                     ; preds = %for.body.i.i213.i.i
   store float 1.000000e+00, ptr %arrayidx.i.i215.i.i978.i.i.i, align 4
   %indvars.iv.next.i.i216.i.i979.i.i.i = add nuw nsw i64 %indvars.iv.i.i214.i.i977.i.i.i, 1
   %exitcond.not.i.i217.i.i980.i.i.i = icmp eq i64 %indvars.iv.next.i.i216.i.i979.i.i.i, 4
-  br i1 %exitcond.not.i.i217.i.i980.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.argprom.exit.i.i.i", label %for.body.i.i213.i.i976.i.i.i, !llvm.loop !146
+  br i1 %exitcond.not.i.i217.i.i980.i.i.i, label %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.exit.i.i.i", label %for.body.i.i213.i.i976.i.i.i, !llvm.loop !146
 
-"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.argprom.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i, %for.body.i.i213.i.i976.i.i.i
+"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.exit.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i783.i.i.i, %for.body.i.i213.i.i976.i.i.i
   %.fca.0.load.i.i784.i.i.i = load <2 x float>, ptr %retval.i.i703.i.i.i, align 8
   %.fca.1.load.i.i787.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i786.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i703.i.i.i)
@@ -31700,9 +31700,9 @@ for.body.i.i213.i.i976.i.i.i:                     ; preds = %for.body.i.i213.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp105.i.i716.i.i.i)
   br label %invoke.cont22
 
-invoke.cont22:                                    ; preds = %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.argprom.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.argprom.exit.i.i.i"
-  %.fca.0.load.i.i784.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i784.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i578.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i231.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i72.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.argprom.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.argprom.exit.i.i.i" ]
-  %.fca.1.load.i.i787.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i787.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i581.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i234.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i75.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.argprom.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.argprom.exit.i.i.i" ]
+invoke.cont22:                                    ; preds = %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.exit.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.exit.i.i.i"
+  %.fca.0.load.i.i784.pn.i.i.i = phi <2 x float> [ %.fca.0.load.i.i784.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i578.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i231.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i72.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.0.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.exit.i.i.i" ]
+  %.fca.1.load.i.i787.pn.i.i.i = phi <2 x float> [ %.fca.1.load.i.i787.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13NanoVDBMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i581.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_11CloudMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i234.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_13RGBGridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i75.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_10GridMediumEEEDaSL_.exit.i.i.i" ], [ %.fca.1.load.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_10RandomWalkERKNS_10IntegratorERNS_18SampledWavelengthsENS_15RayDifferentialENS_7SamplerENS_6CameraERNS_13ScratchBufferENS_15SampledSpectrumEfiNS_13TransportModeEPNS_6VertexEbE3$_0EESB_NS_3RayEffRNS_3RNGERKS4_T_ENKUlSL_E_clIPNS_17HomogeneousMediumEEEDaSL_.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %agg.tmp2134)
   %289 = load i8, ptr %scattered, align 1
   %tobool = trunc i8 %289 to i1
@@ -41557,16 +41557,16 @@ for.end.loopexit.i.i.i:                           ; preds = %_ZN4pstd3pmr21polym
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS1_13ScratchBufferEE5EntryEEptEv.exit.i
   %167 = phi ptr [ %.pre.i.i.i, %for.end.loopexit.i.i.i ], [ %__begin2.sroa.0.05.i.i.i, %_ZN4pstd8optionalIN4pbrt11ThreadLocalINS1_13ScratchBufferEE5EntryEEptEv.exit.i ]
   %cmp.not4.i.i.i.i.i = icmp eq ptr %167, %smallBuffers.i.i.i
-  br i1 %cmp.not4.i.i.i.i.i, label %"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_9clERNS_13ScratchBufferE.argprom.exit.i", label %while.body.i.i.i.i.i
+  br i1 %cmp.not4.i.i.i.i.i, label %"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_9clERNS_13ScratchBufferE.exit.i", label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %for.end.i.i.i, %while.body.i.i.i.i.i
   %__cur.05.i.i.i.i.i = phi ptr [ %168, %while.body.i.i.i.i.i ], [ %167, %for.end.i.i.i ]
   %168 = load ptr, ptr %__cur.05.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i.i.i) #35
   %cmp.not.i.i.i.i.i = icmp eq ptr %168, %smallBuffers.i.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_9clERNS_13ScratchBufferE.argprom.exit.i", label %while.body.i.i.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_9clERNS_13ScratchBufferE.exit.i", label %while.body.i.i.i.i.i, !llvm.loop !7
 
-"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_9clERNS_13ScratchBufferE.argprom.exit.i": ; preds = %while.body.i.i.i.i.i, %for.end.i.i.i
+"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_9clERNS_13ScratchBufferE.exit.i": ; preds = %while.body.i.i.i.i.i, %for.end.i.i.i
   %_M_prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.04.i, i64 88
   store ptr %smallBuffers.i.i.i, ptr %_M_prev.i.i.i.i.i.i, align 8
   store ptr %smallBuffers.i.i.i, ptr %smallBuffers.i.i.i, align 8
@@ -41576,7 +41576,7 @@ while.body.i.i.i.i.i:                             ; preds = %for.end.i.i.i, %whi
   store i32 0, ptr %offset.i.i.i, align 4
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_9clERNS_13ScratchBufferE.argprom.exit.i", %for.body.i268
+for.inc.i:                                        ; preds = %"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_9clERNS_13ScratchBufferE.exit.i", %for.body.i268
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.04.i, i64 192
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %162
   br i1 %cmp.i.not.i, label %invoke.cont219, label %for.body.i268
@@ -67364,7 +67364,7 @@ entry:
   %1 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZZN4pbrt19ImageTileIntegrator6RenderEvE17threadSampleIndex)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #32
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRiJS2_S2_S2_S2_S2_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.185, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %y.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt19ImageTileIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit" unwind label %lpad.i.i.i.i
+          to label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt19ImageTileIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit" unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %entry
   %2 = landingpad { ptr, i32 }
@@ -67372,7 +67372,7 @@ lpad.i.i.i.i:                                     ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #32
   resume { ptr, i32 } %2
 
-"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt19ImageTileIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt19ImageTileIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %entry
   ret void
 }
 
@@ -68435,7 +68435,7 @@ entry:
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   %call.i.i2.i.i.i.i = invoke noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i.i.i, i64 noundef 256, i64 noundef 64)
-          to label %"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" unwind label %lpad.i.i.i.i
+          to label %"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -68454,7 +68454,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %lpad.i.i.i.i, %whil
 _ZNSt7__cxx114listISt4pairIPcmESaIS3_EED2Ev.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %lpad.i.i.i.i
   resume { ptr, i32 } %1
 
-"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %entry
   store ptr %call.i.i2.i.i.i.i, ptr %agg.result, align 64, !alias.scope !901
   ret void
 }
@@ -70603,7 +70603,7 @@ entry:
   %1 = tail call i32 @llvm.smax.i32(i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i26.i.not1.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
   %cmp4.i.i26.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i26.i.not1.i.i
-  br i1 %cmp4.i.i26.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp4.i.i26.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -70697,9 +70697,9 @@ for.end.i.i.i:                                    ; preds = %_ZN4pbrt3RGBixEi.ex
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin3.sroa.0.1.i.i.i, %b.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i.i.i.i.i = icmp ne i32 %__begin3.sroa.7.1.i.i.i, %1
   %17 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
-  br i1 %17, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br i1 %17, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %for.end.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %for.end.i.i.i, %entry
   ret void
 }
 
@@ -71231,20 +71231,20 @@ for.end19.i.i.i:                                  ; preds = %for.end.i.i.i, %ent
   %mul.i.i.i = mul i32 %mul.i.i.i.i, %sub.i.i.i
   %conv.i.i.i = sext i32 %mul.i.i.i to i64
   %cmp.i21.i.i.i = icmp eq i32 %mul.i.i.i, 0
-  br i1 %cmp.i21.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %lor.lhs.false.i.i.i.i
+  br i1 %cmp.i21.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %for.end19.i.i.i
   %quiet.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 40
   %37 = load i8, ptr %quiet.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %37 to i1
-  br i1 %tobool.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %if.end.i.i.i.i
+  br i1 %tobool.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i.i
   %workDone.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 56
   %38 = atomicrmw add ptr %workDone.i.i.i.i, i64 %conv.i.i.i seq_cst, align 8
-  br label %"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %for.end19.i.i.i, %lor.lhs.false.i.i.i.i, %if.end.i.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt19ImageTileIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %for.end19.i.i.i, %lor.lhs.false.i.i.i.i, %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp13.i.i.i)
   ret void
 }
@@ -73756,7 +73756,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit52: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #26 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt10Integrator2TrERKNS_11InteractionES3_RKNS_18SampledWavelengthsEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESB_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #26 align 2 {
 entry:
   %ret.i60 = alloca %"class.pbrt::SampledSpectrum", align 8
   %ret.i46 = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -83328,7 +83328,7 @@ ehcleanup42:                                      ; preds = %ehcleanup27, %lpad
 declare void @_ZNK4pbrt12LightSampler8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, <2 x float> %p.coerce0, float %p.coerce1, ptr nocapture noundef nonnull readonly %mp, <2 x float> %sigma_maj.coerce0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt23SimpleVolPathIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEENK3$_0clENS_6Point3IfEENS_16MediumPropertiesENS_15SampledSpectrumESD_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, <2 x float> %p.coerce0, float %p.coerce1, ptr nocapture noundef nonnull readonly %mp, <2 x float> %sigma_maj.coerce0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 for.body.preheader.i:
   %pdf.i.i.i.i.i = alloca float, align 4
   %retval.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -85750,7 +85750,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #26 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4pbrt17VolPathIntegrator8SampleLdERKNS_11InteractionEPKNS_4BSDFERNS_18SampledWavelengthsENS_7SamplerENS_15SampledSpectrumESA_ENK3$_0clENS_6Point3IfEENS_16MediumPropertiesESA_SA_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly %mp, <2 x float> %sigma_maj.coerce0, <2 x float> %sigma_maj.coerce1, <2 x float> %T_maj.coerce0, <2 x float> %T_maj.coerce1) unnamed_addr #26 align 2 {
 entry:
   %ret.i135 = alloca %"class.pbrt::SampledSpectrum", align 8
   %ret.i118 = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -88147,7 +88147,7 @@ entry:
   call void @_ZNK4pbrt10MLTSampler9DumpStateB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %2), !noalias !1012
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #32
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRiJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS8_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.204, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
-          to label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit" unwind label %lpad.i.i.i.i
+          to label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit" unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %entry
   %3 = landingpad { ptr, i32 }
@@ -88156,7 +88156,7 @@ lpad.i.i.i.i:                                     ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #32
   resume { ptr, i32 } %3
 
-"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !1007
   ret void
@@ -88363,7 +88363,7 @@ entry:
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   %call.i.i2.i.i.i.i = invoke noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i.i.i, i64 noundef 256, i64 noundef 64)
-          to label %"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" unwind label %lpad.i.i.i.i
+          to label %"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -88382,7 +88382,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %lpad.i.i.i.i, %whil
 _ZNSt7__cxx114listISt4pairIPcmESaIS3_EED2Ev.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %lpad.i.i.i.i
   resume { ptr, i32 } %1
 
-"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %entry
   store ptr %call.i.i2.i.i.i.i, ptr %agg.result, align 64, !alias.scope !1015
   ret void
 }
@@ -88641,20 +88641,20 @@ for.end19.i.i.i:                                  ; preds = %for.inc17.i.i.i, %f
   %40 = load ptr, ptr %39, align 8
   %sub.i.i.i = sub nsw i64 %__args1.val, %__args.val
   %cmp.i.i.i.i = icmp eq i64 %__args1.val, %__args.val
-  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_2JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %lor.lhs.false.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_2JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %for.end19.i.i.i
   %quiet.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 40
   %41 = load i8, ptr %quiet.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %41 to i1
-  br i1 %tobool.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_2JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.end.i.i.i.i
+  br i1 %tobool.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_2JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i.i
   %workDone.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 56
   %42 = atomicrmw add ptr %workDone.i.i.i.i, i64 %sub.i.i.i seq_cst, align 8
-  br label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_2JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_2JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_2JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %for.end19.i.i.i, %lor.lhs.false.i.i.i.i, %if.end.i.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_2JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %for.end19.i.i.i, %lor.lhs.false.i.i.i.i, %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %sampler.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pRaster.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %lambda.i.i.i)
@@ -88766,7 +88766,7 @@ entry:
   %6 = tail call i32 @llvm.smax.i32(i32 %bounds.sroa.4.0.extract.trunc.i.i.i, i32 %bounds.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i31.i.not1.i.i = icmp sge i32 %bounds.sroa.4.0.extract.trunc.i.i.i, %bounds.sroa.8.8.extract.trunc.i.i.i
   %cmp4.i.i31.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i31.i.not1.i.i
-  br i1 %cmp4.i.i31.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp4.i.i31.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %7 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -88860,9 +88860,9 @@ for.end.i.i.i:                                    ; preds = %_ZN4pbrt3RGBixEi.ex
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin3.sroa.0.1.i.i.i, %bounds.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i.i.i.i.i = icmp ne i32 %__begin3.sroa.7.1.i.i.i, %6
   %17 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
-  br i1 %17, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br i1 %17, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %for.end.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %for.end.i.i.i, %entry
   ret void
 }
 
@@ -89368,7 +89368,7 @@ _ZN4pbrt16ProgressReporter6UpdateEl.exit.i.i.i:   ; preds = %if.end.i.i.i.i, %fo
   store i64 0, ptr %nStored.le.i.i.i.i.i.i, align 8
   %54 = load ptr, ptr %ptr.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %54, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_4JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.end.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_4JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZN4pbrt16ProgressReporter6UpdateEl.exit.i.i.i
   %nAlloc.i.i.i.i.i = getelementptr inbounds i8, ptr %sampler.i.i.i, i64 56
@@ -89379,7 +89379,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZN4pbrt16ProgressR
   %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
   %57 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   invoke void %57(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %54, i64 noundef %mul.i.i.i82.i.i.i, i64 noundef 8)
-          to label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_4JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_4JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit" unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i
   %58 = landingpad { ptr, i32 }
@@ -89388,7 +89388,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
   call void @__clang_call_terminate(ptr %59) #36
   unreachable
 
-"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_4JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %_ZN4pbrt16ProgressReporter6UpdateEl.exit.i.i.i, %if.end.i.i.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt13MLTIntegrator6RenderEvE3$_4JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %_ZN4pbrt16ProgressReporter6UpdateEl.exit.i.i.i, %if.end.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %sampler.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pCurrent.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %lambdaCurrent.i.i.i)
@@ -90895,7 +90895,7 @@ entry:
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   %call.i.i2.i.i.i.i = invoke noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i.i.i, i64 noundef 1048576, i64 noundef 64)
-          to label %"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" unwind label %lpad.i.i.i.i
+          to label %"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -90914,7 +90914,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %lpad.i.i.i.i, %whil
 _ZNSt7__cxx114listISt4pairIPcmESaIS3_EED2Ev.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %lpad.i.i.i.i
   resume { ptr, i32 } %1
 
-"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %entry
   store ptr %call.i.i2.i.i.i.i, ptr %agg.result, align 64, !alias.scope !1035
   ret void
 }
@@ -90993,7 +90993,7 @@ entry:
   %1 = tail call i32 @llvm.smax.i32(i32 %b.sroa.4.0.extract.trunc.i.i.i, i32 %b.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i54.i.not1.i.i = icmp sge i32 %b.sroa.4.0.extract.trunc.i.i.i, %b.sroa.8.8.extract.trunc.i.i.i
   %cmp4.i.i54.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i54.i.not1.i.i
-  br i1 %cmp4.i.i54.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp4.i.i54.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %2 = load ptr, ptr %__functor.val, align 8
@@ -91094,9 +91094,9 @@ for.end.i.i.i:                                    ; preds = %_ZN4pbrt3RGBixEi.ex
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin4.sroa.0.1.i.i.i, %b.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i.i.i.i.i = icmp ne i32 %__begin4.sroa.7.1.i.i.i, %1
   %18 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
-  br i1 %18, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br i1 %18, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %for.end.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEN4pstd4spanINS7_IfEEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %for.end.i.i.i, %entry
   ret void
 }
 
@@ -91268,7 +91268,7 @@ entry:
   %7 = tail call i32 @llvm.smax.i32(i32 %tileBounds.sroa.5.0.extract.trunc.i.i.i, i32 %tileBounds.sroa.9.8.extract.trunc.i.i.i)
   %cmp4.i.i681.i.not2.i.i = icmp sge i32 %tileBounds.sroa.5.0.extract.trunc.i.i.i, %tileBounds.sroa.9.8.extract.trunc.i.i.i
   %cmp4.i.i681.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i681.i.not2.i.i
-  br i1 %cmp4.i.i681.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp4.i.i681.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %__functor.val, i64 16
@@ -93059,9 +93059,9 @@ _ZN4pstd8optionalIN4pbrt21CameraRayDifferentialEED2Ev.exit.i.i.i: ; preds = %_ZN
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin3.sroa.0.1.i.i.i, %tileBounds.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i.i.i.i.i = icmp ne i32 %__begin3.sroa.7.1.i.i.i, %7
   %263 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
-  br i1 %263, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br i1 %263, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %_ZN4pstd8optionalIN4pbrt21CameraRayDifferentialEED2Ev.exit.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_3JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %_ZN4pstd8optionalIN4pbrt21CameraRayDifferentialEED2Ev.exit.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %lambda.i.i.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %crd.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp12.i.i.i)
@@ -93221,7 +93221,7 @@ entry:
   %2 = tail call i32 @llvm.smax.i32(i32 %tileBounds.sroa.4.0.extract.trunc.i.i.i, i32 %tileBounds.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i164.i.not27.i.i = icmp sge i32 %tileBounds.sroa.4.0.extract.trunc.i.i.i, %tileBounds.sroa.8.8.extract.trunc.i.i.i
   %cmp4.i.i164.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i164.i.not27.i.i
-  br i1 %cmp4.i.i164.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp4.i.i164.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -93650,9 +93650,9 @@ for.inc71.i.i.i:                                  ; preds = %for.end57.i.i.i, %_
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin3.sroa.0.1.i.i.i, %tileBounds.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i.i.i.i.i = icmp ne i32 %__begin3.sroa.7.1.i.i.i, %2
   %63 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
-  br i1 %63, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br i1 %63, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %for.inc71.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_4JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %for.inc71.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pMin.sroa.0.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pMin.sroa.6.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pMin.sroa.12.i.i.i)
@@ -94358,7 +94358,7 @@ entry:
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   %call.i.i2.i.i.i.i = invoke noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i.i.i, i64 noundef 256, i64 noundef 64)
-          to label %"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit" unwind label %lpad.i.i.i.i
+          to label %"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit" unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %entry
   %1 = landingpad { ptr, i32 }
@@ -94377,7 +94377,7 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %lpad.i.i.i.i, %whil
 _ZNSt7__cxx114listISt4pairIPcmESaIS3_EED2Ev.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i.i, %lpad.i.i.i.i
   resume { ptr, i32 } %1
 
-"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %entry
+"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %entry
   store ptr %call.i.i2.i.i.i.i, ptr %agg.result, align 64, !alias.scope !1070
   ret void
 }
@@ -94476,7 +94476,7 @@ entry:
   %call2.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pbrt11ThreadLocalINS_7SamplerEE3GetEv(ptr noundef nonnull align 8 dereferenceable(112) %4)
   %5 = load i64, ptr %call2.i.i.i, align 8
   %cmp529.i.i.i = icmp slt i64 %__args.val, %__args1.val
-  br i1 %cmp529.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_6JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br i1 %cmp529.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_6JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %6 = getelementptr inbounds i8, ptr %__functor.val, i64 16
@@ -95763,9 +95763,9 @@ cleanup250.i.i.i:                                 ; preds = %"_ZZZN4pbrt14SPPMIn
 _ZN4pstd8optionalIN4pbrt12SampledLightEED2Ev.exit.i.i.i: ; preds = %cleanup250.i.i.i, %_ZN4pbrt13LightLeSampleD2Ev.exit.i.i.i.i.i, %cleanup248.i.i.i
   %inc255.i.i.i = add i64 %photonIndex.0530.i.i.i, 1
   %exitcond532.not.i.i.i = icmp eq i64 %inc255.i.i.i, %__args1.val
-  br i1 %exitcond532.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_6JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %for.body.i.i.i, !llvm.loop !1093
+  br i1 %exitcond532.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_6JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %for.body.i.i.i, !llvm.loop !1093
 
-"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_6JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %_ZN4pstd8optionalIN4pbrt12SampledLightEED2Ev.exit.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN4pbrt14SPPMIntegrator6RenderEvE3$_6JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %_ZN4pstd8optionalIN4pbrt12SampledLightEED2Ev.exit.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %haltonIndex.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %haltonDim.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %Sample2D.i.i.i)
@@ -97820,7 +97820,7 @@ entry:
   %9 = load i32, ptr %8, align 4
   %div.i.i.i = sdiv i32 %9, %6
   %cmp39.i.i.i = icmp sgt i32 %6, 0
-  br i1 %cmp39.i.i.i, label %for.cond14.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_1JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br i1 %cmp39.i.i.i, label %for.cond14.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_1JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 for.cond14.preheader.lr.ph.i.i.i:                 ; preds = %entry
   %10 = getelementptr inbounds i8, ptr %__functor.val, i64 32
@@ -97831,7 +97831,7 @@ for.cond14.preheader.lr.ph.i.i.i:                 ; preds = %entry
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 80
   %func.i.i.i = getelementptr inbounds i8, ptr %11, i64 64
   %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 88
-  br i1 %cmp1534.i.i.i, label %for.cond14.preheader.us.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_1JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br i1 %cmp1534.i.i.i, label %for.cond14.preheader.us.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_1JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 for.cond14.preheader.us.preheader.i.i.i:          ; preds = %for.cond14.preheader.lr.ph.i.i.i
   %12 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -97916,13 +97916,13 @@ _ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.us.i.i.i: ; preds = %for.body16
 for.cond14.for.inc32_crit_edge.us.i.i.i:          ; preds = %_ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.us.i.i.i
   %inc33.us.i.i.i = add nuw nsw i32 %x12.041.us.i.i.i, 1
   %exitcond45.not.i.i.i = icmp eq i32 %inc33.us.i.i.i, %6
-  br i1 %exitcond45.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_1JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %for.cond14.preheader.us.i.i.i, !llvm.loop !1112
+  br i1 %exitcond45.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_1JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %for.cond14.preheader.us.i.i.i, !llvm.loop !1112
 
 if.then.i.i.i.i:                                  ; preds = %for.body16.us.i.i.i
   call void @_ZSt25__throw_bad_function_callv() #34
   unreachable
 
-"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_1JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %for.cond14.for.inc32_crit_edge.us.i.i.i, %entry, %for.cond14.preheader.lr.ph.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_1JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %for.cond14.for.inc32_crit_edge.us.i.i.i, %entry, %for.cond14.preheader.lr.ph.i.i.i
   %v.0.lcssa.i.i.i = phi float [ 0.000000e+00, %entry ], [ 0.000000e+00, %for.cond14.preheader.lr.ph.i.i.i ], [ %conv31.us.i.i.i, %for.cond14.for.inc32_crit_edge.us.i.i.i ]
   %21 = getelementptr inbounds i8, ptr %__functor.val, i64 48
   %22 = load ptr, ptr %21, align 8
@@ -98015,7 +98015,7 @@ entry:
   %1 = tail call i32 @llvm.smax.i32(i32 %bounds.sroa.4.0.extract.trunc.i.i.i, i32 %bounds.sroa.8.8.extract.trunc.i.i.i)
   %cmp4.i.i373.i.not1.i.i = icmp sge i32 %bounds.sroa.4.0.extract.trunc.i.i.i, %bounds.sroa.8.8.extract.trunc.i.i.i
   %cmp4.i.i373.i.not.i.i = select i1 %cmp.not.i.i.i.i, i1 true, i1 %cmp4.i.i373.i.not1.i.i
-  br i1 %cmp4.i.i373.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp4.i.i373.i.not.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 16
@@ -98778,9 +98778,9 @@ _ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.i.i.i: ; preds = %if.end140.i.i
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin4.sroa.0.1.i.i.i, %bounds.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i.i.i.i.i = icmp ne i32 %__begin4.sroa.7.1.i.i.i, %1
   %118 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
-  br i1 %118, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br i1 %118, label %for.body.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %_ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.i.i.i, %entry
+"_ZSt10__invoke_rIvRZN4pbrt18FunctionIntegrator6RenderEvE3$_2JNS0_7Bounds2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %_ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.i.i.i, %entry
   ret void
 }
 
@@ -100593,19 +100593,19 @@ attributes #38 = { nounwind willreturn memory(none) }
 !899 = distinct !{!899, !900, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE: %agg.result"}
 !900 = distinct !{!900, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE"}
 !901 = !{!902, !904, !906}
-!902 = distinct !{!902, !903, !"_ZZN4pbrt19ImageTileIntegrator6RenderEvENK3$_1clEv.argprom: %agg.result"}
-!903 = distinct !{!903, !"_ZZN4pbrt19ImageTileIntegrator6RenderEvENK3$_1clEv.argprom"}
-!904 = distinct !{!904, !905, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!905 = distinct !{!905, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!906 = distinct !{!906, !907, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom: %agg.result"}
-!907 = distinct !{!907, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom"}
+!902 = distinct !{!902, !903, !"_ZZN4pbrt19ImageTileIntegrator6RenderEvENK3$_1clEv: %agg.result"}
+!903 = distinct !{!903, !"_ZZN4pbrt19ImageTileIntegrator6RenderEvENK3$_1clEv"}
+!904 = distinct !{!904, !905, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!905 = distinct !{!905, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_"}
+!906 = distinct !{!906, !907, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_: %agg.result"}
+!907 = distinct !{!907, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_19ImageTileIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_"}
 !908 = !{!909, !911, !913}
-!909 = distinct !{!909, !910, !"_ZZN4pbrt19ImageTileIntegrator6RenderEvENK3$_2clEv.argprom: %agg.result"}
-!910 = distinct !{!910, !"_ZZN4pbrt19ImageTileIntegrator6RenderEvENK3$_2clEv.argprom"}
-!911 = distinct !{!911, !912, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_19ImageTileIntegrator6RenderEvE3$_2JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!912 = distinct !{!912, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_19ImageTileIntegrator6RenderEvE3$_2JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!913 = distinct !{!913, !914, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_19ImageTileIntegrator6RenderEvE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom: %agg.result"}
-!914 = distinct !{!914, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_19ImageTileIntegrator6RenderEvE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom"}
+!909 = distinct !{!909, !910, !"_ZZN4pbrt19ImageTileIntegrator6RenderEvENK3$_2clEv: %agg.result"}
+!910 = distinct !{!910, !"_ZZN4pbrt19ImageTileIntegrator6RenderEvENK3$_2clEv"}
+!911 = distinct !{!911, !912, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_19ImageTileIntegrator6RenderEvE3$_2JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!912 = distinct !{!912, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_19ImageTileIntegrator6RenderEvE3$_2JEET_St14__invoke_otherOT0_DpOT1_"}
+!913 = distinct !{!913, !914, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_19ImageTileIntegrator6RenderEvE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_: %agg.result"}
+!914 = distinct !{!914, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_19ImageTileIntegrator6RenderEvE3$_2JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_"}
 !915 = distinct !{!915, !6}
 !916 = distinct !{!916, !6}
 !917 = distinct !{!917, !6}
@@ -100699,20 +100699,20 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1005 = distinct !{!1005, !1006, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE: %agg.result"}
 !1006 = distinct !{!1006, !"_ZNK4pbrt11Interaction9GetMediumENS_7Vector3IfEE"}
 !1007 = !{!1008, !1010}
-!1008 = distinct !{!1008, !1009, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!1009 = distinct !{!1009, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!1010 = distinct !{!1010, !1011, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom: %agg.result"}
-!1011 = distinct !{!1011, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom"}
+!1008 = distinct !{!1008, !1009, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!1009 = distinct !{!1009, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_"}
+!1010 = distinct !{!1010, !1011, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_: %agg.result"}
+!1011 = distinct !{!1011, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN4pbrt13MLTIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_"}
 !1012 = !{!1013, !1008, !1010}
-!1013 = distinct !{!1013, !1014, !"_ZZN4pbrt13MLTIntegrator6RenderEvENK3$_0clB5cxx11Ev.argprom: %agg.result"}
-!1014 = distinct !{!1014, !"_ZZN4pbrt13MLTIntegrator6RenderEvENK3$_0clB5cxx11Ev.argprom"}
+!1013 = distinct !{!1013, !1014, !"_ZZN4pbrt13MLTIntegrator6RenderEvENK3$_0clB5cxx11Ev: %agg.result"}
+!1014 = distinct !{!1014, !"_ZZN4pbrt13MLTIntegrator6RenderEvENK3$_0clB5cxx11Ev"}
 !1015 = !{!1016, !1018, !1020}
-!1016 = distinct !{!1016, !1017, !"_ZZN4pbrt13MLTIntegrator6RenderEvENK3$_1clEv.argprom: %agg.result"}
-!1017 = distinct !{!1017, !"_ZZN4pbrt13MLTIntegrator6RenderEvENK3$_1clEv.argprom"}
-!1018 = distinct !{!1018, !1019, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!1019 = distinct !{!1019, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!1020 = distinct !{!1020, !1021, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom: %agg.result"}
-!1021 = distinct !{!1021, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom"}
+!1016 = distinct !{!1016, !1017, !"_ZZN4pbrt13MLTIntegrator6RenderEvENK3$_1clEv: %agg.result"}
+!1017 = distinct !{!1017, !"_ZZN4pbrt13MLTIntegrator6RenderEvENK3$_1clEv"}
+!1018 = distinct !{!1018, !1019, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!1019 = distinct !{!1019, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_"}
+!1020 = distinct !{!1020, !1021, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_: %agg.result"}
+!1021 = distinct !{!1021, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_13MLTIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_"}
 !1022 = distinct !{!1022, !6}
 !1023 = distinct !{!1023, !6, !1024}
 !1024 = !{!"llvm.loop.unswitch.partial.disable"}
@@ -100727,19 +100727,19 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1033 = distinct !{!1033, !6}
 !1034 = distinct !{!1034, !6}
 !1035 = !{!1036, !1038, !1040}
-!1036 = distinct !{!1036, !1037, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_0clEv.argprom: %agg.result"}
-!1037 = distinct !{!1037, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_0clEv.argprom"}
-!1038 = distinct !{!1038, !1039, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!1039 = distinct !{!1039, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!1040 = distinct !{!1040, !1041, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom: %agg.result"}
-!1041 = distinct !{!1041, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom"}
+!1036 = distinct !{!1036, !1037, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_0clEv: %agg.result"}
+!1037 = distinct !{!1037, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_0clEv"}
+!1038 = distinct !{!1038, !1039, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!1039 = distinct !{!1039, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_"}
+!1040 = distinct !{!1040, !1041, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_: %agg.result"}
+!1041 = distinct !{!1041, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_"}
 !1042 = !{!1043, !1045, !1047}
-!1043 = distinct !{!1043, !1044, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_1clEv.argprom: %agg.result"}
-!1044 = distinct !{!1044, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_1clEv.argprom"}
-!1045 = distinct !{!1045, !1046, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_14SPPMIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!1046 = distinct !{!1046, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_14SPPMIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!1047 = distinct !{!1047, !1048, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_14SPPMIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom: %agg.result"}
-!1048 = distinct !{!1048, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_14SPPMIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom"}
+!1043 = distinct !{!1043, !1044, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_1clEv: %agg.result"}
+!1044 = distinct !{!1044, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_1clEv"}
+!1045 = distinct !{!1045, !1046, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_14SPPMIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!1046 = distinct !{!1046, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_14SPPMIntegrator6RenderEvE3$_1JEET_St14__invoke_otherOT0_DpOT1_"}
+!1047 = distinct !{!1047, !1048, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_14SPPMIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_: %agg.result"}
+!1048 = distinct !{!1048, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_14SPPMIntegrator6RenderEvE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_"}
 !1049 = distinct !{!1049, !6}
 !1050 = !{!1051, !1053}
 !1051 = distinct !{!1051, !1052, !"_ZNK4pbrt13TaggedPointerIJNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEE8DispatchIRZNKS_4Film9GetFilterEvEUlT_E_EEDcOS7_: %agg.result"}
@@ -100762,12 +100762,12 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1068 = distinct !{!1068, !6, !1024}
 !1069 = distinct !{!1069, !6, !1024}
 !1070 = !{!1071, !1073, !1075}
-!1071 = distinct !{!1071, !1072, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_5clEv.argprom: %agg.result"}
-!1072 = distinct !{!1072, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_5clEv.argprom"}
-!1073 = distinct !{!1073, !1074, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!1074 = distinct !{!1074, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!1075 = distinct !{!1075, !1076, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom: %agg.result"}
-!1076 = distinct !{!1076, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom"}
+!1071 = distinct !{!1071, !1072, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_5clEv: %agg.result"}
+!1072 = distinct !{!1072, !"_ZZN4pbrt14SPPMIntegrator6RenderEvENK3$_5clEv"}
+!1073 = distinct !{!1073, !1074, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!1074 = distinct !{!1074, !"_ZSt13__invoke_implIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEET_St14__invoke_otherOT0_DpOT1_"}
+!1075 = distinct !{!1075, !1076, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_: %agg.result"}
+!1076 = distinct !{!1076, !"_ZSt10__invoke_rIN4pbrt13ScratchBufferERZNS0_14SPPMIntegrator6RenderEvE3$_5JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_"}
 !1077 = !{!1078}
 !1078 = distinct !{!1078, !1079, !"_ZNK4pbrt17PowerLightSampler6SampleEf: %agg.result"}
 !1079 = distinct !{!1079, !"_ZNK4pbrt17PowerLightSampler6SampleEf"}
@@ -100796,11 +100796,11 @@ attributes #38 = { nounwind willreturn memory(none) }
 !1102 = distinct !{!1102, !"_ZN4pbrt6detail8DispatchIRZNKS_6Camera7GetFilmEvEUlT_E_NS_4FilmENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OS3_PKvi"}
 !1103 = distinct !{!1103, !6}
 !1104 = !{!1105, !1107, !1109}
-!1105 = distinct !{!1105, !1106, !"_ZZN4pbrt18FunctionIntegrator6RenderEvENK3$_0clEv.argprom: %agg.result"}
-!1106 = distinct !{!1106, !"_ZZN4pbrt18FunctionIntegrator6RenderEvENK3$_0clEv.argprom"}
-!1107 = distinct !{!1107, !1108, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_18FunctionIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!1108 = distinct !{!1108, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_18FunctionIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_.argprom"}
-!1109 = distinct !{!1109, !1110, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_18FunctionIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom: %agg.result"}
-!1110 = distinct !{!1110, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_18FunctionIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom"}
+!1105 = distinct !{!1105, !1106, !"_ZZN4pbrt18FunctionIntegrator6RenderEvENK3$_0clEv: %agg.result"}
+!1106 = distinct !{!1106, !"_ZZN4pbrt18FunctionIntegrator6RenderEvENK3$_0clEv"}
+!1107 = distinct !{!1107, !1108, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_18FunctionIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!1108 = distinct !{!1108, !"_ZSt13__invoke_implIN4pbrt7SamplerERZNS0_18FunctionIntegrator6RenderEvE3$_0JEET_St14__invoke_otherOT0_DpOT1_"}
+!1109 = distinct !{!1109, !1110, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_18FunctionIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_: %agg.result"}
+!1110 = distinct !{!1110, !"_ZSt10__invoke_rIN4pbrt7SamplerERZNS0_18FunctionIntegrator6RenderEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_"}
 !1111 = distinct !{!1111, !6}
 !1112 = distinct !{!1112, !6}

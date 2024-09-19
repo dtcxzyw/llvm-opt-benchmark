@@ -36,13 +36,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN61_$LT$parser..PrefixEntryPoint$u20$as$u20$core..fmt..Debug$GT$3fmt17h51e28d6d0de1a7acE.13" = private unnamed_addr constant [10 x ptr] [ptr @anon.c549ba0b81b011ffbd7ccc6c2a002e23.10, ptr @anon.c549ba0b81b011ffbd7ccc6c2a002e23.11, ptr @anon.c549ba0b81b011ffbd7ccc6c2a002e23.12, ptr @anon.c549ba0b81b011ffbd7ccc6c2a002e23.13, ptr @anon.c549ba0b81b011ffbd7ccc6c2a002e23.14, ptr @anon.c549ba0b81b011ffbd7ccc6c2a002e23.15, ptr @anon.c549ba0b81b011ffbd7ccc6c2a002e23.16, ptr @anon.c549ba0b81b011ffbd7ccc6c2a002e23.17, ptr @anon.c549ba0b81b011ffbd7ccc6c2a002e23.18, ptr @anon.c549ba0b81b011ffbd7ccc6c2a002e23.19], align 8
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$mbe..ExpandError$GT$$GT$17hd5d04a4bbe53bcebE.argprom"(i8 %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
-  switch i8 %.0.val, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h583938f8180d161cE.argprom.exit" [
+define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$mbe..ExpandError$GT$$GT$17hd5d04a4bbe53bcebE"(i8 %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+  switch i8 %.0.val, label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h583938f8180d161cE.exit" [
     i8 1, label %4
     i8 0, label %1
   ]
 
-"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h583938f8180d161cE.argprom.exit": ; preds = %0, %.sink.split.i
+"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h583938f8180d161cE.exit": ; preds = %0, %.sink.split.i
   ret void
 
 .sink.split.sink.split.i:                         ; preds = %4, %1
@@ -53,7 +53,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Optio
 
 .sink.split.i:                                    ; preds = %4, %1, %.sink.split.sink.split.i
   tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef 16, i64 noundef 8) #21
-  br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h583938f8180d161cE.argprom.exit"
+  br label %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h583938f8180d161cE.exit"
 
 1:                                                ; preds = %0
   %2 = getelementptr i8, ptr %.8.val, i64 8
@@ -1866,7 +1866,7 @@ default.unreachable:                              ; preds = %101
 
 218:                                              ; preds = %.body63.thread, %.body63
   %.pn.ph = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body63 ], [ %eh.lpad-body64186, %.body63.thread ]
-  call fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$mbe..ExpandError$GT$$GT$17hd5d04a4bbe53bcebE.argprom"(i8 %.sroa.0111.0, ptr %.sroa.8115.0) #24
+  call fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$mbe..ExpandError$GT$$GT$17hd5d04a4bbe53bcebE"(i8 %.sroa.0111.0, ptr %.sroa.8115.0) #24
   br label %.body
 
 219:                                              ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2c7f0fac5354255E.exit"

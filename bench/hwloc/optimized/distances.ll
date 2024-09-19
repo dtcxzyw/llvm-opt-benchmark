@@ -2202,7 +2202,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_internal_distances_add_by_index(ptr no
   %34 = shl nuw nsw i64 %33, 3
   %35 = tail call noalias ptr @malloc(i64 noundef %34) #27
   %.not35.i = icmp eq ptr %35, null
-  br i1 %.not35.i, label %hwloc_backend_distances_add_values_by_index.argprom.exit, label %36
+  br i1 %.not35.i, label %hwloc_backend_distances_add_values_by_index.exit, label %36
 
 36:                                               ; preds = %32
   store i32 %4, ptr %20, align 8
@@ -2223,9 +2223,9 @@ define hidden range(i32 -1, 1) i32 @hwloc_internal_distances_add_by_index(ptr no
 .sink.split.i:                                    ; preds = %29, %14
   %41 = tail call ptr @__errno_location() #28
   store i32 22, ptr %41, align 4
-  br label %hwloc_backend_distances_add_values_by_index.argprom.exit
+  br label %hwloc_backend_distances_add_values_by_index.exit
 
-hwloc_backend_distances_add_values_by_index.argprom.exit: ; preds = %32, %.sink.split.i
+hwloc_backend_distances_add_values_by_index.exit: ; preds = %32, %.sink.split.i
   tail call void @free(ptr noundef %15) #25
   br label %hwloc_backend_distances_add_create.exit.thread.sink.split
 
@@ -2234,7 +2234,7 @@ hwloc_backend_distances_add_values_by_index.argprom.exit: ; preds = %32, %.sink.
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %hwloc_backend_distances_add_create.exit.thread, label %45
 
-hwloc_backend_distances_add_create.exit.thread.sink.split: ; preds = %12, %hwloc_backend_distances_add_values_by_index.argprom.exit
+hwloc_backend_distances_add_create.exit.thread.sink.split: ; preds = %12, %hwloc_backend_distances_add_values_by_index.exit
   tail call void @free(ptr noundef nonnull %10) #25
   br label %hwloc_backend_distances_add_create.exit.thread
 
@@ -2942,7 +2942,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_get(ptr noundef %0, ptr nocapture n
   br label %14
 
 12:                                               ; preds = %6
-  %13 = tail call fastcc i32 @hwloc__distances_get.argelim(ptr noundef nonnull %0, ptr noundef null, i32 noundef -1, ptr noundef %1, ptr noundef %2, i64 noundef %3)
+  %13 = tail call fastcc i32 @hwloc__distances_get(ptr noundef nonnull %0, ptr noundef null, i32 noundef -1, ptr noundef %1, ptr noundef %2, i64 noundef %3)
   br label %14
 
 14:                                               ; preds = %12, %10
@@ -2951,7 +2951,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_get(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_get.argelim(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_get(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i64 noundef %5) unnamed_addr #1 {
   tail call void @hwloc_internal_distances_refresh(ptr noundef %0)
   %7 = getelementptr inbounds i8, ptr %0, i64 728
   %.04376 = load ptr, ptr %7, align 8
@@ -3029,7 +3029,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_get.argelim(ptr no
 35:                                               ; preds = %32
   %36 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #27
   %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %hwloc_distances_get_one.argprom.exit, label %37
+  br i1 %.not.i, label %hwloc_distances_get_one.exit, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %36, i64 8
@@ -3063,13 +3063,13 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_get.argelim(ptr no
 
 .loopexit66:                                      ; preds = %37, %53
   tail call void @free(ptr noundef nonnull %36) #25
-  br label %hwloc_distances_get_one.argprom.exit
+  br label %hwloc_distances_get_one.exit
 
-hwloc_distances_get_one.argprom.exit:             ; preds = %35, %.loopexit66
+hwloc_distances_get_one.exit:                     ; preds = %35, %.loopexit66
   %.not85 = icmp eq i32 %.04478, 0
   br i1 %.not85, label %.loopexit, label %.lr.ph82.preheader
 
-.lr.ph82.preheader:                               ; preds = %hwloc_distances_get_one.argprom.exit
+.lr.ph82.preheader:                               ; preds = %hwloc_distances_get_one.exit
   %wide.trip.count = zext i32 %.04478 to i64
   br label %.lr.ph82
 
@@ -3130,8 +3130,8 @@ hwloc_distances_get_one.argprom.exit:             ; preds = %35, %.loopexit66
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph82, !llvm.loop !43
 
-.loopexit:                                        ; preds = %.lr.ph82, %hwloc_distances_get_one.argprom.exit, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %hwloc_distances_get_one.argprom.exit ], [ -1, %.lr.ph82 ]
+.loopexit:                                        ; preds = %.lr.ph82, %hwloc_distances_get_one.exit, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %hwloc_distances_get_one.exit ], [ -1, %.lr.ph82 ]
   ret i32 %.0
 }
 
@@ -3163,7 +3163,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_get_by_depth(ptr noundef %0, i32 no
   br label %20
 
 18:                                               ; preds = %13
-  %19 = tail call fastcc i32 @hwloc__distances_get.argelim(ptr noundef nonnull %0, ptr noundef null, i32 noundef %14, ptr noundef %2, ptr noundef %3, i64 noundef %4)
+  %19 = tail call fastcc i32 @hwloc__distances_get(ptr noundef nonnull %0, ptr noundef null, i32 noundef %14, ptr noundef %2, ptr noundef %3, i64 noundef %4)
   br label %20
 
 20:                                               ; preds = %18, %16, %11
@@ -3189,7 +3189,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_get_by_name(ptr noundef %0, ptr nou
   br label %14
 
 12:                                               ; preds = %6
-  %13 = tail call fastcc i32 @hwloc__distances_get.argelim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef -1, ptr noundef %2, ptr noundef %3, i64 noundef 31)
+  %13 = tail call fastcc i32 @hwloc__distances_get(ptr noundef nonnull %0, ptr noundef %1, i32 noundef -1, ptr noundef %2, ptr noundef %3, i64 noundef 31)
   br label %14
 
 14:                                               ; preds = %12, %10
@@ -3215,7 +3215,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_get_by_type(ptr noundef %0, i32 nou
   br label %15
 
 13:                                               ; preds = %7
-  %14 = tail call fastcc i32 @hwloc__distances_get.argelim(ptr noundef nonnull %0, ptr noundef null, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
+  %14 = tail call fastcc i32 @hwloc__distances_get(ptr noundef nonnull %0, ptr noundef null, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
   br label %15
 
 15:                                               ; preds = %13, %11
@@ -3362,11 +3362,11 @@ hwloc__internal_distances_from_public.exit.i:     ; preds = %.lr.ph.i16, %38
   %54 = load ptr, ptr %.011.i.lcssa.i, align 8
   %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(16) @.str.22) #26
   %.not.i17 = icmp eq i32 %55, 0
-  br i1 %.not.i17, label %.preheader4.i, label %hwloc__distances_transform_merge_switch_ports.argprom.exit
+  br i1 %.not.i17, label %.preheader4.i, label %hwloc__distances_transform_merge_switch_ports.exit
 
 .preheader4.i:                                    ; preds = %hwloc__internal_distances_from_public.exit.i
   %.not13.i = icmp eq i32 %53, 0
-  br i1 %.not13.i, label %hwloc__distances_transform_merge_switch_ports.argprom.exit, label %.lr.ph8.preheader.i
+  br i1 %.not13.i, label %hwloc__distances_transform_merge_switch_ports.exit, label %.lr.ph8.preheader.i
 
 .lr.ph8.preheader.i:                              ; preds = %.preheader4.i
   %wide.trip.count.i20 = zext i32 %53 to i64
@@ -3410,7 +3410,7 @@ is_nvswitch.exit.thread.i:                        ; preds = %is_nvswitch.exit.i,
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i20
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  br i1 %exitcond.not.i23, label %hwloc__distances_transform_merge_switch_ports.argprom.exit, label %.lr.ph8.i, !llvm.loop !49
+  br i1 %exitcond.not.i23, label %hwloc__distances_transform_merge_switch_ports.exit, label %.lr.ph8.i, !llvm.loop !49
 
 69:                                               ; preds = %is_nvswitch.exit77.thread.i, %.lr.ph12.i
   %indvars.iv25.i = phi i64 [ %indvars.iv22.i, %.lr.ph12.i ], [ %indvars.iv.next26.i, %is_nvswitch.exit77.thread.i ]
@@ -3492,7 +3492,7 @@ is_nvswitch.exit77.thread.i:                      ; preds = %103, %is_nvswitch.e
   %exitcond = icmp eq i32 %53, %lftr.wideiv
   br i1 %exitcond, label %.loopexit, label %69, !llvm.loop !51
 
-hwloc__distances_transform_merge_switch_ports.argprom.exit: ; preds = %is_nvswitch.exit.thread.i, %hwloc__internal_distances_from_public.exit.i, %.preheader4.i
+hwloc__distances_transform_merge_switch_ports.exit: ; preds = %is_nvswitch.exit.thread.i, %hwloc__internal_distances_from_public.exit.i, %.preheader4.i
   %.sink.i19 = phi i32 [ 22, %hwloc__internal_distances_from_public.exit.i ], [ 2, %.preheader4.i ], [ 2, %is_nvswitch.exit.thread.i ]
   %110 = tail call ptr @__errno_location() #28
   store i32 %.sink.i19, ptr %110, align 4
@@ -3687,8 +3687,8 @@ is_nvswitch.exit70.thread.i:                      ; preds = %170, %is_nvswitch.e
   store i32 22, ptr %185, align 4
   br label %hwloc__distances_transform_links.exit
 
-hwloc__distances_transform_links.exit:            ; preds = %.loopexit.i, %.lr.ph61.i, %130, %.preheader6.i, %hwloc__distances_transform_merge_switch_ports.argprom.exit, %.loopexit.sink.split.i, %._crit_edge.i, %.preheader51.i, %.loopexit, %184, %11, %8
-  %.013 = phi i32 [ -1, %8 ], [ -1, %184 ], [ %12, %11 ], [ -1, %hwloc__distances_transform_merge_switch_ports.argprom.exit ], [ %111, %.loopexit ], [ 0, %._crit_edge.i ], [ 0, %.preheader51.i ], [ -1, %.loopexit.sink.split.i ], [ -1, %130 ], [ 0, %.preheader6.i ], [ 0, %.lr.ph61.i ], [ 0, %.loopexit.i ]
+hwloc__distances_transform_links.exit:            ; preds = %.loopexit.i, %.lr.ph61.i, %130, %.preheader6.i, %hwloc__distances_transform_merge_switch_ports.exit, %.loopexit.sink.split.i, %._crit_edge.i, %.preheader51.i, %.loopexit, %184, %11, %8
+  %.013 = phi i32 [ -1, %8 ], [ -1, %184 ], [ %12, %11 ], [ -1, %hwloc__distances_transform_merge_switch_ports.exit ], [ %111, %.loopexit ], [ 0, %._crit_edge.i ], [ 0, %.preheader51.i ], [ -1, %.loopexit.sink.split.i ], [ -1, %130 ], [ 0, %.preheader6.i ], [ 0, %.lr.ph61.i ], [ 0, %.loopexit.i ]
   ret i32 %.013
 }
 

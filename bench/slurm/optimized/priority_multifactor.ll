@@ -641,7 +641,7 @@ define internal noalias noundef ptr @_decay_thread(ptr nocapture readnone %0) #0
 44:                                               ; preds = %42, %39
   call void @slurm_xfree(ptr noundef nonnull %6) #15
   call void @unlock_state_files() #15
-  br label %_read_last_decay_ran.argprom.exit
+  br label %_read_last_decay_ran.exit
 
 45:                                               ; preds = %28
   call void @slurm_xfree(ptr noundef nonnull %6) #15
@@ -660,17 +660,17 @@ define internal noalias noundef ptr @_decay_thread(ptr nocapture readnone %0) #0
   %50 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %51 = and i64 %50, 2048
   %.not13.i = icmp eq i64 %51, 0
-  br i1 %.not13.i, label %_read_last_decay_ran.argprom.exit, label %52
+  br i1 %.not13.i, label %_read_last_decay_ran.exit, label %52
 
 52:                                               ; preds = %49
   %53 = call i32 @get_log_level() #15
   %54 = icmp sgt i32 %53, 3
-  br i1 %54, label %55, label %_read_last_decay_ran.argprom.exit
+  br i1 %54, label %55, label %_read_last_decay_ran.exit
 
 55:                                               ; preds = %52
   %56 = load i64, ptr @g_last_ran, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_last_decay_ran, i64 noundef %56) #15
-  br label %_read_last_decay_ran.argprom.exit
+  br label %_read_last_decay_ran.exit
 
 57:                                               ; preds = %47, %45
   %58 = load i8, ptr @ignore_state_errors, align 1
@@ -684,20 +684,20 @@ define internal noalias noundef ptr @_decay_thread(ptr nocapture readnone %0) #0
 61:                                               ; preds = %57
   %62 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40) #15
   call void @free_buf(ptr noundef nonnull %38) #15
-  br label %_read_last_decay_ran.argprom.exit
+  br label %_read_last_decay_ran.exit
 
-_read_last_decay_ran.argprom.exit:                ; preds = %44, %49, %52, %55, %61
+_read_last_decay_ran.exit:                        ; preds = %44, %49, %52, %55, %61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %63 = load i64, ptr %8, align 8
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %65, label %67
 
-65:                                               ; preds = %_read_last_decay_ran.argprom.exit
+65:                                               ; preds = %_read_last_decay_ran.exit
   %66 = load i64, ptr %7, align 8
   store i64 %66, ptr %8, align 8
   br label %67
 
-67:                                               ; preds = %_read_last_decay_ran.argprom.exit, %65
+67:                                               ; preds = %_read_last_decay_ran.exit, %65
   %68 = call i32 @pthread_cond_signal(ptr noundef nonnull @decay_init_cond) #15
   %.not50 = icmp eq i32 %68, 0
   br i1 %.not50, label %72, label %69
@@ -774,7 +774,7 @@ _read_last_decay_ran.argprom.exit:                ; preds = %44, %49, %52, %55, 
   ]
 
 91:                                               ; preds = %90
-  call fastcc void @_reset_usage.retelim()
+  call fastcc void @_reset_usage()
   store i64 %79, ptr %8, align 8
   br label %100
 
@@ -793,7 +793,7 @@ _read_last_decay_ran.argprom.exit:                ; preds = %44, %49, %52, %55, 
   br i1 %.not56, label %100, label %98
 
 98:                                               ; preds = %97
-  call fastcc void @_reset_usage.retelim()
+  call fastcc void @_reset_usage()
   store i64 %.3, ptr %8, align 8
   %99 = call fastcc i64 @_next_reset(i16 noundef zeroext %.134, i64 noundef %.3)
   br label %100
@@ -813,7 +813,7 @@ _read_last_decay_ran.argprom.exit:                ; preds = %44, %49, %52, %55, 
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
-  call fastcc void @_set_children_usage_efctv.retelim(ptr noundef %108)
+  call fastcc void @_set_children_usage_efctv(ptr noundef %108)
   call void @assoc_mgr_unlock(ptr noundef nonnull %11) #15
   br label %109
 
@@ -4596,7 +4596,7 @@ declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #3
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_reset_usage.retelim() unnamed_addr #0 {
+define internal fastcc void @_reset_usage() unnamed_addr #0 {
   %1 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %1, ptr noundef nonnull align 4 dereferenceable(28) @__const._apply_decay.locks, i64 28, i1 false)
   %.b = load i1, ptr @calc_fairshare, align 1
@@ -4850,7 +4850,7 @@ define internal fastcc i64 @_next_reset(i16 noundef zeroext %0, i64 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_children_usage_efctv.retelim(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_set_children_usage_efctv(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -4890,7 +4890,7 @@ define internal fastcc void @_set_children_usage_efctv.retelim(ptr noundef %0) u
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call fastcc void @_set_children_usage_efctv.retelim(ptr noundef %19)
+  tail call fastcc void @_set_children_usage_efctv(ptr noundef %19)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %4

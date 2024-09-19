@@ -845,7 +845,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %52 = load i32, ptr %6, align 8
   %53 = load i32, ptr %7, align 4
   %54 = getelementptr inbounds i8, ptr %0, i64 436
-  %55 = tail call fastcc i32 @make_decode_table.argelim(i32 noundef 16, ptr noundef %47, ptr noundef %54)
+  %55 = tail call fastcc i32 @make_decode_table(i32 noundef 16, ptr noundef %47, ptr noundef %54)
   %.not415 = icmp eq i32 %55, 0
   br i1 %.not415, label %56, label %lzh_read_input.exit
 
@@ -867,7 +867,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %64 = load i32, ptr %6, align 8
   %65 = load i32, ptr %7, align 4
   %66 = getelementptr inbounds i8, ptr %0, i64 1524
-  %67 = tail call fastcc i32 @make_decode_table.argelim(i32 noundef 16, ptr noundef %59, ptr noundef %66)
+  %67 = tail call fastcc i32 @make_decode_table(i32 noundef 16, ptr noundef %59, ptr noundef %66)
   %.not417 = icmp eq i32 %67, 0
   br i1 %.not417, label %68, label %lzh_read_input.exit
 
@@ -889,7 +889,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %76 = load i32, ptr %6, align 8
   %77 = load i32, ptr %7, align 4
   %78 = getelementptr inbounds i8, ptr %0, i64 2612
-  %79 = tail call fastcc i32 @make_decode_table.argelim(i32 noundef 32, ptr noundef %71, ptr noundef %78)
+  %79 = tail call fastcc i32 @make_decode_table(i32 noundef 32, ptr noundef %71, ptr noundef %78)
   %.not419 = icmp eq i32 %79, 0
   br i1 %.not419, label %80, label %lzh_read_input.exit
 
@@ -911,7 +911,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %88 = load i32, ptr %6, align 8
   %89 = load i32, ptr %7, align 4
   %90 = getelementptr inbounds i8, ptr %0, i64 3764
-  %91 = tail call fastcc i32 @make_decode_table.argelim(i32 noundef 64, ptr noundef %83, ptr noundef %90)
+  %91 = tail call fastcc i32 @make_decode_table(i32 noundef 64, ptr noundef %83, ptr noundef %90)
   %.not421 = icmp eq i32 %91, 0
   br i1 %.not421, label %92, label %lzh_read_input.exit
 
@@ -933,7 +933,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %100 = load i32, ptr %6, align 8
   %101 = load i32, ptr %7, align 4
   %102 = getelementptr inbounds i8, ptr %0, i64 5044
-  %103 = tail call fastcc i32 @make_decode_table.argelim(i32 noundef 256, ptr noundef %95, ptr noundef %102)
+  %103 = tail call fastcc i32 @make_decode_table(i32 noundef 256, ptr noundef %95, ptr noundef %102)
   %.not423 = icmp eq i32 %103, 0
   br i1 %.not423, label %.preheader493, label %lzh_read_input.exit
 
@@ -2318,7 +2318,7 @@ lzh_read_input.exit:                              ; preds = %._crit_edge, %267, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @make_decode_table.argelim(i32 noundef range(i32 16, 257) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(i32 16, 257) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #4 {
   %4 = trunc nuw nsw i32 %0 to i16
   br label %.preheader101.split.preheader
 

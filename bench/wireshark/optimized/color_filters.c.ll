@@ -390,9 +390,9 @@ define internal fastcc range(i32 0, 2) i32 @color_filters_get(ptr nocapture noun
   tail call void @g_free(ptr noundef %9) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.not.i, label %color_filters_add_tmp.argprom.exit, label %7, !llvm.loop !7
+  br i1 %exitcond.not.i, label %color_filters_add_tmp.exit, label %7, !llvm.loop !7
 
-color_filters_add_tmp.argprom.exit:               ; preds = %7
+color_filters_add_tmp.exit:                       ; preds = %7
   tail call void @g_strfreev(ptr noundef nonnull %4) #15
   tail call void @g_strfreev(ptr noundef nonnull %6) #15
   %45 = tail call ptr @get_persconffile_path(ptr noundef nonnull @.str.4, i1 noundef zeroext true) #15
@@ -400,7 +400,7 @@ color_filters_add_tmp.argprom.exit:               ; preds = %7
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %56
 
-48:                                               ; preds = %color_filters_add_tmp.argprom.exit
+48:                                               ; preds = %color_filters_add_tmp.exit
   %49 = tail call ptr @__errno_location() #17
   %50 = load i32, ptr %49, align 4
   %.not19 = icmp eq i32 %50, 2
@@ -418,7 +418,7 @@ color_filters_add_tmp.argprom.exit:               ; preds = %7
   %55 = tail call i32 @color_filters_read_globals(ptr noundef nonnull @color_filter_list, ptr noundef %0, ptr noundef %1)
   br label %66
 
-56:                                               ; preds = %color_filters_add_tmp.argprom.exit
+56:                                               ; preds = %color_filters_add_tmp.exit
   %57 = tail call fastcc i32 @read_filters_file(ptr noundef %45, ptr noundef %46, ptr noundef nonnull @color_filter_list, ptr noundef %1)
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %64, label %58

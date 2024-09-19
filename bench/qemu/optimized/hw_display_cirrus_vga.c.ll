@@ -39933,10 +39933,10 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %srcaddr.addr.024.us = phi i32 [ %add7.us, %for.cond2.for.end_crit_edge.us ], [ %srcaddr, %for.cond2.preheader.lr.ph ]
   br label %for.body4.us
 
-for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_and_dst.argprom.exit.us
-  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_and_dst.argprom.exit.us ]
-  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_and_dst.argprom.exit.us ]
-  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_and_dst.argprom.exit.us ]
+for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_and_dst.exit.us
+  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_and_dst.exit.us ]
+  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_and_dst.exit.us ]
+  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_and_dst.exit.us ]
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %1, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -39968,20 +39968,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %4 = load i8, ptr %arrayidx.i16.us, align 1
   %and24.i.us = and i8 %4, %retval.0.i.us
   %cmp.not.i.us = icmp eq i8 %and24.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_and_dst.argprom.exit.us, label %if.then.i17.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_and_dst.exit.us, label %if.then.i17.us
 
 if.then.i17.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %and24.i.us, ptr %arrayidx.i16.us, align 1
-  br label %rop_tr_8_src_and_dst.argprom.exit.us
+  br label %rop_tr_8_src_and_dst.exit.us
 
-rop_tr_8_src_and_dst.argprom.exit.us:             ; preds = %if.then.i17.us, %cirrus_src.exit.us
+rop_tr_8_src_and_dst.exit.us:                     ; preds = %if.then.i17.us, %cirrus_src.exit.us
   %dec.us = add i32 %dstaddr.addr.121.us, -1
   %dec5.us = add i32 %srcaddr.addr.119.us, -1
   %inc.us = add nuw nsw i32 %x.020.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltwidth
   br i1 %exitcond.not, label %for.cond2.for.end_crit_edge.us, label %for.body4.us, !llvm.loop !734
 
-for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_and_dst.argprom.exit.us
+for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_and_dst.exit.us
   %add6.us = add i32 %add, %dec.us
   %add7.us = add i32 %add1, %dec5.us
   %inc9.us = add nuw nsw i32 %y.025.us, 1
@@ -40016,10 +40016,10 @@ for.cond9.preheader.us:                           ; preds = %for.cond9.preheader
   %srcaddr.addr.025.us = phi i32 [ %add18.us, %for.cond9.for.end_crit_edge.us ], [ %srcaddr, %for.cond9.preheader.lr.ph ]
   br label %for.body12.us
 
-for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_and_dst.argprom.exit.us
-  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_and_dst.argprom.exit.us ]
-  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_and_dst.argprom.exit.us ]
-  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_and_dst.argprom.exit.us ]
+for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_and_dst.exit.us
+  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_and_dst.exit.us ]
+  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_and_dst.exit.us ]
+  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_and_dst.exit.us ]
   %sub.us = add i32 %dstaddr.addr.122.us, -1
   %sub13.us = add i32 %srcaddr.addr.120.us, -1
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
@@ -40055,20 +40055,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %5 = load i16, ptr %arrayidx.i17.us, align 2
   %and34.i.us = and i16 %5, %4
   %cmp.not.i.us = icmp eq i16 %and34.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_and_dst.argprom.exit.us, label %if.then.i18.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_and_dst.exit.us, label %if.then.i18.us
 
 if.then.i18.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %and34.i.us, ptr %arrayidx.i17.us, align 2
-  br label %rop_tr_16_src_and_dst.argprom.exit.us
+  br label %rop_tr_16_src_and_dst.exit.us
 
-rop_tr_16_src_and_dst.argprom.exit.us:            ; preds = %if.then.i18.us, %cirrus_src16.exit.us
+rop_tr_16_src_and_dst.exit.us:                    ; preds = %if.then.i18.us, %cirrus_src16.exit.us
   %sub14.us = add i32 %dstaddr.addr.122.us, -2
   %sub15.us = add i32 %srcaddr.addr.120.us, -2
   %add16.us = add nuw nsw i32 %x.021.us, 2
   %cmp10.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp10.us, label %for.body12.us, label %for.cond9.for.end_crit_edge.us, !llvm.loop !736
 
-for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_and_dst.argprom.exit.us
+for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_and_dst.exit.us
   %add17.us = add i32 %add, %sub14.us
   %add18.us = add i32 %add7, %sub15.us
   %inc.us = add nuw nsw i32 %y.026.us, 1
@@ -40103,10 +40103,10 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %srcaddr.addr.024.us = phi i32 [ %add7.us, %for.cond2.for.end_crit_edge.us ], [ %srcaddr, %for.cond2.preheader.lr.ph ]
   br label %for.body4.us
 
-for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_and_notdst.argprom.exit.us
-  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_and_notdst.argprom.exit.us ]
-  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_and_notdst.argprom.exit.us ]
-  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_and_notdst.argprom.exit.us ]
+for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_and_notdst.exit.us
+  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_and_notdst.exit.us ]
+  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_and_notdst.exit.us ]
+  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_and_notdst.exit.us ]
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %1, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -40139,20 +40139,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i8 %4, -1
   %and2.i.us = and i8 %retval.0.i.us, %not.i.us
   %cmp.not.i.us = icmp eq i8 %and2.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_and_notdst.argprom.exit.us, label %if.then.i17.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_and_notdst.exit.us, label %if.then.i17.us
 
 if.then.i17.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %and2.i.us, ptr %arrayidx.i16.us, align 1
-  br label %rop_tr_8_src_and_notdst.argprom.exit.us
+  br label %rop_tr_8_src_and_notdst.exit.us
 
-rop_tr_8_src_and_notdst.argprom.exit.us:          ; preds = %if.then.i17.us, %cirrus_src.exit.us
+rop_tr_8_src_and_notdst.exit.us:                  ; preds = %if.then.i17.us, %cirrus_src.exit.us
   %dec.us = add i32 %dstaddr.addr.121.us, -1
   %dec5.us = add i32 %srcaddr.addr.119.us, -1
   %inc.us = add nuw nsw i32 %x.020.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltwidth
   br i1 %exitcond.not, label %for.cond2.for.end_crit_edge.us, label %for.body4.us, !llvm.loop !738
 
-for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_and_notdst.argprom.exit.us
+for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_and_notdst.exit.us
   %add6.us = add i32 %add, %dec.us
   %add7.us = add i32 %add1, %dec5.us
   %inc9.us = add nuw nsw i32 %y.025.us, 1
@@ -40187,10 +40187,10 @@ for.cond9.preheader.us:                           ; preds = %for.cond9.preheader
   %srcaddr.addr.026.us = phi i32 [ %add18.us, %for.cond9.for.end_crit_edge.us ], [ %srcaddr, %for.cond9.preheader.lr.ph ]
   br label %for.body12.us
 
-for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_and_notdst.argprom.exit.us
-  %dstaddr.addr.123.us = phi i32 [ %dstaddr.addr.028.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_and_notdst.argprom.exit.us ]
-  %x.022.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_and_notdst.argprom.exit.us ]
-  %srcaddr.addr.121.us = phi i32 [ %srcaddr.addr.026.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_and_notdst.argprom.exit.us ]
+for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_and_notdst.exit.us
+  %dstaddr.addr.123.us = phi i32 [ %dstaddr.addr.028.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_and_notdst.exit.us ]
+  %x.022.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_and_notdst.exit.us ]
+  %srcaddr.addr.121.us = phi i32 [ %srcaddr.addr.026.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_and_notdst.exit.us ]
   %sub.us = add i32 %dstaddr.addr.123.us, -1
   %sub13.us = add i32 %srcaddr.addr.121.us, -1
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
@@ -40227,20 +40227,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i16 %5, -1
   %and3.i18.us = and i16 %4, %not.i.us
   %cmp.not.i.us = icmp eq i16 %and3.i18.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_and_notdst.argprom.exit.us, label %if.then.i19.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_and_notdst.exit.us, label %if.then.i19.us
 
 if.then.i19.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %and3.i18.us, ptr %arrayidx.i17.us, align 2
-  br label %rop_tr_16_src_and_notdst.argprom.exit.us
+  br label %rop_tr_16_src_and_notdst.exit.us
 
-rop_tr_16_src_and_notdst.argprom.exit.us:         ; preds = %if.then.i19.us, %cirrus_src16.exit.us
+rop_tr_16_src_and_notdst.exit.us:                 ; preds = %if.then.i19.us, %cirrus_src16.exit.us
   %sub14.us = add i32 %dstaddr.addr.123.us, -2
   %sub15.us = add i32 %srcaddr.addr.121.us, -2
   %add16.us = add nuw nsw i32 %x.022.us, 2
   %cmp10.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp10.us, label %for.body12.us, label %for.cond9.for.end_crit_edge.us, !llvm.loop !740
 
-for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_and_notdst.argprom.exit.us
+for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_and_notdst.exit.us
   %add17.us = add i32 %add, %sub14.us
   %add18.us = add i32 %add7, %sub15.us
   %inc.us = add nuw nsw i32 %y.027.us, 1
@@ -40271,9 +40271,9 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %y.025.us = phi i32 [ %inc9.us, %for.cond2.for.end_crit_edge.us ], [ 0, %for.cond2.preheader.lr.ph ]
   br label %cirrus_src.exit.us
 
-cirrus_src.exit.us:                               ; preds = %for.cond2.preheader.us, %rop_tr_8_notdst.argprom.exit.us
-  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_notdst.argprom.exit.us ]
-  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_notdst.argprom.exit.us ]
+cirrus_src.exit.us:                               ; preds = %for.cond2.preheader.us, %rop_tr_8_notdst.exit.us
+  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_notdst.exit.us ]
+  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_notdst.exit.us ]
   %s.val.us = load ptr, ptr %1, align 8
   %s.val13.us = load i32, ptr %2, align 16
   %and.i14.us = and i32 %s.val13.us, %dstaddr.addr.121.us
@@ -40282,19 +40282,19 @@ cirrus_src.exit.us:                               ; preds = %for.cond2.preheader
   %3 = load i8, ptr %arrayidx.i16.us, align 1
   %not.i.us = xor i8 %3, -1
   %cmp.not.i.us = icmp eq i8 %0, %not.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_8_notdst.argprom.exit.us, label %if.then.i17.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_notdst.exit.us, label %if.then.i17.us
 
 if.then.i17.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %not.i.us, ptr %arrayidx.i16.us, align 1
-  br label %rop_tr_8_notdst.argprom.exit.us
+  br label %rop_tr_8_notdst.exit.us
 
-rop_tr_8_notdst.argprom.exit.us:                  ; preds = %if.then.i17.us, %cirrus_src.exit.us
+rop_tr_8_notdst.exit.us:                          ; preds = %if.then.i17.us, %cirrus_src.exit.us
   %dec.us = add i32 %dstaddr.addr.121.us, -1
   %inc.us = add nuw nsw i32 %x.020.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltwidth
   br i1 %exitcond.not, label %for.cond2.for.end_crit_edge.us, label %cirrus_src.exit.us, !llvm.loop !742
 
-for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notdst.argprom.exit.us
+for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notdst.exit.us
   %add6.us = add i32 %add, %dec.us
   %inc9.us = add nuw nsw i32 %y.025.us, 1
   %exitcond28.not = icmp eq i32 %inc9.us, %bltheight
@@ -40324,9 +40324,9 @@ for.cond9.preheader.us:                           ; preds = %for.cond9.preheader
   %y.026.us = phi i32 [ %inc.us, %for.cond9.for.end_crit_edge.us ], [ 0, %for.cond9.preheader.lr.ph ]
   br label %for.body12.us
 
-for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_notdst.argprom.exit.us
-  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_notdst.argprom.exit.us ]
-  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_notdst.argprom.exit.us ]
+for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_notdst.exit.us
+  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_notdst.exit.us ]
+  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_notdst.exit.us ]
   %sub.us = add i32 %dstaddr.addr.122.us, -1
   %s.val.us = load ptr, ptr %1, align 8
   %s.val14.us = load i32, ptr %2, align 16
@@ -40337,19 +40337,19 @@ for.body12.us:                                    ; preds = %for.cond9.preheader
   %3 = load i16, ptr %arrayidx.i17.us, align 2
   %not.i.us = xor i16 %3, -1
   %cmp.not.i.us = icmp eq i16 %0, %not.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_16_notdst.argprom.exit.us, label %if.then.i18.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_notdst.exit.us, label %if.then.i18.us
 
 if.then.i18.us:                                   ; preds = %for.body12.us
   store i16 %not.i.us, ptr %arrayidx.i17.us, align 2
-  br label %rop_tr_16_notdst.argprom.exit.us
+  br label %rop_tr_16_notdst.exit.us
 
-rop_tr_16_notdst.argprom.exit.us:                 ; preds = %if.then.i18.us, %for.body12.us
+rop_tr_16_notdst.exit.us:                         ; preds = %if.then.i18.us, %for.body12.us
   %sub14.us = add i32 %dstaddr.addr.122.us, -2
   %add16.us = add nuw nsw i32 %x.021.us, 2
   %cmp10.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp10.us, label %for.body12.us, label %for.cond9.for.end_crit_edge.us, !llvm.loop !744
 
-for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_notdst.argprom.exit.us
+for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_notdst.exit.us
   %add17.us = add i32 %add, %sub14.us
   %inc.us = add nuw nsw i32 %y.026.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltheight
@@ -40643,10 +40643,10 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %srcaddr.addr.024.us = phi i32 [ %add7.us, %for.cond2.for.end_crit_edge.us ], [ %srcaddr, %for.cond2.preheader.lr.ph ]
   br label %for.body4.us
 
-for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_notsrc_and_dst.argprom.exit.us
-  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_notsrc_and_dst.argprom.exit.us ]
-  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_and_dst.argprom.exit.us ]
-  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_notsrc_and_dst.argprom.exit.us ]
+for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_notsrc_and_dst.exit.us
+  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_notsrc_and_dst.exit.us ]
+  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_and_dst.exit.us ]
+  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_notsrc_and_dst.exit.us ]
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %1, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -40679,20 +40679,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %4 = load i8, ptr %arrayidx.i16.us, align 1
   %and2.i.us = and i8 %4, %not.i.us
   %cmp.not.i.us = icmp eq i8 %and2.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_and_dst.argprom.exit.us, label %if.then.i17.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_and_dst.exit.us, label %if.then.i17.us
 
 if.then.i17.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %and2.i.us, ptr %arrayidx.i16.us, align 1
-  br label %rop_tr_8_notsrc_and_dst.argprom.exit.us
+  br label %rop_tr_8_notsrc_and_dst.exit.us
 
-rop_tr_8_notsrc_and_dst.argprom.exit.us:          ; preds = %if.then.i17.us, %cirrus_src.exit.us
+rop_tr_8_notsrc_and_dst.exit.us:                  ; preds = %if.then.i17.us, %cirrus_src.exit.us
   %dec.us = add i32 %dstaddr.addr.121.us, -1
   %dec5.us = add i32 %srcaddr.addr.119.us, -1
   %inc.us = add nuw nsw i32 %x.020.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltwidth
   br i1 %exitcond.not, label %for.cond2.for.end_crit_edge.us, label %for.body4.us, !llvm.loop !754
 
-for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_and_dst.argprom.exit.us
+for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_and_dst.exit.us
   %add6.us = add i32 %add, %dec.us
   %add7.us = add i32 %add1, %dec5.us
   %inc9.us = add nuw nsw i32 %y.025.us, 1
@@ -40727,10 +40727,10 @@ for.cond9.preheader.us:                           ; preds = %for.cond9.preheader
   %srcaddr.addr.026.us = phi i32 [ %add18.us, %for.cond9.for.end_crit_edge.us ], [ %srcaddr, %for.cond9.preheader.lr.ph ]
   br label %for.body12.us
 
-for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_notsrc_and_dst.argprom.exit.us
-  %dstaddr.addr.123.us = phi i32 [ %dstaddr.addr.028.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_notsrc_and_dst.argprom.exit.us ]
-  %x.022.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_notsrc_and_dst.argprom.exit.us ]
-  %srcaddr.addr.121.us = phi i32 [ %srcaddr.addr.026.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_notsrc_and_dst.argprom.exit.us ]
+for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_notsrc_and_dst.exit.us
+  %dstaddr.addr.123.us = phi i32 [ %dstaddr.addr.028.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_notsrc_and_dst.exit.us ]
+  %x.022.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_notsrc_and_dst.exit.us ]
+  %srcaddr.addr.121.us = phi i32 [ %srcaddr.addr.026.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_notsrc_and_dst.exit.us ]
   %sub.us = add i32 %dstaddr.addr.123.us, -1
   %sub13.us = add i32 %srcaddr.addr.121.us, -1
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
@@ -40767,20 +40767,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %5 = load i16, ptr %arrayidx.i17.us, align 2
   %and3.i18.us = and i16 %5, %not.i.us
   %cmp.not.i.us = icmp eq i16 %and3.i18.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_and_dst.argprom.exit.us, label %if.then.i19.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_and_dst.exit.us, label %if.then.i19.us
 
 if.then.i19.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %and3.i18.us, ptr %arrayidx.i17.us, align 2
-  br label %rop_tr_16_notsrc_and_dst.argprom.exit.us
+  br label %rop_tr_16_notsrc_and_dst.exit.us
 
-rop_tr_16_notsrc_and_dst.argprom.exit.us:         ; preds = %if.then.i19.us, %cirrus_src16.exit.us
+rop_tr_16_notsrc_and_dst.exit.us:                 ; preds = %if.then.i19.us, %cirrus_src16.exit.us
   %sub14.us = add i32 %dstaddr.addr.123.us, -2
   %sub15.us = add i32 %srcaddr.addr.121.us, -2
   %add16.us = add nuw nsw i32 %x.022.us, 2
   %cmp10.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp10.us, label %for.body12.us, label %for.cond9.for.end_crit_edge.us, !llvm.loop !756
 
-for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_notsrc_and_dst.argprom.exit.us
+for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_notsrc_and_dst.exit.us
   %add17.us = add i32 %add, %sub14.us
   %add18.us = add i32 %add7, %sub15.us
   %inc.us = add nuw nsw i32 %y.027.us, 1
@@ -40815,10 +40815,10 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %srcaddr.addr.024.us = phi i32 [ %add7.us, %for.cond2.for.end_crit_edge.us ], [ %srcaddr, %for.cond2.preheader.lr.ph ]
   br label %for.body4.us
 
-for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_xor_dst.argprom.exit.us
-  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_xor_dst.argprom.exit.us ]
-  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_xor_dst.argprom.exit.us ]
-  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_xor_dst.argprom.exit.us ]
+for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_xor_dst.exit.us
+  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_xor_dst.exit.us ]
+  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_xor_dst.exit.us ]
+  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_xor_dst.exit.us ]
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %1, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -40850,20 +40850,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %4 = load i8, ptr %arrayidx.i16.us, align 1
   %xor4.i.us = xor i8 %4, %retval.0.i.us
   %cmp.not.i.us = icmp eq i8 %xor4.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_xor_dst.argprom.exit.us, label %if.then.i17.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_xor_dst.exit.us, label %if.then.i17.us
 
 if.then.i17.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %xor4.i.us, ptr %arrayidx.i16.us, align 1
-  br label %rop_tr_8_src_xor_dst.argprom.exit.us
+  br label %rop_tr_8_src_xor_dst.exit.us
 
-rop_tr_8_src_xor_dst.argprom.exit.us:             ; preds = %if.then.i17.us, %cirrus_src.exit.us
+rop_tr_8_src_xor_dst.exit.us:                     ; preds = %if.then.i17.us, %cirrus_src.exit.us
   %dec.us = add i32 %dstaddr.addr.121.us, -1
   %dec5.us = add i32 %srcaddr.addr.119.us, -1
   %inc.us = add nuw nsw i32 %x.020.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltwidth
   br i1 %exitcond.not, label %for.cond2.for.end_crit_edge.us, label %for.body4.us, !llvm.loop !758
 
-for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_xor_dst.argprom.exit.us
+for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_xor_dst.exit.us
   %add6.us = add i32 %add, %dec.us
   %add7.us = add i32 %add1, %dec5.us
   %inc9.us = add nuw nsw i32 %y.025.us, 1
@@ -40898,10 +40898,10 @@ for.cond9.preheader.us:                           ; preds = %for.cond9.preheader
   %srcaddr.addr.025.us = phi i32 [ %add18.us, %for.cond9.for.end_crit_edge.us ], [ %srcaddr, %for.cond9.preheader.lr.ph ]
   br label %for.body12.us
 
-for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_xor_dst.argprom.exit.us
-  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_xor_dst.argprom.exit.us ]
-  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_xor_dst.argprom.exit.us ]
-  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_xor_dst.argprom.exit.us ]
+for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_xor_dst.exit.us
+  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_xor_dst.exit.us ]
+  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_xor_dst.exit.us ]
+  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_xor_dst.exit.us ]
   %sub.us = add i32 %dstaddr.addr.122.us, -1
   %sub13.us = add i32 %srcaddr.addr.120.us, -1
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
@@ -40937,20 +40937,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %5 = load i16, ptr %arrayidx.i17.us, align 2
   %xor4.i.us = xor i16 %5, %4
   %cmp.not.i.us = icmp eq i16 %xor4.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_xor_dst.argprom.exit.us, label %if.then.i18.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_xor_dst.exit.us, label %if.then.i18.us
 
 if.then.i18.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %xor4.i.us, ptr %arrayidx.i17.us, align 2
-  br label %rop_tr_16_src_xor_dst.argprom.exit.us
+  br label %rop_tr_16_src_xor_dst.exit.us
 
-rop_tr_16_src_xor_dst.argprom.exit.us:            ; preds = %if.then.i18.us, %cirrus_src16.exit.us
+rop_tr_16_src_xor_dst.exit.us:                    ; preds = %if.then.i18.us, %cirrus_src16.exit.us
   %sub14.us = add i32 %dstaddr.addr.122.us, -2
   %sub15.us = add i32 %srcaddr.addr.120.us, -2
   %add16.us = add nuw nsw i32 %x.021.us, 2
   %cmp10.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp10.us, label %for.body12.us, label %for.cond9.for.end_crit_edge.us, !llvm.loop !760
 
-for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_xor_dst.argprom.exit.us
+for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_xor_dst.exit.us
   %add17.us = add i32 %add, %sub14.us
   %add18.us = add i32 %add7, %sub15.us
   %inc.us = add nuw nsw i32 %y.026.us, 1
@@ -40985,10 +40985,10 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %srcaddr.addr.024.us = phi i32 [ %add7.us, %for.cond2.for.end_crit_edge.us ], [ %srcaddr, %for.cond2.preheader.lr.ph ]
   br label %for.body4.us
 
-for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_or_dst.argprom.exit.us
-  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_or_dst.argprom.exit.us ]
-  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_or_dst.argprom.exit.us ]
-  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_or_dst.argprom.exit.us ]
+for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_or_dst.exit.us
+  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_or_dst.exit.us ]
+  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_or_dst.exit.us ]
+  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_or_dst.exit.us ]
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %1, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -41020,20 +41020,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %4 = load i8, ptr %arrayidx.i16.us, align 1
   %or4.i.us = or i8 %4, %retval.0.i.us
   %cmp.not.i.us = icmp eq i8 %or4.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_or_dst.argprom.exit.us, label %if.then.i17.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_or_dst.exit.us, label %if.then.i17.us
 
 if.then.i17.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %or4.i.us, ptr %arrayidx.i16.us, align 1
-  br label %rop_tr_8_src_or_dst.argprom.exit.us
+  br label %rop_tr_8_src_or_dst.exit.us
 
-rop_tr_8_src_or_dst.argprom.exit.us:              ; preds = %if.then.i17.us, %cirrus_src.exit.us
+rop_tr_8_src_or_dst.exit.us:                      ; preds = %if.then.i17.us, %cirrus_src.exit.us
   %dec.us = add i32 %dstaddr.addr.121.us, -1
   %dec5.us = add i32 %srcaddr.addr.119.us, -1
   %inc.us = add nuw nsw i32 %x.020.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltwidth
   br i1 %exitcond.not, label %for.cond2.for.end_crit_edge.us, label %for.body4.us, !llvm.loop !762
 
-for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_or_dst.argprom.exit.us
+for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_or_dst.exit.us
   %add6.us = add i32 %add, %dec.us
   %add7.us = add i32 %add1, %dec5.us
   %inc9.us = add nuw nsw i32 %y.025.us, 1
@@ -41068,10 +41068,10 @@ for.cond9.preheader.us:                           ; preds = %for.cond9.preheader
   %srcaddr.addr.025.us = phi i32 [ %add18.us, %for.cond9.for.end_crit_edge.us ], [ %srcaddr, %for.cond9.preheader.lr.ph ]
   br label %for.body12.us
 
-for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_or_dst.argprom.exit.us
-  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_or_dst.argprom.exit.us ]
-  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_or_dst.argprom.exit.us ]
-  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_or_dst.argprom.exit.us ]
+for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_or_dst.exit.us
+  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_or_dst.exit.us ]
+  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_or_dst.exit.us ]
+  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_or_dst.exit.us ]
   %sub.us = add i32 %dstaddr.addr.122.us, -1
   %sub13.us = add i32 %srcaddr.addr.120.us, -1
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
@@ -41107,20 +41107,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %5 = load i16, ptr %arrayidx.i17.us, align 2
   %or4.i.us = or i16 %5, %4
   %cmp.not.i.us = icmp eq i16 %or4.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_or_dst.argprom.exit.us, label %if.then.i18.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_or_dst.exit.us, label %if.then.i18.us
 
 if.then.i18.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %or4.i.us, ptr %arrayidx.i17.us, align 2
-  br label %rop_tr_16_src_or_dst.argprom.exit.us
+  br label %rop_tr_16_src_or_dst.exit.us
 
-rop_tr_16_src_or_dst.argprom.exit.us:             ; preds = %if.then.i18.us, %cirrus_src16.exit.us
+rop_tr_16_src_or_dst.exit.us:                     ; preds = %if.then.i18.us, %cirrus_src16.exit.us
   %sub14.us = add i32 %dstaddr.addr.122.us, -2
   %sub15.us = add i32 %srcaddr.addr.120.us, -2
   %add16.us = add nuw nsw i32 %x.021.us, 2
   %cmp10.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp10.us, label %for.body12.us, label %for.cond9.for.end_crit_edge.us, !llvm.loop !764
 
-for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_or_dst.argprom.exit.us
+for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_or_dst.exit.us
   %add17.us = add i32 %add, %sub14.us
   %add18.us = add i32 %add7, %sub15.us
   %inc.us = add nuw nsw i32 %y.026.us, 1
@@ -41155,10 +41155,10 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %srcaddr.addr.024.us = phi i32 [ %add7.us, %for.cond2.for.end_crit_edge.us ], [ %srcaddr, %for.cond2.preheader.lr.ph ]
   br label %for.body4.us
 
-for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_notsrc_or_notdst.argprom.exit.us
-  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_notsrc_or_notdst.argprom.exit.us ]
-  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_or_notdst.argprom.exit.us ]
-  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_notsrc_or_notdst.argprom.exit.us ]
+for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_notsrc_or_notdst.exit.us
+  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_notsrc_or_notdst.exit.us ]
+  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_or_notdst.exit.us ]
+  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_notsrc_or_notdst.exit.us ]
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %1, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -41191,20 +41191,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %or.demorgan4.i.us = and i8 %4, %retval.0.i.us
   %or.i.us = xor i8 %or.demorgan4.i.us, -1
   %cmp.not.i.us = icmp eq i8 %0, %or.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_or_notdst.argprom.exit.us, label %if.then.i17.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_or_notdst.exit.us, label %if.then.i17.us
 
 if.then.i17.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %or.i.us, ptr %arrayidx.i16.us, align 1
-  br label %rop_tr_8_notsrc_or_notdst.argprom.exit.us
+  br label %rop_tr_8_notsrc_or_notdst.exit.us
 
-rop_tr_8_notsrc_or_notdst.argprom.exit.us:        ; preds = %if.then.i17.us, %cirrus_src.exit.us
+rop_tr_8_notsrc_or_notdst.exit.us:                ; preds = %if.then.i17.us, %cirrus_src.exit.us
   %dec.us = add i32 %dstaddr.addr.121.us, -1
   %dec5.us = add i32 %srcaddr.addr.119.us, -1
   %inc.us = add nuw nsw i32 %x.020.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltwidth
   br i1 %exitcond.not, label %for.cond2.for.end_crit_edge.us, label %for.body4.us, !llvm.loop !766
 
-for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_or_notdst.argprom.exit.us
+for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_or_notdst.exit.us
   %add6.us = add i32 %add, %dec.us
   %add7.us = add i32 %add1, %dec5.us
   %inc9.us = add nuw nsw i32 %y.025.us, 1
@@ -41239,10 +41239,10 @@ for.cond9.preheader.us:                           ; preds = %for.cond9.preheader
   %srcaddr.addr.025.us = phi i32 [ %add18.us, %for.cond9.for.end_crit_edge.us ], [ %srcaddr, %for.cond9.preheader.lr.ph ]
   br label %for.body12.us
 
-for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_notsrc_or_notdst.argprom.exit.us
-  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_notsrc_or_notdst.argprom.exit.us ]
-  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_notsrc_or_notdst.argprom.exit.us ]
-  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_notsrc_or_notdst.argprom.exit.us ]
+for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_notsrc_or_notdst.exit.us
+  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_notsrc_or_notdst.exit.us ]
+  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_notsrc_or_notdst.exit.us ]
+  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_notsrc_or_notdst.exit.us ]
   %sub.us = add i32 %dstaddr.addr.122.us, -1
   %sub13.us = add i32 %srcaddr.addr.120.us, -1
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
@@ -41279,20 +41279,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %or.demorgan4.i.us = and i16 %5, %4
   %or.i.us = xor i16 %or.demorgan4.i.us, -1
   %cmp.not.i.us = icmp eq i16 %0, %or.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_or_notdst.argprom.exit.us, label %if.then.i18.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_or_notdst.exit.us, label %if.then.i18.us
 
 if.then.i18.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %or.i.us, ptr %arrayidx.i17.us, align 2
-  br label %rop_tr_16_notsrc_or_notdst.argprom.exit.us
+  br label %rop_tr_16_notsrc_or_notdst.exit.us
 
-rop_tr_16_notsrc_or_notdst.argprom.exit.us:       ; preds = %if.then.i18.us, %cirrus_src16.exit.us
+rop_tr_16_notsrc_or_notdst.exit.us:               ; preds = %if.then.i18.us, %cirrus_src16.exit.us
   %sub14.us = add i32 %dstaddr.addr.122.us, -2
   %sub15.us = add i32 %srcaddr.addr.120.us, -2
   %add16.us = add nuw nsw i32 %x.021.us, 2
   %cmp10.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp10.us, label %for.body12.us, label %for.cond9.for.end_crit_edge.us, !llvm.loop !768
 
-for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_notsrc_or_notdst.argprom.exit.us
+for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_notsrc_or_notdst.exit.us
   %add17.us = add i32 %add, %sub14.us
   %add18.us = add i32 %add7, %sub15.us
   %inc.us = add nuw nsw i32 %y.026.us, 1
@@ -41327,10 +41327,10 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %srcaddr.addr.024.us = phi i32 [ %add7.us, %for.cond2.for.end_crit_edge.us ], [ %srcaddr, %for.cond2.preheader.lr.ph ]
   br label %for.body4.us
 
-for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_notxor_dst.argprom.exit.us
-  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_notxor_dst.argprom.exit.us ]
-  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_notxor_dst.argprom.exit.us ]
-  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_notxor_dst.argprom.exit.us ]
+for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_notxor_dst.exit.us
+  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_notxor_dst.exit.us ]
+  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_notxor_dst.exit.us ]
+  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_notxor_dst.exit.us ]
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %1, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -41363,20 +41363,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %5 = xor i8 %retval.0.i.us, %4
   %not.i.us = xor i8 %5, -1
   %cmp.not.i.us = icmp eq i8 %0, %not.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_notxor_dst.argprom.exit.us, label %if.then.i17.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_notxor_dst.exit.us, label %if.then.i17.us
 
 if.then.i17.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %not.i.us, ptr %arrayidx.i16.us, align 1
-  br label %rop_tr_8_src_notxor_dst.argprom.exit.us
+  br label %rop_tr_8_src_notxor_dst.exit.us
 
-rop_tr_8_src_notxor_dst.argprom.exit.us:          ; preds = %if.then.i17.us, %cirrus_src.exit.us
+rop_tr_8_src_notxor_dst.exit.us:                  ; preds = %if.then.i17.us, %cirrus_src.exit.us
   %dec.us = add i32 %dstaddr.addr.121.us, -1
   %dec5.us = add i32 %srcaddr.addr.119.us, -1
   %inc.us = add nuw nsw i32 %x.020.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltwidth
   br i1 %exitcond.not, label %for.cond2.for.end_crit_edge.us, label %for.body4.us, !llvm.loop !770
 
-for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_notxor_dst.argprom.exit.us
+for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_notxor_dst.exit.us
   %add6.us = add i32 %add, %dec.us
   %add7.us = add i32 %add1, %dec5.us
   %inc9.us = add nuw nsw i32 %y.025.us, 1
@@ -41411,10 +41411,10 @@ for.cond9.preheader.us:                           ; preds = %for.cond9.preheader
   %srcaddr.addr.025.us = phi i32 [ %add18.us, %for.cond9.for.end_crit_edge.us ], [ %srcaddr, %for.cond9.preheader.lr.ph ]
   br label %for.body12.us
 
-for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_notxor_dst.argprom.exit.us
-  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_notxor_dst.argprom.exit.us ]
-  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_notxor_dst.argprom.exit.us ]
-  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_notxor_dst.argprom.exit.us ]
+for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_notxor_dst.exit.us
+  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_notxor_dst.exit.us ]
+  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_notxor_dst.exit.us ]
+  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_notxor_dst.exit.us ]
   %sub.us = add i32 %dstaddr.addr.122.us, -1
   %sub13.us = add i32 %srcaddr.addr.120.us, -1
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
@@ -41451,20 +41451,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %6 = xor i16 %4, %5
   %not.i.us = xor i16 %6, -1
   %cmp.not.i.us = icmp eq i16 %0, %not.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_notxor_dst.argprom.exit.us, label %if.then.i18.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_notxor_dst.exit.us, label %if.then.i18.us
 
 if.then.i18.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %not.i.us, ptr %arrayidx.i17.us, align 2
-  br label %rop_tr_16_src_notxor_dst.argprom.exit.us
+  br label %rop_tr_16_src_notxor_dst.exit.us
 
-rop_tr_16_src_notxor_dst.argprom.exit.us:         ; preds = %if.then.i18.us, %cirrus_src16.exit.us
+rop_tr_16_src_notxor_dst.exit.us:                 ; preds = %if.then.i18.us, %cirrus_src16.exit.us
   %sub14.us = add i32 %dstaddr.addr.122.us, -2
   %sub15.us = add i32 %srcaddr.addr.120.us, -2
   %add16.us = add nuw nsw i32 %x.021.us, 2
   %cmp10.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp10.us, label %for.body12.us, label %for.cond9.for.end_crit_edge.us, !llvm.loop !772
 
-for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_notxor_dst.argprom.exit.us
+for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_notxor_dst.exit.us
   %add17.us = add i32 %add, %sub14.us
   %add18.us = add i32 %add7, %sub15.us
   %inc.us = add nuw nsw i32 %y.026.us, 1
@@ -41499,10 +41499,10 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %srcaddr.addr.024.us = phi i32 [ %add7.us, %for.cond2.for.end_crit_edge.us ], [ %srcaddr, %for.cond2.preheader.lr.ph ]
   br label %for.body4.us
 
-for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_or_notdst.argprom.exit.us
-  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_or_notdst.argprom.exit.us ]
-  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_or_notdst.argprom.exit.us ]
-  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_or_notdst.argprom.exit.us ]
+for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_src_or_notdst.exit.us
+  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_src_or_notdst.exit.us ]
+  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_src_or_notdst.exit.us ]
+  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_src_or_notdst.exit.us ]
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %1, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -41535,20 +41535,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i8 %4, -1
   %or.i.us = or i8 %retval.0.i.us, %not.i.us
   %cmp.not.i.us = icmp eq i8 %or.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_or_notdst.argprom.exit.us, label %if.then.i17.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_or_notdst.exit.us, label %if.then.i17.us
 
 if.then.i17.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %or.i.us, ptr %arrayidx.i16.us, align 1
-  br label %rop_tr_8_src_or_notdst.argprom.exit.us
+  br label %rop_tr_8_src_or_notdst.exit.us
 
-rop_tr_8_src_or_notdst.argprom.exit.us:           ; preds = %if.then.i17.us, %cirrus_src.exit.us
+rop_tr_8_src_or_notdst.exit.us:                   ; preds = %if.then.i17.us, %cirrus_src.exit.us
   %dec.us = add i32 %dstaddr.addr.121.us, -1
   %dec5.us = add i32 %srcaddr.addr.119.us, -1
   %inc.us = add nuw nsw i32 %x.020.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltwidth
   br i1 %exitcond.not, label %for.cond2.for.end_crit_edge.us, label %for.body4.us, !llvm.loop !774
 
-for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_or_notdst.argprom.exit.us
+for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_or_notdst.exit.us
   %add6.us = add i32 %add, %dec.us
   %add7.us = add i32 %add1, %dec5.us
   %inc9.us = add nuw nsw i32 %y.025.us, 1
@@ -41583,10 +41583,10 @@ for.cond9.preheader.us:                           ; preds = %for.cond9.preheader
   %srcaddr.addr.025.us = phi i32 [ %add18.us, %for.cond9.for.end_crit_edge.us ], [ %srcaddr, %for.cond9.preheader.lr.ph ]
   br label %for.body12.us
 
-for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_or_notdst.argprom.exit.us
-  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_or_notdst.argprom.exit.us ]
-  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_or_notdst.argprom.exit.us ]
-  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_or_notdst.argprom.exit.us ]
+for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_src_or_notdst.exit.us
+  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_src_or_notdst.exit.us ]
+  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_src_or_notdst.exit.us ]
+  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_src_or_notdst.exit.us ]
   %sub.us = add i32 %dstaddr.addr.122.us, -1
   %sub13.us = add i32 %srcaddr.addr.120.us, -1
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
@@ -41623,20 +41623,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i16 %5, -1
   %or.i.us = or i16 %4, %not.i.us
   %cmp.not.i.us = icmp eq i16 %or.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_or_notdst.argprom.exit.us, label %if.then.i18.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_or_notdst.exit.us, label %if.then.i18.us
 
 if.then.i18.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %or.i.us, ptr %arrayidx.i17.us, align 2
-  br label %rop_tr_16_src_or_notdst.argprom.exit.us
+  br label %rop_tr_16_src_or_notdst.exit.us
 
-rop_tr_16_src_or_notdst.argprom.exit.us:          ; preds = %if.then.i18.us, %cirrus_src16.exit.us
+rop_tr_16_src_or_notdst.exit.us:                  ; preds = %if.then.i18.us, %cirrus_src16.exit.us
   %sub14.us = add i32 %dstaddr.addr.122.us, -2
   %sub15.us = add i32 %srcaddr.addr.120.us, -2
   %add16.us = add nuw nsw i32 %x.021.us, 2
   %cmp10.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp10.us, label %for.body12.us, label %for.cond9.for.end_crit_edge.us, !llvm.loop !776
 
-for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_or_notdst.argprom.exit.us
+for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_src_or_notdst.exit.us
   %add17.us = add i32 %add, %sub14.us
   %add18.us = add i32 %add7, %sub15.us
   %inc.us = add nuw nsw i32 %y.026.us, 1
@@ -41835,10 +41835,10 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %srcaddr.addr.024.us = phi i32 [ %add7.us, %for.cond2.for.end_crit_edge.us ], [ %srcaddr, %for.cond2.preheader.lr.ph ]
   br label %for.body4.us
 
-for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_notsrc_or_dst.argprom.exit.us
-  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_notsrc_or_dst.argprom.exit.us ]
-  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_or_dst.argprom.exit.us ]
-  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_notsrc_or_dst.argprom.exit.us ]
+for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_notsrc_or_dst.exit.us
+  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_notsrc_or_dst.exit.us ]
+  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_or_dst.exit.us ]
+  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_notsrc_or_dst.exit.us ]
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %1, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -41871,20 +41871,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %4 = load i8, ptr %arrayidx.i16.us, align 1
   %or.i.us = or i8 %4, %not.i.us
   %cmp.not.i.us = icmp eq i8 %or.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_or_dst.argprom.exit.us, label %if.then.i17.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_or_dst.exit.us, label %if.then.i17.us
 
 if.then.i17.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %or.i.us, ptr %arrayidx.i16.us, align 1
-  br label %rop_tr_8_notsrc_or_dst.argprom.exit.us
+  br label %rop_tr_8_notsrc_or_dst.exit.us
 
-rop_tr_8_notsrc_or_dst.argprom.exit.us:           ; preds = %if.then.i17.us, %cirrus_src.exit.us
+rop_tr_8_notsrc_or_dst.exit.us:                   ; preds = %if.then.i17.us, %cirrus_src.exit.us
   %dec.us = add i32 %dstaddr.addr.121.us, -1
   %dec5.us = add i32 %srcaddr.addr.119.us, -1
   %inc.us = add nuw nsw i32 %x.020.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltwidth
   br i1 %exitcond.not, label %for.cond2.for.end_crit_edge.us, label %for.body4.us, !llvm.loop !782
 
-for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_or_dst.argprom.exit.us
+for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_or_dst.exit.us
   %add6.us = add i32 %add, %dec.us
   %add7.us = add i32 %add1, %dec5.us
   %inc9.us = add nuw nsw i32 %y.025.us, 1
@@ -41919,10 +41919,10 @@ for.cond9.preheader.us:                           ; preds = %for.cond9.preheader
   %srcaddr.addr.025.us = phi i32 [ %add18.us, %for.cond9.for.end_crit_edge.us ], [ %srcaddr, %for.cond9.preheader.lr.ph ]
   br label %for.body12.us
 
-for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_notsrc_or_dst.argprom.exit.us
-  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_notsrc_or_dst.argprom.exit.us ]
-  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_notsrc_or_dst.argprom.exit.us ]
-  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_notsrc_or_dst.argprom.exit.us ]
+for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_notsrc_or_dst.exit.us
+  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_notsrc_or_dst.exit.us ]
+  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_notsrc_or_dst.exit.us ]
+  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_notsrc_or_dst.exit.us ]
   %sub.us = add i32 %dstaddr.addr.122.us, -1
   %sub13.us = add i32 %srcaddr.addr.120.us, -1
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
@@ -41959,20 +41959,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %5 = load i16, ptr %arrayidx.i17.us, align 2
   %or.i.us = or i16 %5, %not.i.us
   %cmp.not.i.us = icmp eq i16 %or.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_or_dst.argprom.exit.us, label %if.then.i18.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_or_dst.exit.us, label %if.then.i18.us
 
 if.then.i18.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %or.i.us, ptr %arrayidx.i17.us, align 2
-  br label %rop_tr_16_notsrc_or_dst.argprom.exit.us
+  br label %rop_tr_16_notsrc_or_dst.exit.us
 
-rop_tr_16_notsrc_or_dst.argprom.exit.us:          ; preds = %if.then.i18.us, %cirrus_src16.exit.us
+rop_tr_16_notsrc_or_dst.exit.us:                  ; preds = %if.then.i18.us, %cirrus_src16.exit.us
   %sub14.us = add i32 %dstaddr.addr.122.us, -2
   %sub15.us = add i32 %srcaddr.addr.120.us, -2
   %add16.us = add nuw nsw i32 %x.021.us, 2
   %cmp10.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp10.us, label %for.body12.us, label %for.cond9.for.end_crit_edge.us, !llvm.loop !784
 
-for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_notsrc_or_dst.argprom.exit.us
+for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_notsrc_or_dst.exit.us
   %add17.us = add i32 %add, %sub14.us
   %add18.us = add i32 %add7, %sub15.us
   %inc.us = add nuw nsw i32 %y.026.us, 1
@@ -42007,10 +42007,10 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
   %srcaddr.addr.024.us = phi i32 [ %add7.us, %for.cond2.for.end_crit_edge.us ], [ %srcaddr, %for.cond2.preheader.lr.ph ]
   br label %for.body4.us
 
-for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_notsrc_and_notdst.argprom.exit.us
-  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_notsrc_and_notdst.argprom.exit.us ]
-  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_and_notdst.argprom.exit.us ]
-  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_notsrc_and_notdst.argprom.exit.us ]
+for.body4.us:                                     ; preds = %for.cond2.preheader.us, %rop_tr_8_notsrc_and_notdst.exit.us
+  %dstaddr.addr.121.us = phi i32 [ %dstaddr.addr.026.us, %for.cond2.preheader.us ], [ %dec.us, %rop_tr_8_notsrc_and_notdst.exit.us ]
+  %x.020.us = phi i32 [ 0, %for.cond2.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_and_notdst.exit.us ]
+  %srcaddr.addr.119.us = phi i32 [ %srcaddr.addr.024.us, %for.cond2.preheader.us ], [ %dec5.us, %rop_tr_8_notsrc_and_notdst.exit.us ]
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %1, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -42043,20 +42043,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %and3.demorgan4.i.us = or i8 %4, %retval.0.i.us
   %and3.i.us = xor i8 %and3.demorgan4.i.us, -1
   %cmp.not.i.us = icmp eq i8 %0, %and3.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_and_notdst.argprom.exit.us, label %if.then.i17.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_and_notdst.exit.us, label %if.then.i17.us
 
 if.then.i17.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %and3.i.us, ptr %arrayidx.i16.us, align 1
-  br label %rop_tr_8_notsrc_and_notdst.argprom.exit.us
+  br label %rop_tr_8_notsrc_and_notdst.exit.us
 
-rop_tr_8_notsrc_and_notdst.argprom.exit.us:       ; preds = %if.then.i17.us, %cirrus_src.exit.us
+rop_tr_8_notsrc_and_notdst.exit.us:               ; preds = %if.then.i17.us, %cirrus_src.exit.us
   %dec.us = add i32 %dstaddr.addr.121.us, -1
   %dec5.us = add i32 %srcaddr.addr.119.us, -1
   %inc.us = add nuw nsw i32 %x.020.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltwidth
   br i1 %exitcond.not, label %for.cond2.for.end_crit_edge.us, label %for.body4.us, !llvm.loop !786
 
-for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_and_notdst.argprom.exit.us
+for.cond2.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_and_notdst.exit.us
   %add6.us = add i32 %add, %dec.us
   %add7.us = add i32 %add1, %dec5.us
   %inc9.us = add nuw nsw i32 %y.025.us, 1
@@ -42091,10 +42091,10 @@ for.cond9.preheader.us:                           ; preds = %for.cond9.preheader
   %srcaddr.addr.025.us = phi i32 [ %add18.us, %for.cond9.for.end_crit_edge.us ], [ %srcaddr, %for.cond9.preheader.lr.ph ]
   br label %for.body12.us
 
-for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_notsrc_and_notdst.argprom.exit.us
-  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_notsrc_and_notdst.argprom.exit.us ]
-  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_notsrc_and_notdst.argprom.exit.us ]
-  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_notsrc_and_notdst.argprom.exit.us ]
+for.body12.us:                                    ; preds = %for.cond9.preheader.us, %rop_tr_16_notsrc_and_notdst.exit.us
+  %dstaddr.addr.122.us = phi i32 [ %dstaddr.addr.027.us, %for.cond9.preheader.us ], [ %sub14.us, %rop_tr_16_notsrc_and_notdst.exit.us ]
+  %x.021.us = phi i32 [ 0, %for.cond9.preheader.us ], [ %add16.us, %rop_tr_16_notsrc_and_notdst.exit.us ]
+  %srcaddr.addr.120.us = phi i32 [ %srcaddr.addr.025.us, %for.cond9.preheader.us ], [ %sub15.us, %rop_tr_16_notsrc_and_notdst.exit.us ]
   %sub.us = add i32 %dstaddr.addr.122.us, -1
   %sub13.us = add i32 %srcaddr.addr.120.us, -1
   %1 = load i32, ptr %cirrus_srccounter.i, align 16
@@ -42131,20 +42131,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %and4.demorgan4.i.us = or i16 %5, %4
   %and4.i.us = xor i16 %and4.demorgan4.i.us, -1
   %cmp.not.i.us = icmp eq i16 %0, %and4.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_and_notdst.argprom.exit.us, label %if.then.i18.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_and_notdst.exit.us, label %if.then.i18.us
 
 if.then.i18.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %and4.i.us, ptr %arrayidx.i17.us, align 2
-  br label %rop_tr_16_notsrc_and_notdst.argprom.exit.us
+  br label %rop_tr_16_notsrc_and_notdst.exit.us
 
-rop_tr_16_notsrc_and_notdst.argprom.exit.us:      ; preds = %if.then.i18.us, %cirrus_src16.exit.us
+rop_tr_16_notsrc_and_notdst.exit.us:              ; preds = %if.then.i18.us, %cirrus_src16.exit.us
   %sub14.us = add i32 %dstaddr.addr.122.us, -2
   %sub15.us = add i32 %srcaddr.addr.120.us, -2
   %add16.us = add nuw nsw i32 %x.021.us, 2
   %cmp10.us = icmp slt i32 %add16.us, %bltwidth
   br i1 %cmp10.us, label %for.body12.us, label %for.cond9.for.end_crit_edge.us, !llvm.loop !788
 
-for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_notsrc_and_notdst.argprom.exit.us
+for.cond9.for.end_crit_edge.us:                   ; preds = %rop_tr_16_notsrc_and_notdst.exit.us
   %add17.us = add i32 %add, %sub14.us
   %add18.us = add i32 %add7, %sub15.us
   %inc.us = add nuw nsw i32 %y.026.us, 1
@@ -42293,10 +42293,10 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %srcaddr.addr.027.us = phi i32 [ %add10.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.cond5.preheader.lr.ph ]
   br label %for.body7.us
 
-for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_and_dst.argprom.exit.us
-  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_and_dst.argprom.exit.us ]
-  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_and_dst.argprom.exit.us ]
-  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_and_dst.argprom.exit.us ]
+for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_and_dst.exit.us
+  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_and_dst.exit.us ]
+  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_and_dst.exit.us ]
+  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_and_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -42328,20 +42328,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %5 = load i8, ptr %arrayidx.i19.us, align 1
   %and24.i.us = and i8 %5, %retval.0.i.us
   %cmp.not.i.us = icmp eq i8 %and24.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_and_dst.argprom.exit.us, label %if.then.i20.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_and_dst.exit.us, label %if.then.i20.us
 
 if.then.i20.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %and24.i.us, ptr %arrayidx.i19.us, align 1
-  br label %rop_tr_8_src_and_dst.argprom.exit.us
+  br label %rop_tr_8_src_and_dst.exit.us
 
-rop_tr_8_src_and_dst.argprom.exit.us:             ; preds = %if.then.i20.us, %cirrus_src.exit.us
+rop_tr_8_src_and_dst.exit.us:                     ; preds = %if.then.i20.us, %cirrus_src.exit.us
   %inc.us = add i32 %dstaddr.addr.124.us, 1
   %inc8.us = add i32 %srcaddr.addr.122.us, 1
   %inc9.us = add nuw nsw i32 %x.023.us, 1
   %exitcond.not = icmp eq i32 %inc9.us, %bltwidth
   br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us, !llvm.loop !794
 
-for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_and_dst.argprom.exit.us
+for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_and_dst.exit.us
   %add.us = add i32 %inc.us, %sub
   %add10.us = add i32 %inc8.us, %sub1
   %inc12.us = add nuw nsw i32 %y.028.us, 1
@@ -42381,10 +42381,10 @@ for.cond15.preheader.us:                          ; preds = %for.cond15.preheade
   %srcaddr.addr.028.us = phi i32 [ %add22.us, %for.cond15.for.end_crit_edge.us ], [ %srcaddr, %for.cond15.preheader.lr.ph ]
   br label %for.body18.us
 
-for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_and_dst.argprom.exit.us
-  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_and_dst.argprom.exit.us ]
-  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_and_dst.argprom.exit.us ]
-  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_and_dst.argprom.exit.us ]
+for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_and_dst.exit.us
+  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_and_dst.exit.us ]
+  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_and_dst.exit.us ]
+  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_and_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -42418,20 +42418,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %6 = load i16, ptr %arrayidx.i20.us, align 2
   %and34.i.us = and i16 %6, %5
   %cmp.not.i.us = icmp eq i16 %and34.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_and_dst.argprom.exit.us, label %if.then.i21.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_and_dst.exit.us, label %if.then.i21.us
 
 if.then.i21.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %and34.i.us, ptr %arrayidx.i20.us, align 2
-  br label %rop_tr_16_src_and_dst.argprom.exit.us
+  br label %rop_tr_16_src_and_dst.exit.us
 
-rop_tr_16_src_and_dst.argprom.exit.us:            ; preds = %if.then.i21.us, %cirrus_src16.exit.us
+rop_tr_16_src_and_dst.exit.us:                    ; preds = %if.then.i21.us, %cirrus_src16.exit.us
   %add.us = add i32 %dstaddr.addr.125.us, 2
   %add19.us = add i32 %srcaddr.addr.123.us, 2
   %add20.us = add nuw nsw i32 %x.024.us, 2
   %cmp16.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp16.us, label %for.body18.us, label %for.cond15.for.end_crit_edge.us, !llvm.loop !796
 
-for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_and_dst.argprom.exit.us
+for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_and_dst.exit.us
   %add21.us = add i32 %add.us, %sub
   %add22.us = add i32 %add19.us, %sub7
   %inc.us = add nuw nsw i32 %y.029.us, 1
@@ -42471,10 +42471,10 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %srcaddr.addr.027.us = phi i32 [ %add10.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.cond5.preheader.lr.ph ]
   br label %for.body7.us
 
-for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_and_notdst.argprom.exit.us
-  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_and_notdst.argprom.exit.us ]
-  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_and_notdst.argprom.exit.us ]
-  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_and_notdst.argprom.exit.us ]
+for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_and_notdst.exit.us
+  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_and_notdst.exit.us ]
+  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_and_notdst.exit.us ]
+  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_and_notdst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -42507,20 +42507,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i8 %5, -1
   %and2.i.us = and i8 %retval.0.i.us, %not.i.us
   %cmp.not.i.us = icmp eq i8 %and2.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_and_notdst.argprom.exit.us, label %if.then.i20.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_and_notdst.exit.us, label %if.then.i20.us
 
 if.then.i20.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %and2.i.us, ptr %arrayidx.i19.us, align 1
-  br label %rop_tr_8_src_and_notdst.argprom.exit.us
+  br label %rop_tr_8_src_and_notdst.exit.us
 
-rop_tr_8_src_and_notdst.argprom.exit.us:          ; preds = %if.then.i20.us, %cirrus_src.exit.us
+rop_tr_8_src_and_notdst.exit.us:                  ; preds = %if.then.i20.us, %cirrus_src.exit.us
   %inc.us = add i32 %dstaddr.addr.124.us, 1
   %inc8.us = add i32 %srcaddr.addr.122.us, 1
   %inc9.us = add nuw nsw i32 %x.023.us, 1
   %exitcond.not = icmp eq i32 %inc9.us, %bltwidth
   br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us, !llvm.loop !798
 
-for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_and_notdst.argprom.exit.us
+for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_and_notdst.exit.us
   %add.us = add i32 %inc.us, %sub
   %add10.us = add i32 %inc8.us, %sub1
   %inc12.us = add nuw nsw i32 %y.028.us, 1
@@ -42560,10 +42560,10 @@ for.cond15.preheader.us:                          ; preds = %for.cond15.preheade
   %srcaddr.addr.029.us = phi i32 [ %add22.us, %for.cond15.for.end_crit_edge.us ], [ %srcaddr, %for.cond15.preheader.lr.ph ]
   br label %for.body18.us
 
-for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_and_notdst.argprom.exit.us
-  %dstaddr.addr.126.us = phi i32 [ %dstaddr.addr.031.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_and_notdst.argprom.exit.us ]
-  %x.025.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_and_notdst.argprom.exit.us ]
-  %srcaddr.addr.124.us = phi i32 [ %srcaddr.addr.029.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_and_notdst.argprom.exit.us ]
+for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_and_notdst.exit.us
+  %dstaddr.addr.126.us = phi i32 [ %dstaddr.addr.031.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_and_notdst.exit.us ]
+  %x.025.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_and_notdst.exit.us ]
+  %srcaddr.addr.124.us = phi i32 [ %srcaddr.addr.029.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_and_notdst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -42598,20 +42598,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i16 %6, -1
   %and3.i21.us = and i16 %5, %not.i.us
   %cmp.not.i.us = icmp eq i16 %and3.i21.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_and_notdst.argprom.exit.us, label %if.then.i22.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_and_notdst.exit.us, label %if.then.i22.us
 
 if.then.i22.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %and3.i21.us, ptr %arrayidx.i20.us, align 2
-  br label %rop_tr_16_src_and_notdst.argprom.exit.us
+  br label %rop_tr_16_src_and_notdst.exit.us
 
-rop_tr_16_src_and_notdst.argprom.exit.us:         ; preds = %if.then.i22.us, %cirrus_src16.exit.us
+rop_tr_16_src_and_notdst.exit.us:                 ; preds = %if.then.i22.us, %cirrus_src16.exit.us
   %add.us = add i32 %dstaddr.addr.126.us, 2
   %add19.us = add i32 %srcaddr.addr.124.us, 2
   %add20.us = add nuw nsw i32 %x.025.us, 2
   %cmp16.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp16.us, label %for.body18.us, label %for.cond15.for.end_crit_edge.us, !llvm.loop !800
 
-for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_and_notdst.argprom.exit.us
+for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_and_notdst.exit.us
   %add21.us = add i32 %add.us, %sub
   %add22.us = add i32 %add19.us, %sub7
   %inc.us = add nuw nsw i32 %y.030.us, 1
@@ -42648,9 +42648,9 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %y.028.us = phi i32 [ %inc12.us, %for.cond5.for.end_crit_edge.us ], [ 0, %for.cond5.preheader.lr.ph ]
   br label %cirrus_src.exit.us
 
-cirrus_src.exit.us:                               ; preds = %for.cond5.preheader.us, %rop_tr_8_notdst.argprom.exit.us
-  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_notdst.argprom.exit.us ]
-  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_notdst.argprom.exit.us ]
+cirrus_src.exit.us:                               ; preds = %for.cond5.preheader.us, %rop_tr_8_notdst.exit.us
+  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_notdst.exit.us ]
+  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_notdst.exit.us ]
   %s.val.us = load ptr, ptr %2, align 8
   %s.val16.us = load i32, ptr %3, align 16
   %and.i17.us = and i32 %s.val16.us, %dstaddr.addr.124.us
@@ -42659,19 +42659,19 @@ cirrus_src.exit.us:                               ; preds = %for.cond5.preheader
   %4 = load i8, ptr %arrayidx.i19.us, align 1
   %not.i.us = xor i8 %4, -1
   %cmp.not.i.us = icmp eq i8 %0, %not.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_8_notdst.argprom.exit.us, label %if.then.i20.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_notdst.exit.us, label %if.then.i20.us
 
 if.then.i20.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %not.i.us, ptr %arrayidx.i19.us, align 1
-  br label %rop_tr_8_notdst.argprom.exit.us
+  br label %rop_tr_8_notdst.exit.us
 
-rop_tr_8_notdst.argprom.exit.us:                  ; preds = %if.then.i20.us, %cirrus_src.exit.us
+rop_tr_8_notdst.exit.us:                          ; preds = %if.then.i20.us, %cirrus_src.exit.us
   %inc.us = add i32 %dstaddr.addr.124.us, 1
   %inc9.us = add nuw nsw i32 %x.023.us, 1
   %exitcond.not = icmp eq i32 %inc9.us, %bltwidth
   br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %cirrus_src.exit.us, !llvm.loop !802
 
-for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notdst.argprom.exit.us
+for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notdst.exit.us
   %add.us = add i32 %inc.us, %sub
   %inc12.us = add nuw nsw i32 %y.028.us, 1
   %exitcond32.not = icmp eq i32 %inc12.us, %bltheight
@@ -42707,9 +42707,9 @@ for.cond15.preheader.us:                          ; preds = %for.cond15.preheade
   %y.029.us = phi i32 [ %inc.us, %for.cond15.for.end_crit_edge.us ], [ 0, %for.cond15.preheader.lr.ph ]
   br label %cirrus_src16.exit.us
 
-cirrus_src16.exit.us:                             ; preds = %for.cond15.preheader.us, %rop_tr_16_notdst.argprom.exit.us
-  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_notdst.argprom.exit.us ]
-  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_notdst.argprom.exit.us ]
+cirrus_src16.exit.us:                             ; preds = %for.cond15.preheader.us, %rop_tr_16_notdst.exit.us
+  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_notdst.exit.us ]
+  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_notdst.exit.us ]
   %s.val.us = load ptr, ptr %2, align 8
   %s.val17.us = load i32, ptr %3, align 16
   %and.i.us = and i32 %dstaddr.addr.125.us, -2
@@ -42719,19 +42719,19 @@ cirrus_src16.exit.us:                             ; preds = %for.cond15.preheade
   %4 = load i16, ptr %arrayidx.i20.us, align 2
   %not.i.us = xor i16 %4, -1
   %cmp.not.i.us = icmp eq i16 %0, %not.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_16_notdst.argprom.exit.us, label %if.then.i21.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_notdst.exit.us, label %if.then.i21.us
 
 if.then.i21.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %not.i.us, ptr %arrayidx.i20.us, align 2
-  br label %rop_tr_16_notdst.argprom.exit.us
+  br label %rop_tr_16_notdst.exit.us
 
-rop_tr_16_notdst.argprom.exit.us:                 ; preds = %if.then.i21.us, %cirrus_src16.exit.us
+rop_tr_16_notdst.exit.us:                         ; preds = %if.then.i21.us, %cirrus_src16.exit.us
   %add.us = add i32 %dstaddr.addr.125.us, 2
   %add20.us = add nuw nsw i32 %x.024.us, 2
   %cmp16.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp16.us, label %cirrus_src16.exit.us, label %for.cond15.for.end_crit_edge.us, !llvm.loop !804
 
-for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_notdst.argprom.exit.us
+for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_notdst.exit.us
   %add21.us = add i32 %add.us, %sub
   %inc.us = add nuw nsw i32 %y.029.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %bltheight
@@ -43049,10 +43049,10 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %srcaddr.addr.027.us = phi i32 [ %add10.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.cond5.preheader.lr.ph ]
   br label %for.body7.us
 
-for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_notsrc_and_dst.argprom.exit.us
-  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_and_dst.argprom.exit.us ]
-  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_notsrc_and_dst.argprom.exit.us ]
-  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_notsrc_and_dst.argprom.exit.us ]
+for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_notsrc_and_dst.exit.us
+  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_and_dst.exit.us ]
+  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_notsrc_and_dst.exit.us ]
+  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_notsrc_and_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -43085,20 +43085,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %5 = load i8, ptr %arrayidx.i19.us, align 1
   %and2.i.us = and i8 %5, %not.i.us
   %cmp.not.i.us = icmp eq i8 %and2.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_and_dst.argprom.exit.us, label %if.then.i20.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_and_dst.exit.us, label %if.then.i20.us
 
 if.then.i20.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %and2.i.us, ptr %arrayidx.i19.us, align 1
-  br label %rop_tr_8_notsrc_and_dst.argprom.exit.us
+  br label %rop_tr_8_notsrc_and_dst.exit.us
 
-rop_tr_8_notsrc_and_dst.argprom.exit.us:          ; preds = %if.then.i20.us, %cirrus_src.exit.us
+rop_tr_8_notsrc_and_dst.exit.us:                  ; preds = %if.then.i20.us, %cirrus_src.exit.us
   %inc.us = add i32 %dstaddr.addr.124.us, 1
   %inc8.us = add i32 %srcaddr.addr.122.us, 1
   %inc9.us = add nuw nsw i32 %x.023.us, 1
   %exitcond.not = icmp eq i32 %inc9.us, %bltwidth
   br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us, !llvm.loop !814
 
-for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_and_dst.argprom.exit.us
+for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_and_dst.exit.us
   %add.us = add i32 %inc.us, %sub
   %add10.us = add i32 %inc8.us, %sub1
   %inc12.us = add nuw nsw i32 %y.028.us, 1
@@ -43138,10 +43138,10 @@ for.cond15.preheader.us:                          ; preds = %for.cond15.preheade
   %srcaddr.addr.029.us = phi i32 [ %add22.us, %for.cond15.for.end_crit_edge.us ], [ %srcaddr, %for.cond15.preheader.lr.ph ]
   br label %for.body18.us
 
-for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_notsrc_and_dst.argprom.exit.us
-  %dstaddr.addr.126.us = phi i32 [ %dstaddr.addr.031.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_notsrc_and_dst.argprom.exit.us ]
-  %x.025.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_notsrc_and_dst.argprom.exit.us ]
-  %srcaddr.addr.124.us = phi i32 [ %srcaddr.addr.029.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_notsrc_and_dst.argprom.exit.us ]
+for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_notsrc_and_dst.exit.us
+  %dstaddr.addr.126.us = phi i32 [ %dstaddr.addr.031.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_notsrc_and_dst.exit.us ]
+  %x.025.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_notsrc_and_dst.exit.us ]
+  %srcaddr.addr.124.us = phi i32 [ %srcaddr.addr.029.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_notsrc_and_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -43176,20 +43176,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %6 = load i16, ptr %arrayidx.i20.us, align 2
   %and3.i21.us = and i16 %6, %not.i.us
   %cmp.not.i.us = icmp eq i16 %and3.i21.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_and_dst.argprom.exit.us, label %if.then.i22.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_and_dst.exit.us, label %if.then.i22.us
 
 if.then.i22.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %and3.i21.us, ptr %arrayidx.i20.us, align 2
-  br label %rop_tr_16_notsrc_and_dst.argprom.exit.us
+  br label %rop_tr_16_notsrc_and_dst.exit.us
 
-rop_tr_16_notsrc_and_dst.argprom.exit.us:         ; preds = %if.then.i22.us, %cirrus_src16.exit.us
+rop_tr_16_notsrc_and_dst.exit.us:                 ; preds = %if.then.i22.us, %cirrus_src16.exit.us
   %add.us = add i32 %dstaddr.addr.126.us, 2
   %add19.us = add i32 %srcaddr.addr.124.us, 2
   %add20.us = add nuw nsw i32 %x.025.us, 2
   %cmp16.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp16.us, label %for.body18.us, label %for.cond15.for.end_crit_edge.us, !llvm.loop !816
 
-for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_notsrc_and_dst.argprom.exit.us
+for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_notsrc_and_dst.exit.us
   %add21.us = add i32 %add.us, %sub
   %add22.us = add i32 %add19.us, %sub7
   %inc.us = add nuw nsw i32 %y.030.us, 1
@@ -43229,10 +43229,10 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %srcaddr.addr.027.us = phi i32 [ %add10.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.cond5.preheader.lr.ph ]
   br label %for.body7.us
 
-for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_xor_dst.argprom.exit.us
-  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_xor_dst.argprom.exit.us ]
-  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_xor_dst.argprom.exit.us ]
-  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_xor_dst.argprom.exit.us ]
+for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_xor_dst.exit.us
+  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_xor_dst.exit.us ]
+  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_xor_dst.exit.us ]
+  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_xor_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -43264,20 +43264,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %5 = load i8, ptr %arrayidx.i19.us, align 1
   %xor4.i.us = xor i8 %5, %retval.0.i.us
   %cmp.not.i.us = icmp eq i8 %xor4.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_xor_dst.argprom.exit.us, label %if.then.i20.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_xor_dst.exit.us, label %if.then.i20.us
 
 if.then.i20.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %xor4.i.us, ptr %arrayidx.i19.us, align 1
-  br label %rop_tr_8_src_xor_dst.argprom.exit.us
+  br label %rop_tr_8_src_xor_dst.exit.us
 
-rop_tr_8_src_xor_dst.argprom.exit.us:             ; preds = %if.then.i20.us, %cirrus_src.exit.us
+rop_tr_8_src_xor_dst.exit.us:                     ; preds = %if.then.i20.us, %cirrus_src.exit.us
   %inc.us = add i32 %dstaddr.addr.124.us, 1
   %inc8.us = add i32 %srcaddr.addr.122.us, 1
   %inc9.us = add nuw nsw i32 %x.023.us, 1
   %exitcond.not = icmp eq i32 %inc9.us, %bltwidth
   br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us, !llvm.loop !818
 
-for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_xor_dst.argprom.exit.us
+for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_xor_dst.exit.us
   %add.us = add i32 %inc.us, %sub
   %add10.us = add i32 %inc8.us, %sub1
   %inc12.us = add nuw nsw i32 %y.028.us, 1
@@ -43317,10 +43317,10 @@ for.cond15.preheader.us:                          ; preds = %for.cond15.preheade
   %srcaddr.addr.028.us = phi i32 [ %add22.us, %for.cond15.for.end_crit_edge.us ], [ %srcaddr, %for.cond15.preheader.lr.ph ]
   br label %for.body18.us
 
-for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_xor_dst.argprom.exit.us
-  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_xor_dst.argprom.exit.us ]
-  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_xor_dst.argprom.exit.us ]
-  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_xor_dst.argprom.exit.us ]
+for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_xor_dst.exit.us
+  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_xor_dst.exit.us ]
+  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_xor_dst.exit.us ]
+  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_xor_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -43354,20 +43354,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %6 = load i16, ptr %arrayidx.i20.us, align 2
   %xor4.i.us = xor i16 %6, %5
   %cmp.not.i.us = icmp eq i16 %xor4.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_xor_dst.argprom.exit.us, label %if.then.i21.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_xor_dst.exit.us, label %if.then.i21.us
 
 if.then.i21.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %xor4.i.us, ptr %arrayidx.i20.us, align 2
-  br label %rop_tr_16_src_xor_dst.argprom.exit.us
+  br label %rop_tr_16_src_xor_dst.exit.us
 
-rop_tr_16_src_xor_dst.argprom.exit.us:            ; preds = %if.then.i21.us, %cirrus_src16.exit.us
+rop_tr_16_src_xor_dst.exit.us:                    ; preds = %if.then.i21.us, %cirrus_src16.exit.us
   %add.us = add i32 %dstaddr.addr.125.us, 2
   %add19.us = add i32 %srcaddr.addr.123.us, 2
   %add20.us = add nuw nsw i32 %x.024.us, 2
   %cmp16.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp16.us, label %for.body18.us, label %for.cond15.for.end_crit_edge.us, !llvm.loop !820
 
-for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_xor_dst.argprom.exit.us
+for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_xor_dst.exit.us
   %add21.us = add i32 %add.us, %sub
   %add22.us = add i32 %add19.us, %sub7
   %inc.us = add nuw nsw i32 %y.029.us, 1
@@ -43407,10 +43407,10 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %srcaddr.addr.027.us = phi i32 [ %add10.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.cond5.preheader.lr.ph ]
   br label %for.body7.us
 
-for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_or_dst.argprom.exit.us
-  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_or_dst.argprom.exit.us ]
-  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_or_dst.argprom.exit.us ]
-  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_or_dst.argprom.exit.us ]
+for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_or_dst.exit.us
+  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_or_dst.exit.us ]
+  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_or_dst.exit.us ]
+  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_or_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -43442,20 +43442,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %5 = load i8, ptr %arrayidx.i19.us, align 1
   %or4.i.us = or i8 %5, %retval.0.i.us
   %cmp.not.i.us = icmp eq i8 %or4.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_or_dst.argprom.exit.us, label %if.then.i20.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_or_dst.exit.us, label %if.then.i20.us
 
 if.then.i20.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %or4.i.us, ptr %arrayidx.i19.us, align 1
-  br label %rop_tr_8_src_or_dst.argprom.exit.us
+  br label %rop_tr_8_src_or_dst.exit.us
 
-rop_tr_8_src_or_dst.argprom.exit.us:              ; preds = %if.then.i20.us, %cirrus_src.exit.us
+rop_tr_8_src_or_dst.exit.us:                      ; preds = %if.then.i20.us, %cirrus_src.exit.us
   %inc.us = add i32 %dstaddr.addr.124.us, 1
   %inc8.us = add i32 %srcaddr.addr.122.us, 1
   %inc9.us = add nuw nsw i32 %x.023.us, 1
   %exitcond.not = icmp eq i32 %inc9.us, %bltwidth
   br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us, !llvm.loop !822
 
-for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_or_dst.argprom.exit.us
+for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_or_dst.exit.us
   %add.us = add i32 %inc.us, %sub
   %add10.us = add i32 %inc8.us, %sub1
   %inc12.us = add nuw nsw i32 %y.028.us, 1
@@ -43495,10 +43495,10 @@ for.cond15.preheader.us:                          ; preds = %for.cond15.preheade
   %srcaddr.addr.028.us = phi i32 [ %add22.us, %for.cond15.for.end_crit_edge.us ], [ %srcaddr, %for.cond15.preheader.lr.ph ]
   br label %for.body18.us
 
-for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_or_dst.argprom.exit.us
-  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_or_dst.argprom.exit.us ]
-  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_or_dst.argprom.exit.us ]
-  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_or_dst.argprom.exit.us ]
+for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_or_dst.exit.us
+  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_or_dst.exit.us ]
+  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_or_dst.exit.us ]
+  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_or_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -43532,20 +43532,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %6 = load i16, ptr %arrayidx.i20.us, align 2
   %or4.i.us = or i16 %6, %5
   %cmp.not.i.us = icmp eq i16 %or4.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_or_dst.argprom.exit.us, label %if.then.i21.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_or_dst.exit.us, label %if.then.i21.us
 
 if.then.i21.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %or4.i.us, ptr %arrayidx.i20.us, align 2
-  br label %rop_tr_16_src_or_dst.argprom.exit.us
+  br label %rop_tr_16_src_or_dst.exit.us
 
-rop_tr_16_src_or_dst.argprom.exit.us:             ; preds = %if.then.i21.us, %cirrus_src16.exit.us
+rop_tr_16_src_or_dst.exit.us:                     ; preds = %if.then.i21.us, %cirrus_src16.exit.us
   %add.us = add i32 %dstaddr.addr.125.us, 2
   %add19.us = add i32 %srcaddr.addr.123.us, 2
   %add20.us = add nuw nsw i32 %x.024.us, 2
   %cmp16.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp16.us, label %for.body18.us, label %for.cond15.for.end_crit_edge.us, !llvm.loop !824
 
-for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_or_dst.argprom.exit.us
+for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_or_dst.exit.us
   %add21.us = add i32 %add.us, %sub
   %add22.us = add i32 %add19.us, %sub7
   %inc.us = add nuw nsw i32 %y.029.us, 1
@@ -43585,10 +43585,10 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %srcaddr.addr.027.us = phi i32 [ %add10.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.cond5.preheader.lr.ph ]
   br label %for.body7.us
 
-for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_notsrc_or_notdst.argprom.exit.us
-  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_or_notdst.argprom.exit.us ]
-  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_notsrc_or_notdst.argprom.exit.us ]
-  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_notsrc_or_notdst.argprom.exit.us ]
+for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_notsrc_or_notdst.exit.us
+  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_or_notdst.exit.us ]
+  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_notsrc_or_notdst.exit.us ]
+  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_notsrc_or_notdst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -43621,20 +43621,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %or.demorgan4.i.us = and i8 %5, %retval.0.i.us
   %or.i.us = xor i8 %or.demorgan4.i.us, -1
   %cmp.not.i.us = icmp eq i8 %0, %or.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_or_notdst.argprom.exit.us, label %if.then.i20.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_or_notdst.exit.us, label %if.then.i20.us
 
 if.then.i20.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %or.i.us, ptr %arrayidx.i19.us, align 1
-  br label %rop_tr_8_notsrc_or_notdst.argprom.exit.us
+  br label %rop_tr_8_notsrc_or_notdst.exit.us
 
-rop_tr_8_notsrc_or_notdst.argprom.exit.us:        ; preds = %if.then.i20.us, %cirrus_src.exit.us
+rop_tr_8_notsrc_or_notdst.exit.us:                ; preds = %if.then.i20.us, %cirrus_src.exit.us
   %inc.us = add i32 %dstaddr.addr.124.us, 1
   %inc8.us = add i32 %srcaddr.addr.122.us, 1
   %inc9.us = add nuw nsw i32 %x.023.us, 1
   %exitcond.not = icmp eq i32 %inc9.us, %bltwidth
   br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us, !llvm.loop !826
 
-for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_or_notdst.argprom.exit.us
+for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_or_notdst.exit.us
   %add.us = add i32 %inc.us, %sub
   %add10.us = add i32 %inc8.us, %sub1
   %inc12.us = add nuw nsw i32 %y.028.us, 1
@@ -43674,10 +43674,10 @@ for.cond15.preheader.us:                          ; preds = %for.cond15.preheade
   %srcaddr.addr.028.us = phi i32 [ %add22.us, %for.cond15.for.end_crit_edge.us ], [ %srcaddr, %for.cond15.preheader.lr.ph ]
   br label %for.body18.us
 
-for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_notsrc_or_notdst.argprom.exit.us
-  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_notsrc_or_notdst.argprom.exit.us ]
-  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_notsrc_or_notdst.argprom.exit.us ]
-  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_notsrc_or_notdst.argprom.exit.us ]
+for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_notsrc_or_notdst.exit.us
+  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_notsrc_or_notdst.exit.us ]
+  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_notsrc_or_notdst.exit.us ]
+  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_notsrc_or_notdst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -43712,20 +43712,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %or.demorgan4.i.us = and i16 %6, %5
   %or.i.us = xor i16 %or.demorgan4.i.us, -1
   %cmp.not.i.us = icmp eq i16 %0, %or.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_or_notdst.argprom.exit.us, label %if.then.i21.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_or_notdst.exit.us, label %if.then.i21.us
 
 if.then.i21.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %or.i.us, ptr %arrayidx.i20.us, align 2
-  br label %rop_tr_16_notsrc_or_notdst.argprom.exit.us
+  br label %rop_tr_16_notsrc_or_notdst.exit.us
 
-rop_tr_16_notsrc_or_notdst.argprom.exit.us:       ; preds = %if.then.i21.us, %cirrus_src16.exit.us
+rop_tr_16_notsrc_or_notdst.exit.us:               ; preds = %if.then.i21.us, %cirrus_src16.exit.us
   %add.us = add i32 %dstaddr.addr.125.us, 2
   %add19.us = add i32 %srcaddr.addr.123.us, 2
   %add20.us = add nuw nsw i32 %x.024.us, 2
   %cmp16.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp16.us, label %for.body18.us, label %for.cond15.for.end_crit_edge.us, !llvm.loop !828
 
-for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_notsrc_or_notdst.argprom.exit.us
+for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_notsrc_or_notdst.exit.us
   %add21.us = add i32 %add.us, %sub
   %add22.us = add i32 %add19.us, %sub7
   %inc.us = add nuw nsw i32 %y.029.us, 1
@@ -43765,10 +43765,10 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %srcaddr.addr.027.us = phi i32 [ %add10.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.cond5.preheader.lr.ph ]
   br label %for.body7.us
 
-for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_notxor_dst.argprom.exit.us
-  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_notxor_dst.argprom.exit.us ]
-  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_notxor_dst.argprom.exit.us ]
-  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_notxor_dst.argprom.exit.us ]
+for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_notxor_dst.exit.us
+  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_notxor_dst.exit.us ]
+  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_notxor_dst.exit.us ]
+  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_notxor_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -43801,20 +43801,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %6 = xor i8 %retval.0.i.us, %5
   %not.i.us = xor i8 %6, -1
   %cmp.not.i.us = icmp eq i8 %0, %not.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_notxor_dst.argprom.exit.us, label %if.then.i20.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_notxor_dst.exit.us, label %if.then.i20.us
 
 if.then.i20.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %not.i.us, ptr %arrayidx.i19.us, align 1
-  br label %rop_tr_8_src_notxor_dst.argprom.exit.us
+  br label %rop_tr_8_src_notxor_dst.exit.us
 
-rop_tr_8_src_notxor_dst.argprom.exit.us:          ; preds = %if.then.i20.us, %cirrus_src.exit.us
+rop_tr_8_src_notxor_dst.exit.us:                  ; preds = %if.then.i20.us, %cirrus_src.exit.us
   %inc.us = add i32 %dstaddr.addr.124.us, 1
   %inc8.us = add i32 %srcaddr.addr.122.us, 1
   %inc9.us = add nuw nsw i32 %x.023.us, 1
   %exitcond.not = icmp eq i32 %inc9.us, %bltwidth
   br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us, !llvm.loop !830
 
-for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_notxor_dst.argprom.exit.us
+for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_notxor_dst.exit.us
   %add.us = add i32 %inc.us, %sub
   %add10.us = add i32 %inc8.us, %sub1
   %inc12.us = add nuw nsw i32 %y.028.us, 1
@@ -43854,10 +43854,10 @@ for.cond15.preheader.us:                          ; preds = %for.cond15.preheade
   %srcaddr.addr.028.us = phi i32 [ %add22.us, %for.cond15.for.end_crit_edge.us ], [ %srcaddr, %for.cond15.preheader.lr.ph ]
   br label %for.body18.us
 
-for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_notxor_dst.argprom.exit.us
-  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_notxor_dst.argprom.exit.us ]
-  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_notxor_dst.argprom.exit.us ]
-  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_notxor_dst.argprom.exit.us ]
+for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_notxor_dst.exit.us
+  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_notxor_dst.exit.us ]
+  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_notxor_dst.exit.us ]
+  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_notxor_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -43892,20 +43892,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %7 = xor i16 %5, %6
   %not.i.us = xor i16 %7, -1
   %cmp.not.i.us = icmp eq i16 %0, %not.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_notxor_dst.argprom.exit.us, label %if.then.i21.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_notxor_dst.exit.us, label %if.then.i21.us
 
 if.then.i21.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %not.i.us, ptr %arrayidx.i20.us, align 2
-  br label %rop_tr_16_src_notxor_dst.argprom.exit.us
+  br label %rop_tr_16_src_notxor_dst.exit.us
 
-rop_tr_16_src_notxor_dst.argprom.exit.us:         ; preds = %if.then.i21.us, %cirrus_src16.exit.us
+rop_tr_16_src_notxor_dst.exit.us:                 ; preds = %if.then.i21.us, %cirrus_src16.exit.us
   %add.us = add i32 %dstaddr.addr.125.us, 2
   %add19.us = add i32 %srcaddr.addr.123.us, 2
   %add20.us = add nuw nsw i32 %x.024.us, 2
   %cmp16.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp16.us, label %for.body18.us, label %for.cond15.for.end_crit_edge.us, !llvm.loop !832
 
-for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_notxor_dst.argprom.exit.us
+for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_notxor_dst.exit.us
   %add21.us = add i32 %add.us, %sub
   %add22.us = add i32 %add19.us, %sub7
   %inc.us = add nuw nsw i32 %y.029.us, 1
@@ -43945,10 +43945,10 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %srcaddr.addr.027.us = phi i32 [ %add10.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.cond5.preheader.lr.ph ]
   br label %for.body7.us
 
-for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_or_notdst.argprom.exit.us
-  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_or_notdst.argprom.exit.us ]
-  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_or_notdst.argprom.exit.us ]
-  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_or_notdst.argprom.exit.us ]
+for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_src_or_notdst.exit.us
+  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_src_or_notdst.exit.us ]
+  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_src_or_notdst.exit.us ]
+  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_src_or_notdst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -43981,20 +43981,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i8 %5, -1
   %or.i.us = or i8 %retval.0.i.us, %not.i.us
   %cmp.not.i.us = icmp eq i8 %or.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_src_or_notdst.argprom.exit.us, label %if.then.i20.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_src_or_notdst.exit.us, label %if.then.i20.us
 
 if.then.i20.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %or.i.us, ptr %arrayidx.i19.us, align 1
-  br label %rop_tr_8_src_or_notdst.argprom.exit.us
+  br label %rop_tr_8_src_or_notdst.exit.us
 
-rop_tr_8_src_or_notdst.argprom.exit.us:           ; preds = %if.then.i20.us, %cirrus_src.exit.us
+rop_tr_8_src_or_notdst.exit.us:                   ; preds = %if.then.i20.us, %cirrus_src.exit.us
   %inc.us = add i32 %dstaddr.addr.124.us, 1
   %inc8.us = add i32 %srcaddr.addr.122.us, 1
   %inc9.us = add nuw nsw i32 %x.023.us, 1
   %exitcond.not = icmp eq i32 %inc9.us, %bltwidth
   br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us, !llvm.loop !834
 
-for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_or_notdst.argprom.exit.us
+for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_src_or_notdst.exit.us
   %add.us = add i32 %inc.us, %sub
   %add10.us = add i32 %inc8.us, %sub1
   %inc12.us = add nuw nsw i32 %y.028.us, 1
@@ -44034,10 +44034,10 @@ for.cond15.preheader.us:                          ; preds = %for.cond15.preheade
   %srcaddr.addr.028.us = phi i32 [ %add22.us, %for.cond15.for.end_crit_edge.us ], [ %srcaddr, %for.cond15.preheader.lr.ph ]
   br label %for.body18.us
 
-for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_or_notdst.argprom.exit.us
-  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_or_notdst.argprom.exit.us ]
-  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_or_notdst.argprom.exit.us ]
-  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_or_notdst.argprom.exit.us ]
+for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_src_or_notdst.exit.us
+  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_src_or_notdst.exit.us ]
+  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_src_or_notdst.exit.us ]
+  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_src_or_notdst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -44072,20 +44072,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %not.i.us = xor i16 %6, -1
   %or.i.us = or i16 %5, %not.i.us
   %cmp.not.i.us = icmp eq i16 %or.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_src_or_notdst.argprom.exit.us, label %if.then.i21.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_src_or_notdst.exit.us, label %if.then.i21.us
 
 if.then.i21.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %or.i.us, ptr %arrayidx.i20.us, align 2
-  br label %rop_tr_16_src_or_notdst.argprom.exit.us
+  br label %rop_tr_16_src_or_notdst.exit.us
 
-rop_tr_16_src_or_notdst.argprom.exit.us:          ; preds = %if.then.i21.us, %cirrus_src16.exit.us
+rop_tr_16_src_or_notdst.exit.us:                  ; preds = %if.then.i21.us, %cirrus_src16.exit.us
   %add.us = add i32 %dstaddr.addr.125.us, 2
   %add19.us = add i32 %srcaddr.addr.123.us, 2
   %add20.us = add nuw nsw i32 %x.024.us, 2
   %cmp16.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp16.us, label %for.body18.us, label %for.cond15.for.end_crit_edge.us, !llvm.loop !836
 
-for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_or_notdst.argprom.exit.us
+for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_src_or_notdst.exit.us
   %add21.us = add i32 %add.us, %sub
   %add22.us = add i32 %add19.us, %sub7
   %inc.us = add nuw nsw i32 %y.029.us, 1
@@ -44297,10 +44297,10 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %srcaddr.addr.027.us = phi i32 [ %add10.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.cond5.preheader.lr.ph ]
   br label %for.body7.us
 
-for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_notsrc_or_dst.argprom.exit.us
-  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_or_dst.argprom.exit.us ]
-  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_notsrc_or_dst.argprom.exit.us ]
-  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_notsrc_or_dst.argprom.exit.us ]
+for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_notsrc_or_dst.exit.us
+  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_or_dst.exit.us ]
+  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_notsrc_or_dst.exit.us ]
+  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_notsrc_or_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -44333,20 +44333,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %5 = load i8, ptr %arrayidx.i19.us, align 1
   %or.i.us = or i8 %5, %not.i.us
   %cmp.not.i.us = icmp eq i8 %or.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_or_dst.argprom.exit.us, label %if.then.i20.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_or_dst.exit.us, label %if.then.i20.us
 
 if.then.i20.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %or.i.us, ptr %arrayidx.i19.us, align 1
-  br label %rop_tr_8_notsrc_or_dst.argprom.exit.us
+  br label %rop_tr_8_notsrc_or_dst.exit.us
 
-rop_tr_8_notsrc_or_dst.argprom.exit.us:           ; preds = %if.then.i20.us, %cirrus_src.exit.us
+rop_tr_8_notsrc_or_dst.exit.us:                   ; preds = %if.then.i20.us, %cirrus_src.exit.us
   %inc.us = add i32 %dstaddr.addr.124.us, 1
   %inc8.us = add i32 %srcaddr.addr.122.us, 1
   %inc9.us = add nuw nsw i32 %x.023.us, 1
   %exitcond.not = icmp eq i32 %inc9.us, %bltwidth
   br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us, !llvm.loop !842
 
-for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_or_dst.argprom.exit.us
+for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_or_dst.exit.us
   %add.us = add i32 %inc.us, %sub
   %add10.us = add i32 %inc8.us, %sub1
   %inc12.us = add nuw nsw i32 %y.028.us, 1
@@ -44386,10 +44386,10 @@ for.cond15.preheader.us:                          ; preds = %for.cond15.preheade
   %srcaddr.addr.028.us = phi i32 [ %add22.us, %for.cond15.for.end_crit_edge.us ], [ %srcaddr, %for.cond15.preheader.lr.ph ]
   br label %for.body18.us
 
-for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_notsrc_or_dst.argprom.exit.us
-  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_notsrc_or_dst.argprom.exit.us ]
-  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_notsrc_or_dst.argprom.exit.us ]
-  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_notsrc_or_dst.argprom.exit.us ]
+for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_notsrc_or_dst.exit.us
+  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_notsrc_or_dst.exit.us ]
+  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_notsrc_or_dst.exit.us ]
+  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_notsrc_or_dst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -44424,20 +44424,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %6 = load i16, ptr %arrayidx.i20.us, align 2
   %or.i.us = or i16 %6, %not.i.us
   %cmp.not.i.us = icmp eq i16 %or.i.us, %0
-  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_or_dst.argprom.exit.us, label %if.then.i21.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_or_dst.exit.us, label %if.then.i21.us
 
 if.then.i21.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %or.i.us, ptr %arrayidx.i20.us, align 2
-  br label %rop_tr_16_notsrc_or_dst.argprom.exit.us
+  br label %rop_tr_16_notsrc_or_dst.exit.us
 
-rop_tr_16_notsrc_or_dst.argprom.exit.us:          ; preds = %if.then.i21.us, %cirrus_src16.exit.us
+rop_tr_16_notsrc_or_dst.exit.us:                  ; preds = %if.then.i21.us, %cirrus_src16.exit.us
   %add.us = add i32 %dstaddr.addr.125.us, 2
   %add19.us = add i32 %srcaddr.addr.123.us, 2
   %add20.us = add nuw nsw i32 %x.024.us, 2
   %cmp16.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp16.us, label %for.body18.us, label %for.cond15.for.end_crit_edge.us, !llvm.loop !844
 
-for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_notsrc_or_dst.argprom.exit.us
+for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_notsrc_or_dst.exit.us
   %add21.us = add i32 %add.us, %sub
   %add22.us = add i32 %add19.us, %sub7
   %inc.us = add nuw nsw i32 %y.029.us, 1
@@ -44477,10 +44477,10 @@ for.cond5.preheader.us:                           ; preds = %for.cond5.preheader
   %srcaddr.addr.027.us = phi i32 [ %add10.us, %for.cond5.for.end_crit_edge.us ], [ %srcaddr, %for.cond5.preheader.lr.ph ]
   br label %for.body7.us
 
-for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_notsrc_and_notdst.argprom.exit.us
-  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_and_notdst.argprom.exit.us ]
-  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_notsrc_and_notdst.argprom.exit.us ]
-  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_notsrc_and_notdst.argprom.exit.us ]
+for.body7.us:                                     ; preds = %for.cond5.preheader.us, %rop_tr_8_notsrc_and_notdst.exit.us
+  %dstaddr.addr.124.us = phi i32 [ %dstaddr.addr.029.us, %for.cond5.preheader.us ], [ %inc.us, %rop_tr_8_notsrc_and_notdst.exit.us ]
+  %x.023.us = phi i32 [ 0, %for.cond5.preheader.us ], [ %inc9.us, %rop_tr_8_notsrc_and_notdst.exit.us ]
+  %srcaddr.addr.122.us = phi i32 [ %srcaddr.addr.027.us, %for.cond5.preheader.us ], [ %inc8.us, %rop_tr_8_notsrc_and_notdst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -44513,20 +44513,20 @@ cirrus_src.exit.us:                               ; preds = %if.else.i.us, %if.t
   %and3.demorgan4.i.us = or i8 %5, %retval.0.i.us
   %and3.i.us = xor i8 %and3.demorgan4.i.us, -1
   %cmp.not.i.us = icmp eq i8 %0, %and3.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_and_notdst.argprom.exit.us, label %if.then.i20.us
+  br i1 %cmp.not.i.us, label %rop_tr_8_notsrc_and_notdst.exit.us, label %if.then.i20.us
 
 if.then.i20.us:                                   ; preds = %cirrus_src.exit.us
   store i8 %and3.i.us, ptr %arrayidx.i19.us, align 1
-  br label %rop_tr_8_notsrc_and_notdst.argprom.exit.us
+  br label %rop_tr_8_notsrc_and_notdst.exit.us
 
-rop_tr_8_notsrc_and_notdst.argprom.exit.us:       ; preds = %if.then.i20.us, %cirrus_src.exit.us
+rop_tr_8_notsrc_and_notdst.exit.us:               ; preds = %if.then.i20.us, %cirrus_src.exit.us
   %inc.us = add i32 %dstaddr.addr.124.us, 1
   %inc8.us = add i32 %srcaddr.addr.122.us, 1
   %inc9.us = add nuw nsw i32 %x.023.us, 1
   %exitcond.not = icmp eq i32 %inc9.us, %bltwidth
   br i1 %exitcond.not, label %for.cond5.for.end_crit_edge.us, label %for.body7.us, !llvm.loop !846
 
-for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_and_notdst.argprom.exit.us
+for.cond5.for.end_crit_edge.us:                   ; preds = %rop_tr_8_notsrc_and_notdst.exit.us
   %add.us = add i32 %inc.us, %sub
   %add10.us = add i32 %inc8.us, %sub1
   %inc12.us = add nuw nsw i32 %y.028.us, 1
@@ -44566,10 +44566,10 @@ for.cond15.preheader.us:                          ; preds = %for.cond15.preheade
   %srcaddr.addr.028.us = phi i32 [ %add22.us, %for.cond15.for.end_crit_edge.us ], [ %srcaddr, %for.cond15.preheader.lr.ph ]
   br label %for.body18.us
 
-for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_notsrc_and_notdst.argprom.exit.us
-  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_notsrc_and_notdst.argprom.exit.us ]
-  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_notsrc_and_notdst.argprom.exit.us ]
-  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_notsrc_and_notdst.argprom.exit.us ]
+for.body18.us:                                    ; preds = %for.cond15.preheader.us, %rop_tr_16_notsrc_and_notdst.exit.us
+  %dstaddr.addr.125.us = phi i32 [ %dstaddr.addr.030.us, %for.cond15.preheader.us ], [ %add.us, %rop_tr_16_notsrc_and_notdst.exit.us ]
+  %x.024.us = phi i32 [ 0, %for.cond15.preheader.us ], [ %add20.us, %rop_tr_16_notsrc_and_notdst.exit.us ]
+  %srcaddr.addr.123.us = phi i32 [ %srcaddr.addr.028.us, %for.cond15.preheader.us ], [ %add19.us, %rop_tr_16_notsrc_and_notdst.exit.us ]
   %2 = load i32, ptr %cirrus_srccounter.i, align 16
   %tobool.not.i.us = icmp eq i32 %2, 0
   br i1 %tobool.not.i.us, label %if.else.i.us, label %if.then.i.us
@@ -44604,20 +44604,20 @@ cirrus_src16.exit.us:                             ; preds = %if.else.i.us, %if.t
   %and4.demorgan4.i.us = or i16 %6, %5
   %and4.i.us = xor i16 %and4.demorgan4.i.us, -1
   %cmp.not.i.us = icmp eq i16 %0, %and4.i.us
-  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_and_notdst.argprom.exit.us, label %if.then.i21.us
+  br i1 %cmp.not.i.us, label %rop_tr_16_notsrc_and_notdst.exit.us, label %if.then.i21.us
 
 if.then.i21.us:                                   ; preds = %cirrus_src16.exit.us
   store i16 %and4.i.us, ptr %arrayidx.i20.us, align 2
-  br label %rop_tr_16_notsrc_and_notdst.argprom.exit.us
+  br label %rop_tr_16_notsrc_and_notdst.exit.us
 
-rop_tr_16_notsrc_and_notdst.argprom.exit.us:      ; preds = %if.then.i21.us, %cirrus_src16.exit.us
+rop_tr_16_notsrc_and_notdst.exit.us:              ; preds = %if.then.i21.us, %cirrus_src16.exit.us
   %add.us = add i32 %dstaddr.addr.125.us, 2
   %add19.us = add i32 %srcaddr.addr.123.us, 2
   %add20.us = add nuw nsw i32 %x.024.us, 2
   %cmp16.us = icmp slt i32 %add20.us, %bltwidth
   br i1 %cmp16.us, label %for.body18.us, label %for.cond15.for.end_crit_edge.us, !llvm.loop !848
 
-for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_notsrc_and_notdst.argprom.exit.us
+for.cond15.for.end_crit_edge.us:                  ; preds = %rop_tr_16_notsrc_and_notdst.exit.us
   %add21.us = add i32 %add.us, %sub
   %add22.us = add i32 %add19.us, %sub7
   %inc.us = add nuw nsw i32 %y.029.us, 1

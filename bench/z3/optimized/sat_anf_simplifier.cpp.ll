@@ -8579,7 +8579,7 @@ entry:
   tail call void @_ZN3sat14anf_simplifier7add_aigENS_7literalERK7svectorIS1_jERN2dd6solverE(ptr nonnull align 8 poison, i32 %__args.val, ptr noundef nonnull readonly align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(208) %2)
   %3 = load ptr, ptr %__args1, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_0JS8_RKS6_IS8_jEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit", label %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_0JS8_RKS6_IS8_jEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit", label %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i.i.i
 
 _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i.i.i: ; preds = %entry
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
@@ -8587,7 +8587,7 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i.i.i: ; preds = %entry
   %5 = zext i32 %4 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.sat::literal", ptr %3, i64 %5
   %cmp.not7.i.i.i = icmp eq i32 %4, 0
-  br i1 %cmp.not7.i.i.i, label %"_ZSt10__invoke_rIvRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_0JS8_RKS6_IS8_jEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp.not7.i.i.i, label %"_ZSt10__invoke_rIvRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_0JS8_RKS6_IS8_jEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i.i.i
   %6 = getelementptr inbounds i8, ptr %__functor.val, i64 16
@@ -8608,9 +8608,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   call void @_ZN14core_hashtableI18default_hash_entryISt4pairIN3sat7literalES3_EENS2_6solver15bin_clause_hashE10default_eqIS4_EE6insertEOS4_(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i.i)
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.08.i.i.i, i64 4
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIvRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_0JS8_RKS6_IS8_jEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit", label %for.body.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIvRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_0JS8_RKS6_IS8_jEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit", label %for.body.i.i.i
 
-"_ZSt10__invoke_rIvRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_0JS8_RKS6_IS8_jEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.argprom.exit": ; preds = %for.body.i.i.i, %entry, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i.i.i
+"_ZSt10__invoke_rIvRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_0JS8_RKS6_IS8_jEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESL_E4typeEOSM_DpOSN_.exit": ; preds = %for.body.i.i.i, %entry, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i.i.i
   %m_num_aigs.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i32, ptr %m_num_aigs.i.i.i, align 8
   %inc.i.i.i = add i32 %8, 1
@@ -9042,7 +9042,7 @@ entry:
 
 for.cond18.preheader.i.i.i.i.i:                   ; preds = %for.inc.i.i.i.i.i, %entry
   %cmp19.not34.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
-  br i1 %cmp19.not34.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit", label %for.body20.i.i.i.i.i
+  br i1 %cmp19.not34.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %for.body20.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %entry, %for.inc.i.i.i.i.i
   %curr.033.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %entry ]
@@ -9050,7 +9050,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %for.inc.i.i
   %1 = load i32, ptr %m_state.i.i.i.i.i.i, align 4
   switch i32 %1, label %for.inc.i.i.i.i.i [
     i32 2, label %if.then.i.i.i.i.i
-    i32 0, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit"
+    i32 0, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
   ]
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -9066,7 +9066,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i
   %4 = load i32, ptr %second.i.i.i.i.i.i.i.i, align 4
   %cmp.i3.i.i.i.i.i.i.i.i = icmp eq i32 %4, %retval.sroa.3.0.i.i.i.i
   %5 = select i1 %cmp.i.i.i.i.i.i.i.i.i, i1 %cmp.i3.i.i.i.i.i.i.i.i, i1 false
-  br i1 %5, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit", label %for.inc.i.i.i.i.i
+  br i1 %5, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.033.i.i.i.i.i, i64 16
@@ -9079,7 +9079,7 @@ for.body20.i.i.i.i.i:                             ; preds = %for.cond18.preheade
   %6 = load i32, ptr %m_state.i21.i.i.i.i.i, align 4
   switch i32 %6, label %for.inc36.i.i.i.i.i [
     i32 2, label %if.then22.i.i.i.i.i
-    i32 0, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit"
+    i32 0, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
   ]
 
 if.then22.i.i.i.i.i:                              ; preds = %for.body20.i.i.i.i.i
@@ -9095,14 +9095,14 @@ land.lhs.true25.i.i.i.i.i:                        ; preds = %if.then22.i.i.i.i.i
   %9 = load i32, ptr %second.i.i.i25.i.i.i.i.i, align 4
   %cmp.i3.i.i.i27.i.i.i.i.i = icmp eq i32 %9, %retval.sroa.3.0.i.i.i.i
   %10 = select i1 %cmp.i.i.i.i24.i.i.i.i.i, i1 %cmp.i3.i.i.i27.i.i.i.i.i, i1 false
-  br i1 %10, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit", label %for.inc36.i.i.i.i.i
+  br i1 %10, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %for.inc36.i.i.i.i.i
 
 for.inc36.i.i.i.i.i:                              ; preds = %land.lhs.true25.i.i.i.i.i, %if.then22.i.i.i.i.i, %for.body20.i.i.i.i.i
   %incdec.ptr37.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.135.i.i.i.i.i, i64 16
   %cmp19.not.i.i.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp19.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit", label %for.body20.i.i.i.i.i, !llvm.loop !97
+  br i1 %cmp19.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %for.body20.i.i.i.i.i, !llvm.loop !97
 
-"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.argprom.exit": ; preds = %for.body.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %for.body20.i.i.i.i.i, %land.lhs.true25.i.i.i.i.i, %for.inc36.i.i.i.i.i, %for.cond18.preheader.i.i.i.i.i
+"_ZSt10__invoke_rIbRZN3sat14anf_simplifier12compile_aigsER10ptr_vectorINS0_6clauseEER7svectorISt4pairINS0_7literalES8_EjERN2dd6solverEE3$_2JS9_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %for.body.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %for.body20.i.i.i.i.i, %land.lhs.true25.i.i.i.i.i, %for.inc36.i.i.i.i.i, %for.cond18.preheader.i.i.i.i.i
   %lnot.i.i.i = phi i1 [ true, %for.cond18.preheader.i.i.i.i.i ], [ true, %for.body20.i.i.i.i.i ], [ true, %for.inc36.i.i.i.i.i ], [ false, %land.lhs.true25.i.i.i.i.i ], [ false, %land.lhs.true.i.i.i.i.i ], [ true, %for.body.i.i.i.i.i ]
   ret i1 %lnot.i.i.i
 }

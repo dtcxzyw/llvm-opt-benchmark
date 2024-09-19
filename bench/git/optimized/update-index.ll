@@ -1491,26 +1491,26 @@ get_mtime_path.exit.i.i:                          ; preds = %if.then4.i.i.i20.i,
   %74 = load ptr, ptr getelementptr inbounds (i8, ptr @get_mtime_path.sb, i64 16), align 8
   %call1.i21.i = call i32 @mkdir(ptr noundef %74, i32 noundef 448) #18
   %tobool.not.i22.i = icmp eq i32 %call1.i21.i, 0
-  br i1 %tobool.not.i22.i, label %xmkdir.argprom.exit.i, label %if.then.i23.i
+  br i1 %tobool.not.i22.i, label %xmkdir.exit.i, label %if.then.i23.i
 
 if.then.i23.i:                                    ; preds = %get_mtime_path.exit.i.i
   %call2.i.i = call fastcc ptr @_(ptr noundef nonnull @.str.144)
   call void (ptr, ...) @die_errno(ptr noundef %call2.i.i, ptr noundef %74) #17
   unreachable
 
-xmkdir.argprom.exit.i:                            ; preds = %get_mtime_path.exit.i.i
+xmkdir.exit.i:                                    ; preds = %get_mtime_path.exit.i.i
   %75 = load ptr, ptr getelementptr inbounds (i8, ptr @mtime_dir, i64 16), align 8
   %call.i24.i = call i32 @stat64(ptr noundef %75, ptr noundef nonnull %st.i) #18
   %tobool.not.i25.i = icmp eq i32 %call.i24.i, 0
   br i1 %tobool.not.i25.i, label %xstat_mtime_dir.exit28.i, label %if.then.i26.i
 
-if.then.i26.i:                                    ; preds = %xmkdir.argprom.exit.i
+if.then.i26.i:                                    ; preds = %xmkdir.exit.i
   %call1.i27.i = call fastcc ptr @_(ptr noundef nonnull @.str.142)
   %76 = load ptr, ptr getelementptr inbounds (i8, ptr @mtime_dir, i64 16), align 8
   call void (ptr, ...) @die_errno(ptr noundef %call1.i27.i, ptr noundef %76) #17
   unreachable
 
-xstat_mtime_dir.exit28.i:                         ; preds = %xmkdir.argprom.exit.i
+xstat_mtime_dir.exit28.i:                         ; preds = %xmkdir.exit.i
   %call19.i = call i32 @match_stat_data(ptr noundef nonnull %base.i, ptr noundef nonnull %st.i) #18
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %if.then21.i, label %if.end26.i
@@ -1726,26 +1726,26 @@ get_mtime_path.exit.i90.i:                        ; preds = %if.then4.i.i.i89.i,
   %108 = load ptr, ptr getelementptr inbounds (i8, ptr @get_mtime_path.sb, i64 16), align 8
   %call1.i91.i = call i32 @lstat_cache_aware_rmdir(ptr noundef %108) #18
   %tobool.not.i92.i = icmp eq i32 %call1.i91.i, 0
-  br i1 %tobool.not.i92.i, label %xrmdir.argprom.exit.i, label %if.then.i93.i
+  br i1 %tobool.not.i92.i, label %xrmdir.exit.i, label %if.then.i93.i
 
 if.then.i93.i:                                    ; preds = %get_mtime_path.exit.i90.i
   %call2.i94.i = call fastcc ptr @_(ptr noundef nonnull @.str.140)
   call void (ptr, ...) @die_errno(ptr noundef %call2.i94.i, ptr noundef %108) #17
   unreachable
 
-xrmdir.argprom.exit.i:                            ; preds = %get_mtime_path.exit.i90.i
+xrmdir.exit.i:                                    ; preds = %get_mtime_path.exit.i90.i
   %109 = load ptr, ptr getelementptr inbounds (i8, ptr @mtime_dir, i64 16), align 8
   %call.i95.i = call i32 @stat64(ptr noundef %109, ptr noundef nonnull %st.i) #18
   %tobool.not.i96.i = icmp eq i32 %call.i95.i, 0
   br i1 %tobool.not.i96.i, label %xstat_mtime_dir.exit99.i, label %if.then.i97.i
 
-if.then.i97.i:                                    ; preds = %xrmdir.argprom.exit.i
+if.then.i97.i:                                    ; preds = %xrmdir.exit.i
   %call1.i98.i = call fastcc ptr @_(ptr noundef nonnull @.str.142)
   %110 = load ptr, ptr getelementptr inbounds (i8, ptr @mtime_dir, i64 16), align 8
   call void (ptr, ...) @die_errno(ptr noundef %call1.i98.i, ptr noundef %110) #17
   unreachable
 
-xstat_mtime_dir.exit99.i:                         ; preds = %xrmdir.argprom.exit.i
+xstat_mtime_dir.exit99.i:                         ; preds = %xrmdir.exit.i
   %call59.i = call i32 @match_stat_data(ptr noundef nonnull %base.i, ptr noundef nonnull %st.i) #18
   %tobool60.not.i = icmp eq i32 %call59.i, 0
   br i1 %tobool60.not.i, label %if.then61.i, label %if.end65.i
@@ -3437,7 +3437,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @the_index, i64 240), align 8
   %call.i = tail call i32 @fsm_settings__get_mode(ptr noundef %2) #18
   %cmp.i = icmp sgt i32 %call.i, 0
-  br i1 %cmp.i, label %if.then.i, label %mark_fsmonitor_invalid.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %mark_fsmonitor_invalid.exit
 
 if.then.i:                                        ; preds = %if.then
   %ce_flags.i = getelementptr inbounds i8, ptr %1, i64 56
@@ -3452,17 +3452,17 @@ if.then.i:                                        ; preds = %if.then
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
   %tobool.not1.i = icmp ne i8 %bf.clear.i.i, 0
   %tobool.not.i = select i1 %tobool.not.i.i, i1 %tobool.not1.i, i1 false
-  br i1 %tobool.not.i, label %mark_fsmonitor_invalid.argprom.exit, label %if.then2.i
+  br i1 %tobool.not.i, label %mark_fsmonitor_invalid.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.114, i32 noundef 67, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.115, ptr noundef nonnull %name.i) #18
-  br label %mark_fsmonitor_invalid.argprom.exit
+  br label %mark_fsmonitor_invalid.exit
 
-mark_fsmonitor_invalid.argprom.exit:              ; preds = %if.then, %if.then.i, %if.then2.i
+mark_fsmonitor_invalid.exit:                      ; preds = %if.then, %if.then.i, %if.then2.i
   %tobool.not = icmp eq i32 %mark, 0
   br i1 %tobool.not, label %if.else, label %if.then3
 
-if.then3:                                         ; preds = %mark_fsmonitor_invalid.argprom.exit
+if.then3:                                         ; preds = %mark_fsmonitor_invalid.exit
   %5 = load ptr, ptr @the_index, align 8
   %arrayidx5 = getelementptr inbounds ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx5, align 8
@@ -3472,7 +3472,7 @@ if.then3:                                         ; preds = %mark_fsmonitor_inva
   store i32 %or, ptr %ce_flags, align 8
   br label %if.end
 
-if.else:                                          ; preds = %mark_fsmonitor_invalid.argprom.exit
+if.else:                                          ; preds = %mark_fsmonitor_invalid.exit
   %not = xor i32 %flag, -1
   %8 = load ptr, ptr @the_index, align 8
   %arrayidx7 = getelementptr inbounds ptr, ptr %8, i64 %idxprom

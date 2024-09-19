@@ -5061,22 +5061,22 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %29 = getelementptr inbounds i8, ptr %26, i64 56
   store ptr %28, ptr %29, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %proto_item_set_hidden.argprom.exit, label %30
+  br i1 %.not, label %proto_item_set_hidden.exit, label %30
 
 30:                                               ; preds = %kerberos_get_private_data.exit
   %31 = getelementptr i8, ptr %28, i64 32
   %.val = load ptr, ptr %31, align 8
   %.not.i13 = icmp eq ptr %.val, null
-  br i1 %.not.i13, label %proto_item_set_hidden.argprom.exit, label %32
+  br i1 %.not.i13, label %proto_item_set_hidden.exit, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %.val, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = or i32 %34, 1
   store i32 %35, ptr %33, align 4
-  br label %proto_item_set_hidden.argprom.exit
+  br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.argprom.exit:               ; preds = %32, %30, %kerberos_get_private_data.exit
+proto_item_set_hidden.exit:                       ; preds = %32, %30, %kerberos_get_private_data.exit
   %36 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @gbl_keytype) #16
   %37 = load i32, ptr @gbl_keytype, align 4
   %38 = getelementptr inbounds i8, ptr %26, i64 32
@@ -6427,7 +6427,7 @@ verify_krb5_pac.exit:                             ; preds = %kerberos_get_privat
   %638 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %637, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
   %639 = load i32, ptr @ett_krb_pac_logon_info, align 4
   %640 = call ptr @proto_item_add_subtree(ptr noundef %638, i32 noundef %639) #16
-  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB.argprom.argelim(ptr noundef %640, ptr noundef %635, ptr noundef %10)
+  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %640, ptr noundef %635, ptr noundef %10)
   store i32 0, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_LOGON_INFO.di, i64 28), align 4
   store ptr @dissect_krb5_PAC_LOGON_INFO.call_data, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_LOGON_INFO.di, i64 72), align 8
   call void @init_ndr_pointer_list(ptr noundef nonnull @dissect_krb5_PAC_LOGON_INFO.di) #16
@@ -6535,7 +6535,7 @@ dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %671, %decrypt_krb5_
   %711 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %710, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
   %712 = load i32, ptr @ett_krb_pac_s4u_delegation_info, align 4
   %713 = call ptr @proto_item_add_subtree(ptr noundef %711, i32 noundef %712) #16
-  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB.argprom.argelim(ptr noundef %713, ptr noundef %635, ptr noundef %8)
+  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %713, ptr noundef %635, ptr noundef %8)
   store i32 0, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, i64 28), align 4
   store ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.call_data, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_S4U_DELEGATION_INFO.di, i64 72), align 8
   call void @init_ndr_pointer_list(ptr noundef nonnull @dissect_krb5_PAC_S4U_DELEGATION_INFO.di) #16
@@ -6639,7 +6639,7 @@ dissect_krb5_PAC_CREDENTIAL_INFO.exit.i:          ; preds = %671, %decrypt_krb5_
   %783 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %782, ptr noundef %635, i32 noundef 0, i32 noundef -1, i32 noundef 0) #16
   %784 = load i32, ptr @ett_krb_pac_device_info, align 4
   %785 = call ptr @proto_item_add_subtree(ptr noundef %783, i32 noundef %784) #16
-  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB.argprom.argelim(ptr noundef %785, ptr noundef %635, ptr noundef %7)
+  call fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %785, ptr noundef %635, ptr noundef %7)
   store i32 0, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_DEVICE_INFO.di, i64 28), align 4
   store ptr @dissect_krb5_PAC_DEVICE_INFO.call_data, ptr getelementptr inbounds (i8, ptr @dissect_krb5_PAC_DEVICE_INFO.di, i64 72), align 8
   call void @init_ndr_pointer_list(ptr noundef nonnull @dissect_krb5_PAC_DEVICE_INFO.di) #16
@@ -7025,7 +7025,7 @@ declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_krb5_PAC_NDRHEADERBLOB.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = load i32, ptr @ett_krb_pac_midl_blob, align 4
   %5 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 16, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.858) #16
   %6 = load i32, ptr @hf_krb_midl_version, align 4

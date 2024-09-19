@@ -16024,7 +16024,7 @@ invoke.cont7.thread.i.i.i.i:                      ; preds = %invoke.cont5.i.i.i.
   %13 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 48
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8
-  br label %"_ZSt6invokeIRKZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS1_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt6invokeIRKZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS1_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit"
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont5.i.i.i.i
   invoke void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %ptr.coerce.val, ptr %11, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i.i.i)
@@ -16034,11 +16034,11 @@ invoke.cont7.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
   %.pre.i.i.i.i = load i8, ptr %second.i.i.i.i.i.i, align 8
   %14 = and i8 %.pre.i.i.i.i, 1
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %"_ZSt6invokeIRKZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS1_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.argprom.exit", label %if.then.i.i3.i.i.i.i
+  br i1 %15, label %"_ZSt6invokeIRKZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS1_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit", label %if.then.i.i3.i.i.i.i
 
 if.then.i.i3.i.i.i.i:                             ; preds = %invoke.cont7.i.i.i.i
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i)
-          to label %"_ZSt6invokeIRKZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS1_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt6invokeIRKZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS1_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i3.i.i.i.i
   %16 = landingpad { ptr, i32 }
@@ -16068,7 +16068,7 @@ ehcleanup8.i.i.i.i:                               ; preds = %ehcleanup.i.i.i.i, 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i.i.i) #21
   resume { ptr, i32 } %.pn.pn.i.i.i.i
 
-"_ZSt6invokeIRKZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS1_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.argprom.exit": ; preds = %invoke.cont7.thread.i.i.i.i, %invoke.cont7.i.i.i.i, %if.then.i.i3.i.i.i.i
+"_ZSt6invokeIRKZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusEE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKNS1_4CordEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit": ; preds = %invoke.cont7.thread.i.i.i.i, %invoke.cont7.i.i.i.i, %if.then.i.i3.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i.i.i.i) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i.i.i) #21
@@ -32819,27 +32819,27 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN4absl4CordD2Ev.exit:                           ; preds = %invoke.cont11, %if.then.i
-  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %ok, ptr noundef nonnull align 8 dereferenceable(8) %no_payload)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_"(ptr noundef nonnull align 8 dereferenceable(8) %ok, ptr noundef nonnull align 8 dereferenceable(8) %no_payload)
           to label %invoke.cont12 unwind label %lpad8
 
 invoke.cont12:                                    ; preds = %_ZN4absl4CordD2Ev.exit
-  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %no_payload, ptr noundef nonnull align 8 dereferenceable(8) %ok)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_"(ptr noundef nonnull align 8 dereferenceable(8) %no_payload, ptr noundef nonnull align 8 dereferenceable(8) %ok)
           to label %invoke.cont13 unwind label %lpad8
 
 invoke.cont13:                                    ; preds = %invoke.cont12
-  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %ok, ptr noundef nonnull align 8 dereferenceable(8) %with_payload)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_"(ptr noundef nonnull align 8 dereferenceable(8) %ok, ptr noundef nonnull align 8 dereferenceable(8) %with_payload)
           to label %invoke.cont14 unwind label %lpad8
 
 invoke.cont14:                                    ; preds = %invoke.cont13
-  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %with_payload, ptr noundef nonnull align 8 dereferenceable(8) %ok)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_"(ptr noundef nonnull align 8 dereferenceable(8) %with_payload, ptr noundef nonnull align 8 dereferenceable(8) %ok)
           to label %invoke.cont15 unwind label %lpad8
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %no_payload, ptr noundef nonnull align 8 dereferenceable(8) %with_payload)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_"(ptr noundef nonnull align 8 dereferenceable(8) %no_payload, ptr noundef nonnull align 8 dereferenceable(8) %with_payload)
           to label %invoke.cont16 unwind label %lpad8
 
 invoke.cont16:                                    ; preds = %invoke.cont15
-  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %with_payload, ptr noundef nonnull align 8 dereferenceable(8) %no_payload)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_"(ptr noundef nonnull align 8 dereferenceable(8) %with_payload, ptr noundef nonnull align 8 dereferenceable(8) %no_payload)
           to label %invoke.cont17 unwind label %lpad8
 
 invoke.cont17:                                    ; preds = %invoke.cont16
@@ -32941,7 +32941,7 @@ ehcleanup19:                                      ; preds = %ehcleanup18, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %s1, ptr noundef nonnull align 8 dereferenceable(8) %s2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_116Status_Swap_Test8TestBodyEvENK3$_0clERKN4absl6StatusES5_"(ptr noundef nonnull align 8 dereferenceable(8) %s1, ptr noundef nonnull align 8 dereferenceable(8) %s2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %copy1 = alloca %"class.absl::Status", align 8
   %copy2 = alloca %"class.absl::Status", align 8
@@ -36908,8 +36908,8 @@ attributes #25 = { noreturn }
 !296 = distinct !{!296, !297, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !297 = distinct !{!297, !"_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !298 = !{!299}
-!299 = distinct !{!299, !300, !"_ZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusE.argprom: %agg.result"}
-!300 = distinct !{!300, !"_ZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusE.argprom"}
+!299 = distinct !{!299, !300, !"_ZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusE: %agg.result"}
+!300 = distinct !{!300, !"_ZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusE"}
 !301 = !{!302}
 !302 = distinct !{!302, !303, !"_ZN7testing25UnorderedElementsAreArrayISt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEESaISB_EEEENS_8internal32UnorderedElementsAreArrayMatcherINT_10value_typeEEERKSG_: %agg.result"}
 !303 = distinct !{!303, !"_ZN7testing25UnorderedElementsAreArrayISt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEESaISB_EEEENS_8internal32UnorderedElementsAreArrayMatcherINT_10value_typeEEERKSG_"}
@@ -36922,8 +36922,8 @@ attributes #25 = { noreturn }
 !310 = distinct !{!310, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_32UnorderedElementsAreArrayMatcherISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl4CordEEEEEENS0_29PredicateFormatterFromMatcherIT_EESF_"}
 !311 = distinct !{!311, !238}
 !312 = !{!313}
-!313 = distinct !{!313, !314, !"_ZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusE.argprom: %agg.result"}
-!314 = distinct !{!314, !"_ZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusE.argprom"}
+!313 = distinct !{!313, !314, !"_ZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusE: %agg.result"}
+!314 = distinct !{!314, !"_ZN12_GLOBAL__N_118AllVisitedPayloadsB5cxx11ERKN4absl6StatusE"}
 !315 = distinct !{!315, !238}
 !316 = distinct !{!316, !238}
 !317 = distinct !{!317, !238}

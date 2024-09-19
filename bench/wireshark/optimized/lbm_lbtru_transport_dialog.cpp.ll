@@ -8059,7 +8059,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit134: ; preds = %_ZN7QStringD2Ev.ex
   %.val = load i64, ptr %69, align 8
   %213 = getelementptr inbounds i8, ptr %69, i64 8
   %.val86 = load i32, ptr %213, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %77, i64 %.val, i32 %.val86, i64 noundef %212)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %77, i64 %.val, i32 %.val86, i64 noundef %212)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(24) %77)
           to label %.noexc135 unwind label %816
@@ -8392,7 +8392,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit194: ; preds = %_ZN7QStringD2Ev.ex
   %317 = load i64, ptr %264, align 8
   %.val87 = load i64, ptr %69, align 8
   %.val88 = load i32, ptr %213, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %85, i64 %.val87, i32 %.val88, i64 noundef %317)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %85, i64 %.val87, i32 %.val88, i64 noundef %317)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(24) %85)
           to label %.noexc195 unwind label %864
@@ -9146,7 +9146,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit338: ; preds = %_ZN7QStringD2Ev.ex
   %550 = load i64, ptr %396, align 8
   %.val89 = load i64, ptr %69, align 8
   %.val90 = load i32, ptr %213, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %105, i64 %.val89, i32 %.val90, i64 noundef %550)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %105, i64 %.val89, i32 %.val90, i64 noundef %550)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(24) %105)
           to label %.noexc339 unwind label %984
@@ -9479,7 +9479,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit398: ; preds = %_ZN7QStringD2Ev.ex
   %654 = load i64, ptr %601, align 8
   %.val91 = load i64, ptr %69, align 8
   %.val92 = load i32, ptr %213, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %113, i64 %.val91, i32 %.val92, i64 noundef %654)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %113, i64 %.val91, i32 %.val92, i64 noundef %654)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(24) %113)
           to label %.noexc399 unwind label %1032
@@ -9812,7 +9812,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit458: ; preds = %_ZN7QStringD2Ev.ex
   %758 = load i64, ptr %705, align 8
   %.val93 = load i64, ptr %69, align 8
   %.val94 = load i32, ptr %213, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %121, i64 %.val93, i32 %.val94, i64 noundef %758)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %121, i64 %.val93, i32 %.val94, i64 noundef %758)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %121)
           to label %.noexc459 unwind label %1080
@@ -10963,7 +10963,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i673:   ; preds = %.body460
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 %.0.val, i32 %.8.val, i64 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 %.0.val, i32 %.8.val, i64 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -12575,7 +12575,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit134: ; preds = %_ZN7QStringD2Ev.ex
   %.val93 = load i64, ptr %69, align 8
   %213 = getelementptr inbounds i8, ptr %69, i64 8
   %.val94 = load i32, ptr %213, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %77, i64 %.val93, i32 %.val94, i64 noundef %212)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %77, i64 %.val93, i32 %.val94, i64 noundef %212)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(24) %77)
           to label %.noexc135 unwind label %816
@@ -12908,7 +12908,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit194: ; preds = %_ZN7QStringD2Ev.ex
   %317 = load i64, ptr %264, align 8
   %.val91 = load i64, ptr %69, align 8
   %.val92 = load i32, ptr %213, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %85, i64 %.val91, i32 %.val92, i64 noundef %317)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %85, i64 %.val91, i32 %.val92, i64 noundef %317)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(24) %85)
           to label %.noexc195 unwind label %864
@@ -13662,7 +13662,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit338: ; preds = %_ZN7QStringD2Ev.ex
   %550 = load i64, ptr %396, align 8
   %.val89 = load i64, ptr %69, align 8
   %.val90 = load i32, ptr %213, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %105, i64 %.val89, i32 %.val90, i64 noundef %550)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %105, i64 %.val89, i32 %.val90, i64 noundef %550)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(24) %105)
           to label %.noexc339 unwind label %984
@@ -13995,7 +13995,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit398: ; preds = %_ZN7QStringD2Ev.ex
   %654 = load i64, ptr %601, align 8
   %.val87 = load i64, ptr %69, align 8
   %.val88 = load i32, ptr %213, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %113, i64 %.val87, i32 %.val88, i64 noundef %654)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %113, i64 %.val87, i32 %.val88, i64 noundef %654)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(24) %113)
           to label %.noexc399 unwind label %1032
@@ -14328,7 +14328,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit458: ; preds = %_ZN7QStringD2Ev.ex
   %758 = load i64, ptr %705, align 8
   %.val = load i64, ptr %69, align 8
   %.val86 = load i32, ptr %213, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %121, i64 %.val, i32 %.val86, i64 noundef %758)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %121, i64 %.val, i32 %.val86, i64 noundef %758)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %121)
           to label %.noexc459 unwind label %1080
@@ -17485,7 +17485,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit192: ; preds = %_ZN7QStringD2Ev.ex
   %.val67 = load i64, ptr %47, align 8
   %304 = getelementptr inbounds i8, ptr %47, i64 8
   %.val68 = load i32, ptr %304, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %67, i64 %.val67, i32 %.val68, i64 noundef %303)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %67, i64 %.val67, i32 %.val68, i64 noundef %303)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(24) %67)
           to label %.noexc193 unwind label %642
@@ -17818,7 +17818,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit252: ; preds = %_ZN7QStringD2Ev.ex
   %408 = load i64, ptr %355, align 8
   %.val65 = load i64, ptr %47, align 8
   %.val66 = load i32, ptr %304, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %75, i64 %.val65, i32 %.val66, i64 noundef %408)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %75, i64 %.val65, i32 %.val66, i64 noundef %408)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(24) %75)
           to label %.noexc253 unwind label %690
@@ -18151,7 +18151,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit312: ; preds = %_ZN7QStringD2Ev.ex
   %512 = load i64, ptr %459, align 8
   %.val = load i64, ptr %47, align 8
   %.val64 = load i32, ptr %304, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %83, i64 %.val, i32 %.val64, i64 noundef %512)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %83, i64 %.val, i32 %.val64, i64 noundef %512)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %83)
           to label %.noexc313 unwind label %738
@@ -20640,7 +20640,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit192: ; preds = %_ZN7QStringD2Ev.ex
   %.val67 = load i64, ptr %47, align 8
   %304 = getelementptr inbounds i8, ptr %47, i64 8
   %.val68 = load i32, ptr %304, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %67, i64 %.val67, i32 %.val68, i64 noundef %303)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %67, i64 %.val67, i32 %.val68, i64 noundef %303)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(24) %67)
           to label %.noexc193 unwind label %642
@@ -20973,7 +20973,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit252: ; preds = %_ZN7QStringD2Ev.ex
   %408 = load i64, ptr %355, align 8
   %.val65 = load i64, ptr %47, align 8
   %.val66 = load i32, ptr %304, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %75, i64 %.val65, i32 %.val66, i64 noundef %408)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %75, i64 %.val65, i32 %.val66, i64 noundef %408)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(24) %75)
           to label %.noexc253 unwind label %690
@@ -21306,7 +21306,7 @@ _ZN15QTreeWidgetItem16setTextAlignmentEii.exit312: ; preds = %_ZN7QStringD2Ev.ex
   %512 = load i64, ptr %459, align 8
   %.val = load i64, ptr %47, align 8
   %.val64 = load i32, ptr %304, align 8
-  call fastcc void @_ZL11format_rateRK8nstime_tm.argprom(ptr dead_on_unwind noalias writable align 8 %83, i64 %.val, i32 %.val64, i64 noundef %512)
+  call fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias writable align 8 %83, i64 %.val, i32 %.val64, i64 noundef %512)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(24) %83)
           to label %.noexc313 unwind label %738

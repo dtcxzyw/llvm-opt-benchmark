@@ -360,7 +360,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef range(i32 42, 519) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 42, 519) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::internal::GTestLog", align 4
   %3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %3, label %17, label %4
@@ -401,7 +401,7 @@ define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef range(i32 42, 519) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 42, 519) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::internal::GTestLog", align 4
   %3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %3, label %17, label %4
@@ -19402,11 +19402,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   %30 = getelementptr inbounds i8, ptr %22, i64 32
   store i32 42, ptr %30, align 8
-  %31 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 42)
+  %31 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 42)
           to label %32 unwind label %42
 
 32:                                               ; preds = %29
-  %33 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 42)
+  %33 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 42)
           to label %34 unwind label %42
 
 34:                                               ; preds = %32
@@ -19481,11 +19481,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4: ;
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4
   %49 = getelementptr inbounds i8, ptr %19, i64 32
   store i32 92, ptr %49, align 8
-  %50 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 92)
+  %50 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 92)
           to label %51 unwind label %61
 
 51:                                               ; preds = %48
-  %52 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 92)
+  %52 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 92)
           to label %53 unwind label %61
 
 53:                                               ; preds = %51
@@ -19554,11 +19554,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9: ;
 67:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9
   %68 = getelementptr inbounds i8, ptr %16, i64 32
   store i32 126, ptr %68, align 8
-  %69 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 126)
+  %69 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 126)
           to label %70 unwind label %80
 
 70:                                               ; preds = %67
-  %71 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 126)
+  %71 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 126)
           to label %72 unwind label %80
 
 72:                                               ; preds = %70
@@ -19627,11 +19627,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15: 
 86:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15
   %87 = getelementptr inbounds i8, ptr %13, i64 32
   store i32 180, ptr %87, align 8
-  %88 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 180)
+  %88 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 180)
           to label %89 unwind label %99
 
 89:                                               ; preds = %86
-  %90 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 180)
+  %90 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 180)
           to label %91 unwind label %99
 
 91:                                               ; preds = %89
@@ -19700,11 +19700,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i21: 
 105:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i21
   %106 = getelementptr inbounds i8, ptr %10, i64 32
   store i32 355, ptr %106, align 8
-  %107 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 355)
+  %107 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 355)
           to label %108 unwind label %118
 
 108:                                              ; preds = %105
-  %109 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 355)
+  %109 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 355)
           to label %110 unwind label %118
 
 110:                                              ; preds = %108
@@ -19773,11 +19773,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i27: 
 124:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i27
   %125 = getelementptr inbounds i8, ptr %7, i64 32
   store i32 381, ptr %125, align 8
-  %126 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 381)
+  %126 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 381)
           to label %127 unwind label %137
 
 127:                                              ; preds = %124
-  %128 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 381)
+  %128 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 381)
           to label %129 unwind label %137
 
 129:                                              ; preds = %127
@@ -19846,11 +19846,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i33: 
 143:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i33
   %144 = getelementptr inbounds i8, ptr %4, i64 32
   store i32 445, ptr %144, align 8
-  %145 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 445)
+  %145 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 445)
           to label %146 unwind label %156
 
 146:                                              ; preds = %143
-  %147 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 445)
+  %147 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 445)
           to label %148 unwind label %156
 
 148:                                              ; preds = %146
@@ -19919,11 +19919,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i39: 
 162:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i39
   %163 = getelementptr inbounds i8, ptr %1, i64 32
   store i32 518, ptr %163, align 8
-  %164 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 518)
+  %164 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 518)
           to label %165 unwind label %175
 
 165:                                              ; preds = %162
-  %166 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 518)
+  %166 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_111DepsLogTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 518)
           to label %167 unwind label %175
 
 167:                                              ; preds = %165

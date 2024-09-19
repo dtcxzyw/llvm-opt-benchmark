@@ -200,7 +200,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val42 = load ptr, ptr %87, align 8
   %.not.i49 = icmp eq ptr %.val42, null
   %.pre58 = ptrtoint ptr %.val42 to i64
-  br i1 %.not.i49, label %Aig_ObjFaninId0.argprom.exit, label %88
+  br i1 %.not.i49, label %Aig_ObjFaninId0.exit, label %88
 
 88:                                               ; preds = %86
   %89 = and i64 %.pre58, -2
@@ -208,9 +208,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %91 = getelementptr inbounds i8, ptr %90, i64 36
   %92 = load i32, ptr %91, align 4
   %93 = shl i32 %92, 1
-  br label %Aig_ObjFaninId0.argprom.exit
+  br label %Aig_ObjFaninId0.exit
 
-Aig_ObjFaninId0.argprom.exit:                     ; preds = %86, %88
+Aig_ObjFaninId0.exit:                             ; preds = %86, %88
   %94 = phi i32 [ %93, %88 ], [ -2, %86 ]
   %95 = trunc i64 %.pre58 to i32
   %96 = and i32 %95, 1
@@ -221,12 +221,12 @@ Aig_ObjFaninId0.argprom.exit:                     ; preds = %86, %88
   %.not = icmp eq i64 %98, 3
   br i1 %.not, label %Saig_ObjIsLo.exit.thread, label %99
 
-99:                                               ; preds = %Aig_ObjFaninId0.argprom.exit
+99:                                               ; preds = %Aig_ObjFaninId0.exit
   %100 = getelementptr i8, ptr %26, i64 16
   %.val45 = load ptr, ptr %100, align 8
   %.not.i50 = icmp eq ptr %.val45, null
   %.pre60 = ptrtoint ptr %.val45 to i64
-  br i1 %.not.i50, label %Aig_ObjFaninId1.argprom.exit, label %101
+  br i1 %.not.i50, label %Aig_ObjFaninId1.exit, label %101
 
 101:                                              ; preds = %99
   %102 = and i64 %.pre60, -2
@@ -234,9 +234,9 @@ Aig_ObjFaninId0.argprom.exit:                     ; preds = %86, %88
   %104 = getelementptr inbounds i8, ptr %103, i64 36
   %105 = load i32, ptr %104, align 4
   %106 = shl i32 %105, 1
-  br label %Aig_ObjFaninId1.argprom.exit
+  br label %Aig_ObjFaninId1.exit
 
-Aig_ObjFaninId1.argprom.exit:                     ; preds = %99, %101
+Aig_ObjFaninId1.exit:                             ; preds = %99, %101
   %107 = phi i32 [ %106, %101 ], [ -2, %99 ]
   %108 = trunc i64 %.pre60 to i32
   %109 = and i32 %108, 1
@@ -245,8 +245,8 @@ Aig_ObjFaninId1.argprom.exit:                     ; preds = %99, %101
   store i32 %110, ptr %111, align 4
   br label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit.thread:                         ; preds = %41, %Aig_ObjFaninId1.argprom.exit, %22, %Aig_ObjFaninId0.argprom.exit, %Saig_ObjIsLo.exit, %Vec_PtrPush.exit
-  %112 = phi ptr [ %23, %41 ], [ %23, %Aig_ObjFaninId1.argprom.exit ], [ %23, %22 ], [ %23, %Aig_ObjFaninId0.argprom.exit ], [ %23, %Saig_ObjIsLo.exit ], [ %.pre, %Vec_PtrPush.exit ]
+Saig_ObjIsLo.exit.thread:                         ; preds = %41, %Aig_ObjFaninId1.exit, %22, %Aig_ObjFaninId0.exit, %Saig_ObjIsLo.exit, %Vec_PtrPush.exit
+  %112 = phi ptr [ %23, %41 ], [ %23, %Aig_ObjFaninId1.exit ], [ %23, %22 ], [ %23, %Aig_ObjFaninId0.exit ], [ %23, %Saig_ObjIsLo.exit ], [ %.pre, %Vec_PtrPush.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %113 = getelementptr i8, ptr %112, i64 4
   %.val36 = load i32, ptr %113, align 4

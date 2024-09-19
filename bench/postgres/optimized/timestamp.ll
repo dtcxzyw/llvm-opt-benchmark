@@ -296,7 +296,7 @@ define ptr @PGTYPEStimestamp_to_asc(i64 noundef %0) local_unnamed_addr #0 {
   br label %EncodeSpecialTimestamp.exit
 
 9:                                                ; preds = %1
-  %10 = call fastcc i32 @timestamp2tm.argprom(i64 noundef %0, ptr noundef %2, ptr noundef %4)
+  %10 = call fastcc i32 @timestamp2tm(i64 noundef %0, ptr noundef %2, ptr noundef %4)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %14
 
@@ -320,7 +320,7 @@ EncodeSpecialTimestamp.exit:                      ; preds = %8, %7, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @timestamp2tm.argprom(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @timestamp2tm(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #9
   %5 = sext i32 %4 to i64
   %6 = sdiv i64 %0, 86400000000
@@ -447,8 +447,8 @@ define i32 @PGTYPEStimestamp_fmt_asc(ptr noundef %0, ptr noundef %1, i32 noundef
   %9 = tail call i64 @PGTYPESdate_from_timestamp(i64 noundef %8) #9
   %10 = tail call i32 @PGTYPESdate_dayofweek(i64 noundef %9) #9
   %11 = load i64, ptr %0, align 8
-  %12 = call fastcc i32 @timestamp2tm.argprom(i64 noundef %11, ptr noundef %6, ptr noundef %7)
-  %13 = call fastcc i32 @dttofmtasc_replace.argelim(ptr noundef nonnull %0, i32 noundef %10, ptr noundef %6, ptr noundef %1, ptr noundef %5, ptr noundef %3)
+  %12 = call fastcc i32 @timestamp2tm(i64 noundef %11, ptr noundef %6, ptr noundef %7)
+  %13 = call fastcc i32 @dttofmtasc_replace(ptr noundef nonnull %0, i32 noundef %10, ptr noundef %6, ptr noundef %1, ptr noundef %5, ptr noundef %3)
   ret i32 %13
 }
 
@@ -457,7 +457,7 @@ declare i64 @PGTYPESdate_from_timestamp(i64 noundef) local_unnamed_addr #1
 declare i32 @PGTYPESdate_dayofweek(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dttofmtasc_replace.argelim(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [4 x i8], align 4
   store ptr %3, ptr %7, align 8
@@ -579,7 +579,7 @@ define internal fastcc i32 @dttofmtasc_replace.argelim(ptr noundef %0, i32 nound
 
 50:                                               ; preds = %22
   %51 = load ptr, ptr %7, align 8
-  %52 = call fastcc i32 @dttofmtasc_replace.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %51, ptr noundef %4, ptr noundef nonnull @.str.3)
+  %52 = call fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %51, ptr noundef %4, ptr noundef nonnull @.str.3)
   %.not224 = icmp eq i32 %52, 0
   br i1 %.not224, label %.loopexit, label %.loopexit235
 
@@ -803,13 +803,13 @@ define internal fastcc i32 @dttofmtasc_replace.argelim(ptr noundef %0, i32 nound
 
 154:                                              ; preds = %22
   %155 = load ptr, ptr %7, align 8
-  %156 = call fastcc i32 @dttofmtasc_replace.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %155, ptr noundef %4, ptr noundef nonnull @.str.10)
+  %156 = call fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %155, ptr noundef %4, ptr noundef nonnull @.str.10)
   %.not220 = icmp eq i32 %156, 0
   br i1 %.not220, label %.loopexit, label %.loopexit235
 
 157:                                              ; preds = %22
   %158 = load ptr, ptr %7, align 8
-  %159 = call fastcc i32 @dttofmtasc_replace.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %158, ptr noundef %4, ptr noundef nonnull @.str.11)
+  %159 = call fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %158, ptr noundef %4, ptr noundef nonnull @.str.11)
   %.not219 = icmp eq i32 %159, 0
   br i1 %.not219, label %.loopexit, label %.loopexit235
 
@@ -841,7 +841,7 @@ define internal fastcc i32 @dttofmtasc_replace.argelim(ptr noundef %0, i32 nound
 
 175:                                              ; preds = %22
   %176 = load ptr, ptr %7, align 8
-  %177 = call fastcc i32 @dttofmtasc_replace.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %176, ptr noundef %4, ptr noundef nonnull @.str.12)
+  %177 = call fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %176, ptr noundef %4, ptr noundef nonnull @.str.12)
   %.not218 = icmp eq i32 %177, 0
   br i1 %.not218, label %.loopexit, label %.loopexit235
 
@@ -1302,7 +1302,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef
   br i1 %.not, label %110, label %10
 
 10:                                               ; preds = %7
-  %11 = call fastcc i32 @timestamp2tm.argprom(i64 noundef %6, ptr noundef %4, ptr noundef %5)
+  %11 = call fastcc i32 @timestamp2tm(i64 noundef %6, ptr noundef %4, ptr noundef %5)
   %.not37 = icmp eq i32 %11, 0
   br i1 %.not37, label %12, label %tm2timestamp.exit.thread
 

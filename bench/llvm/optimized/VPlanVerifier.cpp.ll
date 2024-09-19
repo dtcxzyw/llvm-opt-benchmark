@@ -1457,13 +1457,13 @@ _ZN12_GLOBAL__N_113VPlanVerifier6verifyERKN4llvm5VPlanE.exit: ; preds = %614, %_
   %.val = load ptr, ptr %26, align 8
   %.val2 = load ptr, ptr %28, align 8
   %624 = icmp eq ptr %.val2, %.val
-  br i1 %624, label %_ZN12_GLOBAL__N_113VPlanVerifierD2Ev.argprom.exit, label %625
+  br i1 %624, label %_ZN12_GLOBAL__N_113VPlanVerifierD2Ev.exit, label %625
 
 625:                                              ; preds = %_ZN12_GLOBAL__N_113VPlanVerifier6verifyERKN4llvm5VPlanE.exit
   call void @free(ptr noundef %.val2) #13
-  br label %_ZN12_GLOBAL__N_113VPlanVerifierD2Ev.argprom.exit
+  br label %_ZN12_GLOBAL__N_113VPlanVerifierD2Ev.exit
 
-_ZN12_GLOBAL__N_113VPlanVerifierD2Ev.argprom.exit: ; preds = %_ZN12_GLOBAL__N_113VPlanVerifier6verifyERKN4llvm5VPlanE.exit, %625
+_ZN12_GLOBAL__N_113VPlanVerifierD2Ev.exit:        ; preds = %_ZN12_GLOBAL__N_113VPlanVerifier6verifyERKN4llvm5VPlanE.exit, %625
   call void @_ZN4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %16) #13
   ret i1 %.0.i
 }
@@ -3586,14 +3586,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113VPlanVerifier18ver
 
 50:                                               ; preds = %.split.us.i
   %51 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull @.str.17, i64 noundef 42) #13
-  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit.thread
+  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit.thread
 
 52:                                               ; preds = %.split.us.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %45, ptr noundef nonnull align 1 dereferenceable(42) @.str.17, i64 42, i1 false)
   %53 = load ptr, ptr %44, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 42
   store ptr %54, ptr %44, align 8
-  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit.thread
+  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit.thread
 
 55:                                               ; preds = %.critedge17.i
   %56 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #13
@@ -3609,14 +3609,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113VPlanVerifier18ver
 
 65:                                               ; preds = %55
   %66 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef nonnull @.str.18, i64 noundef 42) #13
-  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit.thread
+  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit.thread
 
 67:                                               ; preds = %55
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %60, ptr noundef nonnull align 1 dereferenceable(42) @.str.18, i64 42, i1 false)
   %68 = load ptr, ptr %59, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 42
   store ptr %69, ptr %59, align 8
-  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit.thread
+  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit.thread
 
 70:                                               ; preds = %.critedge17.i
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.02.017.i, i64 8
@@ -3633,7 +3633,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113VPlanVerifier18ver
 .preheader.i:                                     ; preds = %.lr.ph.split.i, %70, %.critedge.i, %20
   %.sroa.02.0.lcssa34.i = phi ptr [ %.sroa.02.0.lcssa.i, %.critedge.i ], [ %9, %20 ], [ %72, %70 ], [ %.sroa.02.017.i, %.lr.ph.split.i ]
   %.not1126.i = icmp eq ptr %.sroa.02.0.lcssa34.i, %10
-  br i1 %.not1126.i, label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit, label %.lr.ph28.i
+  br i1 %.not1126.i, label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit, label %.lr.ph28.i
 
 74:                                               ; preds = %.critedge.i
   %75 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #13
@@ -3649,14 +3649,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113VPlanVerifier18ver
 
 84:                                               ; preds = %74
   %85 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef nonnull @.str.19, i64 noundef 58) #13
-  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit.thread
+  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit.thread
 
 86:                                               ; preds = %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(58) %79, ptr noundef nonnull align 1 dereferenceable(58) @.str.19, i64 58, i1 false)
   %87 = load ptr, ptr %78, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 58
   store ptr %88, ptr %78, align 8
-  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit.thread
+  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit.thread
 
 .lr.ph28.i:                                       ; preds = %.preheader.i, %.critedge2.i
   %.sroa.02.127.i = phi ptr [ %111, %.critedge2.i ], [ %.sroa.02.0.lcssa34.i, %.preheader.i ]
@@ -3683,28 +3683,28 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113VPlanVerifier18ver
 
 105:                                              ; preds = %95
   %106 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull @.str.20, i64 noundef 42) #13
-  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit.thread
+  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit.thread
 
 107:                                              ; preds = %95
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(42) %100, ptr noundef nonnull align 1 dereferenceable(42) @.str.20, i64 42, i1 false)
   %108 = load ptr, ptr %99, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 42
   store ptr %109, ptr %99, align 8
-  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit.thread
+  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit.thread
 
 .critedge2.i:                                     ; preds = %.lr.ph28.i
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.02.127.i, i64 8
   %111 = load ptr, ptr %110, align 8
   %.not11.i = icmp eq ptr %111, %10
-  br i1 %.not11.i, label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit, label %.lr.ph28.i, !llvm.loop !106
+  br i1 %.not11.i, label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit, label %.lr.ph28.i, !llvm.loop !106
 
-_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit: ; preds = %.critedge2.i, %.preheader.i
+_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit: ; preds = %.critedge2.i, %.preheader.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   %.sroa.085.0105 = load ptr, ptr %8, align 8
   %.not91106 = icmp eq ptr %.sroa.085.0105, %10
   br i1 %.not91106, label %.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit
+.lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %114
 
@@ -3712,8 +3712,8 @@ _ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argpr
   %.sroa.081.0116.pre = load ptr, ptr %8, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit, %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit
-  %.sroa.081.0116 = phi ptr [ %.sroa.081.0116.pre, %.preheader.loopexit ], [ %.sroa.085.0105, %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit ]
+.preheader:                                       ; preds = %.preheader.loopexit, %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit
+  %.sroa.081.0116 = phi ptr [ %.sroa.081.0116.pre, %.preheader.loopexit ], [ %.sroa.085.0105, %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit ]
   %.not92117 = icmp eq ptr %.sroa.081.0116, %10
   br i1 %.not92117, label %._crit_edge120, label %.lr.ph119
 
@@ -4149,9 +4149,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %289, %287, %271, %2
   %342 = zext i32 %341 to i64
   %343 = shl nuw nsw i64 %342, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %339, i64 noundef %343, i64 noundef 8) #13
-  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit.thread
+  br label %_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit.thread
 
-_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.argprom.exit.thread: ; preds = %107, %105, %86, %84, %67, %65, %52, %50, %_ZN4llvm11raw_ostreamlsEPKc.exit
+_ZN12_GLOBAL__N_113VPlanVerifier16verifyPhiRecipesEPKN4llvm12VPBasicBlockE.exit.thread: ; preds = %107, %105, %86, %84, %67, %65, %52, %50, %_ZN4llvm11raw_ostreamlsEPKc.exit
   %.0 = phi i1 [ %.1, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ false, %50 ], [ false, %52 ], [ false, %65 ], [ false, %67 ], [ false, %84 ], [ false, %86 ], [ false, %105 ], [ false, %107 ]
   ret i1 %.0
 }

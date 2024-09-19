@@ -155,7 +155,7 @@ define noundef i32 @prte_grpcomm_base_select() local_unnamed_addr #0 {
 
 61:                                               ; preds = %60, %55
   %.not22.i = icmp eq ptr %57, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %62
+  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %62
 
 62:                                               ; preds = %61
   %63 = call i32 @pthread_mutex_init(ptr noundef nonnull %57, ptr noundef null) #5
@@ -170,7 +170,7 @@ define noundef i32 @prte_grpcomm_base_select() local_unnamed_addr #0 {
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_grpcomm_base_active_t_class, i64 40), align 8
   %69 = load ptr, ptr %68, align 8
   %.not6.i.i = icmp eq ptr %69, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %62, %.lr.ph.i.i
   %70 = phi ptr [ %72, %.lr.ph.i.i ], [ %69, %62 ]
@@ -179,9 +179,9 @@ define noundef i32 @prte_grpcomm_base_select() local_unnamed_addr #0 {
   %71 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %61, %62
+pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %61, %62
   %73 = load i32, ptr %2, align 4
   %74 = getelementptr inbounds i8, ptr %57, i64 144
   store i32 %73, ptr %74, align 8
@@ -193,8 +193,8 @@ pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %61, %6
   %.not41.not48 = icmp eq ptr %.03047, getelementptr inbounds (i8, ptr @prte_grpcomm_base, i64 120)
   br i1 %.not41.not48, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %pmix_obj_new_tma.argprom.exit, %88
-  %.03049 = phi ptr [ %.030, %88 ], [ %.03047, %pmix_obj_new_tma.argprom.exit ]
+.lr.ph:                                           ; preds = %pmix_obj_new_tma.exit, %88
+  %.03049 = phi ptr [ %.030, %88 ], [ %.03047, %pmix_obj_new_tma.exit ]
   %77 = getelementptr inbounds i8, ptr %.03049, i64 144
   %78 = load i32, ptr %77, align 8
   %79 = icmp sgt i32 %73, %78
@@ -221,7 +221,7 @@ pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %61, %6
   %.not41.not = icmp eq ptr %.030, getelementptr inbounds (i8, ptr @prte_grpcomm_base, i64 120)
   br i1 %.not41.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
-.critedge:                                        ; preds = %88, %pmix_obj_new_tma.argprom.exit
+.critedge:                                        ; preds = %88, %pmix_obj_new_tma.exit
   %90 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_grpcomm_base, i64 248), align 8
   %91 = getelementptr inbounds i8, ptr %57, i64 128
   store ptr %90, ptr %91, align 8

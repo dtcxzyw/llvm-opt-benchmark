@@ -71,7 +71,7 @@ define void @"_ZN94_$LT$pyo3_macros_backend..deprecations..Deprecations$u20$as$u
   %23 = load i32, ptr %22, align 4
   call void @_ZN19pyo3_macros_backend5utils13PyO3CratePath17to_tokens_spanned17h102a173b026af24bE(ptr nonnull sret([32 x i8]) align 8 %12, ptr align 8 %15, i32 %23)
   invoke void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %11, ptr nonnull align 1 @anon.eac4dd46dce8207c17df351382d6fed8.0, i64 29, i32 %23, ptr nonnull align 8 @anon.eac4dd46dce8207c17df351382d6fed8.2)
-          to label %_ZN19pyo3_macros_backend12deprecations11Deprecation5ident17h90c63e64067f2b38E.argprom.exit unwind label %25
+          to label %_ZN19pyo3_macros_backend12deprecations11Deprecation5ident17h90c63e64067f2b38E.exit unwind label %25
 
 24:                                               ; preds = %27, %25
   %.pn4.pn.pn = phi { ptr, i32 } [ %.pn4.pn, %27 ], [ %26, %25 ]
@@ -83,7 +83,7 @@ define void @"_ZN94_$LT$pyo3_macros_backend..deprecations..Deprecations$u20$as$u
           cleanup
   br label %24
 
-_ZN19pyo3_macros_backend12deprecations11Deprecation5ident17h90c63e64067f2b38E.argprom.exit: ; preds = %.lr.ph
+_ZN19pyo3_macros_backend12deprecations11Deprecation5ident17h90c63e64067f2b38E.exit: ; preds = %.lr.ph
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %9)
           to label %30 unwind label %28
 
@@ -92,12 +92,12 @@ _ZN19pyo3_macros_backend12deprecations11Deprecation5ident17h90c63e64067f2b38E.ar
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %11) #5
           to label %24 unwind label %76
 
-28:                                               ; preds = %_ZN19pyo3_macros_backend12deprecations11Deprecation5ident17h90c63e64067f2b38E.argprom.exit
+28:                                               ; preds = %_ZN19pyo3_macros_backend12deprecations11Deprecation5ident17h90c63e64067f2b38E.exit
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %27
 
-30:                                               ; preds = %_ZN19pyo3_macros_backend12deprecations11Deprecation5ident17h90c63e64067f2b38E.argprom.exit
+30:                                               ; preds = %_ZN19pyo3_macros_backend12deprecations11Deprecation5ident17h90c63e64067f2b38E.exit
   invoke void @_ZN5quote9__private18push_pound_spanned17h63438223ff0a7f9bE(ptr nonnull align 8 %9, i32 %23)
           to label %34 unwind label %32
 

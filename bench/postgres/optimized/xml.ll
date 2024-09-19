@@ -946,7 +946,7 @@ define dso_local i64 @table_to_xml(ptr nocapture noundef readonly %0) local_unna
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.22, ptr noundef %16) #12
   %17 = load ptr, ptr %2, align 8
   %18 = call ptr @get_rel_name(i32 noundef %5) #12
-  %19 = call fastcc ptr @query_to_xml_internal.argelim(ptr noundef %17, ptr noundef %18, ptr noundef null, i1 noundef zeroext %8, ptr noundef %13, i1 noundef zeroext true)
+  %19 = call fastcc ptr @query_to_xml_internal(ptr noundef %17, ptr noundef %18, ptr noundef null, i1 noundef zeroext %8, ptr noundef %13, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %.val = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %19, i64 8
@@ -973,7 +973,7 @@ define dso_local i64 @query_to_xml(ptr nocapture noundef readonly %0) local_unna
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum_packed(ptr noundef %12) #12
   %14 = tail call ptr @text_to_cstring(ptr noundef %13) #12
-  %15 = tail call fastcc ptr @query_to_xml_internal.argelim(ptr noundef %6, ptr noundef null, ptr noundef null, i1 noundef zeroext %9, ptr noundef %14, i1 noundef zeroext true)
+  %15 = tail call fastcc ptr @query_to_xml_internal(ptr noundef %6, ptr noundef null, ptr noundef null, i1 noundef zeroext %9, ptr noundef %14, i1 noundef zeroext true)
   %.val = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %15, i64 8
   %.val7 = load i32, ptr %16, align 8
@@ -983,7 +983,7 @@ define dso_local i64 @query_to_xml(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @query_to_xml_internal.argelim(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #3 {
+define internal fastcc ptr @query_to_xml_internal(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %7
 
@@ -1060,7 +1060,7 @@ xmldata_root_element_start.exit:                  ; preds = %21, %23, %24
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
   %.030 = phi i64 [ %29, %.lr.ph ], [ 0, %27 ]
-  tail call fastcc void @SPI_sql_row_to_xmlelement.argelim(ptr noundef %10, ptr noundef null, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5)
+  tail call fastcc void @SPI_sql_row_to_xmlelement(ptr noundef %10, ptr noundef null, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5)
   %29 = add nuw i64 %.030, 1
   %30 = load i64, ptr @SPI_processed, align 8
   %31 = icmp ult i64 %29, %30
@@ -1139,7 +1139,7 @@ xmldata_root_element_start.exit:                  ; preds = %18, %19
 
 .lr.ph:                                           ; preds = %28, %.lr.ph
   %.020 = phi i64 [ %31, %.lr.ph ], [ 0, %28 ]
-  call fastcc void @SPI_sql_row_to_xmlelement.argelim(ptr noundef nonnull %2, ptr noundef null, i1 noundef zeroext %12, ptr noundef %17, i1 noundef zeroext true)
+  call fastcc void @SPI_sql_row_to_xmlelement(ptr noundef nonnull %2, ptr noundef null, i1 noundef zeroext %12, ptr noundef %17, i1 noundef zeroext true)
   %31 = add nuw i64 %.020, 1
   %32 = load i64, ptr @SPI_processed, align 8
   %33 = icmp ult i64 %31, %32
@@ -1169,7 +1169,7 @@ declare ptr @SPI_cursor_find(ptr noundef) local_unnamed_addr #2
 declare void @SPI_cursor_fetch(ptr noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SPI_sql_row_to_xmlelement.argelim(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #3 {
+define internal fastcc void @SPI_sql_row_to_xmlelement(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -1247,7 +1247,7 @@ define dso_local i64 @table_to_xmlschema(ptr nocapture noundef readonly %0) loca
   %13 = tail call ptr @table_open(i32 noundef %4, i32 noundef 1) #12
   %14 = getelementptr inbounds i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call fastcc ptr @map_sql_table_to_xmlschema.argelim(ptr noundef %15, i32 noundef %4, i1 noundef zeroext %7, ptr noundef %12)
+  %16 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %15, i32 noundef %4, i1 noundef zeroext %7, ptr noundef %12)
   tail call void @table_close(ptr noundef %13, i32 noundef 0) #12
   %17 = tail call ptr @cstring_to_text(ptr noundef %16) #12
   %18 = ptrtoint ptr %17 to i64
@@ -1257,7 +1257,7 @@ define dso_local i64 @table_to_xmlschema(ptr nocapture noundef readonly %0) loca
 declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @map_sql_table_to_xmlschema.argelim(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #3 {
   %5 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %5) #12
   %.not = icmp eq i32 %1, 0
@@ -1384,7 +1384,7 @@ define dso_local i64 @query_to_xmlschema(ptr nocapture noundef readonly %0) loca
   %27 = icmp ne i64 %8, 0
   %28 = getelementptr inbounds i8, ptr %21, i64 152
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call fastcc ptr @map_sql_table_to_xmlschema.argelim(ptr noundef %29, i32 noundef 0, i1 noundef zeroext %27, ptr noundef %13)
+  %30 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %29, i32 noundef 0, i1 noundef zeroext %27, ptr noundef %13)
   %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #13
   %32 = add i64 %31, 1
   %33 = tail call ptr @SPI_palloc(i64 noundef %32) #12
@@ -1447,7 +1447,7 @@ define dso_local i64 @cursor_to_xmlschema(ptr nocapture noundef readonly %0) loc
 
 29:                                               ; preds = %21
   %30 = icmp ne i64 %8, 0
-  %31 = tail call fastcc ptr @map_sql_table_to_xmlschema.argelim(ptr noundef nonnull %23, i32 noundef 0, i1 noundef zeroext %30, ptr noundef %13)
+  %31 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef nonnull %23, i32 noundef 0, i1 noundef zeroext %30, ptr noundef %13)
   %32 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %31) #13
   %33 = add i64 %32, 1
   %34 = tail call ptr @SPI_palloc(i64 noundef %33) #12
@@ -1475,7 +1475,7 @@ define dso_local i64 @table_to_xml_and_xmlschema(ptr nocapture noundef readonly 
   %14 = tail call ptr @table_open(i32 noundef %5, i32 noundef 1) #12
   %15 = getelementptr inbounds i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call fastcc ptr @map_sql_table_to_xmlschema.argelim(ptr noundef %16, i32 noundef %5, i1 noundef zeroext %8, ptr noundef %13)
+  %17 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %16, i32 noundef %5, i1 noundef zeroext %8, ptr noundef %13)
   tail call void @table_close(ptr noundef %14, i32 noundef 0) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @initStringInfo(ptr noundef nonnull %2) #12
@@ -1485,7 +1485,7 @@ define dso_local i64 @table_to_xml_and_xmlschema(ptr nocapture noundef readonly 
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.22, ptr noundef %20) #12
   %21 = load ptr, ptr %2, align 8
   %22 = call ptr @get_rel_name(i32 noundef %5) #12
-  %23 = call fastcc ptr @query_to_xml_internal.argelim(ptr noundef %21, ptr noundef %22, ptr noundef %17, i1 noundef zeroext %8, ptr noundef %13, i1 noundef zeroext true)
+  %23 = call fastcc ptr @query_to_xml_internal(ptr noundef %21, ptr noundef %22, ptr noundef %17, i1 noundef zeroext %8, ptr noundef %13, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %.val = load ptr, ptr %23, align 8
   %24 = getelementptr i8, ptr %23, i64 8
@@ -1537,14 +1537,14 @@ define dso_local i64 @query_to_xml_and_xmlschema(ptr nocapture noundef readonly 
   %27 = icmp ne i64 %8, 0
   %28 = getelementptr inbounds i8, ptr %21, i64 152
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call fastcc ptr @map_sql_table_to_xmlschema.argelim(ptr noundef %29, i32 noundef 0, i1 noundef zeroext %27, ptr noundef %13)
+  %30 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %29, i32 noundef 0, i1 noundef zeroext %27, ptr noundef %13)
   %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #13
   %32 = add i64 %31, 1
   %33 = tail call ptr @SPI_palloc(i64 noundef %32) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %30, i64 %32, i1 false)
   tail call void @SPI_cursor_close(ptr noundef nonnull %21) #12
   %34 = tail call i32 @SPI_finish() #12
-  %35 = tail call fastcc ptr @query_to_xml_internal.argelim(ptr noundef %6, ptr noundef null, ptr noundef %33, i1 noundef zeroext %27, ptr noundef %13, i1 noundef zeroext true)
+  %35 = tail call fastcc ptr @query_to_xml_internal(ptr noundef %6, ptr noundef null, ptr noundef %33, i1 noundef zeroext %27, ptr noundef %13, i1 noundef zeroext true)
   %.val = load ptr, ptr %35, align 8
   %36 = getelementptr i8, ptr %35, i64 8
   %.val18 = load i32, ptr %36, align 8
@@ -1581,12 +1581,12 @@ define dso_local noundef i64 @schema_to_xmlschema(ptr nocapture noundef readonly
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #12
   %9 = tail call ptr @text_to_cstring(ptr noundef %8) #12
-  tail call fastcc void @schema_to_xmlschema_internal.argelim(ptr noundef %4, ptr noundef %9)
+  tail call fastcc void @schema_to_xmlschema_internal(ptr noundef %4, ptr noundef %9)
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @schema_to_xmlschema_internal.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc void @schema_to_xmlschema_internal(ptr noundef %0, ptr noundef %1) unnamed_addr #7 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = tail call ptr @makeStringInfo() #12
   %5 = tail call i32 @LookupExplicitNamespace(ptr noundef %0, i1 noundef zeroext false) #12
@@ -1640,7 +1640,7 @@ xsd_schema_element_start.exit:                    ; preds = %2, %6
   %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %21, %.lr.ph34 ]
   %25 = call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
   call void @appendStringInfoString(ptr noundef %4, ptr noundef %25) #12
-  call fastcc void @map_sql_schema_to_xmlschema_types.argprom.argelim(i32 noundef %5)
+  call fastcc void @map_sql_schema_to_xmlschema_types(i32 noundef %5)
   unreachable
 }
 
@@ -1655,7 +1655,7 @@ define dso_local noundef i64 @schema_to_xml_and_xmlschema(ptr nocapture noundef 
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #12
   %9 = tail call ptr @text_to_cstring(ptr noundef %8) #12
   %10 = tail call i32 @LookupExplicitNamespace(ptr noundef %4, i1 noundef zeroext false) #12
-  tail call fastcc void @schema_to_xmlschema_internal.argelim(ptr noundef %4, ptr noundef %9)
+  tail call fastcc void @schema_to_xmlschema_internal(ptr noundef %4, ptr noundef %9)
   unreachable
 }
 
@@ -1679,12 +1679,12 @@ define dso_local noundef i64 @database_to_xmlschema(ptr nocapture noundef readon
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
   %6 = tail call ptr @text_to_cstring(ptr noundef %5) #12
-  tail call fastcc void @database_to_xmlschema_internal.argelim(ptr noundef %6)
+  tail call fastcc void @database_to_xmlschema_internal(ptr noundef %6)
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @database_to_xmlschema_internal.argelim(ptr noundef %0) unnamed_addr #7 {
+define internal fastcc void @database_to_xmlschema_internal(ptr noundef %0) unnamed_addr #7 {
   %2 = tail call ptr @makeStringInfo() #12
   tail call void @appendStringInfoString(ptr noundef %2, ptr noundef nonnull @.str.34) #12
   %char0.i = load i8, ptr %0, align 1
@@ -1732,7 +1732,7 @@ xsd_schema_element_start.exit:                    ; preds = %1, %3
   %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %18, %.lr.ph31 ]
   %22 = tail call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
   tail call void @appendStringInfoString(ptr noundef %2, ptr noundef %22) #12
-  tail call fastcc void @map_sql_catalog_to_xmlschema_types.argprom.argelim()
+  tail call fastcc void @map_sql_catalog_to_xmlschema_types()
   unreachable
 }
 
@@ -1743,7 +1743,7 @@ define dso_local noundef i64 @database_to_xml_and_xmlschema(ptr nocapture nounde
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
   %6 = tail call ptr @text_to_cstring(ptr noundef %5) #12
-  tail call fastcc void @database_to_xmlschema_internal.argelim(ptr noundef %6)
+  tail call fastcc void @database_to_xmlschema_internal(ptr noundef %6)
   unreachable
 }
 
@@ -2135,7 +2135,7 @@ map_sql_type_to_xmlschema_type.exit:              ; preds = %.lr.ph110, %56, %57
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @map_sql_schema_to_xmlschema_types.argprom.argelim(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @map_sql_schema_to_xmlschema_types(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = load i32, ptr @MyDatabaseId, align 4
   %4 = tail call ptr @get_database_name(i32 noundef %3) #12
@@ -2335,7 +2335,7 @@ declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @get_database_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @map_sql_catalog_to_xmlschema_types.argprom.argelim() unnamed_addr #0 {
+define internal fastcc void @map_sql_catalog_to_xmlschema_types() unnamed_addr #0 {
   %1 = alloca %struct.StringInfoData, align 8
   %2 = load i32, ptr @MyDatabaseId, align 4
   %3 = tail call ptr @get_database_name(i32 noundef %2) #12

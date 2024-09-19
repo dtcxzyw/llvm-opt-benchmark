@@ -799,15 +799,15 @@ thread-pre-split258:                              ; preds = %309, %308, %315, %3
   ]
 
 376:                                              ; preds = %373
-  call fastcc void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
+  call fastcc void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
   br label %.critedge
 
 377:                                              ; preds = %373
-  call fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
+  call fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
   br label %.critedge
 
 378:                                              ; preds = %373
-  call fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERKNS_3MatERS0_S3_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
+  call fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERKNS_3MatERS0_S3_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
   br label %.critedge
 
 379:                                              ; preds = %372
@@ -822,11 +822,11 @@ thread-pre-split258:                              ; preds = %309, %308, %315, %3
   ]
 
 383:                                              ; preds = %380
-  call fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
+  call fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
   br label %.critedge
 
 384:                                              ; preds = %380
-  call fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
+  call fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
   br label %.critedge
 
 385:                                              ; preds = %.thread
@@ -1041,7 +1041,7 @@ thread-pre-split258:                              ; preds = %309, %308, %315, %3
   %515 = load i32, ptr %514, align 8
   %516 = mul i32 %515, %513
   %517 = icmp sgt i32 %511, 0
-  br i1 %517, label %.lr.ph20.i, label %_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.argprom.exit
+  br i1 %517, label %.lr.ph20.i, label %_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.exit
 
 .lr.ph20.i:                                       ; preds = %509
   %518 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -1051,7 +1051,7 @@ thread-pre-split258:                              ; preds = %309, %308, %315, %3
   %522 = getelementptr inbounds i8, ptr %5, i64 4
   %523 = getelementptr inbounds i8, ptr %5, i64 8
   %524 = getelementptr inbounds i8, ptr %5, i64 12
-  br i1 %521, label %.lr.ph.us.preheader.i251, label %_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.argprom.exit
+  br i1 %521, label %.lr.ph.us.preheader.i251, label %_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.exit
 
 .lr.ph.us.preheader.i251:                         ; preds = %.lr.ph20.i
   %wide.trip.count.i252 = zext nneg i32 %511 to i64
@@ -1216,9 +1216,9 @@ thread-pre-split258:                              ; preds = %309, %308, %315, %3
 ._crit_edge.us.i257:                              ; preds = %571
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count.i252
-  br i1 %exitcond28.not.i, label %_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.argprom.exit, label %.lr.ph.us.i253, !llvm.loop !11
+  br i1 %exitcond28.not.i, label %_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.exit, label %.lr.ph.us.i253, !llvm.loop !11
 
-_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge.us.i257, %509, %.lr.ph20.i
+_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.exit: ; preds = %._crit_edge.us.i257, %509, %.lr.ph20.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.critedge
 
@@ -1234,15 +1234,15 @@ _ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6O
   ]
 
 643:                                              ; preds = %640
-  call fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ERKNS_3MatERS0_S2_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
+  call fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
   br label %.critedge
 
 644:                                              ; preds = %640
-  call fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p1ERKNS_3MatERS0_S2_RKNS_6OptionE.argprom(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
+  call fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p1ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %6)
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge.us.i248, %._crit_edge.us.i, %376, %377, %378, %383, %384, %643, %644, %.lr.ph6.i242, %468, %.lr.ph6.i, %389, %379, %373, %380, %_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.argprom.exit, %639, %.thread, %386, %640, %330, %327, %287, %284, %268, %265, %216, %213, %172, %169, %129, %126, %110, %107, %367, %360, %317, %246, %202, %159
-  %.0 = phi i32 [ -100, %367 ], [ -100, %360 ], [ -100, %317 ], [ -100, %246 ], [ -100, %202 ], [ -100, %159 ], [ -100, %107 ], [ -100, %110 ], [ -100, %126 ], [ -100, %129 ], [ -100, %169 ], [ -100, %172 ], [ -100, %213 ], [ -100, %216 ], [ -100, %265 ], [ -100, %268 ], [ -100, %284 ], [ -100, %287 ], [ -100, %327 ], [ -100, %330 ], [ 0, %640 ], [ 0, %386 ], [ 0, %.thread ], [ 0, %_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.argprom.exit ], [ 0, %643 ], [ 0, %644 ], [ 0, %639 ], [ 0, %383 ], [ 0, %378 ], [ 0, %384 ], [ 0, %377 ], [ 0, %376 ], [ 0, %380 ], [ 0, %373 ], [ 0, %379 ], [ 0, %389 ], [ 0, %.lr.ph6.i ], [ 0, %468 ], [ 0, %.lr.ph6.i242 ], [ 0, %._crit_edge.us.i ], [ 0, %._crit_edge.us.i248 ]
+.critedge:                                        ; preds = %._crit_edge.us.i248, %._crit_edge.us.i, %376, %377, %378, %383, %384, %643, %644, %.lr.ph6.i242, %468, %.lr.ph6.i, %389, %379, %373, %380, %_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.exit, %639, %.thread, %386, %640, %330, %327, %287, %284, %268, %265, %216, %213, %172, %169, %129, %126, %110, %107, %367, %360, %317, %246, %202, %159
+  %.0 = phi i32 [ -100, %367 ], [ -100, %360 ], [ -100, %317 ], [ -100, %246 ], [ -100, %202 ], [ -100, %159 ], [ -100, %107 ], [ -100, %110 ], [ -100, %126 ], [ -100, %129 ], [ -100, %169 ], [ -100, %172 ], [ -100, %213 ], [ -100, %216 ], [ -100, %265 ], [ -100, %268 ], [ -100, %284 ], [ -100, %287 ], [ -100, %327 ], [ -100, %330 ], [ 0, %640 ], [ 0, %386 ], [ 0, %.thread ], [ 0, %_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERKNS_3MatERS0_S3_RKNS_6OptionE.exit ], [ 0, %643 ], [ 0, %644 ], [ 0, %639 ], [ 0, %383 ], [ 0, %378 ], [ 0, %384 ], [ 0, %377 ], [ 0, %376 ], [ 0, %380 ], [ 0, %373 ], [ 0, %379 ], [ 0, %389 ], [ 0, %.lr.ph6.i ], [ 0, %468 ], [ 0, %.lr.ph6.i242 ], [ 0, %._crit_edge.us.i ], [ 0, %._crit_edge.us.i248 ]
   %645 = load ptr, ptr %23, align 8
   %.not236 = icmp eq ptr %645, null
   br i1 %.not236, label %658, label %646
@@ -11380,7 +11380,7 @@ define linkonce_odr hidden void @_ZN4ncnn34gridsample_3d_nearest_compute_blobILN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -11510,7 +11510,7 @@ define internal fastcc void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolati
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -11586,7 +11586,7 @@ define internal fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERKNS_3MatERS0_S3_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERKNS_3MatERS0_S3_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x <4 x float>], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8
@@ -11785,7 +11785,7 @@ define internal fastcc void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolatio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -11988,7 +11988,7 @@ define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolati
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p1ERKNS_3MatERS0_S2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p1ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -12064,7 +12064,7 @@ define internal fastcc void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ERKNS_3MatERS0_S2_RKNS_6OptionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ERKNS_3MatERS0_S2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44

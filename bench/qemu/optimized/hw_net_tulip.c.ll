@@ -1052,7 +1052,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_tulip_mii_read.exit.i:                      ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %entry.split.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  br label %tulip_mii_read.argprom.exit
+  br label %tulip_mii_read.exit
 
 if.then.split.i:                                  ; preds = %if.then69
   %idxprom.i = zext nneg i32 %and66 to i64
@@ -1095,9 +1095,9 @@ if.else.i.i13.i:                                  ; preds = %if.then.i.i11.i
 trace_tulip_mii_read.exit18.i:                    ; preds = %if.else.i.i13.i, %if.then8.i.i14.i, %land.lhs.true5.i.i8.i, %if.then.split.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i4.i)
   %26 = zext i16 %19 to i32
-  br label %tulip_mii_read.argprom.exit
+  br label %tulip_mii_read.exit
 
-tulip_mii_read.argprom.exit:                      ; preds = %trace_tulip_mii_read.exit.i, %trace_tulip_mii_read.exit18.i
+tulip_mii_read.exit:                              ; preds = %trace_tulip_mii_read.exit.i, %trace_tulip_mii_read.exit18.i
   %ret.0.i = phi i32 [ %26, %trace_tulip_mii_read.exit18.i ], [ 0, %trace_tulip_mii_read.exit.i ]
   store i32 %ret.0.i, ptr %mii_word, align 4
   br label %if.end96
@@ -1165,7 +1165,7 @@ if.end.i:                                         ; preds = %trace_tulip_mii_wri
   store i16 %or8.i, ptr %arrayidx2.i, align 2
   br label %if.end96
 
-if.end96:                                         ; preds = %if.end.i, %trace_tulip_mii_write.exit.i, %if.else54, %tulip_mii_read.argprom.exit, %if.then58, %if.then77, %entry, %if.then52
+if.end96:                                         ; preds = %if.end.i, %trace_tulip_mii_write.exit.i, %if.else54, %tulip_mii_read.exit, %if.then58, %if.then77, %entry, %if.then52
   ret void
 }
 
@@ -1344,9 +1344,9 @@ for.cond.preheader:                               ; preds = %entry
   %.pre = load i64, ptr %current_tx_desc, align 8
   br label %for.body
 
-for.body:                                         ; preds = %for.cond.preheader, %tulip_next_tx_descriptor.argprom.exit
-  %2 = phi i64 [ %.pre, %for.cond.preheader ], [ %and18.i, %tulip_next_tx_descriptor.argprom.exit ]
-  %i.080 = phi i8 [ 0, %for.cond.preheader ], [ %inc, %tulip_next_tx_descriptor.argprom.exit ]
+for.body:                                         ; preds = %for.cond.preheader, %tulip_next_tx_descriptor.exit
+  %2 = phi i64 [ %.pre, %for.cond.preheader ], [ %and18.i, %tulip_next_tx_descriptor.exit ]
+  %i.080 = phi i8 [ 0, %for.cond.preheader ], [ %inc, %tulip_next_tx_descriptor.exit ]
   call fastcc void @tulip_desc_read(ptr noundef nonnull %s, i64 noundef %2, ptr noundef %desc)
   %s.val15 = load i64, ptr %current_tx_desc, align 8
   %conv.i = trunc i64 %s.val15 to i32
@@ -1364,13 +1364,13 @@ for.body:                                         ; preds = %for.cond.preheader,
   %8 = load i16, ptr @_TRACE_TULIP_DESCRIPTOR_DSTATE, align 2
   %tobool4.i.i.i = icmp ne i16 %8, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %tulip_dump_tx_descriptor.argprom.exit
+  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %tulip_dump_tx_descriptor.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %for.body
   %9 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %9, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %tulip_dump_tx_descriptor.argprom.exit, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %tulip_dump_tx_descriptor.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %10 = load i8, ptr @message_with_timestamp, align 1
@@ -1383,19 +1383,19 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %11 = load i64, ptr %_now.i.i.i, align 8
   %12 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.45, i32 noundef %conv.i, i32 noundef %3, i32 noundef %shr.i17, i32 noundef %and.i18, i32 noundef %and4.i, i32 noundef %5, i32 noundef %6) #8
-  br label %tulip_dump_tx_descriptor.argprom.exit
+  br label %tulip_dump_tx_descriptor.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.45, i32 noundef %conv.i, i32 noundef %3, i32 noundef %shr.i17, i32 noundef %and.i18, i32 noundef %and4.i, i32 noundef %5, i32 noundef %6) #8
-  br label %tulip_dump_tx_descriptor.argprom.exit
+  br label %tulip_dump_tx_descriptor.exit
 
-tulip_dump_tx_descriptor.argprom.exit:            ; preds = %for.body, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+tulip_dump_tx_descriptor.exit:                    ; preds = %for.body, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %13 = load i32, ptr %desc, align 4
   %tobool.not = icmp sgt i32 %13, -1
   br i1 %tobool.not, label %if.then4, label %if.end7
 
-if.then4:                                         ; preds = %tulip_dump_tx_descriptor.argprom.exit
+if.then4:                                         ; preds = %tulip_dump_tx_descriptor.exit
   %14 = load i32, ptr %0, align 4
   %and.i20 = and i32 %14, -7340033
   %or.i = or disjoint i32 %and.i20, 6291456
@@ -1440,7 +1440,7 @@ tulip_update_ts.exit:                             ; preds = %if.then4, %land.lhs
   call fastcc void @tulip_update_int(ptr noundef nonnull %s)
   br label %for.end
 
-if.end7:                                          ; preds = %tulip_dump_tx_descriptor.argprom.exit
+if.end7:                                          ; preds = %tulip_dump_tx_descriptor.exit
   %23 = load i32, ptr %control.i, align 4
   %conv8 = zext i32 %23 to i64
   %and9 = and i64 %conv8, 134217728
@@ -1746,7 +1746,7 @@ if.end28:                                         ; preds = %if.then39.i, %do.bo
 if.then.i73:                                      ; preds = %if.end28
   %72 = load i32, ptr %arrayidx.i74, align 16
   %conv1.i = zext i32 %72 to i64
-  br label %tulip_next_tx_descriptor.argprom.exit
+  br label %tulip_next_tx_descriptor.exit
 
 if.else.i75:                                      ; preds = %if.end28
   %and4.i76 = and i64 %conv.i70, 16777216
@@ -1755,7 +1755,7 @@ if.else.i75:                                      ; preds = %if.end28
 
 if.then6.i:                                       ; preds = %if.else.i75
   %conv7.i = zext i32 %desc.val16 to i64
-  br label %tulip_next_tx_descriptor.argprom.exit
+  br label %tulip_next_tx_descriptor.exit
 
 if.else9.i:                                       ; preds = %if.else.i75
   %73 = load i32, ptr %csr10.i, align 16
@@ -1764,9 +1764,9 @@ if.else9.i:                                       ; preds = %if.else.i75
   %add.i77 = zext nneg i32 %narrow.i to i64
   %74 = load i64, ptr %current_tx_desc, align 8
   %add15.i = add i64 %74, %add.i77
-  br label %tulip_next_tx_descriptor.argprom.exit
+  br label %tulip_next_tx_descriptor.exit
 
-tulip_next_tx_descriptor.argprom.exit:            ; preds = %if.then.i73, %if.then6.i, %if.else9.i
+tulip_next_tx_descriptor.exit:                    ; preds = %if.then.i73, %if.then6.i, %if.else9.i
   %75 = phi i64 [ %conv7.i, %if.then6.i ], [ %add15.i, %if.else9.i ], [ %conv1.i, %if.then.i73 ]
   %and18.i = and i64 %75, -4
   store i64 %and18.i, ptr %current_tx_desc, align 8
@@ -1774,7 +1774,7 @@ tulip_next_tx_descriptor.argprom.exit:            ; preds = %if.then.i73, %if.th
   %exitcond.not = icmp eq i8 %inc, -128
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
-for.end:                                          ; preds = %tulip_next_tx_descriptor.argprom.exit, %entry, %tulip_update_ts.exit
+for.end:                                          ; preds = %tulip_next_tx_descriptor.exit, %entry, %tulip_update_ts.exit
   ret void
 }
 
@@ -2083,11 +2083,11 @@ do.body.preheader:                                ; preds = %do.body.preheader.s
   %.pre = load i64, ptr %current_rx_desc, align 16
   br label %do.body
 
-do.body:                                          ; preds = %do.body.preheader, %tulip_next_rx_descriptor.argprom.exit
-  %20 = phi i64 [ %.pre, %do.body.preheader ], [ %and18.i44, %tulip_next_rx_descriptor.argprom.exit ]
+do.body:                                          ; preds = %do.body.preheader, %tulip_next_rx_descriptor.exit
+  %20 = phi i64 [ %.pre, %do.body.preheader ], [ %and18.i44, %tulip_next_rx_descriptor.exit ]
   call fastcc void @tulip_desc_read(ptr noundef nonnull %s, i64 noundef %20, ptr noundef %desc)
   %s.val35 = load i64, ptr %current_rx_desc, align 16
-  call fastcc void @tulip_dump_rx_descriptor.argprom(i64 %s.val35, ptr noundef %desc)
+  call fastcc void @tulip_dump_rx_descriptor(i64 %s.val35, ptr noundef %desc)
   %21 = load i32, ptr %desc, align 4
   %tobool9.not = icmp sgt i32 %21, -1
   br i1 %tobool9.not, label %if.then10, label %if.end17
@@ -2195,7 +2195,7 @@ if.then39:                                        ; preds = %tulip_copy_rx_bytes
 
 if.end48:                                         ; preds = %if.then39, %tulip_copy_rx_bytes.exit
   %s.val36 = load i64, ptr %current_rx_desc, align 16
-  call fastcc void @tulip_dump_rx_descriptor.argprom(i64 %s.val36, ptr noundef %desc)
+  call fastcc void @tulip_dump_rx_descriptor(i64 %s.val36, ptr noundef %desc)
   %43 = load i64, ptr %current_rx_desc, align 16
   call fastcc void @tulip_desc_write(ptr noundef nonnull %s, i64 noundef %43, ptr noundef %desc)
   %desc.val = load i32, ptr %control.i, align 4
@@ -2208,7 +2208,7 @@ if.end48:                                         ; preds = %if.then39, %tulip_c
 if.then.i42:                                      ; preds = %if.end48
   %44 = load i32, ptr %arrayidx.i43, align 4
   %conv1.i = zext i32 %44 to i64
-  br label %tulip_next_rx_descriptor.argprom.exit
+  br label %tulip_next_rx_descriptor.exit
 
 if.else.i:                                        ; preds = %if.end48
   %and4.i = and i64 %conv.i40, 16777216
@@ -2217,7 +2217,7 @@ if.else.i:                                        ; preds = %if.end48
 
 if.then6.i:                                       ; preds = %if.else.i
   %conv7.i = zext i32 %desc.val37 to i64
-  br label %tulip_next_rx_descriptor.argprom.exit
+  br label %tulip_next_rx_descriptor.exit
 
 if.else9.i:                                       ; preds = %if.else.i
   %45 = load i32, ptr %csr10.i, align 16
@@ -2226,9 +2226,9 @@ if.else9.i:                                       ; preds = %if.else.i
   %add.i = zext nneg i32 %narrow.i to i64
   %46 = load i64, ptr %current_rx_desc, align 16
   %add15.i = add i64 %46, %add.i
-  br label %tulip_next_rx_descriptor.argprom.exit
+  br label %tulip_next_rx_descriptor.exit
 
-tulip_next_rx_descriptor.argprom.exit:            ; preds = %if.then.i42, %if.then6.i, %if.else9.i
+tulip_next_rx_descriptor.exit:                    ; preds = %if.then.i42, %if.then6.i, %if.else9.i
   %47 = phi i64 [ %conv7.i, %if.then6.i ], [ %add15.i, %if.else9.i ], [ %conv1.i, %if.then.i42 ]
   %and18.i44 = and i64 %47, -4
   store i64 %and18.i44, ptr %current_rx_desc, align 16
@@ -2236,15 +2236,15 @@ tulip_next_rx_descriptor.argprom.exit:            ; preds = %if.then.i42, %if.th
   %tobool51.not = icmp eq i16 %48, 0
   br i1 %tobool51.not, label %return, label %do.body, !llvm.loop !15
 
-return:                                           ; preds = %tulip_next_rx_descriptor.argprom.exit, %if.end29.i, %trace_tulip_receive.exit, %lor.lhs.false2, %lor.lhs.false3, %if.then10
-  %retval.0 = phi i64 [ %sub, %if.then10 ], [ 0, %lor.lhs.false3 ], [ 0, %lor.lhs.false2 ], [ 0, %trace_tulip_receive.exit ], [ %size, %if.end29.i ], [ %size, %tulip_next_rx_descriptor.argprom.exit ]
+return:                                           ; preds = %tulip_next_rx_descriptor.exit, %if.end29.i, %trace_tulip_receive.exit, %lor.lhs.false2, %lor.lhs.false3, %if.then10
+  %retval.0 = phi i64 [ %sub, %if.then10 ], [ 0, %lor.lhs.false3 ], [ 0, %lor.lhs.false2 ], [ 0, %trace_tulip_receive.exit ], [ %size, %if.end29.i ], [ %size, %tulip_next_rx_descriptor.exit ]
   ret i64 %retval.0
 }
 
 declare i64 @qemu_send_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tulip_dump_rx_descriptor.argprom(i64 %s.11472.val, ptr nocapture noundef nonnull readonly %desc) unnamed_addr #0 {
+define internal fastcc void @tulip_dump_rx_descriptor(i64 %s.11472.val, ptr nocapture noundef nonnull readonly %desc) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %conv = trunc i64 %s.11472.val to i32

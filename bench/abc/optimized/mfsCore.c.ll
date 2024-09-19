@@ -251,9 +251,9 @@ define void @Abc_NtkMfsPowerResub(ptr noundef %0, ptr nocapture readnone %1) loc
   %48 = getelementptr i8, ptr %.val126, i64 4
   %.val.i = load i32, ptr %48, align 4
   %49 = icmp slt i32 %47, %.val.i
-  br i1 %49, label %Abc_MfsObjProb.argprom.exit, label %.critedge147
+  br i1 %49, label %Abc_MfsObjProb.exit, label %.critedge147
 
-Abc_MfsObjProb.argprom.exit:                      ; preds = %38
+Abc_MfsObjProb.exit:                              ; preds = %38
   %50 = getelementptr i8, ptr %.val126, i64 8
   %.val5.i = load ptr, ptr %50, align 8
   %51 = sext i32 %47 to i64
@@ -263,14 +263,14 @@ Abc_MfsObjProb.argprom.exit:                      ; preds = %38
   %55 = fcmp ult double %54, 3.500000e-01
   br i1 %55, label %.critedge147, label %56
 
-56:                                               ; preds = %Abc_MfsObjProb.argprom.exit
+56:                                               ; preds = %Abc_MfsObjProb.exit
   %57 = trunc nuw nsw i64 %indvars.iv to i32
   %58 = tail call i32 @Abc_NtkMfsSolveSatResub(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef %57, i32 noundef 0, i32 noundef 0) #11
   %.val111.pre = load i32, ptr %29, align 4
   br label %.critedge147
 
-.critedge147:                                     ; preds = %38, %.lr.ph.split, %56, %Abc_MfsObjProb.argprom.exit
-  %.val111 = phi i32 [ %.val111188, %38 ], [ %.val111188, %.lr.ph.split ], [ %.val111.pre, %56 ], [ %.val111188, %Abc_MfsObjProb.argprom.exit ]
+.critedge147:                                     ; preds = %38, %.lr.ph.split, %56, %Abc_MfsObjProb.exit
+  %.val111 = phi i32 [ %.val111188, %38 ], [ %.val111188, %.lr.ph.split ], [ %.val111.pre, %56 ], [ %.val111188, %Abc_MfsObjProb.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = sext i32 %.val111 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
@@ -372,9 +372,9 @@ Abc_MfsObjProb.argprom.exit:                      ; preds = %38
   %102 = getelementptr i8, ptr %.val127, i64 4
   %.val.i130 = load i32, ptr %102, align 4
   %103 = icmp slt i32 %101, %.val.i130
-  br i1 %103, label %Abc_MfsObjProb.argprom.exit132, label %.critedge148
+  br i1 %103, label %Abc_MfsObjProb.exit132, label %.critedge148
 
-Abc_MfsObjProb.argprom.exit132:                   ; preds = %92
+Abc_MfsObjProb.exit132:                           ; preds = %92
   %104 = getelementptr i8, ptr %.val127, i64 8
   %.val5.i131 = load ptr, ptr %104, align 8
   %105 = sext i32 %101 to i64
@@ -384,14 +384,14 @@ Abc_MfsObjProb.argprom.exit132:                   ; preds = %92
   %109 = fcmp ult double %108, 3.500000e-01
   br i1 %109, label %.critedge148, label %110
 
-110:                                              ; preds = %Abc_MfsObjProb.argprom.exit132
+110:                                              ; preds = %Abc_MfsObjProb.exit132
   %111 = trunc nuw nsw i64 %indvars.iv176 to i32
   %112 = tail call i32 @Abc_NtkMfsSolveSatResub(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef %111, i32 noundef 0, i32 noundef 0) #11
   %.val108.pre = load i32, ptr %83, align 4
   br label %.critedge148
 
-.critedge148:                                     ; preds = %92, %.lr.ph159.split, %110, %Abc_MfsObjProb.argprom.exit132
-  %.val108 = phi i32 [ %.val108191, %92 ], [ %.val108191, %.lr.ph159.split ], [ %.val108.pre, %110 ], [ %.val108191, %Abc_MfsObjProb.argprom.exit132 ]
+.critedge148:                                     ; preds = %92, %.lr.ph159.split, %110, %Abc_MfsObjProb.exit132
+  %.val108 = phi i32 [ %.val108191, %92 ], [ %.val108191, %.lr.ph159.split ], [ %.val108.pre, %110 ], [ %.val108191, %Abc_MfsObjProb.exit132 ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %113 = sext i32 %.val108 to i64
   %114 = icmp slt i64 %indvars.iv.next177, %113
@@ -485,9 +485,9 @@ Abc_MfsObjProb.argprom.exit132:                   ; preds = %92
   %154 = getelementptr i8, ptr %.val128, i64 4
   %.val.i134 = load i32, ptr %154, align 4
   %155 = icmp slt i32 %153, %.val.i134
-  br i1 %155, label %Abc_MfsObjProb.argprom.exit136, label %.critedge149
+  br i1 %155, label %Abc_MfsObjProb.exit136, label %.critedge149
 
-Abc_MfsObjProb.argprom.exit136:                   ; preds = %144
+Abc_MfsObjProb.exit136:                           ; preds = %144
   %156 = getelementptr i8, ptr %.val128, i64 8
   %.val5.i135 = load ptr, ptr %156, align 8
   %157 = sext i32 %153 to i64
@@ -497,14 +497,14 @@ Abc_MfsObjProb.argprom.exit136:                   ; preds = %144
   %161 = fcmp ult double %160, 2.000000e-01
   br i1 %161, label %.critedge149, label %162
 
-162:                                              ; preds = %Abc_MfsObjProb.argprom.exit136
+162:                                              ; preds = %Abc_MfsObjProb.exit136
   %163 = trunc nuw nsw i64 %indvars.iv182 to i32
   %164 = tail call i32 @Abc_NtkMfsSolveSatResub(ptr noundef nonnull %0, ptr noundef nonnull %123, i32 noundef %163, i32 noundef 1, i32 noundef 0) #11
   %.val105.pre = load i32, ptr %135, align 4
   br label %.critedge149
 
-.critedge149:                                     ; preds = %144, %.lr.ph165.split, %162, %Abc_MfsObjProb.argprom.exit136
-  %.val105 = phi i32 [ %.val105194, %144 ], [ %.val105194, %.lr.ph165.split ], [ %.val105.pre, %162 ], [ %.val105194, %Abc_MfsObjProb.argprom.exit136 ]
+.critedge149:                                     ; preds = %144, %.lr.ph165.split, %162, %Abc_MfsObjProb.exit136
+  %.val105 = phi i32 [ %.val105194, %144 ], [ %.val105194, %.lr.ph165.split ], [ %.val105.pre, %162 ], [ %.val105194, %Abc_MfsObjProb.exit136 ]
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %165 = sext i32 %.val105 to i64
   %166 = icmp slt i64 %indvars.iv.next183, %165
@@ -1447,7 +1447,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %123 = getelementptr inbounds i8, ptr %113, i64 64
   %124 = load i32, ptr %123, align 4
   %.not171 = icmp eq i32 %124, 0
-  br i1 %.not171, label %125, label %Extra_ProgressBarUpdate.argprom.exit
+  br i1 %.not171, label %125, label %Extra_ProgressBarUpdate.exit
 
 125:                                              ; preds = %122
   br i1 %.not.i, label %130, label %126
@@ -1456,23 +1456,23 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %127 = load i32, ptr %99, align 4
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv237, %128
-  br i1 %129, label %Extra_ProgressBarUpdate.argprom.exit, label %130
+  br i1 %129, label %Extra_ProgressBarUpdate.exit, label %130
 
 130:                                              ; preds = %126, %125
   %131 = trunc nuw nsw i64 %indvars.iv237 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %99, i32 noundef %131, ptr noundef null) #11
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %130, %126, %122
+Extra_ProgressBarUpdate.exit:                     ; preds = %130, %126, %122
   %132 = load i32, ptr %16, align 4
   %.not172 = icmp eq i32 %132, 0
   br i1 %.not172, label %135, label %133
 
-133:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
+133:                                              ; preds = %Extra_ProgressBarUpdate.exit
   %134 = call i32 @Abc_NtkMfsResub(ptr noundef nonnull %29, ptr noundef nonnull %107)
   br label %137
 
-135:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
+135:                                              ; preds = %Extra_ProgressBarUpdate.exit
   %136 = call i32 @Abc_NtkMfsNode(ptr noundef nonnull %29, ptr noundef nonnull %107)
   br label %137
 
@@ -1517,7 +1517,7 @@ Extra_ProgressBarUpdate.argprom.exit:             ; preds = %130, %126, %122
   %156 = getelementptr inbounds i8, ptr %155, i64 64
   %157 = load i32, ptr %156, align 4
   %.not165 = icmp eq i32 %157, 0
-  br i1 %.not165, label %158, label %Extra_ProgressBarUpdate.argprom.exit200
+  br i1 %.not165, label %158, label %Extra_ProgressBarUpdate.exit200
 
 158:                                              ; preds = %152
   br i1 %.not.i199, label %162, label %159
@@ -1525,13 +1525,13 @@ Extra_ProgressBarUpdate.argprom.exit:             ; preds = %130, %126, %122
 159:                                              ; preds = %158
   %160 = load i32, ptr %144, align 4
   %161 = icmp slt i32 %.0148228, %160
-  br i1 %161, label %Extra_ProgressBarUpdate.argprom.exit200, label %162
+  br i1 %161, label %Extra_ProgressBarUpdate.exit200, label %162
 
 162:                                              ; preds = %159, %158
   call void @Extra_ProgressBarUpdate_int(ptr noundef %144, i32 noundef %.0148228, ptr noundef null) #11
-  br label %Extra_ProgressBarUpdate.argprom.exit200
+  br label %Extra_ProgressBarUpdate.exit200
 
-Extra_ProgressBarUpdate.argprom.exit200:          ; preds = %162, %159, %152
+Extra_ProgressBarUpdate.exit200:                  ; preds = %162, %159, %152
   store i32 0, ptr %149, align 8
   store i32 0, ptr %150, align 4
   store i32 0, ptr %151, align 8
@@ -1543,7 +1543,7 @@ Extra_ProgressBarUpdate.argprom.exit200:          ; preds = %162, %159, %152
   %165 = icmp sgt i32 %.val175221, 0
   br i1 %165, label %.lr.ph224, label %.critedge6
 
-.lr.ph224:                                        ; preds = %Extra_ProgressBarUpdate.argprom.exit200
+.lr.ph224:                                        ; preds = %Extra_ProgressBarUpdate.exit200
   %166 = getelementptr i8, ptr %154, i64 8
   br label %167
 
@@ -1594,8 +1594,8 @@ Extra_ProgressBarUpdate.argprom.exit200:          ; preds = %162, %159, %152
   %190 = icmp slt i64 %indvars.iv.next241, %189
   br i1 %190, label %167, label %.critedge6, !llvm.loop !14
 
-.critedge6:                                       ; preds = %173, %188, %Extra_ProgressBarUpdate.argprom.exit200
-  %.val175.lcssa = phi i32 [ %.val175221, %Extra_ProgressBarUpdate.argprom.exit200 ], [ %.val175, %188 ], [ %.val175223, %173 ]
+.critedge6:                                       ; preds = %173, %188, %Extra_ProgressBarUpdate.exit200
+  %.val175.lcssa = phi i32 [ %.val175221, %Extra_ProgressBarUpdate.exit200 ], [ %.val175, %188 ], [ %.val175223, %173 ]
   %191 = add nsw i32 %.val175.lcssa, %.0148228
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %.val197 = load i32, ptr %146, align 4

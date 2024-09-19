@@ -16,7 +16,7 @@ define noalias noundef ptr @mkNodelist() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr @stderr, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.1, i64 noundef 24) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 gv_alloc.exit:                                    ; preds = %0
@@ -114,7 +114,7 @@ define internal fastcc void @nodelist_append(ptr nocapture noundef %0, ptr nound
   %23 = load ptr, ptr @stderr, align 8
   %24 = tail call ptr @strerror(i32 noundef %.0.i.ph) #17
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.2, ptr noundef %24) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 26:                                               ; preds = %16, %._crit_edge.i
@@ -141,8 +141,8 @@ define void @realignNodelist(ptr nocapture noundef %0, i64 noundef %1) local_unn
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   br label %5
 
-5:                                                ; preds = %.lr.ph, %nodelist_resize.argprom.exit
-  %.018 = phi i64 [ %1, %.lr.ph ], [ %41, %nodelist_resize.argprom.exit ]
+5:                                                ; preds = %.lr.ph, %nodelist_resize.exit
+  %.018 = phi i64 [ %1, %.lr.ph ], [ %41, %nodelist_resize.exit ]
   %.val16 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %.val16, align 8
   tail call fastcc void @nodelist_append(ptr noundef nonnull %0, ptr noundef %6)
@@ -206,7 +206,7 @@ define void @realignNodelist(ptr nocapture noundef %0, i64 noundef %1) local_unn
   %32 = load ptr, ptr @stderr, align 8
   %33 = tail call ptr @strerror(i32 noundef %.0.i.ph.i) #17
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.2, ptr noundef %33) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 nodelist_append.exit:                             ; preds = %._crit_edge.i.i, %25
@@ -218,18 +218,18 @@ nodelist_append.exit:                             ; preds = %._crit_edge.i.i, %2
   %39 = add i64 %38, 1
   store i64 %39, ptr %3, align 8
   %40 = icmp ult i64 %39, %12
-  br i1 %40, label %.lr.ph3.i, label %nodelist_resize.argprom.exit
+  br i1 %40, label %.lr.ph3.i, label %nodelist_resize.exit
 
 .lr.ph.preheader.i:                               ; preds = %11
   store i64 %12, ptr %3, align 8
-  br label %nodelist_resize.argprom.exit
+  br label %nodelist_resize.exit
 
-nodelist_resize.argprom.exit:                     ; preds = %nodelist_append.exit, %.lr.ph.preheader.i
+nodelist_resize.exit:                             ; preds = %nodelist_append.exit, %.lr.ph.preheader.i
   %41 = add i64 %.018, -1
   %.not = icmp eq i64 %41, 0
   br i1 %.not, label %._crit_edge, label %5
 
-._crit_edge:                                      ; preds = %nodelist_resize.argprom.exit, %2
+._crit_edge:                                      ; preds = %nodelist_resize.exit, %2
   ret void
 }
 
@@ -248,7 +248,7 @@ mkNodelist.exit.preheader:                        ; preds = %1
 5:                                                ; preds = %1
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, i64 noundef 24) #15
-  tail call fastcc void @graphviz_exit.argelim() #16
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 mkNodelist.exit:                                  ; preds = %mkNodelist.exit.preheader, %mkNodelist.exit
@@ -442,7 +442,7 @@ freeNodelist.exit:                                ; preds = %.lr.ph.i4, %nodelis
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #6 {
+define internal fastcc void @graphviz_exit() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #19
   unreachable
 }

@@ -851,7 +851,7 @@ swap_is_better.exit.i:                            ; preds = %332
 
 340:                                              ; preds = %334, %swap_is_better.exit.i
   %341 = icmp slt i32 %spec.store.select.i.i, %spec.store.select1.i.i
-  br i1 %341, label %342, label %swapdecide.argprom.exit
+  br i1 %341, label %342, label %swapdecide.exit
 
 342:                                              ; preds = %340
   %343 = sitofp i32 %spec.store.select.i.i to double
@@ -859,7 +859,7 @@ swap_is_better.exit.i:                            ; preds = %332
   %345 = fdiv double %343, %344
   %346 = call double @llvm.fabs.f64(double %345)
   %347 = fcmp olt double %346, 0x3FEC823E074EC129
-  br i1 %347, label %349, label %swapdecide.argprom.exit
+  br i1 %347, label %349, label %swapdecide.exit
 
 348:                                              ; preds = %334
   %.not12.i = icmp eq i32 %.0722, 0
@@ -872,15 +872,15 @@ swap_is_better.exit.i:                            ; preds = %332
 350:                                              ; preds = %349, %348
   %storemerge.i = phi i32 [ 1, %348 ], [ 0, %349 ]
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 14, i32 noundef 5, ptr noundef nonnull %12) #11
-  br label %swapdecide.argprom.exit
+  br label %swapdecide.exit
 
-swapdecide.argprom.exit:                          ; preds = %340, %342, %350
+swapdecide.exit:                                  ; preds = %340, %342, %350
   %.4614 = phi i32 [ %storemerge.i, %350 ], [ %.0722, %342 ], [ %.0722, %340 ]
   %.not413 = icmp eq i32 %.4614, 0
   br i1 %.not413, label %.preheader649.preheader, label %.preheader651.preheader
 
-.preheader651.preheader:                          ; preds = %348, %swapdecide.argprom.exit
-  %.4614845 = phi i32 [ %.4614, %swapdecide.argprom.exit ], [ %.0722, %348 ]
+.preheader651.preheader:                          ; preds = %348, %swapdecide.exit
+  %.4614845 = phi i32 [ %.4614, %swapdecide.exit ], [ %.0722, %348 ]
   br label %.preheader651
 
 .preheader651:                                    ; preds = %.preheader651.preheader, %.preheader651
@@ -908,8 +908,8 @@ swapdecide.argprom.exit:                          ; preds = %340, %342, %350
   %exitcond760.not = icmp eq i64 %indvars.iv.next758, 3
   br i1 %exitcond760.not, label %.preheader647.preheader, label %.preheader651, !llvm.loop !22
 
-.preheader649.preheader:                          ; preds = %positive_int.exit.i483, %positive_int.exit.i495, %is_quite_large.exit.thread, %349, %swapdecide.argprom.exit
-  %.3613851 = phi i32 [ 0, %349 ], [ %.0722, %is_quite_large.exit.thread ], [ 0, %swapdecide.argprom.exit ], [ %.0722, %positive_int.exit.i495 ], [ %.0722, %positive_int.exit.i483 ]
+.preheader649.preheader:                          ; preds = %positive_int.exit.i483, %positive_int.exit.i495, %is_quite_large.exit.thread, %349, %swapdecide.exit
+  %.3613851 = phi i32 [ 0, %349 ], [ %.0722, %is_quite_large.exit.thread ], [ 0, %swapdecide.exit ], [ %.0722, %positive_int.exit.i495 ], [ %.0722, %positive_int.exit.i483 ]
   br label %.preheader649
 
 .preheader647.preheader:                          ; preds = %.preheader651

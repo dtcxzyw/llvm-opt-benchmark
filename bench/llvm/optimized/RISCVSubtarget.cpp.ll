@@ -4751,9 +4751,9 @@ define dso_local noundef ptr @_ZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS_
   call void @_ZNK4llvm9StringRef5upperB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %2, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.argprom.exit.i.i
-  %.016.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.argprom.exit.i.i ], [ @_ZZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS_9StringRefEE5Index, %2 ]
-  %.01115.i.i = phi i64 [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.argprom.exit.i.i ], [ 3, %2 ]
+.lr.ph.i.i:                                       ; preds = %2, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.exit.i.i
+  %.016.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ @_ZZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS_9StringRefEE5Index, %2 ]
+  %.01115.i.i = phi i64 [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ 3, %2 ]
   %6 = lshr i64 %.01115.i.i, 1
   %7 = getelementptr inbounds %struct.IndexType, ptr %.016.i.i, i64 %6
   %.val.i.i = load ptr, ptr %7, align 8
@@ -4779,13 +4779,13 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.argprom.exit.i.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %16 = icmp ult i64 %10, %12
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.argprom.exit.i.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.argprom.exit.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, %15
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, %15
   %.0.i.i.i.i.i = phi i1 [ %.inv.i.i.i.i.i, %15 ], [ %16, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i ]
   %17 = getelementptr inbounds i8, ptr %7, i64 16
   %18 = xor i64 %6, -1
@@ -4795,7 +4795,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInf
   %20 = icmp sgt i64 %.112.i.i, 0
   br i1 %20, label %.lr.ph.i.i, label %_ZSt11lower_boundIPKZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS0_9StringRefEE9IndexTypeZNS1_16getRISCVTuneInfoES2_E7KeyTypeZNS1_16getRISCVTuneInfoES2_E4CompET_S8_S8_RKT0_T1_.exit, !llvm.loop !4
 
-_ZSt11lower_boundIPKZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS0_9StringRefEE9IndexTypeZNS1_16getRISCVTuneInfoES2_E7KeyTypeZNS1_16getRISCVTuneInfoES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.argprom.exit.i.i
+_ZSt11lower_boundIPKZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS0_9StringRefEE9IndexTypeZNS1_16getRISCVTuneInfoES2_E7KeyTypeZNS1_16getRISCVTuneInfoES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.exit.i.i
   %21 = icmp eq ptr %.1.i.i, getelementptr inbounds (i8, ptr @_ZZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS_9StringRefEE5Index, i64 48)
   br i1 %21, label %30, label %22
 

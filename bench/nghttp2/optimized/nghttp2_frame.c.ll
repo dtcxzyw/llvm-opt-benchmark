@@ -662,7 +662,7 @@ if.end15:                                         ; preds = %nghttp2_frame_pack_
   store i64 0, ptr %padlen, align 8
   %call16 = tail call i64 @nghttp2_bufs_len(ptr noundef nonnull %bufs) #18
   store i64 %call16, ptr %frame, align 8
-  tail call fastcc void @frame_pack_headers_shared.retelim(ptr noundef nonnull %bufs, ptr noundef nonnull %frame)
+  tail call fastcc void @frame_pack_headers_shared(ptr noundef nonnull %bufs, ptr noundef nonnull %frame)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end15
@@ -703,7 +703,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i64 @nghttp2_bufs_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @frame_pack_headers_shared.retelim(ptr nocapture noundef readonly %bufs, ptr nocapture noundef readonly %frame_hd) unnamed_addr #0 {
+define internal fastcc void @frame_pack_headers_shared(ptr nocapture noundef readonly %bufs, ptr nocapture noundef readonly %frame_hd) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bufs, align 8
   %hd.sroa.7.0.frame_hd.sroa_idx = getelementptr inbounds i8, ptr %frame_hd, i64 8
@@ -1238,7 +1238,7 @@ if.end11:                                         ; preds = %if.end
   store i64 0, ptr %padlen, align 8
   %call13 = tail call i64 @nghttp2_bufs_len(ptr noundef nonnull %bufs) #18
   store i64 %call13, ptr %frame, align 8
-  tail call fastcc void @frame_pack_headers_shared.retelim(ptr noundef nonnull %bufs, ptr noundef nonnull %frame)
+  tail call fastcc void @frame_pack_headers_shared(ptr noundef nonnull %bufs, ptr noundef nonnull %frame)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end11

@@ -1058,7 +1058,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   br i1 %85, label %86, label %123
 
 86:                                               ; preds = %82
-  call fastcc void @view_cols_are_auto_updatable.retelim(ptr noundef %83, ptr noundef null, ptr noundef nonnull %5, ptr noundef null)
+  call fastcc void @view_cols_are_auto_updatable(ptr noundef %83, ptr noundef null, ptr noundef nonnull %5, ptr noundef null)
   %.not87 = icmp eq ptr %3, null
   %.pre = load ptr, ptr %5, align 8
   br i1 %.not87, label %89, label %87
@@ -1136,7 +1136,7 @@ declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @GetFdwRoutineForRelation(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @view_cols_are_auto_updatable.retelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @view_cols_are_auto_updatable(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1176,10 +1176,10 @@ define internal fastcc void @view_cols_are_auto_updatable.retelim(ptr nocapture 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph
   br i1 %21, label %.lr.ph65, label %.thread
 
-.lr.ph65:                                         ; preds = %.lr.ph.split.us.split, %view_col_is_auto_updatable.argprom.exit.us
-  %22 = phi i32 [ %45, %view_col_is_auto_updatable.argprom.exit.us ], [ %20, %.lr.ph.split.us.split ]
-  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %view_col_is_auto_updatable.argprom.exit.us ], [ 0, %.lr.ph.split.us.split ]
-  %.02542.us63 = phi i16 [ %26, %view_col_is_auto_updatable.argprom.exit.us ], [ 7, %.lr.ph.split.us.split ]
+.lr.ph65:                                         ; preds = %.lr.ph.split.us.split, %view_col_is_auto_updatable.exit.us
+  %22 = phi i32 [ %45, %view_col_is_auto_updatable.exit.us ], [ %20, %.lr.ph.split.us.split ]
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %view_col_is_auto_updatable.exit.us ], [ 0, %.lr.ph.split.us.split ]
+  %.02542.us63 = phi i16 [ %26, %view_col_is_auto_updatable.exit.us ], [ 7, %.lr.ph.split.us.split ]
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv71
   %25 = load ptr, ptr %24, align 8
@@ -1213,19 +1213,19 @@ define internal fastcc void @view_cols_are_auto_updatable.retelim(ptr nocapture 
   %41 = getelementptr inbounds i8, ptr %.val35.us, i64 8
   %42 = load i16, ptr %41, align 8
   %or.cond = icmp slt i16 %42, 1
-  br i1 %or.cond, label %select.unfold.us, label %view_col_is_auto_updatable.argprom.exit.us
+  br i1 %or.cond, label %select.unfold.us, label %view_col_is_auto_updatable.exit.us
 
 select.unfold.us:                                 ; preds = %40, %37, %33, %30, %.lr.ph65
   %43 = sext i16 %26 to i32
   %44 = tail call zeroext i1 @bms_is_member(i32 noundef %43, ptr noundef %1) #10
-  br i1 %44, label %.split.us, label %select.unfold.us.view_col_is_auto_updatable.argprom.exit.us_crit_edge
+  br i1 %44, label %.split.us, label %select.unfold.us.view_col_is_auto_updatable.exit.us_crit_edge
 
-select.unfold.us.view_col_is_auto_updatable.argprom.exit.us_crit_edge: ; preds = %select.unfold.us
+select.unfold.us.view_col_is_auto_updatable.exit.us_crit_edge: ; preds = %select.unfold.us
   %.pre = load i32, ptr %17, align 4
-  br label %view_col_is_auto_updatable.argprom.exit.us
+  br label %view_col_is_auto_updatable.exit.us
 
-view_col_is_auto_updatable.argprom.exit.us:       ; preds = %40, %select.unfold.us.view_col_is_auto_updatable.argprom.exit.us_crit_edge
-  %45 = phi i32 [ %.pre, %select.unfold.us.view_col_is_auto_updatable.argprom.exit.us_crit_edge ], [ %22, %40 ]
+view_col_is_auto_updatable.exit.us:               ; preds = %40, %select.unfold.us.view_col_is_auto_updatable.exit.us_crit_edge
+  %45 = phi i32 [ %.pre, %select.unfold.us.view_col_is_auto_updatable.exit.us_crit_edge ], [ %22, %40 ]
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next72, %46
@@ -1270,9 +1270,9 @@ view_col_is_auto_updatable.argprom.exit.us:       ; preds = %40, %select.unfold.
   %66 = getelementptr inbounds i8, ptr %.val35, i64 8
   %67 = load i16, ptr %66, align 8
   %or.cond6 = icmp slt i16 %67, 1
-  br i1 %or.cond6, label %select.unfold, label %view_col_is_auto_updatable.argprom.exit
+  br i1 %or.cond6, label %select.unfold, label %view_col_is_auto_updatable.exit
 
-view_col_is_auto_updatable.argprom.exit:          ; preds = %65
+view_col_is_auto_updatable.exit:                  ; preds = %65
   %68 = load ptr, ptr %2, align 8
   %69 = sext i16 %51 to i32
   %70 = tail call ptr @bms_add_member(ptr noundef %68, i32 noundef %69) #10
@@ -1294,14 +1294,14 @@ select.unfold:                                    ; preds = %.lr.ph60, %62, %58,
   store ptr %75, ptr %3, align 8
   br label %.thread
 
-76:                                               ; preds = %view_col_is_auto_updatable.argprom.exit, %select.unfold
+76:                                               ; preds = %view_col_is_auto_updatable.exit, %select.unfold
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = load i32, ptr %17, align 4
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
   br i1 %79, label %.lr.ph60, label %.thread
 
-.thread:                                          ; preds = %76, %view_col_is_auto_updatable.argprom.exit.us, %14, %.lr.ph.split.split, %.lr.ph.split.us.split, %.split.us, %73
+.thread:                                          ; preds = %76, %view_col_is_auto_updatable.exit.us, %14, %.lr.ph.split.split, %.lr.ph.split.us.split, %.split.us, %73
   ret void
 }
 
@@ -2067,27 +2067,27 @@ list_length.exit:                                 ; preds = %28
   %139 = load ptr, ptr %138, align 8
   %140 = load i32, ptr %139, align 4
   %141 = icmp eq i32 %140, 50
-  br i1 %141, label %searchForDefault.argprom.exit.i, label %136
+  br i1 %141, label %searchForDefault.exit.i, label %136
 
 ._crit_edge10.split.us.i.i:                       ; preds = %136, %.lr.ph.i.i, %128
   %indvars.iv.next24.i.i = add nuw nsw i64 %indvars.iv23.i.i, 1
   %exitcond27.not.i.i = icmp eq i64 %indvars.iv.next24.i.i, %wide.trip.count26.i.i
   br i1 %exitcond27.not.i.i, label %rewriteValuesRTE.exit.thread, label %128
 
-searchForDefault.argprom.exit.i:                  ; preds = %137
+searchForDefault.exit.i:                          ; preds = %137
   %142 = load ptr, ptr %127, align 8
   %.not.i113.i = icmp eq ptr %142, null
   br i1 %.not.i113.i, label %list_length.exit.i, label %143
 
-143:                                              ; preds = %searchForDefault.argprom.exit.i
+143:                                              ; preds = %searchForDefault.exit.i
   %144 = getelementptr inbounds i8, ptr %142, i64 4
   %145 = load i32, ptr %144, align 4
   %146 = sext i32 %145 to i64
   %147 = shl nsw i64 %146, 2
   br label %list_length.exit.i
 
-list_length.exit.i:                               ; preds = %143, %searchForDefault.argprom.exit.i
-  %148 = phi i64 [ %147, %143 ], [ 0, %searchForDefault.argprom.exit.i ]
+list_length.exit.i:                               ; preds = %143, %searchForDefault.exit.i
+  %148 = phi i64 [ %147, %143 ], [ 0, %searchForDefault.exit.i ]
   %149 = call ptr @palloc0(i64 noundef %148) #10
   %150 = load ptr, ptr %115, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 4
@@ -2854,7 +2854,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %541 = getelementptr inbounds i8, ptr %467, i64 4
   %542 = load i32, ptr %541, align 4
   %.not157.i.i = icmp eq i32 %542, 6
-  br i1 %.not157.i.i, label %adjustJoinTreeList.argprom.argprom.exit.thread.i.i, label %543
+  br i1 %.not157.i.i, label %adjustJoinTreeList.exit.thread.i.i, label %543
 
 543:                                              ; preds = %.thread180.i.i
   %544 = getelementptr inbounds i8, ptr %467, i64 80
@@ -2878,7 +2878,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %551 = getelementptr i8, ptr %.val174187.i.i, i64 8
   %.val174.val188.i.i = load ptr, ptr %551, align 8
   %552 = call ptr @copyObjectImpl(ptr noundef %.val174.val188.i.i) #10
-  br label %adjustJoinTreeList.argprom.argprom.exit.i.i
+  br label %adjustJoinTreeList.exit.i.i
 
 553:                                              ; preds = %549
   %554 = getelementptr inbounds i8, ptr %.val174187.i.i, i64 16
@@ -2888,18 +2888,18 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %557 = getelementptr i8, ptr %.val174.i.i, i64 8
   %.val174.val.i.i = load ptr, ptr %557, align 8
   %558 = call ptr @copyObjectImpl(ptr noundef %.val174.val.i.i) #10
-  br i1 %556, label %adjustJoinTreeList.argprom.argprom.exit.i.i, label %.preheader.i.i.i
+  br i1 %556, label %adjustJoinTreeList.exit.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %553, %.thread183.i.i
   %559 = phi ptr [ %548, %.thread183.i.i ], [ %558, %553 ]
   %.not.i176.i.i = icmp eq ptr %559, null
-  br i1 %.not.i176.i.i, label %adjustJoinTreeList.argprom.argprom.exit.thread.i.i, label %.lr.ph.i.i.i
+  br i1 %.not.i176.i.i, label %adjustJoinTreeList.exit.thread.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
   %560 = getelementptr inbounds i8, ptr %559, i64 4
   %561 = load i32, ptr %560, align 4
   %562 = icmp sgt i32 %561, 0
-  br i1 %562, label %.lr.ph10.i.i.i, label %adjustJoinTreeList.argprom.argprom.exit.thread191.i.i
+  br i1 %562, label %.lr.ph10.i.i.i, label %adjustJoinTreeList.exit.thread191.i.i
 
 .lr.ph10.i.i.i:                                   ; preds = %.lr.ph.i.i.i
   %563 = getelementptr inbounds i8, ptr %559, i64 16
@@ -2924,26 +2924,26 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .split.i.i.i:                                     ; preds = %570
   %574 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %575 = call ptr @list_delete_nth_cell(ptr noundef nonnull %559, i32 noundef %574) #10
-  br label %adjustJoinTreeList.argprom.argprom.exit.i.i
+  br label %adjustJoinTreeList.exit.i.i
 
 576:                                              ; preds = %570, %565
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %adjustJoinTreeList.argprom.argprom.exit.i.i, label %565
+  br i1 %exitcond.not.i.i.i, label %adjustJoinTreeList.exit.i.i, label %565
 
-adjustJoinTreeList.argprom.argprom.exit.i.i:      ; preds = %576, %.split.i.i.i, %553, %.thread186.i.i
+adjustJoinTreeList.exit.i.i:                      ; preds = %576, %.split.i.i.i, %553, %.thread186.i.i
   %.0.i175.i.i = phi ptr [ %575, %.split.i.i.i ], [ %558, %553 ], [ %552, %.thread186.i.i ], [ %559, %576 ]
   %.not158.i.i = icmp eq ptr %.0.i175.i.i, null
-  br i1 %.not158.i.i, label %adjustJoinTreeList.argprom.argprom.exit.thread.i.i, label %adjustJoinTreeList.argprom.argprom.exit.thread191.i.i
+  br i1 %.not158.i.i, label %adjustJoinTreeList.exit.thread.i.i, label %adjustJoinTreeList.exit.thread191.i.i
 
-adjustJoinTreeList.argprom.argprom.exit.thread191.i.i: ; preds = %adjustJoinTreeList.argprom.argprom.exit.i.i, %.lr.ph.i.i.i
-  %.0.i175194.i.i = phi ptr [ %.0.i175.i.i, %adjustJoinTreeList.argprom.argprom.exit.i.i ], [ %559, %.lr.ph.i.i.i ]
+adjustJoinTreeList.exit.thread191.i.i:            ; preds = %adjustJoinTreeList.exit.i.i, %.lr.ph.i.i.i
+  %.0.i175194.i.i = phi ptr [ %.0.i175.i.i, %adjustJoinTreeList.exit.i.i ], [ %559, %.lr.ph.i.i.i ]
   %577 = getelementptr inbounds i8, ptr %467, i64 224
   %578 = load ptr, ptr %577, align 8
   %.not159.i.i = icmp eq ptr %578, null
   br i1 %.not159.i.i, label %583, label %579
 
-579:                                              ; preds = %adjustJoinTreeList.argprom.argprom.exit.thread191.i.i
+579:                                              ; preds = %adjustJoinTreeList.exit.thread191.i.i
   %580 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %580)
   %581 = call i32 @errcode(i32 noundef 1088) #10
@@ -2951,7 +2951,7 @@ adjustJoinTreeList.argprom.argprom.exit.thread191.i.i: ; preds = %adjustJoinTree
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 539, ptr noundef nonnull @__func__.rewriteRuleAction) #10
   unreachable
 
-583:                                              ; preds = %adjustJoinTreeList.argprom.argprom.exit.thread191.i.i
+583:                                              ; preds = %adjustJoinTreeList.exit.thread191.i.i
   %584 = load ptr, ptr %544, align 8
   %585 = getelementptr inbounds i8, ptr %584, i64 8
   %586 = load ptr, ptr %585, align 8
@@ -2961,26 +2961,26 @@ adjustJoinTreeList.argprom.argprom.exit.thread191.i.i: ; preds = %adjustJoinTree
   store ptr %587, ptr %589, align 8
   %590 = load i8, ptr %390, align 1
   %591 = trunc i8 %590 to i1
-  br i1 %591, label %592, label %adjustJoinTreeList.argprom.argprom.exit.thread.i.i
+  br i1 %591, label %592, label %adjustJoinTreeList.exit.thread.i.i
 
 592:                                              ; preds = %583
   %593 = getelementptr inbounds i8, ptr %467, i64 47
   %594 = load i8, ptr %593, align 1
   %595 = trunc i8 %594 to i1
-  br i1 %595, label %adjustJoinTreeList.argprom.argprom.exit.thread.i.i, label %596
+  br i1 %595, label %adjustJoinTreeList.exit.thread.i.i, label %596
 
 596:                                              ; preds = %592
   %597 = call zeroext i1 @checkExprHasSubLink(ptr noundef nonnull %.0.i175194.i.i) #10
   %598 = zext i1 %597 to i8
   store i8 %598, ptr %593, align 1
-  br label %adjustJoinTreeList.argprom.argprom.exit.thread.i.i
+  br label %adjustJoinTreeList.exit.thread.i.i
 
-adjustJoinTreeList.argprom.argprom.exit.thread.i.i: ; preds = %596, %592, %583, %adjustJoinTreeList.argprom.argprom.exit.i.i, %.preheader.i.i.i, %.thread180.i.i
+adjustJoinTreeList.exit.thread.i.i:               ; preds = %596, %592, %583, %adjustJoinTreeList.exit.i.i, %.preheader.i.i.i, %.thread180.i.i
   %599 = load ptr, ptr %13, align 8
   %.not160.i.i = icmp eq ptr %599, null
   br i1 %.not160.i.i, label %648, label %600
 
-600:                                              ; preds = %adjustJoinTreeList.argprom.argprom.exit.thread.i.i
+600:                                              ; preds = %adjustJoinTreeList.exit.thread.i.i
   %601 = load i32, ptr %541, align 4
   %.not161.i.i = icmp eq i32 %601, 6
   br i1 %.not161.i.i, label %648, label %.preheader.i.i
@@ -3086,7 +3086,7 @@ adjustJoinTreeList.argprom.argprom.exit.thread.i.i: ; preds = %596, %592, %583, 
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 610, ptr noundef nonnull @__func__.rewriteRuleAction) #10
   unreachable
 
-648:                                              ; preds = %._crit_edge225.i.i, %600, %adjustJoinTreeList.argprom.argprom.exit.thread.i.i
+648:                                              ; preds = %._crit_edge225.i.i, %600, %adjustJoinTreeList.exit.thread.i.i
   call void @AddQual(ptr noundef %467, ptr noundef %451) #10
   %649 = load ptr, ptr %392, align 8
   %650 = getelementptr inbounds i8, ptr %649, i64 16
@@ -3218,8 +3218,8 @@ fireRules.exit:                                   ; preds = %._crit_edge.i305
   %709 = sext i32 %708 to i64
   br label %710
 
-710:                                              ; preds = %.lr.ph581, %rewriteValuesRTEToNulls.argprom.exit
-  %indvars.iv658 = phi i64 [ 0, %.lr.ph581 ], [ %indvars.iv.next659, %rewriteValuesRTEToNulls.argprom.exit ]
+710:                                              ; preds = %.lr.ph581, %rewriteValuesRTEToNulls.exit
+  %indvars.iv658 = phi i64 [ 0, %.lr.ph581 ], [ %indvars.iv.next659, %rewriteValuesRTEToNulls.exit ]
   %711 = load ptr, ptr %707, align 8
   %712 = getelementptr %union.ListCell, ptr %711, i64 %indvars.iv658
   %713 = load ptr, ptr %712, align 8
@@ -3318,13 +3318,13 @@ list_length.exit315.thread:                       ; preds = %723, %753, %729, %7
   %769 = load ptr, ptr %768, align 8
   %770 = getelementptr inbounds i8, ptr %769, i64 4
   %.not.i316 = icmp eq ptr %769, null
-  br i1 %.not.i316, label %rewriteValuesRTEToNulls.argprom.exit, label %.lr.ph19.i
+  br i1 %.not.i316, label %rewriteValuesRTEToNulls.exit, label %.lr.ph19.i
 
 .lr.ph19.i:                                       ; preds = %767
   %771 = getelementptr inbounds i8, ptr %769, i64 16
   %772 = load i32, ptr %770, align 4
   %773 = icmp sgt i32 %772, 0
-  br i1 %773, label %.lr.ph577, label %rewriteValuesRTEToNulls.argprom.exit
+  br i1 %773, label %.lr.ph577, label %rewriteValuesRTEToNulls.exit
 
 .lr.ph577:                                        ; preds = %.lr.ph19.i, %._crit_edge.i319
   %.017.i576 = phi ptr [ %801, %._crit_edge.i319 ], [ null, %.lr.ph19.i ]
@@ -3382,9 +3382,9 @@ list_length.exit315.thread:                       ; preds = %723, %753, %729, %7
   %802 = load i32, ptr %770, align 4
   %803 = sext i32 %802 to i64
   %804 = icmp slt i64 %indvars.iv.next26.i, %803
-  br i1 %804, label %.lr.ph577, label %rewriteValuesRTEToNulls.argprom.exit
+  br i1 %804, label %.lr.ph577, label %rewriteValuesRTEToNulls.exit
 
-rewriteValuesRTEToNulls.argprom.exit:             ; preds = %._crit_edge.i319, %.lr.ph19.i, %767
+rewriteValuesRTEToNulls.exit:                     ; preds = %._crit_edge.i319, %.lr.ph19.i, %767
   %.0.lcssa.i317 = phi ptr [ null, %767 ], [ null, %.lr.ph19.i ], [ %801, %._crit_edge.i319 ]
   store ptr %.0.lcssa.i317, ptr %768, align 8
   %indvars.iv.next659 = add nuw nsw i64 %indvars.iv658, 1
@@ -3393,7 +3393,7 @@ rewriteValuesRTEToNulls.argprom.exit:             ; preds = %._crit_edge.i319, %
   %.not270 = icmp slt i64 %indvars.iv.next659, %806
   br i1 %.not270, label %710, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %rewriteValuesRTEToNulls.argprom.exit, %.preheader450, %fireRules.exit
+.loopexit:                                        ; preds = %rewriteValuesRTEToNulls.exit, %.preheader450, %fireRules.exit
   %807 = trunc nuw i8 %.3358 to i1
   br i1 %807, label %1390, label %.thread392
 
@@ -3674,10 +3674,10 @@ rewriteValuesRTEToNulls.argprom.exit:             ; preds = %._crit_edge.i319, %
   %946 = icmp sgt i32 %945, 0
   br i1 %946, label %.lr.ph65.i.i, label %view_cols_are_auto_updatable.exit.thread.i
 
-.lr.ph65.i.i:                                     ; preds = %.lr.ph.i.i330, %view_col_is_auto_updatable.argprom.exit.us.i.i
-  %947 = phi i32 [ %973, %view_col_is_auto_updatable.argprom.exit.us.i.i ], [ %945, %.lr.ph.i.i330 ]
-  %indvars.iv71.i.i = phi i64 [ %indvars.iv.next72.i.i, %view_col_is_auto_updatable.argprom.exit.us.i.i ], [ 0, %.lr.ph.i.i330 ]
-  %.02542.us63.i.i = phi i16 [ %951, %view_col_is_auto_updatable.argprom.exit.us.i.i ], [ 7, %.lr.ph.i.i330 ]
+.lr.ph65.i.i:                                     ; preds = %.lr.ph.i.i330, %view_col_is_auto_updatable.exit.us.i.i
+  %947 = phi i32 [ %973, %view_col_is_auto_updatable.exit.us.i.i ], [ %945, %.lr.ph.i.i330 ]
+  %indvars.iv71.i.i = phi i64 [ %indvars.iv.next72.i.i, %view_col_is_auto_updatable.exit.us.i.i ], [ 0, %.lr.ph.i.i330 ]
+  %.02542.us63.i.i = phi i16 [ %951, %view_col_is_auto_updatable.exit.us.i.i ], [ 7, %.lr.ph.i.i330 ]
   %948 = load ptr, ptr %943, align 8
   %949 = getelementptr %union.ListCell, ptr %948, i64 %indvars.iv71.i.i
   %950 = load ptr, ptr %949, align 8
@@ -3715,20 +3715,20 @@ rewriteValuesRTEToNulls.argprom.exit:             ; preds = %._crit_edge.i319, %
 
 969:                                              ; preds = %965
   %970 = icmp eq i16 %967, 0
-  br i1 %970, label %select.unfold.us.i.i, label %view_col_is_auto_updatable.argprom.exit.us.i.i
+  br i1 %970, label %select.unfold.us.i.i, label %view_col_is_auto_updatable.exit.us.i.i
 
 select.unfold.us.i.i:                             ; preds = %969, %965, %962, %958, %955, %.lr.ph65.i.i
   %.0.i.ph.us.i.i = phi ptr [ @.str.33, %965 ], [ @.str.32, %955 ], [ @.str.32, %958 ], [ @.str.32, %962 ], [ @.str.31, %.lr.ph65.i.i ], [ @.str.34, %969 ]
   %971 = sext i16 %951 to i32
   %972 = call zeroext i1 @bms_is_member(i32 noundef %971, ptr noundef %.us-phi484.i) #10
-  br i1 %972, label %976, label %select.unfold.us.view_col_is_auto_updatable.argprom.exit.us_crit_edge.i.i
+  br i1 %972, label %976, label %select.unfold.us.view_col_is_auto_updatable.exit.us_crit_edge.i.i
 
-select.unfold.us.view_col_is_auto_updatable.argprom.exit.us_crit_edge.i.i: ; preds = %select.unfold.us.i.i
+select.unfold.us.view_col_is_auto_updatable.exit.us_crit_edge.i.i: ; preds = %select.unfold.us.i.i
   %.pre.i.i332 = load i32, ptr %942, align 4
-  br label %view_col_is_auto_updatable.argprom.exit.us.i.i
+  br label %view_col_is_auto_updatable.exit.us.i.i
 
-view_col_is_auto_updatable.argprom.exit.us.i.i:   ; preds = %select.unfold.us.view_col_is_auto_updatable.argprom.exit.us_crit_edge.i.i, %969
-  %973 = phi i32 [ %.pre.i.i332, %select.unfold.us.view_col_is_auto_updatable.argprom.exit.us_crit_edge.i.i ], [ %947, %969 ]
+view_col_is_auto_updatable.exit.us.i.i:           ; preds = %select.unfold.us.view_col_is_auto_updatable.exit.us_crit_edge.i.i, %969
+  %973 = phi i32 [ %.pre.i.i332, %select.unfold.us.view_col_is_auto_updatable.exit.us_crit_edge.i.i ], [ %947, %969 ]
   %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1
   %974 = sext i32 %973 to i64
   %975 = icmp slt i64 %indvars.iv.next72.i.i, %974
@@ -3779,7 +3779,7 @@ view_col_is_auto_updatable.argprom.exit.us.i.i:   ; preds = %select.unfold.us.vi
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3330, ptr noundef nonnull @__func__.rewriteTargetView) #10
   unreachable
 
-view_cols_are_auto_updatable.exit.thread.i:       ; preds = %view_col_is_auto_updatable.argprom.exit.us.i.i, %.lr.ph.i.i330, %.split.us.i, %843
+view_cols_are_auto_updatable.exit.thread.i:       ; preds = %view_col_is_auto_updatable.exit.us.i.i, %.lr.ph.i.i330, %.split.us.i, %843
   %1002 = load i32, ptr %11, align 4
   %1003 = icmp eq i32 %1002, 5
   br i1 %1003, label %1004, label %.critedge6.i
@@ -5098,7 +5098,7 @@ list_length.exit160:                              ; preds = %list_length.exit162
   %176 = load i32, ptr %175, align 4
   %177 = getelementptr inbounds i8, ptr %166, i64 12
   %178 = load i32, ptr %177, align 4
-  tail call fastcc void @markQueryForLocking.argelim(ptr noundef %170, ptr noundef %174, i32 noundef %176, i32 noundef %178)
+  tail call fastcc void @markQueryForLocking(ptr noundef %170, ptr noundef %174, i32 noundef %176, i32 noundef %178)
   br label %179
 
 179:                                              ; preds = %172, %165
@@ -5837,7 +5837,7 @@ process_matched_tle.exit:                         ; preds = %55, %152
 
 213:                                              ; preds = %211
   %.val = load ptr, ptr %26, align 8
-  %214 = tail call fastcc ptr @findDefaultOnlyColumns.argprom(ptr %.val)
+  %214 = tail call fastcc ptr @findDefaultOnlyColumns(ptr %.val)
   br label %215
 
 215:                                              ; preds = %213, %211
@@ -5894,7 +5894,7 @@ process_matched_tle.exit:                         ; preds = %55, %152
 
 237:                                              ; preds = %235
   %.val176 = load ptr, ptr %26, align 8
-  %238 = tail call fastcc ptr @findDefaultOnlyColumns.argprom(ptr %.val176)
+  %238 = tail call fastcc ptr @findDefaultOnlyColumns(ptr %.val176)
   br label %239
 
 239:                                              ; preds = %237, %235
@@ -6171,7 +6171,7 @@ declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @flatCopyTargetEntry(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @findDefaultOnlyColumns.argprom(ptr readonly %.120.val) unnamed_addr #0 {
+define internal fastcc ptr @findDefaultOnlyColumns(ptr readonly %.120.val) unnamed_addr #0 {
   %1 = getelementptr inbounds i8, ptr %.120.val, i64 4
   %.not = icmp eq ptr %.120.val, null
   br i1 %.not, label %.thread, label %.lr.ph40
@@ -6374,7 +6374,7 @@ declare void @get_row_security_policies(ptr noundef, ptr noundef, i32 noundef, p
 declare ptr @makeWholeRowVar(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @markQueryForLocking.argelim(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @markQueryForLocking(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.thread, label %.lr.ph
 
@@ -6448,7 +6448,7 @@ tailrecurse.outer:                                ; preds = %8
   %39 = load ptr, ptr %36, align 8
   %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
-  tail call fastcc void @markQueryForLocking.argelim(ptr noundef %.tr.ph72, ptr noundef %41, i32 noundef %2, i32 noundef %3)
+  tail call fastcc void @markQueryForLocking(ptr noundef %.tr.ph72, ptr noundef %41, i32 noundef %2, i32 noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %35, align 4
   %43 = sext i32 %42 to i64
@@ -6458,7 +6458,7 @@ tailrecurse.outer:                                ; preds = %8
 tailrecurse:                                      ; preds = %6
   %45 = getelementptr inbounds i8, ptr %.tr5571, i64 16
   %46 = load ptr, ptr %45, align 8
-  tail call fastcc void @markQueryForLocking.argelim(ptr noundef %.tr.ph72, ptr noundef %46, i32 noundef %2, i32 noundef %3)
+  tail call fastcc void @markQueryForLocking(ptr noundef %.tr.ph72, ptr noundef %46, i32 noundef %2, i32 noundef %3)
   %47 = getelementptr inbounds i8, ptr %.tr5571, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null

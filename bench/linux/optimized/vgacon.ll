@@ -808,7 +808,7 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
   store i64 %98, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 456
   store i64 %94, ptr %100, align 8
-  tail call fastcc void @vga_set_mem_top.argprom(i64 %94)
+  tail call fastcc void @vga_set_mem_top(i64 %94)
   %101 = getelementptr inbounds i8, ptr %0, i64 512
   %102 = load i64, ptr %101, align 8
   %103 = sub i64 %102, %25
@@ -1503,7 +1503,7 @@ define internal noundef range(i32 -22, 1) i32 @vgacon_font_set(ptr nocapture nou
   %29 = load i32, ptr %13, align 4
   %30 = getelementptr i8, ptr %0, i64 432
   %.val = load i32, ptr %30, align 8
-  tail call fastcc void @vgacon_adjust_height.argprom(i32 %.val, i32 noundef %29)
+  tail call fastcc void @vgacon_adjust_height(i32 %.val, i32 noundef %29)
   br label %31
 
 31:                                               ; preds = %28, %25, %19, %18, %12, %9, %4
@@ -1944,7 +1944,7 @@ declare dso_local i32 @con_set_default_unimap(ptr noundef) local_unnamed_addr #7
 declare dso_local zeroext i1 @con_is_visible(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @vga_set_mem_top.argprom(i64 %.456.val) unnamed_addr #10 align 16 {
+define internal fastcc void @vga_set_mem_top(i64 %.456.val) unnamed_addr #10 align 16 {
   %1 = load i64, ptr @vga_vram_base, align 8
   %2 = sub i64 %.456.val, %1
   %3 = lshr i64 %2, 1
@@ -2461,7 +2461,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @vgacon_adjust_height.argprom(i32 %.432.val, i32 noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @vgacon_adjust_height(i32 %.432.val, i32 noundef %0) unnamed_addr #1 align 16 {
   %2 = udiv i32 %.432.val, %0
   %3 = mul i32 %2, %0
   %4 = add i32 %3, -1

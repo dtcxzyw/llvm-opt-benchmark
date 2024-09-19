@@ -1147,7 +1147,7 @@ if.then415:                                       ; preds = %parsing_done
   %116 = load i16, ptr %separator_422, align 8
   %junk_string_value_424 = getelementptr inbounds i8, ptr %this, i64 16
   %117 = load double, ptr %junk_string_value_424, align 8
-  %call426 = call fastcc noundef double @_ZN6icu_7517double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb.argelim(ptr noundef %start, ptr noundef %add.ptr420, i1 noundef zeroext %sign.0, i16 noundef zeroext %116, i1 noundef zeroext %cmp, double noundef %117, i1 noundef zeroext %read_as_double, ptr noundef %result_is_junk417)
+  %call426 = call fastcc noundef double @_ZN6icu_7517double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb(ptr noundef %start, ptr noundef %add.ptr420, i1 noundef zeroext %sign.0, i16 noundef zeroext %116, i1 noundef zeroext %cmp, double noundef %117, i1 noundef zeroext %read_as_double, ptr noundef %result_is_junk417)
   %118 = load ptr, ptr %current, align 8
   %sub.ptr.lhs.cast427 = ptrtoint ptr %118 to i64
   %sub.ptr.rhs.cast428 = ptrtoint ptr %input to i64
@@ -2320,7 +2320,7 @@ if.then426:                                       ; preds = %parsing_done
   %113 = load i16, ptr %separator_433, align 8
   %junk_string_value_435 = getelementptr inbounds i8, ptr %this, i64 16
   %114 = load double, ptr %junk_string_value_435, align 8
-  %call437 = call fastcc noundef double @_ZN6icu_7517double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb.argelim(ptr noundef %start, ptr noundef %add.ptr431, i1 noundef zeroext %sign.0, i16 noundef zeroext %113, i1 noundef zeroext %cmp, double noundef %114, i1 noundef zeroext %read_as_double, ptr noundef %result_is_junk428)
+  %call437 = call fastcc noundef double @_ZN6icu_7517double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb(ptr noundef %start, ptr noundef %add.ptr431, i1 noundef zeroext %sign.0, i16 noundef zeroext %113, i1 noundef zeroext %cmp, double noundef %114, i1 noundef zeroext %read_as_double, ptr noundef %result_is_junk428)
   %115 = load ptr, ptr %current, align 8
   %sub.ptr.lhs.cast438 = ptrtoint ptr %115 to i64
   %sub.ptr.rhs.cast439 = ptrtoint ptr %input to i64
@@ -3924,7 +3924,7 @@ return:                                           ; preds = %for.cond.i.i, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef double @_ZN6icu_7517double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb.argelim(ptr nocapture noundef nonnull %current, ptr noundef nonnull readnone %end, i1 noundef zeroext %sign, i16 noundef zeroext %separator, i1 noundef zeroext %allow_trailing_junk, double noundef %junk_string_value, i1 noundef zeroext %read_as_double, ptr nocapture noundef nonnull writeonly %result_is_junk) unnamed_addr #3 {
+define internal fastcc noundef double @_ZN6icu_7517double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb(ptr nocapture noundef nonnull %current, ptr noundef nonnull readnone %end, i1 noundef zeroext %sign, i16 noundef zeroext %separator, i1 noundef zeroext %allow_trailing_junk, double noundef %junk_string_value, i1 noundef zeroext %read_as_double, ptr nocapture noundef nonnull writeonly %result_is_junk) unnamed_addr #3 {
 entry:
   store i8 1, ptr %result_is_junk, align 1
   %current.promoted = load ptr, ptr %current, align 8

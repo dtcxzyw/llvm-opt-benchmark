@@ -1359,12 +1359,12 @@ _php_array_to_envp.exit:                          ; preds = %190, %._crit_edge17
   %350 = call i32 @php_file_le_stream() #13
   %351 = call ptr @zend_fetch_resource(ptr noundef %.0407.val, ptr noundef nonnull @.str.23, i32 noundef %350) #13
   %352 = icmp eq ptr %351, null
-  br i1 %352, label %set_proc_descriptor_from_resource.argprom.exit.thread, label %353
+  br i1 %352, label %set_proc_descriptor_from_resource.exit.thread, label %353
 
 353:                                              ; preds = %349
   %354 = call i32 @_php_stream_cast(ptr noundef nonnull %351, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 8) #13
   %355 = icmp eq i32 %354, -1
-  br i1 %355, label %set_proc_descriptor_from_resource.argprom.exit.thread, label %356
+  br i1 %355, label %set_proc_descriptor_from_resource.exit.thread, label %356
 
 356:                                              ; preds = %353
   %357 = load i32, ptr %6, align 4
@@ -1372,20 +1372,20 @@ _php_array_to_envp.exit:                          ; preds = %190, %._crit_edge17
   %359 = call i32 @dup(i32 noundef %357) #13
   store i32 %359, ptr %358, align 4
   %360 = icmp slt i32 %359, 0
-  br i1 %360, label %361, label %set_proc_descriptor_from_resource.argprom.exit
+  br i1 %360, label %361, label %set_proc_descriptor_from_resource.exit
 
 361:                                              ; preds = %356
   %362 = tail call ptr @__errno_location() #14
   %363 = load i32, ptr %362, align 4
   %364 = call ptr @strerror(i32 noundef %363) #13
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.24, i64 noundef %340, ptr noundef %364) #13
-  br label %set_proc_descriptor_from_resource.argprom.exit.thread
+  br label %set_proc_descriptor_from_resource.exit.thread
 
-set_proc_descriptor_from_resource.argprom.exit.thread: ; preds = %349, %353, %361
+set_proc_descriptor_from_resource.exit.thread:    ; preds = %349, %353, %361
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %close_all_descriptors.exit
 
-set_proc_descriptor_from_resource.argprom.exit:   ; preds = %356
+set_proc_descriptor_from_resource.exit:           ; preds = %356
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %585
 
@@ -1393,9 +1393,9 @@ set_proc_descriptor_from_resource.argprom.exit:   ; preds = %356
   %.val.i = load ptr, ptr %.0407, align 8
   %366 = call ptr @zend_hash_index_find(ptr noundef %.val.i, i64 noundef 0) #13
   %367 = icmp eq ptr %366, null
-  br i1 %367, label %get_string_parameter.argprom.exit.thread182.i, label %368
+  br i1 %367, label %get_string_parameter.exit.thread182.i, label %368
 
-get_string_parameter.argprom.exit.thread182.i:    ; preds = %365
+get_string_parameter.exit.thread182.i:            ; preds = %365
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.25) #13
   br label %close_all_descriptors.exit
 
@@ -1403,7 +1403,7 @@ get_string_parameter.argprom.exit.thread182.i:    ; preds = %365
   %369 = getelementptr inbounds i8, ptr %366, i64 8
   %370 = load i8, ptr %369, align 8
   %371 = icmp eq i8 %370, 6
-  br i1 %371, label %372, label %get_string_parameter.argprom.exit.i
+  br i1 %371, label %372, label %get_string_parameter.exit.i
 
 372:                                              ; preds = %368
   %373 = load ptr, ptr %366, align 8
@@ -1411,21 +1411,21 @@ get_string_parameter.argprom.exit.thread182.i:    ; preds = %365
   %375 = load i32, ptr %374, align 4
   %376 = and i32 %375, 64
   %.not.i.i497 = icmp eq i32 %376, 0
-  br i1 %.not.i.i497, label %377, label %get_string_parameter.argprom.exit.thread.i
+  br i1 %.not.i.i497, label %377, label %get_string_parameter.exit.thread.i
 
 377:                                              ; preds = %372
   %378 = load i32, ptr %373, align 4
   %379 = add i32 %378, 1
   store i32 %379, ptr %373, align 4
-  br label %get_string_parameter.argprom.exit.thread.i
+  br label %get_string_parameter.exit.thread.i
 
-get_string_parameter.argprom.exit.i:              ; preds = %368
+get_string_parameter.exit.i:                      ; preds = %368
   %380 = call ptr @zval_try_get_string_func(ptr noundef nonnull %366) #13
   %.not.i486 = icmp eq ptr %380, null
-  br i1 %.not.i486, label %close_all_descriptors.exit, label %get_string_parameter.argprom.exit.thread.i
+  br i1 %.not.i486, label %close_all_descriptors.exit, label %get_string_parameter.exit.thread.i
 
-get_string_parameter.argprom.exit.thread.i:       ; preds = %get_string_parameter.argprom.exit.i, %377, %372
-  %.016.i181.i = phi ptr [ %380, %get_string_parameter.argprom.exit.i ], [ %373, %377 ], [ %373, %372 ]
+get_string_parameter.exit.thread.i:               ; preds = %get_string_parameter.exit.i, %377, %372
+  %.016.i181.i = phi ptr [ %380, %get_string_parameter.exit.i ], [ %373, %377 ], [ %373, %372 ]
   %381 = getelementptr inbounds i8, ptr %.016.i181.i, i64 16
   %382 = load i64, ptr %381, align 8
   switch i64 %382, label %.critedge2.i [
@@ -1433,7 +1433,7 @@ get_string_parameter.argprom.exit.thread.i:       ; preds = %get_string_paramete
     i64 6, label %420
   ]
 
-383:                                              ; preds = %get_string_parameter.argprom.exit.thread.i
+383:                                              ; preds = %get_string_parameter.exit.thread.i
   %384 = getelementptr inbounds i8, ptr %.016.i181.i, i64 24
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %384, ptr noundef nonnull dereferenceable(4) @.str.26, i64 4)
   %.not143.i = icmp eq i32 %bcmp.i, 0
@@ -1443,9 +1443,9 @@ get_string_parameter.argprom.exit.thread.i:       ; preds = %get_string_paramete
   %.val161.i = load ptr, ptr %.0407, align 8
   %386 = call ptr @zend_hash_index_find(ptr noundef %.val161.i, i64 noundef 1) #13
   %387 = icmp eq ptr %386, null
-  br i1 %387, label %get_string_parameter.argprom.exit166.thread187.i, label %388
+  br i1 %387, label %get_string_parameter.exit166.thread187.i, label %388
 
-get_string_parameter.argprom.exit166.thread187.i: ; preds = %385
+get_string_parameter.exit166.thread187.i:         ; preds = %385
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.27) #13
   br label %set_proc_descriptor_to_blackhole.exit.thread.thread.i
 
@@ -1453,7 +1453,7 @@ get_string_parameter.argprom.exit166.thread187.i: ; preds = %385
   %389 = getelementptr inbounds i8, ptr %386, i64 8
   %390 = load i8, ptr %389, align 8
   %391 = icmp eq i8 %390, 6
-  br i1 %391, label %392, label %get_string_parameter.argprom.exit166.i
+  br i1 %391, label %392, label %get_string_parameter.exit166.i
 
 392:                                              ; preds = %388
   %393 = load ptr, ptr %386, align 8
@@ -1461,34 +1461,34 @@ get_string_parameter.argprom.exit166.thread187.i: ; preds = %385
   %395 = load i32, ptr %394, align 4
   %396 = and i32 %395, 64
   %.not.i165.i = icmp eq i32 %396, 0
-  br i1 %.not.i165.i, label %397, label %get_string_parameter.argprom.exit166.thread.i
+  br i1 %.not.i165.i, label %397, label %get_string_parameter.exit166.thread.i
 
 397:                                              ; preds = %392
   %398 = load i32, ptr %393, align 4
   %399 = add i32 %398, 1
   store i32 %399, ptr %393, align 4
-  br label %get_string_parameter.argprom.exit166.thread.i
+  br label %get_string_parameter.exit166.thread.i
 
-get_string_parameter.argprom.exit166.i:           ; preds = %388
+get_string_parameter.exit166.i:                   ; preds = %388
   %400 = call ptr @zval_try_get_string_func(ptr noundef nonnull %386) #13
   %401 = icmp eq ptr %400, null
-  br i1 %401, label %set_proc_descriptor_to_blackhole.exit.thread.thread.i, label %get_string_parameter.argprom.exit166.thread.i
+  br i1 %401, label %set_proc_descriptor_to_blackhole.exit.thread.thread.i, label %get_string_parameter.exit166.thread.i
 
-get_string_parameter.argprom.exit166.thread.i:    ; preds = %get_string_parameter.argprom.exit166.i, %397, %392
-  %.016.i164186.i = phi ptr [ %400, %get_string_parameter.argprom.exit166.i ], [ %393, %397 ], [ %393, %392 ]
+get_string_parameter.exit166.thread.i:            ; preds = %get_string_parameter.exit166.i, %397, %392
+  %.016.i164186.i = phi ptr [ %400, %get_string_parameter.exit166.i ], [ %393, %397 ], [ %393, %392 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %402 = call i32 @pipe(ptr noundef nonnull %5) #13
   %.not.i167.i = icmp eq i32 %402, 0
   br i1 %.not.i167.i, label %407, label %403
 
-403:                                              ; preds = %get_string_parameter.argprom.exit166.thread.i
+403:                                              ; preds = %get_string_parameter.exit166.thread.i
   %404 = tail call ptr @__errno_location() #14
   %405 = load i32, ptr %404, align 4
   %406 = call ptr @strerror(i32 noundef %405) #13
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.37, ptr noundef %406) #13
   br label %set_proc_descriptor_to_pipe.exit.i
 
-407:                                              ; preds = %get_string_parameter.argprom.exit166.thread.i
+407:                                              ; preds = %get_string_parameter.exit166.thread.i
   %408 = getelementptr inbounds i8, ptr %341, i64 4
   store i32 1, ptr %408, align 4
   %409 = getelementptr inbounds i8, ptr %.016.i164186.i, i64 16
@@ -1525,7 +1525,7 @@ set_proc_descriptor_to_pipe.exit.i:               ; preds = %.critedge.i.i, %403
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %set_proc_descriptor_to_blackhole.exit.i
 
-420:                                              ; preds = %get_string_parameter.argprom.exit.thread.i
+420:                                              ; preds = %get_string_parameter.exit.thread.i
   %421 = getelementptr inbounds i8, ptr %.016.i181.i, i64 24
   %bcmp144.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %421, ptr noundef nonnull dereferenceable(6) @.str.28, i64 6)
   %.not145.i = icmp eq i32 %bcmp144.i, 0
@@ -1589,7 +1589,7 @@ set_proc_descriptor_to_socket.exit.i:             ; preds = %442, %441, %440, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %set_proc_descriptor_to_blackhole.exit.thread.thread.i
 
-.critedge2.i:                                     ; preds = %420, %383, %get_string_parameter.argprom.exit.thread.i
+.critedge2.i:                                     ; preds = %420, %383, %get_string_parameter.exit.thread.i
   %449 = load ptr, ptr @zend_known_strings, align 8
   %450 = load ptr, ptr %449, align 8
   %451 = icmp eq ptr %.016.i181.i, %450
@@ -1613,9 +1613,9 @@ set_proc_descriptor_to_socket.exit.i:             ; preds = %442, %441, %440, %4
   %.val162.i = load ptr, ptr %.0407, align 8
   %458 = call ptr @zend_hash_index_find(ptr noundef %.val162.i, i64 noundef 1) #13
   %459 = icmp eq ptr %458, null
-  br i1 %459, label %get_string_parameter.argprom.exit173.thread191.i, label %460
+  br i1 %459, label %get_string_parameter.exit173.thread191.i, label %460
 
-get_string_parameter.argprom.exit173.thread191.i: ; preds = %.critedge4.i
+get_string_parameter.exit173.thread191.i:         ; preds = %.critedge4.i
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.29) #13
   br label %set_proc_descriptor_to_blackhole.exit.thread.thread.i
 
@@ -1623,7 +1623,7 @@ get_string_parameter.argprom.exit173.thread191.i: ; preds = %.critedge4.i
   %461 = getelementptr inbounds i8, ptr %458, i64 8
   %462 = load i8, ptr %461, align 8
   %463 = icmp eq i8 %462, 6
-  br i1 %463, label %464, label %get_string_parameter.argprom.exit173.i
+  br i1 %463, label %464, label %get_string_parameter.exit173.i
 
 464:                                              ; preds = %460
   %465 = load ptr, ptr %458, align 8
@@ -1631,35 +1631,35 @@ get_string_parameter.argprom.exit173.thread191.i: ; preds = %.critedge4.i
   %467 = load i32, ptr %466, align 4
   %468 = and i32 %467, 64
   %.not.i172.i = icmp eq i32 %468, 0
-  br i1 %.not.i172.i, label %469, label %get_string_parameter.argprom.exit173.thread.i
+  br i1 %.not.i172.i, label %469, label %get_string_parameter.exit173.thread.i
 
 469:                                              ; preds = %464
   %470 = load i32, ptr %465, align 4
   %471 = add i32 %470, 1
   store i32 %471, ptr %465, align 4
-  br label %get_string_parameter.argprom.exit173.thread.i
+  br label %get_string_parameter.exit173.thread.i
 
-get_string_parameter.argprom.exit173.i:           ; preds = %460
+get_string_parameter.exit173.i:                   ; preds = %460
   %472 = call ptr @zval_try_get_string_func(ptr noundef nonnull %458) #13
   %473 = icmp eq ptr %472, null
-  br i1 %473, label %set_proc_descriptor_to_blackhole.exit.thread.thread.i, label %get_string_parameter.argprom.exit173.thread.i
+  br i1 %473, label %set_proc_descriptor_to_blackhole.exit.thread.thread.i, label %get_string_parameter.exit173.thread.i
 
-get_string_parameter.argprom.exit173.thread.i:    ; preds = %get_string_parameter.argprom.exit173.i, %469, %464
-  %.016.i171190.i = phi ptr [ %472, %get_string_parameter.argprom.exit173.i ], [ %465, %469 ], [ %465, %464 ]
+get_string_parameter.exit173.thread.i:            ; preds = %get_string_parameter.exit173.i, %469, %464
+  %.016.i171190.i = phi ptr [ %472, %get_string_parameter.exit173.i ], [ %465, %469 ], [ %465, %464 ]
   %.val163.i = load ptr, ptr %.0407, align 8
   %474 = call ptr @zend_hash_index_find(ptr noundef %.val163.i, i64 noundef 2) #13
   %475 = icmp eq ptr %474, null
-  br i1 %475, label %get_string_parameter.argprom.exit176.thread195.i, label %476
+  br i1 %475, label %get_string_parameter.exit176.thread195.i, label %476
 
-get_string_parameter.argprom.exit176.thread195.i: ; preds = %get_string_parameter.argprom.exit173.thread.i
+get_string_parameter.exit176.thread195.i:         ; preds = %get_string_parameter.exit173.thread.i
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.30) #13
   br label %set_proc_descriptor_to_blackhole.exit.thread.thread211.i
 
-476:                                              ; preds = %get_string_parameter.argprom.exit173.thread.i
+476:                                              ; preds = %get_string_parameter.exit173.thread.i
   %477 = getelementptr inbounds i8, ptr %474, i64 8
   %478 = load i8, ptr %477, align 8
   %479 = icmp eq i8 %478, 6
-  br i1 %479, label %480, label %get_string_parameter.argprom.exit176.i
+  br i1 %479, label %480, label %get_string_parameter.exit176.i
 
 480:                                              ; preds = %476
   %481 = load ptr, ptr %474, align 8
@@ -1667,21 +1667,21 @@ get_string_parameter.argprom.exit176.thread195.i: ; preds = %get_string_paramete
   %483 = load i32, ptr %482, align 4
   %484 = and i32 %483, 64
   %.not.i175.i = icmp eq i32 %484, 0
-  br i1 %.not.i175.i, label %485, label %get_string_parameter.argprom.exit176.thread.i
+  br i1 %.not.i175.i, label %485, label %get_string_parameter.exit176.thread.i
 
 485:                                              ; preds = %480
   %486 = load i32, ptr %481, align 4
   %487 = add i32 %486, 1
   store i32 %487, ptr %481, align 4
-  br label %get_string_parameter.argprom.exit176.thread.i
+  br label %get_string_parameter.exit176.thread.i
 
-get_string_parameter.argprom.exit176.i:           ; preds = %476
+get_string_parameter.exit176.i:                   ; preds = %476
   %488 = call ptr @zval_try_get_string_func(ptr noundef nonnull %474) #13
   %489 = icmp eq ptr %488, null
-  br i1 %489, label %set_proc_descriptor_to_blackhole.exit.thread.thread211.i, label %get_string_parameter.argprom.exit176.thread.i
+  br i1 %489, label %set_proc_descriptor_to_blackhole.exit.thread.thread211.i, label %get_string_parameter.exit176.thread.i
 
-get_string_parameter.argprom.exit176.thread.i:    ; preds = %get_string_parameter.argprom.exit176.i, %485, %480
-  %.016.i174194.i = phi ptr [ %488, %get_string_parameter.argprom.exit176.i ], [ %481, %485 ], [ %481, %480 ]
+get_string_parameter.exit176.thread.i:            ; preds = %get_string_parameter.exit176.i, %485, %480
+  %.016.i174194.i = phi ptr [ %488, %get_string_parameter.exit176.i ], [ %481, %485 ], [ %481, %480 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %490 = getelementptr inbounds i8, ptr %.016.i171190.i, i64 24
   %491 = getelementptr inbounds i8, ptr %.016.i174194.i, i64 24
@@ -1689,7 +1689,7 @@ get_string_parameter.argprom.exit176.thread.i:    ; preds = %get_string_paramete
   %493 = icmp eq ptr %492, null
   br i1 %493, label %set_proc_descriptor_to_file.exit.i, label %494
 
-494:                                              ; preds = %get_string_parameter.argprom.exit176.thread.i
+494:                                              ; preds = %get_string_parameter.exit176.thread.i
   %495 = call i32 @_php_stream_cast(ptr noundef nonnull %492, i32 noundef 1073741825, ptr noundef nonnull %3, i32 noundef 8) #13
   %496 = icmp eq i32 %495, -1
   br i1 %496, label %set_proc_descriptor_to_file.exit.i, label %497
@@ -1700,8 +1700,8 @@ get_string_parameter.argprom.exit176.thread.i:    ; preds = %get_string_paramete
   store i32 %498, ptr %499, align 4
   br label %set_proc_descriptor_to_file.exit.i
 
-set_proc_descriptor_to_file.exit.i:               ; preds = %497, %494, %get_string_parameter.argprom.exit176.thread.i
-  %.0.i177.i = phi i32 [ 0, %497 ], [ -1, %get_string_parameter.argprom.exit176.thread.i ], [ -1, %494 ]
+set_proc_descriptor_to_file.exit.i:               ; preds = %497, %494, %get_string_parameter.exit176.thread.i
+  %.0.i177.i = phi i32 [ 0, %497 ], [ -1, %get_string_parameter.exit176.thread.i ], [ -1, %494 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %set_proc_descriptor_to_blackhole.exit.i
 
@@ -1847,9 +1847,9 @@ set_proc_descriptor_to_blackhole.exit.thread.i:   ; preds = %558, %557, %550, %s
   %.not156.i493 = icmp eq ptr %.0130.i, null
   br i1 %.not156.i493, label %set_proc_descriptor_to_blackhole.exit.thread.thread.i, label %set_proc_descriptor_to_blackhole.exit.thread.thread211.i
 
-set_proc_descriptor_to_blackhole.exit.thread.thread211.i: ; preds = %set_proc_descriptor_to_blackhole.exit.thread.i, %get_string_parameter.argprom.exit176.i, %get_string_parameter.argprom.exit176.thread195.i
-  %.0130204216.i = phi ptr [ %.0130.i, %set_proc_descriptor_to_blackhole.exit.thread.i ], [ %.016.i171190.i, %get_string_parameter.argprom.exit176.thread195.i ], [ %.016.i171190.i, %get_string_parameter.argprom.exit176.i ]
-  %.0129205215.i = phi i32 [ %.0129.i, %set_proc_descriptor_to_blackhole.exit.thread.i ], [ -1, %get_string_parameter.argprom.exit176.thread195.i ], [ -1, %get_string_parameter.argprom.exit176.i ]
+set_proc_descriptor_to_blackhole.exit.thread.thread211.i: ; preds = %set_proc_descriptor_to_blackhole.exit.thread.i, %get_string_parameter.exit176.i, %get_string_parameter.exit176.thread195.i
+  %.0130204216.i = phi ptr [ %.0130.i, %set_proc_descriptor_to_blackhole.exit.thread.i ], [ %.016.i171190.i, %get_string_parameter.exit176.thread195.i ], [ %.016.i171190.i, %get_string_parameter.exit176.i ]
+  %.0129205215.i = phi i32 [ %.0129.i, %set_proc_descriptor_to_blackhole.exit.thread.i ], [ -1, %get_string_parameter.exit176.thread195.i ], [ -1, %get_string_parameter.exit176.i ]
   %559 = getelementptr inbounds i8, ptr %.0130204216.i, i64 4
   %560 = load i32, ptr %559, align 4
   %561 = and i32 %560, 64
@@ -1878,8 +1878,8 @@ set_proc_descriptor_to_blackhole.exit.thread.thread211.i: ; preds = %set_proc_de
   call void @_efree(ptr noundef nonnull %.0130204216.i) #13
   br label %set_proc_descriptor_to_blackhole.exit.thread.thread.i
 
-set_proc_descriptor_to_blackhole.exit.thread.thread.i: ; preds = %570, %569, %562, %set_proc_descriptor_to_blackhole.exit.thread.thread211.i, %set_proc_descriptor_to_blackhole.exit.thread.i, %.critedge14.i, %544, %536, %.critedge10.i, %519, %517, %514, %get_string_parameter.argprom.exit173.i, %get_string_parameter.argprom.exit173.thread191.i, %set_proc_descriptor_to_socket.exit.i, %get_string_parameter.argprom.exit166.i, %get_string_parameter.argprom.exit166.thread187.i
-  %.0129205209.i = phi i32 [ %.0129205215.i, %set_proc_descriptor_to_blackhole.exit.thread.thread211.i ], [ %.0129205215.i, %569 ], [ %.0129205215.i, %570 ], [ %.0129205215.i, %562 ], [ %.0129.i, %set_proc_descriptor_to_blackhole.exit.thread.i ], [ -1, %get_string_parameter.argprom.exit166.i ], [ %.0.i169.i, %set_proc_descriptor_to_socket.exit.i ], [ -1, %get_string_parameter.argprom.exit173.i ], [ -1, %517 ], [ %522, %519 ], [ -1, %514 ], [ %545, %544 ], [ -1, %.critedge14.i ], [ -1, %get_string_parameter.argprom.exit166.thread187.i ], [ -1, %get_string_parameter.argprom.exit173.thread191.i ], [ -1, %536 ], [ 0, %.critedge10.i ]
+set_proc_descriptor_to_blackhole.exit.thread.thread.i: ; preds = %570, %569, %562, %set_proc_descriptor_to_blackhole.exit.thread.thread211.i, %set_proc_descriptor_to_blackhole.exit.thread.i, %.critedge14.i, %544, %536, %.critedge10.i, %519, %517, %514, %get_string_parameter.exit173.i, %get_string_parameter.exit173.thread191.i, %set_proc_descriptor_to_socket.exit.i, %get_string_parameter.exit166.i, %get_string_parameter.exit166.thread187.i
+  %.0129205209.i = phi i32 [ %.0129205215.i, %set_proc_descriptor_to_blackhole.exit.thread.thread211.i ], [ %.0129205215.i, %569 ], [ %.0129205215.i, %570 ], [ %.0129205215.i, %562 ], [ %.0129.i, %set_proc_descriptor_to_blackhole.exit.thread.i ], [ -1, %get_string_parameter.exit166.i ], [ %.0.i169.i, %set_proc_descriptor_to_socket.exit.i ], [ -1, %get_string_parameter.exit173.i ], [ -1, %517 ], [ %522, %519 ], [ -1, %514 ], [ %545, %544 ], [ -1, %.critedge14.i ], [ -1, %get_string_parameter.exit166.thread187.i ], [ -1, %get_string_parameter.exit173.thread191.i ], [ -1, %536 ], [ 0, %.critedge10.i ]
   %571 = getelementptr inbounds i8, ptr %.016.i181.i, i64 4
   %572 = load i32, ptr %571, align 4
   %573 = and i32 %572, 64
@@ -1916,7 +1916,7 @@ set_proc_descriptor_from_array.exit:              ; preds = %set_proc_descriptor
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.12) #13
   br label %close_all_descriptors.exit
 
-585:                                              ; preds = %set_proc_descriptor_from_resource.argprom.exit, %set_proc_descriptor_from_array.exit
+585:                                              ; preds = %set_proc_descriptor_from_resource.exit, %set_proc_descriptor_from_array.exit
   %586 = add nsw i32 %.0404629, 1
   br label %587
 
@@ -2255,7 +2255,7 @@ switch.lookup:                                    ; preds = %702
   store ptr %738, ptr %1, align 8
   br label %_php_free_envp.exit
 
-close_all_descriptors.exit:                       ; preds = %get_string_parameter.argprom.exit.i, %set_proc_descriptor_from_array.exit, %622, %get_string_parameter.argprom.exit.thread182.i, %666, %set_proc_descriptor_from_resource.argprom.exit.thread, %close_all_descriptors.exit518, %584, %338
+close_all_descriptors.exit:                       ; preds = %get_string_parameter.exit.i, %set_proc_descriptor_from_array.exit, %622, %get_string_parameter.exit.thread182.i, %666, %set_proc_descriptor_from_resource.exit.thread, %close_all_descriptors.exit518, %584, %338
   %.not.i519 = icmp eq ptr %.sroa.4.0, null
   br i1 %.not.i519, label %740, label %739
 

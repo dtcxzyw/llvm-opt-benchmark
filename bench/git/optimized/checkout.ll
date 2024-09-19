@@ -3194,7 +3194,7 @@ if.then106.i:                                     ; preds = %land.lhs.true103.i
   %opts.val.i = load i32, ptr %295, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i.i)
   %tobool.not.i47.i = icmp eq i32 %opts.val.i, 0
-  br i1 %tobool.not.i47.i, label %if.end.i48.i, label %die_if_switching_to_a_branch_in_use.argprom.exit.i
+  br i1 %tobool.not.i47.i, label %if.end.i48.i, label %die_if_switching_to_a_branch_in_use.exit.i
 
 if.end.i48.i:                                     ; preds = %if.then106.i
   %call.i49.i = call ptr @resolve_refdup(ptr noundef nonnull @.str.76, i32 noundef 0, ptr noundef null, ptr noundef nonnull %flags.i.i) #16
@@ -3218,13 +3218,13 @@ if.then5.i.i228:                                  ; preds = %lor.lhs.false.i.i, 
 
 if.end6.i.i:                                      ; preds = %if.then5.i.i228, %lor.lhs.false.i.i, %if.end.i48.i
   call void @free(ptr noundef %call.i49.i) #16
-  br label %die_if_switching_to_a_branch_in_use.argprom.exit.i
+  br label %die_if_switching_to_a_branch_in_use.exit.i
 
-die_if_switching_to_a_branch_in_use.argprom.exit.i: ; preds = %if.end6.i.i, %if.then106.i
+die_if_switching_to_a_branch_in_use.exit.i:       ; preds = %if.end6.i.i, %if.then106.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i.i)
   br label %if.end108.i
 
-if.end108.i:                                      ; preds = %die_if_switching_to_a_branch_in_use.argprom.exit.i, %land.lhs.true103.i, %land.lhs.true100.i, %if.end97.i
+if.end108.i:                                      ; preds = %die_if_switching_to_a_branch_in_use.exit.i, %land.lhs.true103.i, %land.lhs.true100.i, %if.end97.i
   %297 = load ptr, ptr %new_branch_force, align 8
   %tobool110.not.i = icmp eq ptr %297, null
   br i1 %tobool110.not.i, label %if.end114.i, label %if.then111.i
@@ -3236,7 +3236,7 @@ if.then111.i:                                     ; preds = %if.end108.i
   %opts.val46.i = load i32, ptr %299, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i52.i)
   %tobool.not.i53.i = icmp eq i32 %opts.val46.i, 0
-  br i1 %tobool.not.i53.i, label %if.end.i54.i, label %die_if_switching_to_a_branch_in_use.argprom.exit65.i
+  br i1 %tobool.not.i53.i, label %if.end.i54.i, label %die_if_switching_to_a_branch_in_use.exit65.i
 
 if.end.i54.i:                                     ; preds = %if.then111.i
   %call.i55.i = call ptr @resolve_refdup(ptr noundef nonnull @.str.76, i32 noundef 0, ptr noundef null, ptr noundef nonnull %flags.i52.i) #16
@@ -3260,14 +3260,14 @@ if.then5.i63.i:                                   ; preds = %lor.lhs.false.i60.i
 
 if.end6.i64.i:                                    ; preds = %if.then5.i63.i, %lor.lhs.false.i60.i, %if.end.i54.i
   call void @free(ptr noundef %call.i55.i) #16
-  br label %die_if_switching_to_a_branch_in_use.argprom.exit65.i
+  br label %die_if_switching_to_a_branch_in_use.exit65.i
 
-die_if_switching_to_a_branch_in_use.argprom.exit65.i: ; preds = %if.end6.i64.i, %if.then111.i
+die_if_switching_to_a_branch_in_use.exit65.i:     ; preds = %if.end6.i64.i, %if.then111.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags.i52.i)
   call void @free(ptr noundef %call113.i) #16
   br label %if.end114.i
 
-if.end114.i:                                      ; preds = %die_if_switching_to_a_branch_in_use.argprom.exit65.i, %if.end108.i
+if.end114.i:                                      ; preds = %die_if_switching_to_a_branch_in_use.exit65.i, %if.end108.i
   %commit115.i = getelementptr inbounds i8, ptr %new_branch_info, i64 16
   %301 = load ptr, ptr %commit115.i, align 8
   %tobool116.not.i = icmp eq ptr %301, null
@@ -4450,7 +4450,7 @@ if.then168.i.i.i:                                 ; preds = %land.lhs.true164.i.
   %call.i98.i.i.i = call ptr @branch_get(ptr noundef %new_branch_info.val.i.i.i) #16
   %call1.i.i.i.i = call i32 @format_tracking_info(ptr noundef %call.i98.i.i.i, ptr noundef nonnull %sb.i.i42.i.i, i32 noundef 1, i32 noundef 1) #16
   %tobool.not.i.i51.i.i = icmp eq i32 %call1.i.i.i.i, 0
-  br i1 %tobool.not.i.i51.i.i, label %report_tracking.argprom.exit.i.i.i, label %if.end.i.i52.i.i
+  br i1 %tobool.not.i.i51.i.i, label %report_tracking.exit.i.i.i, label %if.end.i.i52.i.i
 
 if.end.i.i52.i.i:                                 ; preds = %if.then168.i.i.i
   %buf.i.i53.i.i = getelementptr inbounds i8, ptr %sb.i.i42.i.i, i64 16
@@ -4458,13 +4458,13 @@ if.end.i.i52.i.i:                                 ; preds = %if.then168.i.i.i
   %457 = load ptr, ptr @stdout, align 8
   %call2.i.i.i.i = call i32 @fputs(ptr noundef %456, ptr noundef %457)
   call void @strbuf_release(ptr noundef nonnull %sb.i.i42.i.i) #16
-  br label %report_tracking.argprom.exit.i.i.i
+  br label %report_tracking.exit.i.i.i
 
-report_tracking.argprom.exit.i.i.i:               ; preds = %if.end.i.i52.i.i, %if.then168.i.i.i
+report_tracking.exit.i.i.i:                       ; preds = %if.end.i.i52.i.i, %if.then168.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i.i42.i.i)
   br label %update_refs_for_switch.exit.i.i
 
-update_refs_for_switch.exit.i.i:                  ; preds = %report_tracking.argprom.exit.i.i.i, %land.lhs.true164.i.i.i, %lor.lhs.false161.i.i.i, %if.end153.i.i.i, %_.exit.i65.i.i
+update_refs_for_switch.exit.i.i:                  ; preds = %report_tracking.exit.i.i.i, %land.lhs.true164.i.i.i, %lor.lhs.false161.i.i.i, %if.end153.i.i.i, %_.exit.i65.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %msg.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %err.i.i.i)
   %458 = load ptr, ptr %commit115.i, align 8

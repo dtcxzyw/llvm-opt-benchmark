@@ -205,18 +205,18 @@ get_restriction_qual_cost.exit:                   ; preds = %cost_qual_eval.exit
   %55 = uitofp nneg i32 %52 to double
   %56 = load i8, ptr @parallel_leader_participation, align 1
   %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %get_parallel_divisor.argprom.exit
+  br i1 %57, label %58, label %get_parallel_divisor.exit
 
 58:                                               ; preds = %54
   %59 = call double @llvm.fmuladd.f64(double %55, double -3.000000e-01, double 1.000000e+00)
   %60 = fcmp ogt double %59, 0.000000e+00
-  br i1 %60, label %61, label %get_parallel_divisor.argprom.exit
+  br i1 %60, label %61, label %get_parallel_divisor.exit
 
 61:                                               ; preds = %58
   %62 = fadd double %59, %55
-  br label %get_parallel_divisor.argprom.exit
+  br label %get_parallel_divisor.exit
 
-get_parallel_divisor.argprom.exit:                ; preds = %54, %58, %61
+get_parallel_divisor.exit:                        ; preds = %54, %58, %61
   %.0.i = phi double [ %62, %61 ], [ %55, %58 ], [ %55, %54 ]
   %63 = fdiv double %50, %.0.i
   %64 = fdiv double %49, %.0.i
@@ -225,7 +225,7 @@ get_parallel_divisor.argprom.exit:                ; preds = %54, %58, %61
   %or.cond.i = or i1 %65, %66
   br i1 %or.cond.i, label %clamp_row_est.exit, label %67
 
-67:                                               ; preds = %get_parallel_divisor.argprom.exit
+67:                                               ; preds = %get_parallel_divisor.exit
   %68 = fcmp ugt double %64, 1.000000e+00
   br i1 %68, label %69, label %clamp_row_est.exit
 
@@ -233,8 +233,8 @@ get_parallel_divisor.argprom.exit:                ; preds = %54, %58, %61
   %70 = call double @llvm.rint.f64(double %64)
   br label %clamp_row_est.exit
 
-clamp_row_est.exit:                               ; preds = %get_parallel_divisor.argprom.exit, %67, %69
-  %.0.i34 = phi double [ %70, %69 ], [ 1.000000e+100, %get_parallel_divisor.argprom.exit ], [ 1.000000e+00, %67 ]
+clamp_row_est.exit:                               ; preds = %get_parallel_divisor.exit, %67, %69
+  %.0.i34 = phi double [ %70, %69 ], [ 1.000000e+100, %get_parallel_divisor.exit ], [ 1.000000e+00, %67 ]
   store double %.0.i34, ptr %7, align 8
   br label %71
 
@@ -1048,18 +1048,18 @@ cost_qual_eval.exit:                              ; preds = %cost_qual_eval.exit
   %334 = uitofp nneg i32 %331 to double
   %335 = load i8, ptr @parallel_leader_participation, align 1
   %336 = trunc i8 %335 to i1
-  br i1 %336, label %337, label %get_parallel_divisor.argprom.exit
+  br i1 %336, label %337, label %get_parallel_divisor.exit
 
 337:                                              ; preds = %333
   %338 = call double @llvm.fmuladd.f64(double %334, double -3.000000e-01, double 1.000000e+00)
   %339 = fcmp ogt double %338, 0.000000e+00
-  br i1 %339, label %340, label %get_parallel_divisor.argprom.exit
+  br i1 %339, label %340, label %get_parallel_divisor.exit
 
 340:                                              ; preds = %337
   %341 = fadd double %338, %334
-  br label %get_parallel_divisor.argprom.exit
+  br label %get_parallel_divisor.exit
 
-get_parallel_divisor.argprom.exit:                ; preds = %333, %337, %340
+get_parallel_divisor.exit:                        ; preds = %333, %337, %340
   %.0.i143 = phi double [ %341, %340 ], [ %334, %337 ], [ %334, %333 ]
   %342 = fdiv double %328, %.0.i143
   %343 = fcmp ogt double %342, 1.000000e+100
@@ -1067,7 +1067,7 @@ get_parallel_divisor.argprom.exit:                ; preds = %333, %337, %340
   %or.cond.i144 = or i1 %343, %344
   br i1 %or.cond.i144, label %clamp_row_est.exit146, label %345
 
-345:                                              ; preds = %get_parallel_divisor.argprom.exit
+345:                                              ; preds = %get_parallel_divisor.exit
   %346 = fcmp ugt double %342, 1.000000e+00
   br i1 %346, label %347, label %clamp_row_est.exit146
 
@@ -1075,8 +1075,8 @@ get_parallel_divisor.argprom.exit:                ; preds = %333, %337, %340
   %348 = call double @llvm.rint.f64(double %342)
   br label %clamp_row_est.exit146
 
-clamp_row_est.exit146:                            ; preds = %get_parallel_divisor.argprom.exit, %345, %347
-  %.0.i145 = phi double [ %348, %347 ], [ 1.000000e+100, %get_parallel_divisor.argprom.exit ], [ 1.000000e+00, %345 ]
+clamp_row_est.exit146:                            ; preds = %get_parallel_divisor.exit, %345, %347
+  %.0.i145 = phi double [ %348, %347 ], [ 1.000000e+100, %get_parallel_divisor.exit ], [ 1.000000e+00, %345 ]
   store double %.0.i145, ptr %327, align 8
   %349 = fdiv double %329, %.0.i143
   br label %350
@@ -1317,18 +1317,18 @@ get_restriction_qual_cost.exit._crit_edge:        ; preds = %get_restriction_qua
   %66 = uitofp nneg i32 %63 to double
   %67 = load i8, ptr @parallel_leader_participation, align 1
   %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %get_parallel_divisor.argprom.exit
+  br i1 %68, label %69, label %get_parallel_divisor.exit
 
 69:                                               ; preds = %65
   %70 = call double @llvm.fmuladd.f64(double %66, double -3.000000e-01, double 1.000000e+00)
   %71 = fcmp ogt double %70, 0.000000e+00
-  br i1 %71, label %72, label %get_parallel_divisor.argprom.exit
+  br i1 %71, label %72, label %get_parallel_divisor.exit
 
 72:                                               ; preds = %69
   %73 = fadd double %70, %66
-  br label %get_parallel_divisor.argprom.exit
+  br label %get_parallel_divisor.exit
 
-get_parallel_divisor.argprom.exit:                ; preds = %65, %69, %72
+get_parallel_divisor.exit:                        ; preds = %65, %69, %72
   %.0.i = phi double [ %73, %72 ], [ %66, %69 ], [ %66, %65 ]
   %74 = fdiv double %61, %.0.i
   %75 = load double, ptr %12, align 8
@@ -1338,7 +1338,7 @@ get_parallel_divisor.argprom.exit:                ; preds = %65, %69, %72
   %or.cond.i = or i1 %77, %78
   br i1 %or.cond.i, label %clamp_row_est.exit, label %79
 
-79:                                               ; preds = %get_parallel_divisor.argprom.exit
+79:                                               ; preds = %get_parallel_divisor.exit
   %80 = fcmp ugt double %76, 1.000000e+00
   br i1 %80, label %81, label %clamp_row_est.exit
 
@@ -1346,8 +1346,8 @@ get_parallel_divisor.argprom.exit:                ; preds = %65, %69, %72
   %82 = call double @llvm.rint.f64(double %76)
   br label %clamp_row_est.exit
 
-clamp_row_est.exit:                               ; preds = %get_parallel_divisor.argprom.exit, %79, %81
-  %.0.i49 = phi double [ %82, %81 ], [ 1.000000e+100, %get_parallel_divisor.argprom.exit ], [ 1.000000e+00, %79 ]
+clamp_row_est.exit:                               ; preds = %get_parallel_divisor.exit, %79, %81
+  %.0.i49 = phi double [ %82, %81 ], [ 1.000000e+100, %get_parallel_divisor.exit ], [ 1.000000e+00, %79 ]
   store double %.0.i49, ptr %12, align 8
   br label %83
 
@@ -3382,30 +3382,30 @@ define dso_local void @cost_append(ptr nocapture noundef %0) local_unnamed_addr 
   %89 = sitofp i32 %.val93 to double
   %90 = load i8, ptr @parallel_leader_participation, align 1
   %91 = trunc i8 %90 to i1
-  br i1 %91, label %92, label %get_parallel_divisor.argprom.exit
+  br i1 %91, label %92, label %get_parallel_divisor.exit
 
 92:                                               ; preds = %87
   %93 = tail call double @llvm.fmuladd.f64(double %89, double -3.000000e-01, double 1.000000e+00)
   %94 = fcmp ogt double %93, 0.000000e+00
-  br i1 %94, label %95, label %get_parallel_divisor.argprom.exit
+  br i1 %94, label %95, label %get_parallel_divisor.exit
 
 95:                                               ; preds = %92
   %96 = fadd double %93, %89
-  br label %get_parallel_divisor.argprom.exit
+  br label %get_parallel_divisor.exit
 
-get_parallel_divisor.argprom.exit:                ; preds = %87, %92, %95
+get_parallel_divisor.exit:                        ; preds = %87, %92, %95
   %.0.i = phi double [ %96, %95 ], [ %89, %92 ], [ %89, %87 ]
   %97 = getelementptr inbounds i8, ptr %9, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %.lr.ph118, label %get_parallel_divisor.argprom.exit.._crit_edge_crit_edge
+  br i1 %99, label %.lr.ph118, label %get_parallel_divisor.exit.._crit_edge_crit_edge
 
-get_parallel_divisor.argprom.exit.._crit_edge_crit_edge: ; preds = %get_parallel_divisor.argprom.exit
+get_parallel_divisor.exit.._crit_edge_crit_edge:  ; preds = %get_parallel_divisor.exit
   %.phi.trans.insert139 = getelementptr inbounds i8, ptr %0, i64 80
   %.pre140 = load i32, ptr %.phi.trans.insert139, align 8
   br label %._crit_edge
 
-.lr.ph118:                                        ; preds = %get_parallel_divisor.argprom.exit
+.lr.ph118:                                        ; preds = %get_parallel_divisor.exit
   %100 = getelementptr inbounds i8, ptr %9, i64 16
   %101 = getelementptr inbounds i8, ptr %0, i64 80
   %102 = load i32, ptr %101, align 8
@@ -3460,18 +3460,18 @@ get_parallel_divisor.argprom.exit.._crit_edge_crit_edge: ; preds = %get_parallel
   %129 = getelementptr i8, ptr %109, i64 36
   %.val92 = load i32, ptr %129, align 4
   %130 = sitofp i32 %.val92 to double
-  br i1 %91, label %131, label %get_parallel_divisor.argprom.exit95
+  br i1 %91, label %131, label %get_parallel_divisor.exit95
 
 131:                                              ; preds = %128
   %132 = tail call double @llvm.fmuladd.f64(double %130, double -3.000000e-01, double 1.000000e+00)
   %133 = fcmp ogt double %132, 0.000000e+00
-  br i1 %133, label %134, label %get_parallel_divisor.argprom.exit95
+  br i1 %133, label %134, label %get_parallel_divisor.exit95
 
 134:                                              ; preds = %131
   %135 = fadd double %132, %130
-  br label %get_parallel_divisor.argprom.exit95
+  br label %get_parallel_divisor.exit95
 
-get_parallel_divisor.argprom.exit95:              ; preds = %128, %131, %134
+get_parallel_divisor.exit95:                      ; preds = %128, %131, %134
   %.0.i94 = phi double [ %135, %134 ], [ %130, %131 ], [ %130, %128 ]
   %136 = getelementptr inbounds i8, ptr %109, i64 40
   %137 = load double, ptr %136, align 8
@@ -3484,9 +3484,9 @@ get_parallel_divisor.argprom.exit95:              ; preds = %128, %131, %134
   store double %142, ptr %6, align 8
   br label %143
 
-143:                                              ; preds = %get_parallel_divisor.argprom.exit95, %123
-  %144 = phi double [ %142, %get_parallel_divisor.argprom.exit95 ], [ %104, %123 ]
-  %145 = phi double [ %139, %get_parallel_divisor.argprom.exit95 ], [ %127, %123 ]
+143:                                              ; preds = %get_parallel_divisor.exit95, %123
+  %144 = phi double [ %142, %get_parallel_divisor.exit95 ], [ %104, %123 ]
+  %145 = phi double [ %139, %get_parallel_divisor.exit95 ], [ %127, %123 ]
   %146 = fcmp ogt double %145, 1.000000e+100
   %147 = fcmp uno double %145, 0.000000e+00
   %or.cond.i = or i1 %146, %147
@@ -3509,10 +3509,10 @@ clamp_row_est.exit:                               ; preds = %143, %148, %150
   %154 = icmp slt i64 %indvars.iv.next134, %153
   br i1 %154, label %103, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %clamp_row_est.exit, %get_parallel_divisor.argprom.exit.._crit_edge_crit_edge
-  %.pre142144 = phi double [ 0.000000e+00, %get_parallel_divisor.argprom.exit.._crit_edge_crit_edge ], [ %.0.i96, %clamp_row_est.exit ]
-  %155 = phi double [ 0.000000e+00, %get_parallel_divisor.argprom.exit.._crit_edge_crit_edge ], [ %144, %clamp_row_est.exit ]
-  %156 = phi i32 [ %.pre140, %get_parallel_divisor.argprom.exit.._crit_edge_crit_edge ], [ %102, %clamp_row_est.exit ]
+._crit_edge:                                      ; preds = %clamp_row_est.exit, %get_parallel_divisor.exit.._crit_edge_crit_edge
+  %.pre142144 = phi double [ 0.000000e+00, %get_parallel_divisor.exit.._crit_edge_crit_edge ], [ %.0.i96, %clamp_row_est.exit ]
+  %155 = phi double [ 0.000000e+00, %get_parallel_divisor.exit.._crit_edge_crit_edge ], [ %144, %clamp_row_est.exit ]
+  %156 = phi i32 [ %.pre140, %get_parallel_divisor.exit.._crit_edge_crit_edge ], [ %102, %clamp_row_est.exit ]
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %append_nonpartial_cost.exit, label %.lr.ph.i
 
@@ -4756,18 +4756,18 @@ define dso_local void @final_cost_nestloop(ptr noundef %0, ptr nocapture noundef
   %31 = uitofp nneg i32 %28 to double
   %32 = load i8, ptr @parallel_leader_participation, align 1
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %get_parallel_divisor.argprom.exit
+  br i1 %33, label %34, label %get_parallel_divisor.exit
 
 34:                                               ; preds = %30
   %35 = tail call double @llvm.fmuladd.f64(double %31, double -3.000000e-01, double 1.000000e+00)
   %36 = fcmp ogt double %35, 0.000000e+00
-  br i1 %36, label %37, label %get_parallel_divisor.argprom.exit
+  br i1 %36, label %37, label %get_parallel_divisor.exit
 
 37:                                               ; preds = %34
   %38 = fadd double %35, %31
-  br label %get_parallel_divisor.argprom.exit
+  br label %get_parallel_divisor.exit
 
-get_parallel_divisor.argprom.exit:                ; preds = %30, %34, %37
+get_parallel_divisor.exit:                        ; preds = %30, %34, %37
   %.0.i = phi double [ %38, %37 ], [ %31, %34 ], [ %31, %30 ]
   %39 = fdiv double %25, %.0.i
   %40 = fcmp ogt double %39, 1.000000e+100
@@ -4775,7 +4775,7 @@ get_parallel_divisor.argprom.exit:                ; preds = %30, %34, %37
   %or.cond.i = or i1 %40, %41
   br i1 %or.cond.i, label %clamp_row_est.exit, label %42
 
-42:                                               ; preds = %get_parallel_divisor.argprom.exit
+42:                                               ; preds = %get_parallel_divisor.exit
   %43 = fcmp ugt double %39, 1.000000e+00
   br i1 %43, label %44, label %clamp_row_est.exit
 
@@ -4783,8 +4783,8 @@ get_parallel_divisor.argprom.exit:                ; preds = %30, %34, %37
   %45 = tail call double @llvm.rint.f64(double %39)
   br label %clamp_row_est.exit
 
-clamp_row_est.exit:                               ; preds = %get_parallel_divisor.argprom.exit, %42, %44
-  %.0.i93 = phi double [ %45, %44 ], [ 1.000000e+100, %get_parallel_divisor.argprom.exit ], [ 1.000000e+00, %42 ]
+clamp_row_est.exit:                               ; preds = %get_parallel_divisor.exit, %42, %44
+  %.0.i93 = phi double [ %45, %44 ], [ 1.000000e+100, %get_parallel_divisor.exit ], [ 1.000000e+00, %42 ]
   store double %.0.i93, ptr %26, align 8
   br label %46
 
@@ -5448,18 +5448,18 @@ define dso_local void @final_cost_mergejoin(ptr noundef %0, ptr nocapture nounde
   %44 = uitofp nneg i32 %41 to double
   %45 = load i8, ptr @parallel_leader_participation, align 1
   %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %get_parallel_divisor.argprom.exit
+  br i1 %46, label %47, label %get_parallel_divisor.exit
 
 47:                                               ; preds = %43
   %48 = tail call double @llvm.fmuladd.f64(double %44, double -3.000000e-01, double 1.000000e+00)
   %49 = fcmp ogt double %48, 0.000000e+00
-  br i1 %49, label %50, label %get_parallel_divisor.argprom.exit
+  br i1 %49, label %50, label %get_parallel_divisor.exit
 
 50:                                               ; preds = %47
   %51 = fadd double %48, %44
-  br label %get_parallel_divisor.argprom.exit
+  br label %get_parallel_divisor.exit
 
-get_parallel_divisor.argprom.exit:                ; preds = %43, %47, %50
+get_parallel_divisor.exit:                        ; preds = %43, %47, %50
   %.0.i = phi double [ %51, %50 ], [ %44, %47 ], [ %44, %43 ]
   %52 = fdiv double %38, %.0.i
   %53 = fcmp ogt double %52, 1.000000e+100
@@ -5467,7 +5467,7 @@ get_parallel_divisor.argprom.exit:                ; preds = %43, %47, %50
   %or.cond.i = or i1 %53, %54
   br i1 %or.cond.i, label %clamp_row_est.exit, label %55
 
-55:                                               ; preds = %get_parallel_divisor.argprom.exit
+55:                                               ; preds = %get_parallel_divisor.exit
   %56 = fcmp ugt double %52, 1.000000e+00
   br i1 %56, label %57, label %clamp_row_est.exit
 
@@ -5475,8 +5475,8 @@ get_parallel_divisor.argprom.exit:                ; preds = %43, %47, %50
   %58 = tail call double @llvm.rint.f64(double %52)
   br label %clamp_row_est.exit
 
-clamp_row_est.exit:                               ; preds = %get_parallel_divisor.argprom.exit, %55, %57
-  %.0.i106 = phi double [ %58, %57 ], [ 1.000000e+100, %get_parallel_divisor.argprom.exit ], [ 1.000000e+00, %55 ]
+clamp_row_est.exit:                               ; preds = %get_parallel_divisor.exit, %55, %57
+  %.0.i106 = phi double [ %58, %57 ], [ 1.000000e+100, %get_parallel_divisor.exit ], [ 1.000000e+00, %55 ]
   store double %.0.i106, ptr %39, align 8
   br label %59
 
@@ -5659,39 +5659,39 @@ list_length.exit115:                              ; preds = %list_length.exit, %
   %135 = fcmp ogt double %134, 1.000000e+100
   %136 = fcmp uno double %134, 0.000000e+00
   %or.cond.i.i = or i1 %135, %136
-  br i1 %or.cond.i.i, label %approx_tuple_count.argprom.argprom.argprom.exit, label %137
+  br i1 %or.cond.i.i, label %approx_tuple_count.exit, label %137
 
 137:                                              ; preds = %._crit_edge.i
   %138 = fcmp ugt double %134, 1.000000e+00
-  br i1 %138, label %139, label %approx_tuple_count.argprom.argprom.argprom.exit
+  br i1 %138, label %139, label %approx_tuple_count.exit
 
 139:                                              ; preds = %137
   %140 = call double @llvm.rint.f64(double %134)
-  br label %approx_tuple_count.argprom.argprom.argprom.exit
+  br label %approx_tuple_count.exit
 
-approx_tuple_count.argprom.argprom.argprom.exit:  ; preds = %._crit_edge.i, %137, %139
+approx_tuple_count.exit:                          ; preds = %._crit_edge.i, %137, %139
   %.0.i.i = phi double [ %140, %139 ], [ 1.000000e+100, %._crit_edge.i ], [ 1.000000e+00, %137 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
   %141 = load i32, ptr %9, align 4
   %142 = icmp eq i32 %141, 279
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 128
   %.pre = load i8, ptr %.phi.trans.insert, align 8
-  br i1 %142, label %approx_tuple_count.argprom.argprom.argprom.exit._crit_edge, label %143
+  br i1 %142, label %approx_tuple_count.exit._crit_edge, label %143
 
-143:                                              ; preds = %approx_tuple_count.argprom.argprom.argprom.exit
+143:                                              ; preds = %approx_tuple_count.exit
   %144 = trunc i8 %.pre to i1
-  br i1 %144, label %approx_tuple_count.argprom.argprom.argprom.exit._crit_edge, label %145
+  br i1 %144, label %approx_tuple_count.exit._crit_edge, label %145
 
 145:                                              ; preds = %143
   %146 = fsub double %.0.i.i, %.0
   %147 = fcmp olt double %146, 0.000000e+00
-  br i1 %147, label %148, label %approx_tuple_count.argprom.argprom.argprom.exit._crit_edge
+  br i1 %147, label %148, label %approx_tuple_count.exit._crit_edge
 
 148:                                              ; preds = %145
-  br label %approx_tuple_count.argprom.argprom.argprom.exit._crit_edge
+  br label %approx_tuple_count.exit._crit_edge
 
-approx_tuple_count.argprom.argprom.argprom.exit._crit_edge: ; preds = %approx_tuple_count.argprom.argprom.argprom.exit, %143, %145, %148
-  %.095 = phi double [ 0.000000e+00, %148 ], [ %146, %145 ], [ 0.000000e+00, %143 ], [ 0.000000e+00, %approx_tuple_count.argprom.argprom.argprom.exit ]
+approx_tuple_count.exit._crit_edge:               ; preds = %approx_tuple_count.exit, %143, %145, %148
+  %.095 = phi double [ 0.000000e+00, %148 ], [ %146, %145 ], [ 0.000000e+00, %143 ], [ 0.000000e+00, %approx_tuple_count.exit ]
   %149 = fdiv double %.095, %26
   %150 = fadd double %149, 1.000000e+00
   %151 = fmul double %22, %150
@@ -5701,7 +5701,7 @@ approx_tuple_count.argprom.argprom.argprom.exit._crit_edge: ; preds = %approx_tu
   %155 = trunc i8 %.pre to i1
   br i1 %155, label %181, label %156
 
-156:                                              ; preds = %approx_tuple_count.argprom.argprom.argprom.exit._crit_edge
+156:                                              ; preds = %approx_tuple_count.exit._crit_edge
   %157 = load i8, ptr @enable_material, align 1
   %158 = trunc i8 %157 to i1
   %159 = fcmp olt double %154, %151
@@ -5740,9 +5740,9 @@ approx_tuple_count.argprom.argprom.argprom.exit._crit_edge: ; preds = %approx_tu
 .thread:                                          ; preds = %162, %165, %164
   br label %181
 
-181:                                              ; preds = %165, %162, %156, %approx_tuple_count.argprom.argprom.argprom.exit._crit_edge, %.thread
-  %.sink131 = phi i8 [ 0, %.thread ], [ 0, %approx_tuple_count.argprom.argprom.argprom.exit._crit_edge ], [ 1, %156 ], [ 1, %162 ], [ 1, %165 ]
-  %. = phi double [ %151, %.thread ], [ %151, %approx_tuple_count.argprom.argprom.argprom.exit._crit_edge ], [ %154, %156 ], [ %154, %162 ], [ %154, %165 ]
+181:                                              ; preds = %165, %162, %156, %approx_tuple_count.exit._crit_edge, %.thread
+  %.sink131 = phi i8 [ 0, %.thread ], [ 0, %approx_tuple_count.exit._crit_edge ], [ 1, %156 ], [ 1, %162 ], [ 1, %165 ]
+  %. = phi double [ %151, %.thread ], [ %151, %approx_tuple_count.exit._crit_edge ], [ %154, %156 ], [ %154, %162 ], [ %154, %165 ]
   %182 = getelementptr inbounds i8, ptr %1, i64 129
   store i8 %.sink131, ptr %182, align 1
   %183 = fsub double %.sroa.4.0.copyload, %.sroa.3.0.copyload
@@ -5826,24 +5826,24 @@ list_length.exit:                                 ; preds = %8, %17
   %40 = sitofp i32 %.val to double
   %41 = load i8, ptr @parallel_leader_participation, align 1
   %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %get_parallel_divisor.argprom.exit
+  br i1 %42, label %43, label %get_parallel_divisor.exit
 
 43:                                               ; preds = %38
   %44 = tail call double @llvm.fmuladd.f64(double %40, double -3.000000e-01, double 1.000000e+00)
   %45 = fcmp ogt double %44, 0.000000e+00
-  br i1 %45, label %46, label %get_parallel_divisor.argprom.exit
+  br i1 %45, label %46, label %get_parallel_divisor.exit
 
 46:                                               ; preds = %43
   %47 = fadd double %44, %40
-  br label %get_parallel_divisor.argprom.exit
+  br label %get_parallel_divisor.exit
 
-get_parallel_divisor.argprom.exit:                ; preds = %38, %43, %46
+get_parallel_divisor.exit:                        ; preds = %38, %43, %46
   %.0.i = phi double [ %47, %46 ], [ %40, %43 ], [ %40, %38 ]
   %48 = fmul double %16, %.0.i
   br label %49
 
-49:                                               ; preds = %get_parallel_divisor.argprom.exit, %list_length.exit
-  %.044 = phi double [ %48, %get_parallel_divisor.argprom.exit ], [ %16, %list_length.exit ]
+49:                                               ; preds = %get_parallel_divisor.exit, %list_length.exit
+  %.044 = phi double [ %48, %get_parallel_divisor.exit ], [ %16, %list_length.exit ]
   %50 = getelementptr inbounds i8, ptr %5, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 40
@@ -5955,18 +5955,18 @@ define dso_local void @final_cost_hashjoin(ptr noundef %0, ptr nocapture noundef
   %39 = uitofp nneg i32 %36 to double
   %40 = load i8, ptr @parallel_leader_participation, align 1
   %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %get_parallel_divisor.argprom.exit
+  br i1 %41, label %42, label %get_parallel_divisor.exit
 
 42:                                               ; preds = %38
   %43 = tail call double @llvm.fmuladd.f64(double %39, double -3.000000e-01, double 1.000000e+00)
   %44 = fcmp ogt double %43, 0.000000e+00
-  br i1 %44, label %45, label %get_parallel_divisor.argprom.exit
+  br i1 %44, label %45, label %get_parallel_divisor.exit
 
 45:                                               ; preds = %42
   %46 = fadd double %43, %39
-  br label %get_parallel_divisor.argprom.exit
+  br label %get_parallel_divisor.exit
 
-get_parallel_divisor.argprom.exit:                ; preds = %38, %42, %45
+get_parallel_divisor.exit:                        ; preds = %38, %42, %45
   %.0.i = phi double [ %46, %45 ], [ %39, %42 ], [ %39, %38 ]
   %47 = fdiv double %33, %.0.i
   %48 = fcmp ogt double %47, 1.000000e+100
@@ -5974,7 +5974,7 @@ get_parallel_divisor.argprom.exit:                ; preds = %38, %42, %45
   %or.cond.i = or i1 %48, %49
   br i1 %or.cond.i, label %clamp_row_est.exit, label %50
 
-50:                                               ; preds = %get_parallel_divisor.argprom.exit
+50:                                               ; preds = %get_parallel_divisor.exit
   %51 = fcmp ugt double %47, 1.000000e+00
   br i1 %51, label %52, label %clamp_row_est.exit
 
@@ -5982,8 +5982,8 @@ get_parallel_divisor.argprom.exit:                ; preds = %38, %42, %45
   %53 = tail call double @llvm.rint.f64(double %47)
   br label %clamp_row_est.exit
 
-clamp_row_est.exit:                               ; preds = %get_parallel_divisor.argprom.exit, %50, %52
-  %.0.i137 = phi double [ %53, %52 ], [ 1.000000e+100, %get_parallel_divisor.argprom.exit ], [ 1.000000e+00, %50 ]
+clamp_row_est.exit:                               ; preds = %get_parallel_divisor.exit, %50, %52
+  %.0.i137 = phi double [ %53, %52 ], [ 1.000000e+100, %get_parallel_divisor.exit ], [ 1.000000e+00, %50 ]
   store double %.0.i137, ptr %34, align 8
   br label %54
 
@@ -6044,22 +6044,22 @@ clamp_row_est.exit:                               ; preds = %get_parallel_diviso
   %87 = getelementptr i8, ptr %86, i64 32
   %.val135 = load ptr, ptr %87, align 8
   %.not.i.i = icmp eq ptr %.val135, null
-  br i1 %.not.i.i, label %get_rightop.argprom.exit, label %list_length.exit.i
+  br i1 %.not.i.i, label %get_rightop.exit, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %84
   %88 = getelementptr inbounds i8, ptr %.val135, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = icmp sgt i32 %89, 1
-  br i1 %90, label %91, label %get_rightop.argprom.exit
+  br i1 %90, label %91, label %get_rightop.exit
 
 91:                                               ; preds = %list_length.exit.i
   %92 = getelementptr i8, ptr %.val135, i64 16
   %.val.i = load ptr, ptr %92, align 8
   %93 = getelementptr i8, ptr %.val.i, i64 8
   %94 = load ptr, ptr %93, align 8
-  br label %get_rightop.argprom.exit
+  br label %get_rightop.exit
 
-get_rightop.argprom.exit:                         ; preds = %84, %list_length.exit.i, %91
+get_rightop.exit:                                 ; preds = %84, %list_length.exit.i, %91
   %.0.i138 = phi ptr [ %94, %91 ], [ null, %list_length.exit.i ], [ null, %84 ]
   %95 = getelementptr inbounds i8, ptr %73, i64 224
   tail call void @estimate_hash_bucket_stats(ptr noundef %0, ptr noundef %.0.i138, double noundef %61, ptr noundef nonnull %95, ptr noundef nonnull %81) #17
@@ -6077,23 +6077,23 @@ get_rightop.argprom.exit:                         ; preds = %84, %list_length.ex
   %103 = getelementptr i8, ptr %102, i64 32
   %.val136 = load ptr, ptr %103, align 8
   %.not.i = icmp eq ptr %.val136, null
-  br i1 %.not.i, label %get_leftop.argprom.exit, label %104
+  br i1 %.not.i, label %get_leftop.exit, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr i8, ptr %.val136, i64 16
   %.val.i139 = load ptr, ptr %105, align 8
   %106 = load ptr, ptr %.val.i139, align 8
-  br label %get_leftop.argprom.exit
+  br label %get_leftop.exit
 
-get_leftop.argprom.exit:                          ; preds = %100, %104
+get_leftop.exit:                                  ; preds = %100, %104
   %.0.i140 = phi ptr [ %106, %104 ], [ null, %100 ]
   %107 = getelementptr inbounds i8, ptr %73, i64 216
   tail call void @estimate_hash_bucket_stats(ptr noundef %0, ptr noundef %.0.i140, double noundef %61, ptr noundef nonnull %107, ptr noundef nonnull %97) #17
   br label %.sink.split
 
-.sink.split:                                      ; preds = %get_rightop.argprom.exit, %get_leftop.argprom.exit
-  %.sink187 = phi ptr [ %97, %get_leftop.argprom.exit ], [ %81, %get_rightop.argprom.exit ]
-  %.sink.ph = phi i64 [ 216, %get_leftop.argprom.exit ], [ 224, %get_rightop.argprom.exit ]
+.sink.split:                                      ; preds = %get_rightop.exit, %get_leftop.exit
+  %.sink187 = phi ptr [ %97, %get_leftop.exit ], [ %81, %get_rightop.exit ]
+  %.sink.ph = phi i64 [ 216, %get_leftop.exit ], [ 224, %get_rightop.exit ]
   %108 = load double, ptr %.sink187, align 8
   br label %109
 
@@ -6353,24 +6353,24 @@ clamp_row_est.exit159:                            ; preds = %194, %199, %201
   %230 = fcmp ogt double %229, 1.000000e+100
   %231 = fcmp uno double %229, 0.000000e+00
   %or.cond.i.i = or i1 %230, %231
-  br i1 %or.cond.i.i, label %approx_tuple_count.argprom.argprom.argprom.exit, label %232
+  br i1 %or.cond.i.i, label %approx_tuple_count.exit, label %232
 
 232:                                              ; preds = %._crit_edge.i
   %233 = fcmp ugt double %229, 1.000000e+00
-  br i1 %233, label %234, label %approx_tuple_count.argprom.argprom.argprom.exit
+  br i1 %233, label %234, label %approx_tuple_count.exit
 
 234:                                              ; preds = %232
   %235 = call double @llvm.rint.f64(double %229)
-  br label %approx_tuple_count.argprom.argprom.argprom.exit
+  br label %approx_tuple_count.exit
 
-approx_tuple_count.argprom.argprom.argprom.exit:  ; preds = %._crit_edge.i, %232, %234
+approx_tuple_count.exit:                          ; preds = %._crit_edge.i, %232, %234
   %.0.i.i = phi double [ %235, %234 ], [ 1.000000e+100, %._crit_edge.i ], [ 1.000000e+00, %232 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
   br label %236
 
-236:                                              ; preds = %clamp_row_est.exit156, %approx_tuple_count.argprom.argprom.argprom.exit
-  %.0116 = phi double [ %.0.i.i, %approx_tuple_count.argprom.argprom.argprom.exit ], [ %., %clamp_row_est.exit156 ]
-  %.0111 = phi double [ %204, %approx_tuple_count.argprom.argprom.argprom.exit ], [ %192, %clamp_row_est.exit156 ]
+236:                                              ; preds = %clamp_row_est.exit156, %approx_tuple_count.exit
+  %.0116 = phi double [ %.0.i.i, %approx_tuple_count.exit ], [ %., %clamp_row_est.exit156 ]
+  %.0111 = phi double [ %204, %approx_tuple_count.exit ], [ %192, %clamp_row_est.exit156 ]
   %237 = fsub double %.sroa.4.0.copyload, %.sroa.4169.0.copyload
   %238 = fsub double %.sroa.0.0.copyload, %.sroa.0166.0.copyload
   %239 = sext i32 %126 to i64
@@ -7350,14 +7350,14 @@ define dso_local void @set_joinrel_size_estimates(ptr noundef %0, ptr nocapture 
   %.val = load ptr, ptr %11, align 8
   %12 = getelementptr i8, ptr %3, i64 8
   %.val9 = load ptr, ptr %12, align 8
-  %13 = tail call fastcc double @calc_joinrel_size_estimate.argprom(ptr noundef %0, ptr noundef %1, ptr %.val, ptr %.val9, double noundef %8, double noundef %10, ptr noundef %4, ptr noundef %5)
+  %13 = tail call fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr noundef %1, ptr %.val, ptr %.val9, double noundef %8, double noundef %10, ptr noundef %4, ptr noundef %5)
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   store double %13, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @calc_joinrel_size_estimate.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, ptr %.8.val, ptr %.8.val1, double noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr nocapture noundef readonly %1, ptr %.8.val, ptr %.8.val1, double noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 304
@@ -7799,7 +7799,7 @@ define dso_local double @get_parameterized_joinrel_size(ptr noundef %0, ptr noca
   %.val = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %10, i64 8
   %.val14 = load ptr, ptr %16, align 8
-  %17 = tail call fastcc double @calc_joinrel_size_estimate.argprom(ptr noundef %0, ptr noundef %1, ptr %.val, ptr %.val14, double noundef %12, double noundef %14, ptr noundef %4, ptr noundef %5)
+  %17 = tail call fastcc double @calc_joinrel_size_estimate(ptr noundef %0, ptr noundef %1, ptr %.val, ptr %.val14, double noundef %12, double noundef %14, ptr noundef %4, ptr noundef %5)
   %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = load double, ptr %18, align 8
   %20 = fcmp ogt double %17, %19

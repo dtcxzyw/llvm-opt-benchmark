@@ -2742,7 +2742,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i11.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN4node9inspector12_GLOBAL__N_111ChannelImplC2EPNS_11EnvironmentERKSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS7_EESt10shared_ptrINS0_13WorkerManagerEES5_INS0_24InspectorSessionDelegateES8_ISG_EESD_INS0_16MainThreadHandleEEb.exit.i
   %cmp.not.i.i.i17.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i.i17.i, label %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit, label %if.then.i.i.i18.i
+  br i1 %cmp.not.i.i.i17.i, label %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %if.then.i.i.i18.i
 
 if.then.i.i.i18.i:                                ; preds = %_ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EED2Ev.exit.i
   %_M_use_count.i.i.i.i19.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -2778,7 +2778,7 @@ if.else.i.i.i.i.i42.i:                            ; preds = %if.end.i.i.i.i21.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i25.i: ; preds = %if.else.i.i.i.i.i42.i, %if.then.i.i.i.i.i23.i
   %retval.i.0.i.i.i.i26.i = phi i32 [ %49, %if.then.i.i.i.i.i23.i ], [ %52, %if.else.i.i.i.i.i42.i ]
   %cmp6.i.i.i.i27.i = icmp eq i32 %retval.i.0.i.i.i.i26.i, 1
-  br i1 %cmp6.i.i.i.i27.i, label %if.then7.i.i.i.i28.i, label %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br i1 %cmp6.i.i.i.i27.i, label %if.then7.i.i.i.i28.i, label %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 if.then7.i.i.i.i28.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i25.i
   %vtable.i.i.i.i.i.i29.i = load ptr, ptr %2, align 8, !noalias !28
@@ -2803,30 +2803,30 @@ if.else.i.i.i.i.i.i.i41.i:                        ; preds = %if.then7.i.i.i.i28.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35.i: ; preds = %if.else.i.i.i.i.i.i.i41.i, %if.then.i.i.i.i.i.i.i33.i
   %retval.i.0.i.i.i.i.i.i36.i = phi i32 [ %55, %if.then.i.i.i.i.i.i.i33.i ], [ %56, %if.else.i.i.i.i.i.i.i41.i ]
   %cmp.i.i.i.i.i.i37.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i36.i, 1
-  br i1 %cmp.i.i.i.i.i.i37.i, label %if.end8.sink.split.i.i.i.i38.i, label %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i37.i, label %if.end8.sink.split.i.i.i.i38.i, label %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 if.end8.sink.split.i.i.i.i38.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35.i, %if.then.i.i.i.i43.i
   %vtable2.i.i.i.i.i.i39.i = load ptr, ptr %2, align 8, !noalias !28
   %vfn3.i.i.i.i.i.i40.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i39.i, i64 24
   %57 = load ptr, ptr %vfn3.i.i.i.i.i.i40.i, align 8, !noalias !28
   call void %57(ptr noundef nonnull align 8 dereferenceable(16) %2) #22, !noalias !28
-  br label %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+  br label %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
-_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EED2Ev.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i25.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35.i, %if.end8.sink.split.i.i.i.i38.i
+_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EED2Ev.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i25.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35.i, %if.end8.sink.split.i.i.i.i38.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp12.i)
   %channels_ = getelementptr inbounds i8, ptr %this, i64 88
-  %call = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS4_EESt4hashIiESt8equal_toIiESaISt4pairIKiS7_EEEixERSD_.argprom(ptr noundef nonnull align 8 dereferenceable(56) %channels_, i32 %0)
+  %call = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS4_EESt4hashIiESt8equal_toIiESaISt4pairIKiS7_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(56) %channels_, i32 %0)
   %58 = load ptr, ptr %call, align 8
   store ptr %call.i, ptr %call, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %58, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.argprom.exit.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.argprom.exit.i.i.i.i: ; preds = %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.exit.i.i.i.i: ; preds = %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   call void @_ZN4node9inspector12_GLOBAL__N_111ChannelImplD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %58) #22
   call void @_ZdlPv(ptr noundef nonnull %58) #23
   br label %_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.argprom.exit.i.i.i.i, %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
+_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.exit.i.i.i.i, %_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %59 = load ptr, ptr %_M_refcount4.i.i2.i, align 8
   %cmp.not.i.i.i1 = icmp eq ptr %59, null
   br i1 %cmp.not.i.i.i1, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit, label %if.then.i.i.i
@@ -4307,26 +4307,26 @@ _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14def
   %task_queues_async_initialized_.i = getelementptr inbounds i8, ptr %2, i64 2544
   %9 = load i8, ptr %task_queues_async_initialized_.i, align 8
   %tobool.i = trunc i8 %9 to i1
-  br i1 %tobool.i, label %if.then.i, label %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.argprom.exit"
+  br i1 %tobool.i, label %if.then.i, label %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.exit"
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
   %task_queues_async_.i = getelementptr inbounds i8, ptr %2, i64 736
   %call.i = tail call i32 @uv_async_send(ptr noundef nonnull %task_queues_async_.i) #22
-  br label %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.argprom.exit"
+  br label %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.exit"
 
-"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.argprom.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then.i
+"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then.i
   tail call void @uv_mutex_unlock(ptr noundef nonnull %native_immediates_threadsafe_mutex_.i) #22
   tail call void @_ZN4node11Environment22RequestInterruptFromV8Ev(ptr noundef nonnull align 8 dereferenceable(2872) %2) #22
   %10 = load atomic i8, ptr @_ZN4node9inspector12_GLOBAL__N_133start_io_thread_async_initializedE seq_cst, align 1
   %tobool.i.i1 = trunc i8 %10 to i1
   br i1 %tobool.i.i1, label %do.end19, label %do.body16
 
-do.body16:                                        ; preds = %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.argprom.exit"
+do.body16:                                        ; preds = %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.exit"
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9inspector5Agent20RequestIoThreadStartEvE4args_0) #22
   tail call void @abort() #24
   unreachable
 
-do.end19:                                         ; preds = %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.argprom.exit"
+do.end19:                                         ; preds = %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.exit"
   %call20 = tail call i32 @uv_async_send(ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_121start_io_thread_asyncE) #22
   br label %return
 
@@ -5393,26 +5393,26 @@ _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14def
   %task_queues_async_initialized_.i.i = getelementptr inbounds i8, ptr %4, i64 2544
   %11 = load i8, ptr %task_queues_async_initialized_.i.i, align 8
   %tobool.i.i2 = trunc i8 %11 to i1
-  br i1 %tobool.i.i2, label %if.then.i.i, label %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.argprom.exit.i"
+  br i1 %tobool.i.i2, label %if.then.i.i, label %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.exit.i"
 
 if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i
   %task_queues_async_.i.i = getelementptr inbounds i8, ptr %4, i64 736
   %call.i.i = tail call i32 @uv_async_send(ptr noundef nonnull %task_queues_async_.i.i) #22
-  br label %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.argprom.exit.i"
+  br label %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.exit.i"
 
-"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.argprom.exit.i": ; preds = %if.then.i.i, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i
+"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.exit.i": ; preds = %if.then.i.i, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i.i
   tail call void @uv_mutex_unlock(ptr noundef nonnull %native_immediates_threadsafe_mutex_.i.i) #22
   tail call void @_ZN4node11Environment22RequestInterruptFromV8Ev(ptr noundef nonnull align 8 dereferenceable(2872) %4) #22
   %12 = load atomic i8, ptr @_ZN4node9inspector12_GLOBAL__N_133start_io_thread_async_initializedE seq_cst, align 1
   %tobool.i.i1.i = trunc i8 %12 to i1
   br i1 %tobool.i.i1.i, label %do.end19.i, label %do.body16.i
 
-do.body16.i:                                      ; preds = %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.argprom.exit.i"
+do.body16.i:                                      ; preds = %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.exit.i"
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9inspector5Agent20RequestIoThreadStartEvE4args_0) #22
   tail call void @abort() #24
   unreachable
 
-do.end19.i:                                       ; preds = %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.argprom.exit.i"
+do.end19.i:                                       ; preds = %"_ZN4node11Environment16RequestInterruptIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EEvOT_.exit.i"
   %call20.i = tail call i32 @uv_async_send(ptr noundef nonnull @_ZN4node9inspector12_GLOBAL__N_121start_io_thread_asyncE) #22
   br label %if.end7
 
@@ -5762,14 +5762,14 @@ entry:
   store ptr %3, ptr %handle, align 8
   %4 = atomicrmw xchg ptr @_ZN4node9inspector12_GLOBAL__N_133start_io_thread_async_initializedE, i8 0 seq_cst, align 1
   %tobool3.i.i.i.i = trunc i8 %4 to i1
-  br i1 %tobool3.i.i.i.i, label %"_ZZN4node11Environment11CloseHandleI10uv_async_sZZNS_9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_0clEPvEUlPS2_E_EEvPT_T0_ENKUlP11uv_handle_sE_clESW_.argprom.exit", label %do.body4.i.i
+  br i1 %tobool3.i.i.i.i, label %"_ZZN4node11Environment11CloseHandleI10uv_async_sZZNS_9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_0clEPvEUlPS2_E_EEvPT_T0_ENKUlP11uv_handle_sE_clESW_.exit", label %do.body4.i.i
 
 do.body4.i.i:                                     ; preds = %entry
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZZN4node9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_0clEPvENKUlP10uv_async_sE_clESO_E4args") #22
   tail call void @abort() #24
   unreachable
 
-"_ZZN4node11Environment11CloseHandleI10uv_async_sZZNS_9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_0clEPvEUlPS2_E_EEvPT_T0_ENKUlP11uv_handle_sE_clESW_.argprom.exit": ; preds = %entry
+"_ZZN4node11Environment11CloseHandleI10uv_async_sZZNS_9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_0clEPvEUlPS2_E_EEvPT_T0_ENKUlP11uv_handle_sE_clESW_.exit": ; preds = %entry
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
@@ -5782,7 +5782,7 @@ entry:
   %client_.i.i = getelementptr inbounds i8, ptr %env.val, i64 8
   %1 = load ptr, ptr %client_.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.not.i.i.i, label %"_ZZN4node9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_1clEPv.argprom.exit", label %if.end.i.i
+  br i1 %cmp.i.not.i.i.i, label %"_ZZN4node9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_1clEPv.exit", label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %io_.i.i = getelementptr inbounds i8, ptr %env.val, i64 24
@@ -5794,13 +5794,13 @@ _ZN4node9inspector5Agent8IsActiveEv.exit.i:       ; preds = %if.end.i.i
   %3 = getelementptr inbounds i8, ptr %1, i64 112
   %channels_.val.i.i.i = load i64, ptr %3, align 8
   %cmp.i.i.i.i.not.i = icmp eq i64 %channels_.val.i.i.i, 0
-  br i1 %cmp.i.i.i.i.not.i, label %"_ZZN4node9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_1clEPv.argprom.exit", label %if.then.i
+  br i1 %cmp.i.i.i.i.not.i, label %"_ZZN4node9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_1clEPv.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4node9inspector5Agent8IsActiveEv.exit.i, %if.end.i.i
   tail call void @_ZN4node9inspector5Agent17WaitForDisconnectEv(ptr noundef nonnull align 8 dereferenceable(186) %env.val)
-  br label %"_ZZN4node9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_1clEPv.argprom.exit"
+  br label %"_ZZN4node9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_1clEPv.exit"
 
-"_ZZN4node9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_1clEPv.argprom.exit": ; preds = %entry, %_ZN4node9inspector5Agent8IsActiveEv.exit.i, %if.then.i
+"_ZZN4node9inspector5Agent5StartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_12DebugOptionsESt10shared_ptrINS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEEbENK3$_1clEPv.exit": ; preds = %entry, %_ZN4node9inspector5Agent8IsActiveEv.exit.i, %if.then.i
   ret void
 }
 
@@ -5966,7 +5966,7 @@ declare ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(
 declare void @_ZN2v812api_internal17FromJustIsNothingEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS4_EESt4hashIiESt8equal_toIiESaISt4pairIKiS7_EEEixERSD_.argprom(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 %__k.0.val) unnamed_addr #3 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS4_EESt4hashIiESt8equal_toIiESaISt4pairIKiS7_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 %__k.0.val) unnamed_addr #3 align 2 {
 entry:
   %conv.i.i.i = sext i32 %__k.0.val to i64
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -6034,7 +6034,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i
   %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %6, 1152921504606846975
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE19_M_allocate_bucketsEm.argprom.exit.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i
   %cmp2.i.i.i.i.i.i.i.i = icmp ugt i64 %6, 2305843009213693951
@@ -6048,14 +6048,14 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   tail call void @_ZSt17__throw_bad_allocv() #24
   unreachable
 
-_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE19_M_allocate_bucketsEm.argprom.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i
+_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 %6, 3
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i, i8 0, i64 %mul.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i
 
-_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE19_M_allocate_bucketsEm.argprom.exit.i.i.i.i.i, %if.then.i.i.i.i.i
-  %retval.0.i.i.i.i.i = phi ptr [ %_M_single_bucket.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE19_M_allocate_bucketsEm.argprom.exit.i.i.i.i.i ]
+_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i, %if.then.i.i.i.i.i
+  %retval.0.i.i.i.i.i = phi ptr [ %_M_single_bucket.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE19_M_allocate_bucketsEm.exit.i.i.i.i.i ]
   %7 = getelementptr inbounds i8, ptr %this, i64 16
   %this.val.i.i.i.i = load ptr, ptr %7, align 8
   store ptr null, ptr %7, align 8
@@ -6109,21 +6109,21 @@ while.end.i.i.i.i:                                ; preds = %if.end22.i.i.i.i, %
   %13 = load ptr, ptr %this, align 8
   %_M_single_bucket.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %13, %_M_single_bucket.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.argprom.exit.i.i, label %if.end.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %while.end.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %13) #23
-  br label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.argprom.exit.i.i
+  br label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i
 
-_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.argprom.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %while.end.i.i.i.i
+_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %while.end.i.i.i.i
   store i64 %6, ptr %0, align 8
   store ptr %retval.0.i.i.i.i.i, ptr %this, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i, %6
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.argprom.exit.i.i, %entry.if.end_crit_edge.i.i
-  %14 = phi ptr [ %retval.0.i.i.i.i.i, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.argprom.exit.i.i ], [ %.pre.i.i, %entry.if.end_crit_edge.i.i ]
-  %__bkt.addr.0.i.i = phi i64 [ %rem.i.i.i.i.i, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.argprom.exit.i.i ], [ %rem.i.i.i.i, %entry.if.end_crit_edge.i.i ]
+if.end.i.i:                                       ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i, %entry.if.end_crit_edge.i.i
+  %14 = phi ptr [ %retval.0.i.i.i.i.i, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i ], [ %.pre.i.i, %entry.if.end_crit_edge.i.i ]
+  %__bkt.addr.0.i.i = phi i64 [ %rem.i.i.i.i.i, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i ], [ %rem.i.i.i.i, %entry.if.end_crit_edge.i.i ]
   %arrayidx.i.i14.i = getelementptr inbounds ptr, ptr %14, i64 %__bkt.addr.0.i.i
   %15 = load ptr, ptr %arrayidx.i.i14.i, align 8
   %tobool.not.i.i15.i = icmp eq ptr %15, null
@@ -6134,7 +6134,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %16, ptr %call5.i.i.i.i.i, align 8
   %17 = load ptr, ptr %arrayidx.i.i14.i, align 8
   store ptr %call5.i.i.i.i.i, ptr %17, align 8
-  br label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom.exit.i
+  br label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -6159,16 +6159,16 @@ if.end.i.i17.i:                                   ; preds = %if.then14.i.i.i, %i
   %19 = phi ptr [ %.pre.i, %if.then14.i.i.i ], [ %14, %if.else.i.i.i ]
   %arrayidx20.i.i.i = getelementptr inbounds ptr, ptr %19, i64 %__bkt.addr.0.i.i
   store ptr %_M_before_begin.i.i.i, ptr %arrayidx20.i.i.i, align 8
-  br label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom.exit.i
+  br label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i
 
-_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom.exit.i: ; preds = %if.end.i.i17.i, %if.then.i.i.i
+_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i: ; preds = %if.end.i.i17.i, %if.then.i.i.i
   %20 = load i64, ptr %_M_element_count.i.i, align 8
   %inc.i.i = add i64 %20, 1
   store i64 %inc.i.i, ptr %_M_element_count.i.i, align 8
   br label %_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS7_EEESaISB_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_.exit
 
-_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS7_EEESaISB_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_.exit: ; preds = %for.cond.i.i.i, %if.end.i.i.i, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom.exit.i
-  %21 = phi ptr [ %call5.i.i.i.i.i, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.argprom.exit.i ], [ %2, %if.end.i.i.i ], [ %3, %for.cond.i.i.i ]
+_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS7_EEESaISB_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_.exit: ; preds = %for.cond.i.i.i, %if.end.i.i.i, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i
+  %21 = phi ptr [ %call5.i.i.i.i.i, %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit.i ], [ %2, %if.end.i.i.i ], [ %3, %for.cond.i.i.i ]
   %retval.0.i = getelementptr inbounds i8, ptr %21, i64 16
   ret ptr %retval.0.i
 }
@@ -7426,16 +7426,16 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
   %__prev_n.0.i.i.i.i = phi ptr [ %7, %if.end ], [ %8, %while.cond.i.i.i.i ]
   %8 = load ptr, ptr %__prev_n.0.i.i.i.i, align 8
   %cmp.not.i.i.i.i5 = icmp eq ptr %8, %retval.sroa.0.1.i.i
-  br i1 %cmp.not.i.i.i.i5, label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeISA_Lb0EEE.argprom.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !97
+  br i1 %cmp.not.i.i.i.i5, label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeISA_Lb0EEE.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !97
 
-_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeISA_Lb0EEE.argprom.exit.i.i.i: ; preds = %while.cond.i.i.i.i
+_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeISA_Lb0EEE.exit.i.i.i: ; preds = %while.cond.i.i.i.i
   %tobool.i = trunc i8 %call9.val to i1
   %cmp.i.i.i.i6 = icmp eq ptr %__prev_n.0.i.i.i.i, %7
   %__n.val15.i.i.i.i = load ptr, ptr %retval.sroa.0.1.i.i, align 8
   %tobool.not.i.i.i.i7 = icmp eq ptr %__n.val15.i.i.i.i, null
   br i1 %cmp.i.i.i.i6, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeISA_Lb0EEE.argprom.exit.i.i.i
+if.then.i.i.i.i:                                  ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeISA_Lb0EEE.exit.i.i.i
   br i1 %tobool.not.i.i.i.i7, label %if.end.i.i.i.i.i, label %cond.end.i.i.i.i
 
 cond.end.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -7470,7 +7470,7 @@ if.end11.i.i.i.i.i:                               ; preds = %if.then9.i.i.i.i.i,
   store ptr null, ptr %arrayidx7.i.i.i.i.i, align 8
   br label %if.end15.i.i.i.i
 
-if.else.i.i.i.i:                                  ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeISA_Lb0EEE.argprom.exit.i.i.i
+if.else.i.i.i.i:                                  ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeISA_Lb0EEE.exit.i.i.i
   br i1 %tobool.not.i.i.i.i7, label %if.end15.i.i.i.i, label %if.then6.i.i.i.i
 
 if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
@@ -7491,14 +7491,14 @@ if.end15.i.i.i.i:                                 ; preds = %if.then11.i.i.i.i, 
   store ptr %11, ptr %__prev_n.0.i.i.i.i, align 8
   %12 = load ptr, ptr %second, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS4_EESt4hashIiESt8equal_toIiESaISt4pairIKiS7_EEE5eraseENSt8__detail14_Node_iteratorISE_Lb0ELb0EEE.exit, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.argprom.exit.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS4_EESt4hashIiESt8equal_toIiESaISt4pairIKiS7_EEE5eraseENSt8__detail14_Node_iteratorISE_Lb0ELb0EEE.exit, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.exit.i.i.i.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.end15.i.i.i.i
+_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.end15.i.i.i.i
   tail call void @_ZN4node9inspector12_GLOBAL__N_111ChannelImplD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #22
   tail call void @_ZdlPv(ptr noundef nonnull %12) #23
   br label %_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS4_EESt4hashIiESt8equal_toIiESaISt4pairIKiS7_EEE5eraseENSt8__detail14_Node_iteratorISE_Lb0ELb0EEE.exit
 
-_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS4_EESt4hashIiESt8equal_toIiESaISt4pairIKiS7_EEE5eraseENSt8__detail14_Node_iteratorISE_Lb0ELb0EEE.exit: ; preds = %if.end15.i.i.i.i, %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.argprom.exit.i.i.i.i.i.i.i.i.i
+_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS4_EESt4hashIiESt8equal_toIiESaISt4pairIKiS7_EEE5eraseENSt8__detail14_Node_iteratorISE_Lb0ELb0EEE.exit: ; preds = %if.end15.i.i.i.i, %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.exit.i.i.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.1.i.i) #23
   %13 = load i64, ptr %0, align 8
   %dec.i.i.i.i = add i64 %13, -1
@@ -7571,7 +7571,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.585", align 8
   %agg.tmp17.i = alloca %"class.std::unique_ptr.673", align 8
   %channels_ = getelementptr inbounds i8, ptr %this, i64 88
-  %call = tail call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS4_EESt4hashIiESt8equal_toIiESaISt4pairIKiS7_EEEixERSD_.argprom(ptr noundef nonnull align 8 dereferenceable(56) %channels_, i32 %session_id)
+  %call = tail call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapIiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS4_EESt4hashIiESt8equal_toIiESaISt4pairIKiS7_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(56) %channels_, i32 %session_id)
   %call.val = load ptr, ptr %call, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %raw_message.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i)
@@ -8661,25 +8661,25 @@ _ZNSt10shared_ptrIN4node9inspector19MainThreadInterfaceEED2Ev.exit: ; preds = %_
   %tobool.not1.i.i.i.i = icmp eq ptr %this.val.i.i.i, null
   br i1 %tobool.not1.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
 
-while.body.i.i.i.i:                               ; preds = %_ZNSt10shared_ptrIN4node9inspector19MainThreadInterfaceEED2Ev.exit, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.argprom.exit.i.i.i.i
-  %__n.addr.02.i.i.i.i = phi ptr [ %__n.addr.0.val.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.argprom.exit.i.i.i.i ], [ %this.val.i.i.i, %_ZNSt10shared_ptrIN4node9inspector19MainThreadInterfaceEED2Ev.exit ]
+while.body.i.i.i.i:                               ; preds = %_ZNSt10shared_ptrIN4node9inspector19MainThreadInterfaceEED2Ev.exit, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.exit.i.i.i.i
+  %__n.addr.02.i.i.i.i = phi ptr [ %__n.addr.0.val.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.exit.i.i.i.i ], [ %this.val.i.i.i, %_ZNSt10shared_ptrIN4node9inspector19MainThreadInterfaceEED2Ev.exit ]
   %__n.addr.0.val.i.i.i.i = load ptr, ptr %__n.addr.02.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.02.i.i.i.i, i64 16
   %23 = load ptr, ptr %second.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.argprom.exit.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.argprom.exit.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.exit.i.i.i.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i
+_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.exit.i.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i.i
   tail call void @_ZN4node9inspector12_GLOBAL__N_111ChannelImplD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %23) #22
   tail call void @_ZdlPv(ptr noundef nonnull %23) #23
-  br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.argprom.exit.i.i.i.i
+  br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.exit.i.i.i.i
 
-_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.argprom.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.argprom.exit.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i
+_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector12_GLOBAL__N_111ChannelImplEEclEPS3_.exit.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__n.addr.02.i.i.i.i) #23
   %tobool.not.i.i.i.i = icmp eq ptr %__n.addr.0.val.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !107
 
-_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.argprom.exit.i.i.i.i, %_ZNSt10shared_ptrIN4node9inspector19MainThreadInterfaceEED2Ev.exit
+_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS8_EEELb0EEEEE18_M_deallocate_nodeEPSD_.exit.i.i.i.i, %_ZNSt10shared_ptrIN4node9inspector19MainThreadInterfaceEED2Ev.exit
   %24 = load ptr, ptr %channels_, align 8
   %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %25 = load i64, ptr %_M_bucket_count.i.i.i, align 8
@@ -10357,11 +10357,11 @@ attributes #27 = { nounwind willreturn memory(read) }
 !26 = distinct !{!26, !"_ZSt11make_sharedIN4node9inspector19MainThreadInterfaceEJPNS1_5AgentEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
 !27 = !{!25}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!30 = distinct !{!30, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!29 = distinct !{!29, !30, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!30 = distinct !{!30, !"_ZSt11make_uniqueIN4node9inspector12_GLOBAL__N_111ChannelImplEJRPNS0_11EnvironmentERSt10unique_ptrIN12v8_inspector11V8InspectorESt14default_deleteIS9_EESt10shared_ptrINS1_13WorkerManagerEES7_INS1_24InspectorSessionDelegateESA_ISH_EESE_INS1_16MainThreadHandleEERbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !31 = !{!32, !29}
-!32 = distinct !{!32, !33, !"_ZSt11make_uniqueIN4node9inspector8protocol14UberDispatcherEJPNS1_12_GLOBAL__N_111ChannelImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!33 = distinct !{!33, !"_ZSt11make_uniqueIN4node9inspector8protocol14UberDispatcherEJPNS1_12_GLOBAL__N_111ChannelImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!32 = distinct !{!32, !33, !"_ZSt11make_uniqueIN4node9inspector8protocol14UberDispatcherEJPNS1_12_GLOBAL__N_111ChannelImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!33 = distinct !{!33, !"_ZSt11make_uniqueIN4node9inspector8protocol14UberDispatcherEJPNS1_12_GLOBAL__N_111ChannelImplEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !34 = !{!35, !29}
 !35 = distinct !{!35, !36, !"_ZSt11make_uniqueIN4node9inspector8protocol11WorkerAgentEJRSt10shared_ptrINS1_13WorkerManagerEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
 !36 = distinct !{!36, !"_ZSt11make_uniqueIN4node9inspector8protocol11WorkerAgentEJRSt10shared_ptrINS1_13WorkerManagerEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
@@ -10375,10 +10375,10 @@ attributes #27 = { nounwind willreturn memory(read) }
 !44 = distinct !{!44, !45, !"_ZN4node9inspector12_GLOBAL__N_116ToProtocolStringEPN2v87IsolateENS2_5LocalINS2_5ValueEEE: %agg.result"}
 !45 = distinct !{!45, !"_ZN4node9inspector12_GLOBAL__N_116ToProtocolStringEPN2v87IsolateENS2_5LocalINS2_5ValueEEE"}
 !46 = !{!47, !49}
-!47 = distinct !{!47, !48, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector5Agent20RequestIoThreadStartEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!48 = distinct !{!48, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector5Agent20RequestIoThreadStartEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!49 = distinct !{!49, !50, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!50 = distinct !{!50, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!47 = distinct !{!47, !48, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector5Agent20RequestIoThreadStartEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!48 = distinct !{!48, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector5Agent20RequestIoThreadStartEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!49 = distinct !{!49, !50, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!50 = distinct !{!50, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
 !51 = !{!52}
 !52 = distinct !{!52, !53, !"_ZN4node9inspector21ParentInspectorHandle24NewParentInspectorHandleEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_: %agg.result"}
 !53 = distinct !{!53, !"_ZN4node9inspector21ParentInspectorHandle24NewParentInspectorHandleEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_"}
@@ -10389,10 +10389,10 @@ attributes #27 = { nounwind willreturn memory(read) }
 !58 = distinct !{!58, !"_ZSt11make_sharedIN4node9inspector13WorkerManagerEJSt10shared_ptrINS1_16MainThreadHandleEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
 !59 = !{!57}
 !60 = !{!61, !63}
-!61 = distinct !{!61, !62, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector5Agent20RequestIoThreadStartEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!62 = distinct !{!62, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector5Agent20RequestIoThreadStartEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!63 = distinct !{!63, !64, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!64 = distinct !{!64, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!61 = distinct !{!61, !62, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector5Agent20RequestIoThreadStartEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!62 = distinct !{!62, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9inspector5Agent20RequestIoThreadStartEvE3$_0EEJS8_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!63 = distinct !{!63, !64, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!64 = distinct !{!64, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS9_EEOT_NS_13CallbackFlags5FlagsE"}
 !65 = distinct !{!65, !21}
 !66 = distinct !{!66, !21}
 !67 = distinct !{!67, !21}

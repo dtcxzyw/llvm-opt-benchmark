@@ -6822,7 +6822,7 @@ invoke.cont27.i.i.i:                              ; preds = %invoke.cont25.i.i.i
   %571 = load ptr, ptr %cc, align 8
   %572 = getelementptr i8, ptr %570, i64 100
   %.val = load i32, ptr %572, align 4
-  invoke fastcc void @_ZN3ue2L11buildSuffixERKNS_13ReportManagerERKNS_14SomSlotManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKS6_IjSt6vectorISG_INS_9CharReachESaISH_EESaISJ_EES8_SaIS9_ISA_SL_EEENS_9suffix_idERKNS_14CompileContextE.argprom(ptr noalias nonnull align 8 %n.i.i.i, ptr noundef nonnull align 8 dereferenceable(505) %569, i32 %.val, ptr noundef nonnull align 8 dereferenceable(48) %fixed_depth_tops.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %triggers.i.i.i, ptr noundef nonnull byval(%"struct.ue2::suffix_id") align 8 %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(320) %571)
+  invoke fastcc void @_ZN3ue2L11buildSuffixERKNS_13ReportManagerERKNS_14SomSlotManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKS6_IjSt6vectorISG_INS_9CharReachESaISH_EESaISJ_EES8_SaIS9_ISA_SL_EEENS_9suffix_idERKNS_14CompileContextE(ptr noalias nonnull align 8 %n.i.i.i, ptr noundef nonnull align 8 dereferenceable(505) %569, i32 %.val, ptr noundef nonnull align 8 dereferenceable(48) %fixed_depth_tops.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %triggers.i.i.i, ptr noundef nonnull byval(%"struct.ue2::suffix_id") align 8 %s.i.i.i, ptr noundef nonnull align 8 dereferenceable(320) %571)
           to label %invoke.cont30.i.i.i unwind label %lpad29.i.i.i
 
 invoke.cont30.i.i.i:                              ; preds = %invoke.cont27.i.i.i
@@ -8046,7 +8046,7 @@ invoke.cont41.i.i:                                ; preds = %invoke.cont39.i191.
   %723 = load ptr, ptr %cc, align 8
   %724 = getelementptr i8, ptr %722, i64 100
   %.val450 = load i32, ptr %724, align 4
-  invoke fastcc void @_ZN3ue2L11buildSuffixERKNS_13ReportManagerERKNS_14SomSlotManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKS6_IjSt6vectorISG_INS_9CharReachESaISH_EESaISJ_EES8_SaIS9_ISA_SL_EEENS_9suffix_idERKNS_14CompileContextE.argprom(ptr noalias nonnull align 8 %n.i.i, ptr noundef nonnull align 8 dereferenceable(505) %721, i32 %.val450, ptr noundef nonnull align 8 dereferenceable(48) %fixed_depth_tops.i.i, ptr noundef nonnull align 8 dereferenceable(48) %triggers.i122.i, ptr noundef nonnull byval(%"struct.ue2::suffix_id") align 8 %second31.i.i, ptr noundef nonnull align 8 dereferenceable(320) %723)
+  invoke fastcc void @_ZN3ue2L11buildSuffixERKNS_13ReportManagerERKNS_14SomSlotManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKS6_IjSt6vectorISG_INS_9CharReachESaISH_EESaISJ_EES8_SaIS9_ISA_SL_EEENS_9suffix_idERKNS_14CompileContextE(ptr noalias nonnull align 8 %n.i.i, ptr noundef nonnull align 8 dereferenceable(505) %721, i32 %.val450, ptr noundef nonnull align 8 dereferenceable(48) %fixed_depth_tops.i.i, ptr noundef nonnull align 8 dereferenceable(48) %triggers.i122.i, ptr noundef nonnull byval(%"struct.ue2::suffix_id") align 8 %second31.i.i, ptr noundef nonnull align 8 dereferenceable(320) %723)
           to label %invoke.cont44.i.i unwind label %lpad43.i.i
 
 invoke.cont44.i.i:                                ; preds = %invoke.cont41.i.i
@@ -33690,7 +33690,7 @@ ehcleanup91:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L11buildSuffixERKNS_13ReportManagerERKNS_14SomSlotManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKS6_IjSt6vectorISG_INS_9CharReachESaISH_EESaISJ_EES8_SaIS9_ISA_SL_EEENS_9suffix_idERKNS_14CompileContextE.argprom(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 %ssm.100.val, ptr noundef nonnull align 8 dereferenceable(48) %fixed_depth_tops, ptr noundef nonnull align 8 dereferenceable(48) %triggers, ptr nocapture noundef readonly byval(%"struct.ue2::suffix_id") align 8 %suff, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L11buildSuffixERKNS_13ReportManagerERKNS_14SomSlotManagerERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKS6_IjSt6vectorISG_INS_9CharReachESaISH_EESaISJ_EES8_SaIS9_ISA_SL_EEENS_9suffix_idERKNS_14CompileContextE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 %ssm.100.val, ptr noundef nonnull align 8 dereferenceable(48) %fixed_depth_tops, ptr noundef nonnull align 8 dereferenceable(48) %triggers, ptr nocapture noundef readonly byval(%"struct.ue2::suffix_id") align 8 %suff, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %fast_nfa = alloca i8, align 1
   %rdfa = alloca %"class.std::unique_ptr.522", align 8

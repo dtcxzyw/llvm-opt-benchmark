@@ -2363,14 +2363,14 @@ define dso_local i32 @launch_g_step_launch(ptr noundef %0, ptr nocapture noundef
 .thread4.i:                                       ; preds = %273, %.thread.i
   %274 = phi ptr [ %267, %273 ], [ %271, %.thread.i ]
   call void @env_array_merge(ptr noundef nonnull %8, ptr noundef nonnull %274) #18
-  br label %_build_user_env.argprom.exit
+  br label %_build_user_env.exit
 
 .thread14.i:                                      ; preds = %273, %._crit_edge.thread.i
   %275 = phi ptr [ %267, %273 ], [ %269, %._crit_edge.thread.i ]
   call void @env_array_merge_slurm_spank(ptr noundef nonnull %8, ptr noundef nonnull %275) #18
-  br label %_build_user_env.argprom.exit
+  br label %_build_user_env.exit
 
-_build_user_env.argprom.exit:                     ; preds = %.thread4.i, %.thread14.i
+_build_user_env.exit:                             ; preds = %.thread4.i, %.thread14.i
   %276 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -2388,12 +2388,12 @@ _build_user_env.argprom.exit:                     ; preds = %.thread4.i, %.threa
   %283 = getelementptr inbounds i8, ptr %11, i64 200
   br i1 %.not132, label %285, label %284
 
-284:                                              ; preds = %_build_user_env.argprom.exit
+284:                                              ; preds = %_build_user_env.exit
   store i8 1, ptr %283, align 8
   call void @pmi_server_max_threads(i32 noundef 1) #18
   br label %286
 
-285:                                              ; preds = %_build_user_env.argprom.exit
+285:                                              ; preds = %_build_user_env.exit
   store i8 0, ptr %283, align 8
   br label %286
 
@@ -2588,7 +2588,7 @@ _build_user_env.argprom.exit:                     ; preds = %.thread4.i, %.threa
 384:                                              ; preds = %381, %379
   %385 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @start_mutex) #18
   %.not11.i = icmp eq i32 %385, 0
-  br i1 %.not11.i, label %_wait_all_het_job_comps_started.argprom.exit, label %386
+  br i1 %.not11.i, label %_wait_all_het_job_comps_started.exit, label %386
 
 386:                                              ; preds = %384
   %387 = tail call ptr @__errno_location() #20
@@ -2596,7 +2596,7 @@ _build_user_env.argprom.exit:                     ; preds = %.thread4.i, %.threa
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.4, i32 noundef 630, ptr noundef nonnull @__func__._wait_all_het_job_comps_started) #19
   unreachable
 
-_wait_all_het_job_comps_started.argprom.exit:     ; preds = %384
+_wait_all_het_job_comps_started.exit:             ; preds = %384
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store volatile i32 1, ptr @MPIR_debug_state, align 4
@@ -2605,11 +2605,11 @@ _wait_all_het_job_comps_started.argprom.exit:     ; preds = %384
   %390 = trunc i8 %389 to i1
   br i1 %390, label %391, label %392
 
-391:                                              ; preds = %_wait_all_het_job_comps_started.argprom.exit
+391:                                              ; preds = %_wait_all_het_job_comps_started.exit
   call void @mpir_dump_proctable() #18
   br label %401
 
-392:                                              ; preds = %_wait_all_het_job_comps_started.argprom.exit
+392:                                              ; preds = %_wait_all_het_job_comps_started.exit
   %393 = getelementptr inbounds i8, ptr %15, i64 156
   %394 = load i8, ptr %393, align 4
   %395 = trunc i8 %394 to i1
@@ -3013,7 +3013,7 @@ _find_srun_job.exit.thread:                       ; preds = %1, %_find_srun_job.
 
 .preheader.i:                                     ; preds = %.critedge100
   %58 = icmp sgt i32 %52, 0
-  br i1 %58, label %.lr.ph.i, label %_task_array_to_string.argprom.exit
+  br i1 %58, label %.lr.ph.i, label %_task_array_to_string.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %52 to i64
@@ -3033,9 +3033,9 @@ _find_srun_job.exit.thread:                       ; preds = %1, %_find_srun_job.
   tail call void @bit_set(ptr noundef nonnull %57, i64 noundef %65) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_task_array_to_string.argprom.exit, label %62, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_task_array_to_string.exit, label %62, !llvm.loop !17
 
-_task_array_to_string.argprom.exit:               ; preds = %62, %.preheader.i
+_task_array_to_string.exit:                       ; preds = %62, %.preheader.i
   %66 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2048, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 198, ptr noundef nonnull @__func__._task_array_to_string) #18
   %67 = tail call ptr @bit_fmt(ptr noundef %66, i32 noundef 2048, ptr noundef nonnull %57) #18
   call void @slurm_bit_free(ptr noundef nonnull %4) #18
@@ -3048,7 +3048,7 @@ _task_array_to_string.argprom.exit:               ; preds = %62, %.preheader.i
   %.not4.i.i = icmp eq ptr %.val103, null
   br i1 %.not4.i.i, label %launch_common_get_slurm_step_layout.exit.thread.i, label %launch_common_get_slurm_step_layout.exit.i
 
-launch_common_get_slurm_step_layout.exit.i:       ; preds = %_task_array_to_string.argprom.exit
+launch_common_get_slurm_step_layout.exit.i:       ; preds = %_task_array_to_string.exit
   %71 = getelementptr inbounds i8, ptr %.val103, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 24
@@ -3068,9 +3068,9 @@ launch_common_get_slurm_step_layout.exit.i:       ; preds = %_task_array_to_stri
   %wide.trip.count.i108 = zext i32 %77 to i64
   br label %81
 
-launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_slurm_step_layout.exit.i, %_task_array_to_string.argprom.exit
+launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_slurm_step_layout.exit.i, %_task_array_to_string.exit
   %80 = call ptr @xstrdup(ptr noundef nonnull @.str.71) #18
-  br label %_task_ids_to_host_list.argprom.exit
+  br label %_task_ids_to_host_list.exit
 
 81:                                               ; preds = %81, %.lr.ph.i107
   %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.i107 ], [ %indvars.iv.next.i110, %81 ]
@@ -3089,7 +3089,7 @@ launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_
 
 87:                                               ; preds = %._crit_edge.i
   %88 = call ptr @xstrdup(ptr noundef nonnull @.str.71) #18
-  br label %_task_ids_to_host_list.argprom.exit
+  br label %_task_ids_to_host_list.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i106
   %89 = call ptr @hostset_create(ptr noundef null) #18
@@ -3152,16 +3152,16 @@ launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_
 _hostset_to_string.exit.i:                        ; preds = %109, %107
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @hostset_destroy(ptr noundef %89) #18
-  br label %_task_ids_to_host_list.argprom.exit
+  br label %_task_ids_to_host_list.exit
 
-_task_ids_to_host_list.argprom.exit:              ; preds = %launch_common_get_slurm_step_layout.exit.thread.i, %87, %_hostset_to_string.exit.i
+_task_ids_to_host_list.exit:                      ; preds = %launch_common_get_slurm_step_layout.exit.thread.i, %87, %_hostset_to_string.exit.i
   %.0.i112 = phi ptr [ %80, %launch_common_get_slurm_step_layout.exit.thread.i ], [ %88, %87 ], [ %.pre.i.i, %_hostset_to_string.exit.i ]
   store ptr %.0.i112, ptr %6, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %39, %42, %49, %_task_ids_to_host_list.argprom.exit
-  %111 = phi ptr [ null, %39 ], [ null, %42 ], [ null, %49 ], [ %66, %_task_ids_to_host_list.argprom.exit ]
-  %112 = phi ptr [ null, %39 ], [ null, %42 ], [ null, %49 ], [ %.0.i112, %_task_ids_to_host_list.argprom.exit ]
+.critedge:                                        ; preds = %39, %42, %49, %_task_ids_to_host_list.exit
+  %111 = phi ptr [ null, %39 ], [ null, %42 ], [ null, %49 ], [ %66, %_task_ids_to_host_list.exit ]
+  %112 = phi ptr [ null, %39 ], [ null, %42 ], [ null, %49 ], [ %.0.i112, %_task_ids_to_host_list.exit ]
   %113 = call i32 @pthread_mutex_lock(ptr noundef nonnull @launch_lock) #18
   %.not82 = icmp eq i32 %113, 0
   br i1 %.not82, label %116, label %114
@@ -3264,13 +3264,13 @@ _is_openmpi_port_error.exit:                      ; preds = %136, %138
   %160 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76, ptr noundef %112, ptr noundef %111, ptr noundef nonnull %spec.select.i) #18
   %161 = call i32 @get_log_level() #18
   %162 = icmp sgt i32 %161, 2
-  br i1 %162, label %163, label %_handle_openmpi_port_error.argprom.exit
+  br i1 %162, label %163, label %_handle_openmpi_port_error.exit
 
 163:                                              ; preds = %157
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.77, ptr noundef nonnull %2) #18
-  br label %_handle_openmpi_port_error.argprom.exit
+  br label %_handle_openmpi_port_error.exit
 
-_handle_openmpi_port_error.argprom.exit:          ; preds = %157, %163
+_handle_openmpi_port_error.exit:                  ; preds = %157, %163
   %164 = load i32, ptr %2, align 4
   %165 = getelementptr inbounds i8, ptr %2, i64 8
   %166 = load i32, ptr %165, align 4
@@ -3296,8 +3296,8 @@ _is_openmpi_port_error.exit.thread:               ; preds = %129, %138, %_is_ope
   store i1 true, ptr @_task_finish.msg_printed, align 4
   br label %175
 
-175:                                              ; preds = %132, %135, %_handle_openmpi_port_error.argprom.exit, %173, %170
-  %.1 = phi i32 [ 0, %_handle_openmpi_port_error.argprom.exit ], [ 0, %173 ], [ 0, %170 ], [ 1, %135 ], [ 1, %132 ]
+175:                                              ; preds = %132, %135, %_handle_openmpi_port_error.exit, %173, %170
+  %.1 = phi i32 [ 0, %_handle_openmpi_port_error.exit ], [ 0, %173 ], [ 0, %170 ], [ 1, %135 ], [ 1, %132 ]
   %176 = load ptr, ptr @local_global_rc, align 8
   %177 = load i32, ptr %176, align 4
   %178 = and i32 %177, 255

@@ -529,7 +529,7 @@ define dso_local void @exc_bounds(ptr noundef %0) local_unnamed_addr #2 section 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 144
   %.val = load i64, ptr %6, align 8
-  tail call fastcc void @cond_local_irq_enable.argprom(i64 %.val)
+  tail call fastcc void @cond_local_irq_enable(i64 %.val)
   %7 = getelementptr inbounds i8, ptr %0, i64 136
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 3
@@ -543,7 +543,7 @@ define dso_local void @exc_bounds(ptr noundef %0) local_unnamed_addr #2 section 
 12:                                               ; preds = %11, %5
   tail call void @do_trap(i32 noundef 5, i32 noundef 11, ptr noundef nonnull @.str.22, ptr noundef %0, i64 noundef 0, i32 noundef 0, ptr noundef null)
   %.val1 = load i64, ptr %6, align 8
-  tail call fastcc void @cond_local_irq_disable.argprom(i64 %.val1)
+  tail call fastcc void @cond_local_irq_disable(i64 %.val1)
   br label %13
 
 13:                                               ; preds = %12, %1
@@ -564,7 +564,7 @@ define dso_local void @exc_general_protection(ptr noundef %0, i64 noundef %1) lo
   %6 = getelementptr inbounds i8, ptr %0, i64 136
   %7 = getelementptr i8, ptr %0, i64 144
   %.val = load i64, ptr %7, align 8
-  tail call fastcc void @cond_local_irq_enable.argprom(i64 %.val)
+  tail call fastcc void @cond_local_irq_enable(i64 %.val)
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 514, i32 4, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 104)) #18
           to label %8 [label %8, label %14], !srcloc !35
 
@@ -631,7 +631,7 @@ define dso_local void @exc_general_protection(ptr noundef %0, i64 noundef %1) lo
 
 38:                                               ; preds = %36, %23, %22, %20, %18, %12
   %.val1 = load i64, ptr %7, align 8
-  call fastcc void @cond_local_irq_disable.argprom(i64 %.val1)
+  call fastcc void @cond_local_irq_disable(i64 %.val1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %3) #18
   call void asm sideeffect "499: nop\0A\09.pushsection .discard.instr_end\0A\09.long 499b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 499) #18, !srcloc !37
@@ -849,9 +849,9 @@ define dso_local void @exc_debug(ptr noundef %0) local_unnamed_addr #2 section "
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %23
-  %29 = tail call fastcc i64 @native_read_msr.argelim()
+  %29 = tail call fastcc i64 @native_read_msr()
   %30 = or i64 %29, 2
-  tail call fastcc void @wrmsrl.argelim(i64 noundef %30)
+  tail call fastcc void @wrmsrl(i64 noundef %30)
   br label %31
 
 31:                                               ; preds = %28, %23
@@ -862,7 +862,7 @@ define dso_local void @exc_debug(ptr noundef %0) local_unnamed_addr #2 section "
 34:                                               ; preds = %31
   %35 = getelementptr i8, ptr %0, i64 128
   %.val = load i64, ptr %35, align 8
-  %36 = tail call fastcc zeroext i1 @is_sysenter_singlestep.argprom(i64 %.val)
+  %36 = tail call fastcc zeroext i1 @is_sysenter_singlestep(i64 %.val)
   br i1 %36, label %37, label %thread-pre-split.thread
 
 37:                                               ; preds = %34
@@ -1121,7 +1121,7 @@ define internal fastcc void @do_error_trap(ptr noundef %0, i64 noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @cond_local_irq_enable.argprom(i64 %.144.val) unnamed_addr #7 align 16 {
+define internal fastcc void @cond_local_irq_enable(i64 %.144.val) unnamed_addr #7 align 16 {
   %1 = and i64 %.144.val, 512
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %4, label %3
@@ -1135,7 +1135,7 @@ define internal fastcc void @cond_local_irq_enable.argprom(i64 %.144.val) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @cond_local_irq_disable.argprom(i64 %.144.val) unnamed_addr #7 align 16 {
+define internal fastcc void @cond_local_irq_disable(i64 %.144.val) unnamed_addr #7 align 16 {
   %1 = and i64 %.144.val, 512
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %4, label %3
@@ -1432,7 +1432,7 @@ define internal fastcc range(i32 0, 2) i32 @test_ti_thread_flag(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i64 @native_read_msr.argelim() unnamed_addr #7 align 16 {
+define internal fastcc i64 @native_read_msr() unnamed_addr #7 align 16 {
   %1 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 473) #18, !srcloc !86
   %2 = extractvalue { i64, i64 } %1, 0
   %3 = extractvalue { i64, i64 } %1, 1
@@ -1450,7 +1450,7 @@ define internal fastcc i64 @native_read_msr.argelim() unnamed_addr #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @wrmsrl.argelim(i64 noundef range(i64 2, 0) %0) unnamed_addr #7 align 16 {
+define internal fastcc void @wrmsrl(i64 noundef range(i64 2, 0) %0) unnamed_addr #7 align 16 {
   %2 = trunc i64 %0 to i32
   %3 = lshr i64 %0, 32
   %4 = trunc nuw i64 %3 to i32
@@ -1467,7 +1467,7 @@ define internal fastcc void @wrmsrl.argelim(i64 noundef range(i64 2, 0) %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc zeroext i1 @is_sysenter_singlestep.argprom(i64 %.128.val) unnamed_addr #16 align 16 {
+define internal fastcc zeroext i1 @is_sysenter_singlestep(i64 %.128.val) unnamed_addr #16 align 16 {
   %1 = sub i64 %.128.val, ptrtoint (ptr @entry_SYSENTER_compat to i64)
   %2 = icmp ult i64 %1, sub (i64 ptrtoint (ptr @__end_entry_SYSENTER_compat to i64), i64 ptrtoint (ptr @entry_SYSENTER_compat to i64))
   ret i1 %2

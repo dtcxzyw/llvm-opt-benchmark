@@ -45,7 +45,7 @@ define void @pmix_util_keyval_parse_finalize() local_unnamed_addr #0 {
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %.not1.i = icmp eq ptr %5, null
-  br i1 %.not1.i, label %pmix_obj_run_destructors.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %6 = phi ptr [ %8, %.lr.ph.i ], [ %5, %0 ]
@@ -54,9 +54,9 @@ define void @pmix_util_keyval_parse_finalize() local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %pmix_obj_run_destructors.argprom.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
-pmix_obj_run_destructors.argprom.exit:            ; preds = %.lr.ph.i, %0
+pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
   ret void
 }
 
@@ -81,7 +81,7 @@ define noundef i32 @pmix_util_keyval_parse_init() local_unnamed_addr #0 {
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not1.i = icmp eq ptr %6, null
-  br i1 %.not1.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %4 ]
@@ -90,9 +90,9 @@ define noundef i32 @pmix_util_keyval_parse_init() local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %.02.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %pmix_obj_run_constructors.argprom.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !6
 
-pmix_obj_run_constructors.argprom.exit:           ; preds = %.lr.ph.i, %4
+pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
   ret i32 0
 }
 
@@ -467,7 +467,7 @@ trim_name.exit47.i:                               ; preds = %163, %.critedge.i44
 
 169:                                              ; preds = %trim_name.exit47.i
   %170 = load ptr, ptr @key_buffer, align 8
-  tail call fastcc void @add_to_env_str.retelim(ptr noundef %170, ptr noundef %168)
+  tail call fastcc void @add_to_env_str(ptr noundef %170, ptr noundef %168)
   br label %210
 
 171:                                              ; preds = %trim_name.exit47.i
@@ -549,7 +549,7 @@ sub_263.i:                                        ; preds = %sub_162.i
   br label %trim_name.exit57.i
 
 trim_name.exit57.i:                               ; preds = %204, %.critedge.i54.i, %173
-  tail call fastcc void @add_to_env_str.retelim(ptr noundef %174, ptr noundef null)
+  tail call fastcc void @add_to_env_str(ptr noundef %174, ptr noundef null)
   br label %210
 
 207:                                              ; preds = %60
@@ -748,7 +748,7 @@ define internal fastcc void @trim_name(ptr noundef %0, ptr noundef readonly %1, 
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_to_env_str.retelim(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @add_to_env_str(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %43, label %4
 

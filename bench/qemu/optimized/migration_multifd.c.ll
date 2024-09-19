@@ -207,13 +207,13 @@ if.then5:                                         ; preds = %if.end, %if.end.thr
   br i1 %cmp9, label %return, label %if.end12.thread
 
 if.end12.thread:                                  ; preds = %if.then5
-  %call18 = tail call fastcc i32 @multifd_send_pages.argprom()
+  %call18 = tail call fastcc i32 @multifd_send_pages()
   %cmp1319.inv = icmp sgt i32 %call18, -1
   %7 = select i1 %cmp1319.inv, i32 1, i32 -1
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %call = tail call fastcc i32 @multifd_send_pages.argprom()
+  %call = tail call fastcc i32 @multifd_send_pages()
   %cmp13 = icmp slt i32 %call, 0
   br i1 %cmp13, label %return, label %tailrecurse
 
@@ -223,7 +223,7 @@ return:                                           ; preds = %if.end12, %if.end12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 2) i32 @multifd_send_pages.argprom() unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @multifd_send_pages() unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @multifd_send_state, align 8
   %pages1 = getelementptr inbounds i8, ptr %0, i64 8
@@ -633,7 +633,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end5, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call fastcc i32 @multifd_send_pages.argprom()
+  %call2 = tail call fastcc i32 @multifd_send_pages()
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %if.then3, label %if.end5
 
@@ -2624,9 +2624,9 @@ trace_multifd_send_thread_start.exit:             ; preds = %entry, %land.lhs.tr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %uuid.i, ptr noundef nonnull align 4 dereferenceable(16) @qemu_uuid, i64 16, i1 false)
   %call3.i = call i32 @qio_channel_write_all(ptr noundef %opaque.val65, ptr noundef nonnull %msg.i, i64 noundef 64, ptr noundef nonnull %local_err) #15
   %cmp.not.i = icmp eq i32 %call3.i, 0
-  br i1 %cmp.not.i, label %if.end, label %multifd_send_initial_packet.argprom.exit.thread
+  br i1 %cmp.not.i, label %if.end, label %multifd_send_initial_packet.exit.thread
 
-multifd_send_initial_packet.argprom.exit.thread:  ; preds = %trace_multifd_send_thread_start.exit
+multifd_send_initial_packet.exit.thread:          ; preds = %trace_multifd_send_thread_start.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %msg.i)
   br label %if.then98
 
@@ -2910,7 +2910,7 @@ if.end95:                                         ; preds = %if.end73, %if.then9
   %tobool.not = icmp eq i32 %85, 0
   br i1 %tobool.not, label %while.end12, label %while.end111
 
-if.then98:                                        ; preds = %if.end64, %if.then50, %multifd_send_initial_packet.argprom.exit.thread, %if.then34
+if.then98:                                        ; preds = %if.end64, %if.then50, %multifd_send_initial_packet.exit.thread, %if.then34
   %86 = load ptr, ptr %local_err, align 8
   %tobool99.not = icmp eq ptr %86, null
   br i1 %tobool99.not, label %if.else101, label %if.end102

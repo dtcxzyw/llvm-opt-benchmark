@@ -3569,23 +3569,23 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6hermes2vm7Runti
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i.i, ptr %5, align 8
-  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN6hermes2vm7Runtime10makeAFixedINS0_14NativeFunctionELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEERPvRPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEESD_S6_NS0_10NativeArgsEEEEEPT_DpOT2_.exit
   %call7.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %runtime.val, i64 %or.i.i.i.i.i.i) #11
-  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
 
-_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %5, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %call17 = tail call noundef i32 @_ZN6hermes2vm8JSObject19allocatePropStorageENS0_6HandleIS1_EERNS0_7RuntimeEj(ptr %retval.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %add)
   %cmp.i = icmp eq i32 %call17, 0
   br i1 %cmp.i, label %if.then.i, label %_ZN6hermes2vm7Runtime23ignoreAllocationFailureENS0_15ExecutionStatusE.exit
 
-if.then.i:                                        ; preds = %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+if.then.i:                                        ; preds = %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.15) #12
   unreachable
 
-_ZN6hermes2vm7Runtime23ignoreAllocationFailureENS0_15ExecutionStatusE.exit: ; preds = %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+_ZN6hermes2vm7Runtime23ignoreAllocationFailureENS0_15ExecutionStatusE.exit: ; preds = %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
   %coerce.val.ip = inttoptr i64 %prototypeObjectHandle.coerce to ptr
   %call26 = tail call noundef i32 @_ZN6hermes2vm8Callable28defineNameLengthAndPrototypeENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDEjNS2_INS0_8JSObjectEEENS1_17WritablePrototypeEb(ptr %retval.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i32 noundef %paramCount, ptr %coerce.val.ip, i8 noundef zeroext 1, i1 noundef zeroext false)
   ret ptr %retval.0.i.i.i.i.i.i.i
@@ -3761,13 +3761,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6hermes2vm7Runti
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i.i, ptr %9, align 8
-  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN6hermes2vm7Runtime10makeAFixedINS0_14NativeFunctionELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEERNS7_INS0_11EnvironmentEEERPvRPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEESG_S6_NS0_10NativeArgsEEEEEPT_DpOT2_.exit
   %call7.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %runtime.val, i64 %or.i.i.i.i.i.i) #11
-  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
 
-_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_14NativeFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %9, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %coerce.val.ip = inttoptr i64 %prototypeObjectHandle.coerce to ptr
   %call22 = tail call noundef i32 @_ZN6hermes2vm8Callable28defineNameLengthAndPrototypeENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDEjNS2_INS0_8JSObjectEEENS1_17WritablePrototypeEb(ptr %retval.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i32 noundef %paramCount, ptr %coerce.val.ip, i8 noundef zeroext 1, i1 noundef zeroext false)
@@ -4268,13 +4268,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6hermes2vm6GCBas
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i.i, ptr %16, align 8
-  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN6hermes2vm6GCBase13constructCellINS0_22GeneratorInnerFunctionEJRNS0_7RuntimeERNS0_6HandleINS0_6DomainEEERNS6_INS0_8JSObjectEEENS6_INS0_11HiddenClassEEERNS6_INS0_11EnvironmentEEERPNS0_9CodeBlockEjEEEPT_PvjDpOT0_.exit
   %call7.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %runtime.val, i64 %or.i.i.i.i.i.i) #11
-  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+  br label %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
 
-_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
+_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %16, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %18 = load i32, ptr %argCount_.i, align 8
   %functionHeader_.i.i = getelementptr inbounds i8, ptr %codeBlock, i64 8
@@ -4284,12 +4284,12 @@ _ZN6hermes2vm12JSObjectInitL12initToHandleINS0_22GeneratorInnerFunctionEEENS0_6H
   %tobool.i.not.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
   %frameSize.i.i.i = getelementptr inbounds i8, ptr %19, i64 19
   %21 = load i32, ptr %frameSize.i.i.i, align 1
   br label %_ZN6hermes2vm22GeneratorInnerFunction14getContextSizeEPNS0_9CodeBlockEj.exit
 
-if.else.i.i.i:                                    ; preds = %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.argprom.exit
+if.else.i.i.i:                                    ; preds = %_ZN6hermes2vm12JSObjectInitL12initToHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EERNS0_7RuntimeEPS5_.exit
   %bf.load.i.i.i = load i120, ptr %19, align 1
   %bf.lshr.i.i.i = lshr i120 %bf.load.i.i.i, 89
   %22 = trunc nuw nsw i120 %bf.lshr.i.i.i to i32

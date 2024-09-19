@@ -232,7 +232,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %21, %9
 .Vec_PtrGrow.exit11_crit_edge.i.i.i:              ; preds = %.loopexit.i
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %Vec_VecPush.argprom.exit.i
+  br label %Vec_VecPush.exit.i
 
 37:                                               ; preds = %.loopexit.i
   %38 = icmp slt i32 %34, 16
@@ -256,7 +256,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %44, %42
   %46 = phi ptr [ %43, %42 ], [ %45, %44 ]
   store ptr %46, ptr %40, align 8
   store i32 16, ptr %32, align 8
-  br label %Vec_VecPush.argprom.exit.i
+  br label %Vec_VecPush.exit.i
 
 47:                                               ; preds = %37
   %48 = shl nuw nsw i32 %34, 1
@@ -279,9 +279,9 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %44, %42
   %58 = phi ptr [ %54, %53 ], [ %56, %55 ]
   store ptr %58, ptr %49, align 8
   store i32 %48, ptr %32, align 8
-  br label %Vec_VecPush.argprom.exit.i
+  br label %Vec_VecPush.exit.i
 
-Vec_VecPush.argprom.exit.i:                       ; preds = %57, %Vec_PtrGrow.exit.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i
+Vec_VecPush.exit.i:                               ; preds = %57, %Vec_PtrGrow.exit.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i
   %59 = phi ptr [ %.pre.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i ], [ %58, %57 ], [ %46, %Vec_PtrGrow.exit.i.i.i ]
   %60 = load i32, ptr %33, align 4
   %61 = add nsw i32 %60, 1
@@ -291,8 +291,8 @@ Vec_VecPush.argprom.exit.i:                       ; preds = %57, %Vec_PtrGrow.ex
   store ptr null, ptr %63, align 8
   br label %64
 
-64:                                               ; preds = %Vec_VecPush.argprom.exit.i, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %30, %Vec_VecPush.argprom.exit.i ]
+64:                                               ; preds = %Vec_VecPush.exit.i, %._crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %30, %Vec_VecPush.exit.i ]
   %65 = getelementptr i8, ptr %2, i64 8
   %.val21.i = load ptr, ptr %65, align 8
   %66 = getelementptr inbounds ptr, ptr %.val21.i, i64 %.pre-phi.i
@@ -632,9 +632,9 @@ define ptr @Hop_NodeBalanceBuildSuper(ptr noundef %0, ptr nocapture noundef %1, 
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, 2
-  br i1 %7, label %._crit_edge, label %Vec_PtrSort.argprom.exit
+  br i1 %7, label %._crit_edge, label %Vec_PtrSort.exit
 
-Vec_PtrSort.argprom.exit:                         ; preds = %4
+Vec_PtrSort.exit:                                 ; preds = %4
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %6 to i64
@@ -643,7 +643,7 @@ Vec_PtrSort.argprom.exit:                         ; preds = %4
   %11 = icmp sgt i32 %.pre, 1
   br i1 %11, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %Vec_PtrSort.argprom.exit
+.lr.ph:                                           ; preds = %Vec_PtrSort.exit
   %.not = icmp eq i32 %3, 0
   %12 = getelementptr i8, ptr %1, i64 8
   %.not22 = icmp eq i32 %2, 5
@@ -931,7 +931,7 @@ Hop_NodeBalancePushUniqueOrderByLevel.exit:       ; preds = %103, %Hop_NodeBalan
   %159 = icmp sgt i32 %158, 1
   br i1 %159, label %19, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %129, %Hop_NodeBalancePushUniqueOrderByLevel.exit, %4, %Vec_PtrSort.argprom.exit
+._crit_edge:                                      ; preds = %129, %Hop_NodeBalancePushUniqueOrderByLevel.exit, %4, %Vec_PtrSort.exit
   %160 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %160, align 8
   %161 = load ptr, ptr %.val, align 8

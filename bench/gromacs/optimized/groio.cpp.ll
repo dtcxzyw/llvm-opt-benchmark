@@ -1124,7 +1124,7 @@ _ZL18gmx_one_before_eofP8_IO_FILE.exit.thread:    ; preds = %2
   %exitcond.not = icmp eq i32 %43, %39
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-44:                                               ; preds = %_ZL14gmx_sfree_implI9t_resinfoEvPKcS2_iPT_.argprom.exit, %_ZL14gmx_sfree_implI6t_atomEvPKcS2_iPT_.argprom.exit, %46, %73, %_ZL14gmx_sfree_implIPPcEvPKcS3_iPT_.argprom.exit, %12
+44:                                               ; preds = %_ZL14gmx_sfree_implI9t_resinfoEvPKcS2_iPT_.exit, %_ZL14gmx_sfree_implI6t_atomEvPKcS2_iPT_.exit, %46, %73, %_ZL14gmx_sfree_implIPPcEvPKcS3_iPT_.exit, %12
   %45 = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -1140,23 +1140,23 @@ _ZL18gmx_one_before_eofP8_IO_FILE.exit.thread:    ; preds = %2
   store i8 1, ptr %48, align 8
   %49 = load ptr, ptr %16, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.2, i32 noundef 381, ptr noundef %49)
-          to label %_ZL14gmx_sfree_implI6t_atomEvPKcS2_iPT_.argprom.exit unwind label %44
+          to label %_ZL14gmx_sfree_implI6t_atomEvPKcS2_iPT_.exit unwind label %44
 
-_ZL14gmx_sfree_implI6t_atomEvPKcS2_iPT_.argprom.exit: ; preds = %46
+_ZL14gmx_sfree_implI6t_atomEvPKcS2_iPT_.exit:     ; preds = %46
   %50 = load ptr, ptr %21, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.2, i32 noundef 382, ptr noundef %50)
-          to label %_ZL14gmx_sfree_implI9t_resinfoEvPKcS2_iPT_.argprom.exit unwind label %44
+          to label %_ZL14gmx_sfree_implI9t_resinfoEvPKcS2_iPT_.exit unwind label %44
 
-_ZL14gmx_sfree_implI9t_resinfoEvPKcS2_iPT_.argprom.exit: ; preds = %_ZL14gmx_sfree_implI6t_atomEvPKcS2_iPT_.argprom.exit
+_ZL14gmx_sfree_implI9t_resinfoEvPKcS2_iPT_.exit:  ; preds = %_ZL14gmx_sfree_implI6t_atomEvPKcS2_iPT_.exit
   %51 = load ptr, ptr %24, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.2, i32 noundef 383, ptr noundef %51)
-          to label %_ZL14gmx_sfree_implIPPcEvPKcS3_iPT_.argprom.exit unwind label %44
+          to label %_ZL14gmx_sfree_implIPPcEvPKcS3_iPT_.exit unwind label %44
 
-_ZL14gmx_sfree_implIPPcEvPKcS3_iPT_.argprom.exit: ; preds = %_ZL14gmx_sfree_implI9t_resinfoEvPKcS2_iPT_.argprom.exit
+_ZL14gmx_sfree_implIPPcEvPKcS3_iPT_.exit:         ; preds = %_ZL14gmx_sfree_implI9t_resinfoEvPKcS2_iPT_.exit
   invoke void @_Z11done_symtabP8t_symtab(ptr noundef nonnull %5)
           to label %52 unwind label %44
 
-52:                                               ; preds = %_ZL14gmx_sfree_implIPPcEvPKcS3_iPT_.argprom.exit
+52:                                               ; preds = %_ZL14gmx_sfree_implIPPcEvPKcS3_iPT_.exit
   %53 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.23) #20
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %61, label %.sink.split

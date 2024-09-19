@@ -648,26 +648,26 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %44, %50, %53
   %wide.trip.count = zext i32 %14 to i64
   br label %57
 
-57:                                               ; preds = %rbimpl_size_mul_or_raise.exit, %rb_obj_written.argprom.exit
-  %indvars.iv = phi i64 [ 0, %rbimpl_size_mul_or_raise.exit ], [ %indvars.iv.next, %rb_obj_written.argprom.exit ]
+57:                                               ; preds = %rbimpl_size_mul_or_raise.exit, %rb_obj_written.exit
+  %indvars.iv = phi i64 [ 0, %rbimpl_size_mul_or_raise.exit ], [ %indvars.iv.next, %rb_obj_written.exit ]
   %58 = getelementptr i64, ptr %.040, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, 7
   %61 = icmp ne i64 %60, 0
   %62 = icmp eq i64 %59, 0
   %63 = or i1 %62, %61
-  br i1 %63, label %rb_obj_written.argprom.exit, label %64
+  br i1 %63, label %rb_obj_written.exit, label %64
 
 64:                                               ; preds = %57
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %59) #20
-  br label %rb_obj_written.argprom.exit
+  br label %rb_obj_written.exit
 
-rb_obj_written.argprom.exit:                      ; preds = %57, %64
+rb_obj_written.exit:                              ; preds = %57, %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %65, label %57, !llvm.loop !9
 
-65:                                               ; preds = %rb_obj_written.argprom.exit
+65:                                               ; preds = %rb_obj_written.exit
   tail call void @rb_shape_set_shape(i64 noundef %0, ptr noundef %.1) #20
   br label %66
 

@@ -5397,7 +5397,7 @@ define internal noundef double @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL
 entry:
   %__args.val = load double, ptr %__args, align 8, !tbaa !93
   %cmp.i.i.i.i = fcmp olt double %__args.val, 0x3CB0000000000000
-  br i1 %cmp.i.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_112CpxPv_HelperEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_112CpxPv_HelperEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
   %__functor.val = load ptr, ptr %__functor, align 8, !tbaa !3
@@ -5411,9 +5411,9 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %2 = load double, ptr %c_inf_.i.i.i.i, align 8, !tbaa !105
   %mul.i.i.i.i = fmul double %__args.val, %2
   %3 = fdiv double %1, %mul.i.i.i.i
-  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_112CpxPv_HelperEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit
+  br label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_112CpxPv_HelperEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit
 
-_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_112CpxPv_HelperEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit: ; preds = %entry, %if.end.i.i.i.i
+_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_112CpxPv_HelperEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit: ; preds = %entry, %if.end.i.i.i.i
   %retval.sroa.0.0.i.i.i.i = phi double [ %3, %if.end.i.i.i.i ], [ 0.000000e+00, %entry ]
   ret double %retval.sroa.0.0.i.i.i.i
 }
@@ -5646,7 +5646,7 @@ define internal noundef double @"_ZNSt17_Function_handlerIFddEZNK8QuantLib19Hest
 entry:
   %__args.val = load double, ptr %__args, align 8, !tbaa !93
   %cmp.i.i.i.i = fcmp olt double %__args.val, 0x3CB0000000000000
-  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib19HestonRNDCalculator3cdfEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib19HestonRNDCalculator3cdfEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
   %call.val = load ptr, ptr %__functor, align 8, !tbaa !155
@@ -5666,9 +5666,9 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %mul.il.i.i.i.i.i.i = fmul double %.sroa.speculated.i.i.i.i, %mul.i.i.i.i
   %call4.i.i.i.i.i.i = tail call noundef { double, double } @__divdc3(double noundef %1, double noundef %2, double noundef %mul.rl.i.i.i.i.i.i, double noundef %mul.il.i.i.i.i.i.i) #27
   %4 = extractvalue { double, double } %call4.i.i.i.i.i.i, 0
-  br label %"_ZSt10__invoke_rIdRZNK8QuantLib19HestonRNDCalculator3cdfEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rIdRZNK8QuantLib19HestonRNDCalculator3cdfEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rIdRZNK8QuantLib19HestonRNDCalculator3cdfEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %entry, %if.end.i.i.i.i
+"_ZSt10__invoke_rIdRZNK8QuantLib19HestonRNDCalculator3cdfEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %entry, %if.end.i.i.i.i
   %retval.0.i.i.i.i = phi double [ %4, %if.end.i.i.i.i ], [ 0.000000e+00, %entry ]
   ret double %retval.0.i.i.i.i
 }

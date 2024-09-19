@@ -601,21 +601,21 @@ dissect_flags.exit.i.i:                           ; preds = %205, %188, %186, %1
   %246 = load ptr, ptr @packet_time_context_tree, align 8
   %247 = call ptr @wmem_tree_lookup32_array(ptr noundef %246, ptr noundef nonnull %17) #3
   %.not6.i.i.i.i = icmp eq ptr %247, null
-  br i1 %.not6.i.i.i.i, label %packet_times_get.argprom.exit.thread.i.i.i, label %packet_times_get.argprom.exit.i.i.i
+  br i1 %.not6.i.i.i.i, label %packet_times_get.exit.thread.i.i.i, label %packet_times_get.exit.i.i.i
 
-packet_times_get.argprom.exit.thread.i.i.i:       ; preds = %241
+packet_times_get.exit.thread.i.i.i:               ; preds = %241
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   br label %249
 
-packet_times_get.argprom.exit.i.i.i:              ; preds = %241
+packet_times_get.exit.i.i.i:                      ; preds = %241
   %248 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %247, i32 noundef 0) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   %.not.i42.i.i = icmp eq ptr %248, null
   br i1 %.not.i42.i.i, label %249, label %265
 
-249:                                              ; preds = %packet_times_get.argprom.exit.i.i.i, %packet_times_get.argprom.exit.thread.i.i.i
+249:                                              ; preds = %packet_times_get.exit.i.i.i, %packet_times_get.exit.thread.i.i.i
   %.val34.i.i.i = load ptr, ptr %233, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
@@ -624,14 +624,14 @@ packet_times_get.argprom.exit.i.i.i:              ; preds = %241
   %251 = load i32, ptr %250, align 4
   %252 = and i32 %251, 4
   %.not.i35.i.i.i = icmp eq i32 %252, 0
-  br i1 %.not.i35.i.i.i, label %packet_times_insert.argprom.exit.i.i.i, label %253
+  br i1 %.not.i35.i.i.i, label %packet_times_insert.exit.i.i.i, label %253
 
 253:                                              ; preds = %249
   %254 = getelementptr inbounds i8, ptr %.val34.i.i.i, i64 76
   %255 = load i32, ptr %254, align 4
-  br label %packet_times_insert.argprom.exit.i.i.i
+  br label %packet_times_insert.exit.i.i.i
 
-packet_times_insert.argprom.exit.i.i.i:           ; preds = %253, %249
+packet_times_insert.exit.i.i.i:                   ; preds = %253, %249
   %256 = phi i32 [ %255, %253 ], [ 0, %249 ]
   store i32 %256, ptr %13, align 4
   store i32 0, ptr %14, align 4
@@ -655,8 +655,8 @@ packet_times_insert.argprom.exit.i.i.i:           ; preds = %253, %249
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   br label %265
 
-265:                                              ; preds = %packet_times_insert.argprom.exit.i.i.i, %packet_times_get.argprom.exit.i.i.i
-  %.0.i43.i.i = phi ptr [ %248, %packet_times_get.argprom.exit.i.i.i ], [ %263, %packet_times_insert.argprom.exit.i.i.i ]
+265:                                              ; preds = %packet_times_insert.exit.i.i.i, %packet_times_get.exit.i.i.i
+  %.0.i43.i.i = phi ptr [ %248, %packet_times_get.exit.i.i.i ], [ %263, %packet_times_insert.exit.i.i.i ]
   %266 = load i32, ptr @hf_nordic_ble_delta_time, align 4
   %267 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %29, i32 noundef %266, ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %18) #3
   %268 = getelementptr inbounds i8, ptr %1, i64 80
@@ -802,21 +802,21 @@ dissect_ble_delta_time.exit.i.i:                  ; preds = %323, %proto_item_se
   %337 = load ptr, ptr @packet_time_context_tree, align 8
   %338 = call ptr @wmem_tree_lookup32_array(ptr noundef %337, ptr noundef nonnull %11) #3
   %.not6.i.i46.i.i = icmp eq ptr %338, null
-  br i1 %.not6.i.i46.i.i, label %packet_times_get.argprom.exit.thread.i54.i.i, label %packet_times_get.argprom.exit.i47.i.i
+  br i1 %.not6.i.i46.i.i, label %packet_times_get.exit.thread.i54.i.i, label %packet_times_get.exit.i47.i.i
 
-packet_times_get.argprom.exit.thread.i54.i.i:     ; preds = %332
+packet_times_get.exit.thread.i54.i.i:             ; preds = %332
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   br label %340
 
-packet_times_get.argprom.exit.i47.i.i:            ; preds = %332
+packet_times_get.exit.i47.i.i:                    ; preds = %332
   %339 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %338, i32 noundef 0) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   %.not.i48.i.i = icmp eq ptr %339, null
   br i1 %.not.i48.i.i, label %340, label %356
 
-340:                                              ; preds = %packet_times_get.argprom.exit.i47.i.i, %packet_times_get.argprom.exit.thread.i54.i.i
+340:                                              ; preds = %packet_times_get.exit.i47.i.i, %packet_times_get.exit.thread.i54.i.i
   %.val51.i.i.i = load ptr, ptr %233, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -825,14 +825,14 @@ packet_times_get.argprom.exit.i47.i.i:            ; preds = %332
   %342 = load i32, ptr %341, align 4
   %343 = and i32 %342, 4
   %.not.i52.i.i.i = icmp eq i32 %343, 0
-  br i1 %.not.i52.i.i.i, label %packet_times_insert.argprom.exit.i53.i.i, label %344
+  br i1 %.not.i52.i.i.i, label %packet_times_insert.exit.i53.i.i, label %344
 
 344:                                              ; preds = %340
   %345 = getelementptr inbounds i8, ptr %.val51.i.i.i, i64 76
   %346 = load i32, ptr %345, align 4
-  br label %packet_times_insert.argprom.exit.i53.i.i
+  br label %packet_times_insert.exit.i53.i.i
 
-packet_times_insert.argprom.exit.i53.i.i:         ; preds = %344, %340
+packet_times_insert.exit.i53.i.i:                 ; preds = %344, %340
   %347 = phi i32 [ %346, %344 ], [ 0, %340 ]
   store i32 %347, ptr %7, align 4
   store i32 0, ptr %8, align 4
@@ -856,8 +856,8 @@ packet_times_insert.argprom.exit.i53.i.i:         ; preds = %344, %340
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   br label %356
 
-356:                                              ; preds = %packet_times_insert.argprom.exit.i53.i.i, %packet_times_get.argprom.exit.i47.i.i
-  %.047.i.i.i = phi ptr [ %339, %packet_times_get.argprom.exit.i47.i.i ], [ %354, %packet_times_insert.argprom.exit.i53.i.i ]
+356:                                              ; preds = %packet_times_insert.exit.i53.i.i, %packet_times_get.exit.i47.i.i
+  %.047.i.i.i = phi ptr [ %339, %packet_times_get.exit.i47.i.i ], [ %354, %packet_times_insert.exit.i53.i.i ]
   %357 = load i32, ptr @hf_nordic_ble_time, align 4
   %358 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %29, i32 noundef %357, ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #3
   %359 = getelementptr inbounds i8, ptr %1, i64 80

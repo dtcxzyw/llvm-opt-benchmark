@@ -6866,7 +6866,7 @@ define internal fastcc i32 @_init_slurm_conf(ptr noundef %0) unnamed_addr #0 {
   %17 = load ptr, ptr @conf_hashtbl, align 8
   %18 = tail call i32 @s_p_parse_file(ptr noundef %17, ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_conf, i64 416), ptr noundef %.06, i32 noundef 0, ptr noundef null) #18
   %19 = load ptr, ptr @conf_hashtbl, align 8
-  %20 = tail call fastcc i32 @_validate_and_set_defaults.argprom(ptr noundef %19)
+  %20 = tail call fastcc i32 @_validate_and_set_defaults(ptr noundef %19)
   %21 = tail call ptr @xstrdup(ptr noundef %.06) #18
   store ptr %21, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1144), align 8
   %22 = tail call zeroext i1 @running_in_slurmd() #18
@@ -10683,7 +10683,7 @@ declare void @slurm_free_config_response_msg(ptr noundef) local_unnamed_addr #1
 declare i32 @s_p_parse_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_validate_and_set_defaults.argprom(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_validate_and_set_defaults(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca [1024 x i8], align 16
@@ -11044,7 +11044,7 @@ gethostname_short.exit.thread.i:                  ; preds = %gethostname_short.e
   %184 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 248), align 8
   %.not78.i = icmp eq ptr %184, null
   %or.cond.i = select i1 %.not77.i, i1 true, i1 %.not78.i
-  br i1 %or.cond.i, label %_load_slurmctld_host.argprom.exit, label %.preheader.i
+  br i1 %or.cond.i, label %_load_slurmctld_host.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %182
   %185 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
@@ -11068,9 +11068,9 @@ gethostname_short.exit.thread.i:                  ; preds = %gethostname_short.e
 ._crit_edge19.i:                                  ; preds = %.lr.ph18.i, %.preheader.i
   call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_conf, i64 264)) #18
   call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_conf, i64 248)) #18
-  br label %_load_slurmctld_host.argprom.exit
+  br label %_load_slurmctld_host.exit
 
-_load_slurmctld_host.argprom.exit:                ; preds = %182, %._crit_edge19.i
+_load_slurmctld_host.exit:                        ; preds = %182, %._crit_edge19.i
   store i32 0, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 256), align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -11224,9 +11224,9 @@ _load_slurmctld_host.argprom.exit:                ; preds = %182, %._crit_edge19
   %249 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 184), align 8
   %250 = call i32 @xstrcasecmp(ptr noundef %249, ptr noundef nonnull @.str.473) #18
   %.not.i1259 = icmp eq i32 %250, 0
-  br i1 %.not.i1259, label %_validate_bcast_exclude.argprom.exit.thread, label %251
+  br i1 %.not.i1259, label %_validate_bcast_exclude.exit.thread, label %251
 
-_validate_bcast_exclude.argprom.exit.thread:      ; preds = %248
+_validate_bcast_exclude.exit.thread:              ; preds = %248
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %262
@@ -11237,26 +11237,26 @@ _validate_bcast_exclude.argprom.exit.thread:      ; preds = %248
   store ptr %253, ptr %2, align 8
   %254 = call ptr @strtok_r(ptr noundef %253, ptr noundef nonnull @.str.229, ptr noundef nonnull %3) #18
   %.not112.i = icmp eq ptr %254, null
-  br i1 %.not112.i, label %_validate_bcast_exclude.argprom.exit.thread5, label %.lr.ph.i1260
+  br i1 %.not112.i, label %_validate_bcast_exclude.exit.thread5, label %.lr.ph.i1260
 
 .lr.ph.i1260:                                     ; preds = %251, %256
   %.03.i = phi ptr [ %257, %256 ], [ %254, %251 ]
   %255 = load i8, ptr %.03.i, align 1
   %.not12.i = icmp eq i8 %255, 47
-  br i1 %.not12.i, label %256, label %_validate_bcast_exclude.argprom.exit
+  br i1 %.not12.i, label %256, label %_validate_bcast_exclude.exit
 
 256:                                              ; preds = %.lr.ph.i1260
   %257 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.229, ptr noundef nonnull %3) #18
   %.not11.i = icmp eq ptr %257, null
-  br i1 %.not11.i, label %_validate_bcast_exclude.argprom.exit.thread5, label %.lr.ph.i1260, !llvm.loop !54
+  br i1 %.not11.i, label %_validate_bcast_exclude.exit.thread5, label %.lr.ph.i1260, !llvm.loop !54
 
-_validate_bcast_exclude.argprom.exit.thread5:     ; preds = %256, %251
+_validate_bcast_exclude.exit.thread5:             ; preds = %256, %251
   call void @slurm_xfree(ptr noundef nonnull %2) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %262
 
-_validate_bcast_exclude.argprom.exit:             ; preds = %.lr.ph.i1260
+_validate_bcast_exclude.exit:                     ; preds = %.lr.ph.i1260
   %258 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.680, ptr noundef nonnull %.03.i) #18
   call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_conf, i64 184)) #18
   %259 = call ptr @xstrdup(ptr noundef nonnull @.str.480) #18
@@ -11271,7 +11271,7 @@ _validate_bcast_exclude.argprom.exit:             ; preds = %.lr.ph.i1260
   store ptr %261, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 184), align 8
   br label %262
 
-262:                                              ; preds = %_validate_bcast_exclude.argprom.exit.thread5, %_validate_bcast_exclude.argprom.exit.thread, %260
+262:                                              ; preds = %_validate_bcast_exclude.exit.thread5, %_validate_bcast_exclude.exit.thread, %260
   %263 = call i32 @s_p_get_string(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_conf, i64 176), ptr noundef nonnull @.str.30, ptr noundef %0) #18
   %264 = call i32 @s_p_get_string(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurm_conf, i64 232), ptr noundef nonnull @.str.34, ptr noundef %0) #18
   %265 = call zeroext i1 @running_in_slurmctld() #18
@@ -12557,7 +12557,7 @@ _validate_bcast_exclude.argprom.exit:             ; preds = %.lr.ph.i1260
 
 799:                                              ; preds = %797
   %800 = load ptr, ptr %9, align 8
-  %801 = call fastcc i32 @_validate_accounting_storage_enforce.argprom(ptr noundef %800)
+  %801 = call fastcc i32 @_validate_accounting_storage_enforce(ptr noundef %800)
   %.not1091 = icmp eq i32 %801, 0
   br i1 %.not1091, label %805, label %802
 
@@ -12735,7 +12735,7 @@ _validate_bcast_exclude.argprom.exit:             ; preds = %.lr.ph.i1260
 
 873:                                              ; preds = %._crit_edge56, %870
   %874 = phi ptr [ %.pre57, %._crit_edge56 ], [ %872, %870 ]
-  %875 = call fastcc zeroext i1 @_is_valid_path.argprom(ptr noundef %874)
+  %875 = call fastcc zeroext i1 @_is_valid_path(ptr noundef %874)
   br i1 %875, label %879, label %876
 
 876:                                              ; preds = %873
@@ -14361,7 +14361,7 @@ _normalize_debug_level.exit1263:                  ; preds = %_normalize_debug_le
   br label %1623
 
 1623:                                             ; preds = %1619, %1622, %1617
-  call fastcc void @_sort_task_plugin.argprom()
+  call fastcc void @_sort_task_plugin()
   store i32 0, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1424), align 8
   %1624 = call i32 @s_p_get_string(ptr noundef nonnull %9, ptr noundef nonnull @.str.209, ptr noundef %0) #18
   %.not1227 = icmp eq i32 %1624, 0
@@ -14779,8 +14779,8 @@ _normalize_debug_level.exit1263:                  ; preds = %_normalize_debug_le
   store i16 -2, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 928), align 8
   br label %1814
 
-1814:                                             ; preds = %_validate_bcast_exclude.argprom.exit, %_load_slurmctld_host.argprom.exit, %1811, %1813, %1682, %1677, %1663, %1653, %1646, %1639, %1632, %1601, %1557, %1545, %1482, %1458, %1451, %1435, %1418, %1399, %1387, %1374, %1360, %1353, %1290, %1281, %1270, %1261, %1098, %1092, %1055, %962, %950, %938, %928, %918, %905, %902, %893, %876, %802, %713, %698, %688, %652, %640, %632, %395, %376, %39
-  %.0 = phi i32 [ -1, %376 ], [ -1, %395 ], [ -1, %632 ], [ -1, %640 ], [ -1, %652 ], [ -1, %688 ], [ -1, %802 ], [ -1, %893 ], [ -1, %902 ], [ -1, %905 ], [ -1, %928 ], [ -1, %950 ], [ -1, %962 ], [ -1, %1055 ], [ -1, %1261 ], [ -1, %1270 ], [ -1, %1290 ], [ -1, %1360 ], [ -1, %1374 ], [ -1, %1387 ], [ -1, %1399 ], [ -1, %1418 ], [ -1, %1435 ], [ -1, %1451 ], [ -1, %1482 ], [ -1, %1557 ], [ -1, %1601 ], [ -1, %1632 ], [ -1, %1639 ], [ -1, %1646 ], [ -1, %1653 ], [ -1, %1663 ], [ -1, %1677 ], [ -1, %1682 ], [ -1, %1545 ], [ -1, %1458 ], [ -1, %1353 ], [ -1, %1281 ], [ -1, %1092 ], [ -1, %1098 ], [ -1, %938 ], [ -1, %918 ], [ -1, %876 ], [ -1, %713 ], [ -1, %698 ], [ -1, %39 ], [ -1, %_load_slurmctld_host.argprom.exit ], [ -1, %_validate_bcast_exclude.argprom.exit ], [ 0, %1813 ], [ 0, %1811 ]
+1814:                                             ; preds = %_validate_bcast_exclude.exit, %_load_slurmctld_host.exit, %1811, %1813, %1682, %1677, %1663, %1653, %1646, %1639, %1632, %1601, %1557, %1545, %1482, %1458, %1451, %1435, %1418, %1399, %1387, %1374, %1360, %1353, %1290, %1281, %1270, %1261, %1098, %1092, %1055, %962, %950, %938, %928, %918, %905, %902, %893, %876, %802, %713, %698, %688, %652, %640, %632, %395, %376, %39
+  %.0 = phi i32 [ -1, %376 ], [ -1, %395 ], [ -1, %632 ], [ -1, %640 ], [ -1, %652 ], [ -1, %688 ], [ -1, %802 ], [ -1, %893 ], [ -1, %902 ], [ -1, %905 ], [ -1, %928 ], [ -1, %950 ], [ -1, %962 ], [ -1, %1055 ], [ -1, %1261 ], [ -1, %1270 ], [ -1, %1290 ], [ -1, %1360 ], [ -1, %1374 ], [ -1, %1387 ], [ -1, %1399 ], [ -1, %1418 ], [ -1, %1435 ], [ -1, %1451 ], [ -1, %1482 ], [ -1, %1557 ], [ -1, %1601 ], [ -1, %1632 ], [ -1, %1639 ], [ -1, %1646 ], [ -1, %1653 ], [ -1, %1663 ], [ -1, %1677 ], [ -1, %1682 ], [ -1, %1545 ], [ -1, %1458 ], [ -1, %1353 ], [ -1, %1281 ], [ -1, %1092 ], [ -1, %1098 ], [ -1, %938 ], [ -1, %918 ], [ -1, %876 ], [ -1, %713 ], [ -1, %698 ], [ -1, %39 ], [ -1, %_load_slurmctld_host.exit ], [ -1, %_validate_bcast_exclude.exit ], [ 0, %1813 ], [ 0, %1811 ]
   ret i32 %.0
 }
 
@@ -14939,7 +14939,7 @@ declare i32 @slurm_find_char_in_list(ptr noundef, ptr noundef) #1
 declare ptr @slurm_char_list_to_xstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_validate_accounting_storage_enforce.argprom(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_validate_accounting_storage_enforce(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -15072,7 +15072,7 @@ define internal fastcc range(i32 -1, 1) i32 @_validate_accounting_storage_enforc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_is_valid_path.argprom(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_is_valid_path(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct.stat, align 8
@@ -15394,7 +15394,7 @@ define internal fastcc noundef ptr @_parse_srun_ports(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_sort_task_plugin.argprom() unnamed_addr #0 {
+define internal fastcc void @_sort_task_plugin() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   store ptr null, ptr %1, align 8

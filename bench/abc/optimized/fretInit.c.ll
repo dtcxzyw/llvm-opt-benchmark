@@ -261,7 +261,7 @@ define void @Abc_FlowRetime_UpdateBackwardInit(ptr nocapture noundef readonly %0
 ._crit_edge.i:                                    ; preds = %29
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %39, i64 160
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %Abc_FlowRetime_ClearInitToOrig.argprom.exit
+  br label %Abc_FlowRetime_ClearInitToOrig.exit
 
 42:                                               ; preds = %29
   %43 = sitofp i32 %.val75 to double
@@ -284,9 +284,9 @@ define void @Abc_FlowRetime_UpdateBackwardInit(ptr nocapture noundef readonly %0
   %58 = sext i32 %57 to i64
   %59 = shl nsw i64 %58, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %54, i8 0, i64 %59, i1 false)
-  br label %Abc_FlowRetime_ClearInitToOrig.argprom.exit
+  br label %Abc_FlowRetime_ClearInitToOrig.exit
 
-Abc_FlowRetime_ClearInitToOrig.argprom.exit:      ; preds = %._crit_edge.i, %42
+Abc_FlowRetime_ClearInitToOrig.exit:              ; preds = %._crit_edge.i, %42
   %60 = phi ptr [ %50, %42 ], [ %.pre.i, %._crit_edge.i ]
   %61 = sext i32 %.val75 to i64
   %62 = getelementptr inbounds %struct.NodeLag_T_, ptr %60, i64 %61
@@ -307,11 +307,11 @@ Abc_FlowRetime_ClearInitToOrig.argprom.exit:      ; preds = %._crit_edge.i, %42
   %72 = icmp eq i32 %70, %71
   br i1 %72, label %73, label %.Vec_PtrGrow.exit11_crit_edge.i
 
-.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Abc_FlowRetime_ClearInitToOrig.argprom.exit
+.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Abc_FlowRetime_ClearInitToOrig.exit
   %.pre.i79 = load ptr, ptr %5, align 8
   br label %Vec_PtrPush.exit
 
-73:                                               ; preds = %Abc_FlowRetime_ClearInitToOrig.argprom.exit
+73:                                               ; preds = %Abc_FlowRetime_ClearInitToOrig.exit
   %74 = icmp slt i32 %70, 16
   br i1 %74, label %75, label %82
 
@@ -659,7 +659,7 @@ define internal fastcc void @Abc_FlowRetime_UpdateForwardInit_rec(ptr noundef %0
   %.val3.i = load i32, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %.val2.i, i64 224
   %9 = add nsw i32 %.val3.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %8, i32 noundef %9)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %8, i32 noundef %9)
   %10 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %10, align 8
   %11 = sext i32 %.val3.i to i64
@@ -675,7 +675,7 @@ define internal fastcc void @Abc_FlowRetime_UpdateForwardInit_rec(ptr noundef %0
   %.val11 = load i32, ptr %7, align 8
   %17 = getelementptr inbounds i8, ptr %.val.i, i64 224
   %18 = add nsw i32 %.val11, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %17, i32 noundef %18)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %17, i32 noundef %18)
   %19 = getelementptr i8, ptr %.val.i, i64 232
   %.val.i.i.i15 = load ptr, ptr %19, align 8
   %20 = sext i32 %.val11 to i64
@@ -1042,7 +1042,7 @@ define internal fastcc void @Abc_FlowRetime_UpdateForwardInit_rec(ptr noundef %0
 
 .critedge2.i:                                     ; preds = %185, %.preheader194.i
   %223 = load ptr, ptr %37, align 8
-  call fastcc void @Abc_FlowRetime_EvalHop_rec.argprom(ptr noundef %223, ptr noundef %2, ptr noundef %3)
+  call fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %223, ptr noundef %2, ptr noundef %3)
   %224 = load i32, ptr %2, align 4
   %225 = load i32, ptr %3, align 4
   tail call fastcc void @Abc_FlowRetime_SetInitValue(ptr noundef nonnull %0, i32 noundef %224, i32 noundef %225)
@@ -1736,7 +1736,7 @@ declare i32 @Abc_NtkMiterSat(ptr noundef, i64 noundef, i64 noundef, i32 noundef,
 declare ptr @Abc_NtkCreateNodeBuf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Abc_FlowRetime_ClearInitToOrig.argprom(i32 %.16.val) unnamed_addr #4 {
+define internal fastcc void @Abc_FlowRetime_ClearInitToOrig(i32 %.16.val) unnamed_addr #4 {
   %1 = load ptr, ptr @pManMR, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 168
   %3 = load i32, ptr %2, align 8
@@ -1854,7 +1854,7 @@ define internal fastcc ptr @Abc_FlowRetime_UpdateBackwardInit_rec(ptr noundef %0
 ._crit_edge.i.i:                                  ; preds = %42
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %40, i64 160
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  br label %Abc_FlowRetime_ClearInitToOrig.argprom.exit.i
+  br label %Abc_FlowRetime_ClearInitToOrig.exit.i
 
 43:                                               ; preds = %42
   %44 = getelementptr inbounds i8, ptr %40, i64 168
@@ -1878,9 +1878,9 @@ define internal fastcc ptr @Abc_FlowRetime_UpdateBackwardInit_rec(ptr noundef %0
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %56, i8 0, i64 %61, i1 false)
-  br label %Abc_FlowRetime_ClearInitToOrig.argprom.exit.i
+  br label %Abc_FlowRetime_ClearInitToOrig.exit.i
 
-Abc_FlowRetime_ClearInitToOrig.argprom.exit.i:    ; preds = %43, %._crit_edge.i.i
+Abc_FlowRetime_ClearInitToOrig.exit.i:            ; preds = %43, %._crit_edge.i.i
   %62 = phi ptr [ %52, %43 ], [ %.pre.i.i, %._crit_edge.i.i ]
   %63 = sext i32 %.val15.i to i64
   %64 = getelementptr inbounds %struct.NodeLag_T_, ptr %62, i64 %63
@@ -1971,7 +1971,7 @@ Abc_NtkIncrementTravId.exit.i.i:                  ; preds = %Vec_IntFill.exit.i.
   %.val3.i.i.i = load i32, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %.val2.i.i.i, i64 224
   %96 = add nsw i32 %.val3.i.i.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %95, i32 noundef %96)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %95, i32 noundef %96)
   %97 = getelementptr i8, ptr %.val2.i.i.i, i64 232
   %.val.i.i.i.i.i = load ptr, ptr %97, align 8
   %98 = sext i32 %.val3.i.i.i to i64
@@ -1987,7 +1987,7 @@ Abc_NtkIncrementTravId.exit.i.i:                  ; preds = %Vec_IntFill.exit.i.
   %.val25.i.i = load i32, ptr %94, align 8
   %104 = getelementptr inbounds i8, ptr %.val.i27.i.i, i64 224
   %105 = add nsw i32 %.val25.i.i, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %104, i32 noundef %105)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %104, i32 noundef %105)
   %106 = getelementptr i8, ptr %.val.i27.i.i, i64 232
   %.val.i.i.i28.i.i = load ptr, ptr %106, align 8
   %107 = sext i32 %.val25.i.i to i64
@@ -2021,7 +2021,7 @@ Abc_FlowRetime_ObjFirstNonLatchBox.exit.i:        ; preds = %.critedge.i.i, %86
   store i32 %119, ptr %123, align 4
   br label %Abc_FlowRetime_SetInitToOrig.exit
 
-Abc_FlowRetime_SetInitToOrig.exit:                ; preds = %Abc_FlowRetime_ClearInitToOrig.argprom.exit.i, %Abc_FlowRetime_ObjFirstNonLatchBox.exit.i
+Abc_FlowRetime_SetInitToOrig.exit:                ; preds = %Abc_FlowRetime_ClearInitToOrig.exit.i, %Abc_FlowRetime_ObjFirstNonLatchBox.exit.i
   %124 = load ptr, ptr @pManMR, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 112
   %126 = load ptr, ptr %125, align 8
@@ -2120,7 +2120,7 @@ define ptr @Abc_FlowRetime_CopyNodeToInitNtk(ptr noundef %0) local_unnamed_addr 
 ._crit_edge.i:                                    ; preds = %11
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %14, i64 160
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %Abc_FlowRetime_ClearInitToOrig.argprom.exit
+  br label %Abc_FlowRetime_ClearInitToOrig.exit
 
 17:                                               ; preds = %11
   %18 = sitofp i32 %.val51 to double
@@ -2143,9 +2143,9 @@ define ptr @Abc_FlowRetime_CopyNodeToInitNtk(ptr noundef %0) local_unnamed_addr 
   %33 = sext i32 %32 to i64
   %34 = shl nsw i64 %33, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 %34, i1 false)
-  br label %Abc_FlowRetime_ClearInitToOrig.argprom.exit
+  br label %Abc_FlowRetime_ClearInitToOrig.exit
 
-Abc_FlowRetime_ClearInitToOrig.argprom.exit:      ; preds = %._crit_edge.i, %17
+Abc_FlowRetime_ClearInitToOrig.exit:              ; preds = %._crit_edge.i, %17
   %35 = phi ptr [ %25, %17 ], [ %.pre.i, %._crit_edge.i ]
   %36 = sext i32 %.val51 to i64
   %37 = getelementptr inbounds %struct.NodeLag_T_, ptr %35, i64 %36
@@ -2179,7 +2179,7 @@ Abc_FlowRetime_ClearInitToOrig.argprom.exit:      ; preds = %._crit_edge.i, %17
   %50 = tail call ptr @Abc_NtkCreateNodeBuf(ptr noundef %7, ptr noundef null) #17
   %51 = getelementptr i8, ptr %50, i64 16
   %.val50 = load i32, ptr %51, align 8
-  tail call fastcc void @Abc_FlowRetime_ClearInitToOrig.argprom(i32 %.val50)
+  tail call fastcc void @Abc_FlowRetime_ClearInitToOrig(i32 %.val50)
   br label %88
 
 52:                                               ; preds = %48
@@ -2217,7 +2217,7 @@ Abc_FlowRetime_ClearInitToOrig.argprom.exit:      ; preds = %._crit_edge.i, %17
   %70 = tail call ptr @Abc_NtkCreateNodeBuf(ptr noundef %7, ptr noundef null) #17
   %71 = getelementptr i8, ptr %70, i64 16
   %.val49 = load i32, ptr %71, align 8
-  tail call fastcc void @Abc_FlowRetime_ClearInitToOrig.argprom(i32 %.val49)
+  tail call fastcc void @Abc_FlowRetime_ClearInitToOrig(i32 %.val49)
   br label %88
 
 72:                                               ; preds = %66
@@ -2242,8 +2242,8 @@ Abc_FlowRetime_ClearInitToOrig.argprom.exit:      ; preds = %._crit_edge.i, %17
   store i32 %87, ptr %84, align 4
   br label %88
 
-88:                                               ; preds = %52, %80, %72, %69, %49, %46, %Abc_FlowRetime_ClearInitToOrig.argprom.exit
-  %.036 = phi ptr [ %12, %Abc_FlowRetime_ClearInitToOrig.argprom.exit ], [ %47, %46 ], [ %50, %49 ], [ %70, %69 ], [ %53, %52 ], [ %73, %72 ], [ %81, %80 ]
+88:                                               ; preds = %52, %80, %72, %69, %49, %46, %Abc_FlowRetime_ClearInitToOrig.exit
+  %.036 = phi ptr [ %12, %Abc_FlowRetime_ClearInitToOrig.exit ], [ %47, %46 ], [ %50, %49 ], [ %70, %69 ], [ %53, %52 ], [ %73, %72 ], [ %81, %80 ]
   ret ptr %.036
 }
 
@@ -3078,8 +3078,8 @@ define void @Abc_FlowRetime_AddInitBias() local_unnamed_addr #0 {
   %53 = getelementptr i8, ptr %46, i64 32
   br label %54
 
-54:                                               ; preds = %.lr.ph, %Abc_FlowRetime_ConnectBiasNode.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_FlowRetime_ConnectBiasNode.argprom.exit ]
+54:                                               ; preds = %.lr.ph, %Abc_FlowRetime_ConnectBiasNode.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_FlowRetime_ConnectBiasNode.exit ]
   %.val27 = load ptr, ptr %52, align 8
   %55 = getelementptr inbounds i32, ptr %.val27, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
@@ -3610,13 +3610,13 @@ Vec_PtrFree.exit.i:                               ; preds = %279, %.critedge._cr
   tail call void @free(ptr noundef nonnull %63) #17
   %280 = load ptr, ptr %70, align 8
   %.not.i73.i = icmp eq ptr %280, null
-  br i1 %.not.i73.i, label %Abc_FlowRetime_ConnectBiasNode.argprom.exit, label %281
+  br i1 %.not.i73.i, label %Abc_FlowRetime_ConnectBiasNode.exit, label %281
 
 281:                                              ; preds = %Vec_PtrFree.exit.i
   tail call void @free(ptr noundef nonnull %280) #17
-  br label %Abc_FlowRetime_ConnectBiasNode.argprom.exit
+  br label %Abc_FlowRetime_ConnectBiasNode.exit
 
-Abc_FlowRetime_ConnectBiasNode.argprom.exit:      ; preds = %Vec_PtrFree.exit.i, %281
+Abc_FlowRetime_ConnectBiasNode.exit:              ; preds = %Vec_PtrFree.exit.i, %281
   tail call void @free(ptr noundef nonnull %67) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val30 = load i32, ptr %50, align 4
@@ -3624,7 +3624,7 @@ Abc_FlowRetime_ConnectBiasNode.argprom.exit:      ; preds = %Vec_PtrFree.exit.i,
   %283 = icmp slt i64 %indvars.iv.next, %282
   br i1 %283, label %54, label %.critedge2, !llvm.loop !33
 
-.critedge2:                                       ; preds = %Abc_FlowRetime_ConnectBiasNode.argprom.exit, %48, %42
+.critedge2:                                       ; preds = %Abc_FlowRetime_ConnectBiasNode.exit, %48, %42
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %284 = load ptr, ptr @pManMR, align 8
   %285 = getelementptr inbounds i8, ptr %284, i64 136
@@ -3643,7 +3643,7 @@ Abc_FlowRetime_ConnectBiasNode.argprom.exit:      ; preds = %Vec_PtrFree.exit.i,
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -3914,7 +3914,7 @@ declare ptr @Cudd_Cofactor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @Cudd_ReadOne(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Abc_FlowRetime_EvalHop_rec.argprom(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
+define internal fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3965,10 +3965,10 @@ tailrecurse:                                      ; preds = %26, %3
 28:                                               ; preds = %tailrecurse
   %29 = getelementptr i8, ptr %10, i64 16
   %.val36 = load ptr, ptr %29, align 8
-  call fastcc void @Abc_FlowRetime_EvalHop_rec.argprom(ptr noundef %.val36, ptr noundef %4, ptr noundef %5)
+  call fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %.val36, ptr noundef %4, ptr noundef %5)
   %30 = getelementptr i8, ptr %10, i64 24
   %.val38 = load ptr, ptr %30, align 8
-  call fastcc void @Abc_FlowRetime_EvalHop_rec.argprom(ptr noundef %.val38, ptr noundef %6, ptr noundef %7)
+  call fastcc void @Abc_FlowRetime_EvalHop_rec(ptr noundef %.val38, ptr noundef %6, ptr noundef %7)
   %31 = load i32, ptr %5, align 4
   %32 = load i32, ptr %6, align 4
   %33 = and i32 %32, %31

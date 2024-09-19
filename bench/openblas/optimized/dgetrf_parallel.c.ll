@@ -410,7 +410,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   store ptr null, ptr %270, align 8, !tbaa !30
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !36
   %271 = call i32 @exec_blas_async(i64 noundef 0, ptr noundef nonnull %14) #6
-  call fastcc void @inner_basic_thread.argprom(ptr noundef nonnull %12, i64 0, i64 %127, ptr noundef %3, ptr noundef %69)
+  call fastcc void @inner_basic_thread(ptr noundef nonnull %12, i64 0, i64 %127, ptr noundef %3, ptr noundef %69)
   %272 = call i32 @dgetrf_single(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %11, ptr noundef %3, ptr noundef %69, i64 noundef 0) #6
   %273 = trunc i64 %89 to i32
   br label %274
@@ -450,7 +450,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   store i64 %295, ptr %11, align 16, !tbaa !13
   %296 = add nsw i64 %294, %295
   store i64 %296, ptr %60, align 8, !tbaa !13
-  call fastcc void @inner_basic_thread.argprom(ptr noundef nonnull %12, i64 0, i64 %127, ptr noundef %3, ptr noundef %69)
+  call fastcc void @inner_basic_thread(ptr noundef nonnull %12, i64 0, i64 %127, ptr noundef %3, ptr noundef %69)
   %297 = call i32 @dgetrf_single(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %11, ptr noundef %3, ptr noundef %69, i64 noundef 0) #6
   %298 = icmp eq i32 %297, 0
   %299 = icmp ne i32 %86, 0
@@ -913,7 +913,7 @@ define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonl
 declare i32 @exec_blas_async(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @inner_basic_thread.argprom(ptr nocapture noundef nonnull readonly %0, i64 %.0.val, i64 %.8.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @inner_basic_thread(ptr nocapture noundef nonnull readonly %0, i64 %.0.val, i64 %.8.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %0, i64 64

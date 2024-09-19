@@ -340,15 +340,15 @@ define internal i32 @dissect_netlink_sock_diag(ptr noundef %0, ptr noundef %1, p
   %.057.i.i.i.i = phi i32 [ %33, %32 ], [ %37, %36 ]
   %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i.i) #4
   %.not.i.i.i.i = icmp eq i8 %35, 0
-  br i1 %.not.i.i.i.i, label %36, label %dissect_sock_diag_unix_request.argprom.exit.i
+  br i1 %.not.i.i.i.i, label %36, label %dissect_sock_diag_unix_request.exit.i
 
 36:                                               ; preds = %34
   %37 = add i32 %.057.i.i.i.i, 1
   %38 = add nsw i32 %.08.i.i.i.i, -1
   %.not.i.i = icmp eq i32 %.08.i.i.i.i, 0
-  br i1 %.not.i.i, label %dissect_sock_diag_unix_request.argprom.exit.i, label %34, !llvm.loop !4
+  br i1 %.not.i.i, label %dissect_sock_diag_unix_request.exit.i, label %34, !llvm.loop !4
 
-dissect_sock_diag_unix_request.argprom.exit.i:    ; preds = %36, %34
+dissect_sock_diag_unix_request.exit.i:            ; preds = %36, %34
   %39 = add i32 %21, 8
   %40 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
   %41 = load i32, ptr %18, align 4
@@ -455,15 +455,15 @@ dissect_sock_diag_unix_reply.exit.i:              ; preds = %88, %86
   %.057.i.i.i53.i = phi i32 [ %120, %114 ], [ %124, %123 ]
   %122 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i53.i) #4
   %.not.i.i.i54.i = icmp eq i8 %122, 0
-  br i1 %.not.i.i.i54.i, label %123, label %dissect_sock_diag_inet_request.argprom.exit.i
+  br i1 %.not.i.i.i54.i, label %123, label %dissect_sock_diag_inet_request.exit.i
 
 123:                                              ; preds = %121
   %124 = add i32 %.057.i.i.i53.i, 1
   %125 = add nsw i32 %.08.i.i.i52.i, -1
   %.not.i55.i = icmp eq i32 %.08.i.i.i52.i, 0
-  br i1 %.not.i55.i, label %dissect_sock_diag_inet_request.argprom.exit.i, label %121, !llvm.loop !4
+  br i1 %.not.i55.i, label %dissect_sock_diag_inet_request.exit.i, label %121, !llvm.loop !4
 
-dissect_sock_diag_inet_request.argprom.exit.i:    ; preds = %123, %121
+dissect_sock_diag_inet_request.exit.i:            ; preds = %123, %121
   %126 = load i32, ptr @hf_netlink_sock_diag_inet_padding, align 4
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %126, ptr noundef %0, i32 noundef %120, i32 noundef 1, i32 noundef 0) #4
   %128 = add i32 %21, 4
@@ -471,7 +471,7 @@ dissect_sock_diag_inet_request.argprom.exit.i:    ; preds = %123, %121
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %129, ptr noundef %0, i32 noundef %128, i32 noundef 4, i32 noundef 0) #4
   %131 = add i32 %21, 8
   %132 = zext i8 %110 to i32
-  %133 = tail call fastcc noundef i32 @dissect_sock_diag_inet_sockid.argprom(ptr noundef %0, ptr noundef readonly %3, ptr noundef %17, i32 noundef %131, i32 noundef %132)
+  %133 = tail call fastcc noundef i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr noundef readonly %3, ptr noundef %17, i32 noundef %131, i32 noundef %132)
   br label %dissect_sock_diag_by_family.exit
 
 134:                                              ; preds = %109
@@ -479,7 +479,7 @@ dissect_sock_diag_inet_request.argprom.exit.i:    ; preds = %123, %121
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %135, ptr noundef %0, i32 noundef %113, i32 noundef 1, i32 noundef 0) #4
   %137 = add i32 %21, 4
   %138 = zext i8 %110 to i32
-  %139 = tail call fastcc i32 @dissect_sock_diag_inet_sockid.argprom(ptr noundef %0, ptr noundef %3, ptr noundef %17, i32 noundef %137, i32 noundef %138)
+  %139 = tail call fastcc i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr noundef %3, ptr noundef %17, i32 noundef %137, i32 noundef %138)
   %140 = add i32 %139, 4
   %141 = load i32, ptr @hf_netlink_sock_diag_rqueue, align 4
   %142 = load i32, ptr %18, align 4
@@ -515,15 +515,15 @@ dissect_sock_diag_inet_request.argprom.exit.i:    ; preds = %123, %121
   %.057.i.i.i57.i = phi i32 [ %163, %160 ], [ %167, %166 ]
   %165 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i57.i) #4
   %.not.i.i.i58.i = icmp eq i8 %165, 0
-  br i1 %.not.i.i.i58.i, label %166, label %dissect_sock_diag_netlink_request.argprom.exit.i
+  br i1 %.not.i.i.i58.i, label %166, label %dissect_sock_diag_netlink_request.exit.i
 
 166:                                              ; preds = %164
   %167 = add i32 %.057.i.i.i57.i, 1
   %168 = add nsw i32 %.08.i.i.i56.i, -1
   %.not.i59.i = icmp eq i32 %.08.i.i.i56.i, 0
-  br i1 %.not.i59.i, label %dissect_sock_diag_netlink_request.argprom.exit.i, label %164, !llvm.loop !4
+  br i1 %.not.i59.i, label %dissect_sock_diag_netlink_request.exit.i, label %164, !llvm.loop !4
 
-dissect_sock_diag_netlink_request.argprom.exit.i: ; preds = %166, %164
+dissect_sock_diag_netlink_request.exit.i:         ; preds = %166, %164
   %169 = add i32 %21, 4
   %170 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
   %171 = load i32, ptr %18, align 4
@@ -611,15 +611,15 @@ dissect_sock_diag_netlink_request.argprom.exit.i: ; preds = %166, %164
   %.057.i.i.i61.i = phi i32 [ %239, %240 ], [ %246, %245 ]
   %244 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i.i61.i) #4
   %.not.i.i.i62.i = icmp eq i8 %244, 0
-  br i1 %.not.i.i.i62.i, label %245, label %dissect_sock_diag_packet_request.argprom.exit.i
+  br i1 %.not.i.i.i62.i, label %245, label %dissect_sock_diag_packet_request.exit.i
 
 245:                                              ; preds = %243
   %246 = add i32 %.057.i.i.i61.i, 1
   %247 = add nsw i32 %.08.i.i.i60.i, -1
   %.not.i63.i = icmp eq i32 %.08.i.i.i60.i, 0
-  br i1 %.not.i63.i, label %dissect_sock_diag_packet_request.argprom.exit.i, label %243, !llvm.loop !4
+  br i1 %.not.i63.i, label %dissect_sock_diag_packet_request.exit.i, label %243, !llvm.loop !4
 
-dissect_sock_diag_packet_request.argprom.exit.i:  ; preds = %245, %243
+dissect_sock_diag_packet_request.exit.i:          ; preds = %245, %243
   %248 = add i32 %21, 4
   %249 = load i32, ptr @hf_netlink_sock_diag_inode, align 4
   %250 = load i32, ptr %18, align 4
@@ -687,8 +687,8 @@ dissect_sock_diag_packet_request.argprom.exit.i:  ; preds = %245, %243
   %310 = call i32 @dissect_netlink_attributes_to_end(ptr noundef %0, i32 noundef %308, i32 noundef %309, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %17, i32 noundef %307, ptr noundef nonnull @dissect_netlink_packet_sock_diag_reply_attrs) #4
   br label %dissect_sock_diag_by_family.exit
 
-dissect_sock_diag_by_family.exit:                 ; preds = %287, %dissect_sock_diag_packet_request.argprom.exit.i, %199, %dissect_sock_diag_netlink_request.argprom.exit.i, %134, %dissect_sock_diag_inet_request.argprom.exit.i, %dissect_sock_diag_unix_reply.exit.i, %dissect_sock_diag_unix_request.argprom.exit.i, %24, %10
-  %.0 = phi i32 [ %21, %10 ], [ %21, %24 ], [ %77, %dissect_sock_diag_unix_request.argprom.exit.i ], [ %108, %dissect_sock_diag_unix_reply.exit.i ], [ %133, %dissect_sock_diag_inet_request.argprom.exit.i ], [ %155, %134 ], [ %198, %dissect_sock_diag_netlink_request.argprom.exit.i ], [ %234, %199 ], [ %286, %dissect_sock_diag_packet_request.argprom.exit.i ], [ %310, %287 ]
+dissect_sock_diag_by_family.exit:                 ; preds = %287, %dissect_sock_diag_packet_request.exit.i, %199, %dissect_sock_diag_netlink_request.exit.i, %134, %dissect_sock_diag_inet_request.exit.i, %dissect_sock_diag_unix_reply.exit.i, %dissect_sock_diag_unix_request.exit.i, %24, %10
+  %.0 = phi i32 [ %21, %10 ], [ %21, %24 ], [ %77, %dissect_sock_diag_unix_request.exit.i ], [ %108, %dissect_sock_diag_unix_reply.exit.i ], [ %133, %dissect_sock_diag_inet_request.exit.i ], [ %155, %134 ], [ %198, %dissect_sock_diag_netlink_request.exit.i ], [ %234, %199 ], [ %286, %dissect_sock_diag_packet_request.exit.i ], [ %310, %287 ]
   ret i32 %.0
 }
 
@@ -725,7 +725,7 @@ declare i32 @dissect_netlink_attributes_to_end(ptr noundef, i32 noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca i32, align 4
-  switch i32 %4, label %dissect_sock_diag_meminfo.argprom.exit [
+  switch i32 %4, label %dissect_sock_diag_meminfo.exit [
     i32 0, label %9
     i32 2, label %27
     i32 4, label %35
@@ -761,11 +761,11 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.168, ptr noundef %.0) #4
   %25 = load i32, ptr @hf_netlink_sock_diag_unix_name, align 4
   %26 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %25, ptr noundef %0, i32 noundef %5, i32 noundef %6, ptr noundef %.0) #4
-  br label %dissect_sock_diag_meminfo.argprom.exit
+  br label %dissect_sock_diag_meminfo.exit
 
 27:                                               ; preds = %7
   %28 = icmp eq i32 %6, 4
-  br i1 %28, label %29, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %28, label %29, label %dissect_sock_diag_meminfo.exit
 
 29:                                               ; preds = %27
   %30 = load i32, ptr @hf_netlink_sock_diag_unix_peer_inode, align 4
@@ -774,11 +774,11 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %32, ptr noundef nonnull %8) #4
   %34 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.169, i32 noundef %34) #4
-  br label %dissect_sock_diag_meminfo.argprom.exit
+  br label %dissect_sock_diag_meminfo.exit
 
 35:                                               ; preds = %7
   %36 = icmp eq i32 %6, 8
-  br i1 %36, label %37, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %36, label %37, label %dissect_sock_diag_meminfo.exit
 
 37:                                               ; preds = %35
   %38 = load i32, ptr @hf_netlink_sock_diag_rqueue, align 4
@@ -788,18 +788,18 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   %42 = load i32, ptr @hf_netlink_sock_diag_wqueue, align 4
   %43 = load i32, ptr %39, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %42, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %43) #4
-  br label %dissect_sock_diag_meminfo.argprom.exit
+  br label %dissect_sock_diag_meminfo.exit
 
 45:                                               ; preds = %7
   %46 = icmp ne i32 %6, 0
   %47 = and i32 %6, 3
   %.not.i = icmp eq i32 %47, 0
   %or.cond.i = and i1 %46, %.not.i
-  br i1 %or.cond.i, label %.preheader.i, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %or.cond.i, label %.preheader.i, label %dissect_sock_diag_meminfo.exit
 
 .preheader.i:                                     ; preds = %45
   %48 = icmp sgt i32 %6, 3
-  br i1 %48, label %.lr.ph.i, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %48, label %.lr.ph.i, label %dissect_sock_diag_meminfo.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %49 = getelementptr inbounds i8, ptr %2, i64 4
@@ -821,11 +821,11 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   %60 = add i32 %.0141.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %53
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.argprom.exit, label %54, !llvm.loop !6
+  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %54, !llvm.loop !6
 
 61:                                               ; preds = %7
   %62 = icmp eq i32 %6, 1
-  br i1 %62, label %63, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %62, label %63, label %dissect_sock_diag_meminfo.exit
 
 63:                                               ; preds = %61
   %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #4
@@ -834,9 +834,9 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   %67 = zext i8 %64 to i32
   %68 = tail call ptr @val_to_str(i32 noundef %67, ptr noundef nonnull @netlink_sock_diag_shutdown_flags_vals, ptr noundef nonnull @.str.170) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.168, ptr noundef %68) #4
-  br label %dissect_sock_diag_meminfo.argprom.exit
+  br label %dissect_sock_diag_meminfo.exit
 
-dissect_sock_diag_meminfo.argprom.exit:           ; preds = %54, %.preheader.i, %45, %7, %61, %63, %35, %27, %37, %29, %24
+dissect_sock_diag_meminfo.exit:                   ; preds = %54, %.preheader.i, %45, %7, %61, %63, %35, %27, %37, %29, %24
   %.044 = phi i32 [ 1, %37 ], [ 1, %29 ], [ 1, %24 ], [ 0, %27 ], [ 0, %35 ], [ 0, %63 ], [ 0, %61 ], [ 0, %7 ], [ 0, %45 ], [ 1, %.preheader.i ], [ 1, %54 ]
   ret i32 %.044
 }
@@ -856,7 +856,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_sock_diag_inet_sockid.argprom(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_sock_diag_inet_sockid(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_netlink_sock_diag_inet_sport, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #4
   %8 = add i32 %3, 2
@@ -880,33 +880,33 @@ define internal fastcc noundef i32 @dissect_sock_diag_inet_sockid.argprom(ptr no
   %.057.i.i = phi i32 [ %15, %12 ], [ %19, %18 ]
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i) #4
   %.not.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i, label %18, label %_dissect_padding.argprom.exit
+  br i1 %.not.i.i, label %18, label %_dissect_padding.exit
 
 18:                                               ; preds = %16
   %19 = add i32 %.057.i.i, 1
   %20 = add nsw i32 %.08.i.i, -1
   %.not = icmp eq i32 %.08.i.i, 0
-  br i1 %.not, label %_dissect_padding.argprom.exit, label %16, !llvm.loop !4
+  br i1 %.not, label %_dissect_padding.exit, label %16, !llvm.loop !4
 
-_dissect_padding.argprom.exit:                    ; preds = %16, %18
+_dissect_padding.exit:                            ; preds = %16, %18
   %21 = add i32 %3, 20
   %22 = load i32, ptr @hf_netlink_sock_diag_inet_dst_ip4, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef 0) #4
   %24 = add i32 %3, 24
   br label %25
 
-25:                                               ; preds = %27, %_dissect_padding.argprom.exit
-  %.08.i.i44 = phi i32 [ 12, %_dissect_padding.argprom.exit ], [ %29, %27 ]
-  %.057.i.i45 = phi i32 [ %24, %_dissect_padding.argprom.exit ], [ %28, %27 ]
+25:                                               ; preds = %27, %_dissect_padding.exit
+  %.08.i.i44 = phi i32 [ 12, %_dissect_padding.exit ], [ %29, %27 ]
+  %.057.i.i45 = phi i32 [ %24, %_dissect_padding.exit ], [ %28, %27 ]
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.057.i.i45) #4
   %.not.i.i46 = icmp eq i8 %26, 0
-  br i1 %.not.i.i46, label %27, label %_dissect_padding.argprom.exit47
+  br i1 %.not.i.i46, label %27, label %_dissect_padding.exit47
 
 27:                                               ; preds = %25
   %28 = add i32 %.057.i.i45, 1
   %29 = add nsw i32 %.08.i.i44, -1
   %.not1 = icmp eq i32 %.08.i.i44, 0
-  br i1 %.not1, label %_dissect_padding.argprom.exit47, label %25, !llvm.loop !4
+  br i1 %.not1, label %_dissect_padding.exit47, label %25, !llvm.loop !4
 
 30:                                               ; preds = %5
   %31 = load i32, ptr @hf_netlink_sock_diag_inet_src_ip6, align 4
@@ -914,13 +914,13 @@ _dissect_padding.argprom.exit:                    ; preds = %16, %18
   %33 = add i32 %3, 20
   %34 = load i32, ptr @hf_netlink_sock_diag_inet_dst_ip6, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 16, i32 noundef 0) #4
-  br label %_dissect_padding.argprom.exit47
+  br label %_dissect_padding.exit47
 
 36:                                               ; preds = %5
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.164, i32 noundef 603) #5
   unreachable
 
-_dissect_padding.argprom.exit47:                  ; preds = %27, %25, %30
+_dissect_padding.exit47:                          ; preds = %27, %25, %30
   %.0 = add i32 %3, 36
   %37 = load i32, ptr @hf_netlink_sock_diag_inet_interface, align 4
   %38 = getelementptr inbounds i8, ptr %1, i64 4
@@ -942,7 +942,7 @@ _dissect_padding.argprom.exit47:                  ; preds = %27, %25, %30
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
-  switch i32 %4, label %dissect_sock_diag_meminfo.argprom.exit [
+  switch i32 %4, label %dissect_sock_diag_meminfo.exit [
     i32 1, label %8
     i32 7, label %27
     i32 8, label %43
@@ -950,7 +950,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
 
 8:                                                ; preds = %7
   %9 = icmp eq i32 %6, 16
-  br i1 %9, label %10, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %9, label %10, label %dissect_sock_diag_meminfo.exit
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @hf_netlink_sock_diag_rmem_alloc, align 4
@@ -969,18 +969,18 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
   %24 = load i32, ptr @hf_netlink_sock_diag_wmem_alloc, align 4
   %25 = load i32, ptr %12, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef %25) #4
-  br label %dissect_sock_diag_meminfo.argprom.exit
+  br label %dissect_sock_diag_meminfo.exit
 
 27:                                               ; preds = %7
   %28 = icmp ne i32 %6, 0
   %29 = and i32 %6, 3
   %.not.i = icmp eq i32 %29, 0
   %or.cond.i = and i1 %28, %.not.i
-  br i1 %or.cond.i, label %.preheader.i, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %or.cond.i, label %.preheader.i, label %dissect_sock_diag_meminfo.exit
 
 .preheader.i:                                     ; preds = %27
   %30 = icmp sgt i32 %6, 3
-  br i1 %30, label %.lr.ph.i, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %30, label %.lr.ph.i, label %dissect_sock_diag_meminfo.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %31 = getelementptr inbounds i8, ptr %2, i64 4
@@ -1002,11 +1002,11 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
   %42 = add i32 %.0141.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %35
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.argprom.exit, label %36, !llvm.loop !6
+  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %36, !llvm.loop !6
 
 43:                                               ; preds = %7
   %44 = icmp eq i32 %6, 1
-  br i1 %44, label %45, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %44, label %45, label %dissect_sock_diag_meminfo.exit
 
 45:                                               ; preds = %43
   %46 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #4
@@ -1015,9 +1015,9 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
   %49 = zext i8 %46 to i32
   %50 = tail call ptr @val_to_str(i32 noundef %49, ptr noundef nonnull @netlink_sock_diag_shutdown_flags_vals, ptr noundef nonnull @.str.170) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.168, ptr noundef %50) #4
-  br label %dissect_sock_diag_meminfo.argprom.exit
+  br label %dissect_sock_diag_meminfo.exit
 
-dissect_sock_diag_meminfo.argprom.exit:           ; preds = %36, %.preheader.i, %27, %7, %43, %45, %8, %10
+dissect_sock_diag_meminfo.exit:                   ; preds = %36, %.preheader.i, %27, %7, %43, %45, %8, %10
   %.0 = phi i32 [ 1, %10 ], [ 0, %8 ], [ 0, %45 ], [ 0, %43 ], [ 0, %7 ], [ 0, %27 ], [ 1, %.preheader.i ], [ 1, %36 ]
   ret i32 %.0
 }
@@ -1025,18 +1025,18 @@ dissect_sock_diag_meminfo.argprom.exit:           ; preds = %36, %.preheader.i, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_sock_diag_netlink_attributes(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %cond = icmp eq i32 %4, 0
-  br i1 %cond, label %8, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %cond, label %8, label %dissect_sock_diag_meminfo.exit
 
 8:                                                ; preds = %7
   %9 = icmp ne i32 %6, 0
   %10 = and i32 %6, 3
   %.not.i = icmp eq i32 %10, 0
   %or.cond.i = and i1 %9, %.not.i
-  br i1 %or.cond.i, label %.preheader.i, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %or.cond.i, label %.preheader.i, label %dissect_sock_diag_meminfo.exit
 
 .preheader.i:                                     ; preds = %8
   %11 = icmp sgt i32 %6, 3
-  br i1 %11, label %.lr.ph.i, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %11, label %.lr.ph.i, label %dissect_sock_diag_meminfo.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %12 = getelementptr inbounds i8, ptr %2, i64 4
@@ -1058,9 +1058,9 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_netlink_attributes(ptr no
   %23 = add i32 %.0141.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %16
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.argprom.exit, label %17, !llvm.loop !6
+  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %17, !llvm.loop !6
 
-dissect_sock_diag_meminfo.argprom.exit:           ; preds = %17, %.preheader.i, %8, %7
+dissect_sock_diag_meminfo.exit:                   ; preds = %17, %.preheader.i, %8, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %8 ], [ 1, %.preheader.i ], [ 1, %17 ]
   ret i32 %.0
 }
@@ -1068,18 +1068,18 @@ dissect_sock_diag_meminfo.argprom.exit:           ; preds = %17, %.preheader.i, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_netlink_packet_sock_diag_reply_attrs(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %cond = icmp eq i32 %4, 6
-  br i1 %cond, label %8, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %cond, label %8, label %dissect_sock_diag_meminfo.exit
 
 8:                                                ; preds = %7
   %9 = icmp ne i32 %6, 0
   %10 = and i32 %6, 3
   %.not.i = icmp eq i32 %10, 0
   %or.cond.i = and i1 %9, %.not.i
-  br i1 %or.cond.i, label %.preheader.i, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %or.cond.i, label %.preheader.i, label %dissect_sock_diag_meminfo.exit
 
 .preheader.i:                                     ; preds = %8
   %11 = icmp sgt i32 %6, 3
-  br i1 %11, label %.lr.ph.i, label %dissect_sock_diag_meminfo.argprom.exit
+  br i1 %11, label %.lr.ph.i, label %dissect_sock_diag_meminfo.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %12 = getelementptr inbounds i8, ptr %2, i64 4
@@ -1101,9 +1101,9 @@ define internal range(i32 0, 2) i32 @dissect_netlink_packet_sock_diag_reply_attr
   %23 = add i32 %.0141.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %16
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.argprom.exit, label %17, !llvm.loop !6
+  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %17, !llvm.loop !6
 
-dissect_sock_diag_meminfo.argprom.exit:           ; preds = %17, %.preheader.i, %8, %7
+dissect_sock_diag_meminfo.exit:                   ; preds = %17, %.preheader.i, %8, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %8 ], [ 1, %.preheader.i ], [ 1, %17 ]
   ret i32 %.0
 }

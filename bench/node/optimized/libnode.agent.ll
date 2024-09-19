@@ -1109,20 +1109,20 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE22_M_insert_range_uniqueISt23_Rb_tree_const_iteratorIS5_EEENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESG_SG_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr %3, ptr nonnull %add.ptr.i.i.i)
   %4 = load ptr, ptr %__begin2.sroa.0.04.i, align 8
   %cmp.i.not.i = icmp eq ptr %4, null
-  br i1 %cmp.i.not.i, label %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom.exit, label %for.body.i
+  br i1 %cmp.i.not.i, label %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.exit, label %for.body.i
 
-_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom.exit: ; preds = %for.body.i
+_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.exit: ; preds = %for.body.i
   %.pre = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
   %cmp.i.not5 = icmp eq ptr %.pre, %2
   br i1 %cmp.i.not5, label %for.cond.cleanup, label %for.body
 
-for.cond.cleanup:                                 ; preds = %for.body, %if.end, %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom.exit
+for.cond.cleanup:                                 ; preds = %for.body, %if.end, %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.exit
   %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %5)
   br label %return
 
-for.body:                                         ; preds = %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom.exit, %for.body
-  %__begin2.sroa.0.06 = phi ptr [ %call.i, %for.body ], [ %.pre, %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom.exit ]
+for.body:                                         ; preds = %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.exit, %for.body
+  %__begin2.sroa.0.06 = phi ptr [ %call.i, %for.body ], [ %.pre, %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.exit ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06, i64 32
   %call9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #14
   call void @_ZN2v88platform7tracing11TraceConfig19AddIncludedCategoryEPKc(ptr noundef nonnull align 8 dereferenceable(32) %call2, ptr noundef %call9) #14
@@ -1168,20 +1168,20 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE22_M_insert_range_uniqueISt23_Rb_tree_const_iteratorIS5_EEENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESG_SG_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr %2, ptr nonnull %add.ptr.i.i.i)
   %3 = load ptr, ptr %__begin2.sroa.0.04.i, align 8
   %cmp.i.not.i = icmp eq ptr %3, null
-  br i1 %cmp.i.not.i, label %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom.exit, label %for.body.i
+  br i1 %cmp.i.not.i, label %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.exit, label %for.body.i
 
-_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom.exit: ; preds = %for.body.i
+_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.exit: ; preds = %for.body.i
   %.pre = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
   %cmp.i.not4 = icmp eq ptr %.pre, %1
   br i1 %cmp.i.not4, label %for.cond.cleanup, label %for.body
 
-for.cond.cleanup:                                 ; preds = %if.end, %entry, %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom.exit
+for.cond.cleanup:                                 ; preds = %if.end, %entry, %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.exit
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %4)
   ret void
 
-for.body:                                         ; preds = %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom.exit, %if.end
-  %__begin2.sroa.0.05 = phi ptr [ %call.i, %if.end ], [ %.pre, %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom.exit ]
+for.body:                                         ; preds = %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.exit, %if.end
+  %__begin2.sroa.0.05 = phi ptr [ %call.i, %if.end ], [ %.pre, %_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.exit ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 32
   %call6 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
   br i1 %call6, label %if.end, label %if.then
@@ -1432,7 +1432,7 @@ entry:
   %_M_node_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 1240
   %2 = load i64, ptr %_M_node_count.i.i.i.i, align 8
   %cmp.i.i1.i.i = icmp eq i64 %2, 0
-  br i1 %cmp.i.i1.i.i, label %"_ZZN4node7tracing5AgentC1EvENK3$_0clEP10uv_async_s.argprom.exit", label %while.body.lr.ph.i.i
+  br i1 %cmp.i.i1.i.i, label %"_ZZN4node7tracing5AgentC1EvENK3$_0clEP10uv_async_s.exit", label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
   %to_be_initialized_.i.i = getelementptr inbounds i8, ptr %1, i64 1200
@@ -1452,9 +1452,9 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %call.i.i.i = call noundef i64 @_ZNSt8_Rb_treeIPN4node7tracing16AsyncTraceWriterES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %to_be_initialized_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %head.i.i)
   %6 = load i64, ptr %_M_node_count.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 0
-  br i1 %cmp.i.i.i.i, label %"_ZZN4node7tracing5AgentC1EvENK3$_0clEP10uv_async_s.argprom.exit", label %while.body.i.i, !llvm.loop !5
+  br i1 %cmp.i.i.i.i, label %"_ZZN4node7tracing5AgentC1EvENK3$_0clEP10uv_async_s.exit", label %while.body.i.i, !llvm.loop !5
 
-"_ZZN4node7tracing5AgentC1EvENK3$_0clEP10uv_async_s.argprom.exit": ; preds = %while.body.i.i, %entry
+"_ZZN4node7tracing5AgentC1EvENK3$_0clEP10uv_async_s.exit": ; preds = %while.body.i.i, %entry
   %initialize_writer_condvar_.i.i = getelementptr inbounds i8, ptr %1, i64 1024
   call void @uv_cond_broadcast(ptr noundef nonnull %initialize_writer_condvar_.i.i) #14
   call void @uv_mutex_unlock(ptr noundef nonnull %initialize_writer_mutex_.i.i) #14
@@ -3108,11 +3108,11 @@ attributes #17 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.unswitch.partial.disable"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom: %agg.result"}
-!18 = distinct !{!18, !"_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom"}
+!17 = distinct !{!17, !18, !"_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE: %agg.result"}
+!18 = distinct !{!18, !"_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom: %agg.result"}
-!21 = distinct !{!21, !"_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE.argprom"}
+!20 = distinct !{!20, !21, !"_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE: %agg.result"}
+!21 = distinct !{!21, !"_ZN4node7tracing12_GLOBAL__N_17flattenERKSt13unordered_mapIiSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EESt4hashIiESt8equal_toIiESaISt4pairIKiSD_EEE"}
 !22 = distinct !{!22, !15}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}

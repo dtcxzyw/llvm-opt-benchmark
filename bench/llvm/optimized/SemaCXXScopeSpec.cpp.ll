@@ -469,7 +469,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang17ClassTemplateDeclENS1_12TemplateDeclEEEDaPT0
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %68 = load ptr, ptr %67, align 8
   %69 = call noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #15
-  %70 = call fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang21TemplateParameterListEEEZNS2_4Sema18computeDeclContextERKNS2_12CXXScopeSpecEbE3$_0EEDaOT_T0_.argprom"(ptr %.sroa.0.0.copyload.i75, i64 %.sroa.2.0.copyload.i, i32 %69)
+  %70 = call fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang21TemplateParameterListEEEZNS2_4Sema18computeDeclContextERKNS2_12CXXScopeSpecEbE3$_0EEDaOT_T0_"(ptr %.sroa.0.0.copyload.i75, i64 %.sroa.2.0.copyload.i, i32 %69)
   %71 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i75, i64 %.sroa.2.0.copyload.i
   %.not69 = icmp eq ptr %70, %71
   br i1 %.not69, label %.thread, label %72
@@ -742,7 +742,7 @@ declare noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEv(ptr noundef n
 declare noundef i32 @_ZNK5clang21TemplateParameterList8getDepthEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang21TemplateParameterListEEEZNS2_4Sema18computeDeclContextERKNS2_12CXXScopeSpecEbE3$_0EEDaOT_T0_.argprom"(ptr %.0.val, i64 %.8.val, i32 %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @"_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang21TemplateParameterListEEEZNS2_4Sema18computeDeclContextERKNS2_12CXXScopeSpecEbE3$_0EEDaOT_T0_"(ptr %.0.val, i64 %.8.val, i32 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds ptr, ptr %.0.val, i64 %.8.val
   %3 = ptrtoint ptr %2 to i64
   %4 = ashr i64 %.8.val, 2

@@ -1613,7 +1613,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %59, %57
   %74 = mul nsw i64 %34, %71
   %75 = getelementptr inbounds i8, ptr %52, i64 %74
   %76 = sext i32 %69 to i64
-  %77 = tail call fastcc i32 @ompi_coll_base_sendrecv.argprom.argelim(ptr noundef %.0301406, i64 noundef %71, ptr noundef %3, i32 noundef %73, ptr noundef %75, i64 noundef %76, ptr noundef %3, i32 noundef %73, ptr noundef %6, i32 noundef %.val)
+  %77 = tail call fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %.0301406, i64 noundef %71, ptr noundef %3, i32 noundef %73, ptr noundef %75, i64 noundef %76, ptr noundef %3, i32 noundef %73, ptr noundef %6, i32 noundef %.val)
   %.not363 = icmp eq i32 %77, 0
   br i1 %.not363, label %78, label %ompi_datatype_copy_content_same_ddt.exit.thread427
 
@@ -1630,7 +1630,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %59, %57
   %84 = getelementptr inbounds i8, ptr %.0301406, i64 %83
   %85 = sext i32 %69 to i64
   %86 = or disjoint i32 %.val, 1
-  %87 = tail call fastcc i32 @ompi_coll_base_sendrecv.argprom.argelim(ptr noundef %84, i64 noundef %85, ptr noundef %3, i32 noundef %86, ptr noundef %52, i64 noundef %71, ptr noundef %3, i32 noundef %86, ptr noundef %6, i32 noundef %.val)
+  %87 = tail call fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %84, i64 noundef %85, ptr noundef %3, i32 noundef %86, ptr noundef %52, i64 noundef %71, ptr noundef %3, i32 noundef %86, ptr noundef %6, i32 noundef %.val)
   %.not361 = icmp eq i32 %87, 0
   br i1 %.not361, label %88, label %ompi_datatype_copy_content_same_ddt.exit.thread427
 
@@ -1732,20 +1732,20 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %59, %57
 
 143:                                              ; preds = %128
   %144 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %136, i32 noundef %131, ptr noundef %3, ptr noundef nonnull %140, i32 noundef %129, ptr noundef %3) #8
-  br label %ompi_coll_base_sendrecv.argprom.exit
+  br label %ompi_coll_base_sendrecv.exit
 
 145:                                              ; preds = %128
   %146 = sext i32 %129 to i64
   %147 = sext i32 %131 to i64
   %148 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %136, i64 noundef %147, ptr noundef %3, i32 noundef %111, i32 noundef -21, ptr noundef nonnull %140, i64 noundef %146, ptr noundef %3, i32 noundef %111, i32 noundef -21, ptr noundef %6, ptr noundef null) #8
-  br label %ompi_coll_base_sendrecv.argprom.exit
+  br label %ompi_coll_base_sendrecv.exit
 
-ompi_coll_base_sendrecv.argprom.exit:             ; preds = %143, %145
+ompi_coll_base_sendrecv.exit:                     ; preds = %143, %145
   %.0.i389 = phi i32 [ %144, %143 ], [ %148, %145 ]
   %.not373 = icmp eq i32 %.0.i389, 0
   br i1 %.not373, label %149, label %ompi_datatype_copy_content_same_ddt.exit.thread427
 
-149:                                              ; preds = %ompi_coll_base_sendrecv.argprom.exit
+149:                                              ; preds = %ompi_coll_base_sendrecv.exit
   %150 = load i32, ptr %137, align 4
   %151 = sext i32 %150 to i64
   %152 = mul nsw i64 %34, %151
@@ -1909,13 +1909,13 @@ ompi_coll_base_sendrecv.argprom.exit:             ; preds = %143, %145
   %.not372 = icmp eq i32 %239, 0
   br i1 %.not372, label %204, label %ompi_datatype_copy_content_same_ddt.exit.thread427, !llvm.loop !19
 
-ompi_datatype_copy_content_same_ddt.exit.thread427: ; preds = %.lr.ph.i, %ompi_coll_base_sendrecv.argprom.exit, %229, %204, %72, %78, %82, %88, %._crit_edge, %201, %217, %95, %189
-  %.0302439 = phi i32 [ %77, %72 ], [ %81, %78 ], [ %186, %._crit_edge ], [ %228, %217 ], [ 0, %201 ], [ %87, %82 ], [ %90, %88 ], [ -2, %95 ], [ %196, %189 ], [ 0, %204 ], [ %239, %229 ], [ %.0.i389, %ompi_coll_base_sendrecv.argprom.exit ], [ %58, %.lr.ph.i ]
-  %.0305438 = phi ptr [ null, %72 ], [ null, %78 ], [ %98, %._crit_edge ], [ %98, %217 ], [ %98, %201 ], [ null, %82 ], [ null, %88 ], [ %98, %95 ], [ %98, %189 ], [ %98, %204 ], [ %98, %229 ], [ %98, %ompi_coll_base_sendrecv.argprom.exit ], [ null, %.lr.ph.i ]
-  %.0306437 = phi ptr [ null, %72 ], [ null, %78 ], [ %100, %._crit_edge ], [ %100, %217 ], [ %100, %201 ], [ null, %82 ], [ null, %88 ], [ %100, %95 ], [ %100, %189 ], [ %100, %204 ], [ %100, %229 ], [ %100, %ompi_coll_base_sendrecv.argprom.exit ], [ null, %.lr.ph.i ]
-  %.0308436 = phi ptr [ null, %72 ], [ null, %78 ], [ %99, %._crit_edge ], [ %99, %217 ], [ %99, %201 ], [ null, %82 ], [ null, %88 ], [ %99, %95 ], [ %99, %189 ], [ %99, %204 ], [ %99, %229 ], [ %99, %ompi_coll_base_sendrecv.argprom.exit ], [ null, %.lr.ph.i ]
-  %.0309435 = phi ptr [ null, %72 ], [ null, %78 ], [ %101, %._crit_edge ], [ %101, %217 ], [ %101, %201 ], [ null, %82 ], [ null, %88 ], [ %101, %95 ], [ %101, %189 ], [ %101, %204 ], [ %101, %229 ], [ %101, %ompi_coll_base_sendrecv.argprom.exit ], [ null, %.lr.ph.i ]
-  %.0319434 = phi ptr [ %.1320405, %72 ], [ %.1320405, %78 ], [ %.1320405, %._crit_edge ], [ %.1320405, %217 ], [ %.1320405, %201 ], [ %.1320405, %82 ], [ %.1320405, %88 ], [ %.1320405, %95 ], [ %.1320405, %189 ], [ %.1320405, %204 ], [ %.1320405, %229 ], [ %.1320405, %ompi_coll_base_sendrecv.argprom.exit ], [ %.1320404, %.lr.ph.i ]
+ompi_datatype_copy_content_same_ddt.exit.thread427: ; preds = %.lr.ph.i, %ompi_coll_base_sendrecv.exit, %229, %204, %72, %78, %82, %88, %._crit_edge, %201, %217, %95, %189
+  %.0302439 = phi i32 [ %77, %72 ], [ %81, %78 ], [ %186, %._crit_edge ], [ %228, %217 ], [ 0, %201 ], [ %87, %82 ], [ %90, %88 ], [ -2, %95 ], [ %196, %189 ], [ 0, %204 ], [ %239, %229 ], [ %.0.i389, %ompi_coll_base_sendrecv.exit ], [ %58, %.lr.ph.i ]
+  %.0305438 = phi ptr [ null, %72 ], [ null, %78 ], [ %98, %._crit_edge ], [ %98, %217 ], [ %98, %201 ], [ null, %82 ], [ null, %88 ], [ %98, %95 ], [ %98, %189 ], [ %98, %204 ], [ %98, %229 ], [ %98, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
+  %.0306437 = phi ptr [ null, %72 ], [ null, %78 ], [ %100, %._crit_edge ], [ %100, %217 ], [ %100, %201 ], [ null, %82 ], [ null, %88 ], [ %100, %95 ], [ %100, %189 ], [ %100, %204 ], [ %100, %229 ], [ %100, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
+  %.0308436 = phi ptr [ null, %72 ], [ null, %78 ], [ %99, %._crit_edge ], [ %99, %217 ], [ %99, %201 ], [ null, %82 ], [ null, %88 ], [ %99, %95 ], [ %99, %189 ], [ %99, %204 ], [ %99, %229 ], [ %99, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
+  %.0309435 = phi ptr [ null, %72 ], [ null, %78 ], [ %101, %._crit_edge ], [ %101, %217 ], [ %101, %201 ], [ null, %82 ], [ null, %88 ], [ %101, %95 ], [ %101, %189 ], [ %101, %204 ], [ %101, %229 ], [ %101, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
+  %.0319434 = phi ptr [ %.1320405, %72 ], [ %.1320405, %78 ], [ %.1320405, %._crit_edge ], [ %.1320405, %217 ], [ %.1320405, %201 ], [ %.1320405, %82 ], [ %.1320405, %88 ], [ %.1320405, %95 ], [ %.1320405, %189 ], [ %.1320405, %204 ], [ %.1320405, %229 ], [ %.1320405, %ompi_coll_base_sendrecv.exit ], [ %.1320404, %.lr.ph.i ]
   tail call void @free(ptr noundef nonnull %48) #8
   %.not375 = icmp eq ptr %.0319434, null
   br i1 %.not375, label %241, label %240
@@ -1962,7 +1962,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread427: ; preds = %.lr.ph.i, %ompi_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_coll_base_sendrecv.argprom.argelim(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i64 noundef range(i64 -2147483648, 2147483648) %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i64 noundef range(i64 -2147483648, 2147483648) %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = icmp eq i32 %3, %7
   %12 = icmp eq i32 %7, %9
   %or.cond = and i1 %11, %12

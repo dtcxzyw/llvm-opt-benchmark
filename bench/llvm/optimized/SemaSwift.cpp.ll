@@ -1203,12 +1203,12 @@ define dso_local void @_ZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedA
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %0, align 8
-  %37 = call fastcc noundef zeroext i1 @"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_0clERNS_4SemaES2_S5_.argprom"(ptr noundef nonnull align 8 dereferenceable(17560) %36, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(72) %2)
+  %37 = call fastcc noundef zeroext i1 @"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_0clERNS_4SemaES2_S5_"(ptr noundef nonnull align 8 dereferenceable(17560) %36, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(72) %2)
   br i1 %37, label %114, label %139
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %0, align 8
-  %40 = call fastcc noundef zeroext i1 @"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_0clERNS_4SemaES2_S5_.argprom"(ptr noundef nonnull align 8 dereferenceable(17560) %39, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(72) %2)
+  %40 = call fastcc noundef zeroext i1 @"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_0clERNS_4SemaES2_S5_"(ptr noundef nonnull align 8 dereferenceable(17560) %39, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(72) %2)
   br i1 %40, label %41, label %139
 
 41:                                               ; preds = %38
@@ -1233,7 +1233,7 @@ define dso_local void @_ZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedA
   %52 = load ptr, ptr %51, align 16
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i8, ptr %53, align 16
-  switch i8 %54, label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.argprom.exit" [
+  switch i8 %54, label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.exit" [
     i8 43, label %58
     i8 42, label %58
     i8 41, label %58
@@ -1246,21 +1246,21 @@ _ZNK5clang4Type24hasPointerRepresentationEv.exit.i: ; preds = %41
   %55 = load i32, ptr %53, align 16
   %56 = and i32 %55, 267911168
   %57 = icmp eq i32 %56, 252182528
-  br i1 %57, label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.argprom.exit.thread", label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.argprom.exit"
+  br i1 %57, label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.exit.thread", label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.exit"
 
 58:                                               ; preds = %41, %41, %41, %41, %41
   %59 = and i8 %54, -2
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %59, 42
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.argprom.exit", label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.argprom.exit.thread"
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.exit", label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.exit.thread"
 
-"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.argprom.exit.thread": ; preds = %58, %_ZNK5clang4Type24hasPointerRepresentationEv.exit.i
+"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.exit.thread": ; preds = %58, %_ZNK5clang4Type24hasPointerRepresentationEv.exit.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %114
 
-"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.argprom.exit": ; preds = %41, %_ZNK5clang4Type24hasPointerRepresentationEv.exit.i, %58
+"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.exit": ; preds = %41, %_ZNK5clang4Type24hasPointerRepresentationEv.exit.i, %58
   %60 = getelementptr inbounds i8, ptr %42, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %61, align 8
@@ -1297,7 +1297,7 @@ _ZNK5clang4Type24hasPointerRepresentationEv.exit.i: ; preds = %41
 
 80:                                               ; preds = %33, %33
   %81 = load ptr, ptr %0, align 8
-  %82 = call fastcc noundef zeroext i1 @"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_0clERNS_4SemaES2_S5_.argprom"(ptr noundef nonnull align 8 dereferenceable(17560) %81, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(72) %2)
+  %82 = call fastcc noundef zeroext i1 @"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_0clERNS_4SemaES2_S5_"(ptr noundef nonnull align 8 dereferenceable(17560) %81, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(72) %2)
   br i1 %82, label %83, label %139
 
 83:                                               ; preds = %80
@@ -1318,16 +1318,16 @@ _ZNK5clang4Type24hasPointerRepresentationEv.exit.i: ; preds = %41
   %91 = getelementptr inbounds nuw i8, ptr %84, i64 256
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef zeroext i1 @_ZNK5clang4Type14isIntegralTypeERKNS_10ASTContextE(ptr noundef nonnull align 16 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(23096) %92) #14
-  br i1 %93, label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.argprom.exit.thread", label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.argprom.exit"
+  br i1 %93, label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.exit.thread", label %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.exit"
 
-"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.argprom.exit.thread": ; preds = %83
+"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.exit.thread": ; preds = %83
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %114
 
-"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.argprom.exit": ; preds = %83
+"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.exit": ; preds = %83
   %94 = getelementptr inbounds i8, ptr %84, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i.i.i24 = load i32, ptr %95, align 8
@@ -1362,7 +1362,7 @@ _ZNK5clang4Type24hasPointerRepresentationEv.exit.i: ; preds = %41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %139
 
-114:                                              ; preds = %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.argprom.exit.thread", %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.argprom.exit.thread", %35, %33
+114:                                              ; preds = %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.exit.thread", %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.exit.thread", %35, %33
   %115 = call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 2144
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 2224
@@ -1407,7 +1407,7 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %128, %.critedge.i.i
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull %.0.i.i.i.i) #14
   br label %139
 
-139:                                              ; preds = %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.argprom.exit", %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.argprom.exit", %80, %38, %35, %3, %_ZnwmRKN5clang10ASTContextEm.exit, %29
+139:                                              ; preds = %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_2clERNS_4SemaES2_S5_.exit", %"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_1clERNS_4SemaES2_S5_.exit", %80, %38, %35, %3, %_ZnwmRKN5clang10ASTContextEm.exit, %29
   ret void
 }
 
@@ -1560,7 +1560,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_0clERNS_4SemaES2_S5_.argprom"(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5clang9SemaSwift11handleErrorEPNS_4DeclERKNS_10ParsedAttrEENK3$_0clERNS_4SemaES2_S5_"(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %5 = alloca i8, align 1
   %6 = tail call noundef ptr @_ZNK5clang4Decl15getFunctionTypeEb(ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext true) #14
@@ -3342,9 +3342,9 @@ _ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLoc
   %.not8.i.i.i = icmp eq i32 %.sroa.474.0.in, 0
   br i1 %.not8.i.i.i, label %.loopexit119, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %279, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.thread.i.i.i"
-  %.010.i.i.i = phi i64 [ %299, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.thread.i.i.i" ], [ 0, %279 ]
-  %.059.i.i.i = phi ptr [ %300, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.thread.i.i.i" ], [ %.sroa.073.0, %279 ]
+.lr.ph.i.i.i:                                     ; preds = %279, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.thread.i.i.i"
+  %.010.i.i.i = phi i64 [ %299, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.thread.i.i.i" ], [ 0, %279 ]
+  %.059.i.i.i = phi ptr [ %300, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.thread.i.i.i" ], [ %.sroa.073.0, %279 ]
   %.05.val.i.i.i = load ptr, ptr %.059.i.i.i, align 8
   %281 = getelementptr i8, ptr %.05.val.i.i.i, i64 48
   %.05.val.val.i.i.i = load i64, ptr %281, align 8
@@ -3360,15 +3360,15 @@ _ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLoc
   %290 = load i8, ptr %289, align 16
   %.off.i.i.i.i.i = add i8 %290, -41
   %switch.i.i.i.i.i = icmp ult i8 %.off.i.i.i.i.i, 3
-  br i1 %switch.i.i.i.i.i, label %291, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.thread.i.i.i"
+  br i1 %switch.i.i.i.i.i, label %291, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.thread.i.i.i"
 
 291:                                              ; preds = %.lr.ph.i.i.i
   %292 = call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %284) #14
   %293 = and i64 %292, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %293, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.thread.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.i.i.i": ; preds = %291
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.i.i.i": ; preds = %291
   %294 = and i64 %292, -16
   %295 = inttoptr i64 %294 to ptr
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
@@ -3377,15 +3377,15 @@ _ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLoc
   %297 = and i64 %.0.copyload.i.i.i.i.i1.i.i.i.fr.i.i.i, 1
   %298 = xor i64 %297, 1
   %spec.select.i.i.i = add i64 %298, %.010.i.i.i
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.thread.i.i.i"
+  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.i.i.i", %291, %.lr.ph.i.i.i
-  %299 = phi i64 [ %.010.i.i.i, %.lr.ph.i.i.i ], [ %.010.i.i.i, %291 ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.i.i.i" ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.i.i.i", %291, %.lr.ph.i.i.i
+  %299 = phi i64 [ %.010.i.i.i, %.lr.ph.i.i.i ], [ %.010.i.i.i, %291 ], [ %spec.select.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.i.i.i" ]
   %300 = getelementptr inbounds i8, ptr %.059.i.i.i, i64 8
   %.not.i.i.i52 = icmp eq ptr %300, %280
   br i1 %.not.i.i.i52, label %.loopexit119.loopexit, label %.lr.ph.i.i.i, !llvm.loop !34
 
-.loopexit119.loopexit:                            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.argprom.argprom.exit.thread.i.i.i"
+.loopexit119.loopexit:                            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.thread.i.i.i"
   %301 = trunc i64 %299 to i32
   br label %.loopexit119
 

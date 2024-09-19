@@ -6809,34 +6809,34 @@ define hidden noundef ptr @_ZN6IfNode16simple_subsumingEP12PhaseIterGVN(ptr noun
   %51 = getelementptr i8, ptr %40, i64 52
   %.val = load i32, ptr %51, align 4
   %52 = icmp ult i32 %.val, 8
-  br i1 %52, label %switch.lookup, label %_ZL26subsuming_bool_test_encodeP4Node.argprom.exit
+  br i1 %52, label %switch.lookup, label %_ZL26subsuming_bool_test_encodeP4Node.exit
 
 switch.lookup:                                    ; preds = %50
   %53 = zext nneg i32 %.val to i64
   %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN6IfNode16simple_subsumingEP12PhaseIterGVN.2, i64 0, i64 %53
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZL26subsuming_bool_test_encodeP4Node.argprom.exit
+  br label %_ZL26subsuming_bool_test_encodeP4Node.exit
 
-_ZL26subsuming_bool_test_encodeP4Node.argprom.exit: ; preds = %50, %switch.lookup
+_ZL26subsuming_bool_test_encodeP4Node.exit:       ; preds = %50, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %50 ]
   %54 = getelementptr i8, ptr %22, i64 52
   %.val46 = load i32, ptr %54, align 4
   %55 = icmp ult i32 %.val46, 8
-  br i1 %55, label %switch.lookup56, label %_ZL26subsuming_bool_test_encodeP4Node.argprom.exit48
+  br i1 %55, label %switch.lookup56, label %_ZL26subsuming_bool_test_encodeP4Node.exit48
 
-switch.lookup56:                                  ; preds = %_ZL26subsuming_bool_test_encodeP4Node.argprom.exit
+switch.lookup56:                                  ; preds = %_ZL26subsuming_bool_test_encodeP4Node.exit
   %56 = zext nneg i32 %.val46 to i64
   %switch.gep57 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN6IfNode16simple_subsumingEP12PhaseIterGVN.2, i64 0, i64 %56
   %switch.load58 = load i32, ptr %switch.gep57, align 4
-  br label %_ZL26subsuming_bool_test_encodeP4Node.argprom.exit48
+  br label %_ZL26subsuming_bool_test_encodeP4Node.exit48
 
-_ZL26subsuming_bool_test_encodeP4Node.argprom.exit48: ; preds = %_ZL26subsuming_bool_test_encodeP4Node.argprom.exit, %switch.lookup56
-  %.0.i47 = phi i32 [ %switch.load58, %switch.lookup56 ], [ -1, %_ZL26subsuming_bool_test_encodeP4Node.argprom.exit ]
+_ZL26subsuming_bool_test_encodeP4Node.exit48:     ; preds = %_ZL26subsuming_bool_test_encodeP4Node.exit, %switch.lookup56
+  %.0.i47 = phi i32 [ %switch.load58, %switch.lookup56 ], [ -1, %_ZL26subsuming_bool_test_encodeP4Node.exit ]
   %57 = or i32 %.0.i47, %.0.i
   %or.cond.not = icmp sgt i32 %57, -1
   br i1 %or.cond.not, label %58, label %128
 
-58:                                               ; preds = %_ZL26subsuming_bool_test_encodeP4Node.argprom.exit48
+58:                                               ; preds = %_ZL26subsuming_bool_test_encodeP4Node.exit48
   %59 = and i32 %7, 456
   %60 = icmp eq i32 %59, 328
   %61 = zext i1 %60 to i32
@@ -6958,8 +6958,8 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
   tail call void @_ZN12PhaseIterGVN25remove_globally_dead_nodeEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %22) #8
   br label %128
 
-128:                                              ; preds = %2, %.loopexit, %127, %58, %_ZL26subsuming_bool_test_encodeP4Node.argprom.exit48, %45, %36, %27, %20, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %20 ], [ null, %27 ], [ null, %36 ], [ null, %45 ], [ null, %_ZL26subsuming_bool_test_encodeP4Node.argprom.exit48 ], [ null, %58 ], [ %0, %127 ], [ %0, %.loopexit ], [ null, %2 ]
+128:                                              ; preds = %2, %.loopexit, %127, %58, %_ZL26subsuming_bool_test_encodeP4Node.exit48, %45, %36, %27, %20, %12
+  %.0 = phi ptr [ null, %12 ], [ null, %20 ], [ null, %27 ], [ null, %36 ], [ null, %45 ], [ null, %_ZL26subsuming_bool_test_encodeP4Node.exit48 ], [ null, %58 ], [ %0, %127 ], [ %0, %.loopexit ], [ null, %2 ]
   ret ptr %.0
 }
 

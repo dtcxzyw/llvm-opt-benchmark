@@ -502,7 +502,7 @@ define internal noundef ptr @"_ZZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
 _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %.0.i.i.i.i = phi ptr [ %12, %16 ], [ %19, %18 ]
   %20 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %20, label %"_ZZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit", label %21
+  br i1 %20, label %"_ZZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit", label %21
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, i32 noundef 0) #3
@@ -516,9 +516,9 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
-  br label %"_ZZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit"
+  br label %"_ZZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
-"_ZZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
+"_ZZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
   ret ptr %.0.i.i.i.i
 }
 
@@ -561,7 +561,7 @@ define internal noundef ptr @"_ZZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCF
 _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %.0.i.i.i.i = phi ptr [ %12, %16 ], [ %19, %18 ]
   %20 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %20, label %"_ZZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit", label %21
+  br i1 %20, label %"_ZZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit", label %21
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, i32 noundef 0) #3
@@ -575,9 +575,9 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
-  br label %"_ZZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit"
+  br label %"_ZZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
-"_ZZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
+"_ZZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
   ret ptr %.0.i.i.i.i
 }
 
@@ -613,7 +613,7 @@ define internal noundef ptr @"_ZZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
 _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %.0.i.i.i.i = phi ptr [ %12, %16 ], [ %19, %18 ]
   %20 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %20, label %"_ZZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit", label %21
+  br i1 %20, label %"_ZZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit", label %21
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, i32 noundef 0) #3
@@ -627,9 +627,9 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
-  br label %"_ZZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit"
+  br label %"_ZZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
-"_ZZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
+"_ZZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
   ret ptr %.0.i.i.i.i
 }
 
@@ -665,7 +665,7 @@ define internal noundef ptr @"_ZZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
 _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %.0.i.i.i.i = phi ptr [ %12, %16 ], [ %19, %18 ]
   %20 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %20, label %"_ZZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit", label %21
+  br i1 %20, label %"_ZZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit", label %21
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, i32 noundef 0) #3
@@ -679,9 +679,9 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
-  br label %"_ZZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit"
+  br label %"_ZZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
-"_ZZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
+"_ZZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
   ret ptr %.0.i.i.i.i
 }
 
@@ -717,7 +717,7 @@ define internal noundef ptr @"_ZZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
 _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %.0.i.i.i.i = phi ptr [ %12, %16 ], [ %19, %18 ]
   %20 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %20, label %"_ZZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit", label %21
+  br i1 %20, label %"_ZZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit", label %21
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, i32 noundef 0) #3
@@ -731,9 +731,9 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
-  br label %"_ZZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit"
+  br label %"_ZZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
-"_ZZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
+"_ZZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
   ret ptr %.0.i.i.i.i
 }
 
@@ -769,7 +769,7 @@ define internal noundef ptr @"_ZZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCF
 _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %.0.i.i.i.i = phi ptr [ %12, %16 ], [ %19, %18 ]
   %20 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %20, label %"_ZZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit", label %21
+  br i1 %20, label %"_ZZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit", label %21
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, i32 noundef 0) #3
@@ -783,9 +783,9 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
-  br label %"_ZZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit"
+  br label %"_ZZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
-"_ZZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
+"_ZZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
   ret ptr %.0.i.i.i.i
 }
 
@@ -821,7 +821,7 @@ define internal noundef ptr @"_ZZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
 _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %.0.i.i.i.i = phi ptr [ %12, %16 ], [ %19, %18 ]
   %20 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %20, label %"_ZZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit", label %21
+  br i1 %20, label %"_ZZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit", label %21
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, i32 noundef 0) #3
@@ -835,9 +835,9 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
-  br label %"_ZZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit"
+  br label %"_ZZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
-"_ZZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
+"_ZZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
   ret ptr %.0.i.i.i.i
 }
 
@@ -873,7 +873,7 @@ define internal noundef ptr @"_ZZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13
 _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %.0.i.i.i.i = phi ptr [ %12, %16 ], [ %19, %18 ]
   %20 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %20, label %"_ZZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit", label %21
+  br i1 %20, label %"_ZZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit", label %21
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, i32 noundef 0) #3
@@ -887,9 +887,9 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
-  br label %"_ZZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit"
+  br label %"_ZZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
-"_ZZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
+"_ZZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
   ret ptr %.0.i.i.i.i
 }
 
@@ -925,7 +925,7 @@ define internal noundef ptr @"_ZZN19salI_rReg_immI2Node8peepholeEP5BlockiP8Phase
 _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %.0.i.i.i.i = phi ptr [ %12, %16 ], [ %19, %18 ]
   %20 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %20, label %"_ZZN19salI_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit", label %21
+  br i1 %20, label %"_ZZN19salI_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit", label %21
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, i32 noundef 0) #3
@@ -939,9 +939,9 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
-  br label %"_ZZN19salI_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit"
+  br label %"_ZZN19salI_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
-"_ZZN19salI_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
+"_ZZN19salI_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
   ret ptr %.0.i.i.i.i
 }
 
@@ -977,7 +977,7 @@ define internal noundef ptr @"_ZZN19salL_rReg_immI2Node8peepholeEP5BlockiP8Phase
 _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   %.0.i.i.i.i = phi ptr [ %12, %16 ], [ %19, %18 ]
   %20 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %20, label %"_ZZN19salL_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit", label %21
+  br i1 %20, label %"_ZZN19salL_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit", label %21
 
 21:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, i32 noundef 0) #3
@@ -991,9 +991,9 @@ _ZN4NodenwEm.exit.i:                              ; preds = %18, %16
   store i16 3, ptr %23, align 2
   %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
   store ptr %26, ptr %24, align 8
-  br label %"_ZZN19salL_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit"
+  br label %"_ZZN19salL_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit"
 
-"_ZZN19salL_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.argprom.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
+"_ZZN19salL_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAllocENK3$_0clEv.exit": ; preds = %_ZN4NodenwEm.exit.i, %21
   ret ptr %.0.i.i.i.i
 }
 

@@ -11859,7 +11859,7 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE5resetEv.exit: ; preds = %_ZN14core_hashtable
   store i8 1, ptr %m_all_args_eq, align 8
   %m_num_args.i = getelementptr inbounds i8, ptr %lhs, i64 24
   %9 = load i32, ptr %m_num_args.i, align 8
-  %call2 = tail call fastcc noundef zeroext i1 @"_ZZN23demodulator_match_subst10match_argsEP3appPKP4exprENK3$_0clES1_S5_.argprom"(ptr nonnull %this, ptr noundef nonnull %lhs, ptr noundef %args)
+  %call2 = tail call fastcc noundef zeroext i1 @"_ZZN23demodulator_match_subst10match_argsEP3appPKP4exprENK3$_0clES1_S5_"(ptr nonnull %this, ptr noundef nonnull %lhs, ptr noundef %args)
   %cmp167 = icmp eq i32 %9, 0
   %or.cond177.not = select i1 %call2, i1 true, i1 %cmp167
   br i1 %or.cond177.not, label %if.end19, label %for.body.lr.ph
@@ -12332,7 +12332,7 @@ if.end97:                                         ; preds = %if.end93
   store ptr %87, ptr %second.i128, align 8
   call void @_ZN14core_hashtableI19obj_pair_hash_entryI4exprS1_E17obj_ptr_pair_hashIS1_S1_E10default_eqISt4pairIPS1_S7_EEE6insertEOS8_(ptr noundef nonnull align 8 dereferenceable(20) %m_cache, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp99)
   %m_args.i129 = getelementptr inbounds i8, ptr %53, i64 32
-  %call101 = call fastcc noundef zeroext i1 @"_ZZN23demodulator_match_subst10match_argsEP3appPKP4exprENK3$_0clES1_S5_.argprom"(ptr nonnull %this, ptr noundef nonnull %27, ptr noundef nonnull %m_args.i129)
+  %call101 = call fastcc noundef zeroext i1 @"_ZZN23demodulator_match_subst10match_argsEP3appPKP4exprENK3$_0clES1_S5_"(ptr nonnull %this, ptr noundef nonnull %27, ptr noundef nonnull %m_args.i129)
   br i1 %call101, label %while.cond.backedge, label %for.body106
 
 for.body106:                                      ; preds = %if.end97, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit151
@@ -12386,7 +12386,7 @@ eh.resume:                                        ; preds = %lpad.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN23demodulator_match_subst10match_argsEP3appPKP4exprENK3$_0clES1_S5_.argprom"(ptr %this.0.val, ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %args) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN23demodulator_match_subst10match_argsEP3appPKP4exprENK3$_0clES1_S5_"(ptr %this.0.val, ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %args) unnamed_addr #3 align 2 {
 entry:
   %m_decl.i = getelementptr inbounds i8, ptr %lhs, i64 16
   %0 = load ptr, ptr %m_decl.i, align 8

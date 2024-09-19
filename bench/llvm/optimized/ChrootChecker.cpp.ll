@@ -804,7 +804,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit7.i.i: ; pred
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %.pr.i.i.i = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i, label %30
+  br i1 %.not.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i, label %30
 
 30:                                               ; preds = %27, %.thread.i.i.i
   %.sroa.07.0.i.i = phi ptr [ %.pr.i.i.i, %27 ], [ %24, %.thread.i.i.i ]
@@ -847,14 +847,14 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i.i: ; p
 _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i.i, %30
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.07.0.i.i) #15
-  br i1 %.not.i.i8.i.i, label %_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i, label %43
+  br i1 %.not.i.i8.i.i, label %_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i, label %43
 
 43:                                               ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %24) #15
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %24) #15
-  br label %_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i
+  br label %_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i
 
-_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i: ; preds = %43, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i, %27
+_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i: ; preds = %43, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   br label %_ZNK12_GLOBAL__N_113ChrootChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
@@ -969,7 +969,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i.i: ; pre
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 56
   %.pr.i.i16.i = load ptr, ptr %97, align 8
   %.not.i.i.i.i17.i = icmp eq ptr %.pr.i.i16.i, null
-  br i1 %.not.i.i.i.i17.i, label %_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i, label %98
+  br i1 %.not.i.i.i.i17.i, label %_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i, label %98
 
 .sink.split.i.i:                                  ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %77, %73, %56
   %.sink.i.i = phi ptr [ %92, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i.i ], [ %51, %77 ], [ %51, %56 ], [ %51, %73 ], [ %51, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
@@ -1027,21 +1027,21 @@ _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.i.i: ; preds = %111, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i14.i
   %.not.i.i28.i.i = icmp eq ptr %.sroa.03.01828.i.i, null
-  br i1 %.not.i.i28.i.i, label %_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.thread57.i.i
+  br i1 %.not.i.i28.i.i, label %_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.thread57.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.thread57.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i
   %.sroa.03.160.i.i = phi ptr [ %.sroa.03.01828.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.i.i ], [ %51, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.03.160.i.i) #15
-  br label %_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i
+  br label %_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i
 
-_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.thread57.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.i.i, %95
+_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.thread57.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27.i.i, %95
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %_ZNK12_GLOBAL__N_113ChrootChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_113ChrootChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i, %44, %_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i
-  %.0.i = phi i1 [ true, %_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i ], [ true, %_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit.i ], [ false, %44 ]
+_ZNK12_GLOBAL__N_113ChrootChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i, %44, %_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i
+  %.0.i = phi i1 [ true, %_ZNK12_GLOBAL__N_113ChrootChecker10evalChrootERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i ], [ true, %_ZNK12_GLOBAL__N_113ChrootChecker9evalChdirERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.i ], [ false, %44 ]
   ret i1 %.0.i
 }
 

@@ -1117,11 +1117,11 @@ createStatusWindow.exit.i:                        ; preds = %268, %257
 
 setXICFocus.exit.i:                               ; preds = %.lr.ph.i.i.i, %339, %.loopexit.i.i, %.thread
   call void @XUnsetICFocus(ptr noundef nonnull %320) #14
-  br i1 %.not106.i, label %createXIC.argprom.exit, label %341
+  br i1 %.not106.i, label %createXIC.exit, label %341
 
 341:                                              ; preds = %setXICFocus.exit.i
   call void @XUnsetICFocus(ptr noundef nonnull %319) #14
-  br label %createXIC.argprom.exit
+  br label %createXIC.exit
 
 342:                                              ; preds = %167
   %343 = call i32 @XFree(ptr noundef nonnull %166) #14
@@ -1133,7 +1133,7 @@ setXICFocus.exit.i:                               ; preds = %.lr.ph.i.i.i, %339,
   call void @JNU_ThrowOutOfMemoryError(ptr noundef %346, ptr noundef null) #14
   br label %.thread99
 
-createXIC.argprom.exit:                           ; preds = %setXICFocus.exit.i, %341
+createXIC.exit:                                   ; preds = %setXICFocus.exit.i, %341
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
   br label %359
@@ -1178,8 +1178,8 @@ destroyX11InputMethodData.exit:                   ; preds = %.thread99, %347, %3
   %.not83 = icmp eq i8 %358, 0
   br i1 %.not83, label %359, label %367
 
-359:                                              ; preds = %createXIC.argprom.exit, %destroyX11InputMethodData.exit
-  %.073 = phi ptr [ null, %destroyX11InputMethodData.exit ], [ %77, %createXIC.argprom.exit ]
+359:                                              ; preds = %createXIC.exit, %destroyX11InputMethodData.exit
+  %.073 = phi ptr [ null, %destroyX11InputMethodData.exit ], [ %77, %createXIC.exit ]
   %360 = load ptr, ptr %0, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 880
   %362 = load ptr, ptr %361, align 8
@@ -1470,7 +1470,7 @@ setXICFocus.exit:                                 ; preds = %111, %116, %117
   br i1 %.not91, label %129, label %126
 
 126:                                              ; preds = %123
-  tail call fastcc void @onoffStatusWindow.argelim(ptr noundef %34, i32 noundef 1)
+  tail call fastcc void @onoffStatusWindow(ptr noundef %34, i32 noundef 1)
   br label %129
 
 onoffStatusWindow.exit:                           ; preds = %75
@@ -1543,7 +1543,7 @@ setXICFocus.exit96:                               ; preds = %onoffStatusWindow.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @onoffStatusWindow.argelim(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
+define internal fastcc void @onoffStatusWindow(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = alloca %struct.XWindowAttributes, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -4331,7 +4331,7 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   store i8 0, ptr %76, align 1
   %77 = getelementptr inbounds i8, ptr %62, i64 208
   store i32 1, ptr %77, align 8
-  tail call fastcc void @onoffStatusWindow.argelim(ptr noundef %42, i32 noundef 1)
+  tail call fastcc void @onoffStatusWindow(ptr noundef %42, i32 noundef 1)
   tail call void @paintStatusWindow(ptr noundef nonnull %62)
   br label %onoffStatusWindow.exit
 

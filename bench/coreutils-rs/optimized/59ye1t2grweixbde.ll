@@ -34,8 +34,8 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h6ba8585187c45183E(p
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
 
-.loopexit:                                        ; preds = %.backedge, %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit, %3, %32
-  %.09 = phi ptr [ %33, %32 ], [ null, %3 ], [ null, %.backedge ], [ %12, %20 ], [ %12, %22 ], [ %12, %26 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit ]
+.loopexit:                                        ; preds = %.backedge, %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %3, %32
+  %.09 = phi ptr [ %33, %32 ], [ null, %3 ], [ null, %.backedge ], [ %12, %20 ], [ %12, %22 ], [ %12, %26 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
   ret ptr %.09
 
 14:                                               ; preds = %10
@@ -48,7 +48,7 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h6ba8585187c45183E(p
   %19 = and i64 %18, 3
   switch i64 %19, label %default.unreachable [
     i64 2, label %20
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
     i64 0, label %22
     i64 1, label %26
   ]
@@ -80,12 +80,12 @@ default.unreachable:                              ; preds = %17
   %33 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17hf45d40f3e7ab4fb7E(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.80e654d16142edf019a1257fb4f8d59b.0, i64 noundef 21)
   br label %.loopexit
 
-_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit: ; preds = %17
+_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %17
   %.mask20.i = and i64 %18, -4294967296
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.noexc, label %.loopexit
 
-.noexc:                                           ; preds = %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit
+.noexc:                                           ; preds = %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !6
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h693af1a2af2a7919E.llvm.1206798258238166277(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noundef nonnull %12)
   %34 = load i8, ptr %4, align 8, !range !13, !alias.scope !14, !noalias !6, !noundef !4
@@ -318,26 +318,26 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9fl
   %20 = getelementptr inbounds i8, ptr %.val10, i64 24
   %21 = load ptr, ptr %20, align 8, !invariant.load !4, !noalias !26, !nonnull !4
   invoke void %21(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 %.val9, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %19)
-          to label %"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.argprom.exit" unwind label %15
+          to label %"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.exit" unwind label %15
 
-"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.argprom.exit": ; preds = %17
+"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.exit": ; preds = %17
   store i8 0, ptr %8, align 8
   %22 = load i64, ptr %3, align 8, !range !30, !noundef !4
   %trunc = trunc nuw i64 %22 to i1
   br i1 %trunc, label %26, label %23
 
-23:                                               ; preds = %"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.argprom.exit"
+23:                                               ; preds = %"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.exit"
   %24 = load i64, ptr %11, align 8, !noundef !4
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %41, label %42
 
-26:                                               ; preds = %"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.argprom.exit"
+26:                                               ; preds = %"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.exit"
   %.val = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   %27 = ptrtoint ptr %.val to i64
   %28 = and i64 %27, 3
   switch i64 %28, label %default.unreachable [
     i64 2, label %29
-    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit
+    i64 3, label %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit
     i64 0, label %31
     i64 1, label %35
   ]
@@ -365,8 +365,8 @@ default.unreachable:                              ; preds = %26
   %40 = icmp eq i8 %39, 35
   br i1 %40, label %.thread, label %41
 
-41:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit, %35, %31, %29, %23
-  %.1 = phi ptr [ @anon.80e654d16142edf019a1257fb4f8d59b.5, %23 ], [ %.val, %29 ], [ %.val, %31 ], [ %.val, %35 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit ]
+41:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %35, %31, %29, %23
+  %.1 = phi ptr [ @anon.80e654d16142edf019a1257fb4f8d59b.5, %23 ], [ %.val, %29 ], [ %.val, %31 ], [ %.val, %35 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %._crit_edge
 
@@ -378,7 +378,7 @@ default.unreachable:                              ; preds = %26
   %.not7 = icmp eq i64 %22, 0
   br i1 %.not7, label %49, label %.thread
 
-_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit: ; preds = %26
+_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %26
   %.mask20.i = and i64 %27, -4294967296
   %switch.i = icmp eq i64 %.mask20.i, 150323855360
   br i1 %switch.i, label %.thread, label %41
@@ -389,8 +389,8 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret ptr %.0
 
-.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit, %35, %31, %29, %42
-  %46 = phi ptr [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.argprom.exit ], [ %.val, %35 ], [ %.val, %31 ], [ %.val, %29 ], [ %43, %42 ]
+.thread:                                          ; preds = %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %35, %31, %29, %42
+  %46 = phi ptr [ %.val, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ %.val, %35 ], [ %.val, %31 ], [ %.val, %29 ], [ %43, %42 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !31
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h693af1a2af2a7919E.llvm.1206798258238166277(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %2, ptr noundef nonnull %46)
           to label %.noexc unwind label %15
@@ -1504,16 +1504,16 @@ attributes #23 = { noreturn }
 !17 = !{i64 1}
 !18 = !{i64 8}
 !19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.argprom"}
-!22 = distinct !{!22, !21, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.argprom: argument 1"}
+!20 = distinct !{!20, !21, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E: argument 0"}
+!21 = distinct !{!21, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E"}
+!22 = distinct !{!22, !21, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E: argument 1"}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$9write_all17hdd61d218e4c63bc4E.argprom: argument 0"}
-!25 = distinct !{!25, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$9write_all17hdd61d218e4c63bc4E.argprom"}
+!24 = distinct !{!24, !25, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$9write_all17hdd61d218e4c63bc4E: argument 0"}
+!25 = distinct !{!25, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$9write_all17hdd61d218e4c63bc4E"}
 !26 = !{!27, !29}
-!27 = distinct !{!27, !28, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.argprom: argument 0"}
-!28 = distinct !{!28, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.argprom"}
-!29 = distinct !{!29, !28, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E.argprom: argument 1"}
+!27 = distinct !{!27, !28, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E: argument 0"}
+!28 = distinct !{!28, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E"}
+!29 = distinct !{!29, !28, !"_ZN3std2io5impls71_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..boxed..Box$LT$W$GT$$GT$5write17h5c97a20b6cfa3ba6E: argument 1"}
 !30 = !{i64 0, i64 2}
 !31 = !{!32, !34, !36}
 !32 = distinct !{!32, !33, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b7b095fa452c7bE.llvm.1206798258238166277: argument 0"}

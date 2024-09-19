@@ -1200,7 +1200,7 @@ proto_item_set_generated.exit.i:                  ; preds = %97, %94, %45
 112:                                              ; preds = %proto_item_set_generated.exit.i
   %113 = select i1 %109, i32 85, i32 68
   %114 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %50, ptr noundef nonnull @ei_oran_invalid_sample_bit_width, ptr noundef nonnull @.str.624, i32 noundef %113, i32 noundef 0) #9
-  br label %dissect_oran_u.argprom.exit
+  br label %dissect_oran_u.exit
 
 115:                                              ; preds = %._crit_edge.i, %.preheader.i
   %116 = phi i32 [ %161, %._crit_edge.i ], [ %110, %.preheader.i ]
@@ -1236,7 +1236,7 @@ proto_item_set_generated.exit.i:                  ; preds = %97, %94, %45
   br i1 %.not.i, label %141, label %136
 
 136:                                              ; preds = %124
-  %137 = call fastcc i32 @dissect_udcomphdr.argprom(ptr noundef %0, ptr noundef %118, i32 noundef %135, ptr noundef %36, ptr noundef nonnull %37)
+  %137 = call fastcc i32 @dissect_udcomphdr(ptr noundef %0, ptr noundef %118, i32 noundef %135, ptr noundef %36, ptr noundef nonnull %37)
   %138 = load i32, ptr @hf_oran_rsvd8, align 4
   %139 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %138, ptr noundef %0, i32 noundef %137, i32 noundef 1, i32 noundef 0) #9
   %140 = add i32 %137, 1
@@ -1483,9 +1483,9 @@ proto_item_set_generated.exit152.i:               ; preds = %270, %267, %264
 
 279:                                              ; preds = %276, %proto_item_set_generated.exit152.i
   %280 = call i32 @tvb_captured_length(ptr noundef %0) #9
-  br label %dissect_oran_u.argprom.exit
+  br label %dissect_oran_u.exit
 
-dissect_oran_u.argprom.exit:                      ; preds = %112, %279
+dissect_oran_u.exit:                              ; preds = %112, %279
   %.0.i = phi i32 [ %87, %112 ], [ %280, %279 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %28)
@@ -1643,7 +1643,7 @@ proto_item_set_generated.exit.i12:                ; preds = %333, %330, %281
   br label %402
 
 359:                                              ; preds = %proto_item_set_generated.exit.i12, %proto_item_set_generated.exit.i12
-  %360 = call fastcc i32 @dissect_udcomphdr.argprom(ptr noundef %0, ptr noundef %305, i32 noundef %342, ptr noundef %20, ptr noundef null)
+  %360 = call fastcc i32 @dissect_udcomphdr(ptr noundef %0, ptr noundef %305, i32 noundef %342, ptr noundef %20, ptr noundef null)
   %361 = load i32, ptr @hf_oran_rsvd8, align 4
   %362 = call ptr @proto_tree_add_item(ptr noundef %305, i32 noundef %361, ptr noundef %0, i32 noundef %360, i32 noundef 1, i32 noundef 0) #9
   %363 = add i32 %360, 1
@@ -1685,7 +1685,7 @@ proto_item_set_generated.exit85.i:                ; preds = %382, %379, %364
   %387 = load i32, ptr @hf_oran_cpLength, align 4
   %388 = call ptr @proto_tree_add_item(ptr noundef %305, i32 noundef %387, ptr noundef %0, i32 noundef %386, i32 noundef 2, i32 noundef 0) #9
   %389 = add i32 %289, 13
-  %390 = call fastcc i32 @dissect_udcomphdr.argprom(ptr noundef %0, ptr noundef %305, i32 noundef %389, ptr noundef %20, ptr noundef null)
+  %390 = call fastcc i32 @dissect_udcomphdr(ptr noundef %0, ptr noundef %305, i32 noundef %389, ptr noundef %20, ptr noundef null)
   br label %402
 
 391:                                              ; preds = %proto_item_set_generated.exit.i12
@@ -1740,14 +1740,14 @@ proto_item_set_generated.exit85.i:                ; preds = %382, %379, %364
   %.lcssa.i = phi i32 [ %403, %402 ], [ %420, %.lr.ph.i14 ]
   %424 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.lcssa.i) #9
   %425 = icmp sgt i32 %424, 3
-  br i1 %425, label %426, label %dissect_oran_c.argprom.exit
+  br i1 %425, label %426, label %dissect_oran_c.exit
 
 426:                                              ; preds = %._crit_edge.i15
   %427 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.lcssa.i) #9
   %428 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %286, ptr noundef nonnull @ei_oran_frame_length, ptr noundef nonnull @.str.633, i32 noundef %427) #9
-  br label %dissect_oran_c.argprom.exit
+  br label %dissect_oran_c.exit
 
-dissect_oran_c.argprom.exit:                      ; preds = %._crit_edge.i15, %426
+dissect_oran_c.exit:                              ; preds = %._crit_edge.i15, %426
   %429 = call i32 @tvb_captured_length(ptr noundef %0) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
@@ -1765,8 +1765,8 @@ dissect_oran_c.argprom.exit:                      ; preds = %._crit_edge.i15, %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   br label %430
 
-430:                                              ; preds = %4, %dissect_oran_c.argprom.exit, %dissect_oran_u.argprom.exit
-  %.0 = phi i32 [ %429, %dissect_oran_c.argprom.exit ], [ %.0.i, %dissect_oran_u.argprom.exit ], [ 0, %4 ]
+430:                                              ; preds = %4, %dissect_oran_c.exit, %dissect_oran_u.exit
+  %.0 = phi i32 [ %429, %dissect_oran_c.exit ], [ %.0.i, %dissect_oran_u.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1927,7 +1927,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_udcomphdr.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_udcomphdr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_oran_udCompHdr, align 4

@@ -202,7 +202,7 @@ define dso_local noundef ptr @_ZN4llvm17lookupUnfoldTableEj(i32 noundef %0) loca
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev.argprom()
+  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev()
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_117X86MemUnfoldTableD2Ev, ptr nonnull @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, ptr nonnull @__dso_handle) #12
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable) #12
   br label %8
@@ -255,14 +255,14 @@ _ZN4llvm11lower_boundIRSt6vectorINS_17X86FoldTableEntryESaIS2_EERjEEDaOT_OT0_.ex
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev.argprom() unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, i8 0, i64 24, i1 false)
   br label %1
 
 1:                                                ; preds = %0, %1
   %.0.idx9 = phi i64 [ 0, %0 ], [ %.0.add, %1 ]
   %.0.ptr = getelementptr inbounds i8, ptr @_ZL10Table2Addr, i64 %.0.idx9
-  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt.argprom(ptr noundef nonnull align 4 dereferenceable(12) %.0.ptr, i16 noundef zeroext 96)
+  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.0.ptr, i16 noundef zeroext 96)
   %.0.add = add nuw nsw i64 %.0.idx9, 12
   %.not = icmp eq i64 %.0.add, 4224
   br i1 %.not, label %.preheader8, label %1
@@ -270,7 +270,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev.argprom() 
 .preheader8:                                      ; preds = %1, %.preheader8
   %.052.idx10 = phi i64 [ %.052.add, %.preheader8 ], [ 0, %1 ]
   %.052.ptr = getelementptr inbounds i8, ptr @_ZL6Table0, i64 %.052.idx10
-  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt.argprom(ptr noundef nonnull align 4 dereferenceable(12) %.052.ptr, i16 noundef zeroext 0)
+  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.052.ptr, i16 noundef zeroext 0)
   %.052.add = add nuw nsw i64 %.052.idx10, 12
   %.not61 = icmp eq i64 %.052.add, 2760
   br i1 %.not61, label %.preheader7, label %.preheader8
@@ -278,7 +278,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev.argprom() 
 .preheader7:                                      ; preds = %.preheader8, %.preheader7
   %.053.idx11 = phi i64 [ %.053.add, %.preheader7 ], [ 0, %.preheader8 ]
   %.053.ptr = getelementptr inbounds i8, ptr @_ZL6Table1, i64 %.053.idx11
-  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt.argprom(ptr noundef nonnull align 4 dereferenceable(12) %.053.ptr, i16 noundef zeroext 33)
+  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.053.ptr, i16 noundef zeroext 33)
   %.053.add = add nuw nsw i64 %.053.idx11, 12
   %.not62 = icmp eq i64 %.053.add, 16188
   br i1 %.not62, label %.preheader6, label %.preheader7
@@ -286,7 +286,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev.argprom() 
 .preheader6:                                      ; preds = %.preheader7, %.preheader6
   %.054.idx12 = phi i64 [ %.054.add, %.preheader6 ], [ 0, %.preheader7 ]
   %.054.ptr = getelementptr inbounds i8, ptr @_ZL6Table2, i64 %.054.idx12
-  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt.argprom(ptr noundef nonnull align 4 dereferenceable(12) %.054.ptr, i16 noundef zeroext 34)
+  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.054.ptr, i16 noundef zeroext 34)
   %.054.add = add nuw nsw i64 %.054.idx12, 12
   %.not63 = icmp eq i64 %.054.add, 26412
   br i1 %.not63, label %.preheader5, label %.preheader6
@@ -294,7 +294,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev.argprom() 
 .preheader5:                                      ; preds = %.preheader6, %.preheader5
   %.056.idx13 = phi i64 [ %.056.add, %.preheader5 ], [ 0, %.preheader6 ]
   %.056.ptr = getelementptr inbounds i8, ptr @_ZL6Table3, i64 %.056.idx13
-  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt.argprom(ptr noundef nonnull align 4 dereferenceable(12) %.056.ptr, i16 noundef zeroext 35)
+  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.056.ptr, i16 noundef zeroext 35)
   %.056.add = add nuw nsw i64 %.056.idx13, 12
   %.not64 = icmp eq i64 %.056.add, 21876
   br i1 %.not64, label %.preheader4, label %.preheader5
@@ -302,7 +302,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev.argprom() 
 .preheader4:                                      ; preds = %.preheader5, %.preheader4
   %.057.idx14 = phi i64 [ %.057.add, %.preheader4 ], [ 0, %.preheader5 ]
   %.057.ptr = getelementptr inbounds i8, ptr @_ZL6Table4, i64 %.057.idx14
-  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt.argprom(ptr noundef nonnull align 4 dereferenceable(12) %.057.ptr, i16 noundef zeroext 36)
+  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.057.ptr, i16 noundef zeroext 36)
   %.057.add = add nuw nsw i64 %.057.idx14, 12
   %.not65 = icmp eq i64 %.057.add, 16116
   br i1 %.not65, label %.preheader3, label %.preheader4
@@ -310,7 +310,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev.argprom() 
 .preheader3:                                      ; preds = %.preheader4, %.preheader3
   %.058.idx15 = phi i64 [ %.058.add, %.preheader3 ], [ 0, %.preheader4 ]
   %.058.ptr = getelementptr inbounds i8, ptr @_ZL15BroadcastTable1, i64 %.058.idx15
-  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt.argprom(ptr noundef nonnull align 4 dereferenceable(12) %.058.ptr, i16 noundef zeroext 33)
+  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.058.ptr, i16 noundef zeroext 33)
   %.058.add = add nuw nsw i64 %.058.idx15, 12
   %.not66 = icmp eq i64 %.058.add, 4368
   br i1 %.not66, label %.preheader2, label %.preheader3
@@ -318,7 +318,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev.argprom() 
 .preheader2:                                      ; preds = %.preheader3, %.preheader2
   %.060.idx16 = phi i64 [ %.060.add, %.preheader2 ], [ 0, %.preheader3 ]
   %.060.ptr = getelementptr inbounds i8, ptr @_ZL15BroadcastTable2, i64 %.060.idx16
-  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt.argprom(ptr noundef nonnull align 4 dereferenceable(12) %.060.ptr, i16 noundef zeroext 34)
+  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.060.ptr, i16 noundef zeroext 34)
   %.060.add = add nuw nsw i64 %.060.idx16, 12
   %.not67 = icmp eq i64 %.060.add, 9564
   br i1 %.not67, label %.preheader1, label %.preheader2
@@ -326,7 +326,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev.argprom() 
 .preheader1:                                      ; preds = %.preheader2, %.preheader1
   %.059.idx17 = phi i64 [ %.059.add, %.preheader1 ], [ 0, %.preheader2 ]
   %.059.ptr = getelementptr inbounds i8, ptr @_ZL15BroadcastTable3, i64 %.059.idx17
-  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt.argprom(ptr noundef nonnull align 4 dereferenceable(12) %.059.ptr, i16 noundef zeroext 35)
+  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.059.ptr, i16 noundef zeroext 35)
   %.059.add = add nuw nsw i64 %.059.idx17, 12
   %.not68 = icmp eq i64 %.059.add, 13092
   br i1 %.not68, label %.preheader, label %.preheader1
@@ -334,7 +334,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev.argprom() 
 .preheader:                                       ; preds = %.preheader1, %.preheader
   %.055.idx18 = phi i64 [ %.055.add, %.preheader ], [ 0, %.preheader1 ]
   %.055.ptr = getelementptr inbounds i8, ptr @_ZL15BroadcastTable4, i64 %.055.idx18
-  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt.argprom(ptr noundef nonnull align 4 dereferenceable(12) %.055.ptr, i16 noundef zeroext 36)
+  tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.055.ptr, i16 noundef zeroext 36)
   %.055.add = add nuw nsw i64 %.055.idx18, 12
   %.not69 = icmp eq i64 %.055.add, 11892
   br i1 %.not69, label %2, label %.preheader
@@ -428,7 +428,7 @@ define dso_local noundef ptr @_ZN4llvm30lookupBroadcastFoldTableBySizeEjj(i32 no
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_121X86BroadcastFoldTableC2Ev.argprom()
+  tail call fastcc void @_ZN12_GLOBAL__N_121X86BroadcastFoldTableC2Ev()
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_121X86BroadcastFoldTableD2Ev, ptr nonnull @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, ptr nonnull @__dso_handle) #12
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable) #12
   br label %9
@@ -548,7 +548,7 @@ _ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us43: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121X86BroadcastFoldTableC2Ev.argprom() unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121X86BroadcastFoldTableC2Ev() unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i8 0, i64 24, i1 false)
   br label %1
 
@@ -1224,7 +1224,7 @@ _ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EED2Ev.exit: ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt.argprom(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, i16 noundef zeroext range(i16 0, 97) %1) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, i16 noundef zeroext range(i16 0, 97) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 4
   %5 = and i16 %4, 8

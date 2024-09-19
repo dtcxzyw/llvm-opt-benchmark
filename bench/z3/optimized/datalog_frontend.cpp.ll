@@ -1067,7 +1067,7 @@ catch:                                            ; preds = %catch.dispatch
           to label %invoke.cont267 unwind label %lpad266
 
 invoke.cont267:                                   ; preds = %catch
-  invoke fastcc void @_ZL18display_statisticsRSoRN7datalog7contextERNS0_8rule_setERNS0_17instruction_blockERNS0_17execution_contextEb.argprom(ptr noundef nonnull align 8 dereferenceable(3556) %ctx, ptr noundef nonnull align 8 dereferenceable(248) %original_rules, ptr noundef nonnull align 8 dereferenceable(16) %rules_code, ptr noundef nonnull align 8 dereferenceable(108) %ex_ctx, i1 noundef zeroext true)
+  invoke fastcc void @_ZL18display_statisticsRSoRN7datalog7contextERNS0_8rule_setERNS0_17instruction_blockERNS0_17execution_contextEb(ptr noundef nonnull align 8 dereferenceable(3556) %ctx, ptr noundef nonnull align 8 dereferenceable(248) %original_rules, ptr noundef nonnull align 8 dereferenceable(16) %rules_code, ptr noundef nonnull align 8 dereferenceable(108) %ex_ctx, i1 noundef zeroext true)
           to label %invoke.cont269 unwind label %lpad266
 
 invoke.cont269:                                   ; preds = %invoke.cont267
@@ -1195,7 +1195,7 @@ invoke.cont259:                                   ; preds = %invoke.cont257
           to label %if.end264 unwind label %lpad156.loopexit.split-lp
 
 if.end264:                                        ; preds = %invoke.cont259, %invoke.cont254
-  invoke fastcc void @_ZL18display_statisticsRSoRN7datalog7contextERNS0_8rule_setERNS0_17instruction_blockERNS0_17execution_contextEb.argprom(ptr noundef nonnull align 8 dereferenceable(3556) %ctx, ptr noundef nonnull align 8 dereferenceable(248) %original_rules, ptr noundef nonnull align 8 dereferenceable(16) %rules_code, ptr noundef nonnull align 8 dereferenceable(108) %ex_ctx, i1 noundef zeroext false)
+  invoke fastcc void @_ZL18display_statisticsRSoRN7datalog7contextERNS0_8rule_setERNS0_17instruction_blockERNS0_17execution_contextEb(ptr noundef nonnull align 8 dereferenceable(3556) %ctx, ptr noundef nonnull align 8 dereferenceable(248) %original_rules, ptr noundef nonnull align 8 dereferenceable(16) %rules_code, ptr noundef nonnull align 8 dereferenceable(108) %ex_ctx, i1 noundef zeroext false)
           to label %cleanup274 unwind label %lpad156.loopexit.split-lp
 
 lpad266:                                          ; preds = %invoke.cont267, %catch
@@ -1827,7 +1827,7 @@ if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr @_ZL12g_orig_rules, align 8
   %3 = load ptr, ptr @_ZL6g_code, align 8
   %4 = load ptr, ptr @_ZL6g_ectx, align 8
-  tail call fastcc void @_ZL18display_statisticsRSoRN7datalog7contextERNS0_8rule_setERNS0_17instruction_blockERNS0_17execution_contextEb.argprom(ptr noundef nonnull align 8 dereferenceable(3556) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(108) %4, i1 noundef zeroext true)
+  tail call fastcc void @_ZL18display_statisticsRSoRN7datalog7contextERNS0_8rule_setERNS0_17instruction_blockERNS0_17execution_contextEb(ptr noundef nonnull align 8 dereferenceable(3556) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(108) %4, i1 noundef zeroext true)
   br label %_ZL18display_statisticsv.exit
 
 _ZL18display_statisticsv.exit:                    ; preds = %entry, %if.then.i
@@ -1967,7 +1967,7 @@ declare void @_ZN7datalog7context13replace_rulesERKNS_8rule_setE(ptr noundef non
 declare noundef zeroext i1 @_ZNK7datalog7context13output_tuplesEv(ptr noundef nonnull align 8 dereferenceable(3556)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18display_statisticsRSoRN7datalog7contextERNS0_8rule_setERNS0_17instruction_blockERNS0_17execution_contextEb.argprom(ptr noundef nonnull align 8 dereferenceable(3556) %ctx, ptr noundef nonnull align 8 dereferenceable(248) %orig_rules, ptr noundef nonnull align 8 dereferenceable(16) %code, ptr noundef nonnull align 8 dereferenceable(108) %ex_ctx, i1 noundef zeroext %verbose) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18display_statisticsRSoRN7datalog7contextERNS0_8rule_setERNS0_17instruction_blockERNS0_17execution_contextEb(ptr noundef nonnull align 8 dereferenceable(3556) %ctx, ptr noundef nonnull align 8 dereferenceable(248) %orig_rules, ptr noundef nonnull align 8 dereferenceable(16) %code, ptr noundef nonnull align 8 dereferenceable(108) %ex_ctx, i1 noundef zeroext %verbose) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %class.params_ref, align 8
   %0 = load ptr, ptr @_ZL17display_stats_mux, align 8
@@ -2535,7 +2535,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @_ZL12g_orig_rules, align 8
   %2 = load ptr, ptr @_ZL6g_code, align 8
   %3 = load ptr, ptr @_ZL6g_ectx, align 8
-  tail call fastcc void @_ZL18display_statisticsRSoRN7datalog7contextERNS0_8rule_setERNS0_17instruction_blockERNS0_17execution_contextEb.argprom(ptr noundef nonnull align 8 dereferenceable(3556) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(108) %3, i1 noundef zeroext true)
+  tail call fastcc void @_ZL18display_statisticsRSoRN7datalog7contextERNS0_8rule_setERNS0_17instruction_blockERNS0_17execution_contextEb(ptr noundef nonnull align 8 dereferenceable(3556) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(108) %3, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

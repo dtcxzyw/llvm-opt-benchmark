@@ -3312,7 +3312,7 @@ define internal noundef i32 @dissect_generic_rateinfo(ptr noundef %0, ptr nocapt
   %16 = load i32, ptr @ett_generic_rateinfo_class, align 4
   %17 = zext i16 %15 to i32
   %18 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.071, ptr noundef %0, i32 noundef %.092, i32 noundef 35, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.718, i32 noundef %17) #9
-  %19 = tail call fastcc i32 @dissect_rate_class.argprom(ptr noundef %0, i32 noundef %.092, ptr noundef %18)
+  %19 = tail call fastcc i32 @dissect_rate_class(ptr noundef %0, i32 noundef %.092, ptr noundef %18)
   %20 = add nuw i16 %.06991, 1
   %exitcond.not = icmp eq i16 %20, %4
   br i1 %exitcond.not, label %.lr.ph104.preheader, label %.lr.ph, !llvm.loop !23
@@ -3481,7 +3481,7 @@ define internal noundef i32 @dissect_aim_generic_rateinfoack(ptr noundef %0, ptr
 define internal noundef i32 @dissect_aim_generic_ratechange(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_generic_ratechange_msg, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #9
-  %6 = tail call fastcc i32 @dissect_rate_class.argprom(ptr noundef %0, i32 noundef 2, ptr noundef %2)
+  %6 = tail call fastcc i32 @dissect_rate_class(ptr noundef %0, i32 noundef 2, ptr noundef %2)
   ret i32 %6
 }
 
@@ -3728,7 +3728,7 @@ define internal noundef i32 @dissect_aim_generic_ext_status_repl(ptr noundef %0,
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rate_class.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rate_class(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_generic_rateinfo_classid, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #9
   %6 = add i32 %1, 2
@@ -4256,19 +4256,19 @@ dissect_aim_plugin.exit.i:                        ; preds = %56, %aim_find_plugi
   %100 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %98, ptr noundef %84, i32 noundef 8, i32 noundef %99, i32 noundef 0) #9
   %101 = call i32 @tvb_reported_length(ptr noundef %84) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %dissect_aim_tlv_value_extended_data.argprom.exit
+  br label %dissect_aim_tlv_value_extended_data.exit
 
 102:                                              ; preds = %dissect_aim_plugin.exit.i
   %103 = load i32, ptr @hf_aim_messaging_plugin_specific_data, align 4
   %104 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %103, ptr noundef %30, i32 noundef %81, i32 noundef -1, i32 noundef 0) #9
-  br label %dissect_aim_tlv_value_extended_data.argprom.exit
+  br label %dissect_aim_tlv_value_extended_data.exit
 
-dissect_aim_tlv_value_extended_data.argprom.exit: ; preds = %83, %102
+dissect_aim_tlv_value_extended_data.exit:         ; preds = %83, %102
   %105 = call i32 @tvb_reported_length(ptr noundef %30) #9
   br label %106
 
-106:                                              ; preds = %22, %dissect_aim_tlv_value_extended_data.argprom.exit, %18, %3
-  %.0 = phi i32 [ %28, %22 ], [ %16, %dissect_aim_tlv_value_extended_data.argprom.exit ], [ %16, %18 ], [ %16, %3 ]
+106:                                              ; preds = %22, %dissect_aim_tlv_value_extended_data.exit, %18, %3
+  %.0 = phi i32 [ %28, %22 ], [ %16, %dissect_aim_tlv_value_extended_data.exit ], [ %16, %18 ], [ %16, %3 ]
   ret i32 %.0
 }
 

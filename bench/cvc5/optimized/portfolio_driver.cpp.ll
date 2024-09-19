@@ -1577,7 +1577,7 @@ if.else.i.i:                                      ; preds = %_ZN4cvc54main15Port
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %this.val.i.i.i229 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775744
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i
   store ptr %incdec.ptr.i.i.i216, ptr %_M_finish.i5.i, align 8
@@ -1590,7 +1590,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 .noexc.i33:                                       ; preds = %if.then.i.i.i.i
   unreachable
 
-_ZNKSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %if.else.i.i
+_ZNKSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 6
   %cmp.i.i.i.i.i = icmp eq ptr %add.ptr19.i.i.i223, %this.val.i.i.i229
   %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
@@ -1604,7 +1604,7 @@ _ZNKSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12_M_c
   %call5.i.i.i.i.i7.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
           to label %call5.i.i.i.i.i.noexc.i unwind label %lpad.loopexit.i
 
-call5.i.i.i.i.i.noexc.i:                          ; preds = %_ZNKSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+call5.i.i.i.i.i.noexc.i:                          ; preds = %_ZNKSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i7.i, i64 %sub.ptr.sub.i.i.i.i.i
   store ptr %cond.i.i.i.i.i.i, ptr %add.ptr.i.i.i, align 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
@@ -1616,7 +1616,7 @@ call5.i.i.i.i.i.noexc.i:                          ; preds = %_ZNKSt6vectorIN4cvc
   store double %54, ptr %d_timeout.i.i.i.i.i.i.i, align 8
   %d_worker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %d_worker.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %d_worker.i, i64 28, i1 false)
-  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit29.i.i.i, label %for.body.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit29.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.noexc.i, %for.body.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i.i7.i, %call5.i.i.i.i.i.noexc.i ]
@@ -1644,18 +1644,18 @@ for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.noe
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 64
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 64
   %cmp.not.i.i.i.i.i6.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %add.ptr19.i.i.i223
-  br i1 %cmp.not.i.i.i.i.i6.i, label %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit29.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %cmp.not.i.i.i.i.i6.i, label %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit29.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !13
 
-_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit29.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.noexc.i
+_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit29.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.noexc.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i7.i, %call5.i.i.i.i.i.noexc.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %tobool.not.i.i.i.i = icmp eq ptr %this.val.i.i.i229, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %if.then.i30.i.i.i
 
-if.then.i30.i.i.i:                                ; preds = %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit29.i.i.i
+if.then.i30.i.i.i:                                ; preds = %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit29.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val.i.i.i229) #24
   br label %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i30.i.i.i, %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.argprom.exit29.i.i.i
+_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i30.i.i.i, %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit29.i.i.i
   %add.ptr19.i.i.i = getelementptr inbounds %"struct.cvc5::main::(anonymous namespace)::PortfolioProcessPool::Job", ptr %call5.i.i.i.i.i7.i, i64 %cond.i.i.i.i
   br label %_ZN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobD2Ev.exit.i
 
@@ -1668,7 +1668,7 @@ _ZN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobD2Ev.exit.i: ; preds = %_ZN
   %cmp.i.not.i27 = icmp eq ptr %incdec.ptr.i9.i, %strategy.val9
   br i1 %cmp.i.not.i27, label %for.cond.while.cond.preheader_crit_edge.i, label %for.body.i25
 
-lpad.loopexit.i:                                  ; preds = %_ZNKSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
+lpad.loopexit.i:                                  ; preds = %_ZNKSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit3.i = landingpad { ptr, i32 }
           cleanup
   store ptr %incdec.ptr.i.i.i216, ptr %_M_finish.i5.i, align 8
@@ -18772,13 +18772,13 @@ invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN4cvc
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #24
-  br label %_ZNSt12_Vector_baseIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 
@@ -20052,10 +20052,10 @@ attributes #28 = { nounwind willreturn memory(none) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobES4_SaIS4_EEvPT_PT0_RT1_.argprom: %__dest"}
-!9 = distinct !{!9, !"_ZSt19__relocate_object_aIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobES4_SaIS4_EEvPT_PT0_RT1_.argprom"}
+!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
+!9 = distinct !{!9, !"_ZSt19__relocate_object_aIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobES4_SaIS4_EEvPT_PT0_RT1_"}
 !10 = !{!11}
-!11 = distinct !{!11, !9, !"_ZSt19__relocate_object_aIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobES4_SaIS4_EEvPT_PT0_RT1_.argprom: %__orig"}
+!11 = distinct !{!11, !9, !"_ZSt19__relocate_object_aIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
 !12 = !{!8, !11}
 !13 = distinct !{!13, !5}
 !14 = !{!15}

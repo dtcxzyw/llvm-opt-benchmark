@@ -1331,7 +1331,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_116BlockLayoutChunkEE7reserveEm.exit: ; 
   %339 = getelementptr inbounds nuw i8, ptr %333, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %339, align 8
   %.val170 = load ptr, ptr %20, align 8
-  call fastcc void @_ZL14addBlockLayoutN5clang9CharUnitsES0_PKNS_9BlockDecl7CaptureEPN4llvm4TypeENS_8QualTypeERNS5_15SmallVectorImplIN12_GLOBAL__N_116BlockLayoutChunkEEERNS_7CodeGen11CGBlockInfoERNSE_13CodeGenModuleE.argprom(i64 %337, i64 %337, ptr noundef nonnull %.0152285, ptr noundef %338, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(376) %2, ptr %.val170)
+  call fastcc void @_ZL14addBlockLayoutN5clang9CharUnitsES0_PKNS_9BlockDecl7CaptureEPN4llvm4TypeENS_8QualTypeERNS5_15SmallVectorImplIN12_GLOBAL__N_116BlockLayoutChunkEEERNS_7CodeGen11CGBlockInfoERNSE_13CodeGenModuleE(i64 %337, i64 %337, ptr noundef nonnull %.0152285, ptr noundef %338, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(376) %2, ptr %.val170)
   br label %510
 
 340:                                              ; preds = %331
@@ -1550,7 +1550,7 @@ _ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit.i: ; preds = %42
   %439 = load ptr, ptr %438, align 8
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 24
   %.sroa.0.0.copyload.i.i180 = load i64, ptr %440, align 8
-  br label %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.argprom.exit
+  br label %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.exit
 
 441:                                              ; preds = %405
   %442 = load ptr, ptr %324, align 8
@@ -1598,7 +1598,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12De
 467:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6lookupES5_.exit.i
   %468 = getelementptr inbounds nuw i8, ptr %466, i64 48
   %.sroa.0.0.copyload.i16.i = load i64, ptr %468, align 8
-  br label %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.argprom.exit
+  br label %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6lookupES5_.exit.thread.i: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6lookupES5_.exit.i, %441
   %469 = call noundef zeroext i1 @_ZNK5clang7VarDecl18isNonEscapingByrefEv(ptr noundef nonnull align 8 dereferenceable(100) %407) #24
@@ -1611,14 +1611,14 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12De
   %474 = getelementptr inbounds nuw i8, ptr %407, i64 48
   %.sroa.0.0.copyload.i17.i = load i64, ptr %474, align 8
   %475 = call i64 @_ZNK5clang10ASTContext22getLValueReferenceTypeENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(23096) %473, i64 %.sroa.0.0.copyload.i17.i, i1 noundef zeroext true) #24
-  br label %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.argprom.exit
+  br label %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.exit
 
 476:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6lookupES5_.exit.thread.i
   %477 = getelementptr inbounds nuw i8, ptr %407, i64 48
   %.sroa.0.0.copyload.i18.i = load i64, ptr %477, align 8
-  br label %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.argprom.exit
+  br label %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.exit
 
-_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.argprom.exit: ; preds = %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit.i, %467, %470, %476
+_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.exit: ; preds = %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit.i, %467, %470, %476
   %.sroa.013.0.i = phi i64 [ %.sroa.0.0.copyload.i.i180, %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit.i ], [ %.sroa.0.0.copyload.i16.i, %467 ], [ %475, %470 ], [ %.sroa.0.0.copyload.i18.i, %476 ]
   %478 = load ptr, ptr %20, align 8
   %479 = load i64, ptr %478, align 8
@@ -1626,7 +1626,7 @@ _ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7Captu
   %.not165 = icmp eq i64 %480, 0
   br i1 %.not165, label %505, label %481
 
-481:                                              ; preds = %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.argprom.exit
+481:                                              ; preds = %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.exit
   %482 = and i64 %.sroa.013.0.i, -16
   %483 = inttoptr i64 %482 to ptr
   %484 = load ptr, ptr %483, align 16
@@ -1667,14 +1667,14 @@ _ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7Captu
   store i8 %504, ptr %327, align 4
   br label %505
 
-505:                                              ; preds = %481, %498, %502, %489, %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.argprom.exit
+505:                                              ; preds = %481, %498, %502, %489, %_ZL19getCaptureFieldTypeRKN5clang7CodeGen15CodeGenFunctionERKNS_9BlockDecl7CaptureE.exit
   %506 = call i64 @_ZNK5clang10ASTContext18getTypeSizeInCharsENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %16, i64 %.sroa.013.0.i) #24
   %507 = call i64 @_ZNK5clang10ASTContext12getDeclAlignEPKNS_4DeclEb(ptr noundef nonnull align 8 dereferenceable(23096) %16, ptr noundef nonnull %333, i1 noundef zeroext false) #24
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %.sroa.0231.1284, i64 %507)
   %508 = load ptr, ptr %328, align 8
   %509 = call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes17ConvertTypeForMemENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(240) %508, i64 %.sroa.013.0.i) #24
   %.val171 = load ptr, ptr %20, align 8
-  call fastcc void @_ZL14addBlockLayoutN5clang9CharUnitsES0_PKNS_9BlockDecl7CaptureEPN4llvm4TypeENS_8QualTypeERNS5_15SmallVectorImplIN12_GLOBAL__N_116BlockLayoutChunkEEERNS_7CodeGen11CGBlockInfoERNSE_13CodeGenModuleE.argprom(i64 %507, i64 %506, ptr noundef nonnull %.0152285, ptr noundef %509, i64 %.sroa.013.0.i, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(376) %2, ptr %.val171)
+  call fastcc void @_ZL14addBlockLayoutN5clang9CharUnitsES0_PKNS_9BlockDecl7CaptureEPN4llvm4TypeENS_8QualTypeERNS5_15SmallVectorImplIN12_GLOBAL__N_116BlockLayoutChunkEEERNS_7CodeGen11CGBlockInfoERNSE_13CodeGenModuleE(i64 %507, i64 %506, ptr noundef nonnull %.0152285, ptr noundef %509, i64 %.sroa.013.0.i, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(376) %2, ptr %.val171)
   br label %510
 
 510:                                              ; preds = %505, %403, %335
@@ -3755,14 +3755,14 @@ _ZN4llvm16dyn_cast_or_nullIN5clang16ExprWithCleanupsEKNS1_4ExprEEEDaPT0_.exit.i:
   %881 = inttoptr i64 %880 to ptr
   %882 = icmp eq ptr %393, %881
   %or.cond706 = and i1 %.not17.i.not717, %882
-  br i1 %or.cond706, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.argprom.argprom.exit", label %883
+  br i1 %or.cond706, label %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.exit", label %883
 
 883:                                              ; preds = %.lr.ph.i
   %884 = getelementptr inbounds i8, ptr %.0136.i, i64 8
   %.not16.i = icmp eq ptr %884, %.ptr9.i
   br i1 %.not16.i, label %.loopexit, label %.lr.ph.i
 
-"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.argprom.argprom.exit": ; preds = %.lr.ph.i
+"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.exit": ; preds = %.lr.ph.i
   store i64 %517, ptr %44, align 8
   store ptr %511, ptr %.sroa.10.0..sroa_idx424, align 8
   store i64 %514, ptr %.sroa.11.0..sroa_idx440, align 8
@@ -3780,11 +3780,11 @@ _ZN4llvm16dyn_cast_or_nullIN5clang16ExprWithCleanupsEKNS1_4ExprEEEDaPT0_.exit.i:
   call void @_ZN5clang7CodeGen15CodeGenFunction27pushLifetimeExtendedDestroyENS0_11CleanupKindENS0_7AddressENS_8QualTypeEPFvRS1_S3_S4_Eb(ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 noundef %870, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %45, i64 %.sroa.0.0.copyload.i, ptr noundef %.0116696700, i1 noundef zeroext %.0.i377701) #24
   br label %885
 
-885:                                              ; preds = %822, %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.argprom.argprom.exit", %.loopexit, %827, %825, %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit
-  %.sroa.3.1 = phi i8 [ %.sroa.3.0725, %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit ], [ %.sroa.3.2, %822 ], [ %.sroa.3.2, %825 ], [ %.sroa.3.2, %827 ], [ %.sroa.3.2, %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.argprom.argprom.exit" ], [ %.sroa.3.2, %.loopexit ]
-  %.sroa.4398.1 = phi i8 [ %.sroa.4398.0727, %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit ], [ %.sroa.4398.2, %822 ], [ %.sroa.4398.2, %825 ], [ %.sroa.4398.2, %827 ], [ %.sroa.4398.2, %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.argprom.argprom.exit" ], [ %.sroa.4398.2, %.loopexit ]
-  %.sroa.2401.1 = phi i8 [ %.sroa.2401.0728, %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit ], [ %.sroa.2401.2, %822 ], [ %.sroa.2401.2, %825 ], [ %.sroa.2401.2, %827 ], [ %.sroa.2401.2, %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.argprom.argprom.exit" ], [ %.sroa.2401.2, %.loopexit ]
-  %.sroa.12.1 = phi i8 [ %.sroa.12.0729, %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit ], [ %518, %822 ], [ %518, %825 ], [ %518, %827 ], [ %518, %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.argprom.argprom.exit" ], [ %518, %.loopexit ]
+885:                                              ; preds = %822, %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.exit", %.loopexit, %827, %825, %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit
+  %.sroa.3.1 = phi i8 [ %.sroa.3.0725, %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit ], [ %.sroa.3.2, %822 ], [ %.sroa.3.2, %825 ], [ %.sroa.3.2, %827 ], [ %.sroa.3.2, %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.exit" ], [ %.sroa.3.2, %.loopexit ]
+  %.sroa.4398.1 = phi i8 [ %.sroa.4398.0727, %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit ], [ %.sroa.4398.2, %822 ], [ %.sroa.4398.2, %825 ], [ %.sroa.4398.2, %827 ], [ %.sroa.4398.2, %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.exit" ], [ %.sroa.4398.2, %.loopexit ]
+  %.sroa.2401.1 = phi i8 [ %.sroa.2401.0728, %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit ], [ %.sroa.2401.2, %822 ], [ %.sroa.2401.2, %825 ], [ %.sroa.2401.2, %827 ], [ %.sroa.2401.2, %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.exit" ], [ %.sroa.2401.2, %.loopexit ]
+  %.sroa.12.1 = phi i8 [ %.sroa.12.0729, %_ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit ], [ %518, %822 ], [ %518, %825 ], [ %518, %827 ], [ %518, %"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_2clEv.exit" ], [ %518, %.loopexit ]
   %886 = getelementptr inbounds i8, ptr %.0117730, i64 16
   %.not131 = icmp eq ptr %886, %428
   br i1 %.not131, label %._crit_edge733, label %466
@@ -9425,7 +9425,7 @@ _ZN5clang7CodeGen13CodeGenModule20getBlockObjectAssignEv.exit145: ; preds = %.cr
 
 459:                                              ; preds = %_ZN5clang7CodeGen13CodeGenModule20getBlockObjectAssignEv.exit, %_ZN5clang7CodeGen13CodeGenModule20getBlockObjectAssignEv.exit145, %369, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread, %402, %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit116, %309, %306, %260
   %460 = load i32, ptr %253, align 8
-  call fastcc void @_ZL18pushCaptureCleanupN5clang7CodeGen22BlockCaptureEntityKindENS0_7AddressENS_8QualTypeENS0_15BlockFieldFlagsEbPNS_7VarDeclERNS0_15CodeGenFunctionE.argprom(i32 noundef %460, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %24, i64 %.sroa.0.0.copyload.i102, i32 %267, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(6488) %0)
+  call fastcc void @_ZL18pushCaptureCleanupN5clang7CodeGen22BlockCaptureEntityKindENS0_7AddressENS_8QualTypeENS0_15BlockFieldFlagsEbPNS_7VarDeclERNS0_15CodeGenFunctionE(i32 noundef %460, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %24, i64 %.sroa.0.0.copyload.i102, i32 %267, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(6488) %0)
   br label %461
 
 461:                                              ; preds = %260, %252, %459
@@ -9650,7 +9650,7 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule20getBlockObjectA
 declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction23EmitNounwindRuntimeCallEN4llvm14FunctionCalleeENS2_8ArrayRefIPNS2_5ValueEEERKNS2_5TwineE(ptr noundef nonnull align 8 dereferenceable(6488), ptr, ptr, ptr, i64, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18pushCaptureCleanupN5clang7CodeGen22BlockCaptureEntityKindENS0_7AddressENS_8QualTypeENS0_15BlockFieldFlagsEbPNS_7VarDeclERNS0_15CodeGenFunctionE.argprom(i32 noundef %0, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %1, i64 %2, i32 %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(6488) %5) unnamed_addr #0 {
+define internal fastcc void @_ZL18pushCaptureCleanupN5clang7CodeGen22BlockCaptureEntityKindENS0_7AddressENS_8QualTypeENS0_15BlockFieldFlagsEbPNS_7VarDeclERNS0_15CodeGenFunctionE(i32 noundef %0, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %1, i64 %2, i32 %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(6488) %5) unnamed_addr #0 {
   %7 = alloca %"class.clang::CodeGen::Address", align 8
   switch i32 %0, label %_ZN5clang7CodeGen15CodeGenFunction14needsEHCleanupENS_8QualType15DestructionKindE.exit.thread [
     i32 1, label %8
@@ -10183,7 +10183,7 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit: ; pre
   %196 = inttoptr i64 %195 to ptr
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 48
   %.sroa.0.0.copyload.i53 = load i64, ptr %197, align 8
-  call fastcc void @_ZL18pushCaptureCleanupN5clang7CodeGen22BlockCaptureEntityKindENS0_7AddressENS_8QualTypeENS0_15BlockFieldFlagsEbPNS_7VarDeclERNS0_15CodeGenFunctionE.argprom(i32 noundef %194, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %13, i64 %.sroa.0.0.copyload.i53, i32 %.sroa.02.0.copyload, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(6488) %0)
+  call fastcc void @_ZL18pushCaptureCleanupN5clang7CodeGen22BlockCaptureEntityKindENS0_7AddressENS_8QualTypeENS0_15BlockFieldFlagsEbPNS_7VarDeclERNS0_15CodeGenFunctionE(i32 noundef %194, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %13, i64 %.sroa.0.0.copyload.i53, i32 %.sroa.02.0.copyload, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(6488) %0)
   br label %198
 
 198:                                              ; preds = %162, %170
@@ -12076,7 +12076,7 @@ declare i64 @_ZNK5clang13CXXMethodDecl11getThisTypeEv(ptr noundef nonnull align 
 declare void @_ZNK5clang10ASTContext18getTypeInfoInCharsENS_8QualTypeE(ptr dead_on_unwind writable sret(%"struct.clang::TypeInfoChars") align 8, ptr noundef nonnull align 8 dereferenceable(23096), i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14addBlockLayoutN5clang9CharUnitsES0_PKNS_9BlockDecl7CaptureEPN4llvm4TypeENS_8QualTypeERNS5_15SmallVectorImplIN12_GLOBAL__N_116BlockLayoutChunkEEERNS_7CodeGen11CGBlockInfoERNSE_13CodeGenModuleE.argprom(i64 %0, i64 %1, ptr noundef %2, ptr noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nocapture noundef nonnull align 8 dereferenceable(376) %6, ptr nocapture readonly %.152.val) unnamed_addr #0 {
+define internal fastcc void @_ZL14addBlockLayoutN5clang9CharUnitsES0_PKNS_9BlockDecl7CaptureEPN4llvm4TypeENS_8QualTypeERNS5_15SmallVectorImplIN12_GLOBAL__N_116BlockLayoutChunkEEERNS_7CodeGen11CGBlockInfoERNSE_13CodeGenModuleE(i64 %0, i64 %1, ptr noundef %2, ptr noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nocapture noundef nonnull align 8 dereferenceable(376) %6, ptr nocapture readonly %.152.val) unnamed_addr #0 {
   %8 = alloca %"class.clang::QualType", align 8
   %9 = alloca %"struct.(anonymous namespace)::BlockLayoutChunk", align 8
   %10 = alloca %"struct.(anonymous namespace)::BlockLayoutChunk", align 8
@@ -12105,7 +12105,7 @@ define internal fastcc void @_ZL14addBlockLayoutN5clang9CharUnitsES0_PKNS_9Block
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 %4, ptr %8, align 8
   %.not.i = icmp eq ptr %.val33, null
-  br i1 %.not.i, label %19, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br i1 %.not.i, label %19, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 19:                                               ; preds = %17
   %20 = and i64 %.val, -8
@@ -12120,7 +12120,7 @@ define internal fastcc void @_ZL14addBlockLayoutN5clang9CharUnitsES0_PKNS_9Block
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %26, align 8
   %27 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 8
   %.not.i.i.i.i.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i.i.i.i, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit, label %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i
+  br i1 %.not.i.i.i.i.i, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit, label %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i
 
 _ZNK5clang8QualType12isObjCGCWeakEv.exit.i:       ; preds = %25
   %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -16
@@ -12130,7 +12130,7 @@ _ZNK5clang8QualType12isObjCGCWeakEv.exit.i:       ; preds = %25
   %31 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 48
   %32 = icmp eq i64 %31, 16
   %33 = select i1 %32, i64 103079215109, i64 34359738373
-  br label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 34:                                               ; preds = %19
   %35 = load ptr, ptr %24, align 16
@@ -12145,7 +12145,7 @@ _ZNK5clang8QualType12isObjCGCWeakEv.exit.i:       ; preds = %25
   %spec.select24.i = select i1 %42, i32 7, i32 3
   %43 = call noundef i32 @_ZNK5clang8QualType27isNonTrivialToPrimitiveCopyEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #24
   switch i32 %43, label %70 [
-    i32 4, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+    i32 4, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
     i32 3, label %44
     i32 2, label %45
     i32 0, label %46
@@ -12156,14 +12156,14 @@ _ZNK5clang8QualType12isObjCGCWeakEv.exit.i:       ; preds = %25
   %.sroa.2.0.insert.ext.i15.i = zext nneg i32 %spec.select24.i to i64
   %.sroa.2.0.insert.shift.i16.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i15.i, 32
   %.sroa.0.0.insert.insert.i18.i = or disjoint i64 %.sroa.2.0.insert.shift.i16.i, 2
-  br label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 45:                                               ; preds = %34
   %.sroa.2.0.insert.ext.i19.i = zext nneg i32 %spec.select24.i to i64
   %.sroa.2.0.insert.shift.i20.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i19.i, 32
   %.sroa.0.0.insert.ext.i21.i = select i1 %42, i64 5, i64 3
   %.sroa.0.0.insert.insert.i22.i = or disjoint i64 %.sroa.2.0.insert.shift.i20.i, %.sroa.0.0.insert.ext.i21.i
-  br label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 46:                                               ; preds = %34, %34
   %.0.copyload.i.i.i.i.i23.i = load i64, ptr %8, align 8
@@ -12171,7 +12171,7 @@ _ZNK5clang8QualType12isObjCGCWeakEv.exit.i:       ; preds = %25
   %48 = inttoptr i64 %47 to ptr
   %49 = load ptr, ptr %48, align 16
   %50 = call noundef zeroext i1 @_ZNK5clang4Type20isObjCRetainableTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %49) #24
-  br i1 %50, label %51, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br i1 %50, label %51, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 51:                                               ; preds = %46
   %.0.copyload.i.i.i.i.i28.i = load i64, ptr %8, align 8
@@ -12179,7 +12179,7 @@ _ZNK5clang8QualType12isObjCGCWeakEv.exit.i:       ; preds = %25
   %53 = inttoptr i64 %52 to ptr
   %54 = load ptr, ptr %53, align 16
   %55 = call noundef zeroext i1 @_ZNK5clang4Type7hasAttrENS_4attr4KindE(ptr noundef nonnull align 16 dereferenceable(24) %54, i32 noundef 18) #24
-  br i1 %55, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit, label %56
+  br i1 %55, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit, label %56
 
 56:                                               ; preds = %51
   %.0.copyload.i.i.i.i.i = load i64, ptr %8, align 8
@@ -12198,25 +12198,25 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i:      ; preds = %56
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %63, align 8
   %64 = and i64 %.sroa.0.0.copyload.i.i.i.i, 448
   %65 = icmp eq i64 %64, 0
-  br i1 %65, label %.critedge.i, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br i1 %65, label %.critedge.i, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 .critedge.i:                                      ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i, %56
   %66 = getelementptr inbounds nuw i8, ptr %.152.val, i64 104
   %67 = load i64, ptr %66, align 8
   %68 = and i64 %67, 67108864
   %.not5.i = icmp eq i64 %68, 0
-  br i1 %.not5.i, label %69, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br i1 %.not5.i, label %69, label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 69:                                               ; preds = %.critedge.i
   %.sroa.2.0.insert.ext.i34.i = zext nneg i32 %spec.select24.i to i64
   %.sroa.2.0.insert.shift.i35.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i34.i, 32
   %.sroa.0.0.insert.insert.i37.i = or disjoint i64 %.sroa.2.0.insert.shift.i35.i, 5
-  br label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br label %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 70:                                               ; preds = %34
   unreachable
 
-_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit: ; preds = %17, %25, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i, %34, %44, %45, %46, %51, %_ZNK5clang8QualType13getQualifiersEv.exit.i, %.critedge.i, %69
+_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit: ; preds = %17, %25, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i, %34, %44, %45, %46, %51, %_ZNK5clang8QualType13getQualifiersEv.exit.i, %.critedge.i, %69
   %.sroa.0.0.i = phi i64 [ %.sroa.0.0.insert.insert.i37.i, %69 ], [ %.sroa.0.0.insert.insert.i22.i, %45 ], [ %.sroa.0.0.insert.insert.i18.i, %44 ], [ 1, %17 ], [ 4, %34 ], [ 0, %46 ], [ 0, %51 ], [ 0, %.critedge.i ], [ 0, %_ZNK5clang8QualType13getQualifiersEv.exit.i ], [ 34359738373, %25 ], [ %33, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %.sroa.05.0.extract.trunc = trunc i64 %.sroa.0.0.i to i32
@@ -12228,14 +12228,14 @@ _ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS
   %73 = call noundef zeroext i1 @_ZNK5clang7VarDecl15isEscapingByrefEv(ptr noundef nonnull align 8 dereferenceable(100) %72) #24
   br i1 %73, label %74, label %85
 
-74:                                               ; preds = %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+74:                                               ; preds = %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
   %75 = and i64 %4, -16
   %76 = inttoptr i64 %75 to ptr
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.0.copyload.i.i.i.i.i.i.i.i.i43 = load i64, ptr %77, align 8
   %78 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i43, 8
   %.not.i.i.i.i.i44 = icmp eq i64 %78, 0
-  br i1 %.not.i.i.i.i.i44, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit, label %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i45
+  br i1 %.not.i.i.i.i.i44, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit, label %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i45
 
 _ZNK5clang8QualType12isObjCGCWeakEv.exit.i45:     ; preds = %74
   %79 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i43, -16
@@ -12245,12 +12245,12 @@ _ZNK5clang8QualType12isObjCGCWeakEv.exit.i45:     ; preds = %74
   %82 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i46, 48
   %83 = icmp eq i64 %82, 16
   %84 = select i1 %83, i64 103079215109, i64 34359738373
-  br label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
-85:                                               ; preds = %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+85:                                               ; preds = %_ZL30computeCopyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
   %86 = call noundef i32 @_ZN5clang8QualType20isDestructedTypeImplES0_(i64 %4) #24
   switch i32 %86, label %138 [
-    i32 1, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+    i32 1, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
     i32 2, label %87
     i32 3, label %98
     i32 4, label %109
@@ -12270,7 +12270,7 @@ _ZNK5clang8QualType12isObjCGCWeakEv.exit.i45:     ; preds = %74
   %96 = load i8, ptr %95, align 16
   %97 = icmp eq i8 %96, 11
   %.sroa.0.0.insert.insert.i16.i = select i1 %97, i64 30064771075, i64 12884901891
-  br label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 98:                                               ; preds = %85
   %99 = and i64 %4, -16
@@ -12285,17 +12285,17 @@ _ZNK5clang8QualType12isObjCGCWeakEv.exit.i45:     ; preds = %74
   %107 = load i8, ptr %106, align 16
   %108 = icmp eq i8 %107, 11
   %.sroa.0.0.insert.insert.i22.i42 = select i1 %108, i64 30064771074, i64 12884901890
-  br label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 109:                                              ; preds = %85
-  br label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 110:                                              ; preds = %85
   %111 = and i64 %4, -16
   %112 = inttoptr i64 %111 to ptr
   %113 = load ptr, ptr %112, align 16
   %114 = call noundef zeroext i1 @_ZNK5clang4Type20isObjCRetainableTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %113) #24
-  br i1 %114, label %115, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br i1 %114, label %115, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 115:                                              ; preds = %110
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -12311,19 +12311,19 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i39:    ; preds = %115
   %.sroa.0.0.copyload.i.i.i.i40 = load i64, ptr %120, align 8
   %121 = and i64 %.sroa.0.0.copyload.i.i.i.i40, 448
   %122 = icmp eq i64 %121, 0
-  br i1 %122, label %.critedge26.i, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br i1 %122, label %.critedge26.i, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 .critedge26.i:                                    ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.i39, %115
   %123 = getelementptr inbounds nuw i8, ptr %.152.val, i64 104
   %124 = load i64, ptr %123, align 8
   %125 = and i64 %124, 67108864
   %.not.i41 = icmp eq i64 %125, 0
-  br i1 %.not.i41, label %126, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br i1 %.not.i41, label %126, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 126:                                              ; preds = %.critedge26.i
   %127 = load ptr, ptr %112, align 16
   %128 = call noundef zeroext i1 @_ZNK5clang4Type7hasAttrENS_4attr4KindE(ptr noundef nonnull align 16 dereferenceable(24) %127, i32 noundef 18) #24
-  br i1 %128, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit, label %129
+  br i1 %128, label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit, label %129
 
 129:                                              ; preds = %126
   %130 = load ptr, ptr %112, align 16
@@ -12336,12 +12336,12 @@ _ZNK5clang8QualType13getQualifiersEv.exit.i39:    ; preds = %115
   %136 = load i8, ptr %135, align 16
   %137 = icmp eq i8 %136, 11
   %.sroa.0.0.insert.insert.i35.i = select i1 %137, i64 30064771077, i64 12884901893
-  br label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+  br label %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
 
 138:                                              ; preds = %85
   unreachable
 
-_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit: ; preds = %74, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i45, %85, %87, %98, %109, %110, %_ZNK5clang8QualType13getQualifiersEv.exit.i39, %.critedge26.i, %126, %129
+_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit: ; preds = %74, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i45, %85, %87, %98, %109, %110, %_ZNK5clang8QualType13getQualifiersEv.exit.i39, %.critedge26.i, %126, %129
   %.sroa.07.0.i = phi i64 [ %.sroa.0.0.insert.insert.i35.i, %129 ], [ 4, %109 ], [ %.sroa.0.0.insert.insert.i22.i42, %98 ], [ %.sroa.0.0.insert.insert.i16.i, %87 ], [ 1, %85 ], [ 0, %.critedge26.i ], [ 0, %_ZNK5clang8QualType13getQualifiersEv.exit.i39 ], [ 0, %110 ], [ 0, %126 ], [ 34359738373, %74 ], [ %84, %_ZNK5clang8QualType12isObjCGCWeakEv.exit.i45 ]
   %.sroa.01.0.extract.trunc = trunc i64 %.sroa.07.0.i to i32
   %.sroa.22.0.extract.shift = lshr i64 %.sroa.07.0.i, 32
@@ -12370,7 +12370,7 @@ _ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeER
   %.not32 = icmp eq i8 %149, 0
   br i1 %.not32, label %150, label %161
 
-150:                                              ; preds = %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit
+150:                                              ; preds = %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit
   %.val.i.i = load ptr, ptr %5, align 8
   %151 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
   %152 = getelementptr inbounds %"struct.(anonymous namespace)::BlockLayoutChunk", ptr %.val.i.i, i64 %151
@@ -12389,7 +12389,7 @@ _ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeER
   store i8 %160, ptr %147, align 4
   br label %161
 
-161:                                              ; preds = %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.argprom.exit, %158, %150, %11
+161:                                              ; preds = %_ZL33computeDestroyInfoForBlockCaptureRKN5clang9BlockDecl7CaptureENS_8QualTypeERKNS_11LangOptionsE.exit, %158, %150, %11
   ret void
 }
 
@@ -13288,7 +13288,7 @@ define internal fastcc void @_ZSt16__insertion_sortIPN12_GLOBAL__N_116BlockLayou
   %14 = getelementptr inbounds i8, ptr %.pn18, i64 96
   %.val.i.i = load i32, ptr %14, align 8
   switch i32 %.val.i.i, label %19 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
     i32 5, label %15
     i32 2, label %18
   ]
@@ -13301,50 +13301,50 @@ define internal fastcc void @_ZSt16__insertion_sortIPN12_GLOBAL__N_116BlockLayou
   br i1 %17, label %switch.lookup, label %19
 
 18:                                               ; preds = %13
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
 
 19:                                               ; preds = %15, %13
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
 
 switch.lookup:                                    ; preds = %15
   %20 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i": ; preds = %switch.lookup, %19, %18, %13
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i": ; preds = %switch.lookup, %19, %18, %13
   %.0.i.i.i = phi i32 [ 4, %19 ], [ 3, %18 ], [ 0, %13 ], [ %switch.load, %switch.lookup ]
   %.val8.i.i = load i32, ptr %5, align 8
   switch i32 %.val8.i.i, label %24 [
-    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit
+    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
     i32 5, label %21
     i32 2, label %23
   ]
 
-21:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
+21:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
   %.val9.i.i = load i32, ptr %6, align 4
   %switch.tableidx22 = add i32 %.val9.i.i, -3
   %22 = icmp ult i32 %switch.tableidx22, 6
   br i1 %22, label %switch.lookup21, label %24
 
-23:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit
+23:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
 
-24:                                               ; preds = %21, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit
+24:                                               ; preds = %21, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
 
 switch.lookup21:                                  ; preds = %21
   %25 = zext nneg i32 %switch.tableidx22 to i64
   %switch.gep23 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %25
   %switch.load24 = load i32, ptr %switch.gep23, align 4
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit: ; preds = %switch.lookup21, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i", %23, %24
-  %.0.i10.i.i = phi i32 [ 4, %24 ], [ 3, %23 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i" ], [ %switch.load24, %switch.lookup21 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit: ; preds = %switch.lookup21, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i", %23, %24
+  %.0.i10.i.i = phi i32 [ 4, %24 ], [ 3, %23 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i" ], [ %switch.load24, %switch.lookup21 ]
   %26 = icmp ult i32 %.0.i.i.i, %.0.i10.i.i
   br i1 %26, label %27, label %32
 
-27:                                               ; preds = %11, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit
+27:                                               ; preds = %11, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %.019, i64 56, i1 false)
   %28 = getelementptr inbounds i8, ptr %.pn18, i64 112
   %29 = ptrtoint ptr %.019 to i64
@@ -13355,8 +13355,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   br label %52
 
-32:                                               ; preds = %._crit_edge, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit
-  %.sroa.311.0.copyload.i = phi i32 [ %.sroa.311.0.copyload.i.pre, %._crit_edge ], [ %.val.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit ]
+32:                                               ; preds = %._crit_edge, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
+  %.sroa.311.0.copyload.i = phi i32 [ %.sroa.311.0.copyload.i.pre, %._crit_edge ], [ %.val.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.3.i)
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %.pn18, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3.0..sroa_idx.i, i64 32, i1 false)
@@ -13385,7 +13385,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EE
 
 39:                                               ; preds = %35
   switch i32 %.sroa.311.0.copyload.i, label %42 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
     i32 5, label %40
     i32 2, label %41
   ]
@@ -13394,54 +13394,54 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EE
   br i1 %33, label %switch.lookup25, label %42
 
 41:                                               ; preds = %39
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
 42:                                               ; preds = %40, %39
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
 switch.lookup25:                                  ; preds = %40
   %switch.load28 = load i32, ptr %switch.gep27, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i": ; preds = %switch.lookup25, %42, %41, %39
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i": ; preds = %switch.lookup25, %42, %41, %39
   %.0.i.i.i.i = phi i32 [ 4, %42 ], [ 3, %41 ], [ 0, %39 ], [ %switch.load28, %switch.lookup25 ]
   %43 = getelementptr inbounds i8, ptr %.09.i, i64 -16
   %.val8.i.i.i = load i32, ptr %43, align 8
   switch i32 %.val8.i.i.i, label %48 [
-    i32 3, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i
+    i32 3, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
     i32 5, label %44
     i32 2, label %47
   ]
 
-44:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+44:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   %45 = getelementptr inbounds i8, ptr %.09.i, i64 -8
   %.val9.i.i.i = load i32, ptr %45, align 4
   %switch.tableidx30 = add i32 %.val9.i.i.i, -3
   %46 = icmp ult i32 %switch.tableidx30, 6
   br i1 %46, label %switch.lookup29, label %48
 
-47:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i
+47:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
 
-48:                                               ; preds = %44, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i
+48:                                               ; preds = %44, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
 
 switch.lookup29:                                  ; preds = %44
   %49 = zext nneg i32 %switch.tableidx30 to i64
   %switch.gep31 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %49
   %switch.load32 = load i32, ptr %switch.gep31, align 4
-  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i
+  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i: ; preds = %switch.lookup29, %48, %47, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  %.0.i10.i.i.i = phi i32 [ 4, %48 ], [ 3, %47 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i" ], [ %switch.load32, %switch.lookup29 ]
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i: ; preds = %switch.lookup29, %48, %47, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  %.0.i10.i.i.i = phi i32 [ 4, %48 ], [ 3, %47 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load32, %switch.lookup29 ]
   %50 = icmp ult i32 %.0.i.i.i.i, %.0.i10.i.i.i
   br i1 %50, label %51, label %_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_116BlockLayoutChunkEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
 
-51:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i, %37
+51:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i, %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.09.i, ptr noundef nonnull align 8 dereferenceable(56) %.0.i, i64 56, i1 false)
   br label %35, !llvm.loop !296
 
-_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_116BlockLayoutChunkEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit: ; preds = %37, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i
+_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_116BlockLayoutChunkEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit: ; preds = %37, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
   store i64 %9, ptr %.09.i, align 8
   %.sroa.3.0..09.sroa_idx.i = getelementptr inbounds i8, ptr %.09.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3.0..09.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3.i, i64 32, i1 false)
@@ -13503,7 +13503,7 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPN12_GLOBAL__N_116Bloc
   %22 = getelementptr inbounds i8, ptr %.tr7487, i64 40
   %.val.i.i = load i32, ptr %22, align 8
   switch i32 %.val.i.i, label %27 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
     i32 5, label %23
     i32 2, label %26
   ]
@@ -13516,52 +13516,52 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPN12_GLOBAL__N_116Bloc
   br i1 %25, label %switch.lookup, label %27
 
 26:                                               ; preds = %21
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
 
 27:                                               ; preds = %23, %21
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
 
 switch.lookup:                                    ; preds = %23
   %28 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i": ; preds = %switch.lookup, %27, %26, %21
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i": ; preds = %switch.lookup, %27, %26, %21
   %.0.i.i.i = phi i32 [ 4, %27 ], [ 3, %26 ], [ 0, %21 ], [ %switch.load, %switch.lookup ]
   %29 = getelementptr inbounds i8, ptr %.tr86, i64 40
   %.val8.i.i = load i32, ptr %29, align 8
   switch i32 %.val8.i.i, label %34 [
-    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit
+    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
     i32 5, label %30
     i32 2, label %33
   ]
 
-30:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
+30:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
   %31 = getelementptr inbounds i8, ptr %.tr86, i64 48
   %.val9.i.i = load i32, ptr %31, align 4
   %switch.tableidx102 = add i32 %.val9.i.i, -3
   %32 = icmp ult i32 %switch.tableidx102, 6
   br i1 %32, label %switch.lookup101, label %34
 
-33:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit
+33:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
 
-34:                                               ; preds = %30, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit
+34:                                               ; preds = %30, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
 
 switch.lookup101:                                 ; preds = %30
   %35 = zext nneg i32 %switch.tableidx102 to i64
   %switch.gep103 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %35
   %switch.load104 = load i32, ptr %switch.gep103, align 4
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit: ; preds = %switch.lookup101, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i", %33, %34
-  %.0.i10.i.i = phi i32 [ 4, %34 ], [ 3, %33 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i" ], [ %switch.load104, %switch.lookup101 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit: ; preds = %switch.lookup101, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i", %33, %34
+  %.0.i10.i.i = phi i32 [ 4, %34 ], [ 3, %33 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i" ], [ %switch.load104, %switch.lookup101 ]
   %36 = icmp ult i32 %.0.i.i.i, %.0.i10.i.i
   br i1 %36, label %37, label %.loopexit
 
-37:                                               ; preds = %19, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit
+37:                                               ; preds = %19, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %.tr86, i64 56, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.tr86, ptr noundef nonnull align 8 dereferenceable(56) %.tr7487, i64 56, i1 false)
@@ -13594,9 +13594,9 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i: ; preds 
   %switch.gep111 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %50
   br label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i
 
-_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i
-  %.017.i = phi ptr [ %.tr7487, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i ]
-  %.01116.i = phi i64 [ %45, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i ]
+_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i
+  %.017.i = phi ptr [ %.tr7487, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i ]
+  %.01116.i = phi i64 [ %45, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i ]
   %51 = lshr i64 %.01116.i, 1
   %52 = getelementptr inbounds %"struct.(anonymous namespace)::BlockLayoutChunk", ptr %.017.i, i64 %51
   %53 = load i64, ptr %52, align 8
@@ -13605,13 +13605,13 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZN
 
 54:                                               ; preds = %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i
   %55 = icmp sgt i64 %53, %46
-  br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i
+  br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i
 
 56:                                               ; preds = %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i
   %57 = getelementptr inbounds i8, ptr %52, i64 40
   %.val.i.i.i = load i32, ptr %57, align 8
   switch i32 %.val.i.i.i, label %62 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
     i32 5, label %58
     i32 2, label %61
   ]
@@ -13624,45 +13624,45 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZN
   br i1 %60, label %switch.lookup105, label %62
 
 61:                                               ; preds = %56
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
 62:                                               ; preds = %58, %56
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
 switch.lookup105:                                 ; preds = %58
   %63 = zext nneg i32 %switch.tableidx106 to i64
   %switch.gep107 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %63
   %switch.load108 = load i32, ptr %switch.gep107, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i": ; preds = %switch.lookup105, %62, %61, %56
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i": ; preds = %switch.lookup105, %62, %61, %56
   %.0.i.i.i.i = phi i32 [ 4, %62 ], [ 3, %61 ], [ 0, %56 ], [ %switch.load108, %switch.lookup105 ]
   switch i32 %.val8.i.i.i, label %66 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
     i32 5, label %64
     i32 2, label %65
   ]
 
-64:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+64:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   br i1 %49, label %switch.lookup109, label %66
 
-65:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i"
+65:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
 
-66:                                               ; preds = %64, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i"
+66:                                               ; preds = %64, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
 
 switch.lookup109:                                 ; preds = %64
   %switch.load112 = load i32, ptr %switch.gep111, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i": ; preds = %switch.lookup109, %66, %65, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  %.0.i10.i.i.i = phi i32 [ 4, %66 ], [ 3, %65 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i" ], [ %switch.load112, %switch.lookup109 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i": ; preds = %switch.lookup109, %66, %65, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  %.0.i10.i.i.i = phi i32 [ 4, %66 ], [ 3, %65 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load112, %switch.lookup109 ]
   %67 = icmp ult i32 %.0.i.i.i.i, %.0.i10.i.i.i
-  br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i
+  br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i: ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i", %54
-  %.0.i.i.i36 = phi i1 [ %55, %54 ], [ %67, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i" ]
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i: ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i", %54
+  %.0.i.i.i36 = phi i1 [ %55, %54 ], [ %67, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i" ]
   %68 = getelementptr inbounds i8, ptr %52, i64 56
   %69 = xor i64 %51, -1
   %70 = add nsw i64 %.01116.i, %69
@@ -13671,7 +13671,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EE
   %71 = icmp sgt i64 %.112.i, 0
   br i1 %71, label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !298
 
-_ZSt13__lower_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i
+_ZSt13__lower_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.1.i to i64
   br label %_ZSt13__lower_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
 
@@ -13703,9 +13703,9 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i42: ; pred
   %switch.gep115 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %84
   br label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45
 
-_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i42
-  %.017.i46 = phi ptr [ %.tr86, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i42 ], [ %.1.i53, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i ]
-  %.01116.i47 = phi i64 [ %79, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i42 ], [ %.112.i52, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i ]
+_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i42
+  %.017.i46 = phi ptr [ %.tr86, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i42 ], [ %.1.i53, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i ]
+  %.01116.i47 = phi i64 [ %79, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i42 ], [ %.112.i52, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i ]
   %85 = lshr i64 %.01116.i47, 1
   %86 = getelementptr inbounds %"struct.(anonymous namespace)::BlockLayoutChunk", ptr %.017.i46, i64 %85
   %87 = load i64, ptr %86, align 8
@@ -13714,11 +13714,11 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45: ; preds = %_
 
 88:                                               ; preds = %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45
   %89 = icmp sgt i64 %80, %87
-  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i
+  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
 
 90:                                               ; preds = %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45
   switch i32 %.val.i.i.i43, label %93 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i54"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
     i32 5, label %91
     i32 2, label %92
   ]
@@ -13727,51 +13727,51 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45: ; preds = %_
   br i1 %83, label %switch.lookup113, label %93
 
 92:                                               ; preds = %90
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i54"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
 
 93:                                               ; preds = %91, %90
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i54"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
 
 switch.lookup113:                                 ; preds = %91
   %switch.load116 = load i32, ptr %switch.gep115, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i54"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i54": ; preds = %switch.lookup113, %93, %92, %90
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54": ; preds = %switch.lookup113, %93, %92, %90
   %.0.i.i.i.i55 = phi i32 [ 4, %93 ], [ 3, %92 ], [ 0, %90 ], [ %switch.load116, %switch.lookup113 ]
   %94 = getelementptr inbounds i8, ptr %86, i64 40
   %.val8.i.i.i56 = load i32, ptr %94, align 8
   switch i32 %.val8.i.i.i56, label %99 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i57"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57"
     i32 5, label %95
     i32 2, label %98
   ]
 
-95:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i54"
+95:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
   %96 = getelementptr inbounds i8, ptr %86, i64 48
   %.val9.i.i.i59 = load i32, ptr %96, align 4
   %switch.tableidx118 = add i32 %.val9.i.i.i59, -3
   %97 = icmp ult i32 %switch.tableidx118, 6
   br i1 %97, label %switch.lookup117, label %99
 
-98:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i54"
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i57"
+98:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57"
 
-99:                                               ; preds = %95, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i54"
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i57"
+99:                                               ; preds = %95, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57"
 
 switch.lookup117:                                 ; preds = %95
   %100 = zext nneg i32 %switch.tableidx118 to i64
   %switch.gep119 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %100
   %switch.load120 = load i32, ptr %switch.gep119, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i57"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i57": ; preds = %switch.lookup117, %99, %98, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i54"
-  %.0.i10.i.i.i58 = phi i32 [ 4, %99 ], [ 3, %98 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i54" ], [ %switch.load120, %switch.lookup117 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57": ; preds = %switch.lookup117, %99, %98, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54"
+  %.0.i10.i.i.i58 = phi i32 [ 4, %99 ], [ 3, %98 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i54" ], [ %switch.load120, %switch.lookup117 ]
   %101 = icmp ult i32 %.0.i.i.i.i55, %.0.i10.i.i.i58
-  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i
+  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i: ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i57", %88
-  %.0.i.i.i51 = phi i1 [ %89, %88 ], [ %101, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i57" ]
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i: ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57", %88
+  %.0.i.i.i51 = phi i1 [ %89, %88 ], [ %101, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i57" ]
   %102 = getelementptr inbounds i8, ptr %86, i64 56
   %103 = xor i64 %85, -1
   %104 = add nsw i64 %.01116.i47, %103
@@ -13780,7 +13780,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EE
   %105 = icmp sgt i64 %.112.i52, 0
   br i1 %105, label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i45, label %_ZSt13__upper_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !299
 
-_ZSt13__upper_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i
+_ZSt13__upper_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
   %.pre93 = ptrtoint ptr %.1.i53 to i64
   br label %_ZSt13__upper_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit
 
@@ -13918,7 +13918,7 @@ _ZNSt3_V26rotateIPN12_GLOBAL__N_116BlockLayoutChunkEEET_S4_S4_S4_.exit: ; preds 
   %or.cond = or i1 %152, %153
   br i1 %or.cond, label %.loopexit, label %13
 
-.loopexit:                                        ; preds = %_ZNSt3_V26rotateIPN12_GLOBAL__N_116BlockLayoutChunkEEET_S4_S4_S4_.exit, %5, %19, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit, %37
+.loopexit:                                        ; preds = %_ZNSt3_V26rotateIPN12_GLOBAL__N_116BlockLayoutChunkEEET_S4_S4_S4_.exit, %5, %19, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit, %37
   ret void
 }
 
@@ -13976,7 +13976,7 @@ _ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit: ; preds = %ta
   %25 = getelementptr inbounds i8, ptr %.01922.i, i64 40
   %.val.i.i.i = load i32, ptr %25, align 8
   switch i32 %.val.i.i.i, label %30 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
     i32 5, label %26
     i32 2, label %29
   ]
@@ -13989,57 +13989,57 @@ _ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit: ; preds = %ta
   br i1 %28, label %switch.lookup, label %30
 
 29:                                               ; preds = %24
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
 30:                                               ; preds = %26, %24
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
 switch.lookup:                                    ; preds = %26
   %31 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i": ; preds = %switch.lookup, %30, %29, %24
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i": ; preds = %switch.lookup, %30, %29, %24
   %.0.i.i.i.i = phi i32 [ 4, %30 ], [ 3, %29 ], [ 0, %24 ], [ %switch.load, %switch.lookup ]
   %32 = getelementptr inbounds i8, ptr %.01826.i, i64 40
   %.val8.i.i.i = load i32, ptr %32, align 8
   switch i32 %.val8.i.i.i, label %37 [
-    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i
+    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
     i32 5, label %33
     i32 2, label %36
   ]
 
-33:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+33:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   %34 = getelementptr inbounds i8, ptr %.01826.i, i64 48
   %.val9.i.i.i = load i32, ptr %34, align 4
   %switch.tableidx172 = add i32 %.val9.i.i.i, -3
   %35 = icmp ult i32 %switch.tableidx172, 6
   br i1 %35, label %switch.lookup171, label %37
 
-36:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i
+36:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
 
-37:                                               ; preds = %33, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i
+37:                                               ; preds = %33, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
 
 switch.lookup171:                                 ; preds = %33
   %38 = zext nneg i32 %switch.tableidx172 to i64
   %switch.gep173 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %38
   %switch.load174 = load i32, ptr %switch.gep173, align 4
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i: ; preds = %switch.lookup171, %37, %36, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  %.0.i10.i.i.i = phi i32 [ 4, %37 ], [ 3, %36 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i" ], [ %switch.load174, %switch.lookup171 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i: ; preds = %switch.lookup171, %37, %36, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  %.0.i10.i.i.i = phi i32 [ 4, %37 ], [ 3, %36 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load174, %switch.lookup171 ]
   %39 = icmp ult i32 %.0.i.i.i.i, %.0.i10.i.i.i
   br i1 %39, label %40, label %42
 
-40:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i, %22
+40:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i, %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.030.i, ptr noundef nonnull align 8 dereferenceable(56) %.01922.i, i64 56, i1 false)
   %41 = getelementptr inbounds i8, ptr %.01922.i, i64 56
   br label %44
 
-42:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i, %22
+42:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i, %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.030.i, ptr noundef nonnull align 8 dereferenceable(56) %.01826.i, i64 56, i1 false)
   %43 = getelementptr inbounds i8, ptr %.01826.i, i64 56
   br label %44
@@ -14122,7 +14122,7 @@ _ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit62.thread: ; pr
   %70 = getelementptr inbounds i8, ptr %.024.i, i64 40
   %.val.i.i.i65 = load i32, ptr %70, align 8
   switch i32 %.val.i.i.i65, label %75 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i66"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
     i32 5, label %71
     i32 2, label %74
   ]
@@ -14135,50 +14135,50 @@ _ZSt4moveIPN12_GLOBAL__N_116BlockLayoutChunkES2_ET0_T_S4_S3_.exit62.thread: ; pr
   br i1 %73, label %switch.lookup175, label %75
 
 74:                                               ; preds = %69
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i66"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
 
 75:                                               ; preds = %71, %69
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i66"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
 
 switch.lookup175:                                 ; preds = %71
   %76 = zext nneg i32 %switch.tableidx176 to i64
   %switch.gep177 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %76
   %switch.load178 = load i32, ptr %switch.gep177, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i66"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i66": ; preds = %switch.lookup175, %75, %74, %69
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66": ; preds = %switch.lookup175, %75, %74, %69
   %.0.i.i.i.i67 = phi i32 [ 4, %75 ], [ 3, %74 ], [ 0, %69 ], [ %switch.load178, %switch.lookup175 ]
   %.val8.i.i.i68 = load i32, ptr %62, align 8
   switch i32 %.val8.i.i.i68, label %80 [
-    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i69
+    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69
     i32 5, label %77
     i32 2, label %79
   ]
 
-77:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i66"
+77:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
   %.val9.i.i.i71 = load i32, ptr %63, align 4
   %switch.tableidx180 = add i32 %.val9.i.i.i71, -3
   %78 = icmp ult i32 %switch.tableidx180, 6
   br i1 %78, label %switch.lookup179, label %80
 
-79:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i66"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i69
+79:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69
 
-80:                                               ; preds = %77, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i66"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i69
+80:                                               ; preds = %77, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69
 
 switch.lookup179:                                 ; preds = %77
   %81 = zext nneg i32 %switch.tableidx180 to i64
   %switch.gep181 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %81
   %switch.load182 = load i32, ptr %switch.gep181, align 4
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i69
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i69: ; preds = %switch.lookup179, %80, %79, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i66"
-  %.0.i10.i.i.i70 = phi i32 [ 4, %80 ], [ 3, %79 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i66" ], [ %switch.load182, %switch.lookup179 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69: ; preds = %switch.lookup179, %80, %79, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66"
+  %.0.i10.i.i.i70 = phi i32 [ 4, %80 ], [ 3, %79 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i66" ], [ %switch.load182, %switch.lookup179 ]
   %82 = icmp ult i32 %.0.i.i.i.i67, %.0.i10.i.i.i70
   br i1 %82, label %83, label %93
 
-83:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i69, %67
+83:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69, %67
   %84 = getelementptr inbounds i8, ptr %.0.i, i64 -56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %84, ptr noundef nonnull align 8 dereferenceable(56) %.026.i.ph, i64 56, i1 false)
   %85 = icmp eq ptr %.tr141, %.026.i.ph
@@ -14198,7 +14198,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EE
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %92, ptr align 8 %5, i64 %91, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_116BlockLayoutChunkES2_S2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_S7_T1_T2_.exit
 
-93:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i69, %67
+93:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i69, %67
   %94 = getelementptr inbounds i8, ptr %.0.i, i64 -56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull align 8 dereferenceable(56) %.024.i, i64 56, i1 false)
   %95 = icmp eq ptr %5, %.024.i
@@ -14231,9 +14231,9 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i: ; preds 
   %switch.gep189 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %108
   br label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i
 
-_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i
-  %.017.i = phi ptr [ %.tr125142, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i ], [ %.1.i78, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i ]
-  %.01116.i = phi i64 [ %103, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i ]
+_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i
+  %.017.i = phi ptr [ %.tr125142, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i ], [ %.1.i78, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i ]
+  %.01116.i = phi i64 [ %103, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i ], [ %.112.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i ]
   %109 = lshr i64 %.01116.i, 1
   %110 = getelementptr inbounds %"struct.(anonymous namespace)::BlockLayoutChunk", ptr %.017.i, i64 %109
   %111 = load i64, ptr %110, align 8
@@ -14242,13 +14242,13 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZN
 
 112:                                              ; preds = %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i
   %113 = icmp sgt i64 %111, %104
-  br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i
+  br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i
 
 114:                                              ; preds = %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i
   %115 = getelementptr inbounds i8, ptr %110, i64 40
   %.val.i.i.i79 = load i32, ptr %115, align 8
   switch i32 %.val.i.i.i79, label %120 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i80"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
     i32 5, label %116
     i32 2, label %119
   ]
@@ -14261,45 +14261,45 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i: ; preds = %_ZN
   br i1 %118, label %switch.lookup183, label %120
 
 119:                                              ; preds = %114
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i80"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
 
 120:                                              ; preds = %116, %114
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i80"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
 
 switch.lookup183:                                 ; preds = %116
   %121 = zext nneg i32 %switch.tableidx184 to i64
   %switch.gep185 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %121
   %switch.load186 = load i32, ptr %switch.gep185, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i80"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i80": ; preds = %switch.lookup183, %120, %119, %114
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80": ; preds = %switch.lookup183, %120, %119, %114
   %.0.i.i.i.i81 = phi i32 [ 4, %120 ], [ 3, %119 ], [ 0, %114 ], [ %switch.load186, %switch.lookup183 ]
   switch i32 %.val8.i.i.i75, label %124 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
     i32 5, label %122
     i32 2, label %123
   ]
 
-122:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i80"
+122:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
   br i1 %107, label %switch.lookup187, label %124
 
-123:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i80"
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i"
+123:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
 
-124:                                              ; preds = %122, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i80"
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i"
+124:                                              ; preds = %122, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
 
 switch.lookup187:                                 ; preds = %122
   %switch.load190 = load i32, ptr %switch.gep189, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i": ; preds = %switch.lookup187, %124, %123, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i80"
-  %.0.i10.i.i.i82 = phi i32 [ 4, %124 ], [ 3, %123 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i80" ], [ %switch.load190, %switch.lookup187 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i": ; preds = %switch.lookup187, %124, %123, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80"
+  %.0.i10.i.i.i82 = phi i32 [ 4, %124 ], [ 3, %123 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i80" ], [ %switch.load190, %switch.lookup187 ]
   %125 = icmp ult i32 %.0.i.i.i.i81, %.0.i10.i.i.i82
-  br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i
+  br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i: ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i", %112
-  %.0.i.i.i = phi i1 [ %113, %112 ], [ %125, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i" ]
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i: ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i", %112
+  %.0.i.i.i = phi i1 [ %113, %112 ], [ %125, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i" ]
   %126 = getelementptr inbounds i8, ptr %110, i64 56
   %127 = xor i64 %109, -1
   %128 = add nsw i64 %.01116.i, %127
@@ -14308,7 +14308,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EE
   %129 = icmp sgt i64 %.112.i, 0
   br i1 %129, label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !298
 
-_ZSt13__lower_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.argprom.exit.i
+_ZSt13__lower_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN12_GLOBAL__N_116BlockLayoutChunkEKS4_EEbT_RT0_.exit.i
   %.pre = ptrtoint ptr %.1.i78 to i64
   br label %_ZSt13__lower_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S6_S6_RKT0_T1_.exit
 
@@ -14340,9 +14340,9 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i90: ; pred
   %switch.gep193 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %142
   br label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93
 
-_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i90
-  %.017.i94 = phi ptr [ %.tr141, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i90 ], [ %.1.i101, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i ]
-  %.01116.i95 = phi i64 [ %137, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i90 ], [ %.112.i100, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i ]
+_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i90
+  %.017.i94 = phi ptr [ %.tr141, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i90 ], [ %.1.i101, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i ]
+  %.01116.i95 = phi i64 [ %137, %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.lr.ph.i90 ], [ %.112.i100, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i ]
   %143 = lshr i64 %.01116.i95, 1
   %144 = getelementptr inbounds %"struct.(anonymous namespace)::BlockLayoutChunk", ptr %.017.i94, i64 %143
   %145 = load i64, ptr %144, align 8
@@ -14351,11 +14351,11 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93: ; preds = %_
 
 146:                                              ; preds = %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93
   %147 = icmp sgt i64 %138, %145
-  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i
+  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
 
 148:                                              ; preds = %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93
   switch i32 %.val.i.i.i91, label %151 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i102"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
     i32 5, label %149
     i32 2, label %150
   ]
@@ -14364,51 +14364,51 @@ _ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93: ; preds = %_
   br i1 %141, label %switch.lookup191, label %151
 
 150:                                              ; preds = %148
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i102"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
 
 151:                                              ; preds = %149, %148
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i102"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
 
 switch.lookup191:                                 ; preds = %149
   %switch.load194 = load i32, ptr %switch.gep193, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i102"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i102": ; preds = %switch.lookup191, %151, %150, %148
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102": ; preds = %switch.lookup191, %151, %150, %148
   %.0.i.i.i.i103 = phi i32 [ 4, %151 ], [ 3, %150 ], [ 0, %148 ], [ %switch.load194, %switch.lookup191 ]
   %152 = getelementptr inbounds i8, ptr %144, i64 40
   %.val8.i.i.i104 = load i32, ptr %152, align 8
   switch i32 %.val8.i.i.i104, label %157 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i105"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105"
     i32 5, label %153
     i32 2, label %156
   ]
 
-153:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i102"
+153:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
   %154 = getelementptr inbounds i8, ptr %144, i64 48
   %.val9.i.i.i107 = load i32, ptr %154, align 4
   %switch.tableidx196 = add i32 %.val9.i.i.i107, -3
   %155 = icmp ult i32 %switch.tableidx196, 6
   br i1 %155, label %switch.lookup195, label %157
 
-156:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i102"
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i105"
+156:                                              ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105"
 
-157:                                              ; preds = %153, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i102"
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i105"
+157:                                              ; preds = %153, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105"
 
 switch.lookup195:                                 ; preds = %153
   %158 = zext nneg i32 %switch.tableidx196 to i64
   %switch.gep197 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %158
   %switch.load198 = load i32, ptr %switch.gep197, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i105"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i105": ; preds = %switch.lookup195, %157, %156, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i102"
-  %.0.i10.i.i.i106 = phi i32 [ 4, %157 ], [ 3, %156 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i102" ], [ %switch.load198, %switch.lookup195 ]
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105": ; preds = %switch.lookup195, %157, %156, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102"
+  %.0.i10.i.i.i106 = phi i32 [ 4, %157 ], [ 3, %156 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i102" ], [ %switch.load198, %switch.lookup195 ]
   %159 = icmp ult i32 %.0.i.i.i.i103, %.0.i10.i.i.i106
-  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i
+  br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i: ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i105", %146
-  %.0.i.i.i99 = phi i1 [ %147, %146 ], [ %159, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit11.i.i.i105" ]
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i: ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105", %146
+  %.0.i.i.i99 = phi i1 [ %147, %146 ], [ %159, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit11.i.i.i105" ]
   %160 = getelementptr inbounds i8, ptr %144, i64 56
   %161 = xor i64 %143, -1
   %162 = add nsw i64 %.01116.i95, %161
@@ -14417,7 +14417,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EE
   %163 = icmp sgt i64 %.112.i100, 0
   br i1 %163, label %_ZSt7advanceIPN12_GLOBAL__N_116BlockLayoutChunkElEvRT_T0_.exit.i93, label %_ZSt13__upper_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit, !llvm.loop !299
 
-_ZSt13__upper_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.argprom.exit.i
+_ZSt13__upper_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit.loopexit: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN12_GLOBAL__N_116BlockLayoutChunkEPS4_EEbRT_T0_.exit.i
   %.pre154 = ptrtoint ptr %.1.i101 to i64
   br label %_ZSt13__upper_boundIPN12_GLOBAL__N_116BlockLayoutChunkES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6_S6_RKT0_T1_.exit
 
@@ -14684,7 +14684,7 @@ define internal fastcc void @_ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayo
   %17 = getelementptr inbounds i8, ptr %.01923.i, i64 40
   %.val.i.i.i = load i32, ptr %17, align 8
   switch i32 %.val.i.i.i, label %22 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
     i32 5, label %18
     i32 2, label %21
   ]
@@ -14697,57 +14697,57 @@ define internal fastcc void @_ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayo
   br i1 %20, label %switch.lookup, label %22
 
 21:                                               ; preds = %16
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
 22:                                               ; preds = %18, %16
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
 switch.lookup:                                    ; preds = %18
   %23 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i": ; preds = %switch.lookup, %22, %21, %16
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i": ; preds = %switch.lookup, %22, %21, %16
   %.0.i.i.i.i = phi i32 [ 4, %22 ], [ 3, %21 ], [ 0, %16 ], [ %switch.load, %switch.lookup ]
   %24 = getelementptr inbounds i8, ptr %.01827.i, i64 40
   %.val8.i.i.i = load i32, ptr %24, align 8
   switch i32 %.val8.i.i.i, label %29 [
-    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i
+    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
     i32 5, label %25
     i32 2, label %28
   ]
 
-25:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
+25:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
   %26 = getelementptr inbounds i8, ptr %.01827.i, i64 48
   %.val9.i.i.i = load i32, ptr %26, align 4
   %switch.tableidx80 = add i32 %.val9.i.i.i, -3
   %27 = icmp ult i32 %switch.tableidx80, 6
   br i1 %27, label %switch.lookup79, label %29
 
-28:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i
+28:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
 
-29:                                               ; preds = %25, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i
+29:                                               ; preds = %25, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
 
 switch.lookup79:                                  ; preds = %25
   %30 = zext nneg i32 %switch.tableidx80 to i64
   %switch.gep81 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %30
   %switch.load82 = load i32, ptr %switch.gep81, align 4
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i: ; preds = %switch.lookup79, %29, %28, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i"
-  %.0.i10.i.i.i = phi i32 [ 4, %29 ], [ 3, %28 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i" ], [ %switch.load82, %switch.lookup79 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i: ; preds = %switch.lookup79, %29, %28, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i"
+  %.0.i10.i.i.i = phi i32 [ 4, %29 ], [ 3, %28 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i" ], [ %switch.load82, %switch.lookup79 ]
   %31 = icmp ult i32 %.0.i.i.i.i, %.0.i10.i.i.i
   br i1 %31, label %32, label %34
 
-32:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i, %14
+32:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i, %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.031.i, ptr noundef nonnull align 8 dereferenceable(56) %.01923.i, i64 56, i1 false)
   %33 = getelementptr inbounds i8, ptr %.01923.i, i64 56
   br label %36
 
-34:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i, %14
+34:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i, %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.031.i, ptr noundef nonnull align 8 dereferenceable(56) %.01827.i, i64 56, i1 false)
   %35 = getelementptr inbounds i8, ptr %.01827.i, i64 56
   br label %36
@@ -14819,7 +14819,7 @@ _ZSt12__move_mergeIPN12_GLOBAL__N_116BlockLayoutChunkES2_N9__gnu_cxx5__ops15_Ite
   %62 = getelementptr inbounds i8, ptr %.01923.i30, i64 40
   %.val.i.i.i34 = load i32, ptr %62, align 8
   switch i32 %.val.i.i.i34, label %67 [
-    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i35"
+    i32 3, label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
     i32 5, label %63
     i32 2, label %66
   ]
@@ -14832,57 +14832,57 @@ _ZSt12__move_mergeIPN12_GLOBAL__N_116BlockLayoutChunkES2_N9__gnu_cxx5__ops15_Ite
   br i1 %65, label %switch.lookup83, label %67
 
 66:                                               ; preds = %61
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i35"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
 
 67:                                               ; preds = %63, %61
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i35"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
 
 switch.lookup83:                                  ; preds = %63
   %68 = zext nneg i32 %switch.tableidx84 to i64
   %switch.gep85 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %68
   %switch.load86 = load i32, ptr %switch.gep85, align 4
-  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i35"
+  br label %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
 
-"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i35": ; preds = %switch.lookup83, %67, %66, %61
+"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35": ; preds = %switch.lookup83, %67, %66, %61
   %.0.i.i.i.i36 = phi i32 [ 4, %67 ], [ 3, %66 ], [ 0, %61 ], [ %switch.load86, %switch.lookup83 ]
   %69 = getelementptr inbounds i8, ptr %.01827.i29, i64 40
   %.val8.i.i.i37 = load i32, ptr %69, align 8
   switch i32 %.val8.i.i.i37, label %74 [
-    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i38
+    i32 3, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38
     i32 5, label %70
     i32 2, label %73
   ]
 
-70:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i35"
+70:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
   %71 = getelementptr inbounds i8, ptr %.01827.i29, i64 48
   %.val9.i.i.i40 = load i32, ptr %71, align 4
   %switch.tableidx88 = add i32 %.val9.i.i.i40, -3
   %72 = icmp ult i32 %switch.tableidx88, 6
   br i1 %72, label %switch.lookup87, label %74
 
-73:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i35"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i38
+73:                                               ; preds = %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38
 
-74:                                               ; preds = %70, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i35"
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i38
+74:                                               ; preds = %70, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38
 
 switch.lookup87:                                  ; preds = %70
   %75 = zext nneg i32 %switch.tableidx88 to i64
   %switch.gep89 = getelementptr inbounds [6 x i32], ptr @switch.table._ZSt17__merge_sort_loopIPN12_GLOBAL__N_116BlockLayoutChunkES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_.51, i64 0, i64 %75
   %switch.load90 = load i32, ptr %switch.gep89, align 4
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i38
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i38: ; preds = %switch.lookup87, %74, %73, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i35"
-  %.0.i10.i.i.i39 = phi i32 [ 4, %74 ], [ 3, %73 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.argprom.exit.i.i.i35" ], [ %switch.load90, %switch.lookup87 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38: ; preds = %switch.lookup87, %74, %73, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35"
+  %.0.i10.i.i.i39 = phi i32 [ 4, %74 ], [ 3, %73 ], [ 0, %"_ZZN12_GLOBAL__N_1ltERKNS_16BlockLayoutChunkES2_ENK3$_0clES2_.exit.i.i.i35" ], [ %switch.load90, %switch.lookup87 ]
   %76 = icmp ult i32 %.0.i.i.i.i36, %.0.i10.i.i.i39
   br i1 %76, label %77, label %79
 
-77:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i38, %59
+77:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38, %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.031.i28, ptr noundef nonnull align 8 dereferenceable(56) %.01923.i30, i64 56, i1 false)
   %78 = getelementptr inbounds i8, ptr %.01923.i30, i64 56
   br label %81
 
-79:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.argprom.exit.i38, %59
+79:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN12_GLOBAL__N_116BlockLayoutChunkES5_EEbT_T0_.exit.i38, %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.031.i28, ptr noundef nonnull align 8 dereferenceable(56) %.01827.i29, i64 56, i1 false)
   %80 = getelementptr inbounds i8, ptr %.01827.i29, i64 56
   br label %81
@@ -19722,62 +19722,62 @@ attributes #29 = { builtin nounwind }
 !21 = distinct !{!21, !"_ZN5clang7CodeGen11CGBlockInfo7Capture9makeIndexEjNS_9CharUnitsENS_8QualTypeENS0_22BlockCaptureEntityKindENS0_15BlockFieldFlagsES5_S6_PKNS_9BlockDecl7CaptureE"}
 !22 = distinct !{!22, !5}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom: argument 0"}
-!25 = distinct !{!25, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom"}
+!24 = distinct !{!24, !25, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE: argument 0"}
+!25 = distinct !{!25, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE"}
 !26 = !{!27, !24}
 !27 = distinct !{!27, !28, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE: argument 0"}
 !28 = distinct !{!28, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE"}
 !29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom: argument 0"}
-!31 = distinct !{!31, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom"}
+!30 = distinct !{!30, !31, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE: argument 0"}
+!31 = distinct !{!31, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE"}
 !32 = !{!33, !30}
 !33 = distinct !{!33, !34, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE: argument 0"}
 !34 = distinct !{!34, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE"}
 !35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom"}
+!36 = distinct !{!36, !37, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE: argument 0"}
+!37 = distinct !{!37, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE"}
 !38 = !{!39, !36}
 !39 = distinct !{!39, !40, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE: argument 0"}
 !40 = distinct !{!40, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom: argument 0"}
-!43 = distinct !{!43, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom"}
+!42 = distinct !{!42, !43, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE: argument 0"}
+!43 = distinct !{!43, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE"}
 !44 = !{!45, !42}
 !45 = distinct !{!45, !46, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE: argument 0"}
 !46 = distinct !{!46, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE"}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom: argument 0"}
-!49 = distinct !{!49, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom"}
+!48 = distinct !{!48, !49, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE: argument 0"}
+!49 = distinct !{!49, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE"}
 !50 = !{!51, !48}
 !51 = distinct !{!51, !52, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE: argument 0"}
 !52 = distinct !{!52, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE"}
 !53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom: argument 0"}
-!55 = distinct !{!55, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom"}
+!54 = distinct !{!54, !55, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE: argument 0"}
+!55 = distinct !{!55, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE"}
 !56 = !{!57, !54}
 !57 = distinct !{!57, !58, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE: argument 0"}
 !58 = distinct !{!58, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE"}
 !59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom: argument 0"}
-!61 = distinct !{!61, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom"}
+!60 = distinct !{!60, !61, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE: argument 0"}
+!61 = distinct !{!61, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE"}
 !62 = !{!63, !60}
 !63 = distinct !{!63, !64, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE: argument 0"}
 !64 = distinct !{!64, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE"}
 !65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom: argument 0"}
-!67 = distinct !{!67, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom"}
+!66 = distinct !{!66, !67, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE: argument 0"}
+!67 = distinct !{!67, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE"}
 !68 = !{!69, !66}
 !69 = distinct !{!69, !70, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE: argument 0"}
 !70 = distinct !{!70, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE"}
 !71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom: argument 0"}
-!73 = distinct !{!73, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom"}
+!72 = distinct !{!72, !73, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE: argument 0"}
+!73 = distinct !{!73, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE"}
 !74 = !{!75, !72}
 !75 = distinct !{!75, !76, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE: argument 0"}
 !76 = distinct !{!76, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE"}
 !77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom: argument 0"}
-!79 = distinct !{!79, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE.argprom"}
+!78 = distinct !{!78, !79, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE: argument 0"}
+!79 = distinct !{!79, !"_ZZN5clang7CodeGen15CodeGenFunction16EmitBlockLiteralERKNS0_11CGBlockInfoEENK3$_1clEjRKN4llvm5TwineE"}
 !80 = !{!81}
 !81 = distinct !{!81, !82, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE: argument 0"}
 !82 = distinct !{!82, !"_ZN5clang7CodeGen11CGBuilderTy15CreateStructGEPENS0_7AddressEjRKN4llvm5TwineE"}

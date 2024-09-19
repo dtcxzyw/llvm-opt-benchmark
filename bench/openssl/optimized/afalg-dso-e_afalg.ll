@@ -106,14 +106,14 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %s
 if.then.i.i:                                      ; preds = %if.end.i
   %4 = load i32, ptr @lib_code, align 4
   %cmp.i.i.i = icmp eq i32 %4, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %ERR_AFALG_error.argprom.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %ERR_AFALG_error.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %call.i.i.i = tail call i32 @ERR_get_next_error_library() #14
   store i32 %call.i.i.i, ptr @lib_code, align 4
-  br label %ERR_AFALG_error.argprom.exit.i.i
+  br label %ERR_AFALG_error.exit.i.i
 
-ERR_AFALG_error.argprom.exit.i.i:                 ; preds = %if.then.i.i.i, %if.then.i.i
+ERR_AFALG_error.exit.i.i:                         ; preds = %if.then.i.i.i, %if.then.i.i
   tail call void @ERR_new() #14
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
   %5 = load i32, ptr @lib_code, align 4
@@ -167,14 +167,14 @@ if.then14.i.i:                                    ; preds = %for.end.i.i
   %call19.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.4, i32 noundef 4, i32 noundef 1, i32 noundef 0) #16
   %12 = load i32, ptr @lib_code, align 4
   %cmp.i5.i.i = icmp eq i32 %12, 0
-  br i1 %cmp.i5.i.i, label %if.then.i6.i.i, label %ERR_AFALG_error.argprom.exit8.i.i
+  br i1 %cmp.i5.i.i, label %if.then.i6.i.i, label %ERR_AFALG_error.exit8.i.i
 
 if.then.i6.i.i:                                   ; preds = %if.then14.i.i
   %call.i7.i.i = call i32 @ERR_get_next_error_library() #14
   store i32 %call.i7.i.i, ptr @lib_code, align 4
-  br label %ERR_AFALG_error.argprom.exit8.i.i
+  br label %ERR_AFALG_error.exit8.i.i
 
-ERR_AFALG_error.argprom.exit8.i.i:                ; preds = %if.then.i6.i.i, %if.then14.i.i
+ERR_AFALG_error.exit8.i.i:                        ; preds = %if.then.i6.i.i, %if.then14.i.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
   %13 = load i32, ptr @lib_code, align 4
@@ -190,14 +190,14 @@ if.end20.i.i:                                     ; preds = %for.end.i.i
 if.then23.i.i:                                    ; preds = %if.end20.i.i
   %14 = load i32, ptr @lib_code, align 4
   %cmp.i9.i.i = icmp eq i32 %14, 0
-  br i1 %cmp.i9.i.i, label %if.then.i10.i.i, label %ERR_AFALG_error.argprom.exit12.i.i
+  br i1 %cmp.i9.i.i, label %if.then.i10.i.i, label %ERR_AFALG_error.exit12.i.i
 
 if.then.i10.i.i:                                  ; preds = %if.then23.i.i
   %call.i11.i.i = call i32 @ERR_get_next_error_library() #14
   store i32 %call.i11.i.i, ptr @lib_code, align 4
-  br label %ERR_AFALG_error.argprom.exit12.i.i
+  br label %ERR_AFALG_error.exit12.i.i
 
-ERR_AFALG_error.argprom.exit12.i.i:               ; preds = %if.then.i10.i.i, %if.then23.i.i
+ERR_AFALG_error.exit12.i.i:                       ; preds = %if.then.i10.i.i, %if.then23.i.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
   %15 = load i32, ptr @lib_code, align 4
@@ -205,7 +205,7 @@ ERR_AFALG_error.argprom.exit12.i.i:               ; preds = %if.then.i10.i.i, %i
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 882, ptr noundef null) #14
   br label %afalg_chk_platform.exit.thread.i
 
-afalg_chk_platform.exit.thread.i:                 ; preds = %ERR_AFALG_error.argprom.exit12.i.i, %ERR_AFALG_error.argprom.exit8.i.i, %ERR_AFALG_error.argprom.exit.i.i
+afalg_chk_platform.exit.thread.i:                 ; preds = %ERR_AFALG_error.exit12.i.i, %ERR_AFALG_error.exit8.i.i, %ERR_AFALG_error.exit.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %kver.i.i)
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %ut.i.i)
   br label %bind_helper.exit
@@ -261,14 +261,14 @@ lor.lhs.false10.i.i:                              ; preds = %lor.lhs.false7.i.i
 if.then.i12.i:                                    ; preds = %lor.lhs.false10.i.i, %lor.lhs.false7.i.i, %lor.lhs.false4.i.i, %lor.lhs.false.i.i, %ERR_load_AFALG_strings.exit.i.i
   %18 = load i32, ptr @lib_code, align 4
   %cmp.i8.i.i = icmp eq i32 %18, 0
-  br i1 %cmp.i8.i.i, label %if.then.i10.i14.i, label %ERR_AFALG_error.argprom.exit.i13.i
+  br i1 %cmp.i8.i.i, label %if.then.i10.i14.i, label %ERR_AFALG_error.exit.i13.i
 
 if.then.i10.i14.i:                                ; preds = %if.then.i12.i
   %call.i11.i15.i = call i32 @ERR_get_next_error_library() #14
   store i32 %call.i11.i15.i, ptr @lib_code, align 4
-  br label %ERR_AFALG_error.argprom.exit.i13.i
+  br label %ERR_AFALG_error.exit.i13.i
 
-ERR_AFALG_error.argprom.exit.i13.i:               ; preds = %if.then.i10.i14.i, %if.then.i12.i
+ERR_AFALG_error.exit.i13.i:                       ; preds = %if.then.i10.i14.i, %if.then.i12.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
   %19 = load i32, ptr @lib_code, align 4
@@ -292,14 +292,14 @@ for.body.i5.i:                                    ; preds = %lor.lhs.false10.i.i
 if.then17.i.i:                                    ; preds = %for.body.i5.i
   %21 = load i32, ptr @lib_code, align 4
   %cmp.i12.i.i = icmp eq i32 %21, 0
-  br i1 %cmp.i12.i.i, label %if.then.i14.i.i, label %ERR_AFALG_error.argprom.exit16.i.i
+  br i1 %cmp.i12.i.i, label %if.then.i14.i.i, label %ERR_AFALG_error.exit16.i.i
 
 if.then.i14.i.i:                                  ; preds = %if.then17.i.i
   %call.i15.i.i = call i32 @ERR_get_next_error_library() #14
   store i32 %call.i15.i.i, ptr @lib_code, align 4
-  br label %ERR_AFALG_error.argprom.exit16.i.i
+  br label %ERR_AFALG_error.exit16.i.i
 
-ERR_AFALG_error.argprom.exit16.i.i:               ; preds = %if.then.i14.i.i, %if.then17.i.i
+ERR_AFALG_error.exit16.i.i:                       ; preds = %if.then.i14.i.i, %if.then17.i.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
   %22 = load i32, ptr @lib_code, align 4
@@ -313,11 +313,11 @@ for.end.i9.i:                                     ; preds = %for.cond.i.i
   br i1 %tobool20.not.i.i, label %if.then21.i.i, label %bind_helper.exit
 
 if.then21.i.i:                                    ; preds = %for.end.i9.i
-  call fastcc void @ERR_AFALG_error.argprom.argelim(i32 noundef 100, i32 noundef 821)
+  call fastcc void @ERR_AFALG_error(i32 noundef 100, i32 noundef 821)
   br label %bind_helper.exit
 
-bind_helper.exit:                                 ; preds = %ERR_AFALG_error.argprom.exit.i13.i, %if.then21.i.i, %ERR_AFALG_error.argprom.exit16.i.i, %afalg_chk_platform.exit.thread.i, %land.lhs.true.i, %for.end.i9.i
-  %23 = phi i32 [ 1, %for.end.i9.i ], [ 0, %land.lhs.true.i ], [ 0, %afalg_chk_platform.exit.thread.i ], [ 0, %ERR_AFALG_error.argprom.exit16.i.i ], [ 0, %if.then21.i.i ], [ 0, %ERR_AFALG_error.argprom.exit.i13.i ]
+bind_helper.exit:                                 ; preds = %ERR_AFALG_error.exit.i13.i, %if.then21.i.i, %ERR_AFALG_error.exit16.i.i, %afalg_chk_platform.exit.thread.i, %land.lhs.true.i, %for.end.i9.i
+  %23 = phi i32 [ 1, %for.end.i9.i ], [ 0, %land.lhs.true.i ], [ 0, %afalg_chk_platform.exit.thread.i ], [ 0, %ERR_AFALG_error.exit16.i.i ], [ 0, %if.then21.i.i ], [ 0, %ERR_AFALG_error.exit.i13.i ]
   ret i32 %23
 }
 
@@ -337,7 +337,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ERR_AFALG_error.argprom.argelim(i32 noundef range(i32 100, 113) %reason, i32 noundef range(i32 212, 883) %line) unnamed_addr #1 {
+define internal fastcc void @ERR_AFALG_error(i32 noundef range(i32 100, 113) %reason, i32 noundef range(i32 212, 883) %line) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @lib_code, align 4
   %cmp = icmp eq i32 %0, 0
@@ -665,13 +665,13 @@ if.then29.i:                                      ; preds = %err.i
 if.end32.i:                                       ; preds = %if.then29.i, %err.i
   %9 = load i32, ptr %sfd.i, align 4
   %cmp34.i = icmp sgt i32 %9, -1
-  br i1 %cmp34.i, label %if.then35.i, label %afalg_create_sk.argprom.exit.thread
+  br i1 %cmp34.i, label %if.then35.i, label %afalg_create_sk.exit.thread
 
 if.then35.i:                                      ; preds = %if.end32.i
   %call37.i = call i32 @close(i32 noundef %9) #14
-  br label %afalg_create_sk.argprom.exit.thread
+  br label %afalg_create_sk.exit.thread
 
-afalg_create_sk.argprom.exit.thread:              ; preds = %if.end32.i, %if.then35.i
+afalg_create_sk.exit.thread:                      ; preds = %if.end32.i, %if.then35.i
   store i32 -1, ptr %sfd.i, align 4
   store i32 -1, ptr %bfd.i, align 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %sa.i)
@@ -695,14 +695,14 @@ do.body.i17:                                      ; preds = %if.end21
   call void @perror(ptr noundef null) #16
   %11 = load i32, ptr @lib_code, align 4
   %cmp.i.i18 = icmp eq i32 %11, 0
-  br i1 %cmp.i.i18, label %if.then.i.i, label %afalg_set_key.argprom.exit.thread
+  br i1 %cmp.i.i18, label %if.then.i.i, label %afalg_set_key.exit.thread
 
 if.then.i.i:                                      ; preds = %do.body.i17
   %call.i.i = call i32 @ERR_get_next_error_library() #14
   store i32 %call.i.i, ptr @lib_code, align 4
-  br label %afalg_set_key.argprom.exit.thread
+  br label %afalg_set_key.exit.thread
 
-afalg_set_key.argprom.exit.thread:                ; preds = %do.body.i17, %if.then.i.i
+afalg_set_key.exit.thread:                        ; preds = %do.body.i17, %if.then.i.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
   %12 = load i32, ptr @lib_code, align 4
@@ -720,15 +720,15 @@ if.end29:                                         ; preds = %if.end25
   store i32 25757297, ptr %call5, align 8
   br label %return
 
-err:                                              ; preds = %afalg_set_key.argprom.exit.thread, %if.end25, %if.end17
+err:                                              ; preds = %afalg_set_key.exit.thread, %if.end25, %if.end17
   %13 = load i32, ptr %sfd.i, align 4
   %call30 = call i32 @close(i32 noundef %13) #14
   %14 = load i32, ptr %bfd.i, align 8
   %call31 = call i32 @close(i32 noundef %14) #14
   br label %return
 
-return:                                           ; preds = %afalg_create_sk.argprom.exit.thread, %sw.bb, %if.end8, %if.end4, %if.end, %entry, %err, %if.end29
-  %retval.0 = phi i32 [ 0, %err ], [ 1, %if.end29 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end4 ], [ 0, %if.end8 ], [ 0, %sw.bb ], [ 0, %afalg_create_sk.argprom.exit.thread ]
+return:                                           ; preds = %afalg_create_sk.exit.thread, %sw.bb, %if.end8, %if.end4, %if.end, %entry, %err, %if.end29
+  %retval.0 = phi i32 [ 0, %err ], [ 1, %if.end29 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end4 ], [ 0, %if.end8 ], [ 0, %sw.bb ], [ 0, %afalg_create_sk.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -879,7 +879,7 @@ do.body.i.i:                                      ; preds = %if.then6.i.i
   %7 = load ptr, ptr @stderr, align 8
   %call12.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.1, i32 noundef 210) #16
   call void @perror(ptr noundef null) #16
-  call fastcc void @ERR_AFALG_error.argprom.argelim(i32 noundef 108, i32 noundef 212)
+  call fastcc void @ERR_AFALG_error(i32 noundef 108, i32 noundef 212)
   br label %afalg_setup_async_event_notification.exit.thread.i
 
 if.end13.i.i:                                     ; preds = %if.then6.i.i
@@ -910,14 +910,14 @@ do.body32.i.i:                                    ; preds = %if.else.i.i
   call void @perror(ptr noundef null) #16
   %11 = load i32, ptr @lib_code, align 4
   %cmp.i.i.i = icmp eq i32 %11, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %ERR_AFALG_error.argprom.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %ERR_AFALG_error.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %do.body32.i.i
   %call.i15.i.i = call i32 @ERR_get_next_error_library() #14
   store i32 %call.i15.i.i, ptr @lib_code, align 4
-  br label %ERR_AFALG_error.argprom.exit.i.i
+  br label %ERR_AFALG_error.exit.i.i
 
-ERR_AFALG_error.argprom.exit.i.i:                 ; preds = %if.then.i.i.i, %do.body32.i.i
+ERR_AFALG_error.exit.i.i:                         ; preds = %if.then.i.i.i, %do.body32.i.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
   %12 = load i32, ptr @lib_code, align 4
@@ -925,7 +925,7 @@ ERR_AFALG_error.argprom.exit.i.i:                 ; preds = %if.then.i.i.i, %do.
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 236, ptr noundef null) #14
   br label %afalg_setup_async_event_notification.exit.thread.i
 
-afalg_setup_async_event_notification.exit.thread.i: ; preds = %ERR_AFALG_error.argprom.exit.i.i, %if.then17.i.i, %do.body.i.i, %if.then.i.i
+afalg_setup_async_event_notification.exit.thread.i: ; preds = %ERR_AFALG_error.exit.i.i, %if.then17.i.i, %do.body.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %custom.i.i)
   br label %afalg_fin_cipher_aio.exit.thread
 
@@ -1040,14 +1040,14 @@ if.else63.i:                                      ; preds = %if.then46.i
   br i1 %cond.i, label %sw.bb.i, label %sw.default.i
 
 sw.bb.i:                                          ; preds = %if.else63.i
-  br i1 %cmp.i.i, label %if.then.i21.i, label %ERR_AFALG_error.argprom.exit.i
+  br i1 %cmp.i.i, label %if.then.i21.i, label %ERR_AFALG_error.exit.i
 
 if.then.i21.i:                                    ; preds = %sw.bb.i
   %call.i22.i = call i32 @ERR_get_next_error_library() #14
   store i32 %call.i22.i, ptr @lib_code, align 4
-  br label %ERR_AFALG_error.argprom.exit.i
+  br label %ERR_AFALG_error.exit.i
 
-ERR_AFALG_error.argprom.exit.i:                   ; preds = %if.then.i21.i, %sw.bb.i
+ERR_AFALG_error.exit.i:                           ; preds = %if.then.i21.i, %sw.bb.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
   %31 = load i32, ptr @lib_code, align 4
@@ -1057,14 +1057,14 @@ ERR_AFALG_error.argprom.exit.i:                   ; preds = %if.then.i21.i, %sw.
   br label %afalg_fin_cipher_aio.exit.thread
 
 sw.default.i:                                     ; preds = %if.else63.i
-  br i1 %cmp.i.i, label %if.then.i25.i, label %ERR_AFALG_error.argprom.exit27.i
+  br i1 %cmp.i.i, label %if.then.i25.i, label %ERR_AFALG_error.exit27.i
 
 if.then.i25.i:                                    ; preds = %sw.default.i
   %call.i26.i = call i32 @ERR_get_next_error_library() #14
   store i32 %call.i26.i, ptr @lib_code, align 4
-  br label %ERR_AFALG_error.argprom.exit27.i
+  br label %ERR_AFALG_error.exit27.i
 
-ERR_AFALG_error.argprom.exit27.i:                 ; preds = %if.then.i25.i, %sw.default.i
+ERR_AFALG_error.exit27.i:                         ; preds = %if.then.i25.i, %sw.default.i
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
   %32 = load i32, ptr @lib_code, align 4
@@ -1086,7 +1086,7 @@ do.body77.i:                                      ; preds = %if.else73.i
   call void @perror(ptr noundef null) #16
   br label %afalg_fin_cipher_aio.exit.thread
 
-afalg_fin_cipher_aio.exit.thread:                 ; preds = %do.body.i21, %do.body24.i, %do.body59.i, %do.body77.i, %ERR_AFALG_error.argprom.exit27.i, %ERR_AFALG_error.argprom.exit.i, %afalg_setup_async_event_notification.exit.thread.i
+afalg_fin_cipher_aio.exit.thread:                 ; preds = %do.body.i21, %do.body24.i, %do.body59.i, %do.body77.i, %ERR_AFALG_error.exit27.i, %ERR_AFALG_error.exit.i, %afalg_setup_async_event_notification.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cb.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %events.i)
@@ -1195,14 +1195,14 @@ do.body:                                          ; preds = %entry
   tail call void @perror(ptr noundef null) #16
   %2 = load i32, ptr @lib_code, align 4
   %cmp.i = icmp eq i32 %2, 0
-  br i1 %cmp.i, label %if.then.i, label %ERR_AFALG_error.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %ERR_AFALG_error.exit
 
 if.then.i:                                        ; preds = %do.body
   %call.i5 = tail call i32 @ERR_get_next_error_library() #14
   store i32 %call.i5, ptr @lib_code, align 4
-  br label %ERR_AFALG_error.argprom.exit
+  br label %ERR_AFALG_error.exit
 
-ERR_AFALG_error.argprom.exit:                     ; preds = %do.body, %if.then.i
+ERR_AFALG_error.exit:                             ; preds = %do.body, %if.then.i
   tail call void @ERR_new() #14
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef 70, ptr noundef nonnull @__func__.ERR_AFALG_error) #14
   %3 = load i32, ptr @lib_code, align 4
@@ -1218,8 +1218,8 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %mode, align 4
   br label %return
 
-return:                                           ; preds = %if.end, %ERR_AFALG_error.argprom.exit
-  %retval.0 = phi i32 [ 0, %ERR_AFALG_error.argprom.exit ], [ 1, %if.end ]
+return:                                           ; preds = %if.end, %ERR_AFALG_error.exit
+  %retval.0 = phi i32 [ 0, %ERR_AFALG_error.exit ], [ 1, %if.end ]
   ret i32 %retval.0
 }
 

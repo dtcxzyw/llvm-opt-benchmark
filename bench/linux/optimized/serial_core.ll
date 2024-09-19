@@ -1363,7 +1363,7 @@ define internal fastcc void @uart_change_line_settings(ptr noundef %0, ptr nocap
 
 51:                                               ; preds = %46
   %.val = load ptr, ptr %4, align 8
-  tail call fastcc void @__uart_start.argprom(ptr %.val)
+  tail call fastcc void @__uart_start(ptr %.val)
   br label %52
 
 52:                                               ; preds = %51, %47, %43
@@ -3093,7 +3093,7 @@ declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__uart_start.argprom(ptr %.432.val) unnamed_addr #0 align 16 {
+define internal fastcc void @__uart_start(ptr %.432.val) unnamed_addr #0 align 16 {
   %1 = icmp eq ptr %.432.val, null
   br i1 %1, label %.thread, label %2
 
@@ -3486,7 +3486,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @uart_write(ptr nocapture
 ._crit_edge:                                      ; preds = %.lr.ph11, %36
   %.lcssa = phi i32 [ 0, %36 ], [ %77, %.lr.ph11 ]
   %.val5 = load ptr, ptr %22, align 8
-  tail call fastcc void @__uart_start.argprom(ptr %.val5)
+  tail call fastcc void @__uart_start(ptr %.val5)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %23, i64 noundef %29) #19
   %90 = getelementptr inbounds i8, ptr %23, i64 208
   %91 = load ptr, ptr %90, align 8
@@ -3506,7 +3506,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @uart_write(ptr nocapture
 .thread9:                                         ; preds = %25, %.thread8
   %100 = getelementptr i8, ptr %5, i64 432
   %.val = load ptr, ptr %100, align 8
-  tail call fastcc void @__uart_start.argprom(ptr %.val)
+  tail call fastcc void @__uart_start(ptr %.val)
   br label %101
 
 101:                                              ; preds = %.thread9, %96, %._crit_edge
@@ -4564,7 +4564,7 @@ define internal void @uart_start(ptr nocapture noundef readonly %0) #0 align 16 
 20:                                               ; preds = %16
   %21 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %18) #19
   %.val2 = load ptr, ptr %17, align 8
-  tail call fastcc void @__uart_start.argprom(ptr %.val2)
+  tail call fastcc void @__uart_start(ptr %.val2)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %18, i64 noundef %21) #19
   %22 = getelementptr inbounds i8, ptr %18, i64 208
   %23 = load ptr, ptr %22, align 8
@@ -4584,7 +4584,7 @@ define internal void @uart_start(ptr nocapture noundef readonly %0) #0 align 16 
 .thread4:                                         ; preds = %13, %1, %16
   %32 = getelementptr i8, ptr %3, i64 432
   %.val = load ptr, ptr %32, align 8
-  tail call fastcc void @__uart_start.argprom(ptr %.val)
+  tail call fastcc void @__uart_start(ptr %.val)
   br label %33
 
 33:                                               ; preds = %.thread4, %28, %20

@@ -1223,21 +1223,21 @@ Abc_Clock.exit72:                                 ; preds = %.critedge, %95
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %106 = load i32, ptr %17, align 4
   %107 = icmp slt i32 %106, 2
-  br i1 %107, label %Vec_PtrSort.argprom.exit, label %108
+  br i1 %107, label %Vec_PtrSort.exit, label %108
 
 108:                                              ; preds = %Abc_Clock.exit72
   %109 = load ptr, ptr %23, align 8
   %110 = zext nneg i32 %106 to i64
   call void @qsort(ptr noundef %109, i64 noundef %110, i64 noundef 8, ptr noundef nonnull @Iso_StoCompareVecInt) #17
-  br label %Vec_PtrSort.argprom.exit
+  br label %Vec_PtrSort.exit
 
-Vec_PtrSort.argprom.exit:                         ; preds = %Abc_Clock.exit72, %108
+Vec_PtrSort.exit:                                 ; preds = %Abc_Clock.exit72, %108
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %111 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #17
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %Abc_Clock.exit76, label %113
 
-113:                                              ; preds = %Vec_PtrSort.argprom.exit
+113:                                              ; preds = %Vec_PtrSort.exit
   %114 = load i64, ptr %3, align 8
   %.neg132 = mul i64 %114, -1000000
   %115 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1246,8 +1246,8 @@ Vec_PtrSort.argprom.exit:                         ; preds = %Abc_Clock.exit72, %
   %.neg133 = add i64 %.neg131, %.neg132
   br label %Abc_Clock.exit76
 
-Abc_Clock.exit76:                                 ; preds = %Vec_PtrSort.argprom.exit, %113
-  %.0.i75.neg = phi i64 [ %.neg133, %113 ], [ 1, %Vec_PtrSort.argprom.exit ]
+Abc_Clock.exit76:                                 ; preds = %Vec_PtrSort.exit, %113
+  %.0.i75.neg = phi i64 [ %.neg133, %113 ], [ 1, %Vec_PtrSort.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.val58 = load i32, ptr %14, align 8
   %117 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16

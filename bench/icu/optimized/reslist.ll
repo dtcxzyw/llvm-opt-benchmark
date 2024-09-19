@@ -6682,7 +6682,7 @@ entry:
   %call.val = load ptr, ptr %__functor, align 8
   %__args.val = load i32, ptr %__args, align 4
   %cmp.i.i.i = icmp sgt i32 %__args.val, -1
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZN7SRBRoot11compactKeysER10UErrorCodeE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %"_ZSt10__invoke_rIvRZN7SRBRoot11compactKeysER10UErrorCodeE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 16
@@ -6722,7 +6722,7 @@ if.end12.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
   %2 = phi i32 [ %.pre.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %0, %while.end.i.i.i.i.i.i ]
   %__y.0.lcssa26.i.i.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ], [ %__x.021.i.i.i.i.i.i, %while.end.i.i.i.i.i.i ]
   %cmp.i5.i.i.i.i.i.i = icmp slt i32 %2, %__args.val
-  br i1 %cmp.i5.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN7SRBRoot11compactKeysER10UErrorCodeE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br i1 %cmp.i5.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN7SRBRoot11compactKeysER10UErrorCodeE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
 if.then.i.i.i.i.i:                                ; preds = %if.end12.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.sroa.4.0.i.ph.i.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %__y.0.lcssa26.i.i.i.i.i.i, %if.end12.i.i.i.i.i.i ]
@@ -6745,9 +6745,9 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
   %5 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i = add i64 %5, 1
   store i64 %inc.i.i.i.i.i.i, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZN7SRBRoot11compactKeysER10UErrorCodeE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN7SRBRoot11compactKeysER10UErrorCodeE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIvRZN7SRBRoot11compactKeysER10UErrorCodeE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %entry, %if.end12.i.i.i.i.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN7SRBRoot11compactKeysER10UErrorCodeE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %entry, %if.end12.i.i.i.i.i.i, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i.i.i
   ret void
 }
 

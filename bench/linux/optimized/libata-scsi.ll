@@ -2493,7 +2493,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   br label %372
 
 51:                                               ; preds = %45
-  tail call fastcc void @ata_scsi_set_invalid_field.argprom.argelim(i64 %47, ptr noundef %1)
+  tail call fastcc void @ata_scsi_set_invalid_field(i64 %47, ptr noundef %1)
   br label %372
 
 52:                                               ; preds = %28
@@ -2509,13 +2509,13 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 57:                                               ; preds = %52
   %58 = getelementptr i8, ptr %0, i64 16
   %.val1 = load i64, ptr %58, align 16
-  tail call fastcc void @ata_scsi_set_invalid_field.argprom.argelim(i64 %.val1, ptr noundef %1)
+  tail call fastcc void @ata_scsi_set_invalid_field(i64 %.val1, ptr noundef %1)
   br label %372
 
 59:                                               ; preds = %28
   %60 = getelementptr i8, ptr %0, i64 16
   %.val2 = load i64, ptr %60, align 16
-  tail call fastcc void @ata_scsi_set_invalid_field.argprom.argelim(i64 %.val2, ptr noundef %1)
+  tail call fastcc void @ata_scsi_set_invalid_field(i64 %.val2, ptr noundef %1)
   br label %372
 
 61:                                               ; preds = %2, %2
@@ -2791,7 +2791,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 223:                                              ; preds = %2
   %224 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ata_scsi_rbuf_lock) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @ata_scsi_rbuf, i8 0, i64 2048, i1 false)
-  call fastcc void @ata_scsiop_read_cap.argprom.argelim(ptr noundef nonnull %3) #19
+  call fastcc void @ata_scsiop_read_cap(ptr noundef nonnull %3) #19
   %225 = getelementptr inbounds i8, ptr %1, i64 200
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds i8, ptr %1, i64 208
@@ -2812,7 +2812,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 236:                                              ; preds = %231
   %237 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ata_scsi_rbuf_lock) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @ata_scsi_rbuf, i8 0, i64 2048, i1 false)
-  call fastcc void @ata_scsiop_read_cap.argprom.argelim(ptr noundef nonnull %3) #19
+  call fastcc void @ata_scsiop_read_cap(ptr noundef nonnull %3) #19
   %238 = getelementptr inbounds i8, ptr %1, i64 200
   %239 = load ptr, ptr %238, align 8
   %240 = getelementptr inbounds i8, ptr %1, i64 208
@@ -3174,7 +3174,7 @@ select.unfold:                                    ; preds = %63, %63, %63, %63, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_scsi_set_invalid_field.argprom.argelim(i64 %.16.val, ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ata_scsi_set_invalid_field(i64 %.16.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = trunc i64 %.16.val to i32
   %3 = lshr i32 %2, 29
   %4 = and i32 %3, 1
@@ -3728,7 +3728,7 @@ define internal noundef i32 @ata_scsiop_inq_b9(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_scsiop_read_cap.argprom.argelim(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ata_scsiop_read_cap(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 784
   %4 = load i64, ptr %3, align 16
@@ -6175,7 +6175,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_mode_select_xlat(ptr nocap
   %175 = load ptr, ptr %174, align 8
   %176 = getelementptr i8, ptr %175, i64 16
   %.val = load i64, ptr %176, align 16
-  call fastcc void @ata_scsi_set_invalid_parameter.argprom(i64 %.val, ptr noundef %5, i16 noundef zeroext %173)
+  call fastcc void @ata_scsi_set_invalid_parameter(i64 %.val, ptr noundef %5, i16 noundef zeroext %173)
   br label %187
 
 177:                                              ; preds = %129, %86, %84, %60, %47, %39, %35
@@ -7030,7 +7030,7 @@ define internal fastcc noundef range(i32 -22, 2) i32 @ata_mselect_control(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_scsi_set_invalid_parameter.argprom(i64 %.16.val, ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ata_scsi_set_invalid_parameter(i64 %.16.val, ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = trunc i64 %.16.val to i32
   %4 = lshr i32 %3, 29
   %5 = and i32 %4, 1

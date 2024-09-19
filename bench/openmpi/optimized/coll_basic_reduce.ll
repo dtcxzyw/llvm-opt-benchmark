@@ -242,7 +242,7 @@ ompi_datatype_copy_content_same_ddt.exit189:      ; preds = %.lr.ph.i180, %96, %
   br i1 %106, label %108, label %109
 
 108:                                              ; preds = %107
-  tail call fastcc void @ompi_datatype_copy_content_same_ddt.retelim(ptr noundef %3, i64 noundef %26, ptr noundef %.0145, ptr noundef %.1135)
+  tail call fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef %3, i64 noundef %26, ptr noundef %.0145, ptr noundef %.1135)
   br label %ompi_datatype_copy_content_same_ddt.exit
 
 109:                                              ; preds = %107
@@ -294,7 +294,7 @@ declare i32 @ompi_coll_base_reduce_intra_basic_linear(ptr noundef, ptr noundef, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_datatype_copy_content_same_ddt.retelim(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 48
   %.val = load i64, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 56

@@ -57,12 +57,12 @@ define range(i32 0, 2) i32 @Ivy_ManSeqFindCut_int(ptr nocapture noundef readonly
   %.val30.i = load i32, ptr %20, align 8
   %21 = and i32 %.val30.i, 15
   %.not.i = icmp eq i32 %21, 1
-  br i1 %.not.i, label %Ivy_NodeGetLeafCostOne.argprom.argprom.exit, label %22
+  br i1 %.not.i, label %Ivy_NodeGetLeafCostOne.exit, label %22
 
 22:                                               ; preds = %13
   %.val31.i = load i32, ptr %19, align 8
   %.not1.i = icmp eq i32 %.val31.i, 0
-  br i1 %.not1.i, label %Ivy_NodeGetLeafCostOne.argprom.argprom.exit, label %23
+  br i1 %.not1.i, label %Ivy_NodeGetLeafCostOne.exit, label %23
 
 23:                                               ; preds = %22
   %24 = and i32 %15, 255
@@ -70,13 +70,13 @@ define range(i32 0, 2) i32 @Ivy_ManSeqFindCut_int(ptr nocapture noundef readonly
   %26 = zext i1 %25 to i32
   %27 = add nuw nsw i32 %24, %26
   %28 = icmp ugt i32 %27, 15
-  br i1 %28, label %Ivy_NodeGetLeafCostOne.argprom.argprom.exit, label %29
+  br i1 %28, label %Ivy_NodeGetLeafCostOne.exit, label %29
 
 29:                                               ; preds = %23
   %30 = getelementptr i8, ptr %19, i64 16
   %.val34.i = load ptr, ptr %30, align 8
   %.not.i.i = icmp eq ptr %.val34.i, null
-  br i1 %.not.i.i, label %Ivy_ObjFaninId0.argprom.exit.i, label %31
+  br i1 %.not.i.i, label %Ivy_ObjFaninId0.exit.i, label %31
 
 31:                                               ; preds = %29
   %32 = ptrtoint ptr %.val34.i to i64
@@ -84,15 +84,15 @@ define range(i32 0, 2) i32 @Ivy_ManSeqFindCut_int(ptr nocapture noundef readonly
   %34 = inttoptr i64 %33 to ptr
   %.val.i.i = load i32, ptr %34, align 8
   %35 = shl i32 %.val.i.i, 8
-  br label %Ivy_ObjFaninId0.argprom.exit.i
+  br label %Ivy_ObjFaninId0.exit.i
 
-Ivy_ObjFaninId0.argprom.exit.i:                   ; preds = %31, %29
+Ivy_ObjFaninId0.exit.i:                           ; preds = %31, %29
   %36 = phi i32 [ %35, %31 ], [ 0, %29 ]
   %37 = or disjoint i32 %36, %27
   %.not26.i = icmp eq i32 %37, 0
   br i1 %.not26.i, label %Vec_IntFind.exit.i, label %38
 
-38:                                               ; preds = %Ivy_ObjFaninId0.argprom.exit.i
+38:                                               ; preds = %Ivy_ObjFaninId0.exit.i
   %39 = load i32, ptr %11, align 4
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.i.i, label %Vec_IntFind.exit.i
@@ -114,18 +114,18 @@ Ivy_ObjFaninId0.argprom.exit.i:                   ; preds = %31, %29
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %Vec_IntFind.exit.i, label %42, !llvm.loop !4
 
-Vec_IntFind.exit.i:                               ; preds = %46, %42, %38, %Ivy_ObjFaninId0.argprom.exit.i
-  %47 = phi i32 [ 0, %Ivy_ObjFaninId0.argprom.exit.i ], [ 1, %38 ], [ 1, %46 ], [ 0, %42 ]
+Vec_IntFind.exit.i:                               ; preds = %46, %42, %38, %Ivy_ObjFaninId0.exit.i
+  %47 = phi i32 [ 0, %Ivy_ObjFaninId0.exit.i ], [ 1, %38 ], [ 1, %46 ], [ 0, %42 ]
   switch i32 %21, label %48 [
-    i32 7, label %Ivy_NodeGetLeafCostOne.argprom.argprom.exit
-    i32 4, label %Ivy_NodeGetLeafCostOne.argprom.argprom.exit
+    i32 7, label %Ivy_NodeGetLeafCostOne.exit
+    i32 4, label %Ivy_NodeGetLeafCostOne.exit
   ]
 
 48:                                               ; preds = %Vec_IntFind.exit.i
   %49 = getelementptr i8, ptr %19, i64 24
   %.val36.i = load ptr, ptr %49, align 8
   %.not.i37.i = icmp eq ptr %.val36.i, null
-  br i1 %.not.i37.i, label %Ivy_ObjFaninId1.argprom.exit.i, label %50
+  br i1 %.not.i37.i, label %Ivy_ObjFaninId1.exit.i, label %50
 
 50:                                               ; preds = %48
   %51 = ptrtoint ptr %.val36.i to i64
@@ -133,15 +133,15 @@ Vec_IntFind.exit.i:                               ; preds = %46, %42, %38, %Ivy_
   %53 = inttoptr i64 %52 to ptr
   %.val.i38.i = load i32, ptr %53, align 8
   %54 = shl i32 %.val.i38.i, 8
-  br label %Ivy_ObjFaninId1.argprom.exit.i
+  br label %Ivy_ObjFaninId1.exit.i
 
-Ivy_ObjFaninId1.argprom.exit.i:                   ; preds = %50, %48
+Ivy_ObjFaninId1.exit.i:                           ; preds = %50, %48
   %55 = phi i32 [ %54, %50 ], [ 0, %48 ]
   %56 = or disjoint i32 %55, %27
   %.not29.i = icmp eq i32 %56, 0
   br i1 %.not29.i, label %Vec_IntFind.exit46.i, label %57
 
-57:                                               ; preds = %Ivy_ObjFaninId1.argprom.exit.i
+57:                                               ; preds = %Ivy_ObjFaninId1.exit.i
   %58 = load i32, ptr %11, align 4
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph.i40.i, label %Vec_IntFind.exit46.i
@@ -163,17 +163,17 @@ Ivy_ObjFaninId1.argprom.exit.i:                   ; preds = %50, %48
   %exitcond.not.i44.i = icmp eq i64 %indvars.iv.next.i43.i, %wide.trip.count.i41.i
   br i1 %exitcond.not.i44.i, label %Vec_IntFind.exit46.i, label %61, !llvm.loop !4
 
-Vec_IntFind.exit46.i:                             ; preds = %65, %61, %57, %Ivy_ObjFaninId1.argprom.exit.i
-  %66 = phi i32 [ 0, %Ivy_ObjFaninId1.argprom.exit.i ], [ 1, %57 ], [ 1, %65 ], [ 0, %61 ]
+Vec_IntFind.exit46.i:                             ; preds = %65, %61, %57, %Ivy_ObjFaninId1.exit.i
+  %66 = phi i32 [ 0, %Ivy_ObjFaninId1.exit.i ], [ 1, %57 ], [ 1, %65 ], [ 0, %61 ]
   %67 = add nuw nsw i32 %66, %47
-  br label %Ivy_NodeGetLeafCostOne.argprom.argprom.exit
+  br label %Ivy_NodeGetLeafCostOne.exit
 
-Ivy_NodeGetLeafCostOne.argprom.argprom.exit:      ; preds = %13, %22, %23, %Vec_IntFind.exit.i, %Vec_IntFind.exit.i, %Vec_IntFind.exit46.i
+Ivy_NodeGetLeafCostOne.exit:                      ; preds = %13, %22, %23, %Vec_IntFind.exit.i, %Vec_IntFind.exit.i, %Vec_IntFind.exit46.i
   %.0.i = phi i32 [ %67, %Vec_IntFind.exit46.i ], [ 999, %22 ], [ 999, %13 ], [ 999, %23 ], [ %47, %Vec_IntFind.exit.i ], [ %47, %Vec_IntFind.exit.i ]
   %68 = icmp sgt i32 %.052116, %.0.i
   br i1 %68, label %75, label %69
 
-69:                                               ; preds = %Ivy_NodeGetLeafCostOne.argprom.argprom.exit
+69:                                               ; preds = %Ivy_NodeGetLeafCostOne.exit
   %70 = icmp eq i32 %.052116, %.0.i
   br i1 %70, label %71, label %.thread
 
@@ -184,7 +184,7 @@ Ivy_NodeGetLeafCostOne.argprom.argprom.exit:      ; preds = %13, %22, %23, %Vec_
   store i32 %15, ptr %74, align 4
   br label %.thread
 
-75:                                               ; preds = %Ivy_NodeGetLeafCostOne.argprom.argprom.exit
+75:                                               ; preds = %Ivy_NodeGetLeafCostOne.exit
   store i32 %15, ptr %5, align 16
   %76 = icmp slt i32 %.0.i, 2
   br i1 %76, label %.critedge.thread, label %.thread
@@ -298,7 +298,7 @@ Vec_IntRemove.exit:                               ; preds = %96, %._crit_edge.i,
   %126 = getelementptr i8, ptr %119, i64 16
   %.val67 = load ptr, ptr %126, align 8
   %.not.i71 = icmp eq ptr %.val67, null
-  br i1 %.not.i71, label %Ivy_ObjFaninId0.argprom.exit, label %127
+  br i1 %.not.i71, label %Ivy_ObjFaninId0.exit, label %127
 
 127:                                              ; preds = %Vec_IntRemove.exit
   %128 = ptrtoint ptr %.val67 to i64
@@ -306,15 +306,15 @@ Vec_IntRemove.exit:                               ; preds = %96, %._crit_edge.i,
   %130 = inttoptr i64 %129 to ptr
   %.val.i = load i32, ptr %130, align 8
   %131 = shl i32 %.val.i, 8
-  br label %Ivy_ObjFaninId0.argprom.exit
+  br label %Ivy_ObjFaninId0.exit
 
-Ivy_ObjFaninId0.argprom.exit:                     ; preds = %Vec_IntRemove.exit, %127
+Ivy_ObjFaninId0.exit:                             ; preds = %Vec_IntRemove.exit, %127
   %132 = phi i32 [ %131, %127 ], [ 0, %Vec_IntRemove.exit ]
   %133 = or i32 %132, %125
   %.not = icmp eq i32 %133, 0
   br i1 %.not, label %Vec_IntFind.exit, label %134
 
-134:                                              ; preds = %Ivy_ObjFaninId0.argprom.exit
+134:                                              ; preds = %Ivy_ObjFaninId0.exit
   %135 = getelementptr inbounds i8, ptr %2, i64 4
   %136 = load i32, ptr %135, align 4
   %137 = icmp sgt i32 %136, 0
@@ -472,8 +472,8 @@ Vec_IntPush.exit84:                               ; preds = %.Vec_IntGrow.exit10
   %.pre = and i32 %.val66.pre, 15
   br label %Vec_IntFind.exit
 
-Vec_IntFind.exit:                                 ; preds = %140, %Vec_IntPush.exit84, %Ivy_ObjFaninId0.argprom.exit
-  %.pre-phi = phi i32 [ %.pre, %Vec_IntPush.exit84 ], [ %122, %Ivy_ObjFaninId0.argprom.exit ], [ %122, %140 ]
+Vec_IntFind.exit:                                 ; preds = %140, %Vec_IntPush.exit84, %Ivy_ObjFaninId0.exit
+  %.pre-phi = phi i32 [ %.pre, %Vec_IntPush.exit84 ], [ %122, %Ivy_ObjFaninId0.exit ], [ %122, %140 ]
   switch i32 %.pre-phi, label %204 [
     i32 4, label %Vec_IntFind.exit95
     i32 7, label %Vec_IntFind.exit95
@@ -483,7 +483,7 @@ Vec_IntFind.exit:                                 ; preds = %140, %Vec_IntPush.e
   %205 = getelementptr i8, ptr %119, i64 24
   %.val69 = load ptr, ptr %205, align 8
   %.not.i85 = icmp eq ptr %.val69, null
-  br i1 %.not.i85, label %Ivy_ObjFaninId1.argprom.exit, label %206
+  br i1 %.not.i85, label %Ivy_ObjFaninId1.exit, label %206
 
 206:                                              ; preds = %204
   %207 = ptrtoint ptr %.val69 to i64
@@ -491,15 +491,15 @@ Vec_IntFind.exit:                                 ; preds = %140, %Vec_IntPush.e
   %209 = inttoptr i64 %208 to ptr
   %.val.i86 = load i32, ptr %209, align 8
   %210 = shl i32 %.val.i86, 8
-  br label %Ivy_ObjFaninId1.argprom.exit
+  br label %Ivy_ObjFaninId1.exit
 
-Ivy_ObjFaninId1.argprom.exit:                     ; preds = %204, %206
+Ivy_ObjFaninId1.exit:                             ; preds = %204, %206
   %211 = phi i32 [ %210, %206 ], [ 0, %204 ]
   %212 = or i32 %211, %125
   %.not61 = icmp eq i32 %212, 0
   br i1 %.not61, label %Vec_IntFind.exit95, label %213
 
-213:                                              ; preds = %Ivy_ObjFaninId1.argprom.exit
+213:                                              ; preds = %Ivy_ObjFaninId1.exit
   %214 = getelementptr inbounds i8, ptr %2, i64 4
   %215 = load i32, ptr %214, align 4
   %216 = icmp sgt i32 %215, 0
@@ -528,8 +528,8 @@ Vec_IntFind.exit95.thread:                        ; preds = %223, %213
   tail call fastcc void @Vec_IntPush(ptr noundef %2, i32 noundef %212)
   br label %Vec_IntFind.exit95
 
-Vec_IntFind.exit95:                               ; preds = %219, %4, %Vec_IntFind.exit, %Vec_IntFind.exit, %Ivy_ObjFaninId1.argprom.exit, %Vec_IntFind.exit95.thread, %.critedge.thread, %.critedge
-  %.051 = phi i32 [ 0, %.critedge ], [ 0, %.critedge.thread ], [ 1, %Vec_IntFind.exit ], [ 1, %Vec_IntFind.exit95.thread ], [ 1, %Ivy_ObjFaninId1.argprom.exit ], [ 1, %Vec_IntFind.exit ], [ 0, %4 ], [ 1, %219 ]
+Vec_IntFind.exit95:                               ; preds = %219, %4, %Vec_IntFind.exit, %Vec_IntFind.exit, %Ivy_ObjFaninId1.exit, %Vec_IntFind.exit95.thread, %.critedge.thread, %.critedge
+  %.051 = phi i32 [ 0, %.critedge ], [ 0, %.critedge.thread ], [ 1, %Vec_IntFind.exit ], [ 1, %Vec_IntFind.exit95.thread ], [ 1, %Ivy_ObjFaninId1.exit ], [ 1, %Vec_IntFind.exit ], [ 0, %4 ], [ 1, %219 ]
   ret i32 %.051
 }
 
@@ -617,7 +617,7 @@ define void @Ivy_ManSeqFindCut(ptr nocapture noundef readonly %0, ptr nocapture 
   %7 = getelementptr i8, ptr %1, i64 16
   %.val15 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val15, null
-  br i1 %.not.i, label %Ivy_ObjFaninId0.argprom.exit, label %8
+  br i1 %.not.i, label %Ivy_ObjFaninId0.exit, label %8
 
 8:                                                ; preds = %5
   %9 = ptrtoint ptr %.val15 to i64
@@ -625,9 +625,9 @@ define void @Ivy_ManSeqFindCut(ptr nocapture noundef readonly %0, ptr nocapture 
   %11 = inttoptr i64 %10 to ptr
   %.val.i = load i32, ptr %11, align 8
   %12 = shl i32 %.val.i, 8
-  br label %Ivy_ObjFaninId0.argprom.exit
+  br label %Ivy_ObjFaninId0.exit
 
-Ivy_ObjFaninId0.argprom.exit:                     ; preds = %5, %8
+Ivy_ObjFaninId0.exit:                             ; preds = %5, %8
   %13 = phi i32 [ %12, %8 ], [ 0, %5 ]
   %14 = load i32, ptr %2, align 8
   %15 = icmp eq i32 %14, 0
@@ -635,7 +635,7 @@ Ivy_ObjFaninId0.argprom.exit:                     ; preds = %5, %8
   %17 = load ptr, ptr %16, align 8
   br i1 %15, label %18, label %Vec_IntPush.exit
 
-18:                                               ; preds = %Ivy_ObjFaninId0.argprom.exit
+18:                                               ; preds = %Ivy_ObjFaninId0.exit
   %.not9.i.i = icmp eq ptr %17, null
   br i1 %.not9.i.i, label %21, label %19
 
@@ -655,9 +655,9 @@ Vec_IntGrow.exit.i:                               ; preds = %21, %19
   store i32 16, ptr %2, align 8
   br label %Vec_IntPush.exit
 
-Vec_IntPush.exit:                                 ; preds = %Ivy_ObjFaninId0.argprom.exit, %Vec_IntGrow.exit.i
-  %24 = phi i32 [ %.pre, %Vec_IntGrow.exit.i ], [ 0, %Ivy_ObjFaninId0.argprom.exit ]
-  %25 = phi ptr [ %23, %Vec_IntGrow.exit.i ], [ %17, %Ivy_ObjFaninId0.argprom.exit ]
+Vec_IntPush.exit:                                 ; preds = %Ivy_ObjFaninId0.exit, %Vec_IntGrow.exit.i
+  %24 = phi i32 [ %.pre, %Vec_IntGrow.exit.i ], [ 0, %Ivy_ObjFaninId0.exit ]
+  %25 = phi ptr [ %23, %Vec_IntGrow.exit.i ], [ %17, %Ivy_ObjFaninId0.exit ]
   %26 = add nsw i32 %24, 1
   store i32 %26, ptr %6, align 4
   %27 = sext i32 %24 to i64
@@ -666,7 +666,7 @@ Vec_IntPush.exit:                                 ; preds = %Ivy_ObjFaninId0.arg
   %29 = getelementptr i8, ptr %1, i64 24
   %.val17 = load ptr, ptr %29, align 8
   %.not.i18 = icmp eq ptr %.val17, null
-  br i1 %.not.i18, label %Ivy_ObjFaninId1.argprom.exit, label %30
+  br i1 %.not.i18, label %Ivy_ObjFaninId1.exit, label %30
 
 30:                                               ; preds = %Vec_IntPush.exit
   %31 = ptrtoint ptr %.val17 to i64
@@ -674,21 +674,21 @@ Vec_IntPush.exit:                                 ; preds = %Ivy_ObjFaninId0.arg
   %33 = inttoptr i64 %32 to ptr
   %.val.i19 = load i32, ptr %33, align 8
   %34 = shl i32 %.val.i19, 8
-  br label %Ivy_ObjFaninId1.argprom.exit
+  br label %Ivy_ObjFaninId1.exit
 
-Ivy_ObjFaninId1.argprom.exit:                     ; preds = %Vec_IntPush.exit, %30
+Ivy_ObjFaninId1.exit:                             ; preds = %Vec_IntPush.exit, %30
   %35 = phi i32 [ %34, %30 ], [ 0, %Vec_IntPush.exit ]
   %36 = load i32, ptr %6, align 4
   %37 = load i32, ptr %2, align 8
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %39, label %.Vec_IntGrow.exit10_crit_edge.i20
 
-.Vec_IntGrow.exit10_crit_edge.i20:                ; preds = %Ivy_ObjFaninId1.argprom.exit
+.Vec_IntGrow.exit10_crit_edge.i20:                ; preds = %Ivy_ObjFaninId1.exit
   %.phi.trans.insert.i21 = getelementptr inbounds i8, ptr %2, i64 8
   %.pre.i22 = load ptr, ptr %.phi.trans.insert.i21, align 8
   br label %Vec_IntPush.exit26
 
-39:                                               ; preds = %Ivy_ObjFaninId1.argprom.exit
+39:                                               ; preds = %Ivy_ObjFaninId1.exit
   %40 = icmp slt i32 %36, 16
   br i1 %40, label %41, label %49
 
@@ -783,7 +783,7 @@ Vec_IntPush.exit33:                               ; preds = %Vec_IntPush.exit26,
   store i32 %68, ptr %83, align 4
   %.val = load ptr, ptr %7, align 8
   %.not.i34 = icmp eq ptr %.val, null
-  br i1 %.not.i34, label %Ivy_ObjFaninId0.argprom.exit36, label %84
+  br i1 %.not.i34, label %Ivy_ObjFaninId0.exit36, label %84
 
 84:                                               ; preds = %Vec_IntPush.exit33
   %85 = ptrtoint ptr %.val to i64
@@ -791,21 +791,21 @@ Vec_IntPush.exit33:                               ; preds = %Vec_IntPush.exit26,
   %87 = inttoptr i64 %86 to ptr
   %.val.i35 = load i32, ptr %87, align 8
   %88 = shl i32 %.val.i35, 8
-  br label %Ivy_ObjFaninId0.argprom.exit36
+  br label %Ivy_ObjFaninId0.exit36
 
-Ivy_ObjFaninId0.argprom.exit36:                   ; preds = %Vec_IntPush.exit33, %84
+Ivy_ObjFaninId0.exit36:                           ; preds = %Vec_IntPush.exit33, %84
   %89 = phi i32 [ %88, %84 ], [ 0, %Vec_IntPush.exit33 ]
   %90 = load i32, ptr %66, align 4
   %91 = load i32, ptr %3, align 8
   %92 = icmp eq i32 %90, %91
   br i1 %92, label %93, label %.Vec_IntGrow.exit10_crit_edge.i37
 
-.Vec_IntGrow.exit10_crit_edge.i37:                ; preds = %Ivy_ObjFaninId0.argprom.exit36
+.Vec_IntGrow.exit10_crit_edge.i37:                ; preds = %Ivy_ObjFaninId0.exit36
   %.phi.trans.insert.i38 = getelementptr inbounds i8, ptr %3, i64 8
   %.pre.i39 = load ptr, ptr %.phi.trans.insert.i38, align 8
   br label %Vec_IntPush.exit43
 
-93:                                               ; preds = %Ivy_ObjFaninId0.argprom.exit36
+93:                                               ; preds = %Ivy_ObjFaninId0.exit36
   %94 = icmp slt i32 %90, 16
   br i1 %94, label %95, label %103
 
@@ -862,7 +862,7 @@ Vec_IntPush.exit43:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %89, ptr %119, align 4
   %.val16 = load ptr, ptr %29, align 8
   %.not.i44 = icmp eq ptr %.val16, null
-  br i1 %.not.i44, label %Ivy_ObjFaninId1.argprom.exit46, label %120
+  br i1 %.not.i44, label %Ivy_ObjFaninId1.exit46, label %120
 
 120:                                              ; preds = %Vec_IntPush.exit43
   %121 = ptrtoint ptr %.val16 to i64
@@ -870,21 +870,21 @@ Vec_IntPush.exit43:                               ; preds = %.Vec_IntGrow.exit10
   %123 = inttoptr i64 %122 to ptr
   %.val.i45 = load i32, ptr %123, align 8
   %124 = shl i32 %.val.i45, 8
-  br label %Ivy_ObjFaninId1.argprom.exit46
+  br label %Ivy_ObjFaninId1.exit46
 
-Ivy_ObjFaninId1.argprom.exit46:                   ; preds = %Vec_IntPush.exit43, %120
+Ivy_ObjFaninId1.exit46:                           ; preds = %Vec_IntPush.exit43, %120
   %125 = phi i32 [ %124, %120 ], [ 0, %Vec_IntPush.exit43 ]
   %126 = load i32, ptr %66, align 4
   %127 = load i32, ptr %3, align 8
   %128 = icmp eq i32 %126, %127
   br i1 %128, label %129, label %.Vec_IntGrow.exit10_crit_edge.i47
 
-.Vec_IntGrow.exit10_crit_edge.i47:                ; preds = %Ivy_ObjFaninId1.argprom.exit46
+.Vec_IntGrow.exit10_crit_edge.i47:                ; preds = %Ivy_ObjFaninId1.exit46
   %.phi.trans.insert.i48 = getelementptr inbounds i8, ptr %3, i64 8
   %.pre.i49 = load ptr, ptr %.phi.trans.insert.i48, align 8
   br label %Vec_IntPush.exit53
 
-129:                                              ; preds = %Ivy_ObjFaninId1.argprom.exit46
+129:                                              ; preds = %Ivy_ObjFaninId1.exit46
   %130 = icmp slt i32 %126, 16
   br i1 %130, label %131, label %139
 
@@ -956,8 +956,8 @@ define range(i32 0, 2) i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %2, ptr noundef %1)
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %3, ptr noundef %1)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %1)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef %1)
   br label %51
 
 8:                                                ; preds = %5
@@ -986,7 +986,7 @@ define range(i32 0, 2) i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %
   br i1 %.not46, label %51, label %20
 
 20:                                               ; preds = %14
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %3, ptr noundef nonnull %1)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef nonnull %1)
   br label %51
 
 21:                                               ; preds = %12
@@ -1015,12 +1015,12 @@ define range(i32 0, 2) i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %
   %36 = ptrtoint ptr %.val50 to i64
   %37 = and i64 %36, -2
   %38 = inttoptr i64 %37 to ptr
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %2, ptr noundef %38)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %38)
   %.val51 = load ptr, ptr %22, align 8
   %39 = ptrtoint ptr %.val51 to i64
   %40 = and i64 %39, -2
   %41 = inttoptr i64 %40 to ptr
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %3, ptr noundef %41)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef %41)
   br label %42
 
 42:                                               ; preds = %35, %34
@@ -1031,16 +1031,16 @@ define range(i32 0, 2) i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %
   %44 = ptrtoint ptr %.val53 to i64
   %45 = and i64 %44, -2
   %46 = inttoptr i64 %45 to ptr
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %2, ptr noundef %46)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %2, ptr noundef %46)
   %.val54 = load ptr, ptr %27, align 8
   %47 = ptrtoint ptr %.val54 to i64
   %48 = and i64 %47, -2
   %49 = inttoptr i64 %48 to ptr
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %3, ptr noundef %49)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef %49)
   br label %50
 
 50:                                               ; preds = %43, %42
-  tail call fastcc void @Vec_PtrPushUnique.retelim(ptr noundef %3, ptr noundef nonnull %1)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %3, ptr noundef nonnull %1)
   br label %51
 
 51:                                               ; preds = %12, %12, %21, %14, %8, %50, %20, %7
@@ -1049,7 +1049,7 @@ define range(i32 0, 2) i32 @Ivy_ManFindBoolCut_rec(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique.retelim(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0

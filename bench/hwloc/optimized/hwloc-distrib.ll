@@ -668,7 +668,7 @@ hwloc_utils_parse_input_format.exit.i:            ; preds = %79, %83, %85, %87, 
 
 202:                                              ; preds = %199
   %203 = load ptr, ptr %4, align 8
-  %204 = call fastcc i32 @hwloc_utils_enable_input_format.argelim(ptr noundef %203, ptr noundef %.0201.lcssa, ptr noundef %3, i32 noundef %.0147.lcssa, ptr noundef %.0129)
+  %204 = call fastcc i32 @hwloc_utils_enable_input_format(ptr noundef %203, ptr noundef %.0201.lcssa, ptr noundef %3, i32 noundef %.0147.lcssa, ptr noundef %.0129)
   %.not164 = icmp eq i32 %204, 0
   br i1 %.not164, label %206, label %205
 
@@ -811,7 +811,7 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %230, %223, %222
 
 ._crit_edge428:                                   ; preds = %.lr.ph, %260
   %269 = trunc i64 %.0128.lcssa to i32
-  call fastcc void @hwloc_distrib.argprom.argelim(ptr noundef %265, i32 noundef %262, ptr noundef %201, i32 noundef %269, i32 noundef %.0130, i64 noundef %.0134.lcssa)
+  call fastcc void @hwloc_distrib(ptr noundef %265, i32 noundef %262, ptr noundef %201, i32 noundef %269, i32 noundef %.0130, i64 noundef %.0134.lcssa)
   %270 = icmp sgt i64 %.0128.lcssa, 0
   br i1 %270, label %.lr.ph431, label %._crit_edge432
 
@@ -957,7 +957,7 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
 8:                                                ; preds = %5
   %sext.i = shl i64 %3, 32
   %9 = ashr exact i64 %sext.i, 32
-  br label %hwloc_utils_parse_flags.argprom.exit
+  br label %hwloc_utils_parse_flags.exit
 
 10:                                               ; preds = %5, %1
   %11 = load i8, ptr %0, align 1
@@ -981,20 +981,20 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.82) #19
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %hwloc_utils_parse_flags.argprom.exit, label %.preheader.i
+  br i1 %21, label %hwloc_utils_parse_flags.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.split13.us.i
   %.061.i = phi i64 [ %.us-phi14.i, %.split13.us.i ], [ 0, %._crit_edge.i ]
   %.059.i = phi ptr [ %storemerge.i, %.split13.us.i ], [ %0, %._crit_edge.i ]
   %.not72.i = icmp eq ptr %.059.i, null
-  br i1 %.not72.i, label %hwloc_utils_parse_flags.argprom.exit, label %22
+  br i1 %.not72.i, label %hwloc_utils_parse_flags.exit, label %22
 
 22:                                               ; preds = %.preheader.i
   %23 = tail call i64 @strspn(ptr noundef nonnull %.059.i, ptr noundef nonnull @.str.83) #19
   %24 = getelementptr inbounds i8, ptr %.059.i, i64 %23
   %25 = tail call i64 @strcspn(ptr noundef nonnull %24, ptr noundef nonnull @.str.84) #19
   %.not73.i = icmp eq i64 %25, 0
-  br i1 %.not73.i, label %hwloc_utils_parse_flags.argprom.exit, label %26
+  br i1 %.not73.i, label %hwloc_utils_parse_flags.exit, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %24, i64 %25
@@ -1067,8 +1067,8 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
 .split11.us.i:                                    ; preds = %51, %38
   %52 = load ptr, ptr @stderr, align 8
   %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.81, ptr noundef nonnull %24) #20
-  tail call fastcc void @hwloc_utils_parsing_flag_error.argprom.argelim(ptr noundef readonly @__const.hwloc_utils_parse_restrict_flags.possible_flags)
-  br label %hwloc_utils_parse_flags.argprom.exit
+  tail call fastcc void @hwloc_utils_parsing_flag_error(ptr noundef readonly @__const.hwloc_utils_parse_restrict_flags.possible_flags)
+  br label %hwloc_utils_parse_flags.exit
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds %struct.hwloc_utils_parsing_flag, ptr @__const.hwloc_utils_parse_restrict_flags.possible_flags, i64 %indvars.iv.i
@@ -1091,10 +1091,10 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
 60:                                               ; preds = %.split13.us.i
   %61 = load ptr, ptr @stderr, align 8
   %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.81, ptr noundef nonnull %24) #20
-  tail call fastcc void @hwloc_utils_parsing_flag_error.argprom.argelim(ptr noundef readonly @__const.hwloc_utils_parse_restrict_flags.possible_flags)
-  br label %hwloc_utils_parse_flags.argprom.exit
+  tail call fastcc void @hwloc_utils_parsing_flag_error(ptr noundef readonly @__const.hwloc_utils_parse_restrict_flags.possible_flags)
+  br label %hwloc_utils_parse_flags.exit
 
-hwloc_utils_parse_flags.argprom.exit:             ; preds = %.preheader.i, %22, %8, %._crit_edge.i, %.split11.us.i, %60
+hwloc_utils_parse_flags.exit:                     ; preds = %.preheader.i, %22, %8, %._crit_edge.i, %.split11.us.i, %60
   %.058.i = phi i64 [ %9, %8 ], [ -1, %.split11.us.i ], [ -1, %60 ], [ 0, %._crit_edge.i ], [ %.061.i, %22 ], [ %.061.i, %.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret i64 %.058.i
@@ -1110,7 +1110,7 @@ declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #10
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hwloc_utils_enable_input_format.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef readnone %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @hwloc_utils_enable_input_format(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef readnone %4) unnamed_addr #2 {
   %6 = alloca %struct.stat, align 8
   %7 = alloca %struct.stat, align 8
   %8 = alloca ptr, align 8
@@ -1511,7 +1511,7 @@ sub_177:                                          ; preds = %.tail71
 .tail75.thread:                                   ; preds = %sub_072, %sub_177, %.tail75
   %190 = getelementptr inbounds i8, ptr %173, i64 19
   %191 = call i32 @closedir(ptr noundef %171)
-  %192 = call fastcc i32 @hwloc_utils_enable_input_format.argelim(ptr noundef %0, ptr noundef %190, ptr noundef %12, i32 noundef %3, ptr noundef %4)
+  %192 = call fastcc i32 @hwloc_utils_enable_input_format(ptr noundef %0, ptr noundef %190, ptr noundef %12, i32 noundef %3, ptr noundef %4)
   %.not59 = icmp eq i32 %192, 0
   br i1 %.not59, label %193, label %195
 
@@ -1567,7 +1567,7 @@ declare i32 @hwloc_get_nbobjs_by_depth(ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_distrib.argprom.argelim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4, i64 noundef range(i64 0, 2) %5) unnamed_addr #2 {
+define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4, i64 noundef range(i64 0, 2) %5) unnamed_addr #2 {
   %.not16 = icmp eq i32 %1, 0
   br i1 %.not16, label %._crit_edge15, label %.lr.ph.preheader
 
@@ -1673,7 +1673,7 @@ define internal fastcc void @hwloc_distrib.argprom.argelim(ptr nocapture noundef
 55:                                               ; preds = %43
   %56 = getelementptr inbounds i8, ptr %.059.lcssa, i64 112
   %57 = load ptr, ptr %56, align 8
-  tail call fastcc void @hwloc_distrib.argprom.argelim(ptr noundef %57, i32 noundef %40, ptr noundef %.06212, i32 noundef %38, i32 noundef %4, i64 noundef %5)
+  tail call fastcc void @hwloc_distrib(ptr noundef %57, i32 noundef %40, ptr noundef %.06212, i32 noundef %38, i32 noundef %4, i64 noundef %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph9, %51, %55
@@ -1732,7 +1732,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @hwloc_utils_parsing_flag_error.argprom.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #14 {
+define internal fastcc void @hwloc_utils_parsing_flag_error(ptr nocapture noundef nonnull readonly %0) unnamed_addr #14 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.81) #20
   br label %4

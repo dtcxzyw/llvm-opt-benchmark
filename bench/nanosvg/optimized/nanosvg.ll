@@ -424,7 +424,7 @@ nsvg__createGradients.exit.thread:                ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  br label %nsvg__imageBounds.argprom.argprom.exit.i
+  br label %nsvg__imageBounds.exit.i
 
 .lr.ph.i:                                         ; preds = %12, %50
   %.029.i = phi ptr [ %.0.i14, %50 ], [ %.027.i, %12 ]
@@ -497,7 +497,7 @@ nsvg__createGradients.exit:                       ; preds = %50
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %52 = icmp eq ptr %.val.val.i.pre, null
-  br i1 %52, label %nsvg__imageBounds.argprom.argprom.exit.i, label %53
+  br i1 %52, label %nsvg__imageBounds.exit.i, label %53
 
 53:                                               ; preds = %nsvg__createGradients.exit
   %54 = getelementptr inbounds i8, ptr %.val.val.i.pre, i64 152
@@ -511,7 +511,7 @@ nsvg__createGradients.exit:                       ; preds = %50
   %.0.in1.i.i = getelementptr inbounds i8, ptr %.val.val.i.pre, i64 328
   %.02.i.i = load ptr, ptr %.0.in1.i.i, align 8
   %.not3.i.i = icmp eq ptr %.02.i.i, null
-  br i1 %.not3.i.i, label %nsvg__imageBounds.argprom.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not3.i.i, label %nsvg__imageBounds.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %53, %.lr.ph.i.i
   %62 = phi float [ %76, %.lr.ph.i.i ], [ %59, %53 ]
@@ -538,9 +538,9 @@ nsvg__createGradients.exit:                       ; preds = %50
   %.0.in.i.i = getelementptr inbounds i8, ptr %.05.i.i, i64 328
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %nsvg__imageBounds.argprom.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %.not.i.i, label %nsvg__imageBounds.exit.i, label %.lr.ph.i.i, !llvm.loop !15
 
-nsvg__imageBounds.argprom.argprom.exit.i:         ; preds = %.lr.ph.i.i, %nsvg__createGradients.exit.thread, %53, %nsvg__createGradients.exit
+nsvg__imageBounds.exit.i:                         ; preds = %.lr.ph.i.i, %nsvg__createGradients.exit.thread, %53, %nsvg__createGradients.exit
   %.val.i32 = phi ptr [ %.val.i.pre, %53 ], [ %.val.i.pre, %nsvg__createGradients.exit ], [ %25, %nsvg__createGradients.exit.thread ], [ %.val.i.pre, %.lr.ph.i.i ]
   %.sroa.0.0.i = phi float [ %55, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %68, %.lr.ph.i.i ]
   %.sroa.4.0.i = phi float [ %57, %53 ], [ 0.000000e+00, %nsvg__createGradients.exit ], [ 0.000000e+00, %nsvg__createGradients.exit.thread ], [ %72, %.lr.ph.i.i ]
@@ -551,7 +551,7 @@ nsvg__imageBounds.argprom.argprom.exit.i:         ; preds = %.lr.ph.i.i, %nsvg__
   %83 = fcmp oeq float %82, 0.000000e+00
   br i1 %83, label %84, label %90
 
-84:                                               ; preds = %nsvg__imageBounds.argprom.argprom.exit.i
+84:                                               ; preds = %nsvg__imageBounds.exit.i
   %85 = load float, ptr %.val.i32, align 8
   %86 = fcmp ogt float %85, 0.000000e+00
   br i1 %86, label %.sink.split.i, label %87
@@ -567,8 +567,8 @@ nsvg__imageBounds.argprom.argprom.exit.i:         ; preds = %.lr.ph.i.i, %nsvg__
   store float %.sink.i, ptr %81, align 8
   br label %90
 
-90:                                               ; preds = %.sink.split.i, %nsvg__imageBounds.argprom.argprom.exit.i
-  %91 = phi float [ %82, %nsvg__imageBounds.argprom.argprom.exit.i ], [ %.sink.i, %.sink.split.i ]
+90:                                               ; preds = %.sink.split.i, %nsvg__imageBounds.exit.i
+  %91 = phi float [ %82, %nsvg__imageBounds.exit.i ], [ %.sink.i, %.sink.split.i ]
   %92 = getelementptr inbounds i8, ptr %calloc30.i, i64 40004
   %93 = load float, ptr %92, align 4
   %94 = fcmp oeq float %93, 0.000000e+00
@@ -1558,7 +1558,7 @@ nsvg__getNextPathItemWhenArcFlag.exit.thread.i:   ; preds = %.critedge2.i.i, %.c
   br i1 %103, label %nsvg__getNextPathItem.exit.thread.sink.split.i, label %nsvg__getNextPathItem.exit.i
 
 nsvg__getNextPathItem.exit.i:                     ; preds = %101, %.critedge.i122.i, %.critedge.i122.i, %.critedge.i122.i
-  %104 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef nonnull %.02130.i.i, ptr noundef %6)
+  %104 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.02130.i.i, ptr noundef %6)
   %.pr203.pre.i = load i8, ptr %6, align 16
   %.not107.i = icmp eq i8 %.pr203.pre.i, 0
   br i1 %.not107.i, label %nsvg__getNextPathItem.exit.thread208.i, label %nsvg__getNextPathItem.exit.thread.i
@@ -1619,10 +1619,10 @@ nsvg__isCoordinate.exit.i:                        ; preds = %108, %107
     i8 77, label %123
     i8 108, label %nsvg__pathLineTo.exit.i
     i8 76, label %nsvg__pathLineTo.exit.i
-    i8 72, label %nsvg__pathHLineTo.argprom.exit.i
-    i8 104, label %nsvg__pathHLineTo.argprom.exit.i
-    i8 86, label %nsvg__pathVLineTo.argprom.exit.i
-    i8 118, label %nsvg__pathVLineTo.argprom.exit.i
+    i8 72, label %nsvg__pathHLineTo.exit.i
+    i8 104, label %nsvg__pathHLineTo.exit.i
+    i8 86, label %nsvg__pathVLineTo.exit.i
+    i8 118, label %nsvg__pathVLineTo.exit.i
     i8 97, label %248
     i8 65, label %248
     i8 83, label %193
@@ -1725,7 +1725,7 @@ nsvg__pathLineTo.exit.i:                          ; preds = %122, %122
   call fastcc void @nsvg__lineTo(ptr noundef %0, float noundef %.5.i, float noundef %storemerge.i128.i)
   br label %nsvg__pathArcTo.exit.i
 
-nsvg__pathHLineTo.argprom.exit.i:                 ; preds = %122, %122
+nsvg__pathHLineTo.exit.i:                         ; preds = %122, %122
   %.not219.i = icmp eq i8 %.092238.i, 104
   %.val.i = load float, ptr %4, align 16
   %171 = fadd float %.0192233.i, %.val.i
@@ -1733,7 +1733,7 @@ nsvg__pathHLineTo.argprom.exit.i:                 ; preds = %122, %122
   call fastcc void @nsvg__lineTo(ptr noundef %0, float noundef %storemerge.i130.i, float noundef %.0188234.i)
   br label %nsvg__pathArcTo.exit.i
 
-nsvg__pathVLineTo.argprom.exit.i:                 ; preds = %122, %122
+nsvg__pathVLineTo.exit.i:                         ; preds = %122, %122
   %.not218.i = icmp eq i8 %.092238.i, 118
   %.val114.i = load float, ptr %4, align 16
   %172 = fadd float %.0188234.i, %.val114.i
@@ -2230,15 +2230,15 @@ nsvg__moveTo.exit.i:                              ; preds = %466, %457, %445
   %spec.select113.i = select i1 %479, i32 0, i32 %478
   br label %nsvg__pathArcTo.exit.i
 
-nsvg__pathArcTo.exit.i:                           ; preds = %423, %nsvg__moveTo.exit.i, %427, %425, %391, %271, %233, %nsvg__pathQuadBezTo.exit.i, %nsvg__pathCubicBezShortTo.exit.i, %nsvg__pathCubicBezTo.exit.i, %nsvg__pathVLineTo.argprom.exit.i, %nsvg__pathHLineTo.argprom.exit.i, %nsvg__pathLineTo.exit.i, %nsvg__pathMoveTo.exit.i, %121
-  %.1193.i = phi float [ %.2194.i, %nsvg__moveTo.exit.i ], [ %.0192233.i, %121 ], [ %431, %427 ], [ %.0192233.i, %425 ], [ %.0.i143.i, %233 ], [ %.0.i141.i, %nsvg__pathQuadBezTo.exit.i ], [ %.034.i137.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.037.i.i, %nsvg__pathCubicBezTo.exit.i ], [ %.0192233.i, %nsvg__pathVLineTo.argprom.exit.i ], [ %storemerge.i130.i, %nsvg__pathHLineTo.argprom.exit.i ], [ %.5.i, %nsvg__pathLineTo.exit.i ], [ %.4196.i, %nsvg__pathMoveTo.exit.i ], [ %.0171.i.i, %271 ], [ %.0171.i.i, %391 ], [ %.0171.i.i, %423 ]
-  %.1189.i = phi float [ %.2190.i, %nsvg__moveTo.exit.i ], [ %.0188234.i, %121 ], [ %435, %427 ], [ %.0188234.i, %425 ], [ %.039.i.i, %233 ], [ %.041.i.i, %nsvg__pathQuadBezTo.exit.i ], [ %.035.i136.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.036.i.i, %nsvg__pathCubicBezTo.exit.i ], [ %storemerge.i132.i, %nsvg__pathVLineTo.argprom.exit.i ], [ %.0188234.i, %nsvg__pathHLineTo.argprom.exit.i ], [ %storemerge.i128.i, %nsvg__pathLineTo.exit.i ], [ %storemerge.i.i, %nsvg__pathMoveTo.exit.i ], [ %.0172.i.i, %271 ], [ %.0172.i.i, %391 ], [ %.0172.i.i, %423 ]
-  %.1185.i = phi float [ %.2186.i, %nsvg__moveTo.exit.i ], [ %.0184235.i, %121 ], [ %431, %427 ], [ %.0184235.i, %425 ], [ %237, %233 ], [ %.042.i.i, %nsvg__pathQuadBezTo.exit.i ], [ %.033.i138.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.033.i.i, %nsvg__pathCubicBezTo.exit.i ], [ %.0192233.i, %nsvg__pathVLineTo.argprom.exit.i ], [ %storemerge.i130.i, %nsvg__pathHLineTo.argprom.exit.i ], [ %.5.i, %nsvg__pathLineTo.exit.i ], [ %.4196.i, %nsvg__pathMoveTo.exit.i ], [ %.0171.i.i, %271 ], [ %.0171.i.i, %391 ], [ %.0171.i.i, %423 ]
-  %.1.i = phi float [ %.2.i, %nsvg__moveTo.exit.i ], [ %.0183236.i, %121 ], [ %435, %427 ], [ %.0183236.i, %425 ], [ %239, %233 ], [ %.043.i.i, %nsvg__pathQuadBezTo.exit.i ], [ %.0.i139.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.0.i134.i, %nsvg__pathCubicBezTo.exit.i ], [ %storemerge.i132.i, %nsvg__pathVLineTo.argprom.exit.i ], [ %.0188234.i, %nsvg__pathHLineTo.argprom.exit.i ], [ %storemerge.i128.i, %nsvg__pathLineTo.exit.i ], [ %storemerge.i.i, %nsvg__pathMoveTo.exit.i ], [ %.0172.i.i, %271 ], [ %.0172.i.i, %391 ], [ %.0172.i.i, %423 ]
-  %.294.i = phi i8 [ %spec.select112.i, %nsvg__moveTo.exit.i ], [ %.092238.i, %121 ], [ %.092238.i, %427 ], [ %.092238.i, %425 ], [ %.092238.i, %233 ], [ %.092238.i, %nsvg__pathQuadBezTo.exit.i ], [ %.092238.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.092238.i, %nsvg__pathCubicBezTo.exit.i ], [ %.092238.i, %nsvg__pathVLineTo.argprom.exit.i ], [ %.092238.i, %nsvg__pathHLineTo.argprom.exit.i ], [ %.092238.i, %nsvg__pathLineTo.exit.i ], [ %165, %nsvg__pathMoveTo.exit.i ], [ %.092238.i, %271 ], [ %.092238.i, %391 ], [ %.092238.i, %423 ]
-  %.290.i = phi i32 [ %.4.i, %nsvg__moveTo.exit.i ], [ %.189.i, %121 ], [ 0, %427 ], [ 0, %425 ], [ 0, %233 ], [ 0, %nsvg__pathQuadBezTo.exit.i ], [ 0, %nsvg__pathCubicBezShortTo.exit.i ], [ 0, %nsvg__pathCubicBezTo.exit.i ], [ 0, %nsvg__pathVLineTo.argprom.exit.i ], [ 0, %nsvg__pathHLineTo.argprom.exit.i ], [ 0, %nsvg__pathLineTo.exit.i ], [ 0, %nsvg__pathMoveTo.exit.i ], [ 0, %271 ], [ 0, %391 ], [ 0, %423 ]
-  %.287.i = phi i32 [ %spec.select113.i, %nsvg__moveTo.exit.i ], [ %.085240.i, %121 ], [ %.085240.i, %427 ], [ %.085240.i, %425 ], [ %.085240.i, %233 ], [ %.085240.i, %nsvg__pathQuadBezTo.exit.i ], [ %.085240.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.085240.i, %nsvg__pathCubicBezTo.exit.i ], [ %.085240.i, %nsvg__pathVLineTo.argprom.exit.i ], [ %.085240.i, %nsvg__pathHLineTo.argprom.exit.i ], [ %.085240.i, %nsvg__pathLineTo.exit.i ], [ %166, %nsvg__pathMoveTo.exit.i ], [ %.085240.i, %271 ], [ %.085240.i, %391 ], [ %.085240.i, %423 ]
-  %.284.i = phi i8 [ %.082241.i, %nsvg__moveTo.exit.i ], [ %.082241.i, %121 ], [ %.082241.i, %427 ], [ %.082241.i, %425 ], [ %.082241.i, %233 ], [ %.082241.i, %nsvg__pathQuadBezTo.exit.i ], [ %.082241.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.082241.i, %nsvg__pathCubicBezTo.exit.i ], [ %.082241.i, %nsvg__pathVLineTo.argprom.exit.i ], [ %.082241.i, %nsvg__pathHLineTo.argprom.exit.i ], [ %.082241.i, %nsvg__pathLineTo.exit.i ], [ 1, %nsvg__pathMoveTo.exit.i ], [ %.082241.i, %271 ], [ %.082241.i, %391 ], [ %.082241.i, %423 ]
+nsvg__pathArcTo.exit.i:                           ; preds = %423, %nsvg__moveTo.exit.i, %427, %425, %391, %271, %233, %nsvg__pathQuadBezTo.exit.i, %nsvg__pathCubicBezShortTo.exit.i, %nsvg__pathCubicBezTo.exit.i, %nsvg__pathVLineTo.exit.i, %nsvg__pathHLineTo.exit.i, %nsvg__pathLineTo.exit.i, %nsvg__pathMoveTo.exit.i, %121
+  %.1193.i = phi float [ %.2194.i, %nsvg__moveTo.exit.i ], [ %.0192233.i, %121 ], [ %431, %427 ], [ %.0192233.i, %425 ], [ %.0.i143.i, %233 ], [ %.0.i141.i, %nsvg__pathQuadBezTo.exit.i ], [ %.034.i137.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.037.i.i, %nsvg__pathCubicBezTo.exit.i ], [ %.0192233.i, %nsvg__pathVLineTo.exit.i ], [ %storemerge.i130.i, %nsvg__pathHLineTo.exit.i ], [ %.5.i, %nsvg__pathLineTo.exit.i ], [ %.4196.i, %nsvg__pathMoveTo.exit.i ], [ %.0171.i.i, %271 ], [ %.0171.i.i, %391 ], [ %.0171.i.i, %423 ]
+  %.1189.i = phi float [ %.2190.i, %nsvg__moveTo.exit.i ], [ %.0188234.i, %121 ], [ %435, %427 ], [ %.0188234.i, %425 ], [ %.039.i.i, %233 ], [ %.041.i.i, %nsvg__pathQuadBezTo.exit.i ], [ %.035.i136.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.036.i.i, %nsvg__pathCubicBezTo.exit.i ], [ %storemerge.i132.i, %nsvg__pathVLineTo.exit.i ], [ %.0188234.i, %nsvg__pathHLineTo.exit.i ], [ %storemerge.i128.i, %nsvg__pathLineTo.exit.i ], [ %storemerge.i.i, %nsvg__pathMoveTo.exit.i ], [ %.0172.i.i, %271 ], [ %.0172.i.i, %391 ], [ %.0172.i.i, %423 ]
+  %.1185.i = phi float [ %.2186.i, %nsvg__moveTo.exit.i ], [ %.0184235.i, %121 ], [ %431, %427 ], [ %.0184235.i, %425 ], [ %237, %233 ], [ %.042.i.i, %nsvg__pathQuadBezTo.exit.i ], [ %.033.i138.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.033.i.i, %nsvg__pathCubicBezTo.exit.i ], [ %.0192233.i, %nsvg__pathVLineTo.exit.i ], [ %storemerge.i130.i, %nsvg__pathHLineTo.exit.i ], [ %.5.i, %nsvg__pathLineTo.exit.i ], [ %.4196.i, %nsvg__pathMoveTo.exit.i ], [ %.0171.i.i, %271 ], [ %.0171.i.i, %391 ], [ %.0171.i.i, %423 ]
+  %.1.i = phi float [ %.2.i, %nsvg__moveTo.exit.i ], [ %.0183236.i, %121 ], [ %435, %427 ], [ %.0183236.i, %425 ], [ %239, %233 ], [ %.043.i.i, %nsvg__pathQuadBezTo.exit.i ], [ %.0.i139.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.0.i134.i, %nsvg__pathCubicBezTo.exit.i ], [ %storemerge.i132.i, %nsvg__pathVLineTo.exit.i ], [ %.0188234.i, %nsvg__pathHLineTo.exit.i ], [ %storemerge.i128.i, %nsvg__pathLineTo.exit.i ], [ %storemerge.i.i, %nsvg__pathMoveTo.exit.i ], [ %.0172.i.i, %271 ], [ %.0172.i.i, %391 ], [ %.0172.i.i, %423 ]
+  %.294.i = phi i8 [ %spec.select112.i, %nsvg__moveTo.exit.i ], [ %.092238.i, %121 ], [ %.092238.i, %427 ], [ %.092238.i, %425 ], [ %.092238.i, %233 ], [ %.092238.i, %nsvg__pathQuadBezTo.exit.i ], [ %.092238.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.092238.i, %nsvg__pathCubicBezTo.exit.i ], [ %.092238.i, %nsvg__pathVLineTo.exit.i ], [ %.092238.i, %nsvg__pathHLineTo.exit.i ], [ %.092238.i, %nsvg__pathLineTo.exit.i ], [ %165, %nsvg__pathMoveTo.exit.i ], [ %.092238.i, %271 ], [ %.092238.i, %391 ], [ %.092238.i, %423 ]
+  %.290.i = phi i32 [ %.4.i, %nsvg__moveTo.exit.i ], [ %.189.i, %121 ], [ 0, %427 ], [ 0, %425 ], [ 0, %233 ], [ 0, %nsvg__pathQuadBezTo.exit.i ], [ 0, %nsvg__pathCubicBezShortTo.exit.i ], [ 0, %nsvg__pathCubicBezTo.exit.i ], [ 0, %nsvg__pathVLineTo.exit.i ], [ 0, %nsvg__pathHLineTo.exit.i ], [ 0, %nsvg__pathLineTo.exit.i ], [ 0, %nsvg__pathMoveTo.exit.i ], [ 0, %271 ], [ 0, %391 ], [ 0, %423 ]
+  %.287.i = phi i32 [ %spec.select113.i, %nsvg__moveTo.exit.i ], [ %.085240.i, %121 ], [ %.085240.i, %427 ], [ %.085240.i, %425 ], [ %.085240.i, %233 ], [ %.085240.i, %nsvg__pathQuadBezTo.exit.i ], [ %.085240.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.085240.i, %nsvg__pathCubicBezTo.exit.i ], [ %.085240.i, %nsvg__pathVLineTo.exit.i ], [ %.085240.i, %nsvg__pathHLineTo.exit.i ], [ %.085240.i, %nsvg__pathLineTo.exit.i ], [ %166, %nsvg__pathMoveTo.exit.i ], [ %.085240.i, %271 ], [ %.085240.i, %391 ], [ %.085240.i, %423 ]
+  %.284.i = phi i8 [ %.082241.i, %nsvg__moveTo.exit.i ], [ %.082241.i, %121 ], [ %.082241.i, %427 ], [ %.082241.i, %425 ], [ %.082241.i, %233 ], [ %.082241.i, %nsvg__pathQuadBezTo.exit.i ], [ %.082241.i, %nsvg__pathCubicBezShortTo.exit.i ], [ %.082241.i, %nsvg__pathCubicBezTo.exit.i ], [ %.082241.i, %nsvg__pathVLineTo.exit.i ], [ %.082241.i, %nsvg__pathHLineTo.exit.i ], [ %.082241.i, %nsvg__pathLineTo.exit.i ], [ 1, %nsvg__pathMoveTo.exit.i ], [ %.082241.i, %271 ], [ %.082241.i, %391 ], [ %.082241.i, %423 ]
   %480 = load i8, ptr %.4100207.i, align 1
   %.not105.i = icmp eq i8 %480, 0
   br i1 %.not105.i, label %nsvg__getNextPathItem.exit.thread208.i, label %80, !llvm.loop !26
@@ -8527,7 +8527,7 @@ nsvg__getNextPathItem.exit.thread50:              ; preds = %.critedge2.i
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %35, %.critedge.i, %.critedge.i, %.critedge.i
-  %39 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef nonnull %.02130.i, ptr noundef %6)
+  %39 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.02130.i, ptr noundef %6)
   %.pr.pre = load i8, ptr %6, align 16
   br label %nsvg__getNextPathItem.exit
 
@@ -8945,7 +8945,7 @@ nsvg__parseCoordinate.exit113:                    ; preds = %68, %75, %79, %83, 
 
 111:                                              ; preds = %108
   %112 = load ptr, ptr %18, align 8
-  %113 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef %112, ptr noundef %3)
+  %113 = call fastcc ptr @nsvg__parseNumber(ptr noundef %112, ptr noundef %3)
   %114 = call fastcc double @nsvg__atof(ptr noundef nonnull %3)
   %115 = fptrunc double %114 to float
   store float %115, ptr %8, align 8
@@ -8977,7 +8977,7 @@ nsvg__parseCoordinate.exit113:                    ; preds = %68, %75, %79, %83, 
   br i1 %.not100, label %.critedge.thread, label %.lr.ph, !llvm.loop !82
 
 .critedge:                                        ; preds = %121
-  %124 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef nonnull %.0127, ptr noundef %3)
+  %124 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.0127, ptr noundef %3)
   %125 = call fastcc double @nsvg__atof(ptr noundef nonnull %3)
   %126 = fptrunc double %125 to float
   store float %126, ptr %9, align 4
@@ -9009,7 +9009,7 @@ nsvg__parseCoordinate.exit113:                    ; preds = %68, %75, %79, %83, 
   br i1 %.not103, label %.critedge.thread, label %.lr.ph131, !llvm.loop !83
 
 .critedge4:                                       ; preds = %132
-  %135 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef nonnull %.1130, ptr noundef %3)
+  %135 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.1130, ptr noundef %3)
   %136 = call fastcc double @nsvg__atof(ptr noundef nonnull %3)
   %137 = fptrunc double %136 to float
   store float %137, ptr %10, align 8
@@ -9041,7 +9041,7 @@ nsvg__parseCoordinate.exit113:                    ; preds = %68, %75, %79, %83, 
   br i1 %.not106, label %.critedge.thread, label %.lr.ph134, !llvm.loop !84
 
 .critedge8:                                       ; preds = %143
-  %146 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef nonnull %.2133, ptr noundef %3)
+  %146 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.2133, ptr noundef %3)
   %147 = call fastcc double @nsvg__atof(ptr noundef nonnull %3)
   %148 = fptrunc double %147 to float
   store float %148, ptr %11, align 4
@@ -9910,7 +9910,7 @@ define internal fastcc void @nsvg__parseTransform(ptr nocapture noundef nonnull 
   br i1 %.not36.i.i, label %42, label %nsvg__parseTransformArgs.exit.i
 
 42:                                               ; preds = %41
-  %43 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef nonnull %.142.i.i, ptr noundef %11)
+  %43 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.142.i.i, ptr noundef %11)
   %44 = call fastcc double @nsvg__atof(ptr noundef nonnull %11)
   %45 = fptrunc double %44 to float
   %46 = add nsw i32 %.1.i, 1
@@ -10036,7 +10036,7 @@ nsvg__parseTransformArgs.exit.thread7.i:          ; preds = %.preheader.i.i25
   br i1 %.not36.i.i29, label %79, label %nsvg__parseTransformArgs.exit.thread.i30
 
 79:                                               ; preds = %78
-  %80 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef nonnull %.142.i.i28, ptr noundef %9)
+  %80 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.142.i.i28, ptr noundef %9)
   %81 = call fastcc double @nsvg__atof(ptr noundef nonnull %9)
   %82 = fptrunc double %81 to float
   %83 = add nsw i32 %.1.i27, 1
@@ -10148,7 +10148,7 @@ nsvg__parseTransformArgs.exit.thread7.i40:        ; preds = %.preheader.i.i39
   br i1 %.not36.i.i50, label %119, label %nsvg__parseTransformArgs.exit.thread.loopexit.i
 
 119:                                              ; preds = %118
-  %120 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef nonnull %.142.i.i49, ptr noundef %7)
+  %120 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.142.i.i49, ptr noundef %7)
   %121 = call fastcc double @nsvg__atof(ptr noundef nonnull %7)
   %122 = fptrunc double %121 to float
   %123 = add nsw i32 %.1.i48, 1
@@ -10266,7 +10266,7 @@ nsvg__parseTransformArgs.exit.thread48.i:         ; preds = %.preheader.i.i61
   br i1 %.not36.i.i65, label %159, label %nsvg__parseTransformArgs.exit.thread.i66
 
 159:                                              ; preds = %158
-  %160 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef nonnull %.142.i.i64, ptr noundef %5)
+  %160 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.142.i.i64, ptr noundef %5)
   %161 = call fastcc double @nsvg__atof(ptr noundef nonnull %5)
   %162 = fptrunc double %161 to float
   %163 = add nsw i32 %.1.i63, 1
@@ -10429,7 +10429,7 @@ nsvg__parseRotate.exit:                           ; preds = %.thread.i, %202
   br i1 %.not36.i.i88, label %233, label %nsvg__parseSkewX.exit
 
 233:                                              ; preds = %232
-  %234 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef nonnull %.142.i.i87, ptr noundef %4)
+  %234 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.142.i.i87, ptr noundef %4)
   %235 = call fastcc double @nsvg__atof(ptr noundef nonnull %4)
   %236 = fptrunc double %235 to float
   %237 = add nsw i32 %.0.i86, 1
@@ -10523,7 +10523,7 @@ nsvg__parseSkewX.exit:                            ; preds = %220, %.preheader37.
   br i1 %.not36.i.i111, label %266, label %nsvg__parseSkewY.exit
 
 266:                                              ; preds = %265
-  %267 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef nonnull %.142.i.i110, ptr noundef %3)
+  %267 = call fastcc ptr @nsvg__parseNumber(ptr noundef nonnull %.142.i.i110, ptr noundef %3)
   %268 = call fastcc double @nsvg__atof(ptr noundef nonnull %3)
   %269 = fptrunc double %268 to float
   %270 = add nsw i32 %.0.i109, 1
@@ -10622,7 +10622,7 @@ nsvg__parseSkewY.exit:                            ; preds = %253, %.preheader37.
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc range(i64 0, 68719476736) i64 @nsvg__parseCoordinateRaw(ptr noundef %0) unnamed_addr #14 {
   %2 = alloca [64 x i8], align 16
-  %3 = call fastcc ptr @nsvg__parseNumber.argelim(ptr noundef %0, ptr noundef %2)
+  %3 = call fastcc ptr @nsvg__parseNumber(ptr noundef %0, ptr noundef %2)
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %.thread25.i [
     i8 112, label %5
@@ -11522,7 +11522,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #22
 declare float @llvm.fabs.f32(float) #20
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @nsvg__parseNumber.argelim(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #23 {
+define internal fastcc noundef ptr @nsvg__parseNumber(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #23 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %6 [
     i8 45, label %4
@@ -14081,7 +14081,7 @@ define internal fastcc void @nsvg__expandStroke(ptr noundef %0, ptr noundef read
   %40 = tail call float @llvm.fmuladd.f32(float %.09.i, float %8, float %36)
   %41 = tail call float @llvm.fmuladd.f32(float %.0.i, float %8, float %34)
   %42 = tail call float @llvm.fmuladd.f32(float %37, float %8, float %36)
-  br label %nsvg__buttCap.argprom.exit
+  br label %nsvg__buttCap.exit
 
 nsvg__normalize.exit:                             ; preds = %7
   %43 = getelementptr inbounds i8, ptr %1, i64 32
@@ -14101,7 +14101,7 @@ nsvg__normalize.exit:                             ; preds = %7
   %56 = fmul float %50, %54
   %.0319 = select i1 %53, float %55, float %47
   %.0318 = select i1 %53, float %56, float %50
-  switch i32 %5, label %nsvg__buttCap.argprom.exit [
+  switch i32 %5, label %nsvg__buttCap.exit [
     i32 0, label %57
     i32 2, label %89
     i32 1, label %123
@@ -14115,7 +14115,7 @@ nsvg__normalize.exit:                             ; preds = %7
   %62 = tail call float @llvm.fmuladd.f32(float %.0318, float %8, float %46)
   %63 = tail call float @llvm.fmuladd.f32(float %58, float %8, float %19)
   %64 = fcmp oeq float %61, %63
-  br i1 %64, label %nsvg__buttCap.argprom.exit, label %65
+  br i1 %64, label %nsvg__buttCap.exit, label %65
 
 65:                                               ; preds = %57
   %66 = getelementptr inbounds i8, ptr %0, i64 24
@@ -14142,7 +14142,7 @@ nsvg__normalize.exit:                             ; preds = %7
   %77 = tail call ptr @realloc(ptr noundef %74, i64 noundef %76) #33
   store ptr %77, ptr %73, align 8
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %nsvg__buttCap.argprom.exit, label %._crit_edge36.i.i
+  br i1 %78, label %nsvg__buttCap.exit, label %._crit_edge36.i.i
 
 ._crit_edge36.i.i:                                ; preds = %70
   %.pre37.i.i = load i32, ptr %66, align 8
@@ -14170,7 +14170,7 @@ nsvg__normalize.exit:                             ; preds = %7
   store float %.43.i.i, ptr %86, align 8
   store float %.44.i.i, ptr %87, align 4
   store i32 %.45.i.i, ptr %88, align 8
-  br label %nsvg__buttCap.argprom.exit
+  br label %nsvg__buttCap.exit
 
 89:                                               ; preds = %nsvg__normalize.exit
   %90 = fneg float %.0319
@@ -14182,7 +14182,7 @@ nsvg__normalize.exit:                             ; preds = %7
   %96 = tail call float @llvm.fmuladd.f32(float %.0318, float %8, float %91)
   %97 = tail call float @llvm.fmuladd.f32(float %90, float %8, float %93)
   %98 = fcmp oeq float %95, %97
-  br i1 %98, label %nsvg__buttCap.argprom.exit, label %99
+  br i1 %98, label %nsvg__buttCap.exit, label %99
 
 99:                                               ; preds = %89
   %100 = getelementptr inbounds i8, ptr %0, i64 24
@@ -14209,7 +14209,7 @@ nsvg__normalize.exit:                             ; preds = %7
   %111 = tail call ptr @realloc(ptr noundef %108, i64 noundef %110) #33
   store ptr %111, ptr %107, align 8
   %112 = icmp eq ptr %111, null
-  br i1 %112, label %nsvg__buttCap.argprom.exit, label %._crit_edge36.i.i107
+  br i1 %112, label %nsvg__buttCap.exit, label %._crit_edge36.i.i107
 
 ._crit_edge36.i.i107:                             ; preds = %104
   %.pre37.i.i108 = load i32, ptr %100, align 8
@@ -14237,7 +14237,7 @@ nsvg__normalize.exit:                             ; preds = %7
   store float %.43.i.i112, ptr %120, align 8
   store float %.44.i.i113, ptr %121, align 4
   store i32 %.45.i.i114, ptr %122, align 8
-  br label %nsvg__buttCap.argprom.exit
+  br label %nsvg__buttCap.exit
 
 123:                                              ; preds = %nsvg__normalize.exit
   %124 = fneg float %.0319
@@ -14340,9 +14340,9 @@ nsvg__addEdge.exit.i:                             ; preds = %.sink.split.i.i122,
   %.1.i = phi float [ %.0576.i, %167 ], [ %.0576.i, %nsvg__addEdge.exit.i ], [ %140, %131 ]
   %169 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %169, %spec.store.select.i
-  br i1 %exitcond.not.i, label %nsvg__buttCap.argprom.exit, label %131, !llvm.loop !116
+  br i1 %exitcond.not.i, label %nsvg__buttCap.exit, label %131, !llvm.loop !116
 
-nsvg__buttCap.argprom.exit:                       ; preds = %168, %.sink.split.i.i109, %104, %89, %.sink.split.i.i, %70, %57, %nsvg__normalize.exit, %20
+nsvg__buttCap.exit:                               ; preds = %168, %.sink.split.i.i109, %104, %89, %.sink.split.i.i, %70, %57, %nsvg__normalize.exit, %20
   %.0331 = phi i32 [ %44, %nsvg__normalize.exit ], [ %2, %20 ], [ %44, %57 ], [ %44, %70 ], [ %44, %.sink.split.i.i ], [ %44, %89 ], [ %44, %104 ], [ %44, %.sink.split.i.i109 ], [ %44, %168 ]
   %.078329 = phi i32 [ 1, %nsvg__normalize.exit ], [ 0, %20 ], [ 1, %57 ], [ 1, %70 ], [ 1, %.sink.split.i.i ], [ 1, %89 ], [ 1, %104 ], [ 1, %.sink.split.i.i109 ], [ 1, %168 ]
   %.080327 = phi ptr [ %43, %nsvg__normalize.exit ], [ %1, %20 ], [ %43, %57 ], [ %43, %70 ], [ %43, %.sink.split.i.i ], [ %43, %89 ], [ %43, %104 ], [ %43, %.sink.split.i.i109 ], [ %43, %168 ]
@@ -14358,21 +14358,21 @@ nsvg__buttCap.argprom.exit:                       ; preds = %168, %.sink.split.i
   %170 = icmp slt i32 %.078329, %.0331
   br i1 %170, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %nsvg__buttCap.argprom.exit
+.lr.ph:                                           ; preds = %nsvg__buttCap.exit
   %171 = uitofp nneg i32 %spec.store.select.i to float
   %172 = getelementptr inbounds i8, ptr %0, i64 24
   %173 = getelementptr inbounds i8, ptr %0, i64 28
   %174 = getelementptr inbounds i8, ptr %0, i64 16
   br label %175
 
-175:                                              ; preds = %.lr.ph, %nsvg__roundJoin.argprom.exit
-  %.079342 = phi i32 [ %.078329, %.lr.ph ], [ %615, %nsvg__roundJoin.argprom.exit ]
-  %.1341 = phi ptr [ %.080327, %.lr.ph ], [ %614, %nsvg__roundJoin.argprom.exit ]
-  %.182340 = phi ptr [ %.081325, %.lr.ph ], [ %.1341, %nsvg__roundJoin.argprom.exit ]
-  %.sroa.22.1339 = phi float [ %.sroa.22.0, %.lr.ph ], [ %.sroa.22.2, %nsvg__roundJoin.argprom.exit ]
-  %.sroa.0.1338 = phi float [ %.sroa.0.0320, %.lr.ph ], [ %.sroa.0.2, %nsvg__roundJoin.argprom.exit ]
-  %.sroa.22306.1337 = phi float [ %.sroa.22306.0, %.lr.ph ], [ %.sroa.22306.2, %nsvg__roundJoin.argprom.exit ]
-  %.sroa.0297.1336 = phi float [ %.sroa.0297.0, %.lr.ph ], [ %.sroa.0297.2, %nsvg__roundJoin.argprom.exit ]
+175:                                              ; preds = %.lr.ph, %nsvg__roundJoin.exit
+  %.079342 = phi i32 [ %.078329, %.lr.ph ], [ %615, %nsvg__roundJoin.exit ]
+  %.1341 = phi ptr [ %.080327, %.lr.ph ], [ %614, %nsvg__roundJoin.exit ]
+  %.182340 = phi ptr [ %.081325, %.lr.ph ], [ %.1341, %nsvg__roundJoin.exit ]
+  %.sroa.22.1339 = phi float [ %.sroa.22.0, %.lr.ph ], [ %.sroa.22.2, %nsvg__roundJoin.exit ]
+  %.sroa.0.1338 = phi float [ %.sroa.0.0320, %.lr.ph ], [ %.sroa.0.2, %nsvg__roundJoin.exit ]
+  %.sroa.22306.1337 = phi float [ %.sroa.22306.0, %.lr.ph ], [ %.sroa.22306.2, %nsvg__roundJoin.exit ]
+  %.sroa.0297.1336 = phi float [ %.sroa.0297.0, %.lr.ph ], [ %.sroa.0297.2, %nsvg__roundJoin.exit ]
   %176 = getelementptr inbounds i8, ptr %.1341, i64 28
   %177 = load i8, ptr %176, align 4
   %178 = zext i8 %177 to i32
@@ -14551,7 +14551,7 @@ nsvg__addEdge.exit.i142:                          ; preds = %.sink.split.i.i136,
 nsvg__addEdge.exit88.i:                           ; preds = %.sink.split.i79.i, %247, %nsvg__addEdge.exit.i142
   %265 = add nuw nsw i32 %.05.i, 1
   %exitcond.not.i143 = icmp eq i32 %265, %.066.i
-  br i1 %exitcond.not.i143, label %nsvg__roundJoin.argprom.exit, label %207, !llvm.loop !117
+  br i1 %exitcond.not.i143, label %nsvg__roundJoin.exit, label %207, !llvm.loop !117
 
 266:                                              ; preds = %180
   %267 = and i32 %178, 2
@@ -14748,7 +14748,7 @@ nsvg__addEdge.exit70.i:                           ; preds = %.sink.split.i61.i, 
 
 nsvg__addEdge.exit84.i:                           ; preds = %.sink.split.i75.i, %338, %nsvg__addEdge.exit70.i
   %356 = fcmp oeq float %284, %289
-  br i1 %356, label %nsvg__roundJoin.argprom.exit, label %357
+  br i1 %356, label %nsvg__roundJoin.exit, label %357
 
 357:                                              ; preds = %nsvg__addEdge.exit84.i
   %358 = load i32, ptr %172, align 8
@@ -14771,7 +14771,7 @@ nsvg__addEdge.exit84.i:                           ; preds = %.sink.split.i75.i, 
   %366 = tail call ptr @realloc(ptr noundef %363, i64 noundef %365) #33
   store ptr %366, ptr %174, align 8
   %367 = icmp eq ptr %366, null
-  br i1 %367, label %nsvg__roundJoin.argprom.exit, label %._crit_edge36.i87.i
+  br i1 %367, label %nsvg__roundJoin.exit, label %._crit_edge36.i87.i
 
 ._crit_edge36.i87.i:                              ; preds = %360
   %.pre37.i88.i = load i32, ptr %172, align 8
@@ -14799,7 +14799,7 @@ nsvg__addEdge.exit84.i:                           ; preds = %.sink.split.i75.i, 
   store float %.43.i92.i, ptr %375, align 8
   store float %.44.i93.i, ptr %376, align 4
   store i32 %.45.i94.i, ptr %377, align 8
-  br label %nsvg__roundJoin.argprom.exit
+  br label %nsvg__roundJoin.exit
 
 378:                                              ; preds = %266
   %379 = getelementptr i8, ptr %.182340, i64 8
@@ -14945,7 +14945,7 @@ nsvg__addEdge.exit.i170:                          ; preds = %.sink.split.i.i164,
 
 nsvg__addEdge.exit96.i:                           ; preds = %.sink.split.i87.i, %432, %nsvg__addEdge.exit.i170
   %450 = fcmp oeq float %425, %427
-  br i1 %450, label %nsvg__roundJoin.argprom.exit, label %451
+  br i1 %450, label %nsvg__roundJoin.exit, label %451
 
 451:                                              ; preds = %nsvg__addEdge.exit96.i
   %452 = load i32, ptr %172, align 8
@@ -14968,7 +14968,7 @@ nsvg__addEdge.exit96.i:                           ; preds = %.sink.split.i87.i, 
   %460 = tail call ptr @realloc(ptr noundef %457, i64 noundef %459) #33
   store ptr %460, ptr %174, align 8
   %461 = icmp eq ptr %460, null
-  br i1 %461, label %nsvg__roundJoin.argprom.exit, label %._crit_edge36.i99.i
+  br i1 %461, label %nsvg__roundJoin.exit, label %._crit_edge36.i99.i
 
 ._crit_edge36.i99.i:                              ; preds = %454
   %.pre37.i100.i = load i32, ptr %172, align 8
@@ -14996,7 +14996,7 @@ nsvg__addEdge.exit96.i:                           ; preds = %.sink.split.i87.i, 
   store float %.43.i104.i, ptr %469, align 8
   store float %.44.i105.i, ptr %470, align 4
   store i32 %.45.i106.i, ptr %471, align 8
-  br label %nsvg__roundJoin.argprom.exit
+  br label %nsvg__roundJoin.exit
 
 472:                                              ; preds = %378
   %473 = load float, ptr %.1341, align 4
@@ -15127,7 +15127,7 @@ nsvg__addEdge.exit138.i:                          ; preds = %.sink.split.i129.i,
   %532 = load float, ptr %531, align 4
   %533 = tail call float @llvm.fmuladd.f32(float %532, float %8, float %530)
   %534 = fcmp oeq float %.sroa.22.1339, %533
-  br i1 %534, label %nsvg__roundJoin.argprom.exit, label %535
+  br i1 %534, label %nsvg__roundJoin.exit, label %535
 
 535:                                              ; preds = %nsvg__addEdge.exit138.i
   %536 = load i32, ptr %172, align 8
@@ -15150,7 +15150,7 @@ nsvg__addEdge.exit138.i:                          ; preds = %.sink.split.i129.i,
   %544 = tail call ptr @realloc(ptr noundef %541, i64 noundef %543) #33
   store ptr %544, ptr %174, align 8
   %545 = icmp eq ptr %544, null
-  br i1 %545, label %nsvg__roundJoin.argprom.exit, label %._crit_edge36.i141.i
+  br i1 %545, label %nsvg__roundJoin.exit, label %._crit_edge36.i141.i
 
 ._crit_edge36.i141.i:                             ; preds = %538
   %.pre37.i142.i = load i32, ptr %172, align 8
@@ -15178,7 +15178,7 @@ nsvg__addEdge.exit138.i:                          ; preds = %.sink.split.i129.i,
   store float %.43.i146.i, ptr %553, align 8
   store float %.44.i147.i, ptr %554, align 4
   store i32 %.45.i148.i, ptr %555, align 8
-  br label %nsvg__roundJoin.argprom.exit
+  br label %nsvg__roundJoin.exit
 
 556:                                              ; preds = %175
   %557 = load float, ptr %.1341, align 4
@@ -15250,7 +15250,7 @@ nsvg__addEdge.exit138.i:                          ; preds = %.sink.split.i129.i,
 
 nsvg__addEdge.exit.i185:                          ; preds = %.sink.split.i.i179, %574, %556
   %592 = fcmp oeq float %.sroa.22.1339, %569
-  br i1 %592, label %nsvg__roundJoin.argprom.exit, label %593
+  br i1 %592, label %nsvg__roundJoin.exit, label %593
 
 593:                                              ; preds = %nsvg__addEdge.exit.i185
   %594 = load i32, ptr %172, align 8
@@ -15273,7 +15273,7 @@ nsvg__addEdge.exit.i185:                          ; preds = %.sink.split.i.i179,
   %602 = tail call ptr @realloc(ptr noundef %599, i64 noundef %601) #33
   store ptr %602, ptr %174, align 8
   %603 = icmp eq ptr %602, null
-  br i1 %603, label %nsvg__roundJoin.argprom.exit, label %._crit_edge36.i33.i
+  br i1 %603, label %nsvg__roundJoin.exit, label %._crit_edge36.i33.i
 
 ._crit_edge36.i33.i:                              ; preds = %596
   %.pre37.i34.i = load i32, ptr %172, align 8
@@ -15301,9 +15301,9 @@ nsvg__addEdge.exit.i185:                          ; preds = %.sink.split.i.i179,
   store float %.43.i38.i, ptr %611, align 8
   store float %.44.i39.i, ptr %612, align 4
   store i32 %.45.i40.i, ptr %613, align 8
-  br label %nsvg__roundJoin.argprom.exit
+  br label %nsvg__roundJoin.exit
 
-nsvg__roundJoin.argprom.exit:                     ; preds = %nsvg__addEdge.exit88.i, %.sink.split.i35.i, %596, %nsvg__addEdge.exit.i185, %.sink.split.i143.i, %538, %nsvg__addEdge.exit138.i, %.sink.split.i101.i, %454, %nsvg__addEdge.exit96.i, %.sink.split.i89.i, %360, %nsvg__addEdge.exit84.i
+nsvg__roundJoin.exit:                             ; preds = %nsvg__addEdge.exit88.i, %.sink.split.i35.i, %596, %nsvg__addEdge.exit.i185, %.sink.split.i143.i, %538, %nsvg__addEdge.exit138.i, %.sink.split.i101.i, %454, %nsvg__addEdge.exit96.i, %.sink.split.i89.i, %360, %nsvg__addEdge.exit84.i
   %.sroa.0297.2 = phi float [ %286, %nsvg__addEdge.exit84.i ], [ %286, %360 ], [ %286, %.sink.split.i89.i ], [ %393, %nsvg__addEdge.exit96.i ], [ %393, %454 ], [ %393, %.sink.split.i101.i ], [ %480, %nsvg__addEdge.exit138.i ], [ %480, %538 ], [ %480, %.sink.split.i143.i ], [ %561, %nsvg__addEdge.exit.i185 ], [ %561, %596 ], [ %561, %.sink.split.i35.i ], [ %216, %nsvg__addEdge.exit88.i ]
   %.sroa.22306.2 = phi float [ %287, %nsvg__addEdge.exit84.i ], [ %287, %360 ], [ %287, %.sink.split.i89.i ], [ %399, %nsvg__addEdge.exit96.i ], [ %399, %454 ], [ %399, %.sink.split.i101.i ], [ %481, %nsvg__addEdge.exit138.i ], [ %481, %538 ], [ %481, %.sink.split.i143.i ], [ %567, %nsvg__addEdge.exit.i185 ], [ %567, %596 ], [ %567, %.sink.split.i35.i ], [ %218, %nsvg__addEdge.exit88.i ]
   %.sroa.0.2 = phi float [ %288, %nsvg__addEdge.exit84.i ], [ %288, %360 ], [ %288, %.sink.split.i89.i ], [ %426, %nsvg__addEdge.exit96.i ], [ %426, %454 ], [ %426, %.sink.split.i101.i ], [ %529, %nsvg__addEdge.exit138.i ], [ %529, %538 ], [ %529, %.sink.split.i143.i ], [ %568, %nsvg__addEdge.exit.i185 ], [ %568, %596 ], [ %568, %.sink.split.i35.i ], [ %219, %nsvg__addEdge.exit88.i ]
@@ -15313,13 +15313,13 @@ nsvg__roundJoin.argprom.exit:                     ; preds = %nsvg__addEdge.exit8
   %exitcond.not = icmp eq i32 %615, %.0331
   br i1 %exitcond.not, label %._crit_edge, label %175, !llvm.loop !118
 
-._crit_edge:                                      ; preds = %nsvg__roundJoin.argprom.exit, %nsvg__buttCap.argprom.exit
-  %.sroa.0297.1.lcssa = phi float [ %.sroa.0297.0, %nsvg__buttCap.argprom.exit ], [ %.sroa.0297.2, %nsvg__roundJoin.argprom.exit ]
-  %.sroa.22306.1.lcssa = phi float [ %.sroa.22306.0, %nsvg__buttCap.argprom.exit ], [ %.sroa.22306.2, %nsvg__roundJoin.argprom.exit ]
-  %.sroa.0.1.lcssa = phi float [ %.sroa.0.0320, %nsvg__buttCap.argprom.exit ], [ %.sroa.0.2, %nsvg__roundJoin.argprom.exit ]
-  %.sroa.22.1.lcssa = phi float [ %.sroa.22.0, %nsvg__buttCap.argprom.exit ], [ %.sroa.22.2, %nsvg__roundJoin.argprom.exit ]
-  %.182.lcssa = phi ptr [ %.081325, %nsvg__buttCap.argprom.exit ], [ %.1341, %nsvg__roundJoin.argprom.exit ]
-  %.1.lcssa = phi ptr [ %.080327, %nsvg__buttCap.argprom.exit ], [ %614, %nsvg__roundJoin.argprom.exit ]
+._crit_edge:                                      ; preds = %nsvg__roundJoin.exit, %nsvg__buttCap.exit
+  %.sroa.0297.1.lcssa = phi float [ %.sroa.0297.0, %nsvg__buttCap.exit ], [ %.sroa.0297.2, %nsvg__roundJoin.exit ]
+  %.sroa.22306.1.lcssa = phi float [ %.sroa.22306.0, %nsvg__buttCap.exit ], [ %.sroa.22306.2, %nsvg__roundJoin.exit ]
+  %.sroa.0.1.lcssa = phi float [ %.sroa.0.0320, %nsvg__buttCap.exit ], [ %.sroa.0.2, %nsvg__roundJoin.exit ]
+  %.sroa.22.1.lcssa = phi float [ %.sroa.22.0, %nsvg__buttCap.exit ], [ %.sroa.22.2, %nsvg__roundJoin.exit ]
+  %.182.lcssa = phi ptr [ %.081325, %nsvg__buttCap.exit ], [ %.1341, %nsvg__roundJoin.exit ]
+  %.1.lcssa = phi ptr [ %.080327, %nsvg__buttCap.exit ], [ %614, %nsvg__roundJoin.exit ]
   br i1 %.not, label %nsvg__normalize.exit205, label %616
 
 616:                                              ; preds = %._crit_edge

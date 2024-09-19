@@ -1121,7 +1121,7 @@ _ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit: ; preds = %280, %_ZN3gm
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %52)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
   %.not117.i = icmp eq ptr %3, null
-  br i1 %.not117.i, label %_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.argprom.exit, label %282
+  br i1 %.not117.i, label %_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.exit, label %282
 
 282:                                              ; preds = %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit
   invoke void @_Z28gatherIntFromMultiSimulationPK14gmx_multisim_ti(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.69") align 8 %38, ptr noundef nonnull %3, i32 noundef %.sroa.0101.0136171)
@@ -1559,11 +1559,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %403, %_ZSt13adjacen
 _ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_3EED2Ev.exit.i: ; preds = %405
   %409 = load ptr, ptr %38, align 8
   %.not.i.i.i86.i = icmp eq ptr %409, null
-  br i1 %.not.i.i.i86.i, label %_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.argprom.exit, label %410
+  br i1 %.not.i.i.i86.i, label %_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.exit, label %410
 
 410:                                              ; preds = %_ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_3EED2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %409) #24
-  br label %_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.argprom.exit
+  br label %_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.exit
 
 411:                                              ; preds = %402, %385
   %.pn58.pn.i = phi { ptr, i32 } [ %.pn58.i, %402 ], [ %386, %385 ]
@@ -1600,7 +1600,7 @@ _ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11c
 421:                                              ; preds = %396, %350
   unreachable
 
-_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.argprom.exit: ; preds = %410, %_ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_3EED2Ev.exit.i, %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit
+_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.exit: ; preds = %410, %_ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_3EED2Ev.exit.i, %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40)
@@ -1624,7 +1624,7 @@ _ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17Append
   %.sroa.3.0.i = or i1 %422, %or.cond.i46
   br i1 %.sroa.3.0.i, label %425, label %440
 
-425:                                              ; preds = %_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.argprom.exit
+425:                                              ; preds = %_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.exit
   %426 = add nsw i32 %.sroa.5.sroa.2.0156164, 1
   %.sroa.09.0.i = select i1 %422, i32 %426, i32 1
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %82, ptr noundef nonnull @.str, i32 noundef %.sroa.09.0.i)
@@ -1701,7 +1701,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZNSt15__exception_
   invoke void @__cxa_end_catch()
           to label %.thread219 unwind label %579
 
-440:                                              ; preds = %430, %_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.argprom.exit
+440:                                              ; preds = %430, %_ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17AppendingBehaviorE.exit
   %441 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 19, i32 noundef %5, ptr noundef %6)
           to label %442 unwind label %.loopexit.split-lp
 

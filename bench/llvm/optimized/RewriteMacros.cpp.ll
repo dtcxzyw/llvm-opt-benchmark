@@ -540,7 +540,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit96.thread301:    ; preds = %_ZN4llvmeqENS_9Stri
   %.sroa.1.0.extract.shift.i113 = lshr i64 %198, 32
   %.sroa.1.0.extract.trunc.i114 = trunc nuw i64 %.sroa.1.0.extract.shift.i113 to i32
   %199 = icmp eq i64 %.sroa.1.0.extract.shift.i111, %.sroa.1.0.extract.shift.i113
-  br i1 %199, label %200, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
+  br i1 %199, label %200, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
 
 200:                                              ; preds = %196
   %.val82 = load ptr, ptr %105, align 8
@@ -553,25 +553,25 @@ _ZN4llvmeqENS_9StringRefES0_.exit96.thread301:    ; preds = %_ZN4llvmeqENS_9Stri
 
 203:                                              ; preds = %200
   switch i16 %.val83, label %_ZNK5clang5Token17getIdentifierInfoEv.exit11.i [
-    i16 13, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 12, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 11, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 10, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 9, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 7, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 18, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 17, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 15, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 14, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 19, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 16, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 8, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
-    i16 1, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
+    i16 13, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 12, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 11, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 10, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 9, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 7, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 18, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 17, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 15, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 14, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 19, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 16, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 8, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
+    i16 1, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
   ]
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit11.i:   ; preds = %203
   %.not.i116 = icmp eq ptr %.val82, null
-  br i1 %.not.i116, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit, label %204
+  br i1 %.not.i116, label %_ZL11isSameTokenRN5clang5TokenES1_.exit, label %204
 
 204:                                              ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit11.i
   switch i16 %.val83, label %205 [
@@ -590,7 +590,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit11.i:   ; preds = %203
 _ZNK5clang5Token17getIdentifierInfoEv.exit13.i:   ; preds = %205, %204, %204, %204, %204, %204, %204, %204
   %.0.i12.i = phi ptr [ %.val82, %205 ], [ null, %204 ], [ null, %204 ], [ null, %204 ], [ null, %204 ], [ null, %204 ], [ null, %204 ], [ null, %204 ]
   %206 = icmp eq ptr %.0.i12.i, %.0.i14.i
-  br i1 %206, label %207, label %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
+  br i1 %206, label %207, label %_ZL11isSameTokenRN5clang5TokenES1_.exit
 
 207:                                              ; preds = %200, %_ZNK5clang5Token17getIdentifierInfoEv.exit13.i
   %208 = zext i32 %.0296.ph362 to i64
@@ -627,11 +627,11 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit13.i:   ; preds = %205, %204, %204, %2
   %or.cond336 = select i1 %216, i1 true, i1 %218
   br i1 %or.cond336, label %.critedge.lr.ph, label %.critedge2.outer._crit_edge, !llvm.loop !13
 
-_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit:  ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit13.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit11.i, %203, %203, %203, %203, %203, %203, %203, %203, %203, %203, %203, %203, %203, %203, %196
+_ZL11isSameTokenRN5clang5TokenES1_.exit:          ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit13.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit11.i, %203, %203, %203, %203, %203, %203, %203, %203, %203, %203, %203, %203, %203, %203, %196
   %.not78 = icmp ugt i64 %.sroa.1.0.extract.shift.i113, %.sroa.1.0.extract.shift.i111
   br i1 %.not78, label %.lr.ph.preheader, label %219
 
-219:                                              ; preds = %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
+219:                                              ; preds = %_ZL11isSameTokenRN5clang5TokenES1_.exit
   %220 = lshr i16 %.sroa.19.0.ph361, 1
   %.lobit = and i16 %220, 1
   %221 = zext nneg i16 %.lobit to i64
@@ -855,7 +855,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit13.i129: ; preds = %281, %280, %280, %
   call void @_ZN4llvm13RewriteBuffer10InsertTextEjNS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef %285, ptr nonnull @.str.5, i64 2, i1 noundef zeroext false) #14
   br label %.critedge2.outer.backedge
 
-.lr.ph.preheader:                                 ; preds = %_ZL11isSameTokenRN5clang5TokenES1_.argprom.exit
+.lr.ph.preheader:                                 ; preds = %_ZL11isSameTokenRN5clang5TokenES1_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
   br label %.lr.ph
 

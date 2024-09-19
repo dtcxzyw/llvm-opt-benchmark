@@ -9661,17 +9661,17 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN17DisplayFilterEditC1
 12:                                               ; preds = %10
   %13 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9QtPrivate7FunctorIZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditTypeE3$_0Li0EE4callINS_4ListIJEEEvEEvRS5_PvPSB_.argprom.exit", label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9QtPrivate7FunctorIZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditTypeE3$_0Li0EE4callINS_4ListIJEEEvEEvRS5_PvPSB_.exit", label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i: ; preds = %12
   %14 = atomicrmw sub ptr %13, i32 1 seq_cst, align 4
   %.not.i.i.i.i.i.i = icmp eq i32 %14, 1
-  br i1 %.not.i.i.i.i.i.i, label %15, label %"_ZN9QtPrivate7FunctorIZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditTypeE3$_0Li0EE4callINS_4ListIJEEEvEEvRS5_PvPSB_.argprom.exit"
+  br i1 %.not.i.i.i.i.i.i, label %15, label %"_ZN9QtPrivate7FunctorIZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditTypeE3$_0Li0EE4callINS_4ListIJEEEvEEvRS5_PvPSB_.exit"
 
 15:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i
   %16 = load ptr, ptr %6, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %16, i64 noundef 2, i64 noundef 8) #20
-  br label %"_ZN9QtPrivate7FunctorIZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditTypeE3$_0Li0EE4callINS_4ListIJEEEvEEvRS5_PvPSB_.argprom.exit"
+  br label %"_ZN9QtPrivate7FunctorIZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditTypeE3$_0Li0EE4callINS_4ListIJEEEvEEvRS5_PvPSB_.exit"
 
 17:                                               ; preds = %10
   %18 = landingpad { ptr, i32 }
@@ -9693,11 +9693,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i3.i.i.i.i: ; preds = %17
 _ZN7QStringD2Ev.exit5.i.i.i.i:                    ; preds = %21, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i3.i.i.i.i, %17
   resume { ptr, i32 } %18
 
-"_ZN9QtPrivate7FunctorIZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditTypeE3$_0Li0EE4callINS_4ListIJEEEvEEvRS5_PvPSB_.argprom.exit": ; preds = %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i, %15
+"_ZN9QtPrivate7FunctorIZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditTypeE3$_0Li0EE4callINS_4ListIJEEEvEEvRS5_PvPSB_.exit": ; preds = %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %23
 
-23:                                               ; preds = %7, %9, %"_ZN9QtPrivate7FunctorIZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditTypeE3$_0Li0EE4callINS_4ListIJEEEvEEvRS5_PvPSB_.argprom.exit", %5
+23:                                               ; preds = %7, %9, %"_ZN9QtPrivate7FunctorIZN17DisplayFilterEditC1EP7QWidget21DisplayFilterEditTypeE3$_0Li0EE4callINS_4ListIJEEEvEEvRS5_PvPSB_.exit", %5
   ret void
 }
 

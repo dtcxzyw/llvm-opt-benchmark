@@ -665,7 +665,7 @@ _ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i.i.i: ; preds = %33, %.lr.ph.i
 
 _ZNK5clang17ObjCInterfaceDecl5ivarsEv.exit.i.i:   ; preds = %37, %_ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i.i.i
   %.not91113.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i, null
-  br i1 %.not91113.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not91113.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK5clang17ObjCInterfaceDecl5ivarsEv.exit.i.i
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -943,7 +943,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit.i.i:
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8
   %168 = icmp eq i32 %.pre.i.i, 0
-  br i1 %168, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %169
+  br i1 %168, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %169
 
 169:                                              ; preds = %._crit_edge.i.i
   call fastcc void @_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_17ObjCContainerDeclE(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull %1)
@@ -953,7 +953,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit.i.i:
   %173 = load i32, ptr %42, align 8, !noalias !18
   %174 = zext i32 %173 to i64
   %175 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.252", ptr %172, i64 %174
-  br i1 %171, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %176
+  br i1 %171, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %176
 
 176:                                              ; preds = %169
   %.not5.i5.i10.i2.i.i.i.i.i.i = icmp eq i32 %173, 0
@@ -971,12 +971,12 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_12ObjCIvarDeclEEppEv.exit.i.i:
 .critedge2.i8.i14.i6.i.i.i.i.i.i:                 ; preds = %.lr.ph.i6.i12.i3.i.i.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i.i.i
   %178 = getelementptr inbounds i8, ptr %.sroa.0.3.i4.i.i.i.i.i.i, i64 16
   %.not.i9.i15.i7.i.i.i.i.i.i = icmp eq ptr %178, %175
-  br i1 %.not.i9.i15.i7.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %.lr.ph.i6.i12.i3.i.i.i.i.i.i, !llvm.loop !23
+  br i1 %.not.i9.i15.i7.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph.i6.i12.i3.i.i.i.i.i.i, !llvm.loop !23
 
 _ZN4llvm17make_second_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEEEEDaOT_.exit.i.i: ; preds = %.lr.ph.i6.i12.i3.i.i.i.i.i.i, %176
   %.pn14.i.i.i.i.i.i = phi ptr [ %172, %176 ], [ %.sroa.0.3.i4.i.i.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i.i.i ]
   %.not92116.i.i = icmp eq ptr %.pn14.i.i.i.i.i.i, %175
-  br i1 %.not92116.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %.lr.ph118.i.i
+  br i1 %.not92116.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph118.i.i
 
 .lr.ph118.i.i:                                    ; preds = %_ZN4llvm17make_second_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEEEEDaOT_.exit.i.i, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EELb0EEEZNS_17make_second_rangeIRNS_8DenseMapIS6_S7_S9_SC_EEEEDaOT_EUlRSC_E_RS7_EESD_St20forward_iterator_tagS7_lPS7_SM_EppEv.exit.i.i
   %.sroa.068.0117.i.i = phi ptr [ %.sroa.068.1.i.i, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EELb0EEEZNS_17make_second_rangeIRNS_8DenseMapIS6_S7_S9_SC_EEEEDaOT_EUlRSC_E_RS7_EESD_St20forward_iterator_tagS7_lPS7_SM_EppEv.exit.i.i ], [ %.pn14.i.i.i.i.i.i, %_ZN4llvm17make_second_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEEEEDaOT_.exit.i.i ]
@@ -988,7 +988,7 @@ _ZN4llvm17make_second_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_1
 182:                                              ; preds = %.lr.ph118.i.i
   %183 = getelementptr inbounds i8, ptr %.sroa.068.0117.i.i, i64 16
   %.not5.i3.i.i.i.i = icmp eq ptr %183, %175
-  br i1 %.not5.i3.i.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %.lr.ph.i4.i.i.i.i
+  br i1 %.not5.i3.i.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph.i4.i.i.i.i
 
 .lr.ph.i4.i.i.i.i:                                ; preds = %182, %.critedge2.i6.i.i.i.i
   %.sroa.068.1.i.i = phi ptr [ %185, %.critedge2.i6.i.i.i.i ], [ %183, %182 ]
@@ -1002,11 +1002,11 @@ _ZN4llvm17make_second_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_1
 .critedge2.i6.i.i.i.i:                            ; preds = %.lr.ph.i4.i.i.i.i, %.lr.ph.i4.i.i.i.i
   %185 = getelementptr inbounds i8, ptr %.sroa.068.1.i.i, i64 16
   %.not.i7.i.i.i.i = icmp eq ptr %185, %175
-  br i1 %.not.i7.i.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %.lr.ph.i4.i.i.i.i, !llvm.loop !23
+  br i1 %.not.i7.i.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph.i4.i.i.i.i, !llvm.loop !23
 
 _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EELb0EEEZNS_17make_second_rangeIRNS_8DenseMapIS6_S7_S9_SC_EEEEDaOT_EUlRSC_E_RS7_EESD_St20forward_iterator_tagS7_lPS7_SM_EppEv.exit.i.i: ; preds = %.lr.ph.i4.i.i.i.i
   %.not92.i.i = icmp eq ptr %.sroa.068.1.i.i, %175
-  br i1 %.not92.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %.lr.ph118.i.i
+  br i1 %.not92.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph118.i.i
 
 186:                                              ; preds = %.lr.ph118.i.i
   %187 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1187,7 +1187,7 @@ _ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_
   %275 = load i32, ptr %42, align 8
   %276 = zext i32 %275 to i64
   %277 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.252", ptr %274, i64 %276
-  br i1 %273, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %278
+  br i1 %273, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %278
 
 278:                                              ; preds = %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_11DeclContextENS1_6FileIDERKNS1_13SourceManagerE.exit.i.i
   %.not5.i5.i10.i2.i.i.i = icmp eq i32 %275, 0
@@ -1205,12 +1205,12 @@ _ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_
 .critedge2.i8.i14.i6.i.i.i:                       ; preds = %.lr.ph.i6.i12.i3.i.i.i, %.lr.ph.i6.i12.i3.i.i.i
   %280 = getelementptr inbounds i8, ptr %.sroa.0.3.i4.i.i.i, i64 16
   %.not.i9.i15.i7.i.i.i = icmp eq ptr %280, %277
-  br i1 %.not.i9.i15.i7.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %.lr.ph.i6.i12.i3.i.i.i, !llvm.loop !23
+  br i1 %.not.i9.i15.i7.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph.i6.i12.i3.i.i.i, !llvm.loop !23
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit.i.i: ; preds = %.lr.ph.i6.i12.i3.i.i.i, %278
   %.pn14.i.i.i = phi ptr [ %274, %278 ], [ %.sroa.0.3.i4.i.i.i, %.lr.ph.i6.i12.i3.i.i.i ]
   %.not93119.i.i = icmp eq ptr %.pn14.i.i.i, %277
-  br i1 %.not93119.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %.lr.ph121.i.i
+  br i1 %.not93119.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph121.i.i
 
 .lr.ph121.i.i:                                    ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit.i.i
   %281 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1352,7 +1352,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit60.i.i:           ; preds = %333, %331
 348:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit60.i.i, %296
   %349 = getelementptr inbounds i8, ptr %.sroa.063.0120.i.i, i64 16
   %.not5.i3.i.i.i = icmp eq ptr %349, %277
-  br i1 %.not5.i3.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %.lr.ph.i4.i.i.i
+  br i1 %.not5.i3.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph.i4.i.i.i
 
 .lr.ph.i4.i.i.i:                                  ; preds = %348, %.critedge2.i6.i.i.i
   %.sroa.063.1.i.i = phi ptr [ %351, %.critedge2.i6.i.i.i ], [ %349, %348 ]
@@ -1366,13 +1366,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit60.i.i:           ; preds = %333, %331
 .critedge2.i6.i.i.i:                              ; preds = %.lr.ph.i4.i.i.i, %.lr.ph.i4.i.i.i
   %351 = getelementptr inbounds i8, ptr %.sroa.063.1.i.i, i64 16
   %.not.i7.i.i.i = icmp eq ptr %351, %277
-  br i1 %.not.i7.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %.lr.ph.i4.i.i.i, !llvm.loop !23
+  br i1 %.not.i7.i.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph.i4.i.i.i, !llvm.loop !23
 
 _ZN4llvm16DenseMapIteratorIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EELb0EEppEv.exit.i.i: ; preds = %.lr.ph.i4.i.i.i
   %.not93.i.i = icmp eq ptr %.sroa.063.1.i.i, %277
-  br i1 %.not93.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %296
+  br i1 %.not93.i.i, label %_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %296
 
-_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %.critedge2.i8.i14.i6.i.i.i.i.i.i, %182, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EELb0EEEZNS_17make_second_rangeIRNS_8DenseMapIS6_S7_S9_SC_EEEEDaOT_EUlRSC_E_RS7_EESD_St20forward_iterator_tagS7_lPS7_SM_EppEv.exit.i.i, %.critedge2.i6.i.i.i.i, %.critedge2.i8.i14.i6.i.i.i, %348, %_ZN4llvm16DenseMapIteratorIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EELb0EEppEv.exit.i.i, %.critedge2.i6.i.i.i, %_ZNK5clang17ObjCInterfaceDecl5ivarsEv.exit.i.i, %._crit_edge.i.i, %169, %_ZN4llvm17make_second_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEEEEDaOT_.exit.i.i, %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_11DeclContextENS1_6FileIDERKNS1_13SourceManagerE.exit.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit.i.i
+_ZNK12_GLOBAL__N_122ObjCUnusedIvarsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %.critedge2.i8.i14.i6.i.i.i.i.i.i, %182, %_ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_16DenseMapIteratorIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EELb0EEEZNS_17make_second_rangeIRNS_8DenseMapIS6_S7_S9_SC_EEEEDaOT_EUlRSC_E_RS7_EESD_St20forward_iterator_tagS7_lPS7_SM_EppEv.exit.i.i, %.critedge2.i6.i.i.i.i, %.critedge2.i8.i14.i6.i.i.i, %348, %_ZN4llvm16DenseMapIteratorIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EELb0EEppEv.exit.i.i, %.critedge2.i6.i.i.i, %_ZNK5clang17ObjCInterfaceDecl5ivarsEv.exit.i.i, %._crit_edge.i.i, %169, %_ZN4llvm17make_second_rangeIRNS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEEEEDaOT_.exit.i.i, %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_11DeclContextENS1_6FileIDERKNS1_13SourceManagerE.exit.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E5beginEv.exit.i.i
   %352 = load ptr, ptr %5, align 8
   %353 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %354 = load i32, ptr %353, align 8
@@ -1513,7 +1513,7 @@ _ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.058.074, i64 56
   %51 = load ptr, ptr %50, align 8
   %.not7.i = icmp eq ptr %51, null
-  br i1 %.not7.i, label %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.argprom.exit, label %52
+  br i1 %.not7.i, label %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.exit, label %52
 
 52:                                               ; preds = %49
   %53 = icmp eq i32 %.val23, 0
@@ -1560,14 +1560,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12Dense
   %76 = zext i32 %.val23 to i64
   %77 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.252", ptr %.val, i64 %76
   %.not3.i = icmp eq ptr %.0.i.pn.i.i, %77
-  br i1 %.not3.i, label %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.argprom.exit, label %78
+  br i1 %.not3.i, label %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.exit, label %78
 
 78:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E4findES5_.exit.i
   %79 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 8
   store i32 1, ptr %79, align 8
-  br label %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.argprom.exit
+  br label %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.exit
 
-_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.argprom.exit: ; preds = %49, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E4findES5_.exit.i, %78
+_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.exit: ; preds = %49, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E4findES5_.exit.i, %78
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.058.074, i64 8
   %.0.copyload.i.i.i.i.i.i37 = load i64, ptr %80, align 8
   %81 = and i64 %.0.copyload.i.i.i.i.i.i37, -8
@@ -1575,8 +1575,8 @@ _ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_
   %.not1.i.i = icmp eq i64 %81, 0
   br i1 %.not1.i.i, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_20ObjCPropertyImplDeclEEppEv.exit, label %.lr.ph.i.i38
 
-.lr.ph.i.i38:                                     ; preds = %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.argprom.exit, %87
-  %.sroa.058.1 = phi ptr [ %90, %87 ], [ %82, %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.argprom.exit ]
+.lr.ph.i.i38:                                     ; preds = %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.exit, %87
+  %.sroa.058.1 = phi ptr [ %90, %87 ], [ %82, %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.exit ]
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.058.1, i64 28
   %84 = load i32, ptr %83, align 4
   %85 = and i32 %84, 127
@@ -1591,8 +1591,8 @@ _ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_
   %.not.i.i40 = icmp eq i64 %89, 0
   br i1 %.not.i.i40, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_20ObjCPropertyImplDeclEEppEv.exit, label %.lr.ph.i.i38, !llvm.loop !28
 
-_ZN5clang11DeclContext22specific_decl_iteratorINS_20ObjCPropertyImplDeclEEppEv.exit: ; preds = %.lr.ph.i.i38, %87, %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.argprom.exit
-  %.sroa.058.2 = phi ptr [ %82, %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.argprom.exit ], [ %90, %87 ], [ %.sroa.058.1, %.lr.ph.i.i38 ]
+_ZN5clang11DeclContext22specific_decl_iteratorINS_20ObjCPropertyImplDeclEEppEv.exit: ; preds = %.lr.ph.i.i38, %87, %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.exit
+  %.sroa.058.2 = phi ptr [ %82, %_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_20ObjCPropertyImplDeclE.exit ], [ %90, %87 ], [ %.sroa.058.1, %.lr.ph.i.i38 ]
   %.not69 = icmp eq ptr %.sroa.058.2, null
   br i1 %.not69, label %._crit_edge76, label %49
 

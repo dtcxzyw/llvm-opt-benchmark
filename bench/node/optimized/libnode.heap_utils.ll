@@ -1053,19 +1053,19 @@ _ZNK4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE12pointer_dataEv.exit.i.i: ; pre
   store ptr %call.i, ptr %agg.result, align 8
   %call3.i.i.i13 = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #22
   %cmp2.not.i.i14 = icmp eq ptr %call3.i.i.i13, null
-  br i1 %cmp2.not.i.i14, label %do.body6.i.i15, label %_ZN4node17BaseObjectPtrImplINS_4heap12_GLOBAL__N_118HeapSnapshotStreamELb0EED2Ev.argprom.exit
+  br i1 %cmp2.not.i.i14, label %do.body6.i.i15, label %_ZN4node17BaseObjectPtrImplINS_4heap12_GLOBAL__N_118HeapSnapshotStreamELb0EED2Ev.exit
 
 do.body6.i.i15:                                   ; preds = %_ZNK4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE12pointer_dataEv.exit.i.i
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC1EPS1_E4args_0) #22
   call void @abort() #26
   unreachable
 
-_ZN4node17BaseObjectPtrImplINS_4heap12_GLOBAL__N_118HeapSnapshotStreamELb0EED2Ev.argprom.exit: ; preds = %_ZNK4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE12pointer_dataEv.exit.i.i
+_ZN4node17BaseObjectPtrImplINS_4heap12_GLOBAL__N_118HeapSnapshotStreamELb0EED2Ev.exit: ; preds = %_ZNK4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE12pointer_dataEv.exit.i.i
   call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #22
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #22
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4node17BaseObjectPtrImplINS_4heap12_GLOBAL__N_118HeapSnapshotStreamELb0EED2Ev.argprom.exit, %if.then71
+cleanup:                                          ; preds = %_ZN4node17BaseObjectPtrImplINS_4heap12_GLOBAL__N_118HeapSnapshotStreamELb0EED2Ev.exit, %if.then71
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #22
   ret void
 }
@@ -4746,8 +4746,8 @@ attributes #27 = { cold }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN4node14MakeBaseObjectINS_4heap12_GLOBAL__N_118HeapSnapshotStreamEJRPNS_11EnvironmentESt10unique_ptrIKN2v812HeapSnapshotENS_15FunctionDeleterISA_XadL_ZNS1_18DeleteHeapSnapshotEPSA_EEEEERNS8_5LocalINS8_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb0EEEDpOT0_.argprom: %agg.result"}
-!12 = distinct !{!12, !"_ZN4node14MakeBaseObjectINS_4heap12_GLOBAL__N_118HeapSnapshotStreamEJRPNS_11EnvironmentESt10unique_ptrIKN2v812HeapSnapshotENS_15FunctionDeleterISA_XadL_ZNS1_18DeleteHeapSnapshotEPSA_EEEEERNS8_5LocalINS8_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb0EEEDpOT0_.argprom"}
+!11 = distinct !{!11, !12, !"_ZN4node14MakeBaseObjectINS_4heap12_GLOBAL__N_118HeapSnapshotStreamEJRPNS_11EnvironmentESt10unique_ptrIKN2v812HeapSnapshotENS_15FunctionDeleterISA_XadL_ZNS1_18DeleteHeapSnapshotEPSA_EEEEERNS8_5LocalINS8_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb0EEEDpOT0_: %agg.result"}
+!12 = distinct !{!12, !"_ZN4node14MakeBaseObjectINS_4heap12_GLOBAL__N_118HeapSnapshotStreamEJRPNS_11EnvironmentESt10unique_ptrIKN2v812HeapSnapshotENS_15FunctionDeleterISA_XadL_ZNS1_18DeleteHeapSnapshotEPSA_EEEEERNS8_5LocalINS8_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb0EEEDpOT0_"}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZN4node4heap22GetHeapSnapshotOptionsEN2v85LocalINS1_5ValueEEE: %agg.result"}
 !15 = distinct !{!15, !"_ZN4node4heap22GetHeapSnapshotOptionsEN2v85LocalINS1_5ValueEEE"}

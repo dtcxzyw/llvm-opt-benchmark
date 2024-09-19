@@ -3397,11 +3397,11 @@ entry:
   %1 = load i32, ptr %length1.i, align 4
   %sub.i = sub nsw i32 %0, %1
   %tobool.not.i = icmp eq i32 %sub.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %obj_cmp.argprom.exit
+  br i1 %tobool.not.i, label %if.end.i, label %obj_cmp.exit
 
 if.end.i:                                         ; preds = %entry
   %cmp.i = icmp eq i32 %0, 0
-  br i1 %cmp.i, label %obj_cmp.argprom.exit, label %if.end4.i
+  br i1 %cmp.i, label %obj_cmp.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
   %data.i = getelementptr inbounds i8, ptr %a_.val, i64 24
@@ -3410,9 +3410,9 @@ if.end4.i:                                        ; preds = %if.end.i
   %3 = load ptr, ptr %data5.i, align 8
   %conv.i = sext i32 %0 to i64
   %call.i = tail call i32 @memcmp(ptr noundef %2, ptr noundef %3, i64 noundef %conv.i) #10
-  br label %obj_cmp.argprom.exit
+  br label %obj_cmp.exit
 
-obj_cmp.argprom.exit:                             ; preds = %entry, %if.end.i, %if.end4.i
+obj_cmp.exit:                                     ; preds = %entry, %if.end.i, %if.end4.i
   %retval.0.i = phi i32 [ %call.i, %if.end4.i ], [ %sub.i, %entry ], [ 0, %if.end.i ]
   ret i32 %retval.0.i
 }

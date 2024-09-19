@@ -103,8 +103,8 @@ define hidden { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %7 = getelementptr inbounds i8, ptr %5, i64 64
   br label %8
 
-8:                                                ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.argprom.exit.i", %2
-  %9 = phi i64 [ %12, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.argprom.exit.i" ], [ %.promoted.i, %2 ]
+8:                                                ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit.i", %2
+  %9 = phi i64 [ %12, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit.i" ], [ %.promoted.i, %2 ]
   %10 = icmp ult i64 %9, %4
   br i1 %10, label %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd8a45af7926c05aE.llvm.7578818989620227732.exit
 
@@ -115,20 +115,20 @@ define hidden { i32, i32 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %13 = and i64 %9, 4294967295
   %14 = load i64, ptr %6, align 8, !alias.scope !33, !noalias !36, !noundef !4
   %15 = icmp ugt i64 %14, %13
-  br i1 %15, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.argprom.exit.i", label %16, !prof !43
+  br i1 %15, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit.i", label %16, !prof !43
 
 16:                                               ; preds = %11
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %13, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7855ef78f73ea6488ff6900a1ea4815f.33.llvm.12041220681261970885) #13, !noalias !44
   unreachable
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.argprom.exit.i": ; preds = %11
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit.i": ; preds = %11
   %17 = load ptr, ptr %7, align 8, !alias.scope !33, !noalias !36, !nonnull !4, !noundef !4
   %18 = getelementptr inbounds [0 x i8], ptr %17, i64 0, i64 %13
   %19 = load i8, ptr %18, align 1, !range !45, !noalias !44, !noundef !4
   %switch.i.i.i.i.i = icmp ult i8 %19, 2
   br i1 %switch.i.i.i.i.i, label %20, label %8
 
-20:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.argprom.exit.i"
+20:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit.i"
   %21 = trunc i64 %9 to i32
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd8a45af7926c05aE.llvm.7578818989620227732.exit
 
@@ -763,8 +763,8 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd
   %8 = getelementptr inbounds i8, ptr %6, i64 64
   br label %9
 
-9:                                                ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.argprom.exit", %3
-  %10 = phi i64 [ %13, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.argprom.exit" ], [ %.promoted, %3 ]
+9:                                                ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit", %3
+  %10 = phi i64 [ %13, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit" ], [ %.promoted, %3 ]
   %11 = icmp ult i64 %10, %5
   br i1 %11, label %12, label %.loopexit
 
@@ -775,20 +775,20 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd
   %14 = and i64 %10, 4294967295
   %15 = load i64, ptr %7, align 8, !alias.scope !185, !noalias !188, !noundef !4
   %16 = icmp ugt i64 %15, %14
-  br i1 %16, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.argprom.exit", label %17, !prof !43
+  br i1 %16, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit", label %17, !prof !43
 
 17:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %14, i64 noundef %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7855ef78f73ea6488ff6900a1ea4815f.33.llvm.12041220681261970885) #13, !noalias !195
   unreachable
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.argprom.exit": ; preds = %12
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit": ; preds = %12
   %18 = load ptr, ptr %8, align 8, !alias.scope !185, !noalias !188, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds [0 x i8], ptr %18, i64 0, i64 %14
   %20 = load i8, ptr %19, align 1, !range !45, !noalias !195, !noundef !4
   %switch.i.i.i.i = icmp ult i8 %20, 2
   br i1 %switch.i.i.i.i, label %21, label %9
 
-21:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.argprom.exit"
+21:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf1570cec1ef0bb65E.exit"
   %22 = trunc i64 %10 to i32
   br label %.loopexit
 

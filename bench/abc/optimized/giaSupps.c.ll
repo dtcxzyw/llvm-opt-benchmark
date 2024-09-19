@@ -3076,11 +3076,11 @@ define void @Supp_PrintNodes(ptr noundef readonly %0, ptr nocapture noundef read
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %21)
   %25 = load ptr, ptr %8, align 8
   %.not25 = icmp eq ptr %25, null
-  br i1 %.not25, label %.Gia_ObjName.argprom.exit_crit_edge, label %26
+  br i1 %.not25, label %.Gia_ObjName.exit_crit_edge, label %26
 
-.Gia_ObjName.argprom.exit_crit_edge:              ; preds = %23
+.Gia_ObjName.exit_crit_edge:                      ; preds = %23
   %.pre = zext nneg i32 %21 to i64
-  br label %Gia_ObjName.argprom.exit
+  br label %Gia_ObjName.exit
 
 26:                                               ; preds = %23
   %27 = getelementptr i8, ptr %25, i64 8
@@ -3089,14 +3089,14 @@ define void @Supp_PrintNodes(ptr noundef readonly %0, ptr nocapture noundef read
   %29 = getelementptr inbounds i32, ptr %.val31, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %32, label %Gia_ObjName.argprom.exit
+  br i1 %31, label %32, label %Gia_ObjName.exit
 
 32:                                               ; preds = %26
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %30)
-  br label %Gia_ObjName.argprom.exit
+  br label %Gia_ObjName.exit
 
-Gia_ObjName.argprom.exit:                         ; preds = %.Gia_ObjName.argprom.exit_crit_edge, %26, %32
-  %.pre-phi = phi i64 [ %.pre, %.Gia_ObjName.argprom.exit_crit_edge ], [ %28, %26 ], [ %28, %32 ]
+Gia_ObjName.exit:                                 ; preds = %.Gia_ObjName.exit_crit_edge, %26, %32
+  %.pre-phi = phi i64 [ %.pre, %.Gia_ObjName.exit_crit_edge ], [ %28, %26 ], [ %28, %32 ]
   %.val33 = load ptr, ptr %9, align 8, !nonnull !30, !noundef !30
   %34 = getelementptr i8, ptr %.val33, i64 8
   %.val.i = load ptr, ptr %34, align 8
@@ -3105,18 +3105,18 @@ Gia_ObjName.argprom.exit:                         ; preds = %.Gia_ObjName.argpro
   %37 = getelementptr inbounds i8, ptr %36, i64 2
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %37)
   %.not26 = icmp slt i64 %indvars.iv, %11
-  br i1 %.not26, label %Gia_ObjName.argprom.exit._crit_edge, label %.split.us
+  br i1 %.not26, label %Gia_ObjName.exit._crit_edge, label %.split.us
 
-Gia_ObjName.argprom.exit._crit_edge:              ; preds = %Gia_ObjName.argprom.exit
+Gia_ObjName.exit._crit_edge:                      ; preds = %Gia_ObjName.exit
   %.val.pre = load i32, ptr %5, align 4
   br label %40
 
-.split.us:                                        ; preds = %Gia_ObjName.argprom.exit, %.critedge29.us
+.split.us:                                        ; preds = %Gia_ObjName.exit, %.critedge29.us
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3)
   br label %.critedge
 
-40:                                               ; preds = %Gia_ObjName.argprom.exit._crit_edge, %.lr.ph.split
-  %.val = phi i32 [ %.val.pre, %Gia_ObjName.argprom.exit._crit_edge ], [ %.val47, %.lr.ph.split ]
+40:                                               ; preds = %Gia_ObjName.exit._crit_edge, %.lr.ph.split
+  %.val = phi i32 [ %.val.pre, %Gia_ObjName.exit._crit_edge ], [ %.val47, %.lr.ph.split ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %41 = sext i32 %.val to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
@@ -8722,7 +8722,7 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
   %144 = getelementptr inbounds i8, ptr %143, i64 4
   store i32 0, ptr %144, align 4
   %145 = load ptr, ptr %3, align 8
-  tail call fastcc void @Vec_IntPushTwo.argelim(ptr noundef %145)
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef %145)
   %.val141 = load i32, ptr %125, align 4
   %146 = icmp sgt i32 %.val141, 0
   br i1 %146, label %.lr.ph143, label %.critedge5
@@ -8821,7 +8821,7 @@ declare i32 @Gia_ManEvalSolutionOne(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare ptr @Gia_ManDeriveSolutionOne(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntPushTwo.argelim(ptr nocapture noundef %0) unnamed_addr #11 {
+define internal fastcc void @Vec_IntPushTwo(ptr nocapture noundef %0) unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -8998,7 +8998,7 @@ Abc_Clock.exit:                                   ; preds = %11, %16
   %28 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 0, ptr %28, align 4
   %29 = load ptr, ptr %7, align 8
-  call fastcc void @Vec_IntPushTwo.argelim(ptr noundef %29)
+  call fastcc void @Vec_IntPushTwo(ptr noundef %29)
   %30 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %31 = getelementptr inbounds i8, ptr %30, i64 4
   store i32 16, ptr %30, align 8

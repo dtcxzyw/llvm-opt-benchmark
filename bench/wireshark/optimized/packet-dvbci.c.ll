@@ -1957,7 +1957,7 @@ dvbci_set_addrs.exit:                             ; preds = %18
   br label %76
 
 68:                                               ; preds = %47
-  tail call fastcc void @dissect_dvbci_cis.argprom.argelim(ptr noundef %0, ptr noundef %25)
+  tail call fastcc void @dissect_dvbci_cis(ptr noundef %0, ptr noundef %25)
   br label %76
 
 69:                                               ; preds = %47
@@ -2270,7 +2270,7 @@ dissect_es.exit:                                  ; preds = %81, %72, %84
   %106 = load i32, ptr @hf_dvbci_ca_enable_flag, align 4
   %107 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %106, ptr noundef %2, i32 noundef %104, i32 noundef 1, i32 noundef 0) #15
   %.not.i121 = icmp sgt i8 %105, -1
-  br i1 %.not.i121, label %dissect_ca_enable.argprom.exit, label %108
+  br i1 %.not.i121, label %dissect_ca_enable.exit, label %108
 
 108:                                              ; preds = %92
   %109 = and i8 %105, 127
@@ -2279,18 +2279,18 @@ dissect_es.exit:                                  ; preds = %81, %72, %84
   %112 = add nsw i8 %109, -1
   %or.cond5.i = icmp ult i8 %112, 3
   %spec.select.i = zext i1 %or.cond5.i to i32
-  br label %dissect_ca_enable.argprom.exit
+  br label %dissect_ca_enable.exit
 
-dissect_ca_enable.argprom.exit:                   ; preds = %92, %108
+dissect_ca_enable.exit:                           ; preds = %92, %108
   %.0.i122 = phi i32 [ 0, %92 ], [ %spec.select.i, %108 ]
   %113 = add i32 %3, 4
   %114 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %113) #15
   %115 = icmp sgt i32 %114, 0
   br i1 %115, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %dissect_ca_enable.argprom.exit, %dissect_ca_enable.argprom.exit127
-  %.0141 = phi i32 [ %129, %dissect_ca_enable.argprom.exit127 ], [ %.0.i122, %dissect_ca_enable.argprom.exit ]
-  %.4140 = phi i32 [ %130, %dissect_ca_enable.argprom.exit127 ], [ %113, %dissect_ca_enable.argprom.exit ]
+.lr.ph:                                           ; preds = %dissect_ca_enable.exit, %dissect_ca_enable.exit127
+  %.0141 = phi i32 [ %129, %dissect_ca_enable.exit127 ], [ %.0.i122, %dissect_ca_enable.exit ]
+  %.4140 = phi i32 [ %130, %dissect_ca_enable.exit127 ], [ %113, %dissect_ca_enable.exit ]
   %116 = load i32, ptr @ett_dvbci_application, align 4
   %117 = tail call ptr @proto_tree_add_subtree(ptr noundef %6, ptr noundef %2, i32 noundef %.4140, i32 noundef 3, i32 noundef %116, ptr noundef null, ptr noundef nonnull @.str.937) #15
   %118 = load i32, ptr @hf_dvbci_es_pid, align 4
@@ -2300,7 +2300,7 @@ dissect_ca_enable.argprom.exit:                   ; preds = %92, %108
   %122 = load i32, ptr @hf_dvbci_ca_enable_flag, align 4
   %123 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %122, ptr noundef %2, i32 noundef %120, i32 noundef 1, i32 noundef 0) #15
   %.not.i123 = icmp sgt i8 %121, -1
-  br i1 %.not.i123, label %dissect_ca_enable.argprom.exit127, label %124
+  br i1 %.not.i123, label %dissect_ca_enable.exit127, label %124
 
 124:                                              ; preds = %.lr.ph
   %125 = and i8 %121, 127
@@ -2309,9 +2309,9 @@ dissect_ca_enable.argprom.exit:                   ; preds = %92, %108
   %128 = add nsw i8 %125, -1
   %or.cond5.i124 = icmp ult i8 %128, 3
   %spec.select.i125 = zext i1 %or.cond5.i124 to i32
-  br label %dissect_ca_enable.argprom.exit127
+  br label %dissect_ca_enable.exit127
 
-dissect_ca_enable.argprom.exit127:                ; preds = %.lr.ph, %124
+dissect_ca_enable.exit127:                        ; preds = %.lr.ph, %124
   %.0.i126 = phi i32 [ 0, %.lr.ph ], [ %spec.select.i125, %124 ]
   %129 = or i32 %.0.i126, %.0141
   %130 = add i32 %.4140, 3
@@ -2319,8 +2319,8 @@ dissect_ca_enable.argprom.exit127:                ; preds = %.lr.ph, %124
   %132 = icmp sgt i32 %131, 0
   br i1 %132, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %dissect_ca_enable.argprom.exit127, %dissect_ca_enable.argprom.exit
-  %.0.lcssa = phi i32 [ %.0.i122, %dissect_ca_enable.argprom.exit ], [ %129, %dissect_ca_enable.argprom.exit127 ]
+._crit_edge:                                      ; preds = %dissect_ca_enable.exit127, %dissect_ca_enable.exit
+  %.0.lcssa = phi i32 [ %.0.i122, %dissect_ca_enable.exit ], [ %129, %dissect_ca_enable.exit127 ]
   %.not = icmp eq i32 %.0.lcssa, 0
   br i1 %.not, label %.loopexit, label %133
 
@@ -2452,13 +2452,13 @@ define internal void @dissect_dvbci_payload_hc(i32 noundef %0, i32 %1, ptr nound
   %narrow.i = add nuw nsw i16 %69, 2
   %71 = zext nneg i16 %narrow.i to i32
   %.not.i = icmp eq i16 %69, 0
-  br i1 %.not.i, label %dissect_desc_loop.argprom.exit, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %dissect_desc_loop.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %59
   %72 = add i32 %3, 5
   %73 = tail call i32 @proto_mpeg_descriptor_dissect(ptr noundef %2, i32 noundef %72, ptr noundef %6) #15
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %dissect_desc_loop.argprom.exit, label %.lr.ph
+  br i1 %74, label %dissect_desc_loop.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %75 = phi i32 [ %79, %.lr.ph.i ], [ %73, %.lr.ph.preheader.i ]
@@ -2466,14 +2466,14 @@ define internal void @dissect_dvbci_payload_hc(i32 noundef %0, i32 %1, ptr nound
   %76 = add i32 %75, %.01.i99
   %77 = sub i32 %76, %66
   %78 = icmp slt i32 %77, %71
-  br i1 %78, label %.lr.ph.i, label %dissect_desc_loop.argprom.exit, !llvm.loop !14
+  br i1 %78, label %.lr.ph.i, label %dissect_desc_loop.exit, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %79 = tail call i32 @proto_mpeg_descriptor_dissect(ptr noundef %2, i32 noundef %76, ptr noundef %6) #15
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %dissect_desc_loop.argprom.exit, label %.lr.ph, !llvm.loop !14
+  br i1 %80, label %dissect_desc_loop.exit, label %.lr.ph, !llvm.loop !14
 
-dissect_desc_loop.argprom.exit:                   ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.preheader.i, %59
+dissect_desc_loop.exit:                           ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.preheader.i, %59
   %.lcssa.i = phi i32 [ 2, %59 ], [ 2, %.lr.ph.preheader.i ], [ %77, %.lr.ph ], [ %77, %.lr.ph.i ]
   %81 = icmp slt i32 %.lcssa.i, 0
   %82 = and i8 %60, 1
@@ -2481,7 +2481,7 @@ dissect_desc_loop.argprom.exit:                   ; preds = %.lr.ph.i, %.lr.ph, 
   %or.cond = select i1 %81, i1 true, i1 %.not
   br i1 %or.cond, label %107, label %83
 
-83:                                               ; preds = %dissect_desc_loop.argprom.exit
+83:                                               ; preds = %dissect_desc_loop.exit
   %84 = add i32 %.lcssa.i, %66
   %85 = tail call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef %84) #15
   %86 = load ptr, ptr @mpeg_pmt_handle, align 8
@@ -2519,7 +2519,7 @@ dissect_desc_loop.argprom.exit:                   ; preds = %.lr.ph.i, %.lr.ph, 
   %106 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %105, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
   br label %107
 
-107:                                              ; preds = %7, %93, %87, %dissect_desc_loop.argprom.exit, %104, %96, %52, %33, %14
+107:                                              ; preds = %7, %93, %87, %dissect_desc_loop.exit, %104, %96, %52, %33, %14
   ret void
 }
 
@@ -2941,7 +2941,7 @@ define internal void @dissect_dvbci_payload_cup(i32 noundef %0, i32 %1, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_dvbci_payload_cc(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca %struct.nstime_t, align 8
-  switch i32 %0, label %dissect_rating.argprom.exit [
+  switch i32 %0, label %dissect_rating.exit [
     i32 10457090, label %9
     i32 10457091, label %12
     i32 10457092, label %12
@@ -2961,11 +2961,11 @@ define internal void @dissect_dvbci_payload_cc(i32 noundef %0, i32 %1, ptr nound
 9:                                                ; preds = %7
   %10 = load i32, ptr @hf_dvbci_cc_sys_id_bitmask, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %10, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
 12:                                               ; preds = %7, %7
   %13 = tail call fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef %6, ptr noundef null)
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
 14:                                               ; preds = %7
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
@@ -2976,11 +2976,11 @@ define internal void @dissect_dvbci_payload_cc(i32 noundef %0, i32 %1, ptr nound
   %20 = zext i8 %15 to i32
   %21 = tail call ptr @val_to_str_const(i32 noundef %20, ptr noundef nonnull @dvbci_cc_status, ptr noundef nonnull @.str.947) #15
   tail call void @col_append_sep_str(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef %21) #15
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
 22:                                               ; preds = %7, %7, %7, %7
   tail call fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %5, ptr noundef %6, i32 noundef 0)
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
 23:                                               ; preds = %7
   %24 = load i32, ptr @hf_dvbci_capability_field, align 4
@@ -3001,7 +3001,7 @@ define internal void @dissect_dvbci_payload_cc(i32 noundef %0, i32 %1, ptr nound
 
 34:                                               ; preds = %31
   %35 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %6, ptr noundef %5, ptr noundef nonnull @ei_dvbci_bad_length, ptr noundef %2, i32 noundef %26, i32 noundef 5, ptr noundef nonnull @.str.949) #15
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
 36:                                               ; preds = %31
   %37 = load i32, ptr @hf_dvbci_pin_chg_time, align 4
@@ -3020,11 +3020,11 @@ define internal void @dissect_dvbci_payload_cc(i32 noundef %0, i32 %1, ptr nound
 45:                                               ; preds = %39
   %46 = add nuw nsw i32 %42, 3
   %47 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %6, i32 noundef %44, ptr noundef %2, i32 noundef %40, i32 noundef 1, i32 noundef %42, ptr noundef nonnull @.str.1007, i32 noundef %46, i32 noundef %42) #15
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
 48:                                               ; preds = %39
   %49 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %6, i32 noundef %44, ptr noundef %2, i32 noundef %40, i32 noundef 1, i32 noundef %42, ptr noundef nonnull @.str.1008, i32 noundef %42) #15
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
 50:                                               ; preds = %7
   %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
@@ -3035,7 +3035,7 @@ define internal void @dissect_dvbci_payload_cc(i32 noundef %0, i32 %1, ptr nound
   %56 = zext i8 %51 to i32
   %57 = tail call ptr @val_to_str_const(i32 noundef %56, ptr noundef nonnull @dvbci_pincode_status, ptr noundef nonnull @.str.947) #15
   tail call void @col_append_sep_str(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.931, ptr noundef %57) #15
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
 58:                                               ; preds = %7
   %59 = load i32, ptr @hf_dvbci_cc_prog_num, align 4
@@ -3054,23 +3054,23 @@ define internal void @dissect_dvbci_payload_cc(i32 noundef %0, i32 %1, ptr nound
 69:                                               ; preds = %58
   %70 = add nuw nsw i32 %66, 3
   %71 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %6, i32 noundef %68, ptr noundef %2, i32 noundef %64, i32 noundef 1, i32 noundef %66, ptr noundef nonnull @.str.1007, i32 noundef %70, i32 noundef %66) #15
-  br label %dissect_rating.argprom.exit104
+  br label %dissect_rating.exit104
 
 72:                                               ; preds = %58
   %73 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %6, i32 noundef %68, ptr noundef %2, i32 noundef %64, i32 noundef 1, i32 noundef %66, ptr noundef nonnull @.str.1008, i32 noundef %66) #15
-  br label %dissect_rating.argprom.exit104
+  br label %dissect_rating.exit104
 
-dissect_rating.argprom.exit104:                   ; preds = %69, %72
+dissect_rating.exit104:                           ; preds = %69, %72
   %74 = add i32 %3, 4
   %75 = call i32 @packet_mpeg_sect_mjd_to_utc_time(ptr noundef %2, i32 noundef %74, ptr noundef nonnull %8) #15
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %79
 
-77:                                               ; preds = %dissect_rating.argprom.exit104
+77:                                               ; preds = %dissect_rating.exit104
   %78 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %6, ptr noundef %5, ptr noundef nonnull @ei_dvbci_bad_length, ptr noundef %2, i32 noundef %74, i32 noundef 5, ptr noundef nonnull @.str.949) #15
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
-79:                                               ; preds = %dissect_rating.argprom.exit104
+79:                                               ; preds = %dissect_rating.exit104
   %80 = load i32, ptr @hf_dvbci_pin_evt_time, align 4
   %81 = call ptr @proto_tree_add_time(ptr noundef %6, i32 noundef %80, ptr noundef %2, i32 noundef %74, i32 noundef 5, ptr noundef nonnull %8) #15
   %82 = add i32 %3, 9
@@ -3089,7 +3089,7 @@ dissect_rating.argprom.exit104:                   ; preds = %69, %72
   %91 = load i32, ptr @hf_dvbci_cc_priv_data, align 4
   %92 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %90) #15
   %93 = call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %91, ptr noundef %2, i32 noundef %90, i32 noundef %92, i32 noundef 0) #15
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
 94:                                               ; preds = %7
   %95 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
@@ -3102,26 +3102,26 @@ dissect_rating.argprom.exit104:                   ; preds = %69, %72
 99:                                               ; preds = %94
   %100 = add nuw nsw i32 %96, 3
   %101 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %6, i32 noundef %98, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef %96, ptr noundef nonnull @.str.1007, i32 noundef %100, i32 noundef %96) #15
-  br label %dissect_rating.argprom.exit106
+  br label %dissect_rating.exit106
 
 102:                                              ; preds = %94
   %103 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %6, i32 noundef %98, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef %96, ptr noundef nonnull @.str.1008, i32 noundef %96) #15
-  br label %dissect_rating.argprom.exit106
+  br label %dissect_rating.exit106
 
-dissect_rating.argprom.exit106:                   ; preds = %99, %102
+dissect_rating.exit106:                           ; preds = %99, %102
   %104 = add i32 %3, 1
   %105 = load i32, ptr @hf_dvbci_cc_priv_data, align 4
   %106 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %104) #15
   %107 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %105, ptr noundef %2, i32 noundef %104, i32 noundef %106, i32 noundef 0) #15
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
 108:                                              ; preds = %7, %7
   %109 = load i32, ptr @hf_dvbci_pincode, align 4
   %110 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %3) #15
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %109, ptr noundef %2, i32 noundef %3, i32 noundef %110, i32 noundef 0) #15
-  br label %dissect_rating.argprom.exit
+  br label %dissect_rating.exit
 
-dissect_rating.argprom.exit:                      ; preds = %48, %45, %7, %108, %dissect_rating.argprom.exit106, %89, %77, %50, %34, %22, %14, %12, %9
+dissect_rating.exit:                              ; preds = %48, %45, %7, %108, %dissect_rating.exit106, %89, %77, %50, %34, %22, %14, %12, %9
   ret void
 }
 
@@ -3750,7 +3750,7 @@ define internal void @dissect_dvbci_payload_afs(i32 noundef %0, i32 %1, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr noundef %5, ptr noundef %6) #1 {
   %8 = alloca i32, align 4
-  switch i32 %0, label %dissect_opp_cap_loop.argprom.exit199 [
+  switch i32 %0, label %dissect_opp_cap_loop.exit199 [
     i32 10460161, label %9
     i32 10460167, label %9
     i32 10460163, label %37
@@ -3788,7 +3788,7 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
   %34 = add i32 %3, 5
   %35 = load i32, ptr @hf_dvbci_refr_req_time, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %35, ptr noundef %2, i32 noundef %34, i32 noundef 1, i32 noundef 0) #15
-  br label %dissect_opp_cap_loop.argprom.exit199
+  br label %dissect_opp_cap_loop.exit199
 
 37:                                               ; preds = %7
   %38 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %3) #15
@@ -3796,7 +3796,7 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %39, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #15
   %41 = zext i16 %38 to i32
   %42 = icmp eq i16 %38, 0
-  br i1 %42, label %dissect_opp_cap_loop.argprom.exit199, label %43
+  br i1 %42, label %dissect_opp_cap_loop.exit199, label %43
 
 43:                                               ; preds = %37
   %44 = add i32 %3, 2
@@ -3808,7 +3808,7 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
 47:                                               ; preds = %43
   %48 = load ptr, ptr @data_handle, align 8
   %49 = tail call i32 @call_dissector(ptr noundef %48, ptr noundef %45, ptr noundef %5, ptr noundef %6) #15
-  br label %dissect_opp_cap_loop.argprom.exit199
+  br label %dissect_opp_cap_loop.exit199
 
 50:                                               ; preds = %43
   %51 = getelementptr inbounds i8, ptr %5, i64 8
@@ -3839,7 +3839,7 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
   %66 = and i32 %64, 65535
   %67 = icmp slt i32 %66, %54
   %68 = select i1 %65, i1 %67, i1 false
-  br i1 %68, label %55, label %dissect_opp_cap_loop.argprom.exit199, !llvm.loop !18
+  br i1 %68, label %55, label %dissect_opp_cap_loop.exit199, !llvm.loop !18
 
 69:                                               ; preds = %7
   %70 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
@@ -3849,7 +3849,7 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %72, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
   %74 = load i32, ptr @hf_dvbci_info_ver_op_info, align 4
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %74, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
-  br i1 %.not, label %dissect_opp_cap_loop.argprom.exit199, label %76
+  br i1 %.not, label %dissect_opp_cap_loop.exit199, label %76
 
 76:                                               ; preds = %69
   %77 = add i32 %3, 1
@@ -3867,7 +3867,7 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
 87:                                               ; preds = %76
   %88 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %83) #15
   %89 = call ptr @proto_tree_add_expert(ptr noundef %6, ptr noundef %5, ptr noundef nonnull @ei_dvbci_invalid_char_tbl, ptr noundef %2, i32 noundef %83, i32 noundef %88) #15
-  br label %dissect_opp_cap_loop.argprom.exit199
+  br label %dissect_opp_cap_loop.exit199
 
 90:                                               ; preds = %76
   %91 = load i32, ptr @hf_dvbci_opp_char_tbl, align 4
@@ -3895,7 +3895,7 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
   %112 = add i32 %93, 5
   %113 = load i32, ptr @hf_dvbci_prof_name, align 4
   %114 = call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %113, ptr noundef %2, i32 noundef %112, i32 noundef 1, i32 noundef 0) #15
-  br label %dissect_opp_cap_loop.argprom.exit199
+  br label %dissect_opp_cap_loop.exit199
 
 115:                                              ; preds = %7
   %116 = load i32, ptr @hf_dvbci_unattended, align 4
@@ -3919,7 +3919,7 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
 
 129:                                              ; preds = %115
   %.not2.i = icmp eq i8 %119, 0
-  br i1 %.not2.i, label %dissect_opp_cap_loop.argprom.exit, label %.lr.ph.preheader.i
+  br i1 %.not2.i, label %dissect_opp_cap_loop.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %129, %.thread.i
   %.0235.i = phi ptr [ %128, %.thread.i ], [ null, %129 ]
@@ -3932,9 +3932,9 @@ define internal void @dissect_dvbci_payload_opp(i32 noundef %0, i32 %1, ptr noun
   %131 = tail call ptr @proto_tree_add_item(ptr noundef %.0235.i, i32 noundef %123, ptr noundef %2, i32 noundef %130, i32 noundef 1, i32 noundef 0) #15
   %132 = add nuw nsw i32 %.01.i, 1
   %exitcond.not = icmp eq i32 %132, %umax
-  br i1 %exitcond.not, label %dissect_opp_cap_loop.argprom.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not, label %dissect_opp_cap_loop.exit, label %.lr.ph.i, !llvm.loop !19
 
-dissect_opp_cap_loop.argprom.exit:                ; preds = %.lr.ph.i, %129
+dissect_opp_cap_loop.exit:                        ; preds = %.lr.ph.i, %129
   %133 = add i32 %122, %125
   %134 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %133) #15
   %135 = load i32, ptr @hf_dvbci_dlv_cap_loop_len, align 4
@@ -3946,14 +3946,14 @@ dissect_opp_cap_loop.argprom.exit:                ; preds = %.lr.ph.i, %129
   %or.cond.i182 = and i1 %124, %140
   br i1 %or.cond.i182, label %.thread.i189, label %143
 
-.thread.i189:                                     ; preds = %dissect_opp_cap_loop.argprom.exit
+.thread.i189:                                     ; preds = %dissect_opp_cap_loop.exit
   %141 = load i32, ptr @ett_dvbci_opp_cap_loop, align 4
   %142 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %6, ptr noundef %2, i32 noundef %137, i32 noundef %139, i32 noundef %141, ptr noundef null, ptr noundef nonnull @.str.1027) #15
   br label %.lr.ph.preheader.i184
 
-143:                                              ; preds = %dissect_opp_cap_loop.argprom.exit
+143:                                              ; preds = %dissect_opp_cap_loop.exit
   %.not2.i183 = icmp eq i8 %134, 0
-  br i1 %.not2.i183, label %dissect_opp_cap_loop.argprom.exit190, label %.lr.ph.preheader.i184
+  br i1 %.not2.i183, label %dissect_opp_cap_loop.exit190, label %.lr.ph.preheader.i184
 
 .lr.ph.preheader.i184:                            ; preds = %143, %.thread.i189
   %.0235.i185 = phi ptr [ %142, %.thread.i189 ], [ null, %143 ]
@@ -3966,9 +3966,9 @@ dissect_opp_cap_loop.argprom.exit:                ; preds = %.lr.ph.i, %129
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %.0235.i185, i32 noundef %138, ptr noundef %2, i32 noundef %144, i32 noundef 1, i32 noundef 0) #15
   %146 = add nuw nsw i32 %.01.i187, 1
   %exitcond217.not = icmp eq i32 %146, %umax216
-  br i1 %exitcond217.not, label %dissect_opp_cap_loop.argprom.exit190, label %.lr.ph.i186, !llvm.loop !19
+  br i1 %exitcond217.not, label %dissect_opp_cap_loop.exit190, label %.lr.ph.i186, !llvm.loop !19
 
-dissect_opp_cap_loop.argprom.exit190:             ; preds = %.lr.ph.i186, %143
+dissect_opp_cap_loop.exit190:                     ; preds = %.lr.ph.i186, %143
   %147 = add i32 %137, %139
   %148 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %147) #15
   %149 = load i32, ptr @hf_dvbci_app_cap_loop_len, align 4
@@ -3980,14 +3980,14 @@ dissect_opp_cap_loop.argprom.exit190:             ; preds = %.lr.ph.i186, %143
   %or.cond.i191 = and i1 %124, %154
   br i1 %or.cond.i191, label %.thread.i198, label %157
 
-.thread.i198:                                     ; preds = %dissect_opp_cap_loop.argprom.exit190
+.thread.i198:                                     ; preds = %dissect_opp_cap_loop.exit190
   %155 = load i32, ptr @ett_dvbci_opp_cap_loop, align 4
   %156 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %6, ptr noundef %2, i32 noundef %151, i32 noundef %153, i32 noundef %155, ptr noundef null, ptr noundef nonnull @.str.1028) #15
   br label %.lr.ph.preheader.i193
 
-157:                                              ; preds = %dissect_opp_cap_loop.argprom.exit190
+157:                                              ; preds = %dissect_opp_cap_loop.exit190
   %.not2.i192 = icmp eq i8 %148, 0
-  br i1 %.not2.i192, label %dissect_opp_cap_loop.argprom.exit199, label %.lr.ph.preheader.i193
+  br i1 %.not2.i192, label %dissect_opp_cap_loop.exit199, label %.lr.ph.preheader.i193
 
 .lr.ph.preheader.i193:                            ; preds = %157, %.thread.i198
   %.0235.i194 = phi ptr [ %156, %.thread.i198 ], [ null, %157 ]
@@ -4000,7 +4000,7 @@ dissect_opp_cap_loop.argprom.exit190:             ; preds = %.lr.ph.i186, %143
   %160 = tail call ptr @proto_tree_add_item(ptr noundef %.0235.i194, i32 noundef %152, ptr noundef %2, i32 noundef %159, i32 noundef 2, i32 noundef 0) #15
   %161 = add nuw nsw i32 %.01.i196, 2
   %162 = icmp ult i32 %161, %158
-  br i1 %162, label %.lr.ph.i195, label %dissect_opp_cap_loop.argprom.exit199, !llvm.loop !19
+  br i1 %162, label %.lr.ph.i195, label %dissect_opp_cap_loop.exit199, !llvm.loop !19
 
 163:                                              ; preds = %7
   %164 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
@@ -4042,7 +4042,7 @@ dissect_opp_cap_loop.argprom.exit190:             ; preds = %.lr.ph.i186, %143
   %narrow.i = add nuw nsw i16 %188, 2
   %190 = zext nneg i16 %narrow.i to i32
   %.not.i = icmp eq i16 %188, 0
-  br i1 %.not.i, label %dissect_opp_cap_loop.argprom.exit199, label %.lr.ph.preheader.i200
+  br i1 %.not.i, label %dissect_opp_cap_loop.exit199, label %.lr.ph.preheader.i200
 
 .lr.ph.preheader.i200:                            ; preds = %182
   %191 = add i32 %3, 5
@@ -4052,13 +4052,13 @@ dissect_opp_cap_loop.argprom.exit190:             ; preds = %.lr.ph.i186, %143
   %193 = add i32 %196, %.01.i202
   %194 = sub i32 %193, %183
   %195 = icmp slt i32 %194, %190
-  br i1 %195, label %.lr.ph.i201, label %dissect_opp_cap_loop.argprom.exit199, !llvm.loop !14
+  br i1 %195, label %.lr.ph.i201, label %dissect_opp_cap_loop.exit199, !llvm.loop !14
 
 .lr.ph.i201:                                      ; preds = %192, %.lr.ph.preheader.i200
   %.01.i202 = phi i32 [ %193, %192 ], [ %191, %.lr.ph.preheader.i200 ]
   %196 = tail call i32 @proto_mpeg_descriptor_dissect(ptr noundef %2, i32 noundef %.01.i202, ptr noundef %6) #15
   %197 = icmp eq i32 %196, 0
-  br i1 %197, label %dissect_opp_cap_loop.argprom.exit199, label %192
+  br i1 %197, label %dissect_opp_cap_loop.exit199, label %192
 
 198:                                              ; preds = %7
   %199 = load i32, ptr @hf_dvbci_opp_desc_loop_len, align 4
@@ -4068,7 +4068,7 @@ dissect_opp_cap_loop.argprom.exit190:             ; preds = %.lr.ph.i186, %143
   %narrow.i203 = add nuw nsw i16 %201, 2
   %203 = zext nneg i16 %narrow.i203 to i32
   %.not.i204 = icmp eq i16 %201, 0
-  br i1 %.not.i204, label %dissect_opp_cap_loop.argprom.exit199, label %.lr.ph.preheader.i205
+  br i1 %.not.i204, label %dissect_opp_cap_loop.exit199, label %.lr.ph.preheader.i205
 
 .lr.ph.preheader.i205:                            ; preds = %198
   %204 = add i32 %3, 2
@@ -4078,15 +4078,15 @@ dissect_opp_cap_loop.argprom.exit190:             ; preds = %.lr.ph.i186, %143
   %206 = add i32 %209, %.01.i207
   %207 = sub i32 %206, %3
   %208 = icmp slt i32 %207, %203
-  br i1 %208, label %.lr.ph.i206, label %dissect_opp_cap_loop.argprom.exit199, !llvm.loop !14
+  br i1 %208, label %.lr.ph.i206, label %dissect_opp_cap_loop.exit199, !llvm.loop !14
 
 .lr.ph.i206:                                      ; preds = %205, %.lr.ph.preheader.i205
   %.01.i207 = phi i32 [ %206, %205 ], [ %204, %.lr.ph.preheader.i205 ]
   %209 = tail call i32 @proto_mpeg_descriptor_dissect(ptr noundef %2, i32 noundef %.01.i207, ptr noundef %6) #15
   %210 = icmp eq i32 %209, 0
-  br i1 %210, label %dissect_opp_cap_loop.argprom.exit199, label %205
+  br i1 %210, label %dissect_opp_cap_loop.exit199, label %205
 
-dissect_opp_cap_loop.argprom.exit199:             ; preds = %.lr.ph.i206, %205, %.lr.ph.i201, %192, %.lr.ph.i195, %60, %198, %182, %157, %7, %69, %37, %90, %87, %47, %9
+dissect_opp_cap_loop.exit199:                     ; preds = %.lr.ph.i206, %205, %.lr.ph.i201, %192, %.lr.ph.i195, %60, %198, %182, %157, %7, %69, %37, %90, %87, %47, %9
   ret void
 }
 
@@ -6130,7 +6130,7 @@ dissect_dvbci_tpdu.exit:                          ; preds = %dissect_dvbci_tpdu_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dvbci_cis.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_dvbci_cis(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -6179,7 +6179,7 @@ define internal fastcc void @dissect_dvbci_cis.argprom.argelim(ptr noundef %0, p
   %31 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %30, ptr noundef %26, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #15
   %32 = call i32 @tvb_find_guint8(ptr noundef %26, i32 noundef 2, i32 noundef -1, i8 noundef zeroext 0) #15
   %33 = icmp slt i32 %32, 2
-  br i1 %33, label %dissect_dvbci_cis_payload_tpll_v1.argprom.exit, label %34
+  br i1 %33, label %dissect_dvbci_cis_payload_tpll_v1.exit, label %34
 
 34:                                               ; preds = %27
   %35 = load i32, ptr @hf_dvbci_cis_tpll_v1_info_manuf, align 4
@@ -6188,7 +6188,7 @@ define internal fastcc void @dissect_dvbci_cis.argprom.argelim(ptr noundef %0, p
   %38 = add nuw i32 %32, 1
   %39 = call i32 @tvb_find_guint8(ptr noundef %26, i32 noundef %38, i32 noundef -1, i8 noundef zeroext 0) #15
   %40 = icmp slt i32 %39, %38
-  br i1 %40, label %dissect_dvbci_cis_payload_tpll_v1.argprom.exit, label %41
+  br i1 %40, label %dissect_dvbci_cis_payload_tpll_v1.exit, label %41
 
 41:                                               ; preds = %34
   %42 = load i32, ptr @hf_dvbci_cis_tpll_v1_info_name, align 4
@@ -6218,9 +6218,9 @@ define internal fastcc void @dissect_dvbci_cis.argprom.argelim(ptr noundef %0, p
   %.0.lcssa.i = phi i32 [ %.01.i, %41 ], [ %.0.i, %49 ], [ %.03.i, %.lr.ph.i ]
   %55 = load i32, ptr @hf_dvbci_cis_tpll_v1_end, align 4
   %56 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %55, ptr noundef %26, i32 noundef %.0.lcssa.i, i32 noundef 1, i32 noundef -2147483648) #15
-  br label %dissect_dvbci_cis_payload_tpll_v1.argprom.exit
+  br label %dissect_dvbci_cis_payload_tpll_v1.exit
 
-dissect_dvbci_cis_payload_tpll_v1.argprom.exit:   ; preds = %27, %34, %._crit_edge.i
+dissect_dvbci_cis_payload_tpll_v1.exit:           ; preds = %27, %34, %._crit_edge.i
   %57 = add i32 %24, %25
   br label %159
 
@@ -6256,7 +6256,7 @@ dissect_dvbci_cis_payload_tpll_v1.argprom.exit:   ; preds = %27, %34, %._crit_ed
   %82 = add nuw nsw i32 %77, %81
   %83 = call i32 @tvb_reported_length_remaining(ptr noundef %26, i32 noundef %82) #15
   %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph.i72, label %dissect_dvbci_cis_payload_config.argprom.exit
+  br i1 %84, label %.lr.ph.i72, label %dissect_dvbci_cis_payload_config.exit
 
 .lr.ph.i72:                                       ; preds = %58, %113
   %.01.i73 = phi i32 [ %.1.i, %113 ], [ %82, %58 ]
@@ -6298,9 +6298,9 @@ dissect_dvbci_cis_payload_tpll_v1.argprom.exit:   ; preds = %27, %34, %._crit_ed
   %.1.i = add i32 %99, %95
   %114 = call i32 @tvb_reported_length_remaining(ptr noundef %26, i32 noundef %.1.i) #15
   %115 = icmp sgt i32 %114, 0
-  br i1 %115, label %.lr.ph.i72, label %dissect_dvbci_cis_payload_config.argprom.exit, !llvm.loop !24
+  br i1 %115, label %.lr.ph.i72, label %dissect_dvbci_cis_payload_config.exit, !llvm.loop !24
 
-dissect_dvbci_cis_payload_config.argprom.exit:    ; preds = %113, %58
+dissect_dvbci_cis_payload_config.exit:            ; preds = %113, %58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %116 = add i32 %24, %25
   br label %159
@@ -6314,14 +6314,14 @@ dissect_dvbci_cis_payload_config.argprom.exit:    ; preds = %113, %58
   %122 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %121, ptr noundef %26, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #15
   %123 = load i32, ptr @hf_dvbci_cis_tpce_indx_cnf_entry, align 4
   %124 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %123, ptr noundef %26, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #15
-  br i1 %.not.i, label %dissect_dvbci_cis_payload_cftable_entry.argprom.exit, label %125
+  br i1 %.not.i, label %dissect_dvbci_cis_payload_cftable_entry.exit, label %125
 
 125:                                              ; preds = %117
   %126 = load i32, ptr @hf_dvbci_cis_tpce_if_type, align 4
   %127 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %126, ptr noundef %26, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #15
-  br label %dissect_dvbci_cis_payload_cftable_entry.argprom.exit
+  br label %dissect_dvbci_cis_payload_cftable_entry.exit
 
-dissect_dvbci_cis_payload_cftable_entry.argprom.exit: ; preds = %117, %125
+dissect_dvbci_cis_payload_cftable_entry.exit:     ; preds = %117, %125
   %.0.i74 = phi i32 [ 2, %125 ], [ 1, %117 ]
   %128 = load i32, ptr @hf_dvbci_cis_tpce_fs_mem_space, align 4
   %129 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %128, ptr noundef %26, i32 noundef %.0.i74, i32 noundef 1, i32 noundef -2147483648) #15
@@ -6339,7 +6339,7 @@ dissect_dvbci_cis_payload_cftable_entry.argprom.exit: ; preds = %117, %125
   %139 = load i32, ptr @hf_dvbci_cis_dev_mwait, align 4
   %140 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %139, ptr noundef %26, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #15
   %.not1.i = icmp sgt i8 %136, -1
-  br i1 %.not1.i, label %dissect_dvbci_cis_payload_device.argprom.exit, label %.lr.ph.i75
+  br i1 %.not1.i, label %dissect_dvbci_cis_payload_device.exit, label %.lr.ph.i75
 
 .lr.ph.i75:                                       ; preds = %135, %.lr.ph.i75
   %.0162.i = phi i32 [ %144, %.lr.ph.i75 ], [ 1, %135 ]
@@ -6348,9 +6348,9 @@ dissect_dvbci_cis_payload_cftable_entry.argprom.exit: ; preds = %117, %125
   %143 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %142, ptr noundef %26, i32 noundef %.0162.i, i32 noundef 1, i32 noundef -2147483648) #15
   %144 = add i32 %.0162.i, 1
   %.not.i76 = icmp sgt i8 %141, -1
-  br i1 %.not.i76, label %dissect_dvbci_cis_payload_device.argprom.exit, label %.lr.ph.i75, !llvm.loop !25
+  br i1 %.not.i76, label %dissect_dvbci_cis_payload_device.exit, label %.lr.ph.i75, !llvm.loop !25
 
-dissect_dvbci_cis_payload_device.argprom.exit:    ; preds = %.lr.ph.i75, %135
+dissect_dvbci_cis_payload_device.exit:            ; preds = %.lr.ph.i75, %135
   %145 = add i32 %24, %25
   br label %159
 
@@ -6376,8 +6376,8 @@ dissect_dvbci_cis_payload_device.argprom.exit:    ; preds = %.lr.ph.i75, %135
   %158 = add i32 %24, %25
   br label %159
 
-159:                                              ; preds = %157, %146, %dissect_dvbci_cis_payload_device.argprom.exit, %dissect_dvbci_cis_payload_cftable_entry.argprom.exit, %dissect_dvbci_cis_payload_config.argprom.exit, %dissect_dvbci_cis_payload_tpll_v1.argprom.exit
-  %.2 = phi i32 [ %158, %157 ], [ %152, %146 ], [ %145, %dissect_dvbci_cis_payload_device.argprom.exit ], [ %134, %dissect_dvbci_cis_payload_cftable_entry.argprom.exit ], [ %116, %dissect_dvbci_cis_payload_config.argprom.exit ], [ %57, %dissect_dvbci_cis_payload_tpll_v1.argprom.exit ]
+159:                                              ; preds = %157, %146, %dissect_dvbci_cis_payload_device.exit, %dissect_dvbci_cis_payload_cftable_entry.exit, %dissect_dvbci_cis_payload_config.exit, %dissect_dvbci_cis_payload_tpll_v1.exit
+  %.2 = phi i32 [ %158, %157 ], [ %152, %146 ], [ %145, %dissect_dvbci_cis_payload_device.exit ], [ %134, %dissect_dvbci_cis_payload_cftable_entry.exit ], [ %116, %dissect_dvbci_cis_payload_config.exit ], [ %57, %dissect_dvbci_cis_payload_tpll_v1.exit ]
   %160 = load ptr, ptr %5, align 8
   %161 = add nuw nsw i32 %25, 2
   call void @proto_item_set_len(ptr noundef %160, i32 noundef %161) #15

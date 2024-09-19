@@ -2603,15 +2603,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit192.i:            ; preds = %372, %370
   br label %_ZL19addConstantCommentsPKN4llvm12MachineInstrERNS_10MCStreamerE.exit
 
 381:                                              ; preds = %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93
-  tail call fastcc void @_ZL18printZeroUpperMovePKN4llvm12MachineInstrERNS_10MCStreamerEiiPKc.argelim(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(288) %94, i32 noundef 64, ptr noundef nonnull @.str.28)
+  tail call fastcc void @_ZL18printZeroUpperMovePKN4llvm12MachineInstrERNS_10MCStreamerEiiPKc(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(288) %94, i32 noundef 64, ptr noundef nonnull @.str.28)
   br label %_ZL19addConstantCommentsPKN4llvm12MachineInstrERNS_10MCStreamerE.exit
 
 382:                                              ; preds = %93, %93, %93, %93
-  tail call fastcc void @_ZL18printZeroUpperMovePKN4llvm12MachineInstrERNS_10MCStreamerEiiPKc.argelim(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(288) %94, i32 noundef 16, ptr noundef nonnull @.str.29)
+  tail call fastcc void @_ZL18printZeroUpperMovePKN4llvm12MachineInstrERNS_10MCStreamerEiiPKc(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(288) %94, i32 noundef 16, ptr noundef nonnull @.str.29)
   br label %_ZL19addConstantCommentsPKN4llvm12MachineInstrERNS_10MCStreamerE.exit
 
 383:                                              ; preds = %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93
-  tail call fastcc void @_ZL18printZeroUpperMovePKN4llvm12MachineInstrERNS_10MCStreamerEiiPKc.argelim(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(288) %94, i32 noundef 32, ptr noundef nonnull @.str.30)
+  tail call fastcc void @_ZL18printZeroUpperMovePKN4llvm12MachineInstrERNS_10MCStreamerEiiPKc(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(288) %94, i32 noundef 32, ptr noundef nonnull @.str.30)
   br label %_ZL19addConstantCommentsPKN4llvm12MachineInstrERNS_10MCStreamerE.exit
 
 384:                                              ; preds = %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93, %93
@@ -3169,7 +3169,7 @@ _ZL19addConstantCommentsPKN4llvm12MachineInstrERNS_10MCStreamerE.exit: ; preds =
   br label %_ZN4llvm6MCInstD2Ev.exit
 
 631:                                              ; preds = %457
-  call fastcc void @_ZN4llvm13X86AsmPrinter16LowerFENTRY_CALLERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE.argprom(ptr noundef nonnull align 8 dereferenceable(896) %0)
+  call fastcc void @_ZN4llvm13X86AsmPrinter16LowerFENTRY_CALLERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE(ptr noundef nonnull align 8 dereferenceable(896) %0)
   br label %_ZN4llvm6MCInstD2Ev.exit
 
 632:                                              ; preds = %457
@@ -3185,7 +3185,7 @@ _ZL19addConstantCommentsPKN4llvm12MachineInstrERNS_10MCStreamerE.exit: ; preds =
   br label %_ZN4llvm6MCInstD2Ev.exit
 
 635:                                              ; preds = %457
-  call fastcc void @_ZN4llvm13X86AsmPrinter29LowerPATCHABLE_FUNCTION_ENTERERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE.argprom(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef nonnull align 8 dereferenceable(70) %1)
+  call fastcc void @_ZN4llvm13X86AsmPrinter29LowerPATCHABLE_FUNCTION_ENTERERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef nonnull align 8 dereferenceable(70) %1)
   br label %_ZN4llvm6MCInstD2Ev.exit
 
 636:                                              ; preds = %457
@@ -5497,12 +5497,12 @@ _ZN4llvm21MachineModuleInfoCOFF14getGVStubEntryEPNS_8MCSymbolE.exit: ; preds = %
   %131 = getelementptr inbounds nuw i8, ptr %.val.val, i64 2456
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, null
-  br i1 %133, label %134, label %._ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit_crit_edge
+  br i1 %133, label %134, label %._ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.exit_crit_edge
 
-._ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit_crit_edge: ; preds = %128
+._ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.exit_crit_edge: ; preds = %128
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %132, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit
+  br label %_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.exit
 
 134:                                              ; preds = %128
   %135 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #23
@@ -5514,11 +5514,11 @@ _ZN4llvm21MachineModuleInfoCOFF14getGVStubEntryEPNS_8MCSymbolE.exit: ; preds = %
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %138, i8 0, i64 20, i1 false)
   store ptr %135, ptr %131, align 8
-  br label %_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit
+  br label %_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.exit
 
-_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit: ; preds = %._ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit_crit_edge, %134
-  %139 = phi ptr [ null, %134 ], [ %.pre, %._ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit_crit_edge ]
-  %140 = phi ptr [ %135, %134 ], [ %132, %._ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit_crit_edge ]
+_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.exit: ; preds = %._ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.exit_crit_edge, %134
+  %139 = phi ptr [ null, %134 ], [ %.pre, %._ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.exit_crit_edge ]
+  %140 = phi ptr [ %135, %134 ], [ %132, %._ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.exit_crit_edge ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %.1, ptr %3, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
@@ -5527,7 +5527,7 @@ _ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit: ; preds 
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_14PointerIntPairIS3_Lj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES6_EEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i.i.i43, label %145
 
-145:                                              ; preds = %_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit
+145:                                              ; preds = %_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.exit
   %146 = ptrtoint ptr %.1 to i64
   %147 = trunc i64 %146 to i32
   %148 = lshr i32 %147, 4
@@ -5569,8 +5569,8 @@ _ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit: ; preds 
   %169 = icmp eq ptr %.1, %168
   br i1 %169, label %_ZN4llvm22MachineModuleInfoMachO14getGVStubEntryEPNS_8MCSymbolE.exit, label %.lr.ph.i.i.i.i.i34, !llvm.loop !45
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_14PointerIntPairIS3_Lj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES6_EEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i.i.i43: ; preds = %159, %_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit
-  %.sink.i.i.i.i.i44 = phi ptr [ %160, %159 ], [ null, %_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.argprom.argprom.exit ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_14PointerIntPairIS3_Lj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES6_EEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i.i.i43: ; preds = %159, %_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.exit
+  %.sink.i.i.i.i.i44 = phi ptr [ %160, %159 ], [ null, %_ZNK12_GLOBAL__N_114X86MCInstLower11getMachOMMIEv.exit ]
   %170 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_14PointerIntPairIS3_Lj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES6_EEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E20InsertIntoBucketImplIS3_EEPSE_RKS3_RKT_SI_(ptr noundef nonnull align 1 dereferenceable(1) %141, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.sink.i.i.i.i.i44)
   %171 = load ptr, ptr %3, align 8
   store ptr %171, ptr %170, align 8
@@ -6052,7 +6052,7 @@ _ZN18NoAutoPaddingScopeD2Ev.exit:                 ; preds = %_ZN4llvm6MCInstD2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm13X86AsmPrinter16LowerFENTRY_CALLERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE.argprom(ptr noundef nonnull align 8 dereferenceable(896) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm13X86AsmPrinter16LowerFENTRY_CALLERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE(ptr noundef nonnull align 8 dereferenceable(896) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca %"class.llvm::MCInstBuilder", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
@@ -6720,7 +6720,7 @@ _ZN18NoAutoPaddingScopeD2Ev.exit:                 ; preds = %_ZL11emitX86NopsRN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm13X86AsmPrinter29LowerPATCHABLE_FUNCTION_ENTERERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE.argprom(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm13X86AsmPrinter29LowerPATCHABLE_FUNCTION_ENTERERKNS_12MachineInstrERN12_GLOBAL__N_114X86MCInstLowerE(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca i64, align 8
@@ -8883,7 +8883,7 @@ _ZN4llvm9StringRefC2EPKc.exit18:                  ; preds = %28, %.thread27
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %49, %51
-  call fastcc void @_ZL16printShuffleMaskRN4llvm11raw_ostreamENS_9StringRefES2_NS_8ArrayRefIiEE.argprom(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr %23, i64 %24, ptr %34, i64 %35, ptr %4, i64 %5)
+  call fastcc void @_ZL16printShuffleMaskRN4llvm11raw_ostreamENS_9StringRefES2_NS_8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr %23, i64 %24, ptr %34, i64 %35, ptr %4, i64 %5)
   %54 = load ptr, ptr %43, align 8
   %55 = load ptr, ptr %39, align 8
   %.not.i19 = icmp eq ptr %54, %55
@@ -9330,7 +9330,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18printZeroUpperMovePKN4llvm12MachineInstrERNS_10MCStreamerEiiPKc.argelim(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i32 noundef range(i32 16, 65) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL18printZeroUpperMovePKN4llvm12MachineInstrERNS_10MCStreamerEiiPKc(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i32 noundef range(i32 16, 65) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -9702,7 +9702,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %29, %31
   call void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplIiEE(i32 noundef %2, i32 noundef %3, i32 noundef %45, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   %46 = load ptr, ptr %7, align 8
   %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
-  call fastcc void @_ZL16printShuffleMaskRN4llvm11raw_ostreamENS_9StringRefES2_NS_8ArrayRefIiEE.argprom(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull @.str.31, i64 3, ptr nonnull @.str.42, i64 0, ptr %46, i64 %47)
+  call fastcc void @_ZL16printShuffleMaskRN4llvm11raw_ostreamENS_9StringRefES2_NS_8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull @.str.31, i64 3, ptr nonnull @.str.42, i64 0, ptr %46, i64 %47)
   %48 = load ptr, ptr %15, align 8
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 4, ptr %49, align 8
@@ -9900,7 +9900,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %90, %88, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16printShuffleMaskRN4llvm11raw_ostreamENS_9StringRefES2_NS_8ArrayRefIiEE.argprom(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL16printShuffleMaskRN4llvm11raw_ostreamENS_9StringRefES2_NS_8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.619", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef 8) #19

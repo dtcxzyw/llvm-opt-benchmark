@@ -1579,7 +1579,7 @@ land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
 
 if.then.i:                                        ; preds = %land.lhs.true4.i
   %tobool6.not.i = icmp eq ptr %spec.store.select, null
-  br i1 %tobool6.not.i, label %do_oneway_diff.argprom.exit, label %if.then38.i
+  br i1 %tobool6.not.i, label %do_oneway_diff.exit, label %if.then38.i
 
 lor.rhs.i:                                        ; preds = %if.then3
   br i1 %tobool.not, label %if.end33.thread.i, label %land.rhs.i
@@ -1620,7 +1620,7 @@ if.then28.i:                                      ; preds = %land.lhs.true24.i
   %name.i14 = getelementptr inbounds i8, ptr %0, i64 108
   %call.i15 = tail call ptr @diff_unmerge(ptr noundef nonnull %diffopt29.i, ptr noundef nonnull %name.i14) #14
   %tobool30.not.i = icmp eq ptr %spec.store.select, null
-  br i1 %tobool30.not.i, label %do_oneway_diff.argprom.exit, label %if.then31.i
+  br i1 %tobool30.not.i, label %do_oneway_diff.exit, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.then28.i
   %16 = load ptr, ptr %call.i15, align 8
@@ -1629,7 +1629,7 @@ if.then31.i:                                      ; preds = %if.then28.i
   %17 = load i32, ptr %ce_mode.i16, align 4
   %conv.i = trunc i32 %17 to i16
   tail call void @fill_filespec(ptr noundef %16, ptr noundef nonnull %oid.i, i32 noundef 1, i16 noundef zeroext %conv.i) #14
-  br label %do_oneway_diff.argprom.exit
+  br label %do_oneway_diff.exit
 
 if.end33.i:                                       ; preds = %land.lhs.true24.i, %lor.end19.i
   %tobool34.not.i = icmp eq ptr %spec.store.select, null
@@ -1664,7 +1664,7 @@ entry.split.i.i:                                  ; preds = %if.then35.i, %if.th
   %diffopt.i66.i = phi ptr [ %diffopt.i59.i, %if.then35.thread.i ], [ %diffopt.i.i, %if.then35.i ]
   %bf.cast142364.i = phi i32 [ %bf.cast8.i, %if.then35.thread.i ], [ %bf.cast.i, %if.then35.i ]
   %lor.ext122663.i = phi i32 [ 0, %if.then35.thread.i ], [ %lor.ext.i12, %if.then35.i ]
-  %call9.i.i = call fastcc i32 @get_stat_data.argprom(ptr noundef null, ptr noundef %oid.i.i, ptr noundef %mode.i.i, i32 noundef %lor.ext122663.i, i32 noundef %bf.cast142364.i, ptr noundef %dirty_submodule.i.i, ptr noundef nonnull %diffopt.i66.i)
+  %call9.i.i = call fastcc i32 @get_stat_data(ptr noundef null, ptr noundef %oid.i.i, ptr noundef %mode.i.i, i32 noundef %lor.ext122663.i, i32 noundef %bf.cast142364.i, ptr noundef %dirty_submodule.i.i, ptr noundef nonnull %diffopt.i66.i)
   br label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then35.i
@@ -1674,7 +1674,7 @@ land.lhs.true.i.i:                                ; preds = %if.then35.i
   br i1 %cmp.i.i, label %if.then.i.i, label %land.lhs.true.split.i.i
 
 land.lhs.true.split.i.i:                          ; preds = %land.lhs.true.i.i
-  %call10.i.i = call fastcc i32 @get_stat_data.argprom(ptr noundef nonnull %0, ptr noundef %oid.i.i, ptr noundef %mode.i.i, i32 noundef %lor.ext.i12, i32 noundef %bf.cast.i, ptr noundef %dirty_submodule.i.i, ptr noundef nonnull %diffopt.i.i)
+  %call10.i.i = call fastcc i32 @get_stat_data(ptr noundef nonnull %0, ptr noundef %oid.i.i, ptr noundef %mode.i.i, i32 noundef %lor.ext.i12, i32 noundef %bf.cast.i, ptr noundef %dirty_submodule.i.i, ptr noundef nonnull %diffopt.i.i)
   br label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -1737,7 +1737,7 @@ show_new_file.exit.i:                             ; preds = %is_null_oid.exit.i.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oid.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mode.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dirty_submodule.i.i)
-  br label %do_oneway_diff.argprom.exit
+  br label %do_oneway_diff.exit
 
 if.end36.i:                                       ; preds = %if.end33.i
   br i1 %tobool23.i, label %if.end49.i, label %if.then38.i
@@ -1753,13 +1753,13 @@ if.then41.i:                                      ; preds = %if.then38.i
   %name43.i = getelementptr inbounds i8, ptr %spec.store.select, i64 108
   %diffopt45.i = getelementptr inbounds i8, ptr %o.val11, i64 1472
   tail call void @diff_tree_oid(ptr noundef nonnull %oid42.i, ptr noundef null, ptr noundef nonnull %name43.i, ptr noundef nonnull %diffopt45.i) #14
-  br label %do_oneway_diff.argprom.exit
+  br label %do_oneway_diff.exit
 
 if.end46.i:                                       ; preds = %if.then38.i
   %diffopt.i34.i = getelementptr inbounds i8, ptr %o.val11, i64 1472
   %name.i35.i = getelementptr inbounds i8, ptr %spec.store.select, i64 108
   tail call void @diff_addremove(ptr noundef nonnull %diffopt.i34.i, i32 noundef 45, i32 noundef %27, ptr noundef nonnull %oid42.i, i32 noundef 1, ptr noundef nonnull %name.i35.i, i32 noundef 0) #14
-  br label %do_oneway_diff.argprom.exit
+  br label %do_oneway_diff.exit
 
 if.end49.i:                                       ; preds = %if.end36.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %mode.i36.i)
@@ -1780,7 +1780,7 @@ if.then.i65.i:                                    ; preds = %if.end49.i
   br label %show_modified.exit.i
 
 if.end.i42.i:                                     ; preds = %if.end49.i
-  %call.i.i = call fastcc i32 @get_stat_data.argprom(ptr noundef nonnull %0, ptr noundef %oid.i37.i, ptr noundef %mode.i36.i, i32 noundef %lor.ext.i12, i32 noundef %bf.cast.i, ptr noundef %dirty_submodule.i38.i, ptr noundef nonnull %diffopt.i39.i)
+  %call.i.i = call fastcc i32 @get_stat_data(ptr noundef nonnull %0, ptr noundef %oid.i37.i, ptr noundef %mode.i36.i, i32 noundef %lor.ext.i12, i32 noundef %bf.cast.i, ptr noundef %dirty_submodule.i38.i, ptr noundef nonnull %diffopt.i39.i)
   %cmp5.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.end11.i.i
 
@@ -2059,20 +2059,20 @@ show_modified.exit.i:                             ; preds = %is_null_oid.exit.i5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mode.i36.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %oid.i37.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dirty_submodule.i38.i)
-  br label %do_oneway_diff.argprom.exit
+  br label %do_oneway_diff.exit
 
-do_oneway_diff.argprom.exit:                      ; preds = %if.then.i, %if.then28.i, %if.then31.i, %show_new_file.exit.i, %if.then41.i, %if.end46.i, %show_modified.exit.i
+do_oneway_diff.exit:                              ; preds = %if.then.i, %if.then28.i, %if.then31.i, %show_new_file.exit.i, %if.then41.i, %if.end46.i, %show_modified.exit.i
   %call5 = tail call i32 @diff_can_quit_early(ptr noundef nonnull %diffopt) #14
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %if.then7
 
-if.then7:                                         ; preds = %do_oneway_diff.argprom.exit
+if.then7:                                         ; preds = %do_oneway_diff.exit
   %exiting_early = getelementptr inbounds i8, ptr %o, i64 52
   store i32 1, ptr %exiting_early, align 4
   br label %return
 
-return:                                           ; preds = %entry, %do_oneway_diff.argprom.exit, %if.then7
-  %retval.0 = phi i32 [ -1, %if.then7 ], [ 0, %do_oneway_diff.argprom.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %do_oneway_diff.exit, %if.then7
+  %retval.0 = phi i32 [ -1, %if.then7 ], [ 0, %do_oneway_diff.exit ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -2083,7 +2083,7 @@ declare i32 @unpack_trees(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare void @fill_filespec(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_stat_data.argprom(ptr noundef %ce, ptr nocapture noundef nonnull writeonly %oidp, ptr nocapture noundef nonnull writeonly %modep, i32 noundef range(i32 0, 2) %cached, i32 noundef range(i32 0, 2) %match_missing, ptr nocapture noundef nonnull writeonly %dirty_submodule, ptr noundef %diffopt) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_stat_data(ptr noundef %ce, ptr nocapture noundef nonnull writeonly %oidp, ptr nocapture noundef nonnull writeonly %modep, i32 noundef range(i32 0, 2) %cached, i32 noundef range(i32 0, 2) %match_missing, ptr nocapture noundef nonnull writeonly %dirty_submodule, ptr noundef %diffopt) unnamed_addr #0 {
 entry:
   %orig_flags.i = alloca %struct.diff_flags, align 4
   %st = alloca %struct.stat, align 8

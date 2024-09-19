@@ -2650,7 +2650,7 @@ entry:
   %2 = load i32, ptr %m_num_arith_eqs.i, align 4
   %cmp3.not.i = icmp eq i32 %2, 0
   %or.cond4.i = select i1 %or.cond.i, i1 %cmp3.not.i, i1 false
-  br i1 %or.cond4.i, label %_ZN3smtL19check_no_arithmeticERK15static_featuresPKc.argprom.exit, label %if.then.i
+  br i1 %or.cond4.i, label %_ZN3smtL19check_no_arithmeticERK15static_featuresPKc.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 40) #17
@@ -2686,7 +2686,7 @@ eh.resume.i:                                      ; preds = %cleanup.action.i, %
 unreachable.i:                                    ; preds = %invoke.cont.i
   unreachable
 
-_ZN3smtL19check_no_arithmeticERK15static_featuresPKc.argprom.exit: ; preds = %entry
+_ZN3smtL19check_no_arithmeticERK15static_featuresPKc.exit: ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4.i)
   %m_params.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2788,7 +2788,7 @@ cleanup.action19:                                 ; preds = %if.then6
 if.end21:                                         ; preds = %if.end
   %11 = getelementptr inbounds i8, ptr %st, i64 508
   %st.val = load i32, ptr %11, align 4
-  tail call fastcc void @_ZN3smtL32check_no_uninterpreted_functionsERK15static_featuresPKc.argprom(i32 %st.val)
+  tail call fastcc void @_ZN3smtL32check_no_uninterpreted_functionsERK15static_featuresPKc(i32 %st.val)
   %m_params = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load ptr, ptr %m_params, align 8
   %m_relevancy_lvl = getelementptr inbounds i8, ptr %12, i64 512
@@ -3009,7 +3009,7 @@ cleanup.action19:                                 ; preds = %if.then6
 if.end21:                                         ; preds = %if.end
   %11 = getelementptr inbounds i8, ptr %st, i64 508
   %st.val = load i32, ptr %11, align 4
-  tail call fastcc void @_ZN3smtL32check_no_uninterpreted_functionsERK15static_featuresPKc.argprom(i32 %st.val)
+  tail call fastcc void @_ZN3smtL32check_no_uninterpreted_functionsERK15static_featuresPKc(i32 %st.val)
   %m_params = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load ptr, ptr %m_params, align 8
   %m_relevancy_lvl = getelementptr inbounds i8, ptr %12, i64 512
@@ -3322,7 +3322,7 @@ define hidden void @_ZN3smt5setup12setup_QF_LRAERK15static_features(ptr nocaptur
 entry:
   %0 = getelementptr inbounds i8, ptr %st, i64 508
   %st.val = load i32, ptr %0, align 4
-  tail call fastcc void @_ZN3smtL32check_no_uninterpreted_functionsERK15static_featuresPKc.argprom(i32 %st.val)
+  tail call fastcc void @_ZN3smtL32check_no_uninterpreted_functionsERK15static_featuresPKc(i32 %st.val)
   %m_params = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_params, align 8
   tail call void @_ZN10smt_params12setup_QF_LRAERK15static_features(ptr noundef nonnull align 8 dereferenceable(800) %1, ptr noundef nonnull align 8 dereferenceable(792) %st)
@@ -3356,7 +3356,7 @@ define hidden void @_ZN3smt5setup12setup_QF_LIAERK15static_features(ptr nocaptur
 entry:
   %0 = getelementptr inbounds i8, ptr %st, i64 508
   %st.val = load i32, ptr %0, align 4
-  tail call fastcc void @_ZN3smtL32check_no_uninterpreted_functionsERK15static_featuresPKc.argprom(i32 %st.val)
+  tail call fastcc void @_ZN3smtL32check_no_uninterpreted_functionsERK15static_featuresPKc(i32 %st.val)
   %m_params = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_params, align 8
   tail call void @_ZN10smt_params12setup_QF_LIAERK15static_features(ptr noundef nonnull align 8 dereferenceable(800) %1, ptr noundef nonnull align 8 dereferenceable(792) %st)
@@ -4511,7 +4511,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3smtL32check_no_uninterpreted_functionsERK15static_featuresPKc.argprom(i32 %st.508.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3smtL32check_no_uninterpreted_functionsERK15static_featuresPKc(i32 %st.508.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator.310", align 1

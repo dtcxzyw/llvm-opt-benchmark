@@ -431,15 +431,15 @@ find_func.exit.i:                                 ; preds = %150
   store ptr null, ptr %160, align 8
   %161 = load ptr, ptr %158, align 8
   %162 = icmp eq ptr %161, null
-  br i1 %162, label %make_uop.argprom.exit, label %163
+  br i1 %162, label %make_uop.exit, label %163
 
 163:                                              ; preds = %find_func.exit.i
   %164 = getelementptr inbounds i8, ptr %158, i64 8
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 8
-  br label %make_uop.argprom.exit
+  br label %make_uop.exit
 
-make_uop.argprom.exit:                            ; preds = %find_func.exit.i, %163
+make_uop.exit:                                    ; preds = %find_func.exit.i, %163
   %.sink.i.i = phi ptr [ %166, %163 ], [ %158, %find_func.exit.i ]
   %167 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store ptr %159, ptr %.sink.i.i, align 8
@@ -645,15 +645,15 @@ find_func.exit.i308:                              ; preds = %294
   store ptr null, ptr %304, align 8
   %305 = load ptr, ptr %302, align 8
   %306 = icmp eq ptr %305, null
-  br i1 %306, label %make_uop.argprom.exit310, label %307
+  br i1 %306, label %make_uop.exit310, label %307
 
 307:                                              ; preds = %find_func.exit.i308
   %308 = getelementptr inbounds i8, ptr %302, i64 8
   %309 = load ptr, ptr %308, align 8
   %310 = getelementptr inbounds i8, ptr %309, i64 8
-  br label %make_uop.argprom.exit310
+  br label %make_uop.exit310
 
-make_uop.argprom.exit310:                         ; preds = %find_func.exit.i308, %307
+make_uop.exit310:                                 ; preds = %find_func.exit.i308, %307
   %.sink.i.i309 = phi ptr [ %310, %307 ], [ %302, %find_func.exit.i308 ]
   %311 = trunc nuw nsw i64 %indvars.iv.i.i305 to i32
   store ptr %303, ptr %.sink.i.i309, align 8
@@ -715,15 +715,15 @@ find_func.exit.i314:                              ; preds = %330
   store ptr null, ptr %340, align 8
   %341 = load ptr, ptr %338, align 8
   %342 = icmp eq ptr %341, null
-  br i1 %342, label %make_uop.argprom.exit316, label %343
+  br i1 %342, label %make_uop.exit316, label %343
 
 343:                                              ; preds = %find_func.exit.i314
   %344 = getelementptr inbounds i8, ptr %338, i64 8
   %345 = load ptr, ptr %344, align 8
   %346 = getelementptr inbounds i8, ptr %345, i64 8
-  br label %make_uop.argprom.exit316
+  br label %make_uop.exit316
 
-make_uop.argprom.exit316:                         ; preds = %find_func.exit.i314, %343
+make_uop.exit316:                                 ; preds = %find_func.exit.i314, %343
   %.sink.i.i315 = phi ptr [ %346, %343 ], [ %338, %find_func.exit.i314 ]
   %347 = trunc nuw nsw i64 %indvars.iv.i.i311 to i32
   store ptr %339, ptr %.sink.i.i315, align 8
@@ -789,15 +789,15 @@ find_func.exit.i320:                              ; preds = %370
   store ptr null, ptr %380, align 8
   %381 = load ptr, ptr %378, align 8
   %382 = icmp eq ptr %381, null
-  br i1 %382, label %make_uop.argprom.exit322, label %383
+  br i1 %382, label %make_uop.exit322, label %383
 
 383:                                              ; preds = %find_func.exit.i320
   %384 = getelementptr inbounds i8, ptr %378, i64 8
   %385 = load ptr, ptr %384, align 8
   %386 = getelementptr inbounds i8, ptr %385, i64 8
-  br label %make_uop.argprom.exit322
+  br label %make_uop.exit322
 
-make_uop.argprom.exit322:                         ; preds = %find_func.exit.i320, %383
+make_uop.exit322:                                 ; preds = %find_func.exit.i320, %383
   %.sink.i.i321 = phi ptr [ %386, %383 ], [ %378, %find_func.exit.i320 ]
   %387 = trunc nuw nsw i64 %indvars.iv.i.i317 to i32
   store ptr %379, ptr %.sink.i.i321, align 8
@@ -1128,8 +1128,8 @@ find_func.exit:                                   ; preds = %543
   call void @pg_free(ptr noundef %552) #9
   br label %553
 
-553:                                              ; preds = %81, %find_func.exit, %make_case.exit346, %make_case.exit, %make_elist.exit334, %make_elist.exit328, %428, %420, %415, %409, %403, %396, %391, %make_uop.argprom.exit322, %351, %make_uop.argprom.exit316, %315, %make_uop.argprom.exit310, %279, %273, %267, %261, %255, %249, %243, %237, %231, %225, %219, %213, %207, %201, %195, %189, %183, %177, %171, %make_uop.argprom.exit, %141, %136, %129, %126, %122, %make_elist.exit304, %make_elist.exit, %90, %88
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %81 ], [ %551, %find_func.exit ], [ %540, %make_case.exit346 ], [ %511, %make_case.exit ], [ %481, %make_elist.exit334 ], [ %458, %make_elist.exit328 ], [ %430, %428 ], [ %427, %420 ], [ %419, %415 ], [ %414, %409 ], [ %408, %403 ], [ %402, %396 ], [ %395, %391 ], [ %390, %make_uop.argprom.exit322 ], [ %360, %351 ], [ %350, %make_uop.argprom.exit316 ], [ %322, %315 ], [ %314, %make_uop.argprom.exit310 ], [ %286, %279 ], [ %278, %273 ], [ %272, %267 ], [ %266, %261 ], [ %260, %255 ], [ %254, %249 ], [ %248, %243 ], [ %242, %237 ], [ %236, %231 ], [ %230, %225 ], [ %224, %219 ], [ %218, %213 ], [ %212, %207 ], [ %206, %201 ], [ %200, %195 ], [ %194, %189 ], [ %188, %183 ], [ %182, %177 ], [ %176, %171 ], [ %170, %make_uop.argprom.exit ], [ %147, %141 ], [ %140, %136 ], [ %135, %129 ], [ %128, %126 ], [ %125, %122 ], [ %121, %make_elist.exit304 ], [ %103, %make_elist.exit ], [ 0, %90 ], [ %.sroa.0.0.copyload, %88 ]
+553:                                              ; preds = %81, %find_func.exit, %make_case.exit346, %make_case.exit, %make_elist.exit334, %make_elist.exit328, %428, %420, %415, %409, %403, %396, %391, %make_uop.exit322, %351, %make_uop.exit316, %315, %make_uop.exit310, %279, %273, %267, %261, %255, %249, %243, %237, %231, %225, %219, %213, %207, %201, %195, %189, %183, %177, %171, %make_uop.exit, %141, %136, %129, %126, %122, %make_elist.exit304, %make_elist.exit, %90, %88
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %81 ], [ %551, %find_func.exit ], [ %540, %make_case.exit346 ], [ %511, %make_case.exit ], [ %481, %make_elist.exit334 ], [ %458, %make_elist.exit328 ], [ %430, %428 ], [ %427, %420 ], [ %419, %415 ], [ %414, %409 ], [ %408, %403 ], [ %402, %396 ], [ %395, %391 ], [ %390, %make_uop.exit322 ], [ %360, %351 ], [ %350, %make_uop.exit316 ], [ %322, %315 ], [ %314, %make_uop.exit310 ], [ %286, %279 ], [ %278, %273 ], [ %272, %267 ], [ %266, %261 ], [ %260, %255 ], [ %254, %249 ], [ %248, %243 ], [ %242, %237 ], [ %236, %231 ], [ %230, %225 ], [ %224, %219 ], [ %218, %213 ], [ %212, %207 ], [ %206, %201 ], [ %200, %195 ], [ %194, %189 ], [ %188, %183 ], [ %182, %177 ], [ %176, %171 ], [ %170, %make_uop.exit ], [ %147, %141 ], [ %140, %136 ], [ %135, %129 ], [ %128, %126 ], [ %125, %122 ], [ %121, %make_elist.exit304 ], [ %103, %make_elist.exit ], [ 0, %90 ], [ %.sroa.0.0.copyload, %88 ]
   %554 = sub nsw i64 0, %85
   %555 = getelementptr %union.YYSTYPE, ptr %.2268, i64 %554
   %556 = getelementptr i8, ptr %.2277, i64 %554

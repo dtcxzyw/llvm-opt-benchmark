@@ -179,19 +179,19 @@ sw.bb24.i:                                        ; preds = %if.then, %if.then
   %peer_rpk.i.i = getelementptr inbounds i8, ptr %s.val.i, i64 696
   %9 = load ptr, ptr %peer_rpk.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %9, null
-  br i1 %cmp.not.i.i, label %received_client_cert.argprom.exit.i, label %if.else31.i
+  br i1 %cmp.not.i.i, label %received_client_cert.exit.i, label %if.else31.i
 
-received_client_cert.argprom.exit.i:              ; preds = %sw.bb24.i
+received_client_cert.exit.i:                      ; preds = %sw.bb24.i
   %peer.i.i = getelementptr inbounds i8, ptr %s.val.i, i64 704
   %10 = load ptr, ptr %peer.i.i, align 8
   %cmp2.i.not.i = icmp eq ptr %10, null
   br i1 %cmp2.i.not.i, label %if.then26.i, label %if.else31.i
 
-if.then26.i:                                      ; preds = %received_client_cert.argprom.exit.i
+if.then26.i:                                      ; preds = %received_client_cert.exit.i
   %cmp27.i = icmp eq i32 %mt, 20
   br i1 %cmp27.i, label %ossl_statem_server13_read_transition.exit, label %if.end107
 
-if.else31.i:                                      ; preds = %received_client_cert.argprom.exit.i, %sw.bb24.i
+if.else31.i:                                      ; preds = %received_client_cert.exit.i, %sw.bb24.i
   %cmp32.i = icmp eq i32 %mt, 15
   br i1 %cmp32.i, label %ossl_statem_server13_read_transition.exit, label %if.end107
 
@@ -314,21 +314,21 @@ sw.bb52:                                          ; preds = %if.end10
   %peer_rpk.i = getelementptr inbounds i8, ptr %s.val, i64 696
   %20 = load ptr, ptr %peer_rpk.i, align 8
   %cmp.not.i = icmp eq ptr %20, null
-  br i1 %cmp.not.i, label %received_client_cert.argprom.exit, label %lor.lhs.false
+  br i1 %cmp.not.i, label %received_client_cert.exit, label %lor.lhs.false
 
-received_client_cert.argprom.exit:                ; preds = %sw.bb52
+received_client_cert.exit:                        ; preds = %sw.bb52
   %peer.i = getelementptr inbounds i8, ptr %s.val, i64 704
   %21 = load ptr, ptr %peer.i, align 8
   %cmp2.i.not = icmp eq ptr %21, null
   br i1 %cmp2.i.not, label %if.then56, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %sw.bb52, %received_client_cert.argprom.exit
+lor.lhs.false:                                    ; preds = %sw.bb52, %received_client_cert.exit
   %no_cert_verify = getelementptr inbounds i8, ptr %s, i64 188
   %22 = load i32, ptr %no_cert_verify, align 4
   %tobool55.not = icmp eq i32 %22, 0
   br i1 %tobool55.not, label %if.else61, label %if.then56
 
-if.then56:                                        ; preds = %lor.lhs.false, %received_client_cert.argprom.exit
+if.then56:                                        ; preds = %lor.lhs.false, %received_client_cert.exit
   %cmp57 = icmp eq i32 %mt, 257
   br i1 %cmp57, label %if.then58, label %if.end107
 
@@ -4777,20 +4777,20 @@ land.lhs.true45:                                  ; preds = %lor.lhs.false
   %pha_context_len = getelementptr inbounds i8, ptr %s, i64 2840
   %11 = load i64, ptr %pha_context_len, align 8
   %cmp.not.i = icmp eq i64 %11, %conv.i
-  br i1 %cmp.not.i, label %PACKET_equal.argprom.exit, label %if.then49
+  br i1 %cmp.not.i, label %PACKET_equal.exit, label %if.then49
 
-PACKET_equal.argprom.exit:                        ; preds = %land.lhs.true45
+PACKET_equal.exit:                                ; preds = %land.lhs.true45
   %call1.i = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull %10, i64 noundef %conv.i) #12
   %cmp2.i.not = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i.not, label %if.end50, label %if.then49
 
-if.then49:                                        ; preds = %land.lhs.true45, %lor.lhs.false.i, %land.lhs.true32, %PACKET_equal.argprom.exit, %land.lhs.true37
+if.then49:                                        ; preds = %land.lhs.true45, %lor.lhs.false.i, %land.lhs.true32, %PACKET_equal.exit, %land.lhs.true37
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 3655, ptr noundef nonnull @__func__.tls_process_client_certificate) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 50, i32 noundef 282, ptr noundef null) #12
   br label %err
 
-if.end50:                                         ; preds = %land.lhs.true37, %PACKET_equal.argprom.exit, %land.lhs.true, %if.end20
+if.end50:                                         ; preds = %land.lhs.true37, %PACKET_equal.exit, %land.lhs.true, %if.end20
   %tmp.sroa.9.0.pkt.sroa_idx.i = getelementptr inbounds i8, ptr %pkt, i64 8
   %tmp.sroa.9.0.copyload.i = load i64, ptr %tmp.sroa.9.0.pkt.sroa_idx.i, align 8
   %cmp.i.i.i91 = icmp ult i64 %tmp.sroa.9.0.copyload.i, 3
@@ -7199,21 +7199,21 @@ lor.lhs.false:                                    ; preds = %entry
   %peer_rpk.i = getelementptr inbounds i8, ptr %s.val, i64 696
   %2 = load ptr, ptr %peer_rpk.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i, label %received_client_cert.argprom.exit, label %if.else
+  br i1 %cmp.not.i, label %received_client_cert.exit, label %if.else
 
-received_client_cert.argprom.exit:                ; preds = %lor.lhs.false
+received_client_cert.exit:                        ; preds = %lor.lhs.false
   %peer.i = getelementptr inbounds i8, ptr %s.val, i64 704
   %3 = load ptr, ptr %peer.i, align 8
   %cmp2.i.not = icmp eq ptr %3, null
   br i1 %cmp2.i.not, label %if.then, label %if.else
 
-if.then:                                          ; preds = %received_client_cert.argprom.exit, %entry
+if.then:                                          ; preds = %received_client_cert.exit, %entry
   %call2 = tail call i32 @ssl3_digest_cached_records(ptr noundef nonnull %s, i32 noundef 0) #12
   %tobool3.not = icmp eq i32 %call2, 0
   %. = select i1 %tobool3.not, i32 0, i32 2
   br label %return
 
-if.else:                                          ; preds = %lor.lhs.false, %received_client_cert.argprom.exit
+if.else:                                          ; preds = %lor.lhs.false, %received_client_cert.exit
   %handshake_buffer = getelementptr inbounds i8, ptr %s, i64 352
   %4 = load ptr, ptr %handshake_buffer, align 8
   %tobool5.not = icmp eq ptr %4, null
@@ -8242,21 +8242,21 @@ cond.true:                                        ; preds = %if.end7
 cond.end:                                         ; preds = %if.end7, %cond.true
   %cond = phi i64 [ %6, %cond.true ], [ 18, %if.end7 ]
   %cmp.not.i = icmp eq i64 %sub.i.i7.i, %cond
-  br i1 %cmp.not.i, label %if.end.i11, label %PACKET_equal.argprom.exit
+  br i1 %cmp.not.i, label %if.end.i11, label %PACKET_equal.exit
 
 if.end.i11:                                       ; preds = %cond.end
   %call1.i = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %add.ptr.i.i6.i, ptr noundef nonnull @ssl_check_for_safari.kSafariExtensionsBlock, i64 noundef %sub.i.i7.i) #12
   %cmp2.i = icmp eq i32 %call1.i, 0
   %7 = zext i1 %cmp2.i to i8
-  br label %PACKET_equal.argprom.exit
+  br label %PACKET_equal.exit
 
-PACKET_equal.argprom.exit:                        ; preds = %cond.end, %if.end.i11
+PACKET_equal.exit:                                ; preds = %cond.end, %if.end.i11
   %retval.0.i10 = phi i8 [ %7, %if.end.i11 ], [ 0, %cond.end ]
   %is_probably_safari = getelementptr inbounds i8, ptr %s, i64 1124
   store i8 %retval.0.i10, ptr %is_probably_safari, align 4
   br label %return
 
-return:                                           ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false3, %PACKET_get_length_prefixed_2.exit, %PACKET_equal.argprom.exit
+return:                                           ; preds = %entry, %lor.lhs.false.i, %lor.lhs.false3, %PACKET_get_length_prefixed_2.exit, %PACKET_equal.exit
   ret void
 }
 

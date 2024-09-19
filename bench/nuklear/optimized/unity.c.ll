@@ -10716,19 +10716,19 @@ for.body362:                                      ; preds = %for.body362.lr.ph, 
   %55 = load <2 x float>, ptr %arrayidx366, align 4
   %config.val = load ptr, ptr %45, align 8
   %config.val496 = load i64, ptr %vertex_size.i, align 8
-  %call367 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %vtx.0690, ptr %config.val, i64 %config.val496, <2 x float> %55, <2 x float> %uv.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
+  %call367 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %vtx.0690, ptr %config.val, i64 %config.val496, <2 x float> %55, <2 x float> %uv.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
   %mul369 = shl nuw nsw i64 %i.0689, 1
   %arrayidx371 = getelementptr inbounds %struct.nk_vec2, ptr %add.ptr, i64 %mul369
   %56 = load <2 x float>, ptr %arrayidx371, align 4
   %config.val497 = load ptr, ptr %45, align 8
   %config.val498 = load i64, ptr %vertex_size.i, align 8
-  %call372 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call367, ptr %config.val497, i64 %config.val498, <2 x float> %56, <2 x float> %uv.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col_trans.sroa.5.12.vec.insert)
+  %call372 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call367, ptr %config.val497, i64 %config.val498, <2 x float> %56, <2 x float> %uv.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col_trans.sroa.5.12.vec.insert)
   %add375 = or disjoint i64 %mul369, 1
   %arrayidx376 = getelementptr inbounds %struct.nk_vec2, ptr %add.ptr, i64 %add375
   %57 = load <2 x float>, ptr %arrayidx376, align 4
   %config.val499 = load ptr, ptr %45, align 8
   %config.val500 = load i64, ptr %vertex_size.i, align 8
-  %call377 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call372, ptr %config.val499, i64 %config.val500, <2 x float> %57, <2 x float> %uv.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col_trans.sroa.5.12.vec.insert)
+  %call377 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call372, ptr %config.val499, i64 %config.val500, <2 x float> %57, <2 x float> %uv.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col_trans.sroa.5.12.vec.insert)
   %inc379 = add nuw nsw i64 %i.0689, 1
   %exitcond701.not = icmp eq i64 %inc379, %conv3
   br i1 %exitcond701.not, label %if.end786, label %for.body362, !llvm.loop !50
@@ -10981,25 +10981,25 @@ for.body758:                                      ; preds = %for.body758.lr.ph, 
   %94 = load <2 x float>, ptr %arrayidx766, align 4
   %config.val501 = load ptr, ptr %78, align 8
   %config.val502 = load i64, ptr %vertex_size.i, align 8
-  %call767 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %vtx.1697, ptr %config.val501, i64 %config.val502, <2 x float> %94, <2 x float> %uv759.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col_trans.sroa.5.12.vec.insert)
+  %call767 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %vtx.1697, ptr %config.val501, i64 %config.val502, <2 x float> %94, <2 x float> %uv759.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col_trans.sroa.5.12.vec.insert)
   %add770 = or disjoint i64 %mul764, 1
   %arrayidx771 = getelementptr inbounds %struct.nk_vec2, ptr %add.ptr, i64 %add770
   %95 = load <2 x float>, ptr %arrayidx771, align 4
   %config.val503 = load ptr, ptr %78, align 8
   %config.val504 = load i64, ptr %vertex_size.i, align 8
-  %call772 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call767, ptr %config.val503, i64 %config.val504, <2 x float> %95, <2 x float> %uv759.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
+  %call772 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call767, ptr %config.val503, i64 %config.val504, <2 x float> %95, <2 x float> %uv759.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
   %add775 = or disjoint i64 %mul764, 2
   %arrayidx776 = getelementptr inbounds %struct.nk_vec2, ptr %add.ptr, i64 %add775
   %96 = load <2 x float>, ptr %arrayidx776, align 4
   %config.val505 = load ptr, ptr %78, align 8
   %config.val506 = load i64, ptr %vertex_size.i, align 8
-  %call777 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call772, ptr %config.val505, i64 %config.val506, <2 x float> %96, <2 x float> %uv759.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
+  %call777 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call772, ptr %config.val505, i64 %config.val506, <2 x float> %96, <2 x float> %uv759.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
   %add780 = or disjoint i64 %mul764, 3
   %arrayidx781 = getelementptr inbounds %struct.nk_vec2, ptr %add.ptr, i64 %add780
   %97 = load <2 x float>, ptr %arrayidx781, align 4
   %config.val507 = load ptr, ptr %78, align 8
   %config.val508 = load i64, ptr %vertex_size.i, align 8
-  %call782 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call777, ptr %config.val507, i64 %config.val508, <2 x float> %97, <2 x float> %uv759.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col_trans.sroa.5.12.vec.insert)
+  %call782 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call777, ptr %config.val507, i64 %config.val508, <2 x float> %97, <2 x float> %uv759.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col_trans.sroa.5.12.vec.insert)
   %inc784 = add nuw nsw i64 %i383.0696, 1
   %exitcond703.not = icmp eq i64 %inc784, %conv3
   br i1 %exitcond703.not, label %if.end786, label %for.body758, !llvm.loop !52
@@ -11137,28 +11137,28 @@ if.end845:                                        ; preds = %for.body808, %if.th
   %retval.sroa.0.4.vec.insert.i644 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i643, float %sub862, i64 1
   %config.val509 = load ptr, ptr %116, align 8
   %config.val510 = load i64, ptr %vertex_size.i603, align 8
-  %call864 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %vtx796.0680, ptr %config.val509, i64 %config.val510, <2 x float> %retval.sroa.0.4.vec.insert.i644, <2 x float> %uv809.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
+  %call864 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %vtx796.0680, ptr %config.val509, i64 %config.val510, <2 x float> %retval.sroa.0.4.vec.insert.i644, <2 x float> %uv809.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
   %add868 = fadd float %p2.sroa.0.0.copyload, %mul857
   %sub870 = fsub float %p2.sroa.4.0.copyload, %mul854
   %retval.sroa.0.0.vec.insert.i645 = insertelement <2 x float> poison, float %add868, i64 0
   %retval.sroa.0.4.vec.insert.i646 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i645, float %sub870, i64 1
   %config.val511 = load ptr, ptr %116, align 8
   %config.val512 = load i64, ptr %vertex_size.i603, align 8
-  %call872 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call864, ptr %config.val511, i64 %config.val512, <2 x float> %retval.sroa.0.4.vec.insert.i646, <2 x float> %uv809.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
+  %call872 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call864, ptr %config.val511, i64 %config.val512, <2 x float> %retval.sroa.0.4.vec.insert.i646, <2 x float> %uv809.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
   %sub876 = fsub float %p2.sroa.0.0.copyload, %mul857
   %add878 = fadd float %p2.sroa.4.0.copyload, %mul854
   %retval.sroa.0.0.vec.insert.i647 = insertelement <2 x float> poison, float %sub876, i64 0
   %retval.sroa.0.4.vec.insert.i648 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i647, float %add878, i64 1
   %config.val513 = load ptr, ptr %116, align 8
   %config.val514 = load i64, ptr %vertex_size.i603, align 8
-  %call880 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call872, ptr %config.val513, i64 %config.val514, <2 x float> %retval.sroa.0.4.vec.insert.i648, <2 x float> %uv809.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
+  %call880 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call872, ptr %config.val513, i64 %config.val514, <2 x float> %retval.sroa.0.4.vec.insert.i648, <2 x float> %uv809.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
   %sub884 = fsub float %p1.sroa.0.0.copyload, %mul857
   %add886 = fadd float %p1.sroa.4.0.copyload, %mul854
   %retval.sroa.0.0.vec.insert.i649 = insertelement <2 x float> poison, float %sub884, i64 0
   %retval.sroa.0.4.vec.insert.i650 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i649, float %add886, i64 1
   %config.val515 = load ptr, ptr %116, align 8
   %config.val516 = load i64, ptr %vertex_size.i603, align 8
-  %call888 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call880, ptr %config.val515, i64 %config.val516, <2 x float> %retval.sroa.0.4.vec.insert.i650, <2 x float> %uv809.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
+  %call888 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call880, ptr %config.val515, i64 %config.val516, <2 x float> %retval.sroa.0.4.vec.insert.i650, <2 x float> %uv809.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.10.12.vec.insert)
   store i16 %idx.0678, ptr %ids798.0681, align 2
   %conv893 = add i16 %idx.0678, 1
   %arrayidx894 = getelementptr inbounds i8, ptr %ids798.0681, i64 2
@@ -11183,7 +11183,7 @@ if.end912:                                        ; preds = %if.end845, %nk_draw
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc ptr @nk_draw_vertex.argprom(ptr noundef %dst, ptr nocapture readonly %config.40.val, i64 %config.48.val, <2 x float> %pos.coerce, <2 x float> %uv.coerce, <2 x float> %color.coerce0, <2 x float> %color.coerce1) unnamed_addr #21 {
+define internal fastcc ptr @nk_draw_vertex(ptr noundef %dst, ptr nocapture readonly %config.40.val, i64 %config.48.val, <2 x float> %pos.coerce, <2 x float> %uv.coerce, <2 x float> %color.coerce0, <2 x float> %color.coerce1) unnamed_addr #21 {
 entry:
   %val.i = alloca [4 x float], align 16
   %col.i = alloca %struct.nk_color, align 4
@@ -11332,11 +11332,11 @@ while.body:                                       ; preds = %nk_draw_vertex_layo
   ]
 
 sw.bb2:                                           ; preds = %while.body
-  call fastcc void @nk_draw_vertex_element.argelim(ptr noundef %add.ptr1, ptr noundef %pos, i32 noundef %28)
+  call fastcc void @nk_draw_vertex_element(ptr noundef %add.ptr1, ptr noundef %pos, i32 noundef %28)
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %while.body
-  call fastcc void @nk_draw_vertex_element.argelim(ptr noundef %add.ptr1, ptr noundef %uv, i32 noundef %28)
+  call fastcc void @nk_draw_vertex_element(ptr noundef %add.ptr1, ptr noundef %uv, i32 noundef %28)
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %while.body
@@ -11705,7 +11705,7 @@ if.end136:                                        ; preds = %if.then127, %for.bo
   %retval.sroa.0.4.vec.insert.i166 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i165, float %sub151, i64 1
   %config.val147 = load ptr, ptr %20, align 8
   %config.val148 = load i64, ptr %vertex_size.i, align 8
-  %call153 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %vtx.0229, ptr %config.val147, i64 %config.val148, <2 x float> %retval.sroa.0.4.vec.insert.i166, <2 x float> %uv.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.5.12.vec.insert)
+  %call153 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %vtx.0229, ptr %config.val147, i64 %config.val148, <2 x float> %retval.sroa.0.4.vec.insert.i166, <2 x float> %uv.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.5.12.vec.insert)
   %30 = load float, ptr %arrayidx144, align 4
   %add159 = fadd float %mul139, %30
   %31 = load float, ptr %y149, align 4
@@ -11714,7 +11714,7 @@ if.end136:                                        ; preds = %if.then127, %for.bo
   %retval.sroa.0.4.vec.insert.i168 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i167, float %add163, i64 1
   %config.val145 = load ptr, ptr %20, align 8
   %config.val146 = load i64, ptr %vertex_size.i, align 8
-  %call165 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call153, ptr %config.val145, i64 %config.val146, <2 x float> %retval.sroa.0.4.vec.insert.i168, <2 x float> %uv.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col_trans.sroa.2.12.vec.insert)
+  %call165 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call153, ptr %config.val145, i64 %config.val146, <2 x float> %retval.sroa.0.4.vec.insert.i168, <2 x float> %uv.sroa.0.0.copyload, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col_trans.sroa.2.12.vec.insert)
   %shl167 = shl nuw nsw i64 %i1.1230, 1
   %add168 = add nuw nsw i64 %shl167, %conv7
   %conv169 = trunc i64 %add168 to i16
@@ -11840,7 +11840,7 @@ for.body224:                                      ; preds = %for.body224.lr.ph, 
   %52 = load <2 x float>, ptr %uv229, align 8
   %config.val = load ptr, ptr %50, align 8
   %config.val144 = load i64, ptr %vertex_size.i173, align 8
-  %call230 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %vtx212.0217, ptr %config.val, i64 %config.val144, <2 x float> %51, <2 x float> %52, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.5.12.vec.insert)
+  %call230 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %vtx212.0217, ptr %config.val, i64 %config.val144, <2 x float> %51, <2 x float> %52, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.5.12.vec.insert)
   %inc232 = add nuw nsw i64 %i202.0216, 1
   %exitcond.not = icmp eq i64 %inc232, %conv211
   br i1 %exitcond.not, label %for.cond234.preheader, label %for.body224, !llvm.loop !58
@@ -13086,24 +13086,24 @@ if.end8:                                          ; preds = %nk_draw_list_alloc_
   %15 = getelementptr i8, ptr %list, i64 152
   %config.val50 = load ptr, ptr %15, align 8
   %config.val51 = load i64, ptr %vertex_size.i, align 8
-  %call35 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef nonnull %call.i, ptr %config.val50, i64 %config.val51, <2 x float> %rect.coerce0, <2 x float> %14, <2 x float> %col_left.sroa.0.4.vec.insert, <2 x float> %col_left.sroa.3.12.vec.insert)
+  %call35 = tail call fastcc ptr @nk_draw_vertex(ptr noundef nonnull %call.i, ptr %config.val50, i64 %config.val51, <2 x float> %rect.coerce0, <2 x float> %14, <2 x float> %col_left.sroa.0.4.vec.insert, <2 x float> %col_left.sroa.3.12.vec.insert)
   %16 = fadd <2 x float> %rect.coerce0, %rect.coerce1
   %retval.sroa.0.4.vec.insert.i109 = shufflevector <2 x float> %16, <2 x float> %rect.coerce0, <2 x i32> <i32 0, i32 3>
   %17 = load <2 x float>, ptr %uv, align 8
   %config.val48 = load ptr, ptr %15, align 8
   %config.val49 = load i64, ptr %vertex_size.i, align 8
-  %call45 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call35, ptr %config.val48, i64 %config.val49, <2 x float> %retval.sroa.0.4.vec.insert.i109, <2 x float> %17, <2 x float> %col_top.sroa.0.4.vec.insert, <2 x float> %col_top.sroa.3.12.vec.insert)
+  %call45 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call35, ptr %config.val48, i64 %config.val49, <2 x float> %retval.sroa.0.4.vec.insert.i109, <2 x float> %17, <2 x float> %col_top.sroa.0.4.vec.insert, <2 x float> %col_top.sroa.3.12.vec.insert)
   %18 = fadd <2 x float> %rect.coerce0, %rect.coerce1
   %retval.sroa.0.4.vec.insert.i111 = shufflevector <2 x float> %16, <2 x float> %18, <2 x i32> <i32 0, i32 3>
   %19 = load <2 x float>, ptr %uv, align 8
   %config.val46 = load ptr, ptr %15, align 8
   %config.val47 = load i64, ptr %vertex_size.i, align 8
-  %call57 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call45, ptr %config.val46, i64 %config.val47, <2 x float> %retval.sroa.0.4.vec.insert.i111, <2 x float> %19, <2 x float> %col_right.sroa.0.4.vec.insert, <2 x float> %col_right.sroa.3.12.vec.insert)
+  %call57 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call45, ptr %config.val46, i64 %config.val47, <2 x float> %retval.sroa.0.4.vec.insert.i111, <2 x float> %19, <2 x float> %col_right.sroa.0.4.vec.insert, <2 x float> %col_right.sroa.3.12.vec.insert)
   %retval.sroa.0.4.vec.insert.i113 = shufflevector <2 x float> %rect.coerce0, <2 x float> %18, <2 x i32> <i32 0, i32 3>
   %20 = load <2 x float>, ptr %uv, align 8
   %config.val = load ptr, ptr %15, align 8
   %config.val45 = load i64, ptr %vertex_size.i, align 8
-  %21 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call57, ptr %config.val, i64 %config.val45, <2 x float> %retval.sroa.0.4.vec.insert.i113, <2 x float> %20, <2 x float> %col_bottom.sroa.0.4.vec.insert, <2 x float> %col_bottom.sroa.3.12.vec.insert)
+  %21 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call57, ptr %config.val, i64 %config.val45, <2 x float> %retval.sroa.0.4.vec.insert.i113, <2 x float> %20, <2 x float> %col_bottom.sroa.0.4.vec.insert, <2 x float> %col_bottom.sroa.3.12.vec.insert)
   br label %return
 
 return:                                           ; preds = %nk_draw_list_alloc_vertices.exit, %nk_draw_list_alloc_elements.exit, %entry, %if.end8
@@ -13741,16 +13741,16 @@ if.end18:                                         ; preds = %nk_draw_list_alloc_
   %13 = getelementptr i8, ptr %list, i64 152
   %config.val32 = load ptr, ptr %13, align 8
   %config.val33 = load i64, ptr %vertex_size.i, align 8
-  %call41 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef nonnull %call.i, ptr %config.val32, i64 %config.val33, <2 x float> %a.coerce, <2 x float> %uva.coerce, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.6.12.vec.insert)
+  %call41 = tail call fastcc ptr @nk_draw_vertex(ptr noundef nonnull %call.i, ptr %config.val32, i64 %config.val33, <2 x float> %a.coerce, <2 x float> %uva.coerce, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.6.12.vec.insert)
   %config.val30 = load ptr, ptr %13, align 8
   %config.val31 = load i64, ptr %vertex_size.i, align 8
-  %call43 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call41, ptr %config.val30, i64 %config.val31, <2 x float> %retval.sroa.0.4.vec.insert.i37, <2 x float> %retval.sroa.0.4.vec.insert.i, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.6.12.vec.insert)
+  %call43 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call41, ptr %config.val30, i64 %config.val31, <2 x float> %retval.sroa.0.4.vec.insert.i37, <2 x float> %retval.sroa.0.4.vec.insert.i, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.6.12.vec.insert)
   %config.val28 = load ptr, ptr %13, align 8
   %config.val29 = load i64, ptr %vertex_size.i, align 8
-  %call45 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call43, ptr %config.val28, i64 %config.val29, <2 x float> %c.coerce, <2 x float> %uvc.coerce, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.6.12.vec.insert)
+  %call45 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call43, ptr %config.val28, i64 %config.val29, <2 x float> %c.coerce, <2 x float> %uvc.coerce, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.6.12.vec.insert)
   %config.val = load ptr, ptr %13, align 8
   %config.val27 = load i64, ptr %vertex_size.i, align 8
-  %14 = tail call fastcc ptr @nk_draw_vertex.argprom(ptr noundef %call45, ptr %config.val, i64 %config.val27, <2 x float> %retval.sroa.0.4.vec.insert.i39, <2 x float> %retval.sroa.0.4.vec.insert.i35, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.6.12.vec.insert)
+  %14 = tail call fastcc ptr @nk_draw_vertex(ptr noundef %call45, ptr %config.val, i64 %config.val27, <2 x float> %retval.sroa.0.4.vec.insert.i39, <2 x float> %retval.sroa.0.4.vec.insert.i35, <2 x float> %col.sroa.0.4.vec.insert, <2 x float> %col.sroa.6.12.vec.insert)
   br label %return
 
 return:                                           ; preds = %nk_draw_list_alloc_vertices.exit, %nk_draw_list_alloc_elements.exit, %if.end18
@@ -16104,9 +16104,9 @@ if.end31.i.us.i.i:                                ; preds = %if.then7.i.us.i.i, 
   %waste_area.1.i.us.i.i = add nsw i32 %mul.pn.i.us.i.i, %waste_area.06.i.us.i.i
   %visited_width.1.i.us.i.i = add nsw i32 %sub9.pn.i.us.i.i, %visited_width.05.i.us.i.i
   %cmp.i.us.i.i = icmp slt i32 %15, %add8112.us.i.i
-  br i1 %cmp.i.us.i.i, label %while.body.i.us.i.i, label %stbrp__skyline_find_min_y.argprom.exit.loopexit.us.i.i, !llvm.loop !74
+  br i1 %cmp.i.us.i.i, label %while.body.i.us.i.i, label %stbrp__skyline_find_min_y.exit.loopexit.us.i.i, !llvm.loop !74
 
-if.else.us.i.i:                                   ; preds = %stbrp__skyline_find_min_y.argprom.exit.loopexit.us.i.i
+if.else.us.i.i:                                   ; preds = %stbrp__skyline_find_min_y.exit.loopexit.us.i.i
   %add18.us.i.i = add nsw i32 %min_y.1.i.us.i.i, %2
   %cmp20.not.us.i.i = icmp sgt i32 %add18.us.i.i, %5
   br i1 %cmp20.not.us.i.i, label %if.end29.us.i.i, label %if.then21.us.i.i
@@ -16124,7 +16124,7 @@ lor.lhs.false23.us.i.i:                           ; preds = %if.then21.us.i.i
 if.then26.us.i.i:                                 ; preds = %lor.lhs.false23.us.i.i, %if.then21.us.i.i
   br label %if.end29.us.i.i
 
-if.then14.us.i.i:                                 ; preds = %stbrp__skyline_find_min_y.argprom.exit.loopexit.us.i.i
+if.then14.us.i.i:                                 ; preds = %stbrp__skyline_find_min_y.exit.loopexit.us.i.i
   %cmp15.us.i.i = icmp slt i32 %min_y.1.i.us.i.i, %best_y.0108.us.i.i
   %spec.select.us.i.i = tail call i32 @llvm.smin.i32(i32 %min_y.1.i.us.i.i, i32 %best_y.0108.us.i.i)
   %spec.select61.us.i.i = select i1 %cmp15.us.i.i, ptr %prev.0109.us.i.i, ptr %best.0110.us.i.i
@@ -16141,7 +16141,7 @@ if.end29.us.i.i:                                  ; preds = %if.then14.us.i.i, %
   %cmp10.not.us.i.i = icmp sgt i32 %add8.us.i.i, %4
   br i1 %cmp10.not.us.i.i, label %while.end.i.i, label %while.body.us.i.i, !llvm.loop !75
 
-stbrp__skyline_find_min_y.argprom.exit.loopexit.us.i.i: ; preds = %if.end31.i.us.i.i
+stbrp__skyline_find_min_y.exit.loopexit.us.i.i:   ; preds = %if.end31.i.us.i.i
   br i1 %cmp13.i.i, label %if.then14.us.i.i, label %if.else.us.i.i
 
 while.body.lr.ph.split.i.i:                       ; preds = %while.body.lr.ph.i.i
@@ -16241,7 +16241,7 @@ while.cond51.i.i:                                 ; preds = %while.cond51.i.i, %
 while.end58.i.i:                                  ; preds = %while.cond51.i.i
   %26 = load i32, ptr %node.2.i.i, align 8
   %cmp2.i65.i.i = icmp slt i32 %26, %23
-  br i1 %cmp2.i65.i.i, label %while.body.i68.i.i, label %stbrp__skyline_find_min_y.argprom.exit100.i.i
+  br i1 %cmp2.i65.i.i, label %while.body.i68.i.i, label %stbrp__skyline_find_min_y.exit100.i.i
 
 while.body.i68.i.i:                               ; preds = %while.end58.i.i, %if.end31.i84.i.i
   %27 = phi i32 [ %33, %if.end31.i84.i.i ], [ %26, %while.end58.i.i ]
@@ -16293,9 +16293,9 @@ if.end31.i84.i.i:                                 ; preds = %if.else16.i75.i.i, 
   %waste_area.1.i88.i.i = add nsw i32 %mul.pn.i87.i.i, %waste_area.06.i69.i.i
   %visited_width.1.i89.i.i = add nsw i32 %sub9.pn.i86.i.i, %visited_width.05.i70.i.i
   %cmp.i90.i.i = icmp slt i32 %33, %23
-  br i1 %cmp.i90.i.i, label %while.body.i68.i.i, label %stbrp__skyline_find_min_y.argprom.exit100.i.i, !llvm.loop !74
+  br i1 %cmp.i90.i.i, label %while.body.i68.i.i, label %stbrp__skyline_find_min_y.exit100.i.i, !llvm.loop !74
 
-stbrp__skyline_find_min_y.argprom.exit100.i.i:    ; preds = %if.end31.i84.i.i, %while.end58.i.i
+stbrp__skyline_find_min_y.exit100.i.i:            ; preds = %if.end31.i84.i.i, %while.end58.i.i
   %min_y.0.lcssa.i66.i.i = phi i32 [ 0, %while.end58.i.i ], [ %min_y.1.i85.i.i, %if.end31.i84.i.i ]
   %waste_area.0.lcssa.i67.i.i = phi i32 [ 0, %while.end58.i.i ], [ %waste_area.1.i88.i.i, %if.end31.i84.i.i ]
   %add60.i.i = add nsw i32 %min_y.0.lcssa.i66.i.i, %2
@@ -16304,7 +16304,7 @@ stbrp__skyline_find_min_y.argprom.exit100.i.i:    ; preds = %if.end31.i84.i.i, %
   %or.cond62.i.i = select i1 %cmp62.not.i.i, i1 true, i1 %cmp64.not.i.i
   br i1 %or.cond62.i.i, label %if.end76.i.i, label %if.then65.i.i
 
-if.then65.i.i:                                    ; preds = %stbrp__skyline_find_min_y.argprom.exit100.i.i
+if.then65.i.i:                                    ; preds = %stbrp__skyline_find_min_y.exit100.i.i
   %cmp66.i.i = icmp slt i32 %min_y.0.lcssa.i66.i.i, %best_y.3166.i.i
   %cmp68.i.i = icmp slt i32 %waste_area.0.lcssa.i67.i.i, %best_waste.2164.i.i
   %or.cond103.i.i = select i1 %cmp66.i.i, i1 true, i1 %cmp68.i.i
@@ -16319,11 +16319,11 @@ lor.lhs.false69.i.i:                              ; preds = %if.then65.i.i
 if.then73.i.i:                                    ; preds = %lor.lhs.false69.i.i, %if.then65.i.i
   br label %if.end76.i.i
 
-if.end76.i.i:                                     ; preds = %if.then73.i.i, %lor.lhs.false69.i.i, %stbrp__skyline_find_min_y.argprom.exit100.i.i
-  %best_waste.3.i.i = phi i32 [ %waste_area.0.lcssa.i67.i.i, %if.then73.i.i ], [ %best_waste.2164.i.i, %lor.lhs.false69.i.i ], [ %best_waste.2164.i.i, %stbrp__skyline_find_min_y.argprom.exit100.i.i ]
-  %best_x.2.i.i = phi i32 [ %sub48.i.i, %if.then73.i.i ], [ %best_x.1165.i.i, %lor.lhs.false69.i.i ], [ %best_x.1165.i.i, %stbrp__skyline_find_min_y.argprom.exit100.i.i ]
-  %best_y.4.i.i = phi i32 [ %min_y.0.lcssa.i66.i.i, %if.then73.i.i ], [ %best_y.3166.i.i, %lor.lhs.false69.i.i ], [ %best_y.3166.i.i, %stbrp__skyline_find_min_y.argprom.exit100.i.i ]
-  %best.4.i.i = phi ptr [ %prev.2.i.i, %if.then73.i.i ], [ %best.3170.i.i, %lor.lhs.false69.i.i ], [ %best.3170.i.i, %stbrp__skyline_find_min_y.argprom.exit100.i.i ]
+if.end76.i.i:                                     ; preds = %if.then73.i.i, %lor.lhs.false69.i.i, %stbrp__skyline_find_min_y.exit100.i.i
+  %best_waste.3.i.i = phi i32 [ %waste_area.0.lcssa.i67.i.i, %if.then73.i.i ], [ %best_waste.2164.i.i, %lor.lhs.false69.i.i ], [ %best_waste.2164.i.i, %stbrp__skyline_find_min_y.exit100.i.i ]
+  %best_x.2.i.i = phi i32 [ %sub48.i.i, %if.then73.i.i ], [ %best_x.1165.i.i, %lor.lhs.false69.i.i ], [ %best_x.1165.i.i, %stbrp__skyline_find_min_y.exit100.i.i ]
+  %best_y.4.i.i = phi i32 [ %min_y.0.lcssa.i66.i.i, %if.then73.i.i ], [ %best_y.3166.i.i, %lor.lhs.false69.i.i ], [ %best_y.3166.i.i, %stbrp__skyline_find_min_y.exit100.i.i ]
+  %best.4.i.i = phi ptr [ %prev.2.i.i, %if.then73.i.i ], [ %best.3170.i.i, %lor.lhs.false69.i.i ], [ %best.3170.i.i, %stbrp__skyline_find_min_y.exit100.i.i ]
   %next77.i.i = getelementptr inbounds i8, ptr %tail.1169.i.i, i64 8
   %35 = load ptr, ptr %next77.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %35, null
@@ -20419,7 +20419,7 @@ sw.bb63.us.i:                                     ; preds = %for.body32.us.i
   %y76.us.i = getelementptr inbounds i8, ptr %arrayidx34.us.i, i64 2
   %15 = load i16, ptr %y76.us.i, align 2
   %conv77.us.i = sitofp i16 %15 to float
-  call fastcc void @stbtt__tesselate_curve.argelim(ptr noundef %points.1.us.i, ptr noundef %num_points.i, float noundef %x.0100.us.i, float noundef %y.0101.us.i, float noundef %conv66.us.i, float noundef %conv69.us.i, float noundef %conv73.us.i, float noundef %conv77.us.i, float noundef %mul.i, i32 noundef 0)
+  call fastcc void @stbtt__tesselate_curve(ptr noundef %points.1.us.i, ptr noundef %num_points.i, float noundef %x.0100.us.i, float noundef %y.0101.us.i, float noundef %conv66.us.i, float noundef %conv69.us.i, float noundef %conv73.us.i, float noundef %conv77.us.i, float noundef %mul.i, i32 noundef 0)
   %16 = load i16, ptr %arrayidx34.us.i, align 2
   %conv82.us.i = sitofp i16 %16 to float
   %17 = load i16, ptr %y76.us.i, align 2
@@ -20818,7 +20818,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %stbtt
   store float %add6.i.i, ptr %y0.i.i, align 4
   %68 = load i32, ptr %h.i.i, align 4
   %cmp8103.i.i = icmp sgt i32 %68, 0
-  br i1 %cmp8103.i.i, label %while.body.lr.ph.i.i, label %stbtt__hheap_cleanup.argprom.exit.i.i
+  br i1 %cmp8103.i.i, label %while.body.lr.ph.i.i, label %stbtt__hheap_cleanup.exit.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
   %conv.i.i.i = sitofp i32 %x_off to float
@@ -22748,7 +22748,7 @@ while.end92.i.i:                                  ; preds = %while.body88.i.i, %
 
 while.end95.i.i:                                  ; preds = %while.end92.i.i
   %tobool.not1.i.i.i = icmp eq ptr %hh.sroa.0.1.lcssa.i.i, null
-  br i1 %tobool.not1.i.i.i, label %stbtt__hheap_cleanup.argprom.exit.i.i, label %while.body.lr.ph.i.i.i
+  br i1 %tobool.not1.i.i.i, label %stbtt__hheap_cleanup.exit.i.i, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %while.end95.i.i
   %276 = getelementptr i8, ptr %userdata, i64 16
@@ -22761,20 +22761,20 @@ while.body.i76.i.i:                               ; preds = %while.body.i76.i.i,
   %userdata.val3.i.i.i = load ptr, ptr %276, align 8
   tail call void %userdata.val3.i.i.i(ptr %userdata.val.i.i.i, ptr noundef nonnull %c.02.i.i.i) #52
   %tobool.not.i77.i.i = icmp eq ptr %277, null
-  br i1 %tobool.not.i77.i.i, label %stbtt__hheap_cleanup.argprom.exit.i.i, label %while.body.i76.i.i, !llvm.loop !115
+  br i1 %tobool.not.i77.i.i, label %stbtt__hheap_cleanup.exit.i.i, label %while.body.i76.i.i, !llvm.loop !115
 
-stbtt__hheap_cleanup.argprom.exit.i.i:            ; preds = %while.body.i76.i.i, %while.end95.i.i, %if.end.i.i
+stbtt__hheap_cleanup.exit.i.i:                    ; preds = %while.body.i76.i.i, %while.end95.i.i, %if.end.i.i
   %cmp97.not.i.i = icmp eq ptr %scanline.0.i.i, %scanline_data.i.i
   br i1 %cmp97.not.i.i, label %stbtt__rasterize_sorted_edges.exit.i, label %if.then99.i.i
 
-if.then99.i.i:                                    ; preds = %stbtt__hheap_cleanup.argprom.exit.i.i
+if.then99.i.i:                                    ; preds = %stbtt__hheap_cleanup.exit.i.i
   %userdata.val64.i.i = load ptr, ptr %userdata, align 8
   %278 = getelementptr i8, ptr %userdata, i64 16
   %userdata.val65.i.i = load ptr, ptr %278, align 8
   call void %userdata.val65.i.i(ptr %userdata.val64.i.i, ptr noundef %scanline.0.i.i) #52
   br label %stbtt__rasterize_sorted_edges.exit.i
 
-stbtt__rasterize_sorted_edges.exit.i:             ; preds = %if.then99.i.i, %stbtt__hheap_cleanup.argprom.exit.i.i
+stbtt__rasterize_sorted_edges.exit.i:             ; preds = %if.then99.i.i, %stbtt__hheap_cleanup.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %active.i.i)
   call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %scanline_data.i.i)
   %userdata.val64.i = load ptr, ptr %userdata, align 8
@@ -30687,7 +30687,7 @@ if.end64:                                         ; preds = %if.end54
   %47 = load i32, ptr %width, align 4
   %48 = load i32, ptr %height, align 4
   %49 = load i64, ptr %custom, align 8
-  tail call fastcc void @nk_font_bake_custom_data.argprom.argelim(ptr noundef %46, i32 noundef %47, i32 noundef %48, i64 %49)
+  tail call fastcc void @nk_font_bake_custom_data(ptr noundef %46, i32 noundef %47, i32 noundef %48, i64 %49)
   %cmp = icmp eq i32 %fmt, 1
   br i1 %cmp, label %if.then73, label %if.end94
 
@@ -31752,7 +31752,7 @@ for.end140:                                       ; preds = %for.inc138, %for.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @nk_font_bake_custom_data.argprom.argelim(ptr noundef writeonly %img_memory, i32 noundef %img_width, i32 noundef %img_height, i64 %img_dst.coerce) unnamed_addr #13 {
+define internal fastcc void @nk_font_bake_custom_data(ptr noundef writeonly %img_memory, i32 noundef %img_width, i32 noundef %img_height, i64 %img_dst.coerce) unnamed_addr #13 {
 entry:
   %tobool = icmp ne ptr %img_memory, null
   %tobool1 = icmp ne i32 %img_width, 0
@@ -47478,7 +47478,7 @@ if.then27.i.i:                                    ; preds = %if.end24.i.i
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then27.i.i, %if.end24.i.i, %if.end
-  tail call fastcc void @nk_layout_widget_space.argprom(ptr noundef %bounds, ptr noundef %ctx, i32 noundef 1)
+  tail call fastcc void @nk_layout_widget_space(ptr noundef %bounds, ptr noundef %ctx, i32 noundef 1)
   %10 = load i32, ptr %index, align 4
   %inc = add nsw i32 %10, 1
   store i32 %inc, ptr %index, align 4
@@ -50918,7 +50918,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space.argprom(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
   %6 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %6, 0
   br i1 %tobool20.not.i, label %if.then21.i, label %if.end23.i
@@ -50985,7 +50985,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space.argprom(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
   %6 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %6, 0
   br i1 %tobool20.not.i, label %if.then21.i, label %if.end23.i
@@ -51055,7 +51055,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space.argprom(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
   %6 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %6, 0
   br i1 %tobool20.not.i, label %if.then21.i, label %if.end23.i
@@ -51125,7 +51125,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space.argprom(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
   store float %2, ptr %at_y.i, align 4
   store i32 %3, ptr %index8.i, align 4
   %w.phi.trans.insert = getelementptr inbounds i8, ptr %bounds, i64 8
@@ -51175,7 +51175,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space.argprom(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
   store float %2, ptr %at_y.i, align 4
   store i32 %3, ptr %index8.i, align 4
   %h.phi.trans.insert = getelementptr inbounds i8, ptr %bounds, i64 12
@@ -51243,7 +51243,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space.argprom(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
   %7 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %7, 0
   %.pre = load float, ptr %bounds, align 8
@@ -51367,7 +51367,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space.argprom(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
   %7 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %7, 0
   %.pre = load float, ptr %bounds, align 8
@@ -51470,7 +51470,7 @@ if.then12.i:                                      ; preds = %if.end.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then12.i, %if.end.i
-  call fastcc void @nk_layout_widget_space.argprom(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
+  call fastcc void @nk_layout_widget_space(ptr noundef nonnull %bounds, ptr noundef readonly %ctx, i32 noundef 0)
   %7 = load i32, ptr %index8.i, align 4
   %tobool20.not.i = icmp eq i32 %7, 0
   %.pre = load float, ptr %bounds, align 8
@@ -54505,7 +54505,7 @@ cond.end:                                         ; preds = %lor.lhs.false14, %i
   %4 = load <2 x float>, ptr %bounds, align 8
   %5 = getelementptr inbounds i8, ptr %bounds, i64 8
   %6 = load <2 x float>, ptr %5, align 8
-  call fastcc void @nk_do_toggle.argelim(ptr noundef %last_widget_state, ptr noundef %buffer, <2 x float> %4, <2 x float> %6, ptr noundef %active.addr, ptr noundef %text, i32 noundef %len, i32 noundef 0, ptr noundef %checkbox, ptr noundef %cond, ptr noundef %3)
+  call fastcc void @nk_do_toggle(ptr noundef %last_widget_state, ptr noundef %buffer, <2 x float> %4, <2 x float> %6, ptr noundef %active.addr, ptr noundef %text, i32 noundef %len, i32 noundef 0, ptr noundef %checkbox, ptr noundef %cond, ptr noundef %3)
   %retval.0.pre = load i32, ptr %active.addr, align 4
   br label %return
 
@@ -54515,7 +54515,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_do_toggle.argelim(ptr nocapture noundef nonnull %state, ptr noundef nonnull %out, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr nocapture noundef nonnull %active, ptr noundef %str, i32 noundef %len, i32 noundef range(i32 0, 2) %type, ptr nocapture noundef nonnull readonly %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
+define internal fastcc void @nk_do_toggle(ptr nocapture noundef nonnull %state, ptr noundef nonnull %out, <2 x float> %r.coerce0, <2 x float> %r.coerce1, ptr nocapture noundef nonnull %active, ptr noundef %str, i32 noundef %len, i32 noundef range(i32 0, 2) %type, ptr nocapture noundef nonnull readonly %style, ptr noundef %in, ptr noundef %font) unnamed_addr #20 {
 entry:
   %tobool3.not = icmp eq ptr %font, null
   br i1 %tobool3.not, label %return, label %if.end
@@ -55181,7 +55181,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false14.i, 
   %4 = load <2 x float>, ptr %bounds.i, align 8
   %5 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %6 = load <2 x float>, ptr %5, align 8
-  call fastcc void @nk_do_toggle.argelim(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %4, <2 x float> %6, ptr noundef %active.addr.i, ptr noundef nonnull %text, i32 noundef %len, i32 noundef 0, ptr noundef %checkbox.i, ptr noundef %cond.i, ptr noundef %3)
+  call fastcc void @nk_do_toggle(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %4, <2 x float> %6, ptr noundef %active.addr.i, ptr noundef nonnull %text, i32 noundef %len, i32 noundef 0, ptr noundef %checkbox.i, ptr noundef %cond.i, ptr noundef %3)
   %retval.0.pre.i = load i32, ptr %active.addr.i, align 4
   br label %nk_check_text.exit
 
@@ -55254,7 +55254,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false14.i, 
   %5 = load <2 x float>, ptr %bounds.i, align 8
   %6 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %7 = load <2 x float>, ptr %6, align 8
-  call fastcc void @nk_do_toggle.argelim(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %5, <2 x float> %7, ptr noundef %active.addr.i, ptr noundef nonnull %text, i32 noundef %len, i32 noundef 0, ptr noundef %checkbox.i, ptr noundef %cond.i, ptr noundef %4)
+  call fastcc void @nk_do_toggle(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %5, <2 x float> %7, ptr noundef %active.addr.i, ptr noundef nonnull %text, i32 noundef %len, i32 noundef 0, ptr noundef %checkbox.i, ptr noundef %cond.i, ptr noundef %4)
   %retval.0.pre.i = load i32, ptr %active.addr.i, align 4
   br label %nk_check_text.exit
 
@@ -55331,7 +55331,7 @@ nk_checkbox_text.exit:                            ; preds = %if.end.i.i, %lor.lh
   %5 = load <2 x float>, ptr %bounds.i.i, align 8
   %6 = getelementptr inbounds i8, ptr %bounds.i.i, i64 8
   %7 = load <2 x float>, ptr %6, align 8
-  call fastcc void @nk_do_toggle.argelim(ptr noundef %last_widget_state.i.i, ptr noundef %buffer.i.i, <2 x float> %5, <2 x float> %7, ptr noundef %active.addr.i.i, ptr noundef nonnull %text, i32 noundef %len, i32 noundef 0, ptr noundef %checkbox.i.i, ptr noundef %cond.i.i, ptr noundef %4)
+  call fastcc void @nk_do_toggle(ptr noundef %last_widget_state.i.i, ptr noundef %buffer.i.i, <2 x float> %5, <2 x float> %7, ptr noundef %active.addr.i.i, ptr noundef nonnull %text, i32 noundef %len, i32 noundef 0, ptr noundef %checkbox.i.i, ptr noundef %cond.i.i, ptr noundef %4)
   %retval.0.pre.i.i = load i32, ptr %active.addr.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %active.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bounds.i.i)
@@ -55430,7 +55430,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false14.i, 
   %6 = load <2 x float>, ptr %bounds.i, align 8
   %7 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %8 = load <2 x float>, ptr %7, align 8
-  call fastcc void @nk_do_toggle.argelim(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %6, <2 x float> %8, ptr noundef %active.addr.i, ptr noundef %label, i32 noundef %siz.0.lcssa.i, i32 noundef 0, ptr noundef %checkbox.i, ptr noundef %cond.i, ptr noundef %5)
+  call fastcc void @nk_do_toggle(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %6, <2 x float> %8, ptr noundef %active.addr.i, ptr noundef %label, i32 noundef %siz.0.lcssa.i, i32 noundef 0, ptr noundef %checkbox.i, ptr noundef %cond.i, ptr noundef %5)
   %retval.0.pre.i = load i32, ptr %active.addr.i, align 4
   br label %nk_check_text.exit
 
@@ -55509,7 +55509,7 @@ cond.end.i.i:                                     ; preds = %lor.lhs.false14.i.i
   %6 = load <2 x float>, ptr %bounds.i.i, align 8
   %7 = getelementptr inbounds i8, ptr %bounds.i.i, i64 8
   %8 = load <2 x float>, ptr %7, align 8
-  call fastcc void @nk_do_toggle.argelim(ptr noundef %last_widget_state.i.i, ptr noundef %buffer.i.i, <2 x float> %6, <2 x float> %8, ptr noundef %active.addr.i.i, ptr noundef nonnull %label, i32 noundef %siz.05.i.lcssa, i32 noundef 0, ptr noundef %checkbox.i.i, ptr noundef %cond.i.i, ptr noundef %5)
+  call fastcc void @nk_do_toggle(ptr noundef %last_widget_state.i.i, ptr noundef %buffer.i.i, <2 x float> %6, <2 x float> %8, ptr noundef %active.addr.i.i, ptr noundef nonnull %label, i32 noundef %siz.05.i.lcssa, i32 noundef 0, ptr noundef %checkbox.i.i, ptr noundef %cond.i.i, ptr noundef %5)
   %retval.0.pre.i.i = load i32, ptr %active.addr.i.i, align 4
   br label %nk_check_text.exit.i
 
@@ -55599,7 +55599,7 @@ cond.end.i.i:                                     ; preds = %lor.lhs.false14.i.i
   %7 = load <2 x float>, ptr %bounds.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %bounds.i.i, i64 8
   %9 = load <2 x float>, ptr %8, align 8
-  call fastcc void @nk_do_toggle.argelim(ptr noundef %last_widget_state.i.i, ptr noundef %buffer.i.i, <2 x float> %7, <2 x float> %9, ptr noundef %active.addr.i.i, ptr noundef nonnull %label, i32 noundef %siz.05.i.lcssa, i32 noundef 0, ptr noundef %checkbox.i.i, ptr noundef %cond.i.i, ptr noundef %6)
+  call fastcc void @nk_do_toggle(ptr noundef %last_widget_state.i.i, ptr noundef %buffer.i.i, <2 x float> %7, <2 x float> %9, ptr noundef %active.addr.i.i, ptr noundef nonnull %label, i32 noundef %siz.05.i.lcssa, i32 noundef 0, ptr noundef %checkbox.i.i, ptr noundef %cond.i.i, ptr noundef %6)
   %retval.0.pre.i.i = load i32, ptr %active.addr.i.i, align 4
   br label %nk_check_text.exit.i
 
@@ -55689,7 +55689,7 @@ cond.end:                                         ; preds = %lor.lhs.false14, %i
   %4 = load <2 x float>, ptr %bounds, align 8
   %5 = getelementptr inbounds i8, ptr %bounds, i64 8
   %6 = load <2 x float>, ptr %5, align 8
-  call fastcc void @nk_do_toggle.argelim(ptr noundef %last_widget_state, ptr noundef %buffer, <2 x float> %4, <2 x float> %6, ptr noundef %is_active.addr, ptr noundef %text, i32 noundef %len, i32 noundef 1, ptr noundef %option, ptr noundef %cond, ptr noundef %3)
+  call fastcc void @nk_do_toggle(ptr noundef %last_widget_state, ptr noundef %buffer, <2 x float> %4, <2 x float> %6, ptr noundef %is_active.addr, ptr noundef %text, i32 noundef %len, i32 noundef 1, ptr noundef %option, ptr noundef %cond, ptr noundef %3)
   %7 = load i32, ptr %is_active.addr, align 4
   br label %return
 
@@ -55751,7 +55751,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false14.i, 
   %5 = load <2 x float>, ptr %bounds.i, align 8
   %6 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %7 = load <2 x float>, ptr %6, align 8
-  call fastcc void @nk_do_toggle.argelim(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %5, <2 x float> %7, ptr noundef %is_active.addr.i, ptr noundef nonnull %text, i32 noundef %len, i32 noundef 1, ptr noundef %option.i, ptr noundef %cond.i, ptr noundef %4)
+  call fastcc void @nk_do_toggle(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %5, <2 x float> %7, ptr noundef %is_active.addr.i, ptr noundef nonnull %text, i32 noundef %len, i32 noundef 1, ptr noundef %option.i, ptr noundef %cond.i, ptr noundef %4)
   %8 = load i32, ptr %is_active.addr.i, align 4
   br label %nk_option_text.exit
 
@@ -55836,7 +55836,7 @@ cond.end.i:                                       ; preds = %lor.lhs.false14.i, 
   %6 = load <2 x float>, ptr %bounds.i, align 8
   %7 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   %8 = load <2 x float>, ptr %7, align 8
-  call fastcc void @nk_do_toggle.argelim(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %6, <2 x float> %8, ptr noundef %is_active.addr.i, ptr noundef %label, i32 noundef %siz.0.lcssa.i, i32 noundef 1, ptr noundef %option.i, ptr noundef %cond.i, ptr noundef %5)
+  call fastcc void @nk_do_toggle(ptr noundef %last_widget_state.i, ptr noundef %buffer.i, <2 x float> %6, <2 x float> %8, ptr noundef %is_active.addr.i, ptr noundef %label, i32 noundef %siz.0.lcssa.i, i32 noundef 1, ptr noundef %option.i, ptr noundef %cond.i, ptr noundef %5)
   %9 = load i32, ptr %is_active.addr.i, align 4
   br label %nk_option_text.exit
 
@@ -55917,7 +55917,7 @@ cond.end.i.i:                                     ; preds = %lor.lhs.false14.i.i
   %7 = load <2 x float>, ptr %bounds.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %bounds.i.i, i64 8
   %9 = load <2 x float>, ptr %8, align 8
-  call fastcc void @nk_do_toggle.argelim(ptr noundef %last_widget_state.i.i, ptr noundef %buffer.i.i, <2 x float> %7, <2 x float> %9, ptr noundef %is_active.addr.i.i, ptr noundef nonnull %label, i32 noundef %siz.05.i.lcssa, i32 noundef 1, ptr noundef %option.i.i, ptr noundef %cond.i.i, ptr noundef %6)
+  call fastcc void @nk_do_toggle(ptr noundef %last_widget_state.i.i, ptr noundef %buffer.i.i, <2 x float> %7, <2 x float> %9, ptr noundef %is_active.addr.i.i, ptr noundef nonnull %label, i32 noundef %siz.05.i.lcssa, i32 noundef 1, ptr noundef %option.i.i, ptr noundef %cond.i.i, ptr noundef %6)
   %10 = load i32, ptr %is_active.addr.i.i, align 4
   br label %nk_option_text.exit.i
 
@@ -62092,7 +62092,7 @@ land.lhs.true448:                                 ; preds = %while.body
 
 if.then452:                                       ; preds = %land.lhs.true448
   %sub456 = sub nsw i32 %text_len435.01469, %text_len435.0.ph1501
-  %call457 = call fastcc <2 x float> @nk_text_calculate_text_bounds.argelim(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub456, float noundef %cond42, ptr noundef %remaining, ptr noundef nonnull %out_offset, ptr noundef %glyph_offset)
+  %call457 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub456, float noundef %cond42, ptr noundef %remaining, ptr noundef nonnull %out_offset, ptr noundef %glyph_offset)
   %cursor_pos.sroa.0.0.vec.insert = insertelement <2 x float> %call457, float %mul, i64 1
   %idx.ext460 = sext i32 %text_len435.01469 to i64
   %add.ptr461 = getelementptr inbounds i8, ptr %retval.0.i7071396, i64 %idx.ext460
@@ -62114,7 +62114,7 @@ land.lhs.true464:                                 ; preds = %if.end462
 
 if.then472:                                       ; preds = %land.lhs.true464
   %sub491 = sub nsw i32 %text_len435.01469, %text_len435.0.ph1501
-  %call492 = call fastcc <2 x float> @nk_text_calculate_text_bounds.argelim(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub491, float noundef %cond42, ptr noundef %remaining476, ptr noundef nonnull %out_offset474, ptr noundef %glyph_offset473)
+  %call492 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub491, float noundef %cond42, ptr noundef %remaining476, ptr noundef nonnull %out_offset474, ptr noundef %glyph_offset473)
   %selection_offset_start.sroa.0.0.vec.insert = insertelement <2 x float> %call492, float %mul486, i64 1
   %idx.ext495 = sext i32 %text_len435.01469 to i64
   %add.ptr496 = getelementptr inbounds i8, ptr %retval.0.i7071396, i64 %idx.ext495
@@ -62136,7 +62136,7 @@ land.lhs.true499:                                 ; preds = %if.end497
 
 if.then507:                                       ; preds = %land.lhs.true499
   %sub519 = sub nsw i32 %text_len435.01469, %text_len435.0.ph1501
-  %call520 = call fastcc <2 x float> @nk_text_calculate_text_bounds.argelim(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub519, float noundef %cond42, ptr noundef %remaining511, ptr noundef nonnull %out_offset509, ptr noundef %glyph_offset508)
+  %call520 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub519, float noundef %cond42, ptr noundef %remaining511, ptr noundef nonnull %out_offset509, ptr noundef %glyph_offset508)
   %selection_offset_end.sroa.0.0.vec.insert = insertelement <2 x float> %call520, float %mul, i64 1
   %idx.ext523 = sext i32 %text_len435.01469 to i64
   %add.ptr524 = getelementptr inbounds i8, ptr %retval.0.i7071396, i64 %idx.ext523
@@ -72121,7 +72121,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #40
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #41
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @nk_draw_vertex_element.argelim(ptr noundef %dst, ptr noundef nonnull %values, i32 noundef %format) unnamed_addr #7 {
+define internal fastcc void @nk_draw_vertex_element(ptr noundef %dst, ptr noundef nonnull %values, i32 noundef %format) unnamed_addr #7 {
 entry:
   %value = alloca i8, align 1
   %value21 = alloca i16, align 2
@@ -74880,7 +74880,7 @@ return:                                           ; preds = %if.end45, %return.s
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_curve.argelim(ptr noundef %points, ptr nocapture noundef nonnull %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #42 {
+define internal fastcc void @stbtt__tesselate_curve(ptr noundef %points, ptr nocapture noundef nonnull %num_points, float noundef %x0, float noundef %y0, float noundef %x1, float noundef %y1, float noundef %x2, float noundef %y2, float noundef %objspace_flatness_squared, i32 noundef %n) unnamed_addr #42 {
 entry:
   %cmp44 = icmp sgt i32 %n, 16
   br i1 %cmp44, label %return, label %if.end.preheader
@@ -74919,7 +74919,7 @@ if.then10:                                        ; preds = %if.end
   %add13 = fadd float %y0.tr46, %y1.tr48
   %div14 = fmul float %add13, 5.000000e-01
   %add15 = add i32 %n.tr49, 1
-  tail call fastcc void @stbtt__tesselate_curve.argelim(ptr noundef %points, ptr noundef %num_points, float noundef %x0.tr45, float noundef %y0.tr46, float noundef %div12, float noundef %div14, float noundef %div51, float noundef %div252, float noundef %objspace_flatness_squared, i32 noundef %add15)
+  tail call fastcc void @stbtt__tesselate_curve(ptr noundef %points, ptr noundef %num_points, float noundef %x0.tr45, float noundef %y0.tr46, float noundef %div12, float noundef %div14, float noundef %div51, float noundef %div252, float noundef %objspace_flatness_squared, i32 noundef %add15)
   %add16 = fadd float %x2, %x1.tr47
   %div17 = fmul float %add16, 5.000000e-01
   %add18 = fadd float %y2, %y1.tr48
@@ -76938,7 +76938,7 @@ sw.epilog19:                                      ; preds = %sw.bb16, %sw.bb14, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nk_layout_widget_space.argprom(ptr nocapture noundef %bounds, ptr nocapture noundef nonnull readonly %ctx, i32 noundef range(i32 0, 2) %modify) unnamed_addr #22 {
+define internal fastcc void @nk_layout_widget_space(ptr nocapture noundef %bounds, ptr nocapture noundef nonnull readonly %ctx, i32 noundef range(i32 0, 2) %modify) unnamed_addr #22 {
 entry:
   %current = getelementptr inbounds i8, ptr %ctx, i64 18304
   %0 = load ptr, ptr %current, align 8
@@ -79208,7 +79208,7 @@ sw.epilog:                                        ; preds = %retry, %if.then19.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc <2 x float> @nk_text_calculate_text_bounds.argelim(ptr noundef readonly %font, ptr noundef %begin, i32 noundef %byte_len, float noundef %row_height, ptr nocapture noundef nonnull writeonly %remaining, ptr noundef writeonly %out_offset, ptr nocapture noundef nonnull %glyphs) unnamed_addr #20 {
+define internal fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef readonly %font, ptr noundef %begin, i32 noundef %byte_len, float noundef %row_height, ptr nocapture noundef nonnull writeonly %remaining, ptr noundef writeonly %out_offset, ptr nocapture noundef nonnull %glyphs) unnamed_addr #20 {
 entry:
   %tobool = icmp ne ptr %begin, null
   %cmp = icmp sgt i32 %byte_len, 0
@@ -80724,7 +80724,7 @@ nk_str_at_const.exit:                             ; preds = %if.then4.i, %while.
   %sub.ptr.rhs.cast = ptrtoint ptr %retval.0.i16 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %call5 = call fastcc <2 x float> @nk_text_calculate_text_bounds.argelim(ptr noundef %font, ptr noundef %retval.0.i16, i32 noundef %conv, float noundef %row_height, ptr noundef %remaining, ptr noundef null, ptr noundef %glyphs)
+  %call5 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef %font, ptr noundef %retval.0.i16, i32 noundef %conv, float noundef %row_height, ptr noundef %remaining, ptr noundef null, ptr noundef %glyphs)
   store float 0.000000e+00, ptr %r, align 4
   %size.sroa.0.0.vec.extract = extractelement <2 x float> %call5, i64 0
   %x1 = getelementptr inbounds i8, ptr %r, i64 4

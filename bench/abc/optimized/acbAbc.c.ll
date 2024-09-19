@@ -19,7 +19,7 @@ define noundef ptr @Acb_NtkFromAbc2(ptr nocapture noundef readonly %0) local_unn
   %2 = alloca i32, align 4
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8
-  %4 = tail call fastcc ptr @Acb_ManAlloc.argprom.argelim(ptr noundef %.val, ptr noundef null)
+  %4 = tail call fastcc ptr @Acb_ManAlloc(ptr noundef %.val, ptr noundef null)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 8
@@ -59,7 +59,7 @@ define noundef ptr @Acb_NtkFromAbc2(ptr nocapture noundef readonly %0) local_unn
   %.val100.val = load ptr, ptr %22, align 8
   %23 = getelementptr inbounds ptr, ptr %.val100.val, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %14, i32 noundef 3, i32 noundef 0)
+  %25 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %14, i32 noundef 3, i32 noundef 0)
   %26 = getelementptr inbounds i8, ptr %24, i64 64
   store i32 %25, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -98,7 +98,7 @@ define noundef ptr @Acb_NtkFromAbc2(ptr nocapture noundef readonly %0) local_unn
 41:                                               ; preds = %38
   %42 = getelementptr i8, ptr %36, i64 28
   %.val107 = load i32, ptr %42, align 4
-  %43 = tail call fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %14, i32 noundef 75, i32 noundef %.val107)
+  %43 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %14, i32 noundef 75, i32 noundef %.val107)
   %44 = getelementptr inbounds i8, ptr %36, i64 64
   store i32 %43, ptr %44, align 8
   %.pre = load ptr, ptr %18, align 8
@@ -137,7 +137,7 @@ define noundef ptr @Acb_NtkFromAbc2(ptr nocapture noundef readonly %0) local_unn
   %.val110.val = load ptr, ptr %54, align 8
   %55 = getelementptr inbounds ptr, ptr %.val110.val, i64 %indvars.iv157
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %14, i32 noundef 4, i32 noundef 1)
+  %57 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %14, i32 noundef 4, i32 noundef 1)
   %58 = getelementptr inbounds i8, ptr %56, i64 64
   store i32 %57, ptr %58, align 8
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
@@ -402,7 +402,7 @@ Acb_NtkCleanObjTruths.exit:                       ; preds = %147, %Vec_WrdGrow.e
   %184 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %.val122, ptr noundef %183, ptr noundef nonnull %2) #15
   %185 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %185, 0
-  br i1 %.not.i, label %Acb_NtkAdd.argprom.exit, label %186
+  br i1 %.not.i, label %Acb_NtkAdd.exit, label %186
 
 186:                                              ; preds = %.critedge12
   %.val4.i = load ptr, ptr %14, align 8
@@ -411,15 +411,15 @@ Acb_NtkCleanObjTruths.exit:                       ; preds = %147, %Vec_WrdGrow.e
   %.val4.val.i = load ptr, ptr %187, align 8
   %188 = call ptr @Abc_NamStr(ptr noundef %.val4.val.i, i32 noundef %.val5.i) #15
   %189 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %188)
-  br label %Acb_NtkAdd.argprom.exit
+  br label %Acb_NtkAdd.exit
 
-Acb_NtkAdd.argprom.exit:                          ; preds = %.critedge12, %186
+Acb_NtkAdd.exit:                                  ; preds = %.critedge12, %186
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Acb_ManAlloc.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @Acb_ManAlloc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(1768) ptr @calloc(i64 noundef 1, i64 noundef 1768) #18
   %4 = tail call ptr @Extra_FileDesignName(ptr noundef %0) #15
   store ptr %4, ptr %3, align 8
@@ -901,7 +901,7 @@ Vec_IntGrow.exit37:                               ; preds = %Vec_IntPush.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @Acb_ObjAlloc(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = getelementptr i8, ptr %0, i64 116
   %.val = load i32, ptr %5, align 4
@@ -2314,7 +2314,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
 
 653:                                              ; preds = %650
   %654 = getelementptr inbounds i8, ptr %0, i64 432
-  tail call fastcc void @Vec_WecPushLevel.argelim(ptr noundef nonnull %654)
+  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %654)
   br label %655
 
 655:                                              ; preds = %653, %650
@@ -2325,7 +2325,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
 
 658:                                              ; preds = %655
   %659 = getelementptr inbounds i8, ptr %0, i64 448
-  tail call fastcc void @Vec_WecPushLevel.argelim(ptr noundef nonnull %659)
+  tail call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %659)
   br label %660
 
 660:                                              ; preds = %658, %655
@@ -2351,7 +2351,7 @@ define noundef ptr @Acb_NtkFromAbc(ptr nocapture noundef readonly %0) local_unna
   %2 = alloca i32, align 4
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8
-  %4 = tail call fastcc ptr @Acb_ManAlloc.argprom.argelim(ptr noundef %.val, ptr noundef null)
+  %4 = tail call fastcc ptr @Acb_ManAlloc(ptr noundef %.val, ptr noundef null)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 8
@@ -2401,7 +2401,7 @@ define noundef ptr @Acb_NtkFromAbc(ptr nocapture noundef readonly %0) local_unna
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %.lr.ph
-  %29 = tail call fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %16, i32 noundef 0, i32 noundef 0)
+  %29 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %16, i32 noundef 0, i32 noundef 0)
   br label %46
 
 30:                                               ; preds = %.lr.ph
@@ -2414,7 +2414,7 @@ define noundef ptr @Acb_NtkFromAbc(ptr nocapture noundef readonly %0) local_unna
   ]
 
 33:                                               ; preds = %30, %30
-  %34 = tail call fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %16, i32 noundef 3, i32 noundef 0)
+  %34 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %16, i32 noundef 3, i32 noundef 0)
   %35 = getelementptr inbounds i8, ptr %26, i64 64
   store i32 %34, ptr %35, align 8
   br label %46
@@ -2425,7 +2425,7 @@ define noundef ptr @Acb_NtkFromAbc(ptr nocapture noundef readonly %0) local_unna
   br i1 %narrow.i110, label %41, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %16, i32 noundef 4, i32 noundef 1)
+  %39 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %16, i32 noundef 4, i32 noundef 1)
   %40 = getelementptr inbounds i8, ptr %26, i64 64
   store i32 %39, ptr %40, align 8
   br label %46
@@ -2437,7 +2437,7 @@ define noundef ptr @Acb_NtkFromAbc(ptr nocapture noundef readonly %0) local_unna
 42:                                               ; preds = %41
   %43 = getelementptr i8, ptr %26, i64 28
   %.val93 = load i32, ptr %43, align 4
-  %44 = tail call fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %16, i32 noundef 75, i32 noundef %.val93)
+  %44 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %16, i32 noundef 75, i32 noundef %.val93)
   %45 = getelementptr inbounds i8, ptr %26, i64 64
   store i32 %44, ptr %45, align 8
   br label %46
@@ -2701,7 +2701,7 @@ Acb_NtkCleanObjTruths.exit:                       ; preds = %135, %Vec_WrdGrow.e
   %172 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %.val105, ptr noundef %171, ptr noundef nonnull %2) #15
   %173 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %173, 0
-  br i1 %.not.i, label %Acb_NtkAdd.argprom.exit, label %174
+  br i1 %.not.i, label %Acb_NtkAdd.exit, label %174
 
 174:                                              ; preds = %.critedge6
   %.val4.i = load ptr, ptr %16, align 8
@@ -2710,9 +2710,9 @@ Acb_NtkCleanObjTruths.exit:                       ; preds = %135, %Vec_WrdGrow.e
   %.val4.val.i = load ptr, ptr %175, align 8
   %176 = call ptr @Abc_NamStr(ptr noundef %.val4.val.i, i32 noundef %.val5.i) #15
   %177 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %176)
-  br label %Acb_NtkAdd.argprom.exit
+  br label %Acb_NtkAdd.exit
 
-Acb_NtkAdd.argprom.exit:                          ; preds = %.critedge6, %174
+Acb_NtkAdd.exit:                                  ; preds = %.critedge6, %174
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   ret ptr %16
 }
@@ -3051,7 +3051,7 @@ declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 define noundef ptr @Acb_NtkFromNdr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = tail call ptr @Abc_NamRef(ptr noundef %2) #15
-  %8 = tail call fastcc ptr @Acb_ManAlloc.argprom.argelim(ptr noundef %0, ptr noundef %7)
+  %8 = tail call fastcc ptr @Acb_ManAlloc(ptr noundef %0, ptr noundef %7)
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
@@ -3478,7 +3478,7 @@ Ndr_DataSize.exit.i248:                           ; preds = %196, %194
 
 Ndr_ObjReadBody.exit:                             ; preds = %Ndr_DataSize.exit.i248, %167, %191
   %.012.i244 = phi i32 [ %193, %191 ], [ -1, %167 ], [ -1, %Ndr_DataSize.exit.i248 ]
-  %202 = tail call fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %98, i32 noundef 3, i32 noundef 0)
+  %202 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %98, i32 noundef 3, i32 noundef 0)
   %203 = sext i32 %.012.i244 to i64
   %204 = getelementptr inbounds i32, ptr %.val184, i64 %203
   store i32 %202, ptr %204, align 4
@@ -3554,7 +3554,7 @@ Ndr_DataSize.exit:                                ; preds = %213, %.thread
 232:                                              ; preds = %228
   %233 = getelementptr inbounds i32, ptr %.val189.pre533, i64 %229
   %234 = load i32, ptr %233, align 4
-  %235 = tail call fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %98, i32 noundef 7, i32 noundef 0)
+  %235 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %98, i32 noundef 7, i32 noundef 0)
   %.val185 = load ptr, ptr %159, align 8
   %236 = sext i32 %234 to i64
   %237 = getelementptr inbounds i32, ptr %.val185, i64 %236
@@ -3850,7 +3850,7 @@ Ndr_DataSize.exit.i285:                           ; preds = %370, %368
 
 Ndr_ObjReadBody.exit286:                          ; preds = %Ndr_DataSize.exit.i285, %365
   %.012.i281 = phi i32 [ %367, %365 ], [ -1, %Ndr_DataSize.exit.i285 ]
-  %376 = tail call fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %98, i32 noundef %.012.i281, i32 noundef %.0.lcssa.i273)
+  %376 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %98, i32 noundef %.012.i281, i32 noundef %.0.lcssa.i273)
   %.val186 = load ptr, ptr %226, align 8
   %377 = sext i32 %.012.i267 to i64
   %378 = getelementptr inbounds i32, ptr %.val186, i64 %377
@@ -4300,7 +4300,7 @@ Ndr_DataSize.exit.i359:                           ; preds = %.thread585, %578, %
 
 Ndr_ObjReadArray.exit367:                         ; preds = %575, %Ndr_DataSize.exit.i359, %Ndr_ObjReadBody.exit346
   %.7 = phi ptr [ null, %Ndr_ObjReadBody.exit346 ], [ %.4382, %575 ], [ %.6, %Ndr_DataSize.exit.i359 ]
-  %586 = tail call fastcc i32 @Acb_ObjAlloc.argelim(ptr noundef %98, i32 noundef 4, i32 noundef 1)
+  %586 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %98, i32 noundef 4, i32 noundef 1)
   %587 = load i32, ptr %.7, align 4
   %.val177 = load ptr, ptr %393, align 8
   %588 = sext i32 %587 to i64
@@ -4397,7 +4397,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge472, %62
   %629 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %.val183, ptr noundef %628, ptr noundef nonnull %6) #15
   %630 = load i32, ptr %6, align 4
   %.not.i372 = icmp eq i32 %630, 0
-  br i1 %.not.i372, label %Acb_NtkAdd.argprom.exit, label %631
+  br i1 %.not.i372, label %Acb_NtkAdd.exit, label %631
 
 631:                                              ; preds = %Vec_IntFree.exit
   %.val4.i = load ptr, ptr %98, align 8
@@ -4406,9 +4406,9 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge472, %62
   %.val4.val.i = load ptr, ptr %632, align 8
   %633 = call ptr @Abc_NamStr(ptr noundef %.val4.val.i, i32 noundef %.val5.i) #15
   %634 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %633)
-  br label %Acb_NtkAdd.argprom.exit
+  br label %Acb_NtkAdd.exit
 
-Acb_NtkAdd.argprom.exit:                          ; preds = %Vec_IntFree.exit, %631
+Acb_NtkAdd.exit:                                  ; preds = %Vec_IntFree.exit, %631
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   ret ptr %98
 }
@@ -5272,7 +5272,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_WecPushLevel.argelim(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Vec_WecPushLevel(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8

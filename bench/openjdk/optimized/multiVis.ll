@@ -641,7 +641,7 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   %.mask204 = and i32 %2, 65535
   %.sroa.0.0.insert.ext = zext nneg i32 %.mask204 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.insert, %.sroa.0.0.insert.ext
-  %25 = call fastcc ptr @ReadRegionsInList.argelim(ptr noundef %0, ptr noundef %17, i32 noundef %14, i32 noundef %4, i32 noundef %5, i64 %.sroa.0.0.insert.insert, ptr noundef %12)
+  %25 = call fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef %17, i32 noundef %14, i32 noundef %4, i32 noundef %5, i64 %.sroa.0.0.insert.insert, ptr noundef %12)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %32, label %26
 
@@ -653,7 +653,7 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %or.cond, label %32, label %30
 
 30:                                               ; preds = %26
-  %31 = call fastcc ptr @ReadRegionsInList.argelim(ptr noundef %0, ptr noundef %17, i32 noundef %14, i32 noundef %4, i32 noundef %5, i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %13)
+  %31 = call fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef %17, i32 noundef %14, i32 noundef %4, i32 noundef %5, i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %13)
   br label %32
 
 32:                                               ; preds = %30, %26, %16
@@ -929,7 +929,7 @@ src_in_overlay.exit.thread:                       ; preds = %.lr.ph, %src_in_ove
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ReadRegionsInList.argelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 %5, ptr noundef %6) unnamed_addr #1 {
   %.sroa.0.0.extract.trunc = trunc i64 %5 to i32
   %.sroa.11.0.extract.shift = lshr i64 %5, 32
   %.sroa.11.0.extract.trunc = trunc nuw i64 %.sroa.11.0.extract.shift to i32

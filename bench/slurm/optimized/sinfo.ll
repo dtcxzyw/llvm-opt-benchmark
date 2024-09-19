@@ -636,7 +636,7 @@ _query_fed_servers.exit:                          ; preds = %.thread.i55, %.oute
   %159 = tail call ptr @list_create(ptr noundef nonnull @_sinfo_list_delete) #13
   %160 = load ptr, ptr @_query_server.new_part_ptr, align 8
   %161 = load ptr, ptr @_query_server.new_node_ptr, align 8
-  tail call fastcc void @_build_sinfo_data.retelim(ptr noundef %159, ptr noundef %160, ptr noundef %161)
+  tail call fastcc void @_build_sinfo_data(ptr noundef %159, ptr noundef %160, ptr noundef %161)
   br label %_query_server.exit
 
 _query_server.exit:                               ; preds = %.thread.i60, %_query_fed_servers.exit
@@ -873,7 +873,7 @@ define dso_local noalias noundef ptr @_build_part_info(ptr noundef %0) #4 {
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call fastcc void @_insert_node_ptr.retelim(ptr noundef %13, i16 noundef zeroext %15, ptr noundef nonnull %17, ptr noundef nonnull %37)
+  tail call fastcc void @_insert_node_ptr(ptr noundef %13, i16 noundef zeroext %15, ptr noundef nonnull %17, ptr noundef nonnull %37)
   %.pre = load ptr, ptr %18, align 8
   br label %42
 
@@ -978,7 +978,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_insert_node_ptr.retelim(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #4 {
+define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1916,7 +1916,7 @@ define internal noalias noundef ptr @_load_job_prio_thread(ptr noundef %0) #4 {
   %30 = call ptr @list_create(ptr noundef nonnull @_sinfo_list_delete) #13
   %31 = load ptr, ptr %3, align 8
   %32 = load ptr, ptr %4, align 8
-  call fastcc void @_build_sinfo_data.retelim(ptr noundef %30, ptr noundef %31, ptr noundef %32)
+  call fastcc void @_build_sinfo_data(ptr noundef %30, ptr noundef %31, ptr noundef %32)
   %.not32 = icmp eq ptr %30, null
   br i1 %.not32, label %45, label %33
 
@@ -1968,7 +1968,7 @@ declare i32 @slurm_load_node_single2(ptr noundef, ptr noundef, i16 noundef zeroe
 declare i32 @slurm_load_node2(i64 noundef, ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_build_sinfo_data.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #4 {
   %4 = alloca i16, align 2
   %5 = alloca i64, align 8
   %6 = alloca %union.pthread_attr_t, align 8
@@ -2304,7 +2304,7 @@ _filter_out.exit:                                 ; preds = %74, %._crit_edge.th
 
 163:                                              ; preds = %156
   %164 = trunc i32 %.2127 to i16
-  call fastcc void @_insert_node_ptr.retelim(ptr noundef %0, i16 noundef zeroext %164, ptr noundef nonnull %.1128, ptr noundef nonnull %148)
+  call fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroext %164, ptr noundef nonnull %.1128, ptr noundef nonnull %148)
   br label %207
 
 165:                                              ; preds = %144

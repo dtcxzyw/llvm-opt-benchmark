@@ -37,13 +37,13 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
   %16 = icmp ugt i64 %15, 7
-  br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom.exit.i.i"
+  br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i"
 
 17:                                               ; preds = %13
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %15, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6ae7258ebf4289f4c9be1426e6622b8.1) #3, !noalias !18
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom.exit.i.i": ; preds = %13
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i": ; preds = %13
   %18 = getelementptr inbounds i8, ptr %3, i64 1
   br label %"_ZN12string_cache13trivial_impls87_$LT$impl$u20$core..fmt..Display$u20$for$u20$string_cache..atom..Atom$LT$Static$GT$$GT$3fmt17hbf12532e8ad658c5E.exit"
 
@@ -63,9 +63,9 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %20, i64 noundef 8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6ae7258ebf4289f4c9be1426e6622b8.2) #3, !noalias !16
   unreachable
 
-"_ZN12string_cache13trivial_impls87_$LT$impl$u20$core..fmt..Display$u20$for$u20$string_cache..atom..Atom$LT$Static$GT$$GT$3fmt17hbf12532e8ad658c5E.exit": ; preds = %8, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom.exit.i.i", %22
-  %.sroa.4.0.i.i = phi i64 [ %26, %22 ], [ %15, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom.exit.i.i" ], [ %12, %8 ]
-  %.sroa.0.0.i.i = phi ptr [ %24, %22 ], [ %18, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom.exit.i.i" ], [ %10, %8 ]
+"_ZN12string_cache13trivial_impls87_$LT$impl$u20$core..fmt..Display$u20$for$u20$string_cache..atom..Atom$LT$Static$GT$$GT$3fmt17hbf12532e8ad658c5E.exit": ; preds = %8, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i", %22
+  %.sroa.4.0.i.i = phi i64 [ %26, %22 ], [ %15, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i" ], [ %12, %8 ]
+  %.sroa.0.0.i.i = phi ptr [ %24, %22 ], [ %18, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i" ], [ %10, %8 ]
   %28 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hdff585370e905cbdE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %28
 }
@@ -98,13 +98,13 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   %14 = lshr i64 %4, 4
   %15 = and i64 %14, 15
   %16 = icmp ugt i64 %15, 7
-  br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom.exit.i.i"
+  br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i"
 
 17:                                               ; preds = %13
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %15, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6ae7258ebf4289f4c9be1426e6622b8.1) #3, !noalias !32
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom.exit.i.i": ; preds = %13
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i": ; preds = %13
   %18 = getelementptr inbounds i8, ptr %3, i64 1
   br label %"_ZN12string_cache13trivial_impls87_$LT$impl$u20$core..fmt..Display$u20$for$u20$string_cache..atom..Atom$LT$Static$GT$$GT$3fmt17h928a1d6a1a6dda2dE.exit"
 
@@ -124,9 +124,9 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %20, i64 noundef 1110, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b6ae7258ebf4289f4c9be1426e6622b8.2) #3, !noalias !31
   unreachable
 
-"_ZN12string_cache13trivial_impls87_$LT$impl$u20$core..fmt..Display$u20$for$u20$string_cache..atom..Atom$LT$Static$GT$$GT$3fmt17h928a1d6a1a6dda2dE.exit": ; preds = %8, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom.exit.i.i", %22
-  %.sroa.4.0.i.i = phi i64 [ %26, %22 ], [ %15, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom.exit.i.i" ], [ %12, %8 ]
-  %.sroa.0.0.i.i = phi ptr [ %24, %22 ], [ %18, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom.exit.i.i" ], [ %10, %8 ]
+"_ZN12string_cache13trivial_impls87_$LT$impl$u20$core..fmt..Display$u20$for$u20$string_cache..atom..Atom$LT$Static$GT$$GT$3fmt17h928a1d6a1a6dda2dE.exit": ; preds = %8, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i", %22
+  %.sroa.4.0.i.i = phi i64 [ %26, %22 ], [ %15, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i" ], [ %12, %8 ]
+  %.sroa.0.0.i.i = phi ptr [ %24, %22 ], [ %18, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.exit.i.i" ], [ %10, %8 ]
   %28 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hdff585370e905cbdE"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.4.0.i.i, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %28
 }
@@ -170,8 +170,8 @@ attributes #3 = { noreturn }
 !16 = !{!10, !7, !15}
 !17 = !{i64 1}
 !18 = !{!19, !10, !7, !15}
-!19 = distinct !{!19, !20, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom: argument 0"}
-!20 = distinct !{!20, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom"}
+!19 = distinct !{!19, !20, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE: argument 0"}
+!20 = distinct !{!20, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE"}
 !21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !22 = !{!23}
 !23 = distinct !{!23, !24, !"_ZN12string_cache13trivial_impls87_$LT$impl$u20$core..fmt..Display$u20$for$u20$string_cache..atom..Atom$LT$Static$GT$$GT$3fmt17h928a1d6a1a6dda2dE: argument 0"}
@@ -184,5 +184,5 @@ attributes #3 = { noreturn }
 !30 = distinct !{!30, !24, !"_ZN12string_cache13trivial_impls87_$LT$impl$u20$core..fmt..Display$u20$for$u20$string_cache..atom..Atom$LT$Static$GT$$GT$3fmt17h928a1d6a1a6dda2dE: argument 1"}
 !31 = !{!26, !23, !30}
 !32 = !{!33, !26, !23, !30}
-!33 = distinct !{!33, !34, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE.argprom"}
+!33 = distinct !{!33, !34, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE: argument 0"}
+!34 = distinct !{!34, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha0590412acad372cE"}

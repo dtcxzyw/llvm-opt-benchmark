@@ -387,7 +387,7 @@ define dso_local range(i32 0, 104) i32 @sr_disk_status(ptr nocapture noundef rea
   store i8 %37, ptr %3, align 4
   store i8 1, ptr %30, align 2
   %.val = load ptr, ptr %4, align 8
-  %38 = call fastcc i32 @sr_read_tocentry.argprom(ptr %.val, ptr noundef nonnull %3)
+  %38 = call fastcc i32 @sr_read_tocentry(ptr %.val, ptr noundef nonnull %3)
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %.loopexit
 
@@ -412,7 +412,7 @@ define dso_local range(i32 0, 104) i32 @sr_disk_status(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @sr_read_tocentry.argprom(ptr %.32.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @sr_read_tocentry(ptr %.32.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.packet_command, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -688,7 +688,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_audio_ioctl(ptr nocapture nou
 34:                                               ; preds = %3
   %35 = getelementptr i8, ptr %0, i64 32
   %.val8 = load ptr, ptr %35, align 8
-  %36 = tail call fastcc i32 @sr_read_tocentry.argprom(ptr %.val8, ptr noundef %2)
+  %36 = tail call fastcc i32 @sr_read_tocentry(ptr %.val8, ptr noundef %2)
   br label %124
 
 37:                                               ; preds = %3
@@ -801,13 +801,13 @@ define dso_local range(i32 -2147483648, 1) i32 @sr_audio_ioctl(ptr nocapture nou
   %91 = getelementptr inbounds i8, ptr %6, i64 2
   store i8 2, ptr %91, align 2
   %.val7 = load ptr, ptr %38, align 8
-  %92 = call fastcc i32 @sr_read_tocentry.argprom(ptr %.val7, ptr noundef nonnull %5)
+  %92 = call fastcc i32 @sr_read_tocentry(ptr %.val7, ptr noundef nonnull %5)
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %120
 
 94:                                               ; preds = %87
   %.val = load ptr, ptr %38, align 8
-  %95 = call fastcc i32 @sr_read_tocentry.argprom(ptr %.val, ptr noundef nonnull %6)
+  %95 = call fastcc i32 @sr_read_tocentry(ptr %.val, ptr noundef nonnull %6)
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %120
 

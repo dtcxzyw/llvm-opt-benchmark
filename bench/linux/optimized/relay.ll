@@ -804,7 +804,7 @@ define dso_local noundef ptr @relay_open(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %117, label %.thread14, label %.preheader, !prof !10, !llvm.loop !21
 
 .thread14:                                        ; preds = %.preheader, %.thread16, %82
-  tail call fastcc void @kref_put.argprom(ptr noundef %48)
+  tail call fastcc void @kref_put(ptr noundef %48)
   tail call void @mutex_unlock(ptr noundef nonnull @relay_channels_mutex) #15
   br label %118
 
@@ -823,7 +823,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @kref_put.argprom(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc void @kref_put(ptr noundef %0) unnamed_addr #6 align 16 {
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #15, !srcloc !19
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %7, label %4

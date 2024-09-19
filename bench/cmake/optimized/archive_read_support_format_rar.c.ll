@@ -3775,7 +3775,7 @@ thread-pre-split250:                              ; preds = %149, %146
 
 190:                                              ; preds = %.loopexit256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
-  %191 = call fastcc i32 @create_code.argelim(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 20)
+  %191 = call fastcc i32 @create_code(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 20)
   %.not224 = icmp eq i32 %191, 0
   br i1 %.not224, label %.preheader, label %193
 
@@ -4002,25 +4002,25 @@ thread-pre-split250:                              ; preds = %149, %146
   %293 = getelementptr inbounds i8, ptr %3, i64 32
   %294 = load ptr, ptr %293, align 8
   tail call void @free(ptr noundef %294) #19
-  %295 = tail call fastcc i32 @create_code.argelim(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %192, i32 noundef 299)
+  %295 = tail call fastcc i32 @create_code(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %192, i32 noundef 299)
   %.not225 = icmp eq i32 %295, 0
   br i1 %.not225, label %296, label %347
 
 296:                                              ; preds = %.loopexit.thread
   %297 = getelementptr inbounds i8, ptr %6, i64 739
-  %298 = tail call fastcc i32 @create_code.argelim(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %297, i32 noundef 60)
+  %298 = tail call fastcc i32 @create_code(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %297, i32 noundef 60)
   %.not226 = icmp eq i32 %298, 0
   br i1 %.not226, label %299, label %347
 
 299:                                              ; preds = %296
   %300 = getelementptr inbounds i8, ptr %6, i64 799
-  %301 = tail call fastcc i32 @create_code.argelim(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %300, i32 noundef 17)
+  %301 = tail call fastcc i32 @create_code(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %300, i32 noundef 17)
   %.not227 = icmp eq i32 %301, 0
   br i1 %.not227, label %302, label %347
 
 302:                                              ; preds = %299
   %303 = getelementptr inbounds i8, ptr %6, i64 816
-  %304 = tail call fastcc i32 @create_code.argelim(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %303, i32 noundef 28)
+  %304 = tail call fastcc i32 @create_code(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %303, i32 noundef 28)
   %.not228 = icmp eq i32 %304, 0
   br i1 %.not228, label %305, label %347
 
@@ -6499,7 +6499,7 @@ define internal zeroext i8 @ppmd_read(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @create_code.argelim(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 17, 300) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 17, 300) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 12

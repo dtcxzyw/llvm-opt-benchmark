@@ -81,12 +81,12 @@ define hidden void @cbTrackingClassPrepare(ptr noundef readnone %0, ptr nocaptur
   br label %12
 
 12:                                               ; preds = %4, %6, %11
-  tail call fastcc void @addPreparedClass.argprom(ptr noundef %3)
+  tail call fastcc void @addPreparedClass(ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addPreparedClass.argprom(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @addPreparedClass(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = call i32 @classSignature(ptr noundef %0, ptr noundef nonnull %2, ptr noundef null) #5
@@ -424,7 +424,7 @@ setupEvents.exit:                                 ; preds = %50, %55
   br i1 %.not12, label %75, label %74
 
 74:                                               ; preds = %.lr.ph
-  call fastcc void @addPreparedClass.argprom(ptr noundef %71)
+  call fastcc void @addPreparedClass(ptr noundef %71)
   br label %75
 
 75:                                               ; preds = %.lr.ph, %74

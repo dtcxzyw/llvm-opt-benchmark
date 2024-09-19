@@ -11290,7 +11290,7 @@ for.body487:                                      ; preds = %for.body487.lr.ph, 
   %agg.tmp492.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx, align 4
   %agg.tmp492.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %agg.tmp492.sroa.2.0.copyload = load float, ptr %agg.tmp492.sroa.2.0.arrayidx.sroa_idx, align 4
-  invoke fastcc void @"_ZZ6splitnSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_1clEN4pbrt7Bounds2IiEEiNS9_3RGBERNS9_5ImageE.argprom.argelim"(i64 %crop488.sroa.0.0.copyload, i64 %crop488.sroa.8.0.copyload, <2 x float> %agg.tmp492.sroa.0.0.copyload, float %agg.tmp492.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(152) %result)
+  invoke fastcc void @"_ZZ6splitnSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_1clEN4pbrt7Bounds2IiEEiNS9_3RGBERNS9_5ImageE"(i64 %crop488.sroa.0.0.copyload, i64 %crop488.sroa.8.0.copyload, <2 x float> %agg.tmp492.sroa.0.0.copyload, float %agg.tmp492.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(152) %result)
           to label %for.cond494.preheader unwind label %lpad477.loopexit.split-lp.loopexit
 
 for.cond494.preheader:                            ; preds = %for.body487
@@ -11342,7 +11342,7 @@ invoke.cont520:                                   ; preds = %invoke.cont520.preh
   %retval.sroa.0.0.insert.insert.i14.i572 = or disjoint i64 %retval.sroa.2.0.insert.shift.i12.i570, %retval.sroa.0.0.insert.ext.i13.i571
   %agg.tmp521.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx, align 4
   %agg.tmp521.sroa.2.0.copyload = load float, ptr %agg.tmp492.sroa.2.0.arrayidx.sroa_idx, align 4
-  invoke fastcc void @"_ZZ6splitnSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_1clEN4pbrt7Bounds2IiEEiNS9_3RGBERNS9_5ImageE.argprom.argelim"(i64 %retval.sroa.0.0.insert.insert.i.i565, i64 %retval.sroa.0.0.insert.insert.i14.i572, <2 x float> %agg.tmp521.sroa.0.0.copyload, float %agg.tmp521.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(152) %cropsImage)
+  invoke fastcc void @"_ZZ6splitnSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_1clEN4pbrt7Bounds2IiEEiNS9_3RGBERNS9_5ImageE"(i64 %retval.sroa.0.0.insert.insert.i.i565, i64 %retval.sroa.0.0.insert.insert.i14.i572, <2 x float> %agg.tmp521.sroa.0.0.copyload, float %agg.tmp521.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(152) %cropsImage)
           to label %invoke.cont524 unwind label %lpad477.loopexit
 
 invoke.cont524:                                   ; preds = %invoke.cont520
@@ -12542,7 +12542,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZ6splitnSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_1clEN4pbrt7Bounds2IiEEiNS9_3RGBERNS9_5ImageE.argprom.argelim"(i64 %b.coerce0, i64 %b.coerce1, <2 x float> %rgb.coerce0, float %rgb.coerce1, ptr noundef nonnull align 8 dereferenceable(152) %result) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ6splitnSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_1clEN4pbrt7Bounds2IiEEiNS9_3RGBERNS9_5ImageE"(i64 %b.coerce0, i64 %b.coerce1, <2 x float> %rgb.coerce0, float %rgb.coerce1, ptr noundef nonnull align 8 dereferenceable(152) %result) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %desc = alloca %"struct.pbrt::ImageChannelDesc", align 8
   %ref.tmp = alloca [3 x %"class.std::__cxx11::basic_string"], align 8
@@ -17235,7 +17235,7 @@ if.then186:                                       ; preds = %if.end183
 
 if.end191:                                        ; preds = %if.then186, %if.end183
   store ptr %cropWindow, ptr %crop, align 8
-  invoke fastcc void @"_ZZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_3clERN4pbrt5ImageE.argprom"(ptr nonnull %cropWindow, ptr noundef nonnull align 8 dereferenceable(152) %ref)
+  invoke fastcc void @"_ZZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_3clERN4pbrt5ImageE"(ptr nonnull %cropWindow, ptr noundef nonnull align 8 dereferenceable(152) %ref)
           to label %invoke.cont193 unwind label %lpad192
 
 invoke.cont193:                                   ; preds = %if.end191
@@ -18747,7 +18747,7 @@ ehcleanup67:                                      ; preds = %lpad.i, %lpad.i83, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_3clERN4pbrt5ImageE.argprom"(ptr nocapture readonly %this.0.val, ptr noundef nonnull align 8 dereferenceable(152) %image) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_3clERN4pbrt5ImageE"(ptr nocapture readonly %this.0.val, ptr noundef nonnull align 8 dereferenceable(152) %image) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.pbrt::Image", align 8
   %ref.tmp4 = alloca %"class.pbrt::Bounds2", align 8
@@ -31928,7 +31928,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.i.us: ; preds = %for.body
   %nStored.i.i1.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i1163.us, i64 40
   %441 = load i64, ptr %nStored.i.i1.i.i.i.i.i.i.us, align 8
   %cmp5.not.i2.i.i.i.i.i.i.us = icmp eq i64 %441, 0
-  br i1 %cmp5.not.i2.i.i.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.thread.i.i.i.i.us", label %for.body.lr.ph.i3.i.i.i.i.i.i.us
+  br i1 %cmp5.not.i2.i.i.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.thread.i.i.i.i.us", label %for.body.lr.ph.i3.i.i.i.i.i.i.us
 
 for.body.lr.ph.i3.i.i.i.i.i.i.us:                 ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.i.us
   %ptr.i.i.i4.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i1163.us, i64 8
@@ -31946,9 +31946,9 @@ for.body.i7.i.i.i.i.i.i.us:                       ; preds = %for.body.i7.i.i.i.i
   %add.i11.i.i.i.i.i.i.us = fadd float %sum.06.i9.i.i.i.i.i.i.us, %444
   %indvars.iv.next.i12.i.i.i.i.i.i.us = add nuw nsw i64 %indvars.iv.i8.i.i.i.i.i.i.us, 1
   %exitcond.not.i13.i.i.i.i.i.i.us = icmp eq i64 %indvars.iv.next.i12.i.i.i.i.i.i.us, %441
-  br i1 %exitcond.not.i13.i.i.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.i.us", label %for.body.i7.i.i.i.i.i.i.us, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.i.us", label %for.body.i7.i.i.i.i.i.i.us, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.i.us": ; preds = %for.body.i7.i.i.i.i.i.i.us
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.i.us": ; preds = %for.body.i7.i.i.i.i.i.i.us
   %conv5.i.i.i.i.i.i.i.us = uitofp nneg i64 %437 to float
   %div.i.i.i.i.i.i.i.us = fdiv float %sum.0.lcssa.i.i.i.i.i.i.i.us, %conv5.i.i.i.i.i.i.i.us
   %conv5.i15.i.i.i.i.i.i.us = uitofp nneg i64 %441 to float
@@ -31956,9 +31956,9 @@ for.body.i7.i.i.i.i.i.i.us:                       ; preds = %for.body.i7.i.i.i.i
   %cmp.i.i.i.i16.i.i.us = fcmp olt float %div.i.i.i.i.i.i.i.us, %div.i16.i.i.i.i.i.i.us
   br i1 %cmp.i.i.i.i16.i.i.us, label %for.body.i.i.i25.i.i.i.i.us, label %if.else7.i.i.i.i.us
 
-for.body.i.i.i25.i.i.i.i.us:                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.i.us", %for.body.i.i.i25.i.i.i.i.us
-  %indvars.iv.i.i.i26.i.i.i.i.us = phi i64 [ %indvars.iv.next.i.i.i30.i.i.i.i.us, %for.body.i.i.i25.i.i.i.i.us ], [ 0, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.i.us" ]
-  %sum.06.i.i.i27.i.i.i.i.us = phi float [ %add.i.i.i29.i.i.i.i.us, %for.body.i.i.i25.i.i.i.i.us ], [ 0.000000e+00, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.i.us" ]
+for.body.i.i.i25.i.i.i.i.us:                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.i.us", %for.body.i.i.i25.i.i.i.i.us
+  %indvars.iv.i.i.i26.i.i.i.i.us = phi i64 [ %indvars.iv.next.i.i.i30.i.i.i.i.us, %for.body.i.i.i25.i.i.i.i.us ], [ 0, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.i.us" ]
+  %sum.06.i.i.i27.i.i.i.i.us = phi float [ %add.i.i.i29.i.i.i.i.us, %for.body.i.i.i25.i.i.i.i.us ], [ 0.000000e+00, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.i.us" ]
   %arrayidx.i.i.i.i28.i.i.i.i.us = getelementptr inbounds float, ptr %cond.i.i.i6.i.i.i.i.i.i.us, i64 %indvars.iv.i.i.i26.i.i.i.i.us
   %445 = load float, ptr %arrayidx.i.i.i.i28.i.i.i.i.us, align 4
   %add.i.i.i29.i.i.i.i.us = fadd float %sum.06.i.i.i27.i.i.i.i.us, %445
@@ -31970,7 +31970,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i32.i.i.i.i.us: ; preds = %for.bo
   %nStored.i.i1.i.i34.i.i.i.i.us = getelementptr inbounds i8, ptr %__last.addr.0250.i33.i.us, i64 -8
   %446 = load i64, ptr %nStored.i.i1.i.i34.i.i.i.i.us, align 8
   %cmp5.not.i2.i.i35.i.i.i.i.us = icmp eq i64 %446, 0
-  br i1 %cmp5.not.i2.i.i35.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit53.i.i.i.i.us", label %for.body.lr.ph.i3.i.i36.i.i.i.i.us
+  br i1 %cmp5.not.i2.i.i35.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit53.i.i.i.i.us", label %for.body.lr.ph.i3.i.i36.i.i.i.i.us
 
 for.body.lr.ph.i3.i.i36.i.i.i.i.us:               ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i32.i.i.i.i.us
   %ptr.i.i.i4.i.i37.i.i.i.i.us = getelementptr inbounds i8, ptr %__last.addr.0250.i33.i.us, i64 -40
@@ -31988,9 +31988,9 @@ for.body.i7.i.i40.i.i.i.i.us:                     ; preds = %for.body.i7.i.i40.i
   %add.i11.i.i44.i.i.i.i.us = fadd float %sum.06.i9.i.i42.i.i.i.i.us, %449
   %indvars.iv.next.i12.i.i45.i.i.i.i.us = add nuw nsw i64 %indvars.iv.i8.i.i41.i.i.i.i.us, 1
   %exitcond.not.i13.i.i46.i.i.i.i.us = icmp eq i64 %indvars.iv.next.i12.i.i45.i.i.i.i.us, %446
-  br i1 %exitcond.not.i13.i.i46.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit53.i.i.i.i.us", label %for.body.i7.i.i40.i.i.i.i.us, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i46.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit53.i.i.i.i.us", label %for.body.i7.i.i40.i.i.i.i.us, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit53.i.i.i.i.us": ; preds = %for.body.i7.i.i40.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i32.i.i.i.i.us
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit53.i.i.i.i.us": ; preds = %for.body.i7.i.i40.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i32.i.i.i.i.us
   %sum.0.lcssa.i14.i.i47.i.i.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i32.i.i.i.i.us ], [ %add.i11.i.i44.i.i.i.i.us, %for.body.i7.i.i40.i.i.i.i.us ]
   %div.i.i.i49.i.i.i.i.us = fdiv float %add.i.i.i29.i.i.i.i.us, %conv5.i15.i.i.i.i.i.i.us
   %conv5.i15.i.i50.i.i.i.i.us = uitofp nneg i64 %446 to float
@@ -31998,7 +31998,7 @@ for.body.i7.i.i40.i.i.i.i.us:                     ; preds = %for.body.i7.i.i40.i
   %cmp.i.i52.i.i.i.i.us = fcmp olt float %div.i.i.i49.i.i.i.i.us, %div.i16.i.i51.i.i.i.i.us
   br i1 %cmp.i.i52.i.i.i.i.us, label %"_ZSt22__move_median_to_firstIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_SH_T0_.exit.i.i.i.us", label %if.else.i.i.i.i.us
 
-if.else.i.i.i.i.us:                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit53.i.i.i.i.us"
+if.else.i.i.i.i.us:                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit53.i.i.i.i.us"
   br i1 %cmp5.not.i.i.i.i.i.i.i.us, label %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i67.i.i.i.i.us, label %for.body.lr.ph.i.i.i56.i.i.i.i.us
 
 for.body.lr.ph.i.i.i56.i.i.i.i.us:                ; preds = %if.else.i.i.i.i.us
@@ -32021,7 +32021,7 @@ for.body.i.i.i60.i.i.i.i.us:                      ; preds = %for.body.i.i.i60.i.
 
 _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i67.i.i.i.i.us: ; preds = %for.body.i.i.i60.i.i.i.i.us, %if.else.i.i.i.i.us
   %sum.0.lcssa.i.i.i68.i.i.i.i.us = phi float [ 0.000000e+00, %if.else.i.i.i.i.us ], [ %add.i.i.i64.i.i.i.i.us, %for.body.i.i.i60.i.i.i.i.us ]
-  br i1 %cmp5.not.i2.i.i35.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit88.i.i.i.i.us", label %for.body.lr.ph.i3.i.i71.i.i.i.i.us
+  br i1 %cmp5.not.i2.i.i35.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit88.i.i.i.i.us", label %for.body.lr.ph.i3.i.i71.i.i.i.i.us
 
 for.body.lr.ph.i3.i.i71.i.i.i.i.us:               ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i67.i.i.i.i.us
   %ptr.i.i.i4.i.i72.i.i.i.i.us = getelementptr inbounds i8, ptr %__last.addr.0250.i33.i.us, i64 -40
@@ -32039,9 +32039,9 @@ for.body.i7.i.i75.i.i.i.i.us:                     ; preds = %for.body.i7.i.i75.i
   %add.i11.i.i79.i.i.i.i.us = fadd float %sum.06.i9.i.i77.i.i.i.i.us, %455
   %indvars.iv.next.i12.i.i80.i.i.i.i.us = add nuw nsw i64 %indvars.iv.i8.i.i76.i.i.i.i.us, 1
   %exitcond.not.i13.i.i81.i.i.i.i.us = icmp eq i64 %indvars.iv.next.i12.i.i80.i.i.i.i.us, %446
-  br i1 %exitcond.not.i13.i.i81.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit88.i.i.i.i.us", label %for.body.i7.i.i75.i.i.i.i.us, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i81.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit88.i.i.i.i.us", label %for.body.i7.i.i75.i.i.i.i.us, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit88.i.i.i.i.us": ; preds = %for.body.i7.i.i75.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i67.i.i.i.i.us
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit88.i.i.i.i.us": ; preds = %for.body.i7.i.i75.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i67.i.i.i.i.us
   %sum.0.lcssa.i14.i.i82.i.i.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i67.i.i.i.i.us ], [ %add.i11.i.i79.i.i.i.i.us, %for.body.i7.i.i75.i.i.i.i.us ]
   %div.i.i.i84.i.i.i.i.us = fdiv float %sum.0.lcssa.i.i.i68.i.i.i.i.us, %conv5.i.i.i.i.i.i.i.us
   %div.i16.i.i86.i.i.i.i.us = fdiv float %sum.0.lcssa.i14.i.i82.i.i.i.i.us, %conv5.i15.i.i50.i.i.i.i.us
@@ -32049,13 +32049,13 @@ for.body.i7.i.i75.i.i.i.i.us:                     ; preds = %for.body.i7.i.i75.i
   %__c.__a.i.i.i.i.us = select i1 %cmp.i.i87.i.i.i.i.us, ptr %add.ptr2.i.i.i.us, ptr %add.ptr1.i.i.i.us
   br label %"_ZSt22__move_median_to_firstIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_SH_T0_.exit.i.i.i.us"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.thread.i.i.i.i.us": ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.i.us
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.thread.i.i.i.i.us": ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.i.us
   %conv5.i.i.i160.i.i.i.i.us = uitofp nneg i64 %437 to float
   br label %if.else7.i.i.i.i.us
 
-if.else7.i.i.i.i.us:                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.thread.i.i.i.i.us", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.i.us"
-  %conv5.i15.i.i168.i.i.i.i.us = phi float [ 0.000000e+00, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.thread.i.i.i.i.us" ], [ %conv5.i15.i.i.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.i.us" ]
-  %conv5.i.i.i166.i.i.i.i.us = phi float [ %conv5.i.i.i160.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.thread.i.i.i.i.us" ], [ %conv5.i.i.i.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.i.us" ]
+if.else7.i.i.i.i.us:                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.thread.i.i.i.i.us", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.i.us"
+  %conv5.i15.i.i168.i.i.i.i.us = phi float [ 0.000000e+00, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.thread.i.i.i.i.us" ], [ %conv5.i15.i.i.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.i.us" ]
+  %conv5.i.i.i166.i.i.i.i.us = phi float [ %conv5.i.i.i160.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.thread.i.i.i.i.us" ], [ %conv5.i.i.i.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.i.us" ]
   br i1 %cmp5.not.i.i.i.i.i.i.i.us, label %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i102.i.i.i.i.us, label %for.body.lr.ph.i.i.i91.i.i.i.i.us
 
 for.body.lr.ph.i.i.i91.i.i.i.i.us:                ; preds = %if.else7.i.i.i.i.us
@@ -32081,7 +32081,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i102.i.i.i.i.us: ; preds = %for.b
   %nStored.i.i1.i.i104.i.i.i.i.us = getelementptr inbounds i8, ptr %__last.addr.0250.i33.i.us, i64 -8
   %459 = load i64, ptr %nStored.i.i1.i.i104.i.i.i.i.us, align 8
   %cmp5.not.i2.i.i105.i.i.i.i.us = icmp eq i64 %459, 0
-  br i1 %cmp5.not.i2.i.i105.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit123.i.i.i.i.us", label %for.body.lr.ph.i3.i.i106.i.i.i.i.us
+  br i1 %cmp5.not.i2.i.i105.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit123.i.i.i.i.us", label %for.body.lr.ph.i3.i.i106.i.i.i.i.us
 
 for.body.lr.ph.i3.i.i106.i.i.i.i.us:              ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i102.i.i.i.i.us
   %ptr.i.i.i4.i.i107.i.i.i.i.us = getelementptr inbounds i8, ptr %__last.addr.0250.i33.i.us, i64 -40
@@ -32099,9 +32099,9 @@ for.body.i7.i.i110.i.i.i.i.us:                    ; preds = %for.body.i7.i.i110.
   %add.i11.i.i114.i.i.i.i.us = fadd float %sum.06.i9.i.i112.i.i.i.i.us, %462
   %indvars.iv.next.i12.i.i115.i.i.i.i.us = add nuw nsw i64 %indvars.iv.i8.i.i111.i.i.i.i.us, 1
   %exitcond.not.i13.i.i116.i.i.i.i.us = icmp eq i64 %indvars.iv.next.i12.i.i115.i.i.i.i.us, %459
-  br i1 %exitcond.not.i13.i.i116.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit123.i.i.i.i.us", label %for.body.i7.i.i110.i.i.i.i.us, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i116.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit123.i.i.i.i.us", label %for.body.i7.i.i110.i.i.i.i.us, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit123.i.i.i.i.us": ; preds = %for.body.i7.i.i110.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i102.i.i.i.i.us
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit123.i.i.i.i.us": ; preds = %for.body.i7.i.i110.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i102.i.i.i.i.us
   %sum.0.lcssa.i14.i.i117.i.i.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i102.i.i.i.i.us ], [ %add.i11.i.i114.i.i.i.i.us, %for.body.i7.i.i110.i.i.i.i.us ]
   %div.i.i.i119.i.i.i.i.us = fdiv float %sum.0.lcssa.i.i.i103.i.i.i.i.us, %conv5.i.i.i166.i.i.i.i.us
   %conv5.i15.i.i120.i.i.i.i.us = uitofp nneg i64 %459 to float
@@ -32109,7 +32109,7 @@ for.body.i7.i.i110.i.i.i.i.us:                    ; preds = %for.body.i7.i.i110.
   %cmp.i.i122.i.i.i.i.us = fcmp olt float %div.i.i.i119.i.i.i.i.us, %div.i16.i.i121.i.i.i.i.us
   br i1 %cmp.i.i122.i.i.i.i.us, label %"_ZSt22__move_median_to_firstIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_SH_T0_.exit.i.i.i.us", label %if.else10.i.i.i.i.us
 
-if.else10.i.i.i.i.us:                             ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit123.i.i.i.i.us"
+if.else10.i.i.i.i.us:                             ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit123.i.i.i.i.us"
   br i1 %cmp5.not.i2.i.i.i.i.i.i.us, label %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i137.i.i.i.i.us, label %for.body.lr.ph.i.i.i126.i.i.i.i.us
 
 for.body.lr.ph.i.i.i126.i.i.i.i.us:               ; preds = %if.else10.i.i.i.i.us
@@ -32132,7 +32132,7 @@ for.body.i.i.i130.i.i.i.i.us:                     ; preds = %for.body.i.i.i130.i
 
 _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i137.i.i.i.i.us: ; preds = %for.body.i.i.i130.i.i.i.i.us, %if.else10.i.i.i.i.us
   %sum.0.lcssa.i.i.i138.i.i.i.i.us = phi float [ 0.000000e+00, %if.else10.i.i.i.i.us ], [ %add.i.i.i134.i.i.i.i.us, %for.body.i.i.i130.i.i.i.i.us ]
-  br i1 %cmp5.not.i2.i.i105.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit158.i.i.i.i.us", label %for.body.lr.ph.i3.i.i141.i.i.i.i.us
+  br i1 %cmp5.not.i2.i.i105.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit158.i.i.i.i.us", label %for.body.lr.ph.i3.i.i141.i.i.i.i.us
 
 for.body.lr.ph.i3.i.i141.i.i.i.i.us:              ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i137.i.i.i.i.us
   %ptr.i.i.i4.i.i142.i.i.i.i.us = getelementptr inbounds i8, ptr %__last.addr.0250.i33.i.us, i64 -40
@@ -32150,9 +32150,9 @@ for.body.i7.i.i145.i.i.i.i.us:                    ; preds = %for.body.i7.i.i145.
   %add.i11.i.i149.i.i.i.i.us = fadd float %sum.06.i9.i.i147.i.i.i.i.us, %468
   %indvars.iv.next.i12.i.i150.i.i.i.i.us = add nuw nsw i64 %indvars.iv.i8.i.i146.i.i.i.i.us, 1
   %exitcond.not.i13.i.i151.i.i.i.i.us = icmp eq i64 %indvars.iv.next.i12.i.i150.i.i.i.i.us, %459
-  br i1 %exitcond.not.i13.i.i151.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit158.i.i.i.i.us", label %for.body.i7.i.i145.i.i.i.i.us, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i151.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit158.i.i.i.i.us", label %for.body.i7.i.i145.i.i.i.i.us, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit158.i.i.i.i.us": ; preds = %for.body.i7.i.i145.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i137.i.i.i.i.us
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit158.i.i.i.i.us": ; preds = %for.body.i7.i.i145.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i137.i.i.i.i.us
   %sum.0.lcssa.i14.i.i152.i.i.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i137.i.i.i.i.us ], [ %add.i11.i.i149.i.i.i.i.us, %for.body.i7.i.i145.i.i.i.i.us ]
   %div.i.i.i154.i.i.i.i.us = fdiv float %sum.0.lcssa.i.i.i138.i.i.i.i.us, %conv5.i15.i.i168.i.i.i.i.us
   %div.i16.i.i156.i.i.i.i.us = fdiv float %sum.0.lcssa.i14.i.i152.i.i.i.i.us, %conv5.i15.i.i120.i.i.i.i.us
@@ -32160,8 +32160,8 @@ for.body.i7.i.i145.i.i.i.i.us:                    ; preds = %for.body.i7.i.i145.
   %__c.__b.i.i.i.i.us = select i1 %cmp.i.i157.i.i.i.i.us, ptr %add.ptr2.i.i.i.us, ptr %add.ptr.i.i.i1163.us
   br label %"_ZSt22__move_median_to_firstIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_SH_T0_.exit.i.i.i.us"
 
-"_ZSt22__move_median_to_firstIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_SH_T0_.exit.i.i.i.us": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit158.i.i.i.i.us", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit123.i.i.i.i.us", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit88.i.i.i.i.us", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit53.i.i.i.i.us"
-  %__a.sink.i.i.i.i.us = phi ptr [ %add.ptr.i.i.i1163.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit53.i.i.i.i.us" ], [ %__c.__a.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit88.i.i.i.i.us" ], [ %add.ptr1.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit123.i.i.i.i.us" ], [ %__c.__b.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit158.i.i.i.i.us" ]
+"_ZSt22__move_median_to_firstIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_SH_T0_.exit.i.i.i.us": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit158.i.i.i.i.us", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit123.i.i.i.i.us", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit88.i.i.i.i.us", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit53.i.i.i.i.us"
+  %__a.sink.i.i.i.i.us = phi ptr [ %add.ptr.i.i.i1163.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit53.i.i.i.i.us" ], [ %__c.__a.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit88.i.i.i.i.us" ], [ %add.ptr1.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit123.i.i.i.i.us" ], [ %__c.__b.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit158.i.i.i.i.us" ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__tmp.i)
   %469 = load i64, ptr %__first.addr.0251.i31.i.us, align 8
   store i64 %469, ptr %__tmp.i, align 8
@@ -32524,8 +32524,8 @@ while.body.split.i.i.i.i.us:                      ; preds = %while.body.i.i17.i.
   %cond.i.i.i6.i.i.i14.i.i.i.us = select i1 %tobool.not.i.i.i5.i.i.i13.i.i.i.us, ptr %541, ptr %543
   br label %while.cond1.i.i.i.i.us
 
-while.cond1.i.i.i.i.us:                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.loopexit.i.i.i.i.us", %while.body.split.i.i.i.i.us
-  %__first.addr.1.i.i.i.i.us = phi ptr [ %__first.addr.0.i.i.i.i.us, %while.body.split.i.i.i.i.us ], [ %incdec.ptr.i.i.i.i1164.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.loopexit.i.i.i.i.us" ]
+while.cond1.i.i.i.i.us:                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.loopexit.i.i.i.i.us", %while.body.split.i.i.i.i.us
+  %__first.addr.1.i.i.i.i.us = phi ptr [ %__first.addr.0.i.i.i.i.us, %while.body.split.i.i.i.i.us ], [ %incdec.ptr.i.i.i.i1164.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.loopexit.i.i.i.i.us" ]
   %nStored.i.i.i.i.i15.i.i.i.us = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i.us, i64 40
   %544 = load i64, ptr %nStored.i.i.i.i.i15.i.i.i.us, align 8
   %cmp5.not.i.i.i.i16.i.i.i.us = icmp eq i64 %544, 0
@@ -32561,9 +32561,9 @@ for.body.i7.i.i.i30.i.i.i.us:                     ; preds = %for.body.i7.i.i.i30
   %add.i11.i.i.i34.i.i.i.us = fadd float %sum.06.i9.i.i.i32.i.i.i.us, %548
   %indvars.iv.next.i12.i.i.i35.i.i.i.us = add nuw nsw i64 %indvars.iv.i8.i.i.i31.i.i.i.us, 1
   %exitcond.not.i13.i.i.i36.i.i.i.us = icmp eq i64 %indvars.iv.next.i12.i.i.i35.i.i.i.us, %542
-  br i1 %exitcond.not.i13.i.i.i36.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.loopexit.i.i.i.i.us", label %for.body.i7.i.i.i30.i.i.i.us, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i.i36.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.loopexit.i.i.i.i.us", label %for.body.i7.i.i.i30.i.i.i.us, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.loopexit.i.i.i.i.us": ; preds = %for.body.i7.i.i.i30.i.i.i.us
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.loopexit.i.i.i.i.us": ; preds = %for.body.i7.i.i.i30.i.i.i.us
   %conv5.i.i.i.i37.i.i.i.us = uitofp nneg i64 %544 to float
   %div.i.i.i.i38.i.i.i.us = fdiv float %sum.0.lcssa.i.i.i.i29.i.i.i.us, %conv5.i.i.i.i37.i.i.i.us
   %div.i16.i.i.i39.i.i.i.us = fdiv float %add.i11.i.i.i34.i.i.i.us, %conv5.i15.i.i.i12.i.i.i.us
@@ -32608,13 +32608,13 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i.i.i.us: ; preds = %for.b
   %incdec.ptr.us.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.addr.1.us.i.i.i.i.us, i64 48
   br i1 %cmp.i.i.us.i.i.i.i.us, label %while.cond1.us.i.i.i.i.us, label %while.cond4.preheader.i.i.i.i.us, !llvm.loop !187
 
-while.cond4.preheader.i.i.i.i.us:                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.loopexit.i.i.i.i.us", %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i.i.i.us
-  %553 = phi i64 [ %549, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i.i.i.us ], [ %544, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.loopexit.i.i.i.i.us" ]
-  %.us-phi48.i.i.i.i.us = phi ptr [ %__first.addr.1.us.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i.i.i.us ], [ %__first.addr.1.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.loopexit.i.i.i.i.us" ]
+while.cond4.preheader.i.i.i.i.us:                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.loopexit.i.i.i.i.us", %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i.i.i.us
+  %553 = phi i64 [ %549, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i.i.i.us ], [ %544, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.loopexit.i.i.i.i.us" ]
+  %.us-phi48.i.i.i.i.us = phi ptr [ %__first.addr.1.us.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i.i.i.us ], [ %__first.addr.1.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.loopexit.i.i.i.i.us" ]
   br label %while.cond4.i.i.i.i.us
 
-while.cond4.i.i.i.i.us:                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit45.i.i.i.i.us", %while.cond4.preheader.i.i.i.i.us
-  %__last.addr.0.pn.i.i.i.i.us = phi ptr [ %__last.addr.1.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit45.i.i.i.i.us" ], [ %__last.addr.0.i.i.i.i.us, %while.cond4.preheader.i.i.i.i.us ]
+while.cond4.i.i.i.i.us:                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit45.i.i.i.i.us", %while.cond4.preheader.i.i.i.i.us
+  %__last.addr.0.pn.i.i.i.i.us = phi ptr [ %__last.addr.1.i.i.i.i.us, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit45.i.i.i.i.us" ], [ %__last.addr.0.i.i.i.i.us, %while.cond4.preheader.i.i.i.i.us ]
   %__last.addr.1.i.i.i.i.us = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i.i.i.us, i64 -48
   br i1 %cmp5.not.i2.i.i.i11.i.i.i.us, label %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i24.i.i.i.i.us, label %for.body.lr.ph.i.i.i13.i.i.i.i.us
 
@@ -32639,7 +32639,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i24.i.i.i.i.us: ; preds = %for.bo
   %nStored.i.i1.i.i26.i.i.i.i.us = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i.i.i.us, i64 -8
   %556 = load i64, ptr %nStored.i.i1.i.i26.i.i.i.i.us, align 8
   %cmp5.not.i2.i.i27.i.i.i.i.us = icmp eq i64 %556, 0
-  br i1 %cmp5.not.i2.i.i27.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit45.i.i.i.i.us", label %for.body.lr.ph.i3.i.i28.i.i.i.i.us
+  br i1 %cmp5.not.i2.i.i27.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit45.i.i.i.i.us", label %for.body.lr.ph.i3.i.i28.i.i.i.i.us
 
 for.body.lr.ph.i3.i.i28.i.i.i.i.us:               ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i24.i.i.i.i.us
   %ptr.i.i.i4.i.i29.i.i.i.i.us = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i.i.i.us, i64 -40
@@ -32657,9 +32657,9 @@ for.body.i7.i.i32.i.i.i.i.us:                     ; preds = %for.body.i7.i.i32.i
   %add.i11.i.i36.i.i.i.i.us = fadd float %sum.06.i9.i.i34.i.i.i.i.us, %559
   %indvars.iv.next.i12.i.i37.i.i.i.i.us = add nuw nsw i64 %indvars.iv.i8.i.i33.i.i.i.i.us, 1
   %exitcond.not.i13.i.i38.i.i.i.i.us = icmp eq i64 %indvars.iv.next.i12.i.i37.i.i.i.i.us, %556
-  br i1 %exitcond.not.i13.i.i38.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit45.i.i.i.i.us", label %for.body.i7.i.i32.i.i.i.i.us, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i38.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit45.i.i.i.i.us", label %for.body.i7.i.i32.i.i.i.i.us, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit45.i.i.i.i.us": ; preds = %for.body.i7.i.i32.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i24.i.i.i.i.us
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit45.i.i.i.i.us": ; preds = %for.body.i7.i.i32.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i24.i.i.i.i.us
   %sum.0.lcssa.i14.i.i39.i.i.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i24.i.i.i.i.us ], [ %add.i11.i.i36.i.i.i.i.us, %for.body.i7.i.i32.i.i.i.i.us ]
   %div.i.i.i41.i.i.i.i.us = fdiv float %sum.0.lcssa.i.i.i25.i.i.i.i.us, %conv5.i15.i.i.i12.i.i.i.us
   %conv5.i15.i.i42.i.i.i.i.us = uitofp nneg i64 %556 to float
@@ -32667,7 +32667,7 @@ for.body.i7.i.i32.i.i.i.i.us:                     ; preds = %for.body.i7.i.i32.i
   %cmp.i.i44.i.i.i.i.us = fcmp olt float %div.i.i.i41.i.i.i.i.us, %div.i16.i.i43.i.i.i.i.us
   br i1 %cmp.i.i44.i.i.i.i.us, label %while.cond4.i.i.i.i.us, label %while.end8.i.i.i.i.us, !llvm.loop !188
 
-while.end8.i.i.i.i.us:                            ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit45.i.i.i.i.us"
+while.end8.i.i.i.i.us:                            ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit45.i.i.i.i.us"
   %nStored.i.i1.i.i26.i.i.i.i.us.le = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i.i.i.us, i64 -8
   %cmp.i.i18.i.i.us = icmp ult ptr %.us-phi48.i.i.i.i.us, %__last.addr.1.i.i.i.i.us
   br i1 %cmp.i.i18.i.i.us, label %if.end.i.i19.i.i.us, label %"_ZSt27__unguarded_partition_pivotIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEET_SH_SH_T0_.exit.i.i.us"
@@ -32732,7 +32732,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i41.i.i.us: ; preds = %for.body
   %sum.0.lcssa.i.i.i.i42.i.i.us = phi float [ 0.000000e+00, %for.body.i27.i.i.us ], [ %add.i.i.i.i38.i.i.us, %for.body.i.i.i.i34.i.i.us ]
   %565 = load i64, ptr %nStored.i.i1.i.i.i22.i.i.us, align 8
   %cmp5.not.i2.i.i.i43.i.i.us = icmp eq i64 %565, 0
-  br i1 %cmp5.not.i2.i.i.i43.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i54.i.i.us", label %for.body.lr.ph.i3.i.i.i44.i.i.us
+  br i1 %cmp5.not.i2.i.i.i43.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i54.i.i.us", label %for.body.lr.ph.i3.i.i.i44.i.i.us
 
 for.body.lr.ph.i3.i.i.i44.i.i.us:                 ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i41.i.i.us
   %566 = load ptr, ptr %ptr.i.i.i4.i.i.i23.i.i.us, align 8
@@ -32748,9 +32748,9 @@ for.body.i7.i.i.i47.i.i.us:                       ; preds = %for.body.i7.i.i.i47
   %add.i11.i.i.i51.i.i.us = fadd float %sum.06.i9.i.i.i49.i.i.us, %567
   %indvars.iv.next.i12.i.i.i52.i.i.us = add nuw nsw i64 %indvars.iv.i8.i.i.i48.i.i.us, 1
   %exitcond.not.i13.i.i.i53.i.i.us = icmp eq i64 %indvars.iv.next.i12.i.i.i52.i.i.us, %565
-  br i1 %exitcond.not.i13.i.i.i53.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i54.i.i.us", label %for.body.i7.i.i.i47.i.i.us, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i.i53.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i54.i.i.us", label %for.body.i7.i.i.i47.i.i.us, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i54.i.i.us": ; preds = %for.body.i7.i.i.i47.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i41.i.i.us
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i54.i.i.us": ; preds = %for.body.i7.i.i.i47.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i41.i.i.us
   %sum.0.lcssa.i14.i.i.i55.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i41.i.i.us ], [ %add.i11.i.i.i51.i.i.us, %for.body.i7.i.i.i47.i.i.us ]
   %conv5.i.i.i.i56.i.i.us = uitofp nneg i64 %561 to float
   %div.i.i.i.i57.i.i.us = fdiv float %sum.0.lcssa.i.i.i.i42.i.i.us, %conv5.i.i.i.i56.i.i.us
@@ -32759,7 +32759,7 @@ for.body.i7.i.i.i47.i.i.us:                       ; preds = %for.body.i7.i.i.i47
   %cmp.i.i.i60.i.i.us = fcmp olt float %div.i.i.i.i57.i.i.us, %div.i16.i.i.i59.i.i.us
   br i1 %cmp.i.i.i60.i.i.us, label %if.then2.i.i.i.us, label %if.else.i.i.i.us
 
-if.else.i.i.i.us:                                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i54.i.i.us"
+if.else.i.i.i.us:                                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i54.i.i.us"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__val.i.i.i.i)
   %568 = load i64, ptr %__i.0117.i.i.i.us, align 8
   store i64 %568, ptr %__val.i.i.i.i, align 8
@@ -33158,7 +33158,7 @@ for.end.i103.i.i.i.us:                            ; preds = %for.body.i97.i.i.i.
 while.cond.i.i.i.i.us.backedge:                   ; preds = %for.end.i103.i.i.i.us, %if.then3.i87.i.i.i.us, %for.end29.i60.i.i.i.us
   br label %while.cond.i.i.i.i.us
 
-if.then2.i.i.i.us:                                ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i54.i.i.us"
+if.then2.i.i.i.us:                                ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i54.i.i.us"
   %643 = load i64, ptr %__i.0117.i.i.i.us, align 8
   store i64 %643, ptr %__val.i.i.i, align 8
   store i64 %561, ptr %__val.i.sink.i.sink.i.i.sroa.gep3195, align 8
@@ -33539,7 +33539,7 @@ if.then.i.i1169.us:                               ; preds = %while.body.i.i.us
   %sub.ptr.sub.i.i.i.i.us = sub i64 %sub.ptr.lhs.cast.i.i.i.i.us, %sub.ptr.rhs.cast.i.i1166.us
   %sub.ptr.div.i.i.i.i.us = sdiv exact i64 %sub.ptr.sub.i.i.i.i.us, 48
   %cmp.i.i.i.i.us = icmp slt i64 %sub.ptr.sub.i.i.i.i.us, 96
-  br i1 %cmp.i.i.i.i.us, label %"_ZSt11__make_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_RT0_.argprom.exit.i.i.i.us", label %if.end.i.i.i.i.us
+  br i1 %cmp.i.i.i.i.us, label %"_ZSt11__make_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_RT0_.exit.i.i.i.us", label %if.end.i.i.i.i.us
 
 if.end.i.i.i.i.us:                                ; preds = %if.then.i.i1169.us
   %sub.i.i.i.i.us = add nsw i64 %sub.ptr.div.i.i.i.i.us, -2
@@ -33637,9 +33637,9 @@ _ZN4pbrt18ImageChannelValuesD2Ev.exit40.i.i.i.i.us: ; preds = %if.end.i.i.i.i.i.
   %dec.i.i.i.i.us = add nsw i64 %__parent.0.i.i.i.i.us, -1
   %cmp8.not.i.i.i.i.us = icmp eq i64 %__parent.0.i.i.i.i.us, 0
   %indvar.next.i.i.i.i.us = add nuw i64 %indvar.i.i.i.i.us, 1
-  br i1 %cmp8.not.i.i.i.i.us, label %"_ZSt11__make_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_RT0_.argprom.exit.i.i.i.us", label %while.body.i.i.i.i.us
+  br i1 %cmp8.not.i.i.i.i.us, label %"_ZSt11__make_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_RT0_.exit.i.i.i.us", label %while.body.i.i.i.i.us
 
-"_ZSt11__make_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_RT0_.argprom.exit.i.i.i.us": ; preds = %_ZN4pbrt18ImageChannelValuesD2Ev.exit40.i.i.i.i.us, %if.then.i.i1169.us
+"_ZSt11__make_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_RT0_.exit.i.i.i.us": ; preds = %_ZN4pbrt18ImageChannelValuesD2Ev.exit40.i.i.i.i.us, %if.then.i.i1169.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__value.i.i.i.i.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__value.i.i.i.i.sroa.4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__value.i.i.i.i.sroa.7)
@@ -33647,7 +33647,7 @@ _ZN4pbrt18ImageChannelValuesD2Ev.exit40.i.i.i.i.us: ; preds = %if.end.i.i.i.i.i.
   %cmp34.i.i.i.us = icmp ult ptr %add.ptr.i.i1170.us, %call.__last.addr.0.i.i.us
   br i1 %cmp34.i.i.i.us, label %for.body.lr.ph.i.i.i1180.us, label %"_ZSt13__heap_selectIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_T0_.exit.i.i.us"
 
-for.body.lr.ph.i.i.i1180.us:                      ; preds = %"_ZSt11__make_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_RT0_.argprom.exit.i.i.i.us"
+for.body.lr.ph.i.i.i1180.us:                      ; preds = %"_ZSt11__make_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_RT0_.exit.i.i.i.us"
   %nStored.i.i1.i.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.addr.0.call.i.i.us, i64 40
   %ptr.i.i.i4.i.i.i.i.i.us = getelementptr inbounds i8, ptr %__first.addr.0.call.i.i.us, i64 8
   %731 = getelementptr inbounds i8, ptr %__first.addr.0.call.i.i.us, i64 16
@@ -33683,7 +33683,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.us: ; preds = %for.body.i
   %sum.0.lcssa.i.i.i.i.i.i.us = phi float [ 0.000000e+00, %for.body.i.i.i1181.us ], [ %add.i.i.i.i.i.i.us, %for.body.i.i.i.i.i.i1182.us ]
   %736 = load i64, ptr %nStored.i.i1.i.i.i.i.i.us, align 8
   %cmp5.not.i2.i.i.i.i.i.us = icmp eq i64 %736, 0
-  br i1 %cmp5.not.i2.i.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.us", label %for.body.lr.ph.i3.i.i.i.i.i.us
+  br i1 %cmp5.not.i2.i.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.us", label %for.body.lr.ph.i3.i.i.i.i.i.us
 
 for.body.lr.ph.i3.i.i.i.i.i.us:                   ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.us
   %737 = load ptr, ptr %ptr.i.i.i4.i.i.i.i.i.us, align 8
@@ -33699,9 +33699,9 @@ for.body.i7.i.i.i.i.i.us:                         ; preds = %for.body.i7.i.i.i.i
   %add.i11.i.i.i.i.i.us = fadd float %sum.06.i9.i.i.i.i.i.us, %738
   %indvars.iv.next.i12.i.i.i.i.i.us = add nuw nsw i64 %indvars.iv.i8.i.i.i.i.i.us, 1
   %exitcond.not.i13.i.i.i.i.i.us = icmp eq i64 %indvars.iv.next.i12.i.i.i.i.i.us, %736
-  br i1 %exitcond.not.i13.i.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.us", label %for.body.i7.i.i.i.i.i.us, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i.i.i.i.us, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.us", label %for.body.i7.i.i.i.i.i.us, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.us": ; preds = %for.body.i7.i.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.us
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.us": ; preds = %for.body.i7.i.i.i.i.i.us, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.us
   %sum.0.lcssa.i14.i.i.i.i.i.us = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i.i.us ], [ %add.i11.i.i.i.i.i.us, %for.body.i7.i.i.i.i.i.us ]
   %conv5.i.i.i.i.i.i.us = uitofp nneg i64 %732 to float
   %div.i.i.i.i.i.i1185.us = fdiv float %sum.0.lcssa.i.i.i.i.i.i.us, %conv5.i.i.i.i.i.i.us
@@ -33710,7 +33710,7 @@ for.body.i7.i.i.i.i.i.us:                         ; preds = %for.body.i7.i.i.i.i
   %cmp.i.i.i.i.i.us = fcmp olt float %div.i.i.i.i.i.i1185.us, %div.i16.i.i.i.i.i.us
   br i1 %cmp.i.i.i.i.i.us, label %if.then.i.i.i1186.us, label %for.inc.i.i.i.us
 
-if.then.i.i.i1186.us:                             ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.us"
+if.then.i.i.i1186.us:                             ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.us"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__value.i9.i.i.i.sroa.0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__value.i9.i.i.i.sroa.5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__value.i9.i.i.i.sroa.9)
@@ -33916,7 +33916,7 @@ invoke.cont1.i.i.i.i.us:                          ; preds = %for.body.lr.ph.i.i1
 invoke.cont4.i.i.i.i.us:                          ; preds = %invoke.cont1.i.i.i.i.us
   %774 = load ptr, ptr %ptr.i.i6.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i25.i.i.i.us = icmp eq ptr %774, null
-  br i1 %tobool.not.i.i.i.i.i.i25.i.i.i.us, label %"_ZSt10__pop_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_RT0_.argprom.exit.i.i.i.us", label %if.end.i.i.i.i.i.i26.i.i.i.us
+  br i1 %tobool.not.i.i.i.i.i.i25.i.i.i.us, label %"_ZSt10__pop_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_RT0_.exit.i.i.i.us", label %if.end.i.i.i.i.i.i26.i.i.i.us
 
 if.end.i.i.i.i.i.i26.i.i.i.us:                    ; preds = %invoke.cont4.i.i.i.i.us
   %775 = load i64, ptr %nAlloc.i.i7.i.i.i.i, align 8
@@ -33926,21 +33926,21 @@ if.end.i.i.i.i.i.i26.i.i.i.us:                    ; preds = %invoke.cont4.i.i.i.
   %vfn.i.i.i.i.i.i29.i.i.i.us = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i28.i.i.i.us, i64 24
   %777 = load ptr, ptr %vfn.i.i.i.i.i.i29.i.i.i.us, align 8
   invoke void %777(ptr noundef nonnull align 8 dereferenceable(8) %776, ptr noundef nonnull %774, i64 noundef %mul.i.i.i.i27.i.i.i.us, i64 noundef 4)
-          to label %"_ZSt10__pop_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_RT0_.argprom.exit.i.i.i.us" unwind label %terminate.lpad.i.i.i30.i.i.i.split.us
+          to label %"_ZSt10__pop_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_RT0_.exit.i.i.i.us" unwind label %terminate.lpad.i.i.i30.i.i.i.split.us
 
-"_ZSt10__pop_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_RT0_.argprom.exit.i.i.i.us": ; preds = %if.end.i.i.i.i.i.i26.i.i.i.us, %invoke.cont4.i.i.i.i.us
+"_ZSt10__pop_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_RT0_.exit.i.i.i.us": ; preds = %if.end.i.i.i.i.i.i26.i.i.i.us, %invoke.cont4.i.i.i.i.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__value.i9.i.i.i.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__value.i9.i.i.i.sroa.5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__value.i9.i.i.i.sroa.9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i10.i.i.i)
   br label %for.inc.i.i.i.us
 
-for.inc.i.i.i.us:                                 ; preds = %"_ZSt10__pop_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_RT0_.argprom.exit.i.i.i.us", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit.i.i.i.us"
+for.inc.i.i.i.us:                                 ; preds = %"_ZSt10__pop_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_RT0_.exit.i.i.i.us", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit.i.i.i.us"
   %incdec.ptr.i.i.i.us = getelementptr inbounds i8, ptr %__i.035.i.i.i.us, i64 48
   %cmp.i.i.i.us = icmp ult ptr %incdec.ptr.i.i.i.us, %call.__last.addr.0.i.i.us
   br i1 %cmp.i.i.i.us, label %for.body.i.i.i1181.us, label %"_ZSt13__heap_selectIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_T0_.exit.i.i.us", !llvm.loop !192
 
-"_ZSt13__heap_selectIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_T0_.exit.i.i.us": ; preds = %for.inc.i.i.i.us, %"_ZSt11__make_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_RT0_.argprom.exit.i.i.i.us"
+"_ZSt13__heap_selectIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_SH_T0_.exit.i.i.us": ; preds = %for.inc.i.i.i.us, %"_ZSt11__make_heapIPN4pbrt18ImageChannelValuesEN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_SH_RT0_.exit.i.i.i.us"
   invoke void @_ZSt4swapIN4pbrt18ImageChannelValuesEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.0.call.i.i.us, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i1151.us)
           to label %invoke.cont1235.us unwind label %lpad1142.loopexit.split-lp.loopexit.split.us
 
@@ -52379,11 +52379,11 @@ for.inc72.i.i.i:                                  ; preds = %for.inc69.i.i.i, %f
 
 for.end74.i.i.i:                                  ; preds = %for.inc72.i.i.i, %for.body.lr.ph.i.i.i, %invoke.cont.i.i.i
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %skyv.sroa.0.0.i.i.i, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ7makeskySt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZ7makeskySt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.end74.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %skyv.sroa.0.0.i.i.i) #40
-  br label %"_ZSt10__invoke_rIvRZ7makeskySt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZ7makeskySt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 ehcleanup.i.i.i:                                  ; preds = %if.end.i.i.i.i4.i.i.i.i, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i.i.i, %lpad10.loopexit.split-lp.i.i.i, %lpad10.loopexit.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %lpad.phi.i.i.i, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i.i.i ], [ %lpad.phi.i.i.i, %if.end.i.i.i.i4.i.i.i.i ], [ %lpad.loopexit101.i.i.i, %lpad10.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad10.loopexit.split-lp.i.i.i ]
@@ -52397,7 +52397,7 @@ if.then.i.i.i56.i.i.i:                            ; preds = %ehcleanup.i.i.i
 eh.resume.i.i.i:                                  ; preds = %if.then.i.i.i56.i.i.i, %ehcleanup.i.i.i
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZ7makeskySt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %for.end74.i.i.i, %if.then.i.i.i.i.i.i
+"_ZSt10__invoke_rIvRZ7makeskySt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %for.end74.i.i.i, %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %spec.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp47.i.i.i)
   ret void
@@ -57937,7 +57937,7 @@ _ZNSt4pairIN4pbrt6Point2IiEENS0_18ImageChannelValuesEED2Ev.exit43.i.i.i: ; preds
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   %cmp11.not.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %indvar.next.i.i.i = add nuw i64 %indvar.i.i.i, 1
-  br i1 %cmp11.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_RT0_.argprom.exit.i.i", label %while.body.i.i.i
+  br i1 %cmp11.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_RT0_.exit.i.i", label %while.body.i.i.i
 
 common.resume:                                    ; preds = %lpad.i14, %ehcleanup.i, %lpad9.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %24, %lpad9.i.i.i ], [ %.pn.i, %ehcleanup.i ], [ %179, %lpad.i14 ]
@@ -57950,7 +57950,7 @@ lpad9.i.i.i:                                      ; preds = %invoke.cont.i.i.i
   call void @_ZNSt4pairIN4pbrt6Point2IiEENS0_18ImageChannelValuesEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %__value.i.i.i) #34
   br label %common.resume
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_RT0_.argprom.exit.i.i": ; preds = %_ZNSt4pairIN4pbrt6Point2IiEENS0_18ImageChannelValuesEED2Ev.exit43.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_RT0_.exit.i.i": ; preds = %_ZNSt4pairIN4pbrt6Point2IiEENS0_18ImageChannelValuesEED2Ev.exit43.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__value.i.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp6.i.i.i)
   %second.i.i = getelementptr inbounds i8, ptr %__value.i, i64 8
@@ -57965,8 +57965,8 @@ lpad9.i.i.i:                                      ; preds = %invoke.cont.i.i.i
   %26 = getelementptr inbounds i8, ptr %agg.tmp7.i, i64 24
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.argprom.exit"
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.argprom.exit" ], [ %storemerge114, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_RT0_.argprom.exit.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.exit"
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.exit" ], [ %storemerge114, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_RT0_.exit.i.i" ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -56
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %__value.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp7.i)
@@ -58045,7 +58045,7 @@ invoke.cont8.i:                                   ; preds = %if.else.i.i.i14.i, 
 invoke.cont12.i:                                  ; preds = %invoke.cont8.i
   %38 = load ptr, ptr %ptr.i.i.i7.i, align 8
   %tobool.not.i.i.i.i.i.i.i12 = icmp eq ptr %38, null
-  br i1 %tobool.not.i.i.i.i.i.i.i12, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.argprom.exit", label %if.end.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i12, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.exit", label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %invoke.cont12.i
   %39 = load i64, ptr %nAlloc.i.i.i8.i, align 8
@@ -58055,7 +58055,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %invoke.cont12.i
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 24
   %41 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %38, i64 noundef %mul.i.i.i.i.i, i64 noundef 4)
-          to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.argprom.exit" unwind label %terminate.lpad.i.i.i.i
+          to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.exit" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
   %42 = landingpad { ptr, i32 }
@@ -58080,7 +58080,7 @@ ehcleanup.i:                                      ; preds = %lpad11.i, %lpad.i
   call void @_ZNSt4pairIN4pbrt6Point2IiEENS0_18ImageChannelValuesEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %__value.i) #34
   br label %common.resume
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.argprom.exit": ; preds = %invoke.cont12.i, %if.end.i.i.i.i.i.i.i
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.exit": ; preds = %invoke.cont12.i, %if.end.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__value.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp7.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i11, 56
@@ -58116,7 +58116,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i: ; preds = %for.body.i.i.i.
   %nStored.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 48
   %49 = load i64, ptr %nStored.i.i1.i.i.i.i, align 8
   %cmp5.not.i2.i.i.i.i = icmp eq i64 %49, 0
-  br i1 %cmp5.not.i2.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.thread.i.i", label %for.body.lr.ph.i3.i.i.i.i
+  br i1 %cmp5.not.i2.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.thread.i.i", label %for.body.lr.ph.i3.i.i.i.i
 
 for.body.lr.ph.i3.i.i.i.i:                        ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i
   %ptr.i.i.i4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
@@ -58134,9 +58134,9 @@ for.body.i7.i.i.i.i:                              ; preds = %for.body.i7.i.i.i.i
   %add.i11.i.i.i.i = fadd float %sum.06.i9.i.i.i.i, %52
   %indvars.iv.next.i12.i.i.i.i = add nuw nsw i64 %indvars.iv.i8.i.i.i.i, 1
   %exitcond.not.i13.i.i.i.i = icmp eq i64 %indvars.iv.next.i12.i.i.i.i, %49
-  br i1 %exitcond.not.i13.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.i.i", label %for.body.i7.i.i.i.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.i.i", label %for.body.i7.i.i.i.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.i.i": ; preds = %for.body.i7.i.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.i.i": ; preds = %for.body.i7.i.i.i.i
   %conv5.i.i.i.i.i = uitofp nneg i64 %46 to float
   %div.i.i.i.i.i = fdiv float %sum.0.lcssa.i.i.i.i.i, %conv5.i.i.i.i.i
   %conv5.i15.i.i.i.i = uitofp nneg i64 %49 to float
@@ -58144,13 +58144,13 @@ for.body.i7.i.i.i.i:                              ; preds = %for.body.i7.i.i.i.i
   %cmp.i.i.i.i = fcmp olt float %div.i.i.i.i.i, %div.i16.i.i.i.i
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i7.i.i, label %if.else33.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.thread.i.i": ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.thread.i.i": ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i.i
   %conv5.i.i.i152.i.i = uitofp nneg i64 %46 to float
   br label %if.else33.i.i
 
-for.body.i.i.i7.i.i:                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.i.i", %for.body.i.i.i7.i.i
-  %indvars.iv.i.i.i8.i.i = phi i64 [ %indvars.iv.next.i.i.i12.i.i, %for.body.i.i.i7.i.i ], [ 0, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.i.i" ]
-  %sum.06.i.i.i9.i.i = phi float [ %add.i.i.i11.i.i, %for.body.i.i.i7.i.i ], [ 0.000000e+00, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.i.i" ]
+for.body.i.i.i7.i.i:                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.i.i", %for.body.i.i.i7.i.i
+  %indvars.iv.i.i.i8.i.i = phi i64 [ %indvars.iv.next.i.i.i12.i.i, %for.body.i.i.i7.i.i ], [ 0, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.i.i" ]
+  %sum.06.i.i.i9.i.i = phi float [ %add.i.i.i11.i.i, %for.body.i.i.i7.i.i ], [ 0.000000e+00, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.i.i" ]
   %arrayidx.i.i.i.i10.i.i = getelementptr inbounds float, ptr %cond.i.i.i6.i.i.i.i, i64 %indvars.iv.i.i.i8.i.i
   %53 = load float, ptr %arrayidx.i.i.i.i10.i.i, align 4
   %add.i.i.i11.i.i = fadd float %sum.06.i.i.i9.i.i, %53
@@ -58162,7 +58162,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i14.i.i: ; preds = %for.body.i.i.
   %nStored.i.i1.i.i16.i.i = getelementptr inbounds i8, ptr %storemerge114, i64 -8
   %54 = load i64, ptr %nStored.i.i1.i.i16.i.i, align 8
   %cmp5.not.i2.i.i17.i.i = icmp eq i64 %54, 0
-  br i1 %cmp5.not.i2.i.i17.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit35.i.i", label %for.body.lr.ph.i3.i.i18.i.i
+  br i1 %cmp5.not.i2.i.i17.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit35.i.i", label %for.body.lr.ph.i3.i.i18.i.i
 
 for.body.lr.ph.i3.i.i18.i.i:                      ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i14.i.i
   %ptr.i.i.i4.i.i19.i.i = getelementptr inbounds i8, ptr %storemerge114, i64 -40
@@ -58180,9 +58180,9 @@ for.body.i7.i.i22.i.i:                            ; preds = %for.body.i7.i.i22.i
   %add.i11.i.i26.i.i = fadd float %sum.06.i9.i.i24.i.i, %57
   %indvars.iv.next.i12.i.i27.i.i = add nuw nsw i64 %indvars.iv.i8.i.i23.i.i, 1
   %exitcond.not.i13.i.i28.i.i = icmp eq i64 %indvars.iv.next.i12.i.i27.i.i, %54
-  br i1 %exitcond.not.i13.i.i28.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit35.i.i", label %for.body.i7.i.i22.i.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i28.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit35.i.i", label %for.body.i7.i.i22.i.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit35.i.i": ; preds = %for.body.i7.i.i22.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i14.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit35.i.i": ; preds = %for.body.i7.i.i22.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i14.i.i
   %sum.0.lcssa.i14.i.i29.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i14.i.i ], [ %add.i11.i.i26.i.i, %for.body.i7.i.i22.i.i ]
   %div.i.i.i31.i.i = fdiv float %add.i.i.i11.i.i, %conv5.i15.i.i.i.i
   %conv5.i15.i.i32.i.i = uitofp nneg i64 %54 to float
@@ -58190,14 +58190,14 @@ for.body.i7.i.i22.i.i:                            ; preds = %for.body.i7.i.i22.i
   %cmp.i.i34.i.i = fcmp olt float %div.i.i.i31.i.i, %div.i16.i.i33.i.i
   br i1 %cmp.i.i34.i.i, label %if.then12.i.i, label %if.else.i.i
 
-if.then12.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit35.i.i"
+if.then12.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit35.i.i"
   %58 = load i64, ptr %__first.coerce, align 4
   %59 = load i64, ptr %add.ptr.i.i, align 4
   store i64 %59, ptr %__first.coerce, align 4
   store i64 %58, ptr %add.ptr.i.i, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_SP_T0_.exit.i"
 
-if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit35.i.i"
+if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit35.i.i"
   br i1 %cmp5.not.i.i.i.i.i, label %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i49.i.i, label %for.body.lr.ph.i.i.i38.i.i
 
 for.body.lr.ph.i.i.i38.i.i:                       ; preds = %if.else.i.i
@@ -58218,7 +58218,7 @@ for.body.i.i.i42.i.i:                             ; preds = %for.body.i.i.i42.i.
 
 _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i49.i.i: ; preds = %for.body.i.i.i42.i.i, %if.else.i.i
   %sum.0.lcssa.i.i.i50.i.i = phi float [ 0.000000e+00, %if.else.i.i ], [ %add.i.i.i46.i.i, %for.body.i.i.i42.i.i ]
-  br i1 %cmp5.not.i2.i.i17.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit70.i.i", label %for.body.lr.ph.i3.i.i53.i.i
+  br i1 %cmp5.not.i2.i.i17.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit70.i.i", label %for.body.lr.ph.i3.i.i53.i.i
 
 for.body.lr.ph.i3.i.i53.i.i:                      ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i49.i.i
   %ptr.i.i.i4.i.i54.i.i = getelementptr inbounds i8, ptr %storemerge114, i64 -40
@@ -58236,9 +58236,9 @@ for.body.i7.i.i57.i.i:                            ; preds = %for.body.i7.i.i57.i
   %add.i11.i.i61.i.i = fadd float %sum.06.i9.i.i59.i.i, %64
   %indvars.iv.next.i12.i.i62.i.i = add nuw nsw i64 %indvars.iv.i8.i.i58.i.i, 1
   %exitcond.not.i13.i.i63.i.i = icmp eq i64 %indvars.iv.next.i12.i.i62.i.i, %54
-  br i1 %exitcond.not.i13.i.i63.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit70.i.i", label %for.body.i7.i.i57.i.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i63.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit70.i.i", label %for.body.i7.i.i57.i.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit70.i.i": ; preds = %for.body.i7.i.i57.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i49.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit70.i.i": ; preds = %for.body.i7.i.i57.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i49.i.i
   %sum.0.lcssa.i14.i.i64.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i49.i.i ], [ %add.i11.i.i61.i.i, %for.body.i7.i.i57.i.i ]
   %div.i.i.i66.i.i = fdiv float %sum.0.lcssa.i.i.i50.i.i, %conv5.i.i.i.i.i
   %div.i16.i.i68.i.i = fdiv float %sum.0.lcssa.i14.i.i64.i.i, %conv5.i15.i.i32.i.i
@@ -58246,21 +58246,21 @@ for.body.i7.i.i57.i.i:                            ; preds = %for.body.i7.i.i57.i
   %65 = load i64, ptr %__first.coerce, align 4
   br i1 %cmp.i.i69.i.i, label %if.then22.i.i, label %if.else27.i.i
 
-if.then22.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit70.i.i"
+if.then22.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit70.i.i"
   %66 = load i64, ptr %add.ptr.i3.i, align 4
   store i64 %66, ptr %__first.coerce, align 4
   store i64 %65, ptr %add.ptr.i3.i, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_SP_T0_.exit.i"
 
-if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit70.i.i"
+if.else27.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit70.i.i"
   %67 = load i64, ptr %add.ptr.i2.i, align 4
   store i64 %67, ptr %__first.coerce, align 4
   store i64 %65, ptr %add.ptr.i2.i, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_SP_T0_.exit.i"
 
-if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.i.i"
-  %conv5.i15.i.i160.i.i = phi float [ 0.000000e+00, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.thread.i.i" ], [ %conv5.i15.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.i.i" ]
-  %conv5.i.i.i158.i.i = phi float [ %conv5.i.i.i152.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.thread.i.i" ], [ %conv5.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.i.i" ]
+if.else33.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.i.i"
+  %conv5.i15.i.i160.i.i = phi float [ 0.000000e+00, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.thread.i.i" ], [ %conv5.i15.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.i.i" ]
+  %conv5.i.i.i158.i.i = phi float [ %conv5.i.i.i152.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.thread.i.i" ], [ %conv5.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.i.i" ]
   br i1 %cmp5.not.i.i.i.i.i, label %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i88.i.i, label %for.body.lr.ph.i.i.i77.i.i
 
 for.body.lr.ph.i.i.i77.i.i:                       ; preds = %if.else33.i.i
@@ -58284,7 +58284,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i88.i.i: ; preds = %for.body.i.i.
   %nStored.i.i1.i.i90.i.i = getelementptr inbounds i8, ptr %storemerge114, i64 -8
   %70 = load i64, ptr %nStored.i.i1.i.i90.i.i, align 8
   %cmp5.not.i2.i.i91.i.i = icmp eq i64 %70, 0
-  br i1 %cmp5.not.i2.i.i91.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit109.i.i", label %for.body.lr.ph.i3.i.i92.i.i
+  br i1 %cmp5.not.i2.i.i91.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit109.i.i", label %for.body.lr.ph.i3.i.i92.i.i
 
 for.body.lr.ph.i3.i.i92.i.i:                      ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i88.i.i
   %ptr.i.i.i4.i.i93.i.i = getelementptr inbounds i8, ptr %storemerge114, i64 -40
@@ -58302,9 +58302,9 @@ for.body.i7.i.i96.i.i:                            ; preds = %for.body.i7.i.i96.i
   %add.i11.i.i100.i.i = fadd float %sum.06.i9.i.i98.i.i, %73
   %indvars.iv.next.i12.i.i101.i.i = add nuw nsw i64 %indvars.iv.i8.i.i97.i.i, 1
   %exitcond.not.i13.i.i102.i.i = icmp eq i64 %indvars.iv.next.i12.i.i101.i.i, %70
-  br i1 %exitcond.not.i13.i.i102.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit109.i.i", label %for.body.i7.i.i96.i.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i102.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit109.i.i", label %for.body.i7.i.i96.i.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit109.i.i": ; preds = %for.body.i7.i.i96.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i88.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit109.i.i": ; preds = %for.body.i7.i.i96.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i88.i.i
   %sum.0.lcssa.i14.i.i103.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i88.i.i ], [ %add.i11.i.i100.i.i, %for.body.i7.i.i96.i.i ]
   %div.i.i.i105.i.i = fdiv float %sum.0.lcssa.i.i.i89.i.i, %conv5.i.i.i158.i.i
   %conv5.i15.i.i106.i.i = uitofp nneg i64 %70 to float
@@ -58312,14 +58312,14 @@ for.body.i7.i.i96.i.i:                            ; preds = %for.body.i7.i.i96.i
   %cmp.i.i108.i.i = fcmp olt float %div.i.i.i105.i.i, %div.i16.i.i107.i.i
   br i1 %cmp.i.i108.i.i, label %if.then39.i.i, label %if.else44.i.i
 
-if.then39.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit109.i.i"
+if.then39.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit109.i.i"
   %74 = load i64, ptr %__first.coerce, align 4
   %75 = load i64, ptr %add.ptr.i2.i, align 4
   store i64 %75, ptr %__first.coerce, align 4
   store i64 %74, ptr %add.ptr.i2.i, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_SP_T0_.exit.i"
 
-if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit109.i.i"
+if.else44.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit109.i.i"
   br i1 %cmp5.not.i2.i.i.i.i, label %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i125.i.i, label %for.body.lr.ph.i.i.i114.i.i
 
 for.body.lr.ph.i.i.i114.i.i:                      ; preds = %if.else44.i.i
@@ -58342,7 +58342,7 @@ for.body.i.i.i118.i.i:                            ; preds = %for.body.i.i.i118.i
 
 _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i125.i.i: ; preds = %for.body.i.i.i118.i.i, %if.else44.i.i
   %sum.0.lcssa.i.i.i126.i.i = phi float [ 0.000000e+00, %if.else44.i.i ], [ %add.i.i.i122.i.i, %for.body.i.i.i118.i.i ]
-  br i1 %cmp5.not.i2.i.i91.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit146.i.i", label %for.body.lr.ph.i3.i.i129.i.i
+  br i1 %cmp5.not.i2.i.i91.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit146.i.i", label %for.body.lr.ph.i3.i.i129.i.i
 
 for.body.lr.ph.i3.i.i129.i.i:                     ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i125.i.i
   %ptr.i.i.i4.i.i130.i.i = getelementptr inbounds i8, ptr %storemerge114, i64 -40
@@ -58360,9 +58360,9 @@ for.body.i7.i.i133.i.i:                           ; preds = %for.body.i7.i.i133.
   %add.i11.i.i137.i.i = fadd float %sum.06.i9.i.i135.i.i, %81
   %indvars.iv.next.i12.i.i138.i.i = add nuw nsw i64 %indvars.iv.i8.i.i134.i.i, 1
   %exitcond.not.i13.i.i139.i.i = icmp eq i64 %indvars.iv.next.i12.i.i138.i.i, %70
-  br i1 %exitcond.not.i13.i.i139.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit146.i.i", label %for.body.i7.i.i133.i.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i139.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit146.i.i", label %for.body.i7.i.i133.i.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit146.i.i": ; preds = %for.body.i7.i.i133.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i125.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit146.i.i": ; preds = %for.body.i7.i.i133.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i125.i.i
   %sum.0.lcssa.i14.i.i140.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i125.i.i ], [ %add.i11.i.i137.i.i, %for.body.i7.i.i133.i.i ]
   %div.i.i.i142.i.i = fdiv float %sum.0.lcssa.i.i.i126.i.i, %conv5.i15.i.i160.i.i
   %div.i16.i.i144.i.i = fdiv float %sum.0.lcssa.i14.i.i140.i.i, %conv5.i15.i.i106.i.i
@@ -58370,13 +58370,13 @@ for.body.i7.i.i133.i.i:                           ; preds = %for.body.i7.i.i133.
   %82 = load i64, ptr %__first.coerce, align 4
   br i1 %cmp.i.i145.i.i, label %if.then50.i.i, label %if.else55.i.i
 
-if.then50.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit146.i.i"
+if.then50.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit146.i.i"
   %83 = load i64, ptr %add.ptr.i3.i, align 4
   store i64 %83, ptr %__first.coerce, align 4
   store i64 %82, ptr %add.ptr.i3.i, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_SP_T0_.exit.i"
 
-if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit146.i.i"
+if.else55.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit146.i.i"
   %84 = load i64, ptr %add.ptr.i.i, align 4
   store i64 %84, ptr %__first.coerce, align 4
   store i64 %82, ptr %add.ptr.i.i, align 4
@@ -58439,8 +58439,8 @@ while.body.split.i.i:                             ; preds = %while.body.i.i6
   %cond.i.i.i6.i.i.i10.i = select i1 %tobool.not.i.i.i5.i.i.i9.i, ptr %1, ptr %90
   br label %while.cond3.i.i
 
-while.cond3.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.loopexit.i.i", %while.body.split.i.i
-  %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.split.i.i ], [ %incdec.ptr.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.loopexit.i.i" ]
+while.cond3.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.loopexit.i.i", %while.body.split.i.i
+  %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.split.i.i ], [ %incdec.ptr.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.loopexit.i.i" ]
   %nStored.i.i.i.i.i11.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 48
   %91 = load i64, ptr %nStored.i.i.i.i.i11.i, align 8
   %cmp5.not.i.i.i.i12.i = icmp eq i64 %91, 0
@@ -58476,9 +58476,9 @@ for.body.i7.i.i.i26.i:                            ; preds = %for.body.i7.i.i.i26
   %add.i11.i.i.i30.i = fadd float %sum.06.i9.i.i.i28.i, %95
   %indvars.iv.next.i12.i.i.i31.i = add nuw nsw i64 %indvars.iv.i8.i.i.i27.i, 1
   %exitcond.not.i13.i.i.i32.i = icmp eq i64 %indvars.iv.next.i12.i.i.i31.i, %85
-  br i1 %exitcond.not.i13.i.i.i32.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.loopexit.i.i", label %for.body.i7.i.i.i26.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i.i32.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.loopexit.i.i", label %for.body.i7.i.i.i26.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.loopexit.i.i": ; preds = %for.body.i7.i.i.i26.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.loopexit.i.i": ; preds = %for.body.i7.i.i.i26.i
   %conv5.i.i.i.i33.i = uitofp nneg i64 %91 to float
   %div.i.i.i.i34.i = fdiv float %sum.0.lcssa.i.i.i.i25.i, %conv5.i.i.i.i33.i
   %div.i16.i.i.i35.i = fdiv float %add.i11.i.i.i30.i, %conv5.i15.i.i.i8.i
@@ -58486,12 +58486,12 @@ for.body.i7.i.i.i26.i:                            ; preds = %for.body.i7.i.i.i26
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 56
   br i1 %cmp.i.i.i36.i, label %while.cond3.i.i, label %while.cond10.preheader.i.i, !llvm.loop !294
 
-while.cond10.preheader.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.loopexit.i.i", %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i
-  %.us-phi45.i.i = phi ptr [ %__first.sroa.0.1.us.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit.loopexit.i.i" ]
+while.cond10.preheader.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.loopexit.i.i", %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i
+  %.us-phi45.i.i = phi ptr [ %__first.sroa.0.1.us.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.us.i.i ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit.loopexit.i.i" ]
   br label %while.cond10.i.i
 
-while.cond10.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit36.i.i", %while.cond10.preheader.i.i
-  %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit36.i.i" ], [ %__last.sroa.0.0.i.i, %while.cond10.preheader.i.i ]
+while.cond10.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit36.i.i", %while.cond10.preheader.i.i
+  %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit36.i.i" ], [ %__last.sroa.0.0.i.i, %while.cond10.preheader.i.i ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -56
   br i1 %cmp5.not.i2.i.i.i7.i, label %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i15.i.i, label %for.body.lr.ph.i.i.i4.i.i
 
@@ -58516,7 +58516,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i15.i.i: ; preds = %for.body.i.i.
   %nStored.i.i1.i.i17.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
   %98 = load i64, ptr %nStored.i.i1.i.i17.i.i, align 8
   %cmp5.not.i2.i.i18.i.i = icmp eq i64 %98, 0
-  br i1 %cmp5.not.i2.i.i18.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit36.i.i", label %for.body.lr.ph.i3.i.i19.i.i
+  br i1 %cmp5.not.i2.i.i18.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit36.i.i", label %for.body.lr.ph.i3.i.i19.i.i
 
 for.body.lr.ph.i3.i.i19.i.i:                      ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i15.i.i
   %ptr.i.i.i4.i.i20.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -40
@@ -58534,9 +58534,9 @@ for.body.i7.i.i23.i.i:                            ; preds = %for.body.i7.i.i23.i
   %add.i11.i.i27.i.i = fadd float %sum.06.i9.i.i25.i.i, %101
   %indvars.iv.next.i12.i.i28.i.i = add nuw nsw i64 %indvars.iv.i8.i.i24.i.i, 1
   %exitcond.not.i13.i.i29.i.i = icmp eq i64 %indvars.iv.next.i12.i.i28.i.i, %98
-  br i1 %exitcond.not.i13.i.i29.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit36.i.i", label %for.body.i7.i.i23.i.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i29.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit36.i.i", label %for.body.i7.i.i23.i.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit36.i.i": ; preds = %for.body.i7.i.i23.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i15.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit36.i.i": ; preds = %for.body.i7.i.i23.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i15.i.i
   %sum.0.lcssa.i14.i.i30.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i15.i.i ], [ %add.i11.i.i27.i.i, %for.body.i7.i.i23.i.i ]
   %div.i.i.i32.i.i = fdiv float %sum.0.lcssa.i.i.i16.i.i, %conv5.i15.i.i.i8.i
   %conv5.i15.i.i33.i.i = uitofp nneg i64 %98 to float
@@ -58544,7 +58544,7 @@ for.body.i7.i.i23.i.i:                            ; preds = %for.body.i7.i.i23.i
   %cmp.i.i35.i.i = fcmp olt float %div.i.i.i32.i.i, %div.i16.i.i34.i.i
   br i1 %cmp.i.i35.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !295
 
-while.end18.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit36.i.i"
+while.end18.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit36.i.i"
   %nStored.i.i1.i.i17.i.i.le = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
   %cmp.i.i.i7 = icmp ult ptr %.us-phi45.i.i, %__last.sroa.0.1.i.i
   br i1 %cmp.i.i.i7, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEET_SP_SP_T0_.exit"
@@ -58917,7 +58917,7 @@ _ZSt4swapIN4pbrt18ImageChannelValuesEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 896
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !297
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEET_SP_SP_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.argprom.exit", %entry
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEET_SP_SP_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_SP_SP_RT0_.exit", %entry
   ret void
 }
 
@@ -58930,8 +58930,8 @@ entry:
   %cmp45 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp45, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit"
-  %__holeIndex.addr.046 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit" ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit"
+  %__holeIndex.addr.046 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.046, 1
   %mul = add i64 %add, 2
   %add.ptr.i = getelementptr inbounds %"struct.std::pair.90", ptr %__first.coerce, i64 %mul
@@ -58965,7 +58965,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i: ; preds = %for.body.i.i.i, %wh
   %nStored.i.i1.i.i = getelementptr inbounds i8, ptr %add.ptr.i17, i64 48
   %4 = load i64, ptr %nStored.i.i1.i.i, align 8
   %cmp5.not.i2.i.i = icmp eq i64 %4, 0
-  br i1 %cmp5.not.i2.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit", label %for.body.lr.ph.i3.i.i
+  br i1 %cmp5.not.i2.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit", label %for.body.lr.ph.i3.i.i
 
 for.body.lr.ph.i3.i.i:                            ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
   %ptr.i.i.i4.i.i = getelementptr inbounds i8, ptr %add.ptr.i17, i64 16
@@ -58983,9 +58983,9 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %f
   %add.i11.i.i = fadd float %sum.06.i9.i.i, %7
   %indvars.iv.next.i12.i.i = add nuw nsw i64 %indvars.iv.i8.i.i, 1
   %exitcond.not.i13.i.i = icmp eq i64 %indvars.iv.next.i12.i.i, %4
-  br i1 %exitcond.not.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit", label %for.body.i7.i.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit", label %for.body.i7.i.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit": ; preds = %for.body.i7.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit": ; preds = %for.body.i7.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
   %sum.0.lcssa.i14.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i ], [ %add.i11.i.i, %for.body.i7.i.i ]
   %conv5.i.i.i = uitofp nneg i64 %0 to float
   %div.i.i.i = fdiv float %sum.0.lcssa.i.i.i, %conv5.i.i.i
@@ -59003,8 +59003,8 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %f
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !298
 
-while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit", %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit" ]
+while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit", %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit" ]
   %and = and i64 %__len, 1
   %cmp17 = icmp eq i64 %and, 0
   br i1 %cmp17, label %land.lhs.true, label %if.end35
@@ -59107,7 +59107,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i: ; preds = %for.body.i.i.i.i,
   %sum.0.lcssa.i.i.i.i = phi float [ 0.000000e+00, %land.rhs.i ], [ %add.i.i.i.i, %for.body.i.i.i.i ]
   %23 = load i64, ptr %nStored.i.i.i, align 8
   %cmp5.not.i2.i.i.i = icmp eq i64 %23, 0
-  br i1 %cmp5.not.i2.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.argprom.exit.i", label %for.body.lr.ph.i3.i.i.i
+  br i1 %cmp5.not.i2.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.exit.i", label %for.body.lr.ph.i3.i.i.i
 
 for.body.lr.ph.i3.i.i.i:                          ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i
   %24 = load ptr, ptr %ptr.i.i.i, align 8
@@ -59123,9 +59123,9 @@ for.body.i7.i.i.i:                                ; preds = %for.body.i7.i.i.i, 
   %add.i11.i.i.i = fadd float %sum.06.i9.i.i.i, %25
   %indvars.iv.next.i12.i.i.i = add nuw nsw i64 %indvars.iv.i8.i.i.i, 1
   %exitcond.not.i13.i.i.i = icmp eq i64 %indvars.iv.next.i12.i.i.i, %23
-  br i1 %exitcond.not.i13.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.argprom.exit.i", label %for.body.i7.i.i.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.exit.i", label %for.body.i7.i.i.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.argprom.exit.i": ; preds = %for.body.i7.i.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.exit.i": ; preds = %for.body.i7.i.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i
   %sum.0.lcssa.i14.i.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i ], [ %add.i11.i.i.i, %for.body.i7.i.i.i ]
   %conv5.i.i.i.i = uitofp nneg i64 %19 to float
   %div.i.i.i.i = fdiv float %sum.0.lcssa.i.i.i.i, %conv5.i.i.i.i
@@ -59134,7 +59134,7 @@ for.body.i7.i.i.i:                                ; preds = %for.body.i7.i.i.i, 
   %cmp.i.i.i31 = fcmp olt float %div.i.i.i.i, %div.i16.i.i.i
   br i1 %cmp.i.i.i31, label %while.body.i, label %while.end.i.loopexit
 
-while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.argprom.exit.i"
+while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.exit.i"
   %add.ptr.i8.i = getelementptr inbounds %"struct.std::pair.90", ptr %__first.coerce, i64 %__holeIndex.addr.07.i
   %26 = load i64, ptr %add.ptr.i.i, align 8
   store i64 %26, ptr %add.ptr.i8.i, align 8
@@ -59147,8 +59147,8 @@ call.i.i.i.noexc:                                 ; preds = %while.body.i
   %cmp.i = icmp sgt i64 %__parent.08.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %while.end.i.loopexit, !llvm.loop !299
 
-while.end.i.loopexit:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.argprom.exit.i", %call.i.i.i.noexc
-  %__holeIndex.addr.0.lcssa.i.ph = phi i64 [ %__parent.08.i, %call.i.i.i.noexc ], [ %__holeIndex.addr.07.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.argprom.exit.i" ]
+while.end.i.loopexit:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.exit.i", %call.i.i.i.noexc
+  %__holeIndex.addr.0.lcssa.i.ph = phi i64 [ %__parent.08.i, %call.i.i.i.noexc ], [ %__holeIndex.addr.07.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESK_EEbT_RT0_.exit.i" ]
   %.pre = load i64, ptr %agg.tmp37, align 8
   br label %while.end.i
 
@@ -59340,7 +59340,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i: ; preds = %for.body.i.i.i, %fo
   %sum.0.lcssa.i.i.i = phi float [ 0.000000e+00, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
   %6 = load i64, ptr %nStored.i.i1.i.i, align 8
   %cmp5.not.i2.i.i = icmp eq i64 %6, 0
-  br i1 %cmp5.not.i2.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit", label %for.body.lr.ph.i3.i.i
+  br i1 %cmp5.not.i2.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit", label %for.body.lr.ph.i3.i.i
 
 for.body.lr.ph.i3.i.i:                            ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
   %7 = load ptr, ptr %ptr.i.i.i4.i.i, align 8
@@ -59356,9 +59356,9 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %f
   %add.i11.i.i = fadd float %sum.06.i9.i.i, %8
   %indvars.iv.next.i12.i.i = add nuw nsw i64 %indvars.iv.i8.i.i, 1
   %exitcond.not.i13.i.i = icmp eq i64 %indvars.iv.next.i12.i.i, %6
-  br i1 %exitcond.not.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit", label %for.body.i7.i.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit", label %for.body.i7.i.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit": ; preds = %for.body.i7.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit": ; preds = %for.body.i7.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
   %sum.0.lcssa.i14.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i ], [ %add.i11.i.i, %for.body.i7.i.i ]
   %conv5.i.i.i = uitofp nneg i64 %2 to float
   %div.i.i.i = fdiv float %sum.0.lcssa.i.i.i, %conv5.i.i.i
@@ -59367,7 +59367,7 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %f
   %cmp.i.i = fcmp olt float %div.i.i.i, %div.i16.i.i
   br i1 %cmp.i.i, label %if.then9, label %if.else
 
-if.then9:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit"
+if.then9:                                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit"
   %9 = load i64, ptr %__i.sroa.0.034, align 8
   store i64 %9, ptr %__val, align 8
   %second3.i = getelementptr inbounds i8, ptr %__first.coerce.pn33, i64 64
@@ -59633,7 +59633,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   call void @_ZNSt4pairIN4pbrt6Point2IiEENS0_18ImageChannelValuesEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %__val) #34
   resume { ptr, i32 } %lpad.phi
 
-if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.argprom.exit"
+if.else:                                          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ3catSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_0EclINS_17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENSG_18ImageChannelValuesEES2_ISK_SaISK_EEEESO_EEbT_T0_.exit"
   call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_T0_"(ptr nonnull %__i.sroa.0.034)
   br label %for.inc
 
@@ -61592,7 +61592,7 @@ if.then52.i.i.i:                                  ; preds = %invoke.cont48.i.i.i
   %47 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %48 = load ptr, ptr %47, align 8
   store atomic i8 1, ptr %48 seq_cst, align 1
-  br label %"_ZSt10__invoke_rIvRZ7averageSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZ7averageSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 lpad39.i.i.i:                                     ; preds = %invoke.cont40.i.i.i, %invoke.cont37.i.i.i
   %49 = landingpad { ptr, i32 }
@@ -61615,7 +61615,7 @@ if.end54.i.i.i:                                   ; preds = %invoke.cont48.i.i.i
   %ref.tmp55.sroa.1.0.extract.shift319.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i46318.i.i.i, 32
   %ref.tmp55.sroa.1.0.extract.trunc320.i.i.i = trunc nuw i64 %ref.tmp55.sroa.1.0.extract.shift319.i.i.i to i32
   %cmp321.i.i.i = icmp sgt i32 %ref.tmp55.sroa.1.0.extract.trunc320.i.i.i, 0
-  br i1 %cmp321.i.i.i, label %for.cond59.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZ7averageSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp321.i.i.i, label %for.cond59.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZ7averageSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 for.cond59.preheader.lr.ph.i.i.i:                 ; preds = %if.end54.i.i.i
   %nStored.i.i.i.i.i = getelementptr inbounds i8, ptr %call7.i.i.i, i64 40
@@ -62063,7 +62063,7 @@ for.inc108.i.i.i:                                 ; preds = %for.inc105.i.i.i, %
   %indvars.iv.next343.i.i.i = add nuw nsw i64 %indvars.iv342.i.i.i, 1
   %111 = ashr i64 %retval.sroa.0.0.copyload.i46.i.i.i, 32
   %cmp.i.i.i = icmp slt i64 %indvars.iv.next343.i.i.i, %111
-  br i1 %cmp.i.i.i, label %for.cond59.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZ7averageSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", !llvm.loop !315
+  br i1 %cmp.i.i.i, label %for.cond59.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZ7averageSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", !llvm.loop !315
 
 ehcleanup111.i.i.i:                               ; preds = %ehcleanup51.i.i.i, %ehcleanup.i.i.i, %lpad5.loopexit.split-lp.i.i.i, %lpad5.loopexit.i.i.i
   %.pn32.i.i.i = phi { ptr, i32 } [ %.pn30.i.i.i, %ehcleanup.i.i.i ], [ %.pn.i.i.i, %ehcleanup51.i.i.i ], [ %lpad.loopexit.i.i.i, %lpad5.loopexit.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %lpad5.loopexit.split-lp.i.i.i ]
@@ -62076,7 +62076,7 @@ eh.resume.i.i.i:                                  ; preds = %ehcleanup111.i.i.i,
   %.pn32.pn.i.i.i = phi { ptr, i32 } [ %.pn32.i.i.i, %ehcleanup111.i.i.i ], [ %37, %lpad.i.i.i ]
   resume { ptr, i32 } %.pn32.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZ7averageSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %for.inc108.i.i.i, %if.then52.i.i.i, %if.end54.i.i.i
+"_ZSt10__invoke_rIvRZ7averageSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %for.inc108.i.i.i, %if.then52.i.i.i, %if.end54.i.i.i
   %metadata.i.i.i.i = getelementptr inbounds i8, ptr %imRead.i.i.i, i64 152
   call void @_ZN4pbrt13ImageMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %metadata.i.i.i.i) #34
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %imRead.i.i.i) #34
@@ -65165,7 +65165,7 @@ invoke.cont4.i.i.i:                               ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
   %.val.i.i.i = load ptr, ptr %3, align 8
-  invoke fastcc void @"_ZZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_3clERN4pbrt5ImageE.argprom"(ptr %.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %imRead.i.i.i)
+  invoke fastcc void @"_ZZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEENK3$_3clERN4pbrt5ImageE"(ptr %.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %imRead.i.i.i)
           to label %invoke.cont6.i.i.i unwind label %lpad5.i.i.i
 
 invoke.cont6.i.i.i:                               ; preds = %invoke.cont4.i.i.i
@@ -66490,7 +66490,7 @@ for.end122.i.i.i:                                 ; preds = %for.inc120.i.i.i, %
   store i64 0, ptr %nStored.i.i44.i.i.i, align 8
   %203 = load ptr, ptr %ptr.i.i43.i.i.i, align 8
   %tobool.not.i.i.i.i.i414.i.i.i = icmp eq ptr %203, null
-  br i1 %tobool.not.i.i.i.i.i414.i.i.i, label %"_ZSt10__invoke_rIvRZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", label %if.end.i.i.i.i.i415.i.i.i
+  br i1 %tobool.not.i.i.i.i.i414.i.i.i, label %"_ZSt10__invoke_rIvRZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %if.end.i.i.i.i.i415.i.i.i
 
 if.end.i.i.i.i.i415.i.i.i:                        ; preds = %for.end122.i.i.i
   %204 = load i64, ptr %nAlloc.i.i.i.i.i, align 8
@@ -66500,7 +66500,7 @@ if.end.i.i.i.i.i415.i.i.i:                        ; preds = %for.end122.i.i.i
   %vfn.i.i.i.i.i419.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i418.i.i.i, i64 24
   %206 = load ptr, ptr %vfn.i.i.i.i.i419.i.i.i, align 8
   invoke void %206(ptr noundef nonnull align 8 dereferenceable(8) %205, ptr noundef nonnull %203, i64 noundef %mul.i.i.i417.i.i.i, i64 noundef 4)
-          to label %"_ZSt10__invoke_rIvRZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit" unwind label %terminate.lpad.i.i420.i.i.i
+          to label %"_ZSt10__invoke_rIvRZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit" unwind label %terminate.lpad.i.i420.i.i.i
 
 terminate.lpad.i.i420.i.i.i:                      ; preds = %if.end.i.i.i.i.i415.i.i.i
   %207 = landingpad { ptr, i32 }
@@ -66549,7 +66549,7 @@ eh.resume.i.i.i:                                  ; preds = %ehcleanup125.i.i.i,
   %.pn35.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn35.pn.pn.i.i.i, %ehcleanup125.i.i.i ], [ %5, %lpad.i.i.i ]
   resume { ptr, i32 } %.pn35.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %for.end122.i.i.i, %if.end.i.i.i.i.i415.i.i.i
+"_ZSt10__invoke_rIvRZ5errorSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_2JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %for.end122.i.i.i, %if.end.i.i.i.i.i415.i.i.i
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %diffImage.i.i.i) #34
   %metadata.i.i.i.i = getelementptr inbounds i8, ptr %imRead.i.i.i, i64 152
   call void @_ZN4pbrt13ImageMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %metadata.i.i.i.i) #34
@@ -70822,8 +70822,8 @@ entry:
   %cmp32 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp32, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit"
-  %__holeIndex.addr.033 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit" ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit"
+  %__holeIndex.addr.033 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %mul
@@ -70857,7 +70857,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i: ; preds = %for.body.i.i.i, %wh
   %nStored.i.i1.i.i = getelementptr inbounds i8, ptr %add.ptr2, i64 40
   %4 = load i64, ptr %nStored.i.i1.i.i, align 8
   %cmp5.not.i2.i.i = icmp eq i64 %4, 0
-  br i1 %cmp5.not.i2.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit", label %for.body.lr.ph.i3.i.i
+  br i1 %cmp5.not.i2.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit", label %for.body.lr.ph.i3.i.i
 
 for.body.lr.ph.i3.i.i:                            ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
   %ptr.i.i.i4.i.i = getelementptr inbounds i8, ptr %add.ptr2, i64 8
@@ -70875,9 +70875,9 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %f
   %add.i11.i.i = fadd float %sum.06.i9.i.i, %7
   %indvars.iv.next.i12.i.i = add nuw nsw i64 %indvars.iv.i8.i.i, 1
   %exitcond.not.i13.i.i = icmp eq i64 %indvars.iv.next.i12.i.i, %4
-  br i1 %exitcond.not.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit", label %for.body.i7.i.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit", label %for.body.i7.i.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit": ; preds = %for.body.i7.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit": ; preds = %for.body.i7.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
   %sum.0.lcssa.i14.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i ], [ %add.i11.i.i, %for.body.i7.i.i ]
   %conv5.i.i.i = uitofp nneg i64 %0 to float
   %div.i.i.i = fdiv float %sum.0.lcssa.i.i.i, %conv5.i.i.i
@@ -70891,8 +70891,8 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %f
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !365
 
-while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit", %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.argprom.exit" ]
+while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit", %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit" ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end18
@@ -70987,7 +70987,7 @@ _ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i: ; preds = %for.body.i.i.i.i,
   %sum.0.lcssa.i.i.i.i = phi float [ 0.000000e+00, %land.rhs.i ], [ %add.i.i.i.i, %for.body.i.i.i.i ]
   %20 = load i64, ptr %nStored.i.i, align 8
   %cmp5.not.i2.i.i.i = icmp eq i64 %20, 0
-  br i1 %cmp5.not.i2.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.argprom.exit.i", label %for.body.lr.ph.i3.i.i.i
+  br i1 %cmp5.not.i2.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.exit.i", label %for.body.lr.ph.i3.i.i.i
 
 for.body.lr.ph.i3.i.i.i:                          ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i
   %21 = load ptr, ptr %ptr.i.i, align 8
@@ -71003,9 +71003,9 @@ for.body.i7.i.i.i:                                ; preds = %for.body.i7.i.i.i, 
   %add.i11.i.i.i = fadd float %sum.06.i9.i.i.i, %22
   %indvars.iv.next.i12.i.i.i = add nuw nsw i64 %indvars.iv.i8.i.i.i, 1
   %exitcond.not.i13.i.i.i = icmp eq i64 %indvars.iv.next.i12.i.i.i, %20
-  br i1 %exitcond.not.i13.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.argprom.exit.i", label %for.body.i7.i.i.i, !llvm.loop !122
+  br i1 %exitcond.not.i13.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.exit.i", label %for.body.i7.i.i.i, !llvm.loop !122
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.argprom.exit.i": ; preds = %for.body.i7.i.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.exit.i": ; preds = %for.body.i7.i.i.i, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i
   %sum.0.lcssa.i14.i.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i.i ], [ %add.i11.i.i.i, %for.body.i7.i.i.i ]
   %conv5.i.i.i.i = uitofp nneg i64 %16 to float
   %div.i.i.i.i = fdiv float %sum.0.lcssa.i.i.i.i, %conv5.i.i.i.i
@@ -71014,7 +71014,7 @@ for.body.i7.i.i.i:                                ; preds = %for.body.i7.i.i.i, 
   %cmp.i.i.i = fcmp olt float %div.i.i.i.i, %div.i16.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i, label %while.end.i
 
-while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.argprom.exit.i"
+while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.exit.i"
   %add.ptr2.i = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__holeIndex.addr.04.i
   %call.i.i25 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr2.i, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i)
           to label %call.i.i.noexc unwind label %lpad.loopexit
@@ -71023,8 +71023,8 @@ call.i.i.noexc:                                   ; preds = %while.body.i
   %cmp.i = icmp sgt i64 %__parent.05.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %while.end.i, !llvm.loop !366
 
-while.end.i:                                      ; preds = %call.i.i.noexc, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.argprom.exit.i", %_ZN4pbrt18ImageChannelValuesC2EOS0_.exit
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %_ZN4pbrt18ImageChannelValuesC2EOS0_.exit ], [ %__holeIndex.addr.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.argprom.exit.i" ], [ %__parent.05.i, %call.i.i.noexc ]
+while.end.i:                                      ; preds = %call.i.i.noexc, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.exit.i", %_ZN4pbrt18ImageChannelValuesC2EOS0_.exit
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %_ZN4pbrt18ImageChannelValuesC2EOS0_.exit ], [ %__holeIndex.addr.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.exit.i" ], [ %__parent.05.i, %call.i.i.noexc ]
   %add.ptr6.i = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   %call.i10.i26 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr6.i, ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
@@ -71310,7 +71310,7 @@ entry:
   %sext151.i.i.i = shl i64 %__args.val, 32
   %conv2147.i.i.i = ashr exact i64 %sext151.i.i.i, 32
   %cmp148.i.i.i = icmp sgt i64 %__args1.val, %conv2147.i.i.i
-  br i1 %cmp148.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZ12makeequiareaSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %cmp148.i.i.i, label %for.cond3.preheader.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZ12makeequiareaSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -71329,7 +71329,7 @@ for.cond3.preheader.lr.ph.i.i.i:                  ; preds = %entry
   %7 = load ptr, ptr %__functor.val, align 8
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %for.cond3.preheader.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZ12makeequiareaSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
+  br i1 %9, label %for.cond3.preheader.preheader.i.i.i, label %"_ZSt10__invoke_rIvRZ12makeequiareaSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
 for.cond3.preheader.preheader.i.i.i:              ; preds = %for.cond3.preheader.lr.ph.i.i.i
   %shr.i.i.i.i.i.i = lshr i64 %__args.val, 31
@@ -71895,9 +71895,9 @@ for.inc100.i.i.i:                                 ; preds = %_ZN4pbrt18ImageChan
   %rng.sroa.0.1.lcssa.i.i.i = phi i64 [ %rng.sroa.0.0149.i.i.i, %for.cond3.preheader.i.i.i ], [ %rng.sroa.0.2.lcssa.i.i.i, %_ZN4pbrt18ImageChannelValuesD2Ev.exit83.i.i.i ]
   %indvars.iv.next162.i.i.i = add i64 %indvars.iv161.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next162.i.i.i, %__args1.val
-  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZ12makeequiareaSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !373
+  br i1 %exitcond.not.i.i, label %"_ZSt10__invoke_rIvRZ12makeequiareaSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %for.cond3.preheader.i.i.i, !llvm.loop !373
 
-"_ZSt10__invoke_rIvRZ12makeequiareaSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %for.inc100.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
+"_ZSt10__invoke_rIvRZ12makeequiareaSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEE3$_1JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %for.inc100.i.i.i, %entry, %for.cond3.preheader.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %sumSamples.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %values.i.i.i)
   ret void
@@ -75030,12 +75030,12 @@ attributes #42 = { nounwind willreturn memory(none) }
 !48 = distinct !{!48, !6}
 !49 = distinct !{!49, !6}
 !50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_ENK3$_0clB5cxx11ERKSt6vectorIS4_SaIS4_EE.argprom: %agg.result"}
-!52 = distinct !{!52, !"_ZZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_ENK3$_0clB5cxx11ERKSt6vectorIS4_SaIS4_EE.argprom"}
+!51 = distinct !{!51, !52, !"_ZZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_ENK3$_0clB5cxx11ERKSt6vectorIS4_SaIS4_EE: %agg.result"}
+!52 = distinct !{!52, !"_ZZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_ENK3$_0clB5cxx11ERKSt6vectorIS4_SaIS4_EE"}
 !53 = distinct !{!53, !6}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_ENK3$_0clB5cxx11ERKSt6vectorIS4_SaIS4_EE.argprom: %agg.result"}
-!56 = distinct !{!56, !"_ZZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_ENK3$_0clB5cxx11ERKSt6vectorIS4_SaIS4_EE.argprom"}
+!55 = distinct !{!55, !56, !"_ZZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_ENK3$_0clB5cxx11ERKSt6vectorIS4_SaIS4_EE: %agg.result"}
+!56 = distinct !{!56, !"_ZZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_ENK3$_0clB5cxx11ERKSt6vectorIS4_SaIS4_EE"}
 !57 = distinct !{!57, !6}
 !58 = distinct !{!58, !6}
 !59 = distinct !{!59, !6}

@@ -8084,7 +8084,7 @@ invoke.cont13:                                    ; preds = %_ZN5arrow6StatusD2E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15, i8 0, i64 16, i1 false)
   %memory_pool = getelementptr inbounds i8, ptr %options, i64 16
   %4 = load ptr, ptr %memory_pool, align 8
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE.argprom(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext 1, i32 %2, i64 noundef 0, i8 noundef signext %3, ptr null, ptr noundef %4)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext 1, i32 %2, i64 noundef 0, i8 noundef signext %3, ptr null, ptr noundef %4)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont13
@@ -8560,7 +8560,7 @@ if.end:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext range(i8 1, 6) %header_type, i32 %header.coerce, i64 noundef %body_length, i8 noundef signext %version, ptr %custom_metadata.0.val, ptr noundef %pool) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext range(i8 1, 6) %header_type, i32 %header.coerce, i64 noundef %body_length, i8 noundef signext %version, ptr %custom_metadata.0.val, ptr noundef %pool) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result.245", align 8
   %result.i = alloca %"class.std::unique_ptr.249", align 8
@@ -8570,7 +8570,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key_values.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %key_values.i, i8 0, i64 24, i1 false)
   %cmp.i.i.not.i = icmp eq ptr %custom_metadata.0.val, null
-  br i1 %cmp.i.i.not.i, label %_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.argprom.exit, label %if.then.i
+  br i1 %cmp.i.i.not.i, label %_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122AppendKeyValueMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_16KeyValueMetadataEPSt6vectorINS4_6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaISI_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(48) %custom_metadata.0.val, ptr noundef %key_values.i)
@@ -8605,13 +8605,13 @@ _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7fl
 
 cleanup.i:                                        ; preds = %invoke.cont.i
   %tobool.not.i.i.i4.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i4.i, label %_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.argprom.exit, label %if.then.i.i.i5.i
+  br i1 %tobool.not.i.i.i4.i, label %_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.exit, label %if.then.i.i.i5.i
 
 if.then.i.i.i5.i:                                 ; preds = %cleanup.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
-  br label %_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.argprom.exit
+  br label %_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.exit
 
-_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.argprom.exit: ; preds = %entry, %cleanup.i, %if.then.i.i.i5.i
+_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.exit: ; preds = %entry, %cleanup.i, %if.then.i.i.i5.i
   %retval.sroa.0.03.i = phi i32 [ %call3.i3.i, %cleanup.i ], [ %call3.i3.i, %if.then.i.i.i5.i ], [ 0, %entry ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %key_values.i)
   %call6 = tail call i32 @_ZN3org6apache5arrow7flatbuf13CreateMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEENS2_15MetadataVersionENS2_13MessageHeaderENS4_6OffsetIvEElNSA_INS4_6VectorINSA_INS2_8KeyValueEEEjEEEE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, i16 noundef signext %retval.0.i, i8 noundef zeroext %header_type, i32 %header.coerce, i64 noundef %body_length, i32 %retval.sroa.0.03.i)
@@ -8627,11 +8627,11 @@ _ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored
   %cmp.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i.i, label %invoke.cont12.i, label %if.then.i4
 
-if.then.i4:                                       ; preds = %_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.argprom.exit
+if.then.i4:                                       ; preds = %_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.exit
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #18
   br label %_ZN5arrow3ipc8internalL22WriteFlatbufferBuilderERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEPNS_10MemoryPoolE.exit
 
-invoke.cont12.i:                                  ; preds = %_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.argprom.exit
+invoke.cont12.i:                                  ; preds = %_ZN5arrow3ipc8internal12_GLOBAL__N_123SerializeCustomMetadataERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrIKNS_16KeyValueMetadataEE.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !151)
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
@@ -9194,7 +9194,7 @@ entry:
   %string_pool.i = getelementptr inbounds i8, ptr %fbb, i64 120
   store ptr null, ptr %string_pool.i, align 8
   store i32 0, ptr %record_batch, align 4
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE.argelim(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr noundef nonnull align 8 dereferenceable(24) %buffers, ptr noundef nonnull align 8 dereferenceable(24) %variadic_buffer_counts, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %record_batch)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr noundef nonnull align 8 dereferenceable(24) %buffers, ptr noundef nonnull align 8 dereferenceable(24) %variadic_buffer_counts, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %record_batch)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
@@ -9216,7 +9216,7 @@ invoke.cont13:                                    ; preds = %_ZN5arrow6StatusD2E
   %memory_pool = getelementptr inbounds i8, ptr %options, i64 16
   %4 = load ptr, ptr %memory_pool, align 8
   %custom_metadata.val = load ptr, ptr %custom_metadata, align 8
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE.argprom(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext 3, i32 %2, i64 noundef %body_length, i8 noundef signext %3, ptr %custom_metadata.val, ptr noundef %4)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext 3, i32 %2, i64 noundef %body_length, i8 noundef signext %3, ptr %custom_metadata.val, ptr noundef %4)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont13
@@ -9244,7 +9244,7 @@ ehcleanup:                                        ; preds = %lpad17, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE.argelim(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nodes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffers, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %variadic_buffer_counts, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %options, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nodes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffers, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %variadic_buffer_counts, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %options, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp28 = alloca %"class.arrow::Status", align 8
@@ -10222,7 +10222,7 @@ invoke.cont69:                                    ; preds = %invoke.cont55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp72, i8 0, i64 16, i1 false)
   %memory_pool = getelementptr inbounds i8, ptr %options, i64 16
   %67 = load ptr, ptr %memory_pool, align 8
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext 4, i32 %call66, i64 noundef %mul, i8 noundef signext %66, ptr null, ptr noundef %67)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext 4, i32 %call66, i64 noundef %mul, i8 noundef signext %66, ptr null, ptr noundef %67)
           to label %_ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit unwind label %lpad74
 
 _ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit: ; preds = %invoke.cont69
@@ -13406,7 +13406,7 @@ invoke.cont12:                                    ; preds = %_ZN5arrow6StatusD2E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14, i8 0, i64 16, i1 false)
   %memory_pool = getelementptr inbounds i8, ptr %options, i64 16
   %288 = load ptr, ptr %memory_pool, align 8
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE.argprom(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext 5, i32 %fb_sparse_tensor.sroa.0.0, i64 noundef %body_length, i8 noundef signext %287, ptr null, ptr noundef %288)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext 5, i32 %fb_sparse_tensor.sroa.0.0, i64 noundef %body_length, i8 noundef signext %287, ptr null, ptr noundef %288)
           to label %cleanup18 unwind label %lpad16
 
 lpad16:                                           ; preds = %invoke.cont12
@@ -13462,7 +13462,7 @@ entry:
   %string_pool.i = getelementptr inbounds i8, ptr %fbb, i64 120
   store ptr null, ptr %string_pool.i, align 8
   store i32 0, ptr %record_batch, align 4
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE.argelim(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr noundef nonnull align 8 dereferenceable(24) %buffers, ptr noundef nonnull align 8 dereferenceable(24) %variadic_buffer_counts, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %record_batch)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBatchERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEllRKSt6vectorINS1_13FieldMetadataESaIS9_EERKS8_INS1_14BufferMetadataESaISE_EERKS8_IlSaIlEERKNS0_15IpcWriteOptionsEPNS4_6OffsetIN3org6apache5arrow7flatbuf11RecordBatchEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i64 noundef %length, ptr noundef nonnull align 8 dereferenceable(24) %nodes, ptr noundef nonnull align 8 dereferenceable(24) %buffers, ptr noundef nonnull align 8 dereferenceable(24) %variadic_buffer_counts, ptr noundef nonnull align 8 dereferenceable(60) %options, ptr noundef %record_batch)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
@@ -13488,7 +13488,7 @@ invoke.cont16:                                    ; preds = %_ZN5arrow6StatusD2E
   %memory_pool = getelementptr inbounds i8, ptr %options, i64 16
   %3 = load ptr, ptr %memory_pool, align 8
   %custom_metadata.val = load ptr, ptr %custom_metadata, align 8
-  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE.argprom(ptr noalias nonnull align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext 2, i32 %call14, i64 noundef %body_length, i8 noundef signext %2, ptr %custom_metadata.val, ptr noundef %3)
+  invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_114WriteFBMessageERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEEN3org6apache5arrow7flatbuf13MessageHeaderENS4_6OffsetIvEElNS0_15MetadataVersionERKSt10shared_ptrIKNS_16KeyValueMetadataEEPNS_10MemoryPoolE(ptr noalias nonnull align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(128) %fbb, i8 noundef zeroext 2, i32 %call14, i64 noundef %body_length, i8 noundef signext %2, ptr %custom_metadata.val, ptr noundef %3)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont16
@@ -13749,14 +13749,14 @@ _ZN5arrow6StatusD2Ev.exit40:                      ; preds = %_ZN5arrow6StatusD2E
   %dictionaries.val = load ptr, ptr %dictionaries, align 8
   %3 = getelementptr inbounds i8, ptr %dictionaries, i64 8
   %dictionaries.val3 = load ptr, ptr %3, align 8
-  %call15 = invoke fastcc i32 @_ZN5arrow3ipc8internalL22FileBlocksToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt6vectorINS1_9FileBlockESaIS8_EE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr %dictionaries.val, ptr %dictionaries.val3)
+  %call15 = invoke fastcc i32 @_ZN5arrow3ipc8internalL22FileBlocksToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt6vectorINS1_9FileBlockESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr %dictionaries.val, ptr %dictionaries.val3)
           to label %invoke.cont14 unwind label %lpad2
 
 invoke.cont14:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit40
   %record_batches.val = load ptr, ptr %record_batches, align 8
   %4 = getelementptr inbounds i8, ptr %record_batches, i64 8
   %record_batches.val4 = load ptr, ptr %4, align 8
-  %call17 = invoke fastcc i32 @_ZN5arrow3ipc8internalL22FileBlocksToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt6vectorINS1_9FileBlockESaIS8_EE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr %record_batches.val, ptr %record_batches.val4)
+  %call17 = invoke fastcc i32 @_ZN5arrow3ipc8internalL22FileBlocksToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt6vectorINS1_9FileBlockESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr %record_batches.val, ptr %record_batches.val4)
           to label %invoke.cont16 unwind label %lpad2
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -13838,7 +13838,7 @@ ehcleanup42:                                      ; preds = %lpad2.body, %lpad
 declare void @_ZN5arrow3ipc21DictionaryFieldMapperC1ERKNS_6SchemaE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i32 @_ZN5arrow3ipc8internalL22FileBlocksToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt6vectorINS1_9FileBlockESaIS8_EE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr readonly %blocks.0.val, ptr readnone %blocks.8.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc i32 @_ZN5arrow3ipc8internalL22FileBlocksToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt6vectorINS1_9FileBlockESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr readonly %blocks.0.val, ptr readnone %blocks.8.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.not18 = icmp eq ptr %blocks.0.val, %blocks.8.val
   br i1 %cmp.i.not18, label %for.end, label %for.body
@@ -40285,8 +40285,8 @@ attributes #23 = { "function-inline-cost-multiplier"="2" }
 !273 = distinct !{!273, !274, !"_ZNK5arrow6Tensor4typeEv: %agg.result"}
 !274 = distinct !{!274, !"_ZNK5arrow6Tensor4typeEv"}
 !275 = !{!276, !249, !228}
-!276 = distinct !{!276, !277, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124MakeSparseTensorIndexCSFERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_14SparseCSFIndexERKSt6vectorINS1_14BufferMetadataESaISC_EEPN3org6apache5arrow7flatbuf17SparseTensorIndexEPNS4_6OffsetIvEEPm.argprom: %agg.result"}
-!277 = distinct !{!277, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124MakeSparseTensorIndexCSFERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_14SparseCSFIndexERKSt6vectorINS1_14BufferMetadataESaISC_EEPN3org6apache5arrow7flatbuf17SparseTensorIndexEPNS4_6OffsetIvEEPm.argprom"}
+!276 = distinct !{!276, !277, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124MakeSparseTensorIndexCSFERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_14SparseCSFIndexERKSt6vectorINS1_14BufferMetadataESaISC_EEPN3org6apache5arrow7flatbuf17SparseTensorIndexEPNS4_6OffsetIvEEPm: %agg.result"}
+!277 = distinct !{!277, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124MakeSparseTensorIndexCSFERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_14SparseCSFIndexERKSt6vectorINS1_14BufferMetadataESaISC_EEPN3org6apache5arrow7flatbuf17SparseTensorIndexEPNS4_6OffsetIvEEPm"}
 !278 = !{!279, !276, !249, !228}
 !279 = distinct !{!279, !280, !"_ZNK5arrow6Tensor4typeEv: %agg.result"}
 !280 = distinct !{!280, !"_ZNK5arrow6Tensor4typeEv"}
@@ -40445,8 +40445,8 @@ attributes #23 = { "function-inline-cost-multiplier"="2" }
 !433 = distinct !{!433, !434, !"_ZNK5arrow3ipc8internal13FieldPosition4pathEv: %agg.result"}
 !434 = distinct !{!434, !"_ZNK5arrow3ipc8internal13FieldPosition4pathEv"}
 !435 = !{!436}
-!436 = distinct !{!436, !437, !"_ZN5arrow3ipc8internal12_GLOBAL__N_121GetDictionaryEncodingERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrINS_5FieldEERKNS_14DictionaryTypeElPNS4_6OffsetIN3org6apache5arrow7flatbuf18DictionaryEncodingEEE.argprom: %agg.result"}
-!437 = distinct !{!437, !"_ZN5arrow3ipc8internal12_GLOBAL__N_121GetDictionaryEncodingERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrINS_5FieldEERKNS_14DictionaryTypeElPNS4_6OffsetIN3org6apache5arrow7flatbuf18DictionaryEncodingEEE.argprom"}
+!436 = distinct !{!436, !437, !"_ZN5arrow3ipc8internal12_GLOBAL__N_121GetDictionaryEncodingERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrINS_5FieldEERKNS_14DictionaryTypeElPNS4_6OffsetIN3org6apache5arrow7flatbuf18DictionaryEncodingEEE: %agg.result"}
+!437 = distinct !{!437, !"_ZN5arrow3ipc8internal12_GLOBAL__N_121GetDictionaryEncodingERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKSt10shared_ptrINS_5FieldEERKNS_14DictionaryTypeElPNS4_6OffsetIN3org6apache5arrow7flatbuf18DictionaryEncodingEEE"}
 !438 = !{!439}
 !439 = distinct !{!439, !440, !"_ZNK5arrow5Field8metadataEv: %agg.result"}
 !440 = distinct !{!440, !"_ZNK5arrow5Field8metadataEv"}
@@ -40472,148 +40472,148 @@ attributes #23 = { "function-inline-cost-multiplier"="2" }
 !460 = distinct !{!460, !80}
 !461 = distinct !{!461, !80}
 !462 = !{!463}
-!463 = distinct !{!463, !464, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_8NullTypeE.argprom: %agg.result"}
-!464 = distinct !{!464, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_8NullTypeE.argprom"}
+!463 = distinct !{!463, !464, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_8NullTypeE: %agg.result"}
+!464 = distinct !{!464, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_8NullTypeE"}
 !465 = !{!466, !463}
 !466 = distinct !{!466, !467, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !467 = distinct !{!467, !"_ZN5arrow6Status2OKEv"}
 !468 = !{!469}
-!469 = distinct !{!469, !470, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_11BooleanTypeE.argprom: %agg.result"}
-!470 = distinct !{!470, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_11BooleanTypeE.argprom"}
+!469 = distinct !{!469, !470, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_11BooleanTypeE: %agg.result"}
+!470 = distinct !{!470, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_11BooleanTypeE"}
 !471 = !{!472, !469}
 !472 = distinct !{!472, !473, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !473 = distinct !{!473, !"_ZN5arrow6Status2OKEv"}
 !474 = !{!475}
-!475 = distinct !{!475, !476, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
-!476 = distinct !{!476, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
+!475 = distinct !{!475, !476, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
+!476 = distinct !{!476, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
 !477 = !{!478}
-!478 = distinct !{!478, !479, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi8ELb1ENS_8Int8TypeEEENS_6StatusERKT1_.argprom: %agg.result"}
-!479 = distinct !{!479, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi8ELb1ENS_8Int8TypeEEENS_6StatusERKT1_.argprom"}
+!478 = distinct !{!478, !479, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi8ELb1ENS_8Int8TypeEEENS_6StatusERKT1_: %agg.result"}
+!479 = distinct !{!479, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi8ELb1ENS_8Int8TypeEEENS_6StatusERKT1_"}
 !480 = !{!478, !475}
 !481 = !{!482, !478, !475}
 !482 = distinct !{!482, !483, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !483 = distinct !{!483, !"_ZN5arrow6Status2OKEv"}
 !484 = !{!485}
-!485 = distinct !{!485, !486, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
-!486 = distinct !{!486, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
+!485 = distinct !{!485, !486, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
+!486 = distinct !{!486, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
 !487 = !{!488}
-!488 = distinct !{!488, !489, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi8ELb0ENS_9UInt8TypeEEENS_6StatusERKT1_.argprom: %agg.result"}
-!489 = distinct !{!489, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi8ELb0ENS_9UInt8TypeEEENS_6StatusERKT1_.argprom"}
+!488 = distinct !{!488, !489, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi8ELb0ENS_9UInt8TypeEEENS_6StatusERKT1_: %agg.result"}
+!489 = distinct !{!489, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi8ELb0ENS_9UInt8TypeEEENS_6StatusERKT1_"}
 !490 = !{!488, !485}
 !491 = !{!492, !488, !485}
 !492 = distinct !{!492, !493, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !493 = distinct !{!493, !"_ZN5arrow6Status2OKEv"}
 !494 = !{!495}
-!495 = distinct !{!495, !496, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
-!496 = distinct !{!496, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
+!495 = distinct !{!495, !496, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
+!496 = distinct !{!496, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
 !497 = !{!498}
-!498 = distinct !{!498, !499, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi16ELb1ENS_9Int16TypeEEENS_6StatusERKT1_.argprom: %agg.result"}
-!499 = distinct !{!499, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi16ELb1ENS_9Int16TypeEEENS_6StatusERKT1_.argprom"}
+!498 = distinct !{!498, !499, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi16ELb1ENS_9Int16TypeEEENS_6StatusERKT1_: %agg.result"}
+!499 = distinct !{!499, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi16ELb1ENS_9Int16TypeEEENS_6StatusERKT1_"}
 !500 = !{!498, !495}
 !501 = !{!502, !498, !495}
 !502 = distinct !{!502, !503, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !503 = distinct !{!503, !"_ZN5arrow6Status2OKEv"}
 !504 = !{!505}
-!505 = distinct !{!505, !506, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
-!506 = distinct !{!506, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
+!505 = distinct !{!505, !506, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
+!506 = distinct !{!506, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
 !507 = !{!508}
-!508 = distinct !{!508, !509, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi16ELb0ENS_10UInt16TypeEEENS_6StatusERKT1_.argprom: %agg.result"}
-!509 = distinct !{!509, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi16ELb0ENS_10UInt16TypeEEENS_6StatusERKT1_.argprom"}
+!508 = distinct !{!508, !509, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi16ELb0ENS_10UInt16TypeEEENS_6StatusERKT1_: %agg.result"}
+!509 = distinct !{!509, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi16ELb0ENS_10UInt16TypeEEENS_6StatusERKT1_"}
 !510 = !{!508, !505}
 !511 = !{!512, !508, !505}
 !512 = distinct !{!512, !513, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !513 = distinct !{!513, !"_ZN5arrow6Status2OKEv"}
 !514 = !{!515}
-!515 = distinct !{!515, !516, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
-!516 = distinct !{!516, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
+!515 = distinct !{!515, !516, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
+!516 = distinct !{!516, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
 !517 = !{!518}
-!518 = distinct !{!518, !519, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi32ELb1ENS_9Int32TypeEEENS_6StatusERKT1_.argprom: %agg.result"}
-!519 = distinct !{!519, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi32ELb1ENS_9Int32TypeEEENS_6StatusERKT1_.argprom"}
+!518 = distinct !{!518, !519, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi32ELb1ENS_9Int32TypeEEENS_6StatusERKT1_: %agg.result"}
+!519 = distinct !{!519, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi32ELb1ENS_9Int32TypeEEENS_6StatusERKT1_"}
 !520 = !{!518, !515}
 !521 = !{!522, !518, !515}
 !522 = distinct !{!522, !523, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !523 = distinct !{!523, !"_ZN5arrow6Status2OKEv"}
 !524 = !{!525}
-!525 = distinct !{!525, !526, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
-!526 = distinct !{!526, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
+!525 = distinct !{!525, !526, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
+!526 = distinct !{!526, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
 !527 = !{!528}
-!528 = distinct !{!528, !529, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi32ELb0ENS_10UInt32TypeEEENS_6StatusERKT1_.argprom: %agg.result"}
-!529 = distinct !{!529, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi32ELb0ENS_10UInt32TypeEEENS_6StatusERKT1_.argprom"}
+!528 = distinct !{!528, !529, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi32ELb0ENS_10UInt32TypeEEENS_6StatusERKT1_: %agg.result"}
+!529 = distinct !{!529, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi32ELb0ENS_10UInt32TypeEEENS_6StatusERKT1_"}
 !530 = !{!528, !525}
 !531 = !{!532, !528, !525}
 !532 = distinct !{!532, !533, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !533 = distinct !{!533, !"_ZN5arrow6Status2OKEv"}
 !534 = !{!535}
-!535 = distinct !{!535, !536, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
-!536 = distinct !{!536, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
+!535 = distinct !{!535, !536, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
+!536 = distinct !{!536, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
 !537 = !{!538}
-!538 = distinct !{!538, !539, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi64ELb1ENS_9Int64TypeEEENS_6StatusERKT1_.argprom: %agg.result"}
-!539 = distinct !{!539, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi64ELb1ENS_9Int64TypeEEENS_6StatusERKT1_.argprom"}
+!538 = distinct !{!538, !539, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi64ELb1ENS_9Int64TypeEEENS_6StatusERKT1_: %agg.result"}
+!539 = distinct !{!539, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi64ELb1ENS_9Int64TypeEEENS_6StatusERKT1_"}
 !540 = !{!538, !535}
 !541 = !{!542, !538, !535}
 !542 = distinct !{!542, !543, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !543 = distinct !{!543, !"_ZN5arrow6Status2OKEv"}
 !544 = !{!545}
-!545 = distinct !{!545, !546, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom: %agg.result"}
-!546 = distinct !{!546, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.argprom"}
+!545 = distinct !{!545, !546, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_: %agg.result"}
+!546 = distinct !{!546, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_"}
 !547 = !{!548}
-!548 = distinct !{!548, !549, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi64ELb0ENS_10UInt64TypeEEENS_6StatusERKT1_.argprom: %agg.result"}
-!549 = distinct !{!549, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi64ELb0ENS_10UInt64TypeEEENS_6StatusERKT1_.argprom"}
+!548 = distinct !{!548, !549, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi64ELb0ENS_10UInt64TypeEEENS_6StatusERKT1_: %agg.result"}
+!549 = distinct !{!549, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitILi64ELb0ENS_10UInt64TypeEEENS_6StatusERKT1_"}
 !550 = !{!548, !545}
 !551 = !{!552, !548, !545}
 !552 = distinct !{!552, !553, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !553 = distinct !{!553, !"_ZN5arrow6Status2OKEv"}
 !554 = !{!555}
-!555 = distinct !{!555, !556, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_13HalfFloatTypeE.argprom: %agg.result"}
-!556 = distinct !{!556, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_13HalfFloatTypeE.argprom"}
+!555 = distinct !{!555, !556, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_13HalfFloatTypeE: %agg.result"}
+!556 = distinct !{!556, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_13HalfFloatTypeE"}
 !557 = !{!558, !555}
 !558 = distinct !{!558, !559, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !559 = distinct !{!559, !"_ZN5arrow6Status2OKEv"}
 !560 = !{!561}
-!561 = distinct !{!561, !562, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_9FloatTypeE.argprom: %agg.result"}
-!562 = distinct !{!562, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_9FloatTypeE.argprom"}
+!561 = distinct !{!561, !562, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_9FloatTypeE: %agg.result"}
+!562 = distinct !{!562, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_9FloatTypeE"}
 !563 = !{!564, !561}
 !564 = distinct !{!564, !565, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !565 = distinct !{!565, !"_ZN5arrow6Status2OKEv"}
 !566 = !{!567}
-!567 = distinct !{!567, !568, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10DoubleTypeE.argprom: %agg.result"}
-!568 = distinct !{!568, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10DoubleTypeE.argprom"}
+!567 = distinct !{!567, !568, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10DoubleTypeE: %agg.result"}
+!568 = distinct !{!568, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10DoubleTypeE"}
 !569 = !{!570, !567}
 !570 = distinct !{!570, !571, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !571 = distinct !{!571, !"_ZN5arrow6Status2OKEv"}
 !572 = !{!573}
-!573 = distinct !{!573, !574, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10StringTypeE.argprom: %agg.result"}
-!574 = distinct !{!574, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10StringTypeE.argprom"}
+!573 = distinct !{!573, !574, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10StringTypeE: %agg.result"}
+!574 = distinct !{!574, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10StringTypeE"}
 !575 = !{!576, !573}
 !576 = distinct !{!576, !577, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !577 = distinct !{!577, !"_ZN5arrow6Status2OKEv"}
 !578 = !{!579}
-!579 = distinct !{!579, !580, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_14StringViewTypeE.argprom: %agg.result"}
-!580 = distinct !{!580, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_14StringViewTypeE.argprom"}
+!579 = distinct !{!579, !580, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_14StringViewTypeE: %agg.result"}
+!580 = distinct !{!580, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_14StringViewTypeE"}
 !581 = !{!582, !579}
 !582 = distinct !{!582, !583, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !583 = distinct !{!583, !"_ZN5arrow6Status2OKEv"}
 !584 = !{!585}
-!585 = distinct !{!585, !586, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10BinaryTypeE.argprom: %agg.result"}
-!586 = distinct !{!586, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10BinaryTypeE.argprom"}
+!585 = distinct !{!585, !586, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10BinaryTypeE: %agg.result"}
+!586 = distinct !{!586, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10BinaryTypeE"}
 !587 = !{!588, !585}
 !588 = distinct !{!588, !589, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !589 = distinct !{!589, !"_ZN5arrow6Status2OKEv"}
 !590 = !{!591}
-!591 = distinct !{!591, !592, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_14BinaryViewTypeE.argprom: %agg.result"}
-!592 = distinct !{!592, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_14BinaryViewTypeE.argprom"}
+!591 = distinct !{!591, !592, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_14BinaryViewTypeE: %agg.result"}
+!592 = distinct !{!592, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_14BinaryViewTypeE"}
 !593 = !{!594, !591}
 !594 = distinct !{!594, !595, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !595 = distinct !{!595, !"_ZN5arrow6Status2OKEv"}
 !596 = !{!597}
-!597 = distinct !{!597, !598, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_15LargeStringTypeE.argprom: %agg.result"}
-!598 = distinct !{!598, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_15LargeStringTypeE.argprom"}
+!597 = distinct !{!597, !598, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_15LargeStringTypeE: %agg.result"}
+!598 = distinct !{!598, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_15LargeStringTypeE"}
 !599 = !{!600, !597}
 !600 = distinct !{!600, !601, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !601 = distinct !{!601, !"_ZN5arrow6Status2OKEv"}
 !602 = !{!603}
-!603 = distinct !{!603, !604, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_15LargeBinaryTypeE.argprom: %agg.result"}
-!604 = distinct !{!604, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_15LargeBinaryTypeE.argprom"}
+!603 = distinct !{!603, !604, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_15LargeBinaryTypeE: %agg.result"}
+!604 = distinct !{!604, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_15LargeBinaryTypeE"}
 !605 = !{!606, !603}
 !606 = distinct !{!606, !607, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !607 = distinct !{!607, !"_ZN5arrow6Status2OKEv"}
@@ -40630,14 +40630,14 @@ attributes #23 = { "function-inline-cost-multiplier"="2" }
 !618 = distinct !{!618, !619, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !619 = distinct !{!619, !"_ZN5arrow6Status2OKEv"}
 !620 = !{!621}
-!621 = distinct !{!621, !622, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10Date32TypeE.argprom: %agg.result"}
-!622 = distinct !{!622, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10Date32TypeE.argprom"}
+!621 = distinct !{!621, !622, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10Date32TypeE: %agg.result"}
+!622 = distinct !{!622, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10Date32TypeE"}
 !623 = !{!624, !621}
 !624 = distinct !{!624, !625, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !625 = distinct !{!625, !"_ZN5arrow6Status2OKEv"}
 !626 = !{!627}
-!627 = distinct !{!627, !628, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10Date64TypeE.argprom: %agg.result"}
-!628 = distinct !{!628, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10Date64TypeE.argprom"}
+!627 = distinct !{!627, !628, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10Date64TypeE: %agg.result"}
+!628 = distinct !{!628, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_10Date64TypeE"}
 !629 = !{!630, !627}
 !630 = distinct !{!630, !631, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !631 = distinct !{!631, !"_ZN5arrow6Status2OKEv"}
@@ -40660,20 +40660,20 @@ attributes #23 = { "function-inline-cost-multiplier"="2" }
 !648 = distinct !{!648, !649, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !649 = distinct !{!649, !"_ZN5arrow6Status2OKEv"}
 !650 = !{!651}
-!651 = distinct !{!651, !652, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_24MonthDayNanoIntervalTypeE.argprom: %agg.result"}
-!652 = distinct !{!652, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_24MonthDayNanoIntervalTypeE.argprom"}
+!651 = distinct !{!651, !652, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_24MonthDayNanoIntervalTypeE: %agg.result"}
+!652 = distinct !{!652, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_24MonthDayNanoIntervalTypeE"}
 !653 = !{!654, !651}
 !654 = distinct !{!654, !655, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !655 = distinct !{!655, !"_ZN5arrow6Status2OKEv"}
 !656 = !{!657}
-!657 = distinct !{!657, !658, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_17MonthIntervalTypeE.argprom: %agg.result"}
-!658 = distinct !{!658, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_17MonthIntervalTypeE.argprom"}
+!657 = distinct !{!657, !658, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_17MonthIntervalTypeE: %agg.result"}
+!658 = distinct !{!658, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_17MonthIntervalTypeE"}
 !659 = !{!660, !657}
 !660 = distinct !{!660, !661, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !661 = distinct !{!661, !"_ZN5arrow6Status2OKEv"}
 !662 = !{!663}
-!663 = distinct !{!663, !664, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_19DayTimeIntervalTypeE.argprom: %agg.result"}
-!664 = distinct !{!664, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_19DayTimeIntervalTypeE.argprom"}
+!663 = distinct !{!663, !664, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_19DayTimeIntervalTypeE: %agg.result"}
+!664 = distinct !{!664, !"_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_19DayTimeIntervalTypeE"}
 !665 = !{!666, !663}
 !666 = distinct !{!666, !667, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !667 = distinct !{!667, !"_ZN5arrow6Status2OKEv"}

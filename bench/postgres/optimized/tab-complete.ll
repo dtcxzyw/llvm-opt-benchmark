@@ -12206,7 +12206,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
 
 46:                                               ; preds = %43
   %.val = load i8, ptr %0, align 1
-  %47 = tail call fastcc ptr @pg_strdup_keyword_case.argprom(ptr noundef nonnull %30, i8 %.val)
+  %47 = tail call fastcc ptr @pg_strdup_keyword_case(ptr noundef nonnull %30, i8 %.val)
   br label %.loopexit
 
 .thread:                                          ; preds = %..thread_crit_edge, %34
@@ -12512,7 +12512,7 @@ define internal ptr @create_command_generator(ptr noundef %0, i32 noundef %1) #0
 
 24:                                               ; preds = %18
   %.val.i = load i8, ptr %0, align 1
-  %25 = tail call fastcc ptr @pg_strdup_keyword_case.argprom(ptr noundef nonnull %13, i8 %.val.i)
+  %25 = tail call fastcc ptr @pg_strdup_keyword_case(ptr noundef nonnull %13, i8 %.val.i)
   br label %create_or_drop_command_generator.exit
 
 26:                                               ; preds = %18, %.lr.ph.i
@@ -12630,7 +12630,7 @@ define internal ptr @drop_command_generator(ptr noundef %0, i32 noundef %1) #0 {
 
 24:                                               ; preds = %18
   %.val.i = load i8, ptr %0, align 1
-  %25 = tail call fastcc ptr @pg_strdup_keyword_case.argprom(ptr noundef nonnull %13, i8 %.val.i)
+  %25 = tail call fastcc ptr @pg_strdup_keyword_case(ptr noundef nonnull %13, i8 %.val.i)
   br label %create_or_drop_command_generator.exit
 
 26:                                               ; preds = %18, %.lr.ph.i
@@ -12701,7 +12701,7 @@ define internal ptr @alter_command_generator(ptr noundef %0, i32 noundef %1) #0 
 
 24:                                               ; preds = %18
   %.val.i = load i8, ptr %0, align 1
-  %25 = tail call fastcc ptr @pg_strdup_keyword_case.argprom(ptr noundef nonnull %13, i8 %.val.i)
+  %25 = tail call fastcc ptr @pg_strdup_keyword_case(ptr noundef nonnull %13, i8 %.val.i)
   br label %create_or_drop_command_generator.exit
 
 26:                                               ; preds = %18, %.lr.ph.i
@@ -12887,7 +12887,7 @@ define internal ptr @complete_from_const(ptr nocapture noundef readonly %0, i32 
 
 8:                                                ; preds = %4
   %.val = load i8, ptr %0, align 1
-  %9 = tail call fastcc ptr @pg_strdup_keyword_case.argprom(ptr noundef %5, i8 %.val)
+  %9 = tail call fastcc ptr @pg_strdup_keyword_case(ptr noundef %5, i8 %.val)
   br label %10
 
 10:                                               ; preds = %2, %8, %6
@@ -12912,7 +12912,7 @@ declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pg_strdup_keyword_case.argprom(ptr noundef %0, i8 %.0.val) unnamed_addr #0 {
+define internal fastcc ptr @pg_strdup_keyword_case(ptr noundef %0, i8 %.0.val) unnamed_addr #0 {
   %2 = tail call ptr @pg_strdup(ptr noundef %0) #12
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 416), align 8
   switch i32 %3, label %.thread [
@@ -14085,7 +14085,7 @@ requote_identifier.exit:                          ; preds = %385, %.thread169.th
   %426 = add i32 %425, 1
   store i32 %426, ptr @_complete_from_query.num_keywords, align 4
   %.val147 = load i8, ptr %4, align 1
-  %427 = call fastcc ptr @pg_strdup_keyword_case.argprom(ptr noundef nonnull %413, i8 %.val147)
+  %427 = call fastcc ptr @pg_strdup_keyword_case(ptr noundef nonnull %413, i8 %.val147)
   br label %453
 
 .loopexit184:                                     ; preds = %.backedge185, %.preheader183, %409, %._crit_edge
@@ -14126,7 +14126,7 @@ requote_identifier.exit:                          ; preds = %385, %.thread169.th
   %442 = add i32 %441, 1
   store i32 %442, ptr @_complete_from_query.num_keywords, align 4
   %.val = load i8, ptr %4, align 1
-  %443 = call fastcc ptr @pg_strdup_keyword_case.argprom(ptr noundef nonnull %429, i8 %.val)
+  %443 = call fastcc ptr @pg_strdup_keyword_case(ptr noundef nonnull %429, i8 %.val)
   br label %453
 
 .loopexit:                                        ; preds = %.backedge, %.preheader, %.loopexit184, %196, %194

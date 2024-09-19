@@ -156,7 +156,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_110WaitInsert20runOnMachineF
   %.sroa.038.060 = phi ptr [ %.sroa.038.057, %.lr.ph ], [ %.sroa.038.0, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit33 ]
   %.159 = phi i1 [ %.01463, %.lr.ph ], [ %.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit33 ]
   %22 = call noundef zeroext i1 @_ZN4llvm3X8616isX87InstructionERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.038.060) #9
-  br i1 %22, label %23, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
+  br i1 %22, label %23, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.038.060, i64 44
@@ -264,32 +264,32 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit._crit_edge.i: ; preds = %_Z
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, 1048576
   %.not52 = icmp eq i64 %79, 0
-  br i1 %.not52, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread
+  br i1 %.not52, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread
 
 _ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit: ; preds = %68
   %80 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.038.060, i64 noundef 1048576, i32 noundef 1) #9
-  br i1 %80, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
+  br i1 %80, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
 
 _ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread: ; preds = %42, %62, %54, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i, %74, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit, %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit
   %81 = getelementptr i8, ptr %.sroa.038.060, i64 68
   %.val = load i16, ptr %81, align 4
   switch i16 %.val, label %.preheader.i.i.i.preheader [
-    i16 1647, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1639, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1649, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1650, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1651, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1646, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1640, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1673, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1668, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1669, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1638, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1630, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1632, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1633, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 1648, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
-    i16 22036, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
+    i16 1647, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1639, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1649, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1650, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1651, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1646, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1640, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1673, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1668, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1669, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1638, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1630, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1632, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1633, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 1648, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
+    i16 22036, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
   ]
 
 .preheader.i.i.i.preheader:                       ; preds = %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread
@@ -328,7 +328,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i: ; p
 94:                                               ; preds = %92
   %95 = getelementptr i8, ptr %91, i64 68
   %.val15 = load i16, ptr %95, align 4
-  switch i16 %.val15, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit [
+  switch i16 %.val15, label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit [
     i16 1647, label %.critedge
     i16 1650, label %.critedge
     i16 1651, label %.critedge
@@ -472,9 +472,9 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %.sroa.0.0.i.i.i = phi ptr [ %.sroa.038.060, %_ZN4llvm8DebugLocD2Ev.exit ], [ %.sroa.038.060, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ], [ %134, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ]
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %139 = load ptr, ptr %138, align 8
-  br label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
+  br label %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
 
-_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit: ; preds = %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %94, %74, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit, %21, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
+_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit: ; preds = %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread, %94, %74, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit, %21, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
   %.sroa.038.1 = phi ptr [ %139, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit ], [ %.sroa.038.060, %21 ], [ %.sroa.038.060, %74 ], [ %.sroa.038.060, %94 ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.sroa.038.060, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ]
   %.2 = phi i1 [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit ], [ %.159, %21 ], [ %.159, %74 ], [ %.159, %94 ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ], [ %.159, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit.thread ]
   %.0.copyload.i.i.i.i.i.i.i.i.i25 = load i64, ptr %.sroa.038.1, align 8
@@ -482,7 +482,7 @@ _ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit: ; pre
   %.not.i.i.i26 = icmp eq i64 %140, 0
   br i1 %.not.i.i.i26, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i28, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit33
 
-_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i28: ; preds = %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit
+_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i28: ; preds = %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.038.1, i64 44
   %142 = load i32, ptr %141, align 4
   %143 = and i32 %142, 8
@@ -499,8 +499,8 @@ _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1E
   %.not3.i.i.i32 = icmp eq i32 %148, 0
   br i1 %.not3.i.i.i32, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit33, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i30, !llvm.loop !4
 
-_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit33: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i30, %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i28
-  %.sroa.0.0.i.i.i27 = phi ptr [ %.sroa.038.1, %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.argprom.exit ], [ %.sroa.038.1, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i28 ], [ %145, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i30 ]
+_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit33: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i30, %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i28
+  %.sroa.0.0.i.i.i27 = phi ptr [ %.sroa.038.1, %_ZL33isX87NonWaitingControlInstructionRN4llvm12MachineInstrE.exit ], [ %.sroa.038.1, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i28 ], [ %145, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i30 ]
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i27, i64 8
   %.sroa.038.0 = load ptr, ptr %149, align 8
   %.not51 = icmp eq ptr %.sroa.038.0, %18

@@ -1501,15 +1501,15 @@ define hidden noundef i32 @_hb_ot_shape(ptr noundef %0, ptr noundef %1, ptr noun
   %32 = load i32, ptr %26, align 8
   %33 = zext i32 %32 to i64
   %34 = icmp ult i64 %indvars.iv.next.i.i.i, %33
-  br i1 %34, label %29, label %_ZL28hb_ot_shape_initialize_masksPK21hb_ot_shape_context_t.argprom.argprom.exit.i, !llvm.loop !12
+  br i1 %34, label %29, label %_ZL28hb_ot_shape_initialize_masksPK21hb_ot_shape_context_t.exit.i, !llvm.loop !12
 
-_ZL28hb_ot_shape_initialize_masksPK21hb_ot_shape_context_t.argprom.argprom.exit.i: ; preds = %29
+_ZL28hb_ot_shape_initialize_masksPK21hb_ot_shape_context_t.exit.i: ; preds = %29
   %35 = load ptr, ptr %28, align 8
   %.not50.i.i = icmp eq i32 %32, 0
   br i1 %.not50.i.i, label %_ZL20hb_set_unicode_propsP11hb_buffer_t.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZL28hb_ot_shape_initialize_masksPK21hb_ot_shape_context_t.argprom.argprom.exit.i, %87
-  %.049.i.i = phi i32 [ %88, %87 ], [ 0, %_ZL28hb_ot_shape_initialize_masksPK21hb_ot_shape_context_t.argprom.argprom.exit.i ]
+.lr.ph.i.i:                                       ; preds = %_ZL28hb_ot_shape_initialize_masksPK21hb_ot_shape_context_t.exit.i, %87
+  %.049.i.i = phi i32 [ %88, %87 ], [ 0, %_ZL28hb_ot_shape_initialize_masksPK21hb_ot_shape_context_t.exit.i ]
   %36 = zext i32 %.049.i.i to i64
   %37 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %35, i64 %36
   tail call fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_info_tP11hb_buffer_t(ptr noundef %37, ptr noundef %2)
@@ -1606,7 +1606,7 @@ _ZL28hb_ot_shape_initialize_masksPK21hb_ot_shape_context_t.argprom.argprom.exit.
   %89 = icmp ult i32 %88, %32
   br i1 %89, label %.lr.ph.i.i, label %_ZL20hb_set_unicode_propsP11hb_buffer_t.exit.i, !llvm.loop !13
 
-_ZL20hb_set_unicode_propsP11hb_buffer_t.exit.i:   ; preds = %87, %_ZL28hb_ot_shape_initialize_masksPK21hb_ot_shape_context_t.argprom.argprom.exit.i, %5
+_ZL20hb_set_unicode_propsP11hb_buffer_t.exit.i:   ; preds = %87, %_ZL28hb_ot_shape_initialize_masksPK21hb_ot_shape_context_t.exit.i, %5
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %18)
   %90 = getelementptr inbounds i8, ptr %2, i64 24
   %91 = load i32, ptr %90, align 8
@@ -2570,13 +2570,13 @@ _ZL24hb_ot_substitute_defaultPK21hb_ot_shape_context_t.exit.i.i: ; preds = %.lr.
   %495 = load i16, ptr %481, align 8
   %496 = and i16 %495, 64
   %.not.i7.i.i = icmp eq i16 %496, 0
-  br i1 %.not.i7.i.i, label %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.argprom.exit.i.i.i, label %497
+  br i1 %.not.i7.i.i, label %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.exit.i.i.i, label %497
 
 497:                                              ; preds = %_ZL24hb_ot_substitute_defaultPK21hb_ot_shape_context_t.exit.i.i
   %.val.i.i40.i = load i32, ptr %26, align 8
   %.val15.i.i.i = load ptr, ptr %243, align 8
   %.not3.i.i.i.i = icmp eq i32 %.val.i.i40.i, 0
-  br i1 %.not3.i.i.i.i, label %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.argprom.exit.i.i.i, label %.lr.ph.preheader.i.i8.i.i
+  br i1 %.not3.i.i.i.i, label %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.exit.i.i.i, label %.lr.ph.preheader.i.i8.i.i
 
 .lr.ph.preheader.i.i8.i.i:                        ; preds = %497
   %wide.trip.count.i.i9.i.i = zext i32 %.val.i.i40.i to i64
@@ -2611,23 +2611,23 @@ _ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.thread.i.i.i.i:
   store i16 %506, ptr %507, align 4
   %indvars.iv.next.i.i13.i.i = add nuw nsw i64 %indvars.iv.i.i11.i.i, 1
   %exitcond.not.i.i14.i.i = icmp eq i64 %indvars.iv.next.i.i13.i.i, %wide.trip.count.i.i9.i.i
-  br i1 %exitcond.not.i.i14.i.i, label %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.argprom.exit.loopexit.i.i.i, label %.lr.ph.i.i10.i.i, !llvm.loop !28
+  br i1 %exitcond.not.i.i14.i.i, label %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.exit.loopexit.i.i.i, label %.lr.ph.i.i10.i.i, !llvm.loop !28
 
-_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.argprom.exit.loopexit.i.i.i: ; preds = %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.thread.i.i.i.i
+_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.exit.loopexit.i.i.i: ; preds = %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.thread.i.i.i.i
   %.pre16.i.i.i = load i16, ptr %481, align 8
-  br label %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.argprom.exit.i.i.i
+  br label %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.exit.i.i.i
 
-_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.argprom.exit.i.i.i: ; preds = %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.argprom.exit.loopexit.i.i.i, %497, %_ZL24hb_ot_substitute_defaultPK21hb_ot_shape_context_t.exit.i.i
-  %508 = phi i16 [ %.pre16.i.i.i, %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.argprom.exit.loopexit.i.i.i ], [ %495, %497 ], [ %495, %_ZL24hb_ot_substitute_defaultPK21hb_ot_shape_context_t.exit.i.i ]
+_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.exit.i.i.i: ; preds = %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.exit.loopexit.i.i.i, %497, %_ZL24hb_ot_substitute_defaultPK21hb_ot_shape_context_t.exit.i.i
+  %508 = phi i16 [ %.pre16.i.i.i, %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.exit.loopexit.i.i.i ], [ %495, %497 ], [ %495, %_ZL24hb_ot_substitute_defaultPK21hb_ot_shape_context_t.exit.i.i ]
   %509 = and i16 %508, 8192
   %.not14.i.i.i = icmp eq i16 %509, 0
   br i1 %.not14.i.i.i, label %511, label %510
 
-510:                                              ; preds = %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.argprom.exit.i.i.i
+510:                                              ; preds = %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.exit.i.i.i
   call void @_Z24hb_aat_layout_substitutePK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tPK12hb_feature_tj(ptr noundef nonnull %19, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %_ZL21hb_ot_substitute_planPK21hb_ot_shape_context_t.exit.i.i
 
-511:                                              ; preds = %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.argprom.exit.i.i.i
+511:                                              ; preds = %_ZL27hb_synthesize_glyph_classesP11hb_buffer_t.exit.i.i.i
   %512 = getelementptr inbounds i8, ptr %0, i64 136
   call void @_ZNK11hb_ot_map_t10substituteEPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t(ptr noundef nonnull align 8 dereferenceable(96) %512, ptr noundef nonnull %19, ptr noundef %1, ptr noundef %2)
   br label %_ZL21hb_ot_substitute_planPK21hb_ot_shape_context_t.exit.i.i

@@ -2171,12 +2171,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr12_ReportErro
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit, label %12
+  br i1 %9, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit, label %12
 
 10:                                               ; preds = %50
   %11 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit22
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit22
 
 12:                                               ; preds = %2
   store i8 1, ptr %7, align 1
@@ -2255,7 +2255,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %36
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = atomicrmw sub ptr %13, i64 4 seq_cst, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit22
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit22
 
 42:                                               ; preds = %.lr.ph, %36
   %43 = getelementptr inbounds i8, ptr %.sroa.023.035, i64 8
@@ -2298,12 +2298,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_PrintDiagnosticEP8_IO_FILERKNS_6TfEnumE
 
 55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L16_PrintDiagnosticEP8_IO_FILERKNS_6TfEnumERKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3any.exit, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit21, %46
   store i8 0, ptr %7, align 1
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit: ; preds = %2, %55
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit: ; preds = %2, %55
   ret void
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit22: ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %10
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit22: ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %10
   %.pn = phi { ptr, i32 } [ %40, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit ], [ %11, %10 ]
   store i8 0, ptr %7, align 1
   resume { ptr, i32 } %.pn
@@ -2825,12 +2825,12 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr11PostWarnin
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit, label %27
+  br i1 %24, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit, label %27
 
 25:                                               ; preds = %64, %42, %38, %30, %34
   %26 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit49
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit49
 
 27:                                               ; preds = %8
   store i8 1, ptr %22, align 1
@@ -2925,7 +2925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .body:                                            ; preds = %50, %47, %52
   %.pn = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ], [ %48, %47 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #23
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit49
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit49
 
 54:                                               ; preds = %49, %40
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 480
@@ -3100,7 +3100,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
 .body40:                                          ; preds = %75, %110
   %eh.lpad-body41 = phi { ptr, i32 } [ %111, %110 ], [ %76, %75 ]
   call void @_ZNSt3anyD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #23
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit49
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit49
 
 112:                                              ; preds = %122
   %113 = landingpad { ptr, i32 }
@@ -3172,17 +3172,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_PrintDiagnosticEP8_IO_FILERKNS_6TfEnumE
   %135 = getelementptr inbounds nuw i8, ptr %18, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #23
   store i8 0, ptr %22, align 1
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit: ; preds = %8, %133
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit: ; preds = %8, %133
   ret void
 
 136:                                              ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %112
   %.pn24 = phi { ptr, i32 } [ %114, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit ], [ %113, %112 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9TfWarningD2Ev(ptr noundef nonnull align 8 dereferenceable(145) %18) #23
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit49
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit49
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit49: ; preds = %136, %.body40, %.body, %25
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit49: ; preds = %136, %.body40, %.body, %25
   %.pn24.pn = phi { ptr, i32 } [ %.pn24, %136 ], [ %eh.lpad-body41, %.body40 ], [ %26, %25 ], [ %.pn, %.body ]
   store i8 0, ptr %22, align 1
   resume { ptr, i32 } %.pn24.pn
@@ -3299,12 +3299,12 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr10PostStatus
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
-  br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit, label %24
+  br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit, label %24
 
 22:                                               ; preds = %34
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit31
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit31
 
 24:                                               ; preds = %8
   store i8 1, ptr %19, align 1
@@ -3478,7 +3478,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
 .body:                                            ; preds = %45, %80
   %eh.lpad-body = phi { ptr, i32 } [ %81, %80 ], [ %46, %45 ]
   call void @_ZNSt3anyD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit31
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit31
 
 82:                                               ; preds = %92
   %83 = landingpad { ptr, i32 }
@@ -3549,17 +3549,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_PrintDiagnosticEP8_IO_FILERKNS_6TfEnumE
   %105 = getelementptr inbounds nuw i8, ptr %15, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %105) #23
   store i8 0, ptr %19, align 1
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit: ; preds = %8, %103
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit: ; preds = %8, %103
   ret void
 
 106:                                              ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %82
   %.pn = phi { ptr, i32 } [ %84, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit ], [ %83, %82 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8TfStatusD2Ev(ptr noundef nonnull align 8 dereferenceable(145) %15) #23
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit31
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit31
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit31: ; preds = %106, %.body, %22
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit31: ; preds = %106, %.body, %22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %106 ], [ %eh.lpad-body, %.body ], [ %23, %22 ]
   store i8 0, ptr %19, align 1
   resume { ptr, i32 } %.pn.pn
@@ -3715,7 +3715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 24:                                               ; preds = %40, %33, %113, %100, %_ZNK32pxrInternal_v0_24__pxrReserved__6TfEnumeqINS_16TfDiagnosticTypeEEENSt9enable_ifIXsr3std7is_enumIT_EE5valueEbE4typeES4_.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__6TfEnumeqINS_16TfDiagnosticTypeEEENSt9enable_ifIXsr3std7is_enumIT_EE5valueEbE4typeES4_.exit.thread44, %44
   %25 = landingpad { ptr, i32 }
           cleanup
-  br i1 %18, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit, label %116
+  br i1 %18, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit, label %116
 
 26:                                               ; preds = %.noexc, %19
   %27 = landingpad { ptr, i32 }
@@ -3732,7 +3732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .thread:                                          ; preds = %28, %21, %26
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ], [ %22, %21 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #23
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit
 
 30:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardC2EPb.exit, %23
   %31 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 28) seq_cst, align 4
@@ -3846,7 +3846,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %68
   %72 = landingpad { ptr, i32 }
           cleanup
   %73 = atomicrmw sub ptr %46, i64 4 seq_cst, align 8
-  br i1 %18, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit, label %116
+  br i1 %18, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit, label %116
 
 74:                                               ; preds = %.lr.ph, %68
   %75 = getelementptr inbounds i8, ptr %.sroa.035.050, i64 8
@@ -3947,14 +3947,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__6TfEnumeqINS_16TfDiagnosticTypeEEENSt9enab
 115:                                              ; preds = %109, %111
   %.pn22 = phi { ptr, i32 } [ %112, %111 ], [ %110, %109 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #23
-  br i1 %18, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit, label %116
+  br i1 %18, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit, label %116
 
 116:                                              ; preds = %24, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %115
   %.pn2447 = phi { ptr, i32 } [ %72, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit ], [ %.pn22, %115 ], [ %25, %24 ]
   store i8 0, ptr %16, align 1
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.argprom.exit: ; preds = %24, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %.thread, %115, %116
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_116_ReentrancyGuardD2Ev.exit: ; preds = %24, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %.thread, %115, %116
   %.pn2446 = phi { ptr, i32 } [ %.pn, %.thread ], [ %.pn22, %115 ], [ %.pn2447, %116 ], [ %72, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit ], [ %25, %24 ]
   resume { ptr, i32 } %.pn2446
 }

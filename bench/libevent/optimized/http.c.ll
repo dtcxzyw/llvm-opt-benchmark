@@ -9458,7 +9458,7 @@ for.cond:                                         ; preds = %for.body, %do.body
 for.body:                                         ; preds = %for.cond
   %vhost_pattern = getelementptr inbounds i8, ptr %vhost.0, i64 120
   %0 = load ptr, ptr %vhost_pattern, align 8
-  %call1 = tail call fastcc i32 @prefix_suffix_match.argelim(ptr noundef %0, ptr noundef %hostname)
+  %call1 = tail call fastcc i32 @prefix_suffix_match(ptr noundef %0, ptr noundef %hostname)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %for.cond, label %do.cond, !llvm.loop !45
 
@@ -9532,7 +9532,7 @@ return:                                           ; preds = %for.cond6, %for.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @prefix_suffix_match.argelim(ptr nocapture noundef readonly %pattern, ptr nocapture noundef nonnull readonly %name) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @prefix_suffix_match(ptr nocapture noundef readonly %pattern, ptr nocapture noundef nonnull readonly %name) unnamed_addr #0 {
 entry:
   br label %while.body
 
@@ -9564,7 +9564,7 @@ while.cond4:                                      ; preds = %while.body8
 
 while.body8:                                      ; preds = %while.cond4.preheader, %while.cond4
   %name.addr.116 = phi ptr [ %incdec.ptr9, %while.cond4 ], [ %name.addr.0, %while.cond4.preheader ]
-  %call = tail call fastcc i32 @prefix_suffix_match.argelim(ptr noundef nonnull %incdec.ptr, ptr noundef %name.addr.116)
+  %call = tail call fastcc i32 @prefix_suffix_match(ptr noundef nonnull %incdec.ptr, ptr noundef %name.addr.116)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %while.cond4, label %return
 
@@ -11039,7 +11039,7 @@ for.cond.i:                                       ; preds = %for.body.i, %do.bod
 for.body.i:                                       ; preds = %for.cond.i
   %vhost_pattern.i = getelementptr inbounds i8, ptr %vhost.0.i, i64 120
   %7 = load ptr, ptr %vhost_pattern.i, align 8
-  %call1.i = call fastcc i32 @prefix_suffix_match.argelim(ptr noundef %7, ptr noundef %call8)
+  %call1.i = call fastcc i32 @prefix_suffix_match(ptr noundef %7, ptr noundef %call8)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %for.cond.i, label %do.cond.i, !llvm.loop !45
 
@@ -11144,9 +11144,9 @@ for.cond.i16:                                     ; preds = %for.body.i17, %evht
   %cb.0.in.i = phi ptr [ %callbacks, %evhttp_decode_uri_internal.exit.i ], [ %cb.0.i, %for.body.i17 ]
   %cb.0.i = load ptr, ptr %cb.0.in.i, align 8
   %cmp4.not.i = icmp eq ptr %cb.0.i, null
-  br i1 %cmp4.not.i, label %evhttp_dispatch_callback.argprom.argprom.exit.thread24, label %for.body.i17
+  br i1 %cmp4.not.i, label %evhttp_dispatch_callback.exit.thread24, label %for.body.i17
 
-evhttp_dispatch_callback.argprom.argprom.exit.thread24: ; preds = %for.cond.i16
+evhttp_dispatch_callback.exit.thread24:           ; preds = %for.cond.i16
   call void @event_mm_free_(ptr noundef nonnull %call2.i) #19
   br label %if.end17
 
@@ -11166,7 +11166,7 @@ if.then15:                                        ; preds = %for.body.i17
   call void %18(ptr noundef %req, ptr noundef %19) #19
   br label %if.end21
 
-if.end17:                                         ; preds = %if.end12, %evhttp_dispatch_callback.argprom.argprom.exit.thread24
+if.end17:                                         ; preds = %if.end12, %evhttp_dispatch_callback.exit.thread24
   %20 = load ptr, ptr %http, align 8
   %gencb = getelementptr inbounds i8, ptr %20, i64 200
   %21 = load ptr, ptr %gencb, align 8

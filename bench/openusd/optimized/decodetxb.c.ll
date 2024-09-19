@@ -1210,7 +1210,7 @@ aom_read_symbol_.exit48.i:                        ; preds = %update_cdf.exit.i46
 
 thread-pre-split:                                 ; preds = %.loopexit.i, %564, %573
   %.sink449 = phi i32 [ 0, %573 ], [ %572, %564 ], [ 0, %.loopexit.i ]
-  call fastcc void @read_coeffs_reverse.argelim(ptr noundef %2, i8 noundef zeroext %7, i8 noundef zeroext %130, i32 noundef %.sink449, ptr noundef %134, i32 noundef %60, ptr noundef %9, ptr noundef nonnull %567, ptr noundef nonnull %571)
+  call fastcc void @read_coeffs_reverse(ptr noundef %2, i8 noundef zeroext %7, i8 noundef zeroext %130, i32 noundef %.sink449, ptr noundef %134, i32 noundef %60, ptr noundef %9, ptr noundef nonnull %567, ptr noundef nonnull %571)
   %.pr = load i16, ptr %107, align 2
   br label %709
 
@@ -1568,7 +1568,7 @@ declare ptr @av1_get_iqmatrix(ptr noundef, ptr noundef, i32 noundef, i8 noundef 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_coeffs_reverse.argelim(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef range(i32 0, 65534) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @read_coeffs_reverse(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef range(i32 0, 65534) %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = shl nuw i32 1, %5
   %11 = add nuw nsw i32 %10, 4
   %12 = sext i32 %11 to i64

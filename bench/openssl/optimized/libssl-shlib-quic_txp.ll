@@ -668,13 +668,13 @@ for.end:                                          ; preds = %for.body
   %call.i = tail call ptr @ossl_ackm_get0_probe_request(ptr noundef %txp.val) #10
   %5 = load i32, ptr %call.i, align 4
   %cmp.not.i = icmp eq i32 %5, 0
-  br i1 %cmp.not.i, label %lor.lhs.false.i, label %txp_determine_archetype.argprom.exit
+  br i1 %cmp.not.i, label %lor.lhs.false.i, label %txp_determine_archetype.exit
 
 lor.lhs.false.i:                                  ; preds = %for.end
   %anti_deadlock_handshake.i = getelementptr inbounds i8, ptr %call.i, i64 4
   %6 = load i32, ptr %anti_deadlock_handshake.i, align 4
   %cmp1.not.i = icmp eq i32 %6, 0
-  br i1 %cmp1.not.i, label %for.cond.preheader.i, label %txp_determine_archetype.argprom.exit
+  br i1 %cmp1.not.i, label %for.cond.preheader.i, label %txp_determine_archetype.exit
 
 for.cond.preheader.i:                             ; preds = %lor.lhs.false.i
   %pto.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -690,14 +690,14 @@ for.body.i:                                       ; preds = %for.cond.i, %for.co
   %arrayidx.i = getelementptr inbounds [3 x i32], ptr %pto.i, i64 0, i64 %indvars.iv.i
   %7 = load i32, ptr %arrayidx.i, align 4
   %cmp3.not.i = icmp eq i32 %7, 0
-  br i1 %cmp3.not.i, label %for.cond.i, label %txp_determine_archetype.argprom.exit
+  br i1 %cmp3.not.i, label %for.cond.i, label %txp_determine_archetype.exit
 
 for.end.i:                                        ; preds = %for.cond.i
   %cmp6.i = icmp eq i64 %call, 0
   %..i = select i1 %cmp6.i, i32 2, i32 0
-  br label %txp_determine_archetype.argprom.exit
+  br label %txp_determine_archetype.exit
 
-txp_determine_archetype.argprom.exit:             ; preds = %for.body.i, %for.end, %lor.lhs.false.i, %for.end.i
+txp_determine_archetype.exit:                     ; preds = %for.body.i, %for.end, %lor.lhs.false.i, %for.end.i
   %retval.0.i = phi i32 [ 1, %lor.lhs.false.i ], [ 1, %for.end ], [ %..i, %for.end.i ], [ 1, %for.body.i ]
   %idxprom2.i.i = zext nneg i32 %retval.0.i to i64
   %cmp.i = icmp eq i64 %call, 0
@@ -734,10 +734,10 @@ txp_determine_archetype.argprom.exit:             ; preds = %for.body.i, %for.en
   %hwm13351 = getelementptr inbounds i8, ptr %pkt, i64 256
   br label %for.body6
 
-for.body6:                                        ; preds = %txp_determine_archetype.argprom.exit, %for.inc44
-  %indvars.iv690 = phi i64 [ 0, %txp_determine_archetype.argprom.exit ], [ %indvars.iv.next691, %for.inc44 ]
-  %need_padding.0566 = phi i32 [ 0, %txp_determine_archetype.argprom.exit ], [ %need_padding.1, %for.inc44 ]
-  %conn_close_enc_level.0565 = phi i32 [ 4, %txp_determine_archetype.argprom.exit ], [ %conn_close_enc_level.2360, %for.inc44 ]
+for.body6:                                        ; preds = %txp_determine_archetype.exit, %for.inc44
+  %indvars.iv690 = phi i64 [ 0, %txp_determine_archetype.exit ], [ %indvars.iv.next691, %for.inc44 ]
+  %need_padding.0566 = phi i32 [ 0, %txp_determine_archetype.exit ], [ %need_padding.1, %for.inc44 ]
+  %conn_close_enc_level.0565 = phi i32 [ 4, %txp_determine_archetype.exit ], [ %conn_close_enc_level.2360, %for.inc44 ]
   %cmp7.not = icmp eq i64 %indvars.iv690, 0
   br i1 %cmp7.not, label %cond.end.thread, label %cond.end
 
@@ -1915,15 +1915,15 @@ if.end14.i.i:                                     ; preds = %if.end8.i.i
   %call.i.i214.i = call i64 @ossl_quic_wire_get_encoded_frame_len_crypto_hdr(ptr noundef nonnull %chdr.i.i) #10
   store i64 %127, ptr %len10.i.i, align 8
   %cmp5.i.i.i = icmp eq i64 %call.i.i214.i, 0
-  br i1 %cmp5.i.i.i, label %txp_generate_crypto_frames.exit.thread.i, label %determine_crypto_len.argprom.exit.i.i
+  br i1 %cmp5.i.i.i, label %txp_generate_crypto_frames.exit.thread.i, label %determine_crypto_len.exit.i.i
 
-determine_crypto_len.argprom.exit.i.i:            ; preds = %if.end14.i.i
+determine_crypto_len.exit.i.i:                    ; preds = %if.end14.i.i
   %dec.i.i.i = add i64 %call.i.i214.i, -1
   %call8.i.i.i = call fastcc i32 @determine_len(i64 noundef %sub1.i.i.i, i64 noundef %127, i64 noundef %dec.i.i.i, ptr noundef %hdr_bytes.i.i, ptr noundef %len10.i.i)
   %tobool17.not.i.i = icmp eq i32 %call8.i.i.i, 0
   br i1 %tobool17.not.i.i, label %txp_generate_crypto_frames.exit.thread.i, label %if.end19.i.i
 
-if.end19.i.i:                                     ; preds = %determine_crypto_len.argprom.exit.i.i
+if.end19.i.i:                                     ; preds = %determine_crypto_len.exit.i.i
   %128 = load i64, ptr %len10.i.i, align 8
   %129 = load i64, ptr %num_stream_iovec.i.i, align 8
   call void @ossl_quic_sstream_adjust_iov(i64 noundef %128, ptr noundef nonnull %iov.i.i82, i64 noundef %129) #10
@@ -2080,7 +2080,7 @@ for.end.i.i:                                      ; preds = %for.end.loopexit.i.
   %tobool50.not.i.i = icmp eq i32 %call49.i.i, 0
   br i1 %tobool50.not.i.i, label %txp_generate_crypto_frames.exit.i, label %for.cond.i.i
 
-txp_generate_crypto_frames.exit.thread.i:         ; preds = %tx_helper_get_space_left.exit.i.i, %if.end.i212.i, %if.end8.i.i, %if.end14.i.i, %determine_crypto_len.argprom.exit.i.i, %if.end.i25.i.i, %if.then34.i.i
+txp_generate_crypto_frames.exit.thread.i:         ; preds = %tx_helper_get_space_left.exit.i.i, %if.end.i212.i, %if.end8.i.i, %if.end14.i.i, %determine_crypto_len.exit.i.i, %if.end.i25.i.i, %if.then34.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_stream_iovec.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %shdr.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %chdr.i.i)
@@ -2591,9 +2591,9 @@ if.end46.i.i:                                     ; preds = %if.then51.i110.i.i,
   store i64 0, ptr %len1.i.i.i, align 16
   %call.i116.i.i = call i64 @ossl_quic_wire_get_encoded_frame_len_stream_hdr(ptr noundef nonnull %arrayidx13.i.i) #10
   %cmp5.i.i.i273 = icmp eq i64 %call.i116.i.i, 0
-  br i1 %cmp5.i.i.i273, label %if.end158.thread.i, label %determine_stream_len.argprom.exit.i.i
+  br i1 %cmp5.i.i.i273, label %if.end158.thread.i, label %determine_stream_len.exit.i.i
 
-determine_stream_len.argprom.exit.i.i:            ; preds = %if.end46.i.i
+determine_stream_len.exit.i.i:                    ; preds = %if.end46.i.i
   %bf.load.i117.i.i = load i8, ptr %has_explicit_len.i.i, align 16
   %205 = and i8 %bf.load.i117.i.i, 1
   %sext.i.i.i = sub nsw i8 0, %205
@@ -2603,7 +2603,7 @@ determine_stream_len.argprom.exit.i.i:            ; preds = %if.end46.i.i
   %tobool50.not.i.i275 = icmp eq i32 %call10.i.i.i, 0
   br i1 %tobool50.not.i.i275, label %if.end158.thread.i, label %if.end52.i.i
 
-if.end52.i.i:                                     ; preds = %determine_stream_len.argprom.exit.i.i
+if.end52.i.i:                                     ; preds = %determine_stream_len.exit.i.i
   %206 = load i64, ptr %hdr_len_implicit.i.i, align 8
   %207 = load i64, ptr %payload_len_implicit.i.i, align 8
   %add53.i.i = add i64 %207, %206
@@ -2634,9 +2634,9 @@ if.then71.i.i:                                    ; preds = %land.rhs.i.i, %lor.
   store i64 0, ptr %len1.i.i.i, align 16
   %call.i121.i.i = call i64 @ossl_quic_wire_get_encoded_frame_len_stream_hdr(ptr noundef nonnull %arrayidx13.i.i) #10
   %cmp5.i122.i.i = icmp eq i64 %call.i121.i.i, 0
-  br i1 %cmp5.i122.i.i, label %if.end158.thread.i, label %determine_stream_len.argprom.exit131.i.i
+  br i1 %cmp5.i122.i.i, label %if.end158.thread.i, label %determine_stream_len.exit131.i.i
 
-determine_stream_len.argprom.exit131.i.i:         ; preds = %if.then71.i.i
+determine_stream_len.exit131.i.i:                 ; preds = %if.then71.i.i
   %bf.load.i125.i.i = load i8, ptr %has_explicit_len.i.i, align 16
   %211 = and i8 %bf.load.i125.i.i, 1
   %sext.i126.i.i = sub nsw i8 0, %211
@@ -2646,7 +2646,7 @@ determine_stream_len.argprom.exit131.i.i:         ; preds = %if.then71.i.i
   %tobool77.not.i.i = icmp eq i32 %call10.i129.i.i, 0
   br i1 %tobool77.not.i.i, label %if.end158.thread.i, label %if.end79.i.i
 
-if.end79.i.i:                                     ; preds = %determine_stream_len.argprom.exit131.i.i
+if.end79.i.i:                                     ; preds = %determine_stream_len.exit131.i.i
   %212 = load i64, ptr %payload_len_explicit.i.i, align 8
   br label %if.end85.i.i
 
@@ -2858,7 +2858,7 @@ if.end203.i.i:                                    ; preds = %if.end166.i.i
   %inc210.i.i = add i64 %i.1.i.i, 1
   br i1 %cmp205.i.i, label %if.end158.i, label %for.cond11.i.i
 
-if.end158.thread.i:                               ; preds = %determine_stream_len.argprom.exit131.i.i, %if.then71.i.i, %determine_stream_len.argprom.exit.i.i, %if.end46.i.i, %if.end17.i.i, %if.end.i140.i.i, %if.then131.i.i
+if.end158.thread.i:                               ; preds = %determine_stream_len.exit131.i.i, %if.then71.i.i, %determine_stream_len.exit.i.i, %if.end46.i.i, %if.end17.i.i, %if.end.i140.i.i, %if.then131.i.i
   %sub211.i117122.i = sub i64 %fc_new_hwm.1.i.i, %call.i101.i
   store i64 %sub211.i117122.i, ptr %txp_txfc_new_credit_consumed.i237, align 8
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %chunks.i.i)

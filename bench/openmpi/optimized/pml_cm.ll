@@ -136,7 +136,7 @@ define i32 @mca_pml_cm_del_comm(ptr noundef %0) #0 {
 
 ; Function Attrs: alwaysinline nounwind uwtable
 define internal noundef range(i32 -2, 1) i32 @mca_pml_cm_irecv_init(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) #1 {
-  %8 = tail call fastcc ptr @opal_free_list_get.argprom()
+  %8 = tail call fastcc ptr @opal_free_list_get()
   %9 = getelementptr inbounds i8, ptr %8, i64 168
   store i32 2, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 520
@@ -211,26 +211,26 @@ opal_thread_add_fetch_32.exit49:                  ; preds = %39, %36, %opal_thre
   %44 = zext i16 %.val53 to i32
   %45 = and i32 %44, 16
   %.not.i = icmp eq i32 %45, 0
-  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit
+  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %opal_datatype_is_contiguous_memory_layout.exit
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit: ; preds = %opal_thread_add_fetch_32.exit49
+opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fetch_32.exit49
   %46 = and i64 %1, 4294967295
   %47 = icmp ne i64 %46, 1
   %48 = and i32 %44, 32
   %.not3.i = icmp eq i32 %48, 0
   %or.cond.not.i.not = and i1 %47, %.not3.i
-  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %49
+  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %49
 
-49:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit
+49:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit
   %50 = load ptr, ptr @ompi_mtl, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
   %53 = shl i32 %52, 29
   %spec.select = and i32 %53, 1073741824
-  br label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+  br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_thread_add_fetch_32.exit49, %opal_datatype_is_contiguous_memory_layout.argprom.exit, %49
-  %.0 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.argprom.exit ], [ %spec.select, %49 ], [ 0, %opal_thread_add_fetch_32.exit49 ]
+opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit49, %opal_datatype_is_contiguous_memory_layout.exit, %49
+  %.0 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %49 ], [ 0, %opal_thread_add_fetch_32.exit49 ]
   %54 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %55 = getelementptr inbounds i8, ptr %8, i64 192
   %56 = getelementptr inbounds i8, ptr %54, i64 16
@@ -253,7 +253,7 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_t
 
 ; Function Attrs: alwaysinline nounwind uwtable
 define internal i32 @mca_pml_cm_irecv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) #1 {
-  %8 = tail call fastcc ptr @opal_free_list_get.argprom()
+  %8 = tail call fastcc ptr @opal_free_list_get()
   %9 = getelementptr inbounds i8, ptr %8, i64 168
   store i32 3, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 472
@@ -320,26 +320,26 @@ opal_thread_add_fetch_32.exit54:                  ; preds = %35, %32, %opal_thre
   %40 = zext i16 %.val58 to i32
   %41 = and i32 %40, 16
   %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit
+  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %opal_datatype_is_contiguous_memory_layout.exit
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit: ; preds = %opal_thread_add_fetch_32.exit54
+opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fetch_32.exit54
   %42 = and i64 %1, 4294967295
   %43 = icmp ne i64 %42, 1
   %44 = and i32 %40, 32
   %.not3.i = icmp eq i32 %44, 0
   %or.cond.not.i.not = and i1 %43, %.not3.i
-  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %45
+  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %45
 
-45:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit
+45:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit
   %46 = load ptr, ptr @ompi_mtl, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = shl i32 %48, 29
   %spec.select = and i32 %49, 1073741824
-  br label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+  br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_thread_add_fetch_32.exit54, %45, %opal_datatype_is_contiguous_memory_layout.argprom.exit
-  %.048 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.argprom.exit ], [ %spec.select, %45 ], [ 0, %opal_thread_add_fetch_32.exit54 ]
+opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit54, %45, %opal_datatype_is_contiguous_memory_layout.exit
+  %.048 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %45 ], [ 0, %opal_thread_add_fetch_32.exit54 ]
   %50 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %51 = getelementptr inbounds i8, ptr %8, i64 192
   %52 = getelementptr inbounds i8, ptr %50, i64 16
@@ -372,18 +372,18 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_t
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %72
 
-71:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+71:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread
   store ptr %8, ptr %6, align 8
   br label %72
 
-72:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, %71
+72:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread, %71
   ret i32 %69
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
 define internal i32 @mca_pml_cm_recv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef writeonly %6) #1 {
   %8 = alloca ptr, align 8
-  %9 = tail call fastcc ptr @opal_free_list_get.argprom()
+  %9 = tail call fastcc ptr @opal_free_list_get()
   store ptr %9, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 168
   store i32 3, ptr %10, align 8
@@ -451,26 +451,26 @@ opal_thread_add_fetch_32.exit46:                  ; preds = %36, %33, %opal_thre
   %41 = zext i16 %.val60 to i32
   %42 = and i32 %41, 16
   %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit
+  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %opal_datatype_is_contiguous_memory_layout.exit
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit: ; preds = %opal_thread_add_fetch_32.exit46
+opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fetch_32.exit46
   %43 = and i64 %1, 4294967295
   %44 = icmp ne i64 %43, 1
   %45 = and i32 %41, 32
   %.not3.i = icmp eq i32 %45, 0
   %or.cond.not.i.not = and i1 %44, %.not3.i
-  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %46
+  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %46
 
-46:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit
+46:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit
   %47 = load ptr, ptr @ompi_mtl, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = shl i32 %49, 29
   %spec.select = and i32 %50, 1073741824
-  br label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+  br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_thread_add_fetch_32.exit46, %46, %opal_datatype_is_contiguous_memory_layout.argprom.exit
-  %.0 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.argprom.exit ], [ %spec.select, %46 ], [ 0, %opal_thread_add_fetch_32.exit46 ]
+opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit46, %46, %opal_datatype_is_contiguous_memory_layout.exit
+  %.0 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %46 ], [ 0, %opal_thread_add_fetch_32.exit46 ]
   %51 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %52 = getelementptr inbounds i8, ptr %9, i64 192
   %53 = getelementptr inbounds i8, ptr %51, i64 16
@@ -503,7 +503,7 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_t
   %.not39 = icmp eq i32 %70, 0
   br i1 %.not39, label %163, label %71
 
-71:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+71:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread
   %72 = load ptr, ptr %20, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load i8, ptr @opal_uses_threads, align 1
@@ -711,7 +711,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %159, %149
   store volatile i32 %162, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 252), align 4
   br label %opal_free_list_return.exit
 
-163:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+163:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread
   tail call fastcc void @ompi_request_wait_completion(ptr noundef nonnull %9)
   %.not40 = icmp eq ptr %6, null
   br i1 %.not40, label %174, label %164
@@ -746,7 +746,7 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
 
 ; Function Attrs: alwaysinline nounwind uwtable
 define internal noundef i32 @mca_pml_cm_isend_init(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) #1 {
-  %9 = tail call fastcc ptr @opal_free_list_wait.argprom()
+  %9 = tail call fastcc ptr @opal_free_list_wait()
   %10 = getelementptr inbounds i8, ptr %9, i64 168
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 520
@@ -816,26 +816,26 @@ opal_thread_add_fetch_32.exit61:                  ; preds = %35, %32, %opal_thre
   %43 = zext i16 %.val59 to i32
   %44 = and i32 %43, 16
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit
+  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %opal_datatype_is_contiguous_memory_layout.exit
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit: ; preds = %opal_thread_add_fetch_32.exit61
+opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fetch_32.exit61
   %45 = and i64 %1, 4294967295
   %46 = icmp ne i64 %45, 1
   %47 = and i32 %43, 32
   %.not3.i = icmp eq i32 %47, 0
   %or.cond.not.i.not = and i1 %46, %.not3.i
-  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %48
+  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %48
 
-48:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit
+48:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit
   %49 = load ptr, ptr @ompi_mtl, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = shl i32 %51, 29
   %spec.select = and i32 %52, 1073741824
-  br label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+  br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_thread_add_fetch_32.exit61, %48, %opal_datatype_is_contiguous_memory_layout.argprom.exit
-  %.0 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.argprom.exit ], [ %spec.select, %48 ], [ 0, %opal_thread_add_fetch_32.exit61 ]
+opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit61, %48, %opal_datatype_is_contiguous_memory_layout.exit
+  %.0 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %48 ], [ 0, %opal_thread_add_fetch_32.exit61 ]
   %53 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %54 = getelementptr inbounds i8, ptr %9, i64 192
   %55 = getelementptr inbounds i8, ptr %53, i64 16
@@ -880,7 +880,7 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_t
   %or.cond17.i = or i1 %or.cond15.not.i, %or.cond16.i
   br i1 %or.cond17.i, label %opal_convertor_get_packed_size.exit, label %80
 
-80:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+80:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread
   %81 = and i32 %76, 536870912
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %85
@@ -895,7 +895,7 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_t
   store i64 %87, ptr %20, align 8
   br label %opal_convertor_get_packed_size.exit
 
-opal_convertor_get_packed_size.exit:              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, %85
+opal_convertor_get_packed_size.exit:              ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread, %85
   %88 = getelementptr inbounds i8, ptr %9, i64 512
   store i8 0, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %9, i64 160
@@ -911,7 +911,7 @@ define internal i32 @mca_pml_cm_isend(ptr noundef %0, i64 noundef %1, ptr nounde
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
   %12 = icmp eq i32 %5, 2
-  %13 = tail call fastcc ptr @opal_free_list_wait.argprom()
+  %13 = tail call fastcc ptr @opal_free_list_wait()
   %14 = getelementptr inbounds i8, ptr %13, i64 168
   %15 = getelementptr inbounds i8, ptr %13, i64 88
   %16 = getelementptr inbounds i8, ptr %13, i64 96
@@ -984,26 +984,26 @@ opal_thread_add_fetch_32.exit183:                 ; preds = %40, %37, %opal_thre
   %48 = zext i16 %.val178 to i32
   %49 = and i32 %48, 16
   %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit
+  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %opal_datatype_is_contiguous_memory_layout.exit
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit: ; preds = %opal_thread_add_fetch_32.exit183
+opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fetch_32.exit183
   %50 = and i64 %1, 4294967295
   %51 = icmp ne i64 %50, 1
   %52 = and i32 %48, 32
   %.not3.i = icmp eq i32 %52, 0
   %or.cond.not.i.not = and i1 %51, %.not3.i
-  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %53
+  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %53
 
-53:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit
+53:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit
   %54 = load ptr, ptr @ompi_mtl, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = load i32, ptr %55, align 8
   %57 = shl i32 %56, 29
   %spec.select = and i32 %57, 1073741824
-  br label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+  br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_thread_add_fetch_32.exit183, %53, %opal_datatype_is_contiguous_memory_layout.argprom.exit
-  %.0153 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.argprom.exit ], [ %spec.select, %53 ], [ 0, %opal_thread_add_fetch_32.exit183 ]
+opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit183, %53, %opal_datatype_is_contiguous_memory_layout.exit
+  %.0153 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %53 ], [ 0, %opal_thread_add_fetch_32.exit183 ]
   %58 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %59 = getelementptr inbounds i8, ptr %13, i64 192
   %60 = getelementptr inbounds i8, ptr %58, i64 16
@@ -1048,7 +1048,7 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_t
   %or.cond17.i = or i1 %or.cond15.not.i, %or.cond16.i
   br i1 %or.cond17.i, label %opal_convertor_get_packed_size.exit, label %85
 
-85:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+85:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread
   %86 = and i32 %81, 536870912
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %90
@@ -1063,8 +1063,8 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_t
   store i64 %92, ptr %25, align 8
   br label %opal_convertor_get_packed_size.exit
 
-opal_convertor_get_packed_size.exit:              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, %90
-  %93 = phi i64 [ %80, %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread ], [ %92, %90 ]
+opal_convertor_get_packed_size.exit:              ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread, %90
+  %93 = phi i64 [ %80, %opal_datatype_is_contiguous_memory_layout.exit.thread ], [ %92, %90 ]
   %94 = getelementptr inbounds i8, ptr %13, i64 512
   store i8 0, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %13, i64 160
@@ -1266,17 +1266,17 @@ opal_thread_add_fetch_32.exit190:                 ; preds = %182, %179, %opal_th
   %190 = zext i16 %.val179 to i32
   %191 = and i32 %190, 16
   %.not.i191 = icmp eq i32 %191, 0
-  br i1 %.not.i191, label %opal_datatype_is_contiguous_memory_layout.argprom.exit208.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit196
+  br i1 %.not.i191, label %opal_datatype_is_contiguous_memory_layout.exit208.thread, label %opal_datatype_is_contiguous_memory_layout.exit196
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit196: ; preds = %opal_thread_add_fetch_32.exit190
+opal_datatype_is_contiguous_memory_layout.exit196: ; preds = %opal_thread_add_fetch_32.exit190
   %192 = and i64 %1, 4294967295
   %193 = icmp ne i64 %192, 1
   %194 = and i32 %190, 32
   %.not3.i192 = icmp eq i32 %194, 0
   %or.cond.not.i193.not = and i1 %193, %.not3.i192
-  br i1 %or.cond.not.i193.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit208.thread, label %195
+  br i1 %or.cond.not.i193.not, label %opal_datatype_is_contiguous_memory_layout.exit208.thread, label %195
 
-195:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit196
+195:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit196
   %196 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 16
   %198 = load i32, ptr %197, align 8
@@ -1294,29 +1294,29 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit196: ; preds = %opal_threa
   %206 = zext i16 %.val180 to i32
   %207 = and i32 %206, 16
   %.not.i197 = icmp eq i32 %207, 0
-  br i1 %.not.i197, label %opal_datatype_is_contiguous_memory_layout.argprom.exit202.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit202
+  br i1 %.not.i197, label %opal_datatype_is_contiguous_memory_layout.exit202.thread, label %opal_datatype_is_contiguous_memory_layout.exit202
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit202: ; preds = %195
+opal_datatype_is_contiguous_memory_layout.exit202: ; preds = %195
   %208 = and i32 %206, 32
   %.not3.i198 = icmp eq i32 %208, 0
   %or.cond.not.i199.not = and i1 %193, %.not3.i198
-  br i1 %or.cond.not.i199.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit202.thread, label %209
+  br i1 %or.cond.not.i199.not, label %opal_datatype_is_contiguous_memory_layout.exit202.thread, label %209
 
-209:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit202
+209:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit202
   %210 = load ptr, ptr @ompi_mtl, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 16
   %212 = load i32, ptr %211, align 8
   %213 = shl i32 %212, 29
   %spec.select175 = and i32 %213, 1073741824
-  br label %opal_datatype_is_contiguous_memory_layout.argprom.exit202.thread
+  br label %opal_datatype_is_contiguous_memory_layout.exit202.thread
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit202.thread: ; preds = %195, %209, %opal_datatype_is_contiguous_memory_layout.argprom.exit202
-  %.1154 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.argprom.exit202 ], [ %spec.select175, %209 ], [ 0, %195 ]
+opal_datatype_is_contiguous_memory_layout.exit202.thread: ; preds = %195, %209, %opal_datatype_is_contiguous_memory_layout.exit202
+  %.1154 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit202 ], [ %spec.select175, %209 ], [ 0, %195 ]
   %214 = or i32 %.1154, %201
   store i32 %214, ptr %202, align 4
   br label %225
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit208.thread: ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit196, %opal_thread_add_fetch_32.exit190
+opal_datatype_is_contiguous_memory_layout.exit208.thread: ; preds = %opal_datatype_is_contiguous_memory_layout.exit196, %opal_thread_add_fetch_32.exit190
   %215 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %216 = getelementptr inbounds i8, ptr %215, i64 16
   %217 = load i32, ptr %216, align 8
@@ -1332,7 +1332,7 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit208.thread: ; preds = %opa
   store ptr %223, ptr %224, align 8
   br label %225
 
-225:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit208.thread, %opal_datatype_is_contiguous_memory_layout.argprom.exit202.thread
+225:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit208.thread, %opal_datatype_is_contiguous_memory_layout.exit202.thread
   %.sink = getelementptr inbounds i8, ptr %13, i64 192
   %226 = tail call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %.sink, ptr noundef nonnull %2, i64 noundef %1, ptr noundef %0) #8
   %227 = getelementptr inbounds i8, ptr %13, i64 152
@@ -1384,7 +1384,7 @@ define internal i32 @mca_pml_cm_send(ptr noundef %0, i64 noundef %1, ptr noundef
   br i1 %13, label %14, label %249
 
 14:                                               ; preds = %7
-  %15 = tail call fastcc ptr @opal_free_list_wait.argprom()
+  %15 = tail call fastcc ptr @opal_free_list_wait()
   store ptr %15, ptr %8, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 168
   store i32 0, ptr %16, align 8
@@ -1455,26 +1455,26 @@ opal_thread_add_fetch_32.exit91:                  ; preds = %41, %38, %opal_thre
   %49 = zext i16 %.val85 to i32
   %50 = and i32 %49, 16
   %.not.i = icmp eq i32 %50, 0
-  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit
+  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %opal_datatype_is_contiguous_memory_layout.exit
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit: ; preds = %opal_thread_add_fetch_32.exit91
+opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fetch_32.exit91
   %51 = and i64 %1, 4294967295
   %52 = icmp ne i64 %51, 1
   %53 = and i32 %49, 32
   %.not3.i = icmp eq i32 %53, 0
   %or.cond.not.i.not = and i1 %52, %.not3.i
-  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %54
+  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %54
 
-54:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit
+54:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit
   %55 = load ptr, ptr @ompi_mtl, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load i32, ptr %56, align 8
   %58 = shl i32 %57, 29
   %spec.select = and i32 %58, 1073741824
-  br label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+  br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_thread_add_fetch_32.exit91, %54, %opal_datatype_is_contiguous_memory_layout.argprom.exit
-  %.058 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.argprom.exit ], [ %spec.select, %54 ], [ 0, %opal_thread_add_fetch_32.exit91 ]
+opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit91, %54, %opal_datatype_is_contiguous_memory_layout.exit
+  %.058 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %54 ], [ 0, %opal_thread_add_fetch_32.exit91 ]
   %59 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %60 = getelementptr inbounds i8, ptr %15, i64 192
   %61 = getelementptr inbounds i8, ptr %59, i64 16
@@ -1519,7 +1519,7 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_t
   %or.cond17.i = or i1 %or.cond15.not.i, %or.cond16.i
   br i1 %or.cond17.i, label %opal_convertor_get_packed_size.exit, label %86
 
-86:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+86:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread
   %87 = and i32 %82, 536870912
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %91
@@ -1534,8 +1534,8 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_t
   store i64 %93, ptr %26, align 8
   br label %opal_convertor_get_packed_size.exit
 
-opal_convertor_get_packed_size.exit:              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, %91
-  %94 = phi i64 [ %81, %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread ], [ %93, %91 ]
+opal_convertor_get_packed_size.exit:              ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread, %91
+  %94 = phi i64 [ %81, %opal_datatype_is_contiguous_memory_layout.exit.thread ], [ %93, %91 ]
   %95 = getelementptr inbounds i8, ptr %15, i64 512
   store i8 0, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %15, i64 160
@@ -1901,16 +1901,16 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i103, %253
   %262 = zext i16 %.val86 to i32
   %263 = and i32 %262, 16
   %.not.i106 = icmp eq i32 %263, 0
-  br i1 %.not.i106, label %opal_datatype_is_contiguous_memory_layout.argprom.exit111.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit111
+  br i1 %.not.i106, label %opal_datatype_is_contiguous_memory_layout.exit111.thread, label %opal_datatype_is_contiguous_memory_layout.exit111
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit111: ; preds = %opal_obj_run_constructors.exit
+opal_datatype_is_contiguous_memory_layout.exit111: ; preds = %opal_obj_run_constructors.exit
   %264 = icmp ne i32 %260, 1
   %265 = and i32 %262, 32
   %.not3.i107 = icmp eq i32 %265, 0
   %or.cond.not.i108.not = and i1 %264, %.not3.i107
-  br i1 %or.cond.not.i108.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit111.thread, label %266
+  br i1 %or.cond.not.i108.not, label %opal_datatype_is_contiguous_memory_layout.exit111.thread, label %266
 
-266:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit111
+266:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit111
   %267 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 16
   %269 = load i32, ptr %268, align 8
@@ -1933,7 +1933,7 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit111: ; preds = %opal_obj_r
   store i32 %281, ptr %273, align 4
   br label %331
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit111.thread: ; preds = %opal_obj_run_constructors.exit, %opal_datatype_is_contiguous_memory_layout.argprom.exit111
+opal_datatype_is_contiguous_memory_layout.exit111.thread: ; preds = %opal_obj_run_constructors.exit, %opal_datatype_is_contiguous_memory_layout.exit111
   %282 = getelementptr i8, ptr %6, i64 256
   %.val89 = load ptr, ptr %282, align 8
   %283 = getelementptr inbounds i8, ptr %.val89, i64 32
@@ -1944,9 +1944,9 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit111.thread: ; preds = %opa
   %288 = ptrtoint ptr %287 to i64
   %289 = and i64 %288, 1
   %.not.i.i.i.i = icmp eq i64 %289, 0
-  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.argprom.exit, label %290
+  br i1 %.not.i.i.i.i, label %ompi_comm_peer_lookup.exit, label %290
 
-290:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit111.thread
+290:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit111.thread
   %291 = lshr i64 %288, 1
   %292 = and i64 %291, 32767
   %293 = and i64 %288, -65536
@@ -1957,7 +1957,7 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit111.thread: ; preds = %opa
   %297 = ptrtoint ptr %294 to i64
   %298 = cmpxchg volatile ptr %296, i64 %288, i64 %297 acquire monotonic, align 8
   %299 = extractvalue { i64, i1 } %298, 1
-  br i1 %299, label %300, label %ompi_comm_peer_lookup.argprom.exit
+  br i1 %299, label %300, label %ompi_comm_peer_lookup.exit
 
 300:                                              ; preds = %290
   %301 = getelementptr inbounds i8, ptr %294, i64 8
@@ -1967,40 +1967,40 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit111.thread: ; preds = %opa
 
 304:                                              ; preds = %300
   %305 = atomicrmw volatile add ptr %301, i32 1 monotonic, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
 306:                                              ; preds = %300
   %307 = load volatile i32, ptr %301, align 4
   %308 = add nsw i32 %307, 1
   store volatile i32 %308, ptr %301, align 4
   %309 = load volatile i32, ptr %301, align 4
-  br label %ompi_comm_peer_lookup.argprom.exit
+  br label %ompi_comm_peer_lookup.exit
 
-ompi_comm_peer_lookup.argprom.exit:               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit111.thread, %290, %304, %306
-  %.0.i.i.i.i = phi ptr [ %287, %opal_datatype_is_contiguous_memory_layout.argprom.exit111.thread ], [ %294, %306 ], [ %294, %304 ], [ %294, %290 ]
+ompi_comm_peer_lookup.exit:                       ; preds = %opal_datatype_is_contiguous_memory_layout.exit111.thread, %290, %304, %306
+  %.0.i.i.i.i = phi ptr [ %287, %opal_datatype_is_contiguous_memory_layout.exit111.thread ], [ %294, %306 ], [ %294, %304 ], [ %294, %290 ]
   %.val88 = load i16, ptr %261, align 8
   %310 = zext i16 %.val88 to i32
   %311 = and i32 %310, 16
   %.not.i118 = icmp eq i32 %311, 0
-  br i1 %.not.i118, label %opal_datatype_is_contiguous_memory_layout.argprom.exit123.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit123
+  br i1 %.not.i118, label %opal_datatype_is_contiguous_memory_layout.exit123.thread, label %opal_datatype_is_contiguous_memory_layout.exit123
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit123: ; preds = %ompi_comm_peer_lookup.argprom.exit
+opal_datatype_is_contiguous_memory_layout.exit123: ; preds = %ompi_comm_peer_lookup.exit
   %312 = icmp ne i32 %260, 1
   %313 = and i32 %310, 32
   %.not3.i119 = icmp eq i32 %313, 0
   %or.cond.not.i120.not = and i1 %312, %.not3.i119
-  br i1 %or.cond.not.i120.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit123.thread, label %314
+  br i1 %or.cond.not.i120.not, label %opal_datatype_is_contiguous_memory_layout.exit123.thread, label %314
 
-314:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit123
+314:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit123
   %315 = load ptr, ptr @ompi_mtl, align 8
   %316 = getelementptr inbounds i8, ptr %315, i64 16
   %317 = load i32, ptr %316, align 8
   %318 = shl i32 %317, 29
   %spec.select83 = and i32 %318, 1073741824
-  br label %opal_datatype_is_contiguous_memory_layout.argprom.exit123.thread
+  br label %opal_datatype_is_contiguous_memory_layout.exit123.thread
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit123.thread: ; preds = %ompi_comm_peer_lookup.argprom.exit, %314, %opal_datatype_is_contiguous_memory_layout.argprom.exit123
-  %.2 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.argprom.exit123 ], [ %spec.select83, %314 ], [ 0, %ompi_comm_peer_lookup.argprom.exit ]
+opal_datatype_is_contiguous_memory_layout.exit123.thread: ; preds = %ompi_comm_peer_lookup.exit, %314, %opal_datatype_is_contiguous_memory_layout.exit123
+  %.2 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit123 ], [ %spec.select83, %314 ], [ 0, %ompi_comm_peer_lookup.exit ]
   %319 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
   %320 = load ptr, ptr %319, align 8
   %321 = getelementptr inbounds i8, ptr %320, i64 16
@@ -2018,7 +2018,7 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit123.thread: ; preds = %omp
   store ptr %329, ptr %330, align 8
   br label %331
 
-331:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit123.thread, %266
+331:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit123.thread, %266
   %332 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %12, ptr noundef nonnull %2, i64 noundef %1, ptr noundef %0) #8
   %333 = load ptr, ptr @ompi_mtl, align 8
   %334 = getelementptr inbounds i8, ptr %333, i64 48
@@ -2132,7 +2132,7 @@ define internal i32 @mca_pml_cm_imrecv(ptr noundef %0, i64 noundef %1, ptr nound
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call fastcc ptr @opal_free_list_get.argprom()
+  %9 = tail call fastcc ptr @opal_free_list_get()
   %10 = getelementptr inbounds i8, ptr %9, i64 168
   store i32 3, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 472
@@ -2199,26 +2199,26 @@ opal_thread_add_fetch_32.exit53:                  ; preds = %36, %33, %opal_thre
   %41 = zext i16 %.val57 to i32
   %42 = and i32 %41, 16
   %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit
+  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %opal_datatype_is_contiguous_memory_layout.exit
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit: ; preds = %opal_thread_add_fetch_32.exit53
+opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fetch_32.exit53
   %43 = and i64 %1, 4294967295
   %44 = icmp ne i64 %43, 1
   %45 = and i32 %41, 32
   %.not3.i = icmp eq i32 %45, 0
   %or.cond.not.i.not = and i1 %44, %.not3.i
-  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %46
+  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %46
 
-46:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit
+46:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit
   %47 = load ptr, ptr @ompi_mtl, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = shl i32 %49, 29
   %spec.select = and i32 %50, 1073741824
-  br label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+  br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_thread_add_fetch_32.exit53, %46, %opal_datatype_is_contiguous_memory_layout.argprom.exit
-  %.047 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.argprom.exit ], [ %spec.select, %46 ], [ 0, %opal_thread_add_fetch_32.exit53 ]
+opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit53, %46, %opal_datatype_is_contiguous_memory_layout.exit
+  %.047 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %46 ], [ 0, %opal_thread_add_fetch_32.exit53 ]
   %51 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %52 = getelementptr inbounds i8, ptr %9, i64 192
   %53 = getelementptr inbounds i8, ptr %51, i64 16
@@ -2251,11 +2251,11 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_t
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %73
 
-72:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+72:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread
   store ptr %9, ptr %4, align 8
   br label %73
 
-73:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, %72
+73:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread, %72
   ret i32 %70
 }
 
@@ -2265,7 +2265,7 @@ define internal i32 @mca_pml_cm_mrecv(ptr noundef %0, i64 noundef %1, ptr nounde
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call fastcc ptr @opal_free_list_get.argprom()
+  %10 = tail call fastcc ptr @opal_free_list_get()
   store ptr %10, ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 168
   store i32 3, ptr %11, align 8
@@ -2333,26 +2333,26 @@ opal_thread_add_fetch_32.exit45:                  ; preds = %37, %34, %opal_thre
   %42 = zext i16 %.val59 to i32
   %43 = and i32 %42, 16
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %opal_datatype_is_contiguous_memory_layout.argprom.exit
+  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %opal_datatype_is_contiguous_memory_layout.exit
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit: ; preds = %opal_thread_add_fetch_32.exit45
+opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fetch_32.exit45
   %44 = and i64 %1, 4294967295
   %45 = icmp ne i64 %44, 1
   %46 = and i32 %42, 32
   %.not3.i = icmp eq i32 %46, 0
   %or.cond.not.i.not = and i1 %45, %.not3.i
-  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread, label %47
+  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %47
 
-47:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit
+47:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit
   %48 = load ptr, ptr @ompi_mtl, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = shl i32 %50, 29
   %spec.select = and i32 %51, 1073741824
-  br label %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+  br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
-opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_thread_add_fetch_32.exit45, %47, %opal_datatype_is_contiguous_memory_layout.argprom.exit
-  %.031 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.argprom.exit ], [ %spec.select, %47 ], [ 0, %opal_thread_add_fetch_32.exit45 ]
+opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit45, %47, %opal_datatype_is_contiguous_memory_layout.exit
+  %.031 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %47 ], [ 0, %opal_thread_add_fetch_32.exit45 ]
   %52 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %53 = getelementptr inbounds i8, ptr %10, i64 192
   %54 = getelementptr inbounds i8, ptr %52, i64 16
@@ -2385,7 +2385,7 @@ opal_datatype_is_contiguous_memory_layout.argprom.exit.thread: ; preds = %opal_t
   %.not38 = icmp eq i32 %71, 0
   br i1 %.not38, label %164, label %72
 
-72:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+72:                                               ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread
   %73 = load ptr, ptr %21, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load i8, ptr @opal_uses_threads, align 1
@@ -2593,7 +2593,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %160, %150
   store volatile i32 %163, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 252), align 4
   br label %opal_free_list_return.exit
 
-164:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.argprom.exit.thread
+164:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit.thread
   tail call fastcc void @ompi_request_wait_completion(ptr noundef nonnull %10)
   %.not39 = icmp eq ptr %4, null
   br i1 %.not39, label %175, label %165
@@ -2636,7 +2636,7 @@ declare i32 @opal_free_list_init(ptr noundef, i64 noundef, i64 noundef, ptr noun
 declare i32 @mca_pml_base_pml_check_selected(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opal_free_list_get.argprom() unnamed_addr #0 {
+define internal fastcc ptr @opal_free_list_get() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %.sroa.22.i.i.i = alloca i64, align 8
@@ -2710,7 +2710,7 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
   store volatile ptr null, ptr %23, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
-  br label %opal_free_list_get_mt.argprom.exit
+  br label %opal_free_list_get_mt.exit
 
 .loopexit.i:                                      ; preds = %opal_update_counted_pointer.exit.i.i, %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -2721,9 +2721,9 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
   %26 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @mca_pml_base_recv_requests, i64 noundef %25, ptr noundef nonnull %4) #8
   %27 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 184)) #8
   %.pre.i = load ptr, ptr %4, align 8
-  br label %opal_free_list_get_mt.argprom.exit
+  br label %opal_free_list_get_mt.exit
 
-opal_free_list_get_mt.argprom.exit:               ; preds = %opal_lifo_pop_atomic.exit.i, %.loopexit.i
+opal_free_list_get_mt.exit:                       ; preds = %opal_lifo_pop_atomic.exit.i, %.loopexit.i
   %28 = phi ptr [ %13, %opal_lifo_pop_atomic.exit.i ], [ %.pre.i, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %41
@@ -2743,22 +2743,22 @@ opal_lifo_pop_st.exit.i:                          ; preds = %29
   store volatile ptr null, ptr %32, align 8
   %36 = getelementptr inbounds i8, ptr %31, i64 32
   store i32 1, ptr %36, align 8
-  br label %opal_free_list_get_st.argprom.exit
+  br label %opal_free_list_get_st.exit
 
 37:                                               ; preds = %29
   store ptr null, ptr %1, align 8
   %38 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 96), align 16
   %39 = call i32 @opal_free_list_grow_st(ptr noundef nonnull @mca_pml_base_recv_requests, i64 noundef %38, ptr noundef nonnull %1) #8
   %.pre.i3 = load ptr, ptr %1, align 8
-  br label %opal_free_list_get_st.argprom.exit
+  br label %opal_free_list_get_st.exit
 
-opal_free_list_get_st.argprom.exit:               ; preds = %opal_lifo_pop_st.exit.i, %37
+opal_free_list_get_st.exit:                       ; preds = %opal_lifo_pop_st.exit.i, %37
   %40 = phi ptr [ %31, %opal_lifo_pop_st.exit.i ], [ %.pre.i3, %37 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   br label %41
 
-41:                                               ; preds = %opal_free_list_get_st.argprom.exit, %opal_free_list_get_mt.argprom.exit
-  %.0 = phi ptr [ %28, %opal_free_list_get_mt.argprom.exit ], [ %40, %opal_free_list_get_st.argprom.exit ]
+41:                                               ; preds = %opal_free_list_get_st.exit, %opal_free_list_get_mt.exit
+  %.0 = phi ptr [ %28, %opal_free_list_get_mt.exit ], [ %40, %opal_free_list_get_st.exit ]
   ret ptr %.0
 }
 
@@ -3052,7 +3052,7 @@ declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @opal_free_list_wait.argprom() unnamed_addr #0 {
+define internal fastcc nonnull ptr @opal_free_list_wait() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %.sroa.22.i.i.i7.i = alloca i64, align 8
   %2 = alloca ptr, align 8
@@ -3134,7 +3134,7 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
   store volatile ptr null, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
-  br label %opal_free_list_wait_mt.argprom.exit
+  br label %opal_free_list_wait_mt.exit
 
 .lr.ph.preheader.i:                               ; preds = %opal_update_counted_pointer.exit.i.i, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -3190,7 +3190,7 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
   %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
   %50 = call i32 @opal_progress() #8
   %51 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
-  br label %opal_condition_wait.argprom.exit.i
+  br label %opal_condition_wait.exit.i
 
 .lr.ph3.i.i:                                      ; preds = %.preheader.i.i, %.lr.ph3.i.i
   %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
@@ -3213,9 +3213,9 @@ opal_lifo_pop_atomic.exit.i:                      ; preds = %.lr.ph.i.i
   %62 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
   %63 = add nsw i32 %62, -1
   store volatile i32 %63, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 248), align 8
-  br label %opal_condition_wait.argprom.exit.i
+  br label %opal_condition_wait.exit.i
 
-opal_condition_wait.argprom.exit.i:               ; preds = %.loopexit.i.i, %46
+opal_condition_wait.exit.i:                       ; preds = %.loopexit.i.i, %46
   %64 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
   %65 = add i64 %64, -1
   store i64 %65, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 104), align 8
@@ -3248,11 +3248,11 @@ opal_condition_wait.argprom.exit.i:               ; preds = %.loopexit.i.i, %46
   %76 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
   br label %opal_condition_signal.exit.i
 
-opal_condition_signal.exit.i:                     ; preds = %75, %73, %70, %68, %66, %opal_condition_wait.argprom.exit.i
+opal_condition_signal.exit.i:                     ; preds = %75, %73, %70, %68, %66, %opal_condition_wait.exit.i
   %77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 184)) #8
   %78 = load ptr, ptr %8, align 8
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %80, label %opal_free_list_wait_mt.argprom.exit
+  br i1 %79, label %80, label %opal_free_list_wait_mt.exit
 
 80:                                               ; preds = %opal_condition_signal.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -3322,9 +3322,9 @@ opal_update_counted_pointer.exit.i40.i:           ; preds = %.lr.ph.i28.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i24.i)
   store ptr %.0.i46.i, ptr %8, align 8
   %98 = icmp eq ptr %.0.i46.i, null
-  br i1 %98, label %.lr.ph.i, label %opal_free_list_wait_mt.argprom.exit, !llvm.loop !16
+  br i1 %98, label %.lr.ph.i, label %opal_free_list_wait_mt.exit, !llvm.loop !16
 
-opal_free_list_wait_mt.argprom.exit:              ; preds = %opal_condition_signal.exit.i, %.loopexit.i, %opal_lifo_pop_atomic.exit.i
+opal_free_list_wait_mt.exit:                      ; preds = %opal_condition_signal.exit.i, %.loopexit.i, %opal_lifo_pop_atomic.exit.i
   %.lcssa6.i = phi ptr [ %17, %opal_lifo_pop_atomic.exit.i ], [ %.0.i46.i, %.loopexit.i ], [ %78, %opal_condition_signal.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %149
@@ -3338,13 +3338,13 @@ opal_free_list_wait_mt.argprom.exit:              ; preds = %opal_condition_sign
   %104 = ptrtoint ptr %103 to i64
   store volatile i64 %104, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 24), align 8
   %105 = icmp eq ptr %101, getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 32)
-  br i1 %105, label %.lr.ph.preheader.i3, label %opal_lifo_pop.argprom.exit.i
+  br i1 %105, label %.lr.ph.preheader.i3, label %opal_lifo_pop.exit.i
 
-opal_lifo_pop.argprom.exit.i:                     ; preds = %99
+opal_lifo_pop.exit.i:                             ; preds = %99
   store volatile ptr null, ptr %102, align 8
   %106 = getelementptr inbounds i8, ptr %101, i64 32
   store i32 1, ptr %106, align 8
-  br label %opal_free_list_wait_st.argprom.exit
+  br label %opal_free_list_wait_st.exit
 
 .lr.ph.preheader.i3:                              ; preds = %99
   store ptr null, ptr %3, align 8
@@ -3369,7 +3369,7 @@ opal_lifo_pop.argprom.exit.i:                     ; preds = %99
 114:                                              ; preds = %112, %109
   %115 = load ptr, ptr %3, align 8
   %116 = icmp eq ptr %115, null
-  br i1 %116, label %117, label %opal_free_list_wait_st.argprom.exit
+  br i1 %116, label %117, label %opal_free_list_wait_st.exit
 
 117:                                              ; preds = %114
   %118 = load i8, ptr @opal_uses_threads, align 1
@@ -3464,15 +3464,15 @@ opal_lifo_pop_atomic.exit.i30.i:                  ; preds = %opal_update_counted
   %.0.i9.i = phi ptr [ %.0.i.i31.i, %opal_lifo_pop_atomic.exit.i30.i ], [ %140, %145 ], [ null, %138 ]
   store ptr %.0.i9.i, ptr %3, align 8
   %148 = icmp eq ptr %.0.i9.i, null
-  br i1 %148, label %.lr.ph.i4, label %opal_free_list_wait_st.argprom.exit, !llvm.loop !17
+  br i1 %148, label %.lr.ph.i4, label %opal_free_list_wait_st.exit, !llvm.loop !17
 
-opal_free_list_wait_st.argprom.exit:              ; preds = %114, %147, %opal_lifo_pop.argprom.exit.i
-  %.lcssa4.i = phi ptr [ %101, %opal_lifo_pop.argprom.exit.i ], [ %.0.i9.i, %147 ], [ %115, %114 ]
+opal_free_list_wait_st.exit:                      ; preds = %114, %147, %opal_lifo_pop.exit.i
+  %.lcssa4.i = phi ptr [ %101, %opal_lifo_pop.exit.i ], [ %.0.i9.i, %147 ], [ %115, %114 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %149
 
-149:                                              ; preds = %opal_free_list_wait_st.argprom.exit, %opal_free_list_wait_mt.argprom.exit
-  %.0 = phi ptr [ %.lcssa6.i, %opal_free_list_wait_mt.argprom.exit ], [ %.lcssa4.i, %opal_free_list_wait_st.argprom.exit ]
+149:                                              ; preds = %opal_free_list_wait_st.exit, %opal_free_list_wait_mt.exit
+  %.0 = phi ptr [ %.lcssa6.i, %opal_free_list_wait_mt.exit ], [ %.lcssa4.i, %opal_free_list_wait_st.exit ]
   ret ptr %.0
 }
 

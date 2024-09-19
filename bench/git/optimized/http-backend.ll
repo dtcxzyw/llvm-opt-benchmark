@@ -694,14 +694,14 @@ get_parameters.exit.i:                            ; preds = %if.end11.loopexit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %query.i.i)
   %call1.i = call ptr @string_list_lookup(ptr noundef %7, ptr noundef nonnull @.str.50) #18
   %tobool.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool.not.i, label %get_parameter.argprom.exit, label %cond.true.i
+  br i1 %tobool.not.i, label %get_parameter.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %get_parameters.exit.i
   %util.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %8 = load ptr, ptr %util.i, align 8
-  br label %get_parameter.argprom.exit
+  br label %get_parameter.exit
 
-get_parameter.argprom.exit:                       ; preds = %get_parameters.exit.i, %cond.true.i
+get_parameter.exit:                               ; preds = %get_parameters.exit.i, %cond.true.i
   %cond.i = phi ptr [ %8, %cond.true.i ], [ null, %get_parameters.exit.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.http_config.var, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %hdr, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #18
@@ -710,7 +710,7 @@ get_parameter.argprom.exit:                       ; preds = %get_parameters.exit
   %tobool.not = icmp eq ptr %cond.i, null
   br i1 %tobool.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %get_parameter.argprom.exit
+if.then:                                          ; preds = %get_parameter.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %argv, ptr noundef nonnull align 16 dereferenceable(32) @__const.get_info_refs.argv, i64 32, i1 false)
   %call1 = call fastcc ptr @select_service(ptr noundef %hdr, ptr noundef nonnull %cond.i)
   %9 = load ptr, ptr %call1, align 8
@@ -741,7 +741,7 @@ if.end:                                           ; preds = %if.then4, %if.then
   call fastcc void @run_service(ptr noundef %argv, i32 noundef 0)
   br label %if.end8
 
-if.else:                                          ; preds = %get_parameter.argprom.exit
+if.else:                                          ; preds = %get_parameter.exit
   %15 = load i32, ptr @getanyfile, align 4
   %tobool.not.i9 = icmp eq i32 %15, 0
   br i1 %tobool.not.i9, label %if.then.i, label %select_getanyfile.exit
@@ -1151,29 +1151,29 @@ do.body.i:                                        ; preds = %do.cond.i, %entry
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.56, i64 %prefix.addr.0.idx.i
   %0 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 4
-  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %1 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %1, %0
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !11
+  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !11
 
-skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
+skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %for.body, label %if.then
 
-if.then:                                          ; preds = %skip_prefix.argprom.exit
+if.then:                                          ; preds = %skip_prefix.exit
   tail call void (ptr, ptr, ...) @forbidden(ptr noundef %hdr, ptr noundef nonnull @.str.57, ptr noundef %name) #21
   unreachable
 
 for.cond:                                         ; preds = %for.body
   br i1 %cmp, label %for.body, label %if.then7, !llvm.loop !12
 
-for.body:                                         ; preds = %skip_prefix.argprom.exit, %for.cond
-  %cmp = phi i1 [ false, %for.cond ], [ true, %skip_prefix.argprom.exit ]
-  %indvars.iv = phi i64 [ 1, %for.cond ], [ 0, %skip_prefix.argprom.exit ]
+for.body:                                         ; preds = %skip_prefix.exit, %for.cond
+  %cmp = phi i1 [ false, %for.cond ], [ true, %skip_prefix.exit ]
+  %indvars.iv = phi i64 [ 1, %for.cond ], [ 0, %skip_prefix.exit ]
   %arrayidx = getelementptr inbounds [2 x %struct.rpc_service], ptr @rpc_service, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %scevgep.i) #20
@@ -1485,7 +1485,7 @@ if.end.thread.i:                                  ; preds = %while.body.loopexit
 
 if.end.i:                                         ; preds = %if.then48, %while.body.loopexit.i
   %cnt.0.i66 = phi i64 [ %10, %while.body.loopexit.i ], [ 0, %if.then48 ]
-  %call.i21 = call fastcc i64 @read_request.argelim(ptr noundef %full_request.i, i64 noundef %1)
+  %call.i21 = call fastcc i64 @read_request(ptr noundef %full_request.i, i64 noundef %1)
   %.pre.i22 = load ptr, ptr %full_request.i, align 8
   store ptr %.pre.i22, ptr %next_in.i, align 8
   %cmp20.i = icmp slt i64 %call.i21, 1
@@ -1552,7 +1552,7 @@ if.then51:                                        ; preds = %if.else
   %in53 = getelementptr inbounds i8, ptr %cld, i64 80
   %14 = load i32, ptr %in53, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
-  %call.i23 = call fastcc i64 @read_request.argelim(ptr noundef %buf.i, i64 noundef %1)
+  %call.i23 = call fastcc i64 @read_request(ptr noundef %buf.i, i64 noundef %1)
   %cmp.i24 = icmp slt i64 %call.i23, 0
   br i1 %cmp.i24, label %if.then.i30, label %if.end.i25
 
@@ -1698,7 +1698,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @git_inflate_init_gzip_only(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @read_request.argelim(ptr nocapture noundef nonnull writeonly %out, i64 noundef %req_len) unnamed_addr #0 {
+define internal fastcc i64 @read_request(ptr nocapture noundef nonnull writeonly %out, i64 noundef %req_len) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %req_len, 0
   br i1 %cmp, label %if.then, label %if.else

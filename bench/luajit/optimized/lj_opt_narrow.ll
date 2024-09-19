@@ -1262,24 +1262,24 @@ entry:
   %J.val = load i32, ptr %0, align 8
   %and.i = and i32 %J.val, 2097152
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %if.end15, label %narrow_forl.argprom.exit
+  br i1 %tobool.not.i, label %if.end15, label %narrow_forl.exit
 
-narrow_forl.argprom.exit:                         ; preds = %entry
+narrow_forl.exit:                                 ; preds = %entry
   %1 = load double, ptr %tv, align 8
   %conv.i.i = fptosi double %1 to i32
   %conv1.i.i = sitofp i32 %conv.i.i to double
   %cmp.i.i = fcmp une double %1, %conv1.i.i
-  br i1 %cmp.i.i, label %if.end15, label %narrow_forl.argprom.exit19
+  br i1 %cmp.i.i, label %if.end15, label %narrow_forl.exit19
 
-narrow_forl.argprom.exit19:                       ; preds = %narrow_forl.argprom.exit
+narrow_forl.exit19:                               ; preds = %narrow_forl.exit
   %arrayidx1 = getelementptr inbounds i8, ptr %tv, i64 8
   %2 = load double, ptr %arrayidx1, align 8
   %conv.i.i14 = fptosi double %2 to i32
   %conv1.i.i15 = sitofp i32 %conv.i.i14 to double
   %cmp.i.i16 = fcmp une double %2, %conv1.i.i15
-  br i1 %cmp.i.i16, label %if.end15, label %narrow_forl.argprom.exit28
+  br i1 %cmp.i.i16, label %if.end15, label %narrow_forl.exit28
 
-narrow_forl.argprom.exit28:                       ; preds = %narrow_forl.argprom.exit19
+narrow_forl.exit28:                               ; preds = %narrow_forl.exit19
   %arrayidx5 = getelementptr inbounds i8, ptr %tv, i64 16
   %3 = load double, ptr %arrayidx5, align 8
   %conv.i.i23 = fptosi double %3 to i32
@@ -1287,7 +1287,7 @@ narrow_forl.argprom.exit28:                       ; preds = %narrow_forl.argprom
   %cmp.i.i25 = fcmp une double %3, %conv1.i.i24
   br i1 %cmp.i.i25, label %if.end15, label %if.then
 
-if.then:                                          ; preds = %narrow_forl.argprom.exit28
+if.then:                                          ; preds = %narrow_forl.exit28
   %add = fadd double %3, %2
   %cmp = fcmp ult double %3, 0.000000e+00
   br i1 %cmp, label %cond.false, label %cond.true
@@ -1300,7 +1300,7 @@ cond.false:                                       ; preds = %if.then
   %cmp13 = fcmp ult double %add, 0xC1E0000000000000
   br i1 %cmp13, label %if.end15, label %return
 
-if.end15:                                         ; preds = %entry, %cond.true, %cond.false, %narrow_forl.argprom.exit28, %narrow_forl.argprom.exit19, %narrow_forl.argprom.exit
+if.end15:                                         ; preds = %entry, %cond.true, %cond.false, %narrow_forl.exit28, %narrow_forl.exit19, %narrow_forl.exit
   br label %return
 
 return:                                           ; preds = %cond.true, %cond.false, %if.end15

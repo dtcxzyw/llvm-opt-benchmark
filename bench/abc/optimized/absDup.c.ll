@@ -635,13 +635,13 @@ define noalias noundef ptr @Gia_GlaCollectAssigned(ptr nocapture noundef readonl
   %13 = getelementptr i8, ptr %0, i64 72
   br label %14
 
-14:                                               ; preds = %.lr.ph, %Gia_ObjIsRo.argprom.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsRo.argprom.exit.thread ]
+14:                                               ; preds = %.lr.ph, %Gia_ObjIsRo.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsRo.exit.thread ]
   %.val26 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i32, ptr %.val26, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %Gia_ObjIsRo.argprom.exit.thread, label %18
+  br i1 %17, label %Gia_ObjIsRo.exit.thread, label %18
 
 18:                                               ; preds = %14
   %.val27 = load ptr, ptr %10, align 8
@@ -804,7 +804,7 @@ Vec_IntPush.exit41:                               ; preds = %.Vec_IntGrow.exit10
 
 .Vec_IntGrow.exit10_crit_edge.i43:                ; preds = %Vec_IntPush.exit41
   %.pre.i45 = load ptr, ptr %6, align 8
-  br label %Gia_ObjIsRo.argprom.exit.thread.sink.split
+  br label %Gia_ObjIsRo.exit.thread.sink.split
 
 98:                                               ; preds = %Vec_IntPush.exit41
   %99 = icmp slt i32 %95, 16
@@ -827,7 +827,7 @@ Vec_IntGrow.exit.i48:                             ; preds = %104, %102
   %106 = phi ptr [ %103, %102 ], [ %105, %104 ]
   store ptr %106, ptr %6, align 8
   store i32 16, ptr %3, align 8
-  br label %Gia_ObjIsRo.argprom.exit.thread.sink.split
+  br label %Gia_ObjIsRo.exit.thread.sink.split
 
 107:                                              ; preds = %98
   %108 = shl nuw nsw i32 %95, 1
@@ -849,14 +849,14 @@ Vec_IntGrow.exit.i48:                             ; preds = %104, %102
   %117 = phi ptr [ %113, %112 ], [ %115, %114 ]
   store ptr %117, ptr %6, align 8
   store i32 %108, ptr %3, align 8
-  br label %Gia_ObjIsRo.argprom.exit.thread.sink.split
+  br label %Gia_ObjIsRo.exit.thread.sink.split
 
 118:                                              ; preds = %Vec_IntPush.exit
   %119 = and i64 %.val29, 2684354559
   %narrow.i.not.i = icmp eq i64 %119, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.argprom.exit, label %Gia_ObjIsRo.argprom.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.exit, label %Gia_ObjIsRo.exit.thread
 
-Gia_ObjIsRo.argprom.exit:                         ; preds = %118
+Gia_ObjIsRo.exit:                                 ; preds = %118
   %120 = lshr i64 %.val29, 32
   %121 = trunc nuw i64 %120 to i32
   %122 = and i32 %121, 536870911
@@ -866,9 +866,9 @@ Gia_ObjIsRo.argprom.exit:                         ; preds = %118
   %.val3.val.i = load i32, ptr %123, align 4
   %124 = sub nsw i32 %.val3.val.i, %.val.i
   %.not = icmp slt i32 %122, %124
-  br i1 %.not, label %Gia_ObjIsRo.argprom.exit.thread, label %125
+  br i1 %.not, label %Gia_ObjIsRo.exit.thread, label %125
 
-125:                                              ; preds = %Gia_ObjIsRo.argprom.exit
+125:                                              ; preds = %Gia_ObjIsRo.exit
   %.val6.i = load ptr, ptr %13, align 8
   %126 = getelementptr i8, ptr %.val6.i, i64 4
   %.val6.val.i = load i32, ptr %126, align 4
@@ -893,7 +893,7 @@ Gia_ObjIsRo.argprom.exit:                         ; preds = %118
 
 .Vec_IntGrow.exit10_crit_edge.i53:                ; preds = %125
   %.pre.i55 = load ptr, ptr %6, align 8
-  br label %Gia_ObjIsRo.argprom.exit.thread.sink.split
+  br label %Gia_ObjIsRo.exit.thread.sink.split
 
 141:                                              ; preds = %125
   %142 = icmp slt i32 %138, 16
@@ -916,7 +916,7 @@ Vec_IntGrow.exit.i58:                             ; preds = %147, %145
   %149 = phi ptr [ %146, %145 ], [ %148, %147 ]
   store ptr %149, ptr %6, align 8
   store i32 16, ptr %3, align 8
-  br label %Gia_ObjIsRo.argprom.exit.thread.sink.split
+  br label %Gia_ObjIsRo.exit.thread.sink.split
 
 150:                                              ; preds = %141
   %151 = shl nuw nsw i32 %138, 1
@@ -938,9 +938,9 @@ Vec_IntGrow.exit.i58:                             ; preds = %147, %145
   %160 = phi ptr [ %156, %155 ], [ %158, %157 ]
   store ptr %160, ptr %6, align 8
   store i32 %151, ptr %3, align 8
-  br label %Gia_ObjIsRo.argprom.exit.thread.sink.split
+  br label %Gia_ObjIsRo.exit.thread.sink.split
 
-Gia_ObjIsRo.argprom.exit.thread.sink.split:       ; preds = %159, %Vec_IntGrow.exit.i58, %.Vec_IntGrow.exit10_crit_edge.i53, %116, %Vec_IntGrow.exit.i48, %.Vec_IntGrow.exit10_crit_edge.i43
+Gia_ObjIsRo.exit.thread.sink.split:               ; preds = %159, %Vec_IntGrow.exit.i58, %.Vec_IntGrow.exit10_crit_edge.i53, %116, %Vec_IntGrow.exit.i48, %.Vec_IntGrow.exit10_crit_edge.i43
   %.sink72 = phi i32 [ %95, %.Vec_IntGrow.exit10_crit_edge.i43 ], [ %95, %Vec_IntGrow.exit.i48 ], [ %95, %116 ], [ %138, %.Vec_IntGrow.exit10_crit_edge.i53 ], [ %138, %Vec_IntGrow.exit.i58 ], [ %138, %159 ]
   %.sink68 = phi ptr [ %.pre.i45, %.Vec_IntGrow.exit10_crit_edge.i43 ], [ %106, %Vec_IntGrow.exit.i48 ], [ %117, %116 ], [ %.pre.i55, %.Vec_IntGrow.exit10_crit_edge.i53 ], [ %149, %Vec_IntGrow.exit.i58 ], [ %160, %159 ]
   %.sink = phi i32 [ %94, %.Vec_IntGrow.exit10_crit_edge.i43 ], [ %94, %Vec_IntGrow.exit.i48 ], [ %94, %116 ], [ %137, %.Vec_IntGrow.exit10_crit_edge.i53 ], [ %137, %Vec_IntGrow.exit.i58 ], [ %137, %159 ]
@@ -949,16 +949,16 @@ Gia_ObjIsRo.argprom.exit.thread.sink.split:       ; preds = %159, %Vec_IntGrow.e
   %162 = sext i32 %.sink72 to i64
   %163 = getelementptr inbounds i32, ptr %.sink68, i64 %162
   store i32 %.sink, ptr %163, align 4
-  br label %Gia_ObjIsRo.argprom.exit.thread
+  br label %Gia_ObjIsRo.exit.thread
 
-Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %Gia_ObjIsRo.argprom.exit.thread.sink.split, %118, %Gia_ObjIsRo.argprom.exit, %14
+Gia_ObjIsRo.exit.thread:                          ; preds = %Gia_ObjIsRo.exit.thread.sink.split, %118, %Gia_ObjIsRo.exit, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %7, align 4
   %164 = sext i32 %.val to i64
   %165 = icmp slt i64 %indvars.iv.next, %164
   br i1 %165, label %14, label %.critedge, !llvm.loop !10
 
-.critedge:                                        ; preds = %Gia_ObjIsRo.argprom.exit.thread
+.critedge:                                        ; preds = %Gia_ObjIsRo.exit.thread
   %.pre = load i32, ptr %4, align 4
   %166 = icmp slt i32 %.pre, 2
   br i1 %166, label %Vec_IntUniqify.exit, label %167
@@ -1091,9 +1091,9 @@ define void @Gia_ManGlaCollect(ptr nocapture noundef readonly %0, ptr nocapture 
   %.val65 = load i64, ptr %45, align 4
   %46 = and i64 %.val65, 2684354559
   %narrow.i.not.i = icmp eq i64 %46, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.argprom.exit, label %.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.exit, label %.thread
 
-Gia_ObjIsPi.argprom.exit:                         ; preds = %43
+Gia_ObjIsPi.exit:                                 ; preds = %43
   %47 = lshr i64 %.val65, 32
   %48 = trunc nuw i64 %47 to i32
   %49 = and i32 %48, 536870911
@@ -1105,7 +1105,7 @@ Gia_ObjIsPi.argprom.exit:                         ; preds = %43
   %.not97 = icmp slt i32 %49, %51
   br i1 %.not97, label %52, label %81
 
-52:                                               ; preds = %Gia_ObjIsPi.argprom.exit
+52:                                               ; preds = %Gia_ObjIsPi.exit
   br i1 %.not, label %178, label %53
 
 53:                                               ; preds = %52
@@ -1168,19 +1168,19 @@ Vec_IntGrow.exit.i:                               ; preds = %66, %64
   store i32 %70, ptr %54, align 8
   br label %.sink.split
 
-81:                                               ; preds = %Gia_ObjIsPi.argprom.exit
+81:                                               ; preds = %Gia_ObjIsPi.exit
   %.val55 = load ptr, ptr %37, align 8
   %82 = getelementptr inbounds i32, ptr %.val55, i64 %44
   %83 = load i32, ptr %82, align 4
   %.not53 = icmp eq i32 %83, 0
-  br i1 %.not53, label %86, label %Gia_ObjIsRo.argprom.exit
+  br i1 %.not53, label %86, label %Gia_ObjIsRo.exit
 
 .thread:                                          ; preds = %43
   %.val5593 = load ptr, ptr %37, align 8
   %84 = getelementptr inbounds i32, ptr %.val5593, i64 %44
   %85 = load i32, ptr %84, align 4
   %.not5394 = icmp eq i32 %85, 0
-  br i1 %.not5394, label %86, label %Gia_ObjIsRo.argprom.exit.thread
+  br i1 %.not5394, label %86, label %Gia_ObjIsRo.exit.thread
 
 86:                                               ; preds = %.thread, %81
   br i1 %.not49, label %178, label %87
@@ -1245,10 +1245,10 @@ Vec_IntGrow.exit.i71:                             ; preds = %100, %98
   store i32 %104, ptr %88, align 8
   br label %.sink.split
 
-Gia_ObjIsRo.argprom.exit:                         ; preds = %81
+Gia_ObjIsRo.exit:                                 ; preds = %81
   br i1 %.not50, label %178, label %115
 
-115:                                              ; preds = %Gia_ObjIsRo.argprom.exit
+115:                                              ; preds = %Gia_ObjIsRo.exit
   %116 = load ptr, ptr %4, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 4
   %118 = load i32, ptr %117, align 4
@@ -1308,7 +1308,7 @@ Vec_IntGrow.exit.i82:                             ; preds = %128, %126
   store i32 %132, ptr %116, align 8
   br label %.sink.split
 
-Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %.thread
+Gia_ObjIsRo.exit.thread:                          ; preds = %.thread
   %143 = and i64 %.val65, 2147483648
   %.not.i = icmp eq i64 %143, 0
   %144 = and i64 %.val65, 536870911
@@ -1317,7 +1317,7 @@ Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %.thread
   %or.cond = and i1 %26, %narrow.i
   br i1 %or.cond, label %146, label %178
 
-146:                                              ; preds = %Gia_ObjIsRo.argprom.exit.thread
+146:                                              ; preds = %Gia_ObjIsRo.exit.thread
   %147 = load ptr, ptr %5, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 4
   %149 = load i32, ptr %148, align 4
@@ -1388,7 +1388,7 @@ Vec_IntGrow.exit.i89:                             ; preds = %159, %157
   store i32 %42, ptr %177, align 4
   br label %178
 
-178:                                              ; preds = %.sink.split, %52, %Gia_ObjIsRo.argprom.exit, %Gia_ObjIsRo.argprom.exit.thread, %86
+178:                                              ; preds = %.sink.split, %52, %Gia_ObjIsRo.exit, %Gia_ObjIsRo.exit.thread, %86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %34, align 4
   %179 = sext i32 %.val to i64

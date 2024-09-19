@@ -605,16 +605,16 @@ if.end35.i:                                       ; preds = %if.end24.i, %if.the
   %todo.2.i = phi ptr [ %todo.1132.i, %if.then15.i ], [ %incdec.ptr34.i, %if.end24.i ]
   %25 = and i32 %arrayidx13.val68.i, -3
   %or.cond.i.i = icmp eq i32 %25, 264
-  br i1 %or.cond.i.i, label %if.then.i85.i, label %push_except_block.argprom.exit.i
+  br i1 %or.cond.i.i, label %if.then.i85.i, label %push_except_block.exit.i
 
 if.then.i85.i:                                    ; preds = %if.end35.i
   %b_preserve_lasti.i.i = getelementptr inbounds i8, ptr %arrayidx13.val69.i, i64 64
   %bf.load.i86.i = load i8, ptr %b_preserve_lasti.i.i, align 8
   %bf.set.i.i = or i8 %bf.load.i86.i, 1
   store i8 %bf.set.i.i, ptr %b_preserve_lasti.i.i, align 8
-  br label %push_except_block.argprom.exit.i
+  br label %push_except_block.exit.i
 
-push_except_block.argprom.exit.i:                 ; preds = %if.then.i85.i, %if.end35.i
+push_except_block.exit.i:                         ; preds = %if.then.i85.i, %if.end35.i
   %depth.i81.i = getelementptr inbounds i8, ptr %except_stack.0133.i, i64 168
   %26 = load i32, ptr %depth.i81.i, align 8
   %inc.i82.i = add i32 %26, 1
@@ -735,11 +735,11 @@ if.then89.i:                                      ; preds = %if.then87.i
   store i32 %or.i, ptr %i_oparg.i, align 4
   br label %for.inc.i18
 
-for.inc.i18:                                      ; preds = %if.then89.i, %if.then87.i, %if.then84.i, %if.then78.i, %if.else75.i, %if.end65.i, %if.then43.i, %if.then38.i, %push_except_block.argprom.exit.i
-  %handler.1.i = phi ptr [ %arrayidx13.val69.i, %push_except_block.argprom.exit.i ], [ %28, %if.then38.i ], [ %handler.0129.i, %if.then43.i ], [ %handler.0129.i, %if.end65.i ], [ %handler.0129.i, %if.then78.i ], [ %handler.0129.i, %if.then84.i ], [ %handler.0129.i, %if.then89.i ], [ %handler.0129.i, %if.then87.i ], [ %handler.0129.i, %if.else75.i ]
-  %last_yield_except_depth.1.i = phi i32 [ %last_yield_except_depth.0130.i, %push_except_block.argprom.exit.i ], [ %last_yield_except_depth.0130.i, %if.then38.i ], [ %last_yield_except_depth.0130.i, %if.then43.i ], [ %last_yield_except_depth.0130.i, %if.end65.i ], [ %39, %if.then78.i ], [ %last_yield_except_depth.0130.i, %if.then84.i ], [ -1, %if.then89.i ], [ -1, %if.then87.i ], [ %last_yield_except_depth.0130.i, %if.else75.i ]
-  %todo.3.i = phi ptr [ %todo.2.i, %push_except_block.argprom.exit.i ], [ %todo.1132.i, %if.then38.i ], [ %todo.1132.i, %if.then43.i ], [ %incdec.ptr73.i, %if.end65.i ], [ %todo.1132.i, %if.then78.i ], [ %todo.1132.i, %if.then84.i ], [ %todo.1132.i, %if.then89.i ], [ %todo.1132.i, %if.then87.i ], [ %todo.1132.i, %if.else75.i ]
-  %except_stack.2.i = phi ptr [ %except_stack.0133.i, %push_except_block.argprom.exit.i ], [ %except_stack.0133.i, %if.then38.i ], [ %except_stack.0133.i, %if.then43.i ], [ %except_stack.1.i, %if.end65.i ], [ %except_stack.0133.i, %if.then78.i ], [ %except_stack.0133.i, %if.then84.i ], [ %except_stack.0133.i, %if.then89.i ], [ %except_stack.0133.i, %if.then87.i ], [ %except_stack.0133.i, %if.else75.i ]
+for.inc.i18:                                      ; preds = %if.then89.i, %if.then87.i, %if.then84.i, %if.then78.i, %if.else75.i, %if.end65.i, %if.then43.i, %if.then38.i, %push_except_block.exit.i
+  %handler.1.i = phi ptr [ %arrayidx13.val69.i, %push_except_block.exit.i ], [ %28, %if.then38.i ], [ %handler.0129.i, %if.then43.i ], [ %handler.0129.i, %if.end65.i ], [ %handler.0129.i, %if.then78.i ], [ %handler.0129.i, %if.then84.i ], [ %handler.0129.i, %if.then89.i ], [ %handler.0129.i, %if.then87.i ], [ %handler.0129.i, %if.else75.i ]
+  %last_yield_except_depth.1.i = phi i32 [ %last_yield_except_depth.0130.i, %push_except_block.exit.i ], [ %last_yield_except_depth.0130.i, %if.then38.i ], [ %last_yield_except_depth.0130.i, %if.then43.i ], [ %last_yield_except_depth.0130.i, %if.end65.i ], [ %39, %if.then78.i ], [ %last_yield_except_depth.0130.i, %if.then84.i ], [ -1, %if.then89.i ], [ -1, %if.then87.i ], [ %last_yield_except_depth.0130.i, %if.else75.i ]
+  %todo.3.i = phi ptr [ %todo.2.i, %push_except_block.exit.i ], [ %todo.1132.i, %if.then38.i ], [ %todo.1132.i, %if.then43.i ], [ %incdec.ptr73.i, %if.end65.i ], [ %todo.1132.i, %if.then78.i ], [ %todo.1132.i, %if.then84.i ], [ %todo.1132.i, %if.then89.i ], [ %todo.1132.i, %if.then87.i ], [ %todo.1132.i, %if.else75.i ]
+  %except_stack.2.i = phi ptr [ %except_stack.0133.i, %push_except_block.exit.i ], [ %except_stack.0133.i, %if.then38.i ], [ %except_stack.0133.i, %if.then43.i ], [ %except_stack.1.i, %if.end65.i ], [ %except_stack.0133.i, %if.then78.i ], [ %except_stack.0133.i, %if.then84.i ], [ %except_stack.0133.i, %if.then89.i ], [ %except_stack.0133.i, %if.then87.i ], [ %except_stack.0133.i, %if.else75.i ]
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i15, 1
   %41 = load i32, ptr %b_iused.i12, align 8
   %42 = sext i32 %41 to i64
@@ -1718,7 +1718,7 @@ if.end16.i.i.i:                                   ; preds = %while.end.i.i.i
   %mul.i.i.i = shl nsw i64 %conv.i263.i.i, 2
   %call.i264.i.i = tail call ptr @PyMem_Malloc(i64 noundef %mul.i.i.i) #8
   %cmp17.i.i.i = icmp eq ptr %call.i264.i.i, null
-  br i1 %cmp17.i.i.i, label %swaptimize.argprom.exit.i.i, label %for.cond.preheader.i.i.i
+  br i1 %cmp17.i.i.i, label %swaptimize.exit.i.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %if.end16.i.i.i
   %cmp2213.i.i.i = icmp sgt i32 %depth.0.lcssa.ph.i.i.i, 0
@@ -1849,7 +1849,7 @@ while.end103.i.i.i:                               ; preds = %do.body.i266.i.i, %
   %add105.i.i.i = add i32 %len.0.lcssa.ph.i.i.i, %storemerge345.i.i
   br label %if.end434.i.i
 
-swaptimize.argprom.exit.i.i:                      ; preds = %if.end16.i.i.i
+swaptimize.exit.i.i:                              ; preds = %if.end16.i.i.i
   %call20.i.i.i = tail call ptr @PyErr_NoMemory() #8
   br label %optimize_basic_block.exit.thread.i
 
@@ -2082,7 +2082,7 @@ for.inc436.i.i:                                   ; preds = %apply_static_swaps.
   %cmp419.i.i = icmp slt i32 %inc437.i.i, %175
   br i1 %cmp419.i.i, label %for.body421.i.i, label %for.inc15.i, !llvm.loop !32
 
-optimize_basic_block.exit.thread.i:               ; preds = %for.end25.i.thread.i.i, %for.end25.i.i.i, %for.end.thread.i.i.i, %for.end.i.i.i, %if.end158.i.i, %Py_DECREF.exit.i.i, %Py_DECREF.exit456.i.i, %swaptimize.argprom.exit.i.i, %get_const_value.exit.i.i.i, %get_const_value.exit213.i.i, %get_const_value.exit201.i.i, %get_const_value.exit.i.i
+optimize_basic_block.exit.thread.i:               ; preds = %for.end25.i.thread.i.i, %for.end25.i.i.i, %for.end.thread.i.i.i, %for.end.i.i.i, %if.end158.i.i, %Py_DECREF.exit.i.i, %Py_DECREF.exit456.i.i, %swaptimize.exit.i.i, %get_const_value.exit.i.i.i, %get_const_value.exit213.i.i, %get_const_value.exit201.i.i, %get_const_value.exit.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %nop.i.i)
   br label %return
 
@@ -2564,7 +2564,7 @@ for.inc48.i:                                      ; preds = %if.then46.i, %for.b
 
 for.body55.i:                                     ; preds = %for.cond53.preheader.i, %for.body55.i
   %b51.0158.i = phi ptr [ %b51.0.i, %for.body55.i ], [ %b51.0156.pre.i, %for.cond53.preheader.i ]
-  tail call fastcc void @remove_redundant_nops.retelim(ptr noundef %b51.0158.i)
+  tail call fastcc void @remove_redundant_nops(ptr noundef %b51.0158.i)
   %b_next58.i = getelementptr inbounds i8, ptr %b51.0158.i, i64 32
   %b51.0.i = load ptr, ptr %b_next58.i, align 8
   %cmp54.not.i = icmp eq ptr %b51.0.i, null
@@ -3231,7 +3231,7 @@ for.inc28.i:                                      ; preds = %for.inc.i116, %for.
 
 for.body34.i109:                                  ; preds = %for.cond32.preheader.i, %for.body34.i109
   %b30.063.i = phi ptr [ %b30.0.i, %for.body34.i109 ], [ %b30.061.pre.i, %for.cond32.preheader.i ]
-  tail call fastcc void @remove_redundant_nops.retelim(ptr noundef %b30.063.i)
+  tail call fastcc void @remove_redundant_nops(ptr noundef %b30.063.i)
   %b_next36.i = getelementptr inbounds i8, ptr %b30.063.i, i64 32
   %b30.0.i = load ptr, ptr %b_next36.i, align 8
   %cmp33.not.i = icmp eq ptr %b30.0.i, null
@@ -4513,9 +4513,9 @@ for.end.i.i:                                      ; preds = %for.end.loopexit.i.
   %nblocks.0.lcssa.i.i = phi i64 [ %3, %for.end.loopexit.i.i ], [ 0, %entry ]
   %call.i.i = tail call ptr @PyMem_Malloc(i64 noundef %nblocks.0.lcssa.i.i) #8
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %calculate_stackdepth.argprom.exit.thread, label %if.end.i
+  br i1 %tobool.not.i.i, label %calculate_stackdepth.exit.thread, label %if.end.i
 
-calculate_stackdepth.argprom.exit.thread:         ; preds = %for.end.i.i
+calculate_stackdepth.exit.thread:                 ; preds = %for.end.i.i
   %call1.i.i = tail call ptr @PyErr_NoMemory() #8
   store i32 -1, ptr %stackdepth, align 4
   br label %return
@@ -4529,7 +4529,7 @@ if.end.i:                                         ; preds = %for.end.i.i
 stackdepth_push.exit.thread.i:                    ; preds = %if.end.i
   %5 = load ptr, ptr @PyExc_ValueError, align 8
   %call.i53.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.6) #8
-  br label %calculate_stackdepth.argprom.exit.thread50
+  br label %calculate_stackdepth.exit.thread50
 
 if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i.i = icmp slt i32 %4, 0
@@ -4578,7 +4578,7 @@ if.then14.i:                                      ; preds = %for.body11.i
   %14 = load i32, ptr %arrayidx.i, align 8
   %15 = load i32, ptr %i_oparg.i, align 4
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull @.str.4, i32 noundef %14, i32 noundef %15) #8
-  br label %calculate_stackdepth.argprom.exit.thread50
+  br label %calculate_stackdepth.exit.thread50
 
 if.end18.i:                                       ; preds = %for.body11.i
   %add.i = add i32 %call12.i, %depth.052.i
@@ -4588,7 +4588,7 @@ if.end18.i:                                       ; preds = %for.body11.i
 if.then20.i:                                      ; preds = %if.end18.i
   %16 = load ptr, ptr @PyExc_ValueError, align 8
   %call21.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.5) #8
-  br label %calculate_stackdepth.argprom.exit.thread50
+  br label %calculate_stackdepth.exit.thread50
 
 if.end22.i:                                       ; preds = %if.end18.i
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 %maxdepth.151.i)
@@ -4615,7 +4615,7 @@ if.then43.i:                                      ; preds = %if.then38.i
   %21 = load i32, ptr %arrayidx.i, align 8
   %22 = load i32, ptr %i_oparg.i, align 4
   %call46.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.4, i32 noundef %21, i32 noundef %22) #8
-  br label %calculate_stackdepth.argprom.exit.thread50
+  br label %calculate_stackdepth.exit.thread50
 
 if.end47.i:                                       ; preds = %if.then38.i
   %add48.i = add i32 %call41.i, %depth.052.i
@@ -4644,7 +4644,7 @@ if.then7.i64.i:                                   ; preds = %if.end.i61.i
 stackdepth_push.exit66.i:                         ; preds = %if.end47.i
   %25 = load ptr, ptr @PyExc_ValueError, align 8
   %call.i59.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.6) #8
-  br label %calculate_stackdepth.argprom.exit.thread50
+  br label %calculate_stackdepth.exit.thread50
 
 if.end56.i:                                       ; preds = %if.then7.i64.i, %if.end.i61.i, %if.end22.i
   %sp.4.i = phi ptr [ %sp.250.i, %if.end22.i ], [ %sp.250.i, %if.end.i61.i ], [ %incdec.ptr.i65.i, %if.then7.i64.i ]
@@ -4699,7 +4699,7 @@ if.then7.i78.i:                                   ; preds = %if.end.i74.i
 stackdepth_push.exit80.i:                         ; preds = %if.then88.i
   %30 = load ptr, ptr @PyExc_ValueError, align 8
   %call.i72.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %30, ptr noundef nonnull @.str.6) #8
-  br label %calculate_stackdepth.argprom.exit.thread50
+  br label %calculate_stackdepth.exit.thread50
 
 if.end93.i:                                       ; preds = %if.end56.i, %if.end56.i, %if.end56.i, %if.end56.i, %if.end56.i, %if.end56.i, %if.end56.i, %if.end56.i, %if.end56.i, %if.then7.i78.i, %if.end.i74.i, %for.end86.i
   %maxdepth.215.i = phi i32 [ %maxdepth.1.lcssa.i, %for.end86.i ], [ %maxdepth.1.lcssa.i, %if.then7.i78.i ], [ %maxdepth.1.lcssa.i, %if.end.i74.i ], [ %maxdepth.4.i, %if.end56.i ], [ %maxdepth.4.i, %if.end56.i ], [ %maxdepth.4.i, %if.end56.i ], [ %maxdepth.4.i, %if.end56.i ], [ %maxdepth.4.i, %if.end56.i ], [ %maxdepth.4.i, %if.end56.i ], [ %maxdepth.4.i, %if.end56.i ], [ %maxdepth.4.i, %if.end56.i ], [ %maxdepth.4.i, %if.end56.i ]
@@ -4707,7 +4707,7 @@ if.end93.i:                                       ; preds = %if.end56.i, %if.end
   %cmp5.not.i = icmp eq ptr %sp.7.i, %call.i.i
   br i1 %cmp5.not.i, label %if.end, label %while.body.i, !llvm.loop !83
 
-calculate_stackdepth.argprom.exit.thread50:       ; preds = %if.then14.i, %if.then20.i, %if.then43.i, %stackdepth_push.exit66.i, %stackdepth_push.exit80.i, %stackdepth_push.exit.thread.i
+calculate_stackdepth.exit.thread50:               ; preds = %if.then14.i, %if.then20.i, %if.then43.i, %stackdepth_push.exit66.i, %stackdepth_push.exit80.i, %stackdepth_push.exit.thread.i
   tail call void @PyMem_Free(ptr noundef nonnull %call.i.i) #8
   store i32 -1, ptr %stackdepth, align 4
   br label %return
@@ -5327,7 +5327,7 @@ for.inc17.i:                                      ; preds = %for.inc.i, %for.con
 
 for.body22.i:                                     ; preds = %for.inc17.i, %for.body22.i
   %b19.021.i = phi ptr [ %105, %for.body22.i ], [ %98, %for.inc17.i ]
-  call fastcc void @remove_redundant_nops.retelim(ptr noundef %b19.021.i)
+  call fastcc void @remove_redundant_nops(ptr noundef %b19.021.i)
   %b_next25.i = getelementptr inbounds i8, ptr %b19.021.i, i64 32
   %105 = load ptr, ptr %b_next25.i, align 8
   %cmp21.not.i = icmp eq ptr %105, null
@@ -5487,8 +5487,8 @@ if.end8:                                          ; preds = %for.inc10.i, %if.en
   %call9 = call i32 @_PyCfg_ToInstructionSequence(ptr noundef nonnull %g, ptr noundef %seq)
   br label %return
 
-return:                                           ; preds = %normalize_jumps.exit, %prepare_localsplus.exit.thread, %calculate_stackdepth.argprom.exit.thread50, %calculate_stackdepth.argprom.exit.thread, %if.end8, %prepare_localsplus.exit
-  %retval.0 = phi i32 [ -1, %prepare_localsplus.exit ], [ -1, %normalize_jumps.exit ], [ %call9, %if.end8 ], [ -1, %calculate_stackdepth.argprom.exit.thread ], [ -1, %calculate_stackdepth.argprom.exit.thread50 ], [ -1, %prepare_localsplus.exit.thread ]
+return:                                           ; preds = %normalize_jumps.exit, %prepare_localsplus.exit.thread, %calculate_stackdepth.exit.thread50, %calculate_stackdepth.exit.thread, %if.end8, %prepare_localsplus.exit
+  %retval.0 = phi i32 [ -1, %prepare_localsplus.exit ], [ -1, %normalize_jumps.exit ], [ %call9, %if.end8 ], [ -1, %calculate_stackdepth.exit.thread ], [ -1, %calculate_stackdepth.exit.thread50 ], [ -1, %prepare_localsplus.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -5765,7 +5765,7 @@ return:                                           ; preds = %if.end.i, %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @remove_redundant_nops.retelim(ptr nocapture noundef nonnull %bb) unnamed_addr #4 {
+define internal fastcc void @remove_redundant_nops(ptr nocapture noundef nonnull %bb) unnamed_addr #4 {
 entry:
   %b_iused = getelementptr inbounds i8, ptr %bb, i64 40
   %0 = load i32, ptr %b_iused, align 8

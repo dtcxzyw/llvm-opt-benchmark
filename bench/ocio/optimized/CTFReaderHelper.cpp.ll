@@ -2968,7 +2968,7 @@ call.i.i.i.i.noexc.i:                             ; preds = %call.i.i.noexc.i
   %cmp.not.i.i.i.i.i = icmp eq i32 %1, 0
   %cmp1.not.i.i.i.i.i = icmp eq i32 %2, 0
   %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i.i.i, i1 %cmp1.not.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.argprom.exit.i.i, label %if.then.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %call.i.i.i.i.noexc.i
   %call2.i.i.i.i4.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %oss.i, ptr noundef nonnull @.str.27)
@@ -2979,7 +2979,7 @@ call2.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i.i.i.i
           to label %call4.i.i.i.i.noexc.i unwind label %lpad2.i
 
 call4.i.i.i.i.noexc.i:                            ; preds = %call2.i.i.i.i.noexc.i
-  br i1 %cmp1.not.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.argprom.exit.i.i, label %if.then7.i.i.i.i.i
+  br i1 %cmp1.not.i.i.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.exit.i.i, label %if.then7.i.i.i.i.i
 
 if.then7.i.i.i.i.i:                               ; preds = %call4.i.i.i.i.noexc.i
   %call8.i.i.i.i6.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %oss.i, ptr noundef nonnull @.str.27)
@@ -2987,13 +2987,13 @@ if.then7.i.i.i.i.i:                               ; preds = %call4.i.i.i.i.noexc
 
 call8.i.i.i.i.noexc.i:                            ; preds = %if.then7.i.i.i.i.i
   %call10.i.i.i.i7.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call8.i.i.i.i6.i, i32 noundef %2)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.argprom.exit.i.i unwind label %lpad2.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.exit.i.i unwind label %lpad2.i
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.argprom.exit.i.i: ; preds = %call8.i.i.i.i.noexc.i, %call4.i.i.i.i.noexc.i, %call.i.i.i.i.noexc.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.exit.i.i: ; preds = %call8.i.i.i.i.noexc.i, %call4.i.i.i.i.noexc.i, %call.i.i.i.i.noexc.i
   %call.i.i.i8.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %oss.i, ptr noundef nonnull @.str.21)
           to label %invoke.cont3.i unwind label %lpad2.i
 
-invoke.cont3.i:                                   ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.argprom.exit.i.i
+invoke.cont3.i:                                   ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.exit.i.i
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %oss.i)
           to label %invoke.cont4.i unwind label %lpad.i
 
@@ -3006,7 +3006,7 @@ lpad.i:                                           ; preds = %invoke.cont3.i
           cleanup
   br label %ehcleanup.i
 
-lpad2.i:                                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.argprom.exit.i.i, %call8.i.i.i.i.noexc.i, %if.then7.i.i.i.i.i, %call2.i.i.i.i.noexc.i, %if.then.i.i.i.i.i, %call.i.i.noexc.i, %if.then
+lpad2.i:                                          ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113PrintInStreamINS_10CTFVersionEJPKcEEEvRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEERKT_DpT0_.exit.i.i, %call8.i.i.i.i.noexc.i, %if.then7.i.i.i.i.i, %call2.i.i.i.i.noexc.i, %if.then.i.i.i.i.i, %call.i.i.noexc.i, %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i
@@ -3675,7 +3675,7 @@ invoke.cont12:                                    ; preds = %catch
           to label %invoke.cont14 unwind label %lpad11
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef nonnull @.str.26, ptr noundef %agg.tmp)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef nonnull @.str.26, ptr noundef %agg.tmp)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -3894,7 +3894,7 @@ lpad.i.i30:                                       ; preds = %invoke.cont40
 invoke.cont43:                                    ; preds = %invoke.cont40
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i28) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i28), !noalias !16
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call41, ptr noundef nonnull @.str.26, ptr noundef %agg.tmp42)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call41, ptr noundef nonnull @.str.26, ptr noundef %agg.tmp42)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
@@ -4400,7 +4400,7 @@ nrvo.skipdtor:                                    ; preds = %while.body.i, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r1, ptr noundef nonnull %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r1, ptr noundef nonnull %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4726,7 +4726,7 @@ invoke.cont4:                                     ; preds = %catch
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont4
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA17_cJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_SA_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %agg.tmp, ptr noundef nonnull @.str.35, ptr noundef %call9, ptr noundef nonnull @.str.27)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA17_cJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_SA_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %agg.tmp, ptr noundef nonnull @.str.35, ptr noundef %call9, ptr noundef nonnull @.str.27)
           to label %invoke.cont10 unwind label %lpad7
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -5195,7 +5195,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA17_cJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_SA_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef nonnull %r, ptr noundef %r1, ptr noundef %r2, ptr noundef %r4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA17_cJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_SA_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef nonnull %r, ptr noundef %r1, ptr noundef %r2, ptr noundef %r4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5800,7 +5800,7 @@ invoke.cont9:                                     ; preds = %catch
           to label %invoke.cont11 unwind label %lpad8
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call10, ptr noundef nonnull @.str.40, ptr noundef %agg.tmp)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call10, ptr noundef nonnull @.str.40, ptr noundef %agg.tmp)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -5870,7 +5870,7 @@ lpad.i.i:                                         ; preds = %invoke.cont24
 invoke.cont27:                                    ; preds = %invoke.cont24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !36
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call25, ptr noundef nonnull @.str.40, ptr noundef %agg.tmp26)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call25, ptr noundef nonnull @.str.40, ptr noundef %agg.tmp26)
           to label %if.end61.sink.split unwind label %lpad28
 
 lpad28:                                           ; preds = %invoke.cont27
@@ -5915,7 +5915,7 @@ lpad.i.i28:                                       ; preds = %invoke.cont37
 invoke.cont40:                                    ; preds = %invoke.cont37
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i26) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i26), !noalias !42
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call38, ptr noundef nonnull @.str.40, ptr noundef %agg.tmp39)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call38, ptr noundef nonnull @.str.40, ptr noundef %agg.tmp39)
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %invoke.cont40
@@ -5965,7 +5965,7 @@ lpad.i.i34:                                       ; preds = %invoke.cont53
 invoke.cont56:                                    ; preds = %invoke.cont53
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i32) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i32), !noalias !48
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call54, ptr noundef nonnull @.str.40, ptr noundef %agg.tmp55)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call54, ptr noundef nonnull @.str.40, ptr noundef %agg.tmp55)
           to label %if.end61.sink.split unwind label %lpad57
 
 lpad57:                                           ; preds = %invoke.cont56
@@ -6650,7 +6650,7 @@ invoke.cont4:                                     ; preds = %catch
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA17_cJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_SA_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %agg.tmp, ptr noundef nonnull @.str.46, ptr noundef %call7, ptr noundef nonnull @.str.47)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA17_cJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_SA_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %agg.tmp, ptr noundef nonnull @.str.46, ptr noundef %call7, ptr noundef nonnull @.str.47)
           to label %invoke.cont8 unwind label %lpad5
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -6724,7 +6724,7 @@ invoke.cont.i16:                                  ; preds = %call.i.i.i.i.i.noex
 
 invoke.cont7.i17:                                 ; preds = %invoke.cont.i16
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i13)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcS4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit unwind label %lpad8.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcS4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit unwind label %lpad8.i
 
 lpad.i14:                                         ; preds = %invoke.cont.i16, %call.i.i.i.i.i.noexc.i, %call.i.i.i.i.noexc.i, %call.i.i.i.noexc.i, %call.i.i.noexc.i, %if.else
   %26 = landingpad { ptr, i32 }
@@ -6746,14 +6746,14 @@ ehcleanup.i15:                                    ; preds = %lpad8.i, %lpad.i14
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i12) #30
   br label %common.resume
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcS4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit: ; preds = %invoke.cont7.i17
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcS4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit: ; preds = %invoke.cont7.i17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i13) #30
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i12) #30
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i13)
   br label %if.end
 
-if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcS4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit, %if.then
+if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcS4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit, %if.then
   %cmp.not = icmp eq i64 %pos.2, %len
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !60
 
@@ -9027,7 +9027,7 @@ invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA27_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit unwind label %lpad4.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA27_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit unwind label %lpad4.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %call.i.i.i.noexc.i, %call.i.i.noexc.i, %.noexc151
   %76 = landingpad { ptr, i32 }
@@ -9045,7 +9045,7 @@ ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   br label %ehcleanup217
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA27_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit: ; preds = %invoke.cont3.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA27_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit: ; preds = %invoke.cont3.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #30
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i)
@@ -9068,7 +9068,7 @@ ehcleanup101:                                     ; preds = %lpad97, %lpad95
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp94) #30
   br label %ehcleanup217
 
-if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA27_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit, %invoke.cont98
+if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA27_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit, %invoke.cont98
   store i32 %call99, ptr %m_inBitDepth, align 8
   %or = or i32 %bitDepthFound.0168, 1
   br label %if.end139
@@ -15829,7 +15829,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19FixedFunctionOpDataEED2Ev.exit60: ; pr
 
 if.then24:                                        ; preds = %if.end8.sink.split.i.i.i.i51, %_ZNK19OpenColorIO_v2_4dev16CTFReaderACESElt16getFixedFunctionEv.exit28, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19FixedFunctionOpDataEED2Ev.exit60
   %call25 = call noundef ptr @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpData20ConvertStyleToStringENS0_5StyleEb(i32 noundef %26, i1 noundef zeroext false)
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call25, ptr noundef nonnull @.str.68)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call25, ptr noundef nonnull @.str.68)
   br label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19FixedFunctionOpDataEED2Ev.exit60, %if.then24, %_ZNK19OpenColorIO_v2_4dev16CTFReaderACESElt16getFixedFunctionEv.exit28, %if.end8.sink.split.i.i.i.i51
@@ -15867,7 +15867,7 @@ invoke.cont.i:                                    ; preds = %call.i.i.i.i.i.noex
 
 invoke.cont7.i:                                   ; preds = %invoke.cont.i
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA28_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit unwind label %lpad8.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA28_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit unwind label %lpad8.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %call.i.i.i.i.i.noexc.i, %call.i.i.i.i.noexc.i, %call.i.i.i.noexc.i, %call.i.i.noexc.i, %if.then30
   %49 = landingpad { ptr, i32 }
@@ -15885,14 +15885,14 @@ ehcleanup.i:                                      ; preds = %lpad8.i, %lpad.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit119
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA28_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit: ; preds = %invoke.cont7.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA28_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit: ; preds = %invoke.cont7.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #30
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %cond.true.i.i.i
 
-cond.true.i.i.i:                                  ; preds = %invoke.cont28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA28_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit
+cond.true.i.i.i:                                  ; preds = %invoke.cont28, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA28_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit
   %_M_finish.i61 = getelementptr inbounds i8, ptr %params, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %params, i64 16
   %call5.i.i.i.i.i67 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
@@ -16034,7 +16034,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit119:                 ; preds = %ehcleanup.i, %ehcle
 
 if.else41:                                        ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19FixedFunctionOpDataEED2Ev.exit
   %call42 = call noundef ptr @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpData20ConvertStyleToStringENS0_5StyleEb(i32 noundef %26, i1 noundef zeroext false)
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call42, ptr noundef nonnull @.str.71)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call42, ptr noundef nonnull @.str.71)
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then.i.i.i115, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19FixedFunctionOpDataEED2Ev.exit112, %if.else41
@@ -16237,7 +16237,7 @@ terminate.lpad:                                   ; preds = %ehcleanup21
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17552,7 +17552,7 @@ invoke.cont38:                                    ; preds = %catch33
           to label %invoke.cont40 unwind label %lpad37
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call39, ptr noundef nonnull @.str.72, ptr noundef %agg.tmp)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call39, ptr noundef nonnull @.str.72, ptr noundef %agg.tmp)
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %invoke.cont40
@@ -18824,7 +18824,7 @@ if.then13:                                        ; preds = %if.then10, %dynamic
   %12 = load ptr, ptr %arrayidx6, align 8
   %m_name.i = getelementptr inbounds i8, ptr %8, i64 8
   %call20 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %12, ptr noundef nonnull @.str.75, ptr noundef %call20)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %12, ptr noundef nonnull @.str.75, ptr noundef %call20)
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %if.then13, %dynamic_cast.end
@@ -19044,7 +19044,7 @@ if.then40:                                        ; preds = %if.then33, %dynamic
   %48 = load ptr, ptr %arrayidx6, align 8
   %m_name.i92 = getelementptr inbounds i8, ptr %45, i64 8
   %call47 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i92) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %48, ptr noundef nonnull @.str.75, ptr noundef %call47)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %48, ptr noundef nonnull @.str.75, ptr noundef %call47)
           to label %if.end49 unwind label %lpad
 
 if.end49:                                         ; preds = %if.then40, %dynamic_cast.end38
@@ -19264,7 +19264,7 @@ if.then71:                                        ; preds = %if.then64, %dynamic
   %84 = load ptr, ptr %arrayidx6, align 8
   %m_name.i178 = getelementptr inbounds i8, ptr %81, i64 8
   %call78 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i178) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %84, ptr noundef nonnull @.str.75, ptr noundef %call78)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %84, ptr noundef nonnull @.str.75, ptr noundef %call78)
           to label %if.end80 unwind label %lpad
 
 if.end80:                                         ; preds = %if.then71, %dynamic_cast.end69
@@ -19484,7 +19484,7 @@ if.then101:                                       ; preds = %if.then95, %dynamic
   %120 = load ptr, ptr %arrayidx6, align 8
   %m_name.i264 = getelementptr inbounds i8, ptr %117, i64 8
   %call108 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i264) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %120, ptr noundef nonnull @.str.75, ptr noundef %call108)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %120, ptr noundef nonnull @.str.75, ptr noundef %call108)
           to label %if.end110 unwind label %lpad
 
 if.end110:                                        ; preds = %if.then101, %dynamic_cast.end99
@@ -19704,7 +19704,7 @@ if.then129:                                       ; preds = %if.then123, %dynami
   %156 = load ptr, ptr %arrayidx6, align 8
   %m_name.i346 = getelementptr inbounds i8, ptr %153, i64 8
   %call136 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i346) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %156, ptr noundef nonnull @.str.75, ptr noundef %call136)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %156, ptr noundef nonnull @.str.75, ptr noundef %call136)
           to label %if.end138 unwind label %lpad
 
 if.end138:                                        ; preds = %if.then129, %dynamic_cast.end127
@@ -19924,7 +19924,7 @@ if.then157:                                       ; preds = %if.then151, %dynami
   %192 = load ptr, ptr %arrayidx6, align 8
   %m_name.i429 = getelementptr inbounds i8, ptr %189, i64 8
   %call164 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i429) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %192, ptr noundef nonnull @.str.75, ptr noundef %call164)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %192, ptr noundef nonnull @.str.75, ptr noundef %call164)
           to label %if.end166 unwind label %lpad
 
 if.end166:                                        ; preds = %if.then157, %dynamic_cast.end155
@@ -20232,7 +20232,7 @@ if.else224:                                       ; preds = %invoke.cont176
   %232 = load ptr, ptr %container, align 8
   %m_name.i514 = getelementptr inbounds i8, ptr %232, i64 8
   %call231 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i514) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %231, ptr noundef nonnull @.str.78, ptr noundef %call231)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %231, ptr noundef nonnull @.str.78, ptr noundef %call231)
           to label %if.end240 unwind label %lpad
 
 if.end240:                                        ; preds = %if.end8.sink.split.i.i.i.i503, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i500, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i490, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.exit, %if.end8.sink.split.i.i.i.i420, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i417, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i407, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEED2Ev.exit, %if.end8.sink.split.i.i.i.i337, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i334, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i324, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplEED2Ev.exit, %if.end8.sink.split.i.i.i.i254, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i251, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i241, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit231, %if.end8.sink.split.i.i.i.i168, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i165, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i155, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit145, %if.end8.sink.split.i.i.i.i83, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i70, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit, %if.else224, %invoke.cont221, %invoke.cont
@@ -20326,7 +20326,7 @@ ehcleanup242:                                     ; preds = %ehcleanup223, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r1, ptr noundef %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r1, ptr noundef %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20719,7 +20719,7 @@ catch:                                            ; preds = %lpad
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %8 = load ptr, ptr %vfn, align 8
   %call7 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA27_cJPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call7)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA27_cJPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call7)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %catch
@@ -20803,7 +20803,7 @@ terminate.lpad:                                   ; preds = %lpad8
 declare noundef i32 @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData20ConvertStringToStyleEPKc(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA27_cJPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA27_cJPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23347,7 +23347,7 @@ if.then53:                                        ; preds = %invoke.cont51
           to label %invoke.cont54 unwind label %lpad.body
 
 invoke.cont54:                                    ; preds = %if.then53
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA45_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call55)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA45_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call55)
           to label %cond.true.i.i.i unwind label %lpad.body
 
 cond.true.i.i.i:                                  ; preds = %invoke.cont51, %invoke.cont54
@@ -23385,7 +23385,7 @@ if.then69:                                        ; preds = %invoke.cont67
           to label %invoke.cont70 unwind label %lpad.body
 
 invoke.cont70:                                    ; preds = %if.then69
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA45_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call71)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA45_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call71)
           to label %cond.true.i.i.i54 unwind label %lpad.body
 
 cond.true.i.i.i54:                                ; preds = %invoke.cont67, %invoke.cont70
@@ -23433,7 +23433,7 @@ invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA46_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit unwind label %lpad4.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA46_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit unwind label %lpad4.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %call.i.i.i.noexc.i, %call.i.i.noexc.i, %.noexc73
   %31 = landingpad { ptr, i32 }
@@ -23451,14 +23451,14 @@ lpad.body.thread:                                 ; preds = %lpad.i, %lpad4.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   br label %if.then.i.i.i
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA46_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit: ; preds = %invoke.cont3.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA46_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit: ; preds = %invoke.cont3.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #30
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %cond.true.i.i.i91
 
-cond.true.i.i.i91:                                ; preds = %invoke.cont75, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA46_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit
+cond.true.i.i.i91:                                ; preds = %invoke.cont75, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA46_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit
   %call5.i.i.i.i.i108 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i102 unwind label %lpad.body
 
@@ -23571,7 +23571,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA45_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA45_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24192,7 +24192,7 @@ catch:                                            ; preds = %lpad
   %11 = extractvalue { ptr, i32 } %8, 0
   %12 = call ptr @__cxa_begin_catch(ptr %11) #30
   %13 = load ptr, ptr %arrayidx5, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA29_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %13)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA29_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %13)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %catch
@@ -24218,7 +24218,7 @@ while.end:                                        ; preds = %if.end
   br i1 %isStyleFound.1, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %entry, %while.end
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this)
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %while.end
@@ -24248,7 +24248,7 @@ declare void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpData12setDirectionENS_18
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA29_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA29_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24295,7 +24295,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24768,7 +24768,7 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 16
   %14 = load ptr, ptr %vfn19, align 8
   %call20 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef %agg.tmp, ptr noundef %call20, ptr noundef nonnull @.str.103)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef %agg.tmp, ptr noundef %call20, ptr noundef nonnull @.str.103)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont17
@@ -24817,7 +24817,7 @@ lpad.i.i:                                         ; preds = %invoke.cont35
 invoke.cont41:                                    ; preds = %invoke.cont35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !223
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA37_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call36, ptr noundef %agg.tmp37)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA37_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call36, ptr noundef %agg.tmp37)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont41
@@ -24900,7 +24900,7 @@ lpad.i.i37:                                       ; preds = %invoke.cont59
 invoke.cont65:                                    ; preds = %invoke.cont59
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i35) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i35), !noalias !229
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA15_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call60, ptr noundef %agg.tmp61)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA15_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call60, ptr noundef %agg.tmp61)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont65
@@ -24916,7 +24916,7 @@ lpad66:                                           ; preds = %invoke.cont65
 if.else71:                                        ; preds = %invoke.cont50
   %call74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #30
   %30 = load ptr, ptr %arrayidx98, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call74, ptr noundef %30)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call74, ptr noundef %30)
           to label %if.end79 unwind label %lpad23
 
 if.end79.thread:                                  ; preds = %if.then53, %invoke.cont67, %if.end
@@ -24973,7 +24973,7 @@ while.end:                                        ; preds = %land.rhs, %_ZNSt6ve
 if.then83:                                        ; preds = %while.end
   %m_name.i48 = getelementptr inbounds i8, ptr %this, i64 8
   %call85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i48) #30
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA30_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call85)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA30_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call85)
   br i1 %masterFound.0.lcssa, label %if.end91, label %if.then88
 
 if.end86:                                         ; preds = %while.end
@@ -24982,7 +24982,7 @@ if.end86:                                         ; preds = %while.end
 if.then88.critedge:                               ; preds = %entry
   %m_name.i48.c = getelementptr inbounds i8, ptr %this, i64 8
   %call85.c = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i48.c) #30
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA30_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call85.c)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA30_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call85.c)
   br label %if.then88
 
 if.then88:                                        ; preds = %if.then88.critedge, %if.then83, %if.end86
@@ -25003,7 +25003,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef nonnull %r3, ptr noundef %r6, ptr noundef %r8) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef nonnull %r3, ptr noundef %r6, ptr noundef %r8) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25114,7 +25114,7 @@ ehcleanup:                                        ; preds = %lpad13, %lpad10.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA37_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef nonnull %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA37_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef nonnull %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25217,7 +25217,7 @@ ehcleanup:                                        ; preds = %lpad9, %lpad6.body,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA15_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef nonnull %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA15_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef nonnull %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25320,7 +25320,7 @@ ehcleanup:                                        ; preds = %lpad9, %lpad6.body,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25375,7 +25375,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA30_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA30_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25542,7 +25542,7 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 16
   %14 = load ptr, ptr %vfn19, align 8
   %call20 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef %agg.tmp, ptr noundef %call20, ptr noundef nonnull @.str.103)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef %agg.tmp, ptr noundef %call20, ptr noundef nonnull @.str.103)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont17
@@ -25591,7 +25591,7 @@ lpad.i.i:                                         ; preds = %invoke.cont35
 invoke.cont41:                                    ; preds = %invoke.cont35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !236
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA14_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(14) @.str.111, ptr noundef %call36, ptr noundef %agg.tmp37)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA14_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(14) @.str.111, ptr noundef %call36, ptr noundef %agg.tmp37)
           to label %if.end77.thread.sink.split unwind label %lpad42
 
 lpad11:                                           ; preds = %invoke.cont12, %catch
@@ -25661,7 +25661,7 @@ lpad.i.i33:                                       ; preds = %invoke.cont57
 invoke.cont63:                                    ; preds = %invoke.cont57
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i31) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i31), !noalias !242
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA14_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(14) @.str.112, ptr noundef %call58, ptr noundef %agg.tmp59)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA14_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(14) @.str.112, ptr noundef %call58, ptr noundef %agg.tmp59)
           to label %if.end77.thread.sink.split unwind label %lpad64
 
 lpad64:                                           ; preds = %invoke.cont63
@@ -25673,7 +25673,7 @@ lpad64:                                           ; preds = %invoke.cont63
 if.else69:                                        ; preds = %invoke.cont48
   %call72 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #30
   %28 = load ptr, ptr %arrayidx90, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call72, ptr noundef %28)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call72, ptr noundef %28)
           to label %if.end77 unwind label %lpad23
 
 if.end77.thread.sink.split:                       ; preds = %invoke.cont63, %invoke.cont41
@@ -25758,7 +25758,7 @@ invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA43_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit unwind label %lpad4.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA43_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit unwind label %lpad4.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %call.i.i.i.noexc.i, %call.i.i.noexc.i, %if.then82
   %32 = landingpad { ptr, i32 }
@@ -25776,14 +25776,14 @@ ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   br label %common.resume
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA43_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit: ; preds = %invoke.cont3.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA43_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit: ; preds = %invoke.cont3.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #30
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %if.end85
 
-if.end85:                                         ; preds = %while.end, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA43_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit
+if.end85:                                         ; preds = %while.end, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA43_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit
   ret void
 
 terminate.lpad:                                   ; preds = %ehcleanup
@@ -25795,7 +25795,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA14_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef nonnull align 1 dereferenceable(14) %val, ptr noundef %r, ptr noundef nonnull %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA14_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef nonnull align 1 dereferenceable(14) %val, ptr noundef %r, ptr noundef nonnull %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25979,7 +25979,7 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 16
   %14 = load ptr, ptr %vfn19, align 8
   %call20 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef %agg.tmp, ptr noundef %call20, ptr noundef nonnull @.str.103)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef %agg.tmp, ptr noundef %call20, ptr noundef nonnull @.str.103)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont17
@@ -26028,7 +26028,7 @@ lpad.i.i:                                         ; preds = %invoke.cont35
 invoke.cont41:                                    ; preds = %invoke.cont35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !249
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA14_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(14) @.str.111, ptr noundef %call36, ptr noundef %agg.tmp37)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA14_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(14) @.str.111, ptr noundef %call36, ptr noundef %agg.tmp37)
           to label %if.end102.thread.sink.split unwind label %lpad42
 
 lpad11:                                           ; preds = %invoke.cont12, %catch
@@ -26098,7 +26098,7 @@ lpad.i.i38:                                       ; preds = %invoke.cont57
 invoke.cont63:                                    ; preds = %invoke.cont57
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i36) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i36), !noalias !255
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA14_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(14) @.str.112, ptr noundef %call58, ptr noundef %agg.tmp59)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA14_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(14) @.str.112, ptr noundef %call58, ptr noundef %agg.tmp59)
           to label %if.end102.thread.sink.split unwind label %lpad64
 
 lpad64:                                           ; preds = %invoke.cont63
@@ -26262,7 +26262,7 @@ lpad88.body:                                      ; preds = %ehcleanup.i, %lpad8
 if.else93:                                        ; preds = %invoke.cont72
   %call96 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #30
   %38 = load ptr, ptr %arrayidx166, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call96, ptr noundef %38)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call96, ptr noundef %38)
           to label %if.end102 unwind label %lpad23
 
 if.end102.thread.sink.split:                      ; preds = %invoke.cont63, %invoke.cont41, %invoke.cont89
@@ -26353,7 +26353,7 @@ invoke.cont.i71:                                  ; preds = %call.i.i.i.noexc.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i71
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i65)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit unwind label %lpad4.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit unwind label %lpad4.i
 
 lpad.i67:                                         ; preds = %invoke.cont.i71, %call.i.i.i.noexc.i, %call.i.i.noexc.i70, %if.then109
   %43 = landingpad { ptr, i32 }
@@ -26371,14 +26371,14 @@ ehcleanup.i68:                                    ; preds = %lpad4.i, %lpad.i67
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i64) #30
   br label %common.resume
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit: ; preds = %invoke.cont3.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit: ; preds = %invoke.cont3.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i65) #30
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i64) #30
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i64)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i65)
   br label %if.end112
 
-if.end112:                                        ; preds = %while.end, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit
+if.end112:                                        ; preds = %while.end, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit
   ret void
 
 terminate.lpad:                                   ; preds = %ehcleanup
@@ -26458,7 +26458,7 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 16
   %14 = load ptr, ptr %vfn19, align 8
   %call20 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef %agg.tmp, ptr noundef %call20, ptr noundef nonnull @.str.103)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef %agg.tmp, ptr noundef %call20, ptr noundef nonnull @.str.103)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont17
@@ -26507,7 +26507,7 @@ lpad.i.i:                                         ; preds = %invoke.cont35
 invoke.cont41:                                    ; preds = %invoke.cont35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !268
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA2_cJPKcS4_S4_S4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %tag, ptr noundef %call36, ptr noundef %agg.tmp37, ptr noundef nonnull @.str.39)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA2_cJPKcS4_S4_S4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %tag, ptr noundef %call36, ptr noundef %agg.tmp37, ptr noundef nonnull @.str.39)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont41
@@ -26551,7 +26551,7 @@ if.end52.thread:                                  ; preds = %if.then, %invoke.co
 if.else:                                          ; preds = %invoke.cont28
   %call48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #30
   %24 = load ptr, ptr %arrayidx56, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call48, ptr noundef %24)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call48, ptr noundef %24)
           to label %if.end52 unwind label %lpad23
 
 if.end52:                                         ; preds = %if.else
@@ -26595,7 +26595,7 @@ while.end:                                        ; preds = %land.rhs, %_ZNSt6ve
 if.then56:                                        ; preds = %entry, %while.end
   %m_name.i28 = getelementptr inbounds i8, ptr %this, i64 8
   %call58 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i28) #30
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call58)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call58)
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then56, %while.end
@@ -26610,7 +26610,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA2_cJPKcS4_S4_S4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r3, ptr noundef nonnull %r7, ptr noundef %r8) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA2_cJPKcS4_S4_S4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r3, ptr noundef nonnull %r7, ptr noundef %r8) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26757,7 +26757,7 @@ ehcleanup:                                        ; preds = %lpad13, %lpad10.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -27309,7 +27309,7 @@ catch:                                            ; preds = %lpad
   %35 = extractvalue { ptr, i32 } %32, 0
   %36 = call ptr @__cxa_begin_catch(ptr %35) #30
   %37 = load ptr, ptr %arrayidx5, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA29_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %37)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA29_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %37)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %catch
@@ -27399,7 +27399,7 @@ while.end:                                        ; preds = %if.end45
   br i1 %isStyleFound.1, label %if.end49, label %if.then48
 
 if.then48:                                        ; preds = %entry, %while.end
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this)
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then48, %while.end
@@ -29009,7 +29009,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 16
   %9 = load ptr, ptr %vfn7, align 8
   %call8 = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call4, ptr noundef %agg.tmp, ptr noundef %call8, ptr noundef nonnull @.str.122)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call4, ptr noundef %agg.tmp, ptr noundef %call8, ptr noundef nonnull @.str.122)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont5
@@ -29896,7 +29896,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 16
   %9 = load ptr, ptr %vfn7, align 8
   %call8 = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(16) %7) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call4, ptr noundef %agg.tmp, ptr noundef %call8, ptr noundef nonnull @.str.122)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call4, ptr noundef %agg.tmp, ptr noundef %call8, ptr noundef nonnull @.str.122)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont5
@@ -30179,7 +30179,7 @@ catch:                                            ; preds = %lpad
   %14 = extractvalue { ptr, i32 } %11, 0
   %15 = call ptr @__cxa_begin_catch(ptr %14) #30
   %16 = load ptr, ptr %arrayidx5, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA29_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %16)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA29_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %16)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %catch
@@ -30205,7 +30205,7 @@ while.end:                                        ; preds = %if.end
   br i1 %isStyleFound.1, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %entry, %while.end
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA39_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then21, %while.end
@@ -30666,7 +30666,7 @@ invoke.cont18:                                    ; preds = %invoke.cont13
   %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 16
   %14 = load ptr, ptr %vfn20, align 8
   %call21 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call14, ptr noundef %agg.tmp, ptr noundef %call21, ptr noundef nonnull @.str.103)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call14, ptr noundef %agg.tmp, ptr noundef %call21, ptr noundef nonnull @.str.103)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont18
@@ -30715,7 +30715,7 @@ lpad.i.i:                                         ; preds = %invoke.cont36
 invoke.cont42:                                    ; preds = %invoke.cont36
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !291
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA37_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call37, ptr noundef %agg.tmp38)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA37_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call37, ptr noundef %agg.tmp38)
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont42
@@ -30798,7 +30798,7 @@ lpad.i.i55:                                       ; preds = %invoke.cont60
 invoke.cont66:                                    ; preds = %invoke.cont60
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i53) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i53), !noalias !297
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA15_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call61, ptr noundef %agg.tmp62)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA15_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call61, ptr noundef %agg.tmp62)
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %invoke.cont66
@@ -30850,7 +30850,7 @@ lpad.i.i67:                                       ; preds = %invoke.cont87
 invoke.cont93:                                    ; preds = %invoke.cont87
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i65) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i65), !noalias !303
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA2_cJPKcS4_S4_S4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %cond, ptr noundef %call88, ptr noundef %agg.tmp89, ptr noundef nonnull @.str.31)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA2_cJPKcS4_S4_S4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %cond, ptr noundef %call88, ptr noundef %agg.tmp89, ptr noundef nonnull @.str.31)
           to label %invoke.cont95 unwind label %lpad94
 
 invoke.cont95:                                    ; preds = %invoke.cont93
@@ -30902,7 +30902,7 @@ lpad.i.i79:                                       ; preds = %invoke.cont118
 invoke.cont124:                                   ; preds = %invoke.cont118
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i77) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i77), !noalias !309
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA2_cJPKcS4_S4_S4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %_ZN19OpenColorIO_v2_4devL10ATTR_PIVOTE._ZN19OpenColorIO_v2_4devL10ATTR_WIDTHE, ptr noundef %call119, ptr noundef %agg.tmp120, ptr noundef nonnull @.str.31)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA2_cJPKcS4_S4_S4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %_ZN19OpenColorIO_v2_4devL10ATTR_PIVOTE._ZN19OpenColorIO_v2_4devL10ATTR_WIDTHE, ptr noundef %call119, ptr noundef %agg.tmp120, ptr noundef nonnull @.str.31)
           to label %invoke.cont126 unwind label %lpad125
 
 invoke.cont126:                                   ; preds = %invoke.cont124
@@ -30918,7 +30918,7 @@ lpad125:                                          ; preds = %invoke.cont124
 if.else130:                                       ; preds = %invoke.cont103
   %call133 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #30
   %40 = load ptr, ptr %arrayidx192, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call133, ptr noundef %40)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call133, ptr noundef %40)
           to label %if.end140 unwind label %lpad24
 
 if.end140.thread:                                 ; preds = %if.then106, %invoke.cont126, %if.then79, %invoke.cont95, %if.then54, %invoke.cont68, %if.end
@@ -30986,7 +30986,7 @@ if.then144:                                       ; preds = %entry, %while.end
   %startFound.0.lcssa213 = phi i1 [ %startFound.0.lcssa, %while.end ], [ false, %entry ]
   %m_name.i90 = getelementptr inbounds i8, ptr %this, i64 8
   %call146 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i90) #30
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA30_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call146)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA30_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call146)
   br i1 %masterFound.0.lcssa217, label %if.end152, label %if.then149
 
 if.end147:                                        ; preds = %while.end
@@ -31010,7 +31010,7 @@ if.then154:                                       ; preds = %if.then149, %if.end
   %cond156 = select i1 %center, ptr @_ZN19OpenColorIO_v2_4devL11ATTR_CENTERE, ptr @_ZN19OpenColorIO_v2_4devL10ATTR_STARTE
   %m_name.i92 = getelementptr inbounds i8, ptr %this, i64 8
   %call158 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i92) #30
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %cond156, ptr noundef %call158)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %cond156, ptr noundef %call158)
   br i1 %widthFound.0.lcssa216220223, label %if.end170, label %if.then161
 
 if.end159:                                        ; preds = %if.then149, %if.end152
@@ -31021,7 +31021,7 @@ if.then161:                                       ; preds = %if.then154, %if.end
   %_ZN19OpenColorIO_v2_4devL10ATTR_PIVOTE._ZN19OpenColorIO_v2_4devL10ATTR_WIDTHE2 = select i1 %pivot, ptr @_ZN19OpenColorIO_v2_4devL10ATTR_PIVOTE, ptr @_ZN19OpenColorIO_v2_4devL10ATTR_WIDTHE
   %m_name.i93 = getelementptr inbounds i8, ptr %this, i64 8
   %call169 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i93) #30
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %_ZN19OpenColorIO_v2_4devL10ATTR_PIVOTE._ZN19OpenColorIO_v2_4devL10ATTR_WIDTHE2, ptr noundef %call169)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %_ZN19OpenColorIO_v2_4devL10ATTR_PIVOTE._ZN19OpenColorIO_v2_4devL10ATTR_WIDTHE2, ptr noundef %call169)
   br label %if.end170
 
 if.end170:                                        ; preds = %if.then154, %if.then161, %if.end159
@@ -31036,7 +31036,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -31159,7 +31159,7 @@ invoke.cont17:                                    ; preds = %invoke.cont12
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 16
   %14 = load ptr, ptr %vfn19, align 8
   %call20 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef %agg.tmp, ptr noundef %call20, ptr noundef nonnull @.str.103)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call13, ptr noundef %agg.tmp, ptr noundef %call20, ptr noundef nonnull @.str.103)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont17
@@ -31208,7 +31208,7 @@ lpad.i.i:                                         ; preds = %invoke.cont35
 invoke.cont41:                                    ; preds = %invoke.cont35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !316
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA2_cJPKcS4_S4_S4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %tag, ptr noundef %call36, ptr noundef %agg.tmp37, ptr noundef nonnull @.str.39)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA2_cJPKcS4_S4_S4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %tag, ptr noundef %call36, ptr noundef %agg.tmp37, ptr noundef nonnull @.str.39)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont41
@@ -31252,7 +31252,7 @@ if.end52.thread:                                  ; preds = %if.then, %invoke.co
 if.else:                                          ; preds = %invoke.cont28
   %call48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #30
   %24 = load ptr, ptr %arrayidx56, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call48, ptr noundef %24)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call48, ptr noundef %24)
           to label %if.end52 unwind label %lpad23
 
 if.end52:                                         ; preds = %if.else
@@ -31296,7 +31296,7 @@ while.end:                                        ; preds = %land.rhs, %_ZNSt6ve
 if.then56:                                        ; preds = %entry, %while.end
   %m_name.i28 = getelementptr inbounds i8, ptr %this, i64 8
   %call58 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i28) #30
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call58)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA24_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call58)
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then56, %while.end
@@ -33585,7 +33585,7 @@ catch:                                            ; preds = %lpad
   %6 = extractvalue { ptr, i32 } %3, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #30
   %8 = load ptr, ptr %arrayidx5, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA29_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %8)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA29_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %8)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %catch
@@ -33786,7 +33786,7 @@ catch31:                                          ; preds = %lpad26
   %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 16
   %22 = load ptr, ptr %vfn35, align 8
   %call36 = call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(16) %21) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call36)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call36)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %catch31
@@ -33876,7 +33876,7 @@ declare void @_ZN19OpenColorIO_v2_4dev7LogUtil20ConvertLogParametersERKNS0_9CTFP
 declare void @_ZN19OpenColorIO_v2_4dev9LogOpData7setBaseEd(ptr noundef nonnull align 8 dereferenceable(252), double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -34005,7 +34005,7 @@ invoke.cont.i:                                    ; preds = %call.i.i.i.i.i.i.no
 
 invoke.cont9.i:                                   ; preds = %invoke.cont.i
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA48_cJPKcdS4_dS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit unwind label %lpad10.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA48_cJPKcdS4_dS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit unwind label %lpad10.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %call.i.i.i.i.i.i.noexc.i, %call.i.i.i.i.i.noexc.i, %call.i.i.i.i.noexc.i, %call.i.i.i.noexc.i, %call.i.i.noexc.i, %if.then3
   %2 = landingpad { ptr, i32 }
@@ -34023,7 +34023,7 @@ ehcleanup.i:                                      ; preds = %lpad10.i, %lpad.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   resume { ptr, i32 } %.pn.i
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA48_cJPKcdS4_dS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit: ; preds = %invoke.cont9.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA48_cJPKcdS4_dS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit: ; preds = %invoke.cont9.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #30
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i)
@@ -34037,7 +34037,7 @@ if.else:                                          ; preds = %entry
   tail call void @_ZN19OpenColorIO_v2_4dev9LogOpData7setBaseEd(ptr noundef nonnull align 8 dereferenceable(252) %4, double noundef %base) #30
   br label %if.end7
 
-if.end7:                                          ; preds = %if.then, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA48_cJPKcdS4_dS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit, %if.else
+if.end7:                                          ; preds = %if.then, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA48_cJPKcdS4_dS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit, %if.else
   ret void
 }
 
@@ -34262,7 +34262,7 @@ catch57:                                          ; preds = %lpad52
   %vfn61 = getelementptr inbounds i8, ptr %vtable60, i64 16
   %35 = load ptr, ptr %vfn61, align 8
   %call62 = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(16) %34) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call62)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA20_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call62)
           to label %invoke.cont64 unwind label %lpad63
 
 invoke.cont64:                                    ; preds = %catch57
@@ -35522,7 +35522,7 @@ invoke.cont.i:                                    ; preds = %if.then173
 
 invoke.cont1.i:                                   ; preds = %invoke.cont.i
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit unwind label %lpad2.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.exit unwind label %lpad2.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %if.then173
   %55 = landingpad { ptr, i32 }
@@ -35544,16 +35544,16 @@ ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   br label %common.resume
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit: ; preds = %invoke.cont1.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.exit: ; preds = %invoke.cont1.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #30
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %if.end174
 
-if.end174:                                        ; preds = %if.then.i135, %if.then157, %if.then.i127, %if.then146, %if.then.i119, %if.then133, %if.then.i111, %if.then120, %if.then.i103, %if.then107, %if.then.i95, %if.then94, %if.then.i87, %if.then81, %if.then.i, %if.then68, %if.else160, %invoke.cont60, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit, %if.end171
-  %validType.1296 = phi i1 [ false, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit ], [ true, %if.end171 ], [ true, %invoke.cont60 ], [ true, %if.else160 ], [ true, %if.then68 ], [ true, %if.then.i ], [ true, %if.then81 ], [ true, %if.then.i87 ], [ true, %if.then94 ], [ true, %if.then.i95 ], [ true, %if.then107 ], [ true, %if.then.i103 ], [ true, %if.then120 ], [ true, %if.then.i111 ], [ true, %if.then133 ], [ true, %if.then.i119 ], [ true, %if.then146 ], [ true, %if.then.i127 ], [ true, %if.then157 ], [ true, %if.then.i135 ]
-  %chan.1295 = phi i32 [ %chan.1301, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit ], [ %chan.1, %if.end171 ], [ %chan.0285, %invoke.cont60 ], [ %chan.0285, %if.else160 ], [ %chan.0285, %if.then68 ], [ %chan.0285, %if.then.i ], [ %chan.0285, %if.then81 ], [ %chan.0285, %if.then.i87 ], [ %chan.0285, %if.then94 ], [ %chan.0285, %if.then.i95 ], [ %chan.0285, %if.then107 ], [ %chan.0285, %if.then.i103 ], [ %chan.0285, %if.then120 ], [ %chan.0285, %if.then.i111 ], [ %chan.0285, %if.then133 ], [ %chan.0285, %if.then.i119 ], [ %chan.0285, %if.then146 ], [ %chan.0285, %if.then.i127 ], [ %chan.0285, %if.then157 ], [ %chan.0285, %if.then.i135 ]
+if.end174:                                        ; preds = %if.then.i135, %if.then157, %if.then.i127, %if.then146, %if.then.i119, %if.then133, %if.then.i111, %if.then120, %if.then.i103, %if.then107, %if.then.i95, %if.then94, %if.then.i87, %if.then81, %if.then.i, %if.then68, %if.else160, %invoke.cont60, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.exit, %if.end171
+  %validType.1296 = phi i1 [ false, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.exit ], [ true, %if.end171 ], [ true, %invoke.cont60 ], [ true, %if.else160 ], [ true, %if.then68 ], [ true, %if.then.i ], [ true, %if.then81 ], [ true, %if.then.i87 ], [ true, %if.then94 ], [ true, %if.then.i95 ], [ true, %if.then107 ], [ true, %if.then.i103 ], [ true, %if.then120 ], [ true, %if.then.i111 ], [ true, %if.then133 ], [ true, %if.then.i119 ], [ true, %if.then146 ], [ true, %if.then.i127 ], [ true, %if.then157 ], [ true, %if.then.i135 ]
+  %chan.1295 = phi i32 [ %chan.1301, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA55_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.exit ], [ %chan.1, %if.end171 ], [ %chan.0285, %invoke.cont60 ], [ %chan.0285, %if.else160 ], [ %chan.0285, %if.then68 ], [ %chan.0285, %if.then.i ], [ %chan.0285, %if.then81 ], [ %chan.0285, %if.then.i87 ], [ %chan.0285, %if.then94 ], [ %chan.0285, %if.then.i95 ], [ %chan.0285, %if.then107 ], [ %chan.0285, %if.then.i103 ], [ %chan.0285, %if.then120 ], [ %chan.0285, %if.then.i111 ], [ %chan.0285, %if.then133 ], [ %chan.0285, %if.then.i119 ], [ %chan.0285, %if.then146 ], [ %chan.0285, %if.then.i127 ], [ %chan.0285, %if.then157 ], [ %chan.0285, %if.then.i135 ]
   %add175 = add i32 %i.0286, 2
   %idxprom = zext i32 %add175 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %atts, i64 %idxprom
@@ -35634,7 +35634,7 @@ invoke.cont219:                                   ; preds = %if.then218
           to label %invoke.cont221 unwind label %lpad184
 
 invoke.cont221:                                   ; preds = %invoke.cont219
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA12_cJPKcS4_S4_S4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL17ATTR_LINSIDEBREAKE, ptr noundef nonnull @.str.144, ptr noundef %call220, ptr noundef %call222, ptr noundef nonnull @.str.39)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA12_cJPKcS4_S4_S4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL17ATTR_LINSIDEBREAKE, ptr noundef nonnull @.str.144, ptr noundef %call220, ptr noundef %call222, ptr noundef nonnull @.str.39)
           to label %cond.true.i.i.i unwind label %lpad184
 
 cond.true.i.i.i:                                  ; preds = %if.then216, %invoke.cont221
@@ -35653,7 +35653,7 @@ invoke.cont229:                                   ; preds = %if.then228
           to label %invoke.cont231 unwind label %lpad184
 
 invoke.cont231:                                   ; preds = %invoke.cont229
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA12_cJPKcS4_S4_S4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL17ATTR_LINSIDEBREAKE, ptr noundef nonnull @.str.146, ptr noundef %call230, ptr noundef %call232, ptr noundef nonnull @.str.59)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA12_cJPKcS4_S4_S4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL17ATTR_LINSIDEBREAKE, ptr noundef nonnull @.str.146, ptr noundef %call230, ptr noundef %call232, ptr noundef nonnull @.str.59)
           to label %invoke.cont236.thread277 unwind label %lpad184
 
 invoke.cont236:                                   ; preds = %cond.true.i.i.i
@@ -35696,7 +35696,7 @@ invoke.cont241:                                   ; preds = %if.then240
           to label %invoke.cont243 unwind label %lpad184
 
 invoke.cont243:                                   ; preds = %invoke.cont241
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA12_cJPKcS4_S4_S4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL16ATTR_LINEARSLOPEE, ptr noundef nonnull @.str.144, ptr noundef %call242, ptr noundef %call244, ptr noundef nonnull @.str.59)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA12_cJPKcS4_S4_S4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL16ATTR_LINEARSLOPEE, ptr noundef nonnull @.str.144, ptr noundef %call242, ptr noundef %call244, ptr noundef nonnull @.str.59)
           to label %if.end246 unwind label %lpad184
 
 if.end246:                                        ; preds = %invoke.cont243
@@ -36024,7 +36024,7 @@ if.then.i.i.i275:                                 ; preds = %ehcleanup268
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA12_cJPKcS4_S4_S4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r1, ptr noundef %r3, ptr noundef %r7, ptr noundef %r9) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA12_cJPKcS4_S4_S4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r, ptr noundef %r1, ptr noundef %r3, ptr noundef %r7, ptr noundef %r9) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -36486,7 +36486,7 @@ if.then41:                                        ; preds = %if.end36
 
 if.then47:                                        ; preds = %if.then41
   %19 = load ptr, ptr %arrayidx44, align 8
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA31_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %19)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA31_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %19)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then47, %if.then41
@@ -36518,7 +36518,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA31_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA31_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -36813,7 +36813,7 @@ lor.lhs.false:                                    ; preds = %if.then17
 
 if.end29.sink.split:                              ; preds = %lor.lhs.false, %if.then17
   %conv21.sink = phi i32 [ %conv21, %if.then17 ], [ 1, %lor.lhs.false ]
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJjPKcjS4_jS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %conv25, i32 noundef %conv21.sink, i32 noundef %position)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJjPKcjS4_jS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %conv25, i32 noundef %conv21.sink, i32 noundef %position)
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end29.sink.split, %lor.lhs.false
@@ -36863,7 +36863,7 @@ if.end48:                                         ; preds = %for.cond31.loopexit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJjPKcjS4_jS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, i32 noundef %r, i32 noundef %r3, i32 noundef %r7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJjPKcjS4_jS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, i32 noundef %r, i32 noundef %r3, i32 noundef %r7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -37002,7 +37002,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call3 = tail call noundef i64 @_ZNK19OpenColorIO_v2_4dev12IndexMapping12getDimensionEv(ptr noundef nonnull align 8 dereferenceable(88) %m_indexMapping)
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcjS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %call3, i32 noundef %position)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcjS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %call3, i32 noundef %position)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -37013,7 +37013,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcjS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, i64 noundef %r, i32 noundef %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcjS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, i64 noundef %r, i32 noundef %r3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -37081,7 +37081,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   %call3.i = tail call noundef i64 @_ZNK19OpenColorIO_v2_4dev12IndexMapping12getDimensionEv(ptr noundef nonnull align 8 dereferenceable(88) %m_indexMapping.i)
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcjS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %call3.i, i32 noundef %position)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcjS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %call3.i, i32 noundef %position)
   br label %_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DElt11endIndexMapEj.exit
 
 _ZN19OpenColorIO_v2_4dev17CTFReaderLut1DElt11endIndexMapEj.exit: ; preds = %entry, %if.then.i
@@ -37215,7 +37215,7 @@ if.then41:                                        ; preds = %if.end36
 
 if.then47:                                        ; preds = %if.then41
   %19 = load ptr, ptr %arrayidx44, align 8
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA31_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %19)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA31_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %19)
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then47, %if.then41
@@ -37260,7 +37260,7 @@ invoke.cont.i:                                    ; preds = %call.i.i.i.noexc.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA32_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit unwind label %lpad4.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA32_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit unwind label %lpad4.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %call.i.i.i.noexc.i, %call.i.i.noexc.i, %if.then65
   %24 = landingpad { ptr, i32 }
@@ -37282,14 +37282,14 @@ ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   br label %common.resume
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA32_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit: ; preds = %invoke.cont3.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA32_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit: ; preds = %invoke.cont3.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #30
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %if.end69
 
-if.end69:                                         ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA32_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit, %if.then59
+if.end69:                                         ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA32_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit, %if.then59
   %26 = load ptr, ptr %m_lut, align 8
   call void @_ZN19OpenColorIO_v2_4dev11Lut1DOpData12setHueAdjustENS_14Lut1DHueAdjustE(ptr noundef nonnull align 8 dereferenceable(364) %26, i32 noundef 1)
   br label %if.end72
@@ -38370,7 +38370,7 @@ invoke.cont.i:                                    ; preds = %call.i.i.i.i.i.i.i.
 
 invoke.cont19.i:                                  ; preds = %invoke.cont.i
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcmS4_mS4_mS4_jS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit unwind label %lpad20.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcmS4_mS4_mS4_jS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit unwind label %lpad20.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %call.i.i.i.i.i.i.i.i.i.i.i.noexc.i, %call.i.i.i.i.i.i.i.i.i.i.noexc.i, %call.i.i.i.i.i.i.i.i.i.noexc.i, %call.i.i.i.i.i.i.i.i.noexc.i, %call.i.i.i.i.i.i.i.noexc.i, %call.i.i.i.i.i.i.noexc.i, %call.i.i.i.i.i.noexc.i, %call.i.i.i.i.noexc.i, %call.i.i.i.noexc.i, %call.i.i.noexc.i, %if.then
   %6 = landingpad { ptr, i32 }
@@ -38388,14 +38388,14 @@ ehcleanup.i:                                      ; preds = %lpad20.i, %lpad.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   resume { ptr, i32 } %.pn.i
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcmS4_mS4_mS4_jS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit: ; preds = %invoke.cont19.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcmS4_mS4_mS4_jS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit: ; preds = %invoke.cont19.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #30
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #30
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %if.end
 
-if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcmS4_mS4_mS4_jS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom.exit, %entry
+if.end:                                           ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcmS4_mS4_mS4_jS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.exit, %entry
   %vtable16 = load ptr, ptr %m_array.i, align 8
   %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 64
   %8 = load ptr, ptr %vfn17, align 8
@@ -38483,7 +38483,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call3 = tail call noundef i64 @_ZNK19OpenColorIO_v2_4dev12IndexMapping12getDimensionEv(ptr noundef nonnull align 8 dereferenceable(88) %m_indexMapping)
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcjS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %call3, i32 noundef %position)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcjS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %call3, i32 noundef %position)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -38505,7 +38505,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   %call3.i = tail call noundef i64 @_ZNK19OpenColorIO_v2_4dev12IndexMapping12getDimensionEv(ptr noundef nonnull align 8 dereferenceable(88) %m_indexMapping.i)
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcjS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %call3.i, i32 noundef %position)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJmPKcjS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %call3.i, i32 noundef %position)
   br label %_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DElt11endIndexMapEj.exit
 
 _ZN19OpenColorIO_v2_4dev17CTFReaderLut3DElt11endIndexMapEj.exit: ; preds = %entry, %if.then.i
@@ -39773,7 +39773,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp10.not, label %if.end118, label %if.then11
 
 if.then11:                                        ; preds = %if.then
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA34_cJjPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(34) @.str.155, i32 noundef %position)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA34_cJjPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(34) @.str.155, i32 noundef %position)
   br label %if.end118
 
 if.else:                                          ; preds = %land.lhs.true, %entry
@@ -39797,7 +39797,7 @@ if.then21:                                        ; preds = %if.then16
   br i1 %cmp22.not, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.then21
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA34_cJjPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(34) @.str.156, i32 noundef %position)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA34_cJjPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(34) @.str.156, i32 noundef %position)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %if.then21
@@ -39945,7 +39945,7 @@ if.else54:                                        ; preds = %if.then16
   br i1 %cmp55.not, label %if.end57, label %if.then56
 
 if.then56:                                        ; preds = %if.else54
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA34_cJjPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(34) @.str.157, i32 noundef %position)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA34_cJjPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(34) @.str.157, i32 noundef %position)
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then56, %if.else54
@@ -39960,7 +39960,7 @@ if.else62:                                        ; preds = %if.else
   br i1 %cmp63.not, label %if.end65, label %if.then64
 
 if.then64:                                        ; preds = %if.else62
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA34_cJjPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(34) @.str.158, i32 noundef %position)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA34_cJjPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(34) @.str.158, i32 noundef %position)
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then64, %if.else62
@@ -40122,7 +40122,7 @@ eh.resume:                                        ; preds = %eh.resume.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA34_cJjPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef nonnull align 1 dereferenceable(34) %val, i32 noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA34_cJjPKcEEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef nonnull align 1 dereferenceable(34) %val, i32 noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -41091,7 +41091,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 16
   %14 = load ptr, ptr %vfn9, align 8
   %call10 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %12) #30
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_.argprom(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call6, ptr noundef %agg.tmp, ptr noundef %call10, ptr noundef nonnull @.str.122)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA10_cJPKcS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call6, ptr noundef %agg.tmp, ptr noundef %call10, ptr noundef nonnull @.str.122)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont7

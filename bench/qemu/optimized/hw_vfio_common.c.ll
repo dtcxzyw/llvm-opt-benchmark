@@ -418,20 +418,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 65544, ptr %flags.i, align 4
   %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %vbasedev.0.val, i64 noundef 15221, ptr noundef nonnull %buf.i) #17
   %tobool.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i, label %vfio_device_dma_logging_report.argprom.exit.thread, label %vfio_device_dma_logging_report.argprom.exit
+  br i1 %tobool.not.i, label %vfio_device_dma_logging_report.exit.thread, label %vfio_device_dma_logging_report.exit
 
-vfio_device_dma_logging_report.argprom.exit.thread: ; preds = %for.body
+vfio_device_dma_logging_report.exit.thread:       ; preds = %for.body
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
   br label %for.inc
 
-vfio_device_dma_logging_report.argprom.exit:      ; preds = %for.body
+vfio_device_dma_logging_report.exit:              ; preds = %for.body
   %call5.i = tail call ptr @__errno_location() #18
   %3 = load i32, ptr %call5.i, align 4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
   %tobool1.not = icmp eq i32 %3, 0
   br i1 %tobool1.not, label %for.inc, label %if.then
 
-if.then:                                          ; preds = %vfio_device_dma_logging_report.argprom.exit
+if.then:                                          ; preds = %vfio_device_dma_logging_report.exit
   %sub.i = sub i32 0, %3
   %name = getelementptr inbounds i8, ptr %vbasedev.014, i64 72
   %4 = load ptr, ptr %name, align 8
@@ -439,7 +439,7 @@ if.then:                                          ; preds = %vfio_device_dma_log
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.2, ptr noundef %4, i64 noundef %iova, i64 noundef %size, i32 noundef %sub.i, ptr noundef %call2) #17
   br label %return
 
-for.inc:                                          ; preds = %vfio_device_dma_logging_report.argprom.exit.thread, %vfio_device_dma_logging_report.argprom.exit
+for.inc:                                          ; preds = %vfio_device_dma_logging_report.exit.thread, %vfio_device_dma_logging_report.exit
   %container_next = getelementptr inbounds i8, ptr %vbasedev.014, i64 16
   %vbasedev.0 = load ptr, ptr %container_next, align 8
   %tobool.not = icmp eq ptr %vbasedev.0, null
@@ -3851,13 +3851,13 @@ if.end:                                           ; preds = %if.end.i
   %device_list.i = getelementptr inbounds i8, ptr %3, i64 504
   %vbasedev.01.i = load ptr, ptr %device_list.i, align 8
   %tobool.not2.not.i = icmp eq ptr %vbasedev.01.i, null
-  br i1 %tobool.not2.not.i, label %vfio_section_is_vfio_pci.argprom.exit, label %for.body.i
+  br i1 %tobool.not2.not.i, label %vfio_section_is_vfio_pci.exit, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %container_next.i = getelementptr inbounds i8, ptr %vbasedev.03.i, i64 16
   %vbasedev.0.i = load ptr, ptr %container_next.i, align 8
   %tobool.not.not.i = icmp eq ptr %vbasedev.0.i, null
-  br i1 %tobool.not.not.i, label %vfio_section_is_vfio_pci.argprom.exit, label %for.body.i, !llvm.loop !33
+  br i1 %tobool.not.not.i, label %vfio_section_is_vfio_pci.exit, label %for.body.i, !llvm.loop !33
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
   %vbasedev.03.i = phi ptr [ %vbasedev.0.i, %for.cond.i ], [ %vbasedev.01.i, %if.end ]
@@ -3867,9 +3867,9 @@ for.body.i:                                       ; preds = %if.end, %for.cond.i
   %add.ptr.i = getelementptr i8, ptr %vbasedev.03.i, i64 -2608
   %cmp1.i = icmp eq ptr %add.ptr.i, %call.i
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp1.i, i1 false
-  br i1 %or.cond.i, label %vfio_section_is_vfio_pci.argprom.exit, label %for.cond.i
+  br i1 %or.cond.i, label %vfio_section_is_vfio_pci.exit, label %for.cond.i
 
-vfio_section_is_vfio_pci.argprom.exit:            ; preds = %for.cond.i, %for.body.i, %if.end
+vfio_section_is_vfio_pci.exit:                    ; preds = %for.cond.i, %for.body.i, %if.end
   %tobool.not.lcssa.i = phi i1 [ false, %if.end ], [ %or.cond.i, %for.body.i ], [ %or.cond.i, %for.cond.i ]
   %cmp = icmp ugt i64 %and.i, 4294967294
   %or.cond = and i1 %cmp, %tobool.not.lcssa.i
@@ -3884,12 +3884,12 @@ vfio_section_is_vfio_pci.argprom.exit:            ; preds = %for.cond.i, %for.bo
   %cmp12 = icmp ugt i64 %6, %and.i
   br i1 %cmp12, label %if.then13, label %if.end14
 
-if.then13:                                        ; preds = %vfio_section_is_vfio_pci.argprom.exit
+if.then13:                                        ; preds = %vfio_section_is_vfio_pci.exit
   store i64 %and.i, ptr %min.0, align 8
   br label %if.end14
 
-if.end14:                                         ; preds = %if.then13, %vfio_section_is_vfio_pci.argprom.exit
-  %7 = phi i64 [ %and.i, %if.then13 ], [ %6, %vfio_section_is_vfio_pci.argprom.exit ]
+if.end14:                                         ; preds = %if.then13, %vfio_section_is_vfio_pci.exit
+  %7 = phi i64 [ %and.i, %if.then13 ], [ %6, %vfio_section_is_vfio_pci.exit ]
   %8 = load i64, ptr %max.0, align 8
   %cmp15 = icmp ult i64 %8, %retval.sroa.0.0.extract.trunc.i29.i
   br i1 %cmp15, label %if.then16, label %if.end17

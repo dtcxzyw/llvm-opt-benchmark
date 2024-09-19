@@ -55,7 +55,7 @@ define hidden i32 @convertUtf8ToPlatformString(ptr noundef %0, i32 noundef %1, p
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
-  tail call fastcc void @utfError.argprom(i32 noundef 89, ptr noundef nonnull @.str.4)
+  tail call fastcc void @utfError(i32 noundef 89, ptr noundef nonnull @.str.4)
   unreachable
 
 28:                                               ; preds = %24
@@ -65,7 +65,7 @@ define hidden i32 @convertUtf8ToPlatformString(ptr noundef %0, i32 noundef %1, p
   br i1 %30, label %31, label %utfInitialize.exitthread-pre-split
 
 31:                                               ; preds = %28
-  tail call fastcc void @utfError.argprom(i32 noundef 93, ptr noundef nonnull @.str.4)
+  tail call fastcc void @utfError(i32 noundef 93, ptr noundef nonnull @.str.4)
   unreachable
 
 utfInitialize.exitthread-pre-split:               ; preds = %11, %15, %18, %21, %28
@@ -82,7 +82,7 @@ utfInitialize.exit:                               ; preds = %utfInitialize.exitt
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %utfInitialize.exit
-  tail call fastcc void @utfError.argprom(i32 noundef 106, ptr noundef nonnull @.str.6)
+  tail call fastcc void @utfError(i32 noundef 106, ptr noundef nonnull @.str.6)
   unreachable
 
 35:                                               ; preds = %utfInitialize.exit
@@ -90,7 +90,7 @@ utfInitialize.exit:                               ; preds = %utfInitialize.exitt
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %35
-  tail call fastcc void @utfError.argprom(i32 noundef 107, ptr noundef nonnull @.str.7)
+  tail call fastcc void @utfError(i32 noundef 107, ptr noundef nonnull @.str.7)
   unreachable
 
 38:                                               ; preds = %35
@@ -98,7 +98,7 @@ utfInitialize.exit:                               ; preds = %utfInitialize.exitt
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %38
-  tail call fastcc void @utfError.argprom(i32 noundef 108, ptr noundef nonnull @.str.8)
+  tail call fastcc void @utfError(i32 noundef 108, ptr noundef nonnull @.str.8)
   unreachable
 
 41:                                               ; preds = %38
@@ -106,7 +106,7 @@ utfInitialize.exit:                               ; preds = %utfInitialize.exitt
   br i1 %.not.i.i, label %43, label %42
 
 42:                                               ; preds = %41
-  tail call fastcc void @utfError.argprom(i32 noundef 109, ptr noundef nonnull @.str.9)
+  tail call fastcc void @utfError(i32 noundef 109, ptr noundef nonnull @.str.9)
   unreachable
 
 43:                                               ; preds = %41
@@ -169,7 +169,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @utfError.argprom(i32 noundef range(i32 89, 110) %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @utfError(i32 noundef range(i32 89, 110) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef %0, ptr noundef %1) #11
   tail call void @abort() #12

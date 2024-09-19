@@ -188,7 +188,7 @@ common.resume:                                    ; preds = %60, %68, %35, %38
   %57 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull readonly align 8 dereferenceable(32) %56, i64 32, i1 false), !alias.scope !37
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !32, !noalias !35
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.exit"
 
 58:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6), !noalias !37
@@ -198,7 +198,7 @@ common.resume:                                    ; preds = %60, %68, %35, %38
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5), !noalias !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false), !noalias !35
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6), !noalias !37
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.exit"
 
 59:                                               ; preds = %"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h8084aa6ff4a7578dE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -210,7 +210,7 @@ common.resume:                                    ; preds = %60, %68, %35, %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.argprom.exit"
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.exit"
 
 60:                                               ; preds = %62
   %61 = landingpad { ptr, i32 }
@@ -274,7 +274,7 @@ common.resume:                                    ; preds = %60, %68, %35, %38
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.argprom.exit": ; preds = %58, %55, %59
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.exit": ; preds = %58, %55, %59
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %14)
   ret void
 }
@@ -1570,14 +1570,14 @@ attributes #21 = { cold }
 !30 = !{!27, !11, !7}
 !31 = !{i64 0, i64 2}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.argprom"}
+!33 = distinct !{!33, !34, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE: argument 0"}
+!34 = distinct !{!34, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE"}
 !35 = !{!36}
-!36 = distinct !{!36, !34, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE.argprom: argument 1"}
+!36 = distinct !{!36, !34, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha0938daf376ffeadE: argument 1"}
 !37 = !{!33, !36}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN12darling_core9from_meta8FromMeta9from_list17hcd2079dad7de8a2fE.argprom: argument 0"}
-!40 = distinct !{!40, !"_ZN12darling_core9from_meta8FromMeta9from_list17hcd2079dad7de8a2fE.argprom"}
+!39 = distinct !{!39, !40, !"_ZN12darling_core9from_meta8FromMeta9from_list17hcd2079dad7de8a2fE: argument 0"}
+!40 = distinct !{!40, !"_ZN12darling_core9from_meta8FromMeta9from_list17hcd2079dad7de8a2fE"}
 !41 = !{!42}
 !42 = distinct !{!42, !43, !"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$darling_core..ast..data..NestedMeta$GT$$GT$17h956b83cd15f57053E: argument 0"}
 !43 = distinct !{!43, !"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$darling_core..ast..data..NestedMeta$GT$$GT$17h956b83cd15f57053E"}

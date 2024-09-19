@@ -3543,13 +3543,13 @@ _ZN4llvm13SmallDenseMapIPKN5clang9ValueDeclEPKNS1_9FieldDeclELj4ENS_12DenseMapIn
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %27 = load i32, ptr %26, align 8
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread, label %28
+  br i1 %.not, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread, label %28
 
 28:                                               ; preds = %_ZN4llvm13SmallDenseMapIPKN5clang9ValueDeclEPKNS1_9FieldDeclELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2Ej.exit
   %29 = getelementptr inbounds i8, ptr %2, i64 24
   %.val = load ptr, ptr %29, align 8, !noalias !104
   %.not.i.i.i13 = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i13, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread42, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
+  br i1 %.not.i.i.i13, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread42, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %28
   %30 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -3570,12 +3570,12 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %28
 38:                                               ; preds = %.lr.ph.i.i.i.i.i
   %39 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %39, %33
-  br i1 %.not.i.i.i.i.i, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread42, label %.lr.ph.i.i.i.i.i, !llvm.loop !113
+  br i1 %.not.i.i.i.i.i, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread42, label %.lr.ph.i.i.i.i.i, !llvm.loop !113
 
 _ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i = phi ptr [ %30, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not912.i = icmp eq ptr %.sroa.06.1.i.i.i, %33
-  br i1 %.not912.i, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread42, label %.lr.ph14.i
+  br i1 %.not912.i, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread42, label %.lr.ph14.i
 
 .lr.ph14.i:                                       ; preds = %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionClauseEEppEv.exit.i
   %.sroa.03.013.i = phi ptr [ %.sroa.03.1.i, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionClauseEEppEv.exit.i ], [ %.sroa.06.1.i.i.i, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i ]
@@ -3620,7 +3620,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang9ValueDeclELb1EE9push_backES4_.exit.i
 ._crit_edge.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9ValueDeclELb1EE9push_backES4_.exit.i, %.lr.ph14.i
   %59 = getelementptr inbounds i8, ptr %.sroa.03.013.i, i64 8
   %.not1.i.i.i = icmp eq ptr %59, %33
-  br i1 %.not1.i.i.i, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit, label %.lr.ph.i.i.i14
+  br i1 %.not1.i.i.i, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit, label %.lr.ph.i.i.i14
 
 .lr.ph.i.i.i14:                                   ; preds = %._crit_edge.i, %64
   %.sroa.03.1.i = phi ptr [ %65, %64 ], [ %59, %._crit_edge.i ]
@@ -3633,18 +3633,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang9ValueDeclELb1EE9push_backES4_.exit.i
 64:                                               ; preds = %.lr.ph.i.i.i14
   %65 = getelementptr inbounds i8, ptr %.sroa.03.1.i, i64 8
   %.not.i.i19.i = icmp eq ptr %65, %33
-  br i1 %.not.i.i19.i, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit, label %.lr.ph.i.i.i14, !llvm.loop !113
+  br i1 %.not.i.i19.i, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit, label %.lr.ph.i.i.i14, !llvm.loop !113
 
 _ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionClauseEEppEv.exit.i: ; preds = %.lr.ph.i.i.i14
   %.not9.i = icmp eq ptr %.sroa.03.1.i, %33
-  br i1 %.not9.i, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit, label %.lr.ph14.i
+  br i1 %.not9.i, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit, label %.lr.ph14.i
 
-_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit: ; preds = %._crit_edge.i, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionClauseEEppEv.exit.i, %64
+_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit: ; preds = %._crit_edge.i, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_18OMPReductionClauseEEppEv.exit.i, %64
   %.pr.pre = load i32, ptr %26, align 8
   %66 = icmp eq i32 %.pr.pre, 0
-  br i1 %66, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread42
+  br i1 %66, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread, label %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread42
 
-_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread: ; preds = %_ZN4llvm13SmallDenseMapIPKN5clang9ValueDeclEPKNS1_9FieldDeclELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2Ej.exit, %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit
+_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread: ; preds = %_ZN4llvm13SmallDenseMapIPKN5clang9ValueDeclEPKNS1_9FieldDeclELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2Ej.exit, %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit
   %67 = load ptr, ptr %16, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 144
   %69 = load ptr, ptr %68, align 8
@@ -3653,7 +3653,7 @@ _ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4
   %72 = call noundef zeroext i1 @_ZN5clang27isOpenMPDistributeDirectiveEN4llvm3omp9DirectiveE(i32 noundef %71) #17
   br i1 %72, label %select.unfold.i, label %73
 
-73:                                               ; preds = %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread
+73:                                               ; preds = %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %74 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %74, i64 noundef 4) #17
@@ -3724,8 +3724,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.e
   %113 = call noundef zeroext i1 @_ZN5clang27isOpenMPDistributeDirectiveEN4llvm3omp9DirectiveE(i32 noundef %112) #17
   br i1 %113, label %select.unfold.i, label %_ZL28getDistributeLastprivateVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit
 
-select.unfold.i:                                  ; preds = %110, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit.i, %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread
-  %.0.ph.i = phi ptr [ %2, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit.i ], [ %2, %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread ], [ %107, %110 ]
+select.unfold.i:                                  ; preds = %110, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit.i, %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread
+  %.0.ph.i = phi ptr [ %2, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit.i ], [ %2, %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread ], [ %107, %110 ]
   %114 = getelementptr inbounds nuw i8, ptr %.0.ph.i, i64 24
   %115 = load ptr, ptr %114, align 8, !noalias !114
   %.not.i.i27.i = icmp eq ptr %115, null
@@ -3835,11 +3835,11 @@ _ZL28getDistributeLastprivateVarsRN5clang10ASTContextERKNS_22OMPExecutableDirect
   %158 = call fastcc noundef ptr @_ZN12_GLOBAL__N_128buildRecordForGlobalizedVarsERN5clang10ASTContextEN4llvm8ArrayRefIPKNS0_9ValueDeclEEES8_RNS3_13SmallDenseMapIS7_PKNS0_9FieldDeclELj4ENS3_12DenseMapInfoIS7_vEENS3_6detail12DenseMapPairIS7_SC_EEEEi(ptr noundef nonnull align 8 dereferenceable(23096) %155, ptr null, i64 0, ptr %156, i64 %157, ptr noundef nonnull align 8 dereferenceable(72) %11, i32 noundef %25)
   br label %195
 
-_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread42: ; preds = %38, %28, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i, %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit
+_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread42: ; preds = %38, %28, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_18OMPReductionClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit.i, %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit
   %159 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #17
   br i1 %159, label %195, label %160
 
-160:                                              ; preds = %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread42
+160:                                              ; preds = %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread42
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %161 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %161, i64 noundef 4) #17
@@ -3901,8 +3901,8 @@ _ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit: 
   call void @_ZN4llvm15SmallVectorImplIPKN5clang9ValueDeclEE4swapERS5_(ptr noundef nonnull align 8 dereferenceable(16) %194, ptr noundef nonnull align 8 dereferenceable(16) %10)
   br label %195
 
-195:                                              ; preds = %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread42, %_ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit, %_ZL28getDistributeLastprivateVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit, %152
-  %.0 = phi ptr [ null, %_ZL28getDistributeLastprivateVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit ], [ %158, %152 ], [ null, %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.argprom.exit.thread42 ], [ null, %_ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit ]
+195:                                              ; preds = %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread42, %_ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit, %_ZL28getDistributeLastprivateVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit, %152
+  %.0 = phi ptr [ null, %_ZL28getDistributeLastprivateVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit ], [ %158, %152 ], [ null, %_ZL21getTeamsReductionVarsRN5clang10ASTContextERKNS_22OMPExecutableDirectiveERN4llvm15SmallVectorImplIPKNS_9ValueDeclEEE.exit.thread42 ], [ null, %_ZNK5clang22OMPExecutableDirective15getCapturedStmtEN4llvm3omp9DirectiveE.exit ]
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVZN5clang7CodeGen18CGOpenMPRuntimeGPU25emitTeamsOutlinedFunctionERNS0_15CodeGenFunctionERKNS_22OMPExecutableDirectiveEPKNS_7VarDeclEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyEE20NVPTXPrePostActionTy, i64 16), ptr %12, align 8
   %196 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %196, align 8
@@ -20331,7 +20331,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionES3_NS_12DenseMapInfoIS3_vEENS_
 
 208:                                              ; preds = %205
   %209 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %207, i64 noundef -1, i1 noundef zeroext false) #17
-  br label %"_ZZN5clang7CodeGen18CGOpenMPRuntimeGPU16emitParallelCallERNS0_15CodeGenFunctionENS_14SourceLocationEPN4llvm8FunctionENS5_8ArrayRefIPNS5_5ValueEEEPKNS_4ExprESA_ENK3$_0clES3_RNS0_15PrePostActionTyE.argprom.exit"
+  br label %"_ZZN5clang7CodeGen18CGOpenMPRuntimeGPU16emitParallelCallERNS0_15CodeGenFunctionENS_14SourceLocationEPN4llvm8FunctionENS5_8ArrayRefIPNS5_5ValueEEEPKNS_4ExprESA_ENK3$_0clES3_RNS0_15PrePostActionTyE.exit"
 
 210:                                              ; preds = %205
   %211 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -20345,17 +20345,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionES3_NS_12DenseMapInfoIS3_vEENS_
 
 217:                                              ; preds = %210
   %218 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateZExtEPNS_5ValueEPNS_4TypeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(128) %23, ptr noundef nonnull %25, ptr noundef nonnull %207, ptr noundef nonnull align 8 dereferenceable(34) %17, i1 noundef zeroext false)
-  br label %"_ZZN5clang7CodeGen18CGOpenMPRuntimeGPU16emitParallelCallERNS0_15CodeGenFunctionENS_14SourceLocationEPN4llvm8FunctionENS5_8ArrayRefIPNS5_5ValueEEEPKNS_4ExprESA_ENK3$_0clES3_RNS0_15PrePostActionTyE.argprom.exit"
+  br label %"_ZZN5clang7CodeGen18CGOpenMPRuntimeGPU16emitParallelCallERNS0_15CodeGenFunctionENS_14SourceLocationEPN4llvm8FunctionENS5_8ArrayRefIPNS5_5ValueEEEPKNS_4ExprESA_ENK3$_0clES3_RNS0_15PrePostActionTyE.exit"
 
 219:                                              ; preds = %210
   %220 = icmp ugt i32 %214, %215
-  br i1 %220, label %221, label %"_ZZN5clang7CodeGen18CGOpenMPRuntimeGPU16emitParallelCallERNS0_15CodeGenFunctionENS_14SourceLocationEPN4llvm8FunctionENS5_8ArrayRefIPNS5_5ValueEEEPKNS_4ExprESA_ENK3$_0clES3_RNS0_15PrePostActionTyE.argprom.exit"
+  br i1 %220, label %221, label %"_ZZN5clang7CodeGen18CGOpenMPRuntimeGPU16emitParallelCallERNS0_15CodeGenFunctionENS_14SourceLocationEPN4llvm8FunctionENS5_8ArrayRefIPNS5_5ValueEEEPKNS_4ExprESA_ENK3$_0clES3_RNS0_15PrePostActionTyE.exit"
 
 221:                                              ; preds = %219
   %222 = call noundef ptr @_ZN4llvm13IRBuilderBase11CreateTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineEbb(ptr noundef nonnull align 8 dereferenceable(128) %23, ptr noundef nonnull %25, ptr noundef nonnull %207, ptr noundef nonnull align 8 dereferenceable(34) %17, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %"_ZZN5clang7CodeGen18CGOpenMPRuntimeGPU16emitParallelCallERNS0_15CodeGenFunctionENS_14SourceLocationEPN4llvm8FunctionENS5_8ArrayRefIPNS5_5ValueEEEPKNS_4ExprESA_ENK3$_0clES3_RNS0_15PrePostActionTyE.argprom.exit"
+  br label %"_ZZN5clang7CodeGen18CGOpenMPRuntimeGPU16emitParallelCallERNS0_15CodeGenFunctionENS_14SourceLocationEPN4llvm8FunctionENS5_8ArrayRefIPNS5_5ValueEEEPKNS_4ExprESA_ENK3$_0clES3_RNS0_15PrePostActionTyE.exit"
 
-"_ZZN5clang7CodeGen18CGOpenMPRuntimeGPU16emitParallelCallERNS0_15CodeGenFunctionENS_14SourceLocationEPN4llvm8FunctionENS5_8ArrayRefIPNS5_5ValueEEEPKNS_4ExprESA_ENK3$_0clES3_RNS0_15PrePostActionTyE.argprom.exit": ; preds = %208, %217, %219, %221
+"_ZZN5clang7CodeGen18CGOpenMPRuntimeGPU16emitParallelCallERNS0_15CodeGenFunctionENS_14SourceLocationEPN4llvm8FunctionENS5_8ArrayRefIPNS5_5ValueEEEPKNS_4ExprESA_ENK3$_0clES3_RNS0_15PrePostActionTyE.exit": ; preds = %208, %217, %219, %221
   %.0.i = phi ptr [ %209, %208 ], [ %218, %217 ], [ %222, %221 ], [ %25, %219 ]
   %223 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.02.0.copyload.i = load i32, ptr %223, align 8
@@ -20901,13 +20901,13 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit20.i.i.
   %.0.copyload.i.i.i.i.i23.i.i.i = load i64, ptr %9, align 8, !noalias !354
   %105 = and i64 %.0.copyload.i.i.i.i.i23.i.i.i, -8
   %106 = inttoptr i64 %105 to ptr
-  br label %"_ZSt10__invoke_rIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
 107:                                              ; preds = %_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit20.i.i.i
   %108 = call noundef ptr @_ZNK5clang7CodeGen7Address18emitRawPointerSlowERNS0_15CodeGenFunctionE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(6488) %65) #17, !noalias !354
-  br label %"_ZSt10__invoke_rIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
-"_ZSt10__invoke_rIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %104, %107
+"_ZSt10__invoke_rIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %104, %107
   %.0.i22.i.i.i = phi ptr [ %108, %107 ], [ %106, %104 ]
   store ptr %.0.i22.i.i.i, ptr %.val8, align 8, !noalias !354
   %109 = load ptr, ptr %.val, align 8, !noalias !354
@@ -20953,7 +20953,7 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit20.i.i.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm13IRBuilderBase11InsertPointES2_jPPNS0_5ValueES5_PNS0_8FunctionEEZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNSA_15CodeGenFunctionENS9_14SourceLocationENS0_8ArrayRefIPKNS9_4ExprEEESJ_SJ_SJ_NSA_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -20963,29 +20963,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm13IRBuilder
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val5, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 48) #19
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS2_15CodeGenFunctionENS1_14SourceLocationEN4llvm8ArrayRefIPKNS1_4ExprEEESC_SC_SC_NS2_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -21719,11 +21719,11 @@ attributes #20 = { builtin nounwind allocsize(0) }
 !342 = distinct !{!342, !343, !"_ZN5clang7CodeGen11CGBuilderTy19CreateConstArrayGEPENS0_7AddressEmRKN4llvm5TwineE: argument 0"}
 !343 = distinct !{!343, !"_ZN5clang7CodeGen11CGBuilderTy19CreateConstArrayGEPENS0_7AddressEmRKN4llvm5TwineE"}
 !344 = !{!345}
-!345 = distinct !{!345, !346, !"_ZSt10__invoke_rIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom: argument 0"}
-!346 = distinct !{!346, !"_ZSt10__invoke_rIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom"}
+!345 = distinct !{!345, !346, !"_ZSt10__invoke_rIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_: argument 0"}
+!346 = distinct !{!346, !"_ZSt10__invoke_rIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_"}
 !347 = !{!348}
-!348 = distinct !{!348, !349, !"_ZSt13__invoke_implIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!349 = distinct !{!349, !"_ZSt13__invoke_implIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!348 = distinct !{!348, !349, !"_ZSt13__invoke_implIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!349 = distinct !{!349, !"_ZSt13__invoke_implIN4llvm13IRBuilderBase11InsertPointERZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS4_15CodeGenFunctionENS3_14SourceLocationENS0_8ArrayRefIPKNS3_4ExprEEESD_SD_SD_NS4_15CGOpenMPRuntime18ReductionOptionsTyEE3$_0JS2_jPPNS0_5ValueESK_PNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_"}
 !350 = !{!348, !345}
 !351 = !{!352}
 !352 = distinct !{!352, !353, !"_ZZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS0_15CodeGenFunctionENS_14SourceLocationEN4llvm8ArrayRefIPKNS_4ExprEEESA_SA_SA_NS0_15CGOpenMPRuntime18ReductionOptionsTyEENK3$_0clENS5_13IRBuilderBase11InsertPointEjPPNS5_5ValueESI_PNS5_8FunctionE: argument 0"}

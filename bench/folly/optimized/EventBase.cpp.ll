@@ -10099,7 +10099,7 @@ cleanup.i.i.i.i.i.i:                              ; preds = %while.cond.i.i.i.i.
 lpad:                                             ; preds = %entry
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_9EventBase8loopBodyEibE3$_0Lb1EED2Ev.argelim"(ptr nonnull %this) #53
+  tail call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_9EventBase8loopBodyEibE3$_0Lb1EED2Ev"(ptr nonnull %this) #53
   resume { ptr, i32 } %11
 }
 
@@ -13945,7 +13945,7 @@ cleanup.action477:                                ; preds = %lpad459, %lpad456
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_9EventBase8loopBodyEibE3$_0Lb1EED2Ev.argelim"(ptr nocapture nonnull %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_9EventBase8loopBodyEibE3$_0Lb1EED2Ev"(ptr nocapture nonnull %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %threadIdCollector_.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 576
   %0 = load ptr, ptr %threadIdCollector_.i.i.i, align 8, !tbaa !144
@@ -17131,7 +17131,7 @@ if.end.i.i10.i:                                   ; preds = %lpad.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit12.i:            ; preds = %if.end.i.i10.i, %lpad.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp2.i) #53
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZZNS_9EventBase27runInEventBaseThreadAndWaitENS_8FunctionIFvvEEEEN3$_0clEvEUlvE_Lb1EED2Ev.argelim"(ptr %1) #53
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZZNS_9EventBase27runInEventBaseThreadAndWaitENS_8FunctionIFvvEEEEN3$_0clEvEUlvE_Lb1EED2Ev"(ptr %1) #53
   resume { ptr, i32 } %13
 
 "_ZZN5folly9EventBase27runInEventBaseThreadAndWaitENS_8FunctionIFvvEEEEN3$_0clEv.exit": ; preds = %if.end6.i.i.i.i.i, %land.lhs.true.i.i.i.i.i, %if.then.i.i
@@ -17177,7 +17177,7 @@ sw.epilog:                                        ; preds = %"_ZZN5folly9EventBa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZZNS_9EventBase27runInEventBaseThreadAndWaitENS_8FunctionIFvvEEEEN3$_0clEvEUlvE_Lb1EED2Ev.argelim"(ptr %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZZNS_9EventBase27runInEventBaseThreadAndWaitENS_8FunctionIFvvEEEEN3$_0clEvEUlvE_Lb1EED2Ev"(ptr %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr %this.8.val acquire, align 4
   switch i32 %0, label %if.end6.i.i.i [

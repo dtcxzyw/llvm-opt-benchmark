@@ -878,11 +878,11 @@ FastMBAnalyze.exit.i:                             ; preds = %55, %54
   call void @VP8MakeLuma16Preds(ptr noundef nonnull %1) #6
   br label %57
 
-57:                                               ; preds = %GetAlpha.argprom.exit.i.i, %56
-  %58 = phi i1 [ true, %56 ], [ false, %GetAlpha.argprom.exit.i.i ]
-  %indvars.iv.i18.i = phi i64 [ 0, %56 ], [ 1, %GetAlpha.argprom.exit.i.i ]
-  %.01219.i.i = phi i32 [ 0, %56 ], [ %spec.select16.i.i, %GetAlpha.argprom.exit.i.i ]
-  %.01318.i.i = phi i32 [ -1, %56 ], [ %spec.select.i.i, %GetAlpha.argprom.exit.i.i ]
+57:                                               ; preds = %GetAlpha.exit.i.i, %56
+  %58 = phi i1 [ true, %56 ], [ false, %GetAlpha.exit.i.i ]
+  %indvars.iv.i18.i = phi i64 [ 0, %56 ], [ 1, %GetAlpha.exit.i.i ]
+  %.01219.i.i = phi i32 [ 0, %56 ], [ %spec.select16.i.i, %GetAlpha.exit.i.i ]
+  %.01318.i.i = phi i32 [ -1, %56 ], [ %spec.select.i.i, %GetAlpha.exit.i.i ]
   store i32 0, ptr %4, align 4
   store i32 1, ptr %18, align 4
   %59 = load ptr, ptr @VP8CollectHistogram, align 8
@@ -895,15 +895,15 @@ FastMBAnalyze.exit.i:                             ; preds = %55, %54
   call void %59(ptr noundef %60, ptr noundef %65, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %4) #6
   %.val.i.i = load i32, ptr %4, align 4
   %66 = icmp sgt i32 %.val.i.i, 1
-  br i1 %66, label %67, label %GetAlpha.argprom.exit.i.i
+  br i1 %66, label %67, label %GetAlpha.exit.i.i
 
 67:                                               ; preds = %57
   %.val17.i.i = load i32, ptr %18, align 4
   %68 = mul nsw i32 %.val17.i.i, 510
   %69 = sdiv i32 %68, %.val.i.i
-  br label %GetAlpha.argprom.exit.i.i
+  br label %GetAlpha.exit.i.i
 
-GetAlpha.argprom.exit.i.i:                        ; preds = %67, %57
+GetAlpha.exit.i.i:                                ; preds = %67, %57
   %70 = phi i32 [ %69, %67 ], [ 0, %57 ]
   %71 = icmp sgt i32 %70, %.01318.i.i
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %70, i32 %.01318.i.i)
@@ -911,7 +911,7 @@ GetAlpha.argprom.exit.i.i:                        ; preds = %67, %57
   %spec.select16.i.i = select i1 %71, i32 %72, i32 %.01219.i.i
   br i1 %58, label %57, label %MBAnalyzeBestIntra16Mode.exit.i, !llvm.loop !24
 
-MBAnalyzeBestIntra16Mode.exit.i:                  ; preds = %GetAlpha.argprom.exit.i.i
+MBAnalyzeBestIntra16Mode.exit.i:                  ; preds = %GetAlpha.exit.i.i
   call void @VP8SetIntra16Mode(ptr noundef nonnull %1, i32 noundef %spec.select16.i.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %73 = mul nsw i32 %spec.select.i.i, 3
@@ -924,12 +924,12 @@ MBAnalyzeBestIntra16Mode.exit.i:                  ; preds = %GetAlpha.argprom.ex
   call void @VP8MakeChroma8Preds(ptr noundef %1) #6
   br label %76
 
-76:                                               ; preds = %GetAlpha.argprom.exit.i22.i, %75
-  %77 = phi i1 [ true, %75 ], [ false, %GetAlpha.argprom.exit.i22.i ]
-  %indvars.iv.i19.i = phi i64 [ 0, %75 ], [ 1, %GetAlpha.argprom.exit.i22.i ]
-  %.026.i.i = phi i32 [ -1, %75 ], [ %spec.select.i23.i, %GetAlpha.argprom.exit.i22.i ]
-  %.01724.i.i = phi i32 [ 0, %75 ], [ %.118.i.i, %GetAlpha.argprom.exit.i22.i ]
-  %.01923.i20.i = phi i32 [ 0, %75 ], [ %.120.i.i, %GetAlpha.argprom.exit.i22.i ]
+76:                                               ; preds = %GetAlpha.exit.i22.i, %75
+  %77 = phi i1 [ true, %75 ], [ false, %GetAlpha.exit.i22.i ]
+  %indvars.iv.i19.i = phi i64 [ 0, %75 ], [ 1, %GetAlpha.exit.i22.i ]
+  %.026.i.i = phi i32 [ -1, %75 ], [ %spec.select.i23.i, %GetAlpha.exit.i22.i ]
+  %.01724.i.i = phi i32 [ 0, %75 ], [ %.118.i.i, %GetAlpha.exit.i22.i ]
+  %.01923.i20.i = phi i32 [ 0, %75 ], [ %.120.i.i, %GetAlpha.exit.i22.i ]
   store i32 0, ptr %3, align 4
   store i32 1, ptr %21, align 4
   %78 = load ptr, ptr @VP8CollectHistogram, align 8
@@ -943,15 +943,15 @@ MBAnalyzeBestIntra16Mode.exit.i:                  ; preds = %GetAlpha.argprom.ex
   call void %78(ptr noundef nonnull %80, ptr noundef %85, i32 noundef 16, i32 noundef 24, ptr noundef nonnull %3) #6
   %.val.i21.i = load i32, ptr %3, align 4
   %86 = icmp sgt i32 %.val.i21.i, 1
-  br i1 %86, label %87, label %GetAlpha.argprom.exit.i22.i
+  br i1 %86, label %87, label %GetAlpha.exit.i22.i
 
 87:                                               ; preds = %76
   %.val22.i.i = load i32, ptr %21, align 4
   %88 = mul nsw i32 %.val22.i.i, 510
   %89 = sdiv i32 %88, %.val.i21.i
-  br label %GetAlpha.argprom.exit.i22.i
+  br label %GetAlpha.exit.i22.i
 
-GetAlpha.argprom.exit.i22.i:                      ; preds = %87, %76
+GetAlpha.exit.i22.i:                              ; preds = %87, %76
   %90 = phi i32 [ %89, %87 ], [ 0, %76 ]
   %spec.select.i23.i = call i32 @llvm.smax.i32(i32 %90, i32 %.026.i.i)
   %91 = icmp slt i32 %90, %.01724.i.i
@@ -961,7 +961,7 @@ GetAlpha.argprom.exit.i22.i:                      ; preds = %87, %76
   %.118.i.i = select i1 %or.cond.i.i, i32 %90, i32 %.01724.i.i
   br i1 %77, label %76, label %MBAnalyze.exit, !llvm.loop !25
 
-MBAnalyze.exit:                                   ; preds = %GetAlpha.argprom.exit.i22.i
+MBAnalyze.exit:                                   ; preds = %GetAlpha.exit.i22.i
   call void @VP8SetIntraUVMode(ptr noundef nonnull %1, i32 noundef %.120.i.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %93 = add i32 %spec.select.i23.i, %.0.i

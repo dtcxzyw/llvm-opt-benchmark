@@ -10711,14 +10711,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProcedu
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE9_DestructEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE9_DestructEv.exit.loopexit, %1
   %.val1 = phi i32 [ %.val1.pre, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE9_DestructEv.exit.loopexit ], [ %.val.i.i.i, %1 ]
   %27 = icmp ult i32 %.val1, 17
-  br i1 %27, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE12_FreeStorageEv.argprom.exit, label %28
+  br i1 %27, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE12_FreeStorageEv.exit, label %28
 
 28:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE9_DestructEv.exit
   %.val = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %.val) #22
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE12_FreeStorageEv.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE12_FreeStorageEv.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE12_FreeStorageEv.argprom.exit: ; preds = %28, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE9_DestructEv.exit
+_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE12_FreeStorageEv.exit: ; preds = %28, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE9_DestructEv.exit
   ret void
 }
 
@@ -18532,11 +18532,11 @@ define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN3
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 15
   %35 = load atomic i8, ptr %34 monotonic, align 1
   %36 = icmp eq i8 %35, -1
-  br i1 %36, label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex11_PrimsAddedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEEENK3$_0clEv.argprom.exit", label %37
+  br i1 %36, label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex11_PrimsAddedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEEENK3$_0clEv.exit", label %37
 
 37:                                               ; preds = %33
   invoke void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %4)
-          to label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex11_PrimsAddedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEEENK3$_0clEv.argprom.exit" unwind label %38
+          to label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex11_PrimsAddedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEEENK3$_0clEv.exit" unwind label %38
 
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
@@ -18551,7 +18551,7 @@ define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN3
   call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #22
   resume { ptr, i32 } %42
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex11_PrimsAddedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEEENK3$_0clEv.argprom.exit": ; preds = %33, %37
+"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex11_PrimsAddedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEEENK3$_0clEv.exit": ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i1 true
@@ -19361,11 +19361,11 @@ define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN3
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 15
   %35 = load atomic i8, ptr %34 monotonic, align 1
   %36 = icmp eq i8 %35, -1
-  br i1 %36, label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsRemovedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16RemovedPrimEntryELj16EEEENK3$_0clEv.argprom.exit", label %37
+  br i1 %36, label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsRemovedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16RemovedPrimEntryELj16EEEENK3$_0clEv.exit", label %37
 
 37:                                               ; preds = %33
   invoke void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %4)
-          to label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsRemovedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16RemovedPrimEntryELj16EEEENK3$_0clEv.argprom.exit" unwind label %38
+          to label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsRemovedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16RemovedPrimEntryELj16EEEENK3$_0clEv.exit" unwind label %38
 
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
@@ -19380,7 +19380,7 @@ define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN3
   call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #22
   resume { ptr, i32 } %42
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsRemovedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16RemovedPrimEntryELj16EEEENK3$_0clEv.argprom.exit": ; preds = %33, %37
+"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsRemovedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16RemovedPrimEntryELj16EEEENK3$_0clEv.exit": ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i1 true
@@ -20310,11 +20310,11 @@ define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN3
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 15
   %32 = load atomic i8, ptr %31 monotonic, align 1
   %33 = icmp eq i8 %32, -1
-  br i1 %33, label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEENK3$_0clEv.argprom.exit", label %34
+  br i1 %33, label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEENK3$_0clEv.exit", label %34
 
 34:                                               ; preds = %30
   invoke void @_ZN3tbb6detail2r17destroyERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %4)
-          to label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEENK3$_0clEv.argprom.exit" unwind label %35
+          to label %"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEENK3$_0clEv.exit" unwind label %35
 
 35:                                               ; preds = %34
   %36 = landingpad { ptr, i32 }
@@ -20329,7 +20329,7 @@ define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN3
   call void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #22
   resume { ptr, i32 } %39
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEENK3$_0clEv.argprom.exit": ; preds = %30, %34
+"_ZZN32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEENK3$_0clEv.exit": ; preds = %30, %34
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i1 true

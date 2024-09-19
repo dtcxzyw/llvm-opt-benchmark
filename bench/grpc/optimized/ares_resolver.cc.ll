@@ -2438,13 +2438,13 @@ invoke.cont13.i:                                  ; preds = %invoke.cont.i
   store i64 %157, ptr %ares_backup_poll_alarm_handle_.i, align 8
   %ref.tmp.sroa.2.0.ares_backup_poll_alarm_handle_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %158, ptr %ref.tmp.sroa.2.0.ares_backup_poll_alarm_handle_.sroa_idx.i, align 8
-  br i1 %tobool.i.i4.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i", label %if.else.i.i
+  br i1 %tobool.i.i4.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i", label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %invoke.cont13.i
   store i8 1, ptr %_M_engaged.i.i.i, align 8
-  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i"
+  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i"
 
-"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i": ; preds = %if.else.i.i, %invoke.cont13.i
+"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i": ; preds = %if.else.i.i, %invoke.cont13.i
   %160 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
   call void %160(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp8.i, ptr noundef nonnull %agg.tmp8.i) #25
   br label %invoke.cont196
@@ -2456,7 +2456,7 @@ lpad12.i:                                         ; preds = %invoke.cont.i
   call void %162(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp8.i, ptr noundef nonnull %agg.tmp8.i) #25
   br label %ehcleanup197
 
-invoke.cont196:                                   ; preds = %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i", %invoke.cont195
+invoke.cont196:                                   ; preds = %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i", %invoke.cont195
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp8.i)
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
           to label %cleanup.cont unwind label %terminate.lpad.i
@@ -3152,15 +3152,15 @@ _ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4
 _ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit: ; preds = %cleanup, %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEvE7destroyISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EE.exit.i.i.i, %_ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEED2Ev.exit.sink.split.i.i
   %84 = load ptr, ptr %hostname_qa, align 8
   %cmp.not.i86 = icmp eq ptr %84, null
-  br i1 %cmp.not.i86, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.argprom.exit.i
+  br i1 %cmp.not.i86, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.exit.i
 
-_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.argprom.exit.i: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit
+_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.exit.i: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit
   %query_name.i.i.i.i = getelementptr inbounds i8, ptr %84, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %query_name.i.i.i.i) #25
   call void @_ZdlPv(ptr noundef nonnull %84) #28
   br label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.argprom.exit.i
+_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.exit.i
   ret void
 
 lpad125:                                          ; preds = %for.end
@@ -3500,9 +3500,9 @@ invoke.cont79:                                    ; preds = %if.then67, %do.body
   %vfn81 = getelementptr inbounds i8, ptr %vtable80, i64 64
   %33 = load ptr, ptr %vfn81, align 8
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull %agg.tmp73)
-          to label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.argprom.exit" unwind label %lpad82
+          to label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.exit" unwind label %lpad82
 
-"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.argprom.exit": ; preds = %invoke.cont79
+"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.exit": ; preds = %invoke.cont79
   %34 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
   call void %34(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp73, ptr noundef nonnull %agg.tmp73) #25
   br label %if.end112
@@ -3533,9 +3533,9 @@ invoke.cont104:                                   ; preds = %if.then90, %do.body
   %vfn106 = getelementptr inbounds i8, ptr %vtable105, i64 16
   %40 = load ptr, ptr %vfn106, align 8
   invoke void %40(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull %agg.tmp98)
-          to label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.argprom.exit" unwind label %lpad107
+          to label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.exit" unwind label %lpad107
 
-"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.argprom.exit": ; preds = %invoke.cont104
+"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.exit": ; preds = %invoke.cont104
   %41 = load ptr, ptr %manager_.i.i.i.i.i.i66, align 16
   call void %41(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp98, ptr noundef nonnull %agg.tmp98) #25
   br label %if.end112
@@ -3547,7 +3547,7 @@ lpad107:                                          ; preds = %invoke.cont104
   call void %43(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp98, ptr noundef nonnull %agg.tmp98) #25
   br label %ehcleanup220
 
-if.end112:                                        ; preds = %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.argprom.exit", %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.argprom.exit", %land.lhs.true, %if.end48
+if.end112:                                        ; preds = %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.exit", %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.exit", %land.lhs.true, %if.end48
   %shl115 = shl nuw i32 65536, %sh_prom
   %and116 = and i32 %shl115, %call
   %tobool117.not = icmp eq i32 %and116, 0
@@ -3582,9 +3582,9 @@ invoke.cont139:                                   ; preds = %if.then124, %do.bod
   %vfn141 = getelementptr inbounds i8, ptr %vtable140, i64 24
   %49 = load ptr, ptr %vfn141, align 8
   invoke void %49(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull %agg.tmp133)
-          to label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.argprom.exit" unwind label %lpad142
+          to label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.exit" unwind label %lpad142
 
-"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.argprom.exit": ; preds = %invoke.cont139
+"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.exit": ; preds = %invoke.cont139
   %50 = load ptr, ptr %manager_.i.i.i.i.i.i87, align 16
   call void %50(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp133, ptr noundef nonnull %agg.tmp133) #25
   br label %for.inc
@@ -3596,7 +3596,7 @@ lpad142:                                          ; preds = %invoke.cont139
   call void %52(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp133, ptr noundef nonnull %agg.tmp133) #25
   br label %ehcleanup220
 
-for.inc:                                          ; preds = %lor.lhs.false, %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.argprom.exit", %land.lhs.true118, %if.end112
+for.inc:                                          ; preds = %lor.lhs.false, %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.exit", %land.lhs.true118, %if.end112
   %inc = add nuw nsw i64 %i.0138, 1
   %exitcond.not = icmp eq i64 %inc, 16
   br i1 %exitcond.not, label %if.end148, label %for.body, !llvm.loop !51
@@ -3833,18 +3833,18 @@ invoke.cont13:                                    ; preds = %invoke.cont
   store i64 %5, ptr %ares_backup_poll_alarm_handle_, align 8
   %ref.tmp.sroa.2.0.ares_backup_poll_alarm_handle_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %6, ptr %ref.tmp.sroa.2.0.ares_backup_poll_alarm_handle_.sroa_idx, align 8
-  br i1 %tobool.i.i4, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit", label %if.else.i
+  br i1 %tobool.i.i4, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit", label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont13
   store i8 1, ptr %_M_engaged.i.i, align 8
-  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit"
 
-"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit": ; preds = %if.else.i, %invoke.cont13
+"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit": ; preds = %if.else.i, %invoke.cont13
   %8 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
   call void %8(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp8, ptr noundef nonnull %agg.tmp8) #25
   br label %return
 
-return:                                           ; preds = %entry, %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit"
+return:                                           ; preds = %entry, %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit"
   ret void
 
 lpad12:                                           ; preds = %invoke.cont
@@ -4334,13 +4334,13 @@ invoke.cont13.i:                                  ; preds = %invoke.cont.i
   store i64 %83, ptr %ares_backup_poll_alarm_handle_.i, align 8
   %ref.tmp.sroa.2.0.ares_backup_poll_alarm_handle_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %84, ptr %ref.tmp.sroa.2.0.ares_backup_poll_alarm_handle_.sroa_idx.i, align 8
-  br i1 %tobool.i.i4.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i", label %if.else.i.i
+  br i1 %tobool.i.i4.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i", label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %invoke.cont13.i
   store i8 1, ptr %_M_engaged.i.i.i, align 8
-  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i"
+  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i"
 
-"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i": ; preds = %if.else.i.i, %invoke.cont13.i
+"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i": ; preds = %if.else.i.i, %invoke.cont13.i
   %86 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
   call void %86(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp8.i, ptr noundef nonnull %agg.tmp8.i) #25
   br label %invoke.cont89
@@ -4352,7 +4352,7 @@ lpad12.i:                                         ; preds = %invoke.cont.i
   call void %88(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp8.i, ptr noundef nonnull %agg.tmp8.i) #25
   br label %ehcleanup90
 
-invoke.cont89:                                    ; preds = %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i", %invoke.cont88
+invoke.cont89:                                    ; preds = %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i", %invoke.cont88
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp8.i)
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
           to label %return unwind label %terminate.lpad.i
@@ -4857,15 +4857,15 @@ _ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4
 _ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit: ; preds = %cleanup, %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEvE7destroyISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EE.exit.i.i.i, %_ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEED2Ev.exit.sink.split.i.i
   %61 = load ptr, ptr %qa, align 8
   %cmp.not.i = icmp eq ptr %61, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.argprom.exit.i
+  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.exit.i
 
-_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.argprom.exit.i: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit
+_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.exit.i: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit
   %query_name.i.i.i = getelementptr inbounds i8, ptr %61, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %query_name.i.i.i) #25
   call void @_ZdlPv(ptr noundef nonnull %61) #28
   br label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.argprom.exit.i
+_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.exit.i
   ret void
 
 lpad68:                                           ; preds = %if.end65
@@ -5407,13 +5407,13 @@ invoke.cont13.i:                                  ; preds = %invoke.cont.i
   store i64 %83, ptr %ares_backup_poll_alarm_handle_.i, align 8
   %ref.tmp.sroa.2.0.ares_backup_poll_alarm_handle_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %84, ptr %ref.tmp.sroa.2.0.ares_backup_poll_alarm_handle_.sroa_idx.i, align 8
-  br i1 %tobool.i.i4.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i", label %if.else.i.i
+  br i1 %tobool.i.i4.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i", label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %invoke.cont13.i
   store i8 1, ptr %_M_engaged.i.i.i, align 8
-  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i"
+  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i"
 
-"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i": ; preds = %if.else.i.i, %invoke.cont13.i
+"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i": ; preds = %if.else.i.i, %invoke.cont13.i
   %86 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
   call void %86(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp8.i, ptr noundef nonnull %agg.tmp8.i) #25
   br label %invoke.cont89
@@ -5425,7 +5425,7 @@ lpad12.i:                                         ; preds = %invoke.cont.i
   call void %88(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp8.i, ptr noundef nonnull %agg.tmp8.i) #25
   br label %ehcleanup90
 
-invoke.cont89:                                    ; preds = %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i", %invoke.cont88
+invoke.cont89:                                    ; preds = %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i", %invoke.cont88
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp8.i)
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
           to label %return unwind label %terminate.lpad.i
@@ -5993,15 +5993,15 @@ _ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4
 _ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit: ; preds = %cleanup, %_ZN4absl12lts_2023080218container_internal20common_policy_traitsINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEvE7destroyISaISt4pairIKiSZ_EEEEvPT_PNS1_13map_slot_typeIiSZ_EE.exit.i.i.i, %_ZNSt8optionalISaISt4pairIKiSt7variantIJN4absl12lts_2023080212AnyInvocableIFvNS4_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEEED2Ev.exit.sink.split.i.i
   %72 = load ptr, ptr %qa, align 8
   %cmp.not.i45 = icmp eq ptr %72, null
-  br i1 %cmp.not.i45, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.argprom.exit.i
+  br i1 %cmp.not.i45, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.exit.i
 
-_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.argprom.exit.i: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit
+_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.exit.i: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit
   %query_name.i.i.i = getelementptr inbounds i8, ptr %72, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %query_name.i.i.i) #25
   call void @_ZdlPv(ptr noundef nonnull %72) #28
   br label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.argprom.exit.i
+_ZNSt10unique_ptrIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4absl12lts_2023080218container_internal11node_handleINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS1_18hash_policy_traitsIS10_vEESaISt4pairIKiSZ_EEvED2Ev.exit, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.exit.i
   ret void
 
 lpad88:                                           ; preds = %invoke.cont84
@@ -6528,13 +6528,13 @@ invoke.cont13.i:                                  ; preds = %invoke.cont.i
   store i64 %21, ptr %ares_backup_poll_alarm_handle_, align 8
   %ref.tmp.sroa.2.0.ares_backup_poll_alarm_handle_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %22, ptr %ref.tmp.sroa.2.0.ares_backup_poll_alarm_handle_.sroa_idx.i, align 8
-  br i1 %tobool.i.i4.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i", label %if.else.i.i
+  br i1 %tobool.i.i4.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i", label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %invoke.cont13.i
   store i8 1, ptr %_M_engaged.i.i.i, align 8
-  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i"
+  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i"
 
-"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i": ; preds = %if.else.i.i, %invoke.cont13.i
+"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i": ; preds = %if.else.i.i, %invoke.cont13.i
   %24 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16
   call void %24(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp8.i, ptr noundef nonnull %agg.tmp8.i) #25
   br label %invoke.cont37
@@ -6546,7 +6546,7 @@ lpad12.i:                                         ; preds = %invoke.cont.i
   call void %26(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp8.i, ptr noundef nonnull %agg.tmp8.i) #25
   br label %lpad.body
 
-invoke.cont37:                                    ; preds = %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit.i", %for.end
+invoke.cont37:                                    ; preds = %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit.i", %for.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp8.i)
   invoke void @_ZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEv(ptr noundef nonnull align 8 dereferenceable(152) %this)
           to label %if.end39 unwind label %lpad.loopexit.split-lp
@@ -6778,15 +6778,15 @@ define internal fastcc void @_ZNSt10unique_ptrIN17grpc_event_engine12experimenta
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.argprom.exit
+  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.exit
 
-_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.argprom.exit: ; preds = %entry
+_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.exit: ; preds = %entry
   %query_name.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %query_name.i.i.i) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.argprom.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_116HostnameQueryArgEEclEPS3_.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -7051,15 +7051,15 @@ define internal fastcc void @_ZNSt10unique_ptrIN17grpc_event_engine12experimenta
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.argprom.exit
+  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.exit
 
-_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.argprom.exit: ; preds = %entry
+_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.exit: ; preds = %entry
   %query_name.i.i = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %query_name.i.i) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.argprom.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12_GLOBAL__N_18QueryArgEEclEPS3_.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -10244,11 +10244,11 @@ invoke.cont.i.i.i.i.i:                            ; preds = %entry
   %1 = load i64, ptr %agg.tmp.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i.i = and i64 %1, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvE3$_0JEvEEvOT0_DpOT1_.argprom.exit", label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvE3$_0JEvEEvOT0_DpOT1_.exit", label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i.i.i.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %1)
-          to label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvE3$_0JEvEEvOT0_DpOT1_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvE3$_0JEvEEvOT0_DpOT1_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i
   %2 = landingpad { ptr, i32 }
@@ -10263,7 +10263,7 @@ lpad.i.i.i.i.i:                                   ; preds = %entry
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i.i.i) #25
   resume { ptr, i32 } %4
 
-"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvE3$_0JEvEEvOT0_DpOT1_.argprom.exit": ; preds = %invoke.cont.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
+"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvE3$_0JEvEEvOT0_DpOT1_.exit": ; preds = %invoke.cont.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   ret void
 }
@@ -10287,22 +10287,22 @@ sw.bb:                                            ; preds = %entry
 sw.bb1:                                           ; preds = %entry, %sw.bb
   %call.val = load ptr, ptr %from, align 8
   %cmp.not.i.i = icmp eq ptr %call.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.argprom.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb1
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 8
   %4 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %4, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.exit"
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %call.val, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %call.val) #25
-  br label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.exit"
 
-"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.argprom.exit": ; preds = %sw.bb1, %if.then.i.i, %if.then.i.i.i
+"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_0D2Ev.exit": ; preds = %sw.bb1, %if.then.i.i, %if.then.i.i.i
   ret void
 }
 
@@ -10397,22 +10397,22 @@ sw.bb:                                            ; preds = %entry
 sw.bb1:                                           ; preds = %entry, %sw.bb
   %call.val = load ptr, ptr %from, align 8
   %cmp.not.i.i = icmp eq ptr %call.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.argprom.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb1
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 8
   %4 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %4, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.exit"
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %call.val, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %call.val) #25
-  br label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.argprom.exit"
+  br label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.exit"
 
-"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.argprom.exit": ; preds = %sw.bb1, %if.then.i.i, %if.then.i.i.i
+"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_1D2Ev.exit": ; preds = %sw.bb1, %if.then.i.i, %if.then.i.i.i
   ret void
 }
 
@@ -10507,22 +10507,22 @@ sw.bb:                                            ; preds = %entry
 sw.bb1:                                           ; preds = %entry, %sw.bb
   %call.val = load ptr, ptr %from, align 8
   %cmp.not.i.i = icmp eq ptr %call.val, null
-  br i1 %cmp.not.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.argprom.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb1
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 8
   %4 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %4, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.exit"
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %call.val, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %call.val) #25
-  br label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.argprom.exit"
+  br label %"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.exit"
 
-"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.argprom.exit": ; preds = %sw.bb1, %if.then.i.i, %if.then.i.i.i
+"_ZZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLockedEvEN3$_2D2Ev.exit": ; preds = %sw.bb1, %if.then.i.i, %if.then.i.i.i
   ret void
 }
 
@@ -10547,27 +10547,27 @@ sw.bb1.thread:                                    ; preds = %entry
   %0 = load ptr, ptr %from, align 8
   store ptr %0, ptr %to, align 8
   store ptr null, ptr %from, align 8
-  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit"
 
 sw.bb1:                                           ; preds = %entry
   %call.val.pr = load ptr, ptr %from, align 8
   %cmp.not.i.i = icmp eq ptr %call.val.pr, null
-  br i1 %cmp.not.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit", label %if.then.i.i
+  br i1 %cmp.not.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb1
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.val.pr, i64 8
   %1 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit"
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %call.val.pr, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %call.val.pr) #25
-  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit"
 
-"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.argprom.exit": ; preds = %sw.bb1.thread, %sw.bb1, %if.then.i.i, %if.then.i.i.i
+"_ZZN17grpc_event_engine12experimental12AresResolver21MaybeStartTimerLockedEvEN3$_0D2Ev.exit": ; preds = %sw.bb1.thread, %sw.bb1, %if.then.i.i, %if.then.i.i.i
   ret void
 }
 

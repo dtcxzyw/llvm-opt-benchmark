@@ -2220,23 +2220,23 @@ if.then.i.i.i:                                    ; preds = %if.then7.i
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then7.i
   %42 = load i32, ptr %37, align 8
   %tobool1.not.i.i.i = icmp eq i32 %42, 0
-  br i1 %tobool1.not.i.i.i, label %if.then2.i.i.i, label %wt_porcelain_v2_fix_up_changed.argprom.exit.i.i
+  br i1 %tobool1.not.i.i.i, label %if.then2.i.i.i, label %wt_porcelain_v2_fix_up_changed.exit.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   %mode_index3.i.i.i = getelementptr inbounds i8, ptr %37, i64 16
   %43 = load i32, ptr %mode_index3.i.i.i, align 8
   %mode_worktree.i.i.i = getelementptr inbounds i8, ptr %37, i64 20
   store i32 %43, ptr %mode_worktree.i.i.i, align 4
-  br label %wt_porcelain_v2_fix_up_changed.argprom.exit.i.i
+  br label %wt_porcelain_v2_fix_up_changed.exit.i.i
 
-wt_porcelain_v2_fix_up_changed.argprom.exit.i.i:  ; preds = %if.then2.i.i.i, %if.end.i.i.i
+wt_porcelain_v2_fix_up_changed.exit.i.i:          ; preds = %if.then2.i.i.i, %if.end.i.i.i
   %mode_head.i32.i.i = getelementptr inbounds i8, ptr %37, i64 12
   %44 = load i32, ptr %mode_head.i32.i.i, align 4
   %and.i.i.i = and i32 %44, 61440
   %cmp.i.i38.i = icmp eq i32 %and.i.i.i, 57344
   br i1 %cmp.i.i38.i, label %if.then.i36.i.i, label %lor.lhs.false.i.i.i
 
-lor.lhs.false.i.i.i:                              ; preds = %wt_porcelain_v2_fix_up_changed.argprom.exit.i.i
+lor.lhs.false.i.i.i:                              ; preds = %wt_porcelain_v2_fix_up_changed.exit.i.i
   %mode_index.i33.i.i = getelementptr inbounds i8, ptr %37, i64 16
   %45 = load i32, ptr %mode_index.i33.i.i, align 8
   %and1.i.i.i = and i32 %45, 61440
@@ -2250,7 +2250,7 @@ lor.lhs.false3.i.i.i:                             ; preds = %lor.lhs.false.i.i.i
   %cmp5.i.i.i = icmp eq i32 %and4.i.i.i, 57344
   br i1 %cmp5.i.i.i, label %if.then.i36.i.i, label %if.else.i.i.i
 
-if.then.i36.i.i:                                  ; preds = %lor.lhs.false3.i.i.i, %lor.lhs.false.i.i.i, %wt_porcelain_v2_fix_up_changed.argprom.exit.i.i
+if.then.i36.i.i:                                  ; preds = %lor.lhs.false3.i.i.i, %lor.lhs.false.i.i.i, %wt_porcelain_v2_fix_up_changed.exit.i.i
   store i8 83, ptr %submodule_token.i.i, align 1
   %new_submodule_commits.i.i.i = getelementptr inbounds i8, ptr %37, i64 112
   %bf.load.i.i.i = load i8, ptr %new_submodule_commits.i.i.i, align 8

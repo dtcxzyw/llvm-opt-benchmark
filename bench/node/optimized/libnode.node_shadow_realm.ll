@@ -246,16 +246,16 @@ _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14def
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 4
   %10 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i5 = icmp eq i32 %10, 0
-  br i1 %cmp.i5, label %if.then4.i, label %"_ZN4node11Environment12SetImmediateIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS3_EEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argprom.exit"
+  br i1 %cmp.i5, label %if.then4.i, label %"_ZN4node11Environment12SetImmediateIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS3_EEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit"
 
 if.then4.i:                                       ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
   tail call void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872) %2, i1 noundef zeroext true) #13
   %.pre.i = load ptr, ptr %buffer_.i.i.i.i, align 8
   %arrayidx.i.i.i5.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 4
   %.pre2.i = load i32, ptr %arrayidx.i.i.i5.phi.trans.insert.i, align 4
-  br label %"_ZN4node11Environment12SetImmediateIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS3_EEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argprom.exit"
+  br label %"_ZN4node11Environment12SetImmediateIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS3_EEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit"
 
-"_ZN4node11Environment12SetImmediateIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS3_EEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.argprom.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then4.i
+"_ZN4node11Environment12SetImmediateIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS3_EEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then4.i
   %11 = phi i32 [ %10, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre2.i, %if.then4.i ]
   %12 = phi ptr [ %9, %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i ], [ %.pre.i, %if.then4.i ]
   %arrayidx.i.i.i5.i = getelementptr inbounds i8, ptr %12, i64 4
@@ -6950,16 +6950,16 @@ entry:
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val = load ptr, ptr %callback_, align 8
   %isnull.i = icmp eq ptr %callback_.val, null
-  br i1 %isnull.i, label %"_ZZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EEENK3$_0clEPNS_11EnvironmentE.argprom.exit", label %delete.notnull.i
+  br i1 %isnull.i, label %"_ZZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EEENK3$_0clEPNS_11EnvironmentE.exit", label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %vtable.i = load ptr, ptr %callback_.val, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(872) %callback_.val) #13
-  br label %"_ZZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EEENK3$_0clEPNS_11EnvironmentE.argprom.exit"
+  br label %"_ZZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EEENK3$_0clEPNS_11EnvironmentE.exit"
 
-"_ZZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EEENK3$_0clEPNS_11EnvironmentE.argprom.exit": ; preds = %entry, %delete.notnull.i
+"_ZZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EEENK3$_0clEPNS_11EnvironmentE.exit": ; preds = %entry, %delete.notnull.i
   ret void
 }
 
@@ -7047,10 +7047,10 @@ attributes #15 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6, !8}
-!6 = distinct !{!6, !7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS7_EEE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!7 = distinct !{!7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS7_EEE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!8 = distinct !{!8, !9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISE_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!9 = distinct !{!9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISE_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!6 = distinct !{!6, !7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS7_EEE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!7 = distinct !{!7, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS7_EEE3$_0EEJSD_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!8 = distinct !{!8, !9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISE_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!9 = distinct !{!9, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteISE_EEOT_NS_13CallbackFlags5FlagsE"}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = distinct !{!12, !11}

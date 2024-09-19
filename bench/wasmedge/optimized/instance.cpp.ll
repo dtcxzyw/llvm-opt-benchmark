@@ -1220,7 +1220,7 @@ _ZNSt6vectorIN8WasmEdge3AST9Component14InstantiateArgINS2_9SortIndexISt7variantI
   call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %16, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %17, i64 noundef %78, i8 noundef zeroext 5) #18, !noalias !19
   br label %109
 
-79:                                               ; preds = %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.argprom.exit.i"
+79:                                               ; preds = %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.exit.i"
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %58
   br i1 %exitcond.not.i, label %.loopexit100, label %80, !llvm.loop !27
@@ -1275,20 +1275,20 @@ _ZNSt6vectorIN8WasmEdge3AST9Component14InstantiateArgINS2_9SortIndexISt7variantI
   br label %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i
 
 _ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i: ; preds = %97, %94
-  br i1 %84, label %98, label %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.argprom.exit.i"
+  br i1 %84, label %98, label %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.exit.i"
 
 98:                                               ; preds = %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i
   %99 = getelementptr inbounds i8, ptr %82, i64 32
   invoke void @_ZN8WasmEdge6Loader6Loader13loadSortIndexERNS_3AST9Component9SortIndexISt7variantIJNS3_8CoreSortENS3_8SortCaseEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %18, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 4 dereferenceable(8) %99)
-          to label %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.argprom.exit.i" unwind label %.loopexit
+          to label %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.exit.i" unwind label %.loopexit
 
-"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.argprom.exit.i": ; preds = %98, %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i
+"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.exit.i": ; preds = %98, %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14), !noalias !34
   %100 = load i8, ptr %18, align 4, !noalias !19
   %101 = trunc i8 %100 to i1
   br i1 %101, label %79, label %102
 
-102:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.argprom.exit.i"
+102:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.exit.i"
   store i8 5, ptr %19, align 1, !noalias !19
   %103 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
           to label %.noexc21 unwind label %.loopexit.split-lp
@@ -1602,7 +1602,7 @@ _ZNSt6vectorIN8WasmEdge3AST9Component12InlineExportISt7variantIJNS2_8CoreSortENS
   call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %8, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %9, i64 noundef %200, i8 noundef zeroext 5) #18, !noalias !44
   br label %226
 
-201:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.argprom.exit.i"
+201:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.exit.i"
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %180
   br i1 %exitcond.not.i46, label %.loopexit106, label %202, !llvm.loop !50
@@ -1657,20 +1657,20 @@ _ZNSt6vectorIN8WasmEdge3AST9Component12InlineExportISt7variantIJNS2_8CoreSortENS
   br label %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i44
 
 _ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i44: ; preds = %219, %216
-  br i1 %206, label %220, label %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.argprom.exit.i"
+  br i1 %206, label %220, label %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.exit.i"
 
 220:                                              ; preds = %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i44
   %221 = getelementptr inbounds i8, ptr %204, i64 32
   invoke void @_ZN8WasmEdge6Loader6Loader13loadSortIndexERNS_3AST9Component9SortIndexISt7variantIJNS3_8CoreSortENS3_8SortCaseEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %10, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 4 dereferenceable(8) %221)
-          to label %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.argprom.exit.i" unwind label %.loopexit101
+          to label %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.exit.i" unwind label %.loopexit101
 
-"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.argprom.exit.i": ; preds = %220, %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i44
+"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.exit.i": ; preds = %220, %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i44
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !57
   %222 = load i8, ptr %10, align 4, !noalias !44
   %223 = trunc i8 %222 to i1
   br i1 %223, label %201, label %224
 
-224:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.argprom.exit.i"
+224:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.exit.i"
   store i8 5, ptr %11, align 1, !noalias !44
   %225 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
           to label %.noexc61 unwind label %.loopexit.split-lp102
@@ -2676,7 +2676,7 @@ _ZNSt6vectorIN8WasmEdge3AST9Component12InlineExportINS2_8CoreSortEEESaIS5_EE6res
   call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %8, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %9, i64 noundef %181, i8 noundef zeroext 2) #18, !noalias !80
   br label %207
 
-182:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.argprom.exit.i"
+182:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.exit.i"
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %161
   br i1 %exitcond.not.i44, label %.loopexit99, label %183, !llvm.loop !86
@@ -2731,20 +2731,20 @@ _ZNSt6vectorIN8WasmEdge3AST9Component12InlineExportINS2_8CoreSortEEESaIS5_EE6res
   br label %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i
 
 _ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i: ; preds = %200, %197
-  br i1 %187, label %201, label %"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.argprom.exit.i"
+  br i1 %187, label %201, label %"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.exit.i"
 
 201:                                              ; preds = %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i
   %202 = getelementptr inbounds i8, ptr %185, i64 32
   invoke void @_ZN8WasmEdge6Loader6Loader17loadCoreSortIndexERNS_3AST9Component9SortIndexINS3_8CoreSortEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %10, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 4 dereferenceable(8) %202)
-          to label %"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.argprom.exit.i" unwind label %.loopexit94
+          to label %"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.exit.i" unwind label %.loopexit94
 
-"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.argprom.exit.i": ; preds = %201, %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i
+"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.exit.i": ; preds = %201, %_ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdge7ErrCodeEED2Ev.exit5.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !93
   %203 = load i8, ptr %10, align 4, !noalias !80
   %204 = trunc i8 %203 to i1
   br i1 %204, label %182, label %205
 
-205:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.argprom.exit.i"
+205:                                              ; preds = %"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.exit.i"
   store i8 2, ptr %11, align 1, !noalias !80
   %206 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
           to label %.noexc54 unwind label %.loopexit.split-lp95
@@ -31173,8 +31173,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !26 = !{!"llvm.loop.mustprogress"}
 !27 = distinct !{!27, !26}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.argprom: argument 0"}
-!30 = distinct !{!30, !"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE.argprom"}
+!29 = distinct !{!29, !30, !"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE: argument 0"}
+!30 = distinct !{!30, !"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_0clERNS4_14InstantiateArgINS4_9SortIndexIS9_EEEE"}
 !31 = !{!32}
 !32 = distinct !{!32, !33, !"_ZN8WasmEdge6Loader6Loader18loadInstantiateArgERNS_3AST9Component14InstantiateArgINS3_9SortIndexISt7variantIJNS3_8CoreSortENS3_8SortCaseEEEEEEE: argument 0"}
 !33 = distinct !{!33, !"_ZN8WasmEdge6Loader6Loader18loadInstantiateArgERNS_3AST9Component14InstantiateArgINS3_9SortIndexISt7variantIJNS3_8CoreSortENS3_8SortCaseEEEEEEE"}
@@ -31196,8 +31196,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !49 = distinct !{!49, !"_ZN8WasmEdge6Loader6Loader10loadVecCntEv"}
 !50 = distinct !{!50, !26}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.argprom: argument 0"}
-!53 = distinct !{!53, !"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE.argprom"}
+!52 = distinct !{!52, !53, !"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE: argument 0"}
+!53 = distinct !{!53, !"_ZZN8WasmEdge6Loader6Loader12loadInstanceERSt7variantIJNS_3AST9Component11InstantiateENS4_13InlineExportsIS2_IJNS4_8CoreSortENS4_8SortCaseEEEEEEEENK3$_1clERNS4_12InlineExportIS9_EE"}
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZN8WasmEdge6Loader6Loader16loadInlineExportERNS_3AST9Component12InlineExportISt7variantIJNS3_8CoreSortENS3_8SortCaseEEEEE: argument 0"}
 !56 = distinct !{!56, !"_ZN8WasmEdge6Loader6Loader16loadInlineExportERNS_3AST9Component12InlineExportISt7variantIJNS3_8CoreSortENS3_8SortCaseEEEEE"}
@@ -31232,8 +31232,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !85 = distinct !{!85, !"_ZN8WasmEdge6Loader6Loader10loadVecCntEv"}
 !86 = distinct !{!86, !26}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.argprom: argument 0"}
-!89 = distinct !{!89, !"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE.argprom"}
+!88 = distinct !{!88, !89, !"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE: argument 0"}
+!89 = distinct !{!89, !"_ZZN8WasmEdge6Loader6Loader16loadCoreInstanceERSt7variantIJNS_3AST9Component15CoreInstantiateENS4_13InlineExportsINS4_8CoreSortEEEEEENK3$_1clERNS4_12InlineExportIS7_EE"}
 !90 = !{!91}
 !91 = distinct !{!91, !92, !"_ZN8WasmEdge6Loader6Loader16loadInlineExportERNS_3AST9Component12InlineExportINS3_8CoreSortEEE: argument 0"}
 !92 = distinct !{!92, !"_ZN8WasmEdge6Loader6Loader16loadInlineExportERNS_3AST9Component12InlineExportINS3_8CoreSortEEE"}

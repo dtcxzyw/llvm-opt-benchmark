@@ -7995,11 +7995,11 @@ cleanup.cont424:                                  ; preds = %init.i.i.i, %init.c
   store ptr null, ptr %message_.i1115, align 8, !tbaa !66
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_393) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_393) #22
-  invoke fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleComponentView_InvalidView_Test8TestBodyEvE3$_2EEvT_.argprom"(ptr nonnull %storage)
+  invoke fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleComponentView_InvalidView_Test8TestBodyEvE3$_2EEvT_"(ptr nonnull %storage)
           to label %invoke.cont428 unwind label %ehcleanup432
 
 invoke.cont428:                                   ; preds = %cleanup.cont424
-  invoke fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleComponentView_InvalidView_Test8TestBodyEvE3$_3EEvT_.argprom"(ptr nonnull %storage)
+  invoke fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleComponentView_InvalidView_Test8TestBodyEvE3$_3EEvT_"(ptr nonnull %storage)
           to label %cleanup431 unwind label %ehcleanup432
 
 cleanup431:                                       ; preds = %invoke.cont428
@@ -8019,7 +8019,7 @@ ehcleanup432:                                     ; preds = %invoke.cont428, %cl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleComponentView_InvalidView_Test8TestBodyEvE3$_2EEvT_.argprom"(ptr readonly %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleComponentView_InvalidView_Test8TestBodyEvE3$_2EEvT_"(ptr readonly %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::Message", align 8
   %ref.tmp2.i = alloca %"class.testing::internal::AssertHelper", align 8
@@ -8107,7 +8107,7 @@ if.end:                                           ; preds = %"_ZZN36SingleCompon
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleComponentView_InvalidView_Test8TestBodyEvE3$_3EEvT_.argprom"(ptr readonly %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK4entt10basic_viewINS_5get_tIJNS_13basic_storageIiNS_6entityESaIiEvEEEEENS_9exclude_tIJEEEvE4eachIZN36SingleComponentView_InvalidView_Test8TestBodyEvE3$_3EEvT_"(ptr readonly %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"class.testing::Message", align 8
   %ref.tmp3.i.i.i.i.i = alloca %"class.testing::internal::AssertHelper", align 8
@@ -58982,7 +58982,7 @@ if.then.i.i.i:                                    ; preds = %_ZNK4entt16basic_sp
   %282 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i1029, align 8, !tbaa !20, !noalias !1250
   %and.i.i3.i.i.i.i.i.i = and i64 %conv.i.i.i.i.i.i.i1028, 1023
   %arrayidx.i.i.i.i.i.i.i1030 = getelementptr inbounds i8, ptr %282, i64 %and.i.i3.i.i.i.i.i.i
-  invoke fastcc void @"_ZSt5applyIRZN28MultiComponentView_Each_Test8TestBodyEvE3$_1St5tupleIJRKiRKcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i979, ptr %arrayidx.i.i.i.i.i.i.i1030, ptr %add.ptr.i.i8.i.i.i.i1004)
+  invoke fastcc void @"_ZSt5applyIRZN28MultiComponentView_Each_Test8TestBodyEvE3$_1St5tupleIJRKiRKcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i979, ptr %arrayidx.i.i.i.i.i.i.i1030, ptr %add.ptr.i.i8.i.i.i.i1004)
           to label %if.end.i.i.i1015 unwind label %lpad226.loopexit.split-lp.loopexit
 
 if.end.i.i.i1015:                                 ; preds = %if.then.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i1021, %land.lhs.true.i.i.i.i.i1019, %for.body.i.i.i998
@@ -59061,7 +59061,7 @@ if.then.i51.i.i:                                  ; preds = %_ZNK4entt16basic_sp
   %295 = load ptr, ptr %add.ptr.i.i.i.i.i.i56.i.i, align 8, !tbaa !20, !noalias !1261
   %and.i.i3.i.i.i.i57.i.i = and i64 %conv.i.i.i.i.i53.i.i, 1023
   %arrayidx.i.i.i.i.i58.i.i = getelementptr inbounds i32, ptr %295, i64 %and.i.i3.i.i.i.i57.i.i
-  invoke fastcc void @"_ZSt5applyIRZN28MultiComponentView_Each_Test8TestBodyEvE3$_1St5tupleIJRKiRKcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i979, ptr %add.ptr.i.i8.i.i29.i.i, ptr %arrayidx.i.i.i.i.i58.i.i)
+  invoke fastcc void @"_ZSt5applyIRZN28MultiComponentView_Each_Test8TestBodyEvE3$_1St5tupleIJRKiRKcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i979, ptr %add.ptr.i.i8.i.i29.i.i, ptr %arrayidx.i.i.i.i.i58.i.i)
           to label %if.end.i40.i.i unwind label %lpad226.loopexit
 
 if.end.i40.i.i:                                   ; preds = %if.then.i51.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i45.i.i, %land.lhs.true.i.i.i42.i.i, %for.body.i22.i.i
@@ -60677,7 +60677,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i: ; preds
 
 if.then.i.i.i:                                    ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i
   %ref.tmp11.i.i.i.val.val = load i32, ptr %add.ptr.i.i8.i.i.i.i, align 4, !tbaa !22
-  invoke fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_0St5tupleIJRiRcEEEDcOT_OT0_.argprom.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %ref.tmp11.i.i.i.val.val)
+  invoke fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_0St5tupleIJRiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %ref.tmp11.i.i.i.val.val)
           to label %if.end.i.i.i unwind label %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i, %land.lhs.true.i.i.i.i.i, %for.body.i.i.i322
@@ -60747,7 +60747,7 @@ if.then.i51.i.i:                                  ; preds = %_ZNK4entt16basic_sp
   %and.i.i3.i.i.i.i.i57.i.i = and i64 %conv.i.i.i.i.i.i53.i.i, 1023
   %arrayidx.i.i.i.i.i.i58.i.i = getelementptr inbounds i32, ptr %71, i64 %and.i.i3.i.i.i.i.i57.i.i
   %ref.tmp11.i12.i.i.val.val = load i32, ptr %arrayidx.i.i.i.i.i.i58.i.i, align 4, !tbaa !22
-  invoke fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_0St5tupleIJRiRcEEEDcOT_OT0_.argprom.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %ref.tmp11.i12.i.i.val.val)
+  invoke fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_0St5tupleIJRiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %ref.tmp11.i12.i.i.val.val)
           to label %if.end.i40.i.i unwind label %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i40.i.i:                                   ; preds = %if.then.i51.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i45.i.i, %land.lhs.true.i.i.i42.i.i, %for.body.i22.i.i
@@ -60816,7 +60816,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNK4entt16basic_sp
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i350 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i338, i64 -64
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_.argprom"(ptr nonnull %add.ptr.i.i.i.i.i338, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i350, ptr %call3.i353.val, ptr %call3.i353.val40)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr nonnull %add.ptr.i.i.i.i.i338, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i350, ptr %call3.i353.val, ptr %call3.i353.val40)
   %81 = load ptr, ptr %79, align 8, !tbaa !120
   %82 = load ptr, ptr %80, align 8, !tbaa !192
   br label %for.body.i.i.i.i.i.i.i.i
@@ -60879,7 +60879,7 @@ while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %while.cond.i.i.i.i.
 
 "_ZNK4entt8std_sortclISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS_6entityESt6vectorIS5_SaIS5_EEEEEZNS_14basic_registryIS5_S8_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1S0_JEEEvT0_T1_DpOT2_EUlT_SH_E_JEEEvSM_SM_SH_DpOT1_.exit.thread52.i.i.i": ; preds = %if.then.i.i.i.i.i.i
   %94 = inttoptr i64 %.pre-phi.i.i to ptr
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_.argprom"(ptr nonnull %add.ptr.i.i.i.i.i338, ptr %94, ptr %call3.i353.val, ptr %call3.i353.val40)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr nonnull %add.ptr.i.i.i.i.i338, ptr %94, ptr %call3.i353.val, ptr %call3.i353.val40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i.i.i.i)
   %.pre51.i.i.pre.i = load ptr, ptr %79, align 8, !tbaa !120
@@ -61026,7 +61026,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i450: ; pr
 
 if.then.i.i.i456:                                 ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i450
   %ref.tmp11.i.i.i359.val.val = load i32, ptr %add.ptr.i.i8.i.i.i.i432, align 4, !tbaa !22
-  invoke fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_2St5tupleIJRiRcEEEDcOT_OT0_.argprom.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i360, i32 %ref.tmp11.i.i.i359.val.val)
+  invoke fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_2St5tupleIJRiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i360, i32 %ref.tmp11.i.i.i359.val.val)
           to label %if.end.i.i.i443 unwind label %lpad10.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i.i.i443:                                  ; preds = %if.then.i.i.i456, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i450, %land.lhs.true.i.i.i.i.i447, %for.body.i.i.i425
@@ -61095,7 +61095,7 @@ if.then.i51.i.i407:                               ; preds = %_ZNK4entt16basic_sp
   %and.i.i3.i.i.i.i.i57.i.i413 = and i64 %conv.i.i.i.i.i.i53.i.i409, 1023
   %arrayidx.i.i.i.i.i.i58.i.i414 = getelementptr inbounds i32, ptr %134, i64 %and.i.i3.i.i.i.i.i57.i.i413
   %ref.tmp11.i12.i.i358.val.val = load i32, ptr %arrayidx.i.i.i.i.i.i58.i.i414, align 4, !tbaa !22
-  invoke fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_2St5tupleIJRiRcEEEDcOT_OT0_.argprom.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i360, i32 %ref.tmp11.i12.i.i358.val.val)
+  invoke fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_2St5tupleIJRiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i360, i32 %ref.tmp11.i12.i.i358.val.val)
           to label %if.end.i40.i.i396 unwind label %lpad10.loopexit.split-lp.loopexit
 
 if.end.i40.i.i396:                                ; preds = %if.then.i51.i.i407, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i45.i.i401, %land.lhs.true.i.i.i42.i.i398, %for.body.i22.i.i378
@@ -61164,7 +61164,7 @@ if.then.i.i.i.i.i.i486:                           ; preds = %_ZNK4entt16basic_sp
 
 if.then.i.i.i.i.i.i.i538:                         ; preds = %if.then.i.i.i.i.i.i486
   %add.ptr.i.i.i.i.i.i.i.i.i539 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i484, i64 -64
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_.argprom"(ptr nonnull %add.ptr.i.i.i.i.i484, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i539, ptr %call3.i582.val, ptr %call3.i582.val43)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr nonnull %add.ptr.i.i.i.i.i484, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i539, ptr %call3.i582.val, ptr %call3.i582.val43)
   %144 = load ptr, ptr %142, align 8, !tbaa !120
   %145 = load ptr, ptr %143, align 8, !tbaa !192
   br label %for.body.i.i.i.i.i.i.i.i542
@@ -61227,7 +61227,7 @@ while.body.i.i.i.i.i.i.i.i.i573:                  ; preds = %while.cond.i.i.i.i.
 
 "_ZNK4entt8std_sortclISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS_6entityESt6vectorIS5_SaIS5_EEEEEZNS_14basic_registryIS5_S8_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3S0_JEEEvT0_T1_DpOT2_EUlT_SH_E_JEEEvSM_SM_SH_DpOT1_.exit.thread52.i.i.i": ; preds = %if.then.i.i.i.i.i.i486
   %157 = inttoptr i64 %.pre-phi.i.i482 to ptr
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_.argprom"(ptr nonnull %add.ptr.i.i.i.i.i484, ptr %157, ptr %call3.i582.val, ptr %call3.i582.val43)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr nonnull %add.ptr.i.i.i.i.i484, ptr %157, ptr %call3.i582.val, ptr %call3.i582.val43)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i470)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i.i.i.i471)
   %.pre51.i.i.pre.i491 = load ptr, ptr %142, align 8, !tbaa !120
@@ -61814,7 +61814,7 @@ if.then.i.i.i.i.i.i698:                           ; preds = %_ZNK4entt16basic_sp
 
 if.then.i.i.i.i.i.i.i750:                         ; preds = %if.then.i.i.i.i.i.i698
   %add.ptr.i.i.i.i.i.i.i.i.i751 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i696, i64 -64
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_.argprom"(ptr nonnull %add.ptr.i.i.i.i.i696, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i751, ptr %call3.i794.val, ptr %call3.i794.val46)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr nonnull %add.ptr.i.i.i.i.i696, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i751, ptr %call3.i794.val, ptr %call3.i794.val46)
   %241 = load ptr, ptr %239, align 8, !tbaa !120
   %242 = load ptr, ptr %240, align 8, !tbaa !192
   br label %for.body.i.i.i.i.i.i.i.i754
@@ -61877,7 +61877,7 @@ while.body.i.i.i.i.i.i.i.i.i785:                  ; preds = %while.cond.i.i.i.i.
 
 "_ZNK4entt8std_sortclISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS_6entityESt6vectorIS5_SaIS5_EEEEEZNS_14basic_registryIS5_S8_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4S0_JEEEvT0_T1_DpOT2_EUlT_SH_E_JEEEvSM_SM_SH_DpOT1_.exit.thread52.i.i.i": ; preds = %if.then.i.i.i.i.i.i698
   %254 = inttoptr i64 %.pre-phi.i.i694 to ptr
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_.argprom"(ptr nonnull %add.ptr.i.i.i.i.i696, ptr %254, ptr %call3.i794.val, ptr %call3.i794.val46)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr nonnull %add.ptr.i.i.i.i.i696, ptr %254, ptr %call3.i794.val, ptr %call3.i794.val46)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i682)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i.i.i.i.i683)
   %.pre51.i.i.pre.i703 = load ptr, ptr %239, align 8, !tbaa !120
@@ -71487,7 +71487,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i: ; pre
   br i1 %cmp.i.i57.i.i.i, label %if.end.i.i.i, label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i, %land.lhs.true.i.i.i.i.i.i, %land.rhs1.i.i.i.i, %land.lhs.true10.i.i.i
-  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %143)
+  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %143)
           to label %if.end.i.i.i unwind label %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i.i.i:                                     ; preds = %for.inc.i.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit51.i.i.i, %land.lhs.true.i.i42.i.i.i, %land.lhs.true.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i, %land.lhs.true.i.i.i.i.i, %for.body.i.i.i868
@@ -71613,7 +71613,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i100.i.i: ; 
   br i1 %cmp.i.i57.i103.i.i, label %if.end.i53.i.i, label %for.inc.i.i89.i.i
 
 for.inc.i.i89.i.i:                                ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i100.i.i, %land.lhs.true.i.i.i.i97.i.i, %land.rhs1.i.i81.i.i, %land.lhs.true10.i79.i.i
-  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %165)
+  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %165)
           to label %if.end.i53.i.i unwind label %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i53.i.i:                                   ; preds = %for.inc.i.i89.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i100.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit51.i75.i.i, %land.lhs.true.i.i42.i72.i.i, %land.lhs.true.i64.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i58.i.i, %land.lhs.true.i.i.i55.i.i, %for.body.i35.i.i
@@ -71738,7 +71738,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i152.i.i: ; 
   br i1 %cmp.i.i54.i.i.i, label %if.end.i121.i.i, label %for.inc.i.i142.i.i
 
 for.inc.i.i142.i.i:                               ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i152.i.i, %land.lhs.true.i.i.i.i150.i.i, %land.rhs1.i.i135.i.i, %land.lhs.true10.i133.i.i
-  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %187)
+  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %187)
           to label %if.end.i121.i.i unwind label %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i121.i.i:                                  ; preds = %for.inc.i.i142.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i152.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit50.i.i.i, %land.lhs.true.i.i41.i.i.i, %land.lhs.true.i132.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i126.i.i, %land.lhs.true.i.i.i124.i.i, %for.body.i114.i.i
@@ -72910,7 +72910,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1207: ;
   br i1 %cmp.i.i54.i.i.i1210, label %if.end.i.i.i1158, label %for.inc.i.i.i.i1196
 
 for.inc.i.i.i.i1196:                              ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1207, %land.lhs.true.i.i.i.i.i.i1204, %land.rhs1.i.i.i.i1188, %land.lhs.true10.i.i.i1186
-  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_2St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1066, i32 %361)
+  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_2St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1066, i32 %361)
           to label %if.end.i.i.i1158 unwind label %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i.i.i1158:                                 ; preds = %for.inc.i.i.i.i1196, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1207, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit50.i.i.i1182, %land.lhs.true.i.i41.i.i.i1179, %land.lhs.true.i.i.i1171, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i1165, %land.lhs.true.i.i.i.i.i1163, %for.body.i.i.i1151
@@ -73037,7 +73037,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i70.i.i: ; p
   br i1 %cmp.i.i57.i.i.i1140, label %if.end.i40.i.i, label %for.inc.i.i60.i.i1137
 
 for.inc.i.i60.i.i1137:                            ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i70.i.i, %land.lhs.true.i.i.i.i68.i.i, %land.rhs1.i.i53.i.i1129, %land.lhs.true10.i51.i.i1127
-  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_2St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1066, i32 %383)
+  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_2St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1066, i32 %383)
           to label %if.end.i40.i.i unwind label %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i40.i.i:                                   ; preds = %for.inc.i.i60.i.i1137, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i70.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit51.i.i.i1123, %land.lhs.true.i.i42.i.i.i1120, %land.lhs.true.i50.i.i1112, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i44.i.i1106, %land.lhs.true.i.i.i42.i.i1103, %for.body.i32.i.i1089
@@ -73163,7 +73163,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i150.i.i: ; 
   br i1 %cmp.i.i57.i153.i.i, label %if.end.i103.i.i, label %for.inc.i.i139.i.i
 
 for.inc.i.i139.i.i:                               ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i150.i.i, %land.lhs.true.i.i.i.i147.i.i, %land.rhs1.i.i131.i.i, %land.lhs.true10.i129.i.i
-  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_2St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1066, i32 %405)
+  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_2St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1066, i32 %405)
           to label %if.end.i103.i.i unwind label %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i103.i.i:                                  ; preds = %for.inc.i.i139.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i150.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit51.i125.i.i, %land.lhs.true.i.i42.i122.i.i, %land.lhs.true.i114.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i108.i.i, %land.lhs.true.i.i.i105.i.i, %for.body.i85.i.i
@@ -73545,7 +73545,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1551: ;
   br i1 %cmp.i.i54.i.i.i1554, label %if.end.i.i.i1494, label %for.inc.i.i.i.i1533
 
 for.inc.i.i.i.i1533:                              ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1551, %land.lhs.true.i.i.i.i.i.i1548, %land.rhs1.i.i.i.i1525, %land.lhs.true10.i.i.i1523
-  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_3St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1297, i32 %469)
+  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_3St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1297, i32 %469)
           to label %if.end.i.i.i1494 unwind label %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i.i.i1494:                                 ; preds = %for.inc.i.i.i.i1533, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1551, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit50.i.i.i1519, %land.lhs.true.i.i41.i.i.i1516, %land.lhs.true.i.i.i1508, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i1502, %land.lhs.true.i.i.i.i.i1499, %for.body.i.i.i1481
@@ -73672,7 +73672,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i70.i.i1466:
   br i1 %cmp.i.i57.i.i.i1469, label %if.end.i40.i.i1417, label %for.inc.i.i60.i.i1455
 
 for.inc.i.i60.i.i1455:                            ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i70.i.i1466, %land.lhs.true.i.i.i.i68.i.i1463, %land.rhs1.i.i53.i.i1447, %land.lhs.true10.i51.i.i1445
-  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_3St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1297, i32 %491)
+  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_3St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1297, i32 %491)
           to label %if.end.i40.i.i1417 unwind label %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i40.i.i1417:                               ; preds = %for.inc.i.i60.i.i1455, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i70.i.i1466, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit51.i.i.i1441, %land.lhs.true.i.i42.i.i.i1438, %land.lhs.true.i50.i.i1430, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i44.i.i1424, %land.lhs.true.i.i.i42.i.i1421, %for.body.i32.i.i1399
@@ -73802,7 +73802,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i150.i.i1384
   br i1 %cmp.i.i57.i153.i.i1387, label %if.end.i103.i.i1337, label %for.inc.i.i139.i.i1373
 
 for.inc.i.i139.i.i1373:                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i150.i.i1384, %land.lhs.true.i.i.i.i147.i.i1381, %land.rhs1.i.i131.i.i1365, %land.lhs.true10.i129.i.i1363
-  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_3St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1297, i32 %513)
+  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_3St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i1297, i32 %513)
           to label %if.end.i103.i.i1337 unwind label %lpad25.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i103.i.i1337:                              ; preds = %for.inc.i.i139.i.i1373, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i150.i.i1384, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit51.i125.i.i1359, %land.lhs.true.i.i42.i122.i.i1356, %land.lhs.true.i114.i.i1348, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i108.i.i1342, %land.lhs.true.i.i.i105.i.i1339, %for.body.i85.i.i1319
@@ -80567,7 +80567,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i1173: ; p
   br i1 %cmp.i.i.i.i1177, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i1173
-  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_StableType_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRN4test14pointer_stableEEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %298)
+  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_StableType_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRN4test14pointer_stableEEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %298)
           to label %if.end.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i1173, %land.lhs.true.i.i.i.i.i1171, %for.body.i.i.i1163
@@ -80643,7 +80643,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i45.i.i: ; pre
   br i1 %cmp.i.i50.i.i, label %if.then.i51.i.i, label %if.end.i40.i.i
 
 if.then.i51.i.i:                                  ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i45.i.i
-  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_StableType_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRN4test14pointer_stableEEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %310)
+  invoke fastcc void @"_ZSt5applyIRZN34MultiComponentView_StableType_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRN4test14pointer_stableEEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %310)
           to label %if.end.i40.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end.i40.i.i:                                   ; preds = %if.then.i51.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i45.i.i, %land.lhs.true.i.i.i42.i.i, %for.body.i22.i.i
@@ -86228,7 +86228,7 @@ if.then.i.i.i:                                    ; preds = %_ZNK4entt16basic_sp
   store ptr %arrayidx.i.i.i.i.i.i.i.i, ptr %ref.tmp11.i.i.i, align 8, !tbaa !20, !alias.scope !2420
   store ptr %add.ptr.i.i8.i.i.i.i, ptr %191, align 8, !tbaa !20, !alias.scope !2420
   store i32 %197, ptr %192, align 8, !tbaa !341, !alias.scope !2420
-  invoke fastcc void @"_ZSt5applyIRZN42MultiComponentView_SameComponentTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiS6_EEEDcOT_OT0_.argprom"(ptr nonnull %e0, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp11.i.i.i)
+  invoke fastcc void @"_ZSt5applyIRZN42MultiComponentView_SameComponentTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiS6_EEEDcOT_OT0_"(ptr nonnull %e0, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp11.i.i.i)
           to label %.noexc912 unwind label %lpad198.loopexit.split-lp
 
 .noexc912:                                        ; preds = %if.then.i.i.i
@@ -86307,7 +86307,7 @@ if.then.i51.i.i:                                  ; preds = %_ZNK4entt16basic_sp
   store ptr %add.ptr.i.i8.i.i29.i.i, ptr %ref.tmp11.i12.i.i, align 8, !tbaa !20, !alias.scope !2442
   store ptr %arrayidx.i.i.i.i.i.i58.i.i, ptr %206, align 8, !tbaa !20, !alias.scope !2442
   store i32 %212, ptr %207, align 8, !tbaa !341, !alias.scope !2442
-  invoke fastcc void @"_ZSt5applyIRZN42MultiComponentView_SameComponentTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiS6_EEEDcOT_OT0_.argprom"(ptr nonnull %e0, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp11.i12.i.i)
+  invoke fastcc void @"_ZSt5applyIRZN42MultiComponentView_SameComponentTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiS6_EEEDcOT_OT0_"(ptr nonnull %e0, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp11.i12.i.i)
           to label %.noexc913 unwind label %lpad198.loopexit
 
 .noexc913:                                        ; preds = %if.then.i51.i.i
@@ -98325,7 +98325,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i: ; preds
   br i1 %cmp.i.i.i.i1257, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i
-  invoke fastcc void @"_ZSt5applyIRZN37MultiComponentView_StorageEntity_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %343)
+  invoke fastcc void @"_ZSt5applyIRZN37MultiComponentView_StorageEntity_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %343)
           to label %if.end.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i, %land.lhs.true.i.i.i.i.i, %for.body.i.i.i1254
@@ -98396,7 +98396,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i31.i.i: ; pre
   br i1 %cmp.i.i36.i.i, label %if.then.i37.i.i, label %if.end.i27.i.i
 
 if.then.i37.i.i:                                  ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i31.i.i
-  invoke fastcc void @"_ZSt5applyIRZN37MultiComponentView_StorageEntity_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %355)
+  invoke fastcc void @"_ZSt5applyIRZN37MultiComponentView_StorageEntity_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %355)
           to label %if.end.i27.i.i unwind label %lpad5.loopexit
 
 if.end.i27.i.i:                                   ; preds = %if.then.i37.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i31.i.i, %land.lhs.true.i.i.i29.i.i, %for.body.i19.i.i
@@ -101347,7 +101347,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1157: ;
   br i1 %cmp.i.i30.i.i.i1159, label %if.end.i.i.i, label %for.inc.i.i.i.i1153
 
 for.inc.i.i.i.i1153:                              ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1157, %land.lhs.true.i.i.i.i.i.i1154, %land.rhs1.i.i.i.i1151, %land.lhs.true.i.i.i
-  invoke fastcc void @"_ZSt5applyIRZN58MultiComponentView_StorageEntityWithExcludedComponent_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %346)
+  invoke fastcc void @"_ZSt5applyIRZN58MultiComponentView_StorageEntityWithExcludedComponent_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %346)
           to label %if.end.i.i.i unwind label %lpad7.loopexit.split-lp.loopexit
 
 if.end.i.i.i:                                     ; preds = %for.inc.i.i.i.i1153, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i1157, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i, %land.lhs.true.i.i.i.i.i, %for.body.i.i.i1145
@@ -101448,7 +101448,7 @@ _ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i51.i.i: ; p
   br i1 %cmp.i.i31.i.i.i, label %if.end.i28.i.i, label %for.inc.i.i48.i.i
 
 for.inc.i.i48.i.i:                                ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i51.i.i, %land.lhs.true.i.i.i.i49.i.i, %land.rhs1.i.i40.i.i, %land.lhs.true.i38.i.i
-  invoke fastcc void @"_ZSt5applyIRZN58MultiComponentView_StorageEntityWithExcludedComponent_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %363)
+  invoke fastcc void @"_ZSt5applyIRZN58MultiComponentView_StorageEntityWithExcludedComponent_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %func.i, i32 %363)
           to label %if.end.i28.i.i unwind label %lpad7.loopexit
 
 if.end.i28.i.i:                                   ; preds = %for.inc.i.i48.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i51.i.i, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i32.i.i, %land.lhs.true.i.i.i30.i.i, %for.body.i20.i.i
@@ -138486,7 +138486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN28MultiComponentView_Each_Test8TestBodyEvE3$_1St5tupleIJRKiRKcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %__f, ptr %__t.0.val, ptr %__t.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN28MultiComponentView_Each_Test8TestBodyEvE3$_1St5tupleIJRKiRKcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %__f, ptr %__t.0.val, ptr %__t.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp.i.i.i.i = alloca %"class.testing::Message", align 8
@@ -138771,7 +138771,7 @@ eh.resume.i.i.i.i:                                ; preds = %ehcleanup31.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_0St5tupleIJRiRcEEEDcOT_OT0_.argprom.argprom"(ptr nocapture noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.8.val.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_0St5tupleIJRiRcEEEDcOT_OT0_"(ptr nocapture noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.8.val.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %curr.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -139392,7 +139392,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_.argprom"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture readonly %__comp.coerce.8.val, ptr nocapture readonly %__comp.coerce.72.val) unnamed_addr #18 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture readonly %__comp.coerce.8.val, ptr nocapture readonly %__comp.coerce.72.val) unnamed_addr #18 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -139594,7 +139594,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_2St5tupleIJRiRcEEEDcOT_OT0_.argprom.argprom"(ptr nocapture noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.8.val.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_2St5tupleIJRiRcEEEDcOT_OT0_"(ptr nocapture noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.8.val.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %curr.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -140212,7 +140212,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_.argprom"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture readonly %__comp.coerce.8.val, ptr nocapture readonly %__comp.coerce.72.val) unnamed_addr #18 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture readonly %__comp.coerce.8.val, ptr nocapture readonly %__comp.coerce.72.val) unnamed_addr #18 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -140886,7 +140886,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_.argprom"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture readonly %__comp.coerce.8.val, ptr nocapture readonly %__comp.coerce.72.val) unnamed_addr #18 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture readonly %__comp.coerce.8.val, ptr nocapture readonly %__comp.coerce.72.val) unnamed_addr #18 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -141685,7 +141685,7 @@ cond.end:                                         ; preds = %cond.end.loopexit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.16.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.16.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %entt.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -142165,7 +142165,7 @@ cleanup.cont.i.i.i.i:                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_2St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.16.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_2St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.16.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %entt.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -142305,7 +142305,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_3St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.16.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_3St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.16.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %entt.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -142613,7 +142613,7 @@ cleanup.cont.i.i.i.i:                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_StableType_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRN4test14pointer_stableEEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.16.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_StableType_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRN4test14pointer_stableEEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.16.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %entt.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -143325,7 +143325,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN42MultiComponentView_SameComponentTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiS6_EEEDcOT_OT0_.argprom"(ptr %__f.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %__t) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN42MultiComponentView_SameComponentTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiS6_EEEDcOT_OT0_"(ptr %__f.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %__t) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %entt.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -146811,7 +146811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN37MultiComponentView_StorageEntity_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN37MultiComponentView_StorageEntity_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %entt.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -147621,7 +147621,7 @@ ehcleanup30:                                      ; preds = %ehcleanup29, %lpad,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN58MultiComponentView_StorageEntityWithExcludedComponent_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_.argprom"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN58MultiComponentView_StorageEntityWithExcludedComponent_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %entt.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8

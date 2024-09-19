@@ -8359,7 +8359,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i: ; preds = 
   %211 = load float, ptr %210, align 4, !noalias !234
   %212 = fsub float 1.000000e+00, %211
   %213 = fcmp oeq float %208, 0.000000e+00
-  br i1 %213, label %_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.argprom.exit.i.i.i.i.i.i, label %214
+  br i1 %213, label %_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.exit.i.i.i.i.i.i, label %214
 
 214:                                              ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i
   %215 = fneg float %208
@@ -8367,15 +8367,15 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i: ; preds = 
   %.sroa.speculated.i.i.i.i.i.i.i = select i1 %216, float 0x3C9CD2B2A0000000, float %211
   %217 = call noundef float @logf(float noundef %.sroa.speculated.i.i.i.i.i.i.i) #16, !noalias !234
   %218 = fmul float %217, %215
-  br label %_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.argprom.exit.i.i.i.i.i.i
+  br label %_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.exit.i.i.i.i.i.i
 
-_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.argprom.exit.i.i.i.i.i.i: ; preds = %214, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i
+_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.exit.i.i.i.i.i.i: ; preds = %214, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i
   %219 = phi float [ %218, %214 ], [ 0.000000e+00, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i ]
   %220 = fsub float 1.000000e+00, %208
   %221 = fcmp oeq float %220, 0.000000e+00
   br i1 %221, label %_ZN4dmlc12OMPException3RunIZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS3_13EvalEWiseBaseINS3_14EvalRowLogLossEE4EvalERKNS2_16HostDeviceVectorIfEERKNS2_8MetaInfoEEUlmmmE_EENS3_18PackedReduceResultEPKNS2_7ContextESF_OT_EUlmE_JmEEEvSL_DpT0_.exit.i, label %222
 
-222:                                              ; preds = %_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.argprom.exit.i.i.i.i.i.i
+222:                                              ; preds = %_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.exit.i.i.i.i.i.i
   %223 = fneg float %220
   %224 = fcmp olt float %212, 0x3C9CD2B2A0000000
   %.sroa.speculated.i5.i.i.i.i.i.i = select i1 %224, float 0x3C9CD2B2A0000000, float %212
@@ -8383,8 +8383,8 @@ _ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.argprom.exit.i.i.i.i.
   %226 = fmul float %225, %223
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS3_13EvalEWiseBaseINS3_14EvalRowLogLossEE4EvalERKNS2_16HostDeviceVectorIfEERKNS2_8MetaInfoEEUlmmmE_EENS3_18PackedReduceResultEPKNS2_7ContextESF_OT_EUlmE_JmEEEvSL_DpT0_.exit.i
 
-_ZN4dmlc12OMPException3RunIZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS3_13EvalEWiseBaseINS3_14EvalRowLogLossEE4EvalERKNS2_16HostDeviceVectorIfEERKNS2_8MetaInfoEEUlmmmE_EENS3_18PackedReduceResultEPKNS2_7ContextESF_OT_EUlmE_JmEEEvSL_DpT0_.exit.i: ; preds = %222, %_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.argprom.exit.i.i.i.i.i.i
-  %227 = phi float [ %226, %222 ], [ 0.000000e+00, %_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.argprom.exit.i.i.i.i.i.i ]
+_ZN4dmlc12OMPException3RunIZN7xgboost6metric12_GLOBAL__N_16ReduceIZNS3_13EvalEWiseBaseINS3_14EvalRowLogLossEE4EvalERKNS2_16HostDeviceVectorIfEERKNS2_8MetaInfoEEUlmmmE_EENS3_18PackedReduceResultEPKNS2_7ContextESF_OT_EUlmE_JmEEEvSL_DpT0_.exit.i: ; preds = %222, %_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.exit.i.i.i.i.i.i
+  %227 = phi float [ %226, %222 ], [ 0.000000e+00, %_ZZN7xgboost6metric12_GLOBAL__N_17LogLossEffENKUlffE_clEff.exit.i.i.i.i.i.i ]
   %228 = fadd float %219, %227
   %229 = fmul float %.in.i.i.i.i.i.sroa.speculated, %228
   %230 = fpext float %229 to double
@@ -15122,7 +15122,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN7xgboost6metric13EvalEWiseBaseINS0_9EvalErrorEEE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   invoke void @_ZN7xgboost6metric9EvalErrorC2EPKc(ptr noundef nonnull align 4 dereferenceable(5) %5, ptr noundef %.val)
-          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_9EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit" unwind label %6
+          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_9EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit" unwind label %6
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
@@ -15130,7 +15130,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #32
   resume { ptr, i32 } %7
 
-"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_9EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %2
+"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric3$_9EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %2
   ret ptr %3
 }
 
@@ -16194,7 +16194,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN7xgboost6metric13EvalEWiseBaseINS0_18EvalTweedieNLogLikEEE, i64 16), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   invoke void @_ZN7xgboost6metric18EvalTweedieNLogLikC2EPKc(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef %.val)
-          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric4$_10EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit" unwind label %6
+          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric4$_10EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit" unwind label %6
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
@@ -16202,7 +16202,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 24) #32
   resume { ptr, i32 } %7
 
-"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric4$_10EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %2
+"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric4$_10EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %2
   ret ptr %3
 }
 
@@ -17446,7 +17446,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN7xgboost6metric13QuantileErrorE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   invoke void @_ZN7xgboost16HostDeviceVectorIfEC1EmfNS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0, float noundef 0.000000e+00, i32 -65536)
-          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric4$_11EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit" unwind label %5
+          to label %"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric4$_11EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit" unwind label %5
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
@@ -17454,7 +17454,7 @@ define internal noundef nonnull ptr @"_ZNSt17_Function_handlerIFPN7xgboost6Metri
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 56) #32
   resume { ptr, i32 } %6
 
-"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric4$_11EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %2
+"_ZSt10__invoke_rIPN7xgboost6MetricERNS0_6metric4$_11EJPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %2
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store i8 0, ptr %7, align 1
   %8 = getelementptr inbounds i8, ptr %3, i64 32

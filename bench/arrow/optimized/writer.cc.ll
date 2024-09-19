@@ -2796,22 +2796,22 @@ _ZN5arrow6StatusD2Ev.exit.i.i.i.i.i:              ; preds = %invoke.cont13.i.i.i
   store ptr null, ptr %ref.tmp4.i.i.i.i.i, align 8, !noalias !72
   %76 = load ptr, ptr %ref.tmp10.i.i.i.i.i, align 8, !noalias !62
   %cmp.not.i.i16.i.i.i.i.i = icmp eq ptr %76, null
-  br i1 %cmp.not.i.i16.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i.i.i.i", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i16.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i.i.i.i", label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i
   %vtable.i.i.i17.i.i.i.i.i = load ptr, ptr %76, align 8, !noalias !65
   %vfn.i.i.i18.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i17.i.i.i.i.i, i64 8
   %77 = load ptr, ptr %vfn.i.i.i18.i.i.i.i.i, align 8, !noalias !65
   call void %77(ptr noundef nonnull align 8 dereferenceable(8) %76) #22, !noalias !65
-  br label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i.i.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i.i.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i.i.i.i": ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i
+"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i.i.i.i": ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i.i.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i.i
   store ptr null, ptr %ref.tmp10.i.i.i.i.i, align 8, !noalias !62
   %78 = load ptr, ptr %_M_refcount.i.i.i11.i.i.i.i.i, align 8, !noalias !62
   %cmp.not.i.i.i.i22.i.i.i.i.i = icmp eq ptr %78, null
   br i1 %cmp.not.i.i.i.i22.i.i.i.i.i, label %_ZN5arrow9StopTokenD2Ev.exit.i.i.i.i.i, label %if.then.i.i.i.i23.i.i.i.i.i
 
-if.then.i.i.i.i23.i.i.i.i.i:                      ; preds = %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i.i.i.i"
+if.then.i.i.i.i23.i.i.i.i.i:                      ; preds = %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i.i.i.i"
   %_M_use_count.i.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %78, i64 8
   %79 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i66 acquire, align 8, !noalias !65
   %cmp.i.i.i.i.i.i.i.i.i42.i = icmp eq i64 %79, 4294967297
@@ -2879,29 +2879,29 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i84:         ; preds = %_ZN9__gnu_cxx27__ex
   call void %88(ptr noundef nonnull align 8 dereferenceable(16) %78) #22, !noalias !65
   br label %_ZN5arrow9StopTokenD2Ev.exit.i.i.i.i.i
 
-_ZN5arrow9StopTokenD2Ev.exit.i.i.i.i.i:           ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i84, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i32.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i44.i, %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit.i.i.i.i.i"
+_ZN5arrow9StopTokenD2Ev.exit.i.i.i.i.i:           ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i84, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i32.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i44.i, %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit.i.i.i.i.i"
   %89 = load ptr, ptr %agg.tmp5.i.i.i.i.i, align 8, !noalias !62
   %cmp.not.i.i39.i.i.i.i.i = icmp eq ptr %89, null
-  br i1 %cmp.not.i.i39.i.i.i.i.i, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i39.i.i.i.i.i, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5arrow9StopTokenD2Ev.exit.i.i.i.i.i
   %vtable.i.i.i40.i.i.i.i.i = load ptr, ptr %89, align 8, !noalias !65
   %vfn.i.i.i41.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i40.i.i.i.i.i, i64 8
   %90 = load ptr, ptr %vfn.i.i.i41.i.i.i.i.i, align 8, !noalias !65
   call void %90(ptr noundef nonnull align 8 dereferenceable(8) %89) #22, !noalias !65
-  br label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit.i.i.i.i.i
+  br label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit.i.i.i.i.i
 
-_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i.i.i.i, %_ZN5arrow9StopTokenD2Ev.exit.i.i.i.i.i
+_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i.i.i.i.i.i, %_ZN5arrow9StopTokenD2Ev.exit.i.i.i.i.i
   store ptr null, ptr %agg.tmp5.i.i.i.i.i, align 8, !noalias !62
   %91 = load ptr, ptr %__s.i.i.i.i.i, align 8, !noalias !62
   %cmp.i.i.i.i.i.i69 = icmp eq ptr %91, null
-  br i1 %cmp.i.i.i.i.i.i69, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit209.thread.i.i.i.i.i, label %if.then.i.i9.i.i.i
+  br i1 %cmp.i.i.i.i.i.i69, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit209.thread.i.i.i.i.i, label %if.then.i.i9.i.i.i
 
-if.then.i.i9.i.i.i:                               ; preds = %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit.i.i.i.i.i
+if.then.i.i9.i.i.i:                               ; preds = %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit.i.i.i.i.i
   call void @_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__s.i.i.i.i.i) #22, !noalias !48
   %92 = load ptr, ptr %__s.i.i.i.i.i, align 8, !noalias !62
   %cmp.not.i54.i.i.i.i.i = icmp eq ptr %92, null
-  br i1 %cmp.not.i54.i.i.i.i.i, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit209.i.i.i.i.i, label %delete.notnull.i.i55.i.i.i.i.i
+  br i1 %cmp.not.i54.i.i.i.i.i, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit209.i.i.i.i.i, label %delete.notnull.i.i55.i.i.i.i.i
 
 delete.notnull.i.i55.i.i.i.i.i:                   ; preds = %if.then.i.i9.i.i.i
   %_M_refcount.i.i.i.i.i56.i.i.i.i.i = getelementptr inbounds i8, ptr %92, i64 48
@@ -2982,7 +2982,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i68.i.i.i.i.i: ; preds = %if.end8.sink.spli
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i69.i.i.i.i.i) #22, !noalias !48
   call void @_ZdlPv(ptr noundef nonnull %92) #23, !noalias !48
   store ptr null, ptr %__s.i.i.i.i.i, align 8, !noalias !62
-  br label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit209.i.i.i.i.i
+  br label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit209.i.i.i.i.i
 
 lpad14.i.i.i.i.i:                                 ; preds = %invoke.cont13.i.i.i.i.i
   %104 = landingpad { ptr, i32 }
@@ -3000,12 +3000,12 @@ _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.
 
 ehcleanup.thread.i.i.i.i.i:                       ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_6StatusEEE4ImplEEclEPS8_.exit.i.i91.i.i.i.i.i, %lpad14.i.i.i.i.i
   store ptr null, ptr %ref.tmp10.i.i.i.i.i, align 8, !noalias !62
-  br label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit108.i.i.i.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit108.i.i.i.i.i"
 
 ehcleanup.i.i.i.i.i:                              ; preds = %invoke.cont8.i.i.i.i.i
   %107 = landingpad { ptr, i32 }
           cleanup
-  br i1 %cmp.not.i.i.i.i.i5.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit108.i.i.i.i.i", label %if.then.i.i.i.i.i96.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i5.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit108.i.i.i.i.i", label %if.then.i.i.i.i.i96.i.i.i.i.i
 
 if.then.i.i.i.i.i96.i.i.i.i.i:                    ; preds = %ehcleanup.i.i.i.i.i
   %_M_weak_count.i.i.i.i.i.i97.i.i.i.i.i = getelementptr inbounds i8, ptr %68, i64 12
@@ -3026,37 +3026,37 @@ if.else.i.i.i.i.i.i.i107.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i96
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i101.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i107.i.i.i.i.i, %if.then.i.i.i.i.i.i.i99.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i102.i.i.i.i.i = phi i32 [ %109, %if.then.i.i.i.i.i.i.i99.i.i.i.i.i ], [ %110, %if.else.i.i.i.i.i.i.i107.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i103.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i102.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i103.i.i.i.i.i, label %if.then.i.i.i.i.i.i104.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit108.i.i.i.i.i"
+  br i1 %cmp.i.i.i.i.i.i103.i.i.i.i.i, label %if.then.i.i.i.i.i.i104.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit108.i.i.i.i.i"
 
 if.then.i.i.i.i.i.i104.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i101.i.i.i.i.i
   %vtable.i.i.i.i.i.i105.i.i.i.i.i = load ptr, ptr %68, align 8, !noalias !65
   %vfn.i.i.i.i.i.i106.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i105.i.i.i.i.i, i64 24
   %111 = load ptr, ptr %vfn.i.i.i.i.i.i106.i.i.i.i.i, align 8, !noalias !65
   call void %111(ptr noundef nonnull align 8 dereferenceable(16) %68) #22, !noalias !65
-  br label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit108.i.i.i.i.i"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit108.i.i.i.i.i"
 
-"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit108.i.i.i.i.i": ; preds = %if.then.i.i.i.i.i.i104.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i101.i.i.i.i.i, %ehcleanup.i.i.i.i.i, %ehcleanup.thread.i.i.i.i.i
+"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit108.i.i.i.i.i": ; preds = %if.then.i.i.i.i.i.i104.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i101.i.i.i.i.i, %ehcleanup.i.i.i.i.i, %ehcleanup.thread.i.i.i.i.i
   %.pn244.i.i.i.i.i = phi { ptr, i32 } [ %104, %ehcleanup.thread.i.i.i.i.i ], [ %107, %ehcleanup.i.i.i.i.i ], [ %107, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i101.i.i.i.i.i ], [ %107, %if.then.i.i.i.i.i.i104.i.i.i.i.i ]
   call void @_ZN5arrow9StopTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9.i.i.i.i.i) #22, !noalias !65
   %112 = load ptr, ptr %agg.tmp5.i.i.i.i.i, align 8, !noalias !62
   %cmp.not.i.i109.i.i.i.i.i = icmp eq ptr %112, null
   br i1 %cmp.not.i.i109.i.i.i.i.i, label %ehcleanup18.thread.i.i.i.i.i, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i110.i.i.i.i.i
 
-_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i110.i.i.i.i.i: ; preds = %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit108.i.i.i.i.i"
+_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i110.i.i.i.i.i: ; preds = %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit108.i.i.i.i.i"
   %vtable.i.i.i111.i.i.i.i.i = load ptr, ptr %112, align 8, !noalias !65
   %vfn.i.i.i112.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i111.i.i.i.i.i, i64 8
   %113 = load ptr, ptr %vfn.i.i.i112.i.i.i.i.i, align 8, !noalias !65
   call void %113(ptr noundef nonnull align 8 dereferenceable(8) %112) #22, !noalias !65
   br label %ehcleanup18.thread.i.i.i.i.i
 
-ehcleanup18.thread.i.i.i.i.i:                     ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i110.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit108.i.i.i.i.i"
+ehcleanup18.thread.i.i.i.i.i:                     ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvvEE4ImplEEclEPS5_.exit.i.i110.i.i.i.i.i, %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit108.i.i.i.i.i"
   store ptr null, ptr %agg.tmp5.i.i.i.i.i, align 8, !noalias !62
   br label %common.resume.i.i.i.i.i
 
 ehcleanup18.i.i.i.i.i:                            ; preds = %_ZN5arrow10WeakFutureINS_8internal5EmptyEEC2ERKNS_6FutureIS2_EE.exit.i.i.i.i.i
   %114 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom(ptr %53) #22, !noalias !65
+  call fastcc void @_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev(ptr %53) #22, !noalias !65
   br i1 %cmp.not.i.i.i.i.i5.i.i.i.i, label %common.resume.i.i.i.i.i, label %if.then.i.i.i.i.i115.i.i.i.i.i
 
 if.then.i.i.i.i.i115.i.i.i.i.i:                   ; preds = %ehcleanup18.i.i.i.i.i
@@ -3087,7 +3087,7 @@ if.then.i.i.i.i.i.i123.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   call void %118(ptr noundef nonnull align 8 dereferenceable(16) %68) #22, !noalias !65
   br label %common.resume.i.i.i.i.i
 
-_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit209.thread.i.i.i.i.i: ; preds = %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit.i.i.i.i.i
+_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit209.thread.i.i.i.i.i: ; preds = %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit.i.i.i.i.i
   store ptr null, ptr %ref.tmp1.i.i.i, align 8, !alias.scope !73, !noalias !48
   %119 = load ptr, ptr %future.i.i.i.i.i, align 8, !noalias !62
   store ptr %119, ptr %storage_.i.i.i.i.i.i.i, align 8, !alias.scope !73, !noalias !48
@@ -3095,12 +3095,12 @@ _ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZN
   store ptr %120, ptr %_M_refcount.i.i.i.i.i.i164.i.i.i.i.i, align 8, !alias.scope !73, !noalias !48
   br label %invoke.cont.i.i.i.i
 
-_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit209.i.i.i.i.i: ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i68.i.i.i.i.i, %if.then.i.i9.i.i.i
+_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit209.i.i.i.i.i: ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i68.i.i.i.i.i, %if.then.i.i9.i.i.i
   %.pr.i.i.i.i.i = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !noalias !62
   %cmp.not.i.i.i.i211.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i211.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %if.then.i.i.i.i212.i.i.i.i.i
 
-if.then.i.i.i.i212.i.i.i.i.i:                     ; preds = %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit209.i.i.i.i.i
+if.then.i.i.i.i212.i.i.i.i.i:                     ; preds = %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit209.i.i.i.i.i
   %_M_use_count.i.i.i.i.i213.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i.i.i, i64 8
   %121 = load atomic i64, ptr %_M_use_count.i.i.i.i.i213.i.i.i.i.i acquire, align 8, !noalias !48
   %cmp.i.i.i.i.i214.i.i.i.i.i = icmp eq i64 %121, 4294967297
@@ -3168,7 +3168,7 @@ if.end8.sink.split.i.i.i.i.i232.i.i.i.i.i:        ; preds = %_ZN9__gnu_cxx27__ex
   call void %130(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.i.i) #22, !noalias !48
   br label %invoke.cont.i.i.i.i
 
-invoke.cont.i.i.i.i:                              ; preds = %if.end8.sink.split.i.i.i.i.i232.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i229.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i219.i.i.i.i.i, %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit209.i.i.i.i.i, %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit209.thread.i.i.i.i.i
+invoke.cont.i.i.i.i:                              ; preds = %if.end8.sink.split.i.i.i.i.i232.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i229.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i219.i.i.i.i.i, %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit209.i.i.i.i.i, %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit209.thread.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i), !noalias !55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %future.i.i.i.i.i), !noalias !55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__s.i.i.i.i.i), !noalias !55
@@ -3561,7 +3561,7 @@ for.cond.i.i:                                     ; preds = %_ZN5arrow6StatusD2E
 
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %for.cond.i.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
-  call fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvENKUlmE_clEm.argprom(ptr noalias align 8 %ref.tmp.i.i, ptr nonnull %this, i64 noundef %indvars.iv.i.i), !noalias !47
+  call fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvENKUlmE_clEm(ptr noalias align 8 %ref.tmp.i.i, ptr nonnull %this, i64 noundef %indvars.iv.i.i), !noalias !47
   %187 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !85
   store ptr null, ptr %ref.tmp.i.i, align 8, !noalias !85
   %cmp.i.i.i = icmp eq ptr %187, null
@@ -17033,7 +17033,7 @@ cleanup14.i:                                      ; preds = %invoke.cont12.i, %_
   %_M_refcount.i.i58.i = getelementptr inbounds i8, ptr %data.i, i64 8
   %37 = load ptr, ptr %_M_refcount.i.i58.i, align 8, !noalias !423
   %cmp.not.i.i.i59.i = icmp eq ptr %37, null
-  br i1 %cmp.not.i.i.i59.i, label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.argprom.exit, label %if.then.i.i.i60.i
+  br i1 %cmp.not.i.i.i59.i, label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.exit, label %if.then.i.i.i60.i
 
 if.then.i.i.i60.i:                                ; preds = %cleanup14.i
   %_M_use_count.i.i.i.i61.i = getelementptr inbounds i8, ptr %37, i64 8
@@ -17069,7 +17069,7 @@ if.else.i.i.i.i.i84.i:                            ; preds = %if.end.i.i.i.i63.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i: ; preds = %if.else.i.i.i.i.i84.i, %if.then.i.i.i.i.i65.i
   %retval.i.0.i.i.i.i68.i = phi i32 [ %39, %if.then.i.i.i.i.i65.i ], [ %42, %if.else.i.i.i.i.i84.i ]
   %cmp6.i.i.i.i69.i = icmp eq i32 %retval.i.0.i.i.i.i68.i, 1
-  br i1 %cmp6.i.i.i.i69.i, label %if.then7.i.i.i.i70.i, label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.argprom.exit
+  br i1 %cmp6.i.i.i.i69.i, label %if.then7.i.i.i.i70.i, label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.exit
 
 if.then7.i.i.i.i70.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i
   %vtable.i.i.i.i.i.i71.i = load ptr, ptr %37, align 8, !noalias !423
@@ -17094,14 +17094,14 @@ if.else.i.i.i.i.i.i.i83.i:                        ; preds = %if.then7.i.i.i.i70.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i77.i: ; preds = %if.else.i.i.i.i.i.i.i83.i, %if.then.i.i.i.i.i.i.i75.i
   %retval.i.0.i.i.i.i.i.i78.i = phi i32 [ %45, %if.then.i.i.i.i.i.i.i75.i ], [ %46, %if.else.i.i.i.i.i.i.i83.i ]
   %cmp.i.i.i.i.i.i79.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i78.i, 1
-  br i1 %cmp.i.i.i.i.i.i79.i, label %if.end8.sink.split.i.i.i.i80.i, label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i79.i, label %if.end8.sink.split.i.i.i.i80.i, label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.exit
 
 if.end8.sink.split.i.i.i.i80.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i77.i, %if.then.i.i.i.i85.i
   %vtable2.i.i.i.i.i.i81.i = load ptr, ptr %37, align 8, !noalias !423
   %vfn3.i.i.i.i.i.i82.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i81.i, i64 24
   %47 = load ptr, ptr %vfn3.i.i.i.i.i.i82.i, align 8, !noalias !423
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %37) #22, !noalias !423
-  br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.argprom.exit
+  br label %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.exit
 
 common.resume:                                    ; preds = %lpad.i4216.body, %lpad14.i4224, %lpad46.i, %lpad.i4193.body, %lpad14.i, %lpad48.i, %ehcleanup52.i, %ehcleanup215.i, %ehcleanup.i4310, %lpad.i4299, %lpad.i4288, %ehcleanup.i4251, %ehcleanup.i4159, %ehcleanup.i4145, %lpad.body.i4034, %lpad.body.i3909, %lpad.body.i3784, %lpad.body.i3659, %lpad.body.i3534, %lpad.body.i3409, %lpad.body.i3284, %lpad.body.i3159, %lpad.body.i3034, %lpad.body.i2909, %lpad.body.i2784, %lpad.body.i2659, %ehcleanup.i2260, %ehcleanup.i1851, %ehcleanup.i1455, %ehcleanup.i1366, %lpad.body.i1252, %lpad.body.i1127, %lpad.body.i1002, %lpad.body.i877, %lpad.body.i752, %lpad.body.i627, %lpad.body.i502, %lpad.body.i377, %lpad.body.i252, %lpad.body.i130, %lpad.body.i, %ehcleanup.i
   %common.resume.op = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %eh.lpad-body.i, %lpad.body.i ], [ %eh.lpad-body.i131, %lpad.body.i130 ], [ %eh.lpad-body.i253, %lpad.body.i252 ], [ %eh.lpad-body.i378, %lpad.body.i377 ], [ %eh.lpad-body.i503, %lpad.body.i502 ], [ %eh.lpad-body.i628, %lpad.body.i627 ], [ %eh.lpad-body.i753, %lpad.body.i752 ], [ %eh.lpad-body.i878, %lpad.body.i877 ], [ %eh.lpad-body.i1003, %lpad.body.i1002 ], [ %eh.lpad-body.i1128, %lpad.body.i1127 ], [ %eh.lpad-body.i1253, %lpad.body.i1252 ], [ %.pn.i1367, %ehcleanup.i1366 ], [ %.pn.i1457, %ehcleanup.i1455 ], [ %.pn.i1853, %ehcleanup.i1851 ], [ %.pn.i2262, %ehcleanup.i2260 ], [ %eh.lpad-body.i2660, %lpad.body.i2659 ], [ %eh.lpad-body.i2785, %lpad.body.i2784 ], [ %eh.lpad-body.i2910, %lpad.body.i2909 ], [ %eh.lpad-body.i3035, %lpad.body.i3034 ], [ %eh.lpad-body.i3160, %lpad.body.i3159 ], [ %eh.lpad-body.i3285, %lpad.body.i3284 ], [ %eh.lpad-body.i3410, %lpad.body.i3409 ], [ %eh.lpad-body.i3535, %lpad.body.i3534 ], [ %eh.lpad-body.i3660, %lpad.body.i3659 ], [ %eh.lpad-body.i3785, %lpad.body.i3784 ], [ %eh.lpad-body.i3910, %lpad.body.i3909 ], [ %eh.lpad-body.i4035, %lpad.body.i4034 ], [ %.pn.i4146, %ehcleanup.i4145 ], [ %.pn.i4160, %ehcleanup.i4159 ], [ %.pn.i4252, %ehcleanup.i4251 ], [ %2550, %lpad.i4288 ], [ %2578, %lpad.i4299 ], [ %.pn.i4311, %ehcleanup.i4310 ], [ %.pn52.pn.pn.pn.i, %ehcleanup215.i ], [ %.pn7.i, %ehcleanup52.i ], [ %2251, %lpad48.i ], [ %2242, %lpad14.i ], [ %eh.lpad-body5063, %lpad.i4193.body ], [ %2400, %lpad46.i ], [ %2391, %lpad14.i4224 ], [ %eh.lpad-body5429, %lpad.i4216.body ]
@@ -17112,7 +17112,7 @@ ehcleanup.i:                                      ; preds = %lpad4.i, %lpad.i
   call void @_ZNSt10shared_ptrIN5arrow6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data.i) #22, !noalias !423
   br label %common.resume
 
-_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.argprom.exit: ; preds = %cleanup14.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i77.i, %if.end8.sink.split.i.i.i.i80.i
+_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.exit: ; preds = %cleanup14.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i77.i, %if.end8.sink.split.i.i.i.i80.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -30451,7 +30451,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit4917:  ; preds = %cleanup8.i, %_ZN9__
 
 cleanup.cont10.i:                                 ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit4917
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_sizes.i, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer16GetListViewSizesINS_13ListViewArrayEiEENS_6StatusERKT_PSt10shared_ptrINS_6BufferEE.argprom(ptr noalias align 8 %ref.tmp13.i, ptr noundef nonnull align 8 dereferenceable(72) %array.tr, ptr noundef %value_sizes.i)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer16GetListViewSizesINS_13ListViewArrayEiEENS_6StatusERKT_PSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp13.i, ptr noundef nonnull align 8 dereferenceable(72) %array.tr, ptr noundef %value_sizes.i)
           to label %invoke.cont15.i4197 unwind label %lpad14.i
 
 invoke.cont15.i4197:                              ; preds = %cleanup.cont10.i
@@ -31394,7 +31394,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit5110:  ; preds = %cleanup8.i4221, %_Z
 
 cleanup.cont10.i4223:                             ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit5110
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_sizes.i4212, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer16GetListViewSizesINS_18LargeListViewArrayElEENS_6StatusERKT_PSt10shared_ptrINS_6BufferEE.argprom(ptr noalias align 8 %ref.tmp13.i4213, ptr noundef nonnull align 8 dereferenceable(72) %array.tr, ptr noundef %value_sizes.i4212)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer16GetListViewSizesINS_18LargeListViewArrayElEENS_6StatusERKT_PSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp13.i4213, ptr noundef nonnull align 8 dereferenceable(72) %array.tr, ptr noundef %value_sizes.i4212)
           to label %invoke.cont15.i4225 unwind label %lpad14.i4224
 
 invoke.cont15.i4225:                              ; preds = %cleanup.cont10.i4223
@@ -32670,7 +32670,7 @@ if.else.i.i.i.i.i6174:                            ; preds = %if.then.i.i.i6169
   br label %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit:  ; preds = %sw.bb76, %if.then.i.i.i.i.i6172, %if.else.i.i.i.i.i6174
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118GetTruncatedBufferElliSt10shared_ptrINS_6BufferEEPNS_10MemoryPoolEPS4_.argprom(ptr noalias align 8 %ref.tmp.i4304, i64 noundef %2590, i64 noundef %2591, i32 noundef 1, ptr noundef %agg.tmp.i4305, ptr noundef %type_codes.i)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118GetTruncatedBufferElliSt10shared_ptrINS_6BufferEEPNS_10MemoryPoolEPS4_(ptr noalias align 8 %ref.tmp.i4304, i64 noundef %2590, i64 noundef %2591, i32 noundef 1, ptr noundef %agg.tmp.i4305, ptr noundef %type_codes.i)
           to label %_ZN5arrow6StatusD2Ev.exit6165 unwind label %lpad4.i4309, !noalias !1014
 
 _ZN5arrow6StatusD2Ev.exit6165:                    ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit
@@ -33075,7 +33075,7 @@ if.else.i.i.i.i.i6524:                            ; preds = %if.then.i.i.i6519
 
 _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit6525: ; preds = %sw.bb78, %if.then.i.i.i.i.i6522, %if.else.i.i.i.i.i6524
   %options_.i4336 = getelementptr inbounds i8, ptr %visitor, i64 104
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118GetTruncatedBufferElliSt10shared_ptrINS_6BufferEEPNS_10MemoryPoolEPS4_.argprom(ptr noalias align 8 %ref.tmp.i4330, i64 noundef %2647, i64 noundef %2648, i32 noundef 1, ptr noundef %agg.tmp.i4331, ptr noundef %type_codes.i4329)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118GetTruncatedBufferElliSt10shared_ptrINS_6BufferEEPNS_10MemoryPoolEPS4_(ptr noalias align 8 %ref.tmp.i4330, i64 noundef %2647, i64 noundef %2648, i32 noundef 1, ptr noundef %agg.tmp.i4331, ptr noundef %type_codes.i4329)
           to label %_ZN5arrow6StatusD2Ev.exit6515 unwind label %lpad.i4337, !noalias !1027
 
 _ZN5arrow6StatusD2Ev.exit6515:                    ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit6525
@@ -33215,7 +33215,7 @@ if.else.i.i.i.i.i6440:                            ; preds = %if.then.i.i.i6435
   br label %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit6441
 
 _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit6441: ; preds = %invoke.cont11.i, %if.then.i.i.i.i.i6438, %if.else.i.i.i.i.i6440
-  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118GetTruncatedBufferElliSt10shared_ptrINS_6BufferEEPNS_10MemoryPoolEPS4_.argprom(ptr noalias align 8 %ref.tmp19.i, i64 noundef %2647, i64 noundef %2648, i32 noundef 4, ptr noundef %agg.tmp20.i, ptr noundef %value_offsets.i4332)
+  invoke fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118GetTruncatedBufferElliSt10shared_ptrINS_6BufferEEPNS_10MemoryPoolEPS4_(ptr noalias align 8 %ref.tmp19.i, i64 noundef %2647, i64 noundef %2648, i32 noundef 4, ptr noundef %agg.tmp20.i, ptr noundef %value_offsets.i4332)
           to label %invoke.cont27.i4349 unwind label %lpad26.i
 
 invoke.cont27.i4349:                              ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit6441
@@ -34051,7 +34051,7 @@ sw.epilog:                                        ; preds = %tailrecurse
   tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 10, ptr noundef nonnull align 1 dereferenceable(21) @.str.10)
   br label %return
 
-return:                                           ; preds = %sw.epilog, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_18RunEndEncodedArrayE.exit, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit6211, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit5980, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_11StructArrayE.exit, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit5461, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_18LargeListViewArrayEEENSt9enable_ifIXsr17is_list_view_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_13ListViewArrayEEENSt9enable_ifIXsr17is_list_view_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit4569, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_15Decimal256ArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_15Decimal128ArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_20DayTimeIntervalArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_17MonthIntervalTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_25MonthDayNanoIntervalArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Time64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Time32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_13TimestampTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Date64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Date32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_12DurationTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_20FixedSizeBinaryArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_16LargeBinaryArrayEEENSt9enable_ifIXsr19is_base_binary_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_16LargeStringArrayEEENSt9enable_ifIXsr19is_base_binary_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %sw.bb32, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_11BinaryArrayEEENSt9enable_ifIXsr19is_base_binary_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %sw.bb28, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_11StringArrayEEENSt9enable_ifIXsr19is_base_binary_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10DoubleTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9FloatTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_13HalfFloatTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10UInt64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9Int64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10UInt32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9Int32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10UInt16TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9Int16TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9UInt8TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_8Int8TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.argprom.exit, %sw.bb
+return:                                           ; preds = %sw.epilog, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_18RunEndEncodedArrayE.exit, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit6211, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit5980, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_11StructArrayE.exit, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit5461, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_18LargeListViewArrayEEENSt9enable_ifIXsr17is_list_view_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_13ListViewArrayEEENSt9enable_ifIXsr17is_list_view_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit4569, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_15Decimal256ArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_15Decimal128ArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_20DayTimeIntervalArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_17MonthIntervalTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_25MonthDayNanoIntervalArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Time64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Time32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_13TimestampTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Date64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10Date32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_12DurationTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_20FixedSizeBinaryArrayEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS7_EE5valuesr25is_fixed_size_binary_typeIS7_EE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_16LargeBinaryArrayEEENSt9enable_ifIXsr19is_base_binary_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_16LargeStringArrayEEENSt9enable_ifIXsr19is_base_binary_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %sw.bb32, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_11BinaryArrayEEENSt9enable_ifIXsr19is_base_binary_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %sw.bb28, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_11StringArrayEEENSt9enable_ifIXsr19is_base_binary_typeINT_9TypeClassEEE5valueENS_6StatusEE4typeERKS6_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10DoubleTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9FloatTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_13HalfFloatTypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10UInt64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9Int64TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10UInt32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9Int32TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_10UInt16TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9Int16TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_9UInt8TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitINS_12NumericArrayINS_8Int8TypeEEEEENSt9enable_ifIXoooosr14is_number_typeINT_9TypeClassEEE5valuesr16is_temporal_typeIS9_EE5valuesr25is_fixed_size_binary_typeIS9_EE5valueENS_6StatusEE4typeERKS8_.exit, %_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.exit, %sw.bb
   ret void
 }
 
@@ -35294,7 +35294,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE12emplace_backIJS3_EEERS3_Dp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer16GetListViewSizesINS_13ListViewArrayEiEENS_6StatusERKT_PSt10shared_ptrINS_6BufferEE.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %array, ptr nocapture noundef nonnull %out_value_sizes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer16GetListViewSizesINS_13ListViewArrayEiEENS_6StatusERKT_PSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %array, ptr nocapture noundef nonnull %out_value_sizes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sizes = alloca %"class.std::shared_ptr", align 8
   %data_.i = getelementptr inbounds i8, ptr %array, i64 8
@@ -35613,7 +35613,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit84:    ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer16GetListViewSizesINS_18LargeListViewArrayElEENS_6StatusERKT_PSt10shared_ptrINS_6BufferEE.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %array, ptr nocapture noundef nonnull %out_value_sizes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer16GetListViewSizesINS_18LargeListViewArrayElEENS_6StatusERKT_PSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %array, ptr nocapture noundef nonnull %out_value_sizes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sizes = alloca %"class.std::shared_ptr", align 8
   %data_.i = getelementptr inbounds i8, ptr %array, i64 8
@@ -35938,7 +35938,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow18FixedSizeLi
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow11StructArray5fieldEi(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118GetTruncatedBufferElliSt10shared_ptrINS_6BufferEEPNS_10MemoryPoolEPS4_.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 noundef %offset, i64 noundef %length, i32 noundef range(i32 1, 5) %byte_width, ptr noundef nonnull %input, ptr nocapture noundef nonnull %buffer) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118GetTruncatedBufferElliSt10shared_ptrINS_6BufferEEPNS_10MemoryPoolEPS4_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 noundef %offset, i64 noundef %length, i32 noundef range(i32 1, 5) %byte_width, ptr noundef nonnull %input, ptr nocapture noundef nonnull %buffer) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %input, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -36608,7 +36608,7 @@ declare void @_ZN5arrow3ipc8internal25CheckCompressionSupportedENS_11Compression
 declare noundef ptr @_ZN5arrow8internal16GetCpuThreadPoolEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvENKUlmE_clEm.argprom(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture readonly %this.0.val, i64 noundef range(i64 -2147483648, 2147483648) %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvENKUlmE_clEm(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture readonly %this.0.val, i64 noundef range(i64 -2147483648, 2147483648) %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result.396", align 8
   %result.i = alloca %"class.std::unique_ptr.400", align 8
@@ -36808,9 +36808,9 @@ invoke.cont37.i:                                  ; preds = %invoke.cont22.i
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 48
   %43 = load i8, ptr %_M_engaged.i.i.i.i, align 8, !noalias !1123
   %tobool.i.i.i.i = trunc i8 %43 to i1
-  br i1 %tobool.i.i.i.i, label %_ZNK5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer14ShouldCompressEll.argprom.exit.i, label %do.body77.i
+  br i1 %tobool.i.i.i.i, label %_ZNK5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer14ShouldCompressEll.exit.i, label %do.body77.i
 
-_ZNK5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer14ShouldCompressEll.argprom.exit.i: ; preds = %invoke.cont37.i
+_ZNK5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer14ShouldCompressEll.exit.i: ; preds = %invoke.cont37.i
   %min_space_savings.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 40
   %conv.i.i = sitofp i64 %41 to double
   %conv8.i.i = sitofp i64 %42 to double
@@ -36820,7 +36820,7 @@ _ZNK5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer14ShouldCompressEll.argprom.e
   %cmp.i66.i = fcmp ult double %sub.i.i, %44
   br i1 %cmp.i66.i, label %if.then42.i, label %do.body77.i
 
-if.then42.i:                                      ; preds = %_ZNK5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer14ShouldCompressEll.argprom.exit.i
+if.then42.i:                                      ; preds = %_ZNK5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer14ShouldCompressEll.exit.i
   %cmp.i = icmp slt i64 %42, %41
   %cmp45.i = icmp sgt i64 %42, %call3.i
   %or.cond.i = or i1 %cmp.i, %cmp45.i
@@ -36889,7 +36889,7 @@ if.end68.i:                                       ; preds = %if.then.i.i, %_ZN5a
   %62 = load i64, ptr %size_.i, align 8, !noalias !1123
   br label %if.end102.i
 
-do.body77.i:                                      ; preds = %_ZNK5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer14ShouldCompressEll.argprom.exit.i, %invoke.cont37.i
+do.body77.i:                                      ; preds = %_ZNK5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer14ShouldCompressEll.exit.i, %invoke.cont37.i
   %63 = load ptr, ptr %result.i, align 8, !noalias !1123
   %add81.i = add i64 %41, 8
   %vtable82.i = load ptr, ptr %63, align 8, !noalias !1123
@@ -37706,10 +37706,10 @@ _ZNSt10shared_ptrIN5arrow14StopSourceImplEED2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom(ptr %this.32.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev(ptr %this.32.val) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %this.32.val, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit, label %if.then.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.32.val, i64 8
@@ -37745,7 +37745,7 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %1, %if.then.i.i.i.i.i.i.i.i.i ], [ %4, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i, label %_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.32.val, align 8
@@ -37770,16 +37770,16 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i, label %_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.32.val, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.32.val) #22
-  br label %_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit
+  br label %_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit
 
-_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
+_ZNSt5tupleIJN5arrow6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i
   ret void
 }
 
@@ -38263,7 +38263,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 40
   %fn_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %fn_.val, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit, label %if.then.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %entry
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fn_.val, i64 8
@@ -38299,7 +38299,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %5, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit
+  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %fn_.val, align 8
@@ -38324,16 +38324,16 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %fn_.val, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %fn_.val) #22
-  br label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit
+  br label %_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit
 
-_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i
+_ZNSt5_BindIFN5arrow6detail14ContinueFutureENS0_6FutureINS0_8internal5EmptyEEEZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_iEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i
   ret void
 }
 
@@ -38458,7 +38458,7 @@ _ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i.i.i.i: ; preds = %if.else.i
   %__args3.val.i.i.i.i = load i32, ptr %_M_bound_args.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   %conv.i.i.i.i.i = sext i32 %__args3.val.i.i.i.i to i64
-  invoke fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvENKUlmE_clEm.argprom(ptr noalias align 8 %agg.tmp.i.i.i.i.i, ptr readonly %__args1.val.i.i.i.i, i64 noundef %conv.i.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvENKUlmE_clEm(ptr noalias align 8 %agg.tmp.i.i.i.i.i, ptr readonly %__args1.val.i.i.i.i, i64 noundef %conv.i.i.i.i.i)
           to label %.noexc.i.i.i.i unwind label %lpad.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %_ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i.i.i.i
@@ -39390,7 +39390,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %fn_.val = load ptr, ptr %0, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %fn_.val, null
-  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit", label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %fn_.val, i64 12
@@ -39411,16 +39411,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i.i ], [ %3, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit"
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit"
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %fn_.val, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %fn_.val) #22
-  br label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit"
+  br label %"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit"
 
-"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.argprom.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZZN5arrow8internal8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_EN3$_0D2Ev.exit": ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   ret void
 }
 
@@ -45794,8 +45794,8 @@ attributes #26 = { noreturn }
 !64 = !{!60, !57, !45, !42, !32}
 !65 = !{!57, !45, !42, !32}
 !66 = !{!67, !57, !45, !42, !32}
-!67 = distinct !{!67, !68, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_.argprom: %agg.result"}
-!68 = distinct !{!68, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_.argprom"}
+!67 = distinct !{!67, !68, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_: %agg.result"}
+!68 = distinct !{!68, !"_ZSt4bindIN5arrow6detail14ContinueFutureEJRNS0_6FutureINS0_8internal5EmptyEEERZNS0_3ipc12_GLOBAL__N_121RecordBatchSerializer19CompressBodyBuffersEvEUlmE_RiEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESF_JDpT0_EE4typeEOSF_DpOSG_"}
 !69 = !{!70}
 !70 = distinct !{!70, !71, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !71 = distinct !{!71, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
@@ -46148,11 +46148,11 @@ attributes #26 = { noreturn }
 !418 = !{!419, !421}
 !419 = distinct !{!419, !420, !"_ZN5arrow6Status2OKEv: %agg.result"}
 !420 = distinct !{!420, !"_ZN5arrow6Status2OKEv"}
-!421 = distinct !{!421, !422, !"_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_9NullArrayE.argprom: %agg.result"}
-!422 = distinct !{!422, !"_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_9NullArrayE.argprom"}
+!421 = distinct !{!421, !422, !"_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_9NullArrayE: %agg.result"}
+!422 = distinct !{!422, !"_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_9NullArrayE"}
 !423 = !{!424}
-!424 = distinct !{!424, !425, !"_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.argprom: %agg.result"}
-!425 = distinct !{!425, !"_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE.argprom"}
+!424 = distinct !{!424, !425, !"_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE: %agg.result"}
+!425 = distinct !{!425, !"_ZN5arrow3ipc12_GLOBAL__N_121RecordBatchSerializer5VisitERKNS_12BooleanArrayE"}
 !426 = !{!427}
 !427 = distinct !{!427, !428, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: %agg.result"}
 !428 = distinct !{!428, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}

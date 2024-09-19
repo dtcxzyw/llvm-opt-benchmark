@@ -3870,7 +3870,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 if.end.i.i.i:                                     ; preds = %for.body.i
   switch i32 %agg.tmp.sroa.0.0.copyload.i, label %for.inc.i [
-    i32 2, label %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.argprom.exit.i"
+    i32 2, label %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i"
     i32 3, label %sw.bb8.i.i.i
     i32 4, label %sw.bb12.i.i.i
     i32 5, label %sw.bb12.i.i.i
@@ -3885,20 +3885,20 @@ sw.bb12.i.i.i:                                    ; preds = %if.end.i.i.i, %if.e
   %cmp15.i.i.i = icmp eq i64 %agg.tmp.sroa.22.0.copyload.i, %agg.tmp4.sroa.21.0.copyload.i
   br i1 %cmp15.i.i.i, label %for.inc.i, label %return
 
-"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.argprom.exit.i": ; preds = %if.end.i.i.i
+"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i": ; preds = %if.end.i.i.i
   %11 = xor i64 %agg.tmp4.sroa.21.0.copyload.i, %agg.tmp.sroa.22.0.copyload.i
   %12 = and i64 %11, 1
   %cmp7.i.i.i = icmp eq i64 %12, 0
   br i1 %cmp7.i.i.i, label %for.inc.i, label %return
 
-for.inc.i:                                        ; preds = %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.argprom.exit.i", %sw.bb12.i.i.i, %sw.bb8.i.i.i, %if.end.i.i.i
+for.inc.i:                                        ; preds = %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i", %sw.bb12.i.i.i, %sw.bb8.i.i.i, %if.end.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.011.i, i64 16
   %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %__first2.sroa.0.012.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %7
   br i1 %cmp.i.not.i, label %return, label %for.body.i, !llvm.loop !20
 
-return:                                           ; preds = %for.inc.i, %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.argprom.exit.i", %sw.bb12.i.i.i, %sw.bb8.i.i.i, %for.body.i, %land.rhs, %dynamic_cast.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %dynamic_cast.end ], [ true, %land.rhs ], [ false, %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.argprom.exit.i" ], [ true, %for.inc.i ], [ false, %sw.bb12.i.i.i ], [ false, %sw.bb8.i.i.i ], [ false, %for.body.i ]
+return:                                           ; preds = %for.inc.i, %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i", %sw.bb12.i.i.i, %sw.bb8.i.i.i, %for.body.i, %land.rhs, %dynamic_cast.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ false, %dynamic_cast.end ], [ true, %land.rhs ], [ false, %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i" ], [ true, %for.inc.i ], [ false, %sw.bb12.i.i.i ], [ false, %sw.bb8.i.i.i ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 

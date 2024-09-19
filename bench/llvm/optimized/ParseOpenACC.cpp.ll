@@ -393,7 +393,7 @@ define dso_local range(i64 4, 1) i64 @_ZN5clang6Parser18ParseOpenACCClauseEN4llv
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.2.0.copyload = load i16, ptr %.sroa.2.0..sroa_idx, align 8
-  switch i16 %.sroa.2.0.copyload, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit [
+  switch i16 %.sroa.2.0.copyload, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit [
     i16 77, label %select.unfold
     i16 83, label %.fold.split.i
     i16 92, label %.fold.split1294.i
@@ -492,7 +492,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i93.i:          ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i101.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i45.i
   %bcmp.i.i102.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %12, ptr noundef nonnull dereferenceable(17) @.str.23, i64 17)
   %27 = icmp eq i32 %bcmp.i.i102.i, 0
-  br i1 %27, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %27, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i109.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i93.i
   %bcmp.i.i110.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %12, ptr noundef nonnull dereferenceable(7) @.str.24, i64 7)
@@ -507,7 +507,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i117.i:         ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i125.i:         ; preds = %9
   %bcmp.i.i126.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %12, ptr noundef nonnull dereferenceable(18) @.str.26, i64 18)
   %30 = icmp eq i32 %bcmp.i.i126.i, 0
-  br i1 %30, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %30, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i133.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i109.i
   %bcmp.i.i134.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %12, ptr noundef nonnull dereferenceable(7) @.str.27, i64 7)
@@ -542,7 +542,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i173.i:         ; preds = %9
 _ZN4llvmeqENS_9StringRefES0_.exit.i181.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i77.i
   %bcmp.i.i182.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %12, ptr noundef nonnull dereferenceable(15) @.str.33, i64 15)
   %37 = icmp eq i32 %bcmp.i.i182.i, 0
-  br i1 %37, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %37, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i189.i:         ; preds = %9
   %bcmp.i.i190.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %12, ptr noundef nonnull dereferenceable(11) @.str.34, i64 11)
@@ -557,17 +557,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i197.i:         ; preds = %9
 _ZN4llvmeqENS_9StringRefES0_.exit.i205.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i69.i
   %bcmp.i.i206.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %12, ptr noundef nonnull dereferenceable(5) @.str.36, i64 5)
   %40 = icmp eq i32 %bcmp.i.i206.i, 0
-  br i1 %40, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %40, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i213.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i117.i
   %bcmp.i.i214.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %12, ptr noundef nonnull dereferenceable(8) @.str.37, i64 8)
   %41 = icmp eq i32 %bcmp.i.i214.i, 0
-  br i1 %41, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %41, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i221.i:         ; preds = %9
   %bcmp.i.i222.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %12, ptr noundef nonnull dereferenceable(12) @.str.38, i64 12)
   %42 = icmp eq i32 %bcmp.i.i222.i, 0
-  br i1 %42, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %42, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i229.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i61.i
   %bcmp.i.i230.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %12, ptr noundef nonnull dereferenceable(4) @.str.39, i64 4)
@@ -587,7 +587,7 @@ _ZN4llvm12StringSwitchIN5clang17OpenACCClauseKindES2_E4CaseENS_13StringLiteralES
 _ZN4llvmeqENS_9StringRefES0_.exit.i245.i:         ; preds = %_ZN4llvm12StringSwitchIN5clang17OpenACCClauseKindES2_E4CaseENS_13StringLiteralES2_.exit240.i
   %bcmp.i.i246.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %12, ptr noundef nonnull dereferenceable(2) @.str.41, i64 2)
   %46 = icmp eq i32 %bcmp.i.i246.i, 0
-  br i1 %46, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %46, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i253.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i173.i
   %bcmp.i.i254.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %12, ptr noundef nonnull dereferenceable(10) @.str.42, i64 10)
@@ -617,10 +617,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i285.i:         ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i293.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i261.i
   %bcmp.i.i294.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %12, ptr noundef nonnull dereferenceable(11) @.str.47, i64 11)
   %52 = icmp eq i32 %bcmp.i.i294.i, 0
-  br i1 %52, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %52, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvm12StringSwitchIN5clang17OpenACCClauseKindES2_E4CaseENS_13StringLiteralES2_.exit288.thread788.i: ; preds = %_ZN4llvm12StringSwitchIN5clang17OpenACCClauseKindES2_E4CaseENS_13StringLiteralES2_.exit240.i
-  switch i32 %trunc.i, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit [
+  switch i32 %trunc.i, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit [
     i32 13, label %_ZN4llvmeqENS_9StringRefES0_.exit.i373.i
     i32 3, label %_ZN4llvmeqENS_9StringRefES0_.exit.i341.i
     i32 10, label %_ZN4llvmeqENS_9StringRefES0_.exit.i357.i
@@ -639,12 +639,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i309.i:         ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i317.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i309.i
   %bcmp.i.i318.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %12, ptr noundef nonnull dereferenceable(7) @.str.50, i64 7)
   %55 = icmp eq i32 %bcmp.i.i318.i, 0
-  br i1 %55, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %55, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i325.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i285.i
   %bcmp.i.i326.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %12, ptr noundef nonnull dereferenceable(9) @.str.51, i64 9)
   %56 = icmp eq i32 %bcmp.i.i326.i, 0
-  br i1 %56, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %56, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i333.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i269.i
   %bcmp.i.i334.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %12, ptr noundef nonnull dereferenceable(4) @.str.52, i64 4)
@@ -654,7 +654,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i333.i:         ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i341.i:         ; preds = %_ZN4llvm12StringSwitchIN5clang17OpenACCClauseKindES2_E4CaseENS_13StringLiteralES2_.exit288.thread788.i
   %bcmp.i.i342.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %12, ptr noundef nonnull dereferenceable(3) @.str.53, i64 3)
   %58 = icmp eq i32 %bcmp.i.i342.i, 0
-  br i1 %58, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %58, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i349.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i333.i
   %bcmp.i.i350.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %12, ptr noundef nonnull dereferenceable(4) @.str.54, i64 4)
@@ -664,7 +664,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i349.i:         ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i357.i:         ; preds = %_ZN4llvm12StringSwitchIN5clang17OpenACCClauseKindES2_E4CaseENS_13StringLiteralES2_.exit288.thread788.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i253.i
   %bcmp.i.i358.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %12, ptr noundef nonnull dereferenceable(10) @.str.55, i64 10)
   %60 = icmp eq i32 %bcmp.i.i358.i, 0
-  br i1 %60, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %60, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i365.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i301.i
   %bcmp.i.i366.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %12, ptr noundef nonnull dereferenceable(6) @.str.56, i64 6)
@@ -674,17 +674,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i365.i:         ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i373.i:         ; preds = %_ZN4llvm12StringSwitchIN5clang17OpenACCClauseKindES2_E4CaseENS_13StringLiteralES2_.exit288.thread788.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i141.i
   %bcmp.i.i374.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %12, ptr noundef nonnull dereferenceable(13) @.str.57, i64 13)
   %62 = icmp eq i32 %bcmp.i.i374.i, 0
-  br i1 %62, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %62, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i381.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i349.i
   %bcmp.i.i382.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %12, ptr noundef nonnull dereferenceable(4) @.str.58, i64 4)
   %63 = icmp eq i32 %bcmp.i.i382.i, 0
-  br i1 %63, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %63, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i389.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i365.i
   %bcmp.i.i390.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %12, ptr noundef nonnull dereferenceable(6) @.str.59, i64 6)
   %64 = icmp eq i32 %bcmp.i.i390.i, 0
-  br i1 %64, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+  br i1 %64, label %select.unfold, label %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
 
 .fold.split.i:                                    ; preds = %7
   br label %select.unfold
@@ -695,19 +695,19 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i389.i:         ; preds = %_ZN4llvmeqENS_9Stri
 .fold.split1295.i:                                ; preds = %7
   br label %select.unfold
 
-_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit: ; preds = %7, %_ZN4llvmeqENS_9StringRefES0_.exit.i101.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i125.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i181.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i205.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i213.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i221.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i245.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i293.i, %_ZN4llvm12StringSwitchIN5clang17OpenACCClauseKindES2_E4CaseENS_13StringLiteralES2_.exit288.thread788.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i317.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i325.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i341.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i357.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i373.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i381.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i389.i
+_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit: ; preds = %7, %_ZN4llvmeqENS_9StringRefES0_.exit.i101.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i125.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i181.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i205.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i213.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i221.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i245.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i293.i, %_ZN4llvm12StringSwitchIN5clang17OpenACCClauseKindES2_E4CaseENS_13StringLiteralES2_.exit288.thread788.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i317.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i325.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i341.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i357.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i373.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i381.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i389.i
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %5, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %8, i32 noundef 1423) #13
   %65 = load i16, ptr %.sroa.2.0..sroa_idx, align 8
   %switch.tableidx = add i16 %65, -1
   %66 = icmp ult i16 %switch.tableidx, 19
   br i1 %66, label %switch.hole_check, label %67
 
-67:                                               ; preds = %switch.hole_check, %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+67:                                               ; preds = %switch.hole_check, %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
   %68 = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   %69 = ptrtoint ptr %68 to i64
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit
 
-switch.hole_check:                                ; preds = %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.argprom.exit
+switch.hole_check:                                ; preds = %_ZN12_GLOBAL__N_120getOpenACCClauseKindEN5clang5TokenE.exit
   %switch.maskindex = zext nneg i16 %switch.tableidx to i32
   %switch.shifted = lshr i32 524225, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
@@ -1106,29 +1106,29 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125expectIdentifierOr
 
 5:                                                ; preds = %1
   %6 = tail call noundef zeroext i1 @_ZN5clang3tok12isAnnotationENS0_9TokenKindE(i16 noundef zeroext %.sroa.39.0.copyload) #13
-  br i1 %6, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit, label %7
+  br i1 %6, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit, label %7
 
 7:                                                ; preds = %5
   switch i16 %.sroa.39.0.copyload, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i [
-    i16 13, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 12, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 11, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 10, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 9, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 7, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 18, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 17, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 15, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 14, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 19, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 16, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 8, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
-    i16 1, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
+    i16 13, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 12, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 11, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 10, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 9, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 7, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 18, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 17, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 15, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 14, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 19, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 16, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 8, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
+    i16 1, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
   ]
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %7
   %.not.i = icmp eq ptr %.sroa.28.0.copyload, null
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit3.i:    ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1136,23 +1136,23 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit3.i:    ; preds = %_ZNK5clang5Token17g
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 @_ZNK5clang14IdentifierInfo9isKeywordERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.0.copyload, ptr noundef nonnull align 8 dereferenceable(841) %11) #13
-  br i1 %12, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
+  br i1 %12, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
 
-_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %5
+_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %5
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %2, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %3, i32 noundef 15) #13
   %13 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit
 
-_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
+_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %15)
   store ptr %16, ptr %2, align 8
   br label %_ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit
 
-_ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit: ; preds = %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
-  %17 = phi ptr [ %16, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %13, %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit ]
+_ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit: ; preds = %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
+  %17 = phi ptr [ %16, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %13, %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %19 = load i8, ptr %17, align 8
   %20 = zext i8 %19 to i64
@@ -1375,8 +1375,8 @@ define dso_local noundef zeroext i1 @_ZN5clang6Parser19ParseOpenACCGangArgENS_14
   %.sroa.149.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.250.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.250.0.copyload = load i16, ptr %.sroa.250.0..sroa_idx, align 8
-  switch i16 %.sroa.250.0.copyload, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread [
-    i16 103, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread53
+  switch i16 %.sroa.250.0.copyload, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread [
+    i16 103, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread53
     i16 5, label %6
   ]
 
@@ -1387,15 +1387,15 @@ define dso_local noundef zeroext i1 @_ZN5clang6Parser19ParseOpenACCGangArgENS_14
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
   %11 = icmp eq i64 %10, 6
-  br i1 %11, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.thread
+  br i1 %11, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.thread
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit: ; preds = %6
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit: ; preds = %6
   %12 = getelementptr inbounds i8, ptr %8, i64 16
   %bcmp.i29.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %12, ptr noundef nonnull dereferenceable(6) @.str.9, i64 6)
   %13 = icmp eq i32 %bcmp.i29.i, 0
-  br i1 %13, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread53, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.thread
+  br i1 %13, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread53, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.thread
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread53: ; preds = %2, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread53: ; preds = %2, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2928
@@ -1405,13 +1405,13 @@ _ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5To
   %20 = icmp ult i64 %17, %19
   br i1 %20, label %21, label %25
 
-21:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread53
+21:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread53
   %22 = load i64, ptr %16, align 8
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr %"class.clang::Token", ptr %23, i64 %22
   br label %_ZN5clang6Parser9NextTokenEv.exit
 
-25:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread53
+25:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread53
   %26 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %15, i32 noundef 1) #13
   br label %_ZN5clang6Parser9NextTokenEv.exit
 
@@ -1420,7 +1420,7 @@ _ZN5clang6Parser9NextTokenEv.exit:                ; preds = %21, %25
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %28 = load i16, ptr %27, align 8
   %29 = icmp eq i16 %28, 62
-  br i1 %29, label %30, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread
+  br i1 %29, label %30, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread
 
 30:                                               ; preds = %_ZN5clang6Parser9NextTokenEv.exit
   %31 = load i32, ptr %5, align 8
@@ -1435,27 +1435,27 @@ _ZN5clang6Parser9NextTokenEv.exit:                ; preds = %21, %25
   %36 = tail call noundef zeroext i1 @_ZN5clang6Parser20ParseOpenACCSizeExprEv(ptr noundef nonnull align 8 dereferenceable(2936) %0)
   br label %133
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread: ; preds = %_ZN5clang6Parser9NextTokenEv.exit
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread: ; preds = %_ZN5clang6Parser9NextTokenEv.exit
   %.sroa.246.0.copyload.pre = load i16, ptr %.sroa.250.0..sroa_idx, align 8
   %37 = icmp eq i16 %.sroa.246.0.copyload.pre, 5
-  br i1 %37, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.thread, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br i1 %37, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.thread, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.thread: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit, %6, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.thread: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit, %6, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread
   %.sroa.145.0.copyload = load ptr, ptr %.sroa.149.0..sroa_idx, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.145.0.copyload, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 4294967295
   %42 = icmp eq i64 %41, 3
-  br i1 %42, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23.thread.thread
+  br i1 %42, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23.thread.thread
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.thread
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.thread
   %43 = getelementptr inbounds i8, ptr %39, i64 16
   %bcmp.i25.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %43, ptr noundef nonnull dereferenceable(3) @.str.8, i64 3)
   %44 = icmp eq i32 %bcmp.i25.i, 0
-  br i1 %44, label %45, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23.thread.thread
+  br i1 %44, label %45, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23.thread.thread
 
-45:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23
+45:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 2928
@@ -1480,7 +1480,7 @@ _ZN5clang6Parser9NextTokenEv.exit25:              ; preds = %53, %57
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i24, i64 16
   %60 = load i16, ptr %59, align 8
   %61 = icmp eq i16 %60, 62
-  br i1 %61, label %62, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23.thread
+  br i1 %61, label %62, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23.thread
 
 62:                                               ; preds = %_ZN5clang6Parser9NextTokenEv.exit25
   %63 = load i32, ptr %5, align 8
@@ -1522,27 +1522,27 @@ _ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClau
   %84 = icmp eq i64 %.sroa.014.0.i, 1
   br label %133
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23.thread: ; preds = %_ZN5clang6Parser9NextTokenEv.exit25
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23.thread: ; preds = %_ZN5clang6Parser9NextTokenEv.exit25
   %.sroa.241.0.copyload.pr.pre = load i16, ptr %.sroa.250.0..sroa_idx, align 8
   %85 = icmp eq i16 %.sroa.241.0.copyload.pr.pre, 5
-  br i1 %85, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23.thread.thread, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br i1 %85, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23.thread.thread, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23.thread.thread: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.thread, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23.thread
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23.thread.thread: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.thread, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23.thread
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.149.0..sroa_idx, align 8
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 16
   %87 = load ptr, ptr %86, align 8
   %88 = load i64, ptr %87, align 8
   %89 = and i64 %88, 4294967295
   %90 = icmp eq i64 %89, 3
-  br i1 %90, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br i1 %90, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23.thread.thread
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23.thread.thread
   %91 = getelementptr inbounds i8, ptr %87, i64 16
   %bcmp.i18.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %91, ptr noundef nonnull dereferenceable(3) @.str.6, i64 3)
   %92 = icmp eq i32 %bcmp.i18.i, 0
-  br i1 %92, label %93, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br i1 %92, label %93, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
-93:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29
+93:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 2928
@@ -1567,7 +1567,7 @@ _ZN5clang6Parser9NextTokenEv.exit31:              ; preds = %101, %105
   %107 = getelementptr inbounds nuw i8, ptr %.0.i.i30, i64 16
   %108 = load i16, ptr %107, align 8
   %109 = icmp eq i16 %108, 62
-  br i1 %109, label %110, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br i1 %109, label %110, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
 110:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit31
   %111 = load i32, ptr %5, align 8
@@ -1579,15 +1579,15 @@ _ZN5clang6Parser9NextTokenEv.exit31:              ; preds = %101, %105
   store i32 %114, ptr %112, align 8
   %115 = load ptr, ptr %94, align 8
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %115, ptr noundef nonnull align 8 dereferenceable(20) %5) #13
-  br label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread: ; preds = %2, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23.thread.thread, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit23.thread, %110, %_ZN5clang6Parser9NextTokenEv.exit31, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread: ; preds = %2, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23.thread.thread, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit23.thread, %110, %_ZN5clang6Parser9NextTokenEv.exit31, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %116 = tail call i64 @_ZN5clang6Parser25ParseAssignmentExpressionENS0_13TypeCastStateE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 0) #13
   %117 = icmp ugt i64 %116, 1
   br i1 %117, label %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i38, label %_ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit39
 
-_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i38: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i38: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %119 = load ptr, ptr %118, align 8
   %120 = ptrtoint ptr %3 to i64
@@ -1606,8 +1606,8 @@ _ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_
   %131 = call i64 @_ZN5clang11SemaOpenACC12ActOnIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(73) %128, i32 noundef 20, i32 noundef 48, i32 %1, ptr noundef %130) #13
   br label %_ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit39
 
-_ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit39: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i38, %125
-  %.sroa.014.0.i34 = phi i64 [ %131, %125 ], [ %116, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread ], [ %123, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i38 ]
+_ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClauseKindENS_14SourceLocationE.exit39: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i38, %125
+  %.sroa.014.0.i34 = phi i64 [ %131, %125 ], [ %116, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread ], [ %123, %_ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_7VarDeclEbN4llvm12function_refIFS4_S3_EEE.exit.i38 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %132 = icmp eq i64 %.sroa.014.0.i34, 1
   br label %133
@@ -1618,7 +1618,7 @@ _ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClau
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom(i32 noundef range(i32 0, 9) %0, ptr nocapture readonly %.8.val, i16 %.16.val) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE(i32 noundef range(i32 0, 9) %0, ptr nocapture readonly %.8.val, i16 %.16.val) unnamed_addr #5 {
   %2 = icmp eq i16 %.16.val, 103
   %3 = icmp eq i32 %0, 8
   %or.cond = and i1 %3, %2
@@ -2054,7 +2054,7 @@ _ZN12_GLOBAL__N_123ClauseHasRequiredParensEN5clang20OpenACCDirectiveKindENS0_17O
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.2116.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
   %.sroa.2116.0.copyload = load i16, ptr %.sroa.2116.0..sroa_idx, align 8
-  %66 = call fastcc noundef i32 @_ZN12_GLOBAL__N_127getOpenACCDefaultClauseKindEN5clang5TokenE.argprom(ptr %.sroa.1.0.copyload, i16 %.sroa.2116.0.copyload)
+  %66 = call fastcc noundef i32 @_ZN12_GLOBAL__N_127getOpenACCDefaultClauseKindEN5clang5TokenE(ptr %.sroa.1.0.copyload, i16 %.sroa.2116.0.copyload)
   %67 = icmp eq i32 %66, 2
   br i1 %67, label %68, label %69
 
@@ -2672,7 +2672,7 @@ declare noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker16expectAndConsum
 declare void @_ZN5clang24BalancedDelimiterTracker9skipToEndEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_127getOpenACCDefaultClauseKindEN5clang5TokenE.argprom(ptr nocapture readonly %.8.val, i16 %.16.val) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_127getOpenACCDefaultClauseKindEN5clang5TokenE(ptr nocapture readonly %.8.val, i16 %.16.val) unnamed_addr #5 {
   %1 = icmp eq i16 %.16.val, 5
   br i1 %1, label %2, label %_ZN4llvm12StringSwitchIN5clang24OpenACCDefaultClauseKindES2_E4CaseENS_13StringLiteralES2_.exit8.thread
 
@@ -2790,7 +2790,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_134tryParseAndConsume
 
 8:                                                ; preds = %3
   %9 = tail call noundef zeroext i1 @_ZN5clang3tok12isAnnotationENS0_9TokenKindE(i16 noundef zeroext %.sroa.218.0.copyload) #13
-  br i1 %9, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit, label %10
+  br i1 %9, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit, label %10
 
 10:                                               ; preds = %8
   %switch.tableidx = add i16 %.sroa.218.0.copyload, -1
@@ -2799,7 +2799,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_134tryParseAndConsume
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.i:     ; preds = %10
   %.not.i.old = icmp eq ptr %.sroa.117.0.copyload, null
-  br i1 %.not.i.old, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i
+  br i1 %.not.i.old, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit3.i:    ; preds = %switch.hole_check, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2807,7 +2807,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit3.i:    ; preds = %switch.hole_check, 
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 @_ZNK5clang14IdentifierInfo9isKeywordERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.117.0.copyload, ptr noundef nonnull align 8 dereferenceable(841) %15) #13
-  br i1 %16, label %17, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
+  br i1 %16, label %17, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
 
 17:                                               ; preds = %3, %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2834,7 +2834,7 @@ _ZN5clang6Parser9NextTokenEv.exit:                ; preds = %25, %29
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %32 = load i16, ptr %31, align 8
   %33 = icmp eq i16 %32, 62
-  br i1 %33, label %34, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
+  br i1 %33, label %34, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
 
 34:                                               ; preds = %_ZN5clang6Parser9NextTokenEv.exit
   %35 = load i32, ptr %6, align 8
@@ -2846,8 +2846,8 @@ _ZN5clang6Parser9NextTokenEv.exit:                ; preds = %25, %29
   store i32 %38, ptr %36, align 8
   %39 = load ptr, ptr %18, align 8
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %39, ptr noundef nonnull align 8 dereferenceable(20) %6) #13
-  %40 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom(i32 noundef %1, ptr %.sroa.117.0.copyload, i16 %.sroa.218.0.copyload)
-  br i1 %40, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit, label %41
+  %40 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE(i32 noundef %1, ptr %.sroa.117.0.copyload, i16 %.sroa.218.0.copyload)
+  br i1 %40, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit, label %41
 
 41:                                               ; preds = %34
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %5, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %4, i32 noundef 1428) #13
@@ -2942,13 +2942,13 @@ _ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_.exit: ; preds = %_ZNK5clang17Diagno
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %81, %_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_.exit
   %88 = load ptr, ptr %5, align 8
   %.not.i.i.i15 = icmp eq ptr %88, null
-  br i1 %.not.i.i.i15, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit, label %89
+  br i1 %.not.i.i.i15, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit, label %89
 
 89:                                               ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %91 = load ptr, ptr %90, align 8
   %.not.i.i.i.i = icmp eq ptr %91, null
-  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit, label %92
+  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit, label %92
 
 92:                                               ; preds = %89
   %93 = icmp uge ptr %88, %91
@@ -2965,12 +2965,12 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %81, %_ZNK5clang17Di
   %100 = zext i32 %98 to i64
   %101 = getelementptr inbounds [16 x ptr], ptr %94, i64 0, i64 %100
   store ptr %88, ptr %101, align 8
-  br label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
+  br label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
 
 102:                                              ; preds = %92
   call void @_ZN5clang17DiagnosticStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %88) #13
   call void @_ZdlPvm(ptr noundef nonnull %88, i64 noundef 928) #15
-  br label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit
+  br label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit
 
 switch.hole_check:                                ; preds = %10
   %switch.maskindex = zext nneg i16 %switch.tableidx to i32
@@ -2978,9 +2978,9 @@ switch.hole_check:                                ; preds = %10
   %switch.lobit = trunc i32 %switch.shifted to i1
   %.not.i = icmp eq ptr %.sroa.117.0.copyload, null
   %or.cond = select i1 %switch.lobit, i1 true, i1 %.not.i
-  br i1 %or.cond, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i
+  br i1 %or.cond, label %_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit, label %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i
 
-_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.argprom.exit: ; preds = %switch.hole_check, %96, %102, %89, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %8, %_ZN5clang6Parser9NextTokenEv.exit, %34
+_ZN12_GLOBAL__N_126isTokenIdentifierOrKeywordERN5clang6ParserENS0_5TokenE.exit: ; preds = %switch.hole_check, %96, %102, %89, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i, %8, %_ZN5clang6Parser9NextTokenEv.exit, %34
   %.0 = phi i1 [ true, %34 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit ], [ false, %8 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i ], [ false, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i ], [ false, %89 ], [ false, %102 ], [ false, %96 ], [ false, %switch.hole_check ]
   ret i1 %.0
 }
@@ -4107,7 +4107,7 @@ define dso_local void @_ZN5clang6Parser24ParseOpenACCWaitArgumentENS_14SourceLoc
   %.sroa.246.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.246.0.copyload = load i16, ptr %.sroa.246.0..sroa_idx, align 8
   %12 = icmp eq i16 %.sroa.246.0.copyload, 5
-  br i1 %12, label %13, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br i1 %12, label %13, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
 13:                                               ; preds = %4
   %.sroa.145.0.copyload = load ptr, ptr %.sroa.145.0..sroa_idx, align 8
@@ -4116,15 +4116,15 @@ define dso_local void @_ZN5clang6Parser24ParseOpenACCWaitArgumentENS_14SourceLoc
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 4294967295
   %18 = icmp eq i64 %17, 6
-  br i1 %18, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread
+  br i1 %18, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit: ; preds = %13
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit: ; preds = %13
   %19 = getelementptr inbounds i8, ptr %15, i64 16
   %bcmp.i5.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %19, ptr noundef nonnull dereferenceable(6) @.str.2, i64 6)
   %20 = icmp eq i32 %bcmp.i5.i, 0
-  br i1 %20, label %21, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread
+  br i1 %20, label %21, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread
 
-21:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit
+21:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2928
@@ -4149,7 +4149,7 @@ _ZN5clang6Parser9NextTokenEv.exit:                ; preds = %29, %33
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %36 = load i16, ptr %35, align 8
   %37 = icmp eq i16 %36, 62
-  br i1 %37, label %38, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread
+  br i1 %37, label %38, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread
 
 38:                                               ; preds = %_ZN5clang6Parser9NextTokenEv.exit
   %39 = load i32, ptr %11, align 8
@@ -4206,29 +4206,29 @@ _ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClau
 
 67:                                               ; preds = %65
   store ptr %.sroa.014.0.i54, ptr %7, align 8
-  br label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread
+  br label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread: ; preds = %13, %67, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread: ; preds = %13, %67, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit
   %.sroa.237.0.copyload.pr = load i16, ptr %.sroa.246.0..sroa_idx, align 8
   %68 = icmp eq i16 %.sroa.237.0.copyload.pr, 5
-  br i1 %68, label %69, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br i1 %68, label %69, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
-69:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread
+69:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.145.0..sroa_idx, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = load i64, ptr %71, align 8
   %73 = and i64 %72, 4294967295
   %74 = icmp eq i64 %73, 6
-  br i1 %74, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br i1 %74, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29: ; preds = %69
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29: ; preds = %69
   %75 = getelementptr inbounds i8, ptr %71, i64 16
   %bcmp.i8.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %75, ptr noundef nonnull dereferenceable(6) @.str.3, i64 6)
   %76 = icmp eq i32 %bcmp.i8.i, 0
-  br i1 %76, label %77, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br i1 %76, label %77, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
-77:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29
+77:                                               ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 2928
@@ -4253,7 +4253,7 @@ _ZN5clang6Parser9NextTokenEv.exit31:              ; preds = %85, %89
   %91 = getelementptr inbounds nuw i8, ptr %.0.i.i30, i64 16
   %92 = load i16, ptr %91, align 8
   %93 = icmp eq i16 %92, 62
-  br i1 %93, label %94, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br i1 %93, label %94, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
 94:                                               ; preds = %_ZN5clang6Parser9NextTokenEv.exit31
   %95 = load i32, ptr %11, align 8
@@ -4267,17 +4267,17 @@ _ZN5clang6Parser9NextTokenEv.exit31:              ; preds = %85, %89
   store i32 %98, ptr %96, align 8
   %99 = load ptr, ptr %78, align 8
   call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %99, ptr noundef nonnull align 8 dereferenceable(20) %11) #13
-  br label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
+  br label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread: ; preds = %4, %69, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread, %94, %_ZN5clang6Parser9NextTokenEv.exit31, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread: ; preds = %4, %69, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread, %94, %_ZN5clang6Parser9NextTokenEv.exit31, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29
   %100 = select i1 %3, i32 18, i32 20
   %101 = select i1 %3, i32 50, i32 49
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %103 = ptrtoint ptr %5 to i64
   br label %104
 
-104:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread
-  %.023 = phi i1 [ true, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit29.thread ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit ]
+104:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread
+  %.023 = phi i1 [ true, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit29.thread ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit ]
   %105 = load i16, ptr %.sroa.246.0..sroa_idx, align 8
   switch i16 %105, label %106 [
     i16 446, label %.loopexit
@@ -4723,7 +4723,7 @@ _ZN5clang6Parser9NextTokenEv.exit.i:              ; preds = %31, %27
   store i32 %40, ptr %38, align 8
   %41 = load ptr, ptr %20, align 8
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %41, ptr noundef nonnull align 8 dereferenceable(20) %5) #13
-  br i1 %10, label %42, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.i
+  br i1 %10, label %42, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.i
 
 42:                                               ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.119.0.copyload.i, i64 16
@@ -4731,27 +4731,27 @@ _ZN5clang6Parser9NextTokenEv.exit.i:              ; preds = %31, %27
   %45 = load i64, ptr %44, align 8
   %46 = and i64 %45, 4294967295
   %47 = icmp eq i64 %46, 8
-  br i1 %47, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.i, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.i
+  br i1 %47, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.i, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.i
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.i: ; preds = %42
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.i: ; preds = %42
   %48 = getelementptr inbounds i8, ptr %44, i64 16
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %48, ptr noundef nonnull dereferenceable(8) @.str.1, i64 8)
   %49 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %49, label %_ZN12_GLOBAL__N_134tryParseAndConsumeSpecialTokenKindIN5clang20OpenACCDirectiveKindEEEbRNS1_6ParserENS_23OpenACCSpecialTokenKindET_.exit, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.i
+  br i1 %49, label %_ZN12_GLOBAL__N_134tryParseAndConsumeSpecialTokenKindIN5clang20OpenACCDirectiveKindEEEbRNS1_6ParserENS_23OpenACCSpecialTokenKindET_.exit, label %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.i
 
-_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.i, %42, %36
+_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.i, %42, %36
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %3, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef 1428) #13
   %50 = load i16, ptr %.sroa.220.0..sroa_idx.i, align 8
   %switch.tableidx = add i16 %50, -1
   %51 = icmp ult i16 %switch.tableidx, 19
   br i1 %51, label %switch.hole_check, label %52
 
-52:                                               ; preds = %switch.hole_check, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.i
+52:                                               ; preds = %switch.hole_check, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.i
   %53 = load ptr, ptr %.sroa.119.0..sroa_idx.i, align 8
   %54 = ptrtoint ptr %53 to i64
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit.i
 
-switch.hole_check:                                ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.thread.i
+switch.hole_check:                                ; preds = %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.thread.i
   %switch.maskindex = zext nneg i16 %switch.tableidx to i32
   %switch.shifted = lshr i32 524225, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
@@ -4887,7 +4887,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i:     ; preds = %102, %_ZNK5clang17D
   call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef 928) #15
   br label %_ZN12_GLOBAL__N_134tryParseAndConsumeSpecialTokenKindIN5clang20OpenACCDirectiveKindEEEbRNS1_6ParserENS_23OpenACCSpecialTokenKindET_.exit
 
-_ZN12_GLOBAL__N_134tryParseAndConsumeSpecialTokenKindIN5clang20OpenACCDirectiveKindEEEbRNS1_6ParserENS_23OpenACCSpecialTokenKindET_.exit: ; preds = %11, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i.i, %_ZN5clang6Parser9NextTokenEv.exit.i, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.argprom.exit.i, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i, %110, %117, %123
+_ZN12_GLOBAL__N_134tryParseAndConsumeSpecialTokenKindIN5clang20OpenACCDirectiveKindEEEbRNS1_6ParserENS_23OpenACCSpecialTokenKindET_.exit: ; preds = %11, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %_ZNK5clang5Token17getIdentifierInfoEv.exit.i.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit3.i.i, %_ZN5clang6Parser9NextTokenEv.exit.i, %_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE.exit.i, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i, %110, %117, %123
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @_ZN5clang6Parser19ParseOpenACCVarListENS_17OpenACCClauseKindE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.725") align 8 %4, ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 50)
@@ -5028,32 +5028,32 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %_ZN5clang19Streamin
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i:          ; preds = %56
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %60, ptr noundef nonnull dereferenceable(8) @.str.65, i64 8)
   %62 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %62, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i91.i.i
+  br i1 %62, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i91.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i11.i.i:        ; preds = %56
   %bcmp.i.i12.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %60, ptr noundef nonnull dereferenceable(6) @.str.66, i64 6)
   %63 = icmp eq i32 %bcmp.i.i12.i.i, 0
-  br i1 %63, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i59.i.i
+  br i1 %63, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i59.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i19.i.i:        ; preds = %56
   %bcmp.i.i20.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %60, ptr noundef nonnull dereferenceable(7) @.str.67, i64 7)
   %64 = icmp eq i32 %bcmp.i.i20.i.i, 0
-  br i1 %64, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i67.i.i
+  br i1 %64, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i67.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i27.i.i:        ; preds = %56
   %bcmp.i.i28.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %60, ptr noundef nonnull dereferenceable(4) @.str.68, i64 4)
   %65 = icmp eq i32 %bcmp.i.i28.i.i, 0
-  br i1 %65, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i43.i.i
+  br i1 %65, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i43.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i35.i.i:        ; preds = %56
   %bcmp.i.i36.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %60, ptr noundef nonnull dereferenceable(9) @.str.69, i64 9)
   %66 = icmp eq i32 %bcmp.i.i36.i.i, 0
-  br i1 %66, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i
+  br i1 %66, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i43.i.i:        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i27.i.i
   %bcmp.i.i44.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %60, ptr noundef nonnull dereferenceable(4) @.str.70, i64 4)
   %67 = icmp eq i32 %bcmp.i.i44.i.i, 0
-  br i1 %67, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i83.i.i
+  br i1 %67, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i83.i.i
 
 68:                                               ; preds = %56
   %69 = and i64 %61, 4294967295
@@ -5063,25 +5063,25 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i43.i.i:        ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i51.i.i:        ; preds = %68
   %bcmp.i.i52.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %60, ptr noundef nonnull dereferenceable(5) @.str.71, i64 5)
   %70 = icmp eq i32 %bcmp.i.i52.i.i, 0
-  br i1 %70, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit118.thread.i.i
+  br i1 %70, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit118.thread.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i59.i.i:        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i11.i.i
   %bcmp.i.i60.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %60, ptr noundef nonnull dereferenceable(6) @.str.72, i64 6)
   %71 = icmp eq i32 %bcmp.i.i60.i.i, 0
-  br i1 %71, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i107.i.i
+  br i1 %71, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i107.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i67.i.i:        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i19.i.i
   %bcmp.i.i68.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %60, ptr noundef nonnull dereferenceable(7) @.str.73, i64 7)
   %72 = icmp eq i32 %bcmp.i.i68.i.i, 0
-  br i1 %72, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i75.i.i
+  br i1 %72, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i75.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i75.i.i:        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i67.i.i
   %bcmp.i.i76.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %60, ptr noundef nonnull dereferenceable(7) @.str.74, i64 7)
   %73 = icmp eq i32 %bcmp.i.i76.i.i, 0
-  br i1 %73, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i
+  br i1 %73, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i
 
 _ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit54.thread189.thread.i.i: ; preds = %68
-  switch i32 %trunc.i.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i [
+  switch i32 %trunc.i.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i [
     i32 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i83.i.i
     i32 8, label %_ZN4llvmeqENS_9StringRefES0_.exit.i91.i.i
     i32 3, label %_ZN4llvmeqENS_9StringRefES0_.exit.i99.i.i
@@ -5091,30 +5091,30 @@ _ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLitera
 _ZN4llvmeqENS_9StringRefES0_.exit.i83.i.i:        ; preds = %_ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit54.thread189.thread.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i43.i.i
   %bcmp.i.i84.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %60, ptr noundef nonnull dereferenceable(4) @.str.75, i64 4)
   %74 = icmp eq i32 %bcmp.i.i84.i.i, 0
-  br i1 %74, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i115.i.i
+  br i1 %74, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i115.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i91.i.i:        ; preds = %_ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit54.thread189.thread.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   %bcmp.i.i92.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %60, ptr noundef nonnull dereferenceable(8) @.str.76, i64 8)
   %75 = icmp eq i32 %bcmp.i.i92.i.i, 0
-  br i1 %75, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i
+  br i1 %75, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i99.i.i:        ; preds = %_ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit54.thread189.thread.i.i
   %bcmp.i.i100.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %60, ptr noundef nonnull dereferenceable(3) @.str.77, i64 3)
   %76 = icmp eq i32 %bcmp.i.i100.i.i, 0
-  br i1 %76, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i
+  br i1 %76, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i107.i.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i59.i.i
   %bcmp.i.i108.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %60, ptr noundef nonnull dereferenceable(6) @.str.78, i64 6)
   %77 = icmp eq i32 %bcmp.i.i108.i.i, 0
-  br i1 %77, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i
+  br i1 %77, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i115.i.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i83.i.i
   %bcmp.i.i116.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %60, ptr noundef nonnull dereferenceable(4) @.str.58, i64 4)
   %78 = icmp eq i32 %bcmp.i.i116.i.i, 0
-  br i1 %78, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, label %_ZN4llvm12StringSwitchIN12_GLOBAL__N_122OpenACCDirectiveKindExES2_E4CaseENS_13StringLiteralES2_.exit139.i.i
+  br i1 %78, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, label %_ZN4llvm12StringSwitchIN12_GLOBAL__N_122OpenACCDirectiveKindExES2_E4CaseENS_13StringLiteralES2_.exit139.i.i
 
 _ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit118.thread.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i51.i.i
-  switch i32 %trunc.i.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i [
+  switch i32 %trunc.i.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i [
     i32 5, label %_ZN4llvmeqENS_9StringRefES0_.exit.i128.i.i
     i32 4, label %_ZN4llvm12StringSwitchIN12_GLOBAL__N_122OpenACCDirectiveKindExES2_E4CaseENS_13StringLiteralES2_.exit139.i.i
   ]
@@ -5123,29 +5123,29 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i128.i.i:       ; preds = %_ZN4llvm12StringSwi
   %bcmp.i.i129.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %60, ptr noundef nonnull readonly dereferenceable(5) @.str.79, i64 5)
   %bcmp.i.i129.fr.i.i = freeze i32 %bcmp.i.i129.i.i
   %79 = icmp eq i32 %bcmp.i.i129.fr.i.i, 0
-  br i1 %79, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread54.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i
+  br i1 %79, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread54.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i
 
 _ZN4llvm12StringSwitchIN12_GLOBAL__N_122OpenACCDirectiveKindExES2_E4CaseENS_13StringLiteralES2_.exit139.i.i: ; preds = %_ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit118.thread.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i115.i.i
   %bcmp.i.i137.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %60, ptr noundef nonnull readonly dereferenceable(4) @.str.80, i64 4)
   %bcmp.i.i137.fr.i.i = freeze i32 %bcmp.i.i137.i.i
   %80 = icmp eq i32 %bcmp.i.i137.fr.i.i, 0
-  br i1 %80, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread54.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i
+  br i1 %80, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread54.i, label %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i
 
-_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i: ; preds = %_ZN4llvm12StringSwitchIN12_GLOBAL__N_122OpenACCDirectiveKindExES2_E4CaseENS_13StringLiteralES2_.exit139.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i128.i.i, %_ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit118.thread.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i107.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i99.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i91.i.i, %_ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit54.thread189.thread.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i75.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i35.i.i
+_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i: ; preds = %_ZN4llvm12StringSwitchIN12_GLOBAL__N_122OpenACCDirectiveKindExES2_E4CaseENS_13StringLiteralES2_.exit139.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i128.i.i, %_ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit118.thread.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i107.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i99.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i91.i.i, %_ZN4llvm12StringSwitchIN5clang20OpenACCDirectiveKindES2_E4CaseENS_13StringLiteralES2_.exit54.thread189.thread.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i75.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i35.i.i
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %10, ptr noundef nonnull align 8 dereferenceable(2936) %1, ptr noundef nonnull align 8 dereferenceable(20) %8, i32 noundef 1425) #13
   %81 = load ptr, ptr %10, align 8
   %.not.i.i.i25.i = icmp eq ptr %81, null
   br i1 %.not.i.i.i25.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit.i
 
-_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i: ; preds = %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i
+_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i: ; preds = %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %83)
   store ptr %84, ptr %10, align 8
   br label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit.i
 
-_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit.i: ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i, %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i
-  %85 = phi ptr [ %84, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i ], [ %81, %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread52.i ]
+_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit.i: ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i, %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i
+  %85 = phi ptr [ %84, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i ], [ %81, %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread52.i ]
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %87 = load i8, ptr %85, align 8
   %88 = zext i8 %87 to i64
@@ -5253,7 +5253,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i29.i:   ; preds = %119, %_ZNK5clang17D
   call void @_ZdlPvm(ptr noundef nonnull %126, i64 noundef 928) #15
   br label %_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit
 
-_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread54.i: ; preds = %_ZN4llvm12StringSwitchIN12_GLOBAL__N_122OpenACCDirectiveKindExES2_E4CaseENS_13StringLiteralES2_.exit139.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i128.i.i
+_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread54.i: ; preds = %_ZN4llvm12StringSwitchIN12_GLOBAL__N_122OpenACCDirectiveKindExES2_E4CaseENS_13StringLiteralES2_.exit139.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i128.i.i
   %141 = phi i32 [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i128.i.i ], [ 5, %_ZN4llvm12StringSwitchIN12_GLOBAL__N_122OpenACCDirectiveKindExES2_E4CaseENS_13StringLiteralES2_.exit139.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -5267,7 +5267,7 @@ _ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread54.
   %144 = tail call noundef zeroext i1 @_ZN5clang3tok12isAnnotationENS0_9TokenKindE(i16 noundef zeroext %143) #13
   br i1 %144, label %145, label %208
 
-145:                                              ; preds = %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread54.i
+145:                                              ; preds = %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread54.i
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %4, ptr noundef nonnull align 8 dereferenceable(2936) %1, ptr noundef nonnull align 8 dereferenceable(20) %7, i32 noundef 1425) #13
   %146 = load ptr, ptr %4, align 8
   %.not.i.i.i.i37.i = icmp eq ptr %146, null
@@ -5391,7 +5391,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i:   ; preds = %186, %_ZNK5clang17D
   call void @_ZdlPvm(ptr noundef nonnull %193, i64 noundef 928) #15
   br label %_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i
 
-208:                                              ; preds = %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread54.i
+208:                                              ; preds = %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread54.i
   %209 = tail call i32 @_ZN5clang6Parser15ConsumeAnyTokenEb(ptr noundef nonnull align 8 dereferenceable(2936) %1, i1 noundef zeroext false)
   %210 = icmp eq i16 %143, 5
   br i1 %210, label %211, label %219
@@ -5404,9 +5404,9 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i:   ; preds = %186, %_ZNK5clang17D
   %214 = load i64, ptr %213, align 8
   %215 = and i64 %214, 4294967295
   %216 = icmp eq i64 %215, 4
-  br i1 %216, label %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.argprom.exit.i.i, label %.thread44.i.i
+  br i1 %216, label %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i.i, label %.thread44.i.i
 
-_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.argprom.exit.i.i: ; preds = %211
+_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i.i: ; preds = %211
   %217 = getelementptr inbounds i8, ptr %213, i64 16
   %bcmp.i.i.i36.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %217, ptr noundef nonnull dereferenceable(4) @.str.68, i64 4)
   %218 = icmp eq i32 %bcmp.i.i.i36.i, 0
@@ -5490,7 +5490,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i13.i.i: ; preds = %238, %_ZNK5clang17D
   call void @_ZdlPvm(ptr noundef nonnull %245, i64 noundef 928) #15
   br label %_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i
 
-.thread44.i.i:                                    ; preds = %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.argprom.exit.i.i, %211
+.thread44.i.i:                                    ; preds = %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i.i, %211
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %6, ptr noundef nonnull align 8 dereferenceable(2936) %1, ptr noundef nonnull align 8 dereferenceable(20) %7, i32 noundef 1425) #13
   %260 = load ptr, ptr %6, align 8
   %.not.i.i.i19.i.i = icmp eq ptr %260, null
@@ -5581,8 +5581,8 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i31.i.i: ; preds = %289, %_ZNK5clang17D
   call void @_ZdlPvm(ptr noundef nonnull %296, i64 noundef 928) #15
   br label %_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i
 
-_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i: ; preds = %310, %304, %297, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i31.i.i, %259, %253, %246, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i13.i.i, %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.argprom.exit.i.i, %207, %201, %194, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i
-  %.0.i35.i = phi i32 [ 20, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i ], [ 20, %194 ], [ 20, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i13.i.i ], [ 20, %246 ], [ 20, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i31.i.i ], [ 20, %297 ], [ 20, %207 ], [ 20, %201 ], [ 20, %259 ], [ 20, %253 ], [ 20, %310 ], [ 20, %304 ], [ %141, %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.argprom.exit.i.i ]
+_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i: ; preds = %310, %304, %297, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i31.i.i, %259, %253, %246, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i13.i.i, %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i.i, %207, %201, %194, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i
+  %.0.i35.i = phi i32 [ 20, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i.i ], [ 20, %194 ], [ 20, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i13.i.i ], [ 20, %246 ], [ 20, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i31.i.i ], [ 20, %297 ], [ 20, %207 ], [ 20, %201 ], [ 20, %259 ], [ 20, %253 ], [ 20, %310 ], [ 20, %304 ], [ %141, %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -5590,7 +5590,7 @@ _ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5Token
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit
 
-_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i115.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i107.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i99.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i91.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i83.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i75.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i67.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i59.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i51.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i43.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i35.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i27.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i19.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i11.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
+_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i115.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i107.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i99.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i91.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i83.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i75.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i67.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i59.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i51.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i43.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i35.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i27.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i19.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i11.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   %.0.i50.i = phi i32 [ 18, %_ZN4llvmeqENS_9StringRefES0_.exit.i115.i.i ], [ 17, %_ZN4llvmeqENS_9StringRefES0_.exit.i107.i.i ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.i99.i.i ], [ 15, %_ZN4llvmeqENS_9StringRefES0_.exit.i91.i.i ], [ 14, %_ZN4llvmeqENS_9StringRefES0_.exit.i83.i.i ], [ 13, %_ZN4llvmeqENS_9StringRefES0_.exit.i75.i.i ], [ 19, %_ZN4llvmeqENS_9StringRefES0_.exit.i67.i.i ], [ 12, %_ZN4llvmeqENS_9StringRefES0_.exit.i59.i.i ], [ 8, %_ZN4llvmeqENS_9StringRefES0_.exit.i51.i.i ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i43.i.i ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i35.i.i ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i27.i.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i19.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i11.i.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
   %.sroa.243.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.243.0.copyload.i = load ptr, ptr %.sroa.243.0..sroa_idx.i, align 8
@@ -5601,21 +5601,21 @@ _ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i:
   %or.cond.not.i = or i1 %312, %311
   br i1 %or.cond.not.i, label %_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit, label %313
 
-313:                                              ; preds = %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i
+313:                                              ; preds = %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i
   %314 = getelementptr inbounds nuw i8, ptr %.sroa.243.0.copyload.i, i64 16
   %315 = load ptr, ptr %314, align 8
   %316 = load i64, ptr %315, align 8
   %317 = and i64 %316, 4294967295
   %318 = icmp eq i64 %317, 4
-  br i1 %318, label %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.argprom.exit.i, label %_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit
+  br i1 %318, label %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i, label %_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit
 
-_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.argprom.exit.i: ; preds = %313
+_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i: ; preds = %313
   %319 = getelementptr inbounds i8, ptr %315, i64 16
   %bcmp.i6.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %319, ptr noundef nonnull dereferenceable(4) @.str.70, i64 4)
   %320 = icmp eq i32 %bcmp.i6.i.i, 0
   br i1 %320, label %321, label %_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit
 
-321:                                              ; preds = %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.argprom.exit.i
+321:                                              ; preds = %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i
   switch i32 %.0.i50.i, label %_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit [
     i32 0, label %322
     i32 1, label %325
@@ -5643,8 +5643,8 @@ _ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5Tok
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %330, ptr noundef nonnull align 8 dereferenceable(20) %15) #13
   br label %_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit
 
-_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, %54, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i29.i, %127, %134, %140, %_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i, %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i, %313, %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.argprom.exit.i, %321, %322, %325, %328
-  %.0.i = phi i32 [ 11, %328 ], [ 10, %325 ], [ 9, %322 ], [ %.0.i35.i, %_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i ], [ 20, %54 ], [ 20, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i ], [ %.0.i50.i, %321 ], [ %.0.i50.i, %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.argprom.exit.i ], [ %.0.i50.i, %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.argprom.exit.thread.i ], [ 20, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i29.i ], [ 20, %127 ], [ %.0.i50.i, %313 ], [ 20, %140 ], [ 20, %134 ]
+_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, %54, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i29.i, %127, %134, %140, %_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i, %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i, %313, %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i, %321, %322, %325, %328
+  %.0.i = phi i32 [ 11, %328 ], [ 10, %325 ], [ 9, %322 ], [ %.0.i35.i, %_ZN12_GLOBAL__N_134ParseOpenACCEnterExitDataDirectiveERN5clang6ParserENS0_5TokenENS_22OpenACCDirectiveKindExE.exit.i ], [ 20, %54 ], [ 20, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i ], [ %.0.i50.i, %321 ], [ %.0.i50.i, %_ZN12_GLOBAL__N_122isOpenACCDirectiveKindEN5clang20OpenACCDirectiveKindENS0_5TokenE.exit.i ], [ %.0.i50.i, %_ZN12_GLOBAL__N_123getOpenACCDirectiveKindEN5clang5TokenE.exit.thread.i ], [ 20, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i29.i ], [ 20, %127 ], [ %.0.i50.i, %313 ], [ 20, %140 ], [ 20, %134 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -5682,31 +5682,31 @@ _ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit: ; preds = %_
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i16:        ; preds = %339
   %bcmp.i.i.i.i17 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %342, ptr noundef nonnull dereferenceable(4) @.str.81, i64 4)
   %344 = icmp eq i32 %bcmp.i.i.i.i17, 0
-  br i1 %344, label %_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.argprom.exit.i, label %_ZN12_GLOBAL__N_122ParseOpenACCAtomicKindERN5clang6ParserE.exit
+  br i1 %344, label %_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.exit.i, label %_ZN12_GLOBAL__N_122ParseOpenACCAtomicKindERN5clang6ParserE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i:         ; preds = %339
   %bcmp.i.i6.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %342, ptr noundef nonnull dereferenceable(5) @.str.82, i64 5)
   %345 = icmp eq i32 %bcmp.i.i6.i.i, 0
-  br i1 %345, label %_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.argprom.exit.i, label %_ZN12_GLOBAL__N_122ParseOpenACCAtomicKindERN5clang6ParserE.exit
+  br i1 %345, label %_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.exit.i, label %_ZN12_GLOBAL__N_122ParseOpenACCAtomicKindERN5clang6ParserE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i:        ; preds = %339
   %bcmp.i.i14.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %342, ptr noundef nonnull dereferenceable(6) @.str.78, i64 6)
   %346 = icmp eq i32 %bcmp.i.i14.i.i, 0
-  br i1 %346, label %_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.argprom.exit.i, label %_ZN12_GLOBAL__N_122ParseOpenACCAtomicKindERN5clang6ParserE.exit
+  br i1 %346, label %_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.exit.i, label %_ZN12_GLOBAL__N_122ParseOpenACCAtomicKindERN5clang6ParserE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i21.i.i:        ; preds = %339
   %bcmp.i.i22.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %342, ptr noundef nonnull dereferenceable(7) @.str.83, i64 7)
   %347 = icmp eq i32 %bcmp.i.i22.i.i, 0
-  br i1 %347, label %_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.argprom.exit.i, label %_ZN12_GLOBAL__N_122ParseOpenACCAtomicKindERN5clang6ParserE.exit
+  br i1 %347, label %_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.exit.i, label %_ZN12_GLOBAL__N_122ParseOpenACCAtomicKindERN5clang6ParserE.exit
 
-_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.argprom.exit.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i21.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i16
+_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.exit.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i21.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i16
   %348 = load i32, ptr %15, align 8
   store i32 %348, ptr %20, align 8
   %349 = load ptr, ptr %21, align 8
   call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %349, ptr noundef nonnull align 8 dereferenceable(20) %15) #13
   br label %_ZN12_GLOBAL__N_122ParseOpenACCAtomicKindERN5clang6ParserE.exit
 
-_ZN12_GLOBAL__N_122ParseOpenACCAtomicKindERN5clang6ParserE.exit: ; preds = %_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.argprom.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i21.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i16, %339, %336, %_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit
+_ZN12_GLOBAL__N_122ParseOpenACCAtomicKindERN5clang6ParserE.exit: ; preds = %_ZN12_GLOBAL__N_120getOpenACCAtomicKindEN5clang5TokenE.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i21.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i13.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i5.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i16, %339, %336, %_ZN12_GLOBAL__N_125ParseOpenACCDirectiveKindERN5clang6ParserE.exit
   %350 = getelementptr inbounds nuw i8, ptr %1, i64 984
   store ptr %350, ptr %11, align 8
   %351 = getelementptr inbounds nuw i8, ptr %11, i64 8

@@ -440,7 +440,7 @@ if.else.i:                                        ; preds = %entry
   br label %q_tree_insert_node.exit
 
 do.end.i:                                         ; preds = %entry
-  tail call fastcc void @q_tree_insert_internal.retelim(ptr noundef %tree, ptr noundef %key, ptr noundef %value, i32 noundef 0)
+  tail call fastcc void @q_tree_insert_internal(ptr noundef %tree, ptr noundef %key, ptr noundef %value, i32 noundef 0)
   br label %q_tree_insert_node.exit
 
 q_tree_insert_node.exit:                          ; preds = %if.else.i, %do.end.i
@@ -458,7 +458,7 @@ if.else.i:                                        ; preds = %entry
   br label %q_tree_replace_node.exit
 
 do.end.i:                                         ; preds = %entry
-  tail call fastcc void @q_tree_insert_internal.retelim(ptr noundef %tree, ptr noundef %key, ptr noundef %value, i32 noundef 1)
+  tail call fastcc void @q_tree_insert_internal(ptr noundef %tree, ptr noundef %key, ptr noundef %value, i32 noundef 1)
   br label %q_tree_replace_node.exit
 
 q_tree_replace_node.exit:                         ; preds = %if.else.i, %do.end.i
@@ -1283,7 +1283,7 @@ return:                                           ; preds = %do.end, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @q_tree_insert_internal.retelim(ptr nocapture noundef nonnull %tree, ptr noundef %key, ptr noundef %value, i32 noundef range(i32 0, 2) %replace) unnamed_addr #0 {
+define internal fastcc void @q_tree_insert_internal(ptr nocapture noundef nonnull %tree, ptr noundef %key, ptr noundef %value, i32 noundef range(i32 0, 2) %replace) unnamed_addr #0 {
 entry:
   %path = alloca [40 x ptr], align 16
   %0 = load ptr, ptr %tree, align 8

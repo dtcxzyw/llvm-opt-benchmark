@@ -1883,7 +1883,7 @@ if.then16.i:                                      ; preds = %land.lhs.true13.i
   %col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %10 = load i32, ptr %col_offset.i, align 8
   %conv17.i = sext i32 %10 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %8, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.47)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %8, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.47)
   %call22.i = tail call ptr @PyErr_Occurred() #4
   %tobool23.not.i = icmp eq ptr %call22.i, null
   br i1 %tobool23.not.i, label %if.end16, label %if.end16.thread124.sink.split
@@ -1912,7 +1912,7 @@ if.then44.i:                                      ; preds = %land.lhs.true41.i
   %col_offset47.i = getelementptr inbounds i8, ptr %call39.i, i64 24
   %14 = load i32, ptr %col_offset47.i, align 8
   %conv48.i = sext i32 %14 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %12, i64 noundef %conv46.i, i64 noundef %conv48.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.48)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %12, i64 noundef %conv46.i, i64 noundef %conv48.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.48)
   %call53.i = tail call ptr @PyErr_Occurred() #4
   %tobool54.not.i = icmp eq ptr %call53.i, null
   br i1 %tobool54.not.i, label %if.end16, label %if.end16.thread124.sink.split
@@ -4085,7 +4085,7 @@ if.then177:                                       ; preds = %if.end168
   br i1 %tobool179.not, label %if.end183, label %return.sink.split
 
 if.end183:                                        ; preds = %if.then177
-  tail call fastcc void @invalid_for_target_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @invalid_for_target_rule(ptr noundef nonnull %p)
   store i32 %2, ptr %mark, align 8
   br label %return.sink.split
 
@@ -4321,7 +4321,7 @@ land.lhs.true89.i:                                ; preds = %land.lhs.true86.i
   br i1 %tobool91.not.i, label %if.end115.i, label %land.lhs.true92.i
 
 land.lhs.true92.i:                                ; preds = %land.lhs.true89.i
-  tail call fastcc void @_tmp_216_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @_tmp_216_rule(ptr noundef nonnull %p)
   %21 = load i32, ptr %error_indicator, align 8
   %tobool95.not.i = icmp eq i32 %21, 0
   br i1 %tobool95.not.i, label %land.lhs.true96.i, label %if.end115.i.thread
@@ -4349,7 +4349,7 @@ if.then99.i:                                      ; preds = %land.lhs.true96.i
   %end_col_offset.i = getelementptr inbounds i8, ptr %call87.i, i64 32
   %26 = load i32, ptr %end_col_offset.i, align 8
   %conv103.i = sext i32 %26 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %22, i64 noundef %conv.i, i64 noundef %conv101.i, i64 noundef %conv102.i, i64 noundef %conv103.i, ptr noundef nonnull @.str.128)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %22, i64 noundef %conv.i, i64 noundef %conv101.i, i64 noundef %conv102.i, i64 noundef %conv103.i, ptr noundef nonnull @.str.128)
   %call108.i = tail call ptr @PyErr_Occurred() #4
   %tobool109.not.i = icmp eq ptr %call108.i, null
   br i1 %tobool109.not.i, label %invalid_try_stmt_rule.exit.thread85, label %if.then110.i
@@ -4400,7 +4400,7 @@ land.lhs.true141.i:                               ; preds = %land.lhs.true138.i
   br i1 %tobool143.not.i, label %if.end172.i, label %land.lhs.true144.i
 
 land.lhs.true144.i:                               ; preds = %land.lhs.true141.i
-  tail call fastcc void @_tmp_219_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @_tmp_219_rule(ptr noundef nonnull %p)
   %29 = load i32, ptr %error_indicator, align 8
   %tobool147.not.i = icmp eq i32 %29, 0
   br i1 %tobool147.not.i, label %land.lhs.true149.i, label %if.end172.i
@@ -4424,7 +4424,7 @@ if.then152.i:                                     ; preds = %land.lhs.true149.i
   %end_col_offset159.i = getelementptr inbounds i8, ptr %call142.i, i64 32
   %34 = load i32, ptr %end_col_offset159.i, align 8
   %conv160.i = sext i32 %34 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %30, i64 noundef %conv154.i, i64 noundef %conv156.i, i64 noundef %conv158.i, i64 noundef %conv160.i, ptr noundef nonnull @.str.128)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %30, i64 noundef %conv154.i, i64 noundef %conv156.i, i64 noundef %conv158.i, i64 noundef %conv160.i, ptr noundef nonnull @.str.128)
   %call165.i = tail call ptr @PyErr_Occurred() #4
   %tobool166.not.i = icmp eq ptr %call165.i, null
   br i1 %tobool166.not.i, label %invalid_try_stmt_rule.exit.thread85, label %if.then167.i
@@ -5725,7 +5725,7 @@ if.then22.i:                                      ; preds = %land.lhs.true19.i
   %11 = load i32, ptr %end_col_offset.i, align 4
   %conv25.i = sext i32 %11 to i64
   %call26.i = call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call15.i) #4
-  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv23.i, i64 noundef %conv24.i, i64 noundef %conv25.i, ptr noundef nonnull @.str.51, ptr noundef %call26.i)
+  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv23.i, i64 noundef %conv24.i, i64 noundef %conv25.i, ptr noundef nonnull @.str.51, ptr noundef %call26.i)
   store ptr null, ptr %_res.i, align 8
   %call31.i = call ptr @PyErr_Occurred() #4
   %tobool32.not.i = icmp eq ptr %call31.i, null
@@ -5771,7 +5771,7 @@ if.then59.i:                                      ; preds = %land.lhs.true56.i
   %end_col_offset66.i = getelementptr inbounds i8, ptr %call54.i, i64 44
   %17 = load i32, ptr %end_col_offset66.i, align 4
   %conv67.i = sext i32 %17 to i64
-  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %13, i64 noundef %conv61.i, i64 noundef %conv63.i, i64 noundef %conv65.i, i64 noundef %conv67.i, ptr noundef nonnull @.str.52)
+  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %13, i64 noundef %conv61.i, i64 noundef %conv63.i, i64 noundef %conv65.i, i64 noundef %conv67.i, ptr noundef nonnull @.str.52)
   store ptr null, ptr %_res.i, align 8
   %call72.i = call ptr @PyErr_Occurred() #4
   %tobool73.not.i = icmp eq ptr %call72.i, null
@@ -5823,7 +5823,7 @@ if.then103.i:                                     ; preds = %land.lhs.true100.i
   %23 = load i32, ptr %end_col_offset110.i, align 4
   %conv111.i = sext i32 %23 to i64
   %call112.i = call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call92.i) #4
-  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv105.i, i64 noundef %conv107.i, i64 noundef %conv109.i, i64 noundef %conv111.i, ptr noundef nonnull @.str.53, ptr noundef %call112.i)
+  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv105.i, i64 noundef %conv107.i, i64 noundef %conv109.i, i64 noundef %conv111.i, ptr noundef nonnull @.str.53, ptr noundef %call112.i)
   store ptr null, ptr %_res.i, align 8
   %call117.i = call ptr @PyErr_Occurred() #4
   %tobool118.not.i = icmp eq ptr %call117.i, null
@@ -5897,7 +5897,7 @@ return:                                           ; preds = %if.end39, %if.end3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef range(i64 -2147483648, 2147483648) %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef range(i64 -2147483648, 2147483648) %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -6204,7 +6204,7 @@ cond.false23.i:                                   ; preds = %cond.false.i
   %end_col_offset.i = getelementptr inbounds i8, ptr %call14.i, i64 44
   %24 = load i32, ptr %end_col_offset.i, align 4
   %conv26.i = sext i32 %24 to i64
-  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %20, i64 noundef %conv.i, i64 noundef %conv24.i, i64 noundef %conv25.i, i64 noundef %conv26.i, ptr noundef nonnull @.str.85)
+  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %20, i64 noundef %conv.i, i64 noundef %conv24.i, i64 noundef %conv25.i, i64 noundef %conv26.i, ptr noundef nonnull @.str.85)
   br label %land.lhs.true32.i
 
 land.lhs.true32.i:                                ; preds = %cond.false23.i, %cond.false.i, %if.then16.i
@@ -6265,7 +6265,7 @@ if.then61.i:                                      ; preds = %land.lhs.true58.i
   %end_col_offset68.i = getelementptr inbounds i8, ptr %call56.i, i64 44
   %32 = load i32, ptr %end_col_offset68.i, align 4
   %conv69.i = sext i32 %32 to i64
-  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %28, i64 noundef %conv63.i, i64 noundef %conv65.i, i64 noundef %conv67.i, i64 noundef %conv69.i, ptr noundef nonnull @.str.86)
+  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %28, i64 noundef %conv63.i, i64 noundef %conv65.i, i64 noundef %conv67.i, i64 noundef %conv69.i, ptr noundef nonnull @.str.86)
   %call74.i = call ptr @PyErr_Occurred() #4
   %tobool75.not.i = icmp eq ptr %call74.i, null
   br i1 %tobool75.not.i, label %done.i, label %if.then76.i
@@ -6295,7 +6295,7 @@ do.end.i:                                         ; preds = %if.end81.i
   br i1 %tobool92.not.i, label %if.end123.i, label %land.lhs.true93.i
 
 land.lhs.true93.i:                                ; preds = %do.end.i
-  call fastcc void @lambda_params_rule.retelim(ptr noundef nonnull %p)
+  call fastcc void @lambda_params_rule(ptr noundef nonnull %p)
   %36 = load i32, ptr %error_indicator, align 8
   %tobool96.not.i = icmp eq i32 %36, 0
   br i1 %tobool96.not.i, label %land.lhs.true97.i, label %if.end123.i
@@ -6324,7 +6324,7 @@ if.then103.i:                                     ; preds = %land.lhs.true100.i
   %end_col_offset110.i = getelementptr inbounds i8, ptr %call98.i, i64 32
   %41 = load i32, ptr %end_col_offset110.i, align 8
   %conv111.i = sext i32 %41 to i64
-  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %37, i64 noundef %conv105.i, i64 noundef %conv107.i, i64 noundef %conv109.i, i64 noundef %conv111.i, ptr noundef nonnull @.str.87)
+  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %37, i64 noundef %conv105.i, i64 noundef %conv107.i, i64 noundef %conv109.i, i64 noundef %conv111.i, ptr noundef nonnull @.str.87)
   %call116.i = call ptr @PyErr_Occurred() #4
   %tobool117.not.i = icmp eq ptr %call116.i, null
   br i1 %tobool117.not.i, label %done.i, label %if.then118.i
@@ -6365,7 +6365,7 @@ if.then42:                                        ; preds = %if.then39
   br label %return
 
 if.end45:                                         ; preds = %if.then39
-  call fastcc void @invalid_legacy_expression_rule.retelim(ptr noundef nonnull %p)
+  call fastcc void @invalid_legacy_expression_rule(ptr noundef nonnull %p)
   store i32 %5, ptr %mark, align 8
   %.pre57 = load i32, ptr %error_indicator, align 8
   br label %if.end51
@@ -9281,7 +9281,7 @@ if.then58:                                        ; preds = %if.end55
   br i1 %tobool60.not, label %if.end64, label %return
 
 if.end64:                                         ; preds = %if.then58
-  tail call fastcc void @invalid_comprehension_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @invalid_comprehension_rule(ptr noundef nonnull %p)
   store i32 %2, ptr %mark, align 8
   br label %return
 
@@ -10086,7 +10086,7 @@ return:                                           ; preds = %if.end20, %if.end3,
 declare ptr @_PyAST_GeneratorExp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @invalid_comprehension_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @invalid_comprehension_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -10198,7 +10198,7 @@ if.then16:                                        ; preds = %if.end3.i55
   %end_col_offset = getelementptr inbounds i8, ptr %call11, i64 44
   %16 = load i32, ptr %end_col_offset, align 4
   %conv19 = sext i32 %16 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %12, i64 noundef %conv, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, ptr noundef nonnull @.str.59)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %12, i64 noundef %conv, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, ptr noundef nonnull @.str.59)
   %call24 = tail call ptr @PyErr_Occurred() #4
   %tobool25.not = icmp eq ptr %call24, null
   %.pre134 = load i32, ptr %level, align 8
@@ -10314,7 +10314,7 @@ if.then55:                                        ; preds = %land.lhs.true52
   %end_col_offset64 = getelementptr inbounds i8, ptr %call63, i64 44
   %30 = load i32, ptr %end_col_offset64, align 4
   %conv65 = sext i32 %30 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %26, i64 noundef %conv57, i64 noundef %conv59, i64 noundef %conv62, i64 noundef %conv65, ptr noundef nonnull @.str.60)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %26, i64 noundef %conv57, i64 noundef %conv59, i64 noundef %conv62, i64 noundef %conv65, ptr noundef nonnull @.str.60)
   %call70 = tail call ptr @PyErr_Occurred() #4
   %tobool71.not = icmp eq ptr %call70, null
   %.pre133 = load i32, ptr %level, align 8
@@ -10404,7 +10404,7 @@ if.then99:                                        ; preds = %land.lhs.true96
   %end_col_offset106 = getelementptr inbounds i8, ptr %call94, i64 32
   %42 = load i32, ptr %end_col_offset106, align 8
   %conv107 = sext i32 %42 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %38, i64 noundef %conv101, i64 noundef %conv103, i64 noundef %conv105, i64 noundef %conv107, ptr noundef nonnull @.str.60)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %38, i64 noundef %conv101, i64 noundef %conv103, i64 noundef %conv105, i64 noundef %conv107, ptr noundef nonnull @.str.60)
   %call112 = tail call ptr @PyErr_Occurred() #4
   %tobool113.not = icmp eq ptr %call112, null
   %.pre132 = load i32, ptr %level, align 8
@@ -10915,7 +10915,7 @@ if.then95.i:                                      ; preds = %if.then92.i
   br label %while.end
 
 if.end98.i:                                       ; preds = %if.then92.i
-  tail call fastcc void @invalid_for_target_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @invalid_for_target_rule(ptr noundef nonnull %p)
   store i32 %7, ptr %mark, align 8
   br label %for_if_clause_rule.exit.thread161
 
@@ -11613,7 +11613,7 @@ return:                                           ; preds = %done, %if.then61, %
 declare ptr @_PyAST_comprehension(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @invalid_for_target_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @invalid_for_target_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -11679,7 +11679,7 @@ if.then.i:                                        ; preds = %if.then17
   %8 = load i32, ptr %end_col_offset.i, align 4
   %conv7.i = sext i32 %8 to i64
   %call8.i = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call.i) #4
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %4, i64 noundef %conv.i, i64 noundef %conv5.i, i64 noundef %conv6.i, i64 noundef %conv7.i, ptr noundef nonnull @.str.57, ptr noundef %call8.i)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %4, i64 noundef %conv.i, i64 noundef %conv5.i, i64 noundef %conv6.i, i64 noundef %conv7.i, ptr noundef nonnull @.str.57, ptr noundef %call8.i)
   br label %_RAISE_SYNTAX_ERROR_INVALID_TARGET.exit
 
 _RAISE_SYNTAX_ERROR_INVALID_TARGET.exit:          ; preds = %land.lhs.true.i.i, %if.then.i.i, %if.then.i
@@ -15059,7 +15059,7 @@ return:                                           ; preds = %if.end111, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_RAISE_SYNTAX_ERROR_INVALID_TARGET.retelim(ptr noundef %p, i32 noundef range(i32 0, 3) %type, ptr noundef nonnull %e) unnamed_addr #0 {
+define internal fastcc void @_RAISE_SYNTAX_ERROR_INVALID_TARGET(ptr noundef %p, i32 noundef range(i32 0, 3) %type, ptr noundef nonnull %e) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyPegen_get_invalid_target(ptr noundef nonnull %e, i32 noundef %type) #4
   %cmp.i = icmp eq ptr %call, null
@@ -15093,7 +15093,7 @@ if.then:                                          ; preds = %entry
   %5 = load i32, ptr %end_col_offset, align 4
   %conv7 = sext i32 %5 to i64
   %call8 = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call) #4
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef %p, ptr noundef %1, i64 noundef %conv, i64 noundef %conv5, i64 noundef %conv6, i64 noundef %conv7, ptr noundef nonnull %.str.57..str.58, ptr noundef %call8)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %1, i64 noundef %conv, i64 noundef %conv5, i64 noundef %conv6, i64 noundef %conv7, ptr noundef nonnull %.str.57..str.58, ptr noundef %call8)
   br label %return
 
 return:                                           ; preds = %if.then.i, %land.lhs.true.i, %if.then
@@ -15385,7 +15385,7 @@ if.then19.i:                                      ; preds = %land.lhs.true16.i
   %end_col_offset.i = getelementptr inbounds i8, ptr %call17.i, i64 44
   %15 = load i32, ptr %end_col_offset.i, align 4
   %conv22.i = sext i32 %15 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %11, i64 noundef %conv.i, i64 noundef %conv20.i, i64 noundef %conv21.i, i64 noundef %conv22.i, ptr noundef nonnull @.str.61)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %11, i64 noundef %conv.i, i64 noundef %conv20.i, i64 noundef %conv21.i, i64 noundef %conv22.i, ptr noundef nonnull @.str.61)
   %call27.i = tail call ptr @PyErr_Occurred() #4
   %tobool28.not.i = icmp eq ptr %call27.i, null
   br i1 %tobool28.not.i, label %done.i, label %if.then29.i
@@ -16522,7 +16522,7 @@ if.then16:                                        ; preds = %land.lhs.true13
   %end_col_offset = getelementptr inbounds i8, ptr %call14, i64 32
   %25 = load i32, ptr %end_col_offset, align 8
   %conv19 = sext i32 %25 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %21, i64 noundef %conv, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, ptr noundef nonnull @.str.64)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %21, i64 noundef %conv, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, ptr noundef nonnull @.str.64)
   %call24 = tail call ptr @PyErr_Occurred() #4
   %tobool25.not = icmp eq ptr %call24, null
   br i1 %tobool25.not, label %done, label %if.then26
@@ -16674,7 +16674,7 @@ if.then53:                                        ; preds = %_tmp_151_rule.exit
   %end_col_offset64 = getelementptr inbounds i8, ptr %call63, i64 44
   %41 = load i32, ptr %end_col_offset64, align 4
   %conv65 = sext i32 %41 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %37, i64 noundef %conv55, i64 noundef %conv57, i64 noundef %conv61, i64 noundef %conv65, ptr noundef nonnull @.str.65)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %37, i64 noundef %conv55, i64 noundef %conv57, i64 noundef %conv61, i64 noundef %conv65, ptr noundef nonnull @.str.65)
   %call70 = tail call ptr @PyErr_Occurred() #4
   %tobool71.not = icmp eq ptr %call70, null
   br i1 %tobool71.not, label %done, label %if.then72
@@ -16728,7 +16728,7 @@ if.then98:                                        ; preds = %land.lhs.true95
   %end_col_offset105 = getelementptr inbounds i8, ptr %call90, i64 32
   %47 = load i32, ptr %end_col_offset105, align 8
   %conv106 = sext i32 %47 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %43, i64 noundef %conv100, i64 noundef %conv102, i64 noundef %conv104, i64 noundef %conv106, ptr noundef nonnull @.str.52)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %43, i64 noundef %conv100, i64 noundef %conv102, i64 noundef %conv104, i64 noundef %conv106, ptr noundef nonnull @.str.52)
   %call111 = tail call ptr @PyErr_Occurred() #4
   %tobool112.not = icmp eq ptr %call111, null
   br i1 %tobool112.not, label %done, label %if.then113
@@ -16749,7 +16749,7 @@ if.then122:                                       ; preds = %if.end118
   br label %return
 
 do.end128:                                        ; preds = %if.end118
-  tail call fastcc void @_tmp_152_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @_tmp_152_rule(ptr noundef nonnull %p)
   %51 = load i32, ptr %error_indicator, align 8
   %tobool133.not = icmp eq i32 %51, 0
   br i1 %tobool133.not, label %land.lhs.true135, label %if.end164.thread
@@ -16787,7 +16787,7 @@ if.then144:                                       ; preds = %land.lhs.true141
   %end_col_offset151 = getelementptr inbounds i8, ptr %call139, i64 32
   %56 = load i32, ptr %end_col_offset151, align 8
   %conv152 = sext i32 %56 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %52, i64 noundef %conv146, i64 noundef %conv148, i64 noundef %conv150, i64 noundef %conv152, ptr noundef nonnull @.str.66)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %52, i64 noundef %conv146, i64 noundef %conv148, i64 noundef %conv150, i64 noundef %conv152, ptr noundef nonnull @.str.66)
   %call157 = tail call ptr @PyErr_Occurred() #4
   %tobool158.not = icmp eq ptr %call157, null
   br i1 %tobool158.not, label %done, label %if.then159
@@ -16880,7 +16880,7 @@ if.then213:                                       ; preds = %land.lhs.true210
   %end_col_offset224 = getelementptr inbounds i8, ptr %call223, i64 44
   %66 = load i32, ptr %end_col_offset224, align 4
   %conv225 = sext i32 %66 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %62, i64 noundef %conv215, i64 noundef %conv217, i64 noundef %conv221, i64 noundef %conv225, ptr noundef nonnull @.str.65)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %62, i64 noundef %conv215, i64 noundef %conv217, i64 noundef %conv221, i64 noundef %conv225, ptr noundef nonnull @.str.65)
   %call230 = tail call ptr @PyErr_Occurred() #4
   %tobool231.not = icmp eq ptr %call230, null
   br i1 %tobool231.not, label %done, label %if.then232
@@ -17790,7 +17790,7 @@ if.then18:                                        ; preds = %if.end11
   br i1 %tobool20.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then18
-  tail call fastcc void @invalid_kwarg_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @invalid_kwarg_rule(ptr noundef nonnull %p)
   store i32 %2, ptr %mark, align 8
   %.pre = load i32, ptr %error_indicator, align 8
   br label %if.end30
@@ -17889,7 +17889,7 @@ return:                                           ; preds = %if.end90, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @invalid_kwarg_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @invalid_kwarg_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -17983,7 +17983,7 @@ if.then13:                                        ; preds = %land.lhs.true
   %bytes = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %15 = load ptr, ptr %bytes, align 8
   %ob_sval.i = getelementptr inbounds i8, ptr %15, i64 32
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %10, i64 noundef %conv, i64 noundef %conv14, i64 noundef %conv15, i64 noundef %conv16, ptr noundef nonnull @.str.57, ptr noundef nonnull %ob_sval.i)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %10, i64 noundef %conv, i64 noundef %conv14, i64 noundef %conv15, i64 noundef %conv16, ptr noundef nonnull @.str.57, ptr noundef nonnull %ob_sval.i)
   %call22 = tail call ptr @PyErr_Occurred() #4
   %tobool23.not = icmp eq ptr %call22, null
   br i1 %tobool23.not, label %return, label %if.then24
@@ -18057,7 +18057,7 @@ if.then50:                                        ; preds = %if.end3.i66
   %end_col_offset57 = getelementptr inbounds i8, ptr %call42, i64 32
   %23 = load i32, ptr %end_col_offset57, align 8
   %conv58 = sext i32 %23 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv52, i64 noundef %conv54, i64 noundef %conv56, i64 noundef %conv58, ptr noundef nonnull @.str.52)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv52, i64 noundef %conv54, i64 noundef %conv56, i64 noundef %conv58, ptr noundef nonnull @.str.52)
   %call63 = tail call ptr @PyErr_Occurred() #4
   %tobool64.not = icmp eq ptr %call63, null
   br i1 %tobool64.not, label %return, label %if.then65
@@ -18101,7 +18101,7 @@ if.then88:                                        ; preds = %land.lhs.true85
   %end_col_offset95 = getelementptr inbounds i8, ptr %call86, i64 32
   %29 = load i32, ptr %end_col_offset95, align 8
   %conv96 = sext i32 %29 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %25, i64 noundef %conv90, i64 noundef %conv92, i64 noundef %conv94, i64 noundef %conv96, ptr noundef nonnull @.str.62)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %25, i64 noundef %conv90, i64 noundef %conv92, i64 noundef %conv94, i64 noundef %conv96, ptr noundef nonnull @.str.62)
   %call101 = tail call ptr @PyErr_Occurred() #4
   %tobool102.not = icmp eq ptr %call101, null
   br i1 %tobool102.not, label %return, label %if.then103
@@ -18150,7 +18150,7 @@ if.then130:                                       ; preds = %land.lhs.true127
   %end_col_offset137 = getelementptr inbounds i8, ptr %call128, i64 44
   %35 = load i32, ptr %end_col_offset137, align 4
   %conv138 = sext i32 %35 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %31, i64 noundef %conv132, i64 noundef %conv134, i64 noundef %conv136, i64 noundef %conv138, ptr noundef nonnull @.str.63)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %31, i64 noundef %conv132, i64 noundef %conv134, i64 noundef %conv136, i64 noundef %conv138, ptr noundef nonnull @.str.63)
   %call143 = tail call ptr @PyErr_Occurred() #4
   %tobool144.not = icmp eq ptr %call143, null
   br i1 %tobool144.not, label %return, label %if.then145
@@ -18284,7 +18284,7 @@ if.then18:                                        ; preds = %if.end11
   br i1 %tobool20.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then18
-  tail call fastcc void @invalid_kwarg_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @invalid_kwarg_rule(ptr noundef nonnull %p)
   store i32 %2, ptr %mark, align 8
   %.pre = load i32, ptr %error_indicator, align 8
   br label %if.end30
@@ -18410,7 +18410,7 @@ return:                                           ; preds = %if.end112, %land.lh
 declare ptr @_PyPegen_get_last_comprehension_item(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tmp_152_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @_tmp_152_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -19508,7 +19508,7 @@ if.then29.i:                                      ; preds = %if.end26.i
   br i1 %tobool31.not.i, label %if.end35.i, label %if.end23.thread
 
 if.end35.i:                                       ; preds = %if.then29.i
-  tail call fastcc void @invalid_group_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @invalid_group_rule(ptr noundef nonnull %p)
   %.pre27.pre = load i32, ptr %error_indicator, align 8
   br label %if.end23
 
@@ -19705,7 +19705,7 @@ if.then58.i:                                      ; preds = %if.end55.i
   br i1 %tobool60.not.i, label %if.end64.i, label %if.end23
 
 if.end64.i:                                       ; preds = %if.then58.i
-  tail call fastcc void @invalid_comprehension_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @invalid_comprehension_rule(ptr noundef nonnull %p)
   br label %if.end23
 
 listcomp_rule.exit:                               ; preds = %if.end40.i
@@ -20156,7 +20156,7 @@ if.then13.i53.i:                                  ; preds = %land.lhs.true.i50.i
   %end_lineno.i.i = getelementptr inbounds i8, ptr %call.i48.i, i64 40
   %44 = load i32, ptr %end_lineno.i.i, align 8
   %conv15.i.i = sext i32 %44 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %41, i64 noundef %conv.i.i, i64 noundef %conv14.i.i, i64 noundef %conv15.i.i, i64 noundef -1, ptr noundef nonnull @.str.83)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %41, i64 noundef %conv.i.i, i64 noundef %conv14.i.i, i64 noundef %conv15.i.i, i64 noundef -1, ptr noundef nonnull @.str.83)
   %call20.i.i = tail call ptr @PyErr_Occurred() #4
   %tobool21.not.i.i = icmp eq ptr %call20.i.i, null
   br i1 %tobool21.not.i.i, label %if.end18.sink.split.i, label %if.end18.thread.i
@@ -20195,7 +20195,7 @@ if.then47.i.i:                                    ; preds = %land.lhs.true44.i.i
   %col_offset.i.i = getelementptr inbounds i8, ptr %call42.i.i, i64 24
   %48 = load i32, ptr %col_offset.i.i, align 8
   %conv50.i.i = sext i32 %48 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %46, i64 noundef %conv49.i.i, i64 noundef %conv50.i.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.81)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %46, i64 noundef %conv49.i.i, i64 noundef %conv50.i.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.81)
   %call55.i.i = tail call ptr @PyErr_Occurred() #4
   %tobool56.not.i.i = icmp eq ptr %call55.i.i, null
   br i1 %tobool56.not.i.i, label %if.end18.sink.split.i, label %if.end18.thread.i
@@ -20235,7 +20235,7 @@ if.then80.i.i:                                    ; preds = %land.lhs.true77.i.i
   %end_col_offset87.i.i = getelementptr inbounds i8, ptr %call75.i.i, i64 32
   %54 = load i32, ptr %end_col_offset87.i.i, align 8
   %conv88.i.i = sext i32 %54 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %50, i64 noundef %conv82.i.i, i64 noundef %conv84.i.i, i64 noundef %conv86.i.i, i64 noundef %conv88.i.i, ptr noundef nonnull @.str.82)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %50, i64 noundef %conv82.i.i, i64 noundef %conv84.i.i, i64 noundef %conv86.i.i, i64 noundef %conv88.i.i, ptr noundef nonnull @.str.82)
   %call93.i.i = tail call ptr @PyErr_Occurred() #4
   %tobool94.not.i.i = icmp eq ptr %call93.i.i, null
   br i1 %tobool94.not.i.i, label %if.end18.sink.split.i, label %if.end18.thread.i
@@ -20290,7 +20290,7 @@ if.then38.i:                                      ; preds = %land.lhs.true35.i
   %col_offset.i = getelementptr inbounds i8, ptr %call33.i164, i64 24
   %59 = load i32, ptr %col_offset.i, align 8
   %conv39.i = sext i32 %59 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %57, i64 noundef %conv.i, i64 noundef %conv39.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.81)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %57, i64 noundef %conv.i, i64 noundef %conv39.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.81)
   %call44.i = tail call ptr @PyErr_Occurred() #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
   br i1 %tobool45.not.i, label %done.i, label %if.then46.i
@@ -20339,7 +20339,7 @@ if.then69.i:                                      ; preds = %land.lhs.true66.i
   %end_col_offset.i168 = getelementptr inbounds i8, ptr %call64.i, i64 32
   %67 = load i32, ptr %end_col_offset.i168, align 8
   %conv75.i = sext i32 %67 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %63, i64 noundef %conv71.i, i64 noundef %conv73.i, i64 noundef %conv74.i, i64 noundef %conv75.i, ptr noundef nonnull @.str.82)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %63, i64 noundef %conv71.i, i64 noundef %conv73.i, i64 noundef %conv74.i, i64 noundef %conv75.i, ptr noundef nonnull @.str.82)
   %call80.i = tail call ptr @PyErr_Occurred() #4
   %tobool81.not.i = icmp eq ptr %call80.i, null
   br i1 %tobool81.not.i, label %done.i, label %if.then82.i
@@ -20688,7 +20688,7 @@ if.then22.i.i:                                    ; preds = %land.lhs.true19.i.i
   %end_col_offset.i.i210 = getelementptr inbounds i8, ptr %call11.i.i199, i64 32
   %110 = load i32, ptr %end_col_offset.i.i210, align 8
   %conv25.i.i = sext i32 %110 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %106, i64 noundef %conv.i.i207, i64 noundef %conv23.i.i, i64 noundef %conv24.i.i, i64 noundef %conv25.i.i, ptr noundef nonnull @.str.84)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %106, i64 noundef %conv.i.i207, i64 noundef %conv23.i.i, i64 noundef %conv24.i.i, i64 noundef %conv25.i.i, ptr noundef nonnull @.str.84)
   %call30.i.i = tail call ptr @PyErr_Occurred() #4
   %tobool31.not.i.i = icmp eq ptr %call30.i.i, null
   br i1 %tobool31.not.i.i, label %invalid_dict_comprehension_rule.exit.i, label %if.then32.i.i
@@ -20961,7 +20961,7 @@ if.then13.i:                                      ; preds = %land.lhs.true.i
   %end_col_offset.i = getelementptr inbounds i8, ptr %call11.i, i64 32
   %30 = load i32, ptr %end_col_offset.i, align 8
   %conv16.i = sext i32 %30 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %26, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.67)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %26, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.67)
   %call21.i = tail call ptr @PyErr_Occurred() #4
   %tobool22.not.i = icmp eq ptr %call21.i, null
   br i1 %tobool22.not.i, label %if.end79.sink.split, label %if.then23.i
@@ -21000,7 +21000,7 @@ if.then43.i:                                      ; preds = %land.lhs.true40.i
   %end_col_offset50.i = getelementptr inbounds i8, ptr %call41.i, i64 32
   %36 = load i32, ptr %end_col_offset50.i, align 8
   %conv51.i = sext i32 %36 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %32, i64 noundef %conv45.i, i64 noundef %conv47.i, i64 noundef %conv49.i, i64 noundef %conv51.i, ptr noundef nonnull @.str.68)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %32, i64 noundef %conv45.i, i64 noundef %conv47.i, i64 noundef %conv49.i, i64 noundef %conv51.i, ptr noundef nonnull @.str.68)
   %call56.i = tail call ptr @PyErr_Occurred() #4
   %tobool57.not.i = icmp eq ptr %call56.i, null
   br i1 %tobool57.not.i, label %if.end79.sink.split, label %if.then58.i
@@ -21039,7 +21039,7 @@ if.then78.i:                                      ; preds = %land.lhs.true75.i
   %end_col_offset85.i = getelementptr inbounds i8, ptr %call76.i, i64 32
   %42 = load i32, ptr %end_col_offset85.i, align 8
   %conv86.i = sext i32 %42 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %38, i64 noundef %conv80.i, i64 noundef %conv82.i, i64 noundef %conv84.i, i64 noundef %conv86.i, ptr noundef nonnull @.str.69)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %38, i64 noundef %conv80.i, i64 noundef %conv82.i, i64 noundef %conv84.i, i64 noundef %conv86.i, ptr noundef nonnull @.str.69)
   %call91.i = tail call ptr @PyErr_Occurred() #4
   %tobool92.not.i = icmp eq ptr %call91.i, null
   br i1 %tobool92.not.i, label %if.end79.sink.split, label %if.then93.i
@@ -21078,7 +21078,7 @@ if.then113.i:                                     ; preds = %land.lhs.true110.i
   %end_col_offset120.i = getelementptr inbounds i8, ptr %call111.i, i64 32
   %48 = load i32, ptr %end_col_offset120.i, align 8
   %conv121.i = sext i32 %48 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %44, i64 noundef %conv115.i, i64 noundef %conv117.i, i64 noundef %conv119.i, i64 noundef %conv121.i, ptr noundef nonnull @.str.70)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %44, i64 noundef %conv115.i, i64 noundef %conv117.i, i64 noundef %conv119.i, i64 noundef %conv121.i, ptr noundef nonnull @.str.70)
   %call126.i = tail call ptr @PyErr_Occurred() #4
   %tobool127.not.i = icmp eq ptr %call126.i, null
   br i1 %tobool127.not.i, label %if.end79.sink.split, label %if.then128.i
@@ -21259,7 +21259,7 @@ land.lhs.true270.i:                               ; preds = %land.lhs.true267.i
   br i1 %tobool273.not.i, label %land.lhs.true275.i, label %if.end301.i.thread
 
 land.lhs.true275.i:                               ; preds = %land.lhs.true270.i
-  tail call fastcc void @_tmp_240_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @_tmp_240_rule(ptr noundef nonnull %p)
   %58 = load i32, ptr %error_indicator, align 8
   %tobool278.not.i = icmp eq i32 %58, 0
   br i1 %tobool278.not.i, label %land.lhs.true280.i, label %if.end301.i.thread
@@ -21316,7 +21316,7 @@ land.lhs.true322.i:                               ; preds = %land.lhs.true319.i
   br i1 %tobool325.not.i, label %land.lhs.true327.i, label %if.end359.i.thread
 
 land.lhs.true327.i:                               ; preds = %land.lhs.true322.i
-  tail call fastcc void @_tmp_243_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @_tmp_243_rule(ptr noundef nonnull %p)
   %61 = load i32, ptr %error_indicator, align 8
   %tobool330.not.i = icmp eq i32 %61, 0
   br i1 %tobool330.not.i, label %land.lhs.true332.i, label %if.end359.i.thread
@@ -21383,7 +21383,7 @@ land.lhs.true379.i:                               ; preds = %land.lhs.true376.i
   br i1 %tobool382.not.i, label %land.lhs.true384.i, label %if.end410.i
 
 land.lhs.true384.i:                               ; preds = %land.lhs.true379.i
-  tail call fastcc void @_tmp_246_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @_tmp_246_rule(ptr noundef nonnull %p)
   %64 = load i32, ptr %error_indicator, align 8
   %tobool387.not.i = icmp eq i32 %64, 0
   br i1 %tobool387.not.i, label %land.lhs.true389.i, label %if.end410.i
@@ -22434,7 +22434,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tmp_240_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @_tmp_240_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -22581,7 +22581,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tmp_243_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @_tmp_243_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -22805,7 +22805,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tmp_246_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @_tmp_246_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -23078,7 +23078,7 @@ return:                                           ; preds = %if.end53, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @invalid_group_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @invalid_group_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -23128,7 +23128,7 @@ if.then16:                                        ; preds = %land.lhs.true13
   %end_col_offset = getelementptr inbounds i8, ptr %call11, i64 44
   %7 = load i32, ptr %end_col_offset, align 4
   %conv19 = sext i32 %7 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, ptr noundef nonnull @.str.79)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, ptr noundef nonnull @.str.79)
   %call24 = tail call ptr @PyErr_Occurred() #4
   %tobool25.not = icmp eq ptr %call24, null
   br i1 %tobool25.not, label %return, label %if.then26
@@ -23177,7 +23177,7 @@ if.then53:                                        ; preds = %land.lhs.true50
   %end_col_offset60 = getelementptr inbounds i8, ptr %call45, i64 32
   %13 = load i32, ptr %end_col_offset60, align 8
   %conv61 = sext i32 %13 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %9, i64 noundef %conv55, i64 noundef %conv57, i64 noundef %conv59, i64 noundef %conv61, ptr noundef nonnull @.str.80)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %9, i64 noundef %conv55, i64 noundef %conv57, i64 noundef %conv59, i64 noundef %conv61, ptr noundef nonnull @.str.80)
   %call66 = tail call ptr @PyErr_Occurred() #4
   %tobool67.not = icmp eq ptr %call66, null
   br i1 %tobool67.not, label %return, label %if.then68
@@ -23525,7 +23525,7 @@ if.then58:                                        ; preds = %if.end55
   br i1 %tobool60.not, label %if.end64, label %return
 
 if.end64:                                         ; preds = %if.then58
-  tail call fastcc void @invalid_comprehension_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @invalid_comprehension_rule(ptr noundef nonnull %p)
   store i32 %2, ptr %mark, align 8
   br label %return
 
@@ -23921,7 +23921,7 @@ declare ptr @_PyAST_DictComp(ptr noundef, ptr noundef, ptr noundef, i32 noundef,
 declare ptr @_PyAST_SetComp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @invalid_legacy_expression_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @invalid_legacy_expression_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -23978,7 +23978,7 @@ cond.true:                                        ; preds = %if.then16
   %conv21 = sext i32 %7 to i64
   %v = getelementptr inbounds i8, ptr %call, i64 8
   %8 = load ptr, ptr %v, align 8
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv19, i64 noundef %conv20, i64 noundef %conv21, ptr noundef nonnull @.str.101, ptr noundef %8, ptr noundef %8)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv19, i64 noundef %conv20, i64 noundef %conv21, ptr noundef nonnull @.str.101, ptr noundef %8, ptr noundef %8)
   br label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %cond.true, %if.then16
@@ -24091,7 +24091,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %tobool4.not.i, label %if.end22.i, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end3.i
-  tail call fastcc void @invalid_lambda_parameters_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @invalid_lambda_parameters_rule(ptr noundef nonnull %p)
   store i32 %11, ptr %mark, align 8
   %.pre38 = load i32, ptr %error_indicator, align 8
   %13 = icmp eq i32 %.pre38, 0
@@ -24440,7 +24440,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lambda_params_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @lambda_params_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -24468,7 +24468,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool4.not, label %if.end22, label %if.end16
 
 if.end16:                                         ; preds = %if.end3
-  tail call fastcc void @invalid_lambda_parameters_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @invalid_lambda_parameters_rule(ptr noundef nonnull %p)
   store i32 %2, ptr %mark, align 8
   %.pre = load i32, ptr %error_indicator, align 8
   %4 = icmp eq i32 %.pre, 0
@@ -24493,7 +24493,7 @@ return:                                           ; preds = %if.end26, %if.end22
 declare ptr @_PyPegen_soft_keyword_token(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @invalid_lambda_parameters_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @invalid_lambda_parameters_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -24538,7 +24538,7 @@ if.then13:                                        ; preds = %land.lhs.true
   %end_col_offset = getelementptr inbounds i8, ptr %call, i64 32
   %7 = load i32, ptr %end_col_offset, align 8
   %conv16 = sext i32 %7 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv14, i64 noundef %conv15, i64 noundef %conv16, ptr noundef nonnull @.str.88)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv14, i64 noundef %conv15, i64 noundef %conv16, ptr noundef nonnull @.str.88)
   %call21 = tail call ptr @PyErr_Occurred() #4
   %tobool22.not = icmp eq ptr %call21, null
   br i1 %tobool22.not, label %return.sink.split, label %if.then23
@@ -24705,7 +24705,7 @@ if.then45:                                        ; preds = %land.lhs.true42
   %end_col_offset52 = getelementptr inbounds i8, ptr %call43, i64 32
   %26 = load i32, ptr %end_col_offset52, align 8
   %conv53 = sext i32 %26 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %22, i64 noundef %conv47, i64 noundef %conv49, i64 noundef %conv51, i64 noundef %conv53, ptr noundef nonnull @.str.89)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %22, i64 noundef %conv47, i64 noundef %conv49, i64 noundef %conv51, i64 noundef %conv53, ptr noundef nonnull @.str.89)
   %call58 = tail call ptr @PyErr_Occurred() #4
   %tobool59.not = icmp eq ptr %call58, null
   br i1 %tobool59.not, label %return.sink.split, label %if.then60
@@ -24770,7 +24770,7 @@ if.then86:                                        ; preds = %land.lhs.true83
   %end_col_offset93 = getelementptr inbounds i8, ptr %call84, i64 36
   %34 = load i32, ptr %end_col_offset93, align 4
   %conv94 = sext i32 %34 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %30, i64 noundef %conv88, i64 noundef %conv90, i64 noundef %conv92, i64 noundef %conv94, ptr noundef nonnull @.str.90)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %30, i64 noundef %conv88, i64 noundef %conv90, i64 noundef %conv92, i64 noundef %conv94, ptr noundef nonnull @.str.90)
   %call99 = tail call ptr @PyErr_Occurred() #4
   %tobool100.not = icmp eq ptr %call99, null
   br i1 %tobool100.not, label %return.sink.split, label %if.then101
@@ -24829,7 +24829,7 @@ if.then134:                                       ; preds = %land.lhs.true131
   %end_col_offset141 = getelementptr inbounds i8, ptr %call132, i64 32
   %40 = load i32, ptr %end_col_offset141, align 8
   %conv142 = sext i32 %40 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %36, i64 noundef %conv136, i64 noundef %conv138, i64 noundef %conv140, i64 noundef %conv142, ptr noundef nonnull @.str.91)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %36, i64 noundef %conv136, i64 noundef %conv138, i64 noundef %conv140, i64 noundef %conv142, ptr noundef nonnull @.str.91)
   %call147 = tail call ptr @PyErr_Occurred() #4
   %tobool148.not = icmp eq ptr %call147, null
   br i1 %tobool148.not, label %return.sink.split, label %if.then149
@@ -24845,7 +24845,7 @@ if.end154:                                        ; preds = %land.lhs.true131, %
   br i1 %tobool157.not, label %do.end165, label %return.sink.split
 
 do.end165:                                        ; preds = %if.end154
-  tail call fastcc void @_tmp_191_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @_tmp_191_rule(ptr noundef nonnull %p)
   %41 = load i32, ptr %error_indicator, align 8
   %tobool169.not = icmp eq i32 %41, 0
   br i1 %tobool169.not, label %land.lhs.true171, label %if.end206.thread
@@ -24893,7 +24893,7 @@ if.then186:                                       ; preds = %land.lhs.true183
   %end_col_offset193 = getelementptr inbounds i8, ptr %call184, i64 32
   %46 = load i32, ptr %end_col_offset193, align 8
   %conv194 = sext i32 %46 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %42, i64 noundef %conv188, i64 noundef %conv190, i64 noundef %conv192, i64 noundef %conv194, ptr noundef nonnull @.str.92)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %42, i64 noundef %conv188, i64 noundef %conv190, i64 noundef %conv192, i64 noundef %conv194, ptr noundef nonnull @.str.92)
   %call199 = tail call ptr @PyErr_Occurred() #4
   %tobool200.not = icmp eq ptr %call199, null
   br i1 %tobool200.not, label %return.sink.split, label %if.then201
@@ -24937,7 +24937,7 @@ if.then224:                                       ; preds = %land.lhs.true221
   %end_col_offset231 = getelementptr inbounds i8, ptr %call222, i64 32
   %51 = load i32, ptr %end_col_offset231, align 8
   %conv232 = sext i32 %51 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %47, i64 noundef %conv226, i64 noundef %conv228, i64 noundef %conv230, i64 noundef %conv232, ptr noundef nonnull @.str.93)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %47, i64 noundef %conv226, i64 noundef %conv228, i64 noundef %conv230, i64 noundef %conv232, ptr noundef nonnull @.str.93)
   %call237 = tail call ptr @PyErr_Occurred() #4
   %tobool238.not = icmp eq ptr %call237, null
   br i1 %tobool238.not, label %return.sink.split, label %if.then239
@@ -26751,7 +26751,7 @@ return:                                           ; preds = %if.then13, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tmp_191_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @_tmp_191_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -28089,7 +28089,7 @@ if.then13.i:                                      ; preds = %land.lhs.true.i
   %end_col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %11 = load i32, ptr %end_col_offset.i, align 8
   %conv16.i = sext i32 %11 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.94)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.94)
   %call21.i = tail call ptr @PyErr_Occurred() #4
   %tobool22.not.i = icmp eq ptr %call21.i, null
   br i1 %tobool22.not.i, label %invalid_default_rule.exit, label %if.then23.i
@@ -28469,7 +28469,7 @@ if.then41.i:                                      ; preds = %land.lhs.true38.i
   %end_col_offset.i = getelementptr inbounds i8, ptr %call39.i, i64 32
   %26 = load i32, ptr %end_col_offset.i, align 8
   %conv44.i = sext i32 %26 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %22, i64 noundef %conv.i, i64 noundef %conv42.i, i64 noundef %conv43.i, i64 noundef %conv44.i, ptr noundef nonnull @.str.97)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %22, i64 noundef %conv.i, i64 noundef %conv42.i, i64 noundef %conv43.i, i64 noundef %conv44.i, ptr noundef nonnull @.str.97)
   %call49.i = tail call ptr @PyErr_Occurred() #4
   %tobool50.not.i = icmp eq ptr %call49.i, null
   br i1 %tobool50.not.i, label %if.end16, label %if.end16.thread118.sink.split
@@ -28519,7 +28519,7 @@ if.then80.i:                                      ; preds = %land.lhs.true77.i
   %end_col_offset87.i = getelementptr inbounds i8, ptr %call75.i, i64 32
   %32 = load i32, ptr %end_col_offset87.i, align 8
   %conv88.i = sext i32 %32 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %28, i64 noundef %conv82.i, i64 noundef %conv84.i, i64 noundef %conv86.i, i64 noundef %conv88.i, ptr noundef nonnull @.str.98)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %28, i64 noundef %conv82.i, i64 noundef %conv84.i, i64 noundef %conv86.i, i64 noundef %conv88.i, ptr noundef nonnull @.str.98)
   %call93.i = tail call ptr @PyErr_Occurred() #4
   %tobool94.not.i = icmp eq ptr %call93.i, null
   br i1 %tobool94.not.i, label %if.end16, label %if.end16.thread118.sink.split
@@ -29127,7 +29127,7 @@ if.then16.i:                                      ; preds = %land.lhs.true13.i
   %end_col_offset.i = getelementptr inbounds i8, ptr %call14.i, i64 32
   %11 = load i32, ptr %end_col_offset.i, align 8
   %conv19.i = sext i32 %11 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef %conv18.i, i64 noundef %conv19.i, ptr noundef nonnull @.str.99)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef %conv18.i, i64 noundef %conv19.i, ptr noundef nonnull @.str.99)
   %call24.i = tail call ptr @PyErr_Occurred() #4
   %tobool25.not.i = icmp eq ptr %call24.i, null
   br i1 %tobool25.not.i, label %if.end16, label %if.end16.thread23.sink.split
@@ -29172,7 +29172,7 @@ if.then53.i:                                      ; preds = %land.lhs.true50.i
   %end_col_offset60.i = getelementptr inbounds i8, ptr %call51.i, i64 36
   %17 = load i32, ptr %end_col_offset60.i, align 4
   %conv61.i = sext i32 %17 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %13, i64 noundef %conv55.i, i64 noundef %conv57.i, i64 noundef %conv59.i, i64 noundef %conv61.i, ptr noundef nonnull @.str.100)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %13, i64 noundef %conv55.i, i64 noundef %conv57.i, i64 noundef %conv59.i, i64 noundef %conv61.i, ptr noundef nonnull @.str.100)
   %call66.i = tail call ptr @PyErr_Occurred() #4
   %tobool67.not.i = icmp eq ptr %call66.i, null
   br i1 %tobool67.not.i, label %if.end16, label %if.end16.thread23.sink.split
@@ -29217,7 +29217,7 @@ if.then96.i:                                      ; preds = %land.lhs.true93.i
   %end_col_offset103.i = getelementptr inbounds i8, ptr %call94.i, i64 32
   %23 = load i32, ptr %end_col_offset103.i, align 8
   %conv104.i = sext i32 %23 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv98.i, i64 noundef %conv100.i, i64 noundef %conv102.i, i64 noundef %conv104.i, ptr noundef nonnull @.str.100)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv98.i, i64 noundef %conv100.i, i64 noundef %conv102.i, i64 noundef %conv104.i, ptr noundef nonnull @.str.100)
   %call109.i = tail call ptr @PyErr_Occurred() #4
   %tobool110.not.i = icmp eq ptr %call109.i, null
   br i1 %tobool110.not.i, label %if.end16, label %if.end16.thread23.sink.split
@@ -29862,7 +29862,7 @@ land.lhs.true36.i:                                ; preds = %land.lhs.true31.i
   br i1 %tobool38.not.i, label %if.end28, label %land.lhs.true39.i
 
 land.lhs.true39.i:                                ; preds = %land.lhs.true36.i
-  tail call fastcc void @_tmp_226_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @_tmp_226_rule(ptr noundef nonnull %p)
   %14 = load i32, ptr %error_indicator, align 8
   %tobool42.not.i = icmp eq i32 %14, 0
   br i1 %tobool42.not.i, label %land.lhs.true44.i, label %if.end28
@@ -30475,7 +30475,7 @@ if.then13.i:                                      ; preds = %land.lhs.true.i
   %end_col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %11 = load i32, ptr %end_col_offset.i, align 8
   %conv16.i = sext i32 %11 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.88)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.88)
   %call21.i = tail call ptr @PyErr_Occurred() #4
   %tobool22.not.i = icmp eq ptr %call21.i, null
   br i1 %tobool22.not.i, label %if.end16, label %if.then23.i
@@ -30651,7 +30651,7 @@ if.then45.i:                                      ; preds = %land.lhs.true42.i
   %end_col_offset52.i = getelementptr inbounds i8, ptr %call43.i, i64 32
   %30 = load i32, ptr %end_col_offset52.i, align 8
   %conv53.i = sext i32 %30 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %26, i64 noundef %conv47.i, i64 noundef %conv49.i, i64 noundef %conv51.i, i64 noundef %conv53.i, ptr noundef nonnull @.str.89)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %26, i64 noundef %conv47.i, i64 noundef %conv49.i, i64 noundef %conv51.i, i64 noundef %conv53.i, ptr noundef nonnull @.str.89)
   %call58.i = tail call ptr @PyErr_Occurred() #4
   %tobool59.not.i = icmp eq ptr %call58.i, null
   br i1 %tobool59.not.i, label %if.end16, label %if.then60.i
@@ -30711,7 +30711,7 @@ if.then86.i:                                      ; preds = %land.lhs.true83.i
   %end_col_offset93.i = getelementptr inbounds i8, ptr %call84.i, i64 36
   %38 = load i32, ptr %end_col_offset93.i, align 4
   %conv94.i = sext i32 %38 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %34, i64 noundef %conv88.i, i64 noundef %conv90.i, i64 noundef %conv92.i, i64 noundef %conv94.i, ptr noundef nonnull @.str.90)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %34, i64 noundef %conv88.i, i64 noundef %conv90.i, i64 noundef %conv92.i, i64 noundef %conv94.i, ptr noundef nonnull @.str.90)
   %call99.i = tail call ptr @PyErr_Occurred() #4
   %tobool100.not.i = icmp eq ptr %call99.i, null
   br i1 %tobool100.not.i, label %if.end16, label %if.then101.i
@@ -30766,7 +30766,7 @@ if.then134.i:                                     ; preds = %land.lhs.true131.i
   %end_col_offset141.i = getelementptr inbounds i8, ptr %call132.i, i64 32
   %44 = load i32, ptr %end_col_offset141.i, align 8
   %conv142.i = sext i32 %44 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %40, i64 noundef %conv136.i, i64 noundef %conv138.i, i64 noundef %conv140.i, i64 noundef %conv142.i, ptr noundef nonnull @.str.111)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %40, i64 noundef %conv136.i, i64 noundef %conv138.i, i64 noundef %conv140.i, i64 noundef %conv142.i, ptr noundef nonnull @.str.111)
   %call147.i = tail call ptr @PyErr_Occurred() #4
   %tobool148.not.i = icmp eq ptr %call147.i, null
   br i1 %tobool148.not.i, label %if.end16, label %if.then149.i
@@ -30782,7 +30782,7 @@ if.end154.i:                                      ; preds = %land.lhs.true131.i,
   br i1 %tobool157.not.i, label %do.end165.i, label %if.end16.thread142
 
 do.end165.i:                                      ; preds = %if.end154.i
-  tail call fastcc void @_tmp_173_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @_tmp_173_rule(ptr noundef nonnull %p)
   %45 = load i32, ptr %error_indicator, align 8
   %tobool169.not.i = icmp eq i32 %45, 0
   br i1 %tobool169.not.i, label %land.lhs.true171.i, label %if.end16.thread142
@@ -30826,7 +30826,7 @@ if.then186.i:                                     ; preds = %land.lhs.true183.i
   %end_col_offset193.i = getelementptr inbounds i8, ptr %call184.i, i64 32
   %50 = load i32, ptr %end_col_offset193.i, align 8
   %conv194.i = sext i32 %50 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %46, i64 noundef %conv188.i, i64 noundef %conv190.i, i64 noundef %conv192.i, i64 noundef %conv194.i, ptr noundef nonnull @.str.92)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %46, i64 noundef %conv188.i, i64 noundef %conv190.i, i64 noundef %conv192.i, i64 noundef %conv194.i, ptr noundef nonnull @.str.92)
   %call199.i = tail call ptr @PyErr_Occurred() #4
   %tobool200.not.i = icmp eq ptr %call199.i, null
   br i1 %tobool200.not.i, label %if.end16, label %if.then201.i
@@ -30870,7 +30870,7 @@ if.then224.i:                                     ; preds = %land.lhs.true221.i
   %end_col_offset231.i = getelementptr inbounds i8, ptr %call222.i, i64 32
   %55 = load i32, ptr %end_col_offset231.i, align 8
   %conv232.i = sext i32 %55 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %51, i64 noundef %conv226.i, i64 noundef %conv228.i, i64 noundef %conv230.i, i64 noundef %conv232.i, ptr noundef nonnull @.str.93)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %51, i64 noundef %conv226.i, i64 noundef %conv228.i, i64 noundef %conv230.i, i64 noundef %conv232.i, ptr noundef nonnull @.str.93)
   %call237.i = tail call ptr @PyErr_Occurred() #4
   %tobool238.not.i = icmp eq ptr %call237.i, null
   br i1 %tobool238.not.i, label %if.end16, label %if.then239.i
@@ -32106,7 +32106,7 @@ return:                                           ; preds = %if.end23, %land.lhs
 declare ptr @_PyAST_AsyncFunctionDef(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tmp_226_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @_tmp_226_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -32372,7 +32372,7 @@ if.then76:                                        ; preds = %land.lhs.true73
   %28 = load i32, ptr %call74, align 8
   %cmp80 = icmp eq i32 %28, 26
   %cond = select i1 %cmp80, ptr @.str.107, ptr @.str.108
-  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %25, i64 noundef %conv, i64 noundef %conv79, i64 noundef -5, i64 noundef -5, ptr noundef nonnull %cond)
+  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %25, i64 noundef %conv, i64 noundef %conv79, i64 noundef -5, i64 noundef -5, ptr noundef nonnull %cond)
   store ptr null, ptr %_res, align 8
   %call86 = call ptr @PyErr_Occurred() #4
   %tobool87.not = icmp eq ptr %call86, null
@@ -32487,7 +32487,7 @@ if.then162:                                       ; preds = %land.lhs.true159
   %43 = load i32, ptr %call160, align 8
   %cmp168 = icmp eq i32 %43, 26
   %cond170 = select i1 %cmp168, ptr @.str.109, ptr @.str.110
-  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %40, i64 noundef %conv164, i64 noundef %conv166, i64 noundef -5, i64 noundef -5, ptr noundef nonnull %cond170)
+  call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %40, i64 noundef %conv164, i64 noundef %conv166, i64 noundef -5, i64 noundef -5, ptr noundef nonnull %cond170)
   store ptr null, ptr %_res, align 8
   %call175 = call ptr @PyErr_Occurred() #4
   %tobool176.not = icmp eq ptr %call175, null
@@ -33612,7 +33612,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tmp_173_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @_tmp_173_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -35204,7 +35204,7 @@ if.then13.i:                                      ; preds = %_tmp_179_rule.exit.
   %end_col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %24 = load i32, ptr %end_col_offset.i, align 8
   %conv16.i = sext i32 %24 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %20, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.96)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %20, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.96)
   %call21.i = tail call ptr @PyErr_Occurred() #4
   %tobool22.not.i = icmp eq ptr %call21.i, null
   br i1 %tobool22.not.i, label %if.end16, label %if.end16.thread89.sink.split
@@ -35276,7 +35276,7 @@ if.then74.i:                                      ; preds = %land.lhs.true71.i
   %end_col_offset81.i = getelementptr inbounds i8, ptr %call72.i, i64 32
   %32 = load i32, ptr %end_col_offset81.i, align 8
   %conv82.i = sext i32 %32 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %28, i64 noundef %conv76.i, i64 noundef %conv78.i, i64 noundef %conv80.i, i64 noundef %conv82.i, ptr noundef nonnull @.str.97)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %28, i64 noundef %conv76.i, i64 noundef %conv78.i, i64 noundef %conv80.i, i64 noundef %conv82.i, ptr noundef nonnull @.str.97)
   %call87.i = tail call ptr @PyErr_Occurred() #4
   %tobool88.not.i = icmp eq ptr %call87.i, null
   br i1 %tobool88.not.i, label %if.end16, label %if.end16.thread89.sink.split
@@ -35326,7 +35326,7 @@ if.then118.i:                                     ; preds = %land.lhs.true115.i
   %end_col_offset125.i = getelementptr inbounds i8, ptr %call113.i, i64 32
   %38 = load i32, ptr %end_col_offset125.i, align 8
   %conv126.i = sext i32 %38 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %34, i64 noundef %conv120.i, i64 noundef %conv122.i, i64 noundef %conv124.i, i64 noundef %conv126.i, ptr noundef nonnull @.str.98)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %34, i64 noundef %conv120.i, i64 noundef %conv122.i, i64 noundef %conv124.i, i64 noundef %conv126.i, ptr noundef nonnull @.str.98)
   %call131.i = tail call ptr @PyErr_Occurred() #4
   %tobool132.not.i = icmp eq ptr %call131.i, null
   br i1 %tobool132.not.i, label %if.end16, label %if.end16.thread89.sink.split
@@ -35847,7 +35847,7 @@ if.then16.i:                                      ; preds = %land.lhs.true13.i
   %end_col_offset.i = getelementptr inbounds i8, ptr %call14.i, i64 32
   %11 = load i32, ptr %end_col_offset.i, align 8
   %conv19.i = sext i32 %11 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef %conv18.i, i64 noundef %conv19.i, ptr noundef nonnull @.str.99)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef %conv18.i, i64 noundef %conv19.i, ptr noundef nonnull @.str.99)
   %call24.i = tail call ptr @PyErr_Occurred() #4
   %tobool25.not.i = icmp eq ptr %call24.i, null
   br i1 %tobool25.not.i, label %if.end16, label %if.end16.thread23.sink.split
@@ -35892,7 +35892,7 @@ if.then53.i:                                      ; preds = %land.lhs.true50.i
   %end_col_offset60.i = getelementptr inbounds i8, ptr %call51.i, i64 36
   %17 = load i32, ptr %end_col_offset60.i, align 4
   %conv61.i = sext i32 %17 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %13, i64 noundef %conv55.i, i64 noundef %conv57.i, i64 noundef %conv59.i, i64 noundef %conv61.i, ptr noundef nonnull @.str.100)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %13, i64 noundef %conv55.i, i64 noundef %conv57.i, i64 noundef %conv59.i, i64 noundef %conv61.i, ptr noundef nonnull @.str.100)
   %call66.i = tail call ptr @PyErr_Occurred() #4
   %tobool67.not.i = icmp eq ptr %call66.i, null
   br i1 %tobool67.not.i, label %if.end16, label %if.end16.thread23.sink.split
@@ -35937,7 +35937,7 @@ if.then96.i:                                      ; preds = %land.lhs.true93.i
   %end_col_offset103.i = getelementptr inbounds i8, ptr %call94.i, i64 32
   %23 = load i32, ptr %end_col_offset103.i, align 8
   %conv104.i = sext i32 %23 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv98.i, i64 noundef %conv100.i, i64 noundef %conv102.i, i64 noundef %conv104.i, ptr noundef nonnull @.str.100)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv98.i, i64 noundef %conv100.i, i64 noundef %conv102.i, i64 noundef %conv104.i, ptr noundef nonnull @.str.100)
   %call109.i = tail call ptr @PyErr_Occurred() #4
   %tobool110.not.i = icmp eq ptr %call109.i, null
   br i1 %tobool110.not.i, label %if.end16, label %if.end16.thread23.sink.split
@@ -37618,7 +37618,7 @@ land.lhs.true59.i:                                ; preds = %land.lhs.true56.i
   br i1 %tobool62.not.i, label %land.lhs.true64.i, label %if.end28
 
 land.lhs.true64.i:                                ; preds = %land.lhs.true59.i
-  tail call fastcc void @_tmp_228_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @_tmp_228_rule(ptr noundef nonnull %p)
   %19 = load i32, ptr %error_indicator, align 8
   %tobool67.not.i = icmp eq i32 %19, 0
   br i1 %tobool67.not.i, label %land.lhs.true69.i, label %if.end28
@@ -37832,7 +37832,7 @@ return:                                           ; preds = %if.end27, %land.lhs
 declare ptr @_PyAST_ClassDef(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tmp_228_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @_tmp_228_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -39505,7 +39505,7 @@ if.then.i.i:                                      ; preds = %if.then19.i
   %11 = load i32, ptr %end_col_offset.i.i, align 4
   %conv7.i.i = sext i32 %11 to i64
   %call8.i.i = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call.i.i) #4
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i.i, i64 noundef %conv5.i.i, i64 noundef %conv6.i.i, i64 noundef %conv7.i.i, ptr noundef nonnull @.str.57, ptr noundef %call8.i.i)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i.i, i64 noundef %conv5.i.i, i64 noundef %conv6.i.i, i64 noundef %conv7.i.i, ptr noundef nonnull @.str.57, ptr noundef %call8.i.i)
   br label %_RAISE_SYNTAX_ERROR_INVALID_TARGET.exit.i
 
 _RAISE_SYNTAX_ERROR_INVALID_TARGET.exit.i:        ; preds = %if.then.i.i, %if.then.i.i.i, %land.lhs.true.i.i.i
@@ -40786,7 +40786,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tmp_216_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @_tmp_216_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -41102,7 +41102,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_tmp_219_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @_tmp_219_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -41760,7 +41760,7 @@ if.then33:                                        ; preds = %land.lhs.true30
   %col_offset = getelementptr inbounds i8, ptr %call17, i64 36
   %9 = load i32, ptr %col_offset, align 4
   %conv34 = sext i32 %9 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv, i64 noundef %conv34, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.130)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv, i64 noundef %conv34, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.130)
   %call39 = tail call ptr @PyErr_Occurred() #4
   %tobool40.not = icmp eq ptr %call39, null
   br i1 %tobool40.not, label %return, label %if.then41
@@ -43662,7 +43662,7 @@ if.then16.i:                                      ; preds = %land.lhs.true13.i
   %end_col_offset.i = getelementptr inbounds i8, ptr %call14.i, i64 44
   %22 = load i32, ptr %end_col_offset.i, align 4
   %conv19.i = sext i32 %22 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %18, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef %conv18.i, i64 noundef %conv19.i, ptr noundef nonnull @.str.137)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %18, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef %conv18.i, i64 noundef %conv19.i, ptr noundef nonnull @.str.137)
   %call24.i = tail call ptr @PyErr_Occurred() #4
   %tobool25.not.i = icmp eq ptr %call24.i, null
   br i1 %tobool25.not.i, label %invalid_as_pattern_rule.exit, label %invalid_as_pattern_rule.exit.sink.split
@@ -43707,7 +43707,7 @@ if.then53.i:                                      ; preds = %land.lhs.true50.i
   %end_col_offset60.i = getelementptr inbounds i8, ptr %call51.i, i64 44
   %28 = load i32, ptr %end_col_offset60.i, align 4
   %conv61.i = sext i32 %28 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %24, i64 noundef %conv55.i, i64 noundef %conv57.i, i64 noundef %conv59.i, i64 noundef %conv61.i, ptr noundef nonnull @.str.138)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %24, i64 noundef %conv55.i, i64 noundef %conv57.i, i64 noundef %conv59.i, i64 noundef %conv61.i, ptr noundef nonnull @.str.138)
   %call66.i = tail call ptr @PyErr_Occurred() #4
   %tobool67.not.i = icmp eq ptr %call66.i, null
   br i1 %tobool67.not.i, label %invalid_as_pattern_rule.exit, label %invalid_as_pattern_rule.exit.sink.split
@@ -45780,7 +45780,7 @@ if.then244:                                       ; preds = %if.end241
   br i1 %tobool246.not, label %if.end250, label %return.sink.split
 
 if.end250:                                        ; preds = %if.then244
-  tail call fastcc void @invalid_class_pattern_rule.retelim(ptr noundef nonnull %p)
+  tail call fastcc void @invalid_class_pattern_rule(ptr noundef nonnull %p)
   store i32 %2, ptr %mark, align 8
   br label %return.sink.split
 
@@ -47728,7 +47728,7 @@ return:                                           ; preds = %if.end12, %_gather_
 declare ptr @_PyPegen_map_names_to_ids(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @invalid_class_pattern_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @invalid_class_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -48004,7 +48004,7 @@ if.then16:                                        ; preds = %land.lhs.true17.i
   %end_col_offset = getelementptr inbounds i8, ptr %call22, i64 52
   %27 = load i32, ptr %end_col_offset, align 4
   %conv23 = sext i32 %27 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %23, i64 noundef %conv, i64 noundef %conv19, i64 noundef %conv21, i64 noundef %conv23, ptr noundef nonnull @.str.139)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %23, i64 noundef %conv, i64 noundef %conv19, i64 noundef %conv21, i64 noundef %conv23, ptr noundef nonnull @.str.139)
   %call28 = tail call ptr @PyErr_Occurred() #4
   %tobool29.not = icmp eq ptr %call28, null
   %.pre63 = load i32, ptr %level, align 8
@@ -48788,7 +48788,7 @@ if.then218.i:                                     ; preds = %if.end210.i
   br i1 %tobool220.not.i, label %if.end224.i, label %if.end32.thread.sink.split
 
 if.end224.i:                                      ; preds = %if.then218.i
-  call fastcc void @invalid_assignment_rule.retelim(ptr noundef nonnull %p)
+  call fastcc void @invalid_assignment_rule(ptr noundef nonnull %p)
   store i32 %15, ptr %mark, align 8
   br label %assignment_rule.exit.thread137
 
@@ -49775,7 +49775,7 @@ if.then19.i:                                      ; preds = %land.lhs.true16.i
   %col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %20 = load i32, ptr %col_offset.i, align 8
   %conv20.i = sext i32 %20 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %18, i64 noundef %conv.i, i64 noundef %conv20.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.149)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %18, i64 noundef %conv.i, i64 noundef %conv20.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.149)
   %call25.i = tail call ptr @PyErr_Occurred() #4
   %tobool26.not.i = icmp eq ptr %call25.i, null
   %.pre24.i = load i32, ptr %level, align 8
@@ -50496,7 +50496,7 @@ if.then.i.i:                                      ; preds = %if.then13.i
   %20 = load i32, ptr %end_col_offset.i.i, align 4
   %conv7.i.i = sext i32 %20 to i64
   %call8.i.i = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call.i.i) #4
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %16, i64 noundef %conv.i.i, i64 noundef %conv5.i.i, i64 noundef %conv6.i.i, i64 noundef %conv7.i.i, ptr noundef nonnull @.str.58, ptr noundef %call8.i.i)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %16, i64 noundef %conv.i.i, i64 noundef %conv5.i.i, i64 noundef %conv6.i.i, i64 noundef %conv7.i.i, ptr noundef nonnull @.str.58, ptr noundef %call8.i.i)
   br label %_RAISE_SYNTAX_ERROR_INVALID_TARGET.exit.i
 
 _RAISE_SYNTAX_ERROR_INVALID_TARGET.exit.i:        ; preds = %if.then.i.i, %if.then.i.i.i, %land.lhs.true.i.i.i
@@ -52118,7 +52118,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 declare ptr @_PyAST_AugAssign(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @invalid_assignment_rule.retelim(ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @invalid_assignment_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
@@ -52169,7 +52169,7 @@ if.then16:                                        ; preds = %land.lhs.true13
   %7 = load i32, ptr %end_col_offset, align 4
   %conv19 = sext i32 %7 to i64
   %call20 = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call) #4
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, ptr noundef nonnull @.str.143, ptr noundef %call20)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, ptr noundef nonnull @.str.143, ptr noundef %call20)
   %call25 = tail call ptr @PyErr_Occurred() #4
   %tobool26.not = icmp eq ptr %call25, null
   br i1 %tobool26.not, label %return, label %if.then27
@@ -52334,7 +52334,7 @@ if.then57:                                        ; preds = %land.lhs.true54
   %end_col_offset64 = getelementptr inbounds i8, ptr %call43, i64 44
   %23 = load i32, ptr %end_col_offset64, align 4
   %conv65 = sext i32 %23 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv59, i64 noundef %conv61, i64 noundef %conv63, i64 noundef %conv65, ptr noundef nonnull @.str.144)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv59, i64 noundef %conv61, i64 noundef %conv63, i64 noundef %conv65, ptr noundef nonnull @.str.144)
   %call70 = tail call ptr @PyErr_Occurred() #4
   %tobool71.not = icmp eq ptr %call70, null
   br i1 %tobool71.not, label %return, label %if.then72
@@ -52378,7 +52378,7 @@ if.then96:                                        ; preds = %land.lhs.true93
   %end_col_offset103 = getelementptr inbounds i8, ptr %call88, i64 44
   %29 = load i32, ptr %end_col_offset103, align 4
   %conv104 = sext i32 %29 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %25, i64 noundef %conv98, i64 noundef %conv100, i64 noundef %conv102, i64 noundef %conv104, ptr noundef nonnull @.str.145)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %25, i64 noundef %conv98, i64 noundef %conv100, i64 noundef %conv102, i64 noundef %conv104, ptr noundef nonnull @.str.145)
   %call109 = tail call ptr @PyErr_Occurred() #4
   %tobool110.not = icmp eq ptr %call109, null
   br i1 %tobool110.not, label %return, label %if.then111
@@ -52409,7 +52409,7 @@ land.lhs.true131:                                 ; preds = %land.lhs.true128
   br i1 %tobool133.not, label %if.end146, label %if.then134
 
 if.then134:                                       ; preds = %land.lhs.true131
-  tail call fastcc void @_RAISE_SYNTAX_ERROR_INVALID_TARGET.retelim(ptr noundef nonnull %p, i32 noundef 0, ptr noundef %call129)
+  tail call fastcc void @_RAISE_SYNTAX_ERROR_INVALID_TARGET(ptr noundef nonnull %p, i32 noundef 0, ptr noundef %call129)
   %call139 = tail call ptr @PyErr_Occurred() #4
   %tobool140.not = icmp eq ptr %call139, null
   br i1 %tobool140.not, label %return, label %if.then141
@@ -52453,7 +52453,7 @@ if.then164:                                       ; preds = %land.lhs.true161
   %end_col_offset171 = getelementptr inbounds i8, ptr %call159, i64 44
   %36 = load i32, ptr %end_col_offset171, align 4
   %conv172 = sext i32 %36 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %32, i64 noundef %conv166, i64 noundef %conv168, i64 noundef %conv170, i64 noundef %conv172, ptr noundef nonnull @.str.146)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %32, i64 noundef %conv166, i64 noundef %conv168, i64 noundef %conv170, i64 noundef %conv172, ptr noundef nonnull @.str.146)
   %call177 = tail call ptr @PyErr_Occurred() #4
   %tobool178.not = icmp eq ptr %call177, null
   br i1 %tobool178.not, label %return, label %if.then179
@@ -52498,7 +52498,7 @@ if.then201:                                       ; preds = %land.lhs.true198
   %42 = load i32, ptr %end_col_offset208, align 4
   %conv209 = sext i32 %42 to i64
   %call210 = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call193) #4
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION.retelim(ptr noundef nonnull %p, ptr noundef %38, i64 noundef %conv203, i64 noundef %conv205, i64 noundef %conv207, i64 noundef %conv209, ptr noundef nonnull @.str.147, ptr noundef %call210)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %38, i64 noundef %conv203, i64 noundef %conv205, i64 noundef %conv207, i64 noundef %conv209, ptr noundef nonnull @.str.147, ptr noundef %call210)
   %call215 = tail call ptr @PyErr_Occurred() #4
   %tobool216.not = icmp eq ptr %call215, null
   br i1 %tobool216.not, label %return, label %if.then217

@@ -322,12 +322,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @spl_ce_RecursiveIteratorIterator, align 8
-  tail call fastcc void @spl_recursive_it_it_construct.argprom(ptr noundef %0, ptr noundef %3, i32 noundef 0)
+  tail call fastcc void @spl_recursive_it_it_construct(ptr noundef %0, ptr noundef %3, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_recursive_it_it_construct.argprom(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -2183,7 +2183,7 @@ define hidden void @zim_RecursiveIteratorIterator_getMaxDepth(ptr nocapture noun
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveTreeIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @spl_ce_RecursiveTreeIterator, align 8
-  tail call fastcc void @spl_recursive_it_it_construct.argprom(ptr noundef %0, ptr noundef %3, i32 noundef 1)
+  tail call fastcc void @spl_recursive_it_it_construct(ptr noundef %0, ptr noundef %3, i32 noundef 1)
   ret void
 }
 
@@ -2703,7 +2703,7 @@ define hidden void @zim_RecursiveTreeIterator_getEntry(ptr nocapture noundef rea
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef %19) #10
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %spl_recursive_tree_iterator_get_entry.argprom.exit.thread19, label %25
+  br i1 %.not.i, label %spl_recursive_tree_iterator_get_entry.exit.thread19, label %25
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %24, i64 8
@@ -2730,7 +2730,7 @@ define hidden void @zim_RecursiveTreeIterator_getEntry(ptr nocapture noundef rea
   %35 = load ptr, ptr @zend_known_strings, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 376
   %37 = load ptr, ptr %36, align 8
-  br label %spl_recursive_tree_iterator_get_entry.argprom.exit
+  br label %spl_recursive_tree_iterator_get_entry.exit
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %.0.i, align 8
@@ -2738,30 +2738,30 @@ define hidden void @zim_RecursiveTreeIterator_getEntry(ptr nocapture noundef rea
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 64
   %.not23.i = icmp eq i32 %42, 0
-  br i1 %.not23.i, label %43, label %spl_recursive_tree_iterator_get_entry.argprom.exit.thread
+  br i1 %.not23.i, label %43, label %spl_recursive_tree_iterator_get_entry.exit.thread
 
 43:                                               ; preds = %38
   %44 = load i32, ptr %39, align 4
   %45 = add i32 %44, 1
   store i32 %45, ptr %39, align 4
-  br label %spl_recursive_tree_iterator_get_entry.argprom.exit.thread
+  br label %spl_recursive_tree_iterator_get_entry.exit.thread
 
 46:                                               ; preds = %32
   %47 = tail call ptr @zval_get_string_func(ptr noundef nonnull %.0.i) #10
-  br label %spl_recursive_tree_iterator_get_entry.argprom.exit
+  br label %spl_recursive_tree_iterator_get_entry.exit
 
-spl_recursive_tree_iterator_get_entry.argprom.exit: ; preds = %34, %46
+spl_recursive_tree_iterator_get_entry.exit:       ; preds = %34, %46
   %.020.i = phi ptr [ %37, %34 ], [ %47, %46 ]
   %.not13 = icmp eq ptr %.020.i, null
-  br i1 %.not13, label %spl_recursive_tree_iterator_get_entry.argprom.exit.thread19, label %spl_recursive_tree_iterator_get_entry.argprom.exit.thread
+  br i1 %.not13, label %spl_recursive_tree_iterator_get_entry.exit.thread19, label %spl_recursive_tree_iterator_get_entry.exit.thread
 
-spl_recursive_tree_iterator_get_entry.argprom.exit.thread19: ; preds = %15, %spl_recursive_tree_iterator_get_entry.argprom.exit
+spl_recursive_tree_iterator_get_entry.exit.thread19: ; preds = %15, %spl_recursive_tree_iterator_get_entry.exit
   %48 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %48, align 8
   br label %54
 
-spl_recursive_tree_iterator_get_entry.argprom.exit.thread: ; preds = %38, %43, %spl_recursive_tree_iterator_get_entry.argprom.exit
-  %.020.i18 = phi ptr [ %.020.i, %spl_recursive_tree_iterator_get_entry.argprom.exit ], [ %39, %43 ], [ %39, %38 ]
+spl_recursive_tree_iterator_get_entry.exit.thread: ; preds = %38, %43, %spl_recursive_tree_iterator_get_entry.exit
+  %.020.i18 = phi ptr [ %.020.i, %spl_recursive_tree_iterator_get_entry.exit ], [ %39, %43 ], [ %39, %38 ]
   store ptr %.020.i18, ptr %1, align 8
   %49 = getelementptr inbounds i8, ptr %.020.i18, i64 4
   %50 = load i32, ptr %49, align 4
@@ -2772,7 +2772,7 @@ spl_recursive_tree_iterator_get_entry.argprom.exit.thread: ; preds = %38, %43, %
   store i32 %52, ptr %53, align 8
   br label %54
 
-54:                                               ; preds = %spl_recursive_tree_iterator_get_entry.argprom.exit.thread, %spl_recursive_tree_iterator_get_entry.argprom.exit.thread19, %12, %7
+54:                                               ; preds = %spl_recursive_tree_iterator_get_entry.exit.thread, %spl_recursive_tree_iterator_get_entry.exit.thread19, %12, %7
   ret void
 }
 
@@ -2812,15 +2812,15 @@ define hidden void @zim_RecursiveTreeIterator_getPostfix(ptr nocapture noundef r
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 64
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %20, label %spl_recursive_tree_iterator_get_postfix.argprom.exit
+  br i1 %.not.i, label %20, label %spl_recursive_tree_iterator_get_postfix.exit
 
 20:                                               ; preds = %15
   %21 = load i32, ptr %.val, align 4
   %22 = add i32 %21, 1
   store i32 %22, ptr %.val, align 4
-  br label %spl_recursive_tree_iterator_get_postfix.argprom.exit
+  br label %spl_recursive_tree_iterator_get_postfix.exit
 
-spl_recursive_tree_iterator_get_postfix.argprom.exit: ; preds = %15, %20
+spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %15, %20
   store ptr %.val, ptr %1, align 8
   %23 = load i32, ptr %17, align 4
   %24 = and i32 %23, 64
@@ -2830,7 +2830,7 @@ spl_recursive_tree_iterator_get_postfix.argprom.exit: ; preds = %15, %20
   store i32 %25, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %spl_recursive_tree_iterator_get_postfix.argprom.exit, %12, %7
+27:                                               ; preds = %spl_recursive_tree_iterator_get_postfix.exit, %12, %7
   ret void
 }
 
@@ -2933,7 +2933,7 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
   br label %136
 
 54:                                               ; preds = %15
-  br i1 %.not.i, label %spl_recursive_tree_iterator_get_entry.argprom.exit.thread98, label %55
+  br i1 %.not.i, label %spl_recursive_tree_iterator_get_entry.exit.thread98, label %55
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds i8, ptr %27, i64 8
@@ -2960,7 +2960,7 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
   %65 = load ptr, ptr @zend_known_strings, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 376
   %67 = load ptr, ptr %66, align 8
-  br label %spl_recursive_tree_iterator_get_entry.argprom.exit
+  br label %spl_recursive_tree_iterator_get_entry.exit
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %.0.i, align 8
@@ -2968,30 +2968,30 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, 64
   %.not23.i = icmp eq i32 %72, 0
-  br i1 %.not23.i, label %73, label %spl_recursive_tree_iterator_get_entry.argprom.exit.thread
+  br i1 %.not23.i, label %73, label %spl_recursive_tree_iterator_get_entry.exit.thread
 
 73:                                               ; preds = %68
   %74 = load i32, ptr %69, align 4
   %75 = add i32 %74, 1
   store i32 %75, ptr %69, align 4
-  br label %spl_recursive_tree_iterator_get_entry.argprom.exit.thread
+  br label %spl_recursive_tree_iterator_get_entry.exit.thread
 
 76:                                               ; preds = %62
   %77 = tail call ptr @zval_get_string_func(ptr noundef nonnull %.0.i) #10
-  br label %spl_recursive_tree_iterator_get_entry.argprom.exit
+  br label %spl_recursive_tree_iterator_get_entry.exit
 
-spl_recursive_tree_iterator_get_entry.argprom.exit: ; preds = %64, %76
+spl_recursive_tree_iterator_get_entry.exit:       ; preds = %64, %76
   %.020.i = phi ptr [ %67, %64 ], [ %77, %76 ]
   %.not82 = icmp eq ptr %.020.i, null
-  br i1 %.not82, label %spl_recursive_tree_iterator_get_entry.argprom.exit.thread98, label %spl_recursive_tree_iterator_get_entry.argprom.exit.thread
+  br i1 %.not82, label %spl_recursive_tree_iterator_get_entry.exit.thread98, label %spl_recursive_tree_iterator_get_entry.exit.thread
 
-spl_recursive_tree_iterator_get_entry.argprom.exit.thread98: ; preds = %54, %spl_recursive_tree_iterator_get_entry.argprom.exit
+spl_recursive_tree_iterator_get_entry.exit.thread98: ; preds = %54, %spl_recursive_tree_iterator_get_entry.exit
   %78 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %78, align 8
   br label %136
 
-spl_recursive_tree_iterator_get_entry.argprom.exit.thread: ; preds = %68, %73, %spl_recursive_tree_iterator_get_entry.argprom.exit
-  %.020.i97 = phi ptr [ %.020.i, %spl_recursive_tree_iterator_get_entry.argprom.exit ], [ %69, %73 ], [ %69, %68 ]
+spl_recursive_tree_iterator_get_entry.exit.thread: ; preds = %68, %73, %spl_recursive_tree_iterator_get_entry.exit
+  %.020.i97 = phi ptr [ %.020.i, %spl_recursive_tree_iterator_get_entry.exit ], [ %69, %73 ], [ %69, %68 ]
   %79 = tail call fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr noundef nonnull %5)
   %80 = getelementptr i8, ptr %4, i64 -8
   %.val93 = load ptr, ptr %80, align 8
@@ -2999,15 +2999,15 @@ spl_recursive_tree_iterator_get_entry.argprom.exit.thread: ; preds = %68, %73, %
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, 64
   %.not.i94 = icmp eq i32 %83, 0
-  br i1 %.not.i94, label %84, label %spl_recursive_tree_iterator_get_postfix.argprom.exit
+  br i1 %.not.i94, label %84, label %spl_recursive_tree_iterator_get_postfix.exit
 
-84:                                               ; preds = %spl_recursive_tree_iterator_get_entry.argprom.exit.thread
+84:                                               ; preds = %spl_recursive_tree_iterator_get_entry.exit.thread
   %85 = load i32, ptr %.val93, align 4
   %86 = add i32 %85, 1
   store i32 %86, ptr %.val93, align 4
-  br label %spl_recursive_tree_iterator_get_postfix.argprom.exit
+  br label %spl_recursive_tree_iterator_get_postfix.exit
 
-spl_recursive_tree_iterator_get_postfix.argprom.exit: ; preds = %spl_recursive_tree_iterator_get_entry.argprom.exit.thread, %84
+spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %spl_recursive_tree_iterator_get_entry.exit.thread, %84
   %87 = getelementptr inbounds i8, ptr %79, i64 24
   %88 = getelementptr inbounds i8, ptr %79, i64 16
   %89 = load i64, ptr %88, align 8
@@ -3024,7 +3024,7 @@ spl_recursive_tree_iterator_get_postfix.argprom.exit: ; preds = %spl_recursive_t
   %.not83 = icmp eq i32 %99, 0
   br i1 %.not83, label %100, label %109
 
-100:                                              ; preds = %spl_recursive_tree_iterator_get_postfix.argprom.exit
+100:                                              ; preds = %spl_recursive_tree_iterator_get_postfix.exit
   %101 = load i32, ptr %.020.i97, align 4
   %102 = icmp ne i32 %101, 0
   tail call void @llvm.assume(i1 %102)
@@ -3046,7 +3046,7 @@ spl_recursive_tree_iterator_get_postfix.argprom.exit: ; preds = %spl_recursive_t
   tail call void @_efree(ptr noundef nonnull %.020.i97) #10
   br label %109
 
-109:                                              ; preds = %100, %108, %107, %spl_recursive_tree_iterator_get_postfix.argprom.exit
+109:                                              ; preds = %100, %108, %107, %spl_recursive_tree_iterator_get_postfix.exit
   %110 = getelementptr inbounds i8, ptr %79, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, 64
@@ -3109,7 +3109,7 @@ spl_recursive_tree_iterator_get_postfix.argprom.exit: ; preds = %spl_recursive_t
   store i32 262, ptr %135, align 8
   br label %136
 
-136:                                              ; preds = %134, %spl_recursive_tree_iterator_get_entry.argprom.exit.thread98, %52, %47, %12, %8
+136:                                              ; preds = %134, %spl_recursive_tree_iterator_get_entry.exit.thread98, %52, %47, %12, %8
   ret void
 }
 
@@ -3213,15 +3213,15 @@ define hidden void @zim_RecursiveTreeIterator_key(ptr nocapture noundef readonly
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 64
   %.not.i = icmp eq i32 %56, 0
-  br i1 %.not.i, label %57, label %spl_recursive_tree_iterator_get_postfix.argprom.exit
+  br i1 %.not.i, label %57, label %spl_recursive_tree_iterator_get_postfix.exit
 
 57:                                               ; preds = %50
   %58 = load i32, ptr %.val, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %.val, align 4
-  br label %spl_recursive_tree_iterator_get_postfix.argprom.exit
+  br label %spl_recursive_tree_iterator_get_postfix.exit
 
-spl_recursive_tree_iterator_get_postfix.argprom.exit: ; preds = %50, %57
+spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %50, %57
   %60 = getelementptr inbounds i8, ptr %52, i64 24
   %61 = getelementptr inbounds i8, ptr %52, i64 16
   %62 = load i64, ptr %61, align 8
@@ -3238,7 +3238,7 @@ spl_recursive_tree_iterator_get_postfix.argprom.exit: ; preds = %50, %57
   %.not72 = icmp eq i32 %72, 0
   br i1 %.not72, label %73, label %82
 
-73:                                               ; preds = %spl_recursive_tree_iterator_get_postfix.argprom.exit
+73:                                               ; preds = %spl_recursive_tree_iterator_get_postfix.exit
   %74 = load i32, ptr %51, align 4
   %75 = icmp ne i32 %74, 0
   call void @llvm.assume(i1 %75)
@@ -3260,7 +3260,7 @@ spl_recursive_tree_iterator_get_postfix.argprom.exit: ; preds = %50, %57
   call void @_efree(ptr noundef nonnull %51) #10
   br label %82
 
-82:                                               ; preds = %73, %81, %80, %spl_recursive_tree_iterator_get_postfix.argprom.exit
+82:                                               ; preds = %73, %81, %80, %spl_recursive_tree_iterator_get_postfix.exit
   %83 = getelementptr inbounds i8, ptr %52, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = and i32 %84, 64
@@ -3350,14 +3350,14 @@ define hidden void @zim_FilterIterator___construct(ptr nocapture noundef readonl
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %12, i64 noundef 0, ptr noundef nonnull @.str.43, ptr noundef nonnull %15) #10
-  br label %spl_dual_it_construct.argprom.exit
+  br label %spl_dual_it_construct.exit
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef %5) #10
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %spl_dual_it_construct.argprom.exit, label %22
+  br i1 %21, label %spl_dual_it_construct.exit, label %22
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -3388,15 +3388,15 @@ define hidden void @zim_FilterIterator___construct(ptr nocapture noundef readonl
   %41 = call ptr %40(ptr noundef %35, ptr noundef nonnull %30, i32 noundef 0) #10
   %42 = getelementptr inbounds i8, ptr %7, i64 -104
   store ptr %41, ptr %42, align 8
-  br label %spl_dual_it_construct.argprom.exit
+  br label %spl_dual_it_construct.exit
 
-spl_dual_it_construct.argprom.exit:               ; preds = %11, %17, %22
+spl_dual_it_construct.exit:                       ; preds = %11, %17, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_dual_it_construct.argprom.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 12) %3) unnamed_addr #0 {
+define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 12) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct.zend_error_handling, align 8
@@ -3768,7 +3768,7 @@ define internal fastcc void @spl_dual_it_construct.argprom.retelim(ptr nocapture
 define hidden void @zim_CallbackFilterIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @spl_ce_CallbackFilterIterator, align 8
   %4 = load ptr, ptr @zend_ce_iterator, align 8
-  tail call fastcc void @spl_dual_it_construct.argprom.retelim(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 10)
+  tail call fastcc void @spl_dual_it_construct(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 10)
   ret void
 }
 
@@ -3914,9 +3914,9 @@ spl_dual_it_rewind.exit:                          ; preds = %17, %21, %26
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
   %.val.i = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.argprom.exit.i
+  br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit.i
 
-spl_dual_it_valid.argprom.exit.i:                 ; preds = %spl_dual_it_rewind.exit
+spl_dual_it_valid.exit.i:                         ; preds = %spl_dual_it_rewind.exit
   %27 = getelementptr inbounds i8, ptr %.val.i, i64 72
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
@@ -3925,7 +3925,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %spl_dual_it_rewind.
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %spl_dual_it_fetch.exit
 
-33:                                               ; preds = %spl_dual_it_valid.argprom.exit.i
+33:                                               ; preds = %spl_dual_it_valid.exit.i
   %34 = load ptr, ptr %19, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 72
   %36 = load ptr, ptr %35, align 8
@@ -3984,12 +3984,12 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %spl_dual_it_rewind.
   store i32 %.sink.i, ptr %62, align 8
   br label %spl_dual_it_fetch.exit
 
-spl_dual_it_fetch.exit:                           ; preds = %57, %.sink.split.i, %spl_dual_it_valid.argprom.exit.i, %spl_dual_it_rewind.exit, %14, %5
+spl_dual_it_fetch.exit:                           ; preds = %57, %.sink.split.i, %spl_dual_it_valid.exit.i, %spl_dual_it_rewind.exit, %14, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_dual_it_fetch.retelim(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @spl_dual_it_fetch(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   tail call fastcc void @spl_dual_it_free(ptr noundef %0)
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %11, label %3
@@ -3998,18 +3998,18 @@ define internal fastcc void @spl_dual_it_fetch.retelim(ptr noundef %0, i32 nound
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %spl_dual_it_valid.argprom.exit.thread, label %spl_dual_it_valid.argprom.exit
+  br i1 %.not.i, label %spl_dual_it_valid.exit.thread, label %spl_dual_it_valid.exit
 
-spl_dual_it_valid.argprom.exit:                   ; preds = %3
+spl_dual_it_valid.exit:                           ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.val, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %.val) #10
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %spl_dual_it_valid.argprom.exit.thread
+  br i1 %10, label %11, label %spl_dual_it_valid.exit.thread
 
-11:                                               ; preds = %spl_dual_it_valid.argprom.exit, %2
+11:                                               ; preds = %spl_dual_it_valid.exit, %2
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 72
@@ -4052,7 +4052,7 @@ spl_dual_it_valid.argprom.exit:                   ; preds = %3
   tail call void %34(ptr noundef nonnull %30, ptr noundef nonnull %35) #10
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not32 = icmp eq ptr %37, null
-  br i1 %.not32, label %spl_dual_it_valid.argprom.exit.thread, label %38
+  br i1 %.not32, label %spl_dual_it_valid.exit.thread, label %38
 
 38:                                               ; preds = %36
   tail call void @zval_ptr_dtor(ptr noundef nonnull %35) #10
@@ -4068,9 +4068,9 @@ spl_dual_it_valid.argprom.exit:                   ; preds = %3
   %.sink = phi i32 [ 0, %38 ], [ 4, %39 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %.sink, ptr %42, align 8
-  br label %spl_dual_it_valid.argprom.exit.thread
+  br label %spl_dual_it_valid.exit.thread
 
-spl_dual_it_valid.argprom.exit.thread:            ; preds = %36, %.sink.split, %3, %spl_dual_it_valid.argprom.exit
+spl_dual_it_valid.exit.thread:                    ; preds = %36, %.sink.split, %3, %spl_dual_it_valid.exit
   ret void
 }
 
@@ -4336,9 +4336,9 @@ define hidden void @zim_IteratorIterator_next(ptr nocapture noundef readonly %0,
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %17)
   %.val.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.argprom.exit.i
+  br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit.i
 
-spl_dual_it_valid.argprom.exit.i:                 ; preds = %16
+spl_dual_it_valid.exit.i:                         ; preds = %16
   %25 = getelementptr inbounds i8, ptr %.val.i, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
@@ -4347,7 +4347,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %16
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %spl_dual_it_fetch.exit
 
-31:                                               ; preds = %spl_dual_it_valid.argprom.exit.i
+31:                                               ; preds = %spl_dual_it_valid.exit.i
   %32 = load ptr, ptr %.phi.trans.insert.i, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 72
   %34 = load ptr, ptr %33, align 8
@@ -4406,7 +4406,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %16
   store i32 %.sink.i, ptr %60, align 8
   br label %spl_dual_it_fetch.exit
 
-spl_dual_it_fetch.exit:                           ; preds = %55, %.sink.split.i, %spl_dual_it_valid.argprom.exit.i, %16, %13, %5
+spl_dual_it_fetch.exit:                           ; preds = %55, %.sink.split.i, %spl_dual_it_valid.exit.i, %16, %13, %5
   ret void
 }
 
@@ -4523,7 +4523,7 @@ define hidden void @zim_FilterIterator_next(ptr nocapture noundef readonly %0, p
 define hidden void @zim_RecursiveCallbackFilterIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @spl_ce_RecursiveCallbackFilterIterator, align 8
   %4 = load ptr, ptr @spl_ce_RecursiveIterator, align 8
-  tail call fastcc void @spl_dual_it_construct.argprom.retelim(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 11)
+  tail call fastcc void @spl_dual_it_construct(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 11)
   ret void
 }
 
@@ -4547,14 +4547,14 @@ define hidden void @zim_RecursiveFilterIterator___construct(ptr nocapture nounde
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %12, i64 noundef 0, ptr noundef nonnull @.str.43, ptr noundef nonnull %15) #10
-  br label %spl_dual_it_construct.argprom.exit
+  br label %spl_dual_it_construct.exit
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef %5) #10
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %spl_dual_it_construct.argprom.exit, label %22
+  br i1 %21, label %spl_dual_it_construct.exit, label %22
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -4585,9 +4585,9 @@ define hidden void @zim_RecursiveFilterIterator___construct(ptr nocapture nounde
   %41 = call ptr %40(ptr noundef %35, ptr noundef nonnull %30, i32 noundef 0) #10
   %42 = getelementptr inbounds i8, ptr %7, i64 -104
   store ptr %41, ptr %42, align 8
-  br label %spl_dual_it_construct.argprom.exit
+  br label %spl_dual_it_construct.exit
 
-spl_dual_it_construct.argprom.exit:               ; preds = %11, %17, %22
+spl_dual_it_construct.exit:                       ; preds = %11, %17, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -4797,14 +4797,14 @@ define hidden void @zim_ParentIterator___construct(ptr nocapture noundef readonl
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %12, i64 noundef 0, ptr noundef nonnull @.str.43, ptr noundef nonnull %15) #10
-  br label %spl_dual_it_construct.argprom.exit
+  br label %spl_dual_it_construct.exit
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef %5) #10
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %spl_dual_it_construct.argprom.exit, label %22
+  br i1 %21, label %spl_dual_it_construct.exit, label %22
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -4835,9 +4835,9 @@ define hidden void @zim_ParentIterator___construct(ptr nocapture noundef readonl
   %41 = call ptr %40(ptr noundef %35, ptr noundef nonnull %30, i32 noundef 0) #10
   %42 = getelementptr inbounds i8, ptr %7, i64 -104
   store ptr %41, ptr %42, align 8
-  br label %spl_dual_it_construct.argprom.exit
+  br label %spl_dual_it_construct.exit
 
-spl_dual_it_construct.argprom.exit:               ; preds = %11, %17, %22
+spl_dual_it_construct.exit:                       ; preds = %11, %17, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -4846,7 +4846,7 @@ spl_dual_it_construct.argprom.exit:               ; preds = %11, %17, %22
 define hidden void @zim_RegexIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @spl_ce_RegexIterator, align 8
   %4 = load ptr, ptr @zend_ce_iterator, align 8
-  tail call fastcc void @spl_dual_it_construct.argprom.retelim(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 8)
+  tail call fastcc void @spl_dual_it_construct(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 8)
   ret void
 }
 
@@ -5676,7 +5676,7 @@ define hidden void @zim_RegexIterator_setPregFlags(ptr nocapture noundef readonl
 define hidden void @zim_RecursiveRegexIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @spl_ce_RecursiveRegexIterator, align 8
   %4 = load ptr, ptr @spl_ce_RecursiveIterator, align 8
-  tail call fastcc void @spl_dual_it_construct.argprom.retelim(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 9)
+  tail call fastcc void @spl_dual_it_construct(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 9)
   ret void
 }
 
@@ -5866,7 +5866,7 @@ define hidden void @zim_RecursiveRegexIterator_accept(ptr nocapture noundef read
 define hidden void @zim_LimitIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @spl_ce_LimitIterator, align 8
   %4 = load ptr, ptr @zend_ce_iterator, align 8
-  tail call fastcc void @spl_dual_it_construct.argprom.retelim(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 1)
+  tail call fastcc void @spl_dual_it_construct(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 1)
   ret void
 }
 
@@ -6020,7 +6020,7 @@ spl_limit_it_valid.exit:                          ; preds = %38
   br i1 %45, label %46, label %spl_dual_it_fetch.exit
 
 46:                                               ; preds = %spl_limit_it_valid.exit
-  call fastcc void @spl_dual_it_fetch.retelim(ptr noundef nonnull %0, i32 noundef 0)
+  call fastcc void @spl_dual_it_fetch(ptr noundef nonnull %0, i32 noundef 0)
   br label %spl_dual_it_fetch.exit
 
 47:                                               ; preds = %26
@@ -6058,9 +6058,9 @@ spl_dual_it_rewind.exit:                          ; preds = %57, %52, %49, %47
 .lr.ph:                                           ; preds = %spl_dual_it_rewind.exit, %67
   %.val = load ptr, ptr %59, align 8
   %.not.i56 = icmp eq ptr %.val, null
-  br i1 %.not.i56, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.argprom.exit
+  br i1 %.not.i56, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit
 
-spl_dual_it_valid.argprom.exit:                   ; preds = %.lr.ph
+spl_dual_it_valid.exit:                           ; preds = %.lr.ph
   %61 = getelementptr inbounds i8, ptr %.val, i64 72
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
@@ -6069,7 +6069,7 @@ spl_dual_it_valid.argprom.exit:                   ; preds = %.lr.ph
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %.critedge2
 
-67:                                               ; preds = %spl_dual_it_valid.argprom.exit
+67:                                               ; preds = %spl_dual_it_valid.exit
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %0)
   %.pre.i = load ptr, ptr %59, align 8
   %68 = getelementptr inbounds i8, ptr %.pre.i, i64 72
@@ -6083,13 +6083,13 @@ spl_dual_it_valid.argprom.exit:                   ; preds = %.lr.ph
   %74 = icmp sgt i64 %1, %73
   br i1 %74, label %.lr.ph, label %.critedge2
 
-.critedge2:                                       ; preds = %spl_dual_it_valid.argprom.exit, %67, %spl_dual_it_rewind.exit.thread, %spl_dual_it_rewind.exit
-  %.ph = phi ptr [ %59, %spl_dual_it_rewind.exit ], [ %20, %spl_dual_it_rewind.exit.thread ], [ %59, %67 ], [ %59, %spl_dual_it_valid.argprom.exit ]
+.critedge2:                                       ; preds = %spl_dual_it_valid.exit, %67, %spl_dual_it_rewind.exit.thread, %spl_dual_it_rewind.exit
+  %.ph = phi ptr [ %59, %spl_dual_it_rewind.exit ], [ %20, %spl_dual_it_rewind.exit.thread ], [ %59, %67 ], [ %59, %spl_dual_it_valid.exit ]
   %.val54.pr = load ptr, ptr %.ph, align 8
   %.not.i58 = icmp eq ptr %.val54.pr, null
-  br i1 %.not.i58, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.argprom.exit60
+  br i1 %.not.i58, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit60
 
-spl_dual_it_valid.argprom.exit60:                 ; preds = %.critedge2
+spl_dual_it_valid.exit60:                         ; preds = %.critedge2
   %75 = getelementptr inbounds i8, ptr %.val54.pr, i64 72
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 8
@@ -6098,13 +6098,13 @@ spl_dual_it_valid.argprom.exit60:                 ; preds = %.critedge2
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %spl_dual_it_fetch.exit
 
-81:                                               ; preds = %spl_dual_it_valid.argprom.exit60
+81:                                               ; preds = %spl_dual_it_valid.exit60
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %0)
   %.val.i61 = load ptr, ptr %.ph, align 8
   %.not.i.i62 = icmp eq ptr %.val.i61, null
-  br i1 %.not.i.i62, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.argprom.exit.i
+  br i1 %.not.i.i62, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit.i
 
-spl_dual_it_valid.argprom.exit.i:                 ; preds = %81
+spl_dual_it_valid.exit.i:                         ; preds = %81
   %82 = getelementptr inbounds i8, ptr %.val.i61, i64 72
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 8
@@ -6113,7 +6113,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %81
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %spl_dual_it_fetch.exit
 
-88:                                               ; preds = %spl_dual_it_valid.argprom.exit.i
+88:                                               ; preds = %spl_dual_it_valid.exit.i
   %89 = load ptr, ptr %.ph, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 72
   %91 = load ptr, ptr %90, align 8
@@ -6172,7 +6172,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %81
   store i32 %.sink.i, ptr %117, align 8
   br label %spl_dual_it_fetch.exit
 
-spl_dual_it_fetch.exit:                           ; preds = %.lr.ph, %112, %.sink.split.i, %.critedge2, %38, %35, %spl_dual_it_valid.argprom.exit.i, %81, %spl_dual_it_valid.argprom.exit60, %.critedge, %46, %spl_limit_it_valid.exit, %14, %7
+spl_dual_it_fetch.exit:                           ; preds = %.lr.ph, %112, %.sink.split.i, %.critedge2, %38, %35, %spl_dual_it_valid.exit.i, %81, %spl_dual_it_valid.exit60, %.critedge, %46, %spl_limit_it_valid.exit, %14, %7
   ret void
 }
 
@@ -6296,9 +6296,9 @@ define hidden void @zim_LimitIterator_next(ptr nocapture noundef readonly %0, pt
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
   %.val.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.argprom.exit.i
+  br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit.i
 
-spl_dual_it_valid.argprom.exit.i:                 ; preds = %33
+spl_dual_it_valid.exit.i:                         ; preds = %33
   %34 = getelementptr inbounds i8, ptr %.val.i, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
@@ -6307,7 +6307,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %33
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %spl_dual_it_fetch.exit
 
-40:                                               ; preds = %spl_dual_it_valid.argprom.exit.i
+40:                                               ; preds = %spl_dual_it_valid.exit.i
   %41 = load ptr, ptr %.phi.trans.insert.i, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 72
   %43 = load ptr, ptr %42, align 8
@@ -6366,7 +6366,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %33
   store i32 %.sink.i, ptr %69, align 8
   br label %spl_dual_it_fetch.exit
 
-spl_dual_it_fetch.exit:                           ; preds = %64, %.sink.split.i, %spl_dual_it_valid.argprom.exit.i, %33, %28, %14, %5
+spl_dual_it_fetch.exit:                           ; preds = %64, %.sink.split.i, %spl_dual_it_valid.exit.i, %33, %28, %14, %5
   ret void
 }
 
@@ -6460,7 +6460,7 @@ define hidden void @zim_LimitIterator_getPosition(ptr nocapture noundef readonly
 define hidden void @zim_CachingIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @spl_ce_CachingIterator, align 8
   %4 = load ptr, ptr @zend_ce_iterator, align 8
-  tail call fastcc void @spl_dual_it_construct.argprom.retelim(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 2)
+  tail call fastcc void @spl_dual_it_construct(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 2)
   ret void
 }
 
@@ -6616,9 +6616,9 @@ define internal fastcc void @spl_caching_it_next(ptr noundef %0) unnamed_addr #0
   %5 = getelementptr i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %spl_dual_it_fetch.exit.thread, label %spl_dual_it_valid.argprom.exit.i
+  br i1 %.not.i.i, label %spl_dual_it_fetch.exit.thread, label %spl_dual_it_valid.exit.i
 
-spl_dual_it_valid.argprom.exit.i:                 ; preds = %1
+spl_dual_it_valid.exit.i:                         ; preds = %1
   %6 = getelementptr inbounds i8, ptr %.val.i, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
@@ -6627,7 +6627,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %1
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %spl_dual_it_fetch.exit.thread
 
-12:                                               ; preds = %spl_dual_it_valid.argprom.exit.i
+12:                                               ; preds = %spl_dual_it_valid.exit.i
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8
@@ -6882,7 +6882,7 @@ spl_dual_it_fetch.exit.thread72:                  ; preds = %36, %spl_dual_it_fe
   store i64 %141, ptr %139, align 8
   br label %spl_dual_it_next.exit
 
-spl_dual_it_fetch.exit.thread:                    ; preds = %1, %spl_dual_it_valid.argprom.exit.i, %spl_dual_it_fetch.exit
+spl_dual_it_fetch.exit.thread:                    ; preds = %1, %spl_dual_it_valid.exit.i, %spl_dual_it_fetch.exit
   %142 = getelementptr inbounds i8, ptr %0, i64 88
   %143 = load i64, ptr %142, align 8
   %144 = and i64 %143, -65537
@@ -6926,9 +6926,9 @@ define hidden void @zim_CachingIterator_hasNext(ptr nocapture noundef readonly %
   %17 = getelementptr i8, ptr %9, i64 -104
   %.val = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %spl_caching_it_has_next.argprom.exit.thread, label %spl_caching_it_has_next.argprom.exit
+  br i1 %.not.i.i, label %spl_caching_it_has_next.exit.thread, label %spl_caching_it_has_next.exit
 
-spl_caching_it_has_next.argprom.exit:             ; preds = %16
+spl_caching_it_has_next.exit:                     ; preds = %16
   %18 = getelementptr inbounds i8, ptr %.val, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 8
@@ -6937,15 +6937,15 @@ spl_caching_it_has_next.argprom.exit:             ; preds = %16
   %.fr = freeze i32 %22
   %23 = icmp eq i32 %.fr, 0
   %spec.select = select i1 %23, i32 3, i32 2
-  br label %spl_caching_it_has_next.argprom.exit.thread
+  br label %spl_caching_it_has_next.exit.thread
 
-spl_caching_it_has_next.argprom.exit.thread:      ; preds = %spl_caching_it_has_next.argprom.exit, %16
-  %24 = phi i32 [ 2, %16 ], [ %spec.select, %spl_caching_it_has_next.argprom.exit ]
+spl_caching_it_has_next.exit.thread:              ; preds = %spl_caching_it_has_next.exit, %16
+  %24 = phi i32 [ 2, %16 ], [ %spec.select, %spl_caching_it_has_next.exit ]
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
 
-26:                                               ; preds = %spl_caching_it_has_next.argprom.exit.thread, %13, %5
+26:                                               ; preds = %spl_caching_it_has_next.exit.thread, %13, %5
   ret void
 }
 
@@ -7864,7 +7864,7 @@ define hidden void @zim_CachingIterator_count(ptr nocapture noundef readonly %0,
 define hidden void @zim_RecursiveCachingIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @spl_ce_RecursiveCachingIterator, align 8
   %4 = load ptr, ptr @spl_ce_RecursiveIterator, align 8
-  tail call fastcc void @spl_dual_it_construct.argprom.retelim(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 3)
+  tail call fastcc void @spl_dual_it_construct(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 3)
   ret void
 }
 
@@ -8001,7 +8001,7 @@ define hidden void @zim_RecursiveCachingIterator_getChildren(ptr nocapture nound
 define hidden void @zim_IteratorIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @spl_ce_IteratorIterator, align 8
   %4 = load ptr, ptr @zend_ce_traversable, align 8
-  tail call fastcc void @spl_dual_it_construct.argprom.retelim(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 4)
+  tail call fastcc void @spl_dual_it_construct(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 4)
   ret void
 }
 
@@ -8025,14 +8025,14 @@ define hidden void @zim_NoRewindIterator___construct(ptr nocapture noundef reado
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %12, i64 noundef 0, ptr noundef nonnull @.str.43, ptr noundef nonnull %15) #10
-  br label %spl_dual_it_construct.argprom.exit
+  br label %spl_dual_it_construct.exit
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef %5) #10
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %spl_dual_it_construct.argprom.exit, label %22
+  br i1 %21, label %spl_dual_it_construct.exit, label %22
 
 22:                                               ; preds = %17
   store i32 5, ptr %9, align 8
@@ -8063,9 +8063,9 @@ define hidden void @zim_NoRewindIterator___construct(ptr nocapture noundef reado
   %41 = call ptr %40(ptr noundef %35, ptr noundef nonnull %30, i32 noundef 0) #10
   %42 = getelementptr inbounds i8, ptr %7, i64 -104
   store ptr %41, ptr %42, align 8
-  br label %spl_dual_it_construct.argprom.exit
+  br label %spl_dual_it_construct.exit
 
-spl_dual_it_construct.argprom.exit:               ; preds = %11, %17, %22
+spl_dual_it_construct.exit:                       ; preds = %11, %17, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -8337,14 +8337,14 @@ define hidden void @zim_InfiniteIterator___construct(ptr nocapture noundef reado
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %12, i64 noundef 0, ptr noundef nonnull @.str.43, ptr noundef nonnull %15) #10
-  br label %spl_dual_it_construct.argprom.exit
+  br label %spl_dual_it_construct.exit
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef %5) #10
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %spl_dual_it_construct.argprom.exit, label %22
+  br i1 %21, label %spl_dual_it_construct.exit, label %22
 
 22:                                               ; preds = %17
   store i32 6, ptr %9, align 8
@@ -8375,9 +8375,9 @@ define hidden void @zim_InfiniteIterator___construct(ptr nocapture noundef reado
   %41 = call ptr %40(ptr noundef %35, ptr noundef nonnull %30, i32 noundef 0) #10
   %42 = getelementptr inbounds i8, ptr %7, i64 -104
   store ptr %41, ptr %42, align 8
-  br label %spl_dual_it_construct.argprom.exit
+  br label %spl_dual_it_construct.exit
 
-spl_dual_it_construct.argprom.exit:               ; preds = %11, %17, %22
+spl_dual_it_construct.exit:                       ; preds = %11, %17, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }
@@ -8394,7 +8394,7 @@ define hidden void @zim_InfiniteIterator_next(ptr nocapture noundef readonly %0,
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  br label %spl_dual_it_valid.argprom.exit15.thread
+  br label %spl_dual_it_valid.exit15.thread
 
 .critedge:                                        ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8410,7 +8410,7 @@ define hidden void @zim_InfiniteIterator_next(ptr nocapture noundef readonly %0,
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %16 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %16)
-  br label %spl_dual_it_valid.argprom.exit15.thread
+  br label %spl_dual_it_valid.exit15.thread
 
 17:                                               ; preds = %.critedge
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
@@ -8427,18 +8427,18 @@ define hidden void @zim_InfiniteIterator_next(ptr nocapture noundef readonly %0,
   store i64 %24, ptr %22, align 8
   %.val = load ptr, ptr %.phi.trans.insert.i, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %spl_dual_it_valid.argprom.exit.thread, label %spl_dual_it_valid.argprom.exit
+  br i1 %.not.i, label %spl_dual_it_valid.exit.thread, label %spl_dual_it_valid.exit
 
-spl_dual_it_valid.argprom.exit:                   ; preds = %17
+spl_dual_it_valid.exit:                           ; preds = %17
   %25 = getelementptr inbounds i8, ptr %.val, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef nonnull %.val) #10
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %spl_dual_it_valid.argprom.exit.thread
+  br i1 %30, label %31, label %spl_dual_it_valid.exit.thread
 
-31:                                               ; preds = %spl_dual_it_valid.argprom.exit
+31:                                               ; preds = %spl_dual_it_valid.exit
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
   %32 = load ptr, ptr %.phi.trans.insert.i, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 72
@@ -8481,7 +8481,7 @@ spl_dual_it_valid.argprom.exit:                   ; preds = %17
   tail call void %53(ptr noundef nonnull %49, ptr noundef nonnull %54) #10
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not32.i = icmp eq ptr %56, null
-  br i1 %.not32.i, label %spl_dual_it_valid.argprom.exit15.thread, label %57
+  br i1 %.not32.i, label %spl_dual_it_valid.exit15.thread, label %57
 
 57:                                               ; preds = %55
   tail call void @zval_ptr_dtor(ptr noundef nonnull %54) #10
@@ -8496,30 +8496,30 @@ spl_dual_it_valid.argprom.exit:                   ; preds = %17
   %.sink.i = phi i32 [ 0, %57 ], [ 4, %58 ]
   %60 = getelementptr inbounds i8, ptr %9, i64 -72
   store i32 %.sink.i, ptr %60, align 8
-  br label %spl_dual_it_valid.argprom.exit15.thread
+  br label %spl_dual_it_valid.exit15.thread
 
-spl_dual_it_valid.argprom.exit.thread:            ; preds = %17, %spl_dual_it_valid.argprom.exit
+spl_dual_it_valid.exit.thread:                    ; preds = %17, %spl_dual_it_valid.exit
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
   store i64 0, ptr %22, align 8
   %61 = load ptr, ptr %.phi.trans.insert.i, align 8
   %.not.i12 = icmp eq ptr %61, null
-  br i1 %.not.i12, label %spl_dual_it_valid.argprom.exit15.thread, label %62
+  br i1 %.not.i12, label %spl_dual_it_valid.exit15.thread, label %62
 
-62:                                               ; preds = %spl_dual_it_valid.argprom.exit.thread
+62:                                               ; preds = %spl_dual_it_valid.exit.thread
   %63 = getelementptr inbounds i8, ptr %61, i64 72
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 40
   %66 = load ptr, ptr %65, align 8
   %.not7.i = icmp eq ptr %66, null
-  br i1 %.not7.i, label %spl_dual_it_valid.argprom.exit15, label %spl_dual_it_rewind.exit
+  br i1 %.not7.i, label %spl_dual_it_valid.exit15, label %spl_dual_it_rewind.exit
 
 spl_dual_it_rewind.exit:                          ; preds = %62
   tail call void %66(ptr noundef nonnull %61) #10
   %.val10.pr.pre = load ptr, ptr %.phi.trans.insert.i, align 8
   %.not.i13 = icmp eq ptr %.val10.pr.pre, null
-  br i1 %.not.i13, label %spl_dual_it_valid.argprom.exit15.thread, label %spl_dual_it_valid.argprom.exit15
+  br i1 %.not.i13, label %spl_dual_it_valid.exit15.thread, label %spl_dual_it_valid.exit15
 
-spl_dual_it_valid.argprom.exit15:                 ; preds = %62, %spl_dual_it_rewind.exit
+spl_dual_it_valid.exit15:                         ; preds = %62, %spl_dual_it_rewind.exit
   %.val10.pr32 = phi ptr [ %.val10.pr.pre, %spl_dual_it_rewind.exit ], [ %61, %62 ]
   %67 = getelementptr inbounds i8, ptr %.val10.pr32, i64 72
   %68 = load ptr, ptr %67, align 8
@@ -8527,9 +8527,9 @@ spl_dual_it_valid.argprom.exit15:                 ; preds = %62, %spl_dual_it_re
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 %70(ptr noundef nonnull %.val10.pr32) #10
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %spl_dual_it_valid.argprom.exit15.thread
+  br i1 %72, label %73, label %spl_dual_it_valid.exit15.thread
 
-73:                                               ; preds = %spl_dual_it_valid.argprom.exit15
+73:                                               ; preds = %spl_dual_it_valid.exit15
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
   %74 = load ptr, ptr %.phi.trans.insert.i, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 72
@@ -8572,7 +8572,7 @@ spl_dual_it_valid.argprom.exit15:                 ; preds = %62, %spl_dual_it_re
   tail call void %95(ptr noundef nonnull %91, ptr noundef nonnull %96) #10
   %98 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not32.i19 = icmp eq ptr %98, null
-  br i1 %.not32.i19, label %spl_dual_it_valid.argprom.exit15.thread, label %99
+  br i1 %.not32.i19, label %spl_dual_it_valid.exit15.thread, label %99
 
 99:                                               ; preds = %97
   tail call void @zval_ptr_dtor(ptr noundef nonnull %96) #10
@@ -8587,9 +8587,9 @@ spl_dual_it_valid.argprom.exit15:                 ; preds = %62, %spl_dual_it_re
   %.sink.i21 = phi i32 [ 0, %99 ], [ 4, %100 ]
   %102 = getelementptr inbounds i8, ptr %9, i64 -72
   store i32 %.sink.i21, ptr %102, align 8
-  br label %spl_dual_it_valid.argprom.exit15.thread
+  br label %spl_dual_it_valid.exit15.thread
 
-spl_dual_it_valid.argprom.exit15.thread:          ; preds = %.sink.split.i20, %97, %.sink.split.i, %55, %spl_dual_it_valid.argprom.exit.thread, %spl_dual_it_rewind.exit, %spl_dual_it_valid.argprom.exit15, %14, %5
+spl_dual_it_valid.exit15.thread:                  ; preds = %.sink.split.i20, %97, %.sink.split.i, %55, %spl_dual_it_valid.exit.thread, %spl_dual_it_rewind.exit, %spl_dual_it_valid.exit15, %14, %5
   ret void
 }
 
@@ -8900,7 +8900,7 @@ declare void @zend_iterator_dtor(ptr noundef) local_unnamed_addr #1
 define hidden void @zim_AppendIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @spl_ce_AppendIterator, align 8
   %4 = load ptr, ptr @zend_ce_iterator, align 8
-  tail call fastcc void @spl_dual_it_construct.argprom.retelim(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 7)
+  tail call fastcc void @spl_dual_it_construct(ptr noundef %0, ptr noundef %3, ptr noundef %4, i32 noundef 7)
   ret void
 }
 
@@ -8952,18 +8952,18 @@ define hidden void @zim_AppendIterator_append(ptr nocapture noundef readonly %0,
   %33 = getelementptr i8, ptr %14, i64 -104
   %.val24 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %.val24, null
-  br i1 %.not.i, label %spl_dual_it_valid.argprom.exit.thread, label %spl_dual_it_valid.argprom.exit
+  br i1 %.not.i, label %spl_dual_it_valid.exit.thread, label %spl_dual_it_valid.exit
 
-spl_dual_it_valid.argprom.exit:                   ; preds = %32
+spl_dual_it_valid.exit:                           ; preds = %32
   %34 = getelementptr inbounds i8, ptr %.val24, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 %37(ptr noundef nonnull %.val24) #10
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %45, label %spl_dual_it_valid.argprom.exit.thread
+  br i1 %.not, label %45, label %spl_dual_it_valid.exit.thread
 
-spl_dual_it_valid.argprom.exit.thread:            ; preds = %32, %spl_dual_it_valid.argprom.exit
+spl_dual_it_valid.exit.thread:                    ; preds = %32, %spl_dual_it_valid.exit
   %39 = load ptr, ptr %3, align 8
   call void @spl_array_iterator_append(ptr noundef nonnull %23, ptr noundef %39) #10
   %40 = load ptr, ptr %24, align 8
@@ -8974,18 +8974,18 @@ spl_dual_it_valid.argprom.exit.thread:            ; preds = %32, %spl_dual_it_va
   call void %44(ptr noundef %40) #10
   br label %47
 
-45:                                               ; preds = %spl_dual_it_valid.argprom.exit, %22
+45:                                               ; preds = %spl_dual_it_valid.exit, %22
   %46 = load ptr, ptr %3, align 8
   call void @spl_array_iterator_append(ptr noundef nonnull %23, ptr noundef %46) #10
   br label %47
 
-47:                                               ; preds = %45, %spl_dual_it_valid.argprom.exit.thread
+47:                                               ; preds = %45, %spl_dual_it_valid.exit.thread
   %48 = getelementptr inbounds i8, ptr %14, i64 -104
   %49 = load ptr, ptr %48, align 8
   %.not20 = icmp eq ptr %49, null
-  br i1 %.not20, label %55, label %spl_dual_it_valid.argprom.exit27
+  br i1 %.not20, label %55, label %spl_dual_it_valid.exit27
 
-spl_dual_it_valid.argprom.exit27:                 ; preds = %47
+spl_dual_it_valid.exit27:                         ; preds = %47
   %50 = getelementptr inbounds i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
@@ -8994,7 +8994,7 @@ spl_dual_it_valid.argprom.exit27:                 ; preds = %47
   %.not21 = icmp eq i32 %54, 0
   br i1 %.not21, label %74, label %55
 
-55:                                               ; preds = %spl_dual_it_valid.argprom.exit27, %47
+55:                                               ; preds = %spl_dual_it_valid.exit27, %47
   %56 = load ptr, ptr %24, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 72
   %58 = load ptr, ptr %57, align 8
@@ -9028,7 +9028,7 @@ spl_dual_it_valid.argprom.exit27:                 ; preds = %47
   call fastcc void @spl_append_it_fetch(ptr noundef nonnull %15)
   br label %74
 
-74:                                               ; preds = %73, %spl_dual_it_valid.argprom.exit27, %19, %9
+74:                                               ; preds = %73, %spl_dual_it_valid.exit27, %19, %9
   ret void
 }
 
@@ -9040,21 +9040,21 @@ define internal fastcc void @spl_append_it_fetch(ptr noundef %0) unnamed_addr #0
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   br label %4
 
-4:                                                ; preds = %spl_dual_it_valid.argprom.exit.thread, %1
+4:                                                ; preds = %spl_dual_it_valid.exit.thread, %1
   %.val = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %spl_dual_it_valid.argprom.exit.thread, label %spl_dual_it_valid.argprom.exit
+  br i1 %.not.i, label %spl_dual_it_valid.exit.thread, label %spl_dual_it_valid.exit
 
-spl_dual_it_valid.argprom.exit:                   ; preds = %4
+spl_dual_it_valid.exit:                           ; preds = %4
   %5 = getelementptr inbounds i8, ptr %.val, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %.val) #10
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %16, label %spl_dual_it_valid.argprom.exit.thread
+  br i1 %.not, label %16, label %spl_dual_it_valid.exit.thread
 
-spl_dual_it_valid.argprom.exit.thread:            ; preds = %4, %spl_dual_it_valid.argprom.exit
+spl_dual_it_valid.exit.thread:                    ; preds = %4, %spl_dual_it_valid.exit
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
@@ -9065,7 +9065,7 @@ spl_dual_it_valid.argprom.exit.thread:            ; preds = %4, %spl_dual_it_val
   %.not5 = icmp eq i32 %15, 0
   br i1 %.not5, label %4, label %spl_dual_it_fetch.exit
 
-16:                                               ; preds = %spl_dual_it_valid.argprom.exit
+16:                                               ; preds = %spl_dual_it_valid.exit
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %0)
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 72
@@ -9126,7 +9126,7 @@ spl_dual_it_valid.argprom.exit.thread:            ; preds = %4, %spl_dual_it_val
   store i32 %.sink.i, ptr %46, align 8
   br label %spl_dual_it_fetch.exit
 
-spl_dual_it_fetch.exit:                           ; preds = %spl_dual_it_valid.argprom.exit.thread, %.sink.split.i, %40
+spl_dual_it_fetch.exit:                           ; preds = %spl_dual_it_valid.exit.thread, %.sink.split.i, %40
   ret void
 }
 
@@ -9165,9 +9165,9 @@ define hidden void @zim_AppendIterator_current(ptr nocapture noundef readonly %0
   %18 = getelementptr i8, ptr %9, i64 -104
   %.val.i = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.argprom.exit.i
+  br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit.i
 
-spl_dual_it_valid.argprom.exit.i:                 ; preds = %16
+spl_dual_it_valid.exit.i:                         ; preds = %16
   %19 = getelementptr inbounds i8, ptr %.val.i, i64 72
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
@@ -9176,7 +9176,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %16
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %spl_dual_it_fetch.exit
 
-25:                                               ; preds = %spl_dual_it_valid.argprom.exit.i
+25:                                               ; preds = %spl_dual_it_valid.exit.i
   %26 = load ptr, ptr %18, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 72
   %28 = load ptr, ptr %27, align 8
@@ -9236,7 +9236,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %16
   store i32 %.sink.i, ptr %55, align 8
   br label %spl_dual_it_fetch.exit
 
-spl_dual_it_fetch.exit:                           ; preds = %49, %.sink.split.i, %16, %spl_dual_it_valid.argprom.exit.i
+spl_dual_it_fetch.exit:                           ; preds = %49, %.sink.split.i, %16, %spl_dual_it_valid.exit.i
   %56 = getelementptr inbounds i8, ptr %9, i64 -96
   %57 = getelementptr inbounds i8, ptr %9, i64 -88
   %58 = load i8, ptr %57, align 8
@@ -9420,9 +9420,9 @@ define hidden void @zim_AppendIterator_next(ptr nocapture noundef readonly %0, p
   %18 = getelementptr i8, ptr %9, i64 -104
   %.val.i = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %spl_append_it_next.exit, label %spl_dual_it_valid.argprom.exit.i
+  br i1 %.not.i.i, label %spl_append_it_next.exit, label %spl_dual_it_valid.exit.i
 
-spl_dual_it_valid.argprom.exit.i:                 ; preds = %17
+spl_dual_it_valid.exit.i:                         ; preds = %17
   %19 = getelementptr inbounds i8, ptr %.val.i, i64 72
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
@@ -9431,7 +9431,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %17
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %spl_append_it_next.exit
 
-25:                                               ; preds = %spl_dual_it_valid.argprom.exit.i
+25:                                               ; preds = %spl_dual_it_valid.exit.i
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
   %.pre.i.i = load ptr, ptr %18, align 8
   %26 = getelementptr inbounds i8, ptr %.pre.i.i, i64 72
@@ -9445,7 +9445,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %17
   store i64 %32, ptr %30, align 8
   br label %spl_append_it_next.exit
 
-spl_append_it_next.exit:                          ; preds = %17, %spl_dual_it_valid.argprom.exit.i, %25
+spl_append_it_next.exit:                          ; preds = %17, %spl_dual_it_valid.exit.i, %25
   tail call fastcc void @spl_append_it_fetch(ptr noundef nonnull %10)
   br label %33
 
@@ -12623,9 +12623,9 @@ define internal fastcc void @spl_filter_it_fetch(ptr nocapture noundef readonly 
   %4 = getelementptr i8, ptr %1, i64 32
   %.val.i16 = load ptr, ptr %4, align 8
   %.not.i.i17 = icmp eq ptr %.val.i16, null
-  br i1 %.not.i.i17, label %spl_dual_it_fetch.exit.thread, label %spl_dual_it_valid.argprom.exit.i.lr.ph
+  br i1 %.not.i.i17, label %spl_dual_it_fetch.exit.thread, label %spl_dual_it_valid.exit.i.lr.ph
 
-spl_dual_it_valid.argprom.exit.i.lr.ph:           ; preds = %2
+spl_dual_it_valid.exit.i.lr.ph:                   ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = getelementptr inbounds i8, ptr %1, i64 48
   %7 = getelementptr inbounds i8, ptr %1, i64 56
@@ -12633,10 +12633,10 @@ spl_dual_it_valid.argprom.exit.i.lr.ph:           ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 64
   %10 = getelementptr inbounds i8, ptr %1, i64 152
   %11 = getelementptr inbounds i8, ptr %3, i64 8
-  br label %spl_dual_it_valid.argprom.exit.i
+  br label %spl_dual_it_valid.exit.i
 
-spl_dual_it_valid.argprom.exit.i:                 ; preds = %spl_dual_it_valid.argprom.exit.i.lr.ph, %53
-  %.val.i18 = phi ptr [ %.val.i16, %spl_dual_it_valid.argprom.exit.i.lr.ph ], [ %.val.i, %53 ]
+spl_dual_it_valid.exit.i:                         ; preds = %spl_dual_it_valid.exit.i.lr.ph, %53
+  %.val.i18 = phi ptr [ %.val.i16, %spl_dual_it_valid.exit.i.lr.ph ], [ %.val.i, %53 ]
   %12 = getelementptr inbounds i8, ptr %.val.i18, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 8
@@ -12645,7 +12645,7 @@ spl_dual_it_valid.argprom.exit.i:                 ; preds = %spl_dual_it_valid.a
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %spl_dual_it_fetch.exit.thread
 
-18:                                               ; preds = %spl_dual_it_valid.argprom.exit.i
+18:                                               ; preds = %spl_dual_it_valid.exit.i
   %19 = load ptr, ptr %4, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8
@@ -12734,9 +12734,9 @@ spl_dual_it_fetch.exit.thread19:                  ; preds = %39, %spl_dual_it_fe
   call fastcc void @spl_dual_it_free(ptr noundef nonnull %1)
   %.val.i = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %spl_dual_it_fetch.exit.thread, label %spl_dual_it_valid.argprom.exit.i
+  br i1 %.not.i.i, label %spl_dual_it_fetch.exit.thread, label %spl_dual_it_valid.exit.i
 
-spl_dual_it_fetch.exit.thread:                    ; preds = %spl_dual_it_fetch.exit, %spl_dual_it_valid.argprom.exit.i, %53, %2
+spl_dual_it_fetch.exit.thread:                    ; preds = %spl_dual_it_fetch.exit, %spl_dual_it_valid.exit.i, %53, %2
   call fastcc void @spl_dual_it_free(ptr noundef nonnull %1)
   br label %.loopexit
 

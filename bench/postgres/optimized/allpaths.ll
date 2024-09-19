@@ -2959,7 +2959,7 @@ set_append_rel_size.exit:                         ; preds = %._crit_edge110, %._
   br i1 %.not, label %288, label %287
 
 287:                                              ; preds = %284
-  tail call fastcc void @set_tablesample_rel_size.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr nonnull %286)
+  tail call fastcc void @set_tablesample_rel_size(ptr noundef %0, ptr noundef nonnull %1, ptr nonnull %286)
   br label %758
 
 288:                                              ; preds = %284
@@ -3047,33 +3047,33 @@ list_length.exit.i:                               ; preds = %300, %289
 
 337:                                              ; preds = %.lr.ph
   %338 = tail call zeroext i1 @contain_subplans(ptr noundef %331) #9
-  br i1 %338, label %qual_is_pushdown_safe.argprom.exit.thread.i, label %339
+  br i1 %338, label %qual_is_pushdown_safe.exit.thread.i, label %339
 
 339:                                              ; preds = %337
   br i1 %320, label %340, label %342
 
 340:                                              ; preds = %339
   %341 = tail call zeroext i1 @contain_volatile_functions(ptr noundef nonnull %329) #9
-  br i1 %341, label %qual_is_pushdown_safe.argprom.exit.thread.i, label %342
+  br i1 %341, label %qual_is_pushdown_safe.exit.thread.i, label %342
 
 342:                                              ; preds = %340, %339
   br i1 %322, label %343, label %345
 
 343:                                              ; preds = %342
   %344 = tail call zeroext i1 @contain_leaked_vars(ptr noundef %331) #9
-  br i1 %344, label %qual_is_pushdown_safe.argprom.exit.thread.i, label %345
+  br i1 %344, label %qual_is_pushdown_safe.exit.thread.i, label %345
 
 345:                                              ; preds = %343, %342
   %346 = tail call ptr @pull_var_clause(ptr noundef %331, i32 noundef 16) #9
   %347 = getelementptr inbounds i8, ptr %346, i64 16
   %.not.i142.i = icmp eq ptr %346, null
-  br i1 %.not.i142.i, label %qual_is_pushdown_safe.argprom.exit.thread161.i, label %.lr.ph.i.i
+  br i1 %.not.i142.i, label %qual_is_pushdown_safe.exit.thread161.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %345
   %348 = getelementptr inbounds i8, ptr %346, i64 4
   %349 = load i32, ptr %348, align 4
   %350 = icmp sgt i32 %349, 0
-  br i1 %350, label %.lr.ph22.i.i, label %qual_is_pushdown_safe.argprom.exit.thread161.i
+  br i1 %350, label %.lr.ph22.i.i, label %qual_is_pushdown_safe.exit.thread161.i
 
 .lr.ph22.i.i:                                     ; preds = %.lr.ph.i.i
   %351 = load ptr, ptr %347, align 8
@@ -3087,19 +3087,19 @@ list_length.exit.i:                               ; preds = %300, %289
   %354 = load ptr, ptr %353, align 8
   %355 = load i32, ptr %354, align 4
   %356 = icmp eq i32 %355, 6
-  br i1 %356, label %357, label %qual_is_pushdown_safe.argprom.exit.thread158.i
+  br i1 %356, label %357, label %qual_is_pushdown_safe.exit.thread158.i
 
 357:                                              ; preds = %352
   %358 = getelementptr inbounds i8, ptr %354, i64 4
   %359 = load i32, ptr %358, align 4
   %.not28.i.i = icmp eq i32 %359, %2
-  br i1 %.not28.i.i, label %360, label %qual_is_pushdown_safe.argprom.exit.thread158.i
+  br i1 %.not28.i.i, label %360, label %qual_is_pushdown_safe.exit.thread158.i
 
 360:                                              ; preds = %357
   %361 = getelementptr inbounds i8, ptr %354, i64 8
   %362 = load i16, ptr %361, align 8
   %363 = icmp eq i16 %362, 0
-  br i1 %363, label %qual_is_pushdown_safe.argprom.exit.thread158.i, label %364
+  br i1 %363, label %qual_is_pushdown_safe.exit.thread158.i, label %364
 
 364:                                              ; preds = %360
   %365 = sext i16 %362 to i64
@@ -3111,32 +3111,32 @@ list_length.exit.i:                               ; preds = %300, %289
 368:                                              ; preds = %364
   %369 = and i8 %367, 23
   %.not30.i.i = icmp eq i8 %369, 0
-  br i1 %.not30.i.i, label %370, label %qual_is_pushdown_safe.argprom.exit.thread158.i
+  br i1 %.not30.i.i, label %370, label %qual_is_pushdown_safe.exit.thread158.i
 
 370:                                              ; preds = %368, %364
   %.2.i.i = phi i32 [ %.023420.i.i, %364 ], [ 2, %368 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %qual_is_pushdown_safe.argprom.exit.i, label %352
+  br i1 %exitcond.not.i.i, label %qual_is_pushdown_safe.exit.i, label %352
 
-qual_is_pushdown_safe.argprom.exit.thread158.i:   ; preds = %368, %360, %357, %352
+qual_is_pushdown_safe.exit.thread158.i:           ; preds = %368, %360, %357, %352
   tail call void @list_free(ptr noundef nonnull %346) #9
-  br label %qual_is_pushdown_safe.argprom.exit.thread.i
+  br label %qual_is_pushdown_safe.exit.thread.i
 
-qual_is_pushdown_safe.argprom.exit.thread161.i:   ; preds = %.lr.ph.i.i, %345
+qual_is_pushdown_safe.exit.thread161.i:           ; preds = %.lr.ph.i.i, %345
   tail call void @list_free(ptr noundef %346) #9
   br label %371
 
-qual_is_pushdown_safe.argprom.exit.i:             ; preds = %370
+qual_is_pushdown_safe.exit.i:                     ; preds = %370
   tail call void @list_free(ptr noundef nonnull %346) #9
   %switch.i = icmp eq i32 %.2.i.i, 1
   br i1 %switch.i, label %371, label %372
 
-371:                                              ; preds = %qual_is_pushdown_safe.argprom.exit.i, %qual_is_pushdown_safe.argprom.exit.thread161.i
+371:                                              ; preds = %qual_is_pushdown_safe.exit.i, %qual_is_pushdown_safe.exit.thread161.i
   tail call fastcc void @subquery_push_qual(ptr noundef %294, ptr noundef %3, i32 noundef %2, ptr noundef %331)
   br label %440
 
-372:                                              ; preds = %qual_is_pushdown_safe.argprom.exit.i
+372:                                              ; preds = %qual_is_pushdown_safe.exit.i
   %373 = load i8, ptr %324, align 1
   %374 = trunc i8 %373 to i1
   br i1 %374, label %375, label %437
@@ -3146,26 +3146,26 @@ qual_is_pushdown_safe.argprom.exit.i:             ; preds = %370
   store i8 1, ptr %6, align 1
   %376 = load i32, ptr %331, align 4
   %377 = icmp eq i32 %376, 15
-  br i1 %377, label %378, label %check_and_push_window_quals.argprom.exit.thread.i
+  br i1 %377, label %378, label %check_and_push_window_quals.exit.thread.i
 
 378:                                              ; preds = %375
   %379 = getelementptr inbounds i8, ptr %331, i64 32
   %380 = load ptr, ptr %379, align 8
   %.not.i.i.i = icmp eq ptr %380, null
-  br i1 %.not.i.i.i, label %check_and_push_window_quals.argprom.exit.thread.i, label %list_length.exit.i.i
+  br i1 %.not.i.i.i, label %check_and_push_window_quals.exit.thread.i, label %list_length.exit.i.i
 
 list_length.exit.i.i:                             ; preds = %378
   %381 = getelementptr inbounds i8, ptr %380, i64 4
   %382 = load i32, ptr %381, align 4
   %.not.i144.i = icmp eq i32 %382, 2
-  br i1 %.not.i144.i, label %383, label %check_and_push_window_quals.argprom.exit.thread.i
+  br i1 %.not.i144.i, label %383, label %check_and_push_window_quals.exit.thread.i
 
 383:                                              ; preds = %list_length.exit.i.i
   tail call void @set_opfuncid(ptr noundef nonnull %331) #9
   %384 = getelementptr inbounds i8, ptr %331, i64 8
   %385 = load i32, ptr %384, align 8
   %386 = tail call zeroext i1 @func_strict(i32 noundef %385) #9
-  br i1 %386, label %387, label %check_and_push_window_quals.argprom.exit.thread.i
+  br i1 %386, label %387, label %check_and_push_window_quals.exit.thread.i
 
 387:                                              ; preds = %383
   %388 = load ptr, ptr %379, align 8
@@ -3195,7 +3195,7 @@ list_length.exit.i.i:                             ; preds = %378
   %406 = load ptr, ptr %405, align 8
   %407 = getelementptr inbounds i8, ptr %404, i64 16
   %408 = load i16, ptr %407, align 8
-  %409 = call fastcc zeroext i1 @find_window_run_conditions.argprom.argelim(ptr noundef nonnull readonly %294, i16 noundef signext %408, ptr noundef %406, ptr noundef nonnull %331, i1 noundef zeroext true, ptr noundef %6, ptr noundef %8)
+  %409 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull readonly %294, i16 noundef signext %408, ptr noundef %406, ptr noundef nonnull %331, i1 noundef zeroext true, ptr noundef %6, ptr noundef %8)
   br i1 %409, label %410, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %397
@@ -3216,13 +3216,13 @@ list_length.exit.i.i:                             ; preds = %378
   %415 = load ptr, ptr %414, align 8
   %416 = load i32, ptr %415, align 4
   %417 = icmp eq i32 %416, 6
-  br i1 %417, label %418, label %check_and_push_window_quals.argprom.exit.thread.i
+  br i1 %417, label %418, label %check_and_push_window_quals.exit.thread.i
 
 418:                                              ; preds = %413
   %419 = getelementptr inbounds i8, ptr %415, i64 8
   %420 = load i16, ptr %419, align 8
   %421 = icmp sgt i16 %420, 0
-  br i1 %421, label %422, label %check_and_push_window_quals.argprom.exit.thread.i
+  br i1 %421, label %422, label %check_and_push_window_quals.exit.thread.i
 
 422:                                              ; preds = %418
   %423 = zext nneg i16 %420 to i64
@@ -3237,29 +3237,29 @@ list_length.exit.i.i:                             ; preds = %378
   %431 = load ptr, ptr %430, align 8
   %432 = getelementptr inbounds i8, ptr %429, i64 16
   %433 = load i16, ptr %432, align 8
-  %434 = call fastcc zeroext i1 @find_window_run_conditions.argprom.argelim(ptr noundef nonnull readonly %294, i16 noundef signext %433, ptr noundef %431, ptr noundef nonnull %331, i1 noundef zeroext false, ptr noundef %6, ptr noundef %8)
-  br i1 %434, label %check_and_push_window_quals.argprom.exit.i, label %check_and_push_window_quals.argprom.exit.thread.i
+  %434 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull readonly %294, i16 noundef signext %433, ptr noundef %431, ptr noundef nonnull %331, i1 noundef zeroext false, ptr noundef %6, ptr noundef %8)
+  br i1 %434, label %check_and_push_window_quals.exit.i, label %check_and_push_window_quals.exit.thread.i
 
-check_and_push_window_quals.argprom.exit.thread.i: ; preds = %422, %418, %413, %383, %list_length.exit.i.i, %378, %375
+check_and_push_window_quals.exit.thread.i:        ; preds = %422, %418, %413, %383, %list_length.exit.i.i, %378, %375
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %437
 
-check_and_push_window_quals.argprom.exit.i:       ; preds = %422
+check_and_push_window_quals.exit.i:               ; preds = %422
   %435 = load i8, ptr %6, align 1
   %436 = trunc i8 %435 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br i1 %436, label %437, label %440
 
-437:                                              ; preds = %check_and_push_window_quals.argprom.exit.i, %check_and_push_window_quals.argprom.exit.thread.i, %410, %372
+437:                                              ; preds = %check_and_push_window_quals.exit.i, %check_and_push_window_quals.exit.thread.i, %410, %372
   %438 = tail call ptr @lappend(ptr noundef %.0118178.i77, ptr noundef %329) #9
   br label %440
 
-qual_is_pushdown_safe.argprom.exit.thread.i:      ; preds = %qual_is_pushdown_safe.argprom.exit.thread158.i, %343, %340, %337
+qual_is_pushdown_safe.exit.thread.i:              ; preds = %qual_is_pushdown_safe.exit.thread158.i, %343, %340, %337
   %439 = tail call ptr @lappend(ptr noundef %.0118178.i77, ptr noundef %329) #9
   br label %440
 
-440:                                              ; preds = %qual_is_pushdown_safe.argprom.exit.thread.i, %437, %check_and_push_window_quals.argprom.exit.i, %410, %371, %335
-  %.1119.i = phi ptr [ %336, %335 ], [ %439, %qual_is_pushdown_safe.argprom.exit.thread.i ], [ %438, %437 ], [ %.0118178.i77, %check_and_push_window_quals.argprom.exit.i ], [ %.0118178.i77, %371 ], [ %.0118178.i77, %410 ]
+440:                                              ; preds = %qual_is_pushdown_safe.exit.thread.i, %437, %check_and_push_window_quals.exit.i, %410, %371, %335
+  %.1119.i = phi ptr [ %336, %335 ], [ %439, %qual_is_pushdown_safe.exit.thread.i ], [ %438, %437 ], [ %.0118178.i77, %check_and_push_window_quals.exit.i ], [ %.0118178.i77, %371 ], [ %.0118178.i77, %410 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i76, 1
   %441 = load i32, ptr %317, align 4
   %442 = sext i32 %441 to i64
@@ -3930,7 +3930,7 @@ define internal fastcc void @set_foreign_size(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_tablesample_rel_size.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture readonly %.24.val) unnamed_addr #0 {
+define internal fastcc void @set_tablesample_rel_size(ptr noundef %0, ptr noundef %1, ptr nocapture readonly %.24.val) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca double, align 8
   tail call void @check_index_predicates(ptr noundef %0, ptr noundef %1) #9
@@ -4063,15 +4063,15 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph, label %check_output_expressions.exit
 
-.lr.ph:                                           ; preds = %.lr.ph.i, %targetIsInAllPartitionLists.argprom.exit.thread.i
-  %indvars.iv.i39 = phi i64 [ %indvars.iv.next.i, %targetIsInAllPartitionLists.argprom.exit.thread.i ], [ 0, %.lr.ph.i ]
+.lr.ph:                                           ; preds = %.lr.ph.i, %targetIsInAllPartitionLists.exit.thread.i
+  %indvars.iv.i39 = phi i64 [ %indvars.iv.next.i, %targetIsInAllPartitionLists.exit.thread.i ], [ 0, %.lr.ph.i ]
   %43 = load ptr, ptr %36, align 8
   %44 = getelementptr %union.ListCell, ptr %43, i64 %indvars.iv.i39
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 42
   %47 = load i8, ptr %46, align 2
   %48 = trunc i8 %47 to i1
-  br i1 %48, label %targetIsInAllPartitionLists.argprom.exit.thread.i, label %49
+  br i1 %48, label %targetIsInAllPartitionLists.exit.thread.i, label %49
 
 49:                                               ; preds = %.lr.ph
   %50 = load i8, ptr %37, align 2
@@ -4094,7 +4094,7 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
   %62 = load ptr, ptr %61, align 8
   %63 = tail call zeroext i1 @expression_returns_set(ptr noundef %62) #9
   %.pre.i = load ptr, ptr %2, align 8
-  br i1 %63, label %targetIsInAllPartitionLists.argprom.exit.thread.sink.split.i, label %64
+  br i1 %63, label %targetIsInAllPartitionLists.exit.thread.sink.split.i, label %64
 
 64:                                               ; preds = %60, %52, %49
   %65 = phi ptr [ %.pre.i, %60 ], [ %.pre40.i, %52 ], [ %.pre40.i, %49 ]
@@ -4111,7 +4111,7 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
   %74 = getelementptr inbounds i8, ptr %45, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %75) #9
-  br i1 %76, label %targetIsInAllPartitionLists.argprom.exit.thread.sink.split.sink.split.i, label %77
+  br i1 %76, label %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i, label %77
 
 77:                                               ; preds = %73, %64
   %78 = load i8, ptr %38, align 8
@@ -4131,12 +4131,12 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
 88:                                               ; preds = %80
   %89 = load ptr, ptr %16, align 8
   %90 = tail call zeroext i1 @targetIsInSortList(ptr noundef nonnull %45, i32 noundef 0, ptr noundef %89) #9
-  br i1 %90, label %91, label %targetIsInAllPartitionLists.argprom.exit.thread.sink.split.sink.split.i
+  br i1 %90, label %91, label %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i
 
 91:                                               ; preds = %88, %80, %77
   %92 = load i8, ptr %39, align 1
   %93 = trunc i8 %92 to i1
-  br i1 %93, label %94, label %targetIsInAllPartitionLists.argprom.exit.thread.i
+  br i1 %93, label %94, label %targetIsInAllPartitionLists.exit.thread.i
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %2, align 8
@@ -4146,26 +4146,26 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
   %99 = load i8, ptr %98, align 1
   %100 = and i8 %99, 4
   %101 = icmp eq i8 %100, 0
-  br i1 %101, label %102, label %targetIsInAllPartitionLists.argprom.exit.thread.i
+  br i1 %101, label %102, label %targetIsInAllPartitionLists.exit.thread.i
 
 102:                                              ; preds = %94
   %.val.i = load ptr, ptr %40, align 8
   %103 = getelementptr inbounds i8, ptr %.val.i, i64 4
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %targetIsInAllPartitionLists.argprom.exit.thread.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %targetIsInAllPartitionLists.exit.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %102
   %104 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %105 = load i32, ptr %103, align 4
   %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %.lr.ph12.i.i, label %targetIsInAllPartitionLists.argprom.exit.thread.i
+  br i1 %106, label %.lr.ph12.i.i, label %targetIsInAllPartitionLists.exit.thread.i
 
 107:                                              ; preds = %.lr.ph12.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %108 = load i32, ptr %103, align 4
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next.i.i, %109
-  br i1 %110, label %.lr.ph12.i.i, label %targetIsInAllPartitionLists.argprom.exit.thread.i
+  br i1 %110, label %.lr.ph12.i.i, label %targetIsInAllPartitionLists.exit.thread.i
 
 .lr.ph12.i.i:                                     ; preds = %.lr.ph.i.i, %107
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %107 ], [ 0, %.lr.ph.i.i ]
@@ -4175,33 +4175,33 @@ define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef
   %114 = getelementptr inbounds i8, ptr %113, i64 24
   %115 = load ptr, ptr %114, align 8
   %116 = tail call zeroext i1 @targetIsInSortList(ptr noundef %45, i32 noundef 0, ptr noundef %115) #9
-  br i1 %116, label %107, label %targetIsInAllPartitionLists.argprom.exit.thread.sink.split.sink.split.i
+  br i1 %116, label %107, label %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i
 
-targetIsInAllPartitionLists.argprom.exit.thread.sink.split.sink.split.i: ; preds = %.lr.ph12.i.i, %88, %73
+targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i: ; preds = %.lr.ph12.i.i, %88, %73
   %.sink43.ph.i = phi i8 [ 1, %73 ], [ 4, %88 ], [ 8, %.lr.ph12.i.i ]
   %117 = load ptr, ptr %2, align 8
-  br label %targetIsInAllPartitionLists.argprom.exit.thread.sink.split.i
+  br label %targetIsInAllPartitionLists.exit.thread.sink.split.i
 
-targetIsInAllPartitionLists.argprom.exit.thread.sink.split.i: ; preds = %targetIsInAllPartitionLists.argprom.exit.thread.sink.split.sink.split.i, %60
-  %.sink46.i = phi ptr [ %53, %60 ], [ %66, %targetIsInAllPartitionLists.argprom.exit.thread.sink.split.sink.split.i ]
-  %.sink44.i = phi ptr [ %.pre.i, %60 ], [ %117, %targetIsInAllPartitionLists.argprom.exit.thread.sink.split.sink.split.i ]
-  %.sink43.i = phi i8 [ 2, %60 ], [ %.sink43.ph.i, %targetIsInAllPartitionLists.argprom.exit.thread.sink.split.sink.split.i ]
+targetIsInAllPartitionLists.exit.thread.sink.split.i: ; preds = %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i, %60
+  %.sink46.i = phi ptr [ %53, %60 ], [ %66, %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i ]
+  %.sink44.i = phi ptr [ %.pre.i, %60 ], [ %117, %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i ]
+  %.sink43.i = phi i8 [ 2, %60 ], [ %.sink43.ph.i, %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i ]
   %118 = load i16, ptr %.sink46.i, align 8
   %119 = sext i16 %118 to i64
   %120 = getelementptr i8, ptr %.sink44.i, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = or i8 %121, %.sink43.i
   store i8 %122, ptr %120, align 1
-  br label %targetIsInAllPartitionLists.argprom.exit.thread.i
+  br label %targetIsInAllPartitionLists.exit.thread.i
 
-targetIsInAllPartitionLists.argprom.exit.thread.i: ; preds = %107, %targetIsInAllPartitionLists.argprom.exit.thread.sink.split.i, %.lr.ph.i.i, %102, %94, %91, %.lr.ph
+targetIsInAllPartitionLists.exit.thread.i:        ; preds = %107, %targetIsInAllPartitionLists.exit.thread.sink.split.i, %.lr.ph.i.i, %102, %94, %91, %.lr.ph
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i39, 1
   %123 = load i32, ptr %35, align 4
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next.i, %124
   br i1 %125, label %.lr.ph, label %check_output_expressions.exit
 
-check_output_expressions.exit:                    ; preds = %targetIsInAllPartitionLists.argprom.exit.thread.i, %.lr.ph.i, %32, %28
+check_output_expressions.exit:                    ; preds = %targetIsInAllPartitionLists.exit.thread.i, %.lr.ph.i, %32, %28
   %126 = icmp eq ptr %0, %1
   %127 = load ptr, ptr %29, align 8
   %.not31 = icmp eq ptr %127, null
@@ -4526,7 +4526,7 @@ declare void @set_opfuncid(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @func_strict(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @find_window_run_conditions.argprom.argelim(ptr nocapture noundef readonly %0, i16 noundef signext %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nocapture noundef readonly %0, i16 noundef signext %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.SupportRequestWFuncMonotonic, align 8
   store i8 1, ptr %5, align 1
   br label %9
@@ -4889,7 +4889,7 @@ set_append_rel_pathlist.exit:                     ; preds = %43, %.lr.ph, %10
   br label %118
 
 64:                                               ; preds = %60
-  tail call fastcc void @set_plain_rel_pathlist.argprom(ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @set_plain_rel_pathlist(ptr noundef %0, ptr noundef nonnull %1)
   br label %118
 
 65:                                               ; preds = %47
@@ -4898,7 +4898,7 @@ set_append_rel_pathlist.exit:                     ; preds = %43, %.lr.ph, %10
   %67 = getelementptr inbounds i8, ptr %1, i64 104
   %68 = load ptr, ptr %67, align 8
   %69 = trunc i8 %.val38 to i1
-  br i1 %69, label %70, label %set_function_pathlist.argprom.exit
+  br i1 %69, label %70, label %set_function_pathlist.exit
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds i8, ptr %1, i64 126
@@ -4908,14 +4908,14 @@ set_append_rel_pathlist.exit:                     ; preds = %43, %.lr.ph, %10
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not.i40 = icmp eq ptr %76, null
-  br i1 %.not.i40, label %set_function_pathlist.argprom.exit, label %.lr.ph.i
+  br i1 %.not.i40, label %set_function_pathlist.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %70
   %77 = getelementptr inbounds i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = getelementptr inbounds i8, ptr %1, i64 112
   %80 = icmp sgt i32 %78, 0
-  br i1 %80, label %.lr.ph9.i, label %set_function_pathlist.argprom.exit
+  br i1 %80, label %.lr.ph9.i, label %set_function_pathlist.exit
 
 .lr.ph9.i:                                        ; preds = %.lr.ph.i
   %81 = getelementptr inbounds i8, ptr %76, i64 16
@@ -4953,15 +4953,15 @@ set_append_rel_pathlist.exit:                     ; preds = %43, %.lr.ph, %10
 101:                                              ; preds = %97, %92, %88, %83
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %set_function_pathlist.argprom.exit, label %83
+  br i1 %exitcond.not.i, label %set_function_pathlist.exit, label %83
 
 .split.i:                                         ; preds = %97
   %102 = getelementptr inbounds i8, ptr %1, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = tail call ptr @build_expression_pathkey(ptr noundef %0, ptr noundef nonnull %85, i32 noundef 412, ptr noundef %103, i1 noundef zeroext false) #9
-  br label %set_function_pathlist.argprom.exit
+  br label %set_function_pathlist.exit
 
-set_function_pathlist.argprom.exit:               ; preds = %101, %65, %70, %.lr.ph.i, %.split.i
+set_function_pathlist.exit:                       ; preds = %101, %65, %70, %.lr.ph.i, %.split.i
   %.0.i39 = phi ptr [ %104, %.split.i ], [ null, %65 ], [ null, %.lr.ph.i ], [ null, %70 ], [ null, %101 ]
   %105 = tail call ptr @create_functionscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i39, ptr noundef %68) #9
   tail call void @add_path(ptr noundef %1, ptr noundef %105) #9
@@ -4989,7 +4989,7 @@ set_function_pathlist.argprom.exit:               ; preds = %101, %65, %70, %.lr
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 530, ptr noundef nonnull @__func__.set_rel_pathlist) #9
   unreachable
 
-118:                                              ; preds = %set_append_rel_pathlist.exit, %47, %47, %47, %47, %54, %64, %63, %110, %106, %set_function_pathlist.argprom.exit, %4
+118:                                              ; preds = %set_append_rel_pathlist.exit, %47, %47, %47, %47, %54, %64, %63, %110, %106, %set_function_pathlist.exit, %4
   %119 = load ptr, ptr @set_rel_pathlist_hook, align 8
   %.not37 = icmp eq ptr %119, null
   br i1 %.not37, label %121, label %120
@@ -5060,7 +5060,7 @@ define internal fastcc void @set_tablesample_rel_pathlist(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_plain_rel_pathlist.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @set_plain_rel_pathlist(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @create_seqscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %4, i32 noundef 0) #9

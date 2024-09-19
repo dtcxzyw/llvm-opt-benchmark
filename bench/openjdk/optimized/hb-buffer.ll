@@ -4395,7 +4395,7 @@ _ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit.split.loop.ex
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   %58 = icmp ugt i32 %55, 1
-  br i1 %58, label %.preheader.lr.ph.i.i.us, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.argprom.exit.i.us
+  br i1 %58, label %.preheader.lr.ph.i.i.us, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit.i.us
 
 .preheader.lr.ph.i.i.us:                          ; preds = %._crit_edge.i.us
   %.not35.i.i.us = icmp eq ptr %56, null
@@ -4453,7 +4453,7 @@ _ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit.split.loop.ex
 82:                                               ; preds = %70, %.critedge.i.i.us
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count13.i.i.us
-  br i1 %exitcond.not.i.i.us, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.argprom.exit.i.us, label %.preheader.i.i.us, !llvm.loop !74
+  br i1 %exitcond.not.i.i.us, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit.i.us, label %.preheader.i.i.us, !llvm.loop !74
 
 .preheader.us.i.i.us:                             ; preds = %.preheader.lr.ph.i.i.us, %103
   %indvars.iv7.i.i.us = phi i64 [ %indvars.iv.next8.i.i.us, %103 ], [ 1, %.preheader.lr.ph.i.i.us ]
@@ -4500,9 +4500,9 @@ _ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit.split.loop.ex
 103:                                              ; preds = %94, %.critedge.us.i.i.us
   %indvars.iv.next8.i.i.us = add nuw nsw i64 %indvars.iv7.i.i.us, 1
   %exitcond14.not.i.i.us = icmp eq i64 %indvars.iv.next8.i.i.us, %wide.trip.count13.i.i.us
-  br i1 %exitcond14.not.i.i.us, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.argprom.exit.i.us, label %.preheader.us.i.i.us, !llvm.loop !74
+  br i1 %exitcond14.not.i.i.us, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit.i.us, label %.preheader.us.i.i.us, !llvm.loop !74
 
-_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.argprom.exit.i.us: ; preds = %82, %103, %._crit_edge.i.us
+_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit.i.us: ; preds = %82, %103, %._crit_edge.i.us
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   %104 = load i32, ptr %10, align 8
@@ -4511,8 +4511,8 @@ _ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EP
   %106 = add i32 %umax39, -1
   br label %107
 
-107:                                              ; preds = %108, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.argprom.exit.i.us
-  %.0.i14.us = phi i32 [ %.024.us, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.argprom.exit.i.us ], [ %109, %108 ]
+107:                                              ; preds = %108, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit.i.us
+  %.0.i14.us = phi i32 [ %.024.us, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit.i.us ], [ %109, %108 ]
   %exitcond40.not = icmp eq i32 %.0.i14.us, %106
   br i1 %exitcond40.not, label %_ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit15.us, label %108
 
@@ -4630,7 +4630,7 @@ _ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit15.us: ; preds
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
   %163 = icmp ugt i32 %159, 1
-  br i1 %163, label %.preheader.lr.ph.i72.i, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.argprom.exit93.i
+  br i1 %163, label %.preheader.lr.ph.i72.i, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit93.i
 
 .preheader.lr.ph.i72.i:                           ; preds = %._crit_edge110.i
   %wide.trip.count13.i74.i = zext i32 %159 to i64
@@ -4687,9 +4687,9 @@ _ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit15.us: ; preds
 187:                                              ; preds = %175, %.critedge.i80.i
   %indvars.iv.next.i82.i = add nuw nsw i64 %indvars.iv.i76.i, 1
   %exitcond.not.i83.i = icmp eq i64 %indvars.iv.next.i82.i, %wide.trip.count13.i74.i
-  br i1 %exitcond.not.i83.i, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.argprom.exit93.i, label %.preheader.i75.i, !llvm.loop !74
+  br i1 %exitcond.not.i83.i, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit93.i, label %.preheader.i75.i, !llvm.loop !74
 
-_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.argprom.exit93.i: ; preds = %187, %._crit_edge110.i
+_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit93.i: ; preds = %187, %._crit_edge110.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
   %188 = load i32, ptr %10, align 8
@@ -4698,8 +4698,8 @@ _ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EP
   %190 = add i32 %umax, -1
   br label %191
 
-191:                                              ; preds = %192, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.argprom.exit93.i
-  %.0.i14 = phi i32 [ %.024, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.argprom.exit93.i ], [ %193, %192 ]
+191:                                              ; preds = %192, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit93.i
+  %.0.i14 = phi i32 [ %.024, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_19hb_glyph_position_tEvPT_jPFiPKT0_S6_EPT1_.exit93.i ], [ %193, %192 ]
   %exitcond38.not = icmp eq i32 %.0.i14, %190
   br i1 %exitcond38.not, label %_ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit15, label %192
 

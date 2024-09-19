@@ -395,7 +395,7 @@ define internal noundef range(i64 -22, 32) i64 @pri_wm_latency_write(ptr nocaptu
   %11 = icmp ugt i16 %10, 8
   %12 = select i1 %11, i64 6918, i64 6888
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
-  %14 = tail call fastcc i64 @wm_latency_write.argprom.argprom(ptr %8, ptr noundef %1, i64 noundef %2, ptr noundef %13)
+  %14 = tail call fastcc i64 @wm_latency_write(ptr %8, ptr noundef %1, i64 noundef %2, ptr noundef %13)
   ret i64 %14
 }
 
@@ -428,7 +428,7 @@ define internal i32 @pri_wm_latency_open(ptr nocapture noundef readonly %0, ptr 
 declare dso_local i32 @single_release(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i64 -22, 32) i64 @wm_latency_write.argprom.argprom(ptr %.200.val.112.val, ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i64 -22, 32) i64 @wm_latency_write(ptr %.200.val.112.val, ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = alloca [8 x i16], align 16
   %5 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
@@ -582,7 +582,7 @@ define internal noundef range(i64 -22, 32) i64 @spr_wm_latency_write(ptr nocaptu
   %11 = icmp ugt i16 %10, 8
   %12 = select i1 %11, i64 6918, i64 6898
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
-  %14 = tail call fastcc i64 @wm_latency_write.argprom.argprom(ptr %8, ptr noundef %1, i64 noundef %2, ptr noundef %13)
+  %14 = tail call fastcc i64 @wm_latency_write(ptr %8, ptr noundef %1, i64 noundef %2, ptr noundef %13)
   ret i64 %14
 }
 
@@ -679,7 +679,7 @@ define internal noundef range(i64 -22, 32) i64 @cur_wm_latency_write(ptr nocaptu
   %11 = icmp ugt i16 %10, 8
   %12 = select i1 %11, i64 6918, i64 6908
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
-  %14 = tail call fastcc i64 @wm_latency_write.argprom.argprom(ptr %8, ptr noundef %1, i64 noundef %2, ptr noundef %13)
+  %14 = tail call fastcc i64 @wm_latency_write(ptr %8, ptr noundef %1, i64 noundef %2, ptr noundef %13)
   ret i64 %14
 }
 

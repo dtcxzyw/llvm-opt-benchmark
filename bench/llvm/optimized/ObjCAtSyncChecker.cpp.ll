@@ -967,7 +967,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit67.i: ; preds
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.thread.sink.split.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.i: ; preds = %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
-  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_117ObjCAtSyncChecker12checkPreStmtEPKN5clang22ObjCAtSynchronizedStmtERNS1_4ento14CheckerContextE.argprom.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.thread.i
+  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_117ObjCAtSyncChecker12checkPreStmtEPKN5clang22ObjCAtSynchronizedStmtERNS1_4ento14CheckerContextE.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.thread.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.thread.sink.split.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit67.i, %111, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit58.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.i
   %.sink.i = phi ptr [ %70, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.i ], [ %70, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit58.i ], [ %68, %111 ], [ %68, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit67.i ]
@@ -976,9 +976,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.thread.sin
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.thread.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.thread.sink.split.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.i, %98
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %19) #15
-  br label %_ZNK12_GLOBAL__N_117ObjCAtSyncChecker12checkPreStmtEPKN5clang22ObjCAtSynchronizedStmtERNS1_4ento14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_117ObjCAtSyncChecker12checkPreStmtEPKN5clang22ObjCAtSynchronizedStmtERNS1_4ento14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_117ObjCAtSyncChecker12checkPreStmtEPKN5clang22ObjCAtSynchronizedStmtERNS1_4ento14CheckerContextE.argprom.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.thread.i
+_ZNK12_GLOBAL__N_117ObjCAtSyncChecker12checkPreStmtEPKN5clang22ObjCAtSynchronizedStmtERNS1_4ento14CheckerContextE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit69.thread.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   ret void
 }

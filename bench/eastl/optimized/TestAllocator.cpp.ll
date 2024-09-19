@@ -122,16 +122,16 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %testAllocatorAlignment.i)
   store i32 0, ptr %nErrorCount.i, align 4
   store ptr %nErrorCount.i, ptr %testAllocatorAlignment.i, align 8
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii.argelim"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 1)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii.argelim"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 2)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii.argelim"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 4)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii.argelim"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 8)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii.argelim"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 16)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii.argelim"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 1)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii.argelim"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 2)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii.argelim"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 4)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii.argelim"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 8)
-  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii.argelim"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 16)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 1)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 2)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 4)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 8)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 16)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 1)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 2)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 4)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 8)
+  call fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr noundef nonnull align 8 dereferenceable(8) %testAllocatorAlignment.i, i32 noundef 16)
   %0 = load i32, ptr %nErrorCount.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %testAllocatorAlignment.i)
@@ -1305,7 +1305,7 @@ _ZL19TestAllocatorMallocv.exit:                   ; preds = %while.body.i.i.i47.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef range(i32 1, 17) %requestedAlignment) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL32TestAllocationOffsetAndAlignmentvENK3$_0clEiii"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef range(i32 1, 17) %requestedAlignment) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr @_ZN17CountingAllocator17totalDeallocCountE, align 8
   store i64 0, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8

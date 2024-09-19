@@ -2521,7 +2521,7 @@ define noundef ptr @Abc_GenSignedBoothPPTest(i32 noundef %0, i32 noundef %1) loc
   %15 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %3, i32 noundef %9, i32 noundef %14) #15
   %16 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %3, i32 noundef %13, i32 noundef %15) #15
   %17 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %3, i32 noundef 8, i32 noundef %16) #15
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %3, i32 noundef %17)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %3, i32 noundef %17)
   ret ptr %3
 }
 
@@ -2627,7 +2627,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648

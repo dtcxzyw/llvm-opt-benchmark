@@ -744,7 +744,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2ERKS0_.exit: ; preds = %_
           cleanup
   br label %.body
 
-.loopexit.split-lp74:                             ; preds = %50, %139, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread71", %171, %173
+.loopexit.split-lp74:                             ; preds = %50, %139, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread71", %171, %173
   %lpad.loopexit.split-lp76 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -790,57 +790,57 @@ thread-pre-split:                                 ; preds = %52, %58, %53
   %.not81 = icmp eq ptr %150, %151
   br i1 %.not81, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %148, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit39.thread"
-  %.sroa.055.082 = phi ptr [ %178, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit39.thread" ], [ %150, %148 ]
+.lr.ph:                                           ; preds = %148, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39.thread"
+  %.sroa.055.082 = phi ptr [ %178, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39.thread" ], [ %150, %148 ]
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.055.082, i64 32
   %153 = getelementptr inbounds nuw i8, ptr %.sroa.055.082, i64 40
   %154 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv(ptr noundef nonnull align 4 dereferenceable(8) %152)
           to label %.noexc unwind label %.loopexit73
 
 .noexc:                                           ; preds = %.lr.ph
-  br i1 %154, label %155, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread71"
+  br i1 %154, label %155, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread71"
 
 155:                                              ; preds = %.noexc
   %156 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv(ptr noundef nonnull align 4 dereferenceable(8) %152)
           to label %.noexc33 unwind label %.loopexit73
 
 .noexc33:                                         ; preds = %155
-  br i1 %156, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread", label %157
+  br i1 %156, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread", label %157
 
 157:                                              ; preds = %.noexc33
   %158 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv(ptr noundef nonnull align 4 dereferenceable(8) %152)
-          to label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit" unwind label %.loopexit73
+          to label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit" unwind label %.loopexit73
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit": ; preds = %157
-  br i1 %158, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread", label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread71"
+"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit": ; preds = %157
+  br i1 %158, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread", label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread71"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread": ; preds = %.noexc33, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit"
+"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread": ; preds = %.noexc33, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit"
   %159 = load i32, ptr %153, align 4
   %.not.i35 = icmp eq i32 %159, 0
-  br i1 %.not.i35, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit39.thread", label %160
+  br i1 %.not.i35, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39.thread", label %160
 
-160:                                              ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread"
+160:                                              ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread"
   %161 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14IsAbsolutePathEv(ptr noundef nonnull align 4 dereferenceable(8) %153)
           to label %.noexc36 unwind label %.loopexit73
 
 .noexc36:                                         ; preds = %160
-  br i1 %161, label %162, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread71"
+  br i1 %161, label %162, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread71"
 
 162:                                              ; preds = %.noexc36
   %163 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv(ptr noundef nonnull align 4 dereferenceable(8) %153)
           to label %.noexc37 unwind label %.loopexit73
 
 .noexc37:                                         ; preds = %162
-  br i1 %163, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit39.thread", label %164
+  br i1 %163, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39.thread", label %164
 
 164:                                              ; preds = %.noexc37
   %165 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv(ptr noundef nonnull align 4 dereferenceable(8) %153)
-          to label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit39" unwind label %.loopexit73
+          to label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39" unwind label %.loopexit73
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit39": ; preds = %164
-  br i1 %165, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit39.thread", label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread71"
+"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39": ; preds = %164
+  br i1 %165, label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39.thread", label %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread71"
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread71": ; preds = %.noexc36, %.noexc, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit39", %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit"
+"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread71": ; preds = %.noexc36, %.noexc, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39", %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit"
   store ptr @.str.4, ptr %9, align 8
   %166 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @.str.2, ptr %166, align 8
@@ -853,7 +853,7 @@ thread-pre-split:                                 ; preds = %52, %58, %53
   %170 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath7GetTextEv(ptr noundef nonnull align 4 dereferenceable(8) %152)
           to label %171 unwind label %.loopexit.split-lp74
 
-171:                                              ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread71"
+171:                                              ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread71"
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath7GetTextEv(ptr noundef nonnull align 4 dereferenceable(8) %153)
           to label %173 unwind label %.loopexit.split-lp74
 
@@ -873,12 +873,12 @@ thread-pre-split:                                 ; preds = %52, %58, %53
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #22
   br label %.body
 
-"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit39.thread": ; preds = %.noexc37, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit.thread", %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit39"
+"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39.thread": ; preds = %.noexc37, %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit.thread", %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39"
   %178 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.055.082) #25
   %.not = icmp eq ptr %178, %151
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.argprom.exit39.thread"
+._crit_edge.loopexit:                             ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction6CreateERKSt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEERKNS_14SdfLayerOffsetEENK3$_0clERS5_.exit39.thread"
   %.pre = load ptr, ptr %149, align 8
   br label %._crit_edge
 
@@ -2343,7 +2343,7 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN32pxrInternal_v0_24__
   %2 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L16_identityPathMapE seq_cst, align 8
   %3 = inttoptr i64 %2 to ptr
   %.not.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEENS_12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactoryEEdeEv.argprom.exit
+  br i1 %.not.i.i, label %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEENS_12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactoryEEdeEv.exit
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
@@ -2528,7 +2528,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_identityPathMap_Tf_StaticD
   %94 = ptrtoint ptr %5 to i64
   %95 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__L16_identityPathMapE, i64 0, i64 %94 seq_cst seq_cst, align 8
   %96 = extractvalue { i64, i1 } %95, 1
-  br i1 %96, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEENS_12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactoryEEdeEv.argprom.exit, label %97
+  br i1 %96, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEENS_12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactoryEEdeEv.exit, label %97
 
 97:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactory3NewEv.exit.i.i.i
   %98 = load ptr, ptr %7, align 8
@@ -2546,9 +2546,9 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaIS
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 48) #26
   %102 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L16_identityPathMapE seq_cst, align 8
   %103 = inttoptr i64 %102 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEENS_12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactoryEEdeEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEENS_12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactoryEEdeEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEENS_12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactoryEEdeEv.argprom.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactory3NewEv.exit.i.i.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEED2Ev.exit.i.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINS_7SdfPathES2_NS2_12FastLessThanESaISt4pairIKS2_S2_EEENS_12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactoryEEdeEv.exit: ; preds = %0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactory3NewEv.exit.i.i.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEED2Ev.exit.i.i.i
   %104 = phi ptr [ %3, %0 ], [ %103, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEED2Ev.exit.i.i.i ], [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_137_identityPathMap_Tf_StaticDataFactory3NewEv.exit.i.i.i ]
   ret ptr %104
 }
@@ -2939,7 +2939,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_MapERKNS_7S
 
 12:                                               ; preds = %6
   %.not1.i = icmp eq i32 %3, 0
-  br i1 %.not1.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit.thread, label %.lr.ph.i
+  br i1 %.not1.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %17
   %.04.i = phi ptr [ %.1.i, %17 ], [ %11, %12 ]
@@ -2961,7 +2961,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_MapERKNS_7S
   %.1.i = phi ptr [ %.04.i, %.lr.ph.i ], [ %spec.select19.i, %15 ]
   %18 = getelementptr inbounds i8, ptr %.0162.i, i64 16
   %.not.i = icmp eq ptr %18, %11
-  br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit, label %.lr.ph.i, !llvm.loop !23
 
 19:                                               ; preds = %6
   %20 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %1)
@@ -2990,21 +2990,21 @@ _ZSt11upper_boundIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EmZNS
 _ZSt11upper_boundIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EmZNS1_L19_GetBestSourceMatchIS5_EET_RKS2_RKS7_SB_mEUlmSB_E_ES7_S7_S7_RKT0_T1_.exit.i: ; preds = %_ZSt11upper_boundIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EmZNS1_L19_GetBestSourceMatchIS5_EET_RKS2_RKS7_SB_mEUlmSB_E_ES7_S7_S7_RKT0_T1_.exit.i.preheader, %30
   %.014.i = phi ptr [ %31, %30 ], [ %.014.i.ph, %_ZSt11upper_boundIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EmZNS1_L19_GetBestSourceMatchIS5_EET_RKS2_RKS7_SB_mEUlmSB_E_ES7_S7_S7_RKT0_T1_.exit.i.preheader ]
   %.not.i12 = icmp eq ptr %.014.i, %2
-  br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit.thread, label %30
+  br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit.thread, label %30
 
 30:                                               ; preds = %_ZSt11upper_boundIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EmZNS1_L19_GetBestSourceMatchIS5_EET_RKS2_RKS7_SB_mEUlmSB_E_ES7_S7_S7_RKT0_T1_.exit.i
   %31 = getelementptr inbounds i8, ptr %.014.i, i64 -16
   %32 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %31)
   %33 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %31)
-  br i1 %33, label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit, label %_ZSt11upper_boundIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EmZNS1_L19_GetBestSourceMatchIS5_EET_RKS2_RKS7_SB_mEUlmSB_E_ES7_S7_S7_RKT0_T1_.exit.i, !llvm.loop !25
+  br i1 %33, label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit, label %_ZSt11upper_boundIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EmZNS1_L19_GetBestSourceMatchIS5_EET_RKS2_RKS7_SB_mEUlmSB_E_ES7_S7_S7_RKT0_T1_.exit.i, !llvm.loop !25
 
-_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit.thread: ; preds = %_ZSt11upper_boundIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EmZNS1_L19_GetBestSourceMatchIS5_EET_RKS2_RKS7_SB_mEUlmSB_E_ES7_S7_S7_RKT0_T1_.exit.i, %12
+_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit.thread: ; preds = %_ZSt11upper_boundIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EmZNS1_L19_GetBestSourceMatchIS5_EET_RKS2_RKS7_SB_mEUlmSB_E_ES7_S7_S7_RKT0_T1_.exit.i, %12
   store i32 0, ptr %7, align 4
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %34, align 4
   br label %38
 
-_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit: ; preds = %30, %17
+_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit: ; preds = %30, %17
   %35 = phi ptr [ %.1.i, %17 ], [ %31, %30 ]
   store i32 0, ptr %7, align 4
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3012,9 +3012,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPat
   %37 = icmp eq ptr %35, %11
   br i1 %37, label %38, label %73
 
-38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit
-  %39 = phi ptr [ %34, %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit.thread ], [ %36, %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit ]
-  %40 = phi ptr [ %11, %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit.thread ], [ %35, %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit ]
+38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit
+  %39 = phi ptr [ %34, %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit.thread ], [ %36, %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit ]
+  %40 = phi ptr [ %11, %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit.thread ], [ %35, %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit ]
   br i1 %4, label %41, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
 
 41:                                               ; preds = %38
@@ -3095,7 +3095,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit: ; preds = %41, %_ZN3
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %7) #22
   resume { ptr, i32 } %lpad.phi
 
-73:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.argprom.exit
+73:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBestTargetMatchIPKSt4pairINS_7SdfPathES2_EEET_RKS2_RKS6_SA_m.exit
   %74 = getelementptr inbounds nuw i8, ptr %35, i64 8
   br i1 %5, label %75, label %117
 
@@ -4503,9 +4503,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction17MapTargetToSourceERKNS_7
   %386 = icmp sgt i64 %385, 0
   br i1 %386, label %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i.i, label %_ZSt13__lower_boundIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES2_N9__gnu_cxx5__ops14_Iter_comp_valINS1_12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEEET_SB_SB_RKT0_T1_.exit.i
 
-_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i.i: ; preds = %381, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.argprom.exit.i.i
-  %.017.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.argprom.exit.i.i ], [ %382, %381 ]
-  %.01116.i.i = phi i64 [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.argprom.exit.i.i ], [ %385, %381 ]
+_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i.i: ; preds = %381, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.exit.i.i
+  %.017.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.exit.i.i ], [ %382, %381 ]
+  %.01116.i.i = phi i64 [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.exit.i.i ], [ %385, %381 ]
   %387 = lshr i64 %.01116.i.i, 1
   %388 = getelementptr inbounds %"struct.std::pair", ptr %.017.i.i, i64 %387
   %389 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %388)
@@ -4529,15 +4529,15 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
 
 .noexc95:                                         ; preds = %.noexc94
   %394 = icmp ult i64 %392, %393
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.argprom.exit.i.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.exit.i.i
 
 395:                                              ; preds = %.noexc93
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %388, align 4
   %.0.copyload.i2.i.i.i.i.i.i = load i64, ptr %13, align 8
   %396 = icmp ult i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i.i
-  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.argprom.exit.i.i
+  br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.argprom.exit.i.i: ; preds = %395, %.noexc95
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.exit.i.i: ; preds = %395, %.noexc95
   %.0.i.i.i.i.i = phi i1 [ %394, %.noexc95 ], [ %396, %395 ]
   %397 = getelementptr inbounds i8, ptr %388, i64 16
   %398 = xor i64 %387, -1
@@ -4547,8 +4547,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
   %400 = icmp sgt i64 %.112.i.i, 0
   br i1 %400, label %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i.i, label %_ZSt13__lower_boundIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES2_N9__gnu_cxx5__ops14_Iter_comp_valINS1_12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEEET_SB_SB_RKT0_T1_.exit.i, !llvm.loop !33
 
-_ZSt13__lower_boundIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES2_N9__gnu_cxx5__ops14_Iter_comp_valINS1_12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEEET_SB_SB_RKT0_T1_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.argprom.exit.i.i, %381
-  %.0.lcssa.i.i = phi ptr [ %382, %381 ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.argprom.exit.i.i ]
+_ZSt13__lower_boundIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES2_N9__gnu_cxx5__ops14_Iter_comp_valINS1_12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEEET_SB_SB_RKT0_T1_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.exit.i.i, %381
+  %.0.lcssa.i.i = phi ptr [ %382, %381 ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEclIPSt4pairINS2_7SdfPathES8_EKS8_EEbT_RT0_.exit.i.i ]
   %.not.i89 = icmp eq ptr %.0.lcssa.i.i, %366
   br i1 %.not.i89, label %_ZSt13binary_searchIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES2_NS1_12_GLOBAL__N_130_PathPairOrderSourceLowerBoundEEbT_S7_RKT0_T1_.exit.thread, label %401
 
@@ -11365,7 +11365,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i18.i.i.i: ; preds = %91,
   unreachable
 
 _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit20.i.i.i: ; preds = %109, %96, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i18.i.i.i
-  br i1 %.not.i.i.i, label %_ZSt11__make_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_RT0_.argprom.exit.i.i, label %30
+  br i1 %.not.i.i.i, label %_ZSt11__make_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_RT0_.exit.i.i, label %30
 
 common.resume:                                    ; preds = %206, %113
   %.sink32 = phi ptr [ %5, %206 ], [ %7, %113 ]
@@ -11380,7 +11380,7 @@ common.resume:                                    ; preds = %206, %113
           cleanup
   br label %common.resume
 
-_ZSt11__make_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_RT0_.argprom.exit.i.i: ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit20.i.i.i
+_ZSt11__make_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_RT0_.exit.i.i: ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit20.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -11391,8 +11391,8 @@ _ZSt11__make_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__g
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %.lr.ph.i5.i
 
-.lr.ph.i5.i:                                      ; preds = %_ZSt11__make_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_RT0_.argprom.exit.i.i, %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.argprom.exit
-  %.01.i.i = phi ptr [ %121, %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.argprom.exit ], [ %.025, %_ZSt11__make_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_RT0_.argprom.exit.i.i ]
+.lr.ph.i5.i:                                      ; preds = %_ZSt11__make_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_RT0_.exit.i.i, %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.exit
+  %.01.i.i = phi ptr [ %121, %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.exit ], [ %.025, %_ZSt11__make_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_RT0_.exit.i.i ]
   %121 = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -11518,7 +11518,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i: ; preds 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i9.i: ; preds = %184, %171, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i
   %188 = load i32, ptr %4, align 4
   %.not.i.i1.i10.i = icmp eq i32 %188, 0
-  br i1 %.not.i.i1.i10.i, label %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.argprom.exit, label %189
+  br i1 %.not.i.i1.i10.i, label %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.exit, label %189
 
 189:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i9.i
   %190 = and i32 %188, 255
@@ -11533,11 +11533,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i9.i: ; preds = %184, %17
   %199 = atomicrmw sub ptr %198, i32 1 seq_cst, align 4
   %200 = and i32 %199, 2147483647
   %201 = icmp eq i32 %200, 1
-  br i1 %201, label %202, label %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.argprom.exit
+  br i1 %201, label %202, label %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.exit
 
 202:                                              ; preds = %189
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %197)
-          to label %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.argprom.exit unwind label %203
+          to label %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.exit unwind label %203
 
 203:                                              ; preds = %202
   %204 = landingpad { ptr, i32 }
@@ -11551,7 +11551,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i9.i: ; preds = %184, %17
           cleanup
   br label %common.resume
 
-_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i9.i, %189, %202
+_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i9.i, %189, %202
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %208 = icmp sgt i64 %131, 16
@@ -11571,38 +11571,38 @@ _ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gn
   %217 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
   %218 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
   %219 = icmp ult i64 %217, %218
-  br i1 %219, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread51.i.i
+  br i1 %219, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread51.i.i
 
 220:                                              ; preds = %209
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %12, align 4
   %.0.copyload.i2.i.i.i.i.i = load i64, ptr %212, align 4
   %221 = icmp ult i64 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i
-  br i1 %221, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i.i, label %222
+  br i1 %221, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i.i, label %222
 
 222:                                              ; preds = %220
   %223 = icmp eq i64 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i
-  br i1 %223, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread51.i.i
+  br i1 %223, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread51.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i.i: ; preds = %222
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i.i: ; preds = %222
   %224 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %.0.copyload.i.i13.i.i.i.i = load i64, ptr %13, align 4
   %.0.copyload.i2.i14.i.i.i.i = load i64, ptr %224, align 4
   %225 = icmp ult i64 %.0.copyload.i.i13.i.i.i.i, %.0.copyload.i2.i14.i.i.i.i
-  br i1 %225, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread51.i.i
+  br i1 %225, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread51.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i.i, %220, %216
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i.i, %220, %216
   %226 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
   %227 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %.not.i.i22.i.i = icmp eq i64 %226, %227
   br i1 %.not.i.i22.i.i, label %232, label %228
 
-228:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i.i
+228:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i.i
   %229 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
   %230 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %231 = icmp ult i64 %229, %230
-  br i1 %231, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread54.i.i
+  br i1 %231, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i
 
-232:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i.i
+232:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i.i
   %.0.copyload.i.i.i.i24.i.i = load i64, ptr %212, align 4
   %.0.copyload.i2.i.i.i25.i.i = load i64, ptr %213, align 4
   %233 = icmp ult i64 %.0.copyload.i.i.i.i24.i.i, %.0.copyload.i2.i.i.i25.i.i
@@ -11611,23 +11611,23 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 235:                                              ; preds = %232
   %236 = icmp eq i64 %.0.copyload.i.i.i.i24.i.i, %.0.copyload.i2.i.i.i25.i.i
-  br i1 %236, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread54.i.i
+  br i1 %236, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.i.i: ; preds = %235
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.i.i: ; preds = %235
   %237 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %238 = getelementptr inbounds i8, ptr %.025, i64 -8
   %.0.copyload.i.i13.i.i26.i.i = load i64, ptr %237, align 4
   %.0.copyload.i2.i14.i.i27.i.i = load i64, ptr %238, align 4
   %239 = icmp ult i64 %.0.copyload.i.i13.i.i26.i.i, %.0.copyload.i2.i14.i.i27.i.i
-  br i1 %239, label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread54.i.i
+  br i1 %239, label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread54.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.i.i, %235, %228
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.i.i, %235, %228
   %240 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
   %241 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %.not.i.i29.i.i = icmp eq i64 %240, %241
-  br i1 %.not.i.i29.i.i, label %242, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.sink.split.i.i
+  br i1 %.not.i.i29.i.i, label %242, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.sink.split.i.i
 
-242:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread54.i.i
+242:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i
   %.0.copyload.i.i.i.i31.i.i = load i64, ptr %12, align 4
   %.0.copyload.i2.i.i.i32.i.i = load i64, ptr %213, align 4
   %243 = icmp ult i64 %.0.copyload.i.i.i.i31.i.i, %.0.copyload.i2.i.i.i32.i.i
@@ -11637,9 +11637,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 246:                                              ; preds = %242
   %247 = icmp eq i64 %.0.copyload.i.i.i.i31.i.i, %.0.copyload.i2.i.i.i32.i.i
-  br i1 %247, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit35.i.i, label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i
+  br i1 %247, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit35.i.i, label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit35.i.i: ; preds = %246
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit35.i.i: ; preds = %246
   %248 = getelementptr inbounds i8, ptr %.025, i64 -8
   %.0.copyload.i.i13.i.i33.i.i = load i64, ptr %13, align 4
   %.0.copyload.i2.i14.i.i34.i.i = load i64, ptr %248, align 4
@@ -11648,19 +11648,19 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %spec.select92.i.i = select i1 %249, ptr %213, ptr %12
   br label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread51.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i.i, %222, %216
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread51.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i.i, %222, %216
   %250 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
   %251 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %.not.i.i36.i.i = icmp eq i64 %250, %251
   br i1 %.not.i.i36.i.i, label %256, label %252
 
-252:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread51.i.i
+252:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread51.i.i
   %253 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %12)
   %254 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %255 = icmp ult i64 %253, %254
-  br i1 %255, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.thread60.i.i
+  br i1 %255, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i
 
-256:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread51.i.i
+256:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread51.i.i
   %.0.copyload.i.i.i.i38.i.i = load i64, ptr %12, align 4
   %.0.copyload.i2.i.i.i39.i.i = load i64, ptr %213, align 4
   %257 = icmp ult i64 %.0.copyload.i.i.i.i38.i.i, %.0.copyload.i2.i.i.i39.i.i
@@ -11669,22 +11669,22 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 259:                                              ; preds = %256
   %260 = icmp eq i64 %.0.copyload.i.i.i.i38.i.i, %.0.copyload.i2.i.i.i39.i.i
-  br i1 %260, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.thread60.i.i
+  br i1 %260, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.i.i: ; preds = %259
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.i.i: ; preds = %259
   %261 = getelementptr inbounds i8, ptr %.025, i64 -8
   %.0.copyload.i.i13.i.i40.i.i = load i64, ptr %13, align 4
   %.0.copyload.i2.i14.i.i41.i.i = load i64, ptr %261, align 4
   %262 = icmp ult i64 %.0.copyload.i.i13.i.i40.i.i, %.0.copyload.i2.i14.i.i41.i.i
-  br i1 %262, label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.thread60.i.i
+  br i1 %262, label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.thread60.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.i.i, %259, %252
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.i.i, %259, %252
   %263 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
   %264 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %.not.i.i43.i.i = icmp eq i64 %263, %264
-  br i1 %.not.i.i43.i.i, label %265, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.sink.split.i.i
+  br i1 %.not.i.i43.i.i, label %265, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.sink.split.i.i
 
-265:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.thread60.i.i
+265:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i
   %.0.copyload.i.i.i.i45.i.i = load i64, ptr %212, align 4
   %.0.copyload.i2.i.i.i46.i.i = load i64, ptr %213, align 4
   %266 = icmp ult i64 %.0.copyload.i.i.i.i45.i.i, %.0.copyload.i2.i.i.i46.i.i
@@ -11694,9 +11694,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 269:                                              ; preds = %265
   %270 = icmp eq i64 %.0.copyload.i.i.i.i45.i.i, %.0.copyload.i2.i.i.i46.i.i
-  br i1 %270, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit49.i.i, label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i
+  br i1 %270, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit49.i.i, label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit49.i.i: ; preds = %269
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit49.i.i: ; preds = %269
   %271 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %272 = getelementptr inbounds i8, ptr %.025, i64 -8
   %.0.copyload.i.i13.i.i47.i.i = load i64, ptr %271, align 4
@@ -11706,22 +11706,22 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %spec.select94.i.i = select i1 %273, ptr %213, ptr %212
   br label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.sink.split.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.thread60.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread54.i.i
-  %.sink100.i.i = phi ptr [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread54.i.i ], [ %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.thread60.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.sink.split.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i
+  %.sink100.i.i = phi ptr [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread54.i.i ], [ %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.thread60.i.i ]
   %274 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sink100.i.i)
   %275 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %276 = icmp ult i64 %274, %275
   %.95.i.i = select i1 %276, ptr %213, ptr %.sink100.i.i
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.sink.split.i.i, %252, %228
-  %.sink.i.i = phi ptr [ %212, %228 ], [ %12, %252 ], [ %.95.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.sink.split.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.sink.split.i.i, %252, %228
+  %.sink.i.i = phi ptr [ %212, %228 ], [ %12, %252 ], [ %.95.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.sink.split.i.i ]
   %.pre.i.i = load i32, ptr %.sink.i.i, align 4
   br label %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit49.i.i, %269, %265, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.i.i, %256, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit35.i.i, %246, %242, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.i.i, %232
-  %.sink91.i.i = phi i32 [ %234, %232 ], [ %234, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.i.i ], [ %245, %242 ], [ %244, %246 ], [ %258, %256 ], [ %258, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.i.i ], [ %268, %265 ], [ %267, %269 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit35.i.i ], [ %spec.select93.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit49.i.i ], [ %.pre.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.i.i ]
-  %.sink90.i.i = phi ptr [ %212, %232 ], [ %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.i.i ], [ %213, %242 ], [ %12, %246 ], [ %12, %256 ], [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit42.i.i ], [ %213, %265 ], [ %212, %269 ], [ %spec.select92.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit35.i.i ], [ %spec.select94.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit49.i.i ], [ %.sink.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit28.thread.sink.split.i.i ]
+_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit49.i.i, %269, %265, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.i.i, %256, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit35.i.i, %246, %242, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.i.i, %232
+  %.sink91.i.i = phi i32 [ %234, %232 ], [ %234, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.i.i ], [ %245, %242 ], [ %244, %246 ], [ %258, %256 ], [ %258, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.i.i ], [ %268, %265 ], [ %267, %269 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit35.i.i ], [ %spec.select93.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit49.i.i ], [ %.pre.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.i.i ]
+  %.sink90.i.i = phi ptr [ %212, %232 ], [ %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.i.i ], [ %213, %242 ], [ %12, %246 ], [ %12, %256 ], [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit42.i.i ], [ %213, %265 ], [ %212, %269 ], [ %spec.select92.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit35.i.i ], [ %spec.select94.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit49.i.i ], [ %.sink.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit28.thread.sink.split.i.i ]
   %277 = load i32, ptr %0, align 4
   store i32 %.sink91.i.i, ptr %0, align 4
   store i32 %277, ptr %.sink90.i.i, align 4
@@ -11747,8 +11747,8 @@ _ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPat
   %.0.i.i = phi ptr [ %12, %_ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_SB_T0_.exit.i ], [ %332, %317 ]
   br label %288
 
-288:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i15.i, %287
-  %.1.i.i = phi ptr [ %.0.i.i, %287 ], [ %302, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i15.i ]
+288:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i15.i, %287
+  %.1.i.i = phi ptr [ %.0.i.i, %287 ], [ %302, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i15.i ]
   %289 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.1.i.i)
   %290 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
   %.not.i.i.i13.i = icmp eq i64 %289, %290
@@ -11758,71 +11758,71 @@ _ZSt22__move_median_to_firstIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPat
   %292 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.1.i.i)
   %293 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
   %294 = icmp ult i64 %292, %293
-  br i1 %294, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i15.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.preheader
+  br i1 %294, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i15.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.preheader: ; preds = %299, %297, %291
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.preheader: ; preds = %299, %297, %291
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i
 
 295:                                              ; preds = %288
   %.0.copyload.i.i.i.i.i16.i = load i64, ptr %.1.i.i, align 4
   %.0.copyload.i2.i.i.i.i17.i = load i64, ptr %0, align 4
   %296 = icmp ult i64 %.0.copyload.i.i.i.i.i16.i, %.0.copyload.i2.i.i.i.i17.i
-  br i1 %296, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i15.i, label %297
+  br i1 %296, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i15.i, label %297
 
 297:                                              ; preds = %295
   %298 = icmp eq i64 %.0.copyload.i.i.i.i.i16.i, %.0.copyload.i2.i.i.i.i17.i
-  br i1 %298, label %299, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.preheader
+  br i1 %298, label %299, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.preheader
 
 299:                                              ; preds = %297
   %300 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %.0.copyload.i.i13.i.i.i18.i = load i64, ptr %300, align 4
   %.0.copyload.i2.i14.i.i.i19.i = load i64, ptr %15, align 4
   %301 = icmp ult i64 %.0.copyload.i.i13.i.i.i18.i, %.0.copyload.i2.i14.i.i.i19.i
-  br i1 %301, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i15.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.preheader
+  br i1 %301, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i15.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i15.i: ; preds = %299, %295, %291
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i15.i: ; preds = %299, %295, %291
   %302 = getelementptr inbounds i8, ptr %.1.i.i, i64 16
   br label %288, !llvm.loop !116
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.backedge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.preheader
-  %.013.pn.i.i = phi ptr [ %.013.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.preheader ], [ %.114.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.backedge ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.backedge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.preheader
+  %.013.pn.i.i = phi ptr [ %.013.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.preheader ], [ %.114.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.backedge ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -16
   %303 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
   %304 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.114.i.i)
   %.not.i.i15.i.i = icmp eq i64 %303, %304
   br i1 %.not.i.i15.i.i, label %309, label %305
 
-305:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i
+305:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i
   %306 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
   %307 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.114.i.i)
   %308 = icmp ult i64 %306, %307
-  br i1 %308, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit21.thread.i.i
+  br i1 %308, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit21.thread.i.i
 
-309:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i
+309:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i
   %.0.copyload.i.i.i.i17.i.i = load i64, ptr %0, align 4
   %.0.copyload.i2.i.i.i18.i.i = load i64, ptr %.114.i.i, align 4
   %310 = icmp ult i64 %.0.copyload.i.i.i.i17.i.i, %.0.copyload.i2.i.i.i18.i.i
-  br i1 %310, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.backedge, label %311
+  br i1 %310, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.backedge, label %311
 
 311:                                              ; preds = %309
   %312 = icmp eq i64 %.0.copyload.i.i.i.i17.i.i, %.0.copyload.i2.i.i.i18.i.i
-  br i1 %312, label %313, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit21.thread.i.i
+  br i1 %312, label %313, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit21.thread.i.i
 
 313:                                              ; preds = %311
   %314 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
   %.0.copyload.i.i13.i.i19.i.i = load i64, ptr %15, align 4
   %.0.copyload.i2.i14.i.i20.i.i = load i64, ptr %314, align 4
   %315 = icmp ult i64 %.0.copyload.i.i13.i.i19.i.i, %.0.copyload.i2.i14.i.i20.i.i
-  br i1 %315, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit21.thread.i.i
+  br i1 %315, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit21.thread.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i.backedge: ; preds = %313, %309, %305
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i14.i, !llvm.loop !117
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i.backedge: ; preds = %313, %309, %305
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i14.i, !llvm.loop !117
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit21.thread.i.i: ; preds = %313, %311, %305
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit21.thread.i.i: ; preds = %313, %311, %305
   %316 = icmp ult ptr %.1.i.i, %.114.i.i
   br i1 %316, label %317, label %_ZSt27__unguarded_partition_pivotIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEET_SB_SB_T0_.exit
 
-317:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit21.thread.i.i
+317:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit21.thread.i.i
   %318 = load i32, ptr %.1.i.i, align 4
   %319 = load i32, ptr %.114.i.i, align 4
   store i32 %319, ptr %.1.i.i, align 4
@@ -11848,14 +11848,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %332 = getelementptr inbounds i8, ptr %.1.i.i, i64 16
   br label %287, !llvm.loop !118
 
-_ZSt27__unguarded_partition_pivotIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEET_SB_SB_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit21.thread.i.i
+_ZSt27__unguarded_partition_pivotIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEET_SB_SB_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit21.thread.i.i
   tail call fastcc void @_ZSt16__introsort_loopIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %210)
   %333 = ptrtoint ptr %.1.i.i to i64
   %334 = sub i64 %333, %8
   %335 = icmp sgt i64 %334, 256
   br i1 %335, label %17, label %_ZSt14__partial_sortIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_T0_.exit, !llvm.loop !119
 
-_ZSt14__partial_sortIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEET_SB_SB_T0_.exit, %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.argprom.exit, %3
+_ZSt14__partial_sortIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEET_SB_SB_T0_.exit, %_ZSt10__pop_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_SB_RT0_.exit, %3
   ret void
 }
 
@@ -11867,8 +11867,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN32pxrInternal_v0_24__
   %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread36
-  %.039 = phi i64 [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread36 ], [ %1, %4 ]
+.lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread36
+  %.039 = phi i64 [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread36 ], [ %1, %4 ]
   %9 = shl i64 %.039, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %10
@@ -11883,40 +11883,40 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN32pxrInternal_v0_24__
   %17 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %11)
   %18 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread36
+  br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread36
 
 20:                                               ; preds = %.lr.ph
   %.0.copyload.i.i.i.i = load i64, ptr %11, align 4
   %.0.copyload.i2.i.i.i = load i64, ptr %13, align 4
   %21 = icmp ult i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
-  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread, label %22
+  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread, label %22
 
 22:                                               ; preds = %20
   %23 = icmp eq i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
-  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread36
+  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread36
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit: ; preds = %22
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit: ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.0.copyload.i.i13.i.i = load i64, ptr %24, align 4
   %.0.copyload.i2.i14.i.i = load i64, ptr %25, align 4
   %26 = icmp ult i64 %.0.copyload.i.i13.i.i, %.0.copyload.i2.i14.i.i
   %cond.fr = freeze i1 %26
-  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread36
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread36
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread: ; preds = %20, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread36
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread: ; preds = %20, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread36
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread36: ; preds = %22, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread
-  %27 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit ], [ %10, %16 ], [ %10, %22 ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread36: ; preds = %22, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread
+  %27 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit ], [ %10, %16 ], [ %10, %22 ]
   %28 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %27
   %29 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.039
   %30 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %28) #22
   %31 = icmp slt i64 %27, %7
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !120
 
-._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread36, %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread36 ]
+._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread36, %4
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread36 ]
   %32 = and i64 %2, 1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %34, label %44
@@ -11958,8 +11958,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %55 = icmp sgt i64 %.1, %1
   br i1 %55, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %44, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.thread.i
-  %.0136.i = phi i64 [ %.07.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.thread.i ], [ %.1, %44 ]
+.lr.ph.i:                                         ; preds = %44, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.thread.i
+  %.0136.i = phi i64 [ %.07.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.thread.i ], [ %.1, %44 ]
   %.07.in.i = add nsw i64 %.0136.i, -1
   %.07.i = sdiv i64 %.07.in.i, 2
   %56 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.07.i
@@ -11984,33 +11984,33 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 .noexc32:                                         ; preds = %.noexc31
   %62 = icmp ult i64 %60, %61
-  br i1 %62, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.thread.i, label %.loopexit
+  br i1 %62, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.thread.i, label %.loopexit
 
 63:                                               ; preds = %.noexc30
   %.0.copyload.i.i.i.i.i = load i64, ptr %56, align 4
   %.0.copyload.i2.i.i.i.i = load i64, ptr %5, align 8
   %64 = icmp ult i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
-  br i1 %64, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.thread.i, label %65
+  br i1 %64, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.thread.i, label %65
 
 65:                                               ; preds = %63
   %66 = icmp eq i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
-  br i1 %66, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.i, label %.loopexit
+  br i1 %66, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.i, label %.loopexit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.i: ; preds = %65
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.i: ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.0.copyload.i.i13.i.i.i = load i64, ptr %67, align 4
   %.0.copyload.i2.i14.i.i.i = load i64, ptr %49, align 8
   %68 = icmp ult i64 %.0.copyload.i.i13.i.i.i, %.0.copyload.i2.i14.i.i.i
-  br i1 %68, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.thread.i, label %.loopexit
+  br i1 %68, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.thread.i, label %.loopexit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.i, %63, %.noexc32
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.i, %63, %.noexc32
   %69 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0136.i
   %70 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %69, ptr noundef nonnull align 4 dereferenceable(16) %56) #22
   %71 = icmp sgt i64 %.07.i, %1
   br i1 %71, label %.lr.ph.i, label %.loopexit, !llvm.loop !121
 
-.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.thread.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.i, %65, %.noexc32, %44
-  %.013.lcssa.i = phi i64 [ %.1, %44 ], [ %.0136.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.i ], [ %.07.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.argprom.exit.thread.i ], [ %.0136.i, %.noexc32 ], [ %.0136.i, %65 ]
+.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.thread.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.i, %65, %.noexc32, %44
+  %.013.lcssa.i = phi i64 [ %.1, %44 ], [ %.0136.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.i ], [ %.07.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.thread.i ], [ %.0136.i, %.noexc32 ], [ %.0136.i, %65 ]
   %72 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i
   %73 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %72, ptr noundef nonnull align 4 dereferenceable(16) %5) #22
   %74 = load i32, ptr %49, align 8
@@ -12203,32 +12203,32 @@ define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIN32pxrInternal_v0_2
   %14 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.023)
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
   %16 = icmp ult i64 %14, %15
-  br i1 %16, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread_crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread18
+  br i1 %16, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread_crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread18
 
-._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread_crit_edge: ; preds = %13
+._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread_crit_edge: ; preds = %13
   %.pre = load i32, ptr %.023, align 4
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread
 
 17:                                               ; preds = %10
   %.0.copyload.i.i.i.i = load i64, ptr %.023, align 4
   %.0.copyload.i2.i.i.i = load i64, ptr %0, align 4
   %18 = icmp ult i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
   %19 = trunc i64 %.0.copyload.i.i.i.i to i32
-  br i1 %18, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread, label %20
+  br i1 %18, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread, label %20
 
 20:                                               ; preds = %17
   %21 = icmp eq i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
-  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread18
+  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread18
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit: ; preds = %20
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit: ; preds = %20
   %22 = getelementptr inbounds i8, ptr %.pn22, i64 24
   %.0.copyload.i.i13.i.i = load i64, ptr %22, align 4
   %.0.copyload.i2.i14.i.i = load i64, ptr %5, align 4
   %23 = icmp ult i64 %.0.copyload.i.i13.i.i, %.0.copyload.i2.i14.i.i
-  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread18
+  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread18
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread: ; preds = %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread_crit_edge, %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit
-  %24 = phi i32 [ %.pre, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread_crit_edge ], [ %19, %17 ], [ %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread: ; preds = %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread_crit_edge, %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit
+  %24 = phi i32 [ %.pre, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread_crit_edge ], [ %19, %17 ], [ %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit ]
   store i32 %24, ptr %3, align 4
   store i32 0, ptr %.023, align 4
   %25 = getelementptr inbounds i8, ptr %.pn22, i64 20
@@ -12249,7 +12249,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %34 = icmp sgt i64 %33, 0
   br i1 %34, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt13move_backwardIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread
   %35 = getelementptr inbounds i8, ptr %.pn22, i64 32
   br label %.lr.ph.i.i.i.i.i
 
@@ -12343,7 +12343,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit: ; preds
   %85 = icmp ugt i64 %.010.i.i.i.i.i, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit, !llvm.loop !122
 
-_ZSt13move_backwardIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit: ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread
+_ZSt13move_backwardIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit: ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread
   %86 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %3) #22
   %87 = load i32, ptr %7, align 4
   %.not.i.i.i = icmp eq i32 %87, 0
@@ -12406,11 +12406,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %101, %88, %
   call void @__clang_call_terminate(ptr %122) #24
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread18: ; preds = %20, %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread18: ; preds = %20, %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit
   call fastcc void @_ZSt25__unguarded_linear_insertIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__gnu_cxx5__ops14_Val_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_(ptr noundef nonnull %.023)
   br label %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit
 
-_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit: ; preds = %119, %106, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread18
+_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit: ; preds = %119, %106, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread18
   %.0 = getelementptr inbounds i8, ptr %.023, i64 16
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %10, !llvm.loop !123
@@ -12442,8 +12442,8 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIPSt4pairIN32pxrInte
   store i32 0, ptr %11, align 4
   br label %13
 
-13:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread, %1
-  %.0 = phi ptr [ %0, %1 ], [ %.010, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread ]
+13:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread, %1
+  %.0 = phi ptr [ %0, %1 ], [ %.010, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread ]
   %.010 = getelementptr inbounds i8, ptr %.0, i64 -16
   %14 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %.noexc unwind label %27
@@ -12466,26 +12466,26 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIPSt4pairIN32pxrInte
 
 .noexc13:                                         ; preds = %.noexc12
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread15
+  br i1 %19, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread15
 
 20:                                               ; preds = %.noexc11
   %.0.copyload.i.i.i.i = load i64, ptr %2, align 8
   %.0.copyload.i2.i.i.i = load i64, ptr %.010, align 4
   %21 = icmp ult i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
-  br i1 %21, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread, label %22
+  br i1 %21, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread, label %22
 
 22:                                               ; preds = %20
   %23 = icmp eq i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
-  br i1 %23, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread15
+  br i1 %23, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread15
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit: ; preds = %22
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit: ; preds = %22
   %24 = getelementptr inbounds i8, ptr %.0, i64 -8
   %.0.copyload.i.i13.i.i = load i64, ptr %7, align 8
   %.0.copyload.i2.i14.i.i = load i64, ptr %24, align 4
   %25 = icmp ult i64 %.0.copyload.i.i13.i.i, %.0.copyload.i2.i14.i.i
-  br i1 %25, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread15
+  br i1 %25, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread15
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread: ; preds = %20, %.noexc13, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread: ; preds = %20, %.noexc13, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit
   %26 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %.0, ptr noundef nonnull align 4 dereferenceable(16) %.010) #22
   br label %13, !llvm.loop !124
 
@@ -12495,13 +12495,13 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
   call void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev(ptr noundef nonnull align 4 dereferenceable(16) %2) #22
   resume { ptr, i32 } %28
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread15: ; preds = %22, %.noexc13, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread15: ; preds = %22, %.noexc13, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit
   %29 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %.0, ptr noundef nonnull align 4 dereferenceable(16) %2) #22
   %30 = load i32, ptr %7, align 8
   %.not.i.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i, label %31
 
-31:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread15
+31:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread15
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
@@ -12527,7 +12527,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
   call void @__clang_call_terminate(ptr %47) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %44, %31, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread15
+_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %44, %31, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread15
   %48 = load i32, ptr %2, align 8
   %.not.i.i1.i = icmp eq i32 %48, 0
   br i1 %.not.i.i1.i, label %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit, label %49
@@ -12965,7 +12965,7 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPSt4pairIN32pxrInterna
   %6 = icmp eq i64 %3, 0
   %7 = icmp eq i64 %4, 0
   %or.cond80 = or i1 %6, %7
-  br i1 %or.cond80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread69, label %.lr.ph
+  br i1 %or.cond80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread69, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = ptrtoint ptr %2 to i64
@@ -12990,12 +12990,12 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPSt4pairIN32pxrInterna
   %16 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.tr7382)
   %17 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.tr81)
   %18 = icmp ult i64 %16, %17
-  br i1 %18, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread_crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread69
+  br i1 %18, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread_crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread69
 
-._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread_crit_edge: ; preds = %15
+._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread_crit_edge: ; preds = %15
   %.pre = load i32, ptr %.tr81, align 4
   %.pre89 = load i32, ptr %.tr7382, align 4
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread
 
 19:                                               ; preds = %12
   %.0.copyload.i.i.i.i = load i64, ptr %.tr7382, align 4
@@ -13003,23 +13003,23 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPSt4pairIN32pxrInterna
   %20 = icmp ult i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
   %21 = trunc i64 %.0.copyload.i2.i.i.i to i32
   %22 = trunc i64 %.0.copyload.i.i.i.i to i32
-  br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread, label %23
+  br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread, label %23
 
 23:                                               ; preds = %19
   %24 = icmp eq i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
-  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread69
+  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread69
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit: ; preds = %23
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit: ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %.tr7382, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.tr81, i64 8
   %.0.copyload.i.i13.i.i = load i64, ptr %25, align 4
   %.0.copyload.i2.i14.i.i = load i64, ptr %26, align 4
   %27 = icmp ult i64 %.0.copyload.i.i13.i.i, %.0.copyload.i2.i14.i.i
-  br i1 %27, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread69
+  br i1 %27, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread69
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread: ; preds = %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread_crit_edge, %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit
-  %28 = phi i32 [ %.pre89, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread_crit_edge ], [ %22, %19 ], [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit ]
-  %29 = phi i32 [ %.pre, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread_crit_edge ], [ %21, %19 ], [ %21, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread: ; preds = %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread_crit_edge, %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit
+  %28 = phi i32 [ %.pre89, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread_crit_edge ], [ %22, %19 ], [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit ]
+  %29 = phi i32 [ %.pre, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread_crit_edge ], [ %21, %19 ], [ %21, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit ]
   store i32 %28, ptr %.tr81, align 4
   store i32 %29, ptr %.tr7382, align 4
   %30 = getelementptr inbounds nuw i8, ptr %.tr81, i64 4
@@ -13040,7 +13040,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %41 = load i32, ptr %39, align 4
   store i32 %41, ptr %38, align 4
   store i32 %40, ptr %39, align 4
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread69
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread69
 
 42:                                               ; preds = %9
   %43 = icmp sgt i64 %.tr7584, %.tr7685
@@ -13084,9 +13084,9 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
   %.0.copyload.i.i.i.i.i = load i64, ptr %52, align 4
   %.0.copyload.i2.i.i.i.i = load i64, ptr %46, align 4
   %63 = icmp ult i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
-  br i1 %63, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.thread.i, label %67
+  br i1 %63, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.thread.i, label %67
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.thread.i: ; preds = %62
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.thread.i: ; preds = %62
   %64 = getelementptr inbounds i8, ptr %52, i64 16
   %65 = xor i64 %51, -1
   %66 = add nsw i64 %.01133.i, %65
@@ -13094,9 +13094,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
 
 67:                                               ; preds = %62
   %68 = icmp eq i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
-  br i1 %68, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i, label %.thread.i
+  br i1 %68, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i, label %.thread.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i: ; preds = %67
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i: ; preds = %67
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.0.copyload.i.i13.i.i.i = load i64, ptr %69, align 4
   %.0.copyload.i2.i14.i.i.i = load i64, ptr %50, align 4
@@ -13104,15 +13104,15 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
   %cond.fr16.i = freeze i1 %70
   br i1 %cond.fr16.i, label %71, label %.thread.i
 
-71:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i
+71:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i
   %72 = getelementptr inbounds i8, ptr %52, i64 16
   %73 = xor i64 %51, -1
   %74 = add nsw i64 %.01133.i, %73
   br label %.thread.i
 
-.thread.i:                                        ; preds = %71, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i, %67, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.thread.i, %55
-  %75 = phi i64 [ %51, %67 ], [ %51, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i ], [ %74, %71 ], [ %66, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.thread.i ], [ %spec.select.i, %55 ]
-  %76 = phi ptr [ %.034.i, %67 ], [ %.034.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i ], [ %72, %71 ], [ %64, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.thread.i ], [ %spec.select32.i, %55 ]
+.thread.i:                                        ; preds = %71, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i, %67, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.thread.i, %55
+  %75 = phi i64 [ %51, %67 ], [ %51, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i ], [ %74, %71 ], [ %66, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.thread.i ], [ %spec.select.i, %55 ]
+  %76 = phi ptr [ %.034.i, %67 ], [ %.034.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i ], [ %72, %71 ], [ %64, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.thread.i ], [ %spec.select32.i, %55 ]
   %77 = icmp sgt i64 %75, 0
   br i1 %77, label %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valINS1_12_GLOBAL__N_114_PathPairOrderEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !132
 
@@ -13167,15 +13167,15 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
 
 100:                                              ; preds = %98
   %101 = icmp eq i64 %.0.copyload.i.i.i.i.i52, %.0.copyload.i2.i.i.i.i53
-  br i1 %101, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread21.i
+  br i1 %101, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread21.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread21.i: ; preds = %100
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread21.i: ; preds = %100
   %102 = getelementptr inbounds i8, ptr %88, i64 16
   %103 = xor i64 %87, -1
   %104 = add nsw i64 %.01133.i47, %103
   br label %.thread.i51
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.i: ; preds = %100
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.i: ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.0.copyload.i.i13.i.i.i54 = load i64, ptr %86, align 4
   %.0.copyload.i2.i14.i.i.i55 = load i64, ptr %105, align 4
@@ -13183,18 +13183,18 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
   %cond.fr16.i56 = freeze i1 %106
   br i1 %cond.fr16.i56, label %.thread30.i, label %107
 
-107:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.i
+107:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.i
   %108 = getelementptr inbounds i8, ptr %88, i64 16
   %109 = xor i64 %87, -1
   %110 = add nsw i64 %.01133.i47, %109
   br label %.thread.i51
 
-.thread30.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.i, %98, %91
+.thread30.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.i, %98, %91
   br label %.thread.i51
 
-.thread.i51:                                      ; preds = %.thread30.i, %107, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread21.i, %91
-  %111 = phi i64 [ %87, %.thread30.i ], [ %110, %107 ], [ %97, %91 ], [ %104, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread21.i ]
-  %112 = phi ptr [ %.034.i46, %.thread30.i ], [ %108, %107 ], [ %95, %91 ], [ %102, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread21.i ]
+.thread.i51:                                      ; preds = %.thread30.i, %107, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread21.i, %91
+  %111 = phi i64 [ %87, %.thread30.i ], [ %110, %107 ], [ %97, %91 ], [ %104, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread21.i ]
+  %112 = phi ptr [ %.034.i46, %.thread30.i ], [ %108, %107 ], [ %95, %91 ], [ %102, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread21.i ]
   %113 = icmp sgt i64 %111, 0
   br i1 %113, label %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i45, label %_ZSt13__upper_boundIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !133
 
@@ -13221,9 +13221,9 @@ tailrecurse:                                      ; preds = %_ZSt13__upper_bound
   %119 = icmp eq i64 %117, 0
   %120 = icmp eq i64 %118, 0
   %or.cond = or i1 %119, %120
-  br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread69, label %9
+  br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread69, label %9
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread69: ; preds = %tailrecurse, %5, %23, %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread69: ; preds = %tailrecurse, %5, %23, %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread
   ret void
 }
 
@@ -13276,39 +13276,39 @@ _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S
   %22 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.01925.i)
   %23 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.01826.i)
   %24 = icmp ult i64 %22, %23
-  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread23.i
+  br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread23.i
 
 25:                                               ; preds = %.lr.ph.i
   %.0.copyload.i.i.i.i.i = load i64, ptr %.01925.i, align 4
   %.0.copyload.i2.i.i.i.i = load i64, ptr %.01826.i, align 4
   %26 = icmp ult i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
-  br i1 %26, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i, label %27
+  br i1 %26, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i, label %27
 
 27:                                               ; preds = %25
   %28 = icmp eq i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
-  br i1 %28, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread23.i
+  br i1 %28, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread23.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i: ; preds = %27
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i: ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %.01826.i, i64 8
   %.0.copyload.i.i13.i.i.i = load i64, ptr %29, align 4
   %.0.copyload.i2.i14.i.i.i = load i64, ptr %30, align 4
   %31 = icmp ult i64 %.0.copyload.i.i13.i.i.i, %.0.copyload.i2.i14.i.i.i
-  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread23.i
+  br i1 %31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread23.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i, %25, %21
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i, %25, %21
   %32 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %.027.i, ptr noundef nonnull align 4 dereferenceable(16) %.01925.i) #22
   %33 = getelementptr inbounds i8, ptr %.01925.i, i64 16
   br label %36
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread23.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i, %27, %21
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread23.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i, %27, %21
   %34 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %.027.i, ptr noundef nonnull align 4 dereferenceable(16) %.01826.i) #22
   %35 = getelementptr inbounds i8, ptr %.01826.i, i64 16
   br label %36
 
-36:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread23.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i
-  %.120.i = phi ptr [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i ], [ %.01925.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread23.i ]
-  %.1.i = phi ptr [ %.01826.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i ], [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread23.i ]
+36:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread23.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i
+  %.120.i = phi ptr [ %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i ], [ %.01925.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread23.i ]
+  %.1.i = phi ptr [ %.01826.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i ], [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread23.i ]
   %37 = getelementptr inbounds i8, ptr %.027.i, i64 16
   %38 = icmp ne ptr %.1.i, %16
   %39 = icmp ne ptr %.120.i, %2
@@ -13398,10 +13398,10 @@ _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S
   %77 = getelementptr inbounds i8, ptr %.08.lcssa.i.i.i.i.i72, i64 -16
   br label %.outer
 
-.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i80, %76
-  %.026.i.ph.pn = phi ptr [ %.tr133155, %76 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i80 ]
-  %.024.i.ph = phi ptr [ %77, %76 ], [ %.024.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i80 ]
-  %.0.i.ph = phi ptr [ %2, %76 ], [ %92, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i80 ]
+.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i80, %76
+  %.026.i.ph.pn = phi ptr [ %.tr133155, %76 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i80 ]
+  %.024.i.ph = phi ptr [ %77, %76 ], [ %.024.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i80 ]
+  %.0.i.ph = phi ptr [ %2, %76 ], [ %92, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i80 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -16
   %78 = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -8
   br label %79
@@ -13418,32 +13418,32 @@ _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S
   %83 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.024.i)
   %84 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.026.i.ph)
   %85 = icmp ult i64 %83, %84
-  br i1 %85, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread39.i
+  br i1 %85, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread39.i
 
 86:                                               ; preds = %79
   %.0.copyload.i.i.i.i.i81 = load i64, ptr %.024.i, align 4
   %.0.copyload.i2.i.i.i.i82 = load i64, ptr %.026.i.ph, align 4
   %87 = icmp ult i64 %.0.copyload.i.i.i.i.i81, %.0.copyload.i2.i.i.i.i82
-  br i1 %87, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i80, label %88
+  br i1 %87, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i80, label %88
 
 88:                                               ; preds = %86
   %89 = icmp eq i64 %.0.copyload.i.i.i.i.i81, %.0.copyload.i2.i.i.i.i82
-  br i1 %89, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread39.i
+  br i1 %89, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread39.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i83: ; preds = %88
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i83: ; preds = %88
   %90 = getelementptr inbounds nuw i8, ptr %.024.i, i64 8
   %.0.copyload.i.i13.i.i.i84 = load i64, ptr %90, align 4
   %.0.copyload.i2.i14.i.i.i85 = load i64, ptr %78, align 4
   %91 = icmp ult i64 %.0.copyload.i.i13.i.i.i84, %.0.copyload.i2.i14.i.i.i85
-  br i1 %91, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread39.i
+  br i1 %91, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i80, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread39.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i80: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i83, %86, %82
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i80: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i83, %86, %82
   %92 = getelementptr inbounds i8, ptr %.0.i, i64 -16
   %93 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %92, ptr noundef nonnull align 4 dereferenceable(16) %.026.i.ph) #22
   %94 = icmp eq ptr %.tr154, %.026.i.ph
   br i1 %94, label %95, label %.outer, !llvm.loop !136
 
-95:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread.i80
+95:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread.i80
   %96 = getelementptr inbounds i8, ptr %.024.i, i64 16
   %97 = ptrtoint ptr %96 to i64
   %98 = ptrtoint ptr %5 to i64
@@ -13463,13 +13463,13 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %106 = icmp ugt i64 %.010.i.i.i.i.i34.i, 1
   br i1 %106, label %.lr.ph.i.i.i.i.i33.i, label %_ZSt21__move_merge_adaptiveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_T0_SC_T1_T2_.exit, !llvm.loop !122
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread39.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.i83, %88, %82
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread39.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i83, %88, %82
   %107 = getelementptr inbounds i8, ptr %.0.i, i64 -16
   %108 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %107, ptr noundef nonnull align 4 dereferenceable(16) %.024.i) #22
   %109 = icmp eq ptr %5, %.024.i
   br i1 %109, label %_ZSt21__move_merge_adaptiveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_T0_SC_T1_T2_.exit, label %110
 
-110:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread39.i
+110:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread39.i
   %111 = getelementptr inbounds i8, ptr %.024.i, i64 -16
   br label %79, !llvm.loop !136
 
@@ -13513,9 +13513,9 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
   %.0.copyload.i.i.i.i.i90 = load i64, ptr %120, align 4
   %.0.copyload.i2.i.i.i.i91 = load i64, ptr %114, align 4
   %131 = icmp ult i64 %.0.copyload.i.i.i.i.i90, %.0.copyload.i2.i.i.i.i91
-  br i1 %131, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.thread.i, label %135
+  br i1 %131, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.thread.i, label %135
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.thread.i: ; preds = %130
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.thread.i: ; preds = %130
   %132 = getelementptr inbounds i8, ptr %120, i64 16
   %133 = xor i64 %119, -1
   %134 = add nsw i64 %.01133.i, %133
@@ -13523,9 +13523,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
 
 135:                                              ; preds = %130
   %136 = icmp eq i64 %.0.copyload.i.i.i.i.i90, %.0.copyload.i2.i.i.i.i91
-  br i1 %136, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i, label %.thread.i
+  br i1 %136, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i, label %.thread.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i: ; preds = %135
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i: ; preds = %135
   %137 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %.0.copyload.i.i13.i.i.i92 = load i64, ptr %137, align 4
   %.0.copyload.i2.i14.i.i.i93 = load i64, ptr %118, align 4
@@ -13533,15 +13533,15 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
   %cond.fr16.i = freeze i1 %138
   br i1 %cond.fr16.i, label %139, label %.thread.i
 
-139:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i
+139:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i
   %140 = getelementptr inbounds i8, ptr %120, i64 16
   %141 = xor i64 %119, -1
   %142 = add nsw i64 %.01133.i, %141
   br label %.thread.i
 
-.thread.i:                                        ; preds = %139, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i, %135, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.thread.i, %123
-  %143 = phi i64 [ %119, %135 ], [ %119, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i ], [ %142, %139 ], [ %134, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.thread.i ], [ %spec.select.i, %123 ]
-  %144 = phi ptr [ %.034.i, %135 ], [ %.034.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.i ], [ %140, %139 ], [ %132, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.argprom.exit.thread.i ], [ %spec.select32.i, %123 ]
+.thread.i:                                        ; preds = %139, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i, %135, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.thread.i, %123
+  %143 = phi i64 [ %119, %135 ], [ %119, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i ], [ %142, %139 ], [ %134, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.thread.i ], [ %spec.select.i, %123 ]
+  %144 = phi ptr [ %.034.i, %135 ], [ %.034.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.i ], [ %140, %139 ], [ %132, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_EKS9_EEbT_RT0_.exit.thread.i ], [ %spec.select32.i, %123 ]
   %145 = icmp sgt i64 %143, 0
   br i1 %145, label %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_N9__gnu_cxx5__ops14_Iter_comp_valINS1_12_GLOBAL__N_114_PathPairOrderEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !132
 
@@ -13596,15 +13596,15 @@ _ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.
 
 168:                                              ; preds = %166
   %169 = icmp eq i64 %.0.copyload.i.i.i.i.i108, %.0.copyload.i2.i.i.i.i109
-  br i1 %169, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread21.i
+  br i1 %169, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread21.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread21.i: ; preds = %168
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread21.i: ; preds = %168
   %170 = getelementptr inbounds i8, ptr %156, i64 16
   %171 = xor i64 %155, -1
   %172 = add nsw i64 %.01133.i103, %171
   br label %.thread.i107
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.i: ; preds = %168
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.i: ; preds = %168
   %173 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %.0.copyload.i.i13.i.i.i110 = load i64, ptr %154, align 4
   %.0.copyload.i2.i14.i.i.i111 = load i64, ptr %173, align 4
@@ -13612,18 +13612,18 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
   %cond.fr16.i112 = freeze i1 %174
   br i1 %cond.fr16.i112, label %.thread30.i, label %175
 
-175:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.i
+175:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.i
   %176 = getelementptr inbounds i8, ptr %156, i64 16
   %177 = xor i64 %155, -1
   %178 = add nsw i64 %.01133.i103, %177
   br label %.thread.i107
 
-.thread30.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.i, %166, %159
+.thread30.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.i, %166, %159
   br label %.thread.i107
 
-.thread.i107:                                     ; preds = %.thread30.i, %175, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread21.i, %159
-  %179 = phi i64 [ %155, %.thread30.i ], [ %178, %175 ], [ %165, %159 ], [ %172, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread21.i ]
-  %180 = phi ptr [ %.034.i102, %.thread30.i ], [ %176, %175 ], [ %163, %159 ], [ %170, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.argprom.exit.thread21.i ]
+.thread.i107:                                     ; preds = %.thread30.i, %175, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread21.i, %159
+  %179 = phi i64 [ %155, %.thread30.i ], [ %178, %175 ], [ %165, %159 ], [ %172, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread21.i ]
+  %180 = phi ptr [ %.034.i102, %.thread30.i ], [ %176, %175 ], [ %163, %159 ], [ %170, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIKSt4pairINS2_7SdfPathES8_EPS9_EEbRT_T0_.exit.thread21.i ]
   %181 = icmp sgt i64 %179, 0
   br i1 %181, label %_ZSt7advanceIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElEvRT_T0_.exit.i101, label %_ZSt13__upper_boundIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES3_N9__gnu_cxx5__ops14_Val_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !133
 
@@ -13652,7 +13652,7 @@ tailrecurse:                                      ; preds = %_ZSt13__upper_bound
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %51, label %tailrecurse._crit_edge
 
-_ZSt21__move_merge_adaptiveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_T0_SC_T1_T2_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.argprom.exit.thread39.i, %.lr.ph.i.i.i.i.i33.i, %.lr.ph.i.i.i.i.i.i86, %.lr.ph.i.i.i.i.i.i, %tailrecurse._crit_edge, %95, %74, %63, %._crit_edge.i.thread, %._crit_edge.i
+_ZSt21__move_merge_adaptiveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_T0_SC_T1_T2_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread39.i, %.lr.ph.i.i.i.i.i33.i, %.lr.ph.i.i.i.i.i.i86, %.lr.ph.i.i.i.i.i.i, %tailrecurse._crit_edge, %95, %74, %63, %._crit_edge.i.thread, %._crit_edge.i
   ret void
 }
 
@@ -14359,7 +14359,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i12.i.i.i: ; preds = %90,
   unreachable
 
 _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit14.i.i.i: ; preds = %108, %95, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i12.i.i.i
-  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_RT0_.argprom.exit.i.i, label %29
+  br i1 %.not.i.i.i, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_RT0_.exit.i.i, label %29
 
 common.resume:                                    ; preds = %206, %112
   %.sink37 = phi ptr [ %5, %206 ], [ %7, %112 ]
@@ -14374,13 +14374,13 @@ common.resume:                                    ; preds = %206, %112
           cleanup
   br label %common.resume
 
-_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_RT0_.argprom.exit.i.i: ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit14.i.i.i
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_RT0_.exit.i.i: ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit14.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %114 = icmp sgt i64 %.lcssa, 16
   br i1 %114, label %.lr.ph.i9.i.preheader, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_T0_.exit
 
-.lr.ph.i9.i.preheader:                            ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_RT0_.argprom.exit.i.i
+.lr.ph.i9.i.preheader:                            ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_RT0_.exit.i.i
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -14389,8 +14389,8 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %.lr.ph.i9.i
 
-.lr.ph.i9.i:                                      ; preds = %.lr.ph.i9.i.preheader, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.argprom.exit
-  %.sroa.0.03.i.i = phi ptr [ %121, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.argprom.exit ], [ %storemerge25.lcssa, %.lr.ph.i9.i.preheader ]
+.lr.ph.i9.i:                                      ; preds = %.lr.ph.i9.i.preheader, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.exit
+  %.sroa.0.03.i.i = phi ptr [ %121, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.exit ], [ %storemerge25.lcssa, %.lr.ph.i9.i.preheader ]
   %121 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -14516,7 +14516,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i: ; preds 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i4.i: ; preds = %184, %171, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit.i
   %188 = load i32, ptr %4, align 4
   %.not.i.i1.i5.i = icmp eq i32 %188, 0
-  br i1 %.not.i.i1.i5.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.argprom.exit, label %189
+  br i1 %.not.i.i1.i5.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.exit, label %189
 
 189:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i4.i
   %190 = and i32 %188, 255
@@ -14531,11 +14531,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i4.i: ; preds = %184, %17
   %199 = atomicrmw sub ptr %198, i32 1 seq_cst, align 4
   %200 = and i32 %199, 2147483647
   %201 = icmp eq i32 %200, 1
-  br i1 %201, label %202, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.argprom.exit
+  br i1 %201, label %202, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.exit
 
 202:                                              ; preds = %189
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %197)
-          to label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.argprom.exit unwind label %203
+          to label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.exit unwind label %203
 
 203:                                              ; preds = %202
   %204 = landingpad { ptr, i32 }
@@ -14549,7 +14549,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i4.i: ; preds = %184, %17
           cleanup
   br label %common.resume
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i4.i, %189, %202
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i4.i, %189, %202
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %208 = icmp sgt i64 %131, 16
@@ -14572,38 +14572,38 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__p
   %217 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
   %218 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
   %219 = icmp ult i64 %217, %218
-  br i1 %219, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread55.i.i
+  br i1 %219, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread55.i.i
 
 220:                                              ; preds = %.lr.ph47
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %13, align 4
   %.0.copyload.i2.i.i.i.i.i = load i64, ptr %212, align 4
   %221 = icmp ult i64 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i
-  br i1 %221, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i.i, label %222
+  br i1 %221, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i.i, label %222
 
 222:                                              ; preds = %220
   %223 = icmp eq i64 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i
-  br i1 %223, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread55.i.i
+  br i1 %223, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread55.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.i.i: ; preds = %222
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i.i: ; preds = %222
   %224 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %.0.copyload.i.i13.i.i.i.i = load i64, ptr %14, align 4
   %.0.copyload.i2.i14.i.i.i.i = load i64, ptr %224, align 4
   %225 = icmp ult i64 %.0.copyload.i.i13.i.i.i.i, %.0.copyload.i2.i14.i.i.i.i
-  br i1 %225, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread55.i.i
+  br i1 %225, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread55.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.i.i, %220, %216
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i.i, %220, %216
   %226 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
   %227 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %.not.i.i26.i.i = icmp eq i64 %226, %227
   br i1 %.not.i.i26.i.i, label %232, label %228
 
-228:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i.i
+228:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i.i
   %229 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
   %230 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %231 = icmp ult i64 %229, %230
-  br i1 %231, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread58.i.i
+  br i1 %231, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i
 
-232:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i.i
+232:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i.i
   %.0.copyload.i.i.i.i28.i.i = load i64, ptr %212, align 4
   %.0.copyload.i2.i.i.i29.i.i = load i64, ptr %213, align 4
   %233 = icmp ult i64 %.0.copyload.i.i.i.i28.i.i, %.0.copyload.i2.i.i.i29.i.i
@@ -14612,23 +14612,23 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 235:                                              ; preds = %232
   %236 = icmp eq i64 %.0.copyload.i.i.i.i28.i.i, %.0.copyload.i2.i.i.i29.i.i
-  br i1 %236, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread58.i.i
+  br i1 %236, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.i.i: ; preds = %235
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.i.i: ; preds = %235
   %237 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %238 = getelementptr inbounds i8, ptr %storemerge2544, i64 -8
   %.0.copyload.i.i13.i.i30.i.i = load i64, ptr %237, align 4
   %.0.copyload.i2.i14.i.i31.i.i = load i64, ptr %238, align 4
   %239 = icmp ult i64 %.0.copyload.i.i13.i.i30.i.i, %.0.copyload.i2.i14.i.i31.i.i
-  br i1 %239, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread58.i.i
+  br i1 %239, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread58.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.i.i, %235, %228
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.i.i, %235, %228
   %240 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
   %241 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %.not.i.i33.i.i = icmp eq i64 %240, %241
-  br i1 %.not.i.i33.i.i, label %242, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.sink.split.i.i
+  br i1 %.not.i.i33.i.i, label %242, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.sink.split.i.i
 
-242:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread58.i.i
+242:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i
   %.0.copyload.i.i.i.i35.i.i = load i64, ptr %13, align 4
   %.0.copyload.i2.i.i.i36.i.i = load i64, ptr %213, align 4
   %243 = icmp ult i64 %.0.copyload.i.i.i.i35.i.i, %.0.copyload.i2.i.i.i36.i.i
@@ -14638,9 +14638,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 246:                                              ; preds = %242
   %247 = icmp eq i64 %.0.copyload.i.i.i.i35.i.i, %.0.copyload.i2.i.i.i36.i.i
-  br i1 %247, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit39.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i
+  br i1 %247, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit39.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit39.i.i: ; preds = %246
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit39.i.i: ; preds = %246
   %248 = getelementptr inbounds i8, ptr %storemerge2544, i64 -8
   %.0.copyload.i.i13.i.i37.i.i = load i64, ptr %14, align 4
   %.0.copyload.i2.i14.i.i38.i.i = load i64, ptr %248, align 4
@@ -14649,19 +14649,19 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %spec.select96.i.i = select i1 %249, ptr %213, ptr %13
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread55.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.i.i, %222, %216
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread55.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i.i, %222, %216
   %250 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
   %251 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %.not.i.i40.i.i = icmp eq i64 %250, %251
   br i1 %.not.i.i40.i.i, label %256, label %252
 
-252:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread55.i.i
+252:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread55.i.i
   %253 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
   %254 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %255 = icmp ult i64 %253, %254
-  br i1 %255, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.thread64.i.i
+  br i1 %255, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i
 
-256:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread55.i.i
+256:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread55.i.i
   %.0.copyload.i.i.i.i42.i.i = load i64, ptr %13, align 4
   %.0.copyload.i2.i.i.i43.i.i = load i64, ptr %213, align 4
   %257 = icmp ult i64 %.0.copyload.i.i.i.i42.i.i, %.0.copyload.i2.i.i.i43.i.i
@@ -14670,22 +14670,22 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 259:                                              ; preds = %256
   %260 = icmp eq i64 %.0.copyload.i.i.i.i42.i.i, %.0.copyload.i2.i.i.i43.i.i
-  br i1 %260, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.thread64.i.i
+  br i1 %260, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.i.i: ; preds = %259
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.i.i: ; preds = %259
   %261 = getelementptr inbounds i8, ptr %storemerge2544, i64 -8
   %.0.copyload.i.i13.i.i44.i.i = load i64, ptr %14, align 4
   %.0.copyload.i2.i14.i.i45.i.i = load i64, ptr %261, align 4
   %262 = icmp ult i64 %.0.copyload.i.i13.i.i44.i.i, %.0.copyload.i2.i14.i.i45.i.i
-  br i1 %262, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.thread64.i.i
+  br i1 %262, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.thread64.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.i.i, %259, %252
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.i.i, %259, %252
   %263 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %212)
   %264 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %.not.i.i47.i.i = icmp eq i64 %263, %264
-  br i1 %.not.i.i47.i.i, label %265, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.sink.split.i.i
+  br i1 %.not.i.i47.i.i, label %265, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.sink.split.i.i
 
-265:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.thread64.i.i
+265:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i
   %.0.copyload.i.i.i.i49.i.i = load i64, ptr %212, align 4
   %.0.copyload.i2.i.i.i50.i.i = load i64, ptr %213, align 4
   %266 = icmp ult i64 %.0.copyload.i.i.i.i49.i.i, %.0.copyload.i2.i.i.i50.i.i
@@ -14695,9 +14695,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 269:                                              ; preds = %265
   %270 = icmp eq i64 %.0.copyload.i.i.i.i49.i.i, %.0.copyload.i2.i.i.i50.i.i
-  br i1 %270, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit53.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i
+  br i1 %270, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit53.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit53.i.i: ; preds = %269
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit53.i.i: ; preds = %269
   %271 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %272 = getelementptr inbounds i8, ptr %storemerge2544, i64 -8
   %.0.copyload.i.i13.i.i51.i.i = load i64, ptr %271, align 4
@@ -14707,22 +14707,22 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %spec.select98.i.i = select i1 %273, ptr %213, ptr %212
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.sink.split.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.thread64.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread58.i.i
-  %.sink104.i.i = phi ptr [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread58.i.i ], [ %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.thread64.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.sink.split.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i
+  %.sink104.i.i = phi ptr [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread58.i.i ], [ %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.thread64.i.i ]
   %274 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sink104.i.i)
   %275 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %213)
   %276 = icmp ult i64 %274, %275
   %.99.i.i = select i1 %276, ptr %213, ptr %.sink104.i.i
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.i.i
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.sink.split.i.i, %252, %228
-  %.sink.i.i = phi ptr [ %212, %228 ], [ %13, %252 ], [ %.99.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.sink.split.i.i ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.sink.split.i.i, %252, %228
+  %.sink.i.i = phi ptr [ %212, %228 ], [ %13, %252 ], [ %.99.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.sink.split.i.i ]
   %.pre.i.i = load i32, ptr %.sink.i.i, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit53.i.i, %269, %265, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.i.i, %256, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit39.i.i, %246, %242, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.i.i, %232
-  %.sink95.i.i = phi i32 [ %234, %232 ], [ %234, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.i.i ], [ %245, %242 ], [ %244, %246 ], [ %258, %256 ], [ %258, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.i.i ], [ %268, %265 ], [ %267, %269 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit39.i.i ], [ %spec.select97.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit53.i.i ], [ %.pre.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.i.i ]
-  %.sink94.i.i = phi ptr [ %212, %232 ], [ %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.i.i ], [ %213, %242 ], [ %13, %246 ], [ %13, %256 ], [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit46.i.i ], [ %213, %265 ], [ %212, %269 ], [ %spec.select96.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit39.i.i ], [ %spec.select98.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit53.i.i ], [ %.sink.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit32.thread.sink.split.i.i ]
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit53.i.i, %269, %265, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.i.i, %256, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit39.i.i, %246, %242, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.i.i, %232
+  %.sink95.i.i = phi i32 [ %234, %232 ], [ %234, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.i.i ], [ %245, %242 ], [ %244, %246 ], [ %258, %256 ], [ %258, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.i.i ], [ %268, %265 ], [ %267, %269 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit39.i.i ], [ %spec.select97.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit53.i.i ], [ %.pre.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.i.i ]
+  %.sink94.i.i = phi ptr [ %212, %232 ], [ %212, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.i.i ], [ %213, %242 ], [ %13, %246 ], [ %13, %256 ], [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit46.i.i ], [ %213, %265 ], [ %212, %269 ], [ %spec.select96.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit39.i.i ], [ %spec.select98.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit53.i.i ], [ %.sink.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit32.thread.sink.split.i.i ]
   %277 = load i32, ptr %0, align 4
   store i32 %.sink95.i.i, ptr %0, align 4
   store i32 %277, ptr %.sink94.i.i, align 4
@@ -14748,8 +14748,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInter
   %.sroa.0.0.i.i = phi ptr [ %storemerge2544, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_SG_T0_.exit.i ], [ %.sroa.0.1.i.i, %315 ]
   br label %288
 
-288:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i14.i, %287
-  %.sroa.017.1.i.i = phi ptr [ %.sroa.017.0.i.i, %287 ], [ %301, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i14.i ]
+288:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i14.i, %287
+  %.sroa.017.1.i.i = phi ptr [ %.sroa.017.0.i.i, %287 ], [ %301, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i14.i ]
   %289 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.017.1.i.i)
   %290 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
   %.not.i.i.i13.i = icmp eq i64 %289, %290
@@ -14759,71 +14759,71 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInter
   %292 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.017.1.i.i)
   %293 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
   %294 = icmp ult i64 %292, %293
-  br i1 %294, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i14.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.preheader
+  br i1 %294, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i14.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.preheader: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.i17.i, %297, %291
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.preheader: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i17.i, %297, %291
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i
 
 295:                                              ; preds = %288
   %.0.copyload.i.i.i.i.i15.i = load i64, ptr %.sroa.017.1.i.i, align 4
   %.0.copyload.i2.i.i.i.i16.i = load i64, ptr %0, align 4
   %296 = icmp ult i64 %.0.copyload.i.i.i.i.i15.i, %.0.copyload.i2.i.i.i.i16.i
-  br i1 %296, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i14.i, label %297
+  br i1 %296, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i14.i, label %297
 
 297:                                              ; preds = %295
   %298 = icmp eq i64 %.0.copyload.i.i.i.i.i15.i, %.0.copyload.i2.i.i.i.i16.i
-  br i1 %298, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.i17.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.preheader
+  br i1 %298, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i17.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.i17.i: ; preds = %297
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i17.i: ; preds = %297
   %299 = getelementptr inbounds nuw i8, ptr %.sroa.017.1.i.i, i64 8
   %.0.copyload.i.i13.i.i.i18.i = load i64, ptr %299, align 4
   %.0.copyload.i2.i14.i.i.i19.i = load i64, ptr %16, align 4
   %300 = icmp ult i64 %.0.copyload.i.i13.i.i.i18.i, %.0.copyload.i2.i14.i.i.i19.i
-  br i1 %300, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i14.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.preheader
+  br i1 %300, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i14.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread.i14.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.i17.i, %295, %291
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread.i14.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i17.i, %295, %291
   %301 = getelementptr inbounds i8, ptr %.sroa.017.1.i.i, i64 16
   br label %288, !llvm.loop !153
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.backedge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.preheader
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.preheader ], [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.backedge ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.backedge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.preheader
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.0.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.preheader ], [ %.sroa.0.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.backedge ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
   %302 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
   %303 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.1.i.i)
   %.not.i.i8.i.i = icmp eq i64 %302, %303
   br i1 %.not.i.i8.i.i, label %308, label %304
 
-304:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i
+304:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i
   %305 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
   %306 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.1.i.i)
   %307 = icmp ult i64 %305, %306
-  br i1 %307, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit14.thread24.i.i
+  br i1 %307, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit14.thread24.i.i
 
-308:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i
+308:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i
   %.0.copyload.i.i.i.i10.i.i = load i64, ptr %0, align 4
   %.0.copyload.i2.i.i.i11.i.i = load i64, ptr %.sroa.0.1.i.i, align 4
   %309 = icmp ult i64 %.0.copyload.i.i.i.i10.i.i, %.0.copyload.i2.i.i.i11.i.i
-  br i1 %309, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.backedge, label %310
+  br i1 %309, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.backedge, label %310
 
 310:                                              ; preds = %308
   %311 = icmp eq i64 %.0.copyload.i.i.i.i10.i.i, %.0.copyload.i2.i.i.i11.i.i
-  br i1 %311, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit14.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit14.thread24.i.i
+  br i1 %311, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit14.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit14.thread24.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit14.i.i: ; preds = %310
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit14.i.i: ; preds = %310
   %312 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %.0.copyload.i.i13.i.i12.i.i = load i64, ptr %16, align 4
   %.0.copyload.i2.i14.i.i13.i.i = load i64, ptr %312, align 4
   %313 = icmp ult i64 %.0.copyload.i.i13.i.i12.i.i, %.0.copyload.i2.i14.i.i13.i.i
-  br i1 %313, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit14.thread24.i.i
+  br i1 %313, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.backedge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit14.thread24.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i.backedge: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit14.i.i, %308, %304
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread21.i.i, !llvm.loop !154
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i.backedge: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit14.i.i, %308, %304
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread21.i.i, !llvm.loop !154
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit14.thread24.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit14.i.i, %310, %304
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit14.thread24.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit14.i.i, %310, %304
   %314 = icmp ult ptr %.sroa.017.1.i.i, %.sroa.0.1.i.i
   br i1 %314, label %315, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEET_SG_SG_T0_.exit
 
-315:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit14.thread24.i.i
+315:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit14.thread24.i.i
   %316 = load i32, ptr %.sroa.017.1.i.i, align 4
   %317 = load i32, ptr %.sroa.0.1.i.i, align 4
   store i32 %317, ptr %.sroa.017.1.i.i, align 4
@@ -14849,7 +14849,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %330 = getelementptr inbounds i8, ptr %.sroa.017.1.i.i, i64 16
   br label %287, !llvm.loop !155
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEET_SG_SG_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit14.thread24.i.i
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEET_SG_SG_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit14.thread24.i.i
   tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_T0_T1_(ptr nonnull %.sroa.017.1.i.i, ptr %storemerge2544, i64 noundef %210)
   %331 = ptrtoint ptr %.sroa.017.1.i.i to i64
   %332 = sub i64 %331, %8
@@ -14857,7 +14857,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxr
   %334 = icmp sgt i64 %333, 16
   br i1 %334, label %19, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_T0_.exit, !llvm.loop !151
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEET_SG_SG_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.argprom.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_RT0_.argprom.exit.i.i
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEET_SG_SG_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_SG_RT0_.exit, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_SG_RT0_.exit.i.i
   ret void
 }
 
@@ -14869,8 +14869,8 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread40
-  %.043 = phi i64 [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread40 ], [ %1, %4 ]
+.lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread40
+  %.043 = phi i64 [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread40 ], [ %1, %4 ]
   %9 = shl i64 %.043, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %10
@@ -14885,40 +14885,40 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %17 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %11)
   %18 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %13)
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread40
+  br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread40
 
 20:                                               ; preds = %.lr.ph
   %.0.copyload.i.i.i.i = load i64, ptr %11, align 4
   %.0.copyload.i2.i.i.i = load i64, ptr %13, align 4
   %21 = icmp ult i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
-  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread, label %22
+  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread, label %22
 
 22:                                               ; preds = %20
   %23 = icmp eq i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
-  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread40
+  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread40
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit: ; preds = %22
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit: ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.0.copyload.i.i13.i.i = load i64, ptr %24, align 4
   %.0.copyload.i2.i14.i.i = load i64, ptr %25, align 4
   %26 = icmp ult i64 %.0.copyload.i.i13.i.i, %.0.copyload.i2.i14.i.i
   %cond.fr = freeze i1 %26
-  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread40
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread40
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread: ; preds = %20, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread40
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread: ; preds = %20, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread40
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread40: ; preds = %22, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread
-  %27 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit ], [ %10, %16 ], [ %10, %22 ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread40: ; preds = %22, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread
+  %27 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit ], [ %10, %16 ], [ %10, %22 ]
   %28 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %27
   %29 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.043
   %30 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %28) #22
   %31 = icmp slt i64 %27, %7
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !156
 
-._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread40, %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread40 ]
+._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread40, %4
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread40 ]
   %32 = and i64 %2, 1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %34, label %44
@@ -14960,8 +14960,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %55 = icmp sgt i64 %.1, %1
   br i1 %55, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %44, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.thread.i
-  %.012.i = phi i64 [ %.0913.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.thread.i ], [ %.1, %44 ]
+.lr.ph.i:                                         ; preds = %44, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.thread.i
+  %.012.i = phi i64 [ %.0913.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.thread.i ], [ %.1, %44 ]
   %.0913.in.i = add nsw i64 %.012.i, -1
   %.0913.i = sdiv i64 %.0913.in.i, 2
   %56 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0913.i
@@ -14986,33 +14986,33 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
 
 .noexc27:                                         ; preds = %.noexc26
   %62 = icmp ult i64 %60, %61
-  br i1 %62, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.thread.i, label %.loopexit
+  br i1 %62, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.thread.i, label %.loopexit
 
 63:                                               ; preds = %.noexc25
   %.0.copyload.i.i.i.i.i = load i64, ptr %56, align 4
   %.0.copyload.i2.i.i.i.i = load i64, ptr %5, align 8
   %64 = icmp ult i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
-  br i1 %64, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.thread.i, label %65
+  br i1 %64, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.thread.i, label %65
 
 65:                                               ; preds = %63
   %66 = icmp eq i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
-  br i1 %66, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.i, label %.loopexit
+  br i1 %66, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i, label %.loopexit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.i: ; preds = %65
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i: ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.0.copyload.i.i13.i.i.i = load i64, ptr %67, align 4
   %.0.copyload.i2.i14.i.i.i = load i64, ptr %49, align 8
   %68 = icmp ult i64 %.0.copyload.i.i13.i.i.i, %.0.copyload.i2.i14.i.i.i
-  br i1 %68, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.thread.i, label %.loopexit
+  br i1 %68, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.thread.i, label %.loopexit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.i, %63, %.noexc27
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i, %63, %.noexc27
   %69 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.012.i
   %70 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %69, ptr noundef nonnull align 4 dereferenceable(16) %56) #22
   %71 = icmp sgt i64 %.0913.i, %1
   br i1 %71, label %.lr.ph.i, label %.loopexit, !llvm.loop !157
 
-.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.thread.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.i, %65, %.noexc27, %44
-  %.0.lcssa.i = phi i64 [ %.1, %44 ], [ %.012.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.i ], [ %.0913.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.argprom.exit.thread.i ], [ %.012.i, %.noexc27 ], [ %.012.i, %65 ]
+.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.thread.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i, %65, %.noexc27, %44
+  %.0.lcssa.i = phi i64 [ %.1, %44 ], [ %.012.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.i ], [ %.0913.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESA_EEbT_RT0_.exit.thread.i ], [ %.012.i, %.noexc27 ], [ %.012.i, %65 ]
   %72 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i
   %73 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %72, ptr noundef nonnull align 4 dereferenceable(16) %5) #22
   %74 = load i32, ptr %49, align 8
@@ -15117,32 +15117,32 @@ define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iterat
   %14 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.023)
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
   %16 = icmp ult i64 %14, %15
-  br i1 %16, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread_crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread17
+  br i1 %16, label %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread_crit_edge, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread17
 
-._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread_crit_edge: ; preds = %13
+._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread_crit_edge: ; preds = %13
   %.pre = load i32, ptr %.sroa.0.023, align 4
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread
 
 17:                                               ; preds = %10
   %.0.copyload.i.i.i.i = load i64, ptr %.sroa.0.023, align 4
   %.0.copyload.i2.i.i.i = load i64, ptr %0, align 4
   %18 = icmp ult i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
   %19 = trunc i64 %.0.copyload.i.i.i.i to i32
-  br i1 %18, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread, label %20
+  br i1 %18, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread, label %20
 
 20:                                               ; preds = %17
   %21 = icmp eq i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
-  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread17
+  br i1 %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread17
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit: ; preds = %20
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit: ; preds = %20
   %22 = getelementptr inbounds i8, ptr %.pn22, i64 24
   %.0.copyload.i.i13.i.i = load i64, ptr %22, align 4
   %.0.copyload.i2.i14.i.i = load i64, ptr %5, align 4
   %23 = icmp ult i64 %.0.copyload.i.i13.i.i, %.0.copyload.i2.i14.i.i
-  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread17
+  br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread17
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread: ; preds = %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread_crit_edge, %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit
-  %24 = phi i32 [ %.pre, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread_crit_edge ], [ %19, %17 ], [ %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit ]
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread: ; preds = %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread_crit_edge, %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit
+  %24 = phi i32 [ %.pre, %._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread_crit_edge ], [ %19, %17 ], [ %19, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit ]
   store i32 %24, ptr %3, align 4
   store i32 0, ptr %.sroa.0.023, align 4
   %25 = getelementptr inbounds i8, ptr %.pn22, i64 20
@@ -15163,7 +15163,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %34 = icmp sgt i64 %33, 0
   br i1 %34, label %.lr.ph.i.i.i.i.i.preheader, label %.loopexit
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread
   %35 = getelementptr inbounds i8, ptr %.pn22, i64 32
   br label %.lr.ph.i.i.i.i.i
 
@@ -15257,7 +15257,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit: ; preds
   %85 = icmp ugt i64 %.010.i.i.i.i.i, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !122
 
-.loopexit:                                        ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread
+.loopexit:                                        ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread
   %86 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %3) #22
   %87 = load i32, ptr %7, align 4
   %.not.i.i.i = icmp eq i32 %87, 0
@@ -15320,11 +15320,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %101, %88, %
   call void @__clang_call_terminate(ptr %122) #24
   unreachable
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread17: ; preds = %20, %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread17: ; preds = %20, %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit
   call fastcc void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_(ptr nonnull %.sroa.0.023)
   br label %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit
 
-_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit: ; preds = %119, %106, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.argprom.exit.thread17
+_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit: ; preds = %119, %106, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread17
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.023, i64 16
   %.not = icmp eq ptr %.sroa.0.0, %1
   br i1 %.not, label %.loopexit19, label %10, !llvm.loop !158
@@ -15356,8 +15356,8 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__norm
   store i32 0, ptr %11, align 4
   br label %13
 
-13:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread, %1
-  %.sroa.06.0 = phi ptr [ %0, %1 ], [ %.sroa.0.0, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread ]
+13:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread, %1
+  %.sroa.06.0 = phi ptr [ %0, %1 ], [ %.sroa.0.0, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread ]
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 -16
   %14 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %.noexc unwind label %27
@@ -15380,26 +15380,26 @@ define internal fastcc void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__norm
 
 .noexc3:                                          ; preds = %.noexc2
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread10
+  br i1 %19, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread10
 
 20:                                               ; preds = %.noexc1
   %.0.copyload.i.i.i.i = load i64, ptr %2, align 8
   %.0.copyload.i2.i.i.i = load i64, ptr %.sroa.0.0, align 4
   %21 = icmp ult i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
-  br i1 %21, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread, label %22
+  br i1 %21, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread, label %22
 
 22:                                               ; preds = %20
   %23 = icmp eq i64 %.0.copyload.i.i.i.i, %.0.copyload.i2.i.i.i
-  br i1 %23, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread10
+  br i1 %23, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread10
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit: ; preds = %22
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit: ; preds = %22
   %24 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 -8
   %.0.copyload.i.i13.i.i = load i64, ptr %7, align 8
   %.0.copyload.i2.i14.i.i = load i64, ptr %24, align 4
   %25 = icmp ult i64 %.0.copyload.i.i13.i.i, %.0.copyload.i2.i14.i.i
-  br i1 %25, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread10
+  br i1 %25, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread10
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread: ; preds = %20, %.noexc3, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread: ; preds = %20, %.noexc3, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit
   %26 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.0, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.0) #22
   br label %13, !llvm.loop !159
 
@@ -15409,13 +15409,13 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
   call void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev(ptr noundef nonnull align 4 dereferenceable(16) %2) #22
   resume { ptr, i32 } %28
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread10: ; preds = %22, %.noexc3, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread10: ; preds = %22, %.noexc3, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit
   %29 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.0, ptr noundef nonnull align 4 dereferenceable(16) %2) #22
   %30 = load i32, ptr %7, align 8
   %.not.i.i.i = icmp eq i32 %30, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i, label %31
 
-31:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread10
+31:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread10
   %32 = and i32 %30, 255
   %33 = lshr i32 %30, 8
   %34 = zext nneg i32 %32 to i64
@@ -15441,7 +15441,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
   call void @__clang_call_terminate(ptr %47) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %44, %31, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.argprom.exit.thread10
+_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %44, %31, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclISt4pairINS2_7SdfPathES8_ENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.thread10
   %48 = load i32, ptr %2, align 8
   %.not.i.i1.i = icmp eq i32 %48, 0
   br i1 %.not.i.i1.i, label %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit, label %49
@@ -16095,8 +16095,8 @@ attributes #27 = { nounwind allocsize(0) }
 !52 = distinct !{!52, !5}
 !53 = distinct !{!53, !5}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction22_MapPathExpressionImplEbRKNS_17SdfPathExpressionEPSt6vectorINS_14SdfPathPatternESaIS5_EEPS4_INS1_19ExpressionReferenceESaIS9_EEENK3$_3clERKNS_7SdfPathE.argprom.argprom: argument 0"}
-!56 = distinct !{!56, !"_ZZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction22_MapPathExpressionImplEbRKNS_17SdfPathExpressionEPSt6vectorINS_14SdfPathPatternESaIS5_EEPS4_INS1_19ExpressionReferenceESaIS9_EEENK3$_3clERKNS_7SdfPathE.argprom.argprom"}
+!55 = distinct !{!55, !56, !"_ZZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction22_MapPathExpressionImplEbRKNS_17SdfPathExpressionEPSt6vectorINS_14SdfPathPatternESaIS5_EEPS4_INS1_19ExpressionReferenceESaIS9_EEENK3$_3clERKNS_7SdfPathE: argument 0"}
+!56 = distinct !{!56, !"_ZZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction22_MapPathExpressionImplEbRKNS_17SdfPathExpressionEPSt6vectorINS_14SdfPathPatternESaIS5_EEPS4_INS1_19ExpressionReferenceESaIS9_EEENK3$_3clERKNS_7SdfPathE"}
 !57 = !{!58}
 !58 = distinct !{!58, !59, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
 !59 = distinct !{!59, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionES1_SaIS1_EEvPT_PT0_RT1_"}
@@ -16132,8 +16132,8 @@ attributes #27 = { nounwind allocsize(0) }
 !89 = !{!90}
 !90 = distinct !{!90, !88, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction22_MapPathExpressionImplEbRKNS_17SdfPathExpressionEPSt6vectorINS_14SdfPathPatternESaIS5_EEPS4_INS1_19ExpressionReferenceESaIS9_EEENK3$_3clERKNS_7SdfPathE.argprom.argprom: argument 0"}
-!93 = distinct !{!93, !"_ZZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction22_MapPathExpressionImplEbRKNS_17SdfPathExpressionEPSt6vectorINS_14SdfPathPatternESaIS5_EEPS4_INS1_19ExpressionReferenceESaIS9_EEENK3$_3clERKNS_7SdfPathE.argprom.argprom"}
+!92 = distinct !{!92, !93, !"_ZZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction22_MapPathExpressionImplEbRKNS_17SdfPathExpressionEPSt6vectorINS_14SdfPathPatternESaIS5_EEPS4_INS1_19ExpressionReferenceESaIS9_EEENK3$_3clERKNS_7SdfPathE: argument 0"}
+!93 = distinct !{!93, !"_ZZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunction22_MapPathExpressionImplEbRKNS_17SdfPathExpressionEPSt6vectorINS_14SdfPathPatternESaIS5_EEPS4_INS1_19ExpressionReferenceESaIS9_EEENK3$_3clERKNS_7SdfPathE"}
 !94 = !{!95}
 !95 = distinct !{!95, !96, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
 !96 = distinct !{!96, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternES1_SaIS1_EEvPT_PT0_RT1_"}

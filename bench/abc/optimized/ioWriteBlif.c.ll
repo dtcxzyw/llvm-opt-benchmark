@@ -3337,20 +3337,20 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef nonnull %0, pt
 128:                                              ; preds = %127
   %129 = load i32, ptr %113, align 4
   %130 = icmp slt i32 %.3130, %129
-  br i1 %130, label %Extra_ProgressBarUpdate.argprom.exit, label %131
+  br i1 %130, label %Extra_ProgressBarUpdate.exit, label %131
 
 131:                                              ; preds = %128, %127
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %113, i32 noundef %.3130, ptr noundef null) #10
-  br label %Extra_ProgressBarUpdate.argprom.exit
+  br label %Extra_ProgressBarUpdate.exit
 
-Extra_ProgressBarUpdate.argprom.exit:             ; preds = %128, %131
+Extra_ProgressBarUpdate.exit:                     ; preds = %128, %131
   %132 = load ptr, ptr %122, align 8
   %133 = getelementptr i8, ptr %132, i64 4
   %.val25.i = load i32, ptr %133, align 4
   %.not.i106 = icmp eq i32 %.val25.i, 4
   br i1 %.not.i106, label %134, label %158
 
-134:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
+134:                                              ; preds = %Extra_ProgressBarUpdate.exit
   %.val5.i.i = load i32, ptr %125, align 4
   %135 = and i32 %.val5.i.i, 15
   %.not7.i.i = icmp eq i32 %135, 7
@@ -3398,7 +3398,7 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %136
   %fputc20.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   br label %Io_NtkWriteNode.exit.thread
 
-158:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
+158:                                              ; preds = %Extra_ProgressBarUpdate.exit
   %159 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr nonnull %0)
   %160 = getelementptr i8, ptr %122, i64 28
   %.val3031.i.i = load i32, ptr %160, align 4

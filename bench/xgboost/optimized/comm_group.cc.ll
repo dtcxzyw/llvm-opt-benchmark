@@ -1416,7 +1416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body57
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59: ; preds = %.noexc56
-  %52 = invoke fastcc noundef i64 @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clIlNS_11JsonIntegerEEEDaNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7, i64 noundef 3)
+  %52 = invoke fastcc noundef i64 @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clIlNS_11JsonIntegerEEEDaNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7, i64 noundef 3)
           to label %53 unwind label %222
 
 53:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59
@@ -1441,7 +1441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59: ; 
   br label %.body62
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64: ; preds = %.noexc61
-  %57 = invoke fastcc noundef i64 @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clIlNS_11JsonIntegerEEEDaNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %9, i64 noundef 1800)
+  %57 = invoke fastcc noundef i64 @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clIlNS_11JsonIntegerEEEDaNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %9, i64 noundef 1800)
           to label %58 unwind label %226
 
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64
@@ -1474,7 +1474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69: ; 
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %15, align 8
   %64 = getelementptr inbounds i8, ptr %15, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #10
-  invoke fastcc void @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10JsonStringEEEDaSA_T_T0_.argprom"(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %12, ptr noundef %14)
+  invoke fastcc void @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10JsonStringEEEDaSA_T_T0_"(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %12, ptr noundef %14)
           to label %65 unwind label %230
 
 65:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69
@@ -1515,7 +1515,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit74: ; 
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %20, align 8
   %74 = getelementptr inbounds i8, ptr %20, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #10
-  invoke fastcc void @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10JsonStringEEEDaSA_T_T0_.argprom"(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %17, ptr noundef %19)
+  invoke fastcc void @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10JsonStringEEEDaSA_T_T0_"(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %17, ptr noundef %19)
           to label %75 unwind label %236
 
 75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit74
@@ -1543,7 +1543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit74: ; 
   br label %.body77
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit79: ; preds = %.noexc76
-  %79 = invoke fastcc noundef i64 @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clIlNS_11JsonIntegerEEEDaNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_.argprom"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %21, i64 noundef 0)
+  %79 = invoke fastcc noundef i64 @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clIlNS_11JsonIntegerEEEDaNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_"(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %21, i64 noundef 0)
           to label %80 unwind label %240
 
 80:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit79
@@ -1589,7 +1589,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit84: ; 
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %27, align 8
   %89 = getelementptr inbounds i8, ptr %27, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %89) #10
-  invoke fastcc void @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10JsonStringEEEDaSA_T_T0_.argprom"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %24, ptr noundef %26)
+  invoke fastcc void @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10JsonStringEEEDaSA_T_T0_"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %24, ptr noundef %26)
           to label %90 unwind label %244
 
 90:                                               ; preds = %86
@@ -2304,7 +2304,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clIlNS_11JsonIntegerEEEDaNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clIlNS_11JsonIntegerEEEDaNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -2541,7 +2541,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10JsonStringEEEDaSA_T_T0_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7xgboost10collective9CommGroup6CreateENS_4JsonEENK3$_0clINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10JsonStringEEEDaSA_T_T0_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #10

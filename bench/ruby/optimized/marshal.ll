@@ -514,7 +514,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %3, %14
   %25 = tail call i64 @rb_str_buf_new(i64 noundef 0) #21
   store i64 %25, ptr %16, align 8
   %26 = icmp eq i64 %1, 4
-  br i1 %26, label %check_dump_arg.argprom.exit, label %27
+  br i1 %26, label %check_dump_arg.exit, label %27
 
 27:                                               ; preds = %RTYPEDDATA_GET_DATA.exit
   %28 = load i64, ptr @s_write, align 8
@@ -532,20 +532,20 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %3, %14
   %33 = tail call i64 @rb_check_funcall(i64 noundef %1, i64 noundef %32, i32 noundef 0, ptr noundef null) #21
   %.val = load ptr, ptr %19, align 8
   %.not.i30 = icmp eq ptr %.val, null
-  br i1 %.not.i30, label %34, label %.check_dump_arg.argprom.exit_crit_edge
+  br i1 %.not.i30, label %34, label %.check_dump_arg.exit_crit_edge
 
-.check_dump_arg.argprom.exit_crit_edge:           ; preds = %31
+.check_dump_arg.exit_crit_edge:                   ; preds = %31
   %.pre = load i64, ptr %16, align 8
-  br label %check_dump_arg.argprom.exit
+  br label %check_dump_arg.exit
 
 34:                                               ; preds = %31
   %35 = load i64, ptr @rb_eRuntimeError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %35, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.14) #22
   unreachable
 
-check_dump_arg.argprom.exit:                      ; preds = %.check_dump_arg.argprom.exit_crit_edge, %RTYPEDDATA_GET_DATA.exit
-  %36 = phi i64 [ %25, %RTYPEDDATA_GET_DATA.exit ], [ %.pre, %.check_dump_arg.argprom.exit_crit_edge ]
-  %.0 = phi i64 [ %25, %RTYPEDDATA_GET_DATA.exit ], [ %1, %.check_dump_arg.argprom.exit_crit_edge ]
+check_dump_arg.exit:                              ; preds = %.check_dump_arg.exit_crit_edge, %RTYPEDDATA_GET_DATA.exit
+  %36 = phi i64 [ %25, %RTYPEDDATA_GET_DATA.exit ], [ %.pre, %.check_dump_arg.exit_crit_edge ]
+  %.0 = phi i64 [ %25, %RTYPEDDATA_GET_DATA.exit ], [ %1, %.check_dump_arg.exit_crit_edge ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 4, ptr %5, align 1
   %37 = call i64 @rb_str_cat(i64 noundef %36, ptr noundef nonnull %5, i64 noundef 1) #21
@@ -553,7 +553,7 @@ check_dump_arg.argprom.exit:                      ; preds = %.check_dump_arg.arg
   %.not.i.i = icmp eq i64 %38, 0
   br i1 %.not.i.i, label %w_byte.exit, label %39
 
-39:                                               ; preds = %check_dump_arg.argprom.exit
+39:                                               ; preds = %check_dump_arg.exit
   %40 = inttoptr i64 %36 to ptr
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8
@@ -565,7 +565,7 @@ check_dump_arg.argprom.exit:                      ; preds = %.check_dump_arg.arg
   %46 = call i64 @rb_str_resize(i64 noundef %36, i64 noundef 0) #21
   br label %w_byte.exit
 
-w_byte.exit:                                      ; preds = %check_dump_arg.argprom.exit, %39, %44
+w_byte.exit:                                      ; preds = %check_dump_arg.exit, %39, %44
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 8, ptr %4, align 1
@@ -882,23 +882,23 @@ rb_long2num_inline.exit.i:                        ; preds = %34
   %43 = getelementptr i8, ptr %0, i64 40
   %.val.i = load ptr, ptr %43, align 8
   %.not.i.i31 = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i31, label %44, label %check_load_arg.argprom.exit.i
+  br i1 %.not.i.i31, label %44, label %check_load_arg.exit.i
 
 44:                                               ; preds = %rb_long2num_inline.exit.i
   %45 = load i64, ptr @rb_eRuntimeError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %45, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.12) #22
   unreachable
 
-check_load_arg.argprom.exit.i:                    ; preds = %rb_long2num_inline.exit.i
+check_load_arg.exit.i:                            ; preds = %rb_long2num_inline.exit.i
   store i64 %42, ptr %2, align 8
   %46 = icmp eq i64 %42, 4
   br i1 %46, label %47, label %48
 
-47:                                               ; preds = %check_load_arg.argprom.exit.i
+47:                                               ; preds = %check_load_arg.exit.i
   call fastcc void @too_short() #24
   unreachable
 
-48:                                               ; preds = %check_load_arg.argprom.exit.i
+48:                                               ; preds = %check_load_arg.exit.i
   %49 = call i64 @rb_string_value(ptr noundef nonnull %2) #21
   %50 = getelementptr inbounds i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
@@ -958,22 +958,22 @@ r_byte1_buffered.exit:                            ; preds = %._crit_edge.i, %rub
   %77 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %77, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %78, label %check_load_arg.argprom.exit
+  br i1 %.not.i, label %78, label %check_load_arg.exit
 
 78:                                               ; preds = %74
   %79 = load i64, ptr @rb_eRuntimeError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %79, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.11) #22
   unreachable
 
-check_load_arg.argprom.exit:                      ; preds = %74
+check_load_arg.exit:                              ; preds = %74
   %80 = icmp eq i64 %76, 4
   br i1 %80, label %81, label %82
 
-81:                                               ; preds = %check_load_arg.argprom.exit
+81:                                               ; preds = %check_load_arg.exit
   tail call void @rb_eof_error() #22
   unreachable
 
-82:                                               ; preds = %check_load_arg.argprom.exit
+82:                                               ; preds = %check_load_arg.exit
   %83 = and i64 %76, 7
   %84 = icmp ne i64 %83, 0
   %85 = icmp eq i64 %76, 0
@@ -3128,14 +3128,14 @@ rb_class_of.exit15:                               ; preds = %27, %30, %31, %32, 
   %42 = getelementptr i8, ptr %4, i64 16
   %.val = load ptr, ptr %42, align 8
   %.not.i16 = icmp eq ptr %.val, null
-  br i1 %.not.i16, label %43, label %check_dump_arg.argprom.exit
+  br i1 %.not.i16, label %43, label %check_dump_arg.exit
 
 43:                                               ; preds = %41
   %44 = load i64, ptr @rb_eRuntimeError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %44, ptr noundef nonnull @.str.26, ptr noundef %5) #22
   unreachable
 
-check_dump_arg.argprom.exit:                      ; preds = %41
+check_dump_arg.exit:                              ; preds = %41
   ret i64 %7
 }
 
@@ -6195,14 +6195,14 @@ path2class.exit692:                               ; preds = %847
   %863 = getelementptr i8, ptr %0, i64 40
   %.val561 = load ptr, ptr %863, align 8
   %.not.i693 = icmp eq ptr %.val561, null
-  br i1 %.not.i693, label %864, label %check_load_arg.argprom.exit
+  br i1 %.not.i693, label %864, label %check_load_arg.exit
 
 864:                                              ; preds = %860
   %865 = load i64, ptr @rb_eRuntimeError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %865, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.5) #22
   unreachable
 
-check_load_arg.argprom.exit:                      ; preds = %860
+check_load_arg.exit:                              ; preds = %860
   %866 = getelementptr inbounds i8, ptr %0, i64 48
   %867 = load ptr, ptr %866, align 8
   %868 = getelementptr inbounds i8, ptr %867, i64 16
@@ -6214,15 +6214,15 @@ check_load_arg.argprom.exit:                      ; preds = %860
   %.not.i694 = icmp eq ptr %871, null
   br i1 %.not.i694, label %r_entry0.exit696, label %872
 
-872:                                              ; preds = %check_load_arg.argprom.exit
+872:                                              ; preds = %check_load_arg.exit
   %873 = call i32 @rb_st_lookup(ptr noundef nonnull %871, i64 noundef %862, ptr noundef nonnull %13) #21
   %.pre.i695 = load i64, ptr %13, align 8
   %.pre1022 = load ptr, ptr %866, align 8
   br label %r_entry0.exit696
 
-r_entry0.exit696:                                 ; preds = %check_load_arg.argprom.exit, %872
-  %874 = phi ptr [ %.pre1022, %872 ], [ %867, %check_load_arg.argprom.exit ]
-  %875 = phi i64 [ %.pre.i695, %872 ], [ %862, %check_load_arg.argprom.exit ]
+r_entry0.exit696:                                 ; preds = %check_load_arg.exit, %872
+  %874 = phi ptr [ %.pre1022, %872 ], [ %867, %check_load_arg.exit ]
+  %875 = phi i64 [ %.pre.i695, %872 ], [ %862, %check_load_arg.exit ]
   %876 = call i32 @rb_st_insert(ptr noundef %874, i64 noundef %869, i64 noundef %875) #21
   %877 = getelementptr inbounds i8, ptr %0, i64 56
   %878 = load ptr, ptr %877, align 8
@@ -6371,16 +6371,16 @@ r_entry0.exit701:                                 ; preds = %929, %936
   %949 = getelementptr i8, ptr %0, i64 40
   %.val560 = load ptr, ptr %949, align 8
   %.not.i702 = icmp eq ptr %.val560, null
-  br i1 %.not.i702, label %950, label %check_load_arg.argprom.exit703
+  br i1 %.not.i702, label %950, label %check_load_arg.exit703
 
 950:                                              ; preds = %r_entry0.exit701
   %951 = load i64, ptr @rb_eRuntimeError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %951, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1) #22
   unreachable
 
-check_load_arg.argprom.exit703:                   ; preds = %r_entry0.exit701
+check_load_arg.exit703:                           ; preds = %r_entry0.exit701
   %.val562 = load ptr, ptr %934, align 8
-  %952 = call fastcc i64 @r_fixup_compat.argprom(i64 noundef %920, ptr %.val562)
+  %952 = call fastcc i64 @r_fixup_compat(i64 noundef %920, ptr %.val562)
   %953 = load i64, ptr %28, align 8
   call void @rb_ivar_foreach(i64 noundef %953, ptr noundef nonnull @copy_ivar_i, i64 noundef %952) #21
   %954 = getelementptr inbounds i8, ptr %0, i64 80
@@ -6388,11 +6388,11 @@ check_load_arg.argprom.exit703:                   ; preds = %r_entry0.exit701
   %956 = trunc i8 %955 to i1
   br i1 %956, label %957, label %958
 
-957:                                              ; preds = %check_load_arg.argprom.exit703
+957:                                              ; preds = %check_load_arg.exit703
   call void @rb_obj_freeze_inline(i64 noundef %952) #21
   br label %958
 
-958:                                              ; preds = %957, %check_load_arg.argprom.exit703
+958:                                              ; preds = %957, %check_load_arg.exit703
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %952, ptr %11, align 8
   %959 = getelementptr inbounds i8, ptr %0, i64 64
@@ -6657,14 +6657,14 @@ r_entry0.exit713:                                 ; preds = %1056, %1063
   %1081 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %1081, align 8
   %.not.i714 = icmp eq ptr %.val, null
-  br i1 %.not.i714, label %1082, label %check_load_arg.argprom.exit715
+  br i1 %.not.i714, label %1082, label %check_load_arg.exit715
 
 1082:                                             ; preds = %1076
   %1083 = load i64, ptr @rb_eRuntimeError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %1083, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.8) #22
   unreachable
 
-check_load_arg.argprom.exit715:                   ; preds = %1076
+check_load_arg.exit715:                           ; preds = %1076
   %1084 = call fastcc i64 @r_leave(i64 noundef %1045, ptr noundef nonnull %0, i1 noundef zeroext %1)
   br label %1299
 
@@ -7075,8 +7075,8 @@ r_entry0.exit761:                                 ; preds = %1268, %1275
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1298, ptr noundef nonnull @.str.75, i32 noundef %4) #22
   unreachable
 
-1299:                                             ; preds = %r_post_proc.exit, %971, %891, %897, %73, %78, %1294, %1291, %r_entry0.exit761, %r_entry0.exit745, %r_entry0.exit729, %check_load_arg.argprom.exit715, %r_entry0.exit708, %._crit_edge, %668, %._crit_edge905, %r_entry0.exit637, %r_entry0.exit619, %r_entry0.exit616, %r_entry0.exit, %r_long.exit584, %210, %208, %206, %RBASIC_SET_CLASS.exit, %.loopexit, %85
-  %.0499 = phi i64 [ %1296, %1294 ], [ %1293, %1291 ], [ %1284, %r_entry0.exit761 ], [ %1214, %r_entry0.exit745 ], [ %1144, %r_entry0.exit729 ], [ %1084, %check_load_arg.argprom.exit715 ], [ %1023, %r_entry0.exit708 ], [ %966, %r_post_proc.exit ], [ %966, %971 ], [ %.3, %891 ], [ %898, %897 ], [ %829, %._crit_edge ], [ %669, %668 ], [ %593, %._crit_edge905 ], [ %529, %r_entry0.exit637 ], [ %449, %r_entry0.exit619 ], [ %431, %r_entry0.exit616 ], [ %342, %r_entry0.exit ], [ %251, %r_long.exit584 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ], [ %184, %RBASIC_SET_CLASS.exit ], [ %153, %.loopexit ], [ %86, %85 ], [ %74, %73 ], [ %79, %78 ]
+1299:                                             ; preds = %r_post_proc.exit, %971, %891, %897, %73, %78, %1294, %1291, %r_entry0.exit761, %r_entry0.exit745, %r_entry0.exit729, %check_load_arg.exit715, %r_entry0.exit708, %._crit_edge, %668, %._crit_edge905, %r_entry0.exit637, %r_entry0.exit619, %r_entry0.exit616, %r_entry0.exit, %r_long.exit584, %210, %208, %206, %RBASIC_SET_CLASS.exit, %.loopexit, %85
+  %.0499 = phi i64 [ %1296, %1294 ], [ %1293, %1291 ], [ %1284, %r_entry0.exit761 ], [ %1214, %r_entry0.exit745 ], [ %1144, %r_entry0.exit729 ], [ %1084, %check_load_arg.exit715 ], [ %1023, %r_entry0.exit708 ], [ %966, %r_post_proc.exit ], [ %966, %971 ], [ %.3, %891 ], [ %898, %897 ], [ %829, %._crit_edge ], [ %669, %668 ], [ %593, %._crit_edge905 ], [ %529, %r_entry0.exit637 ], [ %449, %r_entry0.exit619 ], [ %431, %r_entry0.exit616 ], [ %342, %r_entry0.exit ], [ %251, %r_long.exit584 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ], [ %184, %RBASIC_SET_CLASS.exit ], [ %153, %.loopexit ], [ %86, %85 ], [ %74, %73 ], [ %79, %78 ]
   %1300 = icmp eq i64 %.0499, 36
   br i1 %1300, label %1301, label %1303
 
@@ -7098,7 +7098,7 @@ define internal fastcc i64 @r_post_proc(i64 noundef %0, ptr nocapture noundef re
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %check_load_arg.argprom.exit, label %6
+  br i1 %.not, label %check_load_arg.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load i64, ptr @s_call, align 8
@@ -7106,14 +7106,14 @@ define internal fastcc i64 @r_post_proc(i64 noundef %0, ptr nocapture noundef re
   %9 = getelementptr i8, ptr %1, i64 40
   %.val = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %10, label %check_load_arg.argprom.exit
+  br i1 %.not.i, label %10, label %check_load_arg.exit
 
 10:                                               ; preds = %6
   %11 = load i64, ptr @rb_eRuntimeError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %11, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.10) #22
   unreachable
 
-check_load_arg.argprom.exit:                      ; preds = %6, %2
+check_load_arg.exit:                              ; preds = %6, %2
   %12 = phi i64 [ %0, %2 ], [ %8, %6 ]
   ret i64 %12
 }
@@ -7259,7 +7259,7 @@ r_symbol.exit:                                    ; preds = %48, %53
 66:                                               ; preds = %r_symbol.exit
   %67 = tail call i32 @rb_enc_get_index(i64 noundef %.06.i) #21
   %.not.i45 = icmp eq i32 %67, 2
-  br i1 %.not.i45, label %68, label %symname_equal.argprom.exit.thread
+  br i1 %.not.i45, label %68, label %symname_equal.exit.thread
 
 68:                                               ; preds = %66
   %69 = inttoptr i64 %.06.i to ptr
@@ -7278,14 +7278,14 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %73, %68
   %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %69, i64 16
   %.sroa.1.0.i = load i64, ptr %.sroa.1.0.in.i, align 8
   %.not.i6.i = icmp eq i64 %.sroa.1.0.i, 1
-  br i1 %.not.i6.i, label %symname_equal.argprom.exit, label %symname_equal.argprom.exit.thread
+  br i1 %.not.i6.i, label %symname_equal.exit, label %symname_equal.exit.thread
 
-symname_equal.argprom.exit:                       ; preds = %rbimpl_rstring_getmem.exit.i
+symname_equal.exit:                               ; preds = %rbimpl_rstring_getmem.exit.i
   %74 = load i8, ptr %.sroa.3.0.i, align 1
   %.not9.i.i.not = icmp eq i8 %74, 75
-  br i1 %.not9.i.i.not, label %75, label %symname_equal.argprom.exit.thread
+  br i1 %.not9.i.i.not, label %75, label %symname_equal.exit.thread
 
-75:                                               ; preds = %symname_equal.argprom.exit
+75:                                               ; preds = %symname_equal.exit
   br i1 %41, label %.critedge, label %76
 
 76:                                               ; preds = %75
@@ -7304,12 +7304,12 @@ symname_equal.argprom.exit:                       ; preds = %rbimpl_rstring_getm
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %82, ptr noundef nonnull @.str.78, i64 noundef %0) #22
   unreachable
 
-symname_equal.argprom.exit.thread:                ; preds = %rbimpl_rstring_getmem.exit.i, %66, %symname_equal.argprom.exit
+symname_equal.exit.thread:                        ; preds = %rbimpl_rstring_getmem.exit.i, %66, %symname_equal.exit
   %83 = tail call i64 @rb_intern_str(i64 noundef %.06.i) #21
   %84 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %83, i64 noundef %56) #21
   br label %85
 
-85:                                               ; preds = %65, %61, %symname_equal.argprom.exit.thread, %80
+85:                                               ; preds = %65, %61, %symname_equal.exit.thread, %80
   %86 = add nsw i64 %.038, -1
   %87 = icmp sgt i64 %.038, 1
   br i1 %87, label %43, label %r_long.exit.thread, !llvm.loop !80
@@ -7325,7 +7325,7 @@ define internal fastcc i64 @r_leave(i64 noundef %0, ptr nocapture noundef readon
   %6 = alloca i64, align 8
   %7 = getelementptr i8, ptr %1, i64 72
   %.val = load ptr, ptr %7, align 8
-  %8 = tail call fastcc i64 @r_fixup_compat.argprom(i64 noundef %0, ptr %.val)
+  %8 = tail call fastcc i64 @r_fixup_compat(i64 noundef %0, ptr %.val)
   br i1 %2, label %37, label %9
 
 9:                                                ; preds = %3
@@ -7534,23 +7534,23 @@ rb_long2num_inline.exit.i:                        ; preds = %61, %58
   %66 = getelementptr i8, ptr %1, i64 40
   %.val.i = load ptr, ptr %66, align 8
   %.not.i.i38 = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i38, label %67, label %check_load_arg.argprom.exit.i
+  br i1 %.not.i.i38, label %67, label %check_load_arg.exit.i
 
 67:                                               ; preds = %rb_long2num_inline.exit.i
   %68 = load i64, ptr @rb_eRuntimeError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %68, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.12) #22
   unreachable
 
-check_load_arg.argprom.exit.i:                    ; preds = %rb_long2num_inline.exit.i
+check_load_arg.exit.i:                            ; preds = %rb_long2num_inline.exit.i
   store i64 %65, ptr %5, align 8
   %69 = icmp eq i64 %65, 4
   br i1 %69, label %70, label %71
 
-70:                                               ; preds = %check_load_arg.argprom.exit.i
+70:                                               ; preds = %check_load_arg.exit.i
   call fastcc void @too_short() #24
   unreachable
 
-71:                                               ; preds = %check_load_arg.argprom.exit.i
+71:                                               ; preds = %check_load_arg.exit.i
   %72 = call i64 @rb_string_value(ptr noundef nonnull %5) #21
   %73 = load i64, ptr %5, align 8
   %74 = inttoptr i64 %73 to ptr
@@ -7651,23 +7651,23 @@ rb_long2num_inline.exit.i40:                      ; preds = %110, %107
   %115 = getelementptr i8, ptr %1, i64 40
   %.val.i42 = load ptr, ptr %115, align 8
   %.not.i.i43 = icmp eq ptr %.val.i42, null
-  br i1 %.not.i.i43, label %116, label %check_load_arg.argprom.exit.i44
+  br i1 %.not.i.i43, label %116, label %check_load_arg.exit.i44
 
 116:                                              ; preds = %rb_long2num_inline.exit.i40
   %117 = load i64, ptr @rb_eRuntimeError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %117, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.12) #22
   unreachable
 
-check_load_arg.argprom.exit.i44:                  ; preds = %rb_long2num_inline.exit.i40
+check_load_arg.exit.i44:                          ; preds = %rb_long2num_inline.exit.i40
   store i64 %114, ptr %3, align 8
   %118 = icmp eq i64 %114, 4
   br i1 %118, label %119, label %120
 
-119:                                              ; preds = %check_load_arg.argprom.exit.i44
+119:                                              ; preds = %check_load_arg.exit.i44
   call fastcc void @too_short() #24
   unreachable
 
-120:                                              ; preds = %check_load_arg.argprom.exit.i44
+120:                                              ; preds = %check_load_arg.exit.i44
   %121 = call i64 @rb_string_value(ptr noundef nonnull %3) #21
   %122 = load i64, ptr %3, align 8
   %123 = inttoptr i64 %122 to ptr
@@ -7997,7 +7997,7 @@ RARRAY_AREF.exit:                                 ; preds = %15, %19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @r_fixup_compat.argprom(i64 noundef %0, ptr %.72.val) unnamed_addr #0 {
+define internal fastcc i64 @r_fixup_compat(i64 noundef %0, ptr %.72.val) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8

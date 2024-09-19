@@ -1247,16 +1247,16 @@ lor.lhs.false.i.i.i.i:                            ; preds = %entry
   %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %3 = load i32, ptr %arrayidx4.i.i.i.i, align 4
   %cmp5.i.i.i.i = icmp eq i32 %2, %3
-  br i1 %cmp5.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3euf14specrel_plugin13register_nodeEPNS0_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br i1 %cmp5.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3euf14specrel_plugin13register_nodeEPNS0_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
 if.then.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i.i, %entry
   tail call void @_ZN6vectorIPN3euf9ac_pluginELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_undo.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %m_undo.i.i.i, align 8
   %arrayidx8.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 -4
   %.pre1.i.i.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i.i, align 4
-  br label %"_ZSt10__invoke_rIvRZN3euf14specrel_plugin13register_nodeEPNS0_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN3euf14specrel_plugin13register_nodeEPNS0_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-"_ZSt10__invoke_rIvRZN3euf14specrel_plugin13register_nodeEPNS0_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %lor.lhs.false.i.i.i.i, %if.then.i.i.i.i
+"_ZSt10__invoke_rIvRZN3euf14specrel_plugin13register_nodeEPNS0_5enodeEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %lor.lhs.false.i.i.i.i, %if.then.i.i.i.i
   %4 = phi i32 [ %.pre1.i.i.i.i, %if.then.i.i.i.i ], [ %2, %lor.lhs.false.i.i.i.i ]
   %5 = phi ptr [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %1, %lor.lhs.false.i.i.i.i ]
   %idx.ext.i.i.i.i = zext i32 %4 to i64

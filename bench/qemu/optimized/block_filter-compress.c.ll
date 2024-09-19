@@ -78,7 +78,7 @@ if.then7:                                         ; preds = %block_driver_can_co
   %tobool11.not = icmp eq ptr %call10, null
   %call10..str.4 = select i1 %tobool11.not, ptr @.str.4, ptr %call10
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 44, ptr noundef nonnull @__func__.compress_open, ptr noundef nonnull @.str.3, ptr noundef nonnull %call10..str.4) #3
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end12:                                         ; preds = %lor.lhs.false, %block_driver_can_compress.exit
   %supported_write_flags = getelementptr inbounds i8, ptr %1, i64 16588
@@ -94,15 +94,15 @@ if.end12:                                         ; preds = %lor.lhs.false, %blo
   %or19 = or disjoint i32 %and18, 64
   %supported_zero_flags20 = getelementptr inbounds i8, ptr %bs, i64 16592
   store i32 %or19, ptr %supported_zero_flags20, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end12, %if.then7
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end12, %if.then7
   %retval.1 = phi i32 [ 0, %if.end12 ], [ -95, %if.then7 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #3
   br label %return
 
-return:                                           ; preds = %entry, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
-  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %call, %entry ]
+return:                                           ; preds = %entry, %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call, %entry ]
   ret i32 %retval.0
 }
 

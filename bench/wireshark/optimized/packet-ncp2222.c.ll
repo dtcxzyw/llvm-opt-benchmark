@@ -12936,13 +12936,13 @@ ncp_requires_subfunc.exit:                        ; preds = %221
 
 .thread.i:                                        ; preds = %440
   %446 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %442, ptr noundef nonnull @ei_nds_reply_error, ptr noundef nonnull @.str.7205, i32 noundef %.0230390, ptr noundef %.0229392) #13
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 447:                                              ; preds = %440, %433
   %448 = icmp eq ptr %.0234317325337388, null
   %449 = icmp ne i32 %.0230390, 0
   %or.cond3.i = or i1 %448, %449
-  br i1 %or.cond3.i, label %dissect_nds_reply.argprom.exit, label %450
+  br i1 %or.cond3.i, label %dissect_nds_reply.exit, label %450
 
 450:                                              ; preds = %447
   %451 = getelementptr inbounds i8, ptr %.0234317325337388, i64 52
@@ -12964,7 +12964,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %.0258.i = phi i32 [ 24, %458 ], [ 20, %450 ]
   %462 = load i8, ptr %451, align 4
   %.not265.i = icmp eq i8 %462, 0
-  br i1 %.not265.i, label %dissect_nds_reply.argprom.exit, label %463
+  br i1 %.not265.i, label %dissect_nds_reply.exit, label %463
 
 463:                                              ; preds = %461
   %464 = zext i8 %462 to i32
@@ -12972,7 +12972,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %466 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %465, ptr noundef %0, i32 noundef 6, i32 noundef 0, i32 noundef %464, ptr noundef nonnull @.str.7206, i32 noundef %464, ptr noundef %454) #13
   %.pr.i = load i8, ptr %451, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %14, i8 0, i64 312, i1 false)
-  switch i8 %.pr.i, label %dissect_nds_reply.argprom.exit [
+  switch i8 %.pr.i, label %dissect_nds_reply.exit [
     i8 1, label %467
     i8 2, label %535
     i8 3, label %547
@@ -12994,7 +12994,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %470 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %5, i32 noundef %468, ptr noundef %0, i32 noundef %.0258.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %469) #13
   %471 = add nuw nsw i32 %.0258.i, 4
   %472 = load i32, ptr %469, align 4
-  switch i32 %472, label %dissect_nds_reply.argprom.exit [
+  switch i32 %472, label %dissect_nds_reply.exit [
     i32 6, label %521
     i32 1, label %473
     i32 2, label %484
@@ -13043,13 +13043,13 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %495 = getelementptr inbounds i8, ptr %14, i64 292
   store i8 9, ptr %495, align 4
   call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 496:                                              ; preds = %467
   %497 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %471) #13
   store i32 %497, ptr %469, align 4
   %498 = icmp eq i32 %497, 0
-  br i1 %498, label %dissect_nds_reply.argprom.exit, label %499
+  br i1 %498, label %dissect_nds_reply.exit, label %499
 
 499:                                              ; preds = %496
   %500 = call ptr @wmem_packet_scope() #13
@@ -13062,7 +13062,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %506 = load i32, ptr %469, align 4
   %507 = add i32 %506, 4
   %508 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %5, i32 noundef %505, ptr noundef %0, i32 noundef %471, i32 noundef %507, ptr noundef %503, ptr noundef nonnull @.str.7208, ptr noundef %503) #13
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 509:                                              ; preds = %467
   %510 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %471) #13
@@ -13085,7 +13085,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %520 = getelementptr inbounds i8, ptr %14, i64 292
   store i8 8, ptr %520, align 4
   call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 521:                                              ; preds = %467
   %522 = load i32, ptr @hf_nds_result_flags, align 4
@@ -13132,7 +13132,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %546 = getelementptr inbounds i8, ptr %14, i64 296
   store i32 %545, ptr %546, align 8
   call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 547:                                              ; preds = %463
   %548 = load i32, ptr @hf_nds_iteration, align 4
@@ -13169,7 +13169,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %570 = getelementptr inbounds i8, ptr %14, i64 304
   store i32 %569, ptr %570, align 8
   call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 571:                                              ; preds = %463
   %572 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0258.i) #13
@@ -13179,12 +13179,12 @@ ncp_requires_subfunc.exit:                        ; preds = %221
 
 575:                                              ; preds = %571
   %576 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %574, ptr noundef %0, i32 noundef %.0258.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.7212) #13
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 577:                                              ; preds = %571
   %578 = zext i8 %572 to i32
   %579 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %574, ptr noundef %0, i32 noundef %.0258.i, i32 noundef 1, i32 noundef %578, ptr noundef nonnull @.str.7213) #13
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 580:                                              ; preds = %463
   %581 = load i32, ptr @hf_nds_iteration, align 4
@@ -13210,7 +13210,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %594 = getelementptr inbounds i8, ptr %14, i64 296
   store i32 %593, ptr %594, align 8
   call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 595:                                              ; preds = %463
   %596 = load i32, ptr @hf_nds_iteration, align 4
@@ -13238,7 +13238,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %611 = getelementptr inbounds i8, ptr %14, i64 296
   store i32 %610, ptr %611, align 8
   call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 612:                                              ; preds = %463
   %613 = load i32, ptr @hf_nds_iteration, align 4
@@ -13260,12 +13260,12 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %623 = getelementptr inbounds i8, ptr %14, i64 32
   store i32 %622, ptr %623, align 8
   call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 624:                                              ; preds = %463
   %625 = load i32, ptr @hf_nds_privileges, align 4
   %626 = call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %625, ptr noundef %0, i32 noundef %.0258.i, i32 noundef 4, i32 noundef -2147483648) #13
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 627:                                              ; preds = %463
   %628 = load i32, ptr @hf_nds_iteration, align 4
@@ -13273,7 +13273,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %630 = add nuw nsw i32 %.0258.i, 4
   %631 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %630) #13
   %632 = icmp eq i32 %631, 0
-  br i1 %632, label %dissect_nds_reply.argprom.exit, label %633
+  br i1 %632, label %dissect_nds_reply.exit, label %633
 
 633:                                              ; preds = %627
   %634 = getelementptr inbounds i8, ptr %14, i64 4
@@ -13328,7 +13328,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %665 = getelementptr inbounds i8, ptr %14, i64 296
   store i32 %664, ptr %665, align 8
   call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 666:                                              ; preds = %463
   %667 = load i32, ptr @hf_nds_file_handle, align 4
@@ -13336,7 +13336,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %669 = add nuw nsw i32 %.0258.i, 4
   %670 = load i32, ptr @hf_nds_file_size, align 4
   %671 = call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %670, ptr noundef %0, i32 noundef %669, i32 noundef 4, i32 noundef -2147483648) #13
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 672:                                              ; preds = %463
   store i8 6, ptr %14, align 8
@@ -13355,7 +13355,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %681 = getelementptr inbounds i8, ptr %14, i64 24
   store i32 %680, ptr %681, align 8
   %682 = icmp eq i32 %680, 0
-  br i1 %682, label %dissect_nds_reply.argprom.exit, label %683
+  br i1 %682, label %dissect_nds_reply.exit, label %683
 
 683:                                              ; preds = %672
   %684 = getelementptr inbounds i8, ptr %14, i64 28
@@ -13380,7 +13380,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   store i32 %694, ptr %679, align 8
   store i8 9, ptr %674, align 4
   call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 695:                                              ; preds = %463
   %696 = load i32, ptr @hf_nds_eid, align 4
@@ -13421,7 +13421,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %719 = getelementptr inbounds i8, ptr %14, i64 32
   store i32 %718, ptr %719, align 8
   call fastcc void @dissect_nds_iterator(ptr noundef %5, ptr noundef %0, ptr noundef %1, i32 noundef %714, i32 noundef 0, i32 noundef %705, i1 noundef zeroext false)
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
 720:                                              ; preds = %695, %521, %473
   %.0.i285 = getelementptr inbounds i8, ptr %.0234317325337388, i64 54
@@ -13474,23 +13474,23 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %748 = call ptr @wmem_map_lookup(ptr noundef %747, ptr noundef nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %.not269.i = icmp eq ptr %748, null
-  br i1 %.not269.i, label %dissect_nds_reply.argprom.exit, label %749
+  br i1 %.not269.i, label %dissect_nds_reply.exit, label %749
 
 749:                                              ; preds = %745
   %750 = load i32, ptr @hf_nds_name, align 4
   %751 = getelementptr inbounds i8, ptr %748, i64 8
   %752 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %5, i32 noundef %750, ptr noundef %0, i32 noundef 6, i32 noundef 0, ptr noundef nonnull %751, ptr noundef nonnull @.str.7218, ptr noundef nonnull %751) #13
-  br label %dissect_nds_reply.argprom.exit
+  br label %dissect_nds_reply.exit
 
-dissect_nds_reply.argprom.exit:                   ; preds = %.thread.i, %447, %461, %463, %467, %484, %496, %499, %509, %535, %547, %575, %577, %580, %595, %612, %624, %627, %633, %666, %672, %683, %713, %745, %749
+dissect_nds_reply.exit:                           ; preds = %.thread.i, %447, %461, %463, %467, %484, %496, %499, %509, %535, %547, %575, %577, %580, %595, %612, %624, %627, %633, %666, %672, %683, %713, %745, %749
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   %.pr340.pre = load i8, ptr %.3318322338385, align 8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %266, %dissect_nds_reply.argprom.exit, %.loopexit412
-  %753 = phi i8 [ %.pre369, %.loopexit412 ], [ %.pr340.pre, %dissect_nds_reply.argprom.exit ], [ %267, %266 ]
+thread-pre-split:                                 ; preds = %266, %dissect_nds_reply.exit, %.loopexit412
+  %753 = phi i8 [ %.pre369, %.loopexit412 ], [ %.pr340.pre, %dissect_nds_reply.exit ], [ %267, %266 ]
   switch i8 %753, label %1151 [
     i8 87, label %754
     i8 89, label %754
@@ -15534,7 +15534,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %92, %102
 
 111:                                              ; preds = %110
   store i32 0, ptr %10, align 4
-  call fastcc void @add_ptvc_field.retelim(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %.055, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef %10)
+  call fastcc void @add_ptvc_field(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %.055, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef %10)
   %112 = load i16, ptr %36, align 4
   %113 = and i16 %112, 3
   %.not62.i = icmp eq i16 %113, 3
@@ -15599,7 +15599,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %92, %102
 .lr.ph53:                                         ; preds = %.preheader, %.lr.ph53
   %.1.i52 = phi i32 [ %140, %.lr.ph53 ], [ 0, %.preheader ]
   %139 = icmp ne i32 %.1.i52, 0
-  call fastcc void @add_ptvc_field.retelim(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %.055, i1 noundef zeroext %6, i1 noundef zeroext %139, ptr noundef %10)
+  call fastcc void @add_ptvc_field(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %.055, i1 noundef zeroext %6, i1 noundef zeroext %139, ptr noundef %10)
   %140 = add nuw i32 %.1.i52, 1
   %exitcond65.not = icmp eq i32 %140, %137
   br i1 %exitcond65.not, label %_process_ptvc_record.exit, label %.lr.ph53, !llvm.loop !21
@@ -21307,7 +21307,7 @@ define internal fastcc void @process_bitfield_sub_ptvc_record(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ptvc_field.retelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc void @add_ptvc_field(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = load i32, ptr %8, align 4
@@ -21748,7 +21748,7 @@ check_offset_addition.exit.us:                    ; preds = %35
 
 57:                                               ; preds = %.split.us
   store i32 %.0191.us, ptr %13, align 4
-  call fastcc void @process_set_filter.argprom(ptr noundef %24, ptr noundef %1, ptr noundef %10)
+  call fastcc void @process_set_filter(ptr noundef %24, ptr noundef %1, ptr noundef %10)
   %58 = load i32, ptr %13, align 4
   %59 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %58) #13
   %60 = icmp sgt i32 %59, 4
@@ -22534,7 +22534,7 @@ process_entry_info.exit:                          ; preds = %442, %444
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_set_filter.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @process_set_filter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %5) #13
@@ -22875,7 +22875,7 @@ process_search_match.exit:                        ; preds = %150
   %210 = add i32 %.0.i28, 1
   %211 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %205, ptr noundef %1, i32 noundef %.1.i, i32 noundef -1, i32 noundef %209, ptr noundef null, ptr noundef nonnull @.str.7221, i32 noundef %210) #13
   store i32 %.1.i, ptr %4, align 4
-  tail call fastcc void @process_set_filter.argprom(ptr noundef %211, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @process_set_filter(ptr noundef %211, ptr noundef %1, ptr noundef %2)
   %212 = load i32, ptr %4, align 4
   %213 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %212) #13
   %214 = icmp slt i32 %213, 4

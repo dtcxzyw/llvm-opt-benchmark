@@ -6198,12 +6198,12 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
     i32 6, label %70
     i32 7, label %70
     i32 13, label %92
-    i32 14, label %dissect_ansi_map_digits_type.argprom.exit
+    i32 14, label %dissect_ansi_map_digits_type.exit
   ]
 
 41:                                               ; preds = %13
   %42 = and i32 %39, 15
-  switch i32 %42, label %dissect_ansi_map_digits_type.argprom.exit [
+  switch i32 %42, label %dissect_ansi_map_digits_type.exit [
     i32 1, label %43
     i32 2, label %55
   ]
@@ -6213,7 +6213,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   %45 = load i32, ptr @hf_ansi_map_nr_digits, align 4
   %46 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %45, ptr noundef nonnull %12, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
   %47 = icmp eq i8 %44, 0
-  br i1 %47, label %dissect_ansi_map_digits_type.argprom.exit, label %48
+  br i1 %47, label %dissect_ansi_map_digits_type.exit, label %48
 
 48:                                               ; preds = %43
   %49 = load i32, ptr @hf_ansi_map_bcd_digits, align 4
@@ -6223,14 +6223,14 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   %53 = load ptr, ptr %16, align 8
   %54 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.2560, ptr noundef %54) #5
-  br label %dissect_ansi_map_digits_type.argprom.exit
+  br label %dissect_ansi_map_digits_type.exit
 
 55:                                               ; preds = %41
   %56 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %12, i32 noundef 3) #5
   %57 = load i32, ptr @hf_ansi_map_nr_digits, align 4
   %58 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %57, ptr noundef nonnull %12, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
   %59 = icmp eq i8 %56, 0
-  br i1 %59, label %dissect_ansi_map_digits_type.argprom.exit, label %60
+  br i1 %59, label %dissect_ansi_map_digits_type.exit, label %60
 
 60:                                               ; preds = %55
   %61 = load i32, ptr @hf_ansi_map_ia5_digits, align 4
@@ -6241,22 +6241,22 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   %66 = load ptr, ptr %16, align 8
   %67 = load ptr, ptr %8, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef nonnull @.str.2560, ptr noundef %67) #5
-  br label %dissect_ansi_map_digits_type.argprom.exit
+  br label %dissect_ansi_map_digits_type.exit
 
 68:                                               ; preds = %13, %13, %13, %13
   %69 = call ptr @proto_tree_add_expert(ptr noundef %19, ptr noundef %15, ptr noundef nonnull @ei_ansi_map_nr_not_used, ptr noundef nonnull %12, i32 noundef 3, i32 noundef -1) #5
-  br label %dissect_ansi_map_digits_type.argprom.exit
+  br label %dissect_ansi_map_digits_type.exit
 
 70:                                               ; preds = %13, %13, %13
   %71 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %12, i32 noundef 3) #5
   %72 = load i32, ptr @hf_ansi_map_nr_digits, align 4
   %73 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %72, ptr noundef nonnull %12, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
   %74 = icmp eq i8 %71, 0
-  br i1 %74, label %dissect_ansi_map_digits_type.argprom.exit, label %75
+  br i1 %74, label %dissect_ansi_map_digits_type.exit, label %75
 
 75:                                               ; preds = %70
   %76 = and i32 %39, 15
-  switch i32 %76, label %dissect_ansi_map_digits_type.argprom.exit [
+  switch i32 %76, label %dissect_ansi_map_digits_type.exit [
     i32 1, label %77
     i32 2, label %84
   ]
@@ -6269,7 +6269,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   %82 = load ptr, ptr %16, align 8
   %83 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %82, ptr noundef nonnull @.str.2560, ptr noundef %83) #5
-  br label %dissect_ansi_map_digits_type.argprom.exit
+  br label %dissect_ansi_map_digits_type.exit
 
 84:                                               ; preds = %75
   %85 = load i32, ptr @hf_ansi_map_ia5_digits, align 4
@@ -6280,12 +6280,12 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   %90 = load ptr, ptr %16, align 8
   %91 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.2560, ptr noundef %91) #5
-  br label %dissect_ansi_map_digits_type.argprom.exit
+  br label %dissect_ansi_map_digits_type.exit
 
 92:                                               ; preds = %13
   %93 = and i32 %39, 15
   %cond.i = icmp eq i32 %93, 3
-  br i1 %cond.i, label %94, label %dissect_ansi_map_digits_type.argprom.exit
+  br i1 %cond.i, label %94, label %dissect_ansi_map_digits_type.exit
 
 94:                                               ; preds = %92
   %95 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %12, i32 noundef 3) #5
@@ -6302,19 +6302,19 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   %106 = load ptr, ptr %16, align 8
   %107 = zext i8 %103 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %106, ptr noundef nonnull @.str.2562, i32 noundef %99, i32 noundef %100, i32 noundef %101, i32 noundef %107) #5
-  br label %dissect_ansi_map_digits_type.argprom.exit
+  br label %dissect_ansi_map_digits_type.exit
 
 108:                                              ; preds = %13
   %109 = call ptr @proto_tree_add_expert(ptr noundef %19, ptr noundef %15, ptr noundef nonnull @ei_ansi_map_nr_not_used, ptr noundef nonnull %12, i32 noundef 3, i32 noundef -1) #5
-  br label %dissect_ansi_map_digits_type.argprom.exit
+  br label %dissect_ansi_map_digits_type.exit
 
-dissect_ansi_map_digits_type.argprom.exit:        ; preds = %13, %41, %43, %48, %55, %60, %68, %70, %75, %77, %84, %92, %94, %108
+dissect_ansi_map_digits_type.exit:                ; preds = %13, %41, %43, %48, %55, %60, %68, %70, %75, %77, %84, %92, %94, %108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %110
 
-110:                                              ; preds = %dissect_ansi_map_digits_type.argprom.exit, %6
+110:                                              ; preds = %dissect_ansi_map_digits_type.exit, %6
   ret i32 %11
 }
 
@@ -6504,7 +6504,7 @@ define internal i32 @dissect_ansi_map_CallingFeaturesIndicator(i1 noundef zeroex
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %dissect_ansi_map_callingfeaturesindicator.argprom.exit, label %10
+  br i1 %.not, label %dissect_ansi_map_callingfeaturesindicator.exit, label %10
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
@@ -6537,7 +6537,7 @@ define internal i32 @dissect_ansi_map_CallingFeaturesIndicator(i1 noundef zeroex
   %38 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_cnip1fa, align 4
   %39 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %38, ptr noundef nonnull %9, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
   %40 = icmp eq i32 %11, 3
-  br i1 %40, label %dissect_ansi_map_callingfeaturesindicator.argprom.exit, label %41
+  br i1 %40, label %dissect_ansi_map_callingfeaturesindicator.exit, label %41
 
 41:                                               ; preds = %10
   %42 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_uscfvmfa, align 4
@@ -6549,7 +6549,7 @@ define internal i32 @dissect_ansi_map_CallingFeaturesIndicator(i1 noundef zeroex
   %48 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_pcwfa, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %48, ptr noundef nonnull %9, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
   %50 = icmp eq i32 %11, 4
-  br i1 %50, label %dissect_ansi_map_callingfeaturesindicator.argprom.exit, label %51
+  br i1 %50, label %dissect_ansi_map_callingfeaturesindicator.exit, label %51
 
 51:                                               ; preds = %41
   %52 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_uscfmsfa, align 4
@@ -6561,14 +6561,14 @@ define internal i32 @dissect_ansi_map_CallingFeaturesIndicator(i1 noundef zeroex
   %58 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_ccsfa, align 4
   %59 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %58, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
   %60 = icmp eq i32 %11, 5
-  br i1 %60, label %dissect_ansi_map_callingfeaturesindicator.argprom.exit, label %61
+  br i1 %60, label %dissect_ansi_map_callingfeaturesindicator.exit, label %61
 
 61:                                               ; preds = %51
   %62 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_epefa, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %62, ptr noundef nonnull %9, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
-  br label %dissect_ansi_map_callingfeaturesindicator.argprom.exit
+  br label %dissect_ansi_map_callingfeaturesindicator.exit
 
-dissect_ansi_map_callingfeaturesindicator.argprom.exit: ; preds = %61, %51, %41, %10, %6
+dissect_ansi_map_callingfeaturesindicator.exit:   ; preds = %61, %51, %41, %10, %6
   ret i32 %8
 }
 
@@ -7052,7 +7052,7 @@ define internal i32 @dissect_ansi_map_WIN_TriggerList(i1 noundef zeroext %0, ptr
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %dissect_ansi_map_win_trigger_list.argprom.exit, label %10
+  br i1 %.not, label %dissect_ansi_map_win_trigger_list.exit, label %10
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
@@ -7061,7 +7061,7 @@ define internal i32 @dissect_ansi_map_WIN_TriggerList(i1 noundef zeroext %0, ptr
   %14 = load i32, ptr @ett_win_trigger_list, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
   %16 = icmp sgt i32 %11, 0
-  br i1 %16, label %.lr.ph.i, label %dissect_ansi_map_win_trigger_list.argprom.exit
+  br i1 %16, label %.lr.ph.i, label %dissect_ansi_map_win_trigger_list.exit
 
 .lr.ph.i:                                         ; preds = %10, %36
   %.02.i = phi i32 [ %37, %36 ], [ 0, %10 ]
@@ -7106,9 +7106,9 @@ define internal i32 @dissect_ansi_map_WIN_TriggerList(i1 noundef zeroext %0, ptr
   %.1.i = phi i32 [ %35, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ]
   %37 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %37, %11
-  br i1 %exitcond.not.i, label %dissect_ansi_map_win_trigger_list.argprom.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %dissect_ansi_map_win_trigger_list.exit, label %.lr.ph.i, !llvm.loop !7
 
-dissect_ansi_map_win_trigger_list.argprom.exit:   ; preds = %36, %10, %6
+dissect_ansi_map_win_trigger_list.exit:           ; preds = %36, %10, %6
   ret i32 %8
 }
 
@@ -7734,7 +7734,7 @@ define internal i32 @dissect_ansi_map_CDMACallMode(i1 noundef zeroext %0, ptr no
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %dissect_ansi_map_cdmacallmode.argprom.exit, label %10
+  br i1 %.not, label %dissect_ansi_map_cdmacallmode.exit, label %10
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
@@ -7759,7 +7759,7 @@ define internal i32 @dissect_ansi_map_CDMACallMode(i1 noundef zeroext %0, ptr no
   %30 = load i32, ptr @hf_ansi_map_cdmacallmode_cdma, align 4
   %31 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %30, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %32 = icmp eq i32 %11, 1
-  br i1 %32, label %dissect_ansi_map_cdmacallmode.argprom.exit, label %33
+  br i1 %32, label %dissect_ansi_map_cdmacallmode.exit, label %33
 
 33:                                               ; preds = %10
   %34 = load i32, ptr @hf_ansi_map_cdmacallmode_cls10, align 4
@@ -7772,9 +7772,9 @@ define internal i32 @dissect_ansi_map_CDMACallMode(i1 noundef zeroext %0, ptr no
   %41 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %40, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1, i32 noundef 0) #5
   %42 = load i32, ptr @hf_ansi_map_cdmacallmode_cls6, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %42, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1, i32 noundef 0) #5
-  br label %dissect_ansi_map_cdmacallmode.argprom.exit
+  br label %dissect_ansi_map_cdmacallmode.exit
 
-dissect_ansi_map_cdmacallmode.argprom.exit:       ; preds = %33, %10, %6
+dissect_ansi_map_cdmacallmode.exit:               ; preds = %33, %10, %6
   ret i32 %8
 }
 
@@ -7785,7 +7785,7 @@ define internal i32 @dissect_ansi_map_CDMAChannelData(i1 noundef zeroext %0, ptr
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %dissect_ansi_map_cdmachanneldata.argprom.exit, label %10
+  br i1 %.not, label %dissect_ansi_map_cdmachanneldata.exit, label %10
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
@@ -7816,7 +7816,7 @@ define internal i32 @dissect_ansi_map_CDMAChannelData(i1 noundef zeroext %0, ptr
   %36 = load i32, ptr @hf_ansi_map_cdmachanneldata_lc_mask_b1, align 4
   %37 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %36, ptr noundef nonnull %9, i32 noundef 7, i32 noundef 1, i32 noundef 0) #5
   %38 = icmp eq i32 %11, 8
-  br i1 %38, label %dissect_ansi_map_cdmachanneldata.argprom.exit, label %39
+  br i1 %38, label %dissect_ansi_map_cdmachanneldata.exit, label %39
 
 39:                                               ; preds = %10
   %40 = load i32, ptr @hf_ansi_map_cdmachanneldata_np_ext, align 4
@@ -7825,9 +7825,9 @@ define internal i32 @dissect_ansi_map_CDMAChannelData(i1 noundef zeroext %0, ptr
   %43 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %42, ptr noundef nonnull %9, i32 noundef 8, i32 noundef 1, i32 noundef 0) #5
   %44 = load i32, ptr @hf_ansi_map_cdmachanneldata_nr_preamble, align 4
   %45 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %44, ptr noundef nonnull %9, i32 noundef 8, i32 noundef 1, i32 noundef 0) #5
-  br label %dissect_ansi_map_cdmachanneldata.argprom.exit
+  br label %dissect_ansi_map_cdmachanneldata.exit
 
-dissect_ansi_map_cdmachanneldata.argprom.exit:    ; preds = %39, %10, %6
+dissect_ansi_map_cdmachanneldata.exit:            ; preds = %39, %10, %6
   ret i32 %8
 }
 

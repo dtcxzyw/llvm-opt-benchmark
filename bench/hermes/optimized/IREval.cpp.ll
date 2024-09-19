@@ -561,7 +561,7 @@ if.then30:                                        ; preds = %sw.bb28
   store ptr @.str.5, ptr %ref.tmp34, align 8
   %Length.i = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
   store i64 3, ptr %Length.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_.argprom(ptr noalias align 8 %result, ptr %retval.sroa.0.0.copyload.i284, i64 %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result, ptr %retval.sroa.0.0.copyload.i284, i64 %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
   %10 = load ptr, ptr %result, align 8
   %Size.i.i = getelementptr inbounds i8, ptr %result, i64 8
   %11 = load i32, ptr %Size.i.i, align 8
@@ -589,7 +589,7 @@ if.then39:                                        ; preds = %if.end
   store ptr %retval.sroa.0.0.copyload.i289, ptr %ref.tmp42, align 8
   %13 = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
   store i64 %retval.sroa.2.0.copyload.i291, ptr %13, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_.argprom(ptr noalias align 8 %result40, ptr nonnull @.str.5, i64 3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp42)
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result40, ptr nonnull @.str.5, i64 3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp42)
   %14 = load ptr, ptr %result40, align 8
   %Size.i.i294 = getelementptr inbounds i8, ptr %result40, i64 8
   %15 = load i32, ptr %Size.i.i294, align 8
@@ -1200,7 +1200,7 @@ if.then318:                                       ; preds = %if.end314
   store ptr %retval.sroa.0.0.copyload.i405, ptr %ref.tmp326, align 8
   %34 = getelementptr inbounds i8, ptr %ref.tmp326, i64 8
   store i64 %retval.sroa.2.0.copyload.i407, ptr %34, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_.argprom(ptr noalias align 8 %result319, ptr %retval.sroa.0.0.copyload.i398, i64 %retval.sroa.2.0.copyload.i400, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp326)
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result319, ptr %retval.sroa.0.0.copyload.i398, i64 %retval.sroa.2.0.copyload.i400, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp326)
   %35 = load ptr, ptr %result319, align 8
   %Size.i.i410 = getelementptr inbounds i8, ptr %result319, i64 8
   %36 = load i32, ptr %Size.i.i410, align 8
@@ -1249,7 +1249,7 @@ if.then354:                                       ; preds = %if.else352
   store ptr %retval.sroa.0.0.copyload.i420, ptr %ref.tmp357, align 8
   %38 = getelementptr inbounds i8, ptr %ref.tmp357, i64 8
   store i64 %retval.sroa.2.0.copyload.i422, ptr %38, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_.argprom(ptr noalias align 8 %result355, ptr nonnull @.str.6, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp357)
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result355, ptr nonnull @.str.6, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp357)
   %39 = load ptr, ptr %result355, align 8
   %Size.i.i425 = getelementptr inbounds i8, ptr %result355, i64 8
   %40 = load i32, ptr %Size.i.i425, align 8
@@ -1282,7 +1282,7 @@ if.then375:                                       ; preds = %if.else373
   store ptr @.str.6, ptr %ref.tmp383, align 8
   %Length.i563 = getelementptr inbounds i8, ptr %ref.tmp383, i64 8
   store i64 4, ptr %Length.i563, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_.argprom(ptr noalias align 8 %result376, ptr %retval.sroa.0.0.copyload.i435, i64 %retval.sroa.2.0.copyload.i437, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp383)
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result376, ptr %retval.sroa.0.0.copyload.i435, i64 %retval.sroa.2.0.copyload.i437, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp383)
   %42 = load ptr, ptr %result376, align 8
   %Size.i.i440 = getelementptr inbounds i8, ptr %result376, i64 8
   %43 = load i32, ptr %Size.i.i440, align 8
@@ -1319,7 +1319,7 @@ if.then397:                                       ; preds = %if.else395
   store ptr %retval.sroa.0.0.copyload.i450, ptr %ref.tmp400, align 8
   %45 = getelementptr inbounds i8, ptr %ref.tmp400, i64 8
   store i64 %retval.sroa.2.0.copyload.i452, ptr %45, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_.argprom(ptr noalias align 8 %result398, ptr nonnull @.str.1, i64 9, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp400)
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result398, ptr nonnull @.str.1, i64 9, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp400)
   %46 = load ptr, ptr %result398, align 8
   %Size.i.i455 = getelementptr inbounds i8, ptr %result398, i64 8
   %47 = load i32, ptr %Size.i.i455, align 8
@@ -1356,7 +1356,7 @@ if.then419:                                       ; preds = %if.else417
   store ptr @.str.1, ptr %ref.tmp427, align 8
   %Length.i583 = getelementptr inbounds i8, ptr %ref.tmp427, i64 8
   store i64 9, ptr %Length.i583, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_.argprom(ptr noalias align 8 %result420, ptr %retval.sroa.0.0.copyload.i465, i64 %retval.sroa.2.0.copyload.i467, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp427)
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result420, ptr %retval.sroa.0.0.copyload.i465, i64 %retval.sroa.2.0.copyload.i467, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp427)
   %49 = load ptr, ptr %result420, align 8
   %Size.i.i470 = getelementptr inbounds i8, ptr %result420, i64 8
   %50 = load i32, ptr %Size.i.i470, align 8
@@ -1632,7 +1632,7 @@ return:                                           ; preds = %if.then180, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %a.0.val, i64 %a.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %a.0.val, i64 %a.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) unnamed_addr #0 {
 entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %agg.result, align 8

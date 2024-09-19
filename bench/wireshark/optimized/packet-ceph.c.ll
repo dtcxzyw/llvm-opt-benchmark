@@ -2536,7 +2536,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ceph_old(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @dissect_ceph.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @dissect_ceph(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   ret i32 %5
 }
@@ -2560,7 +2560,7 @@ define internal range(i32 0, 2) i32 @dissect_ceph_heur(ptr noundef %0, ptr nound
   %7 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #8
   %8 = load ptr, ptr @ceph_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %7, ptr noundef %8) #8
-  tail call fastcc void @dissect_ceph.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @dissect_ceph(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %9
 
 9:                                                ; preds = %4, %6
@@ -2571,7 +2571,7 @@ define internal range(i32 0, 2) i32 @dissect_ceph_heur(ptr noundef %0, ptr nound
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ceph.argprom.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_ceph(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._c_pkt_data, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3817,7 +3817,7 @@ define internal fastcc noundef i32 @c_dissect_msg(ptr noundef %0, ptr noundef %1
   %65 = add i32 %2, 36
   %66 = load i32, ptr @hf_head_srcname, align 4
   %67 = getelementptr inbounds i8, ptr %3, i64 72
-  %68 = tail call fastcc i32 @c_dissect_entityname.argprom(ptr noundef %30, i32 noundef %66, ptr noundef %67, ptr noundef %1, i32 noundef %65)
+  %68 = tail call fastcc i32 @c_dissect_entityname(ptr noundef %30, i32 noundef %66, ptr noundef %67, ptr noundef %1, i32 noundef %65)
   %69 = getelementptr inbounds i8, ptr %3, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 24
@@ -6178,11 +6178,11 @@ c_dissect_msg_osd_ping.exit:                      ; preds = %c_dissect_osd_peers
   %1691 = load i32, ptr @ett_compatset, align 4
   %1692 = tail call ptr @proto_item_add_subtree(ptr noundef %1690, i32 noundef %1691) #8
   %1693 = load i32, ptr @hf_compatset_compat, align 4
-  %1694 = tail call fastcc i32 @c_dissect_featureset.argprom(ptr noundef %1692, i32 noundef %1693, ptr noundef %125, i32 noundef %1685)
+  %1694 = tail call fastcc i32 @c_dissect_featureset(ptr noundef %1692, i32 noundef %1693, ptr noundef %125, i32 noundef %1685)
   %1695 = load i32, ptr @hf_compatset_compatro, align 4
-  %1696 = tail call fastcc i32 @c_dissect_featureset.argprom(ptr noundef %1692, i32 noundef %1695, ptr noundef %125, i32 noundef %1694)
+  %1696 = tail call fastcc i32 @c_dissect_featureset(ptr noundef %1692, i32 noundef %1695, ptr noundef %125, i32 noundef %1694)
   %1697 = load i32, ptr @hf_compatset_incompat, align 4
-  %1698 = tail call fastcc i32 @c_dissect_featureset.argprom(ptr noundef %1692, i32 noundef %1697, ptr noundef %125, i32 noundef %1696)
+  %1698 = tail call fastcc i32 @c_dissect_featureset(ptr noundef %1692, i32 noundef %1697, ptr noundef %125, i32 noundef %1696)
   tail call void @proto_item_set_end(ptr noundef %1690, ptr noundef %125, i32 noundef %1698) #8
   br label %1699
 
@@ -7122,7 +7122,7 @@ c_dissect_msg_client_caps.exit:                   ; preds = %c_warn_unused.exit.
   %2306 = load i32, ptr @ett_entityinst, align 4
   %2307 = call ptr @proto_item_add_subtree(ptr noundef %2305, i32 noundef %2306) #8
   %2308 = load i32, ptr @hf_entityinst_name, align 4
-  %2309 = call fastcc i32 @c_dissect_entityname.argprom(ptr noundef %2307, i32 noundef %2308, ptr noundef %6, ptr noundef %125, i32 noundef %.096.i)
+  %2309 = call fastcc i32 @c_dissect_entityname(ptr noundef %2307, i32 noundef %2308, ptr noundef %6, ptr noundef %125, i32 noundef %.096.i)
   %2310 = load i32, ptr @hf_entityinst_addr, align 4
   %2311 = call fastcc i32 @c_dissect_entityaddr(ptr noundef %2307, i32 noundef %2310, ptr noundef nonnull %2297, ptr noundef %125, i32 noundef %2309)
   %2312 = load ptr, ptr %6, align 8
@@ -7165,7 +7165,7 @@ c_dissect_msg_client_caps.exit:                   ; preds = %c_warn_unused.exit.
   %2329 = load i32, ptr @ett_entityinst, align 4
   %2330 = call ptr @proto_item_add_subtree(ptr noundef %2328, i32 noundef %2329) #8
   %2331 = load i32, ptr @hf_entityinst_name, align 4
-  %2332 = call fastcc i32 @c_dissect_entityname.argprom(ptr noundef %2330, i32 noundef %2331, ptr noundef %5, ptr noundef %125, i32 noundef %.199.i)
+  %2332 = call fastcc i32 @c_dissect_entityname(ptr noundef %2330, i32 noundef %2331, ptr noundef %5, ptr noundef %125, i32 noundef %.199.i)
   %2333 = load i32, ptr @hf_entityinst_addr, align 4
   %2334 = call fastcc i32 @c_dissect_entityaddr(ptr noundef %2330, i32 noundef %2333, ptr noundef nonnull %2320, ptr noundef %125, i32 noundef %2332)
   %2335 = load ptr, ptr %5, align 8
@@ -7282,7 +7282,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @c_dissect_entityname.argprom(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @c_dissect_entityname(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 9, i32 noundef 0) #8
   %7 = load i32, ptr @ett_entityname, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #8
@@ -9278,7 +9278,7 @@ c_warn_size.exit:                                 ; preds = %c_warn_unused.exit.
 declare double @tvb_get_letohieee_double(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @c_dissect_featureset.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @c_dissect_featureset(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef 0) #8
   %6 = load i32, ptr @ett_featureset, align 4
   %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6) #8

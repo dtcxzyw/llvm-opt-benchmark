@@ -216,7 +216,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_in_body(ptr noundef %0, p
   br label %lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit
 
 11:                                               ; preds = %8
-  tail call fastcc void @lxb_html_tree_insertion_mode_in_body_body_closed.retelim(ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @lxb_html_tree_insertion_mode_in_body_body_closed(ptr noundef %0, ptr noundef nonnull %1)
   br label %lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit
 
 12:                                               ; preds = %8
@@ -239,16 +239,16 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_in_body(ptr noundef %0, p
   %20 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %lxb_html_tree_current_node.argprom.exit.i, label %23
+  br i1 %22, label %lxb_html_tree_current_node.exit.i, label %23
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %.val.i, align 8
   %25 = getelementptr ptr, ptr %24, i64 %21
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load ptr, ptr %26, align 8
-  br label %lxb_html_tree_current_node.argprom.exit.i
+  br label %lxb_html_tree_current_node.exit.i
 
-lxb_html_tree_current_node.argprom.exit.i:        ; preds = %23, %18
+lxb_html_tree_current_node.exit.i:                ; preds = %23, %18
   %.0.i.i = phi ptr [ %27, %23 ], [ null, %18 ]
   %28 = load i64, ptr %6, align 8
   %29 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
@@ -256,13 +256,13 @@ lxb_html_tree_current_node.argprom.exit.i:        ; preds = %23, %18
   %31 = icmp eq i64 %30, %28
   br i1 %31, label %lxb_html_tree_node_is.exit.i, label %lxb_html_tree_node_is.exit.thread.i
 
-lxb_html_tree_node_is.exit.i:                     ; preds = %lxb_html_tree_current_node.argprom.exit.i
+lxb_html_tree_node_is.exit.i:                     ; preds = %lxb_html_tree_current_node.exit.i
   %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 2
   br i1 %34, label %35, label %lxb_html_tree_node_is.exit.thread.i
 
-lxb_html_tree_node_is.exit.thread.i:              ; preds = %lxb_html_tree_node_is.exit.i, %lxb_html_tree_current_node.argprom.exit.i
+lxb_html_tree_node_is.exit.thread.i:              ; preds = %lxb_html_tree_node_is.exit.i, %lxb_html_tree_current_node.exit.i
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 22) #4
   %.pre.i = load i64, ptr %6, align 8
   br label %35
@@ -273,7 +273,7 @@ lxb_html_tree_node_is.exit.thread.i:              ; preds = %lxb_html_tree_node_
   br label %lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit
 
 37:                                               ; preds = %8
-  tail call fastcc void @lxb_html_tree_insertion_mode_in_body_form_closed.retelim(ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @lxb_html_tree_insertion_mode_in_body_form_closed(ptr noundef %0, ptr noundef nonnull %1)
   br label %lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit
 
 38:                                               ; preds = %8
@@ -281,11 +281,11 @@ lxb_html_tree_node_is.exit.thread.i:              ; preds = %lxb_html_tree_node_
   br label %lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit
 
 40:                                               ; preds = %8
-  tail call fastcc void @lxb_html_tree_insertion_mode_in_body_li_closed.retelim(ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @lxb_html_tree_insertion_mode_in_body_li_closed(ptr noundef %0, ptr noundef nonnull %1)
   br label %lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit
 
 41:                                               ; preds = %8, %8
-  tail call fastcc void @lxb_html_tree_insertion_mode_in_body_dd_dt_closed.retelim(ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @lxb_html_tree_insertion_mode_in_body_dd_dt_closed(ptr noundef %0, ptr noundef nonnull %1)
   br label %lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit
 
 42:                                               ; preds = %8, %8, %8, %8, %8, %8
@@ -304,16 +304,16 @@ lxb_html_tree_node_is.exit.thread.i:              ; preds = %lxb_html_tree_node_
   %48 = getelementptr inbounds i8, ptr %.val.i108, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %lxb_html_tree_current_node.argprom.exit.i109, label %51
+  br i1 %50, label %lxb_html_tree_current_node.exit.i109, label %51
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr %.val.i108, align 8
   %53 = getelementptr ptr, ptr %52, i64 %49
   %54 = getelementptr i8, ptr %53, i64 -8
   %55 = load ptr, ptr %54, align 8
-  br label %lxb_html_tree_current_node.argprom.exit.i109
+  br label %lxb_html_tree_current_node.exit.i109
 
-lxb_html_tree_current_node.argprom.exit.i109:     ; preds = %51, %46
+lxb_html_tree_current_node.exit.i109:             ; preds = %51, %46
   %.0.i.i110 = phi ptr [ %55, %51 ], [ null, %46 ]
   %56 = load i64, ptr %6, align 8
   %57 = getelementptr inbounds i8, ptr %.0.i.i110, i64 8
@@ -321,13 +321,13 @@ lxb_html_tree_current_node.argprom.exit.i109:     ; preds = %51, %46
   %59 = icmp eq i64 %58, %56
   br i1 %59, label %lxb_html_tree_node_is.exit.i112, label %lxb_html_tree_node_is.exit.thread.i111
 
-lxb_html_tree_node_is.exit.i112:                  ; preds = %lxb_html_tree_current_node.argprom.exit.i109
+lxb_html_tree_node_is.exit.i112:                  ; preds = %lxb_html_tree_current_node.exit.i109
   %60 = getelementptr inbounds i8, ptr %.0.i.i110, i64 24
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 2
   br i1 %62, label %63, label %lxb_html_tree_node_is.exit.thread.i111
 
-lxb_html_tree_node_is.exit.thread.i111:           ; preds = %lxb_html_tree_node_is.exit.i112, %lxb_html_tree_current_node.argprom.exit.i109
+lxb_html_tree_node_is.exit.thread.i111:           ; preds = %lxb_html_tree_node_is.exit.i112, %lxb_html_tree_current_node.exit.i109
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 22) #4
   br label %63
 
@@ -362,16 +362,16 @@ lxb_html_tree_node_is.exit.thread.i111:           ; preds = %lxb_html_tree_node_
   %76 = getelementptr inbounds i8, ptr %.val.i113, i64 16
   %77 = load i64, ptr %76, align 8
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %lxb_html_tree_current_node.argprom.exit.i114, label %79
+  br i1 %78, label %lxb_html_tree_current_node.exit.i114, label %79
 
 79:                                               ; preds = %74
   %80 = load ptr, ptr %.val.i113, align 8
   %81 = getelementptr ptr, ptr %80, i64 %77
   %82 = getelementptr i8, ptr %81, i64 -8
   %83 = load ptr, ptr %82, align 8
-  br label %lxb_html_tree_current_node.argprom.exit.i114
+  br label %lxb_html_tree_current_node.exit.i114
 
-lxb_html_tree_current_node.argprom.exit.i114:     ; preds = %79, %74
+lxb_html_tree_current_node.exit.i114:             ; preds = %79, %74
   %.0.i.i115 = phi ptr [ %83, %79 ], [ null, %74 ]
   %84 = load i64, ptr %6, align 8
   %85 = getelementptr inbounds i8, ptr %.0.i.i115, i64 8
@@ -379,13 +379,13 @@ lxb_html_tree_current_node.argprom.exit.i114:     ; preds = %79, %74
   %87 = icmp eq i64 %86, %84
   br i1 %87, label %lxb_html_tree_node_is.exit.i118, label %lxb_html_tree_node_is.exit.thread.i116
 
-lxb_html_tree_node_is.exit.i118:                  ; preds = %lxb_html_tree_current_node.argprom.exit.i114
+lxb_html_tree_node_is.exit.i118:                  ; preds = %lxb_html_tree_current_node.exit.i114
   %88 = getelementptr inbounds i8, ptr %.0.i.i115, i64 24
   %89 = load i64, ptr %88, align 8
   %90 = icmp eq i64 %89, 2
   br i1 %90, label %91, label %lxb_html_tree_node_is.exit.thread.i116
 
-lxb_html_tree_node_is.exit.thread.i116:           ; preds = %lxb_html_tree_node_is.exit.i118, %lxb_html_tree_current_node.argprom.exit.i114
+lxb_html_tree_node_is.exit.thread.i116:           ; preds = %lxb_html_tree_node_is.exit.i118, %lxb_html_tree_current_node.exit.i114
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 22) #4
   %.pre.i117 = load i64, ptr %6, align 8
   br label %91
@@ -405,7 +405,7 @@ lxb_html_tree_node_is.exit.thread.i116:           ; preds = %lxb_html_tree_node_
   br label %lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit
 
 97:                                               ; preds = %8
-  tail call fastcc void @lxb_html_tree_insertion_mode_in_body_anything_else_closed.retelim(ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @lxb_html_tree_insertion_mode_in_body_anything_else_closed(ptr noundef %0, ptr noundef nonnull %1)
   br label %lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit
 
 98:                                               ; preds = %2
@@ -577,13 +577,13 @@ lxb_html_tree_node_is.exit.thread.i116:           ; preds = %lxb_html_tree_node_
 123:                                              ; preds = %98, %98, %98, %98, %98, %98
   %124 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #4
   %.not.i121 = icmp eq ptr %124, null
-  br i1 %.not.i121, label %lxb_html_tree_current_node.argprom.exit.i122, label %125
+  br i1 %.not.i121, label %lxb_html_tree_current_node.exit.i122, label %125
 
 125:                                              ; preds = %123
   tail call void @lxb_html_tree_close_p_element(ptr noundef %0, ptr noundef nonnull %1) #4
-  br label %lxb_html_tree_current_node.argprom.exit.i122
+  br label %lxb_html_tree_current_node.exit.i122
 
-lxb_html_tree_current_node.argprom.exit.i122:     ; preds = %125, %123
+lxb_html_tree_current_node.exit.i122:             ; preds = %125, %123
   %126 = getelementptr i8, ptr %0, i64 32
   %.val.i123 = load ptr, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %.val.i123, i64 16
@@ -600,13 +600,13 @@ lxb_html_tree_current_node.argprom.exit.i122:     ; preds = %125, %123
   %switch.i = icmp ult i64 %.off.i, 6
   br i1 %switch.i, label %136, label %138
 
-136:                                              ; preds = %lxb_html_tree_current_node.argprom.exit.i122
+136:                                              ; preds = %lxb_html_tree_current_node.exit.i122
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 22) #4
   %.val15.i = load ptr, ptr %126, align 8
   %137 = tail call ptr @lexbor_array_pop(ptr noundef %.val15.i) #4
   br label %138
 
-138:                                              ; preds = %136, %lxb_html_tree_current_node.argprom.exit.i122
+138:                                              ; preds = %136, %lxb_html_tree_current_node.exit.i122
   %139 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 2) #4
   %140 = icmp eq ptr %139, null
   br i1 %140, label %141, label %lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit
@@ -761,7 +761,7 @@ lxb_html_tree_insertion_mode_in_body_abcdfhlmnopsu_closed.exit: ; preds = %168, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lxb_html_tree_insertion_mode_in_body_body_closed.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @lxb_html_tree_insertion_mode_in_body_body_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 31, i64 noundef 2, i32 noundef 8) #4
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -815,7 +815,7 @@ define internal fastcc noundef zeroext i1 @lxb_html_tree_insertion_mode_in_body_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lxb_html_tree_insertion_mode_in_body_form_closed.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @lxb_html_tree_insertion_mode_in_body_form_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @lxb_html_tree_open_elements_find_reverse(ptr noundef %0, i64 noundef 179, i64 noundef 2, ptr noundef null) #4
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %26
@@ -847,25 +847,25 @@ define internal fastcc void @lxb_html_tree_insertion_mode_in_body_form_closed.re
   %16 = getelementptr inbounds i8, ptr %.val, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %lxb_html_tree_current_node.argprom.exit, label %19
+  br i1 %18, label %lxb_html_tree_current_node.exit, label %19
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %.val, align 8
   %21 = getelementptr ptr, ptr %20, i64 %17
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %22, align 8
-  br label %lxb_html_tree_current_node.argprom.exit
+  br label %lxb_html_tree_current_node.exit
 
-lxb_html_tree_current_node.argprom.exit:          ; preds = %14, %19
+lxb_html_tree_current_node.exit:                  ; preds = %14, %19
   %.0.i = phi ptr [ %23, %19 ], [ null, %14 ]
   %.not = icmp eq ptr %.0.i, %11
   br i1 %.not, label %25, label %24
 
-24:                                               ; preds = %lxb_html_tree_current_node.argprom.exit
+24:                                               ; preds = %lxb_html_tree_current_node.exit
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 22) #4
   br label %25
 
-25:                                               ; preds = %24, %lxb_html_tree_current_node.argprom.exit
+25:                                               ; preds = %24, %lxb_html_tree_current_node.exit
   tail call void @lxb_html_tree_open_elements_remove_by_node(ptr noundef nonnull %0, ptr noundef nonnull %11) #4
   br label %47
 
@@ -885,29 +885,29 @@ lxb_html_tree_current_node.argprom.exit:          ; preds = %14, %19
   %32 = getelementptr inbounds i8, ptr %.val32, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %lxb_html_tree_current_node.argprom.exit34, label %35
+  br i1 %34, label %lxb_html_tree_current_node.exit34, label %35
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %.val32, align 8
   %37 = getelementptr ptr, ptr %36, i64 %33
   %38 = getelementptr i8, ptr %37, i64 -8
   %39 = load ptr, ptr %38, align 8
-  br label %lxb_html_tree_current_node.argprom.exit34
+  br label %lxb_html_tree_current_node.exit34
 
-lxb_html_tree_current_node.argprom.exit34:        ; preds = %30, %35
+lxb_html_tree_current_node.exit34:                ; preds = %30, %35
   %.0.i33 = phi ptr [ %39, %35 ], [ null, %30 ]
   %40 = getelementptr inbounds i8, ptr %.0.i33, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 87
   br i1 %42, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_node_is.exit.thread
 
-lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.argprom.exit34
+lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.exit34
   %43 = getelementptr inbounds i8, ptr %.0.i33, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 2
   br i1 %45, label %46, label %lxb_html_tree_node_is.exit.thread
 
-lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_current_node.argprom.exit34, %lxb_html_tree_node_is.exit
+lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_current_node.exit34, %lxb_html_tree_node_is.exit
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 22) #4
   br label %46
 
@@ -951,7 +951,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_p_closed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lxb_html_tree_insertion_mode_in_body_li_closed.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @lxb_html_tree_insertion_mode_in_body_li_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 113, i64 noundef 2, i32 noundef 16) #4
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -967,29 +967,29 @@ define internal fastcc void @lxb_html_tree_insertion_mode_in_body_li_closed.rete
   %8 = getelementptr inbounds i8, ptr %.val, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %lxb_html_tree_current_node.argprom.exit, label %11
+  br i1 %10, label %lxb_html_tree_current_node.exit, label %11
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %.val, align 8
   %13 = getelementptr ptr, ptr %12, i64 %9
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8
-  br label %lxb_html_tree_current_node.argprom.exit
+  br label %lxb_html_tree_current_node.exit
 
-lxb_html_tree_current_node.argprom.exit:          ; preds = %6, %11
+lxb_html_tree_current_node.exit:                  ; preds = %6, %11
   %.0.i = phi ptr [ %15, %11 ], [ null, %6 ]
   %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 113
   br i1 %18, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_node_is.exit.thread
 
-lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.argprom.exit
+lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.exit
   %19 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 2
   br i1 %21, label %22, label %lxb_html_tree_node_is.exit.thread
 
-lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_current_node.argprom.exit, %lxb_html_tree_node_is.exit
+lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_current_node.exit, %lxb_html_tree_node_is.exit
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 22) #4
   br label %22
 
@@ -1002,7 +1002,7 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lxb_html_tree_insertion_mode_in_body_dd_dt_closed.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @lxb_html_tree_insertion_mode_in_body_dd_dt_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef %4, i64 noundef 2, i32 noundef 8) #4
@@ -1021,16 +1021,16 @@ define internal fastcc void @lxb_html_tree_insertion_mode_in_body_dd_dt_closed.r
   %11 = getelementptr inbounds i8, ptr %.val, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %lxb_html_tree_current_node.argprom.exit, label %14
+  br i1 %13, label %lxb_html_tree_current_node.exit, label %14
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %.val, align 8
   %16 = getelementptr ptr, ptr %15, i64 %12
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load ptr, ptr %17, align 8
-  br label %lxb_html_tree_current_node.argprom.exit
+  br label %lxb_html_tree_current_node.exit
 
-lxb_html_tree_current_node.argprom.exit:          ; preds = %8, %14
+lxb_html_tree_current_node.exit:                  ; preds = %8, %14
   %.0.i = phi ptr [ %18, %14 ], [ null, %8 ]
   %19 = load i64, ptr %3, align 8
   %20 = getelementptr inbounds i8, ptr %.0.i, i64 8
@@ -1038,13 +1038,13 @@ lxb_html_tree_current_node.argprom.exit:          ; preds = %8, %14
   %22 = icmp eq i64 %21, %19
   br i1 %22, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_node_is.exit.thread
 
-lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.argprom.exit
+lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.exit
   %23 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 2
   br i1 %25, label %26, label %lxb_html_tree_node_is.exit.thread
 
-lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_current_node.argprom.exit, %lxb_html_tree_node_is.exit
+lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_current_node.exit, %lxb_html_tree_node_is.exit
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 22) #4
   %.pre = load i64, ptr %3, align 8
   br label %26
@@ -1059,7 +1059,7 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lxb_html_tree_insertion_mode_in_body_anything_else_closed.retelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @lxb_html_tree_insertion_mode_in_body_anything_else_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1095,27 +1095,27 @@ define internal fastcc void @lxb_html_tree_insertion_mode_in_body_anything_else_
   %23 = getelementptr inbounds i8, ptr %.val, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %lxb_html_tree_current_node.argprom.exit, label %26
+  br i1 %25, label %lxb_html_tree_current_node.exit, label %26
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %.val, align 8
   %28 = getelementptr ptr, ptr %27, i64 %24
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load ptr, ptr %29, align 8
-  br label %lxb_html_tree_current_node.argprom.exit
+  br label %lxb_html_tree_current_node.exit
 
-lxb_html_tree_current_node.argprom.exit:          ; preds = %20, %26
+lxb_html_tree_current_node.exit:                  ; preds = %20, %26
   %.0.i = phi ptr [ %30, %26 ], [ null, %20 ]
   %.not25 = icmp eq ptr %22, %.0.i
   br i1 %.not25, label %32, label %31
 
-31:                                               ; preds = %lxb_html_tree_current_node.argprom.exit
+31:                                               ; preds = %lxb_html_tree_current_node.exit
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 22) #4
   %.pre36 = load ptr, ptr %21, align 8
   br label %32
 
-32:                                               ; preds = %31, %lxb_html_tree_current_node.argprom.exit
-  %33 = phi ptr [ %.pre36, %31 ], [ %22, %lxb_html_tree_current_node.argprom.exit ]
+32:                                               ; preds = %31, %lxb_html_tree_current_node.exit
+  %33 = phi ptr [ %.pre36, %31 ], [ %22, %lxb_html_tree_current_node.exit ]
   tail call void @lxb_html_tree_open_elements_pop_until_node(ptr noundef nonnull %0, ptr noundef %33, i1 noundef zeroext true) #4
   br label %.loopexit
 
@@ -1268,9 +1268,9 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_html(ptr
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 0) #4
   %3 = tail call ptr @lxb_html_tree_open_elements_find(ptr noundef %0, i64 noundef 179, i64 noundef 2, ptr noundef null) #4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %lxb_html_tree_open_elements_first.argprom.exit, label %15
+  br i1 %.not, label %lxb_html_tree_open_elements_first.exit, label %15
 
-lxb_html_tree_open_elements_first.argprom.exit:   ; preds = %2
+lxb_html_tree_open_elements_first.exit:           ; preds = %2
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -1287,12 +1287,12 @@ lxb_html_tree_open_elements_first.argprom.exit:   ; preds = %2
   %.not13 = icmp eq i32 %11, 0
   br i1 %.not13, label %15, label %13
 
-13:                                               ; preds = %lxb_html_tree_open_elements_first.argprom.exit
+13:                                               ; preds = %lxb_html_tree_open_elements_first.exit
   %14 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #4
   br label %15
 
-15:                                               ; preds = %lxb_html_tree_open_elements_first.argprom.exit, %2, %13
-  %.0 = phi i1 [ %14, %13 ], [ true, %2 ], [ true, %lxb_html_tree_open_elements_first.argprom.exit ]
+15:                                               ; preds = %lxb_html_tree_open_elements_first.exit, %2, %13
+  %.0 = phi i1 [ %14, %13 ], [ true, %2 ], [ true, %lxb_html_tree_open_elements_first.exit ]
   ret i1 %.0
 }
 
@@ -1304,25 +1304,25 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_body(ptr
   %4 = getelementptr inbounds i8, ptr %.val, i64 16
   %5 = load i64, ptr %4, align 8
   %.not.i.i = icmp ugt i64 %5, 1
-  br i1 %.not.i.i, label %lxb_html_tree_open_elements_get.argprom.exit, label %lxb_html_tree_open_elements_get.argprom.exit.thread
+  br i1 %.not.i.i, label %lxb_html_tree_open_elements_get.exit, label %lxb_html_tree_open_elements_get.exit.thread
 
-lxb_html_tree_open_elements_get.argprom.exit:     ; preds = %2
+lxb_html_tree_open_elements_get.exit:             ; preds = %2
   %6 = load ptr, ptr %.val, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %lxb_html_tree_open_elements_get.argprom.exit.thread, label %10
+  br i1 %9, label %lxb_html_tree_open_elements_get.exit.thread, label %10
 
-10:                                               ; preds = %lxb_html_tree_open_elements_get.argprom.exit
+10:                                               ; preds = %lxb_html_tree_open_elements_get.exit
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load i64, ptr %11, align 8
   %.not = icmp eq i64 %12, 31
-  br i1 %.not, label %13, label %lxb_html_tree_open_elements_get.argprom.exit.thread
+  br i1 %.not, label %13, label %lxb_html_tree_open_elements_get.exit.thread
 
 13:                                               ; preds = %10
   %14 = tail call ptr @lxb_html_tree_open_elements_find_reverse(ptr noundef nonnull %0, i64 noundef 179, i64 noundef 2, ptr noundef null) #4
   %.not18 = icmp eq ptr %14, null
-  br i1 %.not18, label %15, label %lxb_html_tree_open_elements_get.argprom.exit.thread
+  br i1 %.not18, label %15, label %lxb_html_tree_open_elements_get.exit.thread
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 81
@@ -1333,14 +1333,14 @@ lxb_html_tree_open_elements_get.argprom.exit:     ; preds = %2
   %20 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %19, ptr %20, align 8
   %.not19 = icmp eq i32 %19, 0
-  br i1 %.not19, label %lxb_html_tree_open_elements_get.argprom.exit.thread, label %21
+  br i1 %.not19, label %lxb_html_tree_open_elements_get.exit.thread, label %21
 
 21:                                               ; preds = %15
   %22 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #4
-  br label %lxb_html_tree_open_elements_get.argprom.exit.thread
+  br label %lxb_html_tree_open_elements_get.exit.thread
 
-lxb_html_tree_open_elements_get.argprom.exit.thread: ; preds = %2, %15, %13, %lxb_html_tree_open_elements_get.argprom.exit, %10, %21
-  %.0 = phi i1 [ %22, %21 ], [ true, %10 ], [ true, %lxb_html_tree_open_elements_get.argprom.exit ], [ true, %13 ], [ true, %15 ], [ true, %2 ]
+lxb_html_tree_open_elements_get.exit.thread:      ; preds = %2, %15, %13, %lxb_html_tree_open_elements_get.exit, %10, %21
+  %.0 = phi i1 [ %22, %21 ], [ true, %10 ], [ true, %lxb_html_tree_open_elements_get.exit ], [ true, %13 ], [ true, %15 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -1352,27 +1352,27 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_frameset
   %4 = getelementptr inbounds i8, ptr %.val, i64 16
   %5 = load i64, ptr %4, align 8
   %.not.i.i = icmp ugt i64 %5, 1
-  br i1 %.not.i.i, label %lxb_html_tree_open_elements_get.argprom.exit, label %lxb_html_tree_open_elements_get.argprom.exit.thread
+  br i1 %.not.i.i, label %lxb_html_tree_open_elements_get.exit, label %lxb_html_tree_open_elements_get.exit.thread
 
-lxb_html_tree_open_elements_get.argprom.exit:     ; preds = %2
+lxb_html_tree_open_elements_get.exit:             ; preds = %2
   %6 = load ptr, ptr %.val, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %lxb_html_tree_open_elements_get.argprom.exit.thread, label %10
+  br i1 %9, label %lxb_html_tree_open_elements_get.exit.thread, label %10
 
-10:                                               ; preds = %lxb_html_tree_open_elements_get.argprom.exit
+10:                                               ; preds = %lxb_html_tree_open_elements_get.exit
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load i64, ptr %11, align 8
   %.not = icmp eq i64 %12, 31
-  br i1 %.not, label %13, label %lxb_html_tree_open_elements_get.argprom.exit.thread
+  br i1 %.not, label %13, label %lxb_html_tree_open_elements_get.exit.thread
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 81
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %lxb_html_tree_open_elements_get.argprom.exit.thread, label %18
+  br i1 %17, label %lxb_html_tree_open_elements_get.exit.thread, label %18
 
 18:                                               ; preds = %13
   tail call void @lxb_html_tree_node_delete_deep(ptr noundef nonnull %0, ptr noundef nonnull %8) #4
@@ -1380,33 +1380,33 @@ lxb_html_tree_open_elements_get.argprom.exit:     ; preds = %2
   %19 = getelementptr inbounds i8, ptr %.val19, i64 16
   %20 = load i64, ptr %19, align 8
   %.not.i.i20.not = icmp eq i64 %20, 0
-  br i1 %.not.i.i20.not, label %lxb_html_tree_open_elements_get.argprom.exit22, label %21
+  br i1 %.not.i.i20.not, label %lxb_html_tree_open_elements_get.exit22, label %21
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %.val19, align 8
   %23 = load ptr, ptr %22, align 8
-  br label %lxb_html_tree_open_elements_get.argprom.exit22
+  br label %lxb_html_tree_open_elements_get.exit22
 
-lxb_html_tree_open_elements_get.argprom.exit22:   ; preds = %18, %21
+lxb_html_tree_open_elements_get.exit22:           ; preds = %18, %21
   %.0.i.i21 = phi ptr [ %23, %21 ], [ null, %18 ]
   tail call void @lxb_html_tree_open_elements_pop_until_node(ptr noundef nonnull %0, ptr noundef %.0.i.i21, i1 noundef zeroext false) #4
   %24 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 2) #4
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %29
 
-26:                                               ; preds = %lxb_html_tree_open_elements_get.argprom.exit22
+26:                                               ; preds = %lxb_html_tree_open_elements_get.exit22
   %27 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 2, ptr %27, align 8
   %28 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #4
-  br label %lxb_html_tree_open_elements_get.argprom.exit.thread
+  br label %lxb_html_tree_open_elements_get.exit.thread
 
-29:                                               ; preds = %lxb_html_tree_open_elements_get.argprom.exit22
+29:                                               ; preds = %lxb_html_tree_open_elements_get.exit22
   %30 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr @lxb_html_tree_insertion_mode_in_frameset, ptr %30, align 8
-  br label %lxb_html_tree_open_elements_get.argprom.exit.thread
+  br label %lxb_html_tree_open_elements_get.exit.thread
 
-lxb_html_tree_open_elements_get.argprom.exit.thread: ; preds = %2, %13, %lxb_html_tree_open_elements_get.argprom.exit, %10, %29, %26
-  %.0 = phi i1 [ %28, %26 ], [ true, %29 ], [ true, %10 ], [ true, %lxb_html_tree_open_elements_get.argprom.exit ], [ true, %13 ], [ true, %2 ]
+lxb_html_tree_open_elements_get.exit.thread:      ; preds = %2, %13, %lxb_html_tree_open_elements_get.exit, %10, %29, %26
+  %.0 = phi i1 [ %28, %26 ], [ true, %29 ], [ true, %10 ], [ true, %lxb_html_tree_open_elements_get.exit ], [ true, %13 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -1560,29 +1560,29 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_li(ptr n
   %18 = getelementptr inbounds i8, ptr %.val, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %lxb_html_tree_current_node.argprom.exit, label %21
+  br i1 %20, label %lxb_html_tree_current_node.exit, label %21
 
 21:                                               ; preds = %.lr.ph._crit_edge
   %22 = load ptr, ptr %.val, align 8
   %23 = getelementptr ptr, ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load ptr, ptr %24, align 8
-  br label %lxb_html_tree_current_node.argprom.exit
+  br label %lxb_html_tree_current_node.exit
 
-lxb_html_tree_current_node.argprom.exit:          ; preds = %.lr.ph._crit_edge, %21
+lxb_html_tree_current_node.exit:                  ; preds = %.lr.ph._crit_edge, %21
   %.0.i = phi ptr [ %25, %21 ], [ null, %.lr.ph._crit_edge ]
   %26 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 113
   br i1 %28, label %lxb_html_tree_node_is.exit31, label %lxb_html_tree_node_is.exit31.thread
 
-lxb_html_tree_node_is.exit31:                     ; preds = %lxb_html_tree_current_node.argprom.exit
+lxb_html_tree_node_is.exit31:                     ; preds = %lxb_html_tree_current_node.exit
   %29 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 2
   br i1 %31, label %32, label %lxb_html_tree_node_is.exit31.thread
 
-lxb_html_tree_node_is.exit31.thread:              ; preds = %lxb_html_tree_current_node.argprom.exit, %lxb_html_tree_node_is.exit31
+lxb_html_tree_node_is.exit31.thread:              ; preds = %lxb_html_tree_current_node.exit, %lxb_html_tree_node_is.exit31
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 22) #4
   br label %32
 
@@ -1710,23 +1710,23 @@ lxb_html_tree_node_is.exit:                       ; preds = %.lr.ph
   %16 = getelementptr inbounds i8, ptr %.val, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %lxb_html_tree_current_node.argprom.exit, label %19
+  br i1 %18, label %lxb_html_tree_current_node.exit, label %19
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %.val, align 8
   %21 = getelementptr ptr, ptr %20, i64 %17
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %22, align 8
-  br label %lxb_html_tree_current_node.argprom.exit
+  br label %lxb_html_tree_current_node.exit
 
-lxb_html_tree_current_node.argprom.exit:          ; preds = %15, %19
+lxb_html_tree_current_node.exit:                  ; preds = %15, %19
   %.0.i = phi ptr [ %23, %19 ], [ null, %15 ]
   %24 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 44
   br i1 %26, label %lxb_html_tree_node_is.exit39, label %lxb_html_tree_node_is.exit47.thread.sink.split.sink.split
 
-lxb_html_tree_node_is.exit39:                     ; preds = %lxb_html_tree_current_node.argprom.exit
+lxb_html_tree_node_is.exit39:                     ; preds = %lxb_html_tree_current_node.exit
   %27 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 2
@@ -1742,23 +1742,23 @@ lxb_html_tree_node_is.exit40:                     ; preds = %.lr.ph
   %32 = getelementptr inbounds i8, ptr %.val38, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %lxb_html_tree_current_node.argprom.exit42, label %35
+  br i1 %34, label %lxb_html_tree_current_node.exit42, label %35
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %.val38, align 8
   %37 = getelementptr ptr, ptr %36, i64 %33
   %38 = getelementptr i8, ptr %37, i64 -8
   %39 = load ptr, ptr %38, align 8
-  br label %lxb_html_tree_current_node.argprom.exit42
+  br label %lxb_html_tree_current_node.exit42
 
-lxb_html_tree_current_node.argprom.exit42:        ; preds = %31, %35
+lxb_html_tree_current_node.exit42:                ; preds = %31, %35
   %.0.i41 = phi ptr [ %39, %35 ], [ null, %31 ]
   %40 = getelementptr inbounds i8, ptr %.0.i41, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 53
   br i1 %42, label %lxb_html_tree_node_is.exit43, label %lxb_html_tree_node_is.exit47.thread.sink.split.sink.split
 
-lxb_html_tree_node_is.exit43:                     ; preds = %lxb_html_tree_current_node.argprom.exit42
+lxb_html_tree_node_is.exit43:                     ; preds = %lxb_html_tree_current_node.exit42
   %43 = getelementptr inbounds i8, ptr %.0.i41, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 2
@@ -1810,7 +1810,7 @@ lxb_html_tag_is_category.exit.thread:             ; preds = %lxb_html_tree_node_
 .lr.ph.backedge:                                  ; preds = %lxb_html_tag_is_category.exit.thread, %lxb_html_tree_node_is.exit47, %lxb_html_tree_node_is.exit46, %lxb_html_tree_node_is.exit45
   br label %.lr.ph
 
-lxb_html_tree_node_is.exit47.thread.sink.split.sink.split: ; preds = %lxb_html_tree_node_is.exit43, %lxb_html_tree_current_node.argprom.exit42, %lxb_html_tree_node_is.exit39, %lxb_html_tree_current_node.argprom.exit
+lxb_html_tree_node_is.exit47.thread.sink.split.sink.split: ; preds = %lxb_html_tree_node_is.exit43, %lxb_html_tree_current_node.exit42, %lxb_html_tree_node_is.exit39, %lxb_html_tree_current_node.exit
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 22) #4
   br label %lxb_html_tree_node_is.exit47.thread.sink.split
 
@@ -2593,23 +2593,23 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_optopt(p
   %4 = getelementptr inbounds i8, ptr %.val, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %lxb_html_tree_current_node.argprom.exit, label %7
+  br i1 %6, label %lxb_html_tree_current_node.exit, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %.val, align 8
   %9 = getelementptr ptr, ptr %8, i64 %5
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8
-  br label %lxb_html_tree_current_node.argprom.exit
+  br label %lxb_html_tree_current_node.exit
 
-lxb_html_tree_current_node.argprom.exit:          ; preds = %2, %7
+lxb_html_tree_current_node.exit:                  ; preds = %2, %7
   %.0.i = phi ptr [ %11, %7 ], [ null, %2 ]
   %12 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 143
   br i1 %14, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_node_is.exit.thread
 
-lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.argprom.exit
+lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.exit
   %15 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 2
@@ -2619,7 +2619,7 @@ lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_curre
   %19 = tail call ptr @lexbor_array_pop(ptr noundef nonnull %.val) #4
   br label %lxb_html_tree_node_is.exit.thread
 
-lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_current_node.argprom.exit, %18, %lxb_html_tree_node_is.exit
+lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_current_node.exit, %18, %lxb_html_tree_node_is.exit
   %20 = tail call i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef nonnull %0) #4
   %21 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %20, ptr %21, align 8
@@ -2660,29 +2660,29 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_rbrtc(pt
   %7 = getelementptr inbounds i8, ptr %.val, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %lxb_html_tree_current_node.argprom.exit, label %10
+  br i1 %9, label %lxb_html_tree_current_node.exit, label %10
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %.val, align 8
   %12 = getelementptr ptr, ptr %11, i64 %8
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load ptr, ptr %13, align 8
-  br label %lxb_html_tree_current_node.argprom.exit
+  br label %lxb_html_tree_current_node.exit
 
-lxb_html_tree_current_node.argprom.exit:          ; preds = %5, %10
+lxb_html_tree_current_node.exit:                  ; preds = %5, %10
   %.0.i = phi ptr [ %14, %10 ], [ null, %5 ]
   %15 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 158
   br i1 %17, label %lxb_html_tree_node_is.exit, label %lxb_html_tree_node_is.exit.thread
 
-lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.argprom.exit
+lxb_html_tree_node_is.exit:                       ; preds = %lxb_html_tree_current_node.exit
   %18 = getelementptr inbounds i8, ptr %.0.i, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 2
   br i1 %20, label %21, label %lxb_html_tree_node_is.exit.thread
 
-lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_current_node.argprom.exit, %lxb_html_tree_node_is.exit
+lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_current_node.exit, %lxb_html_tree_node_is.exit
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 23) #4
   br label %21
 
@@ -2706,13 +2706,13 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_rprt(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 158, i64 noundef 2, i32 noundef 8) #4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %lxb_html_tree_current_node.argprom.exit, label %4
+  br i1 %.not, label %lxb_html_tree_current_node.exit, label %4
 
 4:                                                ; preds = %2
   tail call void @lxb_html_tree_generate_implied_end_tags(ptr noundef %0, i64 noundef 157, i64 noundef 2) #4
-  br label %lxb_html_tree_current_node.argprom.exit
+  br label %lxb_html_tree_current_node.exit
 
-lxb_html_tree_current_node.argprom.exit:          ; preds = %4, %2
+lxb_html_tree_current_node.exit:                  ; preds = %4, %2
   %5 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %.val, i64 16
@@ -2724,14 +2724,14 @@ lxb_html_tree_current_node.argprom.exit:          ; preds = %4, %2
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %14
 
-11:                                               ; preds = %lxb_html_tree_current_node.argprom.exit
+11:                                               ; preds = %lxb_html_tree_current_node.exit
   %12 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 2, ptr %12, align 8
   %13 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #4
   br label %14
 
-14:                                               ; preds = %lxb_html_tree_current_node.argprom.exit, %11
-  %.0 = phi i1 [ %13, %11 ], [ true, %lxb_html_tree_current_node.argprom.exit ]
+14:                                               ; preds = %lxb_html_tree_current_node.exit, %11
+  %.0 = phi i1 [ %13, %11 ], [ true, %lxb_html_tree_current_node.exit ]
   ret i1 %.0
 }
 

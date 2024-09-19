@@ -165,7 +165,7 @@ define internal i64 @smbios_label_show(ptr nocapture noundef readonly %0, ptr no
   %8 = zext i8 %.val.val2 to i32
   %9 = tail call ptr @dmi_find_device(i32 noundef -3, ptr noundef null, ptr noundef null) #3
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %find_smbios_instance_string.argprom.argprom.argprom.exit, label %.preheader.i
+  br i1 %10, label %find_smbios_instance_string.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %36
   %11 = phi ptr [ %37, %36 ], [ %9, %3 ]
@@ -201,18 +201,18 @@ define internal i64 @smbios_label_show(ptr nocapture noundef readonly %0, ptr no
 31:                                               ; preds = %27
   %32 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, ptr noundef %30) #3
   %33 = sext i32 %32 to i64
-  br label %find_smbios_instance_string.argprom.argprom.argprom.exit
+  br label %find_smbios_instance_string.exit
 
 34:                                               ; preds = %27
   %35 = tail call i64 @strlen(ptr noundef %30) #3
-  br label %find_smbios_instance_string.argprom.argprom.argprom.exit
+  br label %find_smbios_instance_string.exit
 
 36:                                               ; preds = %23, %19, %15, %.preheader.i
   %37 = tail call ptr @dmi_find_device(i32 noundef -3, ptr noundef null, ptr noundef nonnull %11) #3
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %find_smbios_instance_string.argprom.argprom.argprom.exit, label %.preheader.i, !llvm.loop !5
+  br i1 %38, label %find_smbios_instance_string.exit, label %.preheader.i, !llvm.loop !5
 
-find_smbios_instance_string.argprom.argprom.argprom.exit: ; preds = %36, %3, %31, %34
+find_smbios_instance_string.exit:                 ; preds = %36, %3, %31, %34
   %39 = phi i64 [ %33, %31 ], [ %35, %34 ], [ 0, %3 ], [ 0, %36 ]
   ret i64 %39
 }
@@ -231,7 +231,7 @@ define internal i64 @index_show(ptr nocapture noundef readonly %0, ptr nocapture
   %8 = zext i8 %.val.val2 to i32
   %9 = tail call ptr @dmi_find_device(i32 noundef -3, ptr noundef null, ptr noundef null) #3
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %find_smbios_instance_string.argprom.argprom.argprom.exit, label %.preheader.i
+  br i1 %10, label %find_smbios_instance_string.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %38
   %11 = phi ptr [ %39, %38 ], [ %9, %3 ]
@@ -267,20 +267,20 @@ define internal i64 @index_show(ptr nocapture noundef readonly %0, ptr nocapture
   %31 = load i32, ptr %30, align 8
   %32 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef %31) #3
   %33 = sext i32 %32 to i64
-  br label %find_smbios_instance_string.argprom.argprom.argprom.exit
+  br label %find_smbios_instance_string.exit
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds i8, ptr %11, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i64 @strlen(ptr noundef %36) #3
-  br label %find_smbios_instance_string.argprom.argprom.argprom.exit
+  br label %find_smbios_instance_string.exit
 
 38:                                               ; preds = %23, %19, %15, %.preheader.i
   %39 = tail call ptr @dmi_find_device(i32 noundef -3, ptr noundef null, ptr noundef nonnull %11) #3
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %find_smbios_instance_string.argprom.argprom.argprom.exit, label %.preheader.i, !llvm.loop !5
+  br i1 %40, label %find_smbios_instance_string.exit, label %.preheader.i, !llvm.loop !5
 
-find_smbios_instance_string.argprom.argprom.argprom.exit: ; preds = %38, %3, %29, %34
+find_smbios_instance_string.exit:                 ; preds = %38, %3, %29, %34
   %41 = phi i64 [ %33, %29 ], [ %37, %34 ], [ 0, %3 ], [ 0, %38 ]
   ret i64 %41
 }
@@ -289,13 +289,13 @@ find_smbios_instance_string.argprom.argprom.argprom.exit: ; preds = %38, %3, %29
 define internal range(i64 -2147483648, 2147483648) i64 @label_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 632
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc i32 @dsm_get_label.argprom(ptr %.val, ptr noundef %2, i32 noundef 0)
+  %5 = tail call fastcc i32 @dsm_get_label(ptr %.val, ptr noundef %2, i32 noundef 0)
   %6 = sext i32 %5 to i64
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @dsm_get_label.argprom(ptr %.632.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @dsm_get_label(ptr %.632.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %.632.val) #3
   %4 = getelementptr i8, ptr %.632.val, i64 -16
   %5 = icmp ne ptr %4, null
@@ -398,7 +398,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 define internal range(i64 -2147483648, 2147483648) i64 @acpi_index_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 632
   %.val = load ptr, ptr %4, align 8
-  %5 = tail call fastcc i32 @dsm_get_label.argprom(ptr %.val, ptr noundef %2, i32 noundef 1)
+  %5 = tail call fastcc i32 @dsm_get_label(ptr %.val, ptr noundef %2, i32 noundef 1)
   %6 = sext i32 %5 to i64
   ret i64 %6
 }

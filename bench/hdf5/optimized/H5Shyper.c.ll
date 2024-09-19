@@ -464,7 +464,7 @@ define internal range(i64 -9223372036854775794, -9223372036854775808) i64 @H5S__
   %23 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %24 = add i64 %23, 1
   store i64 %24, ptr @H5S_hyper_op_gen_g, align 8
-  %25 = tail call fastcc i64 @H5S__hyper_span_nblocks_helper.argelim(ptr noundef nonnull %21, i64 noundef %23)
+  %25 = tail call fastcc i64 @H5S__hyper_span_nblocks_helper(ptr noundef nonnull %21, i64 noundef %23)
   br label %H5S__get_select_hyper_nblocks.exit
 
 H5S__get_select_hyper_nblocks.exit:               ; preds = %.lr.ph.split.i, %22, %19, %.preheader.i, %1
@@ -648,7 +648,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_serialize(ptr nocapture noundef
   %31 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %32 = add i64 %31, 1
   store i64 %32, ptr @H5S_hyper_op_gen_g, align 8
-  %33 = tail call fastcc i64 @H5S__hyper_span_nblocks_helper.argelim(ptr noundef nonnull %29, i64 noundef %31)
+  %33 = tail call fastcc i64 @H5S__hyper_span_nblocks_helper(ptr noundef nonnull %29, i64 noundef %31)
   br label %H5S__get_select_hyper_nblocks.exit
 
 H5S__get_select_hyper_nblocks.exit:               ; preds = %.lr.ph.split.i, %30, %27, %.preheader.i, %2
@@ -3786,7 +3786,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %14, %15
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 56
   %83 = load i32, ptr %82, align 8
-  %84 = tail call fastcc zeroext i1 @H5S__hyper_intersect_block_helper.argelim(ptr noundef %81, i32 noundef %83, ptr noundef %1, ptr noundef %2, i64 noundef %78)
+  %84 = tail call fastcc zeroext i1 @H5S__hyper_intersect_block_helper(ptr noundef %81, i32 noundef %83, ptr noundef %1, ptr noundef %2, i64 noundef %78)
   %85 = zext i1 %84 to i32
   br label %.loopexit
 
@@ -3871,7 +3871,7 @@ define internal noundef i32 @H5S__hyper_adjust_u(ptr nocapture noundef readonly 
   %40 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %41 = add i64 %40, 1
   store i64 %41, ptr @H5S_hyper_op_gen_g, align 8
-  tail call fastcc void @H5S__hyper_adjust_u_helper.argelim(ptr noundef nonnull %38, i32 noundef %35, ptr noundef nonnull %1, i64 noundef %40)
+  tail call fastcc void @H5S__hyper_adjust_u_helper(ptr noundef nonnull %38, i32 noundef %35, ptr noundef nonnull %1, i64 noundef %40)
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %2, %.loopexit, %39
@@ -3954,7 +3954,7 @@ define internal noundef i32 @H5S__hyper_adjust_s(ptr nocapture noundef readonly 
   %40 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %41 = add i64 %40, 1
   store i64 %41, ptr @H5S_hyper_op_gen_g, align 8
-  tail call fastcc void @H5S__hyper_adjust_s_helper.argelim(ptr noundef nonnull %38, i32 noundef %35, ptr noundef nonnull %1, i64 noundef %40)
+  tail call fastcc void @H5S__hyper_adjust_s_helper(ptr noundef nonnull %38, i32 noundef %35, ptr noundef nonnull %1, i64 noundef %40)
   br label %.critedge
 
 .critedge:                                        ; preds = %5, %2, %.loopexit, %39
@@ -5196,7 +5196,7 @@ define i64 @H5Sget_select_hyper_nblocks(i64 noundef %0) local_unnamed_addr #0 {
   %60 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %61 = add i64 %60, 1
   store i64 %61, ptr @H5S_hyper_op_gen_g, align 8
-  %62 = tail call fastcc i64 @H5S__hyper_span_nblocks_helper.argelim(ptr noundef nonnull %58, i64 noundef %60)
+  %62 = tail call fastcc i64 @H5S__hyper_span_nblocks_helper(ptr noundef nonnull %58, i64 noundef %60)
   br label %H5S__get_select_hyper_nblocks.exit.thread28
 
 H5S__get_select_hyper_nblocks.exit.thread28:      ; preds = %.lr.ph.split.us.i, %59, %56, %.preheader.i
@@ -5588,7 +5588,7 @@ H5S__hyper_rebuild.exit.i:                        ; preds = %75, %74
 198:                                              ; preds = %99
   %199 = getelementptr inbounds i8, ptr %101, i64 2584
   %200 = load ptr, ptr %199, align 8
-  call fastcc void @H5S__hyper_span_blocklist.argelim(ptr noundef %200, ptr noundef %12, ptr noundef %13, i64 noundef 0, ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  call fastcc void @H5S__hyper_span_blocklist(ptr noundef %200, ptr noundef %12, ptr noundef %13, i64 noundef 0, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   br label %H5S__get_select_hyper_blocklist.exit
 
 H5S__get_select_hyper_blocklist.exit:             ; preds = %.loopexit.i, %198
@@ -6304,7 +6304,7 @@ define range(i32 0, 2) i32 @H5S_hyper_normalize_offset(ptr nocapture noundef %0,
   %57 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %58 = add i64 %57, 1
   store i64 %58, ptr @H5S_hyper_op_gen_g, align 8
-  tail call fastcc void @H5S__hyper_adjust_s_helper.argelim(ptr noundef nonnull %55, i32 noundef %52, ptr noundef nonnull readonly %21, i64 noundef %57)
+  tail call fastcc void @H5S__hyper_adjust_s_helper(ptr noundef nonnull %55, i32 noundef %52, ptr noundef nonnull readonly %21, i64 noundef %57)
   %.pre = load i32, ptr %11, align 8
   br label %H5S__hyper_adjust_s.exit
 
@@ -6400,7 +6400,7 @@ define noundef i32 @H5S_hyper_denormalize_offset(ptr nocapture noundef %0, ptr n
   %40 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %41 = add i64 %40, 1
   store i64 %41, ptr @H5S_hyper_op_gen_g, align 8
-  tail call fastcc void @H5S__hyper_adjust_s_helper.argelim(ptr noundef nonnull %38, i32 noundef %35, ptr noundef nonnull readonly %1, i64 noundef %40)
+  tail call fastcc void @H5S__hyper_adjust_s_helper(ptr noundef nonnull %38, i32 noundef %35, ptr noundef nonnull readonly %1, i64 noundef %40)
   %.pre = load i32, ptr %3, align 8
   br label %H5S__hyper_adjust_s.exit
 
@@ -7898,7 +7898,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__generate_hyperslab(ptr noundef
   %36 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %37 = add i64 %36, 1
   store i64 %37, ptr @H5S_hyper_op_gen_g, align 8
-  %38 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef nonnull %13, i64 noundef %36)
+  %38 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef nonnull %13, i64 noundef %36)
   %39 = getelementptr inbounds i8, ptr %0, i64 352
   store i64 %38, ptr %39, align 8
   br label %.thread
@@ -7955,7 +7955,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__generate_hyperslab(ptr noundef
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  call fastcc void @H5S__hyper_update_diminfo.retelim(ptr noundef nonnull %50, i32 noundef %1, ptr noundef nonnull %10)
+  call fastcc void @H5S__hyper_update_diminfo(ptr noundef nonnull %50, i32 noundef %1, ptr noundef nonnull %10)
   br label %65
 
 65:                                               ; preds = %._crit_edge, %47
@@ -8430,7 +8430,7 @@ define range(i32 -1, 1) i32 @H5S_combine_hyperslab(ptr noundef %0, i32 noundef %
   br i1 %exitcond161.not, label %._crit_edge146, label %.lr.ph145
 
 ._crit_edge146:                                   ; preds = %.lr.ph145, %.preheader
-  call fastcc void @H5S__hyper_update_diminfo.retelim(ptr noundef nonnull %141, i32 noundef %1, ptr noundef nonnull %10)
+  call fastcc void @H5S__hyper_update_diminfo(ptr noundef nonnull %141, i32 noundef %1, ptr noundef nonnull %10)
   br label %218
 
 160:                                              ; preds = %117
@@ -8768,7 +8768,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_add_disjoint_spans(ptr n
   %3 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %4 = add i64 %3, 1
   store i64 %4, ptr @H5S_hyper_op_gen_g, align 8
-  %5 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef %1, i64 noundef %3)
+  %5 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %1, i64 noundef %3)
   %6 = getelementptr inbounds i8, ptr %0, i64 352
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %5
@@ -8800,7 +8800,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_add_disjoint_spans(ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5S__hyper_update_diminfo.retelim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #8 {
+define internal fastcc void @H5S__hyper_update_diminfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #8 {
   %4 = alloca [32 x %struct.H5S_hyper_dim_t], align 16
   %5 = icmp eq i32 %1, 1
   switch i32 %1, label %._crit_edge207 [
@@ -9497,7 +9497,7 @@ define internal fastcc ptr @H5S__combine_select(ptr noundef nonnull %0, i32 noun
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds i8, ptr %58, i64 1032
-  tail call fastcc void @H5S__hyper_update_diminfo.retelim(ptr noundef %61, i32 noundef %1, ptr noundef nonnull %63)
+  tail call fastcc void @H5S__hyper_update_diminfo(ptr noundef %61, i32 noundef %1, ptr noundef nonnull %63)
   br label %H5S__fill_in_select.exit.thread
 
 64:                                               ; preds = %57
@@ -9652,7 +9652,7 @@ define range(i32 -1, 1) i32 @H5S__modify_select(ptr noundef %0, i32 noundef %1, 
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds i8, ptr %60, i64 1032
-  tail call fastcc void @H5S__hyper_update_diminfo.retelim(ptr noundef %63, i32 noundef %1, ptr noundef nonnull %65)
+  tail call fastcc void @H5S__hyper_update_diminfo(ptr noundef %63, i32 noundef %1, ptr noundef nonnull %65)
   br label %H5S__fill_in_select.exit.thread
 
 66:                                               ; preds = %59
@@ -10013,7 +10013,7 @@ define range(i32 -1, 1) i32 @H5S__hyper_project_intersection(ptr noundef %0, ptr
   %125 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %126 = add i64 %125, 1
   store i64 %126, ptr @H5S_hyper_op_gen_g, align 8
-  %127 = call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef %123, i64 noundef %125)
+  %127 = call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %123, i64 noundef %125)
   %128 = getelementptr inbounds i8, ptr %3, i64 352
   store i64 %127, ptr %128, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
@@ -10284,7 +10284,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_iterate(ptr noc
 73:                                               ; preds = %._crit_edge, %64
   %74 = phi ptr [ %.pre, %._crit_edge ], [ %61, %64 ]
   %75 = load i64, ptr %40, align 8
-  %76 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef %74, i64 noundef %75)
+  %76 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %74, i64 noundef %75)
   %77 = sub i64 %.0218, %.0215
   %78 = mul i64 %76, %77
   %79 = load i64, ptr %34, align 8
@@ -10441,7 +10441,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_iterate(ptr noc
 155:                                              ; preds = %._crit_edge356, %147
   %156 = phi ptr [ %.pre357, %._crit_edge356 ], [ %145, %147 ]
   %157 = load i64, ptr %40, align 8
-  %158 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef %156, i64 noundef %157)
+  %158 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %156, i64 noundef %157)
   %159 = load i64, ptr %141, align 8
   %reass.sub328 = sub i64 %159, %.0215
   %160 = add i64 %reass.sub328, 1
@@ -10542,7 +10542,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_iterate(ptr noc
 201:                                              ; preds = %._crit_edge352, %193
   %202 = phi ptr [ %.pre353, %._crit_edge352 ], [ %191, %193 ]
   %203 = load i64, ptr %40, align 8
-  %204 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef %202, i64 noundef %203)
+  %204 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %202, i64 noundef %203)
   %205 = getelementptr inbounds i8, ptr %.1279280, i64 8
   %206 = load i64, ptr %205, align 8
   %reass.sub = sub i64 %206, %.2217278281
@@ -10577,7 +10577,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_iterate(ptr noc
   %220 = getelementptr inbounds i8, ptr %.2310, i64 16
   %221 = load ptr, ptr %220, align 8
   %222 = load i64, ptr %40, align 8
-  %223 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef %221, i64 noundef %222)
+  %223 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %221, i64 noundef %222)
   %224 = getelementptr inbounds i8, ptr %.2310, i64 8
   %225 = load i64, ptr %224, align 8
   %226 = load i64, ptr %.2310, align 8
@@ -10764,7 +10764,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_iterate(ptr noc
 .thread282:                                       ; preds = %303, %306
   %313 = getelementptr inbounds i8, ptr %4, i64 800
   %314 = load i64, ptr %313, align 8
-  %315 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef nonnull %0, i64 noundef %314)
+  %315 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef nonnull %0, i64 noundef %314)
   %316 = mul i64 %315, %2
   %317 = getelementptr inbounds i8, ptr %4, i64 784
   %318 = load i64, ptr %317, align 8
@@ -10915,11 +10915,11 @@ define i64 @H5S_hyper_get_clip_extent(ptr nocapture noundef readonly %0, ptr noc
 
 28:                                               ; preds = %.thread, %14
   %29 = phi ptr [ %13, %.thread ], [ %26, %14 ]
-  br i1 %2, label %30, label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br i1 %2, label %30, label %H5S__hyper_get_clip_extent_real.exit
 
 30:                                               ; preds = %28
   %31 = load i64, ptr %29, align 8
-  br label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br label %H5S__hyper_get_clip_extent_real.exit
 
 32:                                               ; preds = %14
   %33 = getelementptr inbounds i8, ptr %26, i64 24
@@ -10936,7 +10936,7 @@ define i64 @H5S_hyper_get_clip_extent(ptr nocapture noundef readonly %0, ptr noc
 40:                                               ; preds = %36, %32
   %41 = load i64, ptr %26, align 8
   %42 = add i64 %41, %21
-  br label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br label %H5S__hyper_get_clip_extent_real.exit
 
 43:                                               ; preds = %36
   %44 = udiv i64 %21, %34
@@ -10950,7 +10950,7 @@ define i64 @H5S_hyper_get_clip_extent(ptr nocapture noundef readonly %0, ptr noc
   %48 = mul i64 %44, %38
   %49 = add i64 %.recomposed, %48
   %50 = add i64 %49, %46
-  br label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br label %H5S__hyper_get_clip_extent_real.exit
 
 51:                                               ; preds = %43
   br i1 %2, label %52, label %55
@@ -10958,16 +10958,16 @@ define i64 @H5S_hyper_get_clip_extent(ptr nocapture noundef readonly %0, ptr noc
 52:                                               ; preds = %51
   %53 = mul i64 %44, %38
   %54 = add i64 %46, %53
-  br label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br label %H5S__hyper_get_clip_extent_real.exit
 
 55:                                               ; preds = %51
   %56 = add i64 %44, -1
   %57 = mul i64 %56, %38
   %58 = add i64 %46, %34
   %59 = add i64 %58, %57
-  br label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br label %H5S__hyper_get_clip_extent_real.exit
 
-H5S__hyper_get_clip_extent_real.argprom.exit:     ; preds = %28, %30, %40, %47, %52, %55
+H5S__hyper_get_clip_extent_real.exit:             ; preds = %28, %30, %40, %47, %52, %55
   %.0.i = phi i64 [ %42, %40 ], [ %50, %47 ], [ %54, %52 ], [ %59, %55 ], [ %31, %30 ], [ 0, %28 ]
   ret i64 %.0.i
 }
@@ -11055,11 +11055,11 @@ H5S__hyper_get_clip_diminfo.exit.thread30:        ; preds = %17
 
 56:                                               ; preds = %.thread38, %30
   %57 = phi ptr [ %49, %.thread38 ], [ %42, %30 ]
-  br i1 %3, label %58, label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br i1 %3, label %58, label %H5S__hyper_get_clip_extent_real.exit
 
 58:                                               ; preds = %56
   %59 = load i64, ptr %57, align 8
-  br label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br label %H5S__hyper_get_clip_extent_real.exit
 
 60:                                               ; preds = %.thread42, %30
   %61 = phi ptr [ %55, %.thread42 ], [ %42, %30 ]
@@ -11078,7 +11078,7 @@ H5S__hyper_get_clip_diminfo.exit.thread30:        ; preds = %17
 69:                                               ; preds = %65, %60
   %70 = load i64, ptr %61, align 8
   %71 = add i64 %70, %.045
-  br label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br label %H5S__hyper_get_clip_extent_real.exit
 
 72:                                               ; preds = %65
   %73 = udiv i64 %.045, %63
@@ -11092,7 +11092,7 @@ H5S__hyper_get_clip_diminfo.exit.thread30:        ; preds = %17
   %77 = mul i64 %73, %67
   %78 = add i64 %.recomposed, %77
   %79 = add i64 %78, %75
-  br label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br label %H5S__hyper_get_clip_extent_real.exit
 
 80:                                               ; preds = %72
   br i1 %3, label %81, label %84
@@ -11100,16 +11100,16 @@ H5S__hyper_get_clip_diminfo.exit.thread30:        ; preds = %17
 81:                                               ; preds = %80
   %82 = mul i64 %73, %67
   %83 = add i64 %75, %82
-  br label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br label %H5S__hyper_get_clip_extent_real.exit
 
 84:                                               ; preds = %80
   %85 = add i64 %73, -1
   %86 = mul i64 %85, %67
   %87 = add i64 %75, %63
   %88 = add i64 %87, %86
-  br label %H5S__hyper_get_clip_extent_real.argprom.exit
+  br label %H5S__hyper_get_clip_extent_real.exit
 
-H5S__hyper_get_clip_extent_real.argprom.exit:     ; preds = %56, %58, %69, %76, %81, %84
+H5S__hyper_get_clip_extent_real.exit:             ; preds = %56, %58, %69, %76, %81, %84
   %.0.i = phi i64 [ %71, %69 ], [ %79, %76 ], [ %83, %81 ], [ %88, %84 ], [ %59, %58 ], [ 0, %56 ]
   ret i64 %.0.i
 }
@@ -14000,7 +14000,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_release(ptr nocapture noun
 declare i32 @H5VM_array_calc(i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @H5S__hyper_span_nblocks_helper.argelim(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc i64 @H5S__hyper_span_nblocks_helper(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, %1
@@ -14024,7 +14024,7 @@ define internal fastcc i64 @H5S__hyper_span_nblocks_helper.argelim(ptr nocapture
   %.12330 = phi i64 [ %17, %.lr.ph ], [ 0, %9 ]
   %14 = getelementptr inbounds i8, ptr %.031, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call fastcc i64 @H5S__hyper_span_nblocks_helper.argelim(ptr noundef %15, i64 noundef %1)
+  %16 = tail call fastcc i64 @H5S__hyper_span_nblocks_helper(ptr noundef %15, i64 noundef %1)
   %17 = add i64 %16, %.12330
   %18 = getelementptr inbounds i8, ptr %.031, i64 24
   %19 = load ptr, ptr %18, align 8
@@ -14769,7 +14769,7 @@ define internal fastcc void @H5S__hyper_serialize_helper(ptr nocapture noundef r
 declare i32 @H5S_set_extent_simple(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5S__hyper_span_blocklist.argelim(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, i64 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #3 {
+define internal fastcc void @H5S__hyper_span_blocklist(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, i64 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #3 {
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %.03843 = load ptr, ptr %8, align 8
   %.not44 = icmp eq ptr %.03843, null
@@ -14801,7 +14801,7 @@ define internal fastcc void @H5S__hyper_span_blocklist.argelim(ptr nocapture nou
   %21 = load i64, ptr %20, align 8
   store i64 %21, ptr %10, align 8
   %22 = load ptr, ptr %16, align 8
-  tail call fastcc void @H5S__hyper_span_blocklist.argelim(ptr noundef %22, ptr noundef %1, ptr noundef %2, i64 noundef %11, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @H5S__hyper_span_blocklist(ptr noundef %22, ptr noundef %1, ptr noundef %2, i64 noundef %11, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   br label %42
 
 23:                                               ; preds = %15
@@ -15081,7 +15081,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_free_span(ptr noundef %0
 declare ptr @H5FL_arr_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @H5S__hyper_intersect_block_helper.argelim(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @H5S__hyper_intersect_block_helper(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, %4
@@ -15155,7 +15155,7 @@ define internal fastcc noundef zeroext i1 @H5S__hyper_intersect_block_helper.arg
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call fastcc zeroext i1 @H5S__hyper_intersect_block_helper.argelim(ptr noundef nonnull %39, i32 noundef %26, ptr noundef nonnull %27, ptr noundef nonnull %28, i64 noundef %4)
+  %42 = tail call fastcc zeroext i1 @H5S__hyper_intersect_block_helper(ptr noundef nonnull %39, i32 noundef %26, ptr noundef nonnull %27, ptr noundef nonnull %28, i64 noundef %4)
   %.pre = load i64, ptr %2, align 8
   br i1 %42, label %.loopexit, label %43
 
@@ -15176,7 +15176,7 @@ define internal fastcc noundef zeroext i1 @H5S__hyper_intersect_block_helper.arg
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5S__hyper_adjust_u_helper.argelim(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #3 {
+define internal fastcc void @H5S__hyper_adjust_u_helper(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, %3
@@ -15239,7 +15239,7 @@ define internal fastcc void @H5S__hyper_adjust_u_helper.argelim(ptr nocapture no
   br i1 %.not34, label %35, label %34
 
 34:                                               ; preds = %24
-  tail call fastcc void @H5S__hyper_adjust_u_helper.argelim(ptr noundef nonnull %33, i32 noundef %22, ptr noundef nonnull %23, i64 noundef %3)
+  tail call fastcc void @H5S__hyper_adjust_u_helper(ptr noundef nonnull %33, i32 noundef %22, ptr noundef nonnull %23, i64 noundef %3)
   br label %35
 
 35:                                               ; preds = %34, %24
@@ -15259,7 +15259,7 @@ define internal fastcc void @H5S__hyper_adjust_u_helper.argelim(ptr nocapture no
 declare i64 @H5VM_array_offset(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5S__hyper_adjust_s_helper.argelim(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #3 {
+define internal fastcc void @H5S__hyper_adjust_s_helper(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, %3
@@ -15322,7 +15322,7 @@ define internal fastcc void @H5S__hyper_adjust_s_helper.argelim(ptr nocapture no
   br i1 %.not40, label %35, label %34
 
 34:                                               ; preds = %24
-  tail call fastcc void @H5S__hyper_adjust_s_helper.argelim(ptr noundef nonnull %33, i32 noundef %22, ptr noundef nonnull %23, i64 noundef %3)
+  tail call fastcc void @H5S__hyper_adjust_s_helper(ptr noundef nonnull %33, i32 noundef %22, ptr noundef nonnull %23, i64 noundef %3)
   br label %35
 
 35:                                               ; preds = %34, %24
@@ -15583,7 +15583,7 @@ H5S__hyper_copy_span.exit100:                     ; preds = %121, %128
   %142 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %143 = add i64 %142, 1
   store i64 %143, ptr @H5S_hyper_op_gen_g, align 8
-  %144 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef %2, i64 noundef %142)
+  %144 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %2, i64 noundef %142)
   %145 = load ptr, ptr %6, align 8
   %146 = getelementptr inbounds i8, ptr %145, i64 352
   store i64 %144, ptr %146, align 8
@@ -15686,7 +15686,7 @@ switch.lookup:                                    ; preds = %151
   %202 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %203 = add i64 %202, 1
   store i64 %203, ptr @H5S_hyper_op_gen_g, align 8
-  %204 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef nonnull %196, i64 noundef %202)
+  %204 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef nonnull %196, i64 noundef %202)
   %205 = load ptr, ptr %6, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 352
   store i64 %204, ptr %206, align 8
@@ -15708,7 +15708,7 @@ switch.lookup:                                    ; preds = %151
   %214 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %215 = add i64 %214, 1
   store i64 %215, ptr @H5S_hyper_op_gen_g, align 8
-  %216 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef nonnull %208, i64 noundef %214)
+  %216 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef nonnull %208, i64 noundef %214)
   %217 = load ptr, ptr %6, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 352
   store i64 %216, ptr %218, align 8
@@ -15737,7 +15737,7 @@ switch.lookup:                                    ; preds = %151
   %230 = load i64, ptr @H5S_hyper_op_gen_g, align 8
   %231 = add i64 %230, 1
   store i64 %231, ptr @H5S_hyper_op_gen_g, align 8
-  %232 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef nonnull %220, i64 noundef %230)
+  %232 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef nonnull %220, i64 noundef %230)
   %233 = load ptr, ptr %6, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 352
   %235 = load i64, ptr %234, align 8
@@ -18907,7 +18907,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 
 21:                                               ; preds = %16
   %22 = load i64, ptr %6, align 8
-  %23 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef nonnull %15, i64 noundef %22)
+  %23 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef nonnull %15, i64 noundef %22)
   %24 = load i32, ptr %4, align 4
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %25
@@ -19131,7 +19131,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %172 = getelementptr inbounds i8, ptr %171, i64 16
   %173 = load ptr, ptr %172, align 8
   %174 = load i64, ptr %6, align 8
-  %175 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef %173, i64 noundef %174)
+  %175 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %173, i64 noundef %174)
   %176 = load i32, ptr %4, align 4
   %177 = zext i32 %176 to i64
   %178 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %177
@@ -19268,7 +19268,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 270:                                              ; preds = %265
   %271 = load i64, ptr %254, align 8
   %272 = load i64, ptr %255, align 8
-  %273 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef nonnull %264, i64 noundef %272)
+  %273 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef nonnull %264, i64 noundef %272)
   %274 = load i32, ptr %252, align 4
   %275 = zext i32 %274 to i64
   %276 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %275
@@ -19691,7 +19691,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   %574 = getelementptr inbounds i8, ptr %573, i64 16
   %575 = load ptr, ptr %574, align 8
   %576 = load i64, ptr %255, align 8
-  %577 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef %575, i64 noundef %576)
+  %577 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %575, i64 noundef %576)
   %578 = load i32, ptr %252, align 4
   %579 = zext i32 %578 to i64
   %580 = getelementptr inbounds [32 x ptr], ptr %0, i64 0, i64 %579
@@ -20030,7 +20030,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc i64 @H5S__hyper_spans_nelem_helper(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, %1
@@ -20073,7 +20073,7 @@ define internal fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr nocapture 
   %27 = sub i64 %26, %25
   %28 = getelementptr inbounds i8, ptr %.12835, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper.argelim(ptr noundef %29, i64 noundef %1)
+  %30 = tail call fastcc i64 @H5S__hyper_spans_nelem_helper(ptr noundef %29, i64 noundef %1)
   %31 = mul i64 %30, %27
   %32 = add i64 %31, %.336
   %33 = getelementptr inbounds i8, ptr %.12835, i64 24

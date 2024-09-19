@@ -39,7 +39,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %6, align 8
-  %15 = call fastcc i32 @grpmatch.argelim(ptr noundef %6, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %8)
+  %15 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %8)
   %16 = icmp ne i32 %15, 0
   %17 = load ptr, ptr %10, align 8
   %18 = icmp ne ptr %17, null
@@ -59,7 +59,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %6, align 8
-  %22 = call fastcc i32 @grpmatch.argelim(ptr noundef %6, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %8)
+  %22 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %8)
   %23 = icmp ne i32 %22, 0
   %24 = load ptr, ptr %10, align 8
   %25 = icmp ne ptr %24, null
@@ -76,7 +76,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %6, align 8
-  %28 = call fastcc i32 @grpmatch.argelim(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %27, ptr noundef %1, ptr noundef nonnull %8)
+  %28 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %27, ptr noundef %1, ptr noundef nonnull %8)
   %29 = icmp ne i32 %28, 0
   %30 = load ptr, ptr %10, align 8
   %31 = icmp ne ptr %30, null
@@ -88,7 +88,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %6, align 8
-  %32 = call fastcc i32 @grpmatch.argelim(ptr noundef %6, i32 noundef 0, ptr noundef %.037, ptr noundef %1, ptr noundef %8)
+  %32 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef %.037, ptr noundef %1, ptr noundef %8)
   %33 = icmp ne i32 %32, 0
   %34 = load ptr, ptr %10, align 8
   %35 = icmp ne ptr %34, null
@@ -183,7 +183,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @grpmatch.argelim(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @grpmatch(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 360
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   br label %gobble.exit
@@ -191,7 +191,7 @@ define internal fastcc range(i32 0, 2) i32 @grpmatch.argelim(ptr nocapture nound
 gobble.exit:                                      ; preds = %47, %5
   %.016 = phi i32 [ %1, %5 ], [ %.1, %47 ]
   %.011 = phi ptr [ %3, %5 ], [ %14, %47 ]
-  %8 = tail call fastcc i32 @onematch.argelim(ptr noundef %0, i32 noundef %.016, ptr noundef %2, ptr noundef %.011, ptr noundef %4, ptr noundef null)
+  %8 = tail call fastcc i32 @onematch(ptr noundef %0, i32 noundef %.016, ptr noundef %2, ptr noundef %.011, ptr noundef %4, ptr noundef null)
   %.not22 = icmp eq i32 %8, 0
   br i1 %.not22, label %.split.split.split.i.preheader, label %.lr.ph
 
@@ -200,7 +200,7 @@ gobble.exit:                                      ; preds = %47, %5
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds i8, ptr %12, i64 1
-  %11 = tail call fastcc i32 @onematch.argelim(ptr noundef %0, i32 noundef %.016, ptr noundef %2, ptr noundef nonnull %10, ptr noundef %4, ptr noundef null)
+  %11 = tail call fastcc i32 @onematch(ptr noundef %0, i32 noundef %.016, ptr noundef %2, ptr noundef nonnull %10, ptr noundef %4, ptr noundef null)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.split.split.split.i.preheader, label %.lr.ph
 
@@ -335,7 +335,7 @@ define range(i32 0, 2) i32 @strmatch(ptr noundef %0, ptr noundef %1) local_unnam
   store ptr null, ptr %7, align 8
   store i32 0, ptr %8, align 8
   store ptr null, ptr %3, align 8
-  %10 = call fastcc i32 @grpmatch.argelim(ptr noundef %3, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %5)
+  %10 = call fastcc i32 @grpmatch(ptr noundef %3, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %5)
   %11 = icmp ne i32 %10, 0
   %12 = load ptr, ptr %7, align 8
   %13 = icmp ne ptr %12, null
@@ -367,7 +367,7 @@ strgrpmatch.exit:                                 ; preds = %18, %2
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @onematch.argelim(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @onematch(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   br label %8
 
@@ -640,7 +640,7 @@ gobble.exit:                                      ; preds = %38, %66
   br i1 %97, label %98, label %106
 
 98:                                               ; preds = %gobble.exit, %gobble.exit, %96
-  %99 = tail call fastcc i32 @onematch.argelim(ptr noundef %0, i32 noundef %.5409, ptr noundef %.0279, ptr noundef nonnull %.042.i, ptr noundef %4, ptr noundef null)
+  %99 = tail call fastcc i32 @onematch(ptr noundef %0, i32 noundef %.5409, ptr noundef %.0279, ptr noundef nonnull %.042.i, ptr noundef %4, ptr noundef null)
   %.not365 = icmp eq i32 %99, 0
   br i1 %.not365, label %100, label %gobble.exit.thread
 
@@ -675,7 +675,7 @@ gobble.exit:                                      ; preds = %38, %66
 
 113:                                              ; preds = %139, %106
   %.3282 = phi ptr [ %.2281, %106 ], [ %140, %139 ]
-  %114 = tail call fastcc i32 @grpmatch.argelim(ptr noundef %0, i32 noundef %24, ptr noundef %.0279, ptr noundef nonnull %23, ptr noundef %.3282)
+  %114 = tail call fastcc i32 @grpmatch(ptr noundef %0, i32 noundef %24, ptr noundef %.0279, ptr noundef nonnull %23, ptr noundef %.3282)
   %115 = icmp eq i32 %114, %109
   br i1 %115, label %116, label %137
 
@@ -703,7 +703,7 @@ gobble.exit:                                      ; preds = %38, %66
   br label %125
 
 125:                                              ; preds = %121, %124, %116
-  %126 = tail call fastcc i32 @onematch.argelim(ptr noundef %0, i32 noundef %.0296, ptr noundef %.3282, ptr noundef nonnull %.2286, ptr noundef %4, ptr noundef nonnull %.0284)
+  %126 = tail call fastcc i32 @onematch(ptr noundef %0, i32 noundef %.0296, ptr noundef %.3282, ptr noundef nonnull %.2286, ptr noundef %4, ptr noundef nonnull %.0284)
   %.not369 = icmp eq i32 %126, 0
   br i1 %.not369, label %137, label %127
 
@@ -859,7 +859,7 @@ gobble.exit:                                      ; preds = %38, %66
   br i1 %or.cond375, label %180, label %182
 
 180:                                              ; preds = %178
-  %181 = tail call fastcc i32 @onematch.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %.0301, ptr noundef nonnull %.3287, ptr noundef %4, ptr noundef null)
+  %181 = tail call fastcc i32 @onematch(ptr noundef %0, i32 noundef %1, ptr noundef %.0301, ptr noundef nonnull %.3287, ptr noundef %4, ptr noundef null)
   %.not358 = icmp eq i32 %181, 0
   br i1 %.not358, label %182, label %gobble.exit.thread
 

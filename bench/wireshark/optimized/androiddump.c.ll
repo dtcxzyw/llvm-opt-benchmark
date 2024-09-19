@@ -531,7 +531,7 @@ define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_
   br i1 %.not101, label %100, label %99
 
 99:                                               ; preds = %96
-  call fastcc void @register_interfaces.retelim(ptr noundef nonnull %15, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select)
+  call fastcc void @register_interfaces(ptr noundef nonnull %15, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select)
   %.pre = load ptr, ptr %10, align 8
   br label %100
 
@@ -736,7 +736,7 @@ declare ptr @please_report_bug() local_unnamed_addr #1
 declare void @extcap_cmdline_debug(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @register_interfaces.retelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -749,7 +749,7 @@ define internal fastcc void @register_interfaces.retelim(ptr noundef %0, ptr nou
   %13 = alloca [16 x i8], align 16
   %14 = alloca [16 x i8], align 16
   %.val = load i16, ptr %2, align 2
-  %15 = tail call fastcc i32 @adb_connect.argprom(ptr noundef %1, i16 %.val)
+  %15 = tail call fastcc i32 @adb_connect(ptr noundef %1, i16 %.val)
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %.loopexit, label %17
 
@@ -937,7 +937,7 @@ define internal fastcc void @register_interfaces.retelim(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  %99 = call fastcc i32 @adb_connect_transport.argprom(ptr noundef %1, i16 %.val211, ptr noundef nonnull %11)
+  %99 = call fastcc i32 @adb_connect_transport(ptr noundef %1, i16 %.val211, ptr noundef nonnull %11)
   %100 = icmp eq i32 %99, -1
   br i1 %100, label %101, label %102
 
@@ -946,7 +946,7 @@ define internal fastcc void @register_interfaces.retelim(ptr noundef %0, ptr nou
   br label %143
 
 102:                                              ; preds = %98
-  %103 = call fastcc ptr @adb_send_and_read.argelim(i32 noundef %99, ptr noundef nonnull @.str.117, ptr noundef nonnull @add_tcpdump_interfaces.recv_buffer, ptr noundef %4)
+  %103 = call fastcc ptr @adb_send_and_read(i32 noundef %99, ptr noundef nonnull @.str.117, ptr noundef nonnull @add_tcpdump_interfaces.recv_buffer, ptr noundef %4)
   %104 = call i32 @close(i32 noundef %99) #16
   %.not.i212 = icmp eq ptr %103, null
   br i1 %.not.i212, label %105, label %106
@@ -976,12 +976,12 @@ define internal fastcc void @register_interfaces.retelim(ptr noundef %0, ptr nou
   %strchr32.i = call ptr @strchr(ptr nonnull dereferenceable(1) %103, i32 93)
   %113 = call ptr @strtok(ptr noundef nonnull %103, ptr noundef nonnull @.str.101) #16
   %.not331.i = icmp eq ptr %113, null
-  br i1 %.not331.i, label %add_tcpdump_interfaces.argprom.exit, label %.lr.ph.i213
+  br i1 %.not331.i, label %add_tcpdump_interfaces.exit, label %.lr.ph.i213
 
 .thread.i:                                        ; preds = %111
   %114 = call ptr @strtok(ptr noundef nonnull %103, ptr noundef nonnull @.str.101) #16
   %.not3315.i = icmp eq ptr %114, null
-  br i1 %.not3315.i, label %add_tcpdump_interfaces.argprom.exit, label %.lr.ph.split.i.preheader
+  br i1 %.not3315.i, label %add_tcpdump_interfaces.exit, label %.lr.ph.split.i.preheader
 
 .lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i213, %.thread.i
   %.0252.i.ph = phi ptr [ %114, %.thread.i ], [ %113, %.lr.ph.i213 ]
@@ -1028,7 +1028,7 @@ define internal fastcc void @register_interfaces.retelim(ptr noundef %0, ptr nou
   call void @g_match_info_free(ptr noundef %129) #16
   %130 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.101) #16
   %.not33.us.i = icmp eq ptr %130, null
-  br i1 %.not33.us.i, label %add_tcpdump_interfaces.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !10
+  br i1 %.not33.us.i, label %add_tcpdump_interfaces.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %140
   %.0252.i = phi ptr [ %142, %140 ], [ %.0252.i.ph, %.lr.ph.split.i.preheader ]
@@ -1054,9 +1054,9 @@ define internal fastcc void @register_interfaces.retelim(ptr noundef %0, ptr nou
   call void @g_match_info_free(ptr noundef %141) #16
   %142 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.101) #16
   %.not33.i = icmp eq ptr %142, null
-  br i1 %.not33.i, label %add_tcpdump_interfaces.argprom.exit, label %.lr.ph.split.i, !llvm.loop !10
+  br i1 %.not33.i, label %add_tcpdump_interfaces.exit, label %.lr.ph.split.i, !llvm.loop !10
 
-add_tcpdump_interfaces.argprom.exit:              ; preds = %128, %140, %112, %.thread.i
+add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.thread.i
   call void @g_regex_unref(ptr noundef nonnull %109) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -1072,14 +1072,14 @@ add_tcpdump_interfaces.argprom.exit:              ; preds = %128, %140, %112, %.
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1069, ptr noundef nonnull @__func__.register_interfaces, ptr noundef nonnull @.str.78) #16
   br label %144
 
-144:                                              ; preds = %add_tcpdump_interfaces.argprom.exit, %143
+144:                                              ; preds = %add_tcpdump_interfaces.exit, %143
   %.val205 = load i16, ptr %2, align 2
-  %145 = call fastcc i32 @adb_connect_transport.argprom(ptr noundef %1, i16 %.val205, ptr noundef nonnull %11)
+  %145 = call fastcc i32 @adb_connect_transport(ptr noundef %1, i16 %.val205, ptr noundef nonnull %11)
   %146 = icmp eq i32 %145, -1
   br i1 %146, label %.backedge, label %147
 
 147:                                              ; preds = %144
-  %148 = call fastcc ptr @adb_send_and_read.argelim(i32 noundef %145, ptr noundef nonnull @.str.67, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
+  %148 = call fastcc ptr @adb_send_and_read(i32 noundef %145, ptr noundef nonnull @.str.67, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %149 = call i32 @close(i32 noundef %145) #16
   %.not190 = icmp eq ptr %148, null
   br i1 %.not190, label %150, label %151
@@ -1112,12 +1112,12 @@ add_tcpdump_interfaces.argprom.exit:              ; preds = %128, %140, %112, %.
 
 159:                                              ; preds = %157
   %.val206 = load i16, ptr %2, align 2
-  %160 = call fastcc i32 @adb_connect_transport.argprom(ptr noundef %1, i16 %.val206, ptr noundef nonnull %11)
+  %160 = call fastcc i32 @adb_connect_transport(ptr noundef %1, i16 %.val206, ptr noundef nonnull %11)
   %161 = icmp eq i32 %160, -1
   br i1 %161, label %.backedge, label %162
 
 162:                                              ; preds = %159
-  %163 = call fastcc ptr @adb_send_and_read.argelim(i32 noundef %160, ptr noundef nonnull @.str.68, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
+  %163 = call fastcc ptr @adb_send_and_read(i32 noundef %160, ptr noundef nonnull @.str.68, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %164 = call i32 @close(i32 noundef %160) #16
   %165 = icmp eq ptr %163, null
   %166 = load i64, ptr %10, align 8
@@ -1147,12 +1147,12 @@ add_tcpdump_interfaces.argprom.exit:              ; preds = %128, %140, %112, %.
 
 174:                                              ; preds = %172
   %.val207 = load i16, ptr %2, align 2
-  %175 = call fastcc i32 @adb_connect_transport.argprom(ptr noundef %1, i16 %.val207, ptr noundef nonnull %11)
+  %175 = call fastcc i32 @adb_connect_transport(ptr noundef %1, i16 %.val207, ptr noundef nonnull %11)
   %176 = icmp eq i32 %175, -1
   br i1 %176, label %.backedge, label %177
 
 177:                                              ; preds = %174
-  %178 = call fastcc ptr @adb_send_and_read.argelim(i32 noundef %175, ptr noundef nonnull @.str.69, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
+  %178 = call fastcc ptr @adb_send_and_read(i32 noundef %175, ptr noundef nonnull @.str.69, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %179 = call i32 @close(i32 noundef %175) #16
   %180 = icmp eq ptr %178, null
   %181 = load i64, ptr %10, align 8
@@ -1189,12 +1189,12 @@ add_tcpdump_interfaces.argprom.exit:              ; preds = %128, %140, %112, %.
 
 194:                                              ; preds = %190
   %.val208 = load i16, ptr %2, align 2
-  %195 = call fastcc i32 @adb_connect_transport.argprom(ptr noundef %1, i16 %.val208, ptr noundef nonnull %11)
+  %195 = call fastcc i32 @adb_connect_transport(ptr noundef %1, i16 %.val208, ptr noundef nonnull %11)
   %196 = icmp eq i32 %195, -1
   br i1 %196, label %.backedge, label %197
 
 197:                                              ; preds = %194
-  %198 = call fastcc ptr @adb_send_and_read.argelim(i32 noundef %195, ptr noundef nonnull %9, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
+  %198 = call fastcc ptr @adb_send_and_read(i32 noundef %195, ptr noundef nonnull %9, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %199 = call i32 @close(i32 noundef %195) #16
   %.not193 = icmp eq ptr %198, null
   br i1 %.not193, label %.backedge, label %200
@@ -1247,12 +1247,12 @@ add_tcpdump_interfaces.argprom.exit:              ; preds = %128, %140, %112, %.
 219:                                              ; preds = %217, %215, %213
   %.0160 = phi ptr [ @.str.72, %213 ], [ @.str.71, %215 ], [ %.str.70..str.69, %217 ]
   %.val209 = load i16, ptr %2, align 2
-  %220 = call fastcc i32 @adb_connect_transport.argprom(ptr noundef %1, i16 %.val209, ptr noundef nonnull %11)
+  %220 = call fastcc i32 @adb_connect_transport(ptr noundef %1, i16 %.val209, ptr noundef nonnull %11)
   %221 = icmp eq i32 %220, -1
   br i1 %221, label %.backedge, label %222
 
 222:                                              ; preds = %219
-  %223 = call fastcc ptr @adb_send_and_read.argelim(i32 noundef %220, ptr noundef nonnull %.0160, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
+  %223 = call fastcc ptr @adb_send_and_read(i32 noundef %220, ptr noundef nonnull %.0160, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %224 = call i32 @close(i32 noundef %220) #16
   %225 = icmp eq ptr %223, null
   %226 = load i64, ptr %10, align 8
@@ -1294,12 +1294,12 @@ add_tcpdump_interfaces.argprom.exit:              ; preds = %128, %140, %112, %.
 
 240:                                              ; preds = %236
   %.val210 = load i16, ptr %2, align 2
-  %241 = call fastcc i32 @adb_connect_transport.argprom(ptr noundef %1, i16 %.val210, ptr noundef nonnull %11)
+  %241 = call fastcc i32 @adb_connect_transport(ptr noundef %1, i16 %.val210, ptr noundef nonnull %11)
   %242 = icmp eq i32 %241, -1
   br i1 %242, label %.backedge, label %243
 
 243:                                              ; preds = %240
-  %244 = call fastcc ptr @adb_send_and_read.argelim(i32 noundef %241, ptr noundef nonnull %9, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
+  %244 = call fastcc ptr @adb_send_and_read(i32 noundef %241, ptr noundef nonnull %9, ptr noundef nonnull @register_interfaces.helpful_packet, ptr noundef %10)
   %245 = call i32 @close(i32 noundef %241) #16
   %.not197 = icmp eq ptr %244, null
   br i1 %.not197, label %.backedge, label %246
@@ -1574,7 +1574,7 @@ define internal fastcc range(i32 -1, 43) i32 @capture_android_logcat_text(ptr no
 get_serial_from_interface.exit:                   ; preds = %24, %21
   %.08.i = phi ptr [ %23, %21 ], [ null, %24 ]
   %.val = load i16, ptr %3, align 2
-  %27 = tail call fastcc i32 @adb_connect_transport.argprom(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
+  %27 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %108, label %29
 
@@ -1811,7 +1811,7 @@ define internal fastcc range(i32 -1, 45) i32 @capture_android_logcat(ptr noundef
 get_serial_from_interface.exit:                   ; preds = %20, %17
   %.08.i = phi ptr [ %19, %17 ], [ null, %20 ]
   %.val = load i16, ptr %3, align 2
-  %23 = tail call fastcc i32 @adb_connect_transport.argprom(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
+  %23 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %.loopexit, label %25
 
@@ -1918,7 +1918,7 @@ select.unfold:                                    ; preds = %31, %25, %27, %29
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2259, ptr noundef nonnull @__func__.capture_android_logcat, ptr noundef nonnull @.str.163) #16
   %67 = tail call i32 @close(i32 noundef %.298) #16
   %.val128 = load i16, ptr %3, align 2
-  %68 = tail call fastcc i32 @adb_connect_transport.argprom(ptr noundef %2, i16 %.val128, ptr noundef %.08.i)
+  %68 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val128, ptr noundef %.08.i)
   %69 = icmp eq i32 %68, -1
   br i1 %69, label %.loopexit, label %70
 
@@ -2076,7 +2076,7 @@ define internal fastcc range(i32 -1, 39) i32 @capture_android_bluetooth_hcidump(
 get_serial_from_interface.exit:                   ; preds = %24, %21
   %.08.i = phi ptr [ %23, %21 ], [ null, %24 ]
   %.val = load i16, ptr %3, align 2
-  %27 = tail call fastcc i32 @adb_connect_transport.argprom(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
+  %27 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %243, label %29
 
@@ -2157,7 +2157,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 1406, ptr noundef nonnull @__func__.capture_android_bluetooth_hcidump, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.172) #16
   %59 = tail call i32 @close(i32 noundef %27) #16
   %.val228 = load i16, ptr %3, align 2
-  %60 = tail call fastcc i32 @adb_connect_transport.argprom(ptr noundef %2, i16 %.val228, ptr noundef %.08.i)
+  %60 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val228, ptr noundef %.08.i)
   %61 = icmp eq i32 %60, -1
   br i1 %61, label %243, label %65
 
@@ -2602,14 +2602,14 @@ get_serial_from_interface.exit:                   ; preds = %29, %26
 39:                                               ; preds = %32
   %40 = load i16, ptr %7, align 2
   %.not141 = icmp eq i16 %40, 0
-  br i1 %.not141, label %adb_forward.argprom.exit, label %41
+  br i1 %.not141, label %adb_forward.exit, label %41
 
 41:                                               ; preds = %39
   %42 = load i16, ptr %4, align 2
   %.val160 = load i16, ptr %3, align 2
-  %43 = tail call fastcc i32 @adb_connect.argprom(ptr noundef %2, i16 %.val160)
+  %43 = tail call fastcc i32 @adb_connect(ptr noundef %2, i16 %.val160)
   %44 = icmp eq i32 %43, -1
-  br i1 %44, label %adb_forward.argprom.exit, label %45
+  br i1 %44, label %adb_forward.exit, label %45
 
 45:                                               ; preds = %41
   %.not.i161 = icmp eq ptr %.08.i, null
@@ -2632,9 +2632,9 @@ get_serial_from_interface.exit:                   ; preds = %29, %26
 
 .sink.split.i:                                    ; preds = %53, %52
   %55 = tail call i32 @close(i32 noundef %43) #16
-  br label %adb_forward.argprom.exit
+  br label %adb_forward.exit
 
-adb_forward.argprom.exit:                         ; preds = %.sink.split.i, %41, %39
+adb_forward.exit:                                 ; preds = %.sink.split.i, %41, %39
   %56 = getelementptr inbounds i8, ptr %12, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %56, i8 0, i64 12, i1 false)
   store i16 2, ptr %12, align 4
@@ -2652,7 +2652,7 @@ adb_forward.argprom.exit:                         ; preds = %.sink.split.i, %41,
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %64, label %69
 
-64:                                               ; preds = %adb_forward.argprom.exit
+64:                                               ; preds = %adb_forward.exit
   %65 = tail call ptr @__errno_location() #20
   %66 = load i32, ptr %65, align 4
   %67 = call ptr @strerror(i32 noundef %66) #16
@@ -2660,7 +2660,7 @@ adb_forward.argprom.exit:                         ; preds = %.sink.split.i, %41,
   %68 = call i32 @close(i32 noundef %33) #16
   br label %231
 
-69:                                               ; preds = %adb_forward.argprom.exit
+69:                                               ; preds = %adb_forward.exit
   store i32 16, ptr %11, align 4
   %70 = call i32 @getsockname(i32 noundef %33, ptr noundef nonnull %13, ptr noundef nonnull %11) #16
   %.not142 = icmp eq i32 %70, 0
@@ -2686,7 +2686,7 @@ adb_forward.argprom.exit:                         ; preds = %.sink.split.i, %41,
 
 80:                                               ; preds = %get_serial_from_interface.exit
   %.val = load i16, ptr %3, align 2
-  %81 = tail call fastcc i32 @adb_connect_transport.argprom(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
+  %81 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
   %82 = icmp eq i32 %81, -1
   br i1 %82, label %231, label %83
 
@@ -3026,7 +3026,7 @@ define internal fastcc range(i32 -1, 42) i32 @capture_android_bluetooth_btsnoop_
 get_serial_from_interface.exit:                   ; preds = %20, %17
   %.08.i = phi ptr [ %19, %17 ], [ null, %20 ]
   %.val = load i16, ptr %3, align 2
-  %23 = tail call fastcc i32 @adb_connect_transport.argprom(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
+  %23 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, i16 %.val, ptr noundef %.08.i)
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %89, label %25
 
@@ -3201,7 +3201,7 @@ define internal fastcc range(i32 -1, 46) i32 @capture_android_tcpdump(ptr nounde
   call void @g_match_info_free(ptr noundef %20) #16
   call void @g_regex_unref(ptr noundef nonnull %8) #16
   %.val = load i16, ptr %4, align 2
-  %21 = call fastcc i32 @adb_connect_transport.argprom(ptr noundef %3, i16 %.val, ptr noundef %19)
+  %21 = call fastcc i32 @adb_connect_transport(ptr noundef %3, i16 %.val, ptr noundef %19)
   call void @g_free(ptr noundef %19) #16
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %24
@@ -3434,7 +3434,7 @@ declare void @wtap_cleanup() local_unnamed_addr #1
 declare void @ws_logv(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @adb_connect.argprom(ptr noundef %0, i16 %.0.val) unnamed_addr #0 {
+define internal fastcc i32 @adb_connect(ptr noundef %0, i16 %.0.val) unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
@@ -3590,9 +3590,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @adb_connect_transport.argprom(ptr noundef %0, i16 %.0.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @adb_connect_transport(ptr noundef %0, i16 %.0.val, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [80 x i8], align 16
-  %4 = tail call fastcc i32 @adb_connect.argprom(ptr noundef %0, i16 %.0.val)
+  %4 = tail call fastcc i32 @adb_connect(ptr noundef %0, i16 %.0.val)
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %7
 
@@ -3632,7 +3632,7 @@ define internal fastcc i32 @adb_connect_transport.argprom(ptr noundef %0, i16 %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @adb_send_and_read.argelim(i32 noundef range(i32 0, -1) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @adb_send_and_read(i32 noundef range(i32 0, -1) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 65535, ptr noundef nonnull @.str.109, i64 noundef %5) #16
   %7 = tail call i64 @send(i32 noundef %0, ptr noundef %2, i64 noundef 4, i32 noundef 0) #16

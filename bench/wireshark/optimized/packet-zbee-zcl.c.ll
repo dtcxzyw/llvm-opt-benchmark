@@ -2752,11 +2752,11 @@ zcl_dump_data.exit:                               ; preds = %96, %104
   br label %127
 
 113:                                              ; preds = %108
-  call fastcc void @dissect_zcl_write_attr_resp.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 114:                                              ; preds = %108
-  call fastcc void @dissect_zcl_config_report.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_config_report(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 115:                                              ; preds = %108
@@ -2764,47 +2764,47 @@ zcl_dump_data.exit:                               ; preds = %96, %104
   br label %127
 
 116:                                              ; preds = %108
-  call fastcc void @dissect_zcl_read_report_config.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 117:                                              ; preds = %108
-  call fastcc void @dissect_zcl_read_report_config_resp.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_read_report_config_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 118:                                              ; preds = %108
-  call fastcc void @dissect_zcl_default_resp.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6)
+  call fastcc void @dissect_zcl_default_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6)
   br label %127
 
 119:                                              ; preds = %108, %108
-  call fastcc void @dissect_zcl_discover_attr.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6)
+  call fastcc void @dissect_zcl_discover_attr(ptr noundef %0, ptr noundef %15, ptr noundef %6)
   br label %127
 
 120:                                              ; preds = %108
-  call fastcc void @dissect_zcl_discover_attr_resp.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 121:                                              ; preds = %108
-  call fastcc void @dissect_zcl_read_attr_struct.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 122:                                              ; preds = %108
-  call fastcc void @dissect_zcl_write_attr_struct.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_write_attr_struct(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 123:                                              ; preds = %108
-  call fastcc void @dissect_zcl_write_attr_struct_resp.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 124:                                              ; preds = %108, %108
-  call fastcc void @dissect_zcl_discover_cmd_rec.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6)
+  call fastcc void @dissect_zcl_discover_cmd_rec(ptr noundef %0, ptr noundef %15, ptr noundef %6)
   br label %127
 
 125:                                              ; preds = %108, %108
-  call fastcc void @dissect_zcl_discover_cmd_rec_resp.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6)
+  call fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6)
   br label %127
 
 126:                                              ; preds = %108
-  call fastcc void @dissect_zcl_discover_cmd_attr_extended_resp.argprom(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_discover_cmd_attr_extended_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 127:                                              ; preds = %108, %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126, %._crit_edge
@@ -2935,7 +2935,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_write_attr_resp.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not1 = icmp eq i32 %5, 0
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
@@ -3027,7 +3027,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %32, %22, %34, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_config_report.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_config_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
   %9 = icmp ult i32 %8, %7
@@ -3368,7 +3368,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %60, %29, %62, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_read_report_config.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
   %9 = icmp ult i32 %8, %7
@@ -3458,7 +3458,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %36, %12, %38, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_read_report_config_resp.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_read_report_config_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
   %9 = icmp ult i32 %8, %7
@@ -3644,7 +3644,7 @@ dissect_zcl_attr_data_general.exit:               ; preds = %zbee_zcl_get_cluste
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_default_resp.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_default_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_cmd_id_rsp, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #5
@@ -3663,7 +3663,7 @@ define internal fastcc void @dissect_zcl_default_resp.argprom(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_attr.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_attr(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_attr_start, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
@@ -3682,7 +3682,7 @@ define internal fastcc void @dissect_zcl_discover_attr.argprom(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_attr_resp.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   %7 = load i32, ptr %2, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #5
@@ -3772,7 +3772,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %31, %.lr.ph, %33, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_read_attr_struct.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 1
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
@@ -3870,7 +3870,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %27, %.lr.ph5, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_write_attr_struct.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_write_attr_struct(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i32 %5, 1
   %8 = zext i1 %7 to i32
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -3982,7 +3982,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %30, %.lr.ph4, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_write_attr_struct_resp.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not1 = icmp eq i32 %5, 0
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
@@ -4098,7 +4098,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %35, %25, %37, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_cmd_rec.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_cmd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #5
   %6 = zext i8 %5 to i32
@@ -4120,7 +4120,7 @@ define internal fastcc void @dissect_zcl_discover_cmd_rec.argprom(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_cmd_rec_resp.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #5
   %6 = zext i8 %5 to i32
@@ -4164,7 +4164,7 @@ define internal fastcc void @dissect_zcl_discover_cmd_rec_resp.argprom(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_cmd_attr_extended_resp.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_cmd_attr_extended_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i32 %5, 0
   %8 = zext i1 %7 to i32
   %9 = load i32, ptr %2, align 4

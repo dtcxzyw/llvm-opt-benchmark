@@ -835,7 +835,7 @@ define internal fastcc i32 @__io_arm_poll_handler(ptr noundef %0, ptr noundef %1
 54:                                               ; preds = %51, %45
   tail call fastcc void @io_poll_remove_entries(ptr noundef %0)
   %.val = load i8, ptr %28, align 8, !range !12, !noundef !13
-  %55 = tail call fastcc zeroext i1 @io_poll_can_finish_inline.argprom(ptr noundef %0, i8 %.val)
+  %55 = tail call fastcc zeroext i1 @io_poll_can_finish_inline(ptr noundef %0, i8 %.val)
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %54
@@ -2529,7 +2529,7 @@ define internal fastcc zeroext i1 @io_poll_get_ownership_slowpath(ptr noundef %0
 declare dso_local zeroext i1 @io_kbuf_recycle_legacy(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @io_poll_can_finish_inline.argprom(ptr noundef %0, i8 %.32.val) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @io_poll_can_finish_inline(ptr noundef %0, i8 %.32.val) unnamed_addr #0 align 16 {
   %2 = icmp eq i8 %.32.val, 0
   br i1 %2, label %3, label %13
 

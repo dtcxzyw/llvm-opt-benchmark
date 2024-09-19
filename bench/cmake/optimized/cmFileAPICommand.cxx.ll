@@ -365,7 +365,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 39:                                               ; preds = %37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %8, i8 0, i64 112, i1 false)
-  %40 = invoke fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIN14ArgumentParser8NonEmptyIS7_EEEERSF_N2cm18static_string_viewEMSE_T_.argelim(ptr noundef nonnull align 8 dereferenceable(112) %8, i64 11, ptr nonnull @.str.4)
+  %40 = invoke fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIN14ArgumentParser8NonEmptyIS7_EEEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull align 8 dereferenceable(112) %8, i64 11, ptr nonnull @.str.4)
           to label %41 unwind label %92
 
 41:                                               ; preds = %39
@@ -386,15 +386,15 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 49:                                               ; preds = %47
   invoke void @_ZN14ArgumentParser9ActionMapC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(112) %8)
-          to label %_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.argprom.exit unwind label %92
+          to label %_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.exit unwind label %92
 
-_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.argprom.exit: ; preds = %49
+_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.exit: ; preds = %49
   call void @_ZN14ArgumentParser9ActionMapD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %8) #18
   %50 = call i32 @__cxa_atexit(ptr nonnull @_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsED2Ev, ptr nonnull @_ZZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr nonnull @__dso_handle) #18
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser) #18
   br label %51
 
-51:                                               ; preds = %_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.argprom.exit, %37, %34
+51:                                               ; preds = %_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsEC2ERKSF_.exit, %37, %34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %52 = load ptr, ptr %0, align 8
   %53 = load ptr, ptr %21, align 8
@@ -776,7 +776,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.val = load ptr, ptr %61, align 8
   %189 = getelementptr inbounds i8, ptr %10, i64 88
   %.val78 = load ptr, ptr %189, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE.argprom(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 0, i64 9, ptr nonnull @.str.5, ptr %.val, ptr %.val78)
+  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 0, i64 9, ptr nonnull @.str.5, ptr %.val, ptr %.val78)
           to label %191 unwind label %.thread134
 
 .thread134:                                       ; preds = %186
@@ -790,7 +790,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.val79 = load ptr, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %10, i64 112
   %.val80 = load ptr, ptr %194, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE.argprom(ptr dead_on_unwind noalias writable align 8 %192, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 2, i64 5, ptr nonnull @.str.6, ptr %.val79, ptr %.val80)
+  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %192, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 2, i64 5, ptr nonnull @.str.6, ptr %.val79, ptr %.val80)
           to label %195 unwind label %228
 
 195:                                              ; preds = %191
@@ -799,7 +799,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.val81 = load ptr, ptr %197, align 8
   %198 = getelementptr inbounds i8, ptr %10, i64 136
   %.val82 = load ptr, ptr %198, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE.argprom(ptr dead_on_unwind noalias writable align 8 %196, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 3, i64 10, ptr nonnull @.str.7, ptr %.val81, ptr %.val82)
+  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %196, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 3, i64 10, ptr nonnull @.str.7, ptr %.val81, ptr %.val82)
           to label %199 unwind label %228
 
 199:                                              ; preds = %195
@@ -808,7 +808,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.val83 = load ptr, ptr %201, align 8
   %202 = getelementptr inbounds i8, ptr %10, i64 160
   %.val84 = load ptr, ptr %202, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE.argprom(ptr dead_on_unwind noalias writable align 8 %200, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 4, i64 10, ptr nonnull @.str.8, ptr %.val83, ptr %.val84)
+  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %200, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 4, i64 10, ptr nonnull @.str.8, ptr %.val83, ptr %.val84)
           to label %.lr.ph.i.i.i.i106 unwind label %228
 
 .lr.ph.i.i.i.i106:                                ; preds = %199
@@ -1027,7 +1027,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIN14ArgumentParser8NonEmptyIS7_EEEERSF_N2cm18static_string_viewEMSE_T_.argelim(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIN14ArgumentParser8NonEmptyIS7_EEEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::function.351", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = getelementptr inbounds i8, ptr %4, i64 24
@@ -1190,7 +1190,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef ptr @_ZNK10cmMakefile16GetCMakeInstanceEv(ptr noundef nonnull align 8 dereferenceable(3520)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef range(i32 0, 5) %2, i64 %3, ptr %4, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #3 {
+define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef range(i32 0, 5) %2, i64 %3, ptr %4, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #3 {
   %6 = alloca [3 x %"struct.std::pair.373"], align 8
   %7 = alloca [5 x %"struct.std::pair.373"], align 8
   %8 = icmp eq ptr %.0.val, %.8.val
@@ -2566,8 +2566,8 @@ attributes #23 = { builtin allocsize(0) }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", i32 1, i32 1048575}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m.argprom"}
+!7 = distinct !{!7, !8, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m: argument 0"}
+!8 = distinct !{!8, !"_ZNK16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEESE_RKT_PS9_m"}
 !9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!12}

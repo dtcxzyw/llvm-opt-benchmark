@@ -1786,7 +1786,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %108 = getelementptr inbounds i32, ptr %.val130185, i64 %107
   %109 = getelementptr inbounds i8, ptr %108, i64 4
   %110 = call i32 @sat_solver_addclause(ptr noundef %43, ptr noundef %.val130185, ptr noundef nonnull %109) #14
-  br i1 %102, label %.lr.ph4.preheader.i, label %sat_solver_add_choice.argprom.exit
+  br i1 %102, label %.lr.ph4.preheader.i, label %sat_solver_add_choice.exit
 
 .lr.ph4.preheader.i:                              ; preds = %._crit_edge.i
   %wide.trip.count19.i = zext nneg i32 %.val129186 to i64
@@ -1821,7 +1821,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .loopexit.i:                                      ; preds = %122, %.preheader.i
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count19.i
-  br i1 %exitcond37.not.i, label %sat_solver_add_choice.argprom.exit, label %.preheader.i, !llvm.loop !26
+  br i1 %exitcond37.not.i, label %sat_solver_add_choice.exit, label %.preheader.i, !llvm.loop !26
 
 .preheader.i:                                     ; preds = %114, %.loopexit.i
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.loopexit.i ], [ 0, %114 ]
@@ -1850,7 +1850,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count19.i
   br i1 %exitcond32.not.i, label %.loopexit.i, label %122, !llvm.loop !27
 
-sat_solver_add_choice.argprom.exit:               ; preds = %.loopexit.i, %._crit_edge.i
+sat_solver_add_choice.exit:                       ; preds = %.loopexit.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %131 = getelementptr inbounds i8, ptr %62, i64 24
   %132 = load ptr, ptr %131, align 8
@@ -1859,7 +1859,7 @@ sat_solver_add_choice.argprom.exit:               ; preds = %.loopexit.i, %._cri
   %134 = icmp sgt i32 %.val126, 0
   br i1 %134, label %135, label %151
 
-135:                                              ; preds = %sat_solver_add_choice.argprom.exit
+135:                                              ; preds = %sat_solver_add_choice.exit
   %136 = getelementptr inbounds i8, ptr %62, i64 32
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr i8, ptr %137, i64 80
@@ -1888,7 +1888,7 @@ sat_solver_add_choice.argprom.exit:               ; preds = %.loopexit.i, %._cri
   %150 = call i32 @sat_solver_addclause(ptr noundef %43, ptr noundef nonnull %6, ptr noundef nonnull %59) #14
   br label %151
 
-151:                                              ; preds = %sat_solver_add_choice.argprom.exit, %135, %140
+151:                                              ; preds = %sat_solver_add_choice.exit, %135, %140
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %.val109 = load i32, ptr %28, align 4
   %152 = sext i32 %.val109 to i64

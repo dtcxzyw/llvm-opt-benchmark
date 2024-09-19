@@ -179,7 +179,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_129CanonicalizeFreeze
   %27 = load ptr, ptr %0, align 8
   %28 = load ptr, ptr %20, align 8
   %29 = call noundef zeroext i1 @_ZN4llvm19InductionDescriptor14isInductionPHIEPNS_7PHINodeEPKNS_4LoopEPNS_15ScalarEvolutionERS0_PKNS_4SCEVEPNS_15SmallVectorImplIPNS_11InstructionEEE(ptr noundef nonnull %.sroa.081.090, ptr noundef %27, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef null, ptr noundef null) #13
-  br i1 %29, label %30, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit70"
+  br i1 %29, label %30, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit70"
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %21, align 8
@@ -188,11 +188,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_129CanonicalizeFreeze
   store ptr %31, ptr %23, align 8
   store i32 0, ptr %24, align 8
   %.not53 = icmp eq ptr %31, null
-  br i1 %.not53, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit70", label %32
+  br i1 %.not53, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit70", label %32
 
 32:                                               ; preds = %30
   %.val = load i8, ptr %31, align 8
-  switch i8 %.val, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit70" [
+  switch i8 %.val, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit70" [
     i8 46, label %33
     i8 44, label %33
     i8 42, label %33
@@ -216,13 +216,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_129CanonicalizeFreeze
   %45 = getelementptr inbounds i8, ptr %40, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %44, ptr noundef %46) #13
-  br i1 %47, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit70", label %48
+  br i1 %47, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit70", label %48
 
 48:                                               ; preds = %43, %33
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.081.090, i64 16
   %50 = load ptr, ptr %49, align 8
   %.not6.i.i = icmp eq ptr %50, null
-  br i1 %.not6.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit", label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %48, %"_ZZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvENK3$_0clEPN4llvm4UserE.exit.i.i"
   %.sroa.03.07.i.i = phi ptr [ %57, %"_ZZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvENK3$_0clEPN4llvm4UserE.exit.i.i" ], [ %50, %48 ]
@@ -241,17 +241,17 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_129CanonicalizeFreeze
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit", label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit", label %.lr.ph.i.i, !llvm.loop !10
 
-"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit": ; preds = %"_ZZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvENK3$_0clEPN4llvm4UserE.exit.i.i", %48
+"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit": ; preds = %"_ZZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvENK3$_0clEPN4llvm4UserE.exit.i.i", %48
   %58 = load ptr, ptr %23, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   %.not6.i.i62 = icmp eq ptr %60, null
-  br i1 %.not6.i.i62, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit70", label %.lr.ph.i.i63
+  br i1 %.not6.i.i62, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit70", label %.lr.ph.i.i63
 
-.lr.ph.i.i63:                                     ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit", %"_ZZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvENK3$_0clEPN4llvm4UserE.exit.i.i66"
-  %.sroa.03.07.i.i64 = phi ptr [ %67, %"_ZZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvENK3$_0clEPN4llvm4UserE.exit.i.i66" ], [ %60, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit" ]
+.lr.ph.i.i63:                                     ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit", %"_ZZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvENK3$_0clEPN4llvm4UserE.exit.i.i66"
+  %.sroa.03.07.i.i64 = phi ptr [ %67, %"_ZZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvENK3$_0clEPN4llvm4UserE.exit.i.i66" ], [ %60, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit" ]
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i64, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = load i8, ptr %62, align 8
@@ -267,19 +267,19 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_129CanonicalizeFreeze
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i64, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not.i.i67 = icmp eq ptr %67, null
-  br i1 %.not.i.i67, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit70", label %.lr.ph.i.i63, !llvm.loop !10
+  br i1 %.not.i.i67, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit70", label %.lr.ph.i.i63, !llvm.loop !10
 
-"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit70": ; preds = %"_ZZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvENK3$_0clEPN4llvm4UserE.exit.i.i66", %32, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit", %43, %30, %26
+"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit70": ; preds = %"_ZZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvENK3$_0clEPN4llvm4UserE.exit.i.i66", %32, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit", %43, %30, %26
   %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #13
   %69 = load ptr, ptr %18, align 8
   %70 = icmp eq ptr %69, %19
   br i1 %70, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.i, label %71
 
-71:                                               ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit70"
+71:                                               ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit70"
   call void @free(ptr noundef %69) #13
   br label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.i: ; preds = %71, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.argprom.exit70"
+_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit.i: ; preds = %71, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZN12_GLOBAL__N_129CanonicalizeFreezeInLoopsImpl3runEvE3$_0EET0_OT_SA_.exit70"
   %72 = load ptr, ptr %25, align 8
   %magicptr.i.i.i.i = ptrtoint ptr %72 to i64
   switch i64 %magicptr.i.i.i.i, label %73 [

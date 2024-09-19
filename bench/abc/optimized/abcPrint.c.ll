@@ -3211,7 +3211,7 @@ Vec_IntGrow.exit:                                 ; preds = %3, %17
 .preheader.i:                                     ; preds = %.lr.ph13.i, %.preheader5.i
   %.2.lcssa.i = phi ptr [ %.0.lcssa.i, %.preheader5.i ], [ %49, %.lr.ph13.i ]
   %46 = icmp ult ptr %.036.lcssa.i, %25
-  br i1 %46, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.argprom.exit
+  br i1 %46, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.exit
 
 .lr.ph13.i:                                       ; preds = %.preheader5.i, %.lr.ph13.i
   %.212.i = phi ptr [ %49, %.lr.ph13.i ], [ %.0.lcssa.i, %.preheader5.i ]
@@ -3231,9 +3231,9 @@ Vec_IntGrow.exit:                                 ; preds = %3, %17
   %53 = getelementptr inbounds i8, ptr %.316.i, i64 4
   store i32 %52, ptr %.316.i, align 4
   %54 = icmp ult ptr %51, %25
-  br i1 %54, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.argprom.exit, !llvm.loop !31
+  br i1 %54, label %.lr.ph17.i, label %Vec_IntTwoMerge2Int.exit, !llvm.loop !31
 
-Vec_IntTwoMerge2Int.argprom.exit:                 ; preds = %.lr.ph17.i, %.preheader.i
+Vec_IntTwoMerge2Int.exit:                         ; preds = %.lr.ph17.i, %.preheader.i
   %.3.lcssa.i = phi ptr [ %.2.lcssa.i, %.preheader.i ], [ %53, %.lr.ph17.i ]
   %55 = getelementptr inbounds i8, ptr %2, i64 8
   %56 = load ptr, ptr %55, align 8

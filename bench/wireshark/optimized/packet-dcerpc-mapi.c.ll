@@ -8603,7 +8603,7 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %15
   %51 = load i32, ptr @ett_mapi_mapi_request, align 4
   %52 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %38, ptr noundef nonnull %29, i32 noundef %41, i32 noundef %49, i32 noundef %51, ptr noundef null, ptr noundef nonnull @.str.6121, i32 noundef %50) #5
   %53 = icmp sgt i32 %49, 3
-  br i1 %53, label %.lr.ph.i79, label %mapi_dissect_element_handles_cnf.argprom.exit
+  br i1 %53, label %.lr.ph.i79, label %mapi_dissect_element_handles_cnf.exit
 
 .lr.ph.i79:                                       ; preds = %33, %.lr.ph.i79
   %.02.i = phi i32 [ %57, %.lr.ph.i79 ], [ 0, %33 ]
@@ -8613,9 +8613,9 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %15
   %56 = add nuw i32 %.0211.i, 4
   %57 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i80 = icmp eq i32 %57, %50
-  br i1 %exitcond.not.i80, label %mapi_dissect_element_handles_cnf.argprom.exit, label %.lr.ph.i79, !llvm.loop !6
+  br i1 %exitcond.not.i80, label %mapi_dissect_element_handles_cnf.exit, label %.lr.ph.i79, !llvm.loop !6
 
-mapi_dissect_element_handles_cnf.argprom.exit:    ; preds = %.lr.ph.i79, %33
+mapi_dissect_element_handles_cnf.exit:            ; preds = %.lr.ph.i79, %33
   %58 = load ptr, ptr %10, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 96
   %60 = load i32, ptr %59, align 8
@@ -8623,7 +8623,7 @@ mapi_dissect_element_handles_cnf.argprom.exit:    ; preds = %.lr.ph.i79, %33
   %.not74 = icmp eq i32 %61, 0
   br i1 %.not74, label %69, label %62
 
-62:                                               ; preds = %mapi_dissect_element_handles_cnf.argprom.exit
+62:                                               ; preds = %mapi_dissect_element_handles_cnf.exit
   %63 = getelementptr inbounds i8, ptr %4, i64 28
   %64 = load i32, ptr %63, align 4
   %.not75 = icmp ne i32 %64, 0
@@ -8637,8 +8637,8 @@ mapi_dissect_element_handles_cnf.argprom.exit:    ; preds = %.lr.ph.i79, %33
   %68 = add i32 %67, 8
   br label %69
 
-69:                                               ; preds = %mapi_dissect_element_handles_cnf.argprom.exit, %62, %66, %mapi_deobfuscate.exit, %30
-  %.0 = phi i32 [ %17, %30 ], [ %17, %mapi_deobfuscate.exit ], [ %34, %62 ], [ %68, %66 ], [ %34, %mapi_dissect_element_handles_cnf.argprom.exit ]
+69:                                               ; preds = %mapi_dissect_element_handles_cnf.exit, %62, %66, %mapi_deobfuscate.exit, %30
+  %.0 = phi i32 [ %17, %30 ], [ %17, %mapi_deobfuscate.exit ], [ %34, %62 ], [ %68, %66 ], [ %34, %mapi_dissect_element_handles_cnf.exit ]
   ret i32 %.0
 }
 
@@ -9484,7 +9484,7 @@ define hidden i32 @mapi_dissect_struct_EcDoRpcMapiRequest(ptr noundef %0, i32 no
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.3864, ptr noundef %23) #5
   %.val = load i8, ptr %9, align 1
   %24 = zext i8 %.val to i32
-  %25 = call fastcc i32 @mapi_dissect_RopRequest.argelim(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.028, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24)
+  %25 = call fastcc i32 @mapi_dissect_RopRequest(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.028, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24)
   %26 = sub i32 %25, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %26) #5
   store i32 %11, ptr %10, align 8
@@ -9603,7 +9603,7 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %32
   %68 = load i32, ptr @ett_mapi_mapi_request, align 4
   %69 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %55, ptr noundef nonnull %46, i32 noundef %58, i32 noundef %66, i32 noundef %68, ptr noundef null, ptr noundef nonnull @.str.6121, i32 noundef %67) #5
   %70 = icmp sgt i32 %66, 3
-  br i1 %70, label %.lr.ph.i79, label %mapi_dissect_element_handles_cnf.argprom.exit
+  br i1 %70, label %.lr.ph.i79, label %mapi_dissect_element_handles_cnf.exit
 
 .lr.ph.i79:                                       ; preds = %50, %.lr.ph.i79
   %.02.i = phi i32 [ %74, %.lr.ph.i79 ], [ 0, %50 ]
@@ -9613,9 +9613,9 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %32
   %73 = add nuw i32 %.0211.i, 4
   %74 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i80 = icmp eq i32 %74, %67
-  br i1 %exitcond.not.i80, label %mapi_dissect_element_handles_cnf.argprom.exit, label %.lr.ph.i79, !llvm.loop !6
+  br i1 %exitcond.not.i80, label %mapi_dissect_element_handles_cnf.exit, label %.lr.ph.i79, !llvm.loop !6
 
-mapi_dissect_element_handles_cnf.argprom.exit:    ; preds = %.lr.ph.i79, %50
+mapi_dissect_element_handles_cnf.exit:            ; preds = %.lr.ph.i79, %50
   %75 = load ptr, ptr %10, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 96
   %77 = load i32, ptr %76, align 8
@@ -9623,7 +9623,7 @@ mapi_dissect_element_handles_cnf.argprom.exit:    ; preds = %.lr.ph.i79, %50
   %.not74 = icmp eq i32 %78, 0
   br i1 %.not74, label %86, label %79
 
-79:                                               ; preds = %mapi_dissect_element_handles_cnf.argprom.exit
+79:                                               ; preds = %mapi_dissect_element_handles_cnf.exit
   %80 = getelementptr inbounds i8, ptr %4, i64 28
   %81 = load i32, ptr %80, align 4
   %.not75 = icmp ne i32 %81, 0
@@ -9637,8 +9637,8 @@ mapi_dissect_element_handles_cnf.argprom.exit:    ; preds = %.lr.ph.i79, %50
   %85 = add i32 %84, 8
   br label %86
 
-86:                                               ; preds = %mapi_dissect_element_handles_cnf.argprom.exit, %79, %83, %mapi_deobfuscate.exit, %47
-  %.0 = phi i32 [ %34, %47 ], [ %34, %mapi_deobfuscate.exit ], [ %51, %79 ], [ %85, %83 ], [ %51, %mapi_dissect_element_handles_cnf.argprom.exit ]
+86:                                               ; preds = %mapi_dissect_element_handles_cnf.exit, %79, %83, %mapi_deobfuscate.exit, %47
+  %.0 = phi i32 [ %34, %47 ], [ %34, %mapi_deobfuscate.exit ], [ %51, %79 ], [ %85, %83 ], [ %51, %mapi_dissect_element_handles_cnf.exit ]
   ret i32 %.0
 }
 
@@ -9671,7 +9671,7 @@ define hidden i32 @mapi_dissect_struct_EcDoRpcMapiResponse(ptr noundef %0, i32 n
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.3864, ptr noundef %23) #5
   %.val = load i8, ptr %9, align 1
   %24 = zext i8 %.val to i32
-  %25 = call fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.028, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24)
+  %25 = call fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.028, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24)
   %26 = sub i32 %25, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %26) #5
   store i32 %11, ptr %10, align 8
@@ -10401,7 +10401,7 @@ define hidden i32 @mapi_dissect_struct_RopInput(ptr noundef %0, i32 noundef %1, 
   %19 = load i8, ptr %9, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %20 = zext i8 %19 to i32
-  %21 = call fastcc i32 @mapi_dissect_RopRequest.argelim(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20)
+  %21 = call fastcc i32 @mapi_dissect_RopRequest(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20)
   %22 = sub i32 %21, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %22) #5
   store i32 %11, ptr %10, align 8
@@ -10433,7 +10433,7 @@ define hidden i32 @mapi_dissect_struct_RopOutput(ptr noundef %0, i32 noundef %1,
   %19 = load i8, ptr %9, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %20 = zext i8 %19 to i32
-  %21 = call fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20)
+  %21 = call fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20)
   %22 = sub i32 %21, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %22) #5
   store i32 %11, ptr %10, align 8
@@ -11432,7 +11432,7 @@ define hidden i32 @mapi_dissect_struct_ActionBlockData(ptr noundef %0, i32 nound
 
 29:                                               ; preds = %26, %18
   %.063.i.i = phi ptr [ %28, %26 ], [ null, %18 ]
-  switch i8 %21, label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.argprom.exit [
+  switch i8 %21, label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit [
     i8 1, label %30
     i8 2, label %33
     i8 3, label %36
@@ -11447,27 +11447,27 @@ define hidden i32 @mapi_dissect_struct_ActionBlockData(ptr noundef %0, i32 nound
 30:                                               ; preds = %29
   %31 = load i32, ptr @hf_mapi_ActionData_MoveAction, align 4
   %32 = call i32 @mapi_dissect_struct_MoveCopy_Action(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
-  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.argprom.exit
+  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit
 
 33:                                               ; preds = %29
   %34 = load i32, ptr @hf_mapi_ActionData_CopyAction, align 4
   %35 = call i32 @mapi_dissect_struct_MoveCopy_Action(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
-  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.argprom.exit
+  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit
 
 36:                                               ; preds = %29
   %37 = load i32, ptr @hf_mapi_ActionData_ReplyAction, align 4
   %38 = call i32 @mapi_dissect_struct_ReplyOOF_Action(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 poison)
-  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.argprom.exit
+  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit
 
 39:                                               ; preds = %29
   %40 = load i32, ptr @hf_mapi_ActionData_ReplyOOFAction, align 4
   %41 = call i32 @mapi_dissect_struct_ReplyOOF_Action(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 poison)
-  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.argprom.exit
+  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit
 
 42:                                               ; preds = %29
   %43 = load i32, ptr @hf_mapi_ActionData_DeferAction, align 4
   %44 = call i32 @dissect_ndr_datablob(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 1) #5
-  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.argprom.exit
+  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit
 
 45:                                               ; preds = %29
   %46 = load i32, ptr @hf_mapi_ActionData_BounceCode, align 4
@@ -11475,7 +11475,7 @@ define hidden i32 @mapi_dissect_struct_ActionBlockData(ptr noundef %0, i32 nound
   store i32 0, ptr %9, align 4
   %47 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.argprom.exit
+  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit
 
 48:                                               ; preds = %29
   %49 = load i32, ptr @hf_mapi_ActionData_PropValue, align 4
@@ -11508,7 +11508,7 @@ mapi_dissect_element_ActionData_PropValue.exit.i.i: ; preds = %56
   %60 = sub i32 %58, %25
   call void @proto_item_set_len(ptr noundef %.0.i.i.i.i, i32 noundef %60) #5
   store i32 %50, ptr %12, align 8
-  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.argprom.exit
+  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit
 
 61:                                               ; preds = %29
   %62 = load i32, ptr @hf_mapi_ActionData_ForwardAction, align 4
@@ -11532,7 +11532,7 @@ mapi_dissect_element_ActionData_ForwardAction.exit.i.i: ; preds = %64, %61
   %71 = sub i32 %70, %25
   call void @proto_item_set_len(ptr noundef %.0.i.i66.i.i, i32 noundef %71) #5
   store i32 %63, ptr %12, align 8
-  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.argprom.exit
+  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit
 
 72:                                               ; preds = %29
   %73 = load i32, ptr @hf_mapi_ActionData_DelegateAction, align 4
@@ -11556,9 +11556,9 @@ mapi_dissect_element_ActionData_DelegateAction.exit.i.i: ; preds = %75, %72
   %82 = sub i32 %81, %25
   call void @proto_item_set_len(ptr noundef %.0.i.i69.i.i, i32 noundef %82) #5
   store i32 %74, ptr %12, align 8
-  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.argprom.exit
+  br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit
 
-mapi_dissect_element_ActionBlockData_ActionDataBuffer.argprom.exit: ; preds = %29, %30, %33, %36, %39, %42, %45, %mapi_dissect_element_ActionData_PropValue.exit.i.i, %mapi_dissect_element_ActionData_ForwardAction.exit.i.i, %mapi_dissect_element_ActionData_DelegateAction.exit.i.i
+mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit: ; preds = %29, %30, %33, %36, %39, %42, %45, %mapi_dissect_element_ActionData_PropValue.exit.i.i, %mapi_dissect_element_ActionData_ForwardAction.exit.i.i, %mapi_dissect_element_ActionData_DelegateAction.exit.i.i
   %.0.i.i = phi i32 [ %25, %29 ], [ %81, %mapi_dissect_element_ActionData_DelegateAction.exit.i.i ], [ %70, %mapi_dissect_element_ActionData_ForwardAction.exit.i.i ], [ %58, %mapi_dissect_element_ActionData_PropValue.exit.i.i ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ]
   %83 = load ptr, ptr %10, align 8
   %84 = sub i32 %.0.i.i, %25
@@ -12536,15 +12536,15 @@ define hidden i32 @mapi_dissect_struct_OpenFolder_Success(ptr noundef %0, i32 no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
-  br i1 %.not.i.i, label %mapi_dissect_element_OpenFolder_Success_Ghost.argprom.exit, label %21
+  br i1 %.not.i.i, label %mapi_dissect_element_OpenFolder_Success_Ghost.exit, label %21
 
 21:                                               ; preds = %16
   %22 = load i32, ptr @ett_mapi_IsGhosted, align 4
   %23 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %9, ptr noundef nonnull @.str.4276) #5
   %.pre = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_OpenFolder_Success_Ghost.argprom.exit
+  br label %mapi_dissect_element_OpenFolder_Success_Ghost.exit
 
-mapi_dissect_element_OpenFolder_Success_Ghost.argprom.exit: ; preds = %16, %21
+mapi_dissect_element_OpenFolder_Success_Ghost.exit: ; preds = %16, %21
   %24 = phi ptr [ null, %16 ], [ %.pre, %21 ]
   call void @proto_item_set_len(ptr noundef %24, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -12579,14 +12579,14 @@ define hidden i32 @mapi_dissect_struct_OpenFolder_repl(ptr noundef %0, i32 nound
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
-  br i1 %.not.i.i, label %mapi_dissect_element_OpenFolder_repl_repl.argprom.exit, label %21
+  br i1 %.not.i.i, label %mapi_dissect_element_OpenFolder_repl_repl.exit, label %21
 
 21:                                               ; preds = %16
   %22 = load i32, ptr @ett_mapi_OpenFolder_repl_status, align 4
   %23 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %9, ptr noundef nonnull @.str.6137) #5
-  br label %mapi_dissect_element_OpenFolder_repl_repl.argprom.exit
+  br label %mapi_dissect_element_OpenFolder_repl_repl.exit
 
-mapi_dissect_element_OpenFolder_repl_repl.argprom.exit: ; preds = %21, %16
+mapi_dissect_element_OpenFolder_repl_repl.exit:   ; preds = %21, %16
   %.015.i.i = phi ptr [ %23, %21 ], [ null, %16 ]
   %24 = load i32, ptr @hf_mapi_OpenFolder_repl_status_Success, align 4
   %25 = call i32 @mapi_dissect_struct_OpenFolder_Success(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.015.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 poison)
@@ -12661,7 +12661,7 @@ define hidden i32 @mapi_dissect_struct_TypedString(ptr noundef %0, i32 noundef %
 
 24:                                               ; preds = %21, %17
   %.027.i.i = phi ptr [ %23, %21 ], [ null, %17 ]
-  switch i8 %20, label %mapi_dissect_element_TypedString_String.argprom.exit [
+  switch i8 %20, label %mapi_dissect_element_TypedString_String.exit [
     i8 4, label %31
     i8 3, label %28
     i8 2, label %25
@@ -12670,19 +12670,19 @@ define hidden i32 @mapi_dissect_struct_TypedString(ptr noundef %0, i32 noundef %
 25:                                               ; preds = %24
   %26 = load i32, ptr @hf_mapi_String_lpszA, align 4
   %27 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef %5, i32 noundef %26, i32 noundef 0) #5
-  br label %mapi_dissect_element_TypedString_String.argprom.exit
+  br label %mapi_dissect_element_TypedString_String.exit
 
 28:                                               ; preds = %24
   %29 = load i32, ptr @hf_mapi_String_lpszW_reduced, align 4
   %30 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
-  br label %mapi_dissect_element_TypedString_String.argprom.exit
+  br label %mapi_dissect_element_TypedString_String.exit
 
 31:                                               ; preds = %24
   %32 = load i32, ptr @hf_mapi_String_lpszW, align 4
   %33 = call i32 @dissect_null_term_wstring(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
-  br label %mapi_dissect_element_TypedString_String.argprom.exit
+  br label %mapi_dissect_element_TypedString_String.exit
 
-mapi_dissect_element_TypedString_String.argprom.exit: ; preds = %24, %25, %28, %31
+mapi_dissect_element_TypedString_String.exit:     ; preds = %24, %25, %28, %31
   %.0.i.i = phi i32 [ %19, %24 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ]
   %34 = load ptr, ptr %9, align 8
   %35 = sub i32 %.0.i.i, %19
@@ -12910,9 +12910,9 @@ define hidden i32 @mapi_dissect_struct_RecipientRow(ptr noundef %0, i32 noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr null, ptr %13, align 8
   %.not.i.i = icmp eq ptr %.068, null
-  br i1 %.not.i.i, label %mapi_dissect_element_RecipientRow_SimpleDisplayName.argprom.exit.thread, label %23
+  br i1 %.not.i.i, label %mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread, label %23
 
-mapi_dissect_element_RecipientRow_SimpleDisplayName.argprom.exit.thread: ; preds = %20
+mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread: ; preds = %20
   tail call void @proto_item_set_len(ptr noundef null, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -12926,7 +12926,7 @@ mapi_dissect_element_RecipientRow_SimpleDisplayName.argprom.exit.thread: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  br label %mapi_dissect_element_RecipientRow_TransmittableDisplayName.argprom.exit
+  br label %mapi_dissect_element_RecipientRow_TransmittableDisplayName.exit
 
 23:                                               ; preds = %20
   %24 = load i32, ptr @ett_mapi_recipient_type, align 4
@@ -12960,10 +12960,10 @@ mapi_dissect_element_RecipientRow_SimpleDisplayName.argprom.exit.thread: ; preds
   %32 = load i32, ptr @ett_mapi_recipient_TransmittableDisplayName, align 4
   %33 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.068, ptr noundef %0, i32 noundef %22, i32 noundef -1, i32 noundef %32, ptr noundef nonnull %9, ptr noundef nonnull @.str.6142) #5
   %.pre.i.i77 = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_RecipientRow_TransmittableDisplayName.argprom.exit
+  br label %mapi_dissect_element_RecipientRow_TransmittableDisplayName.exit
 
-mapi_dissect_element_RecipientRow_TransmittableDisplayName.argprom.exit: ; preds = %mapi_dissect_element_RecipientRow_SimpleDisplayName.argprom.exit.thread, %23
-  %34 = phi ptr [ %.pre.i.i77, %23 ], [ null, %mapi_dissect_element_RecipientRow_SimpleDisplayName.argprom.exit.thread ]
+mapi_dissect_element_RecipientRow_TransmittableDisplayName.exit: ; preds = %mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread, %23
+  %34 = phi ptr [ %.pre.i.i77, %23 ], [ null, %mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread ]
   call void @proto_item_set_len(ptr noundef %34, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %35 = load i32, ptr @hf_mapi_RecipientRow_prop_count, align 4
@@ -13099,14 +13099,14 @@ define hidden i32 @mapi_dissect_struct_OpenMessage_repl(ptr noundef %0, i32 noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
-  br i1 %.not.i.i, label %mapi_dissect_element_OpenMessage_repl_repl.argprom.exit, label %21
+  br i1 %.not.i.i, label %mapi_dissect_element_OpenMessage_repl_repl.exit, label %21
 
 21:                                               ; preds = %16
   %22 = load i32, ptr @ett_mapi_OpenMessage_repl_status, align 4
   %23 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %9, ptr noundef nonnull @.str.6143) #5
-  br label %mapi_dissect_element_OpenMessage_repl_repl.argprom.exit
+  br label %mapi_dissect_element_OpenMessage_repl_repl.exit
 
-mapi_dissect_element_OpenMessage_repl_repl.argprom.exit: ; preds = %21, %16
+mapi_dissect_element_OpenMessage_repl_repl.exit:  ; preds = %21, %16
   %.015.i.i = phi ptr [ %23, %21 ], [ null, %16 ]
   %24 = load i32, ptr @hf_mapi_OpenMessage_repl_status_Success, align 4
   %25 = call i32 @mapi_dissect_struct_OpenMessage_Success(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.015.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 poison)
@@ -13272,7 +13272,7 @@ define hidden i32 @mapi_dissect_struct_GetHierarchyTable_repl(ptr noundef %0, i3
 .thread20.i.i:                                    ; preds = %16
   %21 = load i32, ptr %10, align 8
   store i32 1, ptr %10, align 8
-  br label %mapi_dissect_element_GetHierarchyTable_repl_repl.argprom.exit
+  br label %mapi_dissect_element_GetHierarchyTable_repl_repl.exit
 
 22:                                               ; preds = %16
   %23 = load i32, ptr @ett_mapi_GetHierarchyTable_repl_status, align 4
@@ -13281,15 +13281,15 @@ define hidden i32 @mapi_dissect_struct_GetHierarchyTable_repl(ptr noundef %0, i3
   %26 = load i32, ptr %10, align 8
   store i32 1, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i, label %mapi_dissect_element_GetHierarchyTable_repl_repl.argprom.exit, label %27
+  br i1 %.not.i.i.i.i, label %mapi_dissect_element_GetHierarchyTable_repl_repl.exit, label %27
 
 27:                                               ; preds = %22
   %28 = call ptr @proto_tree_add_item(ptr noundef nonnull %24, i32 noundef %25, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_mapi_GetHierarchyTable_repl_success, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
-  br label %mapi_dissect_element_GetHierarchyTable_repl_repl.argprom.exit
+  br label %mapi_dissect_element_GetHierarchyTable_repl_repl.exit
 
-mapi_dissect_element_GetHierarchyTable_repl_repl.argprom.exit: ; preds = %.thread20.i.i, %22, %27
+mapi_dissect_element_GetHierarchyTable_repl_repl.exit: ; preds = %.thread20.i.i, %22, %27
   %31 = phi i32 [ %26, %27 ], [ %26, %22 ], [ %21, %.thread20.i.i ]
   %.020.i.i.i.i = phi ptr [ %30, %27 ], [ null, %22 ], [ null, %.thread20.i.i ]
   %.0.i.i.i.i = phi ptr [ %28, %27 ], [ null, %22 ], [ null, %.thread20.i.i ]
@@ -13424,7 +13424,7 @@ define hidden i32 @mapi_dissect_struct_GetContentsTable_repl(ptr noundef %0, i32
 .thread20.i.i:                                    ; preds = %16
   %21 = load i32, ptr %10, align 8
   store i32 1, ptr %10, align 8
-  br label %mapi_dissect_element_GetContentsTable_repl_repl.argprom.exit
+  br label %mapi_dissect_element_GetContentsTable_repl_repl.exit
 
 22:                                               ; preds = %16
   %23 = load i32, ptr @ett_mapi_GetContentsTable_repl_status, align 4
@@ -13433,15 +13433,15 @@ define hidden i32 @mapi_dissect_struct_GetContentsTable_repl(ptr noundef %0, i32
   %26 = load i32, ptr %10, align 8
   store i32 1, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i, label %mapi_dissect_element_GetContentsTable_repl_repl.argprom.exit, label %27
+  br i1 %.not.i.i.i.i, label %mapi_dissect_element_GetContentsTable_repl_repl.exit, label %27
 
 27:                                               ; preds = %22
   %28 = call ptr @proto_tree_add_item(ptr noundef nonnull %24, i32 noundef %25, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_mapi_GetContentsTable_repl_success, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
-  br label %mapi_dissect_element_GetContentsTable_repl_repl.argprom.exit
+  br label %mapi_dissect_element_GetContentsTable_repl_repl.exit
 
-mapi_dissect_element_GetContentsTable_repl_repl.argprom.exit: ; preds = %.thread20.i.i, %22, %27
+mapi_dissect_element_GetContentsTable_repl_repl.exit: ; preds = %.thread20.i.i, %22, %27
   %31 = phi i32 [ %26, %27 ], [ %26, %22 ], [ %21, %.thread20.i.i ]
   %.020.i.i.i.i = phi ptr [ %30, %27 ], [ null, %22 ], [ null, %.thread20.i.i ]
   %.0.i.i.i.i = phi ptr [ %28, %27 ], [ null, %22 ], [ null, %.thread20.i.i ]
@@ -13517,15 +13517,15 @@ define hidden i32 @mapi_dissect_struct_CreateMessage_repl_success(ptr noundef %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.026, null
-  br i1 %.not.i.i, label %mapi_dissect_element_CreateMessage_repl_success_MessageId.argprom.exit, label %19
+  br i1 %.not.i.i, label %mapi_dissect_element_CreateMessage_repl_success_MessageId.exit, label %19
 
 19:                                               ; preds = %16
   %20 = load i32, ptr @ett_mapi_CreateMessage_MessageId, align 4
   %21 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.026, ptr noundef %0, i32 noundef %18, i32 noundef -1, i32 noundef %20, ptr noundef nonnull %9, ptr noundef nonnull @.str.6146) #5
   %.pre = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_CreateMessage_repl_success_MessageId.argprom.exit
+  br label %mapi_dissect_element_CreateMessage_repl_success_MessageId.exit
 
-mapi_dissect_element_CreateMessage_repl_success_MessageId.argprom.exit: ; preds = %16, %19
+mapi_dissect_element_CreateMessage_repl_success_MessageId.exit: ; preds = %16, %19
   %22 = phi ptr [ null, %16 ], [ %.pre, %19 ]
   call void @proto_item_set_len(ptr noundef %22, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -13560,14 +13560,14 @@ define hidden i32 @mapi_dissect_struct_CreateMessage_repl(ptr noundef %0, i32 no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
-  br i1 %.not.i.i, label %mapi_dissect_element_CreateMessage_repl_repl.argprom.exit, label %21
+  br i1 %.not.i.i, label %mapi_dissect_element_CreateMessage_repl_repl.exit, label %21
 
 21:                                               ; preds = %16
   %22 = load i32, ptr @ett_mapi_CreateMessage_repl_status, align 4
   %23 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %9, ptr noundef nonnull @.str.6147) #5
-  br label %mapi_dissect_element_CreateMessage_repl_repl.argprom.exit
+  br label %mapi_dissect_element_CreateMessage_repl_repl.exit
 
-mapi_dissect_element_CreateMessage_repl_repl.argprom.exit: ; preds = %21, %16
+mapi_dissect_element_CreateMessage_repl_repl.exit: ; preds = %21, %16
   %.015.i.i = phi ptr [ %23, %21 ], [ null, %16 ]
   %24 = load i32, ptr @hf_mapi_CreateMessage_repl_status_Success, align 4
   %25 = call i32 @mapi_dissect_struct_CreateMessage_repl_success(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.015.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 poison)
@@ -13667,14 +13667,14 @@ define hidden i32 @mapi_dissect_struct_GetProps_repl(ptr noundef %0, i32 noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
-  br i1 %.not.i.i, label %mapi_dissect_element_GetProps_repl_repl.argprom.exit, label %21
+  br i1 %.not.i.i, label %mapi_dissect_element_GetProps_repl_repl.exit, label %21
 
 21:                                               ; preds = %16
   %22 = load i32, ptr @ett_mapi_GetProps_repl_status, align 4
   %23 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %9, ptr noundef nonnull @.str.6148) #5
-  br label %mapi_dissect_element_GetProps_repl_repl.argprom.exit
+  br label %mapi_dissect_element_GetProps_repl_repl.exit
 
-mapi_dissect_element_GetProps_repl_repl.argprom.exit: ; preds = %21, %16
+mapi_dissect_element_GetProps_repl_repl.exit:     ; preds = %21, %16
   %.015.i.i = phi ptr [ %23, %21 ], [ null, %16 ]
   %24 = load i32, ptr @hf_mapi_GetProps_repl_status_Success, align 4
   %25 = call i32 @mapi_dissect_struct_GetProps_repl_success(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.015.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 poison)
@@ -13784,14 +13784,14 @@ define hidden i32 @mapi_dissect_struct_GetPropsAll_repl(ptr noundef %0, i32 noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
-  br i1 %.not.i.i, label %mapi_dissect_element_GetPropsAll_repl_repl.argprom.exit, label %21
+  br i1 %.not.i.i, label %mapi_dissect_element_GetPropsAll_repl_repl.exit, label %21
 
 21:                                               ; preds = %16
   %22 = load i32, ptr @ett_mapi_GetPropsAll_repl_status, align 4
   %23 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %9, ptr noundef nonnull @.str.6149) #5
-  br label %mapi_dissect_element_GetPropsAll_repl_repl.argprom.exit
+  br label %mapi_dissect_element_GetPropsAll_repl_repl.exit
 
-mapi_dissect_element_GetPropsAll_repl_repl.argprom.exit: ; preds = %21, %16
+mapi_dissect_element_GetPropsAll_repl_repl.exit:  ; preds = %21, %16
   %.015.i.i = phi ptr [ %23, %21 ], [ null, %16 ]
   %24 = load i32, ptr @hf_mapi_GetPropsAll_repl_status_Success, align 4
   %25 = call i32 @mapi_dissect_struct_GetPropsAll_repl_success(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.015.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 poison)
@@ -14600,9 +14600,9 @@ define hidden i32 @mapi_dissect_struct_SetMessageReadFlag_repl(ptr noundef %0, i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %.not.i.i = icmp eq ptr %.032, null
-  br i1 %.not.i.i, label %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.argprom.exit.critedge, label %mapi_dissect_element_SetMessageReadFlag_repl_LogonId.argprom.exit
+  br i1 %.not.i.i, label %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit.critedge, label %mapi_dissect_element_SetMessageReadFlag_repl_LogonId.exit
 
-mapi_dissect_element_SetMessageReadFlag_repl_LogonId.argprom.exit: ; preds = %17
+mapi_dissect_element_SetMessageReadFlag_repl_LogonId.exit: ; preds = %17
   %20 = load i32, ptr @ett_mapi_SetMessageReadFlag_LogonId, align 4
   %21 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %19, i32 noundef -1, i32 noundef %20, ptr noundef nonnull %10, ptr noundef nonnull @.str.6150) #5
   %22 = load ptr, ptr %10, align 8
@@ -14613,17 +14613,17 @@ mapi_dissect_element_SetMessageReadFlag_repl_LogonId.argprom.exit: ; preds = %17
   %23 = load i32, ptr @ett_mapi_SetMessageReadFlag_ClientData, align 4
   %24 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %19, i32 noundef -1, i32 noundef %23, ptr noundef nonnull %9, ptr noundef nonnull @.str.6151) #5
   %.pre = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.argprom.exit
+  br label %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit
 
-mapi_dissect_element_SetMessageReadFlag_repl_ClientData.argprom.exit.critedge: ; preds = %17
+mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit.critedge: ; preds = %17
   tail call void @proto_item_set_len(ptr noundef null, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  br label %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.argprom.exit
+  br label %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit
 
-mapi_dissect_element_SetMessageReadFlag_repl_ClientData.argprom.exit: ; preds = %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.argprom.exit.critedge, %mapi_dissect_element_SetMessageReadFlag_repl_LogonId.argprom.exit
-  %25 = phi ptr [ null, %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.argprom.exit.critedge ], [ %.pre, %mapi_dissect_element_SetMessageReadFlag_repl_LogonId.argprom.exit ]
+mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit: ; preds = %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit.critedge, %mapi_dissect_element_SetMessageReadFlag_repl_LogonId.exit
+  %25 = phi ptr [ null, %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit.critedge ], [ %.pre, %mapi_dissect_element_SetMessageReadFlag_repl_LogonId.exit ]
   call void @proto_item_set_len(ptr noundef %25, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %26 = sub i32 %19, %1
@@ -15376,15 +15376,15 @@ define hidden i32 @mapi_dissect_struct_SCommentRestriction(ptr noundef %0, i32 n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.038, null
-  br i1 %.not.i.i, label %mapi_dissect_element_SCommentRestriction_Restriction.argprom.exit, label %22
+  br i1 %.not.i.i, label %mapi_dissect_element_SCommentRestriction_Restriction.exit, label %22
 
 22:                                               ; preds = %16
   %23 = load i32, ptr @ett_mapi_RestrictionVariable, align 4
   %24 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.038, ptr noundef %0, i32 noundef %21, i32 noundef -1, i32 noundef %23, ptr noundef nonnull %9, ptr noundef nonnull @.str.6152) #5
   %.pre = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_SCommentRestriction_Restriction.argprom.exit
+  br label %mapi_dissect_element_SCommentRestriction_Restriction.exit
 
-mapi_dissect_element_SCommentRestriction_Restriction.argprom.exit: ; preds = %16, %22
+mapi_dissect_element_SCommentRestriction_Restriction.exit: ; preds = %16, %22
   %25 = phi ptr [ null, %16 ], [ %.pre, %22 ]
   call void @proto_item_set_len(ptr noundef %25, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -15413,7 +15413,7 @@ define hidden i32 @mapi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef 
   %.0 = phi ptr [ %12, %11 ], [ null, %8 ]
   %16 = load i32, ptr @hf_mapi_mapi_SRestriction_rt, align 4
   %17 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #5
-  %18 = tail call fastcc i32 @mapi_dissect_SRestriction_CTR.argelim(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0)
+  %18 = tail call fastcc i32 @mapi_dissect_SRestriction_CTR(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0)
   %19 = sub i32 %18, %1
   tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19) #5
   store i32 %10, ptr %9, align 8
@@ -15439,7 +15439,7 @@ define hidden i32 @mapi_dissect_struct_SRestriction_and(ptr noundef %0, i32 noun
   %.0 = phi ptr [ %12, %11 ], [ null, %8 ]
   %16 = load i32, ptr @hf_mapi_SRestriction_and_rt, align 4
   %17 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #5
-  %18 = tail call fastcc i32 @mapi_dissect_SRestriction_CTR.argelim(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0)
+  %18 = tail call fastcc i32 @mapi_dissect_SRestriction_CTR(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0)
   %19 = sub i32 %18, %1
   tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19) #5
   store i32 %10, ptr %9, align 8
@@ -15465,7 +15465,7 @@ define hidden i32 @mapi_dissect_struct_SRestriction_or(ptr noundef %0, i32 nound
   %.0 = phi ptr [ %12, %11 ], [ null, %8 ]
   %16 = load i32, ptr @hf_mapi_SRestriction_or_rt, align 4
   %17 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #5
-  %18 = tail call fastcc i32 @mapi_dissect_SRestriction_CTR.argelim(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0)
+  %18 = tail call fastcc i32 @mapi_dissect_SRestriction_CTR(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0)
   %19 = sub i32 %18, %1
   tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19) #5
   store i32 %10, ptr %9, align 8
@@ -15491,7 +15491,7 @@ define hidden i32 @mapi_dissect_struct_SRestriction_sub(ptr noundef %0, i32 noun
   %.0 = phi ptr [ %12, %11 ], [ null, %8 ]
   %16 = load i32, ptr @hf_mapi_SRestriction_sub_rt, align 4
   %17 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #5
-  %18 = tail call fastcc i32 @mapi_dissect_SRestriction_CTR.argelim(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0)
+  %18 = tail call fastcc i32 @mapi_dissect_SRestriction_CTR(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0)
   %19 = sub i32 %18, %1
   tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19) #5
   store i32 %10, ptr %9, align 8
@@ -15517,7 +15517,7 @@ define hidden i32 @mapi_dissect_struct_SRestriction_comment(ptr noundef %0, i32 
   %.0 = phi ptr [ %12, %11 ], [ null, %8 ]
   %16 = load i32, ptr @hf_mapi_SRestriction_comment_rt, align 4
   %17 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #5
-  %18 = tail call fastcc i32 @mapi_dissect_SRestriction_CTR.argelim(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0)
+  %18 = tail call fastcc i32 @mapi_dissect_SRestriction_CTR(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0)
   %19 = sub i32 %18, %1
   tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19) #5
   store i32 %10, ptr %9, align 8
@@ -16194,7 +16194,7 @@ define hidden i32 @mapi_dissect_struct_CreateFolder_req(ptr noundef %0, i32 noun
 
 37:                                               ; preds = %34, %20
   %.021.i.i = phi ptr [ %36, %34 ], [ null, %20 ]
-  switch i8 %31, label %mapi_dissect_element_CreateFolder_req_FolderName.argprom.exit [
+  switch i8 %31, label %mapi_dissect_element_CreateFolder_req_FolderName.exit [
     i8 0, label %38
     i8 1, label %41
   ]
@@ -16202,14 +16202,14 @@ define hidden i32 @mapi_dissect_struct_CreateFolder_req(ptr noundef %0, i32 noun
 38:                                               ; preds = %37
   %39 = load i32, ptr @hf_mapi_LPTSTR_lpszA, align 4
   %40 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.021.i.i, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
-  br label %mapi_dissect_element_CreateFolder_req_FolderName.argprom.exit
+  br label %mapi_dissect_element_CreateFolder_req_FolderName.exit
 
 41:                                               ; preds = %37
   %42 = load i32, ptr @hf_mapi_LPTSTR_lpszW, align 4
   %43 = call i32 @dissect_null_term_wstring(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.021.i.i, ptr noundef %5, i32 noundef %42, i32 noundef 0) #5
-  br label %mapi_dissect_element_CreateFolder_req_FolderName.argprom.exit
+  br label %mapi_dissect_element_CreateFolder_req_FolderName.exit
 
-mapi_dissect_element_CreateFolder_req_FolderName.argprom.exit: ; preds = %37, %38, %41
+mapi_dissect_element_CreateFolder_req_FolderName.exit: ; preds = %37, %38, %41
   %.0.i.i = phi i32 [ %33, %37 ], [ %43, %41 ], [ %40, %38 ]
   %44 = load ptr, ptr %10, align 8
   %45 = sub i32 %.0.i.i, %33
@@ -16219,14 +16219,14 @@ mapi_dissect_element_CreateFolder_req_FolderName.argprom.exit: ; preds = %37, %3
   store ptr null, ptr %9, align 8
   br i1 %.not.i.i, label %49, label %46
 
-46:                                               ; preds = %mapi_dissect_element_CreateFolder_req_FolderName.argprom.exit
+46:                                               ; preds = %mapi_dissect_element_CreateFolder_req_FolderName.exit
   %47 = load i32, ptr @ett_mapi_LPTSTR, align 4
   %48 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.062, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef -1, i32 noundef %47, ptr noundef nonnull %9, ptr noundef nonnull @.str.6155) #5
   br label %49
 
-49:                                               ; preds = %46, %mapi_dissect_element_CreateFolder_req_FolderName.argprom.exit
-  %.021.i.i66 = phi ptr [ %48, %46 ], [ null, %mapi_dissect_element_CreateFolder_req_FolderName.argprom.exit ]
-  switch i8 %31, label %mapi_dissect_element_CreateFolder_req_FolderComment.argprom.exit [
+49:                                               ; preds = %46, %mapi_dissect_element_CreateFolder_req_FolderName.exit
+  %.021.i.i66 = phi ptr [ %48, %46 ], [ null, %mapi_dissect_element_CreateFolder_req_FolderName.exit ]
+  switch i8 %31, label %mapi_dissect_element_CreateFolder_req_FolderComment.exit [
     i8 0, label %50
     i8 1, label %53
   ]
@@ -16234,14 +16234,14 @@ mapi_dissect_element_CreateFolder_req_FolderName.argprom.exit: ; preds = %37, %3
 50:                                               ; preds = %49
   %51 = load i32, ptr @hf_mapi_LPTSTR_lpszA, align 4
   %52 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.021.i.i66, ptr noundef %5, i32 noundef %51, i32 noundef 0) #5
-  br label %mapi_dissect_element_CreateFolder_req_FolderComment.argprom.exit
+  br label %mapi_dissect_element_CreateFolder_req_FolderComment.exit
 
 53:                                               ; preds = %49
   %54 = load i32, ptr @hf_mapi_LPTSTR_lpszW, align 4
   %55 = call i32 @dissect_null_term_wstring(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.021.i.i66, ptr noundef %5, i32 noundef %54, i32 noundef 0) #5
-  br label %mapi_dissect_element_CreateFolder_req_FolderComment.argprom.exit
+  br label %mapi_dissect_element_CreateFolder_req_FolderComment.exit
 
-mapi_dissect_element_CreateFolder_req_FolderComment.argprom.exit: ; preds = %49, %50, %53
+mapi_dissect_element_CreateFolder_req_FolderComment.exit: ; preds = %49, %50, %53
   %.0.i.i67 = phi i32 [ %.0.i.i, %49 ], [ %55, %53 ], [ %52, %50 ]
   %56 = load ptr, ptr %9, align 8
   %57 = sub i32 %.0.i.i67, %.0.i.i
@@ -16278,15 +16278,15 @@ define hidden i32 @mapi_dissect_struct_CreateFolder_GhostInfo(ptr noundef %0, i3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
-  br i1 %.not.i.i, label %mapi_dissect_element_CreateFolder_GhostInfo_Ghost.argprom.exit, label %21
+  br i1 %.not.i.i, label %mapi_dissect_element_CreateFolder_GhostInfo_Ghost.exit, label %21
 
 21:                                               ; preds = %16
   %22 = load i32, ptr @ett_mapi_IsGhosted, align 4
   %23 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %9, ptr noundef nonnull @.str.4276) #5
   %.pre = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_CreateFolder_GhostInfo_Ghost.argprom.exit
+  br label %mapi_dissect_element_CreateFolder_GhostInfo_Ghost.exit
 
-mapi_dissect_element_CreateFolder_GhostInfo_Ghost.argprom.exit: ; preds = %16, %21
+mapi_dissect_element_CreateFolder_GhostInfo_Ghost.exit: ; preds = %16, %21
   %24 = phi ptr [ null, %16 ], [ %.pre, %21 ]
   call void @proto_item_set_len(ptr noundef %24, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -16321,15 +16321,15 @@ define hidden i32 @mapi_dissect_struct_CreateFolder_repl(ptr noundef %0, i32 nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
-  br i1 %.not.i.i, label %mapi_dissect_element_CreateFolder_repl_GhostUnion.argprom.exit, label %21
+  br i1 %.not.i.i, label %mapi_dissect_element_CreateFolder_repl_GhostUnion.exit, label %21
 
 21:                                               ; preds = %16
   %22 = load i32, ptr @ett_mapi_CreateFolder_GhostUnion, align 4
   %23 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %9, ptr noundef nonnull @.str.6156) #5
   %.pre = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_CreateFolder_repl_GhostUnion.argprom.exit
+  br label %mapi_dissect_element_CreateFolder_repl_GhostUnion.exit
 
-mapi_dissect_element_CreateFolder_repl_GhostUnion.argprom.exit: ; preds = %16, %21
+mapi_dissect_element_CreateFolder_repl_GhostUnion.exit: ; preds = %16, %21
   %24 = phi ptr [ null, %16 ], [ %.pre, %21 ]
   call void @proto_item_set_len(ptr noundef %24, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -17132,14 +17132,14 @@ define hidden i32 @mapi_dissect_struct_RegisterNotification_req(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.050, null
-  br i1 %.not.i.i, label %mapi_dissect_element_RegisterNotification_req_u.argprom.exit, label %28
+  br i1 %.not.i.i, label %mapi_dissect_element_RegisterNotification_req_u.exit, label %28
 
 28:                                               ; preds = %17
   %29 = load i32, ptr @ett_mapi_hyperbool, align 4
   %30 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.050, ptr noundef %0, i32 noundef %27, i32 noundef -1, i32 noundef %29, ptr noundef nonnull %9, ptr noundef nonnull @.str.6157) #5
-  br label %mapi_dissect_element_RegisterNotification_req_u.argprom.exit
+  br label %mapi_dissect_element_RegisterNotification_req_u.exit
 
-mapi_dissect_element_RegisterNotification_req_u.argprom.exit: ; preds = %28, %17
+mapi_dissect_element_RegisterNotification_req_u.exit: ; preds = %28, %17
   %.015.i.i = phi ptr [ %30, %28 ], [ null, %17 ]
   %31 = load i32, ptr @hf_mapi_hyperbool_ID, align 4
   %32 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.015.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #5
@@ -17305,14 +17305,14 @@ define hidden i32 @mapi_dissect_struct_NewMailNotification(ptr noundef %0, i32 n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.044, null
-  br i1 %.not.i.i, label %mapi_dissect_element_NewMailNotification_MessageClass.argprom.exit, label %25
+  br i1 %.not.i.i, label %mapi_dissect_element_NewMailNotification_MessageClass.exit, label %25
 
 25:                                               ; preds = %16
   %26 = load i32, ptr @ett_mapi_MessageClass, align 4
   %27 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.044, ptr noundef %0, i32 noundef %24, i32 noundef -1, i32 noundef %26, ptr noundef nonnull %9, ptr noundef nonnull @.str.4529) #5
-  br label %mapi_dissect_element_NewMailNotification_MessageClass.argprom.exit
+  br label %mapi_dissect_element_NewMailNotification_MessageClass.exit
 
-mapi_dissect_element_NewMailNotification_MessageClass.argprom.exit: ; preds = %25, %16
+mapi_dissect_element_NewMailNotification_MessageClass.exit: ; preds = %25, %16
   %.021.i.i = phi ptr [ %27, %25 ], [ null, %16 ]
   %28 = load i32, ptr @hf_mapi_MessageClass_lpszA, align 4
   %29 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.021.i.i, ptr noundef %5, i32 noundef %28, i32 noundef 0) #5
@@ -17587,7 +17587,7 @@ define hidden i32 @mapi_dissect_struct_HierarchyTableChange(ptr noundef %0, i32 
 
 24:                                               ; preds = %21, %17
   %.027.i.i = phi ptr [ %23, %21 ], [ null, %17 ]
-  switch i16 %20, label %mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.argprom.exit [
+  switch i16 %20, label %mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.exit [
     i16 3, label %25
     i16 4, label %28
     i16 5, label %38
@@ -17596,7 +17596,7 @@ define hidden i32 @mapi_dissect_struct_HierarchyTableChange(ptr noundef %0, i32 
 25:                                               ; preds = %24
   %26 = load i32, ptr @hf_mapi_HierarchyTableChangeUnion_HierarchyRowAddedNotification, align 4
   %27 = call i32 @mapi_dissect_struct_HierarchyRowAddedNotification(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
-  br label %mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.argprom.exit
+  br label %mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.exit
 
 28:                                               ; preds = %24
   %29 = load i32, ptr @hf_mapi_HierarchyTableChangeUnion_HierarchyRowDeletedNotification, align 4
@@ -17619,14 +17619,14 @@ mapi_dissect_element_HierarchyTableChangeUnion_HierarchyRowDeletedNotification.e
   %37 = sub i32 %36, %19
   call void @proto_item_set_len(ptr noundef %.0.i.i.i.i, i32 noundef %37) #5
   store i32 %30, ptr %11, align 8
-  br label %mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.argprom.exit
+  br label %mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.exit
 
 38:                                               ; preds = %24
   %39 = load i32, ptr @hf_mapi_HierarchyTableChangeUnion_HierarchyRowModifiedNotification, align 4
   %40 = call i32 @mapi_dissect_struct_HierarchyRowModifiedNotification(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 poison)
-  br label %mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.argprom.exit
+  br label %mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.exit
 
-mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.argprom.exit: ; preds = %24, %25, %mapi_dissect_element_HierarchyTableChangeUnion_HierarchyRowDeletedNotification.exit.i.i, %38
+mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.exit: ; preds = %24, %25, %mapi_dissect_element_HierarchyTableChangeUnion_HierarchyRowDeletedNotification.exit.i.i, %38
   %.0.i.i = phi i32 [ %19, %24 ], [ %40, %38 ], [ %36, %mapi_dissect_element_HierarchyTableChangeUnion_HierarchyRowDeletedNotification.exit.i.i ], [ %27, %25 ]
   %41 = load ptr, ptr %9, align 8
   %42 = sub i32 %.0.i.i, %19
@@ -18016,7 +18016,7 @@ define hidden i32 @mapi_dissect_struct_ContentsTableChange(ptr noundef %0, i32 n
 
 24:                                               ; preds = %21, %17
   %.027.i.i = phi ptr [ %23, %21 ], [ null, %17 ]
-  switch i16 %20, label %mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.argprom.exit [
+  switch i16 %20, label %mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.exit [
     i16 3, label %25
     i16 4, label %28
     i16 5, label %31
@@ -18025,19 +18025,19 @@ define hidden i32 @mapi_dissect_struct_ContentsTableChange(ptr noundef %0, i32 n
 25:                                               ; preds = %24
   %26 = load i32, ptr @hf_mapi_ContentsTableChangeUnion_ContentsRowAddedNotification, align 4
   %27 = call i32 @mapi_dissect_struct_ContentsRowAddedNotification(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
-  br label %mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.argprom.exit
+  br label %mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.exit
 
 28:                                               ; preds = %24
   %29 = load i32, ptr @hf_mapi_ContentsTableChangeUnion_ContentsRowDeletedNotification, align 4
   %30 = call i32 @mapi_dissect_struct_ContentsRowDeletedNotification(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
-  br label %mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.argprom.exit
+  br label %mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.exit
 
 31:                                               ; preds = %24
   %32 = load i32, ptr @hf_mapi_ContentsTableChangeUnion_ContentsRowModifiedNotification, align 4
   %33 = call i32 @mapi_dissect_struct_ContentsRowModifiedNotification(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
-  br label %mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.argprom.exit
+  br label %mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.exit
 
-mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.argprom.exit: ; preds = %24, %25, %28, %31
+mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.exit: ; preds = %24, %25, %28, %31
   %.0.i.i = phi i32 [ %19, %24 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ]
   %34 = load ptr, ptr %9, align 8
   %35 = sub i32 %.0.i.i, %19
@@ -18181,7 +18181,7 @@ define hidden i32 @mapi_dissect_struct_Notify_repl(ptr noundef %0, i32 noundef %
 
 28:                                               ; preds = %25, %17
   %.0147.i.i = phi ptr [ %27, %25 ], [ null, %17 ]
-  switch i16 %24, label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit [
+  switch i16 %24, label %mapi_dissect_element_Notify_repl_NotificationData.exit [
     i16 2, label %29
     i16 4, label %32
     i16 8, label %35
@@ -18210,32 +18210,32 @@ define hidden i32 @mapi_dissect_struct_Notify_repl(ptr noundef %0, i32 noundef %
 29:                                               ; preds = %28
   %30 = load i32, ptr @hf_mapi_NotificationData_NewMailNotification, align 4
   %31 = call i32 @mapi_dissect_struct_NewMailNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 32:                                               ; preds = %28
   %33 = load i32, ptr @hf_mapi_NotificationData_FolderCreatedNotification, align 4
   %34 = call i32 @mapi_dissect_struct_FolderCreatedNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 35:                                               ; preds = %28
   %36 = load i32, ptr @hf_mapi_NotificationData_FolderDeletedNotification, align 4
   %37 = call i32 @mapi_dissect_struct_FolderDeletedNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 38:                                               ; preds = %28
   %39 = load i32, ptr @hf_mapi_NotificationData_FolderModifiedNotification_10, align 4
   %40 = call i32 @mapi_dissect_struct_FolderModifiedNotification_10(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 41:                                               ; preds = %28
   %42 = load i32, ptr @hf_mapi_NotificationData_FolderMoveNotification, align 4
   %43 = call i32 @mapi_dissect_struct_FolderMoveCopyNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 44:                                               ; preds = %28
   %45 = load i32, ptr @hf_mapi_NotificationData_FolderCopyNotification, align 4
   %46 = call i32 @mapi_dissect_struct_FolderMoveCopyNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 47:                                               ; preds = %28
   %48 = load i32, ptr @hf_mapi_NotificationData_SearchCompleteNotification, align 4
@@ -18258,89 +18258,89 @@ mapi_dissect_element_NotificationData_SearchCompleteNotification.exit.i.i: ; pre
   %56 = sub i32 %55, %23
   call void @proto_item_set_len(ptr noundef %.0.i.i.i.i, i32 noundef %56) #5
   store i32 %49, ptr %11, align 8
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 57:                                               ; preds = %28
   %58 = load i32, ptr @hf_mapi_NotificationData_HierarchyTableChange, align 4
   %59 = call i32 @mapi_dissect_struct_HierarchyTableChange(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 60:                                               ; preds = %28
   %61 = load i32, ptr @hf_mapi_NotificationData_IcsNotification, align 4
   %62 = call i32 @mapi_dissect_struct_IcsNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %61, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 63:                                               ; preds = %28
   %64 = load i32, ptr @hf_mapi_NotificationData_FolderModifiedNotification_1010, align 4
   %65 = call i32 @mapi_dissect_struct_FolderModifiedNotification_1010(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 66:                                               ; preds = %28
   %67 = load i32, ptr @hf_mapi_NotificationData_FolderModifiedNotification_2010, align 4
   %68 = call i32 @mapi_dissect_struct_FolderModifiedNotification_2010(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %67, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 69:                                               ; preds = %28
   %70 = load i32, ptr @hf_mapi_NotificationData_FolderModifiedNotification_3010, align 4
   %71 = call i32 @mapi_dissect_struct_FolderModifiedNotification_3010(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 72:                                               ; preds = %28
   %73 = load i32, ptr @hf_mapi_NotificationData_NewMessageNotification, align 4
   %74 = call i32 @mapi_dissect_struct_NewMailNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %73, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 75:                                               ; preds = %28
   %76 = load i32, ptr @hf_mapi_NotificationData_MessageCreatedNotification, align 4
   %77 = call i32 @mapi_dissect_struct_MessageCreatedNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 78:                                               ; preds = %28
   %79 = load i32, ptr @hf_mapi_NotificationData_MessageDeletedNotification, align 4
   %80 = call i32 @mapi_dissect_struct_MessageDeletedNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %79, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 81:                                               ; preds = %28
   %82 = load i32, ptr @hf_mapi_NotificationData_MessageModifiedNotification, align 4
   %83 = call i32 @mapi_dissect_struct_MessageModifiedNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 84:                                               ; preds = %28
   %85 = load i32, ptr @hf_mapi_NotificationData_MessageMoveNotification, align 4
   %86 = call i32 @mapi_dissect_struct_MessageMoveCopyNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %85, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 87:                                               ; preds = %28
   %88 = load i32, ptr @hf_mapi_NotificationData_MessageCopyNotification, align 4
   %89 = call i32 @mapi_dissect_struct_MessageMoveCopyNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 90:                                               ; preds = %28
   %91 = load i32, ptr @hf_mapi_NotificationData_ContentsTableChange, align 4
   %92 = call i32 @mapi_dissect_struct_ContentsTableChange(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %91, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 93:                                               ; preds = %28
   %94 = load i32, ptr @hf_mapi_NotificationData_SearchMessageCreatedNotification, align 4
   %95 = call i32 @mapi_dissect_struct_SearchMessageCreatedNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 96:                                               ; preds = %28
   %97 = load i32, ptr @hf_mapi_NotificationData_SearchMessageRemovedNotification, align 4
   %98 = call i32 @mapi_dissect_struct_SearchMessageRemovedNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %97, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 99:                                               ; preds = %28
   %100 = load i32, ptr @hf_mapi_NotificationData_SearchMessageModifiedNotification, align 4
   %101 = call i32 @mapi_dissect_struct_SearchMessageModifiedNotification(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %100, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
 102:                                              ; preds = %28
   %103 = load i32, ptr @hf_mapi_NotificationData_SearchTableChange, align 4
   %104 = call i32 @mapi_dissect_struct_ContentsTableChange(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0147.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %103, i32 poison)
-  br label %mapi_dissect_element_Notify_repl_NotificationData.argprom.exit
+  br label %mapi_dissect_element_Notify_repl_NotificationData.exit
 
-mapi_dissect_element_Notify_repl_NotificationData.argprom.exit: ; preds = %28, %29, %32, %35, %38, %41, %44, %mapi_dissect_element_NotificationData_SearchCompleteNotification.exit.i.i, %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %90, %93, %96, %99, %102
+mapi_dissect_element_Notify_repl_NotificationData.exit: ; preds = %28, %29, %32, %35, %38, %41, %44, %mapi_dissect_element_NotificationData_SearchCompleteNotification.exit.i.i, %57, %60, %63, %66, %69, %72, %75, %78, %81, %84, %87, %90, %93, %96, %99, %102
   %.0.i.i = phi i32 [ %23, %28 ], [ %104, %102 ], [ %101, %99 ], [ %98, %96 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %55, %mapi_dissect_element_NotificationData_SearchCompleteNotification.exit.i.i ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %29 ]
   %105 = load ptr, ptr %9, align 8
   %106 = sub i32 %.0.i.i, %23
@@ -18469,15 +18469,15 @@ define hidden i32 @mapi_dissect_struct_ReadStream_req(ptr noundef %0, i32 nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.038, null
-  br i1 %.not.i.i, label %mapi_dissect_element_ReadStream_req_MaximumByteCount.argprom.exit, label %23
+  br i1 %.not.i.i, label %mapi_dissect_element_ReadStream_req_MaximumByteCount.exit, label %23
 
 23:                                               ; preds = %16
   %24 = load i32, ptr @ett_mapi_MaximumByteCount, align 4
   %25 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.038, ptr noundef %0, i32 noundef %22, i32 noundef -1, i32 noundef %24, ptr noundef nonnull %9, ptr noundef nonnull @.str.5032) #5
   %.pre = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_ReadStream_req_MaximumByteCount.argprom.exit
+  br label %mapi_dissect_element_ReadStream_req_MaximumByteCount.exit
 
-mapi_dissect_element_ReadStream_req_MaximumByteCount.argprom.exit: ; preds = %16, %23
+mapi_dissect_element_ReadStream_req_MaximumByteCount.exit: ; preds = %16, %23
   %26 = phi ptr [ null, %16 ], [ %.pre, %23 ]
   call void @proto_item_set_len(ptr noundef %26, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -19071,14 +19071,14 @@ define hidden i32 @mapi_dissect_struct_MoveFolder_req(ptr noundef %0, i32 nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.044, null
-  br i1 %.not.i.i, label %mapi_dissect_element_MoveFolder_req_NewFolderName.argprom.exit, label %25
+  br i1 %.not.i.i, label %mapi_dissect_element_MoveFolder_req_NewFolderName.exit, label %25
 
 25:                                               ; preds = %16
   %26 = load i32, ptr @ett_mapi_Folder_name, align 4
   %27 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.044, ptr noundef %0, i32 noundef %24, i32 noundef -1, i32 noundef %26, ptr noundef nonnull %9, ptr noundef nonnull @.str.6158) #5
-  br label %mapi_dissect_element_MoveFolder_req_NewFolderName.argprom.exit
+  br label %mapi_dissect_element_MoveFolder_req_NewFolderName.exit
 
-mapi_dissect_element_MoveFolder_req_NewFolderName.argprom.exit: ; preds = %25, %16
+mapi_dissect_element_MoveFolder_req_NewFolderName.exit: ; preds = %25, %16
   %.021.i.i = phi ptr [ %27, %25 ], [ null, %16 ]
   %28 = load i32, ptr @hf_mapi_Folder_name_lpszA, align 4
   %29 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.021.i.i, ptr noundef %5, i32 noundef %28, i32 noundef 0) #5
@@ -19148,14 +19148,14 @@ define hidden i32 @mapi_dissect_struct_CopyFolder_req(ptr noundef %0, i32 nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.050, null
-  br i1 %.not.i.i, label %mapi_dissect_element_CopyFolder_req_NewFolderName.argprom.exit, label %27
+  br i1 %.not.i.i, label %mapi_dissect_element_CopyFolder_req_NewFolderName.exit, label %27
 
 27:                                               ; preds = %16
   %28 = load i32, ptr @ett_mapi_Folder_name, align 4
   %29 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.050, ptr noundef %0, i32 noundef %26, i32 noundef -1, i32 noundef %28, ptr noundef nonnull %9, ptr noundef nonnull @.str.6158) #5
-  br label %mapi_dissect_element_CopyFolder_req_NewFolderName.argprom.exit
+  br label %mapi_dissect_element_CopyFolder_req_NewFolderName.exit
 
-mapi_dissect_element_CopyFolder_req_NewFolderName.argprom.exit: ; preds = %27, %16
+mapi_dissect_element_CopyFolder_req_NewFolderName.exit: ; preds = %27, %16
   %.021.i.i = phi ptr [ %29, %27 ], [ null, %16 ]
   %30 = load i32, ptr @hf_mapi_Folder_name_lpszA, align 4
   %31 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.021.i.i, ptr noundef %5, i32 noundef %30, i32 noundef 0) #5
@@ -20320,7 +20320,7 @@ define hidden i32 @mapi_dissect_struct_LongTermIdFromId_repl(ptr noundef %0, i32
 .thread20.i.i:                                    ; preds = %16
   %21 = load i32, ptr %10, align 8
   store i32 1, ptr %10, align 8
-  br label %mapi_dissect_element_LongTermIdFromId_repl_repl.argprom.exit
+  br label %mapi_dissect_element_LongTermIdFromId_repl_repl.exit
 
 22:                                               ; preds = %16
   %23 = load i32, ptr @ett_mapi_LongTermIdFromId_repl_status, align 4
@@ -20329,15 +20329,15 @@ define hidden i32 @mapi_dissect_struct_LongTermIdFromId_repl(ptr noundef %0, i32
   %26 = load i32, ptr %10, align 8
   store i32 1, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i, label %mapi_dissect_element_LongTermIdFromId_repl_repl.argprom.exit, label %27
+  br i1 %.not.i.i.i.i, label %mapi_dissect_element_LongTermIdFromId_repl_repl.exit, label %27
 
 27:                                               ; preds = %22
   %28 = call ptr @proto_tree_add_item(ptr noundef nonnull %24, i32 noundef %25, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_mapi_LongTermIdFromId_repl_Success, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
-  br label %mapi_dissect_element_LongTermIdFromId_repl_repl.argprom.exit
+  br label %mapi_dissect_element_LongTermIdFromId_repl_repl.exit
 
-mapi_dissect_element_LongTermIdFromId_repl_repl.argprom.exit: ; preds = %.thread20.i.i, %22, %27
+mapi_dissect_element_LongTermIdFromId_repl_repl.exit: ; preds = %.thread20.i.i, %22, %27
   %31 = phi i32 [ %26, %27 ], [ %26, %22 ], [ %21, %.thread20.i.i ]
   %.020.i.i.i.i = phi ptr [ %30, %27 ], [ null, %22 ], [ null, %.thread20.i.i ]
   %.0.i.i.i.i = phi ptr [ %28, %27 ], [ null, %22 ], [ null, %.thread20.i.i ]
@@ -20461,15 +20461,15 @@ define hidden i32 @mapi_dissect_struct_PublicFolderIsGhosted_repl(ptr noundef %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.026, null
-  br i1 %.not.i.i, label %mapi_dissect_element_PublicFolderIsGhosted_repl_Ghost.argprom.exit, label %19
+  br i1 %.not.i.i, label %mapi_dissect_element_PublicFolderIsGhosted_repl_Ghost.exit, label %19
 
 19:                                               ; preds = %16
   %20 = load i32, ptr @ett_mapi_IsGhosted, align 4
   %21 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.026, ptr noundef %0, i32 noundef %18, i32 noundef -1, i32 noundef %20, ptr noundef nonnull %9, ptr noundef nonnull @.str.4276) #5
   %.pre = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_PublicFolderIsGhosted_repl_Ghost.argprom.exit
+  br label %mapi_dissect_element_PublicFolderIsGhosted_repl_Ghost.exit
 
-mapi_dissect_element_PublicFolderIsGhosted_repl_Ghost.argprom.exit: ; preds = %16, %19
+mapi_dissect_element_PublicFolderIsGhosted_repl_Ghost.exit: ; preds = %16, %19
   %22 = phi ptr [ null, %16 ], [ %.pre, %19 ]
   call void @proto_item_set_len(ptr noundef %22, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -20815,7 +20815,7 @@ define hidden i32 @mapi_dissect_struct_TransportSend_repl(ptr noundef %0, i32 no
 .thread20.i.i:                                    ; preds = %16
   %19 = load i32, ptr %10, align 8
   store i32 1, ptr %10, align 8
-  br label %mapi_dissect_element_TransportSend_repl_properties.argprom.exit
+  br label %mapi_dissect_element_TransportSend_repl_properties.exit
 
 20:                                               ; preds = %16
   %21 = load i32, ptr @ett_mapi_TransportSend_lpProps, align 4
@@ -20824,15 +20824,15 @@ define hidden i32 @mapi_dissect_struct_TransportSend_repl(ptr noundef %0, i32 no
   %24 = load i32, ptr %10, align 8
   store i32 1, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i, label %mapi_dissect_element_TransportSend_repl_properties.argprom.exit, label %25
+  br i1 %.not.i.i.i.i, label %mapi_dissect_element_TransportSend_repl_properties.exit, label %25
 
 25:                                               ; preds = %20
   %26 = call ptr @proto_tree_add_item(ptr noundef nonnull %22, i32 noundef %23, ptr noundef %0, i32 noundef %18, i32 noundef -1, i32 noundef 0) #5
   %27 = load i32, ptr @ett_mapi_mapi_SPropValue_array, align 4
   %28 = call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #5
-  br label %mapi_dissect_element_TransportSend_repl_properties.argprom.exit
+  br label %mapi_dissect_element_TransportSend_repl_properties.exit
 
-mapi_dissect_element_TransportSend_repl_properties.argprom.exit: ; preds = %.thread20.i.i, %20, %25
+mapi_dissect_element_TransportSend_repl_properties.exit: ; preds = %.thread20.i.i, %20, %25
   %29 = phi i32 [ %24, %25 ], [ %24, %20 ], [ %19, %.thread20.i.i ]
   %.026.i.i.i.i = phi ptr [ %28, %25 ], [ null, %20 ], [ null, %.thread20.i.i ]
   %.0.i.i.i.i = phi ptr [ %26, %25 ], [ null, %20 ], [ null, %.thread20.i.i ]
@@ -21309,7 +21309,7 @@ define hidden i32 @mapi_dissect_struct_MAPINAMEID(ptr noundef %0, i32 noundef %1
 
 26:                                               ; preds = %23, %17
   %.021.i.i = phi ptr [ %25, %23 ], [ null, %17 ]
-  switch i8 %20, label %mapi_dissect_element_MAPINAMEID_kind.argprom.exit [
+  switch i8 %20, label %mapi_dissect_element_MAPINAMEID_kind.exit [
     i8 0, label %27
     i8 1, label %30
   ]
@@ -21317,14 +21317,14 @@ define hidden i32 @mapi_dissect_struct_MAPINAMEID(ptr noundef %0, i32 noundef %1
 27:                                               ; preds = %26
   %28 = load i32, ptr @hf_mapi_Kind_lid, align 4
   %29 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.021.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 noundef 0) #5
-  br label %mapi_dissect_element_MAPINAMEID_kind.argprom.exit
+  br label %mapi_dissect_element_MAPINAMEID_kind.exit
 
 30:                                               ; preds = %26
   %31 = load i32, ptr @hf_mapi_Kind_lpwstr, align 4
   %32 = call i32 @mapi_dissect_struct_name(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.021.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
-  br label %mapi_dissect_element_MAPINAMEID_kind.argprom.exit
+  br label %mapi_dissect_element_MAPINAMEID_kind.exit
 
-mapi_dissect_element_MAPINAMEID_kind.argprom.exit: ; preds = %26, %27, %30
+mapi_dissect_element_MAPINAMEID_kind.exit:        ; preds = %26, %27, %30
   %.0.i.i = phi i32 [ %22, %26 ], [ %32, %30 ], [ %29, %27 ]
   %33 = load ptr, ptr %9, align 8
   %34 = sub i32 %.0.i.i, %22
@@ -22002,15 +22002,15 @@ mapi_dissect_element_QueryNamedProperties_req_QueryFlags.exit: ; preds = %32, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i47 = icmp eq ptr %.044, null
-  br i1 %.not.i.i47, label %mapi_dissect_element_QueryNamedProperties_req_PropertyGuid.argprom.exit, label %39
+  br i1 %.not.i.i47, label %mapi_dissect_element_QueryNamedProperties_req_PropertyGuid.exit, label %39
 
 39:                                               ; preds = %mapi_dissect_element_QueryNamedProperties_req_QueryFlags.exit
   %40 = load i32, ptr @ett_mapi_QueryNamedProperties_guid, align 4
   %41 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.044, ptr noundef %0, i32 noundef %38, i32 noundef -1, i32 noundef %40, ptr noundef nonnull %9, ptr noundef nonnull @.str.6161) #5
   %.pre = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_QueryNamedProperties_req_PropertyGuid.argprom.exit
+  br label %mapi_dissect_element_QueryNamedProperties_req_PropertyGuid.exit
 
-mapi_dissect_element_QueryNamedProperties_req_PropertyGuid.argprom.exit: ; preds = %mapi_dissect_element_QueryNamedProperties_req_QueryFlags.exit, %39
+mapi_dissect_element_QueryNamedProperties_req_PropertyGuid.exit: ; preds = %mapi_dissect_element_QueryNamedProperties_req_QueryFlags.exit, %39
   %42 = phi ptr [ null, %mapi_dissect_element_QueryNamedProperties_req_QueryFlags.exit ], [ %.pre, %39 ]
   call void @proto_item_set_len(ptr noundef %42, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -22877,15 +22877,15 @@ mapi_dissect_element_OptionsData_repl_OptionsInfo.exit: ; preds = %16, %21
   %31 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @mapi_dissect_element_OptionsData_repl_HelpFile_) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  br i1 %.not.i.i, label %mapi_dissect_element_OptionsData_repl_HelpFileName.argprom.exit, label %32
+  br i1 %.not.i.i, label %mapi_dissect_element_OptionsData_repl_HelpFileName.exit, label %32
 
 32:                                               ; preds = %mapi_dissect_element_OptionsData_repl_OptionsInfo.exit
   %33 = load i32, ptr @ett_mapi_OptionsData_HelpFileName, align 4
   %34 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.044, ptr noundef %0, i32 noundef %31, i32 noundef -1, i32 noundef %33, ptr noundef nonnull %9, ptr noundef nonnull @.str.6162) #5
   %.pre = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_OptionsData_repl_HelpFileName.argprom.exit
+  br label %mapi_dissect_element_OptionsData_repl_HelpFileName.exit
 
-mapi_dissect_element_OptionsData_repl_HelpFileName.argprom.exit: ; preds = %mapi_dissect_element_OptionsData_repl_OptionsInfo.exit, %32
+mapi_dissect_element_OptionsData_repl_HelpFileName.exit: ; preds = %mapi_dissect_element_OptionsData_repl_OptionsInfo.exit, %32
   %35 = phi ptr [ null, %mapi_dissect_element_OptionsData_repl_OptionsInfo.exit ], [ %.pre, %32 ]
   call void @proto_item_set_len(ptr noundef %35, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -24166,15 +24166,15 @@ define hidden i32 @mapi_dissect_struct_OpenPublicFolderByName_repl(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
-  br i1 %.not.i.i, label %mapi_dissect_element_OpenPublicFolderByName_repl_Ghost.argprom.exit, label %21
+  br i1 %.not.i.i, label %mapi_dissect_element_OpenPublicFolderByName_repl_Ghost.exit, label %21
 
 21:                                               ; preds = %16
   %22 = load i32, ptr @ett_mapi_IsGhosted, align 4
   %23 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %20, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %9, ptr noundef nonnull @.str.4276) #5
   %.pre = load ptr, ptr %9, align 8
-  br label %mapi_dissect_element_OpenPublicFolderByName_repl_Ghost.argprom.exit
+  br label %mapi_dissect_element_OpenPublicFolderByName_repl_Ghost.exit
 
-mapi_dissect_element_OpenPublicFolderByName_repl_Ghost.argprom.exit: ; preds = %16, %21
+mapi_dissect_element_OpenPublicFolderByName_repl_Ghost.exit: ; preds = %16, %21
   %24 = phi ptr [ null, %16 ], [ %.pre, %21 ]
   call void @proto_item_set_len(ptr noundef %24, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -26219,7 +26219,7 @@ define internal i32 @mapi_dissect_element_SCommentRestriction_TaggedValues_(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mapi_dissect_SRestriction_CTR.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
+define internal fastcc i32 @mapi_dissect_SRestriction_CTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
@@ -26679,7 +26679,7 @@ define internal i32 @mapi_dissect_element_HardDeleteMessages_req_MessageIds_(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mapi_dissect_RopRequest.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
+define internal fastcc i32 @mapi_dissect_RopRequest(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %.not = icmp eq ptr %3, null
@@ -27469,7 +27469,7 @@ mapi_dissect_struct_SetSyncNotificationGuid_req.exit: ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
+define internal fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %.not = icmp eq ptr %3, null
@@ -27608,7 +27608,7 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   ]
 
 13:                                               ; preds = %12
-  %14 = call fastcc i32 @mapi_dissect_element_RopReply_Release.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %14 = call fastcc i32 @mapi_dissect_element_RopReply_Release(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 15:                                               ; preds = %12
@@ -27664,11 +27664,11 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 45:                                               ; preds = %12
-  %46 = call fastcc i32 @mapi_dissect_element_RopReply_RemoveAllRecipients.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %46 = call fastcc i32 @mapi_dissect_element_RopReply_RemoveAllRecipients(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 47:                                               ; preds = %12
-  %48 = call fastcc i32 @mapi_dissect_element_RopReply_ModifyRecipients.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %48 = call fastcc i32 @mapi_dissect_element_RopReply_ModifyRecipients(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 49:                                               ; preds = %12
@@ -27722,7 +27722,7 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 77:                                               ; preds = %12
-  %78 = call fastcc i32 @mapi_dissect_element_RopReply_SeekRowApprox.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %78 = call fastcc i32 @mapi_dissect_element_RopReply_SeekRowApprox(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 79:                                               ; preds = %12
@@ -27748,11 +27748,11 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 91:                                               ; preds = %12
-  %92 = call fastcc i32 @mapi_dissect_element_RopReply_GetAttachmentTable.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %92 = call fastcc i32 @mapi_dissect_element_RopReply_GetAttachmentTable(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 93:                                               ; preds = %12
-  %94 = call fastcc i32 @mapi_dissect_element_RopReply_OpenAttach.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %94 = call fastcc i32 @mapi_dissect_element_RopReply_OpenAttach(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 95:                                               ; preds = %12
@@ -27760,15 +27760,15 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 97:                                               ; preds = %12
-  %98 = call fastcc i32 @mapi_dissect_element_RopReply_DeleteAttach.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %98 = call fastcc i32 @mapi_dissect_element_RopReply_DeleteAttach(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 99:                                               ; preds = %12
-  %100 = call fastcc i32 @mapi_dissect_element_RopReply_SaveChangesAttachment.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %100 = call fastcc i32 @mapi_dissect_element_RopReply_SaveChangesAttachment(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 101:                                              ; preds = %12
-  %102 = call fastcc i32 @mapi_dissect_element_RopReply_SetReceiveFolder.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %102 = call fastcc i32 @mapi_dissect_element_RopReply_SetReceiveFolder(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 103:                                              ; preds = %12
@@ -27777,7 +27777,7 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 106:                                              ; preds = %12
-  %107 = call fastcc i32 @mapi_dissect_element_RopReply_Advise.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %107 = call fastcc i32 @mapi_dissect_element_RopReply_Advise(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 108:                                              ; preds = %12
@@ -27803,11 +27803,11 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 120:                                              ; preds = %12
-  %121 = call fastcc i32 @mapi_dissect_element_RopReply_SetStreamSize.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %121 = call fastcc i32 @mapi_dissect_element_RopReply_SetStreamSize(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 122:                                              ; preds = %12
-  %123 = call fastcc i32 @mapi_dissect_element_RopReply_SetSearchCriteria.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %123 = call fastcc i32 @mapi_dissect_element_RopReply_SetSearchCriteria(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 124:                                              ; preds = %12
@@ -27816,7 +27816,7 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 127:                                              ; preds = %12
-  %128 = call fastcc i32 @mapi_dissect_element_RopReply_SubmitMessage.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %128 = call fastcc i32 @mapi_dissect_element_RopReply_SubmitMessage(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 129:                                              ; preds = %12
@@ -27824,7 +27824,7 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 131:                                              ; preds = %12
-  %132 = call fastcc i32 @mapi_dissect_element_RopReply_AbortSubmit.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %132 = call fastcc i32 @mapi_dissect_element_RopReply_AbortSubmit(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 133:                                              ; preds = %12
@@ -27853,23 +27853,23 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 146:                                              ; preds = %12
-  %147 = call fastcc i32 @mapi_dissect_element_RopReply_CloneStream.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %147 = call fastcc i32 @mapi_dissect_element_RopReply_CloneStream(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 148:                                              ; preds = %12
-  %149 = call fastcc i32 @mapi_dissect_element_RopReply_GetPermissionsTable.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %149 = call fastcc i32 @mapi_dissect_element_RopReply_GetPermissionsTable(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 150:                                              ; preds = %12
-  %151 = call fastcc i32 @mapi_dissect_element_RopReply_GetRulesTable.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %151 = call fastcc i32 @mapi_dissect_element_RopReply_GetRulesTable(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 152:                                              ; preds = %12
-  %153 = call fastcc i32 @mapi_dissect_element_RopReply_ModifyPermissions.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %153 = call fastcc i32 @mapi_dissect_element_RopReply_ModifyPermissions(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 154:                                              ; preds = %12
-  %155 = call fastcc i32 @mapi_dissect_element_RopReply_ModifyRules.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %155 = call fastcc i32 @mapi_dissect_element_RopReply_ModifyRules(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 156:                                              ; preds = %12
@@ -27897,11 +27897,11 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 170:                                              ; preds = %12
-  %171 = call fastcc i32 @mapi_dissect_element_RopReply_SetSpooler.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %171 = call fastcc i32 @mapi_dissect_element_RopReply_SetSpooler(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 172:                                              ; preds = %12
-  %173 = call fastcc i32 @mapi_dissect_element_RopReply_SpoolerLockMessage.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %173 = call fastcc i32 @mapi_dissect_element_RopReply_SpoolerLockMessage(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 174:                                              ; preds = %12
@@ -27930,7 +27930,7 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 189:                                              ; preds = %12
-  %190 = call fastcc i32 @mapi_dissect_element_RopReply_TransportNewMail.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %190 = call fastcc i32 @mapi_dissect_element_RopReply_TransportNewMail(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 191:                                              ; preds = %12
@@ -27946,7 +27946,7 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 197:                                              ; preds = %12
-  %198 = call fastcc i32 @mapi_dissect_element_RopReply_UpdateDeferredActionMessages.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %198 = call fastcc i32 @mapi_dissect_element_RopReply_UpdateDeferredActionMessages(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 199:                                              ; preds = %12
@@ -27963,15 +27963,15 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 206:                                              ; preds = %12
-  %207 = call fastcc i32 @mapi_dissect_element_RopReply_LockRegionStream.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %207 = call fastcc i32 @mapi_dissect_element_RopReply_LockRegionStream(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 208:                                              ; preds = %12
-  %209 = call fastcc i32 @mapi_dissect_element_RopReply_UnlockRegionStream.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %209 = call fastcc i32 @mapi_dissect_element_RopReply_UnlockRegionStream(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 210:                                              ; preds = %12
-  %211 = call fastcc i32 @mapi_dissect_element_RopReply_CommitStream.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %211 = call fastcc i32 @mapi_dissect_element_RopReply_CommitStream(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 212:                                              ; preds = %12
@@ -28032,7 +28032,7 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 243:                                              ; preds = %12
-  %244 = call fastcc i32 @mapi_dissect_element_RopReply_SyncConfigure.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %244 = call fastcc i32 @mapi_dissect_element_RopReply_SyncConfigure(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 245:                                              ; preds = %12
@@ -28044,19 +28044,19 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 249:                                              ; preds = %12
-  %250 = call fastcc i32 @mapi_dissect_element_RopReply_SyncImportDeletes.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %250 = call fastcc i32 @mapi_dissect_element_RopReply_SyncImportDeletes(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 251:                                              ; preds = %12
-  %252 = call fastcc i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamBegin.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %252 = call fastcc i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamBegin(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 253:                                              ; preds = %12
-  %254 = call fastcc i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamContinue.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %254 = call fastcc i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamContinue(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 255:                                              ; preds = %12
-  %256 = call fastcc i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamEnd.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %256 = call fastcc i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamEnd(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 257:                                              ; preds = %12
@@ -28077,7 +28077,7 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 266:                                              ; preds = %12
-  %267 = call fastcc i32 @mapi_dissect_element_RopReply_SyncOpenCollector.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %267 = call fastcc i32 @mapi_dissect_element_RopReply_SyncOpenCollector(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 268:                                              ; preds = %12
@@ -28086,15 +28086,15 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 271:                                              ; preds = %12
-  %272 = call fastcc i32 @mapi_dissect_element_RopReply_SyncImportReadStateChanges.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %272 = call fastcc i32 @mapi_dissect_element_RopReply_SyncImportReadStateChanges(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 273:                                              ; preds = %12
-  %274 = call fastcc i32 @mapi_dissect_element_RopReply_ResetTable.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %274 = call fastcc i32 @mapi_dissect_element_RopReply_ResetTable(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 275:                                              ; preds = %12
-  %276 = call fastcc i32 @mapi_dissect_element_RopReply_SyncGetTransferState.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %276 = call fastcc i32 @mapi_dissect_element_RopReply_SyncGetTransferState(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 277:                                              ; preds = %12
@@ -28103,11 +28103,11 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
   br label %295
 
 280:                                              ; preds = %12
-  %281 = call fastcc i32 @mapi_dissect_element_RopReply_SetSyncNotificationGuid.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %281 = call fastcc i32 @mapi_dissect_element_RopReply_SetSyncNotificationGuid(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 282:                                              ; preds = %12
-  %283 = call fastcc i32 @mapi_dissect_element_RopReply_FreeBookmark.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
+  %283 = call fastcc i32 @mapi_dissect_element_RopReply_FreeBookmark(ptr noundef %0, i32 noundef %1, ptr noundef %.0735, ptr noundef %4)
   br label %295
 
 284:                                              ; preds = %12
@@ -28140,7 +28140,7 @@ define internal fastcc i32 @mapi_dissect_RopReply.argelim(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_Release.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_Release(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_Release, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28241,7 +28241,7 @@ mapi_dissect_struct_DeleteProps_repl.exit:        ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_RemoveAllRecipients.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_RemoveAllRecipients(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_RemoveAllRecipients, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28261,7 +28261,7 @@ mapi_dissect_struct_RemoveAllRecipients_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyRecipients.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyRecipients(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ModifyRecipients, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28428,7 +28428,7 @@ mapi_dissect_struct_GetStatus_repl.exit:          ; preds = %6, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SeekRowApprox.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SeekRowApprox(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SeekRowApprox, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28526,7 +28526,7 @@ mapi_dissect_struct_SetMessageStatus_repl.exit:   ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetAttachmentTable.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetAttachmentTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_GetAttachmentTable, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28546,7 +28546,7 @@ mapi_dissect_struct_GetAttachmentTable_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_OpenAttach.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_OpenAttach(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_OpenAttach, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28592,7 +28592,7 @@ mapi_dissect_struct_CreateAttach_repl.exit:       ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_DeleteAttach.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_DeleteAttach(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_DeleteAttach, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28612,7 +28612,7 @@ mapi_dissect_struct_DeleteAttach_repl.exit:       ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SaveChangesAttachment.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SaveChangesAttachment(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SaveChangesAttachment, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28632,7 +28632,7 @@ mapi_dissect_struct_SaveChangesAttachment_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetReceiveFolder.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetReceiveFolder(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetReceiveFolder, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28652,7 +28652,7 @@ mapi_dissect_struct_SetReceiveFolder_repl.exit:   ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_Advise.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_Advise(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_Advise, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28750,7 +28750,7 @@ mapi_dissect_struct_SeekStream_repl.exit:         ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetStreamSize.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetStreamSize(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetStreamSize, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28770,7 +28770,7 @@ mapi_dissect_struct_SetStreamSize_repl.exit:      ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSearchCriteria.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSearchCriteria(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetSearchCriteria, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28790,7 +28790,7 @@ mapi_dissect_struct_SetSearchCriteria_repl.exit:  ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SubmitMessage.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SubmitMessage(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SubmitMessage, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28836,7 +28836,7 @@ mapi_dissect_struct_MoveCopyMessages_repl.exit:   ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_AbortSubmit.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_AbortSubmit(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_AbortSubmit, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -28992,7 +28992,7 @@ mapi_dissect_struct_CopyTo_repl.exit:             ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_CloneStream.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_CloneStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_CloneStream, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29012,7 +29012,7 @@ mapi_dissect_struct_CloneStream_repl.exit:        ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetPermissionsTable.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetPermissionsTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_GetPermissionsTable, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29032,7 +29032,7 @@ mapi_dissect_struct_GetPermissionsTable_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetRulesTable.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_GetRulesTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_GetRulesTable, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29052,7 +29052,7 @@ mapi_dissect_struct_GetRulesTable_repl.exit:      ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyPermissions.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyPermissions(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ModifyPermissions, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29072,7 +29072,7 @@ mapi_dissect_struct_ModifyPermissions_repl.exit:  ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyRules.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ModifyRules(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ModifyRules, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29118,7 +29118,7 @@ mapi_dissect_struct_IdFromLongTermId_repl.exit:   ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSpooler.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSpooler(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetSpooler, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29138,7 +29138,7 @@ mapi_dissect_struct_SetSpooler_repl.exit:         ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SpoolerLockMessage.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SpoolerLockMessage(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SpoolerLockMessage, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29158,7 +29158,7 @@ mapi_dissect_struct_SpoolerLockMessage_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_TransportNewMail.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_TransportNewMail(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_TransportNewMail, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29259,7 +29259,7 @@ mapi_dissect_struct_GetIDsFromNames_repl.exit:    ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_UpdateDeferredActionMessages.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_UpdateDeferredActionMessages(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_UpdateDeferredActionMessages, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29331,7 +29331,7 @@ mapi_dissect_struct_CollapseRow_repl.exit:        ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_LockRegionStream.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_LockRegionStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_LockRegionStream, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29351,7 +29351,7 @@ mapi_dissect_struct_LockRegionStream_repl.exit:   ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_UnlockRegionStream.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_UnlockRegionStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_UnlockRegionStream, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29371,7 +29371,7 @@ mapi_dissect_struct_UnlockRegionStream_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_CommitStream.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_CommitStream(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_CommitStream, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29602,7 +29602,7 @@ mapi_dissect_struct_GetTransportFolder_repl.exit: ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncConfigure.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncConfigure(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncConfigure, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29674,7 +29674,7 @@ mapi_dissect_struct_SyncImportHierarchyChange_repl.exit: ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncImportDeletes.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncImportDeletes(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncImportDeletes, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29694,7 +29694,7 @@ mapi_dissect_struct_SyncImportDeletes_repl.exit:  ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamBegin.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamBegin(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncUploadStateStreamBegin, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29714,7 +29714,7 @@ mapi_dissect_struct_SyncUploadStateStreamBegin_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamContinue.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamContinue(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncUploadStateStreamContinue, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29734,7 +29734,7 @@ mapi_dissect_struct_SyncUploadStateStreamContinue_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamEnd.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncUploadStateStreamEnd(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncUploadStateStreamEnd, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29834,7 +29834,7 @@ mapi_dissect_struct_DeletePropertiesNoReplicate_repl.exit: ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncOpenCollector.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncOpenCollector(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncOpenCollector, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29854,7 +29854,7 @@ mapi_dissect_struct_SyncOpenCollector_repl.exit:  ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncImportReadStateChanges.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncImportReadStateChanges(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncImportReadStateChanges, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29874,7 +29874,7 @@ mapi_dissect_struct_SyncImportReadStateChanges_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ResetTable.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_ResetTable(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_ResetTable, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29894,7 +29894,7 @@ mapi_dissect_struct_ResetTable_repl.exit:         ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncGetTransferState.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SyncGetTransferState(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SyncGetTransferState, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29914,7 +29914,7 @@ mapi_dissect_struct_SyncGetTransferState_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSyncNotificationGuid.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_SetSyncNotificationGuid(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_SetSyncNotificationGuid, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
@@ -29934,7 +29934,7 @@ mapi_dissect_struct_SetSyncNotificationGuid_repl.exit: ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @mapi_dissect_element_RopReply_FreeBookmark.argprom(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @mapi_dissect_element_RopReply_FreeBookmark(ptr noundef %0, i32 noundef returned %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mapi_RopReply_FreeBookmark, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8

@@ -197,7 +197,7 @@ declare i32 @Cudd_SupportSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_PrintTime.argelim(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Abc_PrintTime(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.42, ptr noundef %0)
   %3 = sitofp i64 %1 to double
   %4 = fdiv double %3, 1.000000e+06
@@ -974,25 +974,25 @@ define noundef i32 @Llb_NonlinReoHook(ptr noundef %0, ptr nocapture noundef read
   %12 = getelementptr inbounds i8, ptr %0, i64 312
   br label %13
 
-13:                                               ; preds = %.lr.ph, %Aig_ManObj.argprom.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ManObj.argprom.exit.thread ]
+13:                                               ; preds = %.lr.ph, %Aig_ManObj.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ManObj.exit.thread ]
   %.val = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %Aig_ManObj.argprom.exit.thread, label %Aig_ManObj.argprom.exit
+  br i1 %.not.i, label %Aig_ManObj.exit.thread, label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %13
+Aig_ManObj.exit:                                  ; preds = %13
   %14 = getelementptr i8, ptr %.val, i64 8
   %.val.i = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %Aig_ManObj.argprom.exit.thread, label %18
+  br i1 %17, label %Aig_ManObj.exit.thread, label %18
 
-18:                                               ; preds = %Aig_ManObj.argprom.exit
+18:                                               ; preds = %Aig_ManObj.exit
   %19 = getelementptr i8, ptr %16, i64 24
   %.val3.i = load i64, ptr %19, align 8
   %20 = and i64 %.val3.i, 7
-  switch i64 %20, label %Aig_ManObj.argprom.exit.thread [
+  switch i64 %20, label %Aig_ManObj.exit.thread [
     i64 2, label %Saig_ObjIsPi.exit
     i64 3, label %Saig_ObjIsPo.exit
   ]
@@ -1019,16 +1019,16 @@ Saig_ObjIsPo.exit:                                ; preds = %18
   %25 = load i32, ptr %24, align 4
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %26, i32 noundef %25)
-  br label %Aig_ManObj.argprom.exit.thread
+  br label %Aig_ManObj.exit.thread
 
-Aig_ManObj.argprom.exit.thread:                   ; preds = %18, %13, %Aig_ManObj.argprom.exit, %21
+Aig_ManObj.exit.thread:                           ; preds = %18, %13, %Aig_ManObj.exit, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #18
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
   br i1 %30, label %13, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %Aig_ManObj.argprom.exit.thread, %3
+._crit_edge:                                      ; preds = %Aig_ManObj.exit.thread, %3
   %putchar = tail call i32 @putchar(i32 10)
   ret i32 1
 }
@@ -1546,7 +1546,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 289:                                              ; preds = %288, %283
   %290 = call fastcc i64 @Abc_Clock()
   %291 = sub nsw i64 %290, %.0.i
-  call fastcc void @Abc_PrintTime.argelim(ptr noundef nonnull @.str.9, i64 noundef %291)
+  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.9, i64 noundef %291)
   %.pre401 = load ptr, ptr %26, align 8
   br label %292
 
@@ -2305,7 +2305,7 @@ Abc_Clock.exit282._crit_edge:                     ; preds = %672, %Abc_Clock.exi
   store i32 %723, ptr %724, align 8
   %725 = call fastcc i64 @Abc_Clock()
   %726 = sub nsw i64 %725, %.0.i
-  call fastcc void @Abc_PrintTime.argelim(ptr noundef nonnull @.str.9, i64 noundef %726)
+  call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.9, i64 noundef %726)
   br label %727
 
 727:                                              ; preds = %721, %712, %669, %573, %529, %477, %444, %367, %323, %292, %220, %199, %113, %85

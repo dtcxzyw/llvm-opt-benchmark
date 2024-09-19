@@ -919,7 +919,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not370, label %443, label %442
 
 442:                                              ; preds = %437
-  tail call fastcc void @prssyntaxerror.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @prssyntaxerror(ptr noundef nonnull %0)
   br label %prssyntaxerror.exit
 
 443:                                              ; preds = %437
@@ -936,7 +936,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not369, label %451, label %450
 
 450:                                              ; preds = %445
-  tail call fastcc void @prssyntaxerror.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @prssyntaxerror(ptr noundef nonnull %0)
   br label %prssyntaxerror.exit
 
 451:                                              ; preds = %445
@@ -953,7 +953,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not368, label %488, label %458
 
 458:                                              ; preds = %453
-  tail call fastcc void @prssyntaxerror.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @prssyntaxerror(ptr noundef nonnull %0)
   br label %prssyntaxerror.exit
 
 459:                                              ; preds = %415
@@ -1021,7 +1021,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not362, label %484, label %488
 
 484:                                              ; preds = %482
-  tail call fastcc void @prssyntaxerror.retelim(ptr noundef nonnull %0)
+  tail call fastcc void @prssyntaxerror(ptr noundef nonnull %0)
   br label %prssyntaxerror.exit
 
 485:                                              ; preds = %13
@@ -1057,7 +1057,7 @@ prssyntaxerror.exit:                              ; preds = %14, %427, %423, %40
 declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prssyntaxerror.retelim(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @prssyntaxerror(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7

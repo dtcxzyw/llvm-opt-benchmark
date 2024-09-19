@@ -2408,13 +2408,13 @@ entry:
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val1, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !32
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_113mapped_payoffEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit
+  br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_113mapped_payoffEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZSt25__throw_bad_function_callv() #27
   unreachable
 
-_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_113mapped_payoffEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit: ; preds = %entry
+_ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_113mapped_payoffEJdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit: ; preds = %entry
   %_M_invoker.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val1, i64 24
   %2 = load ptr, ptr %_M_invoker.i.i.i.i, align 8, !tbaa !31
   %call2.i.i.i.i = call noundef double %2(ptr noundef nonnull align 8 dereferenceable(16) %call.val1, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i)

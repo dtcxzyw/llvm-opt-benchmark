@@ -94,7 +94,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
           cleanup
   %21 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %21)
-  tail call fastcc void @"_ZN4core3ptr776drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_vault_aws..aws_signing_vault..AwsKeyPair$C$ockam_vault..types..secrets..SigningSecretKeyHandle$C$$LP$$RP$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$alloc..vec..Vec$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9b9041fbc8ffcc32E.argprom"(ptr nonnull %.sroa.0.0.copyload, i64 %.sroa.6.0) #26, !noalias !20
+  tail call fastcc void @"_ZN4core3ptr776drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_vault_aws..aws_signing_vault..AwsKeyPair$C$ockam_vault..types..secrets..SigningSecretKeyHandle$C$$LP$$RP$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$alloc..vec..Vec$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9b9041fbc8ffcc32E"(ptr nonnull %.sroa.0.0.copyload, i64 %.sroa.6.0) #26, !noalias !20
   resume { ptr, i32 } %20
 
 22:                                               ; preds = %11
@@ -1619,7 +1619,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$ockam_vault..types.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr776drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_vault_aws..aws_signing_vault..AwsKeyPair$C$ockam_vault..types..secrets..SigningSecretKeyHandle$C$$LP$$RP$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$alloc..vec..Vec$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9b9041fbc8ffcc32E.argprom"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #8 {
+define internal fastcc void @"_ZN4core3ptr776drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_vault_aws..aws_signing_vault..AwsKeyPair$C$ockam_vault..types..secrets..SigningSecretKeyHandle$C$$LP$$RP$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$alloc..vec..Vec$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9b9041fbc8ffcc32E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #8 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -2207,7 +2207,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
           cleanup
   %.val17 = load ptr, ptr %2, align 8, !nonnull !19, !align !230, !noundef !19
   %.val18 = load i64, ptr %12, align 8, !noundef !19
-  tail call fastcc void @"_ZN4core3ptr776drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_vault_aws..aws_signing_vault..AwsKeyPair$C$ockam_vault..types..secrets..SigningSecretKeyHandle$C$$LP$$RP$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$alloc..vec..Vec$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9b9041fbc8ffcc32E.argprom"(ptr nonnull %.val17, i64 %.val18) #26
+  tail call fastcc void @"_ZN4core3ptr776drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$ockam_vault_aws..aws_signing_vault..AwsKeyPair$C$ockam_vault..types..secrets..SigningSecretKeyHandle$C$$LP$$RP$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$alloc..vec..Vec$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$ockam_vault_aws..aws_signing_vault..AwsKeyPair$GT$$C$ockam_vault_aws..aws_signing_vault..AwsSigningVault..keys..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9b9041fbc8ffcc32E"(ptr nonnull %.val17, i64 %.val18) #26
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %15
@@ -2594,7 +2594,7 @@ common.ret:                                       ; preds = %53, %8
   %39 = getelementptr inbounds i8, ptr %.val16, i64 24
   %40 = load ptr, ptr %39, align 8, !invariant.load !19, !noalias !664, !nonnull !19
   invoke void %40(ptr noalias nocapture noundef nonnull sret({ i8, [71 x i8] }) align 8 dereferenceable(72) %5, ptr noundef nonnull align 1 %.val15, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E.argprom.exit" unwind label %41
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E.exit" unwind label %41
 
 41:                                               ; preds = %36
   %42 = landingpad { ptr, i32 }
@@ -2603,12 +2603,12 @@ common.ret:                                       ; preds = %53, %8
   invoke void @"_ZN4core3ptr249drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..signatures..Signature$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h8aa5cd5ee5c6920bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37) #26
           to label %.body17 unwind label %56
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E.argprom.exit": ; preds = %36
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E.exit": ; preds = %36
   %43 = load i8, ptr %5, align 8, !range !437, !noundef !19
   %44 = icmp eq i8 %43, 2
   br i1 %44, label %53, label %45
 
-45:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E.argprom.exit"
+45:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !668)
@@ -2635,7 +2635,7 @@ common.ret:                                       ; preds = %53, %8
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h78890c040d7a2512E.llvm.9405825265181994393"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37)
           to label %8 unwind label %54
 
-53:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E.argprom.exit"
+53:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E.exit"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   store i8 2, ptr %0, align 8
   br label %common.ret
@@ -2826,7 +2826,7 @@ common.ret:                                       ; preds = %105, %62, %"_ZN4cor
   %48 = getelementptr inbounds i8, ptr %.val51, i64 24
   %49 = load ptr, ptr %48, align 8, !invariant.load !19, !noalias !684, !nonnull !19
   invoke void %49(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %10, ptr noundef nonnull align 1 %.val50, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE.argprom.exit" unwind label %50
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE.exit" unwind label %50
 
 50:                                               ; preds = %45
   %51 = landingpad { ptr, i32 }
@@ -2835,12 +2835,12 @@ common.ret:                                       ; preds = %105, %62, %"_ZN4cor
   invoke void @"_ZN4core3ptr259drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hbd293ec5402c325fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %46) #26
           to label %.body unwind label %86
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE.argprom.exit": ; preds = %45
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE.exit": ; preds = %45
   %52 = load i64, ptr %10, align 8, !range !688, !noundef !19
   %53 = icmp eq i64 %52, 3
   br i1 %53, label %62, label %54
 
-54:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE.argprom.exit"
+54:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE.exit"
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
@@ -2870,7 +2870,7 @@ common.ret:                                       ; preds = %105, %62, %"_ZN4cor
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h95b286c3a31d857eE.llvm.9405825265181994393"(ptr noalias noundef nonnull align 8 dereferenceable(16) %46)
           to label %"_ZN4core3ptr259drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hbd293ec5402c325fE.exit" unwind label %63
 
-62:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE.argprom.exit"
+62:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE.exit"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   store i64 3, ptr %0, align 8
   br label %common.ret
@@ -2938,7 +2938,7 @@ common.ret:                                       ; preds = %105, %62, %"_ZN4cor
   %91 = getelementptr inbounds i8, ptr %.val53, i64 24
   %92 = load ptr, ptr %91, align 8, !invariant.load !19, !noalias !696, !nonnull !19
   invoke void %92(ptr noalias nocapture noundef nonnull sret({ i8, [71 x i8] }) align 8 dereferenceable(72) %9, ptr noundef nonnull align 1 %.val52, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E.argprom.exit" unwind label %93
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E.exit" unwind label %93
 
 93:                                               ; preds = %88
   %94 = landingpad { ptr, i32 }
@@ -2947,12 +2947,12 @@ common.ret:                                       ; preds = %105, %62, %"_ZN4cor
   invoke void @"_ZN4core3ptr259drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..public_keys..VerifyingPublicKey$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hf8b242277bd4badfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %89) #26
           to label %.body59 unwind label %86
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E.argprom.exit": ; preds = %88
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E.exit": ; preds = %88
   %95 = load i8, ptr %9, align 8, !range !437, !noundef !19
   %96 = icmp eq i8 %95, 2
   br i1 %96, label %105, label %97
 
-97:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E.argprom.exit"
+97:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E.exit"
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.2, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.2.0..sroa_idx, i64 7, i1 false)
   %.sroa.3105.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
@@ -2984,7 +2984,7 @@ common.ret:                                       ; preds = %105, %62, %"_ZN4cor
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8bf941266ad30afbE.llvm.9405825265181994393"(ptr noalias noundef nonnull align 8 dereferenceable(16) %89)
           to label %"_ZN4core3ptr259drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..public_keys..VerifyingPublicKey$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hf8b242277bd4badfE.exit" unwind label %106
 
-105:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E.argprom.exit"
+105:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E.exit"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
   store i64 3, ptr %0, align 8
   br label %common.ret
@@ -4036,7 +4036,7 @@ default.unreachable91:                            ; preds = %3
   %55 = getelementptr inbounds i8, ptr %.val44, i64 24
   %56 = load ptr, ptr %55, align 8, !invariant.load !19, !noalias !872, !nonnull !19
   invoke void %56(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %16, ptr noundef nonnull align 1 %.val43, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E.argprom.exit" unwind label %57
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E.exit" unwind label %57
 
 57:                                               ; preds = %52
   %58 = landingpad { ptr, i32 }
@@ -4045,12 +4045,12 @@ default.unreachable91:                            ; preds = %3
   invoke void @"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17ha0f468ecf1ebade5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %53) #26
           to label %.body45 unwind label %154
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E.argprom.exit": ; preds = %52
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E.exit": ; preds = %52
   %59 = load i8, ptr %16, align 8, !range !437, !noundef !19
   %60 = icmp eq i8 %59, 2
   br i1 %60, label %69, label %61
 
-61:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E.argprom.exit"
+61:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E.exit"
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 1
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.378.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
@@ -4085,7 +4085,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr72drop
   store i8 %storemerge, ptr %17, align 8
   ret void
 
-69:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E.argprom.exit"
+69:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   store i8 2, ptr %0, align 8
   br label %common.ret
@@ -4813,11 +4813,11 @@ attributes #29 = { nounwind }
 !8 = !{!9, !11, !5}
 !9 = distinct !{!9, !10, !"_ZN90_$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$u20$as$u20$core..clone..Clone$GT$5clone17h31c97af053ccb6aaE: argument 1"}
 !10 = distinct !{!10, !"_ZN90_$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$u20$as$u20$core..clone..Clone$GT$5clone17h31c97af053ccb6aaE"}
-!11 = distinct !{!11, !12, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE.argprom: argument 1"}
-!12 = distinct !{!12, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE.argprom"}
+!11 = distinct !{!11, !12, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE: argument 1"}
+!12 = distinct !{!12, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE"}
 !13 = !{!14, !15, !16, !17}
 !14 = distinct !{!14, !10, !"_ZN90_$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$u20$as$u20$core..clone..Clone$GT$5clone17h31c97af053ccb6aaE: argument 0"}
-!15 = distinct !{!15, !12, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE.argprom: argument 0"}
+!15 = distinct !{!15, !12, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE: argument 0"}
 !16 = distinct !{!16, !6, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h95c5809c2ea91f6bE: argument 0"}
 !17 = distinct !{!17, !18, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5ac4ccaa0b882c15E.llvm.18228136452100008479: argument 0"}
 !18 = distinct !{!18, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5ac4ccaa0b882c15E.llvm.18228136452100008479"}
@@ -5343,9 +5343,9 @@ attributes #29 = { nounwind }
 !538 = !{!534, !537}
 !539 = !{!536}
 !540 = !{!541, !543}
-!541 = distinct !{!541, !542, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$17h8cfea543e19c3479E.argprom: argument 0"}
-!542 = distinct !{!542, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$17h8cfea543e19c3479E.argprom"}
-!543 = distinct !{!543, !542, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$17h8cfea543e19c3479E.argprom: argument 1"}
+!541 = distinct !{!541, !542, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$17h8cfea543e19c3479E: argument 0"}
+!542 = distinct !{!542, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$17h8cfea543e19c3479E"}
+!543 = distinct !{!543, !542, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$17h8cfea543e19c3479E: argument 1"}
 !544 = !{!541}
 !545 = !{!546, !548, !541, !543}
 !546 = distinct !{!546, !547, !"_ZN128_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$core..ops..arith..Mul$LT$$RF$p256..arithmetic..field..FieldElement$GT$$GT$3mul17h6fca8c518aecaf86E: argument 0"}
@@ -5373,21 +5373,21 @@ attributes #29 = { nounwind }
 !568 = distinct !{!568, !567, !"_ZN128_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$core..ops..arith..Add$LT$$RF$p256..arithmetic..field..FieldElement$GT$$GT$3add17h185ecd0666aac386E: argument 2"}
 !569 = !{!566, !541}
 !570 = !{!571}
-!571 = distinct !{!571, !572, !"_ZN6subtle17CtOption$LT$T$GT$3map17h840f217e33b92409E.argprom: argument 1"}
-!572 = distinct !{!572, !"_ZN6subtle17CtOption$LT$T$GT$3map17h840f217e33b92409E.argprom"}
+!571 = distinct !{!571, !572, !"_ZN6subtle17CtOption$LT$T$GT$3map17h840f217e33b92409E: argument 1"}
+!572 = distinct !{!572, !"_ZN6subtle17CtOption$LT$T$GT$3map17h840f217e33b92409E"}
 !573 = !{!574, !571, !575, !541, !543}
-!574 = distinct !{!574, !572, !"_ZN6subtle17CtOption$LT$T$GT$3map17h840f217e33b92409E.argprom: argument 0"}
-!575 = distinct !{!575, !572, !"_ZN6subtle17CtOption$LT$T$GT$3map17h840f217e33b92409E.argprom: argument 2"}
+!574 = distinct !{!574, !572, !"_ZN6subtle17CtOption$LT$T$GT$3map17h840f217e33b92409E: argument 0"}
+!575 = distinct !{!575, !572, !"_ZN6subtle17CtOption$LT$T$GT$3map17h840f217e33b92409E: argument 2"}
 !576 = !{!574, !571, !575, !541}
 !577 = !{!574, !575, !541, !543}
 !578 = !{!574, !575, !541}
 !579 = !{!580}
-!580 = distinct !{!580, !581, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb965c5f6f72407f2E.argprom: argument 0"}
-!581 = distinct !{!581, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb965c5f6f72407f2E.argprom"}
+!580 = distinct !{!580, !581, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb965c5f6f72407f2E: argument 0"}
+!581 = distinct !{!581, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb965c5f6f72407f2E"}
 !582 = !{!583}
-!583 = distinct !{!583, !581, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb965c5f6f72407f2E.argprom: argument 1"}
+!583 = distinct !{!583, !581, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb965c5f6f72407f2E: argument 1"}
 !584 = !{!580, !583, !585, !574, !571, !575, !541, !543}
-!585 = distinct !{!585, !581, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb965c5f6f72407f2E.argprom: argument 2"}
+!585 = distinct !{!585, !581, !"_ZN108_$LT$primeorder..affine..AffinePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..DecompressPoint$LT$C$GT$$GT$10decompress28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb965c5f6f72407f2E: argument 2"}
 !586 = !{!580, !583, !574, !571, !575, !541, !543}
 !587 = !{!588, !580, !583, !585, !574, !575, !541}
 !588 = distinct !{!588, !589, !"_ZN79_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$core..ops..arith..Neg$GT$3neg17h64326cda93398510E: argument 0"}
@@ -5418,11 +5418,11 @@ attributes #29 = { nounwind }
 !613 = !{!614, !616, !612}
 !614 = distinct !{!614, !615, !"_ZN90_$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$u20$as$u20$core..clone..Clone$GT$5clone17h31c97af053ccb6aaE: argument 1"}
 !615 = distinct !{!615, !"_ZN90_$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$u20$as$u20$core..clone..Clone$GT$5clone17h31c97af053ccb6aaE"}
-!616 = distinct !{!616, !617, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE.argprom: argument 1"}
-!617 = distinct !{!617, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE.argprom"}
+!616 = distinct !{!616, !617, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE: argument 1"}
+!617 = distinct !{!617, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE"}
 !618 = !{!619, !620, !609}
 !619 = distinct !{!619, !615, !"_ZN90_$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$u20$as$u20$core..clone..Clone$GT$5clone17h31c97af053ccb6aaE: argument 0"}
-!620 = distinct !{!620, !617, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE.argprom: argument 0"}
+!620 = distinct !{!620, !617, !"_ZN15ockam_vault_aws17aws_signing_vault15AwsSigningVault4keys28_$u7b$$u7b$closure$u7d$$u7d$17ha906531d4167b60bE: argument 0"}
 !621 = !{!622}
 !622 = distinct !{!622, !623, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h13b157850bf666d5E: argument 0"}
 !623 = distinct !{!623, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h13b157850bf666d5E"}
@@ -5467,9 +5467,9 @@ attributes #29 = { nounwind }
 !662 = distinct !{!662, !"_ZN77_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2f9380d8a258e751E"}
 !663 = !{i64 1, i64 0}
 !664 = !{!665, !667}
-!665 = distinct !{!665, !666, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E.argprom: argument 0"}
-!666 = distinct !{!666, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E.argprom"}
-!667 = distinct !{!667, !666, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E.argprom: argument 1"}
+!665 = distinct !{!665, !666, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E: argument 0"}
+!666 = distinct !{!666, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E"}
+!667 = distinct !{!667, !666, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h39077a650463bfc7E: argument 1"}
 !668 = !{!669}
 !669 = distinct !{!669, !670, !"_ZN4core3ptr249drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..signatures..Signature$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h8aa5cd5ee5c6920bE: argument 0"}
 !670 = distinct !{!670, !"_ZN4core3ptr249drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..signatures..Signature$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h8aa5cd5ee5c6920bE"}
@@ -5487,9 +5487,9 @@ attributes #29 = { nounwind }
 !682 = distinct !{!682, !683, !"_ZN77_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h4c0cb1788ea2f8b7E: argument 0"}
 !683 = distinct !{!683, !"_ZN77_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h4c0cb1788ea2f8b7E"}
 !684 = !{!685, !687}
-!685 = distinct !{!685, !686, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE.argprom: argument 0"}
-!686 = distinct !{!686, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE.argprom"}
-!687 = distinct !{!687, !686, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE.argprom: argument 1"}
+!685 = distinct !{!685, !686, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE: argument 0"}
+!686 = distinct !{!686, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE"}
+!687 = distinct !{!687, !686, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h916a20e6db4a5f8aE: argument 1"}
 !688 = !{i64 0, i64 4}
 !689 = !{!690}
 !690 = distinct !{!690, !691, !"_ZN4core3ptr259drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hbd293ec5402c325fE: argument 0"}
@@ -5499,9 +5499,9 @@ attributes #29 = { nounwind }
 !694 = distinct !{!694, !"_ZN4core3ptr237drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0f1cc56e85784ccdE.llvm.9405825265181994393"}
 !695 = !{!693, !690}
 !696 = !{!697, !699}
-!697 = distinct !{!697, !698, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E.argprom: argument 0"}
-!698 = distinct !{!698, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E.argprom"}
-!699 = distinct !{!699, !698, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E.argprom: argument 1"}
+!697 = distinct !{!697, !698, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E: argument 0"}
+!698 = distinct !{!698, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E"}
+!699 = distinct !{!699, !698, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h8d0aabfca2ca8bc8E: argument 1"}
 !700 = !{!701}
 !701 = distinct !{!701, !702, !"_ZN4core3ptr259drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..public_keys..VerifyingPublicKey$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hf8b242277bd4badfE: argument 0"}
 !702 = distinct !{!702, !"_ZN4core3ptr259drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$ockam_vault..types..public_keys..VerifyingPublicKey$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hf8b242277bd4badfE"}
@@ -5568,9 +5568,9 @@ attributes #29 = { nounwind }
 !763 = distinct !{!763, !764, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h05d6397a478aac73E: argument 2"}
 !764 = distinct !{!764, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h05d6397a478aac73E"}
 !765 = !{!766, !768, !769, !770}
-!766 = distinct !{!766, !767, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$24get_verifying_public_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc2cd98fc74e9ac00E.argprom: argument 0"}
-!767 = distinct !{!767, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$24get_verifying_public_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc2cd98fc74e9ac00E.argprom"}
-!768 = distinct !{!768, !767, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$24get_verifying_public_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc2cd98fc74e9ac00E.argprom: argument 1"}
+!766 = distinct !{!766, !767, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$24get_verifying_public_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc2cd98fc74e9ac00E: argument 0"}
+!767 = distinct !{!767, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$24get_verifying_public_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc2cd98fc74e9ac00E"}
+!768 = distinct !{!768, !767, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$24get_verifying_public_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc2cd98fc74e9ac00E: argument 1"}
 !769 = distinct !{!769, !764, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h05d6397a478aac73E: argument 0"}
 !770 = distinct !{!770, !764, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h05d6397a478aac73E: argument 1"}
 !771 = !{!772}
@@ -5624,9 +5624,9 @@ attributes #29 = { nounwind }
 !819 = !{!820}
 !820 = distinct !{!820, !818, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h845bfd873c8b4d92E: argument 2"}
 !821 = !{!822, !824, !817, !825}
-!822 = distinct !{!822, !823, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$21get_secret_key_handle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h11801726fa5f82a6E.argprom: argument 0"}
-!823 = distinct !{!823, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$21get_secret_key_handle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h11801726fa5f82a6E.argprom"}
-!824 = distinct !{!824, !823, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$21get_secret_key_handle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h11801726fa5f82a6E.argprom: argument 1"}
+!822 = distinct !{!822, !823, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$21get_secret_key_handle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h11801726fa5f82a6E: argument 0"}
+!823 = distinct !{!823, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$21get_secret_key_handle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h11801726fa5f82a6E"}
+!824 = distinct !{!824, !823, !"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigningVault$u20$as$u20$ockam_vault..traits..vault_for_signing..VaultForSigning$GT$21get_secret_key_handle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h11801726fa5f82a6E: argument 1"}
 !825 = distinct !{!825, !818, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17h845bfd873c8b4d92E: argument 1"}
 !826 = !{!827}
 !827 = distinct !{!827, !828, !"_ZN92_$LT$ockam_vault..types..public_keys..VerifyingPublicKey$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf0203d4d87d4b7edE: argument 1"}
@@ -5675,9 +5675,9 @@ attributes #29 = { nounwind }
 !870 = distinct !{!870, !871, !"_ZN77_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h900b6c8b1d00b7e1E: argument 0"}
 !871 = distinct !{!871, !"_ZN77_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h900b6c8b1d00b7e1E"}
 !872 = !{!873, !875}
-!873 = distinct !{!873, !874, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E.argprom: argument 0"}
-!874 = distinct !{!874, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E.argprom"}
-!875 = distinct !{!875, !874, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E.argprom: argument 1"}
+!873 = distinct !{!873, !874, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E: argument 0"}
+!874 = distinct !{!874, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E"}
+!875 = distinct !{!875, !874, !"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0762d9c529794025E: argument 1"}
 !876 = !{!877}
 !877 = distinct !{!877, !878, !"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17ha0f468ecf1ebade5E: argument 0"}
 !878 = distinct !{!878, !"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17ha0f468ecf1ebade5E"}

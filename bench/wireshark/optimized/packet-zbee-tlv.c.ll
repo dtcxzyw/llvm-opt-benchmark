@@ -712,7 +712,7 @@ define hidden i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef
   %139 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %138, ptr noundef %0, i32 noundef %135, i32 noundef 1, i32 noundef 0) #4
   %140 = add i32 %.02847, 3
   %.not.i.i.i.i = icmp eq i8 %137, 0
-  br i1 %.not.i.i.i.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i, label %.lr.ph.i.i.i.i
+  br i1 %.not.i.i.i.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %136, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i8 [ %144, %.lr.ph.i.i.i.i ], [ 0, %136 ]
@@ -722,7 +722,7 @@ define hidden i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef
   %143 = add i32 %.0131.i.i.i.i, 8
   %144 = add nuw i8 %.02.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i8 %144, %137
-  br i1 %exitcond.not.i.i.i.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i.i.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
 145:                                              ; preds = %128
   %146 = add i8 %132, 1
@@ -730,7 +730,7 @@ define hidden i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef
   %148 = zext i8 %146 to i32
   %149 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %147, ptr noundef %0, i32 noundef %135, i32 noundef %148, i32 noundef 0) #4
   %150 = add i32 %135, %148
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 151:                                              ; preds = %125, %125, %125
   %152 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
@@ -753,7 +753,7 @@ define hidden i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef
   %166 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
   %167 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %166, ptr noundef %0, i32 noundef %165, i32 noundef 8, i32 noundef -2147483648) #4
   %168 = add i32 %.02847, 12
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 169:                                              ; preds = %151
   %170 = add i8 %155, 1
@@ -761,7 +761,7 @@ define hidden i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef
   %172 = zext i8 %170 to i32
   %173 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %171, ptr noundef %0, i32 noundef %158, i32 noundef %172, i32 noundef 0) #4
   %174 = add i32 %158, %172
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 175:                                              ; preds = %125, %125
   %176 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
@@ -779,13 +779,13 @@ define hidden i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef
   %185 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
   %186 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %185, ptr noundef %0, i32 noundef %182, i32 noundef 8, i32 noundef -2147483648) #4
   %187 = add i32 %.02847, 10
-  br label %dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i
+  br label %dissect_zdp_security_start_key_neg_local_tlv.exit.i
 
 188:                                              ; preds = %175
   %189 = add i8 %179, 1
-  br label %dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i
+  br label %dissect_zdp_security_start_key_neg_local_tlv.exit.i
 
-dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %183
+dissect_zdp_security_start_key_neg_local_tlv.exit.i: ; preds = %188, %183
   %hf_zbee_tlv_value.sink.i.i = phi ptr [ @hf_zbee_tlv_value, %188 ], [ @hf_zbee_tlv_public_point, %183 ]
   %.sink5.i.i = phi i8 [ %189, %188 ], [ %184, %183 ]
   %.sink3.i.i = phi i32 [ %182, %188 ], [ %187, %183 ]
@@ -793,7 +793,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %191 = zext i8 %.sink5.i.i to i32
   %192 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %190, ptr noundef %0, i32 noundef %.sink3.i.i, i32 noundef %191, i32 noundef 0) #4
   %193 = add i32 %.sink3.i.i, %191
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 194:                                              ; preds = %125
   %195 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
@@ -810,7 +810,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %203 = load i32, ptr @hf_zbee_tlv_global_tlv_id, align 4
   %204 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %203, ptr noundef %0, i32 noundef %201, i32 noundef 1, i32 noundef 0) #4
   %205 = add i32 %.02847, 3
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 206:                                              ; preds = %194
   %207 = add i8 %198, 1
@@ -818,7 +818,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %209 = zext i8 %207 to i32
   %210 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %208, ptr noundef %0, i32 noundef %201, i32 noundef %209, i32 noundef 0) #4
   %211 = add i32 %201, %209
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 212:                                              ; preds = %125
   %213 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
@@ -835,7 +835,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %221 = load i32, ptr @hf_zbee_tlv_local_ieee_addr, align 4
   %222 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %221, ptr noundef %0, i32 noundef %219, i32 noundef 8, i32 noundef -2147483648) #4
   %223 = add i32 %.02847, 10
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 224:                                              ; preds = %212
   %225 = add i8 %216, 1
@@ -843,7 +843,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %227 = zext i8 %225 to i32
   %228 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %226, ptr noundef %0, i32 noundef %219, i32 noundef %227, i32 noundef 0) #4
   %229 = add i32 %219, %227
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 230:                                              ; preds = %125
   %231 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
@@ -862,7 +862,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %241 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %240, ptr noundef %0, i32 noundef %237, i32 noundef 1, i32 noundef 0) #4
   %242 = add i32 %.02847, 3
   %.not.i.i.i34 = icmp eq i8 %239, 0
-  br i1 %.not.i.i.i34, label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i34, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %238, %.lr.ph.i.i.i
   %.02.i.i.i = phi i8 [ %246, %.lr.ph.i.i.i ], [ 0, %238 ]
@@ -872,7 +872,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %245 = add i32 %.0131.i.i.i, 8
   %246 = add nuw i8 %.02.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i8 %246, %239
-  br i1 %exitcond.not.i.i.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i, label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %exitcond.not.i.i.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
 247:                                              ; preds = %230
   %248 = add i8 %234, 1
@@ -880,7 +880,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %250 = zext i8 %248 to i32
   %251 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %249, ptr noundef %0, i32 noundef %237, i32 noundef %250, i32 noundef 0) #4
   %252 = add i32 %237, %250
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 253:                                              ; preds = %125
   %254 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
@@ -903,7 +903,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %268 = load i32, ptr @hf_zbee_tlv_local_active_lk_type, align 4
   %269 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %268, ptr noundef %0, i32 noundef %267, i32 noundef 1, i32 noundef 0) #4
   %270 = add i32 %.02847, 12
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 271:                                              ; preds = %253
   %272 = add i8 %257, 1
@@ -911,7 +911,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %274 = zext i8 %272 to i32
   %275 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %273, ptr noundef %0, i32 noundef %260, i32 noundef %274, i32 noundef 0) #4
   %276 = add i32 %260, %274
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 277:                                              ; preds = %125
   %278 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
@@ -947,7 +947,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %294 = load i32, ptr @hf_zbee_zdp_beacon_survey_conf_mask, align 4
   %295 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %294, ptr noundef %0, i32 noundef %.037.lcssa.i.i, i32 noundef 1, i32 noundef -2147483648) #4
   %296 = add i32 %.037.lcssa.i.i, 1
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 297:                                              ; preds = %277
   %298 = add i8 %281, 1
@@ -955,7 +955,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %300 = zext i8 %298 to i32
   %301 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %299, ptr noundef %0, i32 noundef %284, i32 noundef %300, i32 noundef 0) #4
   %302 = add i32 %284, %300
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 303:                                              ; preds = %125
   %304 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
@@ -980,7 +980,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %317 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %316, ptr noundef %0, i32 noundef %314, i32 noundef 1, i32 noundef -2147483648) #4
   %.0572.i.i = add i32 %.02847, 4
   %.not.i83.i = icmp eq i8 %315, 0
-  br i1 %.not.i83.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i, label %.lr.ph.i84.i
+  br i1 %.not.i83.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i84.i
 
 .lr.ph.i84.i:                                     ; preds = %311, %.lr.ph.i84.i
   %.0574.i.i = phi i32 [ %.057.i.i, %.lr.ph.i84.i ], [ %.0572.i.i, %311 ]
@@ -990,7 +990,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %320 = add nuw i8 %.03.i.i, 1
   %.057.i.i = add i32 %.0574.i.i, 4
   %exitcond.not.i85.i = icmp eq i8 %320, %315
-  br i1 %exitcond.not.i85.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i, label %.lr.ph.i84.i, !llvm.loop !7
+  br i1 %exitcond.not.i85.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i84.i, !llvm.loop !7
 
 321:                                              ; preds = %303
   %322 = load i32, ptr @hf_zbee_zdp_beacon_survey_total, align 4
@@ -1005,7 +1005,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %331 = load i32, ptr @hf_zbee_zdp_beacon_survey_other_zbn, align 4
   %332 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %331, ptr noundef %0, i32 noundef %330, i32 noundef 1, i32 noundef -2147483648) #4
   %333 = add i32 %.02847, 6
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 334:                                              ; preds = %303
   %335 = load i32, ptr @hf_zbee_zdp_beacon_survey_current_parent, align 4
@@ -1019,7 +1019,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %343 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %342, ptr noundef %0, i32 noundef %340, i32 noundef 1, i32 noundef -2147483648) #4
   %344 = add i32 %.02847, 6
   %.not.i.i78.i = icmp eq i8 %341, 0
-  br i1 %.not.i.i78.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i, label %.lr.ph.i.i79.i
+  br i1 %.not.i.i78.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i79.i
 
 .lr.ph.i.i79.i:                                   ; preds = %334, %.lr.ph.i.i79.i
   %.02.i.i80.i = phi i8 [ %351, %.lr.ph.i.i79.i ], [ 0, %334 ]
@@ -1032,7 +1032,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %350 = add i32 %.0251.i.i.i, 3
   %351 = add nuw i8 %.02.i.i80.i, 1
   %exitcond.not.i.i81.i = icmp eq i8 %351, %341
-  br i1 %exitcond.not.i.i81.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i, label %.lr.ph.i.i79.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i81.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i79.i, !llvm.loop !8
 
 352:                                              ; preds = %303
   %353 = add i8 %307, 1
@@ -1040,7 +1040,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %355 = zext i8 %353 to i32
   %356 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %354, ptr noundef %0, i32 noundef %310, i32 noundef %355, i32 noundef 0) #4
   %357 = add i32 %310, %355
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 358:                                              ; preds = %125
   %359 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
@@ -1060,7 +1060,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %370 = load i32, ptr @hf_zbee_tlv_challenge_value, align 4
   %371 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %370, ptr noundef %0, i32 noundef %369, i32 noundef 8, i32 noundef 0) #4
   %372 = add i32 %.02847, 18
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 373:                                              ; preds = %358
   %374 = add i8 %362, 1
@@ -1068,7 +1068,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %376 = zext i8 %374 to i32
   %377 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %375, ptr noundef %0, i32 noundef %365, i32 noundef %376, i32 noundef 0) #4
   %378 = add i32 %365, %376
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 379:                                              ; preds = %125
   %380 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
@@ -1097,7 +1097,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %400 = load i32, ptr @hf_zbee_tlv_mic64, align 4
   %401 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %400, ptr noundef %0, i32 noundef %399, i32 noundef 8, i32 noundef 0) #4
   %402 = add i32 %.02847, 34
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 403:                                              ; preds = %379
   %404 = add i8 %383, 1
@@ -1105,7 +1105,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %406 = zext i8 %404 to i32
   %407 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %405, ptr noundef %0, i32 noundef %386, i32 noundef %406, i32 noundef 0) #4
   %408 = add i32 %386, %406
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 409:                                              ; preds = %125
   %410 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
@@ -1124,7 +1124,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %420 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %419, ptr noundef %0, i32 noundef %416, i32 noundef 1, i32 noundef 0) #4
   %421 = add i32 %.02847, 3
   %.not.i92.i = icmp eq i8 %418, 0
-  br i1 %.not.i92.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i, label %.lr.ph.i93.i
+  br i1 %.not.i92.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i93.i
 
 .lr.ph.i93.i:                                     ; preds = %417, %.lr.ph.i93.i
   %.02.i94.i = phi i8 [ %428, %.lr.ph.i93.i ], [ 0, %417 ]
@@ -1137,7 +1137,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %427 = add i32 %.0371.i95.i, 2
   %428 = add nuw i8 %.02.i94.i, 1
   %exitcond.not.i96.i = icmp eq i8 %428, %418
-  br i1 %exitcond.not.i96.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i, label %.lr.ph.i93.i, !llvm.loop !9
+  br i1 %exitcond.not.i96.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i93.i, !llvm.loop !9
 
 429:                                              ; preds = %409
   %430 = add i8 %413, 1
@@ -1145,7 +1145,7 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %432 = zext i8 %430 to i32
   %433 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %431, ptr noundef %0, i32 noundef %416, i32 noundef %432, i32 noundef 0) #4
   %434 = add i32 %416, %432
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
 435:                                              ; preds = %125
   %436 = load i32, ptr @hf_zbee_tlv_type, align 4
@@ -1159,17 +1159,17 @@ dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i: ; preds = %188, %18
   %444 = zext i8 %442 to i32
   %445 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %443, ptr noundef %0, i32 noundef %441, i32 noundef %444, i32 noundef 0) #4
   %446 = add i32 %441, %444
-  br label %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+  br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i: ; preds = %.lr.ph.i93.i, %.lr.ph.i.i79.i, %.lr.ph.i84.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i.i, %435, %429, %417, %403, %387, %373, %366, %352, %334, %321, %311, %297, %._crit_edge.i.i, %271, %261, %247, %238, %224, %220, %206, %202, %dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i, %169, %159, %145, %136
-  %.0.i32 = phi i32 [ %446, %435 ], [ %193, %dissect_zdp_security_start_key_neg_local_tlv.argprom.exit.i ], [ %150, %145 ], [ %140, %136 ], [ %168, %159 ], [ %174, %169 ], [ %205, %202 ], [ %211, %206 ], [ %223, %220 ], [ %229, %224 ], [ %252, %247 ], [ %242, %238 ], [ %270, %261 ], [ %276, %271 ], [ %296, %._crit_edge.i.i ], [ %302, %297 ], [ %357, %352 ], [ %333, %321 ], [ %344, %334 ], [ %.0572.i.i, %311 ], [ %372, %366 ], [ %378, %373 ], [ %402, %387 ], [ %408, %403 ], [ %434, %429 ], [ %421, %417 ], [ %143, %.lr.ph.i.i.i.i ], [ %245, %.lr.ph.i.i.i ], [ %.057.i.i, %.lr.ph.i84.i ], [ %350, %.lr.ph.i.i79.i ], [ %427, %.lr.ph.i93.i ]
+dissect_zdp_req_clear_all_bindings_local_tlv.exit.i: ; preds = %.lr.ph.i93.i, %.lr.ph.i.i79.i, %.lr.ph.i84.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i.i, %435, %429, %417, %403, %387, %373, %366, %352, %334, %321, %311, %297, %._crit_edge.i.i, %271, %261, %247, %238, %224, %220, %206, %202, %dissect_zdp_security_start_key_neg_local_tlv.exit.i, %169, %159, %145, %136
+  %.0.i32 = phi i32 [ %446, %435 ], [ %193, %dissect_zdp_security_start_key_neg_local_tlv.exit.i ], [ %150, %145 ], [ %140, %136 ], [ %168, %159 ], [ %174, %169 ], [ %205, %202 ], [ %211, %206 ], [ %223, %220 ], [ %229, %224 ], [ %252, %247 ], [ %242, %238 ], [ %270, %261 ], [ %276, %271 ], [ %296, %._crit_edge.i.i ], [ %302, %297 ], [ %357, %352 ], [ %333, %321 ], [ %344, %334 ], [ %.0572.i.i, %311 ], [ %372, %366 ], [ %378, %373 ], [ %402, %387 ], [ %408, %403 ], [ %434, %429 ], [ %421, %417 ], [ %143, %.lr.ph.i.i.i.i ], [ %245, %.lr.ph.i.i.i ], [ %.057.i.i, %.lr.ph.i84.i ], [ %350, %.lr.ph.i.i79.i ], [ %427, %.lr.ph.i93.i ]
   %447 = and i32 %.02847, 255
   %448 = sub i32 %.0.i32, %447
   %449 = zext i8 %127 to i32
   %450 = icmp ult i32 %448, %449
   br i1 %450, label %451, label %dissect_zbee_tlv.exit
 
-451:                                              ; preds = %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i
+451:                                              ; preds = %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
   %452 = load i32, ptr @hf_zbee_tlv_value, align 4
   %453 = add nsw i32 %449, -2
   %454 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %452, ptr noundef %0, i32 noundef %.0.i32, i32 noundef %453, i32 noundef 0) #4
@@ -1326,7 +1326,7 @@ dissect_zbee_tlv_nwk_status_map.exit.i.i:         ; preds = %531, %526
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 545:                                              ; preds = %502
-  %546 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list.argprom(ptr noundef %0, ptr noundef %33, i32 noundef %509)
+  %546 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %33, i32 noundef %509)
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 547:                                              ; preds = %502
@@ -1537,7 +1537,7 @@ dissect_zbd_msg_tunneling_local_tlv.exit.i:       ; preds = %618, %592
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 676:                                              ; preds = %648
-  %677 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list.argprom(ptr noundef %0, ptr noundef %33, i32 noundef %655)
+  %677 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %33, i32 noundef %655)
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 678:                                              ; preds = %648
@@ -1628,7 +1628,7 @@ dissect_zbd_msg_tunneling_local_tlv.exit.i:       ; preds = %618, %592
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 732:                                              ; preds = %708
-  %733 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list.argprom(ptr noundef %0, ptr noundef %33, i32 noundef %715)
+  %733 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %33, i32 noundef %715)
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 734:                                              ; preds = %708
@@ -1773,8 +1773,8 @@ dissect_zbd_msg_status_local_tlv.exit.i:          ; preds = %803, %798, %793, %7
   %835 = add i32 %830, %833
   br label %dissect_zbee_tlv.exit
 
-dissect_zbee_tlv.exit:                            ; preds = %819, %dissect_zbd_msg_status_local_tlv.exit.i, %487, %457, %451, %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i, %120, %116, %824
-  %.0.i = phi i32 [ %835, %824 ], [ %123, %120 ], [ %.0.i36, %116 ], [ %455, %451 ], [ %.0.i32, %dissect_zdp_req_clear_all_bindings_local_tlv.argprom.exit.i ], [ %498, %487 ], [ %486, %457 ], [ %823, %819 ], [ %.0.i30, %dissect_zbd_msg_status_local_tlv.exit.i ]
+dissect_zbee_tlv.exit:                            ; preds = %819, %dissect_zbd_msg_status_local_tlv.exit.i, %487, %457, %451, %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, %120, %116, %824
+  %.0.i = phi i32 [ %835, %824 ], [ %123, %120 ], [ %.0.i36, %116 ], [ %455, %451 ], [ %.0.i32, %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i ], [ %498, %487 ], [ %486, %457 ], [ %823, %819 ], [ %.0.i30, %dissect_zbd_msg_status_local_tlv.exit.i ]
   %836 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0.i, i32 noundef 2) #4
   %.not = icmp eq i32 %836, 0
   br i1 %.not, label %._crit_edge, label %26, !llvm.loop !10
@@ -1877,7 +1877,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_zbee_tlv_nwk_channel_list.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %5 = load i32, ptr @hf_zbee_tlv_local_comm_channel_page_count, align 4

@@ -1303,19 +1303,19 @@ do.body.i:                                        ; preds = %if.end.i.i, %entry
   %pointer_data_.i.i = getelementptr inbounds i8, ptr %data.val, i64 24
   %2 = load ptr, ptr %pointer_data_.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %2, null
-  br i1 %cmp.i.not.i, label %"_ZZN4node10BaseObject8MakeWeakEvENK3$_0clERKN2v816WeakCallbackInfoIS0_EE.argprom.exit", label %_ZN4node10BaseObject12pointer_dataEv.exit.i
+  br i1 %cmp.i.not.i, label %"_ZZN4node10BaseObject8MakeWeakEvENK3$_0clERKN2v816WeakCallbackInfoIS0_EE.exit", label %_ZN4node10BaseObject12pointer_dataEv.exit.i
 
 _ZN4node10BaseObject12pointer_dataEv.exit.i:      ; preds = %do.body.i
   %3 = load i32, ptr %2, align 8
   %cmp.not.i = icmp eq i32 %3, 0
-  br i1 %cmp.not.i, label %"_ZZN4node10BaseObject8MakeWeakEvENK3$_0clERKN2v816WeakCallbackInfoIS0_EE.argprom.exit", label %do.body6.i
+  br i1 %cmp.not.i, label %"_ZZN4node10BaseObject8MakeWeakEvENK3$_0clERKN2v816WeakCallbackInfoIS0_EE.exit", label %do.body6.i
 
 do.body6.i:                                       ; preds = %_ZN4node10BaseObject12pointer_dataEv.exit.i
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZN4node10BaseObject8MakeWeakEvENK3$_0clERKN2v816WeakCallbackInfoIS0_EEE4args") #17
   tail call void @abort() #18
   unreachable
 
-"_ZZN4node10BaseObject8MakeWeakEvENK3$_0clERKN2v816WeakCallbackInfoIS0_EE.argprom.exit": ; preds = %do.body.i, %_ZN4node10BaseObject12pointer_dataEv.exit.i
+"_ZZN4node10BaseObject8MakeWeakEvENK3$_0clERKN2v816WeakCallbackInfoIS0_EE.exit": ; preds = %do.body.i, %_ZN4node10BaseObject12pointer_dataEv.exit.i
   %vtable.i = load ptr, ptr %data.val, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 120
   %4 = load ptr, ptr %vfn.i, align 8

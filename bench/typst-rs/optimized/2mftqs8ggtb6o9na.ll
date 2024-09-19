@@ -1155,7 +1155,7 @@ define hidden noundef i128 @"_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.llvm.2546880118954093015(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
-"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.argprom.exit":
+"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.exit":
   %1 = alloca { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1)
   %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
@@ -4036,8 +4036,8 @@ attributes #25 = { nounwind }
 !142 = distinct !{!142, !"_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.llvm.2546880118954093015"}
 !143 = distinct !{!143, !144, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE: argument 1"}
 !144 = distinct !{!144, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE"}
-!145 = distinct !{!145, !146, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.argprom: argument 0"}
-!146 = distinct !{!146, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.argprom"}
+!145 = distinct !{!145, !146, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E: argument 0"}
+!146 = distinct !{!146, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E"}
 !147 = !{!148, !131}
 !148 = distinct !{!148, !144, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE: argument 0"}
 !149 = !{!150, !137, !139, !141, !143, !145}
@@ -4055,8 +4055,8 @@ attributes #25 = { nounwind }
 !161 = distinct !{!161, !"_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.llvm.2546880118954093015"}
 !162 = distinct !{!162, !163, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE: argument 1"}
 !163 = distinct !{!163, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE"}
-!164 = distinct !{!164, !165, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.argprom: argument 0"}
-!165 = distinct !{!165, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.argprom"}
+!164 = distinct !{!164, !165, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E: argument 0"}
+!165 = distinct !{!165, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E"}
 !166 = !{!167}
 !167 = distinct !{!167, !163, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE: argument 0"}
 !168 = !{!169, !156, !158, !160, !162, !164}
@@ -4085,8 +4085,8 @@ attributes #25 = { nounwind }
 !191 = distinct !{!191, !"_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.llvm.2546880118954093015"}
 !192 = distinct !{!192, !193, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE: argument 1"}
 !193 = distinct !{!193, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE"}
-!194 = distinct !{!194, !195, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.argprom: argument 0"}
-!195 = distinct !{!195, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.argprom"}
+!194 = distinct !{!194, !195, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E: argument 0"}
+!195 = distinct !{!195, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E"}
 !196 = !{!197, !180}
 !197 = distinct !{!197, !193, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE: argument 0"}
 !198 = !{!199, !186, !188, !190, !192, !194}
@@ -4334,8 +4334,8 @@ attributes #25 = { nounwind }
 !440 = distinct !{!440, !"_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.llvm.2546880118954093015"}
 !441 = distinct !{!441, !442, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE: argument 1"}
 !442 = distinct !{!442, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE"}
-!443 = distinct !{!443, !444, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.argprom: argument 0"}
-!444 = distinct !{!444, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.argprom"}
+!443 = distinct !{!443, !444, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E: argument 0"}
+!444 = distinct !{!444, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E"}
 !445 = !{!446, !429}
 !446 = distinct !{!446, !442, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE: argument 0"}
 !447 = !{!448, !435, !437, !439, !441, !443}
@@ -4374,8 +4374,8 @@ attributes #25 = { nounwind }
 !480 = distinct !{!480, !"_ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.llvm.2546880118954093015"}
 !481 = distinct !{!481, !482, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE: argument 1"}
 !482 = distinct !{!482, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE"}
-!483 = distinct !{!483, !484, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.argprom: argument 0"}
-!484 = distinct !{!484, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E.argprom"}
+!483 = distinct !{!483, !484, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E: argument 0"}
+!484 = distinct !{!484, !"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h1e85777d066d0227E"}
 !485 = !{!486, !469}
 !486 = distinct !{!486, !482, !"_ZN4core4hash5impls58_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u5d$$GT$4hash17hbe1c5bb584ef1affE: argument 0"}
 !487 = !{!488, !475, !477, !479, !481, !483}

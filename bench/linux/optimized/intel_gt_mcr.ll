@@ -629,7 +629,7 @@ define internal fastcc i32 @rw_with_mcr_steering(ptr noundef %0, i32 %1, i8 noun
   tail call void @_raw_spin_lock(ptr noundef %14) #8
   tail call void @intel_uncore_forcewake_get__locked(ptr noundef %9, i32 noundef %13) #8
   %.val = load ptr, ptr %8, align 8
-  %15 = tail call fastcc i32 @rw_with_mcr_steering_fw.argprom(ptr %.val, i32 %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %15 = tail call fastcc i32 @rw_with_mcr_steering_fw(ptr %.val, i32 %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   tail call void @intel_uncore_forcewake_put__locked(ptr noundef %9, i32 noundef %13) #8
   tail call void @_raw_spin_unlock(ptr noundef %14) #8
   %16 = load i64, ptr %7, align 8
@@ -1200,7 +1200,7 @@ define dso_local i32 @intel_gt_mcr_read_any_fw(ptr nocapture noundef readonly %0
   %55 = load i8, ptr %4, align 1
   %56 = zext i8 %55 to i32
   %.val = load ptr, ptr %7, align 8
-  %57 = tail call fastcc i32 @rw_with_mcr_steering_fw.argprom(ptr %.val, i32 %.fr10, i8 noundef zeroext 1, i32 noundef %54, i32 noundef %56, i32 noundef 0)
+  %57 = tail call fastcc i32 @rw_with_mcr_steering_fw(ptr %.val, i32 %.fr10, i8 noundef zeroext 1, i32 noundef %54, i32 noundef %56, i32 noundef 0)
   br label %71
 
 .loopexit:                                        ; preds = %41, %37, %.split
@@ -1234,7 +1234,7 @@ define dso_local i32 @intel_gt_mcr_read_any_fw(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rw_with_mcr_steering_fw.argprom(ptr nocapture readonly %.24.val, i32 %0, i8 noundef zeroext range(i8 1, 3) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @rw_with_mcr_steering_fw(ptr nocapture readonly %.24.val, i32 %0, i8 noundef zeroext range(i8 1, 3) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %.24.val, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 7176

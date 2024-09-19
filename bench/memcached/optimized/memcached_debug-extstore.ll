@@ -710,13 +710,13 @@ if.then.i:                                        ; preds = %if.then34
   %23 = load i32, ptr %len.i, align 8
   %conv.i = zext i32 %23 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %add.ptr.i, i64 %conv.i, i1 false)
-  br label %_read_from_wbuf.argprom.exit
+  br label %_read_from_wbuf.exit
 
 if.else.i:                                        ; preds = %if.then34
   %iovcnt.i = getelementptr inbounds i8, ptr %cur_io.076, i64 32
   %24 = load i32, ptr %iovcnt.i, align 8
   %cmp71.not.i = icmp eq i32 %24, 0
-  br i1 %cmp71.not.i, label %_read_from_wbuf.argprom.exit, label %for.body.lr.ph.i
+  br i1 %cmp71.not.i, label %_read_from_wbuf.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.else.i
   %offset5.i = getelementptr inbounds i8, ptr %arrayidx.val, i64 32
@@ -744,9 +744,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %32 = load i32, ptr %iovcnt.i, align 8
   %33 = zext i32 %32 to i64
   %cmp7.i = icmp ult i64 %indvars.iv.next.i, %33
-  br i1 %cmp7.i, label %for.body.i, label %_read_from_wbuf.argprom.exit, !llvm.loop !13
+  br i1 %cmp7.i, label %for.body.i, label %_read_from_wbuf.exit, !llvm.loop !13
 
-_read_from_wbuf.argprom.exit:                     ; preds = %for.body.i, %if.then.i, %if.else.i
+_read_from_wbuf.exit:                             ; preds = %for.body.i, %if.then.i, %if.else.i
   %len17.i = getelementptr inbounds i8, ptr %cur_io.076, i64 40
   %34 = load i32, ptr %len17.i, align 8
   br label %if.end45
@@ -762,9 +762,9 @@ if.end45.thread:                                  ; preds = %land.lhs.true28, %l
   %call4766 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx) #12
   br label %sw.epilog
 
-if.end45:                                         ; preds = %_read_from_wbuf.argprom.exit, %if.else36
-  %ret.1 = phi i32 [ %34, %_read_from_wbuf.argprom.exit ], [ 0, %if.else36 ]
-  %36 = phi i1 [ true, %_read_from_wbuf.argprom.exit ], [ false, %if.else36 ]
+if.end45:                                         ; preds = %_read_from_wbuf.exit, %if.else36
+  %ret.1 = phi i32 [ %34, %_read_from_wbuf.exit ], [ 0, %if.else36 ]
+  %36 = phi i1 [ true, %_read_from_wbuf.exit ], [ false, %if.else36 ]
   %call39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %stats_mutex) #12
   %len = getelementptr inbounds i8, ptr %cur_io.076, i64 40
   %37 = load i32, ptr %len, align 8

@@ -67,7 +67,7 @@ define internal void @"_ZN4core3ptr120drop_in_place$LT$fn$LP$$RF$str$RP$$u20$.$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E.argprom"(i64 %.0.val, ptr %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E"(i64 %.0.val, ptr %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %switch = icmp ult i64 %.0.val, 3
   br i1 %switch, label %16, label %1
 
@@ -204,7 +204,7 @@ define void @"_ZN58_$LT$uu_nl..Settings$u20$as$u20$core..default..Default$GT$7de
 
 4:                                                ; preds = %12, %5
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %6, %5 ]
-  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E.argprom"(i64 2, ptr undef) #13
+  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E"(i64 2, ptr undef) #13
           to label %30 unwind label %28
 
 5:                                                ; preds = %1
@@ -273,11 +273,11 @@ define void @"_ZN58_$LT$uu_nl..Settings$u20$as$u20$core..default..Default$GT$7de
   unreachable
 
 30:                                               ; preds = %4
-  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E.argprom"(i64 1, ptr undef) #13
+  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E"(i64 1, ptr undef) #13
           to label %31 unwind label %28
 
 31:                                               ; preds = %30
-  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E.argprom"(i64 2, ptr undef) #13
+  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E"(i64 2, ptr undef) #13
           to label %32 unwind label %28
 
 32:                                               ; preds = %31

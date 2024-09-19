@@ -602,9 +602,9 @@ define internal i32 @dissect_c1222_common(ptr noundef %0, ptr noundef %1, ptr no
   %18 = getelementptr i8, ptr %.04.i.i.i, i64 56
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i, label %dissect_MESSAGE_PDU.argprom.exit, label %13, !llvm.loop !4
+  br i1 %.not.i.i.i, label %dissect_MESSAGE_PDU.exit, label %13, !llvm.loop !4
 
-dissect_MESSAGE_PDU.argprom.exit:                 ; preds = %13
+dissect_MESSAGE_PDU.exit:                         ; preds = %13
   %20 = call i32 @dissect_ber_tagged_type(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef %12, i8 noundef signext 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull @dissect_c1222_MESSAGE_U) #6
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5)
   ret i32 %20

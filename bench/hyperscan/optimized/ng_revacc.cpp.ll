@@ -223,7 +223,7 @@ _ZNK3ue29CharReach10find_firstEv.exit67.i:        ; preds = %for.inc.i.i64.i, %i
   %retval.0.i.i63.i = phi i8 [ %37, %if.then.i.i60.i ], [ 0, %for.inc.i.i64.i ]
   %arrayidx23.i = getelementptr inbounds i8, ptr %nfa, i64 13
   store i8 %retval.0.i.i63.i, ptr %arrayidx23.i, align 1
-  br label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit.thread
+  br label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit.thread
 
 for.body.i.i.i.i:                                 ; preds = %for.body4.i, %for.inc.i.i.i.i
   %i.06.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.body4.i ]
@@ -408,7 +408,7 @@ _ZNK3ue29CharReach10find_firstEv.exit139.i:       ; preds = %for.inc.i.i136.i, %
   %retval.0.i.i135.i = phi i8 [ %68, %if.then.i.i132.i ], [ 0, %for.inc.i.i136.i ]
   %arrayidx56.i = getelementptr inbounds i8, ptr %nfa, i64 13
   store i8 %retval.0.i.i135.i, ptr %arrayidx56.i, align 1
-  br label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit.thread
+  br label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit.thread
 
 for.inc.i:                                        ; preds = %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit115.i, %_ZNK3ue29CharReach10find_firstEv.exit.i91.i, %land.lhs.true33.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.i, %_ZNK3ue29CharReach10find_firstEv.exit.i.i, %for.body4.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -474,7 +474,7 @@ if.then86.i:                                      ; preds = %for.body77.us.i
   %85 = trunc i64 %indvars.iv109.i to i32
   %conv75.le.i = and i32 %85, 255
   %cmp88.not.i = icmp ugt i32 %min_width, %conv75.le.i
-  br i1 %cmp88.not.i, label %if.end90.i, label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit
+  br i1 %cmp88.not.i, label %if.end90.i, label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit
 
 if.end90.i:                                       ; preds = %if.then86.i
   %rAccelType91.i = getelementptr inbounds i8, ptr %nfa, i64 9
@@ -504,7 +504,7 @@ _ZNK3ue29CharReach10find_firstEv.exit158.i:       ; preds = %for.inc.i.i155.i, %
   %retval.0.i.i154.i = phi i8 [ %88, %if.then.i.i151.i ], [ 0, %for.inc.i.i155.i ]
   %rAccelData94.i = getelementptr inbounds i8, ptr %nfa, i64 12
   store i8 %retval.0.i.i154.i, ptr %rAccelData94.i, align 4
-  br label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit.thread
+  br label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit.thread
 
 for.body.i.i.i166.i:                              ; preds = %for.body77.i, %for.inc.i.i.i191.i
   %i.06.i.i.i167.i = phi i64 [ %inc.i.i.i192.i, %for.inc.i.i.i191.i ], [ 0, %for.body77.i ]
@@ -561,7 +561,7 @@ if.then105.i:                                     ; preds = %_ZN3ue2L18isPseudoN
   %96 = trunc i64 %indvars.iv105.i to i32
   %conv75.le51.i = and i32 %96, 255
   %cmp107.not.i = icmp ugt i32 %min_width, %conv75.le51.i
-  br i1 %cmp107.not.i, label %if.end109.i, label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit
+  br i1 %cmp107.not.i, label %if.end109.i, label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit
 
 if.end109.i:                                      ; preds = %if.then105.i
   %rAccelType110.i = getelementptr inbounds i8, ptr %nfa, i64 9
@@ -591,7 +591,7 @@ _ZNK3ue29CharReach10find_firstEv.exit206.i:       ; preds = %for.inc.i.i203.i, %
   %retval.0.i.i202.i = phi i8 [ %99, %if.then.i.i199.i ], [ 0, %for.inc.i.i203.i ]
   %rAccelData113.i = getelementptr inbounds i8, ptr %nfa, i64 12
   store i8 %retval.0.i.i202.i, ptr %rAccelData113.i, align 4
-  br label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit.thread
+  br label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit.thread
 
 for.inc122.i:                                     ; preds = %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit194.i, %_ZNK3ue29CharReach10find_firstEv.exit.i170.i, %for.body77.i
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
@@ -599,16 +599,16 @@ for.inc122.i:                                     ; preds = %_ZN3ue2L18isPseudoN
   br i1 %exitcond108.not.i, label %for.inc125.i, label %for.body77.i, !llvm.loop !9
 
 for.inc125.i:                                     ; preds = %for.inc122.i, %for.inc122.us.i
-  br i1 %tobool82.not.i, label %for.cond74.preheader.i, label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit, !llvm.loop !10
+  br i1 %tobool82.not.i, label %for.cond74.preheader.i, label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit, !llvm.loop !10
 
-_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit.thread: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit67.i, %_ZNK3ue29CharReach10find_firstEv.exit139.i, %_ZNK3ue29CharReach10find_firstEv.exit158.i, %_ZNK3ue29CharReach10find_firstEv.exit206.i
+_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit.thread: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit67.i, %_ZNK3ue29CharReach10find_firstEv.exit139.i, %_ZNK3ue29CharReach10find_firstEv.exit158.i, %_ZNK3ue29CharReach10find_firstEv.exit206.i
   %.sink.in.i = phi i64 [ %indvars.iv105.i, %_ZNK3ue29CharReach10find_firstEv.exit206.i ], [ %indvars.iv109.i, %_ZNK3ue29CharReach10find_firstEv.exit158.i ], [ %indvars.iv.i, %_ZNK3ue29CharReach10find_firstEv.exit139.i ], [ %indvars.iv101.i, %_ZNK3ue29CharReach10find_firstEv.exit67.i ]
   %.sink.i = trunc i64 %.sink.in.i to i8
   %add115.i = add nuw nsw i8 %.sink.i, 1
   store i8 %add115.i, ptr %rAccelOffset, align 2
   br label %if.end21
 
-_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit: ; preds = %for.inc125.i, %if.then86.i, %if.then105.i
+_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit: ; preds = %for.inc125.i, %if.then86.i, %if.then105.i
   br i1 %eod_only, label %if.end21, label %if.end16
 
 if.end13:                                         ; preds = %_ZNK3ue29CharReach4noneEv.exit26
@@ -619,8 +619,8 @@ if.end13.if.end16_crit_edge:                      ; preds = %if.end13
   %rev_info.val10.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %if.end16
 
-if.end16:                                         ; preds = %if.end13.if.end16_crit_edge, %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit
-  %rev_info.val10 = phi ptr [ %rev_info.val10.pre, %if.end13.if.end16_crit_edge ], [ %rev_info.val, %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit ]
+if.end16:                                         ; preds = %if.end13.if.end16_crit_edge, %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit
+  %rev_info.val10 = phi ptr [ %rev_info.val10.pre, %if.end13.if.end16_crit_edge ], [ %rev_info.val, %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cr.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cr2.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cr78.i)
@@ -1063,7 +1063,7 @@ if.then89.i:                                      ; preds = %for.body77.us.i59
   %185 = trunc i64 %indvars.iv93.i to i32
   %conv75.le.i60 = and i32 %185, 255
   %cmp91.not.i = icmp ugt i32 %min_width, %conv75.le.i60
-  br i1 %cmp91.not.i, label %if.end93.i, label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit
+  br i1 %cmp91.not.i, label %if.end93.i, label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.exit
 
 if.end93.i:                                       ; preds = %if.then89.i
   %rAccelType94.i = getelementptr inbounds i8, ptr %nfa, i64 9
@@ -1152,7 +1152,7 @@ if.then107.i:                                     ; preds = %_ZN3ue2L18isPseudoN
   %197 = trunc i64 %indvars.iv89.i to i32
   %conv75.le44.i = and i32 %197, 255
   %cmp109.not.i = icmp ugt i32 %min_width, %conv75.le44.i
-  br i1 %cmp109.not.i, label %if.end111.i, label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit
+  br i1 %cmp109.not.i, label %if.end111.i, label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.exit
 
 if.end111.i:                                      ; preds = %if.then107.i
   %rAccelType112.i = getelementptr inbounds i8, ptr %nfa, i64 9
@@ -1191,20 +1191,20 @@ for.inc124.i:                                     ; preds = %_ZN3ue2L18isPseudoN
   br i1 %exitcond92.not.i, label %for.inc127.i, label %for.body77.i58, !llvm.loop !23
 
 for.inc127.i:                                     ; preds = %for.inc124.i, %for.inc124.us.i
-  br i1 %tobool85.not.i, label %for.cond74.preheader.i57, label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit, !llvm.loop !24
+  br i1 %tobool85.not.i, label %for.cond74.preheader.i57, label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.exit, !llvm.loop !24
 
 return.sink.split.i54:                            ; preds = %_ZNK3ue29CharReach10find_firstEv.exit224.i, %_ZNK3ue29CharReach10find_firstEv.exit176.i, %_ZNK3ue29CharReach10find_firstEv.exit146.i, %_ZNK3ue29CharReach10find_firstEv.exit74.i
   %add117.sink.i = phi i8 [ %add117.i, %_ZNK3ue29CharReach10find_firstEv.exit224.i ], [ %add.i, %_ZNK3ue29CharReach10find_firstEv.exit176.i ], [ %151, %_ZNK3ue29CharReach10find_firstEv.exit146.i ], [ %124, %_ZNK3ue29CharReach10find_firstEv.exit74.i ]
   store i8 %add117.sink.i, ptr %rAccelOffset, align 2
-  br label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit
+  br label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.exit
 
-_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit: ; preds = %for.inc127.i, %if.then89.i, %if.then107.i, %return.sink.split.i54
+_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.exit: ; preds = %for.inc127.i, %if.then89.i, %if.then107.i, %return.sink.split.i54
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr2.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cr78.i)
   br label %if.end21
 
-if.end21:                                         ; preds = %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit.thread, %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit, %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.argprom.exit, %if.end13, %_ZNK3ue29CharReach4noneEv.exit18, %entry
+if.end21:                                         ; preds = %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit.thread, %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit, %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.exit, %if.end13, %_ZNK3ue29CharReach4noneEv.exit18, %entry
   ret void
 }
 
@@ -1214,17 +1214,17 @@ entry:
   %accept = getelementptr inbounds i8, ptr %g, i64 104
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %accept, align 8
   %acceptReach = getelementptr inbounds i8, ptr %rai, i64 8
-  tail call fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE.argelim(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload, ptr noundef %acceptReach)
+  tail call fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp.sroa.0.0.copyload, ptr noundef %acceptReach)
   %acceptEod = getelementptr inbounds i8, ptr %g, i64 120
   %agg.tmp1.sroa.0.0.copyload = load ptr, ptr %acceptEod, align 8
   %acceptEodReach = getelementptr inbounds i8, ptr %rai, i64 32
-  tail call fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE.argelim(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp1.sroa.0.0.copyload, ptr noundef %acceptEodReach)
+  tail call fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %agg.tmp1.sroa.0.0.copyload, ptr noundef %acceptEodReach)
   store i8 1, ptr %rai, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %terminal.coerce0, ptr nocapture noundef nonnull readonly %reach) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L20populateRevAccelInfoERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEPSt6vectorINS_9CharReachESaISB_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr readonly %terminal.coerce0, ptr nocapture noundef nonnull readonly %reach) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont1:
   %vset = alloca %"class.std::set", align 8
   %v = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8

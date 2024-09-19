@@ -151,13 +151,13 @@ rb_float_value_inline.exit:                       ; preds = %13, %14
   %57 = icmp ne i64 %56, 0
   %58 = icmp eq i64 %55, 0
   %59 = or i1 %58, %57
-  br i1 %59, label %rb_obj_write.argprom.exit, label %60
+  br i1 %59, label %rb_obj_write.exit, label %60
 
 60:                                               ; preds = %52
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %55) #10
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %52, %60
+rb_obj_write.exit:                                ; preds = %52, %60
   %61 = getelementptr inbounds i8, ptr %36, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = tail call fastcc i64 @negative_numeric(i64 noundef %62)
@@ -168,7 +168,7 @@ rb_obj_write.argprom.exit:                        ; preds = %52, %60
   %67 = or i1 %66, %65
   br i1 %67, label %rb_float_new_inline.exit, label %68
 
-68:                                               ; preds = %rb_obj_write.argprom.exit
+68:                                               ; preds = %rb_obj_write.exit
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %63) #10
   br label %rb_float_new_inline.exit
 
@@ -207,8 +207,8 @@ rb_float_value_inline.exit26:                     ; preds = %35
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.5, ptr noundef %87) #11
   unreachable
 
-rb_float_new_inline.exit:                         ; preds = %84, %82, %78, %68, %rb_obj_write.argprom.exit, %51, %43, %33, %31, %27, %40, %3
-  %.020 = phi i64 [ %5, %3 ], [ %42, %40 ], [ %34, %33 ], [ %30, %27 ], [ -9223372036854775806, %31 ], [ %0, %43 ], [ %0, %51 ], [ %0, %rb_obj_write.argprom.exit ], [ %0, %68 ], [ %85, %84 ], [ %81, %78 ], [ -9223372036854775806, %82 ]
+rb_float_new_inline.exit:                         ; preds = %84, %82, %78, %68, %rb_obj_write.exit, %51, %43, %33, %31, %27, %40, %3
+  %.020 = phi i64 [ %5, %3 ], [ %42, %40 ], [ %34, %33 ], [ %30, %27 ], [ -9223372036854775806, %31 ], [ %0, %43 ], [ %0, %51 ], [ %0, %rb_obj_write.exit ], [ %0, %68 ], [ %85, %84 ], [ %81, %78 ], [ -9223372036854775806, %82 ]
   ret i64 %.020
 }
 

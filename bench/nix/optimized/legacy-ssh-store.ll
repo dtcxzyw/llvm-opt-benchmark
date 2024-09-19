@@ -1973,7 +1973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
   %76 = load i32, ptr %75, align 4
   %.val.sroa.speculated = call i32 @llvm.smax.i32(i32 %76, i32 1)
   %77 = ptrtoint ptr %0 to i64
-  invoke fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_.argprom"(ptr dead_on_unwind noalias writable align 8 %70, i32 %.val.sroa.speculated, i64 %77)
+  invoke fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_"(ptr dead_on_unwind noalias writable align 8 %70, i32 %.val.sroa.speculated, i64 %77)
           to label %78 unwind label %114
 
 78:                                               ; preds = %69
@@ -2182,7 +2182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val, i64 %.0.val1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val, i64 %.0.val1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::function", align 8
   %3 = alloca %"class.std::function.48", align 8
   %4 = alloca %"class.std::shared_ptr", align 8
@@ -2829,7 +2829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %122 = load i32, ptr %121, align 4
   %.val.sroa.speculated = call i32 @llvm.smax.i32(i32 %122, i32 1)
   %123 = ptrtoint ptr %0 to i64
-  invoke fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_.argprom"(ptr dead_on_unwind noalias writable align 8 %116, i32 %.val.sroa.speculated, i64 %123)
+  invoke fastcc void @"_ZN3nix8make_refINS_4PoolINS_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EEENS_3refIT_EEDpOT0_"(ptr dead_on_unwind noalias writable align 8 %116, i32 %.val.sroa.speculated, i64 %123)
           to label %124 unwind label %172
 
 124:                                              ; preds = %115
@@ -28807,13 +28807,13 @@ define linkonce_odr void @_ZNSt13__future_base13_State_baseV213_M_set_resultESt8
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #32
           to label %18 unwind label %19
 
@@ -28827,7 +28827,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -31793,8 +31793,8 @@ attributes #37 = { nounwind willreturn memory(none) }
 !8 = distinct !{!8, !9, !"_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4lockEv: argument 0"}
 !9 = distinct !{!9, !"_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4lockEv"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt11make_sharedIN3nix4PoolINS0_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EESt10shared_ptrIT_EDpOT0_.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZSt11make_sharedIN3nix4PoolINS0_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EESt10shared_ptrIT_EDpOT0_.argprom"}
+!11 = distinct !{!11, !12, !"_ZSt11make_sharedIN3nix4PoolINS0_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EESt10shared_ptrIT_EDpOT0_: argument 0"}
+!12 = distinct !{!12, !"_ZSt11make_sharedIN3nix4PoolINS0_14LegacySSHStore10ConnectionEEEJRKiZNS2_C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt3mapISC_SC_St4lessISC_ESaISt4pairISD_SC_EEEE3$_0ZNS2_C1ESE_SE_SN_E3$_1EESt10shared_ptrIT_EDpOT0_"}
 !13 = !{!14, !11}
 !14 = distinct !{!14, !15, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN3nix4PoolINS1_14LegacySSHStore10ConnectionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSC_: argument 0"}
 !15 = distinct !{!15, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN3nix4PoolINS1_14LegacySSHStore10ConnectionEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSC_"}

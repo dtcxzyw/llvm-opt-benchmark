@@ -130,7 +130,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i)
   %call.i = tail call ptr @PyLong_FromString(ptr noundef nonnull @.str.27, ptr noundef null, i32 noundef 16) #4
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %_testcapi_test_long_and_overflow_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   store i32 1234, ptr %overflow.i, align 4
@@ -157,12 +157,12 @@ Py_DECREF.exit283.i:                              ; preds = %if.then1.i281.i, %i
 land.lhs.true.i:                                  ; preds = %Py_DECREF.exit283.i
   %call3.i = call ptr @PyErr_Occurred() #4
   %tobool.not.i = icmp eq ptr %call3.i, null
-  br i1 %tobool.not.i, label %if.end9.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %tobool.not.i, label %if.end9.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.then7.i:                                       ; preds = %Py_DECREF.exit283.i
   %2 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end9.i:                                        ; preds = %land.lhs.true.i
   %3 = load i32, ptr %overflow.i, align 4
@@ -172,12 +172,12 @@ if.end9.i:                                        ; preds = %land.lhs.true.i
 if.then11.i:                                      ; preds = %if.end9.i
   %4 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i86.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.29) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end13.i:                                       ; preds = %if.end9.i
   %call14.i = call ptr @PyLong_FromLong(i64 noundef 9223372036854775807) #4
   %cmp15.i = icmp eq ptr %call14.i, null
-  br i1 %cmp15.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit, label %if.end17.i
+  br i1 %cmp15.i, label %_testcapi_test_long_and_overflow_impl.exit, label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end13.i
   %call18.i = call ptr @PyLong_FromLong(i64 noundef 1) #4
@@ -188,17 +188,17 @@ if.then20.i:                                      ; preds = %if.end17.i
   %5 = load i64, ptr %call14.i, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i288.not.i = icmp eq i64 %6, 0
-  br i1 %cmp.i288.not.i, label %if.end.i269.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %cmp.i288.not.i, label %if.end.i269.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end.i269.i:                                    ; preds = %if.then20.i
   %dec.i270.i = add i64 %5, -1
   store i64 %dec.i270.i, ptr %call14.i, align 8
   %cmp.i271.i = icmp eq i64 %dec.i270.i, 0
-  br i1 %cmp.i271.i, label %if.then1.i272.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %cmp.i271.i, label %if.then1.i272.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.then1.i272.i:                                  ; preds = %if.end.i269.i
   call void @_Py_Dealloc(ptr noundef nonnull %call14.i) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end21.i:                                       ; preds = %if.end17.i
   %call22.i = call ptr @PyNumber_Add(ptr noundef nonnull %call14.i, ptr noundef nonnull %call18.i) #4
@@ -235,7 +235,7 @@ if.then1.i254.i:                                  ; preds = %if.end.i251.i
 
 do.end.i:                                         ; preds = %if.then1.i254.i, %if.end.i251.i, %do.body.i
   %cmp23.i = icmp eq ptr %call22.i, null
-  br i1 %cmp23.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit, label %if.end25.i
+  br i1 %cmp23.i, label %_testcapi_test_long_and_overflow_impl.exit, label %if.end25.i
 
 if.end25.i:                                       ; preds = %do.end.i
   store i32 0, ptr %overflow.i, align 4
@@ -262,12 +262,12 @@ Py_DECREF.exit247.i:                              ; preds = %if.then1.i245.i, %i
 land.lhs.true28.i:                                ; preds = %Py_DECREF.exit247.i
   %call29.i = call ptr @PyErr_Occurred() #4
   %tobool30.not.i = icmp eq ptr %call29.i, null
-  br i1 %tobool30.not.i, label %if.end36.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %tobool30.not.i, label %if.end36.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.then34.i:                                      ; preds = %Py_DECREF.exit247.i
   %13 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i87.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end36.i:                                       ; preds = %land.lhs.true28.i
   %14 = load i32, ptr %overflow.i, align 4
@@ -277,12 +277,12 @@ if.end36.i:                                       ; preds = %land.lhs.true28.i
 if.then38.i:                                      ; preds = %if.end36.i
   %15 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i88.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.29) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end40.i:                                       ; preds = %if.end36.i
   %call41.i = call ptr @PyLong_FromString(ptr noundef nonnull @.str.30, ptr noundef null, i32 noundef 16) #4
   %cmp42.i = icmp eq ptr %call41.i, null
-  br i1 %cmp42.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit, label %if.end44.i
+  br i1 %cmp42.i, label %_testcapi_test_long_and_overflow_impl.exit, label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.end40.i
   store i32 1234, ptr %overflow.i, align 4
@@ -309,12 +309,12 @@ Py_DECREF.exit238.i:                              ; preds = %if.then1.i236.i, %i
 land.lhs.true47.i:                                ; preds = %Py_DECREF.exit238.i
   %call48.i = call ptr @PyErr_Occurred() #4
   %tobool49.not.i = icmp eq ptr %call48.i, null
-  br i1 %tobool49.not.i, label %if.end55.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %tobool49.not.i, label %if.end55.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.then53.i:                                      ; preds = %Py_DECREF.exit238.i
   %18 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i89.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end55.i:                                       ; preds = %land.lhs.true47.i
   %19 = load i32, ptr %overflow.i, align 4
@@ -324,12 +324,12 @@ if.end55.i:                                       ; preds = %land.lhs.true47.i
 if.then57.i:                                      ; preds = %if.end55.i
   %20 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i90.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.31) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end59.i:                                       ; preds = %if.end55.i
   %call60.i = call ptr @PyLong_FromLong(i64 noundef -9223372036854775808) #4
   %cmp61.i = icmp eq ptr %call60.i, null
-  br i1 %cmp61.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit, label %if.end63.i
+  br i1 %cmp61.i, label %_testcapi_test_long_and_overflow_impl.exit, label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.end59.i
   %call64.i = call ptr @PyLong_FromLong(i64 noundef 1) #4
@@ -340,17 +340,17 @@ if.then66.i:                                      ; preds = %if.end63.i
   %21 = load i64, ptr %call60.i, align 8
   %22 = and i64 %21, 2147483648
   %cmp.i308.not.i = icmp eq i64 %22, 0
-  br i1 %cmp.i308.not.i, label %if.end.i224.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %cmp.i308.not.i, label %if.end.i224.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end.i224.i:                                    ; preds = %if.then66.i
   %dec.i225.i = add i64 %21, -1
   store i64 %dec.i225.i, ptr %call60.i, align 8
   %cmp.i226.i = icmp eq i64 %dec.i225.i, 0
-  br i1 %cmp.i226.i, label %if.then1.i227.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %cmp.i226.i, label %if.then1.i227.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.then1.i227.i:                                  ; preds = %if.end.i224.i
   call void @_Py_Dealloc(ptr noundef nonnull %call60.i) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end67.i:                                       ; preds = %if.end63.i
   %call68.i = call ptr @PyNumber_Subtract(ptr noundef nonnull %call60.i, ptr noundef nonnull %call64.i) #4
@@ -387,7 +387,7 @@ if.then1.i209.i:                                  ; preds = %if.end.i206.i
 
 do.end72.i:                                       ; preds = %if.then1.i209.i, %if.end.i206.i, %do.body69.i
   %cmp73.i = icmp eq ptr %call68.i, null
-  br i1 %cmp73.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit, label %if.end75.i
+  br i1 %cmp73.i, label %_testcapi_test_long_and_overflow_impl.exit, label %if.end75.i
 
 if.end75.i:                                       ; preds = %do.end72.i
   store i32 0, ptr %overflow.i, align 4
@@ -414,12 +414,12 @@ Py_DECREF.exit202.i:                              ; preds = %if.then1.i200.i, %i
 land.lhs.true78.i:                                ; preds = %Py_DECREF.exit202.i
   %call79.i = call ptr @PyErr_Occurred() #4
   %tobool80.not.i = icmp eq ptr %call79.i, null
-  br i1 %tobool80.not.i, label %if.end86.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %tobool80.not.i, label %if.end86.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.then84.i:                                      ; preds = %Py_DECREF.exit202.i
   %29 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i91.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %29, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.28) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end86.i:                                       ; preds = %land.lhs.true78.i
   %30 = load i32, ptr %overflow.i, align 4
@@ -429,12 +429,12 @@ if.end86.i:                                       ; preds = %land.lhs.true78.i
 if.then88.i:                                      ; preds = %if.end86.i
   %31 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i92.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %31, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.31) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end90.i:                                       ; preds = %if.end86.i
   %call91.i = call ptr @PyLong_FromString(ptr noundef nonnull @.str.32, ptr noundef null, i32 noundef 16) #4
   %cmp92.i = icmp eq ptr %call91.i, null
-  br i1 %cmp92.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit, label %if.end94.i
+  br i1 %cmp92.i, label %_testcapi_test_long_and_overflow_impl.exit, label %if.end94.i
 
 if.end94.i:                                       ; preds = %if.end90.i
   store i32 1234, ptr %overflow.i, align 4
@@ -463,12 +463,12 @@ Py_DECREF.exit193.i:                              ; preds = %if.then1.i191.i, %i
 land.lhs.true97.i:                                ; preds = %Py_DECREF.exit193.i
   %call98.i = call ptr @PyErr_Occurred() #4
   %tobool99.not.i = icmp eq ptr %call98.i, null
-  br i1 %tobool99.not.i, label %if.then103.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %tobool99.not.i, label %if.then103.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.then103.i:                                     ; preds = %land.lhs.true97.i, %Py_DECREF.exit193.i
   %34 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i93.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %34, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.33) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end105.i:                                      ; preds = %Py_DECREF.exit193.i
   %35 = load i32, ptr %overflow.i, align 4
@@ -478,12 +478,12 @@ if.end105.i:                                      ; preds = %Py_DECREF.exit193.i
 if.then107.i:                                     ; preds = %if.end105.i
   %36 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i94.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.34) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end109.i:                                      ; preds = %if.end105.i
   %call110.i = call ptr @PyLong_FromString(ptr noundef nonnull @.str.35, ptr noundef null, i32 noundef 16) #4
   %cmp111.i = icmp eq ptr %call110.i, null
-  br i1 %cmp111.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit, label %if.end113.i
+  br i1 %cmp111.i, label %_testcapi_test_long_and_overflow_impl.exit, label %if.end113.i
 
 if.end113.i:                                      ; preds = %if.end109.i
   store i32 0, ptr %overflow.i, align 4
@@ -512,12 +512,12 @@ Py_DECREF.exit184.i:                              ; preds = %if.then1.i182.i, %i
 land.lhs.true116.i:                               ; preds = %Py_DECREF.exit184.i
   %call117.i = call ptr @PyErr_Occurred() #4
   %tobool118.not.i = icmp eq ptr %call117.i, null
-  br i1 %tobool118.not.i, label %if.then122.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %tobool118.not.i, label %if.then122.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.then122.i:                                     ; preds = %land.lhs.true116.i, %Py_DECREF.exit184.i
   %39 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i95.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %39, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.33) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end124.i:                                      ; preds = %Py_DECREF.exit184.i
   %40 = load i32, ptr %overflow.i, align 4
@@ -527,12 +527,12 @@ if.end124.i:                                      ; preds = %Py_DECREF.exit184.i
 if.then126.i:                                     ; preds = %if.end124.i
   %41 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i96.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %41, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end128.i:                                      ; preds = %if.end124.i
   %call129.i = call ptr @PyLong_FromLong(i64 noundef 9223372036854775807) #4
   %cmp130.i = icmp eq ptr %call129.i, null
-  br i1 %cmp130.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit, label %if.end132.i
+  br i1 %cmp130.i, label %_testcapi_test_long_and_overflow_impl.exit, label %if.end132.i
 
 if.end132.i:                                      ; preds = %if.end128.i
   store i32 1234, ptr %overflow.i, align 4
@@ -561,12 +561,12 @@ Py_DECREF.exit175.i:                              ; preds = %if.then1.i173.i, %i
 land.lhs.true135.i:                               ; preds = %Py_DECREF.exit175.i
   %call136.i = call ptr @PyErr_Occurred() #4
   %tobool137.not.i = icmp eq ptr %call136.i, null
-  br i1 %tobool137.not.i, label %if.then141.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %tobool137.not.i, label %if.then141.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.then141.i:                                     ; preds = %land.lhs.true135.i, %Py_DECREF.exit175.i
   %44 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i97.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %44, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.37) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end143.i:                                      ; preds = %Py_DECREF.exit175.i
   %45 = load i32, ptr %overflow.i, align 4
@@ -576,12 +576,12 @@ if.end143.i:                                      ; preds = %Py_DECREF.exit175.i
 if.then145.i:                                     ; preds = %if.end143.i
   %46 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i98.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %46, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.34) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end147.i:                                      ; preds = %if.end143.i
   %call148.i = call ptr @PyLong_FromLong(i64 noundef -9223372036854775808) #4
   %cmp149.i = icmp eq ptr %call148.i, null
-  br i1 %cmp149.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit, label %if.end151.i
+  br i1 %cmp149.i, label %_testcapi_test_long_and_overflow_impl.exit, label %if.end151.i
 
 if.end151.i:                                      ; preds = %if.end147.i
   store i32 0, ptr %overflow.i, align 4
@@ -610,24 +610,24 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
 land.lhs.true154.i:                               ; preds = %Py_DECREF.exit.i
   %call155.i = call ptr @PyErr_Occurred() #4
   %tobool156.not.i = icmp eq ptr %call155.i, null
-  br i1 %tobool156.not.i, label %if.then160.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br i1 %tobool156.not.i, label %if.then160.i, label %_testcapi_test_long_and_overflow_impl.exit
 
 if.then160.i:                                     ; preds = %land.lhs.true154.i, %Py_DECREF.exit.i
   %49 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i99.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %49, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.38) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
 if.end162.i:                                      ; preds = %Py_DECREF.exit.i
   %50 = load i32, ptr %overflow.i, align 4
   %cmp163.not.i = icmp eq i32 %50, 0
-  br i1 %cmp163.not.i, label %_testcapi_test_long_and_overflow_impl.argprom.exit, label %if.then164.i
+  br i1 %cmp163.not.i, label %_testcapi_test_long_and_overflow_impl.exit, label %if.then164.i
 
 if.then164.i:                                     ; preds = %if.end162.i
   %51 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i100.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %51, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str, ptr noundef nonnull @.str.34) #4
-  br label %_testcapi_test_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_and_overflow_impl.exit
 
-_testcapi_test_long_and_overflow_impl.argprom.exit: ; preds = %entry, %land.lhs.true.i, %if.then7.i, %if.then11.i, %if.end13.i, %if.then20.i, %if.end.i269.i, %if.then1.i272.i, %do.end.i, %land.lhs.true28.i, %if.then34.i, %if.then38.i, %if.end40.i, %land.lhs.true47.i, %if.then53.i, %if.then57.i, %if.end59.i, %if.then66.i, %if.end.i224.i, %if.then1.i227.i, %do.end72.i, %land.lhs.true78.i, %if.then84.i, %if.then88.i, %if.end90.i, %land.lhs.true97.i, %if.then103.i, %if.then107.i, %if.end109.i, %land.lhs.true116.i, %if.then122.i, %if.then126.i, %if.end128.i, %land.lhs.true135.i, %if.then141.i, %if.then145.i, %if.end147.i, %land.lhs.true154.i, %if.then160.i, %if.end162.i, %if.then164.i
+_testcapi_test_long_and_overflow_impl.exit:       ; preds = %entry, %land.lhs.true.i, %if.then7.i, %if.then11.i, %if.end13.i, %if.then20.i, %if.end.i269.i, %if.then1.i272.i, %do.end.i, %land.lhs.true28.i, %if.then34.i, %if.then38.i, %if.end40.i, %land.lhs.true47.i, %if.then53.i, %if.then57.i, %if.end59.i, %if.then66.i, %if.end.i224.i, %if.then1.i227.i, %do.end72.i, %land.lhs.true78.i, %if.then84.i, %if.then88.i, %if.end90.i, %land.lhs.true97.i, %if.then103.i, %if.then107.i, %if.end109.i, %land.lhs.true116.i, %if.then122.i, %if.then126.i, %if.end128.i, %land.lhs.true135.i, %if.then141.i, %if.then145.i, %if.end147.i, %land.lhs.true154.i, %if.then160.i, %if.end162.i, %if.then164.i
   %retval.0.i = phi ptr [ null, %if.then7.i ], [ null, %if.then11.i ], [ null, %if.then34.i ], [ null, %if.then38.i ], [ null, %if.then53.i ], [ null, %if.then57.i ], [ null, %if.then84.i ], [ null, %if.then88.i ], [ null, %if.then103.i ], [ null, %if.then107.i ], [ null, %if.then122.i ], [ null, %if.then126.i ], [ null, %if.then141.i ], [ null, %if.then145.i ], [ null, %if.then160.i ], [ null, %if.then164.i ], [ null, %entry ], [ null, %land.lhs.true.i ], [ null, %if.end13.i ], [ null, %if.then20.i ], [ null, %if.then1.i272.i ], [ null, %if.end.i269.i ], [ null, %do.end.i ], [ null, %land.lhs.true28.i ], [ null, %if.end40.i ], [ null, %land.lhs.true47.i ], [ null, %if.end59.i ], [ null, %if.then66.i ], [ null, %if.then1.i227.i ], [ null, %if.end.i224.i ], [ null, %do.end72.i ], [ null, %land.lhs.true78.i ], [ null, %if.end90.i ], [ null, %land.lhs.true97.i ], [ null, %if.end109.i ], [ null, %land.lhs.true116.i ], [ null, %if.end128.i ], [ null, %land.lhs.true135.i ], [ null, %if.end147.i ], [ null, %land.lhs.true154.i ], [ @_Py_NoneStruct, %if.end162.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i)
   ret ptr %retval.0.i
@@ -660,7 +660,7 @@ for.body3.i.i:                                    ; preds = %Py_DECREF.exit245.i
 if.then.i.i:                                      ; preds = %for.body3.i.i
   %0 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.40) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end.i.i:                                       ; preds = %for.body3.i.i
   %call9.i.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef nonnull %call.i.i) #4
@@ -675,7 +675,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
 if.then13.i.i:                                    ; preds = %land.lhs.true.i.i
   %1 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i91.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.41) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end15.i.i:                                     ; preds = %land.lhs.true.i.i, %if.end.i.i
   %cmp16.not.i.i = icmp eq i64 %call9.i.i, %add.i.i
@@ -684,7 +684,7 @@ if.end15.i.i:                                     ; preds = %land.lhs.true.i.i, 
 if.then18.i.i:                                    ; preds = %if.end15.i.i
   %2 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i92.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.42) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end20.i.i:                                     ; preds = %if.end15.i.i
   %3 = load i64, ptr %call.i.i, align 8
@@ -710,7 +710,7 @@ Py_DECREF.exit254.i.i:                            ; preds = %if.then1.i252.i.i, 
 if.then24.i.i:                                    ; preds = %Py_DECREF.exit254.i.i
   %5 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i93.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.43) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end26.i.i:                                     ; preds = %Py_DECREF.exit254.i.i
   %call27.i.i = tail call i64 @PyLong_AsLong(ptr noundef nonnull %call21.i.i) #4
@@ -725,7 +725,7 @@ land.lhs.true30.i.i:                              ; preds = %if.end26.i.i
 if.then33.i.i:                                    ; preds = %land.lhs.true30.i.i
   %6 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i94.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.44) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end35.i.i:                                     ; preds = %land.lhs.true30.i.i, %if.end26.i.i
   %cmp36.not.i.i = icmp eq i64 %call27.i.i, %add.i.i
@@ -734,7 +734,7 @@ if.end35.i.i:                                     ; preds = %land.lhs.true30.i.i
 if.then38.i.i:                                    ; preds = %if.end35.i.i
   %7 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i95.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.45) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end40.i.i:                                     ; preds = %if.end35.i.i
   %8 = load i64, ptr %call21.i.i, align 8
@@ -771,7 +771,7 @@ for.end43.i.i:                                    ; preds = %for.inc41.i.i
 if.then49.i.i:                                    ; preds = %for.end43.i.i
   %10 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i96.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.46) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end51.i.i:                                     ; preds = %for.end43.i.i
   %call52.i.i = tail call ptr @PyNumber_Negative(ptr noundef nonnull %call46.i.i) #4
@@ -781,7 +781,7 @@ if.end51.i.i:                                     ; preds = %for.end43.i.i
 if.then55.i.i:                                    ; preds = %if.end51.i.i
   %11 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i97.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.47) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end57.i.i:                                     ; preds = %if.end51.i.i
   %call58.i.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef nonnull %call52.i.i) #4
@@ -796,7 +796,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end57.i.i
 if.then63.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end57.i.i
   %12 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i98.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.48) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end65.i.i:                                     ; preds = %lor.lhs.false.i.i
   %13 = load ptr, ptr @PyExc_OverflowError, align 8
@@ -807,7 +807,7 @@ if.end65.i.i:                                     ; preds = %lor.lhs.false.i.i
 if.then68.i.i:                                    ; preds = %if.end65.i.i
   %14 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i99.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %14, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.49) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end70.i.i:                                     ; preds = %if.end65.i.i
   tail call void @PyErr_Clear() #4
@@ -834,7 +834,7 @@ Py_DECREF.exit236.i.i:                            ; preds = %if.then1.i234.i.i, 
 if.then74.i.i:                                    ; preds = %Py_DECREF.exit236.i.i
   %17 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i100.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.46) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end76.i.i:                                     ; preds = %Py_DECREF.exit236.i.i
   %call77.i.i = tail call ptr @PyNumber_Lshift(ptr noundef nonnull %call46.i.i, ptr noundef nonnull %call71.i.i) #4
@@ -860,7 +860,7 @@ Py_DECREF.exit227.i.i:                            ; preds = %if.then1.i225.i.i, 
 if.then80.i.i:                                    ; preds = %Py_DECREF.exit227.i.i
   %20 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i101.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.50) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end82.i.i:                                     ; preds = %Py_DECREF.exit227.i.i
   %call83.i.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef nonnull %call77.i.i) #4
@@ -875,7 +875,7 @@ lor.lhs.false86.i.i:                              ; preds = %if.end82.i.i
 if.then89.i.i:                                    ; preds = %lor.lhs.false86.i.i, %if.end82.i.i
   %21 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i102.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %21, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.51) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end91.i.i:                                     ; preds = %lor.lhs.false86.i.i
   %22 = load ptr, ptr @PyExc_OverflowError, align 8
@@ -886,7 +886,7 @@ if.end91.i.i:                                     ; preds = %lor.lhs.false86.i.i
 if.then94.i.i:                                    ; preds = %if.end91.i.i
   %23 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i103.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %23, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.52) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end96.i.i:                                     ; preds = %if.end91.i.i
   tail call void @PyErr_Clear() #4
@@ -913,7 +913,7 @@ Py_DECREF.exit218.i.i:                            ; preds = %if.then1.i216.i.i, 
 if.then100.i.i:                                   ; preds = %Py_DECREF.exit218.i.i
   %26 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i104.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %26, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.53) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end102.i.i:                                    ; preds = %Py_DECREF.exit218.i.i
   %call103.i.i = tail call i64 @PyLong_AsLong(ptr noundef nonnull %call97.i.i) #4
@@ -928,7 +928,7 @@ lor.lhs.false106.i.i:                             ; preds = %if.end102.i.i
 if.then109.i.i:                                   ; preds = %lor.lhs.false106.i.i, %if.end102.i.i
   %27 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i105.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.54) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end111.i.i:                                    ; preds = %lor.lhs.false106.i.i
   %28 = load ptr, ptr @PyExc_OverflowError, align 8
@@ -939,7 +939,7 @@ if.end111.i.i:                                    ; preds = %lor.lhs.false106.i.
 if.then114.i.i:                                   ; preds = %if.end111.i.i
   %29 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i106.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %29, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.55) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end116.i.i:                                    ; preds = %if.end111.i.i
   tail call void @PyErr_Clear() #4
@@ -966,7 +966,7 @@ Py_DECREF.exit209.i.i:                            ; preds = %if.then1.i207.i.i, 
 if.then120.i.i:                                   ; preds = %Py_DECREF.exit209.i.i
   %32 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i107.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.47) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end122.i.i:                                    ; preds = %Py_DECREF.exit209.i.i
   %call123.i.i = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %call117.i.i, ptr noundef nonnull %call46.i.i) #4
@@ -992,7 +992,7 @@ Py_DECREF.exit200.i.i:                            ; preds = %if.then1.i198.i.i, 
 if.then126.i.i:                                   ; preds = %Py_DECREF.exit200.i.i
   %35 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i108.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %35, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.56) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end128.i.i:                                    ; preds = %Py_DECREF.exit200.i.i
   %call129.i.i = tail call i64 @PyLong_AsLong(ptr noundef nonnull %call123.i.i) #4
@@ -1007,7 +1007,7 @@ lor.lhs.false132.i.i:                             ; preds = %if.end128.i.i
 if.then135.i.i:                                   ; preds = %lor.lhs.false132.i.i, %if.end128.i.i
   %36 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i109.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.57) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end137.i.i:                                    ; preds = %lor.lhs.false132.i.i
   %37 = load ptr, ptr @PyExc_OverflowError, align 8
@@ -1018,7 +1018,7 @@ if.end137.i.i:                                    ; preds = %lor.lhs.false132.i.
 if.then140.i.i:                                   ; preds = %if.end137.i.i
   %38 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i110.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %38, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.58) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end142.i.i:                                    ; preds = %if.end137.i.i
   tail call void @PyErr_Clear() #4
@@ -1076,7 +1076,7 @@ lor.lhs.false148.i.i:                             ; preds = %Py_INCREF.exit.i.i
 if.then151.i.i:                                   ; preds = %lor.lhs.false148.i.i, %Py_INCREF.exit.i.i
   %44 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i111.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %44, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.59) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end153.i.i:                                    ; preds = %lor.lhs.false148.i.i
   %45 = load ptr, ptr @PyExc_TypeError, align 8
@@ -1087,7 +1087,7 @@ if.end153.i.i:                                    ; preds = %lor.lhs.false148.i.
 if.then156.i.i:                                   ; preds = %if.end153.i.i
   %46 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i112.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %46, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.60) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end158.i.i:                                    ; preds = %if.end153.i.i
   tail call void @PyErr_Clear() #4
@@ -1103,7 +1103,7 @@ lor.lhs.false162.i.i:                             ; preds = %if.end158.i.i
 if.then165.i.i:                                   ; preds = %lor.lhs.false162.i.i, %if.end158.i.i
   %47 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i113.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %47, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.59) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end167.i.i:                                    ; preds = %lor.lhs.false162.i.i
   %48 = load ptr, ptr @PyExc_TypeError, align 8
@@ -1114,7 +1114,7 @@ if.end167.i.i:                                    ; preds = %lor.lhs.false162.i.
 if.then170.i.i:                                   ; preds = %if.end167.i.i
   %49 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i114.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %49, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.60) #4
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
 if.end172.i.i:                                    ; preds = %if.end167.i.i
   tail call void @PyErr_Clear() #4
@@ -1140,13 +1140,13 @@ Py_DECREF.exit.i.i:                               ; preds = %if.then1.i.i.i, %if
   %54 = phi i32 [ %52, %if.end172.i.i ], [ %.pre.i.i, %if.then1.i.i.i ], [ %53, %if.end.i.i.i ]
   %add.i.i.i.i = add i32 %54, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %_testcapi_test_long_api_impl.argprom.exit, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_testcapi_test_long_api_impl.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %Py_DECREF.exit.i.i
   store i32 %add.i.i.i.i, ptr @_Py_NoneStruct, align 8
-  br label %_testcapi_test_long_api_impl.argprom.exit
+  br label %_testcapi_test_long_api_impl.exit
 
-_testcapi_test_long_api_impl.argprom.exit:        ; preds = %if.then.i.i, %if.then13.i.i, %if.then18.i.i, %if.then24.i.i, %if.then33.i.i, %if.then38.i.i, %if.then49.i.i, %if.then55.i.i, %if.then63.i.i, %if.then68.i.i, %if.then74.i.i, %if.then80.i.i, %if.then89.i.i, %if.then94.i.i, %if.then100.i.i, %if.then109.i.i, %if.then114.i.i, %if.then120.i.i, %if.then126.i.i, %if.then135.i.i, %if.then140.i.i, %if.then151.i.i, %if.then156.i.i, %if.then165.i.i, %if.then170.i.i, %Py_DECREF.exit.i.i, %if.end.i.i.i.i
+_testcapi_test_long_api_impl.exit:                ; preds = %if.then.i.i, %if.then13.i.i, %if.then18.i.i, %if.then24.i.i, %if.then33.i.i, %if.then38.i.i, %if.then49.i.i, %if.then55.i.i, %if.then63.i.i, %if.then68.i.i, %if.then74.i.i, %if.then80.i.i, %if.then89.i.i, %if.then94.i.i, %if.then100.i.i, %if.then109.i.i, %if.then114.i.i, %if.then120.i.i, %if.then126.i.i, %if.then135.i.i, %if.then140.i.i, %if.then151.i.i, %if.then156.i.i, %if.then165.i.i, %if.then170.i.i, %Py_DECREF.exit.i.i, %if.end.i.i.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i.i ], [ null, %if.then13.i.i ], [ null, %if.then18.i.i ], [ null, %if.then24.i.i ], [ null, %if.then33.i.i ], [ null, %if.then38.i.i ], [ null, %if.then49.i.i ], [ null, %if.then55.i.i ], [ null, %if.then63.i.i ], [ null, %if.then74.i.i ], [ null, %if.then80.i.i ], [ null, %if.then89.i.i ], [ null, %if.then100.i.i ], [ null, %if.then109.i.i ], [ null, %if.then120.i.i ], [ null, %if.then126.i.i ], [ null, %if.then135.i.i ], [ null, %if.then151.i.i ], [ null, %if.then165.i.i ], [ null, %if.then170.i.i ], [ null, %if.then156.i.i ], [ null, %if.then140.i.i ], [ null, %if.then114.i.i ], [ null, %if.then94.i.i ], [ null, %if.then68.i.i ], [ @_Py_NoneStruct, %Py_DECREF.exit.i.i ], [ @_Py_NoneStruct, %if.end.i.i.i.i ]
   ret ptr %retval.0.i.i
 }
@@ -1176,7 +1176,7 @@ lor.lhs.false.i:                                  ; preds = %Py_INCREF.exit.i
 if.then.i:                                        ; preds = %lor.lhs.false.i, %Py_INCREF.exit.i
   %1 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.61) #4
-  br label %_testcapi_test_long_as_double_impl.argprom.exit
+  br label %_testcapi_test_long_as_double_impl.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %2 = load ptr, ptr @PyExc_TypeError, align 8
@@ -1187,13 +1187,13 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 if.then5.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.62) #4
-  br label %_testcapi_test_long_as_double_impl.argprom.exit
+  br label %_testcapi_test_long_as_double_impl.exit
 
 if.end7.i:                                        ; preds = %if.end.i
   tail call void @PyErr_Clear() #4
-  br label %_testcapi_test_long_as_double_impl.argprom.exit
+  br label %_testcapi_test_long_as_double_impl.exit
 
-_testcapi_test_long_as_double_impl.argprom.exit:  ; preds = %if.then.i, %if.then5.i, %if.end7.i
+_testcapi_test_long_as_double_impl.exit:          ; preds = %if.then.i, %if.then5.i, %if.end7.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end7.i ], [ null, %if.then5.i ]
   ret ptr %retval.0.i
 }
@@ -1223,7 +1223,7 @@ lor.lhs.false.i:                                  ; preds = %Py_INCREF.exit.i
 if.then.i:                                        ; preds = %lor.lhs.false.i, %Py_INCREF.exit.i
   %1 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.63) #4
-  br label %_testcapi_test_long_as_size_t_impl.argprom.exit
+  br label %_testcapi_test_long_as_size_t_impl.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %2 = load ptr, ptr @PyExc_TypeError, align 8
@@ -1234,7 +1234,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 if.then5.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.64) #4
-  br label %_testcapi_test_long_as_size_t_impl.argprom.exit
+  br label %_testcapi_test_long_as_size_t_impl.exit
 
 if.end7.i:                                        ; preds = %if.end.i
   tail call void @PyErr_Clear() #4
@@ -1250,7 +1250,7 @@ lor.lhs.false10.i:                                ; preds = %if.end7.i
 if.then13.i:                                      ; preds = %lor.lhs.false10.i, %if.end7.i
   %4 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i4.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.65) #4
-  br label %_testcapi_test_long_as_size_t_impl.argprom.exit
+  br label %_testcapi_test_long_as_size_t_impl.exit
 
 if.end15.i:                                       ; preds = %lor.lhs.false10.i
   %5 = load ptr, ptr @PyExc_TypeError, align 8
@@ -1261,13 +1261,13 @@ if.end15.i:                                       ; preds = %lor.lhs.false10.i
 if.then18.i:                                      ; preds = %if.end15.i
   %6 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i5.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.66) #4
-  br label %_testcapi_test_long_as_size_t_impl.argprom.exit
+  br label %_testcapi_test_long_as_size_t_impl.exit
 
 if.end20.i:                                       ; preds = %if.end15.i
   tail call void @PyErr_Clear() #4
-  br label %_testcapi_test_long_as_size_t_impl.argprom.exit
+  br label %_testcapi_test_long_as_size_t_impl.exit
 
-_testcapi_test_long_as_size_t_impl.argprom.exit:  ; preds = %if.then.i, %if.then5.i, %if.then13.i, %if.then18.i, %if.end20.i
+_testcapi_test_long_as_size_t_impl.exit:          ; preds = %if.then.i, %if.then5.i, %if.then13.i, %if.then18.i, %if.end20.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then13.i ], [ @_Py_NoneStruct, %if.end20.i ], [ null, %if.then18.i ], [ null, %if.then5.i ]
   ret ptr %retval.0.i
 }
@@ -1287,7 +1287,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
   %0 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.67) #4
-  br label %_testcapi_test_long_as_unsigned_long_long_mask_impl.argprom.exit
+  br label %_testcapi_test_long_as_unsigned_long_long_mask_impl.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %1 = load ptr, ptr @PyExc_SystemError, align 8
@@ -1298,13 +1298,13 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 if.then5.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i1.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.68) #4
-  br label %_testcapi_test_long_as_unsigned_long_long_mask_impl.argprom.exit
+  br label %_testcapi_test_long_as_unsigned_long_long_mask_impl.exit
 
 if.end7.i:                                        ; preds = %if.end.i
   tail call void @PyErr_Clear() #4
-  br label %_testcapi_test_long_as_unsigned_long_long_mask_impl.argprom.exit
+  br label %_testcapi_test_long_as_unsigned_long_long_mask_impl.exit
 
-_testcapi_test_long_as_unsigned_long_long_mask_impl.argprom.exit: ; preds = %if.then.i, %if.then5.i, %if.end7.i
+_testcapi_test_long_as_unsigned_long_long_mask_impl.exit: ; preds = %if.then.i, %if.then5.i, %if.end7.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end7.i ], [ null, %if.then5.i ]
   ret ptr %retval.0.i
 }
@@ -1316,7 +1316,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %overflow.i)
   %call.i = tail call ptr @PyLong_FromString(ptr noundef nonnull @.str.27, ptr noundef null, i32 noundef 16) #4
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit, label %if.end.i
+  br i1 %cmp.i, label %_testcapi_test_long_long_and_overflow_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   store i32 1234, ptr %overflow.i, align 4
@@ -1343,12 +1343,12 @@ Py_DECREF.exit283.i:                              ; preds = %if.then1.i281.i, %i
 land.lhs.true.i:                                  ; preds = %Py_DECREF.exit283.i
   %call3.i = call ptr @PyErr_Occurred() #4
   %tobool.not.i = icmp eq ptr %call3.i, null
-  br i1 %tobool.not.i, label %if.end9.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %tobool.not.i, label %if.end9.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.then7.i:                                       ; preds = %Py_DECREF.exit283.i
   %2 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.28) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end9.i:                                        ; preds = %land.lhs.true.i
   %3 = load i32, ptr %overflow.i, align 4
@@ -1358,12 +1358,12 @@ if.end9.i:                                        ; preds = %land.lhs.true.i
 if.then11.i:                                      ; preds = %if.end9.i
   %4 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i86.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.29) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end13.i:                                       ; preds = %if.end9.i
   %call14.i = call ptr @PyLong_FromLongLong(i64 noundef 9223372036854775807) #4
   %cmp15.i = icmp eq ptr %call14.i, null
-  br i1 %cmp15.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit, label %if.end17.i
+  br i1 %cmp15.i, label %_testcapi_test_long_long_and_overflow_impl.exit, label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end13.i
   %call18.i = call ptr @PyLong_FromLong(i64 noundef 1) #4
@@ -1374,17 +1374,17 @@ if.then20.i:                                      ; preds = %if.end17.i
   %5 = load i64, ptr %call14.i, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i288.not.i = icmp eq i64 %6, 0
-  br i1 %cmp.i288.not.i, label %if.end.i269.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %cmp.i288.not.i, label %if.end.i269.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end.i269.i:                                    ; preds = %if.then20.i
   %dec.i270.i = add i64 %5, -1
   store i64 %dec.i270.i, ptr %call14.i, align 8
   %cmp.i271.i = icmp eq i64 %dec.i270.i, 0
-  br i1 %cmp.i271.i, label %if.then1.i272.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %cmp.i271.i, label %if.then1.i272.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.then1.i272.i:                                  ; preds = %if.end.i269.i
   call void @_Py_Dealloc(ptr noundef nonnull %call14.i) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end21.i:                                       ; preds = %if.end17.i
   %call22.i = call ptr @PyNumber_Add(ptr noundef nonnull %call14.i, ptr noundef nonnull %call18.i) #4
@@ -1421,7 +1421,7 @@ if.then1.i254.i:                                  ; preds = %if.end.i251.i
 
 do.end.i:                                         ; preds = %if.then1.i254.i, %if.end.i251.i, %do.body.i
   %cmp23.i = icmp eq ptr %call22.i, null
-  br i1 %cmp23.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit, label %if.end25.i
+  br i1 %cmp23.i, label %_testcapi_test_long_long_and_overflow_impl.exit, label %if.end25.i
 
 if.end25.i:                                       ; preds = %do.end.i
   store i32 0, ptr %overflow.i, align 4
@@ -1448,12 +1448,12 @@ Py_DECREF.exit247.i:                              ; preds = %if.then1.i245.i, %i
 land.lhs.true28.i:                                ; preds = %Py_DECREF.exit247.i
   %call29.i = call ptr @PyErr_Occurred() #4
   %tobool30.not.i = icmp eq ptr %call29.i, null
-  br i1 %tobool30.not.i, label %if.end36.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %tobool30.not.i, label %if.end36.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.then34.i:                                      ; preds = %Py_DECREF.exit247.i
   %13 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i87.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.28) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end36.i:                                       ; preds = %land.lhs.true28.i
   %14 = load i32, ptr %overflow.i, align 4
@@ -1463,12 +1463,12 @@ if.end36.i:                                       ; preds = %land.lhs.true28.i
 if.then38.i:                                      ; preds = %if.end36.i
   %15 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i88.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.29) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end40.i:                                       ; preds = %if.end36.i
   %call41.i = call ptr @PyLong_FromString(ptr noundef nonnull @.str.30, ptr noundef null, i32 noundef 16) #4
   %cmp42.i = icmp eq ptr %call41.i, null
-  br i1 %cmp42.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit, label %if.end44.i
+  br i1 %cmp42.i, label %_testcapi_test_long_long_and_overflow_impl.exit, label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.end40.i
   store i32 1234, ptr %overflow.i, align 4
@@ -1495,12 +1495,12 @@ Py_DECREF.exit238.i:                              ; preds = %if.then1.i236.i, %i
 land.lhs.true47.i:                                ; preds = %Py_DECREF.exit238.i
   %call48.i = call ptr @PyErr_Occurred() #4
   %tobool49.not.i = icmp eq ptr %call48.i, null
-  br i1 %tobool49.not.i, label %if.end55.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %tobool49.not.i, label %if.end55.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.then53.i:                                      ; preds = %Py_DECREF.exit238.i
   %18 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i89.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.28) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end55.i:                                       ; preds = %land.lhs.true47.i
   %19 = load i32, ptr %overflow.i, align 4
@@ -1510,12 +1510,12 @@ if.end55.i:                                       ; preds = %land.lhs.true47.i
 if.then57.i:                                      ; preds = %if.end55.i
   %20 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i90.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.31) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end59.i:                                       ; preds = %if.end55.i
   %call60.i = call ptr @PyLong_FromLongLong(i64 noundef -9223372036854775808) #4
   %cmp61.i = icmp eq ptr %call60.i, null
-  br i1 %cmp61.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit, label %if.end63.i
+  br i1 %cmp61.i, label %_testcapi_test_long_long_and_overflow_impl.exit, label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.end59.i
   %call64.i = call ptr @PyLong_FromLong(i64 noundef 1) #4
@@ -1526,17 +1526,17 @@ if.then66.i:                                      ; preds = %if.end63.i
   %21 = load i64, ptr %call60.i, align 8
   %22 = and i64 %21, 2147483648
   %cmp.i308.not.i = icmp eq i64 %22, 0
-  br i1 %cmp.i308.not.i, label %if.end.i224.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %cmp.i308.not.i, label %if.end.i224.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end.i224.i:                                    ; preds = %if.then66.i
   %dec.i225.i = add i64 %21, -1
   store i64 %dec.i225.i, ptr %call60.i, align 8
   %cmp.i226.i = icmp eq i64 %dec.i225.i, 0
-  br i1 %cmp.i226.i, label %if.then1.i227.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %cmp.i226.i, label %if.then1.i227.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.then1.i227.i:                                  ; preds = %if.end.i224.i
   call void @_Py_Dealloc(ptr noundef nonnull %call60.i) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end67.i:                                       ; preds = %if.end63.i
   %call68.i = call ptr @PyNumber_Subtract(ptr noundef nonnull %call60.i, ptr noundef nonnull %call64.i) #4
@@ -1573,7 +1573,7 @@ if.then1.i209.i:                                  ; preds = %if.end.i206.i
 
 do.end72.i:                                       ; preds = %if.then1.i209.i, %if.end.i206.i, %do.body69.i
   %cmp73.i = icmp eq ptr %call68.i, null
-  br i1 %cmp73.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit, label %if.end75.i
+  br i1 %cmp73.i, label %_testcapi_test_long_long_and_overflow_impl.exit, label %if.end75.i
 
 if.end75.i:                                       ; preds = %do.end72.i
   store i32 0, ptr %overflow.i, align 4
@@ -1600,12 +1600,12 @@ Py_DECREF.exit202.i:                              ; preds = %if.then1.i200.i, %i
 land.lhs.true78.i:                                ; preds = %Py_DECREF.exit202.i
   %call79.i = call ptr @PyErr_Occurred() #4
   %tobool80.not.i = icmp eq ptr %call79.i, null
-  br i1 %tobool80.not.i, label %if.end86.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %tobool80.not.i, label %if.end86.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.then84.i:                                      ; preds = %Py_DECREF.exit202.i
   %29 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i91.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %29, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.28) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end86.i:                                       ; preds = %land.lhs.true78.i
   %30 = load i32, ptr %overflow.i, align 4
@@ -1615,12 +1615,12 @@ if.end86.i:                                       ; preds = %land.lhs.true78.i
 if.then88.i:                                      ; preds = %if.end86.i
   %31 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i92.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %31, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.31) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end90.i:                                       ; preds = %if.end86.i
   %call91.i = call ptr @PyLong_FromString(ptr noundef nonnull @.str.32, ptr noundef null, i32 noundef 16) #4
   %cmp92.i = icmp eq ptr %call91.i, null
-  br i1 %cmp92.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit, label %if.end94.i
+  br i1 %cmp92.i, label %_testcapi_test_long_long_and_overflow_impl.exit, label %if.end94.i
 
 if.end94.i:                                       ; preds = %if.end90.i
   store i32 1234, ptr %overflow.i, align 4
@@ -1649,12 +1649,12 @@ Py_DECREF.exit193.i:                              ; preds = %if.then1.i191.i, %i
 land.lhs.true97.i:                                ; preds = %Py_DECREF.exit193.i
   %call98.i = call ptr @PyErr_Occurred() #4
   %tobool99.not.i = icmp eq ptr %call98.i, null
-  br i1 %tobool99.not.i, label %if.then103.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %tobool99.not.i, label %if.then103.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.then103.i:                                     ; preds = %land.lhs.true97.i, %Py_DECREF.exit193.i
   %34 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i93.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %34, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.33) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end105.i:                                      ; preds = %Py_DECREF.exit193.i
   %35 = load i32, ptr %overflow.i, align 4
@@ -1664,12 +1664,12 @@ if.end105.i:                                      ; preds = %Py_DECREF.exit193.i
 if.then107.i:                                     ; preds = %if.end105.i
   %36 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i94.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.34) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end109.i:                                      ; preds = %if.end105.i
   %call110.i = call ptr @PyLong_FromString(ptr noundef nonnull @.str.35, ptr noundef null, i32 noundef 16) #4
   %cmp111.i = icmp eq ptr %call110.i, null
-  br i1 %cmp111.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit, label %if.end113.i
+  br i1 %cmp111.i, label %_testcapi_test_long_long_and_overflow_impl.exit, label %if.end113.i
 
 if.end113.i:                                      ; preds = %if.end109.i
   store i32 0, ptr %overflow.i, align 4
@@ -1698,12 +1698,12 @@ Py_DECREF.exit184.i:                              ; preds = %if.then1.i182.i, %i
 land.lhs.true116.i:                               ; preds = %Py_DECREF.exit184.i
   %call117.i = call ptr @PyErr_Occurred() #4
   %tobool118.not.i = icmp eq ptr %call117.i, null
-  br i1 %tobool118.not.i, label %if.then122.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %tobool118.not.i, label %if.then122.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.then122.i:                                     ; preds = %land.lhs.true116.i, %Py_DECREF.exit184.i
   %39 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i95.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %39, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.33) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end124.i:                                      ; preds = %Py_DECREF.exit184.i
   %40 = load i32, ptr %overflow.i, align 4
@@ -1713,12 +1713,12 @@ if.end124.i:                                      ; preds = %Py_DECREF.exit184.i
 if.then126.i:                                     ; preds = %if.end124.i
   %41 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i96.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %41, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.36) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end128.i:                                      ; preds = %if.end124.i
   %call129.i = call ptr @PyLong_FromLongLong(i64 noundef 9223372036854775807) #4
   %cmp130.i = icmp eq ptr %call129.i, null
-  br i1 %cmp130.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit, label %if.end132.i
+  br i1 %cmp130.i, label %_testcapi_test_long_long_and_overflow_impl.exit, label %if.end132.i
 
 if.end132.i:                                      ; preds = %if.end128.i
   store i32 1234, ptr %overflow.i, align 4
@@ -1747,12 +1747,12 @@ Py_DECREF.exit175.i:                              ; preds = %if.then1.i173.i, %i
 land.lhs.true135.i:                               ; preds = %Py_DECREF.exit175.i
   %call136.i = call ptr @PyErr_Occurred() #4
   %tobool137.not.i = icmp eq ptr %call136.i, null
-  br i1 %tobool137.not.i, label %if.then141.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %tobool137.not.i, label %if.then141.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.then141.i:                                     ; preds = %land.lhs.true135.i, %Py_DECREF.exit175.i
   %44 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i97.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %44, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.69) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end143.i:                                      ; preds = %Py_DECREF.exit175.i
   %45 = load i32, ptr %overflow.i, align 4
@@ -1762,12 +1762,12 @@ if.end143.i:                                      ; preds = %Py_DECREF.exit175.i
 if.then145.i:                                     ; preds = %if.end143.i
   %46 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i98.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %46, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.34) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end147.i:                                      ; preds = %if.end143.i
   %call148.i = call ptr @PyLong_FromLongLong(i64 noundef -9223372036854775808) #4
   %cmp149.i = icmp eq ptr %call148.i, null
-  br i1 %cmp149.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit, label %if.end151.i
+  br i1 %cmp149.i, label %_testcapi_test_long_long_and_overflow_impl.exit, label %if.end151.i
 
 if.end151.i:                                      ; preds = %if.end147.i
   store i32 0, ptr %overflow.i, align 4
@@ -1796,24 +1796,24 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
 land.lhs.true154.i:                               ; preds = %Py_DECREF.exit.i
   %call155.i = call ptr @PyErr_Occurred() #4
   %tobool156.not.i = icmp eq ptr %call155.i, null
-  br i1 %tobool156.not.i, label %if.then160.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br i1 %tobool156.not.i, label %if.then160.i, label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.then160.i:                                     ; preds = %land.lhs.true154.i, %Py_DECREF.exit.i
   %49 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i99.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %49, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.70) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
 if.end162.i:                                      ; preds = %Py_DECREF.exit.i
   %50 = load i32, ptr %overflow.i, align 4
   %cmp163.not.i = icmp eq i32 %50, 0
-  br i1 %cmp163.not.i, label %_testcapi_test_long_long_and_overflow_impl.argprom.exit, label %if.then164.i
+  br i1 %cmp163.not.i, label %_testcapi_test_long_long_and_overflow_impl.exit, label %if.then164.i
 
 if.then164.i:                                     ; preds = %if.end162.i
   %51 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i100.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %51, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.34) #4
-  br label %_testcapi_test_long_long_and_overflow_impl.argprom.exit
+  br label %_testcapi_test_long_long_and_overflow_impl.exit
 
-_testcapi_test_long_long_and_overflow_impl.argprom.exit: ; preds = %entry, %land.lhs.true.i, %if.then7.i, %if.then11.i, %if.end13.i, %if.then20.i, %if.end.i269.i, %if.then1.i272.i, %do.end.i, %land.lhs.true28.i, %if.then34.i, %if.then38.i, %if.end40.i, %land.lhs.true47.i, %if.then53.i, %if.then57.i, %if.end59.i, %if.then66.i, %if.end.i224.i, %if.then1.i227.i, %do.end72.i, %land.lhs.true78.i, %if.then84.i, %if.then88.i, %if.end90.i, %land.lhs.true97.i, %if.then103.i, %if.then107.i, %if.end109.i, %land.lhs.true116.i, %if.then122.i, %if.then126.i, %if.end128.i, %land.lhs.true135.i, %if.then141.i, %if.then145.i, %if.end147.i, %land.lhs.true154.i, %if.then160.i, %if.end162.i, %if.then164.i
+_testcapi_test_long_long_and_overflow_impl.exit:  ; preds = %entry, %land.lhs.true.i, %if.then7.i, %if.then11.i, %if.end13.i, %if.then20.i, %if.end.i269.i, %if.then1.i272.i, %do.end.i, %land.lhs.true28.i, %if.then34.i, %if.then38.i, %if.end40.i, %land.lhs.true47.i, %if.then53.i, %if.then57.i, %if.end59.i, %if.then66.i, %if.end.i224.i, %if.then1.i227.i, %do.end72.i, %land.lhs.true78.i, %if.then84.i, %if.then88.i, %if.end90.i, %land.lhs.true97.i, %if.then103.i, %if.then107.i, %if.end109.i, %land.lhs.true116.i, %if.then122.i, %if.then126.i, %if.end128.i, %land.lhs.true135.i, %if.then141.i, %if.then145.i, %if.end147.i, %land.lhs.true154.i, %if.then160.i, %if.end162.i, %if.then164.i
   %retval.0.i = phi ptr [ null, %if.then7.i ], [ null, %if.then11.i ], [ null, %if.then34.i ], [ null, %if.then38.i ], [ null, %if.then53.i ], [ null, %if.then57.i ], [ null, %if.then84.i ], [ null, %if.then88.i ], [ null, %if.then103.i ], [ null, %if.then107.i ], [ null, %if.then122.i ], [ null, %if.then126.i ], [ null, %if.then141.i ], [ null, %if.then145.i ], [ null, %if.then160.i ], [ null, %if.then164.i ], [ null, %entry ], [ null, %land.lhs.true.i ], [ null, %if.end13.i ], [ null, %if.then20.i ], [ null, %if.then1.i272.i ], [ null, %if.end.i269.i ], [ null, %do.end.i ], [ null, %land.lhs.true28.i ], [ null, %if.end40.i ], [ null, %land.lhs.true47.i ], [ null, %if.end59.i ], [ null, %if.then66.i ], [ null, %if.then1.i227.i ], [ null, %if.end.i224.i ], [ null, %do.end72.i ], [ null, %land.lhs.true78.i ], [ null, %if.end90.i ], [ null, %land.lhs.true97.i ], [ null, %if.end109.i ], [ null, %land.lhs.true116.i ], [ null, %if.end128.i ], [ null, %land.lhs.true135.i ], [ null, %if.end147.i ], [ null, %land.lhs.true154.i ], [ @_Py_NoneStruct, %if.end162.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i)
   ret ptr %retval.0.i
@@ -1846,7 +1846,7 @@ for.body3.i.i:                                    ; preds = %Py_DECREF.exit245.i
 if.then.i.i:                                      ; preds = %for.body3.i.i
   %0 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.40) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end.i.i:                                       ; preds = %for.body3.i.i
   %call9.i.i = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef nonnull %call.i.i) #4
@@ -1861,7 +1861,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
 if.then13.i.i:                                    ; preds = %land.lhs.true.i.i
   %1 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i91.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.41) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end15.i.i:                                     ; preds = %land.lhs.true.i.i, %if.end.i.i
   %cmp16.not.i.i = icmp eq i64 %call9.i.i, %add.i.i
@@ -1870,7 +1870,7 @@ if.end15.i.i:                                     ; preds = %land.lhs.true.i.i, 
 if.then18.i.i:                                    ; preds = %if.end15.i.i
   %2 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i92.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.42) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end20.i.i:                                     ; preds = %if.end15.i.i
   %3 = load i64, ptr %call.i.i, align 8
@@ -1896,7 +1896,7 @@ Py_DECREF.exit254.i.i:                            ; preds = %if.then1.i252.i.i, 
 if.then24.i.i:                                    ; preds = %Py_DECREF.exit254.i.i
   %5 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i93.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.43) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end26.i.i:                                     ; preds = %Py_DECREF.exit254.i.i
   %call27.i.i = tail call i64 @PyLong_AsLongLong(ptr noundef nonnull %call21.i.i) #4
@@ -1911,7 +1911,7 @@ land.lhs.true30.i.i:                              ; preds = %if.end26.i.i
 if.then33.i.i:                                    ; preds = %land.lhs.true30.i.i
   %6 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i94.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.44) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end35.i.i:                                     ; preds = %land.lhs.true30.i.i, %if.end26.i.i
   %cmp36.not.i.i = icmp eq i64 %call27.i.i, %add.i.i
@@ -1920,7 +1920,7 @@ if.end35.i.i:                                     ; preds = %land.lhs.true30.i.i
 if.then38.i.i:                                    ; preds = %if.end35.i.i
   %7 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i95.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.45) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end40.i.i:                                     ; preds = %if.end35.i.i
   %8 = load i64, ptr %call21.i.i, align 8
@@ -1957,7 +1957,7 @@ for.end43.i.i:                                    ; preds = %for.inc41.i.i
 if.then49.i.i:                                    ; preds = %for.end43.i.i
   %10 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i96.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.46) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end51.i.i:                                     ; preds = %for.end43.i.i
   %call52.i.i = tail call ptr @PyNumber_Negative(ptr noundef nonnull %call46.i.i) #4
@@ -1967,7 +1967,7 @@ if.end51.i.i:                                     ; preds = %for.end43.i.i
 if.then55.i.i:                                    ; preds = %if.end51.i.i
   %11 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i97.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.47) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end57.i.i:                                     ; preds = %if.end51.i.i
   %call58.i.i = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef nonnull %call52.i.i) #4
@@ -1982,7 +1982,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end57.i.i
 if.then63.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end57.i.i
   %12 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i98.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.48) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end65.i.i:                                     ; preds = %lor.lhs.false.i.i
   %13 = load ptr, ptr @PyExc_OverflowError, align 8
@@ -1993,7 +1993,7 @@ if.end65.i.i:                                     ; preds = %lor.lhs.false.i.i
 if.then68.i.i:                                    ; preds = %if.end65.i.i
   %14 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i99.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %14, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.49) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end70.i.i:                                     ; preds = %if.end65.i.i
   tail call void @PyErr_Clear() #4
@@ -2020,7 +2020,7 @@ Py_DECREF.exit236.i.i:                            ; preds = %if.then1.i234.i.i, 
 if.then74.i.i:                                    ; preds = %Py_DECREF.exit236.i.i
   %17 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i100.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.46) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end76.i.i:                                     ; preds = %Py_DECREF.exit236.i.i
   %call77.i.i = tail call ptr @PyNumber_Lshift(ptr noundef nonnull %call46.i.i, ptr noundef nonnull %call71.i.i) #4
@@ -2046,7 +2046,7 @@ Py_DECREF.exit227.i.i:                            ; preds = %if.then1.i225.i.i, 
 if.then80.i.i:                                    ; preds = %Py_DECREF.exit227.i.i
   %20 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i101.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %20, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.50) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end82.i.i:                                     ; preds = %Py_DECREF.exit227.i.i
   %call83.i.i = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef nonnull %call77.i.i) #4
@@ -2061,7 +2061,7 @@ lor.lhs.false86.i.i:                              ; preds = %if.end82.i.i
 if.then89.i.i:                                    ; preds = %lor.lhs.false86.i.i, %if.end82.i.i
   %21 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i102.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %21, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.51) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end91.i.i:                                     ; preds = %lor.lhs.false86.i.i
   %22 = load ptr, ptr @PyExc_OverflowError, align 8
@@ -2072,7 +2072,7 @@ if.end91.i.i:                                     ; preds = %lor.lhs.false86.i.i
 if.then94.i.i:                                    ; preds = %if.end91.i.i
   %23 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i103.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %23, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.52) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end96.i.i:                                     ; preds = %if.end91.i.i
   tail call void @PyErr_Clear() #4
@@ -2099,7 +2099,7 @@ Py_DECREF.exit218.i.i:                            ; preds = %if.then1.i216.i.i, 
 if.then100.i.i:                                   ; preds = %Py_DECREF.exit218.i.i
   %26 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i104.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %26, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.53) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end102.i.i:                                    ; preds = %Py_DECREF.exit218.i.i
   %call103.i.i = tail call i64 @PyLong_AsLongLong(ptr noundef nonnull %call97.i.i) #4
@@ -2114,7 +2114,7 @@ lor.lhs.false106.i.i:                             ; preds = %if.end102.i.i
 if.then109.i.i:                                   ; preds = %lor.lhs.false106.i.i, %if.end102.i.i
   %27 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i105.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.54) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end111.i.i:                                    ; preds = %lor.lhs.false106.i.i
   %28 = load ptr, ptr @PyExc_OverflowError, align 8
@@ -2125,7 +2125,7 @@ if.end111.i.i:                                    ; preds = %lor.lhs.false106.i.
 if.then114.i.i:                                   ; preds = %if.end111.i.i
   %29 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i106.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %29, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.55) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end116.i.i:                                    ; preds = %if.end111.i.i
   tail call void @PyErr_Clear() #4
@@ -2152,7 +2152,7 @@ Py_DECREF.exit209.i.i:                            ; preds = %if.then1.i207.i.i, 
 if.then120.i.i:                                   ; preds = %Py_DECREF.exit209.i.i
   %32 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i107.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.47) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end122.i.i:                                    ; preds = %Py_DECREF.exit209.i.i
   %call123.i.i = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %call117.i.i, ptr noundef nonnull %call46.i.i) #4
@@ -2178,7 +2178,7 @@ Py_DECREF.exit200.i.i:                            ; preds = %if.then1.i198.i.i, 
 if.then126.i.i:                                   ; preds = %Py_DECREF.exit200.i.i
   %35 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i108.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %35, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.56) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end128.i.i:                                    ; preds = %Py_DECREF.exit200.i.i
   %call129.i.i = tail call i64 @PyLong_AsLongLong(ptr noundef nonnull %call123.i.i) #4
@@ -2193,7 +2193,7 @@ lor.lhs.false132.i.i:                             ; preds = %if.end128.i.i
 if.then135.i.i:                                   ; preds = %lor.lhs.false132.i.i, %if.end128.i.i
   %36 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i109.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %36, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.57) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end137.i.i:                                    ; preds = %lor.lhs.false132.i.i
   %37 = load ptr, ptr @PyExc_OverflowError, align 8
@@ -2204,7 +2204,7 @@ if.end137.i.i:                                    ; preds = %lor.lhs.false132.i.
 if.then140.i.i:                                   ; preds = %if.end137.i.i
   %38 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i110.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %38, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.58) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end142.i.i:                                    ; preds = %if.end137.i.i
   tail call void @PyErr_Clear() #4
@@ -2262,7 +2262,7 @@ lor.lhs.false148.i.i:                             ; preds = %Py_INCREF.exit.i.i
 if.then151.i.i:                                   ; preds = %lor.lhs.false148.i.i, %Py_INCREF.exit.i.i
   %44 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i111.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %44, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.59) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end153.i.i:                                    ; preds = %lor.lhs.false148.i.i
   %45 = load ptr, ptr @PyExc_TypeError, align 8
@@ -2273,7 +2273,7 @@ if.end153.i.i:                                    ; preds = %lor.lhs.false148.i.
 if.then156.i.i:                                   ; preds = %if.end153.i.i
   %46 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i112.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %46, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.60) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end158.i.i:                                    ; preds = %if.end153.i.i
   tail call void @PyErr_Clear() #4
@@ -2289,7 +2289,7 @@ lor.lhs.false162.i.i:                             ; preds = %if.end158.i.i
 if.then165.i.i:                                   ; preds = %lor.lhs.false162.i.i, %if.end158.i.i
   %47 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i113.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %47, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.59) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end167.i.i:                                    ; preds = %lor.lhs.false162.i.i
   %48 = load ptr, ptr @PyExc_TypeError, align 8
@@ -2300,7 +2300,7 @@ if.end167.i.i:                                    ; preds = %lor.lhs.false162.i.
 if.then170.i.i:                                   ; preds = %if.end167.i.i
   %49 = load ptr, ptr @PyExc_AssertionError, align 8
   %call.i.i114.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %49, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.60) #4
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
 if.end172.i.i:                                    ; preds = %if.end167.i.i
   tail call void @PyErr_Clear() #4
@@ -2326,13 +2326,13 @@ Py_DECREF.exit.i.i:                               ; preds = %if.then1.i.i.i, %if
   %54 = phi i32 [ %52, %if.end172.i.i ], [ %.pre.i.i, %if.then1.i.i.i ], [ %53, %if.end.i.i.i ]
   %add.i.i.i.i = add i32 %54, 1
   %cmp.i.i.i.i = icmp eq i32 %add.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %_testcapi_test_longlong_api_impl.argprom.exit, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_testcapi_test_longlong_api_impl.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %Py_DECREF.exit.i.i
   store i32 %add.i.i.i.i, ptr @_Py_NoneStruct, align 8
-  br label %_testcapi_test_longlong_api_impl.argprom.exit
+  br label %_testcapi_test_longlong_api_impl.exit
 
-_testcapi_test_longlong_api_impl.argprom.exit:    ; preds = %if.then.i.i, %if.then13.i.i, %if.then18.i.i, %if.then24.i.i, %if.then33.i.i, %if.then38.i.i, %if.then49.i.i, %if.then55.i.i, %if.then63.i.i, %if.then68.i.i, %if.then74.i.i, %if.then80.i.i, %if.then89.i.i, %if.then94.i.i, %if.then100.i.i, %if.then109.i.i, %if.then114.i.i, %if.then120.i.i, %if.then126.i.i, %if.then135.i.i, %if.then140.i.i, %if.then151.i.i, %if.then156.i.i, %if.then165.i.i, %if.then170.i.i, %Py_DECREF.exit.i.i, %if.end.i.i.i.i
+_testcapi_test_longlong_api_impl.exit:            ; preds = %if.then.i.i, %if.then13.i.i, %if.then18.i.i, %if.then24.i.i, %if.then33.i.i, %if.then38.i.i, %if.then49.i.i, %if.then55.i.i, %if.then63.i.i, %if.then68.i.i, %if.then74.i.i, %if.then80.i.i, %if.then89.i.i, %if.then94.i.i, %if.then100.i.i, %if.then109.i.i, %if.then114.i.i, %if.then120.i.i, %if.then126.i.i, %if.then135.i.i, %if.then140.i.i, %if.then151.i.i, %if.then156.i.i, %if.then165.i.i, %if.then170.i.i, %Py_DECREF.exit.i.i, %if.end.i.i.i.i
   %retval.0.i.i = phi ptr [ null, %if.then.i.i ], [ null, %if.then13.i.i ], [ null, %if.then18.i.i ], [ null, %if.then24.i.i ], [ null, %if.then33.i.i ], [ null, %if.then38.i.i ], [ null, %if.then49.i.i ], [ null, %if.then55.i.i ], [ null, %if.then63.i.i ], [ null, %if.then74.i.i ], [ null, %if.then80.i.i ], [ null, %if.then89.i.i ], [ null, %if.then100.i.i ], [ null, %if.then109.i.i ], [ null, %if.then120.i.i ], [ null, %if.then126.i.i ], [ null, %if.then135.i.i ], [ null, %if.then151.i.i ], [ null, %if.then165.i.i ], [ null, %if.then170.i.i ], [ null, %if.then156.i.i ], [ null, %if.then140.i.i ], [ null, %if.then114.i.i ], [ null, %if.then94.i.i ], [ null, %if.then68.i.i ], [ @_Py_NoneStruct, %Py_DECREF.exit.i.i ], [ @_Py_NoneStruct, %if.end.i.i.i.i ]
   ret ptr %retval.0.i.i
 }

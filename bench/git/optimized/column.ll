@@ -771,20 +771,20 @@ do.body.i:                                        ; preds = %do.cond.i, %entry
   %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.4, i64 %prefix.addr.0.idx.i
   %0 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 7
-  br i1 %exitcond.i, label %skip_prefix.argprom.exit, label %do.cond.i
+  br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %1 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %1, %0
-  br i1 %cmp.i, label %do.body.i, label %skip_prefix.argprom.exit, !llvm.loop !15
+  br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !15
 
-skip_prefix.argprom.exit:                         ; preds = %do.body.i, %do.cond.i
+skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %sub_0, label %return
 
-sub_0:                                            ; preds = %skip_prefix.argprom.exit
+sub_0:                                            ; preds = %skip_prefix.exit
   %2 = load i8, ptr %scevgep.i, align 1
   %.not = icmp eq i8 %2, 117
   br i1 %.not, label %sub_1, label %if.end4
@@ -844,8 +844,8 @@ if.then4.i12:                                     ; preds = %if.end.i9
   %call5.i13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull %scevgep.i, ptr noundef nonnull %value) #9
   br label %return
 
-return:                                           ; preds = %if.then4.i12, %if.end.i9, %if.then.i15, %if.then4.i, %if.end.i, %if.then.i7, %if.end4, %land.lhs.true, %skip_prefix.argprom.exit
-  %retval.0 = phi i32 [ 0, %skip_prefix.argprom.exit ], [ 0, %land.lhs.true ], [ 0, %if.end4 ], [ -1, %if.then4.i ], [ -1, %if.then.i7 ], [ 0, %if.end.i ], [ -1, %if.then4.i12 ], [ -1, %if.then.i15 ], [ 0, %if.end.i9 ]
+return:                                           ; preds = %if.then4.i12, %if.end.i9, %if.then.i15, %if.then4.i, %if.end.i, %if.then.i7, %if.end4, %land.lhs.true, %skip_prefix.exit
+  %retval.0 = phi i32 [ 0, %skip_prefix.exit ], [ 0, %land.lhs.true ], [ 0, %if.end4 ], [ -1, %if.then4.i ], [ -1, %if.then.i7 ], [ 0, %if.end.i ], [ -1, %if.then4.i12 ], [ -1, %if.then.i15 ], [ 0, %if.end.i9 ]
   ret i32 %retval.0
 }
 

@@ -21386,7 +21386,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNKSt8functionIFdd
 
 if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %cmp4.i.i.i.i = fcmp olt double %12, 0x3A1B900000000000
-  br i1 %cmp4.i.i.i.i, label %if.then11.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br i1 %cmp4.i.i.i.i, label %if.then11.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
 _ZN8QuantLib12close_enoughEdd.exit.i.i.i:         ; preds = %if.end.i.i.i.i
   %13 = call double @llvm.fabs.f64(double %9)
@@ -21396,7 +21396,7 @@ _ZN8QuantLib12close_enoughEdd.exit.i.i.i:         ; preds = %if.end.i.i.i.i
   %mul7.i.i.i.i = fmul double %14, 0x3D05000000000000
   %cmp8.i.i.i.i = fcmp ole double %12, %mul7.i.i.i.i
   %15 = or i1 %cmp6.i.i.i.i, %cmp8.i.i.i.i
-  br i1 %15, label %if.then11.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br i1 %15, label %if.then11.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
 if.then11.i.i.i:                                  ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %if.then3.i.i.i.i, %_ZNKSt8functionIFddEEclEd.exit.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %__functor.val, i64 24
@@ -21404,7 +21404,7 @@ if.then11.i.i.i:                                  ; preds = %_ZN8QuantLib12close
   %18 = load double, ptr %17, align 8, !tbaa !55
   %mul12.i.i.i = fmul double %call6.i.i.i, %18
   %div.i.i.i = fdiv double %mul12.i.i.i, 0x40040D931FF62706
-  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
 if.else13.i.i.i:                                  ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i9.i.i.i)
@@ -21468,9 +21468,9 @@ _ZNK8QuantLib18NormalDistributionclEd.exit.i.i.i: ; preds = %cond.false.i.i.i.i,
   %mul25.i.i.i = fmul double %30, %cond.i.i.i.i
   %35 = call double @llvm.fmuladd.f64(double %mul21.i.i.i, double %call22.i.i.i, double %mul25.i.i.i)
   %mul26.i.i.i = fmul double %call6.i.i.i, %35
-  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %if.then3.i.i.i.i, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %if.then11.i.i.i, %_ZNK8QuantLib18NormalDistributionclEd.exit.i.i.i
+"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %if.then3.i.i.i.i, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %if.then11.i.i.i, %_ZNK8QuantLib18NormalDistributionclEd.exit.i.i.i
   %retval.0.i.i.i = phi double [ %div.i.i.i, %if.then11.i.i.i ], [ %mul26.i.i.i, %_ZNK8QuantLib18NormalDistributionclEd.exit.i.i.i ], [ 0.000000e+00, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i ], [ 0.000000e+00, %if.then3.i.i.i.i ]
   ret double %retval.0.i.i.i
 }
@@ -21573,7 +21573,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNKSt8functionIFdd
 
 if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %cmp4.i.i.i.i = fcmp olt double %12, 0x3A1B900000000000
-  br i1 %cmp4.i.i.i.i, label %if.then11.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br i1 %cmp4.i.i.i.i, label %if.then11.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
 _ZN8QuantLib12close_enoughEdd.exit.i.i.i:         ; preds = %if.end.i.i.i.i
   %13 = call double @llvm.fabs.f64(double %9)
@@ -21583,7 +21583,7 @@ _ZN8QuantLib12close_enoughEdd.exit.i.i.i:         ; preds = %if.end.i.i.i.i
   %mul7.i.i.i.i = fmul double %14, 0x3D05000000000000
   %cmp8.i.i.i.i = fcmp ole double %12, %mul7.i.i.i.i
   %15 = or i1 %cmp6.i.i.i.i, %cmp8.i.i.i.i
-  br i1 %15, label %if.then11.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br i1 %15, label %if.then11.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
 if.then11.i.i.i:                                  ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %if.then3.i.i.i.i, %_ZNKSt8functionIFddEEclEd.exit.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %__functor.val, i64 24
@@ -21591,7 +21591,7 @@ if.then11.i.i.i:                                  ; preds = %_ZN8QuantLib12close
   %18 = load double, ptr %17, align 8, !tbaa !55
   %mul12.i.i.i = fmul double %call6.i.i.i, %18
   %div.i.i.i = fdiv double %mul12.i.i.i, 0x40040D931FF62706
-  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
 if.else13.i.i.i:                                  ; preds = %entry
   %19 = getelementptr inbounds nuw i8, ptr %__functor.val, i64 24
@@ -21654,9 +21654,9 @@ cond.false.i.i.i.i:                               ; preds = %_ZNKSt8functionIFdd
 _ZNK8QuantLib18NormalDistributionclEd.exit.i.i.i: ; preds = %cond.false.i.i.i.i, %_ZNKSt8functionIFddEEclEd.exit14.i.i.i
   %cond.i.i.i.i = phi double [ %mul2.i.i.i.i, %cond.false.i.i.i.i ], [ 0.000000e+00, %_ZNKSt8functionIFddEEclEd.exit14.i.i.i ]
   %mul21.i.i.i = fmul double %mul14.i.i.i, %cond.i.i.i.i
-  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %if.then3.i.i.i.i, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %if.then11.i.i.i, %_ZNK8QuantLib18NormalDistributionclEd.exit.i.i.i
+"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_A1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %if.then3.i.i.i.i, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %if.then11.i.i.i, %_ZNK8QuantLib18NormalDistributionclEd.exit.i.i.i
   %retval.0.i.i.i = phi double [ %div.i.i.i, %if.then11.i.i.i ], [ %mul21.i.i.i, %_ZNK8QuantLib18NormalDistributionclEd.exit.i.i.i ], [ 0.000000e+00, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i ], [ 0.000000e+00, %if.then3.i.i.i.i ]
   ret double %retval.0.i.i.i
 }
@@ -21742,7 +21742,7 @@ _ZNKSt8functionIFddEEclEd.exit.i.i.i:             ; preds = %if.then.i.i.i
   %call2.i.i.i.i = call noundef double %9(ptr noundef nonnull align 8 dereferenceable(16) %B.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
   %cmp.i.i.i.i = fcmp oeq double %7, %call2.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNKSt8functionIFddEEclEd.exit.i.i.i
   %sub.i.i.i.i = fsub double %7, %call2.i.i.i.i
@@ -21754,7 +21754,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNKSt8functionIFdd
 
 if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %cmp4.i.i.i.i = fcmp olt double %10, 0x3A1B900000000000
-  br i1 %cmp4.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.else.i.i.i
+  br i1 %cmp4.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.else.i.i.i
 
 _ZN8QuantLib12close_enoughEdd.exit.i.i.i:         ; preds = %if.end.i.i.i.i
   %11 = call double @llvm.fabs.f64(double %7)
@@ -21764,7 +21764,7 @@ _ZN8QuantLib12close_enoughEdd.exit.i.i.i:         ; preds = %if.end.i.i.i.i
   %mul7.i.i.i.i = fmul double %12, 0x3D05000000000000
   %cmp8.i.i.i.i = fcmp ole double %10, %mul7.i.i.i.i
   %13 = or i1 %cmp6.i.i.i.i, %cmp8.i.i.i.i
-  br i1 %13, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.else.i.i.i
+  br i1 %13, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %if.then3.i.i.i.i
   %14 = load ptr, ptr %5, align 8, !tbaa !393
@@ -21785,7 +21785,7 @@ _ZNKSt8functionIFddEEclEd.exit15.i.i.i:           ; preds = %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i8.i.i.i)
   %cmp11.i.i.i = fcmp olt double %15, %call2.i13.i.i.i
   %cond.i.i.i = select i1 %cmp11.i.i.i, double 0.000000e+00, double 1.000000e+00
-  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
 if.else13.i.i.i:                                  ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i16.i.i.i)
@@ -21822,9 +21822,9 @@ _ZNKSt8functionIFddEEclEd.exit23.i.i.i:           ; preds = %if.else13.i.i.i
   %24 = call double @llvm.fmuladd.f64(double %mul.i24.i.i.i, double 5.000000e-01, double %div.i.i.i.i)
   %sub5.i.i.i.i = fsub double %24, %mul.i24.i.i.i
   %call17.i.i.i = call noundef double @_ZNK8QuantLib28CumulativeNormalDistributionclEd(ptr noundef nonnull align 8 dereferenceable(57) %Phi.i.i.i, double noundef %sub5.i.i.i.i)
-  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %_ZNKSt8functionIFddEEclEd.exit.i.i.i, %if.then3.i.i.i.i, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %_ZNKSt8functionIFddEEclEd.exit15.i.i.i, %_ZNKSt8functionIFddEEclEd.exit23.i.i.i
+"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %_ZNKSt8functionIFddEEclEd.exit.i.i.i, %if.then3.i.i.i.i, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %_ZNKSt8functionIFddEEclEd.exit15.i.i.i, %_ZNKSt8functionIFddEEclEd.exit23.i.i.i
   %call17.sink.i.i.i = phi double [ %call17.i.i.i, %_ZNKSt8functionIFddEEclEd.exit23.i.i.i ], [ %cond.i.i.i, %_ZNKSt8functionIFddEEclEd.exit15.i.i.i ], [ 5.000000e-01, %_ZNKSt8functionIFddEEclEd.exit.i.i.i ], [ 5.000000e-01, %if.then3.i.i.i.i ], [ 5.000000e-01, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i ]
   %mul18.i.i.i = fmul double %call.i.i.i, %call17.sink.i.i.i
   ret double %mul18.i.i.i
@@ -21911,7 +21911,7 @@ _ZNKSt8functionIFddEEclEd.exit.i.i.i:             ; preds = %if.then.i.i.i
   %call2.i.i.i.i = call noundef double %9(ptr noundef nonnull align 8 dereferenceable(16) %B.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i.i)
   %cmp.i.i.i.i = fcmp oeq double %7, %call2.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZNKSt8functionIFddEEclEd.exit.i.i.i
   %sub.i.i.i.i = fsub double %7, %call2.i.i.i.i
@@ -21923,7 +21923,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNKSt8functionIFdd
 
 if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %cmp4.i.i.i.i = fcmp olt double %10, 0x3A1B900000000000
-  br i1 %cmp4.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.else.i.i.i
+  br i1 %cmp4.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.else.i.i.i
 
 _ZN8QuantLib12close_enoughEdd.exit.i.i.i:         ; preds = %if.end.i.i.i.i
   %11 = call double @llvm.fabs.f64(double %7)
@@ -21933,7 +21933,7 @@ _ZN8QuantLib12close_enoughEdd.exit.i.i.i:         ; preds = %if.end.i.i.i.i
   %mul7.i.i.i.i = fmul double %12, 0x3D05000000000000
   %cmp8.i.i.i.i = fcmp ole double %10, %mul7.i.i.i.i
   %13 = or i1 %cmp6.i.i.i.i, %cmp8.i.i.i.i
-  br i1 %13, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", label %if.else.i.i.i
+  br i1 %13, label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %if.then3.i.i.i.i
   %14 = load ptr, ptr %5, align 8, !tbaa !398
@@ -21954,7 +21954,7 @@ _ZNKSt8functionIFddEEclEd.exit15.i.i.i:           ; preds = %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i8.i.i.i)
   %cmp11.i.i.i = fcmp olt double %15, %call2.i13.i.i.i
   %cond.i.i.i = select i1 %cmp11.i.i.i, double 0.000000e+00, double 1.000000e+00
-  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
 if.else13.i.i.i:                                  ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i16.i.i.i)
@@ -21990,9 +21990,9 @@ _ZNKSt8functionIFddEEclEd.exit23.i.i.i:           ; preds = %if.else13.i.i.i
   %div.i.i.i.i = fdiv double %23, %mul.i24.i.i.i
   %24 = call double @llvm.fmuladd.f64(double %mul.i24.i.i.i, double 5.000000e-01, double %div.i.i.i.i)
   %call17.i.i.i = call noundef double @_ZNK8QuantLib28CumulativeNormalDistributionclEd(ptr noundef nonnull align 8 dereferenceable(57) %Phi.i.i.i, double noundef %24)
-  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %_ZNKSt8functionIFddEEclEd.exit.i.i.i, %if.then3.i.i.i.i, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %_ZNKSt8functionIFddEEclEd.exit15.i.i.i, %_ZNKSt8functionIFddEEclEd.exit23.i.i.i
+"_ZSt10__invoke_rIdRZNK8QuantLib14DqFpEquation_B1fEddE3$_1JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %_ZNKSt8functionIFddEEclEd.exit.i.i.i, %if.then3.i.i.i.i, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i, %_ZNKSt8functionIFddEEclEd.exit15.i.i.i, %_ZNKSt8functionIFddEEclEd.exit23.i.i.i
   %call17.sink.i.i.i = phi double [ %call17.i.i.i, %_ZNKSt8functionIFddEEclEd.exit23.i.i.i ], [ %cond.i.i.i, %_ZNKSt8functionIFddEEclEd.exit15.i.i.i ], [ 5.000000e-01, %_ZNKSt8functionIFddEEclEd.exit.i.i.i ], [ 5.000000e-01, %if.then3.i.i.i.i ], [ 5.000000e-01, %_ZN8QuantLib12close_enoughEdd.exit.i.i.i ]
   %mul18.i.i.i = fmul double %call.i.i.i, %call17.sink.i.i.i
   ret double %mul18.i.i.i
@@ -22388,14 +22388,14 @@ _ZNK5boost10shared_ptrIN8QuantLib22ChebyshevInterpolationEEdeEv.exit.i.i.i: ; pr
   %impl_.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %impl_.i.i.i.i, align 8, !tbaa !207
   %cmp.not.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %cmp.not.i.i.i.i.i, label %cond.false.i.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib18QdFpAmericanEngine12calculatePutEddddddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit", !prof !118
+  br i1 %cmp.not.i.i.i.i.i, label %cond.false.i.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib18QdFpAmericanEngine12calculatePutEddddddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", !prof !118
 
 cond.false.i.i.i.i.i:                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib22ChebyshevInterpolationEEdeEv.exit.i.i.i
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.15, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib13Interpolation4ImplEEptEv, ptr noundef nonnull @.str.16, i64 noundef 784)
   %.pre.i.i.i.i.i = load ptr, ptr %impl_.i.i.i.i, align 8, !tbaa !207
-  br label %"_ZSt10__invoke_rIdRZNK8QuantLib18QdFpAmericanEngine12calculatePutEddddddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit"
+  br label %"_ZSt10__invoke_rIdRZNK8QuantLib18QdFpAmericanEngine12calculatePutEddddddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
-"_ZSt10__invoke_rIdRZNK8QuantLib18QdFpAmericanEngine12calculatePutEddddddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.exit": ; preds = %_ZNK5boost10shared_ptrIN8QuantLib22ChebyshevInterpolationEEdeEv.exit.i.i.i, %cond.false.i.i.i.i.i
+"_ZSt10__invoke_rIdRZNK8QuantLib18QdFpAmericanEngine12calculatePutEddddddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %_ZNK5boost10shared_ptrIN8QuantLib22ChebyshevInterpolationEEdeEv.exit.i.i.i, %cond.false.i.i.i.i.i
   %9 = phi ptr [ %8, %_ZNK5boost10shared_ptrIN8QuantLib22ChebyshevInterpolationEEdeEv.exit.i.i.i ], [ %.pre.i.i.i.i.i, %cond.false.i.i.i.i.i ]
   %10 = tail call double @llvm.fmuladd.f64(double %call2.i.i.i, double 2.000000e+00, double -1.000000e+00)
   %vtable.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !35

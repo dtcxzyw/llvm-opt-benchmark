@@ -5684,8 +5684,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
 .lr.ph.i5.i.preheader:                            ; preds = %"_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit41.i.i.i", %"_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
   br label %.lr.ph.i5.i
 
-.lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i12.i"
-  %.01.i.i = phi ptr [ %80, %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i12.i" ], [ %.025, %.lr.ph.i5.i.preheader ]
+.lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i12.i"
+  %.01.i.i = phi ptr [ %80, %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i12.i" ], [ %.025, %.lr.ph.i5.i.preheader ]
   %80 = getelementptr inbounds i8, ptr %.01.i.i, i64 -6
   %.sroa.02.0.copyload.i.i6.i = load i48, ptr %80, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %80, ptr noundef nonnull align 2 dereferenceable(6) %0, i64 6, i1 false)
@@ -5739,7 +5739,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   %.sroa.2.0.extract.shift.i.i.i.i10.i = lshr i48 %.sroa.02.0.copyload.i.i6.i, 16
   %.sroa.2.0.extract.trunc.i.i.i.i11.i = trunc i48 %.sroa.2.0.extract.shift.i.i.i.i10.i to i16
   %108 = icmp sgt i64 %.1.i.i.i9.i, 0
-  br i1 %108, label %.lr.ph.i.i.i.i19.i, label %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i12.i"
+  br i1 %108, label %.lr.ph.i.i.i.i19.i, label %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i12.i"
 
 .lr.ph.i.i.i.i19.i:                               ; preds = %107, %112
   %.0133.i.i.i.i20.i = phi i64 [ %.04.i.i12.i.i22.i, %112 ], [ %.1.i.i.i9.i, %107 ]
@@ -5749,15 +5749,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   %110 = getelementptr i8, ptr %109, i64 2
   %.val.i.i.i.i23.i = load i16, ptr %110, align 2
   %111 = icmp ult i16 %.val.i.i.i.i23.i, %.sroa.2.0.extract.trunc.i.i.i.i11.i
-  br i1 %111, label %112, label %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i12.i"
+  br i1 %111, label %112, label %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i12.i"
 
 112:                                              ; preds = %.lr.ph.i.i.i.i19.i
   %113 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0133.i.i.i.i20.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %113, ptr noundef nonnull align 2 dereferenceable(6) %109, i64 6, i1 false)
   %.not.i.i24.i = icmp ult i64 %.04.in.i.i.i.i21.i, 2
-  br i1 %.not.i.i24.i, label %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i12.i", label %.lr.ph.i.i.i.i19.i, !llvm.loop !70
+  br i1 %.not.i.i24.i, label %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i12.i", label %.lr.ph.i.i.i.i19.i, !llvm.loop !70
 
-"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i12.i": ; preds = %112, %.lr.ph.i.i.i.i19.i, %107
+"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i12.i": ; preds = %112, %.lr.ph.i.i.i.i19.i, %107
   %.013.lcssa.i.i.i.i13.i = phi i64 [ %.1.i.i.i9.i, %107 ], [ %.0133.i.i.i.i20.i, %.lr.ph.i.i.i.i19.i ], [ 0, %112 ]
   %.sroa.3.0.extract.shift.i.i.i.i14.i = lshr i48 %.sroa.02.0.copyload.i.i6.i, 32
   %.sroa.3.0.extract.trunc.i.i.i.i15.i = trunc nuw i48 %.sroa.3.0.extract.shift.i.i.i.i14.i to i16
@@ -5892,7 +5892,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   %149 = icmp sgt i64 %148, 96
   br i1 %149, label %18, label %"_ZSt14__partial_sortIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !76
 
-"_ZSt14__partial_sortIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEET_SB_SB_T0_.exit", %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i12.i", %3
+"_ZSt14__partial_sortIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEET_SB_SB_T0_.exit", %"_ZSt10__pop_heapIPN4llvm9StackMaps10LiveOutRegEN9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_SB_SB_RT0_.exit.i12.i", %3
   ret void
 }
 

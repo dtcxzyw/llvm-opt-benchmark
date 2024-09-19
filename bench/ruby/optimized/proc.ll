@@ -2507,7 +2507,7 @@ define internal i64 @proc_binding(i64 noundef %0) #0 {
   %.045 = phi ptr [ %23, %19 ], [ %4, %1 ]
   %10 = getelementptr i8, ptr %.045, i64 24
   %.045.val = load i32, ptr %10, align 8
-  switch i32 %.045.val, label %rb_obj_write.argprom.exit [
+  switch i32 %.045.val, label %rb_obj_write.exit [
     i32 0, label %11
     i32 3, label %19
     i32 1, label %24
@@ -2523,7 +2523,7 @@ define internal i64 @proc_binding(i64 noundef %0) #0 {
   %17 = getelementptr i8, ptr %16, i64 8
   %.val48 = load i64, ptr %17, align 8
   %18 = inttoptr i64 %.val48 to ptr
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
 19:                                               ; preds = %.preheader
   %20 = load i64, ptr %.045, align 8
@@ -2741,18 +2741,18 @@ env_clone.exit:                                   ; preds = %ruby_nonempty_memcp
   %122 = icmp ne i64 %121, 0
   %123 = icmp eq ptr %118, null
   %124 = or i1 %123, %122
-  br i1 %124, label %rb_obj_write.argprom.exit, label %125
+  br i1 %124, label %rb_obj_write.exit, label %125
 
 125:                                              ; preds = %env_clone.exit
   tail call void @rb_gc_writebarrier(i64 noundef %100, i64 noundef %120) #20
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
 .loopexit:                                        ; preds = %.preheader, %24
   %126 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %126, ptr noundef nonnull @.str.76) #21
   unreachable
 
-rb_obj_write.argprom.exit:                        ; preds = %.preheader, %125, %env_clone.exit, %11
+rb_obj_write.exit:                                ; preds = %.preheader, %125, %env_clone.exit, %11
   %.046 = phi ptr [ %18, %11 ], [ %101, %env_clone.exit ], [ %101, %125 ], [ null, %.preheader ]
   %.044 = phi ptr [ %13, %11 ], [ %.0.i.i, %env_clone.exit ], [ %.0.i.i, %125 ], [ null, %.preheader ]
   %.0 = phi i64 [ %14, %11 ], [ %36, %env_clone.exit ], [ %36, %125 ], [ 36, %.preheader ]
@@ -2766,13 +2766,13 @@ rb_obj_write.argprom.exit:                        ; preds = %.preheader, %125, %
   %133 = icmp ne i64 %132, 0
   %134 = icmp eq i64 %.0, 0
   %135 = or i1 %134, %133
-  br i1 %135, label %rb_obj_write.argprom.exit53, label %136
+  br i1 %135, label %rb_obj_write.exit53, label %136
 
-136:                                              ; preds = %rb_obj_write.argprom.exit
+136:                                              ; preds = %rb_obj_write.exit
   tail call void @rb_gc_writebarrier(i64 noundef %128, i64 noundef %.0) #20
-  br label %rb_obj_write.argprom.exit53
+  br label %rb_obj_write.exit53
 
-rb_obj_write.argprom.exit53:                      ; preds = %rb_obj_write.argprom.exit, %136
+rb_obj_write.exit53:                              ; preds = %rb_obj_write.exit, %136
   %137 = getelementptr inbounds i8, ptr %131, i64 16
   %138 = getelementptr inbounds i8, ptr %.046, i64 8
   %139 = load ptr, ptr %138, align 8
@@ -2782,13 +2782,13 @@ rb_obj_write.argprom.exit53:                      ; preds = %rb_obj_write.argpro
   %142 = icmp ne i64 %141, 0
   %143 = icmp eq ptr %139, null
   %144 = or i1 %143, %142
-  br i1 %144, label %rb_obj_write.argprom.exit54, label %145
+  br i1 %144, label %rb_obj_write.exit54, label %145
 
-145:                                              ; preds = %rb_obj_write.argprom.exit53
+145:                                              ; preds = %rb_obj_write.exit53
   tail call void @rb_gc_writebarrier(i64 noundef %128, i64 noundef %140) #20
-  br label %rb_obj_write.argprom.exit54
+  br label %rb_obj_write.exit54
 
-rb_obj_write.argprom.exit54:                      ; preds = %rb_obj_write.argprom.exit53, %145
+rb_obj_write.exit54:                              ; preds = %rb_obj_write.exit53, %145
   %146 = getelementptr inbounds i8, ptr %.046, i64 16
   %147 = load ptr, ptr %146, align 8
   tail call void @rb_vm_block_ep_update(i64 noundef %128, ptr noundef nonnull %131, ptr noundef %147) #20
@@ -2799,18 +2799,18 @@ rb_obj_write.argprom.exit54:                      ; preds = %rb_obj_write.argpro
   %151 = icmp ne i64 %150, 0
   %152 = icmp eq i64 %.val, 0
   %153 = or i1 %152, %151
-  br i1 %153, label %rb_obj_written.argprom.exit, label %154
+  br i1 %153, label %rb_obj_written.exit, label %154
 
-154:                                              ; preds = %rb_obj_write.argprom.exit54
+154:                                              ; preds = %rb_obj_write.exit54
   tail call void @rb_gc_writebarrier(i64 noundef %128, i64 noundef %.val) #20
-  br label %rb_obj_written.argprom.exit
+  br label %rb_obj_written.exit
 
-rb_obj_written.argprom.exit:                      ; preds = %rb_obj_write.argprom.exit54, %154
+rb_obj_written.exit:                              ; preds = %rb_obj_write.exit54, %154
   %.not47 = icmp eq ptr %.044, null
   %155 = getelementptr inbounds i8, ptr %131, i64 32
   br i1 %.not47, label %169, label %156
 
-156:                                              ; preds = %rb_obj_written.argprom.exit
+156:                                              ; preds = %rb_obj_written.exit
   %157 = getelementptr inbounds i8, ptr %.044, i64 16
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 64
@@ -2820,19 +2820,19 @@ rb_obj_written.argprom.exit:                      ; preds = %rb_obj_write.argpro
   %162 = icmp ne i64 %161, 0
   %163 = icmp eq i64 %160, 0
   %164 = or i1 %163, %162
-  br i1 %164, label %rb_obj_write.argprom.exit55, label %165
+  br i1 %164, label %rb_obj_write.exit55, label %165
 
 165:                                              ; preds = %156
   tail call void @rb_gc_writebarrier(i64 noundef %128, i64 noundef %160) #20
-  br label %rb_obj_write.argprom.exit55
+  br label %rb_obj_write.exit55
 
-rb_obj_write.argprom.exit55:                      ; preds = %156, %165
+rb_obj_write.exit55:                              ; preds = %156, %165
   %166 = load ptr, ptr %157, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 88
   %168 = load i32, ptr %167, align 8
-  br label %rb_obj_write.argprom.exit56
+  br label %rb_obj_write.exit56
 
-169:                                              ; preds = %rb_obj_written.argprom.exit
+169:                                              ; preds = %rb_obj_written.exit
   %170 = tail call i64 @rb_fstring_new(ptr noundef nonnull @.str.77, i64 noundef 9) #20
   %171 = tail call i64 @rb_iseq_pathobj_new(i64 noundef %170, i64 noundef 4) #20
   store i64 %171, ptr %155, align 8
@@ -2840,14 +2840,14 @@ rb_obj_write.argprom.exit55:                      ; preds = %156, %165
   %173 = icmp ne i64 %172, 0
   %174 = icmp eq i64 %171, 0
   %175 = or i1 %174, %173
-  br i1 %175, label %rb_obj_write.argprom.exit56, label %176
+  br i1 %175, label %rb_obj_write.exit56, label %176
 
 176:                                              ; preds = %169
   tail call void @rb_gc_writebarrier(i64 noundef %128, i64 noundef %171) #20
-  br label %rb_obj_write.argprom.exit56
+  br label %rb_obj_write.exit56
 
-rb_obj_write.argprom.exit56:                      ; preds = %176, %169, %rb_obj_write.argprom.exit55
-  %.sink = phi i32 [ %168, %rb_obj_write.argprom.exit55 ], [ 1, %169 ], [ 1, %176 ]
+rb_obj_write.exit56:                              ; preds = %176, %169, %rb_obj_write.exit55
+  %.sink = phi i32 [ %168, %rb_obj_write.exit55 ], [ 1, %169 ], [ 1, %176 ]
   %177 = getelementptr inbounds i8, ptr %131, i64 40
   store i32 %.sink, ptr %177, align 8
   ret i64 %128
@@ -4310,13 +4310,13 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %rb_class_of.exit, %
   %30 = icmp ne i64 %29, 0
   %31 = icmp eq i64 %28, 0
   %32 = or i1 %31, %30
-  br i1 %32, label %rb_obj_write.argprom.exit, label %33
+  br i1 %32, label %rb_obj_write.exit, label %33
 
 33:                                               ; preds = %RTYPEDDATA_GET_DATA.exit
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %28) #20
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %RTYPEDDATA_GET_DATA.exit, %33
+rb_obj_write.exit:                                ; preds = %RTYPEDDATA_GET_DATA.exit, %33
   %34 = getelementptr inbounds i8, ptr %26, i64 8
   %35 = getelementptr inbounds i8, ptr %2, i64 8
   %36 = load i64, ptr %35, align 8
@@ -4325,13 +4325,13 @@ rb_obj_write.argprom.exit:                        ; preds = %RTYPEDDATA_GET_DATA
   %38 = icmp ne i64 %37, 0
   %39 = icmp eq i64 %36, 0
   %40 = or i1 %39, %38
-  br i1 %40, label %rb_obj_write.argprom.exit23, label %41
+  br i1 %40, label %rb_obj_write.exit23, label %41
 
-41:                                               ; preds = %rb_obj_write.argprom.exit
+41:                                               ; preds = %rb_obj_write.exit
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %36) #20
-  br label %rb_obj_write.argprom.exit23
+  br label %rb_obj_write.exit23
 
-rb_obj_write.argprom.exit23:                      ; preds = %rb_obj_write.argprom.exit, %41
+rb_obj_write.exit23:                              ; preds = %rb_obj_write.exit, %41
   %42 = getelementptr inbounds i8, ptr %26, i64 16
   %43 = getelementptr inbounds i8, ptr %2, i64 16
   %44 = load i64, ptr %43, align 8
@@ -4340,13 +4340,13 @@ rb_obj_write.argprom.exit23:                      ; preds = %rb_obj_write.argpro
   %46 = icmp ne i64 %45, 0
   %47 = icmp eq i64 %44, 0
   %48 = or i1 %47, %46
-  br i1 %48, label %rb_obj_write.argprom.exit24, label %49
+  br i1 %48, label %rb_obj_write.exit24, label %49
 
-49:                                               ; preds = %rb_obj_write.argprom.exit23
+49:                                               ; preds = %rb_obj_write.exit23
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %44) #20
-  br label %rb_obj_write.argprom.exit24
+  br label %rb_obj_write.exit24
 
-rb_obj_write.argprom.exit24:                      ; preds = %rb_obj_write.argprom.exit23, %49
+rb_obj_write.exit24:                              ; preds = %rb_obj_write.exit23, %49
   %50 = getelementptr inbounds i8, ptr %26, i64 24
   %51 = getelementptr inbounds i8, ptr %2, i64 24
   %52 = load i64, ptr %51, align 8
@@ -4355,13 +4355,13 @@ rb_obj_write.argprom.exit24:                      ; preds = %rb_obj_write.argpro
   %54 = icmp ne i64 %53, 0
   %55 = icmp eq i64 %52, 0
   %56 = or i1 %55, %54
-  br i1 %56, label %rb_obj_write.argprom.exit25, label %57
+  br i1 %56, label %rb_obj_write.exit25, label %57
 
-57:                                               ; preds = %rb_obj_write.argprom.exit24
+57:                                               ; preds = %rb_obj_write.exit24
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %52) #20
-  br label %rb_obj_write.argprom.exit25
+  br label %rb_obj_write.exit25
 
-rb_obj_write.argprom.exit25:                      ; preds = %rb_obj_write.argprom.exit24, %57
+rb_obj_write.exit25:                              ; preds = %rb_obj_write.exit24, %57
   %58 = getelementptr inbounds i8, ptr %26, i64 32
   %59 = getelementptr inbounds i8, ptr %2, i64 32
   %60 = load ptr, ptr %59, align 8
@@ -4372,13 +4372,13 @@ rb_obj_write.argprom.exit25:                      ; preds = %rb_obj_write.argpro
   %64 = icmp ne i64 %63, 0
   %65 = icmp eq ptr %61, null
   %66 = or i1 %65, %64
-  br i1 %66, label %rb_obj_write.argprom.exit26, label %67
+  br i1 %66, label %rb_obj_write.exit26, label %67
 
-67:                                               ; preds = %rb_obj_write.argprom.exit25
+67:                                               ; preds = %rb_obj_write.exit25
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %62) #20
-  br label %rb_obj_write.argprom.exit26
+  br label %rb_obj_write.exit26
 
-rb_obj_write.argprom.exit26:                      ; preds = %rb_obj_write.argprom.exit25, %67
+rb_obj_write.exit26:                              ; preds = %rb_obj_write.exit25, %67
   ret i64 %18
 }
 
@@ -4445,13 +4445,13 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %rb_class_of.exit, %
   %30 = icmp ne i64 %29, 0
   %31 = icmp eq i64 %28, 0
   %32 = or i1 %31, %30
-  br i1 %32, label %rb_obj_write.argprom.exit, label %33
+  br i1 %32, label %rb_obj_write.exit, label %33
 
 33:                                               ; preds = %RTYPEDDATA_GET_DATA.exit
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %28) #20
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %RTYPEDDATA_GET_DATA.exit, %33
+rb_obj_write.exit:                                ; preds = %RTYPEDDATA_GET_DATA.exit, %33
   %34 = getelementptr inbounds i8, ptr %26, i64 8
   %35 = getelementptr inbounds i8, ptr %2, i64 8
   %36 = load i64, ptr %35, align 8
@@ -4460,13 +4460,13 @@ rb_obj_write.argprom.exit:                        ; preds = %RTYPEDDATA_GET_DATA
   %38 = icmp ne i64 %37, 0
   %39 = icmp eq i64 %36, 0
   %40 = or i1 %39, %38
-  br i1 %40, label %rb_obj_write.argprom.exit23, label %41
+  br i1 %40, label %rb_obj_write.exit23, label %41
 
-41:                                               ; preds = %rb_obj_write.argprom.exit
+41:                                               ; preds = %rb_obj_write.exit
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %36) #20
-  br label %rb_obj_write.argprom.exit23
+  br label %rb_obj_write.exit23
 
-rb_obj_write.argprom.exit23:                      ; preds = %rb_obj_write.argprom.exit, %41
+rb_obj_write.exit23:                              ; preds = %rb_obj_write.exit, %41
   %42 = getelementptr inbounds i8, ptr %26, i64 16
   %43 = getelementptr inbounds i8, ptr %2, i64 16
   %44 = load i64, ptr %43, align 8
@@ -4475,13 +4475,13 @@ rb_obj_write.argprom.exit23:                      ; preds = %rb_obj_write.argpro
   %46 = icmp ne i64 %45, 0
   %47 = icmp eq i64 %44, 0
   %48 = or i1 %47, %46
-  br i1 %48, label %rb_obj_write.argprom.exit24, label %49
+  br i1 %48, label %rb_obj_write.exit24, label %49
 
-49:                                               ; preds = %rb_obj_write.argprom.exit23
+49:                                               ; preds = %rb_obj_write.exit23
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %44) #20
-  br label %rb_obj_write.argprom.exit24
+  br label %rb_obj_write.exit24
 
-rb_obj_write.argprom.exit24:                      ; preds = %rb_obj_write.argprom.exit23, %49
+rb_obj_write.exit24:                              ; preds = %rb_obj_write.exit23, %49
   %50 = getelementptr inbounds i8, ptr %26, i64 24
   %51 = getelementptr inbounds i8, ptr %2, i64 24
   %52 = load i64, ptr %51, align 8
@@ -4490,13 +4490,13 @@ rb_obj_write.argprom.exit24:                      ; preds = %rb_obj_write.argpro
   %54 = icmp ne i64 %53, 0
   %55 = icmp eq i64 %52, 0
   %56 = or i1 %55, %54
-  br i1 %56, label %rb_obj_write.argprom.exit25, label %57
+  br i1 %56, label %rb_obj_write.exit25, label %57
 
-57:                                               ; preds = %rb_obj_write.argprom.exit24
+57:                                               ; preds = %rb_obj_write.exit24
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %52) #20
-  br label %rb_obj_write.argprom.exit25
+  br label %rb_obj_write.exit25
 
-rb_obj_write.argprom.exit25:                      ; preds = %rb_obj_write.argprom.exit24, %57
+rb_obj_write.exit25:                              ; preds = %rb_obj_write.exit24, %57
   %58 = getelementptr inbounds i8, ptr %26, i64 32
   %59 = getelementptr inbounds i8, ptr %2, i64 32
   %60 = load ptr, ptr %59, align 8
@@ -4507,13 +4507,13 @@ rb_obj_write.argprom.exit25:                      ; preds = %rb_obj_write.argpro
   %64 = icmp ne i64 %63, 0
   %65 = icmp eq ptr %61, null
   %66 = or i1 %65, %64
-  br i1 %66, label %rb_obj_write.argprom.exit26, label %67
+  br i1 %66, label %rb_obj_write.exit26, label %67
 
-67:                                               ; preds = %rb_obj_write.argprom.exit25
+67:                                               ; preds = %rb_obj_write.exit25
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %62) #20
-  br label %rb_obj_write.argprom.exit26
+  br label %rb_obj_write.exit26
 
-rb_obj_write.argprom.exit26:                      ; preds = %rb_obj_write.argprom.exit25, %67
+rb_obj_write.exit26:                              ; preds = %rb_obj_write.exit25, %67
   ret i64 %18
 }
 
@@ -5474,13 +5474,13 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %10
   %18 = icmp ne i64 %17, 0
   %19 = icmp eq i64 %16, 0
   %20 = or i1 %19, %18
-  br i1 %20, label %rb_obj_write.argprom.exit, label %21
+  br i1 %20, label %rb_obj_write.exit, label %21
 
 21:                                               ; preds = %RTYPEDDATA_GET_DATA.exit
   tail call void @rb_gc_writebarrier(i64 noundef %4, i64 noundef %16) #20
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %RTYPEDDATA_GET_DATA.exit, %21
+rb_obj_write.exit:                                ; preds = %RTYPEDDATA_GET_DATA.exit, %21
   %22 = getelementptr inbounds i8, ptr %12, i64 24
   %23 = getelementptr inbounds i8, ptr %2, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -5491,13 +5491,13 @@ rb_obj_write.argprom.exit:                        ; preds = %RTYPEDDATA_GET_DATA
   %28 = icmp ne i64 %27, 0
   %29 = icmp eq i64 %26, 0
   %30 = or i1 %29, %28
-  br i1 %30, label %rb_obj_write.argprom.exit17, label %31
+  br i1 %30, label %rb_obj_write.exit17, label %31
 
-31:                                               ; preds = %rb_obj_write.argprom.exit
+31:                                               ; preds = %rb_obj_write.exit
   tail call void @rb_gc_writebarrier(i64 noundef %4, i64 noundef %26) #20
-  br label %rb_obj_write.argprom.exit17
+  br label %rb_obj_write.exit17
 
-rb_obj_write.argprom.exit17:                      ; preds = %rb_obj_write.argprom.exit, %31
+rb_obj_write.exit17:                              ; preds = %rb_obj_write.exit, %31
   %32 = getelementptr inbounds i8, ptr %12, i64 32
   %33 = load ptr, ptr %23, align 8
   %34 = tail call ptr @rb_method_entry_clone(ptr noundef %33) #20
@@ -5507,13 +5507,13 @@ rb_obj_write.argprom.exit17:                      ; preds = %rb_obj_write.argpro
   %37 = icmp ne i64 %36, 0
   %38 = icmp eq ptr %34, null
   %39 = or i1 %38, %37
-  br i1 %39, label %rb_obj_write.argprom.exit18, label %40
+  br i1 %39, label %rb_obj_write.exit18, label %40
 
-40:                                               ; preds = %rb_obj_write.argprom.exit17
+40:                                               ; preds = %rb_obj_write.exit17
   tail call void @rb_gc_writebarrier(i64 noundef %4, i64 noundef %35) #20
-  br label %rb_obj_write.argprom.exit18
+  br label %rb_obj_write.exit18
 
-rb_obj_write.argprom.exit18:                      ; preds = %rb_obj_write.argprom.exit17, %40
+rb_obj_write.exit18:                              ; preds = %rb_obj_write.exit17, %40
   ret i64 %4
 }
 
@@ -5928,13 +5928,13 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %2, %15
   %19 = icmp ne i64 %18, 0
   %20 = icmp eq i64 %1, 0
   %21 = or i1 %20, %19
-  br i1 %21, label %rb_obj_write.argprom.exit, label %22
+  br i1 %21, label %rb_obj_write.exit, label %22
 
 22:                                               ; preds = %RTYPEDDATA_GET_DATA.exit
   tail call void @rb_gc_writebarrier(i64 noundef %9, i64 noundef %1) #20
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %RTYPEDDATA_GET_DATA.exit, %22
+rb_obj_write.exit:                                ; preds = %RTYPEDDATA_GET_DATA.exit, %22
   %23 = getelementptr inbounds i8, ptr %17, i64 8
   %24 = load i64, ptr %4, align 8
   store i64 %24, ptr %23, align 8
@@ -5942,13 +5942,13 @@ rb_obj_write.argprom.exit:                        ; preds = %RTYPEDDATA_GET_DATA
   %26 = icmp ne i64 %25, 0
   %27 = icmp eq i64 %24, 0
   %28 = or i1 %27, %26
-  br i1 %28, label %rb_obj_write.argprom.exit17, label %29
+  br i1 %28, label %rb_obj_write.exit17, label %29
 
-29:                                               ; preds = %rb_obj_write.argprom.exit
+29:                                               ; preds = %rb_obj_write.exit
   tail call void @rb_gc_writebarrier(i64 noundef %9, i64 noundef %24) #20
-  br label %rb_obj_write.argprom.exit17
+  br label %rb_obj_write.exit17
 
-rb_obj_write.argprom.exit17:                      ; preds = %rb_obj_write.argprom.exit, %29
+rb_obj_write.exit17:                              ; preds = %rb_obj_write.exit, %29
   %30 = getelementptr inbounds i8, ptr %17, i64 16
   %31 = load i64, ptr %5, align 8
   store i64 %31, ptr %30, align 8
@@ -5956,13 +5956,13 @@ rb_obj_write.argprom.exit17:                      ; preds = %rb_obj_write.argpro
   %33 = icmp ne i64 %32, 0
   %34 = icmp eq i64 %31, 0
   %35 = or i1 %34, %33
-  br i1 %35, label %rb_obj_write.argprom.exit18, label %36
+  br i1 %35, label %rb_obj_write.exit18, label %36
 
-36:                                               ; preds = %rb_obj_write.argprom.exit17
+36:                                               ; preds = %rb_obj_write.exit17
   tail call void @rb_gc_writebarrier(i64 noundef %9, i64 noundef %31) #20
-  br label %rb_obj_write.argprom.exit18
+  br label %rb_obj_write.exit18
 
-rb_obj_write.argprom.exit18:                      ; preds = %rb_obj_write.argprom.exit17, %36
+rb_obj_write.exit18:                              ; preds = %rb_obj_write.exit17, %36
   %37 = getelementptr inbounds i8, ptr %17, i64 24
   %38 = load i64, ptr %3, align 8
   store i64 %38, ptr %37, align 8
@@ -5970,13 +5970,13 @@ rb_obj_write.argprom.exit18:                      ; preds = %rb_obj_write.argpro
   %40 = icmp ne i64 %39, 0
   %41 = icmp eq i64 %38, 0
   %42 = or i1 %41, %40
-  br i1 %42, label %rb_obj_write.argprom.exit19, label %43
+  br i1 %42, label %rb_obj_write.exit19, label %43
 
-43:                                               ; preds = %rb_obj_write.argprom.exit18
+43:                                               ; preds = %rb_obj_write.exit18
   tail call void @rb_gc_writebarrier(i64 noundef %9, i64 noundef %38) #20
-  br label %rb_obj_write.argprom.exit19
+  br label %rb_obj_write.exit19
 
-rb_obj_write.argprom.exit19:                      ; preds = %rb_obj_write.argprom.exit18, %43
+rb_obj_write.exit19:                              ; preds = %rb_obj_write.exit18, %43
   %44 = getelementptr inbounds i8, ptr %17, i64 32
   %45 = load ptr, ptr %6, align 8
   %46 = ptrtoint ptr %45 to i64
@@ -5985,13 +5985,13 @@ rb_obj_write.argprom.exit19:                      ; preds = %rb_obj_write.argpro
   %48 = icmp ne i64 %47, 0
   %49 = icmp eq ptr %45, null
   %50 = or i1 %49, %48
-  br i1 %50, label %rb_obj_write.argprom.exit20, label %51
+  br i1 %50, label %rb_obj_write.exit20, label %51
 
-51:                                               ; preds = %rb_obj_write.argprom.exit19
+51:                                               ; preds = %rb_obj_write.exit19
   tail call void @rb_gc_writebarrier(i64 noundef %9, i64 noundef %46) #20
-  br label %rb_obj_write.argprom.exit20
+  br label %rb_obj_write.exit20
 
-rb_obj_write.argprom.exit20:                      ; preds = %rb_obj_write.argprom.exit19, %51
+rb_obj_write.exit20:                              ; preds = %rb_obj_write.exit19, %51
   ret i64 %9
 }
 
@@ -6345,13 +6345,13 @@ define internal i64 @binding_dup(i64 noundef %0) #0 {
   %14 = icmp ne i64 %13, 0
   %15 = icmp eq i64 %12, 0
   %16 = or i1 %15, %14
-  br i1 %16, label %rb_obj_write.argprom.exit, label %17
+  br i1 %16, label %rb_obj_write.exit, label %17
 
 17:                                               ; preds = %1
   tail call void @rb_gc_writebarrier(i64 noundef %3, i64 noundef %12) #20
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %1, %17
+rb_obj_write.exit:                                ; preds = %1, %17
   %18 = getelementptr inbounds i8, ptr %6, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %9, i64 40
@@ -6592,13 +6592,13 @@ tailrecurse.i10:                                  ; preds = %36, %tailrecurse.i1
   %49 = icmp ne i64 %48, 0
   %50 = icmp eq i64 %2, 0
   %51 = or i1 %50, %49
-  br i1 %51, label %rb_obj_write.argprom.exit, label %52
+  br i1 %51, label %rb_obj_write.exit, label %52
 
 52:                                               ; preds = %46
   call void @rb_gc_writebarrier(i64 noundef %47, i64 noundef %2) #20
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %46, %52
+rb_obj_write.exit:                                ; preds = %46, %52
   ret i64 %2
 }
 
@@ -7085,34 +7085,34 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %4, %11
   %15 = icmp ne i64 %14, 0
   %16 = icmp eq i64 %1, 0
   %17 = or i1 %16, %15
-  br i1 %17, label %rb_obj_write.argprom.exit, label %18
+  br i1 %17, label %rb_obj_write.exit, label %18
 
 18:                                               ; preds = %RTYPEDDATA_GET_DATA.exit
   tail call void @rb_gc_writebarrier(i64 noundef %5, i64 noundef %1) #20
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %RTYPEDDATA_GET_DATA.exit, %18
+rb_obj_write.exit:                                ; preds = %RTYPEDDATA_GET_DATA.exit, %18
   %19 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %0, ptr %19, align 8
   %20 = and i64 %0, 7
   %21 = icmp ne i64 %20, 0
   %22 = icmp eq i64 %0, 0
   %23 = or i1 %22, %21
-  br i1 %23, label %rb_obj_write.argprom.exit22.thread, label %25
+  br i1 %23, label %rb_obj_write.exit22.thread, label %25
 
-rb_obj_write.argprom.exit22.thread:               ; preds = %rb_obj_write.argprom.exit
+rb_obj_write.exit22.thread:                       ; preds = %rb_obj_write.exit
   %24 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 %0, ptr %24, align 8
-  br label %rb_obj_write.argprom.exit23
+  br label %rb_obj_write.exit23
 
-25:                                               ; preds = %rb_obj_write.argprom.exit
+25:                                               ; preds = %rb_obj_write.exit
   tail call void @rb_gc_writebarrier(i64 noundef %5, i64 noundef %0) #20
   %26 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 %0, ptr %26, align 8
   tail call void @rb_gc_writebarrier(i64 noundef %5, i64 noundef %0) #20
-  br label %rb_obj_write.argprom.exit23
+  br label %rb_obj_write.exit23
 
-rb_obj_write.argprom.exit23:                      ; preds = %rb_obj_write.argprom.exit22.thread, %25
+rb_obj_write.exit23:                              ; preds = %rb_obj_write.exit22.thread, %25
   %27 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 48) #25
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, -16
@@ -7128,13 +7128,13 @@ rb_obj_write.argprom.exit23:                      ; preds = %rb_obj_write.argpro
   %36 = icmp ne i64 %35, 0
   %37 = icmp eq ptr %32, null
   %38 = or i1 %37, %36
-  br i1 %38, label %rb_obj_write.argprom.exit24, label %39
+  br i1 %38, label %rb_obj_write.exit24, label %39
 
-39:                                               ; preds = %rb_obj_write.argprom.exit23
+39:                                               ; preds = %rb_obj_write.exit23
   tail call void @rb_gc_writebarrier(i64 noundef %5, i64 noundef %34) #20
-  br label %rb_obj_write.argprom.exit24
+  br label %rb_obj_write.exit24
 
-rb_obj_write.argprom.exit24:                      ; preds = %rb_obj_write.argprom.exit23, %39
+rb_obj_write.exit24:                              ; preds = %rb_obj_write.exit23, %39
   ret i64 %5
 }
 
@@ -7268,11 +7268,11 @@ respond_to_missing_p.exit:                        ; preds = %61
 
 66:                                               ; preds = %respond_to_missing_p.exit
   %67 = call fastcc i64 @mnew_missing(i64 noundef %1, i64 noundef %3, i64 noundef %.059.lcssa, i64 noundef %5)
-  br label %rb_obj_write.argprom.exit75
+  br label %rb_obj_write.exit75
 
 respond_to_missing_p.exit.thread:                 ; preds = %61, %._crit_edge, %respond_to_missing_p.exit
   %.not70 = icmp eq i32 %7, 0
-  br i1 %.not70, label %rb_obj_write.argprom.exit75, label %68
+  br i1 %.not70, label %rb_obj_write.exit75, label %68
 
 68:                                               ; preds = %respond_to_missing_p.exit.thread
   call void @rb_print_undef(i64 noundef %1, i64 noundef %.059.lcssa, i32 noundef 0) #21
@@ -7292,7 +7292,7 @@ respond_to_missing_p.exit.thread:                 ; preds = %61, %._crit_edge, %
 
 76:                                               ; preds = %71
   %.not68 = icmp eq i32 %7, 0
-  br i1 %.not68, label %rb_obj_write.argprom.exit75, label %77
+  br i1 %.not68, label %rb_obj_write.exit75, label %77
 
 77:                                               ; preds = %76
   call void @rb_print_inaccessible(i64 noundef %1, i64 noundef %.05986, i32 noundef %75) #21
@@ -7365,7 +7365,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %.split.us, %112
   store i64 36, ptr %114, align 8
   %117 = getelementptr inbounds i8, ptr %114, i64 8
   store i64 36, ptr %117, align 8
-  br label %rb_obj_write.argprom.exit72
+  br label %rb_obj_write.exit72
 
 118:                                              ; preds = %RTYPEDDATA_GET_DATA.exit
   store i64 %3, ptr %114, align 8
@@ -7373,26 +7373,26 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %.split.us, %112
   %120 = icmp ne i64 %119, 0
   %121 = icmp eq i64 %3, 0
   %122 = or i1 %121, %120
-  br i1 %122, label %rb_obj_write.argprom.exit, label %123
+  br i1 %122, label %rb_obj_write.exit, label %123
 
 123:                                              ; preds = %118
   call void @rb_gc_writebarrier(i64 noundef %106, i64 noundef %3) #20
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %118, %123
+rb_obj_write.exit:                                ; preds = %118, %123
   %124 = getelementptr inbounds i8, ptr %114, i64 8
   store i64 %1, ptr %124, align 8
   %125 = and i64 %1, 7
   %126 = icmp ne i64 %125, 0
   %127 = icmp eq i64 %1, 0
   %128 = or i1 %127, %126
-  br i1 %128, label %rb_obj_write.argprom.exit72, label %129
+  br i1 %128, label %rb_obj_write.exit72, label %129
 
-129:                                              ; preds = %rb_obj_write.argprom.exit
+129:                                              ; preds = %rb_obj_write.exit
   call void @rb_gc_writebarrier(i64 noundef %106, i64 noundef %1) #20
-  br label %rb_obj_write.argprom.exit72
+  br label %rb_obj_write.exit72
 
-rb_obj_write.argprom.exit72:                      ; preds = %129, %rb_obj_write.argprom.exit, %116
+rb_obj_write.exit72:                              ; preds = %129, %rb_obj_write.exit, %116
   %130 = getelementptr inbounds i8, ptr %114, i64 16
   %131 = load i64, ptr %9, align 8
   store i64 %131, ptr %130, align 8
@@ -7400,13 +7400,13 @@ rb_obj_write.argprom.exit72:                      ; preds = %129, %rb_obj_write.
   %133 = icmp ne i64 %132, 0
   %134 = icmp eq i64 %131, 0
   %135 = or i1 %134, %133
-  br i1 %135, label %rb_obj_write.argprom.exit73, label %136
+  br i1 %135, label %rb_obj_write.exit73, label %136
 
-136:                                              ; preds = %rb_obj_write.argprom.exit72
+136:                                              ; preds = %rb_obj_write.exit72
   call void @rb_gc_writebarrier(i64 noundef %106, i64 noundef %131) #20
-  br label %rb_obj_write.argprom.exit73
+  br label %rb_obj_write.exit73
 
-rb_obj_write.argprom.exit73:                      ; preds = %rb_obj_write.argprom.exit72, %136
+rb_obj_write.exit73:                              ; preds = %rb_obj_write.exit72, %136
   %137 = getelementptr inbounds i8, ptr %114, i64 24
   %138 = getelementptr inbounds i8, ptr %0, i64 32
   %139 = load i64, ptr %138, align 8
@@ -7415,26 +7415,26 @@ rb_obj_write.argprom.exit73:                      ; preds = %rb_obj_write.argpro
   %141 = icmp ne i64 %140, 0
   %142 = icmp eq i64 %139, 0
   %143 = or i1 %142, %141
-  br i1 %143, label %rb_obj_write.argprom.exit74, label %144
+  br i1 %143, label %rb_obj_write.exit74, label %144
 
-144:                                              ; preds = %rb_obj_write.argprom.exit73
+144:                                              ; preds = %rb_obj_write.exit73
   call void @rb_gc_writebarrier(i64 noundef %106, i64 noundef %139) #20
-  br label %rb_obj_write.argprom.exit74
+  br label %rb_obj_write.exit74
 
-rb_obj_write.argprom.exit74:                      ; preds = %rb_obj_write.argprom.exit73, %144
+rb_obj_write.exit74:                              ; preds = %rb_obj_write.exit73, %144
   %145 = getelementptr inbounds i8, ptr %114, i64 32
   %146 = ptrtoint ptr %.us-phi93 to i64
   store i64 %146, ptr %145, align 8
   %147 = and i64 %146, 7
   %.not78 = icmp eq i64 %147, 0
-  br i1 %.not78, label %148, label %rb_obj_write.argprom.exit75
+  br i1 %.not78, label %148, label %rb_obj_write.exit75
 
-148:                                              ; preds = %rb_obj_write.argprom.exit74
+148:                                              ; preds = %rb_obj_write.exit74
   call void @rb_gc_writebarrier(i64 noundef %106, i64 noundef %146) #20
-  br label %rb_obj_write.argprom.exit75
+  br label %rb_obj_write.exit75
 
-rb_obj_write.argprom.exit75:                      ; preds = %148, %rb_obj_write.argprom.exit74, %76, %respond_to_missing_p.exit.thread, %66
-  %.0 = phi i64 [ %67, %66 ], [ 4, %respond_to_missing_p.exit.thread ], [ 4, %76 ], [ %106, %rb_obj_write.argprom.exit74 ], [ %106, %148 ]
+rb_obj_write.exit75:                              ; preds = %148, %rb_obj_write.exit74, %76, %respond_to_missing_p.exit.thread, %66
+  %.0 = phi i64 [ %67, %66 ], [ 4, %respond_to_missing_p.exit.thread ], [ 4, %76 ], [ %106, %rb_obj_write.exit74 ], [ %106, %148 ]
   ret i64 %.0
 }
 
@@ -8314,20 +8314,20 @@ define internal fastcc ptr @get_local_variable_ptr(ptr nocapture noundef nonnull
   %46 = icmp ne i64 %45, 0
   %47 = icmp eq i64 %44, 0
   %48 = or i1 %47, %46
-  br i1 %48, label %rb_obj_write.argprom.exit, label %49
+  br i1 %48, label %rb_obj_write.exit, label %49
 
 49:                                               ; preds = %37
   %50 = ptrtoint ptr %.030 to i64
   tail call void @rb_gc_writebarrier(i64 noundef %50, i64 noundef %44) #20
-  br label %rb_obj_write.argprom.exit
+  br label %rb_obj_write.exit
 
-rb_obj_write.argprom.exit:                        ; preds = %37, %49
+rb_obj_write.exit:                                ; preds = %37, %49
   %51 = load i64, ptr %6, align 8
   %52 = or i64 %51, 512
   store i64 %52, ptr %6, align 8
   br label %53
 
-53:                                               ; preds = %rb_obj_write.argprom.exit, %32, %28, %23
+53:                                               ; preds = %rb_obj_write.exit, %32, %28, %23
   store ptr %.030, ptr %0, align 8
   %54 = getelementptr inbounds i8, ptr %.030, i64 24
   %55 = load ptr, ptr %54, align 8

@@ -39851,14 +39851,14 @@ _ZN5vcpkg3msg12format_errorIJNS0_11tool_name_tENS0_6path_tEEJNS_10StringViewES4_
 
 38:                                               ; preds = %_ZN5vcpkg3msg12format_errorIJNS0_11tool_name_tENS0_6path_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE.exit.i.i
   %39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %"_ZZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandEENK3$_0clEONS_15LocalizedStringE.argprom.argprom.exit.i" unwind label %40, !noalias !416
+          to label %"_ZZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandEENK3$_0clEONS_15LocalizedStringE.exit.i" unwind label %40, !noalias !416
 
 40:                                               ; preds = %38, %_ZN5vcpkg3msg12format_errorIJNS0_11tool_name_tENS0_6path_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE.exit.i.i
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i
 
-"_ZZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandEENK3$_0clEONS_15LocalizedStringE.argprom.argprom.exit.i": ; preds = %38
+"_ZZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandEENK3$_0clEONS_15LocalizedStringE.exit.i": ; preds = %38
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %39) #23, !noalias !413
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23, !noalias !413
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !413
@@ -39874,7 +39874,7 @@ _ZN5vcpkg3msg12format_errorIJNS0_11tool_name_tENS0_6path_tEEJNS_10StringViewES4_
   store i8 0, ptr %44, align 8, !alias.scope !413
   br label %45
 
-45:                                               ; preds = %43, %"_ZZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandEENK3$_0clEONS_15LocalizedStringE.argprom.argprom.exit.i"
+45:                                               ; preds = %43, %"_ZZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandEENK3$_0clEONS_15LocalizedStringE.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   %46 = getelementptr inbounds i8, ptr %12, i64 40
@@ -41835,8 +41835,8 @@ attributes #29 = { nounwind willreturn memory(none) }
 !414 = distinct !{!414, !415, !"_ZNO5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEE9map_errorIZNS_L22run_to_extract_versionENS_13StringLiteralERKNS_4PathEONS_7CommandEE3$_0EENS0_IS6_DTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIS7_EDTcl9__declvalISH_ELi0EEEvEEEEEESH_: argument 0"}
 !415 = distinct !{!415, !"_ZNO5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEE9map_errorIZNS_L22run_to_extract_versionENS_13StringLiteralERKNS_4PathEONS_7CommandEE3$_0EENS0_IS6_DTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIS7_EDTcl9__declvalISH_ELi0EEEvEEEEEESH_"}
 !416 = !{!417, !414}
-!417 = distinct !{!417, !418, !"_ZZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandEENK3$_0clEONS_15LocalizedStringE.argprom.argprom: argument 0"}
-!418 = distinct !{!418, !"_ZZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandEENK3$_0clEONS_15LocalizedStringE.argprom.argprom"}
+!417 = distinct !{!417, !418, !"_ZZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandEENK3$_0clEONS_15LocalizedStringE: argument 0"}
+!418 = distinct !{!418, !"_ZZN5vcpkgL22run_to_extract_versionB5cxx11ENS_13StringLiteralERKNS_4PathEONS_7CommandEENK3$_0clEONS_15LocalizedStringE"}
 !419 = !{!420, !417, !414}
 !420 = distinct !{!420, !421, !"_ZN5vcpkg3msg12format_errorIJNS0_11tool_name_tENS0_6path_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE: argument 0"}
 !421 = distinct !{!421, !"_ZN5vcpkg3msg12format_errorIJNS0_11tool_name_tENS0_6path_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE"}

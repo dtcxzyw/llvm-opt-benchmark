@@ -1780,7 +1780,7 @@ if.then3:                                         ; preds = %if.then
   %ctx.val = load i64, ptr %ctx, align 8
   %1 = getelementptr i8, ptr %ctx, i64 40
   %ctx.val8 = load i32, ptr %1, align 8
-  tail call fastcc void @_mpd_fix_nan.argprom(ptr noundef nonnull %result, i64 %ctx.val, i32 %ctx.val8)
+  tail call fastcc void @_mpd_fix_nan(ptr noundef nonnull %result, i64 %ctx.val, i32 %ctx.val8)
   br label %return
 
 if.end4:                                          ; preds = %entry
@@ -1819,7 +1819,7 @@ if.then1.i:                                       ; preds = %if.end.i
 sw.bb1.i.i.i:                                     ; preds = %if.then1.i
   %cmp.i.i.i = icmp ugt i64 %call4.i, 4
   %conv.i.i.i = zext i1 %cmp.i.i.i to i32
-  br label %_mpd_rnd_incr.argprom.exit.i.i
+  br label %_mpd_rnd_incr.exit.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %if.then1.i
   %cmp3.i.i.i = icmp ugt i64 %call4.i, 5
@@ -1835,7 +1835,7 @@ land.rhs.i.i.i:                                   ; preds = %lor.rhs.i.i.i
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   %11 = and i32 %10, 1
-  br label %_mpd_rnd_incr.argprom.exit.i.i
+  br label %_mpd_rnd_incr.exit.i.i
 
 sw.bb7.i.i.i:                                     ; preds = %if.then1.i
   %cmp8.i.i.i = icmp eq i64 %call4.i, 0
@@ -1846,7 +1846,7 @@ lor.rhs10.i.i.i:                                  ; preds = %sw.bb7.i.i.i
   %13 = and i8 %12, 1
   %14 = xor i8 %13, 1
   %15 = zext nneg i8 %14 to i32
-  br label %_mpd_rnd_incr.argprom.exit.i.i
+  br label %_mpd_rnd_incr.exit.i.i
 
 sw.bb15.i.i.i:                                    ; preds = %if.then1.i
   %cmp16.i.i.i = icmp eq i64 %call4.i, 0
@@ -1856,17 +1856,17 @@ lor.rhs18.i.i.i:                                  ; preds = %sw.bb15.i.i.i
   %16 = load i8, ptr %result, align 8
   %17 = and i8 %16, 1
   %18 = zext nneg i8 %17 to i32
-  br label %_mpd_rnd_incr.argprom.exit.i.i
+  br label %_mpd_rnd_incr.exit.i.i
 
 sw.bb25.i.i.i:                                    ; preds = %if.then1.i
   %cmp26.i.i.i = icmp ugt i64 %call4.i, 5
   %conv27.i.i.i = zext i1 %cmp26.i.i.i to i32
-  br label %_mpd_rnd_incr.argprom.exit.i.i
+  br label %_mpd_rnd_incr.exit.i.i
 
 sw.bb28.i.i.i:                                    ; preds = %if.then1.i
   %cmp29.i.i.i = icmp ne i64 %call4.i, 0
   %lnot.ext32.i.i.i = zext i1 %cmp29.i.i.i to i32
-  br label %_mpd_rnd_incr.argprom.exit.i.i
+  br label %_mpd_rnd_incr.exit.i.i
 
 sw.bb33.i.i.i:                                    ; preds = %if.then1.i
   %cmp36.i.i.i = icmp eq i64 %call4.i, 0
@@ -1881,14 +1881,14 @@ land.rhs38.i.i.i:                                 ; preds = %sw.bb33.i.i.i
   %cmp42.i.i.i = icmp eq i64 %rem.i.i.i.i, 5
   %21 = or i1 %cmp39.i.i.i, %cmp42.i.i.i
   %22 = zext i1 %21 to i32
-  br label %_mpd_rnd_incr.argprom.exit.i.i
+  br label %_mpd_rnd_incr.exit.i.i
 
-_mpd_rnd_incr.argprom.exit.i.i:                   ; preds = %land.rhs38.i.i.i, %sw.bb28.i.i.i, %sw.bb25.i.i.i, %lor.rhs18.i.i.i, %lor.rhs10.i.i.i, %land.rhs.i.i.i, %sw.bb1.i.i.i
+_mpd_rnd_incr.exit.i.i:                           ; preds = %land.rhs38.i.i.i, %sw.bb28.i.i.i, %sw.bb25.i.i.i, %lor.rhs18.i.i.i, %lor.rhs10.i.i.i, %land.rhs.i.i.i, %sw.bb1.i.i.i
   %retval.0.i.i.i = phi i32 [ %lnot.ext32.i.i.i, %sw.bb28.i.i.i ], [ %conv27.i.i.i, %sw.bb25.i.i.i ], [ %conv.i.i.i, %sw.bb1.i.i.i ], [ %11, %land.rhs.i.i.i ], [ %15, %lor.rhs10.i.i.i ], [ %18, %lor.rhs18.i.i.i ], [ %22, %land.rhs38.i.i.i ]
   %tobool.not.i.i = icmp eq i32 %retval.0.i.i.i, 0
   br i1 %tobool.not.i.i, label %_mpd_apply_round.exit.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %_mpd_rnd_incr.argprom.exit.i.i, %sw.bb2.i.i.i
+if.then.i.i:                                      ; preds = %_mpd_rnd_incr.exit.i.i, %sw.bb2.i.i.i
   %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
   %23 = load ptr, ptr %data.i.i, align 8
   %len.i.i = getelementptr inbounds i8, ptr %result, i64 24
@@ -1934,7 +1934,7 @@ _mpd_apply_round.exit.thread.i:                   ; preds = %sw.bb33.i.i.i, %sw.
   %or13.i = or i32 %34, 4096
   br label %if.end9.sink.split.i
 
-_mpd_apply_round.exit.i:                          ; preds = %if.end13.sink.split.i.i, %if.end.i.i, %_mpd_rnd_incr.argprom.exit.i.i, %lor.rhs.i.i.i, %if.then1.i
+_mpd_apply_round.exit.i:                          ; preds = %if.end13.sink.split.i.i, %if.end.i.i, %_mpd_rnd_incr.exit.i.i, %lor.rhs.i.i.i, %if.then1.i
   %35 = load i32, ptr %status, align 4
   %or.i = or i32 %35, 4096
   store i32 %or.i, ptr %status, align 4
@@ -2709,7 +2709,7 @@ if.end21:                                         ; preds = %_mpd_isint.exit
   %alloc = getelementptr inbounds i8, ptr %tmp, i64 32
   store i64 2, ptr %alloc, align 8
   %sub = sub i64 0, %8
-  call fastcc void @mpd_qsshiftr.argelim(ptr noundef %tmp, ptr noundef nonnull %a, i64 noundef %sub)
+  call fastcc void @mpd_qsshiftr(ptr noundef %tmp, ptr noundef nonnull %a, i64 noundef %sub)
   store i64 0, ptr %a.addr.0.sroa.gep, align 8
   %.pre = load ptr, ptr %a.addr.0.sroa.gep34, align 8
   %.pre56 = load i64, ptr %a.addr.0.sroa.gep37, align 8
@@ -3067,7 +3067,7 @@ mpd_qcopy.exit:                                   ; preds = %if.then, %mpd_qresi
   %ctx.val = load i64, ptr %ctx, align 8
   %18 = getelementptr i8, ptr %ctx, i64 40
   %ctx.val7 = load i32, ptr %18, align 8
-  tail call fastcc void @_mpd_fix_nan.argprom(ptr noundef nonnull %result, i64 %ctx.val, i32 %ctx.val7)
+  tail call fastcc void @_mpd_fix_nan(ptr noundef nonnull %result, i64 %ctx.val, i32 %ctx.val7)
   br label %return
 
 return:                                           ; preds = %entry, %mpd_qcopy.exit
@@ -3150,7 +3150,7 @@ return:                                           ; preds = %mpd_qresize.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_fix_nan.argprom(ptr noundef %result, i64 %ctx.0.val, i32 %ctx.40.val) unnamed_addr #8 {
+define internal fastcc void @_mpd_fix_nan(ptr noundef %result, i64 %ctx.0.val, i32 %ctx.40.val) unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %dummy = alloca i32, align 4
@@ -3402,7 +3402,7 @@ mpd_qcopy.exit:                                   ; preds = %if.end15, %mpd_qres
   %ctx.val = load i64, ptr %ctx, align 8
   %20 = getelementptr i8, ptr %ctx, i64 40
   %ctx.val12 = load i32, ptr %20, align 8
-  tail call fastcc void @_mpd_fix_nan.argprom(ptr noundef nonnull %result, i64 %ctx.val, i32 %ctx.val12)
+  tail call fastcc void @_mpd_fix_nan(ptr noundef nonnull %result, i64 %ctx.val, i32 %ctx.val12)
   br label %return
 
 return:                                           ; preds = %entry, %mpd_qcopy.exit
@@ -3791,7 +3791,7 @@ if.then79:                                        ; preds = %if.end75
   %conv84 = ashr exact i64 %sext, 32
   %72 = getelementptr i8, ptr %ctx, i64 36
   %ctx.val = load i32, ptr %72, align 4
-  tail call fastcc void @_mpd_apply_round_excess.argprom(ptr noundef nonnull %dec, i64 noundef %conv84, i32 %ctx.val, ptr noundef nonnull %status)
+  tail call fastcc void @_mpd_apply_round_excess(ptr noundef nonnull %dec, i64 noundef %conv84, i32 %ctx.val, ptr noundef nonnull %status)
   %73 = load i32, ptr %status, align 4
   %or85 = or i32 %73, 4096
   store i32 %or85, ptr %status, align 4
@@ -9097,7 +9097,7 @@ if.end:                                           ; preds = %if.then
   %4 = load i8, ptr %b, align 8
   %5 = and i8 %4, 1
   %a.val = load i8, ptr %a, align 8
-  tail call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef %result, i8 %a.val, ptr noundef nonnull %b, i8 noundef zeroext %5, ptr noundef %status)
+  tail call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val, ptr noundef nonnull %b, i8 noundef zeroext %5, ptr noundef %status)
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
@@ -9111,7 +9111,7 @@ return:                                           ; preds = %if.then, %if.end7, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qaddsub_inf.argprom(ptr nocapture noundef %result, i8 %a.0.val, ptr nocapture noundef readonly %b, i8 noundef zeroext range(i8 0, 2) %sign_b, ptr nocapture noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qaddsub_inf(ptr nocapture noundef %result, i8 %a.0.val, ptr nocapture noundef readonly %b, i8 noundef zeroext range(i8 0, 2) %sign_b, ptr nocapture noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i17 = alloca i8, align 1
   %err.i.i6 = alloca i8, align 1
@@ -9726,7 +9726,7 @@ if.end:                                           ; preds = %if.then
   %5 = and i8 %4, 1
   %conv = xor i8 %5, 1
   %a.val = load i8, ptr %a, align 8
-  tail call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef %result, i8 %a.val, ptr noundef nonnull %b, i8 noundef zeroext %conv, ptr noundef %status)
+  tail call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val, ptr noundef nonnull %b, i8 noundef zeroext %conv, ptr noundef %status)
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false
@@ -9786,7 +9786,7 @@ if.end.i7:                                        ; preds = %if.then.i6
   %5 = load i8, ptr %bb, align 8
   %6 = and i8 %5, 1
   %a.val.i = load i8, ptr %a, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %bb, i8 noundef zeroext %6, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %bb, i8 noundef zeroext %6, ptr noundef %status)
   br label %mpd_qadd.exit
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
@@ -9870,7 +9870,7 @@ if.end.i6:                                        ; preds = %if.then.i5
   %5 = load i8, ptr %bb, align 8
   %6 = and i8 %5, 1
   %a.val.i = load i8, ptr %a, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %bb, i8 noundef zeroext %6, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %bb, i8 noundef zeroext %6, ptr noundef %status)
   br label %mpd_qadd.exit
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
@@ -9953,7 +9953,7 @@ if.end.i7:                                        ; preds = %if.then.i6
   %6 = and i8 %5, 1
   %conv.i = xor i8 %6, 1
   %a.val.i = load i8, ptr %a, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %bb, i8 noundef zeroext %conv.i, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %bb, i8 noundef zeroext %conv.i, ptr noundef %status)
   br label %mpd_qsub.exit
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i
@@ -10039,7 +10039,7 @@ if.end.i6:                                        ; preds = %if.then.i5
   %6 = and i8 %5, 1
   %conv.i = xor i8 %6, 1
   %a.val.i = load i8, ptr %a, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %bb, i8 noundef zeroext %conv.i, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %bb, i8 noundef zeroext %conv.i, ptr noundef %status)
   br label %mpd_qsub.exit
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i
@@ -13467,7 +13467,7 @@ if.end.i121:                                      ; preds = %if.then.i120
   %79 = load i8, ptr %ulp, align 8
   %80 = and i8 %79, 1
   %a.val.i = load i8, ptr %result, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %t1, i8 %a.val.i, ptr noundef nonnull %ulp, i8 noundef zeroext %80, ptr noundef nonnull %status54)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %t1, i8 %a.val.i, ptr noundef nonnull %ulp, i8 noundef zeroext %80, ptr noundef nonnull %status54)
   br label %mpd_qadd.exit
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
@@ -13498,7 +13498,7 @@ if.end.i126:                                      ; preds = %if.then.i123
   %86 = and i8 %85, 1
   %conv.i127 = xor i8 %86, 1
   %a.val.i128 = load i8, ptr %result, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %t2, i8 %a.val.i128, ptr noundef nonnull %ulp, i8 noundef zeroext %conv.i127, ptr noundef nonnull %status54)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %t2, i8 %a.val.i128, ptr noundef nonnull %ulp, i8 noundef zeroext %conv.i127, ptr noundef nonnull %status54)
   br label %mpd_qsub.exit
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i129
@@ -13562,7 +13562,7 @@ if.then63:                                        ; preds = %mpd_qsub.exit
   %101 = load i32, ptr %clamp64, align 8
   store i32 %101, ptr %clamp, align 8
   %workctx.val = load i64, ptr %workctx, align 8
-  br label %_mpd_zeropad.argprom.exit
+  br label %_mpd_zeropad.exit
 
 mpd_iszero.exit.i:                                ; preds = %mpd_qcmp.exit, %lor.lhs.false
   %clamp64203 = getelementptr inbounds i8, ptr %ctx, i64 40
@@ -13575,12 +13575,12 @@ mpd_iszero.exit.i:                                ; preds = %mpd_qcmp.exit, %lor
   %arrayidx.i.i.i = getelementptr i8, ptr %105, i64 -8
   %106 = load i64, ptr %arrayidx.i.i.i, align 8
   %cmp.i.i140 = icmp eq i64 %106, 0
-  br i1 %cmp.i.i140, label %_mpd_zeropad.argprom.exit, label %land.lhs.true3.i
+  br i1 %cmp.i.i140, label %_mpd_zeropad.exit, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %mpd_iszero.exit.i
   %107 = load i64, ptr %digits45, align 8
   %cmp.i142 = icmp slt i64 %107, %workctx.val204
-  br i1 %cmp.i142, label %if.then.i143, label %_mpd_zeropad.argprom.exit
+  br i1 %cmp.i142, label %if.then.i143, label %_mpd_zeropad.exit
 
 if.then.i143:                                     ; preds = %land.lhs.true3.i
   %sub.i = sub i64 %workctx.val204, %107
@@ -13589,9 +13589,9 @@ if.then.i143:                                     ; preds = %land.lhs.true3.i
   %sub7.i = sub i64 %108, %sub.i
   store i64 %sub7.i, ptr %exp44, align 8
   %workctx.val60.pre = load i64, ptr %workctx, align 8
-  br label %_mpd_zeropad.argprom.exit
+  br label %_mpd_zeropad.exit
 
-_mpd_zeropad.argprom.exit:                        ; preds = %if.then63, %mpd_iszero.exit.i, %land.lhs.true3.i, %if.then.i143
+_mpd_zeropad.exit:                                ; preds = %if.then63, %mpd_iszero.exit.i, %land.lhs.true3.i, %if.then.i143
   %workctx.val60 = phi i64 [ %workctx.val, %if.then63 ], [ %workctx.val204, %mpd_iszero.exit.i ], [ %workctx.val204, %land.lhs.true3.i ], [ %workctx.val60.pre, %if.then.i143 ]
   %109 = getelementptr inbounds i8, ptr %workctx, i64 16
   %workctx.val61 = load i64, ptr %109, align 8
@@ -13600,9 +13600,9 @@ _mpd_zeropad.argprom.exit:                        ; preds = %if.then63, %mpd_isz
   %add.i.i = add i64 %110, -1
   %sub.i.i = add i64 %add.i.i, %111
   %cmp.i145 = icmp slt i64 %sub.i.i, %workctx.val61
-  br i1 %cmp.i145, label %land.lhs.true.i, label %mpd_check_underflow.argprom.exit
+  br i1 %cmp.i145, label %land.lhs.true.i, label %mpd_check_underflow.exit
 
-land.lhs.true.i:                                  ; preds = %_mpd_zeropad.argprom.exit
+land.lhs.true.i:                                  ; preds = %_mpd_zeropad.exit
   %112 = load i8, ptr %result, align 8
   %113 = and i8 %112, 14
   %tobool.i.not.i147 = icmp eq i8 %113, 0
@@ -13615,21 +13615,21 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true.i
   %arrayidx.i.i.i152 = getelementptr i8, ptr %116, i64 -8
   %117 = load i64, ptr %arrayidx.i.i.i152, align 8
   %cmp.i.i153 = icmp eq i64 %117, 0
-  br i1 %cmp.i.i153, label %mpd_check_underflow.argprom.exit, label %land.lhs.true2.i
+  br i1 %cmp.i.i153, label %mpd_check_underflow.exit, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %land.rhs.i.i, %land.lhs.true.i
   %reass.sub = sub i64 %workctx.val61, %workctx.val60
   %sub1.i.i = add i64 %reass.sub, 1
   %cmp4.i = icmp slt i64 %110, %sub1.i.i
-  br i1 %cmp4.i, label %if.then.i148, label %mpd_check_underflow.argprom.exit
+  br i1 %cmp4.i, label %if.then.i148, label %mpd_check_underflow.exit
 
 if.then.i148:                                     ; preds = %land.lhs.true2.i
   %118 = load i32, ptr %status, align 4
   %or.i149 = or i32 %118, 16384
   store i32 %or.i149, ptr %status, align 4
-  br label %mpd_check_underflow.argprom.exit
+  br label %mpd_check_underflow.exit
 
-mpd_check_underflow.argprom.exit:                 ; preds = %_mpd_zeropad.argprom.exit, %land.rhs.i.i, %land.lhs.true2.i, %if.then.i148
+mpd_check_underflow.exit:                         ; preds = %_mpd_zeropad.exit, %land.rhs.i.i, %land.lhs.true2.i, %if.then.i148
   call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %workctx, ptr noundef nonnull %status)
   %119 = load i8, ptr %t1, align 8
   %tobool.i8.i129.not = icmp ult i8 %119, 32
@@ -13639,15 +13639,15 @@ if.end66:                                         ; preds = %mpd_qcmp.exit.threa
   %add67 = add i64 %prec.0, 19
   br label %while.body
 
-if.then.i139:                                     ; preds = %mpd_check_underflow.argprom.exit
+if.then.i139:                                     ; preds = %mpd_check_underflow.exit
   %120 = load ptr, ptr @mpd_free, align 8
   %121 = load ptr, ptr %data, align 8
   call void %120(ptr noundef %121) #28
   %.pre199 = load i8, ptr %t1, align 8
   br label %if.end.i132
 
-if.end.i132:                                      ; preds = %if.then.i139, %mpd_check_underflow.argprom.exit
-  %122 = phi i8 [ %.pre199, %if.then.i139 ], [ %119, %mpd_check_underflow.argprom.exit ]
+if.end.i132:                                      ; preds = %if.then.i139, %mpd_check_underflow.exit
+  %122 = phi i8 [ %.pre199, %if.then.i139 ], [ %119, %mpd_check_underflow.exit ]
   %123 = and i8 %122, 16
   %tobool.i.i135.not = icmp eq i8 %123, 0
   br i1 %tobool.i.i135.not, label %if.then3.i138, label %mpd_del.exit141
@@ -13732,7 +13732,7 @@ if.else68:                                        ; preds = %if.end12
   %143 = load i8, ptr %result, align 8
   %144 = and i8 %143, 14
   %tobool.not.i154 = icmp eq i8 %144, 0
-  br i1 %tobool.not.i154, label %mpd_iszero.exit.i156, label %_mpd_zeropad.argprom.exit169
+  br i1 %tobool.not.i154, label %mpd_iszero.exit.i156, label %_mpd_zeropad.exit169
 
 mpd_iszero.exit.i156:                             ; preds = %if.else68
   %data.i.i.i157 = getelementptr inbounds i8, ptr %result, i64 40
@@ -13743,13 +13743,13 @@ mpd_iszero.exit.i156:                             ; preds = %if.else68
   %arrayidx.i.i.i159 = getelementptr i8, ptr %147, i64 -8
   %148 = load i64, ptr %arrayidx.i.i.i159, align 8
   %cmp.i.i160 = icmp eq i64 %148, 0
-  br i1 %cmp.i.i160, label %_mpd_zeropad.argprom.exit169, label %land.lhs.true3.i161
+  br i1 %cmp.i.i160, label %_mpd_zeropad.exit169, label %land.lhs.true3.i161
 
 land.lhs.true3.i161:                              ; preds = %mpd_iszero.exit.i156
   %digits.i162 = getelementptr inbounds i8, ptr %result, i64 16
   %149 = load i64, ptr %digits.i162, align 8
   %cmp.i163 = icmp slt i64 %149, %workctx.val59
-  br i1 %cmp.i163, label %if.then.i164, label %_mpd_zeropad.argprom.exit169
+  br i1 %cmp.i163, label %if.then.i164, label %_mpd_zeropad.exit169
 
 if.then.i164:                                     ; preds = %land.lhs.true3.i161
   %sub.i165 = sub i64 %workctx.val59, %149
@@ -13758,9 +13758,9 @@ if.then.i164:                                     ; preds = %land.lhs.true3.i161
   %150 = load i64, ptr %exp.i167, align 8
   %sub7.i168 = sub i64 %150, %sub.i165
   store i64 %sub7.i168, ptr %exp.i167, align 8
-  br label %_mpd_zeropad.argprom.exit169
+  br label %_mpd_zeropad.exit169
 
-_mpd_zeropad.argprom.exit169:                     ; preds = %if.else68, %mpd_iszero.exit.i156, %land.lhs.true3.i161, %if.then.i164
+_mpd_zeropad.exit169:                             ; preds = %if.else68, %mpd_iszero.exit.i156, %land.lhs.true3.i161, %if.then.i164
   %151 = getelementptr inbounds i8, ptr %workctx, i64 16
   %workctx.val63 = load i64, ptr %151, align 8
   %exp.i.i170 = getelementptr inbounds i8, ptr %result, i64 8
@@ -13770,9 +13770,9 @@ _mpd_zeropad.argprom.exit169:                     ; preds = %if.else68, %mpd_isz
   %add.i.i172 = add i64 %152, -1
   %sub.i.i173 = add i64 %add.i.i172, %153
   %cmp.i174 = icmp slt i64 %sub.i.i173, %workctx.val63
-  br i1 %cmp.i174, label %land.lhs.true.i176, label %mpd_check_underflow.argprom.exit189
+  br i1 %cmp.i174, label %land.lhs.true.i176, label %mpd_check_underflow.exit189
 
-land.lhs.true.i176:                               ; preds = %_mpd_zeropad.argprom.exit169
+land.lhs.true.i176:                               ; preds = %_mpd_zeropad.exit169
   %154 = load i8, ptr %result, align 8
   %155 = and i8 %154, 14
   %tobool.i.not.i177 = icmp eq i8 %155, 0
@@ -13787,25 +13787,25 @@ land.rhs.i.i184:                                  ; preds = %land.lhs.true.i176
   %arrayidx.i.i.i187 = getelementptr i8, ptr %158, i64 -8
   %159 = load i64, ptr %arrayidx.i.i.i187, align 8
   %cmp.i.i188 = icmp eq i64 %159, 0
-  br i1 %cmp.i.i188, label %mpd_check_underflow.argprom.exit189, label %land.lhs.true2.i178
+  br i1 %cmp.i.i188, label %mpd_check_underflow.exit189, label %land.lhs.true2.i178
 
 land.lhs.true2.i178:                              ; preds = %land.rhs.i.i184, %land.lhs.true.i176
   %reass.sub194 = sub i64 %workctx.val63, %workctx.val59
   %sub1.i.i180 = add i64 %reass.sub194, 1
   %cmp4.i181 = icmp slt i64 %152, %sub1.i.i180
-  br i1 %cmp4.i181, label %if.then.i182, label %mpd_check_underflow.argprom.exit189
+  br i1 %cmp4.i181, label %if.then.i182, label %mpd_check_underflow.exit189
 
 if.then.i182:                                     ; preds = %land.lhs.true2.i178
   %160 = load i32, ptr %status, align 4
   %or.i183 = or i32 %160, 16384
   store i32 %or.i183, ptr %status, align 4
-  br label %mpd_check_underflow.argprom.exit189
+  br label %mpd_check_underflow.exit189
 
-mpd_check_underflow.argprom.exit189:              ; preds = %_mpd_zeropad.argprom.exit169, %land.rhs.i.i184, %land.lhs.true2.i178, %if.then.i182
+mpd_check_underflow.exit189:                      ; preds = %_mpd_zeropad.exit169, %land.rhs.i.i184, %land.lhs.true2.i178, %if.then.i182
   call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %workctx, ptr noundef %status)
   br label %if.end69
 
-if.end69:                                         ; preds = %if.end.i, %if.then3.i, %_settriple.exit, %mpd_setspecial.exit, %if.then, %mpd_check_underflow.argprom.exit189, %mpd_seterror.exit, %_settriple.exit93
+if.end69:                                         ; preds = %if.end.i, %if.then3.i, %_settriple.exit, %mpd_setspecial.exit, %if.then, %mpd_check_underflow.exit189, %mpd_seterror.exit, %_settriple.exit93
   ret void
 }
 
@@ -14073,14 +14073,14 @@ if.then.i75:                                      ; preds = %if.end25
   %49 = load i8, ptr %result, align 8
   %50 = and i8 %49, 32
   %tobool.i.not.i.i = icmp eq i8 %50, 0
-  br i1 %tobool.i.not.i.i, label %land.lhs.true.i.i.i, label %_mpd_qexp_check_one.argprom.exit
+  br i1 %tobool.i.not.i.i, label %land.lhs.true.i.i.i, label %_mpd_qexp_check_one.exit
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i75
   %alloc.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %51 = load i64, ptr %alloc.i.i.i, align 8
   %52 = load i64, ptr @MPD_MINALLOC, align 8
   %cmp.i.i.i = icmp sgt i64 %51, %52
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_mpd_qexp_check_one.argprom.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_mpd_qexp_check_one.exit
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 0, ptr %err.i.i.i, align 1
@@ -14090,14 +14090,14 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store ptr %call1.i.i.i, ptr %data.i.i.i, align 8
   %54 = load i8, ptr %err.i.i.i, align 1
   %tobool3.i.not.i.i = icmp eq i8 %54, 0
-  br i1 %tobool3.i.not.i.i, label %if.then4.i.i.i, label %_mpd_qexp_check_one.argprom.exit
+  br i1 %tobool3.i.not.i.i, label %if.then4.i.i.i, label %_mpd_qexp_check_one.exit
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
   %55 = load i64, ptr @MPD_MINALLOC, align 8
   store i64 %55, ptr %alloc.i.i.i, align 8
-  br label %_mpd_qexp_check_one.argprom.exit
+  br label %_mpd_qexp_check_one.exit
 
-_mpd_qexp_check_one.argprom.exit:                 ; preds = %if.then.i75, %land.lhs.true.i.i.i, %if.then.i.i.i, %if.then4.i.i.i
+_mpd_qexp_check_one.exit:                         ; preds = %if.then.i75, %land.lhs.true.i.i.i, %if.then.i.i.i, %if.then4.i.i.i
   %56 = load i8, ptr %result, align 8
   %57 = and i8 %56, -16
   store i8 %57, ptr %result, align 8
@@ -14453,12 +14453,12 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
   store i32 %or59, ptr %status, align 4
   br label %return
 
-return:                                           ; preds = %mpd_qresize.exit.i, %_mpd_qexp_check_one.argprom.exit, %mpd_setspecial.exit, %_settriple.exit69, %mpd_del.exit, %mpd_seterror.exit, %_settriple.exit
+return:                                           ; preds = %mpd_qresize.exit.i, %_mpd_qexp_check_one.exit, %mpd_setspecial.exit, %_settriple.exit69, %mpd_del.exit, %mpd_seterror.exit, %_settriple.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mpd_check_underflow.argprom(ptr nocapture noundef readonly %dec, i64 %ctx.0.val, i64 %ctx.16.val, ptr nocapture noundef %status) unnamed_addr #9 {
+define internal fastcc void @mpd_check_underflow(ptr nocapture noundef readonly %dec, i64 %ctx.0.val, i64 %ctx.16.val, ptr nocapture noundef %status) unnamed_addr #9 {
 entry:
   %exp.i = getelementptr inbounds i8, ptr %dec, i64 8
   %0 = load i64, ptr %exp.i, align 8
@@ -14617,7 +14617,7 @@ if.end.i18:                                       ; preds = %if.then.i17
   %27 = load i8, ptr %c.addr.0, align 8
   %28 = and i8 %27, 1
   %a.val.i = load i8, ptr %result, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %result, i8 %a.val.i, ptr noundef nonnull %c.addr.0, i8 noundef zeroext %28, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %result, i8 %a.val.i, ptr noundef nonnull %c.addr.0, i8 noundef zeroext %28, ptr noundef nonnull %workstatus)
   br label %if.end5
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
@@ -15321,7 +15321,7 @@ if.then14:                                        ; preds = %if.end
   store i64 %prec, ptr %maxcontext, align 8
   %12 = getelementptr inbounds i8, ptr %maxcontext, i64 36
   %maxcontext.val = load i32, ptr %12, align 4
-  call fastcc void @_mpd_apply_round_excess.argprom(ptr noundef nonnull %result, i64 noundef %call, i32 %maxcontext.val, ptr noundef %status)
+  call fastcc void @_mpd_apply_round_excess(ptr noundef nonnull %result, i64 noundef %call, i32 %maxcontext.val, ptr noundef %status)
   %13 = load i32, ptr %status, align 4
   %or = or i32 %13, 4160
   store i32 %or, ptr %status, align 4
@@ -15391,7 +15391,7 @@ if.then.i33:                                      ; preds = %for.body
 
 if.end.i34:                                       ; preds = %if.then.i33
   %a.val.i = load i8, ptr %tmp, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %tmp, i8 %a.val.i, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %tmp, i8 %a.val.i, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef %status)
   br label %mpd_qsub.exit
 
 mpd_qsub.exit:                                    ; preds = %if.then.i33, %if.end.i34, %lor.lhs.false.i
@@ -15415,7 +15415,7 @@ if.end.i39:                                       ; preds = %if.then.i36
   %27 = load i8, ptr %tmp, align 8
   %28 = and i8 %27, 1
   %a.val.i40 = load i8, ptr %result, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %result, i8 %a.val.i40, ptr noundef nonnull %tmp, i8 noundef zeroext %28, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %result, i8 %a.val.i40, ptr noundef nonnull %tmp, i8 noundef zeroext %28, ptr noundef %status)
   br label %mpd_qadd.exit
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i41
@@ -15466,7 +15466,7 @@ return:                                           ; preds = %mpd_del.exit, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_apply_round_excess.argprom(ptr noundef %dec, i64 noundef %rnd, i32 %ctx.36.val, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_apply_round_excess(ptr noundef %dec, i64 noundef %rnd, i32 %ctx.36.val, ptr noundef %status) unnamed_addr #8 {
 entry:
   switch i32 %ctx.36.val, label %if.end13 [
     i32 7, label %sw.bb33.i
@@ -15481,7 +15481,7 @@ entry:
 sw.bb1.i:                                         ; preds = %entry
   %cmp.i = icmp ugt i64 %rnd, 4
   %conv.i = zext i1 %cmp.i to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb2.i:                                         ; preds = %entry
   %cmp3.i = icmp ugt i64 %rnd, 5
@@ -15497,7 +15497,7 @@ land.rhs.i:                                       ; preds = %lor.rhs.i
   %1 = load i64, ptr %0, align 8
   %2 = trunc i64 %1 to i32
   %3 = and i32 %2, 1
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb7.i:                                         ; preds = %entry
   %cmp8.i = icmp eq i64 %rnd, 0
@@ -15508,7 +15508,7 @@ lor.rhs10.i:                                      ; preds = %sw.bb7.i
   %5 = and i8 %4, 1
   %6 = xor i8 %5, 1
   %7 = zext nneg i8 %6 to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb15.i:                                        ; preds = %entry
   %cmp16.i = icmp eq i64 %rnd, 0
@@ -15518,17 +15518,17 @@ lor.rhs18.i:                                      ; preds = %sw.bb15.i
   %8 = load i8, ptr %dec, align 8
   %9 = and i8 %8, 1
   %10 = zext nneg i8 %9 to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb25.i:                                        ; preds = %entry
   %cmp26.i = icmp ugt i64 %rnd, 5
   %conv27.i = zext i1 %cmp26.i to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb28.i:                                        ; preds = %entry
   %cmp29.i = icmp ne i64 %rnd, 0
   %lnot.ext32.i = zext i1 %cmp29.i to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb33.i:                                        ; preds = %entry
   %cmp36.i = icmp eq i64 %rnd, 0
@@ -15543,14 +15543,14 @@ land.rhs38.i:                                     ; preds = %sw.bb33.i
   %cmp42.i = icmp eq i64 %rem.i.i, 5
   %13 = or i1 %cmp39.i, %cmp42.i
   %14 = zext i1 %13 to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
-_mpd_rnd_incr.argprom.exit:                       ; preds = %sw.bb1.i, %land.rhs.i, %lor.rhs10.i, %lor.rhs18.i, %sw.bb25.i, %sw.bb28.i, %land.rhs38.i
+_mpd_rnd_incr.exit:                               ; preds = %sw.bb1.i, %land.rhs.i, %lor.rhs10.i, %lor.rhs18.i, %sw.bb25.i, %sw.bb28.i, %land.rhs38.i
   %retval.0.i = phi i32 [ %lnot.ext32.i, %sw.bb28.i ], [ %conv27.i, %sw.bb25.i ], [ %conv.i, %sw.bb1.i ], [ %3, %land.rhs.i ], [ %7, %lor.rhs10.i ], [ %10, %lor.rhs18.i ], [ %14, %land.rhs38.i ]
   %tobool.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool.not, label %if.end13, label %if.then
 
-if.then:                                          ; preds = %sw.bb2.i, %_mpd_rnd_incr.argprom.exit
+if.then:                                          ; preds = %sw.bb2.i, %_mpd_rnd_incr.exit
   %data = getelementptr inbounds i8, ptr %dec, i64 40
   %15 = load ptr, ptr %data, align 8
   %len = getelementptr inbounds i8, ptr %dec, i64 24
@@ -15610,7 +15610,7 @@ if.end12:                                         ; preds = %if.end, %if.then
   tail call void @mpd_setdigits(ptr noundef nonnull %dec)
   br label %if.end13
 
-if.end13:                                         ; preds = %entry, %sw.bb33.i, %sw.bb15.i, %sw.bb7.i, %lor.rhs.i, %mpd_qresize.exit, %if.end12, %_mpd_rnd_incr.argprom.exit
+if.end13:                                         ; preds = %entry, %sw.bb33.i, %sw.bb15.i, %sw.bb7.i, %lor.rhs.i, %mpd_qresize.exit, %if.end12, %_mpd_rnd_incr.exit
   ret void
 }
 
@@ -16063,7 +16063,7 @@ if.end.i143:                                      ; preds = %if.then.i142
   %87 = load i8, ptr %ulp, align 8
   %88 = and i8 %87, 1
   %a.val.i = load i8, ptr %result, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %t1, i8 %a.val.i, ptr noundef nonnull %ulp, i8 noundef zeroext %88, ptr noundef nonnull %status72)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %t1, i8 %a.val.i, ptr noundef nonnull %ulp, i8 noundef zeroext %88, ptr noundef nonnull %status72)
   br label %mpd_qadd.exit
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
@@ -16094,7 +16094,7 @@ if.end.i148:                                      ; preds = %if.then.i145
   %94 = and i8 %93, 1
   %conv.i149 = xor i8 %94, 1
   %a.val.i150 = load i8, ptr %result, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %t2, i8 %a.val.i150, ptr noundef nonnull %ulp, i8 noundef zeroext %conv.i149, ptr noundef nonnull %status72)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %t2, i8 %a.val.i150, ptr noundef nonnull %ulp, i8 noundef zeroext %conv.i149, ptr noundef nonnull %status72)
   br label %mpd_qsub.exit
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i151
@@ -16160,7 +16160,7 @@ if.then82:                                        ; preds = %mpd_qcmp.exit, %lor
   %workctx.val70 = load i64, ptr %workctx, align 8
   %110 = getelementptr inbounds i8, ptr %workctx, i64 16
   %workctx.val71 = load i64, ptr %110, align 8
-  call fastcc void @mpd_check_underflow.argprom(ptr noundef nonnull %result, i64 %workctx.val70, i64 %workctx.val71, ptr noundef %status)
+  call fastcc void @mpd_check_underflow(ptr noundef nonnull %result, i64 %workctx.val70, i64 %workctx.val71, ptr noundef %status)
   call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %workctx, ptr noundef %status)
   %111 = load i8, ptr %t1, align 8
   %tobool.i8.i151.not = icmp ult i8 %111, 32
@@ -16262,7 +16262,7 @@ if.else:                                          ; preds = %if.end31
   %workctx.val = load i64, ptr %workctx, align 8
   %135 = getelementptr inbounds i8, ptr %workctx, i64 16
   %workctx.val69 = load i64, ptr %135, align 8
-  tail call fastcc void @mpd_check_underflow.argprom(ptr noundef %result, i64 %workctx.val, i64 %workctx.val69, ptr noundef %status)
+  tail call fastcc void @mpd_check_underflow(ptr noundef %result, i64 %workctx.val, i64 %workctx.val69, ptr noundef %status)
   call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull %workctx, ptr noundef %status)
   br label %if.end87
 
@@ -16751,7 +16751,7 @@ if.then.i110:                                     ; preds = %if.end107
 
 if.end.i111:                                      ; preds = %if.then.i110
   %a.val.i = load i8, ptr %tmp, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %tmp, i8 %a.val.i, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %tmp, i8 %a.val.i, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef %status)
   br label %mpd_qsub.exit
 
 mpd_qsub.exit:                                    ; preds = %if.then.i110, %if.end.i111, %lor.lhs.false.i
@@ -16775,7 +16775,7 @@ if.end.i116:                                      ; preds = %if.then.i113
   %94 = load i8, ptr %tmp, align 8
   %95 = and i8 %94, 1
   %a.val.i117 = load i8, ptr %result, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %result, i8 %a.val.i117, ptr noundef nonnull %tmp, i8 noundef zeroext %95, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %result, i8 %a.val.i117, ptr noundef nonnull %tmp, i8 noundef zeroext %95, ptr noundef %status)
   br label %mpd_qadd.exit
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i118
@@ -16817,7 +16817,7 @@ if.end.i123:                                      ; preds = %if.then.i120
   %102 = load i8, ptr %result, align 8
   %103 = and i8 %102, 1
   %a.val.i124 = load i8, ptr %tmp, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %result, i8 %a.val.i124, ptr noundef nonnull %result, i8 noundef zeroext %103, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %result, i8 %a.val.i124, ptr noundef nonnull %result, i8 noundef zeroext %103, ptr noundef %status)
   br label %finish
 
 if.end7.i127:                                     ; preds = %lor.lhs.false.i125
@@ -17536,7 +17536,7 @@ if.end.i174:                                      ; preds = %if.then.i173
   %122 = load i8, ptr %ulp, align 8
   %123 = and i8 %122, 1
   %a.val.i = load i8, ptr %result, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %t1, i8 %a.val.i, ptr noundef nonnull %ulp, i8 noundef zeroext %123, ptr noundef nonnull %status77)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %t1, i8 %a.val.i, ptr noundef nonnull %ulp, i8 noundef zeroext %123, ptr noundef nonnull %status77)
   br label %mpd_qadd.exit
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
@@ -17567,7 +17567,7 @@ if.end.i179:                                      ; preds = %if.then.i176
   %129 = and i8 %128, 1
   %conv.i180 = xor i8 %129, 1
   %a.val.i181 = load i8, ptr %result, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %t2, i8 %a.val.i181, ptr noundef nonnull %ulp, i8 noundef zeroext %conv.i180, ptr noundef nonnull %status77)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %t2, i8 %a.val.i181, ptr noundef nonnull %ulp, i8 noundef zeroext %conv.i180, ptr noundef nonnull %status77)
   br label %mpd_qsub.exit
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i182
@@ -17633,7 +17633,7 @@ if.then87:                                        ; preds = %mpd_qcmp.exit, %lor
   %workctx.val74 = load i64, ptr %workctx, align 8
   %145 = getelementptr inbounds i8, ptr %workctx, i64 16
   %workctx.val75 = load i64, ptr %145, align 8
-  call fastcc void @mpd_check_underflow.argprom(ptr noundef nonnull %result, i64 %workctx.val74, i64 %workctx.val75, ptr noundef %status)
+  call fastcc void @mpd_check_underflow(ptr noundef nonnull %result, i64 %workctx.val74, i64 %workctx.val75, ptr noundef %status)
   call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %workctx, ptr noundef %status)
   %146 = load i8, ptr %t1, align 8
   %tobool.i8.i161.not = icmp ult i8 %146, 32
@@ -17735,7 +17735,7 @@ if.else:                                          ; preds = %if.end36
   %workctx.val = load i64, ptr %workctx, align 8
   %170 = getelementptr inbounds i8, ptr %workctx, i64 16
   %workctx.val73 = load i64, ptr %170, align 8
-  tail call fastcc void @mpd_check_underflow.argprom(ptr noundef %result, i64 %workctx.val, i64 %workctx.val73, ptr noundef %status)
+  tail call fastcc void @mpd_check_underflow(ptr noundef %result, i64 %workctx.val, i64 %workctx.val73, ptr noundef %status)
   br label %if.end92
 
 if.end92:                                         ; preds = %if.end.i, %if.then3.i, %if.then, %if.else, %if.then65, %mpd_setspecial.exit165, %if.end22, %mpd_seterror.exit115, %mpd_setspecial.exit102, %mpd_setspecial.exit, %mpd_seterror.exit
@@ -19298,7 +19298,7 @@ if.end.i78:                                       ; preds = %if.then.i
   %54 = and i8 %53, 1
   %conv.i = xor i8 %54, 1
   %a.val.i = load i8, ptr %a, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %tiny, i8 noundef zeroext %conv.i, ptr noundef nonnull %status.i)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %tiny, i8 noundef zeroext %conv.i, ptr noundef nonnull %status.i)
   br label %mpd_qsub.exit
 
 if.end8.i:                                        ; preds = %if.end26
@@ -19643,7 +19643,7 @@ if.end.i80:                                       ; preds = %if.then.i
   %54 = load i8, ptr %tiny, align 8
   %55 = and i8 %54, 1
   %a.val.i = load i8, ptr %a, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %tiny, i8 noundef zeroext %55, ptr noundef nonnull %status.i)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %tiny, i8 noundef zeroext %55, ptr noundef nonnull %status.i)
   br label %mpd_qadd.exit
 
 if.end7.i81:                                      ; preds = %if.end27
@@ -20693,7 +20693,7 @@ if.then.i15.i.i:                                  ; preds = %if.else8.i.i
 
 if.end.i16.i.i:                                   ; preds = %if.then.i15.i.i
   %a.val.i.i.i = load i8, ptr %abs_x.i, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %scratch.i.i, i8 %a.val.i.i.i, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %scratch.i.i, i8 %a.val.i.i.i, ptr noundef nonnull @one, i8 noundef zeroext 1, ptr noundef %status)
   br label %mpd_qsub.exit.i.i
 
 mpd_qsub.exit.i.i:                                ; preds = %if.end.i16.i.i, %if.then.i15.i.i, %lor.lhs.false.i.i.i
@@ -22035,7 +22035,7 @@ mpd_qcheck_3nans.exit:                            ; preds = %if.end29.i, %mpd_qr
   %ctx.val.i = load i64, ptr %ctx, align 8
   %24 = getelementptr i8, ptr %ctx, i64 40
   %ctx.val17.i = load i32, ptr %24, align 8
-  call fastcc void @_mpd_fix_nan.argprom(ptr noundef nonnull %result, i64 %ctx.val.i, i32 %ctx.val17.i)
+  call fastcc void @_mpd_fix_nan(ptr noundef nonnull %result, i64 %ctx.val.i, i32 %ctx.val17.i)
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -22394,7 +22394,7 @@ for.cond.preheader:                               ; preds = %lor.lhs.false99
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.0204 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  call fastcc void @_mpd_qpowmod_uint.argelim(ptr noundef %tmp, ptr noundef %tbase, ptr noundef %tmod, ptr noundef %status)
+  call fastcc void @_mpd_qpowmod_uint(ptr noundef %tmp, ptr noundef %tbase, ptr noundef %tmod, ptr noundef %status)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %t, ptr noundef nonnull align 8 dereferenceable(48) %tmp, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %tmp, ptr noundef nonnull align 8 dereferenceable(48) %tbase, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %tbase, ptr noundef nonnull align 8 dereferenceable(48) %t, i64 48, i1 false)
@@ -22959,7 +22959,7 @@ if.end:                                           ; preds = %mpd_seterror.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qpowmod_uint.argelim(ptr noundef nonnull %result, ptr noundef nonnull %base, ptr noundef nonnull %mod, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qpowmod_uint(ptr noundef nonnull %result, ptr noundef nonnull %base, ptr noundef nonnull %mod, ptr noundef %status) unnamed_addr #8 {
 entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
@@ -23361,7 +23361,7 @@ entry:
 sw.bb1.i:                                         ; preds = %entry
   %cmp.i = icmp ugt i64 %rnd, 4
   %conv.i = zext i1 %cmp.i to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb2.i:                                         ; preds = %entry
   %cmp3.i = icmp ugt i64 %rnd, 5
@@ -23377,7 +23377,7 @@ land.rhs.i:                                       ; preds = %lor.rhs.i
   %2 = load i64, ptr %1, align 8
   %3 = trunc i64 %2 to i32
   %4 = and i32 %3, 1
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb7.i:                                         ; preds = %entry
   %cmp8.i = icmp eq i64 %rnd, 0
@@ -23388,7 +23388,7 @@ lor.rhs10.i:                                      ; preds = %sw.bb7.i
   %6 = and i8 %5, 1
   %7 = xor i8 %6, 1
   %8 = zext nneg i8 %7 to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb15.i:                                        ; preds = %entry
   %cmp16.i = icmp eq i64 %rnd, 0
@@ -23398,17 +23398,17 @@ lor.rhs18.i:                                      ; preds = %sw.bb15.i
   %9 = load i8, ptr %dec, align 8
   %10 = and i8 %9, 1
   %11 = zext nneg i8 %10 to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb25.i:                                        ; preds = %entry
   %cmp26.i = icmp ugt i64 %rnd, 5
   %conv27.i = zext i1 %cmp26.i to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb28.i:                                        ; preds = %entry
   %cmp29.i = icmp ne i64 %rnd, 0
   %lnot.ext32.i = zext i1 %cmp29.i to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
 sw.bb33.i:                                        ; preds = %entry
   %cmp36.i = icmp eq i64 %rnd, 0
@@ -23423,14 +23423,14 @@ land.rhs38.i:                                     ; preds = %sw.bb33.i
   %cmp42.i = icmp eq i64 %rem.i.i, 5
   %14 = or i1 %cmp39.i, %cmp42.i
   %15 = zext i1 %14 to i32
-  br label %_mpd_rnd_incr.argprom.exit
+  br label %_mpd_rnd_incr.exit
 
-_mpd_rnd_incr.argprom.exit:                       ; preds = %sw.bb1.i, %land.rhs.i, %lor.rhs10.i, %lor.rhs18.i, %sw.bb25.i, %sw.bb28.i, %land.rhs38.i
+_mpd_rnd_incr.exit:                               ; preds = %sw.bb1.i, %land.rhs.i, %lor.rhs10.i, %lor.rhs18.i, %sw.bb25.i, %sw.bb28.i, %land.rhs38.i
   %retval.0.i = phi i32 [ %lnot.ext32.i, %sw.bb28.i ], [ %conv27.i, %sw.bb25.i ], [ %conv.i, %sw.bb1.i ], [ %4, %land.rhs.i ], [ %8, %lor.rhs10.i ], [ %11, %lor.rhs18.i ], [ %15, %land.rhs38.i ]
   %tobool.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool.not, label %return, label %if.then
 
-if.then:                                          ; preds = %sw.bb2.i, %_mpd_rnd_incr.argprom.exit
+if.then:                                          ; preds = %sw.bb2.i, %_mpd_rnd_incr.exit
   %data = getelementptr inbounds i8, ptr %dec, i64 40
   %16 = load ptr, ptr %data, align 8
   %len = getelementptr inbounds i8, ptr %dec, i64 24
@@ -23535,8 +23535,8 @@ mpd_seterror.exit:                                ; preds = %if.then13, %land.lh
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i)
   br label %return
 
-return:                                           ; preds = %entry, %sw.bb33.i, %sw.bb15.i, %sw.bb7.i, %lor.rhs.i, %_mpd_rnd_incr.argprom.exit, %if.end12, %mpd_qresize.exit, %mpd_seterror.exit
-  %retval.0 = phi i32 [ 0, %mpd_seterror.exit ], [ 0, %mpd_qresize.exit ], [ 1, %if.end12 ], [ 1, %_mpd_rnd_incr.argprom.exit ], [ 1, %lor.rhs.i ], [ 1, %sw.bb7.i ], [ 1, %sw.bb15.i ], [ 1, %sw.bb33.i ], [ 1, %entry ]
+return:                                           ; preds = %entry, %sw.bb33.i, %sw.bb15.i, %sw.bb7.i, %lor.rhs.i, %_mpd_rnd_incr.exit, %if.end12, %mpd_qresize.exit, %mpd_seterror.exit
+  %retval.0 = phi i32 [ 0, %mpd_seterror.exit ], [ 0, %mpd_qresize.exit ], [ 1, %if.end12 ], [ 1, %_mpd_rnd_incr.exit ], [ 1, %lor.rhs.i ], [ 1, %sw.bb7.i ], [ 1, %sw.bb15.i ], [ 1, %sw.bb33.i ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -24151,7 +24151,7 @@ if.end48:                                         ; preds = %if.end44
 if.then53:                                        ; preds = %if.end48
   %q.val = load i64, ptr %len4, align 8
   %q.val69 = load ptr, ptr %data6, align 8
-  %call54 = call fastcc i32 @mpd_coeff_isallnine.argprom(i64 %q.val, ptr %q.val69)
+  %call54 = call fastcc i32 @mpd_coeff_isallnine(i64 %q.val, ptr %q.val69)
   %75 = load i64, ptr %digits3, align 8
   %call56 = call i32 @mpd_isodd(ptr noundef nonnull %q)
   call void @mpd_maxcontext(ptr noundef nonnull %workctx) #28
@@ -24253,7 +24253,7 @@ return:                                           ; preds = %if.then28, %mpd_set
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @mpd_coeff_isallnine.argprom(i64 %dec.24.val, ptr nocapture readonly %dec.40.val) unnamed_addr #14 {
+define internal fastcc range(i32 0, 2) i32 @mpd_coeff_isallnine(i64 %dec.24.val, ptr nocapture readonly %dec.40.val) unnamed_addr #14 {
 entry:
   %0 = getelementptr i64, ptr %dec.40.val, i64 %dec.24.val
   %arrayidx.i = getelementptr i8, ptr %0, i64 -8
@@ -24607,7 +24607,7 @@ if.end21:                                         ; preds = %if.else
   store i64 %exp, ptr %exp22, align 8
   %45 = getelementptr i8, ptr %ctx, i64 36
   %ctx.val = load i32, ptr %45, align 4
-  tail call fastcc void @_mpd_apply_round_excess.argprom(ptr noundef %result, i64 noundef %call18, i32 %ctx.val, ptr noundef %status)
+  tail call fastcc void @_mpd_apply_round_excess(ptr noundef %result, i64 noundef %call18, i32 %ctx.val, ptr noundef %status)
   %46 = load i32, ptr %status, align 4
   %or = or i32 %46, 4096
   store i32 %or, ptr %status, align 4
@@ -24953,7 +24953,7 @@ if.then22:                                        ; preds = %if.end18
   %cmp20 = icmp eq i32 %action, 0
   %45 = getelementptr i8, ptr %ctx, i64 36
   %ctx.val = load i32, ptr %45, align 4
-  tail call fastcc void @_mpd_apply_round_excess.argprom(ptr noundef nonnull %result, i64 noundef %call15, i32 %ctx.val, ptr noundef %status)
+  tail call fastcc void @_mpd_apply_round_excess(ptr noundef nonnull %result, i64 noundef %call15, i32 %ctx.val, ptr noundef %status)
   br i1 %cmp20, label %if.then24, label %if.end30
 
 if.then24:                                        ; preds = %if.then22
@@ -25865,7 +25865,7 @@ if.end.i138.i:                                    ; preds = %if.then.i137.i
   %122 = and i8 %121, 1
   %conv.i139.i = xor i8 %122, 1
   %a.val.i.i = load i8, ptr %three.i, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef nonnull %t.i, i8 %a.val.i.i, ptr noundef nonnull %t.i, i8 noundef zeroext %conv.i139.i, ptr noundef nonnull %workstatus.i)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef nonnull %t.i, i8 %a.val.i.i, ptr noundef nonnull %t.i, i8 noundef zeroext %conv.i139.i, ptr noundef nonnull %workstatus.i)
   br label %mpd_qsub.exit.i
 
 if.end8.i.i:                                      ; preds = %lor.lhs.false.i.i
@@ -28518,7 +28518,7 @@ return:                                           ; preds = %if.end.thread, %_co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mpd_qsshiftr.argelim(ptr noundef nonnull %result, ptr noundef readonly %a, i64 noundef %n) unnamed_addr #8 {
+define internal fastcc void @mpd_qsshiftr(ptr noundef nonnull %result, ptr noundef readonly %a, i64 noundef %n) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
@@ -30144,7 +30144,7 @@ if.end.i:                                         ; preds = %if.then.i
   %5 = and i8 %4, 1
   %conv.i = xor i8 %5, 1
   %a.val.i = load i8, ptr %a, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %b, i8 noundef zeroext %conv.i, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %b, i8 noundef zeroext %conv.i, ptr noundef nonnull %workstatus)
   br label %mpd_qsub.exit
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i
@@ -30241,7 +30241,7 @@ if.end.i:                                         ; preds = %if.then.i
   %4 = load i8, ptr %b, align 8
   %5 = and i8 %4, 1
   %a.val.i = load i8, ptr %a, align 8
-  call fastcc void @_mpd_qaddsub_inf.argprom(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %b, i8 noundef zeroext %5, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %b, i8 noundef zeroext %5, ptr noundef nonnull %workstatus)
   br label %mpd_qadd.exit
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i

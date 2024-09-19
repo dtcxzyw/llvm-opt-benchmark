@@ -2439,7 +2439,7 @@ define dso_local void @_ZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenE(ptr
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %2
-  tail call fastcc void @"_ZZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenEENK3$_0clEv.argprom"(ptr nonnull %0, ptr nonnull %1)
+  tail call fastcc void @"_ZZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenEENK3$_0clEv"(ptr nonnull %0, ptr nonnull %1)
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
 12:                                               ; preds = %2
@@ -3027,7 +3027,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %201, %203
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
 322:                                              ; preds = %100
-  tail call fastcc void @"_ZZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenEENK3$_0clEv.argprom"(ptr nonnull %0, ptr nonnull %1)
+  tail call fastcc void @"_ZZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenEENK3$_0clEv"(ptr nonnull %0, ptr nonnull %1)
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
 _ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit: ; preds = %55, %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.thread.i, %304, %308, %307, %322, %284, %278, %274, %270, %249, %223, %159, %134, %111, %85, %84, %_ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit, %15, %11
@@ -3035,7 +3035,7 @@ _ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit: ; preds = %55,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenEENK3$_0clEv.argprom"(ptr nocapture %.0.val, ptr nocapture writeonly %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenEENK3$_0clEv"(ptr nocapture %.0.val, ptr nocapture writeonly %.8.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
   %2 = load ptr, ptr %1, align 8
   %3 = load i8, ptr %2, align 1

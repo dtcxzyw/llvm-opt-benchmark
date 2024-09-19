@@ -233,7 +233,7 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEED2Ev.exit: ; preds 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val = load ptr, ptr %18, align 8
   %.not.i.i.i2 = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i2, label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EED2Ev.argprom.exit, label %19
+  br i1 %.not.i.i.i2, label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EED2Ev.exit, label %19
 
 19:                                               ; preds = %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEED2Ev.exit
   %20 = getelementptr inbounds i8, ptr %0, i64 80
@@ -242,9 +242,9 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEED2Ev.exit: ; preds 
   %22 = ptrtoint ptr %.val to i64
   %23 = sub i64 %21, %22
   tail call void @_ZdlPvm(ptr noundef nonnull %.val, i64 noundef %23) #16
-  br label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EED2Ev.argprom.exit
+  br label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EED2Ev.argprom.exit: ; preds = %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEED2Ev.exit, %19
+_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EED2Ev.exit: ; preds = %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEED2Ev.exit, %19
   tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #13
   ret void
 }
@@ -429,16 +429,16 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM20run
   %49 = icmp ule i64 %47, %48
   tail call void @llvm.assume(i1 %49)
   %.not23.i.i = icmp ult i64 %47, %42
-  br i1 %.not23.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19BlockDataEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i
+  br i1 %.not23.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.exit.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19BlockDataEmS1_ET_S3_T0_RSaIT1_E.exit.i.i
 
-_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19BlockDataEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i: ; preds = %41
+_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19BlockDataEmS1_ET_S3_T0_RSaIT1_E.exit.i.i: ; preds = %41
   %50 = mul nuw nsw i64 %42, 13
   tail call void @llvm.memset.p0.i64(ptr align 1 %.val4.i, i8 0, i64 %50, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.val4.i, i64 %50
   store ptr %scevgep.i.i.i.i.i, ptr %35, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit
 
-_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %41
+_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %41
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %39, i64 %42)
   %51 = add nuw nsw i64 %.sroa.speculated.i.i.i, %39
   %52 = mul nuw nsw i64 %51, 13
@@ -447,27 +447,27 @@ _ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.argprom.exit
   %55 = mul nuw nsw i64 %42, 13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %54, i8 0, i64 %55, i1 false)
   %.not1.i.i.i.i.i = icmp eq ptr %.val.i, %.val4.i
-  br i1 %.not1.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %.not1.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.03.i.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i.i ], [ %53, %_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
-  %.092.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i ], [ %.val.i, %_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
+  %.03.i.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i.i ], [ %53, %_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.092.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i ], [ %.val.i, %_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.03.i.i.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(13) %.092.i.i.i.i.i, i64 13, i1 false), !alias.scope !6
   %56 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i, i64 13
   %57 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i, i64 13
   %.not.i.i.i.i.i = icmp eq ptr %56, %.val4.i
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
 
-_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i
+_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %.not.i33.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i33.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i, label %58
+  br i1 %.not.i33.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.exit.i.i, label %58
 
-58:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i
+58:                                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
   %59 = sub i64 %45, %37
   tail call void @_ZdlPvm(ptr noundef nonnull %.val.i, i64 noundef %59) #16
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.exit.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i: ; preds = %58, %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.exit.i.i: ; preds = %58, %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
   store ptr %53, ptr %25, align 8
   %60 = getelementptr inbounds %"struct.(anonymous namespace)::BlockData", ptr %54, i64 %42
   store ptr %60, ptr %35, align 8
@@ -488,17 +488,17 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.argp
   store ptr %65, ptr %35, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19BlockDataEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i, %62, %64, %66
-  %67 = phi ptr [ %scevgep.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19BlockDataEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i ], [ %60, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i ], [ %.val4.i, %62 ], [ %.val4.i, %64 ], [ %65, %66 ]
+_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19BlockDataEmS1_ET_S3_T0_RSaIT1_E.exit.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.exit.i.i, %62, %64, %66
+  %67 = phi ptr [ %scevgep.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19BlockDataEmS1_ET_S3_T0_RSaIT1_E.exit.i.i ], [ %60, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19BlockDataESaIS1_EE13_M_deallocateEPS1_m.exit.i.i ], [ %.val4.i, %62 ], [ %.val4.i, %64 ], [ %65, %66 ]
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0153.0167 = load ptr, ptr %68, align 8
   %.not168 = icmp eq ptr %.sroa.0153.0167, %69
   br i1 %.not168, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit, %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.argprom.exit
-  %.sroa.0153.0170 = phi ptr [ %.sroa.0153.0, %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.argprom.exit ], [ %.sroa.0153.0167, %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit ]
-  %.027169 = phi i1 [ %137, %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.argprom.exit ], [ false, %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit, %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.exit
+  %.sroa.0153.0170 = phi ptr [ %.sroa.0153.0, %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.exit ], [ %.sroa.0153.0167, %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit ]
+  %.027169 = phi i1 [ %137, %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.exit ], [ false, %_ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit ]
   %.val29 = load ptr, ptr %25, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.0153.0170, i64 24
   %71 = load i32, ptr %70, align 8
@@ -508,7 +508,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit: ; preds = %_ZSt27
   %75 = getelementptr inbounds i8, ptr %.sroa.0153.0170, i64 48
   %.sroa.02.010.i = load ptr, ptr %74, align 8
   %.not11.i = icmp eq ptr %.sroa.02.010.i, %75
-  br i1 %.not11.i, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.argprom.exit, label %.lr.ph.i
+  br i1 %.not11.i, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %76 = getelementptr i8, ptr %73, i64 1
@@ -525,9 +525,9 @@ _ZNSt6vectorIN12_GLOBAL__N_19BlockDataESaIS1_EE6resizeEm.exit: ; preds = %_ZSt27
   %.val23.i = load i64, ptr %82, align 8
   %83 = and i64 %.val23.i, 1572864
   %or.cond.i.i = icmp eq i64 %83, 1572864
-  br i1 %or.cond.i.i, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.i, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i
+  br i1 %or.cond.i.i, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.i, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i
 
-_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.i: ; preds = %79
+_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.i: ; preds = %79
   %84 = getelementptr i8, ptr %81, i64 2
   %.val22.i = load i16, ptr %84, align 2
   %85 = and i64 %.val23.i, 32768
@@ -536,9 +536,9 @@ _ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.i: ; preds = %7
   %87 = select i1 %.not.i.i.i, i32 -3, i32 -4
   %88 = add nsw i32 %87, %86
   %89 = icmp sgt i32 %88, -1
-  br i1 %89, label %90, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i
+  br i1 %89, label %90, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i
 
-90:                                               ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.i
+90:                                               ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.i
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.02.013.i, i64 68
   %92 = load i16, ptr %91, align 4
   %93 = zext i16 %92 to i32
@@ -559,7 +559,7 @@ _ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i:   ; preds = %90, %90
   %97 = getelementptr inbounds i8, ptr %96, i64 112
   %98 = load i64, ptr %97, align 8
   %99 = icmp eq i64 %98, 0
-  br i1 %99, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i, label %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread.i
+  br i1 %99, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i, label %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread.i
 
 _ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread.i: ; preds = %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i, %._ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread_crit_edge.i
   %100 = phi ptr [ %.pre.i, %._ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread_crit_edge.i ], [ %96, %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i ]
@@ -580,7 +580,7 @@ _ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread._crit_edge.i: ; preds = %105
   store i8 %104, ptr %78, align 1
   br label %.sink.split.i
 
-_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i: ; preds = %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i, %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.i, %79
+_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i: ; preds = %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i, %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.i, %79
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.02.013.i, i64 44
   %107 = load i32, ptr %106, align 4
   %108 = and i32 %107, 12
@@ -590,7 +590,7 @@ _ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i: ; pre
   %or.cond.i.i.i = or i1 %109, %111
   br i1 %or.cond.i.i.i, label %112, label %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i
 
-112:                                              ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i
+112:                                              ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i
   %113 = load ptr, ptr %80, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load i64, ptr %114, align 8
@@ -598,7 +598,7 @@ _ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i: ; pre
   %.not6.i = icmp eq i64 %116, 0
   br i1 %.not6.i, label %118, label %124
 
-_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i: ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i
+_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i: ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i
   %117 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.02.013.i, i64 noundef 128, i32 noundef 1) #13
   br i1 %117, label %124, label %118
 
@@ -658,9 +658,9 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i: ; pred
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
   %.sroa.02.0.i = load ptr, ptr %136, align 8
   %.not.i = icmp eq ptr %.sroa.02.0.i, %75
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.argprom.exit, label %79
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.exit, label %79
 
-_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.argprom.exit: ; preds = %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i, %.lr.ph
+_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.exit: ; preds = %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i, %.lr.ph
   %.0.lcssa.i = phi i1 [ false, %.lr.ph ], [ %.1.i, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i ]
   %137 = or i1 %.027169, %.0.lcssa.i
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.0153.0170, i64 8
@@ -668,7 +668,7 @@ _ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBas
   %.not = icmp eq ptr %.sroa.0153.0, %69
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.argprom.exit
+._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeVXRMChangesERKN4llvm17MachineBasicBlockE.exit
   br i1 %137, label %.preheader162, label %._crit_edge..critedge_crit_edge
 
 ._crit_edge..critedge_crit_edge:                  ; preds = %._crit_edge
@@ -836,9 +836,9 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE3popEv.exit: ; pred
   %205 = icmp ne i8 %.val7.i.i, 2
   %.not.i.i.i35 = icmp eq i8 %.sroa.10.186.i, %.val7.i.i
   %or.cond.i.i36 = and i1 %205, %.not.i.i.i35
-  br i1 %or.cond.i.i36, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i.i, label %_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i
+  br i1 %or.cond.i.i36, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i, label %_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i
 
-_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i.i: ; preds = %204
+_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i:     ; preds = %204
   %.val12.i.i = load i8, ptr %199, align 1
   %206 = icmp ne i8 %.sroa.10.186.i, 1
   %207 = icmp eq i8 %.sroa.049.185.i, %.val12.i.i
@@ -850,8 +850,8 @@ _ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i.i: ; preds = %204
   %spec.select.i.i37 = select i1 %spec.select.i.i.i, i16 %.sroa.049.0.insert.insert57.i, i16 512
   br label %_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i
 
-_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i.i, %204, %203, %202, %201
-  %.sroa.0.0.i.i = phi i16 [ %.sroa.0.0.copyload5.i.i, %203 ], [ %.sroa.049.0.insert.insert60.i, %201 ], [ 512, %204 ], [ 512, %202 ], [ %spec.select.i.i37, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i.i ]
+_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i, %204, %203, %202, %201
+  %.sroa.0.0.i.i = phi i16 [ %.sroa.0.0.copyload5.i.i, %203 ], [ %.sroa.049.0.insert.insert60.i, %201 ], [ 512, %204 ], [ 512, %202 ], [ %spec.select.i.i37, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i ]
   %.sroa.049.0.extract.trunc.i = trunc i16 %.sroa.0.0.i.i to i8
   %.sroa.10.0.extract.shift.i = lshr i16 %.sroa.0.0.i.i, 8
   %.sroa.10.0.extract.trunc.i = trunc nuw i16 %.sroa.10.0.extract.shift.i to i8
@@ -870,16 +870,16 @@ _ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i: ; preds = %_ZNK12_GLOBAL__N_
   %210 = getelementptr i8, ptr %186, i64 5
   %.val39.i = load i8, ptr %210, align 1
   %.not.i.i40.i = icmp eq i8 %.sroa.10.079.i, %.val39.i
-  br i1 %.not.i.i40.i, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.i, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i
+  br i1 %.not.i.i40.i, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.i, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.thread.i
 
-_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.i: ; preds = %.thread.i
+_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.i:       ; preds = %.thread.i
   %.val38.i = load i8, ptr %209, align 1
   %211 = icmp eq i8 %.sroa.10.079.i, 1
   %212 = icmp ne i8 %.sroa.049.078.i, %.val38.i
   %spec.select.i.not.i.i = select i1 %211, i1 %212, i1 false
-  br i1 %spec.select.i.not.i.i, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i, label %213
+  br i1 %spec.select.i.not.i.i, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.thread.i, label %213
 
-_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.i, %.thread.i
+_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.i, %.thread.i
   %.sroa.10.0.insert.ext.i = zext i8 %.sroa.10.079.i to i16
   %.sroa.10.0.insert.shift.i = shl nuw i16 %.sroa.10.0.insert.ext.i, 8
   %.sroa.049.0.insert.ext.i = zext i8 %.sroa.049.078.i to i16
@@ -887,7 +887,7 @@ _ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i: ; preds = %_ZNK12_GLO
   store i16 %.sroa.049.0.insert.insert.i, ptr %209, align 1
   br label %213
 
-213:                                              ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i, %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.i
+213:                                              ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.thread.i, %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.i
   %214 = getelementptr i8, ptr %186, i64 3
   %.val31.i = load i8, ptr %214, align 1
   %.not83.i = icmp eq i8 %.val31.i, 0
@@ -908,16 +908,16 @@ _ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i: ; preds = %_ZNK12_GLO
   %220 = getelementptr i8, ptr %186, i64 7
   %.val35.i = load i8, ptr %220, align 1
   %.not.i42.i = icmp eq i8 %.sroa.10.2.i, %.val35.i
-  br i1 %.not.i42.i, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i
+  br i1 %.not.i42.i, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i
 
-_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i: ; preds = %218
+_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i:       ; preds = %218
   %.val34.i = load i8, ptr %219, align 1
   %221 = icmp ne i8 %.sroa.10.2.i, 1
   %222 = icmp eq i8 %.sroa.049.2.i, %.val34.i
   %spec.select.i43.i = select i1 %221, i1 true, i1 %222
-  br i1 %spec.select.i43.i, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM16computeAvailableERKN4llvm17MachineBasicBlockE.exit, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i
+  br i1 %spec.select.i43.i, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM16computeAvailableERKN4llvm17MachineBasicBlockE.exit, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i
 
-_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i, %218
+_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i, %218
   %.sroa.10.0.insert.ext64.i = zext i8 %.sroa.10.2.i to i16
   %.sroa.10.0.insert.shift65.i = shl nuw i16 %.sroa.10.0.insert.ext64.i, 8
   %.sroa.049.0.insert.ext52.i = zext i8 %.sroa.049.2.i to i16
@@ -930,8 +930,8 @@ _ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i: ; preds = %_ZNK12_GLO
   %.not2689.i = icmp eq i64 %225, 0
   br i1 %.not2689.i, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM16computeAvailableERKN4llvm17MachineBasicBlockE.exit, label %.lr.ph91.i
 
-.lr.ph91.i:                                       ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i, %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i
-  %.02590.i = phi ptr [ %243, %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i ], [ %224, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i ]
+.lr.ph91.i:                                       ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i, %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i
+  %.02590.i = phi ptr [ %243, %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i ], [ %224, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i ]
   %227 = load ptr, ptr %.02590.i, align 8
   store ptr %227, ptr %11, align 8
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 24
@@ -968,7 +968,7 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i:
   %.not26.i = icmp eq ptr %243, %226
   br i1 %.not26.i, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM16computeAvailableERKN4llvm17MachineBasicBlockE.exit, label %.lr.ph91.i
 
-_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM16computeAvailableERKN4llvm17MachineBasicBlockE.exit: ; preds = %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i, %190, %._crit_edge.i, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i
+_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM16computeAvailableERKN4llvm17MachineBasicBlockE.exit: ; preds = %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i, %190, %._crit_edge.i, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %244 = load ptr, ptr %145, align 8
   %245 = load ptr, ptr %146, align 8
@@ -1125,9 +1125,9 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE3popEv.exit43: ; pr
   %309 = icmp ne i8 %.val7.i.i51, 2
   %.not.i.i.i99 = icmp eq i8 %.sroa.10.186.i49, %.val7.i.i51
   %or.cond.i.i100 = and i1 %309, %.not.i.i.i99
-  br i1 %or.cond.i.i100, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i.i101, label %_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i53
+  br i1 %or.cond.i.i100, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i101, label %_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i53
 
-_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i.i101: ; preds = %308
+_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i101:  ; preds = %308
   %.val12.i.i102 = load i8, ptr %303, align 1
   %310 = icmp ne i8 %.sroa.10.186.i49, 1
   %311 = icmp eq i8 %.sroa.049.185.i50, %.val12.i.i102
@@ -1139,8 +1139,8 @@ _ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i.i101: ; preds = %308
   %spec.select.i.i108 = select i1 %spec.select.i.i.i103, i16 %.sroa.049.0.insert.insert57.i107, i16 512
   br label %_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i53
 
-_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i53: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i.i101, %308, %307, %306, %305
-  %.sroa.0.0.i.i54 = phi i16 [ %.sroa.0.0.copyload5.i.i98, %307 ], [ %.sroa.049.0.insert.insert60.i112, %305 ], [ 512, %308 ], [ 512, %306 ], [ %spec.select.i.i108, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i.i101 ]
+_ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i53: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i101, %308, %307, %306, %305
+  %.sroa.0.0.i.i54 = phi i16 [ %.sroa.0.0.copyload5.i.i98, %307 ], [ %.sroa.049.0.insert.insert60.i112, %305 ], [ 512, %308 ], [ 512, %306 ], [ %spec.select.i.i108, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i.i101 ]
   %.sroa.049.0.extract.trunc.i55 = trunc i16 %.sroa.0.0.i.i54 to i8
   %.sroa.10.0.extract.shift.i56 = lshr i16 %.sroa.0.0.i.i54, 8
   %.sroa.10.0.extract.trunc.i57 = trunc nuw i16 %.sroa.10.0.extract.shift.i56 to i8
@@ -1159,16 +1159,16 @@ _ZNK12_GLOBAL__N_18VXRMInfo9intersectERKS0_.exit.i53: ; preds = %_ZNK12_GLOBAL__
   %314 = getelementptr i8, ptr %290, i64 11
   %.val39.i64 = load i8, ptr %314, align 1
   %.not.i.i40.i65 = icmp eq i8 %.sroa.10.079.i62, %.val39.i64
-  br i1 %.not.i.i40.i65, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.i95, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i66
+  br i1 %.not.i.i40.i65, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.i95, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.thread.i66
 
-_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.i95: ; preds = %.thread.i61
+_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.i95:     ; preds = %.thread.i61
   %.val38.i96 = load i8, ptr %313, align 1
   %315 = icmp eq i8 %.sroa.10.079.i62, 1
   %316 = icmp ne i8 %.sroa.049.078.i63, %.val38.i96
   %spec.select.i.not.i.i97 = select i1 %315, i1 %316, i1 false
-  br i1 %spec.select.i.not.i.i97, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i66, label %317
+  br i1 %spec.select.i.not.i.i97, label %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.thread.i66, label %317
 
-_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i66: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.i95, %.thread.i61
+_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.thread.i66: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.i95, %.thread.i61
   %.sroa.10.0.insert.ext.i67 = zext i8 %.sroa.10.079.i62 to i16
   %.sroa.10.0.insert.shift.i68 = shl nuw i16 %.sroa.10.0.insert.ext.i67, 8
   %.sroa.049.0.insert.ext.i69 = zext i8 %.sroa.049.078.i63 to i16
@@ -1176,7 +1176,7 @@ _ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i66: ; preds = %_ZNK12_G
   store i16 %.sroa.049.0.insert.insert.i70, ptr %313, align 1
   br label %317
 
-317:                                              ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i66, %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.i95
+317:                                              ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.thread.i66, %_ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.exit.i95
   %318 = getelementptr i8, ptr %290, i64 1
   %.val31.i71 = load i8, ptr %318, align 1
   %.not83.i72 = icmp eq i8 %.val31.i71, 0
@@ -1196,16 +1196,16 @@ _ZNK12_GLOBAL__N_18VXRMInfoneERKS0_.argprom.exit.thread.i66: ; preds = %_ZNK12_G
   %323 = getelementptr i8, ptr %290, i64 9
   %.val35.i78 = load i8, ptr %323, align 1
   %.not.i42.i79 = icmp eq i8 %.sroa.10.2.i77, %.val35.i78
-  br i1 %.not.i42.i79, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i92, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i80
+  br i1 %.not.i42.i79, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i92, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i80
 
-_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i92: ; preds = %321
+_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i92:     ; preds = %321
   %.val34.i93 = load i8, ptr %322, align 1
   %324 = icmp ne i8 %.sroa.10.2.i77, 1
   %325 = icmp eq i8 %.sroa.049.2.i76, %.val34.i93
   %spec.select.i43.i94 = select i1 %324, i1 true, i1 %325
-  br i1 %spec.select.i43.i94, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeAnticipatedERKN4llvm17MachineBasicBlockE.exit, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i80
+  br i1 %spec.select.i43.i94, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeAnticipatedERKN4llvm17MachineBasicBlockE.exit, label %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i80
 
-_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i80: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i92, %321
+_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i80: ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i92, %321
   %.sroa.10.0.insert.ext64.i81 = zext i8 %.sroa.10.2.i77 to i16
   %.sroa.10.0.insert.shift65.i82 = shl nuw i16 %.sroa.10.0.insert.ext64.i81, 8
   %.sroa.049.0.insert.ext52.i83 = zext i8 %.sroa.049.2.i76 to i16
@@ -1218,8 +1218,8 @@ _ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i80: ; preds = %_ZNK12_G
   %.not2689.i85 = icmp eq i64 %328, 0
   br i1 %.not2689.i85, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeAnticipatedERKN4llvm17MachineBasicBlockE.exit, label %.lr.ph91.i86
 
-.lr.ph91.i86:                                     ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i80, %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i90
-  %.02590.i87 = phi ptr [ %346, %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i90 ], [ %327, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i80 ]
+.lr.ph91.i86:                                     ; preds = %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i80, %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i90
+  %.02590.i87 = phi ptr [ %346, %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i90 ], [ %327, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i80 ]
   %330 = load ptr, ptr %.02590.i87, align 8
   store ptr %330, ptr %10, align 8
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 24
@@ -1256,7 +1256,7 @@ _ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i9
   %.not26.i91 = icmp eq ptr %346, %329
   br i1 %.not26.i91, label %_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeAnticipatedERKN4llvm17MachineBasicBlockE.exit, label %.lr.ph91.i86
 
-_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeAnticipatedERKN4llvm17MachineBasicBlockE.exit: ; preds = %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i90, %294, %._crit_edge.i59, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.i92, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.argprom.exit.thread.i80
+_ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeAnticipatedERKN4llvm17MachineBasicBlockE.exit: ; preds = %_ZNSt5queueIPKN4llvm17MachineBasicBlockESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit.i90, %294, %._crit_edge.i59, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.i92, %_ZNK12_GLOBAL__N_18VXRMInfoeqERKS0_.exit.thread.i80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %347 = load ptr, ptr %145, align 8
   %348 = load ptr, ptr %146, align 8
@@ -1359,9 +1359,9 @@ _ZN12_GLOBAL__N_120RISCVInsertWriteVXRM18computeAnticipatedERKN4llvm17MachineBas
   %.val50.i = load i64, ptr %389, align 8
   %390 = and i64 %.val50.i, 1572864
   %or.cond.i.i113 = icmp eq i64 %390, 1572864
-  br i1 %or.cond.i.i113, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.i125, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i114
+  br i1 %or.cond.i.i113, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.i125, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i114
 
-_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.i125: ; preds = %.lr.ph107.i
+_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.i125: ; preds = %.lr.ph107.i
   %391 = getelementptr i8, ptr %388, i64 2
   %.val49.i = load i16, ptr %391, align 2
   %392 = and i64 %.val50.i, 32768
@@ -1370,9 +1370,9 @@ _ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.i125: ; preds =
   %394 = select i1 %.not.i.i.i126, i32 -3, i32 -4
   %395 = add nsw i32 %394, %393
   %396 = icmp sgt i32 %395, -1
-  br i1 %396, label %397, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i114
+  br i1 %396, label %397, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i114
 
-397:                                              ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.i125
+397:                                              ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.i125
   %398 = getelementptr inbounds nuw i8, ptr %.sroa.079.0106.i, i64 68
   %399 = load i16, ptr %398, align 4
   %400 = zext i16 %399 to i32
@@ -1393,7 +1393,7 @@ _ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i127: ; preds = %397, %397
   %404 = getelementptr inbounds i8, ptr %403, i64 112
   %405 = load i64, ptr %404, align 8
   %406 = icmp eq i64 %405, 0
-  br i1 %406, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i114, label %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread.i128
+  br i1 %406, label %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i114, label %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread.i128
 
 _ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread.i128: ; preds = %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i127, %._ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread_crit_edge.i132
   %407 = phi ptr [ %.pre.i134, %._ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread_crit_edge.i132 ], [ %403, %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i127 ]
@@ -1491,7 +1491,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %438, %_ZN4llvm10MIM
   %439 = trunc i64 %410 to i8
   br label %459
 
-_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i114: ; preds = %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i127, %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.i125, %.lr.ph107.i
+_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i114: ; preds = %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.i127, %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.i125, %.lr.ph107.i
   %440 = getelementptr inbounds nuw i8, ptr %.sroa.079.0106.i, i64 44
   %441 = load i32, ptr %440, align 4
   %442 = and i32 %441, 12
@@ -1501,7 +1501,7 @@ _ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i114: ; 
   %or.cond.i.i.i115 = or i1 %443, %445
   br i1 %or.cond.i.i.i115, label %446, label %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i116
 
-446:                                              ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i114
+446:                                              ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i114
   %447 = load ptr, ptr %387, align 8
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 16
   %449 = load i64, ptr %448, align 8
@@ -1509,7 +1509,7 @@ _ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i114: ; 
   %.not93.i = icmp eq i64 %450, 0
   br i1 %.not93.i, label %452, label %458
 
-_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i116: ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.argprom.exit.thread.i114
+_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i116: ; preds = %_ZN4llvm7RISCVIIL12getVXRMOpNumERKNS_11MCInstrDescE.exit.thread.i114
   %451 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.079.0106.i, i64 noundef 128, i32 noundef 1) #13
   br i1 %451, label %458, label %452
 
@@ -2171,9 +2171,9 @@ attributes #16 = { builtin nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{!7, !9}
-!7 = distinct !{!7, !8, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_19BlockDataES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_19BlockDataES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
-!9 = distinct !{!9, !8, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_19BlockDataES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
+!7 = distinct !{!7, !8, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_19BlockDataES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!8 = distinct !{!8, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_19BlockDataES1_SaIS1_EEvPT_PT0_RT1_"}
+!9 = distinct !{!9, !8, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_19BlockDataES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}

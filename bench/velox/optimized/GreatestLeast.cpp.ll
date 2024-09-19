@@ -26280,10 +26280,10 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
   tail call void @llvm.trap()
   unreachable
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.argprom.exit24
-  %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.argprom.exit24 ]
-  %valueIndex.035 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.argprom.exit24 ]
-  %currentValue.034 = phi double [ %8, %for.body.lr.ph ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.argprom.exit24 ]
+for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24
+  %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
+  %valueIndex.035 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
+  %currentValue.034 = phi double [ %8, %for.body.lr.ph ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
   %14 = load ptr, ptr %this, align 8
   %15 = load ptr, ptr %14, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %15, i64 %indvars.iv
@@ -26319,13 +26319,13 @@ _ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22: ; preds = %for.body, %
   %arrayidx.i19 = getelementptr inbounds double, ptr %16, i64 %idxprom.i18
   %22 = load double, ptr %arrayidx.i19, align 8
   %23 = fcmp uno double %22, 0.000000e+00
-  br i1 %23, label %if.then.i23, label %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.argprom.exit24
+  br i1 %23, label %if.then.i23, label %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24
 
 if.then.i23:                                      ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22
   tail call void @llvm.trap()
   unreachable
 
-_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.argprom.exit24: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22
+_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22
   %cmp6 = fcmp olt double %22, %currentValue.034
   %currentValue.1 = select i1 %cmp6, double %22, double %currentValue.034
   %valueIndex.1 = select i1 %cmp6, i64 %indvars.iv, i64 %valueIndex.035
@@ -26341,9 +26341,9 @@ _ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNan
   %cmp = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !239
 
-for.end:                                          ; preds = %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.argprom.exit24, %for.cond.preheader
-  %currentValue.0.lcssa = phi double [ %8, %for.cond.preheader ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.argprom.exit24 ]
-  %valueIndex.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.argprom.exit24 ]
+for.end:                                          ; preds = %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24, %for.cond.preheader
+  %currentValue.0.lcssa = phi double [ %8, %for.cond.preheader ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
+  %valueIndex.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
   %27 = getelementptr inbounds i8, ptr %this, i64 24
   %28 = load ptr, ptr %27, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 16
@@ -41362,10 +41362,10 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
   tail call void @llvm.trap()
   unreachable
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.argprom.exit24
-  %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.argprom.exit24 ]
-  %valueIndex.035 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.argprom.exit24 ]
-  %currentValue.034 = phi double [ %8, %for.body.lr.ph ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.argprom.exit24 ]
+for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24
+  %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
+  %valueIndex.035 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
+  %currentValue.034 = phi double [ %8, %for.body.lr.ph ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
   %14 = load ptr, ptr %this, align 8
   %15 = load ptr, ptr %14, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %15, i64 %indvars.iv
@@ -41401,13 +41401,13 @@ _ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22: ; preds = %for.body, %
   %arrayidx.i19 = getelementptr inbounds double, ptr %16, i64 %idxprom.i18
   %22 = load double, ptr %arrayidx.i19, align 8
   %23 = fcmp uno double %22, 0.000000e+00
-  br i1 %23, label %if.then.i23, label %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.argprom.exit24
+  br i1 %23, label %if.then.i23, label %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24
 
 if.then.i23:                                      ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22
   tail call void @llvm.trap()
   unreachable
 
-_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.argprom.exit24: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22
+_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22
   %cmp6 = fcmp ogt double %22, %currentValue.034
   %currentValue.1 = select i1 %cmp6, double %22, double %currentValue.034
   %valueIndex.1 = select i1 %cmp6, i64 %indvars.iv, i64 %valueIndex.035
@@ -41423,9 +41423,9 @@ _ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNan
   %cmp = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !363
 
-for.end:                                          ; preds = %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.argprom.exit24, %for.cond.preheader
-  %currentValue.0.lcssa = phi double [ %8, %for.cond.preheader ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.argprom.exit24 ]
-  %valueIndex.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.argprom.exit24 ]
+for.end:                                          ; preds = %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24, %for.cond.preheader
+  %currentValue.0.lcssa = phi double [ %8, %for.cond.preheader ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
+  %valueIndex.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
   %27 = getelementptr inbounds i8, ptr %this, i64 24
   %28 = load ptr, ptr %27, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 16

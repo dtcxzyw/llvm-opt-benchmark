@@ -1808,9 +1808,9 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %148, %163, %166
   %171 = call { ptr, ptr } @_ZN4llvm2at20getAssignmentMarkersEPKNS_11InstructionE(ptr noundef nonnull %170)
   %172 = extractvalue { ptr, ptr } %171, 0
   %173 = extractvalue { ptr, ptr } %171, 1
-  call fastcc void @"_ZN4llvm8for_eachINS_14iterator_rangeINS_2at11DbgAssignItEEEZNS_16InstCombinerImpl17SimplifyAnyMemSetEPNS_13AnyMemSetInstEE3$_0EET0_OT_S9_.argprom.retelim"(ptr %172, ptr %173, ptr %83, ptr %159)
+  call fastcc void @"_ZN4llvm8for_eachINS_14iterator_rangeINS_2at11DbgAssignItEEEZNS_16InstCombinerImpl17SimplifyAnyMemSetEPNS_13AnyMemSetInstEE3$_0EET0_OT_S9_"(ptr %172, ptr %173, ptr %83, ptr %159)
   call void @_ZN4llvm2at23getDVRAssignmentMarkersEPKNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.72") align 8 %7, ptr noundef nonnull %170)
-  call fastcc void @"_ZN4llvm8for_eachINS_11SmallVectorIPNS_17DbgVariableRecordELj6EEEZNS_16InstCombinerImpl17SimplifyAnyMemSetEPNS_13AnyMemSetInstEE3$_0EET0_OT_S9_.retelim"(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr %83, ptr %159)
+  call fastcc void @"_ZN4llvm8for_eachINS_11SmallVectorIPNS_17DbgVariableRecordELj6EEEZNS_16InstCombinerImpl17SimplifyAnyMemSetEPNS_13AnyMemSetInstEE3$_0EET0_OT_S9_"(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr %83, ptr %159)
   call void @_ZN4llvm11SmallVectorIPNS_17DbgVariableRecordELj6EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #27
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 2
   %175 = load i16, ptr %174, align 2
@@ -1858,7 +1858,7 @@ declare noundef ptr @_ZN4llvm11ConstantInt3getERNS_11LLVMContextERKNS_5APIntE(pt
 declare void @_ZN4llvm5APInt8getSplatEjRKS0_(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, i32 noundef, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm8for_eachINS_14iterator_rangeINS_2at11DbgAssignItEEEZNS_16InstCombinerImpl17SimplifyAnyMemSetEPNS_13AnyMemSetInstEE3$_0EET0_OT_S9_.argprom.retelim"(ptr readonly %.0.val, ptr readnone %.8.val, ptr nonnull %0, ptr %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm8for_eachINS_14iterator_rangeINS_2at11DbgAssignItEEEZNS_16InstCombinerImpl17SimplifyAnyMemSetEPNS_13AnyMemSetInstEE3$_0EET0_OT_S9_"(ptr readonly %.0.val, ptr readnone %.8.val, ptr nonnull %0, ptr %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::iterator_range.483", align 8
   %.not7.i = icmp eq ptr %.0.val, %.8.val
   br i1 %.not7.i, label %"_ZSt8for_eachIN4llvm2at11DbgAssignItEZNS0_16InstCombinerImpl17SimplifyAnyMemSetEPNS0_13AnyMemSetInstEE3$_0ET0_T_S8_S7_.exit", label %.lr.ph.i
@@ -1960,7 +1960,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit.thread: ; preds = %1, %_ZNK4llvm11Ins
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm8for_eachINS_11SmallVectorIPNS_17DbgVariableRecordELj6EEEZNS_16InstCombinerImpl17SimplifyAnyMemSetEPNS_13AnyMemSetInstEE3$_0EET0_OT_S9_.retelim"(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nonnull %1, ptr %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm8for_eachINS_11SmallVectorIPNS_17DbgVariableRecordELj6EEEZNS_16InstCombinerImpl17SimplifyAnyMemSetEPNS_13AnyMemSetInstEE3$_0EET0_OT_S9_"(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nonnull %1, ptr %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::iterator_range.491", align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
@@ -6563,7 +6563,7 @@ _ZN4llvm8dyn_castINS_12MemIntrinsicENS_15AnyMemIntrinsicEEEDcPT0_.exit.thread: ;
   %617 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %616
   %618 = getelementptr inbounds i8, ptr %617, i64 32
   %619 = load ptr, ptr %618, align 8
-  %620 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_1clEPNS_5ValueE.argprom"(ptr nonnull %1, ptr noundef %619)
+  %620 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_1clEPNS_5ValueE"(ptr nonnull %1, ptr noundef %619)
   br i1 %620, label %631, label %.critedge1279
 
 .thread:                                          ; preds = %605, %575
@@ -6584,7 +6584,7 @@ _ZN4llvm8dyn_castINS_12MemIntrinsicENS_15AnyMemIntrinsicEEEDcPT0_.exit.thread: ;
   %627 = sub nsw i64 0, %626
   %628 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %627
   %629 = load ptr, ptr %628, align 8
-  %630 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_1clEPNS_5ValueE.argprom"(ptr nonnull %1, ptr noundef %629)
+  %630 = call fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_1clEPNS_5ValueE"(ptr nonnull %1, ptr noundef %629)
   br i1 %630, label %631, label %645
 
 631:                                              ; preds = %.critedge1279, %611
@@ -11293,7 +11293,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_11is_zero_intENS
   %3211 = phi ptr [ %3210, %3206 ], [ %3205, %3201 ]
   %.sroa.01892.02495 = phi ptr [ %.sroa.01892.0, %3206 ], [ %.sroa.01892.02492, %3201 ]
   %.010352494 = phi i8 [ %.21037, %3206 ], [ 0, %3201 ]
-  %3212 = call fastcc noundef i32 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_4clEPKNS_11InstructionE.argprom"(ptr noundef %3211)
+  %3212 = call fastcc noundef i32 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_4clEPKNS_11InstructionE"(ptr noundef %3211)
   switch i32 %3212, label %.lr.ph2497.unreachabledefault [
     i32 3, label %.thread2342
     i32 2, label %3213
@@ -11363,7 +11363,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %.thread2342, %3231
 .lr.ph2505:                                       ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %3245
   %3241 = phi ptr [ %3249, %3245 ], [ %3240, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
   %.sroa.01888.02504 = phi ptr [ %.sroa.01888.0, %3245 ], [ %.sroa.01888.02502, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
-  %3242 = call fastcc noundef i32 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_4clEPKNS_11InstructionE.argprom"(ptr noundef %3241)
+  %3242 = call fastcc noundef i32 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_4clEPKNS_11InstructionE"(ptr noundef %3241)
   switch i32 %3242, label %default.unreachable [
     i32 3, label %.critedge
     i32 2, label %3243
@@ -11459,7 +11459,7 @@ _ZNSt8functionIFbRKN4llvm13IntrinsicInstEEED2Ev.exit: ; preds = %3264, %3270
   br i1 %3287, label %3288, label %3290
 
 3288:                                             ; preds = %3272
-  %3289 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_5clEPNS_11InstructionE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %284)
+  %3289 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_5clEPNS_11InstructionE"(ptr noundef nonnull align 8 dereferenceable(24) %284)
   br label %.thread2352
 
 3290:                                             ; preds = %3272
@@ -11606,7 +11606,7 @@ _ZNSt8functionIFbRKN4llvm13IntrinsicInstEEED2Ev.exit: ; preds = %3264, %3270
   call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %3382, i32 noundef 11, ptr noundef %3381) #27
   %3383 = load ptr, ptr %300, align 8
   call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %3383, i32 noundef 29, ptr noundef %3381) #27
-  %3384 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_5clEPNS_11InstructionE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %284)
+  %3384 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_5clEPNS_11InstructionE"(ptr noundef nonnull align 8 dereferenceable(24) %284)
   br label %.thread2352
 
 .critedge97:                                      ; preds = %3366, %3362, %3358, %3373
@@ -11647,9 +11647,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.lr.ph2488
   br i1 %3406, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2349
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_6clERKNS_3UseE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %3402)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_6clERKNS_3UseE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %3402)
   %3407 = getelementptr inbounds i8, ptr %3402, i64 32
-  call fastcc void @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_6clERKNS_3UseE.argprom"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %3407)
+  call fastcc void @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_6clERKNS_3UseE"(ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %3407)
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2349
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread2349:     ; preds = %.lr.ph2488, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
@@ -11700,7 +11700,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread2349:     ; preds = %.lr.ph2488, %_ZN4ll
   call void @_ZN4llvm11Instruction12insertBeforeEPS0_(ptr noundef nonnull align 8 dereferenceable(72) %3432, ptr noundef %3285) #27
   %3434 = load ptr, ptr %3428, align 8
   call void @_ZN4llvm15AssumptionCache18registerAssumptionEPNS_10AssumeInstE(ptr noundef nonnull align 8 dereferenceable(185) %3434, ptr noundef nonnull %3432) #27
-  %3435 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_5clEPNS_11InstructionE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %284)
+  %3435 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_5clEPNS_11InstructionE"(ptr noundef nonnull align 8 dereferenceable(24) %284)
   br label %.thread2352
 
 .critedge99:                                      ; preds = %3414, %._crit_edge2489, %3425, %3417
@@ -11766,7 +11766,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread2349:     ; preds = %.lr.ph2488, %_ZN4ll
   br label %3470
 
 3470:                                             ; preds = %3467, %3451
-  %3471 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_5clEPNS_11InstructionE.argprom"(ptr noundef nonnull align 8 dereferenceable(24) %284)
+  %3471 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_5clEPNS_11InstructionE"(ptr noundef nonnull align 8 dereferenceable(24) %284)
   br label %.thread2352
 
 .critedge101:                                     ; preds = %3441, %.critedge99, %3445, %3438
@@ -15253,7 +15253,7 @@ _ZN4llvm8CallBase17setCalledFunctionEPNS_12FunctionTypeEPNS_5ValueE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_1clEPNS_5ValueE.argprom"(ptr %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_1clEPNS_5ValueE"(ptr %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp eq i8 %2, 20
   br i1 %3, label %4, label %13
@@ -24521,7 +24521,7 @@ declare noundef ptr @_ZNK4llvm8Constant13getSplatValueEb(ptr noundef nonnull ali
 declare noundef ptr @_ZN4llvm8CastInst17CreateIntegerCastEPNS_5ValueEPNS_4TypeEbRKNS_5TwineENS_14InsertPositionE(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(34), ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_4clEPKNS_11InstructionE.argprom"(ptr noundef nonnull %0) unnamed_addr #8 align 2 {
+define internal fastcc noundef range(i32 0, 4) i32 @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_4clEPKNS_11InstructionE"(ptr noundef nonnull %0) unnamed_addr #8 align 2 {
   %2 = load i8, ptr %0, align 8
   switch i8 %2, label %31 [
     i8 60, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_8CallInstEEEDcPT0_.exit.thread
@@ -24645,7 +24645,7 @@ _ZN4llvm12PatternMatch17match_combine_andINS0_17IntrinsicID_matchENS0_14Argument
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_5clEPNS_11InstructionE.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_5clEPNS_11InstructionE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25201,7 +25201,7 @@ _ZNK4llvm8CallBase18bundle_op_info_endEv.exit:    ; preds = %1, %_ZNK4llvm8CallB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_6clERKNS_3UseE.argprom"(ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm16InstCombinerImpl13visitCallInstERNS_8CallInstEENK3$_6clERKNS_3UseE"(ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
@@ -26619,70 +26619,70 @@ define internal fastcc noundef ptr @_ZL29foldShuffledIntrinsicOperandsPN4llvm13I
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %43, i64 %50
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit41.thread.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i
-  %.062.i.i.i.i.i = phi i64 [ %71, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit41.thread.i.i.i.i.i" ], [ %48, %.lr.ph.preheader.i.i.i.i.i ]
-  %.02961.i.i.i.i.i = phi ptr [ %70, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit41.thread.i.i.i.i.i" ], [ %43, %.lr.ph.preheader.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit41.thread.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i
+  %.062.i.i.i.i.i = phi i64 [ %71, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit41.thread.i.i.i.i.i" ], [ %48, %.lr.ph.preheader.i.i.i.i.i ]
+  %.02961.i.i.i.i.i = phi ptr [ %70, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit41.thread.i.i.i.i.i" ], [ %43, %.lr.ph.preheader.i.i.i.i.i ]
   %.029.val.i.i.i.i.i = load ptr, ptr %.02961.i.i.i.i.i, align 8
   %51 = getelementptr i8, ptr %.029.val.i.i.i.i.i, i64 16
   %.029.val.val.i.i.i.i.i = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.029.val.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.029.val.val.i.i.i.i.i, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit.thread.i.i.i.i.i"
+  br i1 %54, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
   %55 = getelementptr inbounds i8, ptr %.02961.i.i.i.i.i, i64 32
   %.val.i.i.i.i.i = load ptr, ptr %55, align 8
   %56 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 16
   %.val.val.i.i.i.i.i = load ptr, ptr %56, align 8
   %.not.i.i.i.i33.i.i.i.i.i = icmp eq ptr %.val.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i33.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit35.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit35.i.i.i.i.i"
+  br i1 %.not.i.i.i.i33.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit35.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit35.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit35.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit35.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit.thread.i.i.i.i.i"
   %57 = getelementptr inbounds nuw i8, ptr %.val.val.i.i.i.i.i, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit35.thread.i.i.i.i.i"
+  br i1 %59, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit35.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit35.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit35.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit35.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit35.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit.thread.i.i.i.i.i"
   %60 = getelementptr inbounds i8, ptr %.02961.i.i.i.i.i, i64 64
   %.val30.i.i.i.i.i = load ptr, ptr %60, align 8
   %61 = getelementptr i8, ptr %.val30.i.i.i.i.i, i64 16
   %.val30.val.i.i.i.i.i = load ptr, ptr %61, align 8
   %.not.i.i.i.i36.i.i.i.i.i = icmp eq ptr %.val30.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i36.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit38.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit38.i.i.i.i.i"
+  br i1 %.not.i.i.i.i36.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit38.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit38.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit38.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit35.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit38.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit35.thread.i.i.i.i.i"
   %62 = getelementptr inbounds nuw i8, ptr %.val30.val.i.i.i.i.i, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit65", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit38.thread.i.i.i.i.i"
+  br i1 %64, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit65", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit38.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit38.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit38.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit35.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit38.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit38.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit35.thread.i.i.i.i.i"
   %65 = getelementptr inbounds i8, ptr %.02961.i.i.i.i.i, i64 96
   %.val31.i.i.i.i.i = load ptr, ptr %65, align 8
   %66 = getelementptr i8, ptr %.val31.i.i.i.i.i, i64 16
   %.val31.val.i.i.i.i.i = load ptr, ptr %66, align 8
   %.not.i.i.i.i39.i.i.i.i.i = icmp eq ptr %.val31.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i39.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit41.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit41.i.i.i.i.i"
+  br i1 %.not.i.i.i.i39.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit41.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit41.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit41.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit38.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit41.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit38.thread.i.i.i.i.i"
   %67 = getelementptr inbounds nuw i8, ptr %.val31.val.i.i.i.i.i, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit67", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit41.thread.i.i.i.i.i"
+  br i1 %69, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit67", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit41.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit41.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit41.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit38.thread.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit41.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit41.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit38.thread.i.i.i.i.i"
   %70 = getelementptr inbounds i8, ptr %.02961.i.i.i.i.i, i64 128
   %71 = add nsw i64 %.062.i.i.i.i.i, -1
   %72 = icmp sgt i64 %.062.i.i.i.i.i, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !429
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit41.thread.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit41.thread.i.i.i.i.i"
   %.pre.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   %.pre67.i.i.i.i.i = sub i64 %45, %.pre.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i
@@ -26702,68 +26702,68 @@ define internal fastcc noundef ptr @_ZL29foldShuffledIntrinsicOperandsPN4llvm13I
   %75 = getelementptr i8, ptr %.029.val32.i.i.i.i.i, i64 16
   %.029.val32.val.i.i.i.i.i = load ptr, ptr %75, align 8
   %.not.i.i.i.i42.i.i.i.i.i = icmp eq ptr %.029.val32.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i42.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit44.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit44.i.i.i.i.i"
+  br i1 %.not.i.i.i.i42.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit44.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit44.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit44.i.i.i.i.i": ; preds = %74
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit44.i.i.i.i.i": ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %.029.val32.val.i.i.i.i.i, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit44.thread.i.i.i.i.i"
+  br i1 %78, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit44.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit44.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit44.i.i.i.i.i", %74
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit44.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit44.i.i.i.i.i", %74
   %79 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 32
   br label %80
 
-80:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit44.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %79, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit44.thread.i.i.i.i.i" ]
+80:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit44.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %79, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit44.thread.i.i.i.i.i" ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8
   %81 = getelementptr i8, ptr %.1.val.i.i.i.i.i, i64 16
   %.1.val.val.i.i.i.i.i = load ptr, ptr %81, align 8
   %.not.i.i.i.i45.i.i.i.i.i = icmp eq ptr %.1.val.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit47.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit47.i.i.i.i.i"
+  br i1 %.not.i.i.i.i45.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit47.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit47.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit47.i.i.i.i.i": ; preds = %80
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit47.i.i.i.i.i": ; preds = %80
   %82 = getelementptr inbounds nuw i8, ptr %.1.val.val.i.i.i.i.i, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit47.thread.i.i.i.i.i"
+  br i1 %84, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit47.thread.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit47.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit47.i.i.i.i.i", %80
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit47.thread.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit47.i.i.i.i.i", %80
   %85 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 32
   br label %86
 
-86:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit47.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %85, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit47.thread.i.i.i.i.i" ]
+86:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit47.thread.i.i.i.i.i", %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %85, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit47.thread.i.i.i.i.i" ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8
   %87 = getelementptr i8, ptr %.2.val.i.i.i.i.i, i64 16
   %.2.val.val.i.i.i.i.i = load ptr, ptr %87, align 8
   %.not.i.i.i.i48.i.i.i.i.i = icmp eq ptr %.2.val.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i48.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit50.i.i.i.i.i"
+  br i1 %.not.i.i.i.i48.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit50.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit50.i.i.i.i.i": ; preds = %86
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit50.i.i.i.i.i": ; preds = %86
   %88 = getelementptr inbounds nuw i8, ptr %.2.val.val.i.i.i.i.i, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit", label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit
+  br i1 %90, label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit", label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit35.i.i.i.i.i"
+"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit35.i.i.i.i.i"
   %91 = getelementptr inbounds i8, ptr %.02961.i.i.i.i.i, i64 32
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit65": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit38.i.i.i.i.i"
+"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit65": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit38.i.i.i.i.i"
   %92 = getelementptr inbounds i8, ptr %.02961.i.i.i.i.i, i64 64
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit67": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit41.i.i.i.i.i"
+"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit67": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit41.i.i.i.i.i"
   %93 = getelementptr inbounds i8, ptr %.02961.i.i.i.i.i, i64 96
-  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit.i.i.i.i.i", %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit65", %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit67", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit44.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit47.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit50.i.i.i.i.i"
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit44.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit47.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit50.i.i.i.i.i" ], [ %91, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %92, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit65" ], [ %93, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit.loopexit.split.loop.exit67" ], [ %.02961.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit.i.i.i.i.i" ]
+"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit.i.i.i.i.i", %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit65", %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit67", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit44.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit47.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit50.i.i.i.i.i"
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit44.i.i.i.i.i" ], [ %.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit47.i.i.i.i.i" ], [ %.2.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit50.i.i.i.i.i" ], [ %91, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %92, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit65" ], [ %93, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit67" ], [ %.02961.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit.i.i.i.i.i" ]
   %94 = icmp eq ptr %44, %.028.i.i.i.i.i
   br i1 %94, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %95
 
-95:                                               ; preds = %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit"
+95:                                               ; preds = %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit"
   %96 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %97 = load i32, ptr %20, align 4
   %98 = and i32 %97, 134217727
@@ -26961,8 +26961,8 @@ _ZN4llvm3isaINS_14FPMathOperatorEPNS_13IntrinsicInstEEEbRKT0_.exit.thread41: ; p
   call void @free(ptr noundef %186) #27
   br label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit:  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit50.i.i.i.i.i", %86, %._crit_edge.i.i.i.i.i, %28, %19, %31, %188, %.critedge, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit", %2
-  %.0 = phi ptr [ null, %2 ], [ null, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.argprom.exit" ], [ %.1, %.critedge ], [ %.1, %188 ], [ null, %31 ], [ null, %19 ], [ null, %28 ], [ null, %._crit_edge.i.i.i.i.i ], [ null, %86 ], [ null, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.argprom.argprom.exit50.i.i.i.i.i" ]
+_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit:  ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit50.i.i.i.i.i", %86, %._crit_edge.i.i.i.i.i, %28, %19, %31, %188, %.critedge, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit", %2
+  %.0 = phi ptr [ null, %2 ], [ null, %"_ZN4llvm7none_ofINS_14iterator_rangeIPNS_3UseEEEZL29foldShuffledIntrinsicOperandsPNS_13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEE3$_0EEbOT_T0_.exit" ], [ %.1, %.critedge ], [ %.1, %188 ], [ null, %31 ], [ null, %19 ], [ null, %28 ], [ null, %._crit_edge.i.i.i.i.i ], [ null, %86 ], [ null, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL29foldShuffledIntrinsicOperandsPN4llvm13IntrinsicInstERNS2_9IRBuilderINS2_12TargetFolderENS2_25IRBuilderCallbackInserterEEEE3$_0EclIPNS2_3UseEEEbT_.exit50.i.i.i.i.i" ]
   ret ptr %.0
 }
 
@@ -26985,9 +26985,9 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl14visitFenceInstERNS_9Fence
   %.not.i = icmp ne i8 %10, %.val19
   %or.cond.i = icmp ugt i8 %10, 1
   %or.cond10.i = or i1 %.not.i, %or.cond.i
-  br i1 %or.cond10.i, label %.critedge, label %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.argprom.exit"
+  br i1 %or.cond10.i, label %.critedge, label %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit"
 
-"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.argprom.exit": ; preds = %7
+"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit": ; preds = %7
   %11 = getelementptr inbounds i8, ptr %1, i64 2
   %.val = load i16, ptr %11, align 2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -27001,7 +27001,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl14visitFenceInstERNS_9Fence
   %20 = trunc i8 %19 to i1
   br i1 %20, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, label %.critedge
 
-.critedge:                                        ; preds = %7, %2, %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.argprom.exit"
+.critedge:                                        ; preds = %7, %2, %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit"
   %21 = tail call noundef ptr @_ZNK4llvm11Instruction26getPrevNonDebugInstructionEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext false) #27
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread, label %22
@@ -27019,9 +27019,9 @@ _ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit: ; preds
   %.not.i22 = icmp ne i8 %27, %.val21
   %or.cond.i23 = icmp ugt i8 %27, 1
   %or.cond10.i24 = or i1 %.not.i22, %or.cond.i23
-  br i1 %or.cond10.i24, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread, label %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.argprom.exit26"
+  br i1 %or.cond10.i24, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread, label %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit26"
 
-"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.argprom.exit26": ; preds = %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit
+"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit26": ; preds = %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit
   %28 = getelementptr inbounds i8, ptr %1, i64 2
   %.val20 = load i16, ptr %28, align 2
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 2
@@ -27035,12 +27035,12 @@ _ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit: ; preds
   %37 = trunc i8 %36 to i1
   br i1 %37, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split: ; preds = %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.argprom.exit26", %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.argprom.exit", %5
+_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split: ; preds = %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit26", %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit", %5
   %38 = tail call noundef ptr @_ZN4llvm16InstCombinerImpl21eraseInstFromFunctionERNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
   br label %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit, %.critedge, %22, %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.argprom.exit26"
-  %.0 = phi ptr [ null, %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.argprom.exit26" ], [ null, %22 ], [ null, %.critedge ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit ], [ %38, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split ]
+_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit, %.critedge, %22, %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit26"
+  %.0 = phi ptr [ null, %"_ZZN4llvm16InstCombinerImpl14visitFenceInstERNS_9FenceInstEENK3$_0clEPS1_S4_.exit26" ], [ null, %22 ], [ null, %.critedge ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit ], [ %38, %_ZN4llvm16dyn_cast_or_nullINS_9FenceInstENS_11InstructionEEEDaPT0_.exit.thread.sink.split ]
   ret ptr %.0
 }
 
@@ -37186,20 +37186,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Intrin
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13IntrinsicInstEEZNS0_16InstCombinerImpl14visitVAEndInstERNS0_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #18 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl14visitVAEndInstERNS1_9VAEndInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -38556,16 +38556,16 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i:        ; preds = %2
   %8 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #28
   %9 = sub i32 %6, %8
   %10 = icmp ult i32 %9, 65
-  br i1 %10, label %11, label %_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj65EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.argprom.exit
+  br i1 %10, label %11, label %_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj65EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.exit
 
 11:                                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, %2
   %12 = load ptr, ptr %1, align 8
   %.0.in.i.i.i = select i1 %7, ptr %1, ptr %12
   %.0.i.i.i = load i64, ptr %.0.in.i.i.i, align 8
   %13 = icmp ult i64 %.0.i.i.i, %4
-  br label %_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj65EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.argprom.exit
+  br label %_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj65EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.exit
 
-_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj65EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.argprom.exit: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, %11
+_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj65EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.exit: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, %11
   %14 = phi i1 [ false, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ %13, %11 ]
   ret i1 %14
 }
@@ -38584,16 +38584,16 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i:        ; preds = %2
   %8 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #28
   %9 = sub i32 %6, %8
   %10 = icmp ult i32 %9, 65
-  br i1 %10, label %11, label %_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj63EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.argprom.exit
+  br i1 %10, label %11, label %_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj63EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.exit
 
 11:                                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, %2
   %12 = load ptr, ptr %1, align 8
   %.0.in.i.i.i = select i1 %7, ptr %1, ptr %12
   %.0.i.i.i = load i64, ptr %.0.in.i.i.i, align 8
   %13 = icmp ult i64 %.0.i.i.i, %4
-  br label %_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj63EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.argprom.exit
+  br label %_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj63EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.exit
 
-_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj63EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.argprom.exit: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, %11
+_ZZL41foldMinimumOverTrailingOrLeadingZeroCountILj63EEPN4llvm5ValueES2_S2_RKNS0_10DataLayoutERNS0_9IRBuilderINS0_12TargetFolderENS0_25IRBuilderCallbackInserterEEEENKUlRT_E_clIKNS0_5APIntEEEDaSC_.exit: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, %11
   %14 = phi i1 [ false, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ %13, %11 ]
   ret i1 %14
 }
@@ -39411,20 +39411,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Intrin
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13IntrinsicInstEEZNS0_16InstCombinerImpl13visitCallInstERNS0_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #18 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm16InstCombinerImpl13visitCallInstERNS1_8CallInstEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
   ret i1 false
 }
 
@@ -39749,7 +39749,7 @@ define internal void @"_ZN4llvm12function_refIFvPNS_11InstructionEPNS_5ValueEEE1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %"_ZZN4llvm16InstCombinerImpl15tryOptimizeCallEPNS_8CallInstEENK3$_0clEPNS_11InstructionEPNS_5ValueE.argprom.exit", label %7
+  br i1 %6, label %"_ZZN4llvm16InstCombinerImpl15tryOptimizeCallEPNS_8CallInstEENK3$_0clEPNS_11InstructionEPNS_5ValueE.exit", label %7
 
 7:                                                ; preds = %3
   %8 = inttoptr i64 %0 to ptr
@@ -39810,9 +39810,9 @@ _ZN4llvm19InstructionWorklist19pushUsersToWorkListERNS_11InstructionE.exit.i.i: 
 
 35:                                               ; preds = %34, %30, %26, %23, %19
   tail call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %.016.i.i) #27
-  br label %"_ZZN4llvm16InstCombinerImpl15tryOptimizeCallEPNS_8CallInstEENK3$_0clEPNS_11InstructionEPNS_5ValueE.argprom.exit"
+  br label %"_ZZN4llvm16InstCombinerImpl15tryOptimizeCallEPNS_8CallInstEENK3$_0clEPNS_11InstructionEPNS_5ValueE.exit"
 
-"_ZZN4llvm16InstCombinerImpl15tryOptimizeCallEPNS_8CallInstEENK3$_0clEPNS_11InstructionEPNS_5ValueE.argprom.exit": ; preds = %3, %35
+"_ZZN4llvm16InstCombinerImpl15tryOptimizeCallEPNS_8CallInstEENK3$_0clEPNS_11InstructionEPNS_5ValueE.exit": ; preds = %3, %35
   ret void
 }
 

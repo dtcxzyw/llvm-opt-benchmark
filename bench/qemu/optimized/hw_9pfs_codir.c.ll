@@ -59,19 +59,19 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   store ptr null, ptr %dent, align 8
   %5 = load i32, ptr %call.i, align 4
   %sub.i = sub i32 0, %5
-  br label %do_readdir.argprom.exit
+  br label %do_readdir.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %do.body
   store ptr %call3.i, ptr %dent, align 8
-  br label %do_readdir.argprom.exit
+  br label %do_readdir.exit
 
-do_readdir.argprom.exit:                          ; preds = %if.then.i, %if.else.i
+do_readdir.exit:                                  ; preds = %if.then.i, %if.else.i
   %err.0.i = phi i32 [ 0, %if.else.i ], [ %sub.i, %if.then.i ]
   tail call void @qemu_coroutine_yield() #7
   br label %return
 
-return:                                           ; preds = %entry, %do_readdir.argprom.exit
-  %retval.0 = phi i32 [ %err.0.i, %do_readdir.argprom.exit ], [ -4, %entry ]
+return:                                           ; preds = %entry, %do_readdir.exit
+  %retval.0 = phi i32 [ %err.0.i, %do_readdir.exit ], [ -4, %entry ]
   ret i32 %retval.0
 }
 

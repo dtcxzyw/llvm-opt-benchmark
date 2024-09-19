@@ -3719,7 +3719,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E.argprom.retelim"(ptr %.0.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr %.0.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1384)
@@ -3727,14 +3727,14 @@ define internal fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$
   %5 = load i64, ptr %4, align 8, !alias.scope !1387, !noalias !1396, !noundef !40
   %6 = load i64, ptr %.0.val, align 8, !alias.scope !1401, !noalias !1396, !noundef !40
   %7 = icmp eq i64 %6, %5
-  br i1 %7, label %8, label %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.argprom.exit.i
+  br i1 %7, label %8, label %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.exit.i
 
 8:                                                ; preds = %2
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hda35a87c04b31632E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0.val, i64 noundef %5, i64 noundef 1), !noalias !1404
   %.pre.i.i.i.i.i.i.i = load i64, ptr %4, align 8, !alias.scope !1387, !noalias !1396
-  br label %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.argprom.exit.i
+  br label %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.exit.i
 
-_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.argprom.exit.i: ; preds = %8, %2
+_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.exit.i: ; preds = %8, %2
   %9 = phi i64 [ %5, %2 ], [ %.pre.i.i.i.i.i.i.i, %8 ]
   %10 = getelementptr inbounds i8, ptr %.0.val, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !1387, !noalias !1396, !nonnull !40, !noundef !40
@@ -3747,10 +3747,10 @@ _ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.argprom.exit.i: 
   %15 = getelementptr inbounds i8, ptr %0, i64 %1
   br label %.outer.i.i
 
-.outer.i.i:                                       ; preds = %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.argprom.exit.i.i, %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.argprom.exit.i
-  %16 = phi i64 [ %97, %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.argprom.exit.i.i ], [ %14, %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.argprom.exit.i ]
-  %.sroa.7.0.ph.i.i = phi i64 [ %23, %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.argprom.exit.i.i ], [ 0, %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.argprom.exit.i ]
-  %.sroa.0.0.ph.i.i = phi ptr [ %22, %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.argprom.exit.i.i ], [ %0, %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.argprom.exit.i ]
+.outer.i.i:                                       ; preds = %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.exit.i.i, %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.exit.i
+  %16 = phi i64 [ %97, %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.exit.i.i ], [ %14, %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.exit.i ]
+  %.sroa.7.0.ph.i.i = phi i64 [ %23, %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.exit.i.i ], [ 0, %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.exit.i ]
+  %.sroa.0.0.ph.i.i = phi ptr [ %22, %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.exit.i.i ], [ %0, %_ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.exit.i ]
   br label %17
 
 17:                                               ; preds = %21, %.outer.i.i
@@ -3761,7 +3761,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.argprom.exit.i: 
 
 19:                                               ; preds = %17
   %20 = icmp eq i64 %.sroa.7.0.ph.i.i, %1
-  br i1 %20, label %_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.argprom.exit.i, label %29
+  br i1 %20, label %_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.exit.i, label %29
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 1
@@ -3797,14 +3797,14 @@ _ZN10serde_json3ser9Formatter12begin_string17h5b9dff05680f0702E.argprom.exit.i: 
   %39 = load i64, ptr %.0.val, align 8, !alias.scope !1414, !noalias !1425, !noundef !40
   %40 = sub i64 %39, %16
   %41 = icmp ugt i64 %37, %40
-  br i1 %41, label %42, label %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom.exit.i.i
+  br i1 %41, label %42, label %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit.i.i
 
 42:                                               ; preds = %36
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hda35a87c04b31632E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0.val, i64 noundef %16, i64 noundef %37), !noalias !1432
   %.pre.i.i.i.i.i.i.i.i = load i64, ptr %4, align 8, !alias.scope !1433, !noalias !1425
-  br label %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom.exit.i.i
+  br label %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit.i.i
 
-_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom.exit.i.i: ; preds = %42, %36
+_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit.i.i: ; preds = %42, %36
   %43 = phi i64 [ %16, %36 ], [ %.pre.i.i.i.i.i.i.i.i, %42 ]
   %44 = load ptr, ptr %10, align 8, !alias.scope !1433, !noalias !1425, !nonnull !40, !noundef !40
   %45 = getelementptr inbounds i8, ptr %44, i64 %43
@@ -3812,7 +3812,7 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom
   %46 = load i64, ptr %4, align 8, !alias.scope !1433, !noalias !1425, !noundef !40
   %47 = add i64 %46, %37
   store i64 %47, ptr %4, align 8, !alias.scope !1433, !noalias !1425
-  br label %_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.argprom.exit.i
+  br label %_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.exit.i
 
 48:                                               ; preds = %21
   %49 = icmp ult i64 %.sroa.7.0.ph.i.i, %.sroa.7.0.i.i
@@ -3850,8 +3850,8 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom
   %62 = icmp sgt i8 %61, -65
   br i1 %62, label %99, label %98
 
-63:                                               ; preds = %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom.exit38.i.i, %48
-  %64 = phi i64 [ %110, %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom.exit38.i.i ], [ %16, %48 ]
+63:                                               ; preds = %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit38.i.i, %48
+  %64 = phi i64 [ %110, %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit38.i.i ], [ %16, %48 ]
   switch i8 %27, label %65 [
     i8 98, label %66
     i8 116, label %70
@@ -3897,14 +3897,14 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h0e70bf5357d61956E.exit.thre
   %80 = load i64, ptr %.0.val, align 8, !alias.scope !1442, !noalias !1453, !noundef !40
   %81 = sub i64 %80, %64
   %82 = icmp ult i64 %81, 6
-  br i1 %82, label %83, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom.exit.i.i.i"
+  br i1 %82, label %83, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit.i.i.i"
 
 83:                                               ; preds = %71
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hda35a87c04b31632E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0.val, i64 noundef %64, i64 noundef 6), !noalias !1458
   %.pre.i.i.i.i.i.i35.i.i = load i64, ptr %4, align 8, !alias.scope !1459, !noalias !1453
-  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom.exit.i.i.i"
+  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit.i.i.i"
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom.exit.i.i.i": ; preds = %83, %71
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit.i.i.i": ; preds = %83, %71
   %84 = phi i64 [ %64, %71 ], [ %.pre.i.i.i.i.i.i35.i.i, %83 ]
   %85 = load ptr, ptr %10, align 8, !alias.scope !1459, !noalias !1453, !nonnull !40, !noundef !40
   %86 = getelementptr inbounds i8, ptr %85, i64 %84
@@ -3919,30 +3919,30 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h0e70bf5357d61956E.exit.thre
   store i8 %77, ptr %.sroa.7.0..sroa_idx.i.i.i, align 1
   %.sroa.8.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %86, i64 5
   store i8 %79, ptr %.sroa.8.0..sroa_idx.i.i.i, align 1
-  br label %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.argprom.exit.i.i
+  br label %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.exit.i.i
 
 87:                                               ; preds = %70, %69, %68, %67, %66, %_ZN10serde_json3ser10CharEscape17from_escape_table17h0e70bf5357d61956E.exit.thread.i.i, %63
   %.sroa.02.0.i.i.i = phi ptr [ @anon.4548e295882fa49df3b75ef682e3f1e8.24, %70 ], [ @anon.4548e295882fa49df3b75ef682e3f1e8.23, %69 ], [ @anon.4548e295882fa49df3b75ef682e3f1e8.22, %68 ], [ @anon.4548e295882fa49df3b75ef682e3f1e8.21, %67 ], [ @anon.4548e295882fa49df3b75ef682e3f1e8.20, %66 ], [ @anon.4548e295882fa49df3b75ef682e3f1e8.17, %_ZN10serde_json3ser10CharEscape17from_escape_table17h0e70bf5357d61956E.exit.thread.i.i ], [ @anon.4548e295882fa49df3b75ef682e3f1e8.18, %63 ]
   %88 = load i64, ptr %.0.val, align 8, !alias.scope !1460, !noalias !1471, !noundef !40
   %89 = sub i64 %88, %64
   %90 = icmp ult i64 %89, 2
-  br i1 %90, label %91, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom.exit5.i.i.i"
+  br i1 %90, label %91, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit5.i.i.i"
 
 91:                                               ; preds = %87
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hda35a87c04b31632E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0.val, i64 noundef %64, i64 noundef 2), !noalias !1476
   %.pre.i.i.i.i.i4.i.i.i = load i64, ptr %4, align 8, !alias.scope !1477, !noalias !1471
-  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom.exit5.i.i.i"
+  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit5.i.i.i"
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom.exit5.i.i.i": ; preds = %91, %87
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit5.i.i.i": ; preds = %91, %87
   %92 = phi i64 [ %64, %87 ], [ %.pre.i.i.i.i.i4.i.i.i, %91 ]
   %93 = load ptr, ptr %10, align 8, !alias.scope !1477, !noalias !1471, !nonnull !40, !noundef !40
   %94 = getelementptr inbounds i8, ptr %93, i64 %92
   %95 = load i16, ptr %.sroa.02.0.i.i.i, align 1, !noalias !1408
   store i16 %95, ptr %94, align 1
-  br label %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.argprom.exit.i.i
+  br label %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.exit.i.i
 
-_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.argprom.exit.i.i: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom.exit5.i.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom.exit.i.i.i"
-  %.sink4.i.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom.exit.i.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom.exit5.i.i.i" ]
+_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.exit.i.i: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit5.i.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit.i.i.i"
+  %.sink4.i.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit.i.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit5.i.i.i" ]
   %96 = load i64, ptr %4, align 8, !noalias !1408, !noundef !40
   %97 = add i64 %96, %.sink4.i.i.i
   store i64 %97, ptr %4, align 8, !noalias !1408
@@ -3958,14 +3958,14 @@ _ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.argprom.exi
   %102 = load i64, ptr %.0.val, align 8, !alias.scope !1478, !noalias !1489, !noundef !40
   %103 = sub i64 %102, %16
   %104 = icmp ugt i64 %100, %103
-  br i1 %104, label %105, label %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom.exit38.i.i
+  br i1 %104, label %105, label %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit38.i.i
 
 105:                                              ; preds = %99
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hda35a87c04b31632E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0.val, i64 noundef %16, i64 noundef %100), !noalias !1496
   %.pre.i.i.i.i.i.i37.i.i = load i64, ptr %4, align 8, !alias.scope !1497, !noalias !1489
-  br label %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom.exit38.i.i
+  br label %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit38.i.i
 
-_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom.exit38.i.i: ; preds = %105, %99
+_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit38.i.i: ; preds = %105, %99
   %106 = phi i64 [ %16, %99 ], [ %.pre.i.i.i.i.i.i37.i.i, %105 ]
   %107 = load ptr, ptr %10, align 8, !alias.scope !1497, !noalias !1489, !nonnull !40, !noundef !40
   %108 = getelementptr inbounds i8, ptr %107, i64 %106
@@ -3975,19 +3975,19 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom
   store i64 %110, ptr %4, align 8, !alias.scope !1497, !noalias !1489
   br label %63
 
-_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.argprom.exit.i: ; preds = %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom.exit.i.i, %19
-  %111 = phi i64 [ %16, %19 ], [ %47, %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom.exit.i.i ]
+_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.exit.i: ; preds = %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit.i.i, %19
+  %111 = phi i64 [ %16, %19 ], [ %47, %_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.exit.i.i ]
   %112 = load i64, ptr %.0.val, align 8, !alias.scope !1498, !noalias !1509, !noundef !40
   %113 = icmp eq i64 %112, %111
-  br i1 %113, label %114, label %_ZN10serde_json3ser18format_escaped_str17h83c6dc63f4623b09E.argprom.exit
+  br i1 %113, label %114, label %_ZN10serde_json3ser18format_escaped_str17h83c6dc63f4623b09E.exit
 
-114:                                              ; preds = %_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.argprom.exit.i
+114:                                              ; preds = %_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.exit.i
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hda35a87c04b31632E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.0.val, i64 noundef %111, i64 noundef 1), !noalias !1514
   %.pre.i.i.i.i.i.i7.i = load i64, ptr %4, align 8, !alias.scope !1515, !noalias !1509
-  br label %_ZN10serde_json3ser18format_escaped_str17h83c6dc63f4623b09E.argprom.exit
+  br label %_ZN10serde_json3ser18format_escaped_str17h83c6dc63f4623b09E.exit
 
-_ZN10serde_json3ser18format_escaped_str17h83c6dc63f4623b09E.argprom.exit: ; preds = %_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.argprom.exit.i, %114
-  %115 = phi i64 [ %111, %_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.argprom.exit.i ], [ %.pre.i.i.i.i.i.i7.i, %114 ]
+_ZN10serde_json3ser18format_escaped_str17h83c6dc63f4623b09E.exit: ; preds = %_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.exit.i, %114
+  %115 = phi i64 [ %111, %_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.exit.i ], [ %.pre.i.i.i.i.i.i7.i, %114 ]
   %116 = load ptr, ptr %10, align 8, !alias.scope !1515, !noalias !1509, !nonnull !40, !noundef !40
   %117 = getelementptr inbounds i8, ptr %116, i64 %115
   store i8 34, ptr %117, align 1
@@ -4367,7 +4367,7 @@ define hidden noalias noundef align 8 ptr @"_ZN17meilisearch_types5error1_91_$LT
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %.val27 = load i64, ptr %15, align 8
-  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E.argprom.retelim"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.4548e295882fa49df3b75ef682e3f1e8.64, i64 noundef 7)
+  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.4548e295882fa49df3b75ef682e3f1e8.64, i64 noundef 7)
   %16 = load i64, ptr %3, align 8, !alias.scope !1573, !noalias !1582, !noundef !40
   %17 = load i64, ptr %.val.i.i, align 8, !alias.scope !1591, !noalias !1582, !noundef !40
   %18 = icmp eq i64 %17, %16
@@ -4388,7 +4388,7 @@ define hidden noalias noundef align 8 ptr @"_ZN17meilisearch_types5error1_91_$LT
   store i64 %25, ptr %3, align 8, !alias.scope !1573, !noalias !1582
   %26 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %26)
-  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E.argprom.retelim"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val27)
+  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val27)
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %.val28 = load ptr, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4411,7 +4411,7 @@ define hidden noalias noundef align 8 ptr @"_ZN17meilisearch_types5error1_91_$LT
   %36 = load i64, ptr %3, align 8, !alias.scope !1595, !noalias !1604, !noundef !40
   %37 = add i64 %36, 1
   store i64 %37, ptr %3, align 8, !alias.scope !1595, !noalias !1604
-  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E.argprom.retelim"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.4548e295882fa49df3b75ef682e3f1e8.65, i64 noundef 4)
+  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.4548e295882fa49df3b75ef682e3f1e8.65, i64 noundef 4)
   %38 = load i64, ptr %3, align 8, !alias.scope !1622, !noalias !1631, !noundef !40
   %39 = load i64, ptr %.val.i.i, align 8, !alias.scope !1636, !noalias !1631, !noundef !40
   %40 = icmp eq i64 %39, %38
@@ -4432,7 +4432,7 @@ define hidden noalias noundef align 8 ptr @"_ZN17meilisearch_types5error1_91_$LT
   store i64 %47, ptr %3, align 8, !alias.scope !1622, !noalias !1631
   %48 = icmp ne ptr %.val28, null
   tail call void @llvm.assume(i1 %48)
-  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E.argprom.retelim"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 %.val28, i64 noundef %.val29)
+  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 %.val28, i64 noundef %.val29)
   %49 = getelementptr inbounds i8, ptr %0, i64 56
   %.val30 = load ptr, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 64
@@ -4455,7 +4455,7 @@ define hidden noalias noundef align 8 ptr @"_ZN17meilisearch_types5error1_91_$LT
   %58 = load i64, ptr %3, align 8, !alias.scope !1640, !noalias !1649, !noundef !40
   %59 = add i64 %58, 1
   store i64 %59, ptr %3, align 8, !alias.scope !1640, !noalias !1649
-  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E.argprom.retelim"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.4548e295882fa49df3b75ef682e3f1e8.66, i64 noundef 4)
+  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.4548e295882fa49df3b75ef682e3f1e8.66, i64 noundef 4)
   %60 = load i64, ptr %3, align 8, !alias.scope !1667, !noalias !1676, !noundef !40
   %61 = load i64, ptr %.val.i.i, align 8, !alias.scope !1681, !noalias !1676, !noundef !40
   %62 = icmp eq i64 %61, %60
@@ -4476,7 +4476,7 @@ define hidden noalias noundef align 8 ptr @"_ZN17meilisearch_types5error1_91_$LT
   store i64 %69, ptr %3, align 8, !alias.scope !1667, !noalias !1676
   %70 = icmp ne ptr %.val30, null
   tail call void @llvm.assume(i1 %70)
-  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E.argprom.retelim"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 %.val30, i64 noundef %.val31)
+  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 %.val30, i64 noundef %.val31)
   %71 = getelementptr inbounds i8, ptr %0, i64 80
   %.val32 = load ptr, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 88
@@ -4499,7 +4499,7 @@ define hidden noalias noundef align 8 ptr @"_ZN17meilisearch_types5error1_91_$LT
   %80 = load i64, ptr %3, align 8, !alias.scope !1685, !noalias !1694, !noundef !40
   %81 = add i64 %80, 1
   store i64 %81, ptr %3, align 8, !alias.scope !1685, !noalias !1694
-  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E.argprom.retelim"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.4548e295882fa49df3b75ef682e3f1e8.67, i64 noundef 4)
+  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 @anon.4548e295882fa49df3b75ef682e3f1e8.67, i64 noundef 4)
   %82 = load i64, ptr %3, align 8, !alias.scope !1712, !noalias !1721, !noundef !40
   %83 = load i64, ptr %.val.i.i, align 8, !alias.scope !1726, !noalias !1721, !noundef !40
   %84 = icmp eq i64 %83, %82
@@ -4520,7 +4520,7 @@ define hidden noalias noundef align 8 ptr @"_ZN17meilisearch_types5error1_91_$LT
   store i64 %91, ptr %3, align 8, !alias.scope !1712, !noalias !1721
   %92 = icmp ne ptr %.val32, null
   tail call void @llvm.assume(i1 %92)
-  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E.argprom.retelim"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 %.val32, i64 noundef %.val33)
+  tail call fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr nonnull %.val.i.i, ptr noalias noundef nonnull readonly align 1 %.val32, i64 noundef %.val33)
   %93 = load i64, ptr %3, align 8, !alias.scope !1730, !noalias !1739, !noundef !40
   %94 = load i64, ptr %.val.i.i, align 8, !alias.scope !1744, !noalias !1739, !noundef !40
   %95 = icmp eq i64 %94, %93
@@ -4608,8 +4608,8 @@ switch.lookup:                                    ; preds = %3
   %21 = sext i8 %2 to i64
   %switch.gep30 = getelementptr inbounds [11 x i64], ptr @"switch.table._ZN83_$LT$meilisearch_types..tasks..ParseTaskKindError$u20$as$u20$core..fmt..Display$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h19bd27bf021fdec2E.llvm.9153134991762065841.65", i64 0, i64 %21
   %switch.load31 = load i64, ptr %switch.gep30, align 8
-  invoke fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E.argprom.retelim"(ptr nonnull %7, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load31)
-          to label %_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.argprom.exit unwind label %24
+  invoke fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr nonnull %7, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load31)
+          to label %_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.exit unwind label %24
 
 22:                                               ; preds = %3
   %23 = load i64, ptr %16, align 8, !noalias !1760
@@ -4632,7 +4632,7 @@ common.resume:                                    ; preds = %37, %52, %31, %24
   %common.resume.op = phi { ptr, i32 } [ %25, %24 ], [ %32, %31 ], [ %53, %52 ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.argprom.exit: ; preds = %switch.lookup
+_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.exit: ; preds = %switch.lookup
   %.sroa.016.0.copyload17 = load i64, ptr %7, align 8
   %.sroa.618.0.copyload20 = load ptr, ptr %18, align 8
   %.sroa.721.0.copyload23 = load i64, ptr %19, align 8
@@ -4640,7 +4640,7 @@ _ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.argprom.exit: ; preds = %switch.l
   %28 = icmp eq i64 %.sroa.016.0.copyload17, -9223372036854775808
   br i1 %28, label %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1180704d1665229eE.exit"
 
-29:                                               ; preds = %_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.argprom.exit
+29:                                               ; preds = %_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.exit
   %30 = icmp ne ptr %.sroa.618.0.copyload20, null
   call void @llvm.assume(i1 %30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !1763
@@ -4663,7 +4663,7 @@ _ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.argprom.exit: ; preds = %switch.l
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #28, !noalias !1763
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1180704d1665229eE.exit": ; preds = %_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.argprom.exit
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1180704d1665229eE.exit": ; preds = %_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !1767)
   call void @llvm.experimental.noalias.scope.decl(metadata !1768)
   store i64 %.sroa.016.0.copyload17, ptr %9, align 8, !alias.scope !1763
@@ -4971,9 +4971,9 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !8 = distinct !{!8, !9, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc1d775e996e90e3cE.llvm.9153134991762065841: argument 0"}
 !9 = distinct !{!9, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc1d775e996e90e3cE.llvm.9153134991762065841"}
 !10 = !{!11, !13, !5, !7, !8}
-!11 = distinct !{!11, !12, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E.argprom"}
-!13 = distinct !{!13, !12, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E.argprom: argument 1"}
+!11 = distinct !{!11, !12, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E: argument 0"}
+!12 = distinct !{!12, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E"}
+!13 = distinct !{!13, !12, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E: argument 1"}
 !14 = !{!15, !17, !18, !20, !21, !22, !24, !11, !13, !5, !7, !8}
 !15 = distinct !{!15, !16, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E: argument 0"}
 !16 = distinct !{!16, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E"}
@@ -5008,8 +5008,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !45 = distinct !{!45, !46, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5e89878cdd1aa88fE: argument 0"}
 !46 = distinct !{!46, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5e89878cdd1aa88fE"}
 !47 = distinct !{!47, !46, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5e89878cdd1aa88fE: argument 1"}
-!48 = distinct !{!48, !49, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc773cbc155103ef8E.argprom: argument 0"}
-!49 = distinct !{!49, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc773cbc155103ef8E.argprom"}
+!48 = distinct !{!48, !49, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc773cbc155103ef8E: argument 0"}
+!49 = distinct !{!49, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc773cbc155103ef8E"}
 !50 = !{!42, !45, !48, !38}
 !51 = !{!52}
 !52 = distinct !{!52, !53, !"_ZN4core4iter6traits8iterator8Iterator4fold17h27564124779d7f23E.llvm.9153134991762065841: argument 1"}
@@ -5046,9 +5046,9 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !83 = distinct !{!83, !84, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h76aed627db105a3bE.llvm.9153134991762065841: argument 0"}
 !84 = distinct !{!84, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h76aed627db105a3bE.llvm.9153134991762065841"}
 !85 = !{!86, !88, !80, !82, !83}
-!86 = distinct !{!86, !87, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E.argprom: argument 0"}
-!87 = distinct !{!87, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E.argprom"}
-!88 = distinct !{!88, !87, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E.argprom: argument 1"}
+!86 = distinct !{!86, !87, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E: argument 0"}
+!87 = distinct !{!87, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E"}
+!88 = distinct !{!88, !87, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E: argument 1"}
 !89 = !{!90, !92, !93, !95, !96, !97, !99, !86, !88, !80, !82, !83}
 !90 = distinct !{!90, !91, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E: argument 0"}
 !91 = distinct !{!91, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E"}
@@ -5114,9 +5114,9 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !151 = distinct !{!151, !152, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h3133f45411ee4325E: argument 0"}
 !152 = distinct !{!152, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h3133f45411ee4325E"}
 !153 = distinct !{!153, !152, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h3133f45411ee4325E: argument 1"}
-!154 = distinct !{!154, !155, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E.argprom: argument 0"}
-!155 = distinct !{!155, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E.argprom"}
-!156 = distinct !{!156, !155, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E.argprom: argument 1"}
+!154 = distinct !{!154, !155, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E: argument 0"}
+!155 = distinct !{!155, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E"}
+!156 = distinct !{!156, !155, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E: argument 1"}
 !157 = distinct !{!157, !158, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5a8d77f31e15bdadE: argument 0"}
 !158 = distinct !{!158, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5a8d77f31e15bdadE"}
 !159 = distinct !{!159, !158, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5a8d77f31e15bdadE: argument 1"}
@@ -5138,10 +5138,10 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !175 = distinct !{!175, !176, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3665cedb3fb8bf2bE: argument 1"}
 !176 = distinct !{!176, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3665cedb3fb8bf2bE"}
 !177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE.argprom: argument 1"}
-!179 = distinct !{!179, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE.argprom"}
+!178 = distinct !{!178, !179, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE: argument 1"}
+!179 = distinct !{!179, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE"}
 !180 = !{!181, !178, !182, !175, !183}
-!181 = distinct !{!181, !179, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE.argprom: argument 0"}
+!181 = distinct !{!181, !179, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE: argument 0"}
 !182 = distinct !{!182, !176, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3665cedb3fb8bf2bE: argument 0"}
 !183 = distinct !{!183, !184, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfaac6e6711e41846E.llvm.9153134991762065841: argument 0"}
 !184 = distinct !{!184, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfaac6e6711e41846E.llvm.9153134991762065841"}
@@ -5204,10 +5204,10 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !241 = distinct !{!241, !242, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdea3ba12dbc7fd1fE: argument 1"}
 !242 = distinct !{!242, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdea3ba12dbc7fd1fE"}
 !243 = !{!244}
-!244 = distinct !{!244, !245, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E.argprom: argument 1"}
-!245 = distinct !{!245, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E.argprom"}
+!244 = distinct !{!244, !245, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E: argument 1"}
+!245 = distinct !{!245, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E"}
 !246 = !{!247, !244, !248, !241, !249}
-!247 = distinct !{!247, !245, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E.argprom: argument 0"}
+!247 = distinct !{!247, !245, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E: argument 0"}
 !248 = distinct !{!248, !242, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdea3ba12dbc7fd1fE: argument 0"}
 !249 = distinct !{!249, !250, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1cd4aca8509357a4E.llvm.9153134991762065841: argument 0"}
 !250 = distinct !{!250, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1cd4aca8509357a4E.llvm.9153134991762065841"}
@@ -5240,9 +5240,9 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !277 = distinct !{!277, !278, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4750da1b194fa8d4E.llvm.9153134991762065841: argument 0"}
 !278 = distinct !{!278, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4750da1b194fa8d4E.llvm.9153134991762065841"}
 !279 = !{!280, !282, !274, !276, !277}
-!280 = distinct !{!280, !281, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE.argprom: argument 0"}
-!281 = distinct !{!281, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE.argprom"}
-!282 = distinct !{!282, !281, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE.argprom: argument 1"}
+!280 = distinct !{!280, !281, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE: argument 0"}
+!281 = distinct !{!281, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE"}
+!282 = distinct !{!282, !281, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE: argument 1"}
 !283 = !{!284, !286, !287, !289, !290, !291, !293, !280, !282, !274, !276, !277}
 !284 = distinct !{!284, !285, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E: argument 0"}
 !285 = distinct !{!285, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E"}
@@ -5526,9 +5526,9 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !563 = distinct !{!563, !564, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h3133f45411ee4325E: argument 0"}
 !564 = distinct !{!564, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h3133f45411ee4325E"}
 !565 = distinct !{!565, !564, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h3133f45411ee4325E: argument 1"}
-!566 = distinct !{!566, !567, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E.argprom: argument 0"}
-!567 = distinct !{!567, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E.argprom"}
-!568 = distinct !{!568, !567, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E.argprom: argument 1"}
+!566 = distinct !{!566, !567, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E: argument 0"}
+!567 = distinct !{!567, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E"}
+!568 = distinct !{!568, !567, !"_ZN4core3ops8function5FnMut8call_mut17hf864ae20fc6d0238E: argument 1"}
 !569 = distinct !{!569, !558, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5a8d77f31e15bdadE: argument 1"}
 !570 = !{!560, !563, !566, !557}
 !571 = !{!572}
@@ -5755,8 +5755,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !792 = distinct !{!792, !785, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h306a9caac196b224E: argument 1"}
 !793 = !{!787, !784, !779, !781}
 !794 = !{!795}
-!795 = distinct !{!795, !796, !"_ZN4core3ops8function5FnMut8call_mut17h569b3b40e8170274E.argprom: argument 0"}
-!796 = distinct !{!796, !"_ZN4core3ops8function5FnMut8call_mut17h569b3b40e8170274E.argprom"}
+!795 = distinct !{!795, !796, !"_ZN4core3ops8function5FnMut8call_mut17h569b3b40e8170274E: argument 0"}
+!796 = distinct !{!796, !"_ZN4core3ops8function5FnMut8call_mut17h569b3b40e8170274E"}
 !797 = !{!798}
 !798 = distinct !{!798, !799, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h306a9caac196b224E: argument 0"}
 !799 = distinct !{!799, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h306a9caac196b224E"}
@@ -6078,10 +6078,10 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1115 = !{!1116}
 !1116 = distinct !{!1116, !1114, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdea3ba12dbc7fd1fE: argument 1"}
 !1117 = !{!1118}
-!1118 = distinct !{!1118, !1119, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E.argprom: argument 1"}
-!1119 = distinct !{!1119, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E.argprom"}
+!1118 = distinct !{!1118, !1119, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E: argument 1"}
+!1119 = distinct !{!1119, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E"}
 !1120 = !{!1121, !1118, !1113, !1116}
-!1121 = distinct !{!1121, !1119, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E.argprom: argument 0"}
+!1121 = distinct !{!1121, !1119, !"_ZN17meilisearch_types8settings8settings28_$u7b$$u7b$closure$u7d$$u7d$17h6ac5721ed8276b48E: argument 0"}
 !1122 = !{!1123, !1118, !1116}
 !1123 = distinct !{!1123, !1124, !"_ZN66_$LT$milli..criterion..Criterion$u20$as$u20$core..clone..Clone$GT$5clone17h24bd54ba917b9c4aE: argument 1"}
 !1124 = distinct !{!1124, !"_ZN66_$LT$milli..criterion..Criterion$u20$as$u20$core..clone..Clone$GT$5clone17h24bd54ba917b9c4aE"}
@@ -6128,9 +6128,9 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1165 = !{!1163, !1166}
 !1166 = distinct !{!1166, !1164, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdc684abfa9eb7178E: argument 1"}
 !1167 = !{!1168, !1170, !1163, !1166}
-!1168 = distinct !{!1168, !1169, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE.argprom: argument 0"}
-!1169 = distinct !{!1169, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE.argprom"}
-!1170 = distinct !{!1170, !1169, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE.argprom: argument 1"}
+!1168 = distinct !{!1168, !1169, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE: argument 0"}
+!1169 = distinct !{!1169, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE"}
+!1170 = distinct !{!1170, !1169, !"_ZN17meilisearch_types6deserr21immutable_field_error28_$u7b$$u7b$closure$u7d$$u7d$17h8b021dcb0246c22aE: argument 1"}
 !1171 = !{!1172, !1174, !1175, !1177, !1178, !1179, !1181, !1168, !1170, !1163, !1166}
 !1172 = distinct !{!1172, !1173, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E: argument 0"}
 !1173 = distinct !{!1173, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E"}
@@ -6179,9 +6179,9 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1216 = !{!1214, !1217}
 !1217 = distinct !{!1217, !1215, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h46730726ac47ae70E: argument 1"}
 !1218 = !{!1219, !1221, !1214, !1217}
-!1219 = distinct !{!1219, !1220, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E.argprom: argument 0"}
-!1220 = distinct !{!1220, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E.argprom"}
-!1221 = distinct !{!1221, !1220, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E.argprom: argument 1"}
+!1219 = distinct !{!1219, !1220, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E: argument 0"}
+!1220 = distinct !{!1220, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E"}
+!1221 = distinct !{!1221, !1220, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h29d230982b8aa866E: argument 1"}
 !1222 = !{!1223, !1225, !1226, !1228, !1229, !1230, !1232, !1219, !1221, !1214, !1217}
 !1223 = distinct !{!1223, !1224, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E: argument 0"}
 !1224 = distinct !{!1224, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E"}
@@ -6230,9 +6230,9 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1267 = !{!1265, !1268}
 !1268 = distinct !{!1268, !1266, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4943196321ac7dbcE: argument 1"}
 !1269 = !{!1270, !1272, !1265, !1268}
-!1270 = distinct !{!1270, !1271, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E.argprom: argument 0"}
-!1271 = distinct !{!1271, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E.argprom"}
-!1272 = distinct !{!1272, !1271, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E.argprom: argument 1"}
+!1270 = distinct !{!1270, !1271, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E: argument 0"}
+!1271 = distinct !{!1271, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E"}
+!1272 = distinct !{!1272, !1271, !"_ZN76_$LT$deserr..errors..json..JsonError$u20$as$u20$deserr..DeserializeError$GT$5error28_$u7b$$u7b$closure$u7d$$u7d$17h9160a29a922aa962E: argument 1"}
 !1273 = !{!1274, !1276, !1277, !1279, !1280, !1281, !1283, !1270, !1272, !1265, !1268}
 !1274 = distinct !{!1274, !1275, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E: argument 0"}
 !1275 = distinct !{!1275, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h601143766c35b9a2E"}
@@ -6270,8 +6270,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1307 = distinct !{!1307, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17haaea7fc73c785021E"}
 !1308 = distinct !{!1308, !1309, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5e89878cdd1aa88fE: argument 0"}
 !1309 = distinct !{!1309, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5e89878cdd1aa88fE"}
-!1310 = distinct !{!1310, !1311, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc773cbc155103ef8E.argprom: argument 0"}
-!1311 = distinct !{!1311, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc773cbc155103ef8E.argprom"}
+!1310 = distinct !{!1310, !1311, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc773cbc155103ef8E: argument 0"}
+!1311 = distinct !{!1311, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc773cbc155103ef8E"}
 !1312 = !{!1313, !1314}
 !1313 = distinct !{!1313, !1307, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b$closure$u7d$$u7d$17haaea7fc73c785021E: argument 1"}
 !1314 = distinct !{!1314, !1309, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5e89878cdd1aa88fE: argument 1"}
@@ -6310,10 +6310,10 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1347 = !{!1348}
 !1348 = distinct !{!1348, !1346, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3665cedb3fb8bf2bE: argument 1"}
 !1349 = !{!1350}
-!1350 = distinct !{!1350, !1351, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE.argprom: argument 1"}
-!1351 = distinct !{!1351, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE.argprom"}
+!1350 = distinct !{!1350, !1351, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE: argument 1"}
+!1351 = distinct !{!1351, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE"}
 !1352 = !{!1353, !1350, !1345, !1348}
-!1353 = distinct !{!1353, !1351, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE.argprom: argument 0"}
+!1353 = distinct !{!1353, !1351, !"_ZN17meilisearch_types8settings25apply_settings_to_builder28_$u7b$$u7b$closure$u7d$$u7d$17h8a3966d2582ab49eE: argument 0"}
 !1354 = !{!1355, !1350, !1348}
 !1355 = distinct !{!1355, !1356, !"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E: argument 1"}
 !1356 = distinct !{!1356, !"_ZN83_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..clone..Clone$GT$5clone17hb27740661da1d911E"}
@@ -6345,8 +6345,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1382 = distinct !{!1382, !1383, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17h4c128f0051dc9ccdE.llvm.9153134991762065841: argument 0"}
 !1383 = distinct !{!1383, !"_ZN4core3ptr62drop_in_place$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$GT$17h4c128f0051dc9ccdE.llvm.9153134991762065841"}
 !1384 = !{!1385}
-!1385 = distinct !{!1385, !1386, !"_ZN10serde_json3ser18format_escaped_str17h83c6dc63f4623b09E.argprom: argument 0"}
-!1386 = distinct !{!1386, !"_ZN10serde_json3ser18format_escaped_str17h83c6dc63f4623b09E.argprom"}
+!1385 = distinct !{!1385, !1386, !"_ZN10serde_json3ser18format_escaped_str17h83c6dc63f4623b09E: argument 0"}
+!1386 = distinct !{!1386, !"_ZN10serde_json3ser18format_escaped_str17h83c6dc63f4623b09E"}
 !1387 = !{!1388, !1390, !1392, !1394}
 !1388 = distinct !{!1388, !1389, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h458cb19721872e17E.llvm.7205017296298784897: argument 0"}
 !1389 = distinct !{!1389, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h458cb19721872e17E.llvm.7205017296298784897"}
@@ -6359,15 +6359,15 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1396 = !{!1397, !1398, !1399, !1385}
 !1397 = distinct !{!1397, !1393, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1398 = distinct !{!1398, !1395, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1399 = distinct !{!1399, !1400, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1400 = distinct !{!1400, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1399 = distinct !{!1399, !1400, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1400 = distinct !{!1400, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1401 = !{!1402, !1388, !1390, !1392, !1394}
 !1402 = distinct !{!1402, !1403, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897: argument 0"}
 !1403 = distinct !{!1403, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897"}
 !1404 = !{!1397, !1398, !1399}
 !1405 = !{!1406}
-!1406 = distinct !{!1406, !1407, !"_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.argprom: argument 0"}
-!1407 = distinct !{!1407, !"_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E.argprom"}
+!1406 = distinct !{!1406, !1407, !"_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E: argument 0"}
+!1407 = distinct !{!1407, !"_ZN10serde_json3ser27format_escaped_str_contents17ha0c0bc6c7c46ef96E"}
 !1408 = !{!1406, !1385}
 !1409 = !{!1410, !1412, !1406, !1385}
 !1410 = distinct !{!1410, !1411, !"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E: argument 0"}
@@ -6388,10 +6388,10 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1425 = !{!1426, !1427, !1428, !1430, !1406, !1385}
 !1426 = distinct !{!1426, !1422, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1427 = distinct !{!1427, !1424, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1428 = distinct !{!1428, !1429, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1429 = distinct !{!1429, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
-!1430 = distinct !{!1430, !1431, !"_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom: argument 0"}
-!1431 = distinct !{!1431, !"_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom"}
+!1428 = distinct !{!1428, !1429, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1429 = distinct !{!1429, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
+!1430 = distinct !{!1430, !1431, !"_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E: argument 0"}
+!1431 = distinct !{!1431, !"_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E"}
 !1432 = !{!1426, !1427, !1428, !1430}
 !1433 = !{!1417, !1419, !1421, !1423}
 !1434 = !{!1435, !1437, !1406, !1385}
@@ -6416,8 +6416,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1453 = !{!1454, !1455, !1456, !1406, !1385}
 !1454 = distinct !{!1454, !1450, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1455 = distinct !{!1455, !1452, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1456 = distinct !{!1456, !1457, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1457 = distinct !{!1457, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1456 = distinct !{!1456, !1457, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1457 = distinct !{!1457, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1458 = !{!1454, !1455, !1456}
 !1459 = !{!1445, !1447, !1449, !1451}
 !1460 = !{!1461, !1463, !1465, !1467, !1469}
@@ -6434,8 +6434,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1471 = !{!1472, !1473, !1474, !1406, !1385}
 !1472 = distinct !{!1472, !1468, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1473 = distinct !{!1473, !1470, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1474 = distinct !{!1474, !1475, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1475 = distinct !{!1475, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1474 = distinct !{!1474, !1475, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1475 = distinct !{!1475, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1476 = !{!1472, !1473, !1474}
 !1477 = !{!1463, !1465, !1467, !1469}
 !1478 = !{!1479, !1481, !1483, !1485, !1487}
@@ -6452,10 +6452,10 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1489 = !{!1490, !1491, !1492, !1494, !1406, !1385}
 !1490 = distinct !{!1490, !1486, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1491 = distinct !{!1491, !1488, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1492 = distinct !{!1492, !1493, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1493 = distinct !{!1493, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
-!1494 = distinct !{!1494, !1495, !"_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom: argument 0"}
-!1495 = distinct !{!1495, !"_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E.argprom"}
+!1492 = distinct !{!1492, !1493, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1493 = distinct !{!1493, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
+!1494 = distinct !{!1494, !1495, !"_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E: argument 0"}
+!1495 = distinct !{!1495, !"_ZN10serde_json3ser9Formatter21write_string_fragment17he1e48dd41a08d677E"}
 !1496 = !{!1490, !1491, !1492, !1494}
 !1497 = !{!1481, !1483, !1485, !1487}
 !1498 = !{!1499, !1501, !1503, !1505, !1507}
@@ -6472,8 +6472,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1509 = !{!1510, !1511, !1512, !1385}
 !1510 = distinct !{!1510, !1506, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1511 = distinct !{!1511, !1508, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1512 = distinct !{!1512, !1513, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1513 = distinct !{!1513, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1512 = distinct !{!1512, !1513, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1513 = distinct !{!1513, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1514 = !{!1510, !1511, !1512}
 !1515 = !{!1501, !1503, !1505, !1507}
 !1516 = !{!1517}
@@ -6507,8 +6507,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1544 = distinct !{!1544, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h6ec489b8e597aad6E.llvm.9153134991762065841"}
 !1545 = !{!1534, !1537}
 !1546 = !{!1547}
-!1547 = distinct !{!1547, !1548, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!1548 = distinct !{!1548, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!1547 = distinct !{!1547, !1548, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!1548 = distinct !{!1548, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !1549 = !{!1550, !1552, !1554, !1556}
 !1550 = distinct !{!1550, !1551, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h458cb19721872e17E.llvm.7205017296298784897: argument 0"}
 !1551 = distinct !{!1551, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$15append_elements17h458cb19721872e17E.llvm.7205017296298784897"}
@@ -6521,14 +6521,14 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1558 = !{!1559, !1560, !1561, !1563, !1565, !1566, !1568}
 !1559 = distinct !{!1559, !1555, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1560 = distinct !{!1560, !1557, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1561 = distinct !{!1561, !1562, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1562 = distinct !{!1562, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1561 = distinct !{!1561, !1562, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1562 = distinct !{!1562, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1563 = distinct !{!1563, !1564, !"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h25c203e4b864c787E: argument 0"}
 !1564 = distinct !{!1564, !"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h25c203e4b864c787E"}
 !1565 = distinct !{!1565, !1564, !"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h25c203e4b864c787E: argument 1"}
-!1566 = distinct !{!1566, !1567, !"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h2488624f442cccedE.argprom: argument 0"}
-!1567 = distinct !{!1567, !"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h2488624f442cccedE.argprom"}
-!1568 = distinct !{!1568, !1567, !"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h2488624f442cccedE.argprom: argument 1"}
+!1566 = distinct !{!1566, !1567, !"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h2488624f442cccedE: argument 0"}
+!1567 = distinct !{!1567, !"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h2488624f442cccedE"}
+!1568 = distinct !{!1568, !1567, !"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17h2488624f442cccedE: argument 1"}
 !1569 = !{!1570, !1550, !1552, !1554, !1556}
 !1570 = distinct !{!1570, !1571, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897: argument 0"}
 !1571 = distinct !{!1571, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897"}
@@ -6545,12 +6545,12 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1582 = !{!1583, !1584, !1585, !1587, !1589}
 !1583 = distinct !{!1583, !1579, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1584 = distinct !{!1584, !1581, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1585 = distinct !{!1585, !1586, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1586 = distinct !{!1586, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
-!1587 = distinct !{!1587, !1588, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE.argprom: argument 0"}
-!1588 = distinct !{!1588, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE.argprom"}
-!1589 = distinct !{!1589, !1590, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E.argprom: argument 0"}
-!1590 = distinct !{!1590, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E.argprom"}
+!1585 = distinct !{!1585, !1586, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1586 = distinct !{!1586, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
+!1587 = distinct !{!1587, !1588, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE: argument 0"}
+!1588 = distinct !{!1588, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE"}
+!1589 = distinct !{!1589, !1590, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E: argument 0"}
+!1590 = distinct !{!1590, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E"}
 !1591 = !{!1592, !1574, !1576, !1578, !1580}
 !1592 = distinct !{!1592, !1593, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897: argument 0"}
 !1593 = distinct !{!1593, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897"}
@@ -6567,17 +6567,17 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1604 = !{!1605, !1606, !1607, !1609, !1611, !1612, !1614, !1615, !1617}
 !1605 = distinct !{!1605, !1601, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1606 = distinct !{!1606, !1603, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1607 = distinct !{!1607, !1608, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1608 = distinct !{!1608, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1607 = distinct !{!1607, !1608, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1608 = distinct !{!1608, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1609 = distinct !{!1609, !1610, !"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17he19919ceb14048d3E: argument 0"}
 !1610 = distinct !{!1610, !"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17he19919ceb14048d3E"}
 !1611 = distinct !{!1611, !1610, !"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17he19919ceb14048d3E: argument 1"}
-!1612 = distinct !{!1612, !1613, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE.argprom: argument 0"}
-!1613 = distinct !{!1613, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE.argprom"}
-!1614 = distinct !{!1614, !1613, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE.argprom: argument 1"}
-!1615 = distinct !{!1615, !1616, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E.argprom: argument 0"}
-!1616 = distinct !{!1616, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E.argprom"}
-!1617 = distinct !{!1617, !1616, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E.argprom: argument 1"}
+!1612 = distinct !{!1612, !1613, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE: argument 0"}
+!1613 = distinct !{!1613, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE"}
+!1614 = distinct !{!1614, !1613, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE: argument 1"}
+!1615 = distinct !{!1615, !1616, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E: argument 0"}
+!1616 = distinct !{!1616, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E"}
+!1617 = distinct !{!1617, !1616, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E: argument 1"}
 !1618 = !{!1619, !1596, !1598, !1600, !1602}
 !1619 = distinct !{!1619, !1620, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897: argument 0"}
 !1620 = distinct !{!1620, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897"}
@@ -6594,8 +6594,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1631 = !{!1632, !1633, !1634, !1612, !1615}
 !1632 = distinct !{!1632, !1628, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1633 = distinct !{!1633, !1630, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1634 = distinct !{!1634, !1635, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1635 = distinct !{!1635, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1634 = distinct !{!1634, !1635, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1635 = distinct !{!1635, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1636 = !{!1637, !1623, !1625, !1627, !1629}
 !1637 = distinct !{!1637, !1638, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897: argument 0"}
 !1638 = distinct !{!1638, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897"}
@@ -6612,17 +6612,17 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1649 = !{!1650, !1651, !1652, !1654, !1656, !1657, !1659, !1660, !1662}
 !1650 = distinct !{!1650, !1646, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1651 = distinct !{!1651, !1648, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1652 = distinct !{!1652, !1653, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1653 = distinct !{!1653, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1652 = distinct !{!1652, !1653, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1653 = distinct !{!1653, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1654 = distinct !{!1654, !1655, !"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17he19919ceb14048d3E: argument 0"}
 !1655 = distinct !{!1655, !"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17he19919ceb14048d3E"}
 !1656 = distinct !{!1656, !1655, !"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17he19919ceb14048d3E: argument 1"}
-!1657 = distinct !{!1657, !1658, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE.argprom: argument 0"}
-!1658 = distinct !{!1658, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE.argprom"}
-!1659 = distinct !{!1659, !1658, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE.argprom: argument 1"}
-!1660 = distinct !{!1660, !1661, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E.argprom: argument 0"}
-!1661 = distinct !{!1661, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E.argprom"}
-!1662 = distinct !{!1662, !1661, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E.argprom: argument 1"}
+!1657 = distinct !{!1657, !1658, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE: argument 0"}
+!1658 = distinct !{!1658, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE"}
+!1659 = distinct !{!1659, !1658, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE: argument 1"}
+!1660 = distinct !{!1660, !1661, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E: argument 0"}
+!1661 = distinct !{!1661, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E"}
+!1662 = distinct !{!1662, !1661, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E: argument 1"}
 !1663 = !{!1664, !1641, !1643, !1645, !1647}
 !1664 = distinct !{!1664, !1665, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897: argument 0"}
 !1665 = distinct !{!1665, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897"}
@@ -6639,8 +6639,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1676 = !{!1677, !1678, !1679, !1657, !1660}
 !1677 = distinct !{!1677, !1673, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1678 = distinct !{!1678, !1675, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1679 = distinct !{!1679, !1680, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1680 = distinct !{!1680, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1679 = distinct !{!1679, !1680, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1680 = distinct !{!1680, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1681 = !{!1682, !1668, !1670, !1672, !1674}
 !1682 = distinct !{!1682, !1683, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897: argument 0"}
 !1683 = distinct !{!1683, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897"}
@@ -6657,17 +6657,17 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1694 = !{!1695, !1696, !1697, !1699, !1701, !1702, !1704, !1705, !1707}
 !1695 = distinct !{!1695, !1691, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1696 = distinct !{!1696, !1693, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1697 = distinct !{!1697, !1698, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1698 = distinct !{!1698, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1697 = distinct !{!1697, !1698, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1698 = distinct !{!1698, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1699 = distinct !{!1699, !1700, !"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17he19919ceb14048d3E: argument 0"}
 !1700 = distinct !{!1700, !"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17he19919ceb14048d3E"}
 !1701 = distinct !{!1701, !1700, !"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17he19919ceb14048d3E: argument 1"}
-!1702 = distinct !{!1702, !1703, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE.argprom: argument 0"}
-!1703 = distinct !{!1703, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE.argprom"}
-!1704 = distinct !{!1704, !1703, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE.argprom: argument 1"}
-!1705 = distinct !{!1705, !1706, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E.argprom: argument 0"}
-!1706 = distinct !{!1706, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E.argprom"}
-!1707 = distinct !{!1707, !1706, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E.argprom: argument 1"}
+!1702 = distinct !{!1702, !1703, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE: argument 0"}
+!1703 = distinct !{!1703, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE"}
+!1704 = distinct !{!1704, !1703, !"_ZN5serde3ser12SerializeMap15serialize_entry17h9e4f5062821f100cE: argument 1"}
+!1705 = distinct !{!1705, !1706, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E: argument 0"}
+!1706 = distinct !{!1706, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E"}
+!1707 = distinct !{!1707, !1706, !"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hdcc283ff2d9a17d7E: argument 1"}
 !1708 = !{!1709, !1686, !1688, !1690, !1692}
 !1709 = distinct !{!1709, !1710, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897: argument 0"}
 !1710 = distinct !{!1710, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897"}
@@ -6684,8 +6684,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1721 = !{!1722, !1723, !1724, !1702, !1705}
 !1722 = distinct !{!1722, !1718, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1723 = distinct !{!1723, !1720, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1724 = distinct !{!1724, !1725, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1725 = distinct !{!1725, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1724 = distinct !{!1724, !1725, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1725 = distinct !{!1725, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1726 = !{!1727, !1713, !1715, !1717, !1719}
 !1727 = distinct !{!1727, !1728, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897: argument 0"}
 !1728 = distinct !{!1728, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897"}
@@ -6702,8 +6702,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1739 = !{!1740, !1741, !1742}
 !1740 = distinct !{!1740, !1736, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hed367a54eaee7555E: argument 1"}
 !1741 = distinct !{!1741, !1738, !"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17hc0f7389fd8f17b68E: argument 1"}
-!1742 = distinct !{!1742, !1743, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom: argument 0"}
-!1743 = distinct !{!1743, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.argprom"}
+!1742 = distinct !{!1742, !1743, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E: argument 0"}
+!1743 = distinct !{!1743, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E"}
 !1744 = !{!1745, !1731, !1733, !1735, !1737}
 !1745 = distinct !{!1745, !1746, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897: argument 0"}
 !1746 = distinct !{!1746, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2471b4e7c2730ea0E.llvm.7205017296298784897"}
@@ -6721,8 +6721,8 @@ attributes #31 = { "function-inline-cost-multiplier"="2" }
 !1758 = !{!1748, !1751, !1753, !1755}
 !1759 = !{!1750, !1754, !1757}
 !1760 = !{!1761}
-!1761 = distinct !{!1761, !1762, !"_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.argprom: argument 0"}
-!1762 = distinct !{!1762, !"_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.argprom"}
+!1761 = distinct !{!1761, !1762, !"_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E: argument 0"}
+!1762 = distinct !{!1762, !"_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E"}
 !1763 = !{!1764, !1766}
 !1764 = distinct !{!1764, !1765, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1180704d1665229eE: argument 0"}
 !1765 = distinct !{!1765, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1180704d1665229eE"}

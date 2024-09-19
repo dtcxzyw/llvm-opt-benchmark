@@ -255,7 +255,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !22
   %103 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %103)
-  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E.argprom(ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef align 16 dereferenceable(960) %16, ptr nonnull %.val, i64 %.val25)
+  invoke fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E(ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noalias noundef align 16 dereferenceable(960) %16, ptr nonnull %.val, i64 %.val25)
           to label %105 unwind label %31, !noalias !6
 
 104:                                              ; preds = %99
@@ -402,13 +402,13 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h7538005
 141:                                              ; preds = %140
   %142 = getelementptr inbounds i8, ptr %16, i64 608
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hb973f17375d02cfeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %142)
-          to label %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom.exit unwind label %31, !noalias !6
+          to label %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit unwind label %31, !noalias !6
 
 143:                                              ; preds = %129, %124, %118, %109, %104, %98, %93, %85, %76, %71
   %.sroa.27.0 = phi i32 [ %.sroa.2126.i.sroa.0.0.copyload, %129 ], [ %.sroa.2121.i.sroa.0.0.copyload, %124 ], [ %.sroa.2116.i.sroa.0.0.copyload, %118 ], [ %.sroa.2111.i.sroa.0.0.copyload, %109 ], [ %.sroa.2106.i.sroa.0.0.copyload, %104 ], [ %.sroa.2101.i.sroa.0.0.copyload, %98 ], [ %90, %93 ], [ %81, %85 ], [ %.sroa.076.sroa.4.0.copyload.i, %76 ], [ %.sroa.071.sroa.4.0.copyload.i, %71 ]
   %.sroa.15.0 = phi i32 [ %126, %129 ], [ %121, %124 ], [ %115, %118 ], [ %106, %109 ], [ %100, %104 ], [ %95, %98 ], [ %87, %93 ], [ %78, %85 ], [ %73, %76 ], [ %68, %71 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$aho_corasick..util..prefilter..Builder$GT$17h46385815486799d3E"(ptr noalias noundef nonnull align 16 dereferenceable(480) %16)
-          to label %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom.exit.thread unwind label %144, !noalias !6
+          to label %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit.thread unwind label %144, !noalias !6
 
 144:                                              ; preds = %143
   %145 = landingpad { ptr, i32 }
@@ -426,7 +426,7 @@ common.resume.i:                                  ; preds = %148, %144
   %common.resume.op.i = phi { ptr, i32 } [ %145, %144 ], [ %.pn.i, %148 ]
   resume { ptr, i32 } %common.resume.op.i
 
-_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom.exit.thread: ; preds = %143
+_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit.thread: ; preds = %143
   call void @"_ZN4core3ptr58drop_in_place$LT$aho_corasick..nfa..noncontiguous..NFA$GT$17hd1472471dbb97252E"(ptr noalias noundef nonnull align 8 dereferenceable(440) %24), !noalias !6
   br label %155
 
@@ -441,7 +441,7 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argpro
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #15, !noalias !6
   unreachable
 
-_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom.exit: ; preds = %141
+_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit: ; preds = %141
   %.sroa.0.0.copyload = load i64, ptr %24, align 16, !alias.scope !22
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 520
   %.sroa.15.0.copyload = load i32, ptr %.sroa.15.0..sroa_idx, align 8, !alias.scope !22
@@ -464,7 +464,7 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argpro
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %.sroa.41)
   br label %158
 
-154:                                              ; preds = %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom.exit
+154:                                              ; preds = %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.37, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(408) %.sroa.41, i64 408, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.37)
@@ -481,9 +481,9 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argpro
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(408) %.sroa.3, i64 408, i1 false)
   br label %157
 
-155:                                              ; preds = %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom.exit, %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom.exit.thread
-  %.sroa.15.145 = phi i32 [ %.sroa.15.0, %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom.exit.thread ], [ %.sroa.15.0.copyload, %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom.exit ]
-  %.sroa.27.143 = phi i32 [ %.sroa.27.0, %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom.exit.thread ], [ %.sroa.27.0.copyload, %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom.exit ]
+155:                                              ; preds = %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit, %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit.thread
+  %.sroa.15.145 = phi i32 [ %.sroa.15.0, %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit.thread ], [ %.sroa.15.0.copyload, %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit ]
+  %.sroa.27.143 = phi i32 [ %.sroa.27.0, %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit.thread ], [ %.sroa.27.0.copyload, %_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.37, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.37)
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %.sroa.41)
@@ -505,7 +505,7 @@ _ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argpro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E.argprom(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 16 dereferenceable(960) %1, ptr readonly %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h34634b14bc84da95E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 16 dereferenceable(960) %1, ptr readonly %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.2107 = alloca [5 x i32], align 4
   %.sroa.2102 = alloca [5 x i32], align 4
   %.sroa.297 = alloca [5 x i32], align 4
@@ -1334,10 +1334,10 @@ attributes #16 = { noreturn }
 !4 = !{i64 0, i64 -9223372036854775807}
 !5 = !{}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom: argument 0"}
-!8 = distinct !{!8, !"_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom"}
+!7 = distinct !{!7, !8, !"_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E: argument 0"}
+!8 = distinct !{!8, !"_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E"}
 !9 = !{!10}
-!10 = distinct !{!10, !8, !"_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E.argprom: argument 1"}
+!10 = distinct !{!10, !8, !"_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h5ea982d1567a7694E: argument 1"}
 !11 = !{!12, !10}
 !12 = distinct !{!12, !13, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h880574738343be03E: argument 0"}
 !13 = distinct !{!13, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h880574738343be03E"}

@@ -291,1650 +291,1650 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL15Switch_CullFaceEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_FrontFaceEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL11Switch_HintEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_LineWidthEf(float %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_PointSizeEf(float %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_PolygonModeEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL14Switch_ScissorEiiii(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_TexParameterfEjjf(i32 %0, i32 %1, float %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL21Switch_TexParameterfvEjjPKf(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_TexParameteriEjji(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL21Switch_TexParameterivEjjPKi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_TexImage1DEjiiiijjPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, ptr nocapture readnone %7) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_TexImage2DEjiiiiijjPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, ptr nocapture readnone %8) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_DrawBufferEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL12Switch_ClearEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_ClearColorEffff(float %0, float %1, float %2, float %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL19Switch_ClearStencilEi(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_ClearDepthEd(double %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_StencilMaskEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_ColorMaskEhhhh(i8 zeroext %0, i8 zeroext %1, i8 zeroext %2, i8 zeroext %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_DepthMaskEh(i8 zeroext %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL14Switch_DisableEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL13Switch_EnableEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL13Switch_FinishEv() #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL12Switch_FlushEv() #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_BlendFuncEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL14Switch_LogicOpEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_StencilFuncEjij(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_StencilOpEjjj(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_DepthFuncEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_PixelStorefEjf(i32 %0, float %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_PixelStoreiEji(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_ReadBufferEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_ReadPixelsEiiiijjPv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, ptr nocapture readnone %6) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_GetBooleanvEjPh(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_GetDoublevEjPd(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef i32 @_ZN2glL15Switch_GetErrorEv() #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_GetFloatvEjPf(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_GetIntegervEjPi(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noalias noundef nonnull ptr @_ZN2glL16Switch_GetStringEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_GetTexImageEjijjPv(i32 %0, i32 %1, i32 %2, i32 %3, ptr nocapture readnone %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_GetTexParameterfvEjjPf(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_GetTexParameterivEjjPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL29Switch_GetTexLevelParameterfvEjijPf(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL29Switch_GetTexLevelParameterivEjijPi(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef zeroext i8 @_ZN2glL16Switch_IsEnabledEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_DepthRangeEdd(double %0, double %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL15Switch_ViewportEiiii(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_DrawArraysEjii(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL19Switch_DrawElementsEjijPKv(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_GetPointervEjPPv(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_PolygonOffsetEff(float %0, float %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL21Switch_CopyTexImage1DEjijiiii(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL21Switch_CopyTexImage2DEjijiiiii(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_CopyTexSubImage1DEjiiiii(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_CopyTexSubImage2DEjiiiiiii(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_TexSubImage1DEjiiijjPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, ptr nocapture readnone %6) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_TexSubImage2DEjiiiiijjPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, ptr nocapture readnone %8) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_BindTextureEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL21Switch_DeleteTexturesEiPKj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_GenTexturesEiPj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef zeroext i8 @_ZN2glL16Switch_IsTextureEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL14Switch_IndexubEh(i8 zeroext %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL15Switch_IndexubvEPKh(ptr nocapture readnone %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_BlendColorEffff(float %0, float %1, float %2, float %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_BlendEquationEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_DrawRangeElementsEjjjijPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, ptr nocapture readnone %5) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_TexSubImage3DEjiiiiiiijjPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8, i32 %9, ptr nocapture readnone %10) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_CopyTexSubImage3DEjiiiiiiii(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_ActiveTextureEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL21Switch_SampleCoverageEfh(float %0, i8 zeroext %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_CompressedTexImage3DEjijiiiiiPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, ptr nocapture readnone %8) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_CompressedTexImage2DEjijiiiiPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, ptr nocapture readnone %7) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_CompressedTexImage1DEjijiiiPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, ptr nocapture readnone %6) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL30Switch_CompressedTexSubImage3DEjiiiiiiijiPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8, i32 %9, ptr nocapture readnone %10) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL30Switch_CompressedTexSubImage2DEjiiiiijiPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, ptr nocapture readnone %8) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL30Switch_CompressedTexSubImage1DEjiiijiPKv(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, ptr nocapture readnone %6) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL28Switch_GetCompressedTexImageEjiPv(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_BlendFuncSeparateEjjjj(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_MultiDrawArraysEjPKiS1_i(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_MultiDrawElementsEjPKijPKPKvi(i32 %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i32 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_PointParameterfEjf(i32 %0, float %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_PointParameterfvEjPKf(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_PointParameteriEji(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_PointParameterivEjPKi(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_GenQueriesEiPj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_DeleteQueriesEiPKj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef zeroext i8 @_ZN2glL14Switch_IsQueryEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_BeginQueryEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL15Switch_EndQueryEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_GetQueryivEjjPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_GetQueryObjectivEjjPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_GetQueryObjectuivEjjPj(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_BindBufferEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_DeleteBuffersEiPKj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_GenBuffersEiPj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef zeroext i8 @_ZN2glL15Switch_IsBufferEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_BufferDataEjlPKvj(i32 %0, i64 %1, ptr nocapture readnone %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_BufferSubDataEjllPKv(i32 %0, i64 %1, i64 %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_GetBufferSubDataEjllPv(i32 %0, i64 %1, i64 %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noalias noundef nonnull ptr @_ZN2glL16Switch_MapBufferEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef zeroext i8 @_ZN2glL18Switch_UnmapBufferEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_GetBufferParameterivEjjPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_GetBufferPointervEjjPPv(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL28Switch_BlendEquationSeparateEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_DrawBuffersEiPKj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_StencilOpSeparateEjjjj(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL26Switch_StencilFuncSeparateEjjij(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL26Switch_StencilMaskSeparateEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL19Switch_AttachShaderEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_BindAttribLocationEjjPKc(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_CompileShaderEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef i32 @_ZN2glL20Switch_CreateProgramEv() #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef i32 @_ZN2glL19Switch_CreateShaderEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_DeleteProgramEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL19Switch_DeleteShaderEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL19Switch_DetachShaderEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL31Switch_DisableVertexAttribArrayEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL30Switch_EnableVertexAttribArrayEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_GetActiveAttribEjjiPiS0_PjPc(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture readnone %6) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_GetActiveUniformEjjiPiS0_PjPc(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture readnone %6) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_GetAttachedShadersEjiPiPj(i32 %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef i32 @_ZN2glL24Switch_GetAttribLocationEjPKc(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL19Switch_GetProgramivEjjPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_GetProgramInfoLogEjiPiPc(i32 %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_GetShaderivEjjPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_GetShaderInfoLogEjiPiPc(i32 %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_GetShaderSourceEjiPiPc(i32 %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef i32 @_ZN2glL25Switch_GetUniformLocationEjPKc(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL19Switch_GetUniformfvEjiPf(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL19Switch_GetUniformivEjiPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_GetVertexAttribdvEjjPd(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_GetVertexAttribfvEjjPf(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_GetVertexAttribivEjjPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL30Switch_GetVertexAttribPointervEjjPPv(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef zeroext i8 @_ZN2glL16Switch_IsProgramEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef zeroext i8 @_ZN2glL15Switch_IsShaderEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_LinkProgramEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL19Switch_ShaderSourceEjiPKPKcPKi(i32 %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_UseProgramEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_Uniform1fEif(i32 %0, float %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_Uniform2fEiff(i32 %0, float %1, float %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_Uniform3fEifff(i32 %0, float %1, float %2, float %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_Uniform4fEiffff(i32 %0, float %1, float %2, float %3, float %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_Uniform1iEii(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_Uniform2iEiii(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_Uniform3iEiiii(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_Uniform4iEiiiii(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform1fvEiiPKf(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform2fvEiiPKf(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform3fvEiiPKf(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform4fvEiiPKf(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform1ivEiiPKi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform2ivEiiPKi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform3ivEiiPKi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform4ivEiiPKi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_UniformMatrix2fvEiihPKf(i32 %0, i32 %1, i8 zeroext %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_UniformMatrix3fvEiihPKf(i32 %0, i32 %1, i8 zeroext %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_UniformMatrix4fvEiihPKf(i32 %0, i32 %1, i8 zeroext %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_ValidateProgramEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL26Switch_VertexAttribPointerEjijhiPKv(i32 %0, i32 %1, i32 %2, i8 zeroext %3, i32 %4, ptr nocapture readnone %5) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_UniformMatrix2x3fvEiihPKf(i32 %0, i32 %1, i8 zeroext %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_UniformMatrix3x2fvEiihPKf(i32 %0, i32 %1, i8 zeroext %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_UniformMatrix2x4fvEiihPKf(i32 %0, i32 %1, i8 zeroext %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_UniformMatrix4x2fvEiihPKf(i32 %0, i32 %1, i8 zeroext %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_UniformMatrix3x4fvEiihPKf(i32 %0, i32 %1, i8 zeroext %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_UniformMatrix4x3fvEiihPKf(i32 %0, i32 %1, i8 zeroext %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_BindVertexArrayEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_DeleteVertexArraysEiPKj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_GenVertexArraysEiPj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef zeroext i8 @_ZN2glL20Switch_IsVertexArrayEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noalias noundef nonnull ptr @_ZN2glL21Switch_MapBufferRangeEjllj(i32 %0, i64 %1, i64 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL29Switch_FlushMappedBufferRangeEjll(i32 %0, i64 %1, i64 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef zeroext i8 @_ZN2glL21Switch_IsRenderbufferEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_BindRenderbufferEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL26Switch_DeleteRenderbuffersEiPKj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_GenRenderbuffersEiPj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL26Switch_RenderbufferStorageEjjii(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL33Switch_GetRenderbufferParameterivEjjPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef zeroext i8 @_ZN2glL20Switch_IsFramebufferEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_BindFramebufferEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_DeleteFramebuffersEiPKj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_GenFramebuffersEiPj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef i32 @_ZN2glL29Switch_CheckFramebufferStatusEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_FramebufferTexture1DEjjjji(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_FramebufferTexture2DEjjjji(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_FramebufferTexture3DEjjjjii(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL30Switch_FramebufferRenderbufferEjjjj(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL42Switch_GetFramebufferAttachmentParameterivEjjjPi(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL21Switch_GenerateMipmapEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_BlitFramebufferEiiiiiiiijj(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, i32 %8, i32 %9) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL37Switch_RenderbufferStorageMultisampleEjijii(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL30Switch_FramebufferTextureLayerEjjjii(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_ColorMaskiEjhhhh(i32 %0, i8 zeroext %1, i8 zeroext %2, i8 zeroext %3, i8 zeroext %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_GetBooleani_vEjjPh(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_GetIntegeri_vEjjPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL14Switch_EnableiEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL15Switch_DisableiEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef zeroext i8 @_ZN2glL17Switch_IsEnablediEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL29Switch_BeginTransformFeedbackEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_EndTransformFeedbackEv() #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_BindBufferRangeEjjjll(i32 %0, i32 %1, i32 %2, i64 %3, i64 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL21Switch_BindBufferBaseEjjj(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL32Switch_TransformFeedbackVaryingsEjiPKPKcj(i32 %0, i32 %1, ptr nocapture readnone %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL34Switch_GetTransformFeedbackVaryingEjjiPiS0_PjPc(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture readnone %6) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_ClampColorEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL29Switch_BeginConditionalRenderEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_EndConditionalRenderEv() #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_VertexAttribIPointerEjijiPKv(i32 %0, i32 %1, i32 %2, i32 %3, ptr nocapture readnone %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_GetVertexAttribIivEjjPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL26Switch_GetVertexAttribIuivEjjPj(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_VertexAttribI1iEji(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_VertexAttribI2iEjii(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_VertexAttribI3iEjiii(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_VertexAttribI4iEjiiii(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_VertexAttribI1uiEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_VertexAttribI2uiEjjj(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_VertexAttribI3uiEjjjj(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_VertexAttribI4uiEjjjjj(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_VertexAttribI1ivEjPKi(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_VertexAttribI2ivEjPKi(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_VertexAttribI3ivEjPKi(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_VertexAttribI4ivEjPKi(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_VertexAttribI1uivEjPKj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_VertexAttribI2uivEjPKj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_VertexAttribI3uivEjPKj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_VertexAttribI4uivEjPKj(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_VertexAttribI4bvEjPKa(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_VertexAttribI4svEjPKs(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_VertexAttribI4ubvEjPKh(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_VertexAttribI4usvEjPKt(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_GetUniformuivEjiPj(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_BindFragDataLocationEjjPKc(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef i32 @_ZN2glL26Switch_GetFragDataLocationEjPKc(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform1uiEij(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform2uiEijj(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform3uiEijjj(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_Uniform4uiEijjjj(i32 %0, i32 %1, i32 %2, i32 %3, i32 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_Uniform1uivEiiPKj(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_Uniform2uivEiiPKj(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_Uniform3uivEiiPKj(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL18Switch_Uniform4uivEiiPKj(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_TexParameterIivEjjPKi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL23Switch_TexParameterIuivEjjPKj(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_GetTexParameterIivEjjPi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL26Switch_GetTexParameterIuivEjjPj(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_ClearBufferivEjiPKi(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL21Switch_ClearBufferuivEjiPKj(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_ClearBufferfvEjiPKf(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_ClearBufferfiEjifi(i32 %0, i32 %1, float %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noalias noundef nonnull ptr @_ZN2glL17Switch_GetStringiEjj(i32 %0, i32 %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_GetUniformIndicesEjiPKPKcPj(i32 %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL26Switch_GetActiveUniformsivEjiPKjjPi(i32 %0, i32 %1, ptr nocapture readnone %2, i32 %3, ptr nocapture readnone %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL27Switch_GetActiveUniformNameEjjiPiPc(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal noundef i32 @_ZN2glL27Switch_GetUniformBlockIndexEjPKc(i32 %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL30Switch_GetActiveUniformBlockivEjjjPi(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL32Switch_GetActiveUniformBlockNameEjjiPiPc(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL26Switch_UniformBlockBindingEjjj(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_CopyBufferSubDataEjjlll(i32 %0, i32 %1, i64 %2, i64 %3, i64 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL26Switch_DrawArraysInstancedEjiii(i32 %0, i32 %1, i32 %2, i32 %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL28Switch_DrawElementsInstancedEjijPKvi(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3, i32 %4) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL16Switch_TexBufferEjjj(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL28Switch_PrimitiveRestartIndexEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL24Switch_EnableClientStateEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL25Switch_DisableClientStateEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_VertexPointerEijiPKv(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL20Switch_NormalPointerEjiPKv(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL19Switch_ColorPointerEijiPKv(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL22Switch_TexCoordPointerEijiPKv(i32 %0, i32 %1, i32 %2, ptr nocapture readnone %3) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL14Switch_TexEnviEjji(i32 %0, i32 %1, i32 %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL17Switch_MatrixModeEj(i32 %0) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL19Switch_LoadIdentityEv() #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL12Switch_OrthoEdddddd(double %0, double %1, double %2, double %3, double %4, double %5) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @_ZN2glL14Switch_Color3dEddd(double %0, double %1, double %2) #0 {
-  tail call fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim()
+  tail call fastcc void @_ZL17IntGetProcAddressPKc()
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZL17IntGetProcAddressPKc.argprom.retelim() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17IntGetProcAddressPKc() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #4

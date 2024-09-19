@@ -162,18 +162,18 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %call.i.i = tail call ptr %customMem1.sroa.0.0.copyload2(ptr noundef %customMem1.sroa.6.0.copyload4, i64 noundef 95992) #16
-  br label %ZSTD_customMalloc.argprom.exit.i
+  br label %ZSTD_customMalloc.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #18
-  br label %ZSTD_customMalloc.argprom.exit.i
+  br label %ZSTD_customMalloc.exit.i
 
-ZSTD_customMalloc.argprom.exit.i:                 ; preds = %if.end.i.i, %if.then.i.i
+ZSTD_customMalloc.exit.i:                         ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i.i, %if.end.i.i ]
   %tobool5.not.i = icmp eq ptr %retval.0.i.i, null
   br i1 %tobool5.not.i, label %ZSTD_createDCtx_internal.exit, label %if.end7.i
 
-if.end7.i:                                        ; preds = %ZSTD_customMalloc.argprom.exit.i
+if.end7.i:                                        ; preds = %ZSTD_customMalloc.exit.i
   %customMem8.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 30128
   store ptr %customMem1.sroa.0.0.copyload2, ptr %customMem8.i, align 8
   %customMem1.sroa.5.0.customMem8.i.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i, i64 30136
@@ -247,19 +247,19 @@ ZSTD_initDCtx_internal.exit.i:                    ; preds = %land.rhs.i.i.i, %ZS
   store i32 0, ptr %maxBlockSizeParam.i.i.i, align 8
   br label %ZSTD_createDCtx_internal.exit
 
-ZSTD_createDCtx_internal.exit:                    ; preds = %entry, %ZSTD_customMalloc.argprom.exit.i, %ZSTD_initDCtx_internal.exit.i
-  %retval.0.i = phi ptr [ %retval.0.i.i, %ZSTD_initDCtx_internal.exit.i ], [ null, %entry ], [ null, %ZSTD_customMalloc.argprom.exit.i ]
+ZSTD_createDCtx_internal.exit:                    ; preds = %entry, %ZSTD_customMalloc.exit.i, %ZSTD_initDCtx_internal.exit.i
+  %retval.0.i = phi ptr [ %retval.0.i.i, %ZSTD_initDCtx_internal.exit.i ], [ null, %entry ], [ null, %ZSTD_customMalloc.exit.i ]
   ret ptr %retval.0.i
 }
 
 ; Function Attrs: nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noundef ptr @ZSTD_createDCtx() local_unnamed_addr #4 {
-ZSTD_customMalloc.argprom.exit.i:
+ZSTD_customMalloc.exit.i:
   %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #18
   %tobool5.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool5.not.i, label %ZSTD_createDCtx_internal.exit, label %if.end7.i
 
-if.end7.i:                                        ; preds = %ZSTD_customMalloc.argprom.exit.i
+if.end7.i:                                        ; preds = %ZSTD_customMalloc.exit.i
   %customMem8.i = getelementptr inbounds i8, ptr %call2.i.i, i64 30128
   %staticSize.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 30168
   store i64 0, ptr %staticSize.i.i, align 8
@@ -329,7 +329,7 @@ ZSTD_initDCtx_internal.exit.i:                    ; preds = %land.rhs.i.i.i, %ZS
   store i32 0, ptr %maxBlockSizeParam.i.i.i, align 8
   br label %ZSTD_createDCtx_internal.exit
 
-ZSTD_createDCtx_internal.exit:                    ; preds = %ZSTD_customMalloc.argprom.exit.i, %ZSTD_initDCtx_internal.exit.i
+ZSTD_createDCtx_internal.exit:                    ; preds = %ZSTD_customMalloc.exit.i, %ZSTD_initDCtx_internal.exit.i
   ret ptr %call2.i.i
 }
 
@@ -359,7 +359,7 @@ do.end10:                                         ; preds = %do.body
   %inBuff = getelementptr inbounds i8, ptr %dctx, i64 30240
   %2 = load ptr, ptr %inBuff, align 8
   %cmp.not.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i, label %ZSTD_customFree.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %ZSTD_customFree.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end10
   %tobool.not.i = icmp eq ptr %cMem.sroa.1.0.copyload, null
@@ -367,20 +367,20 @@ if.then.i:                                        ; preds = %do.end10
 
 if.then1.i:                                       ; preds = %if.then.i
   tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %2) #16
-  br label %ZSTD_customFree.argprom.exit
+  br label %ZSTD_customFree.exit
 
 if.else.i:                                        ; preds = %if.then.i
   tail call void @free(ptr noundef nonnull %2) #16
-  br label %ZSTD_customFree.argprom.exit
+  br label %ZSTD_customFree.exit
 
-ZSTD_customFree.argprom.exit:                     ; preds = %do.end10, %if.then1.i, %if.else.i
+ZSTD_customFree.exit:                             ; preds = %do.end10, %if.then1.i, %if.else.i
   store ptr null, ptr %inBuff, align 8
   %legacyContext = getelementptr inbounds i8, ptr %dctx, i64 30312
   %3 = load ptr, ptr %legacyContext, align 8
   %tobool12.not = icmp eq ptr %3, null
   br i1 %tobool12.not, label %if.end15, label %if.then13
 
-if.then13:                                        ; preds = %ZSTD_customFree.argprom.exit
+if.then13:                                        ; preds = %ZSTD_customFree.exit
   %previousLegacyVersion = getelementptr inbounds i8, ptr %dctx, i64 30320
   %4 = load i32, ptr %previousLegacyVersion, align 8
   switch i32 %4, label %if.end15 [
@@ -401,7 +401,7 @@ sw.bb4.i:                                         ; preds = %if.then13
   %call5.i = tail call i64 @ZBUFFv07_freeDCtx(ptr noundef nonnull %3) #16
   br label %if.end15
 
-if.end15:                                         ; preds = %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %if.then13, %ZSTD_customFree.argprom.exit
+if.end15:                                         ; preds = %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %if.then13, %ZSTD_customFree.exit
   %ddictSet = getelementptr inbounds i8, ptr %dctx, i64 30216
   %5 = load ptr, ptr %ddictSet, align 8
   %tobool16.not = icmp eq ptr %5, null
@@ -429,17 +429,17 @@ if.then4.i:                                       ; preds = %if.then17
 
 if.then1.i11.i:                                   ; preds = %if.then4.i, %if.then4.thread2.i
   tail call void %cMem.sroa.1.0.copyload(ptr noundef %cMem.sroa.4.0.copyload, ptr noundef nonnull %5) #16
-  br label %ZSTD_freeDDictHashSet.argprom.exit
+  br label %ZSTD_freeDDictHashSet.exit
 
 if.else.i12.i:                                    ; preds = %if.then4.i, %if.then4.thread.i
   tail call void @free(ptr noundef nonnull %5) #16
-  br label %ZSTD_freeDDictHashSet.argprom.exit
+  br label %ZSTD_freeDDictHashSet.exit
 
-ZSTD_freeDDictHashSet.argprom.exit:               ; preds = %if.then1.i11.i, %if.else.i12.i
+ZSTD_freeDDictHashSet.exit:                       ; preds = %if.then1.i11.i, %if.else.i12.i
   store ptr null, ptr %ddictSet, align 8
   br label %if.then.i21
 
-if.then.i21:                                      ; preds = %if.end15, %ZSTD_freeDDictHashSet.argprom.exit
+if.then.i21:                                      ; preds = %if.end15, %ZSTD_freeDDictHashSet.exit
   %tobool.not.i22 = icmp eq ptr %cMem.sroa.1.0.copyload, null
   br i1 %tobool.not.i22, label %if.else.i24, label %if.then1.i23
 
@@ -1989,12 +1989,12 @@ return:                                           ; preds = %sw.bb2, %sw.bb1, %s
 
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_decompress(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #0 {
-ZSTD_customMalloc.argprom.exit.i:
+ZSTD_customMalloc.exit.i:
   %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #18
   %tobool5.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool5.not.i, label %return, label %if.end7.i
 
-if.end7.i:                                        ; preds = %ZSTD_customMalloc.argprom.exit.i
+if.end7.i:                                        ; preds = %ZSTD_customMalloc.exit.i
   %customMem8.i = getelementptr inbounds i8, ptr %call2.i.i, i64 30128
   %staticSize.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 30168
   store i64 0, ptr %staticSize.i.i, align 8
@@ -2067,8 +2067,8 @@ ZSTD_decompressDCtx.exit:                         ; preds = %land.rhs.i.i.i, %ZS
   %call10 = tail call i64 @ZSTD_freeDCtx(ptr noundef nonnull %call2.i.i)
   br label %return
 
-return:                                           ; preds = %ZSTD_customMalloc.argprom.exit.i, %ZSTD_decompressDCtx.exit
-  %retval.0 = phi i64 [ %call.i.i5, %ZSTD_decompressDCtx.exit ], [ -64, %ZSTD_customMalloc.argprom.exit.i ]
+return:                                           ; preds = %ZSTD_customMalloc.exit.i, %ZSTD_decompressDCtx.exit
+  %retval.0 = phi i64 [ %call.i.i5, %ZSTD_decompressDCtx.exit ], [ -64, %ZSTD_customMalloc.exit.i ]
   ret i64 %retval.0
 }
 
@@ -3064,12 +3064,12 @@ entry:
 
 ; Function Attrs: nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noundef ptr @ZSTD_createDStream() local_unnamed_addr #4 {
-ZSTD_customMalloc.argprom.exit.i:
+ZSTD_customMalloc.exit.i:
   %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #18
   %tobool5.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool5.not.i, label %ZSTD_createDCtx_internal.exit, label %if.end7.i
 
-if.end7.i:                                        ; preds = %ZSTD_customMalloc.argprom.exit.i
+if.end7.i:                                        ; preds = %ZSTD_customMalloc.exit.i
   %customMem8.i = getelementptr inbounds i8, ptr %call2.i.i, i64 30128
   %staticSize.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 30168
   store i64 0, ptr %staticSize.i.i, align 8
@@ -3139,7 +3139,7 @@ ZSTD_initDCtx_internal.exit.i:                    ; preds = %land.rhs.i.i.i, %ZS
   store i32 0, ptr %maxBlockSizeParam.i.i.i, align 8
   br label %ZSTD_createDCtx_internal.exit
 
-ZSTD_createDCtx_internal.exit:                    ; preds = %ZSTD_customMalloc.argprom.exit.i, %ZSTD_initDCtx_internal.exit.i
+ZSTD_createDCtx_internal.exit:                    ; preds = %ZSTD_customMalloc.exit.i, %ZSTD_initDCtx_internal.exit.i
   ret ptr %call2.i.i
 }
 
@@ -3247,18 +3247,18 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %call.i.i = tail call ptr %customMem1.sroa.0.0.copyload2(ptr noundef %customMem1.sroa.6.0.copyload4, i64 noundef 95992) #16
-  br label %ZSTD_customMalloc.argprom.exit.i
+  br label %ZSTD_customMalloc.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %call2.i.i = tail call noalias dereferenceable_or_null(95992) ptr @malloc(i64 noundef 95992) #18
-  br label %ZSTD_customMalloc.argprom.exit.i
+  br label %ZSTD_customMalloc.exit.i
 
-ZSTD_customMalloc.argprom.exit.i:                 ; preds = %if.end.i.i, %if.then.i.i
+ZSTD_customMalloc.exit.i:                         ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i.i, %if.end.i.i ]
   %tobool5.not.i = icmp eq ptr %retval.0.i.i, null
   br i1 %tobool5.not.i, label %ZSTD_createDCtx_internal.exit, label %if.end7.i
 
-if.end7.i:                                        ; preds = %ZSTD_customMalloc.argprom.exit.i
+if.end7.i:                                        ; preds = %ZSTD_customMalloc.exit.i
   %customMem8.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 30128
   store ptr %customMem1.sroa.0.0.copyload2, ptr %customMem8.i, align 8
   %customMem1.sroa.5.0.customMem8.i.sroa_idx = getelementptr inbounds i8, ptr %retval.0.i.i, i64 30136
@@ -3332,8 +3332,8 @@ ZSTD_initDCtx_internal.exit.i:                    ; preds = %land.rhs.i.i.i, %ZS
   store i32 0, ptr %maxBlockSizeParam.i.i.i, align 8
   br label %ZSTD_createDCtx_internal.exit
 
-ZSTD_createDCtx_internal.exit:                    ; preds = %entry, %ZSTD_customMalloc.argprom.exit.i, %ZSTD_initDCtx_internal.exit.i
-  %retval.0.i = phi ptr [ %retval.0.i.i, %ZSTD_initDCtx_internal.exit.i ], [ null, %entry ], [ null, %ZSTD_customMalloc.argprom.exit.i ]
+ZSTD_createDCtx_internal.exit:                    ; preds = %entry, %ZSTD_customMalloc.exit.i, %ZSTD_initDCtx_internal.exit.i
+  %retval.0.i = phi ptr [ %retval.0.i.i, %ZSTD_initDCtx_internal.exit.i ], [ null, %entry ], [ null, %ZSTD_customMalloc.exit.i ]
   ret ptr %retval.0.i
 }
 
@@ -3719,31 +3719,31 @@ if.then14:                                        ; preds = %if.then12
   %customMem14.sroa.5.0.customMem.sroa_idx = getelementptr inbounds i8, ptr %dctx, i64 30144
   %customMem14.sroa.5.0.copyload = load ptr, ptr %customMem14.sroa.5.0.customMem.sroa_idx, align 1
   %tobool.not.i.i = icmp eq ptr %customMem14.sroa.0.0.copyload, null
-  br i1 %tobool.not.i.i, label %ZSTD_customMalloc.argprom.exit.i, label %ZSTD_customMalloc.argprom.exit.thread.i
+  br i1 %tobool.not.i.i, label %ZSTD_customMalloc.exit.i, label %ZSTD_customMalloc.exit.thread.i
 
-ZSTD_customMalloc.argprom.exit.i:                 ; preds = %if.then14
+ZSTD_customMalloc.exit.i:                         ; preds = %if.then14
   %call2.i.i = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   %tobool.not.i = icmp eq ptr %call2.i.i, null
-  br i1 %tobool.not.i, label %ZSTD_createDDictHashSet.exit.thread, label %ZSTD_customCalloc.argprom.exit.i
+  br i1 %tobool.not.i, label %ZSTD_createDDictHashSet.exit.thread, label %ZSTD_customCalloc.exit.i
 
-ZSTD_customMalloc.argprom.exit.thread.i:          ; preds = %if.then14
+ZSTD_customMalloc.exit.thread.i:                  ; preds = %if.then14
   %call.i.i = tail call ptr %customMem14.sroa.0.0.copyload(ptr noundef %customMem14.sroa.5.0.copyload, i64 noundef 24) #16
   %tobool.not21.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not21.i, label %ZSTD_createDDictHashSet.exit.thread, label %ZSTD_customCalloc.argprom.exit.thread.i
+  br i1 %tobool.not21.i, label %ZSTD_createDDictHashSet.exit.thread, label %ZSTD_customCalloc.exit.thread.i
 
-ZSTD_customCalloc.argprom.exit.thread.i:          ; preds = %ZSTD_customMalloc.argprom.exit.thread.i
+ZSTD_customCalloc.exit.thread.i:                  ; preds = %ZSTD_customMalloc.exit.thread.i
   %call.i14.i = tail call ptr %customMem14.sroa.0.0.copyload(ptr noundef %customMem14.sroa.5.0.copyload, i64 noundef 512) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %call.i14.i, i8 0, i64 512, i1 false)
   store ptr %call.i14.i, ptr %call.i.i, align 8
   br label %ZSTD_createDDictHashSet.exit
 
-ZSTD_customCalloc.argprom.exit.i:                 ; preds = %ZSTD_customMalloc.argprom.exit.i
+ZSTD_customCalloc.exit.i:                         ; preds = %ZSTD_customMalloc.exit.i
   %call2.i17.i = tail call noalias dereferenceable_or_null(512) ptr @calloc(i64 noundef 1, i64 noundef 512) #20
   store ptr %call2.i17.i, ptr %call2.i.i, align 8
   %tobool3.not.i = icmp eq ptr %call2.i17.i, null
   br i1 %tobool3.not.i, label %if.then.i18.i, label %ZSTD_createDDictHashSet.exit
 
-if.then.i18.i:                                    ; preds = %ZSTD_customCalloc.argprom.exit.i
+if.then.i18.i:                                    ; preds = %ZSTD_customCalloc.exit.i
   %tobool.not.i19.i = icmp eq ptr %customMem14.sroa.4.0.copyload, null
   br i1 %tobool.not.i19.i, label %if.else.i.i, label %if.then1.i.i
 
@@ -3755,12 +3755,12 @@ if.else.i.i:                                      ; preds = %if.then.i18.i
   tail call void @free(ptr noundef nonnull %call2.i.i) #16
   br label %ZSTD_createDDictHashSet.exit.thread
 
-ZSTD_createDDictHashSet.exit.thread:              ; preds = %ZSTD_customMalloc.argprom.exit.i, %ZSTD_customMalloc.argprom.exit.thread.i, %if.then1.i.i, %if.else.i.i
+ZSTD_createDDictHashSet.exit.thread:              ; preds = %ZSTD_customMalloc.exit.i, %ZSTD_customMalloc.exit.thread.i, %if.then1.i.i, %if.else.i.i
   store ptr null, ptr %ddictSet, align 8
   br label %return
 
-ZSTD_createDDictHashSet.exit:                     ; preds = %ZSTD_customCalloc.argprom.exit.thread.i, %ZSTD_customCalloc.argprom.exit.i
-  %retval.0.i222429.i = phi ptr [ %call.i.i, %ZSTD_customCalloc.argprom.exit.thread.i ], [ %call2.i.i, %ZSTD_customCalloc.argprom.exit.i ]
+ZSTD_createDDictHashSet.exit:                     ; preds = %ZSTD_customCalloc.exit.thread.i, %ZSTD_customCalloc.exit.i
+  %retval.0.i222429.i = phi ptr [ %call.i.i, %ZSTD_customCalloc.exit.thread.i ], [ %call2.i.i, %ZSTD_customCalloc.exit.i ]
   %ddictPtrTableSize.i = getelementptr inbounds i8, ptr %retval.0.i222429.i, i64 8
   store i64 64, ptr %ddictPtrTableSize.i, align 8
   %ddictPtrCount.i = getelementptr inbounds i8, ptr %retval.0.i222429.i, i64 16
@@ -3793,20 +3793,20 @@ if.then.i.i.i:                                    ; preds = %do.body2.i
   %call.i.i.i = tail call ptr %customMem3315.sroa.0.0.copyload(ptr noundef %customMem3315.sroa.5.0.copyload, i64 noundef %mul1.i.i) #16
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i.i.i, i8 0, i64 %mul1.i.i, i1 false)
   %.pre.i.i = load i64, ptr %ddictPtrTableSize.i17, align 8
-  br label %ZSTD_customCalloc.argprom.exit.i.i
+  br label %ZSTD_customCalloc.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %do.body2.i
   %call2.i.i.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul1.i.i) #20
-  br label %ZSTD_customCalloc.argprom.exit.i.i
+  br label %ZSTD_customCalloc.exit.i.i
 
-ZSTD_customCalloc.argprom.exit.i.i:               ; preds = %if.end.i.i.i, %if.then.i.i.i
+ZSTD_customCalloc.exit.i.i:                       ; preds = %if.end.i.i.i, %if.then.i.i.i
   %7 = phi i64 [ %.pre.i.i, %if.then.i.i.i ], [ %6, %if.end.i.i.i ]
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i.i.i, %if.end.i.i.i ]
   %8 = load ptr, ptr %4, align 8
   %tobool.not.i.i18 = icmp eq ptr %retval.0.i.i.i, null
   br i1 %tobool.not.i.i18, label %return, label %do.end12.i.i
 
-do.end12.i.i:                                     ; preds = %ZSTD_customCalloc.argprom.exit.i.i
+do.end12.i.i:                                     ; preds = %ZSTD_customCalloc.exit.i.i
   %mul.i.i = shl i64 %6, 1
   store ptr %retval.0.i.i.i, ptr %4, align 8
   store i64 %mul.i.i, ptr %ddictPtrTableSize.i17, align 8
@@ -3946,8 +3946,8 @@ do.end25.i.i:                                     ; preds = %if.end23.i.i, %whil
   store i64 %inc29.i.i, ptr %ddictPtrCount.i16, align 8
   br label %return
 
-return:                                           ; preds = %do.body17.i.i, %do.end25.i.i, %do.end20.i.i, %do.body15.i, %ZSTD_customCalloc.argprom.exit.i.i, %do.end8, %if.then9, %ZSTD_createDDictHashSet.exit.thread, %entry
-  %retval.0 = phi i64 [ -60, %entry ], [ -64, %ZSTD_createDDictHashSet.exit.thread ], [ 0, %if.then9 ], [ 0, %do.end8 ], [ -1, %do.body15.i ], [ -64, %ZSTD_customCalloc.argprom.exit.i.i ], [ 0, %do.end20.i.i ], [ 0, %do.end25.i.i ], [ -1, %do.body17.i.i ]
+return:                                           ; preds = %do.body17.i.i, %do.end25.i.i, %do.end20.i.i, %do.body15.i, %ZSTD_customCalloc.exit.i.i, %do.end8, %if.then9, %ZSTD_createDDictHashSet.exit.thread, %entry
+  %retval.0 = phi i64 [ -60, %entry ], [ -64, %ZSTD_createDDictHashSet.exit.thread ], [ 0, %if.then9 ], [ 0, %do.end8 ], [ -1, %do.body15.i ], [ -64, %ZSTD_customCalloc.exit.i.i ], [ 0, %do.end20.i.i ], [ 0, %do.end25.i.i ], [ -1, %do.body17.i.i ]
   ret i64 %retval.0
 }
 
@@ -4888,7 +4888,7 @@ if.else472:                                       ; preds = %if.then445
   %customMem.val289 = load ptr, ptr %9, align 8
   %customMem.val290 = load ptr, ptr %10, align 8
   %cmp.not.i322 = icmp eq ptr %57, null
-  br i1 %cmp.not.i322, label %ZSTD_customFree.argprom.exit, label %if.then.i323
+  br i1 %cmp.not.i322, label %ZSTD_customFree.exit, label %if.then.i323
 
 if.then.i323:                                     ; preds = %if.else472
   %tobool.not.i324 = icmp eq ptr %customMem.val289, null
@@ -4896,36 +4896,36 @@ if.then.i323:                                     ; preds = %if.else472
 
 if.then1.i:                                       ; preds = %if.then.i323
   call void %customMem.val289(ptr noundef %customMem.val290, ptr noundef nonnull %57) #16
-  br label %ZSTD_customFree.argprom.exit
+  br label %ZSTD_customFree.exit
 
 if.else.i:                                        ; preds = %if.then.i323
   call void @free(ptr noundef nonnull %57) #16
-  br label %ZSTD_customFree.argprom.exit
+  br label %ZSTD_customFree.exit
 
-ZSTD_customFree.argprom.exit:                     ; preds = %if.else472, %if.then1.i, %if.else.i
+ZSTD_customFree.exit:                             ; preds = %if.else472, %if.then1.i, %if.else.i
   store i64 0, ptr %8, align 8
   store i64 0, ptr %outBuffSize643, align 8
   %customMem.val = load ptr, ptr %customMem, align 8
   %tobool.not.i326 = icmp eq ptr %customMem.val, null
   br i1 %tobool.not.i326, label %if.end.i330, label %if.then.i327
 
-if.then.i327:                                     ; preds = %ZSTD_customFree.argprom.exit
+if.then.i327:                                     ; preds = %ZSTD_customFree.exit
   %customMem.val288 = load ptr, ptr %10, align 8
   %call.i328 = call ptr %customMem.val(ptr noundef %customMem.val288, i64 noundef %add1.i.i) #16
-  br label %ZSTD_customMalloc.argprom.exit
+  br label %ZSTD_customMalloc.exit
 
-if.end.i330:                                      ; preds = %ZSTD_customFree.argprom.exit
+if.end.i330:                                      ; preds = %ZSTD_customFree.exit
   %call2.i = call noalias ptr @malloc(i64 noundef %add1.i.i) #18
-  br label %ZSTD_customMalloc.argprom.exit
+  br label %ZSTD_customMalloc.exit
 
-ZSTD_customMalloc.argprom.exit:                   ; preds = %if.then.i327, %if.end.i330
+ZSTD_customMalloc.exit:                           ; preds = %if.then.i327, %if.end.i330
   %retval.0.i329 = phi ptr [ %call.i328, %if.then.i327 ], [ %call2.i, %if.end.i330 ]
   store ptr %retval.0.i329, ptr %inBuff, align 8
   %cmp480 = icmp eq ptr %retval.0.i329, null
   br i1 %cmp480, label %return, label %if.end493
 
-if.end493:                                        ; preds = %do.body456.if.end493_crit_edge, %ZSTD_customMalloc.argprom.exit
-  %58 = phi ptr [ %.pre500, %do.body456.if.end493_crit_edge ], [ %retval.0.i329, %ZSTD_customMalloc.argprom.exit ]
+if.end493:                                        ; preds = %do.body456.if.end493_crit_edge, %ZSTD_customMalloc.exit
+  %58 = phi ptr [ %.pre500, %do.body456.if.end493_crit_edge ], [ %retval.0.i329, %ZSTD_customMalloc.exit ]
   store i64 %spec.select286, ptr %8, align 8
   %add.ptr497 = getelementptr inbounds i8, ptr %58, i64 %spec.select286
   store ptr %add.ptr497, ptr %outBuff627, align 8
@@ -5293,8 +5293,8 @@ if.end755:                                        ; preds = %if.end726
   %sub762 = add i64 %add760, %spec.select460
   br label %return
 
-return:                                           ; preds = %while.body, %land.lhs.true288, %if.else20.i358, %cond.end.i377, %if.else20.i, %cond.end.i, %land.lhs.true19.i, %do.body.i, %do.body344, %do.body566, %ZSTD_customMalloc.argprom.exit, %do.body456, %do.end367, %if.end.i295, %if.then259, %if.end3.i, %if.then108, %if.end748, %if.then751, %if.then734, %if.end744, %do.body709, %do.body695, %if.end185, %do.end158, %if.then165, %do.body142, %cond.end124, %do.end92, %if.then96, %do.body80, %do.body40, %entry, %if.end755, %if.then742, %do.end208
-  %retval.0 = phi i64 [ %add225, %do.end208 ], [ %sub762, %if.end755 ], [ 1, %if.then742 ], [ -72, %entry ], [ -70, %do.body40 ], [ -64, %do.body80 ], [ 0, %if.then96 ], [ %call94, %do.end92 ], [ -64, %cond.end124 ], [ %call145, %do.body142 ], [ 0, %if.then165 ], [ %call163, %do.end158 ], [ %call195, %if.end185 ], [ -80, %do.body695 ], [ -82, %do.body709 ], [ 0, %if.end744 ], [ 0, %if.then734 ], [ 1, %if.then751 ], [ 1, %if.end748 ], [ %call101, %if.then108 ], [ -104, %if.end3.i ], [ %call101, %if.end.i295 ], [ %call.i, %if.then259 ], [ -1, %while.body ], [ -16, %do.end367 ], [ -64, %do.body456 ], [ -64, %ZSTD_customMalloc.argprom.exit ], [ -20, %do.body566 ], [ -32, %land.lhs.true19.i ], [ -72, %do.body.i ], [ %call.i310, %do.body344 ], [ %call28.i, %if.else20.i ], [ %call2.i343, %cond.end.i ], [ %call28.i364, %if.else20.i358 ], [ %call2.i382, %cond.end.i377 ], [ -70, %land.lhs.true288 ]
+return:                                           ; preds = %while.body, %land.lhs.true288, %if.else20.i358, %cond.end.i377, %if.else20.i, %cond.end.i, %land.lhs.true19.i, %do.body.i, %do.body344, %do.body566, %ZSTD_customMalloc.exit, %do.body456, %do.end367, %if.end.i295, %if.then259, %if.end3.i, %if.then108, %if.end748, %if.then751, %if.then734, %if.end744, %do.body709, %do.body695, %if.end185, %do.end158, %if.then165, %do.body142, %cond.end124, %do.end92, %if.then96, %do.body80, %do.body40, %entry, %if.end755, %if.then742, %do.end208
+  %retval.0 = phi i64 [ %add225, %do.end208 ], [ %sub762, %if.end755 ], [ 1, %if.then742 ], [ -72, %entry ], [ -70, %do.body40 ], [ -64, %do.body80 ], [ 0, %if.then96 ], [ %call94, %do.end92 ], [ -64, %cond.end124 ], [ %call145, %do.body142 ], [ 0, %if.then165 ], [ %call163, %do.end158 ], [ %call195, %if.end185 ], [ -80, %do.body695 ], [ -82, %do.body709 ], [ 0, %if.end744 ], [ 0, %if.then734 ], [ 1, %if.then751 ], [ 1, %if.end748 ], [ %call101, %if.then108 ], [ -104, %if.end3.i ], [ %call101, %if.end.i295 ], [ %call.i, %if.then259 ], [ -1, %while.body ], [ -16, %do.end367 ], [ -64, %do.body456 ], [ -64, %ZSTD_customMalloc.exit ], [ -20, %do.body566 ], [ -32, %land.lhs.true19.i ], [ -72, %do.body.i ], [ %call.i310, %do.body344 ], [ %call28.i, %if.else20.i ], [ %call2.i343, %cond.end.i ], [ %call28.i364, %if.else20.i358 ], [ %call2.i382, %cond.end.i377 ], [ -70, %land.lhs.true288 ]
   ret i64 %retval.0
 }
 

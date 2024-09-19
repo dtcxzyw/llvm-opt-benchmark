@@ -3076,7 +3076,7 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16be(ptr noundef
   %9 = add i64 %8, %6
   %10 = tail call ptr @archive_string_ensure(ptr noundef %0, i64 noundef %9)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %best_effort_strncat_to_utf16.argprom.exit, label %12
+  br i1 %11, label %best_effort_strncat_to_utf16.exit, label %12
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %0, align 8
@@ -3126,9 +3126,9 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16be(ptr noundef
   %33 = getelementptr i8, ptr %31, i64 %32
   %34 = getelementptr i8, ptr %33, i64 1
   store i8 0, ptr %34, align 1
-  br label %best_effort_strncat_to_utf16.argprom.exit
+  br label %best_effort_strncat_to_utf16.exit
 
-best_effort_strncat_to_utf16.argprom.exit:        ; preds = %4, %._crit_edge.i
+best_effort_strncat_to_utf16.exit:                ; preds = %4, %._crit_edge.i
   %.028.i = phi i32 [ %.024.lcssa.i, %._crit_edge.i ], [ -1, %4 ]
   ret i32 %.028.i
 }
@@ -3142,7 +3142,7 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16le(ptr noundef
   %9 = add i64 %8, %6
   %10 = tail call ptr @archive_string_ensure(ptr noundef %0, i64 noundef %9)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %best_effort_strncat_to_utf16.argprom.exit, label %12
+  br i1 %11, label %best_effort_strncat_to_utf16.exit, label %12
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %0, align 8
@@ -3192,9 +3192,9 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_to_utf16le(ptr noundef
   %33 = getelementptr i8, ptr %31, i64 %32
   %34 = getelementptr i8, ptr %33, i64 1
   store i8 0, ptr %34, align 1
-  br label %best_effort_strncat_to_utf16.argprom.exit
+  br label %best_effort_strncat_to_utf16.exit
 
-best_effort_strncat_to_utf16.argprom.exit:        ; preds = %4, %._crit_edge.i
+best_effort_strncat_to_utf16.exit:                ; preds = %4, %._crit_edge.i
   %.028.i = phi i32 [ %.024.lcssa.i, %._crit_edge.i ], [ -1, %4 ]
   ret i32 %.028.i
 }
@@ -5986,7 +5986,7 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16be(ptr nound
   %8 = add i64 %7, %6
   %9 = tail call ptr @archive_string_ensure(ptr noundef %0, i64 noundef %8)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %best_effort_strncat_from_utf16.argprom.exit, label %11
+  br i1 %10, label %best_effort_strncat_from_utf16.exit, label %11
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %0, align 8
@@ -6089,9 +6089,9 @@ utf16_to_unicode.exit.thread7.i:                  ; preds = %utf16_to_unicode.ex
   store i64 %51, ptr %5, align 8
   %52 = getelementptr inbounds i8, ptr %48, i64 %51
   store i8 0, ptr %52, align 1
-  br label %best_effort_strncat_from_utf16.argprom.exit
+  br label %best_effort_strncat_from_utf16.exit
 
-best_effort_strncat_from_utf16.argprom.exit:      ; preds = %4, %utf16_to_unicode.exit.thread7.i
+best_effort_strncat_from_utf16.exit:              ; preds = %4, %utf16_to_unicode.exit.thread7.i
   %.027.i = phi i32 [ %.0.i, %utf16_to_unicode.exit.thread7.i ], [ -1, %4 ]
   ret i32 %.027.i
 }
@@ -6104,7 +6104,7 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16le(ptr nound
   %8 = add i64 %7, %6
   %9 = tail call ptr @archive_string_ensure(ptr noundef %0, i64 noundef %8)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %best_effort_strncat_from_utf16.argprom.exit, label %11
+  br i1 %10, label %best_effort_strncat_from_utf16.exit, label %11
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %0, align 8
@@ -6195,9 +6195,9 @@ utf16_to_unicode.exit.thread7.i:                  ; preds = %utf16_to_unicode.ex
   store i64 %41, ptr %5, align 8
   %42 = getelementptr inbounds i8, ptr %38, i64 %41
   store i8 0, ptr %42, align 1
-  br label %best_effort_strncat_from_utf16.argprom.exit
+  br label %best_effort_strncat_from_utf16.exit
 
-best_effort_strncat_from_utf16.argprom.exit:      ; preds = %4, %utf16_to_unicode.exit.thread7.i
+best_effort_strncat_from_utf16.exit:              ; preds = %4, %utf16_to_unicode.exit.thread7.i
   %.027.i = phi i32 [ %.0.us.i, %utf16_to_unicode.exit.thread7.i ], [ -1, %4 ]
   ret i32 %.027.i
 }
@@ -6823,7 +6823,7 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_in_locale(ptr noundef 
   store i8 0, ptr %25, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  br label %invalid_mbs.argprom.exit
+  br label %invalid_mbs.exit
 
 .lr.ph.i.preheader:                               ; preds = %22
   %26 = load ptr, ptr %0, align 8
@@ -6846,7 +6846,7 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_in_locale(ptr noundef 
   %.0132.i = phi i64 [ %37, %34 ], [ %2, %.lr.ph.i.preheader ]
   %33 = call i64 @mbrtowc(ptr noundef nonnull %6, ptr noundef %.0123.i, i64 noundef %.0132.i, ptr noundef nonnull %5) #23
   %or.cond.i = icmp ugt i64 %33, -3
-  br i1 %or.cond.i, label %invalid_mbs.argprom.exit, label %34
+  br i1 %or.cond.i, label %invalid_mbs.exit, label %34
 
 34:                                               ; preds = %.lr.ph.i
   %35 = icmp eq i64 %33, 0
@@ -6854,9 +6854,9 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_in_locale(ptr noundef 
   %37 = sub i64 %.0132.i, %33
   %.not.i23 = icmp eq i64 %37, 0
   %or.cond9.i = or i1 %35, %.not.i23
-  br i1 %or.cond9.i, label %invalid_mbs.argprom.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %or.cond9.i, label %invalid_mbs.exit, label %.lr.ph.i, !llvm.loop !63
 
-invalid_mbs.argprom.exit:                         ; preds = %.lr.ph.i, %34, %.thread
+invalid_mbs.exit:                                 ; preds = %.lr.ph.i, %34, %.thread
   %.0.i24 = phi i32 [ 0, %.thread ], [ -1, %.lr.ph.i ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -6942,8 +6942,8 @@ archive_strappend_char.exit27:                    ; preds = %61
   %.not35 = icmp eq i8 %76, 0
   br i1 %.not35, label %archive_string_append.exit.thread, label %38, !llvm.loop !64
 
-archive_string_append.exit.thread:                ; preds = %70, %.preheader, %15, %invalid_mbs.argprom.exit
-  %.020 = phi i32 [ %.0.i24, %invalid_mbs.argprom.exit ], [ -1, %15 ], [ 0, %.preheader ], [ %.1, %70 ]
+archive_string_append.exit.thread:                ; preds = %70, %.preheader, %15, %invalid_mbs.exit
+  %.020 = phi i32 [ %.0.i24, %invalid_mbs.exit ], [ -1, %15 ], [ 0, %.preheader ], [ %.1, %70 ]
   ret i32 %.020
 }
 

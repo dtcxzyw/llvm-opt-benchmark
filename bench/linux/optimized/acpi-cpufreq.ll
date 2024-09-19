@@ -524,7 +524,7 @@ define internal i32 @acpi_cpufreq_cpu_init(ptr noundef %0) #2 align 16 {
 
 217:                                              ; preds = %214
   %.val = load i32, ptr %38, align 8
-  %218 = tail call fastcc i64 @acpi_cpufreq_guess_freq.argprom(i32 %.val)
+  %218 = tail call fastcc i64 @acpi_cpufreq_guess_freq(i32 %.val)
   %219 = trunc i64 %218 to i32
   %220 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %219, ptr %220, align 4
@@ -1241,7 +1241,7 @@ define internal fastcc range(i64 0, 4398046510081) i64 @get_max_boost_ratio(i32 
 declare dso_local void @arch_set_max_freq_ratio(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc i64 @acpi_cpufreq_guess_freq.argprom(i32 %.8.val) unnamed_addr #6 align 16 {
+define internal fastcc i64 @acpi_cpufreq_guess_freq(i32 %.8.val) unnamed_addr #6 align 16 {
   %1 = load ptr, ptr @acpi_perf_data, align 8
   %2 = ptrtoint ptr %1 to i64
   %3 = zext i32 %.8.val to i64

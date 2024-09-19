@@ -1781,9 +1781,9 @@ SendTimeLineHistory.exit:                         ; preds = %._crit_edge.i
   %594 = getelementptr inbounds i8, ptr %593, i64 8
   %595 = load ptr, ptr %594, align 8
   %596 = call i32 %595() #16
-  br label %HandleUploadManifestPacket.argprom.exit.i
+  br label %HandleUploadManifestPacket.exit.i
 
-HandleUploadManifestPacket.argprom.exit.i:        ; preds = %HandleUploadManifestPacket.argprom.exit.i.backedge, %577
+HandleUploadManifestPacket.exit.i:                ; preds = %HandleUploadManifestPacket.exit.i.backedge, %577
   %597 = load volatile i32, ptr @QueryCancelHoldoffCount, align 4
   %598 = add i32 %597, 1
   store volatile i32 %598, ptr @QueryCancelHoldoffCount, align 4
@@ -1798,7 +1798,7 @@ HandleUploadManifestPacket.argprom.exit.i:        ; preds = %HandleUploadManifes
     i32 83, label %604
   ]
 
-600:                                              ; preds = %HandleUploadManifestPacket.argprom.exit.i
+600:                                              ; preds = %HandleUploadManifestPacket.exit.i
   %601 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   call void @llvm.assume(i1 %601)
   %602 = call i32 @errcode(i32 noundef 100663808) #16
@@ -1806,10 +1806,10 @@ HandleUploadManifestPacket.argprom.exit.i:        ; preds = %HandleUploadManifes
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 759, ptr noundef nonnull @__func__.HandleUploadManifestPacket) #16
   unreachable
 
-604:                                              ; preds = %HandleUploadManifestPacket.argprom.exit.i, %HandleUploadManifestPacket.argprom.exit.i, %HandleUploadManifestPacket.argprom.exit.i, %HandleUploadManifestPacket.argprom.exit.i
+604:                                              ; preds = %HandleUploadManifestPacket.exit.i, %HandleUploadManifestPacket.exit.i, %HandleUploadManifestPacket.exit.i, %HandleUploadManifestPacket.exit.i
   br label %609
 
-605:                                              ; preds = %HandleUploadManifestPacket.argprom.exit.i
+605:                                              ; preds = %HandleUploadManifestPacket.exit.i
   %606 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   call void @llvm.assume(i1 %606)
   %607 = call i32 @errcode(i32 noundef 16908800) #16
@@ -1817,8 +1817,8 @@ HandleUploadManifestPacket.argprom.exit.i:        ; preds = %HandleUploadManifes
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 776, ptr noundef nonnull @__func__.HandleUploadManifestPacket) #16
   unreachable
 
-609:                                              ; preds = %604, %HandleUploadManifestPacket.argprom.exit.i
-  %.0.i.i67 = phi i32 [ 10000, %604 ], [ 1073741822, %HandleUploadManifestPacket.argprom.exit.i ]
+609:                                              ; preds = %604, %HandleUploadManifestPacket.exit.i
+  %.0.i.i67 = phi i32 [ 10000, %604 ], [ 1073741822, %HandleUploadManifestPacket.exit.i ]
   %610 = call i32 @pq_getmessage(ptr noundef nonnull %2, i32 noundef %.0.i.i67) #16
   %.not.i.i68 = icmp eq i32 %610, 0
   br i1 %.not.i.i68, label %615, label %611
@@ -1838,18 +1838,18 @@ HandleUploadManifestPacket.argprom.exit.i:        ; preds = %HandleUploadManifes
   switch i32 %599, label %626 [
     i32 100, label %618
     i32 102, label %621
-    i32 72, label %HandleUploadManifestPacket.argprom.exit.i.backedge
-    i32 83, label %HandleUploadManifestPacket.argprom.exit.i.backedge
+    i32 72, label %HandleUploadManifestPacket.exit.i.backedge
+    i32 83, label %HandleUploadManifestPacket.exit.i.backedge
   ]
 
 618:                                              ; preds = %615
   %619 = load ptr, ptr %2, align 8
   %620 = load i32, ptr %583, align 8
   call void @AppendIncrementalManifestData(ptr noundef %581, ptr noundef %619, i32 noundef %620) #16
-  br label %HandleUploadManifestPacket.argprom.exit.i.backedge
+  br label %HandleUploadManifestPacket.exit.i.backedge
 
-HandleUploadManifestPacket.argprom.exit.i.backedge: ; preds = %618, %615, %615
-  br label %HandleUploadManifestPacket.argprom.exit.i, !llvm.loop !35
+HandleUploadManifestPacket.exit.i.backedge:       ; preds = %618, %615, %615
+  br label %HandleUploadManifestPacket.exit.i, !llvm.loop !35
 
 621:                                              ; preds = %615
   %622 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18

@@ -101,7 +101,7 @@ if.end8:                                          ; preds = %if.end4
 
 raw_read_options.exit.thread:                     ; preds = %if.end8
   tail call void @qemu_opts_del(ptr noundef %call.i) #9
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end13:                                         ; preds = %if.end8
   %call2.i = tail call i64 @qemu_opt_get_size(ptr noundef %call.i, ptr noundef nonnull @.str.5, i64 noundef 0) #9
@@ -114,11 +114,11 @@ if.end13:                                         ; preds = %if.end8
   %4 = getelementptr i8, ptr %2, i64 16840
   %.val = load ptr, ptr %4, align 8
   %.val.val = load ptr, ptr %.val, align 8
-  %call16 = tail call fastcc i32 @raw_apply_options.argprom.argprom(ptr %.val.val, ptr noundef %3, i64 noundef %call2.i, i1 noundef zeroext %tobool.i, i64 noundef %call4.i, ptr noundef %errp)
+  %call16 = tail call fastcc i32 @raw_apply_options(ptr %.val.val, ptr noundef %3, i64 noundef %call2.i, i1 noundef zeroext %tobool.i, i64 noundef %call4.i, ptr noundef %errp)
   %call16. = tail call i32 @llvm.smin.i32(i32 %call16, i32 0)
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %raw_read_options.exit.thread, %if.end13
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %raw_read_options.exit.thread, %if.end13
   %retval.0 = phi i32 [ %call16., %if.end13 ], [ -22, %raw_read_options.exit.thread ]
   tail call void @bdrv_graph_rdunlock_main_loop() #9
   ret i32 %retval.0
@@ -184,7 +184,7 @@ if.end3:                                          ; preds = %do.end
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %tobool10.not = icmp eq ptr %1, null
-  br i1 %tobool10.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end12
+  br i1 %tobool10.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end12
 
 if.end12:                                         ; preds = %if.end3
   %2 = load ptr, ptr %1, align 8
@@ -238,14 +238,14 @@ if.end36:                                         ; preds = %if.then30, %land.lh
   tail call void @aio_context_acquire(ptr noundef %call37) #9
   %bs.val = load ptr, ptr %file, align 8
   %bs.val.val = load ptr, ptr %bs.val, align 8
-  %call39 = tail call fastcc i32 @raw_apply_options.argprom.argprom(ptr %bs.val.val, ptr noundef %0, i64 noundef %call2.i, i1 noundef zeroext %tobool.i, i64 noundef %call4.i, ptr noundef %errp)
+  %call39 = tail call fastcc i32 @raw_apply_options(ptr %bs.val.val, ptr noundef %0, i64 noundef %call2.i, i1 noundef zeroext %tobool.i, i64 noundef %call4.i, ptr noundef %errp)
   tail call void @aio_context_release(ptr noundef %call37) #9
   %cmp40 = icmp slt i32 %call39, 0
-  br i1 %cmp40, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end42
+  br i1 %cmp40, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end42
 
 if.end42:                                         ; preds = %if.end36
   %call43 = tail call zeroext i1 @bdrv_is_sg(ptr noundef nonnull %bs) #9
-  br i1 %call43, label %land.lhs.true44, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %call43, label %land.lhs.true44, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 land.lhs.true44:                                  ; preds = %if.end42
   %16 = load i64, ptr %0, align 8
@@ -256,19 +256,19 @@ lor.lhs.false47:                                  ; preds = %land.lhs.true44
   %has_size48 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i8, ptr %has_size48, align 8
   %tobool49 = trunc i8 %17 to i1
-  br i1 %tobool49, label %if.then50, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %tobool49, label %if.then50, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.then50:                                        ; preds = %lor.lhs.false47, %land.lhs.true44
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 535, ptr noundef nonnull @__func__.raw_open, ptr noundef nonnull @.str.19) #9
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end42, %lor.lhs.false47, %if.end36, %if.end3, %if.then50
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end42, %lor.lhs.false47, %if.end36, %if.end3, %if.then50
   %retval.1 = phi i32 [ -22, %if.then50 ], [ -22, %if.end3 ], [ %call39, %if.end36 ], [ 0, %lor.lhs.false47 ], [ 0, %if.end42 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #9
   br label %return
 
-return:                                           ; preds = %raw_read_options.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
-  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ -22, %raw_read_options.exit.thread ]
+return:                                           ; preds = %raw_read_options.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ -22, %raw_read_options.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -961,7 +961,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @raw_apply_options.argprom.argprom(ptr %bs.16840.val.0.val, ptr nocapture noundef %s, i64 noundef %offset, i1 noundef zeroext %has_size, i64 noundef %size, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @raw_apply_options(ptr %bs.16840.val.0.val, ptr nocapture noundef %s, i64 noundef %offset, i1 noundef zeroext %has_size, i64 noundef %size, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %has_size to i8
   %call = tail call i64 @bdrv_getlength(ptr noundef %bs.16840.val.0.val) #9

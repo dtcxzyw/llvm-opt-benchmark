@@ -49757,7 +49757,7 @@ entry:
   %length.i4.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i64, ptr %length.i4.i.i.i, align 8, !noalias !883
   %cmp.not.i.i.i = icmp eq i64 %1, %3
-  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call.val, ptr noundef nonnull @.str.43), !noalias !883
@@ -49776,9 +49776,9 @@ if.then.i.i.i:                                    ; preds = %entry
   %call12.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %call10.i.i.i, i64 noundef %7), !noalias !883
   %call13.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call12.i.i.i, ptr noundef nonnull @.str.45), !noalias !883
   %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call13.i.i.i, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_), !noalias !883
-  br label %"_ZSt10__invoke_rIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 
-"_ZSt10__invoke_rIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom.exit": ; preds = %entry, %if.then.i.i.i
+"_ZSt10__invoke_rIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %entry, %if.then.i.i.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !884
   ret void
 }
@@ -51287,14 +51287,14 @@ attributes #25 = { nounwind willreturn memory(read) }
 !872 = distinct !{!872, !873, !"_ZN5arrow4util13StringBuilderIJRA24_KcRNS_8DataTypeEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: %agg.result"}
 !873 = distinct !{!873, !"_ZN5arrow4util13StringBuilderIJRA24_KcRNS_8DataTypeEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
 !874 = !{!875}
-!875 = distinct !{!875, !876, !"_ZSt10__invoke_rIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom: %agg.result"}
-!876 = distinct !{!876, !"_ZSt10__invoke_rIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.argprom"}
+!875 = distinct !{!875, !876, !"_ZSt10__invoke_rIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_: %agg.result"}
+!876 = distinct !{!876, !"_ZSt10__invoke_rIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_"}
 !877 = !{!878}
-!878 = distinct !{!878, !879, !"_ZSt13__invoke_implIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!879 = distinct !{!879, !"_ZSt13__invoke_implIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!878 = distinct !{!878, !879, !"_ZSt13__invoke_implIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!879 = distinct !{!879, !"_ZSt13__invoke_implIN5arrow6StatusERZNS0_24MakeUnifiedDiffFormatterERKNS0_8DataTypeEPSoE3$_0JRKNS0_5ArrayESA_SA_EET_St14__invoke_otherOT0_DpOT1_"}
 !880 = !{!881}
-!881 = distinct !{!881, !882, !"_ZZN5arrow24MakeUnifiedDiffFormatterERKNS_8DataTypeEPSoENK3$_0clERKNS_5ArrayES7_S7_.argprom: %agg.result"}
-!882 = distinct !{!882, !"_ZZN5arrow24MakeUnifiedDiffFormatterERKNS_8DataTypeEPSoENK3$_0clERKNS_5ArrayES7_S7_.argprom"}
+!881 = distinct !{!881, !882, !"_ZZN5arrow24MakeUnifiedDiffFormatterERKNS_8DataTypeEPSoENK3$_0clERKNS_5ArrayES7_S7_: %agg.result"}
+!882 = distinct !{!882, !"_ZZN5arrow24MakeUnifiedDiffFormatterERKNS_8DataTypeEPSoENK3$_0clERKNS_5ArrayES7_S7_"}
 !883 = !{!881, !878, !875}
 !884 = !{!885, !881, !878, !875}
 !885 = distinct !{!885, !886, !"_ZN5arrow6Status2OKEv: %agg.result"}

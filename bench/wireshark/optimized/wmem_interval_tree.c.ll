@@ -290,14 +290,14 @@ define noundef ptr @wmem_itree_find_intervals(ptr nocapture noundef readonly %0,
   %5 = tail call noalias ptr @wmem_list_new(ptr noundef %1) #7
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  tail call fastcc void @wmem_itree_find_intervals_in_subtree.argprom(ptr noundef %7, i64 %2, i64 %3, ptr noundef %5)
+  tail call fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef %7, i64 %2, i64 %3, ptr noundef %5)
   ret ptr %5
 }
 
 declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wmem_itree_find_intervals_in_subtree.argprom(ptr noundef readonly %0, i64 %.0.val, i64 %.8.val, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef readonly %0, i64 %.0.val, i64 %.8.val, ptr noundef %1) unnamed_addr #1 {
   %.not3 = icmp eq ptr %0, null
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
@@ -330,7 +330,7 @@ wmem_itree_range_overlap.exit:                    ; preds = %8
 wmem_itree_range_overlap.exit.thread:             ; preds = %8, %12, %wmem_itree_range_overlap.exit
   %15 = getelementptr inbounds i8, ptr %.tr4, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call fastcc void @wmem_itree_find_intervals_in_subtree.argprom(ptr noundef %16, i64 %.0.val, i64 %.8.val, ptr noundef %1)
+  tail call fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef %16, i64 %.0.val, i64 %.8.val, ptr noundef %1)
   %17 = getelementptr inbounds i8, ptr %.tr4, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null

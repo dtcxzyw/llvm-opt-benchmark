@@ -1786,7 +1786,7 @@ if.then1:                                         ; preds = %do.body
 do.end:                                           ; preds = %do.body, %if.then1
   %icw3 = getelementptr inbounds i8, ptr %d, i64 2848
   %7 = load i32, ptr %icw3, align 16
-  tail call fastcc void @intel_hda_send_command.retelim(ptr noundef nonnull %d, i32 noundef %7)
+  tail call fastcc void @intel_hda_send_command(ptr noundef nonnull %d, i32 noundef %7)
   br label %return
 
 do.body9:                                         ; preds = %do.end86, %for.cond.preheader
@@ -1869,7 +1869,7 @@ if.then81:                                        ; preds = %if.end43
 
 do.end86:                                         ; preds = %if.end43, %if.then81
   %30 = load i32, ptr %verb, align 4
-  call fastcc void @intel_hda_send_command.retelim(ptr noundef nonnull %d, i32 noundef %30)
+  call fastcc void @intel_hda_send_command(ptr noundef nonnull %d, i32 noundef %30)
   %31 = load i32, ptr %corb_ctl, align 16
   %and6 = and i32 %31, 2
   %tobool7.not = icmp eq i32 %and6, 0
@@ -1880,7 +1880,7 @@ return:                                           ; preds = %if.then37, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @intel_hda_send_command.retelim(ptr nocapture noundef readonly %d, i32 noundef %verb) unnamed_addr #0 {
+define internal fastcc void @intel_hda_send_command(ptr nocapture noundef readonly %d, i32 noundef %verb) unnamed_addr #0 {
 entry:
   %and1 = and i32 %verb, 134217728
   %tobool.not = icmp eq i32 %and1, 0

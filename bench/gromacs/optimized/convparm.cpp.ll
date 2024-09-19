@@ -108,12 +108,12 @@ _ZNSt6vectorI9t_iparamsSaIS0_EE5clearEv.exit:     ; preds = %_ZNSt6vectorIiSaIiE
   %.val = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %1, i64 2968
   %.val77 = load ptr, ptr %28, align 8
-  tail call fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb.argprom(ptr %.val, ptr %.val77, i32 noundef 37, i32 noundef %6, float noundef %27, ptr noundef nonnull %14, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
+  tail call fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb(ptr %.val, ptr %.val77, i32 noundef 37, i32 noundef %6, float noundef %27, ptr noundef nonnull %14, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
   %29 = getelementptr inbounds i8, ptr %1, i64 3040
   %.val78 = load ptr, ptr %29, align 8
   %30 = getelementptr i8, ptr %1, i64 3048
   %.val79 = load ptr, ptr %30, align 8
-  tail call fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb.argprom(ptr %.val78, ptr %.val79, i32 noundef 38, i32 noundef %6, float noundef %27, ptr noundef nonnull %14, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
+  tail call fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb(ptr %.val78, ptr %.val79, i32 noundef 38, i32 noundef %6, float noundef %27, ptr noundef nonnull %14, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
   %31 = getelementptr inbounds i8, ptr %9, i64 112
   %32 = getelementptr inbounds i8, ptr %9, i64 120
   %33 = load ptr, ptr %32, align 8
@@ -162,7 +162,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit86:              ; preds = %38, %43
   %.val80 = load ptr, ptr %51, align 8
   %55 = getelementptr i8, ptr %51, i64 8
   %.val81 = load ptr, ptr %55, align 8
-  tail call fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb.argprom(ptr %.val80, ptr %.val81, i32 noundef %52, i32 noundef %6, float noundef %27, ptr noundef nonnull %14, ptr noundef nonnull %39, i1 noundef zeroext false, i1 noundef zeroext %54)
+  tail call fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb(ptr %.val80, ptr %.val81, i32 noundef %52, i32 noundef %6, float noundef %27, ptr noundef nonnull %14, ptr noundef nonnull %39, i1 noundef zeroext false, i1 noundef zeroext %54)
   br label %56
 
 56:                                               ; preds = %46, %_ZNSt6vectorIiSaIiEE5clearEv.exit86, %50
@@ -307,7 +307,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit88:              ; preds = %80, %86
   %116 = load ptr, ptr %69, align 8
   %117 = getelementptr inbounds [94 x %struct.InteractionList], ptr %116, i64 0, i64 %indvars.iv104
   %118 = trunc nuw nsw i64 %indvars.iv104 to i32
-  tail call fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb.argprom(ptr %88, ptr %90, i32 noundef %118, i32 noundef %6, float noundef %27, ptr noundef nonnull %14, ptr noundef nonnull %117, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb(ptr %88, ptr %90, i32 noundef %118, i32 noundef %6, float noundef %27, ptr noundef nonnull %14, ptr noundef nonnull %117, i1 noundef zeroext false, i1 noundef zeroext false)
   store i8 1, ptr %66, align 8
   br label %119
 
@@ -363,7 +363,7 @@ _ZNSt10unique_ptrISt5arrayI15InteractionListLm94EESt14default_deleteIS2_EE5reset
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb.argprom(ptr readonly %.0.val, ptr readnone %.8.val, i32 noundef range(i32 -2147483648, 94) %0, i32 noundef %1, float noundef %2, ptr nocapture noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14enter_functionPK18InteractionsOfTypei15CombinationRulefP14gmx_ffparams_tP15InteractionListbb(ptr readonly %.0.val, ptr readnone %.8.val, i32 noundef range(i32 -2147483648, 94) %0, i32 noundef %1, float noundef %2, ptr nocapture noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %10 = alloca %union.t_iparams, align 4

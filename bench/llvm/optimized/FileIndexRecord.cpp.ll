@@ -61,7 +61,7 @@ define dso_local { ptr, i64 } @_ZNK5clang5index15FileIndexRecord32getDeclOccurre
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val1 = load ptr, ptr %7, align 8
   %8 = icmp eq ptr %.val, %.val1
-  br i1 %8, label %"_ZN4llvm11stable_sortIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEvOT_T0_.argprom.exit", label %9
+  br i1 %8, label %"_ZN4llvm11stable_sortIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEvOT_T0_.exit", label %9
 
 9:                                                ; preds = %5
   %10 = ptrtoint ptr %.val1 to i64
@@ -120,13 +120,13 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccu
   %.sroa.6.02027.i.i.i = phi ptr [ %16, %17 ], [ null, %.thread.i.i.i ], [ %16, %_ZSt8_DestroyIN5clang5index14DeclOccurrenceEEvPT_.exit.i.i.i.i.i.i ]
   %26 = phi i64 [ 0, %17 ], [ 0, %.thread.i.i.i ], [ %15, %_ZSt8_DestroyIN5clang5index14DeclOccurrenceEEvPT_.exit.i.i.i.i.i.i ]
   tail call void @_ZdlPvm(ptr noundef %.sroa.6.02027.i.i.i, i64 noundef %26) #12
-  br label %"_ZN4llvm11stable_sortIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEvOT_T0_.argprom.exit"
+  br label %"_ZN4llvm11stable_sortIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEvOT_T0_.exit"
 
-"_ZN4llvm11stable_sortIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEvOT_T0_.argprom.exit": ; preds = %5, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_ED2Ev.exit.i.i.i
+"_ZN4llvm11stable_sortIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEvOT_T0_.exit": ; preds = %5, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_ED2Ev.exit.i.i.i
   store i8 1, ptr %2, align 1
   br label %27
 
-27:                                               ; preds = %"_ZN4llvm11stable_sortIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEvOT_T0_.argprom.exit", %1
+27:                                               ; preds = %"_ZN4llvm11stable_sortIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEvOT_T0_.exit", %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -255,9 +255,9 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.val.i, i64 %10
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i.i
-  %.087.i.i.i.i.i.i = phi i64 [ %40, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i.i" ], [ %8, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.sroa.054.086.i.i.i.i.i.i = phi ptr [ %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i.i" ], [ %.val.i, %.lr.ph.preheader.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.thread.i.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i.i
+  %.087.i.i.i.i.i.i = phi i64 [ %40, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.thread.i.i.i.i.i.i" ], [ %8, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.sroa.054.086.i.i.i.i.i.i = phi ptr [ %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.thread.i.i.i.i.i.i" ], [ %.val.i, %.lr.ph.preheader.i.i.i.i.i.i ]
   %11 = getelementptr i8, ptr %.sroa.054.086.i.i.i.i.i.i, i64 8
   %.val.i.i.i.i.i.i.i = load i64, ptr %11, align 8
   %12 = and i64 %.val.i.i.i.i.i.i.i, 4
@@ -265,17 +265,17 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %13 = and i64 %.val.i.i.i.i.i.i.i, -8
   %.not1.i.i.i.i.i.i.i.i = icmp eq i64 %13, 0
   %.not.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, %.not1.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.i.i.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %16 = load i16, ptr %15, align 4
   %17 = and i16 %16, 1024
   %.not72.i.i.i.i.i.i = icmp eq i16 %17, 0
-  br i1 %.not72.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i", label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
+  br i1 %.not72.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i.i.i", label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
   %18 = getelementptr i8, ptr %.sroa.054.086.i.i.i.i.i.i, i64 96
   %.val.i16.i.i.i.i.i.i = load i64, ptr %18, align 8
   %19 = and i64 %.val.i16.i.i.i.i.i.i, 4
@@ -283,17 +283,17 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %20 = and i64 %.val.i16.i.i.i.i.i.i, -8
   %.not1.i.i18.i.i.i.i.i.i = icmp eq i64 %20, 0
   %.not.i.i19.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i17.i.i.i.i.i.i, %.not1.i.i18.i.i.i.i.i.i
-  br i1 %.not.i.i19.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i"
+  br i1 %.not.i.i19.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i.i.i"
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %23 = load i16, ptr %22, align 4
   %24 = and i16 %23, 1024
   %.not73.i.i.i.i.i.i = icmp eq i16 %24, 0
-  br i1 %.not73.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i.i", label %.loopexit.split.loop.exit77.i.i.i.i.i.i
+  br i1 %.not73.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.thread.i.i.i.i.i.i", label %.loopexit.split.loop.exit77.i.i.i.i.i.i
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i.i.i"
   %25 = getelementptr i8, ptr %.sroa.054.086.i.i.i.i.i.i, i64 184
   %.val.i22.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.val.i22.i.i.i.i.i.i, 4
@@ -301,17 +301,17 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %27 = and i64 %.val.i22.i.i.i.i.i.i, -8
   %.not1.i.i24.i.i.i.i.i.i = icmp eq i64 %27, 0
   %.not.i.i25.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i23.i.i.i.i.i.i, %.not1.i.i24.i.i.i.i.i.i
-  br i1 %.not.i.i25.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit27.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit27.i.i.i.i.i.i"
+  br i1 %.not.i.i25.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit27.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.thread.i.i.i.i.i.i"
   %28 = inttoptr i64 %27 to ptr
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %30 = load i16, ptr %29, align 4
   %31 = and i16 %30, 1024
   %.not74.i.i.i.i.i.i = icmp eq i16 %31, 0
-  br i1 %.not74.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit27.thread.i.i.i.i.i.i", label %.loopexit.split.loop.exit79.i.i.i.i.i.i
+  br i1 %.not74.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.thread.i.i.i.i.i.i", label %.loopexit.split.loop.exit79.i.i.i.i.i.i
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit27.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit27.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit21.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.thread.i.i.i.i.i.i"
   %32 = getelementptr i8, ptr %.sroa.054.086.i.i.i.i.i.i, i64 272
   %.val.i28.i.i.i.i.i.i = load i64, ptr %32, align 8
   %33 = and i64 %.val.i28.i.i.i.i.i.i, 4
@@ -319,23 +319,23 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %34 = and i64 %.val.i28.i.i.i.i.i.i, -8
   %.not1.i.i30.i.i.i.i.i.i = icmp eq i64 %34, 0
   %.not.i.i31.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i29.i.i.i.i.i.i, %.not1.i.i30.i.i.i.i.i.i
-  br i1 %.not.i.i31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit33.i.i.i.i.i.i"
+  br i1 %.not.i.i31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit33.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit27.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.thread.i.i.i.i.i.i"
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %37 = load i16, ptr %36, align 4
   %38 = and i16 %37, 1024
   %.not75.i.i.i.i.i.i = icmp eq i16 %38, 0
-  br i1 %.not75.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i.i", label %.loopexit.split.loop.exit81.i.i.i.i.i.i
+  br i1 %.not75.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.thread.i.i.i.i.i.i", label %.loopexit.split.loop.exit81.i.i.i.i.i.i
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit33.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit27.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.thread.i.i.i.i.i.i"
   %39 = getelementptr inbounds i8, ptr %.sroa.054.086.i.i.i.i.i.i, i64 352
   %40 = add nsw i64 %.087.i.i.i.i.i.i, -1
   %41 = icmp sgt i64 %.087.i.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !7
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit33.thread.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.thread.i.i.i.i.i.i"
   %.pre.i.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i.i to i64
   %.pre92.i.i.i.i.i.i = sub i64 %4, %.pre.i.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i.i
@@ -358,22 +358,22 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %46 = and i64 %.val.i34.i.i.i.i.i.i, -8
   %.not1.i.i36.i.i.i.i.i.i = icmp eq i64 %46, 0
   %.not.i.i37.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i35.i.i.i.i.i.i, %.not1.i.i36.i.i.i.i.i.i
-  br i1 %.not.i.i37.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit39.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit39.i.i.i.i.i.i"
+  br i1 %.not.i.i37.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit39.i.i.i.i.i.i": ; preds = %43
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.i.i.i.i.i.i": ; preds = %43
   %47 = inttoptr i64 %46 to ptr
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 36
   %49 = load i16, ptr %48, align 4
   %50 = and i16 %49, 1024
   %.not.i.i.i.i.i.i = icmp eq i16 %50, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit39.thread.i.i.i.i.i.i", label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.thread.i.i.i.i.i.i", label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit39.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit39.i.i.i.i.i.i", %43
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.i.i.i.i.i.i", %43
   %51 = getelementptr inbounds i8, ptr %.sroa.054.0.lcssa.i.i.i.i.i.i, i64 88
   br label %52
 
-52:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit39.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.054.1.i.i.i.i.i.i = phi ptr [ %.sroa.054.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %51, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit39.thread.i.i.i.i.i.i" ]
+52:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.sroa.054.1.i.i.i.i.i.i = phi ptr [ %.sroa.054.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %51, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.thread.i.i.i.i.i.i" ]
   %53 = getelementptr i8, ptr %.sroa.054.1.i.i.i.i.i.i, i64 8
   %.val.i40.i.i.i.i.i.i = load i64, ptr %53, align 8
   %54 = and i64 %.val.i40.i.i.i.i.i.i, 4
@@ -381,22 +381,22 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %55 = and i64 %.val.i40.i.i.i.i.i.i, -8
   %.not1.i.i42.i.i.i.i.i.i = icmp eq i64 %55, 0
   %.not.i.i43.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i41.i.i.i.i.i.i, %.not1.i.i42.i.i.i.i.i.i
-  br i1 %.not.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit45.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit45.i.i.i.i.i.i"
+  br i1 %.not.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit45.i.i.i.i.i.i": ; preds = %52
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.i.i.i.i.i.i": ; preds = %52
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 36
   %58 = load i16, ptr %57, align 4
   %59 = and i16 %58, 1024
   %.not70.i.i.i.i.i.i = icmp eq i16 %59, 0
-  br i1 %.not70.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit45.thread.i.i.i.i.i.i", label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
+  br i1 %.not70.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.thread.i.i.i.i.i.i", label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit45.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit45.i.i.i.i.i.i", %52
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.i.i.i.i.i.i", %52
   %60 = getelementptr inbounds i8, ptr %.sroa.054.1.i.i.i.i.i.i, i64 88
   br label %61
 
-61:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit45.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.sroa.054.2.i.i.i.i.i.i = phi ptr [ %.sroa.054.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit45.thread.i.i.i.i.i.i" ]
+61:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.sroa.054.2.i.i.i.i.i.i = phi ptr [ %.sroa.054.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %60, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.thread.i.i.i.i.i.i" ]
   %62 = getelementptr i8, ptr %.sroa.054.2.i.i.i.i.i.i, i64 8
   %.val.i46.i.i.i.i.i.i = load i64, ptr %62, align 8
   %63 = and i64 %.val.i46.i.i.i.i.i.i, 4
@@ -404,9 +404,9 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %64 = and i64 %.val.i46.i.i.i.i.i.i, -8
   %.not1.i.i48.i.i.i.i.i.i = icmp eq i64 %64, 0
   %.not.i.i49.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i47.i.i.i.i.i.i, %.not1.i.i48.i.i.i.i.i.i
-  br i1 %.not.i.i49.i.i.i.i.i.i, label %"_ZN4llvm8erase_ifISt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEvRT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit51.i.i.i.i.i.i"
+  br i1 %.not.i.i49.i.i.i.i.i.i, label %"_ZN4llvm8erase_ifISt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEvRT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit51.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit51.i.i.i.i.i.i": ; preds = %61
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit51.i.i.i.i.i.i": ; preds = %61
   %65 = inttoptr i64 %64 to ptr
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 36
   %67 = load i16, ptr %66, align 4
@@ -414,25 +414,25 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %.not71.i.i.i.i.i.i = icmp eq i16 %68, 0
   br i1 %.not71.i.i.i.i.i.i, label %"_ZN4llvm8erase_ifISt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEvRT_T0_.exit", label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
 
-.loopexit.split.loop.exit77.i.i.i.i.i.i:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit21.i.i.i.i.i.i"
+.loopexit.split.loop.exit77.i.i.i.i.i.i:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.i.i.i.i.i.i"
   %69 = getelementptr inbounds i8, ptr %.sroa.054.086.i.i.i.i.i.i, i64 88
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
 
-.loopexit.split.loop.exit79.i.i.i.i.i.i:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit27.i.i.i.i.i.i"
+.loopexit.split.loop.exit79.i.i.i.i.i.i:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.i.i.i.i.i.i"
   %70 = getelementptr inbounds i8, ptr %.sroa.054.086.i.i.i.i.i.i, i64 176
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
 
-.loopexit.split.loop.exit81.i.i.i.i.i.i:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit33.i.i.i.i.i.i"
+.loopexit.split.loop.exit81.i.i.i.i.i.i:          ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.i.i.i.i.i.i"
   %71 = getelementptr inbounds i8, ptr %.sroa.054.086.i.i.i.i.i.i, i64 264
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.i.i.i.i.i.i", %.loopexit.split.loop.exit81.i.i.i.i.i.i, %.loopexit.split.loop.exit79.i.i.i.i.i.i, %.loopexit.split.loop.exit77.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit51.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit45.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit39.i.i.i.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.054.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit39.i.i.i.i.i.i" ], [ %.sroa.054.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit45.i.i.i.i.i.i" ], [ %.sroa.054.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit51.i.i.i.i.i.i" ], [ %69, %.loopexit.split.loop.exit77.i.i.i.i.i.i ], [ %70, %.loopexit.split.loop.exit79.i.i.i.i.i.i ], [ %71, %.loopexit.split.loop.exit81.i.i.i.i.i.i ], [ %.sroa.054.086.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.i.i.i.i.i.i" ]
+"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i", %.loopexit.split.loop.exit81.i.i.i.i.i.i, %.loopexit.split.loop.exit79.i.i.i.i.i.i, %.loopexit.split.loop.exit77.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit51.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.i.i.i.i.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.054.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.i.i.i.i.i.i" ], [ %.sroa.054.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.i.i.i.i.i.i" ], [ %.sroa.054.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit51.i.i.i.i.i.i" ], [ %69, %.loopexit.split.loop.exit77.i.i.i.i.i.i ], [ %70, %.loopexit.split.loop.exit79.i.i.i.i.i.i ], [ %71, %.loopexit.split.loop.exit81.i.i.i.i.i.i ], [ %.sroa.054.086.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i" ]
   %72 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %.val3.i
   %.sroa.07.024.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, i64 88
   %.not25.i.i.i.i = icmp eq ptr %.sroa.07.024.i.i.i.i, %.val3.i
   %or.cond.i.i.i.i = select i1 %72, i1 true, i1 %.not25.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.argprom.exit.i", label %.lr.ph.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.exit.i", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i", %84
   %.sroa.07.028.i.i.i.i = phi ptr [ %.sroa.07.0.i.i.i.i, %84 ], [ %.sroa.07.024.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i" ]
@@ -445,17 +445,17 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %75 = and i64 %.val.i.i.i.i.i, -8
   %.not1.i.i.i.i.i.i = icmp eq i64 %75, 0
   %.not.i.i5.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i, %.not1.i.i.i.i.i.i
-  br i1 %.not.i.i5.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.i.i.i.i"
+  br i1 %.not.i.i5.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
   %76 = inttoptr i64 %75 to ptr
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 36
   %78 = load i16, ptr %77, align 4
   %79 = and i16 %78, 1024
   %.not19.i.i.i.i = icmp eq i16 %79, 0
-  br i1 %.not19.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.thread.i.i.i.i", label %84
+  br i1 %.not19.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i", label %84
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.i.i.i.i", %.lr.ph.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i", %.lr.ph.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.013.127.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.07.028.i.i.i.i, i64 24, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.013.127.i.i.i.i, i64 24
   %81 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.pn26.i.i.i.i, i64 112
@@ -463,23 +463,23 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %83 = getelementptr inbounds i8, ptr %.sroa.013.127.i.i.i.i, i64 88
   br label %84
 
-84:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.i.i.i.i"
-  %.sroa.013.2.i.i.i.i = phi ptr [ %.sroa.013.127.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.i.i.i.i" ], [ %83, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit.thread.i.i.i.i" ]
+84:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i"
+  %.sroa.013.2.i.i.i.i = phi ptr [ %.sroa.013.127.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i" ], [ %83, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i" ]
   %.sroa.07.0.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.07.028.i.i.i.i, i64 88
   %.not.i.i.i.i = icmp eq ptr %.sroa.07.0.i.i.i.i, %.val3.i
-  br i1 %.not.i.i.i.i, label %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.argprom.exit.loopexit.i", label %.lr.ph.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i, label %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.exit.loopexit.i", label %.lr.ph.i.i.i.i, !llvm.loop !8
 
-"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.argprom.exit.loopexit.i": ; preds = %84
+"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.exit.loopexit.i": ; preds = %84
   %.pre.i = load ptr, ptr %3, align 8
-  br label %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.argprom.exit.i"
+  br label %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.exit.i"
 
-"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.argprom.exit.i": ; preds = %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.argprom.exit.loopexit.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
-  %85 = phi ptr [ %.val3.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i" ], [ %.pre.i, %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.argprom.exit.loopexit.i" ]
-  %.sroa.013.0.i.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i" ], [ %.sroa.013.2.i.i.i.i, %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.argprom.exit.loopexit.i" ]
+"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.exit.i": ; preds = %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.exit.loopexit.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i"
+  %85 = phi ptr [ %.val3.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i" ], [ %.pre.i, %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.exit.loopexit.i" ]
+  %.sroa.013.0.i.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEET_SF_SF_T0_.exit.i.i.i.i" ], [ %.sroa.013.2.i.i.i.i, %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.exit.loopexit.i" ]
   %.not.i.i.i = icmp eq ptr %.sroa.013.0.i.i.i.i, %85
   br i1 %.not.i.i.i, label %"_ZN4llvm8erase_ifISt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEvRT_T0_.exit", label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i: ; preds = %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.argprom.exit.i"
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i: ; preds = %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.exit.i"
   %86 = load ptr, ptr %2, align 8
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %.sroa.013.0.i.i.i.i to i64
@@ -509,7 +509,7 @@ _ZSt8_DestroyIPN5clang5index14DeclOccurrenceES2_EvT_S4_RSaIT0_E.exit.i.i.i.i: ; 
   store ptr %90, ptr %3, align 8
   br label %"_ZN4llvm8erase_ifISt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEvRT_T0_.exit"
 
-"_ZN4llvm8erase_ifISt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEvRT_T0_.exit": ; preds = %._crit_edge.i.i.i.i.i.i, %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.argprom.exit51.i.i.i.i.i.i", %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.argprom.exit.i", %_ZSt8_DestroyIPN5clang5index14DeclOccurrenceES2_EvT_S4_RSaIT0_E.exit.i.i.i.i
+"_ZN4llvm8erase_ifISt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEvRT_T0_.exit": ; preds = %._crit_edge.i.i.i.i.i.i, %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit51.i.i.i.i.i.i", %"_ZN4llvm9remove_ifIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEDaOT_T0_.exit.i", %_ZSt8_DestroyIPN5clang5index14DeclOccurrenceES2_EvT_S4_RSaIT0_E.exit.i.i.i.i
   ret void
 }
 
@@ -1341,7 +1341,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %.val = load i32, ptr %22, align 4
   %23 = sub i64 %8, %19
   %24 = icmp sgt i64 %23, 0
-  br i1 %24, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br i1 %24, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit
   %25 = udiv exact i64 %23, 88
@@ -1361,15 +1361,15 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %.sroa.02.1.i = select i1 %29, ptr %30, ptr %.sroa.02.03.i
   %.1.i = select i1 %29, i64 %32, i64 %26
   %33 = icmp sgt i64 %.1.i, 0
-  br i1 %33, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !13
+  br i1 %33, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !13
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.sroa.02.1.i to i64
-  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %19, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
-  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr7179, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %19, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
+  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr7179, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
   %34 = sub i64 %.pre-phi, %19
   %35 = sdiv exact i64 %34, 88
   br label %tailrecurse
@@ -1382,7 +1382,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %39 = ptrtoint ptr %.tr78 to i64
   %40 = sub i64 %19, %39
   %41 = icmp sgt i64 %40, 0
-  br i1 %41, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i56, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br i1 %41, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i56, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i56: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54
   %42 = udiv exact i64 %40, 88
@@ -1402,24 +1402,24 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %.sroa.02.1.i62 = select i1 %46, ptr %.sroa.02.03.i59, ptr %47
   %.1.i63 = select i1 %46, i64 %43, i64 %49
   %50 = icmp sgt i64 %.1.i63, 0
-  br i1 %50, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i57, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !14
+  br i1 %50, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i57, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !14
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i57
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i57
   %.pre85 = ptrtoint ptr %.sroa.02.1.i62 to i64
-  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54
-  %.pre-phi86 = phi i64 [ %.pre85, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54 ]
-  %.sroa.02.0.lcssa.i55 = phi ptr [ %.sroa.02.1.i62, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr78, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54 ]
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54
+  %.pre-phi86 = phi i64 [ %.pre85, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54 ]
+  %.sroa.02.0.lcssa.i55 = phi ptr [ %.sroa.02.1.i62, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr78, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54 ]
   %51 = sub i64 %.pre-phi86, %39
   %52 = sdiv exact i64 %51, 88
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit"
-  %.sroa.066.0 = phi ptr [ %21, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %.sroa.02.0.lcssa.i55, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %37, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.047 = phi i64 [ %35, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %36, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.0 = phi i64 [ %20, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %52, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ]
+tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit"
+  %.sroa.066.0 = phi ptr [ %21, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i55, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %37, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.047 = phi i64 [ %35, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %36, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %20, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %52, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
   %53 = tail call ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_St26random_access_iterator_tag(ptr %.sroa.066.0, ptr %.tr7179, ptr %.sroa.0.0)
   tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_SF_T0_SG_T1_"(ptr %.tr78, ptr %.sroa.066.0, ptr %53, i64 noundef %.0, i64 noundef %.047)
   %54 = sub nsw i64 %.tr7381, %.0
@@ -1779,7 +1779,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
   %.lcssa.i = phi i64 [ %7, %17 ], [ %62, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.050, i64 %.lcssa.i)
   %63 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.sroa.023.0.lcssa.i, i64 %.sroa.speculated.i
-  tail call fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.retelim"(ptr %.sroa.023.0.lcssa.i, ptr %63, ptr %63, ptr %1, ptr noundef %.0.lcssa.i)
+  tail call fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_"(ptr %.sroa.023.0.lcssa.i, ptr %63, ptr %63, ptr %1, ptr noundef %.0.lcssa.i)
   %64 = shl nsw i64 %.050, 2
   %.not29.i = icmp slt i64 %16, %64
   br i1 %.not29.i, label %"_ZSt17__merge_sort_loopIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_T2_.exit", label %.lr.ph.i22.preheader
@@ -1907,7 +1907,7 @@ _ZSt4moveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6ve
   %.lcssa.i25 = phi i64 [ %16, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %116, %"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ]
   %.sroa.speculated.i26 = tail call i64 @llvm.smin.i64(i64 %18, i64 %.lcssa.i25)
   %117 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.0.lcssa.i24, i64 %.sroa.speculated.i26
-  tail call fastcc void @"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.retelim"(ptr noundef %.0.lcssa.i24, ptr noundef %117, ptr noundef %117, ptr noundef nonnull %8, ptr %.sroa.022.0.lcssa.i)
+  tail call fastcc void @"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_"(ptr noundef %.0.lcssa.i24, ptr noundef %117, ptr noundef %117, ptr noundef nonnull %8, ptr %.sroa.022.0.lcssa.i)
   %118 = icmp slt i64 %64, %7
   br i1 %118, label %17, label %._crit_edge, !llvm.loop !25
 
@@ -2159,7 +2159,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %.val = load i32, ptr %112, align 4
   %113 = sub i64 %8, %49
   %114 = icmp sgt i64 %113, 0
-  br i1 %114, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br i1 %114, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit
   %115 = udiv exact i64 %113, 88
@@ -2179,15 +2179,15 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %.sroa.02.1.i = select i1 %119, ptr %120, ptr %.sroa.02.03.i
   %.1.i95 = select i1 %119, i64 %122, i64 %116
   %123 = icmp sgt i64 %.1.i95, 0
-  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !13
+  br i1 %123, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !13
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i
   %.pre = ptrtoint ptr %.sroa.02.1.i to i64
-  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
-"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %49, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
-  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr119140, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
+"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %49, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
+  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr119140, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit ]
   %124 = sub i64 %.pre-phi, %49
   %125 = sdiv exact i64 %124, 88
   br label %tailrecurse
@@ -2200,7 +2200,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %129 = ptrtoint ptr %.tr139 to i64
   %130 = sub i64 %49, %129
   %131 = icmp sgt i64 %130, 0
-  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i101, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br i1 %131, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i101, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i101: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit99
   %132 = udiv exact i64 %130, 88
@@ -2220,24 +2220,24 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %.sroa.02.1.i108 = select i1 %136, ptr %.sroa.02.03.i104, ptr %137
   %.1.i109 = select i1 %136, i64 %133, i64 %139
   %140 = icmp sgt i64 %.1.i109, 0
-  br i1 %140, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i102, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", !llvm.loop !14
+  br i1 %140, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i102, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", !llvm.loop !14
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i102
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i102
   %.pre158 = ptrtoint ptr %.sroa.02.1.i108 to i64
-  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit"
+  br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit"
 
-"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit99
-  %.pre-phi159 = phi i64 [ %.pre158, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit99 ]
-  %.sroa.02.0.lcssa.i100 = phi ptr [ %.sroa.02.1.i108, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit.loopexit" ], [ %.tr139, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit99 ]
+"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit99
+  %.pre-phi159 = phi i64 [ %.pre158, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %129, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit99 ]
+  %.sroa.02.0.lcssa.i100 = phi ptr [ %.sroa.02.1.i108, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit.loopexit" ], [ %.tr139, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit99 ]
   %141 = sub i64 %.pre-phi159, %129
   %142 = sdiv exact i64 %141, 88
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit"
-  %.sroa.0112.0 = phi ptr [ %111, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %.sroa.02.0.lcssa.i100, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %127, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.076 = phi i64 [ %125, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %126, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ]
-  %.0 = phi i64 [ %110, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ], [ %142, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.argprom.exit" ]
+tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit"
+  %.sroa.0112.0 = phi ptr [ %111, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i100, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %127, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.076 = phi i64 [ %125, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %126, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %110, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ], [ %142, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET_SF_SF_RKT0_T1_.exit" ]
   %143 = sub nsw i64 %.tr121141, %.0
   %144 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_lET_SA_SA_SA_T1_SB_T0_SB_(ptr %.sroa.0112.0, ptr %.tr119140, ptr %.sroa.0.0, i64 noundef %143, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
   tail call fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_SF_T0_SG_T1_SG_T2_"(ptr %.tr139, ptr %.sroa.0112.0, ptr %144, i64 noundef %.0, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
@@ -2252,7 +2252,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.retelim"(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_"(ptr %0, ptr %1, ptr %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
   %6 = icmp ne ptr %0, %1
   %7 = icmp ne ptr %2, %3
   %or.cond24 = select i1 %6, i1 %7, i1 false
@@ -2352,7 +2352,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.retelim"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr %4) unnamed_addr #0 {
   %6 = icmp ne ptr %0, %1
   %7 = icmp ne ptr %2, %3
   %8 = and i1 %6, %7

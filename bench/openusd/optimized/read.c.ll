@@ -7966,9 +7966,9 @@ define internal fastcc range(i32 0, 27) i32 @avifParseMetaBox(ptr noundef %0, i6
 108:                                              ; preds = %107
   %109 = and i32 %.0139, 1
   %.not.i = icmp eq i32 %109, 0
-  br i1 %.not.i, label %110, label %uniqueBoxSeen.argprom.exit.thread
+  br i1 %.not.i, label %110, label %uniqueBoxSeen.exit.thread
 
-uniqueBoxSeen.argprom.exit.thread:                ; preds = %108
+uniqueBoxSeen.exit.thread:                        ; preds = %108
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.26) #13
   br label %avifParseItemDataBox.exit.thread
 
@@ -8059,9 +8059,9 @@ avifParseHandlerBox.exit:                         ; preds = %122
 128:                                              ; preds = %127
   %129 = and i32 %.0139, 2
   %.not.i75 = icmp eq i32 %129, 0
-  br i1 %.not.i75, label %130, label %uniqueBoxSeen.argprom.exit77.thread
+  br i1 %.not.i75, label %130, label %uniqueBoxSeen.exit77.thread
 
-uniqueBoxSeen.argprom.exit77.thread:              ; preds = %128
+uniqueBoxSeen.exit77.thread:                      ; preds = %128
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.28) #13
   br label %avifParseItemDataBox.exit.thread
 
@@ -8397,9 +8397,9 @@ avifParseItemLocationBox.exit:                    ; preds = %._crit_edge.i, %165
 251:                                              ; preds = %127
   %252 = and i32 %.0139, 4
   %.not.i81 = icmp eq i32 %252, 0
-  br i1 %.not.i81, label %253, label %uniqueBoxSeen.argprom.exit83.thread
+  br i1 %.not.i81, label %253, label %uniqueBoxSeen.exit83.thread
 
-uniqueBoxSeen.argprom.exit83.thread:              ; preds = %251
+uniqueBoxSeen.exit83.thread:                      ; preds = %251
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.29) #13
   br label %avifParseItemDataBox.exit.thread
 
@@ -8465,9 +8465,9 @@ avifParsePrimaryItemBox.exit:                     ; preds = %266, %269
 271:                                              ; preds = %127
   %272 = and i32 %.0139, 8
   %.not.i88 = icmp eq i32 %272, 0
-  br i1 %.not.i88, label %273, label %uniqueBoxSeen.argprom.exit90.thread
+  br i1 %.not.i88, label %273, label %uniqueBoxSeen.exit90.thread
 
-uniqueBoxSeen.argprom.exit90.thread:              ; preds = %271
+uniqueBoxSeen.exit90.thread:                      ; preds = %271
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.30) #13
   br label %avifParseItemDataBox.exit.thread
 
@@ -8499,9 +8499,9 @@ avifParseItemDataBox.exit:                        ; preds = %279
 283:                                              ; preds = %127
   %284 = and i32 %.0139, 16
   %.not.i95 = icmp eq i32 %284, 0
-  br i1 %.not.i95, label %285, label %uniqueBoxSeen.argprom.exit97.thread
+  br i1 %.not.i95, label %285, label %uniqueBoxSeen.exit97.thread
 
-uniqueBoxSeen.argprom.exit97.thread:              ; preds = %283
+uniqueBoxSeen.exit97.thread:                      ; preds = %283
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.31) #13
   br label %avifParseItemDataBox.exit.thread
 
@@ -8878,9 +8878,9 @@ avifParseItemPropertiesBox.exit:                  ; preds = %.preheader.i99
 403:                                              ; preds = %127
   %404 = and i32 %.0139, 32
   %.not.i104 = icmp eq i32 %404, 0
-  br i1 %.not.i104, label %405, label %uniqueBoxSeen.argprom.exit106.thread
+  br i1 %.not.i104, label %405, label %uniqueBoxSeen.exit106.thread
 
-uniqueBoxSeen.argprom.exit106.thread:             ; preds = %403
+uniqueBoxSeen.exit106.thread:                     ; preds = %403
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.32) #13
   br label %avifParseItemDataBox.exit.thread
 
@@ -9120,9 +9120,9 @@ avifParseItemInfoBox.exit:                        ; preds = %423, %421
 475:                                              ; preds = %127
   %476 = and i32 %.0139, 64
   %.not.i120 = icmp eq i32 %476, 0
-  br i1 %.not.i120, label %477, label %uniqueBoxSeen.argprom.exit122.thread
+  br i1 %.not.i120, label %477, label %uniqueBoxSeen.exit122.thread
 
-uniqueBoxSeen.argprom.exit122.thread:             ; preds = %475
+uniqueBoxSeen.exit122.thread:                     ; preds = %475
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.33) #13
   br label %avifParseItemDataBox.exit.thread
 
@@ -9355,8 +9355,8 @@ avifParseItemReferenceBox.exit:                   ; preds = %484, %._crit_edge.i
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.34) #13
   br label %avifParseItemDataBox.exit.thread
 
-avifParseItemDataBox.exit.thread:                 ; preds = %547, %avifParseItemDataBox.exit, %avifParseHandlerBox.exit, %104, %281, %278, %avifParseItemReferenceBox.exit.thread, %uniqueBoxSeen.argprom.exit122.thread, %avifParseItemInfoBox.exit.thread, %uniqueBoxSeen.argprom.exit106.thread, %avifParseItemPropertiesBox.exit.thread, %uniqueBoxSeen.argprom.exit97.thread, %uniqueBoxSeen.argprom.exit90.thread, %avifParsePrimaryItemBox.exit.thread, %uniqueBoxSeen.argprom.exit83.thread, %avifParseItemLocationBox.exit.thread, %uniqueBoxSeen.argprom.exit77.thread, %avifParseHandlerBox.exit.thread, %uniqueBoxSeen.argprom.exit.thread, %550, %5, %551, %126
-  %.0 = phi i32 [ 9, %126 ], [ 9, %551 ], [ 9, %5 ], [ 0, %550 ], [ 9, %uniqueBoxSeen.argprom.exit.thread ], [ 9, %avifParseHandlerBox.exit.thread ], [ 9, %uniqueBoxSeen.argprom.exit77.thread ], [ %.0.i79.ph, %avifParseItemLocationBox.exit.thread ], [ 9, %uniqueBoxSeen.argprom.exit83.thread ], [ 9, %avifParsePrimaryItemBox.exit.thread ], [ 9, %uniqueBoxSeen.argprom.exit90.thread ], [ 9, %uniqueBoxSeen.argprom.exit97.thread ], [ %.023.i.ph, %avifParseItemPropertiesBox.exit.thread ], [ 9, %uniqueBoxSeen.argprom.exit106.thread ], [ %.0.i113.ph, %avifParseItemInfoBox.exit.thread ], [ 9, %uniqueBoxSeen.argprom.exit122.thread ], [ %.0.i130.ph, %avifParseItemReferenceBox.exit.thread ], [ 9, %278 ], [ 9, %281 ], [ 9, %104 ], [ 9, %avifParseHandlerBox.exit ], [ 9, %avifParseItemDataBox.exit ], [ 9, %547 ]
+avifParseItemDataBox.exit.thread:                 ; preds = %547, %avifParseItemDataBox.exit, %avifParseHandlerBox.exit, %104, %281, %278, %avifParseItemReferenceBox.exit.thread, %uniqueBoxSeen.exit122.thread, %avifParseItemInfoBox.exit.thread, %uniqueBoxSeen.exit106.thread, %avifParseItemPropertiesBox.exit.thread, %uniqueBoxSeen.exit97.thread, %uniqueBoxSeen.exit90.thread, %avifParsePrimaryItemBox.exit.thread, %uniqueBoxSeen.exit83.thread, %avifParseItemLocationBox.exit.thread, %uniqueBoxSeen.exit77.thread, %avifParseHandlerBox.exit.thread, %uniqueBoxSeen.exit.thread, %550, %5, %551, %126
+  %.0 = phi i32 [ 9, %126 ], [ 9, %551 ], [ 9, %5 ], [ 0, %550 ], [ 9, %uniqueBoxSeen.exit.thread ], [ 9, %avifParseHandlerBox.exit.thread ], [ 9, %uniqueBoxSeen.exit77.thread ], [ %.0.i79.ph, %avifParseItemLocationBox.exit.thread ], [ 9, %uniqueBoxSeen.exit83.thread ], [ 9, %avifParsePrimaryItemBox.exit.thread ], [ 9, %uniqueBoxSeen.exit90.thread ], [ 9, %uniqueBoxSeen.exit97.thread ], [ %.023.i.ph, %avifParseItemPropertiesBox.exit.thread ], [ 9, %uniqueBoxSeen.exit106.thread ], [ %.0.i113.ph, %avifParseItemInfoBox.exit.thread ], [ 9, %uniqueBoxSeen.exit122.thread ], [ %.0.i130.ph, %avifParseItemReferenceBox.exit.thread ], [ 9, %278 ], [ 9, %281 ], [ 9, %104 ], [ 9, %avifParseHandlerBox.exit ], [ 9, %avifParseItemDataBox.exit ], [ 9, %547 ]
   ret i32 %.0
 }
 
@@ -9639,7 +9639,7 @@ avifParseColourInformationBox.exit:               ; preds = %76, %82, %103
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   %109 = call i32 @avifROStreamReadBits(ptr noundef nonnull %19, ptr noundef nonnull %16, i64 noundef 1) #13
   %.not.i.i = icmp eq i32 %109, 0
-  br i1 %.not.i.i, label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, label %110
+  br i1 %.not.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %110
 
 110:                                              ; preds = %104
   %111 = load i32, ptr %16, align 4
@@ -9648,12 +9648,12 @@ avifParseColourInformationBox.exit:               ; preds = %76, %82, %103
 
 112:                                              ; preds = %110
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.62, i32 noundef 0) #13
-  br label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread
+  br label %avifParseCodecConfigurationBoxProperty.exit.thread
 
 113:                                              ; preds = %110
   %114 = call i32 @avifROStreamReadBits(ptr noundef nonnull %19, ptr noundef nonnull %17, i64 noundef 7) #13
   %.not28.i.i = icmp eq i32 %114, 0
-  br i1 %.not28.i.i, label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, label %115
+  br i1 %.not28.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %115
 
 115:                                              ; preds = %113
   %116 = load i32, ptr %17, align 4
@@ -9662,62 +9662,62 @@ avifParseColourInformationBox.exit:               ; preds = %76, %82, %103
 
 117:                                              ; preds = %115
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.62, i32 noundef %116) #13
-  br label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread
+  br label %avifParseCodecConfigurationBoxProperty.exit.thread
 
 118:                                              ; preds = %115
   %119 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %108, i64 noundef 3) #13
   %.not30.i.i = icmp eq i32 %119, 0
-  br i1 %.not30.i.i, label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, label %120
+  br i1 %.not30.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %120
 
 120:                                              ; preds = %118
   %121 = getelementptr inbounds nuw i8, ptr %48, i64 9
   %122 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %121, i64 noundef 5) #13
   %.not31.i.i = icmp eq i32 %122, 0
-  br i1 %.not31.i.i, label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, label %123
+  br i1 %.not31.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %123
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %48, i64 10
   %125 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %124, i64 noundef 1) #13
   %.not32.i.i = icmp eq i32 %125, 0
-  br i1 %.not32.i.i, label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, label %126
+  br i1 %.not32.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %126
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %48, i64 11
   %128 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %127, i64 noundef 1) #13
   %.not33.i.i = icmp eq i32 %128, 0
-  br i1 %.not33.i.i, label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, label %129
+  br i1 %.not33.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %129
 
 129:                                              ; preds = %126
   %130 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %131 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %130, i64 noundef 1) #13
   %.not34.i.i = icmp eq i32 %131, 0
-  br i1 %.not34.i.i, label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, label %132
+  br i1 %.not34.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %132
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %48, i64 13
   %134 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %133, i64 noundef 1) #13
   %.not35.i.i = icmp eq i32 %134, 0
-  br i1 %.not35.i.i, label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, label %135
+  br i1 %.not35.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %135
 
 135:                                              ; preds = %132
   %136 = getelementptr inbounds nuw i8, ptr %48, i64 14
   %137 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %136, i64 noundef 1) #13
   %.not36.i.i = icmp eq i32 %137, 0
-  br i1 %.not36.i.i, label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, label %138
+  br i1 %.not36.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %138
 
 138:                                              ; preds = %135
   %139 = getelementptr inbounds nuw i8, ptr %48, i64 15
   %140 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %139, i64 noundef 1) #13
   %.not37.i.i = icmp eq i32 %140, 0
-  br i1 %.not37.i.i, label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, label %141
+  br i1 %.not37.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %141
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %143 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %142, i64 noundef 2) #13
   %.not38.i.i = icmp eq i32 %143, 0
-  br i1 %.not38.i.i, label %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, label %avifParseCodecConfigurationBoxProperty.argprom.exit
+  br i1 %.not38.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %avifParseCodecConfigurationBoxProperty.exit
 
-avifParseCodecConfigurationBoxProperty.argprom.exit.thread: ; preds = %104, %113, %118, %120, %123, %126, %129, %132, %135, %138, %141, %117, %112
+avifParseCodecConfigurationBoxProperty.exit.thread: ; preds = %104, %113, %118, %120, %123, %126, %129, %132, %135, %138, %141, %117, %112
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %18)
@@ -9725,7 +9725,7 @@ avifParseCodecConfigurationBoxProperty.argprom.exit.thread: ; preds = %104, %113
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   br label %.loopexit
 
-avifParseCodecConfigurationBoxProperty.argprom.exit: ; preds = %141
+avifParseCodecConfigurationBoxProperty.exit:      ; preds = %141
   %144 = call i32 @avifROStreamSkip(ptr noundef nonnull %19, i64 noundef 1) #13
   %.not39.i.i.not = icmp eq i32 %144, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
@@ -9934,14 +9934,14 @@ avifParseImageMirrorProperty.exit:                ; preds = %192
   %.not73 = icmp eq i32 %216, 0
   br i1 %.not73, label %.loopexit, label %217
 
-217:                                              ; preds = %49, %avifParseColourInformationBox.exit, %avifParseImageSpatialExtentsProperty.exit, %avifParsePixelAspectRatioBoxProperty.exit, %avifParseImageRotationProperty.exit, %197, %205, %213, %209, %201, %avifParseImageMirrorProperty.exit, %avifParseCleanApertureBoxProperty.exit, %avifParseCodecConfigurationBoxProperty.argprom.exit, %avifParseAuxiliaryTypeProperty.exit
+217:                                              ; preds = %49, %avifParseColourInformationBox.exit, %avifParseImageSpatialExtentsProperty.exit, %avifParsePixelAspectRatioBoxProperty.exit, %avifParseImageRotationProperty.exit, %197, %205, %213, %209, %201, %avifParseImageMirrorProperty.exit, %avifParseCleanApertureBoxProperty.exit, %avifParseCodecConfigurationBoxProperty.exit, %avifParseAuxiliaryTypeProperty.exit
   %218 = load i64, ptr %32, align 8
   %219 = call i32 @avifROStreamSkip(ptr noundef nonnull %30, i64 noundef %218) #13
   %.not74 = icmp eq i32 %219, 0
   br i1 %.not74, label %.loopexit, label %43, !llvm.loop !87
 
-.loopexit:                                        ; preds = %43, %217, %213, %209, %205, %201, %197, %avifParseImageMirrorProperty.exit, %avifParseImageRotationProperty.exit, %avifParseCleanApertureBoxProperty.exit, %avifParsePixelAspectRatioBoxProperty.exit, %avifParseCodecConfigurationBoxProperty.argprom.exit, %avifParseAuxiliaryTypeProperty.exit, %avifParseImageSpatialExtentsProperty.exit, %47, %45, %avifParseImageMirrorProperty.exit.thread, %avifParseImageRotationProperty.exit.thread, %avifParseCleanApertureBoxProperty.exit.thread, %avifParsePixelAspectRatioBoxProperty.exit.thread, %avifParseCodecConfigurationBoxProperty.argprom.exit.thread, %avifParseColourInformationBox.exit.thread, %avifParseAuxiliaryTypeProperty.exit.thread, %avifParseImageSpatialExtentsProperty.exit.thread
-  %.0 = phi i32 [ 9, %avifParseImageSpatialExtentsProperty.exit.thread ], [ 9, %avifParseAuxiliaryTypeProperty.exit.thread ], [ 9, %avifParseColourInformationBox.exit.thread ], [ 9, %avifParseCodecConfigurationBoxProperty.argprom.exit.thread ], [ 9, %avifParsePixelAspectRatioBoxProperty.exit.thread ], [ 9, %avifParseCleanApertureBoxProperty.exit.thread ], [ 9, %avifParseImageRotationProperty.exit.thread ], [ 9, %avifParseImageMirrorProperty.exit.thread ], [ 0, %43 ], [ 9, %217 ], [ 9, %213 ], [ 9, %209 ], [ 9, %205 ], [ 9, %201 ], [ 9, %197 ], [ 9, %avifParseImageMirrorProperty.exit ], [ 9, %avifParseImageRotationProperty.exit ], [ 9, %avifParseCleanApertureBoxProperty.exit ], [ 9, %avifParsePixelAspectRatioBoxProperty.exit ], [ 9, %avifParseCodecConfigurationBoxProperty.argprom.exit ], [ 9, %avifParseAuxiliaryTypeProperty.exit ], [ 9, %avifParseImageSpatialExtentsProperty.exit ], [ 26, %47 ], [ 9, %45 ]
+.loopexit:                                        ; preds = %43, %217, %213, %209, %205, %201, %197, %avifParseImageMirrorProperty.exit, %avifParseImageRotationProperty.exit, %avifParseCleanApertureBoxProperty.exit, %avifParsePixelAspectRatioBoxProperty.exit, %avifParseCodecConfigurationBoxProperty.exit, %avifParseAuxiliaryTypeProperty.exit, %avifParseImageSpatialExtentsProperty.exit, %47, %45, %avifParseImageMirrorProperty.exit.thread, %avifParseImageRotationProperty.exit.thread, %avifParseCleanApertureBoxProperty.exit.thread, %avifParsePixelAspectRatioBoxProperty.exit.thread, %avifParseCodecConfigurationBoxProperty.exit.thread, %avifParseColourInformationBox.exit.thread, %avifParseAuxiliaryTypeProperty.exit.thread, %avifParseImageSpatialExtentsProperty.exit.thread
+  %.0 = phi i32 [ 9, %avifParseImageSpatialExtentsProperty.exit.thread ], [ 9, %avifParseAuxiliaryTypeProperty.exit.thread ], [ 9, %avifParseColourInformationBox.exit.thread ], [ 9, %avifParseCodecConfigurationBoxProperty.exit.thread ], [ 9, %avifParsePixelAspectRatioBoxProperty.exit.thread ], [ 9, %avifParseCleanApertureBoxProperty.exit.thread ], [ 9, %avifParseImageRotationProperty.exit.thread ], [ 9, %avifParseImageMirrorProperty.exit.thread ], [ 0, %43 ], [ 9, %217 ], [ 9, %213 ], [ 9, %209 ], [ 9, %205 ], [ 9, %201 ], [ 9, %197 ], [ 9, %avifParseImageMirrorProperty.exit ], [ 9, %avifParseImageRotationProperty.exit ], [ 9, %avifParseCleanApertureBoxProperty.exit ], [ 9, %avifParsePixelAspectRatioBoxProperty.exit ], [ 9, %avifParseCodecConfigurationBoxProperty.exit ], [ 9, %avifParseAuxiliaryTypeProperty.exit ], [ 9, %avifParseImageSpatialExtentsProperty.exit ], [ 26, %47 ], [ 9, %45 ]
   ret i32 %.0
 }
 

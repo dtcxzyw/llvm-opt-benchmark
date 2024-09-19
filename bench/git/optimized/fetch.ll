@@ -6455,12 +6455,12 @@ if.end.i:                                         ; preds = %if.else
   call void @strbuf_add(ptr noundef nonnull %r.i, ptr noundef %call9, i64 noundef %call.i.i) #17
   %call.i8.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #19
   call void @strbuf_add(ptr noundef nonnull %l.i, ptr noundef %call10, i64 noundef %call.i8.i) #17
-  %call1.i = call fastcc i32 @find_and_replace.argprom(ptr noundef %r.i, ptr noundef %call10)
+  %call1.i = call fastcc i32 @find_and_replace(ptr noundef %r.i, ptr noundef %call10)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %13 = call fastcc i32 @find_and_replace.argprom(ptr noundef %l.i, ptr noundef %call9)
+  %13 = call fastcc i32 @find_and_replace(ptr noundef %l.i, ptr noundef %call9)
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
@@ -6545,7 +6545,7 @@ declare i32 @gettext_width(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @find_and_replace.argprom(ptr noundef nonnull %haystack, ptr nocapture noundef readonly %needle) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @find_and_replace(ptr noundef nonnull %haystack, ptr nocapture noundef readonly %needle) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %needle) #19
   %conv = trunc i64 %call to i32

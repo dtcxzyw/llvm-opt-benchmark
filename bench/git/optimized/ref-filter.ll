@@ -552,7 +552,7 @@ _.exit:                                           ; preds = %if.then6, %if.end3.
   %sub.ptr.rhs.cast = ptrtoint ptr %atom to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv7 = trunc i64 %sub.ptr.sub to i32
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i, i32 noundef %conv7, ptr noundef nonnull %atom)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i, i32 noundef %conv7, ptr noundef nonnull %atom)
   br label %return
 
 if.end9:                                          ; preds = %entry
@@ -634,7 +634,7 @@ _.exit69:                                         ; preds = %if.then65, %if.end3
   %sub.ptr.rhs.cast68 = ptrtoint ptr %atom to i64
   %sub.ptr.sub69 = sub i64 %sub.ptr.lhs.cast10, %sub.ptr.rhs.cast68
   %conv70 = trunc i64 %sub.ptr.sub69 to i32
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i68, i32 noundef %conv70, ptr noundef nonnull %atom)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i68, i32 noundef %conv70, ptr noundef nonnull %atom)
   br label %return
 
 if.end72:                                         ; preds = %land.lhs.true50
@@ -667,7 +667,7 @@ _.exit74:                                         ; preds = %if.then80, %if.end3
   %sub.ptr.rhs.cast83 = ptrtoint ptr %atom to i64
   %sub.ptr.sub84 = sub i64 %sub.ptr.lhs.cast10, %sub.ptr.rhs.cast83
   %conv85 = trunc i64 %sub.ptr.sub84 to i32
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i73, i32 noundef %conv85, ptr noundef nonnull %atom)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i73, i32 noundef %conv85, ptr noundef nonnull %atom)
   br label %return
 
 if.end87:                                         ; preds = %land.lhs.true77.if.end87_crit_edge, %if.end72
@@ -2404,7 +2404,7 @@ for.body:                                         ; preds = %if.then.i
 
 if.then:                                          ; preds = %for.body
   %state.val = load ptr, ptr %stack, align 8
-  call fastcc void @append_literal.argprom(ptr noundef nonnull %cp.051, ptr noundef nonnull %cp.addr.0.i, ptr %state.val)
+  call fastcc void @append_literal(ptr noundef nonnull %cp.051, ptr noundef nonnull %cp.addr.0.i, ptr %state.val)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
@@ -2448,7 +2448,7 @@ if.then19:                                        ; preds = %while.cond.i
   %call20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cp.051) #23
   %add.ptr21 = getelementptr inbounds i8, ptr %cp.051, i64 %call20
   %state.val21 = load ptr, ptr %stack, align 8
-  call fastcc void @append_literal.argprom(ptr noundef nonnull %cp.051, ptr noundef nonnull %add.ptr21, ptr %state.val21)
+  call fastcc void @append_literal(ptr noundef nonnull %cp.051, ptr noundef nonnull %add.ptr21, ptr %state.val21)
   br label %if.end22
 
 if.end22:                                         ; preds = %for.cond, %entry, %if.then19
@@ -2496,7 +2496,7 @@ if.end3.i:                                        ; preds = %pop_stack_element.e
 
 _.exit:                                           ; preds = %pop_stack_element.exit33, %if.end3.i
   %retval.0.i35 = phi ptr [ %call.i34, %if.end3.i ], [ @.str.19, %pop_stack_element.exit33 ]
-  call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %error_buf, i32 poison, ptr noundef %retval.0.i35)
+  call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %error_buf, i32 poison, ptr noundef %retval.0.i35)
   br label %return
 
 if.end37:                                         ; preds = %if.end30
@@ -2525,7 +2525,7 @@ return:                                           ; preds = %pop_stack_element.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_literal.argprom(ptr noundef readonly %cp, ptr noundef readnone %ep, ptr %state.8.val) unnamed_addr #0 {
+define internal fastcc void @append_literal(ptr noundef readonly %cp, ptr noundef readnone %ep, ptr %state.8.val) unnamed_addr #0 {
 entry:
   %output = getelementptr inbounds i8, ptr %state.8.val, i64 8
   %0 = load i8, ptr %cp, align 1
@@ -3016,7 +3016,7 @@ if.else134.i:                                     ; preds = %for.body.i
   br i1 %or.cond.i, label %land.lhs.true139.i, label %if.else143.i
 
 land.lhs.true139.i:                               ; preds = %if.else134.i
-  call fastcc void @grab_oid.argelim(ptr noundef nonnull %10, ptr noundef nonnull @.str.31, ptr noundef nonnull %ref, ptr noundef nonnull %arrayidx19.i, ptr noundef nonnull %arrayidx.i)
+  call fastcc void @grab_oid(ptr noundef nonnull %10, ptr noundef nonnull @.str.31, ptr noundef nonnull %ref, ptr noundef nonnull %arrayidx19.i, ptr noundef nonnull %arrayidx.i)
   br label %for.inc.i
 
 if.else143.i:                                     ; preds = %if.else134.i
@@ -3199,7 +3199,7 @@ if.end3.i.i:                                      ; preds = %if.then261.i
 _.exit.i:                                         ; preds = %if.end3.i.i, %if.then261.i
   %retval.0.i167.i = phi ptr [ %call.i166.i, %if.end3.i.i ], [ @.str.160, %if.then261.i ]
   %call264.i = call ptr @oid_to_hex(ptr noundef nonnull %ref) #22
-  call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i167.i, ptr noundef %call264.i, ptr noundef nonnull %refname77.i)
+  call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i167.i, ptr noundef %call264.i, ptr noundef nonnull %refname77.i)
   br label %populate_value.exit.thread15
 
 for.inc269.i:                                     ; preds = %land.lhs.true256.i, %for.body248.i
@@ -3358,7 +3358,7 @@ if.end12:                                         ; preds = %if.then3, %if.else7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @strbuf_addf_ret.retelim(ptr noundef %sb, i32 %ret, ptr noundef %fmt, ...) unnamed_addr #0 {
+define internal void @strbuf_addf_ret(ptr noundef %sb, i32 %ret, ptr noundef %fmt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -3988,7 +3988,7 @@ _.exit:                                           ; preds = %if.then15, %if.end3
   %retval.0.i15 = phi ptr [ %call.i14, %if.end3.i ], [ @.str.84, %if.then15 ]
   %name = getelementptr inbounds i8, ptr %atom, i64 8
   %6 = load ptr, ptr %name, align 8
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i15, ptr noundef nonnull %scevgep, ptr noundef %6)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i15, ptr noundef nonnull %scevgep, ptr noundef %6)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -4415,7 +4415,7 @@ if.end3.i23.i:                                    ; preds = %if.then10.i
 
 _.exit.i:                                         ; preds = %if.end3.i23.i, %if.then10.i
   %retval.0.i24.i = phi ptr [ %call.i.i, %if.end3.i23.i ], [ @.str.92, %if.then10.i ]
-  call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i24.i, ptr noundef nonnull @.str.93)
+  call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i24.i, ptr noundef nonnull @.str.93)
   br label %describe_atom_option_parser.exit
 
 if.end13.i:                                       ; preds = %if.then8.i
@@ -4434,7 +4434,7 @@ if.end3.i27.i:                                    ; preds = %if.then15.i
 
 _.exit30.i:                                       ; preds = %if.end3.i27.i, %if.then15.i
   %retval.0.i29.i = phi ptr [ %call.i28.i, %if.end3.i27.i ], [ @.str.94, %if.then15.i ]
-  call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i29.i, ptr noundef nonnull @.str.93, ptr noundef %argval.0.i)
+  call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i29.i, ptr noundef nonnull @.str.93, ptr noundef %argval.0.i)
   br label %describe_atom_option_parser.exit
 
 if.end18.i:                                       ; preds = %if.end13.i
@@ -4456,7 +4456,7 @@ if.end3.i33.i:                                    ; preds = %if.then20.i
 
 _.exit36.i:                                       ; preds = %if.end3.i33.i, %if.then20.i
   %retval.0.i35.i = phi ptr [ %call.i34.i, %if.end3.i33.i ], [ @.str.95, %if.then20.i ]
-  call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i35.i, ptr noundef nonnull @.str.93, ptr noundef %argval.0.i)
+  call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i35.i, ptr noundef nonnull @.str.93, ptr noundef %argval.0.i)
   br label %describe_atom_option_parser.exit
 
 if.end23.i:                                       ; preds = %if.end18.i
@@ -4533,7 +4533,7 @@ if.end3.i65.i:                                    ; preds = %if.then30.i
 
 _.exit68.i:                                       ; preds = %if.end3.i65.i, %if.then30.i
   %retval.0.i67.i = phi ptr [ %call.i66.i, %if.end3.i65.i ], [ @.str.98, %if.then30.i ]
-  call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i67.i, ptr noundef nonnull @.str.99)
+  call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i67.i, ptr noundef nonnull @.str.99)
   br label %describe_atom_option_parser.exit
 
 if.end33.i:                                       ; preds = %if.then28.i
@@ -4611,7 +4611,7 @@ if.end3.i97.i:                                    ; preds = %if.then41.i
 
 _.exit100.i:                                      ; preds = %if.end3.i97.i, %if.then41.i
   %retval.0.i99.i = phi ptr [ %call.i98.i, %if.end3.i97.i ], [ @.str.98, %if.then41.i ]
-  call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i99.i, ptr noundef nonnull @.str.102)
+  call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i99.i, ptr noundef nonnull @.str.102)
   br label %describe_atom_option_parser.exit
 
 if.end44.i:                                       ; preds = %if.then39.i
@@ -4917,7 +4917,7 @@ if.then39:                                        ; preds = %do.body.i14
   %u40 = getelementptr inbounds i8, ptr %atom, i64 24
   store i32 4, ptr %u40, align 8
   %nlines = getelementptr inbounds i8, ptr %atom, i64 96
-  %call43 = tail call fastcc i32 @strtoul_ui.argelim(ptr noundef nonnull %scevgep36, ptr noundef nonnull %nlines)
+  %call43 = tail call fastcc i32 @strtoul_ui(ptr noundef nonnull %scevgep36, ptr noundef nonnull %nlines)
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %if.end58, label %if.then45
 
@@ -4932,11 +4932,11 @@ if.end3.i:                                        ; preds = %if.then45
 
 _.exit:                                           ; preds = %if.then45, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.112, %if.then45 ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i, ptr noundef nonnull %scevgep36)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i, ptr noundef nonnull %scevgep36)
   br label %return
 
 if.else49:                                        ; preds = %do.cond.i18
-  tail call fastcc void @err_bad_arg.retelim(ptr noundef %err, ptr noundef nonnull @.str.57, ptr noundef nonnull %arg)
+  tail call fastcc void @err_bad_arg(ptr noundef %err, ptr noundef nonnull @.str.57, ptr noundef nonnull %arg)
   br label %return
 
 if.end58:                                         ; preds = %if.then26, %if.then2, %if.then14, %if.then39, %if.then32, %if.then20, %if.then8, %if.then
@@ -5219,7 +5219,7 @@ if.end3.i:                                        ; preds = %if.then
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.125, %if.then ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -5239,7 +5239,7 @@ if.end3.i6:                                       ; preds = %if.then3
 
 _.exit9:                                          ; preds = %if.then3, %if.end3.i6
   %retval.0.i8 = phi ptr [ %call.i7, %if.end3.i6 ], [ @.str.126, %if.then3 ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i8, ptr noundef nonnull %color_value)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i8, ptr noundef nonnull %color_value)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -5282,7 +5282,7 @@ if.end3.i:                                        ; preds = %if.then
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.127, %if.then ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -5504,7 +5504,7 @@ if.end3.i78:                                      ; preds = %if.then39
 
 _.exit81:                                         ; preds = %if.then39, %if.end3.i78
   %retval.0.i80 = phi ptr [ %call.i79, %if.end3.i78 ], [ @.str.133, %if.then39 ]
-  call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i80)
+  call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i80)
   br label %return
 
 if.end42:                                         ; preds = %for.end
@@ -5644,7 +5644,7 @@ if.end3.i:                                        ; preds = %if.then
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.139, %if.then ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -5765,7 +5765,7 @@ if.end3.i:                                        ; preds = %if.then11
 
 _.exit:                                           ; preds = %if.then11, %if.end3.i
   %retval.0.i22 = phi ptr [ %call.i21, %if.end3.i ], [ @.str.77, %if.then11 ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i22, ptr noundef %arg.addr.0)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i22, ptr noundef %arg.addr.0)
   br label %return
 
 do.body.i23:                                      ; preds = %do.cond.i12, %do.cond.i27
@@ -5823,7 +5823,7 @@ if.end3.i49:                                      ; preds = %if.then20
 
 _.exit52:                                         ; preds = %if.then20, %if.end3.i49
   %retval.0.i51 = phi ptr [ %call.i50, %if.end3.i49 ], [ @.str.79, %if.then20 ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i51, ptr noundef nonnull %scevgep)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i51, ptr noundef nonnull %scevgep)
   br label %return
 
 if.else24:                                        ; preds = %do.cond.i27
@@ -5851,7 +5851,7 @@ return:                                           ; preds = %strtol_i.exit46, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @err_bad_arg.retelim(ptr noundef %sb, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc void @err_bad_arg(ptr noundef %sb, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %call = tail call ptr @strchrnul(ptr noundef %name, i32 noundef 58) #23
   %0 = load i32, ptr @git_gettext_enabled, align 4
@@ -5882,7 +5882,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @strtoul_ui.argelim(ptr noundef %s, ptr nocapture noundef writeonly %result) unnamed_addr #14 {
+define internal fastcc range(i32 -1, 1) i32 @strtoul_ui(ptr noundef %s, ptr nocapture noundef writeonly %result) unnamed_addr #14 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #25
@@ -6040,20 +6040,20 @@ if.end5:                                          ; preds = %if.end
   %2 = getelementptr i8, ptr %filter, i64 100
   %filter.val = load i32, ptr %2, align 4
   switch i32 %filter.val, label %if.end.i [
-    i32 4, label %filter_ref_kind.argprom.exit
-    i32 8, label %filter_ref_kind.argprom.exit
-    i32 2, label %filter_ref_kind.argprom.exit
+    i32 4, label %filter_ref_kind.exit
+    i32 8, label %filter_ref_kind.exit
+    i32 2, label %filter_ref_kind.exit
   ]
 
 if.end.i:                                         ; preds = %if.end5
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %refname, ptr noundef nonnull dereferenceable(5) @.str.64) #23
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool.not.i.i, label %filter_ref_kind.argprom.exit, label %for.body.i.i
+  br i1 %tobool.not.i.i, label %filter_ref_kind.exit, label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %filter_ref_kind.argprom.exit, label %for.body.i.i, !llvm.loop !33
+  br i1 %exitcond.not.i.i, label %filter_ref_kind.exit, label %for.body.i.i, !llvm.loop !33
 
 for.body.i.i:                                     ; preds = %if.end.i, %for.cond.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i.i ], [ 0, %if.end.i ]
@@ -6066,16 +6066,16 @@ for.body.i.i:                                     ; preds = %if.end.i, %for.cond
 if.then4.i.i:                                     ; preds = %for.body.i.i
   %kind.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %4 = load i32, ptr %kind.i.i, align 8
-  br label %filter_ref_kind.argprom.exit
+  br label %filter_ref_kind.exit
 
-filter_ref_kind.argprom.exit:                     ; preds = %for.cond.i.i, %if.end5, %if.end5, %if.end5, %if.end.i, %if.then4.i.i
+filter_ref_kind.exit:                             ; preds = %for.cond.i.i, %if.end5, %if.end5, %if.end5, %if.end.i, %if.then4.i.i
   %retval.0.i42 = phi i32 [ %filter.val, %if.end5 ], [ %filter.val, %if.end5 ], [ %filter.val, %if.end5 ], [ %4, %if.then4.i.i ], [ 32, %if.end.i ], [ 16, %for.cond.i.i ]
   %5 = load i32, ptr %2, align 4
   %and8 = and i32 %5, %retval.0.i42
   %tobool9.not = icmp eq i32 %and8, 0
   br i1 %tobool9.not, label %return, label %if.end11
 
-if.end11:                                         ; preds = %filter_ref_kind.argprom.exit
+if.end11:                                         ; preds = %filter_ref_kind.exit
   %6 = load ptr, ptr %filter, align 8
   %7 = load ptr, ptr %6, align 8
   %tobool.not.i = icmp eq ptr %7, null
@@ -6425,8 +6425,8 @@ if.end56:                                         ; preds = %if.end46, %land.lhs
   store i32 %retval.0.i42, ptr %kind60, align 4
   br label %return
 
-return:                                           ; preds = %for.cond.i.i48, %for.body.i.i103, %land.rhs.i, %land.lhs.true49, %land.lhs.true41, %if.then34, %filter_exclude_match.exit, %filter_pattern_match.exit, %filter_ref_kind.argprom.exit, %if.end56, %_.exit41, %_.exit
-  %retval.0 = phi ptr [ null, %_.exit ], [ null, %_.exit41 ], [ %call57, %if.end56 ], [ null, %filter_ref_kind.argprom.exit ], [ null, %filter_pattern_match.exit ], [ null, %filter_exclude_match.exit ], [ null, %if.then34 ], [ null, %land.lhs.true41 ], [ null, %land.lhs.true49 ], [ null, %land.rhs.i ], [ null, %for.body.i.i103 ], [ null, %for.cond.i.i48 ]
+return:                                           ; preds = %for.cond.i.i48, %for.body.i.i103, %land.rhs.i, %land.lhs.true49, %land.lhs.true41, %if.then34, %filter_exclude_match.exit, %filter_pattern_match.exit, %filter_ref_kind.exit, %if.end56, %_.exit41, %_.exit
+  %retval.0 = phi ptr [ null, %_.exit ], [ null, %_.exit41 ], [ %call57, %if.end56 ], [ null, %filter_ref_kind.exit ], [ null, %filter_pattern_match.exit ], [ null, %filter_exclude_match.exit ], [ null, %if.then34 ], [ null, %land.lhs.true41 ], [ null, %land.lhs.true49 ], [ null, %land.rhs.i ], [ null, %for.body.i.i103 ], [ null, %for.cond.i.i48 ]
   ret ptr %retval.0
 }
 
@@ -6755,7 +6755,7 @@ if.end120:                                        ; preds = %if.then36, %land.lh
 declare ptr @branch_get_push(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @grab_oid.argelim(ptr noundef %name, ptr noundef %field, ptr noundef %oid, ptr nocapture noundef writeonly %v, ptr nocapture noundef readonly %atom) unnamed_addr #0 {
+define internal fastcc void @grab_oid(ptr noundef %name, ptr noundef %field, ptr noundef %oid, ptr nocapture noundef writeonly %v, ptr nocapture noundef readonly %atom) unnamed_addr #0 {
 entry:
   %call = tail call i32 @starts_with(ptr noundef %name, ptr noundef %field) #22
   %tobool.not = icmp eq i32 %call, 0
@@ -6845,7 +6845,7 @@ if.end3.i:                                        ; preds = %if.then
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.169, %if.then ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6951,7 +6951,7 @@ if.end3.i:                                        ; preds = %if.then1
 
 _.exit:                                           ; preds = %if.then1, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.170, %if.then1 ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.69)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.69)
   br label %return
 
 if.end3:                                          ; preds = %if.end
@@ -6972,7 +6972,7 @@ if.end3.i32:                                      ; preds = %if.then5
 
 _.exit35:                                         ; preds = %if.then5, %if.end3.i32
   %retval.0.i34 = phi ptr [ %call.i33, %if.end3.i32 ], [ @.str.171, %if.then5 ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i34)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i34)
   br label %return
 
 if.end8:                                          ; preds = %if.end3
@@ -6991,7 +6991,7 @@ if.end3.i37:                                      ; preds = %if.then13
 
 _.exit40:                                         ; preds = %if.then13, %if.end3.i37
   %retval.0.i39 = phi ptr [ %call.i38, %if.end3.i37 ], [ @.str.172, %if.then13 ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i39)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i39)
   br label %return
 
 if.end16:                                         ; preds = %if.end8
@@ -7112,7 +7112,7 @@ if.end3.i:                                        ; preds = %if.then1
 
 _.exit:                                           ; preds = %if.then1, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.170, %if.then1 ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.69)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.69)
   br label %return
 
 if.end3:                                          ; preds = %if.end
@@ -7133,7 +7133,7 @@ if.end3.i13:                                      ; preds = %if.then5
 
 _.exit16:                                         ; preds = %if.then5, %if.end3.i13
   %retval.0.i15 = phi ptr [ %call.i14, %if.end3.i13 ], [ @.str.170, %if.then5 ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i15, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.70)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i15, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.70)
   br label %return
 
 if.end8:                                          ; preds = %if.end3
@@ -7152,7 +7152,7 @@ if.end3.i18:                                      ; preds = %if.then13
 
 _.exit21:                                         ; preds = %if.then13, %if.end3.i18
   %retval.0.i20 = phi ptr [ %call.i19, %if.end3.i18 ], [ @.str.173, %if.then13 ]
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i20)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i20)
   br label %return
 
 if.end16:                                         ; preds = %if.end8
@@ -7220,7 +7220,7 @@ _.exit:                                           ; preds = %if.then5, %if.end3.
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.160, %if.then5 ]
   %call8 = tail call ptr @oid_to_hex(ptr noundef nonnull %oi) #22
   %refname = getelementptr inbounds i8, ptr %ref, i64 88
-  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i, ptr noundef %call8, ptr noundef nonnull %refname)
+  tail call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i, ptr noundef %call8, ptr noundef nonnull %refname)
   br label %return
 
 if.end10:                                         ; preds = %if.end
@@ -7280,7 +7280,7 @@ _.exit31:                                         ; preds = %if.end28, %if.end3.
   %retval.0.i30 = phi ptr [ %call.i29, %if.end3.i28 ], [ @.str.175, %if.end28 ]
   %call31 = call ptr @oid_to_hex(ptr noundef nonnull %oi) #22
   %refname32 = getelementptr inbounds i8, ptr %ref, i64 88
-  call void (ptr, i32, ptr, ...) @strbuf_addf_ret.retelim(ptr noundef %err, i32 poison, ptr noundef %retval.0.i30, ptr noundef %call31, ptr noundef nonnull %refname32)
+  call void (ptr, i32, ptr, ...) @strbuf_addf_ret(ptr noundef %err, i32 poison, ptr noundef %retval.0.i30, ptr noundef %call31, ptr noundef nonnull %refname32)
   br label %return
 
 if.end35:                                         ; preds = %if.then18
@@ -7417,7 +7417,7 @@ land.lhs.true.i47.i:                              ; preds = %if.end.i46.i
   %call.i48.i = call ptr @get_commit_tree_oid(ptr noundef nonnull %call22) #22
   %32 = load ptr, ptr @used_atom, align 8
   %arrayidx18.i.i = getelementptr inbounds %struct.used_atom, ptr %32, i64 %indvars.iv.i37.i
-  call fastcc void @grab_oid.argelim(ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull @.str.33, ptr noundef %call.i48.i, ptr noundef %arrayidx6.i40.i, ptr noundef %arrayidx18.i.i)
+  call fastcc void @grab_oid(ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull @.str.33, ptr noundef %call.i48.i, ptr noundef %arrayidx6.i40.i, ptr noundef %arrayidx18.i.i)
   br label %for.inc52.i.i
 
 if.then25.i.i:                                    ; preds = %if.end.i46.i
@@ -7808,7 +7808,7 @@ if.else51.i:                                      ; preds = %if.end.i
   br i1 %or.cond.i, label %if.then55.i, label %for.inc.i
 
 if.then55.i:                                      ; preds = %if.else51.i
-  call fastcc void @grab_oid.argelim(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.31, ptr noundef %oi, ptr noundef %arrayidx6.i, ptr noundef nonnull %arrayidx.i)
+  call fastcc void @grab_oid(ptr noundef nonnull %incdec.ptr.i, ptr noundef nonnull @.str.31, ptr noundef %oi, ptr noundef %arrayidx6.i, ptr noundef nonnull %arrayidx.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then55.i, %if.else51.i, %if.then47.i, %if.then37.i, %if.then26.i, %if.then21.i, %if.then17.i, %for.body.i
@@ -8911,7 +8911,7 @@ if.then85:                                        ; preds = %if.else80
 
 if.then.i106:                                     ; preds = %if.then85
   %call1.i107 = call ptr @xstrdup(ptr noundef nonnull @.str.24) #22
-  br label %copy_email.argprom.exit
+  br label %copy_email.exit
 
 if.end.i100:                                      ; preds = %if.then85
   %and.i = and i32 %arrayidx87.val, 3
@@ -8949,7 +8949,7 @@ find_end_of_email.exit.i:                         ; preds = %if.end4.i.i, %if.en
 
 if.then7.i:                                       ; preds = %find_end_of_email.exit.i, %if.end9.i.i
   %call8.i = call ptr @xstrdup(ptr noundef nonnull @.str.24) #22
-  br label %copy_email.argprom.exit
+  br label %copy_email.exit
 
 if.end9.i:                                        ; preds = %find_end_of_email.exit.i, %if.end9.i.i, %if.then.i.i
   %retval.0.i3.i = phi ptr [ %retval.0.i.i, %find_end_of_email.exit.i ], [ %call.i.i, %if.then.i.i ], [ %incdec.ptr.i.i, %if.end9.i.i ]
@@ -8957,9 +8957,9 @@ if.end9.i:                                        ; preds = %find_end_of_email.e
   %sub.ptr.rhs.cast.i102 = ptrtoint ptr %spec.select.i to i64
   %sub.ptr.sub.i103 = sub i64 %sub.ptr.lhs.cast.i101, %sub.ptr.rhs.cast.i102
   %call10.i = call ptr @xmemdupz(ptr noundef nonnull %spec.select.i, i64 noundef %sub.ptr.sub.i103) #22
-  br label %copy_email.argprom.exit
+  br label %copy_email.exit
 
-copy_email.argprom.exit:                          ; preds = %if.then.i106, %if.then7.i, %if.end9.i
+copy_email.exit:                                  ; preds = %if.then.i106, %if.then7.i, %if.end9.i
   %retval.0.i104 = phi ptr [ %call10.i, %if.end9.i ], [ %call8.i, %if.then7.i ], [ %call1.i107, %if.then.i106 ]
   store ptr %retval.0.i104, ptr %arrayidx4, align 8
   br label %if.end99
@@ -8973,7 +8973,7 @@ if.then95:                                        ; preds = %if.else90
   call fastcc void @grab_date(ptr noundef %wholine.2, ptr noundef %arrayidx4, ptr noundef nonnull %spec.select)
   br label %if.end99
 
-if.end99:                                         ; preds = %copy_name.exit, %if.else90, %if.then95, %copy_email.argprom.exit, %if.then70
+if.end99:                                         ; preds = %copy_name.exit, %if.else90, %if.then95, %copy_email.exit, %if.then70
   call void @strbuf_release(ptr noundef nonnull %mailmap_buf) #22
   br label %for.inc
 

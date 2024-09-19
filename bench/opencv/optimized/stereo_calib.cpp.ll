@@ -419,7 +419,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
   br i1 %176, label %178, label %191
 
 178:                                              ; preds = %177
-  invoke fastcc void @_ZL10print_helpPPc.retelim(ptr noundef %1)
+  invoke fastcc void @_ZL10print_helpPPc(ptr noundef %1)
           to label %1412 unwind label %189
 
 179:                                              ; preds = %2
@@ -1020,7 +1020,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
           to label %367 unwind label %368
 
 367:                                              ; preds = %365
-  invoke fastcc void @_ZL10print_helpPPc.retelim(ptr noundef %1)
+  invoke fastcc void @_ZL10print_helpPPc(ptr noundef %1)
           to label %1403 unwind label %368
 
 368:                                              ; preds = %367, %370, %365, %363, %361, %359
@@ -4010,7 +4010,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef zeroext i1 @_ZNK2cv17CommandLineParser3hasERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL10print_helpPPc.retelim(ptr nocapture noundef readonly %0) unnamed_addr #4 {
+define internal fastcc void @_ZL10print_helpPPc(ptr nocapture noundef readonly %0) unnamed_addr #4 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.35)
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.36)

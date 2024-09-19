@@ -588,7 +588,7 @@ ruby_nonempty_memcpy.exit.i28.i.i:                ; preds = %115, %RSTRING_PTR.e
 load_transcoder_entry.exit30.i.i:                 ; preds = %ruby_nonempty_memcpy.exit.i28.i.i, %103, %.lr.ph40.i.i
   %.0.i21.i.i = phi ptr [ %102, %.lr.ph40.i.i ], [ %.pre.i29.i.i, %ruby_nonempty_memcpy.exit.i28.i.i ], [ null, %103 ]
   %118 = load i32, ptr %91, align 8
-  call fastcc void @rb_econv_add_transcoder_at.retelim(ptr noundef nonnull %88, ptr noundef %.0.i21.i.i, i32 noundef %118)
+  call fastcc void @rb_econv_add_transcoder_at(ptr noundef nonnull %88, ptr noundef %.0.i21.i.i, i32 noundef %118)
   %indvars.iv.next46.i.i = add nuw nsw i64 %indvars.iv45.i.i, 1
   %exitcond49.not.i.i = icmp eq i64 %indvars.iv.next46.i.i, %wide.trip.count48.i.i
   br i1 %exitcond49.not.i.i, label %rb_econv_open0.exit, label %.lr.ph40.i.i, !llvm.loop !16
@@ -739,7 +739,7 @@ load_transcoder_entry.exit.i.i:                   ; preds = %37, %RSTRING_PTR.ex
 
 load_transcoder_entry.exit.thread19.i.i:          ; preds = %load_transcoder_entry.exit.i.i, %22
   %.0.i1422.i.i = phi ptr [ %.pre.i.i.i, %load_transcoder_entry.exit.i.i ], [ %24, %22 ]
-  call fastcc void @rb_econv_add_transcoder_at.retelim(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i, i32 noundef 0)
+  call fastcc void @rb_econv_add_transcoder_at(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i, i32 noundef 0)
   br label %rb_econv_decorate_at.exit
 
 40:                                               ; preds = %2
@@ -841,7 +841,7 @@ load_transcoder_entry.exit.i.i29:                 ; preds = %83, %RSTRING_PTR.ex
 
 load_transcoder_entry.exit.thread19.i.i21:        ; preds = %load_transcoder_entry.exit.i.i29, %68
   %.0.i1422.i.i22 = phi ptr [ %.pre.i.i.i30, %load_transcoder_entry.exit.i.i29 ], [ %70, %68 ]
-  call fastcc void @rb_econv_add_transcoder_at.retelim(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i22, i32 noundef %43)
+  call fastcc void @rb_econv_add_transcoder_at(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i22, i32 noundef %43)
   br label %rb_econv_decorate_at.exit
 
 86:                                               ; preds = %51, %40
@@ -924,7 +924,7 @@ load_transcoder_entry.exit.i.i49:                 ; preds = %114, %RSTRING_PTR.e
 
 load_transcoder_entry.exit.thread19.i.i41:        ; preds = %load_transcoder_entry.exit.i.i49, %99
   %.0.i1422.i.i42 = phi ptr [ %.pre.i.i.i50, %load_transcoder_entry.exit.i.i49 ], [ %101, %99 ]
-  call fastcc void @rb_econv_add_transcoder_at.retelim(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i42, i32 noundef %7)
+  call fastcc void @rb_econv_add_transcoder_at(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i42, i32 noundef %7)
   br label %rb_econv_decorate_at.exit
 
 rb_econv_decorate_at.exit:                        ; preds = %load_transcoder_entry.exit.thread19.i.i41, %load_transcoder_entry.exit.i.i49, %102, %get_transcoder_entry.exit.i.i38, %get_transcoder_entry.exit.thread.i.i52, %86, %load_transcoder_entry.exit.thread19.i.i21, %load_transcoder_entry.exit.i.i29, %71, %get_transcoder_entry.exit.i.i18, %get_transcoder_entry.exit.thread.i.i32, %55, %load_transcoder_entry.exit.thread19.i.i, %load_transcoder_entry.exit.i.i, %25, %get_transcoder_entry.exit.i.i, %get_transcoder_entry.exit.thread.i.i, %9
@@ -2643,7 +2643,7 @@ load_transcoder_entry.exit.i.i:                   ; preds = %37, %RSTRING_PTR.ex
 
 load_transcoder_entry.exit.thread19.i.i:          ; preds = %load_transcoder_entry.exit.i.i, %22
   %.0.i1422.i.i = phi ptr [ %.pre.i.i.i, %load_transcoder_entry.exit.i.i ], [ %24, %22 ]
-  call fastcc void @rb_econv_add_transcoder_at.retelim(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i, i32 noundef 0)
+  call fastcc void @rb_econv_add_transcoder_at(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i, i32 noundef 0)
   br label %rb_econv_decorate_at.exit
 
 40:                                               ; preds = %2
@@ -2742,7 +2742,7 @@ load_transcoder_entry.exit.i.i25:                 ; preds = %80, %RSTRING_PTR.ex
 
 load_transcoder_entry.exit.thread19.i.i17:        ; preds = %load_transcoder_entry.exit.i.i25, %65
   %.0.i1422.i.i18 = phi ptr [ %.pre.i.i.i26, %load_transcoder_entry.exit.i.i25 ], [ %67, %65 ]
-  call fastcc void @rb_econv_add_transcoder_at.retelim(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i18, i32 noundef 1)
+  call fastcc void @rb_econv_add_transcoder_at(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i18, i32 noundef 1)
   br label %rb_econv_decorate_at.exit
 
 83:                                               ; preds = %48, %40
@@ -2825,7 +2825,7 @@ load_transcoder_entry.exit.i.i45:                 ; preds = %111, %RSTRING_PTR.e
 
 load_transcoder_entry.exit.thread19.i.i37:        ; preds = %load_transcoder_entry.exit.i.i45, %96
   %.0.i1422.i.i38 = phi ptr [ %.pre.i.i.i46, %load_transcoder_entry.exit.i.i45 ], [ %98, %96 ]
-  call fastcc void @rb_econv_add_transcoder_at.retelim(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i38, i32 noundef 0)
+  call fastcc void @rb_econv_add_transcoder_at(ptr noundef nonnull %0, ptr noundef nonnull %.0.i1422.i.i38, i32 noundef 0)
   br label %rb_econv_decorate_at.exit
 
 rb_econv_decorate_at.exit:                        ; preds = %load_transcoder_entry.exit.thread19.i.i37, %load_transcoder_entry.exit.i.i45, %99, %get_transcoder_entry.exit.i.i34, %get_transcoder_entry.exit.thread.i.i48, %83, %load_transcoder_entry.exit.thread19.i.i17, %load_transcoder_entry.exit.i.i25, %68, %get_transcoder_entry.exit.i.i14, %get_transcoder_entry.exit.thread.i.i28, %52, %load_transcoder_entry.exit.thread19.i.i, %load_transcoder_entry.exit.i.i, %25, %get_transcoder_entry.exit.i.i, %get_transcoder_entry.exit.thread.i.i, %9
@@ -2987,7 +2987,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_econv_open_exc(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.8, i64 noundef 26) #21
-  tail call fastcc void @econv_description.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %4)
+  tail call fastcc void @econv_description(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %4)
   %5 = tail call i64 @rb_str_cat(i64 noundef %4, ptr noundef nonnull @.str.9, i64 noundef 1) #21
   %6 = load i64, ptr @rb_eConverterNotFoundError, align 8
   %7 = tail call i64 @rb_exc_new_str(i64 noundef %6, i64 noundef %4) #21
@@ -2995,7 +2995,7 @@ define dso_local i64 @rb_econv_open_exc(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @econv_description.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @econv_description(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = icmp eq i64 %3, 4
   br i1 %5, label %6, label %8
 
@@ -4014,11 +4014,11 @@ RSTRING_PTR.exit97:                               ; preds = %RSTRING_PTR.exit, %
   %163 = getelementptr inbounds i8, ptr %121, i64 128
   br i1 %160, label %.outer.us.i, label %.outer.i
 
-.outer.us.i:                                      ; preds = %158, %more_output_buffer.argprom.exit.us.i
-  %.04.ph.us.i = phi ptr [ %177, %more_output_buffer.argprom.exit.us.i ], [ %120, %158 ]
-  %.03.ph.us.i = phi ptr [ %.sroa.2.0.i.i.i.us.i, %more_output_buffer.argprom.exit.us.i ], [ %.sroa.2.0.i96, %158 ]
+.outer.us.i:                                      ; preds = %158, %more_output_buffer.exit.us.i
+  %.04.ph.us.i = phi ptr [ %177, %more_output_buffer.exit.us.i ], [ %120, %158 ]
+  %.03.ph.us.i = phi ptr [ %.sroa.2.0.i.i.i.us.i, %more_output_buffer.exit.us.i ], [ %.sroa.2.0.i96, %158 ]
   %164 = call i32 @rb_econv_convert(ptr noundef nonnull %121, ptr noundef nonnull %10, ptr noundef %119, ptr noundef nonnull %9, ptr noundef %.04.ph.us.i, i32 noundef 0)
-  switch i32 %164, label %transcode_loop.argprom.exit [
+  switch i32 %164, label %transcode_loop.exit [
     i32 6, label %.thread.i
     i32 1, label %.thread.i
     i32 0, label %.thread.i
@@ -4036,27 +4036,27 @@ RSTRING_PTR.exit97:                               ; preds = %RSTRING_PTR.exit, %
   %173 = load i64, ptr %114, align 8, !noalias !71
   %174 = and i64 %173, 8192
   %.not.i.i.i.i.us.i = icmp eq i64 %174, 0
-  br i1 %.not.i.i.i.i.us.i, label %more_output_buffer.argprom.exit.us.i, label %175
+  br i1 %.not.i.i.i.i.us.i, label %more_output_buffer.exit.us.i, label %175
 
 175:                                              ; preds = %165
   %.sroa.2.0.copyload.i.i.i.us.i = load ptr, ptr %117, align 8
-  br label %more_output_buffer.argprom.exit.us.i
+  br label %more_output_buffer.exit.us.i
 
-more_output_buffer.argprom.exit.us.i:             ; preds = %175, %165
+more_output_buffer.exit.us.i:                     ; preds = %175, %165
   %.sroa.2.0.i.i.i.us.i = phi ptr [ %.sroa.2.0.copyload.i.i.i.us.i, %175 ], [ %117, %165 ]
   %176 = getelementptr i8, ptr %.sroa.2.0.i.i.i.us.i, i64 %169
   store ptr %176, ptr %9, align 8
   %177 = getelementptr i8, ptr %.sroa.2.0.i.i.i.us.i, i64 %171
   br label %.outer.us.i
 
-.outer.i:                                         ; preds = %158, %more_output_buffer.argprom.exit.i
-  %.04.ph.i = phi ptr [ %216, %more_output_buffer.argprom.exit.i ], [ %120, %158 ]
-  %.03.ph.i = phi ptr [ %.sroa.2.0.i.i.i.i, %more_output_buffer.argprom.exit.i ], [ %.sroa.2.0.i96, %158 ]
+.outer.i:                                         ; preds = %158, %more_output_buffer.exit.i
+  %.04.ph.i = phi ptr [ %216, %more_output_buffer.exit.i ], [ %120, %158 ]
+  %.03.ph.i = phi ptr [ %.sroa.2.0.i.i.i.i, %more_output_buffer.exit.i ], [ %.sroa.2.0.i96, %158 ]
   br label %178
 
 178:                                              ; preds = %RSTRING_PTR.exit.i, %.outer.i
   %179 = call i32 @rb_econv_convert(ptr noundef nonnull %121, ptr noundef nonnull %10, ptr noundef %119, ptr noundef nonnull %9, ptr noundef %.04.ph.i, i32 noundef 0)
-  switch i32 %179, label %transcode_loop.argprom.exit [
+  switch i32 %179, label %transcode_loop.exit [
     i32 1, label %180
     i32 6, label %.thread.i
     i32 2, label %204
@@ -4124,27 +4124,27 @@ RSTRING_PTR.exit.i:                               ; preds = %194, %187
   %212 = load i64, ptr %114, align 8, !noalias !71
   %213 = and i64 %212, 8192
   %.not.i.i.i.i.i = icmp eq i64 %213, 0
-  br i1 %.not.i.i.i.i.i, label %more_output_buffer.argprom.exit.i, label %214
+  br i1 %.not.i.i.i.i.i, label %more_output_buffer.exit.i, label %214
 
 214:                                              ; preds = %204
   %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %117, align 8
-  br label %more_output_buffer.argprom.exit.i
+  br label %more_output_buffer.exit.i
 
-more_output_buffer.argprom.exit.i:                ; preds = %214, %204
+more_output_buffer.exit.i:                        ; preds = %214, %204
   %.sroa.2.0.i.i.i.i = phi ptr [ %.sroa.2.0.copyload.i.i.i.i, %214 ], [ %117, %204 ]
   %215 = getelementptr i8, ptr %.sroa.2.0.i.i.i.i, i64 %208
   store ptr %215, ptr %9, align 8
   %216 = getelementptr i8, ptr %.sroa.2.0.i.i.i.i, i64 %210
   br label %.outer.i
 
-transcode_loop.argprom.exit:                      ; preds = %178, %.outer.us.i
+transcode_loop.exit:                              ; preds = %178, %.outer.us.i
   call void @rb_econv_close(ptr noundef nonnull %121)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %217 = load ptr, ptr %10, align 8
   %.not72 = icmp eq ptr %217, %119
   br i1 %.not72, label %223, label %218
 
-218:                                              ; preds = %transcode_loop.argprom.exit
+218:                                              ; preds = %transcode_loop.exit
   %219 = load i64, ptr @rb_eArgError, align 8
   %220 = ptrtoint ptr %119 to i64
   %221 = ptrtoint ptr %217 to i64
@@ -4152,7 +4152,7 @@ transcode_loop.argprom.exit:                      ; preds = %178, %.outer.us.i
   call void (i64, ptr, ...) @rb_raise(i64 noundef %219, ptr noundef nonnull @.str.99, i64 noundef %222) #22
   unreachable
 
-223:                                              ; preds = %transcode_loop.argprom.exit
+223:                                              ; preds = %transcode_loop.exit
   %224 = load i64, ptr %114, align 8, !noalias !78
   %225 = and i64 %224, 8192
   %.not.i.i101 = icmp eq i64 %225, 0
@@ -4801,15 +4801,15 @@ define hidden void @Init_transcode() local_unnamed_addr #0 {
   store i64 %43, ptr @sym_cr_newline, align 8
   %.pr.i = load i64, ptr @Init_transcode.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %44 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 10) #21
   store i64 %44, ptr @Init_transcode.rbimpl_id, align 8
   %.not.i = icmp eq i64 %44, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit, !llvm.loop !88
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !88
 
-rbimpl_intern_const.argprom.exit:                 ; preds = %.lr.ph.i, %0
+rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %0
   %.lcssa.i = phi i64 [ %.pr.i, %0 ], [ %44, %.lr.ph.i ]
   %45 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i) #21
   store i64 %45, ptr @sym_lf_newline, align 8
@@ -5877,7 +5877,7 @@ load_transcoder_entry.exit.i.i:                   ; preds = %141, %RSTRING_PTR.e
 
 rb_econv_add_converter.exit.i:                    ; preds = %load_transcoder_entry.exit.i.i, %126
   %.0.i1422.i.i = phi ptr [ %.pre.i.i.i, %load_transcoder_entry.exit.i.i ], [ %128, %126 ]
-  call fastcc void @rb_econv_add_transcoder_at.retelim(ptr noundef nonnull %47, ptr noundef nonnull %.0.i1422.i.i, i32 noundef %112)
+  call fastcc void @rb_econv_add_transcoder_at(ptr noundef nonnull %47, ptr noundef nonnull %.0.i1422.i.i, i32 noundef %112)
   br label %180
 
 .loopexit.i:                                      ; preds = %load_transcoder_entry.exit.i.i, %129, %get_transcoder_entry.exit.i.i, %113, %get_transcoder_entry.exit.thread.i.i
@@ -6087,7 +6087,7 @@ define internal i64 @econv_inspect(i64 noundef %0) #0 {
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.117, ptr noundef %2) #21
   %12 = load i32, ptr %3, align 8
-  tail call fastcc void @econv_description.retelim(ptr noundef %8, ptr noundef %10, i32 noundef %12, i64 noundef %11)
+  tail call fastcc void @econv_description(ptr noundef %8, ptr noundef %10, i32 noundef %12, i64 noundef %11)
   %13 = tail call i64 @rb_str_cat(i64 noundef %11, ptr noundef nonnull @.str.118, i64 noundef 1) #21
   br label %14
 
@@ -7464,7 +7464,7 @@ get_transcoder_entry.exit:                        ; preds = %14, %18, %23
 declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_econv_add_transcoder_at.retelim(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @rb_econv_add_transcoder_at(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 92
@@ -11089,7 +11089,7 @@ load_transcoder_entry.exit.i:                     ; preds = %41, %RSTRING_PTR.ex
 
 load_transcoder_entry.exit.thread19.i:            ; preds = %load_transcoder_entry.exit.i, %26
   %.0.i1422.i = phi ptr [ %.pre.i.i, %load_transcoder_entry.exit.i ], [ %28, %26 ]
-  call fastcc void @rb_econv_add_transcoder_at.retelim(ptr noundef nonnull %10, ptr noundef nonnull %.0.i1422.i, i32 noundef %12)
+  call fastcc void @rb_econv_add_transcoder_at(ptr noundef nonnull %10, ptr noundef nonnull %.0.i1422.i, i32 noundef %12)
   br label %rb_econv_add_converter.exit
 
 rb_econv_add_converter.exit:                      ; preds = %9, %get_transcoder_entry.exit.thread.i, %get_transcoder_entry.exit.i, %29, %load_transcoder_entry.exit.i, %load_transcoder_entry.exit.thread19.i

@@ -839,7 +839,7 @@ define internal i32 @dissect_siii(ptr noundef %0, ptr noundef %1, ptr noundef %2
 33:                                               ; preds = %32, %30
   %34 = load i32, ptr @ett_siii_at, align 4
   %35 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.590, i32 noundef %26) #4
-  call fastcc void @dissect_siii_mst.argprom(ptr noundef %0, ptr noundef %35)
+  call fastcc void @dissect_siii_mst(ptr noundef %0, ptr noundef %35)
   switch i8 %23, label %108 [
     i8 0, label %36
     i8 1, label %64
@@ -925,7 +925,7 @@ define internal i32 @dissect_siii(ptr noundef %0, ptr noundef %1, ptr noundef %2
 91:                                               ; preds = %33, %33
   %92 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 6) #4
   %93 = icmp eq i8 %25, 0
-  br i1 %93, label %94, label %dissect_siii_at_cp3_4.argprom.exit.i
+  br i1 %93, label %94, label %dissect_siii_at_cp3_4.exit.i
 
 94:                                               ; preds = %91
   %95 = load i32, ptr @ett_siii_at_hp, align 4
@@ -937,9 +937,9 @@ define internal i32 @dissect_siii(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %101 = call ptr @proto_tree_add_bitmask(ptr noundef %96, ptr noundef %92, i32 noundef 2, i32 noundef %99, i32 noundef %100, ptr noundef nonnull @dissect_siii_at_hp.status, i32 noundef -2147483648) #4
   %102 = load i32, ptr @hf_siii_at_hp_info, align 4
   %103 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %102, ptr noundef %92, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
-  br label %dissect_siii_at_cp3_4.argprom.exit.i
+  br label %dissect_siii_at_cp3_4.exit.i
 
-dissect_siii_at_cp3_4.argprom.exit.i:             ; preds = %94, %91
+dissect_siii_at_cp3_4.exit.i:                     ; preds = %94, %91
   %104 = load i32, ptr @hf_siii_service_channels, align 4
   %105 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %104, ptr noundef %92, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   %106 = load i32, ptr @hf_siii_device_status, align 4
@@ -975,7 +975,7 @@ dissect_siii_at_cp3_4.argprom.exit.i:             ; preds = %94, %91
 122:                                              ; preds = %121, %119
   %123 = load i32, ptr @ett_siii_mdt, align 4
   %124 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %123, ptr noundef null, ptr noundef nonnull @.str.600, i32 noundef %117) #4
-  call fastcc void @dissect_siii_mst.argprom(ptr noundef %0, ptr noundef %124)
+  call fastcc void @dissect_siii_mst(ptr noundef %0, ptr noundef %124)
   switch i8 %113, label %184 [
     i8 0, label %125
     i8 1, label %130
@@ -1000,8 +1000,8 @@ dissect_siii_at_cp3_4.argprom.exit.i:             ; preds = %94, %91
   %136 = call ptr @proto_tree_add_subtree(ptr noundef %124, ptr noundef %131, i32 noundef 768, i32 noundef 512, i32 noundef %135, ptr noundef null, ptr noundef nonnull @.str.523) #4
   br label %137
 
-137:                                              ; preds = %dissect_siii_mdt_svc.argprom.exit.i.i, %130
-  %.01.i.i30 = phi i32 [ 0, %130 ], [ %166, %dissect_siii_mdt_svc.argprom.exit.i.i ]
+137:                                              ; preds = %dissect_siii_mdt_svc.exit.i.i, %130
+  %.01.i.i30 = phi i32 [ 0, %130 ], [ %166, %dissect_siii_mdt_svc.exit.i.i ]
   %138 = mul nuw nsw i32 %.01.i.i30, 6
   %139 = call ptr @tvb_new_subset_length(ptr noundef %131, i32 noundef %138, i32 noundef 6) #4
   %140 = load i32, ptr @ett_siii_mdt_svc_channel, align 4
@@ -1015,7 +1015,7 @@ dissect_siii_at_cp3_4.argprom.exit.i:             ; preds = %94, %91
   %148 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %147, ptr noundef %139, i32 noundef 2, i32 noundef 4, i32 noundef 0) #4
   %149 = and i16 %143, 56
   %150 = icmp eq i16 %149, 8
-  br i1 %150, label %151, label %dissect_siii_mdt_svc.argprom.exit.i.i
+  br i1 %150, label %151, label %dissect_siii_mdt_svc.exit.i.i
 
 151:                                              ; preds = %137
   %152 = load i32, ptr @ett_siii_mdt_svcinfo, align 4
@@ -1024,9 +1024,9 @@ dissect_siii_at_cp3_4.argprom.exit.i:             ; preds = %94, %91
   %155 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %139, i32 noundef 2, i32 noundef 4, i32 noundef -2147483648) #4
   %156 = load i32, ptr @hf_siii_mdt_svch_idn, align 4
   %157 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %156, ptr noundef %139, i32 noundef 2, i32 noundef 4, i32 noundef -2147483648) #4
-  br label %dissect_siii_mdt_svc.argprom.exit.i.i
+  br label %dissect_siii_mdt_svc.exit.i.i
 
-dissect_siii_mdt_svc.argprom.exit.i.i:            ; preds = %151, %137
+dissect_siii_mdt_svc.exit.i.i:                    ; preds = %151, %137
   %158 = shl nuw nsw i32 %.01.i.i30, 2
   %159 = add nuw nsw i32 %158, 768
   %160 = call ptr @tvb_new_subset_length(ptr noundef %131, i32 noundef %159, i32 noundef 2) #4
@@ -1042,7 +1042,7 @@ dissect_siii_mdt_svc.argprom.exit.i.i:            ; preds = %151, %137
 167:                                              ; preds = %122, %122
   %168 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 6) #4
   %169 = icmp eq i8 %116, 0
-  br i1 %169, label %170, label %dissect_siii_mdt_cp3_4.argprom.exit.i
+  br i1 %169, label %170, label %dissect_siii_mdt_cp3_4.exit.i
 
 170:                                              ; preds = %167
   %171 = load i32, ptr @ett_siii_mdt_hp, align 4
@@ -1054,9 +1054,9 @@ dissect_siii_mdt_svc.argprom.exit.i.i:            ; preds = %151, %137
   %177 = call ptr @proto_tree_add_bitmask(ptr noundef %172, ptr noundef %168, i32 noundef 2, i32 noundef %175, i32 noundef %176, ptr noundef nonnull @dissect_siii_mdt_hp.ctrl_fields, i32 noundef -2147483648) #4
   %178 = load i32, ptr @hf_siii_mdt_hp_info, align 4
   %179 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %178, ptr noundef %168, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
-  br label %dissect_siii_mdt_cp3_4.argprom.exit.i
+  br label %dissect_siii_mdt_cp3_4.exit.i
 
-dissect_siii_mdt_cp3_4.argprom.exit.i:            ; preds = %170, %167
+dissect_siii_mdt_cp3_4.exit.i:                    ; preds = %170, %167
   %180 = load i32, ptr @hf_siii_service_channels, align 4
   %181 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %180, ptr noundef %168, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   %182 = load i32, ptr @hf_siii_device_controls, align 4
@@ -1067,7 +1067,7 @@ dissect_siii_mdt_cp3_4.argprom.exit.i:            ; preds = %170, %167
   %185 = call ptr @proto_tree_add_expert(ptr noundef %20, ptr noundef nonnull %1, ptr noundef nonnull @ei_siii_cp_unknown, ptr noundef %0, i32 noundef 6, i32 noundef -1) #4
   br label %dissect_siii_at.exit
 
-dissect_siii_at.exit:                             ; preds = %71, %63, %dissect_siii_mdt_svc.argprom.exit.i.i, %dissect_siii_at_cp3_4.argprom.exit.i, %108, %125, %dissect_siii_mdt_cp3_4.argprom.exit.i, %184, %4
+dissect_siii_at.exit:                             ; preds = %71, %63, %dissect_siii_mdt_svc.exit.i.i, %dissect_siii_at_cp3_4.exit.i, %108, %125, %dissect_siii_mdt_cp3_4.exit.i, %184, %4
   %186 = call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %186
 }
@@ -1115,7 +1115,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_siii_mst.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_siii_mst(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @ett_siii_mst, align 4
   %4 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef 6, i32 noundef %3, ptr noundef null, ptr noundef nonnull @.str.591) #4
   %5 = load i32, ptr @ett_siii_mst_teltype, align 4

@@ -4637,21 +4637,21 @@ land.lhs.true.i:                                  ; preds = %entry
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %cmp.i3.i = icmp eq ptr %cl.val, null
-  br i1 %cmp.i3.i, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.argprom.exit", label %if.end.i.i
+  br i1 %cmp.i3.i, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.exit", label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.rhs.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %cl.val, i64 -4
   %4 = load i32, ptr %arrayidx.i.i, align 4
-  br label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.argprom.exit"
+  br label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.exit"
 
-"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.argprom.exit": ; preds = %land.rhs.i, %if.end.i.i
+"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.exit": ; preds = %land.rhs.i, %if.end.i.i
   %retval.0.i.i = phi i32 [ %4, %if.end.i.i ], [ 0, %land.rhs.i ]
   %call6.i = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val5, ptr noundef nonnull %atom1, i32 noundef %retval.0.i.i)
   %call.not = xor i1 %call6.i, true
   %brmerge = or i1 %sign1, %call.not
   br i1 %brmerge, label %if.end10, label %if.then
 
-if.then:                                          ; preds = %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.argprom.exit"
+if.then:                                          ; preds = %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.exit"
   %5 = load i32, ptr %atom2, align 4
   br i1 %sign2, label %if.then4, label %if.else
 
@@ -4706,7 +4706,7 @@ if.then6:                                         ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   br label %if.end10
 
-if.end10:                                         ; preds = %entry, %land.lhs.true.i, %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.argprom.exit", %if.end, %if.then6
+if.end10:                                         ; preds = %entry, %land.lhs.true.i, %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.exit", %if.end, %if.then6
   ret void
 }
 
@@ -4748,19 +4748,19 @@ land.lhs.true.i:                                  ; preds = %entry
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %cmp.i3.i = icmp eq ptr %cl.val, null
-  br i1 %cmp.i3.i, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.argprom.exit", label %if.end.i.i
+  br i1 %cmp.i3.i, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.exit", label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.rhs.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %cl.val, i64 -4
   %8 = load i32, ptr %arrayidx.i.i, align 4
-  br label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.argprom.exit"
+  br label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.exit"
 
-"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.argprom.exit": ; preds = %land.rhs.i, %if.end.i.i
+"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.exit": ; preds = %land.rhs.i, %if.end.i.i
   %retval.0.i.i = phi i32 [ %8, %if.end.i.i ], [ 0, %land.rhs.i ]
   %call6.i = tail call noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val22, ptr noundef nonnull %4, i32 noundef %retval.0.i.i)
   br i1 %call6.i, label %land.lhs.true, label %return
 
-land.lhs.true:                                    ; preds = %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.argprom.exit"
+land.lhs.true:                                    ; preds = %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.exit"
   %9 = load i8, ptr %second.i.i, align 1
   %tobool = trunc i8 %9 to i1
   br i1 %tobool, label %if.then, label %return
@@ -4910,8 +4910,8 @@ return.sink.split:                                ; preds = %if.then20, %if.then
   %call63 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_EaSEPS4_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef %call62)
   br label %return
 
-return:                                           ; preds = %return.sink.split, %land.lhs.true38, %entry, %land.lhs.true.i, %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.argprom.exit", %land.lhs.true, %land.lhs.true44, %land.lhs.true41, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit38, %if.end36, %if.then47, %if.then20
-  %retval.0 = phi i1 [ true, %if.then20 ], [ true, %if.then47 ], [ false, %if.end36 ], [ false, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit38 ], [ false, %land.lhs.true41 ], [ false, %land.lhs.true44 ], [ false, %land.lhs.true ], [ false, %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.argprom.exit" ], [ false, %land.lhs.true.i ], [ false, %entry ], [ false, %land.lhs.true38 ], [ true, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %land.lhs.true38, %entry, %land.lhs.true.i, %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.exit", %land.lhs.true, %land.lhs.true44, %land.lhs.true41, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit38, %if.end36, %if.then47, %if.then20
+  %retval.0 = phi i1 [ true, %if.then20 ], [ true, %if.then47 ], [ false, %if.end36 ], [ false, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit38 ], [ false, %land.lhs.true41 ], [ false, %land.lhs.true44 ], [ false, %land.lhs.true ], [ false, %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_2clERNS_6clauseEPS7_.exit" ], [ false, %land.lhs.true.i ], [ false, %entry ], [ false, %land.lhs.true38 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -6454,7 +6454,7 @@ land.lhs.true47:                                  ; preds = %land.lhs.true.i212
   %78 = load ptr, ptr %m_args.i.i216, align 8
   %arrayidx.i.i217 = getelementptr inbounds i8, ptr %70, i64 40
   %79 = load ptr, ptr %arrayidx.i.i217, align 8
-  %call48 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_.argprom"(ptr nonnull %can_be_def, ptr nonnull %this, ptr noundef %78, ptr noundef %79, ptr noundef %71)
+  %call48 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_"(ptr nonnull %can_be_def, ptr nonnull %this, ptr noundef %78, ptr noundef %79, ptr noundef %71)
   br i1 %call48, label %if.then49, label %land.lhs.true47.if.end51_crit_edge
 
 land.lhs.true47.if.end51_crit_edge:               ; preds = %land.lhs.true47
@@ -6499,7 +6499,7 @@ land.lhs.true54:                                  ; preds = %land.lhs.true.i232
   %86 = load ptr, ptr %m_args.i.i236, align 8
   %arrayidx.i.i237 = getelementptr inbounds i8, ptr %70, i64 40
   %87 = load ptr, ptr %arrayidx.i.i237, align 8
-  %call55 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_.argprom"(ptr nonnull %can_be_def, ptr nonnull %this, ptr noundef %87, ptr noundef %86, ptr noundef %71)
+  %call55 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_"(ptr nonnull %can_be_def, ptr nonnull %this, ptr noundef %87, ptr noundef %86, ptr noundef %71)
   br i1 %call55, label %if.then56, label %if.end58
 
 if.then56:                                        ; preds = %land.lhs.true54
@@ -6541,7 +6541,7 @@ land.lhs.true61:                                  ; preds = %land.lhs.true.i252
   %94 = load ptr, ptr %m_args.i.i256, align 8
   %arrayidx.i.i257 = getelementptr inbounds i8, ptr %71, i64 40
   %95 = load ptr, ptr %arrayidx.i.i257, align 8
-  %call62 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_.argprom"(ptr nonnull %can_be_def, ptr nonnull %this, ptr noundef %94, ptr noundef %95, ptr noundef nonnull %70)
+  %call62 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_"(ptr nonnull %can_be_def, ptr nonnull %this, ptr noundef %94, ptr noundef %95, ptr noundef nonnull %70)
   br i1 %call62, label %if.then63, label %land.lhs.true61.if.end65_crit_edge
 
 land.lhs.true61.if.end65_crit_edge:               ; preds = %land.lhs.true61
@@ -6586,7 +6586,7 @@ land.lhs.true68:                                  ; preds = %land.lhs.true.i272
   %102 = load ptr, ptr %m_args.i.i276, align 8
   %arrayidx.i.i277 = getelementptr inbounds i8, ptr %71, i64 40
   %103 = load ptr, ptr %arrayidx.i.i277, align 8
-  %call69 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_.argprom"(ptr nonnull %can_be_def, ptr nonnull %this, ptr noundef %103, ptr noundef %102, ptr noundef nonnull %70)
+  %call69 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_"(ptr nonnull %can_be_def, ptr nonnull %this, ptr noundef %103, ptr noundef %102, ptr noundef nonnull %70)
   br i1 %call69, label %if.then70, label %if.end73
 
 if.then70:                                        ; preds = %land.lhs.true68
@@ -6763,19 +6763,19 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i350:        ; preds = %land.lhs.true100
 
 land.lhs.true.i353:                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i350
   %call5.i354 = call noundef zeroext i1 @_ZN20eliminate_predicates13is_macro_safeEP4expr(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef %141)
-  br i1 %call5.i354, label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom.exit", label %if.else
+  br i1 %call5.i354, label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.exit", label %if.else
 
-"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom.exit": ; preds = %land.lhs.true.i353
+"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.exit": ; preds = %land.lhs.true.i353
   %m_decl.i.i356 = getelementptr inbounds i8, ptr %140, i64 16
   %145 = load ptr, ptr %m_decl.i.i356, align 8
   %call7.i = call noundef zeroext i1 @_Z6occursP9func_declP4expr(ptr noundef %145, ptr noundef %141)
   br i1 %call7.i, label %if.else, label %if.then102
 
-if.then102:                                       ; preds = %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom.exit"
+if.then102:                                       ; preds = %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.exit"
   call void @_ZN20eliminate_predicates18insert_quasi_macroEP3appP4exprRNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull %140, ptr noundef %141, ptr noundef nonnull align 8 dereferenceable(53) %cl)
   br label %if.end152
 
-if.else:                                          ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i350, %land.lhs.true.i353, %land.lhs.true100, %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom.exit", %if.then98
+if.else:                                          ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i350, %land.lhs.true.i353, %land.lhs.true100, %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.exit", %if.then98
   %146 = load ptr, ptr %m_literals.i, align 8
   %second.i359 = getelementptr inbounds i8, ptr %146, i64 16
   %147 = load i8, ptr %second.i359, align 8
@@ -6783,7 +6783,7 @@ if.else:                                          ; preds = %_ZNK6vectorIP4sortL
   br i1 %tobool.i360, label %if.else109, label %land.lhs.true105
 
 land.lhs.true105:                                 ; preds = %if.else
-  %call106 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom"(ptr nonnull %this, ptr nonnull %cl, ptr noundef %141, ptr noundef %140)
+  %call106 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_"(ptr nonnull %this, ptr nonnull %cl, ptr noundef %141, ptr noundef %140)
   br i1 %call106, label %if.then107, label %land.lhs.true105.if.else109_crit_edge
 
 land.lhs.true105.if.else109_crit_edge:            ; preds = %land.lhs.true105
@@ -6807,7 +6807,7 @@ land.lhs.true111:                                 ; preds = %if.else109
   br i1 %call113, label %land.lhs.true114, label %if.else120
 
 land.lhs.true114:                                 ; preds = %land.lhs.true111
-  %call115 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom"(ptr nonnull %this, ptr nonnull %cl, ptr noundef %140, ptr noundef %141)
+  %call115 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_"(ptr nonnull %this, ptr nonnull %cl, ptr noundef %140, ptr noundef %141)
   br i1 %call115, label %if.then116, label %if.else120
 
 if.then116:                                       ; preds = %land.lhs.true114
@@ -6829,7 +6829,7 @@ land.lhs.true122:                                 ; preds = %if.else120
   br i1 %call124, label %land.lhs.true125, label %if.end135
 
 land.lhs.true125:                                 ; preds = %land.lhs.true122
-  %call126 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom"(ptr nonnull %this, ptr nonnull %cl, ptr noundef %141, ptr noundef %140)
+  %call126 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_"(ptr nonnull %this, ptr nonnull %cl, ptr noundef %141, ptr noundef %140)
   br i1 %call126, label %if.then127, label %if.end135
 
 if.then127:                                       ; preds = %land.lhs.true125
@@ -6882,24 +6882,24 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i394:        ; preds = %if.then140
 
 land.lhs.true.i397:                               ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i394
   %call5.i398 = call noundef zeroext i1 @_ZN20eliminate_predicates13is_macro_safeEP4expr(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef %cond)
-  br i1 %call5.i398, label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom.exit403", label %if.end152
+  br i1 %call5.i398, label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.exit403", label %if.end152
 
-"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom.exit403": ; preds = %land.lhs.true.i397
+"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.exit403": ; preds = %land.lhs.true.i397
   %m_decl.i.i400 = getelementptr inbounds i8, ptr %162, i64 16
   %163 = load ptr, ptr %m_decl.i.i400, align 8
   %call7.i401 = call noundef zeroext i1 @_Z6occursP9func_declP4expr(ptr noundef %163, ptr noundef %cond)
   br i1 %call7.i401, label %if.end152, label %if.then149
 
-if.then149:                                       ; preds = %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom.exit403"
+if.then149:                                       ; preds = %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.exit403"
   call void @_ZN20eliminate_predicates18insert_quasi_macroEP3appP4exprRNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull %162, ptr noundef %cond, ptr noundef nonnull align 8 dereferenceable(53) %cl)
   br label %if.end152
 
-if.end152:                                        ; preds = %if.end73, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i394, %land.lhs.true.i397, %if.then140, %land.lhs.true137, %if.end135, %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom.exit403", %if.end86, %if.then83, %entry, %if.then149, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit379, %_ZNK20eliminate_predicates6clause7is_unitEv.exit374, %if.then127, %if.then116, %if.then107, %if.then102, %if.then70, %if.then63, %if.then56, %if.then49, %if.then31, %if.then25, %if.then12, %if.then8
+if.end152:                                        ; preds = %if.end73, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i394, %land.lhs.true.i397, %if.then140, %land.lhs.true137, %if.end135, %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.exit403", %if.end86, %if.then83, %entry, %if.then149, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit379, %_ZNK20eliminate_predicates6clause7is_unitEv.exit374, %if.then127, %if.then116, %if.then107, %if.then102, %if.then70, %if.then63, %if.then56, %if.then49, %if.then31, %if.then25, %if.then12, %if.then8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_.argprom"(ptr nocapture readonly %this.0.val, ptr %this.8.val, ptr noundef %f, ptr noundef %t, ptr noundef %cond) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_1clEP4exprS4_S4_"(ptr nocapture readonly %this.0.val, ptr %this.8.val, ptr noundef %f, ptr noundef %t, ptr noundef %cond) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this.0.val, align 8
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %f, i64 4
@@ -7306,7 +7306,7 @@ lor.end.i:                                        ; preds = %land.rhs.i.i.i.i12.
 
 .noexc.i.i:                                       ; preds = %lor.end.i
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i)
-          to label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_5clEP4expr.argprom.argprom.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_5clEP4expr.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %lor.end.i
   %13 = landingpad { ptr, i32 }
@@ -7315,11 +7315,11 @@ terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %lor.en
   call void @__clang_call_terminate(ptr %14) #21
   unreachable
 
-"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_5clEP4expr.argprom.argprom.exit": ; preds = %.noexc.i.i
+"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_5clEP4expr.exit": ; preds = %.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %n.i)
   br i1 %11, label %if.end, label %return
 
-if.end:                                           ; preds = %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_5clEP4expr.argprom.argprom.exit"
+if.end:                                           ; preds = %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_5clEP4expr.exit"
   %call2 = call noundef zeroext i1 @_ZN20eliminate_predicates13is_macro_safeEP4expr(ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef %y)
   br i1 %call2, label %if.end4, label %return
 
@@ -7983,13 +7983,13 @@ for.inc49:                                        ; preds = %if.end32, %if.end35
   %cmp.not = icmp eq ptr %incdec.ptr50, %add.ptr.i.ptr
   br i1 %cmp.not, label %return, label %for.body
 
-return:                                           ; preds = %for.inc49, %if.end4, %if.then2.i.i.i73, %if.then.i.i.i67, %invoke.cont48, %if.end, %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_5clEP4expr.argprom.argprom.exit"
-  %retval.0 = phi i1 [ false, %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_5clEP4expr.argprom.argprom.exit" ], [ false, %if.end ], [ true, %invoke.cont48 ], [ true, %if.then.i.i.i67 ], [ true, %if.then2.i.i.i73 ], [ false, %if.end4 ], [ false, %for.inc49 ]
+return:                                           ; preds = %for.inc49, %if.end4, %if.then2.i.i.i73, %if.then.i.i.i67, %invoke.cont48, %if.end, %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_5clEP4expr.exit"
+  %retval.0 = phi i1 [ false, %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_5clEP4expr.exit" ], [ false, %if.end ], [ true, %invoke.cont48 ], [ true, %if.then.i.i.i67 ], [ true, %if.then2.i.i.i73 ], [ false, %if.end4 ], [ false, %for.inc49 ]
   ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_.argprom"(ptr %this.0.val, ptr nocapture readonly %this.8.val, ptr noundef %_x, ptr noundef %y) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_4clEP4exprS4_"(ptr %this.0.val, ptr nocapture readonly %this.8.val, ptr noundef %_x, ptr noundef %y) unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i = getelementptr inbounds i8, ptr %_x, i64 4
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4

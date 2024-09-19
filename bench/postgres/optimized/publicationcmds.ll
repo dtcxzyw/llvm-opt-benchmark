@@ -477,7 +477,7 @@ define dso_local { i64, i32 } @CreatePublication(ptr noundef %0, ptr nocapture n
 84:                                               ; preds = %38
   %85 = getelementptr inbounds i8, ptr %1, i64 24
   %86 = load ptr, ptr %85, align 8
-  call fastcc void @ObjectsInPublicationToOids.argprom(ptr noundef %86, ptr noundef %9, ptr noundef %10)
+  call fastcc void @ObjectsInPublicationToOids(ptr noundef %86, ptr noundef %9, ptr noundef %10)
   %87 = load ptr, ptr %10, align 8
   %.not35 = icmp eq ptr %87, null
   br i1 %.not35, label %94, label %88
@@ -820,7 +820,7 @@ declare void @CommandCounterIncrement() local_unnamed_addr #1
 declare void @CacheInvalidateRelcacheAll() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ObjectsInPublicationToOids.argprom(ptr noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @ObjectsInPublicationToOids(ptr noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1983,7 +1983,7 @@ AlterPublicationOptions.exit:                     ; preds = %InvalidatePublicati
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  br label %AlterPublicationSchemas.argprom.exit
+  br label %AlterPublicationSchemas.exit
 
 173:                                              ; preds = %37
   store ptr null, ptr %13, align 8
@@ -1991,7 +1991,7 @@ AlterPublicationOptions.exit:                     ; preds = %InvalidatePublicati
   %174 = load i32, ptr %31, align 4
   %175 = getelementptr inbounds i8, ptr %1, i64 24
   %176 = load ptr, ptr %175, align 8
-  call fastcc void @ObjectsInPublicationToOids.argprom(ptr noundef %176, ptr noundef %13, ptr noundef %14)
+  call fastcc void @ObjectsInPublicationToOids(ptr noundef %176, ptr noundef %13, ptr noundef %14)
   %177 = load ptr, ptr %13, align 8
   %178 = load ptr, ptr %14, align 8
   %179 = getelementptr i8, ptr %1, i64 36
@@ -2048,13 +2048,13 @@ AlterPublicationOptions.exit:                     ; preds = %InvalidatePublicati
 
 205:                                              ; preds = %.thread.i36, %195, %188
   %.not12.i = icmp eq ptr %177, null
-  br i1 %.not12.i, label %CheckAlterPublication.argprom.exit, label %206
+  br i1 %.not12.i, label %CheckAlterPublication.exit, label %206
 
 206:                                              ; preds = %205
   %207 = getelementptr inbounds i8, ptr %183, i64 72
   %208 = load i8, ptr %207, align 4
   %209 = trunc i8 %208 to i1
-  br i1 %209, label %210, label %CheckAlterPublication.argprom.exit
+  br i1 %209, label %210, label %CheckAlterPublication.exit
 
 210:                                              ; preds = %206
   %211 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -2066,7 +2066,7 @@ AlterPublicationOptions.exit:                     ; preds = %InvalidatePublicati
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1368, ptr noundef nonnull @__func__.CheckAlterPublication) #8
   unreachable
 
-CheckAlterPublication.argprom.exit:               ; preds = %205, %206
+CheckAlterPublication.exit:                       ; preds = %205, %206
   tail call void @heap_freetuple(ptr noundef nonnull %19) #8
   tail call void @LockDatabaseObject(i32 noundef 6104, i32 noundef %174, i16 noundef zeroext 0, i32 noundef 8) #8
   %216 = zext i32 %174 to i64
@@ -2074,7 +2074,7 @@ CheckAlterPublication.argprom.exit:               ; preds = %205, %206
   %.not31 = icmp eq ptr %217, null
   br i1 %.not31, label %218, label %223
 
-218:                                              ; preds = %CheckAlterPublication.argprom.exit
+218:                                              ; preds = %CheckAlterPublication.exit
   %219 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %219)
   %220 = tail call i32 @errcode(i32 noundef 67137668) #8
@@ -2083,7 +2083,7 @@ CheckAlterPublication.argprom.exit:               ; preds = %205, %206
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1432, ptr noundef nonnull @__func__.AlterPublication) #8
   unreachable
 
-223:                                              ; preds = %CheckAlterPublication.argprom.exit
+223:                                              ; preds = %CheckAlterPublication.exit
   %224 = getelementptr inbounds i8, ptr %0, i64 8
   %225 = load ptr, ptr %224, align 8
   %226 = icmp ne ptr %178, null
@@ -2104,7 +2104,7 @@ CheckAlterPublication.argprom.exit:               ; preds = %205, %206
 234:                                              ; preds = %223
   %235 = load i32, ptr %179, align 4
   %.not101.i = icmp eq i32 %235, 2
-  br i1 %.not101.i, label %.split95.i, label %AlterPublicationTables.argprom.exit
+  br i1 %.not101.i, label %.split95.i, label %AlterPublicationTables.exit
 
 .split95.i:                                       ; preds = %234
   tail call void @list_free(ptr noundef null) #8
@@ -2359,9 +2359,9 @@ CloseTableList.exit115.i:                         ; preds = %.lr.ph15.i112.i, %.
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.val34.pre, i64 22
   %.pre74 = load i8, ptr %.phi.trans.insert, align 2
   %.pre75 = zext i8 %.pre74 to i64
-  br label %AlterPublicationTables.argprom.exit
+  br label %AlterPublicationTables.exit
 
-AlterPublicationTables.argprom.exit:              ; preds = %234, %CloseTableList.exit115.i
+AlterPublicationTables.exit:                      ; preds = %234, %CloseTableList.exit115.i
   %.pre-phi = phi i64 [ %230, %234 ], [ %.pre75, %CloseTableList.exit115.i ]
   %.val34 = phi ptr [ %.val33, %234 ], [ %.val34.pre, %CloseTableList.exit115.i ]
   %350 = phi ptr [ %178, %234 ], [ %.pre, %CloseTableList.exit115.i ]
@@ -2370,12 +2370,12 @@ AlterPublicationTables.argprom.exit:              ; preds = %234, %CloseTableLis
   %.not.i47 = icmp eq ptr %350, null
   br i1 %.not.i47, label %352, label %.split33.i
 
-352:                                              ; preds = %AlterPublicationTables.argprom.exit
+352:                                              ; preds = %AlterPublicationTables.exit
   %353 = load i32, ptr %179, align 4
   %.not38.i = icmp eq i32 %353, 2
-  br i1 %.not38.i, label %.split33.thread.i, label %AlterPublicationSchemas.argprom.exit
+  br i1 %.not38.i, label %.split33.thread.i, label %AlterPublicationSchemas.exit
 
-.split33.i:                                       ; preds = %AlterPublicationTables.argprom.exit
+.split33.i:                                       ; preds = %AlterPublicationTables.exit
   call fastcc void @LockSchemaList(ptr noundef nonnull %350)
   %.pre.i49 = load i32, ptr %179, align 4
   switch i32 %.pre.i49, label %.split33.thread.i [
@@ -2436,7 +2436,7 @@ AlterPublicationTables.argprom.exit:              ; preds = %234, %CloseTableLis
 ._crit_edge.i51:                                  ; preds = %376, %.lr.ph.i50, %354
   %380 = load i32, ptr %351, align 4
   call fastcc void @PublicationAddSchemas(i32 noundef %380, ptr noundef nonnull %350, i1 noundef zeroext false, ptr noundef %1)
-  br label %AlterPublicationSchemas.argprom.exit
+  br label %AlterPublicationSchemas.exit
 
 .lr.ph.i57:                                       ; preds = %.split33.i
   %381 = load i32, ptr %351, align 4
@@ -2482,7 +2482,7 @@ AlterPublicationTables.argprom.exit:              ; preds = %234, %CloseTableLis
 
 PublicationDropSchemas.exit:                      ; preds = %398, %.lr.ph.i57
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  br label %AlterPublicationSchemas.argprom.exit
+  br label %AlterPublicationSchemas.exit
 
 .split33.thread.i:                                ; preds = %.split33.i, %352
   %402 = load i32, ptr %351, align 4
@@ -2536,9 +2536,9 @@ PublicationDropSchemas.exit.i:                    ; preds = %PublicationDropSche
   %423 = phi i32 [ %.pre10.i, %PublicationDropSchemas.exit.loopexit.i ], [ %405, %.split33.thread.i ], [ %405, %.lr.ph.i.i55 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call fastcc void @PublicationAddSchemas(i32 noundef %423, ptr noundef %350, i1 noundef zeroext true, ptr noundef %1)
-  br label %AlterPublicationSchemas.argprom.exit
+  br label %AlterPublicationSchemas.exit
 
-AlterPublicationSchemas.argprom.exit:             ; preds = %PublicationDropSchemas.exit.i, %PublicationDropSchemas.exit, %._crit_edge.i51, %352, %AlterPublicationOptions.exit
+AlterPublicationSchemas.exit:                     ; preds = %PublicationDropSchemas.exit.i, %PublicationDropSchemas.exit, %._crit_edge.i51, %352, %AlterPublicationOptions.exit
   %.0 = phi ptr [ %19, %AlterPublicationOptions.exit ], [ %217, %352 ], [ %217, %._crit_edge.i51 ], [ %217, %PublicationDropSchemas.exit ], [ %217, %PublicationDropSchemas.exit.i ]
   call void @heap_freetuple(ptr noundef nonnull %.0) #8
   call void @table_close(ptr noundef %15, i32 noundef 3) #8

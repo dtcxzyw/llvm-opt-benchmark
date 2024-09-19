@@ -1643,7 +1643,7 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i, %if.
   %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %idxprom14.i.i.i
   %14 = load ptr, ptr %arrayidx15.i.i.i, align 8
   %tobool16.not.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %contains_cache_at.argprom.exit.i
+  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %contains_cache_at.exit.i
 
 if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
   %15 = load i32, ptr %cache, align 8
@@ -1658,9 +1658,9 @@ if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
   %.pre.i.i.i = load ptr, ptr %slab.i.i31.i, align 8
   %arrayidx31.phi.trans.insert.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i, i64 %idxprom14.i.i.i
   %.pre4.i.i.i = load ptr, ptr %arrayidx31.phi.trans.insert.i.i.i, align 8
-  br label %contains_cache_at.argprom.exit.i
+  br label %contains_cache_at.exit.i
 
-contains_cache_at.argprom.exit.i:                 ; preds = %if.end20.i.i.i, %if.end12.i.i.i
+contains_cache_at.exit.i:                         ; preds = %if.end20.i.i.i, %if.end12.i.i.i
   %18 = phi ptr [ %14, %if.end12.i.i.i ], [ %.pre4.i.i.i, %if.end20.i.i.i ]
   %19 = load i32, ptr %stride.i.i56.i, align 4
   %mul33.i.i.i = mul i32 %19, %rem.i.i.i
@@ -1725,7 +1725,7 @@ if.end12.i.i44.i:                                 ; preds = %for.end.i.i43.i, %s
   %arrayidx15.i.i47.i = getelementptr inbounds ptr, ptr %26, i64 %idxprom14.i.i46.i
   %27 = load ptr, ptr %arrayidx15.i.i47.i, align 8
   %tobool16.not.i.i48.i = icmp eq ptr %27, null
-  br i1 %tobool16.not.i.i48.i, label %if.end20.i.i54.i, label %contains_cache_at.argprom.exit64.i
+  br i1 %tobool16.not.i.i48.i, label %if.end20.i.i54.i, label %contains_cache_at.exit64.i
 
 if.end20.i.i54.i:                                 ; preds = %if.end12.i.i44.i
   %28 = load i32, ptr %cache, align 8
@@ -1740,9 +1740,9 @@ if.end20.i.i54.i:                                 ; preds = %if.end12.i.i44.i
   %.pre.i.i61.i = load ptr, ptr %slab.i.i31.i, align 8
   %arrayidx31.phi.trans.insert.i.i62.i = getelementptr inbounds ptr, ptr %.pre.i.i61.i, i64 %idxprom14.i.i46.i
   %.pre4.i.i63.i = load ptr, ptr %arrayidx31.phi.trans.insert.i.i62.i, align 8
-  br label %contains_cache_at.argprom.exit64.i
+  br label %contains_cache_at.exit64.i
 
-contains_cache_at.argprom.exit64.i:               ; preds = %if.end20.i.i54.i, %if.end12.i.i44.i
+contains_cache_at.exit64.i:                       ; preds = %if.end20.i.i54.i, %if.end12.i.i44.i
   %31 = phi ptr [ %27, %if.end12.i.i44.i ], [ %.pre4.i.i63.i, %if.end20.i.i54.i ]
   %32 = load i32, ptr %stride.i.i56.i, align 4
   %mul33.i.i51.i = mul i32 %32, %rem.i.i49.i
@@ -1794,10 +1794,10 @@ push_to_contains_stack.exit91.i:                  ; preds = %st_mult.exit.i75.i,
   store ptr %36, ptr %parents26.i86.i, align 8
   br label %if.end25.i
 
-if.end25.i:                                       ; preds = %push_to_contains_stack.exit91.i, %sw.bb20.i, %contains_cache_at.argprom.exit64.i, %if.else.i, %contains_cache_at.argprom.exit.i
-  %contains_stack.sroa.0.1.i = phi i32 [ %dec.i, %contains_cache_at.argprom.exit.i ], [ %contains_stack.sroa.0.0117.i, %if.else.i ], [ %.pre125.i, %push_to_contains_stack.exit91.i ], [ %contains_stack.sroa.0.0117.i, %sw.bb20.i ], [ %dec19.i, %contains_cache_at.argprom.exit64.i ]
-  %contains_stack.sroa.14.1.i = phi i32 [ %contains_stack.sroa.14.0118.i, %contains_cache_at.argprom.exit.i ], [ %contains_stack.sroa.14.0118.i, %if.else.i ], [ %contains_stack.sroa.14.3.i, %push_to_contains_stack.exit91.i ], [ %contains_stack.sroa.14.0118.i, %sw.bb20.i ], [ %contains_stack.sroa.14.0118.i, %contains_cache_at.argprom.exit64.i ]
-  %contains_stack.sroa.18.1.i = phi ptr [ %contains_stack.sroa.18.0119.i, %contains_cache_at.argprom.exit.i ], [ %contains_stack.sroa.18.0119.i, %if.else.i ], [ %contains_stack.sroa.18.3.i, %push_to_contains_stack.exit91.i ], [ %contains_stack.sroa.18.0119.i, %sw.bb20.i ], [ %contains_stack.sroa.18.0119.i, %contains_cache_at.argprom.exit64.i ]
+if.end25.i:                                       ; preds = %push_to_contains_stack.exit91.i, %sw.bb20.i, %contains_cache_at.exit64.i, %if.else.i, %contains_cache_at.exit.i
+  %contains_stack.sroa.0.1.i = phi i32 [ %dec.i, %contains_cache_at.exit.i ], [ %contains_stack.sroa.0.0117.i, %if.else.i ], [ %.pre125.i, %push_to_contains_stack.exit91.i ], [ %contains_stack.sroa.0.0117.i, %sw.bb20.i ], [ %dec19.i, %contains_cache_at.exit64.i ]
+  %contains_stack.sroa.14.1.i = phi i32 [ %contains_stack.sroa.14.0118.i, %contains_cache_at.exit.i ], [ %contains_stack.sroa.14.0118.i, %if.else.i ], [ %contains_stack.sroa.14.3.i, %push_to_contains_stack.exit91.i ], [ %contains_stack.sroa.14.0118.i, %sw.bb20.i ], [ %contains_stack.sroa.14.0118.i, %contains_cache_at.exit64.i ]
+  %contains_stack.sroa.18.1.i = phi ptr [ %contains_stack.sroa.18.0119.i, %contains_cache_at.exit.i ], [ %contains_stack.sroa.18.0119.i, %if.else.i ], [ %contains_stack.sroa.18.3.i, %push_to_contains_stack.exit91.i ], [ %contains_stack.sroa.18.0119.i, %sw.bb20.i ], [ %contains_stack.sroa.18.0119.i, %contains_cache_at.exit64.i ]
   %tobool5.not.i = icmp eq i32 %contains_stack.sroa.0.1.i, 0
   br i1 %tobool5.not.i, label %while.end.i, label %while.body.i, !llvm.loop !46
 
@@ -2377,7 +2377,7 @@ for.body6:                                        ; preds = %for.end, %insert_no
   %2 = load ptr, ptr %arrayidx7, align 8
   %3 = getelementptr i8, ptr %2, i64 64
   %.val = load i32, ptr %3, align 8
-  %call = call fastcc ptr @get_bit_array.argprom(i32 %.val, i32 noundef %conv)
+  %call = call fastcc ptr @get_bit_array(i32 %.val, i32 noundef %conv)
   call void @bitmap_set(ptr noundef %call, i64 noundef %i3.0101) #11
   %bf.load.i = load i32, ptr %2, align 8
   %4 = and i32 %bf.load.i, 2097152
@@ -2396,9 +2396,9 @@ insert_no_dup.exit:                               ; preds = %for.body6, %if.end.
   %exitcond112.not = icmp eq i64 %inc9, %commits_nr
   br i1 %exitcond112.not, label %while.cond.preheader, label %for.body6, !llvm.loop !57
 
-for.body.preheader.i:                             ; preds = %for.body.preheader.i.lr.ph, %free_bit_array.argprom.exit
-  %queue.val42110 = phi ptr [ %queue.val42107, %for.body.preheader.i.lr.ph ], [ %queue.val42, %free_bit_array.argprom.exit ]
-  %queue.val109 = phi i32 [ %queue.val106, %for.body.preheader.i.lr.ph ], [ %queue.val, %free_bit_array.argprom.exit ]
+for.body.preheader.i:                             ; preds = %for.body.preheader.i.lr.ph, %free_bit_array.exit
+  %queue.val42110 = phi ptr [ %queue.val42107, %for.body.preheader.i.lr.ph ], [ %queue.val42, %free_bit_array.exit ]
+  %queue.val109 = phi i32 [ %queue.val106, %for.body.preheader.i.lr.ph ], [ %queue.val, %free_bit_array.exit ]
   %wide.trip.count.i = zext nneg i32 %queue.val109 to i64
   br label %for.body.i
 
@@ -2420,7 +2420,7 @@ while.body:                                       ; preds = %for.body.i
   %call14 = call ptr @prio_queue_get(ptr noundef nonnull %queue) #11
   %7 = getelementptr i8, ptr %call14, i64 64
   %call14.val = load i32, ptr %7, align 8
-  %call16 = call fastcc ptr @get_bit_array.argprom(i32 %call14.val, i32 noundef %conv)
+  %call16 = call fastcc ptr @get_bit_array(i32 %call14.val, i32 noundef %conv)
   br label %for.body21
 
 for.body21:                                       ; preds = %while.body, %for.inc45
@@ -2516,43 +2516,43 @@ if.end12.i.i.i:                                   ; preds = %for.end.i.i.i, %for
   %arrayidx15.i.i.i = getelementptr inbounds ptr, ptr %19, i64 %idxprom14.i.i.i
   %20 = load ptr, ptr %arrayidx15.i.i.i, align 8
   %tobool16.not.i.i.i = icmp eq ptr %20, null
-  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %bit_arrays_at.argprom.exit.i
+  br i1 %tobool16.not.i.i.i, label %if.end20.i.i.i, label %bit_arrays_at.exit.i
 
 if.end20.i.i.i:                                   ; preds = %if.end12.i.i.i
   %call24.i.i.i = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #11
   %21 = load ptr, ptr @bit_arrays.3, align 8
   %arrayidx27.i.i.i = getelementptr inbounds ptr, ptr %21, i64 %idxprom14.i.i.i
   store ptr %call24.i.i.i, ptr %arrayidx27.i.i.i, align 8
-  br label %bit_arrays_at.argprom.exit.i
+  br label %bit_arrays_at.exit.i
 
-bit_arrays_at.argprom.exit.i:                     ; preds = %if.end20.i.i.i, %if.end12.i.i.i
+bit_arrays_at.exit.i:                             ; preds = %if.end20.i.i.i, %if.end12.i.i.i
   %22 = phi ptr [ %20, %if.end12.i.i.i ], [ %call24.i.i.i, %if.end20.i.i.i ]
   %idxprom34.i.i.i = zext nneg i32 %rem.i.i.i to i64
   %arrayidx35.i.i.i = getelementptr inbounds ptr, ptr %22, i64 %idxprom34.i.i.i
   %23 = load ptr, ptr %arrayidx35.i.i.i, align 8
   %tobool.not.i47 = icmp eq ptr %23, null
-  br i1 %tobool.not.i47, label %if.then.i, label %get_bit_array.argprom.exit
+  br i1 %tobool.not.i47, label %if.then.i, label %get_bit_array.exit
 
-if.then.i:                                        ; preds = %bit_arrays_at.argprom.exit.i
+if.then.i:                                        ; preds = %bit_arrays_at.exit.i
   %call1.i = call ptr @bitmap_word_alloc(i64 noundef %conv.i) #11
   store ptr %call1.i, ptr %arrayidx35.i.i.i, align 8
-  br label %get_bit_array.argprom.exit
+  br label %get_bit_array.exit
 
-get_bit_array.argprom.exit:                       ; preds = %bit_arrays_at.argprom.exit.i, %if.then.i
-  %24 = phi ptr [ %call1.i, %if.then.i ], [ %23, %bit_arrays_at.argprom.exit.i ]
+get_bit_array.exit:                               ; preds = %bit_arrays_at.exit.i, %if.then.i
+  %24 = phi ptr [ %call1.i, %if.then.i ], [ %23, %bit_arrays_at.exit.i ]
   call void @bitmap_or(ptr noundef %24, ptr noundef %call16) #11
   %call55 = call i64 @bitmap_popcount(ptr noundef %24) #11
   %cmp56 = icmp eq i64 %call55, %commits_nr
   br i1 %cmp56, label %if.then58, label %if.end61
 
-if.then58:                                        ; preds = %get_bit_array.argprom.exit
+if.then58:                                        ; preds = %get_bit_array.exit
   %25 = load ptr, ptr %p.0105, align 8
   %bf.load = load i32, ptr %25, align 8
   %bf.set = or i32 %bf.load, 4194304
   store i32 %bf.set, ptr %25, align 8
   br label %if.end61
 
-if.end61:                                         ; preds = %if.then58, %get_bit_array.argprom.exit
+if.end61:                                         ; preds = %if.then58, %get_bit_array.exit
   %26 = load ptr, ptr %p.0105, align 8
   %bf.load.i49 = load i32, ptr %26, align 8
   %27 = and i32 %bf.load.i49, 2097152
@@ -2619,39 +2619,39 @@ if.end12.i.i.i74:                                 ; preds = %for.end.i.i.i72, %f
   %arrayidx15.i.i.i76 = getelementptr inbounds ptr, ptr %32, i64 %idxprom14.i.i.i75
   %33 = load ptr, ptr %arrayidx15.i.i.i76, align 8
   %tobool16.not.i.i.i77 = icmp eq ptr %33, null
-  br i1 %tobool16.not.i.i.i77, label %if.end20.i.i.i85, label %bit_arrays_at.argprom.exit.i78
+  br i1 %tobool16.not.i.i.i77, label %if.end20.i.i.i85, label %bit_arrays_at.exit.i78
 
 if.end20.i.i.i85:                                 ; preds = %if.end12.i.i.i74
   %call24.i.i.i89 = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #11
   %34 = load ptr, ptr @bit_arrays.3, align 8
   %arrayidx27.i.i.i90 = getelementptr inbounds ptr, ptr %34, i64 %idxprom14.i.i.i75
   store ptr %call24.i.i.i89, ptr %arrayidx27.i.i.i90, align 8
-  br label %bit_arrays_at.argprom.exit.i78
+  br label %bit_arrays_at.exit.i78
 
-bit_arrays_at.argprom.exit.i78:                   ; preds = %if.end20.i.i.i85, %if.end12.i.i.i74
+bit_arrays_at.exit.i78:                           ; preds = %if.end20.i.i.i85, %if.end12.i.i.i74
   %35 = phi ptr [ %33, %if.end12.i.i.i74 ], [ %call24.i.i.i89, %if.end20.i.i.i85 ]
   %idxprom34.i.i.i81 = zext nneg i32 %rem.i.i.i79 to i64
   %arrayidx35.i.i.i82 = getelementptr inbounds ptr, ptr %35, i64 %idxprom34.i.i.i81
   %36 = load ptr, ptr %arrayidx35.i.i.i82, align 8
   %tobool.not.i83 = icmp eq ptr %36, null
-  br i1 %tobool.not.i83, label %free_bit_array.argprom.exit, label %if.end.i84
+  br i1 %tobool.not.i83, label %free_bit_array.exit, label %if.end.i84
 
-if.end.i84:                                       ; preds = %bit_arrays_at.argprom.exit.i78
+if.end.i84:                                       ; preds = %bit_arrays_at.exit.i78
   call void @bitmap_free(ptr noundef nonnull %36) #11
   store ptr null, ptr %arrayidx35.i.i.i82, align 8
-  br label %free_bit_array.argprom.exit
+  br label %free_bit_array.exit
 
-free_bit_array.argprom.exit:                      ; preds = %bit_arrays_at.argprom.exit.i78, %if.end.i84
+free_bit_array.exit:                              ; preds = %bit_arrays_at.exit.i78, %if.end.i84
   %queue.val = load i32, ptr %0, align 4
   %queue.val42 = load ptr, ptr %1, align 8
   %cmp1.i = icmp sgt i32 %queue.val, 0
   br i1 %cmp1.i, label %for.body.preheader.i, label %while.end, !llvm.loop !61
 
-while.end:                                        ; preds = %free_bit_array.argprom.exit, %for.cond.i, %while.cond.preheader
+while.end:                                        ; preds = %free_bit_array.exit, %for.cond.i, %while.cond.preheader
   call void @repo_clear_commit_marks(ptr noundef %r, i32 noundef 393216) #11
   %37 = load i32, ptr @bit_arrays.2, align 8
   %cmp1.not.i = icmp eq i32 %37, 0
-  br i1 %cmp1.not.i, label %clear_bit_arrays.argprom.exit, label %for.body.i94.preheader
+  br i1 %cmp1.not.i, label %clear_bit_arrays.exit, label %for.body.i94.preheader
 
 for.body.i94.preheader:                           ; preds = %while.end
   %38 = load ptr, ptr @bit_arrays.3, align 8
@@ -2666,9 +2666,9 @@ for.body.i94:                                     ; preds = %for.body.i94.prehea
   call void @free(ptr noundef %41) #11
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
   %cmp.i = icmp ult i64 %indvars.iv.next.i96, %40
-  br i1 %cmp.i, label %for.body.i94, label %clear_bit_arrays.argprom.exit, !llvm.loop !62
+  br i1 %cmp.i, label %for.body.i94, label %clear_bit_arrays.exit, !llvm.loop !62
 
-clear_bit_arrays.argprom.exit:                    ; preds = %for.body.i94, %while.end
+clear_bit_arrays.exit:                            ; preds = %for.body.i94, %while.end
   store i32 0, ptr @bit_arrays.2, align 8
   %42 = load ptr, ptr @bit_arrays.3, align 8
   call void @free(ptr noundef %42) #11
@@ -2676,14 +2676,14 @@ clear_bit_arrays.argprom.exit:                    ; preds = %for.body.i94, %whil
   call void @clear_prio_queue(ptr noundef nonnull %queue) #11
   br label %return
 
-return:                                           ; preds = %entry, %clear_bit_arrays.argprom.exit
+return:                                           ; preds = %entry, %clear_bit_arrays.exit
   ret void
 }
 
 declare void @ensure_generations_valid(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_bit_array.argprom(i32 %c.64.val, i32 noundef %width) unnamed_addr #0 {
+define internal fastcc ptr @get_bit_array(i32 %c.64.val, i32 noundef %width) unnamed_addr #0 {
 entry:
   %div.i.i = udiv i32 %c.64.val, 65532
   %rem.i.i = urem i32 %c.64.val, 65532
@@ -2730,7 +2730,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %entry
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %4, i64 %idxprom14.i.i
   %5 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %bit_arrays_at.argprom.exit
+  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %bit_arrays_at.exit
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %.b = load i1, ptr @bit_arrays.0, align 8
@@ -2741,9 +2741,9 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
   %6 = load ptr, ptr @bit_arrays.3, align 8
   %arrayidx27.i.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom14.i.i
   store ptr %call24.i.i, ptr %arrayidx27.i.i, align 8
-  br label %bit_arrays_at.argprom.exit
+  br label %bit_arrays_at.exit
 
-bit_arrays_at.argprom.exit:                       ; preds = %if.end12.i.i, %if.end20.i.i
+bit_arrays_at.exit:                               ; preds = %if.end12.i.i, %if.end20.i.i
   %7 = phi ptr [ %5, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
   %.b3 = load i1, ptr @bit_arrays.1, align 8
   %8 = zext nneg i32 %rem.i.i to i64
@@ -2753,14 +2753,14 @@ bit_arrays_at.argprom.exit:                       ; preds = %if.end12.i.i, %if.e
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %bit_arrays_at.argprom.exit
+if.then:                                          ; preds = %bit_arrays_at.exit
   %conv = sext i32 %width to i64
   %call1 = tail call ptr @bitmap_word_alloc(i64 noundef %conv) #11
   store ptr %call1, ptr %arrayidx35.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %bit_arrays_at.argprom.exit
-  %10 = phi ptr [ %call1, %if.then ], [ %9, %bit_arrays_at.argprom.exit ]
+if.end:                                           ; preds = %if.then, %bit_arrays_at.exit
+  %10 = phi ptr [ %call1, %if.then ], [ %9, %bit_arrays_at.exit ]
   ret ptr %10
 }
 
@@ -3043,7 +3043,7 @@ if.end12.i.i:                                     ; preds = %for.end.i.i, %entry
   %arrayidx15.i.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom14.i.i
   %7 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %7, null
-  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %contains_cache_at.argprom.exit
+  br i1 %tobool16.not.i.i, label %if.end20.i.i, label %contains_cache_at.exit
 
 if.end20.i.i:                                     ; preds = %if.end12.i.i
   %8 = load i32, ptr %cache, align 8
@@ -3059,9 +3059,9 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
   %.pre.i.i = load ptr, ptr %slab13.i.i, align 8
   %arrayidx31.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %idxprom14.i.i
   %.pre4.i.i = load ptr, ptr %arrayidx31.phi.trans.insert.i.i, align 8
-  br label %contains_cache_at.argprom.exit
+  br label %contains_cache_at.exit
 
-contains_cache_at.argprom.exit:                   ; preds = %if.end12.i.i, %if.end20.i.i
+contains_cache_at.exit:                           ; preds = %if.end12.i.i, %if.end20.i.i
   %11 = phi ptr [ %7, %if.end12.i.i ], [ %.pre4.i.i, %if.end20.i.i ]
   %stride32.i.i = getelementptr inbounds i8, ptr %cache, i64 4
   %12 = load i32, ptr %stride32.i.i, align 4
@@ -3072,7 +3072,7 @@ contains_cache_at.argprom.exit:                   ; preds = %if.end12.i.i, %if.e
   %tobool.not = icmp eq i32 %13, 0
   br i1 %tobool.not, label %if.end, label %return
 
-if.end:                                           ; preds = %contains_cache_at.argprom.exit
+if.end:                                           ; preds = %contains_cache_at.exit
   %tobool.not3.i = icmp eq ptr %want, null
   br i1 %tobool.not3.i, label %if.end4, label %for.body.lr.ph.i
 
@@ -3137,8 +3137,8 @@ if.end4:                                          ; preds = %for.inc.i, %if.end
   %. = zext i1 %cmp to i32
   br label %return
 
-return:                                           ; preds = %if.end4, %contains_cache_at.argprom.exit, %if.then3
-  %retval.0 = phi i32 [ 2, %if.then3 ], [ %13, %contains_cache_at.argprom.exit ], [ %., %if.end4 ]
+return:                                           ; preds = %if.end4, %contains_cache_at.exit, %if.then3
+  %retval.0 = phi i32 [ 2, %if.then3 ], [ %13, %contains_cache_at.exit ], [ %., %if.end4 ]
   ret i32 %retval.0
 }
 

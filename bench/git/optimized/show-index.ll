@@ -61,7 +61,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %if.then
-  %call8 = call fastcc ptr @_.argprom()
+  %call8 = call fastcc ptr @_()
   call void (ptr, ...) @die(ptr noundef %call8) #8
   unreachable
 
@@ -328,7 +328,7 @@ declare i32 @hash_algo_by_name(ptr noundef) local_unnamed_addr #2
 declare void @die(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_.argprom() unnamed_addr #0 {
+define internal fastcc ptr @_() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

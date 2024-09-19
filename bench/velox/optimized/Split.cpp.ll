@@ -3832,7 +3832,7 @@ for.body.i.i:                                     ; preds = %.noexc.i, %for.body
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i.i, align 8
   %89 = trunc nsw i64 %indvars.iv.i.i to i32
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %89, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %89, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc.i unwind label %lpad19.loopexit.i
 
 .noexc.i:                                         ; preds = %for.body.i.i
@@ -3890,7 +3890,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %add.i26.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %add.i26.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc141.i unwind label %lpad19.loopexit.split-lp.loopexit.i
 
 .noexc141.i:                                      ; preds = %while.body.i.i.i.i.i.i
@@ -3933,7 +3933,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %.noexc142.i, %while
   %agg.tmp.sroa.0.0.copyload.i.i48.i.i.i.i.i = load i64, ptr %arrayidx.i.i47.i.i.i.i.i, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i49.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i47.i.i.i.i.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i50.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i49.i.i.i.i.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %agg.tmp.sroa.0.0.copyload.i.i48.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i50.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %add.i45.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i48.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i50.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %add.i45.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc142.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc142.i:                                      ; preds = %while.body.i42.i.i.i.i.i
@@ -3984,7 +3984,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %.noexc143.i, %for.b
   %agg.tmp.sroa.0.0.copyload.i.i64.i.i.i.i.i = load i64, ptr %arrayidx.i.i63.i.i.i.i.i, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i65.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i63.i.i.i.i.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i66.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i65.i.i.i.i.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %agg.tmp.sroa.0.0.copyload.i.i64.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i66.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %conv7.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i64.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i66.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %conv7.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc143.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc143.i:                                      ; preds = %for.body.i.i.i.i.i.i
@@ -4002,7 +4002,7 @@ while.body.i70.i.i.i.i.i:                         ; preds = %.noexc144.i, %while
   %agg.tmp.sroa.0.0.copyload.i13.i.i.i.i.i.i = load i64, ptr %arrayidx.i12.i.i.i.i.i.i, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i14.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i12.i.i.i.i.i.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i15.i.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i14.i.i.i.i.i.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %agg.tmp.sroa.0.0.copyload.i13.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i15.i.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %add10.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i13.i.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i15.i.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %add10.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc144.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc144.i:                                      ; preds = %while.body.i70.i.i.i.i.i
@@ -4043,7 +4043,7 @@ while.body.i85.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i91.i.i.i.i.i = load i64, ptr %arrayidx.i.i90.i.i.i.i.i, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i92.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i90.i.i.i.i.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i93.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i92.i.i.i.i.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %agg.tmp.sroa.0.0.copyload.i.i91.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i93.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %add.i88.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i91.i.i.i.i.i, ptr %agg.tmp.sroa.2.0.copyload.i.i93.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %add.i88.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc145.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc145.i:                                      ; preds = %while.body.i85.i.i.i.i.i
@@ -4314,7 +4314,7 @@ for.body.i334.i:                                  ; preds = %.noexc371.i, %for.b
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i338.i = getelementptr inbounds i8, ptr %arrayidx.i.i336.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i339.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i338.i, align 8
   %132 = trunc nsw i64 %indvars.iv.i335.i to i32
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i.i337.i, ptr %agg.tmp.sroa.2.0.copyload.i.i339.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %132, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i337.i, ptr %agg.tmp.sroa.2.0.copyload.i.i339.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %132, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc371.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc371.i:                                      ; preds = %for.body.i334.i
@@ -4372,7 +4372,7 @@ while.body.i.i.i.i.i314.i:                        ; preds = %if.then3.i.i.i.i294
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i320.i = load i64, ptr %arrayidx.i.i.i.i.i.i319.i, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i321.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i319.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i322.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i321.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i320.i, ptr %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i322.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %add.i26.i.i.i.i317.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i320.i, ptr %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i322.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %add.i26.i.i.i.i317.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc372.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc372.i:                                      ; preds = %while.body.i.i.i.i.i314.i
@@ -4415,7 +4415,7 @@ while.body.i42.i.i.i.i203.i:                      ; preds = %.noexc373.i, %while
   %agg.tmp.sroa.0.0.copyload.i.i48.i.i.i.i209.i = load i64, ptr %arrayidx.i.i47.i.i.i.i208.i, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i49.i.i.i.i210.i = getelementptr inbounds i8, ptr %arrayidx.i.i47.i.i.i.i208.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i50.i.i.i.i211.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i49.i.i.i.i210.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i.i48.i.i.i.i209.i, ptr %agg.tmp.sroa.2.0.copyload.i.i50.i.i.i.i211.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %add.i45.i.i.i.i206.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i48.i.i.i.i209.i, ptr %agg.tmp.sroa.2.0.copyload.i.i50.i.i.i.i211.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %add.i45.i.i.i.i206.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc373.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc373.i:                                      ; preds = %while.body.i42.i.i.i.i203.i
@@ -4466,7 +4466,7 @@ for.body.i.i.i.i.i266.i:                          ; preds = %.noexc374.i, %for.b
   %agg.tmp.sroa.0.0.copyload.i.i64.i.i.i.i271.i = load i64, ptr %arrayidx.i.i63.i.i.i.i270.i, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i65.i.i.i.i272.i = getelementptr inbounds i8, ptr %arrayidx.i.i63.i.i.i.i270.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i66.i.i.i.i273.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i65.i.i.i.i272.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i.i64.i.i.i.i271.i, ptr %agg.tmp.sroa.2.0.copyload.i.i66.i.i.i.i273.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %conv7.i.i.i.i.i268.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i64.i.i.i.i271.i, ptr %agg.tmp.sroa.2.0.copyload.i.i66.i.i.i.i273.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %conv7.i.i.i.i.i268.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc374.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc374.i:                                      ; preds = %for.body.i.i.i.i.i266.i
@@ -4484,7 +4484,7 @@ while.body.i70.i.i.i.i280.i:                      ; preds = %.noexc375.i, %while
   %agg.tmp.sroa.0.0.copyload.i13.i.i.i.i.i286.i = load i64, ptr %arrayidx.i12.i.i.i.i.i285.i, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i14.i.i.i.i.i287.i = getelementptr inbounds i8, ptr %arrayidx.i12.i.i.i.i.i285.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i15.i.i.i.i.i288.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i14.i.i.i.i.i287.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i13.i.i.i.i.i286.i, ptr %agg.tmp.sroa.2.0.copyload.i15.i.i.i.i.i288.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %add10.i.i.i.i.i283.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i13.i.i.i.i.i286.i, ptr %agg.tmp.sroa.2.0.copyload.i15.i.i.i.i.i288.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %add10.i.i.i.i.i283.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc375.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc375.i:                                      ; preds = %while.body.i70.i.i.i.i280.i
@@ -4525,7 +4525,7 @@ while.body.i85.i.i.i.i244.i:                      ; preds = %if.then19.i.i.i.i23
   %agg.tmp.sroa.0.0.copyload.i.i91.i.i.i.i250.i = load i64, ptr %arrayidx.i.i90.i.i.i.i249.i, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i92.i.i.i.i251.i = getelementptr inbounds i8, ptr %arrayidx.i.i90.i.i.i.i249.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i93.i.i.i.i252.i = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i92.i.i.i.i251.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i.i91.i.i.i.i250.i, ptr %agg.tmp.sroa.2.0.copyload.i.i93.i.i.i.i252.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %add.i88.i.i.i.i247.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i91.i.i.i.i250.i, ptr %agg.tmp.sroa.2.0.copyload.i.i93.i.i.i.i252.i, i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i32 noundef %115, i32 noundef %add.i88.i.i.i.i247.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc376.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc376.i:                                      ; preds = %while.body.i85.i.i.i.i244.i
@@ -4735,7 +4735,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRK
   %retval.sroa.0.0.copyload.i16.i.i.i.i = load i64, ptr %arrayidx.i15.i.i.i.i, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i17.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i15.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i18.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i17.i.i.i.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i16.i.i.i.i, ptr %retval.sroa.2.0.copyload.i18.i.i.i.i, i32 noundef %170, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i16.i.i.i.i, ptr %retval.sroa.2.0.copyload.i18.i.i.i.i, i32 noundef %170, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc398.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc398.i:                                      ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit.i.i.i
@@ -4919,7 +4919,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRK
   %retval.sroa.0.0.copyload.i16.i.i.i.i.i.i.i.i = load i64, ptr %arrayidx.i15.i.i.i.i.i.i.i.i, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i17.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i15.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i18.i.i.i.i.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i17.i.i.i.i.i.i.i.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i16.i.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i18.i.i.i.i.i.i.i.i, i32 noundef %conv7.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i16.i.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i18.i.i.i.i.i.i.i.i, i32 noundef %conv7.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc401.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc401.i:                                      ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit.i.i.i.i.i.i.i
@@ -5000,7 +5000,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRK
   %retval.sroa.0.0.copyload.i16.i41.i.i.i.i.i.i.i = load i64, ptr %arrayidx.i15.i40.i.i.i.i.i.i.i, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i17.i42.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i15.i40.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i18.i43.i.i.i.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i17.i42.i.i.i.i.i.i.i, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %retval.sroa.0.0.copyload.i.i25.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i27.i.i.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i16.i41.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i18.i43.i.i.i.i.i.i.i, i32 noundef %add10.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i.i25.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i27.i.i.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i16.i41.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i18.i43.i.i.i.i.i.i.i, i32 noundef %add10.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i)
           to label %.noexc402.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc402.i:                                      ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit48.i.i.i.i.i.i.i
@@ -6095,7 +6095,7 @@ for.body.i334.i754:                               ; preds = %.noexc371.i761, %fo
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i338.i758 = getelementptr inbounds i8, ptr %arrayidx.i.i336.i756, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i339.i759 = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i338.i758, align 8
   %354 = trunc nsw i64 %indvars.iv.i335.i755 to i32
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i.i337.i757, ptr %agg.tmp.sroa.2.0.copyload.i.i339.i759, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %354, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i337.i757, ptr %agg.tmp.sroa.2.0.copyload.i.i339.i759, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %354, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
           to label %.noexc371.i761 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc371.i761:                                   ; preds = %for.body.i334.i754
@@ -6153,7 +6153,7 @@ while.body.i.i.i.i.i314.i735:                     ; preds = %if.then3.i.i.i.i294
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i320.i741 = load i64, ptr %arrayidx.i.i.i.i.i.i319.i740, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i321.i742 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i319.i740, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i322.i743 = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i321.i742, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i320.i741, ptr %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i322.i743, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %add.i26.i.i.i.i317.i738, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i320.i741, ptr %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i322.i743, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %add.i26.i.i.i.i317.i738, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
           to label %.noexc372.i745 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc372.i745:                                   ; preds = %while.body.i.i.i.i.i314.i735
@@ -6196,7 +6196,7 @@ while.body.i42.i.i.i.i203.i630:                   ; preds = %.noexc373.i640, %wh
   %agg.tmp.sroa.0.0.copyload.i.i48.i.i.i.i209.i636 = load i64, ptr %arrayidx.i.i47.i.i.i.i208.i635, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i49.i.i.i.i210.i637 = getelementptr inbounds i8, ptr %arrayidx.i.i47.i.i.i.i208.i635, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i50.i.i.i.i211.i638 = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i49.i.i.i.i210.i637, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i.i48.i.i.i.i209.i636, ptr %agg.tmp.sroa.2.0.copyload.i.i50.i.i.i.i211.i638, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %add.i45.i.i.i.i206.i633, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i48.i.i.i.i209.i636, ptr %agg.tmp.sroa.2.0.copyload.i.i50.i.i.i.i211.i638, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %add.i45.i.i.i.i206.i633, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
           to label %.noexc373.i640 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc373.i640:                                   ; preds = %while.body.i42.i.i.i.i203.i630
@@ -6247,7 +6247,7 @@ for.body.i.i.i.i.i266.i689:                       ; preds = %.noexc374.i698, %fo
   %agg.tmp.sroa.0.0.copyload.i.i64.i.i.i.i271.i694 = load i64, ptr %arrayidx.i.i63.i.i.i.i270.i693, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i65.i.i.i.i272.i695 = getelementptr inbounds i8, ptr %arrayidx.i.i63.i.i.i.i270.i693, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i66.i.i.i.i273.i696 = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i65.i.i.i.i272.i695, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i.i64.i.i.i.i271.i694, ptr %agg.tmp.sroa.2.0.copyload.i.i66.i.i.i.i273.i696, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %conv7.i.i.i.i.i268.i691, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i64.i.i.i.i271.i694, ptr %agg.tmp.sroa.2.0.copyload.i.i66.i.i.i.i273.i696, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %conv7.i.i.i.i.i268.i691, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
           to label %.noexc374.i698 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc374.i698:                                   ; preds = %for.body.i.i.i.i.i266.i689
@@ -6265,7 +6265,7 @@ while.body.i70.i.i.i.i280.i703:                   ; preds = %.noexc375.i713, %wh
   %agg.tmp.sroa.0.0.copyload.i13.i.i.i.i.i286.i709 = load i64, ptr %arrayidx.i12.i.i.i.i.i285.i708, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i14.i.i.i.i.i287.i710 = getelementptr inbounds i8, ptr %arrayidx.i12.i.i.i.i.i285.i708, i64 8
   %agg.tmp.sroa.2.0.copyload.i15.i.i.i.i.i288.i711 = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i14.i.i.i.i.i287.i710, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i13.i.i.i.i.i286.i709, ptr %agg.tmp.sroa.2.0.copyload.i15.i.i.i.i.i288.i711, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %add10.i.i.i.i.i283.i706, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i13.i.i.i.i.i286.i709, ptr %agg.tmp.sroa.2.0.copyload.i15.i.i.i.i.i288.i711, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %add10.i.i.i.i.i283.i706, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
           to label %.noexc375.i713 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc375.i713:                                   ; preds = %while.body.i70.i.i.i.i280.i703
@@ -6306,7 +6306,7 @@ while.body.i85.i.i.i.i244.i667:                   ; preds = %if.then19.i.i.i.i23
   %agg.tmp.sroa.0.0.copyload.i.i91.i.i.i.i250.i673 = load i64, ptr %arrayidx.i.i90.i.i.i.i249.i672, align 8
   %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i92.i.i.i.i251.i674 = getelementptr inbounds i8, ptr %arrayidx.i.i90.i.i.i.i249.i672, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i93.i.i.i.i252.i675 = load ptr, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx.i.i92.i.i.i.i251.i674, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %agg.tmp.sroa.0.0.copyload.i.i91.i.i.i.i250.i673, ptr %agg.tmp.sroa.2.0.copyload.i.i93.i.i.i.i252.i675, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %add.i88.i.i.i.i247.i670, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %agg.tmp.sroa.0.0.copyload.i.i91.i.i.i.i250.i673, ptr %agg.tmp.sroa.2.0.copyload.i.i93.i.i.i.i252.i675, i64 %retval.sroa.0.0.copyload.i.i573, ptr %retval.sroa.2.0.copyload.i.i575, i64 noundef %337, i32 noundef %add.i88.i.i.i.i247.i670, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
           to label %.noexc376.i677 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc376.i677:                                   ; preds = %while.body.i85.i.i.i.i244.i667
@@ -6516,7 +6516,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRK
   %retval.sroa.0.0.copyload.i16.i.i.i.i522 = load i64, ptr %arrayidx.i15.i.i.i.i521, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i17.i.i.i.i523 = getelementptr inbounds i8, ptr %arrayidx.i15.i.i.i.i521, i64 8
   %retval.sroa.2.0.copyload.i18.i.i.i.i524 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i17.i.i.i.i523, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %retval.sroa.0.0.copyload.i.i.i.i.i511, ptr %retval.sroa.2.0.copyload.i.i.i.i.i513, i64 %retval.sroa.0.0.copyload.i16.i.i.i.i522, ptr %retval.sroa.2.0.copyload.i18.i.i.i.i524, i32 noundef %392, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i.i.i.i.i511, ptr %retval.sroa.2.0.copyload.i.i.i.i.i513, i64 %retval.sroa.0.0.copyload.i16.i.i.i.i522, ptr %retval.sroa.2.0.copyload.i18.i.i.i.i524, i32 noundef %392, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
           to label %.noexc398.i526 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc398.i526:                                   ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit.i.i.i
@@ -6700,7 +6700,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRK
   %retval.sroa.0.0.copyload.i16.i.i.i.i.i.i.i.i414 = load i64, ptr %arrayidx.i15.i.i.i.i.i.i.i.i413, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i17.i.i.i.i.i.i.i.i415 = getelementptr inbounds i8, ptr %arrayidx.i15.i.i.i.i.i.i.i.i413, i64 8
   %retval.sroa.2.0.copyload.i18.i.i.i.i.i.i.i.i416 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i17.i.i.i.i.i.i.i.i415, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i398, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i400, i64 %retval.sroa.0.0.copyload.i16.i.i.i.i.i.i.i.i414, ptr %retval.sroa.2.0.copyload.i18.i.i.i.i.i.i.i.i416, i32 noundef %conv7.i.i.i.i.i.i.i383, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i398, ptr %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i400, i64 %retval.sroa.0.0.copyload.i16.i.i.i.i.i.i.i.i414, ptr %retval.sroa.2.0.copyload.i18.i.i.i.i.i.i.i.i416, i32 noundef %conv7.i.i.i.i.i.i.i383, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
           to label %.noexc401.i418 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc401.i418:                                   ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit.i.i.i.i.i.i.i
@@ -6781,7 +6781,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRK
   %retval.sroa.0.0.copyload.i16.i41.i.i.i.i.i.i.i461 = load i64, ptr %arrayidx.i15.i40.i.i.i.i.i.i.i460, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i17.i42.i.i.i.i.i.i.i462 = getelementptr inbounds i8, ptr %arrayidx.i15.i40.i.i.i.i.i.i.i460, i64 8
   %retval.sroa.2.0.copyload.i18.i43.i.i.i.i.i.i.i463 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i17.i42.i.i.i.i.i.i.i462, align 8
-  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %retval.sroa.0.0.copyload.i.i25.i.i.i.i.i.i.i445, ptr %retval.sroa.2.0.copyload.i.i27.i.i.i.i.i.i.i447, i64 %retval.sroa.0.0.copyload.i16.i41.i.i.i.i.i.i.i461, ptr %retval.sroa.2.0.copyload.i18.i43.i.i.i.i.i.i.i463, i32 noundef %add10.i.i.i.i.i.i.i430, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
+  invoke fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i.i25.i.i.i.i.i.i.i445, ptr %retval.sroa.2.0.copyload.i.i27.i.i.i.i.i.i.i447, i64 %retval.sroa.0.0.copyload.i16.i41.i.i.i.i.i.i.i461, ptr %retval.sroa.2.0.copyload.i18.i43.i.i.i.i.i.i.i463, i32 noundef %add10.i.i.i.i.i.i.i430, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter.i20)
           to label %.noexc402.i465 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc402.i465:                                   ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit48.i.i.i.i.i.i.i
@@ -12214,7 +12214,7 @@ declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %input.coerce0, ptr %input.coerce1, i64 %delim.coerce0, ptr %delim.coerce1, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %input.coerce0, ptr %input.coerce1, i64 %delim.coerce0, ptr %delim.coerce1, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %input = alloca %"struct.facebook::velox::StringView", align 8
   %delim = alloca %"struct.facebook::velox::StringView", align 8
@@ -12560,7 +12560,7 @@ declare double @llvm.ceil.f64(double) #14
 declare double @log2(double noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %input.coerce0, ptr %input.coerce1, i64 %delim.coerce0, ptr %delim.coerce1, i32 noundef %limit, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %input.coerce0, ptr %input.coerce1, i64 %delim.coerce0, ptr %delim.coerce1, i32 noundef %limit, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %input = alloca %"struct.facebook::velox::StringView", align 8
   %delim = alloca %"struct.facebook::velox::StringView", align 8
@@ -13152,7 +13152,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRK
   %retval.sroa.2.0.arrayidx.sroa_idx.i17.i = getelementptr inbounds i8, ptr %arrayidx.i15.i, i64 8
   %retval.sroa.2.0.copyload.i18.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i17.i, align 8
   %27 = load ptr, ptr %9, align 8
-  tail call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i16.i, ptr %retval.sroa.2.0.copyload.i18.i, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(192) %27)
+  tail call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i16.i, ptr %retval.sroa.2.0.copyload.i18.i, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(192) %27)
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
@@ -13278,7 +13278,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit41: ; pred
   %retval.sroa.2.0.copyload.i36 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i35, align 8
   %27 = getelementptr inbounds i8, ptr %this, i64 24
   %28 = load ptr, ptr %27, align 8
-  tail call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, i64 %retval.sroa.0.0.copyload.i34, ptr %retval.sroa.2.0.copyload.i36, i32 noundef %8, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %28)
+  tail call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, i64 %retval.sroa.0.0.copyload.i34, ptr %retval.sroa.2.0.copyload.i36, i32 noundef %8, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %28)
   br label %if.end
 
 if.else:                                          ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit
@@ -13324,7 +13324,7 @@ if.end:                                           ; preds = %if.then.i, %invoke.
 declare void @_ZN8facebook5velox4exec7EvalCtx8setErrorEiRKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %input.coerce0, ptr %input.coerce1, i64 %delim.coerce0, ptr %delim.coerce1, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %input.coerce0, ptr %input.coerce1, i64 %delim.coerce0, ptr %delim.coerce1, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %input = alloca %"struct.facebook::velox::StringView", align 8
   %delim = alloca %"struct.facebook::velox::StringView", align 8
@@ -13661,7 +13661,7 @@ _ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvE6commitEv.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %input.coerce0, ptr %input.coerce1, i64 %delim.coerce0, ptr %delim.coerce1, i64 noundef %limit, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %input.coerce0, ptr %input.coerce1, i64 %delim.coerce0, ptr %delim.coerce1, i64 noundef %limit, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %resultWriter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %input = alloca %"struct.facebook::velox::StringView", align 8
   %delim = alloca %"struct.facebook::velox::StringView", align 8
@@ -14232,7 +14232,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRK
   %retval.sroa.2.0.arrayidx.sroa_idx.i17.i = getelementptr inbounds i8, ptr %arrayidx.i15.i, i64 8
   %retval.sroa.2.0.copyload.i18.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i17.i, align 8
   %27 = load ptr, ptr %9, align 8
-  tail call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom.argelim(i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i16.i, ptr %retval.sroa.2.0.copyload.i18.i, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(192) %27)
+  tail call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb0ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i16.i, ptr %retval.sroa.2.0.copyload.i18.i, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(192) %27)
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
@@ -14358,7 +14358,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit41: ; pred
   %retval.sroa.2.0.copyload.i36 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i35, align 8
   %27 = getelementptr inbounds i8, ptr %this, i64 24
   %28 = load ptr, ptr %27, align 8
-  tail call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.argprom(i64 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, i64 %retval.sroa.0.0.copyload.i34, ptr %retval.sroa.2.0.copyload.i36, i64 noundef %8, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %28)
+  tail call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, i64 %retval.sroa.0.0.copyload.i34, ptr %retval.sroa.2.0.copyload.i36, i64 noundef %8, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %28)
   br label %if.end
 
 if.else:                                          ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit

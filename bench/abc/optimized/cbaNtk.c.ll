@@ -623,7 +623,7 @@ Cba_ObjLeft.exit.thread:                          ; preds = %126, %Cba_FonRange.
   %229 = load i64, ptr %228, align 8
   %230 = add i64 %229, 1
   store i64 %230, ptr %228, align 8
-  br label %Cba_NtkPrintDistribAddOne.argprom.exit
+  br label %Cba_NtkPrintDistribAddOne.exit
 
 .critedge.i:                                      ; preds = %221, %212
   %231 = load i32, ptr %215, align 8
@@ -756,9 +756,9 @@ Vec_WrdPush.exit25.i:                             ; preds = %284, %Vec_WrdGrow.e
   %289 = sext i32 %287 to i64
   %290 = getelementptr inbounds i64, ptr %286, i64 %289
   store i64 1, ptr %290, align 8
-  br label %Cba_NtkPrintDistribAddOne.argprom.exit
+  br label %Cba_NtkPrintDistribAddOne.exit
 
-Cba_NtkPrintDistribAddOne.argprom.exit:           ; preds = %226, %Vec_WrdPush.exit25.i
+Cba_NtkPrintDistribAddOne.exit:                   ; preds = %226, %Vec_WrdPush.exit25.i
   switch i8 %34, label %2454 [
     i8 18, label %291
     i8 66, label %335
@@ -793,7 +793,7 @@ Cba_NtkPrintDistribAddOne.argprom.exit:           ; preds = %226, %Vec_WrdPush.e
     i8 52, label %2079
   ]
 
-291:                                              ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+291:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i517 = load ptr, ptr %21, align 8
   %292 = getelementptr inbounds i32, ptr %.val.i517, i64 %indvars.iv1192
   %293 = load i32, ptr %292, align 4
@@ -866,7 +866,7 @@ Cba_ObjRangeSize.exit527:                         ; preds = %294, %Cba_NtkRangeS
   store i32 %334, ptr %332, align 4
   br label %2454
 
-335:                                              ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+335:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val373 = load ptr, ptr %25, align 8
   %.val374 = load ptr, ptr %26, align 8
   %336 = getelementptr inbounds i32, ptr %.val373, i64 %indvars.iv1192
@@ -1001,7 +1001,7 @@ Cba_ObjRangeSize.exit549:                         ; preds = %376, %Cba_NtkRangeS
   store i32 %414, ptr %412, align 4
   br label %2454
 
-415:                                              ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+415:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i550 = load ptr, ptr %21, align 8
   %416 = getelementptr inbounds i32, ptr %.val.i550, i64 %indvars.iv1192
   %417 = load i32, ptr %416, align 4
@@ -1193,7 +1193,7 @@ Cba_ObjRangeSize.exit582:                         ; preds = %488, %Cba_NtkRangeS
   store i32 %527, ptr %525, align 4
   br label %2454
 
-528:                                              ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+528:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i584 = load ptr, ptr %21, align 8
   %529 = getelementptr inbounds i32, ptr %.val.i584, i64 %indvars.iv1192
   %530 = load i32, ptr %529, align 4
@@ -1385,7 +1385,7 @@ Cba_ObjRangeSize.exit616:                         ; preds = %601, %Cba_NtkRangeS
   store i32 %640, ptr %638, align 4
   br label %2454
 
-641:                                              ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+641:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i618 = load ptr, ptr %21, align 8
   %642 = getelementptr inbounds i32, ptr %.val.i618, i64 %indvars.iv1192
   %643 = load i32, ptr %642, align 4
@@ -1577,7 +1577,7 @@ Cba_ObjRangeSize.exit650:                         ; preds = %714, %Cba_NtkRangeS
   store i32 %753, ptr %751, align 4
   br label %2454
 
-754:                                              ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+754:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i652 = load ptr, ptr %21, align 8
   %755 = getelementptr inbounds i32, ptr %.val.i652, i64 %indvars.iv1192
   %756 = load i32, ptr %755, align 4
@@ -1769,7 +1769,7 @@ Cba_ObjRangeSize.exit684:                         ; preds = %827, %Cba_NtkRangeS
   store i32 %866, ptr %864, align 4
   br label %2454
 
-867:                                              ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+867:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val.i686 = load ptr, ptr %21, align 8
   %868 = getelementptr inbounds i32, ptr %.val.i686, i64 %indvars.iv1192
   %869 = load i32, ptr %868, align 4
@@ -1961,7 +1961,7 @@ Cba_ObjRangeSize.exit718:                         ; preds = %940, %Cba_NtkRangeS
   store i32 %979, ptr %977, align 4
   br label %2454
 
-980:                                              ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+980:                                              ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val385 = load ptr, ptr %25, align 8
   %.val386 = load ptr, ptr %26, align 8
   %981 = getelementptr inbounds i32, ptr %.val385, i64 %indvars.iv1192
@@ -2033,7 +2033,7 @@ Cba_ObjRangeSize.exit730:                         ; preds = %989, %Cba_NtkRangeS
   store i32 %1021, ptr %1019, align 4
   br label %2454
 
-1022:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1022:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val387 = load ptr, ptr %25, align 8
   %.val388 = load ptr, ptr %26, align 8
   %1023 = getelementptr inbounds i32, ptr %.val387, i64 %indvars.iv1192
@@ -2105,7 +2105,7 @@ Cba_ObjRangeSize.exit741:                         ; preds = %1031, %Cba_NtkRange
   store i32 %1063, ptr %1061, align 4
   br label %2454
 
-1064:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1064:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val389 = load ptr, ptr %25, align 8
   %.val390 = load ptr, ptr %26, align 8
   %1065 = getelementptr inbounds i32, ptr %.val389, i64 %indvars.iv1192
@@ -2178,7 +2178,7 @@ Cba_ObjRangeSize.exit752:                         ; preds = %1073, %Cba_NtkRange
   store i32 %1106, ptr %1104, align 4
   br label %2454
 
-1107:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1107:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val391 = load ptr, ptr %25, align 8
   %.val392 = load ptr, ptr %26, align 8
   %1108 = getelementptr inbounds i32, ptr %.val391, i64 %indvars.iv1192
@@ -2250,7 +2250,7 @@ Cba_ObjRangeSize.exit763:                         ; preds = %1116, %Cba_NtkRange
   store i32 %1148, ptr %1146, align 4
   br label %2454
 
-1149:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1149:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val393 = load ptr, ptr %25, align 8
   %.val394 = load ptr, ptr %26, align 8
   %1150 = getelementptr inbounds i32, ptr %.val393, i64 %indvars.iv1192
@@ -2388,7 +2388,7 @@ Cba_ObjRangeSize.exit785:                         ; preds = %1197, %Cba_NtkRange
   store i32 %1230, ptr %1227, align 4
   br label %2454
 
-1231:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1231:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val397 = load ptr, ptr %25, align 8
   %.val398 = load ptr, ptr %26, align 8
   %1232 = getelementptr inbounds i32, ptr %.val397, i64 %indvars.iv1192
@@ -2526,7 +2526,7 @@ Cba_ObjRangeSize.exit807:                         ; preds = %1279, %Cba_NtkRange
   store i32 %1312, ptr %1309, align 4
   br label %2454
 
-1313:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1313:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val401 = load ptr, ptr %25, align 8
   %.val402 = load ptr, ptr %26, align 8
   %1314 = getelementptr inbounds i32, ptr %.val401, i64 %indvars.iv1192
@@ -2665,7 +2665,7 @@ Cba_ObjRangeSize.exit829:                         ; preds = %1361, %Cba_NtkRange
   store i32 %1395, ptr %1391, align 4
   br label %2454
 
-1396:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1396:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val405 = load ptr, ptr %25, align 8
   %.val406 = load ptr, ptr %26, align 8
   %1397 = getelementptr inbounds i32, ptr %.val405, i64 %indvars.iv1192
@@ -2739,7 +2739,7 @@ Cba_ObjRangeSize.exit840:                         ; preds = %1405, %Cba_NtkRange
   store i32 %1439, ptr %1437, align 4
   br label %2454
 
-1440:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1440:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val407 = load ptr, ptr %25, align 8
   %.val408 = load ptr, ptr %26, align 8
   %1441 = getelementptr inbounds i32, ptr %.val407, i64 %indvars.iv1192
@@ -2813,7 +2813,7 @@ Cba_ObjRangeSize.exit851:                         ; preds = %1449, %Cba_NtkRange
   store i32 %1483, ptr %1481, align 4
   br label %2454
 
-1484:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1484:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val409 = load ptr, ptr %25, align 8
   %.val410 = load ptr, ptr %26, align 8
   %1485 = getelementptr inbounds i32, ptr %.val409, i64 %indvars.iv1192
@@ -2887,7 +2887,7 @@ Cba_ObjRangeSize.exit862:                         ; preds = %1493, %Cba_NtkRange
   store i32 %1527, ptr %1525, align 4
   br label %2454
 
-1528:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1528:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val411 = load ptr, ptr %25, align 8
   %.val412 = load ptr, ptr %26, align 8
   %1529 = getelementptr inbounds i32, ptr %.val411, i64 %indvars.iv1192
@@ -2961,7 +2961,7 @@ Cba_ObjRangeSize.exit873:                         ; preds = %1537, %Cba_NtkRange
   store i32 %1571, ptr %1569, align 4
   br label %2454
 
-1572:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1572:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val413 = load ptr, ptr %25, align 8
   %.val414 = load ptr, ptr %26, align 8
   %1573 = getelementptr inbounds i32, ptr %.val413, i64 %indvars.iv1192
@@ -3035,7 +3035,7 @@ Cba_ObjRangeSize.exit884:                         ; preds = %1581, %Cba_NtkRange
   store i32 %1615, ptr %1613, align 4
   br label %2454
 
-1616:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1616:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val415 = load ptr, ptr %25, align 8
   %.val416 = load ptr, ptr %26, align 8
   %1617 = getelementptr inbounds i32, ptr %.val415, i64 %indvars.iv1192
@@ -3109,7 +3109,7 @@ Cba_ObjRangeSize.exit895:                         ; preds = %1625, %Cba_NtkRange
   store i32 %1659, ptr %1657, align 4
   br label %2454
 
-1660:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1660:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val417 = load ptr, ptr %25, align 8
   %.val418 = load ptr, ptr %26, align 8
   %1661 = getelementptr inbounds i32, ptr %.val417, i64 %indvars.iv1192
@@ -3181,7 +3181,7 @@ Cba_ObjRangeSize.exit906:                         ; preds = %1669, %Cba_NtkRange
   store i32 %1701, ptr %1699, align 4
   br label %2454
 
-1702:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1702:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val419 = load ptr, ptr %25, align 8
   %.val420 = load ptr, ptr %26, align 8
   %1703 = getelementptr inbounds i32, ptr %.val419, i64 %indvars.iv1192
@@ -3253,7 +3253,7 @@ Cba_ObjRangeSize.exit917:                         ; preds = %1711, %Cba_NtkRange
   store i32 %1743, ptr %1741, align 4
   br label %2454
 
-1744:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1744:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val421 = load ptr, ptr %25, align 8
   %.val422 = load ptr, ptr %26, align 8
   %1745 = getelementptr inbounds i32, ptr %.val421, i64 %indvars.iv1192
@@ -3327,7 +3327,7 @@ Cba_ObjRangeSize.exit928:                         ; preds = %1753, %Cba_NtkRange
   store i32 %1787, ptr %1785, align 4
   br label %2454
 
-1788:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1788:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val423 = load ptr, ptr %25, align 8
   %.val424 = load ptr, ptr %26, align 8
   %1789 = getelementptr inbounds i32, ptr %.val423, i64 %indvars.iv1192
@@ -3400,7 +3400,7 @@ Cba_ObjRangeSize.exit939:                         ; preds = %1797, %Cba_NtkRange
   store i32 %1830, ptr %1828, align 4
   br label %2454
 
-1831:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1831:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val425 = load ptr, ptr %25, align 8
   %.val426 = load ptr, ptr %26, align 8
   %1832 = getelementptr inbounds i32, ptr %.val425, i64 %indvars.iv1192
@@ -3473,7 +3473,7 @@ Cba_ObjRangeSize.exit950:                         ; preds = %1840, %Cba_NtkRange
   store i32 %1873, ptr %1871, align 4
   br label %2454
 
-1874:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1874:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val427 = load ptr, ptr %25, align 8
   %.val428 = load ptr, ptr %26, align 8
   %1875 = getelementptr inbounds i32, ptr %.val427, i64 %indvars.iv1192
@@ -3612,7 +3612,7 @@ Cba_ObjRangeSize.exit972:                         ; preds = %1923, %Cba_NtkRange
   store i32 %1956, ptr %1954, align 4
   br label %2454
 
-1957:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+1957:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val431 = load ptr, ptr %25, align 8
   %.val432 = load ptr, ptr %26, align 8
   %1958 = getelementptr inbounds i32, ptr %.val431, i64 %indvars.iv1192
@@ -3817,7 +3817,7 @@ Cba_ObjRangeSize.exit1005:                        ; preds = %2044, %Cba_NtkRange
   store i32 %2078, ptr %2074, align 4
   br label %2454
 
-2079:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+2079:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val437 = load ptr, ptr %25, align 8
   %.val438 = load ptr, ptr %26, align 8
   %2080 = getelementptr inbounds i32, ptr %.val437, i64 %indvars.iv1192
@@ -4022,7 +4022,7 @@ Cba_ObjRangeSize.exit1038:                        ; preds = %2166, %Cba_NtkRange
   store i32 %2200, ptr %2196, align 4
   br label %2454
 
-2201:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+2201:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val443 = load ptr, ptr %25, align 8
   %.val444 = load ptr, ptr %26, align 8
   %2202 = getelementptr inbounds i32, ptr %.val443, i64 %indvars.iv1192
@@ -4163,7 +4163,7 @@ Cba_ObjRangeSize.exit1060:                        ; preds = %2249, %Cba_NtkRange
   store i32 %2285, ptr %2283, align 4
   br label %2454
 
-2286:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+2286:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val447 = load ptr, ptr %25, align 8
   %.val448 = load ptr, ptr %26, align 8
   %2287 = getelementptr inbounds i32, ptr %.val447, i64 %indvars.iv1192
@@ -4236,7 +4236,7 @@ Cba_ObjRangeSize.exit1071:                        ; preds = %2295, %Cba_NtkRange
   store i32 %2328, ptr %2326, align 4
   br label %2454
 
-2329:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit
+2329:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit
   %.val449 = load ptr, ptr %25, align 8
   %.val450 = load ptr, ptr %26, align 8
   %2330 = getelementptr inbounds i32, ptr %.val449, i64 %indvars.iv1192
@@ -4443,9 +4443,9 @@ Cba_ObjRangeSize.exit1104:                        ; preds = %2417, %Cba_NtkRange
   store i32 %2453, ptr %2449, align 4
   br label %2454
 
-2454:                                             ; preds = %Cba_NtkPrintDistribAddOne.argprom.exit, %32, %Cba_ObjRangeSize.exit549, %Cba_ObjRangeSize.exit616, %Cba_ObjRangeSize.exit684, %Cba_ObjRangeSize.exit741, %Cba_ObjRangeSize.exit763, %Cba_ObjRangeSize.exit807, %Cba_ObjRangeSize.exit840, %Cba_ObjRangeSize.exit862, %Cba_ObjRangeSize.exit884, %Cba_ObjRangeSize.exit906, %Cba_ObjRangeSize.exit928, %Cba_ObjRangeSize.exit950, %Cba_ObjRangeSize.exit1005, %Cba_ObjRangeSize.exit1060, %Cba_ObjRangeSize.exit1104, %Cba_ObjRangeSize.exit1071, %Cba_ObjRangeSize.exit1038, %Cba_ObjRangeSize.exit972, %Cba_ObjRangeSize.exit939, %Cba_ObjRangeSize.exit917, %Cba_ObjRangeSize.exit895, %Cba_ObjRangeSize.exit873, %Cba_ObjRangeSize.exit851, %Cba_ObjRangeSize.exit829, %Cba_ObjRangeSize.exit785, %Cba_ObjRangeSize.exit752, %Cba_ObjRangeSize.exit730, %Cba_ObjRangeSize.exit718, %Cba_ObjRangeSize.exit650, %Cba_ObjRangeSize.exit582, %Cba_ObjRangeSize.exit527
-  %.2329 = phi i32 [ %.1328, %Cba_ObjRangeSize.exit527 ], [ %.1328, %Cba_ObjRangeSize.exit549 ], [ %.1328, %Cba_ObjRangeSize.exit582 ], [ %.1328, %Cba_ObjRangeSize.exit616 ], [ %.1328, %Cba_ObjRangeSize.exit650 ], [ %.1328, %Cba_ObjRangeSize.exit684 ], [ %.1328, %Cba_ObjRangeSize.exit718 ], [ %.1328, %Cba_ObjRangeSize.exit730 ], [ %.1328, %Cba_ObjRangeSize.exit741 ], [ %.1328, %Cba_ObjRangeSize.exit752 ], [ %.1328, %Cba_ObjRangeSize.exit763 ], [ %.1328, %Cba_ObjRangeSize.exit785 ], [ %.1328, %Cba_ObjRangeSize.exit807 ], [ %.1328, %Cba_ObjRangeSize.exit829 ], [ %.1328, %Cba_ObjRangeSize.exit840 ], [ %.1328, %Cba_ObjRangeSize.exit851 ], [ %.1328, %Cba_ObjRangeSize.exit862 ], [ %.1328, %Cba_ObjRangeSize.exit873 ], [ %.1328, %Cba_ObjRangeSize.exit884 ], [ %.1328, %Cba_ObjRangeSize.exit895 ], [ %.1328, %Cba_ObjRangeSize.exit906 ], [ %.1328, %Cba_ObjRangeSize.exit917 ], [ %.1328, %Cba_ObjRangeSize.exit928 ], [ %.1328, %Cba_ObjRangeSize.exit939 ], [ %.1328, %Cba_ObjRangeSize.exit950 ], [ %.1328, %Cba_ObjRangeSize.exit972 ], [ %.1328, %Cba_ObjRangeSize.exit1005 ], [ %.1328, %Cba_ObjRangeSize.exit1038 ], [ %.1328, %Cba_ObjRangeSize.exit1060 ], [ %.1328, %Cba_ObjRangeSize.exit1071 ], [ %.1328, %Cba_ObjRangeSize.exit1104 ], [ %.03271178, %32 ], [ %.1328, %Cba_NtkPrintDistribAddOne.argprom.exit ]
-  %.2 = phi i32 [ %.1, %Cba_ObjRangeSize.exit527 ], [ %.1, %Cba_ObjRangeSize.exit549 ], [ %.1, %Cba_ObjRangeSize.exit582 ], [ %.1, %Cba_ObjRangeSize.exit616 ], [ %.1, %Cba_ObjRangeSize.exit650 ], [ %.1, %Cba_ObjRangeSize.exit684 ], [ %.1, %Cba_ObjRangeSize.exit718 ], [ %.1, %Cba_ObjRangeSize.exit730 ], [ %.1, %Cba_ObjRangeSize.exit741 ], [ %.1, %Cba_ObjRangeSize.exit752 ], [ %.1, %Cba_ObjRangeSize.exit763 ], [ %.1, %Cba_ObjRangeSize.exit785 ], [ %.1, %Cba_ObjRangeSize.exit807 ], [ %.1, %Cba_ObjRangeSize.exit829 ], [ %.1, %Cba_ObjRangeSize.exit840 ], [ %.1, %Cba_ObjRangeSize.exit851 ], [ %.1, %Cba_ObjRangeSize.exit862 ], [ %.1, %Cba_ObjRangeSize.exit873 ], [ %.1, %Cba_ObjRangeSize.exit884 ], [ %.1, %Cba_ObjRangeSize.exit895 ], [ %.1, %Cba_ObjRangeSize.exit906 ], [ %.1, %Cba_ObjRangeSize.exit917 ], [ %.1, %Cba_ObjRangeSize.exit928 ], [ %.1, %Cba_ObjRangeSize.exit939 ], [ %.1, %Cba_ObjRangeSize.exit950 ], [ %.1, %Cba_ObjRangeSize.exit972 ], [ %.1, %Cba_ObjRangeSize.exit1005 ], [ %.1, %Cba_ObjRangeSize.exit1038 ], [ %.1, %Cba_ObjRangeSize.exit1060 ], [ %.1, %Cba_ObjRangeSize.exit1071 ], [ %.1, %Cba_ObjRangeSize.exit1104 ], [ %.01179, %32 ], [ %.1, %Cba_NtkPrintDistribAddOne.argprom.exit ]
+2454:                                             ; preds = %Cba_NtkPrintDistribAddOne.exit, %32, %Cba_ObjRangeSize.exit549, %Cba_ObjRangeSize.exit616, %Cba_ObjRangeSize.exit684, %Cba_ObjRangeSize.exit741, %Cba_ObjRangeSize.exit763, %Cba_ObjRangeSize.exit807, %Cba_ObjRangeSize.exit840, %Cba_ObjRangeSize.exit862, %Cba_ObjRangeSize.exit884, %Cba_ObjRangeSize.exit906, %Cba_ObjRangeSize.exit928, %Cba_ObjRangeSize.exit950, %Cba_ObjRangeSize.exit1005, %Cba_ObjRangeSize.exit1060, %Cba_ObjRangeSize.exit1104, %Cba_ObjRangeSize.exit1071, %Cba_ObjRangeSize.exit1038, %Cba_ObjRangeSize.exit972, %Cba_ObjRangeSize.exit939, %Cba_ObjRangeSize.exit917, %Cba_ObjRangeSize.exit895, %Cba_ObjRangeSize.exit873, %Cba_ObjRangeSize.exit851, %Cba_ObjRangeSize.exit829, %Cba_ObjRangeSize.exit785, %Cba_ObjRangeSize.exit752, %Cba_ObjRangeSize.exit730, %Cba_ObjRangeSize.exit718, %Cba_ObjRangeSize.exit650, %Cba_ObjRangeSize.exit582, %Cba_ObjRangeSize.exit527
+  %.2329 = phi i32 [ %.1328, %Cba_ObjRangeSize.exit527 ], [ %.1328, %Cba_ObjRangeSize.exit549 ], [ %.1328, %Cba_ObjRangeSize.exit582 ], [ %.1328, %Cba_ObjRangeSize.exit616 ], [ %.1328, %Cba_ObjRangeSize.exit650 ], [ %.1328, %Cba_ObjRangeSize.exit684 ], [ %.1328, %Cba_ObjRangeSize.exit718 ], [ %.1328, %Cba_ObjRangeSize.exit730 ], [ %.1328, %Cba_ObjRangeSize.exit741 ], [ %.1328, %Cba_ObjRangeSize.exit752 ], [ %.1328, %Cba_ObjRangeSize.exit763 ], [ %.1328, %Cba_ObjRangeSize.exit785 ], [ %.1328, %Cba_ObjRangeSize.exit807 ], [ %.1328, %Cba_ObjRangeSize.exit829 ], [ %.1328, %Cba_ObjRangeSize.exit840 ], [ %.1328, %Cba_ObjRangeSize.exit851 ], [ %.1328, %Cba_ObjRangeSize.exit862 ], [ %.1328, %Cba_ObjRangeSize.exit873 ], [ %.1328, %Cba_ObjRangeSize.exit884 ], [ %.1328, %Cba_ObjRangeSize.exit895 ], [ %.1328, %Cba_ObjRangeSize.exit906 ], [ %.1328, %Cba_ObjRangeSize.exit917 ], [ %.1328, %Cba_ObjRangeSize.exit928 ], [ %.1328, %Cba_ObjRangeSize.exit939 ], [ %.1328, %Cba_ObjRangeSize.exit950 ], [ %.1328, %Cba_ObjRangeSize.exit972 ], [ %.1328, %Cba_ObjRangeSize.exit1005 ], [ %.1328, %Cba_ObjRangeSize.exit1038 ], [ %.1328, %Cba_ObjRangeSize.exit1060 ], [ %.1328, %Cba_ObjRangeSize.exit1071 ], [ %.1328, %Cba_ObjRangeSize.exit1104 ], [ %.03271178, %32 ], [ %.1328, %Cba_NtkPrintDistribAddOne.exit ]
+  %.2 = phi i32 [ %.1, %Cba_ObjRangeSize.exit527 ], [ %.1, %Cba_ObjRangeSize.exit549 ], [ %.1, %Cba_ObjRangeSize.exit582 ], [ %.1, %Cba_ObjRangeSize.exit616 ], [ %.1, %Cba_ObjRangeSize.exit650 ], [ %.1, %Cba_ObjRangeSize.exit684 ], [ %.1, %Cba_ObjRangeSize.exit718 ], [ %.1, %Cba_ObjRangeSize.exit730 ], [ %.1, %Cba_ObjRangeSize.exit741 ], [ %.1, %Cba_ObjRangeSize.exit752 ], [ %.1, %Cba_ObjRangeSize.exit763 ], [ %.1, %Cba_ObjRangeSize.exit785 ], [ %.1, %Cba_ObjRangeSize.exit807 ], [ %.1, %Cba_ObjRangeSize.exit829 ], [ %.1, %Cba_ObjRangeSize.exit840 ], [ %.1, %Cba_ObjRangeSize.exit851 ], [ %.1, %Cba_ObjRangeSize.exit862 ], [ %.1, %Cba_ObjRangeSize.exit873 ], [ %.1, %Cba_ObjRangeSize.exit884 ], [ %.1, %Cba_ObjRangeSize.exit895 ], [ %.1, %Cba_ObjRangeSize.exit906 ], [ %.1, %Cba_ObjRangeSize.exit917 ], [ %.1, %Cba_ObjRangeSize.exit928 ], [ %.1, %Cba_ObjRangeSize.exit939 ], [ %.1, %Cba_ObjRangeSize.exit950 ], [ %.1, %Cba_ObjRangeSize.exit972 ], [ %.1, %Cba_ObjRangeSize.exit1005 ], [ %.1, %Cba_ObjRangeSize.exit1038 ], [ %.1, %Cba_ObjRangeSize.exit1060 ], [ %.1, %Cba_ObjRangeSize.exit1071 ], [ %.1, %Cba_ObjRangeSize.exit1104 ], [ %.01179, %32 ], [ %.1, %Cba_NtkPrintDistribAddOne.exit ]
   %indvars.iv.next1193 = add nuw nsw i64 %indvars.iv1192, 1
   %.val357 = load i32, ptr %18, align 4
   %2455 = sext i32 %.val357 to i64
@@ -6679,25 +6679,25 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 .critedge:                                        ; preds = %Vec_PtrPush.exit
   %.pre = load i32, ptr %8, align 4
   %70 = icmp slt i32 %.pre, 2
-  br i1 %70, label %Vec_PtrSort.argprom.exit, label %Vec_PtrSort.argprom.exit.thread
+  br i1 %70, label %Vec_PtrSort.exit, label %Vec_PtrSort.exit.thread
 
-Vec_PtrSort.argprom.exit.thread:                  ; preds = %.critedge
+Vec_PtrSort.exit.thread:                          ; preds = %.critedge
   %71 = load ptr, ptr %12, align 8
   %72 = zext nneg i32 %.pre to i64
   tail call void @qsort(ptr noundef %71, i64 noundef %72, i64 noundef 8, ptr noundef nonnull @Cba_StrCmp) #26
   store i32 0, ptr %5, align 4
   br label %.lr.ph49
 
-Vec_PtrSort.argprom.exit:                         ; preds = %.critedge
+Vec_PtrSort.exit:                                 ; preds = %.critedge
   store i32 0, ptr %5, align 4
   %73 = icmp eq i32 %.pre, 1
   br i1 %73, label %.lr.ph49, label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %Vec_PtrSort.argprom.exit
+.critedge2.thread:                                ; preds = %Vec_PtrSort.exit
   %.pre5557 = load ptr, ptr %12, align 8
   br label %Vec_PtrFreeData.exit.i
 
-.lr.ph49:                                         ; preds = %Vec_PtrSort.argprom.exit.thread, %Vec_PtrSort.argprom.exit
+.lr.ph49:                                         ; preds = %Vec_PtrSort.exit.thread, %Vec_PtrSort.exit
   %.phi.trans.insert.i42 = getelementptr inbounds i8, ptr %1, i64 8
   br label %74
 
@@ -10219,7 +10219,7 @@ Cba_ManRoot.exit:                                 ; preds = %1, %Cba_ManNtkIsOk.
   %48 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %.val122, ptr noundef %47, ptr noundef nonnull %2) #26
   %49 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %49, 0
-  br i1 %.not.i, label %Cba_NtkAdd.argprom.exit, label %50
+  br i1 %.not.i, label %Cba_NtkAdd.exit, label %50
 
 50:                                               ; preds = %Cba_ManRoot.exit
   %.val.i = load ptr, ptr %43, align 8
@@ -10228,16 +10228,16 @@ Cba_ManRoot.exit:                                 ; preds = %1, %Cba_ManNtkIsOk.
   %.val.val.i = load ptr, ptr %51, align 8
   %52 = call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %.val3.i) #26
   %53 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, ptr noundef %52)
-  br label %Cba_NtkAdd.argprom.exit
+  br label %Cba_NtkAdd.exit
 
-Cba_NtkAdd.argprom.exit:                          ; preds = %Cba_ManRoot.exit, %50
+Cba_NtkAdd.exit:                                  ; preds = %Cba_ManRoot.exit, %50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %54 = getelementptr i8, ptr %30, i64 204
   %.val123 = load i32, ptr %54, align 4
   %55 = icmp slt i32 %.val123, 1
   br i1 %55, label %77, label %56
 
-56:                                               ; preds = %Cba_NtkAdd.argprom.exit
+56:                                               ; preds = %Cba_NtkAdd.exit
   %57 = getelementptr inbounds i8, ptr %43, i64 200
   %58 = getelementptr inbounds i8, ptr %43, i64 88
   %.val.i129 = load i32, ptr %58, align 8
@@ -10290,7 +10290,7 @@ Cba_NtkCleanObjNames.exit:                        ; preds = %73, %Vec_IntGrow.ex
   store i32 %.val.i129, ptr %76, align 4
   br label %77
 
-77:                                               ; preds = %Cba_NtkCleanObjNames.exit, %Cba_NtkAdd.argprom.exit
+77:                                               ; preds = %Cba_NtkCleanObjNames.exit, %Cba_NtkAdd.exit
   %78 = getelementptr i8, ptr %30, i64 268
   %.val126 = load i32, ptr %78, align 4
   %79 = icmp slt i32 %.val126, 1
@@ -13466,7 +13466,7 @@ Cba_NtkCollectGroupStats.exit:                    ; preds = %38, %Cba_ManRoot.ex
   %66 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %.val45, ptr noundef %65, ptr noundef nonnull %3) #26
   %67 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %67, 0
-  br i1 %.not.i, label %Cba_NtkAdd.argprom.exit, label %68
+  br i1 %.not.i, label %Cba_NtkAdd.exit, label %68
 
 68:                                               ; preds = %Cba_NtkCollectGroupStats.exit
   %.val.i48 = load ptr, ptr %61, align 8
@@ -13475,16 +13475,16 @@ Cba_NtkCollectGroupStats.exit:                    ; preds = %38, %Cba_ManRoot.ex
   %.val.val.i = load ptr, ptr %69, align 8
   %70 = call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %.val3.i) #26
   %71 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, ptr noundef %70)
-  br label %Cba_NtkAdd.argprom.exit
+  br label %Cba_NtkAdd.exit
 
-Cba_NtkAdd.argprom.exit:                          ; preds = %Cba_NtkCollectGroupStats.exit, %68
+Cba_NtkAdd.exit:                                  ; preds = %Cba_NtkCollectGroupStats.exit, %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %72 = getelementptr i8, ptr %28, i64 204
   %.val46 = load i32, ptr %72, align 4
   %73 = icmp slt i32 %.val46, 1
   br i1 %73, label %95, label %74
 
-74:                                               ; preds = %Cba_NtkAdd.argprom.exit
+74:                                               ; preds = %Cba_NtkAdd.exit
   %75 = getelementptr inbounds i8, ptr %61, i64 200
   %76 = getelementptr inbounds i8, ptr %61, i64 88
   %.val.i49 = load i32, ptr %76, align 8
@@ -13537,7 +13537,7 @@ Cba_NtkCleanObjNames.exit:                        ; preds = %91, %Vec_IntGrow.ex
   store i32 %.val.i49, ptr %94, align 4
   br label %95
 
-95:                                               ; preds = %Cba_NtkCleanObjNames.exit, %Cba_NtkAdd.argprom.exit
+95:                                               ; preds = %Cba_NtkCleanObjNames.exit, %Cba_NtkAdd.exit
   %96 = getelementptr i8, ptr %28, i64 268
   %.val47 = load i32, ptr %96, align 4
   %97 = icmp slt i32 %.val47, 1
@@ -13706,7 +13706,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %43 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %.val123, ptr noundef %42, ptr noundef nonnull %4) #26
   %44 = load i32, ptr %4, align 4
   %.not.i142 = icmp eq i32 %44, 0
-  br i1 %.not.i142, label %Cba_NtkAdd.argprom.exit, label %45
+  br i1 %.not.i142, label %Cba_NtkAdd.exit, label %45
 
 45:                                               ; preds = %Vec_IntStartFull.exit
   %.val.i = load ptr, ptr %25, align 8
@@ -13715,9 +13715,9 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %.val.val.i = load ptr, ptr %46, align 8
   %47 = call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %.val3.i) #26
   %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, ptr noundef %47)
-  br label %Cba_NtkAdd.argprom.exit
+  br label %Cba_NtkAdd.exit
 
-Cba_NtkAdd.argprom.exit:                          ; preds = %Vec_IntStartFull.exit, %45
+Cba_NtkAdd.exit:                                  ; preds = %Vec_IntStartFull.exit, %45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %49 = getelementptr inbounds i8, ptr %25, i64 200
   %50 = getelementptr inbounds i8, ptr %25, i64 88
@@ -13726,7 +13726,7 @@ Cba_NtkAdd.argprom.exit:                          ; preds = %Vec_IntStartFull.ex
   %.not.i.i.i = icmp slt i32 %51, %.val.i143
   br i1 %.not.i.i.i, label %52, label %Vec_IntGrow.exit.i.i
 
-52:                                               ; preds = %Cba_NtkAdd.argprom.exit
+52:                                               ; preds = %Cba_NtkAdd.exit
   %53 = getelementptr inbounds i8, ptr %25, i64 208
   %54 = load ptr, ptr %53, align 8
   %.not9.i.i.i = icmp eq ptr %54, null
@@ -13748,7 +13748,7 @@ Cba_NtkAdd.argprom.exit:                          ; preds = %Vec_IntStartFull.ex
   store i32 %.val.i143, ptr %49, align 8
   br label %Vec_IntGrow.exit.i.i
 
-Vec_IntGrow.exit.i.i:                             ; preds = %61, %Cba_NtkAdd.argprom.exit
+Vec_IntGrow.exit.i.i:                             ; preds = %61, %Cba_NtkAdd.exit
   %63 = icmp sgt i32 %.val.i143, 0
   br i1 %63, label %.lr.ph.i.i, label %Cba_NtkCleanObjNames.exit
 
@@ -14040,9 +14040,9 @@ Cba_NtkInsertGiaLit.exit79.i:                     ; preds = %218, %188, %186
   %.027.i75.i = phi i32 [ %187, %186 ], [ %222, %218 ], [ %191, %188 ]
   %.val60.i = load ptr, ptr %113, align 8
   %.not.i.i.i147 = icmp eq ptr %.val60.i, null
-  br i1 %.not.i.i.i147, label %Gia_ObjIsMux.argprom.exit.thread.i, label %Gia_ObjIsMux.argprom.exit.i
+  br i1 %.not.i.i.i147, label %Gia_ObjIsMux.exit.thread.i, label %Gia_ObjIsMux.exit.i
 
-Gia_ObjIsMux.argprom.exit.i:                      ; preds = %Cba_NtkInsertGiaLit.exit79.i
+Gia_ObjIsMux.exit.i:                              ; preds = %Cba_NtkInsertGiaLit.exit79.i
   %.val59.i = load ptr, ptr %108, align 8
   %223 = ptrtoint ptr %125 to i64
   %224 = ptrtoint ptr %.val59.i to i64
@@ -14053,9 +14053,9 @@ Gia_ObjIsMux.argprom.exit.i:                      ; preds = %Cba_NtkInsertGiaLit
   %228 = getelementptr inbounds i8, ptr %.val60.i, i64 %227
   %229 = load i32, ptr %228, align 4
   %.not102.i = icmp eq i32 %229, 0
-  br i1 %.not102.i, label %Gia_ObjIsMux.argprom.exit.thread.i, label %Gia_ObjFaninLit2.argprom.exit.i
+  br i1 %.not102.i, label %Gia_ObjIsMux.exit.thread.i, label %Gia_ObjFaninLit2.exit.i
 
-Gia_ObjFaninLit2.argprom.exit.i:                  ; preds = %Gia_ObjIsMux.argprom.exit.i
+Gia_ObjFaninLit2.exit.i:                          ; preds = %Gia_ObjIsMux.exit.i
   %230 = getelementptr inbounds i32, ptr %.val60.i, i64 %indvars.iv203
   %231 = load i32, ptr %230, align 4
   %.not5.i.i = icmp eq i32 %231, 0
@@ -14063,11 +14063,11 @@ Gia_ObjFaninLit2.argprom.exit.i:                  ; preds = %Gia_ObjIsMux.argpro
   %or.cond.i81.i = icmp ult i32 %spec.select.i.i, 2
   br i1 %or.cond.i81.i, label %232, label %234
 
-232:                                              ; preds = %Gia_ObjFaninLit2.argprom.exit.i
+232:                                              ; preds = %Gia_ObjFaninLit2.exit.i
   %233 = xor i32 %spec.select.i.i, -1
   br label %Cba_NtkInsertGiaLit.exit97.i
 
-234:                                              ; preds = %Gia_ObjFaninLit2.argprom.exit.i
+234:                                              ; preds = %Gia_ObjFaninLit2.exit.i
   %.val31.i82.i = load ptr, ptr %109, align 8
   %235 = sext i32 %spec.select.i.i to i64
   %236 = getelementptr inbounds i32, ptr %.val31.i82.i, i64 %235
@@ -14147,16 +14147,16 @@ Cba_NtkInsertGiaLit.exit97.i:                     ; preds = %264, %234, %232
   store i32 %.027.i75.i, ptr %279, align 4
   br label %Cba_NtkInsertGiaObj.exit
 
-Gia_ObjIsMux.argprom.exit.thread.i:               ; preds = %Gia_ObjIsMux.argprom.exit.i, %Cba_NtkInsertGiaLit.exit79.i
+Gia_ObjIsMux.exit.thread.i:                       ; preds = %Gia_ObjIsMux.exit.i, %Cba_NtkInsertGiaLit.exit79.i
   %.val62.i = load i64, ptr %125, align 4
   %280 = and i64 %.val62.i, 2147483648
   %.not.i.i98.i = icmp ne i64 %280, 0
   %281 = and i64 %.val62.i, 536870911
   %282 = icmp eq i64 %281, 536870911
   %narrow.i.not.i.i = or i1 %.not.i.i98.i, %282
-  br i1 %narrow.i.not.i.i, label %Gia_ObjIsXor.argprom.exit.thread.i, label %Gia_ObjIsXor.argprom.exit.i
+  br i1 %narrow.i.not.i.i, label %Gia_ObjIsXor.exit.thread.i, label %Gia_ObjIsXor.exit.i
 
-Gia_ObjIsXor.argprom.exit.i:                      ; preds = %Gia_ObjIsMux.argprom.exit.thread.i
+Gia_ObjIsXor.exit.i:                              ; preds = %Gia_ObjIsMux.exit.thread.i
   %283 = trunc i64 %.val62.i to i32
   %284 = and i32 %283, 536870911
   %285 = lshr i64 %.val62.i, 32
@@ -14164,13 +14164,13 @@ Gia_ObjIsXor.argprom.exit.i:                      ; preds = %Gia_ObjIsMux.argpro
   %287 = and i32 %286, 536870911
   %288 = icmp uge i32 %284, %287
   %cond.fr.i = freeze i1 %288
-  br i1 %cond.fr.i, label %Gia_ObjIsXor.argprom.exit.thread.i, label %289
+  br i1 %cond.fr.i, label %Gia_ObjIsXor.exit.thread.i, label %289
 
-Gia_ObjIsXor.argprom.exit.thread.i:               ; preds = %Gia_ObjIsXor.argprom.exit.i, %Gia_ObjIsMux.argprom.exit.thread.i
+Gia_ObjIsXor.exit.thread.i:                       ; preds = %Gia_ObjIsXor.exit.i, %Gia_ObjIsMux.exit.thread.i
   br label %289
 
-289:                                              ; preds = %Gia_ObjIsXor.argprom.exit.thread.i, %Gia_ObjIsXor.argprom.exit.i
-  %290 = phi i32 [ 10, %Gia_ObjIsXor.argprom.exit.thread.i ], [ 14, %Gia_ObjIsXor.argprom.exit.i ]
+289:                                              ; preds = %Gia_ObjIsXor.exit.thread.i, %Gia_ObjIsXor.exit.i
+  %290 = phi i32 [ 10, %Gia_ObjIsXor.exit.thread.i ], [ 14, %Gia_ObjIsXor.exit.i ]
   %291 = call fastcc i32 @Cba_ObjAlloc(ptr noundef %25, i32 noundef %290, i32 noundef 2, i32 noundef 1)
   %.val48.i = load ptr, ptr %110, align 8
   %.val49.i = load ptr, ptr %111, align 8
@@ -14586,7 +14586,7 @@ Cba_NtkCleanFonNames.exit.i:                      ; preds = %489, %Vec_IntGrow.e
   %498 = getelementptr i8, ptr %25, i64 44
   %.val363.i = load i32, ptr %498, align 4
   %499 = icmp sgt i32 %.val363.i, 0
-  br i1 %499, label %.lr.ph5.i, label %Cba_NtkCreateFonNames.argprom.exit
+  br i1 %499, label %.lr.ph5.i, label %Cba_NtkCreateFonNames.exit
 
 .lr.ph5.i:                                        ; preds = %.critedge.preheader.i
   %500 = getelementptr i8, ptr %25, i64 48
@@ -14676,20 +14676,20 @@ Cba_NtkCleanFonNames.exit.i:                      ; preds = %489, %Vec_IntGrow.e
   %.val36.i183 = load i32, ptr %498, align 4
   %543 = sext i32 %.val36.i183 to i64
   %544 = icmp slt i64 %indvars.iv.next8.i, %543
-  br i1 %544, label %523, label %Cba_NtkCreateFonNames.argprom.exit, !llvm.loop !97
+  br i1 %544, label %523, label %Cba_NtkCreateFonNames.exit, !llvm.loop !97
 
-Cba_NtkCreateFonNames.argprom.exit:               ; preds = %.critedge.i, %.critedge.preheader.i
+Cba_NtkCreateFonNames.exit:                       ; preds = %.critedge.i, %.critedge.preheader.i
   call fastcc void @Cba_NtkAddMissingFonNames(ptr noundef nonnull %25, ptr noundef nonnull @.str.49)
   %545 = getelementptr inbounds i8, ptr %28, i64 8
   %546 = load ptr, ptr %545, align 8
   %.not.i187 = icmp eq ptr %546, null
   br i1 %.not.i187, label %Vec_IntFree.exit, label %547
 
-547:                                              ; preds = %Cba_NtkCreateFonNames.argprom.exit
+547:                                              ; preds = %Cba_NtkCreateFonNames.exit
   call void @free(ptr noundef nonnull %546) #26
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Cba_NtkCreateFonNames.argprom.exit, %547
+Vec_IntFree.exit:                                 ; preds = %Cba_NtkCreateFonNames.exit, %547
   call void @free(ptr noundef nonnull %28) #26
   ret ptr %16
 }
@@ -15498,7 +15498,7 @@ Cba_ManRoot.exit9:                                ; preds = %Cba_ManRoot.exit, %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %42, ptr noundef nonnull readonly align 8 dereferenceable(720) %43, i64 720, i1 false)
   %.val2110.i = load i32, ptr %27, align 4
   %.not.not11.i = icmp sgt i32 %.val2110.i, 1
-  br i1 %.not.not11.i, label %Cba_ManNtk.exit.lr.ph.i, label %Cba_ManDup.argprom.exit
+  br i1 %.not.not11.i, label %Cba_ManNtk.exit.lr.ph.i, label %Cba_ManDup.exit
 
 Cba_ManNtk.exit.lr.ph.i:                          ; preds = %Cba_ManRoot.exit9
   %44 = getelementptr i8, ptr %0, i64 1568
@@ -15512,7 +15512,7 @@ Cba_ManNtk.exit.i:                                ; preds = %Cba_NtkDupAttrs.exi
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr @Cba_NtkCollectDfs(ptr noundef %47)
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %Cba_NtkDupOrder.argprom.exit.i, label %50
+  br i1 %49, label %Cba_NtkDupOrder.exit.i, label %50
 
 50:                                               ; preds = %Cba_ManNtk.exit.i
   %51 = getelementptr i8, ptr %48, i64 4
@@ -15999,9 +15999,9 @@ Cba_NtkDup.exit.i.i:                              ; preds = %.critedge4.i.i.i, %
 
 Vec_IntFree.exit.i.i:                             ; preds = %264, %Cba_NtkDup.exit.i.i
   call void @free(ptr noundef nonnull %48) #26
-  br label %Cba_NtkDupOrder.argprom.exit.i
+  br label %Cba_NtkDupOrder.exit.i
 
-Cba_NtkDupOrder.argprom.exit.i:                   ; preds = %Vec_IntFree.exit.i.i, %Cba_ManNtk.exit.i
+Cba_NtkDupOrder.exit.i:                           ; preds = %Vec_IntFree.exit.i.i, %Cba_ManNtk.exit.i
   %.0.i.i = phi ptr [ %83, %Vec_IntFree.exit.i.i ], [ null, %Cba_ManNtk.exit.i ]
   %.val23.i = load ptr, ptr %45, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -16014,25 +16014,25 @@ Cba_NtkDupOrder.argprom.exit.i:                   ; preds = %Vec_IntFree.exit.i.
   %268 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %.val23.i, ptr noundef %267, ptr noundef nonnull %4) #26
   %269 = load i32, ptr %4, align 4
   %.not.i24.i = icmp eq i32 %269, 0
-  br i1 %.not.i24.i, label %Cba_NtkAdd.argprom.exit.i, label %270
+  br i1 %.not.i24.i, label %Cba_NtkAdd.exit.i, label %270
 
-270:                                              ; preds = %Cba_NtkDupOrder.argprom.exit.i
+270:                                              ; preds = %Cba_NtkDupOrder.exit.i
   %.val.i25.i = load ptr, ptr %.0.i.i, align 8
   %.val3.i.i = load i32, ptr %265, align 4
   %271 = getelementptr i8, ptr %.val.i25.i, i64 16
   %.val.val.i.i = load ptr, ptr %271, align 8
   %272 = call ptr @Abc_NamStr(ptr noundef %.val.val.i.i, i32 noundef %.val3.i.i) #26
   %273 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, ptr noundef %272)
-  br label %Cba_NtkAdd.argprom.exit.i
+  br label %Cba_NtkAdd.exit.i
 
-Cba_NtkAdd.argprom.exit.i:                        ; preds = %270, %Cba_NtkDupOrder.argprom.exit.i
+Cba_NtkAdd.exit.i:                                ; preds = %270, %Cba_NtkDupOrder.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %274 = getelementptr i8, ptr %47, i64 60
   %.val37147.i.i = load i32, ptr %274, align 4
   %275 = icmp sgt i32 %.val37147.i.i, 0
   br i1 %275, label %.lr.ph.i.i, label %.critedge.i.i
 
-.lr.ph.i.i:                                       ; preds = %Cba_NtkAdd.argprom.exit.i
+.lr.ph.i.i:                                       ; preds = %Cba_NtkAdd.exit.i
   %276 = getelementptr i8, ptr %47, i64 64
   %277 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
   %278 = getelementptr inbounds i8, ptr %47, i64 168
@@ -16199,7 +16199,7 @@ Vec_IntPush.exit.i.i:                             ; preds = %337, %Vec_IntGrow.e
   %345 = icmp slt i64 %indvars.iv.next.i.i, %344
   br i1 %345, label %282, label %.critedge.i.i, !llvm.loop !110
 
-.critedge.i.i:                                    ; preds = %Vec_IntPush.exit.i.i, %Cba_NtkAdd.argprom.exit.i
+.critedge.i.i:                                    ; preds = %Vec_IntPush.exit.i.i, %Cba_NtkAdd.exit.i
   %346 = getelementptr inbounds i8, ptr %.0.i.i, i64 184
   %347 = getelementptr i8, ptr %.0.i.i, i64 92
   %.val34.i.i = load i32, ptr %347, align 4
@@ -16966,9 +16966,9 @@ Cba_NtkDupAttrs.exit.i:                           ; preds = %Vec_PtrPush.exit.i.
   %.val21.i = load i32, ptr %27, align 4
   %670 = sext i32 %.val21.i to i64
   %.not.not.i = icmp slt i64 %indvars.iv.next.i, %670
-  br i1 %.not.not.i, label %Cba_ManNtk.exit.i, label %Cba_ManDup.argprom.exit, !llvm.loop !114
+  br i1 %.not.not.i, label %Cba_ManNtk.exit.i, label %Cba_ManDup.exit, !llvm.loop !114
 
-Cba_ManDup.argprom.exit:                          ; preds = %Cba_NtkDupAttrs.exit.i, %Cba_ManRoot.exit9
+Cba_ManDup.exit:                                  ; preds = %Cba_NtkDupAttrs.exit.i, %Cba_ManRoot.exit9
   %671 = getelementptr i8, ptr %41, i64 1564
   %.val.i = load i32, ptr %671, align 4
   %672 = add nsw i32 %.val.i, -1

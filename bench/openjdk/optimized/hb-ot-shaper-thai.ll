@@ -281,20 +281,20 @@ _ZN11hb_buffer_t13replace_glyphEj.exit:           ; preds = %.backedge, %_ZN11hb
   %140 = getelementptr inbounds i8, ptr %0, i64 4
   %141 = load i32, ptr %140, align 4
   %142 = icmp eq i32 %141, 1416126825
-  br i1 %142, label %143, label %_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.argprom.exit
+  br i1 %142, label %143, label %_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.exit
 
 143:                                              ; preds = %_ZN11hb_buffer_t13replace_glyphEj.exit
   %144 = getelementptr inbounds i8, ptr %0, i64 48
   %145 = load i8, ptr %144, align 8
   %146 = trunc i8 %145 to i1
-  br i1 %146, label %_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.argprom.exit, label %147
+  br i1 %146, label %_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.exit, label %147
 
 147:                                              ; preds = %143
   %148 = getelementptr inbounds i8, ptr %1, i64 104
   %149 = load ptr, ptr %148, align 8
   %150 = load i32, ptr %7, align 8
   %.not9.i = icmp eq i32 %150, 0
-  br i1 %.not9.i, label %_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.argprom.exit, label %.lr.ph.preheader.i
+  br i1 %.not9.i, label %_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %147
   %wide.trip.count.i = zext i32 %150 to i64
@@ -497,9 +497,9 @@ _ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i: ; preds = %226, %221, %
   %.1.i = phi i32 [ %168, %_ZL18get_consonant_typej.exit.i ], [ %177, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i ], [ %177, %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.argprom.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.exit, label %.lr.ph.i, !llvm.loop !10
 
-_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.argprom.exit: ; preds = %229, %147, %143, %_ZN11hb_buffer_t13replace_glyphEj.exit
+_ZL19do_thai_pua_shapingPK18hb_ot_shape_plan_tP11hb_buffer_tP9hb_font_t.exit: ; preds = %229, %147, %143, %_ZN11hb_buffer_t13replace_glyphEj.exit
   ret void
 }
 

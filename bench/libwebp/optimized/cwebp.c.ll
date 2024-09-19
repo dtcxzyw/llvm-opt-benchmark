@@ -2378,7 +2378,7 @@ UpdateFlagsAndSize.exit98.i:                      ; preds = %1032, %1029, %Updat
   %.212.i = phi i64 [ %.111.i, %UpdateFlagsAndSize.exit93.i ], [ %.111.i, %1029 ], [ %1037, %1032 ]
   %.not83.i = phi i1 [ true, %UpdateFlagsAndSize.exit93.i ], [ true, %1029 ], [ false, %1032 ]
   %1038 = icmp ult i64 %.val666, 20
-  br i1 %1038, label %WriteWebPWithMetadata.argprom.exit.thread, label %1039
+  br i1 %1038, label %WriteWebPWithMetadata.exit.thread, label %1039
 
 1039:                                             ; preds = %UpdateFlagsAndSize.exit98.i
   %1040 = add i64 %.val666, -8
@@ -2389,7 +2389,7 @@ UpdateFlagsAndSize.exit98.i:                      ; preds = %1032, %1029, %Updat
 1043:                                             ; preds = %1039
   %1044 = load ptr, ptr @stderr, align 8
   %1045 = call i64 @fwrite(ptr nonnull @.str.192, i64 63, i64 1, ptr %1044) #13
-  br label %WriteWebPWithMetadata.argprom.exit.thread
+  br label %WriteWebPWithMetadata.exit.thread
 
 1046:                                             ; preds = %1039
   %.not.i675 = icmp eq i64 %.212.i, 0
@@ -2577,10 +2577,10 @@ WriteLE24.exit.i:                                 ; preds = %1098
 1122:                                             ; preds = %.thread17.i, %1113
   %.5 = phi i32 [ %1121, %.thread17.i ], [ %.4, %1113 ]
   %.2.i = phi i32 [ %1120, %.thread17.i ], [ %1116, %1113 ]
-  br i1 %.not83.i, label %WriteWebPWithMetadata.argprom.exit, label %1123
+  br i1 %.not83.i, label %WriteWebPWithMetadata.exit, label %1123
 
 .thread18.i:                                      ; preds = %.thread.i
-  br i1 %.not83.i, label %WriteWebPWithMetadata.argprom.exit.thread, label %.thread22.i
+  br i1 %.not83.i, label %WriteWebPWithMetadata.exit.thread, label %.thread22.i
 
 1123:                                             ; preds = %1122
   %.not84.i = icmp eq i32 %.2.i, 0
@@ -2594,32 +2594,32 @@ WriteLE24.exit.i:                                 ; preds = %1098
   %.6 = phi i32 [ %.4714, %.thread18.i ], [ %.5, %1123 ], [ %.5, %1124 ]
   %1126 = phi i32 [ 0, %.thread18.i ], [ 0, %1123 ], [ %1125, %1124 ]
   %1127 = or i32 %.6, 4
-  br label %WriteWebPWithMetadata.argprom.exit
+  br label %WriteWebPWithMetadata.exit
 
 1128:                                             ; preds = %1046
   %1129 = call i64 @fwrite(ptr noundef %.val, i64 noundef %.val666, i64 noundef 1, ptr noundef nonnull %.1479704)
   %1130 = icmp eq i64 %1129, 1
   %1131 = zext i1 %1130 to i32
-  br label %WriteWebPWithMetadata.argprom.exit
+  br label %WriteWebPWithMetadata.exit
 
-WriteWebPWithMetadata.argprom.exit.thread:        ; preds = %1043, %UpdateFlagsAndSize.exit98.i, %.thread18.i
+WriteWebPWithMetadata.exit.thread:                ; preds = %1043, %UpdateFlagsAndSize.exit98.i, %.thread18.i
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6)
   br label %1132
 
-WriteWebPWithMetadata.argprom.exit:               ; preds = %1122, %.thread22.i, %1128
+WriteWebPWithMetadata.exit:                       ; preds = %1122, %.thread22.i, %1128
   %.7 = phi i32 [ 0, %1128 ], [ %1127, %.thread22.i ], [ %.5, %1122 ]
   %.0.i676 = phi i32 [ %1131, %1128 ], [ %1126, %.thread22.i ], [ %.2.i, %1122 ]
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6)
   %.not645 = icmp eq i32 %.0.i676, 0
   br i1 %.not645, label %1132, label %1135
 
-1132:                                             ; preds = %WriteWebPWithMetadata.argprom.exit.thread, %WriteWebPWithMetadata.argprom.exit
+1132:                                             ; preds = %WriteWebPWithMetadata.exit.thread, %WriteWebPWithMetadata.exit
   %1133 = load ptr, ptr @stderr, align 8
   %1134 = call i64 @fwrite(ptr nonnull @.str.100, i64 25, i64 1, ptr %1133) #13
   br label %1205
 
-1135:                                             ; preds = %WriteWebPWithMetadata.argprom.exit, %1001
-  %.0690 = phi i32 [ %.7, %WriteWebPWithMetadata.argprom.exit ], [ 0, %1001 ]
+1135:                                             ; preds = %WriteWebPWithMetadata.exit, %1001
+  %.0690 = phi i32 [ %.7, %WriteWebPWithMetadata.exit ], [ 0, %1001 ]
   %1136 = icmp eq ptr %.1479704, null
   %or.cond48 = select i1 %1136, i1 %693, i1 false
   br i1 %or.cond48, label %.lr.ph1155.preheader, label %.loopexit

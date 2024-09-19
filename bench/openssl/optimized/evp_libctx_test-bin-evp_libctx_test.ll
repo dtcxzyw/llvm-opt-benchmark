@@ -484,13 +484,13 @@ getname.exit34.i:                                 ; preds = %if.then.i31.i, %get
   %call7.i = tail call ptr @EVP_PKEY_new() #6
   %call8.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 176, ptr noundef nonnull @.str.31, ptr noundef %call7.i) #6
   %tobool.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool.not.i, label %do_dh_param_keygen.argprom.exit, label %lor.lhs.false.i
+  br i1 %tobool.not.i, label %do_dh_param_keygen.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %getname.exit34.i
   %call9.i = tail call ptr @DH_new() #6
   %call10.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 177, ptr noundef nonnull @.str.51, ptr noundef %call9.i) #6
   %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %do_dh_param_keygen.argprom.exit, label %lor.lhs.false12.i
+  br i1 %tobool11.not.i, label %do_dh_param_keygen.exit, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %lor.lhs.false.i
   %idxprom.i = sext i32 %div.i to i64
@@ -499,7 +499,7 @@ lor.lhs.false12.i:                                ; preds = %lor.lhs.false.i
   %call13.i = tail call ptr @BN_dup(ptr noundef %3) #6
   %call14.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 178, ptr noundef nonnull @.str.33, ptr noundef %call13.i) #6
   %tobool15.not.i = icmp eq i32 %call14.i, 0
-  br i1 %tobool15.not.i, label %do_dh_param_keygen.argprom.exit, label %lor.lhs.false16.i
+  br i1 %tobool15.not.i, label %do_dh_param_keygen.exit, label %lor.lhs.false16.i
 
 lor.lhs.false16.i:                                ; preds = %lor.lhs.false12.i
   %idxprom17.i = sext i32 %rem.i to i64
@@ -508,7 +508,7 @@ lor.lhs.false16.i:                                ; preds = %lor.lhs.false12.i
   %call19.i = tail call ptr @BN_dup(ptr noundef %4) #6
   %call20.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 179, ptr noundef nonnull @.str.34, ptr noundef %call19.i) #6
   %tobool21.not.i = icmp eq i32 %call20.i, 0
-  br i1 %tobool21.not.i, label %do_dh_param_keygen.argprom.exit, label %lor.lhs.false22.i
+  br i1 %tobool21.not.i, label %do_dh_param_keygen.exit, label %lor.lhs.false22.i
 
 lor.lhs.false22.i:                                ; preds = %lor.lhs.false16.i
   %idxprom23.i = sext i32 %rem2.i to i64
@@ -517,7 +517,7 @@ lor.lhs.false22.i:                                ; preds = %lor.lhs.false16.i
   %call25.i = tail call ptr @BN_dup(ptr noundef %5) #6
   %call26.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 180, ptr noundef nonnull @.str.35, ptr noundef %call25.i) #6
   %tobool27.not.i = icmp eq i32 %call26.i, 0
-  br i1 %tobool27.not.i, label %do_dh_param_keygen.argprom.exit, label %lor.lhs.false28.i
+  br i1 %tobool27.not.i, label %do_dh_param_keygen.exit, label %lor.lhs.false28.i
 
 lor.lhs.false28.i:                                ; preds = %lor.lhs.false22.i
   %call29.i = tail call i32 @DH_set0_pqg(ptr noundef %call9.i, ptr noundef %call13.i, ptr noundef %call19.i, ptr noundef %call25.i) #6
@@ -525,7 +525,7 @@ lor.lhs.false28.i:                                ; preds = %lor.lhs.false22.i
   %conv.i = zext i1 %cmp30.i to i32
   %call31.i = tail call i32 @test_true(ptr noundef nonnull @.str.22, i32 noundef 181, ptr noundef nonnull @.str.52, i32 noundef %conv.i) #6
   %tobool32.not.i = icmp eq i32 %call31.i, 0
-  br i1 %tobool32.not.i, label %do_dh_param_keygen.argprom.exit, label %if.end.i
+  br i1 %tobool32.not.i, label %do_dh_param_keygen.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false28.i
   %call33.i = tail call i32 @EVP_PKEY_assign(ptr noundef %call7.i, i32 noundef 28, ptr noundef %call9.i) #6
@@ -533,36 +533,36 @@ if.end.i:                                         ; preds = %lor.lhs.false28.i
   %conv35.i = zext i1 %cmp34.i to i32
   %call36.i = tail call i32 @test_true(ptr noundef nonnull @.str.22, i32 noundef 185, ptr noundef nonnull @.str.53, i32 noundef %conv35.i) #6
   %tobool37.not.i = icmp eq i32 %call36.i, 0
-  br i1 %tobool37.not.i, label %do_dh_param_keygen.argprom.exit, label %if.end39.i
+  br i1 %tobool37.not.i, label %do_dh_param_keygen.exit, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.end.i
   %6 = load ptr, ptr @libctx, align 8
   %call40.i = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %6, ptr noundef %call7.i, ptr noundef null) #6
   %call41.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 189, ptr noundef nonnull @.str.38, ptr noundef %call40.i) #6
   %tobool42.not.i = icmp eq i32 %call41.i, 0
-  br i1 %tobool42.not.i, label %do_dh_param_keygen.argprom.exit, label %lor.lhs.false43.i
+  br i1 %tobool42.not.i, label %do_dh_param_keygen.exit, label %lor.lhs.false43.i
 
 lor.lhs.false43.i:                                ; preds = %if.end39.i
   %call44.i = tail call i32 @EVP_PKEY_keygen_init(ptr noundef %call40.i) #6
   %call45.i = tail call i32 @test_int_gt(ptr noundef nonnull @.str.22, i32 noundef 190, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %call44.i, i32 noundef 0) #6
   %tobool46.not.i = icmp eq i32 %call45.i, 0
-  br i1 %tobool46.not.i, label %do_dh_param_keygen.argprom.exit, label %lor.lhs.false47.i
+  br i1 %tobool46.not.i, label %do_dh_param_keygen.exit, label %lor.lhs.false47.i
 
 lor.lhs.false47.i:                                ; preds = %lor.lhs.false43.i
   %call48.i = call i32 @EVP_PKEY_keygen(ptr noundef %call40.i, ptr noundef nonnull %pkey.i) #6
   %call49.i = call i32 @test_int_eq(ptr noundef nonnull @.str.22, i32 noundef 191, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, i32 noundef %call48.i, i32 noundef %land.ext.i) #6
   %tobool50.not.i = icmp eq i32 %call49.i, 0
-  br i1 %tobool50.not.i, label %do_dh_param_keygen.argprom.exit, label %if.end52.i
+  br i1 %tobool50.not.i, label %do_dh_param_keygen.exit, label %if.end52.i
 
 if.end52.i:                                       ; preds = %lor.lhs.false47.i
-  br i1 %spec.select.i, label %if.then54.i, label %do_dh_param_keygen.argprom.exit
+  br i1 %spec.select.i, label %if.then54.i, label %do_dh_param_keygen.exit
 
 if.then54.i:                                      ; preds = %if.end52.i
   %7 = load ptr, ptr %pkey.i, align 8
   %call55.i = call ptr @EVP_PKEY_dup(ptr noundef %7) #6
   %call56.i = call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 195, ptr noundef nonnull @.str.43, ptr noundef %call55.i) #6
   %tobool57.not.i = icmp eq i32 %call56.i, 0
-  br i1 %tobool57.not.i, label %do_dh_param_keygen.argprom.exit, label %lor.lhs.false58.i
+  br i1 %tobool57.not.i, label %do_dh_param_keygen.exit, label %lor.lhs.false58.i
 
 lor.lhs.false58.i:                                ; preds = %if.then54.i
   %8 = load ptr, ptr %pkey.i, align 8
@@ -570,9 +570,9 @@ lor.lhs.false58.i:                                ; preds = %if.then54.i
   %call60.i = call i32 @test_int_eq(ptr noundef nonnull @.str.22, i32 noundef 196, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef %call59.i, i32 noundef 1) #6
   %tobool61.not.i = icmp ne i32 %call60.i, 0
   %spec.select22.i = zext i1 %tobool61.not.i to i32
-  br label %do_dh_param_keygen.argprom.exit
+  br label %do_dh_param_keygen.exit
 
-do_dh_param_keygen.argprom.exit:                  ; preds = %getname.exit34.i, %lor.lhs.false.i, %lor.lhs.false12.i, %lor.lhs.false16.i, %lor.lhs.false22.i, %lor.lhs.false28.i, %if.end.i, %if.end39.i, %lor.lhs.false43.i, %lor.lhs.false47.i, %if.end52.i, %if.then54.i, %lor.lhs.false58.i
+do_dh_param_keygen.exit:                          ; preds = %getname.exit34.i, %lor.lhs.false.i, %lor.lhs.false12.i, %lor.lhs.false16.i, %lor.lhs.false22.i, %lor.lhs.false28.i, %if.end.i, %if.end39.i, %lor.lhs.false43.i, %lor.lhs.false47.i, %if.end52.i, %if.then54.i, %lor.lhs.false58.i
   %dup_pk.0.i = phi ptr [ %call55.i, %if.then54.i ], [ null, %lor.lhs.false47.i ], [ null, %lor.lhs.false43.i ], [ null, %if.end39.i ], [ null, %if.end.i ], [ null, %lor.lhs.false28.i ], [ null, %lor.lhs.false22.i ], [ null, %lor.lhs.false16.i ], [ null, %lor.lhs.false12.i ], [ null, %lor.lhs.false.i ], [ null, %getname.exit34.i ], [ null, %if.end52.i ], [ %call55.i, %lor.lhs.false58.i ]
   %dh.0.i = phi ptr [ null, %if.then54.i ], [ null, %lor.lhs.false47.i ], [ null, %lor.lhs.false43.i ], [ null, %if.end39.i ], [ %call9.i, %if.end.i ], [ %call9.i, %lor.lhs.false28.i ], [ %call9.i, %lor.lhs.false22.i ], [ %call9.i, %lor.lhs.false16.i ], [ %call9.i, %lor.lhs.false12.i ], [ %call9.i, %lor.lhs.false.i ], [ null, %getname.exit34.i ], [ null, %if.end52.i ], [ null, %lor.lhs.false58.i ]
   %gen_ctx.0.i = phi ptr [ %call40.i, %if.then54.i ], [ %call40.i, %lor.lhs.false47.i ], [ %call40.i, %lor.lhs.false43.i ], [ %call40.i, %if.end39.i ], [ null, %if.end.i ], [ null, %lor.lhs.false28.i ], [ null, %lor.lhs.false22.i ], [ null, %lor.lhs.false16.i ], [ null, %lor.lhs.false12.i ], [ null, %lor.lhs.false.i ], [ null, %getname.exit34.i ], [ %call40.i, %if.end52.i ], [ %call40.i, %lor.lhs.false58.i ]
@@ -987,7 +987,7 @@ entry:
   store i64 0, ptr %ctlen, align 8
   store i64 0, ptr %unwraplen, align 8
   store i64 0, ptr %secretlen, align 8
-  %call = call fastcc i32 @rsa_keygen.argelim(ptr noundef %pub, ptr noundef %priv)
+  %call = call fastcc i32 @rsa_keygen(ptr noundef %pub, ptr noundef %priv)
   %call1 = call i32 @test_true(ptr noundef nonnull @.str.22, i32 noundef 534, ptr noundef nonnull @.str.78, i32 noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
@@ -1118,7 +1118,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %ct, i8 0, i64 256, i1 false)
   store i64 0, ptr %ctlen, align 8
   store i64 0, ptr %secretlen, align 8
-  %call = call fastcc i32 @rsa_keygen.argelim(ptr noundef %pub, ptr noundef %priv)
+  %call = call fastcc i32 @rsa_keygen(ptr noundef %pub, ptr noundef %priv)
   %call1 = call i32 @test_true(ptr noundef nonnull @.str.22, i32 noundef 598, ptr noundef nonnull @.str.103, i32 noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %entry.land.end_crit_edge, label %land.lhs.true
@@ -1644,7 +1644,7 @@ declare i64 @EVP_CIPHER_get_flags(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_keygen.argelim(ptr noundef nonnull %pub, ptr nocapture noundef nonnull %priv) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @rsa_keygen(ptr noundef nonnull %pub, ptr nocapture noundef nonnull %priv) unnamed_addr #1 {
 entry:
   %pub_der = alloca ptr, align 8
   %pp = alloca ptr, align 8

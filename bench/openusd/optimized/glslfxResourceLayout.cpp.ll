@@ -4843,7 +4843,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread.i88: ; preds = 
   store i64 %1520, ptr %94, align 8
   store i64 0, ptr %51, align 8
   %.val20.i = load ptr, ptr %85, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %52, ptr %.val.i, ptr %.val20.i)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi(ptr dead_on_unwind noalias writable align 8 %52, ptr %.val.i, ptr %.val20.i)
           to label %.noexc105 unwind label %3333
 
 .noexc105:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread.i88
@@ -5374,7 +5374,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit89.thread.i: ; preds = 
   store i64 %1759, ptr %94, align 8
   store i64 0, ptr %56, align 8
   %.val22.i = load ptr, ptr %85, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %57, ptr %.val21.i, ptr %.val22.i)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi(ptr dead_on_unwind noalias writable align 8 %57, ptr %.val21.i, ptr %.val22.i)
           to label %.noexc109 unwind label %3333
 
 .noexc109:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit89.thread.i
@@ -5885,7 +5885,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread.i134: ; preds =
   store i64 %1978, ptr %94, align 8
   store i64 0, ptr %40, align 8
   %.val27.i = load ptr, ptr %85, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %41, ptr %.val.i135, ptr %.val27.i)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi(ptr dead_on_unwind noalias writable align 8 %41, ptr %.val.i135, ptr %.val27.i)
           to label %.noexc176 unwind label %3333
 
 .noexc176:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread.i134
@@ -6369,7 +6369,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit99.thread.i: ; preds = 
   store i64 %2201, ptr %94, align 8
   store i64 0, ptr %46, align 8
   %.val29.i = load ptr, ptr %85, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %47, ptr %.val28.i, ptr %.val29.i)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi(ptr dead_on_unwind noalias writable align 8 %47, ptr %.val28.i, ptr %.val29.i)
           to label %.noexc180 unwind label %3333
 
 .noexc180:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit99.thread.i
@@ -7467,7 +7467,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread.i238: ; preds =
   store i64 %2652, ptr %94, align 8
   store i64 0, ptr %28, align 8
   %.val13.i = load ptr, ptr %85, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %29, ptr %.val.i240, ptr %.val13.i)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi(ptr dead_on_unwind noalias writable align 8 %29, ptr %.val.i240, ptr %.val13.i)
           to label %.noexc283 unwind label %3333
 
 .noexc283:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread.i238
@@ -7922,7 +7922,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread.i377: ; preds =
   store i64 %2851, ptr %94, align 8
   store i64 0, ptr %18, align 8
   %.val20.i379 = load ptr, ptr %85, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %19, ptr %.val.i378, ptr %.val20.i379)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi(ptr dead_on_unwind noalias writable align 8 %19, ptr %.val.i378, ptr %.val20.i379)
           to label %.noexc423 unwind label %3333
 
 .noexc423:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.thread.i377
@@ -8338,7 +8338,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit89.thread.i313: ; preds
   store i64 %3044, ptr %94, align 8
   store i64 0, ptr %23, align 8
   %.val22.i316 = load ptr, ptr %85, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %24, ptr %.val21.i315, ptr %.val22.i316)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi(ptr dead_on_unwind noalias writable align 8 %24, ptr %.val21.i315, ptr %.val22.i316)
           to label %.noexc427 unwind label %3333
 
 .noexc427:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit89.thread.i313
@@ -10436,7 +10436,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__23HioGlslfxResourceLayout
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi.argprom.argelim(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ParseMembersERKSt6vectorINS_7VtValueESaIS2_EEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.8", align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8

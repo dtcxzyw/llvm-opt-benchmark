@@ -474,13 +474,13 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
   %73 = zext nneg i32 %69 to i64
   %74 = add nuw nsw i64 %72, %73
   %75 = getelementptr inbounds i8, ptr %0, i64 84
-  %76 = call fastcc i32 @x509_write_time.argelim(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %75)
+  %76 = call fastcc i32 @x509_write_time(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %75)
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %174, label %78
 
 78:                                               ; preds = %71
   %79 = getelementptr inbounds i8, ptr %0, i64 68
-  %80 = call fastcc i32 @x509_write_time.argelim(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %79)
+  %80 = call fastcc i32 @x509_write_time(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %79)
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %174, label %82
 
@@ -638,7 +638,7 @@ declare i32 @mbedtls_pk_write_pubkey_der(ptr noundef, ptr noundef, i64 noundef) 
 declare i32 @mbedtls_x509_write_names(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_write_time.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @x509_write_time(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr %2, align 1
   %5 = icmp slt i8 %4, 50
   br i1 %5, label %16, label %6

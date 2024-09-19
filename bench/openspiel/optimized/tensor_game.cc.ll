@@ -2109,23 +2109,23 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %.032.lcssa.i = phi i8 [ %.133.us.us.i, %._crit_edge14.i.loopexit ], [ %.133.us28.i, %.preheader.us26.i ]
   %.031.lcssa.i = phi i32 [ %146, %._crit_edge14.i.loopexit ], [ 3, %.preheader.us26.i ]
   %147 = trunc nuw i8 %.032.lcssa.i to i1
-  br i1 %147, label %._crit_edge14.thread.i, label %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.argprom.exit
+  br i1 %147, label %._crit_edge14.thread.i, label %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.exit
 
 ._crit_edge14.thread.i:                           ; preds = %.preheader1.lr.ph.split.us.i, %._crit_edge14.i, %.preheader1.lr.ph.split.i, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread"
   %.034.lcssa78.i = phi double [ %.034.lcssa.i, %._crit_edge14.i ], [ 0.000000e+00, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIdSaIdEES2_IS4_SaIS4_EEEEZN10open_spiel11tensor_game16CreateTensorGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS2_IS2_ISH_SaISH_EESaISL_EERKS8_E3$_1EbT_ST_T0_.exit.thread" ], [ 0.000000e+00, %.preheader1.lr.ph.split.i ], [ 0.000000e+00, %.preheader1.lr.ph.split.us.i ]
   %148 = call double @llvm.fabs.f64(double %.034.lcssa78.i)
   %149 = fcmp ugt double %148, 0x3EB0C6F7A0000000
   %.mux.i = zext i1 %149 to i32
-  br label %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.argprom.exit
+  br label %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.exit
 
-_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.argprom.exit: ; preds = %._crit_edge14.i, %._crit_edge14.thread.i
+_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.exit: ; preds = %._crit_edge14.i, %._crit_edge14.thread.i
   %.036.i = phi i32 [ %.mux.i, %._crit_edge14.thread.i ], [ %.031.lcssa.i, %._crit_edge14.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %150 = getelementptr inbounds nuw i8, ptr %9, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %151 unwind label %263
 
-151:                                              ; preds = %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.argprom.exit
+151:                                              ; preds = %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.exit
   %152 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i32 0, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %9, i64 68
@@ -2399,7 +2399,7 @@ _ZN10open_spiel8GameTypeD2Ev.exit51:              ; preds = %_ZN10open_spiel8Gam
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   ret void
 
-263:                                              ; preds = %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.argprom.exit
+263:                                              ; preds = %_ZN10open_spiel11tensor_game12_GLOBAL__N_114GetUtilityTypeERKSt6vectorIS2_IdSaIdEESaIS4_EE.exit
   %264 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22

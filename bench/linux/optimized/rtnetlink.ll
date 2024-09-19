@@ -7060,7 +7060,7 @@ define internal i32 @rtnl_newlinkprop(ptr nocapture noundef readonly %0, ptr nou
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %5, align 8
-  %6 = tail call fastcc i32 @rtnl_linkprop.argprom.argprom(i32 noundef 108, ptr %.val.val, ptr noundef %1, ptr noundef %2)
+  %6 = tail call fastcc i32 @rtnl_linkprop(i32 noundef 108, ptr %.val.val, ptr noundef %1, ptr noundef %2)
   ret i32 %6
 }
 
@@ -7070,7 +7070,7 @@ define internal i32 @rtnl_dellinkprop(ptr nocapture noundef readonly %0, ptr nou
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %5, align 8
-  %6 = tail call fastcc i32 @rtnl_linkprop.argprom.argprom(i32 noundef 109, ptr %.val.val, ptr noundef %1, ptr noundef %2)
+  %6 = tail call fastcc i32 @rtnl_linkprop(i32 noundef 109, ptr %.val.val, ptr noundef %1, ptr noundef %2)
   ret i32 %6
 }
 
@@ -14211,7 +14211,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 declare dso_local i32 @register_netdevice(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rtnl_linkprop.argprom.argprom(i32 noundef range(i32 108, 110) %0, ptr %.24.val.48.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @rtnl_linkprop(i32 noundef range(i32 108, 110) %0, ptr %.24.val.48.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca [128 x i8], align 16
   %5 = alloca [66 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %5) #18

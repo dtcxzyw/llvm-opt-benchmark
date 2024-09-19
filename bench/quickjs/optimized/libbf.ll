@@ -78,9 +78,9 @@ define dso_local void @bf_context_end(ptr nocapture noundef %0) local_unnamed_ad
   %7 = getelementptr [5 x [2 x [20 x ptr]]], ptr %4, i64 0, i64 %indvars.iv37.i.i, i64 %indvars.iv34.i.i, i64 %indvars.iv.i.i
   %8 = load ptr, ptr %7, align 8
   %.not27.i.i = icmp eq ptr %8, null
-  br i1 %.not27.i.i, label %11, label %ntt_free.argprom.exit.i.i
+  br i1 %.not27.i.i, label %11, label %ntt_free.exit.i.i
 
-ntt_free.argprom.exit.i.i:                        ; preds = %6
+ntt_free.exit.i.i:                                ; preds = %6
   %.val.i.i = load ptr, ptr %3, align 8
   %.val.i.i.i.i = load ptr, ptr %.val.i.i, align 8
   %9 = getelementptr i8, ptr %.val.i.i, i64 8
@@ -89,7 +89,7 @@ ntt_free.argprom.exit.i.i:                        ; preds = %6
   store ptr null, ptr %7, align 8
   br label %11
 
-11:                                               ; preds = %ntt_free.argprom.exit.i.i, %6
+11:                                               ; preds = %ntt_free.exit.i.i, %6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 20
   br i1 %exitcond.not.i.i, label %12, label %6, !llvm.loop !7
@@ -179,9 +179,9 @@ define dso_local void @bf_clear_cache(ptr nocapture noundef %0) local_unnamed_ad
   %7 = getelementptr [5 x [2 x [20 x ptr]]], ptr %4, i64 0, i64 %indvars.iv37.i, i64 %indvars.iv34.i, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %.not27.i = icmp eq ptr %8, null
-  br i1 %.not27.i, label %11, label %ntt_free.argprom.exit.i
+  br i1 %.not27.i, label %11, label %ntt_free.exit.i
 
-ntt_free.argprom.exit.i:                          ; preds = %6
+ntt_free.exit.i:                                  ; preds = %6
   %.val.i = load ptr, ptr %3, align 8
   %.val.i.i.i = load ptr, ptr %.val.i, align 8
   %9 = getelementptr i8, ptr %.val.i, i64 8
@@ -190,7 +190,7 @@ ntt_free.argprom.exit.i:                          ; preds = %6
   store ptr null, ptr %7, align 8
   br label %11
 
-11:                                               ; preds = %ntt_free.argprom.exit.i, %6
+11:                                               ; preds = %ntt_free.exit.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
   br i1 %exitcond.not.i, label %12, label %6, !llvm.loop !7
@@ -2276,7 +2276,7 @@ bf_resize.exit126:                                ; preds = %173, %170, %168
 181:                                              ; preds = %bf_resize.exit126
   %182 = tail call ptr %.val110.val111(ptr noundef %.val110.val, ptr noundef null, i64 noundef %165) #17
   %.not98 = icmp eq ptr %182, null
-  br i1 %.not98, label %ntt_free.argprom.exit162, label %183
+  br i1 %.not98, label %ntt_free.exit162, label %183
 
 183:                                              ; preds = %181
   tail call fastcc void @limb_to_ntt(ptr noundef nonnull %106, ptr noundef %182, i64 noundef %146, ptr noundef %.085, i64 noundef %.086, i32 noundef %.2.i, i32 noundef %169, i32 noundef %.133.i)
@@ -2303,7 +2303,7 @@ bf_resize.exit126:                                ; preds = %173, %170, %168
 193:                                              ; preds = %bf_resize.exit126
   %194 = tail call ptr %.val110.val111(ptr noundef %.val110.val, ptr noundef null, i64 noundef %162) #17
   %.not100 = icmp eq ptr %194, null
-  br i1 %.not100, label %ntt_free.argprom.exit162, label %bf_resize.exit131.thread
+  br i1 %.not100, label %ntt_free.exit162, label %bf_resize.exit131.thread
 
 bf_resize.exit131:                                ; preds = %187, %184, %183
   %195 = icmp sgt i32 %.133.i, 0
@@ -2334,7 +2334,7 @@ bf_resize.exit131.thread:                         ; preds = %193
   %204 = sext i32 %203 to i64
   %205 = tail call fastcc i32 @ntt_conv(ptr noundef nonnull %106, ptr noundef %201, ptr noundef nonnull %194, i32 noundef %.136.i, i32 noundef %.136.i, i64 noundef %204)
   %.not103.us = icmp eq i32 %205, 0
-  br i1 %.not103.us, label %206, label %ntt_free.argprom.exit162
+  br i1 %.not103.us, label %206, label %ntt_free.exit162
 
 206:                                              ; preds = %.lr.ph.split.us
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
@@ -2356,18 +2356,18 @@ bf_resize.exit131.thread:                         ; preds = %193
   %213 = sext i32 %212 to i64
   %214 = tail call fastcc i32 @ntt_conv(ptr noundef nonnull %106, ptr noundef %210, ptr noundef %209, i32 noundef %.136.i, i32 noundef %.136.i, i64 noundef %213)
   %.not103 = icmp eq i32 %214, 0
-  br i1 %.not103, label %207, label %ntt_free.argprom.exit162
+  br i1 %.not103, label %207, label %ntt_free.exit162
 
 ._crit_edge:                                      ; preds = %207, %206, %bf_resize.exit131.thread, %bf_resize.exit131
   %215 = phi i1 [ false, %bf_resize.exit131.thread ], [ false, %bf_resize.exit131 ], [ true, %206 ], [ true, %207 ]
   %.1212 = phi ptr [ %194, %bf_resize.exit131.thread ], [ %182, %bf_resize.exit131 ], [ %194, %206 ], [ %182, %207 ]
-  br i1 %.not97, label %216, label %ntt_free.argprom.exit145
+  br i1 %.not97, label %216, label %ntt_free.exit145
 
 216:                                              ; preds = %._crit_edge
   %217 = getelementptr inbounds i8, ptr %1, i64 24
   %218 = load i64, ptr %217, align 8
   %.not.i132 = icmp eq i64 %218, 0
-  br i1 %.not.i132, label %ntt_free.argprom.exit, label %219
+  br i1 %.not.i132, label %ntt_free.exit, label %219
 
 219:                                              ; preds = %216
   %220 = load ptr, ptr %1, align 8
@@ -2379,9 +2379,9 @@ bf_resize.exit131.thread:                         ; preds = %193
   %224 = tail call ptr %.val13.i134(ptr noundef %.val.i133, ptr noundef %222, i64 noundef 0) #17
   store ptr %224, ptr %221, align 8
   store i64 0, ptr %217, align 8
-  br label %ntt_free.argprom.exit
+  br label %ntt_free.exit
 
-ntt_free.argprom.exit:                            ; preds = %216, %219
+ntt_free.exit:                                    ; preds = %216, %219
   %.val104 = load ptr, ptr %106, align 8
   %.val.i.i = load ptr, ptr %.val104, align 8
   %225 = getelementptr i8, ptr %.val104, i64 8
@@ -2391,7 +2391,7 @@ ntt_free.argprom.exit:                            ; preds = %216, %219
   %.not.i137 = icmp eq i64 %107, %227
   br i1 %.not.i137, label %bf_resize.exit141.thread, label %228
 
-228:                                              ; preds = %ntt_free.argprom.exit
+228:                                              ; preds = %ntt_free.exit
   %229 = load ptr, ptr %1, align 8
   %230 = getelementptr inbounds i8, ptr %1, i64 32
   %231 = load ptr, ptr %230, align 8
@@ -2403,14 +2403,14 @@ ntt_free.argprom.exit:                            ; preds = %216, %219
   %235 = icmp eq ptr %234, null
   %236 = icmp ne i64 %107, 0
   %or.cond.i = and i1 %236, %235
-  br i1 %or.cond.i, label %ntt_free.argprom.exit162, label %237
+  br i1 %or.cond.i, label %ntt_free.exit162, label %237
 
 237:                                              ; preds = %228
   store ptr %234, ptr %230, align 8
   store i64 %107, ptr %217, align 8
   br label %bf_resize.exit141.thread
 
-ntt_free.argprom.exit145:                         ; preds = %._crit_edge
+ntt_free.exit145:                                 ; preds = %._crit_edge
   %.val = load ptr, ptr %106, align 8
   %.val.i.i143 = load ptr, ptr %.val, align 8
   %238 = getelementptr i8, ptr %.val, i64 8
@@ -2418,7 +2418,7 @@ ntt_free.argprom.exit145:                         ; preds = %._crit_edge
   %239 = tail call ptr %.val3.i.i144(ptr noundef %.val.i.i143, ptr noundef nonnull %.1212, i64 noundef 0) #17
   br label %bf_resize.exit141.thread
 
-bf_resize.exit141.thread:                         ; preds = %ntt_free.argprom.exit, %237, %ntt_free.argprom.exit145
+bf_resize.exit141.thread:                         ; preds = %ntt_free.exit, %237, %ntt_free.exit145
   %240 = getelementptr inbounds i8, ptr %1, i64 32
   %241 = load ptr, ptr %240, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
@@ -2449,7 +2449,7 @@ bf_resize.exit141.thread:                         ; preds = %ntt_free.argprom.ex
   %258 = udiv i64 %257, %256
   %..i.i = tail call noundef i64 @llvm.smin.i64(i64 %146, i64 %258)
   %259 = icmp sgt i64 %258, 0
-  br i1 %259, label %.preheader146.lr.ph.i, label %ntt_free.argprom.exit158
+  br i1 %259, label %.preheader146.lr.ph.i, label %ntt_free.exit158
 
 .preheader146.lr.ph.i:                            ; preds = %bf_resize.exit141.thread
   %260 = add i32 %.2.i, -1
@@ -2781,15 +2781,15 @@ put_bits.exit143.i:                               ; preds = %401, %398, %397
   %419 = add nuw nsw i64 %.0124188.i, 1
   %420 = icmp slt i64 %419, %..i.i
   %indvars.iv.next230.i = add i6 %indvars.iv229.i, %279
-  br i1 %420, label %.preheader146.i, label %ntt_free.argprom.exit158, !llvm.loop !44
+  br i1 %420, label %.preheader146.i, label %ntt_free.exit158, !llvm.loop !44
 
-ntt_free.argprom.exit158:                         ; preds = %.loopexit144.i, %bf_resize.exit141.thread
+ntt_free.exit158:                                 ; preds = %.loopexit144.i, %bf_resize.exit141.thread
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br label %ntt_static_init.exit.sink.split
 
-ntt_free.argprom.exit162:                         ; preds = %.lr.ph.split, %.lr.ph.split.us, %228, %193, %181
+ntt_free.exit162:                                 ; preds = %.lr.ph.split, %.lr.ph.split.us, %228, %193, %181
   %.083 = phi ptr [ null, %193 ], [ null, %181 ], [ null, %228 ], [ %194, %.lr.ph.split.us ], [ %182, %.lr.ph.split ]
   %.val106 = load ptr, ptr %106, align 8
   %.val.i.i160 = load ptr, ptr %.val106, align 8
@@ -2799,9 +2799,9 @@ ntt_free.argprom.exit162:                         ; preds = %.lr.ph.split, %.lr.
   %.not.i.i163 = icmp eq ptr %.083, null
   br i1 %.not.i.i163, label %ntt_static_init.exit, label %ntt_static_init.exit.sink.split
 
-ntt_static_init.exit.sink.split:                  ; preds = %ntt_free.argprom.exit162, %ntt_free.argprom.exit158
-  %.083.sink = phi ptr [ %167, %ntt_free.argprom.exit158 ], [ %.083, %ntt_free.argprom.exit162 ]
-  %.0.ph = phi i32 [ 0, %ntt_free.argprom.exit158 ], [ -1, %ntt_free.argprom.exit162 ]
+ntt_static_init.exit.sink.split:                  ; preds = %ntt_free.exit162, %ntt_free.exit158
+  %.083.sink = phi ptr [ %167, %ntt_free.exit158 ], [ %.083, %ntt_free.exit162 ]
+  %.0.ph = phi i32 [ 0, %ntt_free.exit158 ], [ -1, %ntt_free.exit162 ]
   %.val107 = load ptr, ptr %106, align 8
   %.val.i.i164 = load ptr, ptr %.val107, align 8
   %423 = getelementptr i8, ptr %.val107, i64 8
@@ -2809,8 +2809,8 @@ ntt_static_init.exit.sink.split:                  ; preds = %ntt_free.argprom.ex
   %424 = tail call ptr %.val3.i.i165(ptr noundef %.val.i.i164, ptr noundef nonnull %.083.sink, i64 noundef 0) #17
   br label %ntt_static_init.exit
 
-ntt_static_init.exit:                             ; preds = %ntt_static_init.exit.sink.split, %ntt_free.argprom.exit162, %13, %bf_resize.exit
-  %.0 = phi i32 [ -1, %bf_resize.exit ], [ -1, %13 ], [ -1, %ntt_free.argprom.exit162 ], [ %.0.ph, %ntt_static_init.exit.sink.split ]
+ntt_static_init.exit:                             ; preds = %ntt_static_init.exit.sink.split, %ntt_free.exit162, %13, %bf_resize.exit
+  %.0 = phi i32 [ -1, %bf_resize.exit ], [ -1, %13 ], [ -1, %ntt_free.exit162 ], [ %.0.ph, %ntt_static_init.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -11583,7 +11583,7 @@ bf_add.exit.i:                                    ; preds = %119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i56 = icmp eq ptr %.pre.pre.i, null
-  br i1 %.not.i.i56, label %bf_add_epsilon.argprom.exit, label %bf_add.exit.i._crit_edge
+  br i1 %.not.i.i56, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
 
 bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre = load ptr, ptr %106, align 8
@@ -11597,16 +11597,16 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %126 = phi ptr [ %.pre, %bf_add.exit.i._crit_edge ], [ %108, %.sink.split.i ]
   %127 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %126, null
-  br i1 %.not6.i.i, label %bf_add_epsilon.argprom.exit, label %128
+  br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %128
 
 128:                                              ; preds = %125
   %.val.i.i57 = load ptr, ptr %127, align 8
   %129 = getelementptr i8, ptr %127, i64 8
   %.val7.i.i = load ptr, ptr %129, align 8
   %130 = call ptr %.val7.i.i(ptr noundef %.val.i.i57, ptr noundef nonnull %126, i64 noundef 0) #17
-  br label %bf_add_epsilon.argprom.exit
+  br label %bf_add_epsilon.exit
 
-bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %125, %128
+bf_add_epsilon.exit:                              ; preds = %bf_add.exit.i, %125, %128
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %bf_set_ui.exit
 
@@ -11614,8 +11614,8 @@ bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %125
   %132 = tail call fastcc i32 @bf_ziv_rounding(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull @bf_exp_internal, ptr noundef null)
   br label %bf_set_ui.exit
 
-bf_set_ui.exit:                                   ; preds = %bf_set_nan.exit.i, %59, %69, %bf_set_nan.exit, %bf_set_zero.exit, %bf_set_inf.exit, %131, %bf_add_epsilon.argprom.exit
-  %.0 = phi i32 [ %117, %bf_add_epsilon.argprom.exit ], [ %132, %131 ], [ 0, %bf_set_inf.exit ], [ 0, %bf_set_zero.exit ], [ 0, %bf_set_nan.exit ], [ %71, %69 ], [ 0, %59 ], [ 0, %bf_set_nan.exit.i ]
+bf_set_ui.exit:                                   ; preds = %bf_set_nan.exit.i, %59, %69, %bf_set_nan.exit, %bf_set_zero.exit, %bf_set_inf.exit, %131, %bf_add_epsilon.exit
+  %.0 = phi i32 [ %117, %bf_add_epsilon.exit ], [ %132, %131 ], [ 0, %bf_set_inf.exit ], [ 0, %bf_set_zero.exit ], [ 0, %bf_set_nan.exit ], [ %71, %69 ], [ 0, %59 ], [ 0, %bf_set_nan.exit.i ]
   ret i32 %.0
 }
 
@@ -15500,7 +15500,7 @@ bf_add.exit.i:                                    ; preds = %102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i40 = icmp eq ptr %.pre.pre.i, null
-  br i1 %.not.i.i40, label %bf_add_epsilon.argprom.exit, label %bf_add.exit.i._crit_edge
+  br i1 %.not.i.i40, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
 
 bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre44 = load ptr, ptr %89, align 8
@@ -15514,16 +15514,16 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %109 = phi ptr [ %.pre44, %bf_add.exit.i._crit_edge ], [ %91, %.sink.split.i ]
   %110 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %109, null
-  br i1 %.not6.i.i, label %bf_add_epsilon.argprom.exit, label %111
+  br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %111
 
 111:                                              ; preds = %108
   %.val.i.i41 = load ptr, ptr %110, align 8
   %112 = getelementptr i8, ptr %110, i64 8
   %.val7.i.i = load ptr, ptr %112, align 8
   %113 = call ptr %.val7.i.i(ptr noundef %.val.i.i41, ptr noundef nonnull %109, i64 noundef 0) #17
-  br label %bf_add_epsilon.argprom.exit
+  br label %bf_add_epsilon.exit
 
-bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %108, %111
+bf_add_epsilon.exit:                              ; preds = %bf_add.exit.i, %108, %111
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %bf_set_ui.exit
 
@@ -15534,7 +15534,7 @@ bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %108
 
 .lr.ph.i:                                         ; preds = %114
   %117 = add i64 %2, 32
-  tail call fastcc void @bf_sincos.argelim(ptr noundef null, ptr noundef %0, ptr noundef nonnull %1, i64 noundef %117)
+  tail call fastcc void @bf_sincos(ptr noundef null, ptr noundef %0, ptr noundef nonnull %1, i64 noundef %117)
   %118 = getelementptr inbounds i8, ptr %0, i64 16
   %119 = add i64 %2, 2
   %120 = and i32 %3, 3
@@ -15547,7 +15547,7 @@ bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %108
   br label %128
 
 127:                                              ; preds = %114
-  tail call fastcc void @bf_sincos.argelim(ptr noundef null, ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2)
+  tail call fastcc void @bf_sincos(ptr noundef null, ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %bf_can_round.exit.thread37.i
@@ -15620,7 +15620,7 @@ get_bit.exit38.i.i:                               ; preds = %152, %.lr.ph.i.i
 bf_can_round.exit.thread.i:                       ; preds = %148, %131, %128
   %158 = shl i64 %.044.i, 1
   %159 = add i64 %158, %2
-  tail call fastcc void @bf_sincos.argelim(ptr noundef null, ptr noundef %0, ptr noundef %1, i64 noundef %159)
+  tail call fastcc void @bf_sincos(ptr noundef null, ptr noundef %0, ptr noundef %1, i64 noundef %159)
   br label %128
 
 bf_can_round.exit.thread37.i:                     ; preds = %get_bit.exit38.i.i, %127
@@ -15633,8 +15633,8 @@ bf_can_round.exit.thread37.i:                     ; preds = %get_bit.exit38.i.i,
   %163 = tail call fastcc i32 @__bf_round(ptr noundef nonnull %0, i64 noundef %2, i32 noundef %3, i64 noundef %160, i32 noundef %.030.i)
   br label %bf_set_ui.exit
 
-bf_set_ui.exit:                                   ; preds = %162, %bf_can_round.exit.thread37.i, %bf_set_nan.exit.i, %47, %bf_add_epsilon.argprom.exit, %bf_set_nan.exit26, %bf_set_nan.exit
-  %.0 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit26 ], [ %100, %bf_add_epsilon.argprom.exit ], [ 0, %47 ], [ 0, %bf_set_nan.exit.i ], [ %163, %162 ], [ %.030.i, %bf_can_round.exit.thread37.i ]
+bf_set_ui.exit:                                   ; preds = %162, %bf_can_round.exit.thread37.i, %bf_set_nan.exit.i, %47, %bf_add_epsilon.exit, %bf_set_nan.exit26, %bf_set_nan.exit
+  %.0 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit26 ], [ %100, %bf_add_epsilon.exit ], [ 0, %47 ], [ 0, %bf_set_nan.exit.i ], [ %163, %162 ], [ %.030.i, %bf_can_round.exit.thread37.i ]
   ret i32 %.0
 }
 
@@ -15889,7 +15889,7 @@ bf_add.exit.i:                                    ; preds = %117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i40 = icmp eq ptr %.pre.pre.i, null
-  br i1 %.not.i.i40, label %bf_add_epsilon.argprom.exit, label %bf_add.exit.i._crit_edge
+  br i1 %.not.i.i40, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
 
 bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre45 = load ptr, ptr %104, align 8
@@ -15903,16 +15903,16 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %124 = phi ptr [ %.pre45, %bf_add.exit.i._crit_edge ], [ %106, %.sink.split.i ]
   %125 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %124, null
-  br i1 %.not6.i.i, label %bf_add_epsilon.argprom.exit, label %126
+  br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %126
 
 126:                                              ; preds = %123
   %.val.i.i41 = load ptr, ptr %125, align 8
   %127 = getelementptr i8, ptr %125, i64 8
   %.val7.i.i = load ptr, ptr %127, align 8
   %128 = call ptr %.val7.i.i(ptr noundef %.val.i.i41, ptr noundef nonnull %124, i64 noundef 0) #17
-  br label %bf_add_epsilon.argprom.exit
+  br label %bf_add_epsilon.exit
 
-bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %123, %126
+bf_add_epsilon.exit:                              ; preds = %bf_add.exit.i, %123, %126
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %bf_ziv_rounding.exit
 
@@ -15923,7 +15923,7 @@ bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %123
 
 .lr.ph.i:                                         ; preds = %129
   %132 = add i64 %2, 32
-  tail call fastcc void @bf_sincos.argelim(ptr noundef %0, ptr noundef null, ptr noundef nonnull %1, i64 noundef %132)
+  tail call fastcc void @bf_sincos(ptr noundef %0, ptr noundef null, ptr noundef nonnull %1, i64 noundef %132)
   %133 = getelementptr inbounds i8, ptr %0, i64 16
   %134 = add i64 %2, 2
   %135 = and i32 %3, 3
@@ -15936,7 +15936,7 @@ bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %123
   br label %143
 
 142:                                              ; preds = %129
-  tail call fastcc void @bf_sincos.argelim(ptr noundef %0, ptr noundef null, ptr noundef nonnull %1, i64 noundef %2)
+  tail call fastcc void @bf_sincos(ptr noundef %0, ptr noundef null, ptr noundef nonnull %1, i64 noundef %2)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %bf_can_round.exit.thread37.i
@@ -16009,7 +16009,7 @@ get_bit.exit38.i.i:                               ; preds = %167, %.lr.ph.i.i
 bf_can_round.exit.thread.i:                       ; preds = %163, %146, %143
   %173 = shl i64 %.044.i, 1
   %174 = add i64 %173, %2
-  tail call fastcc void @bf_sincos.argelim(ptr noundef %0, ptr noundef null, ptr noundef %1, i64 noundef %174)
+  tail call fastcc void @bf_sincos(ptr noundef %0, ptr noundef null, ptr noundef %1, i64 noundef %174)
   br label %143
 
 bf_can_round.exit.thread37.i:                     ; preds = %get_bit.exit38.i.i, %142
@@ -16022,8 +16022,8 @@ bf_can_round.exit.thread37.i:                     ; preds = %get_bit.exit38.i.i,
   %178 = tail call fastcc i32 @__bf_round(ptr noundef nonnull %0, i64 noundef %2, i32 noundef %3, i64 noundef %175, i32 noundef %.030.i)
   br label %bf_ziv_rounding.exit
 
-bf_ziv_rounding.exit:                             ; preds = %177, %bf_can_round.exit.thread37.i, %bf_add_epsilon.argprom.exit, %bf_set_zero.exit, %bf_set_nan.exit32, %bf_set_nan.exit
-  %.0 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit32 ], [ 0, %bf_set_zero.exit ], [ %115, %bf_add_epsilon.argprom.exit ], [ %178, %177 ], [ %.030.i, %bf_can_round.exit.thread37.i ]
+bf_ziv_rounding.exit:                             ; preds = %177, %bf_can_round.exit.thread37.i, %bf_add_epsilon.exit, %bf_set_zero.exit, %bf_set_nan.exit32, %bf_set_nan.exit
+  %.0 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit32 ], [ 0, %bf_set_zero.exit ], [ %115, %bf_add_epsilon.exit ], [ %178, %177 ], [ %.030.i, %bf_can_round.exit.thread37.i ]
   ret i32 %.0
 }
 
@@ -16277,7 +16277,7 @@ bf_add.exit.i:                                    ; preds = %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i40 = icmp eq ptr %.pre.pre.i, null
-  br i1 %.not.i.i40, label %bf_add_epsilon.argprom.exit, label %bf_add.exit.i._crit_edge
+  br i1 %.not.i.i40, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
 
 bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre = load ptr, ptr %103, align 8
@@ -16291,16 +16291,16 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %123 = phi ptr [ %.pre, %bf_add.exit.i._crit_edge ], [ %105, %.sink.split.i ]
   %124 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %123, null
-  br i1 %.not6.i.i, label %bf_add_epsilon.argprom.exit, label %125
+  br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %125
 
 125:                                              ; preds = %122
   %.val.i.i41 = load ptr, ptr %124, align 8
   %126 = getelementptr i8, ptr %124, i64 8
   %.val7.i.i = load ptr, ptr %126, align 8
   %127 = call ptr %.val7.i.i(ptr noundef %.val.i.i41, ptr noundef nonnull %123, i64 noundef 0) #17
-  br label %bf_add_epsilon.argprom.exit
+  br label %bf_add_epsilon.exit
 
-bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %122, %125
+bf_add_epsilon.exit:                              ; preds = %bf_add.exit.i, %122, %125
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %130
 
@@ -16308,8 +16308,8 @@ bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %122
   %129 = tail call fastcc i32 @bf_ziv_rounding(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull @bf_tan_internal, ptr noundef null)
   br label %130
 
-130:                                              ; preds = %128, %bf_add_epsilon.argprom.exit, %bf_set_zero.exit, %bf_set_nan.exit32, %bf_set_nan.exit
-  %.0 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit32 ], [ 0, %bf_set_zero.exit ], [ %114, %bf_add_epsilon.argprom.exit ], [ %129, %128 ]
+130:                                              ; preds = %128, %bf_add_epsilon.exit, %bf_set_zero.exit, %bf_set_nan.exit32, %bf_set_nan.exit
+  %.0 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit32 ], [ 0, %bf_set_zero.exit ], [ %114, %bf_add_epsilon.exit ], [ %129, %128 ]
   ret i32 %.0
 }
 
@@ -16326,7 +16326,7 @@ define internal noundef i32 @bf_tan_internal(ptr noundef %0, ptr noundef %1, i64
   store i64 -9223372036854775808, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  call fastcc void @bf_sincos.argelim(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1, i64 noundef %8)
+  call fastcc void @bf_sincos(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1, i64 noundef %8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %12 = load ptr, ptr %0, align 8
   store ptr %12, ptr %5, align 8
@@ -16717,7 +16717,7 @@ bf_add.exit.i:                                    ; preds = %165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i68 = icmp eq ptr %.pre.pre.i, null
-  br i1 %.not.i.i68, label %bf_add_epsilon.argprom.exit, label %bf_add.exit.i._crit_edge
+  br i1 %.not.i.i68, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
 
 bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre = load ptr, ptr %152, align 8
@@ -16731,16 +16731,16 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %172 = phi ptr [ %.pre, %bf_add.exit.i._crit_edge ], [ %154, %.sink.split.i ]
   %173 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %172, null
-  br i1 %.not6.i.i, label %bf_add_epsilon.argprom.exit, label %174
+  br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %174
 
 174:                                              ; preds = %171
   %.val.i.i69 = load ptr, ptr %173, align 8
   %175 = getelementptr i8, ptr %173, i64 8
   %.val7.i.i = load ptr, ptr %175, align 8
   %176 = call ptr %.val7.i.i(ptr noundef %.val.i.i69, ptr noundef nonnull %172, i64 noundef 0) #17
-  br label %bf_add_epsilon.argprom.exit
+  br label %bf_add_epsilon.exit
 
-bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %171, %174
+bf_add_epsilon.exit:                              ; preds = %bf_add.exit.i, %171, %174
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %bf_mul_2exp.exit
 
@@ -16748,8 +16748,8 @@ bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %171
   %178 = tail call fastcc i32 @bf_ziv_rounding(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull @bf_atan_internal, ptr noundef null)
   br label %bf_mul_2exp.exit
 
-bf_mul_2exp.exit:                                 ; preds = %88, %79, %33, %24, %177, %bf_add_epsilon.argprom.exit, %bf_set_zero.exit, %bf_set_nan.exit
-  %.0 = phi i32 [ 0, %bf_set_nan.exit ], [ 0, %bf_set_zero.exit ], [ %163, %bf_add_epsilon.argprom.exit ], [ %178, %177 ], [ 16, %24 ], [ 16, %33 ], [ 16, %79 ], [ 16, %88 ]
+bf_mul_2exp.exit:                                 ; preds = %88, %79, %33, %24, %177, %bf_add_epsilon.exit, %bf_set_zero.exit, %bf_set_nan.exit
+  %.0 = phi i32 [ 0, %bf_set_nan.exit ], [ 0, %bf_set_zero.exit ], [ %163, %bf_add_epsilon.exit ], [ %178, %177 ], [ 16, %24 ], [ 16, %33 ], [ 16, %79 ], [ 16, %88 ]
   ret i32 %.0
 }
 
@@ -17933,7 +17933,7 @@ bf_add.exit.i:                                    ; preds = %161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %.not.i.i65 = icmp eq ptr %.pre.pre.i, null
-  br i1 %.not.i.i65, label %bf_add_epsilon.argprom.exit, label %bf_add.exit.i._crit_edge
+  br i1 %.not.i.i65, label %bf_add_epsilon.exit, label %bf_add.exit.i._crit_edge
 
 bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %.pre = load ptr, ptr %148, align 8
@@ -17947,16 +17947,16 @@ bf_add.exit.i._crit_edge:                         ; preds = %bf_add.exit.i
   %168 = phi ptr [ %.pre, %bf_add.exit.i._crit_edge ], [ %150, %.sink.split.i ]
   %169 = phi ptr [ %.pre.pre.i, %bf_add.exit.i._crit_edge ], [ %.val, %.sink.split.i ]
   %.not6.i.i = icmp eq ptr %168, null
-  br i1 %.not6.i.i, label %bf_add_epsilon.argprom.exit, label %170
+  br i1 %.not6.i.i, label %bf_add_epsilon.exit, label %170
 
 170:                                              ; preds = %167
   %.val.i.i66 = load ptr, ptr %169, align 8
   %171 = getelementptr i8, ptr %169, i64 8
   %.val7.i.i = load ptr, ptr %171, align 8
   %172 = call ptr %.val7.i.i(ptr noundef %.val.i.i66, ptr noundef nonnull %168, i64 noundef 0) #17
-  br label %bf_add_epsilon.argprom.exit
+  br label %bf_add_epsilon.exit
 
-bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %167, %170
+bf_add_epsilon.exit:                              ; preds = %bf_add.exit.i, %167, %170
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   br label %175
 
@@ -17964,8 +17964,8 @@ bf_add_epsilon.argprom.exit:                      ; preds = %bf_add.exit.i, %167
   %174 = tail call fastcc i32 @bf_ziv_rounding(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull @bf_asin_internal, ptr noundef null)
   br label %175
 
-175:                                              ; preds = %173, %bf_add_epsilon.argprom.exit, %bf_set_nan.exit51, %bf_set_zero.exit, %bf_set_nan.exit41, %bf_set_nan.exit
-  %.0 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit41 ], [ 0, %bf_set_zero.exit ], [ 1, %bf_set_nan.exit51 ], [ %159, %bf_add_epsilon.argprom.exit ], [ %174, %173 ]
+175:                                              ; preds = %173, %bf_add_epsilon.exit, %bf_set_nan.exit51, %bf_set_zero.exit, %bf_set_nan.exit41, %bf_set_nan.exit
+  %.0 = phi i32 [ 0, %bf_set_nan.exit ], [ 1, %bf_set_nan.exit41 ], [ 0, %bf_set_zero.exit ], [ 1, %bf_set_nan.exit51 ], [ %159, %bf_add_epsilon.exit ], [ %174, %173 ]
   ret i32 %.0
 }
 
@@ -20968,16 +20968,16 @@ bfdec_set_si.exit:                                ; preds = %12, %15
   %.not.i.i = icmp eq ptr %.val, null
   %.not6.i.i = icmp eq ptr %.val7, null
   %or.cond.i = select i1 %.not.i.i, i1 true, i1 %.not6.i.i
-  br i1 %or.cond.i, label %bfdec_delete.argprom.exit, label %19
+  br i1 %or.cond.i, label %bfdec_delete.exit, label %19
 
 19:                                               ; preds = %bfdec_set_si.exit
   %.val.i.i = load ptr, ptr %.val, align 8
   %20 = getelementptr i8, ptr %.val, i64 8
   %.val7.i.i = load ptr, ptr %20, align 8
   %21 = call ptr %.val7.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %.val7, i64 noundef 0) #17
-  br label %bfdec_delete.argprom.exit
+  br label %bfdec_delete.exit
 
-bfdec_delete.argprom.exit:                        ; preds = %bfdec_set_si.exit, %19
+bfdec_delete.exit:                                ; preds = %bfdec_set_si.exit, %19
   %22 = or i32 %17, %.0.i
   ret i32 %22
 }
@@ -21059,16 +21059,16 @@ bfdec_add.exit:                                   ; preds = %20, %bf_free.exit.i
   %.not.i.i = icmp eq ptr %.val, null
   %.not6.i.i = icmp eq ptr %.val7, null
   %or.cond.i = select i1 %.not.i.i, i1 true, i1 %.not6.i.i
-  br i1 %or.cond.i, label %bfdec_delete.argprom.exit, label %37
+  br i1 %or.cond.i, label %bfdec_delete.exit, label %37
 
 37:                                               ; preds = %bfdec_add.exit
   %.val.i.i = load ptr, ptr %.val, align 8
   %38 = getelementptr i8, ptr %.val, i64 8
   %.val7.i.i = load ptr, ptr %38, align 8
   %39 = call ptr %.val7.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %.val7, i64 noundef 0) #17
-  br label %bfdec_delete.argprom.exit
+  br label %bfdec_delete.exit
 
-bfdec_delete.argprom.exit:                        ; preds = %bfdec_add.exit, %37
+bfdec_delete.exit:                                ; preds = %bfdec_add.exit, %37
   %40 = or i32 %.0.i.i, %.0.i
   ret i32 %40
 }
@@ -21895,7 +21895,7 @@ bfdec_set_nan.exit.i.i:                           ; preds = %162, %bfdec_resize.
 
 bfdec_set_ui.exit.i:                              ; preds = %bfdec_set_nan.exit.i.i, %._crit_edge.i.i110
   %169 = icmp eq ptr %1, %10
-  br i1 %169, label %bfdec_tdivremu.argprom.exit, label %170
+  br i1 %169, label %bfdec_tdivremu.exit, label %170
 
 170:                                              ; preds = %bfdec_set_ui.exit.i
   %171 = load i64, ptr %122, align 8
@@ -21950,7 +21950,7 @@ bf_set_nan.exit.i.i.i:                            ; preds = %185, %bf_resize.exi
   store i64 9223372036854775807, ptr %190, align 8
   %191 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %191, align 8
-  br label %bfdec_tdivremu.argprom.exit
+  br label %bfdec_tdivremu.exit
 
 192:                                              ; preds = %183, %._crit_edge.i.i.i
   %193 = phi i64 [ %171, %._crit_edge.i.i.i ], [ %.pre, %183 ]
@@ -21964,7 +21964,7 @@ bf_set_nan.exit.i.i.i:                            ; preds = %185, %bf_resize.exi
   %199 = load ptr, ptr %121, align 8
   %200 = shl i64 %193, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %194, ptr align 8 %199, i64 %200, i1 false)
-  br label %bfdec_tdivremu.argprom.exit
+  br label %bfdec_tdivremu.exit
 
 .loopexit.i:                                      ; preds = %137, %148, %132
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
@@ -22043,19 +22043,19 @@ bf_free.exit.i.i.i27.i:                           ; preds = %228, %225
 
 bfdec_sub.exit.i:                                 ; preds = %bf_free.exit.i.i.i27.i, %bfdec_div.exit.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  br label %bfdec_tdivremu.argprom.exit
+  br label %bfdec_tdivremu.exit
 
-bfdec_tdivremu.argprom.exit:                      ; preds = %bfdec_set_ui.exit.i, %bf_set_nan.exit.i.i.i, %192, %bfdec_sub.exit.i
+bfdec_tdivremu.exit:                              ; preds = %bfdec_set_ui.exit.i, %bf_set_nan.exit.i.i.i, %192, %bfdec_sub.exit.i
   %232 = getelementptr i8, ptr %0, i64 16
   %.val94 = load i64, ptr %232, align 8
   %.not = icmp eq i64 %.val94, 9223372036854775807
-  br i1 %.not, label %bfdec_delete.argprom.exit, label %233
+  br i1 %.not, label %bfdec_delete.exit, label %233
 
-233:                                              ; preds = %bfdec_tdivremu.argprom.exit
+233:                                              ; preds = %bfdec_tdivremu.exit
   %234 = getelementptr i8, ptr %1, i64 16
   %.val95 = load i64, ptr %234, align 8
   %.not146 = icmp eq i64 %.val95, 9223372036854775807
-  br i1 %.not146, label %bfdec_delete.argprom.exit, label %235
+  br i1 %.not146, label %bfdec_delete.exit, label %235
 
 235:                                              ; preds = %233
   %236 = getelementptr inbounds i8, ptr %1, i64 24
@@ -22124,7 +22124,7 @@ bf_resize.exit.i.i119:                            ; preds = %244
 bfdec_set.exit127:                                ; preds = %bf_resize.exit.i.i119, %251
   store i64 9223372036854775807, ptr %241, align 8
   store i32 0, ptr %240, align 8
-  br label %bfdec_delete.argprom.exit
+  br label %bfdec_delete.exit
 
 262:                                              ; preds = %256, %239
   %263 = call i32 @bfdec_mul_si(ptr noundef nonnull %12, ptr noundef nonnull %12, i64 noundef 2, i64 noundef 4611686018427387903, i32 noundef 1)
@@ -22138,14 +22138,14 @@ bfdec_set.exit127:                                ; preds = %bf_resize.exit.i.i1
   %.not.i.i = icmp eq ptr %.val92, null
   %.not6.i.i = icmp eq ptr %.val93, null
   %or.cond.i = select i1 %.not.i.i, i1 true, i1 %.not6.i.i
-  br i1 %or.cond.i, label %bfdec_delete.argprom.exit, label %266
+  br i1 %or.cond.i, label %bfdec_delete.exit, label %266
 
 266:                                              ; preds = %264
   %.val.i.i = load ptr, ptr %.val92, align 8
   %267 = getelementptr i8, ptr %.val92, i64 8
   %.val7.i.i = load ptr, ptr %267, align 8
   %268 = call ptr %.val7.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %.val93, i64 noundef 0) #17
-  br label %bfdec_delete.argprom.exit
+  br label %bfdec_delete.exit
 
 269:                                              ; preds = %262
   %270 = call fastcc i32 @bfdec_cmpu(ptr noundef nonnull %12, ptr noundef %3)
@@ -22155,20 +22155,20 @@ bfdec_set.exit127:                                ; preds = %bf_resize.exit.i.i1
   %.not.i.i128 = icmp eq ptr %.val, null
   %.not6.i.i129 = icmp eq ptr %.val91, null
   %or.cond.i130 = select i1 %.not.i.i128, i1 true, i1 %.not6.i.i129
-  br i1 %or.cond.i130, label %bfdec_delete.argprom.exit133, label %272
+  br i1 %or.cond.i130, label %bfdec_delete.exit133, label %272
 
 272:                                              ; preds = %269
   %.val.i.i131 = load ptr, ptr %.val, align 8
   %273 = getelementptr i8, ptr %.val, i64 8
   %.val7.i.i132 = load ptr, ptr %273, align 8
   %274 = call ptr %.val7.i.i132(ptr noundef %.val.i.i131, ptr noundef nonnull %.val91, i64 noundef 0) #17
-  br label %bfdec_delete.argprom.exit133
+  br label %bfdec_delete.exit133
 
-bfdec_delete.argprom.exit133:                     ; preds = %269, %272
+bfdec_delete.exit133:                             ; preds = %269, %272
   %275 = icmp sgt i32 %270, 0
   br i1 %275, label %290, label %276
 
-276:                                              ; preds = %bfdec_delete.argprom.exit133
+276:                                              ; preds = %bfdec_delete.exit133
   %277 = icmp eq i32 %270, 0
   br i1 %277, label %278, label %295
 
@@ -22192,13 +22192,13 @@ bfdec_delete.argprom.exit133:                     ; preds = %269, %272
   %.not86 = icmp eq i32 %.080, 0
   br i1 %.not86, label %295, label %290
 
-290:                                              ; preds = %289, %bfdec_delete.argprom.exit133, %278, %279
+290:                                              ; preds = %289, %bfdec_delete.exit133, %278, %279
   %291 = call i32 @bfdec_add_si(ptr noundef nonnull %0, ptr noundef nonnull %0, i64 noundef 1, i64 noundef 4611686018427387903, i32 noundef 1)
   %292 = call i32 @bfdec_sub(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %11, i64 noundef 4611686018427387903, i32 noundef 1)
   %293 = or i32 %292, %291
   %294 = and i32 %293, 32
   %.not90 = icmp eq i32 %294, 0
-  br i1 %.not90, label %295, label %bfdec_delete.argprom.exit
+  br i1 %.not90, label %295, label %bfdec_delete.exit
 
 295:                                              ; preds = %279, %276, %290, %289, %235
   %296 = load i32, ptr %104, align 8
@@ -22216,13 +22216,13 @@ bfdec_delete.argprom.exit133:                     ; preds = %269, %272
   %304 = call fastcc i32 @__bfdec_round(ptr noundef nonnull %1, i64 noundef %4, i32 noundef %5, i64 noundef %301)
   br label %bfdec_round.exit
 
-bfdec_delete.argprom.exit:                        ; preds = %266, %264, %bfdec_set.exit127, %290, %bfdec_tdivremu.argprom.exit, %233
+bfdec_delete.exit:                                ; preds = %266, %264, %bfdec_set.exit127, %290, %bfdec_tdivremu.exit, %233
   %305 = getelementptr inbounds i8, ptr %0, i64 24
   %306 = load i64, ptr %305, align 8
   %.not.i.i.i136 = icmp eq i64 %306, 0
   br i1 %.not.i.i.i136, label %bfdec_set_nan.exit139, label %307
 
-307:                                              ; preds = %bfdec_delete.argprom.exit
+307:                                              ; preds = %bfdec_delete.exit
   %308 = load ptr, ptr %0, align 8
   %309 = getelementptr inbounds i8, ptr %0, i64 32
   %310 = load ptr, ptr %309, align 8
@@ -22234,7 +22234,7 @@ bfdec_delete.argprom.exit:                        ; preds = %266, %264, %bfdec_s
   store i64 0, ptr %305, align 8
   br label %bfdec_set_nan.exit139
 
-bfdec_set_nan.exit139:                            ; preds = %bfdec_delete.argprom.exit, %307
+bfdec_set_nan.exit139:                            ; preds = %bfdec_delete.exit, %307
   store i64 9223372036854775807, ptr %232, align 8
   %313 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %313, align 8
@@ -22410,16 +22410,16 @@ define dso_local i32 @bfdec_rem(ptr noundef %0, ptr noundef %1, ptr nocapture no
   %.not.i.i = icmp eq ptr %.val, null
   %.not6.i.i = icmp eq ptr %.val10, null
   %or.cond.i = select i1 %.not.i.i, i1 true, i1 %.not6.i.i
-  br i1 %or.cond.i, label %bfdec_delete.argprom.exit, label %14
+  br i1 %or.cond.i, label %bfdec_delete.exit, label %14
 
 14:                                               ; preds = %6
   %.val.i.i = load ptr, ptr %.val, align 8
   %15 = getelementptr i8, ptr %.val, i64 8
   %.val7.i.i = load ptr, ptr %15, align 8
   %16 = call ptr %.val7.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %.val10, i64 noundef 0) #17
-  br label %bfdec_delete.argprom.exit
+  br label %bfdec_delete.exit
 
-bfdec_delete.argprom.exit:                        ; preds = %6, %14
+bfdec_delete.exit:                                ; preds = %6, %14
   ret i32 %12
 }
 
@@ -26536,7 +26536,7 @@ define internal void @bf_const_pi_internal(ptr noundef %0, i64 noundef %1) #2 {
   store i64 -9223372036854775808, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  call fastcc void @chud_bs.argelim(ptr noundef %7, ptr noundef nonnull %0, ptr noundef %8, i64 noundef 0, i64 noundef %11, i32 noundef 0)
+  call fastcc void @chud_bs(ptr noundef %7, ptr noundef nonnull %0, ptr noundef %8, i64 noundef 0, i64 noundef %11, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %19 = load ptr, ptr %8, align 8
   store ptr %19, ptr %6, align 8
@@ -26752,7 +26752,7 @@ bf_delete.exit31:                                 ; preds = %bf_delete.exit, %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @chud_bs.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3, i64 noundef range(i64 -4611686018427387904, 4611686018427387904) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #2 {
+define internal fastcc void @chud_bs(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3, i64 noundef range(i64 -4611686018427387904, 4611686018427387904) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #2 {
   %7 = alloca %struct.bf_t, align 8
   %8 = alloca %struct.bf_t, align 8
   %9 = alloca %struct.bf_t, align 8
@@ -27096,8 +27096,8 @@ bf_delete.exit:                                   ; preds = %bf_mul_ui.exit, %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, i8 0, i64 16, i1 false)
   %154 = add i64 %4, %3
   %155 = sdiv i64 %154, 2
-  tail call fastcc void @chud_bs.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %155, i32 noundef 1)
-  call fastcc void @chud_bs.argelim(ptr noundef %13, ptr noundef nonnull %14, ptr noundef %15, i64 noundef %155, i64 noundef %4, i32 noundef %5)
+  tail call fastcc void @chud_bs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %155, i32 noundef 1)
+  call fastcc void @chud_bs(ptr noundef %13, ptr noundef nonnull %14, ptr noundef %15, i64 noundef %155, i64 noundef %4, i32 noundef %5)
   %156 = call i32 @bf_mul(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %2, i64 noundef 4611686018427387903, i32 noundef 0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %157, label %.critedge
@@ -27293,7 +27293,7 @@ bf_delete.exit111:                                ; preds = %bf_delete.exit111.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bf_sincos.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc void @bf_sincos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca %struct.bf_t, align 8
   %6 = alloca %struct.bf_t, align 8
   %7 = alloca %struct.bf_t, align 8
@@ -29364,9 +29364,9 @@ ntt_vec_mul.exit:                                 ; preds = %36
   %.val124.val125.i = load ptr, ptr %73, align 8
   %74 = tail call ptr %.val124.val125.i(ptr noundef %.val124.val.i, ptr noundef null, i64 noundef %72) #17
   %.not.i56 = icmp eq ptr %74, null
-  br i1 %.not.i56, label %ntt_fft_partial.exit.thread, label %ntt_free.argprom.exit147.sink.split.i
+  br i1 %.not.i56, label %ntt_fft_partial.exit.thread, label %ntt_free.exit147.sink.split.i
 
-ntt_free.argprom.exit147.sink.split.i:            ; preds = %ntt_vec_mul.exit
+ntt_free.exit147.sink.split.i:                    ; preds = %ntt_vec_mul.exit
   %75 = trunc nsw i64 %5 to i32
   %76 = tail call fastcc i32 @ntt_fft(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef %74, i32 noundef %.048, i32 noundef 1, i32 noundef %75)
   %.not119.i = icmp ne i32 %76, 0
@@ -29392,8 +29392,8 @@ ntt_free.argprom.exit147.sink.split.i:            ; preds = %ntt_vec_mul.exit
   %exitcond.not = icmp eq i64 %84, %12
   br i1 %exitcond.not, label %.split50, label %.preheader, !llvm.loop !127
 
-ntt_fft_partial.exit:                             ; preds = %ntt_free.argprom.exit147.sink.split.i, %.split50
-  %phi.call = phi i32 [ %79, %.split50 ], [ %spec.select, %ntt_free.argprom.exit147.sink.split.i ]
+ntt_fft_partial.exit:                             ; preds = %ntt_free.exit147.sink.split.i, %.split50
+  %phi.call = phi i32 [ %79, %.split50 ], [ %spec.select, %ntt_free.exit147.sink.split.i ]
   %phi.call.fr = freeze i32 %phi.call
   %.not55 = icmp ne i32 %phi.call.fr, 0
   %spec.select60 = sext i1 %.not55 to i32
@@ -29413,7 +29413,7 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
   %.val124.val125 = load ptr, ptr %10, align 8
   %11 = tail call ptr %.val124.val125(ptr noundef %.val124.val, ptr noundef null, i64 noundef %9) #17
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %ntt_free.argprom.exit147, label %12
+  br i1 %.not, label %ntt_free.exit147, label %12
 
 12:                                               ; preds = %8
   %13 = icmp eq i32 %3, 0
@@ -29423,7 +29423,7 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
   %15 = trunc nsw i64 %7 to i32
   %16 = tail call fastcc i32 @ntt_fft(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef %11, i32 noundef %2, i32 noundef %6, i32 noundef %15)
   %.not119 = icmp eq i32 %16, 0
-  br i1 %.not119, label %ntt_free.argprom.exit147.sink.split, label %ntt_free.argprom.exit143.thread
+  br i1 %.not119, label %ntt_free.exit147.sink.split, label %ntt_free.exit143.thread
 
 17:                                               ; preds = %12
   %18 = shl i64 %4, 7
@@ -29433,13 +29433,13 @@ define internal fastcc range(i32 -1, 1) i32 @ntt_fft_partial(ptr nocapture nound
   %.val123.val126 = load ptr, ptr %19, align 8
   %20 = tail call ptr %.val123.val126(ptr noundef %.val123.val, ptr noundef null, i64 noundef %18) #17
   %.not116 = icmp eq ptr %20, null
-  br i1 %.not116, label %ntt_free.argprom.exit143.thread, label %21
+  br i1 %.not116, label %ntt_free.exit143.thread, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr [5 x i64], ptr @ntt_mods, i64 0, i64 %7
   %23 = load i64, ptr %22, align 8
   %.not194 = icmp eq i64 %5, 0
-  br i1 %.not194, label %ntt_free.argprom.exit, label %.preheader180.lr.ph
+  br i1 %.not194, label %ntt_free.exit, label %.preheader180.lr.ph
 
 .preheader180.lr.ph:                              ; preds = %21
   %24 = getelementptr inbounds i8, ptr %0, i64 48
@@ -29670,15 +29670,15 @@ mul_trig.exit134:                                 ; preds = %97, %89, %.thread15
 ._crit_edge:                                      ; preds = %160, %.preheader178
   %162 = add i64 %.0103193, 16
   %163 = icmp ult i64 %162, %5
-  br i1 %163, label %.preheader180, label %ntt_free.argprom.exit, !llvm.loop !134
+  br i1 %163, label %.preheader180, label %ntt_free.exit, !llvm.loop !134
 
-ntt_free.argprom.exit:                            ; preds = %._crit_edge, %21
+ntt_free.exit:                                    ; preds = %._crit_edge, %21
   %.val122 = load ptr, ptr %0, align 8
   %.val.i.i = load ptr, ptr %.val122, align 8
   %164 = getelementptr i8, ptr %.val122, i64 8
   %.val3.i.i = load ptr, ptr %164, align 8
   %165 = tail call ptr %.val3.i.i(ptr noundef %.val.i.i, ptr noundef nonnull %20, i64 noundef 0) #17
-  br label %ntt_free.argprom.exit147.sink.split
+  br label %ntt_free.exit147.sink.split
 
 .thread159:                                       ; preds = %.thread, %.thread155, %89
   %.val120164 = load ptr, ptr %0, align 8
@@ -29686,22 +29686,22 @@ ntt_free.argprom.exit:                            ; preds = %._crit_edge, %21
   %166 = getelementptr i8, ptr %.val120164, i64 8
   %.val3.i.i142 = load ptr, ptr %166, align 8
   %167 = tail call ptr %.val3.i.i142(ptr noundef %.val.i.i141, ptr noundef nonnull %20, i64 noundef 0) #17
-  br label %ntt_free.argprom.exit143.thread
+  br label %ntt_free.exit143.thread
 
-ntt_free.argprom.exit143.thread:                  ; preds = %14, %17, %.thread159
-  br label %ntt_free.argprom.exit147.sink.split
+ntt_free.exit143.thread:                          ; preds = %14, %17, %.thread159
+  br label %ntt_free.exit147.sink.split
 
-ntt_free.argprom.exit147.sink.split:              ; preds = %ntt_free.argprom.exit, %14, %ntt_free.argprom.exit143.thread
-  %.0.ph = phi i32 [ -1, %ntt_free.argprom.exit143.thread ], [ 0, %14 ], [ 0, %ntt_free.argprom.exit ]
+ntt_free.exit147.sink.split:                      ; preds = %ntt_free.exit, %14, %ntt_free.exit143.thread
+  %.0.ph = phi i32 [ -1, %ntt_free.exit143.thread ], [ 0, %14 ], [ 0, %ntt_free.exit ]
   %.val166 = load ptr, ptr %0, align 8
   %.val.i.i145 = load ptr, ptr %.val166, align 8
   %168 = getelementptr i8, ptr %.val166, i64 8
   %.val3.i.i146 = load ptr, ptr %168, align 8
   %169 = tail call ptr %.val3.i.i146(ptr noundef %.val.i.i145, ptr noundef nonnull %11, i64 noundef 0) #17
-  br label %ntt_free.argprom.exit147
+  br label %ntt_free.exit147
 
-ntt_free.argprom.exit147:                         ; preds = %ntt_free.argprom.exit147.sink.split, %8
-  %.0 = phi i32 [ -1, %8 ], [ %.0.ph, %ntt_free.argprom.exit147.sink.split ]
+ntt_free.exit147:                                 ; preds = %ntt_free.exit147.sink.split, %8
+  %.0 = phi i32 [ -1, %8 ], [ %.0.ph, %ntt_free.exit147.sink.split ]
   ret i32 %.0
 }
 

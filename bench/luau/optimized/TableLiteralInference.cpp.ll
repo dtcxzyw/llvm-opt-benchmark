@@ -1384,23 +1384,23 @@ define dso_local noundef ptr @_ZN4Luau16matchLiteralTypeENS_7NotNullINS_12DenseH
   %39 = load i32, ptr @_ZN4Luau7AstRttiINS_18AstExprConstantNilEE5valueE, align 4
   %40 = icmp eq i32 %.val, %39
   %or.cond400 = select i1 %or.cond7.i, i1 true, i1 %40
-  br i1 %or.cond400, label %_ZN4LuauL9isLiteralEPKNS_7AstExprE.argprom.exit.thread, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
+  br i1 %or.cond400, label %_ZN4LuauL9isLiteralEPKNS_7AstExprE.exit.thread, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
 
-_ZN4LuauL9isLiteralEPKNS_7AstExprE.argprom.exit.thread: ; preds = %9
+_ZN4LuauL9isLiteralEPKNS_7AstExprE.exit.thread:   ; preds = %9
   %41 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %5)
   store ptr %41, ptr %10, align 8
   %42 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %6)
   %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %.thread, label %43
 
-43:                                               ; preds = %_ZN4LuauL9isLiteralEPKNS_7AstExprE.argprom.exit.thread
+43:                                               ; preds = %_ZN4LuauL9isLiteralEPKNS_7AstExprE.exit.thread
   %44 = load i32, ptr %41, align 8
   switch i32 %44, label %.thread [
     i32 12, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
     i32 16, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
   ]
 
-.thread:                                          ; preds = %43, %_ZN4LuauL9isLiteralEPKNS_7AstExprE.argprom.exit.thread
+.thread:                                          ; preds = %43, %_ZN4LuauL9isLiteralEPKNS_7AstExprE.exit.thread
   %45 = load i32, ptr %28, align 8
   %46 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantStringEE5valueE, align 4
   %47 = icmp eq i32 %45, %46
@@ -1787,7 +1787,7 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %145
   %224 = load i32, ptr %223, align 8
   %225 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantStringEE5valueE, align 4
   %226 = icmp eq i32 %224, %225
-  br i1 %226, label %227, label %_ZN4LuauL8isRecordERKNS_12AstExprTable4ItemE.argprom.exit.thread394
+  br i1 %226, label %227, label %_ZN4LuauL8isRecordERKNS_12AstExprTable4ItemE.exit.thread394
 
 227:                                              ; preds = %._crit_edge431, %222
   %228 = phi i32 [ %.pre432, %._crit_edge431 ], [ %224, %222 ]
@@ -2108,7 +2108,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt
   store ptr %351, ptr %212, align 8
   br label %_ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit285.thread
 
-_ZN4LuauL8isRecordERKNS_12AstExprTable4ItemE.argprom.exit.thread394: ; preds = %222
+_ZN4LuauL8isRecordERKNS_12AstExprTable4ItemE.exit.thread394: ; preds = %222
   %356 = call noundef ptr @_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %221)
   %357 = load ptr, ptr %356, align 8
   %358 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %357)
@@ -2116,7 +2116,7 @@ _ZN4LuauL8isRecordERKNS_12AstExprTable4ItemE.argprom.exit.thread394: ; preds = %
   %.not.i.i283 = icmp eq ptr %358, null
   br i1 %.not.i.i283, label %_ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit.thread, label %359
 
-359:                                              ; preds = %_ZN4LuauL8isRecordERKNS_12AstExprTable4ItemE.argprom.exit.thread394
+359:                                              ; preds = %_ZN4LuauL8isRecordERKNS_12AstExprTable4ItemE.exit.thread394
   %360 = load i32, ptr %358, align 8
   %361 = icmp eq i32 %360, 6
   br i1 %361, label %_ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit, label %_ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit.thread
@@ -2125,7 +2125,7 @@ _ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %359
   call void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %19)
   br label %_ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit.thread
 
-_ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %_ZN4LuauL8isRecordERKNS_12AstExprTable4ItemE.argprom.exit.thread394, %359, %_ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit
+_ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %_ZN4LuauL8isRecordERKNS_12AstExprTable4ItemE.exit.thread394, %359, %_ZN4Luau3getINS_11BlockedTypeEEEPKT_PKNS_4TypeE.exit
   %362 = getelementptr inbounds i8, ptr %.0213418, i64 16
   %363 = call noundef ptr @_ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %362)
   %364 = load ptr, ptr %363, align 8

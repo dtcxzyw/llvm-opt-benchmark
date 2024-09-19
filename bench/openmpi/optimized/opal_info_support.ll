@@ -563,7 +563,7 @@ define noundef i32 @opal_info_register_project_frameworks(ptr noundef %0, ptr no
 
 20:                                               ; preds = %19, %14
   %.not9.i.i = icmp eq ptr %16, null
-  br i1 %.not9.i.i, label %opal_obj_new.argprom.exit.i, label %21
+  br i1 %.not9.i.i, label %opal_obj_new.exit.i, label %21
 
 21:                                               ; preds = %20
   store ptr @opal_info_component_map_t_class, ptr %16, align 8
@@ -572,7 +572,7 @@ define noundef i32 @opal_info_register_project_frameworks(ptr noundef %0, ptr no
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_info_component_map_t_class, i64 40), align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i.i.i = icmp eq ptr %24, null
-  br i1 %.not6.i.i.i, label %opal_obj_new.argprom.exit.i, label %.lr.ph.i.i.i
+  br i1 %.not6.i.i.i, label %opal_obj_new.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %21, %.lr.ph.i.i.i
   %25 = phi ptr [ %27, %.lr.ph.i.i.i ], [ %24, %21 ]
@@ -581,9 +581,9 @@ define noundef i32 @opal_info_register_project_frameworks(ptr noundef %0, ptr no
   %26 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %opal_obj_new.argprom.exit.i, label %.lr.ph.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i, label %opal_obj_new.exit.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
-opal_obj_new.argprom.exit.i:                      ; preds = %.lr.ph.i.i.i, %21, %20
+opal_obj_new.exit.i:                              ; preds = %.lr.ph.i.i.i, %21, %20
   %28 = getelementptr inbounds i8, ptr %11, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noalias ptr @strdup(ptr noundef %29) #17
@@ -602,8 +602,8 @@ opal_obj_new.argprom.exit.i:                      ; preds = %.lr.ph.i.i.i, %21, 
     i32 -16, label %51
   ]
 
-.split27.us:                                      ; preds = %opal_obj_new.argprom.exit.i, %.lr.ph.split.us
-  %.us-phi28 = phi i64 [ %indvars.iv44, %.lr.ph.split.us ], [ %indvars.iv, %opal_obj_new.argprom.exit.i ]
+.split27.us:                                      ; preds = %opal_obj_new.exit.i, %.lr.ph.split.us
+  %.us-phi28 = phi i64 [ %indvars.iv44, %.lr.ph.split.us ], [ %indvars.iv, %opal_obj_new.exit.i ]
   %37 = getelementptr inbounds ptr, ptr %1, i64 %.us-phi28
   %38 = load ptr, ptr @stderr, align 8
   %39 = load ptr, ptr %37, align 8
@@ -614,8 +614,8 @@ opal_obj_new.argprom.exit.i:                      ; preds = %.lr.ph.i.i.i, %21, 
   %44 = tail call i64 @fwrite(ptr nonnull @.str.77, i64 76, i64 1, ptr %43) #22
   br label %.loopexit
 
-.split.us:                                        ; preds = %opal_obj_new.argprom.exit.i, %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi i64 [ %indvars.iv44, %.lr.ph.split.us ], [ %indvars.iv, %.lr.ph.split ], [ %indvars.iv, %opal_obj_new.argprom.exit.i ]
+.split.us:                                        ; preds = %opal_obj_new.exit.i, %.lr.ph.split, %.lr.ph.split.us
+  %.us-phi = phi i64 [ %indvars.iv44, %.lr.ph.split.us ], [ %indvars.iv, %.lr.ph.split ], [ %indvars.iv, %opal_obj_new.exit.i ]
   %45 = getelementptr inbounds ptr, ptr %1, i64 %.us-phi
   %46 = load ptr, ptr @stderr, align 8
   %47 = load ptr, ptr %45, align 8
@@ -624,7 +624,7 @@ opal_obj_new.argprom.exit.i:                      ; preds = %.lr.ph.i.i.i, %21, 
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.78, ptr noundef %0, ptr noundef %49) #19
   br label %.loopexit
 
-51:                                               ; preds = %.lr.ph.split, %opal_obj_new.argprom.exit.i, %opal_obj_new.argprom.exit.i
+51:                                               ; preds = %.lr.ph.split, %opal_obj_new.exit.i, %opal_obj_new.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
   %53 = load ptr, ptr %52, align 8

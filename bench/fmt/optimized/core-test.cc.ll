@@ -34326,19 +34326,19 @@ if.end.i.i.i:                                     ; preds = %_ZN7testing7Message
   %message_.i.i.i.i = getelementptr inbounds i8, ptr %gtest_ar.i.i.i, i64 8
   %12 = load ptr, ptr %message_.i.i.i.i, align 8
   %cmp.not.i.i10.i.i.i = icmp eq ptr %12, null
-  br i1 %cmp.not.i.i10.i.i.i, label %"_ZSt10__invoke_rImRZN31buffer_test_append_partial_Test8TestBodyEvE3$_0JmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i
+  br i1 %cmp.not.i.i10.i.i.i, label %"_ZSt10__invoke_rImRZN31buffer_test_append_partial_Test8TestBodyEvE3$_0JmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.exit", label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i: ; preds = %if.end.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
   call void @_ZdlPv(ptr noundef nonnull %12) #25
-  br label %"_ZSt10__invoke_rImRZN31buffer_test_append_partial_Test8TestBodyEvE3$_0JmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom.exit"
+  br label %"_ZSt10__invoke_rImRZN31buffer_test_append_partial_Test8TestBodyEvE3$_0JmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.exit"
 
 ehcleanup12.i.i.i:                                ; preds = %_ZN7testing7MessageD2Ev.exit9.i.i.i, %lpad.i.i.i
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %_ZN7testing7MessageD2Ev.exit9.i.i.i ], [ %7, %lpad.i.i.i ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar.i.i.i) #24
   resume { ptr, i32 } %.pn.pn.i.i.i
 
-"_ZSt10__invoke_rImRZN31buffer_test_append_partial_Test8TestBodyEvE3$_0JmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom.exit": ; preds = %if.end.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i
+"_ZSt10__invoke_rImRZN31buffer_test_append_partial_Test8TestBodyEvE3$_0JmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.exit": ; preds = %if.end.i.i.i, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i
   %13 = load ptr, ptr %__functor, align 8
   %size_.i11.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   store i64 0, ptr %size_.i11.i.i.i, align 8

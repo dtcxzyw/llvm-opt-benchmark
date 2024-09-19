@@ -67,7 +67,7 @@ $_ZN4absl19str_format_internal13ConvTagHolder5valueE = comdat any
 @.str.5 = private unnamed_addr constant [2 x i8] c"}\00", align 1
 @.str.25 = private unnamed_addr constant [2 x i8] c"%\00", align 1
 @_ZN4absl19str_format_internal13ConvTagHolder5valueE = linkonce_odr dso_local local_unnamed_addr constant [256 x %"class.absl::str_format_internal::ConvTag"] [%"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -60 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -56 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -62 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -63 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -48 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 15 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 11 }, %"class.absl::str_format_internal::ConvTag" { i8 9 }, %"class.absl::str_format_internal::ConvTag" { i8 13 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -124 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 7 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 14 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" zeroinitializer, %"class.absl::str_format_internal::ConvTag" { i8 2 }, %"class.absl::str_format_internal::ConvTag" { i8 10 }, %"class.absl::str_format_internal::ConvTag" { i8 8 }, %"class.absl::str_format_internal::ConvTag" { i8 12 }, %"class.absl::str_format_internal::ConvTag" { i8 -128 }, %"class.absl::str_format_internal::ConvTag" { i8 3 }, %"class.absl::str_format_internal::ConvTag" { i8 -123 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -126 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 16 }, %"class.absl::str_format_internal::ConvTag" { i8 4 }, %"class.absl::str_format_internal::ConvTag" { i8 17 }, %"class.absl::str_format_internal::ConvTag" { i8 -120 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 1 }, %"class.absl::str_format_internal::ConvTag" { i8 -121 }, %"class.absl::str_format_internal::ConvTag" { i8 5 }, %"class.absl::str_format_internal::ConvTag" { i8 18 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 6 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -122 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }, %"class.absl::str_format_internal::ConvTag" { i8 -1 }], comdat, align 16
-@switch.table._ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.argelim = private unnamed_addr constant [19 x i8] c"csdiouxXfFeEgGaAnpv", align 1
+@switch.table._ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE = private unnamed_addr constant [19 x i8] c"csdiouxXfFeEgGaAnpv", align 1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4absl19str_format_internal12BindWithPackEPKNS0_17UnboundConversionENS_4SpanIKNS0_13FormatArgImplEEEPNS0_15BoundConversionE(ptr nocapture noundef readonly %props, ptr %pack.coerce0, i64 %pack.coerce1, ptr nocapture noundef writeonly %bound) local_unnamed_addr #0 {
@@ -269,7 +269,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %conv.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.013.i.i, i64 16
-  %call10.i.i2 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.argelim(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp2.i, ptr noundef nonnull align 4 dereferenceable(15) %conv.i.i)
+  %call10.i.i2 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp2.i, ptr noundef nonnull align 4 dereferenceable(15) %conv.i.i)
           to label %call10.i.i.noexc unwind label %lpad5.loopexit
 
 call10.i.i.noexc:                                 ; preds = %if.then.i.i
@@ -410,7 +410,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast.i10.i
   %consumer.val24.i.i = load ptr, ptr %agg.tmp86.i, align 8
   %cmp.i.i.i28.i.i = icmp eq ptr %call2.i.i, %p.075.i.i
-  br i1 %cmp.i.i.i28.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i, label %if.end.i.i.i29.i.i
+  br i1 %cmp.i.i.i28.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i, label %if.end.i.i.i29.i.i
 
 if.end.i.i.i29.i.i:                               ; preds = %if.end.i.i
   %size_.i.i.i30.i.i = getelementptr inbounds i8, ptr %consumer.val24.i.i, i64 16
@@ -441,21 +441,21 @@ if.then4.i.i.i38.i.i:                             ; preds = %if.end.i.i.i29.i.i
   %24 = load ptr, ptr %write_.i.i.i.i.i42.i.i, align 8
   %25 = load ptr, ptr %consumer.val24.i.i, align 8
   invoke void %24(ptr noundef %25, i64 %sub.ptr.sub10.i.i, ptr %p.075.i.i)
-          to label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i unwind label %lpad5.loopexit.split-lp.loopexit
+          to label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i unwind label %lpad5.loopexit.split-lp.loopexit
 
 if.end5.i.i.i43.i.i:                              ; preds = %if.end.i.i.i29.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %p.075.i.i, i64 %sub.ptr.sub10.i.i, i1 false)
   %26 = load ptr, ptr %pos_.i.i.i.i33.i.i, align 8
   %add.ptr.i.i.i44.i.i = getelementptr inbounds i8, ptr %26, i64 %sub.ptr.sub10.i.i
   store ptr %add.ptr.i.i.i44.i.i, ptr %pos_.i.i.i.i33.i.i, align 8
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i: ; preds = %.noexc6, %if.end5.i.i.i43.i.i, %if.end.i.i
+_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i: ; preds = %.noexc6, %if.end5.i.i.i43.i.i, %if.end.i.i
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 1
   %cmp15.not.i.i = icmp ult ptr %add.ptr14.i.i, %add.ptr.i8.i
   br i1 %cmp15.not.i.i, label %if.end17.i.i, label %invoke.cont7
 
-if.end17.i.i:                                     ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i
+if.end17.i.i:                                     ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i
   %27 = load i8, ptr %add.ptr14.i.i, align 1
   %idxprom.i.i.i = zext i8 %27 to i64
   %arrayidx.i.i.i = getelementptr inbounds [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %idxprom.i.i.i
@@ -477,7 +477,7 @@ if.end23.i.i:                                     ; preds = %if.then20.i.i
   %inc.i.i = add nuw nsw i32 %28, 1
   store i32 %inc.i.i, ptr %next_arg.i.i, align 4
   store i32 %inc.i.i, ptr %conv.i7.i, align 4
-  %call29.i.i8 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.argelim(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp86.i, ptr noundef nonnull align 4 dereferenceable(15) %conv.i7.i)
+  %call29.i.i8 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp86.i, ptr noundef nonnull align 4 dereferenceable(15) %conv.i7.i)
           to label %call29.i.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit
 
 call29.i.i.noexc:                                 ; preds = %if.end23.i.i
@@ -502,7 +502,7 @@ call40.i.i.noexc:                                 ; preds = %if.then37.i.i
   br i1 %cmp41.i.i, label %invoke.cont7, label %if.end44.i.i
 
 if.end44.i.i:                                     ; preds = %call40.i.i.noexc
-  %call51.i.i10 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.argelim(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp86.i, ptr noundef nonnull align 4 dereferenceable(15) %conv38.i.i)
+  %call51.i.i10 = invoke fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %agg.tmp86.i, ptr noundef nonnull align 4 dereferenceable(15) %conv38.i.i)
           to label %call51.i.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit
 
 call51.i.i.noexc:                                 ; preds = %if.end44.i.i
@@ -538,21 +538,21 @@ if.then4.i.i.i64.i.i:                             ; preds = %if.else56.i.i
   %33 = load ptr, ptr %write_.i.i.i.i.i68.i.i, align 8
   %34 = load ptr, ptr %consumer.val25.i.i, align 8
   invoke void %33(ptr noundef %34, i64 1, ptr nonnull @.str.25)
-          to label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit71.i.i unwind label %lpad5.loopexit.split-lp.loopexit
+          to label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit71.i.i unwind label %lpad5.loopexit.split-lp.loopexit
 
 if.end5.i.i.i69.i.i:                              ; preds = %if.else56.i.i
   store i8 37, ptr %30, align 1
   %35 = load ptr, ptr %pos_.i.i.i.i59.i.i, align 8
   %add.ptr.i.i.i70.i.i = getelementptr inbounds i8, ptr %35, i64 1
   store ptr %add.ptr.i.i.i70.i.i, ptr %pos_.i.i.i.i59.i.i, align 8
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit71.i.i
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit71.i.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit71.i.i: ; preds = %.noexc11, %if.end5.i.i.i69.i.i
+_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit71.i.i: ; preds = %.noexc11, %if.end5.i.i.i69.i.i
   %add.ptr63.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 2
   br label %while.cond.backedge.i.i
 
-while.cond.backedge.i.i:                          ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit71.i.i, %call51.i.i.noexc, %call29.i.i.noexc
-  %p.0.be.i.i = phi ptr [ %add.ptr63.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit71.i.i ], [ %add.ptr24.i.i, %call29.i.i.noexc ], [ %call40.i.i9, %call51.i.i.noexc ]
+while.cond.backedge.i.i:                          ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit71.i.i, %call51.i.i.noexc, %call29.i.i.noexc
+  %p.0.be.i.i = phi ptr [ %add.ptr63.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit71.i.i ], [ %add.ptr24.i.i, %call29.i.i.noexc ], [ %call40.i.i9, %call51.i.i.noexc ]
   %cmp.not.i.i = icmp eq ptr %p.0.be.i.i, %add.ptr.i8.i
   br i1 %cmp.not.i.i, label %invoke.cont7.thread, label %while.body.i.i, !llvm.loop !5
 
@@ -563,7 +563,7 @@ invoke.cont7.thread:                              ; preds = %while.cond.backedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %conv38.i.i)
   br label %cleanup.cont.critedge
 
-invoke.cont7:                                     ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i, %if.then20.i.i, %call29.i.i.noexc, %call40.i.i.noexc, %call51.i.i.noexc
+invoke.cont7:                                     ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i, %if.then20.i.i, %call29.i.i.noexc, %call40.i.i.noexc, %call51.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp86.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %next_arg.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %conv.i7.i)
@@ -775,7 +775,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %sub.i.i = add nsw i32 %5, -1
   %conv.i38.i = sext i32 %sub.i.i to i64
   %cmp.not.i39.i = icmp ugt i64 %args.coerce1, %conv.i38.i
-  br i1 %cmp.not.i39.i, label %if.end.i41.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.thread.i.i
+  br i1 %cmp.not.i39.i, label %if.end.i41.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i.i
 
 if.end.i41.i:                                     ; preds = %if.then.i.i
   %arrayidx.i.i42.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args.coerce0, i64 %conv.i38.i
@@ -795,7 +795,7 @@ if.then13.i.i:                                    ; preds = %if.then8.i.i
   %sub2.i.i.i = xor i32 %7, -1
   %conv.i.i.i = zext nneg i32 %sub2.i.i.i to i64
   %cmp.i23.i.i = icmp ult i64 %args.coerce1, %conv.i.i.i
-  br i1 %cmp.i23.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.thread.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i.i
+  br i1 %cmp.i23.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i.i: ; preds = %if.then13.i.i
   %8 = getelementptr %"class.absl::str_format_internal::FormatArgImpl", ptr %args.coerce0, i64 %conv.i.i.i
@@ -807,7 +807,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_1
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i.i
-  br i1 %call.i.i.i.i1, label %if.end19.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.thread.i.i
+  br i1 %call.i.i.i.i1, label %if.end19.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i.i
 
 if.end19.i.i:                                     ; preds = %call.i.i.i.i.noexc
   %9 = load i32, ptr %width.i.i, align 4
@@ -833,7 +833,7 @@ if.then32.i.i:                                    ; preds = %if.end27.i.i
   %sub2.i26.i.i = xor i32 %11, -1
   %conv.i27.i.i = zext nneg i32 %sub2.i26.i.i to i64
   %cmp.i28.i.i = icmp ult i64 %args.coerce1, %conv.i27.i.i
-  br i1 %cmp.i28.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.thread.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i.i
+  br i1 %cmp.i28.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i.i: ; preds = %if.then32.i.i
   %12 = getelementptr %"class.absl::str_format_internal::FormatArgImpl", ptr %args.coerce0, i64 %conv.i27.i.i
@@ -845,7 +845,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_1
           to label %call.i.i34.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i34.i.i.noexc:                             ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i.i
-  br i1 %call.i.i34.i.i2, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.if.end40_crit_edge.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.thread.i.i
+  br i1 %call.i.i34.i.i2, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.if.end40_crit_edge.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.if.end40_crit_edge.i.i: ; preds = %call.i.i34.i.i.noexc
   %.pre.i.i = load i32, ptr %width.i.i, align 4
@@ -869,19 +869,19 @@ if.end40.i.i:                                     ; preds = %_ZN4absl19str_forma
   %bound.i.i.sroa.0.2.insert.ext.i = zext i8 %16 to i64
   %bound.i.i.sroa.0.2.insert.shift.i = shl nuw nsw i64 %bound.i.i.sroa.0.2.insert.ext.i, 16
   %bound.i.i.sroa.0.2.insert.insert56.i = or disjoint i64 %bound.i.i.sroa.0.1.insert.insert.i, %bound.i.i.sroa.0.2.insert.shift.i
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i.i
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
 
 if.else46.i.i:                                    ; preds = %if.end.i41.i
   %bound.i.i.sroa.0.4.insert.mask58.i = and i64 %bound.i.i.sroa.0.2.insert.insert.i, 4278779923
   %bound.i.i.sroa.0.4.insert.insert59.i = or disjoint i64 %bound.i.i.sroa.0.4.insert.mask58.i, -4294967296
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i.i
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.thread.i.i: ; preds = %call.i.i34.i.i.noexc, %if.then32.i.i, %call.i.i.i.i.noexc, %if.then13.i.i, %if.then.i.i
+_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i.i: ; preds = %call.i.i34.i.i.noexc, %if.then32.i.i, %call.i.i.i.i.noexc, %if.then13.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %width.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %precision.i.i)
   br label %invoke.cont4
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i.i: ; preds = %if.else46.i.i, %if.end40.i.i
+_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds = %if.else46.i.i, %if.end40.i.i
   %bound.i.i.sroa.0.2.i = phi i64 [ %bound.i.i.sroa.0.4.insert.insert59.i, %if.else46.i.i ], [ %bound.i.i.sroa.0.2.insert.insert56.i, %if.end40.i.i ]
   %bound.i.i.sroa.12.2.i = phi i32 [ -1, %if.else46.i.i ], [ %13, %if.end40.i.i ]
   %conv49.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.014.i.i, i64 30
@@ -897,7 +897,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConv
   %call.i.i.i.i.i3 = invoke noundef zeroext i1 %agg.tmp.sroa.2.0.copyload.i.i.i.i(ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 %bound.i.i.sroa.0.0.insert.insert50.i, i32 %bound.i.i.sroa.12.2.i, ptr noundef nonnull %sink)
           to label %call.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
-call.i.i.i.i.i.noexc:                             ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i.i
+call.i.i.i.i.i.noexc:                             ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i
   br i1 %call.i.i.i.i.i3, label %for.inc.i.i, label %invoke.cont4
 
 if.else.i.i:                                      ; preds = %for.body.i.i
@@ -973,8 +973,8 @@ while.body.lr.ph.i.i:                             ; preds = %if.end65.i.i, %whil
   %bound.i.sroa.0.0.ph228.i.i = phi i64 [ undef, %while.body.lr.ph.lr.ph.i.i ], [ %bound.i.sroa.0.1.i.i, %if.end65.i.i ]
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit87.i.i, %while.body.lr.ph.i.i
-  %p.0224.i.i = phi ptr [ %p.0.ph230.i.i, %while.body.lr.ph.i.i ], [ %add.ptr63.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit87.i.i ]
+while.body.i.i:                                   ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit87.i.i, %while.body.lr.ph.i.i
+  %p.0224.i.i = phi ptr [ %p.0.ph230.i.i, %while.body.lr.ph.i.i ], [ %add.ptr63.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit87.i.i ]
   %sub.ptr.rhs.cast.i9.i = ptrtoint ptr %p.0224.i.i to i64
   %sub.ptr.sub.i10.i = sub i64 %sub.ptr.lhs.cast.i8.i, %sub.ptr.rhs.cast.i9.i
   %call2.i.i = call noundef ptr @memchr(ptr noundef %p.0224.i.i, i32 noundef 37, i64 noundef %sub.ptr.sub.i10.i) #12
@@ -1020,7 +1020,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %call2.i.i to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast.i9.i
   %cmp.i.i.i28.i.i = icmp eq ptr %call2.i.i, %p.0224.i.i
-  br i1 %cmp.i.i.i28.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i, label %if.end.i.i.i29.i.i
+  br i1 %cmp.i.i.i28.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i, label %if.end.i.i.i29.i.i
 
 if.end.i.i.i29.i.i:                               ; preds = %if.end.i.i
   %33 = load i64, ptr %size_.i, align 8
@@ -1044,21 +1044,21 @@ if.then4.i.i.i38.i.i:                             ; preds = %if.end.i.i.i29.i.i
   %37 = load ptr, ptr %raw.sroa.2.0.raw_.sroa_idx.i, align 8
   %38 = load ptr, ptr %sink, align 8
   invoke void %37(ptr noundef %38, i64 %sub.ptr.sub10.i.i, ptr %p.0224.i.i)
-          to label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i unwind label %lpad.loopexit.split-lp.loopexit
+          to label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end5.i.i.i43.i.i:                              ; preds = %if.end.i.i.i29.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %p.0224.i.i, i64 %sub.ptr.sub10.i.i, i1 false)
   %39 = load ptr, ptr %pos_.i, align 8
   %add.ptr.i.i.i44.i.i = getelementptr inbounds i8, ptr %39, i64 %sub.ptr.sub10.i.i
   store ptr %add.ptr.i.i.i44.i.i, ptr %pos_.i, align 8
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i: ; preds = %.noexc7, %if.end5.i.i.i43.i.i, %if.end.i.i
+_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i: ; preds = %.noexc7, %if.end5.i.i.i43.i.i, %if.end.i.i
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 1
   %cmp15.not.i.i = icmp ult ptr %add.ptr14.i.i, %add.ptr.i7.i
   br i1 %cmp15.not.i.i, label %if.end17.i.i, label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i
 
-if.end17.i.i:                                     ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i
+if.end17.i.i:                                     ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i
   %40 = load i8, ptr %add.ptr14.i.i, align 1
   %idxprom.i.i.i = zext i8 %40 to i64
   %arrayidx.i.i.i = getelementptr inbounds [256 x %"class.absl::str_format_internal::ConvTag"], ptr @_ZN4absl19str_format_internal13ConvTagHolder5valueE, i64 0, i64 %idxprom.i.i.i
@@ -1076,9 +1076,9 @@ if.end23.i.i:                                     ; preds = %if.then20.i.i
   store i32 %inc.i.i, ptr %next_arg.i.i, align 4
   %conv.i90.i.i = zext nneg i32 %41 to i64
   %cmp.not.i.i.i = icmp ugt i64 %args.coerce1, %conv.i90.i.i
-  br i1 %cmp.not.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i13.i, label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i
+  br i1 %cmp.not.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i13.i, label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i13.i: ; preds = %if.end23.i.i
+_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i13.i: ; preds = %if.end23.i.i
   %bound.i.sroa.0.0.insert.mask.i.i = and i64 %bound.i.sroa.0.0.ph228.i.i, 4278190080
   %arrayidx.i.i.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args.coerce0, i64 %conv.i90.i.i
   %bound.i.sroa.0.0.insert.ext.i.i = zext nneg i8 %retval.sroa.0.0.copyload.i.i.i to i64
@@ -1090,7 +1090,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConv
   %call.i.i.i.i18.i9 = invoke noundef zeroext i1 %agg.tmp.sroa.2.0.copyload.i.i.i17.i(ptr %agg.tmp.sroa.0.0.copyload.i.i.i15.i, i64 %bound.i.sroa.0.0.insert.insert164.i.i, i32 -1, ptr noundef nonnull %sink)
           to label %call.i.i.i.i18.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
-call.i.i.i.i18.i.noexc:                           ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i13.i
+call.i.i.i.i18.i.noexc:                           ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i13.i
   %add.ptr24.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 2
   br i1 %call.i.i.i.i18.i9, label %if.end65.i.i, label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i
 
@@ -1119,7 +1119,7 @@ if.end44.i.i:                                     ; preds = %call40.i.i.noexc
   %sub.i100.i.i = add nsw i32 %42, -1
   %conv.i101.i.i = sext i32 %sub.i100.i.i to i64
   %cmp.not.i103.i.i = icmp ugt i64 %args.coerce1, %conv.i101.i.i
-  br i1 %cmp.not.i103.i.i, label %if.end.i105.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.thread.i.i
+  br i1 %cmp.not.i103.i.i, label %if.end.i105.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.thread.i.i
 
 if.end.i105.i.i:                                  ; preds = %if.end44.i.i
   %arrayidx.i.i106.i.i = getelementptr inbounds %"class.absl::str_format_internal::FormatArgImpl", ptr %args.coerce0, i64 %conv.i101.i.i
@@ -1137,7 +1137,7 @@ if.then13.i140.i.i:                               ; preds = %if.then8.i109.i.i
   %sub2.i.i141.i.i = xor i32 %44, -1
   %conv.i.i142.i.i = zext nneg i32 %sub2.i.i141.i.i to i64
   %cmp.i23.i143.i.i = icmp ult i64 %args.coerce1, %conv.i.i142.i.i
-  br i1 %cmp.i23.i143.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.thread.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i144.i.i
+  br i1 %cmp.i23.i143.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.thread.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i144.i.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i144.i.i: ; preds = %if.then13.i140.i.i
   %45 = getelementptr %"class.absl::str_format_internal::FormatArgImpl", ptr %args.coerce0, i64 %conv.i.i142.i.i
@@ -1149,7 +1149,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_1
           to label %call.i.i.i149.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i149.i.i.noexc:                          ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i144.i.i
-  br i1 %call.i.i.i149.i.i11, label %if.end19.i150.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.thread.i.i
+  br i1 %call.i.i.i149.i.i11, label %if.end19.i150.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.thread.i.i
 
 if.end19.i150.i.i:                                ; preds = %call.i.i.i149.i.i.noexc
   %46 = load i32, ptr %width.i98.i.i, align 4
@@ -1174,7 +1174,7 @@ if.then32.i125.i.i:                               ; preds = %if.end27.i112.i.i
   %sub2.i26.i126.i.i = xor i32 %48, -1
   %conv.i27.i128.i.i = zext nneg i32 %sub2.i26.i126.i.i to i64
   %cmp.i28.i129.i.i = icmp ult i64 %args.coerce1, %conv.i27.i128.i.i
-  br i1 %cmp.i28.i129.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.thread.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i130.i.i
+  br i1 %cmp.i28.i129.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.thread.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i130.i.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i130.i.i: ; preds = %if.then32.i125.i.i
   %49 = getelementptr %"class.absl::str_format_internal::FormatArgImpl", ptr %args.coerce0, i64 %conv.i27.i128.i.i
@@ -1186,7 +1186,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_1
           to label %call.i.i34.i136.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i34.i136.i.i.noexc:                        ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i130.i.i
-  br i1 %call.i.i34.i136.i.i12, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.if.end40_crit_edge.i137.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.thread.i.i
+  br i1 %call.i.i34.i136.i.i12, label %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.if.end40_crit_edge.i137.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.thread.i.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.if.end40_crit_edge.i137.i.i: ; preds = %call.i.i34.i136.i.i.noexc
   %.pre.i138.i.i = load i32, ptr %width.i98.i.i, align 4
@@ -1209,19 +1209,19 @@ if.end40.i116.i.i:                                ; preds = %_ZN4absl19str_forma
   %bound.i53.sroa.0.2.insert.ext.i.i = zext i8 %53 to i64
   %bound.i53.sroa.0.2.insert.shift.i.i = shl nuw nsw i64 %bound.i53.sroa.0.2.insert.ext.i.i, 16
   %bound.i53.sroa.0.2.insert.insert183.i.i = or disjoint i64 %bound.i53.sroa.0.1.insert.insert.i.i, %bound.i53.sroa.0.2.insert.shift.i.i
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.i.i
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.i.i
 
 if.else46.i155.i.i:                               ; preds = %if.end.i105.i.i
   %bound.i53.sroa.0.4.insert.mask185.i.i = and i64 %bound.i53.sroa.0.2.insert.insert.i.i, 4278779923
   %bound.i53.sroa.0.4.insert.insert186.i.i = or disjoint i64 %bound.i53.sroa.0.4.insert.mask185.i.i, -4294967296
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.i.i
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.i.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.thread.i.i: ; preds = %call.i.i34.i136.i.i.noexc, %if.then32.i125.i.i, %call.i.i.i149.i.i.noexc, %if.then13.i140.i.i, %if.end44.i.i
+_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.thread.i.i: ; preds = %call.i.i34.i136.i.i.noexc, %if.then32.i125.i.i, %call.i.i.i149.i.i.noexc, %if.then13.i140.i.i, %if.end44.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %width.i98.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %precision.i99.i.i)
   br label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.i.i: ; preds = %if.else46.i155.i.i, %if.end40.i116.i.i
+_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.i.i: ; preds = %if.else46.i155.i.i, %if.end40.i116.i.i
   %bound.i53.sroa.0.2.i.i = phi i64 [ %bound.i53.sroa.0.4.insert.insert186.i.i, %if.else46.i155.i.i ], [ %bound.i53.sroa.0.2.insert.insert183.i.i, %if.end40.i116.i.i ]
   %bound.i53.sroa.11.2.i.i = phi i32 [ -1, %if.else46.i155.i.i ], [ %50, %if.end40.i116.i.i ]
   %54 = load i8, ptr %conv.i51.i.i, align 2
@@ -1236,7 +1236,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConv
   %call.i.i.i67.i.i13 = invoke noundef zeroext i1 %agg.tmp.sroa.2.0.copyload.i.i63.i.i(ptr %agg.tmp.sroa.0.0.copyload.i.i61.i.i, i64 %bound.i53.sroa.0.0.insert.insert177.i.i, i32 %bound.i53.sroa.11.2.i.i, ptr noundef nonnull %sink)
           to label %call.i.i.i67.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
-call.i.i.i67.i.i.noexc:                           ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.i.i
+call.i.i.i67.i.i.noexc:                           ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.i.i
   br i1 %call.i.i.i67.i.i13, label %if.end65.i.i, label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i
 
 if.else56.i.i:                                    ; preds = %if.else.i12.i
@@ -1261,16 +1261,16 @@ if.then4.i.i.i80.i.i:                             ; preds = %if.else56.i.i
   %59 = load ptr, ptr %raw.sroa.2.0.raw_.sroa_idx.i, align 8
   %60 = load ptr, ptr %sink, align 8
   invoke void %59(ptr noundef %60, i64 1, ptr nonnull @.str.25)
-          to label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit87.i.i unwind label %lpad.loopexit.split-lp.loopexit
+          to label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit87.i.i unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end5.i.i.i85.i.i:                              ; preds = %if.else56.i.i
   store i8 37, ptr %56, align 1
   %61 = load ptr, ptr %pos_.i, align 8
   %add.ptr.i.i.i86.i.i = getelementptr inbounds i8, ptr %61, i64 1
   store ptr %add.ptr.i.i.i86.i.i, ptr %pos_.i, align 8
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit87.i.i
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit87.i.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit87.i.i: ; preds = %.noexc14, %if.end5.i.i.i85.i.i
+_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit87.i.i: ; preds = %.noexc14, %if.end5.i.i.i85.i.i
   %add.ptr63.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 2
   %cmp.not.i.i = icmp eq ptr %add.ptr63.i.i, %add.ptr.i7.i
   br i1 %cmp.not.i.i, label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i, label %while.body.i.i, !llvm.loop !7
@@ -1282,14 +1282,14 @@ if.end65.i.i:                                     ; preds = %call.i.i.i67.i.i.no
   %cmp.not223.i.i = icmp eq ptr %p.1.i.i, %add.ptr.i7.i
   br i1 %cmp.not223.i.i, label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i, label %while.body.lr.ph.i.i, !llvm.loop !7
 
-_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i: ; preds = %if.end65.i.i, %call.i.i.i67.i.i.noexc, %call40.i.i.noexc, %call.i.i.i.i18.i.noexc, %if.end23.i.i, %if.then20.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit87.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i, %.noexc5, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.thread.i.i, %if.end5.i.i.i.i36.i, %if.then.i19.i, %if.else.i
-  %retval.0.i11.i = phi i1 [ true, %if.then.i19.i ], [ true, %if.end5.i.i.i.i36.i ], [ false, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.thread.i.i ], [ true, %if.else.i ], [ true, %.noexc5 ], [ %cmp15.not.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit45.i.i ], [ %cmp15.not.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit87.i.i ], [ true, %if.end65.i.i ], [ false, %if.end23.i.i ], [ false, %call.i.i.i67.i.i.noexc ], [ false, %call40.i.i.noexc ], [ false, %call.i.i.i.i18.i.noexc ], [ false, %if.then20.i.i ]
+_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i: ; preds = %if.end65.i.i, %call.i.i.i67.i.i.noexc, %call40.i.i.noexc, %call.i.i.i.i18.i.noexc, %if.end23.i.i, %if.then20.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit87.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i, %.noexc5, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.thread.i.i, %if.end5.i.i.i.i36.i, %if.then.i19.i, %if.else.i
+  %retval.0.i11.i = phi i1 [ true, %if.then.i19.i ], [ true, %if.end5.i.i.i.i36.i ], [ false, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.thread.i.i ], [ true, %if.else.i ], [ true, %.noexc5 ], [ %cmp15.not.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit45.i.i ], [ %cmp15.not.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit87.i.i ], [ true, %if.end65.i.i ], [ false, %if.end23.i.i ], [ false, %call.i.i.i67.i.i.noexc ], [ false, %call40.i.i.noexc ], [ false, %call.i.i.i.i18.i.noexc ], [ false, %if.then20.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %next_arg.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %conv38.i.i)
   br label %invoke.cont4
 
-invoke.cont4:                                     ; preds = %call.i.i.i.i.i.noexc, %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i, %for.end.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.thread.i.i
-  %retval.0.i = phi i1 [ %retval.0.i11.i, %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i ], [ %lnot.i.i, %for.end.i.i ], [ false, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.thread.i.i ], [ false, %call.i.i.i.i.i.noexc ]
+invoke.cont4:                                     ; preds = %call.i.i.i.i.i.noexc, %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i, %for.end.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i.i
+  %retval.0.i = phi i1 [ %retval.0.i11.i, %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i ], [ %lnot.i.i, %for.end.i.i ], [ false, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i.i ], [ false, %call.i.i.i.i.i.noexc ]
   %62 = load ptr, ptr %pos_.i, align 8
   %sub.ptr.lhs.cast.i.i16 = ptrtoint ptr %62 to i64
   %sub.ptr.rhs.cast.i.i17 = ptrtoint ptr %buf_.i to i64
@@ -1309,7 +1309,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont4
 _ZN4absl19str_format_internal14FormatSinkImplD2Ev.exit: ; preds = %invoke.cont4
   ret i1 %retval.0.i
 
-lpad.loopexit:                                    ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i.i, %if.then4.i.i.i.i.i, %.noexc
+lpad.loopexit:                                    ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i, %if.then4.i.i.i.i.i, %.noexc
   %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -1319,7 +1319,7 @@ lpad.loopexit.split-lp.loopexit:                  ; preds = %.noexc14, %if.then4
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit.i13.i, %if.then37.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i144.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i130.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit68.i.i
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit.i13.i, %if.then37.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit.i144.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116BindFromPositionEiPiNS_4SpanIKNS0_13FormatArgImplEEE.exit36.i130.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_16DefaultConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit68.i.i
   %lpad.loopexit24 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -1524,7 +1524,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(15) %conv) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(15) %conv) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %spec.i = alloca %"class.absl::str_format_internal::UntypedFormatSpecImpl", align 8
   %ss.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1636,7 +1636,7 @@ if.end34.i:                                       ; preds = %invoke.cont28.i, %i
 
 switch.lookup:                                    ; preds = %if.end34.i
   %8 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds [19 x i8], ptr @switch.table._ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.argelim, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds [19 x i8], ptr @switch.table._ZN4absl19str_format_internal12_GLOBAL__N_117ConverterConsumerINS1_20SummarizingConverterEE10ConvertOneERKNS0_17UnboundConversionESt17basic_string_viewIcSt11char_traitsIcEE, i64 0, i64 %8
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN4absl19str_format_internal26FormatConversionCharToCharENS_20FormatConversionCharE.exit.i.i
 
@@ -1659,7 +1659,7 @@ invoke.cont43.i:                                  ; preds = %invoke.cont39.i
   %11 = extractvalue { i64, ptr } %call44.i, 1
   %this.val.i = load ptr, ptr %this, align 8
   %cmp.i.i.i = icmp eq i64 %10, 0
-  br i1 %cmp.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_120SummarizingConverter10ConvertOneERKNS0_15BoundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit, label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %_ZNK4absl19str_format_internal12_GLOBAL__N_120SummarizingConverter10ConvertOneERKNS0_15BoundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont43.i
   %size_.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 16
@@ -1690,14 +1690,14 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   %16 = load ptr, ptr %write_.i.i.i.i.i, align 8
   %17 = load ptr, ptr %this.val.i, align 8
   invoke void %16(ptr noundef %17, i64 %10, ptr %11)
-          to label %_ZNK4absl19str_format_internal12_GLOBAL__N_120SummarizingConverter10ConvertOneERKNS0_15BoundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit unwind label %lpad45.i
+          to label %_ZNK4absl19str_format_internal12_GLOBAL__N_120SummarizingConverter10ConvertOneERKNS0_15BoundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit unwind label %lpad45.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %11, i64 %10, i1 false)
   %18 = load ptr, ptr %pos_.i.i.i.i, align 8
   %add.ptr.i.i27.i = getelementptr inbounds i8, ptr %18, i64 %10
   store ptr %add.ptr.i.i27.i, ptr %pos_.i.i.i.i, align 8
-  br label %_ZNK4absl19str_format_internal12_GLOBAL__N_120SummarizingConverter10ConvertOneERKNS0_15BoundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit
+  br label %_ZNK4absl19str_format_internal12_GLOBAL__N_120SummarizingConverter10ConvertOneERKNS0_15BoundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 lpad45.i:                                         ; preds = %.noexc28.i, %if.then4.i.i.i
   %19 = landingpad { ptr, i32 }
@@ -1710,7 +1710,7 @@ ehcleanup48.i:                                    ; preds = %lpad45.i, %lpad15.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ss.i) #11
   resume { ptr, i32 } %.pn8.i
 
-_ZNK4absl19str_format_internal12_GLOBAL__N_120SummarizingConverter10ConvertOneERKNS0_15BoundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit: ; preds = %invoke.cont43.i, %.noexc28.i, %if.end5.i.i.i
+_ZNK4absl19str_format_internal12_GLOBAL__N_120SummarizingConverter10ConvertOneERKNS0_15BoundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %invoke.cont43.i, %.noexc28.i, %if.end5.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42.i) #11
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ss.i) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %spec.i)
@@ -1720,7 +1720,7 @@ _ZNK4absl19str_format_internal12_GLOBAL__N_120SummarizingConverter10ConvertOneER
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp42.i)
   br label %return
 
-return:                                           ; preds = %entry, %_ZNK4absl19str_format_internal12_GLOBAL__N_120SummarizingConverter10ConvertOneERKNS0_15BoundConversionESt17basic_string_viewIcSt11char_traitsIcEE.argprom.exit
+return:                                           ; preds = %entry, %_ZNK4absl19str_format_internal12_GLOBAL__N_120SummarizingConverter10ConvertOneERKNS0_15BoundConversionESt17basic_string_viewIcSt11char_traitsIcEE.exit
   ret i1 %call
 }
 

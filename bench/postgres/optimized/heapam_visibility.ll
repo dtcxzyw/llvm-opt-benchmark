@@ -833,7 +833,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = load i32, ptr %1, align 8
-  switch i32 %13, label %HeapTupleSatisfiesMVCC.argprom.exit [
+  switch i32 %13, label %HeapTupleSatisfiesMVCC.exit [
     i32 0, label %14
     i32 1, label %146
     i32 2, label %268
@@ -856,7 +856,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 20:                                               ; preds = %14
   %21 = and i32 %18, 512
   %.not77.i = icmp eq i32 %21, 0
-  br i1 %.not77.i, label %22, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %.not77.i, label %22, label %HeapTupleSatisfiesMVCC.exit
 
 22:                                               ; preds = %20
   %23 = and i32 %18, 16384
@@ -867,7 +867,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %25 = getelementptr inbounds i8, ptr %.val, i64 8
   %26 = load i32, ptr %25, align 4
   %27 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %26) #3
-  br i1 %27, label %HeapTupleSatisfiesMVCC.argprom.exit, label %28
+  br i1 %27, label %HeapTupleSatisfiesMVCC.exit, label %28
 
 28:                                               ; preds = %24
   %29 = tail call zeroext i1 @XidInMVCCSnapshot(i32 noundef %26, ptr noundef nonnull %1) #3
@@ -882,7 +882,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %34 = or i16 %32, 512
   store i16 %34, ptr %16, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 35:                                               ; preds = %30
   %36 = or i16 %32, 256
@@ -902,7 +902,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 
 42:                                               ; preds = %38
   %43 = tail call zeroext i1 @XidInMVCCSnapshot(i32 noundef %40, ptr noundef nonnull %1) #3
-  br i1 %43, label %HeapTupleSatisfiesMVCC.argprom.exit, label %44
+  br i1 %43, label %HeapTupleSatisfiesMVCC.exit, label %44
 
 44:                                               ; preds = %42
   %45 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %40) #3
@@ -919,7 +919,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %50 = or i16 %46, 512
   store i16 %50, ptr %16, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 51:                                               ; preds = %37
   %52 = load i32, ptr %.val, align 4
@@ -931,14 +931,14 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %56 = getelementptr inbounds i8, ptr %1, i64 48
   %57 = load i32, ptr %56, align 8
   %.not80.i = icmp ult i32 %55, %57
-  br i1 %.not80.i, label %58, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %.not80.i, label %58, label %HeapTupleSatisfiesMVCC.exit
 
 58:                                               ; preds = %54
   %59 = load i16, ptr %16, align 4
   %60 = zext i16 %59 to i32
   %61 = and i32 %60, 2048
   %.not81.i = icmp eq i32 %61, 0
-  br i1 %.not81.i, label %62, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %.not81.i, label %62, label %HeapTupleSatisfiesMVCC.exit
 
 62:                                               ; preds = %58
   %63 = and i32 %60, 128
@@ -946,7 +946,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %64 = and i32 %60, 4176
   %65 = icmp eq i32 %64, 64
   %or.cond.i = or i1 %.not82.i, %65
-  br i1 %or.cond.i, label %HeapTupleSatisfiesMVCC.argprom.exit, label %66
+  br i1 %or.cond.i, label %HeapTupleSatisfiesMVCC.exit, label %66
 
 66:                                               ; preds = %62
   %67 = and i32 %60, 4096
@@ -956,13 +956,13 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 68:                                               ; preds = %66
   %69 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %.val) #3
   %70 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %69) #3
-  br i1 %70, label %71, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %70, label %71, label %HeapTupleSatisfiesMVCC.exit
 
 71:                                               ; preds = %68
   %72 = tail call i32 @HeapTupleHeaderGetCmax(ptr noundef nonnull %.val) #3
   %73 = load i32, ptr %56, align 8
   %.not85.i = icmp uge i32 %72, %73
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 74:                                               ; preds = %66
   %75 = getelementptr inbounds i8, ptr %.val, i64 4
@@ -975,18 +975,18 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %80 = or i16 %79, 2048
   store i16 %80, ptr %16, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 81:                                               ; preds = %74
   %82 = tail call i32 @HeapTupleHeaderGetCmax(ptr noundef nonnull %.val) #3
   %83 = load i32, ptr %56, align 8
   %.not84.i = icmp uge i32 %82, %83
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 84:                                               ; preds = %51
   %85 = load i32, ptr %.val, align 4
   %86 = tail call zeroext i1 @XidInMVCCSnapshot(i32 noundef %85, ptr noundef nonnull %1) #3
-  br i1 %86, label %HeapTupleSatisfiesMVCC.argprom.exit, label %87
+  br i1 %86, label %HeapTupleSatisfiesMVCC.exit, label %87
 
 87:                                               ; preds = %84
   %88 = load i32, ptr %.val, align 4
@@ -1003,7 +1003,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %94 = or i16 %93, 512
   store i16 %94, ptr %16, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 95:                                               ; preds = %14
   %96 = and i32 %18, 768
@@ -1013,14 +1013,14 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 98:                                               ; preds = %95
   %99 = load i32, ptr %.val, align 4
   %100 = tail call zeroext i1 @XidInMVCCSnapshot(i32 noundef %99, ptr noundef nonnull %1) #3
-  br i1 %100, label %HeapTupleSatisfiesMVCC.argprom.exit, label %101
+  br i1 %100, label %HeapTupleSatisfiesMVCC.exit, label %101
 
 101:                                              ; preds = %98, %95, %90, %47, %38, %35, %28
   %102 = load i16, ptr %16, align 4
   %103 = zext i16 %102 to i32
   %104 = and i32 %103, 2048
   %.not86.i = icmp eq i32 %104, 0
-  br i1 %.not86.i, label %105, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %.not86.i, label %105, label %HeapTupleSatisfiesMVCC.exit
 
 105:                                              ; preds = %101
   %106 = and i32 %103, 128
@@ -1028,7 +1028,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %107 = and i32 %103, 4176
   %108 = icmp eq i32 %107, 64
   %or.cond95.i = or i1 %.not87.i, %108
-  br i1 %or.cond95.i, label %HeapTupleSatisfiesMVCC.argprom.exit, label %109
+  br i1 %or.cond95.i, label %HeapTupleSatisfiesMVCC.exit, label %109
 
 109:                                              ; preds = %105
   %110 = and i32 %103, 4096
@@ -1045,16 +1045,16 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %116 = getelementptr inbounds i8, ptr %1, i64 48
   %117 = load i32, ptr %116, align 8
   %.not91.i = icmp uge i32 %115, %117
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 118:                                              ; preds = %111
   %119 = tail call zeroext i1 @XidInMVCCSnapshot(i32 noundef %112, ptr noundef nonnull %1) #3
-  br i1 %119, label %HeapTupleSatisfiesMVCC.argprom.exit, label %120
+  br i1 %119, label %HeapTupleSatisfiesMVCC.exit, label %120
 
 120:                                              ; preds = %118
   %121 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %112) #3
   %not..i = xor i1 %121, true
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 122:                                              ; preds = %109
   %123 = and i32 %103, 1024
@@ -1072,12 +1072,12 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %130 = getelementptr inbounds i8, ptr %1, i64 48
   %131 = load i32, ptr %130, align 8
   %.not90.i = icmp uge i32 %129, %131
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 132:                                              ; preds = %126
   %133 = load i32, ptr %124, align 4
   %134 = tail call zeroext i1 @XidInMVCCSnapshot(i32 noundef %133, ptr noundef nonnull %1) #3
-  br i1 %134, label %HeapTupleSatisfiesMVCC.argprom.exit, label %135
+  br i1 %134, label %HeapTupleSatisfiesMVCC.exit, label %135
 
 135:                                              ; preds = %132
   %136 = load i32, ptr %124, align 4
@@ -1089,7 +1089,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %140 = or i16 %139, 2048
   store i16 %140, ptr %16, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 141:                                              ; preds = %135
   %142 = load i32, ptr %124, align 4
@@ -1098,10 +1098,10 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 
 143:                                              ; preds = %122
   %144 = tail call zeroext i1 @XidInMVCCSnapshot(i32 noundef %125, ptr noundef nonnull %1) #3
-  br i1 %144, label %HeapTupleSatisfiesMVCC.argprom.exit, label %145
+  br i1 %144, label %HeapTupleSatisfiesMVCC.exit, label %145
 
 145:                                              ; preds = %143, %141
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 146:                                              ; preds = %3
   %147 = getelementptr i8, ptr %0, i64 16
@@ -1116,7 +1116,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 152:                                              ; preds = %146
   %153 = and i32 %150, 512
   %.not65.i = icmp eq i32 %153, 0
-  br i1 %.not65.i, label %154, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %.not65.i, label %154, label %HeapTupleSatisfiesMVCC.exit
 
 154:                                              ; preds = %152
   %155 = and i32 %150, 16384
@@ -1127,7 +1127,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %157 = getelementptr inbounds i8, ptr %.val22, i64 8
   %158 = load i32, ptr %157, align 4
   %159 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %158) #3
-  br i1 %159, label %HeapTupleSatisfiesMVCC.argprom.exit, label %160
+  br i1 %159, label %HeapTupleSatisfiesMVCC.exit, label %160
 
 160:                                              ; preds = %156
   %161 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %158) #3
@@ -1142,7 +1142,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %166 = or i16 %164, 512
   store i16 %166, ptr %148, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 167:                                              ; preds = %162
   %168 = or i16 %164, 256
@@ -1162,7 +1162,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 
 174:                                              ; preds = %170
   %175 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %172) #3
-  br i1 %175, label %HeapTupleSatisfiesMVCC.argprom.exit, label %176
+  br i1 %175, label %HeapTupleSatisfiesMVCC.exit, label %176
 
 176:                                              ; preds = %174
   %177 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %172) #3
@@ -1179,7 +1179,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %182 = or i16 %178, 512
   store i16 %182, ptr %148, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 183:                                              ; preds = %169
   %184 = load i32, ptr %.val22, align 4
@@ -1191,7 +1191,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %188 = zext i16 %187 to i32
   %189 = and i32 %188, 2048
   %.not68.i = icmp eq i32 %189, 0
-  br i1 %.not68.i, label %190, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %.not68.i, label %190, label %HeapTupleSatisfiesMVCC.exit
 
 190:                                              ; preds = %186
   %191 = and i32 %188, 128
@@ -1199,7 +1199,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %192 = and i32 %188, 4176
   %193 = icmp eq i32 %192, 64
   %or.cond.i29 = or i1 %.not69.i, %193
-  br i1 %or.cond.i29, label %HeapTupleSatisfiesMVCC.argprom.exit, label %194
+  br i1 %or.cond.i29, label %HeapTupleSatisfiesMVCC.exit, label %194
 
 194:                                              ; preds = %190
   %195 = and i32 %188, 4096
@@ -1210,25 +1210,25 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %197 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %.val22) #3
   %198 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %197) #3
   %not.1.i = xor i1 %198, true
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 199:                                              ; preds = %194
   %200 = getelementptr inbounds i8, ptr %.val22, i64 4
   %201 = load i32, ptr %200, align 4
   %202 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %201) #3
-  br i1 %202, label %HeapTupleSatisfiesMVCC.argprom.exit, label %203
+  br i1 %202, label %HeapTupleSatisfiesMVCC.exit, label %203
 
 203:                                              ; preds = %199
   %204 = load i16, ptr %148, align 4
   %205 = or i16 %204, 2048
   store i16 %205, ptr %148, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 206:                                              ; preds = %183
   %207 = load i32, ptr %.val22, align 4
   %208 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %207) #3
-  br i1 %208, label %HeapTupleSatisfiesMVCC.argprom.exit, label %209
+  br i1 %208, label %HeapTupleSatisfiesMVCC.exit, label %209
 
 209:                                              ; preds = %206
   %210 = load i32, ptr %.val22, align 4
@@ -1245,14 +1245,14 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %216 = or i16 %215, 512
   store i16 %216, ptr %148, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 217:                                              ; preds = %212, %179, %170, %167, %160, %146
   %218 = load i16, ptr %148, align 4
   %219 = zext i16 %218 to i32
   %220 = and i32 %219, 2048
   %.not71.i = icmp eq i32 %220, 0
-  br i1 %.not71.i, label %221, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %.not71.i, label %221, label %HeapTupleSatisfiesMVCC.exit
 
 221:                                              ; preds = %217
   %222 = and i32 %219, 1024
@@ -1265,7 +1265,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %225 = and i32 %219, 4176
   %226 = icmp eq i32 %225, 64
   %or.cond80.i = or i1 %.not77.i27, %226
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 227:                                              ; preds = %221
   %228 = and i32 %219, 4096
@@ -1278,21 +1278,21 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %231 = and i32 %219, 4176
   %232 = icmp eq i32 %231, 64
   %or.cond82.i = or i1 %.not76.i, %232
-  br i1 %or.cond82.i, label %HeapTupleSatisfiesMVCC.argprom.exit, label %233
+  br i1 %or.cond82.i, label %HeapTupleSatisfiesMVCC.exit, label %233
 
 233:                                              ; preds = %229
   %234 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %.val22) #3
   %235 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %234) #3
-  br i1 %235, label %HeapTupleSatisfiesMVCC.argprom.exit, label %236
+  br i1 %235, label %HeapTupleSatisfiesMVCC.exit, label %236
 
 236:                                              ; preds = %233
   %237 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %234) #3
-  br i1 %237, label %HeapTupleSatisfiesMVCC.argprom.exit, label %238
+  br i1 %237, label %HeapTupleSatisfiesMVCC.exit, label %238
 
 238:                                              ; preds = %236
   %239 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %234) #3
   %not..i28 = xor i1 %239, true
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 240:                                              ; preds = %227
   %241 = getelementptr inbounds i8, ptr %.val22, i64 4
@@ -1308,12 +1308,12 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %248 = and i32 %246, 4176
   %249 = icmp eq i32 %248, 64
   %or.cond85.i = or i1 %.not75.i, %249
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 250:                                              ; preds = %240
   %251 = load i32, ptr %241, align 4
   %252 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %251) #3
-  br i1 %252, label %HeapTupleSatisfiesMVCC.argprom.exit, label %253
+  br i1 %252, label %HeapTupleSatisfiesMVCC.exit, label %253
 
 253:                                              ; preds = %250
   %254 = load i32, ptr %241, align 4
@@ -1325,7 +1325,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %258 = or i16 %256, 2048
   store i16 %258, ptr %148, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 259:                                              ; preds = %253
   %260 = zext i16 %256 to i32
@@ -1340,15 +1340,15 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %265 = or i16 %256, 2048
   store i16 %265, ptr %148, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 266:                                              ; preds = %259
   %267 = load i32, ptr %241, align 4
   tail call fastcc void @SetHintBits(ptr noundef nonnull %.val22, i32 noundef %2, i16 noundef zeroext 1024, i32 noundef %267)
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 268:                                              ; preds = %3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 269:                                              ; preds = %3
   %270 = getelementptr i8, ptr %0, i64 16
@@ -1363,7 +1363,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 275:                                              ; preds = %269
   %276 = and i32 %273, 512
   %.not26.i = icmp eq i32 %276, 0
-  br i1 %.not26.i, label %277, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %.not26.i, label %277, label %HeapTupleSatisfiesMVCC.exit
 
 277:                                              ; preds = %275
   %278 = and i32 %273, 16384
@@ -1374,7 +1374,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %280 = getelementptr inbounds i8, ptr %.val23, i64 8
   %281 = load i32, ptr %280, align 4
   %282 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %281) #3
-  br i1 %282, label %HeapTupleSatisfiesMVCC.argprom.exit, label %283
+  br i1 %282, label %HeapTupleSatisfiesMVCC.exit, label %283
 
 283:                                              ; preds = %279
   %284 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %281) #3
@@ -1389,7 +1389,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %289 = or i16 %287, 512
   store i16 %289, ptr %271, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 290:                                              ; preds = %277
   %.not28.i = icmp sgt i16 %272, -1
@@ -1403,7 +1403,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 
 295:                                              ; preds = %291
   %296 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %293) #3
-  br i1 %296, label %HeapTupleSatisfiesMVCC.argprom.exit, label %297
+  br i1 %296, label %HeapTupleSatisfiesMVCC.exit, label %297
 
 297:                                              ; preds = %295
   %298 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %293) #3
@@ -1414,12 +1414,12 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %301 = or i16 %299, 512
   store i16 %301, ptr %271, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 302:                                              ; preds = %290
   %303 = load i32, ptr %.val23, align 4
   %304 = icmp eq i32 %303, 0
-  br i1 %304, label %HeapTupleSatisfiesMVCC.argprom.exit, label %306
+  br i1 %304, label %HeapTupleSatisfiesMVCC.exit, label %306
 
 .sink.split.i:                                    ; preds = %297, %285
   %.sink1.i = phi i16 [ %287, %285 ], [ %299, %297 ]
@@ -1429,7 +1429,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br label %306
 
 306:                                              ; preds = %.sink.split.i, %302, %291, %283, %269
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 307:                                              ; preds = %3
   %308 = getelementptr i8, ptr %0, i64 16
@@ -1450,7 +1450,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 316:                                              ; preds = %307
   %317 = and i32 %314, 512
   %.not79.i43 = icmp eq i32 %317, 0
-  br i1 %.not79.i43, label %318, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %.not79.i43, label %318, label %HeapTupleSatisfiesMVCC.exit
 
 318:                                              ; preds = %316
   %319 = and i32 %314, 16384
@@ -1461,7 +1461,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %321 = getelementptr inbounds i8, ptr %.val24, i64 8
   %322 = load i32, ptr %321, align 4
   %323 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %322) #3
-  br i1 %323, label %HeapTupleSatisfiesMVCC.argprom.exit, label %324
+  br i1 %323, label %HeapTupleSatisfiesMVCC.exit, label %324
 
 324:                                              ; preds = %320
   %325 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %322) #3
@@ -1476,7 +1476,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %330 = or i16 %328, 512
   store i16 %330, ptr %312, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 331:                                              ; preds = %326
   %332 = or i16 %328, 256
@@ -1496,7 +1496,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 
 338:                                              ; preds = %334
   %339 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %336) #3
-  br i1 %339, label %HeapTupleSatisfiesMVCC.argprom.exit, label %340
+  br i1 %339, label %HeapTupleSatisfiesMVCC.exit, label %340
 
 340:                                              ; preds = %338
   %341 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %336) #3
@@ -1513,7 +1513,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %346 = or i16 %342, 512
   store i16 %346, ptr %312, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 347:                                              ; preds = %333
   %348 = load i32, ptr %.val24, align 4
@@ -1525,7 +1525,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %352 = zext i16 %351 to i32
   %353 = and i32 %352, 2048
   %.not82.i46 = icmp eq i32 %353, 0
-  br i1 %.not82.i46, label %354, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %.not82.i46, label %354, label %HeapTupleSatisfiesMVCC.exit
 
 354:                                              ; preds = %350
   %355 = and i32 %352, 128
@@ -1533,7 +1533,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %356 = and i32 %352, 4176
   %357 = icmp eq i32 %356, 64
   %or.cond.i48 = or i1 %.not83.i47, %357
-  br i1 %or.cond.i48, label %HeapTupleSatisfiesMVCC.argprom.exit, label %358
+  br i1 %or.cond.i48, label %HeapTupleSatisfiesMVCC.exit, label %358
 
 358:                                              ; preds = %354
   %359 = and i32 %352, 4096
@@ -1544,20 +1544,20 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %361 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %.val24) #3
   %362 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %361) #3
   %not.1.i50 = xor i1 %362, true
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 363:                                              ; preds = %358
   %364 = getelementptr inbounds i8, ptr %.val24, i64 4
   %365 = load i32, ptr %364, align 4
   %366 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %365) #3
-  br i1 %366, label %HeapTupleSatisfiesMVCC.argprom.exit, label %367
+  br i1 %366, label %HeapTupleSatisfiesMVCC.exit, label %367
 
 367:                                              ; preds = %363
   %368 = load i16, ptr %312, align 4
   %369 = or i16 %368, 2048
   store i16 %369, ptr %312, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 370:                                              ; preds = %347
   %371 = load i32, ptr %.val24, align 4
@@ -1585,7 +1585,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 383:                                              ; preds = %376, %373
   %384 = load i32, ptr %.val24, align 4
   store i32 %384, ptr %310, align 4
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 385:                                              ; preds = %370
   %386 = load i32, ptr %.val24, align 4
@@ -1602,14 +1602,14 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %392 = or i16 %391, 512
   store i16 %392, ptr %312, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 393:                                              ; preds = %388, %343, %334, %331, %324, %307
   %394 = load i16, ptr %312, align 4
   %395 = zext i16 %394 to i32
   %396 = and i32 %395, 2048
   %.not85.i33 = icmp eq i32 %396, 0
-  br i1 %.not85.i33, label %397, label %HeapTupleSatisfiesMVCC.argprom.exit
+  br i1 %.not85.i33, label %397, label %HeapTupleSatisfiesMVCC.exit
 
 397:                                              ; preds = %393
   %398 = and i32 %395, 1024
@@ -1622,7 +1622,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %401 = and i32 %395, 4176
   %402 = icmp eq i32 %401, 64
   %or.cond95.i36 = or i1 %.not92.i, %402
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 403:                                              ; preds = %397
   %404 = and i32 %395, 4096
@@ -1635,12 +1635,12 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %407 = and i32 %395, 4176
   %408 = icmp eq i32 %407, 64
   %or.cond97.i = or i1 %.not91.i38, %408
-  br i1 %or.cond97.i, label %HeapTupleSatisfiesMVCC.argprom.exit, label %409
+  br i1 %or.cond97.i, label %HeapTupleSatisfiesMVCC.exit, label %409
 
 409:                                              ; preds = %405
   %410 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %.val24) #3
   %411 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %410) #3
-  br i1 %411, label %HeapTupleSatisfiesMVCC.argprom.exit, label %412
+  br i1 %411, label %HeapTupleSatisfiesMVCC.exit, label %412
 
 412:                                              ; preds = %409
   %413 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %410) #3
@@ -1648,12 +1648,12 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 
 414:                                              ; preds = %412
   store i32 %410, ptr %309, align 8
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 415:                                              ; preds = %412
   %416 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %410) #3
   %not..i39 = xor i1 %416, true
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 417:                                              ; preds = %403
   %418 = getelementptr inbounds i8, ptr %.val24, i64 4
@@ -1669,7 +1669,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %425 = and i32 %423, 4176
   %426 = icmp eq i32 %425, 64
   %or.cond100.i = or i1 %.not90.i42, %426
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 427:                                              ; preds = %417
   %428 = load i32, ptr %418, align 4
@@ -1684,12 +1684,12 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %434 = and i32 %432, 4176
   %435 = icmp eq i32 %434, 64
   %or.cond102.i = or i1 %.not89.i41, %435
-  br i1 %or.cond102.i, label %HeapTupleSatisfiesMVCC.argprom.exit, label %436
+  br i1 %or.cond102.i, label %HeapTupleSatisfiesMVCC.exit, label %436
 
 436:                                              ; preds = %430
   %437 = load i32, ptr %418, align 4
   store i32 %437, ptr %309, align 8
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 438:                                              ; preds = %427
   %439 = load i32, ptr %418, align 4
@@ -1701,7 +1701,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %443 = or i16 %441, 2048
   store i16 %443, ptr %312, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 444:                                              ; preds = %438
   %445 = zext i16 %441 to i32
@@ -1716,12 +1716,12 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   %450 = or i16 %441, 2048
   store i16 %450, ptr %312, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #3
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 451:                                              ; preds = %444
   %452 = load i32, ptr %418, align 4
   tail call fastcc void @SetHintBits(ptr noundef nonnull %.val24, i32 noundef %2, i16 noundef zeroext 1024, i32 noundef %452)
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 453:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
@@ -1936,7 +1936,7 @@ HeapTupleSatisfiesHistoricMVCC.exit:              ; preds = %460, %471, %476, %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
 548:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -1957,9 +1957,9 @@ HeapTupleSatisfiesNonVacuumable.exit:             ; preds = %548, %551
   %.0.i58 = phi i32 [ %549, %548 ], [ %spec.select.i, %551 ]
   %556 = icmp ne i32 %.0.i58, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %HeapTupleSatisfiesMVCC.argprom.exit
+  br label %HeapTupleSatisfiesMVCC.exit
 
-HeapTupleSatisfiesMVCC.argprom.exit:              ; preds = %451, %449, %442, %436, %430, %421, %415, %414, %409, %405, %399, %393, %390, %383, %367, %363, %360, %354, %350, %345, %338, %329, %320, %316, %306, %302, %300, %295, %288, %279, %275, %266, %264, %257, %250, %244, %238, %236, %233, %229, %223, %217, %214, %206, %203, %199, %196, %190, %186, %181, %174, %165, %156, %152, %145, %143, %138, %132, %128, %120, %118, %114, %105, %101, %98, %92, %84, %81, %78, %71, %68, %62, %58, %54, %49, %42, %33, %24, %20, %3, %HeapTupleSatisfiesNonVacuumable.exit, %HeapTupleSatisfiesHistoricMVCC.exit, %268
+HeapTupleSatisfiesMVCC.exit:                      ; preds = %451, %449, %442, %436, %430, %421, %415, %414, %409, %405, %399, %393, %390, %383, %367, %363, %360, %354, %350, %345, %338, %329, %320, %316, %306, %302, %300, %295, %288, %279, %275, %266, %264, %257, %250, %244, %238, %236, %233, %229, %223, %217, %214, %206, %203, %199, %196, %190, %186, %181, %174, %165, %156, %152, %145, %143, %138, %132, %128, %120, %118, %114, %105, %101, %98, %92, %84, %81, %78, %71, %68, %62, %58, %54, %49, %42, %33, %24, %20, %3, %HeapTupleSatisfiesNonVacuumable.exit, %HeapTupleSatisfiesHistoricMVCC.exit, %268
   %.0 = phi i1 [ %556, %HeapTupleSatisfiesNonVacuumable.exit ], [ %.0.i52, %HeapTupleSatisfiesHistoricMVCC.exit ], [ true, %268 ], [ false, %3 ], [ false, %145 ], [ true, %138 ], [ false, %33 ], [ false, %49 ], [ true, %78 ], [ false, %92 ], [ false, %20 ], [ false, %24 ], [ false, %42 ], [ false, %54 ], [ true, %58 ], [ true, %62 ], [ true, %68 ], [ %.not85.i, %71 ], [ %.not84.i, %81 ], [ false, %84 ], [ false, %98 ], [ true, %101 ], [ true, %105 ], [ %.not91.i, %114 ], [ true, %118 ], [ %not..i, %120 ], [ %.not90.i, %128 ], [ true, %132 ], [ true, %143 ], [ true, %264 ], [ false, %266 ], [ true, %257 ], [ false, %165 ], [ false, %181 ], [ true, %203 ], [ false, %214 ], [ false, %152 ], [ false, %156 ], [ false, %174 ], [ true, %186 ], [ true, %190 ], [ %not.1.i, %196 ], [ false, %199 ], [ false, %206 ], [ true, %217 ], [ true, %229 ], [ false, %233 ], [ true, %236 ], [ %not..i28, %238 ], [ true, %250 ], [ %or.cond80.i, %223 ], [ %or.cond85.i, %244 ], [ true, %306 ], [ false, %288 ], [ false, %300 ], [ false, %275 ], [ false, %279 ], [ false, %295 ], [ false, %302 ], [ true, %414 ], [ true, %449 ], [ false, %451 ], [ true, %442 ], [ false, %329 ], [ false, %345 ], [ true, %367 ], [ true, %383 ], [ false, %390 ], [ false, %316 ], [ false, %320 ], [ false, %338 ], [ true, %350 ], [ true, %354 ], [ %not.1.i50, %360 ], [ false, %363 ], [ true, %393 ], [ true, %405 ], [ false, %409 ], [ %not..i39, %415 ], [ true, %436 ], [ true, %430 ], [ %or.cond95.i36, %399 ], [ %or.cond100.i, %421 ]
   ret i1 %.0
 }

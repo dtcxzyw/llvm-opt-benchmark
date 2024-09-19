@@ -1088,7 +1088,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %65, label %66, label %73
 
 66:                                               ; preds = %62
-  %67 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path.argelim(ptr noundef %63, ptr noundef nonnull %0)
+  %67 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path(ptr noundef %63, ptr noundef nonnull %0)
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %73
 
@@ -1182,7 +1182,7 @@ define internal ptr @H5FD__splitter_open(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %.not101, label %124, label %132
 
 124:                                              ; preds = %120
-  tail call fastcc void @H5FD__splitter_log_error.argelim(ptr noundef nonnull %30, ptr noundef nonnull @__func__.H5FD__splitter_open, ptr noundef nonnull @.str.30)
+  tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %30, ptr noundef nonnull @__func__.H5FD__splitter_open, ptr noundef nonnull @.str.30)
   %125 = load i8, ptr %82, align 2
   %126 = and i8 %125, 1
   %127 = icmp eq i8 %126, 0
@@ -1323,7 +1323,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_close(ptr noundef %0) #0 {
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %32
-  tail call fastcc void @H5FD__splitter_log_error.argelim(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_close, ptr noundef nonnull @.str.41)
+  tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_close, ptr noundef nonnull @.str.41)
   %36 = getelementptr inbounds i8, ptr %0, i64 8298
   %37 = load i8, ptr %36, align 2
   %38 = and i8 %37, 1
@@ -1438,7 +1438,7 @@ define internal i64 @H5FD__splitter_alloc(ptr nocapture noundef readonly %0, i32
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %13
-  tail call fastcc void @H5FD__splitter_log_error.argelim(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_alloc, ptr noundef nonnull @.str.44)
+  tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_alloc, ptr noundef nonnull @.str.44)
   %19 = getelementptr inbounds i8, ptr %0, i64 8298
   %20 = load i8, ptr %19, align 2
   %21 = and i8 %20, 1
@@ -1478,7 +1478,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_free(ptr nocapture noundef 
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %14
-  tail call fastcc void @H5FD__splitter_log_error.argelim(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_free, ptr noundef nonnull @.str.46)
+  tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_free, ptr noundef nonnull @.str.46)
   %20 = getelementptr inbounds i8, ptr %0, i64 8298
   %21 = load i8, ptr %20, align 2
   %22 = and i8 %21, 1
@@ -1536,7 +1536,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_set_eoa(ptr nocapture nound
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %12
-  tail call fastcc void @H5FD__splitter_log_error.argelim(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_set_eoa, ptr noundef nonnull @.str.49)
+  tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_set_eoa, ptr noundef nonnull @.str.49)
   %18 = getelementptr inbounds i8, ptr %0, i64 8298
   %19 = load i8, ptr %18, align 2
   %20 = and i8 %19, 1
@@ -1669,7 +1669,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_write(ptr nocapture noundef
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %22
-  tail call fastcc void @H5FD__splitter_log_error.argelim(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_write, ptr noundef nonnull @.str.57)
+  tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_write, ptr noundef nonnull @.str.57)
   %28 = getelementptr inbounds i8, ptr %0, i64 8298
   %29 = load i8, ptr %28, align 2
   %30 = and i8 %29, 1
@@ -1709,7 +1709,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_flush(ptr nocapture noundef
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %12
-  tail call fastcc void @H5FD__splitter_log_error.argelim(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_flush, ptr noundef nonnull @.str.59)
+  tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_flush, ptr noundef nonnull @.str.59)
   %18 = getelementptr inbounds i8, ptr %0, i64 8298
   %19 = load i8, ptr %18, align 2
   %20 = and i8 %19, 1
@@ -1749,7 +1749,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_truncate(ptr nocapture noun
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %12
-  tail call fastcc void @H5FD__splitter_log_error.argelim(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_truncate, ptr noundef nonnull @.str.61)
+  tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_truncate, ptr noundef nonnull @.str.61)
   %18 = getelementptr inbounds i8, ptr %0, i64 8298
   %19 = load i8, ptr %18, align 2
   %20 = and i8 %19, 1
@@ -1793,7 +1793,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_lock(ptr nocapture noundef 
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %14
-  tail call fastcc void @H5FD__splitter_log_error.argelim(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_lock, ptr noundef nonnull @.str.63)
+  tail call fastcc void @H5FD__splitter_log_error(ptr noundef nonnull %0, ptr noundef nonnull @__func__.H5FD__splitter_lock, ptr noundef nonnull @.str.63)
   %18 = getelementptr inbounds i8, ptr %0, i64 8298
   %19 = load i8, ptr %18, align 2
   %20 = and i8 %19, 1
@@ -1882,7 +1882,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_delete(ptr noundef %0, i64 
   br i1 %22, label %23, label %65
 
 23:                                               ; preds = %19
-  %24 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path.argelim(ptr noundef %20, ptr noundef %0)
+  %24 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path(ptr noundef %20, ptr noundef %0)
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %65
 
@@ -1937,7 +1937,7 @@ define internal range(i32 -1, 1) i32 @H5FD__splitter_delete(ptr noundef %0, i64 
   br i1 %57, label %58, label %65
 
 58:                                               ; preds = %54
-  %59 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path.argelim(ptr noundef %55, ptr noundef %0)
+  %59 = tail call fastcc i32 @H5FD__splitter_get_default_wo_path(ptr noundef %55, ptr noundef %0)
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %61, label %65
 
@@ -2040,7 +2040,7 @@ declare i32 @H5I_dec_ref(i64 noundef) local_unnamed_addr #1
 declare i64 @H5Pget_driver(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_get_default_wo_path.argelim(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_get_default_wo_path(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %4 = icmp ugt i64 %3, 4092
   br i1 %4, label %5, label %9
@@ -2092,7 +2092,7 @@ declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocaptu
 declare ptr @H5FD_open(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5FD__splitter_log_error.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @H5FD__splitter_log_error(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8320
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

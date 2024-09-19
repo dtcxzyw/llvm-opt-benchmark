@@ -956,9 +956,9 @@ define void @_ZNK10open_spiel4Game19MakeBuiltInObserverEN4absl7debian28optionalI
 20:                                               ; preds = %19
   %21 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i: ; preds = %20
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i: ; preds = %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
@@ -970,9 +970,9 @@ _ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.arg
           cleanup
   %27 = load ptr, ptr %5, align 8
   %.not.i5 = icmp eq ptr %27, null
-  br i1 %.not.i5, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i6
+  br i1 %.not.i5, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i6
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i6: ; preds = %25
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i6: ; preds = %25
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
@@ -992,9 +992,9 @@ _ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.arg
   br i1 %35, label %_ZN4absl7debian28optionalIN10open_spiel18IIGObservationTypeEEptEv.exit, label %_ZNR4absl7debian28optionalIN10open_spiel18IIGObservationTypeEE5valueEv.exit
 
 _ZN4absl7debian28optionalIN10open_spiel18IIGObservationTypeEEptEv.exit: ; preds = %32
-  br i1 %.not60, label %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i.i, label %116
+  br i1 %.not60, label %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i.i, label %116
 
-_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i.i: ; preds = %_ZN4absl7debian28optionalIN10open_spiel18IIGObservationTypeEEptEv.exit
+_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i.i: ; preds = %_ZN4absl7debian28optionalIN10open_spiel18IIGObservationTypeEEptEv.exit
   %37 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !14
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i8 1, ptr %38, align 8, !noalias !14
@@ -1007,7 +1007,7 @@ _ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_11
   %41 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
           to label %42 unwind label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit11
 
-42:                                               ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i.i
+42:                                               ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 12
@@ -1163,7 +1163,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   tail call void %111(ptr noundef nonnull align 8 dereferenceable(16) %41) #26
   br label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit11: ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i.i
+_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit11: ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i.i
   %112 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #26
@@ -1195,9 +1195,9 @@ _ZN4absl7debian28optionalIN10open_spiel18IIGObservationTypeEEptEv.exit12: ; pred
 126:                                              ; preds = %125
   %127 = load ptr, ptr %6, align 8
   %.not.i13 = icmp eq ptr %127, null
-  br i1 %.not.i13, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i
+  br i1 %.not.i13, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i: ; preds = %126
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i: ; preds = %126
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 24
   %130 = load ptr, ptr %129, align 8
@@ -1209,9 +1209,9 @@ _ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEcl
           cleanup
   %133 = load ptr, ptr %6, align 8
   %.not.i14 = icmp eq ptr %133, null
-  br i1 %.not.i14, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i15
+  br i1 %.not.i14, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i15
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i15: ; preds = %131
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i15: ; preds = %131
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 24
   %136 = load ptr, ptr %135, align 8
@@ -1240,9 +1240,9 @@ _ZN4absl7debian28optionalIN10open_spiel18IIGObservationTypeEEptEv.exit17: ; pred
 147:                                              ; preds = %146
   %148 = load ptr, ptr %7, align 8
   %.not.i18 = icmp eq ptr %148, null
-  br i1 %.not.i18, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i19
+  br i1 %.not.i18, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i19
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i19: ; preds = %147
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i19: ; preds = %147
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 24
   %151 = load ptr, ptr %150, align 8
@@ -1254,9 +1254,9 @@ _ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.arg
           cleanup
   %154 = load ptr, ptr %7, align 8
   %.not.i21 = icmp eq ptr %154, null
-  br i1 %.not.i21, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i22
+  br i1 %.not.i21, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i22
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i22: ; preds = %152
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i22: ; preds = %152
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 24
   %157 = load ptr, ptr %156, align 8
@@ -1291,9 +1291,9 @@ _ZNR4absl7debian28optionalIN10open_spiel18IIGObservationTypeEE5valueEv.exit.thre
 170:                                              ; preds = %169
   %171 = load ptr, ptr %8, align 8
   %.not.i24 = icmp eq ptr %171, null
-  br i1 %.not.i24, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i25
+  br i1 %.not.i24, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i25
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i25: ; preds = %170
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i25: ; preds = %170
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds i8, ptr %172, i64 24
   %174 = load ptr, ptr %173, align 8
@@ -1305,9 +1305,9 @@ _ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.arg
           cleanup
   %177 = load ptr, ptr %8, align 8
   %.not.i27 = icmp eq ptr %177, null
-  br i1 %.not.i27, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i28
+  br i1 %.not.i27, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i28
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i28: ; preds = %175
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i28: ; preds = %175
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 24
   %180 = load ptr, ptr %179, align 8
@@ -1337,9 +1337,9 @@ _ZN10open_spiel18IIGObservationTypeeqERKS0_.exit31.thread58: ; preds = %_ZNR4abs
 190:                                              ; preds = %189
   %191 = load ptr, ptr %9, align 8
   %.not.i32 = icmp eq ptr %191, null
-  br i1 %.not.i32, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i33
+  br i1 %.not.i32, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i33
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i33: ; preds = %190
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i33: ; preds = %190
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 24
   %194 = load ptr, ptr %193, align 8
@@ -1351,9 +1351,9 @@ _ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEcl
           cleanup
   %197 = load ptr, ptr %9, align 8
   %.not.i35 = icmp eq ptr %197, null
-  br i1 %.not.i35, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i36
+  br i1 %.not.i35, label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i36
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i36: ; preds = %195
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i36: ; preds = %195
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 24
   %200 = load ptr, ptr %199, align 8
@@ -1364,11 +1364,11 @@ _ZN10open_spiel18IIGObservationTypeeqERKS0_.exit31.thread: ; preds = %161, %_ZNR
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i33, %190, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i25, %170, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i19, %147, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i, %126, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i, %20, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i13.i.i, %107, %95, %_ZN10open_spiel18IIGObservationTypeeqERKS0_.exit31.thread, %31
+_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i33, %190, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i25, %170, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i19, %147, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i, %126, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i, %20, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i13.i.i, %107, %95, %_ZN10open_spiel18IIGObservationTypeeqERKS0_.exit31.thread, %31
   ret void
 
-_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7: ; preds = %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i36, %195, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i28, %175, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i22, %152, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i15, %131, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i6, %25, %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit11
-  %.pn = phi { ptr, i32 } [ %112, %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit11 ], [ %26, %25 ], [ %26, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i6 ], [ %132, %131 ], [ %132, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i15 ], [ %153, %152 ], [ %153, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i22 ], [ %176, %175 ], [ %176, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit.i28 ], [ %196, %195 ], [ %196, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit.i36 ]
+_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_EED2Ev.exit7: ; preds = %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i36, %195, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i28, %175, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i22, %152, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i15, %131, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i6, %25, %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit11
+  %.pn = phi { ptr, i32 } [ %112, %_ZNSt10unique_ptrIN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_EED2Ev.exit11 ], [ %26, %25 ], [ %26, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i6 ], [ %132, %131 ], [ %132, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i15 ], [ %153, %152 ], [ %153, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i22 ], [ %176, %175 ], [ %176, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit.i28 ], [ %196, %195 ], [ %196, %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit.i36 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1568,13 +1568,13 @@ define internal fastcc void @_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2INS0_12
   store ptr null, ptr %3, align 8
   %.val.i.i = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %.val.i.i, null
-  br i1 %4, label %_ZNSt12__shared_ptrIN10open_spiel8ObserverELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLOBAL__N_115DefaultObserverESt14default_deleteIS7_EvEEOSt10unique_ptrIT_T0_E.exit, label %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i
+  br i1 %4, label %_ZNSt12__shared_ptrIN10open_spiel8ObserverELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLOBAL__N_115DefaultObserverESt14default_deleteIS7_EvEEOSt10unique_ptrIT_T0_E.exit, label %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i
 
-_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i: ; preds = %2
+_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i: ; preds = %2
   %5 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
           to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS6_EEEOSt10unique_ptrIT_T0_E.exit.i unwind label %79
 
-_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS6_EEEOSt10unique_ptrIT_T0_E.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS6_EEEOSt10unique_ptrIT_T0_E.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i
   store ptr null, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %6, align 8
@@ -1743,7 +1743,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   tail call void %78(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   br label %_ZNSt12__shared_ptrIN10open_spiel8ObserverELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLOBAL__N_115DefaultObserverESt14default_deleteIS7_EvEEOSt10unique_ptrIT_T0_E.exit
 
-79:                                               ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i
+79:                                               ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i
   %80 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
@@ -1949,13 +1949,13 @@ define internal fastcc void @_ZNSt10shared_ptrIN10open_spiel8ObserverEEC2INS0_12
   store ptr null, ptr %3, align 8
   %.val.i.i = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %.val.i.i, null
-  br i1 %4, label %_ZNSt12__shared_ptrIN10open_spiel8ObserverELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS7_EvEEOSt10unique_ptrIT_T0_E.exit, label %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i
+  br i1 %4, label %_ZNSt12__shared_ptrIN10open_spiel8ObserverELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS7_EvEEOSt10unique_ptrIT_T0_E.exit, label %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i
 
-_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i: ; preds = %2
+_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i: ; preds = %2
   %5 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
           to label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS6_EEEOSt10unique_ptrIT_T0_E.exit.i unwind label %79
 
-_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS6_EEEOSt10unique_ptrIT_T0_E.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i
+_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS6_EEEOSt10unique_ptrIT_T0_E.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i
   store ptr null, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %6, align 8
@@ -2124,7 +2124,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   tail call void %78(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   br label %_ZNSt12__shared_ptrIN10open_spiel8ObserverELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS7_EvEEOSt10unique_ptrIT_T0_E.exit
 
-79:                                               ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.argprom.exit.i.i
+79:                                               ; preds = %_ZNSt16allocator_traitsISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEE8allocateERSB_m.exit.i.i
   %80 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
@@ -3289,7 +3289,7 @@ define void @_ZNK10open_spiel11Observation8CompressB5cxx11Ev(ptr dead_on_unwind 
   %12 = fcmp une float %11, 0.000000e+00
   %13 = fcmp une float %11, 1.000000e+00
   %.not2.i.i.i.i.i.i = and i1 %12, %13
-  br i1 %.not2.i.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit", label %14
+  br i1 %.not2.i.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit", label %14
 
 14:                                               ; preds = %.lr.ph.i.i.i.i.i
   %15 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i, i64 4
@@ -3297,7 +3297,7 @@ define void @_ZNK10open_spiel11Observation8CompressB5cxx11Ev(ptr dead_on_unwind 
   %17 = fcmp une float %16, 0.000000e+00
   %18 = fcmp une float %16, 1.000000e+00
   %.not2.i16.i.i.i.i.i = and i1 %17, %18
-  br i1 %.not2.i16.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit", label %19
+  br i1 %.not2.i16.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit", label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i, i64 8
@@ -3305,7 +3305,7 @@ define void @_ZNK10open_spiel11Observation8CompressB5cxx11Ev(ptr dead_on_unwind 
   %22 = fcmp une float %21, 0.000000e+00
   %23 = fcmp une float %21, 1.000000e+00
   %.not2.i17.i.i.i.i.i = and i1 %22, %23
-  br i1 %.not2.i17.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit17", label %24
+  br i1 %.not2.i17.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit17", label %24
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i, i64 12
@@ -3313,7 +3313,7 @@ define void @_ZNK10open_spiel11Observation8CompressB5cxx11Ev(ptr dead_on_unwind 
   %27 = fcmp une float %26, 0.000000e+00
   %28 = fcmp une float %26, 1.000000e+00
   %.not2.i18.i.i.i.i.i = and i1 %27, %28
-  br i1 %.not2.i18.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit19", label %29
+  br i1 %.not2.i18.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit19", label %29
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i, i64 16
@@ -3330,7 +3330,7 @@ define void @_ZNK10open_spiel11Observation8CompressB5cxx11Ev(ptr dead_on_unwind 
   %.pre-phi57.i.i.i.i.i = phi i64 [ %.pre56.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %7, %2 ]
   %.sroa.031.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %.val, %2 ]
   %33 = ashr exact i64 %.pre-phi57.i.i.i.i.i, 2
-  switch i64 %33, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.thread" [
+  switch i64 %33, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.thread" [
     i64 3, label %34
     i64 2, label %40
     i64 1, label %46
@@ -3341,7 +3341,7 @@ define void @_ZNK10open_spiel11Observation8CompressB5cxx11Ev(ptr dead_on_unwind 
   %36 = fcmp une float %35, 0.000000e+00
   %37 = fcmp une float %35, 1.000000e+00
   %.not2.i19.i.i.i.i.i = and i1 %36, %37
-  br i1 %.not2.i19.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit", label %38
+  br i1 %.not2.i19.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit", label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa.i.i.i.i.i, i64 4
@@ -3353,7 +3353,7 @@ define void @_ZNK10open_spiel11Observation8CompressB5cxx11Ev(ptr dead_on_unwind 
   %42 = fcmp une float %41, 0.000000e+00
   %43 = fcmp une float %41, 1.000000e+00
   %.not2.i20.i.i.i.i.i = and i1 %42, %43
-  br i1 %.not2.i20.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit", label %44
+  br i1 %.not2.i20.i.i.i.i.i, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit", label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %.sroa.031.1.i.i.i.i.i, i64 4
@@ -3366,36 +3366,36 @@ define void @_ZNK10open_spiel11Observation8CompressB5cxx11Ev(ptr dead_on_unwind 
   %49 = fcmp une float %47, 1.000000e+00
   %.not2.i21.i.i.i.i.i = and i1 %48, %49
   %spec.select.i.i.i.i.i = select i1 %.not2.i21.i.i.i.i.i, ptr %.sroa.031.2.i.i.i.i.i, ptr %.val1
-  br label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit"
+  br label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit"
 
-"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit": ; preds = %14
+"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit": ; preds = %14
   %50 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i, i64 4
-  br label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit"
+  br label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit"
 
-"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit17": ; preds = %19
+"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit17": ; preds = %19
   %51 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i, i64 8
-  br label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit"
+  br label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit"
 
-"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit19": ; preds = %24
+"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit19": ; preds = %24
   %52 = getelementptr inbounds i8, ptr %.sroa.031.050.i.i.i.i.i, i64 12
-  br label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit"
+  br label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit"
 
-"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit17", %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit19", %34, %40, %46
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %34 ], [ %.sroa.031.1.i.i.i.i.i, %40 ], [ %spec.select.i.i.i.i.i, %46 ], [ %50, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit" ], [ %51, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit17" ], [ %52, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.loopexit.split.loop.exit19" ], [ %.sroa.031.050.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit", %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit17", %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit19", %34, %40, %46
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i.i, %34 ], [ %.sroa.031.1.i.i.i.i.i, %40 ], [ %spec.select.i.i.i.i.i, %46 ], [ %50, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit" ], [ %51, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit17" ], [ %52, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.loopexit.split.loop.exit19" ], [ %.sroa.031.050.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %53 = icmp eq ptr %.val1, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
-  br i1 %53, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.thread", label %55
+  br i1 %53, label %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.thread", label %55
 
-"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.thread": ; preds = %._crit_edge.i.i.i.i.i, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit"
+"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.thread": ; preds = %._crit_edge.i.i.i.i.i, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit"
   %54 = ashr exact i64 %7, 2
   tail call void @_ZN10open_spiel14BinaryCompress8CompressB5cxx11EN4absl7debian24SpanIKfEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %.val, i64 %54)
   br label %57
 
-55:                                               ; preds = %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit"
+55:                                               ; preds = %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit"
   %56 = ashr exact i64 %7, 2
   tail call void @_ZN10open_spiel10NoCompress8CompressB5cxx11EN4absl7debian24SpanIKfEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %.val, i64 %56)
   br label %57
 
-57:                                               ; preds = %55, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.argprom.exit.thread"
+57:                                               ; preds = %55, %"_ZN4absl7debian28c_all_ofISt6vectorIfSaIfEEZNK10open_spiel11Observation8CompressB5cxx11EvE3$_0EEbRKT_OT0_.exit.thread"
   ret void
 }
 
@@ -5769,22 +5769,22 @@ define internal void @_ZNSt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115D
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit, label %5
+  br i1 %4, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(44) %3) #26
-  br label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit
+  br label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.argprom.exit: ; preds = %1, %5
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_115DefaultObserverEEclEPS2_.exit: ; preds = %1, %5
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_115DefaultObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
@@ -5886,22 +5886,22 @@ define internal void @_ZNSt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117N
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_117NoPrivateObserverEEclEPS2_.argprom.exit, label %5
+  br i1 %4, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_117NoPrivateObserverEEclEPS2_.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(10) %3) #26
-  br label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_117NoPrivateObserverEEclEPS2_.argprom.exit
+  br label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_117NoPrivateObserverEEclEPS2_.exit
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_117NoPrivateObserverEEclEPS2_.argprom.exit: ; preds = %1, %5
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_117NoPrivateObserverEEclEPS2_.exit: ; preds = %1, %5
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_117NoPrivateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
@@ -6047,22 +6047,22 @@ define internal void @_ZNSt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124I
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit, label %5
+  br i1 %4, label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(44) %3) #26
-  br label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit
+  br label %_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit
 
-_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.argprom.exit: ; preds = %1, %5
+_ZNKSt14default_deleteIN10open_spiel12_GLOBAL__N_124InformationStateObserverEEclEPS2_.exit: ; preds = %1, %5
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN10open_spiel12_GLOBAL__N_124InformationStateObserverESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #25
   ret void
 }
@@ -7703,8 +7703,8 @@ attributes #29 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !13, !"_ZNKSt8functionIFSt10shared_ptrIN10open_spiel8ObserverEERKNS1_4GameEN4absl7debian28optionalINS1_18IIGObservationTypeEEERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_13GameParameterESt4lessISI_ESaISt4pairIKSI_SJ_EEEEEclES6_SB_SS_: argument 0"}
 !13 = distinct !{!13, !"_ZNKSt8functionIFSt10shared_ptrIN10open_spiel8ObserverEERKNS1_4GameEN4absl7debian28optionalINS1_18IIGObservationTypeEEERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_13GameParameterESt4lessISI_ESaISt4pairIKSI_SJ_EEEEEclES6_SB_SS_"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_117NoPrivateObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!16 = distinct !{!16, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_117NoPrivateObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!15 = distinct !{!15, !16, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_117NoPrivateObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!16 = distinct !{!16, !"_ZSt11make_uniqueIN10open_spiel12_GLOBAL__N_117NoPrivateObserverEJRKNS0_4GameEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !17 = distinct !{!17, !5}
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZNK10open_spiel23TrackingVectorAllocator12tensors_infoEv: argument 0"}

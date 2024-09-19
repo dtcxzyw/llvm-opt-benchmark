@@ -5122,7 +5122,7 @@ lor.lhs.false.i.i.i.i.i358:                       ; preds = %if.end3.i.i.i.i.i35
 cond.true108:                                     ; preds = %lor.lhs.false.i.i.i.i.i358, %if.end3.i.i.i.i.i355, %for.cond.i.i.i371, %call2.i.i.i.i.noexc378
   %64 = phi ptr [ %.pre, %call2.i.i.i.i.noexc378 ], [ %51, %for.cond.i.i.i371 ], [ %.pre, %if.end3.i.i.i.i.i355 ], [ %.pre, %lor.lhs.false.i.i.i.i.i358 ]
   store ptr %64, ptr %agg.tmp129, align 8
-  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE.argprom.argprom"(ptr noalias align 8 %ref.tmp128, ptr %call19, ptr noundef %agg.tmp129, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i95)
+  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias align 8 %ref.tmp128, ptr %call19, ptr noundef %agg.tmp129, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i95)
           to label %invoke.cont134 unwind label %lpad133
 
 invoke.cont134:                                   ; preds = %cond.true108
@@ -5263,7 +5263,7 @@ lpad135:                                          ; preds = %if.else.i.i, %if.th
 cond.true147:                                     ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %for.cond.i.i.i.i.i365, %for.body.i.i.i375, %if.end.i.i.i.i.i350, %call2.i.i.i.i.noexc
   %81 = load ptr, ptr %__begin3.sroa.0.01236, align 8
   store ptr %81, ptr %agg.tmp190, align 8
-  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE.argprom.argprom"(ptr noalias align 8 %ref.tmp189, ptr %call19, ptr noundef %agg.tmp190, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i95)
+  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias align 8 %ref.tmp189, ptr %call19, ptr noundef %agg.tmp190, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i95)
           to label %invoke.cont193 unwind label %lpad192
 
 invoke.cont193:                                   ; preds = %cond.true147
@@ -6201,7 +6201,7 @@ if.then258:                                       ; preds = %if.else255
           to label %invoke.cont265 unwind label %lpad264
 
 invoke.cont265:                                   ; preds = %if.then258
-  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE.argprom.argprom"(ptr noalias align 8 %ref.tmp259, ptr %call19, ptr noundef %agg.tmp260, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263)
+  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias align 8 %ref.tmp259, ptr %call19, ptr noundef %agg.tmp260, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263)
           to label %invoke.cont267 unwind label %lpad266
 
 invoke.cont267:                                   ; preds = %invoke.cont265
@@ -6706,7 +6706,7 @@ declare void @_ZNK4cvc58internal7Integer3absEv(ptr sret(%"class.cvc5::internal::
 declare void @_ZNK4cvc58internal7IntegerngEv(ptr sret(%"class.cvc5::internal::Integer") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE.argprom.argprom"(ptr noalias nonnull align 8 %agg.result, ptr nonnull %this.0.val.0.val, ptr nocapture noundef nonnull readonly %n, ptr noundef nonnull align 8 dereferenceable(32) %coeff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias nonnull align 8 %agg.result, ptr nonnull %this.0.val.0.val, ptr nocapture noundef nonnull readonly %n, ptr noundef nonnull align 8 dereferenceable(32) %coeff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.91", align 8

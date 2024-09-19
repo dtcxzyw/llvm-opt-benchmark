@@ -348,7 +348,7 @@ _ZN2cv4Mat_IiEC2Eii.exit:                         ; preds = %_ZN2cv4Mat_IfEC2Eii
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %145) #7
   %146 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %146) #7
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %16)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %16)
           to label %147 unwind label %.loopexit.split-lp
 
 147:                                              ; preds = %143
@@ -400,7 +400,7 @@ _ZN2cv4Mat_IiEC2Eii.exit:                         ; preds = %_ZN2cv4Mat_IfEC2Eii
 
 167:                                              ; preds = %162
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #7
-  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %16)
+  invoke fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %16)
           to label %168 unwind label %.loopexit
 
 168:                                              ; preds = %167
@@ -683,7 +683,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() loca
 declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::Ptr.5", align 8
   %3 = alloca %"struct.cv::Ptr.9", align 8
   call void @_ZN2cv9Formatter3getENS0_10FormatTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.9") align 8 %3, i32 noundef 0)
@@ -711,7 +711,7 @@ define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef 
 
 .noexc5:                                          ; preds = %.noexc
   %.not1.i = icmp eq ptr %16, null
-  br i1 %.not1.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc5, %.noexc7
   %.02.i = phi ptr [ %21, %.noexc7 ], [ %16, %.noexc5 ]
@@ -727,15 +727,15 @@ define internal fastcc void @_ZN2cvlsERSoRKNS_3MatE.argprom.retelim(ptr noundef 
 
 .noexc7:                                          ; preds = %.noexc6
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit, label %.lr.ph.i, !llvm.loop !11
 
-_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit: ; preds = %.noexc7, %.noexc5
+_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit:        ; preds = %.noexc7, %.noexc5
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_9FormattedEED2Ev.exit, label %24
 
-24:                                               ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit
+24:                                               ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit
   %25 = getelementptr inbounds i8, ptr %23, i64 8
   %26 = load atomic i64, ptr %25 acquire, align 8
   %27 = icmp eq i64 %26, 4294967297
@@ -803,7 +803,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %57(ptr noundef nonnull align 8 dereferenceable(16) %23) #7
   br label %_ZN2cv3PtrINS_9FormattedEED2Ev.exit
 
-_ZN2cv3PtrINS_9FormattedEED2Ev.exit:              ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit, %40, %53, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+_ZN2cv3PtrINS_9FormattedEED2Ev.exit:              ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit, %40, %53, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   %58 = getelementptr inbounds i8, ptr %3, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not.i.i.i.i8 = icmp eq ptr %59, null

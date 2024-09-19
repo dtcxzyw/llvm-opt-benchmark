@@ -222,7 +222,7 @@ entry.split:                                      ; preds = %entry
 if.then.i:                                        ; preds = %entry.split
   %0 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.7) #6
-  br label %resource_getrlimit_impl.argprom.exit
+  br label %resource_getrlimit_impl.exit
 
 if.end.i:                                         ; preds = %entry.split
   %call.i = call i32 @getrlimit64(i32 noundef %call, ptr noundef nonnull %rl.i) #6
@@ -232,16 +232,16 @@ if.end.i:                                         ; preds = %entry.split
 if.then3.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr @PyExc_OSError, align 8
   %call4.i = call ptr @PyErr_SetFromErrno(ptr noundef %1) #6
-  br label %resource_getrlimit_impl.argprom.exit
+  br label %resource_getrlimit_impl.exit
 
 if.end5.i:                                        ; preds = %if.end.i
   %2 = load i64, ptr %rl.i, align 8
   %3 = getelementptr inbounds i8, ptr %rl.i, i64 8
   %4 = load i64, ptr %3, align 8
   %call.i.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.8, i64 noundef %2, i64 noundef %4) #6
-  br label %resource_getrlimit_impl.argprom.exit
+  br label %resource_getrlimit_impl.exit
 
-resource_getrlimit_impl.argprom.exit:             ; preds = %if.then.i, %if.then3.i, %if.end5.i
+resource_getrlimit_impl.exit:                     ; preds = %if.then.i, %if.then3.i, %if.end5.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then3.i ], [ %call.i.i, %if.end5.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rl.i)
   br label %exit
@@ -256,8 +256,8 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.7) #6
   br label %exit
 
-exit:                                             ; preds = %resource_getrlimit_impl.argprom.exit, %land.lhs.true.split, %land.lhs.true
-  %return_value.0 = phi ptr [ null, %land.lhs.true ], [ %retval.0.i, %resource_getrlimit_impl.argprom.exit ], [ null, %land.lhs.true.split ]
+exit:                                             ; preds = %resource_getrlimit_impl.exit, %land.lhs.true.split, %land.lhs.true
+  %return_value.0 = phi ptr [ null, %land.lhs.true ], [ %retval.0.i, %resource_getrlimit_impl.exit ], [ null, %land.lhs.true.split ]
   ret ptr %return_value.0
 }
 
@@ -326,14 +326,14 @@ skip_optional:                                    ; preds = %if.end19, %if.end23
 if.then.i:                                        ; preds = %skip_optional
   %5 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.7) #6
-  br label %resource_prlimit_impl.argprom.exit
+  br label %resource_prlimit_impl.exit
 
 if.end.i:                                         ; preds = %skip_optional
   %tobool.not.i = icmp eq ptr %limits.0, null
   %cond.i = select i1 %tobool.not.i, ptr @_Py_NoneStruct, ptr %limits.0
   %call.i = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %conv, i32 noundef %call12, ptr noundef nonnull %cond.i) #6
   %cmp3.i = icmp slt i32 %call.i, 0
-  br i1 %cmp3.i, label %resource_prlimit_impl.argprom.exit, label %if.end5.i
+  br i1 %cmp3.i, label %resource_prlimit_impl.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %cmp6.not.i = icmp eq ptr %limits.0, @_Py_NoneStruct
@@ -342,7 +342,7 @@ if.end5.i:                                        ; preds = %if.end.i
 if.then7.i:                                       ; preds = %if.end5.i
   %call8.i = call fastcc i32 @py2rlimit(ptr noundef %limits.0, ptr noundef %new_limit.i)
   %cmp9.i = icmp slt i32 %call8.i, 0
-  br i1 %cmp9.i, label %resource_prlimit_impl.argprom.exit, label %if.end11.i
+  br i1 %cmp9.i, label %resource_prlimit_impl.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then7.i
   %call12.i = call i32 @prlimit64(i32 noundef %conv, i32 noundef %call12, ptr noundef nonnull %new_limit.i, ptr noundef nonnull %old_limit.i) #6
@@ -366,28 +366,28 @@ if.then16.i:                                      ; preds = %if.end14.i
 if.then19.i:                                      ; preds = %if.then16.i
   %7 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.13) #6
-  br label %resource_prlimit_impl.argprom.exit
+  br label %resource_prlimit_impl.exit
 
 if.else20.i:                                      ; preds = %if.then16.i
   %8 = load ptr, ptr @PyExc_OSError, align 8
   %call21.i = call ptr @PyErr_SetFromErrno(ptr noundef %8) #6
-  br label %resource_prlimit_impl.argprom.exit
+  br label %resource_prlimit_impl.exit
 
 if.end23.i:                                       ; preds = %if.end14.i
   %9 = load i64, ptr %old_limit.i, align 8
   %10 = getelementptr inbounds i8, ptr %old_limit.i, i64 8
   %11 = load i64, ptr %10, align 8
   %call.i.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.8, i64 noundef %9, i64 noundef %11) #6
-  br label %resource_prlimit_impl.argprom.exit
+  br label %resource_prlimit_impl.exit
 
-resource_prlimit_impl.argprom.exit:               ; preds = %if.then.i, %if.end.i, %if.then7.i, %if.then19.i, %if.else20.i, %if.end23.i
+resource_prlimit_impl.exit:                       ; preds = %if.then.i, %if.end.i, %if.then7.i, %if.then19.i, %if.else20.i, %if.end23.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call.i.i, %if.end23.i ], [ null, %if.end.i ], [ null, %if.then7.i ], [ null, %if.else20.i ], [ null, %if.then19.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %old_limit.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %new_limit.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true15, %land.lhs.true, %resource_prlimit_impl.argprom.exit, %if.then2, %if.then
-  %return_value.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ null, %land.lhs.true ], [ null, %land.lhs.true15 ], [ %retval.0.i, %resource_prlimit_impl.argprom.exit ]
+exit:                                             ; preds = %land.lhs.true15, %land.lhs.true, %resource_prlimit_impl.exit, %if.then2, %if.then
+  %return_value.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ null, %land.lhs.true ], [ null, %land.lhs.true15 ], [ %retval.0.i, %resource_prlimit_impl.exit ]
   ret ptr %return_value.0
 }
 
@@ -411,7 +411,7 @@ if.end:                                           ; preds = %entry
 if.end.split:                                     ; preds = %if.end
   %arrayidx64 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx64, align 8
-  %call75 = tail call fastcc ptr @resource_setrlimit_impl.argprom(i32 noundef %call1, ptr noundef %2)
+  %call75 = tail call fastcc ptr @resource_setrlimit_impl(i32 noundef %call1, ptr noundef %2)
   br label %exit
 
 land.lhs.true:                                    ; preds = %if.end
@@ -674,7 +674,7 @@ declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #1
 declare ptr @PyTuple_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @resource_setrlimit_impl.argprom(i32 noundef %resource, ptr noundef %limits) unnamed_addr #0 {
+define internal fastcc noundef ptr @resource_setrlimit_impl(i32 noundef %resource, ptr noundef %limits) unnamed_addr #0 {
 entry:
   %rl = alloca %struct.rlimit, align 8
   %or.cond = icmp ugt i32 %resource, 15

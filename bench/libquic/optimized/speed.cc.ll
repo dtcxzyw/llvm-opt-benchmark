@@ -3545,7 +3545,7 @@ entry:
   %call.i.i.i = tail call ptr @EC_KEY_new_by_curve_name(i32 noundef %call.val)
   store ptr %call.i.i.i, ptr %key.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIbRZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_E3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESD_EEE5valueESD_E4typeEOSI_DpOSJ_.argprom.exit", label %lor.lhs.false.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIbRZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_E3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESD_EEE5valueESD_E4typeEOSI_DpOSJ_.exit", label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %entry
   %call4.i.i.i = invoke i32 @EC_KEY_generate_key(ptr noundef nonnull %call.i.i.i)
@@ -3720,7 +3720,7 @@ ehcleanup53.i.i.i:                                ; preds = %ehcleanup51.i.i.i, 
 if.then.i22.i.i.i:                                ; preds = %if.then.i19.i.i.i, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit.i.i.i, %invoke.cont.i.i.i
   %retval.0.ph.i.i.i = phi i1 [ false, %invoke.cont.i.i.i ], [ %retval.19.i.i.i, %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit.i.i.i ], [ %retval.19.i.i.i, %if.then.i19.i.i.i ]
   invoke void @EC_KEY_free(ptr noundef nonnull %call.i.i.i)
-          to label %"_ZSt10__invoke_rIbRZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_E3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESD_EEE5valueESD_E4typeEOSI_DpOSJ_.argprom.exit" unwind label %terminate.lpad.i23.i.i.i
+          to label %"_ZSt10__invoke_rIbRZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_E3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESD_EEE5valueESD_E4typeEOSI_DpOSJ_.exit" unwind label %terminate.lpad.i23.i.i.i
 
 terminate.lpad.i23.i.i.i:                         ; preds = %if.then.i22.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -3734,7 +3734,7 @@ ehcleanup55.i.i.i:                                ; preds = %ehcleanup53.i.i.i, 
   call void @_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key.i.i.i) #17
   resume { ptr, i32 } %.pn.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIbRZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_E3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESD_EEE5valueESD_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %entry, %if.then.i22.i.i.i
+"_ZSt10__invoke_rIbRZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_E3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESD_EEE5valueESD_E4typeEOSI_DpOSJ_.exit": ; preds = %entry, %if.then.i22.i.i.i
   %retval.04.i.i.i = phi i1 [ %retval.0.ph.i.i.i, %if.then.i22.i.i.i ], [ false, %entry ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %point.i.i.i)

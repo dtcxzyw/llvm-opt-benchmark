@@ -3139,9 +3139,9 @@ define hidden noundef zeroext i1 @_ZN7Compile13push_thru_addEP8PhaseGVNP4NodePK1
   %165 = sext i32 %.sink2.i.i to i64
   store i64 %165, ptr %.sink1.i.i, align 8
   %166 = icmp sgt i32 %.161.in.i, %.1.in.i
-  br i1 %166, label %_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit, label %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.argprom.exit.i
+  br i1 %166, label %_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit, label %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i
 
-_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.argprom.exit.i: ; preds = %164
+_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i: ; preds = %164
   %.1.i = sext i32 %.1.in.i to i64
   %.161.i = sext i32 %.161.in.i to i64
   %.0..0..0..0..0.52.i = load i64, ptr %8, align 8
@@ -3286,11 +3286,11 @@ _ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.argprom.exit.
   %or.cond.i = or i1 %.not.i, %254
   br i1 %or.cond.i, label %_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit, label %255
 
-255:                                              ; preds = %253, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.argprom.exit.i
-  %.0..0..i = phi i64 [ %.0..0..0..0..0.49.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.argprom.exit.i ], [ %.0..0.50.i, %253 ]
-  %.0..0.51.i = phi i64 [ %.0..0..0..0..0.52.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.argprom.exit.i ], [ %.0..0.53.i, %253 ]
-  %.060.i = phi i64 [ %.161.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.argprom.exit.i ], [ %.363.i, %253 ]
-  %.059.i = phi i64 [ %.1.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.argprom.exit.i ], [ %.3.i, %253 ]
+255:                                              ; preds = %253, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i
+  %.0..0..i = phi i64 [ %.0..0..0..0..0.49.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ %.0..0.50.i, %253 ]
+  %.0..0.51.i = phi i64 [ %.0..0..0..0..0.52.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ %.0..0.53.i, %253 ]
+  %.060.i = phi i64 [ %.161.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ %.363.i, %253 ]
+  %.059.i = phi i64 [ %.1.i, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ %.3.i, %253 ]
   %256 = load ptr, ptr %29, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 192
   %258 = load ptr, ptr %257, align 8
@@ -3307,8 +3307,8 @@ _ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.argprom.exit.
   store ptr %267, ptr %4, align 8
   br label %_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit
 
-_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit: ; preds = %80, %86, %90, %95, %122, %127, %133, %137, %164, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.argprom.exit.i, %171, %177, %181, %186, %212, %217, %223, %227, %253, %255
-  %.0.i = phi i1 [ true, %255 ], [ false, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.argprom.exit.i ], [ false, %95 ], [ false, %90 ], [ false, %86 ], [ false, %80 ], [ false, %137 ], [ false, %133 ], [ false, %127 ], [ false, %122 ], [ false, %164 ], [ false, %186 ], [ false, %181 ], [ false, %177 ], [ false, %171 ], [ false, %227 ], [ false, %223 ], [ false, %217 ], [ false, %212 ], [ false, %253 ]
+_ZL22compute_updates_rangesPK11TypeIntegerS1_S1_RS1_S2_PK4Node9BasicTypeS6_.exit: ; preds = %80, %86, %90, %95, %122, %127, %133, %137, %164, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i, %171, %177, %181, %186, %212, %217, %223, %227, %253, %255
+  %.0.i = phi i1 [ true, %255 ], [ false, %_ZL22compute_updates_rangesIiEbT_S0_S0_S0_S0_S0_RlS1_S1_S1_PK4Node.exit.i ], [ false, %95 ], [ false, %90 ], [ false, %86 ], [ false, %80 ], [ false, %137 ], [ false, %133 ], [ false, %127 ], [ false, %122 ], [ false, %164 ], [ false, %186 ], [ false, %181 ], [ false, %177 ], [ false, %171 ], [ false, %227 ], [ false, %223 ], [ false, %217 ], [ false, %212 ], [ false, %253 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %268
@@ -3425,7 +3425,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %or.cond.i = or i1 %.not60.i, %.052.in.not.i
   %.not61.i = icmp sgt i32 %.054.ph.i, %38
   %or.cond64.i = or i1 %.not61.i, %or.cond.i
-  br i1 %or.cond64.i, label %73, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.argprom.exit
+  br i1 %or.cond64.i, label %73, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 73:                                               ; preds = %72
   %74 = icmp slt i32 %.sink11.i, 0
@@ -3437,7 +3437,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %or.cond65.i = and i1 %.not62.i, %.052.in.ph.i
   %.not63.i = icmp slt i32 %.053.ph.i, %37
   %or.cond66.i = or i1 %.not63.i, %or.cond65.i
-  br i1 %or.cond66.i, label %78, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.argprom.exit
+  br i1 %or.cond66.i, label %78, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 76:                                               ; preds = %67, %51
   %.054.i = phi i32 [ %43, %51 ], [ %59, %67 ]
@@ -3449,7 +3449,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %or.cond67.i = or i1 %.not.i, %.0.in.not.i
   %.not57.i = icmp sgt i32 %.053.i, %38
   %or.cond68.i = or i1 %.not57.i, %or.cond67.i
-  br i1 %or.cond68.i, label %77, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.argprom.exit
+  br i1 %or.cond68.i, label %77, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 77:                                               ; preds = %76
   %.052.in.not69.i = xor i1 %.052.in.i, true
@@ -3458,10 +3458,10 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %.not59.i = icmp slt i32 %.053.i, %38
   %or.cond71.i = and i1 %.not59.i, %.0.in.i
   %or.cond72.i = or i1 %or.cond70.i, %or.cond71.i
-  br i1 %or.cond72.i, label %78, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.argprom.exit
+  br i1 %or.cond72.i, label %78, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 78:                                               ; preds = %77, %75, %73
-  br label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.argprom.exit
+  br label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 79:                                               ; preds = %6
   %80 = getelementptr i8, ptr %3, i64 44
@@ -3535,7 +3535,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %or.cond.i55 = or i1 %.not60.i54, %.052.in.not.i53
   %.not61.i56 = icmp sgt i64 %.054.ph.i50, %30
   %or.cond64.i57 = or i1 %.not61.i56, %or.cond.i55
-  br i1 %or.cond64.i57, label %114, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.argprom.exit
+  br i1 %or.cond64.i57, label %114, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 114:                                              ; preds = %113
   %115 = icmp slt i64 %.sink11.i48, 0
@@ -3547,7 +3547,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %or.cond65.i60 = and i1 %.not62.i59, %.052.in.ph.i52
   %.not63.i61 = icmp sgt i64 %26, %.053.ph.i51
   %or.cond66.i62 = or i1 %.not63.i61, %or.cond65.i60
-  br i1 %or.cond66.i62, label %119, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.argprom.exit
+  br i1 %or.cond66.i62, label %119, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 117:                                              ; preds = %108, %92
   %.054.i29 = phi i64 [ %84, %92 ], [ %100, %108 ]
@@ -3559,7 +3559,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %or.cond67.i35 = or i1 %.not.i34, %.0.in.not.i33
   %.not57.i36 = icmp sgt i64 %.053.i30, %30
   %or.cond68.i37 = or i1 %.not57.i36, %or.cond67.i35
-  br i1 %or.cond68.i37, label %118, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.argprom.exit
+  br i1 %or.cond68.i37, label %118, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 118:                                              ; preds = %117
   %.052.in.not69.i39 = xor i1 %.052.in.i31, true
@@ -3568,12 +3568,12 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %.not59.i42 = icmp sgt i64 %30, %.053.i30
   %or.cond71.i43 = and i1 %.not59.i42, %.0.in.i32
   %or.cond72.i44 = or i1 %or.cond70.i41, %or.cond71.i43
-  br i1 %or.cond72.i44, label %119, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.argprom.exit
+  br i1 %or.cond72.i44, label %119, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 119:                                              ; preds = %118, %116, %114
-  br label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.argprom.exit
+  br label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
-_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.argprom.exit: ; preds = %119, %118, %117, %116, %113, %78, %77, %76, %75, %72
+_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit: ; preds = %119, %118, %117, %116, %113, %78, %77, %76, %75, %72
   %.0 = phi i1 [ false, %78 ], [ true, %72 ], [ true, %75 ], [ true, %76 ], [ true, %77 ], [ false, %119 ], [ true, %113 ], [ true, %116 ], [ true, %117 ], [ true, %118 ]
   ret i1 %.0
 }

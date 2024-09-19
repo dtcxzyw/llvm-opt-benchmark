@@ -11608,13 +11608,13 @@ define hidden i32 @_ir_LOAD(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %13 = getelementptr inbounds i8, ptr %9, i64 4
   br label %14
 
-14:                                               ; preds = %ir_check_partial_aliasing.argprom.exit.thread55.i, %.lr.ph.i
-  %.04563.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %ir_check_partial_aliasing.argprom.exit.thread55.i ]
-  %.04662.i = phi i32 [ %5, %.lr.ph.i ], [ %139, %ir_check_partial_aliasing.argprom.exit.thread55.i ]
+14:                                               ; preds = %ir_check_partial_aliasing.exit.thread55.i, %.lr.ph.i
+  %.04563.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %ir_check_partial_aliasing.exit.thread55.i ]
+  %.04662.i = phi i32 [ %5, %.lr.ph.i ], [ %139, %ir_check_partial_aliasing.exit.thread55.i ]
   %15 = sext i32 %.04662.i to i64
   %16 = getelementptr inbounds %struct._ir_insn, ptr %.pre.i.i.pre27, i64 %15
   %17 = load i8, ptr %16, align 8
-  switch i8 %17, label %ir_check_partial_aliasing.argprom.exit.thread55.i [
+  switch i8 %17, label %ir_check_partial_aliasing.exit.thread55.i [
     i8 78, label %18
     i8 79, label %27
     i8 77, label %133
@@ -11629,13 +11629,13 @@ define hidden i32 @_ir_LOAD(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = icmp eq i32 %1, %21
-  br i1 %22, label %23, label %ir_check_partial_aliasing.argprom.exit.thread55.i
+  br i1 %22, label %23, label %ir_check_partial_aliasing.exit.thread55.i
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %16, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %2
-  br i1 %26, label %ir_find_aliasing_load.exit, label %ir_check_partial_aliasing.argprom.exit.thread55.i
+  br i1 %26, label %ir_find_aliasing_load.exit, label %ir_check_partial_aliasing.exit.thread55.i
 
 27:                                               ; preds = %14
   %28 = getelementptr inbounds i8, ptr %16, i64 8
@@ -11711,7 +11711,7 @@ define hidden i32 @_ir_LOAD(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i64
   %79 = icmp ult i64 %74, %78
-  br i1 %79, label %ir_find_aliasing_load.exit.thread, label %ir_check_partial_aliasing.argprom.exit.thread55.i
+  br i1 %79, label %ir_find_aliasing_load.exit.thread, label %ir_check_partial_aliasing.exit.thread55.i
 
 80:                                               ; preds = %68
   %81 = load i8, ptr %62, align 8
@@ -11744,7 +11744,7 @@ define hidden i32 @_ir_LOAD(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
 
 100:                                              ; preds = %92
   %101 = icmp eq i32 %1, %35
-  br i1 %101, label %ir_check_partial_aliasing.argprom.exit.thread55.i, label %102
+  br i1 %101, label %ir_check_partial_aliasing.exit.thread55.i, label %102
 
 102:                                              ; preds = %100
   %103 = icmp ugt i64 %95, %98
@@ -11757,14 +11757,14 @@ define hidden i32 @_ir_LOAD(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %108 = zext i8 %107 to i64
   %109 = add i64 %98, %108
   %110 = icmp ult i64 %95, %109
-  br i1 %110, label %ir_find_aliasing_load.exit.thread, label %ir_check_partial_aliasing.argprom.exit.thread55.i
+  br i1 %110, label %ir_find_aliasing_load.exit.thread, label %ir_check_partial_aliasing.exit.thread55.i
 
 111:                                              ; preds = %102
   %112 = load i8, ptr %12, align 1
   %113 = zext i8 %112 to i64
   %114 = add i64 %95, %113
   %115 = icmp ult i64 %98, %114
-  br i1 %115, label %ir_find_aliasing_load.exit.thread, label %ir_check_partial_aliasing.argprom.exit.thread55.i
+  br i1 %115, label %ir_find_aliasing_load.exit.thread, label %ir_check_partial_aliasing.exit.thread55.i
 
 116:                                              ; preds = %65, %60
   %117 = load i8, ptr %62, align 8
@@ -11781,26 +11781,26 @@ define hidden i32 @_ir_LOAD(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %124 = getelementptr inbounds i8, ptr %62, i64 4
   %125 = load i32, ptr %124, align 4
   %126 = icmp eq i32 %125, %2
-  br i1 %126, label %ir_check_partial_aliasing.argprom.exit.i, label %ir_find_aliasing_load.exit.thread
+  br i1 %126, label %ir_check_partial_aliasing.exit.i, label %ir_find_aliasing_load.exit.thread
 
-ir_check_partial_aliasing.argprom.exit.i:         ; preds = %123
+ir_check_partial_aliasing.exit.i:                 ; preds = %123
   %127 = sext i32 %121 to i64
   %128 = getelementptr inbounds %struct._ir_insn, ptr %.pre.i.i.pre27, i64 %127, i32 1
   %129 = load i64, ptr %128, align 8
   %130 = load i8, ptr %12, align 1
   %131 = zext i8 %130 to i64
   %132 = icmp ult i64 %129, %131
-  br i1 %132, label %ir_find_aliasing_load.exit.thread, label %ir_check_partial_aliasing.argprom.exit.thread55.i
+  br i1 %132, label %ir_find_aliasing_load.exit.thread, label %ir_check_partial_aliasing.exit.thread55.i
 
 133:                                              ; preds = %14
   %134 = getelementptr inbounds i8, ptr %16, i64 12
   %135 = load i32, ptr %134, align 4
   %136 = shl nuw i32 1, %135
   %137 = or i32 %136, %.04563.i
-  br label %ir_check_partial_aliasing.argprom.exit.thread55.i
+  br label %ir_check_partial_aliasing.exit.thread55.i
 
-ir_check_partial_aliasing.argprom.exit.thread55.i: ; preds = %133, %ir_check_partial_aliasing.argprom.exit.i, %111, %104, %100, %71, %23, %18, %14
-  %.1.i = phi i32 [ %.04563.i, %23 ], [ %.04563.i, %18 ], [ %.04563.i, %ir_check_partial_aliasing.argprom.exit.i ], [ %137, %133 ], [ %.04563.i, %14 ], [ %.04563.i, %100 ], [ %.04563.i, %71 ], [ %.04563.i, %104 ], [ %.04563.i, %111 ]
+ir_check_partial_aliasing.exit.thread55.i:        ; preds = %133, %ir_check_partial_aliasing.exit.i, %111, %104, %100, %71, %23, %18, %14
+  %.1.i = phi i32 [ %.04563.i, %23 ], [ %.04563.i, %18 ], [ %.04563.i, %ir_check_partial_aliasing.exit.i ], [ %137, %133 ], [ %.04563.i, %14 ], [ %.04563.i, %100 ], [ %.04563.i, %71 ], [ %.04563.i, %104 ], [ %.04563.i, %111 ]
   %138 = getelementptr inbounds i8, ptr %16, i64 4
   %139 = load i32, ptr %138, align 4
   %140 = icmp sgt i32 %139, %6
@@ -11816,9 +11816,9 @@ ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge: ; preds 
   %.pre.i.i.pre = load ptr, ptr %0, align 8
   br label %ir_find_aliasing_load.exit.thread
 
-ir_find_aliasing_load.exit.thread:                ; preds = %80, %83, %123, %119, %116, %92, %87, %ir_check_partial_aliasing.argprom.exit.thread55.i, %14, %14, %14, %14, %ir_check_partial_aliasing.argprom.exit.i, %71, %104, %111, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge, %3, %48, %50, %43
-  %.pre.i.i = phi ptr [ %.pre.i.i.pre, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge ], [ %.pre.i.i.pre27, %3 ], [ %.pre.i.i.pre27, %48 ], [ %.pre.i.i.pre27, %50 ], [ %.pre.i.i.pre27, %43 ], [ %.pre.i.i.pre27, %111 ], [ %.pre.i.i.pre27, %104 ], [ %.pre.i.i.pre27, %71 ], [ %.pre.i.i.pre27, %ir_check_partial_aliasing.argprom.exit.i ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %ir_check_partial_aliasing.argprom.exit.thread55.i ], [ %.pre.i.i.pre27, %87 ], [ %.pre.i.i.pre27, %92 ], [ %.pre.i.i.pre27, %116 ], [ %.pre.i.i.pre27, %119 ], [ %.pre.i.i.pre27, %123 ], [ %.pre.i.i.pre27, %83 ], [ %.pre.i.i.pre27, %80 ]
-  %141 = phi i32 [ %.pre, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge ], [ %5, %3 ], [ %5, %48 ], [ %5, %50 ], [ %5, %43 ], [ %5, %111 ], [ %5, %104 ], [ %5, %71 ], [ %5, %ir_check_partial_aliasing.argprom.exit.i ], [ %5, %14 ], [ %5, %14 ], [ %5, %14 ], [ %5, %14 ], [ %5, %ir_check_partial_aliasing.argprom.exit.thread55.i ], [ %5, %87 ], [ %5, %92 ], [ %5, %116 ], [ %5, %119 ], [ %5, %123 ], [ %5, %83 ], [ %5, %80 ]
+ir_find_aliasing_load.exit.thread:                ; preds = %80, %83, %123, %119, %116, %92, %87, %ir_check_partial_aliasing.exit.thread55.i, %14, %14, %14, %14, %ir_check_partial_aliasing.exit.i, %71, %104, %111, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge, %3, %48, %50, %43
+  %.pre.i.i = phi ptr [ %.pre.i.i.pre, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge ], [ %.pre.i.i.pre27, %3 ], [ %.pre.i.i.pre27, %48 ], [ %.pre.i.i.pre27, %50 ], [ %.pre.i.i.pre27, %43 ], [ %.pre.i.i.pre27, %111 ], [ %.pre.i.i.pre27, %104 ], [ %.pre.i.i.pre27, %71 ], [ %.pre.i.i.pre27, %ir_check_partial_aliasing.exit.i ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %14 ], [ %.pre.i.i.pre27, %ir_check_partial_aliasing.exit.thread55.i ], [ %.pre.i.i.pre27, %87 ], [ %.pre.i.i.pre27, %92 ], [ %.pre.i.i.pre27, %116 ], [ %.pre.i.i.pre27, %119 ], [ %.pre.i.i.pre27, %123 ], [ %.pre.i.i.pre27, %83 ], [ %.pre.i.i.pre27, %80 ]
+  %141 = phi i32 [ %.pre, %ir_find_aliasing_load.exit.ir_find_aliasing_load.exit.thread_crit_edge ], [ %5, %3 ], [ %5, %48 ], [ %5, %50 ], [ %5, %43 ], [ %5, %111 ], [ %5, %104 ], [ %5, %71 ], [ %5, %ir_check_partial_aliasing.exit.i ], [ %5, %14 ], [ %5, %14 ], [ %5, %14 ], [ %5, %14 ], [ %5, %ir_check_partial_aliasing.exit.thread55.i ], [ %5, %87 ], [ %5, %92 ], [ %5, %116 ], [ %5, %119 ], [ %5, %123 ], [ %5, %83 ], [ %5, %80 ]
   %142 = shl i32 %1, 8
   %143 = and i32 %142, 16776960
   %144 = or disjoint i32 %143, 78
@@ -11885,7 +11885,7 @@ define hidden void @_ir_STORE(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %invariant.gep = getelementptr i8, ptr %6, i64 1
   %.05064 = load i32, ptr %5, align 4
   %11 = icmp sgt i32 %.05064, %4
-  br i1 %11, label %.lr.ph, label %ir_check_partial_aliasing.argprom.exit.thread
+  br i1 %11, label %.lr.ph, label %ir_check_partial_aliasing.exit.thread
 
 .lr.ph:                                           ; preds = %3
   %12 = sext i32 %1 to i64
@@ -11896,18 +11896,18 @@ define hidden void @_ir_STORE(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %17 = getelementptr inbounds i8, ptr %13, i64 4
   br label %18
 
-18:                                               ; preds = %.lr.ph, %ir_check_partial_aliasing.argprom.exit.thread56
-  %.05068 = phi i32 [ %.05064, %.lr.ph ], [ %.050, %ir_check_partial_aliasing.argprom.exit.thread56 ]
-  %.066 = phi i1 [ false, %.lr.ph ], [ %.1, %ir_check_partial_aliasing.argprom.exit.thread56 ]
-  %.05165 = phi i32 [ 0, %.lr.ph ], [ %.05068, %ir_check_partial_aliasing.argprom.exit.thread56 ]
+18:                                               ; preds = %.lr.ph, %ir_check_partial_aliasing.exit.thread56
+  %.05068 = phi i32 [ %.05064, %.lr.ph ], [ %.050, %ir_check_partial_aliasing.exit.thread56 ]
+  %.066 = phi i1 [ false, %.lr.ph ], [ %.1, %ir_check_partial_aliasing.exit.thread56 ]
+  %.05165 = phi i32 [ 0, %.lr.ph ], [ %.05068, %ir_check_partial_aliasing.exit.thread56 ]
   %19 = sext i32 %.05068 to i64
   %20 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %19
   %21 = load i8, ptr %20, align 8
   switch i8 %21, label %124 [
     i8 79, label %22
     i8 78, label %45
-    i8 86, label %ir_check_partial_aliasing.argprom.exit.thread56
-    i8 87, label %ir_check_partial_aliasing.argprom.exit.thread56
+    i8 86, label %ir_check_partial_aliasing.exit.thread56
+    i8 87, label %ir_check_partial_aliasing.exit.thread56
   ]
 
 22:                                               ; preds = %18
@@ -11924,14 +11924,14 @@ define hidden void @_ir_STORE(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %31 = getelementptr inbounds i8, ptr %30, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, %10
-  br i1 %33, label %34, label %ir_check_partial_aliasing.argprom.exit.thread
+  br i1 %33, label %34, label %ir_check_partial_aliasing.exit.thread
 
 34:                                               ; preds = %29
   %35 = icmp eq i32 %27, %2
   br i1 %35, label %158, label %36
 
 36:                                               ; preds = %34
-  br i1 %.066, label %ir_check_partial_aliasing.argprom.exit.thread, label %37
+  br i1 %.066, label %ir_check_partial_aliasing.exit.thread, label %37
 
 37:                                               ; preds = %36
   %.not53 = icmp eq i32 %.05165, 0
@@ -11953,13 +11953,13 @@ define hidden void @_ir_STORE(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %.pre = load i32, ptr %5, align 8
   %.pre.i.i.pre = load ptr, ptr %0, align 8
-  br label %ir_check_partial_aliasing.argprom.exit.thread
+  br label %ir_check_partial_aliasing.exit.thread
 
 45:                                               ; preds = %18
   %46 = getelementptr inbounds i8, ptr %20, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, %1
-  br i1 %48, label %ir_check_partial_aliasing.argprom.exit.thread, label %49
+  br i1 %48, label %ir_check_partial_aliasing.exit.thread, label %49
 
 49:                                               ; preds = %22, %45
   %50 = phi i32 [ %47, %45 ], [ %24, %22 ]
@@ -11991,18 +11991,18 @@ define hidden void @_ir_STORE(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
   %70 = icmp ult i64 %65, %69
-  br i1 %70, label %ir_check_partial_aliasing.argprom.exit.thread, label %ir_check_partial_aliasing.argprom.exit.thread56
+  br i1 %70, label %ir_check_partial_aliasing.exit.thread, label %ir_check_partial_aliasing.exit.thread56
 
 71:                                               ; preds = %59
   %72 = load i8, ptr %53, align 8
   %73 = icmp eq i8 %72, 24
-  br i1 %73, label %74, label %ir_check_partial_aliasing.argprom.exit.thread
+  br i1 %73, label %74, label %ir_check_partial_aliasing.exit.thread
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %53, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %60, %76
-  br i1 %77, label %78, label %ir_check_partial_aliasing.argprom.exit.thread
+  br i1 %77, label %78, label %ir_check_partial_aliasing.exit.thread
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %53, i64 8
@@ -12010,7 +12010,7 @@ define hidden void @_ir_STORE(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %81 = icmp ne i32 %57, %80
   %82 = icmp slt i32 %80, 0
   %or.cond59 = and i1 %81, %82
-  br i1 %or.cond59, label %83, label %ir_check_partial_aliasing.argprom.exit.thread
+  br i1 %or.cond59, label %83, label %ir_check_partial_aliasing.exit.thread
 
 83:                                               ; preds = %78
   %84 = sext i32 %57 to i64
@@ -12020,11 +12020,11 @@ define hidden void @_ir_STORE(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %88 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %87, i32 1
   %89 = load i64, ptr %88, align 8
   %90 = icmp eq i64 %86, %89
-  br i1 %90, label %ir_check_partial_aliasing.argprom.exit.thread, label %91
+  br i1 %90, label %ir_check_partial_aliasing.exit.thread, label %91
 
 91:                                               ; preds = %83
   %92 = icmp eq i8 %10, %.049.in
-  br i1 %92, label %ir_check_partial_aliasing.argprom.exit.thread56, label %93
+  br i1 %92, label %ir_check_partial_aliasing.exit.thread56, label %93
 
 93:                                               ; preds = %91
   %94 = icmp ugt i64 %86, %89
@@ -12037,57 +12037,57 @@ define hidden void @_ir_STORE(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %99 = zext i8 %98 to i64
   %100 = add i64 %89, %99
   %101 = icmp ult i64 %86, %100
-  br i1 %101, label %ir_check_partial_aliasing.argprom.exit.thread, label %ir_check_partial_aliasing.argprom.exit.thread56
+  br i1 %101, label %ir_check_partial_aliasing.exit.thread, label %ir_check_partial_aliasing.exit.thread56
 
 102:                                              ; preds = %93
   %103 = load i8, ptr %16, align 1
   %104 = zext i8 %103 to i64
   %105 = add i64 %86, %104
   %106 = icmp ult i64 %89, %105
-  br i1 %106, label %ir_check_partial_aliasing.argprom.exit.thread, label %ir_check_partial_aliasing.argprom.exit.thread56
+  br i1 %106, label %ir_check_partial_aliasing.exit.thread, label %ir_check_partial_aliasing.exit.thread56
 
 107:                                              ; preds = %56, %49
   %108 = load i8, ptr %53, align 8
   %109 = icmp eq i8 %108, 24
-  br i1 %109, label %110, label %ir_check_partial_aliasing.argprom.exit.thread
+  br i1 %109, label %110, label %ir_check_partial_aliasing.exit.thread
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds i8, ptr %53, i64 8
   %112 = load i32, ptr %111, align 8
   %113 = icmp slt i32 %112, 0
-  br i1 %113, label %114, label %ir_check_partial_aliasing.argprom.exit.thread
+  br i1 %113, label %114, label %ir_check_partial_aliasing.exit.thread
 
 114:                                              ; preds = %110
   %115 = getelementptr inbounds i8, ptr %53, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %116, %1
-  br i1 %117, label %ir_check_partial_aliasing.argprom.exit, label %ir_check_partial_aliasing.argprom.exit.thread
+  br i1 %117, label %ir_check_partial_aliasing.exit, label %ir_check_partial_aliasing.exit.thread
 
-ir_check_partial_aliasing.argprom.exit:           ; preds = %114
+ir_check_partial_aliasing.exit:                   ; preds = %114
   %118 = sext i32 %112 to i64
   %119 = getelementptr inbounds %struct._ir_insn, ptr %6, i64 %118, i32 1
   %120 = load i64, ptr %119, align 8
   %121 = load i8, ptr %16, align 1
   %122 = zext i8 %121 to i64
   %123 = icmp ult i64 %120, %122
-  br i1 %123, label %ir_check_partial_aliasing.argprom.exit.thread, label %ir_check_partial_aliasing.argprom.exit.thread56
+  br i1 %123, label %ir_check_partial_aliasing.exit.thread, label %ir_check_partial_aliasing.exit.thread56
 
 124:                                              ; preds = %18
   %125 = icmp ugt i8 %21, 88
   %126 = icmp eq i8 %21, 69
   %or.cond = or i1 %125, %126
-  br i1 %or.cond, label %ir_check_partial_aliasing.argprom.exit.thread, label %ir_check_partial_aliasing.argprom.exit.thread56
+  br i1 %or.cond, label %ir_check_partial_aliasing.exit.thread, label %ir_check_partial_aliasing.exit.thread56
 
-ir_check_partial_aliasing.argprom.exit.thread56:  ; preds = %102, %95, %62, %91, %124, %18, %18, %ir_check_partial_aliasing.argprom.exit
-  %.1 = phi i1 [ %.066, %ir_check_partial_aliasing.argprom.exit ], [ true, %18 ], [ true, %18 ], [ %.066, %124 ], [ %.066, %91 ], [ %.066, %62 ], [ %.066, %95 ], [ %.066, %102 ]
+ir_check_partial_aliasing.exit.thread56:          ; preds = %102, %95, %62, %91, %124, %18, %18, %ir_check_partial_aliasing.exit
+  %.1 = phi i1 [ %.066, %ir_check_partial_aliasing.exit ], [ true, %18 ], [ true, %18 ], [ %.066, %124 ], [ %.066, %91 ], [ %.066, %62 ], [ %.066, %95 ], [ %.066, %102 ]
   %127 = getelementptr inbounds i8, ptr %20, i64 4
   %.050 = load i32, ptr %127, align 4
   %128 = icmp sgt i32 %.050, %4
-  br i1 %128, label %18, label %ir_check_partial_aliasing.argprom.exit.thread
+  br i1 %128, label %18, label %ir_check_partial_aliasing.exit.thread
 
-ir_check_partial_aliasing.argprom.exit.thread:    ; preds = %ir_check_partial_aliasing.argprom.exit.thread56, %45, %ir_check_partial_aliasing.argprom.exit, %124, %78, %83, %107, %110, %114, %74, %71, %62, %95, %102, %3, %29, %36, %44
-  %.pre.i.i = phi ptr [ %6, %3 ], [ %6, %29 ], [ %6, %36 ], [ %.pre.i.i.pre, %44 ], [ %6, %102 ], [ %6, %95 ], [ %6, %62 ], [ %6, %71 ], [ %6, %74 ], [ %6, %114 ], [ %6, %110 ], [ %6, %107 ], [ %6, %83 ], [ %6, %78 ], [ %6, %124 ], [ %6, %ir_check_partial_aliasing.argprom.exit ], [ %6, %45 ], [ %6, %ir_check_partial_aliasing.argprom.exit.thread56 ]
-  %129 = phi i32 [ %.05064, %3 ], [ %.05064, %29 ], [ %.05064, %36 ], [ %.pre, %44 ], [ %.05064, %102 ], [ %.05064, %95 ], [ %.05064, %62 ], [ %.05064, %71 ], [ %.05064, %74 ], [ %.05064, %114 ], [ %.05064, %110 ], [ %.05064, %107 ], [ %.05064, %83 ], [ %.05064, %78 ], [ %.05064, %124 ], [ %.05064, %ir_check_partial_aliasing.argprom.exit ], [ %.05064, %45 ], [ %.05064, %ir_check_partial_aliasing.argprom.exit.thread56 ]
+ir_check_partial_aliasing.exit.thread:            ; preds = %ir_check_partial_aliasing.exit.thread56, %45, %ir_check_partial_aliasing.exit, %124, %78, %83, %107, %110, %114, %74, %71, %62, %95, %102, %3, %29, %36, %44
+  %.pre.i.i = phi ptr [ %6, %3 ], [ %6, %29 ], [ %6, %36 ], [ %.pre.i.i.pre, %44 ], [ %6, %102 ], [ %6, %95 ], [ %6, %62 ], [ %6, %71 ], [ %6, %74 ], [ %6, %114 ], [ %6, %110 ], [ %6, %107 ], [ %6, %83 ], [ %6, %78 ], [ %6, %124 ], [ %6, %ir_check_partial_aliasing.exit ], [ %6, %45 ], [ %6, %ir_check_partial_aliasing.exit.thread56 ]
+  %129 = phi i32 [ %.05064, %3 ], [ %.05064, %29 ], [ %.05064, %36 ], [ %.pre, %44 ], [ %.05064, %102 ], [ %.05064, %95 ], [ %.05064, %62 ], [ %.05064, %71 ], [ %.05064, %74 ], [ %.05064, %114 ], [ %.05064, %110 ], [ %.05064, %107 ], [ %.05064, %83 ], [ %.05064, %78 ], [ %.05064, %124 ], [ %.05064, %ir_check_partial_aliasing.exit ], [ %.05064, %45 ], [ %.05064, %ir_check_partial_aliasing.exit.thread56 ]
   %130 = getelementptr inbounds i8, ptr %0, i64 8
   %131 = load i32, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %0, i64 12
@@ -12095,7 +12095,7 @@ ir_check_partial_aliasing.argprom.exit.thread:    ; preds = %ir_check_partial_al
   %.not.i.i.i = icmp slt i32 %131, %133
   br i1 %.not.i.i.i, label %ir_emit3.exit, label %134
 
-134:                                              ; preds = %ir_check_partial_aliasing.argprom.exit.thread
+134:                                              ; preds = %ir_check_partial_aliasing.exit.thread
   %135 = getelementptr inbounds i8, ptr %0, i64 20
   %136 = load i32, ptr %135, align 4
   %137 = icmp slt i32 %133, 4096
@@ -12118,8 +12118,8 @@ ir_check_partial_aliasing.argprom.exit.thread:    ; preds = %ir_check_partial_al
   store ptr %150, ptr %0, align 8
   br label %ir_emit3.exit
 
-ir_emit3.exit:                                    ; preds = %ir_check_partial_aliasing.argprom.exit.thread, %134
-  %151 = phi ptr [ %.pre.i.i, %ir_check_partial_aliasing.argprom.exit.thread ], [ %150, %134 ]
+ir_emit3.exit:                                    ; preds = %ir_check_partial_aliasing.exit.thread, %134
+  %151 = phi ptr [ %.pre.i.i, %ir_check_partial_aliasing.exit.thread ], [ %150, %134 ]
   %152 = add nsw i32 %131, 1
   store i32 %152, ptr %130, align 8
   %153 = sext i32 %131 to i64

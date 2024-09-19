@@ -314,7 +314,7 @@ define internal fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$na
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE.argprom"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr readonly %.8.val, i64 %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr readonly %.8.val, i64 %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -419,7 +419,7 @@ _ZN8nalgebra4base11blas_uninit11gemv_uninit17h8d102a69e0c6f30dE.exit.loopexit.i:
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E.argprom"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, ptr %.8.val, i64 %.24.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, ptr %.8.val, i64 %.24.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
 .noexc8:
   %2 = alloca [24 x i8], align 8
   %3 = alloca [32 x i8], align 8
@@ -804,7 +804,7 @@ common.resume:                                    ; preds = %65, %58, %26, %32
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E.argprom"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, ptr readonly %.8.val, i64 %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, ptr readonly %.8.val, i64 %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -818,7 +818,7 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
 
 .preheader.i:                                     ; preds = %1
   %.not.i = icmp eq i64 %.24.val, 0
-  br i1 %.not.i, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.argprom.exit", label %.critedge.lr.ph.i
+  br i1 %.not.i, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit", label %.critedge.lr.ph.i
 
 .critedge.lr.ph.i:                                ; preds = %.preheader.i
   %7 = icmp ne ptr %.val4, null
@@ -842,9 +842,9 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
   %13 = load double, ptr %12, align 8, !alias.scope !153, !noundef !7
   store double %13, ptr %11, align 8, !alias.scope !156
   %exitcond.not.i = icmp eq i64 %10, %.24.val
-  br i1 %exitcond.not.i, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.argprom.exit", label %.critedge.i
+  br i1 %exitcond.not.i, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit", label %.critedge.i
 
-"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.argprom.exit": ; preds = %.critedge.i, %.preheader.i
+"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit": ; preds = %.critedge.i, %.preheader.i
   %.sroa.01.0.copyload = load i64, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
@@ -863,7 +863,7 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f64$GT$$GT$17h6cda13727dc6c8d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #13
           to label %.body unwind label %21, !noalias !163
 
-19:                                               ; preds = %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.argprom.exit"
+19:                                               ; preds = %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit"
   invoke void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.392abbc42e3e188bf9171d2333145ab3.31, i64 noundef 39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.392abbc42e3e188bf9171d2333145ab3.32) #12
           to label %20 unwind label %17, !noalias !166
 
@@ -876,7 +876,7 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14, !noalias !163
   unreachable
 
-23:                                               ; preds = %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.argprom.exit"
+23:                                               ; preds = %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -2733,7 +2733,7 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
   %.val = load ptr, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %.val9 = load i64, ptr %10, align 8, !noundef !7
-  invoke fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr %.val, i64 %.val9)
+  invoke fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr %.val, i64 %.val9)
           to label %14 unwind label %12
 
 11:                                               ; preds = %18, %12
@@ -2752,7 +2752,7 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
   %.val10 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %.val11 = load i64, ptr %17, align 8, !noundef !7
-  invoke fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val10, i64 %.val11, ptr noalias noundef readonly align 8 dereferenceable(40) %15)
+  invoke fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val10, i64 %.val11, ptr noalias noundef readonly align 8 dereferenceable(40) %15)
           to label %20 unwind label %18
 
 18:                                               ; preds = %20, %14
@@ -2764,7 +2764,7 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
 20:                                               ; preds = %14
   %.val12 = load ptr, ptr %9, align 8
   %.val13 = load i64, ptr %10, align 8, !noundef !7
-  %21 = invoke fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val12, i64 %.val13)
+  %21 = invoke fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val12, i64 %.val13)
           to label %22 unwind label %18
 
 22:                                               ; preds = %20
@@ -2848,7 +2848,7 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
   %.val = load ptr, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %.val8 = load i64, ptr %10, align 8, !noundef !7
-  invoke fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr %.val, i64 %.val8)
+  invoke fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr %.val, i64 %.val8)
           to label %14 unwind label %12
 
 11:                                               ; preds = %18, %12
@@ -2867,7 +2867,7 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
   %.val9 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %.val10 = load i64, ptr %17, align 8, !noundef !7
-  invoke fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val9, i64 %.val10, ptr noalias noundef readonly align 8 dereferenceable(40) %15)
+  invoke fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val9, i64 %.val10, ptr noalias noundef readonly align 8 dereferenceable(40) %15)
           to label %20 unwind label %18
 
 18:                                               ; preds = %20, %14
@@ -2879,7 +2879,7 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
 20:                                               ; preds = %14
   %.val11 = load ptr, ptr %9, align 8
   %.val12 = load i64, ptr %10, align 8, !noundef !7
-  %21 = invoke fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE.argprom"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val11, i64 %.val12)
+  %21 = invoke fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val11, i64 %.val12)
           to label %22 unwind label %18
 
 22:                                               ; preds = %20
@@ -3283,8 +3283,8 @@ attributes #15 = { nounwind }
 !80 = !{!81, !83}
 !81 = distinct !{!81, !82, !"_ZN94_$LT$nalgebra..base..uninit..Uninit$u20$as$u20$nalgebra..base..uninit..InitStatus$LT$T$GT$$GT$4init17h7d4194b03a194043E: argument 0"}
 !82 = distinct !{!82, !"_ZN94_$LT$nalgebra..base..uninit..Uninit$u20$as$u20$nalgebra..base..uninit..InitStatus$LT$T$GT$$GT$4init17h7d4194b03a194043E"}
-!83 = distinct !{!83, !84, !"_ZN8nalgebra4base11blas_uninit11gemv_uninit28_$u7b$$u7b$closure$u7d$$u7d$17h863ddb5a501e8b38E.argprom: argument 0"}
-!84 = distinct !{!84, !"_ZN8nalgebra4base11blas_uninit11gemv_uninit28_$u7b$$u7b$closure$u7d$$u7d$17h863ddb5a501e8b38E.argprom"}
+!83 = distinct !{!83, !84, !"_ZN8nalgebra4base11blas_uninit11gemv_uninit28_$u7b$$u7b$closure$u7d$$u7d$17h863ddb5a501e8b38E: argument 0"}
+!84 = distinct !{!84, !"_ZN8nalgebra4base11blas_uninit11gemv_uninit28_$u7b$$u7b$closure$u7d$$u7d$17h863ddb5a501e8b38E"}
 !85 = !{!86}
 !86 = distinct !{!86, !87, !"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..Clone$u20$for$u20$f64$GT$5clone17hde178c414cb8a8b4E: argument 0"}
 !87 = distinct !{!87, !"_ZN4core5clone5impls52_$LT$impl$u20$core..clone..Clone$u20$for$u20$f64$GT$5clone17hde178c414cb8a8b4E"}
@@ -3780,8 +3780,8 @@ attributes #15 = { nounwind }
 !577 = distinct !{!577, !578, !"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE: argument 0"}
 !578 = distinct !{!578, !"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE"}
 !579 = !{!580}
-!580 = distinct !{!580, !581, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
-!581 = distinct !{!581, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
+!580 = distinct !{!580, !581, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
+!581 = distinct !{!581, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
 !582 = !{!583}
 !583 = distinct !{!583, !584, !"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h330d4b0118508540E: argument 0"}
 !584 = distinct !{!584, !"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h330d4b0118508540E"}

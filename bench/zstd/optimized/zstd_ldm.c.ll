@@ -497,11 +497,11 @@ if.end:                                           ; preds = %for.body.if.end_cri
   %add.i = add i32 %14, %shl
   %cmp2.i = icmp ult i32 %add.i, %conv.i45.pre-phi
   %16 = load i32, ptr %lowLimit.i, align 4
-  br i1 %cmp2.i, label %if.then.i, label %if.end.ZSTD_window_enforceMaxDist.argprom.exit_crit_edge
+  br i1 %cmp2.i, label %if.then.i, label %if.end.ZSTD_window_enforceMaxDist.exit_crit_edge
 
-if.end.ZSTD_window_enforceMaxDist.argprom.exit_crit_edge: ; preds = %if.end
+if.end.ZSTD_window_enforceMaxDist.exit_crit_edge: ; preds = %if.end
   %ldmState.val161.i.pre = load i32, ptr %dictLimit.i, align 8
-  br label %ZSTD_window_enforceMaxDist.argprom.exit
+  br label %ZSTD_window_enforceMaxDist.exit
 
 if.then.i:                                        ; preds = %if.end
   %sub.i = sub i32 %conv.i45.pre-phi, %shl
@@ -525,11 +525,11 @@ do.end13.i:                                       ; preds = %if.end.i
 if.end16.i:                                       ; preds = %do.end13.i, %if.end.i
   %ldmState.val161.i94 = phi i32 [ %17, %do.end13.i ], [ %18, %if.end.i ]
   store i32 0, ptr %loadedDictEnd, align 4
-  br label %ZSTD_window_enforceMaxDist.argprom.exit
+  br label %ZSTD_window_enforceMaxDist.exit
 
-ZSTD_window_enforceMaxDist.argprom.exit:          ; preds = %if.end.ZSTD_window_enforceMaxDist.argprom.exit_crit_edge, %if.end16.i
-  %ldmState.val162.i = phi i32 [ %16, %if.end.ZSTD_window_enforceMaxDist.argprom.exit_crit_edge ], [ %17, %if.end16.i ]
-  %ldmState.val161.i = phi i32 [ %ldmState.val161.i.pre, %if.end.ZSTD_window_enforceMaxDist.argprom.exit_crit_edge ], [ %ldmState.val161.i94, %if.end16.i ]
+ZSTD_window_enforceMaxDist.exit:                  ; preds = %if.end.ZSTD_window_enforceMaxDist.exit_crit_edge, %if.end16.i
+  %ldmState.val162.i = phi i32 [ %16, %if.end.ZSTD_window_enforceMaxDist.exit_crit_edge ], [ %17, %if.end16.i ]
+  %ldmState.val161.i = phi i32 [ %ldmState.val161.i.pre, %if.end.ZSTD_window_enforceMaxDist.exit_crit_edge ], [ %ldmState.val161.i94, %if.end16.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashState.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %numSplits.i)
   %cmp.i.not.i = icmp ult i32 %ldmState.val162.i, %ldmState.val161.i
@@ -541,13 +541,13 @@ ZSTD_window_enforceMaxDist.argprom.exit:          ; preds = %if.end.ZSTD_window_
   %sub.i48 = sub i32 %21, %20
   br i1 %cmp.i.not.i, label %cond.true9.i, label %cond.end13.i
 
-cond.true9.i:                                     ; preds = %ZSTD_window_enforceMaxDist.argprom.exit
+cond.true9.i:                                     ; preds = %ZSTD_window_enforceMaxDist.exit
   %22 = load ptr, ptr %dictBase.i, align 8
   br label %cond.end13.i
 
-cond.end13.i:                                     ; preds = %cond.true9.i, %ZSTD_window_enforceMaxDist.argprom.exit
-  %cond227.i = phi i32 [ %ldmState.val162.i, %cond.true9.i ], [ %ldmState.val161.i, %ZSTD_window_enforceMaxDist.argprom.exit ]
-  %cond14.i = phi ptr [ %22, %cond.true9.i ], [ null, %ZSTD_window_enforceMaxDist.argprom.exit ]
+cond.end13.i:                                     ; preds = %cond.true9.i, %ZSTD_window_enforceMaxDist.exit
+  %cond227.i = phi i32 [ %ldmState.val162.i, %cond.true9.i ], [ %ldmState.val161.i, %ZSTD_window_enforceMaxDist.exit ]
+  %cond14.i = phi ptr [ %22, %cond.true9.i ], [ null, %ZSTD_window_enforceMaxDist.exit ]
   %idx.ext.i49 = zext i32 %cond227.i to i64
   %add.ptr.i50 = getelementptr inbounds i8, ptr %cond14.i, i64 %idx.ext.i49
   %cond19.i = select i1 %cmp.i.not.i, ptr %add.ptr.i50, ptr null
@@ -1203,9 +1203,9 @@ if.end185.i:                                      ; preds = %if.end171.i
   store i8 %conv4.i217.i, ptr %add.ptr.i206.i, align 1
   %add.ptr198.i = getelementptr inbounds i8, ptr %27, i64 %forwardMatchLength.0.lcssa.i
   %cmp200.i = icmp ugt ptr %add.ptr198.i, %add.ptr199.i
-  br i1 %cmp200.i, label %ZSTD_ldm_gear_reset.argprom.exit224.i, label %for.inc210.i
+  br i1 %cmp200.i, label %ZSTD_ldm_gear_reset.exit224.i, label %for.inc210.i
 
-ZSTD_ldm_gear_reset.argprom.exit224.i:            ; preds = %if.end185.i
+ZSTD_ldm_gear_reset.exit224.i:                    ; preds = %if.end185.i
   %idx.neg207.i = sub i64 0, %call41.i
   %add.ptr208.i = getelementptr inbounds i8, ptr %add.ptr198.i, i64 %idx.neg207.i
   br label %for.end212.i
@@ -1242,9 +1242,9 @@ for.inc210.i:                                     ; preds = %for.inc210.sink.spl
   %exitcond270.not.i = icmp eq i64 %indvars.iv.next267.i, %wide.trip.count.i54
   br i1 %exitcond270.not.i, label %for.end212.i, label %for.body72.i, !llvm.loop !14
 
-for.end212.i:                                     ; preds = %for.inc210.i, %ZSTD_ldm_gear_reset.argprom.exit224.i, %while.body.i
-  %ip.1.i = phi ptr [ %add.ptr208.i, %ZSTD_ldm_gear_reset.argprom.exit224.i ], [ %ip.0256.i, %while.body.i ], [ %ip.0256.i, %for.inc210.i ]
-  %anchor.2.i = phi ptr [ %add.ptr198.i, %ZSTD_ldm_gear_reset.argprom.exit224.i ], [ %anchor.0257.i, %while.body.i ], [ %anchor.3.i, %for.inc210.i ]
+for.end212.i:                                     ; preds = %for.inc210.i, %ZSTD_ldm_gear_reset.exit224.i, %while.body.i
+  %ip.1.i = phi ptr [ %add.ptr208.i, %ZSTD_ldm_gear_reset.exit224.i ], [ %ip.0256.i, %while.body.i ], [ %ip.0256.i, %for.inc210.i ]
+  %anchor.2.i = phi ptr [ %add.ptr198.i, %ZSTD_ldm_gear_reset.exit224.i ], [ %anchor.0257.i, %while.body.i ], [ %anchor.3.i, %for.inc210.i ]
   %add.ptr213.i = getelementptr inbounds i8, ptr %ip.1.i, i64 %call41.i
   %cmp36.i = icmp ult ptr %add.ptr213.i, %add.ptr30.i
   br i1 %cmp36.i, label %while.body.i, label %ZSTD_ldm_generateSequences_internal.exit.loopexit, !llvm.loop !15

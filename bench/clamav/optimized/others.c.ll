@@ -276,13 +276,13 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
 
 40:                                               ; preds = %.thread5.i.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97) #24
-  br label %load_module.argprom.exit.thread.i
+  br label %load_module.exit.thread.i
 
 41:                                               ; preds = %.thread5.i.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.96, ptr noundef nonnull %38, ptr noundef nonnull @.str.97) #24
-  br label %load_module.argprom.exit.thread.i
+  br label %load_module.exit.thread.i
 
-load_module.argprom.exit.thread.i:                ; preds = %41, %40
+load_module.exit.thread.i:                        ; preds = %41, %40
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   br label %rarload.exit
@@ -388,7 +388,7 @@ load_module.argprom.exit.thread.i:                ; preds = %41, %40
   store i32 1, ptr @have_rar, align 4
   br label %rarload.exit
 
-rarload.exit:                                     ; preds = %8, %10, %load_module.argprom.exit.thread.i, %76, %77
+rarload.exit:                                     ; preds = %8, %10, %load_module.exit.thread.i, %76, %77
   %78 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #24
   %79 = zext i32 %5 to i64
   %80 = getelementptr inbounds i8, ptr %4, i64 8

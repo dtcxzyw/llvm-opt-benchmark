@@ -699,7 +699,7 @@ thread-pre-split:                                 ; preds = %23
   %45 = phi ptr [ %6, %.critedge2.thread ], [ %storemerge, %42 ], [ null, %.critedge4 ], [ %.pre, %..thread205_crit_edge ]
   %.0141.ph = phi ptr [ null, %.critedge2.thread ], [ null, %42 ], [ %39, %.critedge4 ], [ null, %..thread205_crit_edge ]
   %.0142.val = load ptr, ptr %12, align 8
-  call fastcc void @do_closure_bind.argprom(ptr noundef %1, ptr %.0142.val, ptr noundef %.2146162, ptr noundef %.0141.ph, ptr noundef %45)
+  call fastcc void @do_closure_bind(ptr noundef %1, ptr %.0142.val, ptr noundef %.2146162, ptr noundef %.0141.ph, ptr noundef %45)
   br label %46
 
 46:                                               ; preds = %.thread205, %.thread187
@@ -707,7 +707,7 @@ thread-pre-split:                                 ; preds = %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_closure_bind.argprom(ptr noundef %0, ptr nocapture %.0.val, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @do_closure_bind(ptr noundef %0, ptr nocapture %.0.val, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
 
@@ -873,7 +873,7 @@ define hidden void @zim_Closure_bindTo(ptr noundef %0, ptr noundef %1) #0 {
   %27 = phi ptr [ %6, %.critedge.thread ], [ %storemerge, %24 ], [ null, %.critedge2 ], [ %.pre, %..thread146_crit_edge ]
   %.0110.ph = phi ptr [ null, %.critedge.thread ], [ null, %24 ], [ %21, %.critedge2 ], [ null, %..thread146_crit_edge ]
   %.val = load ptr, ptr %7, align 8
-  call fastcc void @do_closure_bind.argprom(ptr noundef %1, ptr %.val, ptr noundef %.2121, ptr noundef %.0110.ph, ptr noundef %27)
+  call fastcc void @do_closure_bind(ptr noundef %1, ptr %.val, ptr noundef %.2121, ptr noundef %.0110.ph, ptr noundef %27)
   br label %28
 
 28:                                               ; preds = %.thread146, %.thread158

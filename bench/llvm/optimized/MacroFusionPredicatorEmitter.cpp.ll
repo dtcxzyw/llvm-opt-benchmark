@@ -613,27 +613,27 @@ _ZN4llvm11raw_ostreamlsEPKc.exit53.i.i:           ; preds = %221, %219
 230:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit53.i.i
   %231 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.16, i64 noundef 8) #10
   %.pre48.i = load ptr, ptr %39, align 8
-  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitMacroFusionDeclEN4llvm8ArrayRefIPNS1_6RecordEEERNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitMacroFusionDeclEN4llvm8ArrayRefIPNS1_6RecordEEERNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i
 
 232:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit53.i.i
   store i64 749402268073534218, ptr %224, align 1
   %233 = load ptr, ptr %39, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 8
   store ptr %234, ptr %39, align 8
-  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitMacroFusionDeclEN4llvm8ArrayRefIPNS1_6RecordEEERNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitMacroFusionDeclEN4llvm8ArrayRefIPNS1_6RecordEEERNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i
 
-_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitMacroFusionDeclEN4llvm8ArrayRefIPNS1_6RecordEEERNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i: ; preds = %232, %230
+_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitMacroFusionDeclEN4llvm8ArrayRefIPNS1_6RecordEEERNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i: ; preds = %232, %230
   %235 = phi ptr [ %.pre48.i, %230 ], [ %234, %232 ]
   %236 = load ptr, ptr %37, align 8
   %237 = icmp eq ptr %236, %235
   br i1 %237, label %238, label %240
 
-238:                                              ; preds = %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitMacroFusionDeclEN4llvm8ArrayRefIPNS1_6RecordEEERNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i
+238:                                              ; preds = %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitMacroFusionDeclEN4llvm8ArrayRefIPNS1_6RecordEEERNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i
   %239 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.4, i64 noundef 1) #10
   %.pre49.i = load ptr, ptr %39, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
-240:                                              ; preds = %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitMacroFusionDeclEN4llvm8ArrayRefIPNS1_6RecordEEERNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i
+240:                                              ; preds = %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitMacroFusionDeclEN4llvm8ArrayRefIPNS1_6RecordEEERNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i
   store i8 10, ptr %235, align 1
   %241 = load ptr, ptr %39, align 8
   %242 = getelementptr inbounds i8, ptr %241, i64 1
@@ -1025,7 +1025,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit67.i.i:           ; preds = %450, %448
   %454 = load ptr, ptr %338, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   %.not23.i.i.i = icmp eq ptr %454, %453
-  br i1 %.not23.i.i.i, label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter14emitPredicatesEN4llvm8ArrayRefIPNS1_6RecordEEEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %.not23.i.i.i, label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter14emitPredicatesEN4llvm8ArrayRefIPNS1_6RecordEEEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit67.i.i, %825
   %.024.i.i.i = phi ptr [ %826, %825 ], [ %453, %_ZN4llvm11raw_ostreamlsEPKc.exit67.i.i ]
@@ -1048,7 +1048,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i:          ; preds = %.lr.ph.i.i.i
   br i1 %459, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit47.thread18.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter18emitFirstPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.argelim(ptr noundef nonnull %455, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  call fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter18emitFirstPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE(ptr noundef nonnull %455, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br label %825
 
 _ZN4llvmeqENS_9StringRefES0_.exit38.i.i.i:        ; preds = %.lr.ph.i.i.i
@@ -1057,7 +1057,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit38.i.i.i:        ; preds = %.lr.ph.i.i.i
   br i1 %460, label %_ZN4llvmeqENS_9StringRefES0_.exit38.thread.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit47.thread18.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit38.thread.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit38.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitSecondPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom(ptr noundef nonnull %455, i1 noundef zeroext %342, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  call fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitSecondPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE(ptr noundef nonnull %455, i1 noundef zeroext %342, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br label %825
 
 _ZN4llvmeqENS_9StringRefES0_.exit47.i.i.i:        ; preds = %.lr.ph.i.i.i
@@ -1141,18 +1141,18 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread26.i99.i.i: ; preds = %481, %_ZN4llvmeqE
 
 494:                                              ; preds = %484
   %495 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %486, i64 noundef %487) #10
-  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i.i
+  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i.i
 
 496:                                              ; preds = %484
   %.not.i.i.i.i18.i = icmp eq i64 %487, 0
-  br i1 %.not.i.i.i.i18.i, label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i.i, label %497
+  br i1 %.not.i.i.i.i18.i, label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i.i, label %497
 
 497:                                              ; preds = %496
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %489, ptr align 1 %486, i64 %487, i1 false)
   %498 = load ptr, ptr %39, align 8
   %499 = getelementptr inbounds i8, ptr %498, i64 %487
   store ptr %499, ptr %39, align 8
-  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i.i
+  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i.i
 
 .loopexit117.i.i:                                 ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread26.i99.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -1214,9 +1214,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread26.i.i.i: ; preds = %518, %_ZN4llvmeqENS
 
 521:                                              ; preds = %518, %509
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter18emitFirstPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.argelim(ptr noundef nonnull %455, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
-  call fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitSecondPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom(ptr noundef nonnull %455, i1 noundef zeroext %342, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
-  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i.i
+  call fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter18emitFirstPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE(ptr noundef nonnull %455, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  call fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitSecondPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE(ptr noundef nonnull %455, i1 noundef zeroext %342, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i.i
 
 .loopexit.i.i:                                    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread26.i.i.i, %.loopexit117.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -1723,14 +1723,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i:       ; preds = %799, %797, %778, %7
 
 805:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i
   %806 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.4, i64 noundef 1) #10
-  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i.i
+  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i.i
 
 807:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i
   store i8 10, ptr %803, align 1
   %808 = load ptr, ptr %39, align 8
   %809 = getelementptr inbounds i8, ptr %808, i64 1
   store ptr %809, ptr %39, align 8
-  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i.i
+  br label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread26.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -1748,7 +1748,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i:       ; preds = %799, %797, %778, %7
   call void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %811, i64 %812, ptr noundef nonnull align 8 dereferenceable(34) %6) #11
   unreachable
 
-_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i.i: ; preds = %807, %805, %521, %497, %496, %494
+_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i.i: ; preds = %807, %805, %521, %497, %496, %494
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -1775,12 +1775,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit47.thread18.i.i.i: ; preds = %_ZN4llvmeqENS_9St
   call void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %817, i64 %818, ptr noundef nonnull align 8 dereferenceable(34) %9) #11
   unreachable
 
-825:                                              ; preds = %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit38.thread.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i
+825:                                              ; preds = %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter17emitBothPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit38.thread.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i
   %826 = getelementptr inbounds i8, ptr %.024.i.i.i, i64 8
   %.not.i68.i.i = icmp eq ptr %826, %454
-  br i1 %.not.i68.i.i, label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter14emitPredicatesEN4llvm8ArrayRefIPNS1_6RecordEEEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %.not.i68.i.i, label %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter14emitPredicatesEN4llvm8ArrayRefIPNS1_6RecordEEEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i, label %.lr.ph.i.i.i
 
-_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter14emitPredicatesEN4llvm8ArrayRefIPNS1_6RecordEEEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i: ; preds = %825, %_ZN4llvm11raw_ostreamlsEPKc.exit67.i.i
+_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter14emitPredicatesEN4llvm8ArrayRefIPNS1_6RecordEEEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i: ; preds = %825, %_ZN4llvm11raw_ostreamlsEPKc.exit67.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   %827 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 2) #10
   %828 = getelementptr inbounds nuw i8, ptr %827, i64 24
@@ -1793,11 +1793,11 @@ _ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter14emitPredicatesEN4llvm8ArrayRefI
   %835 = icmp ult i64 %834, 13
   br i1 %835, label %836, label %838
 
-836:                                              ; preds = %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter14emitPredicatesEN4llvm8ArrayRefIPNS1_6RecordEEEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i
+836:                                              ; preds = %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter14emitPredicatesEN4llvm8ArrayRefIPNS1_6RecordEEEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i
   %837 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %827, ptr noundef nonnull @.str.27, i64 noundef 13) #10
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit71.i.i
 
-838:                                              ; preds = %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter14emitPredicatesEN4llvm8ArrayRefIPNS1_6RecordEEEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.exit.i.i
+838:                                              ; preds = %_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter14emitPredicatesEN4llvm8ArrayRefIPNS1_6RecordEEEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %831, ptr noundef nonnull align 1 dereferenceable(13) @.str.27, i64 13, i1 false)
   %839 = load ptr, ptr %830, align 8
   %840 = getelementptr inbounds i8, ptr %839, i64 13
@@ -2553,7 +2553,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6i
 declare noundef ptr @_ZNK4llvm6Record13getValueAsDefENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter18emitFirstPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom.argelim(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter18emitFirstPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2943,7 +2943,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %225, %223, %136, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitSecondPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE.argprom(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_128MacroFusionPredicatorEmitter19emitSecondPredicateEPN4llvm6RecordEbRNS1_17PredicateExpanderERNS1_11raw_ostreamE(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

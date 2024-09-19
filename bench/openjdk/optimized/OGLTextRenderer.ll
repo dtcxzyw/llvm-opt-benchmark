@@ -499,7 +499,7 @@ OGLTR_DisableGlyphModeState.exit.i128:            ; preds = %161, %154
 189:                                              ; preds = %184
   %190 = load i32, ptr @glyphMode, align 4
   switch i32 %190, label %OGLTR_DisableGlyphModeState.exit.i129 [
-    i32 5, label %OGLTR_DrawColorGlyphNoCache.argprom.exit
+    i32 5, label %OGLTR_DrawColorGlyphNoCache.exit
     i32 4, label %191
     i32 2, label %194
   ]
@@ -531,9 +531,9 @@ OGLTR_DisableGlyphModeState.exit.i128:            ; preds = %161, %154
 OGLTR_DisableGlyphModeState.exit.i129:            ; preds = %194, %189
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #5
   store i32 5, ptr @glyphMode, align 4
-  br label %OGLTR_DrawColorGlyphNoCache.argprom.exit
+  br label %OGLTR_DrawColorGlyphNoCache.exit
 
-OGLTR_DrawColorGlyphNoCache.argprom.exit:         ; preds = %189, %OGLTR_DisableGlyphModeState.exit.i129
+OGLTR_DrawColorGlyphNoCache.exit:                 ; preds = %189, %OGLTR_DisableGlyphModeState.exit.i129
   %202 = load ptr, ptr @j2d_glRasterPos2i, align 8
   tail call void %202(i32 noundef 0, i32 noundef 0) #5
   %203 = load ptr, ptr @j2d_glBitmap, align 8
@@ -1086,7 +1086,7 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %417, %412
   %504 = icmp ult i32 %440, %415
   br i1 %504, label %.lr.ph.us.i135, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, !llvm.loop !10
 
-OGLTR_DrawGrayscaleGlyphViaCache.exit.thread:     ; preds = %._crit_edge.us.i136, %._crit_edge.us.i, %.lr.ph120.i, %434, %270, %OGLTR_AddToGlyphCache.exit.i132, %385, %169, %133, %OGLTR_AddToGlyphCache.exit.i, %119, %116, %114, %OGLTR_DrawColorGlyphNoCache.argprom.exit, %81
+OGLTR_DrawGrayscaleGlyphViaCache.exit.thread:     ; preds = %._crit_edge.us.i136, %._crit_edge.us.i, %.lr.ph120.i, %434, %270, %OGLTR_AddToGlyphCache.exit.i132, %385, %169, %133, %OGLTR_AddToGlyphCache.exit.i, %119, %116, %114, %OGLTR_DrawColorGlyphNoCache.exit, %81
   %505 = add nuw nsw i32 %.0107151, 1
   %exitcond.not = icmp eq i32 %505, %3
   br i1 %exitcond.not, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %40, !llvm.loop !11

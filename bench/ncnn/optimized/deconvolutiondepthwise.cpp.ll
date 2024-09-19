@@ -1066,7 +1066,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn22DeconvolutionDepthWise7
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %154 = load i32, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  invoke fastcc void @_ZN4ncnnL22deconvolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiiiiiS2_RKNS_6OptionE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %143, ptr noundef nonnull align 8 dereferenceable(72) %144, i32 noundef %145, i32 noundef %146, i32 noundef %147, i32 noundef %148, i32 noundef %149, i32 noundef %150, i32 noundef %152, i32 noundef %154, ptr noundef nonnull align 8 dereferenceable(72) %155)
+  invoke fastcc void @_ZN4ncnnL22deconvolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiiiiiS2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %143, ptr noundef nonnull align 8 dereferenceable(72) %144, i32 noundef %145, i32 noundef %146, i32 noundef %147, i32 noundef %148, i32 noundef %149, i32 noundef %150, i32 noundef %152, i32 noundef %154, ptr noundef nonnull align 8 dereferenceable(72) %155)
           to label %156 unwind label %71
 
 156:                                              ; preds = %142
@@ -1135,7 +1135,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn22DeconvolutionDepthWise7
 declare void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ncnnL22deconvolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiiiiiS2_RKNS_6OptionE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %12) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4ncnnL22deconvolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiiiiiS2_RKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %12) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2386,7 +2386,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn22DeconvolutionDepthWise7
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %249 = load i32, ptr %248, align 8
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  invoke fastcc void @_ZN4ncnnL22deconvolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiiiiiS2_RKNS_6OptionE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %7, i32 noundef %15, i32 noundef %17, i32 noundef %243, i32 noundef %244, i32 noundef %245, i32 noundef %246, i32 noundef %247, i32 noundef %249, ptr noundef nonnull align 8 dereferenceable(72) %250)
+  invoke fastcc void @_ZN4ncnnL22deconvolutiondepthwiseERKNS_3MatERS0_S2_S2_iiiiiiiiS2_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %7, i32 noundef %15, i32 noundef %17, i32 noundef %243, i32 noundef %244, i32 noundef %245, i32 noundef %246, i32 noundef %247, i32 noundef %249, ptr noundef nonnull align 8 dereferenceable(72) %250)
           to label %251 unwind label %172
 
 251:                                              ; preds = %242

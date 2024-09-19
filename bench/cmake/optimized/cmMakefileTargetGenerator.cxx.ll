@@ -2217,7 +2217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not491, label %_ZN6cmListD2Ev.exit, label %74
 
 74:                                               ; preds = %73
-  call fastcc void @"_ZZN25cmMakefileTargetGenerator21WriteTargetBuildRulesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %12, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %72)
+  call fastcc void @"_ZZN25cmMakefileTargetGenerator21WriteTargetBuildRulesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %12, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %72)
   %75 = getelementptr inbounds i8, ptr %0, i64 456
   %76 = load ptr, ptr %12, align 8
   %77 = getelementptr inbounds i8, ptr %12, i64 8
@@ -2341,7 +2341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit156: ;
   br i1 %.not492, label %_ZN6cmListD2Ev.exit167, label %104
 
 104:                                              ; preds = %103
-  call fastcc void @"_ZZN25cmMakefileTargetGenerator21WriteTargetBuildRulesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias writable align 8 %15, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %102)
+  call fastcc void @"_ZZN25cmMakefileTargetGenerator21WriteTargetBuildRulesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias writable align 8 %15, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %102)
   %105 = load ptr, ptr %62, align 8
   %106 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK16cmLocalGenerator25GetCurrentBinaryDirectoryB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(824) %105)
           to label %107 unwind label %.loopexit.split-lp547
@@ -4721,7 +4721,7 @@ declare void @_ZNK17cmGeneratorTarget20CheckCxxModuleStatusERKNSt7__cxx1112basic
 declare ptr @_ZNK10cmMakefile11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN25cmMakefileTargetGenerator21WriteTargetBuildRulesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN25cmMakefileTargetGenerator21WriteTargetBuildRulesEvENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

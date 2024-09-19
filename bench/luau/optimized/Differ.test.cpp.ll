@@ -47092,7 +47092,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %4) #19
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   %44 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4261fEvENKUlPSoE0_clES1_.argprom.exit unwind label %49
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4261fEvENKUlPSoE0_clES1_.exit unwind label %49
 
 45:                                               ; preds = %.noexc.i, %2
   %46 = landingpad { ptr, i32 }
@@ -47121,7 +47121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #19
   resume { ptr, i32 } %.pn.pn.i
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4261fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %43
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4261fEvENKUlPSoE0_clES1_.exit: ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
@@ -47454,7 +47454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %4) #19
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   %44 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4261fEvENKUlPSoE1_clES1_.argprom.exit unwind label %49
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4261fEvENKUlPSoE1_clES1_.exit unwind label %49
 
 45:                                               ; preds = %.noexc.i, %2
   %46 = landingpad { ptr, i32 }
@@ -47483,7 +47483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #19
   resume { ptr, i32 } %.pn.pn.i
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4261fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %43
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4261fEvENKUlPSoE1_clES1_.exit: ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
@@ -47769,7 +47769,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %4) #19
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   %44 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4381fEvENKUlPSoE0_clES1_.argprom.exit unwind label %49
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4381fEvENKUlPSoE0_clES1_.exit unwind label %49
 
 45:                                               ; preds = %.noexc.i, %2
   %46 = landingpad { ptr, i32 }
@@ -47798,7 +47798,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #19
   resume { ptr, i32 } %.pn.pn.i
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4381fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %43
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4381fEvENKUlPSoE0_clES1_.exit: ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
@@ -47943,7 +47943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %4) #19
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   %44 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4381fEvENKUlPSoE1_clES1_.argprom.exit unwind label %49
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4381fEvENKUlPSoE1_clES1_.exit unwind label %49
 
 45:                                               ; preds = %.noexc.i, %2
   %46 = landingpad { ptr, i32 }
@@ -47972,7 +47972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #19
   resume { ptr, i32 } %.pn.pn.i
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4381fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %43
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4381fEvENKUlPSoE1_clES1_.exit: ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
@@ -48258,7 +48258,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %4) #19
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   %44 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4501fEvENKUlPSoE0_clES1_.argprom.exit unwind label %49
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4501fEvENKUlPSoE0_clES1_.exit unwind label %49
 
 45:                                               ; preds = %.noexc.i, %2
   %46 = landingpad { ptr, i32 }
@@ -48287,7 +48287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #19
   resume { ptr, i32 } %.pn.pn.i
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4501fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %43
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4501fEvENKUlPSoE0_clES1_.exit: ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
@@ -48432,7 +48432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %4) #19
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   %44 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4501fEvENKUlPSoE1_clES1_.argprom.exit unwind label %49
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4501fEvENKUlPSoE1_clES1_.exit unwind label %49
 
 45:                                               ; preds = %.noexc.i, %2
   %46 = landingpad { ptr, i32 }
@@ -48461,7 +48461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #19
   resume { ptr, i32 } %.pn.pn.i
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4501fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %43
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4501fEvENKUlPSoE1_clES1_.exit: ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
@@ -48747,7 +48747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %4) #19
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   %44 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4621fEvENKUlPSoE0_clES1_.argprom.exit unwind label %49
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4621fEvENKUlPSoE0_clES1_.exit unwind label %49
 
 45:                                               ; preds = %.noexc.i, %2
   %46 = landingpad { ptr, i32 }
@@ -48776,7 +48776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #19
   resume { ptr, i32 } %.pn.pn.i
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4621fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %43
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4621fEvENKUlPSoE0_clES1_.exit: ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
@@ -48921,7 +48921,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %4) #19
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   %44 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4621fEvENKUlPSoE1_clES1_.argprom.exit unwind label %49
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4621fEvENKUlPSoE1_clES1_.exit unwind label %49
 
 45:                                               ; preds = %.noexc.i, %2
   %46 = landingpad { ptr, i32 }
@@ -48950,7 +48950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #19
   resume { ptr, i32 } %.pn.pn.i
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4621fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %43
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4621fEvENKUlPSoE1_clES1_.exit: ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
@@ -49236,7 +49236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %4) #19
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   %44 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4741fEvENKUlPSoE0_clES1_.argprom.exit unwind label %49
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4741fEvENKUlPSoE0_clES1_.exit unwind label %49
 
 45:                                               ; preds = %.noexc.i, %2
   %46 = landingpad { ptr, i32 }
@@ -49265,7 +49265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #19
   resume { ptr, i32 } %.pn.pn.i
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4741fEvENKUlPSoE0_clES1_.argprom.exit: ; preds = %43
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4741fEvENKUlPSoE0_clES1_.exit: ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
@@ -49410,7 +49410,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN4Luau15ToStringOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %4) #19
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   %44 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4741fEvENKUlPSoE1_clES1_.argprom.exit unwind label %49
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4741fEvENKUlPSoE1_clES1_.exit unwind label %49
 
 45:                                               ; preds = %.noexc.i, %2
   %46 = landingpad { ptr, i32 }
@@ -49439,7 +49439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #19
   resume { ptr, i32 } %.pn.pn.i
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4741fEvENKUlPSoE1_clES1_.argprom.exit: ; preds = %43
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_4741fEvENKUlPSoE1_clES1_.exit: ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19

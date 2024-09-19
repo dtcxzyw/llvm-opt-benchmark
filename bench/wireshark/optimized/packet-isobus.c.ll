@@ -5134,7 +5134,7 @@ findIdentifierFor.exit:                           ; preds = %175, %173, %165, %a
   %.val = load i32, ptr %3, align 4
   %297 = getelementptr i8, ptr %3, i64 12
   %.val315 = load i16, ptr %297, align 4
-  %298 = call fastcc i32 @call_isobus_subdissector.argprom.argelim(ptr noundef %295, ptr noundef %1, ptr noundef %44, i8 noundef zeroext 0, i8 noundef zeroext %291, i32 noundef %292, i8 noundef zeroext %296, i32 %.val, i16 %.val315)
+  %298 = call fastcc i32 @call_isobus_subdissector(ptr noundef %295, ptr noundef %1, ptr noundef %44, i8 noundef zeroext 0, i8 noundef zeroext %291, i32 noundef %292, i8 noundef zeroext %296, i32 %.val, i16 %.val315)
   %299 = icmp eq i32 %298, 0
   br i1 %299, label %300, label %405
 
@@ -5311,20 +5311,20 @@ proto_item_append_conditional.exit348:            ; preds = %proto_item_append_c
   %394 = load ptr, ptr @subdissector_table_pgn, align 8
   %395 = call i32 @dissector_try_uint_new(ptr noundef %394, i32 noundef %.0286, ptr noundef %0, ptr noundef %1, ptr noundef %44, i32 noundef 0, ptr noundef nonnull %5) #8
   %396 = icmp sgt i32 %395, 0
-  br i1 %396, label %call_isobus_subdissector.argprom.exit.thread, label %call_isobus_subdissector.argprom.exit
+  br i1 %396, label %call_isobus_subdissector.exit.thread, label %call_isobus_subdissector.exit
 
-call_isobus_subdissector.argprom.exit.thread:     ; preds = %386
+call_isobus_subdissector.exit.thread:             ; preds = %386
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %405
 
-call_isobus_subdissector.argprom.exit:            ; preds = %386
+call_isobus_subdissector.exit:                    ; preds = %386
   %397 = load ptr, ptr @subdissector_table_pdu_format, align 8
   %398 = call i32 @dissector_try_uint_new(ptr noundef %397, i32 noundef %38, ptr noundef %0, ptr noundef %1, ptr noundef %44, i32 noundef 0, ptr noundef nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %399 = icmp eq i32 %398, 0
   br i1 %399, label %400, label %405
 
-400:                                              ; preds = %call_isobus_subdissector.argprom.exit
+400:                                              ; preds = %call_isobus_subdissector.exit
   %401 = load ptr, ptr %27, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %401, i32 noundef 25, ptr noundef nonnull @.str.2639) #8
   %402 = load i32, ptr @hf_isobus_payload, align 4
@@ -5332,7 +5332,7 @@ call_isobus_subdissector.argprom.exit:            ; preds = %386
   %404 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %402, ptr noundef %0, i32 noundef 0, i32 noundef %403, i32 noundef 0) #8
   br label %405
 
-405:                                              ; preds = %call_isobus_subdissector.argprom.exit.thread, %177, %302, %300, %288, %304, %385, %384, %383, %400, %call_isobus_subdissector.argprom.exit, %306, %313, %204, %225, %247, %237, %213
+405:                                              ; preds = %call_isobus_subdissector.exit.thread, %177, %302, %300, %288, %304, %385, %384, %383, %400, %call_isobus_subdissector.exit, %306, %313, %204, %225, %247, %237, %213
   %406 = call i32 @tvb_reported_length(ptr noundef %0) #8
   br label %407
 
@@ -5433,7 +5433,7 @@ declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr
 declare i32 @tvb_get_guint24(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @call_isobus_subdissector.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 8) %3, i8 noundef zeroext %4, i32 noundef range(i32 0, 262144) %5, i8 noundef zeroext %6, i32 %.0.val, i16 %.12.val) unnamed_addr #0 {
+define internal fastcc i32 @call_isobus_subdissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 8) %3, i8 noundef zeroext %4, i32 noundef range(i32 0, 262144) %5, i8 noundef zeroext %6, i32 %.0.val, i16 %.12.val) unnamed_addr #0 {
   %8 = alloca %struct.isobus_info, align 4
   store i32 %.0.val, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %8, i64 4

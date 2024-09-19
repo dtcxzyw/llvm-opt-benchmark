@@ -489,18 +489,18 @@ _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i.i.i.i
   %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 80
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i.i.i.i
   %21 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i.i.i.i = icmp eq i64 %21, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i.i.i.i, label %if.then.i.i.i2.i.i.i.i.i.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i1.i.i.i.i.i.i.i.i, label %if.then.i.i.i2.i.i.i.i.i.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 8
   %22 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %22(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i2.i.i.i.i.i.i.i.i
   %23 = landingpad { ptr, i32 }
@@ -509,7 +509,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i2.i.i.
   call void @__clang_call_terminate(ptr %24) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i.i, null
   %conv.i.i.i.i.i.i.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i.i.i.i, 255
   %cond.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i.i.i.i
@@ -519,7 +519,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i.i.i.i31 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i.i.i.i)
           to label %call.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i.i.i.i31 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
@@ -577,18 +577,18 @@ _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i31.i.i
   %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i33.i.i.i = getelementptr inbounds i8, ptr %17, i64 112
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i34.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i33.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i35.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i35.i.i.i, label %if.then.i.i.i.i.i.i.i51.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i35.i.i.i, label %if.then.i.i.i.i.i.i.i51.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i51.i.i.i:                    ; preds = %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i31.i.i.i
   %33 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i52.i.i.i = icmp eq i64 %33, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i52.i.i.i, label %if.then.i.i.i2.i.i.i.i.i53.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i1.i.i.i.i.i52.i.i.i, label %if.then.i.i.i2.i.i.i.i.i53.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i53.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i51.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i54.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i, i64 8
   %34 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i54.i.i.i, align 8
   invoke void %34(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i55.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i55.i.i.i
 
 terminate.lpad.i.i.i.i.i.i55.i.i.i:               ; preds = %if.then.i.i.i2.i.i.i.i.i53.i.i.i
   %35 = landingpad { ptr, i32 }
@@ -597,7 +597,7 @@ terminate.lpad.i.i.i.i.i.i55.i.i.i:               ; preds = %if.then.i.i.i2.i.i.
   call void @__clang_call_terminate(ptr %36) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i53.i.i.i, %if.then.i.i.i.i.i.i.i51.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i31.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i53.i.i.i, %if.then.i.i.i.i.i.i.i51.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i31.i.i.i
   %tobool.not.i.i.i.i.i.i36.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i32.i.i.i, null
   %conv.i.i.i.i.i.i37.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i34.i.i.i, 255
   %cond.i.i.i.i.i.i38.i.i.i = select i1 %tobool.not.i.i.i.i.i.i36.i.i.i, i64 %conv.i.i.i.i.i.i37.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i34.i.i.i
@@ -607,7 +607,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i42.i.i.i32 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i40.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i41.i.i.i)
           to label %call.i.i.i.i.i.i42.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i42.i.i.i.noexc:                   ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i42.i.i.i.noexc:                   ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i43.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i42.i.i.i32 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i44.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i41.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i45.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i43.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i44.i.i.i
@@ -732,18 +732,18 @@ call.i.i.i.i.i.i.i.i.i.i.noexc:                   ; preds = %if.then.i85.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i.i.i.i), !noalias !20
   %cmp.i.i.i.i.i.i.i90.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i88.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i90.i.i.i, label %if.then.i.i.i.i.i.i.i105.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i90.i.i.i, label %if.then.i.i.i.i.i.i.i105.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i105.i.i.i:                   ; preds = %.noexc38
   %51 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i88.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i.i.i.i106.i.i.i = icmp eq i64 %51, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i106.i.i.i, label %if.then.i.i.i.i.i.i.i.i107.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i106.i.i.i, label %if.then.i.i.i.i.i.i.i.i107.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i107.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i105.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i108.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i88.i.i.i, i64 8
   %52 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i108.i.i.i, align 8
   invoke void %52(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i88.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i109.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i109.i.i.i
 
 terminate.lpad.i.i.i.i.i.i109.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i107.i.i.i
   %53 = landingpad { ptr, i32 }
@@ -752,7 +752,7 @@ terminate.lpad.i.i.i.i.i.i109.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %54) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i107.i.i.i, %if.then.i.i.i.i.i.i.i105.i.i.i, %.noexc38
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i107.i.i.i, %if.then.i.i.i.i.i.i.i105.i.i.i, %.noexc38
   %tobool.not.i.i.i.i.i.i91.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i88.i.i.i, null
   %conv.i1.i.i.i.i.i.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i89.i.i.i, 255
   %cond.i.i.i.i.i.i92.i.i.i = select i1 %tobool.not.i.i.i.i.i.i91.i.i.i, i64 %conv.i1.i.i.i.i.i.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i89.i.i.i
@@ -762,7 +762,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i96.i.i.i39 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i94.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i95.i.i.i)
           to label %call.i.i.i.i.i.i96.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i96.i.i.i.noexc:                   ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i96.i.i.i.noexc:                   ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i97.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i96.i.i.i39 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i98.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i95.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i99.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i97.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i98.i.i.i
@@ -978,13 +978,13 @@ if.then.i184.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
   %call.val.i185.i.i.i = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.val.i185.i.i.i, 3
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i223.i.i.i.invoke, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i223.i.i.i.invoke, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i184.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i184.i.i.i
   %call.i.i.i.i.i.i186.i.i.i50 = invoke noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm(i32 noundef %call.val.i185.i.i.i)
           to label %call.i.i.i.i.i.i186.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i186.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i186.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %call.i.i.i.i.i.i.i187.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i.i186.i.i.i50) #15, !noalias !28
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i180.i.i.i)
   %add1.i.i.i.i.i.i189.i.i.i = add i64 %call.i.i.i.i.i.i.i187.i.i.i, 45
@@ -1038,7 +1038,7 @@ if.then.i206.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 36
   %call.val.i207.i.i.i = load i32, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i.i208.i.i.i = icmp eq i32 %call.val.i207.i.i.i, 3
-  br i1 %cmp.not.i.i.i.i.i.i208.i.i.i, label %if.then.i.i.i.i.i.i223.i.i.i.invoke, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i208.i.i.i, label %if.then.i.i.i.i.i.i223.i.i.i.invoke, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i223.i.i.i.invoke:              ; preds = %if.then.i206.i.i.i, %if.then.i184.i.i.i
   invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.45, i32 noundef 215, ptr noundef nonnull @.str.46) #13
@@ -1047,11 +1047,11 @@ if.then.i.i.i.i.i.i223.i.i.i.invoke:              ; preds = %if.then.i206.i.i.i,
 if.then.i.i.i.i.i.i223.i.i.i.cont:                ; preds = %if.then.i.i.i.i.i.i223.i.i.i.invoke
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i206.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i206.i.i.i
   %call.i.i.i.i.i.i209.i.i.i54 = invoke noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm(i32 noundef %call.val.i207.i.i.i)
           to label %call.i.i.i.i.i.i209.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i209.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i209.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %call.i.i.i.i.i.i.i210.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i.i.i.i.i.i209.i.i.i54) #15, !noalias !33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i.i.i202.i.i.i)
   %add1.i.i.i.i.i.i212.i.i.i = add i64 %call.i.i.i.i.i.i.i210.i.i.i, 62
@@ -1116,18 +1116,18 @@ if.then.i232.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
   %data.i.i.i.i.i.i234.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i228.i.i.i, i64 8
   %94 = load i64, ptr %data.i.i.i.i.i.i234.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i235.i.i.i = icmp ugt ptr %93, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i235.i.i.i, label %if.then.i.i.i.i.i.i.i251.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i235.i.i.i, label %if.then.i.i.i.i.i.i.i251.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i251.i.i.i:                   ; preds = %.noexc57
   %95 = atomicrmw sub ptr %93, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i.i.i.i252.i.i.i = icmp eq i64 %95, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i252.i.i.i, label %if.then.i.i.i.i.i.i.i.i253.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i252.i.i.i, label %if.then.i.i.i.i.i.i.i.i253.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i253.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i251.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i254.i.i.i = getelementptr inbounds i8, ptr %93, i64 8
   %96 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i254.i.i.i, align 8
   invoke void %96(ptr noundef nonnull %93)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i255.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i255.i.i.i
 
 terminate.lpad.i.i.i.i.i.i255.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i253.i.i.i
   %97 = landingpad { ptr, i32 }
@@ -1136,7 +1136,7 @@ terminate.lpad.i.i.i.i.i.i255.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %98) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i253.i.i.i, %if.then.i.i.i.i.i.i.i251.i.i.i, %.noexc57
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i253.i.i.i, %if.then.i.i.i.i.i.i.i251.i.i.i, %.noexc57
   %tobool.not.i.i.i.i.i.i236.i.i.i = icmp eq ptr %93, null
   %conv.i.i.i.i.i.i237.i.i.i = and i64 %94, 255
   %cond.i.i.i.i.i.i238.i.i.i = select i1 %tobool.not.i.i.i.i.i.i236.i.i.i, i64 %conv.i.i.i.i.i.i237.i.i.i, i64 %94
@@ -1147,7 +1147,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i242.i.i.i58 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i240.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i241.i.i.i)
           to label %call.i.i.i.i.i.i242.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i242.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i242.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i243.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i242.i.i.i58 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i244.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i241.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i245.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i243.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i244.i.i.i
@@ -1210,18 +1210,18 @@ call.i.i.i.i.i.i.i268.i.i.i.noexc:                ; preds = %if.then.i265.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i260.i.i.i), !noalias !44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i261.i.i.i), !noalias !41
   %cmp.i.i.i.i.i.i.i273.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i270.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i273.i.i.i, label %if.then.i.i.i.i.i.i.i289.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i273.i.i.i, label %if.then.i.i.i.i.i.i.i289.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i289.i.i.i:                   ; preds = %.noexc61
   %105 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i270.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i.i.i.i290.i.i.i = icmp eq i64 %105, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i290.i.i.i, label %if.then.i.i.i.i.i.i.i.i291.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i290.i.i.i, label %if.then.i.i.i.i.i.i.i.i291.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i291.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i289.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i292.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i270.i.i.i, i64 8
   %106 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i292.i.i.i, align 8
   invoke void %106(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i270.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i293.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i293.i.i.i
 
 terminate.lpad.i.i.i.i.i.i293.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i291.i.i.i
   %107 = landingpad { ptr, i32 }
@@ -1230,7 +1230,7 @@ terminate.lpad.i.i.i.i.i.i293.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %108) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i291.i.i.i, %if.then.i.i.i.i.i.i.i289.i.i.i, %.noexc61
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i291.i.i.i, %if.then.i.i.i.i.i.i.i289.i.i.i, %.noexc61
   %tobool.not.i.i.i.i.i.i274.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i270.i.i.i, null
   %conv.i1.i.i.i.i.i275.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i272.i.i.i, 255
   %cond.i.i.i.i.i.i276.i.i.i = select i1 %tobool.not.i.i.i.i.i.i274.i.i.i, i64 %conv.i1.i.i.i.i.i275.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i272.i.i.i
@@ -1240,7 +1240,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i280.i.i.i62 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i278.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i279.i.i.i)
           to label %call.i.i.i.i.i.i280.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i280.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i280.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i281.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i280.i.i.i62 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i282.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i279.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i283.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i281.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i282.i.i.i
@@ -1292,18 +1292,18 @@ if.then.i300.i.i.i:                               ; preds = %_ZNK9grpc_core5Tabl
   %data.i.i.i.i.i.i302.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i298.i.i.i, i64 8
   %116 = load i64, ptr %data.i.i.i.i.i.i302.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i303.i.i.i = icmp ugt ptr %115, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i303.i.i.i, label %if.then.i.i.i.i.i.i.i319.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i303.i.i.i, label %if.then.i.i.i.i.i.i.i319.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i319.i.i.i:                   ; preds = %.noexc64
   %117 = atomicrmw sub ptr %115, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i.i.i.i320.i.i.i = icmp eq i64 %117, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i320.i.i.i, label %if.then.i.i.i.i.i.i.i.i321.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i320.i.i.i, label %if.then.i.i.i.i.i.i.i.i321.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i321.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i319.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i322.i.i.i = getelementptr inbounds i8, ptr %115, i64 8
   %118 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i322.i.i.i, align 8
   invoke void %118(ptr noundef nonnull %115)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i323.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i323.i.i.i
 
 terminate.lpad.i.i.i.i.i.i323.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i321.i.i.i
   %119 = landingpad { ptr, i32 }
@@ -1312,7 +1312,7 @@ terminate.lpad.i.i.i.i.i.i323.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %120) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i321.i.i.i, %if.then.i.i.i.i.i.i.i319.i.i.i, %.noexc64
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i321.i.i.i, %if.then.i.i.i.i.i.i.i319.i.i.i, %.noexc64
   %tobool.not.i.i.i.i.i.i304.i.i.i = icmp eq ptr %115, null
   %conv.i.i.i.i.i.i305.i.i.i = and i64 %116, 255
   %cond.i.i.i.i.i.i306.i.i.i = select i1 %tobool.not.i.i.i.i.i.i304.i.i.i, i64 %conv.i.i.i.i.i.i305.i.i.i, i64 %116
@@ -1323,7 +1323,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i310.i.i.i65 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i308.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i309.i.i.i)
           to label %call.i.i.i.i.i.i310.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i310.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i310.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i311.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i310.i.i.i65 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i312.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i309.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i313.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i311.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i312.i.i.i
@@ -1385,18 +1385,18 @@ call.i.i.i.i.i.i.i336.i.i.i.noexc:                ; preds = %if.then.i333.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i328.i.i.i), !noalias !52
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i329.i.i.i), !noalias !49
   %cmp.i.i.i.i.i.i.i341.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i338.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i341.i.i.i, label %if.then.i.i.i.i.i.i.i357.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i341.i.i.i, label %if.then.i.i.i.i.i.i.i357.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i357.i.i.i:                   ; preds = %.noexc68
   %127 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i338.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i.i.i.i358.i.i.i = icmp eq i64 %127, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i358.i.i.i, label %if.then.i.i.i.i.i.i.i.i359.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i358.i.i.i, label %if.then.i.i.i.i.i.i.i.i359.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i359.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i357.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i360.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i338.i.i.i, i64 8
   %128 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i360.i.i.i, align 8
   invoke void %128(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i338.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i361.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i361.i.i.i
 
 terminate.lpad.i.i.i.i.i.i361.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i359.i.i.i
   %129 = landingpad { ptr, i32 }
@@ -1405,7 +1405,7 @@ terminate.lpad.i.i.i.i.i.i361.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %130) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i359.i.i.i, %if.then.i.i.i.i.i.i.i357.i.i.i, %.noexc68
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i359.i.i.i, %if.then.i.i.i.i.i.i.i357.i.i.i, %.noexc68
   %tobool.not.i.i.i.i.i.i342.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i338.i.i.i, null
   %conv.i1.i.i.i.i.i343.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i340.i.i.i, 255
   %cond.i.i.i.i.i.i344.i.i.i = select i1 %tobool.not.i.i.i.i.i.i342.i.i.i, i64 %conv.i1.i.i.i.i.i343.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i340.i.i.i
@@ -1415,7 +1415,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i348.i.i.i69 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i346.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i347.i.i.i)
           to label %call.i.i.i.i.i.i348.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i348.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i348.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i349.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i348.i.i.i69 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i350.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i347.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i351.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i349.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i350.i.i.i
@@ -1476,18 +1476,18 @@ call.i.i.i.i.i.i.i372.i.i.i.noexc:                ; preds = %if.then.i370.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i366.i.i.i), !noalias !60
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buffer.i.i.i.i.i.i.i367.i.i.i), !noalias !57
   %cmp.i.i.i.i.i.i.i377.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i374.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i377.i.i.i, label %if.then.i.i.i.i.i.i.i393.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i377.i.i.i, label %if.then.i.i.i.i.i.i.i393.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i393.i.i.i:                   ; preds = %.noexc72
   %137 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i374.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i.i.i.i394.i.i.i = icmp eq i64 %137, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i394.i.i.i, label %if.then.i.i.i.i.i.i.i.i395.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i394.i.i.i, label %if.then.i.i.i.i.i.i.i.i395.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i395.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i393.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i396.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i374.i.i.i, i64 8
   %138 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i396.i.i.i, align 8
   invoke void %138(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i374.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i397.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i397.i.i.i
 
 terminate.lpad.i.i.i.i.i.i397.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i.i395.i.i.i
   %139 = landingpad { ptr, i32 }
@@ -1496,7 +1496,7 @@ terminate.lpad.i.i.i.i.i.i397.i.i.i:              ; preds = %if.then.i.i.i.i.i.i
   call void @__clang_call_terminate(ptr %140) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i395.i.i.i, %if.then.i.i.i.i.i.i.i393.i.i.i, %.noexc72
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i395.i.i.i, %if.then.i.i.i.i.i.i.i393.i.i.i, %.noexc72
   %tobool.not.i.i.i.i.i.i378.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i374.i.i.i, null
   %conv.i.i.i.i.i.i379.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i376.i.i.i, 255
   %cond.i.i.i.i.i.i380.i.i.i = select i1 %tobool.not.i.i.i.i.i.i378.i.i.i, i64 %conv.i.i.i.i.i.i379.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i376.i.i.i
@@ -1506,7 +1506,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i384.i.i.i73 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i382.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i383.i.i.i)
           to label %call.i.i.i.i.i.i384.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i384.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i384.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i385.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i384.i.i.i73 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i386.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i383.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i387.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i385.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i386.i.i.i
@@ -1564,18 +1564,18 @@ _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i406.i.
   %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i408.i.i.i = getelementptr inbounds i8, ptr %17, i64 144
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i409.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i408.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i410.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i407.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i410.i.i.i, label %if.then.i.i.i.i.i.i.i426.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i410.i.i.i, label %if.then.i.i.i.i.i.i.i426.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i426.i.i.i:                   ; preds = %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i406.i.i.i
   %149 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i407.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i427.i.i.i = icmp eq i64 %149, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i427.i.i.i, label %if.then.i.i.i2.i.i.i.i.i428.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i1.i.i.i.i.i427.i.i.i, label %if.then.i.i.i2.i.i.i.i.i428.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i428.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i426.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i429.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i407.i.i.i, i64 8
   %150 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i429.i.i.i, align 8
   invoke void %150(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i407.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i430.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i430.i.i.i
 
 terminate.lpad.i.i.i.i.i.i430.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i428.i.i.i
   %151 = landingpad { ptr, i32 }
@@ -1584,7 +1584,7 @@ terminate.lpad.i.i.i.i.i.i430.i.i.i:              ; preds = %if.then.i.i.i2.i.i.
   call void @__clang_call_terminate(ptr %152) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i428.i.i.i, %if.then.i.i.i.i.i.i.i426.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i406.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i428.i.i.i, %if.then.i.i.i.i.i.i.i426.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i406.i.i.i
   %tobool.not.i.i.i.i.i.i411.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i407.i.i.i, null
   %conv.i.i.i.i.i.i412.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i409.i.i.i, 255
   %cond.i.i.i.i.i.i413.i.i.i = select i1 %tobool.not.i.i.i.i.i.i411.i.i.i, i64 %conv.i.i.i.i.i.i412.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i409.i.i.i
@@ -1594,7 +1594,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i417.i.i.i75 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i415.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i416.i.i.i)
           to label %call.i.i.i.i.i.i417.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i417.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i417.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i418.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i417.i.i.i75 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i419.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i416.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i420.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i418.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i419.i.i.i
@@ -1652,18 +1652,18 @@ _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i441.i.
   %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i443.i.i.i = getelementptr inbounds i8, ptr %17, i64 176
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i444.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i443.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i445.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i442.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i445.i.i.i, label %if.then.i.i.i.i.i.i.i461.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i445.i.i.i, label %if.then.i.i.i.i.i.i.i461.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i461.i.i.i:                   ; preds = %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i441.i.i.i
   %161 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i442.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i462.i.i.i = icmp eq i64 %161, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i462.i.i.i, label %if.then.i.i.i2.i.i.i.i.i463.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i1.i.i.i.i.i462.i.i.i, label %if.then.i.i.i2.i.i.i.i.i463.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i463.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i461.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i464.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i442.i.i.i, i64 8
   %162 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i464.i.i.i, align 8
   invoke void %162(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i442.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i465.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i465.i.i.i
 
 terminate.lpad.i.i.i.i.i.i465.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i463.i.i.i
   %163 = landingpad { ptr, i32 }
@@ -1672,7 +1672,7 @@ terminate.lpad.i.i.i.i.i.i465.i.i.i:              ; preds = %if.then.i.i.i2.i.i.
   call void @__clang_call_terminate(ptr %164) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i463.i.i.i, %if.then.i.i.i.i.i.i.i461.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i441.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i463.i.i.i, %if.then.i.i.i.i.i.i.i461.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i441.i.i.i
   %tobool.not.i.i.i.i.i.i446.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i442.i.i.i, null
   %conv.i.i.i.i.i.i447.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i444.i.i.i, 255
   %cond.i.i.i.i.i.i448.i.i.i = select i1 %tobool.not.i.i.i.i.i.i446.i.i.i, i64 %conv.i.i.i.i.i.i447.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i444.i.i.i
@@ -1682,7 +1682,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i452.i.i.i77 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i450.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i451.i.i.i)
           to label %call.i.i.i.i.i.i452.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i452.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i452.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i453.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i452.i.i.i77 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i454.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i451.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i455.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i453.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i454.i.i.i
@@ -1740,18 +1740,18 @@ _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i476.i.
   %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i478.i.i.i = getelementptr inbounds i8, ptr %17, i64 208
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i479.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i478.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i480.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i477.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i480.i.i.i, label %if.then.i.i.i.i.i.i.i496.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i480.i.i.i, label %if.then.i.i.i.i.i.i.i496.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i496.i.i.i:                   ; preds = %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i476.i.i.i
   %173 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i477.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i497.i.i.i = icmp eq i64 %173, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i497.i.i.i, label %if.then.i.i.i2.i.i.i.i.i498.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i1.i.i.i.i.i497.i.i.i, label %if.then.i.i.i2.i.i.i.i.i498.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i498.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i496.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i499.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i477.i.i.i, i64 8
   %174 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i499.i.i.i, align 8
   invoke void %174(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i477.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i500.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i500.i.i.i
 
 terminate.lpad.i.i.i.i.i.i500.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i498.i.i.i
   %175 = landingpad { ptr, i32 }
@@ -1760,7 +1760,7 @@ terminate.lpad.i.i.i.i.i.i500.i.i.i:              ; preds = %if.then.i.i.i2.i.i.
   call void @__clang_call_terminate(ptr %176) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i498.i.i.i, %if.then.i.i.i.i.i.i.i496.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i476.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i498.i.i.i, %if.then.i.i.i.i.i.i.i496.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i476.i.i.i
   %tobool.not.i.i.i.i.i.i481.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i477.i.i.i, null
   %conv.i.i.i.i.i.i482.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i479.i.i.i, 255
   %cond.i.i.i.i.i.i483.i.i.i = select i1 %tobool.not.i.i.i.i.i.i481.i.i.i, i64 %conv.i.i.i.i.i.i482.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i479.i.i.i
@@ -1770,7 +1770,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i487.i.i.i79 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i485.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i486.i.i.i)
           to label %call.i.i.i.i.i.i487.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i487.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i487.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i488.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i487.i.i.i79 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i489.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i486.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i490.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i488.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i489.i.i.i
@@ -1828,18 +1828,18 @@ _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i511.i.
   %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i513.i.i.i = getelementptr inbounds i8, ptr %17, i64 240
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i514.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i513.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i515.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i512.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i515.i.i.i, label %if.then.i.i.i.i.i.i.i531.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i515.i.i.i, label %if.then.i.i.i.i.i.i.i531.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i531.i.i.i:                   ; preds = %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i511.i.i.i
   %185 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i512.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i532.i.i.i = icmp eq i64 %185, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i532.i.i.i, label %if.then.i.i.i2.i.i.i.i.i533.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i1.i.i.i.i.i532.i.i.i, label %if.then.i.i.i2.i.i.i.i.i533.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i533.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i531.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i534.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i512.i.i.i, i64 8
   %186 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i534.i.i.i, align 8
   invoke void %186(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i512.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i535.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i535.i.i.i
 
 terminate.lpad.i.i.i.i.i.i535.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i533.i.i.i
   %187 = landingpad { ptr, i32 }
@@ -1848,7 +1848,7 @@ terminate.lpad.i.i.i.i.i.i535.i.i.i:              ; preds = %if.then.i.i.i2.i.i.
   call void @__clang_call_terminate(ptr %188) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i533.i.i.i, %if.then.i.i.i.i.i.i.i531.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i511.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i533.i.i.i, %if.then.i.i.i.i.i.i.i531.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i511.i.i.i
   %tobool.not.i.i.i.i.i.i516.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i512.i.i.i, null
   %conv.i.i.i.i.i.i517.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i514.i.i.i, 255
   %cond.i.i.i.i.i.i518.i.i.i = select i1 %tobool.not.i.i.i.i.i.i516.i.i.i, i64 %conv.i.i.i.i.i.i517.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i514.i.i.i
@@ -1858,7 +1858,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i522.i.i.i81 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i520.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i521.i.i.i)
           to label %call.i.i.i.i.i.i522.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i522.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i522.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i523.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i522.i.i.i81 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i524.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i521.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i525.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i523.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i524.i.i.i
@@ -1916,18 +1916,18 @@ _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i546.i.
   %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i548.i.i.i = getelementptr inbounds i8, ptr %17, i64 272
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i549.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i548.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i550.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i547.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i550.i.i.i, label %if.then.i.i.i.i.i.i.i566.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i550.i.i.i, label %if.then.i.i.i.i.i.i.i566.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i566.i.i.i:                   ; preds = %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i546.i.i.i
   %197 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i547.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i567.i.i.i = icmp eq i64 %197, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i567.i.i.i, label %if.then.i.i.i2.i.i.i.i.i568.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i1.i.i.i.i.i567.i.i.i, label %if.then.i.i.i2.i.i.i.i.i568.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i568.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i566.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i569.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i547.i.i.i, i64 8
   %198 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i569.i.i.i, align 8
   invoke void %198(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i547.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i570.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i570.i.i.i
 
 terminate.lpad.i.i.i.i.i.i570.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i568.i.i.i
   %199 = landingpad { ptr, i32 }
@@ -1936,7 +1936,7 @@ terminate.lpad.i.i.i.i.i.i570.i.i.i:              ; preds = %if.then.i.i.i2.i.i.
   call void @__clang_call_terminate(ptr %200) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i568.i.i.i, %if.then.i.i.i.i.i.i.i566.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i546.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i568.i.i.i, %if.then.i.i.i.i.i.i.i566.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i546.i.i.i
   %tobool.not.i.i.i.i.i.i551.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i547.i.i.i, null
   %conv.i.i.i.i.i.i552.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i549.i.i.i, 255
   %cond.i.i.i.i.i.i553.i.i.i = select i1 %tobool.not.i.i.i.i.i.i551.i.i.i, i64 %conv.i.i.i.i.i.i552.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i549.i.i.i
@@ -1946,7 +1946,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i557.i.i.i83 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i555.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i556.i.i.i)
           to label %call.i.i.i.i.i.i557.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i557.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i557.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i558.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i557.i.i.i83 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i559.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i556.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i560.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i558.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i559.i.i.i
@@ -2004,18 +2004,18 @@ _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i581.i.
   %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i583.i.i.i = getelementptr inbounds i8, ptr %17, i64 304
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i584.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i583.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i585.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i582.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i585.i.i.i, label %if.then.i.i.i.i.i.i.i601.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i585.i.i.i, label %if.then.i.i.i.i.i.i.i601.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i601.i.i.i:                   ; preds = %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i581.i.i.i
   %209 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i582.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i602.i.i.i = icmp eq i64 %209, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i602.i.i.i, label %if.then.i.i.i2.i.i.i.i.i603.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i1.i.i.i.i.i602.i.i.i, label %if.then.i.i.i2.i.i.i.i.i603.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i603.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i601.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i604.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i582.i.i.i, i64 8
   %210 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i604.i.i.i, align 8
   invoke void %210(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i582.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i605.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i605.i.i.i
 
 terminate.lpad.i.i.i.i.i.i605.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i603.i.i.i
   %211 = landingpad { ptr, i32 }
@@ -2024,7 +2024,7 @@ terminate.lpad.i.i.i.i.i.i605.i.i.i:              ; preds = %if.then.i.i.i2.i.i.
   call void @__clang_call_terminate(ptr %212) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i603.i.i.i, %if.then.i.i.i.i.i.i.i601.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i581.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i603.i.i.i, %if.then.i.i.i.i.i.i.i601.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i581.i.i.i
   %tobool.not.i.i.i.i.i.i586.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i582.i.i.i, null
   %conv.i.i.i.i.i.i587.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i584.i.i.i, 255
   %cond.i.i.i.i.i.i588.i.i.i = select i1 %tobool.not.i.i.i.i.i.i586.i.i.i, i64 %conv.i.i.i.i.i.i587.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i584.i.i.i
@@ -2034,7 +2034,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i592.i.i.i85 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i590.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i591.i.i.i)
           to label %call.i.i.i.i.i.i592.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i592.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i592.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i593.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i592.i.i.i85 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i594.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i591.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i595.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i593.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i594.i.i.i
@@ -2092,18 +2092,18 @@ _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i616.i.
   %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i618.i.i.i = getelementptr inbounds i8, ptr %17, i64 336
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i619.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i618.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i620.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i617.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i620.i.i.i, label %if.then.i.i.i.i.i.i.i636.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i620.i.i.i, label %if.then.i.i.i.i.i.i.i636.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i636.i.i.i:                   ; preds = %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i616.i.i.i
   %221 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i617.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i637.i.i.i = icmp eq i64 %221, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i637.i.i.i, label %if.then.i.i.i2.i.i.i.i.i638.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i1.i.i.i.i.i637.i.i.i, label %if.then.i.i.i2.i.i.i.i.i638.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i638.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i636.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i639.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i617.i.i.i, i64 8
   %222 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i639.i.i.i, align 8
   invoke void %222(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i617.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i640.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i640.i.i.i
 
 terminate.lpad.i.i.i.i.i.i640.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i638.i.i.i
   %223 = landingpad { ptr, i32 }
@@ -2112,7 +2112,7 @@ terminate.lpad.i.i.i.i.i.i640.i.i.i:              ; preds = %if.then.i.i.i2.i.i.
   call void @__clang_call_terminate(ptr %224) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i638.i.i.i, %if.then.i.i.i.i.i.i.i636.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i616.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i638.i.i.i, %if.then.i.i.i.i.i.i.i636.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i616.i.i.i
   %tobool.not.i.i.i.i.i.i621.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i617.i.i.i, null
   %conv.i.i.i.i.i.i622.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i619.i.i.i, 255
   %cond.i.i.i.i.i.i623.i.i.i = select i1 %tobool.not.i.i.i.i.i.i621.i.i.i, i64 %conv.i.i.i.i.i.i622.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i619.i.i.i
@@ -2122,7 +2122,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i627.i.i.i87 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i625.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i626.i.i.i)
           to label %call.i.i.i.i.i.i627.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i627.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i627.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i628.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i627.i.i.i87 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i629.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i626.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i630.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i628.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i629.i.i.i
@@ -2331,18 +2331,18 @@ _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i700.i.
   %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i702.i.i.i = getelementptr inbounds i8, ptr %17, i64 400
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i703.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i702.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i704.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i701.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i704.i.i.i, label %if.then.i.i.i.i.i.i.i720.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i704.i.i.i, label %if.then.i.i.i.i.i.i.i720.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i720.i.i.i:                   ; preds = %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i700.i.i.i
   %253 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i701.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i721.i.i.i = icmp eq i64 %253, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i721.i.i.i, label %if.then.i.i.i2.i.i.i.i.i722.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i1.i.i.i.i.i721.i.i.i, label %if.then.i.i.i2.i.i.i.i.i722.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i722.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i720.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i723.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i701.i.i.i, i64 8
   %254 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i723.i.i.i, align 8
   invoke void %254(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i701.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i724.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i724.i.i.i
 
 terminate.lpad.i.i.i.i.i.i724.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i722.i.i.i
   %255 = landingpad { ptr, i32 }
@@ -2351,7 +2351,7 @@ terminate.lpad.i.i.i.i.i.i724.i.i.i:              ; preds = %if.then.i.i.i2.i.i.
   call void @__clang_call_terminate(ptr %256) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i722.i.i.i, %if.then.i.i.i.i.i.i.i720.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i700.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i722.i.i.i, %if.then.i.i.i.i.i.i.i720.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i700.i.i.i
   %tobool.not.i.i.i.i.i.i705.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i701.i.i.i, null
   %conv.i.i.i.i.i.i706.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i703.i.i.i, 255
   %cond.i.i.i.i.i.i707.i.i.i = select i1 %tobool.not.i.i.i.i.i.i705.i.i.i, i64 %conv.i.i.i.i.i.i706.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i703.i.i.i
@@ -2361,7 +2361,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i711.i.i.i94 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i709.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i710.i.i.i)
           to label %call.i.i.i.i.i.i711.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i711.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i711.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i712.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i711.i.i.i94 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i713.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i710.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i714.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i712.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i713.i.i.i
@@ -2419,18 +2419,18 @@ _ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i735.i.
   %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i737.i.i.i = getelementptr inbounds i8, ptr %17, i64 432
   %ref.tmp.sroa.3.0.copyload.i.i.i.i.i738.i.i.i = load i64, ptr %ref.tmp.sroa.3.0.value.sroa_idx.i.i.i.i.i737.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i739.i.i.i = icmp ugt ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i736.i.i.i, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i.i.i.i.i739.i.i.i, label %if.then.i.i.i.i.i.i.i755.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i739.i.i.i, label %if.then.i.i.i.i.i.i.i755.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i755.i.i.i:                   ; preds = %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i735.i.i.i
   %265 = atomicrmw sub ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i736.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i.i.i.i756.i.i.i = icmp eq i64 %265, 1
-  br i1 %cmp.i.i.i1.i.i.i.i.i756.i.i.i, label %if.then.i.i.i2.i.i.i.i.i757.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+  br i1 %cmp.i.i.i1.i.i.i.i.i756.i.i.i, label %if.then.i.i.i2.i.i.i.i.i757.i.i.i, label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
 
 if.then.i.i.i2.i.i.i.i.i757.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i755.i.i.i
   %destroyer_fn_.i.i.i.i.i.i.i.i758.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i736.i.i.i, i64 8
   %266 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i.i758.i.i.i, align 8
   invoke void %266(ptr noundef nonnull %ref.tmp.sroa.0.0.copyload.i.i.i.i.i736.i.i.i)
-          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i759.i.i.i
+          to label %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i759.i.i.i
 
 terminate.lpad.i.i.i.i.i.i759.i.i.i:              ; preds = %if.then.i.i.i2.i.i.i.i.i757.i.i.i
   %267 = landingpad { ptr, i32 }
@@ -2439,7 +2439,7 @@ terminate.lpad.i.i.i.i.i.i759.i.i.i:              ; preds = %if.then.i.i.i2.i.i.
   call void @__clang_call_terminate(ptr %268) #14
   unreachable
 
-_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i757.i.i.i, %if.then.i.i.i.i.i.i.i755.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i735.i.i.i
+_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i: ; preds = %if.then.i.i.i2.i.i.i.i.i757.i.i.i, %if.then.i.i.i.i.i.i.i755.i.i.i, %_ZN9grpc_core24SimpleSliceBasedMetadata6EncodeERKNS_5SliceE.exit.i.i.i.i.i735.i.i.i
   %tobool.not.i.i.i.i.i.i740.i.i.i = icmp eq ptr %ref.tmp.sroa.0.0.copyload.i.i.i.i.i736.i.i.i, null
   %conv.i.i.i.i.i.i741.i.i.i = and i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i738.i.i.i, 255
   %cond.i.i.i.i.i.i742.i.i.i = select i1 %tobool.not.i.i.i.i.i.i740.i.i.i, i64 %conv.i.i.i.i.i.i741.i.i.i, i64 %ref.tmp.sroa.3.0.copyload.i.i.i.i.i738.i.i.i
@@ -2449,7 +2449,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLim
   %call.i.i.i.i.i.i746.i.i.i96 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %add1.i.i.i.i.i.i744.i.i.i, ptr noundef nonnull %digits_.i.i.i.i.i.i745.i.i.i)
           to label %call.i.i.i.i.i.i746.i.i.i.noexc unwind label %lpad40.loopexit.split-lp.loopexit.split-lp
 
-call.i.i.i.i.i.i746.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+call.i.i.i.i.i.i746.i.i.i.noexc:                  ; preds = %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i747.i.i.i = ptrtoint ptr %call.i.i.i.i.i.i746.i.i.i96 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i748.i.i.i = ptrtoint ptr %digits_.i.i.i.i.i.i745.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i749.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i747.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i748.i.i.i
@@ -2595,7 +2595,7 @@ lpad40.loopexit.split-lp.loopexit:                ; preds = %call.i.i.i.i.i.i684
           cleanup
   br label %ehcleanup75
 
-lpad40.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i.i.i.i.i.i223.i.i.i.invoke, %_ZN4absl12lts_202308028AlphaNumC2EPKc.exit.i, %invoke.cont64, %invoke.cont60, %call.i.i.i.i.i.i746.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i711.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i653.i.i.i.noexc, %if.then.i650.i.i.i, %call.i.i.i.i.i.i627.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i592.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i557.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i522.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i487.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i452.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i417.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i384.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i.i372.i.i.i.noexc, %if.then.i370.i.i.i, %call.i.i.i.i.i.i348.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i.i336.i.i.i.noexc, %if.then.i333.i.i.i, %call.i.i.i.i.i.i310.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %if.then.i300.i.i.i, %call.i.i.i.i.i.i280.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i.i268.i.i.i.noexc, %if.then.i265.i.i.i, %call.i.i.i.i.i.i242.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %if.then.i232.i.i.i, %call.i.i1.i.i.i.i214.i.i.i.noexc, %call.i.i.i.i.i.i209.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i1.i.i.i.i.i.i.i.noexc, %call.i.i.i.i.i.i186.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i168.i.i.i.noexc, %if.then.i164.i.i.i, %call.i.i.i.i.i.i148.i.i.i.noexc, %.noexc44, %if.then.i139.i.i.i, %call.i.i.i.i.i.i122.i.i.i.noexc, %call3.i.i.i.i.i.i.i.noexc, %if.then.i117.i.i.i, %call.i.i.i.i.i.i96.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i.i.i.i.i.noexc, %if.then.i85.i.i.i, %call.i.i.i.i.i.i69.i.i.i.noexc, %.noexc34, %if.then.i62.i.i.i, %call.i.i.i.i.i.i42.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i, %call.i.i.i.i.i.i.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.argprom.exit.i.i.i.i
+lpad40.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i.i.i.i.i.i223.i.i.i.invoke, %_ZN4absl12lts_202308028AlphaNumC2EPKc.exit.i, %invoke.cont64, %invoke.cont60, %call.i.i.i.i.i.i746.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18XEnvoyPeerMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i711.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_15LbTokenMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i653.i.i.i.noexc, %if.then.i650.i.i.i, %call.i.i.i.i.i.i627.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTagsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i592.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcTraceBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i557.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcServerStatsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i522.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_30EndpointLoadMetricsBinMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i487.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_12HostMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i452.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcMessageMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i417.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_17UserAgentMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i384.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcRetryPushbackMsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i.i372.i.i.i.noexc, %if.then.i370.i.i.i, %call.i.i.i.i.i.i348.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_31GrpcPreviousRpcAttemptsMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i.i336.i.i.i.noexc, %if.then.i333.i.i.i, %call.i.i.i.i.i.i310.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_19GrpcTimeoutMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %if.then.i300.i.i.i, %call.i.i.i.i.i.i280.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18GrpcStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i.i268.i.i.i.noexc, %if.then.i265.i.i.i, %call.i.i.i.i.i.i242.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_26GrpcAcceptEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %if.then.i232.i.i.i, %call.i.i1.i.i.i.i214.i.i.i.noexc, %call.i.i.i.i.i.i209.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_27GrpcInternalEncodingRequestEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i1.i.i.i.i.i.i.i.noexc, %call.i.i.i.i.i.i186.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_20GrpcEncodingMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i168.i.i.i.noexc, %if.then.i164.i.i.i, %call.i.i.i.i.i.i148.i.i.i.noexc, %.noexc44, %if.then.i139.i.i.i, %call.i.i.i.i.i.i122.i.i.i.noexc, %call3.i.i.i.i.i.i.i.noexc, %if.then.i117.i.i.i, %call.i.i.i.i.i.i96.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_18HttpStatusMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i.i.i.i.i.noexc, %if.then.i85.i.i.i, %call.i.i.i.i.i.i69.i.i.i.noexc, %.noexc34, %if.then.i62.i.i.i, %call.i.i.i.i.i.i42.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_21HttpAuthorityMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i, %call.i.i.i.i.i.i.i.i.i.noexc, %_ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_132MetadataSizeLimitExceededEncoderEEclINS_16HttpPathMetadataEEEvRKNS0_5ValueIT_vEE.exit.i.i.i.i
   %lpad.loopexit.split-lp361 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup75

@@ -1222,7 +1222,7 @@ define internal fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef
 define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.desc_ptr, align 2
   %7 = icmp eq ptr %3, null
-  br i1 %7, label %resolve_default_seg.argprom.exit, label %8
+  br i1 %7, label %resolve_default_seg.exit, label %8
 
 8:                                                ; preds = %5
   switch i32 %2, label %32 [
@@ -1357,7 +1357,7 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef non
   %63 = icmp sgt i32 %62, 1
   %64 = select i1 %63, i32 -22, i32 %61
   %65 = icmp slt i32 %64, 0
-  br i1 %65, label %resolve_default_seg.argprom.exit, label %66
+  br i1 %65, label %resolve_default_seg.exit, label %66
 
 66:                                               ; preds = %60
   %67 = icmp eq i32 %64, 1
@@ -1373,7 +1373,7 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef non
   br i1 %72, label %93, label %74
 
 74:                                               ; preds = %73
-  switch i32 %2, label %resolve_default_seg.argprom.exit [
+  switch i32 %2, label %resolve_default_seg.exit [
     i32 80, label %75
     i32 88, label %75
     i32 96, label %75
@@ -1390,7 +1390,7 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef non
   %76 = getelementptr inbounds i8, ptr %0, i64 81
   %77 = load i8, ptr %76, align 1
   %78 = icmp eq i8 %77, 2
-  br i1 %78, label %resolve_default_seg.argprom.exit, label %79
+  br i1 %78, label %resolve_default_seg.exit, label %79
 
 79:                                               ; preds = %75, %74, %74, %74
   br label %93
@@ -1438,11 +1438,11 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef non
   %94 = tail call i64 @insn_get_seg_base(ptr noundef nonnull %1, i32 noundef %.ph)
   store i64 %94, ptr %3, align 8
   %95 = icmp eq i64 %94, -1
-  br i1 %95, label %resolve_default_seg.argprom.exit, label %96
+  br i1 %95, label %resolve_default_seg.exit, label %96
 
 96:                                               ; preds = %93
   %97 = icmp eq ptr %4, null
-  br i1 %97, label %resolve_default_seg.argprom.exit, label %98
+  br i1 %97, label %resolve_default_seg.exit, label %98
 
 98:                                               ; preds = %96
   switch i32 %.ph, label %.thread20 [
@@ -1595,17 +1595,17 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef non
 .thread24:                                        ; preds = %171, %118, %.thread14
   %.ph23 = phi i64 [ -1, %.thread14 ], [ -1, %118 ], [ %178, %171 ]
   store i64 %.ph23, ptr %4, align 8
-  br label %resolve_default_seg.argprom.exit
+  br label %resolve_default_seg.exit
 
 179:                                              ; preds = %171
   store i64 %.fr, ptr %4, align 8
   %180 = icmp eq i64 %.fr, 0
-  br i1 %180, label %181, label %resolve_default_seg.argprom.exit
+  br i1 %180, label %181, label %resolve_default_seg.exit
 
 181:                                              ; preds = %.thread20, %179
-  br label %resolve_default_seg.argprom.exit
+  br label %resolve_default_seg.exit
 
-resolve_default_seg.argprom.exit:                 ; preds = %74, %181, %179, %.thread24, %60, %75, %96, %93, %5
+resolve_default_seg.exit:                         ; preds = %74, %181, %179, %.thread24, %60, %75, %96, %93, %5
   %182 = phi i32 [ -22, %5 ], [ -22, %93 ], [ 0, %96 ], [ %64, %60 ], [ -22, %75 ], [ -22, %181 ], [ 0, %179 ], [ 0, %.thread24 ], [ -22, %74 ]
   ret i32 %182
 }

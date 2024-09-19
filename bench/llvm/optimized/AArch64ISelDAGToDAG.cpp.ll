@@ -3512,15 +3512,15 @@ _ZNK4llvm3EVTeqES0_.exit2303.thread:              ; preds = %1062, %1062
   ]
 
 1065:                                             ; preds = %1064
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj14ELj2EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4729)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj14ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4729)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 _ZNK4llvm3EVTeqES0_.exit2315.thread:              ; preds = %1064, %1064, %1064
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj6ELj2EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4731)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj6ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4731)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 _ZNK4llvm3EVTeqES0_.exit2327.thread:              ; preds = %1064, %1064
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj2ELj2EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4732)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj2ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4732)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 _ZNK4llvm3EVTeqES0_.exit2335.thread:              ; preds = %1064, %1064
@@ -3540,15 +3540,15 @@ _ZNK4llvm3EVTeqES0_.exit2335.thread:              ; preds = %1064, %1064
   ]
 
 1067:                                             ; preds = %1066
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj14ELj2EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4733)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj14ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4733)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 _ZNK4llvm3EVTeqES0_.exit2347.thread:              ; preds = %1066, %1066, %1066
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj6ELj2EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4735)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj6ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4735)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 _ZNK4llvm3EVTeqES0_.exit2359.thread:              ; preds = %1066, %1066
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj2ELj2EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4736)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj2ELj2EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4736)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 _ZNK4llvm3EVTeqES0_.exit2367.thread:              ; preds = %1066, %1066
@@ -3568,11 +3568,11 @@ _ZNK4llvm3EVTeqES0_.exit2367.thread:              ; preds = %1066, %1066
   ]
 
 1069:                                             ; preds = %1068
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj12ELj4EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4737)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj12ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4737)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 _ZNK4llvm3EVTeqES0_.exit2379.thread:              ; preds = %1068, %1068, %1068
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj4ELj4EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4739)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj4ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4739)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 _ZNK4llvm3EVTeqES0_.exit2391.thread:              ; preds = %1068, %1068
@@ -3596,27 +3596,27 @@ _ZNK4llvm3EVTeqES0_.exit2399.thread:              ; preds = %1068, %1068
   ]
 
 1071:                                             ; preds = %1070
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj12ELj4EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4741)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj12ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4741)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 _ZNK4llvm3EVTeqES0_.exit2411.thread:              ; preds = %1070, %1070, %1070
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj4ELj4EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4743)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj4ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4743)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 _ZNK4llvm3EVTeqES0_.exit2423.thread:              ; preds = %1070, %1070
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj4EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 325, i32 noundef 4744)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 325, i32 noundef 4744)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 _ZNK4llvm3EVTeqES0_.exit2431.thread:              ; preds = %1070, %1070
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj4EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 299, i32 noundef 4742)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj4EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 299, i32 noundef 4742)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 1072:                                             ; preds = %756
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj7ELj1EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4761)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj7ELj1EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 2, i32 noundef 4761)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 1073:                                             ; preds = %756
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj7ELj1EEEvPN4llvm6SDNodeEjjj.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4763)
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj7ELj1EEEvPN4llvm6SDNodeEjjj(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i32 noundef 4, i32 noundef 4763)
   br label %_ZN4llvm5SDLocD2Ev.exit1301
 
 1074:                                             ; preds = %756
@@ -12618,19 +12618,19 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %13 = getelementptr inbounds i8, ptr %0, i64 128
   %.val1476 = load ptr, ptr %13, align 8
   %14 = tail call noundef zeroext i1 @_ZNK4llvm21AArch64TargetLowering20isAllActivePredicateERNS_12SelectionDAGENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(408240) %.val1476, ptr noundef nonnull align 8 dereferenceable(904) %.val, ptr %3, i32 %4) #22
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 15:                                               ; preds = %7
   %16 = and i64 %8, 4294967295
   tail call void @_ZN4llvm15SmallVectorImplISt4pairINS_7SDValueEPNS_6SDNodeEEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %16)
-  %17 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectDupZeroEN4llvm7SDValueE.argprom.argelim(ptr %3)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %17 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectDupZeroEN4llvm7SDValueE(ptr %3)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 18:                                               ; preds = %7
   %19 = and i64 %8, 4294967295
   tail call void @_ZN4llvm15SmallVectorImplISt4pairINS_7SDValueEPNS_6SDNodeEEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %19)
-  %20 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectDupZeroOrUndefEN4llvm7SDValueE.argprom.argelim(ptr %3)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %20 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectDupZeroOrUndefEN4llvm7SDValueE(ptr %3)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 21:                                               ; preds = %7
   %22 = add i64 %8, 2
@@ -12642,8 +12642,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %27 = add i64 %8, 1
   %28 = and i64 %27, 4294967295
   %29 = getelementptr inbounds %"struct.std::pair.495", ptr %25, i64 %28
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(12) %29, i32 noundef 1)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(12) %29, i32 noundef 1)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 30:                                               ; preds = %7
   %31 = add i64 %8, 2
@@ -12655,8 +12655,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %36 = add i64 %8, 1
   %37 = and i64 %36, 4294967295
   %38 = getelementptr inbounds %"struct.std::pair.495", ptr %34, i64 %37
-  %39 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln8ELl7EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 8 dereferenceable(12) %38)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %39 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln8ELl7EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 8 dereferenceable(12) %38)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 40:                                               ; preds = %7
   %41 = add i64 %8, 1
@@ -12669,8 +12669,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %.val1477 = load ptr, ptr %46, align 8
   %47 = getelementptr i8, ptr %.val1477, i64 744
   %.val1477.val = load i8, ptr %47, align 8
-  %48 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_.argprom.argprom.argelim(i8 %.val1477.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %45)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %48 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_(i8 %.val1477.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %45)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 49:                                               ; preds = %7
   %50 = add i64 %8, 1
@@ -12683,8 +12683,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %.val1478 = load ptr, ptr %55, align 8
   %56 = getelementptr i8, ptr %.val1478, i64 744
   %.val1478.val = load i8, ptr %56, align 8
-  %57 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_.argprom.argprom.argelim(i8 %.val1478.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %54)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %57 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_(i8 %.val1478.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %54)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 58:                                               ; preds = %7
   %59 = add i64 %8, 1
@@ -12697,8 +12697,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %.val1479 = load ptr, ptr %64, align 8
   %65 = getelementptr i8, ptr %.val1479, i64 744
   %.val1479.val = load i8, ptr %65, align 8
-  %66 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_.argprom.argprom.argelim(i8 %.val1479.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %63)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %66 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_(i8 %.val1479.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %63)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 67:                                               ; preds = %7
   %68 = add i64 %8, 2
@@ -12710,8 +12710,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %73 = add i64 %8, 1
   %74 = and i64 %73, 4294967295
   %75 = getelementptr inbounds %"struct.std::pair.495", ptr %71, i64 %74
-  %76 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(12) %72, ptr noundef nonnull align 8 dereferenceable(12) %75)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %76 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(12) %72, ptr noundef nonnull align 8 dereferenceable(12) %75)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 77:                                               ; preds = %7
   %78 = add i64 %8, 2
@@ -12720,7 +12720,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %81 = load i32, ptr %80, align 8
   %.not.i.i = icmp eq i32 %81, 56
-  br i1 %.not.i.i, label %82, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br i1 %.not.i.i, label %82, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 82:                                               ; preds = %77
   %83 = load ptr, ptr %6, align 8
@@ -12740,7 +12740,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   store ptr %.sroa.042.0.copyload.i.i, ptr %86, align 8
   %.sroa.6.0..sroa_idx47.i.i = getelementptr inbounds i8, ptr %86, i64 8
   store i32 %.sroa.6.sroa.0.0.extract.trunc.i.i, ptr %.sroa.6.0..sroa_idx47.i.i, align 8
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 93:                                               ; preds = %7
   %94 = add i64 %8, 2
@@ -12752,14 +12752,14 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %99 = add i64 %8, 1
   %100 = and i64 %99, 4294967295
   %101 = getelementptr inbounds %"struct.std::pair.495", ptr %97, i64 %100
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %98, ptr noundef nonnull align 8 dereferenceable(12) %101, i32 noundef 4)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %98, ptr noundef nonnull align 8 dereferenceable(12) %101, i32 noundef 4)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 102:                                              ; preds = %7
   %103 = and i64 %8, 4294967295
   tail call void @_ZN4llvm15SmallVectorImplISt4pairINS_7SDValueEPNS_6SDNodeEEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %103)
-  %104 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectAnyPredicateEN4llvm7SDValueE.argprom(ptr %3, i32 %4)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %104 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectAnyPredicateEN4llvm7SDValueE(ptr %3, i32 %4)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 105:                                              ; preds = %7
   %106 = add i64 %8, 2
@@ -12771,8 +12771,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %111 = add i64 %8, 1
   %112 = and i64 %111, 4294967295
   %113 = getelementptr inbounds %"struct.std::pair.495", ptr %109, i64 %112
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %110, ptr noundef nonnull align 8 dereferenceable(12) %113, i32 noundef 1)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %110, ptr noundef nonnull align 8 dereferenceable(12) %113, i32 noundef 1)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 114:                                              ; preds = %7
   %115 = add i64 %8, 2
@@ -12784,8 +12784,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %120 = add i64 %8, 1
   %121 = and i64 %120, 4294967295
   %122 = getelementptr inbounds %"struct.std::pair.495", ptr %118, i64 %121
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(12) %119, ptr noundef nonnull align 8 dereferenceable(12) %122, i32 noundef 2)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(12) %119, ptr noundef nonnull align 8 dereferenceable(12) %122, i32 noundef 2)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 123:                                              ; preds = %7
   %124 = add i64 %8, 2
@@ -12797,8 +12797,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %129 = add i64 %8, 1
   %130 = and i64 %129, 4294967295
   %131 = getelementptr inbounds %"struct.std::pair.495", ptr %127, i64 %130
-  %132 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %128, ptr noundef nonnull align 8 dereferenceable(12) %131)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %132 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %128, ptr noundef nonnull align 8 dereferenceable(12) %131)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 133:                                              ; preds = %7
   %134 = add i64 %8, 2
@@ -12811,7 +12811,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %140 = and i64 %139, 4294967295
   %141 = getelementptr inbounds %"struct.std::pair.495", ptr %137, i64 %140
   %142 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectAddrModeIndexedEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(12) %138, ptr noundef nonnull align 8 dereferenceable(12) %141)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 143:                                              ; preds = %7
   %144 = add i64 %8, 2
@@ -12824,7 +12824,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %150 = and i64 %149, 4294967295
   %151 = getelementptr inbounds %"struct.std::pair.495", ptr %147, i64 %150
   %152 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectAddrModeIndexedEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %148, ptr noundef nonnull align 8 dereferenceable(12) %151)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 153:                                              ; preds = %7
   %154 = add i64 %8, 2
@@ -12836,8 +12836,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %159 = add i64 %8, 1
   %160 = and i64 %159, 4294967295
   %161 = getelementptr inbounds %"struct.std::pair.495", ptr %157, i64 %160
-  %162 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %158, ptr noundef nonnull align 8 dereferenceable(12) %161)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %162 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %158, ptr noundef nonnull align 8 dereferenceable(12) %161)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 163:                                              ; preds = %7
   %164 = add i64 %8, 2
@@ -12849,8 +12849,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %169 = add i64 %8, 1
   %170 = and i64 %169, 4294967295
   %171 = getelementptr inbounds %"struct.std::pair.495", ptr %167, i64 %170
-  %172 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %168, ptr noundef nonnull align 8 dereferenceable(12) %171)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %172 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %168, ptr noundef nonnull align 8 dereferenceable(12) %171)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 173:                                              ; preds = %7
   %174 = add i64 %8, 4
@@ -12869,7 +12869,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %186 = and i64 %185, 4294967295
   %187 = getelementptr inbounds %"struct.std::pair.495", ptr %177, i64 %186
   %188 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectAddrModeWROEN4llvm7SDValueEjRS2_S3_S3_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(12) %178, ptr noundef nonnull align 8 dereferenceable(12) %181, ptr noundef nonnull align 8 dereferenceable(12) %184, ptr noundef nonnull align 8 dereferenceable(12) %187)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 189:                                              ; preds = %7
   %190 = add i64 %8, 4
@@ -12888,7 +12888,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %202 = and i64 %201, 4294967295
   %203 = getelementptr inbounds %"struct.std::pair.495", ptr %193, i64 %202
   %204 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectAddrModeXROEN4llvm7SDValueEjRS2_S3_S3_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(12) %194, ptr noundef nonnull align 8 dereferenceable(12) %197, ptr noundef nonnull align 8 dereferenceable(12) %200, ptr noundef nonnull align 8 dereferenceable(12) %203)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 205:                                              ; preds = %7
   %206 = add i64 %8, 1
@@ -12899,8 +12899,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %210 = getelementptr inbounds %"struct.std::pair.495", ptr %209, i64 %208
   %211 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1483 = load ptr, ptr %211, align 8
-  %212 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectCntImmILi1ELi16ELi1ELb0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1483, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %210)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %212 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectCntImmILi1ELi16ELi1ELb0EEEbN4llvm7SDValueERS3_(ptr %.val1483, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %210)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 213:                                              ; preds = %7
   %214 = add i64 %8, 1
@@ -12911,8 +12911,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %218 = getelementptr inbounds %"struct.std::pair.495", ptr %217, i64 %216
   %219 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1485 = load ptr, ptr %219, align 8
-  %220 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectCntImmILi1ELi16ELi1ELb1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1485, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %218)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %220 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectCntImmILi1ELi16ELi1ELb1EEEbN4llvm7SDValueERS3_(ptr %.val1485, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %218)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 221:                                              ; preds = %7
   %222 = add i64 %8, 4
@@ -12931,7 +12931,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %234 = and i64 %233, 4294967295
   %235 = getelementptr inbounds %"struct.std::pair.495", ptr %225, i64 %234
   %236 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectAddrModeWROEN4llvm7SDValueEjRS2_S3_S3_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %226, ptr noundef nonnull align 8 dereferenceable(12) %229, ptr noundef nonnull align 8 dereferenceable(12) %232, ptr noundef nonnull align 8 dereferenceable(12) %235)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 237:                                              ; preds = %7
   %238 = add i64 %8, 4
@@ -12950,7 +12950,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %250 = and i64 %249, 4294967295
   %251 = getelementptr inbounds %"struct.std::pair.495", ptr %241, i64 %250
   %252 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectAddrModeXROEN4llvm7SDValueEjRS2_S3_S3_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %242, ptr noundef nonnull align 8 dereferenceable(12) %245, ptr noundef nonnull align 8 dereferenceable(12) %248, ptr noundef nonnull align 8 dereferenceable(12) %251)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 253:                                              ; preds = %7
   %254 = add i64 %8, 2
@@ -12963,7 +12963,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %260 = and i64 %259, 4294967295
   %261 = getelementptr inbounds %"struct.std::pair.495", ptr %257, i64 %260
   %262 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectAddrModeIndexedEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(12) %258, ptr noundef nonnull align 8 dereferenceable(12) %261)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 263:                                              ; preds = %7
   %264 = add i64 %8, 2
@@ -12976,7 +12976,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %270 = and i64 %269, 4294967295
   %271 = getelementptr inbounds %"struct.std::pair.495", ptr %267, i64 %270
   %272 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectAddrModeIndexedEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %268, ptr noundef nonnull align 8 dereferenceable(12) %271)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 273:                                              ; preds = %7
   %274 = add i64 %8, 2
@@ -12988,8 +12988,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %279 = add i64 %8, 1
   %280 = and i64 %279, 4294967295
   %281 = getelementptr inbounds %"struct.std::pair.495", ptr %277, i64 %280
-  %282 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(12) %278, ptr noundef nonnull align 8 dereferenceable(12) %281)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %282 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(12) %278, ptr noundef nonnull align 8 dereferenceable(12) %281)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 283:                                              ; preds = %7
   %284 = add i64 %8, 2
@@ -13001,8 +13001,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %289 = add i64 %8, 1
   %290 = and i64 %289, 4294967295
   %291 = getelementptr inbounds %"struct.std::pair.495", ptr %287, i64 %290
-  %292 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %288, ptr noundef nonnull align 8 dereferenceable(12) %291)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %292 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %288, ptr noundef nonnull align 8 dereferenceable(12) %291)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 293:                                              ; preds = %7
   %294 = add i64 %8, 4
@@ -13021,7 +13021,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %306 = and i64 %305, 4294967295
   %307 = getelementptr inbounds %"struct.std::pair.495", ptr %297, i64 %306
   %308 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectAddrModeWROEN4llvm7SDValueEjRS2_S3_S3_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %298, ptr noundef nonnull align 8 dereferenceable(12) %301, ptr noundef nonnull align 8 dereferenceable(12) %304, ptr noundef nonnull align 8 dereferenceable(12) %307)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 309:                                              ; preds = %7
   %310 = add i64 %8, 4
@@ -13040,7 +13040,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %322 = and i64 %321, 4294967295
   %323 = getelementptr inbounds %"struct.std::pair.495", ptr %313, i64 %322
   %324 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectAddrModeXROEN4llvm7SDValueEjRS2_S3_S3_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %314, ptr noundef nonnull align 8 dereferenceable(12) %317, ptr noundef nonnull align 8 dereferenceable(12) %320, ptr noundef nonnull align 8 dereferenceable(12) %323)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 325:                                              ; preds = %7
   %326 = add i64 %8, 1
@@ -13051,8 +13051,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %330 = getelementptr inbounds %"struct.std::pair.495", ptr %329, i64 %328
   %331 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1484 = load ptr, ptr %331, align 8
-  %332 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectCntImmILi1ELi16ELi1ELb0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1484, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %330)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %332 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectCntImmILi1ELi16ELi1ELb0EEEbN4llvm7SDValueERS3_(ptr %.val1484, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %330)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 333:                                              ; preds = %7
   %334 = add i64 %8, 2
@@ -13064,8 +13064,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %339 = add i64 %8, 1
   %340 = and i64 %339, 4294967295
   %341 = getelementptr inbounds %"struct.std::pair.495", ptr %337, i64 %340
-  %342 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %338, ptr noundef nonnull align 8 dereferenceable(12) %341)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %342 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %338, ptr noundef nonnull align 8 dereferenceable(12) %341)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 343:                                              ; preds = %7
   %344 = add i64 %8, 4
@@ -13084,7 +13084,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %356 = and i64 %355, 4294967295
   %357 = getelementptr inbounds %"struct.std::pair.495", ptr %347, i64 %356
   %358 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectAddrModeWROEN4llvm7SDValueEjRS2_S3_S3_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(12) %348, ptr noundef nonnull align 8 dereferenceable(12) %351, ptr noundef nonnull align 8 dereferenceable(12) %354, ptr noundef nonnull align 8 dereferenceable(12) %357)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 359:                                              ; preds = %7
   %360 = add i64 %8, 4
@@ -13103,7 +13103,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %372 = and i64 %371, 4294967295
   %373 = getelementptr inbounds %"struct.std::pair.495", ptr %363, i64 %372
   %374 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectAddrModeXROEN4llvm7SDValueEjRS2_S3_S3_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(12) %364, ptr noundef nonnull align 8 dereferenceable(12) %367, ptr noundef nonnull align 8 dereferenceable(12) %370, ptr noundef nonnull align 8 dereferenceable(12) %373)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 375:                                              ; preds = %7
   %376 = add i64 %8, 2
@@ -13115,8 +13115,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %381 = add i64 %8, 1
   %382 = and i64 %381, 4294967295
   %383 = getelementptr inbounds %"struct.std::pair.495", ptr %379, i64 %382
-  %384 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %380, ptr noundef nonnull align 8 dereferenceable(12) %383)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %384 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %380, ptr noundef nonnull align 8 dereferenceable(12) %383)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 385:                                              ; preds = %7
   %386 = add i64 %8, 2
@@ -13128,8 +13128,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %391 = add i64 %8, 1
   %392 = and i64 %391, 4294967295
   %393 = getelementptr inbounds %"struct.std::pair.495", ptr %389, i64 %392
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(12) %390, ptr noundef nonnull align 8 dereferenceable(12) %393, i32 noundef 1)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(12) %390, ptr noundef nonnull align 8 dereferenceable(12) %393, i32 noundef 1)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 394:                                              ; preds = %7
   %395 = add i64 %8, 2
@@ -13141,8 +13141,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %400 = add i64 %8, 1
   %401 = and i64 %400, 4294967295
   %402 = getelementptr inbounds %"struct.std::pair.495", ptr %398, i64 %401
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(12) %399, ptr noundef nonnull align 8 dereferenceable(12) %402, i32 noundef 1)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(12) %399, ptr noundef nonnull align 8 dereferenceable(12) %402, i32 noundef 1)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 403:                                              ; preds = %7
   %404 = add i64 %8, 2
@@ -13154,8 +13154,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %409 = add i64 %8, 1
   %410 = and i64 %409, 4294967295
   %411 = getelementptr inbounds %"struct.std::pair.495", ptr %407, i64 %410
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(12) %408, ptr noundef nonnull align 8 dereferenceable(12) %411, i32 noundef 4)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(12) %408, ptr noundef nonnull align 8 dereferenceable(12) %411, i32 noundef 4)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 412:                                              ; preds = %7
   %413 = add i64 %8, 1
@@ -13166,8 +13166,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %417 = getelementptr inbounds %"struct.std::pair.495", ptr %416, i64 %415
   %418 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1486 = load ptr, ptr %418, align 8
-  %419 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1486, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %417, i32 noundef 32, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %419 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1486, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %417, i32 noundef 32, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 420:                                              ; preds = %7
   %421 = add i64 %8, 1
@@ -13178,8 +13178,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %425 = getelementptr inbounds %"struct.std::pair.495", ptr %424, i64 %423
   %426 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1489 = load ptr, ptr %426, align 8
-  %427 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1489, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %425, i32 noundef 64, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %427 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1489, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %425, i32 noundef 64, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 428:                                              ; preds = %7
   %429 = add i64 %8, 1
@@ -13190,8 +13190,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %433 = getelementptr inbounds %"struct.std::pair.495", ptr %432, i64 %431
   %434 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1487 = load ptr, ptr %434, align 8
-  %435 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1487, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %433, i32 noundef 32, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %435 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1487, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %433, i32 noundef 32, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 436:                                              ; preds = %7
   %437 = add i64 %8, 1
@@ -13202,8 +13202,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %441 = getelementptr inbounds %"struct.std::pair.495", ptr %440, i64 %439
   %442 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1490 = load ptr, ptr %442, align 8
-  %443 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1490, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %441, i32 noundef 64, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %443 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1490, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %441, i32 noundef 64, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 444:                                              ; preds = %7
   %445 = add i64 %8, 1
@@ -13214,8 +13214,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %449 = getelementptr inbounds %"struct.std::pair.495", ptr %448, i64 %447
   %450 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1488 = load ptr, ptr %450, align 8
-  %451 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1488, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %449, i32 noundef 32, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %451 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1488, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %449, i32 noundef 32, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 452:                                              ; preds = %7
   %453 = add i64 %8, 1
@@ -13226,8 +13226,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %457 = getelementptr inbounds %"struct.std::pair.495", ptr %456, i64 %455
   %458 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1491 = load ptr, ptr %458, align 8
-  %459 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1491, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %457, i32 noundef 64, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %459 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1491, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %457, i32 noundef 64, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 460:                                              ; preds = %7
   %461 = add i64 %8, 2
@@ -13240,7 +13240,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %467 = and i64 %466, 4294967295
   %468 = getelementptr inbounds %"struct.std::pair.495", ptr %464, i64 %467
   %469 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectShiftedRegisterEN4llvm7SDValueEbRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(12) %465, ptr noundef nonnull align 8 dereferenceable(12) %468)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 470:                                              ; preds = %7
   %471 = add i64 %8, 2
@@ -13253,7 +13253,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %477 = and i64 %476, 4294967295
   %478 = getelementptr inbounds %"struct.std::pair.495", ptr %474, i64 %477
   %479 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectShiftedRegisterEN4llvm7SDValueEbRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(12) %475, ptr noundef nonnull align 8 dereferenceable(12) %478)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 480:                                              ; preds = %7
   %481 = add i64 %8, 1
@@ -13264,8 +13264,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %485 = getelementptr inbounds %"struct.std::pair.495", ptr %484, i64 %483
   %486 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1492 = load ptr, ptr %486, align 8
-  %487 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj309ELj15EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1492, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %485)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %487 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj309ELj15EEEbN4llvm7SDValueERS3_(ptr %.val1492, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %485)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 488:                                              ; preds = %7
   %489 = add i64 %8, 2
@@ -13278,7 +13278,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %495 = and i64 %494, 4294967295
   %496 = getelementptr inbounds %"struct.std::pair.495", ptr %492, i64 %495
   %497 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectAddrModeIndexedEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(12) %493, ptr noundef nonnull align 8 dereferenceable(12) %496)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 498:                                              ; preds = %7
   %499 = add i64 %8, 4
@@ -13297,7 +13297,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %511 = and i64 %510, 4294967295
   %512 = getelementptr inbounds %"struct.std::pair.495", ptr %502, i64 %511
   %513 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectAddrModeWROEN4llvm7SDValueEjRS2_S3_S3_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(12) %503, ptr noundef nonnull align 8 dereferenceable(12) %506, ptr noundef nonnull align 8 dereferenceable(12) %509, ptr noundef nonnull align 8 dereferenceable(12) %512)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 514:                                              ; preds = %7
   %515 = add i64 %8, 4
@@ -13316,7 +13316,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %527 = and i64 %526, 4294967295
   %528 = getelementptr inbounds %"struct.std::pair.495", ptr %518, i64 %527
   %529 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectAddrModeXROEN4llvm7SDValueEjRS2_S3_S3_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(12) %519, ptr noundef nonnull align 8 dereferenceable(12) %522, ptr noundef nonnull align 8 dereferenceable(12) %525, ptr noundef nonnull align 8 dereferenceable(12) %528)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 530:                                              ; preds = %7
   %531 = add i64 %8, 2
@@ -13328,8 +13328,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %536 = add i64 %8, 1
   %537 = and i64 %536, 4294967295
   %538 = getelementptr inbounds %"struct.std::pair.495", ptr %534, i64 %537
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 14, ptr noundef nonnull align 8 dereferenceable(12) %535, ptr noundef nonnull align 8 dereferenceable(12) %538, i32 noundef 2)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 14, ptr noundef nonnull align 8 dereferenceable(12) %535, ptr noundef nonnull align 8 dereferenceable(12) %538, i32 noundef 2)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 539:                                              ; preds = %7
   %540 = add i64 %8, 1
@@ -13338,8 +13338,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %542 = and i64 %8, 4294967295
   %543 = load ptr, ptr %6, align 8
   %544 = getelementptr inbounds %"struct.std::pair.495", ptr %543, i64 %542
-  %545 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVEShiftSplatImmREN4llvm7SDValueERS2_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %544)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %545 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVEShiftSplatImmREN4llvm7SDValueERS2_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %544)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 546:                                              ; preds = %7
   %547 = add i64 %8, 2
@@ -13351,8 +13351,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %552 = add i64 %8, 1
   %553 = and i64 %552, 4294967295
   %554 = getelementptr inbounds %"struct.std::pair.495", ptr %550, i64 %553
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj2ELj63EEEbN4llvm7SDValueERS3_S4_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %551, ptr noundef nonnull align 8 dereferenceable(12) %554)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj2ELj63EEEbN4llvm7SDValueERS3_S4_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %551, ptr noundef nonnull align 8 dereferenceable(12) %554)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 555:                                              ; preds = %7
   %556 = add i64 %8, 2
@@ -13364,8 +13364,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %561 = add i64 %8, 1
   %562 = and i64 %561, 4294967295
   %563 = getelementptr inbounds %"struct.std::pair.495", ptr %559, i64 %562
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(12) %560, ptr noundef nonnull align 8 dereferenceable(12) %563, i32 noundef 1)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(12) %560, ptr noundef nonnull align 8 dereferenceable(12) %563, i32 noundef 1)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 564:                                              ; preds = %7
   %565 = add i64 %8, 1
@@ -13376,8 +13376,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %569 = getelementptr inbounds %"struct.std::pair.495", ptr %568, i64 %567
   %570 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1493 = load ptr, ptr %570, align 8
-  %571 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj329ELj0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1493, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %569)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %571 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj329ELj0EEEbN4llvm7SDValueERS3_(ptr %.val1493, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %569)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 572:                                              ; preds = %7
   %573 = add i64 %8, 2
@@ -13389,8 +13389,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %578 = add i64 %8, 1
   %579 = and i64 %578, 4294967295
   %580 = getelementptr inbounds %"struct.std::pair.495", ptr %576, i64 %579
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj1ELj63EEEbN4llvm7SDValueERS3_S4_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %577, ptr noundef nonnull align 8 dereferenceable(12) %580)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj1ELj63EEEbN4llvm7SDValueERS3_S4_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %577, ptr noundef nonnull align 8 dereferenceable(12) %580)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 581:                                              ; preds = %7
   %582 = add i64 %8, 1
@@ -13399,8 +13399,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %584 = and i64 %8, 4294967295
   %585 = load ptr, ptr %6, align 8
   %586 = getelementptr inbounds %"struct.std::pair.495", ptr %585, i64 %584
-  %587 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %586, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %587 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %586, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 588:                                              ; preds = %7
   %589 = add i64 %8, 1
@@ -13409,8 +13409,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %591 = and i64 %8, 4294967295
   %592 = load ptr, ptr %6, align 8
   %593 = getelementptr inbounds %"struct.std::pair.495", ptr %592, i64 %591
-  %594 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %593, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %594 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %593, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 595:                                              ; preds = %7
   %596 = add i64 %8, 1
@@ -13419,8 +13419,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %598 = and i64 %8, 4294967295
   %599 = load ptr, ptr %6, align 8
   %600 = getelementptr inbounds %"struct.std::pair.495", ptr %599, i64 %598
-  %601 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %600, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %601 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %600, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 602:                                              ; preds = %7
   %603 = add i64 %8, 1
@@ -13429,8 +13429,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %605 = and i64 %8, 4294967295
   %606 = load ptr, ptr %6, align 8
   %607 = getelementptr inbounds %"struct.std::pair.495", ptr %606, i64 %605
-  %608 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %607, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %608 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %607, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 609:                                              ; preds = %7
   %610 = add i64 %8, 1
@@ -13441,8 +13441,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %614 = getelementptr inbounds %"struct.std::pair.495", ptr %613, i64 %612
   %615 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1494 = load ptr, ptr %615, align 8
-  %616 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj307ELj1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1494, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %614)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %616 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj307ELj1EEEbN4llvm7SDValueERS3_(ptr %.val1494, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %614)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 617:                                              ; preds = %7
   %618 = add i64 %8, 2
@@ -13454,8 +13454,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %623 = add i64 %8, 1
   %624 = and i64 %623, 4294967295
   %625 = getelementptr inbounds %"struct.std::pair.495", ptr %621, i64 %624
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %622, ptr noundef nonnull align 8 dereferenceable(12) %625, i32 noundef 4)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %622, ptr noundef nonnull align 8 dereferenceable(12) %625, i32 noundef 4)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 626:                                              ; preds = %7
   %627 = add i64 %8, 2
@@ -13467,8 +13467,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %632 = add i64 %8, 1
   %633 = and i64 %632, 4294967295
   %634 = getelementptr inbounds %"struct.std::pair.495", ptr %630, i64 %633
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj4ELj63EEEbN4llvm7SDValueERS3_S4_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %631, ptr noundef nonnull align 8 dereferenceable(12) %634)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj4ELj63EEEbN4llvm7SDValueERS3_S4_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %631, ptr noundef nonnull align 8 dereferenceable(12) %634)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 635:                                              ; preds = %7
   %636 = add i64 %8, 1
@@ -13479,8 +13479,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %640 = getelementptr inbounds %"struct.std::pair.495", ptr %639, i64 %638
   %641 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1495 = load ptr, ptr %641, align 8
-  %642 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin8EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1495, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %640)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %642 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin8EEEbN4llvm7SDValueERS3_(ptr %.val1495, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %640)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 643:                                              ; preds = %7
   %644 = add i64 %8, 1
@@ -13491,8 +13491,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %648 = getelementptr inbounds %"struct.std::pair.495", ptr %647, i64 %646
   %649 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1496 = load ptr, ptr %649, align 8
-  %650 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin4EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1496, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %648)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %650 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin4EEEbN4llvm7SDValueERS3_(ptr %.val1496, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %648)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 651:                                              ; preds = %7
   %652 = add i64 %8, 1
@@ -13503,8 +13503,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %656 = getelementptr inbounds %"struct.std::pair.495", ptr %655, i64 %654
   %657 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1497 = load ptr, ptr %657, align 8
-  %658 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin2EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1497, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %656)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %658 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin2EEEbN4llvm7SDValueERS3_(ptr %.val1497, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %656)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 659:                                              ; preds = %7
   %660 = add i64 %8, 1
@@ -13513,8 +13513,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %662 = and i64 %8, 4294967295
   %663 = load ptr, ptr %6, align 8
   %664 = getelementptr inbounds %"struct.std::pair.495", ptr %663, i64 %662
-  %665 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVESignedArithImmEN4llvm7SDValueERS2_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %664)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %665 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVESignedArithImmEN4llvm7SDValueERS2_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %664)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 666:                                              ; preds = %7
   %667 = add i64 %8, 1
@@ -13525,8 +13525,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %671 = getelementptr inbounds %"struct.std::pair.495", ptr %670, i64 %669
   %672 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1498 = load ptr, ptr %672, align 8
-  %673 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi8EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1498, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %671)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %673 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi8EEEbN4llvm7SDValueERS3_(ptr %.val1498, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %671)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 674:                                              ; preds = %7
   %675 = add i64 %8, 1
@@ -13537,8 +13537,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %679 = getelementptr inbounds %"struct.std::pair.495", ptr %678, i64 %677
   %680 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1499 = load ptr, ptr %680, align 8
-  %681 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi4EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1499, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %679)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %681 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi4EEEbN4llvm7SDValueERS3_(ptr %.val1499, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %679)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 682:                                              ; preds = %7
   %683 = add i64 %8, 1
@@ -13549,8 +13549,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %687 = getelementptr inbounds %"struct.std::pair.495", ptr %686, i64 %685
   %688 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1500 = load ptr, ptr %688, align 8
-  %689 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi2EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1500, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %687)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %689 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi2EEEbN4llvm7SDValueERS3_(ptr %.val1500, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %687)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 690:                                              ; preds = %7
   %691 = add i64 %8, 1
@@ -13561,8 +13561,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %695 = getelementptr inbounds %"struct.std::pair.495", ptr %694, i64 %693
   %696 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1501 = load ptr, ptr %696, align 8
-  %697 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj8ELb1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1501, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %695)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %697 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj8ELb1EEEbN4llvm7SDValueERS3_(ptr %.val1501, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %695)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 698:                                              ; preds = %7
   %699 = add i64 %8, 1
@@ -13573,8 +13573,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %703 = getelementptr inbounds %"struct.std::pair.495", ptr %702, i64 %701
   %704 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1502 = load ptr, ptr %704, align 8
-  %705 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj16ELb1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1502, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %703)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %705 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj16ELb1EEEbN4llvm7SDValueERS3_(ptr %.val1502, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %703)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 706:                                              ; preds = %7
   %707 = add i64 %8, 1
@@ -13585,8 +13585,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %711 = getelementptr inbounds %"struct.std::pair.495", ptr %710, i64 %709
   %712 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1503 = load ptr, ptr %712, align 8
-  %713 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj32ELb1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1503, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %711)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %713 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj32ELb1EEEbN4llvm7SDValueERS3_(ptr %.val1503, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %711)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 714:                                              ; preds = %7
   %715 = add i64 %8, 1
@@ -13597,8 +13597,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %719 = getelementptr inbounds %"struct.std::pair.495", ptr %718, i64 %717
   %720 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1504 = load ptr, ptr %720, align 8
-  %721 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj64ELb1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1504, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %719)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %721 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj64ELb1EEEbN4llvm7SDValueERS3_(ptr %.val1504, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %719)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 722:                                              ; preds = %7
   %723 = add i64 %8, 1
@@ -13609,8 +13609,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %727 = getelementptr inbounds %"struct.std::pair.495", ptr %726, i64 %725
   %728 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1505 = load ptr, ptr %728, align 8
-  %729 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj325ELj3EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1505, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %727)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %729 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj325ELj3EEEbN4llvm7SDValueERS3_(ptr %.val1505, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %727)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 730:                                              ; preds = %7
   %731 = add i64 %8, 1
@@ -13621,8 +13621,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %735 = getelementptr inbounds %"struct.std::pair.495", ptr %734, i64 %733
   %736 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1506 = load ptr, ptr %736, align 8
-  %737 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj299ELj7EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1506, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %735)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %737 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj299ELj7EEEbN4llvm7SDValueERS3_(ptr %.val1506, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %735)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 738:                                              ; preds = %7
   %739 = add i64 %8, 1
@@ -13633,8 +13633,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %743 = getelementptr inbounds %"struct.std::pair.495", ptr %742, i64 %741
   %744 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1507 = load ptr, ptr %744, align 8
-  %745 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1507, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %743, i32 noundef 32, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %745 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1507, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %743, i32 noundef 32, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 746:                                              ; preds = %7
   %747 = add i64 %8, 1
@@ -13645,8 +13645,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %751 = getelementptr inbounds %"struct.std::pair.495", ptr %750, i64 %749
   %752 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1508 = load ptr, ptr %752, align 8
-  %753 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1508, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %751, i32 noundef 32, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %753 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1508, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %751, i32 noundef 32, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 754:                                              ; preds = %7
   %755 = add i64 %8, 1
@@ -13657,8 +13657,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %759 = getelementptr inbounds %"struct.std::pair.495", ptr %758, i64 %757
   %760 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1509 = load ptr, ptr %760, align 8
-  %761 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1509, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %759, i32 noundef 32, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %761 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1509, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %759, i32 noundef 32, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 762:                                              ; preds = %7
   %763 = add i64 %8, 1
@@ -13669,8 +13669,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %767 = getelementptr inbounds %"struct.std::pair.495", ptr %766, i64 %765
   %768 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1510 = load ptr, ptr %768, align 8
-  %769 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1510, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %767, i32 noundef 64, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %769 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1510, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %767, i32 noundef 64, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 770:                                              ; preds = %7
   %771 = add i64 %8, 1
@@ -13681,8 +13681,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %775 = getelementptr inbounds %"struct.std::pair.495", ptr %774, i64 %773
   %776 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1511 = load ptr, ptr %776, align 8
-  %777 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1511, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %775, i32 noundef 64, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %777 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1511, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %775, i32 noundef 64, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 778:                                              ; preds = %7
   %779 = add i64 %8, 1
@@ -13693,8 +13693,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %783 = getelementptr inbounds %"struct.std::pair.495", ptr %782, i64 %781
   %784 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1512 = load ptr, ptr %784, align 8
-  %785 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %.val1512, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %783, i32 noundef 64, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %785 = tail call fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %.val1512, ptr readonly %3, ptr noundef nonnull align 8 dereferenceable(12) %783, i32 noundef 64, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 786:                                              ; preds = %7
   %787 = add i64 %8, 2
@@ -13706,8 +13706,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %792 = add i64 %8, 1
   %793 = and i64 %792, 4294967295
   %794 = getelementptr inbounds %"struct.std::pair.495", ptr %790, i64 %793
-  %795 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVEAddSubImmEN4llvm7SDValueENS1_3MVTERS2_S4_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %791, ptr noundef nonnull align 8 dereferenceable(12) %794)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %795 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVEAddSubImmEN4llvm7SDValueENS1_3MVTERS2_S4_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %791, ptr noundef nonnull align 8 dereferenceable(12) %794)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 796:                                              ; preds = %7
   %797 = add i64 %8, 2
@@ -13719,8 +13719,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %802 = add i64 %8, 1
   %803 = and i64 %802, 4294967295
   %804 = getelementptr inbounds %"struct.std::pair.495", ptr %800, i64 %803
-  %805 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVEAddSubImmEN4llvm7SDValueENS1_3MVTERS2_S4_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %801, ptr noundef nonnull align 8 dereferenceable(12) %804)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %805 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVEAddSubImmEN4llvm7SDValueENS1_3MVTERS2_S4_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %801, ptr noundef nonnull align 8 dereferenceable(12) %804)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 806:                                              ; preds = %7
   %807 = add i64 %8, 2
@@ -13732,8 +13732,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %812 = add i64 %8, 1
   %813 = and i64 %812, 4294967295
   %814 = getelementptr inbounds %"struct.std::pair.495", ptr %810, i64 %813
-  %815 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVEAddSubImmEN4llvm7SDValueENS1_3MVTERS2_S4_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %811, ptr noundef nonnull align 8 dereferenceable(12) %814)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %815 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVEAddSubImmEN4llvm7SDValueENS1_3MVTERS2_S4_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %811, ptr noundef nonnull align 8 dereferenceable(12) %814)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 816:                                              ; preds = %7
   %817 = add i64 %8, 2
@@ -13745,8 +13745,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %822 = add i64 %8, 1
   %823 = and i64 %822, 4294967295
   %824 = getelementptr inbounds %"struct.std::pair.495", ptr %820, i64 %823
-  %825 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVEAddSubImmEN4llvm7SDValueENS1_3MVTERS2_S4_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %821, ptr noundef nonnull align 8 dereferenceable(12) %824)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %825 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVEAddSubImmEN4llvm7SDValueENS1_3MVTERS2_S4_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %821, ptr noundef nonnull align 8 dereferenceable(12) %824)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 826:                                              ; preds = %7
   %827 = add i64 %8, 1
@@ -13755,8 +13755,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %829 = and i64 %8, 4294967295
   %830 = load ptr, ptr %6, align 8
   %831 = getelementptr inbounds %"struct.std::pair.495", ptr %830, i64 %829
-  %832 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %831, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %832 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %831, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 833:                                              ; preds = %7
   %834 = add i64 %8, 1
@@ -13765,8 +13765,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %836 = and i64 %8, 4294967295
   %837 = load ptr, ptr %6, align 8
   %838 = getelementptr inbounds %"struct.std::pair.495", ptr %837, i64 %836
-  %839 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %838, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %839 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %838, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 840:                                              ; preds = %7
   %841 = add i64 %8, 1
@@ -13775,8 +13775,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %843 = and i64 %8, 4294967295
   %844 = load ptr, ptr %6, align 8
   %845 = getelementptr inbounds %"struct.std::pair.495", ptr %844, i64 %843
-  %846 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %845, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %846 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %845, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 847:                                              ; preds = %7
   %848 = add i64 %8, 2
@@ -13788,8 +13788,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %853 = add i64 %8, 1
   %854 = and i64 %853, 4294967295
   %855 = getelementptr inbounds %"struct.std::pair.495", ptr %851, i64 %854
-  %856 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16SelectArithImmedEN4llvm7SDValueERS2_S3_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %852, ptr noundef nonnull align 8 dereferenceable(12) %855)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %856 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16SelectArithImmedEN4llvm7SDValueERS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %852, ptr noundef nonnull align 8 dereferenceable(12) %855)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 857:                                              ; preds = %7
   %858 = add i64 %8, 2
@@ -13801,8 +13801,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %863 = add i64 %8, 1
   %864 = and i64 %863, 4294967295
   %865 = getelementptr inbounds %"struct.std::pair.495", ptr %861, i64 %864
-  %866 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16SelectArithImmedEN4llvm7SDValueERS2_S3_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %862, ptr noundef nonnull align 8 dereferenceable(12) %865)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %866 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16SelectArithImmedEN4llvm7SDValueERS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %862, ptr noundef nonnull align 8 dereferenceable(12) %865)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 867:                                              ; preds = %7
   %868 = add i64 %8, 2
@@ -13815,7 +13815,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %874 = and i64 %873, 4294967295
   %875 = getelementptr inbounds %"struct.std::pair.495", ptr %871, i64 %874
   %876 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectArithExtendedRegisterEN4llvm7SDValueERS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %872, ptr noundef nonnull align 8 dereferenceable(12) %875)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 877:                                              ; preds = %7
   %878 = add i64 %8, 2
@@ -13828,7 +13828,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %884 = and i64 %883, 4294967295
   %885 = getelementptr inbounds %"struct.std::pair.495", ptr %881, i64 %884
   %886 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectNegArithImmedEN4llvm7SDValueERS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %882, ptr noundef nonnull align 8 dereferenceable(12) %885)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 887:                                              ; preds = %7
   %888 = add i64 %8, 2
@@ -13841,7 +13841,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %894 = and i64 %893, 4294967295
   %895 = getelementptr inbounds %"struct.std::pair.495", ptr %891, i64 %894
   %896 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectNegArithImmedEN4llvm7SDValueERS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %892, ptr noundef nonnull align 8 dereferenceable(12) %895)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 897:                                              ; preds = %7
   %898 = add i64 %8, 2
@@ -13854,7 +13854,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %904 = and i64 %903, 4294967295
   %905 = getelementptr inbounds %"struct.std::pair.495", ptr %901, i64 %904
   %906 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectShiftedRegisterEN4llvm7SDValueEbRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(12) %902, ptr noundef nonnull align 8 dereferenceable(12) %905)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 907:                                              ; preds = %7
   %908 = add i64 %8, 2
@@ -13867,7 +13867,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %914 = and i64 %913, 4294967295
   %915 = getelementptr inbounds %"struct.std::pair.495", ptr %911, i64 %914
   %916 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectShiftedRegisterEN4llvm7SDValueEbRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(12) %912, ptr noundef nonnull align 8 dereferenceable(12) %915)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 917:                                              ; preds = %7
   %918 = add i64 %8, 2
@@ -13879,8 +13879,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %923 = add i64 %8, 1
   %924 = and i64 %923, 4294967295
   %925 = getelementptr inbounds %"struct.std::pair.495", ptr %921, i64 %924
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext true, i32 noundef 7, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %922, ptr noundef nonnull align 8 dereferenceable(12) %925)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext true, i32 noundef 7, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %922, ptr noundef nonnull align 8 dereferenceable(12) %925)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 926:                                              ; preds = %7
   %927 = add i64 %8, 2
@@ -13892,8 +13892,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %932 = add i64 %8, 1
   %933 = and i64 %932, 4294967295
   %934 = getelementptr inbounds %"struct.std::pair.495", ptr %930, i64 %933
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext true, i32 noundef 7, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(12) %931, ptr noundef nonnull align 8 dereferenceable(12) %934)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext true, i32 noundef 7, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(12) %931, ptr noundef nonnull align 8 dereferenceable(12) %934)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 935:                                              ; preds = %7
   %936 = add i64 %8, 1
@@ -13904,8 +13904,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %940 = getelementptr inbounds %"struct.std::pair.495", ptr %939, i64 %938
   %941 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1513 = load ptr, ptr %941, align 8
-  %942 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj7ELb0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1513, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %940)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %942 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj7ELb0EEEbN4llvm7SDValueERS3_(ptr %.val1513, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %940)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 943:                                              ; preds = %7
   %944 = add i64 %8, 1
@@ -13916,8 +13916,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %948 = getelementptr inbounds %"struct.std::pair.495", ptr %947, i64 %946
   %949 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1514 = load ptr, ptr %949, align 8
-  %950 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj15ELb0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1514, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %948)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %950 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj15ELb0EEEbN4llvm7SDValueERS3_(ptr %.val1514, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %948)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 951:                                              ; preds = %7
   %952 = add i64 %8, 1
@@ -13928,8 +13928,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %956 = getelementptr inbounds %"struct.std::pair.495", ptr %955, i64 %954
   %957 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1515 = load ptr, ptr %957, align 8
-  %958 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj31ELb0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1515, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %956)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %958 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj31ELb0EEEbN4llvm7SDValueERS3_(ptr %.val1515, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %956)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 959:                                              ; preds = %7
   %960 = add i64 %8, 1
@@ -13940,8 +13940,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %964 = getelementptr inbounds %"struct.std::pair.495", ptr %963, i64 %962
   %965 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1516 = load ptr, ptr %965, align 8
-  %966 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj63ELb0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1516, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %964)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %966 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj63ELb0EEEbN4llvm7SDValueERS3_(ptr %.val1516, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %964)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 967:                                              ; preds = %7
   %968 = add i64 %8, 1
@@ -13950,8 +13950,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %970 = and i64 %8, 4294967295
   %971 = load ptr, ptr %6, align 8
   %972 = getelementptr inbounds %"struct.std::pair.495", ptr %971, i64 %970
-  %973 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %972, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %973 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %972, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 974:                                              ; preds = %7
   %975 = add i64 %8, 1
@@ -13962,8 +13962,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %979 = getelementptr inbounds %"struct.std::pair.495", ptr %978, i64 %977
   %980 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1517 = load ptr, ptr %980, align 8
-  %981 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj298ELj0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1517, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %979)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %981 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj298ELj0EEEbN4llvm7SDValueERS3_(ptr %.val1517, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %979)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 982:                                              ; preds = %7
   %983 = add i64 %8, 2
@@ -13975,8 +13975,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %988 = add i64 %8, 1
   %989 = and i64 %988, 4294967295
   %990 = getelementptr inbounds %"struct.std::pair.495", ptr %986, i64 %989
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %987, ptr noundef nonnull align 8 dereferenceable(12) %990, i32 noundef 2)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %987, ptr noundef nonnull align 8 dereferenceable(12) %990, i32 noundef 2)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 991:                                              ; preds = %7
   %992 = add i64 %8, 2
@@ -13988,8 +13988,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %997 = add i64 %8, 1
   %998 = and i64 %997, 4294967295
   %999 = getelementptr inbounds %"struct.std::pair.495", ptr %995, i64 %998
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext true, i32 noundef 9, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(12) %996, ptr noundef nonnull align 8 dereferenceable(12) %999)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext true, i32 noundef 9, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(12) %996, ptr noundef nonnull align 8 dereferenceable(12) %999)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1000:                                             ; preds = %7
   %1001 = add i64 %8, 2
@@ -14001,8 +14001,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1006 = add i64 %8, 1
   %1007 = and i64 %1006, 4294967295
   %1008 = getelementptr inbounds %"struct.std::pair.495", ptr %1004, i64 %1007
-  %1009 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectRoundingVLShrEN4llvm7SDValueERS2_S3_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1005, ptr noundef nonnull align 8 dereferenceable(12) %1008)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1009 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectRoundingVLShrEN4llvm7SDValueERS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1005, ptr noundef nonnull align 8 dereferenceable(12) %1008)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1010:                                             ; preds = %7
   %1011 = add i64 %8, 1
@@ -14013,8 +14013,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1015 = getelementptr inbounds %"struct.std::pair.495", ptr %1014, i64 %1013
   %1016 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1518 = load ptr, ptr %1016, align 8
-  %1017 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILin32ELi31ELi16EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1518, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1015)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1017 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILin32ELi31ELi16EEEbN4llvm7SDValueERS3_(ptr %.val1518, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1015)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1018:                                             ; preds = %7
   %1019 = add i64 %8, 1
@@ -14025,8 +14025,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1023 = getelementptr inbounds %"struct.std::pair.495", ptr %1022, i64 %1021
   %1024 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1519 = load ptr, ptr %1024, align 8
-  %1025 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi31ELi8EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1519, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1023)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1025 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi31ELi8EEEbN4llvm7SDValueERS3_(ptr %.val1519, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1023)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1026:                                             ; preds = %7
   %1027 = add i64 %8, 2
@@ -14038,8 +14038,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1032 = add i64 %8, 1
   %1033 = and i64 %1032, 4294967295
   %1034 = getelementptr inbounds %"struct.std::pair.495", ptr %1030, i64 %1033
-  %1035 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %1031, ptr noundef nonnull align 8 dereferenceable(12) %1034)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1035 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %1031, ptr noundef nonnull align 8 dereferenceable(12) %1034)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1036:                                             ; preds = %7
   %1037 = add i64 %8, 2
@@ -14051,8 +14051,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1042 = add i64 %8, 1
   %1043 = and i64 %1042, 4294967295
   %1044 = getelementptr inbounds %"struct.std::pair.495", ptr %1040, i64 %1043
-  %1045 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln32ELl31EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1041, ptr noundef nonnull align 8 dereferenceable(12) %1044)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1045 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln32ELl31EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1041, ptr noundef nonnull align 8 dereferenceable(12) %1044)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1046:                                             ; preds = %7
   %1047 = add i64 %8, 2
@@ -14064,8 +14064,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1052 = add i64 %8, 1
   %1053 = and i64 %1052, 4294967295
   %1054 = getelementptr inbounds %"struct.std::pair.495", ptr %1050, i64 %1053
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %1051, ptr noundef nonnull align 8 dereferenceable(12) %1054, i32 noundef 2)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %1051, ptr noundef nonnull align 8 dereferenceable(12) %1054, i32 noundef 2)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1055:                                             ; preds = %7
   %1056 = add i64 %8, 2
@@ -14077,8 +14077,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1061 = add i64 %8, 1
   %1062 = and i64 %1061, 4294967295
   %1063 = getelementptr inbounds %"struct.std::pair.495", ptr %1059, i64 %1062
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj8ELj63EEEbN4llvm7SDValueERS3_S4_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %1060, ptr noundef nonnull align 8 dereferenceable(12) %1063)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj8ELj63EEEbN4llvm7SDValueERS3_S4_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %1060, ptr noundef nonnull align 8 dereferenceable(12) %1063)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1064:                                             ; preds = %7
   %1065 = add i64 %8, 1
@@ -14089,8 +14089,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1069 = getelementptr inbounds %"struct.std::pair.495", ptr %1068, i64 %1067
   %1070 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1520 = load ptr, ptr %1070, align 8
-  %1071 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi63ELi4EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1520, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1069)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1071 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi63ELi4EEEbN4llvm7SDValueERS3_(ptr %.val1520, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1069)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1072:                                             ; preds = %7
   %1073 = add i64 %8, 2
@@ -14103,7 +14103,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1079 = and i64 %1078, 4294967295
   %1080 = getelementptr inbounds %"struct.std::pair.495", ptr %1076, i64 %1079
   %1081 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectArithExtendedRegisterEN4llvm7SDValueERS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %1077, ptr noundef nonnull align 8 dereferenceable(12) %1080)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1082:                                             ; preds = %7
   %1083 = add i64 %8, 2
@@ -14115,8 +14115,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1088 = add i64 %8, 1
   %1089 = and i64 %1088, 4294967295
   %1090 = getelementptr inbounds %"struct.std::pair.495", ptr %1086, i64 %1089
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext true, i32 noundef 7, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(12) %1087, ptr noundef nonnull align 8 dereferenceable(12) %1090)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext true, i32 noundef 7, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(12) %1087, ptr noundef nonnull align 8 dereferenceable(12) %1090)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1091:                                             ; preds = %7
   %1092 = add i64 %8, 2
@@ -14129,7 +14129,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1098 = and i64 %1097, 4294967295
   %1099 = getelementptr inbounds %"struct.std::pair.495", ptr %1095, i64 %1098
   %1100 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectArithExtendedRegisterEN4llvm7SDValueERS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %1096, ptr noundef nonnull align 8 dereferenceable(12) %1099)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1101:                                             ; preds = %7
   %1102 = add i64 %8, 2
@@ -14141,8 +14141,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1107 = add i64 %8, 1
   %1108 = and i64 %1107, 4294967295
   %1109 = getelementptr inbounds %"struct.std::pair.495", ptr %1105, i64 %1108
-  %1110 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVECpyDupImmEN4llvm7SDValueENS1_3MVTERS2_S4_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %1106, ptr noundef nonnull align 8 dereferenceable(12) %1109)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1110 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVECpyDupImmEN4llvm7SDValueENS1_3MVTERS2_S4_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %1106, ptr noundef nonnull align 8 dereferenceable(12) %1109)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1111:                                             ; preds = %7
   %1112 = add i64 %8, 2
@@ -14154,8 +14154,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1117 = add i64 %8, 1
   %1118 = and i64 %1117, 4294967295
   %1119 = getelementptr inbounds %"struct.std::pair.495", ptr %1115, i64 %1118
-  %1120 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVECpyDupImmEN4llvm7SDValueENS1_3MVTERS2_S4_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %1116, ptr noundef nonnull align 8 dereferenceable(12) %1119)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1120 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVECpyDupImmEN4llvm7SDValueENS1_3MVTERS2_S4_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %1116, ptr noundef nonnull align 8 dereferenceable(12) %1119)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1121:                                             ; preds = %7
   %1122 = add i64 %8, 2
@@ -14167,8 +14167,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1127 = add i64 %8, 1
   %1128 = and i64 %1127, 4294967295
   %1129 = getelementptr inbounds %"struct.std::pair.495", ptr %1125, i64 %1128
-  %1130 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVECpyDupImmEN4llvm7SDValueENS1_3MVTERS2_S4_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %1126, ptr noundef nonnull align 8 dereferenceable(12) %1129)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1130 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVECpyDupImmEN4llvm7SDValueENS1_3MVTERS2_S4_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %1126, ptr noundef nonnull align 8 dereferenceable(12) %1129)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1131:                                             ; preds = %7
   %1132 = add i64 %8, 2
@@ -14180,8 +14180,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1137 = add i64 %8, 1
   %1138 = and i64 %1137, 4294967295
   %1139 = getelementptr inbounds %"struct.std::pair.495", ptr %1135, i64 %1138
-  %1140 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVECpyDupImmEN4llvm7SDValueENS1_3MVTERS2_S4_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %1136, ptr noundef nonnull align 8 dereferenceable(12) %1139)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1140 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVECpyDupImmEN4llvm7SDValueENS1_3MVTERS2_S4_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %1136, ptr noundef nonnull align 8 dereferenceable(12) %1139)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1141:                                             ; preds = %7
   %1142 = add i64 %8, 1
@@ -14190,8 +14190,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1144 = and i64 %8, 4294967295
   %1145 = load ptr, ptr %6, align 8
   %1146 = getelementptr inbounds %"struct.std::pair.495", ptr %1145, i64 %1144
-  %1147 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVESignedArithImmEN4llvm7SDValueERS2_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1146)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1147 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVESignedArithImmEN4llvm7SDValueERS2_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1146)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1148:                                             ; preds = %7
   %1149 = add i64 %8, 2
@@ -14203,8 +14203,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1154 = add i64 %8, 1
   %1155 = and i64 %1154, 4294967295
   %1156 = getelementptr inbounds %"struct.std::pair.495", ptr %1152, i64 %1155
-  %1157 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %1153, ptr noundef nonnull align 8 dereferenceable(12) %1156, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1157 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %1153, ptr noundef nonnull align 8 dereferenceable(12) %1156, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1158:                                             ; preds = %7
   %1159 = add i64 %8, 2
@@ -14216,8 +14216,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1164 = add i64 %8, 1
   %1165 = and i64 %1164, 4294967295
   %1166 = getelementptr inbounds %"struct.std::pair.495", ptr %1162, i64 %1165
-  %1167 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %1163, ptr noundef nonnull align 8 dereferenceable(12) %1166, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1167 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %1163, ptr noundef nonnull align 8 dereferenceable(12) %1166, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1168:                                             ; preds = %7
   %1169 = add i64 %8, 2
@@ -14229,8 +14229,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1174 = add i64 %8, 1
   %1175 = and i64 %1174, 4294967295
   %1176 = getelementptr inbounds %"struct.std::pair.495", ptr %1172, i64 %1175
-  %1177 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %1173, ptr noundef nonnull align 8 dereferenceable(12) %1176, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1177 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %1173, ptr noundef nonnull align 8 dereferenceable(12) %1176, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1178:                                             ; preds = %7
   %1179 = add i64 %8, 2
@@ -14242,8 +14242,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1184 = add i64 %8, 1
   %1185 = and i64 %1184, 4294967295
   %1186 = getelementptr inbounds %"struct.std::pair.495", ptr %1182, i64 %1185
-  %1187 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %1183, ptr noundef nonnull align 8 dereferenceable(12) %1186, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1187 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %1183, ptr noundef nonnull align 8 dereferenceable(12) %1186, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1188:                                             ; preds = %7
   %1189 = add i64 %8, 2
@@ -14255,8 +14255,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1194 = add i64 %8, 1
   %1195 = and i64 %1194, 4294967295
   %1196 = getelementptr inbounds %"struct.std::pair.495", ptr %1192, i64 %1195
-  %1197 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %1193, ptr noundef nonnull align 8 dereferenceable(12) %1196, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1197 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %1193, ptr noundef nonnull align 8 dereferenceable(12) %1196, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1198:                                             ; preds = %7
   %1199 = add i64 %8, 2
@@ -14268,8 +14268,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1204 = add i64 %8, 1
   %1205 = and i64 %1204, 4294967295
   %1206 = getelementptr inbounds %"struct.std::pair.495", ptr %1202, i64 %1205
-  %1207 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %1203, ptr noundef nonnull align 8 dereferenceable(12) %1206, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1207 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %1203, ptr noundef nonnull align 8 dereferenceable(12) %1206, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1208:                                             ; preds = %7
   %1209 = add i64 %8, 2
@@ -14281,8 +14281,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1214 = add i64 %8, 1
   %1215 = and i64 %1214, 4294967295
   %1216 = getelementptr inbounds %"struct.std::pair.495", ptr %1212, i64 %1215
-  %1217 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %1213, ptr noundef nonnull align 8 dereferenceable(12) %1216, i1 noundef zeroext false)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1217 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %1213, ptr noundef nonnull align 8 dereferenceable(12) %1216, i1 noundef zeroext false)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1218:                                             ; preds = %7
   %1219 = add i64 %8, 2
@@ -14294,8 +14294,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1224 = add i64 %8, 1
   %1225 = and i64 %1224, 4294967295
   %1226 = getelementptr inbounds %"struct.std::pair.495", ptr %1222, i64 %1225
-  %1227 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %1223, ptr noundef nonnull align 8 dereferenceable(12) %1226, i1 noundef zeroext true)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1227 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %1223, ptr noundef nonnull align 8 dereferenceable(12) %1226, i1 noundef zeroext true)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1228:                                             ; preds = %7
   %1229 = add i64 %8, 1
@@ -14306,8 +14306,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1233 = getelementptr inbounds %"struct.std::pair.495", ptr %1232, i64 %1231
   %1234 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1521 = load ptr, ptr %1234, align 8
-  %1235 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi127ELi2EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1521, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1233)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1235 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi127ELi2EEEbN4llvm7SDValueERS3_(ptr %.val1521, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1233)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1236:                                             ; preds = %7
   %1237 = add i64 %8, 2
@@ -14319,8 +14319,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1242 = add i64 %8, 1
   %1243 = and i64 %1242, 4294967295
   %1244 = getelementptr inbounds %"struct.std::pair.495", ptr %1240, i64 %1243
-  %1245 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectAddrModeFrameIndexSVEEN4llvm7SDValueERS2_S3_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1241, ptr noundef nonnull align 8 dereferenceable(12) %1244)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1245 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectAddrModeFrameIndexSVEEN4llvm7SDValueERS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1241, ptr noundef nonnull align 8 dereferenceable(12) %1244)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1246:                                             ; preds = %7
   %1247 = add i64 %8, 1
@@ -14333,8 +14333,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %.val1480 = load ptr, ptr %1252, align 8
   %1253 = getelementptr i8, ptr %.val1480, i64 744
   %.val1480.val = load i8, ptr %1253, align 8
-  %1254 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_.argprom.argprom.argelim(i8 %.val1480.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1251)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1254 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_(i8 %.val1480.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1251)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1255:                                             ; preds = %7
   %1256 = add i64 %8, 1
@@ -14347,8 +14347,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %.val1481 = load ptr, ptr %1261, align 8
   %1262 = getelementptr i8, ptr %.val1481, i64 744
   %.val1481.val = load i8, ptr %1262, align 8
-  %1263 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_.argprom.argprom.argelim(i8 %.val1481.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1260)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1263 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_(i8 %.val1481.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1260)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1264:                                             ; preds = %7
   %1265 = add i64 %8, 1
@@ -14361,8 +14361,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %.val1482 = load ptr, ptr %1270, align 8
   %1271 = getelementptr i8, ptr %.val1482, i64 744
   %.val1482.val = load i8, ptr %1271, align 8
-  %1272 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_.argprom.argprom.argelim(i8 %.val1482.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1269)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1272 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_(i8 %.val1482.val, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1269)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1273:                                             ; preds = %7
   %1274 = add i64 %8, 1
@@ -14373,8 +14373,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1278 = getelementptr inbounds %"struct.std::pair.495", ptr %1277, i64 %1276
   %1279 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1522 = load ptr, ptr %1279, align 8
-  %1280 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEArithImmEN4llvm7SDValueENS1_3MVTERS2_.argprom.argelim(ptr %.val1522, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %1278)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1280 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEArithImmEN4llvm7SDValueENS1_3MVTERS2_(ptr %.val1522, ptr readonly %3, i16 5, ptr noundef nonnull align 8 dereferenceable(12) %1278)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1281:                                             ; preds = %7
   %1282 = add i64 %8, 1
@@ -14385,8 +14385,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1286 = getelementptr inbounds %"struct.std::pair.495", ptr %1285, i64 %1284
   %1287 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1523 = load ptr, ptr %1287, align 8
-  %1288 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEArithImmEN4llvm7SDValueENS1_3MVTERS2_.argprom.argelim(ptr %.val1523, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %1286)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1288 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEArithImmEN4llvm7SDValueENS1_3MVTERS2_(ptr %.val1523, ptr readonly %3, i16 6, ptr noundef nonnull align 8 dereferenceable(12) %1286)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1289:                                             ; preds = %7
   %1290 = add i64 %8, 1
@@ -14397,8 +14397,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1294 = getelementptr inbounds %"struct.std::pair.495", ptr %1293, i64 %1292
   %1295 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1524 = load ptr, ptr %1295, align 8
-  %1296 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEArithImmEN4llvm7SDValueENS1_3MVTERS2_.argprom.argelim(ptr %.val1524, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %1294)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1296 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEArithImmEN4llvm7SDValueENS1_3MVTERS2_(ptr %.val1524, ptr readonly %3, i16 7, ptr noundef nonnull align 8 dereferenceable(12) %1294)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1297:                                             ; preds = %7
   %1298 = add i64 %8, 1
@@ -14409,8 +14409,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1302 = getelementptr inbounds %"struct.std::pair.495", ptr %1301, i64 %1300
   %1303 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1525 = load ptr, ptr %1303, align 8
-  %1304 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEArithImmEN4llvm7SDValueENS1_3MVTERS2_.argprom.argelim(ptr %.val1525, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %1302)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1304 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEArithImmEN4llvm7SDValueENS1_3MVTERS2_(ptr %.val1525, ptr readonly %3, i16 8, ptr noundef nonnull align 8 dereferenceable(12) %1302)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1305:                                             ; preds = %7
   %1306 = add i64 %8, 2
@@ -14422,8 +14422,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1311 = add i64 %8, 1
   %1312 = and i64 %1311, 4294967295
   %1313 = getelementptr inbounds %"struct.std::pair.495", ptr %1309, i64 %1312
-  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext false, i32 noundef 6, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(12) %1310, ptr noundef nonnull align 8 dereferenceable(12) %1313)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  tail call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %3, i32 %4, i1 noundef zeroext false, i32 noundef 6, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(12) %1310, ptr noundef nonnull align 8 dereferenceable(12) %1313)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1314:                                             ; preds = %7
   %1315 = add i64 %8, 2
@@ -14436,7 +14436,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1321 = and i64 %1320, 4294967295
   %1322 = getelementptr inbounds %"struct.std::pair.495", ptr %1318, i64 %1321
   %1323 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectArithUXTXRegisterEN4llvm7SDValueERS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %3, i32 %4, ptr noundef nonnull align 8 dereferenceable(12) %1319, ptr noundef nonnull align 8 dereferenceable(12) %1322)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
 1324:                                             ; preds = %7
   %1325 = add i64 %8, 1
@@ -14447,10 +14447,10 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19Chec
   %1329 = getelementptr inbounds %"struct.std::pair.495", ptr %1328, i64 %1327
   %1330 = getelementptr inbounds i8, ptr %0, i64 64
   %.val1526 = load ptr, ptr %1330, align 8
-  %1331 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi255ELi1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.val1526, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1329)
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit
+  %1331 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi255ELi1EEEbN4llvm7SDValueERS3_(ptr %.val1526, ptr %3, ptr noundef nonnull align 8 dereferenceable(12) %1329)
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.argprom.exit: ; preds = %82, %77, %1324, %1314, %1305, %1297, %1289, %1281, %1273, %1264, %1255, %1246, %1236, %1228, %1218, %1208, %1198, %1188, %1178, %1168, %1158, %1148, %1141, %1131, %1121, %1111, %1101, %1091, %1082, %1072, %1064, %1055, %1046, %1036, %1026, %1018, %1010, %1000, %991, %982, %974, %967, %959, %951, %943, %935, %926, %917, %907, %897, %887, %877, %867, %857, %847, %840, %833, %826, %816, %806, %796, %786, %778, %770, %762, %754, %746, %738, %730, %722, %714, %706, %698, %690, %682, %674, %666, %659, %651, %643, %635, %626, %617, %609, %602, %595, %588, %581, %572, %564, %555, %546, %539, %530, %514, %498, %488, %480, %470, %460, %452, %444, %436, %428, %420, %412, %403, %394, %385, %375, %359, %343, %333, %325, %309, %293, %283, %273, %263, %253, %237, %221, %213, %205, %189, %173, %163, %153, %143, %133, %123, %114, %105, %102, %93, %67, %58, %49, %40, %30, %21, %18, %15, %10
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeILj0EEEbN4llvm7SDValueERS3_S4_.exit: ; preds = %82, %77, %1324, %1314, %1305, %1297, %1289, %1281, %1273, %1264, %1255, %1246, %1236, %1228, %1218, %1208, %1198, %1188, %1178, %1168, %1158, %1148, %1141, %1131, %1121, %1111, %1101, %1091, %1082, %1072, %1064, %1055, %1046, %1036, %1026, %1018, %1010, %1000, %991, %982, %974, %967, %959, %951, %943, %935, %926, %917, %907, %897, %887, %877, %867, %857, %847, %840, %833, %826, %816, %806, %796, %786, %778, %770, %762, %754, %746, %738, %730, %722, %714, %706, %698, %690, %682, %674, %666, %659, %651, %643, %635, %626, %617, %609, %602, %595, %588, %581, %572, %564, %555, %546, %539, %530, %514, %498, %488, %480, %470, %460, %452, %444, %436, %428, %420, %412, %403, %394, %385, %375, %359, %343, %333, %325, %309, %293, %283, %273, %263, %253, %237, %221, %213, %205, %189, %173, %163, %153, %143, %133, %123, %114, %105, %102, %93, %67, %58, %49, %40, %30, %21, %18, %15, %10
   %.0 = phi i1 [ %1331, %1324 ], [ %1323, %1314 ], [ true, %1305 ], [ %1304, %1297 ], [ %1296, %1289 ], [ %1288, %1281 ], [ %1280, %1273 ], [ %1272, %1264 ], [ %1263, %1255 ], [ %1254, %1246 ], [ %1245, %1236 ], [ %1235, %1228 ], [ %1227, %1218 ], [ %1217, %1208 ], [ %1207, %1198 ], [ %1197, %1188 ], [ %1187, %1178 ], [ %1177, %1168 ], [ %1167, %1158 ], [ %1157, %1148 ], [ %1147, %1141 ], [ %1140, %1131 ], [ %1130, %1121 ], [ %1120, %1111 ], [ %1110, %1101 ], [ %1100, %1091 ], [ true, %1082 ], [ %1081, %1072 ], [ %1071, %1064 ], [ true, %1055 ], [ true, %1046 ], [ %1045, %1036 ], [ %1035, %1026 ], [ %1025, %1018 ], [ %1017, %1010 ], [ %1009, %1000 ], [ true, %991 ], [ true, %982 ], [ %981, %974 ], [ %973, %967 ], [ %966, %959 ], [ %958, %951 ], [ %950, %943 ], [ %942, %935 ], [ true, %926 ], [ true, %917 ], [ %916, %907 ], [ %906, %897 ], [ %896, %887 ], [ %886, %877 ], [ %876, %867 ], [ %866, %857 ], [ %856, %847 ], [ %846, %840 ], [ %839, %833 ], [ %832, %826 ], [ %825, %816 ], [ %815, %806 ], [ %805, %796 ], [ %795, %786 ], [ %785, %778 ], [ %777, %770 ], [ %769, %762 ], [ %761, %754 ], [ %753, %746 ], [ %745, %738 ], [ %737, %730 ], [ %729, %722 ], [ %721, %714 ], [ %713, %706 ], [ %705, %698 ], [ %697, %690 ], [ %689, %682 ], [ %681, %674 ], [ %673, %666 ], [ %665, %659 ], [ %658, %651 ], [ %650, %643 ], [ %642, %635 ], [ true, %626 ], [ true, %617 ], [ %616, %609 ], [ %608, %602 ], [ %601, %595 ], [ %594, %588 ], [ %587, %581 ], [ true, %572 ], [ %571, %564 ], [ true, %555 ], [ true, %546 ], [ %545, %539 ], [ true, %530 ], [ %529, %514 ], [ %513, %498 ], [ %497, %488 ], [ %487, %480 ], [ %479, %470 ], [ %469, %460 ], [ %459, %452 ], [ %451, %444 ], [ %443, %436 ], [ %435, %428 ], [ %427, %420 ], [ %419, %412 ], [ true, %403 ], [ true, %394 ], [ true, %385 ], [ %384, %375 ], [ %374, %359 ], [ %358, %343 ], [ %342, %333 ], [ %332, %325 ], [ %324, %309 ], [ %308, %293 ], [ %292, %283 ], [ %282, %273 ], [ %272, %263 ], [ %262, %253 ], [ %252, %237 ], [ %236, %221 ], [ %220, %213 ], [ %212, %205 ], [ %204, %189 ], [ %188, %173 ], [ %172, %163 ], [ %162, %153 ], [ %152, %143 ], [ %142, %133 ], [ %132, %123 ], [ true, %114 ], [ true, %105 ], [ %104, %102 ], [ true, %93 ], [ %76, %67 ], [ %66, %58 ], [ %57, %49 ], [ %48, %40 ], [ %39, %30 ], [ true, %21 ], [ %20, %18 ], [ %17, %15 ], [ %14, %10 ], [ false, %77 ], [ true, %82 ]
   ret i1 %.0
 }
@@ -20042,7 +20042,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %23, %27
   %38 = load ptr, ptr %8, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load ptr, ptr %39, align 8
-  call fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %38, ptr %40)
+  call fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %38, ptr %40)
   br label %41
 
 41:                                               ; preds = %37, %_ZNK4llvm3EVT13getSizeInBitsEv.exit
@@ -20217,12 +20217,12 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %7, %18
   %.sroa.250.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %.fca.1.extract12, ptr %.sroa.250.0..sroa_idx, align 8, !noalias !73
   %.sroa.01.0.copyload.i = load ptr, ptr %28, align 8, !noalias !73
-  %32 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln8ELl7EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %1, ptr %.sroa.01.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %9)
+  %32 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln8ELl7EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %1, ptr %.sroa.01.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %9)
   br i1 %32, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24findAddrModeSVELoadStoreEPN4llvm6SDNodeEjjRKNS1_7SDValueES6_j.exit, label %33
 
 33:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %.sroa.0.0.copyload.i35 = load ptr, ptr %28, align 8, !noalias !73
-  %34 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %.sroa.0.0.copyload.i35, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %9)
+  %34 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %.sroa.0.0.copyload.i35, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %9)
   %.pre.i = select i1 %34, i32 %5, i32 %4
   br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24findAddrModeSVELoadStoreEPN4llvm6SDNodeEjjRKNS1_7SDValueES6_j.exit
 
@@ -20349,11 +20349,11 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %6, %18
   store ptr %.fca.0.extract11, ptr %8, align 8, !noalias !77
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %.fca.1.extract12, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !77
-  %32 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln8ELl7EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %1, ptr %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
+  %32 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln8ELl7EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %1, ptr %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
   br i1 %32, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24findAddrModeSVELoadStoreEPN4llvm6SDNodeEjjRKNS1_7SDValueES6_j.exit, label %33
 
 33:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
-  %34 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %.sroa.0.0.copyload, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
+  %34 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %.sroa.0.0.copyload, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
   %.pre.i = select i1 %34, i32 %5, i32 %4
   br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24findAddrModeSVELoadStoreEPN4llvm6SDNodeEjjRKNS1_7SDValueES6_j.exit
 
@@ -20420,7 +20420,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %48, %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj14ELj2EEEvPN4llvm6SDNodeEjjj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 4729, 4734) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj14ELj2EEEvPN4llvm6SDNodeEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 4729, 4734) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SDValue", align 8
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDLoc", align 8
@@ -20456,7 +20456,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMulti
   %.sroa.050.0.copyload51 = load ptr, ptr %27, align 8
   %.sroa.4.0..sroa_idx52 = getelementptr inbounds i8, ptr %12, i64 128
   %.sroa.4.0.copyload53 = load i32, ptr %.sroa.4.0..sroa_idx52, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 14, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 2)
+  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 14, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 2)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %6, align 8
@@ -20535,7 +20535,7 @@ _Z13SelectSMETileRjj.exit:                        ; preds = %57, %_ZN4llvm5SDLoc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj6ELj2EEEvPN4llvm6SDNodeEjjj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 4731, 4736) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj6ELj2EEEvPN4llvm6SDNodeEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 4731, 4736) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SDValue", align 8
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDLoc", align 8
@@ -20572,7 +20572,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMulti
   %.sroa.050.0.copyload51 = load ptr, ptr %28, align 8
   %.sroa.4.0..sroa_idx52 = getelementptr inbounds i8, ptr %12, i64 128
   %.sroa.4.0.copyload53 = load i32, ptr %.sroa.4.0..sroa_idx52, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 2)
+  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 2)
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %6, align 8
@@ -20651,7 +20651,7 @@ _Z13SelectSMETileRjj.exit:                        ; preds = %58, %_ZN4llvm5SDLoc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj2ELj2EEEvPN4llvm6SDNodeEjjj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 4732, 4737) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj2ELj2EEEvPN4llvm6SDNodeEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 4732, 4737) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SDValue", align 8
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDLoc", align 8
@@ -20688,7 +20688,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMulti
   %.sroa.050.0.copyload51 = load ptr, ptr %28, align 8
   %.sroa.4.0..sroa_idx52 = getelementptr inbounds i8, ptr %12, i64 128
   %.sroa.4.0.copyload53 = load i32, ptr %.sroa.4.0..sroa_idx52, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 2)
+  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 2)
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %6, align 8
@@ -20819,7 +20819,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMulti
   %.sroa.050.0.copyload51 = load ptr, ptr %35, align 8
   %.sroa.4.0..sroa_idx52 = getelementptr inbounds i8, ptr %14, i64 128
   %.sroa.4.0.copyload53 = load i32, ptr %.sroa.4.0..sroa_idx52, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef 2)
+  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef 2)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %8, align 8
@@ -20899,7 +20899,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %29, %27, %25, %5, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj12ELj4EEEvPN4llvm6SDNodeEjjj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 4737, 4742) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj12ELj4EEEvPN4llvm6SDNodeEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 4737, 4742) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SDValue", align 8
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDLoc", align 8
@@ -20935,7 +20935,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMulti
   %.sroa.050.0.copyload51 = load ptr, ptr %27, align 8
   %.sroa.4.0..sroa_idx52 = getelementptr inbounds i8, ptr %12, i64 128
   %.sroa.4.0.copyload53 = load i32, ptr %.sroa.4.0..sroa_idx52, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 4)
+  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 4)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %6, align 8
@@ -21015,7 +21015,7 @@ _Z13SelectSMETileRjj.exit:                        ; preds = %58, %54, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj4ELj4EEEvPN4llvm6SDNodeEjjj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 4739, 4744) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj4ELj4EEEvPN4llvm6SDNodeEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 4739, 4744) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SDValue", align 8
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDLoc", align 8
@@ -21052,7 +21052,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMulti
   %.sroa.050.0.copyload51 = load ptr, ptr %28, align 8
   %.sroa.4.0..sroa_idx52 = getelementptr inbounds i8, ptr %12, i64 128
   %.sroa.4.0.copyload53 = load i32, ptr %.sroa.4.0..sroa_idx52, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 4)
+  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 4)
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %6, align 8
@@ -21132,7 +21132,7 @@ _Z13SelectSMETileRjj.exit:                        ; preds = %59, %55, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj4EEEvPN4llvm6SDNodeEjjj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 299, 326) %2, i32 noundef range(i32 4742, 4745) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj0ELj4EEEvPN4llvm6SDNodeEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 299, 326) %2, i32 noundef range(i32 4742, 4745) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
@@ -21184,7 +21184,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMulti
   %.sroa.050.0.copyload51 = load ptr, ptr %34, align 8
   %.sroa.4.0..sroa_idx52 = getelementptr inbounds i8, ptr %13, i64 128
   %.sroa.4.0.copyload53 = load i32, ptr %.sroa.4.0..sroa_idx52, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef 4)
+  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload51, i32 %.sroa.4.0.copyload53, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef 4)
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %7, align 8
@@ -21264,7 +21264,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %28, %26, %24, %4, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj7ELj1EEEvPN4llvm6SDNodeEjjj.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 2, 5) %2, i32 noundef range(i32 4761, 4764) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMultiVectorMoveILj7ELj1EEEvPN4llvm6SDNodeEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, i32 noundef range(i32 2, 5) %2, i32 noundef range(i32 4761, 4764) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
@@ -21284,7 +21284,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectMulti
   %.sroa.050.0.copyload = load ptr, ptr %16, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 88
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload, i32 %.sroa.4.0.copyload, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef 1)
+  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.050.0.copyload, i32 %.sroa.4.0.copyload, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef 1)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %7, align 8
@@ -21389,7 +21389,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectMulti
   store i32 0, ptr %17, align 8
   store ptr null, ptr %9, align 8
   store i32 0, ptr %18, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.028.0, i32 %.sroa.330.0, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef %5)
+  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.028.0, i32 %.sroa.330.0, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef %5)
   %22 = load ptr, ptr %19, align 8
   store ptr %22, ptr %10, align 8
   %.not.i.i.i.i.i = icmp eq ptr %22, null
@@ -21442,7 +21442,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   store i32 0, ptr %17, align 8
   store ptr null, ptr %9, align 8
   store i32 0, ptr %18, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.028.0.c, i32 %.sroa.330.0.c, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef %5)
+  call fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.sroa.028.0.c, i32 %.sroa.330.0.c, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef %5)
   %41 = load ptr, ptr %19, align 8
   store ptr %41, ptr %10, align 8
   %.not.i.i.i.i.i51 = icmp eq ptr %41, null
@@ -23676,7 +23676,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %26, %30
   %40 = load ptr, ptr %8, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load ptr, ptr %41, align 8
-  call fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %40, ptr %42)
+  call fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %40, ptr %42)
   br label %43
 
 43:                                               ; preds = %39, %_ZNK4llvm3EVT13getSizeInBitsEv.exit
@@ -23806,12 +23806,12 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %6, %15
   %.sroa.229.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %.fca.1.extract, ptr %.sroa.229.0..sroa_idx, align 8, !noalias !93
   %.sroa.01.0.copyload.i = load ptr, ptr %31, align 8, !noalias !93
-  %35 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln8ELl7EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %1, ptr %.sroa.01.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
+  %35 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln8ELl7EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %1, ptr %.sroa.01.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
   br i1 %35, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24findAddrModeSVELoadStoreEPN4llvm6SDNodeEjjRKNS1_7SDValueES6_j.exit, label %36
 
 36:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %.sroa.0.0.copyload.i = load ptr, ptr %31, align 8, !noalias !93
-  %37 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %.sroa.0.0.copyload.i, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
+  %37 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %.sroa.0.0.copyload.i, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8)
   %.pre.i = select i1 %37, i32 %4, i32 %5
   br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24findAddrModeSVELoadStoreEPN4llvm6SDNodeEjjRKNS1_7SDValueES6_j.exit
 
@@ -24049,7 +24049,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %23, %27
   %38 = load ptr, ptr %8, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load ptr, ptr %39, align 8
-  call fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %38, ptr %40)
+  call fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %38, ptr %40)
   br label %41
 
 41:                                               ; preds = %37, %_ZNK4llvm3EVT13getSizeInBitsEv.exit
@@ -24431,7 +24431,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %27, %31
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = load ptr, ptr %42, align 8
-  call fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %41, ptr %43)
+  call fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %41, ptr %43)
   br label %44
 
 44:                                               ; preds = %40, %_ZNK4llvm3EVT13getSizeInBitsEv.exit
@@ -28450,7 +28450,7 @@ declare noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm15MachineFunc
 declare { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904), i64 noundef, ptr noundef nonnull align 8 dereferenceable(12), i16, ptr, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_.argelim(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef writeonly %1, ptr %2) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm9transformIRNS_11SmallVectorINS_7SDValueELj4EEEPS2_N12_GLOBAL__N_111WidenVectorEEET0_OT_S8_T1_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef writeonly %1, ptr %2) unnamed_addr #0 {
   %4 = alloca %"struct.llvm::EVT", align 8
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
@@ -29431,7 +29431,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %74, %_ZN4llvm11Smal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln8ELl7EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln8ELl7EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
   %8 = alloca %"class.llvm::SDLoc", align 8
@@ -29663,7 +29663,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %60, %136, %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, i32 noundef range(i32 0, 5) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVERegRegAddrModeEN4llvm7SDValueEjRS2_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, i32 noundef range(i32 0, 5) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
   %8 = alloca [1 x %"class.llvm::SDValue"], align 16
@@ -30491,7 +30491,7 @@ define linkonce_odr hidden i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %0, i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, i32 noundef range(i32 0, 16) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %5, i32 noundef range(i32 1, 5) %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSMETileSliceEN4llvm7SDValueEjRS2_S3_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, i32 noundef range(i32 0, 16) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %5, i32 noundef range(i32 1, 5) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::SDLoc", align 8
   %9 = alloca %"class.llvm::SDLoc", align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -30627,7 +30627,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %66, %_ZN4llvm5SDLoc
 declare void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(904), ptr, i32, ptr, i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj329ELj0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj329ELj0EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread [
@@ -31665,7 +31665,7 @@ declare void @_ZNK4llvm6detail9IEEEFloat14bitcastToAPIntEv(ptr dead_on_unwind wr
 declare void @_ZNK4llvm6detail13DoubleAPFloat14bitcastToAPIntEv(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectDupZeroEN4llvm7SDValueE.argprom.argelim(ptr nocapture readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectDupZeroEN4llvm7SDValueE(ptr nocapture readonly %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %10 [
@@ -31695,7 +31695,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectDupZeroOrUndefEN4llvm7SDValueE.argprom.argelim(ptr nocapture readonly %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel20SelectDupZeroOrUndefEN4llvm7SDValueE(ptr nocapture readonly %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %10 [
@@ -31726,7 +31726,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_.argprom.argprom.argelim(i8 %.272.val.744.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectExtractHighEN4llvm7SDValueERS2_(i8 %.272.val.744.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::EVT", align 8
   %4 = alloca %"struct.llvm::EVT", align 8
   %5 = trunc i8 %.272.val.744.val to i1
@@ -31889,7 +31889,7 @@ _ZNK4llvm3EVT13is64BitVectorEv.exit.thread:       ; preds = %16, %52, %43, %54, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectAnyPredicateEN4llvm7SDValueE.argprom(ptr nocapture readonly %0, i32 %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectAnyPredicateEN4llvm7SDValueE(ptr nocapture readonly %0, i32 %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::EVT", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -31936,7 +31936,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %_ZNK4llvm3EVT20getV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectCntImmILi1ELi16ELi1ELb0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectCntImmILi1ELi16ELi1ELb0EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -32011,7 +32011,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %34, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectCntImmILi1ELi16ELi1ELb1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectCntImmILi1ELi16ELi1ELb1EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -32088,7 +32088,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %36, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj309ELj15EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj309ELj15EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread [
@@ -32126,7 +32126,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVEShiftSplatImmREN4llvm7SDValueERS2_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVEShiftSplatImmREN4llvm7SDValueERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SDLoc", align 8
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
@@ -32191,7 +32191,7 @@ _ZNK4llvm3EVT18getFixedSizeInBitsEv.exit:         ; preds = %25, %29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 24
   %34 = load i32, ptr %33, align 8
-  switch i32 %34, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit [
+  switch i32 %34, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   ]
@@ -32207,7 +32207,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %_Z
   %.0.in.i.i.i.i = select i1 %40, ptr %37, ptr %41
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %42 = icmp eq i64 %.0.i.i.i20.i, 0
-  br i1 %42, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %43
+  br i1 %42, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %43
 
 43:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   %.mux.i = call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 %.pn.i.i)
@@ -32234,24 +32234,24 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %46, %43
   store i32 %.fca.1.extract.i, ptr %.sroa.24.0..sroa_idx.i, align 8
   %52 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %53
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %53
 
 53:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(8) %52) #22
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit: ; preds = %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %53
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit: ; preds = %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %53
   %.0.i = phi i1 [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i ], [ true, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i ], [ true, %53 ], [ false, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %54
 
-54:                                               ; preds = %3, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
-  %.0 = phi i1 [ %.0.i, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit ], [ false, %3 ]
+54:                                               ; preds = %3, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
+  %.0 = phi i1 [ %.0.i, %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit ], [ false, %3 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj2ELj63EEEbN4llvm7SDValueERS3_S4_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj2ELj63EEEbN4llvm7SDValueERS3_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectAddrModeIndexedEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, i32 %2, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4)
   br i1 %7, label %8, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread
@@ -32333,7 +32333,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %18, %40, %_ZN4llvm5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj1ELj63EEEbN4llvm7SDValueERS3_S4_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj1ELj63EEEbN4llvm7SDValueERS3_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectAddrModeIndexedEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, i32 %2, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4)
   br i1 %7, label %8, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread
@@ -32415,7 +32415,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %18, %40, %_ZN4llvm5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj307ELj1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj307ELj1EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread [
@@ -32453,7 +32453,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj4ELj63EEEbN4llvm7SDValueERS3_S4_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj4ELj63EEEbN4llvm7SDValueERS3_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectAddrModeIndexedEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, i32 %2, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4)
   br i1 %7, label %8, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread
@@ -32535,7 +32535,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %18, %40, %_ZN4llvm5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin8EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin8EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -32616,7 +32616,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %37, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin4EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin4EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -32697,7 +32697,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %37, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin2EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELin2EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -32778,7 +32778,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %37, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVESignedArithImmEN4llvm7SDValueERS2_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel23SelectSVESignedArithImmEN4llvm7SDValueERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SDLoc", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
@@ -32864,7 +32864,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi8EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi8EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -32945,7 +32945,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %38, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi4EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi4EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -33026,7 +33026,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %38, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi2EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILi1ELi16ELi2EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -33107,12 +33107,12 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %38, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj8ELb1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj8ELb1EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit [
+  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   ]
@@ -33128,7 +33128,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.in.i.i.i.i = select i1 %11, ptr %8, ptr %12
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp eq i64 %.0.i.i.i20.i, 0
-  br i1 %13, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %14
+  br i1 %13, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %14
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 8)
@@ -33155,25 +33155,25 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   store i32 %.fca.1.extract.i, ptr %.sroa.24.0..sroa_idx.i, align 8
   %23 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %24
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %24
 
 24:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %23) #22
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
   %.0.i = phi i1 [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i ], [ true, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i ], [ true, %24 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj16ELb1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj16ELb1EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit [
+  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   ]
@@ -33189,7 +33189,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.in.i.i.i.i = select i1 %11, ptr %8, ptr %12
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp eq i64 %.0.i.i.i20.i, 0
-  br i1 %13, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %14
+  br i1 %13, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %14
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 16)
@@ -33216,25 +33216,25 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   store i32 %.fca.1.extract.i, ptr %.sroa.24.0..sroa_idx.i, align 8
   %23 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %24
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %24
 
 24:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %23) #22
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
   %.0.i = phi i1 [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i ], [ true, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i ], [ true, %24 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj32ELb1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj32ELb1EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit [
+  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   ]
@@ -33250,7 +33250,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.in.i.i.i.i = select i1 %11, ptr %8, ptr %12
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp eq i64 %.0.i.i.i20.i, 0
-  br i1 %13, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %14
+  br i1 %13, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %14
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 32)
@@ -33277,25 +33277,25 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   store i32 %.fca.1.extract.i, ptr %.sroa.24.0..sroa_idx.i, align 8
   %23 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %24
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %24
 
 24:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %23) #22
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
   %.0.i = phi i1 [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i ], [ true, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i ], [ true, %24 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj64ELb1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj1ELj64ELb1EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit [
+  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   ]
@@ -33311,7 +33311,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.in.i.i.i.i = select i1 %11, ptr %8, ptr %12
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp eq i64 %.0.i.i.i20.i, 0
-  br i1 %13, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %14
+  br i1 %13, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %14
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 64)
@@ -33338,20 +33338,20 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   store i32 %.fca.1.extract.i, ptr %.sroa.24.0..sroa_idx.i, align 8
   %23 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %24
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %24
 
 24:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %23) #22
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
   %.0.i = phi i1 [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i ], [ true, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i ], [ true, %24 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj325ELj3EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj325ELj3EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread [
@@ -33389,7 +33389,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj299ELj7EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj299ELj7EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread [
@@ -33427,7 +33427,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16SelectArithImmedEN4llvm7SDValueERS2_S3_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16SelectArithImmedEN4llvm7SDValueERS2_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i32, ptr %6, align 8
@@ -33541,7 +33541,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %14,
 
 30:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
   %.sroa.027.0.copyload = load ptr, ptr %16, align 8
-  %31 = tail call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb.argelim(ptr %.sroa.027.0.copyload, i1 noundef zeroext false)
+  %31 = tail call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr %.sroa.027.0.copyload, i1 noundef zeroext false)
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit, label %33
 
@@ -33554,7 +33554,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %14,
   br label %.critedge
 
 37:                                               ; preds = %5
-  %38 = tail call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb.argelim(ptr nonnull %1, i1 noundef zeroext false)
+  %38 = tail call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr nonnull %1, i1 noundef zeroext false)
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit, label %40
 
@@ -33777,7 +33777,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %26, %31
   store i32 %35, ptr %33, align 8
   %36 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %28, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 7, ptr null, i1 noundef zeroext false, i1 noundef zeroext false) #22
   %.fca.0.extract = extractvalue { ptr, i32 } %36, 0
-  %37 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16SelectArithImmedEN4llvm7SDValueERS2_S3_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.fca.0.extract, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4)
+  %37 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel16SelectArithImmedEN4llvm7SDValueERS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %.fca.0.extract, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4)
   %38 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %39
@@ -33792,12 +33792,12 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %5, %39, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj7ELb0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj7ELb0EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit [
+  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   ]
@@ -33814,7 +33814,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp ult i64 %.0.i.i.i20.i, 8
   %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 7)
-  br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -33840,25 +33840,25 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   store i32 %.fca.1.extract.i, ptr %.sroa.24.0..sroa_idx.i, align 8
   %23 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %24
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %24
 
 24:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %23) #22
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
   %.0.i = phi i1 [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i ], [ true, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i ], [ true, %24 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj15ELb0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj15ELb0EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit [
+  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   ]
@@ -33875,7 +33875,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp ult i64 %.0.i.i.i20.i, 16
   %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 15)
-  br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -33901,25 +33901,25 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   store i32 %.fca.1.extract.i, ptr %.sroa.24.0..sroa_idx.i, align 8
   %23 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %24
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %24
 
 24:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %23) #22
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
   %.0.i = phi i1 [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i ], [ true, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i ], [ true, %24 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj31ELb0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj31ELb0EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit [
+  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   ]
@@ -33936,7 +33936,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp ult i64 %.0.i.i.i20.i, 32
   %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 31)
-  br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -33962,25 +33962,25 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   store i32 %.fca.1.extract.i, ptr %.sroa.24.0..sroa_idx.i, align 8
   %23 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %24
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %24
 
 24:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %23) #22
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
   %.0.i = phi i1 [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i ], [ true, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i ], [ true, %24 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj63ELb0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmILj0ELj63ELb0EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit [
+  switch i32 %5, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   ]
@@ -33997,7 +33997,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %2,
   %.0.i.i.i20.i = load i64, ptr %.0.in.i.i.i.i, align 8
   %13 = icmp ult i64 %.0.i.i.i20.i, 64
   %.mux.i = tail call i64 @llvm.umin.i64(i64 %.0.i.i.i20.i, i64 63)
-  br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br i1 %13, label %14, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
 14:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -34023,20 +34023,20 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %17, %14
   store i32 %.fca.1.extract.i, ptr %.sroa.24.0..sroa_idx.i, align 8
   %23 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit, label %24
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit, label %24
 
 24:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(8) %23) #22
-  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit
+  br label %_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit
 
-_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.argprom.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
+_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEShiftImmEN4llvm7SDValueEmmbRS2_.exit: ; preds = %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i, %24
   %.0.i = phi i1 [ false, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i ], [ true, %_ZN4llvm5SDLocC2ENS_7SDValueE.exit.i ], [ true, %24 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj298ELj0EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel8ImmToRegILj298ELj0EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread [
@@ -34072,7 +34072,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectRoundingVLShrEN4llvm7SDValueERS2_S3_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectRoundingVLShrEN4llvm7SDValueERS2_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"struct.llvm::EVT", align 8
@@ -34418,7 +34418,7 @@ _ZN4llvm5APIntD2Ev.exit30:                        ; preds = %176, %173, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILin32ELi31ELi16EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel13SelectRDVLImmILin32ELi31ELi16EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -34499,7 +34499,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %38, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi31ELi8EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi31ELi8EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -34574,7 +34574,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %33, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln32ELl31EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel24SelectAddrModeIndexedSVEILln32ELl31EEEbPN4llvm6SDNodeENS2_7SDValueERS5_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
   %8 = alloca %"class.llvm::SDLoc", align 8
@@ -34806,7 +34806,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %60, %136, %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj8ELj63EEEbN4llvm7SDValueERS3_S4_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel25SelectAddrModeIndexedUImmILj8ELj63EEEbN4llvm7SDValueERS3_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel21SelectAddrModeIndexedEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, i32 %2, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4)
   br i1 %7, label %8, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread
@@ -34888,7 +34888,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %18, %40, %_ZN4llvm5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi63ELi4EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi63ELi4EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -34963,7 +34963,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %33, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi127ELi2EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi127ELi2EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -35038,7 +35038,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %2, %33, %_ZN4llvm5S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectAddrModeFrameIndexSVEEN4llvm7SDValueERS2_S3_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel27SelectAddrModeFrameIndexSVEEN4llvm7SDValueERS2_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8
@@ -35190,7 +35190,7 @@ _ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi255ELi1EEEbN4llvm7SDValueERS3_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel12SelectEXTImmILi255ELi1EEEbN4llvm7SDValueERS3_(ptr %.64.val, ptr nocapture readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SDLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -35537,7 +35537,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %78,
   br label %124
 
 _ZL24isValidAsScaledImmediateljj.exit:            ; preds = %78, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit, %_ZL20isWorthFoldingADDlowN4llvm7SDValueE.exit
-  %120 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_.argelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5)
+  %120 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5)
   br i1 %120, label %124, label %121
 
 121:                                              ; preds = %_ZL24isValidAsScaledImmediateljj.exit
@@ -35570,7 +35570,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %124, %126
 declare noundef zeroext i1 @_ZNK4llvm12SelectionDAG24isBaseWithConstantOffsetENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904), ptr, i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectAddrModeUnscaledEN4llvm7SDValueEjRS2_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
@@ -35813,7 +35813,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %12, %18
   br i1 %35, label %57, label %.critedge103
 
 57:                                               ; preds = %.critedge
-  %58 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb.argelim(ptr %.sroa.0129.0.copyload, i1 noundef zeroext true)
+  %58 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr %.sroa.0129.0.copyload, i1 noundef zeroext true)
   %.not100 = icmp eq i32 %58, -1
   br i1 %.not100, label %69, label %59
 
@@ -35846,7 +35846,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %12, %18
   br i1 %68, label %.loopexit, label %69
 
 69:                                               ; preds = %57, %59
-  %70 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb.argelim(ptr %.sroa.0120.0.copyload, i1 noundef zeroext true)
+  %70 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr %.sroa.0120.0.copyload, i1 noundef zeroext true)
   %.not101 = icmp eq i32 %70, -1
   br i1 %.not101, label %.critedge103, label %71
 
@@ -36200,7 +36200,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %24, %27
 
 33:                                               ; preds = %_ZN4llvm5SDLocC2ENS_7SDValueE.exit
   %.sroa.022.0.copyload = load ptr, ptr %32, align 8
-  %34 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb.argelim(ptr %.sroa.022.0.copyload, i1 noundef zeroext true)
+  %34 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr %.sroa.022.0.copyload, i1 noundef zeroext true)
   %35 = icmp eq i32 %34, -1
   br i1 %35, label %75, label %36
 
@@ -36316,7 +36316,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %7, %77, %75, %_ZN4l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -1, 12) i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb.argelim(ptr nocapture readonly %0, i1 noundef zeroext %1) unnamed_addr #16 {
+define internal fastcc noundef range(i32 -1, 12) i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr nocapture readonly %0, i1 noundef zeroext %1) unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %_ZNK4llvm3EVTeqES0_.exit22 [
@@ -36675,7 +36675,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %98, %_ZL24isValidAs
 declare { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_(ptr noundef nonnull align 8 dereferenceable(904), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), i16, ptr, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef byval(%"class.llvm::SDValue") align 8) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb.argelim(ptr noundef %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, i32 noundef range(i32 32, 65) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL34checkCVTFixedPointOperandWithFBitsPN4llvm12SelectionDAGENS_7SDValueERS2_jb(ptr noundef %0, ptr nocapture readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, i32 noundef range(i32 32, 65) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::detail::IEEEFloat", align 8
   %7 = alloca %"class.llvm::APFloat", align 8
   %8 = alloca i8, align 1
@@ -37395,7 +37395,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2ENS
 
 202:                                              ; preds = %190
   %.sroa.0.0.copyload.i = load ptr, ptr %191, align 8
-  %203 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb.argelim(ptr %.sroa.0.0.copyload.i, i1 noundef zeroext false)
+  %203 = call fastcc noundef i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr %.sroa.0.0.copyload.i, i1 noundef zeroext false)
   %204 = icmp eq i32 %203, -1
   br i1 %204, label %_ZNK12_GLOBAL__N_119AArch64DAGToDAGISel17isWorthFoldingALUEN4llvm7SDValueEb.exit, label %205
 
@@ -37495,7 +37495,7 @@ _ZN4llvm16isShiftedMask_64EmRjS0_.exit:           ; preds = %14, %_ZN4llvm16isSh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, i16 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel19SelectSVELogicalImmEN4llvm7SDValueENS1_3MVTERS2_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, i16 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8
@@ -37684,7 +37684,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds 
 declare { ptr, i32 } @_ZN4llvm12SelectionDAG17getSignedConstantElRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904), i64 noundef, ptr noundef nonnull align 8 dereferenceable(12), i16, ptr, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVEAddSubImmEN4llvm7SDValueENS1_3MVTERS2_S4_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, i16 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVEAddSubImmEN4llvm7SDValueENS1_3MVTERS2_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, i16 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -37819,7 +37819,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %5, %58, %56
 declare void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, i1 noundef zeroext %3, i32 noundef range(i32 6, 10) %4, i32 noundef range(i32 4, 17) %5, ptr nocapture noundef nonnull align 8 dereferenceable(12) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %7) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel29SelectAddrModeIndexedBitWidthEN4llvm7SDValueEbjjRS2_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, i1 noundef zeroext %3, i32 noundef range(i32 6, 10) %4, i32 noundef range(i32 4, 17) %5, ptr nocapture noundef nonnull align 8 dereferenceable(12) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::SDLoc", align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8
@@ -38040,7 +38040,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %131, %133
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVECpyDupImmEN4llvm7SDValueENS1_3MVTERS2_S4_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, i16 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel18SelectSVECpyDupImmEN4llvm7SDValueENS1_3MVTERS2_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, i16 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -38181,7 +38181,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %5, %60, %58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, i16 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel22SelectSVEAddSubSSatImmEN4llvm7SDValueENS1_3MVTERS2_S4_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readonly %1, i16 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::SDLoc", align 8
   %8 = alloca %"class.llvm::APInt", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -38328,7 +38328,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %6, %68, %66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEArithImmEN4llvm7SDValueENS1_3MVTERS2_.argprom.argelim(ptr %.64.val, ptr nocapture readonly %0, i16 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISel17SelectSVEArithImmEN4llvm7SDValueENS1_3MVTERS2_(ptr %.64.val, ptr nocapture readonly %0, i16 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SDLoc", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
@@ -38498,8 +38498,8 @@ attributes #27 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_119AArch64DAGToDAGISelEJRN4llvm20AArch64TargetMachineERNS2_15CodeGenOptLevelEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_119AArch64DAGToDAGISelEJRN4llvm20AArch64TargetMachineERNS2_15CodeGenOptLevelEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN12_GLOBAL__N_119AArch64DAGToDAGISelEJRN4llvm20AArch64TargetMachineERNS2_15CodeGenOptLevelEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN12_GLOBAL__N_119AArch64DAGToDAGISelEJRN4llvm20AArch64TargetMachineERNS2_15CodeGenOptLevelEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZNK4llvm13FeatureBitsetanERKS0_: argument 0"}
 !9 = distinct !{!9, !"_ZNK4llvm13FeatureBitsetanERKS0_"}

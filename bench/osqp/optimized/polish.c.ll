@@ -404,7 +404,7 @@ form_rhs_red.exit:                                ; preds = %121
   %219 = load ptr, ptr %2, align 8
   %.val = load ptr, ptr %0, align 8
   %.val127 = load ptr, ptr %6, align 8
-  %220 = call fastcc i64 @iterative_refinement.argprom(ptr %.val, ptr %.val127, ptr noundef %219, ptr noundef %186, ptr noundef %115)
+  %220 = call fastcc i64 @iterative_refinement(ptr %.val, ptr %.val127, ptr noundef %219, ptr noundef %186, ptr noundef %115)
   %.not123 = icmp eq i64 %220, 0
   br i1 %.not123, label %225, label %221
 
@@ -434,7 +434,7 @@ form_rhs_red.exit:                                ; preds = %121
   %235 = getelementptr inbounds i8, ptr %232, i64 32
   %236 = load ptr, ptr %235, align 8
   call void @OSQPMatrix_Axpy(ptr noundef %231, ptr noundef %234, ptr noundef %236, double noundef 1.000000e+00, double noundef 0.000000e+00) #5
-  call fastcc void @get_ypol_from_yred.retelim(ptr noundef nonnull %7, ptr noundef %201)
+  call fastcc void @get_ypol_from_yred(ptr noundef nonnull %7, ptr noundef %201)
   %237 = load ptr, ptr %90, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 40
   %239 = load ptr, ptr %238, align 8
@@ -568,7 +568,7 @@ declare ptr @OSQPVectorf_view(ptr noundef, i64 noundef, i64 noundef) local_unnam
 declare void @OSQPVectorf_view_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @iterative_refinement.argprom(ptr nocapture readonly %.0.val, ptr nocapture readonly %.24.val, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @iterative_refinement(ptr nocapture readonly %.0.val, ptr nocapture readonly %.24.val, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %.0.val, i64 232
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -658,7 +658,7 @@ declare void @OSQPVectorf_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OSQPMatrix_Axpy(ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_ypol_from_yred.retelim(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @get_ypol_from_yred(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8

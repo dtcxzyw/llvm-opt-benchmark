@@ -399,7 +399,7 @@ lor.lhs.false101:                                 ; preds = %lor.lhs.false94
   br i1 %tobool105.not, label %return, label %lor.lhs.false106
 
 lor.lhs.false106:                                 ; preds = %lor.lhs.false101
-  %call108 = call fastcc ptr @dohash.argelim(ptr noundef %call, ptr noundef nonnull @phmsg1)
+  %call108 = call fastcc ptr @dohash(ptr noundef %call, ptr noundef nonnull @phmsg1)
   %call109 = call i32 @ossl_ed448_sign(ptr noundef null, ptr noundef nonnull %outsig, ptr noundef %call108, i64 noundef 64, ptr noundef nonnull @phpubkey1, ptr noundef nonnull @phprivkey1, ptr noundef null, i64 noundef 0, i8 noundef zeroext 1, ptr noundef null) #7
   %cmp110 = icmp ne i32 %call109, 0
   %conv111 = zext i1 %cmp110 to i32
@@ -414,7 +414,7 @@ lor.lhs.false114:                                 ; preds = %lor.lhs.false106
   br i1 %tobool118.not, label %return, label %lor.lhs.false119
 
 lor.lhs.false119:                                 ; preds = %lor.lhs.false114
-  %call121 = call fastcc ptr @dohash.argelim(ptr noundef %call, ptr noundef nonnull @phmsg2)
+  %call121 = call fastcc ptr @dohash(ptr noundef %call, ptr noundef nonnull @phmsg2)
   %call122 = call i32 @ossl_ed448_sign(ptr noundef null, ptr noundef nonnull %outsig, ptr noundef %call121, i64 noundef 64, ptr noundef nonnull @phpubkey2, ptr noundef nonnull @phprivkey2, ptr noundef nonnull @phcontext2, i64 noundef 3, i8 noundef zeroext 1, ptr noundef null) #7
   %cmp123 = icmp ne i32 %call122, 0
   %conv124 = zext i1 %cmp123 to i32
@@ -459,7 +459,7 @@ declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_
 declare i32 @ossl_ed448_sign(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dohash.argelim(ptr noundef %hashctx, ptr noundef %msg) unnamed_addr #1 {
+define internal fastcc ptr @dohash(ptr noundef %hashctx, ptr noundef %msg) unnamed_addr #1 {
 entry:
   %call = tail call ptr @EVP_shake256() #7
   %call1 = tail call i32 @EVP_DigestInit_ex(ptr noundef %hashctx, ptr noundef %call, ptr noundef null) #7

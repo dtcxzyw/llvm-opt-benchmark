@@ -113,9 +113,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store ptr %1, ptr %44, align 8
   br label %.critedge
 
-45:                                               ; preds = %.lr.ph, %Aig_ManObj.argprom.exit
-  %.030 = phi i32 [ -1, %.lr.ph ], [ %58, %Aig_ManObj.argprom.exit ]
-  %.01929 = phi i32 [ 0, %.lr.ph ], [ %66, %Aig_ManObj.argprom.exit ]
+45:                                               ; preds = %.lr.ph, %Aig_ManObj.exit
+  %.030 = phi i32 [ -1, %.lr.ph ], [ %58, %Aig_ManObj.exit ]
+  %.01929 = phi i32 [ 0, %.lr.ph ], [ %66, %Aig_ManObj.exit ]
   %.not21 = icmp eq i32 %.01929, 0
   br i1 %.not21, label %52, label %46
 
@@ -140,7 +140,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %58 = load i32, ptr %57, align 4
   %.val27 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %.val27, null
-  br i1 %.not.i, label %Aig_ManObj.argprom.exit, label %59
+  br i1 %.not.i, label %Aig_ManObj.exit, label %59
 
 59:                                               ; preds = %55
   %60 = ashr i32 %58, 1
@@ -149,9 +149,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %62 = sext i32 %60 to i64
   %63 = getelementptr inbounds ptr, ptr %.val.i, i64 %62
   %64 = load ptr, ptr %63, align 8
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %55, %59
+Aig_ManObj.exit:                                  ; preds = %55, %59
   %65 = phi ptr [ %64, %59 ], [ null, %55 ]
   tail call void @Cgt_ManCollectFanoutPos_rec(ptr noundef nonnull %0, ptr noundef %65, ptr noundef %2)
   %66 = add nuw nsw i32 %.01929, 1
@@ -161,7 +161,7 @@ Aig_ManObj.argprom.exit:                          ; preds = %55, %59
   %70 = icmp ult i32 %66, %69
   br i1 %70, label %45, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %Aig_ManObj.argprom.exit, %.preheader, %3, %Vec_PtrPush.exit
+.critedge:                                        ; preds = %Aig_ManObj.exit, %.preheader, %3, %Vec_PtrPush.exit
   ret void
 }
 

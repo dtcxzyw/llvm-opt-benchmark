@@ -12,28 +12,28 @@ define void @Dch_ManSweepNode(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %5 = getelementptr i8, ptr %4, i64 256
   %.val = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %Aig_ObjRepr.argprom.exit.thread, label %Aig_ObjRepr.argprom.exit
+  br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
 
-Aig_ObjRepr.argprom.exit:                         ; preds = %2
+Aig_ObjRepr.exit:                                 ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds ptr, ptr %.val, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %Aig_ObjRepr.argprom.exit.thread, label %12
+  br i1 %11, label %Aig_ObjRepr.exit.thread, label %12
 
-12:                                               ; preds = %Aig_ObjRepr.argprom.exit
+12:                                               ; preds = %Aig_ObjRepr.exit
   %13 = getelementptr i8, ptr %1, i64 40
   %.val35 = load ptr, ptr %13, align 8
   %14 = icmp eq ptr %.val35, null
-  br i1 %14, label %Aig_ObjRepr.argprom.exit.thread, label %15
+  br i1 %14, label %Aig_ObjRepr.exit.thread, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr i8, ptr %10, i64 40
   %.val36 = load ptr, ptr %16, align 8
   %17 = icmp eq ptr %.val36, null
-  br i1 %17, label %Aig_ObjRepr.argprom.exit.thread, label %18
+  br i1 %17, label %Aig_ObjRepr.exit.thread, label %18
 
 18:                                               ; preds = %15
   %19 = ptrtoint ptr %.val35 to i64
@@ -50,7 +50,7 @@ Aig_ObjRepr.argprom.exit:                         ; preds = %2
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds ptr, ptr %28, i64 %8
   store ptr %10, ptr %29, align 8
-  br label %Aig_ObjRepr.argprom.exit.thread
+  br label %Aig_ObjRepr.exit.thread
 
 30:                                               ; preds = %18
   %31 = tail call i32 @Dch_NodesAreEquiv(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %21) #3
@@ -61,7 +61,7 @@ Aig_ObjRepr.argprom.exit:                         ; preds = %2
 
 32:                                               ; preds = %30
   store ptr null, ptr %13, align 8
-  br label %Aig_ObjRepr.argprom.exit.thread
+  br label %Aig_ObjRepr.exit.thread
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %1, i64 24
@@ -80,7 +80,7 @@ Aig_ObjRepr.argprom.exit:                         ; preds = %2
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds ptr, ptr %44, i64 %46
   store ptr %10, ptr %47, align 8
-  br label %Aig_ObjRepr.argprom.exit.thread
+  br label %Aig_ObjRepr.exit.thread
 
 48:                                               ; preds = %30
   %49 = load ptr, ptr %0, align 8
@@ -91,13 +91,13 @@ Aig_ObjRepr.argprom.exit:                         ; preds = %2
 
 52:                                               ; preds = %48
   tail call void @Dch_ManResimulateCex(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %10) #3
-  br label %Aig_ObjRepr.argprom.exit.thread
+  br label %Aig_ObjRepr.exit.thread
 
 53:                                               ; preds = %48
   tail call void @Dch_ManResimulateCex2(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %10) #3
-  br label %Aig_ObjRepr.argprom.exit.thread
+  br label %Aig_ObjRepr.exit.thread
 
-Aig_ObjRepr.argprom.exit.thread:                  ; preds = %2, %15, %12, %Aig_ObjRepr.argprom.exit, %53, %52, %33, %32, %26
+Aig_ObjRepr.exit.thread:                          ; preds = %2, %15, %12, %Aig_ObjRepr.exit, %53, %52, %33, %32, %26
   ret void
 }
 
@@ -203,14 +203,14 @@ define void @Dch_ManSweep(ptr noundef %0) local_unnamed_addr #0 {
   %54 = load i32, ptr %35, align 4
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv70, %55
-  br i1 %56, label %Bar_ProgressUpdate.argprom.exit, label %57
+  br i1 %56, label %Bar_ProgressUpdate.exit, label %57
 
 57:                                               ; preds = %53, %52
   %58 = trunc nuw nsw i64 %indvars.iv70 to i32
   tail call void @Bar_ProgressUpdate_int(ptr noundef %35, i32 noundef %58, ptr noundef null) #3
-  br label %Bar_ProgressUpdate.argprom.exit
+  br label %Bar_ProgressUpdate.exit
 
-Bar_ProgressUpdate.argprom.exit:                  ; preds = %53, %57
+Bar_ProgressUpdate.exit:                          ; preds = %53, %57
   %59 = getelementptr i8, ptr %45, i64 8
   %.val55 = load ptr, ptr %59, align 8
   %60 = ptrtoint ptr %.val55 to i64
@@ -221,7 +221,7 @@ Bar_ProgressUpdate.argprom.exit:                  ; preds = %53, %57
   %64 = icmp eq ptr %.val45, null
   br i1 %64, label %87, label %65
 
-65:                                               ; preds = %Bar_ProgressUpdate.argprom.exit
+65:                                               ; preds = %Bar_ProgressUpdate.exit
   %66 = getelementptr i8, ptr %45, i64 16
   %.val56 = load ptr, ptr %66, align 8
   %67 = ptrtoint ptr %.val56 to i64
@@ -230,9 +230,9 @@ Bar_ProgressUpdate.argprom.exit:                  ; preds = %53, %57
   %70 = getelementptr i8, ptr %69, i64 40
   %.val = load ptr, ptr %70, align 8
   %71 = icmp eq ptr %.val, null
-  br i1 %71, label %87, label %Dch_ObjChild0Fra.argprom.exit
+  br i1 %71, label %87, label %Dch_ObjChild0Fra.exit
 
-Dch_ObjChild0Fra.argprom.exit:                    ; preds = %65
+Dch_ObjChild0Fra.exit:                            ; preds = %65
   %72 = load ptr, ptr %7, align 8
   %.not.i59 = icmp eq i64 %61, 0
   %73 = and i64 %60, 1
@@ -250,13 +250,13 @@ Dch_ObjChild0Fra.argprom.exit:                    ; preds = %65
   %84 = icmp eq ptr %83, null
   br i1 %84, label %87, label %85
 
-85:                                               ; preds = %Dch_ObjChild0Fra.argprom.exit
+85:                                               ; preds = %Dch_ObjChild0Fra.exit
   %86 = getelementptr inbounds i8, ptr %45, i64 40
   store ptr %83, ptr %86, align 8
   tail call void @Dch_ManSweepNode(ptr noundef nonnull %0, ptr noundef nonnull %45)
   br label %87
 
-87:                                               ; preds = %85, %47, %41, %Dch_ObjChild0Fra.argprom.exit, %Bar_ProgressUpdate.argprom.exit, %65
+87:                                               ; preds = %85, %47, %41, %Dch_ObjChild0Fra.exit, %Bar_ProgressUpdate.exit, %65
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %88 = load ptr, ptr %2, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 32

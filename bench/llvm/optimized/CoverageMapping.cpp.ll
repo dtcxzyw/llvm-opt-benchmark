@@ -2336,7 +2336,7 @@ _ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9S
   %121 = load ptr, ptr %19, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 8
   %123 = icmp ult ptr %120, %122
-  br i1 %123, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.argprom.exit.i.i.i
+  br i1 %123, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.exit.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %119, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi ptr [ %125, %.lr.ph.i.i.i.i ], [ %120, %119 ]
@@ -2344,15 +2344,15 @@ _ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9S
   call void @_ZdlPvm(ptr noundef %124, i64 noundef 504) #27
   %125 = getelementptr inbounds i8, ptr %.01.i.i.i.i, i64 8
   %126 = icmp ult ptr %.01.i.i.i.i, %121
-  br i1 %126, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.argprom.exit.i.i.i, !llvm.loop !39
+  br i1 %126, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.exit.i.i.i, !llvm.loop !39
 
-_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.argprom.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %119
+_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %119
   %127 = load i64, ptr %10, align 8
   %128 = shl i64 %127, 3
   call void @_ZdlPvm(ptr noundef %118, i64 noundef %128) #27
   br label %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEED2Ev.exit
 
-_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEED2Ev.exit: ; preds = %117, %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.argprom.exit.i.i.i
+_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEED2Ev.exit: ; preds = %117, %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.exit.i.i.i
   ret void
 }
 
@@ -2458,7 +2458,7 @@ define internal fastcc void @_ZNSt5stackIZNK4llvm8coverage21CounterMappingContex
   %70 = add i64 %.sroa.speculated.i.i.i.i.i, %40
   %71 = add i64 %70, 2
   %72 = icmp ugt i64 %71, 1152921504606846975
-  br i1 %72, label %73, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i
+  br i1 %72, label %73, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.exit.i.i.i.i.i
 
 73:                                               ; preds = %69
   %74 = icmp ugt i64 %71, 2305843009213693951
@@ -2472,7 +2472,7 @@ define internal fastcc void @_ZNSt5stackIZNK4llvm8coverage21CounterMappingContex
   tail call void @_ZSt17__throw_bad_allocv() #25
   unreachable
 
-_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i: ; preds = %69
+_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.exit.i.i.i.i.i: ; preds = %69
   %77 = shl nuw nsw i64 %71, 3
   %78 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %77) #26
   %79 = sub nsw i64 %70, %17
@@ -2482,13 +2482,13 @@ _ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7Coun
   %.not.i.i.i.i.i25.i.i.i.i.i = icmp eq ptr %82, %13
   br i1 %.not.i.i.i.i.i25.i.i.i.i.i, label %_ZSt4copyIPPZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemS8_ET0_T_SA_S9_.exit26.i.i.i.i.i, label %83
 
-83:                                               ; preds = %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i
+83:                                               ; preds = %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.exit.i.i.i.i.i
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %84, %15
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %81, ptr align 8 %13, i64 %85, i1 false)
   br label %_ZSt4copyIPPZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemS8_ET0_T_SA_S9_.exit26.i.i.i.i.i
 
-_ZSt4copyIPPZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemS8_ET0_T_SA_S9_.exit26.i.i.i.i.i: ; preds = %83, %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i
+_ZSt4copyIPPZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemS8_ET0_T_SA_S9_.exit26.i.i.i.i.i: ; preds = %83, %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext8evaluateERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.exit.i.i.i.i.i
   %86 = shl i64 %40, 3
   tail call void @_ZdlPvm(ptr noundef %41, i64 noundef %86) #27
   store ptr %78, ptr %0, align 8
@@ -4407,7 +4407,7 @@ _ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7Cou
   %103 = load ptr, ptr %16, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 8
   %105 = icmp ult ptr %102, %104
-  br i1 %105, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.argprom.exit.i.i.i
+  br i1 %105, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.exit.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %101, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi ptr [ %107, %.lr.ph.i.i.i.i ], [ %102, %101 ]
@@ -4415,15 +4415,15 @@ _ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7Cou
   tail call void @_ZdlPvm(ptr noundef %106, i64 noundef 504) #27
   %107 = getelementptr inbounds i8, ptr %.01.i.i.i.i, i64 8
   %108 = icmp ult ptr %.01.i.i.i.i, %103
-  br i1 %108, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.argprom.exit.i.i.i, !llvm.loop !72
+  br i1 %108, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.exit.i.i.i, !llvm.loop !72
 
-_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.argprom.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %101
+_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %101
   %109 = load i64, ptr %7, align 8
   %110 = shl i64 %109, 3
   tail call void @_ZdlPvm(ptr noundef %100, i64 noundef %110) #27
   br label %_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEED2Ev.exit
 
-_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEED2Ev.exit: ; preds = %._crit_edge, %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.argprom.exit.i.i.i
+_ZNSt5stackIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSt5dequeIS6_SaIS6_EEED2Ev.exit: ; preds = %._crit_edge, %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE16_M_destroy_nodesEPPS6_SA_.exit.i.i.i
   ret i32 %.0.lcssa
 }
 
@@ -4527,7 +4527,7 @@ define internal fastcc void @_ZNSt5stackIZNK4llvm8coverage21CounterMappingContex
   %70 = add i64 %.sroa.speculated.i.i.i.i.i, %40
   %71 = add i64 %70, 2
   %72 = icmp ugt i64 %71, 1152921504606846975
-  br i1 %72, label %73, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i
+  br i1 %72, label %73, label %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.exit.i.i.i.i.i
 
 73:                                               ; preds = %69
   %74 = icmp ugt i64 %71, 2305843009213693951
@@ -4541,7 +4541,7 @@ define internal fastcc void @_ZNSt5stackIZNK4llvm8coverage21CounterMappingContex
   tail call void @_ZSt17__throw_bad_allocv() #25
   unreachable
 
-_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i: ; preds = %69
+_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.exit.i.i.i.i.i: ; preds = %69
   %77 = shl nuw nsw i64 %71, 3
   %78 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %77) #26
   %79 = sub nsw i64 %70, %17
@@ -4551,13 +4551,13 @@ _ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKN
   %.not.i.i.i.i.i25.i.i.i.i.i = icmp eq ptr %82, %13
   br i1 %.not.i.i.i.i.i25.i.i.i.i.i, label %_ZSt4copyIPPZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemS8_ET0_T_SA_S9_.exit26.i.i.i.i.i, label %83
 
-83:                                               ; preds = %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i
+83:                                               ; preds = %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.exit.i.i.i.i.i
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %84, %15
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %81, ptr align 8 %13, i64 %85, i1 false)
   br label %_ZSt4copyIPPZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemS8_ET0_T_SA_S9_.exit26.i.i.i.i.i
 
-_ZSt4copyIPPZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemS8_ET0_T_SA_S9_.exit26.i.i.i.i.i: ; preds = %83, %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.argprom.exit.i.i.i.i.i
+_ZSt4copyIPPZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemS8_ET0_T_SA_S9_.exit26.i.i.i.i.i: ; preds = %83, %_ZNSt11_Deque_baseIZNK4llvm8coverage21CounterMappingContext15getMaxCounterIDERKNS1_7CounterEE9StackElemSaIS6_EE15_M_allocate_mapEm.exit.i.i.i.i.i
   %86 = shl i64 %40, 3
   tail call void @_ZdlPvm(ptr noundef %41, i64 noundef %86) #27
   store ptr %78, ptr %0, align 8
@@ -4955,7 +4955,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %101, %96
   %.val108 = load i64, ptr %111, align 8
   %112 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.val, i64 %.val108
   %.not6.i = icmp eq i64 %.val108, 0
-  br i1 %.not6.i, label %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.argprom.exit, label %.lr.ph.i
+  br i1 %.not6.i, label %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %109, %.lr.ph.i
   %.08.i = phi ptr [ %114, %.lr.ph.i ], [ %.val, %109 ]
@@ -4964,14 +4964,14 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %101, %96
   %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %.057.i, i32 %113)
   %114 = getelementptr inbounds i8, ptr %.08.i, i64 56
   %.not.i111 = icmp eq ptr %114, %112
-  br i1 %.not.i111, label %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.argprom.exit.loopexit, label %.lr.ph.i
+  br i1 %.not.i111, label %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.exit.loopexit, label %.lr.ph.i
 
-_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.argprom.exit.loopexit: ; preds = %.lr.ph.i
+_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.exit.loopexit: ; preds = %.lr.ph.i
   %115 = add i32 %.sroa.speculated.i, 1
-  br label %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.argprom.exit
+  br label %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.exit
 
-_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.argprom.exit: ; preds = %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.argprom.exit.loopexit, %109
-  %.05.lcssa.i = phi i32 [ 1, %109 ], [ %115, %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.argprom.exit.loopexit ]
+_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.exit: ; preds = %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.exit.loopexit, %109
+  %.05.lcssa.i = phi i32 [ 1, %109 ], [ %115, %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.exit.loopexit ]
   %116 = zext i32 %.05.lcssa.i to i64
   %117 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %118 = load ptr, ptr %117, align 8
@@ -4983,7 +4983,7 @@ _ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMap
   %124 = icmp ult i64 %123, %116
   br i1 %124, label %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i, label %130
 
-_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i:          ; preds = %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.argprom.exit
+_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i:          ; preds = %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.exit
   %125 = shl nuw nsw i64 %116, 3
   %126 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %125) #26
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %126, i8 0, i64 %125, i1 false)
@@ -4999,7 +4999,7 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i:          ; preds = %_ZL15getMaxCounterI
   call void @_ZdlPvm(ptr noundef nonnull %119, i64 noundef %122) #27
   br label %_ZNSt6vectorImSaImEE14_M_fill_assignEmRKm.exit
 
-130:                                              ; preds = %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.argprom.exit
+130:                                              ; preds = %_ZL15getMaxCounterIDRKN4llvm8coverage21CounterMappingContextERKNS0_21CoverageMappingRecordE.exit
   %131 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = ptrtoint ptr %132 to i64
@@ -5239,7 +5239,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit118:               ; preds = %205, %200
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %213
   %.012.lcssa.i = phi i64 [ 0, %213 ], [ %231, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ 0, %213 ], [ %.1.i, %._crit_edge.loopexit.i ]
-  br i1 %173, label %232, label %_ZL16getMaxBitmapSizeRKN4llvm8coverage21CoverageMappingRecordEb.argprom.exit
+  br i1 %173, label %232, label %_ZL16getMaxBitmapSizeRKN4llvm8coverage21CoverageMappingRecordEb.exit
 
 232:                                              ; preds = %._crit_edge.i
   %233 = shl i32 %.0.lcssa.i, 3
@@ -5249,9 +5249,9 @@ _ZN4llvm12ErrorSuccessD2Ev.exit118:               ; preds = %205, %200
   %236 = xor i32 %235, -8
   %237 = add i32 %233, 8
   %238 = add i32 %237, %236
-  br label %_ZL16getMaxBitmapSizeRKN4llvm8coverage21CoverageMappingRecordEb.argprom.exit
+  br label %_ZL16getMaxBitmapSizeRKN4llvm8coverage21CoverageMappingRecordEb.exit
 
-_ZL16getMaxBitmapSizeRKN4llvm8coverage21CoverageMappingRecordEb.argprom.exit: ; preds = %._crit_edge.i, %232
+_ZL16getMaxBitmapSizeRKN4llvm8coverage21CoverageMappingRecordEb.exit: ; preds = %._crit_edge.i, %232
   %.2.i = phi i32 [ %238, %232 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %239 = add i32 %.2.i, 63
   %240 = lshr i32 %239, 6
@@ -5269,11 +5269,11 @@ _ZL16getMaxBitmapSizeRKN4llvm8coverage21CoverageMappingRecordEb.argprom.exit: ; 
   %248 = icmp eq ptr %247, %242
   br i1 %248, label %_ZN4llvm9BitVectorD2Ev.exit, label %249
 
-249:                                              ; preds = %_ZL16getMaxBitmapSizeRKN4llvm8coverage21CoverageMappingRecordEb.argprom.exit
+249:                                              ; preds = %_ZL16getMaxBitmapSizeRKN4llvm8coverage21CoverageMappingRecordEb.exit
   call void @free(ptr noundef %247) #28
   br label %_ZN4llvm9BitVectorD2Ev.exit
 
-_ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %249, %_ZL16getMaxBitmapSizeRKN4llvm8coverage21CoverageMappingRecordEb.argprom.exit
+_ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %249, %_ZL16getMaxBitmapSizeRKN4llvm8coverage21CoverageMappingRecordEb.exit
   %.pr318 = load ptr, ptr %33, align 8
   %250 = icmp eq ptr %.pr318, null
   br i1 %250, label %_ZN4llvm5ErrorD2Ev.exit121, label %251
@@ -5915,22 +5915,22 @@ _ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmmb.exi
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %524, %540
   %.038.i.i.i.i.i.i.i = phi i64 [ %542, %540 ], [ %528, %524 ]
   %.02937.i.i.i.i.i.i.i = phi ptr [ %541, %540 ], [ %.val.i.i, %524 ]
-  %530 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.argprom(ptr nonnull %.089361, ptr noundef %.02937.i.i.i.i.i.i.i)
+  %530 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_(ptr nonnull %.089361, ptr noundef %.02937.i.i.i.i.i.i.i)
   br i1 %530, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit, label %531
 
 531:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %532 = getelementptr inbounds i8, ptr %.02937.i.i.i.i.i.i.i, i64 144
-  %533 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.argprom(ptr nonnull %.089361, ptr noundef nonnull %532)
+  %533 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_(ptr nonnull %.089361, ptr noundef nonnull %532)
   br i1 %533, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit, label %534
 
 534:                                              ; preds = %531
   %535 = getelementptr inbounds i8, ptr %.02937.i.i.i.i.i.i.i, i64 288
-  %536 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.argprom(ptr nonnull %.089361, ptr noundef nonnull %535)
+  %536 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_(ptr nonnull %.089361, ptr noundef nonnull %535)
   br i1 %536, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit, label %537
 
 537:                                              ; preds = %534
   %538 = getelementptr inbounds i8, ptr %.02937.i.i.i.i.i.i.i, i64 432
-  %539 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.argprom(ptr nonnull %.089361, ptr noundef nonnull %538)
+  %539 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_(ptr nonnull %.089361, ptr noundef nonnull %538)
   br i1 %539, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit, label %540
 
 540:                                              ; preds = %537
@@ -5955,7 +5955,7 @@ _ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmmb.exi
   ]
 
 545:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %546 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.argprom(ptr nonnull %.089361, ptr noundef %.029.lcssa.i.i.i.i.i.i.i)
+  %546 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_(ptr nonnull %.089361, ptr noundef %.029.lcssa.i.i.i.i.i.i.i)
   br i1 %546, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit, label %547
 
 547:                                              ; preds = %545
@@ -5964,7 +5964,7 @@ _ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmmb.exi
 
 549:                                              ; preds = %547, %._crit_edge.i.i.i.i.i.i.i
   %.1.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %548, %547 ]
-  %550 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.argprom(ptr nonnull %.089361, ptr noundef %.1.i.i.i.i.i.i.i)
+  %550 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_(ptr nonnull %.089361, ptr noundef %.1.i.i.i.i.i.i.i)
   br i1 %550, label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit, label %551
 
 551:                                              ; preds = %549
@@ -5973,7 +5973,7 @@ _ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmmb.exi
 
 553:                                              ; preds = %551, %._crit_edge.i.i.i.i.i.i.i
   %.2.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %552, %551 ]
-  %554 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.argprom(ptr nonnull %.089361, ptr noundef %.2.i.i.i.i.i.i.i)
+  %554 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_(ptr nonnull %.089361, ptr noundef %.2.i.i.i.i.i.i.i)
   br label %_ZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionE.exit
 
 555:                                              ; preds = %_ZN4llvm8coverage14FunctionRecord10pushRegionENS0_20CounterMappingRegionEmmb.exit
@@ -7672,7 +7672,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIhLj10EEELb0EE4growEm.exit.i.i
   %181 = load ptr, ptr %9, align 8
   %182 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #28
   %183 = getelementptr inbounds %"class.llvm::SmallVector.629", ptr %181, i64 %182
-  call fastcc void @"_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIhLj10EEELb0EE18uninitialized_copyINS_15mapped_iteratorIPNS_8ArrayRefIhEEZNS_8coverage15CoverageMapping12loadFromFileENS_9StringRefESB_SB_RNS_22IndexedInstrProfReaderERSA_RbPNS_15SmallVectorImplIS2_EEE3$_0S2_EEPS2_EEvT_SM_T0_.argelim"(ptr %156, ptr %158, ptr noundef %183)
+  call fastcc void @"_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIhLj10EEELb0EE18uninitialized_copyINS_15mapped_iteratorIPNS_8ArrayRefIhEEZNS_8coverage15CoverageMapping12loadFromFileENS_9StringRefESB_SB_RNS_22IndexedInstrProfReaderERSA_RbPNS_15SmallVectorImplIS2_EEE3$_0S2_EEPS2_EEvT_SM_T0_"(ptr %156, ptr %158, ptr noundef %183)
   %184 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #28
   %185 = add i64 %184, %157
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %185) #28
@@ -7854,7 +7854,7 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i.i:       ; preds = %260, %253
 
 ._crit_edge.i.i:                                  ; preds = %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i.i, %235
   %.sroa.059.0.lcssa.i.i = phi ptr [ %156, %235 ], [ %262, %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i.i ]
-  call fastcc void @"_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIhLj10EEELb0EE18uninitialized_copyINS_15mapped_iteratorIPNS_8ArrayRefIhEEZNS_8coverage15CoverageMapping12loadFromFileENS_9StringRefESB_SB_RNS_22IndexedInstrProfReaderERSA_RbPNS_15SmallVectorImplIS2_EEE3$_0S2_EEPS2_EEvT_SM_T0_.argelim"(ptr %.sroa.059.0.lcssa.i.i, ptr nonnull %158, ptr noundef %201)
+  call fastcc void @"_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIhLj10EEELb0EE18uninitialized_copyINS_15mapped_iteratorIPNS_8ArrayRefIhEEZNS_8coverage15CoverageMapping12loadFromFileENS_9StringRefESB_SB_RNS_22IndexedInstrProfReaderERSA_RbPNS_15SmallVectorImplIS2_EEE3$_0S2_EEPS2_EEvT_SM_T0_"(ptr %.sroa.059.0.lcssa.i.i, ptr nonnull %158, ptr noundef %201)
   br label %"_ZN4llvm12append_rangeINS_15SmallVectorImplINS_11SmallVectorIhLj10EEEEENS_14iterator_rangeINS_15mapped_iteratorIPNS_8ArrayRefIhEEZNS_8coverage15CoverageMapping12loadFromFileENS_9StringRefESC_SC_RNS_22IndexedInstrProfReaderERSB_RbPS4_E3$_0S3_EEEEEEvRT_OT0_.exit"
 
 "_ZN4llvm12append_rangeINS_15SmallVectorImplINS_11SmallVectorIhLj10EEEEENS_14iterator_rangeINS_15mapped_iteratorIPNS_8ArrayRefIhEEZNS_8coverage15CoverageMapping12loadFromFileENS_9StringRefESC_SC_RNS_22IndexedInstrProfReaderERSB_RbPS4_E3$_0S3_EEEEEEvRT_OT0_.exit": ; preds = %"_ZN4llvm15SmallVectorImplINS_11SmallVectorIhLj10EEEE6appendINS_15mapped_iteratorIPNS_8ArrayRefIhEEZNS_8coverage15CoverageMapping12loadFromFileENS_9StringRefESB_SB_RNS_22IndexedInstrProfReaderERSA_RbPS3_E3$_0S2_EEvEEvT_SJ_.exit.i.i", %"_ZSt4copyIN4llvm15mapped_iteratorIPNS0_8ArrayRefIhEEZNS0_8coverage15CoverageMapping12loadFromFileENS0_9StringRefES7_S7_RNS0_22IndexedInstrProfReaderERS6_RbPNS0_15SmallVectorImplINS0_11SmallVectorIhLj10EEEEEE3$_0SE_EEPSE_ET0_T_SL_SK_.exit.i.i", %._crit_edge.i.i
@@ -8266,7 +8266,7 @@ _ZN4llvm5ErrorD2Ev.exit58:                        ; preds = %10, %_ZN4llvm8Expec
   %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0115.0160, i64 8
   %.sroa.226.0.copyload = load i64, ptr %.sroa.226.0..sroa_idx, align 8
   switch i64 %70, label %73 [
-    i64 0, label %"_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.argprom.exit"
+    i64 0, label %"_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.exit"
     i64 1, label %.sink.split.i
   ]
 
@@ -8279,9 +8279,9 @@ _ZN4llvm5ErrorD2Ev.exit58:                        ; preds = %10, %_ZN4llvm8Expec
   %.sroa.0.0.copyload1.i = load ptr, ptr %.sink6.i, align 8
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds i8, ptr %.sink6.i, i64 8
   %.sroa.5.0.copyload3.i = load i64, ptr %.sroa.5.0..sroa_idx2.i, align 8
-  br label %"_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.argprom.exit"
+  br label %"_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.exit"
 
-"_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.argprom.exit": ; preds = %72, %.sink.split.i
+"_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.exit": ; preds = %72, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %72 ], [ %.sroa.0.0.copyload1.i, %.sink.split.i ]
   %.sroa.5.0.i = phi i64 [ %70, %72 ], [ %.sroa.5.0.copyload3.i, %.sink.split.i ]
   call void @_ZN4llvm8coverage15CoverageMapping12loadFromFileENS_9StringRefES2_S2_RNS_22IndexedInstrProfReaderERS1_RbPNS_15SmallVectorImplINS_11SmallVectorIhLj10EEEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %24, ptr %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload, ptr %.sroa.0.0.i, i64 %.sroa.5.0.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull align 8 dereferenceable(484) %65, ptr noundef nonnull align 8 dereferenceable(96) %66, ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull %23)
@@ -8289,7 +8289,7 @@ _ZN4llvm5ErrorD2Ev.exit58:                        ; preds = %10, %_ZN4llvm8Expec
   %.not153 = icmp eq ptr %75, null
   br i1 %.not153, label %_ZN4llvm5ErrorD2Ev.exit60, label %_ZN4llvm5ErrorD2Ev.exit59
 
-_ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %"_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.argprom.exit"
+_ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %"_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.exit"
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load i8, ptr %76, align 8
   %78 = or i8 %77, 1
@@ -8299,7 +8299,7 @@ _ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %"_ZZN4llvm8coverage
   store ptr null, ptr %24, align 8, !noalias !239
   br label %_ZNSt6vectorIN4llvm11SmallVectorIhLj10EEESaIS2_EED2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit60:                        ; preds = %"_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.argprom.exit"
+_ZN4llvm5ErrorD2Ev.exit60:                        ; preds = %"_ZZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefINS_9StringRefEEES3_RNS_3vfs10FileSystemES4_S3_PKNS_6object14BuildIDFetcherEbENK3$_0clEm.exit"
   %79 = add nuw nsw i64 %.sroa.5.0161, 1
   %80 = getelementptr inbounds i8, ptr %.sroa.0115.0160, i64 16
   %.not150 = icmp eq ptr %80, %68
@@ -8483,18 +8483,18 @@ _ZN4llvm5ErrorD2Ev.exit65:                        ; preds = %81
 
 158:                                              ; preds = %156
   %159 = sext i32 %157 to i64
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS_17__normal_iteratorIPNS2_11SmallVectorIhLj10EEESt6vectorISK_SaISK_EEEESL_EEbT_T0_.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS_17__normal_iteratorIPNS2_11SmallVectorIhLj10EEESt6vectorISK_SaISK_EEEESL_EEbT_T0_.exit.i.i"
 
 160:                                              ; preds = %156, %151
   %161 = sub i64 %153, %155
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS_17__normal_iteratorIPNS2_11SmallVectorIhLj10EEESt6vectorISK_SaISK_EEEESL_EEbT_T0_.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS_17__normal_iteratorIPNS2_11SmallVectorIhLj10EEESt6vectorISK_SaISK_EEEESL_EEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS_17__normal_iteratorIPNS2_11SmallVectorIhLj10EEESt6vectorISK_SaISK_EEEESL_EEbT_T0_.argprom.exit.i.i": ; preds = %160, %158
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS_17__normal_iteratorIPNS2_11SmallVectorIhLj10EEESt6vectorISK_SaISK_EEEESL_EEbT_T0_.exit.i.i": ; preds = %160, %158
   %.0.i.i.i.i.i.i.i.i.i = phi i64 [ %159, %158 ], [ %161, %160 ]
   %162 = icmp slt i64 %.0.i.i.i.i.i.i.i.i.i, 0
   br i1 %162, label %163, label %169
 
-163:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS_17__normal_iteratorIPNS2_11SmallVectorIhLj10EEESt6vectorISK_SaISK_EEEESL_EEbT_T0_.argprom.exit.i.i"
+163:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS_17__normal_iteratorIPNS2_11SmallVectorIhLj10EEESt6vectorISK_SaISK_EEEESL_EEbT_T0_.exit.i.i"
   %164 = load ptr, ptr %.sroa.018.023.i.i, align 8
   %165 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.018.023.i.i) #28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
@@ -8506,7 +8506,7 @@ _ZN4llvm5ErrorD2Ev.exit65:                        ; preds = %81
   %168 = getelementptr inbounds i8, ptr %.sroa.018.023.i.i, i64 40
   br label %186
 
-169:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS_17__normal_iteratorIPNS2_11SmallVectorIhLj10EEESt6vectorISK_SaISK_EEEESL_EEbT_T0_.argprom.exit.i.i"
+169:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS_17__normal_iteratorIPNS2_11SmallVectorIhLj10EEESt6vectorISK_SaISK_EEEESL_EEbT_T0_.exit.i.i"
   %170 = load ptr, ptr %.024.i.i, align 8
   %171 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.024.i.i) #28
   %172 = load ptr, ptr %.sroa.018.023.i.i, align 8
@@ -8522,22 +8522,22 @@ _ZN4llvm5ErrorD2Ev.exit65:                        ; preds = %81
 
 176:                                              ; preds = %174
   %177 = sext i32 %175 to i64
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEENS_17__normal_iteratorISK_St6vectorISJ_SaISJ_EEEEEEbT_T0_.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEENS_17__normal_iteratorISK_St6vectorISJ_SaISJ_EEEEEEbT_T0_.exit.i.i"
 
 178:                                              ; preds = %174, %169
   %179 = sub i64 %171, %173
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEENS_17__normal_iteratorISK_St6vectorISJ_SaISJ_EEEEEEbT_T0_.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEENS_17__normal_iteratorISK_St6vectorISJ_SaISJ_EEEEEEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEENS_17__normal_iteratorISK_St6vectorISJ_SaISJ_EEEEEEbT_T0_.argprom.exit.i.i": ; preds = %178, %176
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEENS_17__normal_iteratorISK_St6vectorISJ_SaISJ_EEEEEEbT_T0_.exit.i.i": ; preds = %178, %176
   %.0.i.i.i.i.i.i.i15.i.i = phi i64 [ %177, %176 ], [ %179, %178 ]
   %180 = icmp slt i64 %.0.i.i.i.i.i.i.i15.i.i, 0
   br i1 %180, label %181, label %183
 
-181:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEENS_17__normal_iteratorISK_St6vectorISJ_SaISJ_EEEEEEbT_T0_.argprom.exit.i.i"
+181:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEENS_17__normal_iteratorISK_St6vectorISJ_SaISJ_EEEEEEbT_T0_.exit.i.i"
   %182 = getelementptr inbounds i8, ptr %.024.i.i, i64 40
   br label %186
 
-183:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEENS_17__normal_iteratorISK_St6vectorISJ_SaISJ_EEEEEEbT_T0_.argprom.exit.i.i"
+183:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEENS_17__normal_iteratorISK_St6vectorISJ_SaISJ_EEEEEEbT_T0_.exit.i.i"
   %184 = getelementptr inbounds i8, ptr %.sroa.018.023.i.i, i64 40
   %185 = getelementptr inbounds i8, ptr %.024.i.i, i64 40
   br label %186
@@ -10085,8 +10085,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4
   %.sroa.26.0.extract.shift.i.i.i.i.i.i.i.i.i.i = lshr i64 %.sroa.3.0.copyload.i.i.i.i.i.i.i.i, 32
   br label %16
 
-16:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i.i = phi ptr [ %.07.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i ]
+16:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
+  %.09.i.i.i.i.i.i.i.i = phi ptr [ %.07.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 -80
   %17 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 -44
   %18 = load i64, ptr %17, align 4
@@ -10099,13 +10099,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4
 
 21:                                               ; preds = %16
   %22 = icmp ult i32 %.sroa.013.0.extract.trunc.i.i.i.i.i.i.i.i.i.i, %.sroa.011.0.extract.trunc.i.i.i.i.i.i.i.i.i.i
-  br i1 %22, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i, label %23
+  br i1 %22, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i, label %23
 
 23:                                               ; preds = %21
   %24 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i.i.i.i.i.i.i.i.i, %.sroa.013.0.extract.trunc.i.i.i.i.i.i.i.i.i.i
   %25 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i.i.i.i.i.i.i.i, %.sroa.212.0.extract.shift.i.i.i.i.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i.i.i = and i1 %24, %25
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 -36
@@ -10119,25 +10119,25 @@ define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4
 
 31:                                               ; preds = %26
   %32 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i.i.i.i.i.i.i.i, %.sroa.05.0.extract.trunc.i.i.i.i.i.i.i.i.i.i
-  br i1 %32, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.i.i.i.i.i.i.i.i
+  br i1 %32, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i.i.i.i.i.i.i.i
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 -28
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %.sroa.4.0.copyload.i.i.i.i.i.i.i.i, %35
-  br i1 %36, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i
+  br i1 %36, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %31
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i.i.i.i.i.i.i.i: ; preds = %31
   %37 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i.i.i.i.i.i.i.i.i, %.sroa.03.0.extract.trunc.i.i.i.i.i.i.i.i.i.i
   %38 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i.i.i.i.i.i.i, %.sroa.26.0.extract.shift.i.i.i.i.i.i.i.i.i.i
   %spec.select15.i.i.i.i.i.i.i.i.i.i = and i1 %37, %38
-  br i1 %spec.select15.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i
+  br i1 %spec.select15.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.i.i.i.i.i.i.i.i, %33, %31, %23, %21
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i.i.i.i.i.i.i.i, %33, %31, %23, %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %.09.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(74) %.0.i.i.i.i.i.i.i.i, i64 74, i1 false)
   br label %16, !llvm.loop !296
 
-_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.i.i.i.i.i.i.i.i, %33, %23
+_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i.i.i.i.i.i.i.i, %33, %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.09.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0.i.i.i.i.i.i.i.i, i64 36, i1 false)
   %.sroa.2.0..09.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 36
   store i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr %.sroa.2.0..09.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -10283,15 +10283,15 @@ _ZN12_GLOBAL__N_114SegmentBuilder14combineRegionsEN4llvm15MutableArrayRefINS1_8c
   %96 = load i32, ptr %84, align 4
   br label %97
 
-97:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit51.thread67.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.099.i.i.i.i.i = phi i64 [ %92, %.lr.ph.i.i.i.i.i ], [ %118, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit51.thread67.i.i.i.i.i ]
-  %.02998.i.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i.i ], [ %117, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit51.thread67.i.i.i.i.i ]
+97:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit51.thread67.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+  %.099.i.i.i.i.i = phi i64 [ %92, %.lr.ph.i.i.i.i.i ], [ %118, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit51.thread67.i.i.i.i.i ]
+  %.02998.i.i.i.i.i = phi ptr [ %88, %.lr.ph.i.i.i.i.i ], [ %117, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit51.thread67.i.i.i.i.i ]
   %.029.val.i.i.i.i.i = load ptr, ptr %.02998.i.i.i.i.i, align 8
   %98 = getelementptr i8, ptr %.029.val.i.i.i.i.i, i64 44
   %.029.val.val.i.i.i.i.i = load i64, ptr %98, align 4
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %.029.val.val.i.i.i.i.i to i32
   %99 = icmp ult i32 %94, %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i
-  br i1 %99, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread64.i.i.i.i.i, label %100
+  br i1 %99, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread64.i.i.i.i.i, label %100
 
 100:                                              ; preds = %97
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %.029.val.val.i.i.i.i.i, 32
@@ -10299,66 +10299,66 @@ _ZN12_GLOBAL__N_114SegmentBuilder14combineRegionsEN4llvm15MutableArrayRefINS1_8c
   %101 = icmp ule i32 %94, %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i
   %.not73.i.i.i.i.i = icmp ult i32 %96, %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i
   %or.cond.i = select i1 %101, i1 %.not73.i.i.i.i.i, i1 false
-  br i1 %or.cond.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread64.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i
+  br i1 %or.cond.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread64.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread64.i.i.i.i.i: ; preds = %100, %97
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread64.i.i.i.i.i: ; preds = %100, %97
   %102 = getelementptr inbounds i8, ptr %.02998.i.i.i.i.i, i64 8
   %.val31.i.i.i.i.i = load ptr, ptr %102, align 8
   %103 = getelementptr i8, ptr %.val31.i.i.i.i.i, i64 44
   %.val31.val.i.i.i.i.i = load i64, ptr %103, align 4
   %.sroa.0.0.extract.trunc.i.i40.i.i.i.i.i = trunc i64 %.val31.val.i.i.i.i.i to i32
   %104 = icmp ult i32 %94, %.sroa.0.0.extract.trunc.i.i40.i.i.i.i.i
-  br i1 %104, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit43.thread65.i.i.i.i.i, label %105
+  br i1 %104, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit43.thread65.i.i.i.i.i, label %105
 
-105:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread64.i.i.i.i.i
+105:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread64.i.i.i.i.i
   %.sroa.2.0.extract.shift.i.i41.i.i.i.i.i = lshr i64 %.val31.val.i.i.i.i.i, 32
   %.sroa.2.0.extract.trunc.i.i42.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i41.i.i.i.i.i to i32
   %106 = icmp ule i32 %94, %.sroa.0.0.extract.trunc.i.i40.i.i.i.i.i
   %.not74.i.i.i.i.i = icmp ult i32 %96, %.sroa.2.0.extract.trunc.i.i42.i.i.i.i.i
   %or.cond54.i = select i1 %106, i1 %.not74.i.i.i.i.i, i1 false
-  br i1 %or.cond54.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit43.thread65.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit
+  br i1 %or.cond54.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit43.thread65.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit43.thread65.i.i.i.i.i: ; preds = %105, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread64.i.i.i.i.i
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit43.thread65.i.i.i.i.i: ; preds = %105, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread64.i.i.i.i.i
   %107 = getelementptr inbounds i8, ptr %.02998.i.i.i.i.i, i64 16
   %.val33.i.i.i.i.i = load ptr, ptr %107, align 8
   %108 = getelementptr i8, ptr %.val33.i.i.i.i.i, i64 44
   %.val33.val.i.i.i.i.i = load i64, ptr %108, align 4
   %.sroa.0.0.extract.trunc.i.i44.i.i.i.i.i = trunc i64 %.val33.val.i.i.i.i.i to i32
   %109 = icmp ult i32 %94, %.sroa.0.0.extract.trunc.i.i44.i.i.i.i.i
-  br i1 %109, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit47.thread66.i.i.i.i.i, label %110
+  br i1 %109, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit47.thread66.i.i.i.i.i, label %110
 
-110:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit43.thread65.i.i.i.i.i
+110:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit43.thread65.i.i.i.i.i
   %.sroa.2.0.extract.shift.i.i45.i.i.i.i.i = lshr i64 %.val33.val.i.i.i.i.i, 32
   %.sroa.2.0.extract.trunc.i.i46.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i45.i.i.i.i.i to i32
   %111 = icmp ule i32 %94, %.sroa.0.0.extract.trunc.i.i44.i.i.i.i.i
   %.not75.i.i.i.i.i = icmp ult i32 %96, %.sroa.2.0.extract.trunc.i.i46.i.i.i.i.i
   %or.cond55.i = select i1 %111, i1 %.not75.i.i.i.i.i, i1 false
-  br i1 %or.cond55.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit47.thread66.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit31
+  br i1 %or.cond55.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit47.thread66.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit31
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit47.thread66.i.i.i.i.i: ; preds = %110, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit43.thread65.i.i.i.i.i
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit47.thread66.i.i.i.i.i: ; preds = %110, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit43.thread65.i.i.i.i.i
   %112 = getelementptr inbounds i8, ptr %.02998.i.i.i.i.i, i64 24
   %.val35.i.i.i.i.i = load ptr, ptr %112, align 8
   %113 = getelementptr i8, ptr %.val35.i.i.i.i.i, i64 44
   %.val35.val.i.i.i.i.i = load i64, ptr %113, align 4
   %.sroa.0.0.extract.trunc.i.i48.i.i.i.i.i = trunc i64 %.val35.val.i.i.i.i.i to i32
   %114 = icmp ult i32 %94, %.sroa.0.0.extract.trunc.i.i48.i.i.i.i.i
-  br i1 %114, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit51.thread67.i.i.i.i.i, label %115
+  br i1 %114, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit51.thread67.i.i.i.i.i, label %115
 
-115:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit47.thread66.i.i.i.i.i
+115:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit47.thread66.i.i.i.i.i
   %.sroa.2.0.extract.shift.i.i49.i.i.i.i.i = lshr i64 %.val35.val.i.i.i.i.i, 32
   %.sroa.2.0.extract.trunc.i.i50.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i49.i.i.i.i.i to i32
   %116 = icmp ule i32 %94, %.sroa.0.0.extract.trunc.i.i48.i.i.i.i.i
   %.not76.i.i.i.i.i = icmp ult i32 %96, %.sroa.2.0.extract.trunc.i.i50.i.i.i.i.i
   %or.cond56.i = select i1 %116, i1 %.not76.i.i.i.i.i, i1 false
-  br i1 %or.cond56.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit51.thread67.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit33
+  br i1 %or.cond56.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit51.thread67.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit33
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit51.thread67.i.i.i.i.i: ; preds = %115, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit47.thread66.i.i.i.i.i
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit51.thread67.i.i.i.i.i: ; preds = %115, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit47.thread66.i.i.i.i.i
   %117 = getelementptr inbounds i8, ptr %.02998.i.i.i.i.i, i64 32
   %118 = add nsw i64 %.099.i.i.i.i.i, -1
   %119 = icmp sgt i64 %.099.i.i.i.i.i, 1
   br i1 %119, label %97, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !299
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit51.thread67.i.i.i.i.i
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit51.thread67.i.i.i.i.i
   %120 = and i64 %89, 3
   br label %._crit_edge.i.i.i.i.i
 
@@ -10386,7 +10386,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegment
   %.sroa.0.0.extract.trunc.i.i52.i.i.i.i.i = trunc i64 %.029.val37.val.i.i.i.i.i to i32
   %123 = load i32, ptr %4, align 8
   %124 = icmp ult i32 %123, %.sroa.0.0.extract.trunc.i.i52.i.i.i.i.i
-  br i1 %124, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit55.thread68.i.i.i.i.i, label %125
+  br i1 %124, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit55.thread68.i.i.i.i.i, label %125
 
 125:                                              ; preds = %121
   %.sroa.2.0.extract.shift.i.i53.i.i.i.i.i = lshr i64 %.029.val37.val.i.i.i.i.i, 32
@@ -10395,21 +10395,21 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegment
   %127 = load i32, ptr %84, align 4
   %.not.i.i.i.i.i13 = icmp ult i32 %127, %.sroa.2.0.extract.trunc.i.i54.i.i.i.i.i
   %or.cond58.i = select i1 %126, i1 %.not.i.i.i.i.i13, i1 false
-  br i1 %or.cond58.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit55.thread68.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i
+  br i1 %or.cond58.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit55.thread68.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit55.thread68.i.i.i.i.i: ; preds = %125, %121
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit55.thread68.i.i.i.i.i: ; preds = %125, %121
   %128 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
   br label %129
 
-129:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit55.thread68.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i
-  %130 = phi i32 [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %123, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit55.thread68.i.i.i.i.i ]
-  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %128, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit55.thread68.i.i.i.i.i ]
+129:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit55.thread68.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i
+  %130 = phi i32 [ %.pre.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %123, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit55.thread68.i.i.i.i.i ]
+  %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %128, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit55.thread68.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8
   %131 = getelementptr i8, ptr %.1.val.i.i.i.i.i, i64 44
   %.1.val.val.i.i.i.i.i = load i64, ptr %131, align 4
   %.sroa.0.0.extract.trunc.i.i56.i.i.i.i.i = trunc i64 %.1.val.val.i.i.i.i.i to i32
   %132 = icmp ult i32 %130, %.sroa.0.0.extract.trunc.i.i56.i.i.i.i.i
-  br i1 %132, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit59.thread69.i.i.i.i.i, label %133
+  br i1 %132, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit59.thread69.i.i.i.i.i, label %133
 
 133:                                              ; preds = %129
   %.sroa.2.0.extract.shift.i.i57.i.i.i.i.i = lshr i64 %.1.val.val.i.i.i.i.i, 32
@@ -10418,15 +10418,15 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegment
   %135 = load i32, ptr %84, align 4
   %.not71.i.i.i.i.i = icmp ult i32 %135, %.sroa.2.0.extract.trunc.i.i58.i.i.i.i.i
   %or.cond60.i = select i1 %134, i1 %.not71.i.i.i.i.i, i1 false
-  br i1 %or.cond60.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit59.thread69.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i
+  br i1 %or.cond60.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit59.thread69.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit59.thread69.i.i.i.i.i: ; preds = %133, %129
+_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit59.thread69.i.i.i.i.i: ; preds = %133, %129
   %136 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
   br label %137
 
-137:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit59.thread69.i.i.i.i.i, %._crit_edge._crit_edge107.i.i.i.i.i
-  %138 = phi i32 [ %.pre108.i.i.i.i.i, %._crit_edge._crit_edge107.i.i.i.i.i ], [ %130, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit59.thread69.i.i.i.i.i ]
-  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge._crit_edge107.i.i.i.i.i ], [ %136, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit59.thread69.i.i.i.i.i ]
+137:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit59.thread69.i.i.i.i.i, %._crit_edge._crit_edge107.i.i.i.i.i
+  %138 = phi i32 [ %.pre108.i.i.i.i.i, %._crit_edge._crit_edge107.i.i.i.i.i ], [ %130, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit59.thread69.i.i.i.i.i ]
+  %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge._crit_edge107.i.i.i.i.i ], [ %136, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit59.thread69.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8
   %139 = getelementptr i8, ptr %.2.val.i.i.i.i.i, i64 44
   %.2.val.val.i.i.i.i.i = load i64, ptr %139, align 4
@@ -10543,7 +10543,7 @@ _ZSt16stable_partitionIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114Segme
   %193 = phi ptr [ %191, %186 ], [ %.sroa.044.074.i, %183 ]
   %.sroa.03.0.copyload.i = load i64, ptr %4, align 8
   %.val.i = load ptr, ptr %5, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.argprom(ptr %.val.i, ptr noundef nonnull align 8 dereferenceable(74) %193, i64 %.sroa.03.0.copyload.i, i1 noundef zeroext %173, i1 noundef zeroext %spec.select.i)
+  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val.i, ptr noundef nonnull align 8 dereferenceable(74) %193, i64 %.sroa.03.0.copyload.i, i1 noundef zeroext %173, i1 noundef zeroext %spec.select.i)
   br i1 %spec.select.i, label %194, label %219
 
 194:                                              ; preds = %192
@@ -10558,7 +10558,7 @@ _ZSt16stable_partitionIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114Segme
   %201 = load ptr, ptr %200, align 8
   %.sroa.02.0.copyload.i = load i64, ptr %4, align 8
   %.val26.i = load ptr, ptr %5, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.argprom(ptr %.val26.i, ptr noundef nonnull align 8 dereferenceable(74) %201, i64 %.sroa.02.0.copyload.i, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val26.i, ptr noundef nonnull align 8 dereferenceable(74) %201, i64 %.sroa.02.0.copyload.i, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %219
 
 202:                                              ; preds = %170
@@ -10578,7 +10578,7 @@ _ZSt16stable_partitionIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114Segme
 .critedge.i12:                                    ; preds = %203, %202
   %.sroa.01.0.copyload.i = load i64, ptr %4, align 8
   %.val27.i = load ptr, ptr %5, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.argprom(ptr %.val27.i, ptr noundef nonnull align 8 dereferenceable(74) %.sroa.044.074.i, i64 %.sroa.01.0.copyload.i, i1 noundef zeroext %173, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val27.i, ptr noundef nonnull align 8 dereferenceable(74) %.sroa.044.074.i, i64 %.sroa.01.0.copyload.i, i1 noundef zeroext %173, i1 noundef zeroext false)
   br label %208
 
 208:                                              ; preds = %.critedge.i12, %203
@@ -11917,34 +11917,34 @@ define dso_local void @_ZN4llvm8coverage17LineCoverageStatsC2ENS_8ArrayRefIPKNS0
   %.not57 = icmp eq i64 %2, 0
   br i1 %.not57, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit.thread"
-  %11 = phi i64 [ %27, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit.thread" ], [ 0, %5 ]
-  %.044 = phi i32 [ %25, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit.thread" ], [ 0, %5 ]
-  %.02343 = phi i32 [ %26, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit.thread" ], [ 0, %5 ]
+.lr.ph:                                           ; preds = %5, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit.thread"
+  %11 = phi i64 [ %27, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit.thread" ], [ 0, %5 ]
+  %.044 = phi i32 [ %25, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit.thread" ], [ 0, %5 ]
+  %.02343 = phi i32 [ %26, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit.thread" ], [ 0, %5 ]
   %12 = getelementptr inbounds ptr, ptr %1, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 18
   %15 = load i8, ptr %14, align 2
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit.thread", label %17
+  br i1 %16, label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit.thread", label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit", label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit.thread"
+  br i1 %20, label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit", label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit.thread"
 
-"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit": ; preds = %17
+"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit": ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 17
   %22 = load i8, ptr %21, align 1
   %.fr = freeze i8 %22
   %23 = and i8 %.fr, 1
   %24 = zext nneg i8 %23 to i32
   %spec.select = add nuw nsw i32 %.044, %24
-  br label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit.thread"
+  br label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit.thread"
 
-"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit.thread": ; preds = %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit", %.lr.ph, %17
-  %25 = phi i32 [ %.044, %17 ], [ %.044, %.lr.ph ], [ %spec.select, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit" ]
+"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit.thread": ; preds = %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit", %.lr.ph, %17
+  %25 = phi i32 [ %.044, %17 ], [ %.044, %.lr.ph ], [ %spec.select, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit" ]
   %26 = add i32 %.02343, 1
   %27 = zext i32 %26 to i64
   %28 = icmp ugt i64 %2, %27
@@ -11952,7 +11952,7 @@ define dso_local void @_ZN4llvm8coverage17LineCoverageStatsC2ENS_8ArrayRefIPKNS0
   %30 = select i1 %28, i1 %29, i1 false
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !322
 
-._crit_edge:                                      ; preds = %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit.thread"
+._crit_edge:                                      ; preds = %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit.thread"
   %31 = load ptr, ptr %1, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i8, ptr %32, align 8
@@ -12006,77 +12006,77 @@ define dso_local void @_ZN4llvm8coverage17LineCoverageStatsC2ENS_8ArrayRefIPKNS0
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %1, i64 %56
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit35.thread.i.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i.i
-  %.050.i.i.i.i.i.i = phi i64 [ %85, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit35.thread.i.i.i.i.i.i" ], [ %54, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.02949.i.i.i.i.i.i = phi ptr [ %84, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit35.thread.i.i.i.i.i.i" ], [ %1, %.lr.ph.preheader.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit35.thread.i.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i.i
+  %.050.i.i.i.i.i.i = phi i64 [ %85, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit35.thread.i.i.i.i.i.i" ], [ %54, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.02949.i.i.i.i.i.i = phi ptr [ %84, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit35.thread.i.i.i.i.i.i" ], [ %1, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02949.i.i.i.i.i.i, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i.i, i64 17
   %58 = load i8, ptr %57, align 1
   %59 = trunc i8 %58 to i1
-  br i1 %59, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit.thread.i.i.i.i.i.i"
+  br i1 %59, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
   %60 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i.i, i64 16
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
-  br i1 %62, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit.thread.i.i.i.i.i.i"
+  br i1 %62, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
   %63 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 8
   %.val.i.i.i.i.i.i = load ptr, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i, i64 17
   %65 = load i8, ptr %64, align 1
   %66 = trunc i8 %65 to i1
-  br i1 %66, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit33.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit33.thread.i.i.i.i.i.i"
+  br i1 %66, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit33.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit33.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit33.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit33.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit.thread.i.i.i.i.i.i"
   %67 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i, i64 16
   %68 = load i8, ptr %67, align 8
   %69 = trunc i8 %68 to i1
-  br i1 %69, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit33.thread.i.i.i.i.i.i"
+  br i1 %69, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit33.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit33.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit33.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit33.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit33.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit.thread.i.i.i.i.i.i"
   %70 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i.i = load ptr, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.val30.i.i.i.i.i.i, i64 17
   %72 = load i8, ptr %71, align 1
   %73 = trunc i8 %72 to i1
-  br i1 %73, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit34.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit34.thread.i.i.i.i.i.i"
+  br i1 %73, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit34.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit34.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit34.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit33.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit34.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit33.thread.i.i.i.i.i.i"
   %74 = getelementptr inbounds nuw i8, ptr %.val30.i.i.i.i.i.i, i64 16
   %75 = load i8, ptr %74, align 8
   %76 = trunc i8 %75 to i1
-  br i1 %76, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit67", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit34.thread.i.i.i.i.i.i"
+  br i1 %76, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit67", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit34.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit34.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit34.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit33.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit34.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit34.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit33.thread.i.i.i.i.i.i"
   %77 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 24
   %.val31.i.i.i.i.i.i = load ptr, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %.val31.i.i.i.i.i.i, i64 17
   %79 = load i8, ptr %78, align 1
   %80 = trunc i8 %79 to i1
-  br i1 %80, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit35.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit35.thread.i.i.i.i.i.i"
+  br i1 %80, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit35.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit35.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit35.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit34.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit35.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit34.thread.i.i.i.i.i.i"
   %81 = getelementptr inbounds nuw i8, ptr %.val31.i.i.i.i.i.i, i64 16
   %82 = load i8, ptr %81, align 8
   %83 = trunc i8 %82 to i1
-  br i1 %83, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit69", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit35.thread.i.i.i.i.i.i"
+  br i1 %83, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit69", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit35.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit35.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit35.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit34.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit35.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit35.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit34.thread.i.i.i.i.i.i"
   %84 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 32
   %85 = add nsw i64 %.050.i.i.i.i.i.i, -1
   %86 = icmp sgt i64 %.050.i.i.i.i.i.i, 1
   br i1 %86, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !323
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit35.thread.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit35.thread.i.i.i.i.i.i"
   %87 = and i64 %2, 3
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %51
   %.pre-phi56.i.i.i.i.i.i = phi i64 [ %87, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %2, %51 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %1, %51 ]
-  switch i64 %.pre-phi56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit38.thread.i.i.i.i.i.i" [
+  switch i64 %.pre-phi56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit38.thread.i.i.i.i.i.i" [
     i64 3, label %88
     i64 2, label %96
     i64 1, label %104
@@ -12087,67 +12087,67 @@ define dso_local void @_ZN4llvm8coverage17LineCoverageStatsC2ENS_8ArrayRefIPKNS0
   %89 = getelementptr inbounds nuw i8, ptr %.029.val32.i.i.i.i.i.i, i64 17
   %90 = load i8, ptr %89, align 1
   %91 = trunc i8 %90 to i1
-  br i1 %91, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit36.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit36.thread.i.i.i.i.i.i"
+  br i1 %91, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit36.i.i.i.i.i.i": ; preds = %88
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.i.i.i.i.i.i": ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %.029.val32.i.i.i.i.i.i, i64 16
   %93 = load i8, ptr %92, align 8
   %94 = trunc i8 %93 to i1
-  br i1 %94, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit36.thread.i.i.i.i.i.i"
+  br i1 %94, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit36.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit36.i.i.i.i.i.i", %88
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.i.i.i.i.i.i", %88
   %95 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   br label %96
 
-96:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit36.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %95, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit36.thread.i.i.i.i.i.i" ]
+96:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %95, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.thread.i.i.i.i.i.i" ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 17
   %98 = load i8, ptr %97, align 1
   %99 = trunc i8 %98 to i1
-  br i1 %99, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit37.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit37.thread.i.i.i.i.i.i"
+  br i1 %99, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit37.i.i.i.i.i.i": ; preds = %96
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.i.i.i.i.i.i": ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i.i, i64 16
   %101 = load i8, ptr %100, align 8
   %102 = trunc i8 %101 to i1
-  br i1 %102, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit37.thread.i.i.i.i.i.i"
+  br i1 %102, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit37.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit37.i.i.i.i.i.i", %96
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.i.i.i.i.i.i", %96
   %103 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %104
 
-104:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit37.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %103, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit37.thread.i.i.i.i.i.i" ]
+104:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %103, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.thread.i.i.i.i.i.i" ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 17
   %106 = load i8, ptr %105, align 1
   %107 = trunc i8 %106 to i1
-  br i1 %107, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit38.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit38.thread.i.i.i.i.i.i"
+  br i1 %107, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit38.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit38.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit38.i.i.i.i.i.i": ; preds = %104
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit38.i.i.i.i.i.i": ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i.i, i64 16
   %109 = load i8, ptr %108, align 8
   %110 = trunc i8 %109 to i1
-  br i1 %110, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit38.thread.i.i.i.i.i.i"
+  br i1 %110, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit38.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit38.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit38.i.i.i.i.i.i", %104, %._crit_edge.i.i.i.i.i.i
-  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit38.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit38.i.i.i.i.i.i", %104, %._crit_edge.i.i.i.i.i.i
+  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit33.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit33.i.i.i.i.i.i"
   %111 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 8
-  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit67": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit34.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit67": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit34.i.i.i.i.i.i"
   %112 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 16
-  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit69": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit35.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit69": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit35.i.i.i.i.i.i"
   %113 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i.i, i64 24
-  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit67", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit69", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit36.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit37.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit38.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit38.thread.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %53, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit38.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit36.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit37.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit38.i.i.i.i.i.i" ], [ %111, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %112, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit67" ], [ %113, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit.loopexit.split.loop.exit69" ], [ %.02949.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.argprom.exit.i.i.i.i.i.i" ]
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit67", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit69", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit38.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit38.thread.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %53, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit38.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit36.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit37.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit38.i.i.i.i.i.i" ], [ %111, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %112, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit67" ], [ %113, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit69" ], [ %.02949.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8coverage17LineCoverageStatsC1ENS2_8ArrayRefIPKNS3_15CoverageSegmentEEES8_jE3$_1EclIPKS8_EEbT_.exit.i.i.i.i.i.i" ]
   %114 = icmp ne ptr %53, %.028.i.i.i.i.i.i
   %115 = zext i1 %114 to i8
   %116 = or i8 %52, %115
@@ -12155,7 +12155,7 @@ define dso_local void @_ZN4llvm8coverage17LineCoverageStatsC2ENS_8ArrayRefIPKNS0
   store i8 %116, ptr %7, align 1
   br i1 %.not28, label %.loopexit, label %117
 
-117:                                              ; preds = %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit"
+117:                                              ; preds = %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit"
   %.not29 = icmp eq ptr %3, null
   br i1 %.not29, label %121, label %118
 
@@ -12174,41 +12174,41 @@ define dso_local void @_ZN4llvm8coverage17LineCoverageStatsC2ENS_8ArrayRefIPKNS0
   %123 = getelementptr inbounds ptr, ptr %1, i64 %2
   br i1 %.not57, label %.loopexit, label %.lr.ph56
 
-.lr.ph56:                                         ; preds = %122, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33.thread"
-  %.02454 = phi ptr [ %141, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33.thread" ], [ %1, %122 ]
-  %124 = phi i64 [ %140, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33.thread" ], [ %.promoted, %122 ]
+.lr.ph56:                                         ; preds = %122, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33.thread"
+  %.02454 = phi ptr [ %141, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33.thread" ], [ %1, %122 ]
+  %124 = phi i64 [ %140, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33.thread" ], [ %.promoted, %122 ]
   %125 = load ptr, ptr %.02454, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 18
   %127 = load i8, ptr %126, align 2
   %128 = trunc i8 %127 to i1
-  br i1 %128, label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33.thread", label %129
+  br i1 %128, label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33.thread", label %129
 
 129:                                              ; preds = %.lr.ph56
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %131 = load i8, ptr %130, align 8
   %132 = trunc i8 %131 to i1
-  br i1 %132, label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33", label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33.thread"
+  br i1 %132, label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33", label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33.thread"
 
-"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33": ; preds = %129
+"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33": ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %125, i64 17
   %134 = load i8, ptr %133, align 1
   %135 = trunc i8 %134 to i1
-  br i1 %135, label %136, label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33.thread"
+  br i1 %135, label %136, label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33.thread"
 
-136:                                              ; preds = %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33"
+136:                                              ; preds = %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33"
   %137 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %138 = load i64, ptr %137, align 8
   %139 = tail call i64 @llvm.umax.i64(i64 %124, i64 %138)
   store i64 %139, ptr %0, align 8
-  br label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33.thread"
+  br label %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33.thread"
 
-"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33.thread": ; preds = %.lr.ph56, %129, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33", %136
-  %140 = phi i64 [ %124, %.lr.ph56 ], [ %124, %129 ], [ %124, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33" ], [ %139, %136 ]
+"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33.thread": ; preds = %.lr.ph56, %129, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33", %136
+  %140 = phi i64 [ %124, %.lr.ph56 ], [ %124, %129 ], [ %124, %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33" ], [ %139, %136 ]
   %141 = getelementptr inbounds i8, ptr %.02454, i64 8
   %.not31 = icmp eq ptr %141, %123
   br i1 %.not31, label %.loopexit, label %.lr.ph56
 
-.loopexit:                                        ; preds = %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.argprom.exit33.thread", %122, %121, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.argprom.exit"
+.loopexit:                                        ; preds = %"_ZZN4llvm8coverage17LineCoverageStatsC1ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_jENK3$_0clES5_.exit33.thread", %122, %121, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPKNS_8coverage15CoverageSegmentEEEZNS2_17LineCoverageStatsC1ES6_S5_jE3$_1EEbOT_T0_.exit"
   ret void
 }
 
@@ -15712,7 +15712,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage20CounterMappingRegionELb1EE18un
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_.argprom(ptr %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEEUlRT_E_EclIPNS3_14DecisionRecordEEEbS9_(ptr %.0.val, ptr noundef %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = load ptr, ptr %0, align 8
@@ -15772,7 +15772,7 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i: ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.argprom.exit, label %34
+  br i1 %33, label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.exit, label %34
 
 34:                                               ; preds = %.critedge.i.i.i
   %35 = mul i32 %3, 37
@@ -15789,7 +15789,7 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i: ; preds = %14
   %.01521.i.i.i.i.i.i.i = phi i32 [ %.015.i.i.i.i.i.i.i, %43 ], [ %.01519.i.i.i.i.i.i.i, %34 ]
   %.01420.i.i.i.i.i.i.i = phi i32 [ %44, %43 ], [ 1, %34 ]
   %42 = icmp eq i32 %41, -1
-  br i1 %42, label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.argprom.exit, label %43
+  br i1 %42, label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.exit, label %43
 
 43:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %44 = add i32 %.01420.i.i.i.i.i.i.i, 1
@@ -15805,7 +15805,7 @@ _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8cove
   %.lcssa.i.i.i.pn.i.i.i.i = phi i64 [ %37, %34 ], [ %46, %43 ]
   %50 = zext i32 %32 to i64
   %.not.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i, %50
-  br i1 %.not.i.i, label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.argprom.exit, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread.i.i
+  br i1 %.not.i.i, label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.exit, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread.i.i
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i, %._ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread_crit_edge.i.i
   %51 = phi i32 [ %.pre18.i.i, %._ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread_crit_edge.i.i ], [ %32, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i ]
@@ -15824,7 +15824,7 @@ _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8cove
   %61 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.477", ptr %52, i64 %60
   %62 = load i32, ptr %61, align 4, !noalias !396
   %63 = icmp eq i32 %57, %62
-  br i1 %63, label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.argprom.exit, label %.lr.ph.i.i.i.i.i.i
+  br i1 %63, label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.exit, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %56, %69
   %64 = phi i32 [ %76, %69 ], [ %62, %56 ]
@@ -15852,16 +15852,16 @@ _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8cove
   %75 = getelementptr inbounds %"class.llvm::detail::DenseSetPair.477", ptr %52, i64 %74
   %76 = load i32, ptr %75, align 4, !noalias !396
   %77 = icmp eq i32 %57, %76
-  br i1 %77, label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.argprom.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !401
+  br i1 %77, label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !401
 
 78:                                               ; preds = %67, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread.i.i
   %.sink.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ null, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread.i.i ]
   %79 = tail call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E20InsertIntoBucketImplIjEEPS7_RKjRKT_SB_(ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull align 4 dereferenceable(4) %54, ptr noundef nonnull align 4 dereferenceable(4) %54, ptr noundef %.sink.i.i.i.i.i.i), !noalias !396
   %80 = load i32, ptr %54, align 4, !noalias !396
   store i32 %80, ptr %79, align 4, !noalias !396
-  br label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.argprom.exit
+  br label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.exit
 
-_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.argprom.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %69, %.critedge.i.i.i, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i, %56, %78
+_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %69, %.critedge.i.i.i, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i, %56, %78
   %.0.i5.i.i = phi i1 [ false, %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i ], [ false, %.critedge.i.i.i ], [ true, %56 ], [ true, %78 ], [ true, %69 ], [ false, %.lr.ph.i.i.i.i.i.i.i ]
   ret i1 %.0.i5.i.i
 }
@@ -17603,13 +17603,13 @@ define internal fastcc void @_ZSt16__introsort_loopIPN4llvm8coverage13CountedReg
 
 49:                                               ; preds = %39
   %50 = icmp ult i32 %.sroa.013.0.extract.trunc.i.i.i.i, %.sroa.011.0.extract.trunc.i.i.i.i
-  br i1 %50, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i.i, label %51
+  br i1 %50, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i, label %51
 
 51:                                               ; preds = %49
   %52 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i.i.i, %.sroa.013.0.extract.trunc.i.i.i.i
   %53 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i.i.i
   %spec.select.i.i.i.i = and i1 %52, %53
-  br i1 %spec.select.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i.i, label %119
+  br i1 %spec.select.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i, label %119
 
 54:                                               ; preds = %39
   %55 = load i64, ptr %18, align 4
@@ -17626,22 +17626,22 @@ define internal fastcc void @_ZSt16__introsort_loopIPN4llvm8coverage13CountedReg
 
 60:                                               ; preds = %54
   %61 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i.i, %.sroa.05.0.extract.trunc.i.i.i.i
-  br i1 %61, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.i.i
+  br i1 %61, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i.i
 
 62:                                               ; preds = %54
   %63 = load i32, ptr %19, align 4
   %64 = getelementptr inbounds nuw i8, ptr %42, i64 52
   %65 = load i32, ptr %64, align 4
   %66 = icmp slt i32 %63, %65
-  br i1 %66, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i.i, label %119
+  br i1 %66, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i, label %119
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.i.i: ; preds = %60
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i.i: ; preds = %60
   %67 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i.i.i, %.sroa.03.0.extract.trunc.i.i.i.i
   %68 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i, %.sroa.26.0.extract.shift.i.i.i.i
   %spec.select15.i.i.i.i = and i1 %67, %68
-  br i1 %spec.select15.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i.i, label %119
+  br i1 %spec.select15.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i, label %119
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.i.i, %62, %60, %51, %49
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i.i, %62, %60, %51, %49
   %69 = getelementptr inbounds i8, ptr %.024, i64 -44
   %70 = load i64, ptr %69, align 4
   %.sroa.011.0.extract.trunc.i.i24.i.i = trunc i64 %70 to i32
@@ -17651,17 +17651,17 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   %.not3.i.i.i26.i.i = or i1 %71, %72
   br i1 %.not3.i.i.i26.i.i, label %73, label %78
 
-73:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i.i
+73:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i
   %74 = icmp ult i32 %.sroa.011.0.extract.trunc.i.i.i.i, %.sroa.011.0.extract.trunc.i.i24.i.i
-  br i1 %74, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit35.thread.i.i, label %75
+  br i1 %74, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.thread.i.i, label %75
 
 75:                                               ; preds = %73
   %76 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i24.i.i, %.sroa.011.0.extract.trunc.i.i.i.i
   %77 = icmp ult i64 %.sroa.212.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i25.i.i
   %spec.select.i.i34.i.i = and i1 %76, %77
-  br i1 %spec.select.i.i34.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit35.thread.i.i, label %95
+  br i1 %spec.select.i.i34.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.thread.i.i, label %95
 
-78:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i.i
+78:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i.i
   %79 = getelementptr inbounds nuw i8, ptr %42, i64 44
   %80 = load i64, ptr %79, align 4
   %.sroa.05.0.extract.trunc.i.i27.i.i = trunc i64 %80 to i32
@@ -17677,7 +17677,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 85:                                               ; preds = %78
   %86 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i29.i.i, %.sroa.05.0.extract.trunc.i.i27.i.i
-  br i1 %86, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit35.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit35.i.i
+  br i1 %86, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.i.i
 
 87:                                               ; preds = %78
   %88 = getelementptr inbounds nuw i8, ptr %42, i64 52
@@ -17685,15 +17685,15 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   %90 = getelementptr inbounds i8, ptr %.024, i64 -28
   %91 = load i32, ptr %90, align 4
   %92 = icmp slt i32 %89, %91
-  br i1 %92, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit35.thread.i.i, label %95
+  br i1 %92, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.thread.i.i, label %95
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit35.i.i: ; preds = %85
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.i.i: ; preds = %85
   %93 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i27.i.i, %.sroa.03.0.extract.trunc.i.i29.i.i
   %94 = icmp ult i64 %.sroa.24.0.extract.shift.i.i30.i.i, %.sroa.26.0.extract.shift.i.i28.i.i
   %spec.select15.i.i33.i.i = and i1 %93, %94
-  br i1 %spec.select15.i.i33.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit35.thread.i.i, label %95
+  br i1 %spec.select15.i.i33.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.thread.i.i, label %95
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit35.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit35.i.i, %87, %85, %75, %73
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.i.i, %87, %85, %75, %73
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(74) %42, i64 74, i1 false)
@@ -17701,7 +17701,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i.preheader
 
-95:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit35.i.i, %87, %75
+95:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.i.i, %87, %75
   %96 = icmp ne i32 %.sroa.013.0.extract.trunc.i.i.i.i, %.sroa.011.0.extract.trunc.i.i24.i.i
   %97 = icmp ne i64 %.sroa.214.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i25.i.i
   %.not3.i.i.i40.i.i = or i1 %96, %97
@@ -17709,13 +17709,13 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 98:                                               ; preds = %95
   %99 = icmp ult i32 %.sroa.013.0.extract.trunc.i.i.i.i, %.sroa.011.0.extract.trunc.i.i24.i.i
-  br i1 %99, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit49.thread.i.i, label %100
+  br i1 %99, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.thread.i.i, label %100
 
 100:                                              ; preds = %98
   %101 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i24.i.i, %.sroa.013.0.extract.trunc.i.i.i.i
   %102 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i25.i.i
   %spec.select.i.i48.i.i = and i1 %101, %102
-  br i1 %spec.select.i.i48.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit49.thread.i.i, label %118
+  br i1 %spec.select.i.i48.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.thread.i.i, label %118
 
 103:                                              ; preds = %95
   %104 = load i64, ptr %18, align 4
@@ -17732,22 +17732,22 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 109:                                              ; preds = %103
   %110 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i43.i.i, %.sroa.05.0.extract.trunc.i.i41.i.i
-  br i1 %110, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit49.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit49.i.i
+  br i1 %110, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.i.i
 
 111:                                              ; preds = %103
   %112 = load i32, ptr %19, align 4
   %113 = getelementptr inbounds i8, ptr %.024, i64 -28
   %114 = load i32, ptr %113, align 4
   %115 = icmp slt i32 %112, %114
-  br i1 %115, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit49.thread.i.i, label %118
+  br i1 %115, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.thread.i.i, label %118
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit49.i.i: ; preds = %109
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.i.i: ; preds = %109
   %116 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i41.i.i, %.sroa.03.0.extract.trunc.i.i43.i.i
   %117 = icmp ult i64 %.sroa.24.0.extract.shift.i.i44.i.i, %.sroa.26.0.extract.shift.i.i42.i.i
   %spec.select15.i.i47.i.i = and i1 %116, %117
-  br i1 %spec.select15.i.i47.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit49.thread.i.i, label %118
+  br i1 %spec.select15.i.i47.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.thread.i.i, label %118
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit49.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit49.i.i, %111, %109, %100, %98
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.i.i, %111, %109, %100, %98
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(74) %43, i64 74, i1 false)
@@ -17755,7 +17755,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i.preheader
 
-118:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit49.i.i, %111, %100
+118:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.i.i, %111, %100
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(74) %16, i64 74, i1 false)
@@ -17763,7 +17763,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i.preheader
 
-119:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.i.i, %62, %51
+119:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i.i, %62, %51
   %120 = getelementptr inbounds i8, ptr %.024, i64 -44
   %121 = load i64, ptr %120, align 4
   %.sroa.011.0.extract.trunc.i.i52.i.i = trunc i64 %121 to i32
@@ -17775,13 +17775,13 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 124:                                              ; preds = %119
   %125 = icmp ult i32 %.sroa.013.0.extract.trunc.i.i.i.i, %.sroa.011.0.extract.trunc.i.i52.i.i
-  br i1 %125, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit63.thread.i.i, label %126
+  br i1 %125, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.thread.i.i, label %126
 
 126:                                              ; preds = %124
   %127 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i52.i.i, %.sroa.013.0.extract.trunc.i.i.i.i
   %128 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i53.i.i
   %spec.select.i.i62.i.i = and i1 %127, %128
-  br i1 %spec.select.i.i62.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit63.thread.i.i, label %144
+  br i1 %spec.select.i.i62.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.thread.i.i, label %144
 
 129:                                              ; preds = %119
   %130 = load i64, ptr %18, align 4
@@ -17798,22 +17798,22 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 135:                                              ; preds = %129
   %136 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i57.i.i, %.sroa.05.0.extract.trunc.i.i55.i.i
-  br i1 %136, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit63.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit63.i.i
+  br i1 %136, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.i.i
 
 137:                                              ; preds = %129
   %138 = load i32, ptr %19, align 4
   %139 = getelementptr inbounds i8, ptr %.024, i64 -28
   %140 = load i32, ptr %139, align 4
   %141 = icmp slt i32 %138, %140
-  br i1 %141, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit63.thread.i.i, label %144
+  br i1 %141, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.thread.i.i, label %144
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit63.i.i: ; preds = %135
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.i.i: ; preds = %135
   %142 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i55.i.i, %.sroa.03.0.extract.trunc.i.i57.i.i
   %143 = icmp ult i64 %.sroa.24.0.extract.shift.i.i58.i.i, %.sroa.26.0.extract.shift.i.i56.i.i
   %spec.select15.i.i61.i.i = and i1 %142, %143
-  br i1 %spec.select15.i.i61.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit63.thread.i.i, label %144
+  br i1 %spec.select15.i.i61.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.thread.i.i, label %144
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit63.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit63.i.i, %137, %135, %126, %124
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.i.i, %137, %135, %126, %124
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(74) %16, i64 74, i1 false)
@@ -17821,7 +17821,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i.preheader
 
-144:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit63.i.i, %137, %126
+144:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.i.i, %137, %126
   %145 = icmp ne i32 %.sroa.011.0.extract.trunc.i.i.i.i, %.sroa.011.0.extract.trunc.i.i52.i.i
   %146 = icmp ne i64 %.sroa.212.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i53.i.i
   %.not3.i.i.i68.i.i = or i1 %145, %146
@@ -17829,13 +17829,13 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 147:                                              ; preds = %144
   %148 = icmp ult i32 %.sroa.011.0.extract.trunc.i.i.i.i, %.sroa.011.0.extract.trunc.i.i52.i.i
-  br i1 %148, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit77.thread.i.i, label %149
+  br i1 %148, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.thread.i.i, label %149
 
 149:                                              ; preds = %147
   %150 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i52.i.i, %.sroa.011.0.extract.trunc.i.i.i.i
   %151 = icmp ult i64 %.sroa.212.0.extract.shift.i.i.i.i, %.sroa.212.0.extract.shift.i.i53.i.i
   %spec.select.i.i76.i.i = and i1 %150, %151
-  br i1 %spec.select.i.i76.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit77.thread.i.i, label %169
+  br i1 %spec.select.i.i76.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.thread.i.i, label %169
 
 152:                                              ; preds = %144
   %153 = getelementptr inbounds nuw i8, ptr %42, i64 44
@@ -17853,7 +17853,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 159:                                              ; preds = %152
   %160 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i71.i.i, %.sroa.05.0.extract.trunc.i.i69.i.i
-  br i1 %160, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit77.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit77.i.i
+  br i1 %160, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.i.i
 
 161:                                              ; preds = %152
   %162 = getelementptr inbounds nuw i8, ptr %42, i64 52
@@ -17861,15 +17861,15 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   %164 = getelementptr inbounds i8, ptr %.024, i64 -28
   %165 = load i32, ptr %164, align 4
   %166 = icmp slt i32 %163, %165
-  br i1 %166, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit77.thread.i.i, label %169
+  br i1 %166, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.thread.i.i, label %169
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit77.i.i: ; preds = %159
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.i.i: ; preds = %159
   %167 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i69.i.i, %.sroa.03.0.extract.trunc.i.i71.i.i
   %168 = icmp ult i64 %.sroa.24.0.extract.shift.i.i72.i.i, %.sroa.26.0.extract.shift.i.i70.i.i
   %spec.select15.i.i75.i.i = and i1 %167, %168
-  br i1 %spec.select15.i.i75.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit77.thread.i.i, label %169
+  br i1 %spec.select15.i.i75.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.thread.i.i, label %169
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit77.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit77.i.i, %161, %159, %149, %147
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.i.i, %161, %159, %149, %147
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(74) %43, i64 74, i1 false)
@@ -17877,7 +17877,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i.preheader
 
-169:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit77.i.i, %161, %149
+169:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.i.i, %161, %149
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(74) %42, i64 74, i1 false)
@@ -17885,7 +17885,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i.preheader: ; preds = %169, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit77.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit63.thread.i.i, %118, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit49.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit35.thread.i.i
+_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i.preheader: ; preds = %169, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit77.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit63.thread.i.i, %118, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit49.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit35.thread.i.i
   br label %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i
 
 _ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i.preheader, %224
@@ -17896,8 +17896,8 @@ _ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15
   %.sroa.212.0.extract.shift.i.i.i14.i = lshr i64 %170, 32
   br label %171
 
-171:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i23.i, %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i ], [ %196, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i23.i ]
+171:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i23.i, %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_SF_SF_SF_T0_.exit.i ], [ %196, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i23.i ]
   %172 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 36
   %173 = load i64, ptr %172, align 4
   %.sroa.013.0.extract.trunc.i.i.i15.i = trunc i64 %173 to i32
@@ -17909,15 +17909,15 @@ _ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15
 
 176:                                              ; preds = %171
   %177 = icmp ult i32 %.sroa.013.0.extract.trunc.i.i.i15.i, %.sroa.011.0.extract.trunc.i.i.i13.i
-  br i1 %177, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i23.i, label %178
+  br i1 %177, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i23.i, label %178
 
 178:                                              ; preds = %176
   %179 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i.i13.i, %.sroa.013.0.extract.trunc.i.i.i15.i
   %180 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i16.i, %.sroa.212.0.extract.shift.i.i.i14.i
   %spec.select.i.i.i26.i = and i1 %179, %180
-  br i1 %spec.select.i.i.i26.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i23.i, label %.preheader.i.i.preheader
+  br i1 %spec.select.i.i.i26.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i23.i, label %.preheader.i.i.preheader
 
-.preheader.i.i.preheader:                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.i24.i, %189, %178
+.preheader.i.i.preheader:                         ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i24.i, %189, %178
   br label %.preheader.i.i
 
 181:                                              ; preds = %171
@@ -17935,22 +17935,22 @@ _ZSt22__move_median_to_firstIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15
 
 187:                                              ; preds = %181
   %188 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i20.i, %.sroa.05.0.extract.trunc.i.i.i18.i
-  br i1 %188, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i23.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.i24.i
+  br i1 %188, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i23.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i24.i
 
 189:                                              ; preds = %181
   %190 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 52
   %191 = load i32, ptr %190, align 4
   %192 = load i32, ptr %22, align 4
   %193 = icmp slt i32 %191, %192
-  br i1 %193, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i23.i, label %.preheader.i.i.preheader
+  br i1 %193, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i23.i, label %.preheader.i.i.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.i24.i: ; preds = %187
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i24.i: ; preds = %187
   %194 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i.i18.i, %.sroa.03.0.extract.trunc.i.i.i20.i
   %195 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i21.i, %.sroa.26.0.extract.shift.i.i.i19.i
   %spec.select15.i.i.i25.i = and i1 %194, %195
-  br i1 %spec.select15.i.i.i25.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i23.i, label %.preheader.i.i.preheader
+  br i1 %spec.select15.i.i.i25.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i23.i, label %.preheader.i.i.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread.i23.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.i24.i, %189, %187, %178, %176
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread.i23.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.i24.i, %189, %187, %178, %176
   %196 = getelementptr inbounds i8, ptr %.1.i.i, i64 80
   br label %171, !llvm.loop !430
 
@@ -18062,14 +18062,14 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8coverage13CountedRegion
 
 19:                                               ; preds = %.lr.ph
   %20 = icmp ult i32 %.sroa.013.0.extract.trunc.i.i, %.sroa.011.0.extract.trunc.i.i
-  br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread, label %21
+  br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %21
 
 21:                                               ; preds = %19
   %22 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i, %.sroa.013.0.extract.trunc.i.i
   %23 = icmp ult i64 %.sroa.214.0.extract.shift.i.i, %.sroa.212.0.extract.shift.i.i
   %spec.select.i.i = and i1 %22, %23
   %cond.fr41 = freeze i1 %spec.select.i.i
-  br i1 %cond.fr41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread, label %41
+  br i1 %cond.fr41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %41
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 44
@@ -18087,7 +18087,7 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8coverage13CountedRegion
 
 31:                                               ; preds = %24
   %32 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i, %.sroa.05.0.extract.trunc.i.i
-  br i1 %32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit
+  br i1 %32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 52
@@ -18096,20 +18096,20 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8coverage13CountedRegion
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %35, %37
   %cond.fr40 = freeze i1 %38
-  br i1 %cond.fr40, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread, label %41
+  br i1 %cond.fr40, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %41
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit: ; preds = %31
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit: ; preds = %31
   %39 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i, %.sroa.03.0.extract.trunc.i.i
   %40 = icmp ult i64 %.sroa.24.0.extract.shift.i.i, %.sroa.26.0.extract.shift.i.i
   %spec.select15.i.i = and i1 %39, %40
   %cond.fr = freeze i1 %spec.select15.i.i
-  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread, label %41
+  br i1 %cond.fr, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %41
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread: ; preds = %31, %19, %21, %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread: ; preds = %31, %19, %21, %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit
   br label %41
 
-41:                                               ; preds = %21, %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread
-  %42 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit ], [ %9, %33 ], [ %9, %21 ]
+41:                                               ; preds = %21, %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread
+  %42 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit ], [ %9, %33 ], [ %9, %21 ]
   %43 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %42
   %44 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.042
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %44, ptr noundef nonnull align 8 dereferenceable(74) %43, i64 74, i1 false)
@@ -18145,7 +18145,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   %.sroa.436.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 52
   %.sroa.436.0.copyload = load i32, ptr %.sroa.436.0..sroa_idx, align 4
   %58 = icmp sgt i64 %.127, %1
-  br i1 %58, label %.lr.ph.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.argprom.exit
+  br i1 %58, label %.lr.ph.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %57
   %.sroa.011.0.extract.trunc.i.i.i = trunc i64 %.sroa.2.0.copyload to i32
@@ -18154,8 +18154,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   %.sroa.24.0.extract.shift.i.i.i = lshr i64 %.sroa.3.0.copyload, 32
   br label %59
 
-59:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.thread.i, %.lr.ph.i
-  %.0134.i = phi i64 [ %.127, %.lr.ph.i ], [ %.05.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.thread.i ]
+59:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i, %.lr.ph.i
+  %.0134.i = phi i64 [ %.127, %.lr.ph.i ], [ %.05.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i ]
   %.05.in.i = add nsw i64 %.0134.i, -1
   %.05.i = sdiv i64 %.05.in.i, 2
   %60 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.05.i
@@ -18170,13 +18170,13 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 65:                                               ; preds = %59
   %66 = icmp ult i32 %.sroa.013.0.extract.trunc.i.i.i, %.sroa.011.0.extract.trunc.i.i.i
-  br i1 %66, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.thread.i, label %67
+  br i1 %66, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i, label %67
 
 67:                                               ; preds = %65
   %68 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i.i, %.sroa.013.0.extract.trunc.i.i.i
   %69 = icmp ult i64 %.sroa.214.0.extract.shift.i.i.i, %.sroa.212.0.extract.shift.i.i.i
   %spec.select.i.i.i = and i1 %68, %69
-  br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.thread.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.argprom.exit
+  br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit
 
 70:                                               ; preds = %59
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 44
@@ -18190,28 +18190,28 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 75:                                               ; preds = %70
   %76 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i, %.sroa.05.0.extract.trunc.i.i.i
-  br i1 %76, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.i
+  br i1 %76, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.i
 
 77:                                               ; preds = %70
   %78 = getelementptr inbounds nuw i8, ptr %60, i64 52
   %79 = load i32, ptr %78, align 4
   %80 = icmp slt i32 %79, %.sroa.436.0.copyload
-  br i1 %80, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.thread.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.argprom.exit
+  br i1 %80, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.i: ; preds = %75
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.i: ; preds = %75
   %81 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i.i, %.sroa.03.0.extract.trunc.i.i.i
   %82 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.26.0.extract.shift.i.i.i
   %spec.select15.i.i.i = and i1 %81, %82
-  br i1 %spec.select15.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.thread.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.argprom.exit
+  br i1 %spec.select15.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.i, %77, %75, %67, %65
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.i, %77, %75, %67, %65
   %83 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.0134.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %83, ptr noundef nonnull align 8 dereferenceable(74) %60, i64 74, i1 false)
   %84 = icmp sgt i64 %.05.i, %1
-  br i1 %84, label %59, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.argprom.exit, !llvm.loop !435
+  br i1 %84, label %59, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit, !llvm.loop !435
 
-_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.argprom.exit: ; preds = %67, %77, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.thread.i, %57
-  %.013.lcssa.i = phi i64 [ %.127, %57 ], [ %.0134.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.i ], [ %.05.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.argprom.exit.thread.i ], [ %.0134.i, %77 ], [ %.0134.i, %67 ]
+_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit: ; preds = %67, %77, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i, %57
+  %.013.lcssa.i = phi i64 [ %.127, %57 ], [ %.0134.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.i ], [ %.05.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i ], [ %.0134.i, %77 ], [ %.0134.i, %67 ]
   %.sroa.537.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 56
   %85 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.013.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %85, ptr noundef nonnull align 8 dereferenceable(36) %3, i64 36, i1 false)
@@ -18266,13 +18266,13 @@ define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8coverage13CountedReg
 
 15:                                               ; preds = %9
   %16 = icmp ult i32 %.sroa.013.0.extract.trunc.i.i, %.sroa.011.0.extract.trunc.i.i
-  br i1 %16, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread, label %17
+  br i1 %16, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %17
 
 17:                                               ; preds = %15
   %18 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i, %.sroa.013.0.extract.trunc.i.i
   %19 = icmp ult i64 %.sroa.214.0.extract.shift.i.i, %.sroa.212.0.extract.shift.i.i
   %spec.select.i.i = and i1 %18, %19
-  br i1 %spec.select.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread, label %._crit_edge
+  br i1 %spec.select.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %17
   %.sroa.3.0..sroa_idx.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pn19, i64 124
@@ -18296,22 +18296,22 @@ define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8coverage13CountedReg
 
 26:                                               ; preds = %20
   %27 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i, %.sroa.05.0.extract.trunc.i.i
-  br i1 %27, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit
+  br i1 %27, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds i8, ptr %.pn19, i64 132
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %7, align 4
   %32 = icmp slt i32 %30, %31
-  br i1 %32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread, label %39
+  br i1 %32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %39
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit: ; preds = %26
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit: ; preds = %26
   %33 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i, %.sroa.03.0.extract.trunc.i.i
   %34 = icmp ult i64 %.sroa.24.0.extract.shift.i.i, %.sroa.26.0.extract.shift.i.i
   %spec.select15.i.i = and i1 %33, %34
-  br i1 %spec.select15.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread, label %39
+  br i1 %spec.select15.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, label %39
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread: ; preds = %26, %15, %17, %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread: ; preds = %26, %15, %17, %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %.020, i64 80, i1 false)
   %35 = getelementptr inbounds i8, ptr %.pn19, i64 160
   %36 = ptrtoint ptr %.020 to i64
@@ -18322,10 +18322,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(74) %3, i64 74, i1 false)
   br label %63
 
-39:                                               ; preds = %._crit_edge, %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit
-  %.sroa.26.0.extract.shift.i.i.i.pre-phi = phi i64 [ %.pre22, %._crit_edge ], [ %.sroa.26.0.extract.shift.i.i, %28 ], [ %.sroa.26.0.extract.shift.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit ]
-  %.sroa.05.0.extract.trunc.i.i.i.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %.sroa.05.0.extract.trunc.i.i, %28 ], [ %.sroa.05.0.extract.trunc.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit ]
-  %.sroa.3.0.copyload.i = phi i64 [ %.sroa.3.0.copyload.i.pre, %._crit_edge ], [ %22, %28 ], [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit ]
+39:                                               ; preds = %._crit_edge, %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit
+  %.sroa.26.0.extract.shift.i.i.i.pre-phi = phi i64 [ %.pre22, %._crit_edge ], [ %.sroa.26.0.extract.shift.i.i, %28 ], [ %.sroa.26.0.extract.shift.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit ]
+  %.sroa.05.0.extract.trunc.i.i.i.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %.sroa.05.0.extract.trunc.i.i, %28 ], [ %.sroa.05.0.extract.trunc.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit ]
+  %.sroa.3.0.copyload.i = phi i64 [ %.sroa.3.0.copyload.i.pre, %._crit_edge ], [ %22, %28 ], [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(36) %.020, i64 36, i1 false)
@@ -18335,8 +18335,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i, i64 24, i1 false)
   br label %40
 
-40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i, %39
-  %.09.i = phi ptr [ %.020, %39 ], [ %.0.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i ]
+40:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i, %39
+  %.09.i = phi ptr [ %.020, %39 ], [ %.0.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i ]
   %.0.i = getelementptr inbounds i8, ptr %.09.i, i64 -80
   %41 = getelementptr inbounds i8, ptr %.09.i, i64 -44
   %42 = load i64, ptr %41, align 4
@@ -18349,13 +18349,13 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 45:                                               ; preds = %40
   %46 = icmp ult i32 %.sroa.013.0.extract.trunc.i.i, %.sroa.011.0.extract.trunc.i.i.i
-  br i1 %46, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i, label %47
+  br i1 %46, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i, label %47
 
 47:                                               ; preds = %45
   %48 = icmp uge i32 %.sroa.011.0.extract.trunc.i.i.i, %.sroa.013.0.extract.trunc.i.i
   %49 = icmp ult i64 %.sroa.214.0.extract.shift.i.i, %.sroa.212.0.extract.shift.i.i.i
   %spec.select.i.i.i = and i1 %48, %49
-  br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit
+  br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit
 
 50:                                               ; preds = %40
   %51 = getelementptr inbounds i8, ptr %.09.i, i64 -36
@@ -18369,25 +18369,25 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 55:                                               ; preds = %50
   %56 = icmp ugt i32 %.sroa.05.0.extract.trunc.i.i.i.pre-phi, %.sroa.03.0.extract.trunc.i.i.i
-  br i1 %56, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.i
+  br i1 %56, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i
 
 57:                                               ; preds = %50
   %58 = getelementptr inbounds i8, ptr %.09.i, i64 -28
   %59 = load i32, ptr %58, align 4
   %60 = icmp slt i32 %.sroa.4.0.copyload.i, %59
-  br i1 %60, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit
+  br i1 %60, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.i: ; preds = %55
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i: ; preds = %55
   %61 = icmp uge i32 %.sroa.05.0.extract.trunc.i.i.i.pre-phi, %.sroa.03.0.extract.trunc.i.i.i
   %62 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.26.0.extract.shift.i.i.i.pre-phi
   %spec.select15.i.i.i = and i1 %61, %62
-  br i1 %spec.select15.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit
+  br i1 %spec.select15.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i, label %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.i, %57, %55, %47, %45
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i, %57, %55, %47, %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %.09.i, ptr noundef nonnull align 8 dereferenceable(74) %.0.i, i64 74, i1 false)
   br label %40, !llvm.loop !296
 
-_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit: ; preds = %47, %57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.argprom.exit.i
+_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit: ; preds = %47, %57, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIS7_PS7_EEbRT_T0_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %.09.i, ptr noundef nonnull align 8 dereferenceable(36) %.sroa.0.i, i64 36, i1 false)
   %.sroa.2.0..09.sroa_idx.i = getelementptr inbounds i8, ptr %.09.i, i64 36
   store i64 %11, ptr %.sroa.2.0..09.sroa_idx.i, align 4
@@ -18401,7 +18401,7 @@ _ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__op
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5.i)
   br label %63
 
-63:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.argprom.exit.thread, %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit
+63:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread, %_ZSt25__unguarded_linear_insertIPN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_.exit
   %.0 = getelementptr inbounds i8, ptr %.020, i64 80
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %9, !llvm.loop !436
@@ -18511,7 +18511,7 @@ _ZSt11stable_sortIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114SegmentBui
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %44
   %.034.lcssa.us = phi ptr [ %29, %44 ], [ %spec.select.us, %.lr.ph.us ]
   %.val.us = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.argprom(ptr %.val.us, ptr noundef nonnull align 8 dereferenceable(74) %.034.lcssa.us, i64 %34, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val.us, ptr noundef nonnull align 8 dereferenceable(74) %.034.lcssa.us, i64 %34, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %54
 
 .lr.ph.us:                                        ; preds = %44, %.lr.ph.us
@@ -18579,7 +18579,7 @@ _ZSt11stable_sortIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114SegmentBui
 ._crit_edge:                                      ; preds = %.lr.ph, %67
   %.034.lcssa = phi ptr [ %58, %67 ], [ %spec.select, %.lr.ph ]
   %.val = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.argprom(ptr %.val, ptr noundef nonnull align 8 dereferenceable(74) %.034.lcssa, i64 %63, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val, ptr noundef nonnull align 8 dereferenceable(74) %.034.lcssa, i64 %63, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %77
 
 77:                                               ; preds = %.lr.ph70.split, %._crit_edge
@@ -18616,7 +18616,7 @@ _ZSt11stable_sortIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114SegmentBui
   %93 = getelementptr inbounds ptr, ptr %92, i64 %91
   %94 = load ptr, ptr %93, align 8
   %.val39 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.argprom(ptr %.val39, ptr noundef nonnull align 8 dereferenceable(74) %94, i64 %86, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val39, ptr noundef nonnull align 8 dereferenceable(74) %94, i64 %86, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %.critedge2
 
 .critedge38:                                      ; preds = %._crit_edge71
@@ -18658,19 +18658,19 @@ _ZSt11stable_sortIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114SegmentBui
   %111 = load ptr, ptr %101, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 24
   store ptr %112, ptr %101, align 8
-  br label %_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.argprom.exit
+  br label %_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.exit
 
 113:                                              ; preds = %.critedge4
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @_ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE17_M_realloc_insertIJRjS6_RbEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %.val40, ptr %102, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %114, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  br label %_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.argprom.exit
+  br label %_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.exit
 
-_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.argprom.exit: ; preds = %105, %113
+_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.exit: ; preds = %105, %113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %84, %98, %_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.argprom.exit, %89
+.critedge2:                                       ; preds = %84, %98, %_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.exit, %89
   %115 = load ptr, ptr %7, align 8
   %116 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   %117 = getelementptr inbounds ptr, ptr %115, i64 %116
@@ -18700,7 +18700,7 @@ _ZN4llvm15SmallVectorImplIPKNS_8coverage13CountedRegionEE5eraseEPKS4_S7_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb.argprom(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(74) %0, i64 %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(74) %0, i64 %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.395", align 8
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -18845,30 +18845,30 @@ define internal fastcc noundef ptr @_ZSt27__stable_partition_adaptiveIPPKN4llvm8
   %.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i to i32
   %15 = load i32, ptr %2, align 4
   %16 = icmp ult i32 %15, %.sroa.0.0.extract.trunc.i.i
-  br i1 %16, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread, label %17
+  br i1 %16, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread, label %17
 
 17:                                               ; preds = %13
   %18 = icmp ugt i32 %15, %.sroa.0.0.extract.trunc.i.i
-  br i1 %18, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread57, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit
+  br i1 %18, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread57, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit: ; preds = %17
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit: ; preds = %17
   %19 = load i32, ptr %12, align 4
   %20 = icmp ult i32 %19, %.sroa.2.0.extract.trunc.i.i
-  br i1 %20, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread57
+  br i1 %20, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread57
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread: ; preds = %13, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread: ; preds = %13, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit
   store ptr %.040.val, ptr %.04266, align 8
   %21 = getelementptr inbounds i8, ptr %.04266, i64 8
   br label %23
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread57: ; preds = %17, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread57: ; preds = %17, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit
   store ptr %.040.val, ptr %.04365, align 8
   %22 = getelementptr inbounds i8, ptr %.04365, i64 8
   br label %23
 
-23:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread57
-  %.144 = phi ptr [ %.04365, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread ], [ %22, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread57 ]
-  %.1 = phi ptr [ %21, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread ], [ %.04266, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread57 ]
+23:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread57
+  %.144 = phi ptr [ %.04365, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread ], [ %22, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread57 ]
+  %.1 = phi ptr [ %21, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread ], [ %.04266, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread57 ]
   %.040 = getelementptr inbounds i8, ptr %.04067, i64 8
   %.not49 = icmp eq ptr %.040, %1
   br i1 %.not49, label %._crit_edge, label %13, !llvm.loop !439
@@ -18901,9 +18901,9 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit: ; preds = %8
   %33 = load i32, ptr %2, align 4
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread.i, %.lr.ph.preheader.i
-  %.055 = phi i64 [ %30, %.lr.ph.preheader.i ], [ %40, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread.i ]
-  %.07.i = phi ptr [ %28, %.lr.ph.preheader.i ], [ %41, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread.i ]
+.lr.ph.i:                                         ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread.i, %.lr.ph.preheader.i
+  %.055 = phi i64 [ %30, %.lr.ph.preheader.i ], [ %40, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread.i ]
+  %.07.i = phi ptr [ %28, %.lr.ph.preheader.i ], [ %41, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread.i ]
   %.0.val.i = load ptr, ptr %.07.i, align 8
   %34 = getelementptr i8, ptr %.0.val.i, i64 44
   %.0.val.val.i = load i64, ptr %34, align 4
@@ -18911,29 +18911,29 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit: ; preds = %8
   %.sroa.2.0.extract.shift.i.i.i = lshr i64 %.0.val.val.i, 32
   %.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i to i32
   %35 = icmp ult i32 %33, %.sroa.0.0.extract.trunc.i.i.i
-  br i1 %35, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread.i, label %36
+  br i1 %35, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread.i, label %36
 
 36:                                               ; preds = %.lr.ph.i
   %37 = icmp ugt i32 %33, %.sroa.0.0.extract.trunc.i.i.i
-  br i1 %37, label %_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.i
+  br i1 %37, label %_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.i: ; preds = %36
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.i: ; preds = %36
   %38 = load i32, ptr %31, align 4
   %39 = icmp ult i32 %38, %.sroa.2.0.extract.trunc.i.i.i
-  br i1 %39, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread.i, label %_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit
+  br i1 %39, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread.i, label %_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.i, %.lr.ph.i
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.i, %.lr.ph.i
   %40 = add nsw i64 %.055, -1
   %41 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %.not.i = icmp eq i64 %40, 0
   br i1 %.not.i, label %_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit.thread, label %.lr.ph.i, !llvm.loop !440
 
-_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.i, %36
+_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.i, %36
   %42 = tail call fastcc noundef ptr @_ZSt27__stable_partition_adaptiveIPPKN4llvm8coverage13CountedRegionES5_N9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_SF_T1_T2_T0_SH_(ptr noundef nonnull %.07.i, ptr noundef %1, ptr nonnull %2, i64 noundef %.055, ptr noundef %4, i64 noundef %5)
   br label %_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit.thread
 
-_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit, %_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit
-  %.041 = phi ptr [ %42, %_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit ], [ %28, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ], [ %scevgep.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.argprom.argprom.exit.thread.i ]
+_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit, %_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit
+  %.041 = phi ptr [ %42, %_ZSt15__find_if_not_nIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EElET_SF_RT1_T0_.exit ], [ %28, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ], [ %scevgep.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit.thread.i ]
   %43 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKN4llvm8coverage13CountedRegionEEET_S7_S7_S7_St26random_access_iterator_tag(ptr noundef %29, ptr noundef %28, ptr noundef %.041)
   br label %_ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit
 
@@ -19135,17 +19135,17 @@ define internal fastcc void @_ZSt21__inplace_stable_sortIPPKN4llvm8coverage13Cou
   %.sroa.03.0.extract.trunc.i.i.i = trunc i64 %.0.val.val.i to i32
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.val.val.i to i32
   %12 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i, %.sroa.0.0.extract.trunc.i.i.i
-  br i1 %12, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i
+  br i1 %12, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i: ; preds = %.lr.ph.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i: ; preds = %.lr.ph.i
   %.sroa.2.0.extract.shift.i.i.i = lshr i64 %.val.val.i, 32
   %.sroa.24.0.extract.shift.i.i.i = lshr i64 %.0.val.val.i, 32
   %13 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.03.0.extract.trunc.i.i.i
   %14 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
   %spec.select.i.i.i = and i1 %13, %14
-  br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i, label %.preheader.i
+  br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i, label %.preheader.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i, %.lr.ph.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i, %.lr.ph.i
   %15 = getelementptr inbounds i8, ptr %.pn20.i, i64 16
   %16 = ptrtoint ptr %.021.i to i64
   %17 = sub i64 %16, %4
@@ -19155,9 +19155,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %17, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i
 
-.preheader.i:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i
-  %.val.val.i.i = phi i64 [ %.val.val.i.pre.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i ], [ %.0.val.val.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i ]
-  %.09.i.i = phi ptr [ %.0.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i ], [ %.021.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i ]
+.preheader.i:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i
+  %.val.val.i.i = phi i64 [ %.val.val.i.pre.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i ], [ %.0.val.val.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i ]
+  %.09.i.i = phi ptr [ %.0.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i ], [ %.021.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i ]
   %.0.i.i = getelementptr inbounds i8, ptr %.09.i.i, i64 -8
   %.0.val.i.i = load ptr, ptr %.0.i.i, align 8
   %20 = getelementptr i8, ptr %.0.val.i.i, i64 44
@@ -19165,23 +19165,23 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   %.sroa.03.0.extract.trunc.i.i.i.i = trunc i64 %.val.val.i.i to i32
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %.0.val.val.i.i to i32
   %21 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i.i, %.sroa.0.0.extract.trunc.i.i.i.i
-  br i1 %21, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i
+  br i1 %21, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i: ; preds = %.preheader.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i: ; preds = %.preheader.i
   %.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %.0.val.val.i.i, 32
   %.sroa.24.0.extract.shift.i.i.i.i = lshr i64 %.val.val.i.i, 32
   %22 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i.i, %.sroa.03.0.extract.trunc.i.i.i.i
   %23 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i, %.sroa.2.0.extract.shift.i.i.i.i
   %spec.select.i.i.i.i = and i1 %22, %23
-  br i1 %spec.select.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i
+  br i1 %spec.select.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i, %.preheader.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i, %.preheader.i
   store ptr %.0.val.i.i, ptr %.09.i.i, align 8
   %.val.val.i.pre.i = load i64, ptr %10, align 4
   br label %.preheader.i, !llvm.loop !445
 
-_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i
-  %.sink.i = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i ]
+_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i
+  %.sink.i = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i ]
   store ptr %.0.val.i, ptr %.sink.i, align 8
   %.0.i = getelementptr inbounds i8, ptr %.021.i, i64 8
   %.not.i = icmp eq ptr %.0.i, %1
@@ -19262,17 +19262,17 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPPKN4llvm8coverage13Co
   %.sroa.03.0.extract.trunc.i.i = trunc i64 %.val.val to i32
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.val39.val to i32
   %15 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i, %.sroa.0.0.extract.trunc.i.i
-  br i1 %15, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit
+  br i1 %15, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit: ; preds = %12
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit: ; preds = %12
   %.sroa.2.0.extract.shift.i.i = lshr i64 %.val39.val, 32
   %.sroa.24.0.extract.shift.i.i = lshr i64 %.val.val, 32
   %16 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i, %.sroa.03.0.extract.trunc.i.i
   %17 = icmp ult i64 %.sroa.24.0.extract.shift.i.i, %.sroa.2.0.extract.shift.i.i
   %spec.select.i.i = and i1 %16, %17
-  br i1 %spec.select.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread, label %.loopexit
+  br i1 %spec.select.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread, label %.loopexit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread: ; preds = %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread: ; preds = %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit
   store ptr %.val, ptr %.tr81, align 8
   store ptr %.val39, ptr %.tr7382, align 8
   br label %.loopexit
@@ -19288,7 +19288,7 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit: ; preds = %18
   %23 = sub i64 %8, %20
   %24 = ashr exact i64 %23, 3
   %25 = icmp sgt i64 %24, 0
-  br i1 %25, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit
+  br i1 %25, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
 _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit
   %.val40 = load ptr, ptr %22, align 8
@@ -19308,7 +19308,7 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i: ; preds = %39, 
   %.val.val.i = load i64, ptr %29, align 4
   %.sroa.03.0.extract.trunc.i.i.i = trunc i64 %.val.val.i to i32
   %30 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i, %.sroa.0.0.extract.trunc.i.i.i
-  br i1 %30, label %.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.argprom.argprom.exit.i
+  br i1 %30, label %.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i
   %31 = getelementptr inbounds i8, ptr %28, i64 8
@@ -19316,7 +19316,7 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i: ; preds = %39, 
   %33 = add nsw i64 %.0119.i, %32
   br label %39
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.argprom.argprom.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i
   %.sroa.24.0.extract.shift.i.i.i = lshr i64 %.val.val.i, 32
   %34 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.03.0.extract.trunc.i.i.i
   %35 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
@@ -19329,19 +19329,19 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRe
   %spec.select8.i = select i1 %cond.fr.i, ptr %36, ptr %.010.i
   br label %39
 
-39:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.argprom.argprom.exit.i, %.thread.i
-  %40 = phi i64 [ %33, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.argprom.argprom.exit.i ]
-  %41 = phi ptr [ %31, %.thread.i ], [ %spec.select8.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.argprom.argprom.exit.i ]
+39:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i, %.thread.i
+  %40 = phi i64 [ %33, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i ]
+  %41 = phi ptr [ %31, %.thread.i ], [ %spec.select8.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i ]
   %42 = icmp sgt i64 %40, 0
-  br i1 %42, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !447
+  br i1 %42, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, !llvm.loop !447
 
-_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit: ; preds = %39
+_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit: ; preds = %39
   %.pre = ptrtoint ptr %41 to i64
-  br label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit
+  br label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
-_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit ], [ %20, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %41, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit ], [ %.tr7382, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
+_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %20, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
+  %.0.lcssa.i = phi ptr [ %41, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %.tr7382, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
   %43 = sub i64 %.pre-phi, %20
   %44 = ashr exact i64 %43, 3
   br label %tailrecurse
@@ -19353,7 +19353,7 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit45: ; preds = %18
   %48 = sub i64 %20, %47
   %49 = ashr exact i64 %48, 3
   %50 = icmp sgt i64 %49, 0
-  br i1 %50, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i47, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit
+  br i1 %50, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i47, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
 _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i47: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit45
   %.val41 = load ptr, ptr %46, align 8
@@ -19373,9 +19373,9 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51: ; preds = %.t
   %.val13.val.i54 = load i64, ptr %54, align 4
   %.sroa.0.0.extract.trunc.i.i.i55 = trunc i64 %.val13.val.i54 to i32
   %55 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i49, %.sroa.0.0.extract.trunc.i.i.i55
-  br i1 %55, label %.thread.i59, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i
+  br i1 %55, label %.thread.i59, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51
   %.sroa.2.0.extract.shift.i.i.i56 = lshr i64 %.val13.val.i54, 32
   %56 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i55, %.sroa.03.0.extract.trunc.i.i.i49
   %57 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i50, %.sroa.2.0.extract.shift.i.i.i56
@@ -19383,34 +19383,34 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRe
   %cond.fr.i58 = freeze i1 %spec.select.i.i.i57
   br i1 %cond.fr.i58, label %.thread.i59, label %58
 
-58:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i
+58:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i
   %59 = xor i64 %52, -1
   %60 = add nsw i64 %.0118.i, %59
   %61 = getelementptr inbounds i8, ptr %53, i64 8
   br label %.thread.i59
 
-.thread.i59:                                      ; preds = %58, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51
-  %62 = phi i64 [ %52, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51 ], [ %52, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i ], [ %60, %58 ]
-  %63 = phi ptr [ %.09.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i ], [ %61, %58 ]
+.thread.i59:                                      ; preds = %58, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51
+  %62 = phi i64 [ %52, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51 ], [ %52, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i ], [ %60, %58 ]
+  %63 = phi ptr [ %.09.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i ], [ %61, %58 ]
   %64 = icmp sgt i64 %62, 0
-  br i1 %64, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !448
+  br i1 %64, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i51, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, !llvm.loop !448
 
-_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit: ; preds = %.thread.i59
+_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit: ; preds = %.thread.i59
   %.pre89 = ptrtoint ptr %63 to i64
-  br label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit
+  br label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
-_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit45
-  %.pre-phi90 = phi i64 [ %.pre89, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit ], [ %47, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit45 ]
-  %.0.lcssa.i46 = phi ptr [ %63, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit ], [ %.tr81, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit45 ]
+_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit45
+  %.pre-phi90 = phi i64 [ %.pre89, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %47, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit45 ]
+  %.0.lcssa.i46 = phi ptr [ %63, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %.tr81, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit45 ]
   %65 = sub i64 %.pre-phi90, %47
   %66 = ashr exact i64 %65, 3
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit
-  %.070 = phi ptr [ %22, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ], [ %.0.lcssa.i46, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ]
-  %.069 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ], [ %46, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ]
-  %.036 = phi i64 [ %44, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ], [ %45, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ]
-  %.0 = phi i64 [ %21, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ], [ %66, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ]
+tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
+  %.070 = phi ptr [ %22, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %.0.lcssa.i46, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
+  %.069 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %46, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
+  %.036 = phi i64 [ %44, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %45, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %21, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %66, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
   %67 = tail call noundef ptr @_ZNSt3_V28__rotateIPPKN4llvm8coverage13CountedRegionEEET_S7_S7_S7_St26random_access_iterator_tag(ptr noundef %.070, ptr noundef %.tr7382, ptr noundef %.069)
   tail call fastcc void @_ZSt22__merge_without_bufferIPPKN4llvm8coverage13CountedRegionElN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_SH_T0_SI_T1_(ptr noundef %.tr81, ptr noundef %.070, ptr noundef %67, i64 noundef %.0, i64 noundef %.036)
   %68 = sub nsw i64 %.tr7584, %.0
@@ -19420,7 +19420,7 @@ tailrecurse:                                      ; preds = %_ZSt13__upper_bound
   %or.cond = or i1 %70, %71
   br i1 %or.cond, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %tailrecurse, %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread
+.loopexit:                                        ; preds = %tailrecurse, %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread
   ret void
 }
 
@@ -19452,17 +19452,17 @@ define internal fastcc void @_ZSt24__merge_sort_with_bufferIPPKN4llvm8coverage13
   %.sroa.03.0.extract.trunc.i.i.i.i = trunc i64 %.0.val.val.i.i to i32
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %.val.val.i.i to i32
   %14 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i.i, %.sroa.0.0.extract.trunc.i.i.i.i
-  br i1 %14, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i.i
+  br i1 %14, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i.i: ; preds = %11
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i.i: ; preds = %11
   %.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %.val.val.i.i, 32
   %.sroa.24.0.extract.shift.i.i.i.i = lshr i64 %.0.val.val.i.i, 32
   %15 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i.i, %.sroa.03.0.extract.trunc.i.i.i.i
   %16 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i, %.sroa.2.0.extract.shift.i.i.i.i
   %spec.select.i.i.i.i = and i1 %15, %16
-  br i1 %spec.select.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i.i, label %.preheader.i.i
+  br i1 %spec.select.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i.i, label %.preheader.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i.i, %11
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i.i, %11
   %17 = getelementptr inbounds i8, ptr %.pn20.i.i, i64 16
   %18 = ptrtoint ptr %.021.i.ptr.i to i64
   %19 = sub i64 %18, %10
@@ -19472,9 +19472,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(1) %.047.i, i64 %19, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i.i
 
-.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i.i
-  %.val.val.i.i.i = phi i64 [ %.val.val.i.pre.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i.i ], [ %.0.val.val.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i.i ]
-  %.09.i.i.i = phi ptr [ %.0.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i.i ], [ %.021.i.ptr.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i.i ]
+.preheader.i.i:                                   ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i.i
+  %.val.val.i.i.i = phi i64 [ %.val.val.i.pre.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i.i ], [ %.0.val.val.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i.i ]
+  %.09.i.i.i = phi ptr [ %.0.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i.i ], [ %.021.i.ptr.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i.i ]
   %.0.i.i.i = getelementptr inbounds i8, ptr %.09.i.i.i, i64 -8
   %.0.val.i.i.i = load ptr, ptr %.0.i.i.i, align 8
   %22 = getelementptr i8, ptr %.0.val.i.i.i, i64 44
@@ -19482,23 +19482,23 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   %.sroa.03.0.extract.trunc.i.i.i.i.i = trunc i64 %.val.val.i.i.i to i32
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.0.val.val.i.i.i to i32
   %23 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i.i.i, %.sroa.0.0.extract.trunc.i.i.i.i.i
-  br i1 %23, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i.i
+  br i1 %23, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i.i: ; preds = %.preheader.i.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i.i: ; preds = %.preheader.i.i
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.0.val.val.i.i.i, 32
   %.sroa.24.0.extract.shift.i.i.i.i.i = lshr i64 %.val.val.i.i.i, 32
   %24 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i.i.i, %.sroa.03.0.extract.trunc.i.i.i.i.i
   %25 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i.i, %.sroa.2.0.extract.shift.i.i.i.i.i
   %spec.select.i.i.i.i.i = and i1 %24, %25
-  br i1 %spec.select.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i.i
+  br i1 %spec.select.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i.i, %.preheader.i.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i.i, %.preheader.i.i
   store ptr %.0.val.i.i.i, ptr %.09.i.i.i, align 8
   %.val.val.i.pre.i.i = load i64, ptr %12, align 4
   br label %.preheader.i.i, !llvm.loop !445
 
-_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i.i
-  %.sink.i.i = phi ptr [ %.047.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i.i ], [ %.09.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i.i ]
+_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i.i
+  %.sink.i.i = phi ptr [ %.047.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i.i ], [ %.09.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i.i ]
   store ptr %.0.val.i.i, ptr %.sink.i.i, align 8
   %.021.i.add.i = add nuw nsw i64 %.021.i.idx.i, 8
   %.not.i.i = icmp eq i64 %.021.i.add.i, 56
@@ -19532,17 +19532,17 @@ _ZSt16__insertion_sortIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops15_Ite
   %.sroa.03.0.extract.trunc.i.i.i20.i = trunc i64 %.0.val.val.i18.i to i32
   %.sroa.0.0.extract.trunc.i.i.i21.i = trunc i64 %.val.val.i19.i to i32
   %33 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i20.i, %.sroa.0.0.extract.trunc.i.i.i21.i
-  br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i44.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i22.i
+  br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i44.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i22.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i22.i: ; preds = %.lr.ph.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i22.i: ; preds = %.lr.ph.i.i
   %.sroa.2.0.extract.shift.i.i.i23.i = lshr i64 %.val.val.i19.i, 32
   %.sroa.24.0.extract.shift.i.i.i24.i = lshr i64 %.0.val.val.i18.i, 32
   %34 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i21.i, %.sroa.03.0.extract.trunc.i.i.i20.i
   %35 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i24.i, %.sroa.2.0.extract.shift.i.i.i23.i
   %spec.select.i.i.i25.i = and i1 %34, %35
-  br i1 %spec.select.i.i.i25.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i44.i, label %.preheader.i26.i
+  br i1 %spec.select.i.i.i25.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i44.i, label %.preheader.i26.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i44.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i22.i, %.lr.ph.i.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i44.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i22.i, %.lr.ph.i.i
   %36 = getelementptr inbounds i8, ptr %.pn20.i15.i, i64 16
   %37 = ptrtoint ptr %.021.i14.i to i64
   %38 = sub i64 %37, %.lcssa.i
@@ -19552,9 +19552,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %.0.lcssa.i, i64 %38, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i38.i
 
-.preheader.i26.i:                                 ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i22.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i42.i
-  %.val.val.i.i27.i = phi i64 [ %.val.val.i.pre.i43.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i42.i ], [ %.0.val.val.i18.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i22.i ]
-  %.09.i.i28.i = phi ptr [ %.0.i.i29.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i42.i ], [ %.021.i14.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i22.i ]
+.preheader.i26.i:                                 ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i22.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i42.i
+  %.val.val.i.i27.i = phi i64 [ %.val.val.i.pre.i43.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i42.i ], [ %.0.val.val.i18.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i22.i ]
+  %.09.i.i28.i = phi ptr [ %.0.i.i29.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i42.i ], [ %.021.i14.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i22.i ]
   %.0.i.i29.i = getelementptr inbounds i8, ptr %.09.i.i28.i, i64 -8
   %.0.val.i.i30.i = load ptr, ptr %.0.i.i29.i, align 8
   %41 = getelementptr i8, ptr %.0.val.i.i30.i, i64 44
@@ -19562,23 +19562,23 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   %.sroa.03.0.extract.trunc.i.i.i.i32.i = trunc i64 %.val.val.i.i27.i to i32
   %.sroa.0.0.extract.trunc.i.i.i.i33.i = trunc i64 %.0.val.val.i.i31.i to i32
   %42 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i.i32.i, %.sroa.0.0.extract.trunc.i.i.i.i33.i
-  br i1 %42, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i42.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i34.i
+  br i1 %42, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i42.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i34.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i34.i: ; preds = %.preheader.i26.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i34.i: ; preds = %.preheader.i26.i
   %.sroa.2.0.extract.shift.i.i.i.i35.i = lshr i64 %.0.val.val.i.i31.i, 32
   %.sroa.24.0.extract.shift.i.i.i.i36.i = lshr i64 %.val.val.i.i27.i, 32
   %43 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i.i33.i, %.sroa.03.0.extract.trunc.i.i.i.i32.i
   %44 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i.i36.i, %.sroa.2.0.extract.shift.i.i.i.i35.i
   %spec.select.i.i.i.i37.i = and i1 %43, %44
-  br i1 %spec.select.i.i.i.i37.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i42.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i38.i
+  br i1 %spec.select.i.i.i.i37.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i42.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i38.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.thread.i.i42.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i34.i, %.preheader.i26.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.thread.i.i42.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i34.i, %.preheader.i26.i
   store ptr %.0.val.i.i30.i, ptr %.09.i.i28.i, align 8
   %.val.val.i.pre.i43.i = load i64, ptr %31, align 4
   br label %.preheader.i26.i, !llvm.loop !445
 
-_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i38.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i34.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i44.i
-  %.sink.i39.i = phi ptr [ %.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i44.i ], [ %.09.i.i28.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.argprom.argprom.exit.i.i34.i ]
+_ZSt25__unguarded_linear_insertIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_T0_.exit.i38.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i34.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i44.i
+  %.sink.i39.i = phi ptr [ %.0.lcssa.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i44.i ], [ %.09.i.i28.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclISC_PSC_EEbRT_T0_.exit.i.i34.i ]
   store ptr %.0.val.i16.i, ptr %.sink.i39.i, align 8
   %.0.i40.i = getelementptr inbounds i8, ptr %.021.i14.i, i64 8
   %.not.i41.i = icmp eq ptr %.0.i40.i, %1
@@ -19645,29 +19645,29 @@ _ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit: ; preds = %tai
   %.sroa.03.0.extract.trunc.i.i.i = trunc i64 %.019.val.val.i to i32
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.018.val.val.i to i32
   %19 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i, %.sroa.0.0.extract.trunc.i.i.i
-  br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i
+  br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i: ; preds = %.lr.ph.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i: ; preds = %.lr.ph.i
   %.sroa.2.0.extract.shift.i.i.i = lshr i64 %.018.val.val.i, 32
   %.sroa.24.0.extract.shift.i.i.i = lshr i64 %.019.val.val.i, 32
   %20 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.03.0.extract.trunc.i.i.i
   %21 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
   %spec.select.i.i.i = and i1 %20, %21
-  br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i, label %23
+  br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i, label %23
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i, %.lr.ph.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i, %.lr.ph.i
   store ptr %.019.val.i, ptr %.024.i, align 8
   %22 = getelementptr inbounds i8, ptr %.01922.i, i64 8
   br label %25
 
-23:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i
+23:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i
   store ptr %.018.val.i, ptr %.024.i, align 8
   %24 = getelementptr inbounds i8, ptr %.01823.i, i64 8
   br label %25
 
-25:                                               ; preds = %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i
-  %.120.i = phi ptr [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i ], [ %.01922.i, %23 ]
-  %.1.i = phi ptr [ %.01823.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i ], [ %24, %23 ]
+25:                                               ; preds = %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i
+  %.120.i = phi ptr [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i ], [ %.01922.i, %23 ]
+  %.1.i = phi ptr [ %.01823.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i ], [ %24, %23 ]
   %26 = getelementptr inbounds i8, ptr %.024.i, i64 8
   %27 = icmp ne ptr %.1.i, %13
   %28 = icmp ne ptr %.120.i, %2
@@ -19719,10 +19719,10 @@ _ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit74.thread: ; pre
   %43 = getelementptr inbounds i8, ptr %42, i64 -8
   br label %.outer
 
-.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i83, %41
-  %.026.i.ph.pn = phi ptr [ %.tr127144, %41 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i83 ]
-  %.024.i75.ph = phi ptr [ %43, %41 ], [ %.024.i75, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i83 ]
-  %.0.i.ph = phi ptr [ %2, %41 ], [ %50, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i83 ]
+.outer:                                           ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83, %41
+  %.026.i.ph.pn = phi ptr [ %.tr127144, %41 ], [ %.026.i.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83 ]
+  %.024.i75.ph = phi ptr [ %43, %41 ], [ %.024.i75, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83 ]
+  %.0.i.ph = phi ptr [ %2, %41 ], [ %50, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -8
   br label %44
 
@@ -19738,23 +19738,23 @@ _ZSt4moveIPPKN4llvm8coverage13CountedRegionES5_ET0_T_S7_S6_.exit74.thread: ; pre
   %.sroa.03.0.extract.trunc.i.i.i76 = trunc i64 %.024.val.val.i to i32
   %.sroa.0.0.extract.trunc.i.i.i77 = trunc i64 %.026.val.val.i to i32
   %47 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i76, %.sroa.0.0.extract.trunc.i.i.i77
-  br i1 %47, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i78
+  br i1 %47, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i78: ; preds = %44
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78: ; preds = %44
   %.sroa.2.0.extract.shift.i.i.i79 = lshr i64 %.026.val.val.i, 32
   %.sroa.24.0.extract.shift.i.i.i80 = lshr i64 %.024.val.val.i, 32
   %48 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i77, %.sroa.03.0.extract.trunc.i.i.i76
   %49 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i80, %.sroa.2.0.extract.shift.i.i.i79
   %spec.select.i.i.i81 = and i1 %48, %49
-  br i1 %spec.select.i.i.i81, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i83, label %60
+  br i1 %spec.select.i.i.i81, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83, label %60
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i83: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i78, %44
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78, %44
   %50 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   store ptr %.026.val.i, ptr %50, align 8
   %51 = icmp eq ptr %.tr143, %.026.i.ph
   br i1 %51, label %52, label %.outer, !llvm.loop !452
 
-52:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i83
+52:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i83
   %53 = getelementptr inbounds i8, ptr %.024.i75, i64 8
   %.not.i.i.i.i.i32.i = icmp eq ptr %53, %5
   br i1 %.not.i.i.i.i.i32.i, label %_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit, label %54
@@ -19769,7 +19769,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeR
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %59, ptr align 8 %5, i64 %57, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPPKN4llvm8coverage13CountedRegionES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEEvT_SH_T0_SI_T1_T2_.exit
 
-60:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i78
+60:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i78
   %61 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   store ptr %.024.val.i, ptr %61, align 8
   %62 = icmp eq ptr %5, %.024.i75
@@ -19788,7 +19788,7 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit: ; preds = %65
   %68 = sub i64 %8, %34
   %69 = ashr exact i64 %68, 3
   %70 = icmp sgt i64 %69, 0
-  br i1 %70, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit
+  br i1 %70, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
 _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit
   %.val = load ptr, ptr %67, align 8
@@ -19808,7 +19808,7 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i: ; preds = %84, 
   %.val.val.i = load i64, ptr %74, align 4
   %.sroa.03.0.extract.trunc.i.i.i88 = trunc i64 %.val.val.i to i32
   %75 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i88, %.sroa.0.0.extract.trunc.i.i.i86
-  br i1 %75, label %.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.argprom.argprom.exit.i
+  br i1 %75, label %.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i
 
 .thread.i:                                        ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i
   %76 = getelementptr inbounds i8, ptr %73, i64 8
@@ -19816,7 +19816,7 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i: ; preds = %84, 
   %78 = add nsw i64 %.0119.i, %77
   br label %84
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.argprom.argprom.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i
   %.sroa.24.0.extract.shift.i.i.i89 = lshr i64 %.val.val.i, 32
   %79 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i86, %.sroa.03.0.extract.trunc.i.i.i88
   %80 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i89, %.sroa.2.0.extract.shift.i.i.i87
@@ -19829,19 +19829,19 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRe
   %spec.select8.i = select i1 %cond.fr.i, ptr %81, ptr %.010.i
   br label %84
 
-84:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.argprom.argprom.exit.i, %.thread.i
-  %85 = phi i64 [ %78, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.argprom.argprom.exit.i ]
-  %86 = phi ptr [ %76, %.thread.i ], [ %spec.select8.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.argprom.argprom.exit.i ]
+84:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i, %.thread.i
+  %85 = phi i64 [ %78, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i ]
+  %86 = phi ptr [ %76, %.thread.i ], [ %spec.select8.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_KSC_EEbT_RT0_.exit.i ]
   %87 = icmp sgt i64 %85, 0
-  br i1 %87, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !447
+  br i1 %87, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, !llvm.loop !447
 
-_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit: ; preds = %84
+_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit: ; preds = %84
   %.pre = ptrtoint ptr %86 to i64
-  br label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit
+  br label %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
-_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit
-  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit ], [ %34, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
-  %.0.lcssa.i85 = phi ptr [ %86, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit ], [ %.tr127144, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
+_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit
+  %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %34, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
+  %.0.lcssa.i85 = phi ptr [ %86, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %.tr127144, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit ]
   %88 = sub i64 %.pre-phi, %34
   %89 = ashr exact i64 %88, 3
   br label %112
@@ -19853,7 +19853,7 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94: ; preds = %65
   %93 = sub i64 %34, %92
   %94 = ashr exact i64 %93, 3
   %95 = icmp sgt i64 %94, 0
-  br i1 %95, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit
+  br i1 %95, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i97, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
 _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.lr.ph.i97: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94
   %.val72 = load ptr, ptr %91, align 8
@@ -19873,9 +19873,9 @@ _ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101: ; preds = %.
   %.val13.val.i104 = load i64, ptr %99, align 4
   %.sroa.0.0.extract.trunc.i.i.i105 = trunc i64 %.val13.val.i104 to i32
   %100 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i99, %.sroa.0.0.extract.trunc.i.i.i105
-  br i1 %100, label %.thread.i109, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i
+  br i1 %100, label %.thread.i109, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101
   %.sroa.2.0.extract.shift.i.i.i106 = lshr i64 %.val13.val.i104, 32
   %101 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i105, %.sroa.03.0.extract.trunc.i.i.i99
   %102 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i100, %.sroa.2.0.extract.shift.i.i.i106
@@ -19883,34 +19883,34 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRe
   %cond.fr.i108 = freeze i1 %spec.select.i.i.i107
   br i1 %cond.fr.i108, label %.thread.i109, label %103
 
-103:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i
+103:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i
   %104 = xor i64 %97, -1
   %105 = add nsw i64 %.0118.i, %104
   %106 = getelementptr inbounds i8, ptr %98, i64 8
   br label %.thread.i109
 
-.thread.i109:                                     ; preds = %103, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101
-  %107 = phi i64 [ %97, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101 ], [ %97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i ], [ %105, %103 ]
-  %108 = phi ptr [ %.09.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.argprom.argprom.exit.i ], [ %106, %103 ]
+.thread.i109:                                     ; preds = %103, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101
+  %107 = phi i64 [ %97, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101 ], [ %97, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i ], [ %105, %103 ]
+  %108 = phi ptr [ %.09.i, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIKSC_PSC_EEbRT_T0_.exit.i ], [ %106, %103 ]
   %109 = icmp sgt i64 %107, 0
-  br i1 %109, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit, !llvm.loop !448
+  br i1 %109, label %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit.i101, label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, !llvm.loop !448
 
-_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit: ; preds = %.thread.i109
+_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit: ; preds = %.thread.i109
   %.pre157 = ptrtoint ptr %108 to i64
-  br label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit
+  br label %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
 
-_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit: ; preds = %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94
-  %.pre-phi158 = phi i64 [ %.pre157, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit ], [ %92, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94 ]
-  %.0.lcssa.i96 = phi ptr [ %108, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit.loopexit ], [ %.tr143, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94 ]
+_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94
+  %.pre-phi158 = phi i64 [ %.pre157, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %92, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94 ]
+  %.0.lcssa.i96 = phi ptr [ %108, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %.tr143, %_ZSt7advanceIPPKN4llvm8coverage13CountedRegionElEvRT_T0_.exit94 ]
   %110 = sub i64 %.pre-phi158, %92
   %111 = ashr exact i64 %110, 3
   br label %112
 
-112:                                              ; preds = %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit
-  %.0124 = phi ptr [ %67, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ], [ %.0.lcssa.i96, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ]
-  %.0123 = phi ptr [ %.0.lcssa.i85, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ], [ %91, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ]
-  %.066 = phi i64 [ %89, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ], [ %90, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ]
-  %.0 = phi i64 [ %66, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ], [ %111, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.argprom.exit ]
+112:                                              ; preds = %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit
+  %.0124 = phi ptr [ %67, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %.0.lcssa.i96, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
+  %.0123 = phi ptr [ %.0.lcssa.i85, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %91, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
+  %.066 = phi i64 [ %89, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %90, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
+  %.0 = phi i64 [ %66, %_ZSt13__lower_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ], [ %111, %_ZSt13__upper_boundIPPKN4llvm8coverage13CountedRegionES4_N9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlS4_S4_E_EEET_SH_SH_RKT0_T1_.exit ]
   %113 = sub nsw i64 %.tr129146, %.0
   %114 = icmp sle i64 %113, %.066
   %.not.i = icmp sgt i64 %.066, %6
@@ -20048,29 +20048,29 @@ define internal fastcc void @_ZSt17__merge_sort_loopIPPKN4llvm8coverage13Counted
   %.sroa.03.0.extract.trunc.i.i.i = trunc i64 %.019.val.val.i to i32
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.018.val.val.i to i32
   %14 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i, %.sroa.0.0.extract.trunc.i.i.i
-  br i1 %14, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i
+  br i1 %14, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i: ; preds = %.lr.ph.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i: ; preds = %.lr.ph.i
   %.sroa.2.0.extract.shift.i.i.i = lshr i64 %.018.val.val.i, 32
   %.sroa.24.0.extract.shift.i.i.i = lshr i64 %.019.val.val.i, 32
   %15 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.03.0.extract.trunc.i.i.i
   %16 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i, %.sroa.2.0.extract.shift.i.i.i
   %spec.select.i.i.i = and i1 %15, %16
-  br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i, label %18
+  br i1 %spec.select.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i, label %18
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i, %.lr.ph.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i, %.lr.ph.i
   store ptr %.019.val.i, ptr %.025.i, align 8
   %17 = getelementptr inbounds i8, ptr %.01923.i, i64 8
   br label %20
 
-18:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i
+18:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i
   store ptr %.018.val.i, ptr %.025.i, align 8
   %19 = getelementptr inbounds i8, ptr %.01824.i, i64 8
   br label %20
 
-20:                                               ; preds = %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i
-  %.120.i = phi ptr [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i ], [ %.01923.i, %18 ]
-  %.1.i = phi ptr [ %.01824.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i ], [ %19, %18 ]
+20:                                               ; preds = %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i
+  %.120.i = phi ptr [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i ], [ %.01923.i, %18 ]
+  %.1.i = phi ptr [ %.01824.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i ], [ %19, %18 ]
   %21 = getelementptr inbounds i8, ptr %.025.i, i64 8
   %22 = icmp ne ptr %.1.i, %10
   %23 = icmp ne ptr %.120.i, %11
@@ -20131,29 +20131,29 @@ _ZSt12__move_mergeIPPKN4llvm8coverage13CountedRegionES5_N9__gnu_cxx5__ops15_Iter
   %.sroa.03.0.extract.trunc.i.i.i38 = trunc i64 %.019.val.val.i36 to i32
   %.sroa.0.0.extract.trunc.i.i.i39 = trunc i64 %.018.val.val.i37 to i32
   %43 = icmp ult i32 %.sroa.03.0.extract.trunc.i.i.i38, %.sroa.0.0.extract.trunc.i.i.i39
-  br i1 %43, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i46, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i40
+  br i1 %43, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i46, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i40
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i40: ; preds = %.lr.ph.i30
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i40: ; preds = %.lr.ph.i30
   %.sroa.2.0.extract.shift.i.i.i41 = lshr i64 %.018.val.val.i37, 32
   %.sroa.24.0.extract.shift.i.i.i42 = lshr i64 %.019.val.val.i36, 32
   %44 = icmp uge i32 %.sroa.0.0.extract.trunc.i.i.i39, %.sroa.03.0.extract.trunc.i.i.i38
   %45 = icmp ult i64 %.sroa.24.0.extract.shift.i.i.i42, %.sroa.2.0.extract.shift.i.i.i41
   %spec.select.i.i.i43 = and i1 %44, %45
-  br i1 %spec.select.i.i.i43, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i46, label %47
+  br i1 %spec.select.i.i.i43, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i46, label %47
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i46: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i40, %.lr.ph.i30
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i46: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i40, %.lr.ph.i30
   store ptr %.019.val.i34, ptr %.025.i31, align 8
   %46 = getelementptr inbounds i8, ptr %.01923.i33, i64 8
   br label %49
 
-47:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.i40
+47:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.i40
   store ptr %.018.val.i35, ptr %.025.i31, align 8
   %48 = getelementptr inbounds i8, ptr %.01824.i32, i64 8
   br label %49
 
-49:                                               ; preds = %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i46
-  %.120.i44 = phi ptr [ %46, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i46 ], [ %.01923.i33, %47 ]
-  %.1.i45 = phi ptr [ %.01824.i32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.argprom.argprom.exit.thread.i46 ], [ %48, %47 ]
+49:                                               ; preds = %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i46
+  %.120.i44 = phi ptr [ %46, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i46 ], [ %.01923.i33, %47 ]
+  %.1.i45 = phi ptr [ %.01824.i32, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEjEUlPKN4llvm8coverage13CountedRegionESC_E_EclIPSC_SG_EEbT_T0_.exit.thread.i46 ], [ %48, %47 ]
   %50 = getelementptr inbounds i8, ptr %.025.i31, i64 8
   %51 = icmp ne ptr %.1.i45, %37
   %52 = icmp ne ptr %.120.i44, %1
@@ -22367,8 +22367,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
 .lr.ph.i5.i.preheader:                            ; preds = %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit34.us.i.i.i", %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit34.i.i.i", %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
   br label %.lr.ph.i5.i
 
-.lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i11.i"
-  %.01.i.i = phi ptr [ %94, %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i11.i" ], [ %.026, %.lr.ph.i5.i.preheader ]
+.lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i11.i"
+  %.01.i.i = phi ptr [ %94, %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i11.i" ], [ %.026, %.lr.ph.i5.i.preheader ]
   %94 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
   %.sroa.02.0.copyload.i.i6.i = load i64, ptr %94, align 4
   %95 = load i64, ptr %0, align 4
@@ -22424,7 +22424,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   %.1.i.i.i9.i = phi i64 [ %120, %118 ], [ %.0.lcssa.i.i.i8.i, %114 ], [ %.0.lcssa.i.i.i8.i, %._crit_edge.i.i.i7.i ]
   %.sroa.0.0.extract.trunc.i.i.i.i10.i = trunc i64 %.sroa.02.0.copyload.i.i6.i to i32
   %125 = icmp sgt i64 %.1.i.i.i9.i, 0
-  br i1 %125, label %.lr.ph.i.i.i.i13.i, label %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i11.i"
+  br i1 %125, label %.lr.ph.i.i.i.i13.i, label %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i11.i"
 
 .lr.ph.i.i.i.i13.i:                               ; preds = %124, %128
   %.0133.i.i.i.i14.i = phi i64 [ %.04.i.i12.i.i16.i, %128 ], [ %.1.i.i.i9.i, %124 ]
@@ -22433,16 +22433,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   %126 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.04.i.i12.i.i16.i
   %.val.i.i.i.i17.i = load i32, ptr %126, align 4
   %127 = icmp ult i32 %.val.i.i.i.i17.i, %.sroa.0.0.extract.trunc.i.i.i.i10.i
-  br i1 %127, label %128, label %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i11.i"
+  br i1 %127, label %128, label %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i11.i"
 
 128:                                              ; preds = %.lr.ph.i.i.i.i13.i
   %129 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i.i.i14.i
   %130 = load i64, ptr %126, align 4
   store i64 %130, ptr %129, align 4
   %.not.i.i18.i = icmp ult i64 %.04.in.i.i.i.i15.i, 2
-  br i1 %.not.i.i18.i, label %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i11.i", label %.lr.ph.i.i.i.i13.i, !llvm.loop !484
+  br i1 %.not.i.i18.i, label %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i11.i", label %.lr.ph.i.i.i.i13.i, !llvm.loop !484
 
-"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i11.i": ; preds = %128, %.lr.ph.i.i.i.i13.i, %124
+"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i11.i": ; preds = %128, %.lr.ph.i.i.i.i13.i, %124
   %.013.lcssa.i.i.i.i12.i = phi i64 [ %.1.i.i.i9.i, %124 ], [ %.0133.i.i.i.i14.i, %.lr.ph.i.i.i.i13.i ], [ 0, %128 ]
   %131 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.i.i12.i
   store i64 %.sroa.02.0.copyload.i.i6.i, ptr %131, align 4
@@ -22557,7 +22557,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   %174 = icmp sgt i64 %173, 128
   br i1 %174, label %9, label %"_ZSt14__partial_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !490
 
-"_ZSt14__partial_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit", %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.argprom.exit.i11.i", %3
+"_ZSt14__partial_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit", %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i11.i", %3
   ret void
 }
 
@@ -25707,7 +25707,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIhLj10EEELb0EE18uninitialized_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIhLj10EEELb0EE18uninitialized_copyINS_15mapped_iteratorIPNS_8ArrayRefIhEEZNS_8coverage15CoverageMapping12loadFromFileENS_9StringRefESB_SB_RNS_22IndexedInstrProfReaderERSA_RbPNS_15SmallVectorImplIS2_EEE3$_0S2_EEPS2_EEvT_SM_T0_.argelim"(ptr readonly %0, ptr readnone %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIhLj10EEELb0EE18uninitialized_copyINS_15mapped_iteratorIPNS_8ArrayRefIhEEZNS_8coverage15CoverageMapping12loadFromFileENS_9StringRefESB_SB_RNS_22IndexedInstrProfReaderERSA_RbPNS_15SmallVectorImplIS2_EEE3$_0S2_EEPS2_EEvT_SM_T0_"(ptr readonly %0, ptr readnone %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.629", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %.not8.i.i.i = icmp eq ptr %0, %1
@@ -26049,17 +26049,17 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i.i.i:     ; preds = %35, %_ZN4llvm11Smal
   br label %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit16.i.i.i
 
 _ZN4llvm11SmallVectorIhLj10EED2Ev.exit16.i.i.i:   ; preds = %40, %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i.i.i
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_RT0_.argprom.exit.i.i", label %24
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_RT0_.exit.i.i", label %24
 
-"_ZSt11__make_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_RT0_.argprom.exit.i.i": ; preds = %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit16.i.i.i
+"_ZSt11__make_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_RT0_.exit.i.i": ; preds = %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit16.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   %41 = getelementptr inbounds i8, ptr %5, i64 24
   %42 = getelementptr inbounds i8, ptr %6, i64 24
   br label %.lr.ph.i5.i
 
-.lr.ph.i5.i:                                      ; preds = %"_ZSt11__make_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.argprom.exit"
-  %.01.i.i = phi ptr [ %43, %"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.argprom.exit" ], [ %.027, %"_ZSt11__make_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_RT0_.argprom.exit.i.i" ]
+.lr.ph.i5.i:                                      ; preds = %"_ZSt11__make_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_RT0_.exit.i.i", %"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.exit"
+  %.01.i.i = phi ptr [ %43, %"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.exit" ], [ %.027, %"_ZSt11__make_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_RT0_.exit.i.i" ]
   %43 = getelementptr inbounds i8, ptr %.01.i.i, i64 -40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
@@ -26099,13 +26099,13 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i:         ; preds = %57, %_ZN4llvm11Smal
   %58 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
   %59 = load ptr, ptr %5, align 8
   %60 = icmp eq ptr %59, %41
-  br i1 %60, label %"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.argprom.exit", label %61
+  br i1 %60, label %"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.exit", label %61
 
 61:                                               ; preds = %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i
   call void @free(ptr noundef %59) #28
-  br label %"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.argprom.exit"
+  br label %"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.exit"
 
-"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.argprom.exit": ; preds = %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i, %61
+"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.exit": ; preds = %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i, %61
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %62 = icmp sgt i64 %49, 40
@@ -26131,18 +26131,18 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i:         ; preds = %57, %_ZN4llvm11Smal
 
 74:                                               ; preds = %72
   %75 = sext i32 %73 to i64
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i.i"
 
 76:                                               ; preds = %72, %63
   %77 = sub i64 %69, %71
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i.i": ; preds = %76, %74
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i.i": ; preds = %76, %74
   %.0.i.i.i.i.i.i.i.i.i = phi i64 [ %75, %74 ], [ %77, %76 ]
   %78 = icmp slt i64 %.0.i.i.i.i.i.i.i.i.i, 0
   br i1 %78, label %79, label %103
 
-79:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i.i"
+79:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i.i"
   %80 = load ptr, ptr %66, align 8
   %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %66) #28
   %82 = load ptr, ptr %67, align 8
@@ -26158,18 +26158,18 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i:         ; preds = %57, %_ZN4llvm11Smal
 
 86:                                               ; preds = %84
   %87 = sext i32 %85 to i64
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit26.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit26.i.i"
 
 88:                                               ; preds = %84, %79
   %89 = sub i64 %81, %83
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit26.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit26.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit26.i.i": ; preds = %88, %86
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit26.i.i": ; preds = %88, %86
   %.0.i.i.i.i.i.i.i25.i.i = phi i64 [ %87, %86 ], [ %89, %88 ]
   %90 = icmp slt i64 %.0.i.i.i.i.i.i.i25.i.i, 0
   br i1 %90, label %"_ZSt22__move_median_to_firstIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_SL_T0_.exit.i", label %91
 
-91:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit26.i.i"
+91:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit26.i.i"
   %92 = load ptr, ptr %13, align 8
   %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #28
   %94 = load ptr, ptr %67, align 8
@@ -26185,19 +26185,19 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i:         ; preds = %57, %_ZN4llvm11Smal
 
 98:                                               ; preds = %96
   %99 = sext i32 %97 to i64
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit31.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit31.i.i"
 
 100:                                              ; preds = %96, %91
   %101 = sub i64 %93, %95
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit31.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit31.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit31.i.i": ; preds = %100, %98
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit31.i.i": ; preds = %100, %98
   %.0.i.i.i.i.i.i.i30.i.i = phi i64 [ %99, %98 ], [ %101, %100 ]
   %102 = icmp slt i64 %.0.i.i.i.i.i.i.i30.i.i, 0
   %..i.i = select i1 %102, ptr %67, ptr %13
   br label %"_ZSt22__move_median_to_firstIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_SL_T0_.exit.i"
 
-103:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i.i"
+103:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i.i"
   %104 = load ptr, ptr %13, align 8
   %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #28
   %106 = load ptr, ptr %67, align 8
@@ -26213,18 +26213,18 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i:         ; preds = %57, %_ZN4llvm11Smal
 
 110:                                              ; preds = %108
   %111 = sext i32 %109 to i64
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit36.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit36.i.i"
 
 112:                                              ; preds = %108, %103
   %113 = sub i64 %105, %107
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit36.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit36.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit36.i.i": ; preds = %112, %110
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit36.i.i": ; preds = %112, %110
   %.0.i.i.i.i.i.i.i35.i.i = phi i64 [ %111, %110 ], [ %113, %112 ]
   %114 = icmp slt i64 %.0.i.i.i.i.i.i.i35.i.i, 0
   br i1 %114, label %"_ZSt22__move_median_to_firstIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_SL_T0_.exit.i", label %115
 
-115:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit36.i.i"
+115:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit36.i.i"
   %116 = load ptr, ptr %66, align 8
   %117 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %66) #28
   %118 = load ptr, ptr %67, align 8
@@ -26240,20 +26240,20 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i:         ; preds = %57, %_ZN4llvm11Smal
 
 122:                                              ; preds = %120
   %123 = sext i32 %121 to i64
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit41.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit41.i.i"
 
 124:                                              ; preds = %120, %115
   %125 = sub i64 %117, %119
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit41.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit41.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit41.i.i": ; preds = %124, %122
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit41.i.i": ; preds = %124, %122
   %.0.i.i.i.i.i.i.i40.i.i = phi i64 [ %123, %122 ], [ %125, %124 ]
   %126 = icmp slt i64 %.0.i.i.i.i.i.i.i40.i.i, 0
   %.42.i.i = select i1 %126, ptr %67, ptr %66
   br label %"_ZSt22__move_median_to_firstIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_SL_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_SL_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit41.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit36.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit31.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit26.i.i"
-  %.sink.i.i = phi ptr [ %66, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit26.i.i" ], [ %..i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit31.i.i" ], [ %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit36.i.i" ], [ %.42.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit41.i.i" ]
+"_ZSt22__move_median_to_firstIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_SL_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit41.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit36.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit31.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit26.i.i"
+  %.sink.i.i = phi ptr [ %66, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit26.i.i" ], [ %..i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit31.i.i" ], [ %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit36.i.i" ], [ %.42.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit41.i.i" ]
   call void @_ZSt4swapIN4llvm11SmallVectorIhLj10EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(34) %.sink.i.i)
   br label %127
 
@@ -26262,8 +26262,8 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i:         ; preds = %57, %_ZN4llvm11Smal
   %.0.i.i = phi ptr [ %13, %"_ZSt22__move_median_to_firstIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_SL_T0_.exit.i" ], [ %140, %_ZSt4swapIN4llvm11SmallVectorIhLj10EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit ]
   br label %128
 
-128:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i16.i", %127
-  %.1.i.i = phi ptr [ %.0.i.i, %127 ], [ %140, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i16.i" ]
+128:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i16.i", %127
+  %.1.i.i = phi ptr [ %.0.i.i, %127 ], [ %140, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i16.i" ]
   %129 = load ptr, ptr %.1.i.i, align 8
   %130 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.1.i.i) #28
   %131 = load ptr, ptr %0, align 8
@@ -26279,20 +26279,20 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i:         ; preds = %57, %_ZN4llvm11Smal
 
 135:                                              ; preds = %133
   %136 = sext i32 %134 to i64
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i16.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i16.i"
 
 137:                                              ; preds = %133, %128
   %138 = sub i64 %130, %132
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i16.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i16.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i16.i": ; preds = %137, %135
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i16.i": ; preds = %137, %135
   %.0.i.i.i.i.i.i.i.i17.i = phi i64 [ %136, %135 ], [ %138, %137 ]
   %139 = icmp slt i64 %.0.i.i.i.i.i.i.i.i17.i, 0
   %140 = getelementptr inbounds i8, ptr %.1.i.i, i64 40
   br i1 %139, label %128, label %.preheader.i.i, !llvm.loop !545
 
-.preheader.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i16.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit19.i.i"
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit19.i.i" ], [ %.013.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit.i16.i" ]
+.preheader.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i16.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit19.i.i"
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit19.i.i" ], [ %.013.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit.i16.i" ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -40
   %141 = load ptr, ptr %0, align 8
   %142 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
@@ -26309,18 +26309,18 @@ _ZN4llvm11SmallVectorIhLj10EED2Ev.exit.i:         ; preds = %57, %_ZN4llvm11Smal
 
 147:                                              ; preds = %145
   %148 = sext i32 %146 to i64
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit19.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit19.i.i"
 
 149:                                              ; preds = %145, %.preheader.i.i
   %150 = sub i64 %142, %144
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit19.i.i"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit19.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit19.i.i": ; preds = %149, %147
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit19.i.i": ; preds = %149, %147
   %.0.i.i.i.i.i.i.i18.i.i = phi i64 [ %148, %147 ], [ %150, %149 ]
   %151 = icmp slt i64 %.0.i.i.i.i.i.i.i18.i.i, 0
   br i1 %151, label %.preheader.i.i, label %152, !llvm.loop !546
 
-152:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit19.i.i"
+152:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit19.i.i"
   %153 = icmp ult ptr %.1.i.i, %.114.i.i
   br i1 %153, label %154, label %"_ZSt27__unguarded_partition_pivotIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEET_SL_SL_T0_.exit"
 
@@ -26357,7 +26357,7 @@ _ZSt4swapIN4llvm11SmallVectorIhLj10EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__
   %166 = icmp sgt i64 %165, 640
   br i1 %166, label %15, label %"_ZSt14__partial_sortIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_T0_.exit", !llvm.loop !548
 
-"_ZSt14__partial_sortIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEET_SL_SL_T0_.exit", %"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.argprom.exit", %3
+"_ZSt14__partial_sortIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEET_SL_SL_T0_.exit", %"_ZSt10__pop_heapIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_SL_SL_RT0_.exit", %3
   ret void
 }
 
@@ -26369,8 +26369,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEEl
   %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit"
-  %.028 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit" ], [ %1, %4 ]
+.lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit"
+  %.028 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit" ], [ %1, %4 ]
   %9 = shl i64 %.028, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"class.llvm::SmallVector.629", ptr %0, i64 %10
@@ -26391,13 +26391,13 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEEl
 
 20:                                               ; preds = %18
   %21 = sext i32 %19 to i64
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit"
 
 22:                                               ; preds = %18, %.lr.ph
   %23 = sub i64 %15, %17
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit": ; preds = %20, %22
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit": ; preds = %20, %22
   %.0.i.i.i.i.i.i.i = phi i64 [ %21, %20 ], [ %23, %22 ]
   %24 = icmp slt i64 %.0.i.i.i.i.i.i.i, 0
   %spec.select = select i1 %24, i64 %12, i64 %10
@@ -26407,8 +26407,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEEl
   %28 = icmp slt i64 %spec.select, %7
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !549
 
-._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit", %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit" ]
+._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit", %4
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit" ]
   %29 = and i64 %2, 1
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %31, label %41
@@ -26440,7 +26440,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEEl
 
 _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit:        ; preds = %41, %44
   %46 = icmp sgt i64 %.127, %1
-  br i1 %46, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.argprom.exit"
+  br i1 %46, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit, %59
   %.0133.i = phi i64 [ %.04.i, %59 ], [ %.127, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit ]
@@ -26462,25 +26462,25 @@ _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit:        ; preds = %41, %44
 
 54:                                               ; preds = %52
   %55 = sext i32 %53 to i64
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.argprom.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.exit.i"
 
 56:                                               ; preds = %52, %.lr.ph.i
   %57 = sub i64 %49, %51
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.argprom.exit.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.argprom.exit.i": ; preds = %56, %54
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.exit.i": ; preds = %56, %54
   %.0.i.i.i.i.i.i.i.i = phi i64 [ %55, %54 ], [ %57, %56 ]
   %58 = icmp slt i64 %.0.i.i.i.i.i.i.i.i, 0
-  br i1 %58, label %59, label %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.argprom.exit"
+  br i1 %58, label %59, label %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.exit"
 
-59:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.argprom.exit.i"
+59:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.exit.i"
   %60 = getelementptr inbounds %"class.llvm::SmallVector.629", ptr %0, i64 %.0133.i
   %61 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIhEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %47)
   %62 = icmp sgt i64 %.04.i, %1
-  br i1 %62, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.argprom.exit", !llvm.loop !550
+  br i1 %62, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.exit", !llvm.loop !550
 
-"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.argprom.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.argprom.exit.i", %59, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit
-  %.013.lcssa.i = phi i64 [ %.127, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.argprom.exit.i" ], [ %.04.i, %59 ]
+"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.exit.i", %59, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit
+  %.013.lcssa.i = phi i64 [ %.127, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.exit.i" ], [ %.04.i, %59 ]
   %63 = getelementptr inbounds %"class.llvm::SmallVector.629", ptr %0, i64 %.013.lcssa.i
   %64 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIhEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %65 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #28
@@ -26488,11 +26488,11 @@ _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit:        ; preds = %41, %44
   %67 = icmp eq ptr %66, %42
   br i1 %67, label %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit, label %68
 
-68:                                               ; preds = %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.argprom.exit"
+68:                                               ; preds = %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.exit"
   call void @free(ptr noundef %66) #28
   br label %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit
 
-_ZN4llvm11SmallVectorIhLj10EED2Ev.exit:           ; preds = %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.argprom.exit", %68
+_ZN4llvm11SmallVectorIhLj10EED2Ev.exit:           ; preds = %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.exit", %68
   ret void
 }
 
@@ -26558,18 +26558,18 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm11SmallVectorIhLj10E
 
 14:                                               ; preds = %12
   %15 = sext i32 %13 to i64
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit"
 
 16:                                               ; preds = %12, %7
   %17 = sub i64 %9, %11
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit": ; preds = %14, %16
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit": ; preds = %14, %16
   %.0.i.i.i.i.i.i.i = phi i64 [ %15, %14 ], [ %17, %16 ]
   %18 = icmp slt i64 %.0.i.i.i.i.i.i.i, 0
   br i1 %18, label %19, label %38
 
-19:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit"
+19:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit"
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %5, i64 noundef 10) #28
   %20 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %.019) #28
   br i1 %20, label %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit, label %21
@@ -26611,7 +26611,7 @@ _ZSt13move_backwardIPN4llvm11SmallVectorIhLj10EEES3_ET0_T_S5_S4_.exit: ; preds =
   call void @free(ptr noundef %35) #28
   br label %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit
 
-38:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.argprom.exit"
+38:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit"
   call fastcc void @"_ZSt25__unguarded_linear_insertIPN4llvm11SmallVectorIhLj10EEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_"(ptr noundef nonnull %.019)
   br label %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit
 
@@ -26657,22 +26657,22 @@ _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit:        ; preds = %_ZN4llvm11SmallVect
 
 13:                                               ; preds = %11
   %14 = sext i32 %12 to i64
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS2_11SmallVectorIhLj10EEEPSJ_EEbRT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS2_11SmallVectorIhLj10EEEPSJ_EEbRT_T0_.exit"
 
 15:                                               ; preds = %11, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit
   %16 = sub i64 %8, %10
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS2_11SmallVectorIhLj10EEEPSJ_EEbRT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS2_11SmallVectorIhLj10EEEPSJ_EEbRT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS2_11SmallVectorIhLj10EEEPSJ_EEbRT_T0_.argprom.exit": ; preds = %13, %15
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS2_11SmallVectorIhLj10EEEPSJ_EEbRT_T0_.exit": ; preds = %13, %15
   %.0.i.i.i.i.i.i.i = phi i64 [ %14, %13 ], [ %16, %15 ]
   %17 = icmp slt i64 %.0.i.i.i.i.i.i.i, 0
   br i1 %17, label %18, label %20
 
-18:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS2_11SmallVectorIhLj10EEEPSJ_EEbRT_T0_.argprom.exit"
+18:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS2_11SmallVectorIhLj10EEEPSJ_EEbRT_T0_.exit"
   %19 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIhEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %.09, ptr noundef nonnull align 8 dereferenceable(24) %.0)
   br label %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit, !llvm.loop !552
 
-20:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS2_11SmallVectorIhLj10EEEPSJ_EEbRT_T0_.argprom.exit"
+20:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclINS2_11SmallVectorIhLj10EEEPSJ_EEbRT_T0_.exit"
   %21 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIhEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %.09, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #28
   %23 = load ptr, ptr %2, align 8
@@ -28359,18 +28359,18 @@ attributes #31 = { nounwind willreturn memory(read) }
 !174 = distinct !{!174, !175, !"_ZL27handleMaybeNoDataFoundErrorN4llvm5ErrorE: argument 0"}
 !175 = distinct !{!175, !"_ZL27handleMaybeNoDataFoundErrorN4llvm5ErrorE"}
 !176 = !{!177, !174}
-!177 = distinct !{!177, !178, !"_ZN4llvm12handleErrorsIJZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0EEES1_S1_DpOT_.argprom: argument 0"}
-!178 = distinct !{!178, !"_ZN4llvm12handleErrorsIJZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0EEES1_S1_DpOT_.argprom"}
+!177 = distinct !{!177, !178, !"_ZN4llvm12handleErrorsIJZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0EEES1_S1_DpOT_: argument 0"}
+!178 = distinct !{!178, !"_ZN4llvm12handleErrorsIJZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0EEES1_S1_DpOT_"}
 !179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZN4llvm15handleErrorImplIZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0JEEES1_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_.argprom: argument 0"}
-!181 = distinct !{!181, !"_ZN4llvm15handleErrorImplIZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0JEEES1_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_.argprom"}
+!180 = distinct !{!180, !181, !"_ZN4llvm15handleErrorImplIZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0JEEES1_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_: argument 0"}
+!181 = distinct !{!181, !"_ZN4llvm15handleErrorImplIZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0JEEES1_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_"}
 !182 = !{!180, !177, !174}
 !183 = !{!184}
-!184 = distinct !{!184, !185, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_8coverage16CoverageMapErrorEEE5applyIZL27handleMaybeNoDataFoundErrorS1_E3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EE.argprom: argument 0"}
-!185 = distinct !{!185, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_8coverage16CoverageMapErrorEEE5applyIZL27handleMaybeNoDataFoundErrorS1_E3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EE.argprom"}
+!184 = distinct !{!184, !185, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_8coverage16CoverageMapErrorEEE5applyIZL27handleMaybeNoDataFoundErrorS1_E3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EE: argument 0"}
+!185 = distinct !{!185, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_8coverage16CoverageMapErrorEEE5applyIZL27handleMaybeNoDataFoundErrorS1_E3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EE"}
 !186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZZL27handleMaybeNoDataFoundErrorN4llvm5ErrorEENK3$_0clERKNS_8coverage16CoverageMapErrorE.argprom: argument 0"}
-!188 = distinct !{!188, !"_ZZL27handleMaybeNoDataFoundErrorN4llvm5ErrorEENK3$_0clERKNS_8coverage16CoverageMapErrorE.argprom"}
+!187 = distinct !{!187, !188, !"_ZZL27handleMaybeNoDataFoundErrorN4llvm5ErrorEENK3$_0clERKNS_8coverage16CoverageMapErrorE: argument 0"}
+!188 = distinct !{!188, !"_ZZL27handleMaybeNoDataFoundErrorN4llvm5ErrorEENK3$_0clERKNS_8coverage16CoverageMapErrorE"}
 !189 = !{!187, !184, !180, !177, !174}
 !190 = !{!191, !187, !184, !180, !177, !174}
 !191 = distinct !{!191, !192, !"_ZN4llvm10make_errorINS_8coverage16CoverageMapErrorEJNS1_17coveragemap_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_5ErrorEDpOT0_: argument 0"}
@@ -28383,13 +28383,13 @@ attributes #31 = { nounwind willreturn memory(read) }
 !198 = distinct !{!198, !199, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE: argument 0"}
 !199 = distinct !{!199, !"_ZN4llvm15handleErrorImplESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS1_EE"}
 !200 = !{!201, !177, !174}
-!201 = distinct !{!201, !202, !"_ZN4llvm15handleErrorImplIZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0JEEES1_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_.argprom: argument 0"}
-!202 = distinct !{!202, !"_ZN4llvm15handleErrorImplIZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0JEEES1_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_.argprom"}
+!201 = distinct !{!201, !202, !"_ZN4llvm15handleErrorImplIZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0JEEES1_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_: argument 0"}
+!202 = distinct !{!202, !"_ZN4llvm15handleErrorImplIZL27handleMaybeNoDataFoundErrorNS_5ErrorEE3$_0JEEES1_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_"}
 !203 = !{!204, !206, !201, !177, !174}
-!204 = distinct !{!204, !205, !"_ZZL27handleMaybeNoDataFoundErrorN4llvm5ErrorEENK3$_0clERKNS_8coverage16CoverageMapErrorE.argprom: argument 0"}
-!205 = distinct !{!205, !"_ZZL27handleMaybeNoDataFoundErrorN4llvm5ErrorEENK3$_0clERKNS_8coverage16CoverageMapErrorE.argprom"}
-!206 = distinct !{!206, !207, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_8coverage16CoverageMapErrorEEE5applyIZL27handleMaybeNoDataFoundErrorS1_E3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EE.argprom: argument 0"}
-!207 = distinct !{!207, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_8coverage16CoverageMapErrorEEE5applyIZL27handleMaybeNoDataFoundErrorS1_E3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EE.argprom"}
+!204 = distinct !{!204, !205, !"_ZZL27handleMaybeNoDataFoundErrorN4llvm5ErrorEENK3$_0clERKNS_8coverage16CoverageMapErrorE: argument 0"}
+!205 = distinct !{!205, !"_ZZL27handleMaybeNoDataFoundErrorN4llvm5ErrorEENK3$_0clERKNS_8coverage16CoverageMapErrorE"}
+!206 = distinct !{!206, !207, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_8coverage16CoverageMapErrorEEE5applyIZL27handleMaybeNoDataFoundErrorS1_E3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EE: argument 0"}
+!207 = distinct !{!207, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_8coverage16CoverageMapErrorEEE5applyIZL27handleMaybeNoDataFoundErrorS1_E3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EE"}
 !208 = !{!209, !204, !206, !201, !177, !174}
 !209 = distinct !{!209, !210, !"_ZN4llvm10make_errorINS_8coverage16CoverageMapErrorEJNS1_17coveragemap_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_5ErrorEDpOT0_: argument 0"}
 !210 = distinct !{!210, !"_ZN4llvm10make_errorINS_8coverage16CoverageMapErrorEJNS1_17coveragemap_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_5ErrorEDpOT0_"}

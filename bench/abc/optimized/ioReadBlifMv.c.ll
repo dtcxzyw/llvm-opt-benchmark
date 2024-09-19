@@ -2072,9 +2072,9 @@ Io_MvParseLineConstrs.exit.i:                     ; preds = %.lr.ph.i99.i, %Io_M
   %851 = icmp sgt i32 %.val59176.i, 0
   br i1 %851, label %.lr.ph178.i, label %.critedge8.i
 
-.lr.ph178.i:                                      ; preds = %.critedge6.i, %Io_MvParseLineLtlProperty.argprom.exit.i
-  %indvars.iv204.i = phi i64 [ %indvars.iv.next205.i, %Io_MvParseLineLtlProperty.argprom.exit.i ], [ 0, %.critedge6.i ]
-  %852 = phi ptr [ %915, %Io_MvParseLineLtlProperty.argprom.exit.i ], [ %849, %.critedge6.i ]
+.lr.ph178.i:                                      ; preds = %.critedge6.i, %Io_MvParseLineLtlProperty.exit.i
+  %indvars.iv204.i = phi i64 [ %indvars.iv.next205.i, %Io_MvParseLineLtlProperty.exit.i ], [ 0, %.critedge6.i ]
+  %852 = phi ptr [ %915, %Io_MvParseLineLtlProperty.exit.i ], [ %849, %.critedge6.i ]
   %853 = getelementptr i8, ptr %852, i64 8
   %.val64.i = load ptr, ptr %853, align 8
   %854 = getelementptr inbounds ptr, ptr %.val64.i, i64 %indvars.iv204.i
@@ -2152,7 +2152,7 @@ Io_MvParseLineConstrs.exit.i:                     ; preds = %.lr.ph.i99.i, %Io_M
 .Vec_PtrGrow.exit11_crit_edge.i.i.i:              ; preds = %._crit_edge.i.i
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %883, i64 8
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %Io_MvParseLineLtlProperty.argprom.exit.i
+  br label %Io_MvParseLineLtlProperty.exit.i
 
 888:                                              ; preds = %._crit_edge.i.i
   %889 = icmp slt i32 %885, 16
@@ -2176,7 +2176,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %895, %893
   %897 = phi ptr [ %894, %893 ], [ %896, %895 ]
   store ptr %897, ptr %891, align 8
   store i32 16, ptr %883, align 8
-  br label %Io_MvParseLineLtlProperty.argprom.exit.i
+  br label %Io_MvParseLineLtlProperty.exit.i
 
 898:                                              ; preds = %888
   %899 = shl nuw nsw i32 %885, 1
@@ -2199,9 +2199,9 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %895, %893
   %909 = phi ptr [ %905, %904 ], [ %907, %906 ]
   store ptr %909, ptr %900, align 8
   store i32 %899, ptr %883, align 8
-  br label %Io_MvParseLineLtlProperty.argprom.exit.i
+  br label %Io_MvParseLineLtlProperty.exit.i
 
-Io_MvParseLineLtlProperty.argprom.exit.i:         ; preds = %908, %Vec_PtrGrow.exit.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i
+Io_MvParseLineLtlProperty.exit.i:                 ; preds = %908, %Vec_PtrGrow.exit.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i
   %910 = phi ptr [ %.pre.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i ], [ %909, %908 ], [ %897, %Vec_PtrGrow.exit.i.i.i ]
   %911 = load i32, ptr %884, align 4
   %912 = add nsw i32 %911, 1
@@ -2217,7 +2217,7 @@ Io_MvParseLineLtlProperty.argprom.exit.i:         ; preds = %908, %Vec_PtrGrow.e
   %918 = icmp slt i64 %indvars.iv.next205.i, %917
   br i1 %918, label %.lr.ph178.i, label %.critedge8.i, !llvm.loop !22
 
-.critedge8.i:                                     ; preds = %Io_MvParseLineLtlProperty.argprom.exit.i, %.critedge6.i
+.critedge8.i:                                     ; preds = %Io_MvParseLineLtlProperty.exit.i, %.critedge6.i
   %indvars.iv.next208.i = add nuw nsw i64 %indvars.iv207.i, 1
   %919 = load ptr, ptr %19, align 8
   %920 = getelementptr i8, ptr %919, i64 4
@@ -2463,14 +2463,14 @@ Io_MvGetLine.exit131.i.i:                         ; preds = %1014, %.critedge.lo
   %1021 = getelementptr i8, ptr %.val108.val.i.i, i64 96
   %.val108.val.val.i.i = load ptr, ptr %1021, align 8
   %.not.i132.i.i = icmp eq ptr %.val108.val.val.i.i, null
-  br i1 %.not.i132.i.i, label %Abc_NtkMvVarMan.argprom.argprom.argprom.exit.i.i, label %1022
+  br i1 %.not.i132.i.i, label %Abc_NtkMvVarMan.exit.i.i, label %1022
 
 1022:                                             ; preds = %1017
   %1023 = getelementptr i8, ptr %.val108.val.val.i.i, i64 16
   %.val3.i.i.i = load ptr, ptr %1023, align 8
-  br label %Abc_NtkMvVarMan.argprom.argprom.argprom.exit.i.i
+  br label %Abc_NtkMvVarMan.exit.i.i
 
-Abc_NtkMvVarMan.argprom.argprom.argprom.exit.i.i: ; preds = %1022, %1017
+Abc_NtkMvVarMan.exit.i.i:                         ; preds = %1022, %1017
   %1024 = phi ptr [ %.val3.i.i.i, %1022 ], [ null, %1017 ]
   %1025 = shl nuw nsw i32 %978, 3
   %1026 = sext i32 %997 to i64
@@ -2478,8 +2478,8 @@ Abc_NtkMvVarMan.argprom.argprom.argprom.exit.i.i: ; preds = %1022, %1017
   %wide.trip.count.i.i168 = zext i32 %1027 to i64
   br label %1028
 
-1028:                                             ; preds = %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit.i.i, %Abc_NtkMvVarMan.argprom.argprom.argprom.exit.i.i
-  %indvars.iv164.i.i = phi i64 [ 0, %Abc_NtkMvVarMan.argprom.argprom.argprom.exit.i.i ], [ %indvars.iv.next165.i.i, %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit.i.i ]
+1028:                                             ; preds = %Abc_ObjSetMvVar.exit.i.i, %Abc_NtkMvVarMan.exit.i.i
+  %indvars.iv164.i.i = phi i64 [ 0, %Abc_NtkMvVarMan.exit.i.i ], [ %indvars.iv.next165.i.i, %Abc_ObjSetMvVar.exit.i.i ]
   %indvars.iv.next165.i.i = add nuw nsw i64 %indvars.iv164.i.i, 1
   %.val105.i.i = load ptr, ptr %955, align 8
   %1029 = getelementptr inbounds ptr, ptr %.val105.i.i, i64 %indvars.iv.next165.i.i
@@ -2536,7 +2536,7 @@ Abc_NtkMvVarMan.argprom.argprom.argprom.exit.i.i: ; preds = %1022, %1017
   %.val109.val.val.val.i.i = load ptr, ptr %1057, align 8
   %1058 = load i32, ptr %.val109.val.val.val.i.i, align 8
   %.not.i.i.i.i = icmp slt i32 %.val110.i.i, %1058
-  br i1 %.not.i.i.i.i, label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit.i.i, label %1059
+  br i1 %.not.i.i.i.i, label %Abc_ObjSetMvVar.exit.i.i, label %1059
 
 1059:                                             ; preds = %.critedge.i.i
   %1060 = shl nsw i32 %1058, 1
@@ -2544,7 +2544,7 @@ Abc_NtkMvVarMan.argprom.argprom.argprom.exit.i.i: ; preds = %1022, %1017
   %1062 = add nsw i32 %.val110.i.i, 10
   %1063 = select i1 %1061, i32 %1060, i32 %1062
   %.not.i.i.i.i.i = icmp slt i32 %1058, %1063
-  br i1 %.not.i.i.i.i.i, label %1064, label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit.i.i
+  br i1 %.not.i.i.i.i.i, label %1064, label %Abc_ObjSetMvVar.exit.i.i
 
 1064:                                             ; preds = %1059
   %1065 = getelementptr inbounds i8, ptr %.val109.val.val.val.i.i, i64 8
@@ -2574,9 +2574,9 @@ Abc_NtkMvVarMan.argprom.argprom.argprom.exit.i.i: ; preds = %1022, %1017
   %1080 = shl nsw i64 %1079, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %1077, i8 0, i64 %1080, i1 false)
   store i32 %1063, ptr %.val109.val.val.val.i.i, align 8
-  br label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit.i.i
+  br label %Abc_ObjSetMvVar.exit.i.i
 
-Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit.i.i: ; preds = %1073, %1059, %.critedge.i.i
+Abc_ObjSetMvVar.exit.i.i:                         ; preds = %1073, %1059, %.critedge.i.i
   %1081 = getelementptr inbounds i8, ptr %.val109.val.val.val.i.i, i64 8
   %1082 = load ptr, ptr %1081, align 8
   %1083 = sext i32 %.val110.i.i to i64
@@ -2585,7 +2585,7 @@ Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit.i.i: ; preds = %1073, %1059
   %exitcond.not.i.i169 = icmp eq i64 %indvars.iv.next165.i.i, %wide.trip.count.i.i168
   br i1 %exitcond.not.i.i169, label %1085, label %1028, !llvm.loop !27
 
-1085:                                             ; preds = %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit.i.i
+1085:                                             ; preds = %Abc_ObjSetMvVar.exit.i.i
   %1086 = load ptr, ptr %1034, align 8
   %.not95.i.i = icmp ne ptr %1086, null
   %1087 = icmp sgt i32 %978, 0
@@ -5946,20 +5946,20 @@ Vec_PtrRemove.exit:                               ; preds = %2556, %2553
 2595:                                             ; preds = %2593, %2590
   %2596 = phi ptr [ %.pre788, %2593 ], [ %2591, %2590 ]
   %2597 = icmp eq ptr %2596, null
-  br i1 %2597, label %2598, label %Vec_PtrFreeP.argprom.exit
+  br i1 %2597, label %2598, label %Vec_PtrFreeP.exit
 
 2598:                                             ; preds = %2595
   %2599 = getelementptr inbounds i8, ptr %2577, i64 16
   %2600 = tail call ptr @Extra_UtilStrsav(ptr noundef %0) #20
   store ptr %2600, ptr %2599, align 8
-  br label %Vec_PtrFreeP.argprom.exit
+  br label %Vec_PtrFreeP.exit
 
-Vec_PtrFreeP.argprom.exit:                        ; preds = %2595, %2598
+Vec_PtrFreeP.exit:                                ; preds = %2595, %2598
   store ptr null, ptr @vGlobalLtlArray, align 8
   br label %2601
 
-2601:                                             ; preds = %2505, %Vec_PtrFreeP.argprom.exit, %2520, %85, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %85 ], [ null, %2520 ], [ %2577, %Vec_PtrFreeP.argprom.exit ], [ null, %2505 ]
+2601:                                             ; preds = %2505, %Vec_PtrFreeP.exit, %2520, %85, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %85 ], [ null, %2520 ], [ %2577, %Vec_PtrFreeP.exit ], [ null, %2505 ]
   ret ptr %.0
 }
 
@@ -7502,7 +7502,7 @@ define internal fastcc ptr @Io_MvParseAddResetCircuit(ptr nocapture noundef read
   %.val33.val.val.val = load ptr, ptr %38, align 8
   %39 = load i32, ptr %.val33.val.val.val, align 8
   %.not.i.i = icmp slt i32 %.val34, %39
-  br i1 %.not.i.i, label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit, label %40
+  br i1 %.not.i.i, label %Abc_ObjSetMvVar.exit, label %40
 
 40:                                               ; preds = %31
   %41 = shl nsw i32 %39, 1
@@ -7510,7 +7510,7 @@ define internal fastcc ptr @Io_MvParseAddResetCircuit(ptr nocapture noundef read
   %43 = add nsw i32 %.val34, 10
   %44 = select i1 %42, i32 %41, i32 %43
   %.not.i.i.i = icmp slt i32 %39, %44
-  br i1 %.not.i.i.i, label %45, label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit
+  br i1 %.not.i.i.i, label %45, label %Abc_ObjSetMvVar.exit
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %.val33.val.val.val, i64 8
@@ -7540,9 +7540,9 @@ define internal fastcc ptr @Io_MvParseAddResetCircuit(ptr nocapture noundef read
   %61 = shl nsw i64 %60, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 %61, i1 false)
   store i32 %44, ptr %.val33.val.val.val, align 8
-  br label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit
+  br label %Abc_ObjSetMvVar.exit
 
-Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit: ; preds = %31, %40, %54
+Abc_ObjSetMvVar.exit:                             ; preds = %31, %40, %54
   %62 = getelementptr inbounds i8, ptr %.val33.val.val.val, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = sext i32 %.val34 to i64
@@ -7561,15 +7561,15 @@ Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit: ; preds = %31, %40, %54
   %.val31.val.val.val = load ptr, ptr %71, align 8
   %72 = load i32, ptr %.val31.val.val.val, align 8
   %.not.i.i39 = icmp slt i32 %.val32, %72
-  br i1 %.not.i.i39, label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit43, label %73
+  br i1 %.not.i.i39, label %Abc_ObjSetMvVar.exit43, label %73
 
-73:                                               ; preds = %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit
+73:                                               ; preds = %Abc_ObjSetMvVar.exit
   %74 = shl nsw i32 %72, 1
   %75 = icmp sgt i32 %74, %.val32
   %76 = add nsw i32 %.val32, 10
   %77 = select i1 %75, i32 %74, i32 %76
   %.not.i.i.i40 = icmp slt i32 %72, %77
-  br i1 %.not.i.i.i40, label %78, label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit43
+  br i1 %.not.i.i.i40, label %78, label %Abc_ObjSetMvVar.exit43
 
 78:                                               ; preds = %73
   %79 = getelementptr inbounds i8, ptr %.val31.val.val.val, i64 8
@@ -7599,9 +7599,9 @@ Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit: ; preds = %31, %40, %54
   %94 = shl nsw i64 %93, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %91, i8 0, i64 %94, i1 false)
   store i32 %77, ptr %.val31.val.val.val, align 8
-  br label %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit43
+  br label %Abc_ObjSetMvVar.exit43
 
-Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit43: ; preds = %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit, %73, %87
+Abc_ObjSetMvVar.exit43:                           ; preds = %Abc_ObjSetMvVar.exit, %73, %87
   %95 = getelementptr inbounds i8, ptr %.val31.val.val.val, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = sext i32 %.val32 to i64
@@ -7610,8 +7610,8 @@ Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit43: ; preds = %Abc_ObjSetMvV
   %.pre = load ptr, ptr %18, align 8
   br label %99
 
-99:                                               ; preds = %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit43, %2
-  %100 = phi ptr [ %.pre, %Abc_ObjSetMvVar.argprom.argprom.argprom.argprom.exit43 ], [ %27, %2 ]
+99:                                               ; preds = %Abc_ObjSetMvVar.exit43, %2
+  %100 = phi ptr [ %.pre, %Abc_ObjSetMvVar.exit43 ], [ %27, %2 ]
   %101 = tail call ptr @Abc_NtkCreateObj(ptr noundef %100, i32 noundef 7) #20
   tail call void @Abc_ObjAddFanin(ptr noundef %20, ptr noundef %101) #20
   %102 = getelementptr inbounds i8, ptr %0, i64 128
@@ -7751,14 +7751,14 @@ define internal fastcc noundef ptr @Abc_NtkMvVarDup(ptr nocapture noundef readon
   %7 = getelementptr i8, ptr %.val.val, i64 96
   %.val.val.val = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.val.val.val, null
-  br i1 %.not.i, label %Abc_NtkMvVarMan.argprom.argprom.argprom.exit, label %8
+  br i1 %.not.i, label %Abc_NtkMvVarMan.exit, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %.val.val.val, i64 16
   %.val3.i = load ptr, ptr %9, align 8
-  br label %Abc_NtkMvVarMan.argprom.argprom.argprom.exit
+  br label %Abc_NtkMvVarMan.exit
 
-Abc_NtkMvVarMan.argprom.argprom.argprom.exit:     ; preds = %4, %8
+Abc_NtkMvVarMan.exit:                             ; preds = %4, %8
   %10 = phi ptr [ %.val3.i, %8 ], [ null, %4 ]
   %11 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %10, i32 noundef 16) #20
   %12 = load i32, ptr %1, align 8
@@ -7770,7 +7770,7 @@ Abc_NtkMvVarMan.argprom.argprom.argprom.exit:     ; preds = %4, %8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %17
 
-17:                                               ; preds = %Abc_NtkMvVarMan.argprom.argprom.argprom.exit
+17:                                               ; preds = %Abc_NtkMvVarMan.exit
   %18 = load i32, ptr %1, align 8
   %19 = shl i32 %18, 3
   %20 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %10, i32 noundef %19) #20
@@ -7804,8 +7804,8 @@ Abc_NtkMvVarMan.argprom.argprom.argprom.exit:     ; preds = %4, %8
   %41 = icmp slt i64 %indvars.iv.next, %40
   br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !70
 
-.loopexit:                                        ; preds = %.lr.ph, %17, %Abc_NtkMvVarMan.argprom.argprom.argprom.exit, %2
-  %.024 = phi ptr [ null, %2 ], [ %11, %Abc_NtkMvVarMan.argprom.argprom.argprom.exit ], [ %11, %17 ], [ %11, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %17, %Abc_NtkMvVarMan.exit, %2
+  %.024 = phi ptr [ null, %2 ], [ %11, %Abc_NtkMvVarMan.exit ], [ %11, %17 ], [ %11, %.lr.ph ]
   ret ptr %.024
 }
 

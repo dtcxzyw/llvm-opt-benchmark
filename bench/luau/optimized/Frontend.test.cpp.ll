@@ -41942,11 +41942,11 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_254Ev() #5 personalit
   store ptr %38, ptr %33, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlS7_SD_bE_E9_M_invokeERKSt9_Any_dataS7_SD_Ob, ptr %37, align 8
   %.not.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlS7_SD_bE_EENSt9enable_ifIXsrNSF_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeESF_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JS7_SD_bEEEE5valueERSF_E4typeEOSM_.argprom.exit.i, label %39
+  br i1 %.not.i.i.i.i, label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlS7_SD_bE_EENSt9enable_ifIXsrNSF_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeESF_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JS7_SD_bEEEE5valueERSF_E4typeEOSM_.exit.i, label %39
 
 39:                                               ; preds = %0
   %40 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 3)
-          to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlS7_SD_bE_EENSt9enable_ifIXsrNSF_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeESF_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JS7_SD_bEEEE5valueERSF_E4typeEOSM_.argprom.exit.i unwind label %41
+          to label %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlS7_SD_bE_EENSt9enable_ifIXsrNSF_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeESF_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JS7_SD_bEEEE5valueERSF_E4typeEOSM_.exit.i unwind label %41
 
 41:                                               ; preds = %39
   %42 = landingpad { ptr, i32 }
@@ -41955,13 +41955,13 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_254Ev() #5 personalit
   call void @__clang_call_terminate(ptr %43) #20
   unreachable
 
-_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlS7_SD_bE_EENSt9enable_ifIXsrNSF_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeESF_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JS7_SD_bEEEE5valueERSF_E4typeEOSM_.argprom.exit.i: ; preds = %39, %0
+_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlS7_SD_bE_EENSt9enable_ifIXsrNSF_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeESF_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JS7_SD_bEEEE5valueERSF_E4typeEOSM_.exit.i: ; preds = %39, %0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #22
   %44 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc.i unwind label %124
 
-.noexc.i:                                         ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlS7_SD_bE_EENSt9enable_ifIXsrNSF_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeESF_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JS7_SD_bEEEE5valueERSF_E4typeEOSM_.argprom.exit.i
+.noexc.i:                                         ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlS7_SD_bE_EENSt9enable_ifIXsrNSF_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeESF_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JS7_SD_bEEEE5valueERSF_E4typeEOSM_.exit.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc32.i unwind label %124
 
@@ -42186,7 +42186,7 @@ _ZNSt8optionalIN4Luau15FrontendOptionsEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_count
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %123) #22
   br label %146
 
-124:                                              ; preds = %.noexc.i, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlS7_SD_bE_EENSt9enable_ifIXsrNSF_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeESF_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JS7_SD_bEEEE5valueERSF_E4typeEOSM_.argprom.exit.i
+124:                                              ; preds = %.noexc.i, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlS7_SD_bE_EENSt9enable_ifIXsrNSF_9_CallableIT_NSK_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISM_E4typeEE4typeESF_EE5valueESt5decayISM_EE4type4typeESt15__invoke_resultIRSX_JS7_SD_bEEEE5valueERSF_E4typeEOSM_.exit.i
   %125 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -56712,7 +56712,7 @@ define internal void @_ZNK7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTES
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %1, ptr %4, align 8
   %5 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7doctest6detail14MessageBuildercmIA25_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef nonnull align 1 dereferenceable(25) @.str.290)
-          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1471fEvENKUlPSoE_clES1_.argprom.exit unwind label %6
+          to label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1471fEvENKUlPSoE_clES1_.exit unwind label %6
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
@@ -56720,7 +56720,7 @@ define internal void @_ZNK7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTES
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #22
   resume { ptr, i32 } %7
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1471fEvENKUlPSoE_clES1_.argprom.exit: ; preds = %2
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1471fEvENKUlPSoE_clES1_.exit: ; preds = %2
   call void @_ZN7doctest6detail14MessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %3) #22
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   ret void
@@ -62669,12 +62669,12 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
 _ZN4Luau7BindingaSEOS0_.exit.i.i.i:               ; preds = %29, %28, %.thread.i.i.i.i.i.i.i.i.i, %26
   %30 = load i8, ptr %12, align 8
   %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %_ZSt10__invoke_rIvRZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbE_JS9_SF_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.argprom.exit
+  br i1 %31, label %32, label %_ZSt10__invoke_rIvRZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbE_JS9_SF_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit
 
 32:                                               ; preds = %_ZN4Luau7BindingaSEOS0_.exit.i.i.i
   store i8 0, ptr %12, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
-  br label %_ZSt10__invoke_rIvRZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbE_JS9_SF_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.argprom.exit
+  br label %_ZSt10__invoke_rIvRZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbE_JS9_SF_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit
 
 33:                                               ; preds = %4
   %34 = landingpad { ptr, i32 }
@@ -62682,7 +62682,7 @@ _ZN4Luau7BindingaSEOS0_.exit.i.i.i:               ; preds = %29, %28, %.thread.i
   call void @_ZN4Luau7BindingD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %5) #22
   resume { ptr, i32 } %34
 
-_ZSt10__invoke_rIvRZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbE_JS9_SF_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.argprom.argprom.argprom.exit: ; preds = %_ZN4Luau7BindingaSEOS0_.exit.i.i.i, %32
+_ZSt10__invoke_rIvRZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2531fEvEUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEbE_JS9_SF_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit: ; preds = %_ZN4Luau7BindingaSEOS0_.exit.i.i.i, %32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -66768,8 +66768,8 @@ attributes #25 = { noreturn }
 !182 = !{i64 2152879964}
 !183 = distinct !{!183, !6}
 !184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1471fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom: argument 0"}
-!186 = distinct !{!186, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1471fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_.argprom"}
+!185 = distinct !{!185, !186, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1471fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}
+!186 = distinct !{!186, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1471fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_"}
 !187 = !{i64 2152883843}
 !188 = !{!189}
 !189 = distinct !{!189, !190, !"_ZN7doctest6detail16MakeContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_1531fEvEUlPSoE_EENS0_12ContextScopeIT_EERKS7_: argument 0"}

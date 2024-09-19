@@ -3464,7 +3464,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %20, %23
 30:                                               ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
   %.val17.i = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit, label %31
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit, label %31
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3496,9 +3496,9 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i:        ; preds = %37, %31
   %50 = zext i32 %47 to i64
   %51 = getelementptr inbounds i64, ptr %49, i64 %50
   %52 = load i64, ptr %51, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit: ; preds = %30, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i
+_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit: ; preds = %30, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i
   %53 = phi i64 [ %52, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i ], [ 0, %30 ]
   %54 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val17.i, i64 noundef %53) #12
   %55 = add nsw i64 %54, %4
@@ -3551,7 +3551,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOf
   %77 = icmp ugt i64 %75, %76
   br i1 %77, label %78, label %82
 
-78:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+78:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
   %79 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #12, !noalias !133
   %.not.i11 = icmp ugt i64 %75, %79
   br i1 %.not.i11, label %82, label %80
@@ -3560,7 +3560,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOf
   %81 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %14) #12, !noalias !133
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit12
 
-82:                                               ; preds = %78, %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+82:                                               ; preds = %78, %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
   %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %17) #12, !noalias !133
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit12
 
@@ -3670,7 +3670,7 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE10visitArr
 124:                                              ; preds = %122, %109
   %.val.i21 = load ptr, ptr %0, align 8
   %.not.i.i.i22 = icmp eq ptr %3, null
-  br i1 %.not.i.i.i22, label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i27, label %125
+  br i1 %.not.i.i.i22, label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i27, label %125
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3702,26 +3702,26 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i.i24:    ; preds = %131, %125
   %144 = zext i32 %141 to i64
   %145 = getelementptr inbounds i64, ptr %143, i64 %144
   %146 = load i64, ptr %145, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i27
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i27
 
-_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i27: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i24, %124
+_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i27: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i24, %124
   %147 = phi i64 [ %146, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i24 ], [ 0, %124 ]
   %148 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i21, i64 noundef %147) #12
   %149 = and i64 %2, 4
   %.not.i.i28 = icmp eq i64 %149, 0
   br i1 %.not.i.i28, label %150, label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE14visitARCStrongEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit
 
-150:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i27
+150:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i27
   %151 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %.0.copyload.i.i.i.i.i1.i.i29 = load i64, ptr %151, align 8
   %152 = and i64 %.0.copyload.i.i.i.i.i1.i.i29, 4
   %153 = icmp ne i64 %152, 0
   br label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE14visitARCStrongEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit
 
-_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE14visitARCStrongEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i27, %150
-  %154 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i27 ], [ %153, %150 ]
+_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE14visitARCStrongEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i27, %150
+  %154 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i27 ], [ %153, %150 ]
   %155 = add nsw i64 %148, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %154, i64 %155)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %154, i64 %155)
   %156 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %157 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %158 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef %156, i64 noundef %157) #12
@@ -3735,7 +3735,7 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE14visitARC
   %161 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull @.str.19, i64 noundef 2) #12
   %.val.i14 = load ptr, ptr %0, align 8
   %.not.i.i.i15 = icmp eq ptr %3, null
-  br i1 %.not.i.i.i15, label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i, label %162
+  br i1 %.not.i.i.i15, label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, label %162
 
 162:                                              ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3767,16 +3767,16 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i.i17:    ; preds = %168, %162
   %181 = zext i32 %178 to i64
   %182 = getelementptr inbounds i64, ptr %180, i64 %181
   %183 = load i64, ptr %182, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i
 
-_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i17, %159
+_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i17, %159
   %184 = phi i64 [ %183, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i17 ], [ 0, %159 ]
   %185 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i14, i64 noundef %184) #12
   %186 = and i64 %2, 4
   %.not.i.i20 = icmp eq i64 %186, 0
   br i1 %.not.i.i20, label %187, label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE12visitARCWeakEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit
 
-187:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i
+187:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i
   %188 = and i64 %2, -16
   %189 = inttoptr i64 %188 to ptr
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
@@ -3785,10 +3785,10 @@ _ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOf
   %192 = icmp ne i64 %191, 0
   br label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE12visitARCWeakEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit
 
-_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE12visitARCWeakEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i, %187
-  %193 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i ], [ %192, %187 ]
+_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE12visitARCWeakEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, %187
+  %193 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i ], [ %192, %187 ]
   %194 = add nsw i64 %185, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %193, i64 %194)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %193, i64 %194)
   %195 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %196 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %197 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef %195, i64 noundef %196) #12
@@ -3873,7 +3873,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
@@ -4115,7 +4115,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %6
   %112 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %100, i64 %111
   %113 = load ptr, ptr %112, align 8, !noalias !157
   %114 = icmp eq ptr %.val.val, %113
-  br i1 %114, label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit, label %.lr.ph.i.i.i.i
+  br i1 %114, label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %104, %117
   %115 = phi ptr [ %122, %117 ], [ %113, %104 ]
@@ -4132,14 +4132,14 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %6
   %121 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %100, i64 %120
   %122 = load ptr, ptr %121, align 8, !noalias !157
   %123 = icmp eq ptr %.val.val, %122
-  br i1 %123, label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  br i1 %123, label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
   %124 = zext i32 %102 to i64
   %125 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %100, i64 %124
-  br label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit
+  br label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit
 
-_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit: ; preds = %117, %104, %.loopexit.i.i.i
+_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit: ; preds = %117, %104, %.loopexit.i.i.i
   %.0.i.pn.i.i.i = phi ptr [ %125, %.loopexit.i.i.i ], [ %112, %104 ], [ %121, %117 ]
   %126 = getelementptr inbounds nuw i8, ptr %98, i64 280
   %127 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i, i64 8
@@ -4179,7 +4179,7 @@ _ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT
   %.not109115 = icmp eq ptr %148, null
   br i1 %.not109115, label %_ZN12_GLOBAL__N_113StructVisitorINS_20GenDefaultInitializeEE17visitStructFieldsIJSt5arrayIN5clang7CodeGen7AddressELm1EEEEEvNS5_8QualTypeENS5_9CharUnitsEDpT_.exit, label %.lr.ph117
 
-.lr.ph117:                                        ; preds = %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit
+.lr.ph117:                                        ; preds = %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit
   %149 = and i64 %3, 4
   %.not.i = icmp eq i64 %149, 0
   %150 = getelementptr inbounds nuw i8, ptr %141, i64 8
@@ -4285,7 +4285,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   %.not109 = icmp eq ptr %.sroa.0100.2, null
   br i1 %.not109, label %_ZN12_GLOBAL__N_113StructVisitorINS_20GenDefaultInitializeEE17visitStructFieldsIJSt5arrayIN5clang7CodeGen7AddressELm1EEEEEvNS5_8QualTypeENS5_9CharUnitsEDpT_.exit, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread
 
-_ZN12_GLOBAL__N_113StructVisitorINS_20GenDefaultInitializeEE17visitStructFieldsIJSt5arrayIN5clang7CodeGen7AddressELm1EEEEEvNS5_8QualTypeENS5_9CharUnitsEDpT_.exit: ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.us, %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit
+_ZN12_GLOBAL__N_113StructVisitorINS_20GenDefaultInitializeEE17visitStructFieldsIJSt5arrayIN5clang7CodeGen7AddressELm1EEEEEvNS5_8QualTypeENS5_9CharUnitsEDpT_.exit: ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.us, %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit
   %181 = load ptr, ptr %0, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction14FinishFunctionENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(6488) %181, i32 0) #12
   call void @_ZN5clang7CodeGen18ApplyDebugLocationD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #12
@@ -5282,7 +5282,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %27, %30
   tail call fastcc void @_ZN12_GLOBAL__N_117GenBinaryFuncNameILb0EE18flushTrivialFieldsEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %.val17.i = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit, label %41
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit, label %41
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5314,9 +5314,9 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i:        ; preds = %47, %41
   %60 = zext i32 %57 to i64
   %61 = getelementptr inbounds i64, ptr %59, i64 %60
   %62 = load i64, ptr %61, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit: ; preds = %40, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit: ; preds = %40, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i
   %63 = phi i64 [ %62, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i ], [ 0, %40 ]
   %64 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val17.i, i64 noundef %63) #12
   %65 = add nsw i64 %64, %4
@@ -5369,7 +5369,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetE
   %87 = icmp ugt i64 %85, %86
   br i1 %87, label %88, label %92
 
-88:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+88:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
   %89 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #12, !noalias !191
   %.not.i11 = icmp ugt i64 %85, %89
   br i1 %.not.i11, label %92, label %90
@@ -5378,7 +5378,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetE
   %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %21) #12, !noalias !191
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit12
 
-92:                                               ; preds = %88, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+92:                                               ; preds = %88, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
   %93 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %24) #12, !noalias !191
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit12
 
@@ -5458,9 +5458,9 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE10visitArrayIN5
 
 118:                                              ; preds = %5
   %.not.i35 = icmp eq i32 %1, 0
-  br i1 %.not.i35, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+  br i1 %.not.i35, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit: ; preds = %118
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit: ; preds = %118
   tail call fastcc void @_ZN12_GLOBAL__N_117GenBinaryFuncNameILb0EE18flushTrivialFieldsEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   switch i32 %1, label %311 [
     i32 2, label %119
@@ -5469,7 +5469,7 @@ _ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisit
     i32 1, label %236
   ]
 
-119:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+119:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   %120 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %121 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull @.str.16, i64 noundef 2) #12
@@ -5493,7 +5493,7 @@ _ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisit
 134:                                              ; preds = %132, %119
   %.val.i26 = load ptr, ptr %0, align 8
   %.not.i.i.i27 = icmp eq ptr %3, null
-  br i1 %.not.i.i.i27, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32, label %135
+  br i1 %.not.i.i.i27, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32, label %135
 
 135:                                              ; preds = %134
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5525,26 +5525,26 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i.i29:    ; preds = %141, %135
   %154 = zext i32 %151 to i64
   %155 = getelementptr inbounds i64, ptr %153, i64 %154
   %156 = load i64, ptr %155, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i29, %134
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i29, %134
   %157 = phi i64 [ %156, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i29 ], [ 0, %134 ]
   %158 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i26, i64 noundef %157) #12
   %159 = and i64 %2, 4
   %.not.i.i33 = icmp eq i64 %159, 0
   br i1 %.not.i.i33, label %160, label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit
 
-160:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32
+160:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32
   %161 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %.0.copyload.i.i.i.i.i1.i.i34 = load i64, ptr %161, align 8
   %162 = and i64 %.0.copyload.i.i.i.i.i1.i.i34, 4
   %163 = icmp ne i64 %162, 0
   br label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit
 
-_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32, %160
-  %164 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32 ], [ %163, %160 ]
+_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32, %160
+  %164 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32 ], [ %163, %160 ]
   %165 = add nsw i64 %158, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %164, i64 %165)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %164, i64 %165)
   %166 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %167 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef %166, i64 noundef %167) #12
@@ -5552,13 +5552,13 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE14visitARCStron
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb0EEELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit
 
-169:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+169:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   %170 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %171 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull @.str.19, i64 noundef 2) #12
   %.val.i19 = load ptr, ptr %0, align 8
   %.not.i.i.i20 = icmp eq ptr %3, null
-  br i1 %.not.i.i.i20, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i, label %172
+  br i1 %.not.i.i.i20, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, label %172
 
 172:                                              ; preds = %169
   %173 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5590,16 +5590,16 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i.i22:    ; preds = %178, %172
   %191 = zext i32 %188 to i64
   %192 = getelementptr inbounds i64, ptr %190, i64 %191
   %193 = load i64, ptr %192, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i22, %169
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i22, %169
   %194 = phi i64 [ %193, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i22 ], [ 0, %169 ]
   %195 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i19, i64 noundef %194) #12
   %196 = and i64 %2, 4
   %.not.i.i25 = icmp eq i64 %196, 0
   br i1 %.not.i.i25, label %197, label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit
 
-197:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i
+197:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i
   %198 = and i64 %2, -16
   %199 = inttoptr i64 %198 to ptr
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
@@ -5608,10 +5608,10 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetE
   %202 = icmp ne i64 %201, 0
   br label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit
 
-_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i, %197
-  %203 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i ], [ %202, %197 ]
+_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, %197
+  %203 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i ], [ %202, %197 ]
   %204 = add nsw i64 %195, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %203, i64 %204)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %203, i64 %204)
   %205 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %206 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %207 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef %205, i64 noundef %206) #12
@@ -5619,7 +5619,7 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE12visitARCWeakE
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb0EEELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit
 
-208:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+208:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   %209 = getelementptr inbounds i8, ptr %0, i64 24
   %.val.i18 = load ptr, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -5665,11 +5665,11 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE11visitStructEN
   tail call fastcc void @_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE17visitStructFieldsIJEEEvN5clang8QualTypeENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %2, i64 %234)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb0EEELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread: ; preds = %118
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread: ; preds = %118
   tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE12visitTrivialIJEEEvN5clang8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %2, ptr noundef %3, i64 %4)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb0EEELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit
 
-236:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+236:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
@@ -5697,13 +5697,13 @@ _ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisit
   %246 = icmp eq i64 %245, 0
   %247 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i15, -8
   %248 = inttoptr i64 %247 to ptr
-  br i1 %246, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i, label %249
+  br i1 %246, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i, label %249
 
 249:                                              ; preds = %241
   %250 = load ptr, ptr %248, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i: ; preds = %249, %241
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i: ; preds = %249, %241
   %.0.i.i.i.i.i16 = phi ptr [ %250, %249 ], [ %248, %241 ]
   %251 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i16, i64 8
   %252 = load i16, ptr %251, align 8
@@ -5722,9 +5722,9 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetI
   %264 = load i64, ptr %263, align 8
   br label %265
 
-265:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i, %.split.i
-  %266 = phi i64 [ %238, %.split.i ], [ %243, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i ]
-  %phi.call.i = phi i64 [ 0, %.split.i ], [ %264, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i ]
+265:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i, %.split.i
+  %266 = phi i64 [ %238, %.split.i ], [ %243, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i ]
+  %phi.call.i = phi i64 [ 0, %.split.i ], [ %264, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i ]
   %267 = add i64 %phi.call.i, %266
   %268 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
@@ -5831,10 +5831,10 @@ _ZN12_GLOBAL__N_117GenBinaryFuncNameILb0EE20visitVolatileTrivialEN5clang8QualTyp
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb0EEELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit
 
-311:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+311:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   unreachable
 
-_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb0EEELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit: ; preds = %_ZN12_GLOBAL__N_117GenBinaryFuncNameILb0EE20visitVolatileTrivialEN5clang8QualTypeEPKNS2_9FieldDeclENS2_9CharUnitsE.exit, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE11visitStructEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE10visitArrayIN5clang8QualType17PrimitiveCopyKindEEEvT_PKNS5_9ArrayTypeEbPKNS5_9FieldDeclENS5_9CharUnitsE.exit
+_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb0EEELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit: ; preds = %_ZN12_GLOBAL__N_117GenBinaryFuncNameILb0EE20visitVolatileTrivialEN5clang8QualTypeEPKNS2_9FieldDeclENS2_9CharUnitsE.exit, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb0EEELb0EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE11visitStructEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE10visitArrayIN5clang8QualType17PrimitiveCopyKindEEEvT_PKNS5_9ArrayTypeEbPKNS5_9FieldDeclENS5_9CharUnitsE.exit
   ret void
 }
 
@@ -5870,7 +5870,7 @@ _ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit.thread:
   br label %19
 
 18:                                               ; preds = %_ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit, label %19
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit, label %19
 
 19:                                               ; preds = %.thread, %18
   %.0.i2124 = phi i64 [ %17, %.thread ], [ %13, %18 ]
@@ -5904,9 +5904,9 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i:          ; preds = %25, %19
   %38 = zext i32 %35 to i64
   %39 = getelementptr inbounds i64, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
   %.0.i2125 = phi i64 [ %.0.i2124, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ %13, %18 ]
   %41 = phi i64 [ %40, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ 0, %18 ]
   %42 = add i64 %41, %.0.i2125
@@ -5930,13 +5930,13 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetI
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %60, label %63
 
-60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %61 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %41) #12
   %62 = add nsw i64 %61, %3
   store i64 %62, ptr %55, align 8
   br label %63
 
-63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %64 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %54) #12
   %65 = add nsw i64 %64, %3
   store i64 %65, ptr %56, align 8
@@ -5951,7 +5951,7 @@ declare noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueERKNS_10ASTContextE(p
 declare { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
@@ -6138,7 +6138,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %20, %23
 30:                                               ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
   %.val17.i = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit, label %31
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit, label %31
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6170,9 +6170,9 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i:        ; preds = %37, %31
   %50 = zext i32 %47 to i64
   %51 = getelementptr inbounds i64, ptr %49, i64 %50
   %52 = load i64, ptr %51, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit: ; preds = %30, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i
+_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit: ; preds = %30, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i
   %53 = phi i64 [ %52, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i ], [ 0, %30 ]
   %54 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val17.i, i64 noundef %53) #12
   %55 = add nsw i64 %54, %4
@@ -6225,7 +6225,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPK
   %77 = icmp ugt i64 %75, %76
   br i1 %77, label %78, label %82
 
-78:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+78:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
   %79 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #12, !noalias !233
   %.not.i11 = icmp ugt i64 %75, %79
   br i1 %.not.i11, label %82, label %80
@@ -6234,7 +6234,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPK
   %81 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %14) #12, !noalias !233
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit12
 
-82:                                               ; preds = %78, %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+82:                                               ; preds = %78, %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
   %83 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %17) #12, !noalias !233
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit12
 
@@ -6344,7 +6344,7 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE10visitArrayIN5cl
 124:                                              ; preds = %122, %109
   %.val.i22 = load ptr, ptr %0, align 8
   %.not.i.i.i23 = icmp eq ptr %3, null
-  br i1 %.not.i.i.i23, label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i28, label %125
+  br i1 %.not.i.i.i23, label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i28, label %125
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6376,26 +6376,26 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i.i25:    ; preds = %131, %125
   %144 = zext i32 %141 to i64
   %145 = getelementptr inbounds i64, ptr %143, i64 %144
   %146 = load i64, ptr %145, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i28
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i28
 
-_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i28: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i25, %124
+_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i28: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i25, %124
   %147 = phi i64 [ %146, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i25 ], [ 0, %124 ]
   %148 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i22, i64 noundef %147) #12
   %149 = and i64 %2, 4
   %.not.i.i29 = icmp eq i64 %149, 0
   br i1 %.not.i.i29, label %150, label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE14visitARCStrongEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit
 
-150:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i28
+150:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i28
   %151 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %.0.copyload.i.i.i.i.i1.i.i30 = load i64, ptr %151, align 8
   %152 = and i64 %.0.copyload.i.i.i.i.i1.i.i30, 4
   %153 = icmp ne i64 %152, 0
   br label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE14visitARCStrongEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit
 
-_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE14visitARCStrongEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i28, %150
-  %154 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i28 ], [ %153, %150 ]
+_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE14visitARCStrongEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i28, %150
+  %154 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i28 ], [ %153, %150 ]
   %155 = add nsw i64 %148, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %154, i64 %155)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %154, i64 %155)
   %156 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %157 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %158 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef %156, i64 noundef %157) #12
@@ -6455,7 +6455,7 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE11visitStructEN5c
   %189 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef nonnull @.str.19, i64 noundef 2) #12
   %.val.i13 = load ptr, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i, label %190
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, label %190
 
 190:                                              ; preds = %187
   %191 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6487,16 +6487,16 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i.i:      ; preds = %196, %190
   %209 = zext i32 %206 to i64
   %210 = getelementptr inbounds i64, ptr %208, i64 %209
   %211 = load i64, ptr %210, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i
 
-_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i, %187
+_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i, %187
   %212 = phi i64 [ %211, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i ], [ 0, %187 ]
   %213 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i13, i64 noundef %212) #12
   %214 = and i64 %2, 4
   %.not.i.i14 = icmp eq i64 %214, 0
   br i1 %.not.i.i14, label %215, label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE12visitARCWeakEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit
 
-215:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i
+215:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i
   %216 = and i64 %2, -16
   %217 = inttoptr i64 %216 to ptr
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
@@ -6505,10 +6505,10 @@ _ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPK
   %220 = icmp ne i64 %219, 0
   br label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE12visitARCWeakEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit
 
-_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE12visitARCWeakEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i, %215
-  %221 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i ], [ %220, %215 ]
+_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE12visitARCWeakEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, %215
+  %221 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i ], [ %220, %215 ]
   %222 = add nsw i64 %213, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %221, i64 %222)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %221, i64 %222)
   %223 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %224 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %225 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef %223, i64 noundef %224) #12
@@ -6524,7 +6524,7 @@ _ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_121GenDestructorFuncNameEvE13visi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
@@ -6759,7 +6759,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %6
   %112 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %100, i64 %111
   %113 = load ptr, ptr %112, align 8, !noalias !257
   %114 = icmp eq ptr %.val.val, %113
-  br i1 %114, label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit, label %.lr.ph.i.i.i.i
+  br i1 %114, label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %104, %117
   %115 = phi ptr [ %122, %117 ], [ %113, %104 ]
@@ -6776,14 +6776,14 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %6
   %121 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %100, i64 %120
   %122 = load ptr, ptr %121, align 8, !noalias !257
   %123 = icmp eq ptr %.val.val, %122
-  br i1 %123, label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit, label %.lr.ph.i.i.i.i, !llvm.loop !160
+  br i1 %123, label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !160
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
   %124 = zext i32 %102 to i64
   %125 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %100, i64 %124
-  br label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit
+  br label %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit
 
-_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit: ; preds = %117, %104, %.loopexit.i.i.i
+_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit: ; preds = %117, %104, %.loopexit.i.i.i
   %.0.i.pn.i.i.i = phi ptr [ %125, %.loopexit.i.i.i ], [ %112, %104 ], [ %121, %117 ]
   %126 = getelementptr inbounds nuw i8, ptr %98, i64 280
   %127 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i.i, i64 8
@@ -6823,7 +6823,7 @@ _ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT
   %.not127133 = icmp eq ptr %148, null
   br i1 %.not127133, label %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE17visitStructFieldsIJSt5arrayIN5clang7CodeGen7AddressELm1EEEEEvNS5_8QualTypeENS5_9CharUnitsEDpT_.exit, label %.lr.ph135
 
-.lr.ph135:                                        ; preds = %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit
+.lr.ph135:                                        ; preds = %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit
   %149 = and i64 %3, 4
   %.not.i = icmp eq i64 %149, 0
   %150 = getelementptr inbounds nuw i8, ptr %141, i64 8
@@ -6884,7 +6884,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit62: ; preds = %158, %160
   br label %_ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_113GenDestructorEvE5visitIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm1EEEEEvNS_8QualTypeEDpOT_.exit
 
 167:                                              ; preds = %155
-  call fastcc void @_ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_113GenDestructorEvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm1EEEEEvNS_8QualType15DestructionKindESG_DpOT_.argprom(ptr noundef nonnull align 1 dereferenceable(1) %139, i32 noundef %156, i64 %.sroa.01.0.i, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  call fastcc void @_ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_113GenDestructorEvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm1EEEEEvNS_8QualType15DestructionKindESG_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %139, i32 noundef %156, i64 %.sroa.01.0.i, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %8)
   br label %_ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_113GenDestructorEvE5visitIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm1EEEEEvNS_8QualTypeEDpOT_.exit
 
 _ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_113GenDestructorEvE5visitIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm1EEEEEvNS_8QualTypeEDpOT_.exit: ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit62, %167
@@ -6918,7 +6918,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   %.not127 = icmp eq ptr %.sroa.0106.2, null
   br i1 %.not127, label %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE17visitStructFieldsIJSt5arrayIN5clang7CodeGen7AddressELm1EEEEEvNS5_8QualTypeENS5_9CharUnitsEDpT_.exit, label %151
 
-_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE17visitStructFieldsIJSt5arrayIN5clang7CodeGen7AddressELm1EEEEEvNS5_8QualTypeENS5_9CharUnitsEDpT_.exit: ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom.exit
+_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE17visitStructFieldsIJSt5arrayIN5clang7CodeGen7AddressELm1EEEEEvNS5_8QualTypeENS5_9CharUnitsEDpT_.exit: ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.exit
   %180 = load ptr, ptr %0, align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction14FinishFunctionENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(6488) %180, i32 0) #12
   call void @_ZN5clang7CodeGen18ApplyDebugLocationD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #12
@@ -7284,7 +7284,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit.i: ; preds = %188, %186
   br label %_ZN12_GLOBAL__N_113GenDestructor13visitWithKindEN5clang8QualType15DestructionKindES2_PKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm1EE.exit
 
 195:                                              ; preds = %_ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit
-  call fastcc void @_ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_113GenDestructorEvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm1EEEEEvNS_8QualType15DestructionKindESG_DpOT_.argprom(ptr noundef nonnull align 1 dereferenceable(1) %32, i32 noundef %1, i64 %spec.select, ptr noundef nonnull align 8 dereferenceable(8) %9, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %10)
+  call fastcc void @_ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_113GenDestructorEvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm1EEEEEvNS_8QualType15DestructionKindESG_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %32, i32 noundef %1, i64 %spec.select, ptr noundef nonnull align 8 dereferenceable(8) %9, i64 0, ptr noundef nonnull align 8 dereferenceable(48) %10)
   br label %_ZN12_GLOBAL__N_113GenDestructor13visitWithKindEN5clang8QualType15DestructionKindES2_PKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm1EE.exit
 
 _ZN12_GLOBAL__N_113GenDestructor13visitWithKindEN5clang8QualType15DestructionKindES2_PKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm1EE.exit: ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.i, %195
@@ -7423,7 +7423,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_113GenDestructorEvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm1EEEEEvNS_8QualType15DestructionKindESG_DpOT_.argprom(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, i32 noundef %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i64 %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_113GenDestructorEvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm1EEEEEvNS_8QualType15DestructionKindESG_DpOT_(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, i32 noundef %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i64 %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %8 = alloca %"class.clang::CodeGen::Address", align 8
@@ -7498,7 +7498,7 @@ _ZN12_GLOBAL__N_113GenDestructor14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDe
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.06, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %.val.i = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit, label %45
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.exit, label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -7530,9 +7530,9 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i:        ; preds = %51, %45
   %64 = zext i32 %61 to i64
   %65 = getelementptr inbounds i64, ptr %63, i64 %64
   %66 = load i64, ptr %65, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit: ; preds = %43, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i
+_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.exit: ; preds = %43, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i
   %67 = phi i64 [ %66, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i ], [ 0, %43 ]
   %68 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i, i64 noundef %67) #12
   %69 = add nsw i64 %68, %.0.val
@@ -7561,7 +7561,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9
   %.not.i.i.i.i.i.i.i = icmp eq i64 %80, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_113GenDestructor19callSpecialFunctionEN5clang8QualTypeENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm1EE.exit, label %81
 
-81:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+81:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
   %82 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -16
   %83 = inttoptr i64 %82 to ptr
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
@@ -7569,8 +7569,8 @@ _ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9
   %85 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, -49
   br label %_ZN12_GLOBAL__N_113GenDestructor19callSpecialFunctionEN5clang8QualTypeENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm1EE.exit
 
-_ZN12_GLOBAL__N_113GenDestructor19callSpecialFunctionEN5clang8QualTypeENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm1EE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit, %81
-  %.sroa.0.0.i.i.i.i.i.i.i = phi i64 [ %85, %81 ], [ 0, %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit ]
+_ZN12_GLOBAL__N_113GenDestructor19callSpecialFunctionEN5clang8QualTypeENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm1EE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.exit, %81
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i64 [ %85, %81 ], [ 0, %_ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9FieldDeclE.exit ]
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 84
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -8520,7 +8520,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %42, %45
 52:                                               ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
   %53 = ptrtoint ptr %41 to i64
   %54 = and i64 %53, -16
-  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %54, ptr noundef %3, i64 %4)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %54, ptr noundef %3, i64 %4)
   br label %_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
 
 55:                                               ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
@@ -9012,9 +9012,9 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE10visitArrayIN5clang8Qua
 
 290:                                              ; preds = %6
   %.not.i52 = icmp eq i32 %1, 0
-  br i1 %.not.i52, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+  br i1 %.not.i52, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit: ; preds = %290
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit: ; preds = %290
   tail call fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_18GenCopyConstructorELb0EE18flushTrivialFieldsESt5arrayIN5clang7CodeGen7AddressELm2EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull byval(%"struct.std::array.868") align 8 %5)
   switch i32 %1, label %522 [
     i32 2, label %291
@@ -9023,7 +9023,7 @@ _ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt
     i32 1, label %521
   ]
 
-291:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+291:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %16)
@@ -9198,7 +9198,7 @@ _ZN12_GLOBAL__N_118GenCopyConstructor14visitARCStrongEN5clang8QualTypeEPKNS1_9Fi
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %16)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenCopyConstructorELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-385:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+385:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   %386 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9292,7 +9292,7 @@ _ZN12_GLOBAL__N_118GenCopyConstructor12visitARCWeakEN5clang8QualTypeEPKNS1_9Fiel
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenCopyConstructorELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-439:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+439:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.088, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   %.val.i38 = load ptr, ptr %0, align 8
   %.not.i.i.i39 = icmp eq ptr %3, null
@@ -9455,23 +9455,23 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %23)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenCopyConstructorELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread: ; preds = %290
-  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %2, ptr noundef %3, i64 %4)
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread: ; preds = %290
+  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %2, ptr noundef %3, i64 %4)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenCopyConstructorELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-521:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+521:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   tail call fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_18GenCopyConstructorELb0EE20visitVolatileTrivialIJEEEvN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressELm2EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull byval(%"struct.std::array.868") align 8 %5)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenCopyConstructorELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-522:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+522:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   unreachable
 
-_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenCopyConstructorELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit: ; preds = %521, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit, %_ZN12_GLOBAL__N_118GenCopyConstructor12visitARCWeakEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_118GenCopyConstructor14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
+_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenCopyConstructorELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit: ; preds = %521, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit, %_ZN12_GLOBAL__N_118GenCopyConstructor12visitARCWeakEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_118GenCopyConstructor14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenCopyConstructorELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit, label %5
@@ -9502,7 +9502,7 @@ _ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit.thread:
   br label %19
 
 18:                                               ; preds = %_ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit, label %19
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit, label %19
 
 19:                                               ; preds = %.thread, %18
   %.0.i58 = phi i64 [ %17, %.thread ], [ %13, %18 ]
@@ -9536,9 +9536,9 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i:          ; preds = %25, %19
   %38 = zext i32 %35 to i64
   %39 = getelementptr inbounds i64, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
+_ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
   %.0.i59 = phi i64 [ %.0.i58, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ %13, %18 ]
   %41 = phi i64 [ %40, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ 0, %18 ]
   %42 = add i64 %41, %.0.i59
@@ -9562,13 +9562,13 @@ _ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBits
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %60, label %63
 
-60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %61 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %41) #12
   %62 = add nsw i64 %61, %3
   store i64 %62, ptr %55, align 8
   br label %63
 
-63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %64 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %54) #12
   %65 = add nsw i64 %64, %3
   store i64 %65, ptr %56, align 8
@@ -10790,7 +10790,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %42, %45
 52:                                               ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
   %53 = ptrtoint ptr %41 to i64
   %54 = and i64 %53, -16
-  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %54, ptr noundef %3, i64 %4)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %54, ptr noundef %3, i64 %4)
   br label %_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
 
 55:                                               ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
@@ -11282,9 +11282,9 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE10visitArrayIN5clang8Qual
 
 290:                                              ; preds = %6
   %.not.i52 = icmp eq i32 %1, 0
-  br i1 %.not.i52, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+  br i1 %.not.i52, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit: ; preds = %290
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit: ; preds = %290
   tail call fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_17GenCopyAssignmentELb0EE18flushTrivialFieldsESt5arrayIN5clang7CodeGen7AddressELm2EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull byval(%"struct.std::array.868") align 8 %5)
   switch i32 %1, label %521 [
     i32 2, label %291
@@ -11293,7 +11293,7 @@ _ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5
     i32 1, label %520
   ]
 
-291:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+291:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %16)
@@ -11466,7 +11466,7 @@ _ZN12_GLOBAL__N_117GenCopyAssignment14visitARCStrongEN5clang8QualTypeEPKNS1_9Fie
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %16)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenCopyAssignmentELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-384:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+384:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   %385 = getelementptr inbounds i8, ptr %0, i64 24
@@ -11560,7 +11560,7 @@ _ZN12_GLOBAL__N_117GenCopyAssignment12visitARCWeakEN5clang8QualTypeEPKNS1_9Field
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenCopyAssignmentELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-438:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+438:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.088, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   %.val.i38 = load ptr, ptr %0, align 8
   %.not.i.i.i39 = icmp eq ptr %3, null
@@ -11723,23 +11723,23 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %23)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenCopyAssignmentELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread: ; preds = %290
-  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %2, ptr noundef %3, i64 %4)
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread: ; preds = %290
+  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %2, ptr noundef %3, i64 %4)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenCopyAssignmentELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-520:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+520:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   tail call fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_17GenCopyAssignmentELb0EE20visitVolatileTrivialIJEEEvN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressELm2EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull byval(%"struct.std::array.868") align 8 %5)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenCopyAssignmentELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-521:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+521:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   unreachable
 
-_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenCopyAssignmentELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit: ; preds = %520, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit, %_ZN12_GLOBAL__N_117GenCopyAssignment12visitARCWeakEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_117GenCopyAssignment14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
+_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenCopyAssignmentELb0EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit: ; preds = %520, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit, %_ZN12_GLOBAL__N_117GenCopyAssignment12visitARCWeakEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_117GenCopyAssignment14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenCopyAssignmentELb0EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit, label %5
@@ -11770,7 +11770,7 @@ _ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit.thread:
   br label %19
 
 18:                                               ; preds = %_ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit, label %19
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit, label %19
 
 19:                                               ; preds = %.thread, %18
   %.0.i58 = phi i64 [ %17, %.thread ], [ %13, %18 ]
@@ -11804,9 +11804,9 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i:          ; preds = %25, %19
   %38 = zext i32 %35 to i64
   %39 = getelementptr inbounds i64, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
   %.0.i59 = phi i64 [ %.0.i58, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ %13, %18 ]
   %41 = phi i64 [ %40, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ 0, %18 ]
   %42 = add i64 %41, %.0.i59
@@ -11830,13 +11830,13 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsE
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %60, label %63
 
-60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %61 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %41) #12
   %62 = add nsw i64 %61, %3
   store i64 %62, ptr %55, align 8
   br label %63
 
-63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %64 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %54) #12
   %65 = add nsw i64 %64, %3
   store i64 %65, ptr %56, align 8
@@ -12753,7 +12753,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %27, %30
   tail call fastcc void @_ZN12_GLOBAL__N_117GenBinaryFuncNameILb1EE18flushTrivialFieldsEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %.val17.i = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit, label %41
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit, label %41
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -12785,9 +12785,9 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i:        ; preds = %47, %41
   %60 = zext i32 %57 to i64
   %61 = getelementptr inbounds i64, ptr %59, i64 %60
   %62 = load i64, ptr %61, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit: ; preds = %40, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit: ; preds = %40, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i
   %63 = phi i64 [ %62, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i ], [ 0, %40 ]
   %64 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val17.i, i64 noundef %63) #12
   %65 = add nsw i64 %64, %4
@@ -12840,7 +12840,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetE
   %87 = icmp ugt i64 %85, %86
   br i1 %87, label %88, label %92
 
-88:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+88:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
   %89 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #12, !noalias !520
   %.not.i11 = icmp ugt i64 %85, %89
   br i1 %.not.i11, label %92, label %90
@@ -12849,7 +12849,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetE
   %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %21) #12, !noalias !520
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit12
 
-92:                                               ; preds = %88, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit
+92:                                               ; preds = %88, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit
   %93 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %24) #12, !noalias !520
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit12
 
@@ -12929,9 +12929,9 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE10visitArrayIN5
 
 118:                                              ; preds = %5
   %.not.i35 = icmp eq i32 %1, 0
-  br i1 %.not.i35, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+  br i1 %.not.i35, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit: ; preds = %118
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit: ; preds = %118
   tail call fastcc void @_ZN12_GLOBAL__N_117GenBinaryFuncNameILb1EE18flushTrivialFieldsEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   switch i32 %1, label %311 [
     i32 2, label %119
@@ -12940,7 +12940,7 @@ _ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisit
     i32 1, label %236
   ]
 
-119:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+119:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   %120 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %121 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull @.str.16, i64 noundef 2) #12
@@ -12964,7 +12964,7 @@ _ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisit
 134:                                              ; preds = %132, %119
   %.val.i26 = load ptr, ptr %0, align 8
   %.not.i.i.i27 = icmp eq ptr %3, null
-  br i1 %.not.i.i.i27, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32, label %135
+  br i1 %.not.i.i.i27, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32, label %135
 
 135:                                              ; preds = %134
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -12996,26 +12996,26 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i.i29:    ; preds = %141, %135
   %154 = zext i32 %151 to i64
   %155 = getelementptr inbounds i64, ptr %153, i64 %154
   %156 = load i64, ptr %155, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i29, %134
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i29, %134
   %157 = phi i64 [ %156, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i29 ], [ 0, %134 ]
   %158 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i26, i64 noundef %157) #12
   %159 = and i64 %2, 4
   %.not.i.i33 = icmp eq i64 %159, 0
   br i1 %.not.i.i33, label %160, label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit
 
-160:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32
+160:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32
   %161 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %.0.copyload.i.i.i.i.i1.i.i34 = load i64, ptr %161, align 8
   %162 = and i64 %.0.copyload.i.i.i.i.i1.i.i34, 4
   %163 = icmp ne i64 %162, 0
   br label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit
 
-_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32, %160
-  %164 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i32 ], [ %163, %160 ]
+_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32, %160
+  %164 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32 ], [ %163, %160 ]
   %165 = add nsw i64 %158, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %164, i64 %165)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %164, i64 %165)
   %166 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %167 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef %166, i64 noundef %167) #12
@@ -13023,13 +13023,13 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE14visitARCStron
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb1EEELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit
 
-169:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+169:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   %170 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %171 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull @.str.19, i64 noundef 2) #12
   %.val.i19 = load ptr, ptr %0, align 8
   %.not.i.i.i20 = icmp eq ptr %3, null
-  br i1 %.not.i.i.i20, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i, label %172
+  br i1 %.not.i.i.i20, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, label %172
 
 172:                                              ; preds = %169
   %173 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -13061,16 +13061,16 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i.i.i22:    ; preds = %178, %172
   %191 = zext i32 %188 to i64
   %192 = getelementptr inbounds i64, ptr %190, i64 %191
   %193 = load i64, ptr %192, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i22, %169
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i: ; preds = %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i22, %169
   %194 = phi i64 [ %193, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i22 ], [ 0, %169 ]
   %195 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i19, i64 noundef %194) #12
   %196 = and i64 %2, 4
   %.not.i.i25 = icmp eq i64 %196, 0
   br i1 %.not.i.i25, label %197, label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit
 
-197:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i
+197:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i
   %198 = and i64 %2, -16
   %199 = inttoptr i64 %198 to ptr
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
@@ -13079,10 +13079,10 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetE
   %202 = icmp ne i64 %201, 0
   br label %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit
 
-_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i, %197
-  %203 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.argprom.exit.i ], [ %202, %197 ]
+_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, %197
+  %203 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i ], [ %202, %197 ]
   %204 = add nsw i64 %195, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %203, i64 %204)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %203, i64 %204)
   %205 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %206 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %207 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef %205, i64 noundef %206) #12
@@ -13090,7 +13090,7 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE12visitARCWeakE
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb1EEELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit
 
-208:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+208:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   %209 = getelementptr inbounds i8, ptr %0, i64 24
   %.val.i18 = load ptr, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -13136,11 +13136,11 @@ _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE11visitStructEN
   tail call fastcc void @_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE17visitStructFieldsIJEEEvN5clang8QualTypeENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %2, i64 %234)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb1EEELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread: ; preds = %118
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread: ; preds = %118
   tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE12visitTrivialIJEEEvN5clang8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %2, ptr noundef %3, i64 %4)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb1EEELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit
 
-236:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+236:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
@@ -13168,13 +13168,13 @@ _ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisit
   %246 = icmp eq i64 %245, 0
   %247 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i15, -8
   %248 = inttoptr i64 %247 to ptr
-  br i1 %246, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i, label %249
+  br i1 %246, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i, label %249
 
 249:                                              ; preds = %241
   %250 = load ptr, ptr %248, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i: ; preds = %249, %241
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i: ; preds = %249, %241
   %.0.i.i.i.i.i16 = phi ptr [ %250, %249 ], [ %248, %241 ]
   %251 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i16, i64 8
   %252 = load i16, ptr %251, align 8
@@ -13193,9 +13193,9 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetI
   %264 = load i64, ptr %263, align 8
   br label %265
 
-265:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i, %.split.i
-  %266 = phi i64 [ %238, %.split.i ], [ %243, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i ]
-  %phi.call.i = phi i64 [ 0, %.split.i ], [ %264, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit.i ]
+265:                                              ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i, %.split.i
+  %266 = phi i64 [ %238, %.split.i ], [ %243, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i ]
+  %phi.call.i = phi i64 [ 0, %.split.i ], [ %264, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit.i ]
   %267 = add i64 %phi.call.i, %266
   %268 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
@@ -13302,10 +13302,10 @@ _ZN12_GLOBAL__N_117GenBinaryFuncNameILb1EE20visitVolatileTrivialEN5clang8QualTyp
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb1EEELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit
 
-311:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+311:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   unreachable
 
-_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb1EEELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit: ; preds = %_ZN12_GLOBAL__N_117GenBinaryFuncNameILb1EE20visitVolatileTrivialEN5clang8QualTypeEPKNS2_9FieldDeclENS2_9CharUnitsE.exit, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE11visitStructEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE10visitArrayIN5clang8QualType17PrimitiveCopyKindEEEvT_PKNS5_9ArrayTypeEbPKNS5_9FieldDeclENS5_9CharUnitsE.exit
+_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenBinaryFuncNameILb1EEELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsEEEEvNS_8QualType17PrimitiveCopyKindESC_DpOT_.exit: ; preds = %_ZN12_GLOBAL__N_117GenBinaryFuncNameILb1EE20visitVolatileTrivialEN5clang8QualTypeEPKNS2_9FieldDeclENS2_9CharUnitsE.exit, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenBinaryFuncNameILb1EEELb1EE8preVisitIJEEEvN5clang8QualType17PrimitiveCopyKindES6_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE11visitStructEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit, %_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE10visitArrayIN5clang8QualType17PrimitiveCopyKindEEEvT_PKNS5_9ArrayTypeEbPKNS5_9FieldDeclENS5_9CharUnitsE.exit
   ret void
 }
 
@@ -13341,7 +13341,7 @@ _ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit.thread:
   br label %19
 
 18:                                               ; preds = %_ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit, label %19
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit, label %19
 
 19:                                               ; preds = %.thread, %18
   %.0.i2124 = phi i64 [ %17, %.thread ], [ %13, %18 ]
@@ -13375,9 +13375,9 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i:          ; preds = %25, %19
   %38 = zext i32 %35 to i64
   %39 = getelementptr inbounds i64, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
   %.0.i2125 = phi i64 [ %.0.i2124, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ %13, %18 ]
   %41 = phi i64 [ %40, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ 0, %18 ]
   %42 = add i64 %41, %.0.i2125
@@ -13401,13 +13401,13 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetI
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %60, label %63
 
-60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %61 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %41) #12
   %62 = add nsw i64 %61, %3
   store i64 %62, ptr %55, align 8
   br label %63
 
-63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %64 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %54) #12
   %65 = add nsw i64 %64, %3
   store i64 %65, ptr %56, align 8
@@ -13418,7 +13418,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE20getFieldOffsetI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
@@ -13957,7 +13957,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %45, %48
 55:                                               ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
   %56 = ptrtoint ptr %44 to i64
   %57 = and i64 %56, -16
-  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %57, ptr noundef %3, i64 %4)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %57, ptr noundef %3, i64 %4)
   br label %_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
 
 58:                                               ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
@@ -14449,9 +14449,9 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE10visitArrayIN5clang8Qua
 
 293:                                              ; preds = %6
   %.not.i52 = icmp eq i32 %1, 0
-  br i1 %.not.i52, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+  br i1 %.not.i52, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit: ; preds = %293
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit: ; preds = %293
   tail call fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_18GenMoveConstructorELb1EE18flushTrivialFieldsESt5arrayIN5clang7CodeGen7AddressELm2EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull byval(%"struct.std::array.868") align 8 %5)
   switch i32 %1, label %536 [
     i32 2, label %294
@@ -14460,7 +14460,7 @@ _ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt
     i32 1, label %535
   ]
 
-294:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+294:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
@@ -14698,7 +14698,7 @@ _ZN12_GLOBAL__N_118GenMoveConstructor14visitARCStrongEN5clang8QualTypeEPKNS1_9Fi
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %19)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenMoveConstructorELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-399:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+399:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   %400 = getelementptr inbounds i8, ptr %0, i64 24
@@ -14792,7 +14792,7 @@ _ZN12_GLOBAL__N_118GenMoveConstructor12visitARCWeakEN5clang8QualTypeEPKNS1_9Fiel
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenMoveConstructorELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-453:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+453:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.088, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   %.val.i38 = load ptr, ptr %0, align 8
   %.not.i.i.i39 = icmp eq ptr %3, null
@@ -14955,23 +14955,23 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %26)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenMoveConstructorELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread: ; preds = %293
-  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %2, ptr noundef %3, i64 %4)
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread: ; preds = %293
+  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %2, ptr noundef %3, i64 %4)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenMoveConstructorELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-535:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+535:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   tail call fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_18GenMoveConstructorELb1EE20visitVolatileTrivialIJEEEvN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressELm2EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull byval(%"struct.std::array.868") align 8 %5)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenMoveConstructorELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-536:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+536:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   unreachable
 
-_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenMoveConstructorELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit: ; preds = %535, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit, %_ZN12_GLOBAL__N_118GenMoveConstructor12visitARCWeakEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_118GenMoveConstructor14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
+_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_118GenMoveConstructorELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit: ; preds = %535, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit, %_ZN12_GLOBAL__N_118GenMoveConstructor12visitARCWeakEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_118GenMoveConstructor14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_18GenMoveConstructorELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit, label %5
@@ -15002,7 +15002,7 @@ _ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit.thread:
   br label %19
 
 18:                                               ; preds = %_ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit, label %19
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit, label %19
 
 19:                                               ; preds = %.thread, %18
   %.0.i58 = phi i64 [ %17, %.thread ], [ %13, %18 ]
@@ -15036,9 +15036,9 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i:          ; preds = %25, %19
   %38 = zext i32 %35 to i64
   %39 = getelementptr inbounds i64, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
+_ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
   %.0.i59 = phi i64 [ %.0.i58, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ %13, %18 ]
   %41 = phi i64 [ %40, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ 0, %18 ]
   %42 = add i64 %41, %.0.i59
@@ -15062,13 +15062,13 @@ _ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBits
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %60, label %63
 
-60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %61 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %41) #12
   %62 = add nsw i64 %61, %3
   store i64 %62, ptr %55, align 8
   br label %63
 
-63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %64 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %54) #12
   %65 = add nsw i64 %64, %3
   store i64 %65, ptr %56, align 8
@@ -16221,7 +16221,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %47, %50
 57:                                               ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
   %58 = ptrtoint ptr %46 to i64
   %59 = and i64 %58, -16
-  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %59, ptr noundef %3, i64 %4)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %59, ptr noundef %3, i64 %4)
   br label %_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
 
 60:                                               ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
@@ -16713,9 +16713,9 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE10visitArrayIN5clang8Qual
 
 295:                                              ; preds = %6
   %.not.i52 = icmp eq i32 %1, 0
-  br i1 %.not.i52, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+  br i1 %.not.i52, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, label %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit: ; preds = %295
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit: ; preds = %295
   tail call fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_17GenMoveAssignmentELb1EE18flushTrivialFieldsESt5arrayIN5clang7CodeGen7AddressELm2EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull byval(%"struct.std::array.868") align 8 %5)
   switch i32 %1, label %535 [
     i32 2, label %296
@@ -16724,7 +16724,7 @@ _ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5
     i32 1, label %534
   ]
 
-296:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+296:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
@@ -16988,7 +16988,7 @@ _ZN12_GLOBAL__N_117GenMoveAssignment14visitARCStrongEN5clang8QualTypeEPKNS1_9Fie
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %21)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenMoveAssignmentELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-398:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+398:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   %399 = getelementptr inbounds i8, ptr %0, i64 24
@@ -17082,7 +17082,7 @@ _ZN12_GLOBAL__N_117GenMoveAssignment12visitARCWeakEN5clang8QualTypeEPKNS1_9Field
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenMoveAssignmentELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-452:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+452:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.088, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
   %.val.i38 = load ptr, ptr %0, align 8
   %.not.i.i.i39 = icmp eq ptr %3, null
@@ -17245,23 +17245,23 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %28)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenMoveAssignmentELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread: ; preds = %295
-  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %2, ptr noundef %3, i64 %4)
+_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread: ; preds = %295
+  tail call fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %2, ptr noundef %3, i64 %4)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenMoveAssignmentELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-534:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+534:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   tail call fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_17GenMoveAssignmentELb1EE20visitVolatileTrivialIJEEEvN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressELm2EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %2, ptr noundef %3, i64 %4, ptr noundef nonnull byval(%"struct.std::array.868") align 8 %5)
   br label %_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenMoveAssignmentELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit
 
-535:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit
+535:                                              ; preds = %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit
   unreachable
 
-_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenMoveAssignmentELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit: ; preds = %534, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.argprom.exit.thread, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit, %_ZN12_GLOBAL__N_117GenMoveAssignment12visitARCWeakEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_117GenMoveAssignment14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
+_ZN5clang17CopiedTypeVisitorIN12_GLOBAL__N_117GenMoveAssignmentELb1EvE13visitWithKindIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm2EEEEEvNS_8QualType17PrimitiveCopyKindESG_DpOT_.exit: ; preds = %534, %_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE8preVisitIJRSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualType17PrimitiveCopyKindESA_PKNS5_9FieldDeclENS5_9CharUnitsEDpOT_.exit.thread, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit, %_ZN12_GLOBAL__N_117GenMoveAssignment12visitARCWeakEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_117GenMoveAssignment14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm2EE.exit, %_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE10visitArrayIN5clang8QualType17PrimitiveCopyKindELm2EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117CopyStructVisitorINS_17GenMoveAssignmentELb1EE12visitTrivialIJSt5arrayIN5clang7CodeGen7AddressELm2EEEEEvNS5_8QualTypeEPKNS5_9FieldDeclENS5_9CharUnitsEDpT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit, label %5
@@ -17292,7 +17292,7 @@ _ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit.thread:
   br label %19
 
 18:                                               ; preds = %_ZL12getFieldSizePKN5clang9FieldDeclENS_8QualTypeERNS_10ASTContextE.exit
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit, label %19
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit, label %19
 
 19:                                               ; preds = %.thread, %18
   %.0.i58 = phi i64 [ %17, %.thread ], [ %13, %18 ]
@@ -17326,9 +17326,9 @@ _ZNK5clang9FieldDecl9getParentEv.exit.i:          ; preds = %25, %19
   %38 = zext i32 %35 to i64
   %39 = getelementptr inbounds i64, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
-  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+  br label %_ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
 
-_ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
+_ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit: ; preds = %18, %_ZNK5clang9FieldDecl9getParentEv.exit.i
   %.0.i59 = phi i64 [ %.0.i58, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ %13, %18 ]
   %41 = phi i64 [ %40, %_ZNK5clang9FieldDecl9getParentEv.exit.i ], [ 0, %18 ]
   %42 = add i64 %41, %.0.i59
@@ -17352,13 +17352,13 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsE
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %60, label %63
 
-60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+60:                                               ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %61 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %41) #12
   %62 = add nsw i64 %61, %3
   store i64 %62, ptr %55, align 8
   br label %63
 
-63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.argprom.exit
+63:                                               ; preds = %60, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsEPKN5clang9FieldDeclE.exit
   %64 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val, i64 noundef %54) #12
   %65 = add nsw i64 %64, %3
   store i64 %65, ptr %56, align 8
@@ -18189,8 +18189,8 @@ attributes #13 = { builtin nounwind allocsize(0) }
 !152 = distinct !{!152, !153, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !153 = distinct !{!153, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom: argument 0"}
-!156 = distinct !{!156, !"_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom"}
+!155 = distinct !{!155, !156, !"_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE: argument 0"}
+!156 = distinct !{!156, !"_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE"}
 !157 = !{!158, !155}
 !158 = distinct !{!158, !159, !"_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE: argument 0"}
 !159 = distinct !{!159, !"_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE"}
@@ -18289,8 +18289,8 @@ attributes #13 = { builtin nounwind allocsize(0) }
 !252 = distinct !{!252, !253, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !253 = distinct !{!253, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !254 = !{!255}
-!255 = distinct !{!255, !256, !"_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom: argument 0"}
-!256 = distinct !{!256, !"_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE.argprom.argprom"}
+!255 = distinct !{!255, !256, !"_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE: argument 0"}
+!256 = distinct !{!256, !"_ZN12_GLOBAL__N_113getParamAddrsILm1EJLm0EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE"}
 !257 = !{!258, !255}
 !258 = distinct !{!258, !259, !"_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE: argument 0"}
 !259 = distinct !{!259, !"_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE"}

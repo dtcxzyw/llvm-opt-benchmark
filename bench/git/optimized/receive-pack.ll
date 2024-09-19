@@ -3045,7 +3045,7 @@ if.end:                                           ; preds = %lor.rhs.i, %land.lh
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %proc.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_update_post_hook.proc, i64 120, i1 false)
   %call.i = call ptr @find_hook(ptr noundef %hook_name) #16
   %tobool.not.i2 = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i2, label %run_and_feed_hook.argprom.exit, label %if.end.i3
+  br i1 %tobool.not.i2, label %run_and_feed_hook.exit, label %if.end.i3
 
 if.end.i3:                                        ; preds = %if.end
   %call1.i = call ptr @strvec_push(ptr noundef nonnull %proc.i, ptr noundef nonnull %call.i) #16
@@ -3119,7 +3119,7 @@ if.then20.i:                                      ; preds = %if.end18.i
   store i32 -1, ptr %in22.i, align 8
   %call23.i = call i32 @start_async(ptr noundef nonnull %muxer.i) #16
   %tobool24.not.i = icmp eq i32 %call23.i, 0
-  br i1 %tobool24.not.i, label %if.end26.i, label %run_and_feed_hook.argprom.exit
+  br i1 %tobool24.not.i, label %if.end26.i, label %run_and_feed_hook.exit
 
 if.end26.i:                                       ; preds = %if.then20.i
   %11 = load i32, ptr %in22.i, align 8
@@ -3356,11 +3356,11 @@ prepare_push_cert_sha1.exit.i:                    ; preds = %if.then40.i.i, %if.
 
 if.then31.i:                                      ; preds = %prepare_push_cert_sha1.exit.i
   %.b14.i = load i1, ptr @use_sideband, align 4
-  br i1 %.b14.i, label %if.then33.i, label %run_and_feed_hook.argprom.exit
+  br i1 %.b14.i, label %if.then33.i, label %run_and_feed_hook.exit
 
 if.then33.i:                                      ; preds = %if.then31.i
   %call34.i = call i32 @finish_async(ptr noundef nonnull %muxer.i) #16
-  br label %run_and_feed_hook.argprom.exit
+  br label %run_and_feed_hook.exit
 
 if.end36.i:                                       ; preds = %prepare_push_cert_sha1.exit.i
   %call37.i = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #16
@@ -3481,17 +3481,17 @@ if.then50.i:                                      ; preds = %while.end.i
 if.end52.i:                                       ; preds = %if.then50.i, %while.end.i
   %call53.i = call i32 @sigchain_pop(i32 noundef 13) #16
   %call54.i = call i32 @finish_command(ptr noundef nonnull %proc.i) #16
-  br label %run_and_feed_hook.argprom.exit
+  br label %run_and_feed_hook.exit
 
-run_and_feed_hook.argprom.exit:                   ; preds = %if.end, %if.then20.i, %if.then31.i, %if.then33.i, %if.end52.i
+run_and_feed_hook.exit:                           ; preds = %if.end, %if.then20.i, %if.then31.i, %if.then33.i, %if.end52.i
   %retval.0.i6 = phi i32 [ %call54.i, %if.end52.i ], [ 0, %if.end ], [ %call23.i, %if.then20.i ], [ %call29.i, %if.then33.i ], [ %call29.i, %if.then31.i ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %proc.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %muxer.i)
   call void @strbuf_release(ptr noundef nonnull %buf) #16
   br label %return
 
-return:                                           ; preds = %while.body.i, %run_and_feed_hook.argprom.exit
-  %retval.0 = phi i32 [ %retval.0.i6, %run_and_feed_hook.argprom.exit ], [ 0, %while.body.i ]
+return:                                           ; preds = %while.body.i, %run_and_feed_hook.exit
+  %retval.0 = phi i32 [ %retval.0.i6, %run_and_feed_hook.exit ], [ 0, %while.body.i ]
   ret i32 %retval.0
 }
 

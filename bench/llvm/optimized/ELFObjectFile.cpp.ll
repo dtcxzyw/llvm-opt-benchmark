@@ -16614,7 +16614,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %38
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %6, ptr %52, align 8
   %53 = ptrtoint ptr %9 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE1ELb0EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %50, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE1ELb0EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %53)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE1ELb0EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %50, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE1ELb0EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %53)
   %54 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit16, label %55
@@ -21791,7 +21791,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
   %6 = alloca %"class.llvm::DataExtractor", align 8
   %7 = alloca %"class.llvm::DataExtractor::Cursor", align 8
   store ptr %1, ptr %6, align 8
@@ -26888,7 +26888,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %38
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %6, ptr %52, align 8
   %53 = ptrtoint ptr %9 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE0ELb0EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %50, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE0ELb0EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %53)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb0EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE0ELb0EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %50, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb0EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE0ELb0EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %53)
   %54 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit16, label %55
@@ -36228,7 +36228,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %6, ptr %53, align 8
   %54 = ptrtoint ptr %9 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE1ELb1EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %51, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %54)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE1ELb1EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %51, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE1ELb1EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %54)
   %55 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit14, label %56
@@ -41210,7 +41210,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit14: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
   %6 = alloca %"struct.llvm::object::Elf_Crel_Impl.523", align 8
   %7 = alloca %"class.llvm::DataExtractor", align 8
   %8 = alloca %"class.llvm::DataExtractor::Cursor", align 8
@@ -46082,7 +46082,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefIhEEED2Ev.exit:     ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %6, ptr %53, align 8
   %54 = ptrtoint ptr %9 to i64
-  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE.argprom(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE0ELb1EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %51, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE0ELb1EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %54)
+  call fastcc void @_ZN4llvm6objectL10decodeCrelILb1EEENS_5ErrorENS_8ArrayRefIhEENS_12function_refIFvmbEEENS5_IFvNS0_13Elf_Crel_ImplIXT_EEEEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @_ZN4llvm12function_refIFvmbEE11callback_fnIZNKS_6object13ELFObjectFileINS4_7ELFTypeILNS_10endiannessE0ELb1EEEE17section_rel_beginENS4_11DataRefImplEEUlmbE_EEvlmb, i64 %51, ptr nonnull @_ZN4llvm12function_refIFvNS_6object13Elf_Crel_ImplILb1EEEEE11callback_fnIZNKS1_13ELFObjectFileINS1_7ELFTypeILNS_10endiannessE0ELb1EEEE17section_rel_beginENS1_11DataRefImplEEUlS3_E_EEvlS3_, i64 %54)
   %55 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit14, label %56
@@ -68473,7 +68473,7 @@ _ZSt10__invoke_rIN4llvm8ExpectedIbEERZL17readBBAddrMapImplINS0_6object7ELFTypeIL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN4llvm8ExpectedIbEERKNS0_6object13Elf_Shdr_ImplINS3_7ELFTypeILNS0_10endiannessE1ELb0EEEEEEZL17readBBAddrMapImplIS7_ENS1_ISt6vectorINS3_9BBAddrMapESaISE_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPSD_INS3_14PGOAnalysisMapESaISP_EEEUlSA_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -68483,29 +68483,29 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN4llvm8ExpectedIbE
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit, label %10
+  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #20
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit: ; preds = %3, %10, %8, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -68915,7 +68915,7 @@ _ZSt10__invoke_rIN4llvm8ExpectedIbEERZL17readBBAddrMapImplINS0_6object7ELFTypeIL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN4llvm8ExpectedIbEERKNS0_6object13Elf_Shdr_ImplINS3_7ELFTypeILNS0_10endiannessE1ELb1EEEEEEZL17readBBAddrMapImplIS7_ENS1_ISt6vectorINS3_9BBAddrMapESaISE_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPSD_INS3_14PGOAnalysisMapESaISP_EEEUlSA_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -68925,29 +68925,29 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN4llvm8ExpectedIbE
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit, label %10
+  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #20
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit: ; preds = %3, %10, %8, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE1ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -69241,7 +69241,7 @@ _ZSt10__invoke_rIN4llvm8ExpectedIbEERZL17readBBAddrMapImplINS0_6object7ELFTypeIL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN4llvm8ExpectedIbEERKNS0_6object13Elf_Shdr_ImplINS3_7ELFTypeILNS0_10endiannessE0ELb0EEEEEEZL17readBBAddrMapImplIS7_ENS1_ISt6vectorINS3_9BBAddrMapESaISE_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPSD_INS3_14PGOAnalysisMapESaISP_EEEUlSA_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -69251,29 +69251,29 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN4llvm8ExpectedIbE
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit, label %10
+  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #20
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit: ; preds = %3, %10, %8, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb0EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -69567,7 +69567,7 @@ _ZSt10__invoke_rIN4llvm8ExpectedIbEERZL17readBBAddrMapImplINS0_6object7ELFTypeIL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN4llvm8ExpectedIbEERKNS0_6object13Elf_Shdr_ImplINS3_7ELFTypeILNS0_10endiannessE0ELb1EEEEEEZL17readBBAddrMapImplIS7_ENS1_ISt6vectorINS3_9BBAddrMapESaISE_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPSD_INS3_14PGOAnalysisMapESaISP_EEEUlSA_E_E10_M_managerERSt9_Any_dataRKSV_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -69577,29 +69577,29 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN4llvm8ExpectedIbE
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit, label %10
+  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #20
-  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit: ; preds = %3, %10, %8, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZL17readBBAddrMapImplIN4llvm6object7ELFTypeILNS2_10endiannessE0ELb1EEEENS2_8ExpectedISt6vectorINS3_9BBAddrMapESaIS9_EEEERKNS3_7ELFFileIT_EESt8optionalIjEPS8_INS3_14PGOAnalysisMapESaISK_EEEUlRKNS3_13Elf_Shdr_ImplIS6_EEE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

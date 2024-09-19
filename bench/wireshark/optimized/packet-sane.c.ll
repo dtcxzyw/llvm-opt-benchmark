@@ -1502,7 +1502,7 @@ tvb_read_sane_string.exit:                        ; preds = %tvb_read_sane_strin
 
 200:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call fastcc void @dissect_sane_status.retelim(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef nonnull %6)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef nonnull %6)
   %201 = load i32, ptr @hf_sane_version, align 4
   %202 = load ptr, ptr %7, align 8
   %203 = load i32, ptr %8, align 8
@@ -1549,7 +1549,7 @@ dissect_sane_net_init_response.exit.i:            ; preds = %209, %200
 232:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 -1, ptr %5, align 4
-  call fastcc void @dissect_sane_status.retelim(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef nonnull %5)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef nonnull %5)
   %233 = load i32, ptr @hf_sane_device_handle, align 4
   %234 = load ptr, ptr %7, align 8
   %235 = load i32, ptr %8, align 8
@@ -2178,7 +2178,7 @@ dissect_sane_word.exit100.i.i:                    ; preds = %552, %dissect_sane_
   br i1 %exitcond139.not.i.i, label %dissect_sane_request.exit, label %291, !llvm.loop !19
 
 563:                                              ; preds = %195
-  call fastcc void @dissect_sane_status.retelim(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %564 = load i32, ptr @hf_sane_data_port, align 4
   %565 = load ptr, ptr %7, align 8
   %566 = load i32, ptr %8, align 8
@@ -2260,7 +2260,7 @@ tvb_read_sane_string.exit43:                      ; preds = %dissect_sane_net_st
   br label %dissect_sane_request.exit
 
 608:                                              ; preds = %195
-  call fastcc void @dissect_sane_status.retelim(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %609 = load i32, ptr @hf_sane_frame_format, align 4
   %610 = load ptr, ptr %7, align 8
   %611 = load i32, ptr %8, align 8
@@ -2358,7 +2358,7 @@ dissect_sane_word.exit18.i.i:                     ; preds = %651, %dissect_sane_
   br label %dissect_sane_request.exit
 
 664:                                              ; preds = %195
-  call fastcc void @dissect_sane_status.retelim(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %665 = load ptr, ptr %7, align 8
   %666 = load i32, ptr %8, align 8
   %667 = load i32, ptr @hf_sane_control_option_info, align 4
@@ -2427,7 +2427,7 @@ tvb_read_sane_string.exit41:                      ; preds = %dissect_sane_net_co
   br label %dissect_sane_request.exit
 
 702:                                              ; preds = %195
-  call fastcc void @dissect_sane_status.retelim(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
+  call fastcc void @dissect_sane_status(ptr noundef %7, ptr noundef nonnull readonly %1, ptr noundef %21, ptr noundef null)
   %703 = load i32, ptr @hf_sane_array_length, align 4
   %704 = load ptr, ptr %7, align 8
   %705 = load i32, ptr %8, align 8
@@ -3105,7 +3105,7 @@ dissect_sane_word.exit28.us44:                    ; preds = %129, %.lr.ph.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sane_status.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sane_status(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8

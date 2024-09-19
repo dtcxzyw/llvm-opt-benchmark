@@ -2707,20 +2707,20 @@ if.end24:                                         ; preds = %if.end20
 
 lor.lhs.false30:                                  ; preds = %if.end24
   %cmp.i.not.i = icmp eq ptr %item.val48, @PyFloat_Type
-  br i1 %cmp.i.not.i, label %PyObject_TypeCheck.argprom.exit, label %lor.rhs.i
+  br i1 %cmp.i.not.i, label %PyObject_TypeCheck.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false30
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %item.val48, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i = icmp ne i32 %call2.i, 0
-  br label %PyObject_TypeCheck.argprom.exit
+  br label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %lor.lhs.false30, %lor.rhs.i
+PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false30, %lor.rhs.i
   %lor.ext.i = phi i1 [ true, %lor.lhs.false30 ], [ %tobool3.i, %lor.rhs.i ]
   %cmp33 = icmp eq i64 %call4.val, 1
   %or.cond = select i1 %lor.ext.i, i1 %cmp33, i1 false
-  br i1 %or.cond, label %if.then34, label %PyObject_TypeCheck.argprom.exit.if.else_crit_edge
+  br i1 %or.cond, label %if.then34, label %PyObject_TypeCheck.exit.if.else_crit_edge
 
-PyObject_TypeCheck.argprom.exit.if.else_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit
+PyObject_TypeCheck.exit.if.else_crit_edge:        ; preds = %PyObject_TypeCheck.exit
   %item.val46.pre = load ptr, ptr %2, align 8
   %.phi.trans.insert = getelementptr i8, ptr %item.val46.pre, i64 168
   %call35.val.pre = load i64, ptr %.phi.trans.insert, align 8
@@ -2730,13 +2730,13 @@ land.lhs.true:                                    ; preds = %if.end24
   %cmp33.old = icmp eq i64 %call4.val, 1
   br i1 %cmp33.old, label %if.then34, label %if.else
 
-if.then34:                                        ; preds = %PyObject_TypeCheck.argprom.exit, %land.lhs.true
+if.then34:                                        ; preds = %PyObject_TypeCheck.exit, %land.lhs.true
   %arrayidx.i56 = getelementptr i8, ptr %call21, i64 40
   store ptr %item, ptr %arrayidx.i56, align 8
   br label %if.end55
 
-if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit.if.else_crit_edge, %land.lhs.true
-  %call35.val = phi i64 [ %call35.val.pre, %PyObject_TypeCheck.argprom.exit.if.else_crit_edge ], [ %call25.val, %land.lhs.true ]
+if.else:                                          ; preds = %PyObject_TypeCheck.exit.if.else_crit_edge, %land.lhs.true
+  %call35.val = phi i64 [ %call35.val.pre, %PyObject_TypeCheck.exit.if.else_crit_edge ], [ %call25.val, %land.lhs.true ]
   %5 = and i64 %call35.val, 100663296
   %or.cond189 = icmp eq i64 %5, 0
   br i1 %or.cond189, label %if.else53, label %land.lhs.true42
@@ -3824,7 +3824,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %4 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.83) #14
-  br label %ndarray_as_list.argprom.exit
+  br label %ndarray_as_list.exit
 
 if.end.i:                                         ; preds = %entry
   %cmp7.i = icmp eq ptr %1, null
@@ -3886,7 +3886,7 @@ for.body24.i.i:                                   ; preds = %for.body24.i.i, %fo
 
 strides_from_shape.exit.i:                        ; preds = %if.then12.i
   %call3.i.i = tail call ptr @PyErr_NoMemory() #14
-  br label %ndarray_as_list.argprom.exit
+  br label %ndarray_as_list.exit
 
 if.end18.i:                                       ; preds = %for.body24.i.i, %if.end.i42.i, %if.else.i, %if.then8.i
   %shape.0.i = phi ptr [ %simple_shape.i, %if.then8.i ], [ %1, %if.else.i ], [ %1, %if.end.i42.i ], [ %1, %for.body24.i.i ]
@@ -4008,13 +4008,13 @@ Py_XDECREF.exit63.i:                              ; preds = %if.then1.i.i62.i, %
   %cmp47.i = icmp ne ptr %strides.0.i, %29
   %cmp50.i = icmp ne ptr %strides.0.i, %simple_strides.i
   %or.cond.i = and i1 %cmp50.i, %cmp47.i
-  br i1 %or.cond.i, label %if.then55.i, label %ndarray_as_list.argprom.exit
+  br i1 %or.cond.i, label %if.then55.i, label %ndarray_as_list.exit
 
 if.then55.i:                                      ; preds = %Py_XDECREF.exit63.i
   call void @PyMem_Free(ptr noundef nonnull %strides.0.i) #14
-  br label %ndarray_as_list.argprom.exit
+  br label %ndarray_as_list.exit
 
-ndarray_as_list.argprom.exit:                     ; preds = %if.then.i, %strides_from_shape.exit.i, %Py_XDECREF.exit63.i, %if.then55.i
+ndarray_as_list.exit:                             ; preds = %if.then.i, %strides_from_shape.exit.i, %Py_XDECREF.exit63.i, %if.then55.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %strides_from_shape.exit.i ], [ %lst.08203547.i, %if.then55.i ], [ %lst.08203547.i, %Py_XDECREF.exit63.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %simple_shape.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %simple_strides.i)
@@ -4902,32 +4902,32 @@ cond.end30.i.i.i:                                 ; preds = %cond.false27.i.i.i,
 
 lor.lhs.false38.i.i.i:                            ; preds = %cond.end30.i.i.i
   %cmp.i.not.i.i.i.i = icmp eq ptr %cond31.val76.i.i.i, @PyFloat_Type
-  br i1 %cmp.i.not.i.i.i.i, label %PyObject_TypeCheck.argprom.exit.i.i.i, label %lor.rhs.i.i.i.i
+  br i1 %cmp.i.not.i.i.i.i, label %PyObject_TypeCheck.exit.i.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %lor.lhs.false38.i.i.i
   %call2.i.i.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %cond31.val76.i.i.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.i.i.i = icmp ne i32 %call2.i.i.i.i, 0
   %46 = select i1 %tobool3.i.i.i.i, i1 %cmp41.old.i.i.i, i1 false
-  br i1 %46, label %if.then42.i.i.i, label %lor.rhs.i.i.PyObject_TypeCheck.argprom.exit.if.else_crit_edge.i_crit_edge.i.i
+  br i1 %46, label %if.then42.i.i.i, label %lor.rhs.i.i.PyObject_TypeCheck.exit.if.else_crit_edge.i_crit_edge.i.i
 
-lor.rhs.i.i.PyObject_TypeCheck.argprom.exit.if.else_crit_edge.i_crit_edge.i.i: ; preds = %lor.rhs.i.i.i.i
+lor.rhs.i.i.PyObject_TypeCheck.exit.if.else_crit_edge.i_crit_edge.i.i: ; preds = %lor.rhs.i.i.i.i
   %cond31.val74.pre.i.pre.i.i = load ptr, ptr %43, align 8
   %.phi.trans.insert.i.phi.trans.insert.i.i = getelementptr i8, ptr %cond31.val74.pre.i.pre.i.i, i64 168
   %call43.val.pre.i.pre.i.i = load i64, ptr %.phi.trans.insert.i.phi.trans.insert.i.i, align 8
   br label %if.else.i.i.i
 
-PyObject_TypeCheck.argprom.exit.i.i.i:            ; preds = %lor.lhs.false38.i.i.i
+PyObject_TypeCheck.exit.i.i.i:                    ; preds = %lor.lhs.false38.i.i.i
   br i1 %cmp41.old.i.i.i, label %if.then42.i.i.i, label %if.else.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %cond.end30.i.i.i
   br i1 %cmp41.old.i.i.i, label %if.then42.i.i.i, label %if.else.i.i.i
 
-if.then42.i.i.i:                                  ; preds = %land.lhs.true.i.i.i, %PyObject_TypeCheck.argprom.exit.i.i.i, %lor.rhs.i.i.i.i
+if.then42.i.i.i:                                  ; preds = %land.lhs.true.i.i.i, %PyObject_TypeCheck.exit.i.i.i, %lor.rhs.i.i.i.i
   store ptr %cond31.i.i.i, ptr %arrayidx.i97.i.i.i, align 8
   br label %if.end74.i.i.i
 
-if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %PyObject_TypeCheck.argprom.exit.i.i.i, %lor.rhs.i.i.PyObject_TypeCheck.argprom.exit.if.else_crit_edge.i_crit_edge.i.i
-  %call43.val.i.i.i = phi i64 [ %call32.val.i.i.i, %land.lhs.true.i.i.i ], [ %call43.val.pre.i.pre.i.i, %lor.rhs.i.i.PyObject_TypeCheck.argprom.exit.if.else_crit_edge.i_crit_edge.i.i ], [ %call32.val.i.i.i, %PyObject_TypeCheck.argprom.exit.i.i.i ]
+if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i.i, %PyObject_TypeCheck.exit.i.i.i, %lor.rhs.i.i.PyObject_TypeCheck.exit.if.else_crit_edge.i_crit_edge.i.i
+  %call43.val.i.i.i = phi i64 [ %call32.val.i.i.i, %land.lhs.true.i.i.i ], [ %call43.val.pre.i.pre.i.i, %lor.rhs.i.i.PyObject_TypeCheck.exit.if.else_crit_edge.i_crit_edge.i.i ], [ %call32.val.i.i.i, %PyObject_TypeCheck.exit.i.i.i ]
   %47 = and i64 %call43.val.i.i.i, 100663296
   %or.cond115.i.i.i = icmp eq i64 %47, 0
   br i1 %or.cond115.i.i.i, label %if.else72.i.i.i, label %land.lhs.true50.i.i.i

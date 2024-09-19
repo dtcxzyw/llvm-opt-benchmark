@@ -47,7 +47,7 @@ $_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicy
 define void @_Z23gmx_pme_send_parametersPK9t_commrecRK19interaction_const_tbbN3gmx8ArrayRefIKfEES8_S8_S8_S8_S8_ii(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr %4, ptr %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #0 {
   %14 = getelementptr inbounds i8, ptr %1, i64 68
   %.val = load i32, ptr %14, align 4
-  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit [
+  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.exit [
     i32 3, label %15
     i32 14, label %15
     i32 13, label %15
@@ -56,9 +56,9 @@ define void @_Z23gmx_pme_send_parametersPK9t_commrecRK19interaction_const_tbbN3g
   ]
 
 15:                                               ; preds = %13, %13, %13, %13, %13
-  br label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+  br label %_ZL8usingPmeRK22CoulombInteractionType.exit
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %13, %15
+_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %13, %15
   %16 = phi i32 [ 1, %15 ], [ 0, %13 ]
   %.val11 = load i32, ptr %1, align 8
   %17 = icmp eq i32 %.val11, 5
@@ -73,12 +73,12 @@ _ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %13, %15
   %23 = load ptr, ptr %8, align 8
   %24 = load ptr, ptr %9, align 8
   %25 = load ptr, ptr %10, align 8
-  tail call fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer.argprom.argelim(ptr noundef null, ptr noundef %0, i32 noundef %.2, ptr %4, ptr %21, ptr %22, ptr %23, ptr %24, ptr %25, ptr noundef null, ptr null, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %11, i32 noundef %12, i64 noundef -1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
+  tail call fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer(ptr noundef null, ptr noundef %0, i32 noundef %.2, ptr %4, ptr %21, ptr %22, ptr %23, ptr %24, ptr %25, ptr noundef null, ptr null, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %11, i32 noundef %12, i64 noundef -1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer.argprom.argelim(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr %3, ptr %.0.val, ptr %.0.val1, ptr %.0.val3, ptr %.0.val5, ptr %.0.val7, ptr nocapture noundef readonly %4, ptr %.0.val9, float noundef %5, float noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %14, ptr noundef %15) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr %3, ptr %.0.val, ptr %.0.val1, ptr %.0.val3, ptr %.0.val5, ptr %.0.val7, ptr nocapture noundef readonly %4, ptr %.0.val9, float noundef %5, float noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %14, ptr noundef %15) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %17 = alloca i32, align 4
   %18 = getelementptr inbounds i8, ptr %1, i64 96
   %19 = load ptr, ptr %18, align 8
@@ -822,12 +822,12 @@ define void @_Z24gmx_pme_send_coordinatesP10t_forcerecPK9t_commrecPA3_KfN3gmx8Ar
 
 _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %16
   %spec.select = select i1 %7, i32 576, i32 64
-  tail call fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %spec.select, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr noundef %2, ptr %3, float noundef %5, float noundef %6, i32 noundef 0, i32 noundef 0, i64 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %14, ptr noundef %13)
+  tail call fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer(ptr noundef %0, ptr noundef %1, i32 noundef %spec.select, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr noundef %2, ptr %3, float noundef %5, float noundef %6, i32 noundef 0, i32 noundef 0, i64 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %14, ptr noundef %13)
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
 53:                                               ; preds = %18, %32, %37
   %spec.select35 = select i1 %7, i32 576, i32 64
-  tail call fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %spec.select35, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr noundef %2, ptr %3, float noundef %5, float noundef %6, i32 noundef 0, i32 noundef 0, i64 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %14, ptr noundef %13)
+  tail call fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer(ptr noundef %0, ptr noundef %1, i32 noundef %spec.select35, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr noundef %2, ptr %3, float noundef %5, float noundef %6, i32 noundef 0, i32 noundef 0, i64 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %14, ptr noundef %13)
   tail call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %15)
   %54 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   %55 = extractvalue { i32, i32 } %54, 0
@@ -887,7 +887,7 @@ declare void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z19gmx_pme_send_finishPK9t_commrec(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  tail call fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer.argprom.argelim(ptr noundef null, ptr noundef %0, i32 noundef 1024, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr noundef null, ptr null, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef 0, i32 noundef 0, i64 noundef -1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
+  tail call fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer(ptr noundef null, ptr noundef %0, i32 noundef 1024, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr noundef null, ptr null, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef 0, i32 noundef 0, i64 noundef -1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
   ret void
 }
 

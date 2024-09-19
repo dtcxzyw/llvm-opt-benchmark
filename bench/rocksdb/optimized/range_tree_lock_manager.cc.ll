@@ -8247,11 +8247,11 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont2.i.i.i
   %18 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 96
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZN7rocksdb20RangeTreeLockManager7TryLockEPNS0_22PessimisticTransactionEjRKNS0_8EndpointES6_PNS0_3EnvEbE3$_0JmbPK10__toku_dbtSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN7rocksdb20RangeTreeLockManager7TryLockEPNS0_22PessimisticTransactionEjRKNS0_8EndpointES6_PNS0_3EnvEbE3$_0JmbPK10__toku_dbtSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 if.else.i.i.i.i.i:                                ; preds = %invoke.cont2.i.i.i
   invoke void @_ZNSt6vectorIN7rocksdb17RangeDeadlockInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %14, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i.i.i)
-          to label %"_ZSt10__invoke_rIvRZN7rocksdb20RangeTreeLockManager7TryLockEPNS0_22PessimisticTransactionEjRKNS0_8EndpointES6_PNS0_3EnvEbE3$_0JmbPK10__toku_dbtSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit" unwind label %lpad4.i.i.i
+          to label %"_ZSt10__invoke_rIvRZN7rocksdb20RangeTreeLockManager7TryLockEPNS0_22PessimisticTransactionEjRKNS0_8EndpointES6_PNS0_3EnvEbE3$_0JmbPK10__toku_dbtSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit" unwind label %lpad4.i.i.i
 
 lpad4.i.i.i:                                      ; preds = %if.else.i.i.i.i.i
   %19 = landingpad { ptr, i32 }
@@ -8266,7 +8266,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad4.i.i.i, %lpad.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %start.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZN7rocksdb20RangeTreeLockManager7TryLockEPNS0_22PessimisticTransactionEjRKNS0_8EndpointES6_PNS0_3EnvEbE3$_0JmbPK10__toku_dbtSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN7rocksdb20RangeTreeLockManager7TryLockEPNS0_22PessimisticTransactionEjRKNS0_8EndpointES6_PNS0_3EnvEbE3$_0JmbPK10__toku_dbtSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_end.i.i.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_start.i.i.i) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %end.i.i.i) #24
@@ -9495,7 +9495,7 @@ terminate.lpad:                                   ; preds = %entry
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt19_Sp_counted_deleterIPN4toku8locktreeEZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrES2_E3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN4toku8locktreeEZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrES3_E3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
+"_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN4toku8locktreeEZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrES3_E3$_0SaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }

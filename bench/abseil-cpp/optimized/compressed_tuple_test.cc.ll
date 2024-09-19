@@ -3961,7 +3961,7 @@ invoke.cont11:                                    ; preds = %if.then.i.i20
 lpad7:                                            ; preds = %if.end.i.i91, %if.then.i.i92, %if.end.i.i63, %if.then.i.i64, %if.end.i.i36, %if.then.i.i37, %if.then.i.i20
   %7 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.argprom.exit128
+  br label %_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.exit128
 
 if.else:                                          ; preds = %invoke.cont11
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13)
@@ -4070,7 +4070,7 @@ invoke.cont29:                                    ; preds = %if.then.i.i37, %if.
 ehcleanup23:                                      ; preds = %_ZN7testing7MessageD2Ev.exit33, %lpad14
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit33 ], [ %11, %lpad14 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar) #20
-  br label %_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.argprom.exit128
+  br label %_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.exit128
 
 if.else32:                                        ; preds = %invoke.cont29
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp33)
@@ -4181,7 +4181,7 @@ invoke.cont51:                                    ; preds = %if.then.i.i64, %if.
 ehcleanup46:                                      ; preds = %_ZN7testing7MessageD2Ev.exit57, %lpad34
   %.pn3.pn = phi { ptr, i32 } [ %.pn3, %_ZN7testing7MessageD2Ev.exit57 ], [ %22, %lpad34 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar24) #20
-  br label %_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.argprom.exit128
+  br label %_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.exit128
 
 if.else54:                                        ; preds = %invoke.cont51
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp55)
@@ -4292,7 +4292,7 @@ invoke.cont73:                                    ; preds = %if.then.i.i92, %if.
 ehcleanup68:                                      ; preds = %_ZN7testing7MessageD2Ev.exit84, %lpad56
   %.pn6.pn = phi { ptr, i32 } [ %.pn6, %_ZN7testing7MessageD2Ev.exit84 ], [ %33, %lpad56 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar47) #20
-  br label %_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.argprom.exit128
+  br label %_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.exit128
 
 if.else76:                                        ; preds = %invoke.cont73
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp77)
@@ -4407,9 +4407,9 @@ _ZN4absl13test_internal15InstanceTrackerD2Ev.exit: ; preds = %if.end.i
 ehcleanup90:                                      ; preds = %_ZN7testing7MessageD2Ev.exit112, %lpad78
   %.pn9.pn = phi { ptr, i32 } [ %.pn9, %_ZN7testing7MessageD2Ev.exit112 ], [ %44, %lpad78 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar69) #20
-  br label %_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.argprom.exit128
+  br label %_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.exit128
 
-_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.argprom.exit128: ; preds = %ehcleanup90, %ehcleanup68, %ehcleanup46, %ehcleanup23, %lpad7
+_ZN4absl18container_internal15CompressedTupleIJNS_13test_internal23CopyableMovableInstanceERNS0_12_GLOBAL__N_114IncompleteTypeE5EmptyILi0EEEED2Ev.exit128: ; preds = %ehcleanup90, %ehcleanup68, %ehcleanup46, %ehcleanup23, %lpad7
   %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn, %ehcleanup90 ], [ %7, %lpad7 ], [ %.pn6.pn, %ehcleanup68 ], [ %.pn3.pn, %ehcleanup46 ], [ %.pn.pn, %ehcleanup23 ]
   %52 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
   %dec.i.i.i.i.i124 = add nsw i32 %52, -1

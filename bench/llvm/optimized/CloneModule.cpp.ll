@@ -1688,7 +1688,7 @@ _ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit253:   ; preds = %_ZN4llvm8ValueMapIP
   %596 = getelementptr i8, ptr %375, i64 48
   %.val186 = load ptr, ptr %596, align 8
   %.not.i254 = icmp eq ptr %.val186, null
-  br i1 %.not.i254, label %_ZL10copyComdatPN4llvm12GlobalObjectEPKS0_.argprom.exit255, label %597
+  br i1 %.not.i254, label %_ZL10copyComdatPN4llvm12GlobalObjectEPKS0_.exit255, label %597
 
 597:                                              ; preds = %595
   %598 = getelementptr inbounds nuw i8, ptr %381, i64 40
@@ -1702,19 +1702,19 @@ _ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit253:   ; preds = %_ZN4llvm8ValueMapIP
   %606 = getelementptr inbounds nuw i8, ptr %603, i64 8
   store i32 %605, ptr %606, align 8
   call void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull align 8 dereferenceable(56) %381, ptr noundef nonnull %603) #10
-  br label %_ZL10copyComdatPN4llvm12GlobalObjectEPKS0_.argprom.exit255
+  br label %_ZL10copyComdatPN4llvm12GlobalObjectEPKS0_.exit255
 
-_ZL10copyComdatPN4llvm12GlobalObjectEPKS0_.argprom.exit255: ; preds = %595, %597
+_ZL10copyComdatPN4llvm12GlobalObjectEPKS0_.exit255: ; preds = %595, %597
   %607 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #10
   %608 = load ptr, ptr %38, align 8
   %609 = icmp eq ptr %608, %319
   br i1 %609, label %_ZN4llvm11SmallVectorISt4pairIjPNS_6MDNodeEELj1EED2Ev.exit240, label %610
 
-610:                                              ; preds = %_ZL10copyComdatPN4llvm12GlobalObjectEPKS0_.argprom.exit255
+610:                                              ; preds = %_ZL10copyComdatPN4llvm12GlobalObjectEPKS0_.exit255
   call void @free(ptr noundef %608) #10
   br label %_ZN4llvm11SmallVectorISt4pairIjPNS_6MDNodeEELj1EED2Ev.exit240
 
-_ZN4llvm11SmallVectorISt4pairIjPNS_6MDNodeEELj1EED2Ev.exit240: ; preds = %610, %_ZL10copyComdatPN4llvm12GlobalObjectEPKS0_.argprom.exit255, %392, %._crit_edge469, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit242
+_ZN4llvm11SmallVectorISt4pairIjPNS_6MDNodeEELj1EED2Ev.exit240: ; preds = %610, %_ZL10copyComdatPN4llvm12GlobalObjectEPKS0_.exit255, %392, %._crit_edge469, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit242
   %611 = getelementptr inbounds nuw i8, ptr %.sroa.0332.0472, i64 8
   %.sroa.0332.0 = load ptr, ptr %611, align 8
   %.not409 = icmp eq ptr %.sroa.0332.0, %122

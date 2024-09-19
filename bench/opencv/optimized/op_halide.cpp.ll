@@ -52,7 +52,7 @@ define hidden void @_ZN2cv3dnn16getCanonicalSizeERKNS_7MatSizeEPiS4_S4_S4_(ptr n
   %.idx = shl nsw i64 %9, 2
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.argprom.exit, label %11
+  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.exit, label %11
 
 11:                                               ; preds = %5
   %12 = icmp slt i32 %8, 0
@@ -70,17 +70,17 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %11
   %15 = getelementptr inbounds i8, ptr %13, i64 %.idx
   store ptr %15, ptr %14, align 8
   store ptr %15, ptr %10, align 8
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.argprom.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.exit
 
 common.resume:                                    ; preds = %21, %19
   resume { ptr, i32 } %20
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.argprom.exit: ; preds = %5, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.exit: ; preds = %5, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %16 = phi ptr [ %13, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ], [ null, %5 ]
   invoke void @_ZN2cv3dnn16getCanonicalSizeERKSt6vectorIiSaIiEEPiS6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
           to label %17 unwind label %19
 
-17:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.argprom.exit
+17:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.exit
   %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %18
 
@@ -91,7 +91,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.argprom.exit: ; preds = %5, %_Z
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %17, %18
   ret void
 
-19:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.argprom.exit
+19:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.exit
   %20 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i6 = icmp eq ptr %16, null
@@ -290,8 +290,8 @@ attributes #16 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.argprom: argument 0"}
-!6 = distinct !{!6, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.argprom"}
+!5 = distinct !{!5, !6, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE: argument 0"}
+!6 = distinct !{!6, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE"}
 !7 = !{!8, !5}
 !8 = distinct !{!8, !9, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii: argument 0"}
 !9 = distinct !{!9, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii"}

@@ -358,13 +358,13 @@ _ZNK8facebook5velox9Timestamp8toMillisEv.exit:    ; preds = %entry
   %conv7.i = trunc nsw i128 %add.i to i64
   %3 = add i64 %conv7.i, -971890876800001
   %or.cond.i1 = icmp ult i64 %3, -2068084656000001
-  br i1 %or.cond.i1, label %if.then.i2, label %_ZN8facebook5velox12_GLOBAL__N_117validateTimePointERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000EEEEEE.argprom.exit
+  br i1 %or.cond.i1, label %if.then.i2, label %_ZN8facebook5velox12_GLOBAL__N_117validateTimePointERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000EEEEEE.exit
 
 if.then.i2:                                       ; preds = %_ZNK8facebook5velox9Timestamp8toMillisEv.exit
   tail call void @llvm.trap()
   unreachable
 
-_ZN8facebook5velox12_GLOBAL__N_117validateTimePointERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000EEEEEE.argprom.exit: ; preds = %_ZNK8facebook5velox9Timestamp8toMillisEv.exit
+_ZN8facebook5velox12_GLOBAL__N_117validateTimePointERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000EEEEEE.exit: ; preds = %_ZNK8facebook5velox9Timestamp8toMillisEv.exit
   ret i64 %conv7.i
 }
 
@@ -669,7 +669,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %options, i64 3
   %options.val23 = load i8, ptr %1, align 1
   switch i8 %options.val23, label %sw.default.i [
-    i8 1, label %_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.argprom.exit
+    i8 1, label %_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.exit
     i8 2, label %sw.bb1.i
     i8 0, label %sw.bb3.i
   ]
@@ -677,23 +677,23 @@ entry:
 sw.bb1.i:                                         ; preds = %entry
   %conv.i = sext i8 %options.val to i64
   %add.i = add nsw i64 %conv.i, 9
-  br label %_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.argprom.exit
+  br label %_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.exit
 
 sw.bb3.i:                                         ; preds = %entry
   %conv4.i = sext i8 %options.val to i64
   %add5.i = add nsw i64 %conv4.i, 26
-  br label %_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.argprom.exit
+  br label %_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.exit
 
 sw.default.i:                                     ; preds = %entry
   tail call void @llvm.trap()
   unreachable
 
-_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.argprom.exit: ; preds = %entry, %sw.bb1.i, %sw.bb3.i
+_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.exit: ; preds = %entry, %sw.bb1.i, %sw.bb3.i
   %retval.0.i = phi i64 [ %add5.i, %sw.bb3.i ], [ %add.i, %sw.bb1.i ], [ 10, %entry ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %retval.0.i)
           to label %invoke.cont1 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont1:                                     ; preds = %_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.argprom.exit
+invoke.cont1:                                     ; preds = %_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.exit
   %2 = load i8, ptr %1, align 1
   %cmp.not = icmp eq i8 %2, 2
   br i1 %cmp.not, label %if.end51, label %if.then
@@ -732,7 +732,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont56, %invoke.cont53, %if.end51, %invoke.cont42, %invoke.cont38, %invoke.cont58, %invoke.cont55, %invoke.cont52, %if.end48, %invoke.cont41, %invoke.cont37, %if.then3, %_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.argprom.exit
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.cont56, %invoke.cont53, %if.end51, %invoke.cont42, %invoke.cont38, %invoke.cont58, %invoke.cont55, %invoke.cont52, %if.end48, %invoke.cont41, %invoke.cont37, %if.then3, %_ZN8facebook5velox12_GLOBAL__N_111getCapacityERKNS0_24TimestampToStringOptionsE.exit
   %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
           cleanup
   br label %lpad

@@ -1047,7 +1047,7 @@ define i32 @dump(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3,
   %65 = and i64 %.val67.i, %.val.i
   %66 = and i64 %.val.i, %.0213.i
   %.not.i.i = icmp eq i64 %66, 0
-  br i1 %.not.i.i, label %67, label %_match_flag_bit.argprom.exit.thread.i
+  br i1 %.not.i.i, label %67, label %_match_flag_bit.exit.thread.i
 
 67:                                               ; preds = %62
   %68 = load i64, ptr %48, align 8
@@ -1055,28 +1055,28 @@ define i32 @dump(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3,
     i64 8, label %69
     i64 4, label %73
     i64 2, label %78
-    i64 1, label %_match_flag_bit.argprom.exit.i
+    i64 1, label %_match_flag_bit.exit.i
   ]
 
 69:                                               ; preds = %67
   %70 = load i64, ptr %0, align 8
   %71 = and i64 %70, %65
   %72 = icmp eq i64 %71, %65
-  br i1 %72, label %111, label %_match_flag_bit.argprom.exit.thread.i
+  br i1 %72, label %111, label %_match_flag_bit.exit.thread.i
 
 73:                                               ; preds = %67
   %74 = load i32, ptr %0, align 4
   %75 = zext i32 %74 to i64
   %76 = and i64 %65, %75
   %77 = icmp eq i64 %76, %65
-  br i1 %77, label %111, label %_match_flag_bit.argprom.exit.thread.i
+  br i1 %77, label %111, label %_match_flag_bit.exit.thread.i
 
 78:                                               ; preds = %67
   %79 = load i16, ptr %0, align 2
   %80 = zext i16 %79 to i64
   %81 = and i64 %65, %80
   %82 = icmp eq i64 %81, %65
-  br i1 %82, label %111, label %_match_flag_bit.argprom.exit.thread.i
+  br i1 %82, label %111, label %_match_flag_bit.exit.thread.i
 
 83:                                               ; preds = %67
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__._match_flag_bit, i64 noundef %68) #6
@@ -1126,9 +1126,9 @@ define i32 @dump(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3,
 104:                                              ; preds = %99, %95, %91, %88
   %.pn.i.i = phi i64 [ %90, %88 ], [ %94, %91 ], [ %98, %95 ], [ %102, %99 ]
   %.0.in.i.i = icmp eq i64 %.pn.i.i, %87
-  br i1 %.0.in.i.i, label %_match_flag_bit.argprom.exit.thread7.i, label %_match_flag_bit.argprom.exit.thread.i
+  br i1 %.0.in.i.i, label %_match_flag_bit.exit.thread7.i, label %_match_flag_bit.exit.thread.i
 
-_match_flag_bit.argprom.exit.thread7.i:           ; preds = %104
+_match_flag_bit.exit.thread7.i:                   ; preds = %104
   %105 = or i64 %.val69.i, %.0213.i
   br label %111
 
@@ -1136,30 +1136,30 @@ _match_flag_bit.argprom.exit.thread7.i:           ; preds = %104
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__._dump_flag_bit_array) #6
   unreachable
 
-_match_flag_bit.argprom.exit.i:                   ; preds = %67
+_match_flag_bit.exit.i:                           ; preds = %67
   %107 = load i8, ptr %0, align 1
   %108 = zext i8 %107 to i64
   %109 = and i64 %65, %108
   %110 = icmp eq i64 %109, %65
-  br i1 %110, label %111, label %_match_flag_bit.argprom.exit.thread.i
+  br i1 %110, label %111, label %_match_flag_bit.exit.thread.i
 
-111:                                              ; preds = %_match_flag_bit.argprom.exit.i, %_match_flag_bit.argprom.exit.thread7.i, %78, %73, %69
-  %.210.i = phi i64 [ %105, %_match_flag_bit.argprom.exit.thread7.i ], [ %.0213.i, %_match_flag_bit.argprom.exit.i ], [ %.0213.i, %69 ], [ %.0213.i, %73 ], [ %.0213.i, %78 ]
+111:                                              ; preds = %_match_flag_bit.exit.i, %_match_flag_bit.exit.thread7.i, %78, %73, %69
+  %.210.i = phi i64 [ %105, %_match_flag_bit.exit.thread7.i ], [ %.0213.i, %_match_flag_bit.exit.i ], [ %.0213.i, %69 ], [ %.0213.i, %73 ], [ %.0213.i, %78 ]
   %112 = tail call ptr @data_list_append(ptr noundef %3) #5
   %113 = getelementptr inbounds i8, ptr %59, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = tail call ptr @data_set_string(ptr noundef %112, ptr noundef %114) #5
-  br label %_match_flag_bit.argprom.exit.thread.i
+  br label %_match_flag_bit.exit.thread.i
 
-_match_flag_bit.argprom.exit.thread.i:            ; preds = %111, %_match_flag_bit.argprom.exit.i, %104, %78, %73, %69, %62
-  %.057.in6.i = phi ptr [ @.str.38, %111 ], [ @.str.39, %_match_flag_bit.argprom.exit.i ], [ @.str.39, %69 ], [ @.str.39, %73 ], [ @.str.39, %78 ], [ @.str.39, %104 ], [ @.str.39, %62 ]
-  %.25.i = phi i64 [ %.210.i, %111 ], [ %.0213.i, %_match_flag_bit.argprom.exit.i ], [ %.0213.i, %69 ], [ %.0213.i, %73 ], [ %.0213.i, %78 ], [ %.0213.i, %104 ], [ %.0213.i, %62 ]
+_match_flag_bit.exit.thread.i:                    ; preds = %111, %_match_flag_bit.exit.i, %104, %78, %73, %69, %62
+  %.057.in6.i = phi ptr [ @.str.38, %111 ], [ @.str.39, %_match_flag_bit.exit.i ], [ @.str.39, %69 ], [ @.str.39, %73 ], [ @.str.39, %78 ], [ @.str.39, %104 ], [ @.str.39, %62 ]
+  %.25.i = phi i64 [ %.210.i, %111 ], [ %.0213.i, %_match_flag_bit.exit.i ], [ %.0213.i, %69 ], [ %.0213.i, %73 ], [ %.0213.i, %78 ], [ %.0213.i, %104 ], [ %.0213.i, %62 ]
   %116 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %117 = and i64 %116, 256
   %.not63.i = icmp eq i64 %117, 0
   br i1 %.not63.i, label %155, label %118
 
-118:                                              ; preds = %_match_flag_bit.argprom.exit.thread.i
+118:                                              ; preds = %_match_flag_bit.exit.thread.i
   %119 = load i64, ptr %48, align 8
   switch i64 %119, label %131 [
     i64 8, label %120
@@ -1224,7 +1224,7 @@ _match_flag_bit.argprom.exit.thread.i:            ; preds = %111, %_match_flag_b
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__._dump_flag_bit_array, ptr noundef nonnull %.057.in6.i, ptr noundef %138, ptr noundef nonnull %switch.select66.i, ptr noundef %138, ptr noundef %140, i64 noundef %142, ptr noundef %144, i64 noundef %146, i64 noundef %.059.i, i64 noundef %148, i64 noundef %149, ptr noundef %150, i64 noundef %50, i64 noundef %151, ptr noundef %152, ptr noundef %153, i64 noundef %54, ptr noundef %154, i64 noundef %55) #5
   br label %155
 
-155:                                              ; preds = %136, %132, %_match_flag_bit.argprom.exit.thread.i
+155:                                              ; preds = %136, %132, %_match_flag_bit.exit.thread.i
   %156 = add i8 %.05614.i, 1
   %157 = sext i8 %156 to i32
   %158 = load i8, ptr %45, align 8
@@ -1700,9 +1700,9 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %20 = getelementptr i8, ptr %7, i64 48
   br label %21
 
-21:                                               ; preds = %.lr.ph, %_set_flag_bit.argprom.exit
-  %.04351 = phi i1 [ false, %.lr.ph ], [ %spec.select, %_set_flag_bit.argprom.exit ]
-  %.04450 = phi i8 [ 0, %.lr.ph ], [ %166, %_set_flag_bit.argprom.exit ]
+21:                                               ; preds = %.lr.ph, %_set_flag_bit.exit
+  %.04351 = phi i1 [ false, %.lr.ph ], [ %spec.select, %_set_flag_bit.exit ]
+  %.04450 = phi i8 [ 0, %.lr.ph ], [ %166, %_set_flag_bit.exit ]
   %22 = load ptr, ptr %18, align 8
   %23 = sext i8 %.04450 to i64
   %24 = getelementptr inbounds %struct.flag_bit_t, ptr %22, i64 %23
@@ -1731,7 +1731,7 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %38 = load i64, ptr %19, align 8
   %39 = and i64 %38, %36
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %_set_flag_bit.argprom.exit
+  br i1 %40, label %41, label %_set_flag_bit.exit
 
 41:                                               ; preds = %37, %31
   %.val = load i64, ptr %20, align 8
@@ -1749,14 +1749,14 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %44 = load i64, ptr %5, align 8
   %45 = or i64 %44, %36
   store i64 %45, ptr %5, align 8
-  br label %_set_flag_bit.argprom.exit
+  br label %_set_flag_bit.exit
 
 46:                                               ; preds = %42
   %47 = xor i64 %36, -1
   %48 = load i64, ptr %5, align 8
   %49 = and i64 %48, %47
   store i64 %49, ptr %5, align 8
-  br label %_set_flag_bit.argprom.exit
+  br label %_set_flag_bit.exit
 
 50:                                               ; preds = %41
   %51 = load i32, ptr %5, align 4
@@ -1766,13 +1766,13 @@ _flag_parent_path.exit:                           ; preds = %2, %15
 53:                                               ; preds = %50
   %54 = or i32 %51, %52
   store i32 %54, ptr %5, align 4
-  br label %_set_flag_bit.argprom.exit
+  br label %_set_flag_bit.exit
 
 55:                                               ; preds = %50
   %56 = xor i32 %52, -1
   %57 = and i32 %51, %56
   store i32 %57, ptr %5, align 4
-  br label %_set_flag_bit.argprom.exit
+  br label %_set_flag_bit.exit
 
 58:                                               ; preds = %41
   %59 = load i16, ptr %5, align 2
@@ -1782,13 +1782,13 @@ _flag_parent_path.exit:                           ; preds = %2, %15
 61:                                               ; preds = %58
   %62 = or i16 %59, %60
   store i16 %62, ptr %5, align 2
-  br label %_set_flag_bit.argprom.exit
+  br label %_set_flag_bit.exit
 
 63:                                               ; preds = %58
   %64 = xor i16 %60, -1
   %65 = and i16 %59, %64
   store i16 %65, ptr %5, align 2
-  br label %_set_flag_bit.argprom.exit
+  br label %_set_flag_bit.exit
 
 66:                                               ; preds = %41
   %67 = load i8, ptr %5, align 1
@@ -1798,13 +1798,13 @@ _flag_parent_path.exit:                           ; preds = %2, %15
 69:                                               ; preds = %66
   %70 = or i8 %67, %68
   store i8 %70, ptr %5, align 1
-  br label %_set_flag_bit.argprom.exit
+  br label %_set_flag_bit.exit
 
 71:                                               ; preds = %66
   %72 = xor i8 %68, -1
   %73 = and i8 %67, %72
   store i8 %73, ptr %5, align 1
-  br label %_set_flag_bit.argprom.exit
+  br label %_set_flag_bit.exit
 
 74:                                               ; preds = %41
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__._set_flag_bit, i64 noundef %.val) #6
@@ -1819,7 +1819,7 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %79 = load i64, ptr %78, align 8
   %80 = and i64 %79, %77
   %81 = icmp eq i64 %80, 0
-  br i1 %81, label %82, label %_set_flag_bit_equal.argprom.exit
+  br i1 %81, label %82, label %_set_flag_bit_equal.exit
 
 82:                                               ; preds = %76, %75
   %.val46 = load i64, ptr %20, align 8
@@ -1844,7 +1844,7 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %92 = and i64 %91, %87
   %93 = or i64 %92, %89
   store i64 %93, ptr %5, align 8
-  br label %_set_flag_bit_equal.argprom.exit
+  br label %_set_flag_bit_equal.exit
 
 94:                                               ; preds = %83
   %95 = getelementptr inbounds i8, ptr %24, i64 24
@@ -1853,7 +1853,7 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %98 = load i64, ptr %5, align 8
   %99 = and i64 %98, %97
   store i64 %99, ptr %5, align 8
-  br label %_set_flag_bit_equal.argprom.exit
+  br label %_set_flag_bit_equal.exit
 
 100:                                              ; preds = %82
   br i1 %.not, label %101, label %113
@@ -1871,7 +1871,7 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %111 = or i64 %110, %107
   %112 = trunc i64 %111 to i32
   store i32 %112, ptr %5, align 4
-  br label %_set_flag_bit_equal.argprom.exit
+  br label %_set_flag_bit_equal.exit
 
 113:                                              ; preds = %100
   %114 = getelementptr inbounds i8, ptr %24, i64 24
@@ -1881,7 +1881,7 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %118 = xor i32 %117, -1
   %119 = and i32 %116, %118
   store i32 %119, ptr %5, align 4
-  br label %_set_flag_bit_equal.argprom.exit
+  br label %_set_flag_bit_equal.exit
 
 120:                                              ; preds = %82
   br i1 %.not, label %121, label %133
@@ -1899,7 +1899,7 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %131 = or i64 %130, %127
   %132 = trunc i64 %131 to i16
   store i16 %132, ptr %5, align 2
-  br label %_set_flag_bit_equal.argprom.exit
+  br label %_set_flag_bit_equal.exit
 
 133:                                              ; preds = %120
   %134 = getelementptr inbounds i8, ptr %24, i64 24
@@ -1909,7 +1909,7 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %138 = xor i16 %137, -1
   %139 = and i16 %136, %138
   store i16 %139, ptr %5, align 2
-  br label %_set_flag_bit_equal.argprom.exit
+  br label %_set_flag_bit_equal.exit
 
 140:                                              ; preds = %82
   br i1 %.not, label %141, label %153
@@ -1927,7 +1927,7 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %151 = or i64 %150, %147
   %152 = trunc i64 %151 to i8
   store i8 %152, ptr %5, align 1
-  br label %_set_flag_bit_equal.argprom.exit
+  br label %_set_flag_bit_equal.exit
 
 153:                                              ; preds = %140
   %154 = getelementptr inbounds i8, ptr %24, i64 24
@@ -1937,23 +1937,23 @@ _flag_parent_path.exit:                           ; preds = %2, %15
   %158 = xor i8 %157, -1
   %159 = and i8 %156, %158
   store i8 %159, ptr %5, align 1
-  br label %_set_flag_bit_equal.argprom.exit
+  br label %_set_flag_bit_equal.exit
 
 160:                                              ; preds = %82
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__._set_flag_bit_equal, i64 noundef %.val46) #6
   unreachable
 
-_set_flag_bit_equal.argprom.exit:                 ; preds = %153, %141, %133, %121, %113, %101, %94, %84, %76
+_set_flag_bit_equal.exit:                         ; preds = %153, %141, %133, %121, %113, %101, %94, %84, %76
   %161 = getelementptr inbounds i8, ptr %24, i64 24
   %162 = load i64, ptr %161, align 8
-  br label %_set_flag_bit.argprom.exit
+  br label %_set_flag_bit.exit
 
 163:                                              ; preds = %21
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__._foreach_flag_parser) #6
   unreachable
 
-_set_flag_bit.argprom.exit:                       ; preds = %37, %43, %46, %53, %55, %61, %63, %69, %71, %_set_flag_bit_equal.argprom.exit
-  %.sink59 = phi i64 [ %162, %_set_flag_bit_equal.argprom.exit ], [ %36, %71 ], [ %36, %69 ], [ %36, %63 ], [ %36, %61 ], [ %36, %55 ], [ %36, %53 ], [ %36, %46 ], [ %36, %43 ], [ %36, %37 ]
+_set_flag_bit.exit:                               ; preds = %37, %43, %46, %53, %55, %61, %63, %69, %71, %_set_flag_bit_equal.exit
+  %.sink59 = phi i64 [ %162, %_set_flag_bit_equal.exit ], [ %36, %71 ], [ %36, %69 ], [ %36, %63 ], [ %36, %61 ], [ %36, %55 ], [ %36, %53 ], [ %36, %46 ], [ %36, %43 ], [ %36, %37 ]
   %164 = load i64, ptr %19, align 8
   %165 = or i64 %164, %.sink59
   store i64 %165, ptr %19, align 8
@@ -1964,7 +1964,7 @@ _set_flag_bit.argprom.exit:                       ; preds = %37, %43, %46, %53, 
   %170 = icmp slt i32 %167, %169
   br i1 %170, label %21, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %_set_flag_bit.argprom.exit
+._crit_edge:                                      ; preds = %_set_flag_bit.exit
   %171 = load i64, ptr %10, align 8
   %172 = add nsw i64 %171, 1
   store i64 %172, ptr %10, align 8

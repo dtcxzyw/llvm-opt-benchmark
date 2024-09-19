@@ -1727,13 +1727,13 @@ _ZN4llvm9BitVector5resetERKS0_.exit:              ; preds = %.lr.ph.i35, %_ZL22g
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEPKNS_19TargetRegisterClassES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #8 align 2 {
   %4 = icmp eq ptr %1, %2
-  br i1 %4, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit, label %5
+  br i1 %4, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit, label %5
 
 5:                                                ; preds = %3
   %6 = icmp ne ptr %1, null
   %7 = icmp ne ptr %2, null
   %or.cond = and i1 %6, %7
-  br i1 %or.cond, label %8, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit
+  br i1 %or.cond, label %8, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 264
@@ -1746,7 +1746,7 @@ define dso_local noundef ptr @_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEP
   %14 = lshr exact i64 %13, 3
   %15 = trunc i64 %14 to i32
   %.not5.i = icmp eq i32 %15, 0
-  br i1 %.not5.i, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit, label %.lr.ph.i.preheader
+  br i1 %.not5.i, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1771,16 +1771,16 @@ define dso_local noundef ptr @_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEP
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %.val, i64 %26
   %28 = load ptr, ptr %27, align 8
-  br label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit
+  br label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit
 
 29:                                               ; preds = %.lr.ph.i
   %30 = getelementptr inbounds i8, ptr %.0122.i, i64 4
   %31 = getelementptr inbounds i8, ptr %.0104.i, i64 4
   %32 = add i32 %.0113.i, 32
   %33 = icmp ult i32 %32, %15
-  br i1 %33, label %.lr.ph.i, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit, !llvm.loop !28
+  br i1 %33, label %.lr.ph.i, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit, !llvm.loop !28
 
-_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit: ; preds = %29, %23, %8, %5, %3
+_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit: ; preds = %29, %23, %8, %5, %3
   %.0 = phi ptr [ %1, %3 ], [ null, %5 ], [ %28, %23 ], [ null, %8 ], [ null, %29 ]
   ret ptr %.0
 }
@@ -1804,7 +1804,7 @@ _ZN4llvm21SuperRegClassIteratorC2EPKNS_19TargetRegisterClassEPKNS_18TargetRegist
   %17 = and i64 %14, 134217727
   %18 = load i16, ptr %16, align 2
   %.not.i.i = icmp eq i16 %18, 0
-  br i1 %.not.i.i, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit, label %.lr.ph.preheader
+  br i1 %.not.i.i, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm21SuperRegClassIteratorC2EPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoEb.exit
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1822,7 +1822,7 @@ _ZN4llvm21SuperRegClassIteratorC2EPKNS_19TargetRegisterClassEPKNS_18TargetRegist
 
 22:                                               ; preds = %.lr.ph
   %.not5.i = icmp eq i32 %12, 0
-  br i1 %.not5.i, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit, label %.lr.ph.i.preheader
+  br i1 %.not5.i, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %22
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1845,22 +1845,22 @@ _ZN4llvm21SuperRegClassIteratorC2EPKNS_19TargetRegisterClassEPKNS_18TargetRegist
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds ptr, ptr %7, i64 %31
   %33 = load ptr, ptr %32, align 8
-  br label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit
+  br label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit
 
 34:                                               ; preds = %.lr.ph.i
   %35 = getelementptr inbounds i8, ptr %.0122.i, i64 4
   %36 = getelementptr inbounds i8, ptr %.0104.i, i64 4
   %37 = add i32 %.0113.i, 32
   %38 = icmp ult i32 %37, %12
-  br i1 %38, label %.lr.ph.i, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit, !llvm.loop !28
+  br i1 %38, label %.lr.ph.i, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit, !llvm.loop !28
 
 _ZN4llvm21SuperRegClassIteratorppEv.exit:         ; preds = %.lr.ph
   %.sroa.6.014 = getelementptr inbounds i8, ptr %.sroa.6.014.pn, i64 2
   %39 = load i16, ptr %.sroa.6.014, align 2
   %.not.i5 = icmp eq i16 %39, 0
-  br i1 %.not.i5, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit, label %.lr.ph, !llvm.loop !29
+  br i1 %.not.i5, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit, label %.lr.ph, !llvm.loop !29
 
-_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit: ; preds = %_ZN4llvm21SuperRegClassIteratorppEv.exit, %34, %_ZN4llvm21SuperRegClassIteratorC2EPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoEb.exit, %28, %22
+_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit: ; preds = %_ZN4llvm21SuperRegClassIteratorppEv.exit, %34, %_ZN4llvm21SuperRegClassIteratorC2EPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoEb.exit, %28, %22
   %.0 = phi ptr [ %33, %28 ], [ null, %22 ], [ null, %_ZN4llvm21SuperRegClassIteratorC2EPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoEb.exit ], [ null, %34 ], [ null, %_ZN4llvm21SuperRegClassIteratorppEv.exit ]
   ret ptr %.0
 }
@@ -2047,7 +2047,7 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit: ; preds = %98, %99
   %122 = load i32, ptr %.0122.i, align 4
   %123 = and i32 %122, %121
   %.not.i53 = icmp eq i32 %123, 0
-  br i1 %.not.i53, label %124, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit
+  br i1 %.not.i53, label %124, label %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit
 
 124:                                              ; preds = %.lr.ph.i
   %125 = getelementptr inbounds i8, ptr %.0122.i, i64 4
@@ -2056,7 +2056,7 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit: ; preds = %98, %99
   %128 = icmp ult i32 %127, %120
   br i1 %128, label %.lr.ph.i, label %.critedge, !llvm.loop !28
 
-_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit: ; preds = %.lr.ph.i
+_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit: ; preds = %.lr.ph.i
   %129 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %123, i1 true)
   %130 = or disjoint i32 %129, %.0113.i
   %131 = zext i32 %130 to i64
@@ -2065,7 +2065,7 @@ _ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit: ; preds =
   %.not = icmp eq ptr %133, null
   br i1 %.not, label %.critedge, label %134
 
-134:                                              ; preds = %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit
+134:                                              ; preds = %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit
   %135 = load ptr, ptr %15, align 8
   %136 = load i32, ptr %26, align 8
   %137 = mul i32 %136, %120
@@ -2182,8 +2182,8 @@ _ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit60: ; preds = %149, %
   %217 = icmp eq i64 %216, %96
   br i1 %217, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %124, %115, %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit, %.critedge2, %156, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit60, %134
-  %.2 = phi ptr [ %.1113, %134 ], [ %.1113, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit60 ], [ %.1113, %156 ], [ %133, %.critedge2 ], [ %.1113, %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.argprom.exit ], [ %.1113, %115 ], [ %.1113, %124 ]
+.critedge:                                        ; preds = %124, %115, %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit, %.critedge2, %156, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit60, %134
+  %.2 = phi ptr [ %.1113, %134 ], [ %.1113, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit60 ], [ %.1113, %156 ], [ %133, %.critedge2 ], [ %.1113, %_ZL16firstCommonClassPKjS0_PKN4llvm18TargetRegisterInfoE.exit ], [ %.1113, %115 ], [ %.1113, %124 ]
   %218 = getelementptr inbounds i32, ptr %.sroa.11.0110, i64 %114
   %219 = getelementptr inbounds i8, ptr %.sroa.6.0111, i64 2
   %220 = load i16, ptr %.sroa.6.0111, align 2
@@ -4418,7 +4418,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit49.i.i.i:         ; preds = %186, %184
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNS0_8printRegENS0_8RegisterEPKNS0_18TargetRegisterInfoEjPKNS0_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -4428,29 +4428,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ost
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm8printRegENS1_8RegisterEPKNS1_18TargetRegisterInfoEjPKNS1_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -4873,7 +4873,7 @@ _ZN4llvm9StringRefC2EPKc.exit14.i.i.i:            ; preds = %39, %36
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNS0_19printRegClassOrBankENS0_8RegisterERKNS0_19MachineRegisterInfoEPKNS0_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -4883,29 +4883,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ost
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 24) #25
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm19printRegClassOrBankENS1_8RegisterERKNS1_19MachineRegisterInfoEPKNS1_18TargetRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

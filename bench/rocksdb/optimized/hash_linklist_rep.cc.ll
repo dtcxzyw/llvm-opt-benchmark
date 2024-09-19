@@ -1640,16 +1640,16 @@ if.end.i:                                         ; preds = %if.end
   %16 = load atomic i64, ptr %atomic-temp.i.0.i6.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %16 to ptr
   %cmp.i.i = icmp eq ptr %atomic-temp.i.0.i6.i, %atomic-temp.i.0.i.i.i
-  br i1 %cmp.i.i, label %if.end8, label %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
+  br i1 %cmp.i.i, label %if.end8, label %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
 
-_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit: ; preds = %if.end.i
+_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit: ; preds = %if.end.i
   %17 = load atomic i64, ptr %atomic-temp.i.0.i6.i acquire, align 8
   %atomic-temp.i.0.i7.i = inttoptr i64 %17 to ptr
   %cmp.not = icmp eq i64 %17, 0
   br i1 %cmp.not, label %if.end8, label %if.then6
 
-if.then6:                                         ; preds = %if.end, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
-  %retval.0.i26 = phi ptr [ %atomic-temp.i.0.i7.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit ], [ %atomic-temp.i.0.i.i, %if.end ]
+if.then6:                                         ; preds = %if.end, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
+  %retval.0.i26 = phi ptr [ %atomic-temp.i.0.i7.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit ], [ %atomic-temp.i.0.i.i, %if.end ]
   %18 = getelementptr inbounds i8, ptr %this, i64 48
   br label %while.body.i.i
 
@@ -1679,7 +1679,7 @@ land.rhs.i:                                       ; preds = %if.end.i.i
   %cmp.i3.i = icmp eq i32 %call.i.i10, 0
   br label %return
 
-if.end8:                                          ; preds = %if.end.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
+if.end8:                                          ; preds = %if.end.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
   %23 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %cmp10.not = icmp eq i64 %23, 0
   br i1 %cmp10.not, label %return, label %if.then11
@@ -1829,16 +1829,16 @@ if.end.i:                                         ; preds = %if.end
   %15 = load atomic i64, ptr %atomic-temp.i.0.i6.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %15 to ptr
   %cmp.i.i = icmp eq ptr %atomic-temp.i.0.i6.i, %atomic-temp.i.0.i.i.i
-  br i1 %cmp.i.i, label %if.else, label %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
+  br i1 %cmp.i.i, label %if.else, label %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
 
-_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit: ; preds = %if.end.i
+_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit: ; preds = %if.end.i
   %16 = load atomic i64, ptr %atomic-temp.i.0.i6.i acquire, align 8
   %atomic-temp.i.0.i7.i = inttoptr i64 %16 to ptr
   %cmp.not = icmp eq i64 %16, 0
   br i1 %cmp.not, label %if.else, label %invoke.cont
 
-invoke.cont:                                      ; preds = %if.end, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
-  %retval.0.i50 = phi ptr [ %atomic-temp.i.0.i7.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit ], [ %atomic-temp.i.0.i.i, %if.end ]
+invoke.cont:                                      ; preds = %if.end, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
+  %retval.0.i50 = phi ptr [ %atomic-temp.i.0.i7.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit ], [ %atomic-temp.i.0.i.i, %if.end ]
   %17 = load ptr, ptr %kstart_.i, align 8
   %18 = load ptr, ptr %end_.i, align 8
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %18 to i64
@@ -1879,7 +1879,7 @@ for.inc:                                          ; preds = %land.rhs
   %cmp.i23.not = icmp eq i64 %24, 0
   br i1 %cmp.i23.not, label %if.end33, label %land.rhs
 
-if.else:                                          ; preds = %if.end.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
+if.else:                                          ; preds = %if.end.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
   %26 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %cmp16.not = icmp eq i64 %26, 0
   br i1 %cmp16.not, label %if.end33, label %if.then17
@@ -2112,14 +2112,14 @@ if.end.i:                                         ; preds = %if.then
   %20 = load atomic i64, ptr %atomic-temp.i.0.i6.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %20 to ptr
   %cmp.i.i = icmp eq ptr %atomic-temp.i.0.i6.i, %atomic-temp.i.0.i.i.i
-  br i1 %cmp.i.i, label %invoke.cont23, label %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
+  br i1 %cmp.i.i, label %invoke.cont23, label %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
 
-_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit: ; preds = %if.end.i
+_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit: ; preds = %if.end.i
   %21 = load atomic i64, ptr %atomic-temp.i.0.i6.i acquire, align 8
   %cmp10.not = icmp eq i64 %21, 0
   br i1 %cmp10.not, label %invoke.cont23, label %if.then11
 
-if.then11:                                        ; preds = %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
+if.then11:                                        ; preds = %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
   %atomic-temp.i.0.i7.i = inttoptr i64 %21 to ptr
   br label %for.body16.preheader
 
@@ -2151,7 +2151,7 @@ lpad5:                                            ; preds = %call.i.i.noexc, %in
   tail call void @_ZdlPv(ptr noundef nonnull %call4) #24
   br label %eh.resume
 
-invoke.cont23:                                    ; preds = %if.end.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
+invoke.cont23:                                    ; preds = %if.end.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
   %26 = load atomic i64, ptr %arrayidx.i20 acquire, align 8
   %atomic-temp.i.0.i.i29 = inttoptr i64 %26 to ptr
   %head_.i30 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i29, i64 40
@@ -3332,16 +3332,16 @@ if.end.i:                                         ; preds = %if.else
   %17 = load atomic i64, ptr %atomic-temp.i.0.i6.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %17 to ptr
   %cmp.i.i = icmp eq ptr %atomic-temp.i.0.i6.i, %atomic-temp.i.0.i.i.i
-  br i1 %cmp.i.i, label %if.else10, label %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
+  br i1 %cmp.i.i, label %if.else10, label %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
 
-_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit: ; preds = %if.end.i
+_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit: ; preds = %if.end.i
   %18 = load atomic i64, ptr %atomic-temp.i.0.i6.i acquire, align 8
   %atomic-temp.i.0.i7.i = inttoptr i64 %18 to ptr
   %cmp.not = icmp eq i64 %18, 0
   br i1 %cmp.not, label %if.else10, label %if.then8
 
-if.then8:                                         ; preds = %if.else, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
-  %retval.0.i88 = phi ptr [ %atomic-temp.i.0.i7.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit ], [ %atomic-temp.i.0.i.i, %if.else ]
+if.then8:                                         ; preds = %if.else, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
+  %retval.0.i88 = phi ptr [ %atomic-temp.i.0.i7.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit ], [ %atomic-temp.i.0.i.i, %if.else ]
   %skip_list_iter_9 = getelementptr inbounds i8, ptr %this, i64 40
   %19 = load ptr, ptr %skip_list_iter_9, align 8
   store ptr null, ptr %skip_list_iter_9, align 8
@@ -3383,7 +3383,7 @@ _ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListIterator4SeekERKNS_5SliceEPK
   store ptr %x.0.i.i, ptr %node_.i15, align 8
   br label %if.end38
 
-if.else10:                                        ; preds = %if.end.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.argprom.exit
+if.else10:                                        ; preds = %if.end.i, %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep20GetLinkListFirstNodeERSt6atomicIPvE.exit
   %25 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %atomic-temp.i.0.i.i19 = inttoptr i64 %25 to ptr
   %skip_list_iter_13 = getelementptr inbounds i8, ptr %this, i64 40

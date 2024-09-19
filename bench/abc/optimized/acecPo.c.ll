@@ -2474,8 +2474,8 @@ Vec_IntPush.exit:                                 ; preds = %Abc_Clock.exit, %21
   %26 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %24, ptr %26, align 8
   store i32 %18, ptr %25, align 4
-  %27 = call fastcc ptr @Hsh_VecManStart.argelim()
-  %28 = call fastcc ptr @Hsh_VecManStart.argelim()
+  %27 = call fastcc ptr @Hsh_VecManStart()
+  %28 = call fastcc ptr @Hsh_VecManStart()
   %29 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   store i32 1000, ptr %29, align 8
@@ -2922,7 +2922,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %.
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @Hsh_VecManStart.argelim() unnamed_addr #11 {
+define internal fastcc noalias noundef ptr @Hsh_VecManStart() unnamed_addr #11 {
   %1 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #26
   br label %.loopexit.i
 
@@ -4332,12 +4332,12 @@ Vec_IntRemove.exit:                               ; preds = %88, %10, %._crit_ed
   br i1 %131, label %.lr.ph.split.us.i54, label %Vec_IntAppendMinusAbs.exit59, !llvm.loop !50
 
 Vec_IntAppendMinusAbs.exit59:                     ; preds = %.lr.ph.split.us.i54, %125
-  tail call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef %5, i32 noundef %8)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef %5, i32 noundef %8)
   br label %Vec_IntAppendMinusAbs.exit.sink.split
 
 Vec_IntAppendMinusAbs.exit.sink.split:            ; preds = %.lr.ph.split.i, %115, %Vec_IntAppendMinusAbs.exit59
   %.sink = phi i32 [ %9, %Vec_IntAppendMinusAbs.exit59 ], [ %8, %115 ], [ %8, %.lr.ph.split.i ]
-  tail call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef %5, i32 noundef %.sink)
+  tail call fastcc void @Vec_IntPushUniqueOrder(ptr noundef %5, i32 noundef %.sink)
   br label %Vec_IntAppendMinusAbs.exit
 
 Vec_IntAppendMinusAbs.exit:                       ; preds = %.lr.ph.split.us.i, %Vec_IntAppendMinusAbs.exit.sink.split, %105, %123
@@ -4433,8 +4433,8 @@ Vec_WecStart.exit:                                ; preds = %Abc_Clock.exit, %23
   %28 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %26, ptr %28, align 8
   store i32 %.val290, ptr %27, align 4
-  %29 = call fastcc ptr @Hsh_VecManStart.argelim()
-  %30 = call fastcc ptr @Hsh_VecManStart.argelim()
+  %29 = call fastcc ptr @Hsh_VecManStart()
+  %30 = call fastcc ptr @Hsh_VecManStart()
   %31 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %32 = getelementptr inbounds i8, ptr %31, i64 4
   store i32 0, ptr %32, align 4
@@ -4726,7 +4726,7 @@ Vec_IntPushUniqueOrder.exit:                      ; preds = %101, %Vec_IntPushOr
 
 151:                                              ; preds = %149
   %152 = ashr exact i32 %.1246, 1
-  call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef %48, i32 noundef %152)
+  call fastcc void @Vec_IntPushUniqueOrder(ptr noundef %48, i32 noundef %152)
   %153 = call fastcc i32 @Gia_PolynBuildAdd(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31, ptr noundef %21, ptr noundef nonnull %46, ptr noundef %48)
   %154 = add nsw i32 %153, %.0230466
   br label %175
@@ -4769,7 +4769,7 @@ Vec_IntGrow.exit.i311:                            ; preds = %169, %155
   store i32 %162, ptr %171, align 4
   store i32 1, ptr %61, align 4
   %172 = ashr i32 %.1246, 1
-  call fastcc void @Vec_IntPushUniqueOrder.argelim(ptr noundef %48, i32 noundef %172)
+  call fastcc void @Vec_IntPushUniqueOrder(ptr noundef %48, i32 noundef %172)
   %173 = call fastcc i32 @Gia_PolynBuildAdd(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31, ptr noundef %21, ptr noundef nonnull %46, ptr noundef %48)
   %174 = add nsw i32 %157, %173
   br label %175
@@ -5893,18 +5893,18 @@ Vec_IntPushUniqueOrder.exit372:                   ; preds = %629, %Vec_IntPushOr
   %674 = and i64 %.val303, 536870911
   %675 = icmp eq i64 %674, 536870911
   %narrow.i.not.i = or i1 %.not.i.i337, %675
-  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.argprom.exit.thread, label %Gia_ObjIsXor.argprom.exit
+  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
 
-Gia_ObjIsXor.argprom.exit:                        ; preds = %Vec_IntPushUniqueOrder.exit372
+Gia_ObjIsXor.exit:                                ; preds = %Vec_IntPushUniqueOrder.exit372
   %676 = trunc i64 %.val303 to i32
   %677 = and i32 %676, 536870911
   %678 = lshr i64 %.val303, 32
   %679 = trunc nuw i64 %678 to i32
   %680 = and i32 %679, 536870911
   %.not446 = icmp ult i32 %677, %680
-  br i1 %.not446, label %717, label %Gia_ObjIsXor.argprom.exit.thread
+  br i1 %.not446, label %717, label %Gia_ObjIsXor.exit.thread
 
-Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %Vec_IntPushUniqueOrder.exit372, %Gia_ObjIsXor.argprom.exit
+Gia_ObjIsXor.exit.thread:                         ; preds = %Vec_IntPushUniqueOrder.exit372, %Gia_ObjIsXor.exit
   %681 = and i64 %.val303, 536870912
   %.not260 = icmp eq i64 %681, 0
   %682 = and i64 %.val303, 2305843009213693952
@@ -5912,7 +5912,7 @@ Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %Vec_IntPushUniqueOr
   %683 = load ptr, ptr %12, align 16
   br i1 %.not260, label %706, label %684
 
-684:                                              ; preds = %Gia_ObjIsXor.argprom.exit.thread
+684:                                              ; preds = %Gia_ObjIsXor.exit.thread
   br i1 %.not265, label %699, label %685
 
 685:                                              ; preds = %684
@@ -5940,7 +5940,7 @@ Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %Vec_IntPushUniqueOr
   %705 = add nsw i32 %.5242481, 2
   br label %717
 
-706:                                              ; preds = %Gia_ObjIsXor.argprom.exit.thread
+706:                                              ; preds = %Gia_ObjIsXor.exit.thread
   br i1 %.not265, label %714, label %707
 
 707:                                              ; preds = %706
@@ -5957,9 +5957,9 @@ Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %Vec_IntPushUniqueOr
   %716 = add nsw i32 %715, %.6236482
   br label %717
 
-717:                                              ; preds = %685, %707, %714, %699, %Gia_ObjIsXor.argprom.exit
-  %.6243 = phi i32 [ %.5242481, %Gia_ObjIsXor.argprom.exit ], [ %698, %685 ], [ %.5242481, %714 ], [ %713, %707 ], [ %705, %699 ]
-  %.7 = phi i32 [ %.6236482, %Gia_ObjIsXor.argprom.exit ], [ %697, %685 ], [ %716, %714 ], [ %712, %707 ], [ %704, %699 ]
+717:                                              ; preds = %685, %707, %714, %699, %Gia_ObjIsXor.exit
+  %.6243 = phi i32 [ %.5242481, %Gia_ObjIsXor.exit ], [ %698, %685 ], [ %.5242481, %714 ], [ %713, %707 ], [ %705, %699 ]
+  %.7 = phi i32 [ %.6236482, %Gia_ObjIsXor.exit ], [ %697, %685 ], [ %716, %714 ], [ %712, %707 ], [ %704, %699 ]
   %.val291 = load ptr, ptr %34, align 8
   %718 = getelementptr inbounds i32, ptr %.val291, i64 %307
   store i32 0, ptr %718, align 4
@@ -6109,7 +6109,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUniqueOrder.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUniqueOrder(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -6373,14 +6373,14 @@ Vec_IntAlloc.exit95:                              ; preds = %Vec_IntAlloc.exit91
   %.0130149 = phi i32 [ -1, %.lr.ph152 ], [ %.1, %61 ]
   %indvars.iv148 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next, %61 ]
   %.val82 = load ptr, ptr %56, align 8
-  %69 = tail call fastcc i32 @Gia_ObjLevel.argprom(ptr nonnull %.val79151, ptr %.val82, ptr noundef %68)
+  %69 = tail call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val79151, ptr %.val82, ptr noundef %68)
   %70 = icmp slt i32 %.058129150, %69
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %67
   %.val83 = load ptr, ptr %52, align 8
   %.val84 = load ptr, ptr %56, align 8
-  %72 = tail call fastcc i32 @Gia_ObjLevel.argprom(ptr %.val83, ptr %.val84, ptr noundef %68)
+  %72 = tail call fastcc i32 @Gia_ObjLevel(ptr %.val83, ptr %.val84, ptr noundef %68)
   %73 = trunc nuw nsw i64 %indvars.iv148 to i32
   br label %74
 
@@ -6818,7 +6818,7 @@ Vec_WecFreeP.exit:                                ; preds = %Vec_WecFree.exit.i,
 declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ObjLevel.argprom(ptr %.32.val, ptr nocapture %.160.val, ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc i32 @Gia_ObjLevel(ptr %.32.val, ptr nocapture %.160.val, ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = ptrtoint ptr %.32.val to i64
   %4 = sub i64 %2, %3
@@ -6828,7 +6828,7 @@ define internal fastcc i32 @Gia_ObjLevel.argprom(ptr %.32.val, ptr nocapture %.1
   %8 = getelementptr inbounds i8, ptr %.160.val, i64 4
   %9 = load i32, ptr %8, align 4
   %.not.i.not.i.i = icmp sgt i32 %9, %6
-  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.argprom.exit, label %10
+  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.exit, label %10
 
 10:                                               ; preds = %1
   %11 = load i32, ptr %.160.val, align 8
@@ -6913,9 +6913,9 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i:                                ; preds = %40, %Vec_IntGrow.exit.i.i.i
   store i32 %7, ptr %8, align 4
-  br label %Gia_ObjLevelId.argprom.exit
+  br label %Gia_ObjLevelId.exit
 
-Gia_ObjLevelId.argprom.exit:                      ; preds = %1, %._crit_edge.i.i.i
+Gia_ObjLevelId.exit:                              ; preds = %1, %._crit_edge.i.i.i
   %43 = getelementptr i8, ptr %.160.val, i64 8
   %.val.i.i = load ptr, ptr %43, align 8
   %sext = shl i64 %5, 32

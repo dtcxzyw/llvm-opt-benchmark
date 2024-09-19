@@ -36232,7 +36232,7 @@ for.end31:                                        ; preds = %if.end28, %entry
   br i1 %tobool32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %for.end31
-  call fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc.argprom()
+  call fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc()
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %for.end31
@@ -36424,7 +36424,7 @@ for.end30:                                        ; preds = %if.end27, %entry
   br i1 %tobool31, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %for.end30
-  call fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc.argprom()
+  call fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc()
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then32, %for.end30
@@ -54464,7 +54464,7 @@ _ZN7testing7MessageD2Ev.exit6:                    ; preds = %lpad.body, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc.argprom() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 if.end.lr.ph:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1

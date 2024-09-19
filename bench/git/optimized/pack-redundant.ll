@@ -176,7 +176,7 @@ if.then34:                                        ; preds = %if.end32
 
 while.body.i:                                     ; preds = %if.then34, %while.body.i
   %p.04.i = phi ptr [ %19, %while.body.i ], [ %call.i, %if.then34 ]
-  tail call fastcc void @add_pack.retelim(ptr noundef %p.04.i)
+  tail call fastcc void @add_pack(ptr noundef %p.04.i)
   %next.i = getelementptr inbounds i8, ptr %p.04.i, i64 16
   %19 = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %19, null
@@ -218,7 +218,7 @@ while.end.i:                                      ; preds = %while.cond.preheade
   unreachable
 
 add_pack_file.exit:                               ; preds = %while.body.i32
-  tail call fastcc void @add_pack.retelim(ptr noundef %p.09.i)
+  tail call fastcc void @add_pack(ptr noundef %p.09.i)
   %add.ptr = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next617
   %23 = load ptr, ptr %add.ptr, align 8
   %cmp36.not = icmp eq ptr %23, null
@@ -1663,17 +1663,17 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
 for.end.i.i:                                      ; preds = %for.body.i.i
   %arrayidx.i.i.le = getelementptr inbounds ptr, ptr %call1.i.i, i64 %n.023.i.i
   %cmp.i.i.i = icmp ugt i64 %inc.i.i, 1
-  br i1 %cmp.i.i.i, label %sane_qsort.argprom.exit.i.thread.i, label %sane_qsort.argprom.exit.i.i
+  br i1 %cmp.i.i.i, label %sane_qsort.exit.i.thread.i, label %sane_qsort.exit.i.i
 
-sane_qsort.argprom.exit.i.thread.i:               ; preds = %for.end.i.i
+sane_qsort.exit.i.thread.i:                       ; preds = %for.end.i.i
   call void @qsort(ptr noundef nonnull %call1.i.i, i64 noundef %inc.i.i, i64 noundef 8, ptr noundef nonnull @cmp_remaining_objects) #16
   br label %for.body5.preheader.i.i
 
-sane_qsort.argprom.exit.i.i:                      ; preds = %for.end.i.i
+sane_qsort.exit.i.i:                              ; preds = %for.end.i.i
   %cmp325.not.i.i = icmp eq i64 %n.023.i.i, 0
   br i1 %cmp325.not.i.i, label %for.end12.i.i, label %for.body5.preheader.i.i
 
-for.body5.preheader.i.i:                          ; preds = %sane_qsort.argprom.exit.i.i, %sane_qsort.argprom.exit.i.thread.i
+for.body5.preheader.i.i:                          ; preds = %sane_qsort.exit.i.i, %sane_qsort.exit.i.thread.i
   %.pre.i.i = load ptr, ptr %call1.i.i, align 8
   br label %for.body5.i.i
 
@@ -1691,8 +1691,8 @@ for.end12.i.loopexit.i:                           ; preds = %for.body5.i.i
   %.pre259.i = load ptr, ptr %arrayidx.i.i.le, align 8
   br label %for.end12.i.i
 
-for.end12.i.i:                                    ; preds = %for.end12.i.loopexit.i, %sane_qsort.argprom.exit.i.i
-  %182 = phi ptr [ %.pre259.i, %for.end12.i.loopexit.i ], [ %p.024.i.i, %sane_qsort.argprom.exit.i.i ]
+for.end12.i.i:                                    ; preds = %for.end12.i.loopexit.i, %sane_qsort.exit.i.i
+  %182 = phi ptr [ %.pre259.i, %for.end12.i.loopexit.i ], [ %p.024.i.i, %sane_qsort.exit.i.i ]
   store ptr null, ptr %182, align 8
   %183 = load ptr, ptr %call1.i.i, align 8
   call void @free(ptr noundef nonnull %call1.i.i) #16
@@ -2524,7 +2524,7 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #4
 declare ptr @get_all_packs(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_pack.retelim(ptr noundef nonnull %p) unnamed_addr #0 {
+define internal fastcc void @add_pack(ptr noundef nonnull %p) unnamed_addr #0 {
 entry:
   %pack_local = getelementptr inbounds i8, ptr %p, i64 152
   %bf.load = load i8, ptr %pack_local, align 8

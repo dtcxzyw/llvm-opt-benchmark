@@ -649,7 +649,7 @@ define internal void @tts_heap_getsomeattrs(ptr nocapture noundef %0, i32 nounde
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = getelementptr i8, ptr %4, i64 16
   %.val = load ptr, ptr %6, align 8
-  tail call fastcc void @slot_deform_heap_tuple.argprom(ptr noundef %0, ptr %.val, ptr noundef nonnull %5, i32 noundef %1)
+  tail call fastcc void @slot_deform_heap_tuple(ptr noundef %0, ptr %.val, ptr noundef nonnull %5, i32 noundef %1)
   ret void
 }
 
@@ -972,7 +972,7 @@ define internal void @tts_minimal_getsomeattrs(ptr nocapture noundef %0, i32 nou
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = getelementptr i8, ptr %4, i64 16
   %.val = load ptr, ptr %6, align 8
-  tail call fastcc void @slot_deform_heap_tuple.argprom(ptr noundef %0, ptr %.val, ptr noundef nonnull %5, i32 noundef %1)
+  tail call fastcc void @slot_deform_heap_tuple(ptr noundef %0, ptr %.val, ptr noundef nonnull %5, i32 noundef %1)
   ret void
 }
 
@@ -1324,7 +1324,7 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr nocapture noundef %0, i32
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = getelementptr i8, ptr %4, i64 16
   %.val = load ptr, ptr %6, align 8
-  tail call fastcc void @slot_deform_heap_tuple.argprom(ptr noundef %0, ptr %.val, ptr noundef nonnull %5, i32 noundef %1)
+  tail call fastcc void @slot_deform_heap_tuple(ptr noundef %0, ptr %.val, ptr noundef nonnull %5, i32 noundef %1)
   ret void
 }
 
@@ -4165,7 +4165,7 @@ declare ptr @heap_form_minimal_tuple(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @slot_deform_heap_tuple.argprom(ptr nocapture noundef %0, ptr %.16.val, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, ptr %.16.val, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24

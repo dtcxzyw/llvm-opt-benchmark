@@ -1406,7 +1406,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_111ErrnoRegionEEENS0_17ProgramSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNS7_14errno_modeling15getErrnoNoteTagERNS7_14CheckerContextERKS5_E3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #1 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %8
@@ -1416,30 +1416,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basi
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.val5) #15
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val6.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.val6.i) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 32) #16
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang4ento14errno_modeling15getErrnoNoteTagERNS2_14CheckerContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -1819,7 +1819,7 @@ define internal void @_ZN5clang4ento5check7ASTDeclINS_19TranslationUnitDeclEE10_
   %19 = ptrtoint ptr %11 to i64
   %20 = tail call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 %19) #15
   %.not9.i.i.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not9.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %.not9.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 2104
@@ -1884,21 +1884,21 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i.i.i.i.i.
   %.sroa.0.0.copyload.i9.i.i.i.i.i.i.i = load i64, ptr %22, align 8
   %50 = icmp eq i64 %49, %.sroa.0.0.copyload.i9.i.i.i.i.i.i.i
   %brmerge.i.i = or i1 %.not.i.i.i.i.i.i.i, %50
-  br i1 %brmerge.i.i, label %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.argprom.exit.i", label %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i
+  br i1 %brmerge.i.i, label %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i", label %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i.i": ; preds = %39, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i.i.i.i.i.i.i, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i.i.i.i.i.i.i, %34, %_ZNK5clang12DeclListNode8iteratordeEv.exit.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i
 
 _ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.i.i.i.i.i"
   %51 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %52 = load i64, ptr %51, align 8
   %.not.i.i.i.i.i = icmp eq i64 %52, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %23, !llvm.loop !88
+  br i1 %.not.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %23, !llvm.loop !88
 
-"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.argprom.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.i.i.i.i.i"
-  br i1 %50, label %53, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.i.i.i.i.i"
+  br i1 %50, label %53, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-53:                                               ; preds = %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.argprom.exit.i"
+53:                                               ; preds = %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i"
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang12DeclListNode8iteratordeEv.exit.i, label %54
 
 54:                                               ; preds = %53
@@ -1909,9 +1909,9 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit.i:     ; preds = %54, %53
   %.0.i.i = phi ptr [ %55, %54 ], [ %26, %53 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.0.i.i, ptr %56, align 8
-  br label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i.i", %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i, %4, %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.argprom.exit.i", %_ZNK5clang12DeclListNode8iteratordeEv.exit.i
+_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i.i", %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i, %4, %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i", %_ZNK5clang12DeclListNode8iteratordeEv.exit.i
   ret void
 }
 
@@ -2645,7 +2645,7 @@ define internal noundef zeroext i1 @_ZN5clang4ento4eval4Call9_evalCallIN12_GLOBA
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = tail call noundef zeroext i1 @_ZNK5clang4ento18CallDescriptionSet8containsERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(24) @_ZN12_GLOBAL__N_118ErrnoLocationCallsE, ptr noundef nonnull align 8 dereferenceable(72) %1) #15
-  br i1 %7, label %8, label %_ZNK12_GLOBAL__N_113ErrnoModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit
+  br i1 %7, label %8, label %_ZNK12_GLOBAL__N_113ErrnoModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2695,7 +2695,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %.pr.i.i = load ptr, ptr %26, align 8
   %.not.i.i.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit, label %27
+  br i1 %.not.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %27
 
 27:                                               ; preds = %24, %.thread.i.i
   %.sroa.08.0.i = phi ptr [ %.pr.i.i, %24 ], [ %23, %.thread.i.i ]
@@ -2738,7 +2738,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i: ; pre
 _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, %27
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.08.0.i) #15
-  br i1 %.not.i.i11.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.thread25.i
+  br i1 %.not.i.i11.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.thread25.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.thread25.i: ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %23) #15
@@ -2748,9 +2748,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.i: ; preds
   %.sroa.03.030.i = phi ptr [ %23, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.thread25.i ], [ %12, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ %12, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_111ErrnoRegionEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i ]
   %.not1229.i = phi i1 [ true, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.thread25.i ], [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i ], [ false, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_111ErrnoRegionEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.03.030.i) #15
-  br label %_ZNK12_GLOBAL__N_113ErrnoModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_113ErrnoModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_113ErrnoModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.argprom.exit: ; preds = %3, %24, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.i
+_ZNK12_GLOBAL__N_113ErrnoModeling8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %3, %24, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.i
   %.1.i = phi i1 [ false, %3 ], [ %.not1229.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.i ], [ true, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i ], [ true, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret i1 %.1.i
@@ -2913,36 +2913,36 @@ attributes #18 = { noreturn nounwind }
 !8 = distinct !{!8, !9, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !9 = distinct !{!9, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !10 = !{!11, !8}
-!11 = distinct !{!11, !12, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!11 = distinct !{!11, !12, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!12 = distinct !{!12, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !15 = distinct !{!15, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !16 = !{!17, !14}
-!17 = distinct !{!17, !18, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!18 = distinct !{!18, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!17 = distinct !{!17, !18, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!18 = distinct !{!18, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !19 = !{!20}
 !20 = distinct !{!20, !21, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !21 = distinct !{!21, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !22 = !{!23, !20}
-!23 = distinct !{!23, !24, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!24 = distinct !{!24, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!23 = distinct !{!23, !24, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!24 = distinct !{!24, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !25 = !{!26, !28}
 !26 = distinct !{!26, !27, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !27 = distinct !{!27, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !28 = distinct !{!28, !29, !"_ZN5clang4ento14errno_modeling13setErrnoStateEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS1_15ErrnoCheckStateE: argument 0"}
 !29 = distinct !{!29, !"_ZN5clang4ento14errno_modeling13setErrnoStateEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS1_15ErrnoCheckStateE"}
 !30 = !{!31, !26, !28}
-!31 = distinct !{!31, !32, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!32 = distinct !{!32, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!31 = distinct !{!31, !32, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!32 = distinct !{!32, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !33 = !{!34, !36}
 !34 = distinct !{!34, !35, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !35 = distinct !{!35, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !36 = distinct !{!36, !37, !"_ZN5clang4ento14errno_modeling13setErrnoStateEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS1_15ErrnoCheckStateE: argument 0"}
 !37 = distinct !{!37, !"_ZN5clang4ento14errno_modeling13setErrnoStateEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS1_15ErrnoCheckStateE"}
 !38 = !{!39, !34, !36}
-!39 = distinct !{!39, !40, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!40 = distinct !{!40, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!39 = distinct !{!39, !40, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!40 = distinct !{!40, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !41 = !{!42}
 !42 = distinct !{!42, !43, !"_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb: argument 0"}
 !43 = distinct !{!43, !"_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb"}
@@ -2952,8 +2952,8 @@ attributes #18 = { noreturn nounwind }
 !47 = distinct !{!47, !48, !"_ZN5clang4ento14errno_modeling13setErrnoStateEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS1_15ErrnoCheckStateE: argument 0"}
 !48 = distinct !{!48, !"_ZN5clang4ento14errno_modeling13setErrnoStateEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS1_15ErrnoCheckStateE"}
 !49 = !{!50, !45, !47}
-!50 = distinct !{!50, !51, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!51 = distinct !{!51, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!50 = distinct !{!50, !51, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!51 = distinct !{!51, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}
 !52 = distinct !{!52, !5}
 !53 = !{!54, !56}
 !54 = distinct !{!54, !55, !"_ZSt19__relocate_object_aIN5clang4ento9CheckerFnIFvvEEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
@@ -2997,5 +2997,5 @@ attributes #18 = { noreturn nounwind }
 !92 = distinct !{!92, !93, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_111ErrnoRegionEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
 !93 = distinct !{!93, !"_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_111ErrnoRegionEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE"}
 !94 = !{!95, !92}
-!95 = distinct !{!95, !96, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_111ErrnoRegionEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom: argument 0"}
-!96 = distinct !{!96, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_111ErrnoRegionEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE.argprom"}
+!95 = distinct !{!95, !96, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_111ErrnoRegionEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE: argument 0"}
+!96 = distinct !{!96, !"_ZN5clang4ento19ProgramStateManager3setIN12_GLOBAL__N_111ErrnoRegionEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES9_NS0_17ProgramStateTraitIT_E9data_typeE"}

@@ -7201,7 +7201,7 @@ define internal fastcc void @enqueue_dl_entity(ptr noundef %0, i32 noundef %1) u
   br i1 %or.cond, label %190, label %.thread6, !prof !193
 
 190:                                              ; preds = %183
-  tail call fastcc void @update_dl_revised_wakeup.argprom(ptr noundef %0, i64 %167)
+  tail call fastcc void @update_dl_revised_wakeup(ptr noundef %0, i64 %167)
   br label %254
 
 .thread6:                                         ; preds = %162, %183
@@ -12421,7 +12421,7 @@ define internal fastcc void @replenish_dl_entity(ptr noundef %0) unnamed_addr #2
 declare dso_local i32 @hrtimer_try_to_cancel(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @update_dl_revised_wakeup.argprom(ptr nocapture noundef %0, i64 %.2384.val) unnamed_addr #2 align 16 {
+define internal fastcc void @update_dl_revised_wakeup(ptr nocapture noundef %0, i64 %.2384.val) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8
   %4 = sub i64 %3, %.2384.val

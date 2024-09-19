@@ -1661,7 +1661,7 @@ define range(i32 0, 2) i32 @Pdr_NtkFindSatAssign_rec(ptr nocapture noundef reado
   %.val144 = load i64, ptr %6, align 8
   %7 = and i64 %.val144, 7
   %.not145 = icmp eq i64 %7, 1
-  br i1 %.not145, label %Pdr_ObjSatValue.argprom.exit, label %.lr.ph
+  br i1 %.not145, label %Pdr_ObjSatValue.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = getelementptr i8, ptr %0, i64 312
@@ -1683,7 +1683,7 @@ define range(i32 0, 2) i32 @Pdr_NtkFindSatAssign_rec(ptr nocapture noundef reado
   %14 = lshr i32 %13, 4
   %15 = and i32 %14, 1
   %16 = icmp eq i32 %15, %.tr128147
-  br label %Pdr_ObjSatValue.argprom.exit
+  br label %Pdr_ObjSatValue.exit
 
 17:                                               ; preds = %9
   store i32 %.val76, ptr %11, align 8
@@ -1702,7 +1702,7 @@ Saig_ObjIsLo.exit:                                ; preds = %17
   %24 = getelementptr i8, ptr %0, i64 108
   %.val4.i = load i32, ptr %24, align 4
   %.not126 = icmp slt i32 %.val3.i, %.val4.i
-  br i1 %.not126, label %Pdr_ObjSatValue.argprom.exit, label %25
+  br i1 %.not126, label %Pdr_ObjSatValue.exit, label %25
 
 25:                                               ; preds = %Saig_ObjIsLo.exit
   %26 = sub nsw i32 %.val3.i, %.val4.i
@@ -1727,7 +1727,7 @@ Saig_ObjIsLo.exit:                                ; preds = %17
   %43 = load i64, ptr %3, align 8
   %44 = or i64 %42, %43
   store i64 %44, ptr %3, align 8
-  br label %Pdr_ObjSatValue.argprom.exit
+  br label %Pdr_ObjSatValue.exit
 
 45:                                               ; preds = %17
   %.not71 = icmp eq i32 %.tr128147, 0
@@ -1744,7 +1744,7 @@ Saig_ObjIsLo.exit:                                ; preds = %17
   %53 = xor i32 %51, 1
   %54 = tail call i32 @Pdr_NtkFindSatAssign_rec(ptr noundef nonnull %0, ptr noundef %49, i32 noundef %53, ptr noundef %3, i32 noundef %4)
   %.not73 = icmp eq i32 %54, 0
-  br i1 %.not73, label %Pdr_ObjSatValue.argprom.exit, label %55
+  br i1 %.not73, label %Pdr_ObjSatValue.exit, label %55
 
 55:                                               ; preds = %52
   %56 = getelementptr i8, ptr %.tr127146, i64 16
@@ -1764,7 +1764,7 @@ tailrecurse.backedge:                             ; preds = %55, %73, %93, %.thr
   %.val = load i64, ptr %63, align 8
   %64 = and i64 %.val, 7
   %.not = icmp eq i64 %64, 1
-  br i1 %.not, label %Pdr_ObjSatValue.argprom.exit, label %9
+  br i1 %.not, label %Pdr_ObjSatValue.exit, label %9
 
 65:                                               ; preds = %45
   %.val98 = load i32, ptr %8, align 8
@@ -1780,7 +1780,7 @@ tailrecurse.backedge:                             ; preds = %55, %73, %93, %.thr
   %71 = lshr i32 %70, 4
   %72 = and i32 %71, 1
   %.not4.i = icmp eq i32 %72, %51
-  br i1 %.not4.i, label %Pdr_ObjSatValue.argprom.exit, label %73
+  br i1 %.not4.i, label %Pdr_ObjSatValue.exit, label %73
 
 73:                                               ; preds = %67
   %74 = getelementptr i8, ptr %.tr127146, i64 16
@@ -1802,7 +1802,7 @@ tailrecurse.backedge:                             ; preds = %55, %73, %93, %.thr
   %84 = lshr i32 %83, 4
   %85 = and i32 %84, 1
   %.not4.i105158 = icmp eq i32 %85, %79
-  br label %Pdr_ObjSatValue.argprom.exit
+  br label %Pdr_ObjSatValue.exit
 
 .thread116:                                       ; preds = %65
   %86 = getelementptr i8, ptr %.tr127146, i64 16
@@ -1824,7 +1824,7 @@ tailrecurse.backedge:                             ; preds = %55, %73, %93, %.thr
   %97 = lshr i32 %96, 4
   %98 = and i32 %97, 1
   %.not4.i105 = icmp eq i32 %98, %91
-  br i1 %.not4.i105, label %Pdr_ObjSatValue.argprom.exit, label %tailrecurse.backedge
+  br i1 %.not4.i105, label %Pdr_ObjSatValue.exit, label %tailrecurse.backedge
 
 .thread115:                                       ; preds = %.thread116
   %99 = getelementptr i8, ptr %.tr127146, i64 36
@@ -1835,7 +1835,7 @@ tailrecurse.backedge:                             ; preds = %55, %73, %93, %.thr
   %.131 = select i1 %101, i32 %91, i32 %51
   br label %tailrecurse.backedge
 
-Pdr_ObjSatValue.argprom.exit:                     ; preds = %tailrecurse.backedge, %52, %67, %93, %.thread, %5, %Saig_ObjIsLo.exit, %25, %12
+Pdr_ObjSatValue.exit:                             ; preds = %tailrecurse.backedge, %52, %67, %93, %.thread, %5, %Saig_ObjIsLo.exit, %25, %12
   %.0.shrunk = phi i1 [ %16, %12 ], [ true, %25 ], [ true, %Saig_ObjIsLo.exit ], [ true, %5 ], [ %.not4.i105158, %.thread ], [ true, %tailrecurse.backedge ], [ false, %52 ], [ true, %67 ], [ true, %93 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0

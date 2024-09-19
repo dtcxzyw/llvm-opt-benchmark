@@ -513,7 +513,7 @@ define void @zend_dump_ssa_var(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %.not21, label %47, label %39
 
 39:                                               ; preds = %36
-  tail call fastcc void @zend_dump_ssa_var_info.argprom(ptr nonnull %38, i32 noundef %2, i32 noundef %5)
+  tail call fastcc void @zend_dump_ssa_var_info(ptr nonnull %38, i32 noundef %2, i32 noundef %5)
   %40 = load ptr, ptr %37, align 8
   %41 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %40, i64 %22
   %42 = getelementptr inbounds i8, ptr %41, i64 4
@@ -531,7 +531,7 @@ define void @zend_dump_ssa_var(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @zend_dump_ssa_var_info.argprom(ptr nocapture readonly %.72.val, i32 noundef range(i32 0, -2147483648) %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @zend_dump_ssa_var_info(ptr nocapture readonly %.72.val, i32 noundef range(i32 0, -2147483648) %0, i32 noundef %1) unnamed_addr #4 {
   %3 = zext nneg i32 %0 to i64
   %4 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %.72.val, i64 %3
   %5 = load i32, ptr %4, align 8
@@ -1199,7 +1199,7 @@ define void @zend_dump_op(ptr nocapture noundef readonly %0, ptr noundef readonl
   %316 = and i32 %11, 255
   %317 = getelementptr inbounds i8, ptr %2, i64 8
   %318 = load i32, ptr %317, align 8
-  tail call fastcc void @zend_dump_unused_op.argprom(i32 %318, i32 noundef %316)
+  tail call fastcc void @zend_dump_unused_op(i32 %318, i32 noundef %316)
   br label %319
 
 319:                                              ; preds = %274, %281, %285, %298, %302, %315, %248
@@ -1505,7 +1505,7 @@ define void @zend_dump_op(ptr nocapture noundef readonly %0, ptr noundef readonl
   %487 = and i32 %486, 255
   %488 = getelementptr inbounds i8, ptr %2, i64 12
   %489 = load i32, ptr %488, align 4
-  tail call fastcc void @zend_dump_unused_op.argprom(i32 %489, i32 noundef %487)
+  tail call fastcc void @zend_dump_unused_op(i32 %489, i32 noundef %487)
   br label %490
 
 490:                                              ; preds = %448, %455, %459, %472, %478, %485, %._crit_edge, %422
@@ -2387,7 +2387,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @zend_dump_unused_op.argprom(i32 %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #5 {
+define internal fastcc void @zend_dump_unused_op(i32 %0, i32 noundef range(i32 0, 256) %1) unnamed_addr #5 {
   %3 = add nsw i32 %1, -16
   %4 = lshr i32 %3, 4
   switch i32 %4, label %zend_dump_class_fetch_type.exit [
@@ -3480,7 +3480,7 @@ define internal fastcc void @zend_dump_block_header(ptr nocapture noundef nonnul
   br label %._crit_edge
 
 145:                                              ; preds = %47
-  tail call fastcc void @zend_dump_type_constraint.argprom(ptr noundef %58, i32 noundef %4)
+  tail call fastcc void @zend_dump_type_constraint(ptr noundef %58, i32 noundef %4)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %37, %145, %63, %113, %138, %140, %26
@@ -4350,7 +4350,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @zend_dump_type_constraint.argprom(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @zend_dump_type_constraint(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 5, i64 1, ptr %3) #9
   %5 = load i32, ptr %0, align 8

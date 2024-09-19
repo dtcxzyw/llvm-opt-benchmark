@@ -770,13 +770,13 @@ _ZNK6hermes2vm15StringPrimitive18castToUTF16PointerEv.exit.i.i: ; preds = %if.el
 _ZNK6hermes2vm15StringPrimitive2atEj.exit.i:      ; preds = %_ZNK6hermes2vm15StringPrimitive18castToUTF16PointerEv.exit.i.i, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i
   %retval.0.i.i = phi i16 [ %conv.i.i, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i ], [ %21, %_ZNK6hermes2vm15StringPrimitive18castToUTF16PointerEv.exit.i.i ]
   %cmp7.i = icmp eq i16 %retval.0.i.i, 47
-  br i1 %cmp7.i, label %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.argprom.exit, label %if.else.i
+  br i1 %cmp7.i, label %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
   call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr noundef nonnull align 8 dereferenceable(8) %appendToCanonical.i, ptr nonnull readonly %incdec.ptr.i.i.i.i.i.i, i32 noundef 0)
-  br label %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.argprom.exit
+  br label %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit
 
-_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.argprom.exit: ; preds = %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i, %if.else.i
+_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit: ; preds = %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i, %if.else.i
   %.sink.i = phi i32 [ 0, %if.else.i ], [ 1, %_ZNK6hermes2vm15StringPrimitive2atEj.exit.i ]
   call fastcc void @"_ZZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_ENK3$_0clES5_j"(ptr noundef nonnull align 8 dereferenceable(8) %appendToCanonical.i, ptr nonnull readonly %retval.0.i.i.i.i.i.i40, i32 noundef %.sink.i)
   %call16.i = call noundef zeroext i1 @_ZN4llvh3sys4path11remove_dotsERNS_15SmallVectorImplIcEEbNS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(16) %canonicalPath, i1 noundef zeroext true, i32 noundef 1) #8
@@ -789,7 +789,7 @@ _ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitive
   %cmp.i46 = icmp eq i32 %24, 0
   br i1 %cmp.i46, label %cleanup, label %if.end35
 
-if.end35:                                         ; preds = %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.argprom.exit
+if.end35:                                         ; preds = %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit
   %25 = extractvalue { i32, i64 } %call32, 1
   %and.i.i47 = and i64 %25, 281474976710655
   %26 = inttoptr i64 %and.i.i47 to ptr
@@ -959,9 +959,9 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
   %44 = extractvalue { i32, i64 } %call92, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end64, %if.end35, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.argprom.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
-  %retval.sroa.0.1 = phi i32 [ %43, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ %call63, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ], [ 0, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.argprom.exit ], [ 0, %if.end35 ], [ 0, %if.end64 ]
-  %retval.sroa.7.1 = phi i64 [ %44, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ undef, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ], [ undef, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.argprom.exit ], [ undef, %if.end35 ], [ undef, %if.end64 ]
+cleanup:                                          ; preds = %if.end64, %if.end35, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
+  %retval.sroa.0.1 = phi i32 [ %43, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ %call63, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ], [ 0, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit ], [ 0, %if.end35 ], [ 0, %if.end64 ]
+  %retval.sroa.7.1 = phi i64 [ %44, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit ], [ undef, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit ], [ undef, %_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.exit ], [ undef, %if.end35 ], [ undef, %if.end64 ]
   %45 = load ptr, ptr %canonicalPath, align 8
   %cmp.i.i.i.i76 = icmp eq ptr %45, %12
   br i1 %cmp.i.i.i.i76, label %cleanup93, label %if.then.i.i.i77
@@ -1202,8 +1202,8 @@ attributes #8 = { nounwind }
 !10 = distinct !{!10, !11, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_: %agg.result"}
 !11 = distinct !{!11, !"_ZN6hermes2vmplERKNS0_11TwineChar16ES3_"}
 !12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.argprom: %agg.result"}
-!14 = distinct !{!14, !"_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_.argprom"}
+!13 = distinct !{!13, !14, !"_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_: %agg.result"}
+!14 = distinct !{!14, !"_ZN6hermes2vmL16canonicalizePathERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEES5_"}
 !15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
 !17 = !{!18}

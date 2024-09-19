@@ -2405,7 +2405,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %ranks.i.i)
   %29 = load ptr, ptr %packed_git.i, align 8
   %tobool.not.i.i14 = icmp eq ptr %29, null
-  br i1 %tobool.not.i.i14, label %rearrange_packed_git.argprom.exit, label %for.cond.i.i
+  br i1 %tobool.not.i.i14, label %rearrange_packed_git.exit, label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.end, %for.end.i.i20
   %n.0.i.i = phi i64 [ %inc16.i.i, %for.end.i.i20 ], [ 0, %for.end ]
@@ -2474,7 +2474,7 @@ do.body2.i.i.i:                                   ; preds = %sort_pack.exit42.i.
   %35 = getelementptr i8, ptr %list.addr.2.i.i.i, i64 16
   %list.addr.2.val.i.i.i = load ptr, ptr %35, align 8
   %tobool4.not.i.i.i = icmp eq ptr %list.addr.2.val.i.i.i, null
-  br i1 %tobool4.not.i.i.i, label %sort_packs__merge.argprom.exit.i.i, label %do.cond.i.i.i
+  br i1 %tobool4.not.i.i.i, label %sort_packs__merge.exit.i.i, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body2.i.i.i
   %pack_local.i23.i.i.i = getelementptr inbounds i8, ptr %list.addr.2.val.i.i.i, i64 152
@@ -2514,7 +2514,7 @@ do.end10.i.i.i:                                   ; preds = %sort_pack.exit42.i.
   %xor.i.i.i = xor i32 %prefer_list.0.i.i.i, 1
   br label %for.cond.i.i.i
 
-sort_packs__merge.argprom.exit.i.i:               ; preds = %do.body2.i.i.i
+sort_packs__merge.exit.i.i:                       ; preds = %do.body2.i.i.i
   %39 = getelementptr i8, ptr %list.addr.2.i.i.i, i64 16
   store ptr %other.addr.1.i.i.i, ptr %39, align 8
   br label %for.inc.i.i17
@@ -2529,10 +2529,10 @@ if.else10.i.i:                                    ; preds = %if.else.i.i19
 if.then12.i.i:                                    ; preds = %if.else10.i.i
   store ptr %list.1.i.i, ptr %packed_git.i, align 8
   %.pre = load ptr, ptr %objects, align 8
-  br label %rearrange_packed_git.argprom.exit
+  br label %rearrange_packed_git.exit
 
-for.inc.i.i17:                                    ; preds = %if.else10.i.i, %sort_packs__merge.argprom.exit.i.i
-  %list.2.i.i = phi ptr [ %spec.select22.i.i.i, %sort_packs__merge.argprom.exit.i.i ], [ %list.1.i.i, %if.else10.i.i ]
+for.inc.i.i17:                                    ; preds = %if.else10.i.i, %sort_packs__merge.exit.i.i
+  %list.2.i.i = phi ptr [ %spec.select22.i.i.i, %sort_packs__merge.exit.i.i ], [ %list.1.i.i, %if.else10.i.i ]
   %indvars.iv.next.i.i18 = add nuw nsw i64 %indvars.iv.i.i15, 1
   %shr.i.i = lshr i64 %m.0.i.i, 1
   br label %for.cond4.i.i
@@ -2544,7 +2544,7 @@ for.end.i.i20:                                    ; preds = %if.else.i.i19
   store ptr %list.1.i.i, ptr %arrayidx18.i.i, align 8
   br label %for.cond.i.i
 
-rearrange_packed_git.argprom.exit:                ; preds = %for.end, %if.then12.i.i
+rearrange_packed_git.exit:                        ; preds = %for.end, %if.then12.i.i
   %40 = phi ptr [ %r.val, %for.end ], [ %.pre, %if.then12.i.i ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %ranks.i.i)
   %packed_git_mru.i = getelementptr inbounds i8, ptr %40, i64 128
@@ -2559,8 +2559,8 @@ rearrange_packed_git.argprom.exit:                ; preds = %for.end, %if.then12
   %tobool.not8.i = icmp eq ptr %p.07.i, null
   br i1 %tobool.not8.i, label %prepare_packed_git_mru.exit, label %for.body.i
 
-for.body.i:                                       ; preds = %rearrange_packed_git.argprom.exit, %for.body.i
-  %p.09.i = phi ptr [ %p.0.i, %for.body.i ], [ %p.07.i, %rearrange_packed_git.argprom.exit ]
+for.body.i:                                       ; preds = %rearrange_packed_git.exit, %for.body.i
+  %p.09.i = phi ptr [ %p.0.i, %for.body.i ], [ %p.07.i, %rearrange_packed_git.exit ]
   %mru.i = getelementptr inbounds i8, ptr %p.09.i, i64 24
   %43 = load ptr, ptr %objects, align 8
   %packed_git_mru7.i = getelementptr inbounds i8, ptr %43, i64 128
@@ -2581,8 +2581,8 @@ prepare_packed_git_mru.exit.loopexit:             ; preds = %for.body.i
   %.pre38 = load ptr, ptr %objects, align 8
   br label %prepare_packed_git_mru.exit
 
-prepare_packed_git_mru.exit:                      ; preds = %prepare_packed_git_mru.exit.loopexit, %rearrange_packed_git.argprom.exit
-  %46 = phi ptr [ %.pre38, %prepare_packed_git_mru.exit.loopexit ], [ %42, %rearrange_packed_git.argprom.exit ]
+prepare_packed_git_mru.exit:                      ; preds = %prepare_packed_git_mru.exit.loopexit, %rearrange_packed_git.exit
+  %46 = phi ptr [ %.pre38, %prepare_packed_git_mru.exit.loopexit ], [ %42, %rearrange_packed_git.exit ]
   %packed_git_initialized8 = getelementptr inbounds i8, ptr %46, i64 216
   %bf.load9 = load i8, ptr %packed_git_initialized8, align 8
   %bf.set = or i8 %bf.load9, 2
@@ -6220,13 +6220,13 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %sha1, ptr noundef nonnull readonly dereferenceable(32) %sha2, i64 32)
-  br label %hasheq_algop.argprom.exit
+  br label %hasheq_algop.exit
 
 if.end.i:                                         ; preds = %entry
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %sha1, ptr noundef nonnull readonly dereferenceable(20) %sha2, i64 20)
-  br label %hasheq_algop.argprom.exit
+  br label %hasheq_algop.exit
 
-hasheq_algop.argprom.exit:                        ; preds = %if.then.i, %if.end.i
+hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.i
   %retval.0.in.in.i = phi i32 [ %bcmp3.i, %if.then.i ], [ %bcmp.i, %if.end.i ]
   %retval.0.in.i = icmp eq i32 %retval.0.in.in.i, 0
   %retval.0.i = zext i1 %retval.0.in.i to i32

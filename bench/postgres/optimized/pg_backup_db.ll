@@ -332,7 +332,7 @@ define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef rea
 
 153:                                              ; preds = %150
   %.val.i.i = load ptr, ptr %6, align 8
-  call fastcc void @die_on_query_failure.argprom(ptr %.val.i.i, ptr noundef nonnull @.str.11)
+  call fastcc void @die_on_query_failure(ptr %.val.i.i, ptr noundef nonnull @.str.11)
   unreachable
 
 ExecuteSqlQuery.exit.i:                           ; preds = %150
@@ -436,7 +436,7 @@ ExecuteSqlQueryForSingleRow.exit:                 ; preds = %ExecuteSqlQuery.exi
 
 197:                                              ; preds = %193
   %.val.i.i.i = load ptr, ptr %6, align 8
-  call fastcc void @die_on_query_failure.argprom(ptr %.val.i.i.i, ptr noundef nonnull @.str.30)
+  call fastcc void @die_on_query_failure(ptr %.val.i.i.i, ptr noundef nonnull @.str.30)
   unreachable
 
 ExecuteSqlQuery.exit.i.i:                         ; preds = %193
@@ -504,7 +504,7 @@ define dso_local noundef ptr @ExecuteSqlQueryForSingleRow(ptr nocapture noundef 
 
 7:                                                ; preds = %2
   %.val.i = load ptr, ptr %3, align 8
-  tail call fastcc void @die_on_query_failure.argprom(ptr %.val.i, ptr noundef %1)
+  tail call fastcc void @die_on_query_failure(ptr %.val.i, ptr noundef %1)
   unreachable
 
 ExecuteSqlQuery.exit:                             ; preds = %2
@@ -599,7 +599,7 @@ define dso_local void @ExecuteSqlStatement(ptr nocapture noundef readonly %0, pt
 
 7:                                                ; preds = %2
   %.val = load ptr, ptr %3, align 8
-  tail call fastcc void @die_on_query_failure.argprom(ptr %.val, ptr noundef %1)
+  tail call fastcc void @die_on_query_failure(ptr %.val, ptr noundef %1)
   unreachable
 
 8:                                                ; preds = %2
@@ -612,7 +612,7 @@ declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @die_on_query_failure.argprom(ptr %.440.val, ptr noundef %0) unnamed_addr #5 {
+define internal fastcc void @die_on_query_failure(ptr %.440.val, ptr noundef %0) unnamed_addr #5 {
   %2 = tail call ptr @PQerrorMessage(ptr noundef %.440.val) #8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef %2) #8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef %0) #8
@@ -631,7 +631,7 @@ define dso_local noundef ptr @ExecuteSqlQuery(ptr nocapture noundef readonly %0,
 
 8:                                                ; preds = %3
   %.val = load ptr, ptr %4, align 8
-  tail call fastcc void @die_on_query_failure.argprom(ptr %.val, ptr noundef %1)
+  tail call fastcc void @die_on_query_failure(ptr %.val, ptr noundef %1)
   unreachable
 
 9:                                                ; preds = %3

@@ -1302,7 +1302,7 @@ define void @_ZN2cv4gapi6python7backendEv(ptr dead_on_unwind noalias nocapture w
 
 14:                                               ; preds = %9
   call void @_ZNSt10shared_ptrIN2cv4gapi8GBackend4PrivEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
-  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_118GPythonBackendImplEED2Ev.argprom(ptr null) #27
+  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_118GPythonBackendImplEED2Ev(ptr null) #27
   %15 = call i32 @__cxa_atexit(ptr nonnull @_ZN2cv4gapi8GBackendD2Ev, ptr nonnull @_ZZN2cv4gapi6python7backendEvE12this_backend, ptr nonnull @__dso_handle) #27
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv4gapi6python7backendEvE12this_backend) #27
   br label %16
@@ -1344,7 +1344,7 @@ _ZN2cv4gapi8GBackendC2ERKS1_.exit:                ; preds = %16, %23, %26
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN2cv4gapi8GBackend4PrivEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
-  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_118GPythonBackendImplEED2Ev.argprom(ptr null) #27
+  call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_118GPythonBackendImplEED2Ev(ptr null) #27
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -1438,9 +1438,9 @@ _ZNSt12__shared_ptrIN2cv4gapi8GBackend4PrivELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_118GPythonBackendImplEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_118GPythonBackendImplEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_118GPythonBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_118GPythonBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
@@ -1476,7 +1476,7 @@ define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_118GPythonBackendIm
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_118GPythonBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_118GPythonBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -1501,16 +1501,16 @@ define internal fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_118GPythonBackendIm
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_118GPythonBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_118GPythonBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #27
-  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_118GPythonBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_118GPythonBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN12_GLOBAL__N_118GPythonBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIN12_GLOBAL__N_118GPythonBackendImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
@@ -1938,7 +1938,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_118GPythonBac
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_118GPythonBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_118GPythonBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_118GPythonBackendImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   ret void
 }
@@ -2049,7 +2049,7 @@ _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i:         ; preds = %27, %24, %_ZN2cv4ut
 30:                                               ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i
   %31 = load ptr, ptr %20, align 8, !noalias !8
   %.not.i.i.i.i3.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i3.i, label %_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.argprom.exit, label %32
+  br i1 %.not.i.i.i.i3.i, label %_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.exit, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %31, i64 12
@@ -2070,14 +2070,14 @@ _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i:         ; preds = %27, %24, %_ZN2cv4ut
 40:                                               ; preds = %38, %35
   %.0.i.i.i.i.i.i = phi i32 [ %36, %35 ], [ %39, %38 ]
   %41 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %41, label %42, label %_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.argprom.exit
+  br i1 %41, label %42, label %_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.exit
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %31, align 8, !noalias !8
   %44 = getelementptr inbounds i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8, !noalias !8
   call void %45(ptr noundef nonnull align 8 dereferenceable(16) %31) #27, !noalias !8
-  br label %_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.argprom.exit
+  br label %_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.exit
 
 46:                                               ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i
   %47 = landingpad { ptr, i32 }
@@ -2114,7 +2114,7 @@ _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i:         ; preds = %27, %24, %_ZN2cv4ut
   call void %62(ptr noundef nonnull align 8 dereferenceable(16) %48) #27, !noalias !8
   br label %common.resume
 
-_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.argprom.exit: ; preds = %30, %40, %42
+_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.exit: ; preds = %30, %40, %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @_ZN2cv4gapi6python13GPythonKernelC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(65) %10, ptr noundef nonnull align 8 dereferenceable(65) %17)
   %63 = getelementptr inbounds i8, ptr %9, i64 16
@@ -2125,7 +2125,7 @@ _ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_
   %64 = invoke noundef i64 @_ZNSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS4_(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %.noexc unwind label %112
 
-.noexc:                                           ; preds = %_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.argprom.exit
+.noexc:                                           ; preds = %_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %65 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #26
           to label %.noexc8 unwind label %112
@@ -2244,7 +2244,7 @@ _ZNSt8functionIFN2cv4GArgERKSt6vectorINS0_4util7variantIJNS3_9monostateENS0_8GMa
 _ZN12_GLOBAL__N_110PythonUnitD2Ev.exit:           ; preds = %_ZNSt8functionIFN2cv4GArgERKSt6vectorINS0_4util7variantIJNS3_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaISB_EERKS2_IS1_SaIS1_EEEED2Ev.exit.i.i, %107
   ret void
 
-112:                                              ; preds = %.noexc, %_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.argprom.exit
+112:                                              ; preds = %.noexc, %_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.exit
   %113 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -6632,22 +6632,22 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
 .lr.ph.i.i:                                       ; preds = %3, %19
   %.043.i.i = phi i64 [ %21, %19 ], [ %7, %3 ]
   %.sroa.032.042.i.i = phi ptr [ %20, %19 ], [ %0, %3 ]
-  %9 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_.argprom"(ptr nonnull readonly %2, ptr %.sroa.032.042.i.i)
+  %9 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.042.i.i)
   br i1 %9, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKNS2_5GraphERKSA_E3$_0EEET_SN_SN_T0_.exit", label %10
 
 10:                                               ; preds = %.lr.ph.i.i
   %11 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i, i64 16
-  %12 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_.argprom"(ptr nonnull readonly %2, ptr nonnull %11)
+  %12 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_"(ptr nonnull readonly %2, ptr nonnull %11)
   br i1 %12, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKNS2_5GraphERKSA_E3$_0EEET_SN_SN_T0_.exit", label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i, i64 32
-  %15 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_.argprom"(ptr nonnull readonly %2, ptr nonnull %14)
+  %15 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_"(ptr nonnull readonly %2, ptr nonnull %14)
   br i1 %15, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKNS2_5GraphERKSA_E3$_0EEET_SN_SN_T0_.exit", label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i, i64 48
-  %18 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_.argprom"(ptr nonnull readonly %2, ptr nonnull %17)
+  %18 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_"(ptr nonnull readonly %2, ptr nonnull %17)
   br i1 %18, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKNS2_5GraphERKSA_E3$_0EEET_SN_SN_T0_.exit", label %19
 
 19:                                               ; preds = %16
@@ -6672,7 +6672,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
   ]
 
 24:                                               ; preds = %._crit_edge.i.i
-  %25 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_.argprom"(ptr nonnull readonly %2, ptr %.sroa.032.0.lcssa.i.i)
+  %25 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.0.lcssa.i.i)
   br i1 %25, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKNS2_5GraphERKSA_E3$_0EEET_SN_SN_T0_.exit", label %26
 
 26:                                               ; preds = %24
@@ -6681,7 +6681,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
 
 28:                                               ; preds = %26, %._crit_edge.i.i
   %.sroa.032.1.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i, %._crit_edge.i.i ], [ %27, %26 ]
-  %29 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_.argprom"(ptr nonnull readonly %2, ptr %.sroa.032.1.i.i)
+  %29 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.1.i.i)
   br i1 %29, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKNS2_5GraphERKSA_E3$_0EEET_SN_SN_T0_.exit", label %30
 
 30:                                               ; preds = %28
@@ -6690,7 +6690,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
 
 32:                                               ; preds = %30, %._crit_edge.i.i
   %.sroa.032.2.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i, %._crit_edge.i.i ], [ %31, %30 ]
-  %33 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_.argprom"(ptr nonnull readonly %2, ptr %.sroa.032.2.i.i)
+  %33 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_"(ptr nonnull readonly %2, ptr %.sroa.032.2.i.i)
   %spec.select.i.i = select i1 %33, ptr %.sroa.032.2.i.i, ptr %1
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade6HandleINS2_4NodeEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKNS2_5GraphERKSA_E3$_0EEET_SN_SN_T0_.exit"
 
@@ -11853,7 +11853,7 @@ _ZNSt10shared_ptrIN2cv6detail14BasicVectorRefEED2Ev.exit: ; preds = %1, %20, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_.argprom"(ptr nocapture readonly %.0.val, ptr nocapture readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS4_6HandleINS4_4NodeEEESaISB_EEE3$_0EclINS_17__normal_iteratorIPKSB_SD_EEEEbT_"(ptr nocapture readonly %.0.val, ptr nocapture readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.ade::details::MetadataId", align 8
   %3 = alloca %"class.ade::Handle", align 8
   %.val1 = load ptr, ptr %0, align 8, !noalias !141
@@ -11980,7 +11980,7 @@ _ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS
   %.sroa.06.0.i.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i, align 8, !nonnull !17, !noundef !17
   %57 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i, i64 8
   %58 = call noundef zeroext i1 @_ZNK3ade7details10MetadataIdeqERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %57)
-  br i1 %58, label %"_ZZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS1_6HandleINS1_4NodeEEESaIS8_EEENK3$_0clERKS8_.argprom.exit", label %56, !llvm.loop !18
+  br i1 %58, label %"_ZZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS1_6HandleINS1_4NodeEEESaIS8_EEENK3$_0clERKS8_.exit", label %56, !llvm.loop !18
 
 59:                                               ; preds = %_ZNK3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE8metadataERKNS_6HandleINS_4NodeEEE.exit.i
   %60 = call noundef i64 @_ZNK3ade7details8Metadata6IdHashclERKNS0_10MetadataIdE(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -12025,9 +12025,9 @@ _ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10uniqu
 
 _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i.i.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i.i.i.i.i.i
   %80 = load ptr, ptr %.013.i.i.i.i.i.i.i, align 8
-  br label %"_ZZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS1_6HandleINS1_4NodeEEESaIS8_EEENK3$_0clERKS8_.argprom.exit"
+  br label %"_ZZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS1_6HandleINS1_4NodeEEESaIS8_EEENK3$_0clERKS8_.exit"
 
-"_ZZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS1_6HandleINS1_4NodeEEESaIS8_EEENK3$_0clERKS8_.argprom.exit": ; preds = %56, %_ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i.i.i.i
+"_ZZN12_GLOBAL__N_117GPythonExecutableC1ERKN3ade5GraphERKSt6vectorINS1_6HandleINS1_4NodeEEESaIS8_EEENK3$_0clERKS8_.exit": ; preds = %56, %_ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i.i.i.i
   %.sroa.06.1.i.i.i.i.i = phi ptr [ %80, %_ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Metadata18MetadataHolderBaseESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS2_ENS6_6IdHashENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.i.i.i.i.i.i ], [ %.sroa.06.0.i.i.i.i.i, %56 ]
   %81 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i.i.i, i64 16
   %82 = load ptr, ptr %81, align 8
@@ -15332,14 +15332,14 @@ attributes #29 = { noreturn }
 !6 = distinct !{!6, !7, !"_ZSt11make_sharedIN12_GLOBAL__N_118GPythonBackendImplEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_: argument 0"}
 !7 = distinct !{!7, !"_ZSt11make_sharedIN12_GLOBAL__N_118GPythonBackendImplEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES4_E4typeEEDpOT0_"}
 !8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.argprom: argument 0"}
-!10 = distinct !{!10, !"_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.argprom"}
+!9 = distinct !{!9, !10, !"_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE: argument 0"}
+!10 = distinct !{!10, !"_ZN3ade10TypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE"}
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZN3ade7details8Metadata12createHolderIN12_GLOBAL__N_110PythonUnitEEESt10unique_ptrINS1_18MetadataHolderBaseESt14default_deleteIS6_EEOT_: argument 0"}
 !13 = distinct !{!13, !"_ZN3ade7details8Metadata12createHolderIN12_GLOBAL__N_110PythonUnitEEESt10unique_ptrINS1_18MetadataHolderBaseESt14default_deleteIS6_EEOT_"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNK3ade15ConstTypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.argprom: argument 0"}
-!16 = distinct !{!16, !"_ZNK3ade15ConstTypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE.argprom"}
+!15 = distinct !{!15, !16, !"_ZNK3ade15ConstTypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE: argument 0"}
+!16 = distinct !{!16, !"_ZNK3ade15ConstTypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEE8metadataERKNS_6HandleINS_4NodeEEE"}
 !17 = !{}
 !18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}

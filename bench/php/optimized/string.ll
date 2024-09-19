@@ -1030,7 +1030,7 @@ define ptr @php_trim(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef
   br i1 %24, label %.preheader186, label %.loopexit
 
 25:                                               ; preds = %10
-  call fastcc void @php_charmask.retelim(ptr noundef nonnull %1, i64 noundef %2, ptr noundef %6)
+  call fastcc void @php_charmask(ptr noundef nonnull %1, i64 noundef %2, ptr noundef %6)
   br i1 %or.cond, label %.loopexit193, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %30
@@ -1329,7 +1329,7 @@ define hidden void @zif_trim(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %54, label %50, label %.loopexit
 
 55:                                               ; preds = %36
-  call fastcc void @php_charmask.retelim(ptr noundef nonnull %31, i64 noundef %38, ptr noundef %3)
+  call fastcc void @php_charmask(ptr noundef nonnull %31, i64 noundef %38, ptr noundef %3)
   br i1 %.not272324, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %55, %60
@@ -1860,7 +1860,7 @@ define hidden void @zflf_trim_2(ptr nocapture noundef writeonly %0, ptr noundef 
   br i1 %70, label %66, label %.loopexit
 
 71:                                               ; preds = %48
-  call fastcc void @php_charmask.retelim(ptr noundef nonnull %52, i64 noundef %54, ptr noundef %4)
+  call fastcc void @php_charmask(ptr noundef nonnull %52, i64 noundef %54, ptr noundef %4)
   br i1 %.not246262, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71, %76
@@ -2095,7 +2095,7 @@ define hidden void @zif_rtrim(ptr noundef %0, ptr nocapture noundef writeonly %1
   br i1 %45, label %42, label %.loopexit
 
 46:                                               ; preds = %34
-  call fastcc void @php_charmask.retelim(ptr noundef nonnull %30, i64 noundef %36, ptr noundef %3)
+  call fastcc void @php_charmask(ptr noundef nonnull %30, i64 noundef %36, ptr noundef %3)
   br label %47
 
 47:                                               ; preds = %48, %46
@@ -2314,7 +2314,7 @@ define hidden void @zif_ltrim(ptr noundef %0, ptr nocapture noundef writeonly %1
   br i1 %.not269, label %.loopexit, label %.lr.ph319
 
 48:                                               ; preds = %35
-  call fastcc void @php_charmask.retelim(ptr noundef nonnull %30, i64 noundef %37, ptr noundef %3)
+  call fastcc void @php_charmask(ptr noundef nonnull %30, i64 noundef %37, ptr noundef %3)
   br i1 %.not269317, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48, %53
@@ -11812,7 +11812,7 @@ define hidden void @zif_ucwords(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %.loopexit
 
 38:                                               ; preds = %.thread199
-  call fastcc void @php_charmask.retelim(ptr noundef nonnull %.0172208, i64 noundef %.0173207, ptr noundef %5)
+  call fastcc void @php_charmask(ptr noundef nonnull %.0172208, i64 noundef %.0173207, ptr noundef %5)
   %39 = load ptr, ptr %4, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 24
   %41 = getelementptr inbounds i8, ptr %39, i64 16
@@ -11872,7 +11872,7 @@ define hidden void @zif_ucwords(ptr noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_charmask.retelim(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc void @php_charmask(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = icmp sgt i64 %1, 0
@@ -14669,7 +14669,7 @@ define ptr @php_addcslashes_str(ptr noundef readonly %0, i64 noundef %1, ptr nou
   %9 = shl i64 %1, 2
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %9, ptr %10, align 8
-  call fastcc void @php_charmask.retelim(ptr noundef %2, i64 noundef %3, ptr noundef %5)
+  call fastcc void @php_charmask(ptr noundef %2, i64 noundef %3, ptr noundef %5)
   %11 = getelementptr inbounds i8, ptr %0, i64 %1
   %12 = getelementptr inbounds i8, ptr %6, i64 24
   %13 = icmp sgt i64 %1, 0
@@ -20794,7 +20794,7 @@ define hidden void @zif_str_word_count(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %62
-  call fastcc void @php_charmask.retelim(ptr noundef nonnull %.0196245, i64 noundef %.0199244, ptr noundef %5)
+  call fastcc void @php_charmask(ptr noundef nonnull %.0196245, i64 noundef %.0199244, ptr noundef %5)
   %.pre252 = load ptr, ptr %4, align 8
   br label %66
 

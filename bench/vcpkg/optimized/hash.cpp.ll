@@ -352,7 +352,7 @@ _ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocess
   %28 = load i64, ptr %27, align 8, !noalias !14
   %29 = add i64 %28, %26
   store i64 %29, ptr %27, align 8, !noalias !14
-  br label %"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.argprom.exit"
+  br label %"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.exit"
 
 30:                                               ; preds = %30, %.lr.ph.i.i
   %.016.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %31, %30 ]
@@ -401,12 +401,12 @@ _ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocess
   %.0.i.i.lcssa = phi ptr [ %1, %36 ], [ %52, %.lr.ph ]
   %.lcssa4 = phi i64 [ %50, %36 ], [ %55, %.lr.ph ]
   %.not.i.i.i.i.i20.i.i9.i = icmp eq ptr %2, %.0.i.i.lcssa
-  br i1 %.not.i.i.i.i.i20.i.i9.i, label %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.argprom.exit.loopexit14.i", label %51
+  br i1 %.not.i.i.i.i.i20.i.i9.i, label %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.exit.loopexit14.i", label %51
 
 51:                                               ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr align 1 %.0.i.i.lcssa, i64 %.lcssa4, i1 false), !noalias !19
   %.pre22.i.i10.i = load i64, ptr %46, align 8, !noalias !19
-  br label %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.argprom.exit.loopexit14.i"
+  br label %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.exit.loopexit14.i"
 
 .lr.ph:                                           ; preds = %36, %.lr.ph
   %.0.i.i6 = phi ptr [ %52, %.lr.ph ], [ %1, %36 ]
@@ -428,16 +428,16 @@ _ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocess
   call void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %7) #23, !noalias !11
   unreachable
 
-"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.argprom.exit.loopexit14.i": ; preds = %51, %._crit_edge
+"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.exit.loopexit14.i": ; preds = %51, %._crit_edge
   %58 = phi i64 [ %.pre22.i.i10.i, %51 ], [ 0, %._crit_edge ]
   %59 = add i64 %58, %.lcssa4
   %60 = shl nuw nsw i64 %.lcssa4, 3
   store i64 %59, ptr %46, align 8, !noalias !19
   %61 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5vcpkg7UInt128pLEm(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %60) #21, !noalias !19
-  br label %"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.argprom.exit"
+  br label %"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.exit"
 
-"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.argprom.exit": ; preds = %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocessedEPKvS6_.exit.thread.i.i, %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.argprom.exit.loopexit14.i"
-  %.sink4.i = phi ptr [ %5, %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocessedEPKvS6_.exit.thread.i.i ], [ %6, %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.argprom.exit.loopexit14.i" ]
+"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.exit": ; preds = %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocessedEPKvS6_.exit.thread.i.i, %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.exit.loopexit14.i"
+  %.sink4.i = phi ptr [ %5, %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocessedEPKvS6_.exit.thread.i.i ], [ %6, %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.exit.loopexit14.i" ]
   %62 = load ptr, ptr %.sink4.i, align 8, !noalias !11
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !noalias !11
@@ -5176,26 +5176,26 @@ attributes #25 = { builtin nounwind }
 !9 = distinct !{!9, !10, !"_ZSt11make_uniqueIN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS2_15Sha512AlgorithmEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !10 = distinct !{!10, !"_ZSt11make_uniqueIN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS2_15Sha512AlgorithmEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.argprom: argument 0"}
-!13 = distinct !{!13, !"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.argprom"}
+!12 = distinct !{!12, !13, !"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_: argument 0"}
+!13 = distinct !{!13, !"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_"}
 !14 = !{!15, !12}
-!15 = distinct !{!15, !16, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.argprom: argument 0"}
-!16 = distinct !{!16, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.argprom"}
+!15 = distinct !{!15, !16, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE: argument 0"}
+!16 = distinct !{!16, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE"}
 !17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
 !19 = !{!20, !12}
-!20 = distinct !{!20, !21, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.argprom"}
+!20 = distinct !{!20, !21, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE: argument 0"}
+!21 = distinct !{!21, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE"}
 !22 = distinct !{!22, !18}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmE: argument 0"}
 !25 = distinct !{!25, !"_ZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmE"}
 !26 = !{!27, !24}
-!27 = distinct !{!27, !28, !"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.argprom: argument 0"}
-!28 = distinct !{!28, !"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.argprom"}
+!27 = distinct !{!27, !28, !"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_: argument 0"}
+!28 = distinct !{!28, !"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_"}
 !29 = !{!30, !27, !24}
-!30 = distinct !{!30, !31, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.argprom: argument 0"}
-!31 = distinct !{!31, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.argprom"}
+!30 = distinct !{!30, !31, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE: argument 0"}
+!31 = distinct !{!31, !"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE"}
 !32 = !{!33}
 !33 = distinct !{!33, !34, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJNS0_6detail9named_argIcN5vcpkg10StringViewEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSE_: argument 0"}
 !34 = distinct !{!34, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJNS0_6detail9named_argIcN5vcpkg10StringViewEEEEEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSE_"}

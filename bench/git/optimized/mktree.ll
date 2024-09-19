@@ -390,21 +390,21 @@ if.else:                                          ; preds = %while.end.thread, %
   %tobool39.not85 = phi i1 [ true, %while.end.thread ], [ false, %while.end ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   %cmp.i.i3 = icmp ugt i32 %26, 1
-  br i1 %cmp.i.i3, label %if.then.i.i5, label %sane_qsort.argprom.exit.i
+  br i1 %cmp.i.i3, label %if.then.i.i5, label %sane_qsort.exit.i
 
 if.then.i.i5:                                     ; preds = %if.else
   %conv.i6 = sext i32 %26 to i64
   %27 = load ptr, ptr @entries, align 8
   call void @qsort(ptr noundef %27, i64 noundef %conv.i6, i64 noundef 8, ptr noundef nonnull @ent_compare) #11
   %.pre.i = load i32, ptr @used, align 4
-  br label %sane_qsort.argprom.exit.i
+  br label %sane_qsort.exit.i
 
-sane_qsort.argprom.exit.i:                        ; preds = %if.then.i.i5, %if.else
+sane_qsort.exit.i:                                ; preds = %if.then.i.i5, %if.else
   %28 = phi i32 [ %26, %if.else ], [ %.pre.i, %if.then.i.i5 ]
   %cmp9.i = icmp sgt i32 %28, 0
   br i1 %cmp9.i, label %for.body.lr.ph.i, label %for.end.i
 
-for.body.lr.ph.i:                                 ; preds = %sane_qsort.argprom.exit.i
+for.body.lr.ph.i:                                 ; preds = %sane_qsort.exit.i
   %29 = load ptr, ptr @entries, align 8
   %wide.trip.count.i = zext nneg i32 %28 to i64
   br label %for.body.i
@@ -423,8 +423,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
 
-for.end.i:                                        ; preds = %for.body.i, %sane_qsort.argprom.exit.i
-  %size.0.lcssa.i = phi i64 [ 0, %sane_qsort.argprom.exit.i ], [ %add3.i, %for.body.i ]
+for.end.i:                                        ; preds = %for.body.i, %sane_qsort.exit.i
+  %size.0.lcssa.i = phi i64 [ 0, %sane_qsort.exit.i ], [ %add3.i, %for.body.i ]
   call void @strbuf_init(ptr noundef nonnull %buf.i, i64 noundef %size.0.lcssa.i) #11
   %32 = load i32, ptr @used, align 4
   %cmp512.i = icmp sgt i32 %32, 0

@@ -1843,22 +1843,22 @@ Abc_NtkFromMapSuperChoice.exit.thread:            ; preds = %.critedge4.i
   %.not.i.i = icmp eq ptr %158, null
   br label %162
 
-162:                                              ; preds = %Abc_NodeSuperChoice.argprom.exit.i, %.lr.ph187.i
-  %indvars.iv213.i = phi i64 [ 0, %.lr.ph187.i ], [ %indvars.iv.next214.i, %Abc_NodeSuperChoice.argprom.exit.i ]
-  %163 = phi ptr [ %159, %.lr.ph187.i ], [ %216, %Abc_NodeSuperChoice.argprom.exit.i ]
+162:                                              ; preds = %Abc_NodeSuperChoice.exit.i, %.lr.ph187.i
+  %indvars.iv213.i = phi i64 [ 0, %.lr.ph187.i ], [ %indvars.iv.next214.i, %Abc_NodeSuperChoice.exit.i ]
+  %163 = phi ptr [ %159, %.lr.ph187.i ], [ %216, %Abc_NodeSuperChoice.exit.i ]
   %164 = getelementptr i8, ptr %163, i64 8
   %.val129.val.i = load ptr, ptr %164, align 8
   %165 = getelementptr inbounds ptr, ptr %.val129.val.i, i64 %indvars.iv213.i
   %166 = load ptr, ptr %165, align 8
   %167 = icmp eq ptr %166, null
-  br i1 %167, label %Abc_NodeSuperChoice.argprom.exit.i, label %168
+  br i1 %167, label %Abc_NodeSuperChoice.exit.i, label %168
 
 168:                                              ; preds = %162
   %169 = getelementptr i8, ptr %166, i64 20
   %.val133.i = load i32, ptr %169, align 4
   %170 = and i32 %.val133.i, 15
   %.not145.i = icmp eq i32 %170, 7
-  br i1 %.not145.i, label %171, label %Abc_NodeSuperChoice.argprom.exit.i
+  br i1 %.not145.i, label %171, label %Abc_NodeSuperChoice.exit.i
 
 171:                                              ; preds = %168
   br i1 %.not.i.i, label %176, label %172
@@ -1867,23 +1867,23 @@ Abc_NtkFromMapSuperChoice.exit.thread:            ; preds = %.critedge4.i
   %173 = load i32, ptr %158, align 4
   %174 = sext i32 %173 to i64
   %175 = icmp slt i64 %indvars.iv213.i, %174
-  br i1 %175, label %Extra_ProgressBarUpdate.argprom.exit.i, label %176
+  br i1 %175, label %Extra_ProgressBarUpdate.exit.i, label %176
 
 176:                                              ; preds = %172, %171
   %177 = trunc nuw nsw i64 %indvars.iv213.i to i32
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %158, i32 noundef %177, ptr noundef null) #13
-  br label %Extra_ProgressBarUpdate.argprom.exit.i
+  br label %Extra_ProgressBarUpdate.exit.i
 
-Extra_ProgressBarUpdate.argprom.exit.i:           ; preds = %176, %172
+Extra_ProgressBarUpdate.exit.i:                   ; preds = %176, %172
   %178 = getelementptr i8, ptr %166, i64 8
   %.val135.i = load ptr, ptr %178, align 8
   %179 = tail call ptr @Map_NodeReadCuts(ptr noundef %.val135.i) #13
   %180 = tail call ptr @Map_CutReadNext(ptr noundef %179) #13
   %.not1.i.i = icmp eq ptr %180, null
-  br i1 %.not1.i.i, label %Abc_NodeSuperChoice.argprom.exit.i, label %.lr.ph.i.i
+  br i1 %.not1.i.i, label %Abc_NodeSuperChoice.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %Extra_ProgressBarUpdate.argprom.exit.i, %Abc_NodeFromMapCutPhase.exit.i
-  %.02.i.i = phi ptr [ %215, %Abc_NodeFromMapCutPhase.exit.i ], [ %180, %Extra_ProgressBarUpdate.argprom.exit.i ]
+.lr.ph.i.i:                                       ; preds = %Extra_ProgressBarUpdate.exit.i, %Abc_NodeFromMapCutPhase.exit.i
+  %.02.i.i = phi ptr [ %215, %Abc_NodeFromMapCutPhase.exit.i ], [ %180, %Extra_ProgressBarUpdate.exit.i ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
   %181 = tail call ptr @Map_CutReadSuperBest(ptr noundef nonnull %.02.i.i, i32 noundef 0) #13
   %182 = icmp eq ptr %181, null
@@ -1960,9 +1960,9 @@ Abc_NodeFromMapCutPhase.exit.i:                   ; preds = %._crit_edge.i.i, %A
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   %215 = tail call ptr @Map_CutReadNext(ptr noundef nonnull %.02.i.i) #13
   %.not.i136.i = icmp eq ptr %215, null
-  br i1 %.not.i136.i, label %Abc_NodeSuperChoice.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %.not.i136.i, label %Abc_NodeSuperChoice.exit.i, label %.lr.ph.i.i, !llvm.loop !28
 
-Abc_NodeSuperChoice.argprom.exit.i:               ; preds = %Abc_NodeFromMapCutPhase.exit.i, %Extra_ProgressBarUpdate.argprom.exit.i, %168, %162
+Abc_NodeSuperChoice.exit.i:                       ; preds = %Abc_NodeFromMapCutPhase.exit.i, %Extra_ProgressBarUpdate.exit.i, %168, %162
   %indvars.iv.next214.i = add nuw nsw i64 %indvars.iv213.i, 1
   %216 = load ptr, ptr %40, align 8
   %217 = getelementptr i8, ptr %216, i64 4
@@ -1971,7 +1971,7 @@ Abc_NodeSuperChoice.argprom.exit.i:               ; preds = %Abc_NodeFromMapCutP
   %219 = icmp slt i64 %indvars.iv.next214.i, %218
   br i1 %219, label %162, label %Abc_NtkFromMapSuperChoice.exit, !llvm.loop !29
 
-Abc_NtkFromMapSuperChoice.exit:                   ; preds = %Abc_NodeSuperChoice.argprom.exit.i, %.critedge14.i
+Abc_NtkFromMapSuperChoice.exit:                   ; preds = %Abc_NodeSuperChoice.exit.i, %.critedge14.i
   tail call void @Extra_ProgressBarStop(ptr noundef %158) #13
   %220 = icmp eq ptr %70, null
   br i1 %220, label %224, label %221

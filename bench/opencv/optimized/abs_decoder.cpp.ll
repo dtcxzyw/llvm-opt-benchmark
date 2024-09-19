@@ -508,7 +508,7 @@ define hidden noundef i32 @_ZN2cv7barcode12patternMatchERKNS0_7CounterERKSt6vect
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i: ; preds = %.lr.ph.i.i, %28
   %.0.lcssa.i.i = phi i32 [ 0, %28 ], [ %32, %.lr.ph.i.i ]
   %34 = icmp slt i32 %30, %.0.lcssa.i.i
-  br i1 %34, label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.argprom.exit, label %35
+  br i1 %34, label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.exit, label %35
 
 35:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i
   %36 = shl i32 %30, 8
@@ -531,7 +531,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_
   %47 = sub nsw i32 %43, %46
   %48 = tail call i32 @llvm.abs.i32(i32 %47, i1 true)
   %49 = icmp ugt i32 %48, %39
-  br i1 %49, label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.argprom.exit, label %50
+  br i1 %49, label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.exit, label %50
 
 50:                                               ; preds = %.lr.ph.i
   %51 = add i32 %48, %.0273.i
@@ -543,9 +543,9 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_
 ._crit_edge.i:                                    ; preds = %50, %35
   %.027.lcssa.i = phi i32 [ 0, %35 ], [ %51, %50 ]
   %55 = udiv i32 %.027.lcssa.i, %30
-  br label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.argprom.exit
+  br label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.exit
 
-_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.argprom.exit: ; preds = %.lr.ph.i, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i, %._crit_edge.i
+_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.exit: ; preds = %.lr.ph.i, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i, %._crit_edge.i
   %.0.i = phi i32 [ %55, %._crit_edge.i ], [ 255, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i ], [ 255, %.lr.ph.i ]
   ret i32 %.0.i
 }

@@ -44374,7 +44374,7 @@ define void @UnloadRandomSequence(ptr nocapture noundef %0) local_unnamed_addr #
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @GetFileName(ptr noundef readonly %0) local_unnamed_addr #41 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %strprbrk.argprom.exit, label %.preheader
+  br i1 %.not, label %strprbrk.exit, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
   %.05.i = phi ptr [ %3, %.preheader ], [ %0, %1 ]
@@ -44382,9 +44382,9 @@ define ptr @GetFileName(ptr noundef readonly %0) local_unnamed_addr #41 {
   %2 = tail call ptr @strpbrk(ptr noundef nonnull %.05.i, ptr noundef nonnull @.str.181) #55
   %.not.i = icmp eq ptr %2, null
   %3 = getelementptr inbounds i8, ptr %2, i64 1
-  br i1 %.not.i, label %strprbrk.argprom.exit, label %.preheader
+  br i1 %.not.i, label %strprbrk.exit, label %.preheader
 
-strprbrk.argprom.exit:                            ; preds = %.preheader, %1
+strprbrk.exit:                                    ; preds = %.preheader, %1
   %.0 = phi ptr [ null, %1 ], [ %.0.i, %.preheader ]
   %.not8 = icmp eq ptr %.0, null
   %4 = getelementptr inbounds i8, ptr %.0, i64 1
@@ -44612,13 +44612,13 @@ define noundef nonnull ptr @GetDirectoryPath(ptr noundef readonly %0) local_unna
   %8 = tail call ptr @strpbrk(ptr noundef nonnull %.05.i, ptr noundef nonnull @.str.181) #55
   %.not.i = icmp eq ptr %8, null
   %9 = getelementptr inbounds i8, ptr %8, i64 1
-  br i1 %.not.i, label %strprbrk.argprom.exit, label %7
+  br i1 %.not.i, label %strprbrk.exit, label %7
 
-strprbrk.argprom.exit:                            ; preds = %7
+strprbrk.exit:                                    ; preds = %7
   %.not28 = icmp eq ptr %.0.i, null
   br i1 %.not28, label %35, label %10
 
-10:                                               ; preds = %strprbrk.argprom.exit
+10:                                               ; preds = %strprbrk.exit
   %11 = icmp eq ptr %.0.i, %0
   br i1 %11, label %12, label %14
 
@@ -44675,7 +44675,7 @@ strprbrk.argprom.exit:                            ; preds = %7
   store i8 0, ptr %.sink, align 1
   br label %35
 
-35:                                               ; preds = %.sink.split, %strprbrk.argprom.exit
+35:                                               ; preds = %.sink.split, %strprbrk.exit
   ret ptr @GetDirectoryPath.dirPath
 }
 

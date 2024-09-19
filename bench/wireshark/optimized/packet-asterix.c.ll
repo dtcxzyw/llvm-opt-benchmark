@@ -36445,7 +36445,7 @@ asterix_message_length.exit.thread.i.i:           ; preds = %143
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr ptr, ptr %156, i64 %.0.i.i.i
   %158 = load ptr, ptr %157, align 8
-  %159 = tail call fastcc i32 @dissect_asterix_fields.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef %140, ptr noundef %158)
+  %159 = tail call fastcc i32 @dissect_asterix_fields(ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef %140, ptr noundef %158)
   %160 = add i32 %150, %.04264.i.i
   %161 = add i32 %160, %159
   %162 = add i32 %.065.i.i, 1
@@ -36493,7 +36493,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_asterix_fields.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_asterix_fields(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -36651,7 +36651,7 @@ asterix_fspec_len.exit:                           ; preds = %73
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %81, ptr noundef %0, i32 noundef %58, i32 noundef %80, i32 noundef 0) #3
   %83 = load ptr, ptr %8, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 32
-  %85 = tail call fastcc i32 @dissect_asterix_fields.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %58, ptr noundef %69, ptr noundef nonnull %84)
+  %85 = tail call fastcc i32 @dissect_asterix_fields(ptr noundef %0, ptr noundef %1, i32 noundef %58, ptr noundef %69, ptr noundef nonnull %84)
   br label %asterix_field_offset.exit.thread
 
 86:                                               ; preds = %57

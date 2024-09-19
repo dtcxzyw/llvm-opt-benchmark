@@ -7214,11 +7214,11 @@ _ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12
   br i1 %brmerge.i, label %2906, label %2837
 
 2837:                                             ; preds = %2835
-  %2838 = call fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4proj3crs3CRSEE.argprom(ptr nonnull %2834)
+  %2838 = call fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4proj3crs3CRSEE(ptr nonnull %2834)
   br i1 %2838, label %2839, label %2871
 
 2839:                                             ; preds = %2837
-  %2840 = call fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4proj3crs3CRSEE.argprom(ptr nonnull %2832)
+  %2840 = call fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4proj3crs3CRSEE(ptr nonnull %2832)
   br i1 %2840, label %2871, label %2841
 
 2841:                                             ; preds = %2839
@@ -7277,12 +7277,12 @@ _ZNSt12__shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataELN9__gnu_cxx12
 
 2871:                                             ; preds = %2847, %2841, %2839, %2837
   %.val105.i = phi ptr [ %.val105.pre.i, %2847 ], [ %2832, %2841 ], [ %2832, %2839 ], [ %2832, %2837 ]
-  %2872 = call fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4proj3crs3CRSEE.argprom(ptr %.val105.i)
+  %2872 = call fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4proj3crs3CRSEE(ptr %.val105.i)
   br i1 %2872, label %2873, label %thread-pre-split.i
 
 2873:                                             ; preds = %2871
   %.val106.i = load ptr, ptr %17, align 8
-  %2874 = call fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4proj3crs3CRSEE.argprom(ptr %.val106.i)
+  %2874 = call fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4proj3crs3CRSEE(ptr %.val106.i)
   br i1 %2874, label %thread-pre-split.i, label %2875
 
 2875:                                             ; preds = %2873
@@ -21661,7 +21661,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj11coordi
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj11coordinates18CoordinateMetadata3crsEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4proj3crs3CRSEE.argprom(ptr readonly %.0.val) unnamed_addr #21 {
+define internal fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4proj3crs3CRSEE(ptr readonly %.0.val) unnamed_addr #21 {
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %.thread3, label %2
 

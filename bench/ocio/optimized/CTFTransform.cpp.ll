@@ -4071,7 +4071,7 @@ invoke.cont93:                                    ; preds = %invoke.cont91
   %call99.val = load ptr, ptr %m_descriptions.i, align 8
   %226 = getelementptr i8, ptr %225, i64 312
   %call99.val22 = load ptr, ptr %226, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %224, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE, ptr %call99.val, ptr %call99.val22)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(16) %224, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE, ptr %call99.val, ptr %call99.val22)
           to label %invoke.cont100 unwind label %lpad97
 
 invoke.cont100:                                   ; preds = %invoke.cont93
@@ -4250,7 +4250,7 @@ declare void @_ZN19OpenColorIO_v2_4dev12XmlFormatter13writeStartTagERKNSt7__cxx1
 declare void @_ZN19OpenColorIO_v2_4dev14XmlScopeIndentC1ERNS_12XmlFormatterE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %fmt, ptr noundef %tag, ptr %descriptions.0.val, ptr readnone %descriptions.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(16) %fmt, ptr noundef %tag, ptr %descriptions.0.val, ptr readnone %descriptions.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator", align 1
@@ -13949,7 +13949,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
   %desc.val = load ptr, ptr %desc, align 8
   %5 = getelementptr inbounds i8, ptr %desc, i64 8
   %desc.val38 = load ptr, ptr %5, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE, ptr %desc.val, ptr %desc.val38)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE, ptr %desc.val, ptr %desc.val38)
           to label %invoke.cont29 unwind label %lpad16
 
 invoke.cont29:                                    ; preds = %invoke.cont25
@@ -14194,7 +14194,7 @@ invoke.cont186:                                   ; preds = %invoke.cont184
   %desc175.val = load ptr, ptr %desc175, align 8
   %20 = getelementptr inbounds i8, ptr %desc175, i64 8
   %desc175.val37 = load ptr, ptr %20, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE, ptr %desc175.val, ptr %desc175.val37)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE, ptr %desc175.val, ptr %desc175.val37)
           to label %invoke.cont190 unwind label %lpad177
 
 invoke.cont190:                                   ; preds = %invoke.cont186
@@ -14731,7 +14731,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   %desc.val11 = load ptr, ptr %desc, align 8
   %4 = getelementptr inbounds i8, ptr %desc, i64 8
   %desc.val12 = load ptr, ptr %4, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE, ptr %desc.val11, ptr %desc.val12)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE, ptr %desc.val11, ptr %desc.val12)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont8
@@ -14769,7 +14769,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   %8 = load ptr, ptr %m_formatter, align 8
   %desc.val9 = load ptr, ptr %desc, align 8
   %desc.val10 = load ptr, ptr %4, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL26METADATA_INPUT_DESCRIPTIONE, ptr %desc.val9, ptr %desc.val10)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL26METADATA_INPUT_DESCRIPTIONE, ptr %desc.val9, ptr %desc.val10)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont19
@@ -14807,7 +14807,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
   %12 = load ptr, ptr %m_formatter, align 8
   %desc.val = load ptr, ptr %desc, align 8
   %desc.val8 = load ptr, ptr %4, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL28METADATA_VIEWING_DESCRIPTIONE, ptr %desc.val, ptr %desc.val8)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL28METADATA_VIEWING_DESCRIPTIONE, ptr %desc.val, ptr %desc.val8)
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont33
@@ -15377,7 +15377,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   %desc.val = load ptr, ptr %desc, align 8
   %3 = getelementptr inbounds i8, ptr %desc, i64 8
   %desc.val4 = load ptr, ptr %3, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE, ptr %desc.val, ptr %desc.val4)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117WriteDescriptionsERNS_12XmlFormatterEPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE, ptr %desc.val, ptr %desc.val4)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont8
@@ -18957,7 +18957,7 @@ sw.bb:                                            ; preds = %entry
   %4 = load double, ptr %m_saturation.i, align 8
   %m_saturation9 = getelementptr inbounds i8, ptr %call2.i, i64 224
   %5 = load double, ptr %m_saturation9, align 8
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter18writeScalarElementEPKcdd.argprom(ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef %4, double noundef %5)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter18writeScalarElementEPKcdd(ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef %4, double noundef %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %attributes, i8 0, i64 24, i1 false)
   %call12 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_contrast.i, ptr noundef nonnull align 8 dereferenceable(32) %m_contrast7)
           to label %invoke.cont unwind label %lpad
@@ -18984,7 +18984,7 @@ if.else:                                          ; preds = %invoke.cont
 
 if.then.i.invoke:                                 ; preds = %if.else, %if.then
   %10 = phi double [ %6, %if.then ], [ %9, %if.else ]
-  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd.argprom(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL21ATTR_PRIMARY_CONTRASTE, double noundef %10)
+  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL21ATTR_PRIMARY_CONTRASTE, double noundef %10)
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %if.then.i.invoke, %if.else
@@ -18995,7 +18995,7 @@ if.end:                                           ; preds = %if.then.i.invoke, %
   br i1 %cmp.i44, label %if.then.i45, label %invoke.cont18
 
 if.then.i45:                                      ; preds = %if.end
-  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd.argprom(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_BLACKE, double noundef %12)
+  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_BLACKE, double noundef %12)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.end, %if.then.i45
@@ -19006,7 +19006,7 @@ invoke.cont18:                                    ; preds = %if.end, %if.then.i4
   br i1 %cmp.i48, label %if.then.i49, label %invoke.cont20
 
 if.then.i49:                                      ; preds = %invoke.cont18
-  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd.argprom(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_WHITEE, double noundef %14)
+  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_WHITEE, double noundef %14)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont18, %if.then.i49
@@ -19121,7 +19121,7 @@ sw.bb30:                                          ; preds = %entry
   %21 = load double, ptr %m_saturation.i65, align 8
   %m_saturation37 = getelementptr inbounds i8, ptr %call2.i, i64 224
   %22 = load double, ptr %m_saturation37, align 8
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter18writeScalarElementEPKcdd.argprom(ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef %21, double noundef %22)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter18writeScalarElementEPKcdd(ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef %21, double noundef %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %attributes38, i8 0, i64 24, i1 false)
   %call43 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32) %m_contrast.i52, ptr noundef nonnull align 8 dereferenceable(32) %m_contrast35)
           to label %invoke.cont42 unwind label %lpad41
@@ -19148,7 +19148,7 @@ if.else47:                                        ; preds = %invoke.cont42
 
 if.then.i74.invoke:                               ; preds = %if.else47, %if.then44
   %27 = phi double [ %23, %if.then44 ], [ %26, %if.else47 ]
-  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd.argprom(ptr noundef nonnull align 8 dereferenceable(24) %attributes38, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL21ATTR_PRIMARY_CONTRASTE, double noundef %27)
+  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd(ptr noundef nonnull align 8 dereferenceable(24) %attributes38, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL21ATTR_PRIMARY_CONTRASTE, double noundef %27)
           to label %if.end51 unwind label %lpad41
 
 if.end51:                                         ; preds = %if.then.i74.invoke, %if.else47
@@ -19265,7 +19265,7 @@ sw.bb65:                                          ; preds = %entry
   %34 = load double, ptr %m_saturation.i105, align 8
   %m_saturation74 = getelementptr inbounds i8, ptr %call2.i, i64 224
   %35 = load double, ptr %m_saturation74, align 8
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter18writeScalarElementEPKcdd.argprom(ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef %34, double noundef %35)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter18writeScalarElementEPKcdd(ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef %34, double noundef %35)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %attributes75, i8 0, i64 24, i1 false)
   %36 = load double, ptr %m_pivotBlack.i107, align 8
   %m_pivotBlack77 = getelementptr inbounds i8, ptr %call2.i, i64 240
@@ -19274,7 +19274,7 @@ sw.bb65:                                          ; preds = %entry
   br i1 %cmp.i113, label %if.then.i114, label %invoke.cont79
 
 if.then.i114:                                     ; preds = %sw.bb65
-  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd.argprom(ptr noundef nonnull align 8 dereferenceable(24) %attributes75, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_BLACKE, double noundef %37)
+  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd(ptr noundef nonnull align 8 dereferenceable(24) %attributes75, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_BLACKE, double noundef %37)
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %sw.bb65, %if.then.i114
@@ -19285,7 +19285,7 @@ invoke.cont79:                                    ; preds = %sw.bb65, %if.then.i
   br i1 %cmp.i117, label %if.then.i118, label %invoke.cont82
 
 if.then.i118:                                     ; preds = %invoke.cont79
-  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd.argprom(ptr noundef nonnull align 8 dereferenceable(24) %attributes75, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_WHITEE, double noundef %39)
+  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd(ptr noundef nonnull align 8 dereferenceable(24) %attributes75, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_WHITEE, double noundef %39)
           to label %invoke.cont82 unwind label %lpad78
 
 invoke.cont82:                                    ; preds = %invoke.cont79, %if.then.i118
@@ -19368,7 +19368,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   br i1 %cmp.i157, label %if.then.i158, label %invoke.cont100
 
 if.then.i158:                                     ; preds = %sw.epilog
-  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd.argprom(ptr noundef nonnull align 8 dereferenceable(24) %attributes97, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_BLACKE, double noundef %47)
+  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd(ptr noundef nonnull align 8 dereferenceable(24) %attributes97, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_BLACKE, double noundef %47)
           to label %invoke.cont100 unwind label %lpad99
 
 invoke.cont100:                                   ; preds = %sw.epilog, %if.then.i158
@@ -19378,7 +19378,7 @@ invoke.cont100:                                   ; preds = %sw.epilog, %if.then
   br i1 %cmp.i161, label %if.then.i162, label %invoke.cont102
 
 if.then.i162:                                     ; preds = %invoke.cont100
-  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd.argprom(ptr noundef nonnull align 8 dereferenceable(24) %attributes97, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_WHITEE, double noundef %48)
+  invoke fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd(ptr noundef nonnull align 8 dereferenceable(24) %attributes97, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL18ATTR_PRIMARY_WHITEE, double noundef %48)
           to label %invoke.cont102 unwind label %lpad99
 
 invoke.cont102:                                   ; preds = %invoke.cont100, %if.then.i162
@@ -19867,7 +19867,7 @@ if.end:                                           ; preds = %if.then.i.i.i, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter18writeScalarElementEPKcdd.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, double noundef %defaultVal, double noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter18writeScalarElementEPKcdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, double noundef %defaultVal, double noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %attributes = alloca %"class.std::vector", align 8
@@ -20036,7 +20036,7 @@ if.end:                                           ; preds = %if.then.i.i.i, %inv
 declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4devneERKNS_11GradingRGBMES2_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd.argprom(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr noundef %attr, double noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_120GradingPrimaryWriter12addAttributeERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EEPKcd(ptr noundef nonnull align 8 dereferenceable(24) %attributes, ptr noundef %attr, double noundef %val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %master = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -21954,7 +21954,7 @@ _ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit: ; preds = %entr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp12.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp13.i)
   %cmp.i = fcmp une double %6, %5
-  br i1 %cmp.i, label %if.then.i, label %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.exit
 
 if.then.i:                                        ; preds = %_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %attributes.i, i8 0, i64 24, i1 false)
@@ -22052,11 +22052,11 @@ invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %invoke.cont17.i
   %14 = phi ptr [ %.pr.i.i, %invoke.contthread-pre-split.i.i ], [ %12, %invoke.cont17.i ]
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.argprom.exit, label %if.then.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   call void @_ZdlPv(ptr noundef nonnull %14) #29
-  br label %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.argprom.exit
+  br label %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.exit
 
 lpad.i:                                           ; preds = %if.then.i
   %15 = landingpad { ptr, i32 }
@@ -22107,7 +22107,7 @@ common.resume:                                    ; preds = %lpad, %lpad15, %ehc
   call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %attributes.sink) #27
   resume { ptr, i32 } %common.resume.op
 
-_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.argprom.exit: ; preds = %_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit, %invoke.cont.i.i, %if.then.i.i.i.i
+_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.exit: ; preds = %_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit, %invoke.cont.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %attributes.i)
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %stream.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
@@ -22118,7 +22118,7 @@ _ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEP
   %call14 = call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev17GradingToneOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(196) %20) #27
   br i1 %call14, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.argprom.exit
+if.then:                                          ; preds = %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %attributes, i8 0, i64 24, i1 false)
   invoke void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA6_KcRA5_S8_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(6) @_ZN19OpenColorIO_v2_4devL10ATTR_PARAME, ptr noundef nonnull align 1 dereferenceable(5) @_ZN19OpenColorIO_v2_4devL17TAG_DYN_PROP_TONEE)
           to label %if.else.i.i unwind label %lpad
@@ -22201,7 +22201,7 @@ ehcleanup:                                        ; preds = %lpad21, %lpad19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #27
   br label %common.resume
 
-if.end:                                           ; preds = %if.then.i.i.i11, %invoke.cont.i10, %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.argprom.exit
+if.end:                                           ; preds = %if.then.i.i.i11, %invoke.cont.i10, %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.exit
   ret void
 }
 
@@ -26123,7 +26123,7 @@ if.else249.invoke:                                ; preds = %if.then77, %if.else
   %112 = phi ptr [ %add.ptr281, %if.else249 ], [ %add.ptr247, %if.then203 ], [ %add.ptr196, %if.else143 ], [ %add.ptr141, %if.then77 ]
   %113 = phi i32 [ 3, %if.else249 ], [ 4, %if.then203 ], [ 4, %if.else143 ], [ 5, %if.then77 ]
   %114 = load ptr, ptr %m_formatter, align 8
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIPKddEEvRNS_12XmlFormatterET_S6_jNS_8BitDepthEjT0_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef %111, ptr noundef %112, i32 noundef %113)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIPKddEEvRNS_12XmlFormatterET_S6_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef %111, ptr noundef %112, i32 noundef %113)
           to label %if.end284 unwind label %lpad44
 
 if.end284:                                        ; preds = %if.else249.invoke
@@ -26278,7 +26278,7 @@ ehcleanup296:                                     ; preds = %ehcleanup295, %lpad
 declare void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData12getAsForwardEv(ptr sret(%"class.std::shared_ptr.90") align 8, ptr noundef nonnull align 8 dereferenceable(260)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIPKddEEvRNS_12XmlFormatterET_S6_jNS_8BitDepthEjT0_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr noundef nonnull %valuesBegin, ptr noundef nonnull readnone %valuesEnd, i32 noundef range(i32 3, 6) %valuesPerLine) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111WriteValuesIPKddEEvRNS_12XmlFormatterET_S6_jNS_8BitDepthEjT0_(ptr noundef nonnull align 8 dereferenceable(16) %formatter, ptr noundef nonnull %valuesBegin, ptr noundef nonnull readnone %valuesEnd, i32 noundef range(i32 3, 6) %valuesPerLine) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -27824,8 +27824,8 @@ attributes #31 = { noreturn nounwind }
 !20 = distinct !{!20, !"_ZNKSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EE4rendEv"}
 !21 = distinct !{!21, !5}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117GetMinimumVersionERKSt10shared_ptrIKNS_18CTFReaderTransformEE.argprom.argprom: %agg.result"}
-!24 = distinct !{!24, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117GetMinimumVersionERKSt10shared_ptrIKNS_18CTFReaderTransformEE.argprom.argprom"}
+!23 = distinct !{!23, !24, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117GetMinimumVersionERKSt10shared_ptrIKNS_18CTFReaderTransformEE: %agg.result"}
+!24 = distinct !{!24, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117GetMinimumVersionERKSt10shared_ptrIKNS_18CTFReaderTransformEE"}
 !25 = !{!26, !23}
 !26 = distinct !{!26, !27, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetOpMinimumVersionERKSt10shared_ptrIKNS_6OpDataEE: %agg.result"}
 !27 = distinct !{!27, !"_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GetOpMinimumVersionERKSt10shared_ptrIKNS_6OpDataEE"}

@@ -1651,7 +1651,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit91
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit91:         ; preds = %532, %538, %541
-  invoke fastcc void @"_ZZN2cv5gimpl9GExecutorC1EOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_0clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE.argprom"(ptr nonnull %0, ptr %533, ptr %534, ptr noundef nonnull align 8 dereferenceable(24) %14)
+  invoke fastcc void @"_ZZN2cv5gimpl9GExecutorC1EOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_0clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE"(ptr nonnull %0, ptr %533, ptr %534, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %543 unwind label %577
 
 543:                                              ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit91
@@ -2024,7 +2024,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit131
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit131:        ; preds = %695, %701, %704
-  invoke fastcc void @"_ZZN2cv5gimpl9GExecutorC1EOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_0clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE.argprom"(ptr nonnull %0, ptr %696, ptr %697, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  invoke fastcc void @"_ZZN2cv5gimpl9GExecutorC1EOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_0clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE"(ptr nonnull %0, ptr %696, ptr %697, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %706 unwind label %740
 
 706:                                              ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit131
@@ -3390,7 +3390,7 @@ declare void @_ZN3ade4Node7inNodesEv(ptr dead_on_unwind writable sret(%"struct.a
 declare void @_ZN3ade4Node8outNodesEv(ptr dead_on_unwind writable sret(%"struct.ade::util::Range::MapRange.166") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN2cv5gimpl9GExecutorC1EOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_0clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE.argprom"(ptr nocapture readonly %.0.val, ptr %.0.val1, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN2cv5gimpl9GExecutorC1EOSt10unique_ptrIN3ade5GraphESt14default_deleteIS4_EEENK3$_0clENS3_6HandleINS3_4NodeEEERSt6vectorINS0_6RcDescESaISE_EE"(ptr nocapture readonly %.0.val, ptr %.0.val1, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.ade::details::MetadataId", align 8
   %3 = alloca %"class.ade::Handle", align 8
   %4 = alloca %"class.ade::details::MetadataId", align 8

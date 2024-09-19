@@ -249,9 +249,9 @@ define void @Gia_ManInseSimulateObj(ptr nocapture noundef readonly %0, i32 nound
 79:                                               ; preds = %51
   %80 = and i64 %.val174, 2684354559
   %narrow.i194.not = icmp eq i64 %80, 2684354559
-  br i1 %narrow.i194.not, label %Gia_ObjIsPi.argprom.exit, label %135
+  br i1 %narrow.i194.not, label %Gia_ObjIsPi.exit, label %135
 
-Gia_ObjIsPi.argprom.exit:                         ; preds = %79
+Gia_ObjIsPi.exit:                                 ; preds = %79
   %81 = lshr i64 %.val174, 32
   %82 = trunc nuw i64 %81 to i32
   %83 = and i32 %82, 536870911
@@ -263,9 +263,9 @@ Gia_ObjIsPi.argprom.exit:                         ; preds = %79
   %.val5.val.i = load i32, ptr %86, align 4
   %87 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not = icmp slt i32 %83, %87
-  br i1 %.not, label %88, label %Gia_ObjIsPi.argprom.exit.thread
+  br i1 %.not, label %88, label %Gia_ObjIsPi.exit.thread
 
-88:                                               ; preds = %Gia_ObjIsPi.argprom.exit
+88:                                               ; preds = %Gia_ObjIsPi.exit
   %89 = getelementptr i8, ptr %0, i64 768
   %.val152 = load ptr, ptr %89, align 8
   %90 = getelementptr i8, ptr %0, i64 784
@@ -293,7 +293,7 @@ Gia_ObjIsPi.argprom.exit:                         ; preds = %79
   %104 = icmp slt i64 %indvars.iv.next219, %103
   br i1 %104, label %.lr.ph205, label %.loopexit, !llvm.loop !11
 
-Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %Gia_ObjIsPi.argprom.exit
+Gia_ObjIsPi.exit.thread:                          ; preds = %Gia_ObjIsPi.exit
   %105 = getelementptr i8, ptr %0, i64 72
   %.val6.i = load ptr, ptr %105, align 8
   %106 = getelementptr i8, ptr %.val6.i, i64 4
@@ -322,8 +322,8 @@ Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %Gia_ObjIsPi.argprom
   %125 = icmp sgt i32 %.val151, 0
   br i1 %125, label %.lr.ph203, label %.loopexit
 
-.lr.ph203:                                        ; preds = %Gia_ObjIsPi.argprom.exit.thread, %.lr.ph203
-  %indvars.iv215 = phi i64 [ %indvars.iv.next216, %.lr.ph203 ], [ 0, %Gia_ObjIsPi.argprom.exit.thread ]
+.lr.ph203:                                        ; preds = %Gia_ObjIsPi.exit.thread, %.lr.ph203
+  %indvars.iv215 = phi i64 [ %indvars.iv.next216, %.lr.ph203 ], [ 0, %Gia_ObjIsPi.exit.thread ]
   %126 = getelementptr inbounds i64, ptr %123, i64 %indvars.iv215
   %127 = load i64, ptr %126, align 8
   %128 = getelementptr inbounds i64, ptr %118, i64 %indvars.iv215
@@ -369,7 +369,7 @@ Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %Gia_ObjIsPi.argprom
   %151 = icmp slt i64 %indvars.iv.next, %150
   br i1 %151, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph203, %.lr.ph205, %.lr.ph207, %.lr.ph209, %137, %Gia_ObjIsPi.argprom.exit.thread, %88, %52, %9, %135
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph203, %.lr.ph205, %.lr.ph207, %.lr.ph209, %137, %Gia_ObjIsPi.exit.thread, %88, %52, %9, %135
   ret void
 }
 

@@ -479,7 +479,7 @@ define noundef ptr @Aig_ObjCreate(ptr noundef %0, ptr nocapture noundef readonly
   %23 = getelementptr i8, ptr %3, i64 8
   %.val27 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.val27, null
-  br i1 %.not.i, label %Aig_ObjFaninId0.argprom.exit, label %24
+  br i1 %.not.i, label %Aig_ObjFaninId0.exit, label %24
 
 24:                                               ; preds = %22
   %25 = ptrtoint ptr %.val27 to i64
@@ -488,9 +488,9 @@ define noundef ptr @Aig_ObjCreate(ptr noundef %0, ptr nocapture noundef readonly
   %28 = getelementptr inbounds i8, ptr %27, i64 36
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
-  br label %Aig_ObjFaninId0.argprom.exit
+  br label %Aig_ObjFaninId0.exit
 
-Aig_ObjFaninId0.argprom.exit:                     ; preds = %22, %24
+Aig_ObjFaninId0.exit:                             ; preds = %22, %24
   %31 = phi i64 [ %30, %24 ], [ -1, %22 ]
   %32 = getelementptr i8, ptr %21, i64 8
   %.val28 = load ptr, ptr %32, align 8
@@ -500,18 +500,18 @@ Aig_ObjFaninId0.argprom.exit:                     ; preds = %22, %24
   %.val30 = load ptr, ptr %35, align 8
   %.not.i33 = icmp eq ptr %.val30, null
   %.pre = ptrtoint ptr %.val30 to i64
-  br i1 %.not.i33, label %Aig_ObjFaninId1.argprom.exit, label %36
+  br i1 %.not.i33, label %Aig_ObjFaninId1.exit, label %36
 
-36:                                               ; preds = %Aig_ObjFaninId0.argprom.exit
+36:                                               ; preds = %Aig_ObjFaninId0.exit
   %37 = and i64 %.pre, -2
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds i8, ptr %38, i64 36
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
-  br label %Aig_ObjFaninId1.argprom.exit
+  br label %Aig_ObjFaninId1.exit
 
-Aig_ObjFaninId1.argprom.exit:                     ; preds = %Aig_ObjFaninId0.argprom.exit, %36
-  %42 = phi i64 [ %41, %36 ], [ -1, %Aig_ObjFaninId0.argprom.exit ]
+Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %36
+  %42 = phi i64 [ %41, %36 ], [ -1, %Aig_ObjFaninId0.exit ]
   %43 = getelementptr inbounds i32, ptr %.val28, i64 %42
   %44 = load float, ptr %43, align 4
   %45 = ptrtoint ptr %.val27 to i64
@@ -532,7 +532,7 @@ Aig_ObjFaninId1.argprom.exit:                     ; preds = %Aig_ObjFaninId0.arg
   %.not.i.not.i = icmp slt i32 %53, %57
   br i1 %.not.i.not.i, label %Vec_IntSetEntry.exit, label %58
 
-58:                                               ; preds = %Aig_ObjFaninId1.argprom.exit
+58:                                               ; preds = %Aig_ObjFaninId1.exit
   %59 = load i32, ptr %21, align 8
   %.not.i.i.not.i = icmp sgt i32 %59, %53
   br i1 %.not.i.i.not.i, label %Vec_IntGrow.exit.i.i, label %Vec_IntGrow.exit.sink.split.i.i
@@ -578,8 +578,8 @@ Vec_IntGrow.exit.i.i:                             ; preds = %58, %Vec_IntGrow.ex
   store i32 %55, ptr %56, align 4
   br label %Vec_IntSetEntry.exit
 
-Vec_IntSetEntry.exit:                             ; preds = %Aig_ObjFaninId1.argprom.exit, %._crit_edge.i.i
-  %.val.i = phi ptr [ %.val28, %Aig_ObjFaninId1.argprom.exit ], [ %.val.i.pre, %._crit_edge.i.i ]
+Vec_IntSetEntry.exit:                             ; preds = %Aig_ObjFaninId1.exit, %._crit_edge.i.i
+  %.val.i = phi ptr [ %.val28, %Aig_ObjFaninId1.exit ], [ %.val.i.pre, %._crit_edge.i.i ]
   %69 = sext i32 %53 to i64
   %70 = getelementptr inbounds i32, ptr %.val.i, i64 %69
   store float %54, ptr %70, align 4
@@ -1694,19 +1694,19 @@ define i32 @Aig_ManPropagateBuffers(ptr noundef %0, i32 noundef %1) local_unname
   %18 = and i64 %.010.val.us, 7
   %.not.us = icmp eq i64 %18, 4
   tail call void @llvm.assume(i1 %.not.us)
-  br label %Aig_ObjFanout0.argprom.exit.us
+  br label %Aig_ObjFanout0.exit.us
 
-Aig_ObjFanout0.argprom.exit.us:                   ; preds = %.lr.ph.split.us, %Aig_ObjFanout0.argprom.exit.us
-  br label %Aig_ObjFanout0.argprom.exit.us
+Aig_ObjFanout0.exit.us:                           ; preds = %.lr.ph.split.us, %Aig_ObjFanout0.exit.us
+  br label %Aig_ObjFanout0.exit.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %19 = getelementptr i8, ptr %.val13, i64 8
   %.val14 = load ptr, ptr %8, align 8
   %.val.i.i = load ptr, ptr %19, align 8
-  br label %Aig_ObjFanout0.argprom.exit
+  br label %Aig_ObjFanout0.exit
 
-Aig_ObjFanout0.argprom.exit:                      ; preds = %.lr.ph.split, %Aig_ObjFanout0.argprom.exit
-  %.01020 = phi ptr [ %15, %.lr.ph.split ], [ %28, %Aig_ObjFanout0.argprom.exit ]
+Aig_ObjFanout0.exit:                              ; preds = %.lr.ph.split, %Aig_ObjFanout0.exit
+  %.01020 = phi ptr [ %15, %.lr.ph.split ], [ %28, %Aig_ObjFanout0.exit ]
   %20 = getelementptr i8, ptr %.01020, i64 36
   %.010.val15 = load i32, ptr %20, align 4
   %21 = mul nsw i32 %.010.val15, 5
@@ -1721,10 +1721,10 @@ Aig_ObjFanout0.argprom.exit:                      ; preds = %.lr.ph.split, %Aig_
   %.010.val = load i64, ptr %29, align 8
   %30 = and i64 %.010.val, 7
   %.not = icmp eq i64 %30, 4
-  br i1 %.not, label %Aig_ObjFanout0.argprom.exit, label %._crit_edge, !llvm.loop !9
+  br i1 %.not, label %Aig_ObjFanout0.exit, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %Aig_ObjFanout0.argprom.exit, %9
-  %.010.lcssa = phi ptr [ %15, %9 ], [ %28, %Aig_ObjFanout0.argprom.exit ]
+._crit_edge:                                      ; preds = %Aig_ObjFanout0.exit, %9
+  %.010.lcssa = phi ptr [ %15, %9 ], [ %28, %Aig_ObjFanout0.exit ]
   tail call void @Aig_NodeFixBufferFanins(ptr noundef nonnull %0, ptr noundef nonnull %.010.lcssa, i32 noundef %1)
   %exitcond = icmp eq i32 %.022, 1000001
   br i1 %exitcond, label %31, label %32

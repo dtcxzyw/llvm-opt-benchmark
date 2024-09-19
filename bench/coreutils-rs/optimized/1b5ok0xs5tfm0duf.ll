@@ -592,13 +592,13 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN12clap_buil
   %12 = icmp ne i128 %11, 24503081927999166500772401431235275638
   %13 = icmp eq ptr %8, null
   %14 = or i1 %12, %13
-  br i1 %14, label %15, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17he5e4bf76252305f7E.argprom.exit
+  br i1 %14, label %15, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17he5e4bf76252305f7E.exit
 
 15:                                               ; preds = %1
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.d050c6915a0d531ba39e1a01fc477e83.4.llvm.15487262557860838494, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d050c6915a0d531ba39e1a01fc477e83.7) #23
   unreachable
 
-_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17he5e4bf76252305f7E.argprom.exit: ; preds = %1
+_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17he5e4bf76252305f7E.exit: ; preds = %1
   ret ptr %8
 }
 
@@ -641,7 +641,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17hd75ec704293f1c98
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !170
   %10 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #22, !noalias !170
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcb337b6949a56fd8E.argprom.exit"
+  br i1 %11, label %12, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcb337b6949a56fd8E.exit"
 
 12:                                               ; preds = %3
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 24) #23
@@ -665,7 +665,7 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17hd75ec704293f1c98
 17:                                               ; preds = %13
   resume { ptr, i32 } %14
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcb337b6949a56fd8E.argprom.exit": ; preds = %3
+"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcb337b6949a56fd8E.exit": ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !165
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !165
   %18 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h0bf40e37c33fa406E(i8 noundef %0, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d050c6915a0d531ba39e1a01fc477e83.9)
@@ -1570,7 +1570,7 @@ define hidden void @_ZN5uu_od15multifilereader15MultifileReader9next_file17h2965
   %36 = getelementptr inbounds i8, ptr %0, i64 32
   %.val27 = load ptr, ptr %36, align 8
   %37 = icmp eq ptr %.val26, null
-  br i1 %37, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit", label %38
+  br i1 %37, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit", label %38
 
 38:                                               ; preds = %._crit_edge
   %39 = icmp ne ptr %.val27, null
@@ -1603,11 +1603,11 @@ define hidden void @_ZN5uu_od15multifilereader15MultifileReader9next_file17h2965
   %55 = icmp ult i64 %54, -9223372036854775807
   call void @llvm.assume(i1 %55)
   %56 = icmp eq i64 %52, 0
-  br i1 %56, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit", label %57
+  br i1 %56, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit", label %57
 
 57:                                               ; preds = %50
   call void @__rust_dealloc(ptr noundef nonnull %.val26, i64 noundef %52, i64 noundef %54) #22
-  br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit"
+  br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hf4ef3b22b46ad701E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hf4ef3b22b46ad701E.exit.lr.ph", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha9889fdd0a4a097cE.exit"
   %58 = phi i64 [ %.promoted, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hf4ef3b22b46ad701E.exit.lr.ph" ], [ %59, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17ha9889fdd0a4a097cE.exit" ]
@@ -1629,11 +1629,11 @@ define hidden void @_ZN5uu_od15multifilereader15MultifileReader9next_file17h2965
   store ptr null, ptr %35, align 8
   br label %common.resume
 
-"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit": ; preds = %57, %50, %._crit_edge
+"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit": ; preds = %57, %50, %._crit_edge
   store ptr null, ptr %35, align 8
   br label %61
 
-61:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit46", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit34", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit38", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit"
+61:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit46", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit34", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit38", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit"
   ret void
 
 common.resume:                                    ; preds = %144, %132, %75, %.body, %.body44, %174, %.body32, %.body36
@@ -1705,7 +1705,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   %80 = getelementptr inbounds i8, ptr %0, i64 32
   %.val25 = load ptr, ptr %80, align 8
   %81 = icmp eq ptr %.val24, null
-  br i1 %81, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit34", label %82
+  br i1 %81, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit34", label %82
 
 82:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0c7bc082b11e7f41E.exit"
   %83 = icmp ne ptr %.val25, null
@@ -1738,11 +1738,11 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   %99 = icmp ult i64 %98, -9223372036854775807
   call void @llvm.assume(i1 %99)
   %100 = icmp eq i64 %96, 0
-  br i1 %100, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit34", label %101
+  br i1 %100, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit34", label %101
 
 101:                                              ; preds = %94
   call void @__rust_dealloc(ptr noundef nonnull %.val24, i64 noundef %96, i64 noundef %98) #22
-  br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit34"
+  br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit34"
 
 102:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hf4ef3b22b46ad701E.exit"
   %103 = icmp ne ptr %.sroa.5.0.copyload, null
@@ -1753,7 +1753,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   %106 = getelementptr inbounds i8, ptr %0, i64 32
   %.val23 = load ptr, ptr %106, align 8
   %107 = icmp eq ptr %.val22, null
-  br i1 %107, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit38", label %108
+  br i1 %107, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit38", label %108
 
 108:                                              ; preds = %102
   %109 = icmp ne ptr %.val23, null
@@ -1786,11 +1786,11 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   %125 = icmp ult i64 %124, -9223372036854775807
   call void @llvm.assume(i1 %125)
   %126 = icmp eq i64 %122, 0
-  br i1 %126, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit38", label %127
+  br i1 %126, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit38", label %127
 
 127:                                              ; preds = %120
   call void @__rust_dealloc(ptr noundef nonnull %.val22, i64 noundef %122, i64 noundef %124) #22
-  br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit38"
+  br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit38"
 
 128:                                              ; preds = %62
   %129 = getelementptr inbounds i8, ptr %12, i64 4
@@ -1855,7 +1855,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   %149 = getelementptr inbounds i8, ptr %0, i64 32
   %.val21 = load ptr, ptr %149, align 8
   %150 = icmp eq ptr %.val, null
-  br i1 %150, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit46", label %151
+  br i1 %150, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit46", label %151
 
 151:                                              ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbdac811149b77263E.exit"
   %152 = icmp ne ptr %.val21, null
@@ -1888,11 +1888,11 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   %168 = icmp ult i64 %167, -9223372036854775807
   call void @llvm.assume(i1 %168)
   %169 = icmp eq i64 %165, 0
-  br i1 %169, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit46", label %170
+  br i1 %169, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit46", label %170
 
 170:                                              ; preds = %163
   call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %165, i64 noundef %167) #22
-  br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit46"
+  br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit46"
 
 171:                                              ; preds = %62
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -1909,7 +1909,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   store ptr @anon.d050c6915a0d531ba39e1a01fc477e83.32, ptr %149, align 8
   br label %common.resume
 
-"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit46": ; preds = %170, %163, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbdac811149b77263E.exit"
+"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit46": ; preds = %170, %163, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbdac811149b77263E.exit"
   store ptr %141, ptr %148, align 8
   store ptr @anon.d050c6915a0d531ba39e1a01fc477e83.32, ptr %149, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -1996,7 +1996,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   store ptr @anon.d050c6915a0d531ba39e1a01fc477e83.37, ptr %80, align 8
   br label %common.resume
 
-"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit34": ; preds = %101, %94, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0c7bc082b11e7f41E.exit"
+"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit34": ; preds = %101, %94, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0c7bc082b11e7f41E.exit"
   store ptr %72, ptr %79, align 8
   store ptr @anon.d050c6915a0d531ba39e1a01fc477e83.37, ptr %80, align 8
   br label %61
@@ -2006,7 +2006,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc3vec16Vec
   store ptr %104, ptr %106, align 8
   br label %common.resume
 
-"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.argprom.exit38": ; preds = %127, %120, %102
+"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$GT$$GT$$GT$17h593082a2b4bfeba1E.exit38": ; preds = %127, %120, %102
   store ptr %.sroa.5.0.copyload, ptr %105, align 8
   store ptr %104, ptr %106, align 8
   br label %61
@@ -2608,8 +2608,8 @@ attributes #25 = { cold noreturn nounwind }
 !165 = !{!166, !168}
 !166 = distinct !{!166, !167, !"_ZN152_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h69a5956a8b6f17d9E: argument 0"}
 !167 = distinct !{!167, !"_ZN152_$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h69a5956a8b6f17d9E"}
-!168 = distinct !{!168, !169, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcb337b6949a56fd8E.argprom: argument 0"}
-!169 = distinct !{!169, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcb337b6949a56fd8E.argprom"}
+!168 = distinct !{!168, !169, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcb337b6949a56fd8E: argument 0"}
+!169 = distinct !{!169, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcb337b6949a56fd8E"}
 !170 = !{!171, !166, !168}
 !171 = distinct !{!171, !172, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h68b1c40a031e2786E: argument 0"}
 !172 = distinct !{!172, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h68b1c40a031e2786E"}

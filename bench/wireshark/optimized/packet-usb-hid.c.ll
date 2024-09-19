@@ -3526,8 +3526,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3320 = private unnamed_addr constant [12 x i8] c" (tertiary)\00", align 1
 @.str.3321 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
 @.str.3322 = private unnamed_addr constant [15 x i8] c"HID DESCRIPTOR\00", align 1
-@switch.table.dissect_usb_hid_report_item.argprom = private unnamed_addr constant [4 x ptr] [ptr @usb_hid_mainitem_bTag_vals, ptr @usb_hid_globalitem_bTag_vals, ptr @usb_hid_localitem_bTag_vals, ptr @usb_hid_longitem_bTag_vals], align 8
-@switch.table.dissect_usb_hid_report_item.argprom.7 = private unnamed_addr constant [4 x ptr] [ptr @hf_usb_hid_mainitem_bTag, ptr @hf_usb_hid_globalitem_bTag, ptr @hf_usb_hid_localitem_bTag, ptr @hf_usb_hid_longitem_bTag], align 8
+@switch.table.dissect_usb_hid_report_item = private unnamed_addr constant [4 x ptr] [ptr @usb_hid_mainitem_bTag_vals, ptr @usb_hid_globalitem_bTag_vals, ptr @usb_hid_localitem_bTag_vals, ptr @usb_hid_longitem_bTag_vals], align 8
+@switch.table.dissect_usb_hid_report_item.7 = private unnamed_addr constant [4 x ptr] [ptr @hf_usb_hid_mainitem_bTag, ptr @hf_usb_hid_globalitem_bTag, ptr @hf_usb_hid_localitem_bTag, ptr @hf_usb_hid_longitem_bTag], align 8
 @switch.table.dissect_usb_hid_data = private unnamed_addr constant [4 x ptr] [ptr @.str.3317, ptr @.str.3318, ptr @.str.3319, ptr @.str.3320], align 8
 
 ; Function Attrs: nounwind uwtable
@@ -3543,7 +3543,7 @@ define hidden i32 @dissect_usb_hid_get_report_descriptor(ptr noundef %0, ptr nou
   %14 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %1, i32 noundef %13, ptr noundef %2, i32 noundef %3, i32 noundef -1, ptr noundef nonnull @.str) #7
   %15 = load i32, ptr @ett_usb_hid_report, align 4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #7
-  %17 = tail call fastcc i32 @dissect_usb_hid_report_item.argprom(ptr noundef %0, ptr noundef %16, ptr noundef %2, i32 noundef %3, i32 0)
+  %17 = tail call fastcc i32 @dissect_usb_hid_report_item(ptr noundef %0, ptr noundef %16, ptr noundef %2, i32 noundef %3, i32 0)
   %18 = getelementptr inbounds i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 50
@@ -4296,7 +4296,7 @@ declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr nounde
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_usb_hid_report_item.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %.0.val) unnamed_addr #0 {
+define internal fastcc i32 @dissect_usb_hid_report_item(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %.0.val) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -4322,10 +4322,10 @@ switch.lookup:                                    ; preds = %.lr.ph, %.thread
   %18 = and i32 %17, 3
   %19 = lshr i32 %14, 4
   %20 = zext nneg i32 %18 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_usb_hid_report_item.argprom, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_usb_hid_report_item, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   %21 = zext nneg i32 %18 to i64
-  %switch.gep26 = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_usb_hid_report_item.argprom.7, i64 0, i64 %21
+  %switch.gep26 = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_usb_hid_report_item.7, i64 0, i64 %21
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
   %.0 = load i32, ptr %switch.load27, align 4
   %22 = add nuw nsw i32 %spec.select, 1
@@ -4533,35 +4533,35 @@ default.unreachable:                              ; preds = %switch.lookup
   %106 = load i32, ptr @hf_usb_hid_globalitem_usage, align 4
   %107 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %25, i32 noundef %106, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef %.sink.i, ptr noundef nonnull @.str.261, ptr noundef nonnull %.0.i.i, i32 noundef %.sink.i) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.259, ptr noundef nonnull %.0.i.i) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 108:                                              ; preds = %89
   %109 = load i32, ptr @hf_usb_hid_globalitem_log_min, align 4
   %110 = call ptr @proto_tree_add_item_ret_int(ptr noundef %25, i32 noundef %109, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef -2147483648, ptr noundef nonnull %7) #7
   %111 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.262, i32 noundef %111) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 112:                                              ; preds = %89
   %113 = load i32, ptr @hf_usb_hid_globalitem_log_max, align 4
   %114 = call ptr @proto_tree_add_item_ret_int(ptr noundef %25, i32 noundef %113, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef -2147483648, ptr noundef nonnull %7) #7
   %115 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.262, i32 noundef %115) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 116:                                              ; preds = %89
   %117 = load i32, ptr @hf_usb_hid_globalitem_phy_min, align 4
   %118 = call ptr @proto_tree_add_item_ret_int(ptr noundef %25, i32 noundef %117, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef -2147483648, ptr noundef nonnull %7) #7
   %119 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.262, i32 noundef %119) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 120:                                              ; preds = %89
   %121 = load i32, ptr @hf_usb_hid_globalitem_phy_max, align 4
   %122 = call ptr @proto_tree_add_item_ret_int(ptr noundef %25, i32 noundef %121, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef -2147483648, ptr noundef nonnull %7) #7
   %123 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.262, i32 noundef %123) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 124:                                              ; preds = %89
   %125 = load i32, ptr @hf_usb_hid_globalitem_unit_exp, align 4
@@ -4572,12 +4572,12 @@ default.unreachable:                              ; preds = %switch.lookup
 
 129:                                              ; preds = %124
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.263, i32 noundef %127) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 130:                                              ; preds = %124
   %.neg.i = or disjoint i32 %127, -16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.262, i32 noundef %.neg.i) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 131:                                              ; preds = %89
   %132 = load i32, ptr @hf_usb_hid_globalitem_unit_sys, align 4
@@ -4597,58 +4597,58 @@ default.unreachable:                              ; preds = %switch.lookup
   %146 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %33) #7
   %147 = zext i8 %146 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.264, i32 noundef %147) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 148:                                              ; preds = %89
   %149 = load i32, ptr @hf_usb_hid_globalitem_report_size, align 4
   %150 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %25, i32 noundef %149, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef -2147483648, ptr noundef nonnull %6) #7
   %151 = load i32, ptr %6, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.263, i32 noundef %151) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 152:                                              ; preds = %89
   %153 = load i32, ptr @hf_usb_hid_globalitem_report_id, align 4
   %154 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %25, i32 noundef %153, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef -2147483648, ptr noundef nonnull %6) #7
   %155 = load i32, ptr %6, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.264, i32 noundef %155) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 156:                                              ; preds = %89
   %157 = load i32, ptr @hf_usb_hid_globalitem_report_count, align 4
   %158 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %25, i32 noundef %157, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef -2147483648, ptr noundef nonnull %6) #7
   %159 = load i32, ptr %6, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.263, i32 noundef %159) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 160:                                              ; preds = %89
   %.not119.i = icmp eq i32 %spec.select, 0
-  br i1 %.not119.i, label %dissect_usb_hid_report_globalitem_data.argprom.exit, label %161
+  br i1 %.not119.i, label %dissect_usb_hid_report_globalitem_data.exit, label %161
 
 161:                                              ; preds = %160
   %162 = load i32, ptr @hf_usb_hid_globalitem_push, align 4
   %163 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %25, i32 noundef %162, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef -2147483648, ptr noundef nonnull %6) #7
   %164 = load i32, ptr %6, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.263, i32 noundef %164) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 165:                                              ; preds = %89
   %.not.i95 = icmp eq i32 %spec.select, 0
-  br i1 %.not.i95, label %dissect_usb_hid_report_globalitem_data.argprom.exit, label %166
+  br i1 %.not.i95, label %dissect_usb_hid_report_globalitem_data.exit, label %166
 
 166:                                              ; preds = %165
   %167 = load i32, ptr @hf_usb_hid_globalitem_pop, align 4
   %168 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %25, i32 noundef %167, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef -2147483648, ptr noundef nonnull %6) #7
   %169 = load i32, ptr %6, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.263, i32 noundef %169) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
 170:                                              ; preds = %89
   %171 = load i32, ptr @hf_usb_hid_item_unk_data, align 4
   %172 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %171, ptr noundef %2, i32 noundef %33, i32 noundef %spec.select, i32 noundef 0) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.260) #7
-  br label %dissect_usb_hid_report_globalitem_data.argprom.exit
+  br label %dissect_usb_hid_report_globalitem_data.exit
 
-dissect_usb_hid_report_globalitem_data.argprom.exit: ; preds = %102, %108, %112, %116, %120, %129, %130, %131, %148, %152, %156, %160, %161, %165, %166, %170
+dissect_usb_hid_report_globalitem_data.exit:      ; preds = %102, %108, %112, %116, %120, %129, %130, %131, %148, %152, %156, %160, %161, %165, %166, %170
   %.sroa.0.1 = phi i32 [ %.sroa.0.011, %170 ], [ %.sroa.0.011, %165 ], [ %.sroa.0.011, %166 ], [ %.sroa.0.011, %160 ], [ %.sroa.0.011, %161 ], [ %.sroa.0.011, %156 ], [ %.sroa.0.011, %152 ], [ %.sroa.0.011, %148 ], [ %.sroa.0.011, %131 ], [ %.sroa.0.011, %129 ], [ %.sroa.0.011, %130 ], [ %.sroa.0.011, %120 ], [ %.sroa.0.011, %116 ], [ %.sroa.0.011, %112 ], [ %.sroa.0.011, %108 ], [ %.sink.i, %102 ]
   %173 = add i32 %spec.select, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -4799,16 +4799,16 @@ dissect_usb_hid_report_localitem_data.exit:       ; preds = %178, %188, %193, %1
 239:                                              ; preds = %.thread6, %237
   %240 = phi i32 [ %85, %.thread6 ], [ %238, %237 ]
   call void @increment_dissection_depth(ptr noundef %0) #7
-  %241 = call fastcc i32 @dissect_usb_hid_report_item.argprom(ptr noundef %0, ptr noundef %25, ptr noundef %2, i32 noundef %240, i32 %.sroa.0.011)
+  %241 = call fastcc i32 @dissect_usb_hid_report_item(ptr noundef %0, ptr noundef %25, ptr noundef %2, i32 noundef %240, i32 %.sroa.0.011)
   call void @decrement_dissection_depth(ptr noundef %0) #7
   %242 = load ptr, ptr %9, align 8
   %243 = sub i32 %241, %.08912
   call void @proto_item_set_len(ptr noundef %242, i32 noundef %243) #7
   br label %.thread
 
-.thread:                                          ; preds = %233, %dissect_usb_hid_report_localitem_data.exit, %dissect_usb_hid_report_globalitem_data.argprom.exit, %237, %239
-  %.sroa.0.25 = phi i32 [ %.sroa.0.011, %239 ], [ %.sroa.0.011, %237 ], [ %.sroa.0.1, %dissect_usb_hid_report_globalitem_data.argprom.exit ], [ %.sroa.0.011, %dissect_usb_hid_report_localitem_data.exit ], [ %.sroa.0.011, %233 ]
-  %.3 = phi i32 [ %241, %239 ], [ %238, %237 ], [ %173, %dissect_usb_hid_report_globalitem_data.argprom.exit ], [ %232, %dissect_usb_hid_report_localitem_data.exit ], [ %236, %233 ]
+.thread:                                          ; preds = %233, %dissect_usb_hid_report_localitem_data.exit, %dissect_usb_hid_report_globalitem_data.exit, %237, %239
+  %.sroa.0.25 = phi i32 [ %.sroa.0.011, %239 ], [ %.sroa.0.011, %237 ], [ %.sroa.0.1, %dissect_usb_hid_report_globalitem_data.exit ], [ %.sroa.0.011, %dissect_usb_hid_report_localitem_data.exit ], [ %.sroa.0.011, %233 ]
+  %.3 = phi i32 [ %241, %239 ], [ %238, %237 ], [ %173, %dissect_usb_hid_report_globalitem_data.exit ], [ %232, %dissect_usb_hid_report_localitem_data.exit ], [ %236, %233 ]
   %244 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.3) #7
   %245 = icmp sgt i32 %244, 0
   br i1 %245, label %switch.lookup, label %.loopexit, !llvm.loop !10

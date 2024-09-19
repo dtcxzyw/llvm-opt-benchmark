@@ -703,7 +703,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %197 = sext i32 %196 to i64
   %198 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val106, i64 %197, i32 1
   %199 = load i32, ptr %198, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %8, i32 noundef %199)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %8, i32 noundef %199)
   %200 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %8) #20
   tail call void @Gia_ManStop(ptr noundef nonnull %8) #20
   ret ptr %200
@@ -718,7 +718,7 @@ declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare void @Gia_ManHashStop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -1437,7 +1437,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %307 = sext i32 %306 to i64
   %308 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val168, i64 %307, i32 1
   %309 = load i32, ptr %308, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %5, i32 noundef %309)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %5, i32 noundef %309)
   %310 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %5) #20
   tail call void @Gia_ManStop(ptr noundef nonnull %5) #20
   ret ptr %310

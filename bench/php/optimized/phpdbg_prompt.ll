@@ -3201,7 +3201,7 @@ switch.early.test:                                ; preds = %12
   call void @phpdbg_activate_err_buf(i1 noundef zeroext false) #24
   %.val = load i32, ptr %5, align 8
   %.val54 = load ptr, ptr %72, align 8
-  %78 = call fastcc i32 @phpdbg_call_register.argprom(i32 %.val, ptr %.val54)
+  %78 = call fastcc i32 @phpdbg_call_register(i32 %.val, ptr %.val54)
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %80, label %89
 
@@ -4346,7 +4346,7 @@ define hidden i32 @phpdbg_interactive(i1 noundef zeroext %0, ptr noundef %1) loc
 33:                                               ; preds = %32
   %.val = load i32, ptr %4, align 8
   %.val12 = load ptr, ptr %9, align 8
-  %34 = call fastcc i32 @phpdbg_call_register.argprom(i32 %.val, ptr %.val12)
+  %34 = call fastcc i32 @phpdbg_call_register(i32 %.val, ptr %.val12)
   %35 = icmp eq i32 %34, -1
   br i1 %35, label %36, label %51
 
@@ -4420,7 +4420,7 @@ declare i32 @phpdbg_stack_execute(ptr noundef, i1 noundef zeroext) local_unnamed
 declare void @phpdbg_stack_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @phpdbg_call_register.argprom(i32 %.0.val, ptr readonly %.72.val) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @phpdbg_call_register(i32 %.0.val, ptr readonly %.72.val) unnamed_addr #0 {
   %1 = alloca %struct._zval_struct, align 8
   %2 = alloca %struct._zend_fcall_info, align 8
   %3 = alloca %struct._zval_struct, align 8

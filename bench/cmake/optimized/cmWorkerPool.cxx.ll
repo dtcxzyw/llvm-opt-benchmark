@@ -5022,7 +5022,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i.i:  ; preds = %1
   %4 = getelementptr inbounds i8, ptr %.val, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN18cmWorkerPoolWorker14UVProcessStartEP10uv_async_sE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %6
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN18cmWorkerPoolWorker14UVProcessStartEP10uv_async_sE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %6
 
 6:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i.i
   %7 = getelementptr inbounds i8, ptr %5, i64 73
@@ -5034,15 +5034,15 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i.i:  ; preds = %1
   %11 = getelementptr inbounds i8, ptr %5, i64 72
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %"_ZSt10__invoke_rIvRZN18cmWorkerPoolWorker14UVProcessStartEP10uv_async_sE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit", label %_ZNSt10unique_ptrI19cmUVReadOnlyProcessSt14default_deleteIS0_EE5resetEPS0_.exit.i.i.i.i
+  br i1 %13, label %"_ZSt10__invoke_rIvRZN18cmWorkerPoolWorker14UVProcessStartEP10uv_async_sE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", label %_ZNSt10unique_ptrI19cmUVReadOnlyProcessSt14default_deleteIS0_EE5resetEPS0_.exit.i.i.i.i
 
 _ZNSt10unique_ptrI19cmUVReadOnlyProcessSt14default_deleteIS0_EE5resetEPS0_.exit.i.i.i.i: ; preds = %10, %6
   store ptr null, ptr %4, align 8
   tail call void @_ZN19cmUVReadOnlyProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %5) #21
   tail call void @_ZdlPv(ptr noundef nonnull %5) #24
-  br label %"_ZSt10__invoke_rIvRZN18cmWorkerPoolWorker14UVProcessStartEP10uv_async_sE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN18cmWorkerPoolWorker14UVProcessStartEP10uv_async_sE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIvRZN18cmWorkerPoolWorker14UVProcessStartEP10uv_async_sE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.argprom.exit": ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i.i, %10, %_ZNSt10unique_ptrI19cmUVReadOnlyProcessSt14default_deleteIS0_EE5resetEPS0_.exit.i.i.i.i
+"_ZSt10__invoke_rIvRZN18cmWorkerPoolWorker14UVProcessStartEP10uv_async_sE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i.i.i, %10, %_ZNSt10unique_ptrI19cmUVReadOnlyProcessSt14default_deleteIS0_EE5resetEPS0_.exit.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %.val, i64 56
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #21
   %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %.val) #21

@@ -7566,7 +7566,7 @@ _ZNK2cv11_InputArray6getMatEi.exit48:             ; preds = %15, %18
   %56 = fadd double %54, %55
   %57 = fmul double %56, 0x3E80000000000000
   %58 = fcmp ugt double %52, %57
-  br i1 %58, label %40, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit
+  br i1 %58, label %40, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
 ._crit_edge.i:                                    ; preds = %40, %27
   %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
@@ -7626,7 +7626,7 @@ _ZNK2cv11_InputArray6getMatEi.exit48:             ; preds = %15, %18
   %93 = fadd double %91, %92
   %94 = fmul double %93, 0x3E80000000000000
   %95 = fcmp ugt double %89, %94
-  br i1 %95, label %77, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit
+  br i1 %95, label %77, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
 ._crit_edge.i57:                                  ; preds = %77, %64
   %indvars.iv.next10.i58 = add nuw nsw i64 %indvars.iv9.i51, 1
@@ -7720,12 +7720,12 @@ _ZNK2cv11_InputArray6getMatEi.exit48:             ; preds = %15, %18
 167:                                              ; preds = %.preheader
   %168 = and i32 %166, 2147483643
   %or.cond.not = icmp eq i32 %168, 0
-  br i1 %or.cond.not, label %.thread75, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit
+  br i1 %or.cond.not, label %.thread75, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
 .thread75:                                        ; preds = %_ZNK2cv11_InputArray6getMatEi.exit48, %167, %98
-  br label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit
+  br label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
-_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit: ; preds = %41, %78, %167, %.thread75
+_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %41, %78, %167, %.thread75
   %.0 = phi i1 [ true, %.thread75 ], [ false, %167 ], [ false, %78 ], [ false, %41 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #18
@@ -9155,9 +9155,9 @@ _ZN2cv3Mat2atIdEERT_i.exit286.i:                  ; preds = %500, %495, %489
   store i32 33619968, ptr %34, align 8
   store ptr %61, ptr %397, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %61, ptr noundef nonnull align 8 dereferenceable(24) %34, i32 noundef -1, double noundef %512, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit.i unwind label %513
+          to label %_ZN2cvmLERNS_3MatERKd.exit.i unwind label %513
 
-_ZN2cvmLERNS_3MatERKd.argprom.exit.i:             ; preds = %_ZN2cv3Mat2atIdEERT_i.exit286.i
+_ZN2cvmLERNS_3MatERKd.exit.i:                     ; preds = %_ZN2cv3Mat2atIdEERT_i.exit286.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   br label %519
 
@@ -9183,7 +9183,7 @@ _ZN2cvmLERNS_3MatERKd.argprom.exit.i:             ; preds = %_ZN2cv3Mat2atIdEERT
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %64) #18
   br label %.body.i
 
-519:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.argprom.exit.i, %_ZN2cv3Mat2atIdEERT_i.exit.i
+519:                                              ; preds = %_ZN2cvmLERNS_3MatERKd.exit.i, %_ZN2cv3Mat2atIdEERT_i.exit.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %61) #18
   %indvars.iv.next349.i = add nuw nsw i64 %indvars.iv348.i, 1
   %520 = getelementptr inbounds i8, ptr %.0238325.i, i64 72
@@ -10264,7 +10264,7 @@ _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %15, %18
   %19 = getelementptr inbounds i8, ptr %5, i64 16
   %.val8 = load ptr, ptr %19, align 8
   %20 = icmp sgt i32 %3, 1
-  br i1 %20, label %.lr.ph6.i, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit
+  br i1 %20, label %.lr.ph6.i, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
 .lr.ph6.i:                                        ; preds = %_ZNK2cv11_InputArray6getMatEi.exit12
   %21 = add nsw i32 %3, -1
@@ -10319,7 +10319,7 @@ _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %15, %18
   %56 = fadd double %54, %55
   %57 = fmul double %56, 0x3E80000000000000
   %58 = fcmp ugt double %52, %57
-  br i1 %58, label %40, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit
+  br i1 %58, label %40, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
 ._crit_edge.i:                                    ; preds = %40, %27
   %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
@@ -10379,14 +10379,14 @@ _ZNK2cv11_InputArray6getMatEi.exit12:             ; preds = %15, %18
   %93 = fadd double %91, %92
   %94 = fmul double %93, 0x3E80000000000000
   %95 = fcmp ugt double %89, %94
-  br i1 %95, label %77, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit
+  br i1 %95, label %77, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit
 
 ._crit_edge.i21:                                  ; preds = %77, %64
   %indvars.iv.next10.i22 = add nuw nsw i64 %indvars.iv9.i15, 1
   %exitcond13.not.i23 = icmp eq i64 %indvars.iv.next10.i22, %22
-  br i1 %exitcond13.not.i23, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit, label %64, !llvm.loop !162
+  br i1 %exitcond13.not.i23, label %_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit, label %64, !llvm.loop !162
 
-_ZN2cvL19haveCollinearPointsERKNS_3MatEi.argprom.argprom.exit: ; preds = %41, %._crit_edge.i21, %78, %_ZNK2cv11_InputArray6getMatEi.exit12
+_ZN2cvL19haveCollinearPointsERKNS_3MatEi.exit:    ; preds = %41, %._crit_edge.i21, %78, %_ZNK2cv11_InputArray6getMatEi.exit12
   %96 = phi i1 [ true, %_ZNK2cv11_InputArray6getMatEi.exit12 ], [ false, %78 ], [ true, %._crit_edge.i21 ], [ false, %41 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #18

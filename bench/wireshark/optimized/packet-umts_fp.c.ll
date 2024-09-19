@@ -962,7 +962,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_fp(ptr noundef %0, ptr noundef
   %24 = load ptr, ptr @fp_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %16, ptr noundef %24) #9
   %25 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %heur_dissect_fp_dcch_over_dch.argprom.exit
+  br label %heur_dissect_fp_dcch_over_dch.exit
 
 26:                                               ; preds = %20, %17, %4
   %.082.i = phi ptr [ null, %17 ], [ null, %4 ], [ %19, %20 ]
@@ -1097,7 +1097,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_fp(ptr noundef %0, ptr noundef
   %90 = load ptr, ptr @fp_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %89, ptr noundef %90) #9
   %91 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %heur_dissect_fp_dcch_over_dch.argprom.exit
+  br label %heur_dissect_fp_dcch_over_dch.exit
 
 92:                                               ; preds = %20, %26, %30, %33, %40, %42, %44, %46, %36, %53, %55, %57, %59
   %93 = load i32, ptr %5, align 4
@@ -1119,7 +1119,7 @@ define internal range(i32 0, 2) i32 @heur_dissect_fp(ptr noundef %0, ptr noundef
   %103 = getelementptr inbounds i8, ptr %101, i64 8
   %104 = load i32, ptr %103, align 8
   switch i32 %104, label %161 [
-    i32 3, label %heur_dissect_fp_fach1.argprom.exit
+    i32 3, label %heur_dissect_fp_fach1.exit
     i32 0, label %105
   ]
 
@@ -1237,14 +1237,14 @@ define internal range(i32 0, 2) i32 @heur_dissect_fp(ptr noundef %0, ptr noundef
   %157 = getelementptr inbounds i8, ptr %.1.i57, i64 64
   store ptr %153, ptr %157, align 8
   %158 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #9
-  br label %heur_dissect_fp_fach1.argprom.exit
+  br label %heur_dissect_fp_fach1.exit
 
-heur_dissect_fp_fach1.argprom.exit:               ; preds = %102, %132
+heur_dissect_fp_fach1.exit:                       ; preds = %102, %132
   %.sink.i58 = phi ptr [ %158, %132 ], [ %98, %102 ]
   %159 = load ptr, ptr @fp_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %.sink.i58, ptr noundef %159) #9
   %160 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %heur_dissect_fp_dcch_over_dch.argprom.exit
+  br label %heur_dissect_fp_dcch_over_dch.exit
 
 161:                                              ; preds = %102, %105, %108, %110, %114, %117, %122, %124, %126
   %162 = load i32, ptr %5, align 4
@@ -1266,7 +1266,7 @@ heur_dissect_fp_fach1.argprom.exit:               ; preds = %102, %132
   %172 = getelementptr inbounds i8, ptr %170, i64 8
   %173 = load i32, ptr %172, align 8
   switch i32 %173, label %237 [
-    i32 3, label %heur_dissect_fp_fach2.argprom.exit
+    i32 3, label %heur_dissect_fp_fach2.exit
     i32 0, label %174
   ]
 
@@ -1398,14 +1398,14 @@ heur_dissect_fp_fach1.argprom.exit:               ; preds = %102, %132
   %233 = getelementptr inbounds i8, ptr %.1.i65, i64 64
   store ptr %229, ptr %233, align 8
   %234 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #9
-  br label %heur_dissect_fp_fach2.argprom.exit
+  br label %heur_dissect_fp_fach2.exit
 
-heur_dissect_fp_fach2.argprom.exit:               ; preds = %171, %206
+heur_dissect_fp_fach2.exit:                       ; preds = %171, %206
   %.sink.i67 = phi ptr [ %234, %206 ], [ %167, %171 ]
   %235 = load ptr, ptr @fp_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %.sink.i67, ptr noundef %235) #9
   %236 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %heur_dissect_fp_dcch_over_dch.argprom.exit
+  br label %heur_dissect_fp_dcch_over_dch.exit
 
 237:                                              ; preds = %171, %174, %177, %179, %183, %186, %191, %196, %198, %200
   %238 = load i32, ptr %5, align 4
@@ -1427,7 +1427,7 @@ heur_dissect_fp_fach2.argprom.exit:               ; preds = %171, %206
   %248 = getelementptr inbounds i8, ptr %246, i64 8
   %249 = load i32, ptr %248, align 8
   switch i32 %249, label %313 [
-    i32 1, label %heur_dissect_fp_rach.argprom.exit
+    i32 1, label %heur_dissect_fp_rach.exit
     i32 0, label %250
   ]
 
@@ -1547,41 +1547,41 @@ heur_dissect_fp_fach2.argprom.exit:               ; preds = %171, %206
   %309 = getelementptr inbounds i8, ptr %.1.i80, i64 64
   store ptr %305, ptr %309, align 8
   %310 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #9
-  br label %heur_dissect_fp_rach.argprom.exit
+  br label %heur_dissect_fp_rach.exit
 
-heur_dissect_fp_rach.argprom.exit:                ; preds = %247, %282
+heur_dissect_fp_rach.exit:                        ; preds = %247, %282
   %.sink.i82 = phi ptr [ %310, %282 ], [ %243, %247 ]
   %311 = load ptr, ptr @fp_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %.sink.i82, ptr noundef %311) #9
   %312 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %heur_dissect_fp_dcch_over_dch.argprom.exit
+  br label %heur_dissect_fp_dcch_over_dch.exit
 
 313:                                              ; preds = %247, %250, %253, %255, %259, %262, %267, %270, %274, %276
-  %314 = tail call fastcc i32 @heur_dissect_fp_pch.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %314 = tail call fastcc i32 @heur_dissect_fp_pch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %.not48 = icmp eq i32 %314, 0
-  br i1 %.not48, label %315, label %heur_dissect_fp_dcch_over_dch.argprom.exit
+  br i1 %.not48, label %315, label %heur_dissect_fp_dcch_over_dch.exit
 
 315:                                              ; preds = %313
-  %316 = tail call fastcc i32 @heur_dissect_fp_hsdsch_type_1.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %316 = tail call fastcc i32 @heur_dissect_fp_hsdsch_type_1(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %.not49 = icmp eq i32 %316, 0
-  br i1 %.not49, label %317, label %heur_dissect_fp_dcch_over_dch.argprom.exit
+  br i1 %.not49, label %317, label %heur_dissect_fp_dcch_over_dch.exit
 
 317:                                              ; preds = %315
-  %318 = tail call fastcc i32 @heur_dissect_fp_hsdsch_type_2.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %318 = tail call fastcc i32 @heur_dissect_fp_hsdsch_type_2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %.not50 = icmp eq i32 %318, 0
-  br i1 %.not50, label %319, label %heur_dissect_fp_dcch_over_dch.argprom.exit
+  br i1 %.not50, label %319, label %heur_dissect_fp_dcch_over_dch.exit
 
 319:                                              ; preds = %317
-  %320 = tail call fastcc i32 @heur_dissect_fp_edch_type_1.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %320 = tail call fastcc i32 @heur_dissect_fp_edch_type_1(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %.not51 = icmp eq i32 %320, 0
-  br i1 %.not51, label %321, label %heur_dissect_fp_dcch_over_dch.argprom.exit
+  br i1 %.not51, label %321, label %heur_dissect_fp_dcch_over_dch.exit
 
 321:                                              ; preds = %319
-  %322 = tail call fastcc i32 @heur_dissect_fp_unknown_format.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
-  br label %heur_dissect_fp_dcch_over_dch.argprom.exit
+  %322 = tail call fastcc i32 @heur_dissect_fp_unknown_format(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  br label %heur_dissect_fp_dcch_over_dch.exit
 
-heur_dissect_fp_dcch_over_dch.argprom.exit:       ; preds = %heur_dissect_fp_rach.argprom.exit, %heur_dissect_fp_fach2.argprom.exit, %heur_dissect_fp_fach1.argprom.exit, %66, %23, %321, %319, %317, %315, %313
-  %.0 = phi i32 [ 1, %heur_dissect_fp_fach1.argprom.exit ], [ 1, %heur_dissect_fp_fach2.argprom.exit ], [ 1, %heur_dissect_fp_rach.argprom.exit ], [ 1, %313 ], [ 1, %315 ], [ 1, %317 ], [ 1, %319 ], [ %322, %321 ], [ 1, %23 ], [ 1, %66 ]
+heur_dissect_fp_dcch_over_dch.exit:               ; preds = %heur_dissect_fp_rach.exit, %heur_dissect_fp_fach2.exit, %heur_dissect_fp_fach1.exit, %66, %23, %321, %319, %317, %315, %313
+  %.0 = phi i32 [ 1, %heur_dissect_fp_fach1.exit ], [ 1, %heur_dissect_fp_fach2.exit ], [ 1, %heur_dissect_fp_rach.exit ], [ 1, %313 ], [ 1, %315 ], [ 1, %317 ], [ 1, %319 ], [ %322, %321 ], [ 1, %23 ], [ 1, %66 ]
   ret i32 %.0
 }
 
@@ -2129,16 +2129,16 @@ fp_conv_resolve_urnti.exit.i:                     ; preds = %119, %.fp_conv_reso
   %323 = getelementptr [256 x i8], ptr @fake_map, i64 0, i64 %322
   %324 = load i8, ptr %323, align 1
   %325 = icmp eq i8 %324, 0
-  br i1 %325, label %326, label %make_fake_lchid.argprom.exit.i
+  br i1 %325, label %326, label %make_fake_lchid.exit.i
 
 326:                                              ; preds = %321
   %327 = load i8, ptr @fakes, align 1
   store i8 %327, ptr %323, align 1
   %328 = add i8 %327, 1
   store i8 %328, ptr @fakes, align 1
-  br label %make_fake_lchid.argprom.exit.i
+  br label %make_fake_lchid.exit.i
 
-make_fake_lchid.argprom.exit.i:                   ; preds = %326, %321
+make_fake_lchid.exit.i:                           ; preds = %326, %321
   %329 = phi i8 [ %327, %326 ], [ %324, %321 ]
   %330 = zext i8 %329 to i64
   %331 = getelementptr [0 x i8], ptr @lchId_type_table, i64 0, i64 %330
@@ -2153,10 +2153,10 @@ make_fake_lchid.argprom.exit.i:                   ; preds = %326, %321
   store i32 1, ptr %337, align 4
   br label %338
 
-338:                                              ; preds = %make_fake_lchid.argprom.exit.i, %317, %303
-  %.sink412.i = phi ptr [ %261, %317 ], [ %263, %make_fake_lchid.argprom.exit.i ], [ %261, %303 ]
-  %.sink410.i = phi i8 [ 2, %317 ], [ %329, %make_fake_lchid.argprom.exit.i ], [ %315, %303 ]
-  %339 = phi i8 [ 11, %317 ], [ %329, %make_fake_lchid.argprom.exit.i ], [ %308, %303 ]
+338:                                              ; preds = %make_fake_lchid.exit.i, %317, %303
+  %.sink412.i = phi ptr [ %261, %317 ], [ %263, %make_fake_lchid.exit.i ], [ %261, %303 ]
+  %.sink410.i = phi i8 [ 2, %317 ], [ %329, %make_fake_lchid.exit.i ], [ %315, %303 ]
+  %339 = phi i8 [ 11, %317 ], [ %329, %make_fake_lchid.exit.i ], [ %308, %303 ]
   %340 = getelementptr [64 x i8], ptr %.sink412.i, i64 0, i64 %296
   store i8 %.sink410.i, ptr %340, align 1
   %.val354.i = load i32, ptr %114, align 4
@@ -2738,7 +2738,7 @@ proto_item_set_generated.exit274:                 ; preds = %proto_item_set_gene
   br i1 %639, label %640, label %645
 
 640:                                              ; preds = %630
-  call fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
   %641 = load i32, ptr @preferences_header_checksum, align 4
   %.not188.i = icmp eq i32 %641, 0
   br i1 %.not188.i, label %dissect_rach_channel_info.exit, label %642
@@ -2746,7 +2746,7 @@ proto_item_set_generated.exit274:                 ; preds = %proto_item_set_gene
 642:                                              ; preds = %640
   %643 = load i32, ptr %12, align 4
   %644 = trunc i32 %643 to i16
-  call fastcc void @verify_control_frame_crc.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %632, i16 noundef zeroext %644)
+  call fastcc void @verify_control_frame_crc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %632, i16 noundef zeroext %644)
   br label %dissect_rach_channel_info.exit
 
 645:                                              ; preds = %630
@@ -3023,7 +3023,7 @@ dissect_rach_channel_info.exit:                   ; preds = %640, %642, %verify_
   br label %968
 
 774:                                              ; preds = %628
-  tail call fastcc void @dissect_dch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222, ptr noundef %3)
+  tail call fastcc void @dissect_dch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222, ptr noundef %3)
   br label %968
 
 775:                                              ; preds = %628, %628
@@ -3043,7 +3043,7 @@ dissect_rach_channel_info.exit:                   ; preds = %640, %642, %verify_
   br i1 %784, label %785, label %790
 
 785:                                              ; preds = %775
-  call fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
   %786 = load i32, ptr @preferences_header_checksum, align 4
   %.not62.i = icmp eq i32 %786, 0
   br i1 %.not62.i, label %dissect_fach_channel_info.exit, label %787
@@ -3051,7 +3051,7 @@ dissect_rach_channel_info.exit:                   ; preds = %640, %642, %verify_
 787:                                              ; preds = %785
   %788 = load i32, ptr %10, align 4
   %789 = trunc i32 %788 to i16
-  call fastcc void @verify_control_frame_crc.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %777, i16 noundef zeroext %789)
+  call fastcc void @verify_control_frame_crc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %777, i16 noundef zeroext %789)
   br label %dissect_fach_channel_info.exit
 
 790:                                              ; preds = %775
@@ -3143,7 +3143,7 @@ dissect_fach_channel_info.exit:                   ; preds = %785, %787, %verify_
   br i1 %841, label %842, label %843
 
 842:                                              ; preds = %832
-  call fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
   br label %dissect_dsch_channel_info.exit
 
 843:                                              ; preds = %832
@@ -3216,7 +3216,7 @@ dissect_dsch_channel_info.exit:                   ; preds = %842, %874
   br i1 %885, label %886, label %887
 
 886:                                              ; preds = %876
-  call fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %.0222)
   br label %dissect_usch_channel_info.exit
 
 887:                                              ; preds = %876
@@ -3276,16 +3276,16 @@ dissect_usch_channel_info.exit:                   ; preds = %886, %920
   br label %968
 
 921:                                              ; preds = %628
-  tail call fastcc void @dissect_pch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222, ptr noundef %3)
+  tail call fastcc void @dissect_pch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222, ptr noundef %3)
   tail call fastcc void @update_pch_coversation_info(ptr noundef %.1303, ptr noundef %1, ptr noundef %.0222)
   br label %968
 
 922:                                              ; preds = %628
-  tail call fastcc void @dissect_cpch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222)
+  tail call fastcc void @dissect_cpch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222)
   br label %968
 
 923:                                              ; preds = %628
-  tail call fastcc void @dissect_bch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222)
+  tail call fastcc void @dissect_bch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222)
   br label %968
 
 924:                                              ; preds = %628
@@ -3323,11 +3323,11 @@ proto_item_set_generated.exit291:                 ; preds = %933, %930, %925, %9
   ]
 
 939:                                              ; preds = %proto_item_set_generated.exit291, %proto_item_set_generated.exit291
-  tail call fastcc void @dissect_hsdsch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222, ptr noundef %3)
+  tail call fastcc void @dissect_hsdsch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222, ptr noundef %3)
   br label %968
 
 940:                                              ; preds = %proto_item_set_generated.exit291
-  tail call fastcc void @dissect_hsdsch_type_2_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222, ptr noundef %3)
+  tail call fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222, ptr noundef %3)
   br label %968
 
 941:                                              ; preds = %proto_item_set_generated.exit291
@@ -3336,7 +3336,7 @@ proto_item_set_generated.exit291:                 ; preds = %933, %930, %925, %9
 
 943:                                              ; preds = %628
   %944 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_fp_hsdsch_common_experimental_support) #9
-  tail call fastcc void @dissect_hsdsch_common_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222, ptr noundef %3)
+  tail call fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222, ptr noundef %3)
   br label %968
 
 945:                                              ; preds = %628
@@ -3344,7 +3344,7 @@ proto_item_set_generated.exit291:                 ; preds = %933, %930, %925, %9
   br label %968
 
 947:                                              ; preds = %628
-  tail call fastcc void @dissect_iur_dsch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222)
+  tail call fastcc void @dissect_iur_dsch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %.0222)
   br label %968
 
 948:                                              ; preds = %628, %628
@@ -3354,7 +3354,7 @@ proto_item_set_generated.exit291:                 ; preds = %933, %930, %925, %9
 .split:                                           ; preds = %948
   %949 = icmp eq i32 %629, 21
   %950 = zext i1 %949 to i32
-  tail call fastcc void @dissect_e_dch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %.0222, i32 noundef %950, ptr noundef %3)
+  tail call fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %.0222, i32 noundef %950, ptr noundef %3)
   br label %968
 
 .split228:                                        ; preds = %948
@@ -3383,7 +3383,7 @@ proto_item_set_generated.exit294:                 ; preds = %.split228, %956, %9
   %963 = load i32, ptr %517, align 4
   %964 = icmp eq i32 %963, 21
   %965 = zext i1 %964 to i32
-  tail call fastcc void @dissect_e_dch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %18, ptr noundef %.0222, i32 noundef %965, ptr noundef %3)
+  tail call fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %18, ptr noundef %.0222, i32 noundef %965, ptr noundef %3)
   br label %968
 
 966:                                              ; preds = %628
@@ -3430,7 +3430,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_dch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -3460,7 +3460,7 @@ define internal fastcc void @dissect_dch_channel_info.argelim(ptr noundef %0, pt
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %21
-  call fastcc void @dissect_dch_control_frame.argelim(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %3)
+  call fastcc void @dissect_dch_control_frame(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %3)
   %26 = load i32, ptr @preferences_header_checksum, align 4
   %.not58 = icmp eq i32 %26, 0
   br i1 %.not58, label %71, label %27
@@ -3468,7 +3468,7 @@ define internal fastcc void @dissect_dch_channel_info.argelim(ptr noundef %0, pt
 27:                                               ; preds = %25
   %28 = load i32, ptr %8, align 4
   %29 = trunc i32 %28 to i16
-  call fastcc void @verify_control_frame_crc.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i16 noundef zeroext %29)
+  call fastcc void @verify_control_frame_crc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i16 noundef zeroext %29)
   br label %71
 
 30:                                               ; preds = %21
@@ -3548,7 +3548,7 @@ verify_header_crc.exit:                           ; preds = %66, %65, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_pch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -3567,7 +3567,7 @@ define internal fastcc void @dissect_pch_channel_info.argelim(ptr noundef %0, pt
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %5
-  call fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %20 = load i32, ptr @preferences_header_checksum, align 4
   %.not96 = icmp eq i32 %20, 0
   br i1 %.not96, label %128, label %21
@@ -3575,7 +3575,7 @@ define internal fastcc void @dissect_pch_channel_info.argelim(ptr noundef %0, pt
 21:                                               ; preds = %19
   %22 = load i32, ptr %8, align 4
   %23 = trunc i32 %22 to i16
-  call fastcc void @verify_control_frame_crc.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i16 noundef zeroext %23)
+  call fastcc void @verify_control_frame_crc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, i16 noundef zeroext %23)
   br label %128
 
 24:                                               ; preds = %5
@@ -3800,7 +3800,7 @@ define internal fastcc void @update_pch_coversation_info(ptr noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cpch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @dissect_cpch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_fp_header_crc, align 4
@@ -3817,7 +3817,7 @@ define internal fastcc void @dissect_cpch_channel_info.argelim(ptr noundef %0, p
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %4
-  call fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   br label %32
 
 18:                                               ; preds = %4
@@ -3843,7 +3843,7 @@ define internal fastcc void @dissect_cpch_channel_info.argelim(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_bch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_bch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_fp_header_crc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
@@ -3859,7 +3859,7 @@ define internal fastcc void @dissect_bch_channel_info.argelim(ptr noundef %0, pt
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %4
-  call fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   br label %17
 
 17:                                               ; preds = %16, %4
@@ -3867,7 +3867,7 @@ define internal fastcc void @dissect_bch_channel_info.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_hsdsch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_hsdsch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
@@ -3885,7 +3885,7 @@ define internal fastcc void @dissect_hsdsch_channel_info.argelim(ptr noundef %0,
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %5
-  call fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %19 = load i32, ptr @preferences_header_checksum, align 4
   %.not177 = icmp eq i32 %19, 0
   br i1 %.not177, label %248, label %20
@@ -3893,7 +3893,7 @@ define internal fastcc void @dissect_hsdsch_channel_info.argelim(ptr noundef %0,
 20:                                               ; preds = %18
   %21 = load i32, ptr %7, align 4
   %22 = trunc i32 %21 to i16
-  call fastcc void @verify_control_frame_crc.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %9, i16 noundef zeroext %22)
+  call fastcc void @verify_control_frame_crc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %9, i16 noundef zeroext %22)
   br label %248
 
 23:                                               ; preds = %5
@@ -4314,7 +4314,7 @@ verify_header_crc.exit:                           ; preds = %245, %244, %233
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_hsdsch_type_2_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [31 x i64], align 16
@@ -4335,7 +4335,7 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info.argelim(ptr noun
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %5
-  call fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %22 = load i32, ptr @preferences_header_checksum, align 4
   %.not224 = icmp eq i32 %22, 0
   br i1 %.not224, label %254, label %23
@@ -4343,7 +4343,7 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info.argelim(ptr noun
 23:                                               ; preds = %21
   %24 = load i32, ptr %7, align 4
   %25 = trunc i32 %24 to i16
-  call fastcc void @verify_control_frame_crc.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i16 noundef zeroext %25)
+  call fastcc void @verify_control_frame_crc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i16 noundef zeroext %25)
   br label %254
 
 26:                                               ; preds = %5
@@ -4782,7 +4782,7 @@ verify_header_crc.exit:                           ; preds = %._crit_edge243.veri
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_hsdsch_common_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_hsdsch_common_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [31 x i64], align 16
@@ -4803,7 +4803,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info.argelim(ptr noun
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %5
-  call fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %22 = load i32, ptr @preferences_header_checksum, align 4
   %.not222 = icmp eq i32 %22, 0
   br i1 %.not222, label %212, label %23
@@ -4811,7 +4811,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info.argelim(ptr noun
 23:                                               ; preds = %21
   %24 = load i32, ptr %7, align 4
   %25 = trunc i32 %24 to i16
-  call fastcc void @verify_control_frame_crc.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i16 noundef zeroext %25)
+  call fastcc void @verify_control_frame_crc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i16 noundef zeroext %25)
   br label %212
 
 26:                                               ; preds = %5
@@ -5122,7 +5122,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info.argelim(ptr noun
 208:                                              ; preds = %206
   %209 = load i32, ptr %7, align 4
   %210 = trunc i32 %209 to i16
-  call fastcc void @verify_header_crc.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %12, i16 noundef zeroext %210, i32 noundef %.0.lcssa)
+  call fastcc void @verify_header_crc(ptr noundef %0, ptr noundef %1, ptr noundef %12, i16 noundef zeroext %210, i32 noundef %.0.lcssa)
   br label %211
 
 211:                                              ; preds = %208, %206
@@ -5134,7 +5134,7 @@ define internal fastcc void @dissect_hsdsch_common_channel_info.argelim(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_iur_dsch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_iur_dsch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_fp_header_crc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
@@ -5150,7 +5150,7 @@ define internal fastcc void @dissect_iur_dsch_channel_info.argelim(ptr noundef %
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %4
-  call fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  call fastcc void @dissect_common_control(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   br label %17
 
 17:                                               ; preds = %4, %16
@@ -5158,7 +5158,7 @@ define internal fastcc void @dissect_iur_dsch_channel_info.argelim(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_e_dch_channel_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -5208,11 +5208,11 @@ define internal fastcc void @dissect_e_dch_channel_info.argelim(ptr noundef %0, 
 40:                                               ; preds = %34
   %41 = load i32, ptr %12, align 4
   %42 = trunc i32 %41 to i16
-  call fastcc void @verify_control_frame_crc.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %36, i16 noundef zeroext %42)
+  call fastcc void @verify_control_frame_crc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %36, i16 noundef zeroext %42)
   br label %43
 
 43:                                               ; preds = %40, %34
-  call fastcc void @dissect_dch_control_frame.argelim(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %3)
+  call fastcc void @dissect_dch_control_frame(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %3)
   br label %492
 
 44:                                               ; preds = %21
@@ -5644,7 +5644,7 @@ define internal fastcc void @dissect_e_dch_channel_info.argelim(ptr noundef %0, 
   br i1 %.not190.i, label %dissect_e_dch_t2_or_common_channel_info.exit, label %273
 
 273:                                              ; preds = %._crit_edge228.i
-  call fastcc void @verify_header_crc_edch.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %74, i16 noundef zeroext %111, i32 noundef %.1.lcssa.i)
+  call fastcc void @verify_header_crc_edch(ptr noundef %0, ptr noundef %1, ptr noundef %74, i16 noundef zeroext %111, i32 noundef %.1.lcssa.i)
   br label %dissect_e_dch_t2_or_common_channel_info.exit
 
 dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %273
@@ -6079,7 +6079,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
 
 487:                                              ; preds = %485
   %488 = trunc nuw nsw i32 %27 to i16
-  call fastcc void @verify_header_crc_edch.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %74, i16 noundef zeroext %488, i32 noundef %.0.lcssa482493)
+  call fastcc void @verify_header_crc_edch(ptr noundef %0, ptr noundef %1, ptr noundef %74, i16 noundef zeroext %488, i32 noundef %.0.lcssa482493)
   br label %489
 
 489:                                              ; preds = %487, %485
@@ -6115,7 +6115,7 @@ declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_common_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6156,7 +6156,7 @@ define internal fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr 
 24:                                               ; preds = %4
   %25 = getelementptr i8, ptr %3, i64 20
   %.val = load i32, ptr %25, align 4
-  tail call fastcc void @dissect_common_timing_adjustment.argprom.argelim(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, i32 %.val)
+  tail call fastcc void @dissect_common_timing_adjustment(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, i32 %.val)
   br label %201
 
 26:                                               ; preds = %4
@@ -6178,7 +6178,7 @@ define internal fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr 
 32:                                               ; preds = %4
   %33 = getelementptr i8, ptr %3, i64 20
   %.val58 = load i32, ptr %33, align 4
-  tail call fastcc void @dissect_common_timing_adjustment.argprom.argelim(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, i32 %.val58)
+  tail call fastcc void @dissect_common_timing_adjustment(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0, i32 %.val58)
   br label %201
 
 34:                                               ; preds = %4
@@ -6193,7 +6193,7 @@ define internal fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr 
   br label %201
 
 42:                                               ; preds = %4
-  tail call fastcc void @dissect_common_ul_node_synchronisation.argelim(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0)
+  tail call fastcc void @dissect_common_ul_node_synchronisation(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %0)
   br label %201
 
 43:                                               ; preds = %4
@@ -6317,16 +6317,16 @@ define internal fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr 
   %120 = load i32, ptr @hf_fp_hsdsch_unlimited_rate, align 4
   %121 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %120, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   %.not.i.i = icmp eq ptr %121, null
-  br i1 %.not.i.i, label %dissect_hsdpa_capacity_allocation.argprom.exit, label %122
+  br i1 %.not.i.i, label %dissect_hsdpa_capacity_allocation.exit, label %122
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds i8, ptr %121, i64 32
   %124 = load ptr, ptr %123, align 8
   %.not5.i.i = icmp eq ptr %124, null
-  br i1 %.not5.i.i, label %dissect_hsdpa_capacity_allocation.argprom.exit, label %proto_item_set_generated.exit.sink.split.i
+  br i1 %.not5.i.i, label %dissect_hsdpa_capacity_allocation.exit, label %proto_item_set_generated.exit.sink.split.i
 
 125:                                              ; preds = %116
-  br i1 %108, label %dissect_hsdpa_capacity_allocation.argprom.exit, label %126
+  br i1 %108, label %dissect_hsdpa_capacity_allocation.exit, label %126
 
 126:                                              ; preds = %125
   %127 = load i32, ptr @hf_fp_hsdsch_calculated_rate, align 4
@@ -6340,13 +6340,13 @@ define internal fastcc void @dissect_common_control.argelim(ptr noundef %0, ptr 
   %133 = mul i32 %131, %.zext.i
   %134 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %127, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %133) #9
   %.not.i54.i = icmp eq ptr %134, null
-  br i1 %.not.i54.i, label %dissect_hsdpa_capacity_allocation.argprom.exit, label %135
+  br i1 %.not.i54.i, label %dissect_hsdpa_capacity_allocation.exit, label %135
 
 135:                                              ; preds = %126
   %136 = getelementptr inbounds i8, ptr %134, i64 32
   %137 = load ptr, ptr %136, align 8
   %.not5.i55.i = icmp eq ptr %137, null
-  br i1 %.not5.i55.i, label %dissect_hsdpa_capacity_allocation.argprom.exit, label %proto_item_set_generated.exit.sink.split.i
+  br i1 %.not5.i55.i, label %dissect_hsdpa_capacity_allocation.exit, label %proto_item_set_generated.exit.sink.split.i
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %135, %122
   %.sink3.i = phi ptr [ %124, %122 ], [ %137, %135 ]
@@ -6354,9 +6354,9 @@ proto_item_set_generated.exit.sink.split.i:       ; preds = %135, %122
   %139 = load i32, ptr %138, align 4
   %140 = or i32 %139, 2
   store i32 %140, ptr %138, align 4
-  br label %dissect_hsdpa_capacity_allocation.argprom.exit
+  br label %dissect_hsdpa_capacity_allocation.exit
 
-dissect_hsdpa_capacity_allocation.argprom.exit:   ; preds = %119, %122, %125, %126, %135, %proto_item_set_generated.exit.sink.split.i
+dissect_hsdpa_capacity_allocation.exit:           ; preds = %119, %122, %125, %126, %135, %proto_item_set_generated.exit.sink.split.i
   %141 = zext i8 %111 to i32
   %142 = load ptr, ptr %11, align 8
   %143 = zext nneg i16 %89 to i32
@@ -6470,12 +6470,12 @@ dissect_hsdpa_capacity_allocation_type_2.exit:    ; preds = %178, %181, %184, %1
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %199, i32 noundef 25, ptr noundef nonnull @.str.531, i32 noundef %200, i32 noundef %158, i32 noundef %166, i32 noundef %198) #9
   br label %201
 
-201:                                              ; preds = %4, %dissect_hsdpa_capacity_allocation_type_2.exit, %dissect_hsdpa_capacity_allocation.argprom.exit, %68, %58, %43, %42, %34, %32, %26, %24, %15
+201:                                              ; preds = %4, %dissect_hsdpa_capacity_allocation_type_2.exit, %dissect_hsdpa_capacity_allocation.exit, %68, %58, %43, %42, %34, %32, %26, %24, %15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @verify_control_frame_crc.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @verify_control_frame_crc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = tail call ptr @wmem_packet_scope() #9
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
   %7 = zext i32 %6 to i64
@@ -6932,7 +6932,7 @@ declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @verify_header_crc.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @verify_header_crc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @wmem_packet_scope() #9
   %7 = add i32 %4, -1
   %8 = zext i32 %7 to i64
@@ -7028,7 +7028,7 @@ define internal fastcc void @dissect_spare_extension_and_crc(ptr noundef %0, ptr
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_common_timing_adjustment.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.20.val) unnamed_addr #0 {
+define internal fastcc void @dissect_common_timing_adjustment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %.20.val) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %.not = icmp eq i32 %.20.val, 9
@@ -7069,7 +7069,7 @@ define internal fastcc void @dissect_common_timing_adjustment.argprom.argelim(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_common_ul_node_synchronisation.argelim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_common_ul_node_synchronisation(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntoh24(ptr noundef %2, i32 noundef 2) #9
   %5 = uitofp i32 %4 to float
   %6 = fmul float %5, 1.250000e-01
@@ -7130,7 +7130,7 @@ declare zeroext i16 @crc16_8005_noreflect_noxor(ptr noundef, i64 noundef) local_
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dch_control_frame.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dch_control_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -7311,7 +7311,7 @@ dissect_dch_rx_timing_deviation.exit:             ; preds = %32, %42, %62, %64
   br label %169
 
 111:                                              ; preds = %4
-  tail call fastcc void @dissect_common_ul_node_synchronisation.argelim(ptr noundef nonnull readonly %1, ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_common_ul_node_synchronisation(ptr noundef nonnull readonly %1, ptr noundef %0, ptr noundef %2)
   br label %169
 
 .preheader:                                       ; preds = %4, %.preheader
@@ -7321,9 +7321,9 @@ dissect_dch_rx_timing_deviation.exit:             ; preds = %32, %42, %62, %64
   %114 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %113, ptr noundef %2, i32 noundef 2, i32 noundef 2, i32 noundef 0) #9
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i50 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.i50, label %dissect_dch_radio_interface_parameter_update.argprom.exit, label %.preheader, !llvm.loop !49
+  br i1 %.not.i50, label %dissect_dch_radio_interface_parameter_update.exit, label %.preheader, !llvm.loop !49
 
-dissect_dch_radio_interface_parameter_update.argprom.exit: ; preds = %.preheader
+dissect_dch_radio_interface_parameter_update.exit: ; preds = %.preheader
   %115 = load i32, ptr @hf_fp_cfn, align 4
   %116 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %115, ptr noundef %2, i32 noundef 4, i32 noundef 1, i32 noundef 0) #9
   %117 = load i32, ptr @hf_fp_dpc_mode, align 4
@@ -7401,7 +7401,7 @@ dissect_dch_timing_advance.exit:                  ; preds = %136, %147, %150, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %169
 
-169:                                              ; preds = %161, %dissect_dch_timing_advance.exit, %dissect_dch_radio_interface_parameter_update.argprom.exit, %111, %103, %94, %85, %80, %dissect_dch_rx_timing_deviation.exit, %19, %4
+169:                                              ; preds = %161, %dissect_dch_timing_advance.exit, %dissect_dch_radio_interface_parameter_update.exit, %111, %103, %94, %85, %80, %dissect_dch_rx_timing_deviation.exit, %19, %4
   ret void
 }
 
@@ -7421,7 +7421,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @verify_header_crc_edch.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @verify_header_crc_edch(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
   %6 = add i32 %4, -1
   %7 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef %6) #9
   %8 = tail call ptr @wmem_packet_scope() #9
@@ -7457,7 +7457,7 @@ declare i32 @get_mac_tsn_size() local_unnamed_addr #1
 declare zeroext i16 @crc11_307_noreflect_noxor(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_pch.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_pch(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 184
@@ -7726,7 +7726,7 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_pch.argprom(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_hsdsch_type_1.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_hsdsch_type_1(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 184
@@ -7913,7 +7913,7 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_hsdsch_type_1.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_hsdsch_type_2.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_hsdsch_type_2(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 184
@@ -8132,7 +8132,7 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_hsdsch_type_2.argpro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_edch_type_1.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_edch_type_1(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 184
@@ -8365,7 +8365,7 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_edch_type_1.argprom(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_unknown_format.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_unknown_format(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 184

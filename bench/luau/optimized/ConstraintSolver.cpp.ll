@@ -7425,11 +7425,11 @@ define dso_local void @_ZN4Luau16ConstraintSolver3runEv(ptr noundef nonnull alig
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.preheader
-  %29 = call fastcc noundef zeroext i1 @"_ZZN4Luau16ConstraintSolver3runEvENK3$_0clEb.argprom"(ptr nonnull %0, i1 noundef zeroext false)
+  %29 = call fastcc noundef zeroext i1 @"_ZZN4Luau16ConstraintSolver3runEvENK3$_0clEb"(ptr nonnull %0, i1 noundef zeroext false)
   br i1 %29, label %.backedge.backedge, label %30
 
 30:                                               ; preds = %.backedge
-  %31 = call fastcc noundef zeroext i1 @"_ZZN4Luau16ConstraintSolver3runEvENK3$_0clEb.argprom"(ptr nonnull %0, i1 noundef zeroext true)
+  %31 = call fastcc noundef zeroext i1 @"_ZZN4Luau16ConstraintSolver3runEvENK3$_0clEb"(ptr nonnull %0, i1 noundef zeroext true)
   br i1 %31, label %.backedge.backedge, label %32
 
 .backedge.backedge:                               ; preds = %30, %.backedge
@@ -7527,7 +7527,7 @@ define internal fastcc void @_ZN4LuauL12dumpBindingsENS_7NotNullINS_5ScopeEEERNS
 declare void @_ZN4Luau9DcrLogger25captureInitialSolverStateEPKNS_5ScopeERKSt6vectorINS_7NotNullIKNS_10ConstraintEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(936), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4Luau16ConstraintSolver3runEvENK3$_0clEb.argprom"(ptr %.0.val, i1 noundef zeroext %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN4Luau16ConstraintSolver3runEvENK3$_0clEb"(ptr %.0.val, i1 noundef zeroext %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Luau::Variant.192", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"struct.Luau::StepSnapshot", align 8
@@ -10779,12 +10779,12 @@ _ZN4Luau3getINS_26TypeFamilyInstanceTypePackEEEPKT_PKNS_11TypePackVarE.exit.i: ;
   br i1 %.not.i.i7.i, label %_ZN4Luau16ConstraintSolver9isBlockedEPKNS_11TypePackVarE.exit.thread, label %55, !llvm.loop !72
 
 _ZN4Luau16ConstraintSolver9isBlockedEPKNS_11TypePackVarE.exit.thread: ; preds = %58, %60, %36, %42, %_ZN4Luau3getINS_26TypeFamilyInstanceTypePackEEEPKT_PKNS_11TypePackVarE.exit.i
-  br i1 %3, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit", label %63
+  br i1 %3, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit", label %63
 
 63:                                               ; preds = %_ZN4Luau16ConstraintSolver9isBlockedEPKNS_11TypePackVarE.exit.thread
   %.val = load ptr, ptr %29, align 8
   %64 = invoke noundef zeroext i1 @_ZN4Luau16ConstraintSolver5blockEPKNS_11TypePackVarENS_7NotNullIKNS_10ConstraintEEE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef %.val, ptr %2)
-          to label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 65:                                               ; preds = %4
   %66 = landingpad { ptr, i32 }
@@ -10906,10 +10906,10 @@ _ZN4Luau16ConstraintSolver9isBlockedEPKNS_4TypeE.exit: ; preds = %92, %77, %.noe
 _ZN4Luau16ConstraintSolver9isBlockedEPKNS_4TypeE.exit.thread: ; preds = %.loopexit108
   %102 = getelementptr inbounds i8, ptr %.sroa.083.0113, i64 8
   %.not126 = icmp eq ptr %102, %69
-  br i1 %.not126, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit", label %.outer
+  br i1 %.not126, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit", label %.outer
 
 ._crit_edge:                                      ; preds = %_ZN4Luau16ConstraintSolver9isBlockedEPKNS_4TypeE.exit
-  br i1 %.045114.ph, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit", label %.critedge
+  br i1 %.045114.ph, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit", label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge
   %.pre = load ptr, ptr %21, align 8
@@ -10923,7 +10923,7 @@ _ZN4Luau16ConstraintSolver9isBlockedEPKNS_4TypeE.exit.thread: ; preds = %.loopex
   %106 = getelementptr inbounds i8, ptr %1, i64 16
   %107 = load ptr, ptr %106, align 8
   %.not103119 = icmp eq ptr %105, %107
-  br i1 %.not103119, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit", label %.lr.ph122
+  br i1 %.not103119, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit", label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %.critedge.thread, %113
   %.sroa.079.0120 = phi ptr [ %114, %113 ], [ %105, %.critedge.thread ]
@@ -10939,7 +10939,7 @@ _ZN4Luau16ConstraintSolver9isBlockedEPKNS_4TypeE.exit.thread: ; preds = %.loopex
 113:                                              ; preds = %111
   %114 = getelementptr inbounds i8, ptr %.sroa.079.0120, i64 8
   %.not103 = icmp eq ptr %114, %107
-  br i1 %.not103, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit", label %.lr.ph122
+  br i1 %.not103, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit", label %.lr.ph122
 
 115:                                              ; preds = %.critedge
   %116 = load ptr, ptr %.pre124, align 8
@@ -11062,7 +11062,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt
 162:                                              ; preds = %160, %157
   %.sroa.068.1 = phi ptr [ %161, %160 ], [ %.sroa.068.0, %157 ]
   %.not102115 = icmp eq ptr %.sroa.068.1, %147
-  br i1 %.not102115, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit", label %.lr.ph118
+  br i1 %.not102115, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit", label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %162, %167
   %.sroa.068.2116 = phi ptr [ %168, %167 ], [ %.sroa.068.1, %162 ]
@@ -11076,25 +11076,25 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt
 167:                                              ; preds = %.lr.ph118
   %168 = getelementptr inbounds i8, ptr %.sroa.068.2116, i64 8
   %.not102 = icmp eq ptr %168, %147
-  br i1 %.not102, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit", label %.lr.ph118, !llvm.loop !77
+  br i1 %.not102, label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit", label %.lr.ph118, !llvm.loop !77
 
 _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %119
   %169 = invoke noundef zeroext i1 @_ZN4Luau16ConstraintSolver27tryDispatchIterableFunctionEPKNS_4TypeES3_RKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEb(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef nonnull %117, ptr poison, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2, i1 zeroext poison)
-          to label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .thread:                                          ; preds = %119, %118
   %170 = load ptr, ptr %5, align 8
   %171 = load ptr, ptr %170, align 8
   %172 = invoke noundef zeroext i1 @_ZN4Luau16ConstraintSolver24tryDispatchIterableTableEPKNS_4TypeERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEb(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr noundef %171, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2, i1 noundef zeroext %3)
-          to label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit": ; preds = %_ZN4Luau16ConstraintSolver9isBlockedEPKNS_4TypeE.exit.thread, %167, %113, %162, %.critedge.thread, %_ZN4Luau16ConstraintSolver9isBlockedEPKNS_11TypePackVarE.exit.thread, %63, %.thread, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, %._crit_edge
+"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit": ; preds = %_ZN4Luau16ConstraintSolver9isBlockedEPKNS_4TypeE.exit.thread, %167, %113, %162, %.critedge.thread, %_ZN4Luau16ConstraintSolver9isBlockedEPKNS_11TypePackVarE.exit.thread, %63, %.thread, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, %._crit_edge
   %.0 = phi i1 [ false, %._crit_edge ], [ true, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ], [ %172, %.thread ], [ false, %63 ], [ true, %_ZN4Luau16ConstraintSolver9isBlockedEPKNS_11TypePackVarE.exit.thread ], [ true, %.critedge.thread ], [ true, %162 ], [ true, %113 ], [ true, %167 ], [ false, %_ZN4Luau16ConstraintSolver9isBlockedEPKNS_4TypeE.exit.thread ]
   %173 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %173, null
   br i1 %.not.i.i.i.i, label %_ZN4Luau8TypePackD2Ev.exit, label %174
 
-174:                                              ; preds = %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit"
+174:                                              ; preds = %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit"
   %175 = getelementptr inbounds i8, ptr %5, i64 16
   %176 = load ptr, ptr %175, align 8
   %177 = ptrtoint ptr %176 to i64
@@ -11103,7 +11103,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %119
   call void @_ZdlPvm(ptr noundef nonnull %173, i64 noundef %179) #28
   br label %_ZN4Luau8TypePackD2Ev.exit
 
-_ZN4Luau8TypePackD2Ev.exit:                       ; preds = %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.argprom.exit", %174
+_ZN4Luau8TypePackD2Ev.exit:                       ; preds = %"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_18IterableConstraintENS_7NotNullIKNS_10ConstraintEEEbENK3$_0clIRPKNS_11TypePackVarEEEDaOT_.exit", %174
   ret i1 %.0
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %156
@@ -12363,7 +12363,7 @@ _ZNK4Luau16ConstraintSolver17errorRecoveryTypeEv.exit234: ; preds = %428
 468:                                              ; preds = %466, %463
   %469 = load ptr, ptr %16, align 8
   %470 = load ptr, ptr %192, align 8
-  %471 = call fastcc noundef zeroext i1 @"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_16ConstraintSolver11tryDispatchERKNS2_28TypeAliasExpansionConstraintENS2_7NotNullIKNS2_10ConstraintEEEE3$_3EbT_SK_T0_.argprom"(ptr %469, ptr %470, ptr nonnull %432)
+  %471 = call fastcc noundef zeroext i1 @"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_16ConstraintSolver11tryDispatchERKNS2_28TypeAliasExpansionConstraintENS2_7NotNullIKNS2_10ConstraintEEEE3$_3EbT_SK_T0_"(ptr %469, ptr %470, ptr nonnull %432)
   br label %472
 
 472:                                              ; preds = %468, %466, %461
@@ -13028,12 +13028,12 @@ _ZN4Luau16ConstraintSolver9isBlockedEPKNS_4TypeE.exit151: ; preds = %159, %144, 
 
 _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %182
   %184 = getelementptr inbounds i8, ptr %181, i64 8
-  %185 = invoke fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_9UnionTypeEEESt8optionalIPKNS_4TypeEEPKT_.argprom"(ptr noundef %184)
+  %185 = invoke fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_9UnionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef %184)
           to label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split unwind label %.loopexit.split-lp290.loopexit.split-lp
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %182
   %186 = getelementptr inbounds i8, ptr %181, i64 8
-  %187 = invoke fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_16IntersectionTypeEEESt8optionalIPKNS_4TypeEEPKT_.argprom"(ptr noundef %186)
+  %187 = invoke fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_16IntersectionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef %186)
           to label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split unwind label %.loopexit.split-lp290.loopexit.split-lp
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split: ; preds = %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit
@@ -23393,7 +23393,7 @@ declare { ptr, i8 } @_ZN4Luau12Substitution10substituteEPKNS_4TypeE(ptr noundef 
 declare noundef ptr @_ZN4Luau12getTableTypeEPKNS_4TypeE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_16ConstraintSolver11tryDispatchERKNS2_28TypeAliasExpansionConstraintENS2_7NotNullIKNS2_10ConstraintEEEE3$_3EbT_SK_T0_.argprom"(ptr %0, ptr %1, ptr readnone %.0.val) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEEZNS2_16ConstraintSolver11tryDispatchERKNS2_28TypeAliasExpansionConstraintENS2_7NotNullIKNS2_10ConstraintEEEE3$_3EbT_SK_T0_"(ptr %0, ptr %1, ptr readnone %.0.val) unnamed_addr #6 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
@@ -23732,7 +23732,7 @@ declare noundef ptr @_ZNK4Luau12BuiltinTypes21errorRecoveryTypePackEv(ptr nounde
 declare void @_ZN4Luau7flattenEPKNS_11TypePackVarE(ptr dead_on_unwind writable sret(%"struct.std::pair.636") align 8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_9UnionTypeEEESt8optionalIPKNS_4TypeEEPKT_.argprom"(ptr noundef nonnull %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_9UnionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef nonnull %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Luau::TypeIterator.739", align 8
   %3 = alloca %"struct.Luau::TypeIterator.739", align 8
   call void @_ZN4Luau5beginEPKNS_9UnionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator.739") align 8 %2, ptr noundef nonnull %0)
@@ -23957,7 +23957,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit17: ; preds = %_ZN4Luau12TypeIter
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_16IntersectionTypeEEESt8optionalIPKNS_4TypeEEPKT_.argprom"(ptr noundef nonnull %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_16IntersectionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef nonnull %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Luau::TypeIterator", align 8
   %3 = alloca %"struct.Luau::TypeIterator", align 8
   call void @_ZN4Luau5beginEPKNS_16IntersectionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator") align 8 %2, ptr noundef nonnull %0)

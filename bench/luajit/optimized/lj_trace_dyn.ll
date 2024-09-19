@@ -270,12 +270,12 @@ if.then5:                                         ; preds = %land.lhs.true2
   %8 = load i64, ptr %startpc.i.i, align 8
   %9 = inttoptr i64 %8 to ptr
   %cmp.i.i = icmp eq i32 %and.i.i, 88
-  br i1 %cmp.i.i, label %trace_unpatch.argprom.exit.i, label %if.end.i.i
+  br i1 %cmp.i.i, label %trace_unpatch.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5
   %10 = load i32, ptr %9, align 4
   %trunc.i.i = trunc i32 %10 to i8
-  switch i8 %trunc.i.i, label %trace_unpatch.argprom.exit.i [
+  switch i8 %trunc.i.i, label %trace_unpatch.exit.i [
     i8 81, label %sw.bb.i.i
     i8 84, label %sw.bb4.i.i
     i8 87, label %sw.bb4.i.i
@@ -291,11 +291,11 @@ sw.bb.i.i:                                        ; preds = %if.end.i.i
   %12 = getelementptr i32, ptr %9, i64 %conv.i.i
   %add.ptr.i.i = getelementptr i8, ptr %12, i64 -131072
   store i8 77, ptr %add.ptr.i.i, align 1
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
 sw.bb4.i.i:                                       ; preds = %if.end.i.i, %if.end.i.i
   store i32 %7, ptr %9, align 4
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
 sw.bb6.i.i:                                       ; preds = %if.end.i.i
   %shr7.i.i = lshr i32 %10, 16
@@ -305,17 +305,17 @@ sw.bb6.i.i:                                       ; preds = %if.end.i.i
   %14 = load i32, ptr %add.ptr10.i.i, align 4
   %and11.i.i = and i32 %14, 255
   %cmp12.i.i = icmp eq i32 %and11.i.i, 84
-  br i1 %cmp12.i.i, label %if.then14.i.i, label %trace_unpatch.argprom.exit.i
+  br i1 %cmp12.i.i, label %if.then14.i.i, label %trace_unpatch.exit.i
 
 if.then14.i.i:                                    ; preds = %sw.bb6.i.i
   store i32 %7, ptr %add.ptr10.i.i, align 4
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
 sw.bb17.i.i:                                      ; preds = %if.end.i.i
   store i32 %7, ptr %9, align 4
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
-trace_unpatch.argprom.exit.i:                     ; preds = %sw.bb17.i.i, %if.then14.i.i, %sw.bb6.i.i, %sw.bb4.i.i, %sw.bb.i.i, %if.end.i.i, %if.then5
+trace_unpatch.exit.i:                             ; preds = %sw.bb17.i.i, %if.then14.i.i, %sw.bb6.i.i, %sw.bb4.i.i, %sw.bb.i.i, %if.end.i.i, %if.then5
   %trace.i = getelementptr inbounds i8, ptr %6, i64 62
   %15 = load i16, ptr %trace.i, align 2
   %traceno.i = getelementptr inbounds i8, ptr %3, i64 104
@@ -323,7 +323,7 @@ trace_unpatch.argprom.exit.i:                     ; preds = %sw.bb17.i.i, %if.th
   %cmp.i = icmp eq i16 %15, %16
   br i1 %cmp.i, label %if.end29.sink.split.i, label %if.else.i
 
-if.else.i:                                        ; preds = %trace_unpatch.argprom.exit.i
+if.else.i:                                        ; preds = %trace_unpatch.exit.i
   %tobool.not.i = icmp eq i16 %15, 0
   br i1 %tobool.not.i, label %if.end6, label %if.then5.i
 
@@ -366,8 +366,8 @@ for.inc.i:                                        ; preds = %for.body.i.preheade
   %tobool12.not.i = icmp eq i16 %22, 0
   br i1 %tobool12.not.i, label %if.end6, label %for.body.i, !llvm.loop !5
 
-if.end29.sink.split.i:                            ; preds = %if.then19.i, %trace_unpatch.argprom.exit.i
-  %nextroot11.le.sink.i = phi ptr [ %nextroot11.le.i, %if.then19.i ], [ %trace.i, %trace_unpatch.argprom.exit.i ]
+if.end29.sink.split.i:                            ; preds = %if.then19.i, %trace_unpatch.exit.i
+  %nextroot11.le.sink.i = phi ptr [ %nextroot11.le.i, %if.then19.i ], [ %trace.i, %trace_unpatch.exit.i ]
   %nextroot20.i = getelementptr inbounds i8, ptr %3, i64 110
   %23 = load i16, ptr %nextroot20.i, align 2
   store i16 %23, ptr %nextroot11.le.sink.i, align 2
@@ -406,12 +406,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %8 = load i64, ptr %startpc.i.i, align 8
   %9 = inttoptr i64 %8 to ptr
   %cmp.i.i = icmp eq i32 %and.i.i, 88
-  br i1 %cmp.i.i, label %trace_unpatch.argprom.exit.i, label %if.end.i.i
+  br i1 %cmp.i.i, label %trace_unpatch.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body
   %10 = load i32, ptr %9, align 4
   %trunc.i.i = trunc i32 %10 to i8
-  switch i8 %trunc.i.i, label %trace_unpatch.argprom.exit.i [
+  switch i8 %trunc.i.i, label %trace_unpatch.exit.i [
     i8 81, label %sw.bb.i.i
     i8 84, label %sw.bb4.i.i
     i8 87, label %sw.bb4.i.i
@@ -427,11 +427,11 @@ sw.bb.i.i:                                        ; preds = %if.end.i.i
   %12 = getelementptr i32, ptr %9, i64 %conv.i.i
   %add.ptr.i.i = getelementptr i8, ptr %12, i64 -131072
   store i8 77, ptr %add.ptr.i.i, align 1
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
 sw.bb4.i.i:                                       ; preds = %if.end.i.i, %if.end.i.i
   store i32 %7, ptr %9, align 4
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
 sw.bb6.i.i:                                       ; preds = %if.end.i.i
   %shr7.i.i = lshr i32 %10, 16
@@ -441,17 +441,17 @@ sw.bb6.i.i:                                       ; preds = %if.end.i.i
   %14 = load i32, ptr %add.ptr10.i.i, align 4
   %and11.i.i = and i32 %14, 255
   %cmp12.i.i = icmp eq i32 %and11.i.i, 84
-  br i1 %cmp12.i.i, label %if.then14.i.i, label %trace_unpatch.argprom.exit.i
+  br i1 %cmp12.i.i, label %if.then14.i.i, label %trace_unpatch.exit.i
 
 if.then14.i.i:                                    ; preds = %sw.bb6.i.i
   store i32 %7, ptr %add.ptr10.i.i, align 4
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
 sw.bb17.i.i:                                      ; preds = %if.end.i.i
   store i32 %7, ptr %9, align 4
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
-trace_unpatch.argprom.exit.i:                     ; preds = %sw.bb17.i.i, %if.then14.i.i, %sw.bb6.i.i, %sw.bb4.i.i, %sw.bb.i.i, %if.end.i.i, %while.body
+trace_unpatch.exit.i:                             ; preds = %sw.bb17.i.i, %if.then14.i.i, %sw.bb6.i.i, %sw.bb4.i.i, %sw.bb.i.i, %if.end.i.i, %while.body
   %trace.i = getelementptr inbounds i8, ptr %6, i64 62
   %15 = load i16, ptr %trace.i, align 2
   %traceno.i = getelementptr inbounds i8, ptr %4, i64 104
@@ -459,7 +459,7 @@ trace_unpatch.argprom.exit.i:                     ; preds = %sw.bb17.i.i, %if.th
   %cmp.i = icmp eq i16 %15, %16
   br i1 %cmp.i, label %if.end29.sink.split.i, label %if.else.i
 
-if.else.i:                                        ; preds = %trace_unpatch.argprom.exit.i
+if.else.i:                                        ; preds = %trace_unpatch.exit.i
   %tobool.not.i = icmp eq i16 %15, 0
   br i1 %tobool.not.i, label %trace_flushroot.exit, label %if.then5.i
 
@@ -502,8 +502,8 @@ for.inc.i:                                        ; preds = %for.body.i.preheade
   %tobool12.not.i = icmp eq i16 %22, 0
   br i1 %tobool12.not.i, label %trace_flushroot.exit, label %for.body.i, !llvm.loop !5
 
-if.end29.sink.split.i:                            ; preds = %if.then19.i, %trace_unpatch.argprom.exit.i
-  %nextroot11.le.sink.i = phi ptr [ %nextroot11.le.i, %if.then19.i ], [ %trace.i, %trace_unpatch.argprom.exit.i ]
+if.end29.sink.split.i:                            ; preds = %if.then19.i, %trace_unpatch.exit.i
+  %nextroot11.le.sink.i = phi ptr [ %nextroot11.le.i, %if.then19.i ], [ %trace.i, %trace_unpatch.exit.i ]
   %nextroot20.i = getelementptr inbounds i8, ptr %4, i64 110
   %23 = load i16, ptr %nextroot20.i, align 2
   store i16 %23, ptr %nextroot11.le.sink.i, align 2
@@ -569,12 +569,12 @@ if.then10:                                        ; preds = %if.then6
   %12 = load i64, ptr %startpc.i.i, align 8
   %13 = inttoptr i64 %12 to ptr
   %cmp.i.i = icmp eq i32 %and.i.i, 88
-  br i1 %cmp.i.i, label %trace_unpatch.argprom.exit.i, label %if.end.i.i
+  br i1 %cmp.i.i, label %trace_unpatch.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then10
   %14 = load i32, ptr %13, align 4
   %trunc.i.i = trunc i32 %14 to i8
-  switch i8 %trunc.i.i, label %trace_unpatch.argprom.exit.i [
+  switch i8 %trunc.i.i, label %trace_unpatch.exit.i [
     i8 81, label %sw.bb.i.i
     i8 84, label %sw.bb4.i.i
     i8 87, label %sw.bb4.i.i
@@ -590,11 +590,11 @@ sw.bb.i.i:                                        ; preds = %if.end.i.i
   %16 = getelementptr i32, ptr %13, i64 %conv.i.i
   %add.ptr.i.i = getelementptr i8, ptr %16, i64 -131072
   store i8 77, ptr %add.ptr.i.i, align 1
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
 sw.bb4.i.i:                                       ; preds = %if.end.i.i, %if.end.i.i
   store i32 %11, ptr %13, align 4
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
 sw.bb6.i.i:                                       ; preds = %if.end.i.i
   %shr7.i.i = lshr i32 %14, 16
@@ -604,17 +604,17 @@ sw.bb6.i.i:                                       ; preds = %if.end.i.i
   %18 = load i32, ptr %add.ptr10.i.i, align 4
   %and11.i.i = and i32 %18, 255
   %cmp12.i.i = icmp eq i32 %and11.i.i, 84
-  br i1 %cmp12.i.i, label %if.then14.i.i, label %trace_unpatch.argprom.exit.i
+  br i1 %cmp12.i.i, label %if.then14.i.i, label %trace_unpatch.exit.i
 
 if.then14.i.i:                                    ; preds = %sw.bb6.i.i
   store i32 %11, ptr %add.ptr10.i.i, align 4
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
 sw.bb17.i.i:                                      ; preds = %if.end.i.i
   store i32 %11, ptr %13, align 4
-  br label %trace_unpatch.argprom.exit.i
+  br label %trace_unpatch.exit.i
 
-trace_unpatch.argprom.exit.i:                     ; preds = %sw.bb17.i.i, %if.then14.i.i, %sw.bb6.i.i, %sw.bb4.i.i, %sw.bb.i.i, %if.end.i.i, %if.then10
+trace_unpatch.exit.i:                             ; preds = %sw.bb17.i.i, %if.then14.i.i, %sw.bb6.i.i, %sw.bb4.i.i, %sw.bb.i.i, %if.end.i.i, %if.then10
   %trace.i = getelementptr inbounds i8, ptr %10, i64 62
   %19 = load i16, ptr %trace.i, align 2
   %traceno.i = getelementptr inbounds i8, ptr %7, i64 104
@@ -622,7 +622,7 @@ trace_unpatch.argprom.exit.i:                     ; preds = %sw.bb17.i.i, %if.th
   %cmp.i = icmp eq i16 %19, %20
   br i1 %cmp.i, label %if.end29.sink.split.i, label %if.else.i
 
-if.else.i:                                        ; preds = %trace_unpatch.argprom.exit.i
+if.else.i:                                        ; preds = %trace_unpatch.exit.i
   %tobool.not.i = icmp eq i16 %19, 0
   br i1 %tobool.not.i, label %if.end11, label %if.then5.i
 
@@ -665,8 +665,8 @@ for.inc.i:                                        ; preds = %for.body.i.preheade
   %tobool12.not.i = icmp eq i16 %26, 0
   br i1 %tobool12.not.i, label %if.end11, label %for.body.i, !llvm.loop !5
 
-if.end29.sink.split.i:                            ; preds = %if.then19.i, %trace_unpatch.argprom.exit.i
-  %nextroot11.le.sink.i = phi ptr [ %nextroot11.le.i, %if.then19.i ], [ %trace.i, %trace_unpatch.argprom.exit.i ]
+if.end29.sink.split.i:                            ; preds = %if.then19.i, %trace_unpatch.exit.i
+  %nextroot11.le.sink.i = phi ptr [ %nextroot11.le.i, %if.then19.i ], [ %trace.i, %trace_unpatch.exit.i ]
   %nextroot20.i = getelementptr inbounds i8, ptr %7, i64 110
   %27 = load i16, ptr %nextroot20.i, align 2
   store i16 %27, ptr %nextroot11.le.sink.i, align 2

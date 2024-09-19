@@ -696,9 +696,9 @@ Abc_Clock.exit191:                                ; preds = %Abc_NtkMfsUpdateNet
   %293 = load i32, ptr %292, align 8
   %.val.i193 = load i32, ptr %286, align 4
   %294 = icmp slt i32 %293, %.val.i193
-  br i1 %294, label %Abc_MfsObjProb.argprom.exit, label %.critedge219
+  br i1 %294, label %Abc_MfsObjProb.exit, label %.critedge219
 
-Abc_MfsObjProb.argprom.exit:                      ; preds = %289
+Abc_MfsObjProb.exit:                              ; preds = %289
   %.val5.i = load ptr, ptr %287, align 8
   %295 = sext i32 %293 to i64
   %296 = getelementptr inbounds i32, ptr %.val5.i, i64 %295
@@ -707,7 +707,7 @@ Abc_MfsObjProb.argprom.exit:                      ; preds = %289
   %299 = fcmp ult double %298, 1.500000e-01
   br i1 %299, label %.critedge219, label %310
 
-.critedge219:                                     ; preds = %289, %288, %Abc_MfsObjProb.argprom.exit
+.critedge219:                                     ; preds = %289, %288, %Abc_MfsObjProb.exit
   %300 = load ptr, ptr %12, align 8
   %301 = getelementptr i8, ptr %300, i64 8
   %.val162 = load ptr, ptr %301, align 8
@@ -740,7 +740,7 @@ Abc_MfsObjProb.argprom.exit:                      ; preds = %289
   %309 = icmp eq i32 %.0136.lcssa, %264
   br i1 %309, label %._crit_edge250.loopexit303, label %310
 
-310:                                              ; preds = %._crit_edge, %Abc_MfsObjProb.argprom.exit
+310:                                              ; preds = %._crit_edge, %Abc_MfsObjProb.exit
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count286
   br i1 %exitcond287.not, label %.loopexit221, label %288, !llvm.loop !9
@@ -1571,9 +1571,9 @@ Abc_Clock.exit226:                                ; preds = %Abc_NtkMfsUpdateNet
   %316 = getelementptr i8, ptr %.val215, i64 4
   %.val.i228 = load i32, ptr %316, align 4
   %317 = icmp slt i32 %315, %.val.i228
-  br i1 %317, label %Abc_MfsObjProb.argprom.exit, label %.critedge286.split.split
+  br i1 %317, label %Abc_MfsObjProb.exit, label %.critedge286.split.split
 
-Abc_MfsObjProb.argprom.exit:                      ; preds = %311
+Abc_MfsObjProb.exit:                              ; preds = %311
   %318 = getelementptr i8, ptr %.val215, i64 8
   %.val5.i = load ptr, ptr %318, align 8
   %319 = sext i32 %315 to i64
@@ -1657,7 +1657,7 @@ Abc_MfsObjProb.argprom.exit:                      ; preds = %311
 .critedge286.split.split.us.split:                ; preds = %.critedge286.split.split.us
   br i1 %306, label %.loopexit.loopexit560, label %.critedge182
 
-.critedge286.split.split:                         ; preds = %Abc_MfsObjProb.argprom.exit, %311
+.critedge286.split.split:                         ; preds = %Abc_MfsObjProb.exit, %311
   %348 = getelementptr i8, ptr %.val215, i64 8
   %349 = getelementptr i8, ptr %.val215, i64 4
   %.val191 = load ptr, ptr %303, align 8
@@ -1673,9 +1673,9 @@ Abc_MfsObjProb.argprom.exit:                      ; preds = %311
   %354 = getelementptr inbounds i8, ptr %353, i64 16
   %355 = load i32, ptr %354, align 8
   %356 = icmp slt i32 %355, %.val.i230
-  br i1 %356, label %Abc_MfsObjProb.argprom.exit232.us, label %.critedge287.us365.preheader
+  br i1 %356, label %Abc_MfsObjProb.exit232.us, label %.critedge287.us365.preheader
 
-Abc_MfsObjProb.argprom.exit232.us:                ; preds = %.critedge286.split.split.split.us
+Abc_MfsObjProb.exit232.us:                        ; preds = %.critedge286.split.split.split.us
   %.val5.i231.us = load ptr, ptr %348, align 8
   %357 = sext i32 %355 to i64
   %358 = getelementptr inbounds i32, ptr %.val5.i231.us, i64 %357
@@ -1684,7 +1684,7 @@ Abc_MfsObjProb.argprom.exit232.us:                ; preds = %.critedge286.split.
   %361 = fcmp ult double %360, 1.200000e-01
   br i1 %361, label %.critedge287.us365.preheader, label %369
 
-.critedge287.us365.preheader:                     ; preds = %Abc_MfsObjProb.argprom.exit232.us, %.critedge286.split.split.split.us
+.critedge287.us365.preheader:                     ; preds = %Abc_MfsObjProb.exit232.us, %.critedge286.split.split.split.us
   br label %.critedge287.us365
 
 .critedge287.us365:                               ; preds = %.critedge287.us365.preheader, %370
@@ -1702,7 +1702,7 @@ Abc_MfsObjProb.argprom.exit232.us:                ; preds = %.critedge286.split.
   %368 = icmp eq i32 %.fr466, %367
   br i1 %368, label %.loopexit.loopexit471, label %369
 
-369:                                              ; preds = %._crit_edge334.us371, %Abc_MfsObjProb.argprom.exit232.us
+369:                                              ; preds = %._crit_edge334.us371, %Abc_MfsObjProb.exit232.us
   %indvars.iv.next515 = add nuw nsw i64 %indvars.iv514, 1
   %exitcond518.not = icmp eq i64 %indvars.iv.next515, %indvars.iv505
   br i1 %exitcond518.not, label %.critedge182, label %.critedge286.split.split.split.us, !llvm.loop !16
@@ -1719,9 +1719,9 @@ Abc_MfsObjProb.argprom.exit232.us:                ; preds = %.critedge286.split.
   %373 = getelementptr inbounds i8, ptr %372, i64 16
   %374 = load i32, ptr %373, align 8
   %375 = icmp slt i32 %374, %.val.i230
-  br i1 %375, label %Abc_MfsObjProb.argprom.exit232, label %.critedge287
+  br i1 %375, label %Abc_MfsObjProb.exit232, label %.critedge287
 
-Abc_MfsObjProb.argprom.exit232:                   ; preds = %.critedge286.split.split.split
+Abc_MfsObjProb.exit232:                           ; preds = %.critedge286.split.split.split
   %.val5.i231 = load ptr, ptr %348, align 8
   %376 = sext i32 %374 to i64
   %377 = getelementptr inbounds i32, ptr %.val5.i231, i64 %376
@@ -1734,12 +1734,12 @@ Abc_MfsObjProb.argprom.exit232:                   ; preds = %.critedge286.split.
 .critedge287:                                     ; preds = %.critedge286.split.split.split
   br i1 %305, label %381, label %.loopexit.loopexit558
 
-381:                                              ; preds = %Abc_MfsObjProb.argprom.exit232, %.critedge287
+381:                                              ; preds = %Abc_MfsObjProb.exit232, %.critedge287
   %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
   %exitcond508.not = icmp eq i64 %indvars.iv.next504, %indvars.iv505
   br i1 %exitcond508.not, label %.critedge182, label %.critedge286.split.split.split, !llvm.loop !16
 
-.critedge182:                                     ; preds = %381, %369, %346, %334, %.critedge286.split.split.us.split, %.critedge286.split.us.split, %Abc_MfsObjProb.argprom.exit
+.critedge182:                                     ; preds = %381, %369, %346, %334, %.critedge286.split.split.us.split, %.critedge286.split.us.split, %Abc_MfsObjProb.exit
   %indvars.iv.next506 = add nuw nsw i64 %indvars.iv505, 1
   %exitcond541.not = icmp eq i64 %indvars.iv.next506, %wide.trip.count540
   br i1 %exitcond541.not, label %.loopexit290, label %307, !llvm.loop !18
@@ -1759,7 +1759,7 @@ Abc_MfsObjProb.argprom.exit232:                   ; preds = %.critedge286.split.
   %387 = trunc nuw nsw i64 %indvars.iv514 to i32
   br label %.loopexit
 
-.loopexit.loopexit558:                            ; preds = %.critedge287, %Abc_MfsObjProb.argprom.exit232
+.loopexit.loopexit558:                            ; preds = %.critedge287, %Abc_MfsObjProb.exit232
   %388 = trunc nuw nsw i64 %indvars.iv505 to i32
   %389 = trunc nuw nsw i64 %indvars.iv503 to i32
   br label %.loopexit
@@ -2151,7 +2151,7 @@ define range(i32 0, 2) i32 @Abc_NtkMfsEdgePower(ptr noundef %0, ptr noundef %1) 
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.critedge, label %.lr.ph.split
 
-.lr.ph.splitthread-pre-split:                     ; preds = %Abc_MfsObjProb.argprom.exit24.thread
+.lr.ph.splitthread-pre-split:                     ; preds = %Abc_MfsObjProb.exit24.thread
   %.val20.pr = load ptr, ptr %6, align 8
   br label %.lr.ph.split
 
@@ -2159,7 +2159,7 @@ define range(i32 0, 2) i32 @Abc_NtkMfsEdgePower(ptr noundef %0, ptr noundef %1) 
   %.val20 = phi ptr [ %.val20.pr, %.lr.ph.splitthread-pre-split ], [ %7, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
   %.not.i = icmp eq ptr %.val20, null
-  br i1 %.not.i, label %Abc_MfsObjProb.argprom.exit24.thread, label %9
+  br i1 %.not.i, label %Abc_MfsObjProb.exit24.thread, label %9
 
 9:                                                ; preds = %.lr.ph.split
   %.val17 = load ptr, ptr %1, align 8
@@ -2178,9 +2178,9 @@ define range(i32 0, 2) i32 @Abc_NtkMfsEdgePower(ptr noundef %0, ptr noundef %1) 
   %19 = getelementptr i8, ptr %.val20, i64 4
   %.val.i = load i32, ptr %19, align 4
   %20 = icmp slt i32 %18, %.val.i
-  br i1 %20, label %Abc_MfsObjProb.argprom.exit, label %Abc_MfsObjProb.argprom.exit24.thread
+  br i1 %20, label %Abc_MfsObjProb.exit, label %Abc_MfsObjProb.exit24.thread
 
-Abc_MfsObjProb.argprom.exit:                      ; preds = %9
+Abc_MfsObjProb.exit:                              ; preds = %9
   %21 = getelementptr i8, ptr %.val20, i64 8
   %.val5.i = load ptr, ptr %21, align 8
   %22 = sext i32 %18 to i64
@@ -2188,38 +2188,38 @@ Abc_MfsObjProb.argprom.exit:                      ; preds = %9
   %24 = load float, ptr %23, align 4
   %25 = fpext float %24 to double
   %26 = fcmp ult double %25, 3.500000e-01
-  br i1 %26, label %Abc_MfsObjProb.argprom.exit24, label %27
+  br i1 %26, label %Abc_MfsObjProb.exit24, label %27
 
-27:                                               ; preds = %Abc_MfsObjProb.argprom.exit
+27:                                               ; preds = %Abc_MfsObjProb.exit
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = tail call i32 @Abc_NtkMfsSolveSatResub(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %28, i32 noundef 0, i32 noundef 0)
   %.not16 = icmp eq i32 %29, 0
-  br i1 %.not16, label %Abc_MfsObjProb.argprom.exit24.thread, label %.critedge
+  br i1 %.not16, label %Abc_MfsObjProb.exit24.thread, label %.critedge
 
-Abc_MfsObjProb.argprom.exit24:                    ; preds = %Abc_MfsObjProb.argprom.exit
+Abc_MfsObjProb.exit24:                            ; preds = %Abc_MfsObjProb.exit
   %30 = getelementptr i8, ptr %.val20, i64 8
   %.val5.i23 = load ptr, ptr %30, align 8
   %31 = sext i32 %18 to i64
   %32 = getelementptr inbounds i32, ptr %.val5.i23, i64 %31
   %33 = load float, ptr %32, align 4
   %34 = fcmp ult float %33, 2.500000e-01
-  br i1 %34, label %Abc_MfsObjProb.argprom.exit24.thread, label %35
+  br i1 %34, label %Abc_MfsObjProb.exit24.thread, label %35
 
-35:                                               ; preds = %Abc_MfsObjProb.argprom.exit24
+35:                                               ; preds = %Abc_MfsObjProb.exit24
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = tail call i32 @Abc_NtkMfsSolveSatResub(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %36, i32 noundef 1, i32 noundef 0)
   %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %Abc_MfsObjProb.argprom.exit24.thread, label %.critedge
+  br i1 %.not, label %Abc_MfsObjProb.exit24.thread, label %.critedge
 
-Abc_MfsObjProb.argprom.exit24.thread:             ; preds = %9, %.lr.ph.split, %27, %35, %Abc_MfsObjProb.argprom.exit24
+Abc_MfsObjProb.exit24.thread:                     ; preds = %9, %.lr.ph.split, %27, %35, %Abc_MfsObjProb.exit24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %3, align 4
   %38 = sext i32 %.val to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
   br i1 %39, label %.lr.ph.splitthread-pre-split, label %.critedge, !llvm.loop !20
 
-.critedge:                                        ; preds = %27, %35, %Abc_MfsObjProb.argprom.exit24.thread, %.lr.ph, %2
-  %.015 = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %Abc_MfsObjProb.argprom.exit24.thread ], [ 1, %35 ], [ 1, %27 ]
+.critedge:                                        ; preds = %27, %35, %Abc_MfsObjProb.exit24.thread, %.lr.ph, %2
+  %.015 = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %Abc_MfsObjProb.exit24.thread ], [ 1, %35 ], [ 1, %27 ]
   ret i32 %.015
 }
 

@@ -251,13 +251,13 @@ define void @If_LibBoxAdd(ptr nocapture noundef %0, ptr noundef %1) local_unname
   %7 = getelementptr i8, ptr %6, i64 4
   %.val = load i32, ptr %7, align 4
   %.not = icmp slt i32 %4, %.val
-  br i1 %.not, label %Vec_PtrFillExtra.argprom.exit, label %8
+  br i1 %.not, label %Vec_PtrFillExtra.exit, label %8
 
 8:                                                ; preds = %2
   %9 = shl nsw i32 %4, 1
   %10 = add nsw i32 %9, 10
   %.not.i = icmp sgt i32 %10, %.val
-  br i1 %.not.i, label %11, label %Vec_PtrFillExtra.argprom.exit
+  br i1 %.not.i, label %11, label %Vec_PtrFillExtra.exit
 
 11:                                               ; preds = %8
   %12 = load i32, ptr %6, align 8
@@ -344,9 +344,9 @@ Vec_PtrGrow.exit.i:                               ; preds = %Vec_PtrGrow.exit.si
   store i32 %10, ptr %7, align 4
   %.pre9 = load ptr, ptr %5, align 8
   %.pre10 = load i32, ptr %3, align 4
-  br label %Vec_PtrFillExtra.argprom.exit
+  br label %Vec_PtrFillExtra.exit
 
-Vec_PtrFillExtra.argprom.exit:                    ; preds = %._crit_edge.i, %8, %2
+Vec_PtrFillExtra.exit:                            ; preds = %._crit_edge.i, %8, %2
   %46 = phi i32 [ %.pre10, %._crit_edge.i ], [ %4, %8 ], [ %4, %2 ]
   %47 = phi ptr [ %.pre9, %._crit_edge.i ], [ %6, %8 ], [ %6, %2 ]
   %48 = getelementptr i8, ptr %47, i64 8

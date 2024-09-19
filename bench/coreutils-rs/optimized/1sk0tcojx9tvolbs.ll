@@ -84,7 +84,7 @@ define hidden void @_ZN7uu_echo13print_escaped17h826edcace459b5acE(ptr noalias n
   %71 = getelementptr inbounds i8, ptr %11, i64 8
   br label %72
 
-thread-pre-split:                                 ; preds = %302, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom.exit111.thread", %192, %303
+thread-pre-split:                                 ; preds = %302, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit111.thread", %192, %303
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   %.pr = load i32, ptr %32, align 8
   br label %72
@@ -537,7 +537,7 @@ select.unfold153:                                 ; preds = %237
   br label %193
 
 240:                                              ; preds = %237
-  br i1 %.not.i.i106, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom.exit111.thread", label %241
+  br i1 %.not.i.i106, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit111.thread", label %241
 
 241:                                              ; preds = %240
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !122
@@ -552,7 +552,7 @@ select.unfold153:                                 ; preds = %237
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i108": ; preds = %243, %241
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !122
-  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom.exit111.thread"
+  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit111.thread"
 
 244:                                              ; preds = %235
   %245 = landingpad { ptr, i32 }
@@ -560,7 +560,7 @@ select.unfold153:                                 ; preds = %237
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7, !noalias !121
   unreachable
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom.exit111.thread": ; preds = %240, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i108"
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit111.thread": ; preds = %240, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i108"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !115
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   br label %thread-pre-split
@@ -663,8 +663,8 @@ select.unfold155:                                 ; preds = %250
   %storemerge = select i1 %273, i32 0, i32 %272
   br label %274
 
-274:                                              ; preds = %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit105.thread.thread, %269, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom.exit129.thread", %301, %271, %268, %267, %266, %265, %264, %263, %260, %259
-  %.0166.sink = phi i32 [ %.0166, %301 ], [ %storemerge, %271 ], [ 11, %268 ], [ 9, %267 ], [ 13, %266 ], [ 10, %265 ], [ 12, %264 ], [ 27, %263 ], [ 8, %260 ], [ 7, %259 ], [ %270, %269 ], [ 120, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom.exit129.thread" ], [ %.0166, %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit105.thread.thread ]
+274:                                              ; preds = %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit105.thread.thread, %269, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit129.thread", %301, %271, %268, %267, %266, %265, %264, %263, %260, %259
+  %.0166.sink = phi i32 [ %.0166, %301 ], [ %storemerge, %271 ], [ 11, %268 ], [ 9, %267 ], [ 13, %266 ], [ 10, %265 ], [ 12, %264 ], [ 27, %263 ], [ 8, %260 ], [ 7, %259 ], [ %270, %269 ], [ 120, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit129.thread" ], [ %.0166, %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit105.thread.thread ]
   store i32 %.0166.sink, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
@@ -764,7 +764,7 @@ select.unfold159:                                 ; preds = %292
   br label %287
 
 295:                                              ; preds = %292
-  br i1 %.not.i.i124, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom.exit129.thread", label %296
+  br i1 %.not.i.i124, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit129.thread", label %296
 
 296:                                              ; preds = %295
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !187
@@ -779,7 +779,7 @@ select.unfold159:                                 ; preds = %292
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i126": ; preds = %298, %296
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !187
-  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom.exit129.thread"
+  br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit129.thread"
 
 299:                                              ; preds = %290
   %300 = landingpad { ptr, i32 }
@@ -787,7 +787,7 @@ select.unfold159:                                 ; preds = %292
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7, !noalias !186
   unreachable
 
-"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom.exit129.thread": ; preds = %295, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i126"
+"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit129.thread": ; preds = %295, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h3b7be547367e8751E.exit.i.i.i126"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !180
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21)
   br label %274
@@ -912,16 +912,16 @@ attributes #7 = { cold noreturn nounwind }
 !46 = distinct !{!46, !47, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E: argument 0"}
 !47 = distinct !{!47, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E"}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
-!50 = distinct !{!50, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
+!49 = distinct !{!49, !50, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!50 = distinct !{!50, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
 !51 = !{!52}
-!52 = distinct !{!52, !50, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
+!52 = distinct !{!52, !50, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !53 = !{!54, !56, !57}
 !54 = distinct !{!54, !55, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 0"}
 !55 = distinct !{!55, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE"}
 !56 = distinct !{!56, !55, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 1"}
-!57 = distinct !{!57, !58, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom: argument 0"}
-!58 = distinct !{!58, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom"}
+!57 = distinct !{!57, !58, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E: argument 0"}
+!58 = distinct !{!58, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E"}
 !59 = !{!56, !57}
 !60 = !{!61, !63, !65, !67, !54, !56, !57}
 !61 = distinct !{!61, !62, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b7b095fa452c7bE.llvm.15734230042033790829: argument 0"}
@@ -939,16 +939,16 @@ attributes #7 = { cold noreturn nounwind }
 !73 = distinct !{!73, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17haaa3401c8e9fc4f8E.llvm.15734230042033790829"}
 !74 = !{i32 0, i32 1114113}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
-!77 = distinct !{!77, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
+!76 = distinct !{!76, !77, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!77 = distinct !{!77, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
 !78 = !{!79}
-!79 = distinct !{!79, !77, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
+!79 = distinct !{!79, !77, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !80 = !{!81, !83, !84}
 !81 = distinct !{!81, !82, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 0"}
 !82 = distinct !{!82, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE"}
 !83 = distinct !{!83, !82, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 1"}
-!84 = distinct !{!84, !85, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom: argument 0"}
-!85 = distinct !{!85, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom"}
+!84 = distinct !{!84, !85, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E: argument 0"}
+!85 = distinct !{!85, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E"}
 !86 = !{!83, !84}
 !87 = !{!88, !90, !92, !94, !81, !83, !84}
 !88 = distinct !{!88, !89, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b7b095fa452c7bE.llvm.15734230042033790829: argument 0"}
@@ -982,8 +982,8 @@ attributes #7 = { cold noreturn nounwind }
 !116 = distinct !{!116, !117, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 0"}
 !117 = distinct !{!117, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE"}
 !118 = distinct !{!118, !117, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 1"}
-!119 = distinct !{!119, !120, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom: argument 0"}
-!120 = distinct !{!120, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom"}
+!119 = distinct !{!119, !120, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E: argument 0"}
+!120 = distinct !{!120, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E"}
 !121 = !{!118, !119}
 !122 = !{!123, !125, !127, !129, !116, !118, !119}
 !123 = distinct !{!123, !124, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b7b095fa452c7bE.llvm.15734230042033790829: argument 0"}
@@ -1002,8 +1002,8 @@ attributes #7 = { cold noreturn nounwind }
 !136 = distinct !{!136, !137, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 0"}
 !137 = distinct !{!137, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE"}
 !138 = distinct !{!138, !137, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 1"}
-!139 = distinct !{!139, !140, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom: argument 0"}
-!140 = distinct !{!140, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom"}
+!139 = distinct !{!139, !140, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E: argument 0"}
+!140 = distinct !{!140, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E"}
 !141 = !{!138, !139}
 !142 = !{!143, !145, !147, !149, !136, !138, !139}
 !143 = distinct !{!143, !144, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b7b095fa452c7bE.llvm.15734230042033790829: argument 0"}
@@ -1019,16 +1019,16 @@ attributes #7 = { cold noreturn nounwind }
 !153 = distinct !{!153, !154, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17haaa3401c8e9fc4f8E.llvm.15734230042033790829: argument 0"}
 !154 = distinct !{!154, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17haaa3401c8e9fc4f8E.llvm.15734230042033790829"}
 !155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 0"}
-!157 = distinct !{!157, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom"}
+!156 = distinct !{!156, !157, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!157 = distinct !{!157, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
 !158 = !{!159}
-!159 = distinct !{!159, !157, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.argprom: argument 1"}
+!159 = distinct !{!159, !157, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
 !160 = !{!161, !163, !164}
 !161 = distinct !{!161, !162, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 0"}
 !162 = distinct !{!162, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE"}
 !163 = distinct !{!163, !162, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 1"}
-!164 = distinct !{!164, !165, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom: argument 0"}
-!165 = distinct !{!165, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom"}
+!164 = distinct !{!164, !165, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E: argument 0"}
+!165 = distinct !{!165, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E"}
 !166 = !{!163, !164}
 !167 = !{!168, !170, !172, !174, !161, !163, !164}
 !168 = distinct !{!168, !169, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b7b095fa452c7bE.llvm.15734230042033790829: argument 0"}
@@ -1047,8 +1047,8 @@ attributes #7 = { cold noreturn nounwind }
 !181 = distinct !{!181, !182, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 0"}
 !182 = distinct !{!182, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE"}
 !183 = distinct !{!183, !182, !"_ZN3std2io5Write9write_fmt17hb18acdb7f7e7a22dE: argument 1"}
-!184 = distinct !{!184, !185, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom: argument 0"}
-!185 = distinct !{!185, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.argprom"}
+!184 = distinct !{!184, !185, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E: argument 0"}
+!185 = distinct !{!185, !"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E"}
 !186 = !{!183, !184}
 !187 = !{!188, !190, !192, !194, !181, !183, !184}
 !188 = distinct !{!188, !189, !"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72b7b095fa452c7bE.llvm.15734230042033790829: argument 0"}

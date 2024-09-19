@@ -157,7 +157,7 @@ define hidden ptr @OGLSD_SetScratchSurface(ptr nocapture noundef readnone %0, i6
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %GLXSD_MakeCurrentToScratch.argprom.exit.thread, label %10
+  br i1 %9, label %GLXSD_MakeCurrentToScratch.exit.thread, label %10
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %8, align 8
@@ -168,27 +168,27 @@ define hidden ptr @OGLSD_SetScratchSurface(ptr nocapture noundef readnone %0, i6
   %16 = load ptr, ptr %11, align 8
   %17 = tail call i32 %12(ptr noundef %13, i64 noundef %15, i64 noundef %15, ptr noundef %16) #5
   %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %GLXSD_MakeCurrentToScratch.argprom.exit.thread, label %GLXSD_MakeCurrentToScratch.argprom.exit
+  br i1 %.not.i, label %GLXSD_MakeCurrentToScratch.exit.thread, label %GLXSD_MakeCurrentToScratch.exit
 
-GLXSD_MakeCurrentToScratch.argprom.exit.thread:   ; preds = %5, %10
+GLXSD_MakeCurrentToScratch.exit.thread:           ; preds = %5, %10
   %.str.14.sink.i = phi ptr [ @.str.13, %5 ], [ @.str.14, %10 ]
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull %.str.14.sink.i) #5
   br label %23
 
-GLXSD_MakeCurrentToScratch.argprom.exit:          ; preds = %10
+GLXSD_MakeCurrentToScratch.exit:                  ; preds = %10
   %18 = getelementptr inbounds i8, ptr %8, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 12
   %.not8 = icmp eq i32 %20, 0
   br i1 %.not8, label %23, label %21
 
-21:                                               ; preds = %GLXSD_MakeCurrentToScratch.argprom.exit
+21:                                               ; preds = %GLXSD_MakeCurrentToScratch.exit
   %22 = load ptr, ptr @j2d_glBindFramebufferEXT, align 8
   tail call void %22(i32 noundef 36160, i32 noundef 0) #5
   br label %23
 
-23:                                               ; preds = %GLXSD_MakeCurrentToScratch.argprom.exit.thread, %GLXSD_MakeCurrentToScratch.argprom.exit, %21, %4
-  %.0 = phi ptr [ null, %4 ], [ %8, %21 ], [ %8, %GLXSD_MakeCurrentToScratch.argprom.exit ], [ null, %GLXSD_MakeCurrentToScratch.argprom.exit.thread ]
+23:                                               ; preds = %GLXSD_MakeCurrentToScratch.exit.thread, %GLXSD_MakeCurrentToScratch.exit, %21, %4
+  %.0 = phi ptr [ null, %4 ], [ %8, %21 ], [ %8, %GLXSD_MakeCurrentToScratch.exit ], [ null, %GLXSD_MakeCurrentToScratch.exit.thread ]
   ret ptr %.0
 }
 
@@ -220,7 +220,7 @@ define hidden ptr @OGLSD_MakeOGLContextCurrent(ptr nocapture noundef readnone %0
 18:                                               ; preds = %14
   %19 = tail call ptr (...) @OGLRenderQueue_GetCurrentContext() #5
   %.not20 = icmp eq ptr %11, %19
-  br i1 %.not20, label %GLXSD_MakeCurrentToScratch.argprom.exit, label %20
+  br i1 %.not20, label %GLXSD_MakeCurrentToScratch.exit, label %20
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %11, align 8
@@ -231,13 +231,13 @@ define hidden ptr @OGLSD_MakeOGLContextCurrent(ptr nocapture noundef readnone %0
   %26 = load ptr, ptr %21, align 8
   %27 = tail call i32 %22(ptr noundef %23, i64 noundef %25, i64 noundef %25, ptr noundef %26) #5
   %.not.i = icmp eq i32 %27, 0
-  br i1 %.not.i, label %GLXSD_MakeCurrentToScratch.argprom.exit.thread, label %GLXSD_MakeCurrentToScratch.argprom.exit
+  br i1 %.not.i, label %GLXSD_MakeCurrentToScratch.exit.thread, label %GLXSD_MakeCurrentToScratch.exit
 
-GLXSD_MakeCurrentToScratch.argprom.exit.thread:   ; preds = %20
+GLXSD_MakeCurrentToScratch.exit.thread:           ; preds = %20
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.14) #5
   br label %53
 
-GLXSD_MakeCurrentToScratch.argprom.exit:          ; preds = %20, %18
+GLXSD_MakeCurrentToScratch.exit:                  ; preds = %20, %18
   %28 = load ptr, ptr @j2d_glBindTexture, align 8
   %29 = getelementptr inbounds i8, ptr %2, i64 112
   %30 = load i32, ptr %29, align 8
@@ -279,8 +279,8 @@ GLXSD_MakeCurrentToScratch.argprom.exit:          ; preds = %20, %18
   tail call void %52(i32 noundef 36160, i32 noundef 0) #5
   br label %53
 
-53:                                               ; preds = %GLXSD_MakeCurrentToScratch.argprom.exit.thread, %GLXSD_MakeCurrentToScratch.argprom.exit, %51, %47, %46, %13
-  %.0 = phi ptr [ null, %13 ], [ null, %46 ], [ %11, %47 ], [ %11, %51 ], [ %11, %GLXSD_MakeCurrentToScratch.argprom.exit ], [ null, %GLXSD_MakeCurrentToScratch.argprom.exit.thread ]
+53:                                               ; preds = %GLXSD_MakeCurrentToScratch.exit.thread, %GLXSD_MakeCurrentToScratch.exit, %51, %47, %46, %13
+  %.0 = phi ptr [ null, %13 ], [ null, %46 ], [ %11, %47 ], [ %11, %51 ], [ %11, %GLXSD_MakeCurrentToScratch.exit ], [ null, %GLXSD_MakeCurrentToScratch.exit.thread ]
   ret ptr %.0
 }
 

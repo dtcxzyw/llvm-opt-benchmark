@@ -196,7 +196,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   call void @"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17hf98a01fb4963cc98E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %14, ptr noalias noundef nonnull align 1 %5, i64 noundef 4), !noalias !40
   %15 = load i32, ptr %5, align 4, !noalias !43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !43
-  br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.argprom.exit
+  br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -241,7 +241,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   %38 = load i32, ptr %37, align 4, !alias.scope !44, !noalias !43, !noundef !4
   %39 = add nuw nsw i64 %36, 1
   store i64 %39, ptr %20, align 16, !alias.scope !44, !noalias !43
-  br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.argprom.exit
+  br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit
 
 40:                                               ; preds = %7
   %41 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
@@ -308,7 +308,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   %.not5.us = icmp ult i32 %43, %74
   br i1 %.not5.us, label %55, label %.split14.us
 
-.split:                                           ; preds = %40, %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.argprom.exit11
+.split:                                           ; preds = %40, %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit11
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %75 = load i32, ptr %.val6, align 8, !range !39, !alias.scope !57, !noalias !60, !noundef !4
   %trunc.i.i.i7 = trunc nuw i32 %75 to i1
@@ -320,7 +320,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   call void @"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17hf98a01fb4963cc98E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %44, ptr noalias noundef nonnull align 1 %4, i64 noundef 4), !noalias !60
   %77 = load i32, ptr %4, align 4, !noalias !66
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !66
-  br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.argprom.exit11
+  br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit11
 
 78:                                               ; preds = %.split
   %79 = load ptr, ptr %45, align 8, !alias.scope !57, !noalias !60, !nonnull !4, !noundef !4
@@ -364,9 +364,9 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   %99 = load i32, ptr %98, align 4, !alias.scope !63, !noalias !66, !noundef !4
   %100 = add nuw nsw i64 %97, 1
   store i64 %100, ptr %81, align 16, !alias.scope !63, !noalias !66
-  br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.argprom.exit11
+  br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit11
 
-_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.argprom.exit11: ; preds = %76, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10"
+_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit11:  ; preds = %76, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10"
   %.0.i.i.i8 = phi i32 [ %99, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10" ], [ %77, %76 ]
   %101 = zext i32 %.0.i.i.i8 to i64
   %102 = mul nuw i64 %101, %46
@@ -374,14 +374,14 @@ _ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.argprom.exit11: ; preds = %76, %"_ZN74_
   %.not5 = icmp ult i32 %43, %103
   br i1 %.not5, label %.split, label %.split14.us, !llvm.loop !77
 
-.split14.us:                                      ; preds = %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.argprom.exit11, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10.us"
-  %.us-phi = phi i64 [ %73, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10.us" ], [ %102, %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.argprom.exit11 ]
+.split14.us:                                      ; preds = %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit11, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10.us"
+  %.us-phi = phi i64 [ %73, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i10.us" ], [ %102, %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit11 ]
   %104 = lshr i64 %.us-phi, 32
   %105 = trunc nuw i64 %104 to i32
   %106 = add i32 %0, %105
-  br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.argprom.exit
+  br label %_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit
 
-_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.argprom.exit: ; preds = %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i", %13, %.split14.us
+_ZN4rand3rng3Rng3gen17hfaf3bf1003ae2519E.exit:    ; preds = %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i", %13, %.split14.us
   %.0 = phi i32 [ %106, %.split14.us ], [ %38, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h21e756ee5649e6eaE.llvm.18092347618068738334.exit.i.i.i" ], [ %15, %13 ]
   ret i32 %.0
 }
@@ -792,14 +792,14 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
   call void @"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17hf98a01fb4963cc98E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %14, ptr noalias noundef nonnull align 1 %5, i64 noundef 8), !noalias !153
   %15 = load i64, ptr %5, align 8, !noalias !156
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !156
-  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit
+  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %.val, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !150, !noalias !153, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = tail call noundef i64 @"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h5836e05978bf1a10E.llvm.18092347618068738334"(ptr noalias noundef nonnull align 16 dereferenceable(352) %19), !noalias !156
-  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit
+  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit
 
 21:                                               ; preds = %7
   %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %9, i1 true)
@@ -816,18 +816,18 @@ define hidden noundef i64 @"_ZN118_$LT$rand..distributions..uniform..UniformInt$
 .split.us:                                        ; preds = %21
   %30 = load ptr, ptr %26, align 8, !alias.scope !157, !noalias !160, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds i8, ptr %30, i64 16
-  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9.us
+  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9.us
 
-_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9.us: ; preds = %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9.us, %.split.us
+_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9.us: ; preds = %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9.us, %.split.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %32 = tail call noundef i64 @"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h5836e05978bf1a10E.llvm.18092347618068738334"(ptr noalias noundef nonnull align 16 dereferenceable(352) %31), !noalias !163
   %33 = zext i64 %32 to i128
   %34 = mul nuw i128 %33, %27
   %35 = trunc i128 %34 to i64
   %.not5.us = icmp ult i64 %24, %35
-  br i1 %.not5.us, label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9.us, label %.split12.us.loopexit
+  br i1 %.not5.us, label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9.us, label %.split12.us.loopexit
 
-.split:                                           ; preds = %21, %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9
+.split:                                           ; preds = %21, %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %36 = load i32, ptr %.val6, align 8, !range !39, !alias.scope !157, !noalias !160, !noundef !4
   %trunc.i.i.i7 = trunc nuw i32 %36 to i1
@@ -839,15 +839,15 @@ _ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9.us: ; preds = %_ZN4rand3r
   call void @"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17hf98a01fb4963cc98E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %25, ptr noalias noundef nonnull align 1 %4, i64 noundef 8), !noalias !160
   %38 = load i64, ptr %4, align 8, !noalias !163
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !163
-  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9
+  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9
 
 39:                                               ; preds = %.split
   %40 = load ptr, ptr %26, align 8, !alias.scope !157, !noalias !160, !nonnull !4, !noundef !4
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = call noundef i64 @"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h5836e05978bf1a10E.llvm.18092347618068738334"(ptr noalias noundef nonnull align 16 dereferenceable(352) %41), !noalias !163
-  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9
+  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9
 
-_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9: ; preds = %37, %39
+_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9:   ; preds = %37, %39
   %.0.i.i.i8 = phi i64 [ %42, %39 ], [ %38, %37 ]
   %43 = zext i64 %.0.i.i.i8 to i128
   %44 = mul nuw i128 %43, %27
@@ -855,12 +855,12 @@ _ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9: ; preds = %37, %39
   %.not5 = icmp ult i64 %24, %45
   br i1 %.not5, label %.split, label %.split12.us.loopexit22, !llvm.loop !164
 
-.split12.us.loopexit:                             ; preds = %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9.us
+.split12.us.loopexit:                             ; preds = %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9.us
   %extract = lshr i128 %34, 64
   %extract.t = trunc nuw i128 %extract to i64
   br label %.split12.us
 
-.split12.us.loopexit22:                           ; preds = %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9
+.split12.us.loopexit22:                           ; preds = %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9
   %extract20 = lshr i128 %44, 64
   %extract.t21 = trunc nuw i128 %extract20 to i64
   br label %.split12.us
@@ -868,9 +868,9 @@ _ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit9: ; preds = %37, %39
 .split12.us:                                      ; preds = %.split12.us.loopexit22, %.split12.us.loopexit
   %.sink.off64 = phi i64 [ %extract.t, %.split12.us.loopexit ], [ %extract.t21, %.split12.us.loopexit22 ]
   %46 = add i64 %.sink.off64, %0
-  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit
+  br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit
 
-_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.argprom.exit: ; preds = %16, %13, %.split12.us
+_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit:    ; preds = %16, %13, %.split12.us
   %.0 = phi i64 [ %46, %.split12.us ], [ %20, %16 ], [ %15, %13 ]
   ret i64 %.0
 }
@@ -1418,8 +1418,8 @@ attributes #12 = { noreturn }
 !80 = distinct !{!80, !81, !"_ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E: argument 0"}
 !81 = distinct !{!81, !"_ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E"}
 !82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN4rand13distributions7integer118_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$u32$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17hd6ac6bb641f2caa0E.argprom: argument 0"}
-!84 = distinct !{!84, !"_ZN4rand13distributions7integer118_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$u32$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17hd6ac6bb641f2caa0E.argprom"}
+!83 = distinct !{!83, !84, !"_ZN4rand13distributions7integer118_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$u32$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17hd6ac6bb641f2caa0E: argument 0"}
+!84 = distinct !{!84, !"_ZN4rand13distributions7integer118_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$u32$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17hd6ac6bb641f2caa0E"}
 !85 = !{!86}
 !86 = distinct !{!86, !87, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u3217h042f8302ecf4db59E: argument 0"}
 !87 = distinct !{!87, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u3217h042f8302ecf4db59E"}
@@ -1440,8 +1440,8 @@ attributes #12 = { noreturn }
 !102 = !{!103, !105, !107}
 !103 = distinct !{!103, !104, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u3217h042f8302ecf4db59E: argument 0"}
 !104 = distinct !{!104, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u3217h042f8302ecf4db59E"}
-!105 = distinct !{!105, !106, !"_ZN4rand13distributions7integer118_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$u32$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17hd6ac6bb641f2caa0E.argprom: argument 0"}
-!106 = distinct !{!106, !"_ZN4rand13distributions7integer118_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$u32$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17hd6ac6bb641f2caa0E.argprom"}
+!105 = distinct !{!105, !106, !"_ZN4rand13distributions7integer118_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$u32$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17hd6ac6bb641f2caa0E: argument 0"}
+!106 = distinct !{!106, !"_ZN4rand13distributions7integer118_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$u32$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17hd6ac6bb641f2caa0E"}
 !107 = distinct !{!107, !108, !"_ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E: argument 0"}
 !108 = distinct !{!108, !"_ZN4rand3rng3Rng3gen17h9e0a7072e7b01b69E"}
 !109 = !{!110}
@@ -1465,8 +1465,8 @@ attributes #12 = { noreturn }
 !127 = distinct !{!127, !128, !"_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E: argument 0"}
 !128 = distinct !{!128, !"_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E"}
 !129 = !{!130}
-!130 = distinct !{!130, !131, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE.argprom: argument 0"}
-!131 = distinct !{!131, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE.argprom"}
+!130 = distinct !{!130, !131, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE: argument 0"}
+!131 = distinct !{!131, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE"}
 !132 = !{!133}
 !133 = distinct !{!133, !134, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u6417h3a59f9cae0d5340aE: argument 0"}
 !134 = distinct !{!134, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u6417h3a59f9cae0d5340aE"}
@@ -1474,8 +1474,8 @@ attributes #12 = { noreturn }
 !136 = !{!137, !139, !141}
 !137 = distinct !{!137, !138, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u6417h3a59f9cae0d5340aE: argument 0"}
 !138 = distinct !{!138, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u6417h3a59f9cae0d5340aE"}
-!139 = distinct !{!139, !140, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE.argprom: argument 0"}
-!140 = distinct !{!140, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE.argprom"}
+!139 = distinct !{!139, !140, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE: argument 0"}
+!140 = distinct !{!140, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE"}
 !141 = distinct !{!141, !142, !"_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E: argument 0"}
 !142 = distinct !{!142, !"_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E"}
 !143 = !{!141}
@@ -1504,8 +1504,8 @@ attributes #12 = { noreturn }
 !166 = distinct !{!166, !167, !"_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E: argument 0"}
 !167 = distinct !{!167, !"_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E"}
 !168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE.argprom: argument 0"}
-!170 = distinct !{!170, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE.argprom"}
+!169 = distinct !{!169, !170, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE: argument 0"}
+!170 = distinct !{!170, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE"}
 !171 = !{!172}
 !172 = distinct !{!172, !173, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u6417h3a59f9cae0d5340aE: argument 0"}
 !173 = distinct !{!173, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u6417h3a59f9cae0d5340aE"}
@@ -1513,8 +1513,8 @@ attributes #12 = { noreturn }
 !175 = !{!176, !178, !180}
 !176 = distinct !{!176, !177, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u6417h3a59f9cae0d5340aE: argument 0"}
 !177 = distinct !{!177, !"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCore$GT$8next_u6417h3a59f9cae0d5340aE"}
-!178 = distinct !{!178, !179, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE.argprom: argument 0"}
-!179 = distinct !{!179, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE.argprom"}
+!178 = distinct !{!178, !179, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE: argument 0"}
+!179 = distinct !{!179, !"_ZN4rand13distributions7integer120_$LT$impl$u20$rand..distributions..distribution..Distribution$LT$usize$GT$$u20$for$u20$rand..distributions..Standard$GT$6sample17h4027422bdfc5d7bdE"}
 !180 = distinct !{!180, !181, !"_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E: argument 0"}
 !181 = distinct !{!181, !"_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E"}
 !182 = !{!180}

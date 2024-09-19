@@ -570,13 +570,13 @@ multirange_canonicalize.exit:                     ; preds = %35, %4
 52:                                               ; preds = %49, %46, %44
   %53 = phi i64 [ %45, %44 ], [ %48, %46 ], [ %51, %49 ]
   %54 = icmp sgt i32 %.0.lcssa.i, 0
-  br i1 %54, label %.lr.ph.i18, label %multirange_size_estimate.argprom.argprom.exit
+  br i1 %54, label %.lr.ph.i18, label %multirange_size_estimate.exit
 
 .thread.i:                                        ; preds = %multirange_canonicalize.exit
   %55 = add nsw i64 %43, 15
   %56 = and i64 %55, -4
   %57 = icmp sgt i32 %.0.lcssa.i, 0
-  br i1 %57, label %.lr.ph.split.us.preheader.i, label %multirange_size_estimate.argprom.argprom.exit
+  br i1 %57, label %.lr.ph.split.us.preheader.i, label %multirange_size_estimate.exit
 
 .lr.ph.i18:                                       ; preds = %52
   %wide.trip.count27.i = zext nneg i32 %.0.lcssa.i to i64
@@ -602,7 +602,7 @@ multirange_canonicalize.exit:                     ; preds = %35, %4
   %65 = add i64 %64, %.0311.us.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
-  br i1 %exitcond33.not.i, label %multirange_size_estimate.argprom.argprom.exit, label %.lr.ph.split.us.i, !llvm.loop !10
+  br i1 %exitcond33.not.i, label %multirange_size_estimate.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i18, %.lr.ph.split.split.us.i
   %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.lr.ph.split.split.us.i ], [ 0, %.lr.ph.i18 ]
@@ -616,7 +616,7 @@ multirange_canonicalize.exit:                     ; preds = %35, %4
   %72 = add i64 %71, %70
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count27.i
-  br i1 %exitcond23.not.i, label %multirange_size_estimate.argprom.argprom.exit, label %.lr.ph.split.split.us.i, !llvm.loop !10
+  br i1 %exitcond23.not.i, label %multirange_size_estimate.exit, label %.lr.ph.split.split.us.i, !llvm.loop !10
 
 .lr.ph.split.split.us7.i:                         ; preds = %.lr.ph.i18, %.lr.ph.split.split.us7.i
   %indvars.iv.i19 = phi i64 [ %indvars.iv.next.i20, %.lr.ph.split.split.us7.i ], [ 0, %.lr.ph.i18 ]
@@ -631,7 +631,7 @@ multirange_canonicalize.exit:                     ; preds = %35, %4
   %80 = add i64 %79, %.0311.us9.i
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count27.i
-  br i1 %exitcond.not.i21, label %multirange_size_estimate.argprom.argprom.exit, label %.lr.ph.split.split.us7.i, !llvm.loop !10
+  br i1 %exitcond.not.i21, label %multirange_size_estimate.exit, label %.lr.ph.split.split.us7.i, !llvm.loop !10
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.i18, %.lr.ph.split.split.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.lr.ph.split.split.i ], [ 0, %.lr.ph.i18 ]
@@ -646,9 +646,9 @@ multirange_canonicalize.exit:                     ; preds = %35, %4
   %88 = add i64 %87, %86
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
-  br i1 %exitcond28.not.i, label %multirange_size_estimate.argprom.argprom.exit, label %.lr.ph.split.split.i, !llvm.loop !10
+  br i1 %exitcond28.not.i, label %multirange_size_estimate.exit, label %.lr.ph.split.split.i, !llvm.loop !10
 
-multirange_size_estimate.argprom.argprom.exit:    ; preds = %.lr.ph.split.us.i, %.lr.ph.split.split.us7.i, %.lr.ph.split.split.us.i, %.lr.ph.split.split.i, %52, %.thread.i
+multirange_size_estimate.exit:                    ; preds = %.lr.ph.split.us.i, %.lr.ph.split.split.us7.i, %.lr.ph.split.split.us.i, %.lr.ph.split.split.i, %52, %.thread.i
   %.031.lcssa.i = phi i64 [ %53, %52 ], [ %56, %.thread.i ], [ %88, %.lr.ph.split.split.i ], [ %72, %.lr.ph.split.split.us.i ], [ %80, %.lr.ph.split.split.us7.i ], [ %65, %.lr.ph.split.us.i ]
   %89 = tail call ptr @palloc0(i64 noundef %.031.lcssa.i) #11
   %90 = trunc i64 %.031.lcssa.i to i32
@@ -672,18 +672,18 @@ multirange_size_estimate.argprom.argprom.exit:    ; preds = %.lr.ph.split.us.i, 
     i8 100, label %103
   ]
 
-100:                                              ; preds = %multirange_size_estimate.argprom.argprom.exit
+100:                                              ; preds = %multirange_size_estimate.exit
   %101 = add nuw nsw i64 %97, %99
   %102 = add nuw nsw i64 %101, 12
   br label %111
 
-103:                                              ; preds = %multirange_size_estimate.argprom.argprom.exit
+103:                                              ; preds = %multirange_size_estimate.exit
   %104 = add nuw nsw i64 %97, %99
   %105 = add nuw nsw i64 %104, 19
   %106 = and i64 %105, 34359738360
   br label %111
 
-107:                                              ; preds = %multirange_size_estimate.argprom.argprom.exit
+107:                                              ; preds = %multirange_size_estimate.exit
   %108 = add nuw nsw i64 %97, %99
   %109 = add nuw nsw i64 %108, 13
   %110 = and i64 %109, 34359738366
@@ -692,11 +692,11 @@ multirange_size_estimate.argprom.argprom.exit:    ; preds = %.lr.ph.split.us.i, 
 111:                                              ; preds = %107, %103, %100
   %112 = phi i64 [ %102, %100 ], [ %106, %103 ], [ %110, %107 ]
   %113 = icmp sgt i32 %.0.lcssa.i, 0
-  br i1 %113, label %.lr.ph.i22, label %write_multirange_data.argprom.argprom.exit
+  br i1 %113, label %.lr.ph.i22, label %write_multirange_data.exit
 
-.thread.i29:                                      ; preds = %multirange_size_estimate.argprom.argprom.exit
+.thread.i29:                                      ; preds = %multirange_size_estimate.exit
   %114 = icmp sgt i32 %.0.lcssa.i, 0
-  br i1 %114, label %.lr.ph.thread.i, label %write_multirange_data.argprom.argprom.exit
+  br i1 %114, label %.lr.ph.thread.i, label %write_multirange_data.exit
 
 .lr.ph.thread.i:                                  ; preds = %.thread.i29
   %115 = add nuw nsw i64 %97, %99
@@ -755,7 +755,7 @@ multirange_size_estimate.argprom.argprom.exit:    ; preds = %.lr.ph.split.us.i, 
   %147 = getelementptr i8, ptr %.0522.us.i, i64 %146
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond11.not.i = icmp eq i64 %indvars.iv.next8.i, %99
-  br i1 %exitcond11.not.i, label %write_multirange_data.argprom.argprom.exit, label %.lr.ph.split.us.i31, !llvm.loop !11
+  br i1 %exitcond11.not.i, label %write_multirange_data.exit, label %.lr.ph.split.us.i31, !llvm.loop !11
 
 .lr.ph.split.i:                                   ; preds = %177, %.lr.ph.i22
   %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i27, %177 ]
@@ -816,9 +816,9 @@ multirange_size_estimate.argprom.argprom.exit:    ; preds = %.lr.ph.split.us.i, 
   %179 = getelementptr i8, ptr %.0522.i, i64 %178
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %99
-  br i1 %exitcond.not.i28, label %write_multirange_data.argprom.argprom.exit, label %.lr.ph.split.i, !llvm.loop !11
+  br i1 %exitcond.not.i28, label %write_multirange_data.exit, label %.lr.ph.split.i, !llvm.loop !11
 
-write_multirange_data.argprom.argprom.exit:       ; preds = %129, %177, %111, %.thread.i29
+write_multirange_data.exit:                       ; preds = %129, %177, %111, %.thread.i29
   ret ptr %89
 }
 

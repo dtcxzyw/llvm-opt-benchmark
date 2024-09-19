@@ -395,14 +395,14 @@ _ZN4llvmL15getWRegFromXRegEj.exit:                ; preds = %_ZN4llvm10MIMetadat
   %.val = load ptr, ptr %102, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   %.not.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_121createCheckMemOperandERN4llvm15MachineFunctionERKNS0_16AArch64SubtargetE.argprom.exit, label %103
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_121createCheckMemOperandERN4llvm15MachineFunctionERKNS0_16AArch64SubtargetE.exit, label %103
 
 103:                                              ; preds = %_ZN4llvmL15getWRegFromXRegEj.exit
   %104 = getelementptr inbounds nuw i8, ptr %.val, i64 12
   %105 = load i32, ptr %104, align 4
-  br label %_ZN12_GLOBAL__N_121createCheckMemOperandERN4llvm15MachineFunctionERKNS0_16AArch64SubtargetE.argprom.exit
+  br label %_ZN12_GLOBAL__N_121createCheckMemOperandERN4llvm15MachineFunctionERKNS0_16AArch64SubtargetE.exit
 
-_ZN12_GLOBAL__N_121createCheckMemOperandERN4llvm15MachineFunctionERKNS0_16AArch64SubtargetE.argprom.exit: ; preds = %_ZN4llvmL15getWRegFromXRegEj.exit, %103
+_ZN12_GLOBAL__N_121createCheckMemOperandERN4llvm15MachineFunctionERKNS0_16AArch64SubtargetE.exit: ; preds = %_ZN4llvmL15getWRegFromXRegEj.exit, %103
   %106 = phi i32 [ %105, %103 ], [ 0, %_ZN4llvmL15getWRegFromXRegEj.exit ]
   %107 = ptrtoint ptr %.val to i64
   %108 = or i64 %107, 4
@@ -423,11 +423,11 @@ _ZN12_GLOBAL__N_121createCheckMemOperandERN4llvm15MachineFunctionERKNS0_16AArch6
   %.not.i.i.i.i.i52 = icmp eq ptr %110, null
   br i1 %.not.i.i.i.i.i52, label %_ZN4llvm10MIMetadataD2Ev.exit, label %111
 
-111:                                              ; preds = %_ZN12_GLOBAL__N_121createCheckMemOperandERN4llvm15MachineFunctionERKNS0_16AArch64SubtargetE.argprom.exit
+111:                                              ; preds = %_ZN12_GLOBAL__N_121createCheckMemOperandERN4llvm15MachineFunctionERKNS0_16AArch64SubtargetE.exit
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %27, ptr noundef nonnull align 4 dereferenceable(8) %110) #12
   br label %_ZN4llvm10MIMetadataD2Ev.exit
 
-_ZN4llvm10MIMetadataD2Ev.exit:                    ; preds = %_ZN12_GLOBAL__N_121createCheckMemOperandERN4llvm15MachineFunctionERKNS0_16AArch64SubtargetE.argprom.exit, %111
+_ZN4llvm10MIMetadataD2Ev.exit:                    ; preds = %_ZN12_GLOBAL__N_121createCheckMemOperandERN4llvm15MachineFunctionERKNS0_16AArch64SubtargetE.exit, %111
   %112 = load ptr, ptr %28, align 8
   %.not.i.i.i.i53 = icmp eq ptr %112, null
   br i1 %.not.i.i.i.i53, label %_ZN4llvm8DebugLocD2Ev.exit, label %113

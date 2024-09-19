@@ -1009,25 +1009,25 @@ define void @_ZN5t_vcmD2Ev(ptr nocapture noundef nonnull readonly align 8 derefe
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
-  br i1 %4, label %5, label %_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.argprom.exit
+  br i1 %4, label %5, label %_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4, i32 noundef 114, ptr noundef %7)
-          to label %_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.argprom.exit unwind label %35
+          to label %_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.exit unwind label %35
 
-_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.argprom.exit: ; preds = %5, %1
+_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.exit:     ; preds = %5, %1
   %8 = getelementptr inbounds i8, ptr %0, i64 232
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorI12t_vcm_threadSaIS0_EED2Ev.exit, label %10
 
-10:                                               ; preds = %_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.argprom.exit
+10:                                               ; preds = %_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %9) #24
   br label %_ZNSt6vectorI12t_vcm_threadSaIS0_EED2Ev.exit
 
-_ZNSt6vectorI12t_vcm_threadSaIS0_EED2Ev.exit:     ; preds = %_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.argprom.exit, %10
+_ZNSt6vectorI12t_vcm_threadSaIS0_EED2Ev.exit:     ; preds = %_ZL14gmx_sfree_implIA3_A3_fEvPKcS3_iPT_.exit, %10
   %11 = getelementptr inbounds i8, ptr %0, i64 200
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i1 = icmp eq ptr %12, null
@@ -3452,7 +3452,7 @@ _ZL21doStopComMotionLinearILi3EEvRK9t_mdatomsN3gmx8ArrayRefINS3_11BasicVectorIfE
 
 450:                                              ; preds = %._crit_edge8.i, %430
   call void @__kmpc_barrier(ptr nonnull @2, i32 %75)
-  br label %_ZL37doStopComMotionAccelerationCorrectionILi1EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit
+  br label %_ZL37doStopComMotionAccelerationCorrectionILi1EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit
 
 451:                                              ; preds = %421
   br i1 %429, label %452, label %476
@@ -3507,9 +3507,9 @@ _ZL21doStopComMotionLinearILi3EEvRK9t_mdatomsN3gmx8ArrayRefINS3_11BasicVectorIfE
 
 476:                                              ; preds = %._crit_edge.i82, %451
   call void @__kmpc_barrier(ptr nonnull @2, i32 %75)
-  br label %_ZL37doStopComMotionAccelerationCorrectionILi1EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit
+  br label %_ZL37doStopComMotionAccelerationCorrectionILi1EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit
 
-_ZL37doStopComMotionAccelerationCorrectionILi1EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit: ; preds = %450, %476
+_ZL37doStopComMotionAccelerationCorrectionILi1EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit: ; preds = %450, %476
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
@@ -3602,7 +3602,7 @@ _ZL37doStopComMotionAccelerationCorrectionILi1EEviN3gmx8ArrayRefIKtEENS1_INS0_11
 
 513:                                              ; preds = %._crit_edge10.i, %486
   call void @__kmpc_barrier(ptr nonnull @2, i32 %75)
-  br label %_ZL37doStopComMotionAccelerationCorrectionILi2EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit
+  br label %_ZL37doStopComMotionAccelerationCorrectionILi2EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit
 
 514:                                              ; preds = %477
   br i1 %485, label %515, label %547
@@ -3669,9 +3669,9 @@ _ZL37doStopComMotionAccelerationCorrectionILi1EEviN3gmx8ArrayRefIKtEENS1_INS0_11
 
 547:                                              ; preds = %._crit_edge.i87, %514
   call void @__kmpc_barrier(ptr nonnull @2, i32 %75)
-  br label %_ZL37doStopComMotionAccelerationCorrectionILi2EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit
+  br label %_ZL37doStopComMotionAccelerationCorrectionILi2EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit
 
-_ZL37doStopComMotionAccelerationCorrectionILi2EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit: ; preds = %513, %547
+_ZL37doStopComMotionAccelerationCorrectionILi2EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit: ; preds = %513, %547
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
@@ -3765,7 +3765,7 @@ _ZL37doStopComMotionAccelerationCorrectionILi2EEviN3gmx8ArrayRefIKtEENS1_INS0_11
 
 583:                                              ; preds = %._crit_edge10.i105, %557
   call void @__kmpc_barrier(ptr nonnull @2, i32 %75)
-  br label %_ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit
+  br label %_ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit
 
 584:                                              ; preds = %548
   br i1 %556, label %585, label %616
@@ -3833,9 +3833,9 @@ _ZL37doStopComMotionAccelerationCorrectionILi2EEviN3gmx8ArrayRefIKtEENS1_INS0_11
 
 616:                                              ; preds = %._crit_edge.i99, %584
   call void @__kmpc_barrier(ptr nonnull @2, i32 %75)
-  br label %_ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit
+  br label %_ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit
 
-_ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit: ; preds = %583, %616
+_ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit: ; preds = %583, %616
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
@@ -3846,7 +3846,7 @@ _ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   br label %617
 
-617:                                              ; preds = %_ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit, %_ZL37doStopComMotionAccelerationCorrectionILi2EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit, %_ZL37doStopComMotionAccelerationCorrectionILi1EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.argprom.exit, %_ZL21doStopComMotionLinearILi3EEvRK9t_mdatomsN3gmx8ArrayRefINS3_11BasicVectorIfEEEERK5t_vcm.exit, %_ZL21doStopComMotionLinearILi2EEvRK9t_mdatomsN3gmx8ArrayRefINS3_11BasicVectorIfEEEERK5t_vcm.exit, %_ZL21doStopComMotionLinearILi1EEvRK9t_mdatomsN3gmx8ArrayRefINS3_11BasicVectorIfEEEERK5t_vcm.exit, %418, %79
+617:                                              ; preds = %_ZL37doStopComMotionAccelerationCorrectionILi3EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit, %_ZL37doStopComMotionAccelerationCorrectionILi2EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit, %_ZL37doStopComMotionAccelerationCorrectionILi1EEviN3gmx8ArrayRefIKtEENS1_INS0_11BasicVectorIfEEEES6_RK5t_vcm.exit, %_ZL21doStopComMotionLinearILi3EEvRK9t_mdatomsN3gmx8ArrayRefINS3_11BasicVectorIfEEEERK5t_vcm.exit, %_ZL21doStopComMotionLinearILi2EEvRK9t_mdatomsN3gmx8ArrayRefINS3_11BasicVectorIfEEEERK5t_vcm.exit, %_ZL21doStopComMotionLinearILi1EEvRK9t_mdatomsN3gmx8ArrayRefINS3_11BasicVectorIfEEEERK5t_vcm.exit, %418, %79
   %618 = load i32, ptr %73, align 4
   %619 = icmp eq i32 %618, 1
   br i1 %619, label %620, label %688

@@ -623,7 +623,7 @@ define hidden void @_ZN5clang6driver10toolchains9BareMetal13findMultilibsERKNS0_
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull %45, i64 noundef 1) #15
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 512
   store i8 0, ptr %46, align 8
-  call fastcc void @_ZL18computeBaseSysRootB5cxx11RKN5clang6driver6DriverERKN4llvm6TripleE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(1192) %1)
+  call fastcc void @_ZL18computeBaseSysRootB5cxx11RKN5clang6driver6DriverERKN4llvm6TripleE(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(1192) %1)
   %47 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #15
   %48 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #15
   %49 = getelementptr inbounds i8, ptr %47, i64 %48
@@ -1986,7 +1986,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18computeBaseSysRootB5cxx11RKN5clang6driver6DriverERKN4llvm6TripleE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1192) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL18computeBaseSysRootB5cxx11RKN5clang6driver6DriverERKN4llvm6TripleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1192) %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.llvm::SmallString", align 8
@@ -2362,7 +2362,7 @@ define hidden noundef nonnull ptr @_ZNK5clang6driver10toolchains9BareMetal18buil
 define hidden void @_ZNK5clang6driver10toolchains9BareMetal14computeSysRootB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2168) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_ZL18computeBaseSysRootB5cxx11RKN5clang6driver6DriverERKN4llvm6TripleE.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1192) %4)
+  tail call fastcc void @_ZL18computeBaseSysRootB5cxx11RKN5clang6driver6DriverERKN4llvm6TripleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1192) %4)
   ret void
 }
 

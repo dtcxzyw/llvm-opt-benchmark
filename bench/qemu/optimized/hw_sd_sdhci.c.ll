@@ -1187,7 +1187,7 @@ trace_sdhci_capareg.exit391.i.i:                  ; preds = %if.else.i.i384.i.i,
 
 if.end.i.i.i:                                     ; preds = %trace_sdhci_capareg.exit391.i.i
   %conv179.i.i = trunc nuw nsw i64 %and.i374.i.i to i8
-  switch i8 %conv179.i.i, label %sdhci_check_capab_freq_range.argprom.exit.i.i [
+  switch i8 %conv179.i.i, label %sdhci_check_capab_freq_range.exit.i.i [
     i8 0, label %if.end182.i.i
     i8 10, label %if.end182.i.i
     i8 11, label %if.end182.i.i
@@ -1245,7 +1245,7 @@ if.end.i.i.i:                                     ; preds = %trace_sdhci_capareg
     i8 63, label %if.end182.i.i
   ]
 
-sdhci_check_capab_freq_range.argprom.exit.i.i:    ; preds = %if.end.i.i.i
+sdhci_check_capab_freq_range.exit.i.i:            ; preds = %if.end.i.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.2, i32 noundef 69, ptr noundef nonnull @__func__.sdhci_check_capab_freq_range, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.122) #11
   br label %sdhci_init_readonly_registers.exit
 
@@ -1295,7 +1295,7 @@ trace_sdhci_capareg.exit413.i.i:                  ; preds = %if.else.i.i406.i.i,
 
 if.end.i415.i.i:                                  ; preds = %trace_sdhci_capareg.exit413.i.i
   %conv197.i.i = trunc i64 %shr.i395.i.i to i8
-  switch i8 %conv197.i.i, label %sdhci_check_capab_freq_range.argprom.exit418.i.i [
+  switch i8 %conv197.i.i, label %sdhci_check_capab_freq_range.exit418.i.i [
     i8 0, label %if.end200.i.i
     i8 10, label %if.end200.i.i
     i8 11, label %if.end200.i.i
@@ -1353,7 +1353,7 @@ if.end.i415.i.i:                                  ; preds = %trace_sdhci_capareg
     i8 63, label %if.end200.i.i
   ]
 
-sdhci_check_capab_freq_range.argprom.exit418.i.i: ; preds = %if.end.i415.i.i
+sdhci_check_capab_freq_range.exit418.i.i:         ; preds = %if.end.i415.i.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.2, i32 noundef 69, ptr noundef nonnull @__func__.sdhci_check_capab_freq_range, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.126) #11
   br label %sdhci_init_readonly_registers.exit
 
@@ -1660,7 +1660,7 @@ if.then297.i.i:                                   ; preds = %do.body.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.144, i64 noundef %and.i574.i.i) #11
   br label %sdhci_init_readonly_registers.exit
 
-sdhci_init_readonly_registers.exit:               ; preds = %sw.default.i, %if.then.i.i, %sdhci_check_capab_freq_range.argprom.exit.i.i, %sdhci_check_capab_freq_range.argprom.exit418.i.i, %if.then212.i.i, %trace_sdhci_capareg.exit572.i.i, %do.body.i.i, %if.then297.i.i
+sdhci_init_readonly_registers.exit:               ; preds = %sw.default.i, %if.then.i.i, %sdhci_check_capab_freq_range.exit.i.i, %sdhci_check_capab_freq_range.exit418.i.i, %if.then212.i.i, %trace_sdhci_capareg.exit572.i.i, %do.body.i.i, %if.then297.i.i
   call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #11
   %170 = load ptr, ptr %spec.select, align 8
   %tobool9.not = icmp eq ptr %170, null
@@ -3664,13 +3664,13 @@ if.then.i:                                        ; preds = %sw.bb11
   %11 = load i16, ptr @_TRACE_SDHCI_ERROR_DSTATE, align 2
   %tobool4.i.i.i = icmp ne i16 %11, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %sdhci_buff_access_is_sequential.argprom.exit
+  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %sdhci_buff_access_is_sequential.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %if.then.i
   %12 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %12, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %sdhci_buff_access_is_sequential.argprom.exit, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %sdhci_buff_access_is_sequential.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %13 = load i8, ptr @message_with_timestamp, align 1
@@ -3684,13 +3684,13 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i.i, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.62) #11
-  br label %sdhci_buff_access_is_sequential.argprom.exit
+  br label %sdhci_buff_access_is_sequential.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.62) #11
-  br label %sdhci_buff_access_is_sequential.argprom.exit
+  br label %sdhci_buff_access_is_sequential.exit
 
-sdhci_buff_access_is_sequential.argprom.exit:     ; preds = %if.then.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+sdhci_buff_access_is_sequential.exit:             ; preds = %if.then.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   br label %sw.epilog
 
@@ -3859,8 +3859,8 @@ if.then107:                                       ; preds = %do.body
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %size, i64 noundef %offset) #11
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sdhci_buff_access_is_sequential.argprom.exit, %if.then107, %do.body, %sdhci_slotint.exit, %sw.bb94, %sw.bb92, %sw.bb90, %sw.bb86, %sw.bb84, %sw.bb80, %sw.bb78, %sw.bb73, %sw.bb68, %sw.bb63, %sw.bb58, %sw.bb53, %sw.bb42, %sw.bb22, %sw.bb9, %sw.bb4, %sw.bb3, %sw.bb1, %sw.bb
-  %ret.0 = phi i32 [ 0, %if.then107 ], [ 0, %do.body ], [ %23, %sw.bb68 ], [ %22, %sw.bb63 ], [ %21, %sw.bb58 ], [ %or57, %sw.bb53 ], [ %18, %sw.bb42 ], [ %or.i62, %sw.bb22 ], [ 0, %sdhci_buff_access_is_sequential.argprom.exit ], [ %24, %sw.bb73 ], [ %conv79, %sw.bb78 ], [ %conv83, %sw.bb80 ], [ %conv85, %sw.bb84 ], [ %conv89, %sw.bb86 ], [ %conv91, %sw.bb90 ], [ %conv93, %sw.bb92 ], [ %conv97, %sw.bb94 ], [ %or103, %sdhci_slotint.exit ], [ %6, %sw.bb9 ], [ %5, %sw.bb4 ], [ %4, %sw.bb3 ], [ %3, %sw.bb1 ], [ %2, %sw.bb ]
+sw.epilog:                                        ; preds = %sdhci_buff_access_is_sequential.exit, %if.then107, %do.body, %sdhci_slotint.exit, %sw.bb94, %sw.bb92, %sw.bb90, %sw.bb86, %sw.bb84, %sw.bb80, %sw.bb78, %sw.bb73, %sw.bb68, %sw.bb63, %sw.bb58, %sw.bb53, %sw.bb42, %sw.bb22, %sw.bb9, %sw.bb4, %sw.bb3, %sw.bb1, %sw.bb
+  %ret.0 = phi i32 [ 0, %if.then107 ], [ 0, %do.body ], [ %23, %sw.bb68 ], [ %22, %sw.bb63 ], [ %21, %sw.bb58 ], [ %or57, %sw.bb53 ], [ %18, %sw.bb42 ], [ %or.i62, %sw.bb22 ], [ 0, %sdhci_buff_access_is_sequential.exit ], [ %24, %sw.bb73 ], [ %conv79, %sw.bb78 ], [ %conv83, %sw.bb80 ], [ %conv85, %sw.bb84 ], [ %conv89, %sw.bb86 ], [ %conv91, %sw.bb90 ], [ %conv93, %sw.bb92 ], [ %conv97, %sw.bb94 ], [ %or103, %sdhci_slotint.exit ], [ %6, %sw.bb9 ], [ %5, %sw.bb4 ], [ %4, %sw.bb3 ], [ %3, %sw.bb1 ], [ %2, %sw.bb ]
   %offset.tr = trunc i64 %offset to i32
   %45 = shl i32 %offset.tr, 3
   %sh_prom = and i32 %45, 24
@@ -4170,13 +4170,13 @@ if.then.i:                                        ; preds = %sw.bb116
   %37 = load i16, ptr @_TRACE_SDHCI_ERROR_DSTATE, align 2
   %tobool4.i.i.i = icmp ne i16 %37, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %sdhci_buff_access_is_sequential.argprom.exit
+  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %sdhci_buff_access_is_sequential.exit
 
 land.lhs.true5.i.i.i:                             ; preds = %if.then.i
   %38 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %38, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %sdhci_buff_access_is_sequential.argprom.exit, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %sdhci_buff_access_is_sequential.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %39 = load i8, ptr @message_with_timestamp, align 1
@@ -4190,13 +4190,13 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %41 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i.i, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.62) #11
-  br label %sdhci_buff_access_is_sequential.argprom.exit
+  br label %sdhci_buff_access_is_sequential.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.62) #11
-  br label %sdhci_buff_access_is_sequential.argprom.exit
+  br label %sdhci_buff_access_is_sequential.exit
 
-sdhci_buff_access_is_sequential.argprom.exit:     ; preds = %if.then.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+sdhci_buff_access_is_sequential.exit:             ; preds = %if.then.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   br label %sw.epilog
 
@@ -4967,8 +4967,8 @@ if.then417:                                       ; preds = %do.body409
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %size, i64 noundef %offset, i32 noundef %shr418) #11
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %for.inc.i, %lor.lhs.false, %land.lhs.true.i, %lor.lhs.false9.i, %trace_sdhci_error.exit.i201, %for.cond.preheader.i, %sdhci_buff_access_is_sequential.argprom.exit, %if.then417, %do.body409, %if.then405, %do.body397, %sw.bb368, %if.else392, %if.then391, %if.then200, %if.else205, %lor.lhs.false160, %if.then171, %sw.bb91, %sw.bb36, %if.then84, %if.end78, %sw.bb, %if.then32, %if.else, %land.lhs.true24, %land.lhs.true20, %land.lhs.true, %if.then9, %sdhci_update_irq.exit299, %sw.bb329, %sw.bb322, %sw.bb316, %sdhci_update_irq.exit275, %sdhci_update_irq.exit251, %sdhci_update_irq.exit, %if.end115, %sw.bb87
-  %value.0 = phi i32 [ %shl6, %if.then417 ], [ %shl6, %do.body409 ], [ %shl6, %if.then405 ], [ %shl6, %do.body397 ], [ %shl6, %if.then391 ], [ %shl6, %if.else392 ], [ %shl6, %sw.bb368 ], [ %shl6, %sdhci_update_irq.exit299 ], [ %shl6, %sw.bb329 ], [ %shl6, %sw.bb322 ], [ %shl6, %sw.bb316 ], [ %shl6, %sdhci_update_irq.exit275 ], [ %shl6, %sdhci_update_irq.exit251 ], [ %spec.select187, %sdhci_update_irq.exit ], [ %shl6, %if.then200 ], [ %shl6, %if.else205 ], [ %shl6, %if.then171 ], [ %shl6, %lor.lhs.false160 ], [ %shl6, %sdhci_buff_access_is_sequential.argprom.exit ], [ %spec.select, %sw.bb91 ], [ %spec.select, %if.end115 ], [ %shl6, %sw.bb87 ], [ %shl6, %sw.bb36 ], [ %shl6, %if.then84 ], [ %shl6, %if.end78 ], [ %shl6, %sw.bb ], [ %shl6, %if.then9 ], [ %shl6, %if.then32 ], [ %shl6, %if.else ], [ %shl6, %land.lhs.true24 ], [ %shl6, %land.lhs.true20 ], [ %shl6, %land.lhs.true ], [ %shl6, %for.cond.preheader.i ], [ %shl6, %trace_sdhci_error.exit.i201 ], [ %spec.select, %lor.lhs.false9.i ], [ %spec.select, %land.lhs.true.i ], [ %spec.select, %lor.lhs.false ], [ %shl6, %for.inc.i ]
+sw.epilog:                                        ; preds = %for.inc.i, %lor.lhs.false, %land.lhs.true.i, %lor.lhs.false9.i, %trace_sdhci_error.exit.i201, %for.cond.preheader.i, %sdhci_buff_access_is_sequential.exit, %if.then417, %do.body409, %if.then405, %do.body397, %sw.bb368, %if.else392, %if.then391, %if.then200, %if.else205, %lor.lhs.false160, %if.then171, %sw.bb91, %sw.bb36, %if.then84, %if.end78, %sw.bb, %if.then32, %if.else, %land.lhs.true24, %land.lhs.true20, %land.lhs.true, %if.then9, %sdhci_update_irq.exit299, %sw.bb329, %sw.bb322, %sw.bb316, %sdhci_update_irq.exit275, %sdhci_update_irq.exit251, %sdhci_update_irq.exit, %if.end115, %sw.bb87
+  %value.0 = phi i32 [ %shl6, %if.then417 ], [ %shl6, %do.body409 ], [ %shl6, %if.then405 ], [ %shl6, %do.body397 ], [ %shl6, %if.then391 ], [ %shl6, %if.else392 ], [ %shl6, %sw.bb368 ], [ %shl6, %sdhci_update_irq.exit299 ], [ %shl6, %sw.bb329 ], [ %shl6, %sw.bb322 ], [ %shl6, %sw.bb316 ], [ %shl6, %sdhci_update_irq.exit275 ], [ %shl6, %sdhci_update_irq.exit251 ], [ %spec.select187, %sdhci_update_irq.exit ], [ %shl6, %if.then200 ], [ %shl6, %if.else205 ], [ %shl6, %if.then171 ], [ %shl6, %lor.lhs.false160 ], [ %shl6, %sdhci_buff_access_is_sequential.exit ], [ %spec.select, %sw.bb91 ], [ %spec.select, %if.end115 ], [ %shl6, %sw.bb87 ], [ %shl6, %sw.bb36 ], [ %shl6, %if.then84 ], [ %shl6, %if.end78 ], [ %shl6, %sw.bb ], [ %shl6, %if.then9 ], [ %shl6, %if.then32 ], [ %shl6, %if.else ], [ %shl6, %land.lhs.true24 ], [ %shl6, %land.lhs.true20 ], [ %shl6, %land.lhs.true ], [ %shl6, %for.cond.preheader.i ], [ %shl6, %trace_sdhci_error.exit.i201 ], [ %spec.select, %lor.lhs.false9.i ], [ %spec.select, %land.lhs.true.i ], [ %spec.select, %lor.lhs.false ], [ %shl6, %for.inc.i ]
   %shr422 = lshr i32 %value.0, %conv
   %conv423 = zext i32 %shr422 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)

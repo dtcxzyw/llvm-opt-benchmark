@@ -906,9 +906,9 @@ define hidden void @_ZN2cv2ml10SVMSGDImpl13updateWeightsERKNS_11_InputArrayEbfRN
   store i32 33619968, ptr %6, align 8
   store ptr %4, ptr %34, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef -1, double noundef %33, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit unwind label %36
+          to label %_ZN2cvmLERNS_3MatERKd.exit unwind label %36
 
-_ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %30
+_ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %70
 
@@ -994,7 +994,7 @@ _ZN2cvmIERNS_3MatERKNS_7MatExprE.exit:            ; preds = %48
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %10) #18
   br label %71
 
-70:                                               ; preds = %_ZN2cvmLERNS_3MatERKd.argprom.exit, %_ZN2cvmIERNS_3MatERKNS_7MatExprE.exit
+70:                                               ; preds = %_ZN2cvmLERNS_3MatERKd.exit, %_ZN2cvmIERNS_3MatERKNS_7MatExprE.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #18
   ret void
 

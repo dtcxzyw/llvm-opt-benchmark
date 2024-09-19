@@ -848,20 +848,20 @@ define noundef i32 @_Z7gmx_awhiPPc(i32 noundef %0, ptr noundef %1) local_unnamed
 61:                                               ; preds = %2
   br i1 %60, label %64, label %429
 
-62:                                               ; preds = %64, %74, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %67, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.argprom.exit, %2
+62:                                               ; preds = %64, %74, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %67, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit, %2
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %443
 
 64:                                               ; preds = %61
   %65 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.10, i32 noundef 568, i64 noundef 1, i64 noundef 80)
-          to label %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.argprom.exit unwind label %62
+          to label %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit unwind label %62
 
-_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.argprom.exit: ; preds = %64
+_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit: ; preds = %64
   %66 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 8, i32 noundef 4, ptr noundef nonnull %30)
           to label %67 unwind label %62
 
-67:                                               ; preds = %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.argprom.exit
+67:                                               ; preds = %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit
   store ptr %66, ptr %32, align 8
   invoke void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(8) %32, i8 noundef zeroext 2)
           to label %68 unwind label %62
@@ -3588,8 +3588,8 @@ attributes #22 = { builtin allocsize(0) }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt11make_uniqueI9AwhReaderJRN3gmx9AwhParamsERKiRA4_8t_filenmRN12_GLOBAL__N_117AwhGraphSelectionERNS9_10EnergyUnitEdRP10t_enxblockEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZSt11make_uniqueI9AwhReaderJRN3gmx9AwhParamsERKiRA4_8t_filenmRN12_GLOBAL__N_117AwhGraphSelectionERNS9_10EnergyUnitEdRP10t_enxblockEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!11 = distinct !{!11, !12, !"_ZSt11make_uniqueI9AwhReaderJRN3gmx9AwhParamsERKiRA4_8t_filenmRN12_GLOBAL__N_117AwhGraphSelectionERNS9_10EnergyUnitEdRP10t_enxblockEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!12 = distinct !{!12, !"_ZSt11make_uniqueI9AwhReaderJRN3gmx9AwhParamsERKiRA4_8t_filenmRN12_GLOBAL__N_117AwhGraphSelectionERNS9_10EnergyUnitEdRP10t_enxblockEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}

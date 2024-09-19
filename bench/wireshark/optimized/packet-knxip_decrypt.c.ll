@@ -794,7 +794,7 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
   %154 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #13
   %155 = and i64 %154, 4294967295
   %156 = icmp eq i64 %155, 24
-  br i1 %156, label %157, label %add_mca_key.argprom.exit
+  br i1 %156, label %157, label %add_mca_key.exit
 
 157:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -816,7 +816,7 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
   %165 = getelementptr inbounds i8, ptr %161, i64 12
   %bcmp28.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %165, ptr noundef nonnull dereferenceable(16) %8, i64 16)
   %166 = icmp eq i32 %bcmp28.i, 0
-  br i1 %166, label %add_mca_key.argprom.exit, label %167
+  br i1 %166, label %add_mca_key.exit, label %167
 
 167:                                              ; preds = %164, %.lr.ph.i159
   %168 = load ptr, ptr %161, align 8
@@ -854,7 +854,7 @@ fprintf_hex.exit.i:                               ; preds = %175
   %183 = call ptr @wmem_epan_scope() #11
   %184 = call noalias ptr @wmem_alloc(ptr noundef %183, i64 noundef 32) #11
   %.not27.i = icmp eq ptr %184, null
-  br i1 %.not27.i, label %add_mca_key.argprom.exit, label %185
+  br i1 %.not27.i, label %add_mca_key.exit, label %185
 
 185:                                              ; preds = %182
   store ptr null, ptr %184, align 8
@@ -870,9 +870,9 @@ fprintf_hex.exit.i:                               ; preds = %175
   %192 = trunc i32 %191 to i8
   %193 = lshr i32 %65, 24
   %194 = trunc nuw i32 %193 to i8
-  br label %add_mca_key.argprom.exit
+  br label %add_mca_key.exit
 
-add_mca_key.argprom.exit:                         ; preds = %164, %153, %182, %185
+add_mca_key.exit:                                 ; preds = %164, %153, %182, %185
   %195 = phi i8 [ %66, %153 ], [ %66, %182 ], [ %194, %185 ], [ %66, %164 ]
   %196 = phi i8 [ %67, %153 ], [ %67, %182 ], [ %192, %185 ], [ %67, %164 ]
   %197 = phi i8 [ %68, %153 ], [ %68, %182 ], [ %190, %185 ], [ %68, %164 ]
@@ -936,7 +936,7 @@ read_ga.exit:                                     ; preds = %202, %204, %206, %2
   br i1 %.not147, label %.loopexit, label %224
 
 224:                                              ; preds = %223
-  call fastcc void @add_ga_key.argprom(i16 noundef zeroext %.1103, ptr noundef %12, ptr noundef %49)
+  call fastcc void @add_ga_key(i16 noundef zeroext %.1103, ptr noundef %12, ptr noundef %49)
   br label %.loopexit
 
 225:                                              ; preds = %221
@@ -1104,7 +1104,7 @@ read_ia.exit:                                     ; preds = %282, %284, %286, %2
   br i1 %.not136, label %.loopexit, label %303
 
 303:                                              ; preds = %302
-  call fastcc void @add_ia_key.argprom(i16 noundef zeroext %.197, ptr noundef %12, ptr noundef %49)
+  call fastcc void @add_ia_key(i16 noundef zeroext %.197, ptr noundef %12, ptr noundef %49)
   br label %.loopexit
 
 304:                                              ; preds = %301
@@ -1118,19 +1118,19 @@ read_ia.exit:                                     ; preds = %282, %284, %286, %2
   call fastcc void @add_ia_seq(i16 noundef zeroext %.197, ptr noundef %12, ptr noundef %49)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %add_ga_sender.exit, %227, %278, %.critedge, %._crit_edge242, %151, %add_mca_key.argprom.exit, %141, %303, %302, %307, %304, %read_ia.exit, %read_ga.exit, %225, %223, %224, %.critedge5, %101
-  %308 = phi i32 [ %65, %._crit_edge242 ], [ %storemerge.i, %141 ], [ %65, %add_mca_key.argprom.exit ], [ %65, %151 ], [ %65, %read_ga.exit ], [ %65, %224 ], [ %65, %223 ], [ %65, %225 ], [ %65, %read_ia.exit ], [ %65, %303 ], [ %65, %302 ], [ %65, %307 ], [ %65, %304 ], [ %65, %.critedge5 ], [ %65, %.critedge ], [ %65, %101 ], [ %65, %278 ], [ %65, %227 ], [ %65, %add_ga_sender.exit ]
-  %309 = phi i8 [ %66, %._crit_edge242 ], [ %150, %141 ], [ %195, %add_mca_key.argprom.exit ], [ %66, %151 ], [ %66, %read_ga.exit ], [ %66, %224 ], [ %66, %223 ], [ %66, %225 ], [ %66, %read_ia.exit ], [ %66, %303 ], [ %66, %302 ], [ %66, %307 ], [ %66, %304 ], [ %66, %.critedge5 ], [ %66, %.critedge ], [ %66, %101 ], [ %66, %278 ], [ %66, %227 ], [ %66, %add_ga_sender.exit ]
-  %310 = phi i8 [ %67, %._crit_edge242 ], [ %148, %141 ], [ %196, %add_mca_key.argprom.exit ], [ %67, %151 ], [ %67, %read_ga.exit ], [ %67, %224 ], [ %67, %223 ], [ %67, %225 ], [ %67, %read_ia.exit ], [ %67, %303 ], [ %67, %302 ], [ %67, %307 ], [ %67, %304 ], [ %67, %.critedge5 ], [ %67, %.critedge ], [ %67, %101 ], [ %67, %278 ], [ %67, %227 ], [ %67, %add_ga_sender.exit ]
-  %311 = phi i8 [ %68, %._crit_edge242 ], [ %146, %141 ], [ %197, %add_mca_key.argprom.exit ], [ %68, %151 ], [ %68, %read_ga.exit ], [ %68, %224 ], [ %68, %223 ], [ %68, %225 ], [ %68, %read_ia.exit ], [ %68, %303 ], [ %68, %302 ], [ %68, %307 ], [ %68, %304 ], [ %68, %.critedge5 ], [ %68, %.critedge ], [ %68, %101 ], [ %68, %278 ], [ %68, %227 ], [ %68, %add_ga_sender.exit ]
-  %312 = phi i8 [ %69, %._crit_edge242 ], [ %144, %141 ], [ %198, %add_mca_key.argprom.exit ], [ %69, %151 ], [ %69, %read_ga.exit ], [ %69, %224 ], [ %69, %223 ], [ %69, %225 ], [ %69, %read_ia.exit ], [ %69, %303 ], [ %69, %302 ], [ %69, %307 ], [ %69, %304 ], [ %69, %.critedge5 ], [ %69, %.critedge ], [ %69, %101 ], [ %69, %278 ], [ %69, %227 ], [ %69, %add_ga_sender.exit ]
-  %.2107 = phi i8 [ %.1106, %._crit_edge242 ], [ 1, %141 ], [ 1, %add_mca_key.argprom.exit ], [ %.1106, %151 ], [ 0, %read_ga.exit ], [ 0, %224 ], [ 0, %223 ], [ 0, %225 ], [ 0, %read_ia.exit ], [ 0, %303 ], [ 0, %302 ], [ 0, %307 ], [ 0, %304 ], [ %.1106, %.critedge5 ], [ %.1106, %.critedge ], [ %.1106, %101 ], [ 0, %278 ], [ 0, %227 ], [ 0, %add_ga_sender.exit ]
-  %.2104 = phi i16 [ %.1103, %._crit_edge242 ], [ %.1103, %141 ], [ %.1103, %add_mca_key.argprom.exit ], [ %.1103, %151 ], [ %220, %read_ga.exit ], [ %.1103, %224 ], [ %.1103, %223 ], [ %.1103, %225 ], [ %.1103, %read_ia.exit ], [ %.1103, %303 ], [ %.1103, %302 ], [ %.1103, %307 ], [ %.1103, %304 ], [ %.1103, %.critedge5 ], [ %.1103, %.critedge ], [ %.1103, %101 ], [ %.1103, %278 ], [ %.1103, %227 ], [ %.1103, %add_ga_sender.exit ]
-  %.2101 = phi i8 [ %.1100, %._crit_edge242 ], [ 0, %141 ], [ 0, %add_mca_key.argprom.exit ], [ 0, %151 ], [ 1, %read_ga.exit ], [ 1, %224 ], [ 0, %223 ], [ %.1100, %225 ], [ 0, %read_ia.exit ], [ 0, %303 ], [ 0, %302 ], [ 0, %307 ], [ 0, %304 ], [ %.1100, %.critedge5 ], [ %.1100, %.critedge ], [ %.1100, %101 ], [ 0, %278 ], [ 1, %227 ], [ 1, %add_ga_sender.exit ]
-  %.298 = phi i16 [ %.197, %._crit_edge242 ], [ %.197, %141 ], [ %.197, %add_mca_key.argprom.exit ], [ %.197, %151 ], [ %.197, %read_ga.exit ], [ %.197, %224 ], [ %.197, %223 ], [ %.197, %225 ], [ %300, %read_ia.exit ], [ %.197, %303 ], [ %.197, %302 ], [ %.197, %307 ], [ %.197, %304 ], [ %.197, %.critedge5 ], [ %.197, %.critedge ], [ %.197, %101 ], [ %.197, %278 ], [ %.197, %227 ], [ %.197, %add_ga_sender.exit ]
-  %.295 = phi i8 [ %.194, %._crit_edge242 ], [ 0, %141 ], [ 0, %add_mca_key.argprom.exit ], [ 0, %151 ], [ 0, %read_ga.exit ], [ 0, %224 ], [ 0, %223 ], [ 0, %225 ], [ 1, %read_ia.exit ], [ 1, %303 ], [ 0, %302 ], [ 1, %307 ], [ %.194, %304 ], [ %.194, %.critedge5 ], [ %.194, %.critedge ], [ %.194, %101 ], [ 0, %278 ], [ 0, %227 ], [ 0, %add_ga_sender.exit ]
-  %.392 = phi i8 [ %.190, %._crit_edge242 ], [ %.190, %141 ], [ %.190, %add_mca_key.argprom.exit ], [ %.190, %151 ], [ %.190, %read_ga.exit ], [ %.190, %224 ], [ %.190, %223 ], [ %.190, %225 ], [ %.190, %read_ia.exit ], [ %.190, %303 ], [ %.190, %302 ], [ %.190, %307 ], [ %.190, %304 ], [ %.190, %.critedge5 ], [ %.190, %.critedge ], [ 1, %101 ], [ %.190, %278 ], [ %.190, %227 ], [ %.190, %add_ga_sender.exit ]
-  %.283 = phi i32 [ %.4, %._crit_edge242 ], [ %.4, %141 ], [ %.4, %add_mca_key.argprom.exit ], [ %.4, %151 ], [ %.4, %read_ga.exit ], [ %.4, %224 ], [ %.4, %223 ], [ %.4, %225 ], [ %.4, %read_ia.exit ], [ %.4, %303 ], [ %.4, %302 ], [ %.4, %307 ], [ %.4, %304 ], [ %112, %.critedge5 ], [ %.384238, %.critedge ], [ %.lcssa, %101 ], [ %.4, %278 ], [ %.4, %227 ], [ %.4, %add_ga_sender.exit ]
+.loopexit:                                        ; preds = %add_ga_sender.exit, %227, %278, %.critedge, %._crit_edge242, %151, %add_mca_key.exit, %141, %303, %302, %307, %304, %read_ia.exit, %read_ga.exit, %225, %223, %224, %.critedge5, %101
+  %308 = phi i32 [ %65, %._crit_edge242 ], [ %storemerge.i, %141 ], [ %65, %add_mca_key.exit ], [ %65, %151 ], [ %65, %read_ga.exit ], [ %65, %224 ], [ %65, %223 ], [ %65, %225 ], [ %65, %read_ia.exit ], [ %65, %303 ], [ %65, %302 ], [ %65, %307 ], [ %65, %304 ], [ %65, %.critedge5 ], [ %65, %.critedge ], [ %65, %101 ], [ %65, %278 ], [ %65, %227 ], [ %65, %add_ga_sender.exit ]
+  %309 = phi i8 [ %66, %._crit_edge242 ], [ %150, %141 ], [ %195, %add_mca_key.exit ], [ %66, %151 ], [ %66, %read_ga.exit ], [ %66, %224 ], [ %66, %223 ], [ %66, %225 ], [ %66, %read_ia.exit ], [ %66, %303 ], [ %66, %302 ], [ %66, %307 ], [ %66, %304 ], [ %66, %.critedge5 ], [ %66, %.critedge ], [ %66, %101 ], [ %66, %278 ], [ %66, %227 ], [ %66, %add_ga_sender.exit ]
+  %310 = phi i8 [ %67, %._crit_edge242 ], [ %148, %141 ], [ %196, %add_mca_key.exit ], [ %67, %151 ], [ %67, %read_ga.exit ], [ %67, %224 ], [ %67, %223 ], [ %67, %225 ], [ %67, %read_ia.exit ], [ %67, %303 ], [ %67, %302 ], [ %67, %307 ], [ %67, %304 ], [ %67, %.critedge5 ], [ %67, %.critedge ], [ %67, %101 ], [ %67, %278 ], [ %67, %227 ], [ %67, %add_ga_sender.exit ]
+  %311 = phi i8 [ %68, %._crit_edge242 ], [ %146, %141 ], [ %197, %add_mca_key.exit ], [ %68, %151 ], [ %68, %read_ga.exit ], [ %68, %224 ], [ %68, %223 ], [ %68, %225 ], [ %68, %read_ia.exit ], [ %68, %303 ], [ %68, %302 ], [ %68, %307 ], [ %68, %304 ], [ %68, %.critedge5 ], [ %68, %.critedge ], [ %68, %101 ], [ %68, %278 ], [ %68, %227 ], [ %68, %add_ga_sender.exit ]
+  %312 = phi i8 [ %69, %._crit_edge242 ], [ %144, %141 ], [ %198, %add_mca_key.exit ], [ %69, %151 ], [ %69, %read_ga.exit ], [ %69, %224 ], [ %69, %223 ], [ %69, %225 ], [ %69, %read_ia.exit ], [ %69, %303 ], [ %69, %302 ], [ %69, %307 ], [ %69, %304 ], [ %69, %.critedge5 ], [ %69, %.critedge ], [ %69, %101 ], [ %69, %278 ], [ %69, %227 ], [ %69, %add_ga_sender.exit ]
+  %.2107 = phi i8 [ %.1106, %._crit_edge242 ], [ 1, %141 ], [ 1, %add_mca_key.exit ], [ %.1106, %151 ], [ 0, %read_ga.exit ], [ 0, %224 ], [ 0, %223 ], [ 0, %225 ], [ 0, %read_ia.exit ], [ 0, %303 ], [ 0, %302 ], [ 0, %307 ], [ 0, %304 ], [ %.1106, %.critedge5 ], [ %.1106, %.critedge ], [ %.1106, %101 ], [ 0, %278 ], [ 0, %227 ], [ 0, %add_ga_sender.exit ]
+  %.2104 = phi i16 [ %.1103, %._crit_edge242 ], [ %.1103, %141 ], [ %.1103, %add_mca_key.exit ], [ %.1103, %151 ], [ %220, %read_ga.exit ], [ %.1103, %224 ], [ %.1103, %223 ], [ %.1103, %225 ], [ %.1103, %read_ia.exit ], [ %.1103, %303 ], [ %.1103, %302 ], [ %.1103, %307 ], [ %.1103, %304 ], [ %.1103, %.critedge5 ], [ %.1103, %.critedge ], [ %.1103, %101 ], [ %.1103, %278 ], [ %.1103, %227 ], [ %.1103, %add_ga_sender.exit ]
+  %.2101 = phi i8 [ %.1100, %._crit_edge242 ], [ 0, %141 ], [ 0, %add_mca_key.exit ], [ 0, %151 ], [ 1, %read_ga.exit ], [ 1, %224 ], [ 0, %223 ], [ %.1100, %225 ], [ 0, %read_ia.exit ], [ 0, %303 ], [ 0, %302 ], [ 0, %307 ], [ 0, %304 ], [ %.1100, %.critedge5 ], [ %.1100, %.critedge ], [ %.1100, %101 ], [ 0, %278 ], [ 1, %227 ], [ 1, %add_ga_sender.exit ]
+  %.298 = phi i16 [ %.197, %._crit_edge242 ], [ %.197, %141 ], [ %.197, %add_mca_key.exit ], [ %.197, %151 ], [ %.197, %read_ga.exit ], [ %.197, %224 ], [ %.197, %223 ], [ %.197, %225 ], [ %300, %read_ia.exit ], [ %.197, %303 ], [ %.197, %302 ], [ %.197, %307 ], [ %.197, %304 ], [ %.197, %.critedge5 ], [ %.197, %.critedge ], [ %.197, %101 ], [ %.197, %278 ], [ %.197, %227 ], [ %.197, %add_ga_sender.exit ]
+  %.295 = phi i8 [ %.194, %._crit_edge242 ], [ 0, %141 ], [ 0, %add_mca_key.exit ], [ 0, %151 ], [ 0, %read_ga.exit ], [ 0, %224 ], [ 0, %223 ], [ 0, %225 ], [ 1, %read_ia.exit ], [ 1, %303 ], [ 0, %302 ], [ 1, %307 ], [ %.194, %304 ], [ %.194, %.critedge5 ], [ %.194, %.critedge ], [ %.194, %101 ], [ 0, %278 ], [ 0, %227 ], [ 0, %add_ga_sender.exit ]
+  %.392 = phi i8 [ %.190, %._crit_edge242 ], [ %.190, %141 ], [ %.190, %add_mca_key.exit ], [ %.190, %151 ], [ %.190, %read_ga.exit ], [ %.190, %224 ], [ %.190, %223 ], [ %.190, %225 ], [ %.190, %read_ia.exit ], [ %.190, %303 ], [ %.190, %302 ], [ %.190, %307 ], [ %.190, %304 ], [ %.190, %.critedge5 ], [ %.190, %.critedge ], [ 1, %101 ], [ %.190, %278 ], [ %.190, %227 ], [ %.190, %add_ga_sender.exit ]
+  %.283 = phi i32 [ %.4, %._crit_edge242 ], [ %.4, %141 ], [ %.4, %add_mca_key.exit ], [ %.4, %151 ], [ %.4, %read_ga.exit ], [ %.4, %224 ], [ %.4, %223 ], [ %.4, %225 ], [ %.4, %read_ia.exit ], [ %.4, %303 ], [ %.4, %302 ], [ %.4, %307 ], [ %.4, %304 ], [ %112, %.critedge5 ], [ %.384238, %.critedge ], [ %.lcssa, %101 ], [ %.4, %278 ], [ %.4, %227 ], [ %.4, %add_ga_sender.exit ]
   %313 = icmp sgt i32 %.283, -1
   br i1 %313, label %64, label %.thread, !llvm.loop !25
 
@@ -1192,7 +1192,7 @@ declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #3
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ga_key.argprom(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_ga_key(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [25 x i8], align 16
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
@@ -1279,7 +1279,7 @@ fprintf_hex.exit:                                 ; preds = %29
 declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ia_key.argprom(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_ia_key(i16 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [25 x i8], align 16
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13

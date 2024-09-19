@@ -519,7 +519,7 @@ Vec_StrStart.exit:                                ; preds = %3, %7
   %35 = getelementptr inbounds i32, ptr %.val61, i64 %indvars.iv114
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %22, align 4
-  call fastcc void @Tab_TabHashAdd.retelim(ptr noundef nonnull %14, ptr noundef %4, i32 noundef 1, i32 noundef 1)
+  call fastcc void @Tab_TabHashAdd(ptr noundef nonnull %14, ptr noundef %4, i32 noundef 1, i32 noundef 1)
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %.val = load i32, ptr %26, align 4
   %37 = trunc nuw i64 %indvars.iv.next115 to i32
@@ -859,7 +859,7 @@ Bmc_FxDivMux.exit109.i:                           ; preds = %155
 
 161:                                              ; preds = %134, %Bmc_FxDivMux.exit.i, %Bmc_FxDivMux.exit95.i, %Bmc_FxDivMux.exit102.i, %Bmc_FxDivMux.exit109.i, %105, %118, %125
   %.0.i67.ph = phi i32 [ 1, %125 ], [ 1, %118 ], [ 1, %105 ], [ 3, %Bmc_FxDivMux.exit109.i ], [ 3, %Bmc_FxDivMux.exit102.i ], [ 3, %Bmc_FxDivMux.exit95.i ], [ 3, %Bmc_FxDivMux.exit.i ], [ 2, %134 ]
-  call fastcc void @Tab_TabHashAdd.retelim(ptr noundef nonnull %14, ptr noundef %4, i32 noundef %.0.i67.ph, i32 noundef %.035.lcssa.i)
+  call fastcc void @Tab_TabHashAdd(ptr noundef nonnull %14, ptr noundef %4, i32 noundef %.0.i67.ph, i32 noundef %.035.lcssa.i)
   %.val63.pre = load i32, ptr %18, align 4
   br label %Div_FindDiv.exit.thread
 
@@ -1090,7 +1090,7 @@ Tab_TabFree.exit:                                 ; preds = %Vec_StrFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Tab_TabHashAdd.retelim(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 4) %2, i32 noundef range(i32 0, -1) %3) unnamed_addr #1 {
+define internal fastcc void @Tab_TabHashAdd(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 4) %2, i32 noundef range(i32 0, -1) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 8

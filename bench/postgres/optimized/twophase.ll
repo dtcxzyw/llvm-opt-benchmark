@@ -1108,7 +1108,7 @@ save_state_data.exit17:                           ; preds = %._crit_edge.i13, %7
   store i32 %102, ptr @records.4, align 8
   %103 = load i32, ptr %33, align 4
   %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %105, label %GXactLoadSubxactData.argprom.exit
+  br i1 %104, label %105, label %GXactLoadSubxactData.exit
 
 105:                                              ; preds = %save_state_data.exit17
   %106 = load ptr, ptr %3, align 8
@@ -1181,7 +1181,7 @@ save_state_data.exit22:                           ; preds = %._crit_edge.i18, %1
 
 144:                                              ; preds = %save_state_data.exit22
   %145 = icmp sgt i32 %136, 0
-  br i1 %145, label %146, label %GXactLoadSubxactData.argprom.exit
+  br i1 %145, label %146, label %GXactLoadSubxactData.exit
 
 146:                                              ; preds = %144, %.thread.i
   %.02.i = phi i32 [ 64, %.thread.i ], [ %136, %144 ]
@@ -1192,16 +1192,16 @@ save_state_data.exit22:                           ; preds = %._crit_edge.i18, %1
   %150 = trunc nuw nsw i32 %.02.i to i8
   %151 = getelementptr inbounds i8, ptr %141, i64 440
   store i8 %150, ptr %151, align 8
-  br label %GXactLoadSubxactData.argprom.exit
+  br label %GXactLoadSubxactData.exit
 
-GXactLoadSubxactData.argprom.exit:                ; preds = %146, %144, %save_state_data.exit17
+GXactLoadSubxactData.exit:                        ; preds = %146, %144, %save_state_data.exit17
   %152 = phi i32 [ %135, %146 ], [ %135, %144 ], [ %102, %save_state_data.exit17 ]
   %153 = phi i32 [ %133, %146 ], [ %133, %144 ], [ %101, %save_state_data.exit17 ]
   %154 = load i32, ptr %35, align 8
   %155 = icmp sgt i32 %154, 0
   br i1 %155, label %156, label %188
 
-156:                                              ; preds = %GXactLoadSubxactData.argprom.exit
+156:                                              ; preds = %GXactLoadSubxactData.exit
   %157 = load ptr, ptr %4, align 8
   %158 = mul i32 %154, 12
   %159 = add i32 %158, 7
@@ -1259,7 +1259,7 @@ save_state_data.exit27:                           ; preds = %._crit_edge.i23, %1
   call void @pfree(ptr noundef %187) #15
   br label %188
 
-188:                                              ; preds = %save_state_data.exit27, %GXactLoadSubxactData.argprom.exit
+188:                                              ; preds = %save_state_data.exit27, %GXactLoadSubxactData.exit
   %189 = load i32, ptr %37, align 4
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %191, label %224
@@ -3548,7 +3548,7 @@ define dso_local void @RecoverPreparedTransactions() local_unnamed_addr #0 {
 
 88:                                               ; preds = %25
   %89 = icmp sgt i32 %80, 0
-  br i1 %89, label %90, label %GXactLoadSubxactData.argprom.exit
+  br i1 %89, label %90, label %GXactLoadSubxactData.exit
 
 90:                                               ; preds = %88, %.thread.i
   %.02.i = phi i32 [ 64, %.thread.i ], [ %80, %88 ]
@@ -3562,9 +3562,9 @@ define dso_local void @RecoverPreparedTransactions() local_unnamed_addr #0 {
   %.pre = load ptr, ptr @ProcGlobal, align 8
   %.pre46 = load i32, ptr %81, align 8
   %.pre47 = sext i32 %.pre46 to i64
-  br label %GXactLoadSubxactData.argprom.exit
+  br label %GXactLoadSubxactData.exit
 
-GXactLoadSubxactData.argprom.exit:                ; preds = %88, %90
+GXactLoadSubxactData.exit:                        ; preds = %88, %90
   %.pre-phi = phi i64 [ %84, %88 ], [ %.pre47, %90 ]
   %96 = phi ptr [ %82, %88 ], [ %.pre, %90 ]
   %97 = getelementptr inbounds i8, ptr %11, i64 52
@@ -3580,9 +3580,9 @@ GXactLoadSubxactData.argprom.exit:                ; preds = %88, %90
   %104 = icmp eq i8 %103, 0
   br i1 %104, label %ProcessRecords.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %GXactLoadSubxactData.argprom.exit, %114
-  %105 = phi i8 [ %121, %114 ], [ %103, %GXactLoadSubxactData.argprom.exit ]
-  %.013.i = phi ptr [ %119, %114 ], [ %72, %GXactLoadSubxactData.argprom.exit ]
+.lr.ph.i:                                         ; preds = %GXactLoadSubxactData.exit, %114
+  %105 = phi i8 [ %121, %114 ], [ %103, %GXactLoadSubxactData.exit ]
+  %.013.i = phi ptr [ %119, %114 ], [ %72, %GXactLoadSubxactData.exit ]
   %106 = getelementptr i8, ptr %.013.i, i64 8
   %107 = zext i8 %105 to i64
   %108 = getelementptr ptr, ptr @twophase_recover_callbacks, i64 %107
@@ -3608,7 +3608,7 @@ GXactLoadSubxactData.argprom.exit:                ; preds = %88, %90
   %122 = icmp eq i8 %121, 0
   br i1 %122, label %ProcessRecords.exit, label %.lr.ph.i
 
-ProcessRecords.exit:                              ; preds = %114, %GXactLoadSubxactData.argprom.exit
+ProcessRecords.exit:                              ; preds = %114, %GXactLoadSubxactData.exit
   %123 = load i32, ptr @standbyState, align 4
   %124 = icmp ugt i32 %123, 1
   br i1 %124, label %125, label %127

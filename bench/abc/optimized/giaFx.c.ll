@@ -435,18 +435,18 @@ Vec_WrdAlloc.exit:                                ; preds = %4, %15
   %48 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv7.i
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %45, %49
-  br i1 %50, label %Vec_IntCheckUniqueSmall.argprom.exit, label %46
+  br i1 %50, label %Vec_IntCheckUniqueSmall.exit, label %46
 
-Vec_IntCheckUniqueSmall.argprom.exit:             ; preds = %47
+Vec_IntCheckUniqueSmall.exit:                     ; preds = %47
   call void @qsort(ptr noundef nonnull %40, i64 noundef %42, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare1) #17
   %51 = load i32, ptr %24, align 4
   %52 = icmp sgt i32 %51, 1
   br i1 %52, label %.lr.ph.i50, label %._crit_edge.i
 
-.lr.ph.i50:                                       ; preds = %Vec_IntCheckUniqueSmall.argprom.exit, %63
-  %53 = phi i32 [ %64, %63 ], [ %51, %Vec_IntCheckUniqueSmall.argprom.exit ]
-  %indvars.iv.i51 = phi i64 [ %indvars.iv.next.i53, %63 ], [ 1, %Vec_IntCheckUniqueSmall.argprom.exit ]
-  %.01824.i = phi i32 [ %.1.i, %63 ], [ 1, %Vec_IntCheckUniqueSmall.argprom.exit ]
+.lr.ph.i50:                                       ; preds = %Vec_IntCheckUniqueSmall.exit, %63
+  %53 = phi i32 [ %64, %63 ], [ %51, %Vec_IntCheckUniqueSmall.exit ]
+  %indvars.iv.i51 = phi i64 [ %indvars.iv.next.i53, %63 ], [ 1, %Vec_IntCheckUniqueSmall.exit ]
+  %.01824.i = phi i32 [ %.1.i, %63 ], [ 1, %Vec_IntCheckUniqueSmall.exit ]
   %54 = load ptr, ptr %25, align 8
   %55 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.i51
   %56 = load i32, ptr %55, align 4
@@ -471,8 +471,8 @@ Vec_IntCheckUniqueSmall.argprom.exit:             ; preds = %47
   %66 = icmp slt i64 %indvars.iv.next.i53, %65
   br i1 %66, label %.lr.ph.i50, label %._crit_edge.i, !llvm.loop !11
 
-._crit_edge.i:                                    ; preds = %63, %Vec_IntCheckUniqueSmall.argprom.exit
-  %.018.lcssa.i = phi i32 [ 1, %Vec_IntCheckUniqueSmall.argprom.exit ], [ %.1.i, %63 ]
+._crit_edge.i:                                    ; preds = %63, %Vec_IntCheckUniqueSmall.exit
+  %.018.lcssa.i = phi i32 [ 1, %Vec_IntCheckUniqueSmall.exit ], [ %.1.i, %63 ]
   store i32 %.018.lcssa.i, ptr %24, align 4
   %67 = load ptr, ptr %23, align 8
   %68 = getelementptr i8, ptr %67, i64 8

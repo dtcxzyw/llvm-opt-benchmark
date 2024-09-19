@@ -1862,18 +1862,18 @@ land.lhs.true:                                    ; preds = %do.end
 
 if.then4:                                         ; preds = %land.lhs.true
   %call6 = tail call i32 %1(ptr noundef nonnull %bs, ptr noundef %geo) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 lor.lhs.false.i.i:                                ; preds = %do.end, %land.lhs.true
   %2 = load ptr, ptr %drv1, align 8
   %tobool1.not.i.i = icmp eq ptr %2, null
-  br i1 %tobool1.not.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end.i.i
+  br i1 %tobool1.not.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %is_filter.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i8, ptr %is_filter.i.i, align 4
   %tobool3.i.i = trunc i8 %3 to i1
-  br i1 %tobool3.i.i, label %if.end5.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %tobool3.i.i, label %if.end5.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %backing.i.i = getelementptr inbounds i8, ptr %bs, i64 16832
@@ -1892,7 +1892,7 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i.i
   unreachable
 
 cond.end.i.i:                                     ; preds = %if.end5.i.i
-  br i1 %tobool13.not.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end15.i.i
+  br i1 %tobool13.not.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %cond.end.i.i, %land.lhs.true.i.i
   %cond12.i.i = phi ptr [ %5, %cond.end.i.i ], [ %4, %land.lhs.true.i.i ]
@@ -1909,13 +1909,13 @@ if.else18.i.i:                                    ; preds = %if.end15.i.i
 bdrv_filter_bs.exit:                              ; preds = %if.end15.i.i
   %7 = load ptr, ptr %cond12.i.i, align 8
   %tobool9.not = icmp eq ptr %7, null
-  br i1 %tobool9.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then10
+  br i1 %tobool9.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then10
 
 if.then10:                                        ; preds = %bdrv_filter_bs.exit
   %call11 = tail call i32 @bdrv_probe_geometry(ptr noundef nonnull %7, ptr noundef %geo)
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %cond.end.i.i, %if.end.i.i, %lor.lhs.false.i.i, %bdrv_filter_bs.exit, %if.then10, %if.then4
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %cond.end.i.i, %if.end.i.i, %lor.lhs.false.i.i, %bdrv_filter_bs.exit, %if.then10, %if.then4
   %retval.0 = phi i32 [ %call6, %if.then4 ], [ %call11, %if.then10 ], [ -95, %bdrv_filter_bs.exit ], [ -95, %lor.lhs.false.i.i ], [ -95, %if.end.i.i ], [ -95, %cond.end.i.i ]
   tail call void @bdrv_graph_rdunlock_main_loop() #31
   ret i32 %retval.0
@@ -4153,13 +4153,13 @@ if.else.i:                                        ; preds = %if.then7
 if.end8:                                          ; preds = %if.else.i, %if.then.i, %if.end4.thread, %if.end4
   %call58 = phi i32 [ %call56, %if.end4.thread ], [ %call5, %if.end4 ], [ %call5, %if.then.i ], [ 0, %if.else.i ]
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSList.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSList.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end8
   tail call void @g_slist_free(ptr noundef nonnull %call) #31
-  br label %glib_autoptr_cleanup_GSList.argprom.exit
+  br label %glib_autoptr_cleanup_GSList.exit
 
-glib_autoptr_cleanup_GSList.argprom.exit:         ; preds = %if.end8, %if.then.i.i
+glib_autoptr_cleanup_GSList.exit:                 ; preds = %if.end8, %if.then.i.i
   ret i32 %call58
 }
 
@@ -4284,13 +4284,13 @@ if.else5:                                         ; preds = %if.then1
 
 if.end6:                                          ; preds = %if.then1
   %call.i = tail call zeroext i1 @qemu_in_main_thread() #31
-  br i1 %call.i, label %bdrv_filter_default_perms.argprom.exit, label %if.else.i
+  br i1 %call.i, label %bdrv_filter_default_perms.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end6
   tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 2746, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_filter_default_perms) #33
   unreachable
 
-bdrv_filter_default_perms.argprom.exit:           ; preds = %if.end6
+bdrv_filter_default_perms.exit:                   ; preds = %if.end6
   %and.i = and i64 %perm, 15
   store i64 %and.i, ptr %nperm, align 8
   %and1.i = and i64 %shared, 15
@@ -4312,13 +4312,13 @@ if.else14:                                        ; preds = %if.then10
 
 do.body.i:                                        ; preds = %if.then10
   %call.i23 = tail call zeroext i1 @qemu_in_main_thread() #31
-  br i1 %call.i23, label %bdrv_default_perms_for_cow.argprom.exit, label %if.else2.i
+  br i1 %call.i23, label %bdrv_default_perms_for_cow.exit, label %if.else2.i
 
 if.else2.i:                                       ; preds = %do.body.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 2758, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_default_perms_for_cow) #33
   unreachable
 
-bdrv_default_perms_for_cow.argprom.exit:          ; preds = %do.body.i
+bdrv_default_perms_for_cow.exit:                  ; preds = %do.body.i
   %and5.i = and i64 %shared, 2
   %tobool6.not.i = icmp eq i64 %and5.i, 0
   %0 = load i32, ptr %bs, align 8
@@ -4371,20 +4371,20 @@ bdrv_reopen_get_flags.exit.i:                     ; preds = %for.inc.i.i, %if.th
   %retval.0.in.i.i = phi ptr [ %flags.i.i, %if.then4.i.i ], [ %bs, %if.end3.i ], [ %bs, %for.cond.preheader.i.i ], [ %bs, %for.inc.i.i ]
   %retval.0.i.i = load i32, ptr %retval.0.in.i.i, align 8
   %call.i.i = tail call zeroext i1 @qemu_in_main_thread() #31
-  br i1 %call.i.i, label %bdrv_filter_default_perms.argprom.exit.i, label %if.else.i.i
+  br i1 %call.i.i, label %bdrv_filter_default_perms.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %bdrv_reopen_get_flags.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 2746, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_filter_default_perms) #33
   unreachable
 
-bdrv_filter_default_perms.argprom.exit.i:         ; preds = %bdrv_reopen_get_flags.exit.i
+bdrv_filter_default_perms.exit.i:                 ; preds = %bdrv_reopen_get_flags.exit.i
   %and.i.i = and i64 %perm, 15
   %and1.i.i = and i64 %shared, 15
   %and5.i29 = and i32 %role, 2
   %tobool6.not.i30 = icmp eq i32 %and5.i29, 0
   br i1 %tobool6.not.i30, label %if.end17.i, label %if.then7.i
 
-if.then7.i:                                       ; preds = %bdrv_filter_default_perms.argprom.exit.i
+if.then7.i:                                       ; preds = %bdrv_filter_default_perms.exit.i
   br i1 %cmp.not.i.i, label %bdrv_is_writable_after_reopen.exit.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %if.then7.i
@@ -4423,12 +4423,12 @@ bdrv_is_writable_after_reopen.exit.i:             ; preds = %for.inc.i.i.i, %if.
   %and16.i = and i64 %shared, 5
   br label %if.end17.i
 
-if.end17.i:                                       ; preds = %bdrv_is_writable_after_reopen.exit.i, %bdrv_filter_default_perms.argprom.exit.i
-  %perm.addr.2.i = phi i64 [ %and.i.i, %bdrv_filter_default_perms.argprom.exit.i ], [ %perm.addr.1.i, %bdrv_is_writable_after_reopen.exit.i ]
-  %shared.addr.0.i = phi i64 [ %and1.i.i, %bdrv_filter_default_perms.argprom.exit.i ], [ %and16.i, %bdrv_is_writable_after_reopen.exit.i ]
+if.end17.i:                                       ; preds = %bdrv_is_writable_after_reopen.exit.i, %bdrv_filter_default_perms.exit.i
+  %perm.addr.2.i = phi i64 [ %and.i.i, %bdrv_filter_default_perms.exit.i ], [ %perm.addr.1.i, %bdrv_is_writable_after_reopen.exit.i ]
+  %shared.addr.0.i = phi i64 [ %and1.i.i, %bdrv_filter_default_perms.exit.i ], [ %and16.i, %bdrv_is_writable_after_reopen.exit.i ]
   %and18.i = and i32 %role, 1
   %tobool19.not.i = icmp eq i32 %and18.i, 0
-  br i1 %tobool19.not.i, label %bdrv_default_perms_for_storage.argprom.exit, label %if.then20.i
+  br i1 %tobool19.not.i, label %bdrv_default_perms_for_storage.exit, label %if.then20.i
 
 if.then20.i:                                      ; preds = %if.end17.i
   %and21.i = and i64 %shared.addr.0.i, 7
@@ -4438,9 +4438,9 @@ if.then20.i:                                      ; preds = %if.end17.i
   %and27.i = shl nuw nsw i64 %spec.select10.i, 2
   %5 = and i64 %and27.i, 8
   %spec.select12.i = or i64 %5, %spec.select10.i
-  br label %bdrv_default_perms_for_storage.argprom.exit
+  br label %bdrv_default_perms_for_storage.exit
 
-bdrv_default_perms_for_storage.argprom.exit:      ; preds = %if.end17.i, %if.then20.i
+bdrv_default_perms_for_storage.exit:              ; preds = %if.end17.i, %if.then20.i
   %perm.addr.4.i = phi i64 [ %perm.addr.2.i, %if.end17.i ], [ %spec.select12.i, %if.then20.i ]
   %shared.addr.1.i31 = phi i64 [ %shared.addr.0.i, %if.end17.i ], [ %and21.i, %if.then20.i ]
   %6 = load i32, ptr %bs, align 8
@@ -4455,8 +4455,8 @@ do.body21:                                        ; preds = %if.else16
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 2886, ptr noundef nonnull @__func__.bdrv_default_perms, ptr noundef null) #33
   unreachable
 
-if.end25:                                         ; preds = %bdrv_default_perms_for_cow.argprom.exit, %bdrv_default_perms_for_storage.argprom.exit, %bdrv_filter_default_perms.argprom.exit
-  %shared.addr.1.i.sink = phi i64 [ %shared.addr.1.i, %bdrv_default_perms_for_cow.argprom.exit ], [ %spec.select11.i, %bdrv_default_perms_for_storage.argprom.exit ], [ %and1.i, %bdrv_filter_default_perms.argprom.exit ]
+if.end25:                                         ; preds = %bdrv_default_perms_for_cow.exit, %bdrv_default_perms_for_storage.exit, %bdrv_filter_default_perms.exit
+  %shared.addr.1.i.sink = phi i64 [ %shared.addr.1.i, %bdrv_default_perms_for_cow.exit ], [ %spec.select11.i, %bdrv_default_perms_for_storage.exit ], [ %and1.i, %bdrv_filter_default_perms.exit ]
   store i64 %shared.addr.1.i.sink, ptr %nshared, align 8
   ret void
 }
@@ -5079,13 +5079,13 @@ do.end:                                           ; preds = %do.body
   %le_prev = getelementptr inbounds i8, ptr %child, i64 72
   %1 = load ptr, ptr %le_prev, align 8
   %tobool5.not = icmp eq ptr %1, null
-  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.else7
+  br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.else7
 
 if.else7:                                         ; preds = %do.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.2, i32 noundef 2988, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_child_free) #33
   unreachable
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %do.end
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %do.end
   %name = getelementptr inbounds i8, ptr %child, i64 8
   %2 = load ptr, ptr %name, align 8
   tail call void @g_free(ptr noundef %2) #31
@@ -5584,7 +5584,7 @@ do.end:                                           ; preds = %entry
 
 free_exit.thread:                                 ; preds = %do.end
   tail call void @g_free(ptr noundef null) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end3:                                          ; preds = %do.end
   %cmp4 = icmp eq ptr %parent_options, null
@@ -5745,25 +5745,25 @@ land.lhs.true.i56:                                ; preds = %if.end76
   %is_filter.i = getelementptr inbounds i8, ptr %bs.val, i64 12
   %18 = load i8, ptr %is_filter.i, align 4
   %tobool2.i = trunc i8 %18 to i1
-  br i1 %tobool2.i, label %bdrv_backing_role.argprom.exit, label %if.else.i57
+  br i1 %tobool2.i, label %bdrv_backing_role.exit, label %if.else.i57
 
 if.else.i57:                                      ; preds = %land.lhs.true.i56, %if.end76
-  br label %bdrv_backing_role.argprom.exit
+  br label %bdrv_backing_role.exit
 
-bdrv_backing_role.argprom.exit:                   ; preds = %land.lhs.true.i56, %if.else.i57
+bdrv_backing_role.exit:                           ; preds = %land.lhs.true.i56, %if.else.i57
   %retval.0.i = phi i32 [ 8, %if.else.i57 ], [ 20, %land.lhs.true.i56 ]
   %call78 = call ptr @bdrv_open_inherit(ptr noundef %backing_filename.1, ptr noundef %call9, ptr noundef %17, i32 noundef 0, ptr noundef nonnull %bs, ptr noundef nonnull @child_of_bds, i32 noundef %retval.0.i, ptr noundef %errp)
   %tobool79.not = icmp eq ptr %call78, null
   br i1 %tobool79.not, label %if.then80, label %if.end82
 
-if.then80:                                        ; preds = %bdrv_backing_role.argprom.exit
+if.then80:                                        ; preds = %bdrv_backing_role.exit
   %19 = load i32, ptr %bs, align 8
   %or = or i32 %19, 256
   store i32 %or, ptr %bs, align 8
   call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.79) #31
   br label %free_exit
 
-if.end82:                                         ; preds = %bdrv_backing_role.argprom.exit
+if.end82:                                         ; preds = %bdrv_backing_role.exit
   br i1 %implicit_backing.0, label %if.then84, label %bdrv_get_aio_context.exit
 
 if.then84:                                        ; preds = %if.end82
@@ -5792,7 +5792,7 @@ free_exit:                                        ; preds = %if.then5.i53, %land
   %backing_filename.0 = phi ptr [ %backing_filename.1, %bdrv_get_aio_context.exit ], [ %backing_filename.1, %if.end94 ], [ %backing_filename.1, %if.then80 ], [ null, %if.then19 ], [ %call32, %if.then34 ], [ %call32, %land.lhs.true.i ], [ %call32, %if.then5.i ], [ %backing_filename.1, %if.then52 ], [ %backing_filename.1, %land.lhs.true.i50 ], [ %backing_filename.1, %if.then5.i53 ]
   call void @g_free(ptr noundef %backing_filename.0) #31
   %tobool96.not = icmp eq ptr %tmp_parent_options.1, null
-  br i1 %tobool96.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %lor.lhs.false.i60
+  br i1 %tobool96.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %lor.lhs.false.i60
 
 lor.lhs.false.i60:                                ; preds = %free_exit
   %refcnt.i61 = getelementptr inbounds i8, ptr %tmp_parent_options.1, i64 8
@@ -5808,13 +5808,13 @@ land.lhs.true.i63:                                ; preds = %lor.lhs.false.i60
   %dec.i64 = add i64 %21, -1
   store i64 %dec.i64, ptr %refcnt.i61, align 8
   %cmp.i65 = icmp eq i64 %dec.i64, 0
-  br i1 %cmp.i65, label %if.then5.i66, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %cmp.i65, label %if.then5.i66, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.then5.i66:                                     ; preds = %land.lhs.true.i63
   call void @qobject_destroy(ptr noundef nonnull %tmp_parent_options.1) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %free_exit.thread, %free_exit, %land.lhs.true.i63, %if.then5.i66
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %free_exit.thread, %free_exit, %land.lhs.true.i63, %if.then5.i66
   %ret.073 = phi i32 [ 0, %free_exit.thread ], [ %ret.0, %free_exit ], [ %ret.0, %land.lhs.true.i63 ], [ %ret.0, %if.then5.i66 ]
   call void @bdrv_graph_rdunlock_main_loop() #31
   ret i32 %ret.073
@@ -5915,12 +5915,12 @@ qobject_unref_impl.exit:                          ; preds = %if.then19, %land.lh
 
 if.then32:                                        ; preds = %qobject_unref_impl.exit
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 3993, ptr noundef nonnull @__func__.bdrv_open_inherit, ptr noundef nonnull @.str.222) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end33:                                         ; preds = %qobject_unref_impl.exit
   %call34 = tail call ptr @bdrv_lookup_bs(ptr noundef nonnull %reference, ptr noundef nonnull %reference, ptr noundef %errp)
   %tobool35.not = icmp eq ptr %call34, null
-  br i1 %tobool35.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end37
+  br i1 %tobool35.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end37
 
 if.end37:                                         ; preds = %if.end33
   %call.i = tail call zeroext i1 @qemu_in_main_thread() #31
@@ -5935,7 +5935,7 @@ bdrv_ref.exit:                                    ; preds = %if.end37
   %3 = load i32, ptr %refcnt.i108, align 8
   %inc.i = add i32 %3, 1
   store i32 %inc.i, ptr %refcnt.i108, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end38:                                         ; preds = %if.end16
   %call39 = tail call ptr @bdrv_new()
@@ -5999,17 +5999,17 @@ land.lhs.true.i.i.i:                              ; preds = %if.end4.i.i
   %obj.val.i.i.i = load i32, ptr %call5.i.i, align 8
   %5 = add i32 %obj.val.i.i.i, -1
   %or.cond.i.i.i.i = icmp ult i32 %5, 6
-  br i1 %or.cond.i.i.i.i, label %qobject_type.argprom.exit.i.i.i, label %if.else.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %qobject_type.exit.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.161, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #33
   unreachable
 
-qobject_type.argprom.exit.i.i.i:                  ; preds = %land.lhs.true.i.i.i
+qobject_type.exit.i.i.i:                          ; preds = %land.lhs.true.i.i.i
   %cmp.i.i.i = icmp eq i32 %obj.val.i.i.i, 4
   br i1 %cmp.i.i.i, label %if.end14.i.i, label %lor.lhs.false.i.i.i
 
-lor.lhs.false.i.i.i:                              ; preds = %qobject_type.argprom.exit.i.i.i
+lor.lhs.false.i.i.i:                              ; preds = %qobject_type.exit.i.i.i
   %refcnt.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 8
   %6 = load i64, ptr %refcnt.i.i.i, align 8
   %tobool1.not.i.i.i = icmp eq i64 %6, 0
@@ -6033,7 +6033,7 @@ qobject_unref_impl.exit.i.i:                      ; preds = %if.then5.i.i.i, %la
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str.2, i32 noundef 2009, ptr noundef nonnull @__func__.parse_json_filename, ptr noundef nonnull @.str.232) #31
   br label %parse_json_filename.exit.i
 
-if.end14.i.i:                                     ; preds = %qobject_type.argprom.exit.i.i.i
+if.end14.i.i:                                     ; preds = %qobject_type.exit.i.i.i
   call void @qdict_flatten(ptr noundef nonnull %call5.i.i) #31
   br label %parse_json_filename.exit.i
 
@@ -6399,17 +6399,17 @@ land.lhs.true.i132:                               ; preds = %if.end94
   %obj.val.i = load i32, ptr %call96, align 8
   %33 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %33, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i133
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i133
 
 if.else.i.i133:                                   ; preds = %land.lhs.true.i132
   call void @__assert_fail(ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.161, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #33
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i132
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i132
   %cmp.i134 = icmp eq i32 %obj.val.i, 1
   br i1 %cmp.i134, label %if.then104, label %lor.lhs.false99
 
-lor.lhs.false99:                                  ; preds = %if.end94, %qobject_type.argprom.exit.i
+lor.lhs.false99:                                  ; preds = %if.end94, %qobject_type.exit.i
   %tobool100.not = icmp eq ptr %call95, null
   br i1 %tobool100.not, label %if.end111, label %land.lhs.true101
 
@@ -6418,7 +6418,7 @@ land.lhs.true101:                                 ; preds = %lor.lhs.false99
   %cmp102 = icmp eq i8 %34, 0
   br i1 %cmp102, label %if.then106, label %if.end111
 
-if.then104:                                       ; preds = %qobject_type.argprom.exit.i
+if.then104:                                       ; preds = %qobject_type.exit.i
   %tobool105.not = icmp eq ptr %call95, null
   br i1 %tobool105.not, label %if.end107, label %if.then106
 
@@ -6901,13 +6901,13 @@ if.end107.i:                                      ; preds = %if.else104.i, %if.t
   call void @pstrcpy(ptr noundef nonnull %exact_filename.i, i32 noundef 4096, ptr noundef nonnull %filename105.i) #31
   %75 = load i32, ptr %call39, align 8
   %call.i75.i = call zeroext i1 @qemu_in_main_thread() #31
-  br i1 %call.i75.i, label %bdrv_open_flags.argprom.exit.i, label %if.else.i76.i
+  br i1 %call.i75.i, label %bdrv_open_flags.exit.i, label %if.else.i76.i
 
 if.else.i76.i:                                    ; preds = %if.end107.i
   call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 1522, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_open_flags) #33
   unreachable
 
-bdrv_open_flags.argprom.exit.i:                   ; preds = %if.end107.i
+bdrv_open_flags.exit.i:                           ; preds = %if.end107.i
   %call113.i = call ptr @qemu_opt_get(ptr noundef %call11.i, ptr noundef nonnull @.str.44) #31
   %bdrv_file_open.i184 = getelementptr inbounds i8, ptr %drv1.06.i.i.i173, i64 152
   %76 = load ptr, ptr %bdrv_file_open.i184, align 8
@@ -6915,7 +6915,7 @@ bdrv_open_flags.argprom.exit.i:                   ; preds = %if.end107.i
   %or.cond.i185 = or i1 %cmp29.not.i, %tobool114.i
   br i1 %or.cond.i185, label %bdrv_open_common.exit, label %if.else118.i
 
-if.else118.i:                                     ; preds = %bdrv_open_flags.argprom.exit.i
+if.else118.i:                                     ; preds = %bdrv_open_flags.exit.i
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.2, i32 noundef 1976, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_open_common) #33
   unreachable
 
@@ -6924,7 +6924,7 @@ bdrv_open_common.exit.thread:                     ; preds = %if.then27.i, %if.el
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i155)
   br label %fail
 
-bdrv_open_common.exit:                            ; preds = %bdrv_open_flags.argprom.exit.i
+bdrv_open_common.exit:                            ; preds = %bdrv_open_flags.exit.i
   %and.i78.i = and i32 %75, -33033
   %call120.i = call i32 @bdrv_open_driver(ptr noundef nonnull %call39, ptr noundef nonnull %drv1.06.i.i.i173, ptr noundef %call113.i, ptr noundef nonnull %call79, i32 noundef %and.i78.i, ptr noundef nonnull %local_err)
   call void @qemu_opts_del(ptr noundef %call11.i) #31
@@ -7004,10 +7004,10 @@ if.else212:                                       ; preds = %if.then205
   br label %close_and_fail
 
 if.end216:                                        ; preds = %for.end
-  call fastcc void @bdrv_parent_cb_change_media.argelim(ptr noundef nonnull %call39)
+  call fastcc void @bdrv_parent_cb_change_media(ptr noundef nonnull %call39)
   call fastcc void @qobject_unref_impl(ptr noundef %call79)
   %tobool227.not = icmp eq i32 %snapshot_flags.0, 0
-  br i1 %tobool227.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then228
+  br i1 %tobool227.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then228
 
 if.then228:                                       ; preds = %if.end216
   %call229 = call fastcc ptr @bdrv_append_temp_snapshot(ptr noundef nonnull %call39, i32 noundef %snapshot_flags.0, ptr noundef %snapshot_options.1, ptr noundef %local_err)
@@ -7019,7 +7019,7 @@ if.end232:                                        ; preds = %if.then228
   call void @aio_context_acquire(ptr noundef %77) #31
   call void @bdrv_unref(ptr noundef nonnull %call39)
   call void @aio_context_release(ptr noundef %77) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 fail:                                             ; preds = %bdrv_open_common.exit.thread, %find_image_format.exit, %bdrv_fill_options.exit.thread, %bdrv_open_common.exit, %bdrv_get_aio_context.exit, %if.then115, %parse_json_protocol.exit, %if.then149, %if.then85
   %options.addr.1 = phi ptr [ %call79, %find_image_format.exit ], [ %call79, %bdrv_open_common.exit ], [ %call79, %if.then149 ], [ %call79, %bdrv_get_aio_context.exit ], [ %call79, %if.then115 ], [ %call79, %if.then85 ], [ %options.addr.0, %parse_json_protocol.exit ], [ %options.addr.0, %bdrv_fill_options.exit.thread ], [ %call79, %bdrv_open_common.exit.thread ]
@@ -7133,7 +7133,7 @@ qobject_unref_impl.exit239:                       ; preds = %qobject_unref_impl.
   call void @aio_context_release(ptr noundef %ctx.0) #31
   %96 = load ptr, ptr %local_err, align 8
   call void @error_propagate(ptr noundef %errp, ptr noundef %96) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 close_and_fail:                                   ; preds = %if.then228, %if.then210, %if.else212, %if.then187
   %options.addr.2 = phi ptr [ %call79, %if.then187 ], [ null, %if.then228 ], [ %call79, %if.else212 ], [ %call79, %if.then210 ]
@@ -7145,9 +7145,9 @@ close_and_fail:                                   ; preds = %if.then228, %if.the
   call fastcc void @qobject_unref_impl(ptr noundef %options.addr.2)
   %97 = load ptr, ptr %local_err, align 8
   call void @error_propagate(ptr noundef %errp, ptr noundef %97) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end216, %if.end232, %if.end33, %close_and_fail, %qobject_unref_impl.exit239, %bdrv_ref.exit, %if.then32
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end216, %if.end232, %if.end33, %close_and_fail, %qobject_unref_impl.exit239, %bdrv_ref.exit, %if.then32
   %retval.0 = phi ptr [ null, %if.then32 ], [ %call34, %bdrv_ref.exit ], [ null, %qobject_unref_impl.exit239 ], [ null, %close_and_fail ], [ null, %if.end33 ], [ %call229, %if.end232 ], [ %call39, %if.end216 ]
   call void @bdrv_graph_rdunlock_main_loop() #31
   ret ptr %retval.0
@@ -7565,7 +7565,7 @@ qobject_unref_impl.exit95:                        ; preds = %if.end101, %land.lh
   store ptr %call43, ptr %full_open_options102, align 8
   %bs.val = load ptr, ptr %children, align 8
   %tobool.not7.i.i = icmp eq ptr %bs.val, null
-  br i1 %tobool.not7.i.i, label %bdrv_primary_bs.argprom.exit, label %for.body.i.i
+  br i1 %tobool.not7.i.i, label %bdrv_primary_bs.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %qobject_unref_impl.exit95, %for.inc.i.i
   %c.09.i.i = phi ptr [ %c.0.i.i, %for.inc.i.i ], [ %bs.val, %qobject_unref_impl.exit95 ]
@@ -7593,27 +7593,27 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 
 bdrv_primary_child.exit.i:                        ; preds = %for.inc.i.i
   %tobool.not.i1.i = icmp eq ptr %found.1.i.i, null
-  br i1 %tobool.not.i1.i, label %bdrv_primary_bs.argprom.exit, label %cond.true.i.i
+  br i1 %tobool.not.i1.i, label %bdrv_primary_bs.exit, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %bdrv_primary_child.exit.i
   %47 = load ptr, ptr %found.1.i.i, align 8
-  br label %bdrv_primary_bs.argprom.exit
+  br label %bdrv_primary_bs.exit
 
-bdrv_primary_bs.argprom.exit:                     ; preds = %qobject_unref_impl.exit95, %bdrv_primary_child.exit.i, %cond.true.i.i
+bdrv_primary_bs.exit:                             ; preds = %qobject_unref_impl.exit95, %bdrv_primary_child.exit.i, %cond.true.i.i
   %cond.i.i = phi ptr [ %47, %cond.true.i.i ], [ null, %bdrv_primary_child.exit.i ], [ null, %qobject_unref_impl.exit95 ]
   %bdrv_refresh_filename = getelementptr inbounds i8, ptr %0, i64 200
   %48 = load ptr, ptr %bdrv_refresh_filename, align 8
   %tobool115.not = icmp eq ptr %48, null
   br i1 %tobool115.not, label %if.else119, label %if.then116
 
-if.then116:                                       ; preds = %bdrv_primary_bs.argprom.exit
+if.then116:                                       ; preds = %bdrv_primary_bs.exit
   %exact_filename117 = getelementptr inbounds i8, ptr %bs, i64 12368
   store i8 0, ptr %exact_filename117, align 8
   %49 = load ptr, ptr %bdrv_refresh_filename, align 8
   tail call void %49(ptr noundef nonnull %bs) #31
   br label %if.end143
 
-if.else119:                                       ; preds = %bdrv_primary_bs.argprom.exit
+if.else119:                                       ; preds = %bdrv_primary_bs.exit
   %tobool120.not = icmp eq ptr %cond.i.i, null
   br i1 %tobool120.not, label %if.end143, label %if.then121
 
@@ -7854,21 +7854,21 @@ land.lhs.true.i:                                  ; preds = %if.end8
   %obj.val.i = load i32, ptr %2, align 8
   %3 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %3, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   call void @__assert_fail(ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.161, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #33
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
+qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
   br i1 %cmp.i, label %qobject_check_type.exit, label %if.else.i
 
-if.else.i:                                        ; preds = %qobject_type.argprom.exit.i, %if.end8
+if.else.i:                                        ; preds = %qobject_type.exit.i, %if.end8
   br label %qobject_check_type.exit
 
-qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit.i, %if.else.i
-  %retval.0.i = phi ptr [ null, %if.else.i ], [ %2, %qobject_type.argprom.exit.i ]
+qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
+  %retval.0.i = phi ptr [ null, %if.else.i ], [ %2, %qobject_type.exit.i ]
   call void @qdict_flatten(ptr noundef %retval.0.i) #31
   call void @qdict_set_default_str(ptr noundef %retval.0.i, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.34) #31
   call void @qdict_set_default_str(ptr noundef %retval.0.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.34) #31
@@ -7917,13 +7917,13 @@ do.end:                                           ; preds = %entry
 define dso_local noundef ptr @bdrv_reopen_queue(ptr noundef %bs_queue, ptr noundef %bs, ptr noundef %options, i1 noundef zeroext %keep_old_opts) local_unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
-  br i1 %call, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.else
+  br i1 %call, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.else
 
 if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 4530, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_reopen_queue) #33
   unreachable
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %entry
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #31
   %call2 = tail call fastcc ptr @bdrv_reopen_queue_child(ptr noundef %bs_queue, ptr noundef %bs, ptr noundef %options, ptr noundef null, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, i1 noundef zeroext %keep_old_opts)
   tail call void @bdrv_graph_rdunlock_main_loop() #31
@@ -8934,17 +8934,17 @@ do.body100.i:                                     ; preds = %do.cond.i, %if.then
   %.val.i = load i32, ptr %63, align 8
   %67 = add i32 %.val.i, -1
   %or.cond.i.i = icmp ult i32 %67, 6
-  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.body100.i
   call void @__assert_fail(ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.161, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #33
   unreachable
 
-qobject_type.argprom.exit.i:                      ; preds = %do.body100.i
+qobject_type.exit.i:                              ; preds = %do.body100.i
   %cmp105.i = icmp eq i32 %.val.i, 3
   br i1 %cmp105.i, label %if.then107.i, label %if.end127.i
 
-if.then107.i:                                     ; preds = %qobject_type.argprom.exit.i
+if.then107.i:                                     ; preds = %qobject_type.exit.i
   %68 = load ptr, ptr %state22, align 8
   %children.i = getelementptr inbounds i8, ptr %68, i64 16824
   %child.0127.i = load ptr, ptr %children.i, align 8
@@ -8977,26 +8977,26 @@ qobject_check_type.exit:                          ; preds = %for.body.i
   %tobool123.not.i = icmp eq i32 %call122.i, 0
   br i1 %tobool123.not.i, label %do.cond.i, label %if.end127.i
 
-if.end127.i:                                      ; preds = %for.inc.i, %qobject_check_type.exit, %if.then107.i, %qobject_type.argprom.exit.i
+if.end127.i:                                      ; preds = %for.inc.i, %qobject_check_type.exit, %if.then107.i, %qobject_type.exit.i
   %call128.i = call zeroext i1 @qobject_is_equal(ptr noundef nonnull %63, ptr noundef %call103.i) #31
-  br i1 %call128.i, label %do.cond.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.i
+  br i1 %call128.i, label %do.cond.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.i
 
 do.cond.i:                                        ; preds = %if.end127.i, %qobject_check_type.exit
   %72 = load ptr, ptr %options.i, align 8
   %call133.i = call ptr @qdict_next(ptr noundef %72, ptr noundef nonnull %entry96.0.i) #31
   %tobool134.not.i = icmp eq ptr %call133.i, null
-  br i1 %tobool134.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread.i, label %do.body100.i, !llvm.loop !39
+  br i1 %tobool134.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread.i, label %do.body100.i, !llvm.loop !39
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread.i: ; preds = %do.cond.i
+glib_autoptr_cleanup_GraphLockableMainloop.exit.thread.i: ; preds = %do.cond.i
   call void @bdrv_graph_rdunlock_main_loop() #31
   br label %if.end136.i
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.i: ; preds = %if.end127.i
+glib_autoptr_cleanup_GraphLockableMainloop.exit.i: ; preds = %if.end127.i
   %73 = load ptr, ptr %entry96.0.i, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 5095, ptr noundef nonnull @__func__.bdrv_reopen_prepare, ptr noundef nonnull @.str.263, ptr noundef %73) #31
   br label %if.then157.sink.split.i
 
-if.end136.i:                                      ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.thread.i, %if.end90.i
+if.end136.i:                                      ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread.i, %if.end90.i
   %74 = load ptr, ptr %options.i, align 8
   call fastcc void @qobject_unref_impl(ptr noundef %74)
   %tobool141.not.i = icmp eq ptr %call11.i, null
@@ -9013,7 +9013,7 @@ qobject_ref_impl.exit.i:                          ; preds = %if.then.i98.i, %if.
   store ptr %call11.i, ptr %options.i, align 8
   br label %if.end162.i
 
-if.then157.sink.split.i:                          ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.i, %if.then76.i
+if.then157.sink.split.i:                          ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit.i, %if.then76.i
   call void @bdrv_graph_rdunlock_main_loop() #31
   br label %if.then157.i
 
@@ -9274,14 +9274,14 @@ for.body.i94:                                     ; preds = %qobject_ref_impl.ex
   %next.i96 = getelementptr inbounds i8, ptr %child.055.i, i64 64
   %child.0.i97 = load ptr, ptr %next.i96, align 8
   %tobool56.not.i98 = icmp eq ptr %child.0.i97, null
-  br i1 %tobool56.not.i98, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.i, label %for.body.i94, !llvm.loop !42
+  br i1 %tobool56.not.i98, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.i, label %for.body.i94, !llvm.loop !42
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.i: ; preds = %for.body.i94
+glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.i: ; preds = %for.body.i94
   %.pre.i99 = load ptr, ptr %explicit_options.i, align 8
   br label %bdrv_reopen_commit.exit
 
-bdrv_reopen_commit.exit:                          ; preds = %qobject_ref_impl.exit52.i, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.i
-  %102 = phi ptr [ %.pre.i99, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit.loopexit.i ], [ %94, %qobject_ref_impl.exit52.i ]
+bdrv_reopen_commit.exit:                          ; preds = %qobject_ref_impl.exit52.i, %glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.i
+  %102 = phi ptr [ %.pre.i99, %glib_autoptr_cleanup_GraphLockableMainloop.exit.loopexit.i ], [ %94, %qobject_ref_impl.exit52.i ]
   call void @qdict_del(ptr noundef %102, ptr noundef nonnull @.str.89) #31
   %103 = load ptr, ptr %options.i87, align 8
   call void @qdict_del(ptr noundef %103, ptr noundef nonnull @.str.89) #31
@@ -9418,13 +9418,13 @@ cleanup:                                          ; preds = %for.inc93, %for.inc
   %ret.1 = phi i32 [ %ret.0, %abort ], [ 0, %for.end76 ], [ %ret.0, %for.inc111 ], [ 0, %for.inc93 ]
   call void @bdrv_reopen_queue_free(ptr noundef nonnull %bs_queue)
   %tobool.not.i.i126 = icmp eq ptr %refresh_list.4, null
-  br i1 %tobool.not.i.i126, label %glib_autoptr_cleanup_GSList.argprom.exit, label %if.then.i.i127
+  br i1 %tobool.not.i.i126, label %glib_autoptr_cleanup_GSList.exit, label %if.then.i.i127
 
 if.then.i.i127:                                   ; preds = %cleanup
   call void @g_slist_free(ptr noundef nonnull %refresh_list.4) #31
-  br label %glib_autoptr_cleanup_GSList.argprom.exit
+  br label %glib_autoptr_cleanup_GSList.exit
 
-glib_autoptr_cleanup_GSList.argprom.exit:         ; preds = %cleanup, %if.then.i.i127
+glib_autoptr_cleanup_GSList.exit:                 ; preds = %cleanup, %if.then.i.i127
   ret i32 %ret.1
 }
 
@@ -9443,7 +9443,7 @@ entry:
 
 for.end.thread:                                   ; preds = %entry
   %call210 = tail call fastcc i32 @bdrv_do_refresh_perms(ptr noundef null, ptr noundef %q, ptr noundef %tran, ptr noundef %errp)
-  br label %glib_autoptr_cleanup_GSList.argprom.exit
+  br label %glib_autoptr_cleanup_GSList.exit
 
 for.body:                                         ; preds = %entry, %for.body
   %list.addr.08 = phi ptr [ %1, %for.body ], [ %list, %entry ]
@@ -9458,22 +9458,22 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body
   %call2 = tail call fastcc i32 @bdrv_do_refresh_perms(ptr noundef %call1, ptr noundef %q, ptr noundef %tran, ptr noundef %errp)
   %tobool.not.i.i = icmp eq ptr %call1, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSList.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSList.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end
   tail call void @g_slist_free(ptr noundef nonnull %call1) #31
-  br label %glib_autoptr_cleanup_GSList.argprom.exit
+  br label %glib_autoptr_cleanup_GSList.exit
 
-glib_autoptr_cleanup_GSList.argprom.exit:         ; preds = %for.end.thread, %for.end, %if.then.i.i
+glib_autoptr_cleanup_GSList.exit:                 ; preds = %for.end.thread, %for.end, %if.then.i.i
   %call212 = phi i32 [ %call210, %for.end.thread ], [ %call2, %for.end ], [ %call2, %if.then.i.i ]
   %tobool.not.i.i3 = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i3, label %glib_autoptr_cleanup_GHashTable.argprom.exit, label %if.then.i.i4
+  br i1 %tobool.not.i.i3, label %glib_autoptr_cleanup_GHashTable.exit, label %if.then.i.i4
 
-if.then.i.i4:                                     ; preds = %glib_autoptr_cleanup_GSList.argprom.exit
+if.then.i.i4:                                     ; preds = %glib_autoptr_cleanup_GSList.exit
   tail call void @g_hash_table_unref(ptr noundef nonnull %call) #31
-  br label %glib_autoptr_cleanup_GHashTable.argprom.exit
+  br label %glib_autoptr_cleanup_GHashTable.exit
 
-glib_autoptr_cleanup_GHashTable.argprom.exit:     ; preds = %glib_autoptr_cleanup_GSList.argprom.exit, %if.then.i.i4
+glib_autoptr_cleanup_GHashTable.exit:             ; preds = %glib_autoptr_cleanup_GSList.exit, %if.then.i.i4
   ret i32 %call212
 }
 
@@ -9754,13 +9754,13 @@ tran_finalize.exit:                               ; preds = %if.then.i, %if.else
   %ret.051 = phi i32 [ %ret.052, %if.then.i ], [ 0, %if.else.i38 ]
   %refresh_list.049 = phi ptr [ %refresh_list.050, %if.then.i ], [ %call40, %if.else.i38 ]
   %tobool.not.i.i39 = icmp eq ptr %refresh_list.049, null
-  br i1 %tobool.not.i.i39, label %glib_autoptr_cleanup_GSList.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i39, label %glib_autoptr_cleanup_GSList.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %tran_finalize.exit
   tail call void @g_slist_free(ptr noundef nonnull %refresh_list.049) #31
-  br label %glib_autoptr_cleanup_GSList.argprom.exit
+  br label %glib_autoptr_cleanup_GSList.exit
 
-glib_autoptr_cleanup_GSList.argprom.exit:         ; preds = %tran_finalize.exit, %if.then.i.i
+glib_autoptr_cleanup_GSList.exit:                 ; preds = %tran_finalize.exit, %if.then.i.i
   ret i32 %ret.051
 }
 
@@ -9851,18 +9851,18 @@ land.lhs.true.i:                                  ; preds = %bdrv_get_aio_contex
   %is_filter.i = getelementptr inbounds i8, ptr %bs_new.val, i64 12
   %4 = load i8, ptr %is_filter.i, align 4
   %tobool2.i = trunc i8 %4 to i1
-  br i1 %tobool2.i, label %bdrv_backing_role.argprom.exit, label %if.else.i
+  br i1 %tobool2.i, label %bdrv_backing_role.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %bdrv_get_aio_context.exit40
-  br label %bdrv_backing_role.argprom.exit
+  br label %bdrv_backing_role.exit
 
-bdrv_backing_role.argprom.exit:                   ; preds = %land.lhs.true.i, %if.else.i
+bdrv_backing_role.exit:                           ; preds = %land.lhs.true.i, %if.else.i
   %retval.0.i = phi i32 [ 8, %if.else.i ], [ 20, %land.lhs.true.i ]
   %call8 = tail call fastcc ptr @bdrv_attach_child_noperm(ptr noundef nonnull %bs_new, ptr noundef %bs_top, ptr noundef nonnull @.str.89, ptr noundef nonnull @child_of_bds, i32 noundef %retval.0.i, ptr noundef %call, ptr noundef %errp)
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.then.i, label %if.end11
 
-if.end11:                                         ; preds = %bdrv_backing_role.argprom.exit
+if.end11:                                         ; preds = %bdrv_backing_role.exit
   br i1 %tobool.not.i, label %cond.false.i46, label %cond.true.i43
 
 cond.true.i43:                                    ; preds = %if.end11
@@ -9894,9 +9894,9 @@ out:                                              ; preds = %if.end14
   %cmp.i = icmp slt i32 %call19, 0
   br i1 %cmp.i, label %if.then.i, label %if.else.i49
 
-if.then.i:                                        ; preds = %bdrv_backing_role.argprom.exit, %if.end14, %out
-  %new_context.056 = phi ptr [ %cond.i45, %out ], [ null, %bdrv_backing_role.argprom.exit ], [ %cond.i45, %if.end14 ]
-  %ret.054 = phi i32 [ %call19, %out ], [ -22, %bdrv_backing_role.argprom.exit ], [ %call15, %if.end14 ]
+if.then.i:                                        ; preds = %bdrv_backing_role.exit, %if.end14, %out
+  %new_context.056 = phi ptr [ %cond.i45, %out ], [ null, %bdrv_backing_role.exit ], [ %cond.i45, %if.end14 ]
+  %ret.054 = phi i32 [ %call19, %out ], [ -22, %bdrv_backing_role.exit ], [ %call15, %if.end14 ]
   tail call void @tran_abort(ptr noundef %call) #31
   br label %tran_finalize.exit
 
@@ -10124,13 +10124,13 @@ tran_finalize.exit:                               ; preds = %if.then.i, %if.else
   tail call void @bdrv_drained_end(ptr noundef %new_bs) #31
   tail call void @bdrv_unref(ptr noundef nonnull %0)
   %tobool.not.i.i = icmp eq ptr %call3, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSList.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSList.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %tran_finalize.exit
   tail call void @g_slist_free(ptr noundef nonnull %call3) #31
-  br label %glib_autoptr_cleanup_GSList.argprom.exit
+  br label %glib_autoptr_cleanup_GSList.exit
 
-glib_autoptr_cleanup_GSList.argprom.exit:         ; preds = %tran_finalize.exit, %if.then.i.i
+glib_autoptr_cleanup_GSList.exit:                 ; preds = %tran_finalize.exit, %if.then.i.i
   ret i32 %call4
 }
 
@@ -11300,13 +11300,13 @@ exit:                                             ; preds = %for.end31, %if.then
   call void @bdrv_drained_end(ptr noundef %base) #31
   call void @bdrv_unref(ptr noundef %top)
   %tobool.not.i.i = icmp eq ptr %updated_children.1, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSList.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GSList.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %exit
   call void @g_slist_free(ptr noundef nonnull %updated_children.1) #31
-  br label %glib_autoptr_cleanup_GSList.argprom.exit
+  br label %glib_autoptr_cleanup_GSList.exit
 
-glib_autoptr_cleanup_GSList.argprom.exit:         ; preds = %exit, %if.then.i.i
+glib_autoptr_cleanup_GSList.exit:                 ; preds = %exit, %if.then.i.i
   ret i32 %ret.0
 }
 
@@ -12072,7 +12072,7 @@ do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #31
   %bs.09 = load ptr, ptr @graph_bdrv_states, align 8
   %tobool.not10 = icmp eq ptr %bs.09, null
-  br i1 %tobool.not10, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body
+  br i1 %tobool.not10, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body
 
 for.body:                                         ; preds = %do.end, %do.body7
   %bs.012 = phi ptr [ %bs.0, %do.body7 ], [ %bs.09, %do.end ]
@@ -12083,7 +12083,7 @@ for.body:                                         ; preds = %do.end, %do.body7
 
 if.then5:                                         ; preds = %for.body
   tail call void @qapi_free_BlockDeviceInfoList(ptr noundef %list.011) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 do.body7:                                         ; preds = %for.body
   %call8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #32
@@ -12093,9 +12093,9 @@ do.body7:                                         ; preds = %for.body
   %node_list = getelementptr inbounds i8, ptr %bs.012, i64 16632
   %bs.0 = load ptr, ptr %node_list, align 8
   %tobool.not = icmp eq ptr %bs.0, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body, !llvm.loop !65
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body, !llvm.loop !65
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %do.body7, %do.end, %if.then5
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %do.body7, %do.end, %if.then5
   %retval.0 = phi ptr [ null, %if.then5 ], [ null, %do.end ], [ %call8, %do.body7 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #31
   ret ptr %retval.0
@@ -13051,7 +13051,7 @@ do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #31
   %call2 = tail call fastcc ptr @bdrv_find_debug_node(ptr noundef %bs)
   %tobool.not = icmp eq ptr %call2, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then3
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then3
 
 if.then3:                                         ; preds = %do.end
   %drv = getelementptr inbounds i8, ptr %call2, i64 16
@@ -13059,9 +13059,9 @@ if.then3:                                         ; preds = %do.end
   %bdrv_debug_breakpoint = getelementptr inbounds i8, ptr %0, i64 288
   %1 = load ptr, ptr %bdrv_debug_breakpoint, align 8
   %call4 = tail call i32 %1(ptr noundef nonnull %call2, ptr noundef %event, ptr noundef %tag) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %do.end, %if.then3
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %do.end, %if.then3
   %retval.0 = phi i32 [ %call4, %if.then3 ], [ -95, %do.end ]
   tail call void @bdrv_graph_rdunlock_main_loop() #31
   ret i32 %retval.0
@@ -13081,8 +13081,8 @@ if.else:                                          ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 6736, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_find_debug_node) #33
   unreachable
 
-land.lhs.true:                                    ; preds = %while.cond.preheader, %bdrv_primary_bs.argprom.exit
-  %bs.addr.014 = phi ptr [ %4, %bdrv_primary_bs.argprom.exit ], [ %bs, %while.cond.preheader ]
+land.lhs.true:                                    ; preds = %while.cond.preheader, %bdrv_primary_bs.exit
+  %bs.addr.014 = phi ptr [ %4, %bdrv_primary_bs.exit ], [ %bs, %while.cond.preheader ]
   %drv = getelementptr inbounds i8, ptr %bs.addr.014, i64 16
   %0 = load ptr, ptr %drv, align 8
   %tobool1.not = icmp eq ptr %0, null
@@ -13126,9 +13126,9 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 
 bdrv_primary_child.exit.i:                        ; preds = %for.inc.i.i
   %tobool.not.i1.i = icmp eq ptr %found.1.i.i, null
-  br i1 %tobool.not.i1.i, label %return, label %bdrv_primary_bs.argprom.exit
+  br i1 %tobool.not.i1.i, label %return, label %bdrv_primary_bs.exit
 
-bdrv_primary_bs.argprom.exit:                     ; preds = %bdrv_primary_child.exit.i
+bdrv_primary_bs.exit:                             ; preds = %bdrv_primary_child.exit.i
   %4 = load ptr, ptr %found.1.i.i, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %return, label %land.lhs.true, !llvm.loop !72
@@ -13143,8 +13143,8 @@ if.else17:                                        ; preds = %if.then13
   tail call void @__assert_fail(ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.2, i32 noundef 6742, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_find_debug_node) #33
   unreachable
 
-return:                                           ; preds = %while.body, %bdrv_primary_child.exit.i, %bdrv_primary_bs.argprom.exit, %land.lhs.true, %while.cond.preheader, %if.then13
-  %retval.0 = phi ptr [ %bs.addr.014, %if.then13 ], [ null, %while.cond.preheader ], [ null, %land.lhs.true ], [ null, %bdrv_primary_bs.argprom.exit ], [ null, %bdrv_primary_child.exit.i ], [ null, %while.body ]
+return:                                           ; preds = %while.body, %bdrv_primary_child.exit.i, %bdrv_primary_bs.exit, %land.lhs.true, %while.cond.preheader, %if.then13
+  %retval.0 = phi ptr [ %bs.addr.014, %if.then13 ], [ null, %while.cond.preheader ], [ null, %land.lhs.true ], [ null, %bdrv_primary_bs.exit ], [ null, %bdrv_primary_child.exit.i ], [ null, %while.body ]
   ret ptr %retval.0
 }
 
@@ -13162,7 +13162,7 @@ do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #31
   %call2 = tail call fastcc ptr @bdrv_find_debug_node(ptr noundef %bs)
   %tobool.not = icmp eq ptr %call2, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then3
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then3
 
 if.then3:                                         ; preds = %do.end
   %drv = getelementptr inbounds i8, ptr %call2, i64 16
@@ -13170,9 +13170,9 @@ if.then3:                                         ; preds = %do.end
   %bdrv_debug_remove_breakpoint = getelementptr inbounds i8, ptr %0, i64 296
   %1 = load ptr, ptr %bdrv_debug_remove_breakpoint, align 8
   %call4 = tail call i32 %1(ptr noundef nonnull %call2, ptr noundef %tag) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %do.end, %if.then3
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %do.end, %if.then3
   %retval.0 = phi i32 [ %call4, %if.then3 ], [ -95, %do.end ]
   tail call void @bdrv_graph_rdunlock_main_loop() #31
   ret i32 %retval.0
@@ -13191,10 +13191,10 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #31
   %tobool.not15 = icmp eq ptr %bs, null
-  br i1 %tobool.not15, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %land.rhs
+  br i1 %tobool.not15, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %land.rhs
 
-land.rhs:                                         ; preds = %do.end, %bdrv_primary_bs.argprom.exit
-  %bs.addr.016 = phi ptr [ %4, %bdrv_primary_bs.argprom.exit ], [ %bs, %do.end ]
+land.rhs:                                         ; preds = %do.end, %bdrv_primary_bs.exit
+  %bs.addr.016 = phi ptr [ %4, %bdrv_primary_bs.exit ], [ %bs, %do.end ]
   %drv = getelementptr inbounds i8, ptr %bs.addr.016, i64 16
   %0 = load ptr, ptr %drv, align 8
   %tobool2.not = icmp eq ptr %0, null
@@ -13210,7 +13210,7 @@ while.body:                                       ; preds = %land.rhs, %lor.rhs
   %2 = getelementptr i8, ptr %bs.addr.016, i64 16824
   %bs.addr.0.val = load ptr, ptr %2, align 8
   %tobool.not7.i.i = icmp eq ptr %bs.addr.0.val, null
-  br i1 %tobool.not7.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body.i.i
+  br i1 %tobool.not7.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %while.body, %for.inc.i.i
   %c.09.i.i = phi ptr [ %c.0.i.i, %for.inc.i.i ], [ %bs.addr.0.val, %while.body ]
@@ -13238,19 +13238,19 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 
 bdrv_primary_child.exit.i:                        ; preds = %for.inc.i.i
   %tobool.not.i1.i = icmp eq ptr %found.1.i.i, null
-  br i1 %tobool.not.i1.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %bdrv_primary_bs.argprom.exit
+  br i1 %tobool.not.i1.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %bdrv_primary_bs.exit
 
-bdrv_primary_bs.argprom.exit:                     ; preds = %bdrv_primary_child.exit.i
+bdrv_primary_bs.exit:                             ; preds = %bdrv_primary_child.exit.i
   %4 = load ptr, ptr %found.1.i.i, align 8
   %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %land.rhs, !llvm.loop !73
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %land.rhs, !llvm.loop !73
 
 if.then13:                                        ; preds = %lor.rhs
   %call16 = tail call i32 %1(ptr noundef nonnull %bs.addr.016, ptr noundef %tag) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %while.body, %bdrv_primary_child.exit.i, %bdrv_primary_bs.argprom.exit, %do.end, %if.then13
-  %retval.0 = phi i32 [ %call16, %if.then13 ], [ -95, %do.end ], [ -95, %bdrv_primary_bs.argprom.exit ], [ -95, %bdrv_primary_child.exit.i ], [ -95, %while.body ]
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %while.body, %bdrv_primary_child.exit.i, %bdrv_primary_bs.exit, %do.end, %if.then13
+  %retval.0 = phi i32 [ %call16, %if.then13 ], [ -95, %do.end ], [ -95, %bdrv_primary_bs.exit ], [ -95, %bdrv_primary_child.exit.i ], [ -95, %while.body ]
   tail call void @bdrv_graph_rdunlock_main_loop() #31
   ret i32 %retval.0
 }
@@ -13268,14 +13268,14 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #31
   %tobool.not16 = icmp eq ptr %bs, null
-  br i1 %tobool.not16, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %land.lhs.true
+  br i1 %tobool.not16, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %do.end, %bdrv_primary_bs.argprom.exit
-  %bs.addr.017 = phi ptr [ %4, %bdrv_primary_bs.argprom.exit ], [ %bs, %do.end ]
+land.lhs.true:                                    ; preds = %do.end, %bdrv_primary_bs.exit
+  %bs.addr.017 = phi ptr [ %4, %bdrv_primary_bs.exit ], [ %bs, %do.end ]
   %drv = getelementptr inbounds i8, ptr %bs.addr.017, i64 16
   %0 = load ptr, ptr %drv, align 8
   %tobool2.not = icmp eq ptr %0, null
-  br i1 %tobool2.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %land.rhs
+  br i1 %tobool2.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
   %bdrv_debug_is_suspended = getelementptr inbounds i8, ptr %0, i64 312
@@ -13287,7 +13287,7 @@ while.body:                                       ; preds = %land.rhs
   %2 = getelementptr i8, ptr %bs.addr.017, i64 16824
   %bs.addr.0.val = load ptr, ptr %2, align 8
   %tobool.not7.i.i = icmp eq ptr %bs.addr.0.val, null
-  br i1 %tobool.not7.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body.i.i
+  br i1 %tobool.not7.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %while.body, %for.inc.i.i
   %c.09.i.i = phi ptr [ %c.0.i.i, %for.inc.i.i ], [ %bs.addr.0.val, %while.body ]
@@ -13315,19 +13315,19 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 
 bdrv_primary_child.exit.i:                        ; preds = %for.inc.i.i
   %tobool.not.i1.i = icmp eq ptr %found.1.i.i, null
-  br i1 %tobool.not.i1.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %bdrv_primary_bs.argprom.exit
+  br i1 %tobool.not.i1.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %bdrv_primary_bs.exit
 
-bdrv_primary_bs.argprom.exit:                     ; preds = %bdrv_primary_child.exit.i
+bdrv_primary_bs.exit:                             ; preds = %bdrv_primary_child.exit.i
   %4 = load ptr, ptr %found.1.i.i, align 8
   %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %land.lhs.true, !llvm.loop !74
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %land.lhs.true, !llvm.loop !74
 
 if.then14:                                        ; preds = %land.rhs
   %call17 = tail call zeroext i1 %1(ptr noundef nonnull %bs.addr.017, ptr noundef %tag) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %while.body, %bdrv_primary_child.exit.i, %bdrv_primary_bs.argprom.exit, %land.lhs.true, %do.end, %if.then14
-  %retval.0 = phi i1 [ %call17, %if.then14 ], [ false, %do.end ], [ false, %land.lhs.true ], [ false, %bdrv_primary_bs.argprom.exit ], [ false, %bdrv_primary_child.exit.i ], [ false, %while.body ]
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %while.body, %bdrv_primary_child.exit.i, %bdrv_primary_bs.exit, %land.lhs.true, %do.end, %if.then14
+  %retval.0 = phi i1 [ %call17, %if.then14 ], [ false, %do.end ], [ false, %land.lhs.true ], [ false, %bdrv_primary_bs.exit ], [ false, %bdrv_primary_child.exit.i ], [ false, %while.body ]
   tail call void @bdrv_graph_rdunlock_main_loop() #31
   ret i1 %retval.0
 }
@@ -13345,7 +13345,7 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #31
   %tobool.not = icmp eq ptr %bs, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %lor.lhs.false
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end
   %drv = getelementptr inbounds i8, ptr %bs, i64 16
@@ -13353,7 +13353,7 @@ lor.lhs.false:                                    ; preds = %do.end
   %tobool3 = icmp ne ptr %0, null
   %tobool5 = icmp ne ptr %backing_file, null
   %or.cond = and i1 %tobool5, %tobool3
-  br i1 %or.cond, label %if.end7, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %or.cond, label %if.end7, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end7:                                          ; preds = %lor.lhs.false
   %call8 = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #32
@@ -13609,9 +13609,9 @@ for.end:                                          ; preds = %if.end18, %if.then3
   %retval1.0 = phi ptr [ null, %bdrv_skip_filters.exit ], [ null, %if.then5.i.i ], [ null, %if.end5.i ], [ null, %if.end.i ], [ null, %for.inc ], [ null, %lor.lhs.false.i ], [ %call13, %if.end60 ], [ %call13, %if.then39 ], [ %call13, %if.then30 ], [ %call13, %if.end18 ]
   tail call void @g_free(ptr noundef %call8) #31
   tail call void @g_free(ptr noundef %call9) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %do.end, %lor.lhs.false, %for.end
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %do.end, %lor.lhs.false, %for.end
   %retval.0 = phi ptr [ %retval1.0, %for.end ], [ null, %lor.lhs.false ], [ null, %do.end ]
   tail call void @bdrv_graph_rdunlock_main_loop() #31
   ret ptr %retval.0
@@ -13654,7 +13654,7 @@ do.end:                                           ; preds = %entry
   %drv = getelementptr inbounds i8, ptr %bs, i64 16
   %0 = load ptr, ptr %drv, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end3
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end3
 
 if.end3:                                          ; preds = %do.end
   %children = getelementptr inbounds i8, ptr %bs, i64 16824
@@ -13678,7 +13678,7 @@ for.body:                                         ; preds = %if.end3, %for.cond
 
 if.then8:                                         ; preds = %for.body
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %2) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 for.end:                                          ; preds = %for.cond, %if.end3
   %3 = load i32, ptr %bs, align 8
@@ -13697,7 +13697,7 @@ if.then15:                                        ; preds = %if.then11
   %4 = load i32, ptr %bs, align 8
   %or = or i32 %4, 2048
   store i32 %or, ptr %bs, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end17:                                         ; preds = %if.then11
   %call18 = call i32 @bdrv_invalidate_cache(ptr noundef nonnull %bs, ptr noundef %errp) #31
@@ -13708,7 +13708,7 @@ if.then20:                                        ; preds = %if.end17
   %5 = load i32, ptr %bs, align 8
   %or22 = or i32 %5, 2048
   store i32 %or22, ptr %bs, align 8
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end23:                                         ; preds = %if.end17
   %call24 = call ptr @bdrv_dirty_bitmap_first(ptr noundef nonnull %bs) #31
@@ -13735,13 +13735,13 @@ if.then33:                                        ; preds = %for.end30
   store i32 %or35, ptr %bs, align 8
   %sub = sub i32 0, %call31
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 6993, ptr noundef nonnull @__func__.bdrv_activate, i32 noundef %sub, ptr noundef nonnull @.str.102) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end37:                                         ; preds = %for.end30, %for.end
   %parents = getelementptr inbounds i8, ptr %bs, i64 16848
   %parent.039 = load ptr, ptr %parents, align 8
   %tobool40.not40 = icmp eq ptr %parent.039, null
-  br i1 %tobool40.not40, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body41
+  br i1 %tobool40.not40, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body41
 
 for.body41:                                       ; preds = %if.end37, %for.inc52
   %parent.041 = phi ptr [ %parent.0, %for.inc52 ], [ %parent.039, %if.end37 ]
@@ -13763,15 +13763,15 @@ if.then47:                                        ; preds = %if.then43
   %or49 = or i32 %11, 2048
   store i32 %or49, ptr %bs, align 8
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %10) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 for.inc52:                                        ; preds = %for.body41, %if.then43
   %next_parent = getelementptr inbounds i8, ptr %parent.041, i64 80
   %parent.0 = load ptr, ptr %next_parent, align 8
   %tobool40.not = icmp eq ptr %parent.0, null
-  br i1 %tobool40.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body41, !llvm.loop !78
+  br i1 %tobool40.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body41, !llvm.loop !78
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %for.inc52, %if.end37, %do.end, %if.then47, %if.then33, %if.then20, %if.then15, %if.then8
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %for.inc52, %if.end37, %do.end, %if.then47, %if.then33, %if.then20, %if.then15, %if.then8
   %retval.0 = phi i32 [ -22, %if.then8 ], [ %call14, %if.then15 ], [ %call18, %if.then20 ], [ %call31, %if.then33 ], [ -22, %if.then47 ], [ -123, %do.end ], [ 0, %if.end37 ], [ 0, %for.inc52 ]
   call void @bdrv_graph_rdunlock_main_loop() #31
   ret i32 %retval.0
@@ -13841,7 +13841,7 @@ do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #31
   %call2 = call ptr @bdrv_first(ptr noundef nonnull %it) #31
   %tobool.not4 = icmp eq ptr %call2, null
-  br i1 %tobool.not4, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %bdrv_get_aio_context.exit
+  br i1 %tobool.not4, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %bdrv_get_aio_context.exit
 
 bdrv_get_aio_context.exit:                        ; preds = %do.end, %for.inc
   %bs.05 = phi ptr [ %call7, %for.inc ], [ %call2, %do.end ]
@@ -13855,14 +13855,14 @@ bdrv_get_aio_context.exit:                        ; preds = %do.end, %for.inc
 
 if.then5:                                         ; preds = %bdrv_get_aio_context.exit
   call void @bdrv_next_cleanup(ptr noundef nonnull %it) #31
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 for.inc:                                          ; preds = %bdrv_get_aio_context.exit
   %call7 = call ptr @bdrv_next(ptr noundef nonnull %it) #31
   %tobool.not = icmp eq ptr %call7, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %bdrv_get_aio_context.exit, !llvm.loop !79
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %bdrv_get_aio_context.exit, !llvm.loop !79
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %for.inc, %do.end, %if.then5
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %for.inc, %do.end, %if.then5
   call void @bdrv_graph_rdunlock_main_loop() #31
   ret void
 }
@@ -13971,7 +13971,7 @@ for.inc20:                                        ; preds = %for.body.i, %for.bo
 out:                                              ; preds = %for.inc20, %for.end, %if.then18
   %ret.2 = phi i32 [ %call17, %if.then18 ], [ 0, %for.end ], [ 0, %for.inc20 ]
   %cmp24.not20 = icmp eq ptr %aio_ctxs.0.lcssa, null
-  br i1 %cmp24.not20, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body25
+  br i1 %cmp24.not20, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body25
 
 for.body25:                                       ; preds = %out, %for.body25
   %ctx.021 = phi ptr [ %6, %for.body25 ], [ %aio_ctxs.0.lcssa, %out ]
@@ -13980,9 +13980,9 @@ for.body25:                                       ; preds = %out, %for.body25
   %next = getelementptr inbounds i8, ptr %ctx.021, i64 8
   %6 = load ptr, ptr %next, align 8
   %cmp24.not = icmp eq ptr %6, null
-  br i1 %cmp24.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %for.body25, !llvm.loop !83
+  br i1 %cmp24.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body25, !llvm.loop !83
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %for.body25, %out
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %for.body25, %out
   call void @g_slist_free(ptr noundef %aio_ctxs.0.lcssa) #31
   call void @bdrv_graph_rdunlock_main_loop() #31
   ret i32 %ret.2
@@ -15685,8 +15685,8 @@ define dso_local ptr @bdrv_dirname(ptr noundef %bs, ptr noundef %errp) local_unn
 entry:
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %bdrv_primary_bs.argprom.exit, %entry
-  %bs.tr = phi ptr [ %bs, %entry ], [ %4, %bdrv_primary_bs.argprom.exit ]
+tailrecurse:                                      ; preds = %bdrv_primary_bs.exit, %entry
+  %bs.tr = phi ptr [ %bs, %entry ], [ %4, %bdrv_primary_bs.exit ]
   %drv1 = getelementptr inbounds i8, ptr %bs.tr, i64 16
   %0 = load ptr, ptr %drv1, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
@@ -15747,14 +15747,14 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 
 bdrv_primary_child.exit.i:                        ; preds = %for.inc.i.i
   %tobool.not.i1.i = icmp eq ptr %found.1.i.i, null
-  br i1 %tobool.not.i1.i, label %if.end13, label %bdrv_primary_bs.argprom.exit
+  br i1 %tobool.not.i1.i, label %if.end13, label %bdrv_primary_bs.exit
 
-bdrv_primary_bs.argprom.exit:                     ; preds = %bdrv_primary_child.exit.i
+bdrv_primary_bs.exit:                             ; preds = %bdrv_primary_child.exit.i
   %4 = load ptr, ptr %found.1.i.i, align 8
   %tobool10.not = icmp eq ptr %4, null
   br i1 %tobool10.not, label %if.end13, label %tailrecurse
 
-if.end13:                                         ; preds = %if.end8, %bdrv_primary_child.exit.i, %bdrv_primary_bs.argprom.exit
+if.end13:                                         ; preds = %if.end8, %bdrv_primary_child.exit.i, %bdrv_primary_bs.exit
   tail call void @bdrv_refresh_filename(ptr noundef %bs.tr)
   %exact_filename = getelementptr inbounds i8, ptr %bs.tr, i64 12368
   %5 = load i8, ptr %exact_filename, align 8
@@ -16238,7 +16238,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %8, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -16247,14 +16247,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %9 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #31
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i1 %7
 }
 
@@ -16321,7 +16321,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %8, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -16330,14 +16330,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %9 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #31
-  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
-glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret void
 }
 
@@ -16361,14 +16361,14 @@ entry:
   %1 = ptrtoint ptr %call to i64
   store atomic i64 %1, ptr %block_status_cache release, align 8
   %tobool.not = icmp eq i64 %0, 0
-  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then
+  br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then
 
 if.then:                                          ; preds = %entry
   %2 = inttoptr i64 %0 to ptr
   tail call void @call_rcu1(ptr noundef nonnull %2, ptr noundef nonnull @g_free) #31
-  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %if.then, %entry
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then, %entry
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %bsc_modify_lock) #31
   ret void
 }
@@ -16493,13 +16493,13 @@ for.end:                                          ; preds = %for.body, %if.end11
 cleanup:                                          ; preds = %if.end7, %for.end
   %retval.0 = phi ptr [ %call16, %for.end ], [ %list, %if.end7 ]
   %tobool.not.i.i = icmp eq ptr %local_found.0, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GHashTable.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GHashTable.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   tail call void @g_hash_table_unref(ptr noundef nonnull %local_found.0) #31
-  br label %glib_autoptr_cleanup_GHashTable.argprom.exit
+  br label %glib_autoptr_cleanup_GHashTable.exit
 
-glib_autoptr_cleanup_GHashTable.argprom.exit:     ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GHashTable.exit:             ; preds = %cleanup, %if.then.i.i
   ret ptr %retval.0
 }
 
@@ -17160,7 +17160,7 @@ declare void @blk_unref(ptr noundef) #5
 declare ptr @qdict_first(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bdrv_parent_cb_change_media.argelim(ptr nocapture noundef readonly %bs) unnamed_addr #4 {
+define internal fastcc void @bdrv_parent_cb_change_media(ptr nocapture noundef readonly %bs) unnamed_addr #4 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #31
   br i1 %call, label %do.end, label %if.else
@@ -17458,26 +17458,26 @@ if.end4:                                          ; preds = %do.end
   %call2.val = load i32, ptr %call2, align 8
   %2 = add i32 %call2.val, -1
   %or.cond.i = icmp ult i32 %2, 6
-  br i1 %or.cond.i, label %qobject_type.argprom.exit, label %if.else.i
+  br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end4
   tail call void @__assert_fail(ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.161, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #33
   unreachable
 
-qobject_type.argprom.exit:                        ; preds = %if.end4
+qobject_type.exit:                                ; preds = %if.end4
   switch i32 %call2.val, label %do.body22 [
     i32 1, label %sw.bb
     i32 3, label %qobject_check_type.exit
   ]
 
-sw.bb:                                            ; preds = %qobject_type.argprom.exit
+sw.bb:                                            ; preds = %qobject_type.exit
   br i1 %is_backing, label %cond.true.thread, label %if.else8
 
 if.else8:                                         ; preds = %sw.bb
   tail call void @__assert_fail(ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.2, i32 noundef 4778, ptr noundef nonnull @__PRETTY_FUNCTION__.bdrv_reopen_parse_file_or_backing) #33
   unreachable
 
-qobject_check_type.exit:                          ; preds = %qobject_type.argprom.exit
+qobject_check_type.exit:                          ; preds = %qobject_type.exit
   %call12 = tail call ptr @qstring_get_str(ptr noundef nonnull %call2) #31
   %call13 = tail call ptr @bdrv_lookup_bs(ptr noundef null, ptr noundef %call12, ptr noundef %errp)
   %cmp14 = icmp eq ptr %call13, null
@@ -17492,7 +17492,7 @@ if.then20:                                        ; preds = %if.end16
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 4792, ptr noundef nonnull @__func__.bdrv_reopen_parse_file_or_backing, ptr noundef nonnull @.str.202, ptr noundef %call12, ptr noundef nonnull %cond, ptr noundef nonnull %node_name) #31
   br label %out_rdlock
 
-do.body22:                                        ; preds = %qobject_type.argprom.exit
+do.body22:                                        ; preds = %qobject_type.exit
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 4802, ptr noundef nonnull @__func__.bdrv_reopen_parse_file_or_backing, ptr noundef null) #33
   unreachable
 

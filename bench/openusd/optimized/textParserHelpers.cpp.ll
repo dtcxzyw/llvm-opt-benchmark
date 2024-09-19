@@ -12154,37 +12154,37 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFo
   %.val = load ptr, ptr %0, align 8
   %.029.val.i.i.i = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, align 16
   %33 = icmp eq ptr %.029.val.i.i.i, %.val
-  br i1 %33, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit", label %34
+  br i1 %33, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit", label %34
 
 34:                                               ; preds = %32
   %.val31.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 16), align 16
   %35 = icmp eq ptr %.val31.i.i.i, %.val
-  br i1 %35, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit", label %36
+  br i1 %35, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit", label %36
 
 36:                                               ; preds = %34
   %.val33.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 32), align 16
   %37 = icmp eq ptr %.val33.i.i.i, %.val
-  br i1 %37, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit", label %38
+  br i1 %37, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit", label %38
 
 38:                                               ; preds = %36
   %.val35.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 48), align 16
   %39 = icmp eq ptr %.val35.i.i.i, %.val
-  br i1 %39, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit", label %._crit_edge.loopexit.i.i.i
+  br i1 %39, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit", label %._crit_edge.loopexit.i.i.i
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %38
   %.1.val.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 64), align 16
   %40 = icmp eq ptr %.1.val.i.i.i, %.val
-  br i1 %40, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit", label %41
+  br i1 %40, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit", label %41
 
 41:                                               ; preds = %._crit_edge.loopexit.i.i.i
   %.2.val.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 80), align 16
   %42 = icmp eq ptr %.2.val.i.i.i, %.val
-  br i1 %42, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit", label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit.thread"
+  br i1 %42, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit", label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit.thread"
 
-"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit": ; preds = %32, %38, %36, %34, %._crit_edge.loopexit.i.i.i, %41
+"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit": ; preds = %32, %38, %36, %34, %._crit_edge.loopexit.i.i.i, %41
   %.028.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 64), %._crit_edge.loopexit.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 80), %41 ], [ getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 16), %34 ], [ getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 32), %36 ], [ getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, i64 48), %38 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes, %32 ]
   %.not9.not = icmp eq ptr %1, null
-  br i1 %.not9.not, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit.thread", label %45
+  br i1 %.not9.not, label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit.thread", label %45
 
 43:                                               ; preds = %25, %21, %17, %13, %9, %7
   %44 = landingpad { ptr, i32 }
@@ -12192,14 +12192,14 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFo
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKNS_6TfTypeEPS1_E19listOpAndArrayTypes) #23
   resume { ptr, i32 } %44
 
-45:                                               ; preds = %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit"
+45:                                               ; preds = %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit"
   %46 = getelementptr inbounds nuw i8, ptr %.028.i.i.i, i64 8
   %47 = load i64, ptr %46, align 8
   store i64 %47, ptr %1, align 8
-  br label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit.thread"
+  br label %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit.thread"
 
-"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit.thread": ; preds = %41, %45, %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit"
-  %48 = phi i1 [ true, %45 ], [ true, %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.argprom.exit" ], [ false, %41 ]
+"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit.thread": ; preds = %41, %45, %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit"
+  %48 = phi i1 [ true, %45 ], [ true, %"_ZSt7find_ifIPSt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeES2_EZNS1_24Sdf_TextFileFormatParser28_IsGenericMetadataListOpTypeERKS2_PS2_E3$_0ET_SA_SA_T0_.exit" ], [ false, %41 ]
   ret i1 %48
 }
 
@@ -46407,14 +46407,14 @@ attributes #29 = { nounwind allocsize(0) }
 !48 = distinct !{!48, !49, !"_ZNK32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase15FieldDefinition12IsValidValueINS_7VtValueEEENS_10SdfAllowedERKT_: argument 0"}
 !49 = distinct !{!49, !"_ZNK32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase15FieldDefinition12IsValidValueINS_7VtValueEEENS_10SdfAllowedERKT_"}
 !50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser19_GenericMetadataEndENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextEENK3$_0clEv.argprom: argument 0"}
-!52 = distinct !{!52, !"_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser19_GenericMetadataEndENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextEENK3$_0clEv.argprom"}
+!51 = distinct !{!51, !52, !"_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser19_GenericMetadataEndENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextEENK3$_0clEv: argument 0"}
+!52 = distinct !{!52, !"_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser19_GenericMetadataEndENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextEENK3$_0clEv"}
 !53 = !{!54}
 !54 = distinct !{!54, !55, !"_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue14GetWithDefaultINS_9SdfListOpINS_20SdfUnregisteredValueEEEEET_RKS5_: argument 0"}
 !55 = distinct !{!55, !"_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue14GetWithDefaultINS_9SdfListOpINS_20SdfUnregisteredValueEEEEET_RKS5_"}
 !56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser19_GenericMetadataEndENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextEENK3$_1clEv.argprom: argument 0"}
-!58 = distinct !{!58, !"_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser19_GenericMetadataEndENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextEENK3$_1clEv.argprom"}
+!57 = distinct !{!57, !58, !"_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser19_GenericMetadataEndENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextEENK3$_1clEv: argument 0"}
+!58 = distinct !{!58, !"_ZZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser19_GenericMetadataEndENS_11SdfSpecTypeEPNS_21Sdf_TextParserContextEENK3$_1clEv"}
 !59 = distinct !{!59, !5}
 !60 = distinct !{!60, !5}
 !61 = distinct !{!61, !5}

@@ -15107,7 +15107,7 @@ for.body:                                         ; preds = %entry, %for.inc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZN4pbrt8internal9ToString2IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %arrayidx.val, float noundef %arrayidx.val9)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit unwind label %lpad.i
+          to label %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %for.body
   %3 = landingpad { ptr, i32 }
@@ -15115,7 +15115,7 @@ lpad.i:                                           ; preds = %for.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #23
   resume { ptr, i32 } %3
 
-_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit: ; preds = %for.body
+_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit: ; preds = %for.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %4 = load i64, ptr %n.i, align 8
@@ -15123,13 +15123,13 @@ _ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit: ; pre
   %cmp5 = icmp ult i64 %i.012, %sub
   br i1 %cmp5, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit
+if.then:                                          ; preds = %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit
   %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.79)
   %.pre = load i64, ptr %n.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit, %if.then
-  %5 = phi i64 [ %4, %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit ], [ %.pre, %if.then ]
+for.inc:                                          ; preds = %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit, %if.then
+  %5 = phi i64 [ %4, %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit ], [ %.pre, %if.then ]
   %inc = add nuw i64 %i.012, 1
   %cmp = icmp ult i64 %inc, %5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !73
@@ -20050,7 +20050,7 @@ for.body:                                         ; preds = %entry, %for.inc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZN4pbrt8internal9ToString2IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %arrayidx.val, float noundef %arrayidx.val9)
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
-          to label %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit unwind label %lpad.i
+          to label %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %for.body
   %3 = landingpad { ptr, i32 }
@@ -20058,7 +20058,7 @@ lpad.i:                                           ; preds = %for.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #23
   resume { ptr, i32 } %3
 
-_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit: ; preds = %for.body
+_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit: ; preds = %for.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %4 = load ptr, ptr %_M_finish.i, align 8
@@ -20071,7 +20071,7 @@ _ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit: ; pre
   %cmp5 = icmp ult i64 %i.020, %sub
   br i1 %cmp5, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit
+if.then:                                          ; preds = %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit
   %call6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.79)
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre21 = load ptr, ptr %v, align 8
@@ -20081,8 +20081,8 @@ if.then:                                          ; preds = %_ZN4pbrtlsINS_6Poin
   %.pre25 = ashr exact i64 %.pre24, 3
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit, %if.then
-  %sub.ptr.div.i.pre-phi = phi i64 [ %sub.ptr.div.i14, %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.argprom.exit ], [ %.pre25, %if.then ]
+for.inc:                                          ; preds = %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit, %if.then
+  %sub.ptr.div.i.pre-phi = phi i64 [ %sub.ptr.div.i14, %_ZN4pbrtlsINS_6Point2IfEEEEDTcmcldtfp0_8ToStringEfp_ERSoRKT_.exit ], [ %.pre25, %if.then ]
   %inc = add nuw i64 %i.020, 1
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i.pre-phi
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !82

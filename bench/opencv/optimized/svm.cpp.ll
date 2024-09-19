@@ -622,7 +622,7 @@ _ZN2cv2ml3SVM14getDefaultGridEi.exit:             ; preds = %4, %7, %10, %13, %1
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv2ml9ParamGridESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23, align 8, !noalias !10
   %26 = getelementptr inbounds i8, ptr %23, i64 16
   invoke void @_ZN2cv2ml9ParamGridC1Eddd(ptr noundef nonnull align 8 dereferenceable(24) %26, double noundef %.val, double noundef %.val1, double noundef %.val2)
-          to label %_ZN2cvL7makePtrINS_2ml9ParamGridEJdddEEENS_3PtrIT_EEDpRKT0_.argprom.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml9ParamGridESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !10
+          to label %_ZN2cvL7makePtrINS_2ml9ParamGridEJdddEEENS_3PtrIT_EEDpRKT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml9ParamGridESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i, !noalias !10
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml9ParamGridESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %_ZN2cv2ml3SVM14getDefaultGridEi.exit
   %27 = landingpad { ptr, i32 }
@@ -630,7 +630,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv2ml9ParamGridESaIvELN9
   call void @_ZdlPv(ptr noundef nonnull %23) #23, !noalias !10
   resume { ptr, i32 } %27
 
-_ZN2cvL7makePtrINS_2ml9ParamGridEJdddEEENS_3PtrIT_EEDpRKT0_.argprom.exit: ; preds = %_ZN2cv2ml3SVM14getDefaultGridEi.exit
+_ZN2cvL7makePtrINS_2ml9ParamGridEJdddEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %_ZN2cv2ml3SVM14getDefaultGridEi.exit
   store ptr %26, ptr %0, align 8, !alias.scope !7
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %23, ptr %28, align 8, !alias.scope !7
@@ -19025,8 +19025,8 @@ attributes #26 = { noreturn nounwind }
 !5 = distinct !{!5, !6, !"_ZN2cv2ml3SVM14getDefaultGridEi: argument 0"}
 !6 = distinct !{!6, !"_ZN2cv2ml3SVM14getDefaultGridEi"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN2cvL7makePtrINS_2ml9ParamGridEJdddEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZN2cvL7makePtrINS_2ml9ParamGridEJdddEEENS_3PtrIT_EEDpRKT0_.argprom"}
+!8 = distinct !{!8, !9, !"_ZN2cvL7makePtrINS_2ml9ParamGridEJdddEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!9 = distinct !{!9, !"_ZN2cvL7makePtrINS_2ml9ParamGridEJdddEEENS_3PtrIT_EEDpRKT0_"}
 !10 = !{!11, !8}
 !11 = distinct !{!11, !12, !"_ZSt11make_sharedIN2cv2ml9ParamGridEJRKdS4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
 !12 = distinct !{!12, !"_ZSt11make_sharedIN2cv2ml9ParamGridEJRKdS4_S4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}

@@ -6824,7 +6824,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_IdentityRegistryC1ERKNS
 define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_CreateDataForFileFormatERKNS_9TfWeakPtrIKNS_13SdfFileFormatEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapISB_SB_St4lessISB_ESaISt4pairISC_SB_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #3 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
-  %7 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %7 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv()
   %8 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRules10IsIncludedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(49) %7, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %8, label %10, label %20
@@ -14350,7 +14350,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIKNS_13SdfFileFormatEED2Ev.exit
 
 116:                                              ; preds = %89
-  %117 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %117 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv()
           to label %.noexc33 unwind label %.thread
 
 .noexc33:                                         ; preds = %116
@@ -17952,7 +17952,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfFileForma
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer30IsIncludedByDetachedLayerRulesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
-  %2 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %2 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv()
   %3 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRules10IsIncludedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret i1 %3
 }
@@ -26988,7 +26988,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %_ZNK32
   %.val17 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %.not.i.i.i = icmp eq ptr %.val17, null
-  br i1 %.not.i.i.i, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit
+  br i1 %.not.i.i.i, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit
 
 42:                                               ; preds = %39
   store ptr @.str.146, ptr %5, align 8
@@ -27003,7 +27003,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %_ZNK32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEEE) #30
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit: ; preds = %39
+_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit: ; preds = %39
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %47 = load ptr, ptr %.val17, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 96
@@ -27012,7 +27012,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKN
   %51 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase19IsValidFieldForSpecERKNS_7TfTokenENS_11SdfSpecTypeE(ptr noundef nonnull align 8 dereferenceable(1160) %.val, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %50)
   br i1 %51, label %70, label %52
 
-52:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit
+52:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit
   store ptr @.str, ptr %7, align 8
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer8SetFieldERKNS_7SdfPathERKNS_7TfTokenERKNS_7VtValueE, ptr %53, align 8
@@ -27046,7 +27046,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit19: ; preds = %52, 
   call void (ptr, ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextERKNS_6TfEnumEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull @.str.88, ptr noundef %65, ptr noundef %66, ptr noundef %69)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
-70:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit, %35
+70:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit, %35
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %71, align 8, !alias.scope !184
   %72 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_7VtValueE(ptr noundef nonnull readonly align 8 dereferenceable(557) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %9)
@@ -34316,7 +34316,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer21SetDetachedLayerRul
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::ArResolverScopedCache", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfChangeBlock", align 8
   %10 = alloca %"class.std::set", align 8
-  %11 = tail call fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %11 = tail call fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv()
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %11)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -34379,14 +34379,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRulesC2ERKS1_.exit:
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
   store i8 %19, ptr %16, align 8
-  %20 = invoke fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv.argprom()
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEEdeEv.argprom.exit unwind label %68
+  %20 = invoke fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv()
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEEdeEv.exit unwind label %68
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEEdeEv.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRulesC2ERKS1_.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEEdeEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRulesC2ERKS1_.exit
   %21 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %.noexc unwind label %68
 
-.noexc:                                           ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEEdeEv.argprom.exit
+.noexc:                                           ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEEdeEv.exit
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23)
@@ -34513,7 +34513,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRulesD2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i7.i, %62
   ret void
 
-68:                                               ; preds = %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEEdeEv.argprom.exit, %_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRulesC2ERKS1_.exit, %25
+68:                                               ; preds = %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEEdeEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRulesC2ERKS1_.exit, %25
   %69 = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -35024,7 +35024,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(49) ptr @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer21GetDetachedLayerRulesEv() local_unnamed_addr #3 align 2 {
-  %1 = tail call fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv.argprom()
+  %1 = tail call fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv()
   ret ptr %1
 }
 
@@ -44314,7 +44314,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %_ZNK32
   %.val19 = load ptr, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %.not.i.i.i = icmp eq ptr %.val19, null
-  br i1 %.not.i.i.i, label %60, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit
+  br i1 %.not.i.i.i, label %60, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit
 
 60:                                               ; preds = %57
   store ptr @.str.146, ptr %5, align 8
@@ -44329,7 +44329,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %_ZNK32
   call void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %5, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEEE) #30
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit: ; preds = %57
+_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit: ; preds = %57
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %65 = load ptr, ptr %.val19, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 96
@@ -44338,7 +44338,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKN
   %69 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase19IsValidFieldForSpecERKNS_7TfTokenENS_11SdfSpecTypeE(ptr noundef nonnull align 8 dereferenceable(1160) %.val, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %68)
   br i1 %69, label %88, label %70
 
-70:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit
+70:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit
   store ptr @.str, ptr %8, align 8
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer8SetFieldERKNS_7SdfPathERKNS_7TfTokenERKNS_7VtValueE, ptr %71, align 8
@@ -44372,7 +44372,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit21: ; preds = %70, 
   call void (ptr, ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextERKNS_6TfEnumEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull @.str.88, ptr noundef %83, ptr noundef %84, ptr noundef %87)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24
 
-88:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit, %53
+88:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit, %53
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr null, ptr %89, align 8, !alias.scope !603
   %90 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer8HasFieldERKNS_7SdfPathERKNS_7TfTokenEPNS_7VtValueE(ptr noundef nonnull readonly align 8 dereferenceable(557) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %10)
@@ -44510,7 +44510,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit20: ; preds = %_ZNK
   %.val18 = load ptr, ptr %45, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %.not.i.i.i = icmp eq ptr %.val18, null
-  br i1 %.not.i.i.i, label %46, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit
+  br i1 %.not.i.i.i, label %46, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit
 
 46:                                               ; preds = %43
   store ptr @.str.146, ptr %6, align 8
@@ -44525,7 +44525,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit20: ; preds = %_ZNK
   call void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEEE) #30
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit: ; preds = %43
+_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit: ; preds = %43
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %51 = load ptr, ptr %.val18, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 96
@@ -44534,7 +44534,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKN
   %55 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase19IsValidFieldForSpecERKNS_7TfTokenENS_11SdfSpecTypeE(ptr noundef nonnull align 8 dereferenceable(1160) %.val, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %54)
   br i1 %55, label %82, label %56
 
-56:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit
+56:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit
   store ptr @.str, ptr %8, align 8
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer22SetFieldDictValueByKeyERKNS_7SdfPathERKNS_7TfTokenES6_RKNS_7VtValueE, ptr %57, align 8
@@ -44582,7 +44582,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit24: ; preds = %_ZNK
   call void (ptr, ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextERKNS_6TfEnumEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull @.str.90, ptr noundef %69, ptr noundef %77, ptr noundef %78, ptr noundef %81)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
-82:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit, %39
+82:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit, %39
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr null, ptr %83, align 8, !alias.scope !606
   %84 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_7VtValueE(ptr noundef nonnull readonly align 8 dereferenceable(557) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %10)
@@ -44743,7 +44743,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit20: ; preds = %_ZNK
   %.val18 = load ptr, ptr %45, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %.not.i.i.i = icmp eq ptr %.val18, null
-  br i1 %.not.i.i.i, label %46, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit
+  br i1 %.not.i.i.i, label %46, label %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit
 
 46:                                               ; preds = %43
   store ptr @.str.146, ptr %6, align 8
@@ -44758,7 +44758,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit20: ; preds = %_ZNK
   call void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEEE) #30
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit: ; preds = %43
+_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit: ; preds = %43
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %51 = load ptr, ptr %.val18, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 96
@@ -44767,7 +44767,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKN
   %55 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase19IsValidFieldForSpecERKNS_7TfTokenENS_11SdfSpecTypeE(ptr noundef nonnull align 8 dereferenceable(1160) %.val, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %54)
   br i1 %55, label %82, label %56
 
-56:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit
+56:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit
   store ptr @.str, ptr %8, align 8
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer22SetFieldDictValueByKeyERKNS_7SdfPathERKNS_7TfTokenES6_RKNS_7VtValueE, ptr %57, align 8
@@ -44815,7 +44815,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit24: ; preds = %_ZNK
   call void (ptr, ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextERKNS_6TfEnumEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull @.str.90, ptr noundef %69, ptr noundef %77, ptr noundef %78, ptr noundef %81)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
-82:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.argprom.exit, %39
+82:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_IsValidFieldForLayerERKNS_8SdfLayerERKNS_7SdfPathERKNS_7TfTokenE.exit, %39
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr null, ptr %83, align 8, !alias.scope !609
   %84 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer15HasFieldDictKeyERKNS_7SdfPathERKNS_7TfTokenES6_PNS_7VtValueE(ptr noundef nonnull readonly align 8 dereferenceable(557) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %10)
@@ -67136,7 +67136,7 @@ _ZSt15__adjacent_findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringI
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringContainsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv.argprom() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE3GetEv() unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %struct._Guard, align 8
   %2 = alloca %struct._Guard, align 8
   %3 = alloca %"class.std::vector.68", align 8
@@ -67148,7 +67148,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
   %9 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L19_detachedLayerRulesE seq_cst, align 8
   %10 = inttoptr i64 %9 to ptr
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %11, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit
+  br i1 %.not, label %11, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit
 
 11:                                               ; preds = %0
   %12 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #33
@@ -67457,7 +67457,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140_detachedLayerRules_Tf_Stat
   %99 = ptrtoint ptr %12 to i64
   %100 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__L19_detachedLayerRulesE, i64 0, i64 %99 seq_cst seq_cst, align 8
   %101 = extractvalue { i64, i1 } %100, 1
-  br i1 %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit, label %102
+  br i1 %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit, label %102
 
 102:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactory3NewEv.exit.i
   %103 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -67528,9 +67528,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRulesD2Ev.exit.i: ;
   call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 56) #34
   %126 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L19_detachedLayerRulesE seq_cst, align 8
   %127 = inttoptr i64 %126 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE16_TryToCreateDataEv.argprom.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRulesD2Ev.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactory3NewEv.exit.i, %0
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_8SdfLayer18DetachedLayerRulesENS_12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactoryEE16_TryToCreateDataEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRulesD2Ev.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactory3NewEv.exit.i, %0
   %128 = phi ptr [ %10, %0 ], [ %127, %_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer18DetachedLayerRulesD2Ev.exit.i ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140_detachedLayerRules_Tf_StaticDataFactory3NewEv.exit.i ]
   ret ptr %128
 }

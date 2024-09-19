@@ -1893,9 +1893,9 @@ if.end7:                                          ; preds = %if.end
 if.end3.i.i:                                      ; preds = %if.end7
   %2 = load i32, ptr %call.i.i, align 8
   %cmp4.i.i = icmp eq i32 %2, 6
-  br i1 %cmp4.i.i, label %clusterManagerNodeIsCluster.argprom.exit.thread232, label %clusterManagerNodeIsCluster.argprom.exit
+  br i1 %cmp4.i.i, label %clusterManagerNodeIsCluster.exit.thread232, label %clusterManagerNodeIsCluster.exit
 
-clusterManagerNodeIsCluster.argprom.exit.thread232: ; preds = %if.end3.i.i
+clusterManagerNodeIsCluster.exit.thread232:       ; preds = %if.end3.i.i
   %len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %3 = load i64, ptr %len.i.i, align 8
   %add.i.i = add i64 %3, 1
@@ -1908,7 +1908,7 @@ clusterManagerNodeIsCluster.argprom.exit.thread232: ; preds = %if.end3.i.i
   tail call void @freeReplyObject(ptr noundef nonnull %call.i.i) #34
   br label %if.then10
 
-clusterManagerNodeIsCluster.argprom.exit:         ; preds = %if.end3.i.i
+clusterManagerNodeIsCluster.exit:                 ; preds = %if.end3.i.i
   %str.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %6 = load ptr, ptr %str.i, align 8
   %call1.i = tail call fastcc i64 @getLongInfoField(ptr noundef %6, ptr noundef nonnull @.str.185)
@@ -1917,8 +1917,8 @@ clusterManagerNodeIsCluster.argprom.exit:         ; preds = %if.end3.i.i
   %tobool9.not = icmp eq i64 %7, 0
   br i1 %tobool9.not, label %if.then10, label %if.end14
 
-if.then10:                                        ; preds = %if.end7, %clusterManagerNodeIsCluster.argprom.exit, %clusterManagerNodeIsCluster.argprom.exit.thread232
-  %8 = phi ptr [ %call8.i.i, %clusterManagerNodeIsCluster.argprom.exit.thread232 ], [ null, %clusterManagerNodeIsCluster.argprom.exit ], [ null, %if.end7 ]
+if.then10:                                        ; preds = %if.end7, %clusterManagerNodeIsCluster.exit, %clusterManagerNodeIsCluster.exit.thread232
+  %8 = phi ptr [ %call8.i.i, %clusterManagerNodeIsCluster.exit.thread232 ], [ null, %clusterManagerNodeIsCluster.exit ], [ null, %if.end7 ]
   %port2.i515 = getelementptr inbounds i8, ptr %call.i178, i64 24
   %ip1.i521 = getelementptr inbounds i8, ptr %call.i178, i64 16
   %call3.val174 = load ptr, ptr %ip1.i521, align 8
@@ -1936,7 +1936,7 @@ if.end13:                                         ; preds = %if.then12, %if.then
   tail call fastcc void @freeClusterManagerNode(ptr noundef nonnull %call.i178)
   br label %return
 
-if.end14:                                         ; preds = %clusterManagerNodeIsCluster.argprom.exit
+if.end14:                                         ; preds = %clusterManagerNodeIsCluster.exit
   store ptr null, ptr %err, align 8
   %call15 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %call.i178, i32 noundef 0, ptr noundef %err)
   %tobool16.not = icmp eq i32 %call15, 0
@@ -4527,9 +4527,9 @@ if.end31:                                         ; preds = %if.end26
 if.end3.i.i:                                      ; preds = %if.end31
   %11 = load i32, ptr %call.i.i95, align 8
   %cmp4.i.i = icmp eq i32 %11, 6
-  br i1 %cmp4.i.i, label %clusterManagerNodeIsCluster.argprom.exit.thread127, label %clusterManagerNodeIsCluster.argprom.exit
+  br i1 %cmp4.i.i, label %clusterManagerNodeIsCluster.exit.thread127, label %clusterManagerNodeIsCluster.exit
 
-clusterManagerNodeIsCluster.argprom.exit.thread127: ; preds = %if.end3.i.i
+clusterManagerNodeIsCluster.exit.thread127:       ; preds = %if.end3.i.i
   %len.i.i = getelementptr inbounds i8, ptr %call.i.i95, i64 24
   %12 = load i64, ptr %len.i.i, align 8
   %add.i.i = add i64 %12, 1
@@ -4543,7 +4543,7 @@ clusterManagerNodeIsCluster.argprom.exit.thread127: ; preds = %if.end3.i.i
   call void @freeReplyObject(ptr noundef nonnull %call.i.i95) #34
   br label %if.then34
 
-clusterManagerNodeIsCluster.argprom.exit:         ; preds = %if.end3.i.i
+clusterManagerNodeIsCluster.exit:                 ; preds = %if.end3.i.i
   %str.i = getelementptr inbounds i8, ptr %call.i.i95, i64 32
   %15 = load ptr, ptr %str.i, align 8
   %call1.i = call fastcc i64 @getLongInfoField(ptr noundef %15, ptr noundef nonnull @.str.185)
@@ -4552,7 +4552,7 @@ clusterManagerNodeIsCluster.argprom.exit:         ; preds = %if.end3.i.i
   %tobool33.not = icmp eq i64 %16, 0
   br i1 %tobool33.not, label %if.then34, label %if.end38
 
-if.then34:                                        ; preds = %if.end31, %clusterManagerNodeIsCluster.argprom.exit.thread127, %clusterManagerNodeIsCluster.argprom.exit
+if.then34:                                        ; preds = %if.end31, %clusterManagerNodeIsCluster.exit.thread127, %clusterManagerNodeIsCluster.exit
   %17 = load ptr, ptr %err, align 8
   %call27.val60 = load ptr, ptr %ip1.i84, align 8
   %call27.val61 = load i32, ptr %port2.i85, align 8
@@ -4567,7 +4567,7 @@ if.then36:                                        ; preds = %if.then34
   call void @zfree(ptr noundef nonnull %18) #34
   br label %if.then144
 
-if.end38:                                         ; preds = %clusterManagerNodeIsCluster.argprom.exit
+if.end38:                                         ; preds = %clusterManagerNodeIsCluster.exit
   %call39 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %call.i83, i32 noundef 0, ptr noundef %err)
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %if.end47
@@ -17962,9 +17962,9 @@ if.end:                                           ; preds = %land.lhs.true.if.en
 if.end3.i.i:                                      ; preds = %if.end
   %1 = load i32, ptr %call.i.i, align 8
   %cmp4.i.i = icmp eq i32 %1, 6
-  br i1 %cmp4.i.i, label %clusterManagerNodeIsCluster.argprom.exit.thread40, label %clusterManagerNodeIsCluster.argprom.exit
+  br i1 %cmp4.i.i, label %clusterManagerNodeIsCluster.exit.thread40, label %clusterManagerNodeIsCluster.exit
 
-clusterManagerNodeIsCluster.argprom.exit.thread40: ; preds = %if.end3.i.i
+clusterManagerNodeIsCluster.exit.thread40:        ; preds = %if.end3.i.i
   %len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %2 = load i64, ptr %len.i.i, align 8
   %add.i.i = add i64 %2, 1
@@ -17977,7 +17977,7 @@ clusterManagerNodeIsCluster.argprom.exit.thread40: ; preds = %if.end3.i.i
   tail call void @freeReplyObject(ptr noundef nonnull %call.i.i) #34
   br label %if.then3
 
-clusterManagerNodeIsCluster.argprom.exit:         ; preds = %if.end3.i.i
+clusterManagerNodeIsCluster.exit:                 ; preds = %if.end3.i.i
   %str.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %5 = load ptr, ptr %str.i, align 8
   %call1.i = tail call fastcc i64 @getLongInfoField(ptr noundef %5, ptr noundef nonnull @.str.185)
@@ -17986,8 +17986,8 @@ clusterManagerNodeIsCluster.argprom.exit:         ; preds = %if.end3.i.i
   %tobool2.not = icmp eq i64 %6, 0
   br i1 %tobool2.not, label %if.then3, label %if.end7
 
-if.then3:                                         ; preds = %clusterManagerNodeIsCluster.argprom.exit.thread40, %clusterManagerNodeIsCluster.argprom.exit, %if.end
-  %7 = phi ptr [ null, %if.end ], [ null, %clusterManagerNodeIsCluster.argprom.exit ], [ %call8.i.i, %clusterManagerNodeIsCluster.argprom.exit.thread40 ]
+if.then3:                                         ; preds = %clusterManagerNodeIsCluster.exit.thread40, %clusterManagerNodeIsCluster.exit, %if.end
+  %7 = phi ptr [ null, %if.end ], [ null, %clusterManagerNodeIsCluster.exit ], [ %call8.i.i, %clusterManagerNodeIsCluster.exit.thread40 ]
   %8 = getelementptr i8, ptr %node, i64 16
   %node.val36 = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %node, i64 24
@@ -17997,7 +17997,7 @@ if.then3:                                         ; preds = %clusterManagerNodeI
   tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.188, ptr noundef %node.val36, i32 noundef %node.val37, ptr noundef nonnull %cond.i)
   br i1 %tobool.not.i, label %return.sink.split, label %return.sink.split.sink.split
 
-if.end7:                                          ; preds = %clusterManagerNodeIsCluster.argprom.exit
+if.end7:                                          ; preds = %clusterManagerNodeIsCluster.exit
   store ptr null, ptr %e, align 8
   %call8 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %node, i32 noundef 1, ptr noundef %e)
   %tobool9.not = icmp eq i32 %call8, 0
@@ -18861,7 +18861,7 @@ if.end133.i:                                      ; preds = %if.then131.i, %hi_s
 if.then135.i:                                     ; preds = %if.end133.i
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.267)
   %91 = load ptr, ptr @cluster_manager.0, align 8
-  %call136.i = call fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot.argprom(ptr noundef %91, i32 noundef %call91)
+  %call136.i = call fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot(ptr noundef %91, i32 noundef %call91)
   %cmp137.i = icmp eq ptr %call136.i, null
   br i1 %cmp137.i, label %if.then138.i, label %if.end139.i
 
@@ -18978,7 +18978,7 @@ while.body160.i:                                  ; preds = %while.cond157.i
   br i1 %cmp163.i, label %while.cond157.i, label %if.end165.i, !llvm.loop !176
 
 if.end165.i:                                      ; preds = %while.body160.i
-  %call166.i = call fastcc i32 @clusterManagerDelSlot.argelim(ptr noundef %103, i32 noundef %call91)
+  %call166.i = call fastcc i32 @clusterManagerDelSlot(ptr noundef %103, i32 noundef %call91)
   %tobool167.not.i = icmp eq i32 %call166.i, 0
   br i1 %tobool167.not.i, label %clusterManagerFixOpenSlot.exit, label %if.end169.i
 
@@ -18995,9 +18995,9 @@ if.end169.i:                                      ; preds = %if.end165.i
 if.end6.i.i:                                      ; preds = %if.end169.i
   %105 = load i32, ptr %call.i258.i, align 8
   %cmp7.i.i = icmp eq i32 %105, 6
-  br i1 %cmp7.i.i, label %clusterManagerSetSlot.argprom.exit.thread421.i, label %if.end176.i
+  br i1 %cmp7.i.i, label %clusterManagerSetSlot.exit.thread421.i, label %if.end176.i
 
-clusterManagerSetSlot.argprom.exit.thread421.i:   ; preds = %if.end6.i.i
+clusterManagerSetSlot.exit.thread421.i:           ; preds = %if.end6.i.i
   %ip.i261.i = getelementptr inbounds i8, ptr %103, i64 16
   %106 = load ptr, ptr %ip.i261.i, align 8
   %port.i262.i = getelementptr inbounds i8, ptr %103, i64 24
@@ -19019,9 +19019,9 @@ if.end176.i:                                      ; preds = %if.end6.i.i
 if.end6.i265.i:                                   ; preds = %if.end176.i
   %110 = load i32, ptr %call.i263.i, align 8
   %cmp7.i266.i = icmp eq i32 %110, 6
-  br i1 %cmp7.i266.i, label %clusterManagerSetSlot.argprom.exit274.thread426.i, label %if.end180.i
+  br i1 %cmp7.i266.i, label %clusterManagerSetSlot.exit274.thread426.i, label %if.end180.i
 
-clusterManagerSetSlot.argprom.exit274.thread426.i: ; preds = %if.end6.i265.i
+clusterManagerSetSlot.exit274.thread426.i:        ; preds = %if.end6.i265.i
   %ip.i271.i = getelementptr inbounds i8, ptr %103, i64 16
   %111 = load ptr, ptr %ip.i271.i, align 8
   %port.i272.i = getelementptr inbounds i8, ptr %103, i64 24
@@ -19189,9 +19189,9 @@ while.body232.lr.ph.lr.ph.i:                      ; preds = %while.end228.i
   %138 = getelementptr i8, ptr %owner.1.i, i64 8
   br label %while.body232.lr.ph.i
 
-while.body232.lr.ph.i:                            ; preds = %clusterManagerSetSlot.argprom.exit316.i, %while.body232.lr.ph.lr.ph.i
-  %call230530537.i = phi ptr [ %call230530534.i, %while.body232.lr.ph.lr.ph.i ], [ %call230530.i, %clusterManagerSetSlot.argprom.exit316.i ]
-  %success.9.ph536.i = phi i32 [ %success.8.ph.i, %while.body232.lr.ph.lr.ph.i ], [ 1, %clusterManagerSetSlot.argprom.exit316.i ]
+while.body232.lr.ph.i:                            ; preds = %clusterManagerSetSlot.exit316.i, %while.body232.lr.ph.lr.ph.i
+  %call230530537.i = phi ptr [ %call230530534.i, %while.body232.lr.ph.lr.ph.i ], [ %call230530.i, %clusterManagerSetSlot.exit316.i ]
+  %success.9.ph536.i = phi i32 [ %success.8.ph.i, %while.body232.lr.ph.lr.ph.i ], [ 1, %clusterManagerSetSlot.exit316.i ]
   br label %while.body232.i
 
 while.body232.i:                                  ; preds = %while.cond229.backedge.i, %while.body232.lr.ph.i
@@ -19223,9 +19223,9 @@ if.end242.i:                                      ; preds = %if.end237.i
 if.end6.i307.i:                                   ; preds = %if.end242.i
   %142 = load i32, ptr %call.i305.i, align 8
   %cmp7.i308.i = icmp eq i32 %142, 6
-  br i1 %cmp7.i308.i, label %clusterManagerSetSlot.argprom.exit316.thread437.i, label %clusterManagerSetSlot.argprom.exit316.i
+  br i1 %cmp7.i308.i, label %clusterManagerSetSlot.exit316.thread437.i, label %clusterManagerSetSlot.exit316.i
 
-clusterManagerSetSlot.argprom.exit316.thread437.i: ; preds = %if.end6.i307.i
+clusterManagerSetSlot.exit316.thread437.i:        ; preds = %if.end6.i307.i
   %ip.i313.i = getelementptr inbounds i8, ptr %139, i64 16
   %143 = load ptr, ptr %ip.i313.i, align 8
   %port.i314.i = getelementptr inbounds i8, ptr %139, i64 24
@@ -19236,7 +19236,7 @@ clusterManagerSetSlot.argprom.exit316.thread437.i: ; preds = %if.end6.i307.i
   call void @freeReplyObject(ptr noundef nonnull %call.i305.i) #34
   br label %clusterManagerFixOpenSlot.exit
 
-clusterManagerSetSlot.argprom.exit316.i:          ; preds = %if.end6.i307.i
+clusterManagerSetSlot.exit316.i:                  ; preds = %if.end6.i307.i
   call void @freeReplyObject(ptr noundef nonnull %call.i305.i) #34
   %call230530.i = call ptr @listNext(ptr noundef nonnull %li.i85) #34
   %cmp231.not531.i = icmp eq ptr %call230530.i, null
@@ -19530,10 +19530,10 @@ unhandled_case.i:                                 ; preds = %clusterManagerCount
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.282, ptr noundef %migrating_str.1.ph.i.ph891, ptr noundef %importing_str.1.ph.i.ph, ptr noundef %194, i32 noundef %195)
   br label %clusterManagerFixOpenSlot.exit
 
-clusterManagerFixOpenSlot.exit:                   ; preds = %if.else.i, %if.then95.i, %if.end165.i, %if.end169.i, %if.end176.i, %if.end217.i, %if.end221.i, %if.end242.i, %clusterManagerSetSlot.argprom.exit316.i, %while.cond309.backedge.i, %if.end317.i, %while.body331.i, %clusterManagerClearSlotStatus.exit350.i, %while.cond229.backedge.i, %if.else323.i, %clusterManagerClearSlotStatus.exit.thread221, %if.end24.thread379.i, %if.end118.thread407.i, %if.then138.i, %if.end139.i, %clusterManagerClearSlotStatus.exit.thread416.i, %if.end145.i, %clusterManagerSetSlot.argprom.exit.thread421.i, %clusterManagerSetSlot.argprom.exit274.thread426.i, %if.then189.i, %clusterManagerClearSlotStatus.exit304.thread432.i, %while.end228.i, %clusterManagerSetSlot.argprom.exit316.thread437.i, %if.then300.i, %if.end308.i, %clusterManagerClearSlotStatus.exit337.thread447.i, %if.end327.i, %clusterManagerClearSlotStatus.exit350.thread452.i, %if.then352.i, %if.end363.thread469.i, %if.then370.i, %if.then381.i, %unhandled_case.i
-  %importing_str.0.i = phi ptr [ %importing_str.1.ph.i.ph, %if.then138.i ], [ %importing_str.1.ph.i.ph, %if.then189.i ], [ %importing_str.1.ph.i.ph, %if.then300.i ], [ %importing_str.1.ph.i.ph, %unhandled_case.i ], [ %importing_str.1.ph.i.ph, %if.then381.i ], [ %importing_str.1.ph.i.ph, %if.end145.i ], [ %call4.i91, %if.end24.thread379.i ], [ %importing_str.1.ph.i.ph, %if.end118.thread407.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit.thread416.i ], [ %importing_str.1.ph.i.ph, %clusterManagerSetSlot.argprom.exit.thread421.i ], [ %importing_str.1.ph.i.ph, %clusterManagerSetSlot.argprom.exit274.thread426.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit304.thread432.i ], [ %importing_str.1.ph.i.ph, %clusterManagerSetSlot.argprom.exit316.thread437.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit337.thread447.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit350.thread452.i ], [ %importing_str.1.ph.i.ph, %if.end363.thread469.i ], [ %importing_str.1.ph.i.ph, %if.then370.i ], [ %importing_str.1.ph.i.ph, %if.end139.i ], [ %importing_str.1.ph.i.ph, %if.then352.i ], [ %importing_str.1.ph.i.ph, %if.end327.i ], [ %importing_str.1.ph.i.ph, %if.end308.i ], [ %importing_str.1.ph.i.ph, %while.end228.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit.thread221 ], [ %importing_str.1.ph.i.ph, %if.else323.i ], [ %importing_str.1.ph.i.ph, %while.cond229.backedge.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit350.i ], [ %importing_str.1.ph.i.ph, %while.body331.i ], [ %importing_str.1.ph.i.ph, %if.end317.i ], [ %importing_str.1.ph.i.ph, %while.cond309.backedge.i ], [ %importing_str.1.ph.i.ph, %clusterManagerSetSlot.argprom.exit316.i ], [ %importing_str.1.ph.i.ph, %if.end242.i ], [ %importing_str.1.ph.i.ph, %if.end221.i ], [ %importing_str.1.ph.i.ph, %if.end217.i ], [ %importing_str.1.ph.i.ph, %if.end176.i ], [ %importing_str.1.ph.i.ph, %if.end169.i ], [ %importing_str.1.ph.i.ph, %if.end165.i ], [ %importing_str.1.ph.i.ph, %if.then95.i ], [ %call4.i91, %if.else.i ]
-  %migrating_str.0.i = phi ptr [ %migrating_str.1.ph.i.ph891, %if.then138.i ], [ %migrating_str.1.ph.i.ph891, %if.then189.i ], [ %migrating_str.1.ph.i.ph891, %if.then300.i ], [ %migrating_str.1.ph.i.ph891, %unhandled_case.i ], [ %migrating_str.1.ph.i.ph891, %if.then381.i ], [ %migrating_str.1.ph.i.ph891, %if.end145.i ], [ %call3.i, %if.end24.thread379.i ], [ %migrating_str.1.ph.i.ph891, %if.end118.thread407.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit.thread416.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerSetSlot.argprom.exit.thread421.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerSetSlot.argprom.exit274.thread426.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit304.thread432.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerSetSlot.argprom.exit316.thread437.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit337.thread447.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit350.thread452.i ], [ %migrating_str.1.ph.i.ph891, %if.end363.thread469.i ], [ %migrating_str.1.ph.i.ph891, %if.then370.i ], [ %migrating_str.1.ph.i.ph891, %if.end139.i ], [ %migrating_str.1.ph.i.ph891, %if.then352.i ], [ %migrating_str.1.ph.i.ph891, %if.end327.i ], [ %migrating_str.1.ph.i.ph891, %if.end308.i ], [ %migrating_str.1.ph.i.ph891, %while.end228.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit.thread221 ], [ %migrating_str.1.ph.i.ph891, %if.else323.i ], [ %migrating_str.1.ph.i.ph891, %while.cond229.backedge.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit350.i ], [ %migrating_str.1.ph.i.ph891, %while.body331.i ], [ %migrating_str.1.ph.i.ph891, %if.end317.i ], [ %migrating_str.1.ph.i.ph891, %while.cond309.backedge.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerSetSlot.argprom.exit316.i ], [ %migrating_str.1.ph.i.ph891, %if.end242.i ], [ %migrating_str.1.ph.i.ph891, %if.end221.i ], [ %migrating_str.1.ph.i.ph891, %if.end217.i ], [ %migrating_str.1.ph.i.ph891, %if.end176.i ], [ %migrating_str.1.ph.i.ph891, %if.end169.i ], [ %migrating_str.1.ph.i.ph891, %if.end165.i ], [ %migrating_str.1.ph.i.ph891, %if.then95.i ], [ %call3.i, %if.else.i ]
-  %success.2.i = phi i32 [ 0, %if.then138.i ], [ %call198.i, %if.then189.i ], [ 0, %if.then300.i ], [ 0, %unhandled_case.i ], [ %retval.0.i364.ph.i, %if.then381.i ], [ 0, %if.end145.i ], [ 0, %if.end24.thread379.i ], [ 0, %if.end118.thread407.i ], [ 0, %clusterManagerClearSlotStatus.exit.thread416.i ], [ 0, %clusterManagerSetSlot.argprom.exit.thread421.i ], [ 0, %clusterManagerSetSlot.argprom.exit274.thread426.i ], [ 0, %clusterManagerClearSlotStatus.exit304.thread432.i ], [ 0, %clusterManagerSetSlot.argprom.exit316.thread437.i ], [ 0, %clusterManagerClearSlotStatus.exit337.thread447.i ], [ 0, %clusterManagerClearSlotStatus.exit350.thread452.i ], [ 0, %if.end363.thread469.i ], [ 0, %if.then370.i ], [ 0, %if.end139.i ], [ 0, %if.then352.i ], [ 1, %if.end327.i ], [ 1, %if.end308.i ], [ %success.8.ph.i, %while.end228.i ], [ 0, %clusterManagerClearSlotStatus.exit.thread221 ], [ 0, %if.else323.i ], [ %success.9.ph536.i, %while.cond229.backedge.i ], [ 0, %while.body331.i ], [ 1, %clusterManagerClearSlotStatus.exit350.i ], [ 1, %while.cond309.backedge.i ], [ 0, %if.end317.i ], [ 0, %if.end242.i ], [ 1, %clusterManagerSetSlot.argprom.exit316.i ], [ 0, %if.end221.i ], [ 0, %if.end217.i ], [ 0, %if.end176.i ], [ 0, %if.end169.i ], [ 0, %if.end165.i ], [ 0, %if.then95.i ], [ 0, %if.else.i ]
+clusterManagerFixOpenSlot.exit:                   ; preds = %if.else.i, %if.then95.i, %if.end165.i, %if.end169.i, %if.end176.i, %if.end217.i, %if.end221.i, %if.end242.i, %clusterManagerSetSlot.exit316.i, %while.cond309.backedge.i, %if.end317.i, %while.body331.i, %clusterManagerClearSlotStatus.exit350.i, %while.cond229.backedge.i, %if.else323.i, %clusterManagerClearSlotStatus.exit.thread221, %if.end24.thread379.i, %if.end118.thread407.i, %if.then138.i, %if.end139.i, %clusterManagerClearSlotStatus.exit.thread416.i, %if.end145.i, %clusterManagerSetSlot.exit.thread421.i, %clusterManagerSetSlot.exit274.thread426.i, %if.then189.i, %clusterManagerClearSlotStatus.exit304.thread432.i, %while.end228.i, %clusterManagerSetSlot.exit316.thread437.i, %if.then300.i, %if.end308.i, %clusterManagerClearSlotStatus.exit337.thread447.i, %if.end327.i, %clusterManagerClearSlotStatus.exit350.thread452.i, %if.then352.i, %if.end363.thread469.i, %if.then370.i, %if.then381.i, %unhandled_case.i
+  %importing_str.0.i = phi ptr [ %importing_str.1.ph.i.ph, %if.then138.i ], [ %importing_str.1.ph.i.ph, %if.then189.i ], [ %importing_str.1.ph.i.ph, %if.then300.i ], [ %importing_str.1.ph.i.ph, %unhandled_case.i ], [ %importing_str.1.ph.i.ph, %if.then381.i ], [ %importing_str.1.ph.i.ph, %if.end145.i ], [ %call4.i91, %if.end24.thread379.i ], [ %importing_str.1.ph.i.ph, %if.end118.thread407.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit.thread416.i ], [ %importing_str.1.ph.i.ph, %clusterManagerSetSlot.exit.thread421.i ], [ %importing_str.1.ph.i.ph, %clusterManagerSetSlot.exit274.thread426.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit304.thread432.i ], [ %importing_str.1.ph.i.ph, %clusterManagerSetSlot.exit316.thread437.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit337.thread447.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit350.thread452.i ], [ %importing_str.1.ph.i.ph, %if.end363.thread469.i ], [ %importing_str.1.ph.i.ph, %if.then370.i ], [ %importing_str.1.ph.i.ph, %if.end139.i ], [ %importing_str.1.ph.i.ph, %if.then352.i ], [ %importing_str.1.ph.i.ph, %if.end327.i ], [ %importing_str.1.ph.i.ph, %if.end308.i ], [ %importing_str.1.ph.i.ph, %while.end228.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit.thread221 ], [ %importing_str.1.ph.i.ph, %if.else323.i ], [ %importing_str.1.ph.i.ph, %while.cond229.backedge.i ], [ %importing_str.1.ph.i.ph, %clusterManagerClearSlotStatus.exit350.i ], [ %importing_str.1.ph.i.ph, %while.body331.i ], [ %importing_str.1.ph.i.ph, %if.end317.i ], [ %importing_str.1.ph.i.ph, %while.cond309.backedge.i ], [ %importing_str.1.ph.i.ph, %clusterManagerSetSlot.exit316.i ], [ %importing_str.1.ph.i.ph, %if.end242.i ], [ %importing_str.1.ph.i.ph, %if.end221.i ], [ %importing_str.1.ph.i.ph, %if.end217.i ], [ %importing_str.1.ph.i.ph, %if.end176.i ], [ %importing_str.1.ph.i.ph, %if.end169.i ], [ %importing_str.1.ph.i.ph, %if.end165.i ], [ %importing_str.1.ph.i.ph, %if.then95.i ], [ %call4.i91, %if.else.i ]
+  %migrating_str.0.i = phi ptr [ %migrating_str.1.ph.i.ph891, %if.then138.i ], [ %migrating_str.1.ph.i.ph891, %if.then189.i ], [ %migrating_str.1.ph.i.ph891, %if.then300.i ], [ %migrating_str.1.ph.i.ph891, %unhandled_case.i ], [ %migrating_str.1.ph.i.ph891, %if.then381.i ], [ %migrating_str.1.ph.i.ph891, %if.end145.i ], [ %call3.i, %if.end24.thread379.i ], [ %migrating_str.1.ph.i.ph891, %if.end118.thread407.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit.thread416.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerSetSlot.exit.thread421.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerSetSlot.exit274.thread426.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit304.thread432.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerSetSlot.exit316.thread437.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit337.thread447.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit350.thread452.i ], [ %migrating_str.1.ph.i.ph891, %if.end363.thread469.i ], [ %migrating_str.1.ph.i.ph891, %if.then370.i ], [ %migrating_str.1.ph.i.ph891, %if.end139.i ], [ %migrating_str.1.ph.i.ph891, %if.then352.i ], [ %migrating_str.1.ph.i.ph891, %if.end327.i ], [ %migrating_str.1.ph.i.ph891, %if.end308.i ], [ %migrating_str.1.ph.i.ph891, %while.end228.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit.thread221 ], [ %migrating_str.1.ph.i.ph891, %if.else323.i ], [ %migrating_str.1.ph.i.ph891, %while.cond229.backedge.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerClearSlotStatus.exit350.i ], [ %migrating_str.1.ph.i.ph891, %while.body331.i ], [ %migrating_str.1.ph.i.ph891, %if.end317.i ], [ %migrating_str.1.ph.i.ph891, %while.cond309.backedge.i ], [ %migrating_str.1.ph.i.ph891, %clusterManagerSetSlot.exit316.i ], [ %migrating_str.1.ph.i.ph891, %if.end242.i ], [ %migrating_str.1.ph.i.ph891, %if.end221.i ], [ %migrating_str.1.ph.i.ph891, %if.end217.i ], [ %migrating_str.1.ph.i.ph891, %if.end176.i ], [ %migrating_str.1.ph.i.ph891, %if.end169.i ], [ %migrating_str.1.ph.i.ph891, %if.end165.i ], [ %migrating_str.1.ph.i.ph891, %if.then95.i ], [ %call3.i, %if.else.i ]
+  %success.2.i = phi i32 [ 0, %if.then138.i ], [ %call198.i, %if.then189.i ], [ 0, %if.then300.i ], [ 0, %unhandled_case.i ], [ %retval.0.i364.ph.i, %if.then381.i ], [ 0, %if.end145.i ], [ 0, %if.end24.thread379.i ], [ 0, %if.end118.thread407.i ], [ 0, %clusterManagerClearSlotStatus.exit.thread416.i ], [ 0, %clusterManagerSetSlot.exit.thread421.i ], [ 0, %clusterManagerSetSlot.exit274.thread426.i ], [ 0, %clusterManagerClearSlotStatus.exit304.thread432.i ], [ 0, %clusterManagerSetSlot.exit316.thread437.i ], [ 0, %clusterManagerClearSlotStatus.exit337.thread447.i ], [ 0, %clusterManagerClearSlotStatus.exit350.thread452.i ], [ 0, %if.end363.thread469.i ], [ 0, %if.then370.i ], [ 0, %if.end139.i ], [ 0, %if.then352.i ], [ 1, %if.end327.i ], [ 1, %if.end308.i ], [ %success.8.ph.i, %while.end228.i ], [ 0, %clusterManagerClearSlotStatus.exit.thread221 ], [ 0, %if.else323.i ], [ %success.9.ph536.i, %while.cond229.backedge.i ], [ 0, %while.body331.i ], [ 1, %clusterManagerClearSlotStatus.exit350.i ], [ 1, %while.cond309.backedge.i ], [ 0, %if.end317.i ], [ 0, %if.end242.i ], [ 1, %clusterManagerSetSlot.exit316.i ], [ 0, %if.end221.i ], [ 0, %if.end217.i ], [ 0, %if.end176.i ], [ 0, %if.end169.i ], [ 0, %if.end165.i ], [ 0, %if.then95.i ], [ 0, %if.else.i ]
   call void @listRelease(ptr noundef %call.i88) #34
   call void @listRelease(ptr noundef %call1.i89) #34
   call void @listRelease(ptr noundef %call2.i90) #34
@@ -20057,7 +20057,7 @@ while.body140.i:                                  ; preds = %if.then133.i, %whil
   %call144.i = call ptr @dictFind(ptr noundef %252, ptr noundef %251) #34
   %call146.i129 = call ptr @dictGetVal(ptr noundef %call144.i) #34
   %call148.i = call i32 @atoi(ptr nocapture noundef %251) #33
-  %call149.i = call fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot.argprom(ptr noundef %call146.i129, i32 noundef %call148.i)
+  %call149.i = call fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot(ptr noundef %call146.i129, i32 noundef %call148.i)
   %cmp150.i = icmp eq ptr %call149.i, null
   br i1 %cmp150.i, label %cleanup.i, label %if.end153.i130
 
@@ -20104,7 +20104,7 @@ if.end173.us.i:                                   ; preds = %while.body168.us.i
 if.end6.i.us.i:                                   ; preds = %if.end173.us.i
   %258 = load i32, ptr %call.i114.us.i, align 8
   %cmp7.i.us.i = icmp eq i32 %258, 6
-  br i1 %cmp7.i.us.i, label %clusterManagerSetSlot.argprom.exit.thread142.i, label %259
+  br i1 %cmp7.i.us.i, label %clusterManagerSetSlot.exit.thread142.i, label %259
 
 259:                                              ; preds = %if.end6.i.us.i
   call void @freeReplyObject(ptr noundef nonnull %call.i114.us.i) #34
@@ -20137,9 +20137,9 @@ if.end173.i:                                      ; preds = %while.body168.i
 if.end6.i.i131:                                   ; preds = %if.end173.i
   %262 = load i32, ptr %call.i114.i, align 8
   %cmp7.i.i132 = icmp eq i32 %262, 6
-  br i1 %cmp7.i.i132, label %clusterManagerSetSlot.argprom.exit.thread142.i, label %if.end181.i
+  br i1 %cmp7.i.i132, label %clusterManagerSetSlot.exit.thread142.i, label %if.end181.i
 
-clusterManagerSetSlot.argprom.exit.thread142.i:   ; preds = %if.end6.i.i131, %if.end6.i.us.i
+clusterManagerSetSlot.exit.thread142.i:           ; preds = %if.end6.i.i131, %if.end6.i.us.i
   %.us-phi225.i = phi ptr [ %call.i114.us.i, %if.end6.i.us.i ], [ %call.i114.i, %if.end6.i.i131 ]
   %.us-phi226.i = phi ptr [ %256, %if.end6.i.us.i ], [ %260, %if.end6.i.i131 ]
   %ip.i117.i = getelementptr inbounds i8, ptr %.us-phi226.i, i64 16
@@ -20163,9 +20163,9 @@ if.end181.i:                                      ; preds = %if.end6.i.i131
 if.end6.i121.i:                                   ; preds = %if.end181.i
   %267 = load i32, ptr %call.i119.i, align 8
   %cmp7.i122.i = icmp eq i32 %267, 6
-  br i1 %cmp7.i122.i, label %clusterManagerSetSlot.argprom.exit130.thread148.i, label %if.end189.i
+  br i1 %cmp7.i122.i, label %clusterManagerSetSlot.exit130.thread148.i, label %if.end189.i
 
-clusterManagerSetSlot.argprom.exit130.thread148.i: ; preds = %if.end6.i121.i
+clusterManagerSetSlot.exit130.thread148.i:        ; preds = %if.end6.i121.i
   %ip.i127.i = getelementptr inbounds i8, ptr %260, i64 16
   %268 = load ptr, ptr %ip.i127.i, align 8
   %port.i128.i = getelementptr inbounds i8, ptr %260, i64 24
@@ -20214,8 +20214,8 @@ while.end202.i:                                   ; preds = %while.cond164.backe
   %cmp138.not.i = icmp eq ptr %call137.i, null
   br i1 %cmp138.not.i, label %cleanup.i, label %while.body140.i, !llvm.loop !193
 
-cleanup.i:                                        ; preds = %clusterManagerNodeMasterRandom.exit.i, %while.body101.i, %while.end202.i, %if.end153.i130, %while.body140.i, %if.end193.i, %if.end189.i, %if.end181.i, %if.end173.i, %clusterManagerClearSlotStatus.exit.thread156.i, %clusterManagerSetSlot.argprom.exit130.thread148.i, %clusterManagerSetSlot.argprom.exit.thread142.i, %259, %if.end173.us.i, %if.then133.i, %confirmWithYes.exit113.i, %confirmWithYes.exit113.thread.i, %if.end125.i
-  %fixed.0.i = phi i32 [ %fixed.3.fr.i, %confirmWithYes.exit113.i ], [ %fixed.3.fr.i, %if.end125.i ], [ %fixed.3.fr.i, %confirmWithYes.exit113.thread.i ], [ -1, %clusterManagerSetSlot.argprom.exit.thread142.i ], [ -1, %clusterManagerSetSlot.argprom.exit130.thread148.i ], [ -1, %clusterManagerClearSlotStatus.exit.thread156.i ], [ -1, %if.end173.us.i ], [ %fixed.5245.i, %259 ], [ %fixed.3.fr.i, %if.then133.i ], [ -1, %if.end173.i ], [ -1, %if.end181.i ], [ -1, %if.end189.i ], [ -1, %if.end193.i ], [ -1, %if.end153.i130 ], [ -1, %while.body140.i ], [ %inc203.i, %while.end202.i ], [ -1, %while.body101.i ], [ -1, %clusterManagerNodeMasterRandom.exit.i ]
+cleanup.i:                                        ; preds = %clusterManagerNodeMasterRandom.exit.i, %while.body101.i, %while.end202.i, %if.end153.i130, %while.body140.i, %if.end193.i, %if.end189.i, %if.end181.i, %if.end173.i, %clusterManagerClearSlotStatus.exit.thread156.i, %clusterManagerSetSlot.exit130.thread148.i, %clusterManagerSetSlot.exit.thread142.i, %259, %if.end173.us.i, %if.then133.i, %confirmWithYes.exit113.i, %confirmWithYes.exit113.thread.i, %if.end125.i
+  %fixed.0.i = phi i32 [ %fixed.3.fr.i, %confirmWithYes.exit113.i ], [ %fixed.3.fr.i, %if.end125.i ], [ %fixed.3.fr.i, %confirmWithYes.exit113.thread.i ], [ -1, %clusterManagerSetSlot.exit.thread142.i ], [ -1, %clusterManagerSetSlot.exit130.thread148.i ], [ -1, %clusterManagerClearSlotStatus.exit.thread156.i ], [ -1, %if.end173.us.i ], [ %fixed.5245.i, %259 ], [ %fixed.3.fr.i, %if.then133.i ], [ -1, %if.end173.i ], [ -1, %if.end181.i ], [ -1, %if.end189.i ], [ -1, %if.end193.i ], [ -1, %if.end153.i130 ], [ -1, %while.body140.i ], [ %inc203.i, %while.end202.i ], [ -1, %while.body101.i ], [ -1, %clusterManagerNodeMasterRandom.exit.i ]
   %tobool207.not.i = icmp eq ptr %call36.i, null
   br i1 %tobool207.not.i, label %if.end209.i, label %if.then208.i
 
@@ -20384,7 +20384,7 @@ while.end162:                                     ; preds = %while.body157, %if.
 if.then165:                                       ; preds = %while.end162
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i174)
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.325, i32 noundef %290)
-  %call.i175 = call fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot.argprom(ptr noundef %call126, i32 noundef %290)
+  %call.i175 = call fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot(ptr noundef %call126, i32 noundef %290)
   %tobool.not.i176 = icmp eq ptr %call.i175, null
   br i1 %tobool.not.i176, label %if.then.i208, label %if.end.i177
 
@@ -20463,7 +20463,7 @@ clusterManagerCountKeysInSlot.exit.i195:          ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp14.i, label %if.end17.i, label %clusterManagerFixMultipleSlotOwners.exit.thread
 
 if.end17.i:                                       ; preds = %clusterManagerCountKeysInSlot.exit.i195
-  %305 = call fastcc i32 @clusterManagerDelSlot.argelim(ptr noundef nonnull %300, i32 noundef %290)
+  %305 = call fastcc i32 @clusterManagerDelSlot(ptr noundef nonnull %300, i32 noundef %290)
   %owner.0.val.i = load ptr, ptr %299, align 8
   %306 = load ptr, ptr %300, align 8
   %call.i23.i = call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %306, ptr noundef nonnull @.str.289, i32 noundef %290, ptr noundef nonnull @.str.270, ptr noundef %owner.0.val.i) #34
@@ -21689,9 +21689,9 @@ if.then134.thread.i:                              ; preds = %if.end.i, %lor.lhs.
 if.then134.i:                                     ; preds = %while.end106.i
   call void @freeReplyObject(ptr noundef nonnull %call.i) #34
   %cmp136.not.i = icmp eq ptr %node_configs.1.ph.lcssa.i, null
-  br i1 %cmp136.not.i, label %while.end, label %clusterManagerGetConfigSignature.argprom.exit.thread11
+  br i1 %cmp136.not.i, label %while.end, label %clusterManagerGetConfigSignature.exit.thread11
 
-clusterManagerGetConfigSignature.argprom.exit.thread11: ; preds = %if.then134.i
+clusterManagerGetConfigSignature.exit.thread11:   ; preds = %if.then134.i
   call void @zfree(ptr noundef nonnull %node_configs.1.ph.lcssa.i) #34
   br label %while.end
 
@@ -21706,14 +21706,14 @@ for.body142.i:                                    ; preds = %for.body142.i, %for
   call void @zfree(ptr noundef %9) #34
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count68.i.pre-phi
-  br i1 %exitcond74.not.i, label %clusterManagerGetConfigSignature.argprom.exit, label %for.body142.i, !llvm.loop !209
+  br i1 %exitcond74.not.i, label %clusterManagerGetConfigSignature.exit, label %for.body142.i, !llvm.loop !209
 
-clusterManagerGetConfigSignature.argprom.exit:    ; preds = %for.body142.i
+clusterManagerGetConfigSignature.exit:            ; preds = %for.body142.i
   call void @zfree(ptr noundef nonnull %node_configs.1.ph.lcssa.i) #34
   %cmp7 = icmp eq ptr %call127.i, null
   br i1 %cmp7, label %while.end, label %if.end10
 
-if.end10:                                         ; preds = %clusterManagerGetConfigSignature.argprom.exit
+if.end10:                                         ; preds = %clusterManagerGetConfigSignature.exit
   %cmp11 = icmp eq ptr %first_cfg.035, null
   br i1 %cmp11, label %if.end19, label %if.else
 
@@ -21730,7 +21730,7 @@ if.end19:                                         ; preds = %if.end10, %if.else
   %cmp4.not = icmp eq ptr %call, null
   br i1 %cmp4.not, label %if.then22, label %while.body, !llvm.loop !210
 
-while.end:                                        ; preds = %clusterManagerGetConfigSignature.argprom.exit, %while.body, %if.then134.thread.i, %if.then134.i, %clusterManagerGetConfigSignature.argprom.exit.thread11
+while.end:                                        ; preds = %clusterManagerGetConfigSignature.exit, %while.body, %if.then134.thread.i, %if.then134.i, %clusterManagerGetConfigSignature.exit.thread11
   %cmp20.not = icmp eq ptr %first_cfg.035, null
   br i1 %cmp20.not, label %return, label %if.then22
 
@@ -21809,7 +21809,7 @@ declare ptr @hi_sdscpy(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @hi_sdstolower(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot.argprom(ptr noundef %nodes, i32 noundef %slot) unnamed_addr #2 {
+define internal fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot(ptr noundef %nodes, i32 noundef %slot) unnamed_addr #2 {
 entry:
   %li = alloca %struct.listIter, align 8
   call void @listRewind(ptr noundef %nodes, ptr noundef nonnull %li) #34
@@ -21911,7 +21911,7 @@ clusterManagerStartTransaction.exit.thread50:     ; preds = %lor.lhs.false.i.i
 
 if.end:                                           ; preds = %lor.lhs.false.i.i
   tail call void @freeReplyObject(ptr noundef nonnull %call.i) #34
-  %5 = tail call fastcc i32 @clusterManagerDelSlot.argelim(ptr noundef nonnull %owner, i32 noundef %slot)
+  %5 = tail call fastcc i32 @clusterManagerDelSlot(ptr noundef nonnull %owner, i32 noundef %slot)
   %6 = load ptr, ptr %owner, align 8
   %call.i9 = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %6, ptr noundef nonnull @.str.284, i32 noundef %slot) #34
   %tobool.not.i.i10 = icmp eq ptr %call.i9, null
@@ -22098,7 +22098,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerDelSlot.argelim(ptr nocapture noundef readonly %node, i32 noundef %slot) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerDelSlot(ptr nocapture noundef readonly %node, i32 noundef %slot) unnamed_addr #2 {
 entry:
   %get_owner_err = alloca ptr, align 8
   %0 = load ptr, ptr %node, align 8
@@ -22128,7 +22128,7 @@ clusterManagerCheckRedisReply.exit:               ; preds = %lor.lhs.false.i
 if.then:                                          ; preds = %clusterManagerCheckRedisReply.exit
   store ptr null, ptr %get_owner_err, align 8
   %node.val = load ptr, ptr %node, align 8
-  %call6 = call fastcc ptr @clusterManagerGetSlotOwner.argprom(ptr %node.val, i32 noundef %slot, ptr noundef %get_owner_err)
+  %call6 = call fastcc ptr @clusterManagerGetSlotOwner(ptr %node.val, i32 noundef %slot, ptr noundef %get_owner_err)
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %if.then8, label %if.end12
 
@@ -22170,7 +22170,7 @@ if.end22:                                         ; preds = %entry, %if.then21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerSetSlot.argprom(ptr nocapture noundef readonly %node1, ptr %node2.8.val, i32 noundef %slot, ptr noundef %status, ptr noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerSetSlot(ptr nocapture noundef readonly %node1, ptr %node2.8.val, i32 noundef %slot, ptr noundef %status, ptr noundef writeonly %err) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %node1, align 8
   %call = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %0, ptr noundef nonnull @.str.289, i32 noundef %slot, ptr noundef %status, ptr noundef %node2.8.val) #34
@@ -22278,14 +22278,14 @@ if.end5:                                          ; preds = %if.then4, %if.end
 if.then9:                                         ; preds = %if.end5
   %7 = getelementptr i8, ptr %source, i64 8
   %source.val = load ptr, ptr %7, align 8
-  %call10 = tail call fastcc i32 @clusterManagerSetSlot.argprom(ptr noundef %target, ptr %source.val, i32 noundef %slot, ptr noundef nonnull @.str.271, ptr noundef %err)
+  %call10 = tail call fastcc i32 @clusterManagerSetSlot(ptr noundef %target, ptr %source.val, i32 noundef %slot, ptr noundef nonnull @.str.271, ptr noundef %err)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.then9
   %8 = getelementptr i8, ptr %target, i64 8
   %target.val57 = load ptr, ptr %8, align 8
-  %call14 = tail call fastcc i32 @clusterManagerSetSlot.argprom(ptr noundef nonnull %source, ptr %target.val57, i32 noundef %slot, ptr noundef nonnull @.str.292, ptr noundef %err)
+  %call14 = tail call fastcc i32 @clusterManagerSetSlot(ptr noundef nonnull %source, ptr %target.val57, i32 noundef %slot, ptr noundef nonnull @.str.292, ptr noundef %err)
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %if.end18
 
@@ -22371,7 +22371,7 @@ if.then32.i:                                      ; preds = %if.end28.i
 if.then38.i:                                      ; preds = %if.then32.i
   store ptr null, ptr %get_owner_err.i, align 8
   %source.val.i = load ptr, ptr %source, align 8
-  %call39.i = call fastcc ptr @clusterManagerGetSlotOwner.argprom(ptr %source.val.i, i32 noundef %slot, ptr noundef %get_owner_err.i)
+  %call39.i = call fastcc ptr @clusterManagerGetSlotOwner(ptr %source.val.i, i32 noundef %slot, ptr noundef %get_owner_err.i)
   %tobool40.not.i = icmp eq ptr %call39.i, null
   br i1 %tobool40.not.i, label %if.then41.i, label %if.then98.i
 
@@ -22738,13 +22738,13 @@ if.end27:                                         ; preds = %if.end24
 
 if.then29:                                        ; preds = %if.end27
   %target.val56 = load ptr, ptr %10, align 8
-  %call30 = call fastcc i32 @clusterManagerSetSlot.argprom(ptr noundef %target, ptr %target.val56, i32 noundef %slot, ptr noundef nonnull @.str.270, ptr noundef %err)
+  %call30 = call fastcc i32 @clusterManagerSetSlot(ptr noundef %target, ptr %target.val56, i32 noundef %slot, ptr noundef nonnull @.str.270, ptr noundef %err)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.then29
   %target.val55 = load ptr, ptr %10, align 8
-  %call34 = call fastcc i32 @clusterManagerSetSlot.argprom(ptr noundef nonnull %source, ptr %target.val55, i32 noundef %slot, ptr noundef nonnull @.str.270, ptr noundef %err)
+  %call34 = call fastcc i32 @clusterManagerSetSlot(ptr noundef nonnull %source, ptr %target.val55, i32 noundef %slot, ptr noundef nonnull @.str.270, ptr noundef %err)
   %tobool35 = icmp eq i32 %call34, 0
   %or.cond = and i1 %cmp, %tobool35
   br i1 %or.cond, label %land.lhs.true37, label %if.end47
@@ -22790,7 +22790,7 @@ while.cond.backedge:                              ; preds = %if.end53, %if.end57
 
 if.end57:                                         ; preds = %if.end53
   %target.val = load ptr, ptr %10, align 8
-  %call58 = call fastcc i32 @clusterManagerSetSlot.argprom(ptr noundef nonnull %82, ptr %target.val, i32 noundef %slot, ptr noundef nonnull @.str.270, ptr noundef %err)
+  %call58 = call fastcc i32 @clusterManagerSetSlot(ptr noundef nonnull %82, ptr %target.val, i32 noundef %slot, ptr noundef nonnull @.str.270, ptr noundef %err)
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %return, label %while.cond.backedge
 
@@ -22817,7 +22817,7 @@ return:                                           ; preds = %if.end57, %land.lhs
 declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clusterManagerGetSlotOwner.argprom(ptr %n.0.val, i32 noundef %slot, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #2 {
+define internal fastcc ptr @clusterManagerGetSlotOwner(ptr %n.0.val, i32 noundef %slot, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #2 {
 entry:
   %li = alloca %struct.listIter, align 8
   %call = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %n.0.val, ptr noundef nonnull @.str.288) #34

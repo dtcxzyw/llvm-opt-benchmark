@@ -120,29 +120,29 @@ define noundef i32 @_Z16get_nthreads_mpiPK13gmx_hw_info_tP12gmx_hw_opt_tibbPK10t
 24:                                               ; preds = %9
   %25 = getelementptr inbounds i8, ptr %5, i64 340
   %.val = load i32, ptr %25, align 4
-  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit [
-    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
-    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
-    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
-    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
-    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
+  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.exit [
+    i32 3, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
+    i32 14, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
+    i32 13, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
+    i32 15, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
+    i32 5, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
   ]
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %24
+_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %24
   %26 = getelementptr inbounds i8, ptr %5, i64 368
   %.val107 = load i32, ptr %26, align 4
   %27 = icmp eq i32 %.val107, 5
-  br i1 %27, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread, label %31
+  br i1 %27, label %_ZL8usingPmeRK22CoulombInteractionType.exit.thread, label %31
 
-_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread: ; preds = %24, %24, %24, %24, %24, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+_ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %24, %24, %24, %24, %24, %_ZL8usingPmeRK22CoulombInteractionType.exit
   %28 = tail call noundef zeroext i1 @_Z22pme_gpu_supports_buildPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef null)
   br i1 %28, label %29, label %31
 
-29:                                               ; preds = %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread
+29:                                               ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
   %30 = tail call noundef zeroext i1 @_Z22pme_gpu_supports_inputRK10t_inputrecPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(856) %5, ptr noundef null)
   br i1 %30, label %32, label %31
 
-31:                                               ; preds = %29, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit.thread, %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
+31:                                               ; preds = %29, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread, %_ZL8usingPmeRK22CoulombInteractionType.exit
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ16get_nthreads_mpiPK13gmx_hw_info_tP12gmx_hw_opt_tibbPK10t_inputrecRK10gmx_mtop_tRKN3gmx8MDLoggerEbENK3$_0clEv", ptr noundef nonnull @.str.4, i32 noundef 382) #16
   unreachable
 
@@ -522,7 +522,7 @@ common.resume:                                    ; preds = %.body, %144, %157
 
 167:                                              ; preds = %.preheader.i
   %168 = icmp slt i32 %., %.043.i
-  br i1 %168, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit, label %169
+  br i1 %168, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, label %169
 
 169:                                              ; preds = %167
   %170 = getelementptr inbounds i8, ptr %151, i64 4
@@ -587,12 +587,12 @@ _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, 
 
 192:                                              ; preds = %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
   %.not48.i = icmp eq i32 %149, 1
-  br i1 %.not48.i, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit, label %193
+  br i1 %.not48.i, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, label %193
 
 193:                                              ; preds = %192
   %194 = udiv i32 %., %2
   %195 = icmp ugt i32 %194, 6
-  br i1 %195, label %.critedge.i.preheader, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit
+  br i1 %195, label %.critedge.i.preheader, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
 .critedge.i.preheader:                            ; preds = %193, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
   br label %.critedge.i
@@ -615,7 +615,7 @@ _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, 
   %206 = icmp ule i32 %205, 1
   %.not49.i = icmp eq i32 %199, 0
   %or.cond = or i1 %206, %.not49.i
-  br i1 %or.cond, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit, label %.critedge.i.backedge
+  br i1 %or.cond, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, label %.critedge.i.backedge
 
 .critedge.i.backedge:                             ; preds = %202, %.critedge.i
   br label %.critedge.i, !llvm.loop !8
@@ -626,7 +626,7 @@ _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, 
 208:                                              ; preds = %207
   %209 = udiv i32 %., %.val109
   %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %209, i32 1)
-  br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit
+  br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
 210:                                              ; preds = %207
   %211 = getelementptr inbounds i8, ptr %151, i64 4
@@ -688,9 +688,9 @@ _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i: ; preds = %.thread.i53.i, %2
   %.0.i51.i = phi i32 [ 8, %.thread.i53.i ], [ 16, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i ], [ 16, %228 ], [ 16, %226 ]
   %.not.i = icmp ugt i32 %., %.0.i51.i
   %..i = select i1 %.not.i, i32 %., i32 1
-  br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit
+  br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
-_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit: ; preds = %202, %167, %192, %193, %208, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
+_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit: ; preds = %202, %167, %192, %193, %208, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
   %.1.i = phi i32 [ %.043.i, %193 ], [ %.043.i, %192 ], [ %.sroa.speculated.i, %208 ], [ %., %167 ], [ %..i, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i ], [ %197, %202 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   %232 = load i32, ptr %38, align 4
@@ -700,12 +700,12 @@ _ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exi
     i32 8, label %234
   ]
 
-233:                                              ; preds = %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit
+233:                                              ; preds = %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
   %.106 = select i1 %152, i32 900, i32 90
   br label %234
 
-234:                                              ; preds = %233, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit
-  %.091 = phi i32 [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.argprom.exit ], [ %.106, %233 ]
+234:                                              ; preds = %233, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
+  %.091 = phi i32 [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ %.106, %233 ]
   %235 = getelementptr inbounds i8, ptr %6, i64 176
   %236 = load i32, ptr %235, align 8
   %237 = sdiv i32 %236, %.1.i

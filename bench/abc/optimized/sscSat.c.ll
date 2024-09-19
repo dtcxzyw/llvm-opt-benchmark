@@ -781,7 +781,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   %64 = trunc i64 %.val3.i to i32
   %65 = and i32 %64, 536870911
   %66 = sub nsw i32 %63, %65
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %52, i32 noundef %66)
+  call fastcc void @Vec_IntPushUnique(ptr noundef %52, i32 noundef %66)
   %67 = load ptr, ptr %29, align 8
   %68 = load ptr, ptr %25, align 8
   %69 = load i64, ptr %46, align 4
@@ -800,7 +800,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   %80 = trunc i64 %.val3.i70 to i32
   %81 = and i32 %80, 536870911
   %82 = sub nsw i32 %79, %81
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %67, i32 noundef %82)
+  call fastcc void @Vec_IntPushUnique(ptr noundef %67, i32 noundef %82)
   %83 = load ptr, ptr %29, align 8
   %84 = load ptr, ptr %25, align 8
   %85 = load i64, ptr %46, align 4
@@ -819,7 +819,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   %96 = trunc nuw i64 %95 to i32
   %97 = and i32 %96, 536870911
   %98 = sub nsw i32 %94, %97
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %83, i32 noundef %98)
+  call fastcc void @Vec_IntPushUnique(ptr noundef %83, i32 noundef %98)
   %99 = load ptr, ptr %29, align 8
   %100 = load ptr, ptr %25, align 8
   %101 = load i64, ptr %46, align 4
@@ -839,7 +839,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   %113 = trunc nuw i64 %112 to i32
   %114 = and i32 %113, 536870911
   %115 = sub nsw i32 %111, %114
-  call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %99, i32 noundef %115)
+  call fastcc void @Vec_IntPushUnique(ptr noundef %99, i32 noundef %115)
   %116 = load ptr, ptr %29, align 8
   %117 = getelementptr i8, ptr %116, i64 4
   %.val59105 = load i32, ptr %117, align 4
@@ -1541,7 +1541,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare i32 @Gia_ObjIsMuxType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique.retelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1677,7 +1677,7 @@ define internal fastcc void @Ssc_ManCollectSuper_rec(ptr nocapture noundef reado
   %16 = trunc i64 %15 to i32
   %17 = shl nsw i32 %16, 1
   %18 = or disjoint i32 %17, %.lcssa
-  tail call fastcc void @Vec_IntPushUnique.retelim(ptr noundef %2, i32 noundef %18)
+  tail call fastcc void @Vec_IntPushUnique(ptr noundef %2, i32 noundef %18)
   ret void
 
 tailrecurse:                                      ; preds = %.lr.ph29

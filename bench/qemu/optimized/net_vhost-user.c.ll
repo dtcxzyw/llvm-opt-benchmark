@@ -239,7 +239,7 @@ do.end.i:                                         ; preds = %if.end30.i
   %vhost_net.i = getelementptr inbounds i8, ptr %nc0.1.i, i64 440
   %12 = load ptr, ptr %vhost_net.i, align 8
   %tobool34.not.i = icmp eq ptr %12, null
-  br i1 %tobool34.not.i, label %if.else36.i, label %net_vhost_user_init.argprom.exit
+  br i1 %tobool34.not.i, label %if.else36.i, label %net_vhost_user_init.exit
 
 if.else36.i:                                      ; preds = %do.end.i
   call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__PRETTY_FUNCTION__.net_vhost_user_init) #9
@@ -261,15 +261,15 @@ if.end45.thread.i:                                ; preds = %err38.i
 
 if.then47.i:                                      ; preds = %if.end45.thread.i, %err38.i
   call void @qemu_del_net_client(ptr noundef nonnull %nc0.2.i) #10
-  br label %net_vhost_user_init.argprom.exit
+  br label %net_vhost_user_init.exit
 
-net_vhost_user_init.argprom.exit:                 ; preds = %do.end.i, %if.then47.i
+net_vhost_user_init.exit:                         ; preds = %do.end.i, %if.then47.i
   %retval.0.i9 = phi i32 [ 0, %do.end.i ], [ -1, %if.then47.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
   br label %return
 
-return:                                           ; preds = %if.then3.i, %if.then7.i, %if.then.i, %net_vhost_user_init.argprom.exit, %if.then9
-  %retval.0 = phi i32 [ -1, %if.then9 ], [ %retval.0.i9, %net_vhost_user_init.argprom.exit ], [ -1, %if.then.i ], [ -1, %if.then7.i ], [ -1, %if.then3.i ]
+return:                                           ; preds = %if.then3.i, %if.then7.i, %if.then.i, %net_vhost_user_init.exit, %if.then9
+  %retval.0 = phi i32 [ -1, %if.then9 ], [ %retval.0.i9, %net_vhost_user_init.exit ], [ -1, %if.then.i ], [ -1, %if.then7.i ], [ -1, %if.then3.i ]
   ret i32 %retval.0
 }
 

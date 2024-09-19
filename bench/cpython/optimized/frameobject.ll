@@ -1375,14 +1375,14 @@ if.then.i:                                        ; preds = %entry
   %0 = getelementptr i8, ptr %call.i, i64 8
   %call.val.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %call.val.i, @PyModule_Type
-  br i1 %cmp.i.not.i.i, label %if.then3.i, label %PyObject_TypeCheck.argprom.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then3.i, label %PyObject_TypeCheck.exit.i
 
-PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.then.i
+PyObject_TypeCheck.exit.i:                        ; preds = %if.then.i
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %call.val.i, ptr noundef nonnull @PyModule_Type) #7
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end, label %if.then3.i
 
-if.then3.i:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i, %if.then.i
+if.then3.i:                                       ; preds = %PyObject_TypeCheck.exit.i, %if.then.i
   %1 = getelementptr i8, ptr %call.i, i64 16
   %call.val4.i = load ptr, ptr %1, align 8
   br label %_PyEval_BuiltinsFromGlobals.exit
@@ -1401,8 +1401,8 @@ _PyEval_BuiltinsFromGlobals.exit:                 ; preds = %if.then3.i, %if.end
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %PyObject_TypeCheck.argprom.exit.i, %_PyEval_BuiltinsFromGlobals.exit
-  %retval.0.i30 = phi ptr [ %retval.0.i, %_PyEval_BuiltinsFromGlobals.exit ], [ %call.i, %PyObject_TypeCheck.argprom.exit.i ]
+if.end:                                           ; preds = %PyObject_TypeCheck.exit.i, %_PyEval_BuiltinsFromGlobals.exit
+  %retval.0.i30 = phi ptr [ %retval.0.i, %_PyEval_BuiltinsFromGlobals.exit ], [ %call.i, %PyObject_TypeCheck.exit.i ]
   store ptr %globals, ptr %desc, align 8
   %fc_builtins = getelementptr inbounds i8, ptr %desc, i64 8
   store ptr %retval.0.i30, ptr %fc_builtins, align 8
@@ -1608,14 +1608,14 @@ if.then:                                          ; preds = %entry
   %0 = getelementptr i8, ptr %call, i64 8
   %call.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %call.val, @PyModule_Type
-  br i1 %cmp.i.not.i, label %if.then3, label %PyObject_TypeCheck.argprom.exit
+  br i1 %cmp.i.not.i, label %if.then3, label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.argprom.exit:                  ; preds = %if.then
+PyObject_TypeCheck.exit:                          ; preds = %if.then
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %call.val, ptr noundef nonnull @PyModule_Type) #7
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %return, label %if.then3
 
-if.then3:                                         ; preds = %if.then, %PyObject_TypeCheck.argprom.exit
+if.then3:                                         ; preds = %if.then, %PyObject_TypeCheck.exit
   %1 = getelementptr i8, ptr %call, i64 16
   %call.val4 = load ptr, ptr %1, align 8
   br label %return
@@ -1629,8 +1629,8 @@ if.end9:                                          ; preds = %if.end5
   %call10 = tail call ptr @_PyEval_GetBuiltins(ptr noundef %tstate) #7
   br label %return
 
-return:                                           ; preds = %if.end5, %PyObject_TypeCheck.argprom.exit, %if.then3, %if.end9
-  %retval.0 = phi ptr [ %call10, %if.end9 ], [ %call.val4, %if.then3 ], [ %call, %PyObject_TypeCheck.argprom.exit ], [ null, %if.end5 ]
+return:                                           ; preds = %if.end5, %PyObject_TypeCheck.exit, %if.then3, %if.end9
+  %retval.0 = phi ptr [ %call10, %if.end9 ], [ %call.val4, %if.then3 ], [ %call, %PyObject_TypeCheck.exit ], [ null, %if.end5 ]
   ret ptr %retval.0
 }
 
@@ -2718,20 +2718,20 @@ if.end.i:                                         ; preds = %land.lhs.true2
   %owner.i = getelementptr inbounds i8, ptr %f.val, i64 70
   %3 = load i8, ptr %owner.i, align 2
   %cmp2.i = icmp eq i8 %3, 1
-  br i1 %cmp2.i, label %frame_is_cleared.argprom.exit, label %if.then
+  br i1 %cmp2.i, label %frame_is_cleared.exit, label %if.then
 
-frame_is_cleared.argprom.exit:                    ; preds = %if.end.i
+frame_is_cleared.exit:                            ; preds = %if.end.i
   %gi_frame_state.i = getelementptr i8, ptr %f.val, i64 -5
   %4 = load i8, ptr %gi_frame_state.i, align 1
   %cmp7.i = icmp eq i8 %4, 4
   br i1 %cmp7.i, label %if.end, label %if.then
 
-if.then:                                          ; preds = %if.end.i, %frame_is_cleared.argprom.exit
+if.then:                                          ; preds = %if.end.i, %frame_is_cleared.exit
   tail call void @_PyFrame_LocalsToFast(ptr noundef nonnull %f.val, i32 noundef %clear)
   store i8 0, ptr %f_fast_as_locals, align 2
   br label %if.end
 
-if.end:                                           ; preds = %land.lhs.true2, %if.then, %frame_is_cleared.argprom.exit, %land.lhs.true, %entry
+if.end:                                           ; preds = %land.lhs.true2, %if.then, %frame_is_cleared.exit, %land.lhs.true, %entry
   ret void
 }
 
@@ -3318,15 +3318,15 @@ if.end3:                                          ; preds = %if.end
   %owner.i = getelementptr inbounds i8, ptr %0, i64 70
   %4 = load i8, ptr %owner.i, align 2
   %cmp.i68 = icmp eq i8 %4, 1
-  br i1 %cmp.i68, label %if.then.i, label %frame_is_suspended.argprom.exit
+  br i1 %cmp.i68, label %if.then.i, label %frame_is_suspended.exit
 
 if.then.i:                                        ; preds = %if.end3
   %gi_frame_state.i = getelementptr i8, ptr %0, i64 -5
   %5 = load i8, ptr %gi_frame_state.i, align 1
   %spec.select.i = icmp ugt i8 %5, -3
-  br label %frame_is_suspended.argprom.exit
+  br label %frame_is_suspended.exit
 
-frame_is_suspended.argprom.exit:                  ; preds = %if.end3, %if.then.i
+frame_is_suspended.exit:                          ; preds = %if.end3, %if.then.i
   %retval.0.i = phi i1 [ %spec.select.i, %if.then.i ], [ false, %if.end3 ]
   %call5 = tail call ptr @PyThreadState_Get() #7
   %what_event6 = getelementptr inbounds i8, ptr %call5, i64 56
@@ -3334,12 +3334,12 @@ frame_is_suspended.argprom.exit:                  ; preds = %if.end3, %if.then.i
   %cmp7 = icmp slt i32 %6, 0
   br i1 %cmp7, label %if.then8, label %if.end10
 
-if.then8:                                         ; preds = %frame_is_suspended.argprom.exit
+if.then8:                                         ; preds = %frame_is_suspended.exit
   %7 = load ptr, ptr @PyExc_ValueError, align 8
   %call9 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.22) #7
   br label %return
 
-if.end10:                                         ; preds = %frame_is_suspended.argprom.exit
+if.end10:                                         ; preds = %frame_is_suspended.exit
   switch i32 %6, label %sw.default [
     i32 1, label %sw.epilog
     i32 7, label %sw.epilog

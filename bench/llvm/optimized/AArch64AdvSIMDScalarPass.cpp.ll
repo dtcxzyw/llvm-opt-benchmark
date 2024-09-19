@@ -497,11 +497,11 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %92 = getelementptr inbounds i8, ptr %.sroa.023.031.i, i64 68
   %.val.i.i = load i16, ptr %92, align 4
   switch i16 %.val.i.i, label %_ZNK12_GLOBAL__N_120AArch64AdvSIMDScalar23isProfitableToTransformERKN4llvm12MachineInstrE.exit.thread26.i [
-    i16 307, label %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i
-    i16 1177, label %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i
-    i16 332, label %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i
-    i16 476, label %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i
-    i16 997, label %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i
+    i16 307, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i
+    i16 1177, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i
+    i16 332, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i
+    i16 476, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i
+    i16 997, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i
   ]
 
 _ZNK12_GLOBAL__N_120AArch64AdvSIMDScalar23isProfitableToTransformERKN4llvm12MachineInstrE.exit.thread26.i: ; preds = %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i
@@ -510,7 +510,7 @@ _ZNK12_GLOBAL__N_120AArch64AdvSIMDScalar23isProfitableToTransformERKN4llvm12Mach
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   br label %441
 
-_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i: ; preds = %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i
+_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i: ; preds = %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit.i
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.023.031.i, i64 32
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 36
@@ -533,7 +533,7 @@ _ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i: ; preds = %_ZN4llv
   %.not.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i, label %110
 
-110:                                              ; preds = %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i
+110:                                              ; preds = %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i
   %111 = load i32, ptr %.0.i.i.i.i.i, align 8
   %112 = and i32 %111, 16777216
   %.not.i.i.i.i.i7.i = icmp eq i32 %112, 0
@@ -569,12 +569,12 @@ _ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i: ; preds 
   %.pre106.i.i = load ptr, ptr %.phi.trans.insert105.i.i, align 8
   br label %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i
 
-_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i: ; preds = %121, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i, %113, %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i
-  %123 = phi ptr [ %108, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %108, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %.pre106.i.i, %121 ], [ %108, %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i ], [ %108, %113 ]
-  %124 = phi ptr [ %104, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %104, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %.pre104.i.i, %121 ], [ %104, %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i ], [ %104, %113 ]
-  %125 = phi ptr [ %99, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %99, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %.pre.i.i, %121 ], [ %99, %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i ], [ %99, %113 ]
-  %.034.i.i = phi i32 [ 0, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ 0, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %spec.select41.i.i, %121 ], [ 0, %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i ], [ 0, %113 ]
-  %.032.i.i = phi i32 [ 3, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ 3, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ 2, %121 ], [ 3, %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit.i.i ], [ 3, %113 ]
+_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread.i.i: ; preds = %121, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i, %113, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i
+  %123 = phi ptr [ %108, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %108, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %.pre106.i.i, %121 ], [ %108, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ %108, %113 ]
+  %124 = phi ptr [ %104, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %104, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %.pre104.i.i, %121 ], [ %104, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ %104, %113 ]
+  %125 = phi ptr [ %99, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ %99, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %.pre.i.i, %121 ], [ %99, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ %99, %113 ]
+  %.034.i.i = phi i32 [ 0, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ 0, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ %spec.select41.i.i, %121 ], [ 0, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ 0, %113 ]
+  %.032.i.i = phi i32 [ 3, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.i.i ], [ 3, %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.i.i ], [ 2, %121 ], [ 3, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit.i.i ], [ 3, %113 ]
   %126 = icmp slt i32 %98, 0
   %127 = and i32 %98, 2147483647
   %128 = zext nneg i32 %127 to i64
@@ -676,21 +676,21 @@ _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit57.thread.i.i: ; pred
   %.sroa.076.097.i.i = phi ptr [ %.sroa.0.0.i71.i.i, %.lr.ph.preheader.i.i ], [ %storemerge.i.i.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i.i.i ]
   %166 = call fastcc noundef ptr @_ZL14getSrcFromCopyPN4llvm12MachineInstrEPKNS_19MachineRegisterInfoERj(ptr noundef %165, ptr noundef %149, ptr noundef nonnull align 4 dereferenceable(4) %28)
   %.not40.i.i = icmp eq ptr %166, null
-  br i1 %.not40.i.i, label %167, label %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit73.i.i
+  br i1 %.not40.i.i, label %167, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit73.i.i
 
 167:                                              ; preds = %.lr.ph.i.i
   %168 = getelementptr i8, ptr %165, i64 68
   %.val46.i.i = load i16, ptr %168, align 4
   switch i16 %.val46.i.i, label %170 [
-    i16 307, label %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit73.i.i
-    i16 1177, label %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit73.i.i
-    i16 332, label %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit73.i.i
-    i16 476, label %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit73.i.i
-    i16 997, label %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit73.i.i
+    i16 307, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit73.i.i
+    i16 1177, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit73.i.i
+    i16 332, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit73.i.i
+    i16 476, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit73.i.i
+    i16 997, label %_ZL15isTransformableRKN4llvm12MachineInstrE.exit73.i.i
     i16 9, label %172
   ]
 
-_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit73.i.i: ; preds = %167, %167, %167, %167, %167, %.lr.ph.i.i
+_ZL15isTransformableRKN4llvm12MachineInstrE.exit73.i.i: ; preds = %167, %167, %167, %167, %167, %.lr.ph.i.i
   %169 = add i32 %.23698.i.i, 1
   br label %172
 
@@ -699,9 +699,9 @@ _ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit73.i.i: ; preds = %167, 
   %spec.select44.i.i = select i1 %171, i8 %.03199.i.i, i8 0
   br label %172
 
-172:                                              ; preds = %170, %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit73.i.i, %167
-  %.337.i.i = phi i32 [ %169, %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit73.i.i ], [ %.23698.i.i, %170 ], [ %.23698.i.i, %167 ]
-  %.1.i.i = phi i8 [ %.03199.i.i, %_ZL15isTransformableRKN4llvm12MachineInstrE.argprom.exit73.i.i ], [ %spec.select44.i.i, %170 ], [ %.03199.i.i, %167 ]
+172:                                              ; preds = %170, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit73.i.i, %167
+  %.337.i.i = phi i32 [ %169, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit73.i.i ], [ %.23698.i.i, %170 ], [ %.23698.i.i, %167 ]
+  %.1.i.i = phi i8 [ %.03199.i.i, %_ZL15isTransformableRKN4llvm12MachineInstrE.exit73.i.i ], [ %spec.select44.i.i, %170 ], [ %.03199.i.i, %167 ]
   br label %.critedge2.i.i.i.i
 
 .critedge2.i.i.i.i:                               ; preds = %.critedge2.i.i.i.i.backedge, %172

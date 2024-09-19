@@ -4287,7 +4287,7 @@ invoke.cont71.invoke:                             ; preds = %_ZNSt11char_traitsI
   %agg.tmp1003.sink = phi ptr [ %agg.tmp142, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i239 ], [ %agg.tmp156, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i261 ], [ %agg.tmp321, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i666 ], [ %agg.tmp344, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i709 ], [ %agg.tmp363, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i752 ], [ %agg.tmp567, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1061 ], [ %agg.tmp629, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1151 ], [ %agg.tmp643, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1173 ], [ %agg.tmp657, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1195 ], [ %agg.tmp911, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1787 ], [ %agg.tmp989, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1920 ], [ %agg.tmp1003, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1942 ], [ %agg.tmp70, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i125 ]
   %30 = phi i64 [ 281, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i239 ], [ 161, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i261 ], [ 177, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i666 ], [ 153, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i709 ], [ 169, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i752 ], [ 273, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1061 ], [ 257, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1151 ], [ 185, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1173 ], [ 249, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1195 ], [ 145, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1787 ], [ 9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1920 ], [ 201, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1942 ], [ 233, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i125 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1003.sink, ptr noundef nonnull align 8 dereferenceable(24) %loc1339, i64 24, i1 false)
-  invoke fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_1clEMS0_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISI_EEEENS_7FileLocEESO_.argelim"(ptr noundef nonnull align 8 dereferenceable(40) %basicParamListEntrypoint, i64 %30, ptr noundef nonnull byval(%"struct.pbrt::FileLoc") align 8 %loc1339)
+  invoke fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_1clEMS0_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISI_EEEENS_7FileLocEESO_"(ptr noundef nonnull align 8 dereferenceable(40) %basicParamListEntrypoint, i64 %30, ptr noundef nonnull byval(%"struct.pbrt::FileLoc") align 8 %loc1339)
           to label %sw.epilog unwind label %lpad26.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i147: ; preds = %invoke.cont37
@@ -4391,7 +4391,7 @@ if.else127:                                       ; preds = %_ZNSt11char_traitsI
   br i1 %tobool.i.i223, label %invoke.cont128, label %land.rhs.i.i182.invoke
 
 invoke.cont128:                                   ; preds = %if.else127
-  invoke fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_5clERKNS_5TokenE.argprom"(ptr noundef nonnull align 8 dereferenceable(40) %tok)
+  invoke fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_5clERKNS_5TokenE"(ptr noundef nonnull align 8 dereferenceable(40) %tok)
           to label %sw.epilog.unreachable unwind label %lpad26.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i239: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i147
@@ -8923,7 +8923,7 @@ _ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EED2Ev.
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_1clEMS0_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISI_EEEENS_7FileLocEESO_.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 range(i64 9, 282) %apiFunc.coerce0, ptr nocapture noundef readonly byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_1clEMS0_FvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISI_EEEENS_7FileLocEESO_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 range(i64 9, 282) %apiFunc.coerce0, ptr nocapture noundef readonly byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i6 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9269,7 +9269,7 @@ ehcleanup18:                                      ; preds = %if.then.i.i43, %_ZN
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_5clERKNS_5TokenE.argprom"(ptr noundef nonnull align 8 dereferenceable(40) %t) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_5clERKNS_5TokenE"(ptr noundef nonnull align 8 dereferenceable(40) %t) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9786,7 +9786,7 @@ _ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; pred
 invoke.cont7:                                     ; preds = %invoke.cont2, %land.lhs.true.i, %_ZN4pbrt14isQuotedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %9 = load i8, ptr %set.i.i26, align 8
   %tobool.i.i27 = trunc i8 %9 to i1
-  br i1 %tobool.i.i27, label %land.rhs.i28, label %"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.argprom.exit"
+  br i1 %tobool.i.i27, label %land.rhs.i28, label %"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.exit"
 
 land.rhs.i28:                                     ; preds = %invoke.cont7
   invoke void @_ZN4pbrt8LogFatalIJRA24_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 659, ptr noundef nonnull @.str.6, ptr noundef nonnull align 1 dereferenceable(24) @.str.310) #32
@@ -9795,7 +9795,7 @@ land.rhs.i28:                                     ; preds = %invoke.cont7
 .noexc29:                                         ; preds = %land.rhs.i28
   unreachable
 
-"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.argprom.exit": ; preds = %invoke.cont7
+"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.exit": ; preds = %invoke.cont7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ungetToken.coerce, ptr noundef nonnull align 8 dereferenceable(40) %t, i64 40, i1 false)
   store i8 1, ptr %set.i.i26, align 8
   br label %cleanup
@@ -9810,7 +9810,7 @@ lpad1.loopexit.split-lp.loopexit:                 ; preds = %if.end.i141, %if.en
           cleanup
   br label %ehcleanup148
 
-lpad1.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end10, %if.then46, %if.then53, %if.then60, %if.else, %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit", %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit109", %if.end.i119, %_ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE15allocate_objectIS4_EEPT_m.exit.i.i, %if.end.i.i.i14.i.i
+lpad1.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end10, %if.then46, %if.then53, %if.then60, %if.else, %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit", %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit109", %if.end.i119, %_ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE15allocate_objectIS4_EEPT_m.exit.i.i, %if.end.i.i.i14.i.i
   %lpad.loopexit307 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup148
@@ -9914,12 +9914,12 @@ invoke.cont20:                                    ; preds = %_ZN4pbrt14isQuotedS
   %sub.i4.i = add i64 %agg.tmp.sroa.0.0.copyload.i, -2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %cmp.not1.i = icmp eq i64 %sub.i4.i, 0
-  br i1 %cmp.not1.i, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.argprom.exit", label %land.rhs.i46
+  br i1 %cmp.not1.i, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit", label %land.rhs.i46
 
 land.rhs.i46:                                     ; preds = %invoke.cont20, %while.body.i
   %iter.addr.02.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr.i.i43.ptr, %invoke.cont20 ]
   %18 = load i8, ptr %iter.addr.02.i, align 1
-  switch i8 %18, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.argprom.exit" [
+  switch i8 %18, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit" [
     i8 32, label %while.body.i
     i8 9, label %while.body.i
   ]
@@ -9929,12 +9929,12 @@ while.body.i:                                     ; preds = %land.rhs.i46, %land
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr2.i.i.i
   br i1 %cmp.not.i, label %invoke.cont27, label %land.rhs.i46, !llvm.loop !239
 
-"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.argprom.exit": ; preds = %land.rhs.i46, %invoke.cont20
+"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit": ; preds = %land.rhs.i46, %invoke.cont20
   %iter.addr.0.lcssa.i = phi ptr [ %add.ptr.i.i43.ptr, %invoke.cont20 ], [ %iter.addr.02.i, %land.rhs.i46 ]
   %cmp = icmp eq ptr %iter.addr.0.lcssa.i, %add.ptr2.i.i.i
   br i1 %cmp, label %invoke.cont27, label %land.lhs.true.preheader.i
 
-invoke.cont27:                                    ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.argprom.exit", %while.body.i
+invoke.cont27:                                    ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit", %while.body.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33) #33
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, ptr noundef nonnull %add.ptr.i.i43.ptr, ptr noundef nonnull %add.ptr2.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33)
           to label %invoke.cont35 unwind label %lpad34
@@ -9962,7 +9962,7 @@ ehcleanup:                                        ; preds = %lpad36, %lpad34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33) #33
   br label %ehcleanup148
 
-land.lhs.true.preheader.i:                        ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.argprom.exit"
+land.lhs.true.preheader.i:                        ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit"
   %21 = ptrtoint ptr %add.ptr.i.i43.ptr to i64
   %iter6.i = ptrtoint ptr %iter.addr.0.lcssa.i to i64
   %22 = add i64 %sub.i4.i, %21
@@ -9974,23 +9974,23 @@ land.lhs.true.i60:                                ; preds = %while.body.i63, %la
   %iter.addr.02.i61 = phi ptr [ %incdec.ptr.i64, %while.body.i63 ], [ %iter.addr.0.lcssa.i, %land.lhs.true.preheader.i ]
   %24 = load i8, ptr %iter.addr.02.i61, align 1
   switch i8 %24, label %while.body.i63 [
-    i8 32, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit"
-    i8 9, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit"
+    i8 32, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit"
+    i8 9, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit"
   ]
 
 while.body.i63:                                   ; preds = %land.lhs.true.i60
   %incdec.ptr.i64 = getelementptr inbounds i8, ptr %iter.addr.02.i61, i64 1
   %cmp.not.i65 = icmp eq ptr %incdec.ptr.i64, %add.ptr2.i.i.i
-  br i1 %cmp.not.i65, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit", label %land.lhs.true.i60, !llvm.loop !240
+  br i1 %cmp.not.i65, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit", label %land.lhs.true.i60, !llvm.loop !240
 
-"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit": ; preds = %land.lhs.true.i60, %land.lhs.true.i60, %while.body.i63
+"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit": ; preds = %land.lhs.true.i60, %land.lhs.true.i60, %while.body.i63
   %iter.addr.0.lcssa.i62 = phi ptr [ %iter.addr.02.i61, %land.lhs.true.i60 ], [ %iter.addr.02.i61, %land.lhs.true.i60 ], [ %scevgep.i59, %while.body.i63 ]
   %call.i66 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %call12) #33
   %call4.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %call12) #33
   %call8.i67 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %call12, ptr %call.i66, ptr %call4.i, ptr noundef nonnull %iter.addr.0.lcssa.i, ptr noundef %iter.addr.0.lcssa.i62)
           to label %invoke.cont41 unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit
 
-invoke.cont41:                                    ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit"
+invoke.cont41:                                    ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit"
   br i1 %formatting, label %if.then43, label %if.end65
 
 if.then43:                                        ; preds = %invoke.cont41
@@ -10039,7 +10039,7 @@ land.rhs.preheader.i77:                           ; preds = %if.end65
 land.rhs.i80:                                     ; preds = %while.body.i82, %land.rhs.preheader.i77
   %iter.addr.02.i81 = phi ptr [ %incdec.ptr.i83, %while.body.i82 ], [ %iter.addr.0.lcssa.i62, %land.rhs.preheader.i77 ]
   %32 = load i8, ptr %iter.addr.02.i81, align 1
-  switch i8 %32, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.argprom.exit86" [
+  switch i8 %32, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86" [
     i8 32, label %while.body.i82
     i8 9, label %while.body.i82
   ]
@@ -10047,14 +10047,14 @@ land.rhs.i80:                                     ; preds = %while.body.i82, %la
 while.body.i82:                                   ; preds = %land.rhs.i80, %land.rhs.i80
   %incdec.ptr.i83 = getelementptr inbounds i8, ptr %iter.addr.02.i81, i64 1
   %cmp.not.i84 = icmp eq ptr %incdec.ptr.i83, %add.ptr2.i.i.i
-  br i1 %cmp.not.i84, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.argprom.exit86", label %land.rhs.i80, !llvm.loop !239
+  br i1 %cmp.not.i84, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86", label %land.rhs.i80, !llvm.loop !239
 
-"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.argprom.exit86": ; preds = %land.rhs.i80, %while.body.i82
+"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86": ; preds = %land.rhs.i80, %while.body.i82
   %iter.addr.0.lcssa.i85 = phi ptr [ %iter.addr.02.i81, %land.rhs.i80 ], [ %scevgep.i79, %while.body.i82 ]
   %cmp69 = icmp eq ptr %iter.addr.0.lcssa.i85, %add.ptr2.i.i.i
   br i1 %cmp69, label %if.then70, label %land.lhs.true.preheader.i100
 
-if.then70:                                        ; preds = %if.end65, %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.argprom.exit86"
+if.then70:                                        ; preds = %if.end65, %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86"
   %33 = load i8, ptr %set.i, align 8
   %tobool.i.i90 = trunc i8 %33 to i1
   br i1 %tobool.i.i90, label %invoke.cont71, label %land.rhs.i.i38.invoke
@@ -10087,7 +10087,7 @@ ehcleanup83:                                      ; preds = %lpad80, %lpad78
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #33
   br label %ehcleanup148
 
-land.lhs.true.preheader.i100:                     ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.argprom.exit86"
+land.lhs.true.preheader.i100:                     ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E_clESS_.exit86"
   %iter6.i101 = ptrtoint ptr %iter.addr.0.lcssa.i85 to i64
   %36 = sub i64 %22, %iter6.i101
   %scevgep.i102 = getelementptr i8, ptr %iter.addr.0.lcssa.i85, i64 %36
@@ -10097,16 +10097,16 @@ land.lhs.true.i103:                               ; preds = %while.body.i106, %l
   %iter.addr.02.i104 = phi ptr [ %incdec.ptr.i107, %while.body.i106 ], [ %iter.addr.0.lcssa.i85, %land.lhs.true.preheader.i100 ]
   %37 = load i8, ptr %iter.addr.02.i104, align 1
   switch i8 %37, label %while.body.i106 [
-    i8 32, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit109"
-    i8 9, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit109"
+    i8 32, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit109"
+    i8 9, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit109"
   ]
 
 while.body.i106:                                  ; preds = %land.lhs.true.i103
   %incdec.ptr.i107 = getelementptr inbounds i8, ptr %iter.addr.02.i104, i64 1
   %cmp.not.i108 = icmp eq ptr %incdec.ptr.i107, %add.ptr2.i.i.i
-  br i1 %cmp.not.i108, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit109", label %land.lhs.true.i103, !llvm.loop !240
+  br i1 %cmp.not.i108, label %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit109", label %land.lhs.true.i103, !llvm.loop !240
 
-"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit109": ; preds = %land.lhs.true.i103, %land.lhs.true.i103, %while.body.i106
+"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit109": ; preds = %land.lhs.true.i103, %land.lhs.true.i103, %while.body.i106
   %iter.addr.0.lcssa.i105 = phi ptr [ %iter.addr.02.i104, %land.lhs.true.i103 ], [ %iter.addr.02.i104, %land.lhs.true.i103 ], [ %scevgep.i102, %while.body.i106 ]
   %38 = load ptr, ptr %param, align 8
   %name = getelementptr inbounds i8, ptr %38, i64 32
@@ -10115,7 +10115,7 @@ while.body.i106:                                  ; preds = %land.lhs.true.i103
   %call8.i112 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr %call.i110, ptr %call4.i111, ptr noundef %iter.addr.0.lcssa.i85, ptr noundef %iter.addr.0.lcssa.i105)
           to label %invoke.cont87 unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit
 
-invoke.cont87:                                    ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.argprom.exit109"
+invoke.cont87:                                    ; preds = %"_ZZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEEENKUlSS_E0_clESS_.exit109"
   store i32 0, ptr %valType, align 4
   %39 = load ptr, ptr %param, align 8
   %call.i114 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.330) #33
@@ -10578,10 +10578,10 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
   %.pre451 = load i8, ptr %set.i, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit, %"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.argprom.exit", %invoke.cont
-  %102 = phi i8 [ %6, %invoke.cont ], [ %6, %"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.argprom.exit" ], [ %.pre451, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit ]
-  %cond = phi i1 [ false, %invoke.cont ], [ false, %"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.argprom.exit" ], [ true, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit ]
-  %nrvo.1 = phi i1 [ true, %invoke.cont ], [ true, %"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.argprom.exit" ], [ %nrvo.0, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit ]
+cleanup:                                          ; preds = %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit, %"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.exit", %invoke.cont
+  %102 = phi i8 [ %6, %invoke.cont ], [ %6, %"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.exit" ], [ %.pre451, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit ]
+  %cond = phi i1 [ false, %invoke.cont ], [ false, %"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.exit" ], [ true, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit ]
+  %nrvo.1 = phi i1 [ true, %invoke.cont ], [ true, %"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_6clENS_5TokenE.exit" ], [ %nrvo.0, %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEE9push_backERKS2_.exit ]
   %tobool.i.i269 = trunc i8 %102 to i1
   br i1 %tobool.i.i269, label %_ZN4pstd8optionalIN4pbrt5TokenEE5valueEv.exit.i.i271, label %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit272
 
@@ -30833,7 +30833,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.i.i.i:  ; preds = %entry
   store i8 %frombool.i.i.i.i.i.i, ptr %set.i.i.i.i.i.i, align 8, !alias.scope !321
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   store i8 0, ptr %set.i.i.i.i, align 8, !noalias !321
-  br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 if.end.i.i.i:                                     ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -30855,7 +30855,7 @@ if.then4.i.i.i:                                   ; preds = %if.then3.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.then3.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 48, i1 false), !alias.scope !314
-  br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
@@ -30970,7 +30970,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt6vectorISt10un
   %23 = load ptr, ptr %_M_invoker.i.i.i.i, align 8, !noalias !322
   call void %23(ptr sret(%"class.pstd::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i.i.i.i), !noalias !314
-  br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 lpad24.i.i.i:                                     ; preds = %call.i.noexc.i.i.i, %land.rhs.i.i.i
   %24 = landingpad { ptr, i32 }
@@ -31044,20 +31044,20 @@ if.end.i42.i.i.i:                                 ; preds = %if.end60.i.i.i
   %38 = load ptr, ptr %_M_invoker.i43.i.i.i, align 8, !noalias !328
   call void %38(ptr sret(%"class.pstd::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i39.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i39.i.i.i), !noalias !314
-  br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 _ZN4pstd8optionalIN4pbrt5TokenEEC2EOS3_.exit.i.i.i: ; preds = %invoke.cont39.i.i.i
   %set.i48.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %frombool.i.i.i.i = and i8 %7, 1
   store i8 %frombool.i.i.i.i, ptr %set.i48.i.i.i, align 8, !alias.scope !314
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %tok.i.i.i, i64 40, i1 false)
-  br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit"
+  br label %"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
 eh.resume.i.i.i:                                  ; preds = %ehcleanup64.thread.i.i.i, %ehcleanup64.thread69.i.i.i
   %.pn6.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i, %ehcleanup64.thread69.i.i.i ], [ %34, %ehcleanup64.thread.i.i.i ]
   resume { ptr, i32 } %.pn6.i.i.i
 
-"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom.exit": ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.i.i.i, %if.end5.i.i.i, %if.end.i.i.i.i, %if.end.i42.i.i.i, %_ZN4pstd8optionalIN4pbrt5TokenEEC2EOS3_.exit.i.i.i
+"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit.i.i.i, %if.end5.i.i.i, %if.end.i.i.i.i, %if.end.i42.i.i.i, %_ZN4pstd8optionalIN4pbrt5TokenEEC2EOS3_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %tok.i.i.i), !noalias !313
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp14.i.i.i), !noalias !313
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp23.i.i.i), !noalias !313
@@ -38278,11 +38278,11 @@ attributes #37 = { nounwind willreturn memory(read) }
 !302 = distinct !{!302, !6}
 !303 = distinct !{!303, !6}
 !304 = !{!305}
-!305 = distinct !{!305, !306, !"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom: %agg.result"}
-!306 = distinct !{!306, !"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.argprom"}
+!305 = distinct !{!305, !306, !"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_: %agg.result"}
+!306 = distinct !{!306, !"_ZSt10__invoke_rIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_"}
 !307 = !{!308}
-!308 = distinct !{!308, !309, !"_ZSt13__invoke_implIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
-!309 = distinct !{!309, !"_ZSt13__invoke_implIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!308 = distinct !{!308, !309, !"_ZSt13__invoke_implIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
+!309 = distinct !{!309, !"_ZSt13__invoke_implIN4pstd8optionalIN4pbrt5TokenEEERZNS2_5parseEPNS2_12ParserTargetESt10unique_ptrINS2_9TokenizerESt14default_deleteIS8_EEE3$_0JiEET_St14__invoke_otherOT0_DpOT1_"}
 !310 = !{!311}
 !311 = distinct !{!311, !312, !"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_0clEi: %agg.result"}
 !312 = distinct !{!312, !"_ZZN4pbrt5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteIS3_EEENK3$_0clEi"}

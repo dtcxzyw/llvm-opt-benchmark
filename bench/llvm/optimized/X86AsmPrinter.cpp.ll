@@ -2184,13 +2184,13 @@ define hidden void @_ZN4llvm13X86AsmPrinter17emitBasicBlockEndERKNS_17MachineBas
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 312
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit
+  br i1 %12, label %13, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit
 
 13:                                               ; preds = %9, %2
   %14 = tail call ptr @_ZN4llvm17MachineBasicBlock20getLastNonDebugInstrEb(ptr noundef nonnull align 8 dereferenceable(288) %1, i1 noundef zeroext true) #16
   %15 = getelementptr inbounds i8, ptr %1, i64 48
   %.not = icmp eq ptr %14, %15
-  br i1 %.not, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit, label %16
+  br i1 %.not, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %4, align 8
@@ -2206,13 +2206,13 @@ define hidden void @_ZN4llvm13X86AsmPrinter17emitBasicBlockEndERKNS_17MachineBas
   %.val.val = load i64, ptr %23, align 8
   %24 = and i64 %.val.val, 160
   %25 = icmp eq i64 %24, 32
-  br i1 %25, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread, label %26
+  br i1 %25, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread, label %26
 
 26:                                               ; preds = %21, %16
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 312
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit
+  br i1 %29, label %30, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit
 
 30:                                               ; preds = %26
   %31 = getelementptr i8, ptr %14, i64 16
@@ -2221,25 +2221,25 @@ define hidden void @_ZN4llvm13X86AsmPrinter17emitBasicBlockEndERKNS_17MachineBas
   %.val4.val = load i64, ptr %32, align 8
   %33 = and i64 %.val4.val, 2048
   %.not.i = icmp eq i64 %33, 0
-  br i1 %.not.i, label %switch.early.test.i, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
+  br i1 %.not.i, label %switch.early.test.i, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
 
 switch.early.test.i:                              ; preds = %30
   %34 = getelementptr i8, ptr %14, i64 68
   %.val5 = load i16, ptr %34, align 4
-  switch i16 %.val5, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit [
-    i16 4868, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
-    i16 4867, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
-    i16 4866, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
-    i16 4865, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
-    i16 4858, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
-    i16 4857, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
-    i16 4856, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
-    i16 4854, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
-    i16 4853, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
-    i16 4855, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
+  switch i16 %.val5, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit [
+    i16 4868, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
+    i16 4867, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
+    i16 4866, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
+    i16 4865, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
+    i16 4858, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
+    i16 4857, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
+    i16 4856, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
+    i16 4854, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
+    i16 4853, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
+    i16 4855, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
   ]
 
-_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread: ; preds = %30, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %21
+_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread: ; preds = %30, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %21
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %36 = getelementptr inbounds i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -2251,13 +2251,13 @@ _ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thre
   %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %40 = load ptr, ptr %35, align 8
   %41 = icmp eq ptr %40, %36
-  br i1 %41, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit, label %42
+  br i1 %41, label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit, label %42
 
-42:                                               ; preds = %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread
+42:                                               ; preds = %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread
   call void @free(ptr noundef %40) #16
-  br label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit
+  br label %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit
 
-_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit: ; preds = %42, %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.argprom.argprom.exit.thread, %switch.early.test.i, %13, %26, %9
+_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit: ; preds = %42, %_ZL26isIndirectBranchOrTailCallRKN4llvm12MachineInstrE.exit.thread, %switch.early.test.i, %13, %26, %9
   call void @_ZN4llvm10AsmPrinter17emitBasicBlockEndERKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(785) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) #16
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3548,7 +3548,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %_ZN4llvm11raw_ostre
   %.val69 = load i32, ptr %191, align 4
   %192 = getelementptr i8, ptr %15, i64 8
   %.val70 = load ptr, ptr %192, align 8
-  %193 = tail call fastcc noundef zeroext i1 @_ZL17printAsmVRegisterRKN4llvm14MachineOperandEcRNS_11raw_ostreamE.argprom(i32 %.val69, ptr %.val70, i8 noundef signext %7, ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %193 = tail call fastcc noundef zeroext i1 @_ZL17printAsmVRegisterRKN4llvm14MachineOperandEcRNS_11raw_ostreamE(i32 %.val69, ptr %.val70, i8 noundef signext %7, ptr noundef nonnull align 8 dereferenceable(48) %4)
   br label %_ZN4llvm11raw_ostreamlsEc.exit73
 
 194:                                              ; preds = %186
@@ -3615,7 +3615,7 @@ _ZN4llvm11raw_ostreamlsEc.exit73:                 ; preds = %182, %181, %179, %_
 declare noundef zeroext i1 @_ZN4llvm10AsmPrinter15PrintAsmOperandEPKNS_12MachineInstrEjPKcRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(785), ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17printAsmVRegisterRKN4llvm14MachineOperandEcRNS_11raw_ostreamE.argprom(i32 %.4.val, ptr nonnull %.8.val, i8 noundef signext %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL17printAsmVRegisterRKN4llvm14MachineOperandEcRNS_11raw_ostreamE(i32 %.4.val, ptr nonnull %.8.val, i8 noundef signext %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 {
   %3 = tail call noundef i32 @_ZNK4llvm12MachineInstr19getInlineAsmDialectEv(ptr noundef nonnull align 8 dereferenceable(70) %.8.val) #16
   %4 = icmp eq i32 %3, 0
   %5 = add i32 %.4.val, -1
@@ -4120,7 +4120,7 @@ define hidden void @_ZN4llvm13X86AsmPrinter16emitEndOfAsmFileERNS_6ModuleE(ptr n
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 580
   %11 = load i32, ptr %10, align 4
-  switch i32 %11, label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.argprom.exit [
+  switch i32 %11, label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.exit [
     i32 5, label %12
     i32 1, label %79
     i32 3, label %205
@@ -4243,7 +4243,7 @@ _ZL16emitNonLazyStubsPN4llvm17MachineModuleInfoERNS_10MCStreamerE.exit: ; preds 
   %77 = getelementptr inbounds i8, ptr %76, i64 216
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(288) %75, i32 noundef 1) #16
-  br label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.argprom.exit
+  br label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.exit
 
 79:                                               ; preds = %2
   %80 = getelementptr i8, ptr %9, i64 572
@@ -4255,14 +4255,14 @@ _ZL16emitNonLazyStubsPN4llvm17MachineModuleInfoERNS_10MCStreamerE.exit: ; preds 
   %84 = icmp eq i32 %.val12, 0
   %85 = or i1 %83, %84
   %or.cond.i = select i1 %82, i1 %85, i1 false
-  br i1 %or.cond.i, label %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.i, label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.argprom.exit
+  br i1 %or.cond.i, label %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.i, label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.exit
 
 _ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.i: ; preds = %79
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.012.028.i = load ptr, ptr %86, align 8
   %.not1529.i = icmp eq ptr %.sroa.012.028.i, %87
-  br i1 %.not1529.i, label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.argprom.exit, label %.lr.ph31.i
+  br i1 %.not1529.i, label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.exit, label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.i, %_ZNK4llvm12InstIteratorIKNS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb1EEENS_21ilist_iterator_w_bitsINS7_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb1EEEKSB_EneERKSF_.exit.i
   %.sroa.012.030.i = phi ptr [ %.sroa.012.0.i, %_ZNK4llvm12InstIteratorIKNS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb1EEENS_21ilist_iterator_w_bitsINS7_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb1EEEKSB_EneERKSF_.exit.i ], [ %.sroa.012.028.i, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.i ]
@@ -4465,7 +4465,7 @@ _ZNK4llvm12InstIteratorIKNS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_ite
   %183 = getelementptr inbounds nuw i8, ptr %.sroa.012.030.i, i64 8
   %.sroa.012.0.i = load ptr, ptr %183, align 8
   %.not15.i = icmp eq ptr %.sroa.012.0.i, %87
-  br i1 %.not15.i, label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.argprom.exit, label %.lr.ph31.i
+  br i1 %.not15.i, label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.exit, label %.lr.ph31.i
 
 .loopexit:                                        ; preds = %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit26.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i20.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i20.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i20.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i20.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i20.i
   %184 = getelementptr inbounds nuw i8, ptr %9, i64 560
@@ -4499,15 +4499,15 @@ _ZNK4llvm12InstIteratorIKNS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_ite
 205:                                              ; preds = %2
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 800
   tail call void @_ZN4llvm9FaultMaps26serializeToFaultMapSectionEv(ptr noundef nonnull align 8 dereferenceable(56) %206) #16
-  br label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.argprom.exit
+  br label %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.exit
 
-_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.argprom.exit: ; preds = %_ZNK4llvm12InstIteratorIKNS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb1EEENS_21ilist_iterator_w_bitsINS7_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb1EEEKSB_EneERKSF_.exit.i, %2, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.i, %79, %205, %_ZL16emitNonLazyStubsPN4llvm17MachineModuleInfoERNS_10MCStreamerE.exit
+_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.exit: ; preds = %_ZNK4llvm12InstIteratorIKNS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb1EEENS_21ilist_iterator_w_bitsINS7_INS_11InstructionELb0ELb0EvLb1ES2_EELb0ELb1EEEKSB_EneERKSF_.exit.i, %2, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.i, %79, %205, %_ZL16emitNonLazyStubsPN4llvm17MachineModuleInfoERNS_10MCStreamerE.exit
   %207 = getelementptr inbounds nuw i8, ptr %9, i64 560
   %208 = load i32, ptr %207, align 8
   %209 = icmp eq i32 %208, 38
   br i1 %209, label %210, label %245
 
-210:                                              ; preds = %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.argprom.exit
+210:                                              ; preds = %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.exit
   %211 = load ptr, ptr %8, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 652
   %213 = load i32, ptr %212, align 4
@@ -4559,7 +4559,7 @@ _ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.argprom.exit: ; preds = 
   call void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(288) %241, ptr noundef %244, i32 noundef %240, i1 noundef zeroext false) #16
   br label %245
 
-245:                                              ; preds = %215, %221, %210, %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.argprom.exit, %.loopexit
+245:                                              ; preds = %215, %221, %210, %_ZL21usesMSVCFloatingPointRKN4llvm6TripleERKNS_6ModuleE.exit, %.loopexit
   ret void
 }
 

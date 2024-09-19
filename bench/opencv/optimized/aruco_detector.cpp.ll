@@ -2220,7 +2220,7 @@ define void @_ZNK2cv5aruco13ArucoDetector13detectMarkersERKNS_11_InputArrayERKNS
   store ptr %197, ptr %27, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayESC_SC_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %199, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayESC_SC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %196, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef %27)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef %27)
           to label %200 unwind label %207
 
 200:                                              ; preds = %198
@@ -2292,7 +2292,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %_ZNSt8functionIFvRK
   store ptr %19, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayESC_SC_E3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr %233, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayESC_SC_E3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %232, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %28, ptr noundef %29)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %28, ptr noundef %29)
           to label %234 unwind label %241
 
 234:                                              ; preds = %222
@@ -2819,7 +2819,7 @@ _ZNSt12_Vector_baseISt6vectorIS0_IN2cv6Point_IiEESaIS3_EESaIS5_EESaIS7_EEC2EmRKS
   store ptr %71, ptr %14, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5arucoL24_detectInitialCandidatesERKNS0_3MatERSt6vectorIS9_INS0_6Point_IfEESaISB_EESaISD_EERS9_IS9_INSA_IiEESaISH_EESaISJ_EERKNS5_18DetectorParametersEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %73, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5arucoL24_detectInitialCandidatesERKNS0_3MatERSt6vectorIS9_INS0_6Point_IfEESaISB_EESaISD_EERS9_IS9_INSA_IiEESaISH_EESaISJ_EERKNS5_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation", ptr %70, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef %14)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef %14)
           to label %74 unwind label %161
 
 74:                                               ; preds = %72
@@ -5114,7 +5114,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   store ptr %136, ptr %18, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5aruco13ArucoDetector17ArucoDetectorImpl18identifyCandidatesERKNS0_3MatERKSt6vectorIS8_SaIS8_EERSB_INS5_19MarkerCandidateTreeESaISG_EERSB_ISB_INS0_6Point_IfEESaISL_EESaISN_EERSB_ISB_INSK_IiEESaISR_EESaIST_EERSB_IiSaIiEERKNS0_12_OutputArrayEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %68, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5aruco13ArucoDetector17ArucoDetectorImpl18identifyCandidatesERKNS0_3MatERKSt6vectorIS8_SaIS8_EERSB_INS5_19MarkerCandidateTreeESaISG_EERSB_ISB_INS0_6Point_IfEESaISL_EESaISN_EERSB_ISB_INSK_IiEESaISR_EESaIST_EERSB_IiSaIiEERKNS0_12_OutputArrayEEUlS3_E_E10_M_managerERSt9_Any_dataRKS15_St18_Manager_operation, ptr %67, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef %18)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef %18)
           to label %138 unwind label %165
 
 138:                                              ; preds = %137
@@ -5247,7 +5247,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %138, %140
   %195 = icmp eq ptr %.val, %194
   %196 = icmp eq ptr %.val75, %194
   %or.cond.i = select i1 %195, i1 true, i1 %196
-  br i1 %or.cond.i, label %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.argprom.exit, label %197
+  br i1 %or.cond.i, label %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.exit, label %197
 
 197:                                              ; preds = %186
   %198 = ptrtoint ptr %.val75 to i64
@@ -5271,7 +5271,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %138, %140
   %209 = getelementptr inbounds i8, ptr %.sroa.04.07.i.i.i.i, i64 8
   %210 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i, i64 8
   %.not.i.i.i.i106 = icmp eq ptr %209, %194
-  br i1 %.not.i.i.i.i106, label %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.argprom.exit, label %.lr.ph.i.i.i.i, !llvm.loop !39
+  br i1 %.not.i.i.i.i106, label %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.exit, label %.lr.ph.i.i.i.i, !llvm.loop !39
 
 .preheader.i:                                     ; preds = %197, %.preheader.i.backedge
   %.050.i.i.i = phi i64 [ %.050.i.i.i.be, %.preheader.i.backedge ], [ %201, %197 ]
@@ -5307,7 +5307,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %138, %140
   %.sroa.020.1.lcssa.i.i.i = phi ptr [ %.sroa.020.0.i.i.i, %213 ], [ %218, %.lr.ph60.i.i.i ]
   %221 = srem i64 %.050.i.i.i, %.049.i.i.i
   %222 = icmp eq i64 %221, 0
-  br i1 %222, label %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.argprom.exit, label %223
+  br i1 %222, label %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.exit, label %223
 
 223:                                              ; preds = %._crit_edge61.i.i.i
   %224 = sub nsw i64 %.049.i.i.i, %221
@@ -5338,7 +5338,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %138, %140
   %.sroa.020.3.lcssa.i.i.i = phi ptr [ %228, %225 ], [ %.sroa.020.0.i.i.i, %.lr.ph.i.i.i ]
   %235 = srem i64 %.050.i.i.i, %211
   %236 = icmp eq i64 %235, 0
-  br i1 %236, label %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.argprom.exit, label %.preheader.i.backedge
+  br i1 %236, label %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.exit, label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %._crit_edge.i.i.i, %223
   %.050.i.i.i.be = phi i64 [ %.049.i.i.i, %223 ], [ %211, %._crit_edge.i.i.i ]
@@ -5346,7 +5346,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %138, %140
   %.sroa.020.0.i.i.i.be = phi ptr [ %.sroa.020.1.lcssa.i.i.i, %223 ], [ %.sroa.020.3.lcssa.i.i.i, %._crit_edge.i.i.i ]
   br label %.preheader.i, !llvm.loop !42
 
-_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.argprom.exit: ; preds = %._crit_edge.i.i.i, %._crit_edge61.i.i.i, %.lr.ph.i.i.i.i, %186
+_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.exit: ; preds = %._crit_edge.i.i.i, %._crit_edge61.i.i.i, %.lr.ph.i.i.i.i, %186
   %237 = load ptr, ptr %3, align 8
   %238 = getelementptr inbounds %"struct.cv::aruco::MarkerCandidateTree", ptr %237, i64 %.0225
   %239 = load ptr, ptr %116, align 8
@@ -5354,7 +5354,7 @@ _ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.argprom.
   %.not.i107 = icmp eq ptr %239, %240
   br i1 %.not.i107, label %263, label %241
 
-241:                                              ; preds = %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.argprom.exit
+241:                                              ; preds = %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.exit
   %242 = getelementptr inbounds i8, ptr %238, i64 8
   %243 = load ptr, ptr %242, align 8
   %244 = load ptr, ptr %238, align 8
@@ -5412,7 +5412,7 @@ _ZNSt16allocator_traitsISaISt6vectorIN2cv6Point_IfEESaIS3_EEEE9constructIS5_JRKS
   store ptr %262, ptr %116, align 8
   br label %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE9push_backERKS4_.exit
 
-263:                                              ; preds = %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.argprom.exit
+263:                                              ; preds = %_ZN2cv5arucoL21correctCornerPositionERSt6vectorINS_6Point_IfEESaIS3_EEi.exit
   invoke void @_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %239, ptr noundef nonnull align 8 dereferenceable(24) %238)
           to label %_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE9push_backERKS4_.exit unwind label %.loopexit
 
@@ -5790,7 +5790,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit168:                 ; preds = %391, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd.argelim(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::ParallelLoopBodyLambdaWrapper", align 8
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -12126,7 +12126,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5arucoL24_d
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   %19 = icmp slt i32 %.val2, %.val3
-  br i1 %19, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv5arucoL24_detectInitialCandidatesERKNS0_3MatERSt6vectorIS5_INS0_6Point_IfEESaIS7_EESaIS9_EERS5_IS5_INS6_IiEESaISD_EESaISF_EERKNS1_18DetectorParametersEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueEST_E4typeEOSW_DpOSX_.argprom.exit"
+  br i1 %19, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv5arucoL24_detectInitialCandidatesERKNS0_3MatERSt6vectorIS5_INS0_6Point_IfEESaIS7_EESaIS9_EERS5_IS5_INS6_IiEESaISD_EESaISF_EERKNS1_18DetectorParametersEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueEST_E4typeEOSW_DpOSX_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %20 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -12770,7 +12770,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit127.i.i.i.i: ; preds = %293, %_ZNSt
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
   %exitcond.not.i.i.i = icmp eq i32 %.val3, %lftr.wideiv.i.i.i
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv5arucoL24_detectInitialCandidatesERKNS0_3MatERSt6vectorIS5_INS0_6Point_IfEESaIS7_EESaIS9_EERS5_IS5_INS6_IiEESaISD_EESaISF_EERKNS1_18DetectorParametersEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueEST_E4typeEOSW_DpOSX_.argprom.exit", label %48, !llvm.loop !171
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv5arucoL24_detectInitialCandidatesERKNS0_3MatERSt6vectorIS5_INS0_6Point_IfEESaIS7_EESaIS9_EERS5_IS5_INS6_IiEESaISD_EESaISF_EERKNS1_18DetectorParametersEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueEST_E4typeEOSW_DpOSX_.exit", label %48, !llvm.loop !171
 
 300:                                              ; preds = %69
   %301 = landingpad { ptr, i32 }
@@ -12782,7 +12782,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit127.i.i.i.i: ; preds = %293, %_ZNSt
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #28
   resume { ptr, i32 } %.pn16.i.i.i
 
-"_ZSt10__invoke_rIvRZN2cv5arucoL24_detectInitialCandidatesERKNS0_3MatERSt6vectorIS5_INS0_6Point_IfEESaIS7_EESaIS9_EERS5_IS5_INS6_IiEESaISD_EESaISF_EERKNS1_18DetectorParametersEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueEST_E4typeEOSW_DpOSX_.argprom.exit": ; preds = %299, %2
+"_ZSt10__invoke_rIvRZN2cv5arucoL24_detectInitialCandidatesERKNS0_3MatERSt6vectorIS5_INS0_6Point_IfEESaIS7_EESaIS9_EERS5_IS5_INS6_IiEESaISD_EESaISF_EERKNS1_18DetectorParametersEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueEST_E4typeEOSW_DpOSX_.exit": ; preds = %299, %2
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
@@ -12791,7 +12791,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit127.i.i.i.i: ; preds = %293, %_ZNSt
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5arucoL24_detectInitialCandidatesERKNS0_3MatERSt6vectorIS9_INS0_6Point_IfEESaISB_EESaISD_EERS9_IS9_INSA_IiEESaISH_EESaISJ_EERKNS5_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -12800,30 +12800,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN2cv5arucoL24_detectInitialCandidatesERKNS_3MatERSt6vectorIS4_INS_6Point_IfEESaIS6_EESaIS8_EERS4_IS4_INS5_IiEESaISC_EESaISE_EERKNS0_18DetectorParametersEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN2cv5arucoL24_detectInitialCandidatesERKNS1_3MatERSt6vectorIS6_INS1_6Point_IfEESaIS8_EESaISA_EERS6_IS6_INS7_IiEESaISE_EESaISG_EERKNS2_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -20856,7 +20856,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5aruco13Ar
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10)
   %12 = icmp slt i32 %.val2, %.val3
-  br i1 %12, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZNK2cv5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayES8_S8_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.argprom.exit"
+  br i1 %12, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZNK2cv5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayES8_S8_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %13 = getelementptr inbounds i8, ptr %.val, i64 32
@@ -21172,7 +21172,7 @@ _ZN2cv5arucoL20getAverageModuleSizeERKSt6vectorINS_6Point_IfEESaIS3_EEii.exit.i.
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
   %exitcond.not.i.i.i = icmp eq i32 %.val3, %lftr.wideiv.i.i.i
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK2cv5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayES8_S8_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.argprom.exit", label %55, !llvm.loop !287
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK2cv5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayES8_S8_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit", label %55, !llvm.loop !287
 
 181:                                              ; preds = %178, %.loopexit.split-lp.i.i.i, %.loopexit.i.i.i
   %.sink16.i.i.i = phi ptr [ %10, %178 ], [ %7, %.loopexit.split-lp.i.i.i ], [ %7, %.loopexit.i.i.i ]
@@ -21180,7 +21180,7 @@ _ZN2cv5arucoL20getAverageModuleSizeERKSt6vectorINS_6Point_IfEESaIS3_EEii.exit.i.
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink16.i.i.i) #28
   resume { ptr, i32 } %.pn18.i.i.i
 
-"_ZSt10__invoke_rIvRZNK2cv5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayES8_S8_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %180, %2
+"_ZSt10__invoke_rIvRZNK2cv5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayES8_S8_E3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit": ; preds = %180, %2
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -21190,7 +21190,7 @@ _ZN2cv5arucoL20getAverageModuleSizeERKSt6vectorINS_6Point_IfEESaIS3_EEii.exit.i.
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayESC_SC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -21199,30 +21199,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS_11_InputArrayERKNS_12_OutputArrayES7_S7_E3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #31
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK2cv5aruco13ArucoDetector13detectMarkersERKNS1_11_InputArrayERKNS1_12_OutputArrayES9_S9_E3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

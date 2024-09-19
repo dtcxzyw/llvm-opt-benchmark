@@ -1596,7 +1596,7 @@ Prs_ManAlloc.exit.thread:                         ; preds = %3
   %28 = tail call ptr @Abc_NamStart(i32 noundef 100, i32 noundef 24) #28
   %29 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %28, ptr %29, align 8
-  %30 = tail call fastcc ptr @Hash_IntManStart.argelim()
+  %30 = tail call fastcc ptr @Hash_IntManStart()
   %31 = getelementptr inbounds i8, ptr %2, i64 48
   store ptr %30, ptr %31, align 8
   %32 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #30
@@ -2094,7 +2094,7 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
   br i1 %182, label %.preheader.i.i.i.preheader, label %.loopexit216.i.i
 
 183:                                              ; preds = %171
-  tail call fastcc void @Prs_ManInitializeNtk.argelim(ptr noundef %2, i32 noundef %168)
+  tail call fastcc void @Prs_ManInitializeNtk(ptr noundef %2, i32 noundef %168)
   %184 = tail call fastcc i32 @Prs_ManUtilSkipSpaces(ptr noundef nonnull %2)
   %.not97.i.i = icmp eq i32 %184, 0
   br i1 %.not97.i.i, label %185, label %Prs_ManReadDesign.exit
@@ -2172,7 +2172,7 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
   ]
 
 212:                                              ; preds = %211
-  %213 = tail call fastcc i32 @Prs_ManUtilSkipUntil.argelim(ptr noundef %2)
+  %213 = tail call fastcc i32 @Prs_ManUtilSkipUntil(ptr noundef %2)
   br label %255
 
 214:                                              ; preds = %211
@@ -3054,7 +3054,7 @@ define i32 @Prs_CreateVerilogFindFon(ptr nocapture noundef readonly %0, i32 noun
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %.val, i64 48
   %4 = add nsw i32 %1, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %4)
   %5 = getelementptr i8, ptr %.val, i64 56
   %.val.i.i.i = load ptr, ptr %5, align 8
   %6 = sext i32 %1 to i64
@@ -3088,7 +3088,7 @@ define i32 @Prs_CreateSlice(ptr noundef %0, i32 noundef %1, ptr nocapture readno
   %.val = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %.val, i64 48
   %8 = add nsw i32 %6, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %7, i32 noundef %8)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %7, i32 noundef %8)
   %9 = getelementptr i8, ptr %.val, i64 56
   %.val.i.i.i = load ptr, ptr %9, align 8
   %10 = sext i32 %6 to i64
@@ -3101,7 +3101,7 @@ define i32 @Prs_CreateSlice(ptr noundef %0, i32 noundef %1, ptr nocapture readno
   %14 = tail call fastcc i32 @Cba_ObjAlloc(ptr noundef nonnull %0, i32 noundef 88, i32 noundef 1, i32 noundef 1)
   %15 = getelementptr inbounds i8, ptr %0, i64 200
   %16 = add nsw i32 %14, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %15, i32 noundef %16)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %15, i32 noundef %16)
   %17 = getelementptr i8, ptr %0, i64 208
   %.val.i.i = load ptr, ptr %17, align 8
   %18 = sext i32 %14 to i64
@@ -3123,20 +3123,20 @@ define i32 @Prs_CreateSlice(ptr noundef %0, i32 noundef %1, ptr nocapture readno
   %29 = getelementptr inbounds i8, ptr %0, i64 280
   %30 = shl nsw i32 %3, 1
   %31 = add nsw i32 %28, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %29, i32 noundef %31)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %29, i32 noundef %31)
   %32 = getelementptr i8, ptr %0, i64 288
   %.val.i.i32 = load ptr, ptr %32, align 8
   %33 = sext i32 %28 to i64
   %34 = getelementptr inbounds i32, ptr %.val.i.i32, i64 %33
   store i32 %30, ptr %34, align 4
   %35 = getelementptr inbounds i8, ptr %0, i64 264
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %35, i32 noundef %31)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %35, i32 noundef %31)
   %36 = getelementptr i8, ptr %0, i64 272
   %.val.i.i33 = load ptr, ptr %36, align 8
   %37 = getelementptr inbounds i32, ptr %.val.i.i33, i64 %33
   store i32 %6, ptr %37, align 4
   %.val31 = load ptr, ptr %0, align 8
-  tail call fastcc void @Cba_NtkSetMap.argprom(ptr %.val31, i32 noundef %6, i32 noundef %28)
+  tail call fastcc void @Cba_NtkSetMap(ptr %.val31, i32 noundef %6, i32 noundef %28)
   br label %38
 
 38:                                               ; preds = %4, %13
@@ -3765,10 +3765,10 @@ Vec_IntPush.exit68:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Cba_NtkSetMap.argprom(ptr nocapture %.0.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Cba_NtkSetMap(ptr nocapture %.0.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 48
   %4 = add nsw i32 %0, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %4)
   %5 = getelementptr i8, ptr %.0.val, i64 56
   %.val.i.i = load ptr, ptr %5, align 8
   %6 = sext i32 %0 to i64
@@ -3864,14 +3864,14 @@ define i32 @Prs_CreateCatIn(ptr noundef %0, ptr nocapture noundef readonly %1, i
   %15 = tail call i32 (ptr, ptr, ...) @Cba_NtkNewStrId(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %10)
   %16 = getelementptr inbounds i8, ptr %0, i64 264
   %17 = add nsw i32 %14, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %16, i32 noundef %17)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %16, i32 noundef %17)
   %18 = getelementptr i8, ptr %0, i64 272
   %.val.i.i = load ptr, ptr %18, align 8
   %19 = sext i32 %14 to i64
   %20 = getelementptr inbounds i32, ptr %.val.i.i, i64 %19
   store i32 %15, ptr %20, align 4
   %.val49 = load ptr, ptr %0, align 8
-  tail call fastcc void @Cba_NtkSetMap.argprom(ptr %.val49, i32 noundef %15, i32 noundef %14)
+  tail call fastcc void @Cba_NtkSetMap(ptr %.val49, i32 noundef %15, i32 noundef %14)
   %Prs_CatSignals.V.val53 = load i32, ptr @Prs_CatSignals.V.1, align 8
   %21 = icmp sgt i32 %Prs_CatSignals.V.val53, 0
   br i1 %21, label %.lr.ph, label %.critedge
@@ -3923,7 +3923,7 @@ define i32 @Prs_CreateCatIn(ptr noundef %0, ptr nocapture noundef readonly %1, i
 
 Cba_FonRange.exit.i:                              ; preds = %43
   %45 = add nuw nsw i32 %30, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %25, i32 noundef %45)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %25, i32 noundef %45)
   %.val.i.i.i.i = load ptr, ptr %26, align 8
   %46 = zext nneg i32 %30 to i64
   %47 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %46
@@ -3980,11 +3980,11 @@ Cba_FonRangeSize.exit:                            ; preds = %38, %Cba_NtkRangeSi
   %.val50 = load ptr, ptr %0, align 8
   %74 = getelementptr i8, ptr %.val50, i64 40
   %.val50.val = load ptr, ptr %74, align 8
-  %75 = tail call fastcc i32 @Hash_Int2ManInsert.argelim(ptr noundef readonly %.val50.val, i32 noundef %.038.lcssa, i32 noundef 0)
+  %75 = tail call fastcc i32 @Hash_Int2ManInsert(ptr noundef readonly %.val50.val, i32 noundef %.038.lcssa, i32 noundef 0)
   %76 = getelementptr inbounds i8, ptr %0, i64 280
   %77 = shl nsw i32 %75, 1
   %78 = add nsw i32 %73, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %76, i32 noundef %78)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %76, i32 noundef %78)
   %79 = getelementptr i8, ptr %0, i64 288
   %.val.i.i52 = load ptr, ptr %79, align 8
   %80 = sext i32 %73 to i64
@@ -4019,7 +4019,7 @@ define i32 @Prs_CreateSignalIn(ptr noundef %0, ptr nocapture noundef readonly %1
   %.val.i = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %.val.i, i64 48
   %12 = add nsw i32 %10, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %11, i32 noundef %12)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %11, i32 noundef %12)
   %13 = getelementptr i8, ptr %.val.i, i64 56
   %.val.i.i.i.i = load ptr, ptr %13, align 8
   %14 = sext i32 %10 to i64
@@ -4059,7 +4059,7 @@ define i32 @Prs_CreateSignalIn(ptr noundef %0, ptr nocapture noundef readonly %1
   %.val.i31 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %.val.i31, i64 48
   %35 = add nsw i32 %33, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %34, i32 noundef %35)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %34, i32 noundef %35)
   %36 = getelementptr i8, ptr %.val.i31, i64 56
   %.val.i.i.i.i32 = load ptr, ptr %36, align 8
   %37 = sext i32 %33 to i64
@@ -4107,7 +4107,7 @@ define i32 @Prs_CreateRange(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %.val, i64 48
   %5 = add nsw i32 %2, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %4, i32 noundef %5)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %4, i32 noundef %5)
   %6 = getelementptr i8, ptr %.val, i64 56
   %.val.i.i.i = load ptr, ptr %6, align 8
   %7 = sext i32 %2 to i64
@@ -4126,7 +4126,7 @@ define i32 @Prs_CreateRange(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
 Cba_FonRange.exit.i:                              ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 280
   %16 = add nuw nsw i32 %9, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %15, i32 noundef %16)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %15, i32 noundef %16)
   %17 = getelementptr i8, ptr %0, i64 288
   %.val.i.i.i.i = load ptr, ptr %17, align 8
   %18 = zext nneg i32 %9 to i64
@@ -4162,20 +4162,20 @@ Cba_FonRangeSize.exit:                            ; preds = %12, %Cba_FonRange.e
 39:                                               ; preds = %3
   %.val18 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %.val18, i64 48
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %40, i32 noundef %5)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %40, i32 noundef %5)
   %41 = getelementptr i8, ptr %.val18, i64 56
   %.val.i.i.i20 = load ptr, ptr %41, align 8
   %42 = getelementptr inbounds i32, ptr %.val.i.i.i20, i64 %7
   store i32 0, ptr %42, align 4
   %.val17 = load ptr, ptr %0, align 8
-  tail call fastcc void @Cba_NtkSetMap.argprom(ptr %.val17, i32 noundef %2, i32 noundef %1)
+  tail call fastcc void @Cba_NtkSetMap(ptr %.val17, i32 noundef %2, i32 noundef %1)
   %43 = icmp eq i32 %9, 0
   br i1 %43, label %Cba_FonRangeSize.exit30, label %44
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds i8, ptr %0, i64 280
   %46 = add nsw i32 %1, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %45, i32 noundef %46)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %45, i32 noundef %46)
   %47 = getelementptr i8, ptr %0, i64 288
   %.val.i.i = load ptr, ptr %47, align 8
   %48 = sext i32 %1 to i64
@@ -4200,7 +4200,7 @@ Cba_FonRangeSize.exit:                            ; preds = %12, %Cba_FonRange.e
   br i1 %57, label %Cba_NtkRangeSize.exit.i29, label %Cba_FonRange.exit.i25
 
 Cba_FonRange.exit.i25:                            ; preds = %55
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %45, i32 noundef %46)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %45, i32 noundef %46)
   %.val.i.i.i.i26 = load ptr, ptr %47, align 8
   %58 = zext nneg i32 %1 to i64
   %59 = getelementptr inbounds i32, ptr %.val.i.i.i.i26, i64 %58
@@ -4260,7 +4260,7 @@ define void @Prs_CreateSignalOut(ptr noundef %0, i32 noundef %1, ptr nocapture n
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 264
   %15 = add nsw i32 %1, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %14, i32 noundef %15)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %14, i32 noundef %15)
   %16 = getelementptr i8, ptr %0, i64 272
   %.val.i.i = load ptr, ptr %16, align 8
   %17 = sext i32 %1 to i64
@@ -4273,15 +4273,15 @@ define void @Prs_CreateSignalOut(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %21 = tail call i32 (ptr, ptr, ...) @Cba_NtkNewStrId(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %1)
   %22 = getelementptr inbounds i8, ptr %0, i64 264
   %23 = add nsw i32 %1, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %22, i32 noundef %23)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %22, i32 noundef %23)
   %24 = getelementptr i8, ptr %0, i64 272
   %.val.i.i112 = load ptr, ptr %24, align 8
   %25 = sext i32 %1 to i64
   %26 = getelementptr inbounds i32, ptr %.val.i.i112, i64 %25
   store i32 %21, ptr %26, align 4
   %.val105 = load ptr, ptr %0, align 8
-  tail call fastcc void @Cba_NtkSetMap.argprom(ptr %.val105, i32 noundef %21, i32 noundef %1)
-  switch i32 %5, label %Vec_IntReverseOrder.argprom.exit120 [
+  tail call fastcc void @Cba_NtkSetMap(ptr %.val105, i32 noundef %21, i32 noundef %1)
+  switch i32 %5, label %Vec_IntReverseOrder.exit120 [
     i32 1, label %27
     i32 3, label %52
   ]
@@ -4320,7 +4320,7 @@ Cba_NtkRangeSize.exit:                            ; preds = %27, %34
   %50 = add nuw nsw i32 %49, 1
   %51 = getelementptr inbounds i8, ptr %0, i64 400
   tail call fastcc void @Vec_IntPushThree(ptr noundef nonnull %51, i32 noundef %31, i32 noundef %33, i32 noundef %1)
-  br label %Vec_IntReverseOrder.argprom.exit120
+  br label %Vec_IntReverseOrder.exit120
 
 52:                                               ; preds = %20
   %53 = getelementptr i8, ptr %2, i64 200
@@ -4333,7 +4333,7 @@ Cba_NtkRangeSize.exit:                            ; preds = %27, %34
   %58 = getelementptr i8, ptr %57, i64 4
   store ptr %58, ptr @Prs_CatSignals.V.2, align 8
   %59 = icmp sgt i32 %56, 1
-  br i1 %59, label %.lr.ph.i.preheader, label %Vec_IntReverseOrder.argprom.exit
+  br i1 %59, label %.lr.ph.i.preheader, label %Vec_IntReverseOrder.exit
 
 .lr.ph.i.preheader:                               ; preds = %52
   %60 = load ptr, ptr @Prs_CatSignals.V.2, align 8
@@ -4361,14 +4361,14 @@ Cba_NtkRangeSize.exit:                            ; preds = %27, %34
   store i32 %67, ptr %76, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %77 = icmp slt i64 %indvars.iv.next.i, %64
-  br i1 %77, label %.lr.ph.i, label %Vec_IntReverseOrder.argprom.exit, !llvm.loop !28
+  br i1 %77, label %.lr.ph.i, label %Vec_IntReverseOrder.exit, !llvm.loop !28
 
-Vec_IntReverseOrder.argprom.exit:                 ; preds = %.lr.ph.i, %52
+Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i, %52
   %Prs_CatSignals.V.val122 = phi i32 [ %56, %52 ], [ %62, %.lr.ph.i ]
   %78 = icmp sgt i32 %Prs_CatSignals.V.val122, 0
-  br i1 %78, label %.lr.ph, label %Vec_IntReverseOrder.argprom.exit120
+  br i1 %78, label %.lr.ph, label %Vec_IntReverseOrder.exit120
 
-.lr.ph:                                           ; preds = %Vec_IntReverseOrder.argprom.exit
+.lr.ph:                                           ; preds = %Vec_IntReverseOrder.exit
   %79 = getelementptr i8, ptr %2, i64 184
   %80 = getelementptr inbounds i8, ptr %0, i64 400
   %81 = getelementptr i8, ptr %0, i64 128
@@ -4406,7 +4406,7 @@ Vec_IntReverseOrder.argprom.exit:                 ; preds = %.lr.ph.i, %52
   %96 = getelementptr inbounds i32, ptr %.val104, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = add nsw i32 %97, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %22, i32 noundef %98)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %22, i32 noundef %98)
   %.val.i.i113 = load ptr, ptr %24, align 8
   %99 = sext i32 %97 to i64
   %100 = getelementptr inbounds i32, ptr %.val.i.i113, i64 %99
@@ -4417,7 +4417,7 @@ Vec_IntReverseOrder.argprom.exit:                 ; preds = %.lr.ph.i, %52
   %.val111 = load ptr, ptr %0, align 8
   %104 = getelementptr i8, ptr %.val111, i64 40
   %.val111.val = load ptr, ptr %104, align 8
-  %105 = tail call fastcc i32 @Hash_Int2ManInsert.argelim(ptr noundef readonly %.val111.val, i32 noundef %103, i32 noundef %.1124)
+  %105 = tail call fastcc i32 @Hash_Int2ManInsert(ptr noundef readonly %.val111.val, i32 noundef %103, i32 noundef %.1124)
   %106 = tail call i32 @Prs_CreateSlice(ptr noundef nonnull %0, i32 noundef %1, ptr poison, i32 noundef %105)
   %.val102 = load ptr, ptr %82, align 8
   %.val103 = load ptr, ptr %83, align 8
@@ -4460,7 +4460,7 @@ Cba_NtkRangeSize.exit116:                         ; preds = %111, %117
   %129 = tail call i32 @llvm.abs.i32(i32 %128, i1 true)
   %130 = add nuw nsw i32 %129, 1
   %131 = add i32 %129, %.1124
-  %132 = tail call fastcc i32 @Hash_Int2ManInsert.argelim(ptr noundef readonly %.val110.val.pre, i32 noundef %131, i32 noundef %.1124)
+  %132 = tail call fastcc i32 @Hash_Int2ManInsert(ptr noundef readonly %.val110.val.pre, i32 noundef %131, i32 noundef %.1124)
   %133 = tail call i32 @Prs_CreateSlice(ptr noundef nonnull %0, i32 noundef %1, ptr nonnull poison, i32 noundef %132)
   tail call fastcc void @Vec_IntPushThree(ptr noundef nonnull %80, i32 noundef %114, i32 noundef %116, i32 noundef %133)
   br label %134
@@ -4477,7 +4477,7 @@ Cba_NtkRangeSize.exit116:                         ; preds = %111, %117
 
 .critedge:                                        ; preds = %134
   %137 = icmp sgt i32 %Prs_CatSignals.V.val, 1
-  br i1 %137, label %.lr.ph.i117.preheader, label %Vec_IntReverseOrder.argprom.exit120
+  br i1 %137, label %.lr.ph.i117.preheader, label %Vec_IntReverseOrder.exit120
 
 .lr.ph.i117.preheader:                            ; preds = %.critedge
   %138 = load ptr, ptr @Prs_CatSignals.V.2, align 8
@@ -4505,25 +4505,25 @@ Cba_NtkRangeSize.exit116:                         ; preds = %111, %117
   store i32 %145, ptr %154, align 4
   %indvars.iv.next.i119 = add nuw nsw i64 %indvars.iv.i118, 1
   %155 = icmp slt i64 %indvars.iv.next.i119, %142
-  br i1 %155, label %.lr.ph.i117, label %Vec_IntReverseOrder.argprom.exit120, !llvm.loop !28
+  br i1 %155, label %.lr.ph.i117, label %Vec_IntReverseOrder.exit120, !llvm.loop !28
 
-Vec_IntReverseOrder.argprom.exit120:              ; preds = %.lr.ph.i117, %Vec_IntReverseOrder.argprom.exit, %.critedge, %20, %Cba_NtkRangeSize.exit
-  %.092 = phi i32 [ %50, %Cba_NtkRangeSize.exit ], [ 0, %20 ], [ %.2, %.critedge ], [ 0, %Vec_IntReverseOrder.argprom.exit ], [ %.2, %.lr.ph.i117 ]
+Vec_IntReverseOrder.exit120:                      ; preds = %.lr.ph.i117, %Vec_IntReverseOrder.exit, %.critedge, %20, %Cba_NtkRangeSize.exit
+  %.092 = phi i32 [ %50, %Cba_NtkRangeSize.exit ], [ 0, %20 ], [ %.2, %.critedge ], [ 0, %Vec_IntReverseOrder.exit ], [ %.2, %.lr.ph.i117 ]
   %156 = add nsw i32 %.092, -1
   %.val.i121 = load ptr, ptr %0, align 8
   %157 = getelementptr i8, ptr %.val.i121, i64 40
   %.val.val.i = load ptr, ptr %157, align 8
-  %158 = tail call fastcc i32 @Hash_Int2ManInsert.argelim(ptr noundef readonly %.val.val.i, i32 noundef %156, i32 noundef 0)
+  %158 = tail call fastcc i32 @Hash_Int2ManInsert(ptr noundef readonly %.val.val.i, i32 noundef %156, i32 noundef 0)
   %159 = getelementptr inbounds i8, ptr %0, i64 280
   %160 = shl nsw i32 %158, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %159, i32 noundef %23)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %159, i32 noundef %23)
   %161 = getelementptr i8, ptr %0, i64 288
   %.val.i.i.i = load ptr, ptr %161, align 8
   %162 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %25
   store i32 %160, ptr %162, align 4
   br label %163
 
-163:                                              ; preds = %9, %4, %Vec_IntReverseOrder.argprom.exit120, %13
+163:                                              ; preds = %9, %4, %Vec_IntReverseOrder.exit120, %13
   ret void
 }
 
@@ -4738,7 +4738,7 @@ define void @Prs_CreateOutConcat(ptr noundef %0, ptr nocapture noundef readonly 
   %.val98 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %.val98, i64 48
   %7 = add nsw i32 %5, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %6, i32 noundef %7)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %6, i32 noundef %7)
   %8 = getelementptr i8, ptr %.val98, i64 56
   %.val.i.i.i = load ptr, ptr %8, align 8
   %9 = sext i32 %5 to i64
@@ -4911,7 +4911,7 @@ Cba_NtkRangeRight.exit112:                        ; preds = %54, %60
   %92 = load i32, ptr %91, align 4
   %93 = getelementptr inbounds i8, ptr %0, i64 264
   %94 = add nsw i32 %92, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %93, i32 noundef %94)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %93, i32 noundef %94)
   %95 = getelementptr i8, ptr %0, i64 272
   %.val.i.i = load ptr, ptr %95, align 8
   %96 = sext i32 %92 to i64
@@ -4948,7 +4948,7 @@ Cba_NtkRangeRight.exit112:                        ; preds = %54, %60
   %111 = getelementptr i8, ptr %.val.i, i64 16
   %.val.val.i = load ptr, ptr %111, align 8
   %112 = tail call ptr @Abc_NamBuffer(ptr noundef %.val.val.i) #28
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF.argelim(ptr noundef %112, ptr nonnull poison, i32 noundef %.090118, ptr noundef nonnull @.str.200)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %112, ptr nonnull poison, i32 noundef %.090118, ptr noundef nonnull @.str.200)
   %113 = load ptr, ptr %0, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 24
   %115 = load ptr, ptr %114, align 8
@@ -5107,7 +5107,7 @@ define range(i32 0, 2) i32 @Prs_CreateFlopSetReset(ptr nocapture noundef readonl
   %8 = getelementptr i8, ptr %.val74, i64 100
   %.val9.i.i = load i32, ptr %8, align 4
   %9 = icmp sgt i32 %.val9.i.i, 0
-  br i1 %9, label %.lr.ph.i.i, label %Cba_NtkCleanMap2.argprom.exit
+  br i1 %9, label %.lr.ph.i.i, label %Cba_NtkCleanMap2.exit
 
 .lr.ph.i.i:                                       ; preds = %7
   %10 = getelementptr i8, ptr %.val74, i64 104
@@ -5127,28 +5127,28 @@ define range(i32 0, 2) i32 @Prs_CreateFlopSetReset(ptr nocapture noundef readonl
   %.val.i.i = load i32, ptr %8, align 4
   %17 = sext i32 %.val.i.i to i64
   %18 = icmp slt i64 %indvars.iv.next.i.i, %17
-  br i1 %18, label %12, label %Cba_NtkCleanMap2.argprom.exit, !llvm.loop !37
+  br i1 %18, label %12, label %Cba_NtkCleanMap2.exit, !llvm.loop !37
 
-Cba_NtkCleanMap2.argprom.exit:                    ; preds = %12, %7
+Cba_NtkCleanMap2.exit:                            ; preds = %12, %7
   store i32 0, ptr %8, align 4
   %.val75 = load ptr, ptr %0, align 8
   %19 = getelementptr i8, ptr %.val75, i64 16
   %.val75.val = load ptr, ptr %19, align 8
   %20 = tail call i32 @Abc_NamStrFind(ptr noundef %.val75.val, ptr noundef nonnull @.str.20) #28
   %.val77 = load ptr, ptr %0, align 8
-  tail call fastcc void @Cba_NtkSetMap2.argprom(ptr %.val77, i32 noundef %20, i32 noundef 1)
+  tail call fastcc void @Cba_NtkSetMap2(ptr %.val77, i32 noundef %20, i32 noundef 1)
   %.val76 = load ptr, ptr %0, align 8
   %21 = getelementptr i8, ptr %.val76, i64 16
   %.val76.val = load ptr, ptr %21, align 8
   %22 = tail call i32 @Abc_NamStrFind(ptr noundef %.val76.val, ptr noundef nonnull @.str.21) #28
   %.val78 = load ptr, ptr %0, align 8
-  tail call fastcc void @Cba_NtkSetMap2.argprom(ptr %.val78, i32 noundef %22, i32 noundef 2)
+  tail call fastcc void @Cba_NtkSetMap2(ptr %.val78, i32 noundef %22, i32 noundef 2)
   %23 = getelementptr i8, ptr %2, i64 4
   %.val111 = load i32, ptr %23, align 4
   %24 = icmp sgt i32 %.val111, 1
   br i1 %24, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Cba_NtkCleanMap2.argprom.exit
+.lr.ph:                                           ; preds = %Cba_NtkCleanMap2.exit
   %25 = getelementptr i8, ptr %2, i64 8
   br label %26
 
@@ -5167,7 +5167,7 @@ Cba_NtkCleanMap2.argprom.exit:                    ; preds = %12, %7
   %.val79 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %.val79, i64 64
   %33 = add nsw i32 %29, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %32, i32 noundef %33)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %32, i32 noundef %33)
   %34 = getelementptr i8, ptr %.val79, i64 72
   %.val.i.i.i = load ptr, ptr %34, align 8
   %35 = sext i32 %29 to i64
@@ -5180,7 +5180,7 @@ Cba_NtkCleanMap2.argprom.exit:                    ; preds = %12, %7
 40:                                               ; preds = %26
   %.val80 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %.val80, i64 64
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %41, i32 noundef %33)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %41, i32 noundef %33)
   %42 = getelementptr i8, ptr %.val80, i64 72
   %.val.i.i.i81 = load ptr, ptr %42, align 8
   %43 = getelementptr inbounds i32, ptr %.val.i.i.i81, i64 %35
@@ -5202,11 +5202,11 @@ Cba_NtkCleanMap2.argprom.exit:                    ; preds = %12, %7
   %49 = icmp slt i32 %48, %.val
   br i1 %49, label %26, label %.critedge, !llvm.loop !38
 
-.critedge:                                        ; preds = %46, %Cba_NtkCleanMap2.argprom.exit
-  %.057.lcssa = phi i32 [ -1, %Cba_NtkCleanMap2.argprom.exit ], [ %.158, %46 ]
-  %.055.lcssa = phi i32 [ -1, %Cba_NtkCleanMap2.argprom.exit ], [ %.156, %46 ]
-  %.053.lcssa = phi i32 [ -1, %Cba_NtkCleanMap2.argprom.exit ], [ %.154, %46 ]
-  %.052.lcssa = phi i32 [ -1, %Cba_NtkCleanMap2.argprom.exit ], [ %.1, %46 ]
+.critedge:                                        ; preds = %46, %Cba_NtkCleanMap2.exit
+  %.057.lcssa = phi i32 [ -1, %Cba_NtkCleanMap2.exit ], [ %.158, %46 ]
+  %.055.lcssa = phi i32 [ -1, %Cba_NtkCleanMap2.exit ], [ %.156, %46 ]
+  %.053.lcssa = phi i32 [ -1, %Cba_NtkCleanMap2.exit ], [ %.154, %46 ]
+  %.052.lcssa = phi i32 [ -1, %Cba_NtkCleanMap2.exit ], [ %.1, %46 ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %51, label %50
 
@@ -5482,10 +5482,10 @@ Prs_CreateBitSignal.exit108.thread:               ; preds = %122, %.lr.ph.i89, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Cba_NtkSetMap2.argprom(ptr nocapture %.0.val, i32 noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Cba_NtkSetMap2(ptr nocapture %.0.val, i32 noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 64
   %4 = add nsw i32 %0, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %4)
   %5 = getelementptr i8, ptr %.0.val, i64 72
   %.val.i.i = load ptr, ptr %5, align 8
   %6 = sext i32 %0 to i64
@@ -6363,7 +6363,7 @@ Cba_NtkCleanFonRanges.exit:                       ; preds = %77, %Vec_IntGrow.ex
   %81 = getelementptr i8, ptr %.val65, i64 84
   %.val9.i.i = load i32, ptr %81, align 4
   %82 = icmp sgt i32 %.val9.i.i, 0
-  br i1 %82, label %.lr.ph.i.i93, label %Cba_NtkCleanMap.argprom.exit
+  br i1 %82, label %.lr.ph.i.i93, label %Cba_NtkCleanMap.exit
 
 .lr.ph.i.i93:                                     ; preds = %Cba_NtkCleanFonRanges.exit
   %83 = getelementptr i8, ptr %.val65, i64 88
@@ -6383,16 +6383,16 @@ Cba_NtkCleanFonRanges.exit:                       ; preds = %77, %Vec_IntGrow.ex
   %.val.i.i = load i32, ptr %81, align 4
   %90 = sext i32 %.val.i.i to i64
   %91 = icmp slt i64 %indvars.iv.next.i.i95, %90
-  br i1 %91, label %85, label %Cba_NtkCleanMap.argprom.exit, !llvm.loop !42
+  br i1 %91, label %85, label %Cba_NtkCleanMap.exit, !llvm.loop !42
 
-Cba_NtkCleanMap.argprom.exit:                     ; preds = %85, %Cba_NtkCleanFonRanges.exit
+Cba_NtkCleanMap.exit:                             ; preds = %85, %Cba_NtkCleanFonRanges.exit
   store i32 0, ptr %81, align 4
   %92 = getelementptr i8, ptr %1, i64 68
   %.val56101 = load i32, ptr %92, align 4
   %93 = icmp sgt i32 %.val56101, 0
   br i1 %93, label %.lr.ph, label %.critedge.preheader
 
-.lr.ph:                                           ; preds = %Cba_NtkCleanMap.argprom.exit
+.lr.ph:                                           ; preds = %Cba_NtkCleanMap.exit
   %94 = getelementptr i8, ptr %1, i64 72
   %95 = getelementptr i8, ptr %1, i64 136
   %96 = getelementptr i8, ptr %0, i64 208
@@ -6401,7 +6401,7 @@ Cba_NtkCleanMap.argprom.exit:                     ; preds = %85, %Cba_NtkCleanFo
   %99 = getelementptr i8, ptr %0, i64 272
   br label %104
 
-.critedge.preheader:                              ; preds = %104, %Cba_NtkCleanMap.argprom.exit
+.critedge.preheader:                              ; preds = %104, %Cba_NtkCleanMap.exit
   %100 = getelementptr i8, ptr %1, i64 84
   %.val55103 = load i32, ptr %100, align 4
   %101 = icmp sgt i32 %.val55103, 0
@@ -6422,7 +6422,7 @@ Cba_NtkCleanMap.argprom.exit:                     ; preds = %85, %Cba_NtkCleanFo
   %108 = load i32, ptr %107, align 4
   %109 = tail call fastcc i32 @Cba_ObjAlloc(ptr noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef 1)
   %110 = add nsw i32 %109, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %23, i32 noundef %110)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %110)
   %.val.i.i96 = load ptr, ptr %96, align 8
   %111 = sext i32 %109 to i64
   %112 = getelementptr inbounds i32, ptr %.val.i.i96, i64 %111
@@ -6431,17 +6431,17 @@ Cba_NtkCleanMap.argprom.exit:                     ; preds = %85, %Cba_NtkCleanFo
   %113 = getelementptr inbounds i32, ptr %.val62, i64 %111
   %114 = load i32, ptr %113, align 4
   %115 = add nsw i32 %114, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %62, i32 noundef %115)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %62, i32 noundef %115)
   %.val.i.i97 = load ptr, ptr %98, align 8
   %116 = sext i32 %114 to i64
   %117 = getelementptr inbounds i32, ptr %.val.i.i97, i64 %116
   store i32 %108, ptr %117, align 4
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %42, i32 noundef %115)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %42, i32 noundef %115)
   %.val.i.i98 = load ptr, ptr %99, align 8
   %118 = getelementptr inbounds i32, ptr %.val.i.i98, i64 %116
   store i32 %106, ptr %118, align 4
   %.val64 = load ptr, ptr %0, align 8
-  tail call fastcc void @Cba_NtkSetMap.argprom(ptr %.val64, i32 noundef %106, i32 noundef %109)
+  tail call fastcc void @Cba_NtkSetMap(ptr %.val64, i32 noundef %106, i32 noundef %109)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val56 = load i32, ptr %92, align 4
   %119 = sext i32 %.val56 to i64
@@ -6469,13 +6469,13 @@ Cba_NtkCleanMap.argprom.exit:                     ; preds = %85, %Cba_NtkCleanFo
   %128 = load i32, ptr %127, align 4
   %129 = tail call fastcc i32 @Cba_ObjAlloc(ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %130 = add nsw i32 %129, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %23, i32 noundef %130)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %23, i32 noundef %130)
   %.val.i.i99 = load ptr, ptr %103, align 8
   %131 = sext i32 %129 to i64
   %132 = getelementptr inbounds i32, ptr %.val.i.i99, i64 %131
   store i32 %128, ptr %132, align 4
   %.val63 = load ptr, ptr %0, align 8
-  tail call fastcc void @Cba_NtkSetMap.argprom(ptr %.val63, i32 noundef %128, i32 noundef %129)
+  tail call fastcc void @Cba_NtkSetMap(ptr %.val63, i32 noundef %128, i32 noundef %129)
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %.val55 = load i32, ptr %100, align 4
   %133 = sext i32 %.val55 to i64
@@ -6491,7 +6491,7 @@ Cba_NtkCleanMap.argprom.exit:                     ; preds = %85, %Cba_NtkCleanFo
   %.val.i100 = load ptr, ptr %0, align 8
   %139 = getelementptr inbounds i8, ptr %.val.i100, i64 48
   %140 = add nsw i32 %138, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %139, i32 noundef %140)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %139, i32 noundef %140)
   %141 = getelementptr i8, ptr %.val.i100, i64 56
   %.val.i.i.i.i = load ptr, ptr %141, align 8
   %142 = sext i32 %138 to i64
@@ -6633,7 +6633,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %19 = getelementptr i8, ptr %.val645, i64 84
   %.val9.i.i = load i32, ptr %19, align 4
   %20 = icmp sgt i32 %.val9.i.i, 0
-  br i1 %20, label %.lr.ph.i.i, label %Cba_NtkCleanMap.argprom.exit
+  br i1 %20, label %.lr.ph.i.i, label %Cba_NtkCleanMap.exit
 
 .lr.ph.i.i:                                       ; preds = %Vec_IntStart.exit
   %21 = getelementptr i8, ptr %.val645, i64 88
@@ -6653,23 +6653,23 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.val.i.i = load i32, ptr %19, align 4
   %28 = sext i32 %.val.i.i to i64
   %29 = icmp slt i64 %indvars.iv.next.i.i, %28
-  br i1 %29, label %23, label %Cba_NtkCleanMap.argprom.exit, !llvm.loop !42
+  br i1 %29, label %23, label %Cba_NtkCleanMap.exit, !llvm.loop !42
 
-Cba_NtkCleanMap.argprom.exit:                     ; preds = %23, %Vec_IntStart.exit
+Cba_NtkCleanMap.exit:                             ; preds = %23, %Vec_IntStart.exit
   store i32 0, ptr %19, align 4
   %30 = getelementptr i8, ptr %0, i64 28
   %.val6461289 = load i32, ptr %30, align 4
   %31 = icmp sgt i32 %.val6461289, 0
   br i1 %31, label %.lr.ph, label %.critedge.preheader
 
-.lr.ph:                                           ; preds = %Cba_NtkCleanMap.argprom.exit
+.lr.ph:                                           ; preds = %Cba_NtkCleanMap.exit
   %32 = getelementptr i8, ptr %0, i64 32
   %33 = getelementptr inbounds i8, ptr %0, i64 200
   %34 = getelementptr i8, ptr %0, i64 208
   %35 = getelementptr i8, ptr %0, i64 128
   br label %40
 
-.critedge.preheader:                              ; preds = %40, %Cba_NtkCleanMap.argprom.exit
+.critedge.preheader:                              ; preds = %40, %Cba_NtkCleanMap.exit
   %36 = getelementptr i8, ptr %1, i64 100
   %.val5421291 = load i32, ptr %36, align 4
   %37 = icmp sgt i32 %.val5421291, 0
@@ -6686,7 +6686,7 @@ Cba_NtkCleanMap.argprom.exit:                     ; preds = %23, %Vec_IntStart.e
   %41 = getelementptr inbounds i32, ptr %.val649, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
   %43 = add nsw i32 %42, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %33, i32 noundef %43)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %33, i32 noundef %43)
   %.val.i.i687 = load ptr, ptr %34, align 8
   %44 = sext i32 %42 to i64
   %45 = getelementptr inbounds i32, ptr %.val.i.i687, i64 %44
@@ -6695,7 +6695,7 @@ Cba_NtkCleanMap.argprom.exit:                     ; preds = %23, %Vec_IntStart.e
   %47 = getelementptr inbounds i32, ptr %.val601, i64 %44
   %48 = load i32, ptr %47, align 4
   %.val605 = load ptr, ptr %0, align 8
-  tail call fastcc void @Cba_NtkSetMap.argprom(ptr %.val605, i32 noundef %46, i32 noundef %48)
+  tail call fastcc void @Cba_NtkSetMap(ptr %.val605, i32 noundef %46, i32 noundef %48)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val646 = load i32, ptr %30, align 4
   %49 = sext i32 %.val646 to i64
@@ -6723,7 +6723,7 @@ Cba_NtkCleanMap.argprom.exit:                     ; preds = %23, %Vec_IntStart.e
   %58 = load i32, ptr %57, align 4
   %59 = sub nsw i32 0, %58
   %.val604 = load ptr, ptr %0, align 8
-  tail call fastcc void @Cba_NtkSetMap.argprom(ptr %.val604, i32 noundef %56, i32 noundef %59)
+  tail call fastcc void @Cba_NtkSetMap(ptr %.val604, i32 noundef %56, i32 noundef %59)
   %indvars.iv.next1363 = add nuw nsw i64 %indvars.iv1362, 1
   %.val542 = load i32, ptr %36, align 4
   %60 = sext i32 %.val542 to i64
@@ -6740,7 +6740,7 @@ Cba_NtkCleanMap.argprom.exit:                     ; preds = %23, %Vec_IntStart.e
   %65 = load i32, ptr %64, align 4
   %66 = sub nsw i32 0, %65
   %.val603 = load ptr, ptr %0, align 8
-  tail call fastcc void @Cba_NtkSetMap.argprom(ptr %.val603, i32 noundef %63, i32 noundef %66)
+  tail call fastcc void @Cba_NtkSetMap(ptr %.val603, i32 noundef %63, i32 noundef %66)
   %indvars.iv.next1366 = add nuw nsw i64 %indvars.iv1365, 1
   %.val541 = load i32, ptr %51, align 4
   %67 = sext i32 %.val541 to i64
@@ -6793,7 +6793,7 @@ Cba_NtkCleanMap.argprom.exit:                     ; preds = %23, %Vec_IntStart.e
   %97 = add nsw i32 %.val567, -2
   %98 = tail call fastcc i32 @Cba_ObjAlloc(ptr noundef nonnull %0, i32 noundef 82, i32 noundef %97, i32 noundef 1)
   %99 = add nsw i32 %98, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %73, i32 noundef %99)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %73, i32 noundef %99)
   %.val.i.i688 = load ptr, ptr %74, align 8
   %100 = sext i32 %98 to i64
   %101 = getelementptr inbounds i32, ptr %.val.i.i688, i64 %100
@@ -6803,7 +6803,7 @@ Cba_NtkCleanMap.argprom.exit:                     ; preds = %23, %Vec_IntStart.e
   %103 = load i32, ptr %102, align 4
   %104 = tail call i32 (ptr, ptr, ...) @Cba_NtkNewStrId(ptr noundef nonnull %0, ptr noundef %92)
   %105 = add nsw i32 %103, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %76, i32 noundef %105)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %76, i32 noundef %105)
   %.val.i.i689 = load ptr, ptr %77, align 8
   %106 = sext i32 %103 to i64
   %107 = getelementptr inbounds i32, ptr %.val.i.i689, i64 %106
@@ -6948,7 +6948,7 @@ Vec_IntFillExtra.exit:                            ; preds = %133, %._crit_edge.i
   %.val611 = load ptr, ptr %0, align 8
   %167 = getelementptr i8, ptr %.val611, i64 40
   %.val611.val = load ptr, ptr %167, align 8
-  %168 = tail call fastcc i32 @Hash_Int2ManInsert.argelim(ptr noundef readonly %.val611.val, i32 noundef %112, i32 noundef 0)
+  %168 = tail call fastcc i32 @Hash_Int2ManInsert(ptr noundef readonly %.val611.val, i32 noundef %112, i32 noundef 0)
   %169 = shl nsw i32 %168, 1
   %170 = add nsw i32 %166, 1
   %171 = load i32, ptr %83, align 4
@@ -7228,7 +7228,7 @@ Vec_IntFillExtra.exit869:                         ; preds = %Vec_IntFillExtra.ex
 .Vec_IntGrow.exit10_crit_edge.i.i.i:              ; preds = %Vec_IntFillExtra.exit869
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.val602, i64 88
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
-  br label %Cba_NtkSetMap.argprom.exit
+  br label %Cba_NtkSetMap.exit
 
 276:                                              ; preds = %Vec_IntFillExtra.exit869
   %277 = icmp slt i32 %273, 16
@@ -7252,7 +7252,7 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %283, %281
   %285 = phi ptr [ %282, %281 ], [ %284, %283 ]
   store ptr %285, ptr %279, align 8
   store i32 16, ptr %271, align 8
-  br label %Cba_NtkSetMap.argprom.exit
+  br label %Cba_NtkSetMap.exit
 
 286:                                              ; preds = %276
   %287 = shl nuw nsw i32 %273, 1
@@ -7275,9 +7275,9 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %283, %281
   %297 = phi ptr [ %293, %292 ], [ %295, %294 ]
   store ptr %297, ptr %288, align 8
   store i32 %287, ptr %271, align 8
-  br label %Cba_NtkSetMap.argprom.exit
+  br label %Cba_NtkSetMap.exit
 
-Cba_NtkSetMap.argprom.exit:                       ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i, %Vec_IntGrow.exit.i.i.i, %296
+Cba_NtkSetMap.exit:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i, %Vec_IntGrow.exit.i.i.i, %296
   %298 = phi ptr [ %.pre.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i.i.i ], [ %297, %296 ], [ %285, %Vec_IntGrow.exit.i.i.i ]
   %299 = load i32, ptr %272, align 4
   %300 = add nsw i32 %299, 1
@@ -7297,11 +7297,11 @@ Cba_NtkSetMap.argprom.exit:                       ; preds = %.Vec_IntGrow.exit10
   %.not.i693 = icmp eq ptr %308, null
   br i1 %.not.i693, label %Vec_IntFree.exit, label %309
 
-309:                                              ; preds = %Cba_NtkSetMap.argprom.exit
+309:                                              ; preds = %Cba_NtkSetMap.exit
   tail call void @free(ptr noundef nonnull %308) #28
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Cba_NtkSetMap.argprom.exit, %309
+Vec_IntFree.exit:                                 ; preds = %Cba_NtkSetMap.exit, %309
   tail call void @free(ptr noundef nonnull %115) #28
   %indvars.iv.next1369 = add nuw nsw i64 %indvars.iv1368, 2
   %.val566 = load i32, ptr %96, align 4
@@ -7556,7 +7556,7 @@ Cba_ManNtkFind.exit.thread:                       ; preds = %Prs_ManFindType.exi
   %429 = getelementptr i8, ptr %386, i64 8
   %.0488.val666 = load i32, ptr %429, align 8
   %430 = add nsw i32 %428, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %324, i32 noundef %430)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %324, i32 noundef %430)
   %.val.i.i701 = load ptr, ptr %325, align 8
   %431 = sext i32 %428 to i64
   %432 = getelementptr inbounds i32, ptr %.val.i.i701, i64 %431
@@ -7565,7 +7565,7 @@ Cba_ManNtkFind.exit.thread:                       ; preds = %Prs_ManFindType.exi
   %433 = getelementptr i8, ptr %.val615, i64 100
   %.val9.i.i702 = load i32, ptr %433, align 4
   %434 = icmp sgt i32 %.val9.i.i702, 0
-  br i1 %434, label %.lr.ph.i.i703, label %Cba_NtkCleanMap2.argprom.exit
+  br i1 %434, label %.lr.ph.i.i703, label %Cba_NtkCleanMap2.exit
 
 .lr.ph.i.i703:                                    ; preds = %425
   %435 = getelementptr i8, ptr %.val615, i64 104
@@ -7585,23 +7585,23 @@ Cba_ManNtkFind.exit.thread:                       ; preds = %Prs_ManFindType.exi
   %.val.i.i708 = load i32, ptr %433, align 4
   %442 = sext i32 %.val.i.i708 to i64
   %443 = icmp slt i64 %indvars.iv.next.i.i707, %442
-  br i1 %443, label %437, label %Cba_NtkCleanMap2.argprom.exit, !llvm.loop !37
+  br i1 %443, label %437, label %Cba_NtkCleanMap2.exit, !llvm.loop !37
 
-Cba_NtkCleanMap2.argprom.exit:                    ; preds = %437, %425
+Cba_NtkCleanMap2.exit:                            ; preds = %437, %425
   store i32 0, ptr %433, align 4
   %.0488.val1307 = load i32, ptr %427, align 4
   %444 = icmp sgt i32 %.0488.val1307, 0
   br i1 %444, label %.lr.ph1309, label %.critedge15
 
-.lr.ph1309:                                       ; preds = %Cba_NtkCleanMap2.argprom.exit
+.lr.ph1309:                                       ; preds = %Cba_NtkCleanMap2.exit
   %445 = getelementptr i8, ptr %386, i64 48
   %446 = getelementptr inbounds i8, ptr %386, i64 200
   %447 = getelementptr inbounds i8, ptr %386, i64 204
   %448 = getelementptr i8, ptr %386, i64 208
   br label %449
 
-449:                                              ; preds = %.lr.ph1309, %Cba_NtkSetMap2.argprom.exit
-  %indvars.iv1374 = phi i64 [ 0, %.lr.ph1309 ], [ %indvars.iv.next1375, %Cba_NtkSetMap2.argprom.exit ]
+449:                                              ; preds = %.lr.ph1309, %Cba_NtkSetMap2.exit
+  %indvars.iv1374 = phi i64 [ 0, %.lr.ph1309 ], [ %indvars.iv.next1375, %Cba_NtkSetMap2.exit ]
   %.0488.val667 = load ptr, ptr %445, align 8
   %450 = getelementptr inbounds i32, ptr %.0488.val667, i64 %indvars.iv1374
   %451 = load i32, ptr %450, align 4
@@ -7800,7 +7800,7 @@ Vec_IntFillExtra.exit897:                         ; preds = %Vec_IntFillExtra.ex
 .Vec_IntGrow.exit10_crit_edge.i.i.i711:           ; preds = %Vec_IntFillExtra.exit897
   %.phi.trans.insert.i.i.i712 = getelementptr inbounds i8, ptr %.val623, i64 104
   %.pre.i.i.i713 = load ptr, ptr %.phi.trans.insert.i.i.i712, align 8
-  br label %Cba_NtkSetMap2.argprom.exit
+  br label %Cba_NtkSetMap2.exit
 
 529:                                              ; preds = %Vec_IntFillExtra.exit897
   %530 = icmp slt i32 %526, 16
@@ -7824,7 +7824,7 @@ Vec_IntGrow.exit.i.i.i716:                        ; preds = %536, %534
   %538 = phi ptr [ %535, %534 ], [ %537, %536 ]
   store ptr %538, ptr %532, align 8
   store i32 16, ptr %524, align 8
-  br label %Cba_NtkSetMap2.argprom.exit
+  br label %Cba_NtkSetMap2.exit
 
 539:                                              ; preds = %529
   %540 = shl nuw nsw i32 %526, 1
@@ -7847,9 +7847,9 @@ Vec_IntGrow.exit.i.i.i716:                        ; preds = %536, %534
   %550 = phi ptr [ %546, %545 ], [ %548, %547 ]
   store ptr %550, ptr %541, align 8
   store i32 %540, ptr %524, align 8
-  br label %Cba_NtkSetMap2.argprom.exit
+  br label %Cba_NtkSetMap2.exit
 
-Cba_NtkSetMap2.argprom.exit:                      ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i711, %Vec_IntGrow.exit.i.i.i716, %549
+Cba_NtkSetMap2.exit:                              ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i711, %Vec_IntGrow.exit.i.i.i716, %549
   %551 = phi ptr [ %.pre.i.i.i713, %.Vec_IntGrow.exit10_crit_edge.i.i.i711 ], [ %550, %549 ], [ %538, %Vec_IntGrow.exit.i.i.i716 ]
   %552 = load i32, ptr %525, align 4
   %553 = add nsw i32 %552, 1
@@ -7871,7 +7871,7 @@ Cba_NtkSetMap2.argprom.exit:                      ; preds = %.Vec_IntGrow.exit10
   %559 = getelementptr i8, ptr %.val612, i64 100
   %.val9.i.i717 = load i32, ptr %559, align 4
   %560 = icmp sgt i32 %.val9.i.i717, 0
-  br i1 %560, label %.lr.ph.i.i718, label %Cba_NtkCleanMap2.argprom.exit724
+  br i1 %560, label %.lr.ph.i.i718, label %Cba_NtkCleanMap2.exit724
 
 .lr.ph.i.i718:                                    ; preds = %.critedge533
   %561 = getelementptr i8, ptr %.val612, i64 104
@@ -7891,15 +7891,15 @@ Cba_NtkSetMap2.argprom.exit:                      ; preds = %.Vec_IntGrow.exit10
   %.val.i.i723 = load i32, ptr %559, align 4
   %568 = sext i32 %.val.i.i723 to i64
   %569 = icmp slt i64 %indvars.iv.next.i.i722, %568
-  br i1 %569, label %563, label %Cba_NtkCleanMap2.argprom.exit724, !llvm.loop !37
+  br i1 %569, label %563, label %Cba_NtkCleanMap2.exit724, !llvm.loop !37
 
-Cba_NtkCleanMap2.argprom.exit724:                 ; preds = %563, %.critedge533
+Cba_NtkCleanMap2.exit724:                         ; preds = %563, %.critedge533
   store i32 0, ptr %559, align 4
   %wide.trip.count = zext nneg i32 %.0489.ph to i64
   br label %570
 
-570:                                              ; preds = %Cba_NtkCleanMap2.argprom.exit724, %Cba_NtkSetMap2.argprom.exit732
-  %indvars.iv1377 = phi i64 [ 0, %Cba_NtkCleanMap2.argprom.exit724 ], [ %indvars.iv.next1378, %Cba_NtkSetMap2.argprom.exit732 ]
+570:                                              ; preds = %Cba_NtkCleanMap2.exit724, %Cba_NtkSetMap2.exit732
+  %indvars.iv1377 = phi i64 [ 0, %Cba_NtkCleanMap2.exit724 ], [ %indvars.iv.next1378, %Cba_NtkSetMap2.exit732 ]
   %571 = getelementptr inbounds ptr, ptr %376, i64 %indvars.iv1377
   %572 = load ptr, ptr %571, align 8
   %.val618 = load ptr, ptr %0, align 8
@@ -8017,7 +8017,7 @@ Vec_IntFillExtra.exit911:                         ; preds = %570, %._crit_edge.i
 .Vec_IntGrow.exit10_crit_edge.i.i.i726:           ; preds = %Vec_IntFillExtra.exit911
   %.phi.trans.insert.i.i.i727 = getelementptr inbounds i8, ptr %.val622, i64 104
   %.pre.i.i.i728 = load ptr, ptr %.phi.trans.insert.i.i.i727, align 8
-  br label %Cba_NtkSetMap2.argprom.exit732
+  br label %Cba_NtkSetMap2.exit732
 
 621:                                              ; preds = %Vec_IntFillExtra.exit911
   %622 = icmp slt i32 %618, 16
@@ -8041,7 +8041,7 @@ Vec_IntGrow.exit.i.i.i731:                        ; preds = %628, %626
   %630 = phi ptr [ %627, %626 ], [ %629, %628 ]
   store ptr %630, ptr %624, align 8
   store i32 16, ptr %616, align 8
-  br label %Cba_NtkSetMap2.argprom.exit732
+  br label %Cba_NtkSetMap2.exit732
 
 631:                                              ; preds = %621
   %632 = shl nuw nsw i32 %618, 1
@@ -8064,9 +8064,9 @@ Vec_IntGrow.exit.i.i.i731:                        ; preds = %628, %626
   %642 = phi ptr [ %638, %637 ], [ %640, %639 ]
   store ptr %642, ptr %633, align 8
   store i32 %632, ptr %616, align 8
-  br label %Cba_NtkSetMap2.argprom.exit732
+  br label %Cba_NtkSetMap2.exit732
 
-Cba_NtkSetMap2.argprom.exit732:                   ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i726, %Vec_IntGrow.exit.i.i.i731, %641
+Cba_NtkSetMap2.exit732:                           ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i726, %Vec_IntGrow.exit.i.i.i731, %641
   %643 = phi ptr [ %.pre.i.i.i728, %.Vec_IntGrow.exit10_crit_edge.i.i.i726 ], [ %642, %641 ], [ %630, %Vec_IntGrow.exit.i.i.i731 ]
   %644 = load i32, ptr %617, align 4
   %645 = add nsw i32 %644, 1
@@ -8077,8 +8077,8 @@ Cba_NtkSetMap2.argprom.exit732:                   ; preds = %.Vec_IntGrow.exit10
   %exitcond.not = icmp eq i64 %indvars.iv.next1378, %wide.trip.count
   br i1 %exitcond.not, label %.critedge15, label %570, !llvm.loop !54
 
-.critedge15:                                      ; preds = %Cba_NtkSetMap2.argprom.exit, %Cba_NtkSetMap2.argprom.exit732, %Cba_NtkCleanMap2.argprom.exit
-  %648 = phi i32 [ %428, %Cba_NtkCleanMap2.argprom.exit ], [ %558, %Cba_NtkSetMap2.argprom.exit732 ], [ %428, %Cba_NtkSetMap2.argprom.exit ]
+.critedge15:                                      ; preds = %Cba_NtkSetMap2.exit, %Cba_NtkSetMap2.exit732, %Cba_NtkCleanMap2.exit
+  %648 = phi i32 [ %428, %Cba_NtkCleanMap2.exit ], [ %558, %Cba_NtkSetMap2.exit732 ], [ %428, %Cba_NtkSetMap2.exit ]
   %Prs_BoxSignals.V.val5401311 = load i32, ptr getelementptr inbounds (i8, ptr @Prs_BoxSignals.V, i64 4), align 4
   %649 = icmp sgt i32 %Prs_BoxSignals.V.val5401311, 1
   br i1 %649, label %.lr.ph1313, label %.critedge17
@@ -8329,7 +8329,7 @@ Vec_IntFillExtra.exit939:                         ; preds = %698, %._crit_edge.i
 
 753:                                              ; preds = %.critedge17
   %754 = add nsw i32 %.0482, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %328, i32 noundef %754)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %328, i32 noundef %754)
   %.val.i.i735 = load ptr, ptr %329, align 8
   %755 = sext i32 %.0482 to i64
   %756 = getelementptr inbounds i32, ptr %.val.i.i735, i64 %755
@@ -8584,7 +8584,7 @@ Prs_ManFindType.exit748:                          ; preds = %849, %846
   %878 = getelementptr i8, ptr %.val614, i64 100
   %.val9.i.i749 = load i32, ptr %878, align 4
   %879 = icmp sgt i32 %.val9.i.i749, 0
-  br i1 %879, label %.lr.ph.i.i750, label %Cba_NtkCleanMap2.argprom.exit756
+  br i1 %879, label %.lr.ph.i.i750, label %Cba_NtkCleanMap2.exit756
 
 .lr.ph.i.i750:                                    ; preds = %874
   %880 = getelementptr i8, ptr %.val614, i64 104
@@ -8604,18 +8604,18 @@ Prs_ManFindType.exit748:                          ; preds = %849, %846
   %.val.i.i755 = load i32, ptr %878, align 4
   %887 = sext i32 %.val.i.i755 to i64
   %888 = icmp slt i64 %indvars.iv.next.i.i754, %887
-  br i1 %888, label %882, label %Cba_NtkCleanMap2.argprom.exit756, !llvm.loop !37
+  br i1 %888, label %882, label %Cba_NtkCleanMap2.exit756, !llvm.loop !37
 
-Cba_NtkCleanMap2.argprom.exit756:                 ; preds = %882, %874
+Cba_NtkCleanMap2.exit756:                         ; preds = %882, %874
   store i32 0, ptr %878, align 4
   %889 = icmp sgt i32 %857, 0
   br i1 %889, label %.lr.ph1330.preheader, label %.preheader1282
 
-.lr.ph1330.preheader:                             ; preds = %Cba_NtkCleanMap2.argprom.exit756
+.lr.ph1330.preheader:                             ; preds = %Cba_NtkCleanMap2.exit756
   %wide.trip.count1392 = zext nneg i32 %857 to i64
   br label %.lr.ph1330
 
-.preheader1282:                                   ; preds = %.lr.ph1330, %Cba_NtkCleanMap2.argprom.exit756
+.preheader1282:                                   ; preds = %.lr.ph1330, %Cba_NtkCleanMap2.exit756
   %890 = icmp sgt i32 %877, 0
   br i1 %890, label %.lr.ph1335, label %.critedge535
 
@@ -8634,7 +8634,7 @@ Cba_NtkCleanMap2.argprom.exit756:                 ; preds = %882, %874
   %indvars.iv.next1390 = add nuw nsw i64 %indvars.iv1389, 1
   %.val621 = load ptr, ptr %0, align 8
   %896 = trunc nuw nsw i64 %indvars.iv.next1390 to i32
-  call fastcc void @Cba_NtkSetMap2.argprom(ptr %.val621, i32 noundef %895, i32 noundef %896)
+  call fastcc void @Cba_NtkSetMap2(ptr %.val621, i32 noundef %895, i32 noundef %896)
   %exitcond1393.not = icmp eq i64 %indvars.iv.next1390, %wide.trip.count1392
   br i1 %exitcond1393.not, label %.preheader1282, label %.lr.ph1330, !llvm.loop !59
 
@@ -8661,7 +8661,7 @@ Cba_NtkCleanMap2.argprom.exit756:                 ; preds = %882, %874
   %906 = call ptr @Abc_NamStr(ptr noundef %.val606, i32 noundef %904) #28
   %907 = call i32 (ptr, ptr, ...) @Cba_NtkNewStrId(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef %906, i32 noundef %.04871334)
   %908 = add nsw i32 %898, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %788, i32 noundef %908)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %788, i32 noundef %908)
   %.val.i.i757 = load ptr, ptr %789, align 8
   %909 = sext i32 %898 to i64
   %910 = getelementptr inbounds i32, ptr %.val.i.i757, i64 %909
@@ -8676,7 +8676,7 @@ Cba_NtkCleanMap2.argprom.exit756:                 ; preds = %882, %874
   %914 = getelementptr inbounds i32, ptr %.val597, i64 %891
   %915 = load i32, ptr %914, align 4
   %916 = add nsw i32 %915, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %791, i32 noundef %916)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %791, i32 noundef %916)
   %.val.i.i.i758 = load ptr, ptr %792, align 8
   %917 = sext i32 %915 to i64
   %918 = getelementptr inbounds i32, ptr %.val.i.i.i758, i64 %917
@@ -8687,7 +8687,7 @@ Cba_NtkCleanMap2.argprom.exit756:                 ; preds = %882, %874
   %921 = call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %919) #28
   %922 = call i32 (ptr, ptr, ...) @Cba_NtkNewStrId(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef %921, i32 noundef %.04871334)
   %923 = add nsw i32 %913, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %791, i32 noundef %923)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %791, i32 noundef %923)
   %.val.i.i760 = load ptr, ptr %792, align 8
   %924 = sext i32 %913 to i64
   %925 = getelementptr inbounds i32, ptr %.val.i.i760, i64 %924
@@ -9393,7 +9393,7 @@ Vec_IntFillExtra.exit1179:                        ; preds = %Vec_IntFillExtra.ex
 .Vec_IntGrow.exit10_crit_edge.i.i.i969:           ; preds = %Vec_IntFillExtra.exit1179
   %.phi.trans.insert.i.i.i970 = getelementptr inbounds i8, ptr %.val31.i, i64 88
   %.pre.i.i.i971 = load ptr, ptr %.phi.trans.insert.i.i.i970, align 8
-  br label %Cba_NtkSetMap.argprom.exit975
+  br label %Cba_NtkSetMap.exit975
 
 1206:                                             ; preds = %Vec_IntFillExtra.exit1179
   %1207 = icmp slt i32 %1203, 16
@@ -9417,7 +9417,7 @@ Vec_IntGrow.exit.i.i.i974:                        ; preds = %1213, %1211
   %1215 = phi ptr [ %1212, %1211 ], [ %1214, %1213 ]
   store ptr %1215, ptr %1209, align 8
   store i32 16, ptr %1201, align 8
-  br label %Cba_NtkSetMap.argprom.exit975
+  br label %Cba_NtkSetMap.exit975
 
 1216:                                             ; preds = %1206
   %1217 = shl nuw nsw i32 %1203, 1
@@ -9440,9 +9440,9 @@ Vec_IntGrow.exit.i.i.i974:                        ; preds = %1213, %1211
   %1227 = phi ptr [ %1223, %1222 ], [ %1225, %1224 ]
   store ptr %1227, ptr %1218, align 8
   store i32 %1217, ptr %1201, align 8
-  br label %Cba_NtkSetMap.argprom.exit975
+  br label %Cba_NtkSetMap.exit975
 
-Cba_NtkSetMap.argprom.exit975:                    ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i969, %Vec_IntGrow.exit.i.i.i974, %1226
+Cba_NtkSetMap.exit975:                            ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i969, %Vec_IntGrow.exit.i.i.i974, %1226
   %1228 = phi ptr [ %.pre.i.i.i971, %.Vec_IntGrow.exit10_crit_edge.i.i.i969 ], [ %1227, %1226 ], [ %1215, %Vec_IntGrow.exit.i.i.i974 ]
   %1229 = load i32, ptr %1202, align 4
   %1230 = add nsw i32 %1229, 1
@@ -9452,8 +9452,8 @@ Cba_NtkSetMap.argprom.exit975:                    ; preds = %.Vec_IntGrow.exit10
   store i32 %1025, ptr %1232, align 4
   br label %Prs_CreateSlice.exit
 
-Prs_CreateSlice.exit:                             ; preds = %Cba_NtkSetMap.argprom.exit975, %Vec_IntFillExtra.exit1031, %Vec_IntFillExtra.exit967
-  %.0484 = phi i32 [ %1021, %Vec_IntFillExtra.exit967 ], [ %1104, %Cba_NtkSetMap.argprom.exit975 ], [ %1066, %Vec_IntFillExtra.exit1031 ]
+Prs_CreateSlice.exit:                             ; preds = %Cba_NtkSetMap.exit975, %Vec_IntFillExtra.exit1031, %Vec_IntFillExtra.exit967
+  %.0484 = phi i32 [ %1021, %Vec_IntFillExtra.exit967 ], [ %1104, %Cba_NtkSetMap.exit975 ], [ %1066, %Vec_IntFillExtra.exit1031 ]
   %.val587 = load ptr, ptr %793, align 8
   %.val588 = load ptr, ptr %794, align 8
   %1233 = getelementptr inbounds i32, ptr %.val587, i64 %.pre-phi1459
@@ -9485,7 +9485,7 @@ Prs_ManFindType.exit748.thread:                   ; preds = %.lr.ph1327, %Prs_Ma
   %1243 = getelementptr i8, ptr %.val613, i64 100
   %.val9.i.i767 = load i32, ptr %1243, align 4
   %1244 = icmp sgt i32 %.val9.i.i767, 0
-  br i1 %1244, label %.lr.ph.i.i768, label %Cba_NtkCleanMap2.argprom.exit774
+  br i1 %1244, label %.lr.ph.i.i768, label %Cba_NtkCleanMap2.exit774
 
 .lr.ph.i.i768:                                    ; preds = %Prs_ManFindType.exit748.thread
   %1245 = getelementptr i8, ptr %.val613, i64 104
@@ -9505,14 +9505,14 @@ Prs_ManFindType.exit748.thread:                   ; preds = %.lr.ph1327, %Prs_Ma
   %.val.i.i773 = load i32, ptr %1243, align 4
   %1252 = sext i32 %.val.i.i773 to i64
   %1253 = icmp slt i64 %indvars.iv.next.i.i772, %1252
-  br i1 %1253, label %1247, label %Cba_NtkCleanMap2.argprom.exit774, !llvm.loop !37
+  br i1 %1253, label %1247, label %Cba_NtkCleanMap2.exit774, !llvm.loop !37
 
-Cba_NtkCleanMap2.argprom.exit774:                 ; preds = %1247, %Prs_ManFindType.exit748.thread
+Cba_NtkCleanMap2.exit774:                         ; preds = %1247, %Prs_ManFindType.exit748.thread
   store i32 0, ptr %1243, align 4
   %1254 = icmp eq i32 %.0.i7461225, 3
   br i1 %1254, label %1256, label %.preheader
 
-.preheader:                                       ; preds = %Cba_NtkCleanMap2.argprom.exit774
+.preheader:                                       ; preds = %Cba_NtkCleanMap2.exit774
   %1255 = icmp sgt i32 %.012031223, 0
   br i1 %1255, label %.lr.ph1337.preheader, label %.critedge29
 
@@ -9520,7 +9520,7 @@ Cba_NtkCleanMap2.argprom.exit774:                 ; preds = %1247, %Prs_ManFindT
   %wide.trip.count1401 = zext nneg i32 %.012031223 to i64
   br label %.lr.ph1337
 
-1256:                                             ; preds = %Cba_NtkCleanMap2.argprom.exit774
+1256:                                             ; preds = %Cba_NtkCleanMap2.exit774
   %.val.i.i775 = load ptr, ptr %800, align 8
   %1257 = sext i32 %817 to i64
   %1258 = getelementptr inbounds i8, ptr %.val.i.i775, i64 %1257
@@ -9535,7 +9535,7 @@ Cba_NtkCleanMap2.argprom.exit774:                 ; preds = %1247, %Prs_ManFindT
 
 Cba_ObjNtkId.exit.i:                              ; preds = %1260
   %1262 = add nsw i32 %817, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %802, i32 noundef %1262)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %802, i32 noundef %1262)
   %.val.i.i.i.i777 = load ptr, ptr %803, align 8
   %1263 = getelementptr inbounds i32, ptr %.val.i.i.i.i777, i64 %1257
   %1264 = load i32, ptr %1263, align 4
@@ -9571,8 +9571,8 @@ Cba_ObjNtk.exit:                                  ; preds = %1256, %1260, %Cba_O
   %1278 = getelementptr i8, ptr %1272, i64 208
   br label %1279
 
-1279:                                             ; preds = %.lr.ph1340, %Cba_NtkSetMap2.argprom.exit788
-  %indvars.iv1403 = phi i64 [ 0, %.lr.ph1340 ], [ %indvars.iv.next1404, %Cba_NtkSetMap2.argprom.exit788 ]
+1279:                                             ; preds = %.lr.ph1340, %Cba_NtkSetMap2.exit788
+  %indvars.iv1403 = phi i64 [ 0, %.lr.ph1340 ], [ %indvars.iv.next1404, %Cba_NtkSetMap2.exit788 ]
   %.val650 = load ptr, ptr %1275, align 8
   %1280 = getelementptr inbounds i32, ptr %.val650, i64 %indvars.iv1403
   %1281 = load i32, ptr %1280, align 4
@@ -9771,7 +9771,7 @@ Vec_IntFillExtra.exit1059:                        ; preds = %Vec_IntFillExtra.ex
 .Vec_IntGrow.exit10_crit_edge.i.i.i782:           ; preds = %Vec_IntFillExtra.exit1059
   %.phi.trans.insert.i.i.i783 = getelementptr inbounds i8, ptr %.val620, i64 104
   %.pre.i.i.i784 = load ptr, ptr %.phi.trans.insert.i.i.i783, align 8
-  br label %Cba_NtkSetMap2.argprom.exit788
+  br label %Cba_NtkSetMap2.exit788
 
 1359:                                             ; preds = %Vec_IntFillExtra.exit1059
   %1360 = icmp slt i32 %1356, 16
@@ -9795,7 +9795,7 @@ Vec_IntGrow.exit.i.i.i787:                        ; preds = %1366, %1364
   %1368 = phi ptr [ %1365, %1364 ], [ %1367, %1366 ]
   store ptr %1368, ptr %1362, align 8
   store i32 16, ptr %1354, align 8
-  br label %Cba_NtkSetMap2.argprom.exit788
+  br label %Cba_NtkSetMap2.exit788
 
 1369:                                             ; preds = %1359
   %1370 = shl nuw nsw i32 %1356, 1
@@ -9818,9 +9818,9 @@ Vec_IntGrow.exit.i.i.i787:                        ; preds = %1366, %1364
   %1380 = phi ptr [ %1376, %1375 ], [ %1378, %1377 ]
   store ptr %1380, ptr %1371, align 8
   store i32 %1370, ptr %1354, align 8
-  br label %Cba_NtkSetMap2.argprom.exit788
+  br label %Cba_NtkSetMap2.exit788
 
-Cba_NtkSetMap2.argprom.exit788:                   ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i782, %Vec_IntGrow.exit.i.i.i787, %1379
+Cba_NtkSetMap2.exit788:                           ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i782, %Vec_IntGrow.exit.i.i.i787, %1379
   %1381 = phi ptr [ %.pre.i.i.i784, %.Vec_IntGrow.exit10_crit_edge.i.i.i782 ], [ %1380, %1379 ], [ %1368, %Vec_IntGrow.exit.i.i.i787 ]
   %1382 = load i32, ptr %1355, align 4
   %1383 = add nsw i32 %1382, 1
@@ -9833,8 +9833,8 @@ Cba_NtkSetMap2.argprom.exit788:                   ; preds = %.Vec_IntGrow.exit10
   %1387 = icmp slt i64 %indvars.iv.next1404, %1386
   br i1 %1387, label %1279, label %.critedge29, !llvm.loop !62
 
-.lr.ph1337:                                       ; preds = %.lr.ph1337.preheader, %Cba_NtkSetMap2.argprom.exit796
-  %indvars.iv1398 = phi i64 [ 0, %.lr.ph1337.preheader ], [ %indvars.iv.next1399, %Cba_NtkSetMap2.argprom.exit796 ]
+.lr.ph1337:                                       ; preds = %.lr.ph1337.preheader, %Cba_NtkSetMap2.exit796
+  %indvars.iv1398 = phi i64 [ 0, %.lr.ph1337.preheader ], [ %indvars.iv.next1399, %Cba_NtkSetMap2.exit796 ]
   %1388 = getelementptr inbounds ptr, ptr %.012021224, i64 %indvars.iv1398
   %1389 = load ptr, ptr %1388, align 8
   %.val616 = load ptr, ptr %0, align 8
@@ -9952,7 +9952,7 @@ Vec_IntFillExtra.exit1073:                        ; preds = %.lr.ph1337, %._crit
 .Vec_IntGrow.exit10_crit_edge.i.i.i790:           ; preds = %Vec_IntFillExtra.exit1073
   %.phi.trans.insert.i.i.i791 = getelementptr inbounds i8, ptr %.val619, i64 104
   %.pre.i.i.i792 = load ptr, ptr %.phi.trans.insert.i.i.i791, align 8
-  br label %Cba_NtkSetMap2.argprom.exit796
+  br label %Cba_NtkSetMap2.exit796
 
 1438:                                             ; preds = %Vec_IntFillExtra.exit1073
   %1439 = icmp slt i32 %1435, 16
@@ -9976,7 +9976,7 @@ Vec_IntGrow.exit.i.i.i795:                        ; preds = %1445, %1443
   %1447 = phi ptr [ %1444, %1443 ], [ %1446, %1445 ]
   store ptr %1447, ptr %1441, align 8
   store i32 16, ptr %1433, align 8
-  br label %Cba_NtkSetMap2.argprom.exit796
+  br label %Cba_NtkSetMap2.exit796
 
 1448:                                             ; preds = %1438
   %1449 = shl nuw nsw i32 %1435, 1
@@ -9999,9 +9999,9 @@ Vec_IntGrow.exit.i.i.i795:                        ; preds = %1445, %1443
   %1459 = phi ptr [ %1455, %1454 ], [ %1457, %1456 ]
   store ptr %1459, ptr %1450, align 8
   store i32 %1449, ptr %1433, align 8
-  br label %Cba_NtkSetMap2.argprom.exit796
+  br label %Cba_NtkSetMap2.exit796
 
-Cba_NtkSetMap2.argprom.exit796:                   ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i790, %Vec_IntGrow.exit.i.i.i795, %1458
+Cba_NtkSetMap2.exit796:                           ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i790, %Vec_IntGrow.exit.i.i.i795, %1458
   %1460 = phi ptr [ %.pre.i.i.i792, %.Vec_IntGrow.exit10_crit_edge.i.i.i790 ], [ %1459, %1458 ], [ %1447, %Vec_IntGrow.exit.i.i.i795 ]
   %1461 = load i32, ptr %1434, align 4
   %1462 = add nsw i32 %1461, 1
@@ -10012,7 +10012,7 @@ Cba_NtkSetMap2.argprom.exit796:                   ; preds = %.Vec_IntGrow.exit10
   %exitcond1402.not = icmp eq i64 %indvars.iv.next1399, %wide.trip.count1401
   br i1 %exitcond1402.not, label %.critedge29, label %.lr.ph1337, !llvm.loop !63
 
-.critedge29:                                      ; preds = %Cba_NtkSetMap2.argprom.exit796, %Cba_NtkSetMap2.argprom.exit788, %.preheader, %Cba_ObjNtk.exit
+.critedge29:                                      ; preds = %Cba_NtkSetMap2.exit796, %Cba_NtkSetMap2.exit788, %.preheader, %Cba_ObjNtk.exit
   %Prs_BoxSignals.V.val1341 = load i32, ptr getelementptr inbounds (i8, ptr @Prs_BoxSignals.V, i64 4), align 4
   %1465 = icmp sgt i32 %Prs_BoxSignals.V.val1341, 1
   br i1 %1465, label %.lr.ph1343, label %.critedge31
@@ -10287,7 +10287,7 @@ Vec_IntFillExtra.exit1101:                        ; preds = %1514, %._crit_edge.
 
 Cba_FonRange.exit.i:                              ; preds = %1580
   %1582 = add nuw nsw i32 %1574, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %796, i32 noundef %1582)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %796, i32 noundef %1582)
   %.val.i.i.i.i803 = load ptr, ptr %798, align 8
   %1583 = zext nneg i32 %1574 to i64
   %1584 = getelementptr inbounds i32, ptr %.val.i.i.i.i803, i64 %1583
@@ -10352,7 +10352,7 @@ Cba_FonRangeSize.exit:                            ; preds = %1575, %Cba_NtkRange
   %1624 = load i32, ptr %1623, align 4
   %1625 = call i32 (ptr, ptr, ...) @Cba_NtkNewStrId(ptr noundef nonnull %0, ptr noundef nonnull @.str.36, i32 noundef %1617)
   %1626 = add nsw i32 %1624, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %791, i32 noundef %1626)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %791, i32 noundef %1626)
   %.val.i.i805 = load ptr, ptr %792, align 8
   %1627 = sext i32 %1624 to i64
   %1628 = getelementptr inbounds i32, ptr %.val.i.i805, i64 %1627
@@ -10361,9 +10361,9 @@ Cba_FonRangeSize.exit:                            ; preds = %1575, %Cba_NtkRange
   %.val610 = load ptr, ptr %0, align 8
   %1630 = getelementptr i8, ptr %.val610, i64 40
   %.val610.val = load ptr, ptr %1630, align 8
-  %1631 = call fastcc i32 @Hash_Int2ManInsert.argelim(ptr noundef readonly %.val610.val, i32 noundef %1629, i32 noundef 0)
+  %1631 = call fastcc i32 @Hash_Int2ManInsert(ptr noundef readonly %.val610.val, i32 noundef %1629, i32 noundef 0)
   %1632 = shl nsw i32 %1631, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %796, i32 noundef %1626)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %796, i32 noundef %1626)
   %.val.i.i806 = load ptr, ptr %798, align 8
   %1633 = getelementptr inbounds i32, ptr %.val.i.i806, i64 %1627
   store i32 %1632, ptr %1633, align 4
@@ -10385,7 +10385,7 @@ Cba_FonRangeSize.exit:                            ; preds = %1575, %Cba_NtkRange
   %.val609 = load ptr, ptr %0, align 8
   %1640 = getelementptr i8, ptr %.val609, i64 40
   %.val609.val = load ptr, ptr %1640, align 8
-  %1641 = call fastcc i32 @Hash_Int2ManInsert.argelim(ptr noundef readonly %.val609.val, i32 noundef %1639, i32 noundef %1638)
+  %1641 = call fastcc i32 @Hash_Int2ManInsert(ptr noundef readonly %.val609.val, i32 noundef %1639, i32 noundef %1638)
   %1642 = call ptr @Cba_ManGetSliceName(ptr noundef nonnull %0, i32 noundef %.0483, i32 noundef %1641) #28
   %1643 = call i32 (ptr, ptr, ...) @Cba_NtkNewStrId(ptr noundef nonnull %0, ptr noundef %1642)
   %.val.i807 = load ptr, ptr %0, align 8
@@ -10860,7 +10860,7 @@ Vec_IntFillExtra.exit1193:                        ; preds = %Vec_IntFillExtra.ex
 .Vec_IntGrow.exit10_crit_edge.i.i.i1103:          ; preds = %Vec_IntFillExtra.exit1193
   %.phi.trans.insert.i.i.i1104 = getelementptr inbounds i8, ptr %.val31.i817, i64 88
   %.pre.i.i.i1105 = load ptr, ptr %.phi.trans.insert.i.i.i1104, align 8
-  br label %Cba_NtkSetMap.argprom.exit1109
+  br label %Cba_NtkSetMap.exit1109
 
 1825:                                             ; preds = %Vec_IntFillExtra.exit1193
   %1826 = icmp slt i32 %1822, 16
@@ -10884,7 +10884,7 @@ Vec_IntGrow.exit.i.i.i1108:                       ; preds = %1832, %1830
   %1834 = phi ptr [ %1831, %1830 ], [ %1833, %1832 ]
   store ptr %1834, ptr %1828, align 8
   store i32 16, ptr %1820, align 8
-  br label %Cba_NtkSetMap.argprom.exit1109
+  br label %Cba_NtkSetMap.exit1109
 
 1835:                                             ; preds = %1825
   %1836 = shl nuw nsw i32 %1822, 1
@@ -10907,9 +10907,9 @@ Vec_IntGrow.exit.i.i.i1108:                       ; preds = %1832, %1830
   %1846 = phi ptr [ %1842, %1841 ], [ %1844, %1843 ]
   store ptr %1846, ptr %1837, align 8
   store i32 %1836, ptr %1820, align 8
-  br label %Cba_NtkSetMap.argprom.exit1109
+  br label %Cba_NtkSetMap.exit1109
 
-Cba_NtkSetMap.argprom.exit1109:                   ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i1103, %Vec_IntGrow.exit.i.i.i1108, %1845
+Cba_NtkSetMap.exit1109:                           ; preds = %.Vec_IntGrow.exit10_crit_edge.i.i.i1103, %Vec_IntGrow.exit.i.i.i1108, %1845
   %1847 = phi ptr [ %.pre.i.i.i1105, %.Vec_IntGrow.exit10_crit_edge.i.i.i1103 ], [ %1846, %1845 ], [ %1834, %Vec_IntGrow.exit.i.i.i1108 ]
   %1848 = load i32, ptr %1821, align 4
   %1849 = add nsw i32 %1848, 1
@@ -10919,8 +10919,8 @@ Cba_NtkSetMap.argprom.exit1109:                   ; preds = %.Vec_IntGrow.exit10
   store i32 %1643, ptr %1851, align 4
   br label %Prs_CreateSlice.exit818
 
-Prs_CreateSlice.exit818:                          ; preds = %Vec_IntFillExtra.exit1165, %Cba_NtkSetMap.argprom.exit1109
-  %.0.i810 = phi i32 [ %1722, %Cba_NtkSetMap.argprom.exit1109 ], [ %1684, %Vec_IntFillExtra.exit1165 ]
+Prs_CreateSlice.exit818:                          ; preds = %Vec_IntFillExtra.exit1165, %Cba_NtkSetMap.exit1109
+  %.0.i810 = phi i32 [ %1722, %Cba_NtkSetMap.exit1109 ], [ %1684, %Vec_IntFillExtra.exit1165 ]
   %1852 = add nuw nsw i32 %.101344, 1
   %.val581 = load ptr, ptr %793, align 8
   %.val582 = load ptr, ptr %794, align 8
@@ -11030,7 +11030,7 @@ Vec_IntFree.exit820:                              ; preds = %.critedge21, %1885
   %.val.i821 = load ptr, ptr %0, align 8
   %1897 = getelementptr inbounds i8, ptr %.val.i821, i64 48
   %1898 = add nsw i32 %1894, 1
-  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %1897, i32 noundef %1898)
+  call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %1897, i32 noundef %1898)
   %1899 = getelementptr i8, ptr %.val.i821, i64 56
   %.val.i.i.i.i822 = load ptr, ptr %1899, align 8
   %1900 = sext i32 %1894 to i64
@@ -11194,12 +11194,12 @@ Cba_ManAlloc.exit:                                ; preds = %.Vec_PtrGrow.exit11
   %59 = icmp sgt i32 %.val4166, 0
   br i1 %59, label %.lr.ph, label %.critedge2
 
-.critedge.preheader:                              ; preds = %Cba_NtkAdd.argprom.exit
+.critedge.preheader:                              ; preds = %Cba_NtkAdd.exit
   %60 = icmp sgt i32 %.val41, 0
   br i1 %60, label %.lr.ph70, label %.critedge2
 
-.lr.ph:                                           ; preds = %Cba_ManAlloc.exit, %Cba_NtkAdd.argprom.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Cba_NtkAdd.argprom.exit ], [ 0, %Cba_ManAlloc.exit ]
+.lr.ph:                                           ; preds = %Cba_ManAlloc.exit, %Cba_NtkAdd.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Cba_NtkAdd.exit ], [ 0, %Cba_ManAlloc.exit ]
   %.val44 = load ptr, ptr %5, align 8
   %61 = getelementptr inbounds ptr, ptr %.val44, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
@@ -11902,7 +11902,7 @@ Cba_NtkAlloc.exit:                                ; preds = %.Vec_IntGrow.exit10
   %384 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %.val48, ptr noundef %383, ptr noundef nonnull %2) #28
   %385 = load i32, ptr %2, align 4
   %.not.i57 = icmp eq i32 %385, 0
-  br i1 %.not.i57, label %Cba_NtkAdd.argprom.exit, label %386
+  br i1 %.not.i57, label %Cba_NtkAdd.exit, label %386
 
 386:                                              ; preds = %Cba_NtkAlloc.exit
   %.val.i58 = load ptr, ptr %70, align 8
@@ -11911,9 +11911,9 @@ Cba_NtkAlloc.exit:                                ; preds = %.Vec_IntGrow.exit10
   %.val.val.i = load ptr, ptr %387, align 8
   %388 = call ptr @Abc_NamStr(ptr noundef %.val.val.i, i32 noundef %.val3.i) #28
   %389 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.273, ptr noundef %388)
-  br label %Cba_NtkAdd.argprom.exit
+  br label %Cba_NtkAdd.exit
 
-Cba_NtkAdd.argprom.exit:                          ; preds = %Cba_NtkAlloc.exit, %386
+Cba_NtkAdd.exit:                                  ; preds = %Cba_NtkAlloc.exit, %386
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val41 = load i32, ptr %3, align 4
@@ -12848,7 +12848,7 @@ Prs_ManUtilSkipComments.exit.i108:                ; preds = %.lr.ph38.i.i110, %1
 .loopexit:                                        ; preds = %103, %105, %110, %.preheader.i98, %117, %109
   %121 = getelementptr inbounds i8, ptr %0, i64 48
   %122 = load ptr, ptr %121, align 8
-  %123 = tail call fastcc i32 @Hash_Int2ManInsert.argelim(ptr noundef %122, i32 noundef %33, i32 noundef %.0)
+  %123 = tail call fastcc i32 @Hash_Int2ManInsert(ptr noundef %122, i32 noundef %33, i32 noundef %.0)
   br label %124
 
 124:                                              ; preds = %.loopexit, %.loopexit129, %.thread, %92, %85, %.loopexit135, %.loopexit141, %31, %.loopexit147
@@ -13098,7 +13098,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Hash_Int2ManInsert.argelim(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @Hash_Int2ManInsert(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
@@ -13730,7 +13730,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: write) uwtable
-define internal fastcc noalias noundef ptr @Hash_IntManStart.argelim() unnamed_addr #11 {
+define internal fastcc noalias noundef ptr @Hash_IntManStart() unnamed_addr #11 {
   %1 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #32
   br label %.loopexit.i
 
@@ -13877,7 +13877,7 @@ define internal fastcc i32 @Prs_ManIsKnownModule(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Prs_ManInitializeNtk.argelim(ptr nocapture noundef nonnull %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 {
+define internal fastcc void @Prs_ManInitializeNtk(ptr nocapture noundef nonnull %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #32
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %4, align 8
@@ -16429,7 +16429,7 @@ Vec_IntPush.exit295:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Prs_ManUtilSkipUntil.argelim(ptr nocapture noundef nonnull %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManUtilSkipUntil(ptr nocapture noundef nonnull %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -16755,7 +16755,7 @@ Prs_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %69
   %76 = getelementptr inbounds i8, ptr %.02.i, i64 1
   %77 = load i8, ptr %76, align 1
   %.not.i = icmp eq i8 %77, 59
-  br i1 %.not.i, label %Prs_ManUtilDetectTwo.argprom.exit.thread, label %.lr.ph.i, !llvm.loop !83
+  br i1 %.not.i, label %Prs_ManUtilDetectTwo.exit.thread, label %.lr.ph.i, !llvm.loop !83
 
 .lr.ph.i:                                         ; preds = %.loopexit481, %75
   %78 = phi i8 [ %77, %75 ], [ 40, %.loopexit481 ]
@@ -16767,23 +16767,23 @@ Prs_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %69
   %81 = getelementptr inbounds i8, ptr %.02.i301, i64 1
   %82 = load i8, ptr %81, align 1
   %.not.i302 = icmp eq i8 %82, 59
-  br i1 %.not.i302, label %Prs_ManUtilDetectTwo.argprom.exit.thread, label %.lr.ph.i300, !llvm.loop !83
+  br i1 %.not.i302, label %Prs_ManUtilDetectTwo.exit.thread, label %.lr.ph.i300, !llvm.loop !83
 
 .lr.ph.i300:                                      ; preds = %.lr.ph.i, %80
   %83 = phi i8 [ %82, %80 ], [ 40, %.lr.ph.i ]
   %.02.i301 = phi ptr [ %81, %80 ], [ %.val284, %.lr.ph.i ]
   %.not595.not = icmp ne i8 %83, 60
-  br i1 %.not595.not, label %80, label %Prs_ManUtilDetectTwo.argprom.exit.thread
+  br i1 %.not595.not, label %80, label %Prs_ManUtilDetectTwo.exit.thread
 
-Prs_ManUtilDetectTwo.argprom.exit.thread:         ; preds = %75, %.lr.ph.i300, %80
+Prs_ManUtilDetectTwo.exit.thread:                 ; preds = %75, %.lr.ph.i300, %80
   %84 = phi i1 [ %.not595.not, %80 ], [ %.not595.not, %.lr.ph.i300 ], [ true, %75 ]
   br label %.lr.ph.i306
 
-.lr.ph.i306:                                      ; preds = %Prs_ManUtilDetectTwo.argprom.exit.thread, %92
-  %85 = phi i8 [ %96, %92 ], [ 40, %Prs_ManUtilDetectTwo.argprom.exit.thread ]
-  %.04.i = phi i1 [ %.1.v.i, %92 ], [ true, %Prs_ManUtilDetectTwo.argprom.exit.thread ]
-  %.0153.i = phi i32 [ %.116.i, %92 ], [ 0, %Prs_ManUtilDetectTwo.argprom.exit.thread ]
-  %.0172.i = phi ptr [ %95, %92 ], [ %.val284, %Prs_ManUtilDetectTwo.argprom.exit.thread ]
+.lr.ph.i306:                                      ; preds = %Prs_ManUtilDetectTwo.exit.thread, %92
+  %85 = phi i8 [ %96, %92 ], [ 40, %Prs_ManUtilDetectTwo.exit.thread ]
+  %.04.i = phi i1 [ %.1.v.i, %92 ], [ true, %Prs_ManUtilDetectTwo.exit.thread ]
+  %.0153.i = phi i32 [ %.116.i, %92 ], [ 0, %Prs_ManUtilDetectTwo.exit.thread ]
+  %.0172.i = phi ptr [ %95, %92 ], [ %.val284, %Prs_ManUtilDetectTwo.exit.thread ]
   br i1 %.04.i, label %86, label %92
 
 86:                                               ; preds = %.lr.ph.i306
@@ -16794,7 +16794,7 @@ Prs_ManUtilDetectTwo.argprom.exit.thread:         ; preds = %75, %.lr.ph.i300, %
   %90 = sext i1 %89 to i32
   %.3.i = add nsw i32 %spec.select.i, %90
   %91 = icmp eq i32 %.3.i, 0
-  br i1 %91, label %Prs_ManFindClosingParenthesis.argprom.exit, label %92
+  br i1 %91, label %Prs_ManFindClosingParenthesis.exit, label %92
 
 92:                                               ; preds = %86, %.lr.ph.i306
   %.116.i = phi i32 [ %.3.i, %86 ], [ %.0153.i, %.lr.ph.i306 ]
@@ -16806,14 +16806,14 @@ Prs_ManUtilDetectTwo.argprom.exit.thread:         ; preds = %75, %.lr.ph.i300, %
   %95 = getelementptr inbounds i8, ptr %.0172.i, i64 1
   %96 = load i8, ptr %95, align 1
   %.not.i307 = icmp eq i8 %96, 0
-  br i1 %.not.i307, label %Prs_ManFindClosingParenthesis.argprom.exit.thread, label %.lr.ph.i306, !llvm.loop !84
+  br i1 %.not.i307, label %Prs_ManFindClosingParenthesis.exit.thread, label %.lr.ph.i306, !llvm.loop !84
 
-Prs_ManFindClosingParenthesis.argprom.exit.thread: ; preds = %92
+Prs_ManFindClosingParenthesis.exit.thread:        ; preds = %92
   %97 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %97, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.148, i64 33, i1 false)
   br label %405
 
-Prs_ManFindClosingParenthesis.argprom.exit:       ; preds = %86
+Prs_ManFindClosingParenthesis.exit:               ; preds = %86
   store i8 32, ptr %.0172.i, align 1
   %98 = load ptr, ptr %50, align 8
   store i8 32, ptr %98, align 1
@@ -16821,10 +16821,10 @@ Prs_ManFindClosingParenthesis.argprom.exit:       ; preds = %86
   %.promoted21.i309.pre = load ptr, ptr %50, align 8
   br label %.loopexit481.thread
 
-.loopexit481.thread:                              ; preds = %57, %Prs_ManFindClosingParenthesis.argprom.exit, %.loopexit481
-  %.promoted21.i309 = phi ptr [ %.promoted21.i309.pre, %Prs_ManFindClosingParenthesis.argprom.exit ], [ %.val284, %.loopexit481 ], [ %54, %57 ]
-  %99 = phi ptr [ %.pre528, %Prs_ManFindClosingParenthesis.argprom.exit ], [ %52, %.loopexit481 ], [ %52, %57 ]
-  %.0199 = phi i1 [ %84, %Prs_ManFindClosingParenthesis.argprom.exit ], [ true, %.loopexit481 ], [ true, %57 ]
+.loopexit481.thread:                              ; preds = %57, %Prs_ManFindClosingParenthesis.exit, %.loopexit481
+  %.promoted21.i309 = phi ptr [ %.promoted21.i309.pre, %Prs_ManFindClosingParenthesis.exit ], [ %.val284, %.loopexit481 ], [ %54, %57 ]
+  %99 = phi ptr [ %.pre528, %Prs_ManFindClosingParenthesis.exit ], [ %52, %.loopexit481 ], [ %52, %57 ]
+  %.0199 = phi i1 [ %84, %Prs_ManFindClosingParenthesis.exit ], [ true, %.loopexit481 ], [ true, %57 ]
   %100 = icmp ult ptr %.promoted21.i309, %99
   br i1 %100, label %.preheader.i312, label %.loopexit477
 
@@ -17112,7 +17112,7 @@ Vec_IntPush.exit345:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %.not456, label %194, label %201
 
 194:                                              ; preds = %193
-  %195 = tail call fastcc ptr @Prs_ManFindClosingParenthesis.argprom.argelim(ptr nonnull %.val268)
+  %195 = tail call fastcc ptr @Prs_ManFindClosingParenthesis(ptr nonnull %.val268)
   %196 = icmp eq ptr %195, null
   br i1 %196, label %197, label %199
 
@@ -17679,8 +17679,8 @@ Prs_ManUtilSkipComments.exit.i373:                ; preds = %.lr.ph38.i.i375, %3
   tail call fastcc void @Prs_NtkAddBox(ptr noundef %404, i32 noundef %.0200, i32 noundef 0, ptr noundef %3)
   br label %405
 
-405:                                              ; preds = %366, %289, %278, %249, %402, %400, %.loopexit471, %.thread429, %295, %287, %284, %275, %270, %268, %262, %226, %223, %214, %208, %203, %197, %191, %.loopexit477, %Prs_ManFindClosingParenthesis.argprom.exit.thread, %.loopexit484
-  %.0 = phi i32 [ 0, %.loopexit484 ], [ 0, %Prs_ManFindClosingParenthesis.argprom.exit.thread ], [ 0, %.loopexit477 ], [ 0, %.loopexit471 ], [ 1, %402 ], [ 0, %400 ], [ 0, %191 ], [ 0, %197 ], [ 0, %203 ], [ 0, %208 ], [ 0, %214 ], [ 0, %223 ], [ 0, %268 ], [ 1, %270 ], [ 0, %262 ], [ 0, %226 ], [ 0, %275 ], [ 0, %284 ], [ 0, %295 ], [ 0, %287 ], [ 0, %.thread429 ], [ 0, %249 ], [ 0, %278 ], [ 0, %289 ], [ 0, %366 ]
+405:                                              ; preds = %366, %289, %278, %249, %402, %400, %.loopexit471, %.thread429, %295, %287, %284, %275, %270, %268, %262, %226, %223, %214, %208, %203, %197, %191, %.loopexit477, %Prs_ManFindClosingParenthesis.exit.thread, %.loopexit484
+  %.0 = phi i32 [ 0, %.loopexit484 ], [ 0, %Prs_ManFindClosingParenthesis.exit.thread ], [ 0, %.loopexit477 ], [ 0, %.loopexit471 ], [ 1, %402 ], [ 0, %400 ], [ 0, %191 ], [ 0, %197 ], [ 0, %203 ], [ 0, %208 ], [ 0, %214 ], [ 0, %223 ], [ 0, %268 ], [ 1, %270 ], [ 0, %262 ], [ 0, %226 ], [ 0, %275 ], [ 0, %284 ], [ 0, %295 ], [ 0, %287 ], [ 0, %.thread429 ], [ 0, %249 ], [ 0, %278 ], [ 0, %289 ], [ 0, %366 ]
   ret i32 %.0
 }
 
@@ -17920,7 +17920,7 @@ Prs_ManUtilSkipComments.exit.i153:                ; preds = %.lr.ph38.i.i155, %4
   %58 = sext i1 %57 to i32
   %.3.i = add nsw i32 %spec.select.i, %58
   %59 = icmp eq i32 %.3.i, 0
-  br i1 %59, label %Prs_ManFindClosingParenthesis.argprom.exit, label %60
+  br i1 %59, label %Prs_ManFindClosingParenthesis.exit, label %60
 
 60:                                               ; preds = %54, %.lr.ph.i
   %.116.i = phi i32 [ %.3.i, %54 ], [ %.0153.i, %.lr.ph.i ]
@@ -17939,18 +17939,18 @@ Prs_ManUtilSkipComments.exit.i153:                ; preds = %.lr.ph38.i.i155, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %66, ptr noundef nonnull readonly align 1 dereferenceable(33) @.str.148, i64 33, i1 false)
   br label %207
 
-Prs_ManFindClosingParenthesis.argprom.exit:       ; preds = %54
+Prs_ManFindClosingParenthesis.exit:               ; preds = %54
   store ptr %.0172.i, ptr %2, align 8
   %.val131.val = load i8, ptr %.0172.i, align 1
   %.not222 = icmp eq i8 %.val131.val, 41
   br i1 %.not222, label %69, label %67
 
-67:                                               ; preds = %Prs_ManFindClosingParenthesis.argprom.exit
+67:                                               ; preds = %Prs_ManFindClosingParenthesis.exit
   %68 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %68, ptr noundef nonnull readonly align 1 dereferenceable(31) @.str.157, i64 31, i1 false)
   br label %207
 
-69:                                               ; preds = %Prs_ManFindClosingParenthesis.argprom.exit
+69:                                               ; preds = %Prs_ManFindClosingParenthesis.exit
   %70 = getelementptr inbounds i8, ptr %.0172.i, i64 1
   store ptr %70, ptr %2, align 8
   %71 = icmp ult ptr %70, %4
@@ -19662,7 +19662,7 @@ Prs_ManReadSignalList2.exit.thread149:            ; preds = %Prs_ManUtilSkipSpac
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef ptr @Prs_ManFindClosingParenthesis.argprom.argelim(ptr readonly %.24.val) unnamed_addr #14 {
+define internal fastcc noundef ptr @Prs_ManFindClosingParenthesis(ptr readonly %.24.val) unnamed_addr #14 {
   %1 = load i8, ptr %.24.val, align 1
   %.not1 = icmp eq i8 %1, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph
@@ -20248,7 +20248,7 @@ declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -20348,7 +20348,7 @@ declare ptr @Abc_NamBuffer(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @Vec_StrPrintF.argelim(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
+define internal void @Vec_StrPrintF(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 4
@@ -20509,7 +20509,7 @@ define internal fastcc range(i32 0, 2) i32 @Cba_NtkIsSeq(ptr nocapture noundef %
 Cba_ObjNtkId.exit.i:                              ; preds = %20
   %22 = trunc i64 %indvars.iv to i32
   %23 = add i32 %22, 1
-  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %11, i32 noundef %23)
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %11, i32 noundef %23)
   %.val.i.i.i.i = load ptr, ptr %12, align 8
   %24 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4

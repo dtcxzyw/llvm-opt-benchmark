@@ -845,33 +845,33 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS3_
   %50 = getelementptr inbounds i8, ptr %0, i64 56
   br label %51
 
-51:                                               ; preds = %.lr.ph, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit ]
+51:                                               ; preds = %.lr.ph, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit ]
   %52 = load ptr, ptr %50, align 8
   %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef %54)
-          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit unwind label %.loopexit
+          to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit unwind label %.loopexit
 
-_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit:   ; preds = %51
+_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit:           ; preds = %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %47, align 8
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
   br i1 %57, label %51, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.argprom.exit, %_ZNSt6vectorISt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS3_EESaIS6_EE5clearEv.exit
+._crit_edge:                                      ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit, %_ZNSt6vectorISt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS3_EESaIS6_EE5clearEv.exit
   %58 = getelementptr inbounds i8, ptr %0, i64 56
   %59 = load ptr, ptr %58, align 8
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 110, ptr noundef %59)
-          to label %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit unwind label %.loopexit.split-lp
+          to label %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit unwind label %.loopexit.split-lp
 
-_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit:  ; preds = %._crit_edge
+_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit:          ; preds = %._crit_edge
   %60 = getelementptr inbounds i8, ptr %0, i64 72
   invoke void @_Z20gmx_ana_index_deinitP15gmx_ana_index_t(ptr noundef nonnull %60)
           to label %61 unwind label %.loopexit.split-lp
 
-61:                                               ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit
+61:                                               ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit
   %62 = getelementptr inbounds i8, ptr %0, i64 96
   %63 = load ptr, ptr %62, align 8
   %.not = icmp eq ptr %63, null
@@ -899,7 +899,7 @@ _ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit:  ; preds = %._crit_edge
           catch ptr null
   br label %70
 
-.loopexit.split-lp:                               ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.argprom.exit, %64, %65, %._crit_edge
+.loopexit.split-lp:                               ; preds = %_ZL14gmx_sfree_implIPcEvPKcS2_iPT_.exit, %64, %65, %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
   br label %70
@@ -1853,7 +1853,7 @@ define void @_ZN3gmx19SelectionCollection11setTopologyEPK10gmx_mtop_ti(ptr nocap
   %.sroa.035.0.extract.trunc = trunc i16 %12 to i8
   %.sroa.236.0.extract.shift = lshr i16 %12, 8
   %.sroa.236.0.extract.trunc = trunc nuw nsw i16 %.sroa.236.0.extract.shift to i8
-  tail call fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10gmx_mtop_tRKNS_27SelectionTopologyPropertiesE.argprom(ptr noundef %1, i8 %.sroa.035.0.extract.trunc, i8 %.sroa.236.0.extract.trunc)
+  tail call fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10gmx_mtop_tRKNS_27SelectionTopologyPropertiesE(ptr noundef %1, i8 %.sroa.035.0.extract.trunc, i8 %.sroa.236.0.extract.trunc)
   %13 = icmp slt i32 %2, 1
   br i1 %13, label %14, label %17
 
@@ -2624,7 +2624,7 @@ define void @_ZN3gmx19SelectionCollection7compileEv(ptr noundef nonnull align 8 
   %.sroa.063.0.extract.trunc = trunc i16 %17 to i8
   %.sroa.264.0.extract.shift = lshr i16 %17, 8
   %.sroa.264.0.extract.trunc = trunc nuw nsw i16 %.sroa.264.0.extract.shift to i8
-  tail call fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10gmx_mtop_tRKNS_27SelectionTopologyPropertiesE.argprom(ptr noundef %16, i8 %.sroa.063.0.extract.trunc, i8 %.sroa.264.0.extract.trunc)
+  tail call fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10gmx_mtop_tRKNS_27SelectionTopologyPropertiesE(ptr noundef %16, i8 %.sroa.063.0.extract.trunc, i8 %.sroa.264.0.extract.trunc)
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 212
   %20 = load i8, ptr %19, align 4
@@ -3880,7 +3880,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @_ZN3gmx29PositionCalculationCollection12typeFromEnumEPKcP11e_poscalc_tPi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10gmx_mtop_tRKNS_27SelectionTopologyPropertiesE.argprom(ptr noundef %0, i8 %.0.val, i8 %.1.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10gmx_mtop_tRKNS_27SelectionTopologyPropertiesE(ptr noundef %0, i8 %.0.val, i8 %.1.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.gmx::InconsistentInputError", align 8
   %3 = alloca %"class.gmx::ExceptionInitializer", align 8
   %4 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -7607,7 +7607,7 @@ define void @_ZN3gmx19SelectionCollection8evaluateEP10t_trxframeP5t_pbc(ptr noun
   %.sroa.040.0.extract.trunc = trunc i16 %17 to i8
   %.sroa.241.0.extract.shift = lshr i16 %17, 8
   %.sroa.241.0.extract.trunc = trunc nuw nsw i16 %.sroa.241.0.extract.shift to i8
-  tail call fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10gmx_mtop_tRKNS_27SelectionTopologyPropertiesE.argprom(ptr noundef %16, i8 %.sroa.040.0.extract.trunc, i8 %.sroa.241.0.extract.trunc)
+  tail call fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10gmx_mtop_tRKNS_27SelectionTopologyPropertiesE(ptr noundef %16, i8 %.sroa.040.0.extract.trunc, i8 %.sroa.241.0.extract.trunc)
   %18 = getelementptr inbounds i8, ptr %1, i64 160
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1

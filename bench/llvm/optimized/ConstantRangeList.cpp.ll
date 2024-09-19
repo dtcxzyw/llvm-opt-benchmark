@@ -1353,7 +1353,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %60, %62
   br label %_ZN4llvm5APIntC2ERKS0_.exit38
 
 _ZN4llvm5APIntC2ERKS0_.exit38:                    ; preds = %65, %67
-  call fastcc void @"_ZZN4llvm17ConstantRangeList8subtractERKNS_13ConstantRangeEENK3$_0clENS_5APIntES5_.argprom"(ptr nonnull %3, ptr noundef %4, ptr noundef %5)
+  call fastcc void @"_ZZN4llvm17ConstantRangeList8subtractERKNS_13ConstantRangeEENK3$_0clENS_5APIntES5_"(ptr nonnull %3, ptr noundef %4, ptr noundef %5)
   %68 = load i32, ptr %39, align 8
   %69 = icmp ugt i32 %68, 64
   br i1 %69, label %70, label %_ZN4llvm5APIntD2Ev.exit
@@ -1413,7 +1413,7 @@ _ZN4llvm5APIntC2ERKS0_.exit40:                    ; preds = %82, %84
   br label %_ZN4llvm5APIntC2ERKS0_.exit41
 
 _ZN4llvm5APIntC2ERKS0_.exit41:                    ; preds = %88, %90
-  call fastcc void @"_ZZN4llvm17ConstantRangeList8subtractERKNS_13ConstantRangeEENK3$_0clENS_5APIntES5_.argprom"(ptr nonnull %3, ptr noundef %6, ptr noundef %7)
+  call fastcc void @"_ZZN4llvm17ConstantRangeList8subtractERKNS_13ConstantRangeEENK3$_0clENS_5APIntES5_"(ptr nonnull %3, ptr noundef %6, ptr noundef %7)
   %91 = load i32, ptr %41, align 8
   %92 = icmp ugt i32 %91, 64
   br i1 %92, label %93, label %_ZN4llvm5APIntD2Ev.exit42
@@ -1492,7 +1492,7 @@ _ZN4llvm5APIntC2ERKS0_.exit44:                    ; preds = %117, %119
   br label %_ZN4llvm5APIntC2ERKS0_.exit45
 
 _ZN4llvm5APIntC2ERKS0_.exit45:                    ; preds = %123, %125
-  call fastcc void @"_ZZN4llvm17ConstantRangeList8subtractERKNS_13ConstantRangeEENK3$_0clENS_5APIntES5_.argprom"(ptr nonnull %3, ptr noundef %8, ptr noundef %9)
+  call fastcc void @"_ZZN4llvm17ConstantRangeList8subtractERKNS_13ConstantRangeEENK3$_0clENS_5APIntES5_"(ptr nonnull %3, ptr noundef %8, ptr noundef %9)
   %126 = load i32, ptr %37, align 8
   %127 = icmp ugt i32 %126, 64
   br i1 %127, label %128, label %_ZN4llvm5APIntD2Ev.exit46
@@ -1552,7 +1552,7 @@ _ZN4llvm5APIntC2ERKS0_.exit48:                    ; preds = %142, %144
   br label %_ZN4llvm5APIntC2ERKS0_.exit49
 
 _ZN4llvm5APIntC2ERKS0_.exit49:                    ; preds = %147, %149
-  call fastcc void @"_ZZN4llvm17ConstantRangeList8subtractERKNS_13ConstantRangeEENK3$_0clENS_5APIntES5_.argprom"(ptr nonnull %3, ptr noundef %10, ptr noundef %11)
+  call fastcc void @"_ZZN4llvm17ConstantRangeList8subtractERKNS_13ConstantRangeEENK3$_0clENS_5APIntES5_"(ptr nonnull %3, ptr noundef %10, ptr noundef %11)
   %150 = load i32, ptr %33, align 8
   %151 = icmp ugt i32 %150, 64
   br i1 %151, label %152, label %_ZN4llvm5APIntD2Ev.exit50
@@ -1647,7 +1647,7 @@ _ZN4llvm11SmallVectorINS_13ConstantRangeELj2EED2Ev.exit: ; preds = %185, %_ZN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm17ConstantRangeList8subtractERKNS_13ConstantRangeEENK3$_0clENS_5APIntES5_.argprom"(ptr %.0.val, ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm17ConstantRangeList8subtractERKNS_13ConstantRangeEENK3$_0clENS_5APIntES5_"(ptr %.0.val, ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::ConstantRange", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -2512,7 +2512,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i:              ; preds = %16, %14
   br label %_ZN4llvm13ConstantRangeC2ERKS0_.exit.i.i.i
 
 _ZN4llvm13ConstantRangeC2ERKS0_.exit.i.i.i:       ; preds = %25, %23
-  call fastcc void @"_ZZNK4llvm17ConstantRangeList5printERNS_11raw_ostreamEENK3$_0clENS_13ConstantRangeE.argprom"(ptr nonnull %1, ptr noundef %3)
+  call fastcc void @"_ZZNK4llvm17ConstantRangeList5printERNS_11raw_ostreamEENK3$_0clENS_13ConstantRangeE"(ptr nonnull %1, ptr noundef %3)
   %26 = load i32, ptr %19, align 8
   %27 = icmp ugt i32 %26, 64
   br i1 %27, label %28, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i
@@ -2566,28 +2566,28 @@ _ZN4llvm13ConstantRangeD2Ev.exit.i.i.i:           ; preds = %37, %34, %_ZN4llvm5
 
 50:                                               ; preds = %43
   %51 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str, i64 noundef 2) #6
-  br label %"_ZZN4llvm10interleaveINS_11SmallVectorINS_13ConstantRangeELj2EEEZNKS_17ConstantRangeList5printERNS_11raw_ostreamEE3$_0S5_S2_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_11SmallVectorINS_13ConstantRangeELj2EEEZNKS_17ConstantRangeList5printERNS_11raw_ostreamEE3$_0S5_S2_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
 52:                                               ; preds = %43
   store i16 8236, ptr %45, align 1
   %53 = load ptr, ptr %39, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 2
   store ptr %54, ptr %39, align 8
-  br label %"_ZZN4llvm10interleaveINS_11SmallVectorINS_13ConstantRangeELj2EEEZNKS_17ConstantRangeList5printERNS_11raw_ostreamEE3$_0S5_S2_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+  br label %"_ZZN4llvm10interleaveINS_11SmallVectorINS_13ConstantRangeELj2EEEZNKS_17ConstantRangeList5printERNS_11raw_ostreamEE3$_0S5_S2_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
 
-"_ZZN4llvm10interleaveINS_11SmallVectorINS_13ConstantRangeELj2EEEZNKS_17ConstantRangeList5printERNS_11raw_ostreamEE3$_0S5_S2_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %52, %50
+"_ZZN4llvm10interleaveINS_11SmallVectorINS_13ConstantRangeELj2EEEZNKS_17ConstantRangeList5printERNS_11raw_ostreamEE3$_0S5_S2_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i": ; preds = %52, %50
   %55 = getelementptr inbounds i8, ptr %.pn21.i.i.i, i64 40
   %56 = load i32, ptr %55, align 8
   store i32 %56, ptr %40, align 8
   %57 = icmp ult i32 %56, 65
   br i1 %57, label %58, label %60
 
-58:                                               ; preds = %"_ZZN4llvm10interleaveINS_11SmallVectorINS_13ConstantRangeELj2EEEZNKS_17ConstantRangeList5printERNS_11raw_ostreamEE3$_0S5_S2_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+58:                                               ; preds = %"_ZZN4llvm10interleaveINS_11SmallVectorINS_13ConstantRangeELj2EEEZNKS_17ConstantRangeList5printERNS_11raw_ostreamEE3$_0S5_S2_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
   %59 = load i64, ptr %.022.i.i.i, align 8
   store i64 %59, ptr %4, align 8
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i14.i.i.i
 
-60:                                               ; preds = %"_ZZN4llvm10interleaveINS_11SmallVectorINS_13ConstantRangeELj2EEEZNKS_17ConstantRangeList5printERNS_11raw_ostreamEE3$_0S5_S2_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.argprom.argprom.exit.i.i.i"
+60:                                               ; preds = %"_ZZN4llvm10interleaveINS_11SmallVectorINS_13ConstantRangeELj2EEEZNKS_17ConstantRangeList5printERNS_11raw_ostreamEE3$_0S5_S2_EEvRKT_RT1_T0_RKNS_9StringRefEENKUlvE_clEv.exit.i.i.i"
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %.022.i.i.i) #6
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i14.i.i.i
 
@@ -2609,7 +2609,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i14.i.i.i:            ; preds = %60, %58
   br label %_ZN4llvm13ConstantRangeC2ERKS0_.exit15.i.i.i
 
 _ZN4llvm13ConstantRangeC2ERKS0_.exit15.i.i.i:     ; preds = %67, %65
-  call fastcc void @"_ZZNK4llvm17ConstantRangeList5printERNS_11raw_ostreamEENK3$_0clENS_13ConstantRangeE.argprom"(ptr nonnull %1, ptr noundef %4)
+  call fastcc void @"_ZZNK4llvm17ConstantRangeList5printERNS_11raw_ostreamEENK3$_0clENS_13ConstantRangeE"(ptr nonnull %1, ptr noundef %4)
   %68 = load i32, ptr %42, align 8
   %69 = icmp ugt i32 %68, 64
   br i1 %69, label %70, label %_ZN4llvm5APIntD2Ev.exit.i16.i.i.i
@@ -3933,7 +3933,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeELb0EE18uninitialized_copyIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm17ConstantRangeList5printERNS_11raw_ostreamEENK3$_0clENS_13ConstantRangeE.argprom"(ptr %.0.val, ptr noundef nonnull %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm17ConstantRangeList5printERNS_11raw_ostreamEENK3$_0clENS_13ConstantRangeE"(ptr %.0.val, ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32

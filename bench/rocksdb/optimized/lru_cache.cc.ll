@@ -236,14 +236,14 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %cmp2.not5.i = icmp eq ptr %3, null
   br i1 %cmp2.not5.i, label %for.inc.i, label %while.body.i
 
-while.body.i:                                     ; preds = %for.body.i, %"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.argprom.exit.i"
-  %h.06.i = phi ptr [ %4, %"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.argprom.exit.i" ], [ %3, %for.body.i ]
+while.body.i:                                     ; preds = %for.body.i, %"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.exit.i"
+  %h.06.i = phi ptr [ %4, %"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.exit.i" ], [ %3, %for.body.i ]
   %next_hash.i = getelementptr inbounds i8, ptr %h.06.i, i64 16
   %4 = load ptr, ptr %next_hash.i, align 8
   %refs.i.i.i = getelementptr inbounds i8, ptr %h.06.i, i64 60
   %5 = load i32, ptr %refs.i.i.i, align 4
   %cmp.i.not.i.i = icmp eq i32 %5, 0
-  br i1 %cmp.i.not.i.i, label %if.then.i.i, label %"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.argprom.exit.i"
+  br i1 %cmp.i.not.i.i, label %if.then.i.i, label %"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.exit.i"
 
 if.then.i.i:                                      ; preds = %while.body.i
   %helper.i.i.i = getelementptr inbounds i8, ptr %h.06.i, i64 8
@@ -259,13 +259,13 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 _ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i.i
   tail call void @free(ptr noundef nonnull %h.06.i) #26
-  br label %"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.argprom.exit.i"
+  br label %"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.exit.i"
 
-"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.argprom.exit.i": ; preds = %_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit.i.i, %while.body.i
+"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.exit.i": ; preds = %_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit.i.i, %while.body.i
   %cmp2.not.i = icmp eq ptr %4, null
   br i1 %cmp2.not.i, label %for.inc.i, label %while.body.i, !llvm.loop !4
 
-for.inc.i:                                        ; preds = %"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.argprom.exit.i", %for.body.i
+for.inc.i:                                        ; preds = %"_ZZN7rocksdb9lru_cache14LRUHandleTableD1EvENK3$_0clEPNS0_9LRUHandleE.exit.i", %for.body.i
   %inc.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %shl
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !6
@@ -6459,7 +6459,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %entry
   %lru_size.0.lcssa.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i, %while.body.i.i.i.i ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i.i.i.i)
-          to label %"_ZSt10__invoke_rImRZN7rocksdb9lru_cache8LRUCache15TEST_GetLRUSizeEvE3$_0JRNS1_13LRUCacheShardEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i
+          to label %"_ZSt10__invoke_rImRZN7rocksdb9lru_cache8LRUCache15TEST_GetLRUSizeEvE3$_0JRNS1_13LRUCacheShardEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit" unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %while.end.i.i.i.i
   %0 = landingpad { ptr, i32 }
@@ -6468,7 +6468,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %while.end.i.i.i.i
   tail call void @__clang_call_terminate(ptr %1) #28
   unreachable
 
-"_ZSt10__invoke_rImRZN7rocksdb9lru_cache8LRUCache15TEST_GetLRUSizeEvE3$_0JRNS1_13LRUCacheShardEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %while.end.i.i.i.i
+"_ZSt10__invoke_rImRZN7rocksdb9lru_cache8LRUCache15TEST_GetLRUSizeEvE3$_0JRNS1_13LRUCacheShardEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %while.end.i.i.i.i
   ret i64 %lru_size.0.lcssa.i.i.i.i
 }
 

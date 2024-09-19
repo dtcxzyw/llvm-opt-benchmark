@@ -577,12 +577,12 @@ if.end17:                                         ; preds = %if.else
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %call.val) #13
   %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not3.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.argprom.exit, label %for.body.i
+  br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i
 
 while.cond.loopexit.i:                            ; preds = %for.inc.i
   %call.i11 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not.i = icmp eq i32 %call.i11, 0
-  br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.argprom.exit, label %for.body.i.backedge
+  br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i.backedge
 
 for.body.i:                                       ; preds = %if.end17, %for.body.i.backedge
   %indvars.iv.i = phi i64 [ %indvars.iv.i.be, %for.body.i.backedge ], [ 0, %if.end17 ]
@@ -594,7 +594,7 @@ for.body.i:                                       ; preds = %if.end17, %for.body
   br i1 %tobool1.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  call fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef nonnull %5)
+  call fastcc void @virtio_iommu_switch_address_space(ptr noundef nonnull %5)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
@@ -606,14 +606,14 @@ for.body.i.backedge:                              ; preds = %for.inc.i, %while.c
   %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %while.cond.loopexit.i ]
   br label %for.body.i, !llvm.loop !5
 
-virtio_iommu_switch_address_space_all.argprom.exit: ; preds = %while.cond.loopexit.i, %if.end17
+virtio_iommu_switch_address_space_all.exit:       ; preds = %while.cond.loopexit.i, %if.end17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %iter.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iommu_pci_bus.i)
   %.pre = load i8, ptr %bypass, align 4
   br label %if.end20
 
-if.end20:                                         ; preds = %virtio_iommu_switch_address_space_all.argprom.exit, %entry
-  %6 = phi i8 [ %.pre, %virtio_iommu_switch_address_space_all.argprom.exit ], [ %0, %entry ]
+if.end20:                                         ; preds = %virtio_iommu_switch_address_space_all.exit, %entry
+  %6 = phi i8 [ %.pre, %virtio_iommu_switch_address_space_all.exit ], [ %0, %entry ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i12 = icmp ne i32 %7, 0
@@ -1089,7 +1089,7 @@ virtio_iommu_detach_endpoint_from_domain.exit.i.i: ; preds = %if.then4.i.i.i, %i
   store ptr %46, ptr %.pre13.i.i.i, align 8
   store ptr null, ptr %domain9.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i, i8 0, i64 16, i1 false)
-  call fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef %add.ptr.i.i.i)
+  call fastcc void @virtio_iommu_switch_address_space(ptr noundef %add.ptr.i.i.i)
   %endpoint_list.i.i = getelementptr inbounds i8, ptr %42, i64 16
   %47 = load ptr, ptr %endpoint_list.i.i, align 8
   %cmp.i.i = icmp eq ptr %47, null
@@ -1189,7 +1189,7 @@ if.end33.i.i:                                     ; preds = %if.then27.i.i, %do.
   %iommu_mr.i.i = getelementptr inbounds i8, ptr %retval.0.i.i3.i, i64 16
   %64 = load ptr, ptr %iommu_mr.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %64, i64 -32
-  call fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef %add.ptr.i.i)
+  call fastcc void @virtio_iommu_switch_address_space(ptr noundef %add.ptr.i.i)
   %mappings.i.i = getelementptr inbounds i8, ptr %retval.0.i34.ph.i.i, i64 8
   %65 = load ptr, ptr %mappings.i.i, align 8
   %66 = load ptr, ptr %iommu_mr.i.i, align 8
@@ -1301,7 +1301,7 @@ virtio_iommu_detach_endpoint_from_domain.exit.i.i71: ; preds = %if.then4.i.i.i68
   store ptr %82, ptr %.pre13.i.i.i67, align 8
   store ptr null, ptr %domain4.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i64, i8 0, i64 16, i1 false)
-  call fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef %add.ptr.i.i.i62)
+  call fastcc void @virtio_iommu_switch_address_space(ptr noundef %add.ptr.i.i.i62)
   %endpoint_list.i.i72 = getelementptr inbounds i8, ptr %77, i64 16
   %83 = load ptr, ptr %endpoint_list.i.i72, align 8
   %cmp9.i.i = icmp eq ptr %83, null
@@ -1882,21 +1882,21 @@ if.end9.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i.i.i.i = add i64 %.val13.i.i.i, 1
   %cmp3.i.i.i.i.i.i = icmp eq i64 %.val.i.i.i, %add.i.i.i.i.i.i
   %or.cond.i.i.i.i.i.i = or i1 %cmp.not.i.i.i.i.i.i, %cmp3.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i, label %range_is_empty.argprom.exit.i.i.i.i, label %if.else.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i, label %range_is_empty.exit.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end9.i.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #15
   unreachable
 
-range_is_empty.argprom.exit.i.i.i.i:              ; preds = %if.end9.i.i.i
+range_is_empty.exit.i.i.i.i:                      ; preds = %if.end9.i.i.i
   %cmp.i.i.i.i.i194 = icmp ugt i64 %.val.i.i.i, %.val13.i.i.i
-  br i1 %cmp.i.i.i.i.i194, label %if.else.i.i.i.i210, label %range_upb.argprom.exit.i.i.i
+  br i1 %cmp.i.i.i.i.i194, label %if.else.i.i.i.i210, label %range_upb.exit.i.i.i
 
-if.else.i.i.i.i210:                               ; preds = %range_is_empty.argprom.exit.i.i.i.i
+if.else.i.i.i.i210:                               ; preds = %range_is_empty.exit.i.i.i.i
   call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #15
   unreachable
 
-range_upb.argprom.exit.i.i.i:                     ; preds = %range_is_empty.argprom.exit.i.i.i.i
+range_upb.exit.i.i.i:                             ; preds = %range_is_empty.exit.i.i.i.i
   store i16 1, ptr %buf.addr.029.i.i.i, align 1
   %prop.sroa.3.0.buf.addr.0.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %buf.addr.029.i.i.i, i64 2
   store i16 20, ptr %prop.sroa.3.0.buf.addr.0.sroa_idx.i.i.i, align 1
@@ -1916,7 +1916,7 @@ range_upb.argprom.exit.i.i.i:                     ; preds = %range_is_empty.argp
   %or.cond.i.i.i.i.i197 = select i1 %tobool.i.i.i.i.i195, i1 %tobool4.i.i.i.i.i196, i1 false
   br i1 %or.cond.i.i.i.i.i197, label %land.lhs.true5.i.i.i.i.i201, label %trace_virtio_iommu_fill_resv_property.exit.i.i.i
 
-land.lhs.true5.i.i.i.i.i201:                      ; preds = %range_upb.argprom.exit.i.i.i
+land.lhs.true5.i.i.i.i.i201:                      ; preds = %range_upb.exit.i.i.i
   %172 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i.i.i202 = and i32 %172, 32768
   %cmp.i.not.i.i.i.i.i203 = icmp eq i32 %and.i.i.i.i.i.i202, 0
@@ -1939,7 +1939,7 @@ if.else.i.i.i.i.i206:                             ; preds = %if.then.i.i.i.i.i20
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %req.val.i188, i32 noundef %168, i64 noundef %.val.i.i.i, i64 noundef %.val13.i.i.i) #13
   br label %trace_virtio_iommu_fill_resv_property.exit.i.i.i
 
-trace_virtio_iommu_fill_resv_property.exit.i.i.i: ; preds = %if.else.i.i.i.i.i206, %if.then8.i.i.i.i.i207, %land.lhs.true5.i.i.i.i.i201, %range_upb.argprom.exit.i.i.i
+trace_virtio_iommu_fill_resv_property.exit.i.i.i: ; preds = %if.else.i.i.i.i.i206, %if.then8.i.i.i.i.i207, %land.lhs.true5.i.i.i.i.i201, %range_upb.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i.i180)
   %add.ptr.i.i.i198 = getelementptr i8, ptr %buf.addr.029.i.i.i, i64 24
   %next.i.i.i199 = getelementptr inbounds i8, ptr %l.030.i.i.i, i64 8
@@ -2031,12 +2031,12 @@ if.then:                                          ; preds = %entry
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %add.ptr.val) #13
   %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not3.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.argprom.exit, label %for.body.i
+  br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i
 
 while.cond.loopexit.i:                            ; preds = %for.inc.i
   %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.argprom.exit, label %for.body.i.backedge
+  br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i.backedge
 
 for.body.i:                                       ; preds = %if.then, %for.body.i.backedge
   %indvars.iv.i = phi i64 [ %indvars.iv.i.be, %for.body.i.backedge ], [ 0, %if.then ]
@@ -2048,7 +2048,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   br i1 %tobool1.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  call fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef nonnull %3)
+  call fastcc void @virtio_iommu_switch_address_space(ptr noundef nonnull %3)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
@@ -2060,7 +2060,7 @@ for.body.i.backedge:                              ; preds = %for.inc.i, %while.c
   %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %while.cond.loopexit.i ]
   br label %for.body.i, !llvm.loop !5
 
-virtio_iommu_switch_address_space_all.argprom.exit: ; preds = %while.cond.loopexit.i, %if.then
+virtio_iommu_switch_address_space_all.exit:       ; preds = %while.cond.loopexit.i, %if.then
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %iter.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iommu_pci_bus.i)
   store i8 1, ptr %bypass, align 4
@@ -2070,15 +2070,15 @@ virtio_iommu_switch_address_space_all.argprom.exit: ; preds = %while.cond.loopex
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i8, ptr noundef %add.ptr.val7) #13
   %call2.i10 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i8, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i9) #13
   %tobool.not3.i11 = icmp eq i32 %call2.i10, 0
-  br i1 %tobool.not3.i11, label %virtio_iommu_switch_address_space_all.argprom.exit26, label %for.body.i13
+  br i1 %tobool.not3.i11, label %virtio_iommu_switch_address_space_all.exit26, label %for.body.i13
 
 while.cond.loopexit.i23:                          ; preds = %for.inc.i20
   %call.i24 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i8, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i9) #13
   %tobool.not.i25 = icmp eq i32 %call.i24, 0
-  br i1 %tobool.not.i25, label %virtio_iommu_switch_address_space_all.argprom.exit26, label %for.body.i13.backedge
+  br i1 %tobool.not.i25, label %virtio_iommu_switch_address_space_all.exit26, label %for.body.i13.backedge
 
-for.body.i13:                                     ; preds = %virtio_iommu_switch_address_space_all.argprom.exit, %for.body.i13.backedge
-  %indvars.iv.i14 = phi i64 [ %indvars.iv.i14.be, %for.body.i13.backedge ], [ 0, %virtio_iommu_switch_address_space_all.argprom.exit ]
+for.body.i13:                                     ; preds = %virtio_iommu_switch_address_space_all.exit, %for.body.i13.backedge
+  %indvars.iv.i14 = phi i64 [ %indvars.iv.i14.be, %for.body.i13.backedge ], [ 0, %virtio_iommu_switch_address_space_all.exit ]
   %4 = load ptr, ptr %iommu_pci_bus.i9, align 8
   %pbdev.i15 = getelementptr inbounds i8, ptr %4, i64 8
   %arrayidx.i16 = getelementptr [0 x ptr], ptr %pbdev.i15, i64 0, i64 %indvars.iv.i14
@@ -2087,7 +2087,7 @@ for.body.i13:                                     ; preds = %virtio_iommu_switch
   br i1 %tobool1.not.i17, label %for.inc.i20, label %if.end.i18
 
 if.end.i18:                                       ; preds = %for.body.i13
-  call fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef nonnull %5)
+  call fastcc void @virtio_iommu_switch_address_space(ptr noundef nonnull %5)
   br label %for.inc.i20
 
 for.inc.i20:                                      ; preds = %if.end.i18, %for.body.i13
@@ -2099,12 +2099,12 @@ for.body.i13.backedge:                            ; preds = %for.inc.i20, %while
   %indvars.iv.i14.be = phi i64 [ %indvars.iv.next.i21, %for.inc.i20 ], [ 0, %while.cond.loopexit.i23 ]
   br label %for.body.i13, !llvm.loop !5
 
-virtio_iommu_switch_address_space_all.argprom.exit26: ; preds = %while.cond.loopexit.i23, %virtio_iommu_switch_address_space_all.argprom.exit
+virtio_iommu_switch_address_space_all.exit26:     ; preds = %while.cond.loopexit.i23, %virtio_iommu_switch_address_space_all.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %iter.i8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iommu_pci_bus.i9)
   br label %if.end
 
-if.end:                                           ; preds = %virtio_iommu_switch_address_space_all.argprom.exit26, %entry
+if.end:                                           ; preds = %virtio_iommu_switch_address_space_all.exit26, %entry
   %config = getelementptr i8, ptr %notifier, i64 -2200
   %granule_frozen = getelementptr i8, ptr %notifier, i64 24
   store i8 1, ptr %granule_frozen, align 8
@@ -2204,12 +2204,12 @@ trace_virtio_iommu_system_reset.exit:             ; preds = %entry, %land.lhs.tr
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %opaque.val) #13
   %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not3.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.argprom.exit, label %for.body.i
+  br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i
 
 while.cond.loopexit.i:                            ; preds = %for.inc.i
   %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.argprom.exit, label %for.body.i.backedge
+  br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i.backedge
 
 for.body.i:                                       ; preds = %trace_virtio_iommu_system_reset.exit, %for.body.i.backedge
   %indvars.iv.i = phi i64 [ %indvars.iv.i.be, %for.body.i.backedge ], [ 0, %trace_virtio_iommu_system_reset.exit ]
@@ -2221,7 +2221,7 @@ for.body.i:                                       ; preds = %trace_virtio_iommu_
   br i1 %tobool1.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  call fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef nonnull %9)
+  call fastcc void @virtio_iommu_switch_address_space(ptr noundef nonnull %9)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
@@ -2233,7 +2233,7 @@ for.body.i.backedge:                              ; preds = %for.inc.i, %while.c
   %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %while.cond.loopexit.i ]
   br label %for.body.i, !llvm.loop !5
 
-virtio_iommu_switch_address_space_all.argprom.exit: ; preds = %while.cond.loopexit.i, %trace_virtio_iommu_system_reset.exit
+virtio_iommu_switch_address_space_all.exit:       ; preds = %while.cond.loopexit.i, %trace_virtio_iommu_system_reset.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %iter.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iommu_pci_bus.i)
   ret void
@@ -2269,7 +2269,7 @@ declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef,
 declare i32 @g_tree_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef %sdev) unnamed_addr #0 {
+define internal fastcc void @virtio_iommu_switch_address_space(ptr noundef %sdev) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tobool.not = icmp eq ptr %sdev, null
@@ -2796,7 +2796,7 @@ add_prop_resv_regions.exit:                       ; preds = %for.body.i, %trace_
   %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %iommu_mr, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #13
   tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %root, i64 noundef 0, ptr noundef %call.i34, i32 noundef 0) #13
   tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %root, i64 noundef 0, ptr noundef nonnull %bypass_mr, i32 noundef 0) #13
-  tail call fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef nonnull %call8)
+  tail call fastcc void @virtio_iommu_switch_address_space(ptr noundef nonnull %call8)
   tail call void @g_free(ptr noundef %call7) #13
   br label %if.end24
 
@@ -2901,7 +2901,7 @@ if.end10.i:                                       ; preds = %if.then4.i, %if.end
   store ptr %6, ptr %.pre13.i, align 8
   store ptr null, ptr %domain1.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
-  tail call fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef %add.ptr.i)
+  tail call fastcc void @virtio_iommu_switch_address_space(ptr noundef %add.ptr.i)
   br label %virtio_iommu_detach_endpoint_from_domain.exit
 
 virtio_iommu_detach_endpoint_from_domain.exit:    ; preds = %land.rhs, %if.end10.i
@@ -2985,7 +2985,7 @@ virtio_iommu_detach_endpoint_from_domain.exit:    ; preds = %if.end.i, %if.then4
   store ptr %4, ptr %.pre13.i, align 8
   store ptr null, ptr %domain, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
-  tail call fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef %add.ptr.i)
+  tail call fastcc void @virtio_iommu_switch_address_space(ptr noundef %add.ptr.i)
   br label %if.end
 
 if.end:                                           ; preds = %virtio_iommu_detach_endpoint_from_domain.exit, %entry
@@ -3043,12 +3043,12 @@ entry:
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %opaque.val) #13
   %call2.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not3.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.argprom.exit, label %for.body.i
+  br i1 %tobool.not3.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i
 
 while.cond.loopexit.i:                            ; preds = %for.inc.i
   %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %iommu_pci_bus.i) #13
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.argprom.exit, label %for.body.i.backedge
+  br i1 %tobool.not.i, label %virtio_iommu_switch_address_space_all.exit, label %for.body.i.backedge
 
 for.body.i:                                       ; preds = %entry, %for.body.i.backedge
   %indvars.iv.i = phi i64 [ %indvars.iv.i.be, %for.body.i.backedge ], [ 0, %entry ]
@@ -3060,7 +3060,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i.
   br i1 %tobool1.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  call fastcc void @virtio_iommu_switch_address_space.retelim(ptr noundef nonnull %3)
+  call fastcc void @virtio_iommu_switch_address_space(ptr noundef nonnull %3)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
@@ -3072,7 +3072,7 @@ for.body.i.backedge:                              ; preds = %for.inc.i, %while.c
   %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %while.cond.loopexit.i ]
   br label %for.body.i, !llvm.loop !5
 
-virtio_iommu_switch_address_space_all.argprom.exit: ; preds = %while.cond.loopexit.i, %entry
+virtio_iommu_switch_address_space_all.exit:       ; preds = %while.cond.loopexit.i, %entry
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %iter.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iommu_pci_bus.i)
   ret i32 0
@@ -3758,43 +3758,43 @@ for.body6:                                        ; preds = %for.body, %for.inc
   %add.i.i.i = add i64 %.val12, 1
   %cmp3.i.i.i = icmp eq i64 %.val, %add.i.i.i
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp3.i.i.i
-  br i1 %or.cond.i.i.i, label %range_is_empty.argprom.exit.i, label %if.else.i.i.i
+  br i1 %or.cond.i.i.i, label %range_is_empty.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body6
   call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #15
   unreachable
 
-range_is_empty.argprom.exit.i:                    ; preds = %for.body6
+range_is_empty.exit.i:                            ; preds = %for.body6
   %cmp.i.i = icmp ugt i64 %.val, %.val12
   br i1 %cmp.i.i, label %for.inc, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %range_is_empty.argprom.exit.i
+lor.lhs.false.i:                                  ; preds = %range_is_empty.exit.i
   %range2.val.i = load i64, ptr %1, align 8
   %range2.val5.i = load i64, ptr %2, align 8
   %cmp.not.i.i7.i = icmp ule i64 %range2.val.i, %range2.val5.i
   %add.i.i8.i = add i64 %range2.val5.i, 1
   %cmp3.i.i9.i = icmp eq i64 %range2.val.i, %add.i.i8.i
   %or.cond.i.i10.i = or i1 %cmp.not.i.i7.i, %cmp3.i.i9.i
-  br i1 %or.cond.i.i10.i, label %range_contains_range.argprom.exit, label %if.else.i.i11.i
+  br i1 %or.cond.i.i10.i, label %range_contains_range.exit, label %if.else.i.i11.i
 
 if.else.i.i11.i:                                  ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #15
   unreachable
 
-range_contains_range.argprom.exit:                ; preds = %lor.lhs.false.i
+range_contains_range.exit:                        ; preds = %lor.lhs.false.i
   %cmp.not.i = icmp ule i64 %.val, %range2.val.i
   %cmp4.i = icmp uge i64 %.val12, %range2.val5.i
   %5 = and i1 %cmp.not.i, %cmp4.i
   %spec.select.i = and i1 %cmp.not.i.i7.i, %5
   br i1 %spec.select.i, label %for.inc12, label %for.inc
 
-for.inc:                                          ; preds = %range_is_empty.argprom.exit.i, %range_contains_range.argprom.exit
+for.inc:                                          ; preds = %range_is_empty.exit.i, %range_contains_range.exit
   %next = getelementptr inbounds i8, ptr %l.017, i64 8
   %6 = load ptr, ptr %next, align 8
   %tobool5.not.not = icmp eq ptr %6, null
   br i1 %tobool5.not.not, label %error, label %for.body6, !llvm.loop !17
 
-for.inc12:                                        ; preds = %range_contains_range.argprom.exit
+for.inc12:                                        ; preds = %range_contains_range.exit
   %next13 = getelementptr inbounds i8, ptr %tmp1.020, i64 8
   %tmp1.0 = load ptr, ptr %next13, align 8
   %tobool3.not = icmp eq ptr %tmp1.0, null
@@ -3841,21 +3841,21 @@ for.body.i:                                       ; preds = %trace_virtio_iommu_
   %add.i.i.i.i = add i64 %.val16.i, 1
   %cmp3.i.i.i.i = icmp eq i64 %.val.i, %add.i.i.i.i
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %cmp3.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %range_is_empty.argprom.exit.i.i, label %if.else.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %range_is_empty.exit.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #15
   unreachable
 
-range_is_empty.argprom.exit.i.i:                  ; preds = %for.body.i
+range_is_empty.exit.i.i:                          ; preds = %for.body.i
   %cmp.i.i.i = icmp ugt i64 %.val.i, %.val16.i
   br i1 %cmp.i.i.i, label %if.else.i.i, label %range_set_bounds.exit.i
 
-if.else.i.i:                                      ; preds = %range_is_empty.argprom.exit.i.i
+if.else.i.i:                                      ; preds = %range_is_empty.exit.i.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #15
   unreachable
 
-range_set_bounds.exit.i:                          ; preds = %range_is_empty.argprom.exit.i.i
+range_set_bounds.exit.i:                          ; preds = %range_is_empty.exit.i.i
   store i64 %.val.i, ptr %call.i, align 8
   %upb2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %.val16.i, ptr %upb2.i.i, align 8
@@ -3869,21 +3869,21 @@ range_set_bounds.exit.i:                          ; preds = %range_is_empty.argp
   %add.i.i.i38.i = add i64 %call.val15.i, 1
   %cmp3.i.i.i39.i = icmp eq i64 %call.val.i, %add.i.i.i38.i
   %or.cond.i.i.i40.i = or i1 %cmp.not.i.i.i37.i, %cmp3.i.i.i39.i
-  br i1 %or.cond.i.i.i40.i, label %range_is_empty.argprom.exit.i42.i, label %if.else.i.i.i41.i
+  br i1 %or.cond.i.i.i40.i, label %range_is_empty.exit.i42.i, label %if.else.i.i.i41.i
 
 if.else.i.i.i41.i:                                ; preds = %range_set_bounds.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #15
   unreachable
 
-range_is_empty.argprom.exit.i42.i:                ; preds = %range_set_bounds.exit.i
+range_is_empty.exit.i42.i:                        ; preds = %range_set_bounds.exit.i
   %cmp.i.i43.i = icmp ugt i64 %call.val.i, %call.val15.i
-  br i1 %cmp.i.i43.i, label %if.else.i44.i, label %range_upb.argprom.exit54.i
+  br i1 %cmp.i.i43.i, label %if.else.i44.i, label %range_upb.exit54.i
 
-if.else.i44.i:                                    ; preds = %range_is_empty.argprom.exit.i42.i
+if.else.i44.i:                                    ; preds = %range_is_empty.exit.i42.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.range_lob) #15
   unreachable
 
-range_upb.argprom.exit54.i:                       ; preds = %range_is_empty.argprom.exit.i42.i
+range_upb.exit54.i:                               ; preds = %range_is_empty.exit.i42.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %14 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i = icmp ne i32 %14, 0
@@ -3892,7 +3892,7 @@ range_upb.argprom.exit54.i:                       ; preds = %range_is_empty.argp
   %or.cond.i.i.i13 = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i13, label %land.lhs.true5.i.i.i, label %trace_virtio_iommu_host_resv_regions.exit.i
 
-land.lhs.true5.i.i.i:                             ; preds = %range_upb.argprom.exit54.i
+land.lhs.true5.i.i.i:                             ; preds = %range_upb.exit54.i
   %16 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %16, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -3915,7 +3915,7 @@ if.else.i.i.i15:                                  ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, ptr noundef %13, i32 noundef %i.057.i, i64 noundef %call.val.i, i64 noundef %call.val15.i) #13
   br label %trace_virtio_iommu_host_resv_regions.exit.i
 
-trace_virtio_iommu_host_resv_regions.exit.i:      ; preds = %if.else.i.i.i15, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %range_upb.argprom.exit54.i
+trace_virtio_iommu_host_resv_regions.exit.i:      ; preds = %if.else.i.i.i15, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %range_upb.exit54.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %inc.i = add i32 %i.057.i, 1
   %next.i = getelementptr inbounds i8, ptr %l.058.i, i64 8

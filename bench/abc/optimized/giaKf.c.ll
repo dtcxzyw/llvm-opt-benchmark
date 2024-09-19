@@ -524,7 +524,7 @@ Abc_Clock.exit:                                   ; preds = %26, %29
   %63 = and i32 %58, %.val4.i.i.i
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds i64, ptr %62, i64 %64
-  call fastcc void @Kf_SetMergeOrder.argelim(ptr noundef %32, ptr noundef %51, ptr noundef %65, i32 noundef %9)
+  call fastcc void @Kf_SetMergeOrder(ptr noundef %32, ptr noundef %51, ptr noundef %65, i32 noundef %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %66 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #23
   %67 = icmp slt i32 %66, 0
@@ -553,7 +553,7 @@ Abc_Clock.exit22:                                 ; preds = %Abc_Clock.exit, %68
 declare void @pthread_exit(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Kf_SetMergeOrder.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @Kf_SetMergeOrder(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   tail call fastcc void @Kf_SetPrepare(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
@@ -1096,7 +1096,7 @@ Kf_SetFilterOrder.exit:                           ; preds = %select.unfold._crit
   %259 = load i64, ptr %258, align 8
   %260 = add i64 %259, %257
   store i64 %260, ptr %258, align 8
-  tail call fastcc void @Kf_SetSelectBest.argelim(ptr noundef nonnull %0, i32 noundef %3)
+  tail call fastcc void @Kf_SetSelectBest(ptr noundef nonnull %0, i32 noundef %3)
   ret void
 }
 
@@ -1681,7 +1681,7 @@ Abc_Clock.exit:                                   ; preds = %112, %116
   %.pre50.i.i = phi i32 [ %.pre50.pre.i.i, %192 ], [ %158, %149 ]
   %.pre48.i.i = phi ptr [ %.pre48.pre.i.i, %192 ], [ %157, %149 ]
   %.not40.i.i = icmp eq ptr %.val158, null
-  br i1 %.not40.i.i, label %Kf_ObjSetCuts.argprom.exit, label %201
+  br i1 %.not40.i.i, label %Kf_ObjSetCuts.exit, label %201
 
 201:                                              ; preds = %200
   %202 = sext i32 %.pre50.i.i to i64
@@ -1696,9 +1696,9 @@ Abc_Clock.exit:                                   ; preds = %112, %116
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %206, ptr nonnull readonly align 4 %.val158, i64 %208, i1 false)
   %.pre47.i.i = load ptr, ptr %93, align 8
   %.pre49.i.i = load i32, ptr %94, align 4
-  br label %Kf_ObjSetCuts.argprom.exit
+  br label %Kf_ObjSetCuts.exit
 
-Kf_ObjSetCuts.argprom.exit:                       ; preds = %200, %201
+Kf_ObjSetCuts.exit:                               ; preds = %200, %201
   %209 = phi i32 [ %.pre49.i.i, %201 ], [ %.pre50.i.i, %200 ]
   %210 = phi ptr [ %.pre47.i.i, %201 ], [ %.pre48.i.i, %200 ]
   %211 = sext i32 %209 to i64
@@ -1727,7 +1727,7 @@ Kf_ObjSetCuts.argprom.exit:                       ; preds = %200, %201
   %229 = icmp slt i32 %228, 0
   br i1 %229, label %Abc_Clock.exit162, label %230
 
-230:                                              ; preds = %Kf_ObjSetCuts.argprom.exit
+230:                                              ; preds = %Kf_ObjSetCuts.exit
   %231 = load i64, ptr %2, align 8
   %232 = mul nsw i64 %231, 1000000
   %233 = load i64, ptr %97, align 8
@@ -1735,8 +1735,8 @@ Kf_ObjSetCuts.argprom.exit:                       ; preds = %200, %201
   %235 = add nsw i64 %234, %232
   br label %Abc_Clock.exit162
 
-Abc_Clock.exit162:                                ; preds = %Kf_ObjSetCuts.argprom.exit, %230
-  %.0.i161 = phi i64 [ %235, %230 ], [ -1, %Kf_ObjSetCuts.argprom.exit ]
+Abc_Clock.exit162:                                ; preds = %Kf_ObjSetCuts.exit, %230
+  %.0.i161 = phi i64 [ %235, %230 ], [ -1, %Kf_ObjSetCuts.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %236 = add i64 %.0.i.neg, %.1121193
   %237 = add i64 %236, %.0.i161
@@ -2729,7 +2729,7 @@ Vec_IntPush.exit35:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Kf_ObjSetCuts.argprom(ptr nocapture noundef %0, i32 noundef %1, i32 %.4.val, ptr readonly %.8.val) unnamed_addr #8 {
+define internal fastcc void @Kf_ObjSetCuts(ptr nocapture noundef %0, i32 noundef %1, i32 %.4.val, ptr readonly %.8.val) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = add nsw i32 %.4.val, 1
   %5 = ashr i32 %4, 1
@@ -3003,7 +3003,7 @@ define void @Kf_ManComputeMapping(ptr noundef %0) local_unnamed_addr #5 {
   %.val105 = load i32, ptr %47, align 4
   %48 = getelementptr i8, ptr %46, i64 8
   %.val106 = load ptr, ptr %48, align 8
-  tail call fastcc void @Kf_ObjSetCuts.argprom(ptr noundef nonnull %0, i32 noundef %43, i32 %.val105, ptr %.val106)
+  tail call fastcc void @Kf_ObjSetCuts(ptr noundef nonnull %0, i32 noundef %43, i32 %.val105, ptr %.val106)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 64
@@ -3157,7 +3157,7 @@ define void @Kf_ManComputeMapping(ptr noundef %0) local_unnamed_addr #5 {
   %153 = getelementptr inbounds %struct.Kf_Cut_t_, ptr %71, i64 %145
   %154 = getelementptr inbounds %struct.Kf_Cut_t_, ptr %72, i64 %148
   %155 = sub nsw i32 %142, %.045.i
-  tail call fastcc void @Kf_SetMergePairs.argelim(ptr noundef nonnull %63, ptr noundef nonnull %153, ptr noundef nonnull %154, i32 noundef %155)
+  tail call fastcc void @Kf_SetMergePairs(ptr noundef nonnull %63, ptr noundef nonnull %153, ptr noundef nonnull %154, i32 noundef %155)
   br label %161
 
 156:                                              ; preds = %144
@@ -3165,7 +3165,7 @@ define void @Kf_ManComputeMapping(ptr noundef %0) local_unnamed_addr #5 {
   %158 = getelementptr inbounds %struct.Kf_Cut_t_, ptr %72, i64 %148
   %159 = getelementptr inbounds %struct.Kf_Cut_t_, ptr %71, i64 %145
   %160 = sub nsw i32 %141, %.03744.i
-  tail call fastcc void @Kf_SetMergePairs.argelim(ptr noundef nonnull %63, ptr noundef nonnull %158, ptr noundef nonnull %159, i32 noundef %160)
+  tail call fastcc void @Kf_SetMergePairs(ptr noundef nonnull %63, ptr noundef nonnull %158, ptr noundef nonnull %159, i32 noundef %160)
   br label %161
 
 161:                                              ; preds = %156, %151
@@ -3415,7 +3415,7 @@ Kf_SetMerge.exit:                                 ; preds = %select.unfold._crit
   %272 = load i64, ptr %84, align 8
   %273 = add i64 %272, %271
   store i64 %273, ptr %84, align 8
-  tail call fastcc void @Kf_SetSelectBest.argelim(ptr noundef nonnull %63, i32 noundef %133)
+  tail call fastcc void @Kf_SetSelectBest(ptr noundef nonnull %63, i32 noundef %133)
   br label %515
 
 274:                                              ; preds = %101
@@ -3925,11 +3925,11 @@ Kf_SetMergeSimple.exit:                           ; preds = %select.unfold._crit
   %512 = load i64, ptr %84, align 8
   %513 = add i64 %512, %511
   store i64 %513, ptr %84, align 8
-  tail call fastcc void @Kf_SetSelectBest.argelim(ptr noundef nonnull %63, i32 noundef %304)
+  tail call fastcc void @Kf_SetSelectBest(ptr noundef nonnull %63, i32 noundef %304)
   br label %515
 
 514:                                              ; preds = %274
-  tail call fastcc void @Kf_SetMergeOrder.argelim(ptr noundef nonnull %63, ptr noundef %289, ptr noundef %302, i32 noundef %304)
+  tail call fastcc void @Kf_SetMergeOrder(ptr noundef nonnull %63, ptr noundef %289, ptr noundef %302, i32 noundef %304)
   br label %515
 
 515:                                              ; preds = %Kf_SetMergeSimple.exit, %514, %Kf_SetMerge.exit
@@ -3984,7 +3984,7 @@ Kf_SetMergeSimple.exit:                           ; preds = %select.unfold._crit
   %.val103 = load i32, ptr %545, align 4
   %546 = getelementptr i8, ptr %544, i64 8
   %.val104 = load ptr, ptr %546, align 8
-  tail call fastcc void @Kf_ObjSetCuts.argprom(ptr noundef nonnull %0, i32 noundef %.pre-phi, i32 %.val103, ptr %.val104)
+  tail call fastcc void @Kf_ObjSetCuts(ptr noundef nonnull %0, i32 noundef %.pre-phi, i32 %.val103, ptr %.val104)
   %.pre = load ptr, ptr %0, align 8
   br label %547
 
@@ -4403,28 +4403,28 @@ Vec_FltFill.exit:                                 ; preds = %20, %Vec_FltGrow.ex
   %106 = getelementptr i8, ptr %1, i64 8
   br label %107
 
-107:                                              ; preds = %.lr.ph69, %Vec_FltUpdateEntry.argprom.exit
-  %.val4881 = phi i32 [ %.val4867, %.lr.ph69 ], [ %.val48, %Vec_FltUpdateEntry.argprom.exit ]
-  %indvars.iv74 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next75, %Vec_FltUpdateEntry.argprom.exit ]
+107:                                              ; preds = %.lr.ph69, %Vec_FltUpdateEntry.exit
+  %.val4881 = phi i32 [ %.val4867, %.lr.ph69 ], [ %.val48, %Vec_FltUpdateEntry.exit ]
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next75, %Vec_FltUpdateEntry.exit ]
   %.val58 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds float, ptr %.val58, i64 %indvars.iv74
   %109 = load float, ptr %108, align 4
   %110 = fcmp olt float %109, 1.000000e+00
-  br i1 %110, label %111, label %Vec_FltUpdateEntry.argprom.exit
+  br i1 %110, label %111, label %Vec_FltUpdateEntry.exit
 
 111:                                              ; preds = %107
   store float 1.000000e+00, ptr %108, align 4
   %.val48.pre = load i32, ptr %5, align 8
-  br label %Vec_FltUpdateEntry.argprom.exit
+  br label %Vec_FltUpdateEntry.exit
 
-Vec_FltUpdateEntry.argprom.exit:                  ; preds = %107, %111
+Vec_FltUpdateEntry.exit:                          ; preds = %107, %111
   %.val48 = phi i32 [ %.val4881, %107 ], [ %.val48.pre, %111 ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %112 = sext i32 %.val48 to i64
   %113 = icmp slt i64 %indvars.iv.next75, %112
   br i1 %113, label %107, label %._crit_edge, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %Vec_FltUpdateEntry.argprom.exit, %.critedge2
+._crit_edge:                                      ; preds = %Vec_FltUpdateEntry.exit, %.critedge2
   ret void
 }
 
@@ -5462,7 +5462,7 @@ Kf_SetLoadCuts.exit24:                            ; preds = %Kf_SetLoadCuts.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Kf_SetSelectBest.argelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Kf_SetSelectBest(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr i8, ptr %0, i64 2144
   %5 = getelementptr inbounds i8, ptr %0, i64 8360
@@ -5795,7 +5795,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Kf_SetMergePairs.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #13 {
+define internal fastcc void @Kf_SetMergePairs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #13 {
   %5 = getelementptr inbounds i8, ptr %1, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0

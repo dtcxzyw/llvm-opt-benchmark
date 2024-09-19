@@ -190,7 +190,7 @@ define dso_local void @_ZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_
 28:                                               ; preds = %26, %24
   %29 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL20InlineSyntheticCount, i64 128), align 8
   %30 = sext i32 %29 to i64
-  br label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.thread.i"
+  br label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.thread.i"
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -198,20 +198,20 @@ define dso_local void @_ZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_
   %34 = and i32 %33, 15
   %35 = add nsw i32 %34, -7
   %spec.select.i.i.i = icmp ult i32 %35, 2
-  br i1 %spec.select.i.i.i, label %36, label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.i"
+  br i1 %spec.select.i.i.i, label %36, label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.i"
 
 36:                                               ; preds = %31
   %37 = getelementptr i8, ptr %20, i64 16
   %.val.i = load ptr, ptr %37, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.thread.i", label %.lr.ph.i.i
+  br i1 %.not.i.i, label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.thread.i", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %36, %41
   %.sroa.02.06.i.i = phi ptr [ %43, %41 ], [ %.val.i, %36 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr %39, align 8
-  switch i8 %40, label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.i" [
+  switch i8 %40, label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.i" [
     i8 85, label %41
     i8 34, label %41
   ]
@@ -220,22 +220,22 @@ define dso_local void @_ZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not9.i.i = icmp eq ptr %43, null
-  br i1 %.not9.i.i, label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.thread.i", label %.lr.ph.i.i
+  br i1 %.not9.i.i, label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.thread.i", label %.lr.ph.i.i
 
-"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.i": ; preds = %.lr.ph.i.i, %31
+"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.i": ; preds = %.lr.ph.i.i, %31
   %44 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %20, i32 noundef 5) #13
   br i1 %44, label %47, label %45
 
-45:                                               ; preds = %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.i"
+45:                                               ; preds = %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.i"
   %46 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %20, i32 noundef 29) #13
-  br i1 %46, label %47, label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.thread.i"
+  br i1 %46, label %47, label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.thread.i"
 
-47:                                               ; preds = %45, %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.i"
+47:                                               ; preds = %45, %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.i"
   %48 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL18ColdSyntheticCount, i64 128), align 8
   %49 = sext i32 %48 to i64
-  br label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.thread.i"
+  br label %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.thread.i"
 
-"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.thread.i": ; preds = %41, %47, %45, %36, %28
+"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.thread.i": ; preds = %41, %47, %45, %36, %28
   %.0.i = phi i64 [ %30, %28 ], [ %49, %47 ], [ %22, %45 ], [ 0, %36 ], [ 0, %41 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %20, ptr %5, align 8
@@ -244,7 +244,7 @@ define dso_local void @_ZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_12ScaledNumberImEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i.i.i.i, label %53
 
-53:                                               ; preds = %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.thread.i"
+53:                                               ; preds = %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.thread.i"
   %54 = ptrtoint ptr %20 to i64
   %55 = trunc i64 %54 to i32
   %56 = lshr i32 %55, 4
@@ -286,8 +286,8 @@ define dso_local void @_ZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_
   %77 = icmp eq ptr %20, %76
   br i1 %77, label %"_ZN4llvm12function_refIFvPNS_8FunctionEmEE11callback_fnIZNS_26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS7_JEEEE3$_0EEvlS2_m.exit", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !4
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_12ScaledNumberImEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i.i.i.i: ; preds = %67, %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.thread.i"
-  %.sink.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ null, %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.argprom.exit.thread.i" ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_12ScaledNumberImEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i.i.i.i: ; preds = %67, %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.thread.i"
+  %.sink.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ null, %"_ZZL16initializeCountsRN4llvm6ModuleENS_12function_refIFvPNS_8FunctionEmEEEENK3$_0clERS3_.exit.thread.i" ]
   %78 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_12ScaledNumberImEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E20InsertIntoBucketImplIS3_EEPSA_RKS3_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.sink.i.i.i.i.i.i)
   %79 = load ptr, ptr %5, align 8
   store ptr %79, ptr %78, align 8
@@ -1050,7 +1050,7 @@ define internal void @"_ZN4llvm12function_refIFSt8optionalINS_12ScaledNumberImEE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %10 = trunc i8 %.val2 to i1
-  br i1 %10, label %11, label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_1clEPKNS_13CallGraphNodeERKSt4pairISt8optionalINS_14WeakTrackingVHEEPS7_E.argprom.exit"
+  br i1 %10, label %11, label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_1clEPKNS_13CallGraphNodeERKSt4pairISt8optionalINS_14WeakTrackingVHEEPS7_E.exit"
 
 11:                                               ; preds = %4
   %12 = tail call noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 dereferenceable(88) %.val) #13, !noalias !15
@@ -1192,9 +1192,9 @@ _ZN4llvm12ScaledNumberImE10getProductEmm.exit.i.i: ; preds = %70, %68
 
 _ZN4llvm12ScaledNumberImEmLERKS1_.exit.i:         ; preds = %_ZN4llvm12ScaledNumberImE10getProductEmm.exit.i.i, %62, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionENS_12ScaledNumberImEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  br label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_1clEPKNS_13CallGraphNodeERKSt4pairISt8optionalINS_14WeakTrackingVHEEPS7_E.argprom.exit"
+  br label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_1clEPKNS_13CallGraphNodeERKSt4pairISt8optionalINS_14WeakTrackingVHEEPS7_E.exit"
 
-"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_1clEPKNS_13CallGraphNodeERKSt4pairISt8optionalINS_14WeakTrackingVHEEPS7_E.argprom.exit": ; preds = %4, %_ZN4llvm12ScaledNumberImEmLERKS1_.exit.i
+"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_1clEPKNS_13CallGraphNodeERKSt4pairISt8optionalINS_14WeakTrackingVHEEPS7_E.exit": ; preds = %4, %_ZN4llvm12ScaledNumberImEmLERKS1_.exit.i
   %.sink.i = phi i8 [ 1, %_ZN4llvm12ScaledNumberImEmLERKS1_.exit.i ], [ 0, %4 ]
   %73 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %.sink.i, ptr %73, align 8, !alias.scope !15
@@ -1401,11 +1401,11 @@ define internal void @"_ZN4llvm12function_refIFvPKNS_13CallGraphNodeENS_12Scaled
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %.val, ptr %9, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_2clEPKNS_13CallGraphNodeENS_12ScaledNumberImEE.argprom.exit", label %12
+  br i1 %.not.i, label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_2clEPKNS_13CallGraphNodeENS_12ScaledNumberImEE.exit", label %12
 
 12:                                               ; preds = %4
   %13 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %.val) #13
-  br i1 %13, label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_2clEPKNS_13CallGraphNodeENS_12ScaledNumberImEE.argprom.exit", label %14
+  br i1 %13, label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_2clEPKNS_13CallGraphNodeENS_12ScaledNumberImEE.exit", label %14
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %10, align 8
@@ -1567,14 +1567,14 @@ _ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i.i: ; preds = %.sin
   store i64 %.sroa.013.0.i.i.i, ptr %48, align 8
   store i16 %.sroa.3.0.i.i.i, ptr %50, align 2
   %85 = icmp sgt i16 %.sroa.3.0.i.i.i, 16383
-  br i1 %85, label %86, label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_2clEPKNS_13CallGraphNodeENS_12ScaledNumberImEE.argprom.exit"
+  br i1 %85, label %86, label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_2clEPKNS_13CallGraphNodeENS_12ScaledNumberImEE.exit"
 
 86:                                               ; preds = %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i.i
   store i64 -1, ptr %48, align 8
   store i16 16383, ptr %50, align 8
-  br label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_2clEPKNS_13CallGraphNodeENS_12ScaledNumberImEE.argprom.exit"
+  br label %"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_2clEPKNS_13CallGraphNodeENS_12ScaledNumberImEE.exit"
 
-"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_2clEPKNS_13CallGraphNodeENS_12ScaledNumberImEE.argprom.exit": ; preds = %4, %12, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i.i, %86
+"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_2clEPKNS_13CallGraphNodeENS_12ScaledNumberImEE.exit": ; preds = %4, %12, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i.i, %86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret void
 }
@@ -1707,5 +1707,5 @@ attributes #13 = { nounwind }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_1clEPKNS_13CallGraphNodeERKSt4pairISt8optionalINS_14WeakTrackingVHEEPS7_E.argprom: argument 0"}
-!17 = distinct !{!17, !"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_1clEPKNS_13CallGraphNodeERKSt4pairISt8optionalINS_14WeakTrackingVHEEPS7_E.argprom"}
+!16 = distinct !{!16, !17, !"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_1clEPKNS_13CallGraphNodeERKSt4pairISt8optionalINS_14WeakTrackingVHEEPS7_E: argument 0"}
+!17 = distinct !{!17, !"_ZZN4llvm26SyntheticCountsPropagation3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEEENK3$_1clEPKNS_13CallGraphNodeERKSt4pairISt8optionalINS_14WeakTrackingVHEEPS7_E"}

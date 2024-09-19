@@ -6162,7 +6162,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   store i64 54, ptr %ref.tmp.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i = and i64 %1, 1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN23grpc_plugin_credentials14PendingRequest19ProcessPluginResultEPK13grpc_metadatam16grpc_status_codePKcE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core5SliceEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.argprom.exit", label %if.then.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZSt6invokeIRKZN23grpc_plugin_credentials14PendingRequest19ProcessPluginResultEPK13grpc_metadatam16grpc_status_codePKcE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core5SliceEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %1)
@@ -6176,11 +6176,11 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.invoke.
   %3 = phi i64 [ %.pre.i.i.i.i, %if.then.i.i.invoke.cont_crit_edge.i.i.i.i ], [ %1, %entry ]
   %and.i.i.i1.i.i.i.i = and i64 %3, 1
   %cmp.i.i.i2.i.i.i.i = icmp eq i64 %and.i.i.i1.i.i.i.i, 0
-  br i1 %cmp.i.i.i2.i.i.i.i, label %"_ZSt6invokeIRKZN23grpc_plugin_credentials14PendingRequest19ProcessPluginResultEPK13grpc_metadatam16grpc_status_codePKcE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core5SliceEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.argprom.exit", label %if.then.i.i3.i.i.i.i
+  br i1 %cmp.i.i.i2.i.i.i.i, label %"_ZSt6invokeIRKZN23grpc_plugin_credentials14PendingRequest19ProcessPluginResultEPK13grpc_metadatam16grpc_status_codePKcE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core5SliceEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.exit", label %if.then.i.i3.i.i.i.i
 
 if.then.i.i3.i.i.i.i:                             ; preds = %invoke.cont.i.i.i.i
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %3)
-          to label %"_ZSt6invokeIRKZN23grpc_plugin_credentials14PendingRequest19ProcessPluginResultEPK13grpc_metadatam16grpc_status_codePKcE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core5SliceEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i
+          to label %"_ZSt6invokeIRKZN23grpc_plugin_credentials14PendingRequest19ProcessPluginResultEPK13grpc_metadatam16grpc_status_codePKcE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core5SliceEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.exit" unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i3.i.i.i.i
   %4 = landingpad { ptr, i32 }
@@ -6195,7 +6195,7 @@ lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i.i.i
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i.i) #24
   resume { ptr, i32 } %6
 
-"_ZSt6invokeIRKZN23grpc_plugin_credentials14PendingRequest19ProcessPluginResultEPK13grpc_metadatam16grpc_status_codePKcE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core5SliceEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.argprom.exit": ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i.i.i, %if.then.i.i3.i.i.i.i
+"_ZSt6invokeIRKZN23grpc_plugin_credentials14PendingRequest19ProcessPluginResultEPK13grpc_metadatam16grpc_status_codePKcE3$_0JSt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core5SliceEEENSt13invoke_resultIT_JDpT0_EE4typeEOSK_DpOSL_.exit": ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i.i.i, %if.then.i.i3.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
   ret void
 }
@@ -6648,22 +6648,22 @@ define internal void @"_ZN9grpc_core20arena_promise_detail7InlinedIN4absl12lts_2
 entry:
   %arg.val = load ptr, ptr %arg, align 8
   %cmp.not.i.i.i = icmp eq ptr %arg.val, null
-  br i1 %cmp.not.i.i.i, label %"_ZN9grpc_core8DestructIZN23grpc_plugin_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0EEvPT_.argprom.exit", label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZN9grpc_core8DestructIZN23grpc_plugin_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0EEvPT_.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %arg.val, i64 8
   %0 = atomicrmw sub ptr %refs_.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %0, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZN9grpc_core8DestructIZN23grpc_plugin_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0EEvPT_.argprom.exit"
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZN9grpc_core8DestructIZN23grpc_plugin_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0EEvPT_.exit"
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %arg.val, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(332) %arg.val) #24
-  br label %"_ZN9grpc_core8DestructIZN23grpc_plugin_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0EEvPT_.argprom.exit"
+  br label %"_ZN9grpc_core8DestructIZN23grpc_plugin_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0EEvPT_.exit"
 
-"_ZN9grpc_core8DestructIZN23grpc_plugin_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0EEvPT_.argprom.exit": ; preds = %entry, %if.then.i.i.i, %if.then.i.i.i.i
+"_ZN9grpc_core8DestructIZN23grpc_plugin_credentials18GetRequestMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0EEvPT_.exit": ; preds = %entry, %if.then.i.i.i, %if.then.i.i.i.i
   ret void
 }
 

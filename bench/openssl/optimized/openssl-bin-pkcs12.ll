@@ -1772,7 +1772,7 @@ if.then17:                                        ; preds = %if.then14
   %4 = load ptr, ptr %enc_data, align 8
   %algorithm = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %algorithm, align 8
-  tail call fastcc void @alg_print.retelim(ptr noundef %5)
+  tail call fastcc void @alg_print(ptr noundef %5)
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %if.then14
@@ -1843,7 +1843,7 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
 declare ptr @PKCS12_unpack_p7data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @alg_print.retelim(ptr noundef %alg) unnamed_addr #0 {
+define internal fastcc void @alg_print(ptr noundef %alg) unnamed_addr #0 {
 entry:
   %aparamtype = alloca i32, align 4
   %aoid = alloca ptr, align 8
@@ -2088,7 +2088,7 @@ if.then18:                                        ; preds = %sw.bb15
   %call20 = tail call ptr @PKCS12_SAFEBAG_get0_pkcs8(ptr noundef %bag) #5
   call void @X509_SIG_get0(ptr noundef %call20, ptr noundef nonnull %tp8alg, ptr noundef null) #5
   %2 = load ptr, ptr %tp8alg, align 8
-  call fastcc void @alg_print.retelim(ptr noundef %2)
+  call fastcc void @alg_print(ptr noundef %2)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then18, %sw.bb15

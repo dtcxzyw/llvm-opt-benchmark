@@ -1023,7 +1023,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #3 section ".init.text
   br i1 %55, label %.thread24, label %56
 
 56:                                               ; preds = %51
-  %57 = tail call fastcc i64 @native_read_msr.argelim()
+  %57 = tail call fastcc i64 @native_read_msr()
   store i64 %57, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 368), align 8
   %58 = and i64 %57, 63
   %59 = icmp eq i64 %58, 0
@@ -2628,7 +2628,7 @@ declare dso_local i32 @p4_pmu_init() local_unnamed_addr #0
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i64 @native_read_msr.argelim() unnamed_addr #6 align 16 {
+define internal fastcc i64 @native_read_msr() unnamed_addr #6 align 16 {
   %1 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 837) #22, !srcloc !22
   %2 = extractvalue { i64, i64 } %1, 0
   %3 = extractvalue { i64, i64 } %1, 1
@@ -7382,7 +7382,7 @@ define internal void @intel_pmu_enable_event(ptr noundef %0) #1 align 16 {
   br label %122
 
 119:                                              ; preds = %10
-  tail call fastcc void @intel_set_masks.argelim(ptr noundef %0)
+  tail call fastcc void @intel_set_masks(ptr noundef %0)
   br label %122
 
 120:                                              ; preds = %10
@@ -8572,7 +8572,7 @@ declare dso_local void @intel_pmu_pebs_enable_all() local_unnamed_addr #0
 declare dso_local void @intel_pmu_pebs_enable(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @intel_set_masks.argelim(ptr nocapture noundef readonly %0) unnamed_addr #6 align 16 {
+define internal fastcc void @intel_set_masks(ptr nocapture noundef readonly %0) unnamed_addr #6 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #24, !srcloc !116
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %0, i64 256

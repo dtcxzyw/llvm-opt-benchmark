@@ -61,22 +61,22 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 56), align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %2, %tsdn
-  br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.argprom.exit.i, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %tsdn, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 48), align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %3, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 40), align 8
-  br label %malloc_mutex_lock.argprom.exit.i
+  br label %malloc_mutex_lock.exit.i
 
-malloc_mutex_lock.argprom.exit.i:                 ; preds = %if.then.i.i.i, %if.end.i.i
+malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
   %4 = load ptr, ptr @tsd_nominal_tsds.0, align 8
   %cmp.not9.i = icmp eq ptr %4, null
   br i1 %cmp.not9.i, label %tsd_force_recompute.exit, label %do.end.i
 
-do.end.i:                                         ; preds = %malloc_mutex_lock.argprom.exit.i, %do.end.i
-  %remote_tsd.010.i = phi ptr [ %5, %do.end.i ], [ %4, %malloc_mutex_lock.argprom.exit.i ]
+do.end.i:                                         ; preds = %malloc_mutex_lock.exit.i, %do.end.i
+  %remote_tsd.010.i = phi ptr [ %5, %do.end.i ], [ %4, %malloc_mutex_lock.exit.i ]
   %state.i = getelementptr inbounds i8, ptr %remote_tsd.010.i, i64 832
   store atomic i8 2, ptr %state.i monotonic, align 1
   fence seq_cst
@@ -92,7 +92,7 @@ do.end.i:                                         ; preds = %malloc_mutex_lock.a
   %cmp.not.i = or i1 %cmp.not11.i, %cmp1.not.i
   br i1 %cmp.not.i, label %tsd_force_recompute.exit, label %do.end.i
 
-tsd_force_recompute.exit:                         ; preds = %do.end.i, %malloc_mutex_lock.argprom.exit.i
+tsd_force_recompute.exit:                         ; preds = %do.end.i, %malloc_mutex_lock.exit.i
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 104) monotonic, align 8
   %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 64)) #7
   ret void
@@ -118,22 +118,22 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 56), align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %2, %tsdn
-  br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.argprom.exit.i, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %tsdn, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 48), align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %3, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 40), align 8
-  br label %malloc_mutex_lock.argprom.exit.i
+  br label %malloc_mutex_lock.exit.i
 
-malloc_mutex_lock.argprom.exit.i:                 ; preds = %if.then.i.i.i, %if.end.i.i
+malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
   %4 = load ptr, ptr @tsd_nominal_tsds.0, align 8
   %cmp.not9.i = icmp eq ptr %4, null
   br i1 %cmp.not9.i, label %tsd_force_recompute.exit, label %do.end.i
 
-do.end.i:                                         ; preds = %malloc_mutex_lock.argprom.exit.i, %do.end.i
-  %remote_tsd.010.i = phi ptr [ %5, %do.end.i ], [ %4, %malloc_mutex_lock.argprom.exit.i ]
+do.end.i:                                         ; preds = %malloc_mutex_lock.exit.i, %do.end.i
+  %remote_tsd.010.i = phi ptr [ %5, %do.end.i ], [ %4, %malloc_mutex_lock.exit.i ]
   %state.i = getelementptr inbounds i8, ptr %remote_tsd.010.i, i64 832
   store atomic i8 2, ptr %state.i monotonic, align 1
   fence seq_cst
@@ -149,7 +149,7 @@ do.end.i:                                         ; preds = %malloc_mutex_lock.a
   %cmp.not.i = or i1 %cmp.not11.i, %cmp1.not.i
   br i1 %cmp.not.i, label %tsd_force_recompute.exit, label %do.end.i
 
-tsd_force_recompute.exit:                         ; preds = %do.end.i, %malloc_mutex_lock.argprom.exit.i
+tsd_force_recompute.exit:                         ; preds = %do.end.i, %malloc_mutex_lock.exit.i
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 104) monotonic, align 8
   %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 64)) #7
   ret void
@@ -242,21 +242,21 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.th
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 56), align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %2, %tsd
-  br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.argprom.exit.i, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %tsd, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 48), align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %3, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 40), align 8
-  br label %malloc_mutex_lock.argprom.exit.i
+  br label %malloc_mutex_lock.exit.i
 
-malloc_mutex_lock.argprom.exit.i:                 ; preds = %if.then.i.i.i, %if.end.i.i
+malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
   %4 = load ptr, ptr @tsd_nominal_tsds.0, align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %tsd_add_nominal.exit, label %do.body7.i
 
-do.body7.i:                                       ; preds = %malloc_mutex_lock.argprom.exit.i
+do.body7.i:                                       ; preds = %malloc_mutex_lock.exit.i
   %qre_prev9.i = getelementptr inbounds i8, ptr %4, i64 208
   %5 = load ptr, ptr %qre_prev9.i, align 8
   %6 = load ptr, ptr %qre_prev.i, align 8
@@ -275,7 +275,7 @@ do.body7.i:                                       ; preds = %malloc_mutex_lock.a
   store ptr %tsd, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link30.i, align 8
   br label %tsd_add_nominal.exit
 
-tsd_add_nominal.exit:                             ; preds = %malloc_mutex_lock.argprom.exit.i, %do.body7.i
+tsd_add_nominal.exit:                             ; preds = %malloc_mutex_lock.exit.i, %do.body7.i
   %11 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i, align 8
   store ptr %11, ptr @tsd_nominal_tsds.0, align 8
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 104) monotonic, align 8
@@ -302,28 +302,28 @@ if.end.i.i17:                                     ; preds = %if.then.i.i16, %if.
   store i64 %inc.i.i.i18, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 56), align 8
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 48), align 8
   %cmp.not.i.i.i19 = icmp eq ptr %13, %tsd
-  br i1 %cmp.not.i.i.i19, label %malloc_mutex_lock.argprom.exit.i22, label %if.then.i.i.i20
+  br i1 %cmp.not.i.i.i19, label %malloc_mutex_lock.exit.i22, label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %if.end.i.i17
   store ptr %tsd, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 48), align 8
   %14 = load i64, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 40), align 8
   %inc2.i.i.i21 = add i64 %14, 1
   store i64 %inc2.i.i.i21, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 40), align 8
-  br label %malloc_mutex_lock.argprom.exit.i22
+  br label %malloc_mutex_lock.exit.i22
 
-malloc_mutex_lock.argprom.exit.i22:               ; preds = %if.then.i.i.i20, %if.end.i.i17
+malloc_mutex_lock.exit.i22:                       ; preds = %if.then.i.i.i20, %if.end.i.i17
   %15 = load ptr, ptr @tsd_nominal_tsds.0, align 8
   %cmp.i23 = icmp eq ptr %15, %tsd
   br i1 %cmp.i23, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %malloc_mutex_lock.argprom.exit.i22
+if.then.i:                                        ; preds = %malloc_mutex_lock.exit.i22
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i27 = getelementptr inbounds i8, ptr %15, i64 200
   %16 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i27, align 8
   store ptr %16, ptr @tsd_nominal_tsds.0, align 8
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.then.i, %malloc_mutex_lock.argprom.exit.i22
-  %17 = phi ptr [ %16, %if.then.i ], [ %15, %malloc_mutex_lock.argprom.exit.i22 ]
+if.end.i:                                         ; preds = %if.then.i, %malloc_mutex_lock.exit.i22
+  %17 = phi ptr [ %16, %if.then.i ], [ %15, %malloc_mutex_lock.exit.i22 ]
   %cmp4.not.i = icmp eq ptr %17, %tsd
   br i1 %cmp4.not.i, label %do.body39.i, label %do.body6.i
 
@@ -888,21 +888,21 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.th
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 56), align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 48), align 8
   %cmp.not.i.i.i = icmp eq ptr %2, %tsd
-  br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.argprom.exit.i, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %tsd, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 48), align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 40), align 8
   %inc2.i.i.i = add i64 %3, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 40), align 8
-  br label %malloc_mutex_lock.argprom.exit.i
+  br label %malloc_mutex_lock.exit.i
 
-malloc_mutex_lock.argprom.exit.i:                 ; preds = %if.then.i.i.i, %if.end.i.i
+malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
   %4 = load ptr, ptr @tsd_nominal_tsds.0, align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %tsd_add_nominal.exit, label %do.body7.i
 
-do.body7.i:                                       ; preds = %malloc_mutex_lock.argprom.exit.i
+do.body7.i:                                       ; preds = %malloc_mutex_lock.exit.i
   %qre_prev9.i = getelementptr inbounds i8, ptr %4, i64 208
   %5 = load ptr, ptr %qre_prev9.i, align 8
   %6 = load ptr, ptr %qre_prev.i, align 8
@@ -921,7 +921,7 @@ do.body7.i:                                       ; preds = %malloc_mutex_lock.a
   store ptr %tsd, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link30.i, align 8
   br label %tsd_add_nominal.exit
 
-tsd_add_nominal.exit:                             ; preds = %malloc_mutex_lock.argprom.exit.i, %do.body7.i
+tsd_add_nominal.exit:                             ; preds = %malloc_mutex_lock.exit.i, %do.body7.i
   %11 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i, align 8
   store ptr %11, ptr @tsd_nominal_tsds.0, align 8
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 104) monotonic, align 8

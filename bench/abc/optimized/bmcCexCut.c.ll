@@ -224,9 +224,9 @@ define void @Bmc_GiaGenerateJustNonRec(ptr nocapture noundef readonly %0, i32 no
   %.val95 = load i64, ptr %21, align 4
   %22 = and i64 %.val95, 2684354559
   %narrow.i.not.i = icmp eq i64 %22, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.argprom.exit, label %Gia_ObjIsPi.argprom.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsPi.exit, label %Gia_ObjIsPi.exit.thread
 
-Gia_ObjIsPi.argprom.exit:                         ; preds = %20
+Gia_ObjIsPi.exit:                                 ; preds = %20
   %23 = lshr i64 %.val95, 32
   %24 = trunc nuw i64 %23 to i32
   %25 = and i32 %24, 536870911
@@ -236,9 +236,9 @@ Gia_ObjIsPi.argprom.exit:                         ; preds = %20
   %.val5.val.i = load i32, ptr %26, align 4
   %27 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not102 = icmp slt i32 %25, %27
-  br i1 %.not102, label %144, label %Gia_ObjIsPi.argprom.exit.thread
+  br i1 %.not102, label %144, label %Gia_ObjIsPi.exit.thread
 
-Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %20, %Gia_ObjIsPi.argprom.exit
+Gia_ObjIsPi.exit.thread:                          ; preds = %20, %Gia_ObjIsPi.exit
   %.val74 = load ptr, ptr %10, align 8
   %28 = trunc i64 %indvars.iv.next118 to i32
   %29 = add i32 %.0107, %28
@@ -252,7 +252,7 @@ Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %20, %Gia_ObjIsPi.ar
   %.not65 = icmp eq i32 %36, 0
   br i1 %.not65, label %144, label %37
 
-37:                                               ; preds = %Gia_ObjIsPi.argprom.exit.thread
+37:                                               ; preds = %Gia_ObjIsPi.exit.thread
   %38 = and i64 %.val95, 2147483648
   %.not.i = icmp eq i64 %38, 0
   %39 = and i64 %.val95, 536870911
@@ -402,7 +402,7 @@ Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %20, %Gia_ObjIsPi.ar
   store i32 %143, ptr %141, align 4
   br label %144
 
-144:                                              ; preds = %81, %86, %103, %50, %122, %123, %109, %Gia_ObjIsPi.argprom.exit.thread, %Gia_ObjIsPi.argprom.exit
+144:                                              ; preds = %81, %86, %103, %50, %122, %123, %109, %Gia_ObjIsPi.exit.thread, %Gia_ObjIsPi.exit
   %indvars.iv.next = add nsw i64 %indvars.iv.next118, -1
   %.val81 = load ptr, ptr %7, align 8
   %145 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val81, i64 %indvars.iv.next
@@ -651,9 +651,9 @@ Vec_BitStart.exit141:                             ; preds = %Vec_BitStart.exit, 
 128:                                              ; preds = %.lr.ph183
   %129 = and i64 %.val132, 2684354559
   %narrow.i142.not = icmp eq i64 %129, 2684354559
-  br i1 %narrow.i142.not, label %Gia_ObjIsPi.argprom.exit, label %176
+  br i1 %narrow.i142.not, label %Gia_ObjIsPi.exit, label %176
 
-Gia_ObjIsPi.argprom.exit:                         ; preds = %128
+Gia_ObjIsPi.exit:                                 ; preds = %128
   %130 = lshr i64 %.val132, 32
   %131 = trunc nuw i64 %130 to i32
   %132 = and i32 %131, 536870911
@@ -663,9 +663,9 @@ Gia_ObjIsPi.argprom.exit:                         ; preds = %128
   %.val5.val.i = load i32, ptr %133, align 4
   %134 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not154 = icmp slt i32 %132, %134
-  br i1 %.not154, label %135, label %Gia_ObjIsPi.argprom.exit.thread
+  br i1 %.not154, label %135, label %Gia_ObjIsPi.exit.thread
 
-135:                                              ; preds = %Gia_ObjIsPi.argprom.exit
+135:                                              ; preds = %Gia_ObjIsPi.exit
   %136 = add nsw i32 %.2163181, 1
   %137 = ashr i32 %.2163181, 5
   %138 = sext i32 %137 to i64
@@ -681,7 +681,7 @@ Gia_ObjIsPi.argprom.exit:                         ; preds = %128
   %148 = or disjoint i64 %147, 4611686018427387904
   br label %.sink.split
 
-Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %Gia_ObjIsPi.argprom.exit
+Gia_ObjIsPi.exit.thread:                          ; preds = %Gia_ObjIsPi.exit
   %.val.i = load ptr, ptr %62, align 8
   %149 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %149, align 4
@@ -751,9 +751,9 @@ Gia_ObjIsPi.argprom.exit.thread:                  ; preds = %Gia_ObjIsPi.argprom
   %192 = or i64 %.val132, 4611686018427387904
   br label %.sink.split
 
-.sink.split:                                      ; preds = %112, %124, %119, %102, %177, %191, %135, %Gia_ObjIsPi.argprom.exit.thread
-  %.sink = phi i64 [ %175, %Gia_ObjIsPi.argprom.exit.thread ], [ %148, %135 ], [ %192, %191 ], [ %188, %177 ], [ %107, %102 ], [ %122, %119 ], [ %127, %124 ], [ %117, %112 ]
-  %.3.ph = phi i32 [ %.2163181, %Gia_ObjIsPi.argprom.exit.thread ], [ %136, %135 ], [ %.2163181, %191 ], [ %.2163181, %177 ], [ %.2163181, %102 ], [ %.2163181, %119 ], [ %.2163181, %124 ], [ %.2163181, %112 ]
+.sink.split:                                      ; preds = %112, %124, %119, %102, %177, %191, %135, %Gia_ObjIsPi.exit.thread
+  %.sink = phi i64 [ %175, %Gia_ObjIsPi.exit.thread ], [ %148, %135 ], [ %192, %191 ], [ %188, %177 ], [ %107, %102 ], [ %122, %119 ], [ %127, %124 ], [ %117, %112 ]
+  %.3.ph = phi i32 [ %.2163181, %Gia_ObjIsPi.exit.thread ], [ %136, %135 ], [ %.2163181, %191 ], [ %.2163181, %177 ], [ %.2163181, %102 ], [ %.2163181, %119 ], [ %.2163181, %124 ], [ %.2163181, %112 ]
   store i64 %.sink, ptr %70, align 4
   br label %193
 
@@ -1044,7 +1044,7 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge, %64
 
 .critedge2:                                       ; preds = %76, %108, %Abc_UtilStrsav.exit
   %.045.lcssa = phi i32 [ 1, %Abc_UtilStrsav.exit ], [ %.146, %108 ], [ %.04586, %76 ]
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %62, i32 noundef %.045.lcssa)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %62, i32 noundef %.045.lcssa)
   %111 = getelementptr inbounds i8, ptr %.pre, i64 8
   %112 = load ptr, ptr %111, align 8
   %.not.i76 = icmp eq ptr %112, null
@@ -1368,7 +1368,7 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -2586,7 +2586,7 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge12, %234
   %591 = sext i32 %590 to i64
   %592 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val410, i64 %591, i32 1
   %593 = load i32, ptr %592, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %232, i32 noundef %593)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %232, i32 noundef %593)
   %594 = add nsw i32 %.0280587, 1
   %595 = load i32, ptr %259, align 4
   %.not306.not = icmp slt i32 %.0280587, %595
@@ -3356,7 +3356,7 @@ Abc_UtilStrsav.exit:                              ; preds = %._crit_edge, %198
   %393 = sext i32 %392 to i64
   %394 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val267, i64 %393, i32 1
   %395 = load i32, ptr %394, align 4
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %196, i32 noundef %395)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %196, i32 noundef %395)
   %396 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %196) #16
   tail call void @Gia_ManStop(ptr noundef nonnull %196) #16
   ret ptr %396

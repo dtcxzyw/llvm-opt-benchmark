@@ -4489,7 +4489,7 @@ if.end20.i.i.i.i.i.i:                             ; preds = %while.end.i.i.i.i.i
   br i1 %cmp.i.not.not.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %if.end9.i.i.i.i.i, !llvm.loop !90
 
 if.end9.i.i.i.i.i:                                ; preds = %if.end20.i.i.i.i.i.i, %while.end.i.i.i.i.i.i, %call.i.i.i.i.i.noexc.i
-  invoke fastcc void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16reserveForInsertEm.argelim(ptr noundef nonnull align 8 dereferenceable(24) %visited.i)
+  invoke fastcc void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16reserveForInsertEm(ptr noundef nonnull align 8 dereferenceable(24) %visited.i)
           to label %.noexc53.i unwind label %lpad29.loopexit.split-lp.i
 
 .noexc53.i:                                       ; preds = %if.end9.i.i.i.i.i
@@ -6852,7 +6852,7 @@ if.end20.i.i.i.i.i:                               ; preds = %while.end.i.i.i.i.i
   br i1 %cmp.i.not.not.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end9.i.i.i.i, !llvm.loop !90
 
 if.end9.i.i.i.i:                                  ; preds = %if.end20.i.i.i.i.i, %while.end.i.i.i.i.i, %call.i.i.i.i.i.noexc
-  invoke fastcc void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16reserveForInsertEm.argelim(ptr noundef nonnull align 8 dereferenceable(24) %visited.i)
+  invoke fastcc void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16reserveForInsertEm(ptr noundef nonnull align 8 dereferenceable(24) %visited.i)
           to label %.noexc199 unwind label %lpad312.i.loopexit.split-lp
 
 .noexc199:                                        ; preds = %if.end9.i.i.i.i
@@ -11977,7 +11977,7 @@ cleanup.i:                                        ; preds = %if.end.i.i.i, %land
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %10 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cleanup.i
   %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
@@ -12013,7 +12013,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i ], [ %15, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
@@ -12038,20 +12038,20 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %18, %if.then.i.i.i.i.i.i.i.i ], [ %19, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i2.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %20 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #28
-  br label %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
+  br label %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %cleanup.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cleanup.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %call.i)
   br i1 %not.switch.i, label %land.lhs.true, label %if.else
 
-land.lhs.true:                                    ; preds = %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
+land.lhs.true:                                    ; preds = %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %input.val = load ptr, ptr %input, align 8
   %inputs_.i.i = getelementptr inbounds i8, ptr %input.val, i64 24
   %_M_finish.i.i = getelementptr inbounds i8, ptr %input.val, i64 32
@@ -12111,7 +12111,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %31
   br i1 %cmp.i.not, label %if.end, label %for.body
 
-if.else:                                          ; preds = %for.body.i, %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
+if.else:                                          ; preds = %for.body.i, %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %_M_finish.i11 = getelementptr inbounds i8, ptr %flat, i64 8
   %33 = load ptr, ptr %_M_finish.i11, align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %flat, i64 16
@@ -19263,7 +19263,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox7RowTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16reserveForInsertEm.argelim(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16reserveForInsertEm(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %origSize.addr.i.i = alloca i64, align 8
   %origChunkCount.addr.i.i = alloca i64, align 8
@@ -19499,9 +19499,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_Z
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i.i.i8, i8 0, i64 16, i1 false)
   %inc.i.i.i = add nuw i64 %i.02.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %.pn.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16initializeChunksEPhmm.argprom.exit.i.i, label %for.body.i.i.i, !llvm.loop !238
+  br i1 %exitcond.not.i.i.i, label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16initializeChunksEPhmm.exit.i.i, label %for.body.i.i.i, !llvm.loop !238
 
-_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16initializeChunksEPhmm.argprom.exit.i.i: ; preds = %for.body.i.i.i
+_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16initializeChunksEPhmm.exit.i.i: ; preds = %for.body.i.i.i
   %control_.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 14
   %21 = load i8, ptr %control_.i.i.i.i, align 2
   %cmp.i.i.i.i = icmp eq i8 %21, 0
@@ -19541,7 +19541,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4cor
   %cmp.i11.i = icmp eq i64 %23, 0
   br i1 %cmp.i11.i, label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16initializeChunksEPhmm.argprom.exit.i.i
+if.else.i.i:                                      ; preds = %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16initializeChunksEPhmm.exit.i.i
   %24 = load i64, ptr %origChunkCount.addr.i.i, align 8
   %cmp8.i.i = icmp eq i64 %24, 1
   %or.cond.i.i = and i1 %cmp.i30.i.i, %cmp8.i.i
@@ -19786,7 +19786,7 @@ ehcleanup.i.i:                                    ; preds = %invoke.cont4.i.i.i.
   call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS7_4exec4ExprEENSD_12_GLOBAL__N_116ITypedExprHasherENSG_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %SCOPE_EXIT_STATE3.i.i) #28
   resume { ptr, i32 } %.pn.i13.i
 
-_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.end.i.i, %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16initializeChunksEPhmm.argprom.exit.i.i, %if.then.i92.i.i, %invoke.cont4.i.i.i97.i.i
+_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.end.i.i, %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE16initializeChunksEPhmm.exit.i.i, %if.then.i92.i.i, %invoke.cont4.i.i.i97.i.i
   store i8 1, ptr %success.i.i, align 1
   call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS7_4exec4ExprEENSD_12_GLOBAL__N_116ITypedExprHasherENSG_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %SCOPE_EXIT_STATE3.i.i) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %origSize.addr.i.i)
@@ -21387,8 +21387,8 @@ attributes #34 = { nounwind willreturn memory(read) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN8facebook5velox4exec12_GLOBAL__N_127collectFlatteningCandidatesB5cxx11ERKSt6vectorISt10shared_ptrIKNS0_4core10ITypedExprEESaIS8_EE.argprom: %agg.result"}
-!8 = distinct !{!8, !"_ZN8facebook5velox4exec12_GLOBAL__N_127collectFlatteningCandidatesB5cxx11ERKSt6vectorISt10shared_ptrIKNS0_4core10ITypedExprEESaIS8_EE.argprom"}
+!7 = distinct !{!7, !8, !"_ZN8facebook5velox4exec12_GLOBAL__N_127collectFlatteningCandidatesB5cxx11ERKSt6vectorISt10shared_ptrIKNS0_4core10ITypedExprEESaIS8_EE: %agg.result"}
+!8 = distinct !{!8, !"_ZN8facebook5velox4exec12_GLOBAL__N_127collectFlatteningCandidatesB5cxx11ERKSt6vectorISt10shared_ptrIKNS0_4core10ITypedExprEESaIS8_EE"}
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox4exec19VectorFunctionEntryESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SC_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNSB_12_GLOBAL__N_127collectFlatteningCandidatesERKSt6vectorISt10shared_ptrIKNSA_4core10ITypedExprEESaIS11_EEE3$_0EEDaOT_: %agg.result"}
 !11 = distinct !{!11, !"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox4exec19VectorFunctionEntryESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SC_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNSB_12_GLOBAL__N_127collectFlatteningCandidatesERKSt6vectorISt10shared_ptrIKNSA_4core10ITypedExprEESaIS11_EEE3$_0EEDaOT_"}
@@ -21397,8 +21397,8 @@ attributes #34 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox4exec19VectorFunctionEntryESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SC_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE5rlockEv"}
 !15 = !{!10, !7}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZZN8facebook5velox4exec12_GLOBAL__N_127collectFlatteningCandidatesB5cxx11ERKSt6vectorISt10shared_ptrIKNS0_4core10ITypedExprEESaIS8_EEENK3$_0clIKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_19VectorFunctionEntryESt4hashISL_ESt8equal_toISL_ESaISt4pairIKSL_SM_EEEEEDaRT_.argprom.argprom: %agg.result"}
-!18 = distinct !{!18, !"_ZZN8facebook5velox4exec12_GLOBAL__N_127collectFlatteningCandidatesB5cxx11ERKSt6vectorISt10shared_ptrIKNS0_4core10ITypedExprEESaIS8_EEENK3$_0clIKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_19VectorFunctionEntryESt4hashISL_ESt8equal_toISL_ESaISt4pairIKSL_SM_EEEEEDaRT_.argprom.argprom"}
+!17 = distinct !{!17, !18, !"_ZZN8facebook5velox4exec12_GLOBAL__N_127collectFlatteningCandidatesB5cxx11ERKSt6vectorISt10shared_ptrIKNS0_4core10ITypedExprEESaIS8_EEENK3$_0clIKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_19VectorFunctionEntryESt4hashISL_ESt8equal_toISL_ESaISt4pairIKSL_SM_EEEEEDaRT_: %agg.result"}
+!18 = distinct !{!18, !"_ZZN8facebook5velox4exec12_GLOBAL__N_127collectFlatteningCandidatesB5cxx11ERKSt6vectorISt10shared_ptrIKNS0_4core10ITypedExprEESaIS8_EEENK3$_0clIKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_19VectorFunctionEntryESt4hashISL_ESt8equal_toISL_ESaISt4pairIKSL_SM_EEEEEDaRT_"}
 !19 = !{!17, !10, !7}
 !20 = distinct !{!20, !5}
 !21 = !{!22}
@@ -21463,10 +21463,10 @@ attributes #34 = { nounwind willreturn memory(read) }
 !80 = distinct !{!80, !"_ZSt11make_sharedIN8facebook5velox4exec14FieldReferenceEJRKSt10shared_ptrIKNS1_4TypeEESt6vectorIS4_INS2_4ExprEESaISC_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES4_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESO_E4typeEEDpOT0_"}
 !81 = distinct !{!81, !5}
 !82 = !{!83, !85, !87, !76, !28}
-!83 = distinct !{!83, !84, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS9_JRKSt21piecewise_construct_tSt5tupleIJRKS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESU_ImmERKT_DpOT0_.argprom: %agg.result"}
-!84 = distinct !{!84, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS9_JRKSt21piecewise_construct_tSt5tupleIJRKS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESU_ImmERKT_DpOT0_.argprom"}
-!85 = distinct !{!85, !86, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS9_JRKSt21piecewise_construct_tSt5tupleIJRKS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_.argprom: %agg.result"}
-!86 = distinct !{!86, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS9_JRKSt21piecewise_construct_tSt5tupleIJRKS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_.argprom"}
+!83 = distinct !{!83, !84, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS9_JRKSt21piecewise_construct_tSt5tupleIJRKS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESU_ImmERKT_DpOT0_: %agg.result"}
+!84 = distinct !{!84, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS9_JRKSt21piecewise_construct_tSt5tupleIJRKS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESU_ImmERKT_DpOT0_"}
+!85 = distinct !{!85, !86, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS9_JRKSt21piecewise_construct_tSt5tupleIJRKS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_: %agg.result"}
+!86 = distinct !{!86, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS9_JRKSt21piecewise_construct_tSt5tupleIJRKS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_"}
 !87 = distinct !{!87, !88, !"_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE11try_emplaceIJEEESt4pairINS1_23VectorContainerIteratorIPSM_IKS9_SD_EEEbERSO_DpOT_: %agg.result"}
 !88 = distinct !{!88, !"_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE11try_emplaceIJEEESt4pairINS1_23VectorContainerIteratorIPSM_IKS9_SD_EEEbERSO_DpOT_"}
 !89 = distinct !{!89, !5}
@@ -21505,10 +21505,10 @@ attributes #34 = { nounwind willreturn memory(read) }
 !122 = distinct !{!122, !123, !"_ZSt11make_sharedIN8facebook5velox4exec12ConstantExprEJRSt10shared_ptrINS1_10BaseVectorEEEES4_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: %agg.result"}
 !123 = distinct !{!123, !"_ZSt11make_sharedIN8facebook5velox4exec12ConstantExprEJRSt10shared_ptrINS1_10BaseVectorEEEES4_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
 !124 = !{!125, !127, !129}
-!125 = distinct !{!125, !126, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS9_JRKSt21piecewise_construct_tSt5tupleIJOS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbEST_ImmERKT_DpOT0_.argprom: %agg.result"}
-!126 = distinct !{!126, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS9_JRKSt21piecewise_construct_tSt5tupleIJOS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbEST_ImmERKT_DpOT0_.argprom"}
-!127 = distinct !{!127, !128, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS9_JRKSt21piecewise_construct_tSt5tupleIJOS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_.argprom: %agg.result"}
-!128 = distinct !{!128, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS9_JRKSt21piecewise_construct_tSt5tupleIJOS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_.argprom"}
+!125 = distinct !{!125, !126, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS9_JRKSt21piecewise_construct_tSt5tupleIJOS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbEST_ImmERKT_DpOT0_: %agg.result"}
+!126 = distinct !{!126, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS9_JRKSt21piecewise_construct_tSt5tupleIJOS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbEST_ImmERKT_DpOT0_"}
+!127 = distinct !{!127, !128, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS9_JRKSt21piecewise_construct_tSt5tupleIJOS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_: %agg.result"}
+!128 = distinct !{!128, !"_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE15tryEmplaceValueIS9_JRKSt21piecewise_construct_tSt5tupleIJOS9_EESP_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbERKT_DpOT0_"}
 !129 = distinct !{!129, !130, !"_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE11try_emplaceIJEEESt4pairINS1_23VectorContainerIteratorIPSM_IKS9_SD_EEEbEOS9_DpOT_: %agg.result"}
 !130 = distinct !{!130, !"_ZN5folly3f146detail11F14BasicMapINS1_21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS5_4exec4ExprEENSB_12_GLOBAL__N_116ITypedExprHasherENSE_18ITypedExprComparerEvSt17integral_constantIbLb1EEEEE11try_emplaceIJEEESt4pairINS1_23VectorContainerIteratorIPSM_IKS9_SD_EEEbEOS9_DpOT_"}
 !131 = distinct !{!131, !5}

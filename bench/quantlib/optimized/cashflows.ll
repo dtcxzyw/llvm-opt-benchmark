@@ -2880,7 +2880,7 @@ entry:
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #31
   %2 = load ptr, ptr %leg, align 8, !tbaa !3, !noalias !96
   %cmp.i.i.i = icmp eq ptr %2, %1
-  br i1 %cmp.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_113aggregateRateISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS8_SaIS8_EEEEEEEdRKSD_T_SI_.argprom.exit, label %if.end.i
+  br i1 %cmp.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_113aggregateRateISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS8_SaIS8_EEEEEEEdRKSD_T_SI_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %paymentDate.i) #31
@@ -3644,7 +3644,7 @@ terminate.lpad.i.i.i143.i:                        ; preds = %if.then.i.i.i.i.i14
 _ZN8QuantLib10DayCounterD2Ev.exit150.i:           ; preds = %if.then.i.i.i.i.i147.i, %.noexc.i.i.i144.i, %if.then.i.i.i137.i, %do.end163.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %dc.i) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %paymentDate.i) #31
-  br label %_ZN8QuantLib12_GLOBAL__N_113aggregateRateISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS8_SaIS8_EEEEEEEdRKSD_T_SI_.argprom.exit
+  br label %_ZN8QuantLib12_GLOBAL__N_113aggregateRateISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS8_SaIS8_EEEEEEEdRKSD_T_SI_.exit
 
 ehcleanup164.i:                                   ; preds = %ehcleanup160.i, %ehcleanup116.i, %lpad.i
   %.pn10.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn10.pn.pn.pn.pn.pn.i, %ehcleanup116.i ], [ %.pn.pn.pn.pn.pn.i, %ehcleanup160.i ], [ %23, %lpad.i ]
@@ -3656,7 +3656,7 @@ ehcleanup164.i:                                   ; preds = %ehcleanup160.i, %eh
 unreachable.i:                                    ; preds = %invoke.cont143.i, %invoke.cont71.i
   unreachable
 
-_ZN8QuantLib12_GLOBAL__N_113aggregateRateISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS8_SaIS8_EEEEEEEdRKSD_T_SI_.argprom.exit: ; preds = %entry, %_ZN8QuantLib10DayCounterD2Ev.exit150.i
+_ZN8QuantLib12_GLOBAL__N_113aggregateRateISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS8_SaIS8_EEEEEEEdRKSD_T_SI_.exit: ; preds = %entry, %_ZN8QuantLib10DayCounterD2Ev.exit150.i
   %retval.0.i = phi double [ %result.0.lcssa.ph.i, %_ZN8QuantLib10DayCounterD2Ev.exit150.i ], [ 0.000000e+00, %entry ]
   ret double %retval.0.i
 }
@@ -3685,7 +3685,7 @@ entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %leg, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
   %cmp.i.i = icmp eq ptr %call, %0
-  br i1 %cmp.i.i, label %_ZN8QuantLib12_GLOBAL__N_113aggregateRateIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS7_SaIS7_EEEEEEdRKSC_T_SG_.argprom.exit, label %if.end.i
+  br i1 %cmp.i.i, label %_ZN8QuantLib12_GLOBAL__N_113aggregateRateIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS7_SaIS7_EEEEEEdRKSC_T_SG_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %paymentDate.i) #31
@@ -4448,7 +4448,7 @@ terminate.lpad.i.i.i139.i:                        ; preds = %if.then.i.i.i.i.i14
 _ZN8QuantLib10DayCounterD2Ev.exit146.i:           ; preds = %if.then.i.i.i.i.i143.i, %.noexc.i.i.i140.i, %if.then.i.i.i133.i, %do.end165.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %dc.i) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %paymentDate.i) #31
-  br label %_ZN8QuantLib12_GLOBAL__N_113aggregateRateIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS7_SaIS7_EEEEEEdRKSC_T_SG_.argprom.exit
+  br label %_ZN8QuantLib12_GLOBAL__N_113aggregateRateIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS7_SaIS7_EEEEEEdRKSC_T_SG_.exit
 
 ehcleanup166.i:                                   ; preds = %ehcleanup162.i, %ehcleanup118.i, %lpad.i
   %.pn10.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn10.pn.pn.pn.pn.pn.i, %ehcleanup118.i ], [ %.pn.pn.pn.pn.pn.i, %ehcleanup162.i ], [ %21, %lpad.i ]
@@ -4460,7 +4460,7 @@ ehcleanup166.i:                                   ; preds = %ehcleanup162.i, %eh
 unreachable.i:                                    ; preds = %invoke.cont145.i, %invoke.cont73.i
   unreachable
 
-_ZN8QuantLib12_GLOBAL__N_113aggregateRateIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS7_SaIS7_EEEEEEdRKSC_T_SG_.argprom.exit: ; preds = %entry, %_ZN8QuantLib10DayCounterD2Ev.exit146.i
+_ZN8QuantLib12_GLOBAL__N_113aggregateRateIN9__gnu_cxx17__normal_iteratorIPKN5boost10shared_ptrINS_8CashFlowEEESt6vectorIS7_SaIS7_EEEEEEdRKSC_T_SG_.exit: ; preds = %entry, %_ZN8QuantLib10DayCounterD2Ev.exit146.i
   %retval.0.i = phi double [ %result.0.lcssa.ph.i, %_ZN8QuantLib10DayCounterD2Ev.exit146.i ], [ 0.000000e+00, %entry ]
   ret double %retval.0.i
 }

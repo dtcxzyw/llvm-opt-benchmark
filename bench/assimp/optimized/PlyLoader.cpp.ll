@@ -2068,7 +2068,7 @@ if.then226:                                       ; preds = %invoke.cont
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %conv.i
-  br i1 %cmp.not.i, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then226
   %exception.i = call ptr @__cxa_allocate_exception(i64 16) #17
@@ -2089,7 +2089,7 @@ lpad.i:                                           ; preds = %if.then.i
   call void @__cxa_free_exception(ptr %exception.i) #17
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit: ; preds = %if.then226
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit: ; preds = %if.then226
   %add.ptr.i.i = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %call227.val, i64 %conv.i
   %55 = load ptr, ptr %add.ptr.i.i, align 8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %55, align 8
@@ -2105,24 +2105,24 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 0, label %sw.bb4.i
   ]
 
-_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread: ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit.thread: ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   store float 0.000000e+00, ptr %fSpec, align 4
   br label %if.end237
 
-sw.bb.i:                                          ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb.i:                                          ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %56 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb1.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb1.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %57 = bitcast i64 %agg.tmp.sroa.0.0.copyload to double
   %conv.i38 = fptrunc double %57 to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb2.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb2.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %conv3.i = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb4.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb4.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %conv5.i = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
@@ -2158,7 +2158,7 @@ if.then240:                                       ; preds = %if.end237
   %sub.ptr.sub.i.i44 = sub i64 %sub.ptr.lhs.cast.i.i42, %sub.ptr.rhs.cast.i.i43
   %sub.ptr.div.i.i45 = sdiv exact i64 %sub.ptr.sub.i.i44, 24
   %cmp.not.i46 = icmp ugt i64 %sub.ptr.div.i.i45, %conv.i
-  br i1 %cmp.not.i46, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52, label %if.then.i47
+  br i1 %cmp.not.i46, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52, label %if.then.i47
 
 if.then.i47:                                      ; preds = %if.then240
   %exception.i48 = call ptr @__cxa_allocate_exception(i64 16) #17
@@ -2175,7 +2175,7 @@ lpad.i49:                                         ; preds = %if.then.i47
   call void @__cxa_free_exception(ptr %exception.i48) #17
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52: ; preds = %if.then240
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52: ; preds = %if.then240
   %add.ptr.i.i51 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %call242.val, i64 %conv.i
   %61 = load ptr, ptr %add.ptr.i.i51, align 8
   %agg.tmp241.sroa.0.0.copyload = load i64, ptr %61, align 8
@@ -2191,25 +2191,25 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 0, label %sw.bb4.i54
   ]
 
-sw.bb.i61:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52
+sw.bb.i61:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52
   %62 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i53 to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit62
 
-sw.bb1.i59:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52
+sw.bb1.i59:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52
   %63 = bitcast i64 %agg.tmp241.sroa.0.0.copyload to double
   %conv.i60 = fptrunc double %63 to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit62
 
-sw.bb2.i57:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52
+sw.bb2.i57:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52
   %conv3.i58 = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i53 to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit62
 
-sw.bb4.i54:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52
+sw.bb4.i54:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52
   %conv5.i55 = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i53 to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit62
 
-_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit62: ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52, %sw.bb.i61, %sw.bb1.i59, %sw.bb2.i57, %sw.bb4.i54
-  %retval.0.i56 = phi float [ %conv5.i55, %sw.bb4.i54 ], [ %conv3.i58, %sw.bb2.i57 ], [ %conv.i60, %sw.bb1.i59 ], [ %62, %sw.bb.i61 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit52 ]
+_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit62: ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52, %sw.bb.i61, %sw.bb1.i59, %sw.bb2.i57, %sw.bb4.i54
+  %retval.0.i56 = phi float [ %conv5.i55, %sw.bb4.i54 ], [ %conv3.i58, %sw.bb2.i57 ], [ %conv.i60, %sw.bb1.i59 ], [ %62, %sw.bb.i61 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit52 ]
   store float %retval.0.i56, ptr %fOpacity, align 4
   %call.i63 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call204, ptr noundef nonnull %fOpacity, i32 noundef 4, ptr noundef nonnull @.str.21, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   br label %if.end250
@@ -2832,7 +2832,7 @@ if.then138:                                       ; preds = %if.then135
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %conv.i
-  br i1 %cmp.not.i, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then138
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -2854,7 +2854,7 @@ lpad.i:                                           ; preds = %if.then.i
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit: ; preds = %if.then138
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit: ; preds = %if.then138
   %add.ptr.i.i = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val, i64 %conv.i
   %19 = load ptr, ptr %add.ptr.i.i, align 8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %19, align 8
@@ -2870,25 +2870,25 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 0, label %sw.bb4.i
   ]
 
-sw.bb.i:                                          ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb.i:                                          ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %20 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i to float
   br label %if.end146
 
-sw.bb1.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb1.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %21 = bitcast i64 %agg.tmp.sroa.0.0.copyload to double
   %conv.i76 = fptrunc double %21 to float
   br label %if.end146
 
-sw.bb2.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb2.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %conv3.i = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i to float
   br label %if.end146
 
-sw.bb4.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb4.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %conv5.i = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i to float
   br label %if.end146
 
-if.end146:                                        ; preds = %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, %if.then135
-  %vOut.sroa.0.0 = phi float [ 0.000000e+00, %if.then135 ], [ %conv5.i, %sw.bb4.i ], [ %conv3.i, %sw.bb2.i ], [ %conv.i76, %sw.bb1.i ], [ %20, %sw.bb.i ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit ]
+if.end146:                                        ; preds = %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %if.then135
+  %vOut.sroa.0.0 = phi float [ 0.000000e+00, %if.then135 ], [ %conv5.i, %sw.bb4.i ], [ %conv3.i, %sw.bb2.i ], [ %conv.i76, %sw.bb1.i ], [ %20, %sw.bb.i ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit ]
   %cmp148.not = icmp eq i32 %aiPositions.sroa.4.1, -1
   br i1 %cmp148.not, label %if.end159, label %if.then149
 
@@ -2902,7 +2902,7 @@ if.then149:                                       ; preds = %if.end146
   %sub.ptr.sub.i.i80 = sub i64 %sub.ptr.lhs.cast.i.i78, %sub.ptr.rhs.cast.i.i79
   %sub.ptr.div.i.i81 = sdiv exact i64 %sub.ptr.sub.i.i80, 24
   %cmp.not.i82 = icmp ugt i64 %sub.ptr.div.i.i81, %conv.i77
-  br i1 %cmp.not.i82, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88, label %if.then.i83
+  br i1 %cmp.not.i82, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88, label %if.then.i83
 
 if.then.i83:                                      ; preds = %if.then149
   %exception.i84 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -2918,7 +2918,7 @@ lpad.i85:                                         ; preds = %if.then.i83
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88: ; preds = %if.then149
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88: ; preds = %if.then149
   %add.ptr.i.i87 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val54, i64 %conv.i77
   %24 = load ptr, ptr %add.ptr.i.i87, align 8
   %agg.tmp150.sroa.0.0.copyload = load i64, ptr %24, align 8
@@ -2934,25 +2934,25 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 0, label %sw.bb4.i90
   ]
 
-sw.bb.i97:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88
+sw.bb.i97:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88
   %25 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i89 to float
   br label %if.end159
 
-sw.bb1.i95:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88
+sw.bb1.i95:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88
   %26 = bitcast i64 %agg.tmp150.sroa.0.0.copyload to double
   %conv.i96 = fptrunc double %26 to float
   br label %if.end159
 
-sw.bb2.i93:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88
+sw.bb2.i93:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88
   %conv3.i94 = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i89 to float
   br label %if.end159
 
-sw.bb4.i90:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88
+sw.bb4.i90:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88
   %conv5.i91 = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i89 to float
   br label %if.end159
 
-if.end159:                                        ; preds = %sw.bb4.i90, %sw.bb2.i93, %sw.bb1.i95, %sw.bb.i97, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88, %if.end146
-  %vOut.sroa.3.0 = phi float [ 0.000000e+00, %if.end146 ], [ %conv5.i91, %sw.bb4.i90 ], [ %conv3.i94, %sw.bb2.i93 ], [ %conv.i96, %sw.bb1.i95 ], [ %25, %sw.bb.i97 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit88 ]
+if.end159:                                        ; preds = %sw.bb4.i90, %sw.bb2.i93, %sw.bb1.i95, %sw.bb.i97, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88, %if.end146
+  %vOut.sroa.3.0 = phi float [ 0.000000e+00, %if.end146 ], [ %conv5.i91, %sw.bb4.i90 ], [ %conv3.i94, %sw.bb2.i93 ], [ %conv.i96, %sw.bb1.i95 ], [ %25, %sw.bb.i97 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit88 ]
   %cmp161.not = icmp eq i32 %aiPositions.sroa.7.1, -1
   br i1 %cmp161.not, label %if.end172, label %if.then162
 
@@ -2966,7 +2966,7 @@ if.then162:                                       ; preds = %if.end159
   %sub.ptr.sub.i.i102 = sub i64 %sub.ptr.lhs.cast.i.i100, %sub.ptr.rhs.cast.i.i101
   %sub.ptr.div.i.i103 = sdiv exact i64 %sub.ptr.sub.i.i102, 24
   %cmp.not.i104 = icmp ugt i64 %sub.ptr.div.i.i103, %conv.i99
-  br i1 %cmp.not.i104, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110, label %if.then.i105
+  br i1 %cmp.not.i104, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110, label %if.then.i105
 
 if.then.i105:                                     ; preds = %if.then162
   %exception.i106 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -2982,7 +2982,7 @@ lpad.i107:                                        ; preds = %if.then.i105
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110: ; preds = %if.then162
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110: ; preds = %if.then162
   %add.ptr.i.i109 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val56, i64 %conv.i99
   %29 = load ptr, ptr %add.ptr.i.i109, align 8
   %agg.tmp163.sroa.0.0.copyload = load i64, ptr %29, align 8
@@ -2998,25 +2998,25 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 0, label %sw.bb4.i112
   ]
 
-sw.bb.i119:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110
+sw.bb.i119:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110
   %30 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i111 to float
   br label %if.end172
 
-sw.bb1.i117:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110
+sw.bb1.i117:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110
   %31 = bitcast i64 %agg.tmp163.sroa.0.0.copyload to double
   %conv.i118 = fptrunc double %31 to float
   br label %if.end172
 
-sw.bb2.i115:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110
+sw.bb2.i115:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110
   %conv3.i116 = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i111 to float
   br label %if.end172
 
-sw.bb4.i112:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110
+sw.bb4.i112:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110
   %conv5.i113 = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i111 to float
   br label %if.end172
 
-if.end172:                                        ; preds = %sw.bb4.i112, %sw.bb2.i115, %sw.bb1.i117, %sw.bb.i119, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110, %if.end159
-  %vOut.sroa.5.0 = phi float [ 0.000000e+00, %if.end159 ], [ %conv5.i113, %sw.bb4.i112 ], [ %conv3.i116, %sw.bb2.i115 ], [ %conv.i118, %sw.bb1.i117 ], [ %30, %sw.bb.i119 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit110 ]
+if.end172:                                        ; preds = %sw.bb4.i112, %sw.bb2.i115, %sw.bb1.i117, %sw.bb.i119, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110, %if.end159
+  %vOut.sroa.5.0 = phi float [ 0.000000e+00, %if.end159 ], [ %conv5.i113, %sw.bb4.i112 ], [ %conv3.i116, %sw.bb2.i115 ], [ %conv.i118, %sw.bb1.i117 ], [ %30, %sw.bb.i119 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit110 ]
   %cmp174.not = icmp ne i32 %aiNormal.sroa.0.1, -1
   br i1 %cmp174.not, label %if.then175, label %if.end186
 
@@ -3030,7 +3030,7 @@ if.then175:                                       ; preds = %if.end172
   %sub.ptr.sub.i.i126 = sub i64 %sub.ptr.lhs.cast.i.i124, %sub.ptr.rhs.cast.i.i125
   %sub.ptr.div.i.i127 = sdiv exact i64 %sub.ptr.sub.i.i126, 24
   %cmp.not.i128 = icmp ugt i64 %sub.ptr.div.i.i127, %conv.i123
-  br i1 %cmp.not.i128, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134, label %if.then.i129
+  br i1 %cmp.not.i128, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134, label %if.then.i129
 
 if.then.i129:                                     ; preds = %if.then175
   %exception.i130 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -3046,7 +3046,7 @@ lpad.i131:                                        ; preds = %if.then.i129
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134: ; preds = %if.then175
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134: ; preds = %if.then175
   %add.ptr.i.i133 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val58, i64 %conv.i123
   %34 = load ptr, ptr %add.ptr.i.i133, align 8
   %agg.tmp176.sroa.0.0.copyload = load i64, ptr %34, align 8
@@ -3062,25 +3062,25 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 0, label %sw.bb4.i136
   ]
 
-sw.bb.i143:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134
+sw.bb.i143:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134
   %35 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i135 to float
   br label %if.end186
 
-sw.bb1.i141:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134
+sw.bb1.i141:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134
   %36 = bitcast i64 %agg.tmp176.sroa.0.0.copyload to double
   %conv.i142 = fptrunc double %36 to float
   br label %if.end186
 
-sw.bb2.i139:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134
+sw.bb2.i139:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134
   %conv3.i140 = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i135 to float
   br label %if.end186
 
-sw.bb4.i136:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134
+sw.bb4.i136:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134
   %conv5.i137 = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i135 to float
   br label %if.end186
 
-if.end186:                                        ; preds = %sw.bb4.i136, %sw.bb2.i139, %sw.bb1.i141, %sw.bb.i143, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134, %if.end172
-  %nOut.sroa.0.0 = phi float [ 0.000000e+00, %if.end172 ], [ %conv5.i137, %sw.bb4.i136 ], [ %conv3.i140, %sw.bb2.i139 ], [ %conv.i142, %sw.bb1.i141 ], [ %35, %sw.bb.i143 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit134 ]
+if.end186:                                        ; preds = %sw.bb4.i136, %sw.bb2.i139, %sw.bb1.i141, %sw.bb.i143, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134, %if.end172
+  %nOut.sroa.0.0 = phi float [ 0.000000e+00, %if.end172 ], [ %conv5.i137, %sw.bb4.i136 ], [ %conv3.i140, %sw.bb2.i139 ], [ %conv.i142, %sw.bb1.i141 ], [ %35, %sw.bb.i143 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit134 ]
   %cmp188.not = icmp eq i32 %aiNormal.sroa.4.1, -1
   br i1 %cmp188.not, label %if.end200, label %if.then189
 
@@ -3094,7 +3094,7 @@ if.then189:                                       ; preds = %if.end186
   %sub.ptr.sub.i.i148 = sub i64 %sub.ptr.lhs.cast.i.i146, %sub.ptr.rhs.cast.i.i147
   %sub.ptr.div.i.i149 = sdiv exact i64 %sub.ptr.sub.i.i148, 24
   %cmp.not.i150 = icmp ugt i64 %sub.ptr.div.i.i149, %conv.i145
-  br i1 %cmp.not.i150, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156, label %if.then.i151
+  br i1 %cmp.not.i150, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156, label %if.then.i151
 
 if.then.i151:                                     ; preds = %if.then189
   %exception.i152 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -3110,7 +3110,7 @@ lpad.i153:                                        ; preds = %if.then.i151
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156: ; preds = %if.then189
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156: ; preds = %if.then189
   %add.ptr.i.i155 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val60, i64 %conv.i145
   %39 = load ptr, ptr %add.ptr.i.i155, align 8
   %agg.tmp190.sroa.0.0.copyload = load i64, ptr %39, align 8
@@ -3126,26 +3126,26 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 0, label %sw.bb4.i158
   ]
 
-sw.bb.i165:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156
+sw.bb.i165:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156
   %40 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i157 to float
   br label %if.end200
 
-sw.bb1.i163:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156
+sw.bb1.i163:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156
   %41 = bitcast i64 %agg.tmp190.sroa.0.0.copyload to double
   %conv.i164 = fptrunc double %41 to float
   br label %if.end200
 
-sw.bb2.i161:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156
+sw.bb2.i161:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156
   %conv3.i162 = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i157 to float
   br label %if.end200
 
-sw.bb4.i158:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156
+sw.bb4.i158:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156
   %conv5.i159 = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i157 to float
   br label %if.end200
 
-if.end200:                                        ; preds = %sw.bb4.i158, %sw.bb2.i161, %sw.bb1.i163, %sw.bb.i165, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156, %if.end186
-  %nOut.sroa.3.0 = phi float [ 0.000000e+00, %if.end186 ], [ %conv5.i159, %sw.bb4.i158 ], [ %conv3.i162, %sw.bb2.i161 ], [ %conv.i164, %sw.bb1.i163 ], [ %40, %sw.bb.i165 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156 ]
-  %haveNormal.1 = phi i1 [ %cmp174.not, %if.end186 ], [ true, %sw.bb4.i158 ], [ true, %sw.bb2.i161 ], [ true, %sw.bb1.i163 ], [ true, %sw.bb.i165 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit156 ]
+if.end200:                                        ; preds = %sw.bb4.i158, %sw.bb2.i161, %sw.bb1.i163, %sw.bb.i165, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156, %if.end186
+  %nOut.sroa.3.0 = phi float [ 0.000000e+00, %if.end186 ], [ %conv5.i159, %sw.bb4.i158 ], [ %conv3.i162, %sw.bb2.i161 ], [ %conv.i164, %sw.bb1.i163 ], [ %40, %sw.bb.i165 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156 ]
+  %haveNormal.1 = phi i1 [ %cmp174.not, %if.end186 ], [ true, %sw.bb4.i158 ], [ true, %sw.bb2.i161 ], [ true, %sw.bb1.i163 ], [ true, %sw.bb.i165 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit156 ]
   %cmp202.not = icmp eq i32 %aiNormal.sroa.7.1, -1
   br i1 %cmp202.not, label %if.end214, label %if.then203
 
@@ -3159,7 +3159,7 @@ if.then203:                                       ; preds = %if.end200
   %sub.ptr.sub.i.i170 = sub i64 %sub.ptr.lhs.cast.i.i168, %sub.ptr.rhs.cast.i.i169
   %sub.ptr.div.i.i171 = sdiv exact i64 %sub.ptr.sub.i.i170, 24
   %cmp.not.i172 = icmp ugt i64 %sub.ptr.div.i.i171, %conv.i167
-  br i1 %cmp.not.i172, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178, label %if.then.i173
+  br i1 %cmp.not.i172, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178, label %if.then.i173
 
 if.then.i173:                                     ; preds = %if.then203
   %exception.i174 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -3175,7 +3175,7 @@ lpad.i175:                                        ; preds = %if.then.i173
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178: ; preds = %if.then203
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178: ; preds = %if.then203
   %add.ptr.i.i177 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val62, i64 %conv.i167
   %44 = load ptr, ptr %add.ptr.i.i177, align 8
   %agg.tmp204.sroa.0.0.copyload = load i64, ptr %44, align 8
@@ -3191,26 +3191,26 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 0, label %sw.bb4.i180
   ]
 
-sw.bb.i187:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178
+sw.bb.i187:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178
   %45 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i179 to float
   br label %if.end214
 
-sw.bb1.i185:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178
+sw.bb1.i185:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178
   %46 = bitcast i64 %agg.tmp204.sroa.0.0.copyload to double
   %conv.i186 = fptrunc double %46 to float
   br label %if.end214
 
-sw.bb2.i183:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178
+sw.bb2.i183:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178
   %conv3.i184 = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i179 to float
   br label %if.end214
 
-sw.bb4.i180:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178
+sw.bb4.i180:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178
   %conv5.i181 = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i179 to float
   br label %if.end214
 
-if.end214:                                        ; preds = %sw.bb4.i180, %sw.bb2.i183, %sw.bb1.i185, %sw.bb.i187, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178, %if.end200
-  %nOut.sroa.5.0 = phi float [ 0.000000e+00, %if.end200 ], [ %conv5.i181, %sw.bb4.i180 ], [ %conv3.i184, %sw.bb2.i183 ], [ %conv.i186, %sw.bb1.i185 ], [ %45, %sw.bb.i187 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178 ]
-  %haveNormal.2 = phi i1 [ %haveNormal.1, %if.end200 ], [ true, %sw.bb4.i180 ], [ true, %sw.bb2.i183 ], [ true, %sw.bb1.i185 ], [ true, %sw.bb.i187 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit178 ]
+if.end214:                                        ; preds = %sw.bb4.i180, %sw.bb2.i183, %sw.bb1.i185, %sw.bb.i187, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178, %if.end200
+  %nOut.sroa.5.0 = phi float [ 0.000000e+00, %if.end200 ], [ %conv5.i181, %sw.bb4.i180 ], [ %conv3.i184, %sw.bb2.i183 ], [ %conv.i186, %sw.bb1.i185 ], [ %45, %sw.bb.i187 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178 ]
+  %haveNormal.2 = phi i1 [ %haveNormal.1, %if.end200 ], [ true, %sw.bb4.i180 ], [ true, %sw.bb2.i183 ], [ true, %sw.bb1.i185 ], [ true, %sw.bb.i187 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit178 ]
   %cmp216.not = icmp ne i32 %aiColors.sroa.0.1, -1
   br i1 %cmp216.not, label %if.then217, label %if.end227
 
@@ -3224,7 +3224,7 @@ if.then217:                                       ; preds = %if.end214
   %sub.ptr.sub.i.i192 = sub i64 %sub.ptr.lhs.cast.i.i190, %sub.ptr.rhs.cast.i.i191
   %sub.ptr.div.i.i193 = sdiv exact i64 %sub.ptr.sub.i.i192, 24
   %cmp.not.i194 = icmp ugt i64 %sub.ptr.div.i.i193, %conv.i189
-  br i1 %cmp.not.i194, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200, label %if.then.i195
+  br i1 %cmp.not.i194, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200, label %if.then.i195
 
 if.then.i195:                                     ; preds = %if.then217
   %exception.i196 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -3240,7 +3240,7 @@ lpad.i197:                                        ; preds = %if.then.i195
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200: ; preds = %if.then217
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200: ; preds = %if.then217
   %add.ptr.i.i199 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val64, i64 %conv.i189
   %49 = load ptr, ptr %add.ptr.i.i199, align 8
   %agg.tmp218.sroa.0.0.copyload = load i64, ptr %49, align 8
@@ -3256,50 +3256,50 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 4, label %sw.bb17.i
   ]
 
-sw.bb.i208:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200
+sw.bb.i208:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200
   %50 = bitcast i32 %val.sroa.0.sroa.0.0.extract.trunc.i to float
   br label %if.end227
 
-sw.bb1.i206:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200
+sw.bb1.i206:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200
   %51 = bitcast i64 %agg.tmp218.sroa.0.0.copyload to double
   %conv.i207 = fptrunc double %51 to float
   br label %if.end227
 
-sw.bb2.i204:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200
+sw.bb2.i204:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200
   %conv3.i205 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i to float
   %div.i = fdiv float %conv3.i205, 2.550000e+02
   br label %if.end227
 
-sw.bb4.i202:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200
+sw.bb4.i202:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200
   %add.i = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i, 127
   %conv5.i203 = sitofp i32 %add.i to float
   %div6.i = fdiv float %conv5.i203, 2.550000e+02
   br label %if.end227
 
-sw.bb7.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200
+sw.bb7.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200
   %conv8.i = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i to float
   %div9.i = fdiv float %conv8.i, 6.553500e+04
   br label %if.end227
 
-sw.bb10.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200
+sw.bb10.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200
   %add11.i = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i, 32767
   %conv12.i = sitofp i32 %add11.i to float
   %div13.i = fdiv float %conv12.i, 6.553500e+04
   br label %if.end227
 
-sw.bb14.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200
+sw.bb14.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200
   %conv15.i = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i to float
   %div16.i = fdiv float %conv15.i, 6.553500e+04
   br label %if.end227
 
-sw.bb17.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200
+sw.bb17.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200
   %conv18.i = sitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i to float
   %div19.i = fdiv float %conv18.i, 2.550000e+02
   %add20.i = fadd float %div19.i, 5.000000e-01
   br label %if.end227
 
-if.end227:                                        ; preds = %sw.bb17.i, %sw.bb14.i, %sw.bb10.i, %sw.bb7.i, %sw.bb4.i202, %sw.bb2.i204, %sw.bb1.i206, %sw.bb.i208, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200, %if.end214
-  %cOut.sroa.0.0 = phi float [ 0.000000e+00, %if.end214 ], [ %add20.i, %sw.bb17.i ], [ %div16.i, %sw.bb14.i ], [ %div13.i, %sw.bb10.i ], [ %div9.i, %sw.bb7.i ], [ %div6.i, %sw.bb4.i202 ], [ %div.i, %sw.bb2.i204 ], [ %conv.i207, %sw.bb1.i206 ], [ %50, %sw.bb.i208 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit200 ]
+if.end227:                                        ; preds = %sw.bb17.i, %sw.bb14.i, %sw.bb10.i, %sw.bb7.i, %sw.bb4.i202, %sw.bb2.i204, %sw.bb1.i206, %sw.bb.i208, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200, %if.end214
+  %cOut.sroa.0.0 = phi float [ 0.000000e+00, %if.end214 ], [ %add20.i, %sw.bb17.i ], [ %div16.i, %sw.bb14.i ], [ %div13.i, %sw.bb10.i ], [ %div9.i, %sw.bb7.i ], [ %div6.i, %sw.bb4.i202 ], [ %div.i, %sw.bb2.i204 ], [ %conv.i207, %sw.bb1.i206 ], [ %50, %sw.bb.i208 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit200 ]
   %cmp229.not = icmp eq i32 %aiColors.sroa.4.1, -1
   br i1 %cmp229.not, label %if.end240, label %if.then230
 
@@ -3313,7 +3313,7 @@ if.then230:                                       ; preds = %if.end227
   %sub.ptr.sub.i.i212 = sub i64 %sub.ptr.lhs.cast.i.i210, %sub.ptr.rhs.cast.i.i211
   %sub.ptr.div.i.i213 = sdiv exact i64 %sub.ptr.sub.i.i212, 24
   %cmp.not.i214 = icmp ugt i64 %sub.ptr.div.i.i213, %conv.i209
-  br i1 %cmp.not.i214, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220, label %if.then.i215
+  br i1 %cmp.not.i214, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220, label %if.then.i215
 
 if.then.i215:                                     ; preds = %if.then230
   %exception.i216 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -3329,7 +3329,7 @@ lpad.i217:                                        ; preds = %if.then.i215
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220: ; preds = %if.then230
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220: ; preds = %if.then230
   %add.ptr.i.i219 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val66, i64 %conv.i209
   %54 = load ptr, ptr %add.ptr.i.i219, align 8
   %agg.tmp231.sroa.0.0.copyload = load i64, ptr %54, align 8
@@ -3345,51 +3345,51 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 4, label %sw.bb17.i222
   ]
 
-sw.bb.i246:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220
+sw.bb.i246:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220
   %55 = bitcast i32 %val.sroa.0.sroa.0.0.extract.trunc.i221 to float
   br label %if.end240
 
-sw.bb1.i244:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220
+sw.bb1.i244:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220
   %56 = bitcast i64 %agg.tmp231.sroa.0.0.copyload to double
   %conv.i245 = fptrunc double %56 to float
   br label %if.end240
 
-sw.bb2.i241:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220
+sw.bb2.i241:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220
   %conv3.i242 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i221 to float
   %div.i243 = fdiv float %conv3.i242, 2.550000e+02
   br label %if.end240
 
-sw.bb4.i237:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220
+sw.bb4.i237:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220
   %add.i238 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i221, 127
   %conv5.i239 = sitofp i32 %add.i238 to float
   %div6.i240 = fdiv float %conv5.i239, 2.550000e+02
   br label %if.end240
 
-sw.bb7.i234:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220
+sw.bb7.i234:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220
   %conv8.i235 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i221 to float
   %div9.i236 = fdiv float %conv8.i235, 6.553500e+04
   br label %if.end240
 
-sw.bb10.i230:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220
+sw.bb10.i230:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220
   %add11.i231 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i221, 32767
   %conv12.i232 = sitofp i32 %add11.i231 to float
   %div13.i233 = fdiv float %conv12.i232, 6.553500e+04
   br label %if.end240
 
-sw.bb14.i227:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220
+sw.bb14.i227:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220
   %conv15.i228 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i221 to float
   %div16.i229 = fdiv float %conv15.i228, 6.553500e+04
   br label %if.end240
 
-sw.bb17.i222:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220
+sw.bb17.i222:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220
   %conv18.i223 = sitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i221 to float
   %div19.i224 = fdiv float %conv18.i223, 2.550000e+02
   %add20.i225 = fadd float %div19.i224, 5.000000e-01
   br label %if.end240
 
-if.end240:                                        ; preds = %sw.bb17.i222, %sw.bb14.i227, %sw.bb10.i230, %sw.bb7.i234, %sw.bb4.i237, %sw.bb2.i241, %sw.bb1.i244, %sw.bb.i246, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220, %if.end227
-  %cOut.sroa.3.0 = phi float [ 0.000000e+00, %if.end227 ], [ %add20.i225, %sw.bb17.i222 ], [ %div16.i229, %sw.bb14.i227 ], [ %div13.i233, %sw.bb10.i230 ], [ %div9.i236, %sw.bb7.i234 ], [ %div6.i240, %sw.bb4.i237 ], [ %div.i243, %sw.bb2.i241 ], [ %conv.i245, %sw.bb1.i244 ], [ %55, %sw.bb.i246 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220 ]
-  %haveColor.1 = phi i1 [ %cmp216.not, %if.end227 ], [ true, %sw.bb17.i222 ], [ true, %sw.bb14.i227 ], [ true, %sw.bb10.i230 ], [ true, %sw.bb7.i234 ], [ true, %sw.bb4.i237 ], [ true, %sw.bb2.i241 ], [ true, %sw.bb1.i244 ], [ true, %sw.bb.i246 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit220 ]
+if.end240:                                        ; preds = %sw.bb17.i222, %sw.bb14.i227, %sw.bb10.i230, %sw.bb7.i234, %sw.bb4.i237, %sw.bb2.i241, %sw.bb1.i244, %sw.bb.i246, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220, %if.end227
+  %cOut.sroa.3.0 = phi float [ 0.000000e+00, %if.end227 ], [ %add20.i225, %sw.bb17.i222 ], [ %div16.i229, %sw.bb14.i227 ], [ %div13.i233, %sw.bb10.i230 ], [ %div9.i236, %sw.bb7.i234 ], [ %div6.i240, %sw.bb4.i237 ], [ %div.i243, %sw.bb2.i241 ], [ %conv.i245, %sw.bb1.i244 ], [ %55, %sw.bb.i246 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220 ]
+  %haveColor.1 = phi i1 [ %cmp216.not, %if.end227 ], [ true, %sw.bb17.i222 ], [ true, %sw.bb14.i227 ], [ true, %sw.bb10.i230 ], [ true, %sw.bb7.i234 ], [ true, %sw.bb4.i237 ], [ true, %sw.bb2.i241 ], [ true, %sw.bb1.i244 ], [ true, %sw.bb.i246 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit220 ]
   %cmp242.not = icmp eq i32 %aiColors.sroa.7.1, -1
   br i1 %cmp242.not, label %if.end253, label %if.then243
 
@@ -3403,7 +3403,7 @@ if.then243:                                       ; preds = %if.end240
   %sub.ptr.sub.i.i251 = sub i64 %sub.ptr.lhs.cast.i.i249, %sub.ptr.rhs.cast.i.i250
   %sub.ptr.div.i.i252 = sdiv exact i64 %sub.ptr.sub.i.i251, 24
   %cmp.not.i253 = icmp ugt i64 %sub.ptr.div.i.i252, %conv.i248
-  br i1 %cmp.not.i253, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259, label %if.then.i254
+  br i1 %cmp.not.i253, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259, label %if.then.i254
 
 if.then.i254:                                     ; preds = %if.then243
   %exception.i255 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -3419,7 +3419,7 @@ lpad.i256:                                        ; preds = %if.then.i254
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259: ; preds = %if.then243
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259: ; preds = %if.then243
   %add.ptr.i.i258 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val68, i64 %conv.i248
   %59 = load ptr, ptr %add.ptr.i.i258, align 8
   %agg.tmp244.sroa.0.0.copyload = load i64, ptr %59, align 8
@@ -3435,51 +3435,51 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 4, label %sw.bb17.i261
   ]
 
-sw.bb.i285:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259
+sw.bb.i285:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259
   %60 = bitcast i32 %val.sroa.0.sroa.0.0.extract.trunc.i260 to float
   br label %if.end253
 
-sw.bb1.i283:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259
+sw.bb1.i283:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259
   %61 = bitcast i64 %agg.tmp244.sroa.0.0.copyload to double
   %conv.i284 = fptrunc double %61 to float
   br label %if.end253
 
-sw.bb2.i280:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259
+sw.bb2.i280:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259
   %conv3.i281 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i260 to float
   %div.i282 = fdiv float %conv3.i281, 2.550000e+02
   br label %if.end253
 
-sw.bb4.i276:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259
+sw.bb4.i276:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259
   %add.i277 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i260, 127
   %conv5.i278 = sitofp i32 %add.i277 to float
   %div6.i279 = fdiv float %conv5.i278, 2.550000e+02
   br label %if.end253
 
-sw.bb7.i273:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259
+sw.bb7.i273:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259
   %conv8.i274 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i260 to float
   %div9.i275 = fdiv float %conv8.i274, 6.553500e+04
   br label %if.end253
 
-sw.bb10.i269:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259
+sw.bb10.i269:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259
   %add11.i270 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i260, 32767
   %conv12.i271 = sitofp i32 %add11.i270 to float
   %div13.i272 = fdiv float %conv12.i271, 6.553500e+04
   br label %if.end253
 
-sw.bb14.i266:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259
+sw.bb14.i266:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259
   %conv15.i267 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i260 to float
   %div16.i268 = fdiv float %conv15.i267, 6.553500e+04
   br label %if.end253
 
-sw.bb17.i261:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259
+sw.bb17.i261:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259
   %conv18.i262 = sitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i260 to float
   %div19.i263 = fdiv float %conv18.i262, 2.550000e+02
   %add20.i264 = fadd float %div19.i263, 5.000000e-01
   br label %if.end253
 
-if.end253:                                        ; preds = %sw.bb17.i261, %sw.bb14.i266, %sw.bb10.i269, %sw.bb7.i273, %sw.bb4.i276, %sw.bb2.i280, %sw.bb1.i283, %sw.bb.i285, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259, %if.end240
-  %cOut.sroa.4.0 = phi float [ 0.000000e+00, %if.end240 ], [ %add20.i264, %sw.bb17.i261 ], [ %div16.i268, %sw.bb14.i266 ], [ %div13.i272, %sw.bb10.i269 ], [ %div9.i275, %sw.bb7.i273 ], [ %div6.i279, %sw.bb4.i276 ], [ %div.i282, %sw.bb2.i280 ], [ %conv.i284, %sw.bb1.i283 ], [ %60, %sw.bb.i285 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259 ]
-  %haveColor.2 = phi i1 [ %haveColor.1, %if.end240 ], [ true, %sw.bb17.i261 ], [ true, %sw.bb14.i266 ], [ true, %sw.bb10.i269 ], [ true, %sw.bb7.i273 ], [ true, %sw.bb4.i276 ], [ true, %sw.bb2.i280 ], [ true, %sw.bb1.i283 ], [ true, %sw.bb.i285 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit259 ]
+if.end253:                                        ; preds = %sw.bb17.i261, %sw.bb14.i266, %sw.bb10.i269, %sw.bb7.i273, %sw.bb4.i276, %sw.bb2.i280, %sw.bb1.i283, %sw.bb.i285, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259, %if.end240
+  %cOut.sroa.4.0 = phi float [ 0.000000e+00, %if.end240 ], [ %add20.i264, %sw.bb17.i261 ], [ %div16.i268, %sw.bb14.i266 ], [ %div13.i272, %sw.bb10.i269 ], [ %div9.i275, %sw.bb7.i273 ], [ %div6.i279, %sw.bb4.i276 ], [ %div.i282, %sw.bb2.i280 ], [ %conv.i284, %sw.bb1.i283 ], [ %60, %sw.bb.i285 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259 ]
+  %haveColor.2 = phi i1 [ %haveColor.1, %if.end240 ], [ true, %sw.bb17.i261 ], [ true, %sw.bb14.i266 ], [ true, %sw.bb10.i269 ], [ true, %sw.bb7.i273 ], [ true, %sw.bb4.i276 ], [ true, %sw.bb2.i280 ], [ true, %sw.bb1.i283 ], [ true, %sw.bb.i285 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit259 ]
   %cmp255 = icmp eq i32 %aiColors.sroa.10.1, -1
   br i1 %cmp255, label %if.end269, label %if.else258
 
@@ -3493,7 +3493,7 @@ if.else258:                                       ; preds = %if.end253
   %sub.ptr.sub.i.i290 = sub i64 %sub.ptr.lhs.cast.i.i288, %sub.ptr.rhs.cast.i.i289
   %sub.ptr.div.i.i291 = sdiv exact i64 %sub.ptr.sub.i.i290, 24
   %cmp.not.i292 = icmp ugt i64 %sub.ptr.div.i.i291, %conv.i287
-  br i1 %cmp.not.i292, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298, label %if.then.i293
+  br i1 %cmp.not.i292, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298, label %if.then.i293
 
 if.then.i293:                                     ; preds = %if.else258
   %exception.i294 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -3509,7 +3509,7 @@ lpad.i295:                                        ; preds = %if.then.i293
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298: ; preds = %if.else258
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298: ; preds = %if.else258
   %add.ptr.i.i297 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val70, i64 %conv.i287
   %64 = load ptr, ptr %add.ptr.i.i297, align 8
   %agg.tmp259.sroa.0.0.copyload = load i64, ptr %64, align 8
@@ -3525,51 +3525,51 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 4, label %sw.bb17.i300
   ]
 
-sw.bb.i324:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298
+sw.bb.i324:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298
   %65 = bitcast i32 %val.sroa.0.sroa.0.0.extract.trunc.i299 to float
   br label %if.end269
 
-sw.bb1.i322:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298
+sw.bb1.i322:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298
   %66 = bitcast i64 %agg.tmp259.sroa.0.0.copyload to double
   %conv.i323 = fptrunc double %66 to float
   br label %if.end269
 
-sw.bb2.i319:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298
+sw.bb2.i319:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298
   %conv3.i320 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i299 to float
   %div.i321 = fdiv float %conv3.i320, 2.550000e+02
   br label %if.end269
 
-sw.bb4.i315:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298
+sw.bb4.i315:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298
   %add.i316 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i299, 127
   %conv5.i317 = sitofp i32 %add.i316 to float
   %div6.i318 = fdiv float %conv5.i317, 2.550000e+02
   br label %if.end269
 
-sw.bb7.i312:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298
+sw.bb7.i312:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298
   %conv8.i313 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i299 to float
   %div9.i314 = fdiv float %conv8.i313, 6.553500e+04
   br label %if.end269
 
-sw.bb10.i308:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298
+sw.bb10.i308:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298
   %add11.i309 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i299, 32767
   %conv12.i310 = sitofp i32 %add11.i309 to float
   %div13.i311 = fdiv float %conv12.i310, 6.553500e+04
   br label %if.end269
 
-sw.bb14.i305:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298
+sw.bb14.i305:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298
   %conv15.i306 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i299 to float
   %div16.i307 = fdiv float %conv15.i306, 6.553500e+04
   br label %if.end269
 
-sw.bb17.i300:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298
+sw.bb17.i300:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298
   %conv18.i301 = sitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i299 to float
   %div19.i302 = fdiv float %conv18.i301, 2.550000e+02
   %add20.i303 = fadd float %div19.i302, 5.000000e-01
   br label %if.end269
 
-if.end269:                                        ; preds = %sw.bb17.i300, %sw.bb14.i305, %sw.bb10.i308, %sw.bb7.i312, %sw.bb4.i315, %sw.bb2.i319, %sw.bb1.i322, %sw.bb.i324, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298, %if.end253
-  %cOut.sroa.5.0 = phi float [ 1.000000e+00, %if.end253 ], [ %add20.i303, %sw.bb17.i300 ], [ %div16.i307, %sw.bb14.i305 ], [ %div13.i311, %sw.bb10.i308 ], [ %div9.i314, %sw.bb7.i312 ], [ %div6.i318, %sw.bb4.i315 ], [ %div.i321, %sw.bb2.i319 ], [ %conv.i323, %sw.bb1.i322 ], [ %65, %sw.bb.i324 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298 ]
-  %haveColor.3 = phi i1 [ %haveColor.2, %if.end253 ], [ true, %sw.bb17.i300 ], [ true, %sw.bb14.i305 ], [ true, %sw.bb10.i308 ], [ true, %sw.bb7.i312 ], [ true, %sw.bb4.i315 ], [ true, %sw.bb2.i319 ], [ true, %sw.bb1.i322 ], [ true, %sw.bb.i324 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit298 ]
+if.end269:                                        ; preds = %sw.bb17.i300, %sw.bb14.i305, %sw.bb10.i308, %sw.bb7.i312, %sw.bb4.i315, %sw.bb2.i319, %sw.bb1.i322, %sw.bb.i324, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298, %if.end253
+  %cOut.sroa.5.0 = phi float [ 1.000000e+00, %if.end253 ], [ %add20.i303, %sw.bb17.i300 ], [ %div16.i307, %sw.bb14.i305 ], [ %div13.i311, %sw.bb10.i308 ], [ %div9.i314, %sw.bb7.i312 ], [ %div6.i318, %sw.bb4.i315 ], [ %div.i321, %sw.bb2.i319 ], [ %conv.i323, %sw.bb1.i322 ], [ %65, %sw.bb.i324 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298 ]
+  %haveColor.3 = phi i1 [ %haveColor.2, %if.end253 ], [ true, %sw.bb17.i300 ], [ true, %sw.bb14.i305 ], [ true, %sw.bb10.i308 ], [ true, %sw.bb7.i312 ], [ true, %sw.bb4.i315 ], [ true, %sw.bb2.i319 ], [ true, %sw.bb1.i322 ], [ true, %sw.bb.i324 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit298 ]
   %cmp272.not = icmp ne i32 %aiTexcoord.sroa.0.1, -1
   br i1 %cmp272.not, label %if.then273, label %if.end284
 
@@ -3583,7 +3583,7 @@ if.then273:                                       ; preds = %if.end269
   %sub.ptr.sub.i.i331 = sub i64 %sub.ptr.lhs.cast.i.i329, %sub.ptr.rhs.cast.i.i330
   %sub.ptr.div.i.i332 = sdiv exact i64 %sub.ptr.sub.i.i331, 24
   %cmp.not.i333 = icmp ugt i64 %sub.ptr.div.i.i332, %conv.i328
-  br i1 %cmp.not.i333, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339, label %if.then.i334
+  br i1 %cmp.not.i333, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339, label %if.then.i334
 
 if.then.i334:                                     ; preds = %if.then273
   %exception.i335 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -3599,7 +3599,7 @@ lpad.i336:                                        ; preds = %if.then.i334
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339: ; preds = %if.then273
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339: ; preds = %if.then273
   %add.ptr.i.i338 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val72, i64 %conv.i328
   %69 = load ptr, ptr %add.ptr.i.i338, align 8
   %agg.tmp274.sroa.0.0.copyload = load i64, ptr %69, align 8
@@ -3615,25 +3615,25 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 0, label %sw.bb4.i341
   ]
 
-sw.bb.i348:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339
+sw.bb.i348:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339
   %70 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i340 to float
   br label %if.end284
 
-sw.bb1.i346:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339
+sw.bb1.i346:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339
   %71 = bitcast i64 %agg.tmp274.sroa.0.0.copyload to double
   %conv.i347 = fptrunc double %71 to float
   br label %if.end284
 
-sw.bb2.i344:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339
+sw.bb2.i344:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339
   %conv3.i345 = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i340 to float
   br label %if.end284
 
-sw.bb4.i341:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339
+sw.bb4.i341:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339
   %conv5.i342 = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i340 to float
   br label %if.end284
 
-if.end284:                                        ; preds = %sw.bb4.i341, %sw.bb2.i344, %sw.bb1.i346, %sw.bb.i348, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339, %if.end269
-  %tOut.sroa.0.0 = phi float [ 0.000000e+00, %if.end269 ], [ %conv5.i342, %sw.bb4.i341 ], [ %conv3.i345, %sw.bb2.i344 ], [ %conv.i347, %sw.bb1.i346 ], [ %70, %sw.bb.i348 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit339 ]
+if.end284:                                        ; preds = %sw.bb4.i341, %sw.bb2.i344, %sw.bb1.i346, %sw.bb.i348, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339, %if.end269
+  %tOut.sroa.0.0 = phi float [ 0.000000e+00, %if.end269 ], [ %conv5.i342, %sw.bb4.i341 ], [ %conv3.i345, %sw.bb2.i344 ], [ %conv.i347, %sw.bb1.i346 ], [ %70, %sw.bb.i348 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit339 ]
   %cmp286.not = icmp eq i32 %aiTexcoord.sroa.4.1, -1
   br i1 %cmp286.not, label %if.end298, label %if.then287
 
@@ -3647,7 +3647,7 @@ if.then287:                                       ; preds = %if.end284
   %sub.ptr.sub.i.i353 = sub i64 %sub.ptr.lhs.cast.i.i351, %sub.ptr.rhs.cast.i.i352
   %sub.ptr.div.i.i354 = sdiv exact i64 %sub.ptr.sub.i.i353, 24
   %cmp.not.i355 = icmp ugt i64 %sub.ptr.div.i.i354, %conv.i350
-  br i1 %cmp.not.i355, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361, label %if.then.i356
+  br i1 %cmp.not.i355, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361, label %if.then.i356
 
 if.then.i356:                                     ; preds = %if.then287
   %exception.i357 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -3663,7 +3663,7 @@ lpad.i358:                                        ; preds = %if.then.i356
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361: ; preds = %if.then287
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361: ; preds = %if.then287
   %add.ptr.i.i360 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val74, i64 %conv.i350
   %74 = load ptr, ptr %add.ptr.i.i360, align 8
   %agg.tmp288.sroa.0.0.copyload = load i64, ptr %74, align 8
@@ -3679,26 +3679,26 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 0, label %sw.bb4.i363
   ]
 
-sw.bb.i370:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361
+sw.bb.i370:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361
   %75 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i362 to float
   br label %if.end298
 
-sw.bb1.i368:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361
+sw.bb1.i368:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361
   %76 = bitcast i64 %agg.tmp288.sroa.0.0.copyload to double
   %conv.i369 = fptrunc double %76 to float
   br label %if.end298
 
-sw.bb2.i366:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361
+sw.bb2.i366:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361
   %conv3.i367 = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i362 to float
   br label %if.end298
 
-sw.bb4.i363:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361
+sw.bb4.i363:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361
   %conv5.i364 = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i362 to float
   br label %if.end298
 
-if.end298:                                        ; preds = %sw.bb4.i363, %sw.bb2.i366, %sw.bb1.i368, %sw.bb.i370, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361, %if.end284
-  %tOut.sroa.3.0 = phi float [ 0.000000e+00, %if.end284 ], [ %conv5.i364, %sw.bb4.i363 ], [ %conv3.i367, %sw.bb2.i366 ], [ %conv.i369, %sw.bb1.i368 ], [ %75, %sw.bb.i370 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361 ]
-  %haveTextureCoords.1 = phi i1 [ %cmp272.not, %if.end284 ], [ true, %sw.bb4.i363 ], [ true, %sw.bb2.i366 ], [ true, %sw.bb1.i368 ], [ true, %sw.bb.i370 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit361 ]
+if.end298:                                        ; preds = %sw.bb4.i363, %sw.bb2.i366, %sw.bb1.i368, %sw.bb.i370, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361, %if.end284
+  %tOut.sroa.3.0 = phi float [ 0.000000e+00, %if.end284 ], [ %conv5.i364, %sw.bb4.i363 ], [ %conv3.i367, %sw.bb2.i366 ], [ %conv.i369, %sw.bb1.i368 ], [ %75, %sw.bb.i370 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361 ]
+  %haveTextureCoords.1 = phi i1 [ %cmp272.not, %if.end284 ], [ true, %sw.bb4.i363 ], [ true, %sw.bb2.i366 ], [ true, %sw.bb1.i368 ], [ true, %sw.bb.i370 ], [ true, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit361 ]
   %mGeneratedMesh = getelementptr inbounds i8, ptr %this, i64 88
   %77 = load ptr, ptr %mGeneratedMesh, align 8
   %cmp299 = icmp eq ptr %77, null
@@ -4155,7 +4155,7 @@ if.then74:                                        ; preds = %if.then72
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %conv.i
-  br i1 %cmp.not.i, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then74
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -4171,7 +4171,7 @@ lpad.i:                                           ; preds = %if.then.i
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit: ; preds = %if.then74
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit: ; preds = %if.then74
   %add.ptr.i.i = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val61, i64 %conv.i
   %_M_finish.i66 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %23 = load ptr, ptr %_M_finish.i66, align 8
@@ -4202,9 +4202,9 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   %sub.ptr.sub.i.i70 = sub i64 %sub.ptr.lhs.cast.i.i68, %sub.ptr.rhs.cast.i.i69
   %sub.ptr.div.i.i71 = sdiv exact i64 %sub.ptr.sub.i.i70, 24
   %cmp.not.i72 = icmp ugt i64 %sub.ptr.div.i.i71, %conv.i
-  br i1 %cmp.not.i72, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit78, label %if.then.i73
+  br i1 %cmp.not.i72, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit78, label %if.then.i73
 
-if.then.i73:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+if.then.i73:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %exception.i74 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i74, ptr noundef nonnull @.str.30)
           to label %invoke.cont.i76 unwind label %lpad.i75
@@ -4218,11 +4218,11 @@ lpad.i75:                                         ; preds = %if.then.i73
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit78: ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit78: ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %cmp94208.not = icmp eq i32 %conv78, 0
   br i1 %cmp94208.not, label %if.end110, label %for.body95.preheader
 
-for.body95.preheader:                             ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit78
+for.body95.preheader:                             ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit78
   %add.ptr.i.i77 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val59, i64 %conv.i
   %31 = load ptr, ptr %add.ptr.i.i77, align 8
   %wide.trip.count = and i64 %sub.ptr.div.i, 4294967295
@@ -4274,7 +4274,7 @@ _ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end110, label %for.body95, !llvm.loop !28
 
-if.end110:                                        ; preds = %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit78, %if.then72
+if.end110:                                        ; preds = %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit78, %if.then72
   %cmp111.not = icmp eq i32 %iTextureCoord.2182, -1
   br i1 %cmp111.not, label %if.end307, label %if.then112
 
@@ -4288,7 +4288,7 @@ if.then112:                                       ; preds = %if.end110
   %sub.ptr.sub.i.i84 = sub i64 %sub.ptr.lhs.cast.i.i82, %sub.ptr.rhs.cast.i.i83
   %sub.ptr.div.i.i85 = sdiv exact i64 %sub.ptr.sub.i.i84, 24
   %cmp.not.i86 = icmp ugt i64 %sub.ptr.div.i.i85, %conv.i81
-  br i1 %cmp.not.i86, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit109, label %if.then.i87
+  br i1 %cmp.not.i86, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit109, label %if.then.i87
 
 if.then.i87:                                      ; preds = %if.then112
   %exception.i88 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -4304,7 +4304,7 @@ lpad.i89:                                         ; preds = %if.then.i87
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit109: ; preds = %if.then112
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit109: ; preds = %if.then112
   %add.ptr.i.i91 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val57, i64 %conv.i81
   %_M_finish.i93 = getelementptr inbounds i8, ptr %add.ptr.i.i91, i64 8
   %39 = load ptr, ptr %_M_finish.i93, align 8
@@ -4318,7 +4318,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   %cmp125 = icmp ult i32 %conv118.off, 3
   br i1 %cmp125, label %for.body130.lr.ph, label %if.end307
 
-for.body130.lr.ph:                                ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit109
+for.body130.lr.ph:                                ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit109
   %idxprom133 = zext i32 %pos to i64
   br label %for.body130
 
@@ -4480,7 +4480,7 @@ if.else198:                                       ; preds = %if.end70
   %sub.ptr.sub.i.i130 = sub i64 %sub.ptr.lhs.cast.i.i128, %sub.ptr.rhs.cast.i.i129
   %sub.ptr.div.i.i131 = sdiv exact i64 %sub.ptr.sub.i.i130, 24
   %cmp.not.i132 = icmp ugt i64 %sub.ptr.div.i.i131, %conv.i127
-  br i1 %cmp.not.i132, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit138, label %if.then.i133
+  br i1 %cmp.not.i132, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit138, label %if.then.i133
 
 if.then.i133:                                     ; preds = %if.else198
   %exception.i134 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -4496,7 +4496,7 @@ lpad.i135:                                        ; preds = %if.then.i133
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit138: ; preds = %if.else198
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit138: ; preds = %if.else198
   %add.ptr.i.i137 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val, i64 %conv.i127
   %66 = load ptr, ptr %add.ptr.i.i137, align 8
   %_M_finish.i139 = getelementptr inbounds i8, ptr %add.ptr.i.i137, i64 8
@@ -4504,7 +4504,7 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
   %cmp.i140.not215 = icmp eq ptr %66, %67
   br i1 %cmp.i140.not215, label %if.end307, label %for.body210.lr.ph
 
-for.body210.lr.ph:                                ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit138
+for.body210.lr.ph:                                ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit138
   %NumOccur235 = getelementptr inbounds i8, ptr %pcElement, i64 64
   %idxprom255 = zext i32 %pos to i64
   br label %for.body210
@@ -4649,7 +4649,7 @@ for.inc303:                                       ; preds = %if.end252, %if.then
   %cmp.i140.not = icmp eq ptr %incdec.ptr.i150, %95
   br i1 %cmp.i140.not, label %if.end307, label %for.body210, !llvm.loop !30
 
-if.end307:                                        ; preds = %for.inc53, %for.inc192, %for.inc303, %if.then3, %if.then33, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit138, %if.end, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit109, %if.end110, %if.end58
+if.end307:                                        ; preds = %for.inc53, %for.inc192, %for.inc303, %if.then3, %if.then33, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit138, %if.end, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit109, %if.end110, %if.end58
   ret void
 }
 
@@ -4670,7 +4670,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 24
   %cmp.not.i = icmp ugt i64 %sub.ptr.div.i.i, %conv.i
-  br i1 %cmp.not.i, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, label %if.then.i
+  br i1 %cmp.not.i, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
   %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -4692,7 +4692,7 @@ lpad.i:                                           ; preds = %if.then.i
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit: ; preds = %if.else
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit: ; preds = %if.else
   %add.ptr.i.i = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %avList.val29, i64 %conv.i
   %3 = load ptr, ptr %add.ptr.i.i, align 8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %3, align 8
@@ -4709,50 +4709,50 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 4, label %sw.bb17.i
   ]
 
-sw.bb.i:                                          ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb.i:                                          ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %5 = bitcast i32 %val.sroa.0.sroa.0.0.extract.trunc.i to float
   br label %if.end
 
-sw.bb1.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb1.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %6 = bitcast i64 %agg.tmp.sroa.0.0.copyload to double
   %conv.i31 = fptrunc double %6 to float
   br label %if.end
 
-sw.bb2.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb2.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %conv3.i = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i to float
   %div.i = fdiv float %conv3.i, 2.550000e+02
   br label %if.end
 
-sw.bb4.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb4.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %add.i = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i, 127
   %conv5.i = sitofp i32 %add.i to float
   %div6.i = fdiv float %conv5.i, 2.550000e+02
   br label %if.end
 
-sw.bb7.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb7.i:                                         ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %conv8.i = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i to float
   %div9.i = fdiv float %conv8.i, 6.553500e+04
   br label %if.end
 
-sw.bb10.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb10.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %add11.i = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i, 32767
   %conv12.i = sitofp i32 %add11.i to float
   %div13.i = fdiv float %conv12.i, 6.553500e+04
   br label %if.end
 
-sw.bb14.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb14.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %conv15.i = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i to float
   %div16.i = fdiv float %conv15.i, 6.553500e+04
   br label %if.end
 
-sw.bb17.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit
+sw.bb17.i:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
   %conv18.i = sitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i to float
   %div19.i = fdiv float %conv18.i, 2.550000e+02
   %add20.i = fadd float %div19.i, 5.000000e-01
   br label %if.end
 
-if.end:                                           ; preds = %sw.bb17.i, %sw.bb14.i, %sw.bb10.i, %sw.bb7.i, %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit, %entry
-  %storemerge = phi float [ 0.000000e+00, %entry ], [ %add20.i, %sw.bb17.i ], [ %div16.i, %sw.bb14.i ], [ %div13.i, %sw.bb10.i ], [ %div9.i, %sw.bb7.i ], [ %div6.i, %sw.bb4.i ], [ %div.i, %sw.bb2.i ], [ %conv.i31, %sw.bb1.i ], [ %5, %sw.bb.i ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit ]
+if.end:                                           ; preds = %sw.bb17.i, %sw.bb14.i, %sw.bb10.i, %sw.bb7.i, %sw.bb4.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit, %entry
+  %storemerge = phi float [ 0.000000e+00, %entry ], [ %add20.i, %sw.bb17.i ], [ %div16.i, %sw.bb14.i ], [ %div13.i, %sw.bb10.i ], [ %div9.i, %sw.bb7.i ], [ %div6.i, %sw.bb4.i ], [ %div.i, %sw.bb2.i ], [ %conv.i31, %sw.bb1.i ], [ %5, %sw.bb.i ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit ]
   store float %storemerge, ptr %clrOut, align 4
   %arrayidx7 = getelementptr inbounds i8, ptr %aiPositions, i64 4
   %7 = load i32, ptr %arrayidx7, align 4
@@ -4769,7 +4769,7 @@ if.else10:                                        ; preds = %if.end
   %sub.ptr.sub.i.i35 = sub i64 %sub.ptr.lhs.cast.i.i33, %sub.ptr.rhs.cast.i.i34
   %sub.ptr.div.i.i36 = sdiv exact i64 %sub.ptr.sub.i.i35, 24
   %cmp.not.i37 = icmp ugt i64 %sub.ptr.div.i.i36, %conv.i32
-  br i1 %cmp.not.i37, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43, label %if.then.i38
+  br i1 %cmp.not.i37, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43, label %if.then.i38
 
 if.then.i38:                                      ; preds = %if.else10
   %exception.i39 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -4785,7 +4785,7 @@ lpad.i40:                                         ; preds = %if.then.i38
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43: ; preds = %if.else10
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43: ; preds = %if.else10
   %add.ptr.i.i42 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %avList.val27, i64 %conv.i32
   %10 = load ptr, ptr %add.ptr.i.i42, align 8
   %agg.tmp11.sroa.0.0.copyload = load i64, ptr %10, align 8
@@ -4803,50 +4803,50 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 4, label %sw.bb17.i45
   ]
 
-sw.bb.i69:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43
+sw.bb.i69:                                        ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43
   %12 = bitcast i32 %val.sroa.0.sroa.0.0.extract.trunc.i44 to float
   br label %if.end20
 
-sw.bb1.i67:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43
+sw.bb1.i67:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43
   %13 = bitcast i64 %agg.tmp11.sroa.0.0.copyload to double
   %conv.i68 = fptrunc double %13 to float
   br label %if.end20
 
-sw.bb2.i64:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43
+sw.bb2.i64:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43
   %conv3.i65 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i44 to float
   %div.i66 = fdiv float %conv3.i65, 2.550000e+02
   br label %if.end20
 
-sw.bb4.i60:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43
+sw.bb4.i60:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43
   %add.i61 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i44, 127
   %conv5.i62 = sitofp i32 %add.i61 to float
   %div6.i63 = fdiv float %conv5.i62, 2.550000e+02
   br label %if.end20
 
-sw.bb7.i57:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43
+sw.bb7.i57:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43
   %conv8.i58 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i44 to float
   %div9.i59 = fdiv float %conv8.i58, 6.553500e+04
   br label %if.end20
 
-sw.bb10.i53:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43
+sw.bb10.i53:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43
   %add11.i54 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i44, 32767
   %conv12.i55 = sitofp i32 %add11.i54 to float
   %div13.i56 = fdiv float %conv12.i55, 6.553500e+04
   br label %if.end20
 
-sw.bb14.i50:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43
+sw.bb14.i50:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43
   %conv15.i51 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i44 to float
   %div16.i52 = fdiv float %conv15.i51, 6.553500e+04
   br label %if.end20
 
-sw.bb17.i45:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43
+sw.bb17.i45:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43
   %conv18.i46 = sitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i44 to float
   %div19.i47 = fdiv float %conv18.i46, 2.550000e+02
   %add20.i48 = fadd float %div19.i47, 5.000000e-01
   br label %if.end20
 
-if.end20:                                         ; preds = %sw.bb17.i45, %sw.bb14.i50, %sw.bb10.i53, %sw.bb7.i57, %sw.bb4.i60, %sw.bb2.i64, %sw.bb1.i67, %sw.bb.i69, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43, %if.end
-  %retval.0.i49.sink = phi float [ 0.000000e+00, %if.end ], [ %add20.i48, %sw.bb17.i45 ], [ %div16.i52, %sw.bb14.i50 ], [ %div13.i56, %sw.bb10.i53 ], [ %div9.i59, %sw.bb7.i57 ], [ %div6.i63, %sw.bb4.i60 ], [ %div.i66, %sw.bb2.i64 ], [ %conv.i68, %sw.bb1.i67 ], [ %12, %sw.bb.i69 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit43 ]
+if.end20:                                         ; preds = %sw.bb17.i45, %sw.bb14.i50, %sw.bb10.i53, %sw.bb7.i57, %sw.bb4.i60, %sw.bb2.i64, %sw.bb1.i67, %sw.bb.i69, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43, %if.end
+  %retval.0.i49.sink = phi float [ 0.000000e+00, %if.end ], [ %add20.i48, %sw.bb17.i45 ], [ %div16.i52, %sw.bb14.i50 ], [ %div13.i56, %sw.bb10.i53 ], [ %div9.i59, %sw.bb7.i57 ], [ %div6.i63, %sw.bb4.i60 ], [ %div.i66, %sw.bb2.i64 ], [ %conv.i68, %sw.bb1.i67 ], [ %12, %sw.bb.i69 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit43 ]
   %g19 = getelementptr inbounds i8, ptr %clrOut, i64 4
   store float %retval.0.i49.sink, ptr %g19, align 4
   %arrayidx21 = getelementptr inbounds i8, ptr %aiPositions, i64 8
@@ -4864,7 +4864,7 @@ if.else24:                                        ; preds = %if.end20
   %sub.ptr.sub.i.i74 = sub i64 %sub.ptr.lhs.cast.i.i72, %sub.ptr.rhs.cast.i.i73
   %sub.ptr.div.i.i75 = sdiv exact i64 %sub.ptr.sub.i.i74, 24
   %cmp.not.i76 = icmp ugt i64 %sub.ptr.div.i.i75, %conv.i71
-  br i1 %cmp.not.i76, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82, label %if.then.i77
+  br i1 %cmp.not.i76, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82, label %if.then.i77
 
 if.then.i77:                                      ; preds = %if.else24
   %exception.i78 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -4880,7 +4880,7 @@ lpad.i79:                                         ; preds = %if.then.i77
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82: ; preds = %if.else24
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82: ; preds = %if.else24
   %add.ptr.i.i81 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %avList.val25, i64 %conv.i71
   %17 = load ptr, ptr %add.ptr.i.i81, align 8
   %agg.tmp25.sroa.0.0.copyload = load i64, ptr %17, align 8
@@ -4898,50 +4898,50 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 4, label %sw.bb17.i84
   ]
 
-sw.bb.i108:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82
+sw.bb.i108:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82
   %19 = bitcast i32 %val.sroa.0.sroa.0.0.extract.trunc.i83 to float
   br label %if.end34
 
-sw.bb1.i106:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82
+sw.bb1.i106:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82
   %20 = bitcast i64 %agg.tmp25.sroa.0.0.copyload to double
   %conv.i107 = fptrunc double %20 to float
   br label %if.end34
 
-sw.bb2.i103:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82
+sw.bb2.i103:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82
   %conv3.i104 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i83 to float
   %div.i105 = fdiv float %conv3.i104, 2.550000e+02
   br label %if.end34
 
-sw.bb4.i99:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82
+sw.bb4.i99:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82
   %add.i100 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i83, 127
   %conv5.i101 = sitofp i32 %add.i100 to float
   %div6.i102 = fdiv float %conv5.i101, 2.550000e+02
   br label %if.end34
 
-sw.bb7.i96:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82
+sw.bb7.i96:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82
   %conv8.i97 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i83 to float
   %div9.i98 = fdiv float %conv8.i97, 6.553500e+04
   br label %if.end34
 
-sw.bb10.i92:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82
+sw.bb10.i92:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82
   %add11.i93 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i83, 32767
   %conv12.i94 = sitofp i32 %add11.i93 to float
   %div13.i95 = fdiv float %conv12.i94, 6.553500e+04
   br label %if.end34
 
-sw.bb14.i89:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82
+sw.bb14.i89:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82
   %conv15.i90 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i83 to float
   %div16.i91 = fdiv float %conv15.i90, 6.553500e+04
   br label %if.end34
 
-sw.bb17.i84:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82
+sw.bb17.i84:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82
   %conv18.i85 = sitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i83 to float
   %div19.i86 = fdiv float %conv18.i85, 2.550000e+02
   %add20.i87 = fadd float %div19.i86, 5.000000e-01
   br label %if.end34
 
-if.end34:                                         ; preds = %sw.bb17.i84, %sw.bb14.i89, %sw.bb10.i92, %sw.bb7.i96, %sw.bb4.i99, %sw.bb2.i103, %sw.bb1.i106, %sw.bb.i108, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82, %if.end20
-  %retval.0.i88.sink = phi float [ 0.000000e+00, %if.end20 ], [ %add20.i87, %sw.bb17.i84 ], [ %div16.i91, %sw.bb14.i89 ], [ %div13.i95, %sw.bb10.i92 ], [ %div9.i98, %sw.bb7.i96 ], [ %div6.i102, %sw.bb4.i99 ], [ %div.i105, %sw.bb2.i103 ], [ %conv.i107, %sw.bb1.i106 ], [ %19, %sw.bb.i108 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit82 ]
+if.end34:                                         ; preds = %sw.bb17.i84, %sw.bb14.i89, %sw.bb10.i92, %sw.bb7.i96, %sw.bb4.i99, %sw.bb2.i103, %sw.bb1.i106, %sw.bb.i108, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82, %if.end20
+  %retval.0.i88.sink = phi float [ 0.000000e+00, %if.end20 ], [ %add20.i87, %sw.bb17.i84 ], [ %div16.i91, %sw.bb14.i89 ], [ %div13.i95, %sw.bb10.i92 ], [ %div9.i98, %sw.bb7.i96 ], [ %div6.i102, %sw.bb4.i99 ], [ %div.i105, %sw.bb2.i103 ], [ %conv.i107, %sw.bb1.i106 ], [ %19, %sw.bb.i108 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit82 ]
   %b33 = getelementptr inbounds i8, ptr %clrOut, i64 8
   store float %retval.0.i88.sink, ptr %b33, align 4
   %arrayidx35 = getelementptr inbounds i8, ptr %aiPositions, i64 12
@@ -4959,7 +4959,7 @@ if.else38:                                        ; preds = %if.end34
   %sub.ptr.sub.i.i113 = sub i64 %sub.ptr.lhs.cast.i.i111, %sub.ptr.rhs.cast.i.i112
   %sub.ptr.div.i.i114 = sdiv exact i64 %sub.ptr.sub.i.i113, 24
   %cmp.not.i115 = icmp ugt i64 %sub.ptr.div.i.i114, %conv.i110
-  br i1 %cmp.not.i115, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121, label %if.then.i116
+  br i1 %cmp.not.i115, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121, label %if.then.i116
 
 if.then.i116:                                     ; preds = %if.else38
   %exception.i117 = tail call ptr @__cxa_allocate_exception(i64 16) #17
@@ -4975,7 +4975,7 @@ lpad.i118:                                        ; preds = %if.then.i116
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121: ; preds = %if.else38
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121: ; preds = %if.else38
   %add.ptr.i.i120 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %avList.val, i64 %conv.i110
   %24 = load ptr, ptr %add.ptr.i.i120, align 8
   %agg.tmp39.sroa.0.0.copyload = load i64, ptr %24, align 8
@@ -4993,50 +4993,50 @@ _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vecto
     i32 4, label %sw.bb17.i123
   ]
 
-sw.bb.i147:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121
+sw.bb.i147:                                       ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121
   %26 = bitcast i32 %val.sroa.0.sroa.0.0.extract.trunc.i122 to float
   br label %if.end48
 
-sw.bb1.i145:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121
+sw.bb1.i145:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121
   %27 = bitcast i64 %agg.tmp39.sroa.0.0.copyload to double
   %conv.i146 = fptrunc double %27 to float
   br label %if.end48
 
-sw.bb2.i142:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121
+sw.bb2.i142:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121
   %conv3.i143 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i122 to float
   %div.i144 = fdiv float %conv3.i143, 2.550000e+02
   br label %if.end48
 
-sw.bb4.i138:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121
+sw.bb4.i138:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121
   %add.i139 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i122, 127
   %conv5.i140 = sitofp i32 %add.i139 to float
   %div6.i141 = fdiv float %conv5.i140, 2.550000e+02
   br label %if.end48
 
-sw.bb7.i135:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121
+sw.bb7.i135:                                      ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121
   %conv8.i136 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i122 to float
   %div9.i137 = fdiv float %conv8.i136, 6.553500e+04
   br label %if.end48
 
-sw.bb10.i131:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121
+sw.bb10.i131:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121
   %add11.i132 = add nsw i32 %val.sroa.0.sroa.0.0.extract.trunc.i122, 32767
   %conv12.i133 = sitofp i32 %add11.i132 to float
   %div13.i134 = fdiv float %conv12.i133, 6.553500e+04
   br label %if.end48
 
-sw.bb14.i128:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121
+sw.bb14.i128:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121
   %conv15.i129 = uitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i122 to float
   %div16.i130 = fdiv float %conv15.i129, 6.553500e+04
   br label %if.end48
 
-sw.bb17.i123:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121
+sw.bb17.i123:                                     ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121
   %conv18.i124 = sitofp i32 %val.sroa.0.sroa.0.0.extract.trunc.i122 to float
   %div19.i125 = fdiv float %conv18.i124, 2.550000e+02
   %add20.i126 = fadd float %div19.i125, 5.000000e-01
   br label %if.end48
 
-if.end48:                                         ; preds = %sw.bb17.i123, %sw.bb14.i128, %sw.bb10.i131, %sw.bb7.i135, %sw.bb4.i138, %sw.bb2.i142, %sw.bb1.i145, %sw.bb.i147, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121, %if.end34
-  %retval.0.i127.sink = phi float [ 1.000000e+00, %if.end34 ], [ %add20.i126, %sw.bb17.i123 ], [ %div16.i130, %sw.bb14.i128 ], [ %div13.i134, %sw.bb10.i131 ], [ %div9.i137, %sw.bb7.i135 ], [ %div6.i141, %sw.bb4.i138 ], [ %div.i144, %sw.bb2.i142 ], [ %conv.i146, %sw.bb1.i145 ], [ %26, %sw.bb.i147 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.argprom.exit121 ]
+if.end48:                                         ; preds = %sw.bb17.i123, %sw.bb14.i128, %sw.bb10.i131, %sw.bb7.i135, %sw.bb4.i138, %sw.bb2.i142, %sw.bb1.i145, %sw.bb.i147, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121, %if.end34
+  %retval.0.i127.sink = phi float [ 1.000000e+00, %if.end34 ], [ %add20.i126, %sw.bb17.i123 ], [ %div16.i130, %sw.bb14.i128 ], [ %div13.i134, %sw.bb10.i131 ], [ %div9.i137, %sw.bb7.i135 ], [ %div6.i141, %sw.bb4.i138 ], [ %div.i144, %sw.bb2.i142 ], [ %conv.i146, %sw.bb1.i145 ], [ %26, %sw.bb.i147 ], [ 0.000000e+00, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit121 ]
   %a47 = getelementptr inbounds i8, ptr %clrOut, i64 12
   store float %retval.0.i127.sink, ptr %a47, align 4
   ret void

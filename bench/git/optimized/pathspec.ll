@@ -681,8 +681,8 @@ for.cond.i.i.outer335:                            ; preds = %for.cond.i.i.outer,
   %pos.0.i.i.ph337 = phi ptr [ %pos.0.i.i.ph, %for.cond.i.i.outer ], [ %nextat.0.i.i, %if.then14.i.i ]
   br label %for.cond.i.i
 
-for.cond.i.i:                                     ; preds = %for.cond.i.i.outer335, %strcspn_escaped.argprom.exit.i.i
-  %pos.0.i.i = phi ptr [ %nextat.0.i.i, %strcspn_escaped.argprom.exit.i.i ], [ %pos.0.i.i.ph337, %for.cond.i.i.outer335 ]
+for.cond.i.i:                                     ; preds = %for.cond.i.i.outer335, %strcspn_escaped.exit.i.i
+  %pos.0.i.i = phi ptr [ %nextat.0.i.i, %strcspn_escaped.exit.i.i ], [ %pos.0.i.i.ph337, %for.cond.i.i.outer335 ]
   %4 = load i8, ptr %pos.0.i.i, align 1
   switch i8 %4, label %for.cond.i.i.i [
     i8 41, label %parse_long_magic.exit.i
@@ -693,7 +693,7 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i, %for.
   %5 = phi i8 [ %.pr.i.i, %for.inc.i.i.i ], [ %4, %for.cond.i.i ]
   %i.0.i.i.i = phi ptr [ %incdec.ptr9.i.i.i, %for.inc.i.i.i ], [ %pos.0.i.i, %for.cond.i.i ]
   switch i8 %5, label %if.end.i.i.i [
-    i8 0, label %strcspn_escaped.argprom.exit.i.i
+    i8 0, label %strcspn_escaped.exit.i.i
     i8 92, label %land.lhs.true.i.i.i
   ]
 
@@ -711,7 +711,7 @@ if.end.i.i.i:                                     ; preds = %for.cond.i.i.i
   %8 = and i64 %7, 19791209299969
   %memchr.bits.i.i.i = icmp eq i64 %8, 0
   %memchr8.not.i.i.i = select i1 %memchr.bounds.i.i.i, i1 true, i1 %memchr.bits.i.i.i
-  br i1 %memchr8.not.i.i.i, label %for.inc.i.i.i, label %strcspn_escaped.argprom.exit.i.i
+  br i1 %memchr8.not.i.i.i, label %for.inc.i.i.i, label %strcspn_escaped.exit.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.end.i.i.i, %land.lhs.true.i.i.i
   %i.1.i.i.i = phi ptr [ %i.0.i.i.i, %if.end.i.i.i ], [ %spec.select.i.i.i, %land.lhs.true.i.i.i ]
@@ -719,7 +719,7 @@ for.inc.i.i.i:                                    ; preds = %if.end.i.i.i, %land
   %.pr.i.i = load i8, ptr %incdec.ptr9.i.i.i, align 1
   br label %for.cond.i.i.i, !llvm.loop !12
 
-strcspn_escaped.argprom.exit.i.i:                 ; preds = %if.end.i.i.i, %for.cond.i.i.i
+strcspn_escaped.exit.i.i:                         ; preds = %if.end.i.i.i, %for.cond.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %i.0.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %pos.0.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -731,7 +731,7 @@ strcspn_escaped.argprom.exit.i.i:                 ; preds = %if.end.i.i.i, %for.
   %tobool9.not.i.i = icmp eq ptr %i.0.i.i.i, %pos.0.i.i
   br i1 %tobool9.not.i.i, label %for.cond.i.i, label %if.end11.i.i, !llvm.loop !13
 
-if.end11.i.i:                                     ; preds = %strcspn_escaped.argprom.exit.i.i
+if.end11.i.i:                                     ; preds = %strcspn_escaped.exit.i.i
   %call12.i.i = call i32 @starts_with(ptr noundef nonnull %pos.0.i.i, ptr noundef nonnull @.str.28) #16
   %tobool13.not.i.i = icmp eq i32 %call12.i.i, 0
   br i1 %tobool13.not.i.i, label %if.end23.i.i, label %if.then14.i.i

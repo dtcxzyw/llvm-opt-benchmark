@@ -457,7 +457,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN3gmx20LocalTopologyChecker
   %8 = getelementptr inbounds i8, ptr %.val, i64 88
   %9 = load i32, ptr %8, align 8
   %.not.i.i.i = icmp eq i32 %9, %7
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx20LocalTopologyCheckerC1ERKNS0_8MDLoggerEPK9t_commrecRK10gmx_mtop_tNS0_16DDBondedCheckingERK14gmx_localtop_tRK7t_statebPNS0_25ObservablesReducerBuilderEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit", label %10
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx20LocalTopologyCheckerC1ERKNS0_8MDLoggerEPK9t_commrecRK10gmx_mtop_tNS0_16DDBondedCheckingERK14gmx_localtop_tRK7t_statebPNS0_25ObservablesReducerBuilderEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit", label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %.val, align 8
@@ -472,10 +472,10 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN3gmx20LocalTopologyChecker
   %20 = getelementptr inbounds i8, ptr %19, i64 416
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 52
-  tail call fastcc void @_ZN3gmxL29dd_print_missing_interactionsERKNS_8MDLoggerEPK9t_commreciiRK10gmx_mtop_tRK14gmx_localtop_tNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf.argprom(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %13, i32 noundef %7, i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(768) %15, ptr noundef nonnull align 8 dereferenceable(2784) %17, ptr %21, ptr noundef nonnull %22) #20
+  tail call fastcc void @_ZN3gmxL29dd_print_missing_interactionsERKNS_8MDLoggerEPK9t_commreciiRK10gmx_mtop_tRK14gmx_localtop_tNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %13, i32 noundef %7, i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(768) %15, ptr noundef nonnull align 8 dereferenceable(2784) %17, ptr %21, ptr noundef nonnull %22) #20
   unreachable
 
-"_ZSt10__invoke_rIvRZN3gmx20LocalTopologyCheckerC1ERKNS0_8MDLoggerEPK9t_commrecRK10gmx_mtop_tNS0_16DDBondedCheckingERK14gmx_localtop_tRK7t_statebPNS0_25ObservablesReducerBuilderEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.argprom.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZN3gmx20LocalTopologyCheckerC1ERKNS0_8MDLoggerEPK9t_commrecRK10gmx_mtop_tNS0_16DDBondedCheckingERK14gmx_localtop_tRK7t_statebPNS0_25ObservablesReducerBuilderEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %2
   ret void
 }
 
@@ -505,7 +505,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN3gmx20LocalT
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN3gmxL29dd_print_missing_interactionsERKNS_8MDLoggerEPK9t_commreciiRK10gmx_mtop_tRK14gmx_localtop_tNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(768) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2784) %5, ptr %.0.val, ptr noundef %6) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmxL29dd_print_missing_interactionsERKNS_8MDLoggerEPK9t_commreciiRK10gmx_mtop_tRK14gmx_localtop_tNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(768) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2784) %5, ptr %.0.val, ptr noundef %6) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.85", align 1
   %10 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -857,7 +857,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc73.i.i, %_ZNS
   %183 = lshr exact i64 %182, 2
   %184 = trunc i64 %183 to i32
   %185 = icmp sgt i32 %184, 0
-  br i1 %185, label %.lr.ph.i.i.i, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.argprom.exit.i.i
+  br i1 %185, label %.lr.ph.i.i.i, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %165
   %186 = icmp sgt i32 %.fr25.i.i.i, 0
@@ -911,7 +911,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc73.i.i, %_ZNS
   %219 = trunc i64 %218 to i32
   %220 = trunc nuw i64 %indvars.iv.next52.i.i.i to i32
   %221 = icmp slt i32 %220, %219
-  br i1 %221, label %.lr.ph.split.us.split.us.i.i.i, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.argprom.exit.i.i, !llvm.loop !14
+  br i1 %221, label %.lr.ph.split.us.split.us.i.i.i, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.exit.i.i, !llvm.loop !14
 
 .lr.ph10.us.us.i.i.i:                             ; preds = %200
   %222 = mul nsw i32 %202, %172
@@ -1032,7 +1032,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc73.i.i, %_ZNS
   %286 = trunc i64 %285 to i32
   %287 = trunc nuw i64 %indvars.iv.next45.i.i.i to i32
   %288 = icmp slt i32 %287, %286
-  br i1 %288, label %.lr.ph.split.us.split.i.i.i, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.argprom.exit.i.i, !llvm.loop !14
+  br i1 %288, label %.lr.ph.split.us.split.i.i.i, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.exit.i.i, !llvm.loop !14
 
 .lr.ph10.us.i.i.i:                                ; preds = %267
   %289 = mul nsw i32 %269, %172
@@ -1163,7 +1163,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc73.i.i, %_ZNS
   %sext61.i.i.i = shl i64 %356, 30
   %357 = ashr i64 %sext61.i.i.i, 32
   %358 = icmp slt i64 %indvars.iv.next40.i.i.i, %357
-  br i1 %358, label %.lr.ph.split.split.us.i.i.i, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.argprom.exit.i.i, !llvm.loop !14
+  br i1 %358, label %.lr.ph.split.split.us.i.i.i, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.exit.i.i, !llvm.loop !14
 
 .lr.ph10.us24.i.i.i:                              ; preds = %340
   %359 = mul nsw i32 %342, %172
@@ -1355,9 +1355,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc73.i.i, %_ZNS
   %sext.i.i.i = shl i64 %448, 30
   %449 = ashr i64 %sext.i.i.i, 32
   %450 = icmp slt i64 %indvars.iv.next.i.i.i, %449
-  br i1 %450, label %.lr.ph.split.split.i.i.i, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.argprom.exit.i.i, !llvm.loop !14
+  br i1 %450, label %.lr.ph.split.split.i.i.i, label %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.exit.i.i, !llvm.loop !14
 
-_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.argprom.exit.i.i: ; preds = %442, %350, %278, %211, %165
+_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.exit.i.i: ; preds = %442, %350, %278, %211, %165
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9), !noalias !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !11
@@ -1403,7 +1403,7 @@ _ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5R
   call void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
   br label %526
 
-453:                                              ; preds = %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.argprom.exit.i.i, %164
+453:                                              ; preds = %_ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5RangeIiEEiNS_8ArrayRefIKiEENSA_IiEE.exit.i.i, %164
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 94
   br i1 %exitcond.not.i.i, label %454, label %159, !llvm.loop !17

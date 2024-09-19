@@ -439,25 +439,25 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end4
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end4
 
 if.end4:                                          ; preds = %do.end
   %call.i = tail call ptr @bdrv_cow_child(ptr noundef nonnull %bs) #6
   %tobool.not.i.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %bdrv_cow_bs.exit
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %bdrv_cow_bs.exit
 
 bdrv_cow_bs.exit:                                 ; preds = %if.end4
   %1 = load ptr, ptr %call.i, align 8
   %tobool6.not = icmp eq ptr %1, null
-  br i1 %tobool6.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end8
+  br i1 %tobool6.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end8
 
 if.end8:                                          ; preds = %bdrv_cow_bs.exit
   %call9 = tail call zeroext i1 @bdrv_op_is_blocked(ptr noundef nonnull %bs, i32 noundef 3, ptr noundef null) #6
-  br i1 %call9, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %lor.lhs.false
+  br i1 %call9, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end8
   %call10 = tail call zeroext i1 @bdrv_op_is_blocked(ptr noundef nonnull %1, i32 noundef 4, ptr noundef null) #6
-  br i1 %call10, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end12
+  br i1 %call10, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end12
 
 if.end12:                                         ; preds = %lor.lhs.false
   %call13 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %1) #6
@@ -466,7 +466,7 @@ if.end12:                                         ; preds = %lor.lhs.false
 if.then15:                                        ; preds = %if.end12
   %call16 = tail call i32 @bdrv_reopen_set_read_only(ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null) #6
   %tobool17.not = icmp eq i32 %call16, 0
-  br i1 %tobool17.not, label %if.end20, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %tobool17.not, label %if.end20, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end20:                                         ; preds = %if.then15, %if.end12
   %call21 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #6
@@ -609,13 +609,13 @@ if.then98:                                        ; preds = %bdrv_cow_bs.exit56
 if.end100:                                        ; preds = %if.then98, %bdrv_cow_bs.exit56
   call void @bdrv_unref(ptr noundef %commit_top_bs.0) #6
   call void @blk_unref(ptr noundef %call22) #6
-  br i1 %call13, label %if.then102, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %call13, label %if.then102, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.then102:                                       ; preds = %if.end100
   %call103 = call i32 @bdrv_reopen_set_read_only(ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef null) #6
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end4, %if.end100, %if.then102, %if.then15, %if.end8, %lor.lhs.false, %bdrv_cow_bs.exit, %do.end
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end4, %if.end100, %if.then102, %if.then15, %if.end8, %lor.lhs.false, %bdrv_cow_bs.exit, %do.end
   %buf.0 = phi ptr [ null, %do.end ], [ null, %bdrv_cow_bs.exit ], [ null, %if.end8 ], [ null, %lor.lhs.false ], [ %buf.1, %if.then102 ], [ %buf.1, %if.end100 ], [ null, %if.then15 ], [ null, %if.end4 ]
   %retval.0 = phi i32 [ -123, %do.end ], [ -95, %bdrv_cow_bs.exit ], [ -16, %if.end8 ], [ -16, %lor.lhs.false ], [ %ret.0, %if.then102 ], [ %ret.0, %if.end100 ], [ -13, %if.then15 ], [ -95, %if.end4 ]
   call void @bdrv_graph_rdunlock_main_loop() #6

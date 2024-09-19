@@ -3326,7 +3326,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit291:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %618 unwind label %631
 
 618:                                              ; preds = %612
-  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
+  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
           to label %619 unwind label %633
 
 619:                                              ; preds = %618
@@ -3663,7 +3663,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %730, %723, %_ZNSt6v
   br label %1297
 
 736:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %22)
+  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %22)
           to label %737 unwind label %749
 
 737:                                              ; preds = %736
@@ -4629,7 +4629,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit95.i:            ; preds = %1182, %1175, %_ZNSt
   br label %1297
 
 1189:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit70.i
-  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %27)
+  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %27)
           to label %1190 unwind label %1205
 
 1190:                                             ; preds = %1189
@@ -14254,7 +14254,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit941:                                     ; preds = %.lr.ph.i.i.i.i.i.i297, %.noexc7.i295.thread
   %.0.lcssa.i.i.i.i.i.i301 = phi ptr [ null, %.noexc7.i295.thread ], [ %1478, %.lr.ph.i.i.i.i.i.i297 ]
   store ptr %.0.lcssa.i.i.i.i.i.i301, ptr %132, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b.argprom(ptr noundef nonnull %177, ptr noundef %33, ptr noundef %34, ptr noundef %35, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b(ptr noundef nonnull %177, ptr noundef %33, ptr noundef %34, ptr noundef %35, i1 noundef zeroext false)
           to label %1480 unwind label %1677
 
 1480:                                             ; preds = %.loopexit941
@@ -14848,7 +14848,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit939:                                     ; preds = %.lr.ph.i.i.i.i.i.i378, %.noexc7.i376.thread
   %.0.lcssa.i.i.i.i.i.i382 = phi ptr [ null, %.noexc7.i376.thread ], [ %1645, %.lr.ph.i.i.i.i.i.i378 ]
   store ptr %.0.lcssa.i.i.i.i.i.i382, ptr %147, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b.argprom(ptr noundef nonnull %177, ptr noundef %36, ptr noundef %37, ptr noundef %38, i1 noundef zeroext true)
+  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b(ptr noundef nonnull %177, ptr noundef %36, ptr noundef %37, ptr noundef %38, i1 noundef zeroext true)
           to label %1647 unwind label %1681
 
 1647:                                             ; preds = %.loopexit939
@@ -22257,7 +22257,7 @@ declare void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dere
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpeceqERKS1_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -22961,7 +22961,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN5Yosys11log_warningEPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector.8", align 8
   %7 = alloca %"class.std::vector.8", align 8
   %8 = alloca %"class.std::vector.8", align 8
@@ -28351,7 +28351,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   %81 = getelementptr inbounds i32, ptr %74, i64 %70
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
-.loopexit:                                        ; preds = %55, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit, %117, %119, %37, %71, %98, %115
+.loopexit:                                        ; preds = %55, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit, %117, %119, %37, %71, %98, %115
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store ptr %32, ptr %16, align 8
@@ -28435,9 +28435,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 115:                                              ; preds = %110
   %116 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %114)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit unwind label %.loopexit
+          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit unwind label %.loopexit
 
-_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit: ; preds = %115
+_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit: ; preds = %115
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.104, ptr noundef %116)
           to label %122 unwind label %.loopexit
 
@@ -28451,7 +28451,7 @@ _ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit: ; preds = %115
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.105, ptr noundef %118, i32 noundef %121)
           to label %122 unwind label %.loopexit
 
-122:                                              ; preds = %119, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit
+122:                                              ; preds = %119, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit
   %123 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %124 unwind label %161
 
@@ -74787,11 +74787,11 @@ attributes #30 = { nounwind willreturn memory(read) }
 !49 = distinct !{!49, !16}
 !50 = distinct !{!50, !16}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZZN12_GLOBAL__N_118VlogHammerReporter3runEvENKUlvE_clEv.argprom: argument 0"}
-!53 = distinct !{!53, !"_ZZN12_GLOBAL__N_118VlogHammerReporter3runEvENKUlvE_clEv.argprom"}
+!52 = distinct !{!52, !53, !"_ZZN12_GLOBAL__N_118VlogHammerReporter3runEvENKUlvE_clEv: argument 0"}
+!53 = distinct !{!53, !"_ZZN12_GLOBAL__N_118VlogHammerReporter3runEvENKUlvE_clEv"}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZZN12_GLOBAL__N_118VlogHammerReporter3runEvENKUlvE0_clEv.argprom: argument 0"}
-!56 = distinct !{!56, !"_ZZN12_GLOBAL__N_118VlogHammerReporter3runEvENKUlvE0_clEv.argprom"}
+!55 = distinct !{!55, !56, !"_ZZN12_GLOBAL__N_118VlogHammerReporter3runEvENKUlvE0_clEv: argument 0"}
+!56 = distinct !{!56, !"_ZZN12_GLOBAL__N_118VlogHammerReporter3runEvENKUlvE0_clEv"}
 !57 = distinct !{!57, !16}
 !58 = distinct !{!58, !16}
 !59 = distinct !{!59, !16}
@@ -74838,11 +74838,11 @@ attributes #30 = { nounwind willreturn memory(read) }
 !100 = distinct !{!100, !101, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv: argument 0"}
 !101 = distinct !{!101, !"_ZN5Yosys5RTLIL8ObjRangeIPNS0_4CellEE5beginEv"}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_bENKUlvE_clEv.argprom: argument 0"}
-!104 = distinct !{!104, !"_ZZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_bENKUlvE_clEv.argprom"}
+!103 = distinct !{!103, !104, !"_ZZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_bENKUlvE_clEv: argument 0"}
+!104 = distinct !{!104, !"_ZZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_bENKUlvE_clEv"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_bENKUlvE0_clEv.argprom: argument 0"}
-!107 = distinct !{!107, !"_ZZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_bENKUlvE0_clEv.argprom"}
+!106 = distinct !{!106, !107, !"_ZZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_bENKUlvE0_clEv: argument 0"}
+!107 = distinct !{!107, !"_ZZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_bENKUlvE0_clEv"}
 !108 = distinct !{!108, !16}
 !109 = distinct !{!109, !16}
 !110 = distinct !{!110, !16}

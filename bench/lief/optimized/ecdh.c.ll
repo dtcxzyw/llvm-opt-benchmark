@@ -15,14 +15,14 @@ define hidden noundef i32 @mbedtls_ecdh_can_do(i32 noundef %0) local_unnamed_add
 define hidden i32 @mbedtls_ecdh_gen_public(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call i32 @mbedtls_ecp_gen_privkey(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %4) #6
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %7, label %ecdh_gen_public_restartable.argprom.exit
+  br i1 %.not.i, label %7, label %ecdh_gen_public_restartable.exit
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = tail call i32 @mbedtls_ecp_mul_restartable(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef null) #6
-  br label %ecdh_gen_public_restartable.argprom.exit
+  br label %ecdh_gen_public_restartable.exit
 
-ecdh_gen_public_restartable.argprom.exit:         ; preds = %5, %7
+ecdh_gen_public_restartable.exit:                 ; preds = %5, %7
   %.0.i = phi i32 [ %6, %5 ], [ %9, %7 ]
   ret i32 %.0.i
 }
@@ -34,18 +34,18 @@ define hidden i32 @mbedtls_ecdh_compute_shared(ptr noundef %0, ptr noundef %1, p
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %7) #6
   %8 = call i32 @mbedtls_ecp_mul_restartable(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef null) #6
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %9, label %ecdh_compute_shared_restartable.argprom.exit
+  br i1 %.not.i, label %9, label %ecdh_compute_shared_restartable.exit
 
 9:                                                ; preds = %6
   %10 = call i32 @mbedtls_ecp_is_zero(ptr noundef nonnull %7) #6
   %.not8.i = icmp eq i32 %10, 0
-  br i1 %.not8.i, label %11, label %ecdh_compute_shared_restartable.argprom.exit
+  br i1 %.not8.i, label %11, label %ecdh_compute_shared_restartable.exit
 
 11:                                               ; preds = %9
   %12 = call i32 @mbedtls_mpi_copy(ptr noundef %1, ptr noundef nonnull %7) #6
-  br label %ecdh_compute_shared_restartable.argprom.exit
+  br label %ecdh_compute_shared_restartable.exit
 
-ecdh_compute_shared_restartable.argprom.exit:     ; preds = %6, %9, %11
+ecdh_compute_shared_restartable.exit:             ; preds = %6, %9, %11
   %.0.i = phi i32 [ %8, %6 ], [ %12, %11 ], [ -20352, %9 ]
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)

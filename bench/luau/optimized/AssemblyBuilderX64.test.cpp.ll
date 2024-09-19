@@ -13214,7 +13214,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_43Ev() #2 personality
 
 24:                                               ; preds = %23
   %25 = invoke noundef zeroext i1 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648finalizeEv(ptr noundef nonnull align 8 dereferenceable(252) %4)
-          to label %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEv.argprom.exit unwind label %26
+          to label %_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEv.exit unwind label %26
 
 26:                                               ; preds = %24, %23, %22
   %27 = landingpad { ptr, i32 }
@@ -13227,7 +13227,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_43Ev() #2 personality
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %.sink.i) #17
   resume { ptr, i32 } %.pn.i
 
-_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEv.argprom.exit: ; preds = %24
+_ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_421fEv.exit: ; preds = %24
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev(ptr noundef nonnull align 8 dereferenceable(252) %4) #17
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2)

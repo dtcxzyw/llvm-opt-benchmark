@@ -102,15 +102,15 @@ if.end17:                                         ; preds = %if.then14, %if.end1
   %cmp37.i = icmp slt i32 %call36.i, 0
   br i1 %cmp37.i, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %packet_to_pc_item.argprom.exit.i, %if.end17
+if.then.i:                                        ; preds = %packet_to_pc_item.exit.i, %if.end17
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.6, i32 noundef 91, ptr noundef nonnull @.str.7) #9
   unreachable
 
-if.else.i:                                        ; preds = %if.end17, %packet_to_pc_item.argprom.exit.i
-  %call41.i = phi i32 [ %call.i, %packet_to_pc_item.argprom.exit.i ], [ %call36.i, %if.end17 ]
-  %items.040.i = phi ptr [ %items.1.i, %packet_to_pc_item.argprom.exit.i ], [ null, %if.end17 ]
-  %alloc.039.i = phi i64 [ %alloc.2.i, %packet_to_pc_item.argprom.exit.i ], [ 0, %if.end17 ]
-  %nr.038.i = phi i64 [ %add.i, %packet_to_pc_item.argprom.exit.i ], [ 0, %if.end17 ]
+if.else.i:                                        ; preds = %if.end17, %packet_to_pc_item.exit.i
+  %call41.i = phi i32 [ %call.i, %packet_to_pc_item.exit.i ], [ %call36.i, %if.end17 ]
+  %items.040.i = phi ptr [ %items.1.i, %packet_to_pc_item.exit.i ], [ null, %if.end17 ]
+  %alloc.039.i = phi i64 [ %alloc.2.i, %packet_to_pc_item.exit.i ], [ 0, %if.end17 ]
+  %nr.038.i = phi i64 [ %add.i, %packet_to_pc_item.exit.i ], [ 0, %if.end17 ]
   %tobool.not.i = icmp eq i32 %call41.i, 0
   br i1 %tobool.not.i, label %for.cond.preheader.i, label %do.body.i
 
@@ -171,15 +171,15 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
   %tobool.not.i.i = icmp eq i64 %11, 0
-  br i1 %tobool.not.i.i, label %packet_to_pc_item.argprom.exit.i, label %if.then8.i.i
+  br i1 %tobool.not.i.i, label %packet_to_pc_item.exit.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.end6.i.i
   %call.i.i = call ptr @xmemdupz(ptr noundef nonnull getelementptr inbounds (i8, ptr @packet_buffer, i64 72), i64 noundef %11) #10
   %12 = load i64, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 56), align 8
   %add.ptr11.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 72), i64 %12
-  br label %packet_to_pc_item.argprom.exit.i
+  br label %packet_to_pc_item.exit.i
 
-packet_to_pc_item.argprom.exit.i:                 ; preds = %if.then8.i.i, %if.end6.i.i
+packet_to_pc_item.exit.i:                         ; preds = %if.then8.i.i, %if.end6.i.i
   %variant.0.i.i = phi ptr [ %add.ptr11.i.i, %if.then8.i.i ], [ getelementptr inbounds (i8, ptr @packet_buffer, i64 72), %if.end6.i.i ]
   %encoding.0.i.i = phi ptr [ %call.i.i, %if.then8.i.i ], [ null, %if.end6.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %arrayidx.i, i8 0, i64 208, i1 false)

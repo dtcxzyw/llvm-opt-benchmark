@@ -1826,7 +1826,7 @@ _set_acct_up.exit:                                ; preds = %455, %459, %461
   %481 = call ptr @xstrdup(ptr noundef %480) #12
   %482 = getelementptr inbounds i8, ptr %479, i64 32
   store ptr %481, ptr %482, align 8
-  %483 = call fastcc i32 @_mod_acct.argprom(ptr noundef %427, ptr noundef %.0336527)
+  %483 = call fastcc i32 @_mod_acct(ptr noundef %427, ptr noundef %.0336527)
   %.not437 = icmp eq i32 %483, 0
   %spec.select495 = select i1 %.not437, i32 %.0326.ph557, i32 1
   br label %488
@@ -1860,7 +1860,7 @@ _set_acct_up.exit:                                ; preds = %455, %459, %461
   %496 = call ptr @xstrdup(ptr noundef %495) #12
   %497 = getelementptr inbounds i8, ptr %494, i64 32
   store ptr %496, ptr %497, align 8
-  %498 = call fastcc i32 @_mod_acct.argprom(ptr noundef %427, ptr noundef %.0336527)
+  %498 = call fastcc i32 @_mod_acct(ptr noundef %427, ptr noundef %.0336527)
   %.not439 = icmp eq i32 %498, 0
   %spec.select498 = select i1 %.not439, i32 %.0326.ph557, i32 1
   br label %503
@@ -2142,7 +2142,7 @@ _set_user_up.exit:                                ; preds = %587, %._crit_edge59
   %640 = getelementptr inbounds i8, ptr %637, i64 56
   store ptr %639, ptr %640, align 8
   %641 = load ptr, ptr %15, align 8
-  %642 = call fastcc i32 @_mod_user.argprom(ptr noundef %532, ptr noundef nonnull %539, ptr noundef %641)
+  %642 = call fastcc i32 @_mod_user(ptr noundef %532, ptr noundef nonnull %539, ptr noundef %641)
   %.not449 = icmp eq i32 %642, 0
   %spec.select500 = select i1 %.not449, i32 %.0326.ph557, i32 1
   br label %647
@@ -2177,7 +2177,7 @@ _set_user_up.exit:                                ; preds = %587, %._crit_edge59
   %656 = getelementptr inbounds i8, ptr %653, i64 56
   store ptr %655, ptr %656, align 8
   %657 = load ptr, ptr %15, align 8
-  %658 = call fastcc i32 @_mod_user.argprom(ptr noundef %532, ptr noundef %539, ptr noundef %657)
+  %658 = call fastcc i32 @_mod_user(ptr noundef %532, ptr noundef %539, ptr noundef %657)
   %.not451 = icmp eq i32 %658, 0
   %spec.select503 = select i1 %.not451, i32 %.0326.ph557, i32 1
   br label %663
@@ -3331,7 +3331,7 @@ declare ptr @sacctmgr_find_account_base_assoc_from_list(ptr noundef, ptr noundef
 declare ptr @sacctmgr_find_account_from_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_mod_acct.argprom(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_mod_acct(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4119,7 +4119,7 @@ thread-pre-split.thread.thread:                   ; preds = %._crit_edge, %228, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_mod_user.argprom(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_mod_user(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

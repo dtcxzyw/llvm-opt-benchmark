@@ -195,7 +195,7 @@ if.end50:                                         ; preds = %if.then47, %if.end4
   %call52 = tail call noalias ptr @calloc(i64 noundef %shl, i64 noundef 2) #13
   %freqs = getelementptr inbounds i8, ptr %ctx, i64 56
   %24 = load ptr, ptr %freqs, align 8
-  %call53 = call fastcc i64 @FASTCOVER_buildDictionary.argprom(ptr noundef nonnull %ctx, ptr noundef %24, ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters17.sroa.0.0.copyload, i32 %parameters17.sroa.4.0.copyload, ptr noundef %call52)
+  %call53 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %ctx, ptr noundef %24, ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters17.sroa.0.0.copyload, i32 %parameters17.sroa.4.0.copyload, ptr noundef %call52)
   %nbTrainSamples = getelementptr inbounds i8, ptr %ctx, i64 32
   %25 = load i64, ptr %nbTrainSamples, align 8
   %accelParams54 = getelementptr inbounds i8, ptr %ctx, i64 72
@@ -533,7 +533,7 @@ declare void @COVER_warnOnSmallCorpus(i64 noundef, i64 noundef, i32 noundef) loc
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @FASTCOVER_buildDictionary.argprom(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %freqs, ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val, ptr nocapture noundef %segmentFreqs) unnamed_addr #0 {
+define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %freqs, ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val, ptr nocapture noundef %segmentFreqs) unnamed_addr #0 {
 entry:
   %conv = trunc i64 %dictBufferCapacity to i32
   %nbDmers = getelementptr inbounds i8, ptr %ctx, i64 48
@@ -676,7 +676,7 @@ if.end46.i:                                       ; preds = %if.end43.i, %if.end
 
 for.cond.preheader.i:                             ; preds = %while.body57.i, %while.cond53.preheader.i
   %cmp73.not13.i = icmp eq i32 %retval.sroa.0.sroa.0.0.lcssa.i, %retval.sroa.0.sroa.4.0.lcssa.i
-  br i1 %cmp73.not13.i, label %FASTCOVER_selectSegment.argprom.exit, label %for.body.lr.ph.i
+  br i1 %cmp73.not13.i, label %FASTCOVER_selectSegment.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %sub.i.i.i55.i = sub i32 64, %4
@@ -710,18 +710,18 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i32 0, ptr %arrayidx79.i, align 4
   %inc.i = add i32 %pos.014.i, 1
   %cmp73.not.i = icmp eq i32 %inc.i, %retval.sroa.0.sroa.4.0.lcssa.i
-  br i1 %cmp73.not.i, label %FASTCOVER_selectSegment.argprom.exit, label %for.body.i, !llvm.loop !10
+  br i1 %cmp73.not.i, label %FASTCOVER_selectSegment.exit, label %for.body.i, !llvm.loop !10
 
-FASTCOVER_selectSegment.argprom.exit:             ; preds = %for.body.i, %for.cond.preheader.i
+FASTCOVER_selectSegment.exit:                     ; preds = %for.body.i, %for.cond.preheader.i
   %retval.sroa.0.sroa.0.0.insert.ext.i = zext i32 %retval.sroa.0.sroa.0.0.lcssa.i to i64
   br i1 %retval.sroa.6.0.lcssa.i, label %if.then14, label %if.end19
 
-if.then14:                                        ; preds = %FASTCOVER_selectSegment.argprom.exit
+if.then14:                                        ; preds = %FASTCOVER_selectSegment.exit
   %inc = add nuw nsw i64 %zeroScoreRun.03, 1
   %cmp15 = icmp ugt i64 %zeroScoreRun.03, 8
   br i1 %cmp15, label %for.end, label %for.inc
 
-if.end19:                                         ; preds = %FASTCOVER_selectSegment.argprom.exit
+if.end19:                                         ; preds = %FASTCOVER_selectSegment.exit
   %add20 = add i32 %sub, %retval.sroa.0.sroa.4.0.lcssa.i
   %sub21 = sub i32 %add20, %retval.sroa.0.sroa.0.0.lcssa.i
   %conv22 = zext i32 %sub21 to i64
@@ -1282,7 +1282,7 @@ if.end15:                                         ; preds = %entry
   %parameters.val = load i32, ptr %parameters, align 8
   %8 = getelementptr inbounds i8, ptr %parameters, i64 4
   %parameters.val30 = load i32, ptr %8, align 4
-  %call21 = call fastcc i64 @FASTCOVER_buildDictionary.argprom(ptr noundef nonnull %0, ptr noundef nonnull %call8, ptr noundef nonnull %call4, i64 noundef %1, i32 %parameters.val, i32 %parameters.val30, ptr noundef nonnull %call)
+  %call21 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %0, ptr noundef nonnull %call8, ptr noundef nonnull %call4, i64 noundef %1, i32 %parameters.val, i32 %parameters.val30, ptr noundef nonnull %call)
   %nbTrainSamples = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i64, ptr %nbTrainSamples, align 8
   %accelParams = getelementptr inbounds i8, ptr %0, i64 72

@@ -103,13 +103,13 @@ define dso_local void @_ZN4llvm8TableGen7Emitter3OptC2ENS_9StringRefENS_12functi
 9:                                                ; preds = %7
   %10 = load atomic i64, ptr @_ZL16CallbackFunction acquire, align 8
   %.not.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i, label %11, label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit
+  br i1 %.not.i.i, label %11, label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit
 
 11:                                               ; preds = %9
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL16CallbackFunction, ptr noundef nonnull @_ZN12_GLOBAL__N_111OptCreatorT4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEE4callEPv) #12
-  br label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit
+  br label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit
 
-_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit: ; preds = %9, %11
+_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit: ; preds = %9, %11
   %12 = load atomic i64, ptr @_ZL16CallbackFunction monotonic, align 8
   %.0.i2.i.i = inttoptr i64 %12 to ptr
   %13 = getelementptr inbounds i8, ptr %.0.i2.i.i, i64 128
@@ -124,16 +124,16 @@ _ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11
   store i64 %4, ptr %.sroa.4.0..sroa_idx10, align 8
   br label %16
 
-16:                                               ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit, %7
+16:                                               ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit, %7
   %17 = load atomic i64, ptr @_ZL16CallbackFunction acquire, align 8
   %.not.i.i5 = icmp eq i64 %17, 0
-  br i1 %.not.i.i5, label %18, label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit7
+  br i1 %.not.i.i5, label %18, label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit7
 
 18:                                               ; preds = %16
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL16CallbackFunction, ptr noundef nonnull @_ZN12_GLOBAL__N_111OptCreatorT4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEE4callEPv) #12
-  br label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit7
+  br label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit7
 
-_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit7: ; preds = %16, %18
+_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit7: ; preds = %16, %18
   %19 = load atomic i64, ptr @_ZL16CallbackFunction monotonic, align 8
   %.0.i2.i.i6 = inttoptr i64 %19 to ptr
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
@@ -184,13 +184,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local noundef zeroext i1 @_ZN4llvm8TableGen7Emitter13ApplyCallbackERNS_12RecordKeeperERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 {
   %3 = load atomic i64, ptr @_ZL16CallbackFunction acquire, align 8
   %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %4, label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit
+  br i1 %.not.i.i, label %4, label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit
 
 4:                                                ; preds = %2
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL16CallbackFunction, ptr noundef nonnull @_ZN12_GLOBAL__N_111OptCreatorT4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEE4callEPv) #12
-  br label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit
+  br label %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit
 
-_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit: ; preds = %2, %4
+_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit: ; preds = %2, %4
   %5 = load atomic i64, ptr @_ZL16CallbackFunction monotonic, align 8
   %.0.i2.i.i = inttoptr i64 %5 to ptr
   %6 = getelementptr inbounds i8, ptr %.0.i2.i.i, i64 128
@@ -198,13 +198,13 @@ _ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11
   %.not = icmp eq ptr %.sroa.0.0.copyload, null
   br i1 %.not, label %8, label %7
 
-7:                                                ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit
+7:                                                ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i2.i.i, i64 136
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   tail call void %.sroa.0.0.copyload(i64 noundef %.sroa.3.0.copyload, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #12
   br label %8
 
-8:                                                ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.argprom.exit, %7
+8:                                                ; preds = %_ZN4llvm13ManagedStaticINS_2cl3optINS_12function_refIFvRNS_12RecordKeeperERNS_11raw_ostreamEEEELb0ENS1_6parserIS9_EEEEN12_GLOBAL__N_111OptCreatorTENS_14object_deleterISC_EEEptEv.exit, %7
   ret i1 %.not
 }
 

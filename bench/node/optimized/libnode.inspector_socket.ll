@@ -980,7 +980,7 @@ if.then.i:                                        ; preds = %entry
   %5 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 104
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
-  br label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEERS3_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEERS3_DpOT_.exit
 
 if.else.i:                                        ; preds = %entry
   %this.val.i.i = load ptr, ptr %events_, align 8
@@ -988,13 +988,13 @@ if.else.i:                                        ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %this.val.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #20
   unreachable
 
-_ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %if.else.i
+_ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 104
   %cmp.i.i.i.i = icmp eq ptr %3, %this.val.i.i
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
@@ -1003,15 +1003,15 @@ _ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmP
   %6 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 88686269585142075)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 88686269585142075, i64 %6
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.argprom.exit.i.i, label %cond.true.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 104
   %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
-  br label %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.argprom.exit.i.i
+  br label %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i
-  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmPKc.argprom.exit.i.i ]
+_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i12.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
   %tobool.i.i.i.i = icmp ne i8 %upgrade.val, 0
   %frombool.i.i.i.i.i = zext i1 %tobool.i.i.i.i to i8
@@ -1024,11 +1024,11 @@ _ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_alloca
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ws_key9.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #19
   %host10.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %host10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #19
-  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit27.i.i, label %for.body.i.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27.i.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.argprom.exit.i.i, %for.body.i.i.i.i.i
-  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.argprom.exit.i.i ]
-  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val.i.i, %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.argprom.exit.i.i ]
+for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
+  %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i ]
+  %__first.addr.02.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %this.val.i.i, %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i) #19
@@ -1048,26 +1048,26 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i, i64 104
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i, i64 104
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit27.i.i, label %for.body.i.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27.i.i, label %for.body.i.i.i.i.i, !llvm.loop !12
 
-_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit27.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.argprom.exit.i.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.argprom.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
+_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 104
   %tobool.not.i.i.i = icmp eq ptr %this.val.i.i, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i, label %if.then.i28.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i28.i.i
 
-if.then.i28.i.i:                                  ; preds = %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit27.i.i
+if.then.i28.i.i:                                  ; preds = %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val.i.i) #22
-  br label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i
+  br label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i: ; preds = %if.then.i28.i.i, %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.argprom.exit27.i.i
+_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i28.i.i, %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27.i.i
   store ptr %cond.i12.i.i, ptr %events_, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   %add.ptr27.i.i = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %cond.i12.i.i, i64 %cond.i.i.i
   store ptr %add.ptr27.i.i, ptr %_M_end_of_storage.i, align 8
-  br label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEERS3_DpOT_.argprom.exit
+  br label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEERS3_DpOT_.exit
 
-_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEERS3_DpOT_.argprom.exit: ; preds = %if.then.i, %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.argprom.exit.i
+_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEERS3_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #19
@@ -1275,7 +1275,7 @@ if.end7:                                          ; preds = %if.then6, %_ZNSt6ve
   %6 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   %cmp.i.not21 = icmp eq ptr %5, %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %events_, i8 0, i64 24, i1 false)
-  br i1 %cmp.i.not21, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exit.i, label %for.body.lr.ph
+  br i1 %cmp.i.not21, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end7
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ipv6.i.i, i64 16
@@ -1421,7 +1421,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %lo
   %14 = load ptr, ptr %vfn.i.i.i5.i.i, align 8
   %call.i.i.i6.i.i = call noundef signext i8 %14(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3.i.i, i8 noundef signext %13) #19
   %cmp.i5.i = icmp eq i8 %call.i.i.i.i.i, %call.i.i.i6.i.i
-  br i1 %cmp.i5.i, label %while.body.i.i, label %_ZNK4node9inspector12_GLOBAL__N_111HttpHandler13IsAllowedHostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
+  br i1 %cmp.i5.i, label %while.body.i.i, label %_ZNK4node9inspector12_GLOBAL__N_111HttpHandler13IsAllowedHostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %b.addr.0.i.i, i64 1
@@ -1430,7 +1430,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %cmp5.i.i = icmp eq i8 %15, 0
   br i1 %cmp5.i.i, label %lor.lhs.false, label %while.cond.i.i, !llvm.loop !16
 
-_ZNK4node9inspector12_GLOBAL__N_111HttpHandler13IsAllowedHostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit: ; preds = %while.cond.i.i
+_ZNK4node9inspector12_GLOBAL__N_111HttpHandler13IsAllowedHostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %while.cond.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %host.i)
   br label %cleanup.sink.split
@@ -1478,7 +1478,7 @@ for.inc:                                          ; preds = %if.else28, %if.then
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i.not, label %for.body.i.i.i.i.preheader, label %for.body
 
-cleanup.sink.split:                               ; preds = %if.else23, %lor.lhs.false, %_ZNK4node9inspector12_GLOBAL__N_111HttpHandler13IsAllowedHostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom.exit
+cleanup.sink.split:                               ; preds = %if.else23, %lor.lhs.false, %_ZNK4node9inspector12_GLOBAL__N_111HttpHandler13IsAllowedHostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %vtable26 = load ptr, ptr %this, align 8
   %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 32
   %24 = load ptr, ptr %vfn27, align 8
@@ -1497,17 +1497,17 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #19
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 104
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %6
-  br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exit.i, label %for.body.i.i.i.i, !llvm.loop !17
+  br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i, label %for.body.i.i.i.i, !llvm.loop !17
 
-_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exit.i: ; preds = %for.body.i.i.i.i, %if.end7
+_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %for.body.i.i.i.i, %if.end7
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exit.i
+if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i
   call void @_ZdlPv(ptr noundef nonnull %5) #22
   br label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exit.i, %if.then.i.i.i
+_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i, %if.then.i.i.i
   ret void
 }
 
@@ -1602,7 +1602,7 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 320
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %1, %2
-  br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exit.i, label %for.body.i.i.i.i
+  br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %entry ]
@@ -1613,22 +1613,22 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #19
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 104
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
-  br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !17
+  br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !17
 
-_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exitthread-pre-split.i: ; preds = %for.body.i.i.i.i
+_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %for.body.i.i.i.i
   %this.val.pr.i = load ptr, ptr %events_, align 8
-  br label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exit.i
+  br label %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exit.i: ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exitthread-pre-split.i, %entry
-  %this.val.i = phi ptr [ %this.val.pr.i, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exitthread-pre-split.i ], [ %1, %entry ]
+_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %entry
+  %this.val.i = phi ptr [ %this.val.pr.i, %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %1, %entry ]
   %tobool.not.i.i.i = icmp eq ptr %this.val.i, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exit.i
+if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %this.val.i) #22
   br label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.argprom.exit.i, %if.then.i.i.i
+_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4node9inspector12_GLOBAL__N_19HttpEventES3_EvT_S5_RSaIT0_E.exit.i, %if.then.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector15ProtocolHandlerE, i64 16), ptr %this, align 8
   %tcp_.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %tcp_.i, align 8
@@ -3483,10 +3483,10 @@ attributes #23 = { nounwind willreturn memory(read) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aIN4node9inspector12_GLOBAL__N_19HttpEventES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__dest"}
-!9 = distinct !{!9, !"_ZSt19__relocate_object_aIN4node9inspector12_GLOBAL__N_19HttpEventES3_SaIS3_EEvPT_PT0_RT1_.argprom"}
+!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aIN4node9inspector12_GLOBAL__N_19HttpEventES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
+!9 = distinct !{!9, !"_ZSt19__relocate_object_aIN4node9inspector12_GLOBAL__N_19HttpEventES3_SaIS3_EEvPT_PT0_RT1_"}
 !10 = !{!11}
-!11 = distinct !{!11, !9, !"_ZSt19__relocate_object_aIN4node9inspector12_GLOBAL__N_19HttpEventES3_SaIS3_EEvPT_PT0_RT1_.argprom: %__orig"}
+!11 = distinct !{!11, !9, !"_ZSt19__relocate_object_aIN4node9inspector12_GLOBAL__N_19HttpEventES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
 !12 = distinct !{!12, !6}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZN4node9inspector12_GLOBAL__N_18TrimPortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: %agg.result"}

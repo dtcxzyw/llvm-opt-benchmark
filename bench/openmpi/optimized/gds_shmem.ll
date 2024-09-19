@@ -6832,7 +6832,7 @@ pmix_obj_run_constructors.exit.i.i:               ; preds = %.lr.ph.i.i.i, %32
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
   %.not6.i2.i.i = icmp eq ptr %47, null
-  br i1 %.not6.i2.i.i, label %get_modex_sizing_data.argprom.exit, label %.lr.ph.i3.i.i
+  br i1 %.not6.i2.i.i, label %get_modex_sizing_data.exit, label %.lr.ph.i3.i.i
 
 .lr.ph.i3.i.i:                                    ; preds = %pmix_obj_run_constructors.exit.i.i, %.lr.ph.i3.i.i
   %48 = phi ptr [ %50, %.lr.ph.i3.i.i ], [ %47, %pmix_obj_run_constructors.exit.i.i ]
@@ -6841,9 +6841,9 @@ pmix_obj_run_constructors.exit.i.i:               ; preds = %.lr.ph.i.i.i, %32
   %49 = getelementptr inbounds i8, ptr %.07.i4.i.i, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not.i5.i.i = icmp eq ptr %50, null
-  br i1 %.not.i5.i.i, label %get_modex_sizing_data.argprom.exit, label %.lr.ph.i3.i.i, !llvm.loop !7
+  br i1 %.not.i5.i.i, label %get_modex_sizing_data.exit, label %.lr.ph.i3.i.i, !llvm.loop !7
 
-get_modex_sizing_data.argprom.exit:               ; preds = %.lr.ph.i3.i.i, %pmix_obj_run_constructors.exit.i.i
+get_modex_sizing_data.exit:                       ; preds = %.lr.ph.i3.i.i, %pmix_obj_run_constructors.exit.i.i
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %6)
   %51 = add i64 %24, 184
   %52 = call i64 @pmix_hash_table_sizeof_hash_element() #20
@@ -6863,12 +6863,12 @@ get_modex_sizing_data.argprom.exit:               ; preds = %.lr.ph.i3.i.i, %pmi
     i32 -2, label %230
   ]
 
-64:                                               ; preds = %get_modex_sizing_data.argprom.exit
+64:                                               ; preds = %get_modex_sizing_data.exit
   %65 = call ptr @PMIx_Error_string(i32 noundef %63) #20
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %65, ptr noundef nonnull @.str.11, i32 noundef 2072) #20
   br label %230
 
-66:                                               ; preds = %get_modex_sizing_data.argprom.exit
+66:                                               ; preds = %get_modex_sizing_data.exit
   %67 = load ptr, ptr %7, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 208
   %69 = load ptr, ptr %68, align 8
@@ -7226,8 +7226,8 @@ pmix_obj_run_destructors.exit77:                  ; preds = %.lr.ph.i74, %.loope
   call void @pmix_gds_shmem_set_status(ptr noundef %229, i32 noundef 2, i32 noundef 4) #20
   br label %230
 
-230:                                              ; preds = %221, %pmix_obj_run_destructors.exit77, %228, %223, %154, %64, %get_modex_sizing_data.argprom.exit, %18, %16
-  %.0 = phi i32 [ %17, %16 ], [ %17, %18 ], [ %63, %get_modex_sizing_data.argprom.exit ], [ %63, %64 ], [ -32, %154 ], [ %.1, %221 ], [ %.1, %pmix_obj_run_destructors.exit77 ], [ 0, %228 ], [ 0, %223 ]
+230:                                              ; preds = %221, %pmix_obj_run_destructors.exit77, %228, %223, %154, %64, %get_modex_sizing_data.exit, %18, %16
+  %.0 = phi i32 [ %17, %16 ], [ %17, %18 ], [ %63, %get_modex_sizing_data.exit ], [ %63, %64 ], [ -32, %154 ], [ %.1, %221 ], [ %.1, %pmix_obj_run_destructors.exit77 ], [ 0, %228 ], [ 0, %223 ]
   ret i32 %.0
 }
 

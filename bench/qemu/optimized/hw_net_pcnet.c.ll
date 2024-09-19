@@ -163,22 +163,22 @@ padr_match.exit:                                  ; preds = %lor.lhs.false26
 
 lor.lhs.false30:                                  ; preds = %padr_match.exit.thread, %padr_match.exit
   %tobool.not.i176 = icmp ult i16 %0, 16384
-  br i1 %tobool.not.i176, label %padr_bcast.argprom.exit, label %lor.lhs.false34
+  br i1 %tobool.not.i176, label %padr_bcast.exit, label %lor.lhs.false34
 
-padr_bcast.argprom.exit:                          ; preds = %lor.lhs.false30
+padr_bcast.exit:                                  ; preds = %lor.lhs.false30
   %bcmp.i179 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @padr_bcast.BCAST, i64 6)
   %tobool1.not.i.not = icmp eq i32 %bcmp.i179, 0
   br i1 %tobool1.not.i.not, label %if.then38, label %lor.lhs.false34
 
-lor.lhs.false34:                                  ; preds = %lor.lhs.false30, %padr_bcast.argprom.exit
-  %call36 = tail call fastcc i32 @ladr_match.argelim(ptr noundef nonnull %call, ptr noundef %buf)
+lor.lhs.false34:                                  ; preds = %lor.lhs.false30, %padr_bcast.exit
+  %call36 = tail call fastcc i32 @ladr_match(ptr noundef nonnull %call, ptr noundef %buf)
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.end622, label %if.then38
 
-if.then38:                                        ; preds = %lor.lhs.false34, %padr_bcast.argprom.exit, %padr_match.exit, %if.end
-  %is_ladr.0 = phi i1 [ false, %if.end ], [ false, %padr_match.exit ], [ false, %padr_bcast.argprom.exit ], [ true, %lor.lhs.false34 ]
-  %is_bcast.0 = phi i1 [ false, %if.end ], [ false, %padr_match.exit ], [ true, %padr_bcast.argprom.exit ], [ false, %lor.lhs.false34 ]
-  %is_padr.0 = phi i1 [ false, %if.end ], [ true, %padr_match.exit ], [ false, %padr_bcast.argprom.exit ], [ false, %lor.lhs.false34 ]
+if.then38:                                        ; preds = %lor.lhs.false34, %padr_bcast.exit, %padr_match.exit, %if.end
+  %is_ladr.0 = phi i1 [ false, %if.end ], [ false, %padr_match.exit ], [ false, %padr_bcast.exit ], [ true, %lor.lhs.false34 ]
+  %is_bcast.0 = phi i1 [ false, %if.end ], [ false, %padr_match.exit ], [ true, %padr_bcast.exit ], [ false, %lor.lhs.false34 ]
+  %is_padr.0 = phi i1 [ false, %if.end ], [ true, %padr_match.exit ], [ false, %padr_bcast.exit ], [ false, %lor.lhs.false34 ]
   tail call fastcc void @pcnet_rdte_poll(ptr noundef nonnull %call)
   %arrayidx40 = getelementptr i8, ptr %call, i64 8350
   %13 = load i16, ptr %arrayidx40, align 2
@@ -1015,7 +1015,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @qemu_get_nic_opaque(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @ladr_match.argelim(ptr nocapture noundef readonly %s, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ladr_match(ptr nocapture noundef readonly %s, ptr noundef %buf) unnamed_addr #0 {
 entry:
   %ladr = alloca [8 x i8], align 1
   %0 = load i8, ptr %buf, align 2

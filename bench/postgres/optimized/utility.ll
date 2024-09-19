@@ -912,7 +912,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   br i1 %244, label %245, label %246
 
 245:                                              ; preds = %241
-  tail call fastcc void @ProcessUtilitySlow.argprom(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
 246:                                              ; preds = %241
@@ -926,7 +926,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   br i1 %250, label %251, label %252
 
 251:                                              ; preds = %247
-  tail call fastcc void @ProcessUtilitySlow.argprom(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
 252:                                              ; preds = %247
@@ -940,7 +940,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   br i1 %256, label %257, label %258
 
 257:                                              ; preds = %253
-  tail call fastcc void @ProcessUtilitySlow.argprom(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
 258:                                              ; preds = %253
@@ -954,7 +954,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   br i1 %263, label %264, label %265
 
 264:                                              ; preds = %260
-  tail call fastcc void @ProcessUtilitySlow.argprom(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
 265:                                              ; preds = %260
@@ -968,7 +968,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   br i1 %270, label %271, label %272
 
 271:                                              ; preds = %267
-  tail call fastcc void @ProcessUtilitySlow.argprom(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
 272:                                              ; preds = %267
@@ -982,7 +982,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   br i1 %277, label %278, label %279
 
 278:                                              ; preds = %274
-  tail call fastcc void @ProcessUtilitySlow.argprom(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
 279:                                              ; preds = %274
@@ -996,7 +996,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   br i1 %284, label %285, label %286
 
 285:                                              ; preds = %281
-  tail call fastcc void @ProcessUtilitySlow.argprom(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
 286:                                              ; preds = %281
@@ -1010,7 +1010,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   br i1 %291, label %292, label %293
 
 292:                                              ; preds = %288
-  tail call fastcc void @ProcessUtilitySlow.argprom(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
 293:                                              ; preds = %288
@@ -1018,7 +1018,7 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   br label %.thread
 
 295:                                              ; preds = %PreventCommandDuringRecovery.exit
-  tail call fastcc void @ProcessUtilitySlow.argprom(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
 .thread:                                          ; preds = %102, %.lr.ph, %79, %292, %293, %285, %286, %278, %279, %271, %272, %264, %265, %257, %258, %251, %252, %245, %246, %199, %200, %152, %157, %76, %121, %124, %127, %131, %134, %137, %112, %106, %119, %114, %295, %238, %229, %228, %227, %226, %224, %222, %220, %218, %216, %215, %212, %211, %210, %209, %208, %207, %206, %201, %193, %182, %181, %179, %177, %175, %173, %172, %171, %170, %CheckRestrictedOperation.exit, %151, %149, %148, %146, %145, %144, %141, %140
@@ -1904,7 +1904,7 @@ declare void @RequestCheckpoint(i32 noundef) local_unnamed_addr #2
 declare zeroext i1 @EventTriggerSupportsObjectType(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ProcessUtilitySlow.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.ObjectAddress, align 8
   %9 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %10 = alloca %struct.AlterTableUtilityContext, align 8

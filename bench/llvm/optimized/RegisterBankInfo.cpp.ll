@@ -484,22 +484,22 @@ define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16Reg
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 68
   %.val = load i16, ptr %5, align 4
-  switch i16 %.val, label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit [
-    i16 19, label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 65, label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 0, label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit.thread
-    i16 18, label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit.thread
+  switch i16 %.val, label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit [
+    i16 19, label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit.thread
+    i16 65, label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit.thread
+    i16 0, label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit.thread
+    i16 18, label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit.thread
   ]
 
-_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit: ; preds = %2
+_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit:      ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i24, ptr %6, align 8
   %8 = zext i24 %7 to i32
-  br label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit.thread
+  br label %_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit.thread
 
-_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit.thread: ; preds = %2, %2, %2, %2, %_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit
-  %9 = phi i1 [ false, %_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
-  %10 = phi i32 [ %8, %_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
+_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit.thread: ; preds = %2, %2, %2, %2, %_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit
+  %9 = phi i1 [ false, %_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
+  %10 = phi i32 [ %8, %_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
   %11 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #14
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -523,7 +523,7 @@ _ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit.thread: ; preds = %2, %2, %2
   %.not141 = icmp eq i24 %27, 0
   br i1 %.not141, label %.loopexit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit.thread
+.lr.ph:                                           ; preds = %_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit.thread
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 456
@@ -912,7 +912,7 @@ _ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoE
   %250 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK4llvm16RegisterBankInfo25getInstructionMappingImplEbjjPKNS0_12ValueMappingEj(ptr noundef nonnull align 8 dereferenceable(160) %0, i1 zeroext poison, i32 noundef -2, i32 noundef 0, ptr noundef null, i32 noundef 0)
   br label %256
 
-.loopexit.thread:                                 ; preds = %_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE.exit107.thread, %_ZL10isCopyLikeRKN4llvm12MachineInstrE.argprom.exit.thread, %175, %.loopexit
+.loopexit.thread:                                 ; preds = %_ZNK4llvm16RegisterBankInfo10getRegBankENS_8RegisterERKNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoE.exit107.thread, %_ZL10isCopyLikeRKN4llvm12MachineInstrE.exit.thread, %175, %.loopexit
   %251 = load ptr, ptr %3, align 8
   %252 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   %253 = getelementptr inbounds ptr, ptr %251, i64 %252

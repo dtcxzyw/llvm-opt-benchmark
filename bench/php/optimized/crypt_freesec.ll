@@ -464,7 +464,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   br i1 %exitcond.not, label %19, label %16
 
 19:                                               ; preds = %16
-  call fastcc void @des_setkey.retelim(ptr noundef %8, ptr noundef nonnull %2)
+  call fastcc void @des_setkey(ptr noundef %8, ptr noundef nonnull %2)
   %20 = load i8, ptr %1, align 1
   switch i8 %20, label %122 [
     i8 95, label %.preheader112
@@ -597,7 +597,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   %94 = zext i8 %93 to i32
   %95 = shl nuw i32 %94, 24
   %96 = or disjoint i32 %92, %95
-  call fastcc void @do_des.retelim(i32 noundef %82, i32 noundef %96, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2)
+  call fastcc void @do_des(i32 noundef %82, i32 noundef %96, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2)
   %97 = load i32, ptr %4, align 4
   %98 = lshr i32 %97, 24
   %99 = trunc nuw i32 %98 to i8
@@ -646,7 +646,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
 
 .critedge:                                        ; preds = %.lr.ph, %114
   %.3.lcssa.ph = phi ptr [ %.3123, %.lr.ph ], [ %115, %114 ]
-  call fastcc void @des_setkey.retelim(ptr noundef %8, ptr noundef nonnull %2)
+  call fastcc void @des_setkey(ptr noundef %8, ptr noundef nonnull %2)
   %119 = load i8, ptr %.3.lcssa.ph, align 1
   %.not92 = icmp eq i8 %119, 0
   br i1 %.not92, label %._crit_edge, label %65
@@ -726,7 +726,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   br label %setup_salt.exit
 
 setup_salt.exit:                                  ; preds = %140, %151
-  call fastcc void @do_des.retelim(i32 noundef 0, i32 noundef 0, ptr noundef %6, ptr noundef %7, i32 noundef %.187, ptr noundef nonnull %2)
+  call fastcc void @do_des(i32 noundef 0, i32 noundef 0, ptr noundef %6, ptr noundef %7, i32 noundef %.187, ptr noundef nonnull %2)
   %153 = load i32, ptr %6, align 4
   %154 = lshr i32 %153, 8
   %155 = lshr i32 %153, 26
@@ -815,7 +815,7 @@ ascii_is_unsafe.exit.thread:                      ; preds = %.preheader112, %.pr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @des_setkey.retelim(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @des_setkey(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 3
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -1043,7 +1043,7 @@ define internal fastcc void @des_setkey.retelim(ptr nocapture noundef nonnull re
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @do_des.retelim(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef readonly %5) unnamed_addr #1 {
+define internal fastcc void @do_des(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef readonly %5) unnamed_addr #1 {
   %7 = icmp sgt i32 %4, 0
   %.082.v = select i1 %7, i64 12, i64 140
   %.082 = getelementptr inbounds i8, ptr %5, i64 %.082.v

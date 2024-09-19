@@ -2406,7 +2406,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt7__cxx1112basi
           to label %74 unwind label %84
 
 74:                                               ; preds = %73
-  %75 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm.argelim(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %75 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %76 unwind label %86
 
 76:                                               ; preds = %74
@@ -2466,7 +2466,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
           to label %89 unwind label %84
 
 89:                                               ; preds = %88
-  %90 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm.argelim(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %90 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %91 unwind label %96
 
 91:                                               ; preds = %89
@@ -2503,7 +2503,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
           to label %100 unwind label %84
 
 100:                                              ; preds = %99
-  %101 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm.argelim(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %101 = invoke fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %102 unwind label %107
 
 102:                                              ; preds = %100
@@ -2528,7 +2528,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   br label %116
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit49.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit39.thread
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef nonnull %1, ptr noundef nonnull @.str.5)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef nonnull %1, ptr noundef nonnull @.str.5)
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i31
@@ -2581,7 +2581,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
   br i1 %or.cond71, label %124, label %123
 
 123:                                              ; preds = %._crit_edge
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef nonnull %1, ptr noundef nonnull @.str.6)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef nonnull %1, ptr noundef nonnull @.str.6)
   unreachable
 
 124:                                              ; preds = %._crit_edge
@@ -2589,7 +2589,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %124
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef nonnull %1, ptr noundef nonnull @.str.7)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef nonnull %1, ptr noundef nonnull @.str.7)
   unreachable
 
 127:                                              ; preds = %124
@@ -2597,7 +2597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
   br i1 %128, label %129, label %130
 
 129:                                              ; preds = %127
-  call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef nonnull %1, ptr noundef nonnull @.str.8)
+  call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef nonnull %1, ptr noundef nonnull @.str.8)
   unreachable
 
 130:                                              ; preds = %127
@@ -135046,7 +135046,7 @@ define void @_ZN11processor_tD0Ev(ptr noundef nonnull align 8 dereferenceable(65
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm.argelim(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcRm(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i64, ptr %1, align 8
@@ -135079,7 +135079,7 @@ define internal fastcc noundef i32 @_ZL13get_int_tokenNSt7__cxx1112basic_stringI
   br i1 %isdigit, label %20, label %19
 
 19:                                               ; preds = %.lr.ph4
-  tail call fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef nonnull %16, ptr noundef nonnull @.str.38)
+  tail call fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef nonnull %16, ptr noundef nonnull @.str.38)
   unreachable
 
 20:                                               ; preds = %.lr.ph4
@@ -204794,14 +204794,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store i64 %.sroa.24.0.copyload.i.i.i, ptr %55, align 8
   %56 = icmp eq i64 %.0.i.i.i, 0
   %57 = add nsw i64 %.0.i.i.i, -1
-  br i1 %56, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_RT0_.argprom.exit.i.i", label %25, !llvm.loop !535
+  br i1 %56, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_RT0_.exit.i.i", label %25, !llvm.loop !535
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_RT0_.argprom.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
   %58 = icmp sgt i64 %.lcssa49, 16
   br i1 %58, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.argprom.exit"
-  %.sroa.0.03.i.i = phi ptr [ %59, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.argprom.exit" ], [ %storemerge30.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_RT0_.argprom.exit.i.i" ]
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.exit"
+  %.sroa.0.03.i.i = phi ptr [ %59, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.exit" ], [ %storemerge30.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_RT0_.exit.i.i" ]
   %59 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
   %.sroa.03.0.copyload.i = load i64, ptr %59, align 8
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
@@ -204868,7 +204868,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 96:                                               ; preds = %87, %83, %._crit_edge.i.i
   %.1.i.i = phi i64 [ %89, %87 ], [ %.0.lcssa.i.i, %83 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
   %97 = icmp sgt i64 %.1.i.i, 0
-  br i1 %97, label %.lr.ph.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.argprom.exit"
+  br i1 %97, label %.lr.ph.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %96, %101
   %.011.i.i.i = phi i64 [ %.0912.i.i56.i, %101 ], [ %.1.i.i, %96 ]
@@ -204878,7 +204878,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %99 = getelementptr i8, ptr %98, i64 8
   %.val.i.i.i.i = load i64, ptr %99, align 8
   %100 = icmp ult i64 %.val.i.i.i.i, %.sroa.24.0.copyload.i
-  br i1 %100, label %101, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.argprom.exit"
+  br i1 %100, label %101, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.exit"
 
 101:                                              ; preds = %.lr.ph.i.i.i
   %102 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.011.i.i.i
@@ -204887,9 +204887,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %104 = getelementptr inbounds i8, ptr %102, i64 8
   store i64 %.val.i.i.i.i, ptr %104, align 8
   %.not.i = icmp ult i64 %.0912.in.i.i.i, 2
-  br i1 %.not.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.argprom.exit", label %.lr.ph.i.i.i, !llvm.loop !534
+  br i1 %.not.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.exit", label %.lr.ph.i.i.i, !llvm.loop !534
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.argprom.exit": ; preds = %.lr.ph.i.i.i, %101, %96
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.exit": ; preds = %.lr.ph.i.i.i, %101, %96
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %96 ], [ %.011.i.i.i, %.lr.ph.i.i.i ], [ 0, %101 ]
   %105 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i
   store i64 %.sroa.03.0.copyload.i, ptr %105, align 8
@@ -205026,7 +205026,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %157 = icmp sgt i64 %156, 16
   br i1 %157, label %12, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !532
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.argprom.exit", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_RT0_.argprom.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_SE_RT0_.exit", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_tD1EvE3$_0EEEvT_SE_RT0_.exit.i.i"
   ret void
 }
 
@@ -205278,7 +205278,7 @@ declare ptr @__errno_location() local_unnamed_addr #28
 declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define internal fastcc void @_ZL17bad_option_stringPKcS0_S0_.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #29 {
+define internal fastcc void @_ZL17bad_option_stringPKcS0_S0_(ptr noundef %0, ptr noundef %1) unnamed_addr #29 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef %1) #42
   tail call void @abort() #39
@@ -205978,8 +205978,8 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_Sa
   %60 = add nsw i64 %.0.i.i.i, -1
   br i1 %59, label %.lr.ph.i9.i, label %31, !llvm.loop !547
 
-.lr.ph.i9.i:                                      ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_T0_SE_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.argprom.exit
-  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.argprom.exit ], [ %storemerge28, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_T0_SE_T1_T2_.exit.i.i.i ]
+.lr.ph.i9.i:                                      ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_T0_SE_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.exit
+  %.sroa.0.03.i.i = phi ptr [ %61, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.exit ], [ %storemerge28, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_T0_SE_T1_T2_.exit.i.i.i ]
   %61 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -80
   %.sroa.07.0.copyload.i = load i64, ptr %61, align 8
   %.sroa.28.0..sroa.0.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -72
@@ -206043,7 +206043,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_Sa
 92:                                               ; preds = %87, %83, %._crit_edge.i.i
   %.1.i.i = phi i64 [ %89, %87 ], [ %.0.lcssa.i.i, %83 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
   %93 = icmp sgt i64 %.1.i.i, 0
-  br i1 %93, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.argprom.exit
+  br i1 %93, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %92, %99
   %.010.i.i.i = phi i64 [ %.0911.i.i1011.i, %99 ], [ %.1.i.i, %92 ]
@@ -206057,15 +206057,15 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_Sa
   %97 = icmp ugt i64 %.val2.i.i.i.i, %.sroa.28.0.copyload.i
   %98 = icmp ugt i64 %.val.i.i.i.i, %.sroa.07.0.copyload.i
   %.0.i.i.i.i.i = select i1 %96, i1 %97, i1 %98
-  br i1 %.0.i.i.i.i.i, label %99, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.argprom.exit
+  br i1 %.0.i.i.i.i.i, label %99, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.exit
 
 99:                                               ; preds = %.lr.ph.i.i.i
   %100 = getelementptr inbounds %struct.insn_desc_t, ptr %0, i64 %.010.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %100, ptr noundef nonnull align 8 dereferenceable(80) %94, i64 80, i1 false)
   %.not.i = icmp ult i64 %.0911.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.argprom.exit, label %.lr.ph.i.i.i, !llvm.loop !546
+  br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !546
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.argprom.exit: ; preds = %.lr.ph.i.i.i, %99, %92
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.exit: ; preds = %.lr.ph.i.i.i, %99, %92
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %92 ], [ %.010.i.i.i, %.lr.ph.i.i.i ], [ 0, %99 ]
   %101 = getelementptr inbounds %struct.insn_desc_t, ptr %0, i64 %.0.lcssa.i.i.i
   store i64 %.sroa.07.0.copyload.i, ptr %101, align 8
@@ -206225,7 +206225,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tS
   %149 = icmp sgt i64 %148, 1280
   br i1 %149, label %18, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_T0_.exit, !llvm.loop !552
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEET_SD_SD_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.argprom.exit, %3
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEET_SD_SD_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN11processor_t16build_opcode_mapEvE3cmpEEEvT_SD_SD_RT0_.exit, %3
   ret void
 }
 

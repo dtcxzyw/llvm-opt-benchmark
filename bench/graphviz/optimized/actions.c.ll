@@ -3697,7 +3697,7 @@ define ptr @readLine(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 8:                                                ; preds = %4, %2
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.29, i64 noundef %1) #24
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 9:                                                ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -3867,14 +3867,14 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %76 = call ptr @exstring(ptr noundef %0, ptr noundef %75) #24
   %.val16 = load i8, ptr %57, align 1
   %77 = icmp eq i8 %.val16, -1
-  br i1 %77, label %78, label %agxbfree.argprom.exit
+  br i1 %77, label %78, label %agxbfree.exit
 
 78:                                               ; preds = %agxbuse.exit
   %.val = load ptr, ptr %3, align 8
   call void @free(ptr noundef %.val) #24
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %78, %agxbuse.exit, %8
+agxbfree.exit:                                    ; preds = %78, %agxbuse.exit, %8
   %.0 = phi ptr [ @.str.30, %8 ], [ %76, %agxbuse.exit ], [ %76, %78 ]
   ret ptr %.0
 }
@@ -4048,15 +4048,15 @@ define ptr @colorx(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonl
   %13 = alloca %struct.agxbuf, align 8
   %14 = load i8, ptr %2, align 1
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %agxbfree.argprom.exit, label %16
+  br i1 %15, label %agxbfree.exit, label %16
 
 16:                                               ; preds = %3
   %17 = load i8, ptr %1, align 1
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %agxbfree.argprom.exit, label %19
+  br i1 %18, label %agxbfree.exit, label %19
 
 19:                                               ; preds = %16
-  switch i8 %14, label %agxbfree.argprom.exit [
+  switch i8 %14, label %agxbfree.exit [
     i8 82, label %.sink.split
     i8 72, label %20
     i8 67, label %22
@@ -4250,7 +4250,7 @@ default.unreachable:                              ; preds = %398, %thread-pre-sp
   %117 = add nsw i32 %116, -48
   %118 = icmp ult i32 %117, 10
   %or.cond.i = select i1 %115, i1 true, i1 %118
-  br i1 %or.cond.i, label %119, label %agxbfree.argprom.exit133.i
+  br i1 %or.cond.i, label %119, label %agxbfree.exit133.i
 
 119:                                              ; preds = %.thread187.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
@@ -4377,7 +4377,7 @@ agxbuse.exit.i.thread:                            ; preds = %agxbputc.exit.i.i
   store i8 0, ptr %144, align 1
   %159 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.50, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
   %160 = icmp sgt i32 %159, 2
-  br i1 %160, label %161, label %agxbfree.argprom.exit133.i
+  br i1 %160, label %161, label %agxbfree.exit133.i
 
 161:                                              ; preds = %agxbuse.exit.i.thread, %agxbuse.exit.i
   %.val.i4.pr.i211.i247 = phi i1 [ false, %agxbuse.exit.i.thread ], [ true, %agxbuse.exit.i ]
@@ -4644,14 +4644,14 @@ hsv2rgb.exit132.i:                                ; preds = %277, %276, %275, %2
 
 293:                                              ; preds = %agxbuse.exit.i
   call void @free(ptr noundef %.val.i) #24
-  br label %agxbfree.argprom.exit133.i
+  br label %agxbfree.exit133.i
 
-agxbfree.argprom.exit133.i:                       ; preds = %agxbuse.exit.i.thread, %293, %.thread187.i
+agxbfree.exit133.i:                               ; preds = %agxbuse.exit.i.thread, %293, %.thread187.i
   %294 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0112.i, ptr noundef nonnull dereferenceable(6) @.str.51) #25
   %.not.i134.i = icmp eq i32 %294, 0
   br i1 %.not.i134.i, label %resolveColor.exit.i, label %295
 
-295:                                              ; preds = %agxbfree.argprom.exit133.i
+295:                                              ; preds = %agxbfree.exit133.i
   %296 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0112.i, ptr noundef nonnull dereferenceable(6) @.str.52) #25
   %.not25.i.i = icmp eq i32 %296, 0
   br i1 %.not25.i.i, label %resolveColor.exit.i, label %297
@@ -4712,7 +4712,7 @@ agxbfree.argprom.exit133.i:                       ; preds = %agxbuse.exit.i.thre
 322:                                              ; preds = %319
   %323 = load ptr, ptr @stderr, align 8
   %324 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %323, ptr noundef nonnull @.str.46, i64 noundef %316) #27
-  call fastcc void @graphviz_exit.argelim() #30
+  call fastcc void @graphviz_exit() #30
   unreachable
 
 325:                                              ; preds = %319
@@ -4735,7 +4735,7 @@ gv_recalloc.exit.i.i.i:                           ; preds = %327, %325, %318
   %331 = phi ptr [ %.0.i.i.i.i.i, %gv_recalloc.exit.i.i.i ], [ %.pre.i.i.i, %312 ]
   %332 = load i8, ptr %.021.i.i, align 1
   %.not1617.i.i.i = icmp eq i8 %332, 0
-  br i1 %.not1617.i.i.i, label %agxbfree.argprom.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %.not1617.i.i.i, label %agxbfree.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %330, %341
   %333 = phi i8 [ %343, %341 ], [ %332, %330 ]
@@ -4758,15 +4758,15 @@ gv_recalloc.exit.i.i.i:                           ; preds = %327, %325, %318
   store i8 %.0.i.i.i, ptr %.01218.i.i.i, align 1
   %343 = load i8, ptr %334, align 1
   %.not16.i.i.i = icmp eq i8 %343, 0
-  br i1 %.not16.i.i.i, label %agxbfree.argprom.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %.not16.i.i.i, label %agxbfree.exit.i.i, label %.lr.ph.i.i.i
 
-agxbfree.argprom.exit.i.i:                        ; preds = %341, %330
+agxbfree.exit.i.i:                                ; preds = %341, %330
   %.012.lcssa.i.i.i = phi ptr [ %331, %330 ], [ %342, %341 ]
   store i8 0, ptr %.012.lcssa.i.i.i, align 1
   br label %resolveColor.exit.i
 
-resolveColor.exit.i:                              ; preds = %agxbfree.argprom.exit.i.i, %297, %295, %agxbfree.argprom.exit133.i
-  %.0.i136.i = phi ptr [ %331, %agxbfree.argprom.exit.i.i ], [ %.0112.i, %agxbfree.argprom.exit133.i ], [ %.0112.i, %295 ], [ %.0112.i, %297 ]
+resolveColor.exit.i:                              ; preds = %agxbfree.exit.i.i, %297, %295, %agxbfree.exit133.i
+  %.0.i136.i = phi ptr [ %331, %agxbfree.exit.i.i ], [ %.0112.i, %agxbfree.exit133.i ], [ %.0112.i, %295 ], [ %.0112.i, %297 ]
   %.not118.i = icmp eq ptr %.0.i136.i, null
   br i1 %.not118.i, label %colorxlate.exit, label %344
 
@@ -4841,7 +4841,7 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
 .thread260:                                       ; preds = %rgb2hsv.exit.i, %352
   %.sroa.51.1.ph.ph = phi double [ %.0.i.i, %rgb2hsv.exit.i ], [ %360, %352 ]
@@ -4956,11 +4956,11 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   %.sroa.67.1.ph267 = phi double [ %.sroa.67.1.ph.ph, %.thread260 ], [ %.sroa.67.0, %398 ]
   %.sroa.63.1.ph266 = phi double [ %.sroa.63.1.ph.ph, %.thread260 ], [ %.sroa.63.0, %398 ]
   %.sroa.51.1.ph265 = phi double [ %.sroa.51.1.ph.ph, %.thread260 ], [ %.sroa.51.0, %398 ]
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %13, ptr noundef nonnull @.str.33, double noundef %.sroa.0.1.ph268, double noundef %.sroa.51.1.ph265, double noundef %.sroa.63.1.ph266)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.33, double noundef %.sroa.0.1.ph268, double noundef %.sroa.51.1.ph265, double noundef %.sroa.63.1.ph266)
   br i1 %.not20, label %agxbsizeof.exit.i.i26, label %400
 
 400:                                              ; preds = %399
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %13, ptr noundef nonnull @.str.34, double noundef %.sroa.67.1.ph267)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.34, double noundef %.sroa.67.1.ph267)
   br label %agxbsizeof.exit.i.i26
 
 401:                                              ; preds = %.thread271, %398
@@ -4972,12 +4972,12 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   %405 = and i32 %404, 255
   %406 = lshr i32 %.sroa.0.0.extract.trunc, 16
   %407 = and i32 %406, 255
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %13, ptr noundef nonnull @.str.35, i32 noundef %403, i32 noundef %405, i32 noundef %407)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.35, i32 noundef %403, i32 noundef %405, i32 noundef %407)
   br i1 %.not20, label %agxbsizeof.exit.i.i26, label %408
 
 408:                                              ; preds = %401
   %409 = lshr i32 %.sroa.0.0.extract.trunc, 24
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %13, ptr noundef nonnull @.str.36, i32 noundef %409)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.36, i32 noundef %409)
   br label %agxbsizeof.exit.i.i26
 
 410:                                              ; preds = %.thread279, %398
@@ -4990,7 +4990,7 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   %415 = lshr i32 %.sroa.0.0.extract.trunc110, 16
   %416 = and i32 %415, 255
   %417 = lshr i32 %.sroa.0.0.extract.trunc110, 24
-  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %13, ptr noundef nonnull @.str.37, i32 noundef %412, i32 noundef %414, i32 noundef %416, i32 noundef %417)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %13, ptr noundef nonnull @.str.37, i32 noundef %412, i32 noundef %414, i32 noundef %416, i32 noundef %417)
   br label %agxbsizeof.exit.i.i26
 
 agxbsizeof.exit.i.i26:                            ; preds = %.thread288, %398, %401, %408, %399, %400, %410
@@ -5048,14 +5048,14 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %437 = call ptr @exstring(ptr noundef %0, ptr noundef %436) #24
   %.val23 = load i8, ptr %418, align 1
   %438 = icmp eq i8 %.val23, -1
-  br i1 %438, label %439, label %agxbfree.argprom.exit
+  br i1 %438, label %439, label %agxbfree.exit
 
 439:                                              ; preds = %agxbuse.exit
   %.val = load ptr, ptr %13, align 8
   call void @free(ptr noundef %.val) #24
-  br label %agxbfree.argprom.exit
+  br label %agxbfree.exit
 
-agxbfree.argprom.exit:                            ; preds = %439, %agxbuse.exit, %colorxlate.exit, %19, %3, %16
+agxbfree.exit:                                    ; preds = %439, %agxbuse.exit, %colorxlate.exit, %19, %3, %16
   %.0 = phi ptr [ @.str.30, %16 ], [ @.str.30, %3 ], [ @.str.30, %19 ], [ @.str.30, %colorxlate.exit ], [ %437, %agxbuse.exit ], [ %437, %439 ]
   ret ptr %.0
 }
@@ -5064,7 +5064,7 @@ agxbfree.argprom.exit:                            ; preds = %439, %agxbuse.exit,
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -5421,7 +5421,7 @@ agxbsizeof.exit:                                  ; preds = %2
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.46, i64 noundef %spec.select33) #27
-  tail call fastcc void @graphviz_exit.argelim() #30
+  tail call fastcc void @graphviz_exit() #30
   unreachable
 
 18:                                               ; preds = %12
@@ -5444,7 +5444,7 @@ agxbsizeof.exit:                                  ; preds = %2
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.46, i64 noundef %spec.select) #27
-  tail call fastcc void @graphviz_exit.argelim() #30
+  tail call fastcc void @graphviz_exit() #30
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23
@@ -5468,7 +5468,7 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #15 {
+define internal fastcc void @graphviz_exit() unnamed_addr #15 {
   tail call void @exit(i32 noundef 1) #32
   unreachable
 }

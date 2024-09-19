@@ -648,7 +648,7 @@ _ZNK4llvm12LiveRegUnits5emptyEv.exit.thread:      ; preds = %40, %._crit_edge.i.
   %45 = getelementptr inbounds i8, ptr %1, i64 32
   %.val = load ptr, ptr %45, align 8
   %.val13 = load ptr, ptr %4, align 8
-  tail call fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %.val, ptr %.val13)
+  tail call fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %.val, ptr %.val13)
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -723,7 +723,7 @@ _ZN4llvm12LiveRegUnits9removeRegEt.exit:          ; preds = %_ZN4llvm17MCRegUnit
   %87 = getelementptr inbounds i8, ptr %1, i64 32
   %.val14 = load ptr, ptr %87, align 8
   %.val15 = load ptr, ptr %4, align 8
-  call fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr %.val14, ptr %.val15)
+  call fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr %.val14, ptr %.val15)
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -802,7 +802,7 @@ _ZN4llvm12LiveRegUnitsD2Ev.exit:                  ; preds = %_ZN4llvm12LiveRegUn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nonnull %.32.val, ptr nocapture readonly %.48.val) unnamed_addr #1 {
+define internal fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nonnull %.32.val, ptr nocapture readonly %.48.val) unnamed_addr #1 {
   %2 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo18getCalleeSavedRegsEv(ptr noundef nonnull align 8 dereferenceable(512) %.32.val) #6
   %.not12 = icmp eq ptr %2, null
   br i1 %.not12, label %.critedge, label %.lr.ph
@@ -840,28 +840,28 @@ define internal fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_1
   %.sroa.01.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.050.069.i.i.i.i, align 4
   %.sroa.01.0.extract.trunc.i.i.i.i.i.i = trunc i64 %.sroa.01.0.copyload.i.i.i.i.i to i32
   %16 = icmp eq i32 %8, %.sroa.01.0.extract.trunc.i.i.i.i.i.i
-  br i1 %16, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit", label %17
+  br i1 %16, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit", label %17
 
 17:                                               ; preds = %.lr.ph.i.i.i.i
   %18 = getelementptr inbounds i8, ptr %.sroa.050.069.i.i.i.i, i64 12
   %.sroa.01.0.copyload.i22.i.i.i.i = load i64, ptr %18, align 4
   %.sroa.01.0.extract.trunc.i.i23.i.i.i.i = trunc i64 %.sroa.01.0.copyload.i22.i.i.i.i to i32
   %19 = icmp eq i32 %8, %.sroa.01.0.extract.trunc.i.i23.i.i.i.i
-  br i1 %19, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit", label %20
+  br i1 %19, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %.sroa.050.069.i.i.i.i, i64 24
   %.sroa.01.0.copyload.i24.i.i.i.i = load i64, ptr %21, align 4
   %.sroa.01.0.extract.trunc.i.i25.i.i.i.i = trunc i64 %.sroa.01.0.copyload.i24.i.i.i.i to i32
   %22 = icmp eq i32 %8, %.sroa.01.0.extract.trunc.i.i25.i.i.i.i
-  br i1 %22, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit19", label %23
+  br i1 %22, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit19", label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %.sroa.050.069.i.i.i.i, i64 36
   %.sroa.01.0.copyload.i26.i.i.i.i = load i64, ptr %24, align 4
   %.sroa.01.0.extract.trunc.i.i27.i.i.i.i = trunc i64 %.sroa.01.0.copyload.i26.i.i.i.i to i32
   %25 = icmp eq i32 %8, %.sroa.01.0.extract.trunc.i.i27.i.i.i.i
-  br i1 %25, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit21", label %26
+  br i1 %25, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit21", label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %.sroa.050.069.i.i.i.i, i64 48
@@ -888,7 +888,7 @@ define internal fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_1
   %.sroa.01.0.copyload.i28.i.i.i.i = load i64, ptr %.sroa.050.0.lcssa.i.i.i.i, align 4
   %.sroa.01.0.extract.trunc.i.i29.i.i.i.i = trunc i64 %.sroa.01.0.copyload.i28.i.i.i.i to i32
   %32 = icmp eq i32 %8, %.sroa.01.0.extract.trunc.i.i29.i.i.i.i
-  br i1 %32, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit", label %33
+  br i1 %32, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit", label %33
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i8, ptr %.sroa.050.0.lcssa.i.i.i.i, i64 12
@@ -899,7 +899,7 @@ define internal fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_1
   %.sroa.01.0.copyload.i30.i.i.i.i = load i64, ptr %.sroa.050.1.i.i.i.i, align 4
   %.sroa.01.0.extract.trunc.i.i31.i.i.i.i = trunc i64 %.sroa.01.0.copyload.i30.i.i.i.i to i32
   %36 = icmp eq i32 %8, %.sroa.01.0.extract.trunc.i.i31.i.i.i.i
-  br i1 %36, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit", label %37
+  br i1 %36, label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit", label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds i8, ptr %.sroa.050.1.i.i.i.i, i64 12
@@ -911,32 +911,32 @@ define internal fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_1
   %.sroa.01.0.extract.trunc.i.i33.i.i.i.i = trunc i64 %.sroa.01.0.copyload.i32.i.i.i.i to i32
   %40 = icmp eq i32 %8, %.sroa.01.0.extract.trunc.i.i33.i.i.i.i
   %spec.select.i.i.i.i = select i1 %40, ptr %.sroa.050.2.i.i.i.i, ptr %.val16
-  br label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %17
+"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit": ; preds = %17
   %41 = getelementptr inbounds i8, ptr %.sroa.050.069.i.i.i.i, i64 12
-  br label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit19": ; preds = %20
+"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit19": ; preds = %20
   %42 = getelementptr inbounds i8, ptr %.sroa.050.069.i.i.i.i, i64 24
-  br label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit21": ; preds = %23
+"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit21": ; preds = %23
   %43 = getelementptr inbounds i8, ptr %.sroa.050.069.i.i.i.i, i64 36
-  br label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit"
+  br label %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit"
 
-"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit19", %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit21", %31, %35, %39
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %31 ], [ %.sroa.050.1.i.i.i.i, %35 ], [ %spec.select.i.i.i.i, %39 ], [ %41, %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %42, %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit19" ], [ %43, %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit.loopexit.split.loop.exit21" ], [ %.sroa.050.069.i.i.i.i, %.lr.ph.i.i.i.i ]
+"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit19", %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit21", %31, %35, %39
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i.i, %31 ], [ %.sroa.050.1.i.i.i.i, %35 ], [ %spec.select.i.i.i.i, %39 ], [ %41, %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %42, %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit19" ], [ %43, %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit21" ], [ %.sroa.050.069.i.i.i.i, %.lr.ph.i.i.i.i ]
   %44 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val16
   br i1 %44, label %.critedge2, label %45
 
-45:                                               ; preds = %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit"
+45:                                               ; preds = %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit"
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 8
   %47 = load i8, ptr %46, align 4
   %48 = trunc i8 %47 to i1
   br i1 %48, label %.critedge2, label %_ZN4llvm12LiveRegUnits6addRegEt.exit
 
-.critedge2:                                       ; preds = %._crit_edge.i.i.i.i, %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.argprom.exit", %45
+.critedge2:                                       ; preds = %._crit_edge.i.i.i.i, %"_ZN4llvm7find_ifIRKSt6vectorINS_15CalleeSavedInfoESaIS2_EEZL18addCalleeSavedRegsRNS_12LiveRegUnitsERKNS_15MachineFunctionEE3$_0EEDaOT_T0_.exit", %45
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8, !noalias !29
@@ -1148,7 +1148,7 @@ _ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit: ; preds = %_ZNK4llvm17Machin
 88:                                               ; preds = %82
   %89 = getelementptr i8, ptr %4, i64 32
   %.val = load ptr, ptr %89, align 8
-  tail call fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE.argprom(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %.val, ptr nonnull %84)
+  tail call fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %.val, ptr nonnull %84)
   br label %_ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit.thread
 
 _ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit.thread: ; preds = %._crit_edge, %75, %82, %88, %_ZNK4llvm17MachineBasicBlock13isReturnBlockEv.exit

@@ -2186,7 +2186,7 @@ land.lhs.true:                                    ; preds = %do.end
 if.end6:                                          ; preds = %land.lhs.true
   %sub.i = add i64 %nodes.coerce1, -2
   %cmp1.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp1.i, label %while.body.i, label %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.argprom.exit"
+  br i1 %cmp1.i, label %while.body.i, label %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.exit"
 
 while.body.i:                                     ; preds = %if.end6, %while.body.i
   %size.03.i = phi i64 [ %cond8.i, %while.body.i ], [ %sub.i, %if.end6 ]
@@ -2212,9 +2212,9 @@ while.end.i:                                      ; preds = %while.body.i
   %high.val.i.i = tail call i64 @llvm.umin.i64(i64 %sub9.i, i64 %sub.i)
   %cmp.i11.inv.i = icmp sgt i64 %cond.fr10.i, 0
   %spec.select.i = select i1 %cmp.i11.inv.i, i64 %high.val.i.i, i64 0
-  br label %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.argprom.exit"
+  br label %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.exit"
 
-"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.argprom.exit": ; preds = %if.end6, %while.end.i
+"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.exit": ; preds = %if.end6, %while.end.i
   %5 = phi i64 [ 0, %if.end6 ], [ %spec.select.i, %while.end.i ]
   %conv9 = trunc i64 %5 to i32
   %sub = add nsw i32 %conv9, -1
@@ -2247,7 +2247,7 @@ while.end.i:                                      ; preds = %while.body.i
   %add30 = fadd float %div, %sub29
   br i1 %cmp26, label %if.then27, label %if.else
 
-if.then27:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.argprom.exit"
+if.then27:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.exit"
   %mul32 = fmul float %sub15, %add30
   %conv34 = zext nneg i32 %sub to i64
   %arrayidx.i42 = getelementptr inbounds float, ptr %nodes.coerce0, i64 %conv34
@@ -2257,7 +2257,7 @@ if.then27:                                        ; preds = %"_ZN4pbrt12FindInte
   %fneg = fneg float %div37
   br label %if.end50
 
-if.else:                                          ; preds = %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.argprom.exit"
+if.else:                                          ; preds = %"_ZN4pbrt12FindIntervalIZNS_17CatmullRomWeightsEN4pstd4spanIKfEEfPiNS2_IfEEE3$_0EEmmRKT_.exit"
   %sub47 = fsub float %add20, %add30
   store float %sub47, ptr %arrayidx.i40, align 4
   br label %if.end50
@@ -2364,7 +2364,7 @@ land.lhs.true:                                    ; preds = %do.end
 if.end7:                                          ; preds = %land.lhs.true
   %sub.i = add i64 %nodes.coerce1, -2
   %cmp1.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp1.i, label %while.body.i, label %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.argprom.exit"
+  br i1 %cmp1.i, label %while.body.i, label %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
 
 while.body.i:                                     ; preds = %if.end7, %while.body.i
   %size.03.i = phi i64 [ %cond8.i, %while.body.i ], [ %sub.i, %if.end7 ]
@@ -2390,9 +2390,9 @@ while.end.i:                                      ; preds = %while.body.i
   %high.val.i.i = tail call i64 @llvm.umin.i64(i64 %sub9.i, i64 %sub.i)
   %cmp.i11.inv.i = icmp sgt i64 %cond.fr10.i, 0
   %spec.select.i = select i1 %cmp.i11.inv.i, i64 %high.val.i.i, i64 0
-  br label %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.argprom.exit"
+  br label %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
 
-"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.argprom.exit": ; preds = %if.end7, %while.end.i
+"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit": ; preds = %if.end7, %while.end.i
   %5 = phi i64 [ 0, %if.end7 ], [ %spec.select.i, %while.end.i ]
   %conv = trunc i64 %5 to i32
   %sext = shl i64 %5, 32
@@ -2411,7 +2411,7 @@ while.end.i:                                      ; preds = %while.body.i
   %cmp19 = icmp sgt i32 %conv, 0
   br i1 %cmp19, label %if.then20, label %if.else
 
-if.then20:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.argprom.exit"
+if.then20:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
   %sub21 = add i64 %5, 4294967295
   %conv22 = and i64 %sub21, 4294967295
   %arrayidx.i42 = getelementptr inbounds float, ptr %f.coerce0, i64 %conv22
@@ -2424,7 +2424,7 @@ if.then20:                                        ; preds = %"_ZN4pbrt12FindInte
   %div = fdiv float %mul, %sub28
   br label %if.end30
 
-if.else:                                          ; preds = %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.argprom.exit"
+if.else:                                          ; preds = %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
   %sub29 = fsub float %9, %8
   br label %if.end30
 
@@ -2538,7 +2538,7 @@ if.then4:                                         ; preds = %if.else
 if.end6:                                          ; preds = %if.else
   %sub.i = add i64 %f.coerce1, -2
   %cmp1.i = icmp sgt i64 %sub.i, 0
-  br i1 %cmp1.i, label %while.body.i, label %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.argprom.exit"
+  br i1 %cmp1.i, label %while.body.i, label %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
 
 while.body.i:                                     ; preds = %if.end6, %while.body.i
   %size.03.i = phi i64 [ %cond8.i, %while.body.i ], [ %sub.i, %if.end6 ]
@@ -2564,9 +2564,9 @@ while.end.i:                                      ; preds = %while.body.i
   %high.val.i.i = tail call i64 @llvm.umin.i64(i64 %sub9.i, i64 %sub.i)
   %cmp.i11.inv.i = icmp sgt i64 %cond.fr10.i, 0
   %spec.select.i = select i1 %cmp.i11.inv.i, i64 %high.val.i.i, i64 0
-  br label %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.argprom.exit"
+  br label %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
 
-"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.argprom.exit": ; preds = %if.end6, %while.end.i
+"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit": ; preds = %if.end6, %while.end.i
   %8 = phi i64 [ 0, %if.end6 ], [ %spec.select.i, %while.end.i ]
   %conv = trunc i64 %8 to i32
   %sext = shl i64 %8, 32
@@ -2585,7 +2585,7 @@ while.end.i:                                      ; preds = %while.body.i
   %cmp18 = icmp sgt i32 %conv, 0
   br i1 %cmp18, label %cond.true, label %cond.false
 
-cond.true:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.argprom.exit"
+cond.true:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
   %sub19 = add i64 %8, 4294967295
   %conv20 = and i64 %sub19, 4294967295
   %arrayidx.i25 = getelementptr inbounds float, ptr %f.coerce0, i64 %conv20
@@ -2598,7 +2598,7 @@ cond.true:                                        ; preds = %"_ZN4pbrt12FindInte
   %div = fdiv float %mul, %sub26
   br label %cond.end
 
-cond.false:                                       ; preds = %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.argprom.exit"
+cond.false:                                       ; preds = %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
   %sub27 = fsub float %12, %11
   br label %cond.end
 

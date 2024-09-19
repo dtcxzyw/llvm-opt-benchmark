@@ -863,7 +863,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i:        ; preds = %321, %275
   %325 = getelementptr inbounds i32, ptr %285, i64 %324
   %326 = getelementptr inbounds i8, ptr %325, i64 4
   %327 = icmp sgt i32 %307, 0
-  br i1 %327, label %.critedge.lr.ph.i, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.argprom.exit
+  br i1 %327, label %.critedge.lr.ph.i, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit
 
 .critedge.lr.ph.i:                                ; preds = %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i
   %328 = sext i32 %306 to i64
@@ -937,7 +937,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i:        ; preds = %321, %275
   %360 = shl i64 %303, 30
   %361 = ashr i64 %360, 32
   %362 = sub nsw i64 0, %361
-  br i1 %329, label %.lr.ph.us.preheader.i, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.argprom.exit
+  br i1 %329, label %.lr.ph.us.preheader.i, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit
 
 .lr.ph.us.preheader.i:                            ; preds = %.preheader.i118
   %363 = zext nneg i32 %306 to i64
@@ -996,7 +996,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i:        ; preds = %321, %275
   %.112111.us.i = add nsw i32 %.112111.us.in.i, -1
   %389 = getelementptr inbounds float, ptr %.011310.us.i, i64 %362
   %390 = icmp sgt i32 %.112111.us.in.i, 1
-  br i1 %390, label %.lr.ph.us.i, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.argprom.exit, !llvm.loop !21
+  br i1 %390, label %.lr.ph.us.i, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %.critedge.lr.ph.i, %.critedge.i
   %.01183.i = phi ptr [ %393, %.critedge.i ], [ %326, %.critedge.lr.ph.i ]
@@ -1110,7 +1110,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i123:     ; preds = %._crit_edge.us.i.i,
   %460 = getelementptr inbounds i32, ptr %413, i64 %459
   %461 = getelementptr inbounds i8, ptr %460, i64 8
   %462 = icmp sgt i32 %436, 0
-  br i1 %462, label %.preheader210.lr.ph.i, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.argprom.exit
+  br i1 %462, label %.preheader210.lr.ph.i, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit
 
 .preheader210.lr.ph.i:                            ; preds = %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i123
   %463 = icmp sgt i32 %435, 0
@@ -1232,7 +1232,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i123:     ; preds = %._crit_edge.us.i.i,
   %523 = shl i64 %432, 30
   %524 = ashr i64 %523, 32
   %525 = sub nsw i64 0, %524
-  br i1 %463, label %.lr.ph.us.preheader.i128, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.argprom.exit
+  br i1 %463, label %.lr.ph.us.preheader.i128, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit
 
 .lr.ph.us.preheader.i128:                         ; preds = %.preheader.i126
   %526 = zext nneg i32 %435 to i64
@@ -1312,7 +1312,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i123:     ; preds = %._crit_edge.us.i.i,
   %.1182222.us.i = add nsw i32 %.1182222.us.in.i, -1
   %566 = getelementptr inbounds float, ptr %.0170221.us.i, i64 %525
   %567 = icmp sgt i32 %.1182222.us.in.i, 1
-  br i1 %567, label %.lr.ph.us.i129, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.argprom.exit, !llvm.loop !26
+  br i1 %567, label %.lr.ph.us.i129, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit, !llvm.loop !26
 
 568:                                              ; preds = %264
   %569 = getelementptr inbounds i8, ptr %32, i64 16
@@ -1562,7 +1562,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i148:     ; preds = %._crit_edge.us.i.i1
   %705 = getelementptr inbounds i32, ptr %652, i64 %704
   %706 = getelementptr inbounds i8, ptr %705, i64 8
   %707 = icmp sgt i32 %681, 0
-  br i1 %707, label %.preheader294.lr.ph.i, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.argprom.exit
+  br i1 %707, label %.preheader294.lr.ph.i, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit
 
 .preheader294.lr.ph.i:                            ; preds = %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i148
   %708 = icmp sgt i32 %680, 0
@@ -1802,7 +1802,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i148:     ; preds = %._crit_edge.us.i.i1
   %830 = shl i64 %673, 30
   %831 = ashr i64 %830, 32
   %832 = sub nsw i64 0, %831
-  br i1 %708, label %.lr.ph.us.preheader.i153, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.argprom.exit
+  br i1 %708, label %.lr.ph.us.preheader.i153, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit
 
 .lr.ph.us.preheader.i153:                         ; preds = %.preheader.i151
   %833 = zext nneg i32 %680 to i64
@@ -1921,13 +1921,13 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i148:     ; preds = %._crit_edge.us.i.i1
   %.1263312.us.i = add nsw i32 %.1263312.us.in.i, -1
   %895 = getelementptr inbounds float, ptr %.0240311.us.i, i64 %832
   %896 = icmp sgt i32 %.1263312.us.in.i, 1
-  br i1 %896, label %.lr.ph.us.i154, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.argprom.exit, !llvm.loop !35
+  br i1 %896, label %.lr.ph.us.i154, label %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit, !llvm.loop !35
 
-_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.argprom.exit: ; preds = %._crit_edge.us225.i, %._crit_edge.us14.i, %._crit_edge.us315.i, %.preheader.i151, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i148, %.preheader.i126, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i123, %.preheader.i118, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i
+_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit: ; preds = %._crit_edge.us225.i, %._crit_edge.us14.i, %._crit_edge.us315.i, %.preheader.i151, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i148, %.preheader.i126, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i123, %.preheader.i118, %_ZN2cvL13initTopBottomERNS_3MatEij.exit.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #16
   br label %897
 
-897:                                              ; preds = %_ZN2cvL13trueDistTransERKNS_3MatERS0_.exit, %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.argprom.exit
+897:                                              ; preds = %_ZN2cvL13trueDistTransERKNS_3MatERS0_.exit, %_ZN2cvL21distanceTransform_3x3ERKNS_3MatERS0_S3_PKf.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #16

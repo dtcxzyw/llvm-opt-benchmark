@@ -663,7 +663,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117HardwareLoopsImpl1
 11:                                               ; preds = %._crit_edge
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE.argprom(ptr nonnull @.str.21, i64 35, ptr nonnull @.str.22, i64 12, ptr noundef %13, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE(ptr nonnull @.str.21, i64 35, ptr nonnull @.str.22, i64 12, ptr noundef %13, ptr noundef nonnull %1)
   br label %75
 
 .critedge:                                        ; preds = %3, %._crit_edge
@@ -676,7 +676,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117HardwareLoopsImpl1
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE.argprom(ptr nonnull @.str.23, i64 45, ptr nonnull @.str.24, i64 19, ptr noundef %19, ptr noundef nonnull %1)
+  call fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE(ptr nonnull @.str.23, i64 45, ptr nonnull @.str.24, i64 19, ptr noundef %19, ptr noundef nonnull %1)
   br label %75
 
 20:                                               ; preds = %.critedge
@@ -705,7 +705,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117HardwareLoopsImpl1
 35:                                               ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
-  call fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE.argprom(ptr nonnull @.str.25, i64 45, ptr nonnull @.str.26, i64 19, ptr noundef %37, ptr noundef nonnull %1)
+  call fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE(ptr nonnull @.str.25, i64 45, ptr nonnull @.str.26, i64 19, ptr noundef %37, ptr noundef nonnull %1)
   br label %75
 
 38:                                               ; preds = %._crit_edge34, %20
@@ -776,7 +776,7 @@ declare ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE5beginEv(ptr noundef n
 declare ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE3endEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE.argprom(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::DebugLoc", align 8
   %8 = alloca %"class.llvm::DiagnosticLocation", align 8
   %9 = alloca %"class.llvm::OptimizationRemarkAnalysis", align 8
@@ -789,13 +789,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9Strin
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %9, ptr nonnull @.str.27, i64 27) #16
   %11 = load ptr, ptr %7, align 8, !noalias !10
   %.not.i.i.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i.i.i, label %_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.argprom.exit, label %12
+  br i1 %.not.i.i.i.i.i, label %_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.exit, label %12
 
 12:                                               ; preds = %6
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %7, ptr noundef nonnull align 4 dereferenceable(8) %11) #16
-  br label %_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.argprom.exit
+  br label %_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.exit
 
-_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.argprom.exit: ; preds = %6, %12
+_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.exit: ; preds = %6, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %9, ptr %0, i64 %1) #16
@@ -807,7 +807,7 @@ _ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.argprom.e
   %.not4.i.i.i.i.i = icmp eq i64 %15, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
 
-.lr.ph.i.preheader.i.i.i.i:                       ; preds = %_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.argprom.exit
+.lr.ph.i.preheader.i.i.i.i:                       ; preds = %_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.exit
   %16 = getelementptr inbounds %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i.i
 
@@ -820,7 +820,7 @@ _ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.argprom.e
   %.not.i.i.i.i.i9 = icmp eq ptr %14, %17
   br i1 %.not.i.i.i.i.i9, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
 
-_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.argprom.exit
+_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.exit
   %19 = load ptr, ptr %13, align 8
   %20 = getelementptr inbounds i8, ptr %9, i64 96
   %21 = icmp eq ptr %19, %20
@@ -904,7 +904,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117HardwareLoopsImpl1
 56:                                               ; preds = %2
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %58 = load ptr, ptr %57, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE.argprom(ptr nonnull @.str.28, i64 23, ptr nonnull @.str.29, i64 17, ptr noundef %58, ptr noundef %33)
+  tail call fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE(ptr nonnull @.str.28, i64 23, ptr nonnull @.str.29, i64 17, ptr noundef %58, ptr noundef %33)
   br label %_ZN12_GLOBAL__N_112HardwareLoop6CreateEv.exit
 
 59:                                               ; preds = %2
@@ -1155,7 +1155,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit22.i.i.i: ; preds = %_ZN4llvm10BasicBl
   %202 = load ptr, ptr %201, align 8
   %203 = load i8, ptr %202, align 8
   %.not.i.i.i.i = icmp eq i8 %203, 17
-  br i1 %.not.i.i.i.i, label %204, label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.thread.i.i.i"
+  br i1 %.not.i.i.i.i, label %204, label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.thread.i.i.i"
 
 204:                                              ; preds = %199
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 24
@@ -1167,32 +1167,32 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit22.i.i.i: ; preds = %_ZN4llvm10BasicBl
 209:                                              ; preds = %204
   %210 = load i64, ptr %205, align 8
   %211 = icmp eq i64 %210, 0
-  br i1 %211, label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.i.i.i", label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.thread.i.i.i"
+  br i1 %211, label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.i.i.i", label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.thread.i.i.i"
 
 _ZNK4llvm11ConstantInt6isZeroEv.exit.i.i.i.i:     ; preds = %204
   %212 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %205) #19
   %213 = icmp eq i32 %212, %207
-  br i1 %213, label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.i.i.i", label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.thread.i.i.i"
+  br i1 %213, label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.i.i.i", label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.thread.i.i.i"
 
-"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.i.i.i": ; preds = %_ZNK4llvm11ConstantInt6isZeroEv.exit.i.i.i.i, %209
+"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.i.i.i": ; preds = %_ZNK4llvm11ConstantInt6isZeroEv.exit.i.i.i.i, %209
   %214 = getelementptr inbounds i8, ptr %185, i64 -32
   %215 = load ptr, ptr %214, align 8
   %216 = icmp eq ptr %215, %167
-  br i1 %216, label %_ZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueE.exit.i.i, label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.thread.i.i.i"
+  br i1 %216, label %_ZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueE.exit.i.i, label %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.thread.i.i.i"
 
-"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.thread.i.i.i": ; preds = %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.i.i.i", %_ZNK4llvm11ConstantInt6isZeroEv.exit.i.i.i.i, %209, %199
-  %217 = call fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom"(ptr noundef nonnull %185, ptr noundef nonnull %167, i32 noundef 1)
+"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.thread.i.i.i": ; preds = %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.i.i.i", %_ZNK4llvm11ConstantInt6isZeroEv.exit.i.i.i.i, %209, %199
+  %217 = call fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j"(ptr noundef nonnull %185, ptr noundef nonnull %167, i32 noundef 1)
   br i1 %217, label %_ZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueE.exit.i.i, label %218
 
-218:                                              ; preds = %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.thread.i.i.i"
-  %219 = call fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom"(ptr noundef nonnull %185, ptr noundef %200, i32 noundef 0)
+218:                                              ; preds = %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.thread.i.i.i"
+  %219 = call fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j"(ptr noundef nonnull %185, ptr noundef %200, i32 noundef 0)
   br i1 %219, label %_ZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueE.exit.i.i, label %220
 
 220:                                              ; preds = %218
-  %221 = call fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom"(ptr noundef nonnull %185, ptr noundef %200, i32 noundef 1)
+  %221 = call fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j"(ptr noundef nonnull %185, ptr noundef %200, i32 noundef 1)
   br i1 %221, label %_ZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueE.exit.i.i, label %_ZN12_GLOBAL__N_112HardwareLoop13InitLoopCountEv.exit.i
 
-_ZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueE.exit.i.i: ; preds = %220, %218, %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.thread.i.i.i", %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom.exit.i.i.i"
+_ZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueE.exit.i.i: ; preds = %220, %218, %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.thread.i.i.i", %"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.exit.i.i.i"
   %222 = and i16 %190, 33
   %223 = icmp ne i16 %222, 33
   %224 = getelementptr inbounds i8, ptr %174, i64 -56
@@ -1215,7 +1215,7 @@ _ZN12_GLOBAL__N_112HardwareLoop13InitLoopCountEv.exit.i: ; preds = %_ZN4llvm10Ba
   br i1 %.not.i, label %228, label %229
 
 228:                                              ; preds = %_ZN12_GLOBAL__N_112HardwareLoop13InitLoopCountEv.exit.i, %_ZN12_GLOBAL__N_112HardwareLoop13InitLoopCountEv.exit.thread.i
-  call fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE.argprom(ptr nonnull @.str.30, i64 47, ptr nonnull @.str.31, i64 13, ptr noundef %73, ptr noundef %75)
+  call fastcc void @_ZN12_GLOBAL__N_119reportHWLoopFailureEN4llvm9StringRefES1_PNS0_25OptimizationRemarkEmitterEPNS0_4LoopEPNS0_11InstructionE(ptr nonnull @.str.30, i64 47, ptr nonnull @.str.31, i64 13, ptr noundef %73, ptr noundef %75)
   br label %_ZN12_GLOBAL__N_112HardwareLoop6CreateEv.exit
 
 229:                                              ; preds = %_ZN12_GLOBAL__N_112HardwareLoop13InitLoopCountEv.exit.i, %_ZN12_GLOBAL__N_112HardwareLoop13InitLoopCountEv.exit.thread57.i
@@ -2643,7 +2643,7 @@ declare noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef n
 declare noundef ptr @_ZN4llvm12SCEVExpander13expandCodeForEPKNS_4SCEVEPNS_4TypeENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(816), ptr noundef, ptr noundef, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j.argprom"(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #8 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j"(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -64
   %5 = zext nneg i32 %2 to i64
   %6 = getelementptr inbounds %"class.llvm::Use", ptr %4, i64 %5
@@ -4972,8 +4972,8 @@ attributes #20 = { builtin nounwind }
 !8 = distinct !{!8, !9, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
 !9 = distinct !{!9, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.argprom: argument 0"}
-!12 = distinct !{!12, !"_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE.argprom"}
+!11 = distinct !{!11, !12, !"_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE: argument 0"}
+!12 = distinct !{!12, !"_ZL20createHWLoopAnalysisN4llvm9StringRefEPNS_4LoopEPNS_11InstructionE"}
 !13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = distinct !{!15, !14}

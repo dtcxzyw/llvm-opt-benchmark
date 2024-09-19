@@ -1157,7 +1157,7 @@ define dso_local void @_ZN5clang6driver9ToolChainC2ERKNS0_6DriverERKN4llvm6Tripl
 17:                                               ; preds = %4
   %18 = tail call noundef zeroext i1 @_ZNK4llvm3opt6Option7matchesENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 1652) #25
   %not..i = xor i1 %18, true
-  br label %_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.argprom.exit
+  br label %_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.exit
 
 19:                                               ; preds = %4
   %20 = load i32, ptr %11, align 8
@@ -1173,9 +1173,9 @@ define dso_local void @_ZN5clang6driver9ToolChainC2ERKNS0_6DriverERKN4llvm6Tripl
   %or.cond.i = select i1 %or.cond.i.i.i, i1 %spec.select.i.i, i1 false
   %28 = icmp eq i32 %26, 29
   %spec.select.i = select i1 %or.cond.i, i1 true, i1 %28
-  br label %_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.argprom.exit
+  br label %_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.exit
 
-_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.argprom.exit: ; preds = %17, %19
+_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.exit: ; preds = %17, %19
   %.0.shrunk.i = phi i1 [ %not..i, %17 ], [ %spec.select.i, %19 ]
   %.0.i = zext i1 %.0.shrunk.i to i32
   store i32 %.0.i, ptr %16, align 8
@@ -1218,13 +1218,13 @@ _ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.argprom.exit
   %49 = trunc i8 %48 to i1
   br i1 %49, label %50, label %51
 
-50:                                               ; preds = %_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.argprom.exit
+50:                                               ; preds = %_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.exit
   call void @_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE9push_backERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %.pre = load i8, ptr %47, align 8
   br label %51
 
-51:                                               ; preds = %50, %_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.argprom.exit
-  %52 = phi i8 [ %.pre, %50 ], [ %48, %_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.argprom.exit ]
+51:                                               ; preds = %50, %_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.exit
+  %52 = phi i8 [ %.pre, %50 ], [ %48, %_ZL17CalculateRTTIModeRKN4llvm3opt7ArgListERKNS_6TripleEPKNS0_3ArgE.exit ]
   %53 = trunc i8 %52 to i1
   br i1 %53, label %54, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
@@ -1271,7 +1271,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit15:
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 33
   br label %79
 
-._crit_edge:                                      ; preds = %"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.argprom.argprom.argprom.exit", %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit15
+._crit_edge:                                      ; preds = %"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.exit", %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit15
   %71 = load ptr, ptr %8, align 8
   %72 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #25
   %.not4.i.i = icmp eq i64 %72, 0
@@ -1301,8 +1301,8 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 _ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i, %78
   ret void
 
-79:                                               ; preds = %.lr.ph, %"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.argprom.argprom.argprom.exit"
-  %.017 = phi ptr [ %66, %.lr.ph ], [ %86, %"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.argprom.argprom.argprom.exit" ]
+79:                                               ; preds = %.lr.ph, %"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.exit"
+  %.017 = phi ptr [ %66, %.lr.ph ], [ %86, %"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.exit" ]
   %.val.val = load ptr, ptr %9, align 8
   %80 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %80, align 8
@@ -1314,13 +1314,13 @@ _ZN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EE
   %82 = getelementptr inbounds i8, ptr %81, i64 88
   %83 = load ptr, ptr %82, align 8
   %84 = call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(12) %.val.val.val, ptr noundef nonnull align 8 dereferenceable(34) %5) #25
-  br i1 %84, label %85, label %"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.argprom.argprom.argprom.exit"
+  br i1 %84, label %85, label %"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.exit"
 
 85:                                               ; preds = %79
   call void @_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE9push_backERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(32) %.017)
-  br label %"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.argprom.argprom.argprom.exit"
+  br label %"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.exit"
 
-"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.argprom.argprom.argprom.exit": ; preds = %79, %85
+"_ZZN5clang6driver9ToolChainC1ERKNS0_6DriverERKN4llvm6TripleERKNS5_3opt7ArgListEENK3$_0clERNS5_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj16EEERKSK_.exit": ; preds = %79, %85
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %86 = getelementptr inbounds i8, ptr %.017, i64 32
   %.not = icmp eq ptr %86, %68
@@ -4665,7 +4665,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %667, label %673, label %669
 
 669:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit7.i
-  br i1 %.not.i1.i.i, label %_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.argprom.exit, label %_ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i.i.i
+  br i1 %.not.i1.i.i, label %_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.exit, label %_ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i.i.i: ; preds = %669
   %670 = getelementptr inbounds nuw i8, ptr %668, i64 24
@@ -4673,19 +4673,19 @@ _ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i.i.i: ; preds = %669
   %672 = load ptr, ptr %671, align 8
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4llvm13RISCVISAUtils16ExtensionVersionEESt10_Select1stISB_ENS9_19ExtensionComparatorESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %670, ptr noundef %672)
   call void @_ZdlPvm(ptr noundef nonnull %668, i64 noundef 72) #27
-  br label %_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.argprom.exit
+  br label %_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.exit
 
 673:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit7.i
-  br i1 %.not.i1.i.i, label %_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.argprom.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
+  br i1 %.not.i1.i.i, label %_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %673
   %674 = load ptr, ptr %668, align 8
   %675 = getelementptr inbounds i8, ptr %674, i64 8
   %676 = load ptr, ptr %675, align 8
   call void %676(ptr noundef nonnull align 8 dereferenceable(8) %668) #25
-  br label %_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.argprom.exit
+  br label %_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.exit
 
-_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.argprom.exit: ; preds = %669, %_ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i.i.i, %673, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
+_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.exit: ; preds = %669, %_ZNKSt14default_deleteIN4llvm12RISCVISAInfoEEclEPS1_.exit.i.i.i, %673, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
   store ptr null, ptr %11, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
@@ -4696,7 +4696,7 @@ _ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7Arg
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   br label %677
 
-677:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit, %_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.argprom.exit, %_ZL19getARMMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.exit, %_ZL23getAArch64MultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.exit
+677:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit, %_ZL21getRISCVMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.exit, %_ZL19getARMMultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.exit, %_ZL23getAArch64MultilibFlagsRKN5clang6driver6DriverERKN4llvm6TripleERKNS4_3opt7ArgListERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE.exit
   %678 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %679 = load i32, ptr %678, align 8
   %680 = icmp eq i32 %679, 1
@@ -7049,7 +7049,7 @@ define dso_local void @_ZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN
   %6 = alloca %"class.llvm::Triple", align 8
   %7 = alloca %"class.std::optional.73", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %5, ptr %2, i64 %3, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %8)
+  call fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE"(ptr dead_on_unwind noalias writable align 8 %5, ptr %2, i64 %3, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %8)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
@@ -7098,7 +7098,7 @@ _ZNK4llvm6Triple11isArmMClassEv.exit:             ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   call void @_ZN4llvm6Triple7setArchENS0_8ArchTypeENS0_11SubArchTypeE(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef 1, i32 noundef 0) #25
-  call fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %7, ptr %2, i64 %3, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %6)
+  call fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE"(ptr dead_on_unwind noalias writable align 8 %7, ptr %2, i64 %3, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %6)
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1
@@ -7145,7 +7145,7 @@ _ZNK4llvm6Triple11isArmMClassEv.exit.thread:      ; preds = %22, %22, %22, %22, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE.argprom.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val.0.val, i64 %.0.val.8.val, ptr nocapture readonly %.8.val, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val.0.val, i64 %.0.val.8.val, ptr nocapture readonly %.8.val, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.llvm::SmallString.91", align 8
   %5 = alloca %"class.llvm::Twine", align 8

@@ -27738,9 +27738,9 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
 
 45:                                               ; preds = %29
   %46 = invoke noundef ptr @_ZN4Luau11TypeChecker9freshTypeENS_9TypeLevelE(ptr noundef nonnull readonly align 8 dereferenceable(2016) %0, i64 %3)
-          to label %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.argprom.argprom.exit" unwind label %39
+          to label %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.exit" unwind label %39
 
-"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.argprom.argprom.exit": ; preds = %45
+"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.exit": ; preds = %45
   store ptr %46, ptr %7, align 8
   %47 = getelementptr inbounds i8, ptr %7, i64 8
   %48 = getelementptr inbounds i8, ptr %2, i64 12
@@ -27757,7 +27757,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
   %55 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZNSt8__detail9_Map_baseIN4Luau6SymbolESt4pairIKS2_NS1_7BindingEESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEixERS8_.exit71 unwind label %72
 
-_ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEixERS8_.exit71: ; preds = %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.argprom.argprom.exit"
+_ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEixERS8_.exit71: ; preds = %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %55, ptr noundef nonnull align 8 dereferenceable(25) %7, i64 25, i1 false)
   %56 = getelementptr inbounds i8, ptr %55, i64 32
   %57 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %50) #29
@@ -27803,7 +27803,7 @@ _ZN4Luau7BindingD2Ev.exit:                        ; preds = %_ZN4Luau7BindingaSE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #29
   br label %_ZN4Luau11TypeChecker17errorRecoveryTypeERKSt10shared_ptrINS_5ScopeEE.exit
 
-72:                                               ; preds = %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.argprom.argprom.exit"
+72:                                               ; preds = %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.exit"
   %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7BindingD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %7) #29
@@ -28203,7 +28203,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #29
   br label %267
 
-236:                                              ; preds = %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit.invoke, %239, %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.argprom.argprom.exit87", %.thread, %232
+236:                                              ; preds = %_ZNSt8optionalIN4Luau8LocationEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit.invoke, %239, %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.exit87", %.thread, %232
   %237 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #29
@@ -28215,13 +28215,13 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 
 239:                                              ; preds = %.thread
   %240 = invoke noundef ptr @_ZN4Luau11TypeChecker9freshTypeENS_9TypeLevelE(ptr noundef nonnull readonly align 8 dereferenceable(2016) %0, i64 %3)
-          to label %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.argprom.argprom.exit87" unwind label %236
+          to label %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.exit87" unwind label %236
 
-"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.argprom.argprom.exit87": ; preds = %239
+"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.exit87": ; preds = %239
   invoke void @_ZN4Luau8Property7setTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(176) %238, ptr noundef %240)
           to label %241 unwind label %236
 
-241:                                              ; preds = %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.argprom.argprom.exit87"
+241:                                              ; preds = %"_ZZN4Luau11TypeChecker17checkFunctionNameERKSt10shared_ptrINS_5ScopeEERNS_7AstExprENS_9TypeLevelEENK3$_0clEv.exit87"
   %242 = getelementptr inbounds i8, ptr %..i76, i64 48
   %243 = getelementptr inbounds i8, ptr %238, i64 40
   %244 = getelementptr inbounds i8, ptr %238, i64 56
@@ -29131,7 +29131,7 @@ _ZN4Luau11TypeChecker9mkUnifierERKSt10shared_ptrINS_5ScopeEERKNS_8LocationE.exit
   %.val = load ptr, ptr %103, align 8
   %.val55 = load ptr, ptr %104, align 8
   %.not4.i = icmp eq ptr %.val, %.val55
-  br i1 %.not4.i, label %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.argprom.exit", label %.lr.ph.i
+  br i1 %.not4.i, label %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %131, %_ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE9push_backEOS9_.exit.i
   %.sroa.01.05.i = phi ptr [ %144, %_ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE9push_backEOS9_.exit.i ], [ %.val, %131 ]
@@ -29164,14 +29164,14 @@ _ZN4Luau11TypeChecker9mkUnifierERKSt10shared_ptrINS_5ScopeEERKNS_8LocationE.exit
 _ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE9push_backEOS9_.exit.i: ; preds = %143, %.noexc63
   %144 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 120
   %.not.i = icmp eq ptr %144, %.val55
-  br i1 %.not.i, label %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.argprom.exit", label %.lr.ph.i
+  br i1 %.not.i, label %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.exit", label %.lr.ph.i
 
-"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.argprom.exit": ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE9push_backEOS9_.exit.i, %131
+"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.exit": ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE9push_backEOS9_.exit.i, %131
   %145 = load ptr, ptr %14, align 8
   %146 = invoke noundef zeroext i1 @_ZN4Luau13containsNeverEPKNS_11TypePackVarE(ptr noundef %145)
           to label %147 unwind label %.loopexit.split-lp137
 
-147:                                              ; preds = %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.argprom.exit"
+147:                                              ; preds = %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.exit"
   br i1 %146, label %198, label %149
 
 .loopexit:                                        ; preds = %.lr.ph168
@@ -29194,7 +29194,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18Type
           cleanup
   br label %148
 
-.loopexit.split-lp137:                            ; preds = %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.argprom.exit", %149, %.loopexit135, %185, %191
+.loopexit.split-lp137:                            ; preds = %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.exit", %149, %.loopexit135, %185, %191
   %lpad.loopexit.split-lp139 = landingpad { ptr, i32 }
           cleanup
   br label %148
@@ -29339,7 +29339,7 @@ _ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18Ty
   %.val56 = load ptr, ptr %80, align 8
   %.val57 = load ptr, ptr %81, align 8
   %.not4.i68 = icmp eq ptr %.val56, %.val57
-  br i1 %.not4.i68, label %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.argprom.exit76", label %.lr.ph.i69
+  br i1 %.not4.i68, label %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.exit76", label %.lr.ph.i69
 
 .lr.ph.i69:                                       ; preds = %212, %_ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE9push_backEOS9_.exit.i72
   %.sroa.01.05.i70 = phi ptr [ %225, %_ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE9push_backEOS9_.exit.i72 ], [ %.val56, %212 ]
@@ -29372,14 +29372,14 @@ _ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18Ty
 _ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE9push_backEOS9_.exit.i72: ; preds = %224, %.noexc74
   %225 = getelementptr inbounds i8, ptr %.sroa.01.05.i70, i64 120
   %.not.i73 = icmp eq ptr %225, %.val57
-  br i1 %.not.i73, label %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.argprom.exit76", label %.lr.ph.i69
+  br i1 %.not.i73, label %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.exit76", label %.lr.ph.i69
 
-"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.argprom.exit76": ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE9push_backEOS9_.exit.i72, %212
+"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.exit76": ; preds = %_ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEESaIS9_EE9push_backEOS9_.exit.i72, %212
   %226 = load ptr, ptr %15, align 8
   %.not.i.i77 = icmp eq ptr %226, null
   br i1 %.not.i.i77, label %230, label %227
 
-227:                                              ; preds = %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.argprom.exit76"
+227:                                              ; preds = %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.exit76"
   %228 = load i32, ptr %226, align 8
   %229 = icmp eq i32 %228, 17
   br i1 %229, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit, label %230
@@ -29399,7 +29399,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18Type
           cleanup
   br label %.loopexit.split-lp142
 
-230:                                              ; preds = %227, %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.argprom.exit76"
+230:                                              ; preds = %227, %"_ZZN4Luau11TypeChecker13checkExprListERKSt10shared_ptrINS_5ScopeEERKNS_8LocationERKNS_8AstArrayIPNS_7AstExprEEEbRKSt6vectorIbSaIbEERKSF_ISt8optionalIPKNS_4TypeEESaISO_EEENK3$_0clERSF_INS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaIS12_EE.exit76"
   br i1 %5, label %231, label %_ZN4Luau11TypeChecker9freshTypeERKSt10shared_ptrINS_5ScopeEE.exit
 
 231:                                              ; preds = %230
@@ -54116,7 +54116,7 @@ define dso_local noundef ptr @_ZN4Luau11TypeChecker24checkRelationalOperationERK
   %72 = load i32, ptr %71, align 8
   %spec.select.i.i = icmp ult i32 %72, 2
   %brmerge.i = or i1 %67, %spec.select.i.i
-  br i1 %brmerge.i, label %73, label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit"
+  br i1 %brmerge.i, label %73, label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit"
 
 73:                                               ; preds = %6
   %.not.i.i.i = icmp eq ptr %68, null
@@ -54136,27 +54136,27 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %74
 80:                                               ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i
   %81 = getelementptr inbounds i8, ptr %0, i64 1776
   %82 = load ptr, ptr %81, align 8
-  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit"
+  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit"
 
 83:                                               ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i
   %84 = extractvalue { ptr, i8 } %77, 0
   %85 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %84)
-  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit"
+  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit"
 
 86:                                               ; preds = %74, %73
   %87 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %68)
-  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit"
+  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit"
 
-"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit": ; preds = %6, %80, %83, %86
+"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit": ; preds = %6, %80, %83, %86
   %.0.i = phi ptr [ %85, %83 ], [ %82, %80 ], [ %87, %86 ], [ %68, %6 ]
   %88 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %4)
   %89 = load ptr, ptr %69, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 864
   %91 = load i32, ptr %90, align 8
   %spec.select.i.i271 = icmp ult i32 %91, 2
-  br i1 %spec.select.i.i271, label %92, label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit276"
+  br i1 %spec.select.i.i271, label %92, label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit276"
 
-92:                                               ; preds = %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit"
+92:                                               ; preds = %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit"
   %.not.i.i.i274 = icmp eq ptr %88, null
   br i1 %.not.i.i.i274, label %105, label %93
 
@@ -54174,23 +54174,23 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i275: ; preds = %93
 99:                                               ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i275
   %100 = getelementptr inbounds i8, ptr %0, i64 1776
   %101 = load ptr, ptr %100, align 8
-  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit276"
+  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit276"
 
 102:                                              ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i275
   %103 = extractvalue { ptr, i8 } %96, 0
   %104 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %103)
-  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit276"
+  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit276"
 
 105:                                              ; preds = %93, %92
   %106 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %88)
-  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit276"
+  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit276"
 
-"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit276": ; preds = %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit", %99, %102, %105
-  %.0.i273 = phi ptr [ %104, %102 ], [ %101, %99 ], [ %106, %105 ], [ %88, %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit" ]
+"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit276": ; preds = %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit", %99, %102, %105
+  %.0.i273 = phi ptr [ %104, %102 ], [ %101, %99 ], [ %106, %105 ], [ %88, %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit" ]
   %.not.i.i = icmp eq ptr %.0.i, null
   br i1 %.not.i.i, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit, label %107
 
-107:                                              ; preds = %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit276"
+107:                                              ; preds = %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit276"
   %108 = load i32, ptr %.0.i, align 8
   %109 = icmp ult i32 %108, 18
   br i1 %109, label %switch.lookup, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
@@ -54201,8 +54201,8 @@ switch.lookup:                                    ; preds = %107
   %switch.masked = trunc i18 %switch.downshift to i1
   br label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
 
-_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit:  ; preds = %107, %switch.lookup, %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit276"
-  %110 = phi i1 [ false, %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit276" ], [ %switch.masked, %switch.lookup ], [ false, %107 ]
+_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit:  ; preds = %107, %switch.lookup, %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit276"
+  %110 = phi i1 [ false, %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit276" ], [ %switch.masked, %switch.lookup ], [ false, %107 ]
   %111 = getelementptr inbounds i8, ptr %2, i64 32
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 8
@@ -54275,7 +54275,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i284: ; preds = %136
 142:                                              ; preds = %.noexc286
   %143 = getelementptr inbounds i8, ptr %0, i64 1776
   %144 = load ptr, ptr %143, align 8
-  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit289"
+  br label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit289"
 
 145:                                              ; preds = %.noexc286
   %146 = extractvalue { ptr, i8 } %139, 0
@@ -54284,15 +54284,15 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i284: ; preds = %136
 .invoke:                                          ; preds = %.noexc285, %136, %145
   %147 = phi ptr [ %146, %145 ], [ %135, %136 ], [ null, %.noexc285 ]
   %148 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %147)
-          to label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit289" unwind label %208
+          to label %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit289" unwind label %208
 
-"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit289": ; preds = %.invoke, %142
+"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit289": ; preds = %.invoke, %142
   %.0.i282 = phi ptr [ %144, %142 ], [ %148, %.invoke ]
   %149 = getelementptr inbounds i8, ptr %2, i64 12
   %150 = invoke noundef ptr @_ZN4Luau11TypeChecker12unionOfTypesEPKNS_4TypeES3_RKSt10shared_ptrINS_5ScopeEERKNS_8LocationEb(ptr noundef nonnull align 8 dereferenceable(2016) %0, ptr noundef %.0.i273, ptr noundef %.0.i282, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %149, i1 noundef zeroext true)
           to label %151 unwind label %208
 
-151:                                              ; preds = %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit289"
+151:                                              ; preds = %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit289"
   %152 = getelementptr inbounds i8, ptr %14, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr %14, i64 16
@@ -54424,7 +54424,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           cleanup
   br label %210
 
-208:                                              ; preds = %.invoke, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i284, %133, %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.argprom.exit289"
+208:                                              ; preds = %.invoke, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i284, %133, %"_ZZN4Luau11TypeChecker24checkRelationalOperationERKSt10shared_ptrINS_5ScopeEERKNS_13AstExprBinaryEPKNS_4TypeESB_RKSt6vectorINS_7VariantIJNS_15TruthyPredicateENS_12IsAPredicateENS_18TypeGuardPredicateENS_11EqPredicateENS_12AndPredicateENS_11OrPredicateENS_12NotPredicateEEEESaISL_EEENK3$_0clESB_b.exit289"
   %209 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau13WithPredicateIPKNS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #29
@@ -54527,27 +54527,27 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit299: ; preds = %233, %229
 
 247:                                              ; preds = %240
   %.not.i.i.i.i302 = icmp eq ptr %244, null
-  br i1 %.not.i.i.i.i302, label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit.thread26.i", label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit.i"
+  br i1 %.not.i.i.i.i302, label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit.thread26.i", label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit.i"
 
-"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit.i": ; preds = %247
+"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit.i": ; preds = %247
   %248 = load i32, ptr %244, align 8
   %249 = icmp eq i32 %248, 2
-  br i1 %249, label %.thread454, label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit.thread26.i"
+  br i1 %249, label %.thread454, label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit.thread26.i"
 
-"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit.thread26.i": ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit.i", %247
+"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit.thread26.i": ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit.i", %247
   %250 = tail call noundef zeroext i1 @_ZN4Luau5isNilEPKNS_4TypeE(ptr noundef %245)
   br i1 %250, label %.thread454, label %251
 
-251:                                              ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit.thread26.i"
+251:                                              ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit.thread26.i"
   %.not.i.i.i14.i = icmp eq ptr %245, null
-  br i1 %.not.i.i.i14.i, label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit15.thread27.i", label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit15.i"
+  br i1 %.not.i.i.i14.i, label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit15.thread27.i", label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit15.i"
 
-"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit15.i": ; preds = %251
+"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit15.i": ; preds = %251
   %252 = load i32, ptr %245, align 8
   %253 = icmp eq i32 %252, 2
-  br i1 %253, label %.thread454, label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit15.thread27.i"
+  br i1 %253, label %.thread454, label %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit15.thread27.i"
 
-"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit15.thread27.i": ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit15.i", %251
+"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit15.thread27.i": ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit15.i", %251
   %254 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #33
   store ptr %254, ptr %11, align 8
   %255 = getelementptr inbounds i8, ptr %254, i64 16
@@ -54561,7 +54561,7 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit299: ; preds = %233, %229
   %258 = invoke noundef ptr @_ZN4Luau9TypeArena7addTypeINS_16IntersectionTypeEEEPKNS_4TypeET_(ptr noundef nonnull align 8 dereferenceable(88) %242, ptr noundef nonnull %11)
           to label %259 unwind label %267
 
-259:                                              ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit15.thread27.i"
+259:                                              ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit15.thread27.i"
   %260 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i303 = icmp eq ptr %260, null
   br i1 %.not.i.i.i.i.i303, label %_ZN4Luau16IntersectionTypeD2Ev.exit.i, label %261
@@ -54580,7 +54580,7 @@ _ZN4Luau16IntersectionTypeD2Ev.exit.i:            ; preds = %261, %259
   %.not.i = icmp eq ptr %266, null
   br i1 %.not.i, label %279, label %275
 
-267:                                              ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit15.thread27.i"
+267:                                              ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit15.thread27.i"
   %268 = landingpad { ptr, i32 }
           cleanup
   %269 = load ptr, ptr %11, align 8
@@ -54694,7 +54694,7 @@ common.resume555:                                 ; preds = %1032, %1035, %277, 
   %common.resume555.op = phi { ptr, i32 } [ %278, %277 ], [ %268, %267 ], [ %268, %270 ], [ %1084, %1086 ], [ %1084, %1083 ], [ %.pn247, %210 ], [ %.pn245, %1129 ], [ %.pn241.pn.pn, %984 ], [ %.pn205.pn, %358 ], [ %1011, %1010 ], [ %1011, %1013 ], [ %1033, %1035 ], [ %1033, %1032 ]
   resume { ptr, i32 } %common.resume555.op
 
-.thread454:                                       ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit.thread26.i", %240, %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit.i", %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.argprom.exit15.i"
+.thread454:                                       ; preds = %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit.thread26.i", %240, %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit.i", %"_ZZN4LuauL15areEqComparableENS_7NotNullINS_9TypeArenaEEENS0_INS_10NormalizerEEEPKNS_4TypeES7_ENK3$_0clES7_.exit15.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %.thread456
@@ -62799,7 +62799,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %18
   %.02657 = phi i64 [ %35, %34 ], [ 0, %23 ]
   %32 = getelementptr inbounds ptr, ptr %31, i64 %.058
   %33 = load ptr, ptr %32, align 8
-  invoke fastcc void @"_ZZN4Luau11TypeChecker23getExpectedTypesForCallERKSt6vectorIPKNS_4TypeESaIS4_EEmbENK3$_0clEmS4_.argprom"(ptr nonnull %1, ptr %0, i64 noundef %.02657, ptr noundef %33)
+  invoke fastcc void @"_ZZN4Luau11TypeChecker23getExpectedTypesForCallERKSt6vectorIPKNS_4TypeESaIS4_EEmbENK3$_0clEmS4_"(ptr nonnull %1, ptr %0, i64 noundef %.02657, ptr noundef %33)
           to label %34 unwind label %.loopexit.split-lp.loopexit
 
 34:                                               ; preds = %.lr.ph
@@ -62884,7 +62884,7 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit: ; preds = %56
 61:                                               ; preds = %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit
   %62 = add nuw i64 %.1, 1
   %63 = load ptr, ptr %59, align 8
-  invoke fastcc void @"_ZZN4Luau11TypeChecker23getExpectedTypesForCallERKSt6vectorIPKNS_4TypeESaIS4_EEmbENK3$_0clEmS4_.argprom"(ptr nonnull %1, ptr %0, i64 noundef %.1, ptr noundef %63)
+  invoke fastcc void @"_ZZN4Luau11TypeChecker23getExpectedTypesForCallERKSt6vectorIPKNS_4TypeESaIS4_EEmbENK3$_0clEmS4_"(ptr nonnull %1, ptr %0, i64 noundef %.1, ptr noundef %63)
           to label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit unwind label %.loopexit
 
 _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread: ; preds = %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit, %55, %56, %._crit_edge
@@ -62978,7 +62978,7 @@ _ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit: ; preds = %_ZNSt4pair
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4Luau11TypeChecker23getExpectedTypesForCallERKSt6vectorIPKNS_4TypeESaIS4_EEmbENK3$_0clEmS4_.argprom"(ptr %.0.val, ptr nocapture %.8.val, i64 noundef %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4Luau11TypeChecker23getExpectedTypesForCallERKSt6vectorIPKNS_4TypeESaIS4_EEmbENK3$_0clEmS4_"(ptr %.0.val, ptr nocapture %.8.val, i64 noundef %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.79", align 8
   %4 = alloca %"class.std::vector.79", align 8
   %5 = alloca %"struct.Luau::UnionType", align 8
@@ -77580,7 +77580,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit87: ; preds = %.critedge, %275
   %.val45 = load ptr, ptr %132, align 8
   %287 = getelementptr inbounds i8, ptr %12, i64 24
   %.val46 = load i64, ptr %287, align 8
-  %288 = invoke fastcc { ptr, i8 } @"_ZZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EEENK3$_0clERKSt13unordered_setISA_St4hashISA_ESC_ISA_ESaISA_EE.argprom"(ptr nonnull %0, ptr %.val45, i64 %.val46)
+  %288 = invoke fastcc { ptr, i8 } @"_ZZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EEENK3$_0clERKSt13unordered_setISA_St4hashISA_ESC_ISA_ESaISA_EE"(ptr nonnull %0, ptr %.val45, i64 %.val46)
           to label %289 unwind label %171
 
 289:                                              ; preds = %283
@@ -77597,7 +77597,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit87: ; preds = %.critedge, %275
   %.val48 = load ptr, ptr %137, align 8
   %295 = getelementptr inbounds i8, ptr %13, i64 24
   %.val49 = load i64, ptr %295, align 8
-  %296 = invoke fastcc { ptr, i8 } @"_ZZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EEENK3$_0clERKSt13unordered_setISA_St4hashISA_ESC_ISA_ESaISA_EE.argprom"(ptr nonnull %0, ptr %.val48, i64 %.val49)
+  %296 = invoke fastcc { ptr, i8 } @"_ZZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EEENK3$_0clERKSt13unordered_setISA_St4hashISA_ESC_ISA_ESaISA_EE"(ptr nonnull %0, ptr %.val48, i64 %.val49)
           to label %297 unwind label %171
 
 297:                                              ; preds = %294
@@ -77729,7 +77729,7 @@ declare noundef ptr @_ZN4Luau6baseofERKNS_7VariantIJNS_6SymbolENS_5FieldEEEE(ptr
 declare void @_ZN4Luau13addRefinementERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEERSC_S7_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i8 } @"_ZZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EEENK3$_0clERKSt13unordered_setISA_St4hashISA_ESC_ISA_ESaISA_EE.argprom"(ptr %.0.val, ptr readonly %.16.val, i64 %.24.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i8 } @"_ZZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EEENK3$_0clERKSt13unordered_setISA_St4hashISA_ESC_ISA_ESaISA_EE"(ptr %.0.val, ptr readonly %.16.val, i64 %.24.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.Luau::UnionType", align 8
   %2 = icmp eq i64 %.24.val, 0
   br i1 %2, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit15, label %3
@@ -79909,7 +79909,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit12.i: ; preds = %31, %_ZN4Luau12T
   %34 = load i64, ptr %33, align 8, !noalias !477
   %35 = shl i64 %34, 4
   call void @_ZdlPvm(ptr noundef %32, i64 noundef %35) #32
-  br label %"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.argprom.exit"
+  br label %"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.exit"
 
 36:                                               ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.i
   %37 = landingpad { ptr, i32 }
@@ -79940,15 +79940,15 @@ common.resume:                                    ; preds = %130, %_ZNSt8functio
   store ptr %14, ptr %41, align 8, !noalias !477
   %44 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %42, ptr %44, align 8, !alias.scope !477
-  br label %"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.argprom.exit"
+  br label %"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.exit"
 
-"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.argprom.exit": ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit12.i, %40
+"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.exit": ; preds = %_ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit12.i, %40
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   br i1 %4, label %45, label %.thread
 
-45:                                               ; preds = %"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.argprom.exit"
+45:                                               ; preds = %"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.exit"
   %46 = load ptr, ptr %10, align 8
   %47 = getelementptr inbounds i8, ptr %10, i64 8
   %48 = load ptr, ptr %47, align 8
@@ -80141,7 +80141,7 @@ common.resume:                                    ; preds = %130, %_ZNSt8functio
           cleanup
   br label %_ZNSt8functionIFSt8optionalIPKN4Luau4TypeEES4_EED2Ev.exit20
 
-.thread:                                          ; preds = %98, %.noexc24, %._crit_edge.i.i.i.i.i, %.loopexit44, %"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.argprom.exit"
+.thread:                                          ; preds = %98, %.noexc24, %._crit_edge.i.i.i.i.i, %.loopexit44, %"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.exit"
   %103 = getelementptr inbounds i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %104 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
@@ -87289,7 +87289,7 @@ define internal { ptr, i8 } @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4Typ
 6:                                                ; preds = %2
   %7 = load i32, ptr %.val2, align 8
   %8 = icmp eq i32 %7, 16
-  br i1 %8, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit.sink.split", label %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i
+  br i1 %8, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit.sink.split", label %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i
 
 _ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i: ; preds = %6, %2
   %9 = load ptr, ptr %.val, align 8
@@ -87297,33 +87297,33 @@ _ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i: ; preds = %6,
   %11 = load i8, ptr %3, align 8
   %12 = trunc i8 %11 to i1
   %13 = xor i1 %10, %12
-  br i1 %13, label %14, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit"
+  br i1 %13, label %14, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit"
 
 14:                                               ; preds = %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i
   %15 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.val2)
   %.not.i.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit", label %16
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit", label %16
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %15, align 8
-  switch i32 %17, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit" [
-    i32 12, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit.sink.split"
-    i32 1, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit.sink.split"
-    i32 2, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit.sink.split"
+  switch i32 %17, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit" [
+    i32 12, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit.sink.split"
+    i32 1, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit.sink.split"
+    i32 2, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit.sink.split"
   ]
 
-"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit.sink.split": ; preds = %16, %16, %16, %6
+"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit.sink.split": ; preds = %16, %16, %16, %6
   %18 = getelementptr inbounds i8, ptr %.val, i64 8
   %19 = getelementptr inbounds i8, ptr %.val, i64 16
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
   %.val.i.i.i.i = load ptr, ptr %18, align 8
   %.0.i.i.i.i = select i1 %21, ptr %.val.i.i.i.i, ptr %.val2
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit"
 
-"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit": ; preds = %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit.sink.split", %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i, %14, %16
-  %.sroa.0.0.i.i.i = phi ptr [ %.val2, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i ], [ undef, %14 ], [ undef, %16 ], [ %.0.i.i.i.i, %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit.sink.split" ]
-  %.sroa.4.0.i.i.i = phi i8 [ 1, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i ], [ 0, %14 ], [ 0, %16 ], [ 1, %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.argprom.exit.sink.split" ]
+"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit": ; preds = %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit.sink.split", %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i, %14, %16
+  %.sroa.0.0.i.i.i = phi ptr [ %.val2, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i ], [ undef, %14 ], [ undef, %16 ], [ %.0.i.i.i.i, %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit.sink.split" ]
+  %.sroa.4.0.i.i.i = phi i8 [ 1, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i ], [ 0, %14 ], [ 0, %16 ], [ 1, %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESZ_E4typeEOS10_DpOS11_.exit.sink.split" ]
   %.fca.0.insert.i.i.i = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, i8 } %.fca.0.insert.i.i.i, i8 %.sroa.4.0.i.i.i, 1
   ret { ptr, i8 } %.fca.1.insert.i.i.i
@@ -87331,7 +87331,7 @@ _ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i: ; preds = %6,
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -87340,49 +87340,49 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4L
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_0clEPFbSB_ESt8optionalISB_EEUlSB_E_", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #32
-  br label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbEN3$_18__invokeESB_"(ptr noundef %0) #5 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN4Luau19isTableIntersectionEPKNS_4TypeE(ptr noundef %0)
-  br i1 %2, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.argprom.exit", label %3
+  br i1 %2, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.exit", label %3
 
 3:                                                ; preds = %1
   %.not.i.i.i = icmp eq ptr %0, null
-  br i1 %.not.i.i.i, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.argprom.exit", label %4
+  br i1 %.not.i.i.i, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.exit", label %4
 
 4:                                                ; preds = %3
   %5 = load i32, ptr %0, align 8
   %6 = add i32 %5, -9
   %spec.select.i = icmp ult i32 %6, 2
-  br label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.argprom.exit"
+  br label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.exit"
 
-"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.argprom.exit": ; preds = %1, %3, %4
+"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.exit": ; preds = %1, %3, %4
   %7 = phi i1 [ true, %1 ], [ false, %3 ], [ %spec.select.i, %4 ]
   ret i1 %7
 }
@@ -87390,18 +87390,18 @@ define internal noundef zeroext i1 @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeG
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbEN3$_28__invokeESB_"(ptr noundef %0) #5 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN4Luau20isOverloadedFunctionEPKNS_4TypeE(ptr noundef %0)
-  br i1 %2, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_2clESB_.argprom.exit", label %3
+  br i1 %2, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_2clESB_.exit", label %3
 
 3:                                                ; preds = %1
   %.not.i.i.i = icmp eq ptr %0, null
-  br i1 %.not.i.i.i, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_2clESB_.argprom.exit", label %4
+  br i1 %.not.i.i.i, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_2clESB_.exit", label %4
 
 4:                                                ; preds = %3
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %5, 8
-  br label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_2clESB_.argprom.exit"
+  br label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_2clESB_.exit"
 
-"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_2clESB_.argprom.exit": ; preds = %1, %3, %4
+"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_2clESB_.exit": ; preds = %1, %3, %4
   %7 = phi i1 [ true, %1 ], [ %6, %4 ], [ false, %3 ]
   ret i1 %7
 }
@@ -87411,14 +87411,14 @@ declare noundef zeroext i1 @_ZN4Luau20isOverloadedFunctionEPKNS_4TypeE(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef zeroext i1 @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbEN3$_38__invokeESB_"(ptr noundef readonly %0) #21 align 2 {
   %.not.i.i.i = icmp eq ptr %0, null
-  br i1 %.not.i.i.i, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_3clESB_.argprom.exit", label %2
+  br i1 %.not.i.i.i, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_3clESB_.exit", label %2
 
 2:                                                ; preds = %1
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 11
-  br label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_3clESB_.argprom.exit"
+  br label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_3clESB_.exit"
 
-"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_3clESB_.argprom.exit": ; preds = %1, %2
+"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_3clESB_.exit": ; preds = %1, %2
   %5 = phi i1 [ %4, %2 ], [ false, %1 ]
   ret i1 %5
 }
@@ -101996,20 +101996,20 @@ _ZNSt10_HashtableIPKN4Luau4TypeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %128 = load ptr, ptr %8, align 8
   %129 = icmp eq ptr %128, %14
-  br i1 %129, label %"_ZSt10__invoke_rIPKN4Luau4TypeERZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toIS9_ESaISt4pairIKS9_S3_EEERKSH_E3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit", label %130
+  br i1 %129, label %"_ZSt10__invoke_rIPKN4Luau4TypeERZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toIS9_ESaISt4pairIKS9_S3_EEERKSH_E3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %130
 
 130:                                              ; preds = %_ZNSt10_HashtableIPKN4Luau4TypeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i.i.i
   %131 = load i64, ptr %15, align 8
   %132 = shl i64 %131, 3
   call void @_ZdlPvm(ptr noundef %128, i64 noundef %132) #32
-  br label %"_ZSt10__invoke_rIPKN4Luau4TypeERZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toIS9_ESaISt4pairIKS9_S3_EEERKSH_E3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIPKN4Luau4TypeERZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toIS9_ESaISt4pairIKS9_S3_EEERKSH_E3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
 .body.i.i.i:                                      ; preds = %116, %113, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EED2Ev.exit.i.i.i.i, %79, %48, %42
   %.pn23.i.i.i = phi { ptr, i32 } [ %.pn21.i.i.i, %79 ], [ %43, %42 ], [ %.pn.i.i.i, %48 ], [ %94, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EED2Ev.exit.i.i.i.i ], [ %114, %116 ], [ %114, %113 ]
   call void @_ZNSt13unordered_setIPKN4Luau4TypeESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #29
   resume { ptr, i32 } %.pn23.i.i.i
 
-"_ZSt10__invoke_rIPKN4Luau4TypeERZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toIS9_ESaISt4pairIKS9_S3_EEERKSH_E3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.argprom.exit": ; preds = %_ZNSt10_HashtableIPKN4Luau4TypeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i.i.i, %130
+"_ZSt10__invoke_rIPKN4Luau4TypeERZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toIS9_ESaISt4pairIKS9_S3_EEERKSH_E3$_0JS3_S3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %_ZNSt10_HashtableIPKN4Luau4TypeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i.i.i, %130
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
@@ -102392,9 +102392,9 @@ define internal { ptr, i8 } @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4Typ
 4:                                                ; preds = %2
   %5 = load i32, ptr %.val2, align 8
   switch i32 %5, label %.thread23.i.i.i [
-    i32 12, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
-    i32 1, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
-    i32 2, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+    i32 12, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+    i32 1, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
+    i32 2, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
   ]
 
 .thread20.i.i.i:                                  ; preds = %2
@@ -102414,7 +102414,7 @@ define internal { ptr, i8 } @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4Typ
   %.in.v.i.i.i.i = select i1 %11, i64 96, i64 104
   %.in.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 %.in.v.i.i.i.i
   %14 = load ptr, ptr %.in.i.i.i.i, align 8
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 .thread24.i.i.i:                                  ; preds = %.thread23.i.i.i
   %15 = load i32, ptr %.val2, align 8
@@ -102435,7 +102435,7 @@ _ZN4Luau3getINS_16BooleanSingletonEEEPKT_PKNS_13SingletonTypeE.exit.i.i.i: ; pre
   %24 = xor i8 %23, %21
   %25 = and i8 %24, 1
   %spec.select30.i.i.i = xor i8 %25, 1
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 _ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i: ; preds = %_ZN4Luau6get_ifINS_16BooleanSingletonEJS1_NS_15StringSingletonEEEEPKT_PKNS_7VariantIJDpT0_EEE.exit.i.i.i.i, %.thread24.i.i.i, %.thread20.i.i.i
   %26 = tail call noundef zeroext i1 @_ZN4Luau5isNilEPKNS_4TypeE(ptr noundef %.val2)
@@ -102446,16 +102446,16 @@ _ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i: ; preds = %
 29:                                               ; preds = %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i
   %not..i.i.i = and i8 %28, 1
   %spec.select32.i.i.i = xor i8 %not..i.i.i, 1
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 30:                                               ; preds = %_ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i
   %31 = trunc i8 %28 to i1
   %32 = getelementptr inbounds i8, ptr %.val, i64 16
   %.sroa.speculate.load.false.i.i.i = load ptr, ptr %32, align 8
   %.sroa.speculated.i.i.i = select i1 %31, ptr %.val2, ptr %.sroa.speculate.load.false.i.i.i
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
-"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom.exit": ; preds = %4, %4, %4, %8, %_ZN4Luau3getINS_16BooleanSingletonEEEPKT_PKNS_13SingletonTypeE.exit.i.i.i, %29, %30
+"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %4, %4, %4, %8, %_ZN4Luau3getINS_16BooleanSingletonEEEPKT_PKNS_13SingletonTypeE.exit.i.i.i, %29, %30
   %.sroa.0.0.i.i.i = phi ptr [ %14, %8 ], [ %.sroa.speculated.i.i.i, %30 ], [ %.val2, %4 ], [ %.val2, %_ZN4Luau3getINS_16BooleanSingletonEEEPKT_PKNS_13SingletonTypeE.exit.i.i.i ], [ %.val2, %29 ], [ %.val2, %4 ], [ %.val2, %4 ]
   %.sroa.6.0.i.i.i = phi i8 [ 1, %8 ], [ 1, %30 ], [ 1, %4 ], [ %spec.select30.i.i.i, %_ZN4Luau3getINS_16BooleanSingletonEEEPKT_PKNS_13SingletonTypeE.exit.i.i.i ], [ %spec.select32.i.i.i, %29 ], [ 1, %4 ], [ 1, %4 ]
   %.fca.0.insert.i.i.i = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0.i.i.i, 0
@@ -102465,7 +102465,7 @@ _ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -102474,30 +102474,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4L
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS_4TypeEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 24) #32
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -103470,13 +103470,13 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit27.i.i.i: ; preds = %65, %_ZSt8_D
   %73 = load ptr, ptr %72, align 8
   %74 = load i8, ptr %73, align 1
   %75 = trunc i8 %74 to i1
-  br i1 %75, label %.then34.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br i1 %75, label %.then34.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 .then34.i.i.i:                                    ; preds = %71
   %76 = load ptr, ptr %8, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 72
   %.then.val35.i.i.i = load ptr, ptr %77, align 8
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 78:                                               ; preds = %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit27.i.i.i
   %.not11.i.i.i = xor i1 %22, true
@@ -103488,7 +103488,7 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit27.i.i.i: ; preds = %65, %_ZSt8_D
   %81 = load ptr, ptr %80, align 8
   %82 = load i8, ptr %81, align 1
   %spec.select37.i.i.i = and i8 %82, 1
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 83:                                               ; preds = %78
   %brmerge13.i.i.i = or i1 %22, %52
@@ -103500,11 +103500,11 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit27.i.i.i: ; preds = %65, %_ZSt8_D
   %87 = load i8, ptr %86, align 1
   %not..i.i.i = and i8 %87, 1
   %spec.select39.i.i.i = xor i8 %not..i.i.i, 1
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 88:                                               ; preds = %83
   %brmerge16.i.i.i = or i1 %.not11.i.i.i, %.not10.i.i.i
-  br i1 %brmerge16.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit", label %89
+  br i1 %brmerge16.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit", label %89
 
 89:                                               ; preds = %88
   %.not.i.i.i.i.i = icmp eq ptr %.val2, null
@@ -103546,28 +103546,28 @@ _ZN4LuauL13isUndecidableEPKNS_4TypeE.exit.i.i.i:  ; preds = %100, %97, %97, %97
   %105 = load ptr, ptr %104, align 8
   %106 = load i8, ptr %105, align 1
   %107 = trunc i8 %106 to i1
-  br i1 %107, label %.then.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br i1 %107, label %.then.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 .then.i.i.i:                                      ; preds = %_ZN4LuauL13isUndecidableEPKNS_4TypeE.exit.i.i.i
   %108 = load ptr, ptr %8, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 72
   %.then.val.i.i.i = load ptr, ptr %109, align 8
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 110:                                              ; preds = %100, %99
   %111 = getelementptr inbounds i8, ptr %.val, i64 24
   %112 = load ptr, ptr %111, align 8
   %113 = load i8, ptr %112, align 1
   %114 = trunc i8 %113 to i1
-  br i1 %114, label %115, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br i1 %114, label %115, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 115:                                              ; preds = %110
   %116 = load ptr, ptr %8, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 72
   %118 = load ptr, ptr %117, align 8
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
-"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit": ; preds = %71, %.then34.i.i.i, %79, %84, %88, %_ZN4LuauL13isUndecidableEPKNS_4TypeE.exit.i.i.i, %.then.i.i.i, %110, %115
+"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit": ; preds = %71, %.then34.i.i.i, %79, %84, %88, %_ZN4LuauL13isUndecidableEPKNS_4TypeE.exit.i.i.i, %.then.i.i.i, %110, %115
   %.sroa.0.0.i.i.i = phi ptr [ %118, %115 ], [ %.then.val35.i.i.i, %.then34.i.i.i ], [ %.val2, %71 ], [ %.then.val.i.i.i, %.then.i.i.i ], [ %.val2, %_ZN4LuauL13isUndecidableEPKNS_4TypeE.exit.i.i.i ], [ undef, %88 ], [ undef, %110 ], [ %.val2, %79 ], [ %.val2, %84 ]
   %.sroa.6.0.i.i.i = phi i8 [ 1, %115 ], [ 1, %.then34.i.i.i ], [ 1, %71 ], [ 1, %.then.i.i.i ], [ 1, %_ZN4LuauL13isUndecidableEPKNS_4TypeE.exit.i.i.i ], [ 0, %88 ], [ 0, %110 ], [ %spec.select37.i.i.i, %79 ], [ %spec.select39.i.i.i, %84 ]
   %.fca.0.insert.i.i.i = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0.i.i.i, 0
@@ -103579,7 +103579,7 @@ _ZN4LuauL13isUndecidableEPKNS_4TypeE.exit.i.i.i:  ; preds = %100, %97, %97, %97
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -103588,30 +103588,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4L
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN4Luau11TypeChecker7resolveERKNS_12IsAPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #32
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -103697,15 +103697,15 @@ define internal { ptr, i8 } @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4Typ
 20:                                               ; preds = %18
   %21 = load i32, ptr %19, align 8
   switch i32 %21, label %22 [
-    i32 12, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
-    i32 1, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
-    i32 2, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+    i32 12, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
+    i32 1, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
+    i32 2, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
   ]
 
 22:                                               ; preds = %20, %18
   %23 = tail call noundef zeroext i1 @_ZN4Luau5isNilEPKNS_4TypeE(ptr noundef %.val2)
   %not..i.i.i = xor i1 %23, true
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 24:                                               ; preds = %12, %2
   %25 = getelementptr inbounds i8, ptr %.val, i64 8
@@ -103713,7 +103713,7 @@ define internal { ptr, i8 } @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4Typ
   %27 = getelementptr inbounds i8, ptr %26, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 @_ZN4Luau14maybeSingletonEPKNS_4TypeE(ptr noundef %28)
-  br i1 %29, label %30, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br i1 %29, label %30, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %25, align 8
@@ -103870,7 +103870,7 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit32.i.i.i: ; preds = %87, %_ZSt8_D
 96:                                               ; preds = %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit32.i.i.i
   %.not11.i.i.i = xor i1 %44, true
   %brmerge.i.i.i = or i1 %74, %.not11.i.i.i
-  br i1 %brmerge.i.i.i, label %97, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br i1 %brmerge.i.i.i, label %97, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 97:                                               ; preds = %96
   %.not12.i.i.i = xor i1 %74, true
@@ -103882,26 +103882,26 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit32.i.i.i: ; preds = %87, %_ZSt8_D
   %100 = getelementptr inbounds i8, ptr %99, i64 56
   %101 = load ptr, ptr %100, align 8
   %102 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %101)
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 103:                                              ; preds = %97
   %brmerge14.i.i.i = or i1 %44, %74
-  br i1 %brmerge14.i.i.i, label %104, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br i1 %brmerge14.i.i.i, label %104, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 104:                                              ; preds = %103
   %brmerge17.i.i.i = or i1 %.not11.i.i.i, %.not12.i.i.i
-  br i1 %brmerge17.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit", label %105
+  br i1 %brmerge17.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit", label %105
 
 105:                                              ; preds = %104
   %106 = load ptr, ptr %25, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 56
   %108 = load ptr, ptr %107, align 8
   %109 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %108)
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
 110:                                              ; preds = %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit32.i.i.i
   %.not.i.i.i.i.i = icmp eq ptr %.val2, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit", label %111
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit", label %111
 
 111:                                              ; preds = %110
   %112 = load i32, ptr %.val2, align 8
@@ -103909,9 +103909,9 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit32.i.i.i: ; preds = %87, %_ZSt8_D
   %114 = and i1 %74, %113
   %or.cond.i.i.i = and i1 %44, %114
   %not.or.cond.i.i.i = xor i1 %or.cond.i.i.i, true
-  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit"
+  br label %"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit"
 
-"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.argprom.exit": ; preds = %20, %20, %20, %22, %24, %96, %98, %103, %104, %105, %110, %111
+"_ZSt10__invoke_rISt8optionalIPKN4Luau4TypeEERZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISE_ESaISt4pairIKSE_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESW_E4typeEOSX_DpOSY_.exit": ; preds = %20, %20, %20, %22, %24, %96, %98, %103, %104, %105, %110, %111
   %.sroa.047.0.i.i.i = phi ptr [ %109, %105 ], [ %102, %98 ], [ %.val2, %20 ], [ %.val2, %20 ], [ %.val2, %20 ], [ %.val2, %96 ], [ null, %110 ], [ %.val2, %104 ], [ %.val2, %24 ], [ %.val2, %22 ], [ undef, %103 ], [ %.val2, %111 ]
   %.sroa.9.0.shrunk.i.i.i = phi i1 [ true, %105 ], [ true, %98 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %96 ], [ true, %110 ], [ true, %104 ], [ true, %24 ], [ %not..i.i.i, %22 ], [ false, %103 ], [ %not.or.cond.i.i.i, %111 ]
   %.sroa.9.0.i.i.i = zext i1 %.sroa.9.0.shrunk.i.i.i to i8
@@ -103924,7 +103924,7 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit32.i.i.i: ; preds = %87, %_ZSt8_D
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -103933,30 +103933,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4L
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPvm(ptr noundef nonnull %.val7.i, i64 noundef 32) #32
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -104565,8 +104565,8 @@ attributes #35 = { allocsize(0) }
 !475 = distinct !{!475, !"_ZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS_4TypeE"}
 !476 = distinct !{!476, !6}
 !477 = !{!478}
-!478 = distinct !{!478, !479, !"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.argprom: argument 0"}
-!479 = distinct !{!479, !"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_.argprom"}
+!478 = distinct !{!478, !479, !"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_: argument 0"}
+!479 = distinct !{!479, !"_ZZN4Luau11TypeChecker7resolveERKNS_11EqPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_1clESB_"}
 !480 = distinct !{!480, !6}
 !481 = distinct !{!481, !6}
 !482 = !{!483}

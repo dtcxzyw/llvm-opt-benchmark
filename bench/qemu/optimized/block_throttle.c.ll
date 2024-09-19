@@ -157,21 +157,21 @@ if.end:                                           ; preds = %entry
   store i32 %or6, ptr %supported_zero_flags7, align 8
   %call8 = call fastcc i32 @throttle_parse_options(ptr noundef %options, ptr noundef %group, ptr noundef %errp)
   %cmp9 = icmp eq i32 %call8, 0
-  br i1 %cmp9, label %if.then10, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br i1 %cmp9, label %if.then10, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.then10:                                        ; preds = %if.end
   %6 = load ptr, ptr %group, align 8
   %call11 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #4
   tail call void @throttle_group_register_tgm(ptr noundef %0, ptr noundef %6, ptr noundef %call11) #4
   tail call void @g_free(ptr noundef %6) #4
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.then10, %if.end
+glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then10, %if.end
   tail call void @bdrv_graph_rdunlock_main_loop() #4
   br label %return
 
-return:                                           ; preds = %entry, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
-  %retval.0 = phi i32 [ %call8, %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit ], [ %call, %entry ]
+return:                                           ; preds = %entry, %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  %retval.0 = phi i32 [ %call8, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call, %entry ]
   ret i32 %retval.0
 }
 

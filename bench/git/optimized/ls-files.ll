@@ -1676,15 +1676,15 @@ land.lhs.true:                                    ; preds = %construct_fullname.
   %54 = add nsw i32 %and.i.i, -16384
   %55 = call i32 @llvm.fshl.i32(i32 %54, i32 %54, i32 19)
   %56 = icmp ult i32 %55, 6
-  br i1 %56, label %switch.lookup, label %ce_excluded.argprom.exit
+  br i1 %56, label %switch.lookup, label %ce_excluded.exit
 
 switch.lookup:                                    ; preds = %land.lhs.true
   %57 = zext nneg i32 %55 to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.show_files, i64 0, i64 %57
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %ce_excluded.argprom.exit
+  br label %ce_excluded.exit
 
-ce_excluded.argprom.exit:                         ; preds = %land.lhs.true, %switch.lookup
+ce_excluded.exit:                                 ; preds = %land.lhs.true, %switch.lookup
   %retval.0.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %land.lhs.true ]
   store i32 %retval.0.i.i, ptr %dtype.i, align 4
   %call1.i = call i32 @is_excluded(ptr noundef nonnull %dir, ptr noundef %50, ptr noundef %51, ptr noundef nonnull %dtype.i) #14
@@ -1692,7 +1692,7 @@ ce_excluded.argprom.exit:                         ; preds = %land.lhs.true, %swi
   %tobool32.not = icmp eq i32 %call1.i, 0
   br i1 %tobool32.not, label %for.inc127, label %if.end34
 
-if.end34:                                         ; preds = %ce_excluded.argprom.exit, %construct_fullname.exit
+if.end34:                                         ; preds = %ce_excluded.exit, %construct_fullname.exit
   %ce_flags = getelementptr inbounds i8, ptr %46, i64 56
   %58 = load i32, ptr %ce_flags, align 8
   %and35 = and i32 %58, 65536
@@ -1837,8 +1837,8 @@ for.inc127.loopexit.split.loop.exit:              ; preds = %for.body118
   %91 = trunc nsw i64 %indvars.iv to i32
   br label %for.inc127
 
-for.inc127:                                       ; preds = %for.cond114, %for.inc127.loopexit.split.loop.exit, %if.end97.thread, %if.end97, %lor.lhs.false101, %if.then105, %if.end69, %if.end64, %if.end34, %ce_excluded.argprom.exit
-  %i.1 = phi i32 [ %i.079, %if.end34 ], [ %i.079, %if.end69 ], [ %i.079, %if.then105 ], [ %i.079, %lor.lhs.false101 ], [ %i.079, %if.end97 ], [ %i.079, %if.end64 ], [ %i.079, %ce_excluded.argprom.exit ], [ %i.079, %if.end97.thread ], [ %91, %for.inc127.loopexit.split.loop.exit ], [ %88, %for.cond114 ]
+for.inc127:                                       ; preds = %for.cond114, %for.inc127.loopexit.split.loop.exit, %if.end97.thread, %if.end97, %lor.lhs.false101, %if.then105, %if.end69, %if.end64, %if.end34, %ce_excluded.exit
+  %i.1 = phi i32 [ %i.079, %if.end34 ], [ %i.079, %if.end69 ], [ %i.079, %if.then105 ], [ %i.079, %lor.lhs.false101 ], [ %i.079, %if.end97 ], [ %i.079, %if.end64 ], [ %i.079, %ce_excluded.exit ], [ %i.079, %if.end97.thread ], [ %91, %for.inc127.loopexit.split.loop.exit ], [ %88, %for.cond114 ]
   %inc128 = add nuw nsw i32 %i.1, 1
   %92 = load ptr, ptr %index26, align 8
   %cache_nr = getelementptr inbounds i8, ptr %92, i64 12
@@ -2659,7 +2659,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %tobool.not.i = icmp eq i32 %1, 0
-  br i1 %tobool.not.i, label %dir_path_match.argprom.exit, label %land.end.i
+  br i1 %tobool.not.i, label %dir_path_match.exit, label %land.end.i
 
 land.end.i:                                       ; preds = %if.then2
   %name.i = getelementptr inbounds i8, ptr %ent, i64 4
@@ -2671,16 +2671,16 @@ land.end.i:                                       ; preds = %if.then2
   %sub6.i = sext i1 %cmp.i to i32
   %spec.select1.i = add i32 %1, %sub6.i
   %4 = zext i1 %cmp.i to i32
-  br label %dir_path_match.argprom.exit
+  br label %dir_path_match.exit
 
-dir_path_match.argprom.exit:                      ; preds = %if.then2, %land.end.i
+dir_path_match.exit:                              ; preds = %if.then2, %land.end.i
   %land.ext.i = phi i32 [ 0, %if.then2 ], [ %4, %land.end.i ]
   %cond.i = phi i32 [ 0, %if.then2 ], [ %spec.select1.i, %land.end.i ]
   %name8.i = getelementptr inbounds i8, ptr %ent, i64 4
   %call.i = tail call i32 @match_pathspec(ptr noundef %istate, ptr noundef nonnull @pathspec, ptr noundef nonnull %name8.i, i32 noundef %cond.i, i32 noundef %0, ptr noundef nonnull %2, i32 noundef %land.ext.i) #14
   br label %if.end3
 
-if.end3:                                          ; preds = %dir_path_match.argprom.exit, %if.end
+if.end3:                                          ; preds = %dir_path_match.exit, %if.end
   %5 = load ptr, ptr @stdout, align 8
   %call4 = tail call i32 @fputs(ptr noundef %tag, ptr noundef %5)
   %name = getelementptr inbounds i8, ptr %ent, i64 4

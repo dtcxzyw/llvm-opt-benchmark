@@ -582,13 +582,13 @@ for.end30:                                        ; preds = %for.cond8.for.end_c
 done:                                             ; preds = %cond.end.thread, %cond.end, %for.end30
   %call31 = tail call ptr @human_readable_text_from_str(ptr noundef %call) #7
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %done
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #7
-  br label %glib_autoptr_cleanup_GString.argprom.exit
+  br label %glib_autoptr_cleanup_GString.exit
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %done, %if.then.i.i
+glib_autoptr_cleanup_GString.exit:                ; preds = %done, %if.then.i.i
   ret ptr %call31
 }
 
@@ -711,13 +711,13 @@ entry:
   %call2 = tail call i32 @object_child_foreach_recursive(ptr noundef %call1, ptr noundef nonnull @qmp_x_query_rdma_foreach, ptr noundef %call) #7
   %call3 = tail call ptr @human_readable_text_from_str(ptr noundef %call) #7
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #7
-  br label %glib_autoptr_cleanup_GString.argprom.exit
+  br label %glib_autoptr_cleanup_GString.exit
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %entry, %if.then.i.i
+glib_autoptr_cleanup_GString.exit:                ; preds = %entry, %if.then.i.i
   ret ptr %call3
 }
 
@@ -760,13 +760,13 @@ entry:
   %call = tail call ptr @ram_block_format() #7
   %call1 = tail call ptr @human_readable_text_from_str(ptr noundef %call) #7
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #7
-  br label %glib_autoptr_cleanup_GString.argprom.exit
+  br label %glib_autoptr_cleanup_GString.exit
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %entry, %if.then.i.i
+glib_autoptr_cleanup_GString.exit:                ; preds = %entry, %if.then.i.i
   ret ptr %call1
 }
 
@@ -780,13 +780,13 @@ entry:
   %call2 = tail call i32 @object_child_foreach_recursive(ptr noundef %call1, ptr noundef nonnull @qmp_x_query_irq_foreach, ptr noundef %call) #7
   %call3 = tail call ptr @human_readable_text_from_str(ptr noundef %call) #7
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #7
-  br label %glib_autoptr_cleanup_GString.argprom.exit
+  br label %glib_autoptr_cleanup_GString.exit
 
-glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %entry, %if.then.i.i
+glib_autoptr_cleanup_GString.exit:                ; preds = %entry, %if.then.i.i
   ret ptr %call3
 }
 

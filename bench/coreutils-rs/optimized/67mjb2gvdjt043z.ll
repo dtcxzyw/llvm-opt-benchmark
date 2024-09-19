@@ -611,13 +611,13 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN12clap_buil
   %12 = icmp ne i128 %11, -75035133943807973589178565794283963657
   %13 = icmp eq ptr %8, null
   %14 = or i1 %12, %13
-  br i1 %14, label %15, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h841b1e2c479b9d24E.argprom.exit
+  br i1 %14, label %15, label %_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h841b1e2c479b9d24E.exit
 
 15:                                               ; preds = %1
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.3c6b43bb70f5d65d4b362d524bde5f57.1.llvm.2352302129332799958, i64 noundef 99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3c6b43bb70f5d65d4b362d524bde5f57.4) #9
   unreachable
 
-_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h841b1e2c479b9d24E.argprom.exit: ; preds = %1
+_ZN12clap_builder6parser7matches11arg_matches19unwrap_downcast_ref17h841b1e2c479b9d24E.exit: ; preds = %1
   ret ptr %8
 }
 

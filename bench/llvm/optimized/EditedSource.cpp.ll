@@ -688,86 +688,86 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS2
   %73 = load i32, ptr %36, align 4
   br label %74
 
-74:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit38.thread45.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
-  %.077.i.i.i.i.i.i = phi i64 [ %68, %.lr.ph.i.i.i.i.i.i ], [ %111, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit38.thread45.i.i.i.i.i.i" ]
-  %.02976.i.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i ], [ %110, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit38.thread45.i.i.i.i.i.i" ]
+74:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit38.thread45.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
+  %.077.i.i.i.i.i.i = phi i64 [ %68, %.lr.ph.i.i.i.i.i.i ], [ %111, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit38.thread45.i.i.i.i.i.i" ]
+  %.02976.i.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i ], [ %110, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit38.thread45.i.i.i.i.i.i" ]
   %75 = load ptr, ptr %.02976.i.i.i.i.i.i, align 8
   %76 = icmp eq ptr %70, %75
-  br i1 %76, label %77, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit.thread42.i.i.i.i.i.i"
+  br i1 %76, label %77, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.thread42.i.i.i.i.i.i"
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %.02976.i.i.i.i.i.i, i64 8
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %72, %79
-  br i1 %80, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
+  br i1 %80, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %77
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.i.i.i.i.i.i": ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %.02976.i.i.i.i.i.i, i64 12
   %82 = load i32, ptr %81, align 4
   %.not51.i.i.i.i.i.i = icmp eq i32 %73, %82
-  br i1 %.not51.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit.thread42.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
+  br i1 %.not51.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.thread42.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit.thread42.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit.i.i.i.i.i.i", %74
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.thread42.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.i.i.i.i.i.i", %74
   %83 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %70, %84
-  br i1 %85, label %86, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit36.thread43.i.i.i.i.i.i"
+  br i1 %85, label %86, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit36.thread43.i.i.i.i.i.i"
 
-86:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit.thread42.i.i.i.i.i.i"
+86:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.thread42.i.i.i.i.i.i"
   %87 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 24
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %72, %88
-  br i1 %89, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit36.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit52"
+  br i1 %89, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit36.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit52"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit36.i.i.i.i.i.i": ; preds = %86
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit36.i.i.i.i.i.i": ; preds = %86
   %90 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 28
   %91 = load i32, ptr %90, align 4
   %.not52.i.i.i.i.i.i = icmp eq i32 %73, %91
-  br i1 %.not52.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit36.thread43.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
+  br i1 %.not52.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit36.thread43.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit36.thread43.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit36.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit.thread42.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit36.thread43.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit36.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.thread42.i.i.i.i.i.i"
   %92 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 32
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %70, %93
-  br i1 %94, label %95, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit37.thread44.i.i.i.i.i.i"
+  br i1 %94, label %95, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit37.thread44.i.i.i.i.i.i"
 
-95:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit36.thread43.i.i.i.i.i.i"
+95:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit36.thread43.i.i.i.i.i.i"
   %96 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 40
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %72, %97
-  br i1 %98, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit37.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit54"
+  br i1 %98, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit37.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit54"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit37.i.i.i.i.i.i": ; preds = %95
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit37.i.i.i.i.i.i": ; preds = %95
   %99 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 44
   %100 = load i32, ptr %99, align 4
   %.not53.i.i.i.i.i.i = icmp eq i32 %73, %100
-  br i1 %.not53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit37.thread44.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48"
+  br i1 %.not53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit37.thread44.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit37.thread44.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit37.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit36.thread43.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit37.thread44.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit37.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit36.thread43.i.i.i.i.i.i"
   %101 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 48
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %70, %102
-  br i1 %103, label %104, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit38.thread45.i.i.i.i.i.i"
+  br i1 %103, label %104, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit38.thread45.i.i.i.i.i.i"
 
-104:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit37.thread44.i.i.i.i.i.i"
+104:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit37.thread44.i.i.i.i.i.i"
   %105 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 56
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %72, %106
-  br i1 %107, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit38.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit56"
+  br i1 %107, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit38.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit56"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit38.i.i.i.i.i.i": ; preds = %104
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit38.i.i.i.i.i.i": ; preds = %104
   %108 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 60
   %109 = load i32, ptr %108, align 4
   %.not54.i.i.i.i.i.i = icmp eq i32 %73, %109
-  br i1 %.not54.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit38.thread45.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50"
+  br i1 %.not54.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit38.thread45.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit38.thread45.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit38.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit37.thread44.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit38.thread45.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit38.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit37.thread44.i.i.i.i.i.i"
   %110 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 64
   %111 = add nsw i64 %.077.i.i.i.i.i.i, -1
   %112 = icmp sgt i64 %.077.i.i.i.i.i.i, 1
   br i1 %112, label %74, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !9
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit38.thread45.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit38.thread45.i.i.i.i.i.i"
   %113 = and i64 %66, 3
   br label %._crit_edge.i.i.i.i.i.i
 
@@ -792,54 +792,54 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS2
   %115 = load ptr, ptr %6, align 8
   %116 = load ptr, ptr %.029.lcssa.i.i.i.i.i.i, align 8
   %117 = icmp eq ptr %115, %116
-  br i1 %117, label %118, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit39.thread46.i.i.i.i.i.i"
+  br i1 %117, label %118, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.thread46.i.i.i.i.i.i"
 
 118:                                              ; preds = %114
   %119 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   %120 = load i32, ptr %35, align 8
   %121 = load i32, ptr %119, align 4
   %122 = icmp eq i32 %120, %121
-  br i1 %122, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit39.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
+  br i1 %122, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit39.i.i.i.i.i.i": ; preds = %118
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.i.i.i.i.i.i": ; preds = %118
   %123 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 12
   %124 = load i32, ptr %36, align 4
   %125 = load i32, ptr %123, align 4
   %.not.i.i.i.i.i.i = icmp eq i32 %124, %125
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit39.thread46.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.thread46.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit39.thread46.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit39.i.i.i.i.i.i", %114
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.thread46.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.i.i.i.i.i.i", %114
   %126 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 16
   br label %127
 
-127:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit39.thread46.i.i.i.i.i.i", %._crit_edge._crit_edge.i.i.i.i.i.i
-  %128 = phi ptr [ %.pre.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %115, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit39.thread46.i.i.i.i.i.i" ]
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %126, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit39.thread46.i.i.i.i.i.i" ]
+127:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.thread46.i.i.i.i.i.i", %._crit_edge._crit_edge.i.i.i.i.i.i
+  %128 = phi ptr [ %.pre.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %115, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.thread46.i.i.i.i.i.i" ]
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %126, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.thread46.i.i.i.i.i.i" ]
   %129 = load ptr, ptr %.1.i.i.i.i.i.i, align 8
   %130 = icmp eq ptr %128, %129
-  br i1 %130, label %131, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit40.thread47.i.i.i.i.i.i"
+  br i1 %130, label %131, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.thread47.i.i.i.i.i.i"
 
 131:                                              ; preds = %127
   %132 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
   %133 = load i32, ptr %35, align 8
   %134 = load i32, ptr %132, align 4
   %135 = icmp eq i32 %133, %134
-  br i1 %135, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit40.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
+  br i1 %135, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit40.i.i.i.i.i.i": ; preds = %131
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.i.i.i.i.i.i": ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 12
   %137 = load i32, ptr %36, align 4
   %138 = load i32, ptr %136, align 4
   %.not49.i.i.i.i.i.i = icmp eq i32 %137, %138
-  br i1 %.not49.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit40.thread47.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
+  br i1 %.not49.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.thread47.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit40.thread47.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit40.i.i.i.i.i.i", %127
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.thread47.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.i.i.i.i.i.i", %127
   %139 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 16
   br label %140
 
-140:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit40.thread47.i.i.i.i.i.i", %._crit_edge._crit_edge85.i.i.i.i.i.i
-  %141 = phi ptr [ %.pre86.i.i.i.i.i.i, %._crit_edge._crit_edge85.i.i.i.i.i.i ], [ %128, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit40.thread47.i.i.i.i.i.i" ]
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge85.i.i.i.i.i.i ], [ %139, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit40.thread47.i.i.i.i.i.i" ]
+140:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.thread47.i.i.i.i.i.i", %._crit_edge._crit_edge85.i.i.i.i.i.i
+  %141 = phi ptr [ %.pre86.i.i.i.i.i.i, %._crit_edge._crit_edge85.i.i.i.i.i.i ], [ %128, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.thread47.i.i.i.i.i.i" ]
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge85.i.i.i.i.i.i ], [ %139, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.thread47.i.i.i.i.i.i" ]
   %142 = load ptr, ptr %.2.i.i.i.i.i.i, align 8
   %143 = icmp eq ptr %141, %142
   br i1 %143, label %144, label %.critedge
@@ -849,24 +849,24 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS2
   %146 = load i32, ptr %35, align 8
   %147 = load i32, ptr %145, align 4
   %148 = icmp eq i32 %146, %147
-  br i1 %148, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit41.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
+  br i1 %148, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit41.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit41.i.i.i.i.i.i": ; preds = %144
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit41.i.i.i.i.i.i": ; preds = %144
   %149 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i, i64 12
   %150 = load i32, ptr %36, align 4
   %151 = load i32, ptr %149, align 4
   %.not50.i.i.i.i.i.i = icmp eq i32 %150, %151
   br i1 %.not50.i.i.i.i.i.i, label %.critedge, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit36.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit36.i.i.i.i.i.i"
   %152 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit37.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit37.i.i.i.i.i.i"
   %153 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 32
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit38.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit38.i.i.i.i.i.i"
   %154 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
@@ -882,12 +882,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS2
   %157 = getelementptr inbounds i8, ptr %.02976.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit": ; preds = %77, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit52", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit54", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit56", %118, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit39.i.i.i.i.i.i", %131, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit40.i.i.i.i.i.i", %144, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit41.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit39.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit40.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit41.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %118 ], [ %.1.i.i.i.i.i.i, %131 ], [ %.2.i.i.i.i.i.i, %144 ], [ %152, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %153, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48" ], [ %154, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50" ], [ %155, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit52" ], [ %156, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit54" ], [ %157, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit56" ], [ %.02976.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit.i.i.i.i.i.i" ], [ %.02976.i.i.i.i.i.i, %77 ]
+"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit": ; preds = %77, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit52", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit54", %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit56", %118, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.i.i.i.i.i.i", %131, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.i.i.i.i.i.i", %144, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit41.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit39.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit40.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit41.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %118 ], [ %.1.i.i.i.i.i.i, %131 ], [ %.2.i.i.i.i.i.i, %144 ], [ %152, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %153, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit48" ], [ %154, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit50" ], [ %155, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit52" ], [ %156, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit54" ], [ %157, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit56" ], [ %.02976.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit.i.i.i.i.i.i" ], [ %.02976.i.i.i.i.i.i, %77 ]
   %.not21 = icmp eq ptr %67, %.028.i.i.i.i.i.i
   br i1 %.not21, label %.critedge, label %158
 
-.critedge:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.argprom.exit41.i.i.i.i.i.i", %140, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit", %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS2_4edit12EditedSource11MacroArgUseELj2EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit, %_ZN5clang4edit12EditedSource18getActionForOffsetENS0_10FileOffsetE.exit.thread
+.critedge:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4edit12EditedSource17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EclIPNS4_11MacroArgUseEEEbT_.exit41.i.i.i.i.i.i", %140, %._crit_edge.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit", %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallVectorINS2_4edit12EditedSource11MacroArgUseELj2EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit, %_ZN5clang4edit12EditedSource18getActionForOffsetENS0_10FileOffsetE.exit.thread
   br label %158
 
 158:                                              ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit.i, %"_ZN4llvm6any_ofIRNS_11SmallVectorIN5clang4edit12EditedSource11MacroArgUseELj2EEEZNS4_17canInsertInOffsetENS2_14SourceLocationENS3_10FileOffsetEE3$_0EEbOT_T0_.exit", %.critedge

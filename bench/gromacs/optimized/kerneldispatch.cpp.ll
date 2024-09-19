@@ -137,11 +137,11 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 0, 5) i32 @_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   switch i32 %1, label %4 [
-    i32 1, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread
-    i32 2, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread
-    i32 11, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread
-    i32 16, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread
-    i32 0, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread
+    i32 1, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
+    i32 2, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
+    i32 11, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
+    i32 16, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
+    i32 0, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
   ]
 
 4:                                                ; preds = %3
@@ -150,13 +150,13 @@ define noundef range(i32 0, 5) i32 @_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclus
 
 6:                                                ; preds = %4
   %. = select i1 %2, i32 1, i32 2
-  br label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread
+  br label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
 
 7:                                                ; preds = %4
   %.5 = select i1 %2, i32 3, i32 4
-  br label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread
+  br label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
 
-_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread: ; preds = %3, %3, %3, %3, %3, %7, %6
+_ZL7usingRFRK22CoulombInteractionType.exit.thread: ; preds = %3, %3, %3, %3, %3, %7, %6
   %.0 = phi i32 [ %., %6 ], [ %.5, %7 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   ret i32 %.0
 }
@@ -982,26 +982,26 @@ _ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK
   %114 = getelementptr inbounds i8, ptr %2, i64 68
   %.val.i = load i32, ptr %114, align 4
   switch i32 %.val.i, label %115 [
-    i32 1, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 2, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 11, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 16, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i
-    i32 0, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i
+    i32 1, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
+    i32 2, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
+    i32 11, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
+    i32 16, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
+    i32 0, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
   ]
 
 115:                                              ; preds = %113
   %116 = load i32, ptr %25, align 8
   %117 = icmp eq i32 %116, 4
-  br i1 %117, label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i, label %118
+  br i1 %117, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i, label %118
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds i8, ptr %0, i64 28
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 2
   %.mux.i = select i1 %121, i32 30, i32 28
-  br label %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i
+  br label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
 
-_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i: ; preds = %118, %115, %113, %113, %113, %113, %113
+_ZL7usingRFRK22CoulombInteractionType.exit.thread.i: ; preds = %118, %115, %113, %113, %113, %113, %113
   %.033.i = phi i32 [ %.mux.i, %118 ], [ 26, %113 ], [ 26, %113 ], [ 26, %113 ], [ 26, %113 ], [ 26, %113 ], [ 28, %115 ]
   %122 = getelementptr inbounds i8, ptr %3, i64 5
   %123 = load i8, ptr %122, align 1
@@ -1039,7 +1039,7 @@ _ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i: ; preds = %118, %11
   %150 = icmp eq i32 %149, 5
   br i1 %150, label %151, label %163
 
-151:                                              ; preds = %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i
+151:                                              ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
   %152 = load i8, ptr %122, align 1
   %153 = and i8 %152, 1
   %154 = or disjoint i8 %153, 40
@@ -1055,8 +1055,8 @@ _ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i: ; preds = %118, %11
   %.pr.i = load i32, ptr %148, align 4
   br label %163
 
-163:                                              ; preds = %151, %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i
-  %164 = phi i32 [ %.pr.i, %151 ], [ %149, %_ZL7usingRFRK22CoulombInteractionType.argprom.exit.thread.i ]
+163:                                              ; preds = %151, %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
+  %164 = phi i32 [ %.pr.i, %151 ], [ %149, %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i ]
   %165 = icmp eq i32 %164, 3
   br i1 %165, label %166, label %178
 

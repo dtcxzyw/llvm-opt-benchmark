@@ -171,7 +171,7 @@ _ZN3dap5RLockC2ERNS_7RWMutexE.exit.i:             ; preds = %5
   %22 = load ptr, ptr %21, align 8
   store ptr null, ptr %21, align 8
   %.not.i.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i.i, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.argprom.exit.i", label %23
+  br i1 %.not.i.i.i.i.i, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.exit.i", label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %22, i64 8
@@ -197,7 +197,7 @@ _ZN3dap5RLockC2ERNS_7RWMutexE.exit.i:             ; preds = %5
 34:                                               ; preds = %32, %30
   %.0.i.i.i.i.i.i = phi i32 [ %27, %30 ], [ %33, %32 ]
   %35 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %35, label %36, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.argprom.exit.i"
+  br i1 %35, label %36, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.exit.i"
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %22, align 8
@@ -222,12 +222,12 @@ _ZN3dap5RLockC2ERNS_7RWMutexE.exit.i:             ; preds = %5
 47:                                               ; preds = %45, %42
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %43, %42 ], [ %46, %45 ]
   %48 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %48, label %_ZNSt12__shared_ptrIN3dap6Socket6SharedELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.sink.split.i.i, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.argprom.exit.i"
+  br i1 %48, label %_ZNSt12__shared_ptrIN3dap6Socket6SharedELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.sink.split.i.i, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.exit.i"
 
 49:                                               ; preds = %_ZN3dap5RLockC2ERNS_7RWMutexE.exit.i
   %50 = tail call i32 @listen(i32 noundef %14, i32 noundef 0) #16
   %.not4.i.i = icmp eq i32 %50, 0
-  br i1 %.not4.i.i, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.argprom.exit.i", label %51
+  br i1 %.not4.i.i, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.exit.i", label %51
 
 51:                                               ; preds = %49
   store ptr null, ptr %0, align 8
@@ -235,7 +235,7 @@ _ZN3dap5RLockC2ERNS_7RWMutexE.exit.i:             ; preds = %5
   %53 = load ptr, ptr %52, align 8
   store ptr null, ptr %52, align 8
   %.not.i.i.i5.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i5.i.i, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.argprom.exit.i", label %54
+  br i1 %.not.i.i.i5.i.i, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.exit.i", label %54
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds i8, ptr %53, i64 8
@@ -261,7 +261,7 @@ _ZN3dap5RLockC2ERNS_7RWMutexE.exit.i:             ; preds = %5
 65:                                               ; preds = %63, %61
   %.0.i.i.i.i7.i.i = phi i32 [ %58, %61 ], [ %64, %63 ]
   %66 = icmp eq i32 %.0.i.i.i.i7.i.i, 1
-  br i1 %66, label %67, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.argprom.exit.i"
+  br i1 %66, label %67, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.exit.i"
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr %53, align 8
@@ -286,7 +286,7 @@ _ZN3dap5RLockC2ERNS_7RWMutexE.exit.i:             ; preds = %5
 78:                                               ; preds = %76, %73
   %.0.i.i.i.i.i.i9.i.i = phi i32 [ %74, %73 ], [ %77, %76 ]
   %79 = icmp eq i32 %.0.i.i.i.i.i.i9.i.i, 1
-  br i1 %79, label %_ZNSt12__shared_ptrIN3dap6Socket6SharedELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.sink.split.i.i, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.argprom.exit.i"
+  br i1 %79, label %_ZNSt12__shared_ptrIN3dap6Socket6SharedELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.sink.split.i.i, label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.exit.i"
 
 _ZNSt12__shared_ptrIN3dap6Socket6SharedELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.sink.split.sink.split.i.i: ; preds = %54, %23
   %.sink11.i.i = phi ptr [ %24, %23 ], [ %55, %54 ]
@@ -306,21 +306,21 @@ _ZNSt12__shared_ptrIN3dap6Socket6SharedELN9__gnu_cxx12_Lock_policyE2EE5resetEv.e
   %85 = getelementptr inbounds i8, ptr %84, i64 24
   %86 = load ptr, ptr %85, align 8
   tail call void %86(ptr noundef nonnull align 8 dereferenceable(16) %.sink4.i.i) #16
-  br label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.argprom.exit.i"
+  br label %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.exit.i"
 
-"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.argprom.exit.i": ; preds = %_ZNSt12__shared_ptrIN3dap6Socket6SharedELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.sink.split.i.i, %78, %65, %51, %49, %47, %34, %20
+"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.exit.i": ; preds = %_ZNSt12__shared_ptrIN3dap6Socket6SharedELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.sink.split.i.i, %78, %65, %51, %49, %47, %34, %20
   %87 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %7) #16
   %.not.i.i.i.i.i6.i = icmp eq i32 %87, 0
   br i1 %.not.i.i.i.i.i6.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i, label %88
 
-88:                                               ; preds = %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.argprom.exit.i"
+88:                                               ; preds = %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.exit.i"
   invoke void @_ZSt20__throw_system_errori(i32 noundef %87) #17
           to label %.noexc.i.i unwind label %97
 
 .noexc.i.i:                                       ; preds = %88
   unreachable
 
-_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i:   ; preds = %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.argprom.exit.i"
+_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i:   ; preds = %"_ZZN3dap6SocketC1EPKcS2_ENK3$_0clEiPK8addrinfo.exit.i"
   %89 = load i32, ptr %6, align 8
   %90 = add nsw i32 %89, -1
   store i32 %90, ptr %6, align 8
@@ -540,7 +540,7 @@ _ZN3dap5RLockC2ERNS_7RWMutexE.exit.i:             ; preds = %8
   %16 = getelementptr inbounds i8, ptr %7, i64 24
   %17 = load i32, ptr %16, align 8
   %.not.i.i = icmp eq i32 %17, -1
-  br i1 %.not.i.i, label %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.argprom.exit.thread.i", label %18
+  br i1 %.not.i.i, label %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.exit.thread.i", label %18
 
 18:                                               ; preds = %_ZN3dap5RLockC2ERNS_7RWMutexE.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -552,7 +552,7 @@ _ZN3dap5RLockC2ERNS_7RWMutexE.exit.i:             ; preds = %8
   %.not2.i.i = icmp eq i8 %20, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br i1 %.not2.i.i, label %21, label %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.argprom.exit.thread.i"
+  br i1 %.not2.i.i, label %21, label %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.exit.thread.i"
 
 21:                                               ; preds = %18
   %22 = invoke i32 @accept(i32 noundef %17, ptr noundef null, ptr noundef null)
@@ -560,7 +560,7 @@ _ZN3dap5RLockC2ERNS_7RWMutexE.exit.i:             ; preds = %8
 
 .noexc.i:                                         ; preds = %21
   %.not3.i.i = icmp eq i32 %22, -1
-  br i1 %.not3.i.i, label %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.argprom.exit.thread.i", label %23
+  br i1 %.not3.i.i, label %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.exit.thread.i", label %23
 
 23:                                               ; preds = %.noexc.i
   %24 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #19
@@ -588,9 +588,9 @@ _ZNSt10shared_ptrIN3dap6Socket6SharedEED2Ev.exit.i.i: ; preds = %23
   %33 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %24, ptr %33, align 8
   invoke void @_ZN3dap6Socket6Shared10setOptionsEv(ptr noundef nonnull align 8 dereferenceable(128) %27)
-          to label %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.argprom.exit.thread.i" unwind label %50
+          to label %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.exit.thread.i" unwind label %50
 
-"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.argprom.exit.thread.i": ; preds = %_ZNSt10shared_ptrIN3dap6Socket6SharedEED2Ev.exit.i.i, %.noexc.i, %18, %_ZN3dap5RLockC2ERNS_7RWMutexE.exit.i
+"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.exit.thread.i": ; preds = %_ZNSt10shared_ptrIN3dap6Socket6SharedEED2Ev.exit.i.i, %.noexc.i, %18, %_ZN3dap5RLockC2ERNS_7RWMutexE.exit.i
   %34 = phi ptr [ null, %.noexc.i ], [ null, %18 ], [ null, %_ZN3dap5RLockC2ERNS_7RWMutexE.exit.i ], [ %24, %_ZNSt10shared_ptrIN3dap6Socket6SharedEED2Ev.exit.i.i ]
   %35 = phi ptr [ null, %.noexc.i ], [ null, %18 ], [ null, %_ZN3dap5RLockC2ERNS_7RWMutexE.exit.i ], [ %27, %_ZNSt10shared_ptrIN3dap6Socket6SharedEED2Ev.exit.i.i ]
   %36 = getelementptr inbounds i8, ptr %7, i64 40
@@ -598,14 +598,14 @@ _ZNSt10shared_ptrIN3dap6Socket6SharedEED2Ev.exit.i.i: ; preds = %23
   %.not.i.i.i.i.i7.i = icmp eq i32 %37, 0
   br i1 %.not.i.i.i.i.i7.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i, label %38
 
-38:                                               ; preds = %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.argprom.exit.thread.i"
+38:                                               ; preds = %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.exit.thread.i"
   invoke void @_ZSt20__throw_system_errori(i32 noundef %37) #17
           to label %.noexc.i.i unwind label %47
 
 .noexc.i.i:                                       ; preds = %38
   unreachable
 
-_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i:   ; preds = %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.argprom.exit.thread.i"
+_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i:   ; preds = %"_ZZNK3dap6Socket6acceptEvENK3$_0clEiPK8addrinfo.exit.thread.i"
   %39 = load i32, ptr %9, align 8
   %40 = add nsw i32 %39, -1
   store i32 %40, ptr %9, align 8

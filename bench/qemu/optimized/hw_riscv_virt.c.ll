@@ -559,7 +559,7 @@ if.then97:                                        ; preds = %if.end93
 if.else101:                                       ; preds = %if.end93
   %8 = load i32, ptr %aia_guests, align 4
   %cmp.i = icmp eq i32 %7, 2
-  br i1 %cmp.i, label %if.then.i, label %virt_create_aia.argprom.exit
+  br i1 %cmp.i, label %if.then.i, label %virt_create_aia.exit
 
 if.then.i:                                        ; preds = %if.else101
   %mul.i142 = shl i64 %indvars.iv, 24
@@ -594,7 +594,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %fo
 
 imsic_num_bits.exit.i:                            ; preds = %while.cond.i.i
   %add13.i = add nuw nsw i64 %conv.i143, 671088640
-  br i1 %cmp11.not.i, label %virt_create_aia.argprom.exit, label %for.body17.lr.ph.i
+  br i1 %cmp11.not.i, label %virt_create_aia.exit, label %for.body17.lr.ph.i
 
 for.body17.lr.ph.i:                               ; preds = %imsic_num_bits.exit.i
   %11 = add nuw nsw i64 %sh_prom.i.i, 12
@@ -609,9 +609,9 @@ for.body17.i:                                     ; preds = %for.body17.i, %for.
   %call25.i = tail call ptr @riscv_imsic_create(i64 noundef %add22.i, i32 noundef %13, i1 noundef zeroext false, i32 noundef %add7.i, i32 noundef 255) #14
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond12.not.i = icmp eq i64 %indvars.iv.next8.i, %conv31
-  br i1 %exitcond12.not.i, label %virt_create_aia.argprom.exit, label %for.body17.i, !llvm.loop !8
+  br i1 %exitcond12.not.i, label %virt_create_aia.exit, label %for.body17.i, !llvm.loop !8
 
-virt_create_aia.argprom.exit:                     ; preds = %for.body17.i, %if.else101, %imsic_num_bits.exit.i
+virt_create_aia.exit:                             ; preds = %for.body17.i, %if.else101, %imsic_num_bits.exit.i
   %cond44.i = phi i32 [ %call15, %if.else101 ], [ 0, %imsic_num_bits.exit.i ], [ 0, %for.body17.i ]
   %cond.i = phi i32 [ %call11, %if.else101 ], [ 0, %imsic_num_bits.exit.i ], [ 0, %for.body17.i ]
   %mul33.i = shl nuw nsw i64 %indvars.iv, 15
@@ -621,8 +621,8 @@ virt_create_aia.argprom.exit:                     ; preds = %for.body17.i, %if.e
   %call69.i = tail call ptr @riscv_aplic_create(i64 noundef %add53.i, i64 noundef 32768, i32 noundef %cond.i, i32 noundef %cond44.i, i32 noundef 96, i32 noundef 3, i1 noundef zeroext %cmp.i, i1 noundef zeroext false, ptr noundef %call46.i) #14
   br label %if.end107
 
-if.end107:                                        ; preds = %virt_create_aia.argprom.exit, %if.then97
-  %call46.i.sink = phi ptr [ %call46.i, %virt_create_aia.argprom.exit ], [ %call5.i, %if.then97 ]
+if.end107:                                        ; preds = %virt_create_aia.exit, %if.then97
+  %call46.i.sink = phi ptr [ %call46.i, %virt_create_aia.exit ], [ %call5.i, %if.then97 ]
   %arrayidx106 = getelementptr [4 x ptr], ptr %irqchip104, i64 0, i64 %indvars.iv
   store ptr %call46.i.sink, ptr %arrayidx106, align 8
   switch i32 %2, label %for.inc [
@@ -747,9 +747,9 @@ for.body.i151:                                    ; preds = %for.body.i151, %for
   %call18.i = tail call i32 @gpex_set_irq_num(ptr noundef %call.i25.i, i32 noundef %i.01.i, i32 noundef %add.i152) #14
   %inc.i = add nuw nsw i32 %i.01.i, 1
   %exitcond.not.i153 = icmp eq i32 %inc.i, 4
-  br i1 %exitcond.not.i153, label %gpex_pcie_init.argprom.exit, label %for.body.i151, !llvm.loop !11
+  br i1 %exitcond.not.i153, label %gpex_pcie_init.exit, label %for.body.i151, !llvm.loop !11
 
-gpex_pcie_init.argprom.exit:                      ; preds = %for.body.i151
+gpex_pcie_init.exit:                              ; preds = %for.body.i151
   %call.i155 = tail call ptr @get_system_memory() #14
   %call1.i = tail call ptr @qdev_new(ptr noundef nonnull @.str.62) #14
   %call2.i156 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.62) #14
@@ -764,8 +764,8 @@ gpex_pcie_init.argprom.exit:                      ; preds = %for.body.i151
   %call.i11.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #14
   br label %for.body.i158
 
-for.body.i158:                                    ; preds = %for.body.i158, %gpex_pcie_init.argprom.exit
-  %i.012.i = phi i32 [ 0, %gpex_pcie_init.argprom.exit ], [ %inc.i161, %for.body.i158 ]
+for.body.i158:                                    ; preds = %for.body.i158, %gpex_pcie_init.exit
+  %i.012.i = phi i32 [ 0, %gpex_pcie_init.exit ], [ %inc.i161, %for.body.i158 ]
   %add.i159 = or disjoint i32 %i.012.i, 64
   %call7.i160 = tail call ptr @qdev_get_gpio_in(ptr noundef %mmio_irqchip.0.lcssa, i32 noundef %add.i159) #14
   tail call void @sysbus_connect_irq(ptr noundef %call.i11.i, i32 noundef %i.012.i, ptr noundef %call7.i160) #14
@@ -832,14 +832,14 @@ if.else223:                                       ; preds = %create_platform_bus
   %fdt.i = getelementptr inbounds i8, ptr %call.i.i166, i64 40
   store ptr %call1.i167, ptr %fdt.i, align 8
   %tobool.not.i = icmp eq ptr %call1.i167, null
-  br i1 %tobool.not.i, label %if.then.i177, label %create_fdt.argprom.exit
+  br i1 %tobool.not.i, label %if.then.i177, label %create_fdt.exit
 
 if.then.i177:                                     ; preds = %if.else223
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.70) #14
   tail call void @exit(i32 noundef 1) #17
   unreachable
 
-create_fdt.argprom.exit:                          ; preds = %if.else223
+create_fdt.exit:                                  ; preds = %if.else223
   %call4.i168 = tail call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i167, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73) #14
   %28 = load ptr, ptr %fdt.i, align 8
   %call6.i169 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %28, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75) #14
@@ -929,7 +929,7 @@ create_fdt.argprom.exit:                          ; preds = %if.else223
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rng_seed.i)
   br label %if.end224
 
-if.end224:                                        ; preds = %if.then216, %create_fdt.argprom.exit
+if.end224:                                        ; preds = %if.then216, %create_fdt.exit
   %machine_done = getelementptr inbounds i8, ptr %call.i, i64 344
   store ptr @virt_machine_done, ptr %machine_done, align 8
   call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_done) #14
@@ -1430,9 +1430,9 @@ for.body.i79.i.i:                                 ; preds = %for.body.i79.i.i, %
   store i32 %43, ptr %arrayidx13.i.i.i, align 4
   %indvars.iv.next.i81.i.i = add nuw nsw i64 %indvars.iv.i80.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i81.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %create_fdt_socket_memory.argprom.exit.i.i, label %for.body.i79.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i, label %create_fdt_socket_memory.exit.i.i, label %for.body.i79.i.i, !llvm.loop !14
 
-create_fdt_socket_memory.argprom.exit.i.i:        ; preds = %for.body.i79.i.i
+create_fdt_socket_memory.exit.i.i:                ; preds = %for.body.i79.i.i
   %44 = load ptr, ptr %fdt.i78.i.i, align 8
   %call18.i.i.i = call i32 @qemu_fdt_setprop(ptr noundef %44, ptr noundef %call3.i.i.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp.i.i.i, i32 noundef 16) #14
   %45 = load ptr, ptr %fdt.i78.i.i, align 8
@@ -1445,7 +1445,7 @@ create_fdt_socket_memory.argprom.exit.i.i:        ; preds = %for.body.i79.i.i
   %tobool.i.i = trunc i8 %46 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %for.inc.i.i
 
-if.then.i.i:                                      ; preds = %create_fdt_socket_memory.argprom.exit.i.i
+if.then.i.i:                                      ; preds = %create_fdt_socket_memory.exit.i.i
   %47 = load i8, ptr %have_aclint.i.i, align 4
   %tobool21.i.i = trunc i8 %47 to i1
   br i1 %tobool21.i.i, label %if.then22.i.i, label %if.else.i.i
@@ -1594,7 +1594,7 @@ for.end154.i.i.i:                                 ; preds = %for.body146.i.i.i
   call void @g_free(ptr noundef %call120.i.i.i) #14
   %70 = load i32, ptr %aia_type.i.i.i, align 8
   %cmp162.not.i.i.i = icmp eq i32 %70, 2
-  br i1 %cmp162.not.i.i.i, label %create_fdt_socket_aclint.argprom.exit.i.i, label %if.then164.i.i.i
+  br i1 %cmp162.not.i.i.i, label %create_fdt_socket_aclint.exit.i.i, label %if.then164.i.i.i
 
 if.then164.i.i.i:                                 ; preds = %for.end154.i.i.i
   %mul170.i.i.i = shl nuw nsw i64 %indvars.iv.i.i, 14
@@ -1632,9 +1632,9 @@ for.end200.i.i.i:                                 ; preds = %for.body192.i.i.i
   %call210.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %78, ptr noundef %call172.i.i.i, ptr noundef nonnull @.str.112, i32 noundef 0) #14
   call void @riscv_socket_fdt_write_id(ptr noundef %call.i.i84.i.i, ptr noundef %call172.i.i.i, i32 noundef %10) #14
   call void @g_free(ptr noundef %call172.i.i.i) #14
-  br label %create_fdt_socket_aclint.argprom.exit.i.i
+  br label %create_fdt_socket_aclint.exit.i.i
 
-create_fdt_socket_aclint.argprom.exit.i.i:        ; preds = %for.end200.i.i.i, %for.end154.i.i.i
+create_fdt_socket_aclint.exit.i.i:                ; preds = %for.end200.i.i.i, %for.end154.i.i.i
   call void @g_free(ptr noundef %call1.i89.i.i) #14
   call void @g_free(ptr noundef %call8.i.i.i) #14
   call void @g_free(ptr noundef %call15.i.i.i) #14
@@ -1704,9 +1704,9 @@ for.body49.i.i.i:                                 ; preds = %for.body49.i.i.i, %
   store i32 %86, ptr %arrayidx51.i.i.i, align 4
   %indvars.iv.next.i116.i.i = add nuw nsw i64 %indvars.iv.i115.i.i, 1
   %exitcond5.not.i.i.i = icmp eq i64 %indvars.iv.next.i116.i.i, 4
-  br i1 %exitcond5.not.i.i.i, label %create_fdt_socket_clint.argprom.exit.i.i, label %for.body49.i.i.i, !llvm.loop !20
+  br i1 %exitcond5.not.i.i.i, label %create_fdt_socket_clint.exit.i.i, label %for.body49.i.i.i, !llvm.loop !20
 
-create_fdt_socket_clint.argprom.exit.i.i:         ; preds = %for.body49.i.i.i
+create_fdt_socket_clint.exit.i.i:                 ; preds = %for.body49.i.i.i
   %87 = load ptr, ptr %fdt.i113.i.i, align 8
   %call59.i.i.i = call i32 @qemu_fdt_setprop(ptr noundef %87, ptr noundef %call35.i.i.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp.i100.i.i, i32 noundef 16) #14
   %88 = load ptr, ptr %fdt.i113.i.i, align 8
@@ -1719,7 +1719,7 @@ create_fdt_socket_clint.argprom.exit.i.i:         ; preds = %for.body49.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i100.i.i)
   br label %for.inc.i.i
 
-for.inc.i.i:                                      ; preds = %create_fdt_socket_clint.argprom.exit.i.i, %create_fdt_socket_aclint.argprom.exit.i.i, %create_fdt_socket_memory.argprom.exit.i.i
+for.inc.i.i:                                      ; preds = %create_fdt_socket_clint.exit.i.i, %create_fdt_socket_aclint.exit.i.i, %create_fdt_socket_memory.exit.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp.i.i = icmp sgt i64 %indvars.iv.i.i, 0
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !21
@@ -1745,24 +1745,24 @@ while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
   %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
   %cmp.i.i.i.i = icmp ult i64 %shl.i.i.i.i, %conv.i.i.i.i
   %inc.i.i.i.i = add i32 %ret.0.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i, label %while.cond.i.i.i.i, label %create_fdt_imsic.argprom.exit.i.i, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.cond.i.i.i.i, label %create_fdt_imsic.exit.i.i, !llvm.loop !7
 
-create_fdt_imsic.argprom.exit.i.i:                ; preds = %while.cond.i.i.i.i
+create_fdt_imsic.exit.i.i:                        ; preds = %while.cond.i.i.i.i
   %inc1.i.i.i = add i32 %phandle.0.i, 2
   %inc.i118.i.i = add i32 %phandle.0.i, 1
   call fastcc void @create_fdt_one_imsic(ptr noundef %add.ptr, i64 noundef 671088640, ptr noundef readonly %call11.i.i, i32 noundef %inc.i118.i.i, i1 noundef zeroext false, i32 noundef %ret.0.i.i.i.i)
   br label %if.end31.i.i
 
-if.end31.i.i:                                     ; preds = %create_fdt_imsic.argprom.exit.i.i, %for.end.i.i
-  %phandle.1.i = phi i32 [ %inc1.i.i.i, %create_fdt_imsic.argprom.exit.i.i ], [ %phandle.0.i, %for.end.i.i ]
-  %msi_pcie_phandle.0.i = phi i32 [ %inc.i118.i.i, %create_fdt_imsic.argprom.exit.i.i ], [ 1, %for.end.i.i ]
-  %msi_m_phandle.0.i.i = phi i32 [ %phandle.0.i, %create_fdt_imsic.argprom.exit.i.i ], [ 0, %for.end.i.i ]
-  %msi_s_phandle.0.i.i = phi i32 [ %inc.i118.i.i, %create_fdt_imsic.argprom.exit.i.i ], [ 0, %for.end.i.i ]
+if.end31.i.i:                                     ; preds = %create_fdt_imsic.exit.i.i, %for.end.i.i
+  %phandle.1.i = phi i32 [ %inc1.i.i.i, %create_fdt_imsic.exit.i.i ], [ %phandle.0.i, %for.end.i.i ]
+  %msi_pcie_phandle.0.i = phi i32 [ %inc.i118.i.i, %create_fdt_imsic.exit.i.i ], [ 1, %for.end.i.i ]
+  %msi_m_phandle.0.i.i = phi i32 [ %phandle.0.i, %create_fdt_imsic.exit.i.i ], [ 0, %for.end.i.i ]
+  %msi_s_phandle.0.i.i = phi i32 [ %inc.i118.i.i, %create_fdt_imsic.exit.i.i ], [ 0, %for.end.i.i ]
   br i1 %cmp4.i.i, label %for.body38.lr.ph.i.i, label %for.end61.thread.i.i
 
 for.end61.thread.i.i:                             ; preds = %if.end31.i.i
   call void @g_free(ptr noundef %call11.i.i) #14
-  br label %create_fdt_sockets.argprom.exit.i
+  br label %create_fdt_sockets.exit.i
 
 for.body38.lr.ph.i.i:                             ; preds = %if.end31.i.i
   %92 = load i32, ptr %smp.i.i, align 8
@@ -1871,14 +1871,14 @@ for.end76.i.i.i:                                  ; preds = %for.body68.i.i.i
   %112 = load ptr, ptr %fdt.i149.i.i, align 8
   %call84.i.i.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %112, ptr noundef %call38.i148.i.i, ptr noundef nonnull @.str.108, i32 noundef %phandle.2.i) #14
   %tobool.not.i.i.i = icmp eq i64 %indvars.iv14.i.i, 0
-  br i1 %tobool.not.i.i.i, label %if.then.i158.i.i, label %create_fdt_socket_plic.argprom.exit.i.i
+  br i1 %tobool.not.i.i.i, label %if.then.i158.i.i, label %create_fdt_socket_plic.exit.i.i
 
 if.then.i158.i.i:                                 ; preds = %for.end76.i.i.i
   %113 = load ptr, ptr %fdt.i149.i.i, align 8
   call void @platform_bus_add_all_fdt_nodes(ptr noundef %113, ptr noundef %call38.i148.i.i, i64 noundef 67108864, i64 noundef 33554432, i32 noundef 64) #14
-  br label %create_fdt_socket_plic.argprom.exit.i.i
+  br label %create_fdt_socket_plic.exit.i.i
 
-create_fdt_socket_plic.argprom.exit.i.i:          ; preds = %if.then.i158.i.i, %for.end76.i.i.i
+create_fdt_socket_plic.exit.i.i:                  ; preds = %if.then.i158.i.i, %for.end76.i.i.i
   call void @g_free(ptr noundef %call38.i148.i.i) #14
   call void @g_free(ptr noundef %call1.i127.i.i) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i120.i.i)
@@ -1891,27 +1891,27 @@ if.else50.i.i:                                    ; preds = %for.body38.i.i
   %mul.i163.i.i = shl nuw nsw i64 %indvars.iv14.i.i, 15
   %add.i164.i.i = add nuw nsw i64 %mul.i163.i.i, 201326592
   %114 = trunc nuw nsw i64 %indvars.iv14.i.i to i32
-  call fastcc void @create_fdt_one_aplic.argelim(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add.i164.i.i, i32 noundef %msi_m_phandle.0.i.i, ptr noundef readonly %arrayidx49.i.i, i32 noundef %phandle.2.i, i32 noundef %inc.i160.i.i, i1 noundef zeroext true, i32 noundef %94)
+  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add.i164.i.i, i32 noundef %msi_m_phandle.0.i.i, ptr noundef readonly %arrayidx49.i.i, i32 noundef %phandle.2.i, i32 noundef %inc.i160.i.i, i1 noundef zeroext true, i32 noundef %94)
   %add12.i.i.i = add nuw nsw i64 %mul.i163.i.i, 218103808
-  call fastcc void @create_fdt_one_aplic.argelim(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add12.i.i.i, i32 noundef %msi_s_phandle.0.i.i, ptr noundef readonly %arrayidx49.i.i, i32 noundef %inc.i160.i.i, i32 noundef 0, i1 noundef zeroext false, i32 noundef %94)
+  call fastcc void @create_fdt_one_aplic(ptr noundef nonnull %add.ptr, i32 noundef %114, i64 noundef %add12.i.i.i, i32 noundef %msi_s_phandle.0.i.i, ptr noundef readonly %arrayidx49.i.i, i32 noundef %inc.i160.i.i, i32 noundef 0, i1 noundef zeroext false, i32 noundef %94)
   %call16.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.138, i64 noundef %add12.i.i.i) #14
   %tobool.not.i165.i.i = icmp eq i64 %indvars.iv14.i.i, 0
-  br i1 %tobool.not.i165.i.i, label %if.then.i167.i.i, label %create_fdt_socket_aplic.argprom.exit.i.i
+  br i1 %tobool.not.i165.i.i, label %if.then.i167.i.i, label %create_fdt_socket_aplic.exit.i.i
 
 if.then.i167.i.i:                                 ; preds = %if.else50.i.i
   %fdt.i168.i.i = getelementptr inbounds i8, ptr %call.i.i159.i.i, i64 40
   %115 = load ptr, ptr %fdt.i168.i.i, align 8
   call void @platform_bus_add_all_fdt_nodes(ptr noundef %115, ptr noundef %call16.i.i.i, i64 noundef 67108864, i64 noundef 33554432, i32 noundef 64) #14
-  br label %create_fdt_socket_aplic.argprom.exit.i.i
+  br label %create_fdt_socket_aplic.exit.i.i
 
-create_fdt_socket_aplic.argprom.exit.i.i:         ; preds = %if.then.i167.i.i, %if.else50.i.i
+create_fdt_socket_aplic.exit.i.i:                 ; preds = %if.then.i167.i.i, %if.else50.i.i
   call void @g_free(ptr noundef %call16.i.i.i) #14
   %arrayidx21.i.i.i = getelementptr i32, ptr %xplic_phandles.i.i, i64 %indvars.iv14.i.i
   store i32 %inc.i160.i.i, ptr %arrayidx21.i.i.i, align 4
   br label %for.inc59.i.i
 
-for.inc59.i.i:                                    ; preds = %create_fdt_socket_aplic.argprom.exit.i.i, %create_fdt_socket_plic.argprom.exit.i.i
-  %phandle.3.i = phi i32 [ %inc30.i.i.i, %create_fdt_socket_plic.argprom.exit.i.i ], [ %inc1.i161.i.i, %create_fdt_socket_aplic.argprom.exit.i.i ]
+for.inc59.i.i:                                    ; preds = %create_fdt_socket_aplic.exit.i.i, %create_fdt_socket_plic.exit.i.i
+  %phandle.3.i = phi i32 [ %inc30.i.i.i, %create_fdt_socket_plic.exit.i.i ], [ %inc1.i161.i.i, %create_fdt_socket_aplic.exit.i.i ]
   %indvars.iv.next15.i.i = add nsw i64 %indvars.iv14.i.i, -1
   %cmp36.i.i = icmp sgt i64 %indvars.iv14.i.i, 0
   br i1 %cmp36.i.i, label %for.body38.i.i, label %for.end61.i.i, !llvm.loop !24
@@ -1919,7 +1919,7 @@ for.inc59.i.i:                                    ; preds = %create_fdt_socket_a
 for.end61.i.i:                                    ; preds = %for.inc59.i.i
   call void @g_free(ptr noundef %call11.i.i) #14
   %cmp6311.i.i = icmp sgt i32 %call1.i.i, 0
-  br i1 %cmp6311.i.i, label %for.body65.lr.ph.i.i, label %create_fdt_sockets.argprom.exit.i
+  br i1 %cmp6311.i.i, label %for.body65.lr.ph.i.i, label %create_fdt_sockets.exit.i
 
 for.body65.lr.ph.i.i:                             ; preds = %for.end61.i.i
   %arrayidx88.i.i = getelementptr inbounds i8, ptr %xplic_phandles.i.i, i64 8
@@ -1955,9 +1955,9 @@ for.inc90.i.i:                                    ; preds = %for.inc90.sink.spli
   %irq_virtio_phandle.2.i = phi i32 [ %irq_virtio_phandle.0.i, %for.body65.i.i ], [ %118, %if.then68.i.i ], [ %117, %for.inc90.sink.split.sink.split.i.i ], [ %irq_virtio_phandle.0.i, %for.inc90.sink.split.i.i ]
   %inc.i.i = add nuw nsw i32 %socket.212.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %call1.i.i
-  br i1 %exitcond.not.i.i, label %create_fdt_sockets.argprom.exit.i, label %for.body65.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i, label %create_fdt_sockets.exit.i, label %for.body65.i.i, !llvm.loop !25
 
-create_fdt_sockets.argprom.exit.i:                ; preds = %for.inc90.i.i, %for.end61.i.i, %for.end61.thread.i.i
+create_fdt_sockets.exit.i:                        ; preds = %for.inc90.i.i, %for.end61.i.i, %for.end61.thread.i.i
   %phandle.7.i = phi i32 [ %phandle.3.i, %for.end61.i.i ], [ %phandle.1.i, %for.end61.thread.i.i ], [ %phandle.3.i, %for.inc90.i.i ]
   %irq_mmio_phandle.4.i = phi i32 [ 1, %for.end61.i.i ], [ 1, %for.end61.thread.i.i ], [ %irq_mmio_phandle.2.i, %for.inc90.i.i ]
   %irq_pcie_phandle.2.i = phi i32 [ 1, %for.end61.i.i ], [ 1, %for.end61.thread.i.i ], [ %irq_pcie_phandle.1.i, %for.inc90.i.i ]
@@ -1973,8 +1973,8 @@ create_fdt_sockets.argprom.exit.i:                ; preds = %for.inc90.i.i, %for
   %arrayinit.element15.i.i = getelementptr inbounds i8, ptr %qdt_tmp.i.i, i64 12
   br label %for.body.i9.i
 
-for.body.i9.i:                                    ; preds = %if.end.i.i, %create_fdt_sockets.argprom.exit.i
-  %indvars.iv8.i.i = phi i64 [ 0, %create_fdt_sockets.argprom.exit.i ], [ %indvars.iv.next9.pre-phi.i.i, %if.end.i.i ]
+for.body.i9.i:                                    ; preds = %if.end.i.i, %create_fdt_sockets.exit.i
+  %indvars.iv8.i.i = phi i64 [ 0, %create_fdt_sockets.exit.i ], [ %indvars.iv.next9.pre-phi.i.i, %if.end.i.i ]
   %119 = shl nuw nsw i64 %indvars.iv8.i.i, 12
   %120 = add nuw nsw i64 %119, 268439552
   %call2.i10.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.144, i64 noundef %120) #14
@@ -2029,9 +2029,9 @@ if.end.i.i:                                       ; preds = %do.body37.i.i, %if.
   %indvars.iv.next9.pre-phi.i.i = phi i64 [ %132, %do.body37.i.i ], [ %130, %if.then.i17.i ]
   call void @g_free(ptr noundef %call2.i10.i) #14
   %exitcond14.not.i.i = icmp eq i64 %indvars.iv.next9.pre-phi.i.i, 8
-  br i1 %exitcond14.not.i.i, label %create_fdt_virtio.argprom.exit.i, label %for.body.i9.i, !llvm.loop !27
+  br i1 %exitcond14.not.i.i, label %create_fdt_virtio.exit.i, label %for.body.i9.i, !llvm.loop !27
 
-create_fdt_virtio.argprom.exit.i:                 ; preds = %if.end.i.i
+create_fdt_virtio.exit.i:                         ; preds = %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %qdt_tmp38.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %qdt_tmp.i19.i)
@@ -2064,12 +2064,12 @@ create_fdt_virtio.argprom.exit.i:                 ; preds = %if.end.i.i
   %cmp26.i.i = icmp eq i32 %145, 2
   br i1 %cmp26.i.i, label %if.then.i52.i, label %do.body30.i.i
 
-if.then.i52.i:                                    ; preds = %create_fdt_virtio.argprom.exit.i
+if.then.i52.i:                                    ; preds = %create_fdt_virtio.exit.i
   %146 = load ptr, ptr %fdt.i22.i, align 8
   %call29.i53.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %146, ptr noundef %call1.i21.i, ptr noundef nonnull @.str.140, i32 noundef %msi_pcie_phandle.0.i) #14
   br label %do.body30.i.i
 
-do.body30.i.i:                                    ; preds = %if.then.i52.i, %create_fdt_virtio.argprom.exit.i
+do.body30.i.i:                                    ; preds = %if.then.i52.i, %create_fdt_virtio.exit.i
   store i32 0, ptr %qdt_tmp31.i.i, align 16
   %arrayinit.element33.i.i = getelementptr inbounds i8, ptr %qdt_tmp31.i.i, i64 4
   store i32 805306368, ptr %arrayinit.element33.i.i, align 4
@@ -2211,9 +2211,9 @@ for.body38.i.i.i:                                 ; preds = %for.body38.i.i.i, %
   store i32 %159, ptr %arrayidx40.i.i.i, align 4
   %indvars.iv.next.i.i51.i = add nuw nsw i64 %indvars.iv.i.i50.i, 1
   %exitcond35.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i51.i, 4
-  br i1 %exitcond35.not.i.i.i, label %create_fdt_pcie.argprom.exit.i, label %for.body38.i.i.i, !llvm.loop !31
+  br i1 %exitcond35.not.i.i.i, label %create_fdt_pcie.exit.i, label %for.body38.i.i.i, !llvm.loop !31
 
-create_fdt_pcie.argprom.exit.i:                   ; preds = %for.body38.i.i.i
+create_fdt_pcie.exit.i:                           ; preds = %for.body38.i.i.i
   %call48.i.i.i = call i32 @qemu_fdt_setprop(ptr noundef %153, ptr noundef %call1.i21.i, ptr noundef nonnull @.str.154, ptr noundef nonnull %qdt_tmp.i.i18.i, i32 noundef 16) #14
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %full_irq_map.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i.i18.i)
@@ -2238,17 +2238,17 @@ create_fdt_pcie.argprom.exit.i:                   ; preds = %for.body38.i.i.i
   store i32 4096, ptr %arrayinit.element8.i.i, align 4
   br label %for.body.i62.i
 
-for.body.i62.i:                                   ; preds = %for.body.i62.i, %create_fdt_pcie.argprom.exit.i
-  %indvars.iv.i63.i = phi i64 [ 0, %create_fdt_pcie.argprom.exit.i ], [ %indvars.iv.next.i64.i, %for.body.i62.i ]
+for.body.i62.i:                                   ; preds = %for.body.i62.i, %create_fdt_pcie.exit.i
+  %indvars.iv.i63.i = phi i64 [ 0, %create_fdt_pcie.exit.i ], [ %indvars.iv.next.i64.i, %for.body.i62.i ]
   %arrayidx13.i.i = getelementptr [4 x i32], ptr %qdt_tmp.i54.i, i64 0, i64 %indvars.iv.i63.i
   %162 = load i32, ptr %arrayidx13.i.i, align 4
   %163 = call noundef i32 @llvm.bswap.i32(i32 %162)
   store i32 %163, ptr %arrayidx13.i.i, align 4
   %indvars.iv.next.i64.i = add nuw nsw i64 %indvars.iv.i63.i, 1
   %exitcond.not.i65.i = icmp eq i64 %indvars.iv.next.i64.i, 4
-  br i1 %exitcond.not.i65.i, label %create_fdt_reset.argprom.exit.i, label %for.body.i62.i, !llvm.loop !32
+  br i1 %exitcond.not.i65.i, label %create_fdt_reset.exit.i, label %for.body.i62.i, !llvm.loop !32
 
-create_fdt_reset.argprom.exit.i:                  ; preds = %for.body.i62.i
+create_fdt_reset.exit.i:                          ; preds = %for.body.i62.i
   %164 = load ptr, ptr %fdt.i58.i, align 8
   %call19.i.i = call i32 @qemu_fdt_setprop(ptr noundef %164, ptr noundef %call1.i57.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp.i54.i, i32 noundef 16) #14
   %165 = load ptr, ptr %fdt.i58.i, align 8
@@ -2299,8 +2299,8 @@ create_fdt_reset.argprom.exit.i:                  ; preds = %for.body.i62.i
   store i32 256, ptr %arrayinit.element8.i76.i, align 4
   br label %for.body.i77.i
 
-for.body.i77.i:                                   ; preds = %for.body.i77.i, %create_fdt_reset.argprom.exit.i
-  %indvars.iv.i78.i = phi i64 [ 0, %create_fdt_reset.argprom.exit.i ], [ %indvars.iv.next.i80.i, %for.body.i77.i ]
+for.body.i77.i:                                   ; preds = %for.body.i77.i, %create_fdt_reset.exit.i
+  %indvars.iv.i78.i = phi i64 [ 0, %create_fdt_reset.exit.i ], [ %indvars.iv.next.i80.i, %for.body.i77.i ]
   %arrayidx13.i79.i = getelementptr [4 x i32], ptr %qdt_tmp.i68.i, i64 0, i64 %indvars.iv.i78.i
   %179 = load i32, ptr %arrayidx13.i79.i, align 4
   %180 = call noundef i32 @llvm.bswap.i32(i32 %179)
@@ -2323,15 +2323,15 @@ for.end.i82.i:                                    ; preds = %for.body.i77.i
 if.then.i89.i:                                    ; preds = %for.end.i82.i
   %185 = load ptr, ptr %fdt.i71.i, align 8
   %call26.i90.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %185, ptr noundef %call1.i70.i, ptr noundef nonnull @.str.147, i32 noundef 10) #14
-  br label %create_fdt_uart.argprom.exit.i
+  br label %create_fdt_uart.exit.i
 
 do.body27.i.i:                                    ; preds = %for.end.i82.i
   store i64 288230376319483904, ptr %qdt_tmp28.i.i, align 8
   %186 = load ptr, ptr %fdt.i71.i, align 8
   %call45.i87.i = call i32 @qemu_fdt_setprop(ptr noundef %186, ptr noundef %call1.i70.i, ptr noundef nonnull @.str.147, ptr noundef nonnull %qdt_tmp28.i.i, i32 noundef 8) #14
-  br label %create_fdt_uart.argprom.exit.i
+  br label %create_fdt_uart.exit.i
 
-create_fdt_uart.argprom.exit.i:                   ; preds = %do.body27.i.i, %if.then.i89.i
+create_fdt_uart.exit.i:                           ; preds = %do.body27.i.i, %if.then.i89.i
   %187 = load ptr, ptr %fdt.i71.i, align 8
   %call48.i.i = call i32 @qemu_fdt_setprop_string(ptr noundef %187, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.169, ptr noundef %call1.i70.i) #14
   call void @g_free(ptr noundef %call1.i70.i) #14
@@ -2355,8 +2355,8 @@ create_fdt_uart.argprom.exit.i:                   ; preds = %do.body27.i.i, %if.
   store i32 4096, ptr %arrayinit.element8.i99.i, align 4
   br label %for.body.i100.i
 
-for.body.i100.i:                                  ; preds = %for.body.i100.i, %create_fdt_uart.argprom.exit.i
-  %indvars.iv.i101.i = phi i64 [ 0, %create_fdt_uart.argprom.exit.i ], [ %indvars.iv.next.i103.i, %for.body.i100.i ]
+for.body.i100.i:                                  ; preds = %for.body.i100.i, %create_fdt_uart.exit.i
+  %indvars.iv.i101.i = phi i64 [ 0, %create_fdt_uart.exit.i ], [ %indvars.iv.next.i103.i, %for.body.i100.i ]
   %arrayidx13.i102.i = getelementptr [4 x i32], ptr %qdt_tmp.i91.i, i64 0, i64 %indvars.iv.i101.i
   %190 = load i32, ptr %arrayidx13.i102.i, align 4
   %191 = call noundef i32 @llvm.bswap.i32(i32 %190)
@@ -2711,7 +2711,7 @@ if.end107:                                        ; preds = %imsic_num_bits.exit
 declare void @platform_bus_add_all_fdt_nodes(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @create_fdt_one_aplic.argelim(ptr noundef %s, i32 noundef range(i32 0, -2147483648) %socket, i64 noundef range(i64 201326592, 70368962248705) %aplic_addr, i32 noundef %msi_phandle, ptr nocapture noundef readonly %intc_phandles, i32 noundef %aplic_phandle, i32 noundef %aplic_child_phandle, i1 noundef zeroext %m_mode, i32 noundef %num_harts) unnamed_addr #1 {
+define internal fastcc void @create_fdt_one_aplic(ptr noundef %s, i32 noundef range(i32 0, -2147483648) %socket, i64 noundef range(i64 201326592, 70368962248705) %aplic_addr, i32 noundef %msi_phandle, ptr nocapture noundef readonly %intc_phandles, i32 noundef %aplic_phandle, i32 noundef %aplic_child_phandle, i1 noundef zeroext %m_mode, i32 noundef %num_harts) unnamed_addr #1 {
 entry:
   %qdt_tmp = alloca [4 x i32], align 16
   %qdt_tmp56 = alloca [3 x i32], align 4

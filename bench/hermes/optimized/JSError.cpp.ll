@@ -455,7 +455,7 @@ if.then51:                                        ; preds = %land.rhs
   %call57 = call { i32, i64 } @_ZN6hermes2vm7JSError23constructCallSitesArrayERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %call4)
   %24 = extractvalue { i32, i64 } %call57, 0
   %cmp.i44 = icmp eq i32 %24, 0
-  br i1 %cmp.i44, label %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.argprom.exit64", label %if.end60
+  br i1 %cmp.i44, label %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64", label %if.end60
 
 if.end60:                                         ; preds = %if.then51
   %25 = extractvalue { i32, i64 } %call57, 1
@@ -463,9 +463,9 @@ if.end60:                                         ; preds = %if.then51
   %call77 = call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall2ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES6_S6_b(ptr nonnull %retval.sroa.0.0.i38, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @_ZN6hermes2vm15HandleRootOwner10nullValue_E, i64 %retval.sroa.0.0.copyload.i45, i64 %25, i1 noundef zeroext false) #17
   %26 = extractvalue { i32, i64 } %call77, 0
   %cmp.i47 = icmp eq i32 %26, 0
-  br i1 %cmp.i47, label %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.argprom.exit64", label %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.argprom.exit"
+  br i1 %cmp.i47, label %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64", label %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit"
 
-"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.argprom.exit": ; preds = %if.end60
+"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit": ; preds = %if.end60
   %27 = extractvalue { i32, i64 } %call77, 1
   store i64 %27, ptr %retval.0.i.i.i.i.i.i, align 8
   store i8 0, ptr %formattingStackTrace_.i, align 1
@@ -537,7 +537,7 @@ if.else102:                                       ; preds = %_ZN6hermes2vm15Stri
   store i64 %35, ptr %retval.0.i.i.i.i.i.i, align 8
   br label %if.end108
 
-if.end108:                                        ; preds = %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.argprom.exit", %if.then95, %if.else102
+if.end108:                                        ; preds = %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit", %if.then95, %if.else102
   %call.i58 = call i32 @_ZN6hermes2vm8JSObject25defineOwnPropertyInternalENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_19DefinePropertyFlagsENS2_INS0_11HermesValueEEENS0_11PropOpFlagsE(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 140, i32 318, ptr nonnull %retval.0.i.i.i.i.i.i, i32 0) #17
   %bf.cast.i.i74.mask = and i32 %call.i58, 255
   %cmp.i59 = icmp eq i32 %bf.cast.i.i74.mask, 0
@@ -547,13 +547,13 @@ if.end129:                                        ; preds = %if.end108
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   br label %cleanup134
 
-"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.argprom.exit64": ; preds = %if.end60, %if.then51
+"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64": ; preds = %if.end60, %if.then51
   store i8 0, ptr %formattingStackTrace_.i, align 1
   br label %cleanup134
 
-cleanup134:                                       ; preds = %if.end108, %if.else, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.argprom.exit64", %if.end129
-  %retval.sroa.0.1 = phi i32 [ 1, %if.end129 ], [ 0, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.argprom.exit64" ], [ 0, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit ], [ 0, %if.else ], [ 0, %if.end108 ]
-  %retval.sroa.9.1 = phi i64 [ %retval.sroa.0.0.copyload.i.i.i, %if.end129 ], [ undef, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.argprom.exit64" ], [ undef, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit ], [ undef, %if.else ], [ undef, %if.end108 ]
+cleanup134:                                       ; preds = %if.end108, %if.else, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64", %if.end129
+  %retval.sroa.0.1 = phi i32 [ 1, %if.end129 ], [ 0, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64" ], [ 0, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit ], [ 0, %if.else ], [ 0, %if.end108 ]
+  %retval.sroa.9.1 = phi i64 [ %retval.sroa.0.0.copyload.i.i.i, %if.end129 ], [ undef, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64" ], [ undef, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit ], [ undef, %if.else ], [ undef, %if.end108 ]
   %36 = load ptr, ptr %stack, align 8
   %cmp.i.i.i.i = icmp eq ptr %36, %add.ptr.i.i.i.i.i.i23
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit, label %if.then.i.i.i65
@@ -2554,7 +2554,7 @@ _ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE17_M_realloc_insertIJRPNS1_9Cod
 
 _ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE12emplace_backIJRPNS1_9CodeBlockEjEEERS2_DpOT_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE17_M_realloc_insertIJRPNS1_9CodeBlockEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %.val = load ptr, ptr %codeBlock, align 8
-  %call44 = call fastcc noundef i32 @"_ZZN6hermes2vm7JSError16recordStackTraceENS0_6HandleIS1_EERNS0_7RuntimeEbPNS0_9CodeBlockEPKNS_4inst4InstEENK3$_0clES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %addDomain, ptr %.val)
+  %call44 = call fastcc noundef i32 @"_ZZN6hermes2vm7JSError16recordStackTraceENS0_6HandleIS1_EERNS0_7RuntimeEbPNS0_9CodeBlockEPKNS_4inst4InstEENK3$_0clES7_"(ptr noundef nonnull align 8 dereferenceable(16) %addDomain, ptr %.val)
   %cmp = icmp eq i32 %call44, 0
   br i1 %cmp, label %delete.notnull.i.i, label %if.end52
 
@@ -2781,7 +2781,7 @@ _ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE17_M_realloc_insertIJRPNS1_9Cod
 
 _ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE12emplace_backIJRPNS1_9CodeBlockEjEEERS2_DpOT_.exit144: ; preds = %if.then.i107, %_ZNSt6vectorIN6hermes2vm14StackTraceInfoESaIS2_EE17_M_realloc_insertIJRPNS1_9CodeBlockEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i141
   %.val19 = load ptr, ptr %savedCodeBlock.0, align 8
-  %call98 = call fastcc noundef i32 @"_ZZN6hermes2vm7JSError16recordStackTraceENS0_6HandleIS1_EERNS0_7RuntimeEbPNS0_9CodeBlockEPKNS_4inst4InstEENK3$_0clES7_.argprom"(ptr noundef nonnull align 8 dereferenceable(16) %addDomain, ptr %.val19)
+  %call98 = call fastcc noundef i32 @"_ZZN6hermes2vm7JSError16recordStackTraceENS0_6HandleIS1_EERNS0_7RuntimeEbPNS0_9CodeBlockEPKNS_4inst4InstEENK3$_0clES7_"(ptr noundef nonnull align 8 dereferenceable(16) %addDomain, ptr %.val19)
   %cmp99 = icmp eq i32 %call98, 0
   br i1 %cmp99, label %delete.notnull.i.i, label %for.inc
 
@@ -3431,7 +3431,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @"_ZZN6hermes2vm7JSError16recordStackTraceENS0_6HandleIS1_EERNS0_7RuntimeEbPNS0_9CodeBlockEPKNS_4inst4InstEENK3$_0clES7_.argprom"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %codeBlock.0.val) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @"_ZZN6hermes2vm7JSError16recordStackTraceENS0_6HandleIS1_EERNS0_7RuntimeEbPNS0_9CodeBlockEPKNS_4inst4InstEENK3$_0clES7_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %codeBlock.0.val) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %0, align 8

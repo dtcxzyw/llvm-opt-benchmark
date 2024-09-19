@@ -346,7 +346,7 @@ define void @Abc_SclComputeLoad(ptr nocapture noundef %0) local_unnamed_addr #4 
   %55 = getelementptr inbounds i32, ptr %.val.val.val.i, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, -1
-  br i1 %57, label %Abc_SclObjCell.argprom.exit, label %58
+  br i1 %57, label %Abc_SclObjCell.exit, label %58
 
 58:                                               ; preds = %50
   %59 = getelementptr i8, ptr %.val177, i64 368
@@ -356,14 +356,14 @@ define void @Abc_SclComputeLoad(ptr nocapture noundef %0) local_unnamed_addr #4 
   %61 = sext i32 %56 to i64
   %62 = getelementptr inbounds ptr, ptr %.val5.i, i64 %61
   %63 = load ptr, ptr %62, align 8
-  br label %Abc_SclObjCell.argprom.exit
+  br label %Abc_SclObjCell.exit
 
-Abc_SclObjCell.argprom.exit:                      ; preds = %50, %58
+Abc_SclObjCell.exit:                              ; preds = %50, %58
   %64 = phi ptr [ %63, %58 ], [ null, %50 ]
   %65 = icmp sgt i32 %.val173, 0
   br i1 %65, label %.lr.ph217, label %.critedge4
 
-.lr.ph217:                                        ; preds = %Abc_SclObjCell.argprom.exit
+.lr.ph217:                                        ; preds = %Abc_SclObjCell.exit
   %66 = getelementptr i8, ptr %43, i64 32
   %67 = getelementptr i8, ptr %64, i64 56
   br label %68
@@ -410,8 +410,8 @@ Abc_SclObjCell.argprom.exit:                      ; preds = %50, %58
   %.pre282 = load ptr, ptr %2, align 8
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.critedge4.loopexit, %Abc_SclObjCell.argprom.exit, %48, %45, %38
-  %92 = phi ptr [ %.pre282, %.critedge4.loopexit ], [ %39, %Abc_SclObjCell.argprom.exit ], [ %39, %48 ], [ %39, %45 ], [ %39, %38 ]
+.critedge4:                                       ; preds = %.critedge4.loopexit, %Abc_SclObjCell.exit, %48, %45, %38
+  %92 = phi ptr [ %.pre282, %.critedge4.loopexit ], [ %39, %Abc_SclObjCell.exit ], [ %39, %48 ], [ %39, %45 ], [ %39, %38 ]
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %93 = getelementptr inbounds i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
@@ -902,7 +902,7 @@ define void @Abc_SclUpdateLoad(ptr nocapture noundef readonly %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_SclUpdateLoadSplit(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
-Abc_SclObjCell.argprom.exit:
+Abc_SclObjCell.exit:
   %3 = tail call i32 @Abc_NodeFindFanin(ptr noundef %2, ptr noundef %1) #13
   %.val18 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %2, i64 16

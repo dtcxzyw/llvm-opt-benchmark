@@ -3729,7 +3729,7 @@ define internal noundef zeroext i1 @combo_pll_get_hw_state(ptr noundef %0, ptr n
 26:                                               ; preds = %18, %._crit_edge, %9
   %.val.val = phi i32 [ %13, %9 ], [ %.pre2, %._crit_edge ], [ 2, %18 ]
   %27 = phi i32 [ %17, %9 ], [ %25, %._crit_edge ], [ 286768, %18 ]
-  %28 = tail call fastcc zeroext i1 @icl_pll_get_hw_state.argprom.argprom(ptr noundef %0, i32 %.val.val, ptr noundef %2, i32 %27)
+  %28 = tail call fastcc zeroext i1 @icl_pll_get_hw_state(ptr noundef %0, i32 %.val.val, ptr noundef %2, i32 %27)
   ret i1 %28
 }
 
@@ -4236,7 +4236,7 @@ define internal fastcc void @icl_pll_disable(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @icl_pll_get_hw_state.argprom.argprom(ptr noundef %0, i32 %.144.val.16.val, ptr nocapture noundef writeonly %1, i32 %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @icl_pll_get_hw_state(ptr noundef %0, i32 %.144.val.16.val, ptr nocapture noundef writeonly %1, i32 %2) unnamed_addr #0 align 16 {
   %4 = tail call i64 @intel_display_power_get_if_enabled(ptr noundef %0, i32 noundef 0) #13
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %118, label %6
@@ -4484,7 +4484,7 @@ define internal noundef zeroext i1 @tbt_pll_get_hw_state(ptr noundef %0, ptr noc
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %5, align 8
-  %6 = tail call fastcc zeroext i1 @icl_pll_get_hw_state.argprom.argprom(ptr noundef %0, i32 %.val.val, ptr noundef %2, i32 286752)
+  %6 = tail call fastcc zeroext i1 @icl_pll_get_hw_state(ptr noundef %0, i32 %.val.val, ptr noundef %2, i32 286752)
   ret i1 %6
 }
 

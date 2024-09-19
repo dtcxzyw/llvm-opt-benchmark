@@ -4753,17 +4753,17 @@ define hidden noundef ptr @_ZN8nanobind6detail16nb_func_getattroEP7_objectS2_(pt
   %14 = getelementptr i8, ptr %13, i64 8
   %.val.i = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %.val.i, @PyModule_Type
-  br i1 %.not.i.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i
+  br i1 %.not.i.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i, label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i: ; preds = %11
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i: ; preds = %11
   %15 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyModule_Type)
   %.fr.i = freeze i32 %15
   %.not9.i = icmp eq i32 %.fr.i, 0
   %spec.select.i = select i1 %.not9.i, ptr @.str.11, ptr @.str.12
-  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i
+  br label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i, %11
-  %16 = phi ptr [ @.str.12, %11 ], [ %spec.select.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.i ]
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i: ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i, %11
+  %16 = phi ptr [ @.str.12, %11 ], [ %spec.select.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.i ]
   %17 = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %13, ptr noundef nonnull %16)
   br label %_ZN8nanobind6detailL18nb_func_get_moduleEP7_object.exit
 
@@ -4848,8 +4848,8 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i: ; preds =
   %63 = tail call ptr @PyObject_GenericGetAttr(ptr noundef %0, ptr noundef %1)
   br label %_ZN8nanobind6detailL18nb_func_get_moduleEP7_object.exit
 
-_ZN8nanobind6detailL18nb_func_get_moduleEP7_object.exit: ; preds = %54, %50, %46, %32, %28, %18, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i, %2, %62, %60
-  %.0 = phi ptr [ %61, %60 ], [ %63, %62 ], [ null, %2 ], [ %17, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit.thread.i ], [ @_Py_NoneStruct, %18 ], [ %31, %28 ], [ @_Py_NoneStruct, %32 ], [ %49, %46 ], [ %53, %50 ], [ @_Py_NoneStruct, %54 ]
+_ZN8nanobind6detailL18nb_func_get_moduleEP7_object.exit: ; preds = %54, %50, %46, %32, %28, %18, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i, %2, %62, %60
+  %.0 = phi ptr [ %61, %60 ], [ %63, %62 ], [ null, %2 ], [ %17, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread.i ], [ @_Py_NoneStruct, %18 ], [ %31, %28 ], [ @_Py_NoneStruct, %32 ], [ %49, %46 ], [ %53, %50 ], [ @_Py_NoneStruct, %54 ]
   ret ptr %.0
 }
 
@@ -4904,7 +4904,7 @@ define hidden noundef ptr @_ZN8nanobind6detail9type_nameEPKSt9type_info(ptr noca
   %8 = call ptr @__cxa_demangle(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef nonnull %2)
   %9 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.15) #26
   %.not1.i = icmp eq ptr %9, null
-  br i1 %.not1.i, label %_ZN8nanobind6detailL6strexcEPcPKc.argprom.exit, label %.lr.ph.i
+  br i1 %.not1.i, label %_ZN8nanobind6detailL6strexcEPcPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %10 = phi ptr [ %14, %.lr.ph.i ], [ %9, %1 ]
@@ -4914,9 +4914,9 @@ define hidden noundef ptr @_ZN8nanobind6detail9type_nameEPKSt9type_info(ptr noca
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %11, i64 %13, i1 false)
   %14 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.15) #26
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %_ZN8nanobind6detailL6strexcEPcPKc.argprom.exit, label %.lr.ph.i, !llvm.loop !48
+  br i1 %.not.i, label %_ZN8nanobind6detailL6strexcEPcPKc.exit, label %.lr.ph.i, !llvm.loop !48
 
-_ZN8nanobind6detailL6strexcEPcPKc.argprom.exit:   ; preds = %.lr.ph.i, %1
+_ZN8nanobind6detailL6strexcEPcPKc.exit:           ; preds = %.lr.ph.i, %1
   ret ptr %8
 }
 

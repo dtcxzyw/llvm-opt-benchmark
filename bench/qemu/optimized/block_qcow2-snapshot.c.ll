@@ -78,8 +78,8 @@ entry:
   %cmp8.not = icmp eq i32 %1, 0
   br i1 %cmp8.not, label %for.end, label %for.body
 
-for.body:                                         ; preds = %entry, %qcow2_free_single_snapshot.argprom.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %qcow2_free_single_snapshot.argprom.exit ], [ 0, %entry ]
+for.body:                                         ; preds = %entry, %qcow2_free_single_snapshot.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %qcow2_free_single_snapshot.exit ], [ 0, %entry ]
   %bs.val = load ptr, ptr %opaque, align 8
   %exitcond.not = icmp eq i64 %indvars.iv, 2147483648
   br i1 %exitcond.not, label %if.else.i, label %land.lhs.true.i
@@ -89,13 +89,13 @@ land.lhs.true.i:                                  ; preds = %for.body
   %2 = load i32, ptr %nb_snapshots.i, align 4
   %3 = zext i32 %2 to i64
   %cmp1.i = icmp ult i64 %indvars.iv, %3
-  br i1 %cmp1.i, label %qcow2_free_single_snapshot.argprom.exit, label %if.else.i
+  br i1 %cmp1.i, label %qcow2_free_single_snapshot.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %for.body
   tail call void @__assert_fail(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 38, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_free_single_snapshot) #15
   unreachable
 
-qcow2_free_single_snapshot.argprom.exit:          ; preds = %land.lhs.true.i
+qcow2_free_single_snapshot.exit:                  ; preds = %land.lhs.true.i
   %snapshots.i = getelementptr inbounds i8, ptr %bs.val, i64 264
   %4 = load ptr, ptr %snapshots.i, align 8
   %name.i = getelementptr %struct.QCowSnapshot, ptr %4, i64 %indvars.iv, i32 3
@@ -118,7 +118,7 @@ qcow2_free_single_snapshot.argprom.exit:          ; preds = %land.lhs.true.i
   %cmp = icmp ult i64 %indvars.iv.next, %12
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
-for.end:                                          ; preds = %qcow2_free_single_snapshot.argprom.exit, %entry
+for.end:                                          ; preds = %qcow2_free_single_snapshot.exit, %entry
   %snapshots = getelementptr inbounds i8, ptr %0, i64 264
   %13 = load ptr, ptr %snapshots, align 8
   tail call void @g_free(ptr noundef %13) #16
@@ -128,7 +128,7 @@ for.end:                                          ; preds = %qcow2_free_single_s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qcow2_free_single_snapshot.argprom(ptr nocapture readonly %bs.24.val, i32 noundef %i) unnamed_addr #0 {
+define internal fastcc void @qcow2_free_single_snapshot(ptr nocapture readonly %bs.24.val, i32 noundef %i) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %i, -1
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -533,7 +533,7 @@ if.end182:                                        ; preds = %if.then177
   %add188 = add i32 %sub187, %56
   store i32 %add188, ptr %nb_clusters_reduced, align 4
   %bs.val = load ptr, ptr %opaque, align 8
-  call fastcc void @qcow2_free_single_snapshot.argprom(ptr %bs.val, i32 noundef %i.0177)
+  call fastcc void @qcow2_free_single_snapshot(ptr %bs.val, i32 noundef %i.0177)
   store i32 %i.0177, ptr %nb_snapshots, align 4
   br label %for.end
 
@@ -1191,7 +1191,7 @@ if.end:                                           ; preds = %entry
 
 if.end2:                                          ; preds = %if.end
   %cmp1.not.i = icmp eq i32 %1, 0
-  br i1 %cmp1.not.i, label %find_new_snapshot_id.argprom.exit, label %for.body.lr.ph.i
+  br i1 %cmp1.not.i, label %find_new_snapshot_id.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end2
   %snapshots.i = getelementptr inbounds i8, ptr %0, i64 264
@@ -1213,9 +1213,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %7 = add i64 %spec.select.i, 1
-  br label %find_new_snapshot_id.argprom.exit
+  br label %find_new_snapshot_id.exit
 
-find_new_snapshot_id.argprom.exit:                ; preds = %if.end2, %for.end.loopexit.i
+find_new_snapshot_id.exit:                        ; preds = %if.end2, %for.end.loopexit.i
   %id_max.0.lcssa.i = phi i64 [ 1, %if.end2 ], [ %7, %for.end.loopexit.i ]
   %call3.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sn_info, i64 noundef 128, ptr noundef nonnull @.str.34, i64 noundef %id_max.0.lcssa.i) #16
   %call5 = tail call noalias ptr @g_strdup(ptr noundef %sn_info) #16
@@ -1242,11 +1242,11 @@ find_new_snapshot_id.argprom.exit:                ; preds = %if.end2, %for.end.l
   %cmp17 = icmp slt i64 %call16, 0
   br i1 %cmp17, label %if.then19, label %if.end21
 
-if.then19:                                        ; preds = %find_new_snapshot_id.argprom.exit
+if.then19:                                        ; preds = %find_new_snapshot_id.exit
   %conv20 = trunc i64 %call16 to i32
   br label %fail
 
-if.end21:                                         ; preds = %find_new_snapshot_id.argprom.exit
+if.end21:                                         ; preds = %find_new_snapshot_id.exit
   %15 = load i32, ptr %l1_size, align 8
   %conv26 = sext i32 %15 to i64
   %call27 = tail call noalias ptr @g_try_malloc_n(i64 noundef %conv26, i64 noundef 8) #17
@@ -1451,18 +1451,18 @@ for.body16.i.i:                                   ; preds = %for.inc25.i.i, %for
   %5 = load ptr, ptr %id_str20.i.i, align 8
   %call21.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %snapshot_id) #20
   %tobool22.not.i.i = icmp eq i32 %call21.i.i, 0
-  br i1 %tobool22.not.i.i, label %find_snapshot_by_id_and_name.argprom.exit.i, label %for.inc25.i.i
+  br i1 %tobool22.not.i.i, label %find_snapshot_by_id_and_name.exit.i, label %for.inc25.i.i
 
 for.inc25.i.i:                                    ; preds = %for.body16.i.i
   %inc26.i.i = add nuw i32 %i.19.i.i, 1
   %exitcond20.not.i.i = icmp eq i32 %inc26.i.i, %3
   br i1 %exitcond20.not.i.i, label %for.body34.i.i.preheader, label %for.body16.i.i, !llvm.loop !13
 
-find_snapshot_by_id_and_name.argprom.exit.i:      ; preds = %for.body16.i.i
+find_snapshot_by_id_and_name.exit.i:              ; preds = %for.body16.i.i
   %cmp.i55 = icmp sgt i32 %i.19.i.i, -1
   br i1 %cmp.i55, label %if.end3, label %for.body34.i.i.preheader
 
-for.body34.i.i.preheader:                         ; preds = %for.inc25.i.i, %find_snapshot_by_id_and_name.argprom.exit.i
+for.body34.i.i.preheader:                         ; preds = %for.inc25.i.i, %find_snapshot_by_id_and_name.exit.i
   br label %for.body34.i.i
 
 for.body34.i.i:                                   ; preds = %for.body34.i.i.preheader, %for.inc43.i.i
@@ -1472,19 +1472,19 @@ for.body34.i.i:                                   ; preds = %for.body34.i.i.preh
   %6 = load ptr, ptr %name38.i.i, align 8
   %call39.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %snapshot_id) #20
   %tobool40.not.i.i = icmp eq i32 %call39.i.i, 0
-  br i1 %tobool40.not.i.i, label %find_snapshot_by_id_or_name.argprom.exit, label %for.inc43.i.i
+  br i1 %tobool40.not.i.i, label %find_snapshot_by_id_or_name.exit, label %for.inc43.i.i
 
 for.inc43.i.i:                                    ; preds = %for.body34.i.i
   %inc44.i.i = add nuw i32 %i.26.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc44.i.i, %3
   br i1 %exitcond.not.i.i, label %return, label %for.body34.i.i, !llvm.loop !14
 
-find_snapshot_by_id_or_name.argprom.exit:         ; preds = %for.body34.i.i
+find_snapshot_by_id_or_name.exit:                 ; preds = %for.body34.i.i
   %cmp = icmp slt i32 %i.26.i.i, 0
   br i1 %cmp, label %return, label %if.end3
 
-if.end3:                                          ; preds = %find_snapshot_by_id_and_name.argprom.exit.i, %find_snapshot_by_id_or_name.argprom.exit
-  %retval.0.i67 = phi i32 [ %i.26.i.i, %find_snapshot_by_id_or_name.argprom.exit ], [ %i.19.i.i, %find_snapshot_by_id_and_name.argprom.exit.i ]
+if.end3:                                          ; preds = %find_snapshot_by_id_and_name.exit.i, %find_snapshot_by_id_or_name.exit
+  %retval.0.i67 = phi i32 [ %i.26.i.i, %find_snapshot_by_id_or_name.exit ], [ %i.19.i.i, %find_snapshot_by_id_and_name.exit.i ]
   %idxprom = zext nneg i32 %retval.0.i67 to i64
   %arrayidx = getelementptr %struct.QCowSnapshot, ptr %4, i64 %idxprom
   %7 = load i64, ptr %arrayidx, align 8
@@ -1615,8 +1615,8 @@ fail:                                             ; preds = %fail.sink.split, %i
   call void @g_free(ptr noundef %sn_l1_table.0) #16
   br label %return
 
-return:                                           ; preds = %for.inc43.i.i, %for.cond13.preheader.i.i, %if.end, %if.end87, %find_snapshot_by_id_or_name.argprom.exit, %entry, %fail
-  %retval.0 = phi i32 [ %ret.0, %fail ], [ -95, %entry ], [ -2, %find_snapshot_by_id_or_name.argprom.exit ], [ 0, %if.end87 ], [ -2, %if.end ], [ -2, %for.cond13.preheader.i.i ], [ -2, %for.inc43.i.i ]
+return:                                           ; preds = %for.inc43.i.i, %for.cond13.preheader.i.i, %if.end, %if.end87, %find_snapshot_by_id_or_name.exit, %entry, %fail
+  %retval.0 = phi i32 [ %ret.0, %fail ], [ -95, %entry ], [ -2, %find_snapshot_by_id_or_name.exit ], [ 0, %if.end87 ], [ -2, %if.end ], [ -2, %for.cond13.preheader.i.i ], [ -2, %for.inc43.i.i ]
   ret i32 %retval.0
 }
 
@@ -1648,7 +1648,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @find_snapshot_by_id_and_name.argprom(ptr nonnull %0, ptr noundef %snapshot_id, ptr noundef %name)
+  %call1 = tail call fastcc i32 @find_snapshot_by_id_and_name(ptr nonnull %0, ptr noundef %snapshot_id, ptr noundef %name)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then2, label %if.end3
 
@@ -1733,7 +1733,7 @@ return:                                           ; preds = %if.end31, %if.end3,
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @find_snapshot_by_id_and_name.argprom(ptr nocapture readonly %bs.24.val, ptr noundef readonly %id, ptr noundef readonly %name) unnamed_addr #10 {
+define internal fastcc i32 @find_snapshot_by_id_and_name(ptr nocapture readonly %bs.24.val, ptr noundef readonly %id, ptr noundef readonly %name) unnamed_addr #10 {
 entry:
   %tobool = icmp ne ptr %id, null
   %tobool1 = icmp ne ptr %name, null
@@ -1938,7 +1938,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %bs.val = load ptr, ptr %opaque, align 8
-  %call1 = tail call fastcc i32 @find_snapshot_by_id_and_name.argprom(ptr %bs.val, ptr noundef %snapshot_id, ptr noundef %name)
+  %call1 = tail call fastcc i32 @find_snapshot_by_id_and_name(ptr %bs.val, ptr noundef %snapshot_id, ptr noundef %name)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then2, label %if.end3
 

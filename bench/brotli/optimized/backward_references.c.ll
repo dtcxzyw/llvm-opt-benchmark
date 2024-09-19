@@ -12260,7 +12260,7 @@ sw.bb6:                                           ; preds = %if.then
   %1031 = load i64, ptr %total_size.i4349, align 8
   %add9326.i = add i64 %position, 8
   %cmp10327.i = icmp ult i64 %add9326.i, %add.i4341
-  br i1 %cmp10327.i, label %while.body.lr.ph.i4360, label %CreateBackwardReferencesDH55.argprom.exit
+  br i1 %cmp10327.i, label %while.body.lr.ph.i4360, label %CreateBackwardReferencesDH55.exit
 
 while.body.lr.ph.i4360:                           ; preds = %sw.bb6
   %add7.i4361 = add i64 %cond.i.i4347, %position
@@ -14261,9 +14261,9 @@ if.end221.i4490:                                  ; preds = %for.body214.i4503, 
   %apply_random_heuristics.1.i4494 = phi i64 [ %apply_random_heuristics.0333.i, %if.else.i4486 ], [ %add132.i4647, %if.end176.i4749 ], [ %apply_random_heuristics.0333.i, %if.then188.i4507 ], [ %apply_random_heuristics.0333.i, %if.else202.i4500 ], [ %add132.i4647, %for.body.i1420.i ], [ %apply_random_heuristics.0333.i, %for.body.i4510 ], [ %apply_random_heuristics.0333.i, %for.body214.i4503 ]
   %add9.i4495 = add i64 %position.addr.3.i4491, 8
   %cmp10.i4496 = icmp ult i64 %add9.i4495, %add.i4341
-  br i1 %cmp10.i4496, label %while.body.i4371, label %CreateBackwardReferencesDH55.argprom.exit, !llvm.loop !59
+  br i1 %cmp10.i4496, label %while.body.i4371, label %CreateBackwardReferencesDH55.exit, !llvm.loop !59
 
-CreateBackwardReferencesDH55.argprom.exit:        ; preds = %if.end221.i4490, %sw.bb6
+CreateBackwardReferencesDH55.exit:                ; preds = %if.end221.i4490, %sw.bb6
   %position.addr.0.lcssa.i4350 = phi i64 [ %position, %sw.bb6 ], [ %position.addr.3.i4491, %if.end221.i4490 ]
   %commands.addr.0.lcssa.i4351 = phi ptr [ %commands, %sw.bb6 ], [ %commands.addr.1.i4492, %if.end221.i4490 ]
   %insert_length.0.lcssa.i4352 = phi i64 [ %1029, %sw.bb6 ], [ %insert_length.3.i4493, %if.end221.i4490 ]
@@ -18387,7 +18387,7 @@ sw.bb11:                                          ; preds = %if.then, %if.end
   %1532 = load i64, ptr %total_size.i6139, align 8
   %add9120.i = add i64 %position, 8
   %cmp10121.i = icmp ult i64 %add9120.i, %add.i6132
-  br i1 %cmp10121.i, label %while.body.lr.ph.i6150, label %CreateBackwardReferencesNH3.argprom.exit
+  br i1 %cmp10121.i, label %while.body.lr.ph.i6150, label %CreateBackwardReferencesNH3.exit
 
 while.body.lr.ph.i6150:                           ; preds = %sw.bb11
   %add7.i6151 = add i64 %cond.i.i6138, %position
@@ -19320,9 +19320,9 @@ if.end212.i6168:                                  ; preds = %for.body205.i6181, 
   %apply_random_heuristics.1.i6172 = phi i64 [ %apply_random_heuristics.0127.i, %if.else.i6164 ], [ %add123.i6251, %if.end167.i6359 ], [ %apply_random_heuristics.0127.i, %if.then179.i6185 ], [ %apply_random_heuristics.0127.i, %if.else193.i6178 ], [ %add123.i6251, %for.body.i654.i ], [ %apply_random_heuristics.0127.i, %for.body.i6188 ], [ %apply_random_heuristics.0127.i, %for.body205.i6181 ]
   %add9.i6173 = add i64 %position.addr.3.i6169, 8
   %cmp10.i6174 = icmp ult i64 %add9.i6173, %add.i6132
-  br i1 %cmp10.i6174, label %while.body.i6158, label %CreateBackwardReferencesNH3.argprom.exit, !llvm.loop !84
+  br i1 %cmp10.i6174, label %while.body.i6158, label %CreateBackwardReferencesNH3.exit, !llvm.loop !84
 
-CreateBackwardReferencesNH3.argprom.exit:         ; preds = %if.end212.i6168, %sw.bb11
+CreateBackwardReferencesNH3.exit:                 ; preds = %if.end212.i6168, %sw.bb11
   %position.addr.0.lcssa.i6140 = phi i64 [ %position, %sw.bb11 ], [ %position.addr.3.i6169, %if.end212.i6168 ]
   %commands.addr.0.lcssa.i6141 = phi ptr [ %commands, %sw.bb11 ], [ %commands.addr.1.i6170, %if.end212.i6168 ]
   %insert_length.0.lcssa.i6142 = phi i64 [ %1530, %sw.bb11 ], [ %insert_length.3.i6171, %if.end212.i6168 ]
@@ -29342,7 +29342,7 @@ sw.bb18:                                          ; preds = %if.then, %if.end
   %2509 = load i64, ptr %total_size.i10599, align 8
   %add9120.i10600 = add i64 %position, 8
   %cmp10121.i10601 = icmp ult i64 %add9120.i10600, %add.i10592
-  br i1 %cmp10121.i10601, label %while.body.lr.ph.i10612, label %CreateBackwardReferencesNH54.argprom.exit
+  br i1 %cmp10121.i10601, label %while.body.lr.ph.i10612, label %CreateBackwardReferencesNH54.exit
 
 while.body.lr.ph.i10612:                          ; preds = %sw.bb18
   %add7.i10613 = add i64 %cond.i.i10598, %position
@@ -30299,9 +30299,9 @@ if.end212.i10687:                                 ; preds = %for.body205.i10701,
   %apply_random_heuristics.1.i10691 = phi i64 [ %apply_random_heuristics.0127.i10623, %if.else.i10683 ], [ %add123.i10821, %if.end167.i10932 ], [ %apply_random_heuristics.0127.i10623, %if.then179.i10716 ], [ %apply_random_heuristics.0127.i10623, %if.else193.i10697 ], [ %add123.i10821, %for.body.i654.i10935 ], [ %apply_random_heuristics.0127.i10623, %for.body.i10720 ], [ %apply_random_heuristics.0127.i10623, %for.body205.i10701 ]
   %add9.i10692 = add i64 %position.addr.3.i10688, 8
   %cmp10.i10693 = icmp ult i64 %add9.i10692, %add.i10592
-  br i1 %cmp10.i10693, label %while.body.i10622, label %CreateBackwardReferencesNH54.argprom.exit, !llvm.loop !132
+  br i1 %cmp10.i10693, label %while.body.i10622, label %CreateBackwardReferencesNH54.exit, !llvm.loop !132
 
-CreateBackwardReferencesNH54.argprom.exit:        ; preds = %if.end212.i10687, %sw.bb18
+CreateBackwardReferencesNH54.exit:                ; preds = %if.end212.i10687, %sw.bb18
   %position.addr.0.lcssa.i10602 = phi i64 [ %position, %sw.bb18 ], [ %position.addr.3.i10688, %if.end212.i10687 ]
   %commands.addr.0.lcssa.i10603 = phi ptr [ %commands, %sw.bb18 ], [ %commands.addr.1.i10689, %if.end212.i10687 ]
   %insert_length.0.lcssa.i10604 = phi i64 [ %2507, %sw.bb18 ], [ %insert_length.3.i10690, %if.end212.i10687 ]
@@ -30342,7 +30342,7 @@ sw.bb19:                                          ; preds = %if.then, %if.end
   %2585 = load i64, ptr %total_size.i11265, align 8
   %add9168.i = add i64 %position, 8
   %cmp10169.i = icmp ult i64 %add9168.i, %add.i11258
-  br i1 %cmp10169.i, label %while.body.lr.ph.i11276, label %CreateBackwardReferencesNH35.argprom.exit
+  br i1 %cmp10169.i, label %while.body.lr.ph.i11276, label %CreateBackwardReferencesNH35.exit
 
 while.body.lr.ph.i11276:                          ; preds = %sw.bb19
   %add7.i11277 = add i64 %cond.i.i11264, %position
@@ -31602,9 +31602,9 @@ if.end212.i11305:                                 ; preds = %for.body205.i11318,
   %apply_random_heuristics.1.i11309 = phi i64 [ %apply_random_heuristics.0175.i, %if.else.i11301 ], [ %add123.i11376, %if.end167.i11487 ], [ %apply_random_heuristics.0175.i, %if.then179.i11323 ], [ %apply_random_heuristics.0175.i, %if.else193.i11315 ], [ %add123.i11376, %for.body.i.i841.i ], [ %apply_random_heuristics.0175.i, %for.body.i11326 ], [ %apply_random_heuristics.0175.i, %for.body205.i11318 ]
   %add9.i11310 = add i64 %position.addr.3.i11306, 8
   %cmp10.i11311 = icmp ult i64 %add9.i11310, %add.i11258
-  br i1 %cmp10.i11311, label %while.body.i11284, label %CreateBackwardReferencesNH35.argprom.exit, !llvm.loop !157
+  br i1 %cmp10.i11311, label %while.body.i11284, label %CreateBackwardReferencesNH35.exit, !llvm.loop !157
 
-CreateBackwardReferencesNH35.argprom.exit:        ; preds = %if.end212.i11305, %sw.bb19
+CreateBackwardReferencesNH35.exit:                ; preds = %if.end212.i11305, %sw.bb19
   %position.addr.0.lcssa.i11266 = phi i64 [ %position, %sw.bb19 ], [ %position.addr.3.i11306, %if.end212.i11305 ]
   %commands.addr.0.lcssa.i11267 = phi ptr [ %commands, %sw.bb19 ], [ %commands.addr.1.i11307, %if.end212.i11305 ]
   %insert_length.0.lcssa.i11268 = phi i64 [ %2583, %sw.bb19 ], [ %insert_length.3.i11308, %if.end212.i11305 ]
@@ -31645,7 +31645,7 @@ sw.bb20:                                          ; preds = %if.end
   %2685 = load i64, ptr %total_size.i11628, align 8
   %add9168.i11629 = add i64 %position, 8
   %cmp10169.i11630 = icmp ult i64 %add9168.i11629, %add.i11621
-  br i1 %cmp10169.i11630, label %while.body.lr.ph.i11641, label %CreateBackwardReferencesNH55.argprom.exit
+  br i1 %cmp10169.i11630, label %while.body.lr.ph.i11641, label %CreateBackwardReferencesNH55.exit
 
 while.body.lr.ph.i11641:                          ; preds = %sw.bb20
   %add7.i11642 = add i64 %cond.i.i11627, %position
@@ -32929,9 +32929,9 @@ if.end212.i11739:                                 ; preds = %for.body205.i11753,
   %apply_random_heuristics.1.i11743 = phi i64 [ %apply_random_heuristics.0175.i11655, %if.else.i11735 ], [ %add123.i11823, %if.end167.i11934 ], [ %apply_random_heuristics.0175.i11655, %if.then179.i11759 ], [ %apply_random_heuristics.0175.i11655, %if.else193.i11749 ], [ %add123.i11823, %for.body.i982.i ], [ %apply_random_heuristics.0175.i11655, %for.body.i11763 ], [ %apply_random_heuristics.0175.i11655, %for.body205.i11753 ]
   %add9.i11744 = add i64 %position.addr.3.i11740, 8
   %cmp10.i11745 = icmp ult i64 %add9.i11744, %add.i11621
-  br i1 %cmp10.i11745, label %while.body.i11654, label %CreateBackwardReferencesNH55.argprom.exit, !llvm.loop !172
+  br i1 %cmp10.i11745, label %while.body.i11654, label %CreateBackwardReferencesNH55.exit, !llvm.loop !172
 
-CreateBackwardReferencesNH55.argprom.exit:        ; preds = %if.end212.i11739, %sw.bb20
+CreateBackwardReferencesNH55.exit:                ; preds = %if.end212.i11739, %sw.bb20
   %position.addr.0.lcssa.i11631 = phi i64 [ %position, %sw.bb20 ], [ %position.addr.3.i11740, %if.end212.i11739 ]
   %commands.addr.0.lcssa.i11632 = phi ptr [ %commands, %sw.bb20 ], [ %commands.addr.1.i11741, %if.end212.i11739 ]
   %insert_length.0.lcssa.i11633 = phi i64 [ %2683, %sw.bb20 ], [ %insert_length.3.i11742, %if.end212.i11739 ]
@@ -35023,7 +35023,7 @@ CreateBackwardReferencesNH65.exit:                ; preds = %if.end212.i12284, %
   store i64 %add215.i12187, ptr %num_commands, align 8
   br label %sw.epilog23
 
-sw.epilog23:                                      ; preds = %if.then, %if.end, %CreateBackwardReferencesNH65.exit, %CreateBackwardReferencesNH55.argprom.exit, %CreateBackwardReferencesNH35.argprom.exit, %CreateBackwardReferencesNH54.argprom.exit, %CreateBackwardReferencesNH42.exit, %CreateBackwardReferencesNH41.exit, %CreateBackwardReferencesNH40.exit, %CreateBackwardReferencesNH6.exit, %CreateBackwardReferencesNH5.exit, %CreateBackwardReferencesNH4.exit, %CreateBackwardReferencesNH3.argprom.exit, %CreateBackwardReferencesNH2.exit, %CreateBackwardReferencesDH65.exit, %CreateBackwardReferencesDH55.argprom.exit, %CreateBackwardReferencesDH42.exit, %CreateBackwardReferencesDH41.exit, %CreateBackwardReferencesDH40.exit, %CreateBackwardReferencesDH6.exit, %CreateBackwardReferencesDH5.exit
+sw.epilog23:                                      ; preds = %if.then, %if.end, %CreateBackwardReferencesNH65.exit, %CreateBackwardReferencesNH55.exit, %CreateBackwardReferencesNH35.exit, %CreateBackwardReferencesNH54.exit, %CreateBackwardReferencesNH42.exit, %CreateBackwardReferencesNH41.exit, %CreateBackwardReferencesNH40.exit, %CreateBackwardReferencesNH6.exit, %CreateBackwardReferencesNH5.exit, %CreateBackwardReferencesNH4.exit, %CreateBackwardReferencesNH3.exit, %CreateBackwardReferencesNH2.exit, %CreateBackwardReferencesDH65.exit, %CreateBackwardReferencesDH55.exit, %CreateBackwardReferencesDH42.exit, %CreateBackwardReferencesDH41.exit, %CreateBackwardReferencesDH40.exit, %CreateBackwardReferencesDH6.exit, %CreateBackwardReferencesDH5.exit
   ret void
 }
 

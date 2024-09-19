@@ -944,7 +944,7 @@ define internal i32 @dissect_edonkey_udp(ptr noundef %0, ptr noundef %1, ptr nou
   ]
 
 40:                                               ; preds = %39
-  %41 = tail call fastcc i32 @dissect_edonkey_udp_message.argelim(i8 noundef zeroext %20, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %37, ptr noundef %31)
+  %41 = tail call fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %20, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %37, ptr noundef %31)
   br label %dissect_emule_udp_message.exit
 
 42:                                               ; preds = %39
@@ -974,19 +974,19 @@ define internal i32 @dissect_edonkey_udp(ptr noundef %0, ptr noundef %1, ptr nou
   %56 = load i32, ptr @hf_edonkey_part_count, align 4
   %57 = tail call ptr @proto_tree_add_uint(ptr noundef %31, i32 noundef %56, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef %53) #7
   %.not.i.i = icmp eq i16 %52, 0
-  br i1 %.not.i.i, label %dissect_edonkey_file_status.argprom.exit.i, label %58
+  br i1 %.not.i.i, label %dissect_edonkey_file_status.exit.i, label %58
 
 58:                                               ; preds = %51
   %59 = load i32, ptr @hf_edonkey_file_status, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %59, ptr noundef %0, i32 noundef 20, i32 noundef %55, i32 noundef 0) #7
-  br label %dissect_edonkey_file_status.argprom.exit.i
+  br label %dissect_edonkey_file_status.exit.i
 
-dissect_edonkey_file_status.argprom.exit.i:       ; preds = %58, %51
+dissect_edonkey_file_status.exit.i:               ; preds = %58, %51
   %61 = add nuw nsw i32 %55, 20
   br label %62
 
-62:                                               ; preds = %dissect_edonkey_file_status.argprom.exit.i, %47
-  %.044.i = phi i32 [ %61, %dissect_edonkey_file_status.argprom.exit.i ], [ 18, %47 ]
+62:                                               ; preds = %dissect_edonkey_file_status.exit.i, %47
+  %.044.i = phi i32 [ %61, %dissect_edonkey_file_status.exit.i ], [ 18, %47 ]
   %63 = icmp eq i32 %.045.i, %.044.i
   br i1 %63, label %64, label %dissect_emule_udp_message.exit
 
@@ -1007,26 +1007,26 @@ dissect_edonkey_file_status.argprom.exit.i:       ; preds = %58, %51
   %74 = load i32, ptr @hf_edonkey_part_count, align 4
   %75 = tail call ptr @proto_tree_add_uint(ptr noundef %31, i32 noundef %74, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %71) #7
   %.not.i48.i = icmp eq i16 %70, 0
-  br i1 %.not.i48.i, label %dissect_edonkey_file_status.argprom.exit50.i, label %76
+  br i1 %.not.i48.i, label %dissect_edonkey_file_status.exit50.i, label %76
 
 76:                                               ; preds = %69
   %77 = load i32, ptr @hf_edonkey_file_status, align 4
   %78 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %77, ptr noundef %0, i32 noundef 4, i32 noundef %73, i32 noundef 0) #7
-  br label %dissect_edonkey_file_status.argprom.exit50.i
+  br label %dissect_edonkey_file_status.exit50.i
 
-dissect_edonkey_file_status.argprom.exit50.i:     ; preds = %76, %69
+dissect_edonkey_file_status.exit50.i:             ; preds = %76, %69
   %79 = add nuw nsw i32 %73, 4
   br label %80
 
-80:                                               ; preds = %dissect_edonkey_file_status.argprom.exit50.i, %67
-  %.2.i = phi i32 [ %79, %dissect_edonkey_file_status.argprom.exit50.i ], [ 2, %67 ]
+80:                                               ; preds = %dissect_edonkey_file_status.exit50.i, %67
+  %.2.i = phi i32 [ %79, %dissect_edonkey_file_status.exit50.i ], [ 2, %67 ]
   %81 = load i32, ptr @hf_edonkey_emule_queue_ranking, align 4
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %81, ptr noundef %0, i32 noundef %.2.i, i32 noundef 2, i32 noundef -2147483648) #7
   %83 = add nuw nsw i32 %.2.i, 2
   br label %dissect_emule_udp_message.exit
 
 84:                                               ; preds = %45
-  %85 = tail call fastcc i32 @dissect_edonkey_udp_message.argelim(i8 noundef zeroext %20, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.045.i, ptr noundef %31)
+  %85 = tail call fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %20, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.045.i, ptr noundef %31)
   br label %dissect_emule_udp_message.exit
 
 86:                                               ; preds = %39, %39
@@ -1302,16 +1302,16 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   %26 = tail call ptr @proto_tree_add_uint(ptr noundef %5, i32 noundef %25, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef 16) #7
   %27 = add i32 %3, 1
   %28 = tail call i32 @dissect_edonkey_client_info(ptr noundef %1, ptr noundef %2, i32 noundef %27, ptr noundef %5)
-  %29 = tail call fastcc i32 @dissect_edonkey_address.argelim(ptr noundef %1, i32 noundef %28, ptr noundef %5)
+  %29 = tail call fastcc i32 @dissect_edonkey_address(ptr noundef %1, i32 noundef %28, ptr noundef %5)
   br label %.loopexit
 
 30:                                               ; preds = %11
   %31 = tail call i32 @dissect_edonkey_client_info(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %5)
-  %32 = tail call fastcc i32 @dissect_edonkey_address.argelim(ptr noundef %1, i32 noundef %31, ptr noundef %5)
+  %32 = tail call fastcc i32 @dissect_edonkey_address(ptr noundef %1, i32 noundef %31, ptr noundef %5)
   br label %.loopexit
 
 33:                                               ; preds = %11
-  %34 = tail call fastcc i32 @dissect_edonkey_address.argelim(ptr noundef %1, i32 noundef %3, ptr noundef %5)
+  %34 = tail call fastcc i32 @dissect_edonkey_address(ptr noundef %1, i32 noundef %3, ptr noundef %5)
   br label %.loopexit
 
 35:                                               ; preds = %11
@@ -1319,7 +1319,7 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   br label %.loopexit
 
 37:                                               ; preds = %11
-  %38 = tail call fastcc i32 @dissect_edonkey_address_list.argprom(ptr noundef %1, i32 noundef %3, ptr noundef %5)
+  %38 = tail call fastcc i32 @dissect_edonkey_address_list(ptr noundef %1, i32 noundef %3, ptr noundef %5)
   br label %.loopexit
 
 39:                                               ; preds = %11, %11
@@ -1333,7 +1333,7 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   br label %.loopexit
 
 45:                                               ; preds = %11, %11
-  %46 = tail call fastcc i32 @dissect_edonkey_search_query.argprom(ptr noundef %1, i32 noundef %3, ptr noundef %5)
+  %46 = tail call fastcc i32 @dissect_edonkey_search_query(ptr noundef %1, i32 noundef %3, ptr noundef %5)
   br label %.loopexit
 
 47:                                               ; preds = %11, %11
@@ -1370,7 +1370,7 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   %69 = load i32, ptr @hf_edonkey_file_hash, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %69, ptr noundef %1, i32 noundef %3, i32 noundef 16, i32 noundef 0) #7
   %71 = add i32 %3, 16
-  %72 = tail call fastcc i32 @dissect_edonkey_address_list.argprom(ptr noundef %1, i32 noundef %71, ptr noundef %5)
+  %72 = tail call fastcc i32 @dissect_edonkey_address_list(ptr noundef %1, i32 noundef %71, ptr noundef %5)
   br label %.loopexit
 
 73:                                               ; preds = %11, %11, %11
@@ -1411,14 +1411,14 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   %97 = load i32, ptr @hf_edonkey_file_hash, align 4
   %98 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %97, ptr noundef %1, i32 noundef %3, i32 noundef 16, i32 noundef 0) #7
   %99 = add i32 %3, 16
-  %100 = tail call fastcc i32 @dissect_edonkey_file_status.argprom(ptr noundef %1, i32 noundef %99, ptr noundef %5)
+  %100 = tail call fastcc i32 @dissect_edonkey_file_status(ptr noundef %1, i32 noundef %99, ptr noundef %5)
   br label %.loopexit
 
 101:                                              ; preds = %11
   %102 = load i32, ptr @hf_edonkey_file_hash, align 4
   %103 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %102, ptr noundef %1, i32 noundef %3, i32 noundef 16, i32 noundef 0) #7
   %104 = add i32 %3, 16
-  %105 = tail call fastcc i32 @dissect_edonkey_file_name.argprom(ptr noundef %1, i32 noundef %104, ptr noundef %5)
+  %105 = tail call fastcc i32 @dissect_edonkey_file_name(ptr noundef %1, i32 noundef %104, ptr noundef %5)
   br label %.loopexit
 
 106:                                              ; preds = %11
@@ -1495,7 +1495,7 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   br label %.loopexit
 
 145:                                              ; preds = %11
-  %146 = tail call fastcc i32 @dissect_edonkey_hash_list.argprom(ptr noundef %1, i32 noundef %3, ptr noundef %5)
+  %146 = tail call fastcc i32 @dissect_edonkey_hash_list(ptr noundef %1, i32 noundef %3, ptr noundef %5)
   br label %.loopexit
 
 147:                                              ; preds = %11
@@ -1526,7 +1526,7 @@ define internal void @dissect_emule_tcp_message(i8 noundef zeroext %0, ptr nound
   %10 = tail call i32 @llvm.smin.i32(i32 %4, i32 %8)
   %.0 = select i1 %9, i32 %8, i32 %10
   %11 = icmp slt i32 %.0, 1
-  br i1 %11, label %dissect_emule_multipacket.argprom.exit, label %12
+  br i1 %11, label %dissect_emule_multipacket.exit, label %12
 
 12:                                               ; preds = %6
   %13 = add i32 %.0, %3
@@ -1556,17 +1556,17 @@ define internal void @dissect_emule_tcp_message(i8 noundef zeroext %0, ptr nound
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %15, ptr noundef %1, i32 noundef %3, i32 noundef 2, i32 noundef -2147483648) #7
   %17 = add i32 %3, 2
   %18 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %17, ptr noundef %5, i32 noundef 4, ptr noundef nonnull @.str.409, ptr noundef nonnull @dissect_edonkey_metatag)
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 19:                                               ; preds = %12
   %20 = load i32, ptr @hf_edonkey_emule_queue_ranking, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %20, ptr noundef %1, i32 noundef %3, i32 noundef 2, i32 noundef -2147483648) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 22:                                               ; preds = %12
   %23 = load i32, ptr @hf_edonkey_file_hash, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %23, ptr noundef %1, i32 noundef %3, i32 noundef 16, i32 noundef 0) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 25:                                               ; preds = %12
   %26 = load i32, ptr @hf_edonkey_file_hash, align 4
@@ -1579,7 +1579,7 @@ define internal void @dissect_emule_tcp_message(i8 noundef zeroext %0, ptr nound
   %32 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %31, ptr noundef %1, i32 noundef %28, i32 noundef 2, i32 noundef %30, ptr noundef nonnull @.str.410, ptr noundef nonnull @.str.451, i32 noundef %30) #7
   %33 = add i32 %3, 18
   %.not.i.i = icmp eq i16 %29, 0
-  br i1 %.not.i.i, label %dissect_emule_address_list.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %dissect_emule_address_list.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
   %.04551.i.i = phi i32 [ %42, %.lr.ph.i.i ], [ %33, %25 ]
@@ -1596,14 +1596,14 @@ define internal void @dissect_emule_tcp_message(i8 noundef zeroext %0, ptr nound
   %43 = load ptr, ptr %7, align 8
   call void @proto_item_set_len(ptr noundef %43, i32 noundef 6) #7
   %exitcond.not.i.i = icmp eq i32 %35, %30
-  br i1 %exitcond.not.i.i, label %dissect_emule_address_list.argprom.exit, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %dissect_emule_address_list.exit, label %.lr.ph.i.i, !llvm.loop !8
 
-dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
+dissect_emule_address_list.exit:                  ; preds = %.lr.ph.i.i, %25
   %.045.lcssa.i.i = phi i32 [ %33, %25 ], [ %42, %.lr.ph.i.i ]
   %44 = sub i32 %.045.lcssa.i.i, %28
   call void @proto_item_set_len(ptr noundef %32, i32 noundef %44) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 45:                                               ; preds = %12
   %46 = load i32, ptr @hf_edonkey_emule_ident_state, align 4
@@ -1611,7 +1611,7 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %48 = add i32 %3, 1
   %49 = load i32, ptr @hf_edonkey_emule_rndchallenge, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %49, ptr noundef %1, i32 noundef %48, i32 noundef 4, i32 noundef -2147483648) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 51:                                               ; preds = %12
   %52 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %3) #7
@@ -1621,7 +1621,7 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %56 = load i32, ptr @hf_emule_public_key, align 4
   %57 = zext i8 %52 to i32
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %56, ptr noundef %1, i32 noundef %55, i32 noundef %57, i32 noundef 0) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 59:                                               ; preds = %12
   %60 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %3) #7
@@ -1633,12 +1633,12 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %64, ptr noundef %1, i32 noundef %63, i32 noundef %65, i32 noundef 0) #7
   %67 = add i32 %63, %65
   %.not = icmp eq i32 %13, %67
-  br i1 %.not, label %dissect_emule_multipacket.argprom.exit, label %68
+  br i1 %.not, label %dissect_emule_multipacket.exit, label %68
 
 68:                                               ; preds = %59
   %69 = load i32, ptr @hf_edonkey_emule_sig_ip_used, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %69, ptr noundef %1, i32 noundef %67, i32 noundef 1, i32 noundef 0) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 71:                                               ; preds = %12
   %72 = load i32, ptr @hf_edonkey_file_hash, align 4
@@ -1651,13 +1651,13 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %79 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %78, ptr noundef %1, i32 noundef %77, i32 noundef 4, i32 noundef -2147483648) #7
   %80 = add i32 %3, 24
   %81 = icmp sgt i32 %13, %80
-  br i1 %81, label %82, label %dissect_emule_multipacket.argprom.exit
+  br i1 %81, label %82, label %dissect_emule_multipacket.exit
 
 82:                                               ; preds = %71
   %83 = add nsw i32 %.0, -24
   %84 = load i32, ptr @hf_edonkey_compressed_message_data, align 4
   %85 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %84, ptr noundef %1, i32 noundef %80, i32 noundef %83, i32 noundef 0) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 86:                                               ; preds = %12
   %87 = load i32, ptr @hf_edonkey_file_hash, align 4
@@ -1670,13 +1670,13 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %93, ptr noundef %1, i32 noundef %92, i32 noundef 4, i32 noundef -2147483648) #7
   %95 = add i32 %3, 28
   %96 = icmp sgt i32 %13, %95
-  br i1 %96, label %97, label %dissect_emule_multipacket.argprom.exit
+  br i1 %96, label %97, label %dissect_emule_multipacket.exit
 
 97:                                               ; preds = %86
   %98 = add nsw i32 %.0, -28
   %99 = load i32, ptr @hf_edonkey_compressed_message_data, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %99, ptr noundef %1, i32 noundef %95, i32 noundef %98, i32 noundef 0) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 101:                                              ; preds = %12
   %102 = load i32, ptr @hf_edonkey_file_hash, align 4
@@ -1699,7 +1699,7 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %119 = add i32 %3, 56
   %120 = load i32, ptr @hf_edonkey_end_offset_64, align 4
   %121 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %120, ptr noundef %1, i32 noundef %119, i32 noundef 8, i32 noundef -2147483648) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 122:                                              ; preds = %12
   %123 = load i32, ptr @hf_edonkey_file_hash, align 4
@@ -1712,13 +1712,13 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %129, ptr noundef %1, i32 noundef %128, i32 noundef 8, i32 noundef -2147483648) #7
   %131 = add i32 %3, 32
   %132 = icmp sgt i32 %13, %131
-  br i1 %132, label %133, label %dissect_emule_multipacket.argprom.exit
+  br i1 %132, label %133, label %dissect_emule_multipacket.exit
 
 133:                                              ; preds = %122
   %134 = add nsw i32 %.0, -32
   %135 = load i32, ptr @hf_edonkey_message_data, align 4
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %135, ptr noundef %1, i32 noundef %131, i32 noundef %134, i32 noundef 0) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 137:                                              ; preds = %12
   %138 = load i32, ptr @hf_edonkey_file_hash, align 4
@@ -1726,7 +1726,7 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %140 = add i32 %3, 16
   %141 = load i32, ptr @hf_edonkey_file_hash, align 4
   %142 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %141, ptr noundef %1, i32 noundef %140, i32 noundef 16, i32 noundef 0) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 143:                                              ; preds = %12
   %144 = load i32, ptr @hf_edonkey_file_hash, align 4
@@ -1739,7 +1739,7 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %151 = add i32 %3, 18
   %152 = load i32, ptr @hf_emule_aich_root_hash, align 4
   %153 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %152, ptr noundef %1, i32 noundef %151, i32 noundef 20, i32 noundef 0) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 154:                                              ; preds = %12
   %155 = load i32, ptr @hf_edonkey_file_hash, align 4
@@ -1754,7 +1754,7 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %164 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %163, ptr noundef %1, i32 noundef %162, i32 noundef 20, i32 noundef 0) #7
   %165 = add i32 %3, 38
   %166 = tail call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %165, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.85, ptr noundef nonnull @dissect_emule_aich_hash_list_entry)
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
 167:                                              ; preds = %12, %12, %12
   %.not201 = icmp eq i8 %0, -92
@@ -1772,7 +1772,7 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
 175:                                              ; preds = %171, %167
   %.0161.i = phi i32 [ %174, %171 ], [ %170, %167 ]
   %176 = icmp slt i32 %.0161.i, %13
-  br i1 %176, label %.lr.ph.i, label %dissect_emule_multipacket.argprom.exit
+  br i1 %176, label %.lr.ph.i, label %dissect_emule_multipacket.exit
 
 .lr.ph.i:                                         ; preds = %175, %312
   %.12.i = phi i32 [ %.2.i, %312 ], [ %.0161.i, %175 ]
@@ -1863,7 +1863,7 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %221 = load i32, ptr @hf_edonkey_part_count, align 4
   %222 = tail call ptr @proto_tree_add_uint(ptr noundef %213, i32 noundef %221, ptr noundef %1, i32 noundef %218, i32 noundef 2, i32 noundef %220) #7
   %.not.i.i200 = icmp eq i16 %219, 0
-  br i1 %.not.i.i200, label %dissect_edonkey_file_status.argprom.exit.i, label %223
+  br i1 %.not.i.i200, label %dissect_edonkey_file_status.exit.i, label %223
 
 223:                                              ; preds = %217
   %224 = add nuw nsw i32 %220, 7
@@ -1871,13 +1871,13 @@ dissect_emule_address_list.argprom.exit:          ; preds = %.lr.ph.i.i, %25
   %226 = load i32, ptr @hf_edonkey_file_status, align 4
   %227 = add i32 %.12.i, 3
   %228 = tail call ptr @proto_tree_add_item(ptr noundef %213, i32 noundef %226, ptr noundef %1, i32 noundef %227, i32 noundef %225, i32 noundef 0) #7
-  br label %dissect_edonkey_file_status.argprom.exit.i
+  br label %dissect_edonkey_file_status.exit.i
 
-dissect_edonkey_file_status.argprom.exit.i:       ; preds = %223, %217
+dissect_edonkey_file_status.exit.i:               ; preds = %223, %217
   %229 = icmp ult i32 %.0.i, 65536
   br i1 %229, label %230, label %236
 
-230:                                              ; preds = %dissect_edonkey_file_status.argprom.exit.i
+230:                                              ; preds = %dissect_edonkey_file_status.exit.i
   %231 = load i32, ptr @hf_emule_source_count, align 4
   %232 = add i32 %.12.i, 3
   %233 = zext nneg i16 %.0158.i to i32
@@ -1885,7 +1885,7 @@ dissect_edonkey_file_status.argprom.exit.i:       ; preds = %223, %217
   %235 = tail call ptr @proto_tree_add_uint(ptr noundef %213, i32 noundef %231, ptr noundef %1, i32 noundef %234, i32 noundef 2, i32 noundef %.0.i) #7
   br label %236
 
-236:                                              ; preds = %230, %dissect_edonkey_file_status.argprom.exit.i, %208
+236:                                              ; preds = %230, %dissect_edonkey_file_status.exit.i, %208
   %237 = add i32 %.12.i, %210
   br label %312
 
@@ -1933,15 +1933,15 @@ dissect_edonkey_file_status.argprom.exit.i:       ; preds = %223, %217
 
 ._crit_edge.i171.i:                               ; preds = %254
   %.pre.i172.i = add i32 %.12.i, 3
-  br label %dissect_edonkey_file_status.argprom.exit173.i
+  br label %dissect_edonkey_file_status.exit173.i
 
 273:                                              ; preds = %254
   %274 = load i32, ptr @hf_edonkey_file_status, align 4
   %275 = add i32 %.12.i, 3
   %276 = tail call ptr @proto_tree_add_item(ptr noundef %264, i32 noundef %274, ptr noundef %1, i32 noundef %275, i32 noundef %270, i32 noundef 0) #7
-  br label %dissect_edonkey_file_status.argprom.exit173.i
+  br label %dissect_edonkey_file_status.exit173.i
 
-dissect_edonkey_file_status.argprom.exit173.i:    ; preds = %273, %._crit_edge.i171.i
+dissect_edonkey_file_status.exit173.i:            ; preds = %273, %._crit_edge.i171.i
   %.pre-phi.i170.i = phi i32 [ %.pre.i172.i, %._crit_edge.i171.i ], [ %275, %273 ]
   %277 = add i32 %.pre-phi.i170.i, %270
   br label %312
@@ -1984,18 +1984,18 @@ dissect_edonkey_file_status.argprom.exit173.i:    ; preds = %273, %._crit_edge.i
   %309 = zext i8 %177 to i32
   %310 = load i32, ptr @hf_emule_multipacket_opcode, align 4
   %311 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %310, ptr noundef %1, i32 noundef %.12.i, i32 noundef 1, i32 noundef %309, ptr noundef nonnull @.str.480, i32 noundef %309) #7
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
-312:                                              ; preds = %297, %278, %dissect_edonkey_file_status.argprom.exit173.i, %246, %238, %236, %178
-  %.2.i = phi i32 [ %307, %297 ], [ %296, %278 ], [ %277, %dissect_edonkey_file_status.argprom.exit173.i ], [ %253, %246 ], [ %245, %238 ], [ %237, %236 ], [ %185, %178 ]
+312:                                              ; preds = %297, %278, %dissect_edonkey_file_status.exit173.i, %246, %238, %236, %178
+  %.2.i = phi i32 [ %307, %297 ], [ %296, %278 ], [ %277, %dissect_edonkey_file_status.exit173.i ], [ %253, %246 ], [ %245, %238 ], [ %237, %236 ], [ %185, %178 ]
   %313 = icmp slt i32 %.2.i, %13
-  br i1 %313, label %.lr.ph.i, label %dissect_emule_multipacket.argprom.exit, !llvm.loop !9
+  br i1 %313, label %.lr.ph.i, label %dissect_emule_multipacket.exit, !llvm.loop !9
 
 314:                                              ; preds = %12
   tail call void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.0, ptr noundef %5)
-  br label %dissect_emule_multipacket.argprom.exit
+  br label %dissect_emule_multipacket.exit
 
-dissect_emule_multipacket.argprom.exit:           ; preds = %312, %308, %175, %14, %19, %22, %dissect_emule_address_list.argprom.exit, %45, %51, %101, %137, %143, %154, %314, %68, %59, %82, %71, %97, %86, %133, %122, %6
+dissect_emule_multipacket.exit:                   ; preds = %312, %308, %175, %14, %19, %22, %dissect_emule_address_list.exit, %45, %51, %101, %137, %143, %154, %314, %68, %59, %82, %71, %97, %86, %133, %122, %6
   ret void
 }
 
@@ -2031,7 +2031,7 @@ define internal i32 @dissect_edonkey_client_info(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_edonkey_address.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_edonkey_address(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_edonkey_ip, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #7
   %6 = load i32, ptr @hf_edonkey_port, align 4
@@ -2061,7 +2061,7 @@ define internal fastcc i32 @dissect_edonkey_server_info(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_edonkey_address_list.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_edonkey_address_list(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #7
@@ -2098,7 +2098,7 @@ dissect_edonkey_list.exit:                        ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_edonkey_search_query.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_edonkey_search_query(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %8, %3
@@ -2123,7 +2123,7 @@ tailrecurse:                                      ; preds = %8, %3
   %12 = add i32 %.tr1, 1
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef -2147483648) #7
   %14 = add i32 %.tr1, 2
-  %15 = tail call fastcc i32 @dissect_edonkey_search_query.argprom(ptr noundef %0, i32 noundef %14, ptr noundef %10)
+  %15 = tail call fastcc i32 @dissect_edonkey_search_query(ptr noundef %0, i32 noundef %14, ptr noundef %10)
   br label %tailrecurse
 
 16:                                               ; preds = %tailrecurse
@@ -2233,7 +2233,7 @@ edonkey_tree_add_metatag_name.exit112:            ; preds = %80, %83
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_edonkey_string.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_edonkey_string(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1) #7
   %5 = load i32, ptr @hf_edonkey_string_length, align 4
   %6 = zext i16 %4 to i32
@@ -2246,7 +2246,7 @@ define internal fastcc noundef i32 @dissect_edonkey_string.argprom(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_edonkey_file_status.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_edonkey_file_status(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1) #7
   %5 = zext i16 %4 to i32
   %6 = add nuw nsw i32 %5, 7
@@ -2273,7 +2273,7 @@ define internal fastcc i32 @dissect_edonkey_file_status.argprom(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_edonkey_file_name.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_edonkey_file_name(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1) #7
   %5 = load i32, ptr @hf_edonkey_string_length, align 4
   %6 = zext i16 %4 to i32
@@ -2299,7 +2299,7 @@ define internal noundef i32 @dissect_edonkey_directory(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_edonkey_hash_list.argprom(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_edonkey_hash_list(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_edonkey_file_hash, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 16, i32 noundef 0) #7
@@ -2571,7 +2571,7 @@ edonkey_tree_add_metatag_name.exit325:            ; preds = %96, %99
   %111 = phi ptr [ @.str.351, %.preheader.i.i ], [ %116, %114 ]
   %112 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %107, ptr noundef nonnull %111, i64 noundef %109) #7
   %113 = icmp eq i32 %112, 0
-  br i1 %113, label %lookup_str_index.argprom.exit.i, label %114
+  br i1 %113, label %lookup_str_index.exit.i, label %114
 
 114:                                              ; preds = %110
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2580,15 +2580,15 @@ edonkey_tree_add_metatag_name.exit325:            ; preds = %96, %99
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 41
   br i1 %exitcond.i.i, label %edonkey_metatag_name_get_type.exit.thread, label %110, !llvm.loop !10
 
-lookup_str_index.argprom.exit.i:                  ; preds = %110
+lookup_str_index.exit.i:                          ; preds = %110
   %117 = and i64 %indvars.iv.i.i, 4294967295
   %118 = getelementptr [42 x %struct._value_string], ptr @edonkey_special_tags, i64 0, i64 %117
   %119 = load i32, ptr %118, align 16
   %120 = trunc i32 %119 to i8
   br label %edonkey_metatag_name_get_type.exit
 
-edonkey_metatag_name_get_type.exit:               ; preds = %edonkey_tree_add_metatag_name.exit325, %lookup_str_index.argprom.exit.i
-  %.0.i326 = phi i8 [ %120, %lookup_str_index.argprom.exit.i ], [ %.0319, %edonkey_tree_add_metatag_name.exit325 ]
+edonkey_metatag_name_get_type.exit:               ; preds = %edonkey_tree_add_metatag_name.exit325, %lookup_str_index.exit.i
+  %.0.i326 = phi i8 [ %120, %lookup_str_index.exit.i ], [ %.0319, %edonkey_tree_add_metatag_name.exit325 ]
   switch i8 %.0.i326, label %edonkey_metatag_name_get_type.exit.thread [
     i8 16, label %121
     i8 -111, label %124
@@ -2959,20 +2959,20 @@ define internal i32 @dissect_edonkey_file_info(ptr noundef %0, ptr noundef %1, i
   %17 = icmp eq i32 %14, -50529028
   %18 = icmp eq i16 %16, -772
   %or.cond.i = select i1 %17, i1 %18, i1 false
-  br i1 %or.cond.i, label %dissect_edonkey_client_id.argprom.exit.sink.split, label %19
+  br i1 %or.cond.i, label %dissect_edonkey_client_id.exit.sink.split, label %19
 
 19:                                               ; preds = %4
   %20 = icmp eq i32 %14, -67372037
   %21 = icmp eq i16 %16, -1029
   %or.cond5.i = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond5.i, label %dissect_edonkey_client_id.argprom.exit.sink.split, label %dissect_edonkey_client_id.argprom.exit
+  br i1 %or.cond5.i, label %dissect_edonkey_client_id.exit.sink.split, label %dissect_edonkey_client_id.exit
 
-dissect_edonkey_client_id.argprom.exit.sink.split: ; preds = %19, %4
+dissect_edonkey_client_id.exit.sink.split:        ; preds = %19, %4
   %.str.454.sink = phi ptr [ @.str.454, %4 ], [ @.str.455, %19 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull %.str.454.sink) #7
-  br label %dissect_edonkey_client_id.argprom.exit
+  br label %dissect_edonkey_client_id.exit
 
-dissect_edonkey_client_id.argprom.exit:           ; preds = %dissect_edonkey_client_id.argprom.exit.sink.split, %19
+dissect_edonkey_client_id.exit:                   ; preds = %dissect_edonkey_client_id.exit.sink.split, %19
   %22 = load i32, ptr @hf_edonkey_port, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %22, ptr noundef %0, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #7
   %24 = add i32 %2, 22
@@ -3038,7 +3038,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_edonkey_udp_message.argelim(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef 2) #7
   %.0187 = tail call i32 @llvm.smin.i32(i32 %3, i32 %6)
   %7 = icmp slt i32 %6, 1
@@ -3117,12 +3117,12 @@ define internal fastcc i32 @dissect_edonkey_udp_message.argelim(i8 noundef zeroe
   br label %136
 
 34:                                               ; preds = %27
-  %35 = tail call fastcc i32 @dissect_edonkey_string.argprom(ptr noundef %1, i32 noundef 2, ptr noundef %4)
-  %36 = tail call fastcc i32 @dissect_edonkey_string.argprom(ptr noundef %1, i32 noundef %35, ptr noundef %4)
+  %35 = tail call fastcc i32 @dissect_edonkey_string(ptr noundef %1, i32 noundef 2, ptr noundef %4)
+  %36 = tail call fastcc i32 @dissect_edonkey_string(ptr noundef %1, i32 noundef %35, ptr noundef %4)
   br label %136
 
 37:                                               ; preds = %8
-  %38 = tail call fastcc i32 @dissect_edonkey_address_list.argprom(ptr noundef %1, i32 noundef 2, ptr noundef %4)
+  %38 = tail call fastcc i32 @dissect_edonkey_address_list(ptr noundef %1, i32 noundef 2, ptr noundef %4)
   br label %136
 
 39:                                               ; preds = %8
@@ -3130,7 +3130,7 @@ define internal fastcc i32 @dissect_edonkey_udp_message.argelim(i8 noundef zeroe
   br label %136
 
 41:                                               ; preds = %8
-  %42 = tail call fastcc i32 @dissect_edonkey_search_query.argprom(ptr noundef %1, i32 noundef 2, ptr noundef %4)
+  %42 = tail call fastcc i32 @dissect_edonkey_search_query(ptr noundef %1, i32 noundef 2, ptr noundef %4)
   br label %136
 
 43:                                               ; preds = %8
@@ -3141,7 +3141,7 @@ define internal fastcc i32 @dissect_edonkey_udp_message.argelim(i8 noundef zeroe
 46:                                               ; preds = %8
   %47 = load i32, ptr @hf_edonkey_file_hash, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %47, ptr noundef %1, i32 noundef 2, i32 noundef 16, i32 noundef 0) #7
-  %49 = tail call fastcc i32 @dissect_edonkey_address_list.argprom(ptr noundef %1, i32 noundef 18, ptr noundef %4)
+  %49 = tail call fastcc i32 @dissect_edonkey_address_list(ptr noundef %1, i32 noundef 18, ptr noundef %4)
   br label %136
 
 50:                                               ; preds = %8
@@ -3873,22 +3873,22 @@ kademlia_hash.exit.i:                             ; preds = %25
   %38 = load i32, ptr @hf_kademlia_hash, align 4
   %39 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %38, ptr noundef %0, i32 noundef %2, i32 noundef 16, ptr noundef %37) #7
   %.not.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i, label %dissect_kademlia_hash_hidden.argprom.exit, label %40
+  br i1 %.not.i.i, label %dissect_kademlia_hash_hidden.exit, label %40
 
 40:                                               ; preds = %kademlia_hash.exit.i
   %41 = getelementptr inbounds i8, ptr %39, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not5.i.i = icmp eq ptr %42, null
-  br i1 %.not5.i.i, label %dissect_kademlia_hash_hidden.argprom.exit, label %43
+  br i1 %.not5.i.i, label %dissect_kademlia_hash_hidden.exit, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %42, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, 1
   store i32 %46, ptr %44, align 4
-  br label %dissect_kademlia_hash_hidden.argprom.exit
+  br label %dissect_kademlia_hash_hidden.exit
 
-dissect_kademlia_hash_hidden.argprom.exit:        ; preds = %kademlia_hash.exit.i, %40, %43
+dissect_kademlia_hash_hidden.exit:                ; preds = %kademlia_hash.exit.i, %40, %43
   %47 = add i32 %2, 16
   ret i32 %47
 }

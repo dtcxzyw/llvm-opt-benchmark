@@ -875,7 +875,7 @@ if.then5:                                         ; preds = %if.end
   %async_id_.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load double, ptr %async_id_.i, align 8
   %conv7 = fptosi double %7 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118.0, ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef %conv7, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118.0, ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef %conv7, i32 noundef 2)
   br label %sw.epilog
 
 do.body13:                                        ; preds = %entry
@@ -913,7 +913,7 @@ if.then23:                                        ; preds = %if.end19
   %async_id_.i522 = getelementptr inbounds i8, ptr %this, i64 40
   %14 = load double, ptr %async_id_.i522, align 8
   %conv27 = fptosi double %14 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled11814.0, ptr noundef nonnull @.str.2, ptr noundef null, i64 noundef %conv27, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled11814.0, ptr noundef nonnull @.str.2, ptr noundef null, i64 noundef %conv27, i32 noundef 2)
   br label %sw.epilog
 
 do.body34:                                        ; preds = %entry
@@ -951,7 +951,7 @@ if.then44:                                        ; preds = %if.end40
   %async_id_.i533 = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load double, ptr %async_id_.i533, align 8
   %conv48 = fptosi double %21 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled11835.0, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef %conv48, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled11835.0, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef %conv48, i32 noundef 2)
   br label %sw.epilog
 
 do.body55:                                        ; preds = %entry
@@ -989,7 +989,7 @@ if.then65:                                        ; preds = %if.end61
   %async_id_.i544 = getelementptr inbounds i8, ptr %this, i64 40
   %28 = load double, ptr %async_id_.i544, align 8
   %conv69 = fptosi double %28 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled11856.0, ptr noundef nonnull @.str.4, ptr noundef null, i64 noundef %conv69, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled11856.0, ptr noundef nonnull @.str.4, ptr noundef null, i64 noundef %conv69, i32 noundef 2)
   br label %sw.epilog
 
 do.body76:                                        ; preds = %entry
@@ -1027,7 +1027,7 @@ if.then86:                                        ; preds = %if.end82
   %async_id_.i555 = getelementptr inbounds i8, ptr %this, i64 40
   %35 = load double, ptr %async_id_.i555, align 8
   %conv90 = fptosi double %35 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled11877.0, ptr noundef nonnull @.str.5, ptr noundef null, i64 noundef %conv90, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled11877.0, ptr noundef nonnull @.str.5, ptr noundef null, i64 noundef %conv90, i32 noundef 2)
   br label %sw.epilog
 
 do.body97:                                        ; preds = %entry
@@ -1065,7 +1065,7 @@ if.then107:                                       ; preds = %if.end103
   %async_id_.i566 = getelementptr inbounds i8, ptr %this, i64 40
   %42 = load double, ptr %async_id_.i566, align 8
   %conv111 = fptosi double %42 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled11898.0, ptr noundef nonnull @.str.6, ptr noundef null, i64 noundef %conv111, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled11898.0, ptr noundef nonnull @.str.6, ptr noundef null, i64 noundef %conv111, i32 noundef 2)
   br label %sw.epilog
 
 do.body118:                                       ; preds = %entry
@@ -1103,7 +1103,7 @@ if.then128:                                       ; preds = %if.end124
   %async_id_.i577 = getelementptr inbounds i8, ptr %this, i64 40
   %49 = load double, ptr %async_id_.i577, align 8
   %conv132 = fptosi double %49 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118119.0, ptr noundef nonnull @.str.7, ptr noundef null, i64 noundef %conv132, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118119.0, ptr noundef nonnull @.str.7, ptr noundef null, i64 noundef %conv132, i32 noundef 2)
   br label %sw.epilog
 
 do.body139:                                       ; preds = %entry
@@ -1141,7 +1141,7 @@ if.then149:                                       ; preds = %if.end145
   %async_id_.i588 = getelementptr inbounds i8, ptr %this, i64 40
   %56 = load double, ptr %async_id_.i588, align 8
   %conv153 = fptosi double %56 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118140.0, ptr noundef nonnull @.str.8, ptr noundef null, i64 noundef %conv153, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118140.0, ptr noundef nonnull @.str.8, ptr noundef null, i64 noundef %conv153, i32 noundef 2)
   br label %sw.epilog
 
 do.body160:                                       ; preds = %entry
@@ -1179,7 +1179,7 @@ if.then170:                                       ; preds = %if.end166
   %async_id_.i599 = getelementptr inbounds i8, ptr %this, i64 40
   %63 = load double, ptr %async_id_.i599, align 8
   %conv174 = fptosi double %63 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118161.0, ptr noundef nonnull @.str.9, ptr noundef null, i64 noundef %conv174, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118161.0, ptr noundef nonnull @.str.9, ptr noundef null, i64 noundef %conv174, i32 noundef 2)
   br label %sw.epilog
 
 do.body181:                                       ; preds = %entry
@@ -1217,7 +1217,7 @@ if.then191:                                       ; preds = %if.end187
   %async_id_.i610 = getelementptr inbounds i8, ptr %this, i64 40
   %70 = load double, ptr %async_id_.i610, align 8
   %conv195 = fptosi double %70 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118182.0, ptr noundef nonnull @.str.10, ptr noundef null, i64 noundef %conv195, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118182.0, ptr noundef nonnull @.str.10, ptr noundef null, i64 noundef %conv195, i32 noundef 2)
   br label %sw.epilog
 
 do.body202:                                       ; preds = %entry
@@ -1255,7 +1255,7 @@ if.then212:                                       ; preds = %if.end208
   %async_id_.i621 = getelementptr inbounds i8, ptr %this, i64 40
   %77 = load double, ptr %async_id_.i621, align 8
   %conv216 = fptosi double %77 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118203.0, ptr noundef nonnull @.str.11, ptr noundef null, i64 noundef %conv216, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118203.0, ptr noundef nonnull @.str.11, ptr noundef null, i64 noundef %conv216, i32 noundef 2)
   br label %sw.epilog
 
 do.body223:                                       ; preds = %entry
@@ -1293,7 +1293,7 @@ if.then233:                                       ; preds = %if.end229
   %async_id_.i632 = getelementptr inbounds i8, ptr %this, i64 40
   %84 = load double, ptr %async_id_.i632, align 8
   %conv237 = fptosi double %84 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118224.0, ptr noundef nonnull @.str.12, ptr noundef null, i64 noundef %conv237, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118224.0, ptr noundef nonnull @.str.12, ptr noundef null, i64 noundef %conv237, i32 noundef 2)
   br label %sw.epilog
 
 do.body244:                                       ; preds = %entry
@@ -1331,7 +1331,7 @@ if.then254:                                       ; preds = %if.end250
   %async_id_.i643 = getelementptr inbounds i8, ptr %this, i64 40
   %91 = load double, ptr %async_id_.i643, align 8
   %conv258 = fptosi double %91 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118245.0, ptr noundef nonnull @.str.13, ptr noundef null, i64 noundef %conv258, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118245.0, ptr noundef nonnull @.str.13, ptr noundef null, i64 noundef %conv258, i32 noundef 2)
   br label %sw.epilog
 
 do.body265:                                       ; preds = %entry
@@ -1369,7 +1369,7 @@ if.then275:                                       ; preds = %if.end271
   %async_id_.i654 = getelementptr inbounds i8, ptr %this, i64 40
   %98 = load double, ptr %async_id_.i654, align 8
   %conv279 = fptosi double %98 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118266.0, ptr noundef nonnull @.str.14, ptr noundef null, i64 noundef %conv279, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118266.0, ptr noundef nonnull @.str.14, ptr noundef null, i64 noundef %conv279, i32 noundef 2)
   br label %sw.epilog
 
 do.body286:                                       ; preds = %entry
@@ -1407,7 +1407,7 @@ if.then296:                                       ; preds = %if.end292
   %async_id_.i665 = getelementptr inbounds i8, ptr %this, i64 40
   %105 = load double, ptr %async_id_.i665, align 8
   %conv300 = fptosi double %105 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118287.0, ptr noundef nonnull @.str.15, ptr noundef null, i64 noundef %conv300, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118287.0, ptr noundef nonnull @.str.15, ptr noundef null, i64 noundef %conv300, i32 noundef 2)
   br label %sw.epilog
 
 do.body307:                                       ; preds = %entry
@@ -1445,7 +1445,7 @@ if.then317:                                       ; preds = %if.end313
   %async_id_.i676 = getelementptr inbounds i8, ptr %this, i64 40
   %112 = load double, ptr %async_id_.i676, align 8
   %conv321 = fptosi double %112 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118308.0, ptr noundef nonnull @.str.16, ptr noundef null, i64 noundef %conv321, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118308.0, ptr noundef nonnull @.str.16, ptr noundef null, i64 noundef %conv321, i32 noundef 2)
   br label %sw.epilog
 
 do.body328:                                       ; preds = %entry
@@ -1483,7 +1483,7 @@ if.then338:                                       ; preds = %if.end334
   %async_id_.i687 = getelementptr inbounds i8, ptr %this, i64 40
   %119 = load double, ptr %async_id_.i687, align 8
   %conv342 = fptosi double %119 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118329.0, ptr noundef nonnull @.str.17, ptr noundef null, i64 noundef %conv342, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118329.0, ptr noundef nonnull @.str.17, ptr noundef null, i64 noundef %conv342, i32 noundef 2)
   br label %sw.epilog
 
 do.body349:                                       ; preds = %entry
@@ -1521,7 +1521,7 @@ if.then359:                                       ; preds = %if.end355
   %async_id_.i698 = getelementptr inbounds i8, ptr %this, i64 40
   %126 = load double, ptr %async_id_.i698, align 8
   %conv363 = fptosi double %126 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118350.0, ptr noundef nonnull @.str.18, ptr noundef null, i64 noundef %conv363, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118350.0, ptr noundef nonnull @.str.18, ptr noundef null, i64 noundef %conv363, i32 noundef 2)
   br label %sw.epilog
 
 do.body370:                                       ; preds = %entry
@@ -1559,7 +1559,7 @@ if.then380:                                       ; preds = %if.end376
   %async_id_.i709 = getelementptr inbounds i8, ptr %this, i64 40
   %133 = load double, ptr %async_id_.i709, align 8
   %conv384 = fptosi double %133 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118371.0, ptr noundef nonnull @.str.19, ptr noundef null, i64 noundef %conv384, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118371.0, ptr noundef nonnull @.str.19, ptr noundef null, i64 noundef %conv384, i32 noundef 2)
   br label %sw.epilog
 
 do.body391:                                       ; preds = %entry
@@ -1597,7 +1597,7 @@ if.then401:                                       ; preds = %if.end397
   %async_id_.i720 = getelementptr inbounds i8, ptr %this, i64 40
   %140 = load double, ptr %async_id_.i720, align 8
   %conv405 = fptosi double %140 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118392.0, ptr noundef nonnull @.str.20, ptr noundef null, i64 noundef %conv405, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118392.0, ptr noundef nonnull @.str.20, ptr noundef null, i64 noundef %conv405, i32 noundef 2)
   br label %sw.epilog
 
 do.body412:                                       ; preds = %entry
@@ -1635,7 +1635,7 @@ if.then422:                                       ; preds = %if.end418
   %async_id_.i731 = getelementptr inbounds i8, ptr %this, i64 40
   %147 = load double, ptr %async_id_.i731, align 8
   %conv426 = fptosi double %147 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118413.0, ptr noundef nonnull @.str.21, ptr noundef null, i64 noundef %conv426, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118413.0, ptr noundef nonnull @.str.21, ptr noundef null, i64 noundef %conv426, i32 noundef 2)
   br label %sw.epilog
 
 do.body433:                                       ; preds = %entry
@@ -1673,7 +1673,7 @@ if.then443:                                       ; preds = %if.end439
   %async_id_.i742 = getelementptr inbounds i8, ptr %this, i64 40
   %154 = load double, ptr %async_id_.i742, align 8
   %conv447 = fptosi double %154 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118434.0, ptr noundef nonnull @.str.22, ptr noundef null, i64 noundef %conv447, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118434.0, ptr noundef nonnull @.str.22, ptr noundef null, i64 noundef %conv447, i32 noundef 2)
   br label %sw.epilog
 
 do.body454:                                       ; preds = %entry
@@ -1711,7 +1711,7 @@ if.then464:                                       ; preds = %if.end460
   %async_id_.i753 = getelementptr inbounds i8, ptr %this, i64 40
   %161 = load double, ptr %async_id_.i753, align 8
   %conv468 = fptosi double %161 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118455.0, ptr noundef nonnull @.str.23, ptr noundef null, i64 noundef %conv468, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118455.0, ptr noundef nonnull @.str.23, ptr noundef null, i64 noundef %conv468, i32 noundef 2)
   br label %sw.epilog
 
 do.body475:                                       ; preds = %entry
@@ -1749,7 +1749,7 @@ if.then485:                                       ; preds = %if.end481
   %async_id_.i764 = getelementptr inbounds i8, ptr %this, i64 40
   %168 = load double, ptr %async_id_.i764, align 8
   %conv489 = fptosi double %168 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118476.0, ptr noundef nonnull @.str.24, ptr noundef null, i64 noundef %conv489, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118476.0, ptr noundef nonnull @.str.24, ptr noundef null, i64 noundef %conv489, i32 noundef 2)
   br label %sw.epilog
 
 do.body496:                                       ; preds = %entry
@@ -1787,7 +1787,7 @@ if.then506:                                       ; preds = %if.end502
   %async_id_.i775 = getelementptr inbounds i8, ptr %this, i64 40
   %175 = load double, ptr %async_id_.i775, align 8
   %conv510 = fptosi double %175 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118497.0, ptr noundef nonnull @.str.25, ptr noundef null, i64 noundef %conv510, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118497.0, ptr noundef nonnull @.str.25, ptr noundef null, i64 noundef %conv510, i32 noundef 2)
   br label %sw.epilog
 
 do.body517:                                       ; preds = %entry
@@ -1825,7 +1825,7 @@ if.then527:                                       ; preds = %if.end523
   %async_id_.i786 = getelementptr inbounds i8, ptr %this, i64 40
   %182 = load double, ptr %async_id_.i786, align 8
   %conv531 = fptosi double %182 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118518.0, ptr noundef nonnull @.str.26, ptr noundef null, i64 noundef %conv531, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118518.0, ptr noundef nonnull @.str.26, ptr noundef null, i64 noundef %conv531, i32 noundef 2)
   br label %sw.epilog
 
 do.body538:                                       ; preds = %entry
@@ -1863,7 +1863,7 @@ if.then548:                                       ; preds = %if.end544
   %async_id_.i797 = getelementptr inbounds i8, ptr %this, i64 40
   %189 = load double, ptr %async_id_.i797, align 8
   %conv552 = fptosi double %189 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118539.0, ptr noundef nonnull @.str.27, ptr noundef null, i64 noundef %conv552, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118539.0, ptr noundef nonnull @.str.27, ptr noundef null, i64 noundef %conv552, i32 noundef 2)
   br label %sw.epilog
 
 do.body559:                                       ; preds = %entry
@@ -1901,7 +1901,7 @@ if.then569:                                       ; preds = %if.end565
   %async_id_.i808 = getelementptr inbounds i8, ptr %this, i64 40
   %196 = load double, ptr %async_id_.i808, align 8
   %conv573 = fptosi double %196 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118560.0, ptr noundef nonnull @.str.28, ptr noundef null, i64 noundef %conv573, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118560.0, ptr noundef nonnull @.str.28, ptr noundef null, i64 noundef %conv573, i32 noundef 2)
   br label %sw.epilog
 
 do.body580:                                       ; preds = %entry
@@ -1939,7 +1939,7 @@ if.then590:                                       ; preds = %if.end586
   %async_id_.i819 = getelementptr inbounds i8, ptr %this, i64 40
   %203 = load double, ptr %async_id_.i819, align 8
   %conv594 = fptosi double %203 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118581.0, ptr noundef nonnull @.str.29, ptr noundef null, i64 noundef %conv594, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118581.0, ptr noundef nonnull @.str.29, ptr noundef null, i64 noundef %conv594, i32 noundef 2)
   br label %sw.epilog
 
 do.body601:                                       ; preds = %entry
@@ -1977,7 +1977,7 @@ if.then611:                                       ; preds = %if.end607
   %async_id_.i830 = getelementptr inbounds i8, ptr %this, i64 40
   %210 = load double, ptr %async_id_.i830, align 8
   %conv615 = fptosi double %210 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118602.0, ptr noundef nonnull @.str.30, ptr noundef null, i64 noundef %conv615, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118602.0, ptr noundef nonnull @.str.30, ptr noundef null, i64 noundef %conv615, i32 noundef 2)
   br label %sw.epilog
 
 do.body622:                                       ; preds = %entry
@@ -2015,7 +2015,7 @@ if.then632:                                       ; preds = %if.end628
   %async_id_.i841 = getelementptr inbounds i8, ptr %this, i64 40
   %217 = load double, ptr %async_id_.i841, align 8
   %conv636 = fptosi double %217 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118623.0, ptr noundef nonnull @.str.31, ptr noundef null, i64 noundef %conv636, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118623.0, ptr noundef nonnull @.str.31, ptr noundef null, i64 noundef %conv636, i32 noundef 2)
   br label %sw.epilog
 
 do.body643:                                       ; preds = %entry
@@ -2053,7 +2053,7 @@ if.then653:                                       ; preds = %if.end649
   %async_id_.i852 = getelementptr inbounds i8, ptr %this, i64 40
   %224 = load double, ptr %async_id_.i852, align 8
   %conv657 = fptosi double %224 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118644.0, ptr noundef nonnull @.str.32, ptr noundef null, i64 noundef %conv657, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118644.0, ptr noundef nonnull @.str.32, ptr noundef null, i64 noundef %conv657, i32 noundef 2)
   br label %sw.epilog
 
 do.body664:                                       ; preds = %entry
@@ -2091,7 +2091,7 @@ if.then674:                                       ; preds = %if.end670
   %async_id_.i863 = getelementptr inbounds i8, ptr %this, i64 40
   %231 = load double, ptr %async_id_.i863, align 8
   %conv678 = fptosi double %231 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118665.0, ptr noundef nonnull @.str.33, ptr noundef null, i64 noundef %conv678, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118665.0, ptr noundef nonnull @.str.33, ptr noundef null, i64 noundef %conv678, i32 noundef 2)
   br label %sw.epilog
 
 do.body685:                                       ; preds = %entry
@@ -2129,7 +2129,7 @@ if.then695:                                       ; preds = %if.end691
   %async_id_.i874 = getelementptr inbounds i8, ptr %this, i64 40
   %238 = load double, ptr %async_id_.i874, align 8
   %conv699 = fptosi double %238 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118686.0, ptr noundef nonnull @.str.34, ptr noundef null, i64 noundef %conv699, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118686.0, ptr noundef nonnull @.str.34, ptr noundef null, i64 noundef %conv699, i32 noundef 2)
   br label %sw.epilog
 
 do.body706:                                       ; preds = %entry
@@ -2167,7 +2167,7 @@ if.then716:                                       ; preds = %if.end712
   %async_id_.i885 = getelementptr inbounds i8, ptr %this, i64 40
   %245 = load double, ptr %async_id_.i885, align 8
   %conv720 = fptosi double %245 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118707.0, ptr noundef nonnull @.str.35, ptr noundef null, i64 noundef %conv720, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118707.0, ptr noundef nonnull @.str.35, ptr noundef null, i64 noundef %conv720, i32 noundef 2)
   br label %sw.epilog
 
 do.body727:                                       ; preds = %entry
@@ -2205,7 +2205,7 @@ if.then737:                                       ; preds = %if.end733
   %async_id_.i896 = getelementptr inbounds i8, ptr %this, i64 40
   %252 = load double, ptr %async_id_.i896, align 8
   %conv741 = fptosi double %252 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118728.0, ptr noundef nonnull @.str.36, ptr noundef null, i64 noundef %conv741, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118728.0, ptr noundef nonnull @.str.36, ptr noundef null, i64 noundef %conv741, i32 noundef 2)
   br label %sw.epilog
 
 do.body748:                                       ; preds = %entry
@@ -2243,7 +2243,7 @@ if.then758:                                       ; preds = %if.end754
   %async_id_.i907 = getelementptr inbounds i8, ptr %this, i64 40
   %259 = load double, ptr %async_id_.i907, align 8
   %conv762 = fptosi double %259 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118749.0, ptr noundef nonnull @.str.37, ptr noundef null, i64 noundef %conv762, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118749.0, ptr noundef nonnull @.str.37, ptr noundef null, i64 noundef %conv762, i32 noundef 2)
   br label %sw.epilog
 
 do.body769:                                       ; preds = %entry
@@ -2281,7 +2281,7 @@ if.then779:                                       ; preds = %if.end775
   %async_id_.i918 = getelementptr inbounds i8, ptr %this, i64 40
   %266 = load double, ptr %async_id_.i918, align 8
   %conv783 = fptosi double %266 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118770.0, ptr noundef nonnull @.str.38, ptr noundef null, i64 noundef %conv783, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118770.0, ptr noundef nonnull @.str.38, ptr noundef null, i64 noundef %conv783, i32 noundef 2)
   br label %sw.epilog
 
 do.body790:                                       ; preds = %entry
@@ -2319,7 +2319,7 @@ if.then800:                                       ; preds = %if.end796
   %async_id_.i929 = getelementptr inbounds i8, ptr %this, i64 40
   %273 = load double, ptr %async_id_.i929, align 8
   %conv804 = fptosi double %273 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118791.0, ptr noundef nonnull @.str.39, ptr noundef null, i64 noundef %conv804, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118791.0, ptr noundef nonnull @.str.39, ptr noundef null, i64 noundef %conv804, i32 noundef 2)
   br label %sw.epilog
 
 do.body811:                                       ; preds = %entry
@@ -2357,7 +2357,7 @@ if.then821:                                       ; preds = %if.end817
   %async_id_.i940 = getelementptr inbounds i8, ptr %this, i64 40
   %280 = load double, ptr %async_id_.i940, align 8
   %conv825 = fptosi double %280 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118812.0, ptr noundef nonnull @.str.40, ptr noundef null, i64 noundef %conv825, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118812.0, ptr noundef nonnull @.str.40, ptr noundef null, i64 noundef %conv825, i32 noundef 2)
   br label %sw.epilog
 
 do.body832:                                       ; preds = %entry
@@ -2395,7 +2395,7 @@ if.then842:                                       ; preds = %if.end838
   %async_id_.i951 = getelementptr inbounds i8, ptr %this, i64 40
   %287 = load double, ptr %async_id_.i951, align 8
   %conv846 = fptosi double %287 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118833.0, ptr noundef nonnull @.str.41, ptr noundef null, i64 noundef %conv846, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118833.0, ptr noundef nonnull @.str.41, ptr noundef null, i64 noundef %conv846, i32 noundef 2)
   br label %sw.epilog
 
 do.body853:                                       ; preds = %entry
@@ -2433,7 +2433,7 @@ if.then863:                                       ; preds = %if.end859
   %async_id_.i962 = getelementptr inbounds i8, ptr %this, i64 40
   %294 = load double, ptr %async_id_.i962, align 8
   %conv867 = fptosi double %294 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118854.0, ptr noundef nonnull @.str.42, ptr noundef null, i64 noundef %conv867, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118854.0, ptr noundef nonnull @.str.42, ptr noundef null, i64 noundef %conv867, i32 noundef 2)
   br label %sw.epilog
 
 do.body874:                                       ; preds = %entry
@@ -2471,7 +2471,7 @@ if.then884:                                       ; preds = %if.end880
   %async_id_.i973 = getelementptr inbounds i8, ptr %this, i64 40
   %301 = load double, ptr %async_id_.i973, align 8
   %conv888 = fptosi double %301 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118875.0, ptr noundef nonnull @.str.43, ptr noundef null, i64 noundef %conv888, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118875.0, ptr noundef nonnull @.str.43, ptr noundef null, i64 noundef %conv888, i32 noundef 2)
   br label %sw.epilog
 
 do.body895:                                       ; preds = %entry
@@ -2509,7 +2509,7 @@ if.then905:                                       ; preds = %if.end901
   %async_id_.i984 = getelementptr inbounds i8, ptr %this, i64 40
   %308 = load double, ptr %async_id_.i984, align 8
   %conv909 = fptosi double %308 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118896.0, ptr noundef nonnull @.str.44, ptr noundef null, i64 noundef %conv909, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118896.0, ptr noundef nonnull @.str.44, ptr noundef null, i64 noundef %conv909, i32 noundef 2)
   br label %sw.epilog
 
 do.body916:                                       ; preds = %entry
@@ -2547,7 +2547,7 @@ if.then926:                                       ; preds = %if.end922
   %async_id_.i995 = getelementptr inbounds i8, ptr %this, i64 40
   %315 = load double, ptr %async_id_.i995, align 8
   %conv930 = fptosi double %315 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118917.0, ptr noundef nonnull @.str.45, ptr noundef null, i64 noundef %conv930, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118917.0, ptr noundef nonnull @.str.45, ptr noundef null, i64 noundef %conv930, i32 noundef 2)
   br label %sw.epilog
 
 do.body937:                                       ; preds = %entry
@@ -2585,7 +2585,7 @@ if.then947:                                       ; preds = %if.end943
   %async_id_.i1006 = getelementptr inbounds i8, ptr %this, i64 40
   %322 = load double, ptr %async_id_.i1006, align 8
   %conv951 = fptosi double %322 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118938.0, ptr noundef nonnull @.str.46, ptr noundef null, i64 noundef %conv951, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118938.0, ptr noundef nonnull @.str.46, ptr noundef null, i64 noundef %conv951, i32 noundef 2)
   br label %sw.epilog
 
 do.body958:                                       ; preds = %entry
@@ -2623,7 +2623,7 @@ if.then968:                                       ; preds = %if.end964
   %async_id_.i1017 = getelementptr inbounds i8, ptr %this, i64 40
   %329 = load double, ptr %async_id_.i1017, align 8
   %conv972 = fptosi double %329 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118959.0, ptr noundef nonnull @.str.47, ptr noundef null, i64 noundef %conv972, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118959.0, ptr noundef nonnull @.str.47, ptr noundef null, i64 noundef %conv972, i32 noundef 2)
   br label %sw.epilog
 
 do.body979:                                       ; preds = %entry
@@ -2661,7 +2661,7 @@ if.then989:                                       ; preds = %if.end985
   %async_id_.i1028 = getelementptr inbounds i8, ptr %this, i64 40
   %336 = load double, ptr %async_id_.i1028, align 8
   %conv993 = fptosi double %336 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118980.0, ptr noundef nonnull @.str.48, ptr noundef null, i64 noundef %conv993, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled118980.0, ptr noundef nonnull @.str.48, ptr noundef null, i64 noundef %conv993, i32 noundef 2)
   br label %sw.epilog
 
 do.body1000:                                      ; preds = %entry
@@ -2699,7 +2699,7 @@ if.then1010:                                      ; preds = %if.end1006
   %async_id_.i1039 = getelementptr inbounds i8, ptr %this, i64 40
   %343 = load double, ptr %async_id_.i1039, align 8
   %conv1014 = fptosi double %343 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181001.0, ptr noundef nonnull @.str.49, ptr noundef null, i64 noundef %conv1014, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181001.0, ptr noundef nonnull @.str.49, ptr noundef null, i64 noundef %conv1014, i32 noundef 2)
   br label %sw.epilog
 
 do.body1021:                                      ; preds = %entry
@@ -2737,7 +2737,7 @@ if.then1031:                                      ; preds = %if.end1027
   %async_id_.i1050 = getelementptr inbounds i8, ptr %this, i64 40
   %350 = load double, ptr %async_id_.i1050, align 8
   %conv1035 = fptosi double %350 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181022.0, ptr noundef nonnull @.str.50, ptr noundef null, i64 noundef %conv1035, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181022.0, ptr noundef nonnull @.str.50, ptr noundef null, i64 noundef %conv1035, i32 noundef 2)
   br label %sw.epilog
 
 do.body1042:                                      ; preds = %entry
@@ -2775,7 +2775,7 @@ if.then1052:                                      ; preds = %if.end1048
   %async_id_.i1061 = getelementptr inbounds i8, ptr %this, i64 40
   %357 = load double, ptr %async_id_.i1061, align 8
   %conv1056 = fptosi double %357 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181043.0, ptr noundef nonnull @.str.51, ptr noundef null, i64 noundef %conv1056, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181043.0, ptr noundef nonnull @.str.51, ptr noundef null, i64 noundef %conv1056, i32 noundef 2)
   br label %sw.epilog
 
 do.body1063:                                      ; preds = %entry
@@ -2813,7 +2813,7 @@ if.then1073:                                      ; preds = %if.end1069
   %async_id_.i1072 = getelementptr inbounds i8, ptr %this, i64 40
   %364 = load double, ptr %async_id_.i1072, align 8
   %conv1077 = fptosi double %364 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181064.0, ptr noundef nonnull @.str.52, ptr noundef null, i64 noundef %conv1077, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181064.0, ptr noundef nonnull @.str.52, ptr noundef null, i64 noundef %conv1077, i32 noundef 2)
   br label %sw.epilog
 
 do.body1084:                                      ; preds = %entry
@@ -2851,7 +2851,7 @@ if.then1094:                                      ; preds = %if.end1090
   %async_id_.i1083 = getelementptr inbounds i8, ptr %this, i64 40
   %371 = load double, ptr %async_id_.i1083, align 8
   %conv1098 = fptosi double %371 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181085.0, ptr noundef nonnull @.str.53, ptr noundef null, i64 noundef %conv1098, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181085.0, ptr noundef nonnull @.str.53, ptr noundef null, i64 noundef %conv1098, i32 noundef 2)
   br label %sw.epilog
 
 do.body1105:                                      ; preds = %entry
@@ -2889,7 +2889,7 @@ if.then1115:                                      ; preds = %if.end1111
   %async_id_.i1094 = getelementptr inbounds i8, ptr %this, i64 40
   %378 = load double, ptr %async_id_.i1094, align 8
   %conv1119 = fptosi double %378 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181106.0, ptr noundef nonnull @.str.54, ptr noundef null, i64 noundef %conv1119, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181106.0, ptr noundef nonnull @.str.54, ptr noundef null, i64 noundef %conv1119, i32 noundef 2)
   br label %sw.epilog
 
 do.body1126:                                      ; preds = %entry
@@ -2927,7 +2927,7 @@ if.then1136:                                      ; preds = %if.end1132
   %async_id_.i1105 = getelementptr inbounds i8, ptr %this, i64 40
   %385 = load double, ptr %async_id_.i1105, align 8
   %conv1140 = fptosi double %385 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181127.0, ptr noundef nonnull @.str.55, ptr noundef null, i64 noundef %conv1140, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181127.0, ptr noundef nonnull @.str.55, ptr noundef null, i64 noundef %conv1140, i32 noundef 2)
   br label %sw.epilog
 
 do.body1147:                                      ; preds = %entry
@@ -2965,7 +2965,7 @@ if.then1157:                                      ; preds = %if.end1153
   %async_id_.i1116 = getelementptr inbounds i8, ptr %this, i64 40
   %392 = load double, ptr %async_id_.i1116, align 8
   %conv1161 = fptosi double %392 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181148.0, ptr noundef nonnull @.str.56, ptr noundef null, i64 noundef %conv1161, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181148.0, ptr noundef nonnull @.str.56, ptr noundef null, i64 noundef %conv1161, i32 noundef 2)
   br label %sw.epilog
 
 do.body1168:                                      ; preds = %entry
@@ -3003,7 +3003,7 @@ if.then1178:                                      ; preds = %if.end1174
   %async_id_.i1127 = getelementptr inbounds i8, ptr %this, i64 40
   %399 = load double, ptr %async_id_.i1127, align 8
   %conv1182 = fptosi double %399 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181169.0, ptr noundef nonnull @.str.57, ptr noundef null, i64 noundef %conv1182, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181169.0, ptr noundef nonnull @.str.57, ptr noundef null, i64 noundef %conv1182, i32 noundef 2)
   br label %sw.epilog
 
 do.body1189:                                      ; preds = %entry
@@ -3041,7 +3041,7 @@ if.then1199:                                      ; preds = %if.end1195
   %async_id_.i1138 = getelementptr inbounds i8, ptr %this, i64 40
   %406 = load double, ptr %async_id_.i1138, align 8
   %conv1203 = fptosi double %406 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181190.0, ptr noundef nonnull @.str.58, ptr noundef null, i64 noundef %conv1203, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181190.0, ptr noundef nonnull @.str.58, ptr noundef null, i64 noundef %conv1203, i32 noundef 2)
   br label %sw.epilog
 
 do.body1210:                                      ; preds = %entry
@@ -3079,7 +3079,7 @@ if.then1220:                                      ; preds = %if.end1216
   %async_id_.i1149 = getelementptr inbounds i8, ptr %this, i64 40
   %413 = load double, ptr %async_id_.i1149, align 8
   %conv1224 = fptosi double %413 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181211.0, ptr noundef nonnull @.str.59, ptr noundef null, i64 noundef %conv1224, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181211.0, ptr noundef nonnull @.str.59, ptr noundef null, i64 noundef %conv1224, i32 noundef 2)
   br label %sw.epilog
 
 do.body1231:                                      ; preds = %entry
@@ -3117,7 +3117,7 @@ if.then1241:                                      ; preds = %if.end1237
   %async_id_.i1160 = getelementptr inbounds i8, ptr %this, i64 40
   %420 = load double, ptr %async_id_.i1160, align 8
   %conv1245 = fptosi double %420 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181232.0, ptr noundef nonnull @.str.60, ptr noundef null, i64 noundef %conv1245, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181232.0, ptr noundef nonnull @.str.60, ptr noundef null, i64 noundef %conv1245, i32 noundef 2)
   br label %sw.epilog
 
 do.body1252:                                      ; preds = %entry
@@ -3155,7 +3155,7 @@ if.then1262:                                      ; preds = %if.end1258
   %async_id_.i1171 = getelementptr inbounds i8, ptr %this, i64 40
   %427 = load double, ptr %async_id_.i1171, align 8
   %conv1266 = fptosi double %427 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181253.0, ptr noundef nonnull @.str.61, ptr noundef null, i64 noundef %conv1266, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181253.0, ptr noundef nonnull @.str.61, ptr noundef null, i64 noundef %conv1266, i32 noundef 2)
   br label %sw.epilog
 
 do.body1273:                                      ; preds = %entry
@@ -3193,7 +3193,7 @@ if.then1283:                                      ; preds = %if.end1279
   %async_id_.i1182 = getelementptr inbounds i8, ptr %this, i64 40
   %434 = load double, ptr %async_id_.i1182, align 8
   %conv1287 = fptosi double %434 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181274.0, ptr noundef nonnull @.str.62, ptr noundef null, i64 noundef %conv1287, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181274.0, ptr noundef nonnull @.str.62, ptr noundef null, i64 noundef %conv1287, i32 noundef 2)
   br label %sw.epilog
 
 do.body1294:                                      ; preds = %entry
@@ -3231,7 +3231,7 @@ if.then1304:                                      ; preds = %if.end1300
   %async_id_.i1193 = getelementptr inbounds i8, ptr %this, i64 40
   %441 = load double, ptr %async_id_.i1193, align 8
   %conv1308 = fptosi double %441 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181295.0, ptr noundef nonnull @.str.63, ptr noundef null, i64 noundef %conv1308, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181295.0, ptr noundef nonnull @.str.63, ptr noundef null, i64 noundef %conv1308, i32 noundef 2)
   br label %sw.epilog
 
 do.body1315:                                      ; preds = %entry
@@ -3269,7 +3269,7 @@ if.then1325:                                      ; preds = %if.end1321
   %async_id_.i1203 = getelementptr inbounds i8, ptr %this, i64 40
   %448 = load double, ptr %async_id_.i1203, align 8
   %conv1329 = fptosi double %448 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181316.0, ptr noundef nonnull @.str.64, ptr noundef null, i64 noundef %conv1329, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 98, ptr noundef nonnull %trace_event_unique_category_group_enabled1181316.0, ptr noundef nonnull @.str.64, ptr noundef null, i64 noundef %conv1329, i32 noundef 2)
   br label %sw.epilog
 
 do.body1335:                                      ; preds = %entry
@@ -3282,7 +3282,7 @@ sw.epilog:                                        ; preds = %if.then1325, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext range(i8 98, 102) %phase, ptr noundef %category_group_enabled, ptr noundef %name, ptr noundef %scope, i64 noundef %id, i32 noundef %flags) unnamed_addr #3 {
+define internal fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext range(i8 98, 102) %phase, ptr noundef %category_group_enabled, ptr noundef %name, ptr noundef %scope, i64 noundef %id, i32 noundef %flags) unnamed_addr #3 {
 entry:
   %arg_convertibles.i = alloca [2 x %"class.std::unique_ptr.374"], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_convertibles.i)
@@ -3447,7 +3447,7 @@ if.end:                                           ; preds = %_ZN4node7tracing16T
 
 if.then3:                                         ; preds = %if.end
   %conv4 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140.0, ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef %conv4, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140.0, ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef %conv4, i32 noundef 2)
   br label %sw.epilog
 
 do.body10:                                        ; preds = %entry
@@ -3483,7 +3483,7 @@ if.end16:                                         ; preds = %_ZN4node7tracing16T
 
 if.then20:                                        ; preds = %if.end16
   %conv23 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled14011.0, ptr noundef nonnull @.str.2, ptr noundef null, i64 noundef %conv23, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled14011.0, ptr noundef nonnull @.str.2, ptr noundef null, i64 noundef %conv23, i32 noundef 2)
   br label %sw.epilog
 
 do.body30:                                        ; preds = %entry
@@ -3519,7 +3519,7 @@ if.end36:                                         ; preds = %_ZN4node7tracing16T
 
 if.then40:                                        ; preds = %if.end36
   %conv43 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled14031.0, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef %conv43, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled14031.0, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef %conv43, i32 noundef 2)
   br label %sw.epilog
 
 do.body50:                                        ; preds = %entry
@@ -3555,7 +3555,7 @@ if.end56:                                         ; preds = %_ZN4node7tracing16T
 
 if.then60:                                        ; preds = %if.end56
   %conv63 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled14051.0, ptr noundef nonnull @.str.4, ptr noundef null, i64 noundef %conv63, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled14051.0, ptr noundef nonnull @.str.4, ptr noundef null, i64 noundef %conv63, i32 noundef 2)
   br label %sw.epilog
 
 do.body70:                                        ; preds = %entry
@@ -3591,7 +3591,7 @@ if.end76:                                         ; preds = %_ZN4node7tracing16T
 
 if.then80:                                        ; preds = %if.end76
   %conv83 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled14071.0, ptr noundef nonnull @.str.5, ptr noundef null, i64 noundef %conv83, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled14071.0, ptr noundef nonnull @.str.5, ptr noundef null, i64 noundef %conv83, i32 noundef 2)
   br label %sw.epilog
 
 do.body90:                                        ; preds = %entry
@@ -3627,7 +3627,7 @@ if.end96:                                         ; preds = %_ZN4node7tracing16T
 
 if.then100:                                       ; preds = %if.end96
   %conv103 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled14091.0, ptr noundef nonnull @.str.6, ptr noundef null, i64 noundef %conv103, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled14091.0, ptr noundef nonnull @.str.6, ptr noundef null, i64 noundef %conv103, i32 noundef 2)
   br label %sw.epilog
 
 do.body110:                                       ; preds = %entry
@@ -3663,7 +3663,7 @@ if.end116:                                        ; preds = %_ZN4node7tracing16T
 
 if.then120:                                       ; preds = %if.end116
   %conv123 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140111.0, ptr noundef nonnull @.str.7, ptr noundef null, i64 noundef %conv123, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140111.0, ptr noundef nonnull @.str.7, ptr noundef null, i64 noundef %conv123, i32 noundef 2)
   br label %sw.epilog
 
 do.body130:                                       ; preds = %entry
@@ -3699,7 +3699,7 @@ if.end136:                                        ; preds = %_ZN4node7tracing16T
 
 if.then140:                                       ; preds = %if.end136
   %conv143 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140131.0, ptr noundef nonnull @.str.8, ptr noundef null, i64 noundef %conv143, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140131.0, ptr noundef nonnull @.str.8, ptr noundef null, i64 noundef %conv143, i32 noundef 2)
   br label %sw.epilog
 
 do.body150:                                       ; preds = %entry
@@ -3735,7 +3735,7 @@ if.end156:                                        ; preds = %_ZN4node7tracing16T
 
 if.then160:                                       ; preds = %if.end156
   %conv163 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140151.0, ptr noundef nonnull @.str.9, ptr noundef null, i64 noundef %conv163, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140151.0, ptr noundef nonnull @.str.9, ptr noundef null, i64 noundef %conv163, i32 noundef 2)
   br label %sw.epilog
 
 do.body170:                                       ; preds = %entry
@@ -3771,7 +3771,7 @@ if.end176:                                        ; preds = %_ZN4node7tracing16T
 
 if.then180:                                       ; preds = %if.end176
   %conv183 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140171.0, ptr noundef nonnull @.str.10, ptr noundef null, i64 noundef %conv183, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140171.0, ptr noundef nonnull @.str.10, ptr noundef null, i64 noundef %conv183, i32 noundef 2)
   br label %sw.epilog
 
 do.body190:                                       ; preds = %entry
@@ -3807,7 +3807,7 @@ if.end196:                                        ; preds = %_ZN4node7tracing16T
 
 if.then200:                                       ; preds = %if.end196
   %conv203 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140191.0, ptr noundef nonnull @.str.11, ptr noundef null, i64 noundef %conv203, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140191.0, ptr noundef nonnull @.str.11, ptr noundef null, i64 noundef %conv203, i32 noundef 2)
   br label %sw.epilog
 
 do.body210:                                       ; preds = %entry
@@ -3843,7 +3843,7 @@ if.end216:                                        ; preds = %_ZN4node7tracing16T
 
 if.then220:                                       ; preds = %if.end216
   %conv223 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140211.0, ptr noundef nonnull @.str.12, ptr noundef null, i64 noundef %conv223, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140211.0, ptr noundef nonnull @.str.12, ptr noundef null, i64 noundef %conv223, i32 noundef 2)
   br label %sw.epilog
 
 do.body230:                                       ; preds = %entry
@@ -3879,7 +3879,7 @@ if.end236:                                        ; preds = %_ZN4node7tracing16T
 
 if.then240:                                       ; preds = %if.end236
   %conv243 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140231.0, ptr noundef nonnull @.str.13, ptr noundef null, i64 noundef %conv243, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140231.0, ptr noundef nonnull @.str.13, ptr noundef null, i64 noundef %conv243, i32 noundef 2)
   br label %sw.epilog
 
 do.body250:                                       ; preds = %entry
@@ -3915,7 +3915,7 @@ if.end256:                                        ; preds = %_ZN4node7tracing16T
 
 if.then260:                                       ; preds = %if.end256
   %conv263 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140251.0, ptr noundef nonnull @.str.14, ptr noundef null, i64 noundef %conv263, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140251.0, ptr noundef nonnull @.str.14, ptr noundef null, i64 noundef %conv263, i32 noundef 2)
   br label %sw.epilog
 
 do.body270:                                       ; preds = %entry
@@ -3951,7 +3951,7 @@ if.end276:                                        ; preds = %_ZN4node7tracing16T
 
 if.then280:                                       ; preds = %if.end276
   %conv283 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140271.0, ptr noundef nonnull @.str.15, ptr noundef null, i64 noundef %conv283, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140271.0, ptr noundef nonnull @.str.15, ptr noundef null, i64 noundef %conv283, i32 noundef 2)
   br label %sw.epilog
 
 do.body290:                                       ; preds = %entry
@@ -3987,7 +3987,7 @@ if.end296:                                        ; preds = %_ZN4node7tracing16T
 
 if.then300:                                       ; preds = %if.end296
   %conv303 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140291.0, ptr noundef nonnull @.str.16, ptr noundef null, i64 noundef %conv303, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140291.0, ptr noundef nonnull @.str.16, ptr noundef null, i64 noundef %conv303, i32 noundef 2)
   br label %sw.epilog
 
 do.body310:                                       ; preds = %entry
@@ -4023,7 +4023,7 @@ if.end316:                                        ; preds = %_ZN4node7tracing16T
 
 if.then320:                                       ; preds = %if.end316
   %conv323 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140311.0, ptr noundef nonnull @.str.17, ptr noundef null, i64 noundef %conv323, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140311.0, ptr noundef nonnull @.str.17, ptr noundef null, i64 noundef %conv323, i32 noundef 2)
   br label %sw.epilog
 
 do.body330:                                       ; preds = %entry
@@ -4059,7 +4059,7 @@ if.end336:                                        ; preds = %_ZN4node7tracing16T
 
 if.then340:                                       ; preds = %if.end336
   %conv343 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140331.0, ptr noundef nonnull @.str.18, ptr noundef null, i64 noundef %conv343, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140331.0, ptr noundef nonnull @.str.18, ptr noundef null, i64 noundef %conv343, i32 noundef 2)
   br label %sw.epilog
 
 do.body350:                                       ; preds = %entry
@@ -4095,7 +4095,7 @@ if.end356:                                        ; preds = %_ZN4node7tracing16T
 
 if.then360:                                       ; preds = %if.end356
   %conv363 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140351.0, ptr noundef nonnull @.str.19, ptr noundef null, i64 noundef %conv363, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140351.0, ptr noundef nonnull @.str.19, ptr noundef null, i64 noundef %conv363, i32 noundef 2)
   br label %sw.epilog
 
 do.body370:                                       ; preds = %entry
@@ -4131,7 +4131,7 @@ if.end376:                                        ; preds = %_ZN4node7tracing16T
 
 if.then380:                                       ; preds = %if.end376
   %conv383 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140371.0, ptr noundef nonnull @.str.20, ptr noundef null, i64 noundef %conv383, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140371.0, ptr noundef nonnull @.str.20, ptr noundef null, i64 noundef %conv383, i32 noundef 2)
   br label %sw.epilog
 
 do.body390:                                       ; preds = %entry
@@ -4167,7 +4167,7 @@ if.end396:                                        ; preds = %_ZN4node7tracing16T
 
 if.then400:                                       ; preds = %if.end396
   %conv403 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140391.0, ptr noundef nonnull @.str.21, ptr noundef null, i64 noundef %conv403, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140391.0, ptr noundef nonnull @.str.21, ptr noundef null, i64 noundef %conv403, i32 noundef 2)
   br label %sw.epilog
 
 do.body410:                                       ; preds = %entry
@@ -4203,7 +4203,7 @@ if.end416:                                        ; preds = %_ZN4node7tracing16T
 
 if.then420:                                       ; preds = %if.end416
   %conv423 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140411.0, ptr noundef nonnull @.str.22, ptr noundef null, i64 noundef %conv423, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140411.0, ptr noundef nonnull @.str.22, ptr noundef null, i64 noundef %conv423, i32 noundef 2)
   br label %sw.epilog
 
 do.body430:                                       ; preds = %entry
@@ -4239,7 +4239,7 @@ if.end436:                                        ; preds = %_ZN4node7tracing16T
 
 if.then440:                                       ; preds = %if.end436
   %conv443 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140431.0, ptr noundef nonnull @.str.23, ptr noundef null, i64 noundef %conv443, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140431.0, ptr noundef nonnull @.str.23, ptr noundef null, i64 noundef %conv443, i32 noundef 2)
   br label %sw.epilog
 
 do.body450:                                       ; preds = %entry
@@ -4275,7 +4275,7 @@ if.end456:                                        ; preds = %_ZN4node7tracing16T
 
 if.then460:                                       ; preds = %if.end456
   %conv463 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140451.0, ptr noundef nonnull @.str.24, ptr noundef null, i64 noundef %conv463, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140451.0, ptr noundef nonnull @.str.24, ptr noundef null, i64 noundef %conv463, i32 noundef 2)
   br label %sw.epilog
 
 do.body470:                                       ; preds = %entry
@@ -4311,7 +4311,7 @@ if.end476:                                        ; preds = %_ZN4node7tracing16T
 
 if.then480:                                       ; preds = %if.end476
   %conv483 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140471.0, ptr noundef nonnull @.str.25, ptr noundef null, i64 noundef %conv483, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140471.0, ptr noundef nonnull @.str.25, ptr noundef null, i64 noundef %conv483, i32 noundef 2)
   br label %sw.epilog
 
 do.body490:                                       ; preds = %entry
@@ -4347,7 +4347,7 @@ if.end496:                                        ; preds = %_ZN4node7tracing16T
 
 if.then500:                                       ; preds = %if.end496
   %conv503 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140491.0, ptr noundef nonnull @.str.26, ptr noundef null, i64 noundef %conv503, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140491.0, ptr noundef nonnull @.str.26, ptr noundef null, i64 noundef %conv503, i32 noundef 2)
   br label %sw.epilog
 
 do.body510:                                       ; preds = %entry
@@ -4383,7 +4383,7 @@ if.end516:                                        ; preds = %_ZN4node7tracing16T
 
 if.then520:                                       ; preds = %if.end516
   %conv523 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140511.0, ptr noundef nonnull @.str.27, ptr noundef null, i64 noundef %conv523, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140511.0, ptr noundef nonnull @.str.27, ptr noundef null, i64 noundef %conv523, i32 noundef 2)
   br label %sw.epilog
 
 do.body530:                                       ; preds = %entry
@@ -4419,7 +4419,7 @@ if.end536:                                        ; preds = %_ZN4node7tracing16T
 
 if.then540:                                       ; preds = %if.end536
   %conv543 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140531.0, ptr noundef nonnull @.str.28, ptr noundef null, i64 noundef %conv543, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140531.0, ptr noundef nonnull @.str.28, ptr noundef null, i64 noundef %conv543, i32 noundef 2)
   br label %sw.epilog
 
 do.body550:                                       ; preds = %entry
@@ -4455,7 +4455,7 @@ if.end556:                                        ; preds = %_ZN4node7tracing16T
 
 if.then560:                                       ; preds = %if.end556
   %conv563 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140551.0, ptr noundef nonnull @.str.29, ptr noundef null, i64 noundef %conv563, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140551.0, ptr noundef nonnull @.str.29, ptr noundef null, i64 noundef %conv563, i32 noundef 2)
   br label %sw.epilog
 
 do.body570:                                       ; preds = %entry
@@ -4491,7 +4491,7 @@ if.end576:                                        ; preds = %_ZN4node7tracing16T
 
 if.then580:                                       ; preds = %if.end576
   %conv583 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140571.0, ptr noundef nonnull @.str.30, ptr noundef null, i64 noundef %conv583, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140571.0, ptr noundef nonnull @.str.30, ptr noundef null, i64 noundef %conv583, i32 noundef 2)
   br label %sw.epilog
 
 do.body590:                                       ; preds = %entry
@@ -4527,7 +4527,7 @@ if.end596:                                        ; preds = %_ZN4node7tracing16T
 
 if.then600:                                       ; preds = %if.end596
   %conv603 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140591.0, ptr noundef nonnull @.str.31, ptr noundef null, i64 noundef %conv603, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140591.0, ptr noundef nonnull @.str.31, ptr noundef null, i64 noundef %conv603, i32 noundef 2)
   br label %sw.epilog
 
 do.body610:                                       ; preds = %entry
@@ -4563,7 +4563,7 @@ if.end616:                                        ; preds = %_ZN4node7tracing16T
 
 if.then620:                                       ; preds = %if.end616
   %conv623 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140611.0, ptr noundef nonnull @.str.32, ptr noundef null, i64 noundef %conv623, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140611.0, ptr noundef nonnull @.str.32, ptr noundef null, i64 noundef %conv623, i32 noundef 2)
   br label %sw.epilog
 
 do.body630:                                       ; preds = %entry
@@ -4599,7 +4599,7 @@ if.end636:                                        ; preds = %_ZN4node7tracing16T
 
 if.then640:                                       ; preds = %if.end636
   %conv643 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140631.0, ptr noundef nonnull @.str.33, ptr noundef null, i64 noundef %conv643, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140631.0, ptr noundef nonnull @.str.33, ptr noundef null, i64 noundef %conv643, i32 noundef 2)
   br label %sw.epilog
 
 do.body650:                                       ; preds = %entry
@@ -4635,7 +4635,7 @@ if.end656:                                        ; preds = %_ZN4node7tracing16T
 
 if.then660:                                       ; preds = %if.end656
   %conv663 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140651.0, ptr noundef nonnull @.str.34, ptr noundef null, i64 noundef %conv663, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140651.0, ptr noundef nonnull @.str.34, ptr noundef null, i64 noundef %conv663, i32 noundef 2)
   br label %sw.epilog
 
 do.body670:                                       ; preds = %entry
@@ -4671,7 +4671,7 @@ if.end676:                                        ; preds = %_ZN4node7tracing16T
 
 if.then680:                                       ; preds = %if.end676
   %conv683 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140671.0, ptr noundef nonnull @.str.35, ptr noundef null, i64 noundef %conv683, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140671.0, ptr noundef nonnull @.str.35, ptr noundef null, i64 noundef %conv683, i32 noundef 2)
   br label %sw.epilog
 
 do.body690:                                       ; preds = %entry
@@ -4707,7 +4707,7 @@ if.end696:                                        ; preds = %_ZN4node7tracing16T
 
 if.then700:                                       ; preds = %if.end696
   %conv703 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140691.0, ptr noundef nonnull @.str.36, ptr noundef null, i64 noundef %conv703, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140691.0, ptr noundef nonnull @.str.36, ptr noundef null, i64 noundef %conv703, i32 noundef 2)
   br label %sw.epilog
 
 do.body710:                                       ; preds = %entry
@@ -4743,7 +4743,7 @@ if.end716:                                        ; preds = %_ZN4node7tracing16T
 
 if.then720:                                       ; preds = %if.end716
   %conv723 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140711.0, ptr noundef nonnull @.str.37, ptr noundef null, i64 noundef %conv723, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140711.0, ptr noundef nonnull @.str.37, ptr noundef null, i64 noundef %conv723, i32 noundef 2)
   br label %sw.epilog
 
 do.body730:                                       ; preds = %entry
@@ -4779,7 +4779,7 @@ if.end736:                                        ; preds = %_ZN4node7tracing16T
 
 if.then740:                                       ; preds = %if.end736
   %conv743 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140731.0, ptr noundef nonnull @.str.38, ptr noundef null, i64 noundef %conv743, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140731.0, ptr noundef nonnull @.str.38, ptr noundef null, i64 noundef %conv743, i32 noundef 2)
   br label %sw.epilog
 
 do.body750:                                       ; preds = %entry
@@ -4815,7 +4815,7 @@ if.end756:                                        ; preds = %_ZN4node7tracing16T
 
 if.then760:                                       ; preds = %if.end756
   %conv763 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140751.0, ptr noundef nonnull @.str.39, ptr noundef null, i64 noundef %conv763, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140751.0, ptr noundef nonnull @.str.39, ptr noundef null, i64 noundef %conv763, i32 noundef 2)
   br label %sw.epilog
 
 do.body770:                                       ; preds = %entry
@@ -4851,7 +4851,7 @@ if.end776:                                        ; preds = %_ZN4node7tracing16T
 
 if.then780:                                       ; preds = %if.end776
   %conv783 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140771.0, ptr noundef nonnull @.str.40, ptr noundef null, i64 noundef %conv783, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140771.0, ptr noundef nonnull @.str.40, ptr noundef null, i64 noundef %conv783, i32 noundef 2)
   br label %sw.epilog
 
 do.body790:                                       ; preds = %entry
@@ -4887,7 +4887,7 @@ if.end796:                                        ; preds = %_ZN4node7tracing16T
 
 if.then800:                                       ; preds = %if.end796
   %conv803 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140791.0, ptr noundef nonnull @.str.41, ptr noundef null, i64 noundef %conv803, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140791.0, ptr noundef nonnull @.str.41, ptr noundef null, i64 noundef %conv803, i32 noundef 2)
   br label %sw.epilog
 
 do.body810:                                       ; preds = %entry
@@ -4923,7 +4923,7 @@ if.end816:                                        ; preds = %_ZN4node7tracing16T
 
 if.then820:                                       ; preds = %if.end816
   %conv823 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140811.0, ptr noundef nonnull @.str.42, ptr noundef null, i64 noundef %conv823, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140811.0, ptr noundef nonnull @.str.42, ptr noundef null, i64 noundef %conv823, i32 noundef 2)
   br label %sw.epilog
 
 do.body830:                                       ; preds = %entry
@@ -4959,7 +4959,7 @@ if.end836:                                        ; preds = %_ZN4node7tracing16T
 
 if.then840:                                       ; preds = %if.end836
   %conv843 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140831.0, ptr noundef nonnull @.str.43, ptr noundef null, i64 noundef %conv843, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140831.0, ptr noundef nonnull @.str.43, ptr noundef null, i64 noundef %conv843, i32 noundef 2)
   br label %sw.epilog
 
 do.body850:                                       ; preds = %entry
@@ -4995,7 +4995,7 @@ if.end856:                                        ; preds = %_ZN4node7tracing16T
 
 if.then860:                                       ; preds = %if.end856
   %conv863 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140851.0, ptr noundef nonnull @.str.44, ptr noundef null, i64 noundef %conv863, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140851.0, ptr noundef nonnull @.str.44, ptr noundef null, i64 noundef %conv863, i32 noundef 2)
   br label %sw.epilog
 
 do.body870:                                       ; preds = %entry
@@ -5031,7 +5031,7 @@ if.end876:                                        ; preds = %_ZN4node7tracing16T
 
 if.then880:                                       ; preds = %if.end876
   %conv883 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140871.0, ptr noundef nonnull @.str.45, ptr noundef null, i64 noundef %conv883, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140871.0, ptr noundef nonnull @.str.45, ptr noundef null, i64 noundef %conv883, i32 noundef 2)
   br label %sw.epilog
 
 do.body890:                                       ; preds = %entry
@@ -5067,7 +5067,7 @@ if.end896:                                        ; preds = %_ZN4node7tracing16T
 
 if.then900:                                       ; preds = %if.end896
   %conv903 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140891.0, ptr noundef nonnull @.str.46, ptr noundef null, i64 noundef %conv903, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140891.0, ptr noundef nonnull @.str.46, ptr noundef null, i64 noundef %conv903, i32 noundef 2)
   br label %sw.epilog
 
 do.body910:                                       ; preds = %entry
@@ -5103,7 +5103,7 @@ if.end916:                                        ; preds = %_ZN4node7tracing16T
 
 if.then920:                                       ; preds = %if.end916
   %conv923 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140911.0, ptr noundef nonnull @.str.47, ptr noundef null, i64 noundef %conv923, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140911.0, ptr noundef nonnull @.str.47, ptr noundef null, i64 noundef %conv923, i32 noundef 2)
   br label %sw.epilog
 
 do.body930:                                       ; preds = %entry
@@ -5139,7 +5139,7 @@ if.end936:                                        ; preds = %_ZN4node7tracing16T
 
 if.then940:                                       ; preds = %if.end936
   %conv943 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140931.0, ptr noundef nonnull @.str.48, ptr noundef null, i64 noundef %conv943, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140931.0, ptr noundef nonnull @.str.48, ptr noundef null, i64 noundef %conv943, i32 noundef 2)
   br label %sw.epilog
 
 do.body950:                                       ; preds = %entry
@@ -5175,7 +5175,7 @@ if.end956:                                        ; preds = %_ZN4node7tracing16T
 
 if.then960:                                       ; preds = %if.end956
   %conv963 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140951.0, ptr noundef nonnull @.str.49, ptr noundef null, i64 noundef %conv963, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140951.0, ptr noundef nonnull @.str.49, ptr noundef null, i64 noundef %conv963, i32 noundef 2)
   br label %sw.epilog
 
 do.body970:                                       ; preds = %entry
@@ -5211,7 +5211,7 @@ if.end976:                                        ; preds = %_ZN4node7tracing16T
 
 if.then980:                                       ; preds = %if.end976
   %conv983 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140971.0, ptr noundef nonnull @.str.50, ptr noundef null, i64 noundef %conv983, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140971.0, ptr noundef nonnull @.str.50, ptr noundef null, i64 noundef %conv983, i32 noundef 2)
   br label %sw.epilog
 
 do.body990:                                       ; preds = %entry
@@ -5247,7 +5247,7 @@ if.end996:                                        ; preds = %_ZN4node7tracing16T
 
 if.then1000:                                      ; preds = %if.end996
   %conv1003 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140991.0, ptr noundef nonnull @.str.51, ptr noundef null, i64 noundef %conv1003, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled140991.0, ptr noundef nonnull @.str.51, ptr noundef null, i64 noundef %conv1003, i32 noundef 2)
   br label %sw.epilog
 
 do.body1010:                                      ; preds = %entry
@@ -5283,7 +5283,7 @@ if.end1016:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1020:                                      ; preds = %if.end1016
   %conv1023 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401011.0, ptr noundef nonnull @.str.52, ptr noundef null, i64 noundef %conv1023, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401011.0, ptr noundef nonnull @.str.52, ptr noundef null, i64 noundef %conv1023, i32 noundef 2)
   br label %sw.epilog
 
 do.body1030:                                      ; preds = %entry
@@ -5319,7 +5319,7 @@ if.end1036:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1040:                                      ; preds = %if.end1036
   %conv1043 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401031.0, ptr noundef nonnull @.str.53, ptr noundef null, i64 noundef %conv1043, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401031.0, ptr noundef nonnull @.str.53, ptr noundef null, i64 noundef %conv1043, i32 noundef 2)
   br label %sw.epilog
 
 do.body1050:                                      ; preds = %entry
@@ -5355,7 +5355,7 @@ if.end1056:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1060:                                      ; preds = %if.end1056
   %conv1063 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401051.0, ptr noundef nonnull @.str.54, ptr noundef null, i64 noundef %conv1063, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401051.0, ptr noundef nonnull @.str.54, ptr noundef null, i64 noundef %conv1063, i32 noundef 2)
   br label %sw.epilog
 
 do.body1070:                                      ; preds = %entry
@@ -5391,7 +5391,7 @@ if.end1076:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1080:                                      ; preds = %if.end1076
   %conv1083 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401071.0, ptr noundef nonnull @.str.55, ptr noundef null, i64 noundef %conv1083, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401071.0, ptr noundef nonnull @.str.55, ptr noundef null, i64 noundef %conv1083, i32 noundef 2)
   br label %sw.epilog
 
 do.body1090:                                      ; preds = %entry
@@ -5427,7 +5427,7 @@ if.end1096:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1100:                                      ; preds = %if.end1096
   %conv1103 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401091.0, ptr noundef nonnull @.str.56, ptr noundef null, i64 noundef %conv1103, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401091.0, ptr noundef nonnull @.str.56, ptr noundef null, i64 noundef %conv1103, i32 noundef 2)
   br label %sw.epilog
 
 do.body1110:                                      ; preds = %entry
@@ -5463,7 +5463,7 @@ if.end1116:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1120:                                      ; preds = %if.end1116
   %conv1123 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401111.0, ptr noundef nonnull @.str.57, ptr noundef null, i64 noundef %conv1123, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401111.0, ptr noundef nonnull @.str.57, ptr noundef null, i64 noundef %conv1123, i32 noundef 2)
   br label %sw.epilog
 
 do.body1130:                                      ; preds = %entry
@@ -5499,7 +5499,7 @@ if.end1136:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1140:                                      ; preds = %if.end1136
   %conv1143 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401131.0, ptr noundef nonnull @.str.58, ptr noundef null, i64 noundef %conv1143, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401131.0, ptr noundef nonnull @.str.58, ptr noundef null, i64 noundef %conv1143, i32 noundef 2)
   br label %sw.epilog
 
 do.body1150:                                      ; preds = %entry
@@ -5535,7 +5535,7 @@ if.end1156:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1160:                                      ; preds = %if.end1156
   %conv1163 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401151.0, ptr noundef nonnull @.str.59, ptr noundef null, i64 noundef %conv1163, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401151.0, ptr noundef nonnull @.str.59, ptr noundef null, i64 noundef %conv1163, i32 noundef 2)
   br label %sw.epilog
 
 do.body1170:                                      ; preds = %entry
@@ -5571,7 +5571,7 @@ if.end1176:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1180:                                      ; preds = %if.end1176
   %conv1183 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401171.0, ptr noundef nonnull @.str.60, ptr noundef null, i64 noundef %conv1183, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401171.0, ptr noundef nonnull @.str.60, ptr noundef null, i64 noundef %conv1183, i32 noundef 2)
   br label %sw.epilog
 
 do.body1190:                                      ; preds = %entry
@@ -5607,7 +5607,7 @@ if.end1196:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1200:                                      ; preds = %if.end1196
   %conv1203 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401191.0, ptr noundef nonnull @.str.61, ptr noundef null, i64 noundef %conv1203, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401191.0, ptr noundef nonnull @.str.61, ptr noundef null, i64 noundef %conv1203, i32 noundef 2)
   br label %sw.epilog
 
 do.body1210:                                      ; preds = %entry
@@ -5643,7 +5643,7 @@ if.end1216:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1220:                                      ; preds = %if.end1216
   %conv1223 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401211.0, ptr noundef nonnull @.str.62, ptr noundef null, i64 noundef %conv1223, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401211.0, ptr noundef nonnull @.str.62, ptr noundef null, i64 noundef %conv1223, i32 noundef 2)
   br label %sw.epilog
 
 do.body1230:                                      ; preds = %entry
@@ -5679,7 +5679,7 @@ if.end1236:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1240:                                      ; preds = %if.end1236
   %conv1243 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401231.0, ptr noundef nonnull @.str.63, ptr noundef null, i64 noundef %conv1243, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401231.0, ptr noundef nonnull @.str.63, ptr noundef null, i64 noundef %conv1243, i32 noundef 2)
   br label %sw.epilog
 
 do.body1250:                                      ; preds = %entry
@@ -5715,7 +5715,7 @@ if.end1256:                                       ; preds = %_ZN4node7tracing16T
 
 if.then1260:                                      ; preds = %if.end1256
   %conv1263 = fptosi double %async_id to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401251.0, ptr noundef nonnull @.str.64, ptr noundef null, i64 noundef %conv1263, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled1401251.0, ptr noundef nonnull @.str.64, ptr noundef null, i64 noundef %conv1263, i32 noundef 2)
   br label %sw.epilog
 
 do.body1269:                                      ; preds = %entry
@@ -5996,21 +5996,21 @@ _ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14def
   %task_queues_async_initialized_.i = getelementptr inbounds i8, ptr %env, i64 2544
   %18 = load i8, ptr %task_queues_async_initialized_.i, align 8
   %tobool.i = trunc i8 %18 to i1
-  br i1 %tobool.i, label %if.then.i, label %"_ZN4node11Environment16RequestInterruptIZNS_9AsyncWrap11EmitDestroyEPS0_dE3$_0EEvOT_.argprom.exit"
+  br i1 %tobool.i, label %if.then.i, label %"_ZN4node11Environment16RequestInterruptIZNS_9AsyncWrap11EmitDestroyEPS0_dE3$_0EEvOT_.exit"
 
 if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i
   %task_queues_async_.i = getelementptr inbounds i8, ptr %env, i64 736
   %call.i = tail call i32 @uv_async_send(ptr noundef nonnull %task_queues_async_.i) #19
-  br label %"_ZN4node11Environment16RequestInterruptIZNS_9AsyncWrap11EmitDestroyEPS0_dE3$_0EEvOT_.argprom.exit"
+  br label %"_ZN4node11Environment16RequestInterruptIZNS_9AsyncWrap11EmitDestroyEPS0_dE3$_0EEvOT_.exit"
 
-"_ZN4node11Environment16RequestInterruptIZNS_9AsyncWrap11EmitDestroyEPS0_dE3$_0EEvOT_.argprom.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then.i
+"_ZN4node11Environment16RequestInterruptIZNS_9AsyncWrap11EmitDestroyEPS0_dE3$_0EEvOT_.exit": ; preds = %_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev.exit.i, %if.then.i
   tail call void @uv_mutex_unlock(ptr noundef nonnull %native_immediates_threadsafe_mutex_.i) #19
   tail call void @_ZN4node11Environment22RequestInterruptFromV8Ev(ptr noundef nonnull align 8 dereferenceable(2872) %env) #19
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
   br label %if.end14
 
-if.end14:                                         ; preds = %"_ZN4node11Environment16RequestInterruptIZNS_9AsyncWrap11EmitDestroyEPS0_dE3$_0EEvOT_.argprom.exit", %if.end8
-  %19 = phi ptr [ %.pre, %"_ZN4node11Environment16RequestInterruptIZNS_9AsyncWrap11EmitDestroyEPS0_dE3$_0EEvOT_.argprom.exit" ], [ %11, %if.end8 ]
+if.end14:                                         ; preds = %"_ZN4node11Environment16RequestInterruptIZNS_9AsyncWrap11EmitDestroyEPS0_dE3$_0EEvOT_.exit", %if.end8
+  %19 = phi ptr [ %.pre, %"_ZN4node11Environment16RequestInterruptIZNS_9AsyncWrap11EmitDestroyEPS0_dE3$_0EEvOT_.exit" ], [ %11, %if.end8 ]
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %env, i64 1432
   %20 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %19, %20
@@ -6996,7 +6996,7 @@ if.end85:                                         ; preds = %_ZN4node7tracing16T
 if.then88:                                        ; preds = %if.end85
   %48 = load double, ptr %async_id_, align 8
   %conv90 = fptosi double %48 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626.0, ptr noundef nonnull @.str.106, ptr noundef null, i64 noundef %conv90, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626.0, ptr noundef nonnull @.str.106, ptr noundef null, i64 noundef %conv90, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data)
   br label %do.end96
 
 do.end96:                                         ; preds = %if.then88, %if.end85
@@ -7072,7 +7072,7 @@ if.end118:                                        ; preds = %_ZN4node7tracing16T
 if.then122:                                       ; preds = %if.end118
   %65 = load double, ptr %async_id_, align 8
   %conv126 = fptosi double %65 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626113.0, ptr noundef nonnull @.str.107, ptr noundef null, i64 noundef %conv126, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data102)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626113.0, ptr noundef nonnull @.str.107, ptr noundef null, i64 noundef %conv126, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data102)
   br label %do.end132
 
 do.end132:                                        ; preds = %if.then122, %if.end118
@@ -7148,7 +7148,7 @@ if.end154:                                        ; preds = %_ZN4node7tracing16T
 if.then158:                                       ; preds = %if.end154
   %82 = load double, ptr %async_id_, align 8
   %conv162 = fptosi double %82 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626149.0, ptr noundef nonnull @.str.108, ptr noundef null, i64 noundef %conv162, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data138)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626149.0, ptr noundef nonnull @.str.108, ptr noundef null, i64 noundef %conv162, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data138)
   br label %do.end168
 
 do.end168:                                        ; preds = %if.then158, %if.end154
@@ -7224,7 +7224,7 @@ if.end190:                                        ; preds = %_ZN4node7tracing16T
 if.then194:                                       ; preds = %if.end190
   %99 = load double, ptr %async_id_, align 8
   %conv198 = fptosi double %99 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626185.0, ptr noundef nonnull @.str.109, ptr noundef null, i64 noundef %conv198, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data174)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626185.0, ptr noundef nonnull @.str.109, ptr noundef null, i64 noundef %conv198, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data174)
   br label %do.end204
 
 do.end204:                                        ; preds = %if.then194, %if.end190
@@ -7300,7 +7300,7 @@ if.end226:                                        ; preds = %_ZN4node7tracing16T
 if.then230:                                       ; preds = %if.end226
   %116 = load double, ptr %async_id_, align 8
   %conv234 = fptosi double %116 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626221.0, ptr noundef nonnull @.str.110, ptr noundef null, i64 noundef %conv234, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data210)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626221.0, ptr noundef nonnull @.str.110, ptr noundef null, i64 noundef %conv234, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data210)
   br label %do.end240
 
 do.end240:                                        ; preds = %if.then230, %if.end226
@@ -7376,7 +7376,7 @@ if.end262:                                        ; preds = %_ZN4node7tracing16T
 if.then266:                                       ; preds = %if.end262
   %133 = load double, ptr %async_id_, align 8
   %conv270 = fptosi double %133 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626257.0, ptr noundef nonnull @.str.111, ptr noundef null, i64 noundef %conv270, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data246)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626257.0, ptr noundef nonnull @.str.111, ptr noundef null, i64 noundef %conv270, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data246)
   br label %do.end276
 
 do.end276:                                        ; preds = %if.then266, %if.end262
@@ -7452,7 +7452,7 @@ if.end298:                                        ; preds = %_ZN4node7tracing16T
 if.then302:                                       ; preds = %if.end298
   %150 = load double, ptr %async_id_, align 8
   %conv306 = fptosi double %150 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626293.0, ptr noundef nonnull @.str.112, ptr noundef null, i64 noundef %conv306, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data282)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626293.0, ptr noundef nonnull @.str.112, ptr noundef null, i64 noundef %conv306, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data282)
   br label %do.end312
 
 do.end312:                                        ; preds = %if.then302, %if.end298
@@ -7528,7 +7528,7 @@ if.end334:                                        ; preds = %_ZN4node7tracing16T
 if.then338:                                       ; preds = %if.end334
   %167 = load double, ptr %async_id_, align 8
   %conv342 = fptosi double %167 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626329.0, ptr noundef nonnull @.str.113, ptr noundef null, i64 noundef %conv342, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data318)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626329.0, ptr noundef nonnull @.str.113, ptr noundef null, i64 noundef %conv342, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data318)
   br label %do.end348
 
 do.end348:                                        ; preds = %if.then338, %if.end334
@@ -7604,7 +7604,7 @@ if.end370:                                        ; preds = %_ZN4node7tracing16T
 if.then374:                                       ; preds = %if.end370
   %184 = load double, ptr %async_id_, align 8
   %conv378 = fptosi double %184 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626365.0, ptr noundef nonnull @.str.114, ptr noundef null, i64 noundef %conv378, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data354)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626365.0, ptr noundef nonnull @.str.114, ptr noundef null, i64 noundef %conv378, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data354)
   br label %do.end384
 
 do.end384:                                        ; preds = %if.then374, %if.end370
@@ -7680,7 +7680,7 @@ if.end406:                                        ; preds = %_ZN4node7tracing16T
 if.then410:                                       ; preds = %if.end406
   %201 = load double, ptr %async_id_, align 8
   %conv414 = fptosi double %201 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626401.0, ptr noundef nonnull @.str.115, ptr noundef null, i64 noundef %conv414, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data390)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626401.0, ptr noundef nonnull @.str.115, ptr noundef null, i64 noundef %conv414, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data390)
   br label %do.end420
 
 do.end420:                                        ; preds = %if.then410, %if.end406
@@ -7756,7 +7756,7 @@ if.end442:                                        ; preds = %_ZN4node7tracing16T
 if.then446:                                       ; preds = %if.end442
   %218 = load double, ptr %async_id_, align 8
   %conv450 = fptosi double %218 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626437.0, ptr noundef nonnull @.str.116, ptr noundef null, i64 noundef %conv450, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data426)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626437.0, ptr noundef nonnull @.str.116, ptr noundef null, i64 noundef %conv450, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data426)
   br label %do.end456
 
 do.end456:                                        ; preds = %if.then446, %if.end442
@@ -7832,7 +7832,7 @@ if.end478:                                        ; preds = %_ZN4node7tracing16T
 if.then482:                                       ; preds = %if.end478
   %235 = load double, ptr %async_id_, align 8
   %conv486 = fptosi double %235 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626473.0, ptr noundef nonnull @.str.117, ptr noundef null, i64 noundef %conv486, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data462)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626473.0, ptr noundef nonnull @.str.117, ptr noundef null, i64 noundef %conv486, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data462)
   br label %do.end492
 
 do.end492:                                        ; preds = %if.then482, %if.end478
@@ -7908,7 +7908,7 @@ if.end514:                                        ; preds = %_ZN4node7tracing16T
 if.then518:                                       ; preds = %if.end514
   %252 = load double, ptr %async_id_, align 8
   %conv522 = fptosi double %252 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626509.0, ptr noundef nonnull @.str.118, ptr noundef null, i64 noundef %conv522, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data498)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626509.0, ptr noundef nonnull @.str.118, ptr noundef null, i64 noundef %conv522, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data498)
   br label %do.end528
 
 do.end528:                                        ; preds = %if.then518, %if.end514
@@ -7984,7 +7984,7 @@ if.end550:                                        ; preds = %_ZN4node7tracing16T
 if.then554:                                       ; preds = %if.end550
   %269 = load double, ptr %async_id_, align 8
   %conv558 = fptosi double %269 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626545.0, ptr noundef nonnull @.str.119, ptr noundef null, i64 noundef %conv558, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data534)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626545.0, ptr noundef nonnull @.str.119, ptr noundef null, i64 noundef %conv558, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data534)
   br label %do.end564
 
 do.end564:                                        ; preds = %if.then554, %if.end550
@@ -8060,7 +8060,7 @@ if.end586:                                        ; preds = %_ZN4node7tracing16T
 if.then590:                                       ; preds = %if.end586
   %286 = load double, ptr %async_id_, align 8
   %conv594 = fptosi double %286 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626581.0, ptr noundef nonnull @.str.120, ptr noundef null, i64 noundef %conv594, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data570)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626581.0, ptr noundef nonnull @.str.120, ptr noundef null, i64 noundef %conv594, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data570)
   br label %do.end600
 
 do.end600:                                        ; preds = %if.then590, %if.end586
@@ -8136,7 +8136,7 @@ if.end622:                                        ; preds = %_ZN4node7tracing16T
 if.then626:                                       ; preds = %if.end622
   %303 = load double, ptr %async_id_, align 8
   %conv630 = fptosi double %303 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626617.0, ptr noundef nonnull @.str.121, ptr noundef null, i64 noundef %conv630, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data606)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626617.0, ptr noundef nonnull @.str.121, ptr noundef null, i64 noundef %conv630, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data606)
   br label %do.end636
 
 do.end636:                                        ; preds = %if.then626, %if.end622
@@ -8212,7 +8212,7 @@ if.end658:                                        ; preds = %_ZN4node7tracing16T
 if.then662:                                       ; preds = %if.end658
   %320 = load double, ptr %async_id_, align 8
   %conv666 = fptosi double %320 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626653.0, ptr noundef nonnull @.str.122, ptr noundef null, i64 noundef %conv666, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data642)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626653.0, ptr noundef nonnull @.str.122, ptr noundef null, i64 noundef %conv666, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data642)
   br label %do.end672
 
 do.end672:                                        ; preds = %if.then662, %if.end658
@@ -8288,7 +8288,7 @@ if.end694:                                        ; preds = %_ZN4node7tracing16T
 if.then698:                                       ; preds = %if.end694
   %337 = load double, ptr %async_id_, align 8
   %conv702 = fptosi double %337 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626689.0, ptr noundef nonnull @.str.123, ptr noundef null, i64 noundef %conv702, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data678)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626689.0, ptr noundef nonnull @.str.123, ptr noundef null, i64 noundef %conv702, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data678)
   br label %do.end708
 
 do.end708:                                        ; preds = %if.then698, %if.end694
@@ -8364,7 +8364,7 @@ if.end730:                                        ; preds = %_ZN4node7tracing16T
 if.then734:                                       ; preds = %if.end730
   %354 = load double, ptr %async_id_, align 8
   %conv738 = fptosi double %354 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626725.0, ptr noundef nonnull @.str.124, ptr noundef null, i64 noundef %conv738, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data714)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626725.0, ptr noundef nonnull @.str.124, ptr noundef null, i64 noundef %conv738, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data714)
   br label %do.end744
 
 do.end744:                                        ; preds = %if.then734, %if.end730
@@ -8440,7 +8440,7 @@ if.end766:                                        ; preds = %_ZN4node7tracing16T
 if.then770:                                       ; preds = %if.end766
   %371 = load double, ptr %async_id_, align 8
   %conv774 = fptosi double %371 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626761.0, ptr noundef nonnull @.str.125, ptr noundef null, i64 noundef %conv774, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data750)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626761.0, ptr noundef nonnull @.str.125, ptr noundef null, i64 noundef %conv774, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data750)
   br label %do.end780
 
 do.end780:                                        ; preds = %if.then770, %if.end766
@@ -8516,7 +8516,7 @@ if.end802:                                        ; preds = %_ZN4node7tracing16T
 if.then806:                                       ; preds = %if.end802
   %388 = load double, ptr %async_id_, align 8
   %conv810 = fptosi double %388 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626797.0, ptr noundef nonnull @.str.126, ptr noundef null, i64 noundef %conv810, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data786)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626797.0, ptr noundef nonnull @.str.126, ptr noundef null, i64 noundef %conv810, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data786)
   br label %do.end816
 
 do.end816:                                        ; preds = %if.then806, %if.end802
@@ -8592,7 +8592,7 @@ if.end838:                                        ; preds = %_ZN4node7tracing16T
 if.then842:                                       ; preds = %if.end838
   %405 = load double, ptr %async_id_, align 8
   %conv846 = fptosi double %405 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626833.0, ptr noundef nonnull @.str.127, ptr noundef null, i64 noundef %conv846, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data822)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626833.0, ptr noundef nonnull @.str.127, ptr noundef null, i64 noundef %conv846, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data822)
   br label %do.end852
 
 do.end852:                                        ; preds = %if.then842, %if.end838
@@ -8668,7 +8668,7 @@ if.end874:                                        ; preds = %_ZN4node7tracing16T
 if.then878:                                       ; preds = %if.end874
   %422 = load double, ptr %async_id_, align 8
   %conv882 = fptosi double %422 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626869.0, ptr noundef nonnull @.str.128, ptr noundef null, i64 noundef %conv882, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data858)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626869.0, ptr noundef nonnull @.str.128, ptr noundef null, i64 noundef %conv882, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data858)
   br label %do.end888
 
 do.end888:                                        ; preds = %if.then878, %if.end874
@@ -8744,7 +8744,7 @@ if.end910:                                        ; preds = %_ZN4node7tracing16T
 if.then914:                                       ; preds = %if.end910
   %439 = load double, ptr %async_id_, align 8
   %conv918 = fptosi double %439 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626905.0, ptr noundef nonnull @.str.129, ptr noundef null, i64 noundef %conv918, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data894)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626905.0, ptr noundef nonnull @.str.129, ptr noundef null, i64 noundef %conv918, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data894)
   br label %do.end924
 
 do.end924:                                        ; preds = %if.then914, %if.end910
@@ -8820,7 +8820,7 @@ if.end946:                                        ; preds = %_ZN4node7tracing16T
 if.then950:                                       ; preds = %if.end946
   %456 = load double, ptr %async_id_, align 8
   %conv954 = fptosi double %456 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626941.0, ptr noundef nonnull @.str.130, ptr noundef null, i64 noundef %conv954, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data930)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626941.0, ptr noundef nonnull @.str.130, ptr noundef null, i64 noundef %conv954, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data930)
   br label %do.end960
 
 do.end960:                                        ; preds = %if.then950, %if.end946
@@ -8896,7 +8896,7 @@ if.end982:                                        ; preds = %_ZN4node7tracing16T
 if.then986:                                       ; preds = %if.end982
   %473 = load double, ptr %async_id_, align 8
   %conv990 = fptosi double %473 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled626977.0, ptr noundef nonnull @.str.131, ptr noundef null, i64 noundef %conv990, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data966)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled626977.0, ptr noundef nonnull @.str.131, ptr noundef null, i64 noundef %conv990, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data966)
   br label %do.end996
 
 do.end996:                                        ; preds = %if.then986, %if.end982
@@ -8972,7 +8972,7 @@ if.end1018:                                       ; preds = %_ZN4node7tracing16T
 if.then1022:                                      ; preds = %if.end1018
   %490 = load double, ptr %async_id_, align 8
   %conv1026 = fptosi double %490 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261013.0, ptr noundef nonnull @.str.132, ptr noundef null, i64 noundef %conv1026, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1002)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261013.0, ptr noundef nonnull @.str.132, ptr noundef null, i64 noundef %conv1026, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1002)
   br label %do.end1032
 
 do.end1032:                                       ; preds = %if.then1022, %if.end1018
@@ -9048,7 +9048,7 @@ if.end1054:                                       ; preds = %_ZN4node7tracing16T
 if.then1058:                                      ; preds = %if.end1054
   %507 = load double, ptr %async_id_, align 8
   %conv1062 = fptosi double %507 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261049.0, ptr noundef nonnull @.str.133, ptr noundef null, i64 noundef %conv1062, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1038)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261049.0, ptr noundef nonnull @.str.133, ptr noundef null, i64 noundef %conv1062, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1038)
   br label %do.end1068
 
 do.end1068:                                       ; preds = %if.then1058, %if.end1054
@@ -9124,7 +9124,7 @@ if.end1090:                                       ; preds = %_ZN4node7tracing16T
 if.then1094:                                      ; preds = %if.end1090
   %524 = load double, ptr %async_id_, align 8
   %conv1098 = fptosi double %524 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261085.0, ptr noundef nonnull @.str.134, ptr noundef null, i64 noundef %conv1098, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1074)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261085.0, ptr noundef nonnull @.str.134, ptr noundef null, i64 noundef %conv1098, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1074)
   br label %do.end1104
 
 do.end1104:                                       ; preds = %if.then1094, %if.end1090
@@ -9200,7 +9200,7 @@ if.end1126:                                       ; preds = %_ZN4node7tracing16T
 if.then1130:                                      ; preds = %if.end1126
   %541 = load double, ptr %async_id_, align 8
   %conv1134 = fptosi double %541 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261121.0, ptr noundef nonnull @.str.135, ptr noundef null, i64 noundef %conv1134, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1110)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261121.0, ptr noundef nonnull @.str.135, ptr noundef null, i64 noundef %conv1134, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1110)
   br label %do.end1140
 
 do.end1140:                                       ; preds = %if.then1130, %if.end1126
@@ -9276,7 +9276,7 @@ if.end1162:                                       ; preds = %_ZN4node7tracing16T
 if.then1166:                                      ; preds = %if.end1162
   %558 = load double, ptr %async_id_, align 8
   %conv1170 = fptosi double %558 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261157.0, ptr noundef nonnull @.str.136, ptr noundef null, i64 noundef %conv1170, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1146)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261157.0, ptr noundef nonnull @.str.136, ptr noundef null, i64 noundef %conv1170, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1146)
   br label %do.end1176
 
 do.end1176:                                       ; preds = %if.then1166, %if.end1162
@@ -9352,7 +9352,7 @@ if.end1198:                                       ; preds = %_ZN4node7tracing16T
 if.then1202:                                      ; preds = %if.end1198
   %575 = load double, ptr %async_id_, align 8
   %conv1206 = fptosi double %575 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261193.0, ptr noundef nonnull @.str.137, ptr noundef null, i64 noundef %conv1206, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1182)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261193.0, ptr noundef nonnull @.str.137, ptr noundef null, i64 noundef %conv1206, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1182)
   br label %do.end1212
 
 do.end1212:                                       ; preds = %if.then1202, %if.end1198
@@ -9428,7 +9428,7 @@ if.end1234:                                       ; preds = %_ZN4node7tracing16T
 if.then1238:                                      ; preds = %if.end1234
   %592 = load double, ptr %async_id_, align 8
   %conv1242 = fptosi double %592 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261229.0, ptr noundef nonnull @.str.138, ptr noundef null, i64 noundef %conv1242, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1218)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261229.0, ptr noundef nonnull @.str.138, ptr noundef null, i64 noundef %conv1242, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1218)
   br label %do.end1248
 
 do.end1248:                                       ; preds = %if.then1238, %if.end1234
@@ -9504,7 +9504,7 @@ if.end1270:                                       ; preds = %_ZN4node7tracing16T
 if.then1274:                                      ; preds = %if.end1270
   %609 = load double, ptr %async_id_, align 8
   %conv1278 = fptosi double %609 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261265.0, ptr noundef nonnull @.str.139, ptr noundef null, i64 noundef %conv1278, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1254)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261265.0, ptr noundef nonnull @.str.139, ptr noundef null, i64 noundef %conv1278, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1254)
   br label %do.end1284
 
 do.end1284:                                       ; preds = %if.then1274, %if.end1270
@@ -9580,7 +9580,7 @@ if.end1306:                                       ; preds = %_ZN4node7tracing16T
 if.then1310:                                      ; preds = %if.end1306
   %626 = load double, ptr %async_id_, align 8
   %conv1314 = fptosi double %626 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261301.0, ptr noundef nonnull @.str.140, ptr noundef null, i64 noundef %conv1314, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1290)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261301.0, ptr noundef nonnull @.str.140, ptr noundef null, i64 noundef %conv1314, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1290)
   br label %do.end1320
 
 do.end1320:                                       ; preds = %if.then1310, %if.end1306
@@ -9656,7 +9656,7 @@ if.end1342:                                       ; preds = %_ZN4node7tracing16T
 if.then1346:                                      ; preds = %if.end1342
   %643 = load double, ptr %async_id_, align 8
   %conv1350 = fptosi double %643 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261337.0, ptr noundef nonnull @.str.141, ptr noundef null, i64 noundef %conv1350, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1326)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261337.0, ptr noundef nonnull @.str.141, ptr noundef null, i64 noundef %conv1350, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1326)
   br label %do.end1356
 
 do.end1356:                                       ; preds = %if.then1346, %if.end1342
@@ -9732,7 +9732,7 @@ if.end1378:                                       ; preds = %_ZN4node7tracing16T
 if.then1382:                                      ; preds = %if.end1378
   %660 = load double, ptr %async_id_, align 8
   %conv1386 = fptosi double %660 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261373.0, ptr noundef nonnull @.str.142, ptr noundef null, i64 noundef %conv1386, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1362)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261373.0, ptr noundef nonnull @.str.142, ptr noundef null, i64 noundef %conv1386, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1362)
   br label %do.end1392
 
 do.end1392:                                       ; preds = %if.then1382, %if.end1378
@@ -9808,7 +9808,7 @@ if.end1414:                                       ; preds = %_ZN4node7tracing16T
 if.then1418:                                      ; preds = %if.end1414
   %677 = load double, ptr %async_id_, align 8
   %conv1422 = fptosi double %677 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261409.0, ptr noundef nonnull @.str.143, ptr noundef null, i64 noundef %conv1422, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1398)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261409.0, ptr noundef nonnull @.str.143, ptr noundef null, i64 noundef %conv1422, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1398)
   br label %do.end1428
 
 do.end1428:                                       ; preds = %if.then1418, %if.end1414
@@ -9884,7 +9884,7 @@ if.end1450:                                       ; preds = %_ZN4node7tracing16T
 if.then1454:                                      ; preds = %if.end1450
   %694 = load double, ptr %async_id_, align 8
   %conv1458 = fptosi double %694 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261445.0, ptr noundef nonnull @.str.144, ptr noundef null, i64 noundef %conv1458, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1434)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261445.0, ptr noundef nonnull @.str.144, ptr noundef null, i64 noundef %conv1458, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1434)
   br label %do.end1464
 
 do.end1464:                                       ; preds = %if.then1454, %if.end1450
@@ -9960,7 +9960,7 @@ if.end1486:                                       ; preds = %_ZN4node7tracing16T
 if.then1490:                                      ; preds = %if.end1486
   %711 = load double, ptr %async_id_, align 8
   %conv1494 = fptosi double %711 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261481.0, ptr noundef nonnull @.str.145, ptr noundef null, i64 noundef %conv1494, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1470)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261481.0, ptr noundef nonnull @.str.145, ptr noundef null, i64 noundef %conv1494, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1470)
   br label %do.end1500
 
 do.end1500:                                       ; preds = %if.then1490, %if.end1486
@@ -10036,7 +10036,7 @@ if.end1522:                                       ; preds = %_ZN4node7tracing16T
 if.then1526:                                      ; preds = %if.end1522
   %728 = load double, ptr %async_id_, align 8
   %conv1530 = fptosi double %728 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261517.0, ptr noundef nonnull @.str.146, ptr noundef null, i64 noundef %conv1530, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1506)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261517.0, ptr noundef nonnull @.str.146, ptr noundef null, i64 noundef %conv1530, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1506)
   br label %do.end1536
 
 do.end1536:                                       ; preds = %if.then1526, %if.end1522
@@ -10112,7 +10112,7 @@ if.end1558:                                       ; preds = %_ZN4node7tracing16T
 if.then1562:                                      ; preds = %if.end1558
   %745 = load double, ptr %async_id_, align 8
   %conv1566 = fptosi double %745 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261553.0, ptr noundef nonnull @.str.147, ptr noundef null, i64 noundef %conv1566, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1542)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261553.0, ptr noundef nonnull @.str.147, ptr noundef null, i64 noundef %conv1566, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1542)
   br label %do.end1572
 
 do.end1572:                                       ; preds = %if.then1562, %if.end1558
@@ -10188,7 +10188,7 @@ if.end1594:                                       ; preds = %_ZN4node7tracing16T
 if.then1598:                                      ; preds = %if.end1594
   %762 = load double, ptr %async_id_, align 8
   %conv1602 = fptosi double %762 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261589.0, ptr noundef nonnull @.str.148, ptr noundef null, i64 noundef %conv1602, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1578)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261589.0, ptr noundef nonnull @.str.148, ptr noundef null, i64 noundef %conv1602, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1578)
   br label %do.end1608
 
 do.end1608:                                       ; preds = %if.then1598, %if.end1594
@@ -10264,7 +10264,7 @@ if.end1630:                                       ; preds = %_ZN4node7tracing16T
 if.then1634:                                      ; preds = %if.end1630
   %779 = load double, ptr %async_id_, align 8
   %conv1638 = fptosi double %779 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261625.0, ptr noundef nonnull @.str.149, ptr noundef null, i64 noundef %conv1638, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1614)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261625.0, ptr noundef nonnull @.str.149, ptr noundef null, i64 noundef %conv1638, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1614)
   br label %do.end1644
 
 do.end1644:                                       ; preds = %if.then1634, %if.end1630
@@ -10340,7 +10340,7 @@ if.end1666:                                       ; preds = %_ZN4node7tracing16T
 if.then1670:                                      ; preds = %if.end1666
   %796 = load double, ptr %async_id_, align 8
   %conv1674 = fptosi double %796 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261661.0, ptr noundef nonnull @.str.150, ptr noundef null, i64 noundef %conv1674, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1650)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261661.0, ptr noundef nonnull @.str.150, ptr noundef null, i64 noundef %conv1674, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1650)
   br label %do.end1680
 
 do.end1680:                                       ; preds = %if.then1670, %if.end1666
@@ -10416,7 +10416,7 @@ if.end1702:                                       ; preds = %_ZN4node7tracing16T
 if.then1706:                                      ; preds = %if.end1702
   %813 = load double, ptr %async_id_, align 8
   %conv1710 = fptosi double %813 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261697.0, ptr noundef nonnull @.str.151, ptr noundef null, i64 noundef %conv1710, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1686)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261697.0, ptr noundef nonnull @.str.151, ptr noundef null, i64 noundef %conv1710, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1686)
   br label %do.end1716
 
 do.end1716:                                       ; preds = %if.then1706, %if.end1702
@@ -10492,7 +10492,7 @@ if.end1738:                                       ; preds = %_ZN4node7tracing16T
 if.then1742:                                      ; preds = %if.end1738
   %830 = load double, ptr %async_id_, align 8
   %conv1746 = fptosi double %830 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261733.0, ptr noundef nonnull @.str.152, ptr noundef null, i64 noundef %conv1746, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1722)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261733.0, ptr noundef nonnull @.str.152, ptr noundef null, i64 noundef %conv1746, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1722)
   br label %do.end1752
 
 do.end1752:                                       ; preds = %if.then1742, %if.end1738
@@ -10568,7 +10568,7 @@ if.end1774:                                       ; preds = %_ZN4node7tracing16T
 if.then1778:                                      ; preds = %if.end1774
   %847 = load double, ptr %async_id_, align 8
   %conv1782 = fptosi double %847 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261769.0, ptr noundef nonnull @.str.153, ptr noundef null, i64 noundef %conv1782, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1758)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261769.0, ptr noundef nonnull @.str.153, ptr noundef null, i64 noundef %conv1782, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1758)
   br label %do.end1788
 
 do.end1788:                                       ; preds = %if.then1778, %if.end1774
@@ -10644,7 +10644,7 @@ if.end1810:                                       ; preds = %_ZN4node7tracing16T
 if.then1814:                                      ; preds = %if.end1810
   %864 = load double, ptr %async_id_, align 8
   %conv1818 = fptosi double %864 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261805.0, ptr noundef nonnull @.str.154, ptr noundef null, i64 noundef %conv1818, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1794)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261805.0, ptr noundef nonnull @.str.154, ptr noundef null, i64 noundef %conv1818, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1794)
   br label %do.end1824
 
 do.end1824:                                       ; preds = %if.then1814, %if.end1810
@@ -10720,7 +10720,7 @@ if.end1846:                                       ; preds = %_ZN4node7tracing16T
 if.then1850:                                      ; preds = %if.end1846
   %881 = load double, ptr %async_id_, align 8
   %conv1854 = fptosi double %881 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261841.0, ptr noundef nonnull @.str.155, ptr noundef null, i64 noundef %conv1854, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1830)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261841.0, ptr noundef nonnull @.str.155, ptr noundef null, i64 noundef %conv1854, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1830)
   br label %do.end1860
 
 do.end1860:                                       ; preds = %if.then1850, %if.end1846
@@ -10796,7 +10796,7 @@ if.end1882:                                       ; preds = %_ZN4node7tracing16T
 if.then1886:                                      ; preds = %if.end1882
   %898 = load double, ptr %async_id_, align 8
   %conv1890 = fptosi double %898 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261877.0, ptr noundef nonnull @.str.156, ptr noundef null, i64 noundef %conv1890, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1866)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261877.0, ptr noundef nonnull @.str.156, ptr noundef null, i64 noundef %conv1890, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1866)
   br label %do.end1896
 
 do.end1896:                                       ; preds = %if.then1886, %if.end1882
@@ -10872,7 +10872,7 @@ if.end1918:                                       ; preds = %_ZN4node7tracing16T
 if.then1922:                                      ; preds = %if.end1918
   %915 = load double, ptr %async_id_, align 8
   %conv1926 = fptosi double %915 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261913.0, ptr noundef nonnull @.str.157, ptr noundef null, i64 noundef %conv1926, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1902)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261913.0, ptr noundef nonnull @.str.157, ptr noundef null, i64 noundef %conv1926, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1902)
   br label %do.end1932
 
 do.end1932:                                       ; preds = %if.then1922, %if.end1918
@@ -10948,7 +10948,7 @@ if.end1954:                                       ; preds = %_ZN4node7tracing16T
 if.then1958:                                      ; preds = %if.end1954
   %932 = load double, ptr %async_id_, align 8
   %conv1962 = fptosi double %932 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261949.0, ptr noundef nonnull @.str.158, ptr noundef null, i64 noundef %conv1962, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1938)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261949.0, ptr noundef nonnull @.str.158, ptr noundef null, i64 noundef %conv1962, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1938)
   br label %do.end1968
 
 do.end1968:                                       ; preds = %if.then1958, %if.end1954
@@ -11024,7 +11024,7 @@ if.end1990:                                       ; preds = %_ZN4node7tracing16T
 if.then1994:                                      ; preds = %if.end1990
   %949 = load double, ptr %async_id_, align 8
   %conv1998 = fptosi double %949 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6261985.0, ptr noundef nonnull @.str.159, ptr noundef null, i64 noundef %conv1998, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1974)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6261985.0, ptr noundef nonnull @.str.159, ptr noundef null, i64 noundef %conv1998, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data1974)
   br label %do.end2004
 
 do.end2004:                                       ; preds = %if.then1994, %if.end1990
@@ -11100,7 +11100,7 @@ if.end2026:                                       ; preds = %_ZN4node7tracing16T
 if.then2030:                                      ; preds = %if.end2026
   %966 = load double, ptr %async_id_, align 8
   %conv2034 = fptosi double %966 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6262021.0, ptr noundef nonnull @.str.160, ptr noundef null, i64 noundef %conv2034, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2010)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262021.0, ptr noundef nonnull @.str.160, ptr noundef null, i64 noundef %conv2034, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2010)
   br label %do.end2040
 
 do.end2040:                                       ; preds = %if.then2030, %if.end2026
@@ -11176,7 +11176,7 @@ if.end2062:                                       ; preds = %_ZN4node7tracing16T
 if.then2066:                                      ; preds = %if.end2062
   %983 = load double, ptr %async_id_, align 8
   %conv2070 = fptosi double %983 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6262057.0, ptr noundef nonnull @.str.161, ptr noundef null, i64 noundef %conv2070, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2046)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262057.0, ptr noundef nonnull @.str.161, ptr noundef null, i64 noundef %conv2070, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2046)
   br label %do.end2076
 
 do.end2076:                                       ; preds = %if.then2066, %if.end2062
@@ -11252,7 +11252,7 @@ if.end2098:                                       ; preds = %_ZN4node7tracing16T
 if.then2102:                                      ; preds = %if.end2098
   %1000 = load double, ptr %async_id_, align 8
   %conv2106 = fptosi double %1000 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6262093.0, ptr noundef nonnull @.str.162, ptr noundef null, i64 noundef %conv2106, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2082)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262093.0, ptr noundef nonnull @.str.162, ptr noundef null, i64 noundef %conv2106, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2082)
   br label %do.end2112
 
 do.end2112:                                       ; preds = %if.then2102, %if.end2098
@@ -11328,7 +11328,7 @@ if.end2134:                                       ; preds = %_ZN4node7tracing16T
 if.then2138:                                      ; preds = %if.end2134
   %1017 = load double, ptr %async_id_, align 8
   %conv2142 = fptosi double %1017 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6262129.0, ptr noundef nonnull @.str.163, ptr noundef null, i64 noundef %conv2142, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2118)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262129.0, ptr noundef nonnull @.str.163, ptr noundef null, i64 noundef %conv2142, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2118)
   br label %do.end2148
 
 do.end2148:                                       ; preds = %if.then2138, %if.end2134
@@ -11404,7 +11404,7 @@ if.end2170:                                       ; preds = %_ZN4node7tracing16T
 if.then2174:                                      ; preds = %if.end2170
   %1034 = load double, ptr %async_id_, align 8
   %conv2178 = fptosi double %1034 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6262165.0, ptr noundef nonnull @.str.164, ptr noundef null, i64 noundef %conv2178, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2154)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262165.0, ptr noundef nonnull @.str.164, ptr noundef null, i64 noundef %conv2178, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2154)
   br label %do.end2184
 
 do.end2184:                                       ; preds = %if.then2174, %if.end2170
@@ -11480,7 +11480,7 @@ if.end2206:                                       ; preds = %_ZN4node7tracing16T
 if.then2210:                                      ; preds = %if.end2206
   %1051 = load double, ptr %async_id_, align 8
   %conv2214 = fptosi double %1051 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6262201.0, ptr noundef nonnull @.str.165, ptr noundef null, i64 noundef %conv2214, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2190)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262201.0, ptr noundef nonnull @.str.165, ptr noundef null, i64 noundef %conv2214, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2190)
   br label %do.end2220
 
 do.end2220:                                       ; preds = %if.then2210, %if.end2206
@@ -11556,7 +11556,7 @@ if.end2242:                                       ; preds = %_ZN4node7tracing16T
 if.then2246:                                      ; preds = %if.end2242
   %1068 = load double, ptr %async_id_, align 8
   %conv2250 = fptosi double %1068 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6262237.0, ptr noundef nonnull @.str.166, ptr noundef null, i64 noundef %conv2250, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2226)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262237.0, ptr noundef nonnull @.str.166, ptr noundef null, i64 noundef %conv2250, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2226)
   br label %do.end2256
 
 do.end2256:                                       ; preds = %if.then2246, %if.end2242
@@ -11632,7 +11632,7 @@ if.end2278:                                       ; preds = %_ZN4node7tracing16T
 if.then2282:                                      ; preds = %if.end2278
   %1085 = load double, ptr %async_id_, align 8
   %conv2286 = fptosi double %1085 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6262273.0, ptr noundef nonnull @.str.167, ptr noundef null, i64 noundef %conv2286, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2262)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262273.0, ptr noundef nonnull @.str.167, ptr noundef null, i64 noundef %conv2286, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2262)
   br label %do.end2292
 
 do.end2292:                                       ; preds = %if.then2282, %if.end2278
@@ -11708,7 +11708,7 @@ if.end2314:                                       ; preds = %_ZN4node7tracing16T
 if.then2318:                                      ; preds = %if.end2314
   %1102 = load double, ptr %async_id_, align 8
   %conv2322 = fptosi double %1102 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6262309.0, ptr noundef nonnull @.str.168, ptr noundef null, i64 noundef %conv2322, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2298)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262309.0, ptr noundef nonnull @.str.168, ptr noundef null, i64 noundef %conv2322, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2298)
   br label %do.end2328
 
 do.end2328:                                       ; preds = %if.then2318, %if.end2314
@@ -11784,7 +11784,7 @@ if.end2350:                                       ; preds = %_ZN4node7tracing16T
 if.then2354:                                      ; preds = %if.end2350
   %1119 = load double, ptr %async_id_, align 8
   %conv2358 = fptosi double %1119 to i64
-  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef nonnull %trace_event_unique_category_group_enabled6262345.0, ptr noundef nonnull @.str.169, ptr noundef null, i64 noundef %conv2358, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2334)
+  call fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef nonnull %trace_event_unique_category_group_enabled6262345.0, ptr noundef nonnull @.str.169, ptr noundef null, i64 noundef %conv2358, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %data2334)
   br label %do.end2364
 
 do.end2364:                                       ; preds = %if.then2354, %if.end2350
@@ -15776,7 +15776,7 @@ if.then5:                                         ; preds = %if.end
   %async_id_.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load double, ptr %async_id_.i, align 8
   %conv7 = fptosi double %7 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549.0, ptr noundef nonnull @.str.106, ptr noundef null, i64 noundef %conv7, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549.0, ptr noundef nonnull @.str.106, ptr noundef null, i64 noundef %conv7, i32 noundef 2)
   br label %sw.epilog
 
 do.body13:                                        ; preds = %entry
@@ -15814,7 +15814,7 @@ if.then23:                                        ; preds = %if.end19
   %async_id_.i522 = getelementptr inbounds i8, ptr %this, i64 40
   %14 = load double, ptr %async_id_.i522, align 8
   %conv27 = fptosi double %14 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled54914.0, ptr noundef nonnull @.str.107, ptr noundef null, i64 noundef %conv27, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled54914.0, ptr noundef nonnull @.str.107, ptr noundef null, i64 noundef %conv27, i32 noundef 2)
   br label %sw.epilog
 
 do.body34:                                        ; preds = %entry
@@ -15852,7 +15852,7 @@ if.then44:                                        ; preds = %if.end40
   %async_id_.i533 = getelementptr inbounds i8, ptr %this, i64 40
   %21 = load double, ptr %async_id_.i533, align 8
   %conv48 = fptosi double %21 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled54935.0, ptr noundef nonnull @.str.108, ptr noundef null, i64 noundef %conv48, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled54935.0, ptr noundef nonnull @.str.108, ptr noundef null, i64 noundef %conv48, i32 noundef 2)
   br label %sw.epilog
 
 do.body55:                                        ; preds = %entry
@@ -15890,7 +15890,7 @@ if.then65:                                        ; preds = %if.end61
   %async_id_.i544 = getelementptr inbounds i8, ptr %this, i64 40
   %28 = load double, ptr %async_id_.i544, align 8
   %conv69 = fptosi double %28 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled54956.0, ptr noundef nonnull @.str.109, ptr noundef null, i64 noundef %conv69, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled54956.0, ptr noundef nonnull @.str.109, ptr noundef null, i64 noundef %conv69, i32 noundef 2)
   br label %sw.epilog
 
 do.body76:                                        ; preds = %entry
@@ -15928,7 +15928,7 @@ if.then86:                                        ; preds = %if.end82
   %async_id_.i555 = getelementptr inbounds i8, ptr %this, i64 40
   %35 = load double, ptr %async_id_.i555, align 8
   %conv90 = fptosi double %35 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled54977.0, ptr noundef nonnull @.str.110, ptr noundef null, i64 noundef %conv90, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled54977.0, ptr noundef nonnull @.str.110, ptr noundef null, i64 noundef %conv90, i32 noundef 2)
   br label %sw.epilog
 
 do.body97:                                        ; preds = %entry
@@ -15966,7 +15966,7 @@ if.then107:                                       ; preds = %if.end103
   %async_id_.i566 = getelementptr inbounds i8, ptr %this, i64 40
   %42 = load double, ptr %async_id_.i566, align 8
   %conv111 = fptosi double %42 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled54998.0, ptr noundef nonnull @.str.111, ptr noundef null, i64 noundef %conv111, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled54998.0, ptr noundef nonnull @.str.111, ptr noundef null, i64 noundef %conv111, i32 noundef 2)
   br label %sw.epilog
 
 do.body118:                                       ; preds = %entry
@@ -16004,7 +16004,7 @@ if.then128:                                       ; preds = %if.end124
   %async_id_.i577 = getelementptr inbounds i8, ptr %this, i64 40
   %49 = load double, ptr %async_id_.i577, align 8
   %conv132 = fptosi double %49 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549119.0, ptr noundef nonnull @.str.112, ptr noundef null, i64 noundef %conv132, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549119.0, ptr noundef nonnull @.str.112, ptr noundef null, i64 noundef %conv132, i32 noundef 2)
   br label %sw.epilog
 
 do.body139:                                       ; preds = %entry
@@ -16042,7 +16042,7 @@ if.then149:                                       ; preds = %if.end145
   %async_id_.i588 = getelementptr inbounds i8, ptr %this, i64 40
   %56 = load double, ptr %async_id_.i588, align 8
   %conv153 = fptosi double %56 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549140.0, ptr noundef nonnull @.str.113, ptr noundef null, i64 noundef %conv153, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549140.0, ptr noundef nonnull @.str.113, ptr noundef null, i64 noundef %conv153, i32 noundef 2)
   br label %sw.epilog
 
 do.body160:                                       ; preds = %entry
@@ -16080,7 +16080,7 @@ if.then170:                                       ; preds = %if.end166
   %async_id_.i599 = getelementptr inbounds i8, ptr %this, i64 40
   %63 = load double, ptr %async_id_.i599, align 8
   %conv174 = fptosi double %63 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549161.0, ptr noundef nonnull @.str.114, ptr noundef null, i64 noundef %conv174, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549161.0, ptr noundef nonnull @.str.114, ptr noundef null, i64 noundef %conv174, i32 noundef 2)
   br label %sw.epilog
 
 do.body181:                                       ; preds = %entry
@@ -16118,7 +16118,7 @@ if.then191:                                       ; preds = %if.end187
   %async_id_.i610 = getelementptr inbounds i8, ptr %this, i64 40
   %70 = load double, ptr %async_id_.i610, align 8
   %conv195 = fptosi double %70 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549182.0, ptr noundef nonnull @.str.115, ptr noundef null, i64 noundef %conv195, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549182.0, ptr noundef nonnull @.str.115, ptr noundef null, i64 noundef %conv195, i32 noundef 2)
   br label %sw.epilog
 
 do.body202:                                       ; preds = %entry
@@ -16156,7 +16156,7 @@ if.then212:                                       ; preds = %if.end208
   %async_id_.i621 = getelementptr inbounds i8, ptr %this, i64 40
   %77 = load double, ptr %async_id_.i621, align 8
   %conv216 = fptosi double %77 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549203.0, ptr noundef nonnull @.str.116, ptr noundef null, i64 noundef %conv216, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549203.0, ptr noundef nonnull @.str.116, ptr noundef null, i64 noundef %conv216, i32 noundef 2)
   br label %sw.epilog
 
 do.body223:                                       ; preds = %entry
@@ -16194,7 +16194,7 @@ if.then233:                                       ; preds = %if.end229
   %async_id_.i632 = getelementptr inbounds i8, ptr %this, i64 40
   %84 = load double, ptr %async_id_.i632, align 8
   %conv237 = fptosi double %84 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549224.0, ptr noundef nonnull @.str.117, ptr noundef null, i64 noundef %conv237, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549224.0, ptr noundef nonnull @.str.117, ptr noundef null, i64 noundef %conv237, i32 noundef 2)
   br label %sw.epilog
 
 do.body244:                                       ; preds = %entry
@@ -16232,7 +16232,7 @@ if.then254:                                       ; preds = %if.end250
   %async_id_.i643 = getelementptr inbounds i8, ptr %this, i64 40
   %91 = load double, ptr %async_id_.i643, align 8
   %conv258 = fptosi double %91 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549245.0, ptr noundef nonnull @.str.118, ptr noundef null, i64 noundef %conv258, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549245.0, ptr noundef nonnull @.str.118, ptr noundef null, i64 noundef %conv258, i32 noundef 2)
   br label %sw.epilog
 
 do.body265:                                       ; preds = %entry
@@ -16270,7 +16270,7 @@ if.then275:                                       ; preds = %if.end271
   %async_id_.i654 = getelementptr inbounds i8, ptr %this, i64 40
   %98 = load double, ptr %async_id_.i654, align 8
   %conv279 = fptosi double %98 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549266.0, ptr noundef nonnull @.str.119, ptr noundef null, i64 noundef %conv279, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549266.0, ptr noundef nonnull @.str.119, ptr noundef null, i64 noundef %conv279, i32 noundef 2)
   br label %sw.epilog
 
 do.body286:                                       ; preds = %entry
@@ -16308,7 +16308,7 @@ if.then296:                                       ; preds = %if.end292
   %async_id_.i665 = getelementptr inbounds i8, ptr %this, i64 40
   %105 = load double, ptr %async_id_.i665, align 8
   %conv300 = fptosi double %105 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549287.0, ptr noundef nonnull @.str.120, ptr noundef null, i64 noundef %conv300, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549287.0, ptr noundef nonnull @.str.120, ptr noundef null, i64 noundef %conv300, i32 noundef 2)
   br label %sw.epilog
 
 do.body307:                                       ; preds = %entry
@@ -16346,7 +16346,7 @@ if.then317:                                       ; preds = %if.end313
   %async_id_.i676 = getelementptr inbounds i8, ptr %this, i64 40
   %112 = load double, ptr %async_id_.i676, align 8
   %conv321 = fptosi double %112 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549308.0, ptr noundef nonnull @.str.121, ptr noundef null, i64 noundef %conv321, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549308.0, ptr noundef nonnull @.str.121, ptr noundef null, i64 noundef %conv321, i32 noundef 2)
   br label %sw.epilog
 
 do.body328:                                       ; preds = %entry
@@ -16384,7 +16384,7 @@ if.then338:                                       ; preds = %if.end334
   %async_id_.i687 = getelementptr inbounds i8, ptr %this, i64 40
   %119 = load double, ptr %async_id_.i687, align 8
   %conv342 = fptosi double %119 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549329.0, ptr noundef nonnull @.str.122, ptr noundef null, i64 noundef %conv342, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549329.0, ptr noundef nonnull @.str.122, ptr noundef null, i64 noundef %conv342, i32 noundef 2)
   br label %sw.epilog
 
 do.body349:                                       ; preds = %entry
@@ -16422,7 +16422,7 @@ if.then359:                                       ; preds = %if.end355
   %async_id_.i698 = getelementptr inbounds i8, ptr %this, i64 40
   %126 = load double, ptr %async_id_.i698, align 8
   %conv363 = fptosi double %126 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549350.0, ptr noundef nonnull @.str.123, ptr noundef null, i64 noundef %conv363, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549350.0, ptr noundef nonnull @.str.123, ptr noundef null, i64 noundef %conv363, i32 noundef 2)
   br label %sw.epilog
 
 do.body370:                                       ; preds = %entry
@@ -16460,7 +16460,7 @@ if.then380:                                       ; preds = %if.end376
   %async_id_.i709 = getelementptr inbounds i8, ptr %this, i64 40
   %133 = load double, ptr %async_id_.i709, align 8
   %conv384 = fptosi double %133 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549371.0, ptr noundef nonnull @.str.124, ptr noundef null, i64 noundef %conv384, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549371.0, ptr noundef nonnull @.str.124, ptr noundef null, i64 noundef %conv384, i32 noundef 2)
   br label %sw.epilog
 
 do.body391:                                       ; preds = %entry
@@ -16498,7 +16498,7 @@ if.then401:                                       ; preds = %if.end397
   %async_id_.i720 = getelementptr inbounds i8, ptr %this, i64 40
   %140 = load double, ptr %async_id_.i720, align 8
   %conv405 = fptosi double %140 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549392.0, ptr noundef nonnull @.str.125, ptr noundef null, i64 noundef %conv405, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549392.0, ptr noundef nonnull @.str.125, ptr noundef null, i64 noundef %conv405, i32 noundef 2)
   br label %sw.epilog
 
 do.body412:                                       ; preds = %entry
@@ -16536,7 +16536,7 @@ if.then422:                                       ; preds = %if.end418
   %async_id_.i731 = getelementptr inbounds i8, ptr %this, i64 40
   %147 = load double, ptr %async_id_.i731, align 8
   %conv426 = fptosi double %147 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549413.0, ptr noundef nonnull @.str.126, ptr noundef null, i64 noundef %conv426, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549413.0, ptr noundef nonnull @.str.126, ptr noundef null, i64 noundef %conv426, i32 noundef 2)
   br label %sw.epilog
 
 do.body433:                                       ; preds = %entry
@@ -16574,7 +16574,7 @@ if.then443:                                       ; preds = %if.end439
   %async_id_.i742 = getelementptr inbounds i8, ptr %this, i64 40
   %154 = load double, ptr %async_id_.i742, align 8
   %conv447 = fptosi double %154 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549434.0, ptr noundef nonnull @.str.127, ptr noundef null, i64 noundef %conv447, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549434.0, ptr noundef nonnull @.str.127, ptr noundef null, i64 noundef %conv447, i32 noundef 2)
   br label %sw.epilog
 
 do.body454:                                       ; preds = %entry
@@ -16612,7 +16612,7 @@ if.then464:                                       ; preds = %if.end460
   %async_id_.i753 = getelementptr inbounds i8, ptr %this, i64 40
   %161 = load double, ptr %async_id_.i753, align 8
   %conv468 = fptosi double %161 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549455.0, ptr noundef nonnull @.str.128, ptr noundef null, i64 noundef %conv468, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549455.0, ptr noundef nonnull @.str.128, ptr noundef null, i64 noundef %conv468, i32 noundef 2)
   br label %sw.epilog
 
 do.body475:                                       ; preds = %entry
@@ -16650,7 +16650,7 @@ if.then485:                                       ; preds = %if.end481
   %async_id_.i764 = getelementptr inbounds i8, ptr %this, i64 40
   %168 = load double, ptr %async_id_.i764, align 8
   %conv489 = fptosi double %168 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549476.0, ptr noundef nonnull @.str.129, ptr noundef null, i64 noundef %conv489, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549476.0, ptr noundef nonnull @.str.129, ptr noundef null, i64 noundef %conv489, i32 noundef 2)
   br label %sw.epilog
 
 do.body496:                                       ; preds = %entry
@@ -16688,7 +16688,7 @@ if.then506:                                       ; preds = %if.end502
   %async_id_.i775 = getelementptr inbounds i8, ptr %this, i64 40
   %175 = load double, ptr %async_id_.i775, align 8
   %conv510 = fptosi double %175 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549497.0, ptr noundef nonnull @.str.130, ptr noundef null, i64 noundef %conv510, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549497.0, ptr noundef nonnull @.str.130, ptr noundef null, i64 noundef %conv510, i32 noundef 2)
   br label %sw.epilog
 
 do.body517:                                       ; preds = %entry
@@ -16726,7 +16726,7 @@ if.then527:                                       ; preds = %if.end523
   %async_id_.i786 = getelementptr inbounds i8, ptr %this, i64 40
   %182 = load double, ptr %async_id_.i786, align 8
   %conv531 = fptosi double %182 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549518.0, ptr noundef nonnull @.str.131, ptr noundef null, i64 noundef %conv531, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549518.0, ptr noundef nonnull @.str.131, ptr noundef null, i64 noundef %conv531, i32 noundef 2)
   br label %sw.epilog
 
 do.body538:                                       ; preds = %entry
@@ -16764,7 +16764,7 @@ if.then548:                                       ; preds = %if.end544
   %async_id_.i797 = getelementptr inbounds i8, ptr %this, i64 40
   %189 = load double, ptr %async_id_.i797, align 8
   %conv552 = fptosi double %189 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549539.0, ptr noundef nonnull @.str.132, ptr noundef null, i64 noundef %conv552, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549539.0, ptr noundef nonnull @.str.132, ptr noundef null, i64 noundef %conv552, i32 noundef 2)
   br label %sw.epilog
 
 do.body559:                                       ; preds = %entry
@@ -16802,7 +16802,7 @@ if.then569:                                       ; preds = %if.end565
   %async_id_.i808 = getelementptr inbounds i8, ptr %this, i64 40
   %196 = load double, ptr %async_id_.i808, align 8
   %conv573 = fptosi double %196 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549560.0, ptr noundef nonnull @.str.133, ptr noundef null, i64 noundef %conv573, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549560.0, ptr noundef nonnull @.str.133, ptr noundef null, i64 noundef %conv573, i32 noundef 2)
   br label %sw.epilog
 
 do.body580:                                       ; preds = %entry
@@ -16840,7 +16840,7 @@ if.then590:                                       ; preds = %if.end586
   %async_id_.i819 = getelementptr inbounds i8, ptr %this, i64 40
   %203 = load double, ptr %async_id_.i819, align 8
   %conv594 = fptosi double %203 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549581.0, ptr noundef nonnull @.str.134, ptr noundef null, i64 noundef %conv594, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549581.0, ptr noundef nonnull @.str.134, ptr noundef null, i64 noundef %conv594, i32 noundef 2)
   br label %sw.epilog
 
 do.body601:                                       ; preds = %entry
@@ -16878,7 +16878,7 @@ if.then611:                                       ; preds = %if.end607
   %async_id_.i830 = getelementptr inbounds i8, ptr %this, i64 40
   %210 = load double, ptr %async_id_.i830, align 8
   %conv615 = fptosi double %210 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549602.0, ptr noundef nonnull @.str.135, ptr noundef null, i64 noundef %conv615, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549602.0, ptr noundef nonnull @.str.135, ptr noundef null, i64 noundef %conv615, i32 noundef 2)
   br label %sw.epilog
 
 do.body622:                                       ; preds = %entry
@@ -16916,7 +16916,7 @@ if.then632:                                       ; preds = %if.end628
   %async_id_.i841 = getelementptr inbounds i8, ptr %this, i64 40
   %217 = load double, ptr %async_id_.i841, align 8
   %conv636 = fptosi double %217 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549623.0, ptr noundef nonnull @.str.136, ptr noundef null, i64 noundef %conv636, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549623.0, ptr noundef nonnull @.str.136, ptr noundef null, i64 noundef %conv636, i32 noundef 2)
   br label %sw.epilog
 
 do.body643:                                       ; preds = %entry
@@ -16954,7 +16954,7 @@ if.then653:                                       ; preds = %if.end649
   %async_id_.i852 = getelementptr inbounds i8, ptr %this, i64 40
   %224 = load double, ptr %async_id_.i852, align 8
   %conv657 = fptosi double %224 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549644.0, ptr noundef nonnull @.str.137, ptr noundef null, i64 noundef %conv657, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549644.0, ptr noundef nonnull @.str.137, ptr noundef null, i64 noundef %conv657, i32 noundef 2)
   br label %sw.epilog
 
 do.body664:                                       ; preds = %entry
@@ -16992,7 +16992,7 @@ if.then674:                                       ; preds = %if.end670
   %async_id_.i863 = getelementptr inbounds i8, ptr %this, i64 40
   %231 = load double, ptr %async_id_.i863, align 8
   %conv678 = fptosi double %231 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549665.0, ptr noundef nonnull @.str.138, ptr noundef null, i64 noundef %conv678, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549665.0, ptr noundef nonnull @.str.138, ptr noundef null, i64 noundef %conv678, i32 noundef 2)
   br label %sw.epilog
 
 do.body685:                                       ; preds = %entry
@@ -17030,7 +17030,7 @@ if.then695:                                       ; preds = %if.end691
   %async_id_.i874 = getelementptr inbounds i8, ptr %this, i64 40
   %238 = load double, ptr %async_id_.i874, align 8
   %conv699 = fptosi double %238 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549686.0, ptr noundef nonnull @.str.139, ptr noundef null, i64 noundef %conv699, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549686.0, ptr noundef nonnull @.str.139, ptr noundef null, i64 noundef %conv699, i32 noundef 2)
   br label %sw.epilog
 
 do.body706:                                       ; preds = %entry
@@ -17068,7 +17068,7 @@ if.then716:                                       ; preds = %if.end712
   %async_id_.i885 = getelementptr inbounds i8, ptr %this, i64 40
   %245 = load double, ptr %async_id_.i885, align 8
   %conv720 = fptosi double %245 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549707.0, ptr noundef nonnull @.str.140, ptr noundef null, i64 noundef %conv720, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549707.0, ptr noundef nonnull @.str.140, ptr noundef null, i64 noundef %conv720, i32 noundef 2)
   br label %sw.epilog
 
 do.body727:                                       ; preds = %entry
@@ -17106,7 +17106,7 @@ if.then737:                                       ; preds = %if.end733
   %async_id_.i896 = getelementptr inbounds i8, ptr %this, i64 40
   %252 = load double, ptr %async_id_.i896, align 8
   %conv741 = fptosi double %252 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549728.0, ptr noundef nonnull @.str.141, ptr noundef null, i64 noundef %conv741, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549728.0, ptr noundef nonnull @.str.141, ptr noundef null, i64 noundef %conv741, i32 noundef 2)
   br label %sw.epilog
 
 do.body748:                                       ; preds = %entry
@@ -17144,7 +17144,7 @@ if.then758:                                       ; preds = %if.end754
   %async_id_.i907 = getelementptr inbounds i8, ptr %this, i64 40
   %259 = load double, ptr %async_id_.i907, align 8
   %conv762 = fptosi double %259 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549749.0, ptr noundef nonnull @.str.142, ptr noundef null, i64 noundef %conv762, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549749.0, ptr noundef nonnull @.str.142, ptr noundef null, i64 noundef %conv762, i32 noundef 2)
   br label %sw.epilog
 
 do.body769:                                       ; preds = %entry
@@ -17182,7 +17182,7 @@ if.then779:                                       ; preds = %if.end775
   %async_id_.i918 = getelementptr inbounds i8, ptr %this, i64 40
   %266 = load double, ptr %async_id_.i918, align 8
   %conv783 = fptosi double %266 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549770.0, ptr noundef nonnull @.str.143, ptr noundef null, i64 noundef %conv783, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549770.0, ptr noundef nonnull @.str.143, ptr noundef null, i64 noundef %conv783, i32 noundef 2)
   br label %sw.epilog
 
 do.body790:                                       ; preds = %entry
@@ -17220,7 +17220,7 @@ if.then800:                                       ; preds = %if.end796
   %async_id_.i929 = getelementptr inbounds i8, ptr %this, i64 40
   %273 = load double, ptr %async_id_.i929, align 8
   %conv804 = fptosi double %273 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549791.0, ptr noundef nonnull @.str.144, ptr noundef null, i64 noundef %conv804, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549791.0, ptr noundef nonnull @.str.144, ptr noundef null, i64 noundef %conv804, i32 noundef 2)
   br label %sw.epilog
 
 do.body811:                                       ; preds = %entry
@@ -17258,7 +17258,7 @@ if.then821:                                       ; preds = %if.end817
   %async_id_.i940 = getelementptr inbounds i8, ptr %this, i64 40
   %280 = load double, ptr %async_id_.i940, align 8
   %conv825 = fptosi double %280 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549812.0, ptr noundef nonnull @.str.145, ptr noundef null, i64 noundef %conv825, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549812.0, ptr noundef nonnull @.str.145, ptr noundef null, i64 noundef %conv825, i32 noundef 2)
   br label %sw.epilog
 
 do.body832:                                       ; preds = %entry
@@ -17296,7 +17296,7 @@ if.then842:                                       ; preds = %if.end838
   %async_id_.i951 = getelementptr inbounds i8, ptr %this, i64 40
   %287 = load double, ptr %async_id_.i951, align 8
   %conv846 = fptosi double %287 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549833.0, ptr noundef nonnull @.str.146, ptr noundef null, i64 noundef %conv846, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549833.0, ptr noundef nonnull @.str.146, ptr noundef null, i64 noundef %conv846, i32 noundef 2)
   br label %sw.epilog
 
 do.body853:                                       ; preds = %entry
@@ -17334,7 +17334,7 @@ if.then863:                                       ; preds = %if.end859
   %async_id_.i962 = getelementptr inbounds i8, ptr %this, i64 40
   %294 = load double, ptr %async_id_.i962, align 8
   %conv867 = fptosi double %294 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549854.0, ptr noundef nonnull @.str.147, ptr noundef null, i64 noundef %conv867, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549854.0, ptr noundef nonnull @.str.147, ptr noundef null, i64 noundef %conv867, i32 noundef 2)
   br label %sw.epilog
 
 do.body874:                                       ; preds = %entry
@@ -17372,7 +17372,7 @@ if.then884:                                       ; preds = %if.end880
   %async_id_.i973 = getelementptr inbounds i8, ptr %this, i64 40
   %301 = load double, ptr %async_id_.i973, align 8
   %conv888 = fptosi double %301 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549875.0, ptr noundef nonnull @.str.148, ptr noundef null, i64 noundef %conv888, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549875.0, ptr noundef nonnull @.str.148, ptr noundef null, i64 noundef %conv888, i32 noundef 2)
   br label %sw.epilog
 
 do.body895:                                       ; preds = %entry
@@ -17410,7 +17410,7 @@ if.then905:                                       ; preds = %if.end901
   %async_id_.i984 = getelementptr inbounds i8, ptr %this, i64 40
   %308 = load double, ptr %async_id_.i984, align 8
   %conv909 = fptosi double %308 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549896.0, ptr noundef nonnull @.str.149, ptr noundef null, i64 noundef %conv909, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549896.0, ptr noundef nonnull @.str.149, ptr noundef null, i64 noundef %conv909, i32 noundef 2)
   br label %sw.epilog
 
 do.body916:                                       ; preds = %entry
@@ -17448,7 +17448,7 @@ if.then926:                                       ; preds = %if.end922
   %async_id_.i995 = getelementptr inbounds i8, ptr %this, i64 40
   %315 = load double, ptr %async_id_.i995, align 8
   %conv930 = fptosi double %315 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549917.0, ptr noundef nonnull @.str.150, ptr noundef null, i64 noundef %conv930, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549917.0, ptr noundef nonnull @.str.150, ptr noundef null, i64 noundef %conv930, i32 noundef 2)
   br label %sw.epilog
 
 do.body937:                                       ; preds = %entry
@@ -17486,7 +17486,7 @@ if.then947:                                       ; preds = %if.end943
   %async_id_.i1006 = getelementptr inbounds i8, ptr %this, i64 40
   %322 = load double, ptr %async_id_.i1006, align 8
   %conv951 = fptosi double %322 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549938.0, ptr noundef nonnull @.str.151, ptr noundef null, i64 noundef %conv951, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549938.0, ptr noundef nonnull @.str.151, ptr noundef null, i64 noundef %conv951, i32 noundef 2)
   br label %sw.epilog
 
 do.body958:                                       ; preds = %entry
@@ -17524,7 +17524,7 @@ if.then968:                                       ; preds = %if.end964
   %async_id_.i1017 = getelementptr inbounds i8, ptr %this, i64 40
   %329 = load double, ptr %async_id_.i1017, align 8
   %conv972 = fptosi double %329 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549959.0, ptr noundef nonnull @.str.152, ptr noundef null, i64 noundef %conv972, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549959.0, ptr noundef nonnull @.str.152, ptr noundef null, i64 noundef %conv972, i32 noundef 2)
   br label %sw.epilog
 
 do.body979:                                       ; preds = %entry
@@ -17562,7 +17562,7 @@ if.then989:                                       ; preds = %if.end985
   %async_id_.i1028 = getelementptr inbounds i8, ptr %this, i64 40
   %336 = load double, ptr %async_id_.i1028, align 8
   %conv993 = fptosi double %336 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549980.0, ptr noundef nonnull @.str.153, ptr noundef null, i64 noundef %conv993, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled549980.0, ptr noundef nonnull @.str.153, ptr noundef null, i64 noundef %conv993, i32 noundef 2)
   br label %sw.epilog
 
 do.body1000:                                      ; preds = %entry
@@ -17600,7 +17600,7 @@ if.then1010:                                      ; preds = %if.end1006
   %async_id_.i1039 = getelementptr inbounds i8, ptr %this, i64 40
   %343 = load double, ptr %async_id_.i1039, align 8
   %conv1014 = fptosi double %343 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491001.0, ptr noundef nonnull @.str.154, ptr noundef null, i64 noundef %conv1014, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491001.0, ptr noundef nonnull @.str.154, ptr noundef null, i64 noundef %conv1014, i32 noundef 2)
   br label %sw.epilog
 
 do.body1021:                                      ; preds = %entry
@@ -17638,7 +17638,7 @@ if.then1031:                                      ; preds = %if.end1027
   %async_id_.i1050 = getelementptr inbounds i8, ptr %this, i64 40
   %350 = load double, ptr %async_id_.i1050, align 8
   %conv1035 = fptosi double %350 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491022.0, ptr noundef nonnull @.str.155, ptr noundef null, i64 noundef %conv1035, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491022.0, ptr noundef nonnull @.str.155, ptr noundef null, i64 noundef %conv1035, i32 noundef 2)
   br label %sw.epilog
 
 do.body1042:                                      ; preds = %entry
@@ -17676,7 +17676,7 @@ if.then1052:                                      ; preds = %if.end1048
   %async_id_.i1061 = getelementptr inbounds i8, ptr %this, i64 40
   %357 = load double, ptr %async_id_.i1061, align 8
   %conv1056 = fptosi double %357 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491043.0, ptr noundef nonnull @.str.156, ptr noundef null, i64 noundef %conv1056, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491043.0, ptr noundef nonnull @.str.156, ptr noundef null, i64 noundef %conv1056, i32 noundef 2)
   br label %sw.epilog
 
 do.body1063:                                      ; preds = %entry
@@ -17714,7 +17714,7 @@ if.then1073:                                      ; preds = %if.end1069
   %async_id_.i1072 = getelementptr inbounds i8, ptr %this, i64 40
   %364 = load double, ptr %async_id_.i1072, align 8
   %conv1077 = fptosi double %364 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491064.0, ptr noundef nonnull @.str.157, ptr noundef null, i64 noundef %conv1077, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491064.0, ptr noundef nonnull @.str.157, ptr noundef null, i64 noundef %conv1077, i32 noundef 2)
   br label %sw.epilog
 
 do.body1084:                                      ; preds = %entry
@@ -17752,7 +17752,7 @@ if.then1094:                                      ; preds = %if.end1090
   %async_id_.i1083 = getelementptr inbounds i8, ptr %this, i64 40
   %371 = load double, ptr %async_id_.i1083, align 8
   %conv1098 = fptosi double %371 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491085.0, ptr noundef nonnull @.str.158, ptr noundef null, i64 noundef %conv1098, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491085.0, ptr noundef nonnull @.str.158, ptr noundef null, i64 noundef %conv1098, i32 noundef 2)
   br label %sw.epilog
 
 do.body1105:                                      ; preds = %entry
@@ -17790,7 +17790,7 @@ if.then1115:                                      ; preds = %if.end1111
   %async_id_.i1094 = getelementptr inbounds i8, ptr %this, i64 40
   %378 = load double, ptr %async_id_.i1094, align 8
   %conv1119 = fptosi double %378 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491106.0, ptr noundef nonnull @.str.159, ptr noundef null, i64 noundef %conv1119, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491106.0, ptr noundef nonnull @.str.159, ptr noundef null, i64 noundef %conv1119, i32 noundef 2)
   br label %sw.epilog
 
 do.body1126:                                      ; preds = %entry
@@ -17828,7 +17828,7 @@ if.then1136:                                      ; preds = %if.end1132
   %async_id_.i1105 = getelementptr inbounds i8, ptr %this, i64 40
   %385 = load double, ptr %async_id_.i1105, align 8
   %conv1140 = fptosi double %385 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491127.0, ptr noundef nonnull @.str.160, ptr noundef null, i64 noundef %conv1140, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491127.0, ptr noundef nonnull @.str.160, ptr noundef null, i64 noundef %conv1140, i32 noundef 2)
   br label %sw.epilog
 
 do.body1147:                                      ; preds = %entry
@@ -17866,7 +17866,7 @@ if.then1157:                                      ; preds = %if.end1153
   %async_id_.i1116 = getelementptr inbounds i8, ptr %this, i64 40
   %392 = load double, ptr %async_id_.i1116, align 8
   %conv1161 = fptosi double %392 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491148.0, ptr noundef nonnull @.str.161, ptr noundef null, i64 noundef %conv1161, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491148.0, ptr noundef nonnull @.str.161, ptr noundef null, i64 noundef %conv1161, i32 noundef 2)
   br label %sw.epilog
 
 do.body1168:                                      ; preds = %entry
@@ -17904,7 +17904,7 @@ if.then1178:                                      ; preds = %if.end1174
   %async_id_.i1127 = getelementptr inbounds i8, ptr %this, i64 40
   %399 = load double, ptr %async_id_.i1127, align 8
   %conv1182 = fptosi double %399 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491169.0, ptr noundef nonnull @.str.162, ptr noundef null, i64 noundef %conv1182, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491169.0, ptr noundef nonnull @.str.162, ptr noundef null, i64 noundef %conv1182, i32 noundef 2)
   br label %sw.epilog
 
 do.body1189:                                      ; preds = %entry
@@ -17942,7 +17942,7 @@ if.then1199:                                      ; preds = %if.end1195
   %async_id_.i1138 = getelementptr inbounds i8, ptr %this, i64 40
   %406 = load double, ptr %async_id_.i1138, align 8
   %conv1203 = fptosi double %406 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491190.0, ptr noundef nonnull @.str.163, ptr noundef null, i64 noundef %conv1203, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491190.0, ptr noundef nonnull @.str.163, ptr noundef null, i64 noundef %conv1203, i32 noundef 2)
   br label %sw.epilog
 
 do.body1210:                                      ; preds = %entry
@@ -17980,7 +17980,7 @@ if.then1220:                                      ; preds = %if.end1216
   %async_id_.i1149 = getelementptr inbounds i8, ptr %this, i64 40
   %413 = load double, ptr %async_id_.i1149, align 8
   %conv1224 = fptosi double %413 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491211.0, ptr noundef nonnull @.str.164, ptr noundef null, i64 noundef %conv1224, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491211.0, ptr noundef nonnull @.str.164, ptr noundef null, i64 noundef %conv1224, i32 noundef 2)
   br label %sw.epilog
 
 do.body1231:                                      ; preds = %entry
@@ -18018,7 +18018,7 @@ if.then1241:                                      ; preds = %if.end1237
   %async_id_.i1160 = getelementptr inbounds i8, ptr %this, i64 40
   %420 = load double, ptr %async_id_.i1160, align 8
   %conv1245 = fptosi double %420 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491232.0, ptr noundef nonnull @.str.165, ptr noundef null, i64 noundef %conv1245, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491232.0, ptr noundef nonnull @.str.165, ptr noundef null, i64 noundef %conv1245, i32 noundef 2)
   br label %sw.epilog
 
 do.body1252:                                      ; preds = %entry
@@ -18056,7 +18056,7 @@ if.then1262:                                      ; preds = %if.end1258
   %async_id_.i1171 = getelementptr inbounds i8, ptr %this, i64 40
   %427 = load double, ptr %async_id_.i1171, align 8
   %conv1266 = fptosi double %427 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491253.0, ptr noundef nonnull @.str.166, ptr noundef null, i64 noundef %conv1266, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491253.0, ptr noundef nonnull @.str.166, ptr noundef null, i64 noundef %conv1266, i32 noundef 2)
   br label %sw.epilog
 
 do.body1273:                                      ; preds = %entry
@@ -18094,7 +18094,7 @@ if.then1283:                                      ; preds = %if.end1279
   %async_id_.i1182 = getelementptr inbounds i8, ptr %this, i64 40
   %434 = load double, ptr %async_id_.i1182, align 8
   %conv1287 = fptosi double %434 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491274.0, ptr noundef nonnull @.str.167, ptr noundef null, i64 noundef %conv1287, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491274.0, ptr noundef nonnull @.str.167, ptr noundef null, i64 noundef %conv1287, i32 noundef 2)
   br label %sw.epilog
 
 do.body1294:                                      ; preds = %entry
@@ -18132,7 +18132,7 @@ if.then1304:                                      ; preds = %if.end1300
   %async_id_.i1193 = getelementptr inbounds i8, ptr %this, i64 40
   %441 = load double, ptr %async_id_.i1193, align 8
   %conv1308 = fptosi double %441 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491295.0, ptr noundef nonnull @.str.168, ptr noundef null, i64 noundef %conv1308, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491295.0, ptr noundef nonnull @.str.168, ptr noundef null, i64 noundef %conv1308, i32 noundef 2)
   br label %sw.epilog
 
 do.body1315:                                      ; preds = %entry
@@ -18170,7 +18170,7 @@ if.then1325:                                      ; preds = %if.end1321
   %async_id_.i1203 = getelementptr inbounds i8, ptr %this, i64 40
   %448 = load double, ptr %async_id_.i1203, align 8
   %conv1329 = fptosi double %448 to i64
-  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.argelim(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491316.0, ptr noundef nonnull @.str.169, ptr noundef null, i64 noundef %conv1329, i32 noundef 2)
+  tail call fastcc void @_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj(i8 noundef signext 101, ptr noundef nonnull %trace_event_unique_category_group_enabled5491316.0, ptr noundef nonnull @.str.169, ptr noundef null, i64 noundef %conv1329, i32 noundef 2)
   br label %sw.epilog
 
 do.body1335:                                      ; preds = %entry
@@ -18200,7 +18200,7 @@ declare void @_ZN4node7tracing11TracedValue6CreateEv(ptr sret(%"class.std::uniqu
 declare void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_.argprom.argelim(ptr noundef %category_group_enabled, ptr noundef %name, ptr noundef %scope, i64 noundef %id, i32 noundef %flags, ptr nocapture noundef nonnull align 8 dereferenceable(8) %arg1_val) unnamed_addr #3 {
+define internal fastcc void @_ZN4node7tracingL13AddTraceEventISt10unique_ptrINS0_11TracedValueESt14default_deleteIS3_EEEEmcPKhPKcSA_mmjSA_OT_(ptr noundef %category_group_enabled, ptr noundef %name, ptr noundef %scope, i64 noundef %id, i32 noundef %flags, ptr nocapture noundef nonnull align 8 dereferenceable(8) %arg1_val) unnamed_addr #3 {
 _ZNSt10unique_ptrIN4node7tracing11TracedValueESt14default_deleteIS2_EED2Ev.exit:
   %arg_convertibles.i = alloca [2 x %"class.std::unique_ptr.374"], align 16
   %arg1_name.addr = alloca ptr, align 8
@@ -19383,10 +19383,10 @@ attributes #22 = { builtin nounwind allocsize(0) }
 !10 = distinct !{!10, !11, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIPFvS2_EEESt10unique_ptrINS3_8CallbackESt14default_deleteIS8_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
 !11 = distinct !{!11, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIPFvS2_EEESt10unique_ptrINS3_8CallbackESt14default_deleteIS8_EEOT_NS_13CallbackFlags5FlagsE"}
 !12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9AsyncWrap11EmitDestroyES3_dE3$_0EEJS7_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
-!14 = distinct !{!14, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9AsyncWrap11EmitDestroyES3_dE3$_0EEJS7_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
-!15 = distinct !{!15, !16, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9AsyncWrap11EmitDestroyES2_dE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS8_EEOT_NS_13CallbackFlags5FlagsE.argprom: %agg.result"}
-!16 = distinct !{!16, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9AsyncWrap11EmitDestroyES2_dE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS8_EEOT_NS_13CallbackFlags5FlagsE.argprom"}
+!13 = distinct !{!13, !14, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9AsyncWrap11EmitDestroyES3_dE3$_0EEJS7_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!14 = distinct !{!14, !"_ZSt11make_uniqueIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE12CallbackImplIZNS0_9AsyncWrap11EmitDestroyES3_dE3$_0EEJS7_RNS0_13CallbackFlags5FlagsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!15 = distinct !{!15, !16, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9AsyncWrap11EmitDestroyES2_dE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS8_EEOT_NS_13CallbackFlags5FlagsE: %agg.result"}
+!16 = distinct !{!16, !"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE14CreateCallbackIZNS_9AsyncWrap11EmitDestroyES2_dE3$_0EESt10unique_ptrINS3_8CallbackESt14default_deleteIS8_EEOT_NS_13CallbackFlags5FlagsE"}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}

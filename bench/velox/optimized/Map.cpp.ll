@@ -5910,7 +5910,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %invoke.cont135, %if
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad110
 
-try.cont:                                         ; preds = %_ZNK8facebook5velox9functions12_GLOBAL__N_111MapFunctionILb0EE26checkDuplicateConstantKeysERKSt6vectorIiSaIiEERKSt10shared_ptrINS0_10BaseVectorEE.argprom.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
+try.cont:                                         ; preds = %_ZNK8facebook5velox9functions12_GLOBAL__N_111MapFunctionILb0EE26checkDuplicateConstantKeysERKSt6vectorIiSaIiEERKSt10shared_ptrINS0_10BaseVectorEE.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
   %vector_.i269 = getelementptr inbounds i8, ptr %remainingRows, i64 8
   %239 = load ptr, ptr %vector_.i269, align 8
   %allSelected_.i.i.i271 = getelementptr inbounds i8, ptr %239, i64 36
@@ -8242,7 +8242,7 @@ if.end131:                                        ; preds = %for.cond.i, %if.the
   %sub.ptr.rhs.cast.i3.i.i = ptrtoint ptr %596 to i64
   %sub.ptr.sub.i4.i.i = sub i64 %sub.ptr.lhs.cast.i2.i.i, %sub.ptr.rhs.cast.i3.i.i
   %cmp6.i.i = icmp ugt i64 %sub.ptr.sub.i4.i.i, 4
-  br i1 %cmp6.i.i, label %for.body.i.i981, label %_ZNK8facebook5velox9functions12_GLOBAL__N_111MapFunctionILb0EE26checkDuplicateConstantKeysERKSt6vectorIiSaIiEERKSt10shared_ptrINS0_10BaseVectorEE.argprom.exit
+  br i1 %cmp6.i.i, label %for.body.i.i981, label %_ZNK8facebook5velox9functions12_GLOBAL__N_111MapFunctionILb0EE26checkDuplicateConstantKeysERKSt6vectorIiSaIiEERKSt10shared_ptrINS0_10BaseVectorEE.exit
 
 for.cond.i.i986:                                  ; preds = %call8.i.i.noexc
   %indvars.iv.next.i.i987 = add nuw nsw i64 %indvars.iv.i.i982, 1
@@ -8253,7 +8253,7 @@ for.cond.i.i986:                                  ; preds = %call8.i.i.noexc
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 2
   %cmp.i.i988 = icmp ugt i64 %sub.ptr.div.i.i.i, %indvars.iv.next.i.i987
-  br i1 %cmp.i.i988, label %for.body.i.i981, label %_ZNK8facebook5velox9functions12_GLOBAL__N_111MapFunctionILb0EE26checkDuplicateConstantKeysERKSt6vectorIiSaIiEERKSt10shared_ptrINS0_10BaseVectorEE.argprom.exit, !llvm.loop !80
+  br i1 %cmp.i.i988, label %for.body.i.i981, label %_ZNK8facebook5velox9functions12_GLOBAL__N_111MapFunctionILb0EE26checkDuplicateConstantKeysERKSt6vectorIiSaIiEERKSt10shared_ptrINS0_10BaseVectorEE.exit, !llvm.loop !80
 
 for.body.i.i981:                                  ; preds = %if.end131, %for.cond.i.i986
   %indvars.iv.i.i982 = phi i64 [ %indvars.iv.next.i.i987, %for.cond.i.i986 ], [ 1, %if.end131 ]
@@ -8299,7 +8299,7 @@ call10.i.noexc:                                   ; preds = %call7.i.noexc
   call void @llvm.trap()
   unreachable
 
-_ZNK8facebook5velox9functions12_GLOBAL__N_111MapFunctionILb0EE26checkDuplicateConstantKeysERKSt6vectorIiSaIiEERKSt10shared_ptrINS0_10BaseVectorEE.argprom.exit: ; preds = %for.cond.i.i986, %if.end131
+_ZNK8facebook5velox9functions12_GLOBAL__N_111MapFunctionILb0EE26checkDuplicateConstantKeysERKSt6vectorIiSaIiEERKSt10shared_ptrINS0_10BaseVectorEE.exit: ; preds = %for.cond.i.i986, %if.end131
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %duplicateKey.i)
   br label %try.cont
 

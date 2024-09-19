@@ -446,7 +446,7 @@ define dso_local i32 @acpi_device_set_power(ptr noundef %0, i32 noundef %1) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -19, 1) i32 @acpi_dev_pm_explicit_set.argelim(ptr nocapture noundef nonnull readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @acpi_dev_pm_explicit_set(ptr nocapture noundef nonnull readonly %0) unnamed_addr #1 align 16 {
   %2 = alloca [5 x i8], align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load i8, ptr %3, align 8
@@ -550,7 +550,7 @@ define dso_local i32 @acpi_bus_init_power(ptr noundef %0) local_unnamed_addr #1 
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %25
-  %29 = call fastcc i32 @acpi_dev_pm_explicit_set.argelim(ptr noundef nonnull %0)
+  %29 = call fastcc i32 @acpi_dev_pm_explicit_set(ptr noundef nonnull %0)
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %..thread_crit_edge, label %34
 

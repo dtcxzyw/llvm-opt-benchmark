@@ -1763,9 +1763,9 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKNS_3MatEii.exit128: ; preds = %160, %.prehea
   store i32 33619968, ptr %5, align 8
   store ptr %20, ptr %247, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef -1, double noundef %318, double noundef 0.000000e+00)
-          to label %_ZN2cvmLERNS_3MatERKd.argprom.exit unwind label %319
+          to label %_ZN2cvmLERNS_3MatERKd.exit unwind label %319
 
-_ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %315
+_ZN2cvmLERNS_3MatERKd.exit:                       ; preds = %315
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %340
 
@@ -1847,7 +1847,7 @@ _ZN2cvmLERNS_3MatERKd.argprom.exit:               ; preds = %315
           cleanup
   br label %341
 
-340:                                              ; preds = %335, %_ZN2cvmLERNS_3MatERKd.argprom.exit
+340:                                              ; preds = %335, %_ZN2cvmLERNS_3MatERKd.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #21
   br label %342
 

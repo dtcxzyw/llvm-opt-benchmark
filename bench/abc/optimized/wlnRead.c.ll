@@ -6741,11 +6741,11 @@ define i32 @Rtl_NtkReadSig(ptr nocapture noundef readonly %0, ptr nocapture noun
   %6 = getelementptr i8, ptr %.val.val, i64 4
   %.val.i = load i32, ptr %6, align 4
   %7 = icmp slt i32 %3, %.val.i
-  br i1 %7, label %8, label %.Rtl_NtkTokId.argprom.argprom.exit_crit_edge
+  br i1 %7, label %8, label %.Rtl_NtkTokId.exit_crit_edge
 
-.Rtl_NtkTokId.argprom.argprom.exit_crit_edge:     ; preds = %2
+.Rtl_NtkTokId.exit_crit_edge:                     ; preds = %2
   %.pre = sext i32 %3 to i64
-  br label %Rtl_NtkTokId.argprom.argprom.exit
+  br label %Rtl_NtkTokId.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %.val.val, i64 8
@@ -6753,11 +6753,11 @@ define i32 @Rtl_NtkReadSig(ptr nocapture noundef readonly %0, ptr nocapture noun
   %10 = sext i32 %3 to i64
   %11 = getelementptr inbounds i32, ptr %.val3.i, i64 %10
   %12 = load i32, ptr %11, align 4
-  br label %Rtl_NtkTokId.argprom.argprom.exit
+  br label %Rtl_NtkTokId.exit
 
-Rtl_NtkTokId.argprom.argprom.exit:                ; preds = %.Rtl_NtkTokId.argprom.argprom.exit_crit_edge, %8
-  %.pre-phi = phi i64 [ %.pre, %.Rtl_NtkTokId.argprom.argprom.exit_crit_edge ], [ %10, %8 ]
-  %13 = phi i32 [ -1, %.Rtl_NtkTokId.argprom.argprom.exit_crit_edge ], [ %12, %8 ]
+Rtl_NtkTokId.exit:                                ; preds = %.Rtl_NtkTokId.exit_crit_edge, %8
+  %.pre-phi = phi i64 [ %.pre, %.Rtl_NtkTokId.exit_crit_edge ], [ %10, %8 ]
+  %13 = phi i32 [ -1, %.Rtl_NtkTokId.exit_crit_edge ], [ %12, %8 ]
   %14 = add nsw i32 %3, 1
   store i32 %14, ptr %1, align 4
   %.val22 = load ptr, ptr %4, align 8
@@ -6779,11 +6779,11 @@ Rtl_NtkTokId.argprom.argprom.exit:                ; preds = %.Rtl_NtkTokId.argpr
   %or.cond = icmp ult i8 %25, 10
   br i1 %or.cond, label %26, label %28
 
-26:                                               ; preds = %Rtl_NtkTokId.argprom.argprom.exit
+26:                                               ; preds = %Rtl_NtkTokId.exit
   %27 = tail call i32 @Rtl_NtkReadConst(ptr noundef nonnull %0, ptr noundef nonnull %23)
   br label %52
 
-28:                                               ; preds = %Rtl_NtkTokId.argprom.argprom.exit
+28:                                               ; preds = %Rtl_NtkTokId.exit
   %29 = icmp eq i8 %24, 123
   br i1 %29, label %30, label %32
 
@@ -6799,9 +6799,9 @@ Rtl_NtkTokId.argprom.argprom.exit:                ; preds = %.Rtl_NtkTokId.argpr
   %36 = getelementptr i8, ptr %35, i64 4
   %.val.i25 = load i32, ptr %36, align 4
   %37 = icmp slt i32 %33, %.val.i25
-  br i1 %37, label %Rtl_NtkTokStr.argprom.exit28, label %Rtl_NtkTokStr.argprom.exit28.thread
+  br i1 %37, label %Rtl_NtkTokStr.exit28, label %Rtl_NtkTokStr.exit28.thread
 
-Rtl_NtkTokStr.argprom.exit28:                     ; preds = %32
+Rtl_NtkTokStr.exit28:                             ; preds = %32
   %38 = getelementptr i8, ptr %35, i64 8
   %.val4.i26 = load ptr, ptr %38, align 8
   %39 = sext i32 %33 to i64
@@ -6811,12 +6811,12 @@ Rtl_NtkTokStr.argprom.exit28:                     ; preds = %32
   %.val5.val.i27 = load ptr, ptr %42, align 8
   %43 = tail call ptr @Abc_NamStr(ptr noundef %.val5.val.i27, i32 noundef %41) #37
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %Rtl_NtkTokStr.argprom.exit28.thread, label %44
+  br i1 %.not, label %Rtl_NtkTokStr.exit28.thread, label %44
 
-44:                                               ; preds = %Rtl_NtkTokStr.argprom.exit28
+44:                                               ; preds = %Rtl_NtkTokStr.exit28
   %45 = load i8, ptr %43, align 1
   %46 = icmp eq i8 %45, 91
-  br i1 %46, label %47, label %Rtl_NtkTokStr.argprom.exit28.thread
+  br i1 %46, label %47, label %Rtl_NtkTokStr.exit28.thread
 
 47:                                               ; preds = %44
   %48 = load i32, ptr %1, align 4
@@ -6825,12 +6825,12 @@ Rtl_NtkTokStr.argprom.exit28:                     ; preds = %32
   %50 = tail call i32 @Rtl_NtkReadSlice(ptr noundef nonnull %0, ptr noundef nonnull %43, i32 noundef %13)
   br label %52
 
-Rtl_NtkTokStr.argprom.exit28.thread:              ; preds = %32, %44, %Rtl_NtkTokStr.argprom.exit28
+Rtl_NtkTokStr.exit28.thread:                      ; preds = %32, %44, %Rtl_NtkTokStr.exit28
   %51 = shl i32 %13, 2
   br label %52
 
-52:                                               ; preds = %Rtl_NtkTokStr.argprom.exit28.thread, %47, %30, %26
-  %.0 = phi i32 [ %27, %26 ], [ %31, %30 ], [ %50, %47 ], [ %51, %Rtl_NtkTokStr.argprom.exit28.thread ]
+52:                                               ; preds = %Rtl_NtkTokStr.exit28.thread, %47, %30, %26
+  %.0 = phi i32 [ %27, %26 ], [ %31, %30 ], [ %50, %47 ], [ %51, %Rtl_NtkTokStr.exit28.thread ]
   ret i32 %.0
 }
 
@@ -6889,7 +6889,7 @@ define i32 @Rtl_NtkReadWire(ptr nocapture noundef %0, i32 noundef %1) local_unna
 28:                                               ; preds = %.lr.ph161
   %29 = add nsw i32 %.057122159, 1
   %30 = icmp slt i32 %29, %.val131151
-  br i1 %30, label %31, label %Rtl_NtkTokStr.argprom.exit
+  br i1 %30, label %31, label %Rtl_NtkTokStr.exit
 
 31:                                               ; preds = %28
   %32 = sext i32 %29 to i64
@@ -6898,9 +6898,9 @@ define i32 @Rtl_NtkReadWire(ptr nocapture noundef %0, i32 noundef %1) local_unna
   %35 = getelementptr i8, ptr %25, i64 16
   %.val5.val.i = load ptr, ptr %35, align 8
   %36 = tail call ptr @Abc_NamStr(ptr noundef %.val5.val.i, i32 noundef %34) #37
-  br label %Rtl_NtkTokStr.argprom.exit
+  br label %Rtl_NtkTokStr.exit
 
-Rtl_NtkTokStr.argprom.exit:                       ; preds = %28, %31
+Rtl_NtkTokStr.exit:                               ; preds = %28, %31
   %37 = phi ptr [ %36, %31 ], [ null, %28 ]
   %38 = tail call i32 @atoi(ptr nocapture noundef %37) #38
   br label %91
@@ -6914,7 +6914,7 @@ Rtl_NtkTokStr.argprom.exit:                       ; preds = %28, %31
 42:                                               ; preds = %39
   %43 = add nsw i32 %.057122159, 1
   %44 = icmp slt i32 %43, %.val131151
-  br i1 %44, label %45, label %Rtl_NtkTokStr.argprom.exit79
+  br i1 %44, label %45, label %Rtl_NtkTokStr.exit79
 
 45:                                               ; preds = %42
   %46 = sext i32 %43 to i64
@@ -6923,9 +6923,9 @@ Rtl_NtkTokStr.argprom.exit:                       ; preds = %28, %31
   %49 = getelementptr i8, ptr %25, i64 16
   %.val5.val.i78 = load ptr, ptr %49, align 8
   %50 = tail call ptr @Abc_NamStr(ptr noundef %.val5.val.i78, i32 noundef %48) #37
-  br label %Rtl_NtkTokStr.argprom.exit79
+  br label %Rtl_NtkTokStr.exit79
 
-Rtl_NtkTokStr.argprom.exit79:                     ; preds = %42, %45
+Rtl_NtkTokStr.exit79:                             ; preds = %42, %45
   %51 = phi ptr [ %50, %45 ], [ null, %42 ]
   %52 = tail call i32 @atoi(ptr nocapture noundef %51) #38
   br label %91
@@ -6939,7 +6939,7 @@ Rtl_NtkTokStr.argprom.exit79:                     ; preds = %42, %45
 56:                                               ; preds = %53
   %57 = add nsw i32 %.057122159, 1
   %58 = icmp slt i32 %57, %.val131151
-  br i1 %58, label %59, label %Rtl_NtkTokStr.argprom.exit83
+  br i1 %58, label %59, label %Rtl_NtkTokStr.exit83
 
 59:                                               ; preds = %56
   %60 = sext i32 %57 to i64
@@ -6948,9 +6948,9 @@ Rtl_NtkTokStr.argprom.exit79:                     ; preds = %42, %45
   %63 = getelementptr i8, ptr %25, i64 16
   %.val5.val.i82 = load ptr, ptr %63, align 8
   %64 = tail call ptr @Abc_NamStr(ptr noundef %.val5.val.i82, i32 noundef %62) #37
-  br label %Rtl_NtkTokStr.argprom.exit83
+  br label %Rtl_NtkTokStr.exit83
 
-Rtl_NtkTokStr.argprom.exit83:                     ; preds = %56, %59
+Rtl_NtkTokStr.exit83:                             ; preds = %56, %59
   %65 = phi ptr [ %64, %59 ], [ null, %56 ]
   %66 = tail call i32 @atoi(ptr nocapture noundef %65) #38
   %67 = load i32, ptr %12, align 4
@@ -6967,7 +6967,7 @@ Rtl_NtkTokStr.argprom.exit83:                     ; preds = %56, %59
 72:                                               ; preds = %69
   %73 = add nsw i32 %.057122159, 1
   %74 = icmp slt i32 %73, %.val131151
-  br i1 %74, label %75, label %Rtl_NtkTokStr.argprom.exit87
+  br i1 %74, label %75, label %Rtl_NtkTokStr.exit87
 
 75:                                               ; preds = %72
   %76 = sext i32 %73 to i64
@@ -6976,9 +6976,9 @@ Rtl_NtkTokStr.argprom.exit83:                     ; preds = %56, %59
   %79 = getelementptr i8, ptr %25, i64 16
   %.val5.val.i86 = load ptr, ptr %79, align 8
   %80 = tail call ptr @Abc_NamStr(ptr noundef %.val5.val.i86, i32 noundef %78) #37
-  br label %Rtl_NtkTokStr.argprom.exit87
+  br label %Rtl_NtkTokStr.exit87
 
-Rtl_NtkTokStr.argprom.exit87:                     ; preds = %72, %75
+Rtl_NtkTokStr.exit87:                             ; preds = %72, %75
   %81 = phi ptr [ %80, %75 ], [ null, %72 ]
   %82 = tail call i32 @atoi(ptr nocapture noundef %81) #38
   %83 = load i32, ptr %11, align 8
@@ -6999,15 +6999,15 @@ Rtl_NtkTokStr.argprom.exit87:                     ; preds = %72, %75
   %spec.select = select i1 %.not120, i32 1, i32 %.052125157
   br label %91
 
-91:                                               ; preds = %88, %85, %Rtl_NtkTokStr.argprom.exit, %Rtl_NtkTokStr.argprom.exit83, %Rtl_NtkTokStr.argprom.exit87, %Rtl_NtkTokStr.argprom.exit79
-  %.158 = phi i32 [ %29, %Rtl_NtkTokStr.argprom.exit ], [ %43, %Rtl_NtkTokStr.argprom.exit79 ], [ %57, %Rtl_NtkTokStr.argprom.exit83 ], [ %73, %Rtl_NtkTokStr.argprom.exit87 ], [ %.057122159, %85 ], [ %.057122159, %88 ]
-  %.155 = phi i32 [ %38, %Rtl_NtkTokStr.argprom.exit ], [ %.054124158, %Rtl_NtkTokStr.argprom.exit79 ], [ %.054124158, %Rtl_NtkTokStr.argprom.exit83 ], [ %.054124158, %Rtl_NtkTokStr.argprom.exit87 ], [ %.054124158, %85 ], [ %.054124158, %88 ]
-  %.153 = phi i32 [ %.052125157, %Rtl_NtkTokStr.argprom.exit ], [ %.052125157, %Rtl_NtkTokStr.argprom.exit79 ], [ %.052125157, %Rtl_NtkTokStr.argprom.exit83 ], [ %.052125157, %Rtl_NtkTokStr.argprom.exit87 ], [ %.052125157, %85 ], [ %spec.select, %88 ]
-  %.151 = phi i32 [ %.050126156, %Rtl_NtkTokStr.argprom.exit ], [ %52, %Rtl_NtkTokStr.argprom.exit79 ], [ %.050126156, %Rtl_NtkTokStr.argprom.exit83 ], [ %.050126156, %Rtl_NtkTokStr.argprom.exit87 ], [ %.050126156, %85 ], [ %.050126156, %88 ]
-  %.149 = phi i32 [ %.048127155, %Rtl_NtkTokStr.argprom.exit ], [ %.048127155, %Rtl_NtkTokStr.argprom.exit79 ], [ %.048127155, %Rtl_NtkTokStr.argprom.exit83 ], [ 1, %Rtl_NtkTokStr.argprom.exit87 ], [ %.048127155, %85 ], [ %.048127155, %88 ]
-  %.147 = phi i32 [ %.046128154, %Rtl_NtkTokStr.argprom.exit ], [ %.046128154, %Rtl_NtkTokStr.argprom.exit79 ], [ 1, %Rtl_NtkTokStr.argprom.exit83 ], [ %.046128154, %Rtl_NtkTokStr.argprom.exit87 ], [ %.046128154, %85 ], [ %.046128154, %88 ]
-  %.145 = phi i32 [ %.044129153, %Rtl_NtkTokStr.argprom.exit ], [ %.044129153, %Rtl_NtkTokStr.argprom.exit79 ], [ %66, %Rtl_NtkTokStr.argprom.exit83 ], [ %82, %Rtl_NtkTokStr.argprom.exit87 ], [ %.044129153, %85 ], [ %.044129153, %88 ]
-  %.1 = phi i32 [ %.0130152, %Rtl_NtkTokStr.argprom.exit ], [ %.0130152, %Rtl_NtkTokStr.argprom.exit79 ], [ %.0130152, %Rtl_NtkTokStr.argprom.exit83 ], [ %.0130152, %Rtl_NtkTokStr.argprom.exit87 ], [ 1, %85 ], [ %.0130152, %88 ]
+91:                                               ; preds = %88, %85, %Rtl_NtkTokStr.exit, %Rtl_NtkTokStr.exit83, %Rtl_NtkTokStr.exit87, %Rtl_NtkTokStr.exit79
+  %.158 = phi i32 [ %29, %Rtl_NtkTokStr.exit ], [ %43, %Rtl_NtkTokStr.exit79 ], [ %57, %Rtl_NtkTokStr.exit83 ], [ %73, %Rtl_NtkTokStr.exit87 ], [ %.057122159, %85 ], [ %.057122159, %88 ]
+  %.155 = phi i32 [ %38, %Rtl_NtkTokStr.exit ], [ %.054124158, %Rtl_NtkTokStr.exit79 ], [ %.054124158, %Rtl_NtkTokStr.exit83 ], [ %.054124158, %Rtl_NtkTokStr.exit87 ], [ %.054124158, %85 ], [ %.054124158, %88 ]
+  %.153 = phi i32 [ %.052125157, %Rtl_NtkTokStr.exit ], [ %.052125157, %Rtl_NtkTokStr.exit79 ], [ %.052125157, %Rtl_NtkTokStr.exit83 ], [ %.052125157, %Rtl_NtkTokStr.exit87 ], [ %.052125157, %85 ], [ %spec.select, %88 ]
+  %.151 = phi i32 [ %.050126156, %Rtl_NtkTokStr.exit ], [ %52, %Rtl_NtkTokStr.exit79 ], [ %.050126156, %Rtl_NtkTokStr.exit83 ], [ %.050126156, %Rtl_NtkTokStr.exit87 ], [ %.050126156, %85 ], [ %.050126156, %88 ]
+  %.149 = phi i32 [ %.048127155, %Rtl_NtkTokStr.exit ], [ %.048127155, %Rtl_NtkTokStr.exit79 ], [ %.048127155, %Rtl_NtkTokStr.exit83 ], [ 1, %Rtl_NtkTokStr.exit87 ], [ %.048127155, %85 ], [ %.048127155, %88 ]
+  %.147 = phi i32 [ %.046128154, %Rtl_NtkTokStr.exit ], [ %.046128154, %Rtl_NtkTokStr.exit79 ], [ 1, %Rtl_NtkTokStr.exit83 ], [ %.046128154, %Rtl_NtkTokStr.exit87 ], [ %.046128154, %85 ], [ %.046128154, %88 ]
+  %.145 = phi i32 [ %.044129153, %Rtl_NtkTokStr.exit ], [ %.044129153, %Rtl_NtkTokStr.exit79 ], [ %66, %Rtl_NtkTokStr.exit83 ], [ %82, %Rtl_NtkTokStr.exit87 ], [ %.044129153, %85 ], [ %.044129153, %88 ]
+  %.1 = phi i32 [ %.0130152, %Rtl_NtkTokStr.exit ], [ %.0130152, %Rtl_NtkTokStr.exit79 ], [ %.0130152, %Rtl_NtkTokStr.exit83 ], [ %.0130152, %Rtl_NtkTokStr.exit87 ], [ 1, %85 ], [ %.0130152, %88 ]
   %92 = add nsw i32 %.158, 1
   %93 = load ptr, ptr %3, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 80
@@ -7375,7 +7375,7 @@ define range(i32 -2147483646, -2147483648) i32 @Rtl_NtkReadAttribute(ptr nocaptu
   %8 = getelementptr i8, ptr %.val6.val, i64 4
   %.val.i = load i32, ptr %8, align 4
   %9 = icmp slt i32 %1, %.val.i
-  br i1 %9, label %10, label %Rtl_NtkTokId.argprom.argprom.exit
+  br i1 %9, label %10, label %Rtl_NtkTokId.exit
 
 10:                                               ; preds = %2
   %11 = getelementptr i8, ptr %.val6.val, i64 8
@@ -7383,9 +7383,9 @@ define range(i32 -2147483646, -2147483648) i32 @Rtl_NtkReadAttribute(ptr nocaptu
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds i32, ptr %.val3.i, i64 %12
   %14 = load i32, ptr %13, align 4
-  br label %Rtl_NtkTokId.argprom.argprom.exit
+  br label %Rtl_NtkTokId.exit
 
-Rtl_NtkTokId.argprom.argprom.exit:                ; preds = %2, %10
+Rtl_NtkTokId.exit:                                ; preds = %2, %10
   %15 = phi i32 [ %14, %10 ], [ -1, %2 ]
   %16 = getelementptr inbounds i8, ptr %4, i64 244
   %17 = load i32, ptr %16, align 4
@@ -7393,12 +7393,12 @@ Rtl_NtkTokId.argprom.argprom.exit:                ; preds = %2, %10
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %.Vec_IntGrow.exit10_crit_edge.i
 
-.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Rtl_NtkTokId.argprom.argprom.exit
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Rtl_NtkTokId.exit
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 248
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
-20:                                               ; preds = %Rtl_NtkTokId.argprom.argprom.exit
+20:                                               ; preds = %Rtl_NtkTokId.exit
   %21 = icmp slt i32 %17, 16
   br i1 %21, label %22, label %30
 
@@ -7460,7 +7460,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %50 = getelementptr i8, ptr %.val.val, i64 4
   %.val.i7 = load i32, ptr %50, align 4
   %51 = icmp slt i32 %6, %.val.i7
-  br i1 %51, label %52, label %Rtl_NtkTokId.argprom.argprom.exit9
+  br i1 %51, label %52, label %Rtl_NtkTokId.exit9
 
 52:                                               ; preds = %Vec_IntPush.exit
   %53 = getelementptr i8, ptr %.val.val, i64 8
@@ -7468,9 +7468,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %54 = sext i32 %6 to i64
   %55 = getelementptr inbounds i32, ptr %.val3.i8, i64 %54
   %56 = load i32, ptr %55, align 4
-  br label %Rtl_NtkTokId.argprom.argprom.exit9
+  br label %Rtl_NtkTokId.exit9
 
-Rtl_NtkTokId.argprom.argprom.exit9:               ; preds = %Vec_IntPush.exit, %52
+Rtl_NtkTokId.exit9:                               ; preds = %Vec_IntPush.exit, %52
   %57 = phi i32 [ %56, %52 ], [ -1, %Vec_IntPush.exit ]
   %58 = getelementptr inbounds i8, ptr %47, i64 244
   %59 = load i32, ptr %58, align 4
@@ -7478,12 +7478,12 @@ Rtl_NtkTokId.argprom.argprom.exit9:               ; preds = %Vec_IntPush.exit, %
   %61 = icmp eq i32 %59, %60
   br i1 %61, label %62, label %.Vec_IntGrow.exit10_crit_edge.i10
 
-.Vec_IntGrow.exit10_crit_edge.i10:                ; preds = %Rtl_NtkTokId.argprom.argprom.exit9
+.Vec_IntGrow.exit10_crit_edge.i10:                ; preds = %Rtl_NtkTokId.exit9
   %.phi.trans.insert.i11 = getelementptr inbounds i8, ptr %47, i64 248
   %.pre.i12 = load ptr, ptr %.phi.trans.insert.i11, align 8
   br label %Vec_IntPush.exit16
 
-62:                                               ; preds = %Rtl_NtkTokId.argprom.argprom.exit9
+62:                                               ; preds = %Rtl_NtkTokId.exit9
   %63 = icmp slt i32 %59, 16
   br i1 %63, label %64, label %72
 
@@ -7918,7 +7918,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %43 = getelementptr i8, ptr %.val49.val, i64 4
   %.val.i = load i32, ptr %43, align 4
   %44 = icmp slt i32 %1, %.val.i
-  br i1 %44, label %45, label %Rtl_NtkTokId.argprom.argprom.exit
+  br i1 %44, label %45, label %Rtl_NtkTokId.exit
 
 45:                                               ; preds = %Vec_IntPush.exit
   %46 = getelementptr i8, ptr %.val49.val, i64 8
@@ -7926,21 +7926,21 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %47 = sext i32 %1 to i64
   %48 = getelementptr inbounds i32, ptr %.val3.i, i64 %47
   %49 = load i32, ptr %48, align 4
-  br label %Rtl_NtkTokId.argprom.argprom.exit
+  br label %Rtl_NtkTokId.exit
 
-Rtl_NtkTokId.argprom.argprom.exit:                ; preds = %Vec_IntPush.exit, %45
+Rtl_NtkTokId.exit:                                ; preds = %Vec_IntPush.exit, %45
   %50 = phi i32 [ %49, %45 ], [ -1, %Vec_IntPush.exit ]
   %51 = load i32, ptr %9, align 4
   %52 = load i32, ptr %8, align 8
   %53 = icmp eq i32 %51, %52
   br i1 %53, label %54, label %.Vec_IntGrow.exit10_crit_edge.i55
 
-.Vec_IntGrow.exit10_crit_edge.i55:                ; preds = %Rtl_NtkTokId.argprom.argprom.exit
+.Vec_IntGrow.exit10_crit_edge.i55:                ; preds = %Rtl_NtkTokId.exit
   %.phi.trans.insert.i56 = getelementptr inbounds i8, ptr %0, i64 72
   %.pre.i57 = load ptr, ptr %.phi.trans.insert.i56, align 8
   br label %Vec_IntPush.exit61
 
-54:                                               ; preds = %Rtl_NtkTokId.argprom.argprom.exit
+54:                                               ; preds = %Rtl_NtkTokId.exit
   %55 = icmp slt i32 %51, 16
   br i1 %55, label %56, label %64
 
@@ -8002,7 +8002,7 @@ Vec_IntPush.exit61:                               ; preds = %.Vec_IntGrow.exit10
   %83 = getelementptr i8, ptr %.val48.val, i64 4
   %.val.i62 = load i32, ptr %83, align 4
   %84 = icmp slt i32 %41, %.val.i62
-  br i1 %84, label %85, label %Rtl_NtkTokId.argprom.argprom.exit64
+  br i1 %84, label %85, label %Rtl_NtkTokId.exit64
 
 85:                                               ; preds = %Vec_IntPush.exit61
   %86 = getelementptr i8, ptr %.val48.val, i64 8
@@ -8010,21 +8010,21 @@ Vec_IntPush.exit61:                               ; preds = %.Vec_IntGrow.exit10
   %87 = sext i32 %41 to i64
   %88 = getelementptr inbounds i32, ptr %.val3.i63, i64 %87
   %89 = load i32, ptr %88, align 4
-  br label %Rtl_NtkTokId.argprom.argprom.exit64
+  br label %Rtl_NtkTokId.exit64
 
-Rtl_NtkTokId.argprom.argprom.exit64:              ; preds = %Vec_IntPush.exit61, %85
+Rtl_NtkTokId.exit64:                              ; preds = %Vec_IntPush.exit61, %85
   %90 = phi i32 [ %89, %85 ], [ -1, %Vec_IntPush.exit61 ]
   %91 = load i32, ptr %9, align 4
   %92 = load i32, ptr %8, align 8
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %.Vec_IntGrow.exit10_crit_edge.i65
 
-.Vec_IntGrow.exit10_crit_edge.i65:                ; preds = %Rtl_NtkTokId.argprom.argprom.exit64
+.Vec_IntGrow.exit10_crit_edge.i65:                ; preds = %Rtl_NtkTokId.exit64
   %.phi.trans.insert.i66 = getelementptr inbounds i8, ptr %0, i64 72
   %.pre.i67 = load ptr, ptr %.phi.trans.insert.i66, align 8
   br label %Vec_IntPush.exit71
 
-94:                                               ; preds = %Rtl_NtkTokId.argprom.argprom.exit64
+94:                                               ; preds = %Rtl_NtkTokId.exit64
   %95 = icmp slt i32 %91, 16
   br i1 %95, label %96, label %104
 
@@ -8709,7 +8709,7 @@ define i32 @Rtl_NtkReadNtk(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
   %9 = getelementptr i8, ptr %8, i64 4
   %.val.i = load i32, ptr %9, align 4
   %10 = icmp slt i32 %1, %.val.i
-  br i1 %10, label %.lr.ph.i, label %Rtl_NtkTokId.argprom.argprom.exit
+  br i1 %10, label %.lr.ph.i, label %Rtl_NtkTokId.exit
 
 .lr.ph.i:                                         ; preds = %2
   %11 = getelementptr i8, ptr %8, i64 8
@@ -8760,9 +8760,9 @@ Wln_ReadMatchEnd.exit:                            ; preds = %27, %.critedge.loop
   %.014.i = phi i32 [ %28, %.critedge.loopexit.split.loop.exit26.i ], [ -1, %27 ]
   %29 = getelementptr inbounds i32, ptr %.val17.i, i64 %15
   %30 = load i32, ptr %29, align 4
-  br label %Rtl_NtkTokId.argprom.argprom.exit
+  br label %Rtl_NtkTokId.exit
 
-Rtl_NtkTokId.argprom.argprom.exit:                ; preds = %2, %Wln_ReadMatchEnd.exit
+Rtl_NtkTokId.exit:                                ; preds = %2, %Wln_ReadMatchEnd.exit
   %.014.i49 = phi i32 [ %.014.i, %Wln_ReadMatchEnd.exit ], [ -1, %2 ]
   %31 = phi i32 [ %30, %Wln_ReadMatchEnd.exit ], [ -1, %2 ]
   store i32 %31, ptr %3, align 8
@@ -8777,7 +8777,7 @@ Rtl_NtkTokId.argprom.argprom.exit:                ; preds = %2, %Wln_ReadMatchEn
   %36 = icmp slt i32 %1, %.014.i49
   br i1 %36, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Rtl_NtkTokId.argprom.argprom.exit
+.lr.ph:                                           ; preds = %Rtl_NtkTokId.exit
   %37 = getelementptr inbounds i8, ptr %0, i64 80
   br label %38
 
@@ -8839,7 +8839,7 @@ Rtl_NtkTokId.argprom.argprom.exit:                ; preds = %2, %Wln_ReadMatchEn
   %69 = icmp slt i32 %68, %.014.i49
   br i1 %69, label %38, label %.critedge, !llvm.loop !70
 
-.critedge:                                        ; preds = %67, %Rtl_NtkTokId.argprom.argprom.exit
+.critedge:                                        ; preds = %67, %Rtl_NtkTokId.exit
   %.val = load i32, ptr %32, align 4
   %70 = getelementptr inbounds i8, ptr %3, i64 196
   store i32 %.val, ptr %70, align 4
@@ -9298,9 +9298,9 @@ define void @Rtl_LibReorderModules_rec(ptr noundef %0, ptr nocapture noundef %1)
   %7 = getelementptr i8, ptr %0, i64 96
   br label %8
 
-8:                                                ; preds = %.lr.ph, %Rtl_CellNtk.argprom.exit.thread
-  %.val26 = phi i32 [ %.val22, %.lr.ph ], [ %.val, %Rtl_CellNtk.argprom.exit.thread ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Rtl_CellNtk.argprom.exit.thread ]
+8:                                                ; preds = %.lr.ph, %Rtl_CellNtk.exit.thread
+  %.val26 = phi i32 [ %.val22, %.lr.ph ], [ %.val, %Rtl_CellNtk.exit.thread ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Rtl_CellNtk.exit.thread ]
   %.val18 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %.val18, null
   br i1 %.not, label %.critedge, label %9
@@ -9314,9 +9314,9 @@ define void @Rtl_LibReorderModules_rec(ptr noundef %0, ptr nocapture noundef %1)
   %14 = getelementptr i8, ptr %13, i64 8
   %.val20 = load i32, ptr %14, align 4
   %15 = icmp sgt i32 %.val20, 999999999
-  br i1 %15, label %Rtl_CellNtk.argprom.exit, label %Rtl_CellNtk.argprom.exit.thread
+  br i1 %15, label %Rtl_CellNtk.exit, label %Rtl_CellNtk.exit.thread
 
-Rtl_CellNtk.argprom.exit:                         ; preds = %9
+Rtl_CellNtk.exit:                                 ; preds = %9
   %.val4.i = load ptr, ptr %7, align 8
   %16 = getelementptr i8, ptr %.val4.i, i64 8
   %.val4.val.i = load ptr, ptr %16, align 8
@@ -9327,27 +9327,27 @@ Rtl_CellNtk.argprom.exit:                         ; preds = %9
   %20 = getelementptr i8, ptr %19, i64 -8000000000
   %21 = load ptr, ptr %20, align 8
   %.not16 = icmp eq ptr %21, null
-  br i1 %.not16, label %Rtl_CellNtk.argprom.exit.thread, label %22
+  br i1 %.not16, label %Rtl_CellNtk.exit.thread, label %22
 
-22:                                               ; preds = %Rtl_CellNtk.argprom.exit
+22:                                               ; preds = %Rtl_CellNtk.exit
   %23 = getelementptr inbounds i8, ptr %21, i64 200
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, -1
-  br i1 %25, label %26, label %Rtl_CellNtk.argprom.exit.thread
+  br i1 %25, label %26, label %Rtl_CellNtk.exit.thread
 
 26:                                               ; preds = %22
   tail call void @Rtl_LibReorderModules_rec(ptr noundef nonnull %21, ptr noundef %1)
   %.val.pre = load i32, ptr %4, align 4
-  br label %Rtl_CellNtk.argprom.exit.thread
+  br label %Rtl_CellNtk.exit.thread
 
-Rtl_CellNtk.argprom.exit.thread:                  ; preds = %9, %Rtl_CellNtk.argprom.exit, %22, %26
-  %.val = phi i32 [ %.val26, %9 ], [ %.val26, %Rtl_CellNtk.argprom.exit ], [ %.val26, %22 ], [ %.val.pre, %26 ]
+Rtl_CellNtk.exit.thread:                          ; preds = %9, %Rtl_CellNtk.exit, %22, %26
+  %.val = phi i32 [ %.val26, %9 ], [ %.val26, %Rtl_CellNtk.exit ], [ %.val26, %22 ], [ %.val.pre, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %.val to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
   br i1 %28, label %8, label %.critedge, !llvm.loop !75
 
-.critedge:                                        ; preds = %8, %Rtl_CellNtk.argprom.exit.thread, %2
+.critedge:                                        ; preds = %8, %Rtl_CellNtk.exit.thread, %2
   %29 = getelementptr i8, ptr %1, i64 4
   %.val19 = load i32, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %0, i64 200
@@ -9458,16 +9458,16 @@ define i32 @Rtl_LibCountInsts(ptr nocapture noundef readonly %0, ptr noundef rea
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %16
 
-16:                                               ; preds = %.lr.ph.split, %Rtl_CellNtk.argprom.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %Rtl_CellNtk.argprom.exit ]
-  %.129 = phi i32 [ %.01832, %.lr.ph.split ], [ %.2, %Rtl_CellNtk.argprom.exit ]
+16:                                               ; preds = %.lr.ph.split, %Rtl_CellNtk.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %Rtl_CellNtk.exit ]
+  %.129 = phi i32 [ %.01832, %.lr.ph.split ], [ %.2, %Rtl_CellNtk.exit ]
   %17 = getelementptr inbounds i32, ptr %.val23, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %gep = getelementptr i32, ptr %invariant.gep, i64 %19
   %.val27 = load i32, ptr %gep, align 4
   %20 = icmp sgt i32 %.val27, 999999999
-  br i1 %20, label %21, label %Rtl_CellNtk.argprom.exit
+  br i1 %20, label %21, label %Rtl_CellNtk.exit
 
 21:                                               ; preds = %16
   %.val4.i = load ptr, ptr %14, align 8
@@ -9479,9 +9479,9 @@ define i32 @Rtl_LibCountInsts(ptr nocapture noundef readonly %0, ptr noundef rea
   %25 = getelementptr ptr, ptr %.val4.val.val.i, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -8000000000
   %27 = load ptr, ptr %26, align 8
-  br label %Rtl_CellNtk.argprom.exit
+  br label %Rtl_CellNtk.exit
 
-Rtl_CellNtk.argprom.exit:                         ; preds = %16, %21
+Rtl_CellNtk.exit:                                 ; preds = %16, %21
   %28 = phi ptr [ %27, %21 ], [ null, %16 ]
   %.not22 = icmp ne ptr %28, null
   %29 = icmp eq ptr %28, %1
@@ -9492,8 +9492,8 @@ Rtl_CellNtk.argprom.exit:                         ; preds = %16, %21
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %16, !llvm.loop !76
 
-.critedge2:                                       ; preds = %Rtl_CellNtk.argprom.exit, %.lr.ph, %8
-  %.1.lcssa = phi i32 [ %.01832, %8 ], [ %.01832, %.lr.ph ], [ %.2, %Rtl_CellNtk.argprom.exit ]
+.critedge2:                                       ; preds = %Rtl_CellNtk.exit, %.lr.ph, %8
+  %.1.lcssa = phi i32 [ %.01832, %8 ], [ %.01832, %.lr.ph ], [ %.2, %Rtl_CellNtk.exit ]
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %.critedge, label %8, !llvm.loop !77
@@ -9516,9 +9516,9 @@ define void @Rtl_NtkUpdateBoxes(ptr nocapture noundef readonly %0) local_unnamed
   %6 = getelementptr i8, ptr %0, i64 96
   br label %7
 
-7:                                                ; preds = %.lr.ph, %Rtl_CellNtk.argprom.exit.thread
-  %.val22 = phi i32 [ %.val18, %.lr.ph ], [ %.val, %Rtl_CellNtk.argprom.exit.thread ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Rtl_CellNtk.argprom.exit.thread ]
+7:                                                ; preds = %.lr.ph, %Rtl_CellNtk.exit.thread
+  %.val22 = phi i32 [ %.val18, %.lr.ph ], [ %.val, %Rtl_CellNtk.exit.thread ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Rtl_CellNtk.exit.thread ]
   %.val15 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %.val15, null
   br i1 %.not, label %.critedge, label %8
@@ -9532,9 +9532,9 @@ define void @Rtl_NtkUpdateBoxes(ptr nocapture noundef readonly %0) local_unnamed
   %13 = getelementptr i8, ptr %12, i64 8
   %.val16 = load i32, ptr %13, align 4
   %14 = icmp sgt i32 %.val16, 999999999
-  br i1 %14, label %Rtl_CellNtk.argprom.exit, label %Rtl_CellNtk.argprom.exit.thread
+  br i1 %14, label %Rtl_CellNtk.exit, label %Rtl_CellNtk.exit.thread
 
-Rtl_CellNtk.argprom.exit:                         ; preds = %8
+Rtl_CellNtk.exit:                                 ; preds = %8
   %.val4.i = load ptr, ptr %6, align 8
   %15 = getelementptr i8, ptr %.val4.i, i64 8
   %.val4.val.i = load ptr, ptr %15, align 8
@@ -9545,28 +9545,28 @@ Rtl_CellNtk.argprom.exit:                         ; preds = %8
   %19 = getelementptr i8, ptr %18, i64 -8000000000
   %20 = load ptr, ptr %19, align 8
   %.not13 = icmp eq ptr %20, null
-  br i1 %.not13, label %Rtl_CellNtk.argprom.exit.thread, label %21
+  br i1 %.not13, label %Rtl_CellNtk.exit.thread, label %21
 
-21:                                               ; preds = %Rtl_CellNtk.argprom.exit
+21:                                               ; preds = %Rtl_CellNtk.exit
   %22 = getelementptr inbounds i8, ptr %20, i64 200
   %23 = load i32, ptr %22, align 8
   %24 = icmp sgt i32 %23, -1
-  br i1 %24, label %25, label %Rtl_CellNtk.argprom.exit.thread
+  br i1 %24, label %25, label %Rtl_CellNtk.exit.thread
 
 25:                                               ; preds = %21
   %26 = add nuw nsw i32 %23, 1000000000
   store i32 %26, ptr %13, align 4
   %.val.pre = load i32, ptr %3, align 4
-  br label %Rtl_CellNtk.argprom.exit.thread
+  br label %Rtl_CellNtk.exit.thread
 
-Rtl_CellNtk.argprom.exit.thread:                  ; preds = %8, %Rtl_CellNtk.argprom.exit, %21, %25
-  %.val = phi i32 [ %.val22, %8 ], [ %.val22, %Rtl_CellNtk.argprom.exit ], [ %.val22, %21 ], [ %.val.pre, %25 ]
+Rtl_CellNtk.exit.thread:                          ; preds = %8, %Rtl_CellNtk.exit, %21, %25
+  %.val = phi i32 [ %.val22, %8 ], [ %.val22, %Rtl_CellNtk.exit ], [ %.val22, %21 ], [ %.val.pre, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %.val to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
   br i1 %28, label %7, label %.critedge, !llvm.loop !78
 
-.critedge:                                        ; preds = %7, %Rtl_CellNtk.argprom.exit.thread, %1
+.critedge:                                        ; preds = %7, %Rtl_CellNtk.exit.thread, %1
   ret void
 }
 
@@ -9597,9 +9597,9 @@ define void @Rtl_LibUpdateBoxes(ptr nocapture noundef readonly %0) local_unnamed
   %14 = getelementptr i8, ptr %9, i64 96
   br label %15
 
-15:                                               ; preds = %Rtl_CellNtk.argprom.exit.thread.i, %.lr.ph.i
-  %.val22.i = phi i32 [ %.val18.i, %.lr.ph.i ], [ %.val.i, %Rtl_CellNtk.argprom.exit.thread.i ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Rtl_CellNtk.argprom.exit.thread.i ]
+15:                                               ; preds = %Rtl_CellNtk.exit.thread.i, %.lr.ph.i
+  %.val22.i = phi i32 [ %.val18.i, %.lr.ph.i ], [ %.val.i, %Rtl_CellNtk.exit.thread.i ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Rtl_CellNtk.exit.thread.i ]
   %.val15.i = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.val15.i, null
   br i1 %.not.i, label %Rtl_NtkUpdateBoxes.exit.loopexit, label %16
@@ -9613,9 +9613,9 @@ define void @Rtl_LibUpdateBoxes(ptr nocapture noundef readonly %0) local_unnamed
   %21 = getelementptr i8, ptr %20, i64 8
   %.val16.i = load i32, ptr %21, align 4
   %22 = icmp sgt i32 %.val16.i, 999999999
-  br i1 %22, label %Rtl_CellNtk.argprom.exit.i, label %Rtl_CellNtk.argprom.exit.thread.i
+  br i1 %22, label %Rtl_CellNtk.exit.i, label %Rtl_CellNtk.exit.thread.i
 
-Rtl_CellNtk.argprom.exit.i:                       ; preds = %16
+Rtl_CellNtk.exit.i:                               ; preds = %16
   %.val4.i.i = load ptr, ptr %14, align 8
   %23 = getelementptr i8, ptr %.val4.i.i, i64 8
   %.val4.val.i.i = load ptr, ptr %23, align 8
@@ -9626,28 +9626,28 @@ Rtl_CellNtk.argprom.exit.i:                       ; preds = %16
   %27 = getelementptr i8, ptr %26, i64 -8000000000
   %28 = load ptr, ptr %27, align 8
   %.not13.i = icmp eq ptr %28, null
-  br i1 %.not13.i, label %Rtl_CellNtk.argprom.exit.thread.i, label %29
+  br i1 %.not13.i, label %Rtl_CellNtk.exit.thread.i, label %29
 
-29:                                               ; preds = %Rtl_CellNtk.argprom.exit.i
+29:                                               ; preds = %Rtl_CellNtk.exit.i
   %30 = getelementptr inbounds i8, ptr %28, i64 200
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %33, label %Rtl_CellNtk.argprom.exit.thread.i
+  br i1 %32, label %33, label %Rtl_CellNtk.exit.thread.i
 
 33:                                               ; preds = %29
   %34 = add nuw nsw i32 %31, 1000000000
   store i32 %34, ptr %21, align 4
   %.val.pre.i = load i32, ptr %11, align 4
-  br label %Rtl_CellNtk.argprom.exit.thread.i
+  br label %Rtl_CellNtk.exit.thread.i
 
-Rtl_CellNtk.argprom.exit.thread.i:                ; preds = %33, %29, %Rtl_CellNtk.argprom.exit.i, %16
-  %.val.i = phi i32 [ %.val22.i, %16 ], [ %.val22.i, %Rtl_CellNtk.argprom.exit.i ], [ %.val22.i, %29 ], [ %.val.pre.i, %33 ]
+Rtl_CellNtk.exit.thread.i:                        ; preds = %33, %29, %Rtl_CellNtk.exit.i, %16
+  %.val.i = phi i32 [ %.val22.i, %16 ], [ %.val22.i, %Rtl_CellNtk.exit.i ], [ %.val22.i, %29 ], [ %.val.pre.i, %33 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = sext i32 %.val.i to i64
   %36 = icmp slt i64 %indvars.iv.next.i, %35
   br i1 %36, label %15, label %Rtl_NtkUpdateBoxes.exit.loopexit, !llvm.loop !78
 
-Rtl_NtkUpdateBoxes.exit.loopexit:                 ; preds = %Rtl_CellNtk.argprom.exit.thread.i, %15
+Rtl_NtkUpdateBoxes.exit.loopexit:                 ; preds = %Rtl_CellNtk.exit.thread.i, %15
   %.pre = load ptr, ptr %2, align 8
   br label %Rtl_NtkUpdateBoxes.exit
 
@@ -9762,9 +9762,9 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %8
   %46 = getelementptr i8, ptr %41, i64 96
   br label %47
 
-47:                                               ; preds = %Rtl_CellNtk.argprom.exit.thread.i.i, %.lr.ph.i.i
-  %.val22.i.i = phi i32 [ %.val18.i.i, %.lr.ph.i.i ], [ %.val.i.i, %Rtl_CellNtk.argprom.exit.thread.i.i ]
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %Rtl_CellNtk.argprom.exit.thread.i.i ]
+47:                                               ; preds = %Rtl_CellNtk.exit.thread.i.i, %.lr.ph.i.i
+  %.val22.i.i = phi i32 [ %.val18.i.i, %.lr.ph.i.i ], [ %.val.i.i, %Rtl_CellNtk.exit.thread.i.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %Rtl_CellNtk.exit.thread.i.i ]
   %.val15.i.i = load ptr, ptr %42, align 8
   %.not.i.i = icmp eq ptr %.val15.i.i, null
   br i1 %.not.i.i, label %Rtl_NtkUpdateBoxes.exit.loopexit.i, label %48
@@ -9778,9 +9778,9 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %8
   %53 = getelementptr i8, ptr %52, i64 8
   %.val16.i.i = load i32, ptr %53, align 4
   %54 = icmp sgt i32 %.val16.i.i, 999999999
-  br i1 %54, label %Rtl_CellNtk.argprom.exit.i.i, label %Rtl_CellNtk.argprom.exit.thread.i.i
+  br i1 %54, label %Rtl_CellNtk.exit.i.i, label %Rtl_CellNtk.exit.thread.i.i
 
-Rtl_CellNtk.argprom.exit.i.i:                     ; preds = %48
+Rtl_CellNtk.exit.i.i:                             ; preds = %48
   %.val4.i.i.i = load ptr, ptr %46, align 8
   %55 = getelementptr i8, ptr %.val4.i.i.i, i64 8
   %.val4.val.i.i.i = load ptr, ptr %55, align 8
@@ -9791,28 +9791,28 @@ Rtl_CellNtk.argprom.exit.i.i:                     ; preds = %48
   %59 = getelementptr i8, ptr %58, i64 -8000000000
   %60 = load ptr, ptr %59, align 8
   %.not13.i.i = icmp eq ptr %60, null
-  br i1 %.not13.i.i, label %Rtl_CellNtk.argprom.exit.thread.i.i, label %61
+  br i1 %.not13.i.i, label %Rtl_CellNtk.exit.thread.i.i, label %61
 
-61:                                               ; preds = %Rtl_CellNtk.argprom.exit.i.i
+61:                                               ; preds = %Rtl_CellNtk.exit.i.i
   %62 = getelementptr inbounds i8, ptr %60, i64 200
   %63 = load i32, ptr %62, align 8
   %64 = icmp sgt i32 %63, -1
-  br i1 %64, label %65, label %Rtl_CellNtk.argprom.exit.thread.i.i
+  br i1 %64, label %65, label %Rtl_CellNtk.exit.thread.i.i
 
 65:                                               ; preds = %61
   %66 = add nuw nsw i32 %63, 1000000000
   store i32 %66, ptr %53, align 4
   %.val.pre.i.i = load i32, ptr %43, align 4
-  br label %Rtl_CellNtk.argprom.exit.thread.i.i
+  br label %Rtl_CellNtk.exit.thread.i.i
 
-Rtl_CellNtk.argprom.exit.thread.i.i:              ; preds = %65, %61, %Rtl_CellNtk.argprom.exit.i.i, %48
-  %.val.i.i = phi i32 [ %.val22.i.i, %48 ], [ %.val22.i.i, %Rtl_CellNtk.argprom.exit.i.i ], [ %.val22.i.i, %61 ], [ %.val.pre.i.i, %65 ]
+Rtl_CellNtk.exit.thread.i.i:                      ; preds = %65, %61, %Rtl_CellNtk.exit.i.i, %48
+  %.val.i.i = phi i32 [ %.val22.i.i, %48 ], [ %.val22.i.i, %Rtl_CellNtk.exit.i.i ], [ %.val22.i.i, %61 ], [ %.val.pre.i.i, %65 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %67 = sext i32 %.val.i.i to i64
   %68 = icmp slt i64 %indvars.iv.next.i.i, %67
   br i1 %68, label %47, label %Rtl_NtkUpdateBoxes.exit.loopexit.i, !llvm.loop !78
 
-Rtl_NtkUpdateBoxes.exit.loopexit.i:               ; preds = %Rtl_CellNtk.argprom.exit.thread.i.i, %47
+Rtl_NtkUpdateBoxes.exit.loopexit.i:               ; preds = %Rtl_CellNtk.exit.thread.i.i, %47
   %.pre.i = load ptr, ptr %2, align 8
   br label %Rtl_NtkUpdateBoxes.exit.i
 
@@ -11873,7 +11873,7 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -14675,9 +14675,9 @@ define void @Rtl_LibMark_rec(ptr nocapture noundef %0) local_unnamed_addr #18 {
   %9 = getelementptr i8, ptr %0, i64 96
   br label %10
 
-10:                                               ; preds = %.lr.ph, %Rtl_CellNtk.argprom.exit.thread
-  %.val21 = phi i32 [ %.val17, %.lr.ph ], [ %.val, %Rtl_CellNtk.argprom.exit.thread ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Rtl_CellNtk.argprom.exit.thread ]
+10:                                               ; preds = %.lr.ph, %Rtl_CellNtk.exit.thread
+  %.val21 = phi i32 [ %.val17, %.lr.ph ], [ %.val, %Rtl_CellNtk.exit.thread ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Rtl_CellNtk.exit.thread ]
   %.val14 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.val14, null
   br i1 %.not, label %.critedge, label %11
@@ -14691,9 +14691,9 @@ define void @Rtl_LibMark_rec(ptr nocapture noundef %0) local_unnamed_addr #18 {
   %16 = getelementptr i8, ptr %15, i64 8
   %.val15 = load i32, ptr %16, align 4
   %17 = icmp sgt i32 %.val15, 999999999
-  br i1 %17, label %Rtl_CellNtk.argprom.exit, label %Rtl_CellNtk.argprom.exit.thread
+  br i1 %17, label %Rtl_CellNtk.exit, label %Rtl_CellNtk.exit.thread
 
-Rtl_CellNtk.argprom.exit:                         ; preds = %11
+Rtl_CellNtk.exit:                                 ; preds = %11
   %.val4.i = load ptr, ptr %9, align 8
   %18 = getelementptr i8, ptr %.val4.i, i64 8
   %.val4.val.i = load ptr, ptr %18, align 8
@@ -14704,21 +14704,21 @@ Rtl_CellNtk.argprom.exit:                         ; preds = %11
   %22 = getelementptr i8, ptr %21, i64 -8000000000
   %23 = load ptr, ptr %22, align 8
   %.not12 = icmp eq ptr %23, null
-  br i1 %.not12, label %Rtl_CellNtk.argprom.exit.thread, label %24
+  br i1 %.not12, label %Rtl_CellNtk.exit.thread, label %24
 
-24:                                               ; preds = %Rtl_CellNtk.argprom.exit
+24:                                               ; preds = %Rtl_CellNtk.exit
   tail call void @Rtl_LibMark_rec(ptr noundef nonnull %23)
   %.val.pre = load i32, ptr %6, align 4
-  br label %Rtl_CellNtk.argprom.exit.thread
+  br label %Rtl_CellNtk.exit.thread
 
-Rtl_CellNtk.argprom.exit.thread:                  ; preds = %11, %Rtl_CellNtk.argprom.exit, %24
-  %.val = phi i32 [ %.val21, %11 ], [ %.val21, %Rtl_CellNtk.argprom.exit ], [ %.val.pre, %24 ]
+Rtl_CellNtk.exit.thread:                          ; preds = %11, %Rtl_CellNtk.exit, %24
+  %.val = phi i32 [ %.val21, %11 ], [ %.val21, %Rtl_CellNtk.exit ], [ %.val.pre, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = sext i32 %.val to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
   br i1 %26, label %10, label %.critedge, !llvm.loop !130
 
-.critedge:                                        ; preds = %10, %Rtl_CellNtk.argprom.exit.thread, %.preheader
+.critedge:                                        ; preds = %10, %Rtl_CellNtk.exit.thread, %.preheader
   store i32 -1, ptr %2, align 8
   br label %27
 
@@ -15412,7 +15412,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %41 = load ptr, ptr %21, align 8
   %42 = call ptr @Gia_ManDup(ptr noundef %41) #37
   call void @Gia_ManInvertPos(ptr noundef %42) #37
-  call fastcc void @Gia_ManAppendCo.retelim(ptr noundef %42, i32 noundef 0)
+  call fastcc void @Gia_ManAppendCo(ptr noundef %42, i32 noundef 0)
   %43 = call i32 @Cec_ManVerifySimple(ptr noundef %42) #37
   call void @Gia_ManStop(ptr noundef %42) #37
   %44 = icmp eq i32 %43, 1
@@ -16500,9 +16500,9 @@ define void @Wln_SolveWithGuidance(ptr noundef %0, ptr nocapture noundef readonl
   %33 = getelementptr i8, ptr %28, i64 96
   br label %34
 
-34:                                               ; preds = %Rtl_CellNtk.argprom.exit.thread.i.i, %.lr.ph.i.i
-  %.val22.i.i = phi i32 [ %.val18.i.i, %.lr.ph.i.i ], [ %.val.i.i, %Rtl_CellNtk.argprom.exit.thread.i.i ]
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %Rtl_CellNtk.argprom.exit.thread.i.i ]
+34:                                               ; preds = %Rtl_CellNtk.exit.thread.i.i, %.lr.ph.i.i
+  %.val22.i.i = phi i32 [ %.val18.i.i, %.lr.ph.i.i ], [ %.val.i.i, %Rtl_CellNtk.exit.thread.i.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %Rtl_CellNtk.exit.thread.i.i ]
   %.val15.i.i = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %.val15.i.i, null
   br i1 %.not.i.i, label %Rtl_NtkUpdateBoxes.exit.loopexit.i, label %35
@@ -16516,9 +16516,9 @@ define void @Wln_SolveWithGuidance(ptr noundef %0, ptr nocapture noundef readonl
   %40 = getelementptr i8, ptr %39, i64 8
   %.val16.i.i = load i32, ptr %40, align 4
   %41 = icmp sgt i32 %.val16.i.i, 999999999
-  br i1 %41, label %Rtl_CellNtk.argprom.exit.i.i, label %Rtl_CellNtk.argprom.exit.thread.i.i
+  br i1 %41, label %Rtl_CellNtk.exit.i.i, label %Rtl_CellNtk.exit.thread.i.i
 
-Rtl_CellNtk.argprom.exit.i.i:                     ; preds = %35
+Rtl_CellNtk.exit.i.i:                             ; preds = %35
   %.val4.i.i.i = load ptr, ptr %33, align 8
   %42 = getelementptr i8, ptr %.val4.i.i.i, i64 8
   %.val4.val.i.i.i = load ptr, ptr %42, align 8
@@ -16529,28 +16529,28 @@ Rtl_CellNtk.argprom.exit.i.i:                     ; preds = %35
   %46 = getelementptr i8, ptr %45, i64 -8000000000
   %47 = load ptr, ptr %46, align 8
   %.not13.i.i = icmp eq ptr %47, null
-  br i1 %.not13.i.i, label %Rtl_CellNtk.argprom.exit.thread.i.i, label %48
+  br i1 %.not13.i.i, label %Rtl_CellNtk.exit.thread.i.i, label %48
 
-48:                                               ; preds = %Rtl_CellNtk.argprom.exit.i.i
+48:                                               ; preds = %Rtl_CellNtk.exit.i.i
   %49 = getelementptr inbounds i8, ptr %47, i64 200
   %50 = load i32, ptr %49, align 8
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %52, label %Rtl_CellNtk.argprom.exit.thread.i.i
+  br i1 %51, label %52, label %Rtl_CellNtk.exit.thread.i.i
 
 52:                                               ; preds = %48
   %53 = add nuw nsw i32 %50, 1000000000
   store i32 %53, ptr %40, align 4
   %.val.pre.i.i = load i32, ptr %30, align 4
-  br label %Rtl_CellNtk.argprom.exit.thread.i.i
+  br label %Rtl_CellNtk.exit.thread.i.i
 
-Rtl_CellNtk.argprom.exit.thread.i.i:              ; preds = %52, %48, %Rtl_CellNtk.argprom.exit.i.i, %35
-  %.val.i.i = phi i32 [ %.val22.i.i, %35 ], [ %.val22.i.i, %Rtl_CellNtk.argprom.exit.i.i ], [ %.val22.i.i, %48 ], [ %.val.pre.i.i, %52 ]
+Rtl_CellNtk.exit.thread.i.i:                      ; preds = %52, %48, %Rtl_CellNtk.exit.i.i, %35
+  %.val.i.i = phi i32 [ %.val22.i.i, %35 ], [ %.val22.i.i, %Rtl_CellNtk.exit.i.i ], [ %.val22.i.i, %48 ], [ %.val.pre.i.i, %52 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %54 = sext i32 %.val.i.i to i64
   %55 = icmp slt i64 %indvars.iv.next.i.i, %54
   br i1 %55, label %34, label %Rtl_NtkUpdateBoxes.exit.loopexit.i, !llvm.loop !78
 
-Rtl_NtkUpdateBoxes.exit.loopexit.i:               ; preds = %Rtl_CellNtk.argprom.exit.thread.i.i, %34
+Rtl_NtkUpdateBoxes.exit.loopexit.i:               ; preds = %Rtl_CellNtk.exit.thread.i.i, %34
   %.pre.i = load ptr, ptr %21, align 8
   br label %Rtl_NtkUpdateBoxes.exit.i
 
@@ -18014,7 +18014,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %304 = lshr i32 %303, 29
   %305 = and i32 %304, 1
   %306 = xor i32 %305, %302
-  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %5, i32 noundef %306)
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %5, i32 noundef %306)
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %307 = load ptr, ptr %282, align 8
   %308 = getelementptr i8, ptr %307, i64 4
@@ -18476,9 +18476,9 @@ Rtl_LibFindModule.exit112:                        ; preds = %57, %.lr.ph265, %.c
   %78 = getelementptr i8, ptr %73, i64 96
   br label %79
 
-79:                                               ; preds = %Rtl_CellNtk.argprom.exit.thread.i.i, %.lr.ph.i.i
-  %.val22.i.i = phi i32 [ %.val18.i.i, %.lr.ph.i.i ], [ %.val.i.i, %Rtl_CellNtk.argprom.exit.thread.i.i ]
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %Rtl_CellNtk.argprom.exit.thread.i.i ]
+79:                                               ; preds = %Rtl_CellNtk.exit.thread.i.i, %.lr.ph.i.i
+  %.val22.i.i = phi i32 [ %.val18.i.i, %.lr.ph.i.i ], [ %.val.i.i, %Rtl_CellNtk.exit.thread.i.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %Rtl_CellNtk.exit.thread.i.i ]
   %.val15.i.i = load ptr, ptr %74, align 8
   %.not.i.i = icmp eq ptr %.val15.i.i, null
   br i1 %.not.i.i, label %Rtl_NtkUpdateBoxes.exit.loopexit.i, label %80
@@ -18492,9 +18492,9 @@ Rtl_LibFindModule.exit112:                        ; preds = %57, %.lr.ph265, %.c
   %85 = getelementptr i8, ptr %84, i64 8
   %.val16.i.i = load i32, ptr %85, align 4
   %86 = icmp sgt i32 %.val16.i.i, 999999999
-  br i1 %86, label %Rtl_CellNtk.argprom.exit.i.i, label %Rtl_CellNtk.argprom.exit.thread.i.i
+  br i1 %86, label %Rtl_CellNtk.exit.i.i, label %Rtl_CellNtk.exit.thread.i.i
 
-Rtl_CellNtk.argprom.exit.i.i:                     ; preds = %80
+Rtl_CellNtk.exit.i.i:                             ; preds = %80
   %.val4.i.i.i = load ptr, ptr %78, align 8
   %87 = getelementptr i8, ptr %.val4.i.i.i, i64 8
   %.val4.val.i.i.i = load ptr, ptr %87, align 8
@@ -18505,28 +18505,28 @@ Rtl_CellNtk.argprom.exit.i.i:                     ; preds = %80
   %91 = getelementptr i8, ptr %90, i64 -8000000000
   %92 = load ptr, ptr %91, align 8
   %.not13.i.i = icmp eq ptr %92, null
-  br i1 %.not13.i.i, label %Rtl_CellNtk.argprom.exit.thread.i.i, label %93
+  br i1 %.not13.i.i, label %Rtl_CellNtk.exit.thread.i.i, label %93
 
-93:                                               ; preds = %Rtl_CellNtk.argprom.exit.i.i
+93:                                               ; preds = %Rtl_CellNtk.exit.i.i
   %94 = getelementptr inbounds i8, ptr %92, i64 200
   %95 = load i32, ptr %94, align 8
   %96 = icmp sgt i32 %95, -1
-  br i1 %96, label %97, label %Rtl_CellNtk.argprom.exit.thread.i.i
+  br i1 %96, label %97, label %Rtl_CellNtk.exit.thread.i.i
 
 97:                                               ; preds = %93
   %98 = add nuw nsw i32 %95, 1000000000
   store i32 %98, ptr %85, align 4
   %.val.pre.i.i = load i32, ptr %75, align 4
-  br label %Rtl_CellNtk.argprom.exit.thread.i.i
+  br label %Rtl_CellNtk.exit.thread.i.i
 
-Rtl_CellNtk.argprom.exit.thread.i.i:              ; preds = %97, %93, %Rtl_CellNtk.argprom.exit.i.i, %80
-  %.val.i.i = phi i32 [ %.val22.i.i, %80 ], [ %.val22.i.i, %Rtl_CellNtk.argprom.exit.i.i ], [ %.val22.i.i, %93 ], [ %.val.pre.i.i, %97 ]
+Rtl_CellNtk.exit.thread.i.i:                      ; preds = %97, %93, %Rtl_CellNtk.exit.i.i, %80
+  %.val.i.i = phi i32 [ %.val22.i.i, %80 ], [ %.val22.i.i, %Rtl_CellNtk.exit.i.i ], [ %.val22.i.i, %93 ], [ %.val.pre.i.i, %97 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %99 = sext i32 %.val.i.i to i64
   %100 = icmp slt i64 %indvars.iv.next.i.i, %99
   br i1 %100, label %79, label %Rtl_NtkUpdateBoxes.exit.loopexit.i, !llvm.loop !78
 
-Rtl_NtkUpdateBoxes.exit.loopexit.i:               ; preds = %Rtl_CellNtk.argprom.exit.thread.i.i, %79
+Rtl_NtkUpdateBoxes.exit.loopexit.i:               ; preds = %Rtl_CellNtk.exit.thread.i.i, %79
   %.pre.i117 = load ptr, ptr %7, align 8
   br label %Rtl_NtkUpdateBoxes.exit.i
 
@@ -18670,16 +18670,16 @@ Rtl_LibUpdateBoxes.exit:                          ; preds = %Rtl_NtkUpdateBoxes.
   %wide.trip.count.i126 = zext nneg i32 %.val.i123 to i64
   br label %168
 
-168:                                              ; preds = %Rtl_CellNtk.argprom.exit.i, %.lr.ph.split.i
-  %indvars.iv.i127 = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i128, %Rtl_CellNtk.argprom.exit.i ]
-  %.129.i = phi i32 [ %.01832.i, %.lr.ph.split.i ], [ %.2.i, %Rtl_CellNtk.argprom.exit.i ]
+168:                                              ; preds = %Rtl_CellNtk.exit.i, %.lr.ph.split.i
+  %indvars.iv.i127 = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i128, %Rtl_CellNtk.exit.i ]
+  %.129.i = phi i32 [ %.01832.i, %.lr.ph.split.i ], [ %.2.i, %Rtl_CellNtk.exit.i ]
   %169 = getelementptr inbounds i32, ptr %.val23.i, i64 %indvars.iv.i127
   %170 = load i32, ptr %169, align 4
   %171 = sext i32 %170 to i64
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %171
   %.val27.i = load i32, ptr %gep.i, align 4
   %172 = icmp sgt i32 %.val27.i, 999999999
-  br i1 %172, label %173, label %Rtl_CellNtk.argprom.exit.i
+  br i1 %172, label %173, label %Rtl_CellNtk.exit.i
 
 173:                                              ; preds = %168
   %.val4.i.i = load ptr, ptr %166, align 8
@@ -18691,9 +18691,9 @@ Rtl_LibUpdateBoxes.exit:                          ; preds = %Rtl_NtkUpdateBoxes.
   %177 = getelementptr ptr, ptr %.val4.val.val.i.i, i64 %176
   %178 = getelementptr i8, ptr %177, i64 -8000000000
   %179 = load ptr, ptr %178, align 8
-  br label %Rtl_CellNtk.argprom.exit.i
+  br label %Rtl_CellNtk.exit.i
 
-Rtl_CellNtk.argprom.exit.i:                       ; preds = %173, %168
+Rtl_CellNtk.exit.i:                               ; preds = %173, %168
   %180 = phi ptr [ %179, %173 ], [ null, %168 ]
   %181 = icmp eq ptr %180, %148
   %182 = zext i1 %181 to i32
@@ -18702,8 +18702,8 @@ Rtl_CellNtk.argprom.exit.i:                       ; preds = %173, %168
   %exitcond.not.i129 = icmp eq i64 %indvars.iv.next.i128, %wide.trip.count.i126
   br i1 %exitcond.not.i129, label %.critedge2.i, label %168, !llvm.loop !76
 
-.critedge2.i:                                     ; preds = %Rtl_CellNtk.argprom.exit.i, %.lr.ph.i124, %160
-  %.1.lcssa.i = phi i32 [ %.01832.i, %160 ], [ %.01832.i, %.lr.ph.i124 ], [ %.2.i, %Rtl_CellNtk.argprom.exit.i ]
+.critedge2.i:                                     ; preds = %Rtl_CellNtk.exit.i, %.lr.ph.i124, %160
+  %.1.lcssa.i = phi i32 [ %.01832.i, %160 ], [ %.01832.i, %.lr.ph.i124 ], [ %.2.i, %Rtl_CellNtk.exit.i ]
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
   br i1 %exitcond40.not.i, label %Rtl_LibCountInsts.exit, label %160, !llvm.loop !77
@@ -18752,16 +18752,16 @@ Rtl_LibCountInsts.exit:                           ; preds = %.critedge2.i, %158
   %wide.trip.count.i148 = zext nneg i32 %.val.i137 to i64
   br label %198
 
-198:                                              ; preds = %Rtl_CellNtk.argprom.exit.i153, %.lr.ph.split.i146
-  %indvars.iv.i149 = phi i64 [ 0, %.lr.ph.split.i146 ], [ %indvars.iv.next.i157, %Rtl_CellNtk.argprom.exit.i153 ]
-  %.129.i150 = phi i32 [ %.01832.i136, %.lr.ph.split.i146 ], [ %.2.i156, %Rtl_CellNtk.argprom.exit.i153 ]
+198:                                              ; preds = %Rtl_CellNtk.exit.i153, %.lr.ph.split.i146
+  %indvars.iv.i149 = phi i64 [ 0, %.lr.ph.split.i146 ], [ %indvars.iv.next.i157, %Rtl_CellNtk.exit.i153 ]
+  %.129.i150 = phi i32 [ %.01832.i136, %.lr.ph.split.i146 ], [ %.2.i156, %Rtl_CellNtk.exit.i153 ]
   %199 = getelementptr inbounds i32, ptr %.val23.i147, i64 %indvars.iv.i149
   %200 = load i32, ptr %199, align 4
   %201 = sext i32 %200 to i64
   %gep.i151 = getelementptr i32, ptr %invariant.gep.i145, i64 %201
   %.val27.i152 = load i32, ptr %gep.i151, align 4
   %202 = icmp sgt i32 %.val27.i152, 999999999
-  br i1 %202, label %203, label %Rtl_CellNtk.argprom.exit.i153
+  br i1 %202, label %203, label %Rtl_CellNtk.exit.i153
 
 203:                                              ; preds = %198
   %.val4.i.i159 = load ptr, ptr %196, align 8
@@ -18773,9 +18773,9 @@ Rtl_LibCountInsts.exit:                           ; preds = %.critedge2.i, %158
   %207 = getelementptr ptr, ptr %.val4.val.val.i.i161, i64 %206
   %208 = getelementptr i8, ptr %207, i64 -8000000000
   %209 = load ptr, ptr %208, align 8
-  br label %Rtl_CellNtk.argprom.exit.i153
+  br label %Rtl_CellNtk.exit.i153
 
-Rtl_CellNtk.argprom.exit.i153:                    ; preds = %203, %198
+Rtl_CellNtk.exit.i153:                            ; preds = %203, %198
   %210 = phi ptr [ %209, %203 ], [ null, %198 ]
   %211 = icmp eq ptr %210, %151
   %212 = zext i1 %211 to i32
@@ -18784,8 +18784,8 @@ Rtl_CellNtk.argprom.exit.i153:                    ; preds = %203, %198
   %exitcond.not.i158 = icmp eq i64 %indvars.iv.next.i157, %wide.trip.count.i148
   br i1 %exitcond.not.i158, label %.critedge2.i138, label %198, !llvm.loop !76
 
-.critedge2.i138:                                  ; preds = %Rtl_CellNtk.argprom.exit.i153, %.lr.ph.i142, %190
-  %.1.lcssa.i139 = phi i32 [ %.01832.i136, %190 ], [ %.01832.i136, %.lr.ph.i142 ], [ %.2.i156, %Rtl_CellNtk.argprom.exit.i153 ]
+.critedge2.i138:                                  ; preds = %Rtl_CellNtk.exit.i153, %.lr.ph.i142, %190
+  %.1.lcssa.i139 = phi i32 [ %.01832.i136, %190 ], [ %.01832.i136, %.lr.ph.i142 ], [ %.2.i156, %Rtl_CellNtk.exit.i153 ]
   %indvars.iv.next37.i140 = add nuw nsw i64 %indvars.iv36.i135, 1
   %exitcond40.not.i141 = icmp eq i64 %indvars.iv.next37.i140, %wide.trip.count39.i134
   br i1 %exitcond40.not.i141, label %Rtl_LibCountInsts.exit162, label %190, !llvm.loop !77
@@ -18849,16 +18849,16 @@ Rtl_LibCountInsts.exit162:                        ; preds = %.critedge2.i138, %R
   %wide.trip.count.i181 = zext nneg i32 %.val.i170 to i64
   br label %236
 
-236:                                              ; preds = %Rtl_CellNtk.argprom.exit.i186, %.lr.ph.split.i179
-  %indvars.iv.i182 = phi i64 [ 0, %.lr.ph.split.i179 ], [ %indvars.iv.next.i190, %Rtl_CellNtk.argprom.exit.i186 ]
-  %.129.i183 = phi i32 [ %.01832.i169, %.lr.ph.split.i179 ], [ %.2.i189, %Rtl_CellNtk.argprom.exit.i186 ]
+236:                                              ; preds = %Rtl_CellNtk.exit.i186, %.lr.ph.split.i179
+  %indvars.iv.i182 = phi i64 [ 0, %.lr.ph.split.i179 ], [ %indvars.iv.next.i190, %Rtl_CellNtk.exit.i186 ]
+  %.129.i183 = phi i32 [ %.01832.i169, %.lr.ph.split.i179 ], [ %.2.i189, %Rtl_CellNtk.exit.i186 ]
   %237 = getelementptr inbounds i32, ptr %.val23.i180, i64 %indvars.iv.i182
   %238 = load i32, ptr %237, align 4
   %239 = sext i32 %238 to i64
   %gep.i184 = getelementptr i32, ptr %invariant.gep.i178, i64 %239
   %.val27.i185 = load i32, ptr %gep.i184, align 4
   %240 = icmp sgt i32 %.val27.i185, 999999999
-  br i1 %240, label %241, label %Rtl_CellNtk.argprom.exit.i186
+  br i1 %240, label %241, label %Rtl_CellNtk.exit.i186
 
 241:                                              ; preds = %236
   %.val4.i.i192 = load ptr, ptr %234, align 8
@@ -18870,9 +18870,9 @@ Rtl_LibCountInsts.exit162:                        ; preds = %.critedge2.i138, %R
   %245 = getelementptr ptr, ptr %.val4.val.val.i.i194, i64 %244
   %246 = getelementptr i8, ptr %245, i64 -8000000000
   %247 = load ptr, ptr %246, align 8
-  br label %Rtl_CellNtk.argprom.exit.i186
+  br label %Rtl_CellNtk.exit.i186
 
-Rtl_CellNtk.argprom.exit.i186:                    ; preds = %241, %236
+Rtl_CellNtk.exit.i186:                            ; preds = %241, %236
   %248 = phi ptr [ %247, %241 ], [ null, %236 ]
   %249 = icmp eq ptr %248, %148
   %250 = zext i1 %249 to i32
@@ -18881,8 +18881,8 @@ Rtl_CellNtk.argprom.exit.i186:                    ; preds = %241, %236
   %exitcond.not.i191 = icmp eq i64 %indvars.iv.next.i190, %wide.trip.count.i181
   br i1 %exitcond.not.i191, label %.critedge2.i171, label %236, !llvm.loop !76
 
-.critedge2.i171:                                  ; preds = %Rtl_CellNtk.argprom.exit.i186, %.lr.ph.i175, %228
-  %.1.lcssa.i172 = phi i32 [ %.01832.i169, %228 ], [ %.01832.i169, %.lr.ph.i175 ], [ %.2.i189, %Rtl_CellNtk.argprom.exit.i186 ]
+.critedge2.i171:                                  ; preds = %Rtl_CellNtk.exit.i186, %.lr.ph.i175, %228
+  %.1.lcssa.i172 = phi i32 [ %.01832.i169, %228 ], [ %.01832.i169, %.lr.ph.i175 ], [ %.2.i189, %Rtl_CellNtk.exit.i186 ]
   %indvars.iv.next37.i173 = add nuw nsw i64 %indvars.iv36.i168, 1
   %exitcond40.not.i174 = icmp eq i64 %indvars.iv.next37.i173, %wide.trip.count39.i167
   br i1 %exitcond40.not.i174, label %Rtl_LibCountInsts.exit195, label %228, !llvm.loop !77
@@ -18931,16 +18931,16 @@ Rtl_LibCountInsts.exit195:                        ; preds = %.critedge2.i171, %2
   %wide.trip.count.i214 = zext nneg i32 %.val.i203 to i64
   br label %266
 
-266:                                              ; preds = %Rtl_CellNtk.argprom.exit.i219, %.lr.ph.split.i212
-  %indvars.iv.i215 = phi i64 [ 0, %.lr.ph.split.i212 ], [ %indvars.iv.next.i223, %Rtl_CellNtk.argprom.exit.i219 ]
-  %.129.i216 = phi i32 [ %.01832.i202, %.lr.ph.split.i212 ], [ %.2.i222, %Rtl_CellNtk.argprom.exit.i219 ]
+266:                                              ; preds = %Rtl_CellNtk.exit.i219, %.lr.ph.split.i212
+  %indvars.iv.i215 = phi i64 [ 0, %.lr.ph.split.i212 ], [ %indvars.iv.next.i223, %Rtl_CellNtk.exit.i219 ]
+  %.129.i216 = phi i32 [ %.01832.i202, %.lr.ph.split.i212 ], [ %.2.i222, %Rtl_CellNtk.exit.i219 ]
   %267 = getelementptr inbounds i32, ptr %.val23.i213, i64 %indvars.iv.i215
   %268 = load i32, ptr %267, align 4
   %269 = sext i32 %268 to i64
   %gep.i217 = getelementptr i32, ptr %invariant.gep.i211, i64 %269
   %.val27.i218 = load i32, ptr %gep.i217, align 4
   %270 = icmp sgt i32 %.val27.i218, 999999999
-  br i1 %270, label %271, label %Rtl_CellNtk.argprom.exit.i219
+  br i1 %270, label %271, label %Rtl_CellNtk.exit.i219
 
 271:                                              ; preds = %266
   %.val4.i.i225 = load ptr, ptr %264, align 8
@@ -18952,9 +18952,9 @@ Rtl_LibCountInsts.exit195:                        ; preds = %.critedge2.i171, %2
   %275 = getelementptr ptr, ptr %.val4.val.val.i.i227, i64 %274
   %276 = getelementptr i8, ptr %275, i64 -8000000000
   %277 = load ptr, ptr %276, align 8
-  br label %Rtl_CellNtk.argprom.exit.i219
+  br label %Rtl_CellNtk.exit.i219
 
-Rtl_CellNtk.argprom.exit.i219:                    ; preds = %271, %266
+Rtl_CellNtk.exit.i219:                            ; preds = %271, %266
   %278 = phi ptr [ %277, %271 ], [ null, %266 ]
   %279 = icmp eq ptr %278, %151
   %280 = zext i1 %279 to i32
@@ -18963,8 +18963,8 @@ Rtl_CellNtk.argprom.exit.i219:                    ; preds = %271, %266
   %exitcond.not.i224 = icmp eq i64 %indvars.iv.next.i223, %wide.trip.count.i214
   br i1 %exitcond.not.i224, label %.critedge2.i204, label %266, !llvm.loop !76
 
-.critedge2.i204:                                  ; preds = %Rtl_CellNtk.argprom.exit.i219, %.lr.ph.i208, %258
-  %.1.lcssa.i205 = phi i32 [ %.01832.i202, %258 ], [ %.01832.i202, %.lr.ph.i208 ], [ %.2.i222, %Rtl_CellNtk.argprom.exit.i219 ]
+.critedge2.i204:                                  ; preds = %Rtl_CellNtk.exit.i219, %.lr.ph.i208, %258
+  %.1.lcssa.i205 = phi i32 [ %.01832.i202, %258 ], [ %.01832.i202, %.lr.ph.i208 ], [ %.2.i222, %Rtl_CellNtk.exit.i219 ]
   %indvars.iv.next37.i206 = add nuw nsw i64 %indvars.iv36.i201, 1
   %exitcond40.not.i207 = icmp eq i64 %indvars.iv.next37.i206, %wide.trip.count39.i200
   br i1 %exitcond40.not.i207, label %Rtl_LibCountInsts.exit228, label %258, !llvm.loop !77
@@ -18998,9 +18998,9 @@ Rtl_LibCountInsts.exit228:                        ; preds = %.critedge2.i204, %R
   %294 = getelementptr i8, ptr %289, i64 96
   br label %295
 
-295:                                              ; preds = %Rtl_CellNtk.argprom.exit.thread.i.i244, %.lr.ph.i.i237
-  %.val22.i.i238 = phi i32 [ %.val18.i.i233, %.lr.ph.i.i237 ], [ %.val.i.i245, %Rtl_CellNtk.argprom.exit.thread.i.i244 ]
-  %indvars.iv.i.i239 = phi i64 [ 0, %.lr.ph.i.i237 ], [ %indvars.iv.next.i.i246, %Rtl_CellNtk.argprom.exit.thread.i.i244 ]
+295:                                              ; preds = %Rtl_CellNtk.exit.thread.i.i244, %.lr.ph.i.i237
+  %.val22.i.i238 = phi i32 [ %.val18.i.i233, %.lr.ph.i.i237 ], [ %.val.i.i245, %Rtl_CellNtk.exit.thread.i.i244 ]
+  %indvars.iv.i.i239 = phi i64 [ 0, %.lr.ph.i.i237 ], [ %indvars.iv.next.i.i246, %Rtl_CellNtk.exit.thread.i.i244 ]
   %.val15.i.i240 = load ptr, ptr %290, align 8
   %.not.i.i241 = icmp eq ptr %.val15.i.i240, null
   br i1 %.not.i.i241, label %Rtl_NtkUpdateBoxes.exit.loopexit.i247, label %296
@@ -19014,9 +19014,9 @@ Rtl_LibCountInsts.exit228:                        ; preds = %.critedge2.i204, %R
   %301 = getelementptr i8, ptr %300, i64 8
   %.val16.i.i243 = load i32, ptr %301, align 4
   %302 = icmp sgt i32 %.val16.i.i243, 999999999
-  br i1 %302, label %Rtl_CellNtk.argprom.exit.i.i249, label %Rtl_CellNtk.argprom.exit.thread.i.i244
+  br i1 %302, label %Rtl_CellNtk.exit.i.i249, label %Rtl_CellNtk.exit.thread.i.i244
 
-Rtl_CellNtk.argprom.exit.i.i249:                  ; preds = %296
+Rtl_CellNtk.exit.i.i249:                          ; preds = %296
   %.val4.i.i.i250 = load ptr, ptr %294, align 8
   %303 = getelementptr i8, ptr %.val4.i.i.i250, i64 8
   %.val4.val.i.i.i251 = load ptr, ptr %303, align 8
@@ -19027,28 +19027,28 @@ Rtl_CellNtk.argprom.exit.i.i249:                  ; preds = %296
   %307 = getelementptr i8, ptr %306, i64 -8000000000
   %308 = load ptr, ptr %307, align 8
   %.not13.i.i253 = icmp eq ptr %308, null
-  br i1 %.not13.i.i253, label %Rtl_CellNtk.argprom.exit.thread.i.i244, label %309
+  br i1 %.not13.i.i253, label %Rtl_CellNtk.exit.thread.i.i244, label %309
 
-309:                                              ; preds = %Rtl_CellNtk.argprom.exit.i.i249
+309:                                              ; preds = %Rtl_CellNtk.exit.i.i249
   %310 = getelementptr inbounds i8, ptr %308, i64 200
   %311 = load i32, ptr %310, align 8
   %312 = icmp sgt i32 %311, -1
-  br i1 %312, label %313, label %Rtl_CellNtk.argprom.exit.thread.i.i244
+  br i1 %312, label %313, label %Rtl_CellNtk.exit.thread.i.i244
 
 313:                                              ; preds = %309
   %314 = add nuw nsw i32 %311, 1000000000
   store i32 %314, ptr %301, align 4
   %.val.pre.i.i254 = load i32, ptr %291, align 4
-  br label %Rtl_CellNtk.argprom.exit.thread.i.i244
+  br label %Rtl_CellNtk.exit.thread.i.i244
 
-Rtl_CellNtk.argprom.exit.thread.i.i244:           ; preds = %313, %309, %Rtl_CellNtk.argprom.exit.i.i249, %296
-  %.val.i.i245 = phi i32 [ %.val22.i.i238, %296 ], [ %.val22.i.i238, %Rtl_CellNtk.argprom.exit.i.i249 ], [ %.val22.i.i238, %309 ], [ %.val.pre.i.i254, %313 ]
+Rtl_CellNtk.exit.thread.i.i244:                   ; preds = %313, %309, %Rtl_CellNtk.exit.i.i249, %296
+  %.val.i.i245 = phi i32 [ %.val22.i.i238, %296 ], [ %.val22.i.i238, %Rtl_CellNtk.exit.i.i249 ], [ %.val22.i.i238, %309 ], [ %.val.pre.i.i254, %313 ]
   %indvars.iv.next.i.i246 = add nuw nsw i64 %indvars.iv.i.i239, 1
   %315 = sext i32 %.val.i.i245 to i64
   %316 = icmp slt i64 %indvars.iv.next.i.i246, %315
   br i1 %316, label %295, label %Rtl_NtkUpdateBoxes.exit.loopexit.i247, !llvm.loop !78
 
-Rtl_NtkUpdateBoxes.exit.loopexit.i247:            ; preds = %Rtl_CellNtk.argprom.exit.thread.i.i244, %295
+Rtl_NtkUpdateBoxes.exit.loopexit.i247:            ; preds = %Rtl_CellNtk.exit.thread.i.i244, %295
   %.pre.i248 = load ptr, ptr %144, align 8
   br label %Rtl_NtkUpdateBoxes.exit.i234
 
@@ -19213,16 +19213,16 @@ Rtl_LibReturnNtk.exit:                            ; preds = %32
   %wide.trip.count.i = zext nneg i32 %.val.i to i64
   br label %56
 
-56:                                               ; preds = %Rtl_CellNtk.argprom.exit.i, %.lr.ph.split.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i, %Rtl_CellNtk.argprom.exit.i ]
-  %.129.i = phi i32 [ %.01832.i, %.lr.ph.split.i ], [ %.2.i, %Rtl_CellNtk.argprom.exit.i ]
+56:                                               ; preds = %Rtl_CellNtk.exit.i, %.lr.ph.split.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i, %Rtl_CellNtk.exit.i ]
+  %.129.i = phi i32 [ %.01832.i, %.lr.ph.split.i ], [ %.2.i, %Rtl_CellNtk.exit.i ]
   %57 = getelementptr inbounds i32, ptr %.val23.i, i64 %indvars.iv.i
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %59
   %.val27.i = load i32, ptr %gep.i, align 4
   %60 = icmp sgt i32 %.val27.i, 999999999
-  br i1 %60, label %61, label %Rtl_CellNtk.argprom.exit.i
+  br i1 %60, label %61, label %Rtl_CellNtk.exit.i
 
 61:                                               ; preds = %56
   %.val4.i.i = load ptr, ptr %54, align 8
@@ -19234,9 +19234,9 @@ Rtl_LibReturnNtk.exit:                            ; preds = %32
   %65 = getelementptr ptr, ptr %.val4.val.val.i.i, i64 %64
   %66 = getelementptr i8, ptr %65, i64 -8000000000
   %67 = load ptr, ptr %66, align 8
-  br label %Rtl_CellNtk.argprom.exit.i
+  br label %Rtl_CellNtk.exit.i
 
-Rtl_CellNtk.argprom.exit.i:                       ; preds = %61, %56
+Rtl_CellNtk.exit.i:                               ; preds = %61, %56
   %68 = phi ptr [ %67, %61 ], [ null, %56 ]
   %.not22.i = icmp ne ptr %68, null
   %69 = icmp eq ptr %68, %41
@@ -19247,8 +19247,8 @@ Rtl_CellNtk.argprom.exit.i:                       ; preds = %61, %56
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge2.i, label %56, !llvm.loop !76
 
-.critedge2.i:                                     ; preds = %Rtl_CellNtk.argprom.exit.i, %.lr.ph.i, %48
-  %.1.lcssa.i = phi i32 [ %.01832.i, %48 ], [ %.01832.i, %.lr.ph.i ], [ %.2.i, %Rtl_CellNtk.argprom.exit.i ]
+.critedge2.i:                                     ; preds = %Rtl_CellNtk.exit.i, %.lr.ph.i, %48
+  %.1.lcssa.i = phi i32 [ %.01832.i, %48 ], [ %.01832.i, %.lr.ph.i ], [ %.2.i, %Rtl_CellNtk.exit.i ]
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
   br i1 %exitcond40.not.i, label %Rtl_LibCountInsts.exit, label %48, !llvm.loop !77

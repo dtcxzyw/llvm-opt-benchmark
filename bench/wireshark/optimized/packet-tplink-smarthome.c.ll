@@ -66,21 +66,21 @@ define internal i32 @dissect_tplink_smarthome(ptr noundef %0, ptr noundef %1, pt
 8:                                                ; preds = %4
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4) #2
   %10 = icmp slt i32 %9, 2
-  br i1 %10, label %test_tplink_smarthome.argprom.exit.thread, label %11
+  br i1 %10, label %test_tplink_smarthome.exit.thread, label %11
 
 11:                                               ; preds = %8
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
   %.not.i = icmp eq i8 %12, -48
-  br i1 %.not.i, label %test_tplink_smarthome.argprom.exit, label %test_tplink_smarthome.argprom.exit.thread
+  br i1 %.not.i, label %test_tplink_smarthome.exit, label %test_tplink_smarthome.exit.thread
 
-test_tplink_smarthome.argprom.exit:               ; preds = %11
+test_tplink_smarthome.exit:                       ; preds = %11
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
-  switch i8 %13, label %test_tplink_smarthome.argprom.exit.thread [
+  switch i8 %13, label %test_tplink_smarthome.exit.thread [
     i8 -14, label %14
     i8 -83, label %14
   ]
 
-14:                                               ; preds = %test_tplink_smarthome.argprom.exit, %test_tplink_smarthome.argprom.exit
+14:                                               ; preds = %test_tplink_smarthome.exit, %test_tplink_smarthome.exit
   %15 = load i32, ptr @proto_tplink_smarthome, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %5, i32 noundef %15, ptr noundef nonnull inttoptr (i64 1 to ptr)) #2
   br label %16
@@ -88,10 +88,10 @@ test_tplink_smarthome.argprom.exit:               ; preds = %11
 16:                                               ; preds = %14, %4
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 4, ptr noundef nonnull @get_tplink_smarthome_message_len, ptr noundef nonnull @dissect_tplink_smarthome_message, ptr noundef %3) #2
   %17 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  br label %test_tplink_smarthome.argprom.exit.thread
+  br label %test_tplink_smarthome.exit.thread
 
-test_tplink_smarthome.argprom.exit.thread:        ; preds = %test_tplink_smarthome.argprom.exit, %11, %8, %16
-  %.0 = phi i32 [ %17, %16 ], [ 0, %test_tplink_smarthome.argprom.exit ], [ 0, %8 ], [ 0, %11 ]
+test_tplink_smarthome.exit.thread:                ; preds = %test_tplink_smarthome.exit, %11, %8, %16
+  %.0 = phi i32 [ %17, %16 ], [ 0, %test_tplink_smarthome.exit ], [ 0, %8 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -100,7 +100,7 @@ define internal i32 @dissect_tplink_smarthome_message(ptr noundef %0, ptr nounde
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %6 = getelementptr inbounds i8, ptr %1, i64 280
   %7 = load i32, ptr %6, align 8
-  switch i32 %7, label %test_tplink_smarthome.argprom.exit.thread [
+  switch i32 %7, label %test_tplink_smarthome.exit.thread [
     i32 3, label %9
     i32 2, label %8
   ]
@@ -112,22 +112,22 @@ define internal i32 @dissect_tplink_smarthome_message(ptr noundef %0, ptr nounde
   %.058 = phi i32 [ 4, %8 ], [ 0, %4 ]
   %10 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.058) #2
   %11 = icmp slt i32 %10, 2
-  br i1 %11, label %test_tplink_smarthome.argprom.exit.thread, label %12
+  br i1 %11, label %test_tplink_smarthome.exit.thread, label %12
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.058) #2
   %.not.i = icmp eq i8 %13, -48
-  br i1 %.not.i, label %test_tplink_smarthome.argprom.exit, label %test_tplink_smarthome.argprom.exit.thread
+  br i1 %.not.i, label %test_tplink_smarthome.exit, label %test_tplink_smarthome.exit.thread
 
-test_tplink_smarthome.argprom.exit:               ; preds = %12
+test_tplink_smarthome.exit:                       ; preds = %12
   %14 = or disjoint i32 %.058, 1
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #2
-  switch i8 %15, label %test_tplink_smarthome.argprom.exit.thread [
+  switch i8 %15, label %test_tplink_smarthome.exit.thread [
     i8 -14, label %16
     i8 -83, label %16
   ]
 
-16:                                               ; preds = %test_tplink_smarthome.argprom.exit, %test_tplink_smarthome.argprom.exit
+16:                                               ; preds = %test_tplink_smarthome.exit, %test_tplink_smarthome.exit
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.7) #2
@@ -215,10 +215,10 @@ test_tplink_smarthome.argprom.exit:               ; preds = %12
   %67 = select i1 %66, ptr @.str.18, ptr @.str.19
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.17, ptr noundef nonnull %67, ptr noundef nonnull %.057, ptr noundef nonnull %36) #2
   %68 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  br label %test_tplink_smarthome.argprom.exit.thread
+  br label %test_tplink_smarthome.exit.thread
 
-test_tplink_smarthome.argprom.exit.thread:        ; preds = %test_tplink_smarthome.argprom.exit, %12, %9, %4, %58
-  %.0 = phi i32 [ %68, %58 ], [ 0, %4 ], [ 0, %test_tplink_smarthome.argprom.exit ], [ 0, %9 ], [ 0, %12 ]
+test_tplink_smarthome.exit.thread:                ; preds = %test_tplink_smarthome.exit, %12, %9, %4, %58
+  %.0 = phi i32 [ %68, %58 ], [ 0, %4 ], [ 0, %test_tplink_smarthome.exit ], [ 0, %9 ], [ 0, %12 ]
   ret i32 %.0
 }
 

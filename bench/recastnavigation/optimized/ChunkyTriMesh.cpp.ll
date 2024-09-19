@@ -102,7 +102,7 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
 ._crit_edge:                                      ; preds = %68, %5
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
-  call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi.argelim(ptr noundef %31, i32 noundef 0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %17, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull %23, ptr noundef %1)
+  call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %31, i32 noundef 0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %17, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull %23, ptr noundef %1)
   call void @_ZdaPv(ptr noundef nonnull %31) #9
   %69 = load i32, ptr %7, align 4
   %70 = getelementptr inbounds i8, ptr %4, i64 8
@@ -153,7 +153,7 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #1
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi.argelim(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #3 {
+define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #3 {
   %11 = sub nsw i32 %2, %1
   %12 = load i32, ptr %4, align 4
   %.not = icmp slt i32 %12, %6
@@ -365,8 +365,8 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93:    ; preds = %109, %81
   tail call void @qsort(ptr noundef nonnull %19, i64 noundef %118, i64 noundef 20, ptr noundef nonnull %_ZL12compareItemYPKvS0_._ZL12compareItemXPKvS0_)
   %119 = sdiv i32 %11, 2
   %120 = add nsw i32 %119, %1
-  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi.argelim(ptr noundef %0, i32 noundef %1, i32 noundef %120, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
-  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi.argelim(ptr noundef %0, i32 noundef %120, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
+  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %0, i32 noundef %1, i32 noundef %120, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
+  tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %0, i32 noundef %120, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
   %121 = load i32, ptr %4, align 4
   %.neg = sub nsw i32 %12, %121
   %122 = getelementptr inbounds i8, ptr %16, i64 16
@@ -558,9 +558,9 @@ define dso_local noundef i32 @_Z29rcGetChunksOverlappingSegmentPK15rcChunkyTriMe
 50:                                               ; preds = %34, %30
   %.245.i = phi float [ %.0431.i, %30 ], [ %.144.i, %34 ]
   %.2.i = phi float [ %.0413.i, %30 ], [ %.1.i, %34 ]
-  br i1 %.not.i, label %21, label %_ZL19checkOverlapSegmentPKfS0_S0_S0_.argprom.exit, !llvm.loop !12
+  br i1 %.not.i, label %21, label %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, !llvm.loop !12
 
-_ZL19checkOverlapSegmentPKfS0_S0_S0_.argprom.exit: ; preds = %50
+_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit:        ; preds = %50
   %51 = getelementptr inbounds i8, ptr %15, i64 16
   %52 = load i32, ptr %51, align 4
   %53 = icmp sgt i32 %52, -1
@@ -568,7 +568,7 @@ _ZL19checkOverlapSegmentPKfS0_S0_S0_.argprom.exit: ; preds = %50
   %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %.thread, label %.thread43
 
-.thread:                                          ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.argprom.exit
+.thread:                                          ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit
   %55 = sext i32 %.02334 to i64
   %56 = getelementptr inbounds i32, ptr %3, i64 %55
   store i32 %.035, ptr %56, align 4
@@ -582,9 +582,9 @@ _ZL19checkOverlapSegmentPKfS0_S0_S0_.argprom.exit: ; preds = %50
   %61 = icmp sgt i32 %60, -1
   br i1 %61, label %.thread43, label %63
 
-.thread43:                                        ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.argprom.exit, %.thread, %58
-  %.pre = phi i32 [ %.pre.pre, %.thread ], [ %.pre36, %58 ], [ %.pre36, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.argprom.exit ]
-  %.12433 = phi i32 [ %57, %.thread ], [ %.02334, %58 ], [ %.02334, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.argprom.exit ]
+.thread43:                                        ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, %.thread, %58
+  %.pre = phi i32 [ %.pre.pre, %.thread ], [ %.pre36, %58 ], [ %.pre36, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ]
+  %.12433 = phi i32 [ %57, %.thread ], [ %.02334, %58 ], [ %.02334, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ]
   %62 = add nsw i32 %.035, 1
   br label %65
 

@@ -41545,7 +41545,7 @@ _ZN7testing8internal18StreamableToStringIPcEENSt7__cxx1112basic_stringIcSt11char
           to label %36 unwind label %30
 
 36:                                               ; preds = %34
-  invoke fastcc void @_ZN7testing8internalL17LoadFlagsFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom()
+  invoke fastcc void @_ZN7testing8internalL17LoadFlagsFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE()
           to label %60 unwind label %30
 
 _ZN7testing8internalL15ParseStringFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcS9_PT_.exit: ; preds = %.noexc
@@ -41641,7 +41641,7 @@ _ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit.thread24: ; preds = %_ZN
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %._crit_edge31
-  call fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc.argprom()
+  call fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc()
   br label %75
 
 75:                                               ; preds = %74, %._crit_edge31
@@ -41735,7 +41735,7 @@ _ZN7testing8internal18StreamableToStringIPwEENSt7__cxx1112basic_stringIcSt11char
           to label %34 unwind label %28
 
 34:                                               ; preds = %32
-  invoke fastcc void @_ZN7testing8internalL17LoadFlagsFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom()
+  invoke fastcc void @_ZN7testing8internalL17LoadFlagsFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE()
           to label %58 unwind label %28
 
 _ZN7testing8internalL15ParseStringFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPKcS9_PT_.exit: ; preds = %.noexc
@@ -41831,7 +41831,7 @@ _ZN7testing8internalL23HasGoogleTestFlagPrefixEPKc.exit.thread24: ; preds = %_ZN
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %._crit_edge31
-  call fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc.argprom()
+  call fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc()
   br label %73
 
 73:                                               ; preds = %72, %._crit_edge31
@@ -50603,11 +50603,11 @@ define void @_ZN7testing8internal19UniversalPrintArrayEPKwmPSo(ptr nocapture nou
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %4
-  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo.retelim(ptr noundef nonnull readonly %0, i64 noundef %5, ptr noundef %2)
+  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo(ptr noundef nonnull readonly %0, i64 noundef %5, ptr noundef %2)
   br label %_ZN7testing8internalL23UniversalPrintCharArrayIwEEvPKT_mPSo.exit
 
 10:                                               ; preds = %4, %3
-  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo.retelim(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2)
+  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2)
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.512)
   br label %_ZN7testing8internalL23UniversalPrintCharArrayIwEEvPKT_mPSo.exit
 
@@ -50709,7 +50709,7 @@ define void @_ZN7testing8internal7PrintToEPKwPSo(ptr noundef %0, ptr noundef %1)
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0)
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.364)
   %9 = tail call i64 @wcslen(ptr noundef nonnull %0) #56
-  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo.retelim(ptr noundef nonnull %0, i64 noundef %9, ptr noundef nonnull %1)
+  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo(ptr noundef nonnull %0, i64 noundef %9, ptr noundef nonnull %1)
   br label %10
 
 10:                                               ; preds = %6, %4
@@ -50717,7 +50717,7 @@ define void @_ZN7testing8internal7PrintToEPKwPSo(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo.retelim(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #3 {
+define internal fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #3 {
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.483)
   %.not18 = icmp eq i64 %1, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -50942,7 +50942,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 define void @_ZN7testing8internal17PrintWideStringToERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEPSo(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #50
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #50
-  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo.retelim(ptr noundef %3, i64 noundef %4, ptr noundef %1)
+  tail call fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo(ptr noundef %3, i64 noundef %4, ptr noundef %1)
   ret void
 }
 
@@ -55725,7 +55725,7 @@ define linkonce_odr hidden void @_ZN7testing8internal21UniversalTersePrinterIPKw
 9:                                                ; preds = %8
   %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #50
   %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #50
-  invoke fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo.retelim(ptr noundef %10, i64 noundef %11, ptr noundef %1)
+  invoke fastcc void @_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo(ptr noundef %10, i64 noundef %11, ptr noundef %1)
           to label %_ZN7testing8internal14UniversalPrintINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_PSo.exit unwind label %14
 
 _ZN7testing8internal14UniversalPrintINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_PSo.exit: ; preds = %9
@@ -57669,7 +57669,7 @@ define internal fastcc noundef zeroext i1 @_ZN7testing8internalL15ParseStringFla
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL17LoadFlagsFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internalL17LoadFlagsFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.testing::internal::GTestLog", align 4
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::vector.33", align 8
@@ -57797,7 +57797,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc.argprom() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internalL17PrintColorEncodedEPKc() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .lr.ph:
   %0 = alloca %"class.std::__cxx11::basic_string", align 8
   %1 = alloca %"class.std::allocator", align 1
@@ -58853,8 +58853,8 @@ attributes #59 = { cold nounwind }
 !31 = distinct !{!31, !12}
 !32 = distinct !{!32, !12}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN7testing8internalL13HasOneFailureEPKcS2_S2_RKNS_19TestPartResultArrayENS_14TestPartResult4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom: argument 0"}
-!35 = distinct !{!35, !"_ZN7testing8internalL13HasOneFailureEPKcS2_S2_RKNS_19TestPartResultArrayENS_14TestPartResult4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"}
+!34 = distinct !{!34, !35, !"_ZN7testing8internalL13HasOneFailureEPKcS2_S2_RKNS_19TestPartResultArrayENS_14TestPartResult4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
+!35 = distinct !{!35, !"_ZN7testing8internalL13HasOneFailureEPKcS2_S2_RKNS_19TestPartResultArrayENS_14TestPartResult4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
 !36 = distinct !{!36, !12}
 !37 = !{!38}
 !38 = distinct !{!38, !39, !"_ZN7testing16AssertionFailureEv: argument 0"}

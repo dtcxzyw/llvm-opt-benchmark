@@ -427,21 +427,21 @@ _ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i: ; preds = %i
   %InstList.i.i = getelementptr inbounds i8, ptr %60, i64 56
   %it.sroa.0.018.i = load ptr, ptr %InstList.i.i, align 8
   %cmp.i.not19.i = icmp eq ptr %it.sroa.0.018.i, %InstList.i.i
-  br i1 %cmp.i.not19.i, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.argprom.exit, label %for.body.us.i
+  br i1 %cmp.i.not19.i, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %for.body.us.i
 
 _ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i.thread: ; preds = %if.end13.i.i.i.i
   %call1.i51 = call noundef ptr @_ZNK6hermes12LoopAnalysis13getLoopHeaderEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(528) %loops, ptr noundef %60) #5
   %InstList.i.i52 = getelementptr inbounds i8, ptr %60, i64 56
   %it.sroa.0.018.i53 = load ptr, ptr %InstList.i.i52, align 8
   %cmp.i.not19.i54 = icmp eq ptr %it.sroa.0.018.i53, %InstList.i.i52
-  br i1 %cmp.i.not19.i54, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.argprom.exit, label %for.body.preheader.i
+  br i1 %cmp.i.not19.i54, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %for.body.preheader.i
 
 _ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.thread.i: ; preds = %if.end.i.i.i.i
   %call127.i = call noundef ptr @_ZNK6hermes12LoopAnalysis13getLoopHeaderEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(528) %loops, ptr noundef %60) #5
   %InstList.i28.i = getelementptr inbounds i8, ptr %60, i64 56
   %it.sroa.0.01829.i = load ptr, ptr %InstList.i28.i, align 8
   %cmp.i.not1930.i = icmp eq ptr %it.sroa.0.01829.i, %InstList.i28.i
-  br i1 %cmp.i.not1930.i, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.argprom.exit, label %for.body.preheader.i
+  br i1 %cmp.i.not1930.i, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i.thread, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.thread.i
   %call13241.i = phi ptr [ %call127.i, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.thread.i ], [ %call1.i51, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i.thread ]
@@ -466,7 +466,7 @@ for.inc34.us.i:                                   ; preds = %for.inc.us.us.i, %i
   %changed.1.us.i = phi i1 [ %changed.020.us.i, %for.body.us.i ], [ %changed.020.us.i, %if.end.us.i ], [ %changed.3.us.us.i, %for.inc.us.us.i ]
   %it.sroa.0.0.us.i = load ptr, ptr %it.sroa.0.021.us.i, align 8
   %cmp.i.not.us.i = icmp eq ptr %it.sroa.0.0.us.i, %InstList.i.i
-  br i1 %cmp.i.not.us.i, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.argprom.exit, label %for.body.us.i, !llvm.loop !10
+  br i1 %cmp.i.not.us.i, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %for.body.us.i, !llvm.loop !10
 
 for.body10.us.us.i:                               ; preds = %if.end.us.i, %for.inc.us.us.i
   %changed.217.us.us.i = phi i1 [ %changed.3.us.us.i, %for.inc.us.us.i ], [ %changed.020.us.i, %if.end.us.i ]
@@ -580,15 +580,15 @@ for.inc34.i:                                      ; preds = %for.inc.i, %if.end.
   %changed.1.i = phi i1 [ %changed.020.i, %for.body.i ], [ %changed.020.i, %if.end.i23 ], [ %changed.3.i, %for.inc.i ]
   %it.sroa.0.0.i = load ptr, ptr %it.sroa.0.021.i, align 8
   %cmp.i.not.i24 = icmp eq ptr %it.sroa.0.0.i, %InstList.i3340.i
-  br i1 %cmp.i.not.i24, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.argprom.exit, label %for.body.i, !llvm.loop !10
+  br i1 %cmp.i.not.i24, label %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %for.body.i, !llvm.loop !10
 
-_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.argprom.exit: ; preds = %for.inc34.i, %for.inc34.us.i, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i.thread, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.thread.i
+_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit: ; preds = %for.inc34.i, %for.inc34.us.i, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i.thread, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.thread.i
   %changed.0.lcssa.i = phi i1 [ false, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i ], [ false, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.thread.i ], [ false, %_ZNK6hermes12LoopAnalysis13isBlockInLoopEPKNS_10BasicBlockE.exit.i.thread ], [ %changed.1.us.i, %for.inc34.us.i ], [ %changed.1.i, %for.inc34.i ]
   %call.i = call noundef ptr @_ZNK6hermes12LoopAnalysis16getLoopPreheaderEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(528) %loops, ptr noundef %60) #5
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %if.end.i28
 
-if.end.i28:                                       ; preds = %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.argprom.exit
+if.end.i28:                                       ; preds = %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit
   %InstList.i.i29 = getelementptr inbounds i8, ptr %call.i, i64 56
   %82 = load ptr, ptr %InstList.i.i29, align 8
   %Next.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %60, i64 64
@@ -637,8 +637,8 @@ if.end15.i:                                       ; preds = %land.lhs.true.i.i36
   %cmp.i.not.i33 = icmp eq ptr %84, %InstList.i7.i
   br i1 %cmp.i.not.i33, label %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, label %while.body.i.i.i.preheader.i, !llvm.loop !13
 
-_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit: ; preds = %if.end15.i, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.argprom.exit, %if.end.i28
-  %retval.0.i34 = phi i1 [ false, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.argprom.exit ], [ false, %if.end.i28 ], [ %changed.1.i32, %if.end15.i ]
+_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit: ; preds = %if.end15.i, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, %if.end.i28
+  %retval.0.i34 = phi i1 [ false, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit ], [ false, %if.end.i28 ], [ %changed.1.i32, %if.end15.i ]
   %88 = or i1 %changed.0.lcssa.i, %retval.0.i34
   %or3611 = or i1 %changed.288, %88
   %incdec.ptr.i37 = getelementptr inbounds i8, ptr %__begin114.sroa.0.087, i64 8

@@ -1628,7 +1628,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %40 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.sink.i, ptr %40, align 8, !alias.scope !7
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %41
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %41
 
 41:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %42 = landingpad { ptr, i32 }
@@ -1645,11 +1645,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %48) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull @.str)
           to label %49 unwind label %72
 
-49:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+49:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %9, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 35, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %50 unwind label %74
 
@@ -1710,7 +1710,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   br label %.body
 
-72:                                               ; preds = %204, %163, %126, %90, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+72:                                               ; preds = %204, %163, %126, %90, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %73 = landingpad { ptr, i32 }
           cleanup
   br label %256
@@ -2361,7 +2361,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %23 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.sink.i, ptr %23, align 8, !alias.scope !15
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %24
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %24
 
 24:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %25 = landingpad { ptr, i32 }
@@ -2378,11 +2378,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %31) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull @.str)
           to label %32 unwind label %55
 
-32:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+32:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %6, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 59, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %33 unwind label %57
 
@@ -2443,7 +2443,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   br label %.body
 
-55:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+55:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %56 = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -2703,7 +2703,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %54 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %.sink.i, ptr %54, align 8, !alias.scope !19
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %55
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %55
 
 55:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %56 = landingpad { ptr, i32 }
@@ -2720,11 +2720,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %62) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull @.str)
           to label %63 unwind label %86
 
-63:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+63:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %12, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 81, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %64 unwind label %88
 
@@ -2785,7 +2785,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
   br label %.body
 
-86:                                               ; preds = %340, %302, %264, %226, %177, %140, %104, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+86:                                               ; preds = %340, %302, %264, %226, %177, %140, %104, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %87 = landingpad { ptr, i32 }
           cleanup
   br label %389
@@ -3748,7 +3748,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %32 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.sink.i, ptr %32, align 8, !alias.scope !30
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %33
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %33
 
 33:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %34 = landingpad { ptr, i32 }
@@ -3765,11 +3765,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %40) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull @.str)
           to label %41 unwind label %64
 
-41:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+41:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %9, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 116, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %42 unwind label %66
 
@@ -3830,7 +3830,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   br label %.body
 
-64:                                               ; preds = %160, %120, %82, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+64:                                               ; preds = %160, %120, %82, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %65 = landingpad { ptr, i32 }
           cleanup
   br label %211
@@ -4374,7 +4374,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %41 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %.sink.i, ptr %41, align 8, !alias.scope !37
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %42
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %42
 
 42:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %43 = landingpad { ptr, i32 }
@@ -4391,11 +4391,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %49) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull @.str)
           to label %50 unwind label %73
 
-50:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+50:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %12, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 147, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %51 unwind label %75
 
@@ -4456,7 +4456,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
   br label %.body
 
-73:                                               ; preds = %289, %249, %209, %169, %129, %91, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+73:                                               ; preds = %289, %249, %209, %169, %129, %91, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %340
@@ -5312,7 +5312,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %41 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %.sink.i, ptr %41, align 8, !alias.scope !47
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %42
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %42
 
 42:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %43 = landingpad { ptr, i32 }
@@ -5329,11 +5329,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %49) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull @.str)
           to label %50 unwind label %73
 
-50:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+50:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %12, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 181, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %51 unwind label %75
 
@@ -5394,7 +5394,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
   br label %.body
 
-73:                                               ; preds = %289, %249, %209, %169, %129, %91, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+73:                                               ; preds = %289, %249, %209, %169, %129, %91, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %340
@@ -6235,7 +6235,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %32 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.sink.i, ptr %32, align 8, !alias.scope !57
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %33
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %33
 
 33:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %34 = landingpad { ptr, i32 }
@@ -6252,11 +6252,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %40) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull @.str)
           to label %41 unwind label %64
 
-41:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+41:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %9, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 205, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %42 unwind label %66
 
@@ -6317,7 +6317,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   br label %.body
 
-64:                                               ; preds = %160, %120, %82, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+64:                                               ; preds = %160, %120, %82, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %65 = landingpad { ptr, i32 }
           cleanup
   br label %211
@@ -6856,7 +6856,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %38 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %.sink.i, ptr %38, align 8, !alias.scope !64
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %39
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %39
 
 39:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %40 = landingpad { ptr, i32 }
@@ -6873,11 +6873,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %46) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull @.str)
           to label %47 unwind label %70
 
-47:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+47:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %11, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 231, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %48 unwind label %72
 
@@ -6938,7 +6938,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
   br label %.body
 
-70:                                               ; preds = %246, %206, %166, %126, %88, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+70:                                               ; preds = %246, %206, %166, %126, %88, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %71 = landingpad { ptr, i32 }
           cleanup
   br label %297
@@ -7688,7 +7688,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %39 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.sink.i, ptr %39, align 8, !alias.scope !73
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %40
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %40
 
 40:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %41 = landingpad { ptr, i32 }
@@ -7705,11 +7705,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %47) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull @.str)
           to label %48 unwind label %71
 
-48:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+48:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %10, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 257, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %49 unwind label %73
 
@@ -7770,7 +7770,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   br label %.body
 
-71:                                               ; preds = %211, %173, %135, %89, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+71:                                               ; preds = %211, %173, %135, %89, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %72 = landingpad { ptr, i32 }
           cleanup
   br label %260
@@ -8398,7 +8398,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %23 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.sink.i, ptr %23, align 8, !alias.scope !81
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %24
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %24
 
 24:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %25 = landingpad { ptr, i32 }
@@ -8415,11 +8415,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %31) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull @.str)
           to label %32 unwind label %55
 
-32:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+32:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %6, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 281, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %33 unwind label %57
 
@@ -8480,7 +8480,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   br label %.body
 
-55:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+55:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %56 = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -8698,7 +8698,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %31 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.sink.i, ptr %31, align 8, !alias.scope !85
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %32
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %32
 
 32:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %33 = landingpad { ptr, i32 }
@@ -8715,11 +8715,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %39) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
           to label %40 unwind label %63
 
-40:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+40:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 293, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %41 unwind label %65
 
@@ -8780,7 +8780,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   br label %.body
 
-63:                                               ; preds = %122, %81, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+63:                                               ; preds = %122, %81, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %64 = landingpad { ptr, i32 }
           cleanup
   br label %171
@@ -9209,7 +9209,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %31 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.sink.i, ptr %31, align 8, !alias.scope !91
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %32
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %32
 
 32:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %33 = landingpad { ptr, i32 }
@@ -9226,11 +9226,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %39) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str)
           to label %40 unwind label %63
 
-40:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+40:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 311, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %41 unwind label %65
 
@@ -9291,7 +9291,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   br label %.body
 
-63:                                               ; preds = %122, %81, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+63:                                               ; preds = %122, %81, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %64 = landingpad { ptr, i32 }
           cleanup
   br label %171
@@ -9727,7 +9727,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %35 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.sink.i, ptr %35, align 8, !alias.scope !97
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %36
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %36
 
 36:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %37 = landingpad { ptr, i32 }
@@ -9744,11 +9744,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %43) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull @.str)
           to label %44 unwind label %67
 
-44:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+44:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %9, i32 noundef 1036, ptr noundef nonnull @.str.57, i32 noundef 330, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %45 unwind label %69
 
@@ -9809,7 +9809,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   br label %.body
 
-67:                                               ; preds = %166, %128, %85, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+67:                                               ; preds = %166, %128, %85, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %215
@@ -10346,7 +10346,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %33 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.sink.i, ptr %33, align 8, !alias.scope !104
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %34
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %34
 
 34:                                               ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %35 = landingpad { ptr, i32 }
@@ -10363,11 +10363,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %41) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull @.str)
           to label %42 unwind label %63
 
-42:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+42:                                               ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %10, i32 noundef 1034, ptr noundef nonnull @.str.57, i32 noundef 360, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %43 unwind label %65
 
@@ -10424,7 +10424,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EPN4Luau7AstStatES5_EEbRKT0_
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   br label %.body
 
-63:                                               ; preds = %201, %161, %121, %81, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+63:                                               ; preds = %201, %161, %121, %81, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %64 = landingpad { ptr, i32 }
           cleanup
   br label %252
@@ -11404,7 +11404,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %156 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %.sink.i, ptr %156, align 8, !alias.scope !115
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %23)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %157
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %157
 
 157:                                              ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %158 = landingpad { ptr, i32 }
@@ -11421,11 +11421,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %159, i64 noundef %164) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull @.str)
           to label %165 unwind label %180
 
-165:                                              ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+165:                                              ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %24, i32 noundef 12, ptr noundef nonnull @.str.57, i32 noundef 387, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %25)
           to label %166 unwind label %182
 
@@ -11463,7 +11463,7 @@ _ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_bas
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %17) #18
   br label %.body
 
-180:                                              ; preds = %201, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+180:                                              ; preds = %201, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %181 = landingpad { ptr, i32 }
           cleanup
   br label %256
@@ -12168,7 +12168,7 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   %156 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %.sink.i, ptr %156, align 8, !alias.scope !123
   invoke void @_ZN4Luau8toposortERSt6vectorIPNS_7AstStatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %23)
-          to label %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i unwind label %157
+          to label %_ZL8toposortRN4Luau12AstStatBlockE.exit.i unwind label %157
 
 157:                                              ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   %158 = landingpad { ptr, i32 }
@@ -12185,11 +12185,11 @@ _ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i:
   call void @_ZdlPvm(ptr noundef nonnull %159, i64 noundef %164) #17
   br label %.body
 
-_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
+_ZL8toposortRN4Luau12AstStatBlockE.exit.i:        ; preds = %_ZNSt12_Vector_baseIPN4Luau7AstStatESaIS2_EE11_M_allocateEm.exit.thread.i.i.i.i
   invoke void @_ZN7doctest6StringC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull @.str)
           to label %165 unwind label %180
 
-165:                                              ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+165:                                              ; preds = %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   invoke void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144) %24, i32 noundef 12, ptr noundef nonnull @.str.57, i32 noundef 411, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %25)
           to label %166 unwind label %182
 
@@ -12227,7 +12227,7 @@ _ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i: ; preds = %_ZNSt12_Vector_bas
   call void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %17) #18
   br label %.body
 
-180:                                              ; preds = %201, %_ZL8toposortRN4Luau12AstStatBlockE.argprom.exit.i
+180:                                              ; preds = %201, %_ZL8toposortRN4Luau12AstStatBlockE.exit.i
   %181 = landingpad { ptr, i32 }
           cleanup
   br label %256
@@ -14018,20 +14018,20 @@ attributes #20 = { builtin allocsize(0) }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!8 = distinct !{!8, !9, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!9 = distinct !{!9, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !10 = !{i64 2152485222}
 !11 = !{i64 2152487802}
 !12 = !{i64 2152489579}
 !13 = !{i64 2152491327}
 !14 = !{i64 2152493075}
 !15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!17 = distinct !{!17, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!16 = distinct !{!16, !17, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!17 = distinct !{!17, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !18 = !{i64 2152498600}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!21 = distinct !{!21, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!20 = distinct !{!20, !21, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!21 = distinct !{!21, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !22 = !{i64 2152504210}
 !23 = !{i64 2152510851}
 !24 = !{i64 2152512628}
@@ -14041,15 +14041,15 @@ attributes #20 = { builtin allocsize(0) }
 !28 = !{i64 2152519260}
 !29 = !{i64 2152520918}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!32 = distinct !{!32, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!31 = distinct !{!31, !32, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!32 = distinct !{!32, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !33 = !{i64 2152526411}
 !34 = !{i64 2152528170}
 !35 = !{i64 2152529929}
 !36 = !{i64 2152531688}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!39 = distinct !{!39, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!38 = distinct !{!38, !39, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!39 = distinct !{!39, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !40 = !{i64 2152537281}
 !41 = !{i64 2152539040}
 !42 = !{i64 2152540799}
@@ -14058,8 +14058,8 @@ attributes #20 = { builtin allocsize(0) }
 !45 = !{i64 2152546076}
 !46 = !{i64 2152547835}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!49 = distinct !{!49, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!48 = distinct !{!48, !49, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!49 = distinct !{!49, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !50 = !{i64 2152553323}
 !51 = !{i64 2152559143}
 !52 = !{i64 2152560902}
@@ -14068,15 +14068,15 @@ attributes #20 = { builtin allocsize(0) }
 !55 = !{i64 2152566179}
 !56 = !{i64 2152567938}
 !57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!59 = distinct !{!59, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!58 = distinct !{!58, !59, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!59 = distinct !{!59, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !60 = !{i64 2152573566}
 !61 = !{i64 2152575325}
 !62 = !{i64 2152577084}
 !63 = !{i64 2152578843}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!66 = distinct !{!66, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!65 = distinct !{!65, !66, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!66 = distinct !{!66, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !67 = !{i64 2152584391}
 !68 = !{i64 2152586150}
 !69 = !{i64 2152587909}
@@ -14084,39 +14084,39 @@ attributes #20 = { builtin allocsize(0) }
 !71 = !{i64 2152591427}
 !72 = !{i64 2152593186}
 !73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!75 = distinct !{!75, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!74 = distinct !{!74, !75, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!75 = distinct !{!75, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !76 = !{i64 2152598859}
 !77 = !{i64 2152600518}
 !78 = !{i64 2152602177}
 !79 = !{i64 2152603836}
 !80 = !{i64 2152609556}
 !81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!83 = distinct !{!83, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!82 = distinct !{!82, !83, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!83 = distinct !{!83, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !84 = !{i64 2152615064}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!87 = distinct !{!87, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!86 = distinct !{!86, !87, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!87 = distinct !{!87, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !88 = !{i64 2152620552}
 !89 = !{i64 2152622211}
 !90 = !{i64 2152623870}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!93 = distinct !{!93, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!92 = distinct !{!92, !93, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!93 = distinct !{!93, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !94 = !{i64 2152629423}
 !95 = !{i64 2152631082}
 !96 = !{i64 2152632741}
 !97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!99 = distinct !{!99, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!98 = distinct !{!98, !99, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!99 = distinct !{!99, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !100 = !{i64 2152638389}
 !101 = !{i64 2152640048}
 !102 = !{i64 2152641707}
 !103 = !{i64 2152643376}
 !104 = !{!105}
-!105 = distinct !{!105, !106, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!106 = distinct !{!106, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!105 = distinct !{!105, !106, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!106 = distinct !{!106, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !107 = !{i64 2152648923}
 !108 = !{i64 2152650682}
 !109 = !{i64 2152652441}
@@ -14126,16 +14126,16 @@ attributes #20 = { builtin allocsize(0) }
 !113 = !{i64 2152669025}
 !114 = !{i64 2152671756}
 !115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!117 = distinct !{!117, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!116 = distinct !{!116, !117, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!117 = distinct !{!117, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !118 = !{i64 2152674427}
 !119 = !{i64 2152676289}
 !120 = !{i64 2152682710}
 !121 = !{i64 2152685309}
 !122 = !{i64 2152688040}
 !123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom: argument 0"}
-!125 = distinct !{!125, !"_ZL8toposortRN4Luau12AstStatBlockE.argprom"}
+!124 = distinct !{!124, !125, !"_ZL8toposortRN4Luau12AstStatBlockE: argument 0"}
+!125 = distinct !{!125, !"_ZL8toposortRN4Luau12AstStatBlockE"}
 !126 = !{i64 2152690711}
 !127 = !{i64 2152692573}
 !128 = !{!129, !131, !133}

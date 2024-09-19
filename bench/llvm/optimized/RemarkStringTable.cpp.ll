@@ -210,7 +210,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.fca.0.extract.i.i = extractvalue { ptr, i8 } %14, 0
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %14, 1
   %15 = trunc i8 %.fca.1.extract.i.i to i1
-  br i1 %15, label %16, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit"
+  br i1 %15, label %16, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit"
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %.fca.0.extract.i.i, align 8
@@ -220,9 +220,9 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %21 = load i64, ptr %20, align 8, !noalias !9
   %22 = add i64 %19, %21
   store i64 %22, ptr %20, align 8, !noalias !9
-  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit"
+  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit"
 
-"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit": ; preds = %2, %16
+"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit": ; preds = %2, %16
   %23 = load ptr, ptr %.fca.0.extract.i.i, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load i64, ptr %23, align 8, !noalias !9
@@ -245,9 +245,9 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.fca.0.extract.i.i28 = extractvalue { ptr, i8 } %29, 0
   %.fca.1.extract.i.i29 = extractvalue { ptr, i8 } %29, 1
   %30 = trunc i8 %.fca.1.extract.i.i29 to i1
-  br i1 %30, label %31, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit30"
+  br i1 %30, label %31, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit30"
 
-31:                                               ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit"
+31:                                               ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit"
   %32 = load ptr, ptr %.fca.0.extract.i.i28, align 8
   %33 = load i64, ptr %32, align 8, !noalias !12
   %34 = add i64 %33, 1
@@ -255,9 +255,9 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %36 = load i64, ptr %35, align 8, !noalias !12
   %37 = add i64 %34, %36
   store i64 %37, ptr %35, align 8, !noalias !12
-  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit30"
+  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit30"
 
-"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit30": ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit", %31
+"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit30": ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit", %31
   %38 = load ptr, ptr %.fca.0.extract.i.i28, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 16
   %40 = load i64, ptr %38, align 8, !noalias !12
@@ -280,9 +280,9 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.fca.0.extract.i.i36 = extractvalue { ptr, i8 } %44, 0
   %.fca.1.extract.i.i37 = extractvalue { ptr, i8 } %44, 1
   %45 = trunc i8 %.fca.1.extract.i.i37 to i1
-  br i1 %45, label %46, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit38"
+  br i1 %45, label %46, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit38"
 
-46:                                               ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit30"
+46:                                               ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit30"
   %47 = load ptr, ptr %.fca.0.extract.i.i36, align 8
   %48 = load i64, ptr %47, align 8, !noalias !15
   %49 = add i64 %48, 1
@@ -290,9 +290,9 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %51 = load i64, ptr %50, align 8, !noalias !15
   %52 = add i64 %49, %51
   store i64 %52, ptr %50, align 8, !noalias !15
-  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit38"
+  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit38"
 
-"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit38": ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit30", %46
+"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit38": ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit30", %46
   %53 = load ptr, ptr %.fca.0.extract.i.i36, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load i64, ptr %53, align 8, !noalias !15
@@ -304,7 +304,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %75
 
-60:                                               ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit38"
+60:                                               ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit38"
   %.sroa.0.0.copyload.i39 = load ptr, ptr %56, align 8
   %.sroa.2.0..sroa_idx.i40 = getelementptr inbounds i8, ptr %1, i64 64
   %.sroa.2.0.copyload.i41 = load i64, ptr %.sroa.2.0..sroa_idx.i40, align 8
@@ -321,7 +321,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.fca.0.extract.i.i44 = extractvalue { ptr, i8 } %63, 0
   %.fca.1.extract.i.i45 = extractvalue { ptr, i8 } %63, 1
   %64 = trunc i8 %.fca.1.extract.i.i45 to i1
-  br i1 %64, label %65, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit46"
+  br i1 %64, label %65, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit46"
 
 65:                                               ; preds = %60
   %66 = load ptr, ptr %.fca.0.extract.i.i44, align 8
@@ -331,9 +331,9 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %70 = load i64, ptr %69, align 8, !noalias !18
   %71 = add i64 %68, %70
   store i64 %71, ptr %69, align 8, !noalias !18
-  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit46"
+  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit46"
 
-"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit46": ; preds = %60, %65
+"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit46": ; preds = %60, %65
   %72 = load ptr, ptr %.fca.0.extract.i.i44, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 16
   %74 = load i64, ptr %72, align 8, !noalias !18
@@ -341,7 +341,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   store i64 %74, ptr %.sroa.2.0..sroa_idx.i40, align 8
   br label %75
 
-75:                                               ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit46", %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit38"
+75:                                               ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit46", %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit38"
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %77 = load ptr, ptr %76, align 8
   %78 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #9
@@ -375,7 +375,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.fca.0.extract.i.i52 = extractvalue { ptr, i8 } %84, 0
   %.fca.1.extract.i.i53 = extractvalue { ptr, i8 } %84, 1
   %85 = trunc i8 %.fca.1.extract.i.i53 to i1
-  br i1 %85, label %86, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit54"
+  br i1 %85, label %86, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit54"
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %.fca.0.extract.i.i52, align 8
@@ -384,9 +384,9 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %90 = load i64, ptr %80, align 8, !noalias !21
   %91 = add i64 %89, %90
   store i64 %91, ptr %80, align 8, !noalias !21
-  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit54"
+  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit54"
 
-"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit54": ; preds = %81, %86
+"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit54": ; preds = %81, %86
   %92 = load ptr, ptr %.fca.0.extract.i.i52, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 16
   %94 = load i64, ptr %92, align 8, !noalias !21
@@ -407,18 +407,18 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.fca.0.extract.i.i60 = extractvalue { ptr, i8 } %98, 0
   %.fca.1.extract.i.i61 = extractvalue { ptr, i8 } %98, 1
   %99 = trunc i8 %.fca.1.extract.i.i61 to i1
-  br i1 %99, label %100, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit62"
+  br i1 %99, label %100, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit62"
 
-100:                                              ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit54"
+100:                                              ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit54"
   %101 = load ptr, ptr %.fca.0.extract.i.i60, align 8
   %102 = load i64, ptr %101, align 8, !noalias !24
   %103 = add i64 %102, 1
   %104 = load i64, ptr %80, align 8, !noalias !24
   %105 = add i64 %103, %104
   store i64 %105, ptr %80, align 8, !noalias !24
-  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit62"
+  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit62"
 
-"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit62": ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit54", %100
+"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit62": ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit54", %100
   %106 = load ptr, ptr %.fca.0.extract.i.i60, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 16
   %108 = load i64, ptr %106, align 8, !noalias !24
@@ -430,7 +430,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %112 = trunc i8 %111 to i1
   br i1 %112, label %113, label %127
 
-113:                                              ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit62"
+113:                                              ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit62"
   %.sroa.0.0.copyload.i63 = load ptr, ptr %109, align 8
   %.sroa.2.0..sroa_idx.i64 = getelementptr inbounds i8, ptr %.072, i64 40
   %.sroa.2.0.copyload.i65 = load i64, ptr %.sroa.2.0..sroa_idx.i64, align 8
@@ -445,7 +445,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.fca.0.extract.i.i68 = extractvalue { ptr, i8 } %116, 0
   %.fca.1.extract.i.i69 = extractvalue { ptr, i8 } %116, 1
   %117 = trunc i8 %.fca.1.extract.i.i69 to i1
-  br i1 %117, label %118, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit70"
+  br i1 %117, label %118, label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit70"
 
 118:                                              ; preds = %113
   %119 = load ptr, ptr %.fca.0.extract.i.i68, align 8
@@ -454,9 +454,9 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %122 = load i64, ptr %80, align 8, !noalias !27
   %123 = add i64 %121, %122
   store i64 %123, ptr %80, align 8, !noalias !27
-  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit70"
+  br label %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit70"
 
-"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit70": ; preds = %113, %118
+"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit70": ; preds = %113, %118
   %124 = load ptr, ptr %.fca.0.extract.i.i68, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 16
   %126 = load i64, ptr %124, align 8, !noalias !27
@@ -464,7 +464,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   store i64 %126, ptr %.sroa.2.0..sroa_idx.i64, align 8
   br label %127
 
-127:                                              ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit62", %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.argprom.exit70"
+127:                                              ; preds = %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit62", %"_ZZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkEENK3$_0clERNS_9StringRefE.exit70"
   %128 = getelementptr inbounds i8, ptr %.072, i64 64
   %.not = icmp eq ptr %128, %79
   br i1 %.not, label %._crit_edge, label %81

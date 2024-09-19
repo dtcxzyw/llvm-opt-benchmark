@@ -1712,7 +1712,7 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
   store i32 %21, ptr %3, align 4
   %22 = getelementptr inbounds i8, ptr %7, i64 64
   %23 = load ptr, ptr %22, align 8
-  %24 = call fastcc i64 @heap_getattr.argelim(ptr noundef %13, ptr noundef %23, ptr noundef %6)
+  %24 = call fastcc i64 @heap_getattr(ptr noundef %13, ptr noundef %23, ptr noundef %6)
   %25 = load i8, ptr %6, align 1
   %26 = trunc i8 %25 to i1
   br i1 %26, label %.loopexit, label %27
@@ -1792,7 +1792,7 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 18
@@ -2035,7 +2035,7 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i8, ptr %6, i64 64
   %27 = load ptr, ptr %26, align 8
-  %28 = call fastcc i64 @heap_getattr.argelim(ptr noundef %10, ptr noundef %27, ptr noundef %5)
+  %28 = call fastcc i64 @heap_getattr(ptr noundef %10, ptr noundef %27, ptr noundef %5)
   %29 = load i8, ptr %5, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %40

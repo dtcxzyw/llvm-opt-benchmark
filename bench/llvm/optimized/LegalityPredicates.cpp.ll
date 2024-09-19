@@ -749,7 +749,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
   %.val = load ptr, ptr %1, align 8
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %15
@@ -758,11 +758,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
@@ -781,12 +781,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %14 = load i32, ptr %13, align 8
   store i32 %14, ptr %12, align 8
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 15:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %16 = icmp eq ptr %.val6.i, null
-  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %17
+  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %17
 
 17:                                               ; preds = %15
   %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.val6.i) #12
@@ -801,9 +801,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 "_ZZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEEEN3$_0D2Ev.exit.i.i": ; preds = %22, %17
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 56) #14
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEEEN3$_0D2Ev.exit.i.i", %15, %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEEEN3$_0D2Ev.exit.i.i", %15, %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -1239,7 +1239,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS0_3LLTES8_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %15
@@ -1249,11 +1249,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
@@ -1273,12 +1273,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.exit.i": ; preds = %13, %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 15:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %16 = icmp eq ptr %.val6.i, null
-  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit", label %17
+  br i1 %16, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit", label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 8
@@ -1294,9 +1294,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 "_ZZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EEEN3$_0D2Ev.exit.i.i": ; preds = %23, %17
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 88) #14
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EEEN3$_0D2Ev.exit.i.i", %15, %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EEEN3$_0D2Ev.exit.i.i", %15, %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E15_M_init_functorIRKS8_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -1769,22 +1769,22 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %.032.i.i.i.i.i.i.i.i.i = phi i64 [ %41, %39 ], [ %27, %2 ]
   %.02931.i.i.i.i.i.i.i.i.i = phi ptr [ %40, %39 ], [ %23, %2 ]
   %29 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.02931.i.i.i.i.i.i.i.i.i)
-  br i1 %29, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %30
+  br i1 %29, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %31 = getelementptr inbounds i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 32
   %32 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %31)
-  br i1 %32, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %33
+  br i1 %32, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 64
   %35 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %34)
-  br i1 %35, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %36
+  br i1 %35, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 96
   %38 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %37)
-  br i1 %38, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %39
+  br i1 %38, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 128
@@ -1809,7 +1809,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 44:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i
   %45 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.029.lcssa.i.i.i.i.i.i.i.i.i)
-  br i1 %45, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %46
+  br i1 %45, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %46
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i.i.i.i, i64 32
@@ -1818,7 +1818,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i.i.i.i.i.i
   %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %47, %46 ]
   %49 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.1.i.i.i.i.i.i.i.i.i)
-  br i1 %49, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %50
+  br i1 %49, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %50
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i.i.i.i, i64 32
@@ -1827,12 +1827,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 52:                                               ; preds = %50, %._crit_edge.i.i.i.i.i.i.i.i.i
   %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %51, %50 ]
   %53 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.2.i.i.i.i.i.i.i.i.i)
-  br i1 %53, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit", label %54
+  br i1 %53, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %54
 
 54:                                               ; preds = %52, %._crit_edge.i.i.i.i.i.i.i.i.i
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %30, %33, %36, %44, %48, %52, %54
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %30, %33, %36, %44, %48, %52, %54
   %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %25, %54 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %44 ], [ %.1.i.i.i.i.i.i.i.i.i, %48 ], [ %.2.i.i.i.i.i.i.i.i.i, %52 ], [ %.02931.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %55 = icmp ne ptr %25, %.028.i.i.i.i.i.i.i.i.i
@@ -1841,7 +1841,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS5_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 3, label %14
@@ -1851,11 +1851,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 4:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
@@ -1874,12 +1874,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i": ; preds = %12, %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 14:                                               ; preds = %3
   %.val6.i = load ptr, ptr %0, align 8
   %15 = icmp eq ptr %.val6.i, null
-  br i1 %15, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %16
+  br i1 %15, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
@@ -1895,9 +1895,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 "_ZZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEEEN3$_0D2Ev.exit.i.i": ; preds = %22, %16
   tail call void @_ZdlPvm(ptr noundef nonnull %.val6.i, i64 noundef 160) #14
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEEEN3$_0D2Ev.exit.i.i", %14, %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %"_ZZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEEEN3$_0D2Ev.exit.i.i", %14, %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -2190,7 +2190,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -2198,18 +2198,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -2231,7 +2231,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -2239,18 +2239,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -2267,21 +2267,21 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %8 = and i64 %6, 2
   %.not.i.i.i.i = icmp eq i64 %8, 0
   %or.cond.i.i.i.i = or i1 %spec.select.i.i.i.i.i, %.not.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %9
+  br i1 %or.cond.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %9
 
 9:                                                ; preds = %2
   %10 = and i64 %6, 4
   %.not1.i.i.i.i = icmp eq i64 %10, 0
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %2, %9
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %2, %9
   %11 = phi i1 [ false, %2 ], [ %.not1.i.i.i.i, %9 ]
   ret i1 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -2289,18 +2289,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -2317,7 +2317,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %8 = and i64 %6, 6
   %9 = icmp eq i64 %8, 2
   %or.cond.i.i.i = and i1 %spec.select.i.i.i.i.i, %9
-  br i1 %or.cond.i.i.i, label %10, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %or.cond.i.i.i, label %10, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 4
@@ -2326,16 +2326,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %12 = trunc i64 %.0.in.in.i.i.i.i to i32
   %.0.i.i.i.i = and i32 %12, 16777215
   %13 = icmp eq i32 %.0.i.i.i.i, %.val2
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %2, %10
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates9isPointerEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %2, %10
   %14 = phi i1 [ %13, %10 ], [ false, %2 ]
   ret i1 %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -2343,18 +2343,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -2373,7 +2373,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %9 = and i64 %7, 4
   %10 = icmp ne i64 %9, 0
   %11 = and i1 %spec.select.i.i.i.i.i, %10
-  br i1 %11, label %12, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates13elementTypeIsEjNS0_3LLTEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br i1 %11, label %12, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates13elementTypeIsEjNS0_3LLTEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
 12:                                               ; preds = %2
   %13 = and i64 %7, 2
@@ -2402,9 +2402,9 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit9.i.i.i.i: ; preds = %12
 _ZNK4llvm3LLT14getElementTypeEv.exit.i.i.i:       ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit9.i.i.i.i, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i.i
   %.sroa.0.0.i.i.i.i = phi i64 [ %20, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i.i ], [ %23, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit9.i.i.i.i ]
   %spec.select.i.i.i.i = icmp eq i64 %.sroa.0.0.i.i.i.i, %.val2
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates13elementTypeIsEjNS0_3LLTEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates13elementTypeIsEjNS0_3LLTEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates13elementTypeIsEjNS0_3LLTEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom.exit": ; preds = %2, %_ZNK4llvm3LLT14getElementTypeEv.exit.i.i.i
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates13elementTypeIsEjNS0_3LLTEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit": ; preds = %2, %_ZNK4llvm3LLT14getElementTypeEv.exit.i.i.i
   %24 = phi i1 [ false, %2 ], [ %spec.select.i.i.i.i, %_ZNK4llvm3LLT14getElementTypeEv.exit.i.i.i ]
   ret i1 %24
 }
@@ -2445,7 +2445,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 1
   %.not.i.i.i = icmp eq i64 %9, 0
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %10 = lshr i64 %8, 3
@@ -2458,9 +2458,9 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = icmp ult i64 %11, %14
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
   %16 = phi i1 [ false, %2 ], [ %15, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %16
@@ -2468,7 +2468,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -2476,18 +2476,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -2505,7 +2505,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 1
   %.not.i.i.i = icmp eq i64 %9, 0
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %10 = lshr i64 %8, 3
@@ -2518,9 +2518,9 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = icmp ugt i64 %11, %14
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
   %16 = phi i1 [ false, %2 ], [ %15, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %16
@@ -2528,7 +2528,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -2536,18 +2536,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -2697,7 +2697,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i11.i.i.i: ; preds = %_ZNK4llvm3LLT1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -2705,18 +2705,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -2866,7 +2866,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i11.i.i.i: ; preds = %_ZNK4llvm3LLT1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -2874,18 +2874,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -2905,7 +2905,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 9:                                                ; preds = %2
   %10 = lshr i64 %7, 3
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 11:                                               ; preds = %2
   %12 = and i64 %7, 4
@@ -2918,14 +2918,14 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %15 = lshr i64 %7, 19
   %16 = and i64 %15, 65535
   %spec.select.i.i.i.i = select i1 %.not2.i.i.i.i, i64 %15, i64 %16
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 17:                                               ; preds = %11
   %18 = lshr i64 %7, 3
   %19 = and i64 %18, 65535
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %9, %13, %17
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %9, %13, %17
   %.0.in.i.i.i.i = phi i64 [ %10, %9 ], [ %19, %17 ], [ %spec.select.i.i.i.i, %13 ]
   %.0.i.i.i.i = trunc i64 %.0.in.i.i.i.i to i32
   %20 = icmp ugt i32 %.val2, %.0.i.i.i.i
@@ -2934,7 +2934,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -2942,18 +2942,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -2973,7 +2973,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 9:                                                ; preds = %2
   %10 = lshr i64 %7, 3
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 11:                                               ; preds = %2
   %12 = and i64 %7, 4
@@ -2986,14 +2986,14 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %15 = lshr i64 %7, 19
   %16 = and i64 %15, 65535
   %spec.select.i.i.i.i = select i1 %.not2.i.i.i.i, i64 %15, i64 %16
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 17:                                               ; preds = %11
   %18 = lshr i64 %7, 3
   %19 = and i64 %18, 65535
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %9, %13, %17
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %9, %13, %17
   %.0.in.i.i.i.i = phi i64 [ %10, %9 ], [ %19, %17 ], [ %spec.select.i.i.i.i, %13 ]
   %.0.i.i.i.i = trunc i64 %.0.in.i.i.i.i to i32
   %20 = icmp ult i32 %.val2, %.0.i.i.i.i
@@ -3002,7 +3002,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3010,18 +3010,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -3063,21 +3063,21 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i:  ; preds = %16, %12, %8
   %.0.in.i.i.i.i = phi i64 [ %9, %8 ], [ %18, %16 ], [ %spec.select.i.i.i.i, %12 ]
   %.0.i.i.i.i = trunc i64 %.0.in.i.i.i.i to i32
   %.not.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %19
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %19
 
 19:                                               ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i
   %20 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0.i.i.i.i)
   %21 = icmp ugt i32 %20, 1
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i, %19
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i, %19
   %22 = phi i1 [ true, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i ], [ %21, %19 ]
   ret i1 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3085,18 +3085,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -3112,7 +3112,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 1
   %.not.i.i.i = icmp eq i64 %9, 0
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %10 = lshr i64 %8, 3
@@ -3126,9 +3126,9 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %14 = zext i32 %13 to i64
   %15 = urem i64 %11, %14
   %16 = icmp ne i64 %15, 0
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
   %17 = phi i1 [ false, %2 ], [ %16, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %17
@@ -3136,7 +3136,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3144,18 +3144,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -3171,7 +3171,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 1
   %.not.i.i.i = icmp eq i64 %8, 0
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %9 = lshr i64 %7, 3
@@ -3182,14 +3182,14 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %10 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
   %11 = trunc i64 %10 to i32
   %.not.i.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %12
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %12
 
 12:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
   %13 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %11)
   %14 = icmp ugt i32 %13, 1
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %12
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %2, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %12
   %15 = phi i1 [ false, %2 ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ], [ %14, %12 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %15
@@ -3197,7 +3197,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3205,18 +3205,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -3248,7 +3248,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 16:                                               ; preds = %15
   %17 = lshr i64 %8, 3
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 18:                                               ; preds = %15
   %19 = and i64 %8, 4
@@ -3259,12 +3259,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %21 = lshr i64 %8, 19
   %22 = and i64 %21, 65535
   %spec.select.i.i.i.i.i = select i1 %.not.i.not.i.i.i.i, i64 %21, i64 %22
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 23:                                               ; preds = %18
   %24 = lshr i64 %8, 3
   %25 = and i64 %24, 65535
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i: ; preds = %2
   %26 = lshr i64 %8, 3
@@ -3280,9 +3280,9 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i: ; preds = %2
   %.0.in.i6.i.i.i.i = select i1 %.not1.i8.i.i.i.i, i64 %.sroa.0.0.insert.ext.i.i.i.i.i.i, i64 %spec.select.i10.i.i.i.i
   %32 = mul nuw nsw i64 %.0.in.i6.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
   %33 = zext i1 %.not1.i4.i.i.i.i to i8
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %16, %20, %23, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %16, %20, %23, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i
   %.sroa.012.0.in.i.i.i.i = phi i64 [ %32, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i ], [ %17, %16 ], [ %25, %23 ], [ %spec.select.i.i.i.i.i, %20 ]
   %.sroa.3.0.i.i.i.i = phi i8 [ %33, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i ], [ 0, %16 ], [ 0, %23 ], [ 0, %20 ]
   %.sroa.012.0.i.i.i.i = and i64 %.sroa.012.0.in.i.i.i.i, 4294967295
@@ -3300,7 +3300,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i: ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3308,18 +3308,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -3409,7 +3409,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %_ZNK4llvm3LLT19getS
 
 43:                                               ; preds = %42
   %44 = lshr i64 %35, 3
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 45:                                               ; preds = %42
   %46 = and i64 %35, 4
@@ -3420,12 +3420,12 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %_ZNK4llvm3LLT19getS
   %48 = lshr i64 %35, 19
   %49 = and i64 %48, 65535
   %spec.select.i.i24.i.i.i = select i1 %.not.i.not.i8.i.i.i, i64 %48, i64 %49
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 50:                                               ; preds = %45
   %51 = lshr i64 %35, 3
   %52 = and i64 %51, 65535
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i11.i.i.i: ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
   %53 = lshr i64 %35, 3
@@ -3441,9 +3441,9 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i11.i.i.i: ; preds = %_ZNK4llvm3LLT1
   %.0.in.i6.i16.i.i.i = select i1 %.not1.i8.i14.i.i.i, i64 %.sroa.0.0.insert.ext.i.i.i12.i.i.i, i64 %spec.select.i10.i15.i.i.i
   %59 = mul nuw nsw i64 %.0.in.i6.i16.i.i.i, %.sroa.0.0.insert.ext.i.i.i12.i.i.i
   %60 = zext i1 %.not1.i4.i13.i.i.i to i8
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %43, %47, %50, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i11.i.i.i
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %43, %47, %50, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i11.i.i.i
   %.sroa.012.0.in.i17.i.i.i = phi i64 [ %59, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i11.i.i.i ], [ %44, %43 ], [ %52, %50 ], [ %spec.select.i.i24.i.i.i, %47 ]
   %.sroa.3.0.i18.i.i.i = phi i8 [ %60, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i11.i.i.i ], [ 0, %43 ], [ 0, %50 ], [ 0, %47 ]
   %61 = xor i64 %.sroa.012.0.in.i17.i.i.i, %.sroa.012.0.in.i.i.i.i
@@ -3456,7 +3456,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i11.i.i.i: ; preds = %_ZNK4llvm3LLT1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3464,18 +3464,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -3553,14 +3553,14 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i:       ; preds = %_ZNK4llvm3LLT19getS
   %35 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
   %36 = trunc i64 %35 to i32
   %.not.i.i.i.i = icmp eq i32 %36, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %37
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %37
 
 37:                                               ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
   %38 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %36)
   %39 = icmp ugt i32 %38, 1
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %37
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %37
   %40 = phi i1 [ true, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i ], [ %39, %37 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %40
@@ -3568,7 +3568,7 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i:       ; preds = %_ZNK4llvm3LLT19getS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3576,18 +3576,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -3619,12 +3619,12 @@ _ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i:          ; preds = %12
   %14 = select i1 %.not1.i2.i.i.i.i.i, i64 56, i64 3670016
   %15 = and i64 %14, %6
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %27, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %16, label %27, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 _ZNK4llvm3LLT11isByteSizedEv.exit.thread7.i.i.i:  ; preds = %12
   %17 = and i64 %6, 56
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %.thread11.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %18, label %.thread11.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 _ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i:   ; preds = %2
   %19 = lshr i64 %6, 3
@@ -3635,7 +3635,7 @@ _ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i:   ; preds = %2
   %22 = mul i64 %.0.in.i6.i.i.i.i.i, %19
   %.zext.i4.i.i.i = and i64 %22, 7
   %23 = icmp eq i64 %.zext.i4.i.i.i, 0
-  br i1 %23, label %.thread.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %23, label %.thread.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 .thread.i.i.i:                                    ; preds = %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i
   %24 = and i64 %6, 2
@@ -3671,7 +3671,7 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i:       ; preds = %33, %29, %.thread11
   %.sroa.012.0.in.i.i8.i.i.i = phi i64 [ %26, %.thread.i.i.i ], [ %28, %.thread11.i.i.i ], [ %35, %33 ], [ %spec.select.i.i.i.i.i.i, %29 ]
   %.sroa.012.0.i.i.i.i.i = and i64 %.sroa.012.0.in.i.i8.i.i.i, 4294967295
   %.not.i.i.i.i = icmp eq i64 %.sroa.012.0.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %36
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %36
 
 36:                                               ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
   %37 = add nuw nsw i64 %.sroa.012.0.i.i.i.i.i, 7
@@ -3679,16 +3679,16 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i:       ; preds = %33, %29, %.thread11
   %39 = trunc nuw nsw i64 %38 to i32
   %40 = tail call range(i32 1, 31) i32 @llvm.ctpop.i32(i32 %39)
   %41 = icmp ugt i32 %40, 1
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread7.i.i.i, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %36
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread7.i.i.i, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %36
   %42 = phi i1 [ true, %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i ], [ true, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i ], [ true, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i ], [ %41, %36 ], [ true, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread7.i.i.i ]
   ret i1 %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3696,18 +3696,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -3724,7 +3724,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %8 = and i64 %6, 4
   %9 = icmp ne i64 %8, 0
   %10 = and i1 %spec.select.i.i.i.i.i, %9
-  br i1 %10, label %11, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %10, label %11, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 11:                                               ; preds = %2
   %12 = and i64 %6, 2
@@ -3743,21 +3743,21 @@ _ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i:       ; preds = %15, %11
   %17 = lshr i32 %16, 3
   %18 = and i32 %17, 65535
   %.not.i.i2.i.i.i = icmp eq i32 %18, 0
-  br i1 %.not.i.i2.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %19
+  br i1 %.not.i.i2.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %19
 
 19:                                               ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i
   %20 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %18)
   %21 = icmp ugt i32 %20, 1
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %2, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i, %19
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %2, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i, %19
   %22 = phi i1 [ false, %2 ], [ true, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i.i ], [ %21, %19 ]
   ret i1 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3765,18 +3765,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -3802,7 +3802,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS0_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -3810,18 +3810,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 

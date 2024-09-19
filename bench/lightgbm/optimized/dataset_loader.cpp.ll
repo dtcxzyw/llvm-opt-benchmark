@@ -773,7 +773,7 @@ define void @_ZN8LightGBM13DatasetLoader9SetHeaderEPKc(ptr noundef nonnull align
 
 _ZN8LightGBM10TextReaderIiE10first_lineB5cxx11Ev.exit: ; preds = %64
   %66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_.argprom(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %66)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %66)
           to label %67 unwind label %89
 
 67:                                               ; preds = %_ZN8LightGBM10TextReaderIiE10first_lineB5cxx11Ev.exit
@@ -1085,7 +1085,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 179:                                              ; preds = %178
   %180 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_.argprom(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %180)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %180)
           to label %181 unwind label %209
 
 181:                                              ; preds = %179
@@ -1527,7 +1527,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4has
 
 357:                                              ; preds = %355
   %358 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #18
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc.argelim(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %358)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %358)
           to label %359 unwind label %369
 
 359:                                              ; preds = %357
@@ -1639,7 +1639,7 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE7emplaceIJRiEEESt4pairINSt8_
 
 388:                                              ; preds = %352
   %389 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %354) #18
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc.argelim(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef %389)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef %389)
           to label %390 unwind label %.loopexit.split-lp
 
 390:                                              ; preds = %388
@@ -2121,7 +2121,7 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE7emplaceIJRiEEESt4pairINSt8_
 
 560:                                              ; preds = %558
   %561 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #18
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc.argelim(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef %561)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef %561)
           to label %562 unwind label %572
 
 562:                                              ; preds = %560
@@ -2233,7 +2233,7 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE7emplaceIJRiEEESt4pairINSt8_
 
 591:                                              ; preds = %555
   %592 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %557) #18
-  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc.argelim(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef %592)
+  invoke fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef %592)
           to label %593 unwind label %87
 
 593:                                              ; preds = %591
@@ -3204,7 +3204,7 @@ _ZNSt10unique_ptrIN8LightGBM17VirtualFileReaderESt14default_deleteIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcS2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.6", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3605,7 +3605,7 @@ define linkonce_odr void @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef %0, ...) local
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc.argelim(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.6", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20731,7 +20731,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiEZN8LightGBM13D
   %17 = getelementptr i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %.not1.i.i.i = icmp slt i32 %.val2, %18
-  br i1 %.not1.i.i.i, label %"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.argprom.exit", label %19
+  br i1 %.not1.i.i.i, label %"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.exit", label %19
 
 19:                                               ; preds = %10
   %20 = getelementptr inbounds i8, ptr %.val, i64 32
@@ -20762,9 +20762,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiEZN8LightGBM13D
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 4
-  br label %"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.exit"
 
-"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.argprom.exit": ; preds = %10, %36
+"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.exit": ; preds = %10, %36
   %40 = getelementptr inbounds i8, ptr %.val, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = load i8, ptr %41, align 1
@@ -20774,7 +20774,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiEZN8LightGBM13D
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiEZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -20783,30 +20783,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiEZN8LightGBM13D
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #34
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader20LoadTextDataToMemoryB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -22056,7 +22056,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiEZN8LightGBM13D
   %17 = getelementptr i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %.not1.i.i.i = icmp slt i32 %.val2, %18
-  br i1 %.not1.i.i.i, label %"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.argprom.exit", label %19
+  br i1 %.not1.i.i.i, label %"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.exit", label %19
 
 19:                                               ; preds = %10
   %20 = getelementptr inbounds i8, ptr %.val, i64 32
@@ -22087,9 +22087,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiEZN8LightGBM13D
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 4
-  br label %"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.argprom.exit"
+  br label %"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.exit"
 
-"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.argprom.exit": ; preds = %10, %36
+"_ZSt10__invoke_rIbRZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS0_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1JiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESH_EEE5valueESH_E4typeEOSM_DpOSN_.exit": ; preds = %10, %36
   %40 = getelementptr inbounds i8, ptr %.val, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = load i8, ptr %41, align 1
@@ -22099,7 +22099,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiEZN8LightGBM13D
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiEZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -22108,30 +22108,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiEZN8LightGBM13D
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val6, i64 48, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #34
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader22SampleTextDataFromFileB5cxx11EPKcRKNS1_8MetadataEiiPiPSt6vectorIiSaIiEEE3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -24697,11 +24697,11 @@ _ZN21ThreadExceptionHelperD2Ev.exit.i.i.i:        ; preds = %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %39 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS0_6ParserERKSt6vectorIiSaIiEEPNS0_7DatasetEE3$_0JiRKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESS_E4typeEOSV_DpOSW_.argprom.exit", label %40
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS0_6ParserERKSt6vectorIiSaIiEEPNS0_7DatasetEE3$_0JiRKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESS_E4typeEOSV_DpOSW_.exit", label %40
 
 40:                                               ; preds = %_ZN21ThreadExceptionHelperD2Ev.exit.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %39) #34
-  br label %"_ZSt10__invoke_rIvRZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS0_6ParserERKSt6vectorIiSaIiEEPNS0_7DatasetEE3$_0JiRKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESS_E4typeEOSV_DpOSW_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS0_6ParserERKSt6vectorIiSaIiEEPNS0_7DatasetEE3$_0JiRKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESS_E4typeEOSV_DpOSW_.exit"
 
 41:                                               ; preds = %24
   %42 = landingpad { ptr, i32 }
@@ -24722,7 +24722,7 @@ _ZN21ThreadExceptionHelperD2Ev.exit.i.i.i:        ; preds = %27
 _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit12.i.i.i: ; preds = %44, %.body.i.i.i
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
-"_ZSt10__invoke_rIvRZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS0_6ParserERKSt6vectorIiSaIiEEPNS0_7DatasetEE3$_0JiRKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESS_E4typeEOSV_DpOSW_.argprom.exit": ; preds = %_ZN21ThreadExceptionHelperD2Ev.exit.i.i.i, %40
+"_ZSt10__invoke_rIvRZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS0_6ParserERKSt6vectorIiSaIiEEPNS0_7DatasetEE3$_0JiRKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESS_E4typeEOSV_DpOSW_.exit": ; preds = %_ZN21ThreadExceptionHelperD2Ev.exit.i.i.i, %40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
@@ -24731,7 +24731,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit12.i.i.i: ; preds = %44, %.body.i.i.i
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNSC_6ParserERKS0_IiSaIiEEPNSC_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -24740,30 +24740,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFviRKSt6vectorINSt
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS_6ParserERKSt6vectorIiSaIiEEPNS_7DatasetEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #34
-  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN8LightGBM13DatasetLoader23ExtractFeaturesFromFileEPKcPKNS1_6ParserERKSt6vectorIiSaIiEEPNS1_7DatasetEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -26802,7 +26802,7 @@ define internal void @"_ZNSt17_Function_handlerIFvimmEZNK8LightGBM13DatasetLoade
   %.val5 = load i64, ptr %2, align 8
   %.val6 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %.val5, %.val6
-  br i1 %5, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS0_9BinMapperESt14default_deleteIS4_EESaIS7_EEiRKS2_IiSaIiEEE3$_0JimmEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESK_E4typeEOSN_DpOSO_.argprom.exit"
+  br i1 %5, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS0_9BinMapperESt14default_deleteIS4_EESaIS7_EEiRKS2_IiSaIiEEE3$_0JimmEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESK_E4typeEOSN_DpOSO_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %.val4 = load i32, ptr %1, align 4
@@ -26863,20 +26863,20 @@ define internal void @"_ZNSt17_Function_handlerIFvimmEZNK8LightGBM13DatasetLoade
   %44 = load i64, ptr %storemerge.i.i.i.i.i12.i.i.i, align 8
   %45 = or i64 %44, %12
   store i64 %45, ptr %storemerge.i.i.i.i.i12.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS0_9BinMapperESt14default_deleteIS4_EESaIS7_EEiRKS2_IiSaIiEEE3$_0JimmEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESK_E4typeEOSN_DpOSO_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS0_9BinMapperESt14default_deleteIS4_EESaIS7_EEiRKS2_IiSaIiEEE3$_0JimmEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESK_E4typeEOSN_DpOSO_.exit"
 
 46:                                               ; preds = %37, %33, %16
   %47 = add i64 %.018.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %47, %.val6
-  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS0_9BinMapperESt14default_deleteIS4_EESaIS7_EEiRKS2_IiSaIiEEE3$_0JimmEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESK_E4typeEOSN_DpOSO_.argprom.exit", label %16, !llvm.loop !203
+  br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS0_9BinMapperESt14default_deleteIS4_EESaIS7_EEiRKS2_IiSaIiEEE3$_0JimmEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESK_E4typeEOSN_DpOSO_.exit", label %16, !llvm.loop !203
 
-"_ZSt10__invoke_rIvRZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS0_9BinMapperESt14default_deleteIS4_EESaIS7_EEiRKS2_IiSaIiEEE3$_0JimmEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESK_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %46, %4, %40
+"_ZSt10__invoke_rIvRZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS0_9BinMapperESt14default_deleteIS4_EESaIS7_EEiRKS2_IiSaIiEEE3$_0JimmEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESK_E4typeEOSN_DpOSO_.exit": ; preds = %46, %4, %40
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvimmEZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #3 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -26885,30 +26885,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvimmEZNK8LightGBM
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS_9BinMapperESt14default_deleteIS3_EESaIS6_EEiRKS1_IiSaIiEEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #34
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK8LightGBM13DatasetLoader29CheckCategoricalFeatureNumBinERKSt6vectorISt10unique_ptrINS1_9BinMapperESt14default_deleteIS5_EESaIS8_EEiRKS3_IiSaIiEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

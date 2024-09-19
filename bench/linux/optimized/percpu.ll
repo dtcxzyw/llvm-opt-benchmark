@@ -6724,7 +6724,7 @@ define internal fastcc void @pcpu_block_update_hint_alloc(ptr noundef %0, i32 no
   %57 = getelementptr i8, ptr %0, i64 72
   %.val = load ptr, ptr %57, align 8
   %.val7 = load ptr, ptr %12, align 16
-  tail call fastcc void @pcpu_block_refresh_hint.argprom(ptr %.val, ptr %.val7, i32 noundef %5)
+  tail call fastcc void @pcpu_block_refresh_hint(ptr %.val, ptr %.val7, i32 noundef %5)
   br label %69
 
 58:                                               ; preds = %44
@@ -6795,7 +6795,7 @@ define internal fastcc void @pcpu_block_update_hint_alloc(ptr noundef %0, i32 no
 99:                                               ; preds = %94
   %.val8 = load ptr, ptr %77, align 8
   %.val9 = load ptr, ptr %12, align 16
-  tail call fastcc void @pcpu_block_refresh_hint.argprom(ptr %.val8, ptr %.val9, i32 noundef %8)
+  tail call fastcc void @pcpu_block_refresh_hint(ptr %.val8, ptr %.val9, i32 noundef %8)
   br label %105
 
 100:                                              ; preds = %94
@@ -7043,7 +7043,7 @@ declare dso_local void @__bitmap_set(ptr noundef, i32 noundef, i32 noundef) loca
 declare dso_local void @__bitmap_clear(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pcpu_block_refresh_hint.argprom(ptr %.72.val, ptr nocapture %.80.val, i32 noundef range(i32 -2097152, 2097152) %0) unnamed_addr #1 align 16 {
+define internal fastcc void @pcpu_block_refresh_hint(ptr %.72.val, ptr nocapture %.80.val, i32 noundef range(i32 -2097152, 2097152) %0) unnamed_addr #1 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr %struct.pcpu_block_md, ptr %.80.val, i64 %2
   %4 = shl nsw i64 %2, 4

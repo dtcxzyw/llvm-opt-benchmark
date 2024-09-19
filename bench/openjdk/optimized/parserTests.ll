@@ -543,18 +543,18 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.i.i:  ; preds = %118, %114, %.lr.ph
   %121 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %122 = call noundef ptr %121(ptr noundef nonnull %107, i64 noundef %120) #8
   %123 = call noundef ptr @_ZN8WhiteBox14lookup_jstringEPKcP7oopDesc(ptr noundef nonnull @.str.10, ptr noundef %122) #8
-  br i1 %.not.i.i.i53, label %_ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.argprom.exit.i, label %124
+  br i1 %.not.i.i.i53, label %_ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.exit.i, label %124
 
 124:                                              ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.i.i
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %113) #8
-  br label %_ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.argprom.exit.i
+  br label %_ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.exit.i
 
-_ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.argprom.exit.i: ; preds = %124, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.i.i
+_ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.exit.i: ; preds = %124, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.i.i
   %125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %123, ptr noundef nonnull dereferenceable(7) @.str.16) #9
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %140
 
-127:                                              ; preds = %_ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.argprom.exit.i
+127:                                              ; preds = %_ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.exit.i
   %128 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i32 noundef 0) #8
   %129 = zext i1 %111 to i8
   %130 = getelementptr inbounds i8, ptr %128, i64 8
@@ -584,7 +584,7 @@ _ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.argprom.exit.i: ; preds = %124, %
   call void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %128) #8
   br label %_ZL14fill_in_parserP10DCmdParserP7oopDesc.exit
 
-140:                                              ; preds = %_ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.argprom.exit.i
+140:                                              ; preds = %_ZL29lookup_diagnosticArgumentEnumPKcP7oopDesc.exit.i
   %141 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %123, ptr noundef nonnull dereferenceable(9) @.str.17) #9
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %156

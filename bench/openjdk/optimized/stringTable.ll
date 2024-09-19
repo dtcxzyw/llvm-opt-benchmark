@@ -4001,10 +4001,10 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %1, %5
   %22 = sext i32 %.0 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.argprom.exit.i.i"
-  %indvars.iv = phi i64 [ %22, %.lr.ph.i.i.preheader ], [ %indvars.iv.next, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.argprom.exit.i.i" ]
-  %.01121.i.i = phi ptr [ %.01118.i.i, %.lr.ph.i.i.preheader ], [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.argprom.exit.i.i" ]
-  %.120.i.i = phi i32 [ %.01223.i.i, %.lr.ph.i.i.preheader ], [ %46, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.argprom.exit.i.i" ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.exit.i.i"
+  %indvars.iv = phi i64 [ %22, %.lr.ph.i.i.preheader ], [ %indvars.iv.next, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.exit.i.i" ]
+  %.01121.i.i = phi ptr [ %.01118.i.i, %.lr.ph.i.i.preheader ], [ %.011.i.i, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.exit.i.i" ]
+  %.120.i.i = phi i32 [ %.01223.i.i, %.lr.ph.i.i.preheader ], [ %46, %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.exit.i.i" ]
   %23 = getelementptr inbounds i8, ptr %.01121.i.i, i64 8
   %.val13.i.i = load ptr, ptr %23, align 8
   %24 = call noundef i32 @_ZN16java_lang_String9hash_codeEP7oopDesc(ptr noundef %.val13.i.i) #17
@@ -4012,7 +4012,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %1, %5
   call void @_ZN22CompactHashtableWriter3addEjj(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %24, i32 noundef %25) #17
   %26 = load i8, ptr @_ZN11StringTable40_is_two_dimensional_shared_strings_arrayE, align 1
   %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.argprom.exit.i.i"
+  br i1 %27, label %28, label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.exit.i.i"
 
 28:                                               ; preds = %.lr.ph.i.i
   %29 = ashr i32 %25, 14
@@ -4029,9 +4029,9 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %1, %5
   %38 = add nsw i64 %36, %37
   %39 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %40 = call noundef ptr %39(ptr noundef nonnull %8, i64 noundef %38) #17
-  br label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.argprom.exit.i.i"
+  br label %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.exit.i.i"
 
-"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.argprom.exit.i.i": ; preds = %.lr.ph.i.i, %28
+"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.exit.i.i": ; preds = %.lr.ph.i.i, %28
   %.sink14.i.i.i.i = phi i64 [ %30, %28 ], [ %indvars.iv, %.lr.ph.i.i ]
   %.sink.i.i.i.i = phi ptr [ %40, %28 ], [ %8, %.lr.ph.i.i ]
   %.sink15.in.i.i.i.i = load i8, ptr @UseCompressedClassPointers, align 1
@@ -4052,7 +4052,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %1, %5
   %.not.i.i = icmp eq ptr %.011.i.i, null
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !37
 
-._crit_edge.loopexit.i.i:                         ; preds = %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.argprom.exit.i.i"
+._crit_edge.loopexit.i.i:                         ; preds = %"_ZZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_bLS4_2ELS5_13EXadL_ZN10HeapShared15string_oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE11iterate_allIZN11StringTable17init_shared_tableEPK21DumpedInternedStringsE3$_0EEvSB_ENKUlRS2_RbE_clESL_SM_.exit.i.i"
   %47 = trunc nsw i64 %indvars.iv.next to i32
   %.pre.i.i = load ptr, ptr %13, align 8
   br label %._crit_edge.i.i

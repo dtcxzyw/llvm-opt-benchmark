@@ -133,13 +133,13 @@ define hidden noundef i32 @zm_deactivate_streams(i32 noundef %0, i32 noundef %1)
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 640), align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %forget_persistent_resource_id_numbers.argprom.exit
-  %.013 = phi ptr [ %25, %forget_persistent_resource_id_numbers.argprom.exit ], [ %9, %.lr.ph.preheader ]
-  %.01012 = phi i32 [ %26, %forget_persistent_resource_id_numbers.argprom.exit ], [ %3, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %forget_persistent_resource_id_numbers.exit
+  %.013 = phi ptr [ %25, %forget_persistent_resource_id_numbers.exit ], [ %9, %.lr.ph.preheader ]
+  %.01012 = phi i32 [ %26, %forget_persistent_resource_id_numbers.exit ], [ %3, %.lr.ph.preheader ]
   %10 = getelementptr inbounds i8, ptr %.013, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %forget_persistent_resource_id_numbers.argprom.exit, label %13
+  br i1 %12, label %forget_persistent_resource_id_numbers.exit, label %13
 
 13:                                               ; preds = %.lr.ph
   %.0.val = load ptr, ptr %.013, align 8
@@ -147,7 +147,7 @@ define hidden noundef i32 @zm_deactivate_streams(i32 noundef %0, i32 noundef %1)
   %15 = load i32, ptr %14, align 8
   %16 = load i32, ptr @le_pstream, align 4
   %.not.i = icmp eq i32 %15, %16
-  br i1 %.not.i, label %17, label %forget_persistent_resource_id_numbers.argprom.exit
+  br i1 %.not.i, label %17, label %forget_persistent_resource_id_numbers.exit
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %.0.val, i64 24
@@ -157,20 +157,20 @@ define hidden noundef i32 @zm_deactivate_streams(i32 noundef %0, i32 noundef %1)
   %21 = getelementptr inbounds i8, ptr %19, i64 144
   %22 = load ptr, ptr %21, align 8
   %.not7.i = icmp eq ptr %22, null
-  br i1 %.not7.i, label %forget_persistent_resource_id_numbers.argprom.exit, label %23
+  br i1 %.not7.i, label %forget_persistent_resource_id_numbers.exit, label %23
 
 23:                                               ; preds = %17
   %24 = tail call i32 @zend_list_delete(ptr noundef nonnull %22) #27
   store ptr null, ptr %21, align 8
-  br label %forget_persistent_resource_id_numbers.argprom.exit
+  br label %forget_persistent_resource_id_numbers.exit
 
-forget_persistent_resource_id_numbers.argprom.exit: ; preds = %23, %17, %13, %.lr.ph
+forget_persistent_resource_id_numbers.exit:       ; preds = %23, %17, %13, %.lr.ph
   %25 = getelementptr inbounds i8, ptr %.013, i64 %8
   %26 = add i32 %.01012, -1
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %forget_persistent_resource_id_numbers.argprom.exit, %2
+._crit_edge:                                      ; preds = %forget_persistent_resource_id_numbers.exit, %2
   ret i32 0
 }
 

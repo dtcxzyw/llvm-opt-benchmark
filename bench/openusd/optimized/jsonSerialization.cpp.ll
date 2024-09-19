@@ -5219,7 +5219,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12emplace_b
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %204
   %850 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ null, %204 ]
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %850)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__L19_ImportChromeEventsERKSt6vectorINS_7JsValueESaIS1_EERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_25EventListConstructionDataESt4lessISC_ESaISt4pairIKSC_SD_EEE.argprom.exit unwind label %851
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__L19_ImportChromeEventsERKSt6vectorINS_7JsValueESaIS1_EERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_25EventListConstructionDataESt4lessISC_ESaISt4pairIKSC_SD_EEE.exit unwind label %851
 
 851:                                              ; preds = %._crit_edge.i
   %852 = landingpad { ptr, i32 }
@@ -5233,7 +5233,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit142.i: ; preds = 
   call void @_ZNSt3mapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessImESaISt4pairIKmS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %23) #11
   br label %.body99
 
-_ZN32pxrInternal_v0_24__pxrReserved__L19_ImportChromeEventsERKSt6vectorINS_7JsValueESaIS1_EERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_25EventListConstructionDataESt4lessISC_ESaISt4pairIKSC_SD_EEE.argprom.exit: ; preds = %._crit_edge.i
+_ZN32pxrInternal_v0_24__pxrReserved__L19_ImportChromeEventsERKSt6vectorINS_7JsValueESaIS1_EERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_25EventListConstructionDataESt4lessISC_ESaISt4pairIKSC_SD_EEE.exit: ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
@@ -5292,7 +5292,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L19_ImportChromeEventsERKSt6vectorINS_7JsVa
           cleanup
   br label %.body99
 
-858:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_ImportChromeEventsERKSt6vectorINS_7JsValueESaIS1_EERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_25EventListConstructionDataESt4lessISC_ESaISt4pairIKSC_SD_EEE.argprom.exit, %.critedge
+858:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_ImportChromeEventsERKSt6vectorINS_7JsValueESaIS1_EERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_25EventListConstructionDataESt4lessISC_ESaISt4pairIKSC_SD_EEE.exit, %.critedge
   %.not58 = icmp eq ptr %198, null
   br i1 %.not58, label %.loopexit263, label %859
 
@@ -8242,14 +8242,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %.lcssa43, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::TraceEvent") align 8 %phi.call.i.i.i)
   %23 = icmp eq i64 %.0.i.i.i, 0
   %24 = add nsw i64 %.0.i.i.i, -1
-  br i1 %23, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_RT0_.argprom.exit.i.i", label %.split8.i.i.i, !llvm.loop !56
+  br i1 %23, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_RT0_.exit.i.i", label %.split8.i.i.i, !llvm.loop !56
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_RT0_.argprom.exit.i.i": ; preds = %.split8.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_RT0_.exit.i.i": ; preds = %.split8.i.i.i
   %25 = icmp sgt i64 %.lcssa41, 32
   br i1 %25, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_SF_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_RT0_.argprom.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.03.i.i = phi ptr [ %26, %.lr.ph.i9.i ], [ %storemerge25.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_RT0_.argprom.exit.i.i" ]
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_RT0_.exit.i.i", %.lr.ph.i9.i
+  %.sroa.0.03.i.i = phi ptr [ %26, %.lr.ph.i9.i ], [ %storemerge25.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_RT0_.exit.i.i" ]
   %26 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
@@ -8391,7 +8391,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %75 = icmp sgt i64 %74, 16
   br i1 %75, label %19, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !55
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEET_SF_SF_T0_.exit", %.lr.ph.i9.i, %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_RT0_.argprom.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEET_SF_SF_T0_.exit", %.lr.ph.i9.i, %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_SF_RT0_.exit.i.i"
   ret void
 }
 
@@ -8445,7 +8445,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %32 = icmp sgt i64 %.1, %1
-  br i1 %32, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_RT2_.argprom.exit"
+  br i1 %32, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %31, %37
   %.010.i = phi i64 [ %.0911.i, %37 ], [ %.1, %31 ]
@@ -8455,15 +8455,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %34 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %33)
   %35 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
   %36 = icmp ult i64 %34, %35
-  br i1 %36, label %37, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_RT2_.argprom.exit"
+  br i1 %36, label %37, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 37:                                               ; preds = %.lr.ph.i
   %38 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %.010.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false)
   %39 = icmp sgt i64 %.0911.i, %1
-  br i1 %39, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_RT2_.argprom.exit", !llvm.loop !62
+  br i1 %39, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !62
 
-"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_RT2_.argprom.exit": ; preds = %.lr.ph.i, %37, %31
+"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %.lr.ph.i, %37, %31
   %.0.lcssa.i = phi i64 [ %.1, %31 ], [ %.010.i, %.lr.ph.i ], [ %.0911.i, %37 ]
   %40 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
@@ -9598,7 +9598,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrRese
           cleanup
   br label %.body.i.i.i.i
 
-.loopexit.split-lp.i.i.i.i:                       ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter18_WriteObjectFieldsIRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEDTcmclfp0_clL_ZSt7declvalIS5_EDTcl9__declvalIT_ELi0EEEvEEEcvv_EEOSG_OT0_.argprom.exit.i.i.i.i.i", %.noexc.i.i.i.i, %._crit_edge.i.i.i.i
+.loopexit.split-lp.i.i.i.i:                       ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter18_WriteObjectFieldsIRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEDTcmclfp0_clL_ZSt7declvalIS5_EDTcl9__declvalIT_ELi0EEEvEEEcvv_EEOSG_OT0_.exit.i.i.i.i.i", %.noexc.i.i.i.i, %._crit_edge.i.i.i.i
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i
@@ -9664,17 +9664,17 @@ define internal void @"_ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrRese
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.01.011.i.i.i.i.i.i.i.i.i, i64 72
   %33 = load ptr, ptr %32, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %31, %33
-  br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_.argprom.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.noexc7.i.i.i.i.i.i.i.i, %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.01.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %198, %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %.noexc7.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.noexc7.i.i.i.i.i.i.i.i, %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.sroa.01.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %198, %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %.noexc7.i.i.i.i.i.i.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = invoke noundef zeroext i8 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %.noexc8.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 .noexc8.i.i.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  switch i8 %36, label %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i [
+  switch i8 %36, label %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i [
     i8 1, label %37
     i8 2, label %37
     i8 5, label %67
@@ -9764,7 +9764,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
 .noexc20.invoke.i.i.i.i.i.i.i.i:                  ; preds = %.noexc80.i.i.i.i.i.i.i.i, %.noexc67.i.i.i.i.i.i.i.i, %.noexc35.i.i.i.i.i.i.i.i, %.noexc19.i.i.i.i.i.i.i.i
   %65 = phi double [ %56, %.noexc19.i.i.i.i.i.i.i.i ], [ %87, %.noexc35.i.i.i.i.i.i.i.i ], [ %158, %.noexc67.i.i.i.i.i.i.i.i ], [ %188, %.noexc80.i.i.i.i.i.i.i.i ]
   %66 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteValueEd(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %65)
-          to label %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.argprom.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
+          to label %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
 67:                                               ; preds = %.noexc8.i.i.i.i.i.i.i.i, %.noexc8.i.i.i.i.i.i.i.i
   %68 = load ptr, ptr %.sroa.01.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -9952,11 +9952,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
 128:                                              ; preds = %.noexc52.i.i.i.i.i.i.i.i
   %129 = load i8, ptr %22, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %129, 1
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %130, label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA4_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_S2_mRA5_S2_PS2_RA3_S2_dSG_ZNS_L22_WriteTraceEventToJSONERS0_RKNS_7TfTokenERKNS_10TraceEventEE3$_0EEEvDpOT_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %130, label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA4_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_S2_mRA5_S2_PS2_RA3_S2_dSG_ZNS_L22_WriteTraceEventToJSONERS0_RKNS_7TfTokenERKNS_10TraceEventEE3$_0EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
 130:                                              ; preds = %128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
-  br label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA4_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_S2_mRA5_S2_PS2_RA3_S2_dSG_ZNS_L22_WriteTraceEventToJSONERS0_RKNS_7TfTokenERKNS_10TraceEventEE3$_0EEEvDpOT_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
+  br label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA4_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_S2_mRA5_S2_PS2_RA3_S2_dSG_ZNS_L22_WriteTraceEventToJSONERS0_RKNS_7TfTokenERKNS_10TraceEventEE3$_0EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
 131:                                              ; preds = %.noexc52.i.i.i.i.i.i.i.i
   %132 = landingpad { ptr, i32 }
@@ -9969,9 +9969,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
   br label %.body.i.i.i.i.i.i.i.i
 
-"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA4_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_S2_mRA5_S2_PS2_RA3_S2_dSG_ZNS_L22_WriteTraceEventToJSONERS0_RKNS_7TfTokenERKNS_10TraceEventEE3$_0EEEvDpOT_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %130, %128
+"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA4_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_S2_mRA5_S2_PS2_RA3_S2_dSG_ZNS_L22_WriteTraceEventToJSONERS0_RKNS_7TfTokenERKNS_10TraceEventEE3$_0EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %130, %128
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  br label %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.argprom.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i
+  br label %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i
 
 135:                                              ; preds = %.noexc8.i.i.i.i.i.i.i.i
   %136 = load ptr, ptr %.sroa.01.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -10145,20 +10145,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9Event
   %196 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8WriteKeyEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
           to label %.noexc20.invoke.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.argprom.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i: ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA4_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_S2_mRA5_S2_PS2_RA3_S2_dSG_ZNS_L22_WriteTraceEventToJSONERS0_RKNS_7TfTokenERKNS_10TraceEventEE3$_0EEEvDpOT_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i", %.noexc20.invoke.i.i.i.i.i.i.i.i
+_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i: ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA4_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA9_S2_mRA5_S2_PS2_RA3_S2_dSG_ZNS_L22_WriteTraceEventToJSONERS0_RKNS_7TfTokenERKNS_10TraceEventEE3$_0EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i", %.noexc20.invoke.i.i.i.i.i.i.i.i
   %197 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter9EndObjectEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
+          to label %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.i.i.i
 
-_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.argprom.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i, %.noexc8.i.i.i.i.i.i.i.i
+_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i, %.noexc8.i.i.i.i.i.i.i.i
   %198 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %198, %33
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_.argprom.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_.argprom.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.noexc7.i.i.i.i.i.i.i.i
+_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.noexc7.i.i.i.i.i.i.i.i
   %199 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8EndArrayEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %.noexc84.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i
 
-.noexc84.i.i.i.i.i.i.i.i:                         ; preds = %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_.argprom.exit.i.i.i.i.i.i.i.i.i
+.noexc84.i.i.i.i.i.i.i.i:                         ; preds = %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_.exit.i.i.i.i.i.i.i.i.i
   %200 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter9EndObjectEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %.noexc85.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i
 
@@ -10169,17 +10169,17 @@ _ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJ
 
 ._crit_edge.i.i.i.i.i.i.i.i.i:                    ; preds = %.noexc85.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i
   %202 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter8EndArrayEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.argprom.exit.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.exit.i.i.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i
+_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.exit.i.i.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i
   %203 = load ptr, ptr %4, align 8
   %204 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %205 = load ptr, ptr %204, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %203, %205
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.argprom.exit.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7JsValueEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %242, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7JsValueEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %203, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.argprom.exit.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.exit.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7JsValueEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %242, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7JsValueEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %203, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.exit.i.i.i.i.i.i.i.i ]
   %206 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %207 = load ptr, ptr %206, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %207, null
@@ -10262,10 +10262,10 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.ex
   %.pr.i.i.i.i.i.i.i.i.i = load ptr, ptr %4, align 8
   br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
 
-_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.argprom.exit.i.i.i.i.i.i.i.i
-  %243 = phi ptr [ %.pr.i.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i.i ], [ %203, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.argprom.exit.i.i.i.i.i.i.i.i ]
+_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.exit.i.i.i.i.i.i.i.i
+  %243 = phi ptr [ %.pr.i.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i.i ], [ %203, %_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter10WriteArrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairINS_7TfTokenEPKNS_10TraceEventEESaISF_EESt4lessIS8_ESaISA_IKS8_SH_EEEZNKS_12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERS0_EUlSQ_RKSL_E_EEvRKT_RKT0_.exit.i.i.i.i.i.i.i.i ]
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %243, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter18_WriteObjectFieldsIRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEDTcmclfp0_clL_ZSt7declvalIS5_EDTcl9__declvalIT_ELi0EEEvEEEcvv_EEOSG_OT0_.argprom.exit.i.i.i.i.i", label %244
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter18_WriteObjectFieldsIRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEDTcmclfp0_clL_ZSt7declvalIS5_EDTcl9__declvalIT_ELi0EEEvEEEcvv_EEOSG_OT0_.exit.i.i.i.i.i", label %244
 
 244:                                              ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
   %245 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -10274,14 +10274,14 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.ex
   %248 = ptrtoint ptr %243 to i64
   %249 = sub i64 %247, %248
   call void @_ZdlPvm(ptr noundef nonnull %243, i64 noundef %249) #24
-  br label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter18_WriteObjectFieldsIRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEDTcmclfp0_clL_ZSt7declvalIS5_EDTcl9__declvalIT_ELi0EEEvEEEcvv_EEOSG_OT0_.argprom.exit.i.i.i.i.i"
+  br label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter18_WriteObjectFieldsIRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEDTcmclfp0_clL_ZSt7declvalIS5_EDTcl9__declvalIT_ELi0EEEvEEEcvv_EEOSG_OT0_.exit.i.i.i.i.i"
 
-.loopexit.i.i.i.i.i.i.i.i:                        ; preds = %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.argprom.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i, %.noexc80.i.i.i.i.i.i.i.i, %.noexc79.i.i.i.i.i.i.i.i, %.noexc78.i.i.i.i.i.i.i.i, %.noexc77.i.i.i.i.i.i.i.i, %.noexc76.i.i.i.i.i.i.i.i, %.noexc75.i.i.i.i.i.i.i.i, %.noexc74.i.i.i.i.i.i.i.i, %.noexc73.i.i.i.i.i.i.i.i, %.noexc72.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit42.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %176, %.noexc67.i.i.i.i.i.i.i.i, %.noexc66.i.i.i.i.i.i.i.i, %.noexc65.i.i.i.i.i.i.i.i, %.noexc64.i.i.i.i.i.i.i.i, %.noexc63.i.i.i.i.i.i.i.i, %.noexc62.i.i.i.i.i.i.i.i, %.noexc61.i.i.i.i.i.i.i.i, %.noexc60.i.i.i.i.i.i.i.i, %.noexc59.i.i.i.i.i.i.i.i, %.noexc58.i.i.i.i.i.i.i.i, %.noexc57.i.i.i.i.i.i.i.i, %.noexc56.i.i.i.i.i.i.i.i, %.noexc55.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit40.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %142, %.noexc51.i.i.i.i.i.i.i.i, %.noexc50.i.i.i.i.i.i.i.i, %.noexc49.i.i.i.i.i.i.i.i, %.noexc48.i.i.i.i.i.i.i.i, %.noexc47.i.i.i.i.i.i.i.i, %.noexc46.i.i.i.i.i.i.i.i, %.noexc45.i.i.i.i.i.i.i.i, %.noexc44.i.i.i.i.i.i.i.i, %.noexc43.i.i.i.i.i.i.i.i, %.noexc42.i.i.i.i.i.i.i.i, %.noexc41.i.i.i.i.i.i.i.i, %.noexc40.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit36.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %105, %.noexc35.i.i.i.i.i.i.i.i, %.noexc34.i.i.i.i.i.i.i.i, %.noexc33.i.i.i.i.i.i.i.i, %.noexc32.i.i.i.i.i.i.i.i, %.noexc31.i.i.i.i.i.i.i.i, %.noexc30.i.i.i.i.i.i.i.i, %.noexc29.i.i.i.i.i.i.i.i, %.noexc28.i.i.i.i.i.i.i.i, %.noexc27.i.i.i.i.i.i.i.i, %.noexc26.i.i.i.i.i.i.i.i, %.noexc25.i.i.i.i.i.i.i.i, %.noexc24.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit30.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %74, %.noexc20.invoke.i.i.i.i.i.i.i.i, %.noexc19.i.i.i.i.i.i.i.i, %.noexc18.i.i.i.i.i.i.i.i, %.noexc17.i.i.i.i.i.i.i.i, %.noexc16.i.i.i.i.i.i.i.i, %.noexc15.i.i.i.i.i.i.i.i, %.noexc14.i.i.i.i.i.i.i.i, %.noexc13.i.i.i.i.i.i.i.i, %.noexc12.i.i.i.i.i.i.i.i, %.noexc11.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %44, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.loopexit.i.i.i.i.i.i.i.i:                        ; preds = %_ZZZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_ENKUlS3_E_clES3_ENKUlS3_RKSH_E_clES3_SQ_.exit.i.i.i.i.i.i.sink.split.i.i.i.i.i.i.i.i.i, %.noexc80.i.i.i.i.i.i.i.i, %.noexc79.i.i.i.i.i.i.i.i, %.noexc78.i.i.i.i.i.i.i.i, %.noexc77.i.i.i.i.i.i.i.i, %.noexc76.i.i.i.i.i.i.i.i, %.noexc75.i.i.i.i.i.i.i.i, %.noexc74.i.i.i.i.i.i.i.i, %.noexc73.i.i.i.i.i.i.i.i, %.noexc72.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit44.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit42.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %176, %.noexc67.i.i.i.i.i.i.i.i, %.noexc66.i.i.i.i.i.i.i.i, %.noexc65.i.i.i.i.i.i.i.i, %.noexc64.i.i.i.i.i.i.i.i, %.noexc63.i.i.i.i.i.i.i.i, %.noexc62.i.i.i.i.i.i.i.i, %.noexc61.i.i.i.i.i.i.i.i, %.noexc60.i.i.i.i.i.i.i.i, %.noexc59.i.i.i.i.i.i.i.i, %.noexc58.i.i.i.i.i.i.i.i, %.noexc57.i.i.i.i.i.i.i.i, %.noexc56.i.i.i.i.i.i.i.i, %.noexc55.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit40.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit38.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %142, %.noexc51.i.i.i.i.i.i.i.i, %.noexc50.i.i.i.i.i.i.i.i, %.noexc49.i.i.i.i.i.i.i.i, %.noexc48.i.i.i.i.i.i.i.i, %.noexc47.i.i.i.i.i.i.i.i, %.noexc46.i.i.i.i.i.i.i.i, %.noexc45.i.i.i.i.i.i.i.i, %.noexc44.i.i.i.i.i.i.i.i, %.noexc43.i.i.i.i.i.i.i.i, %.noexc42.i.i.i.i.i.i.i.i, %.noexc41.i.i.i.i.i.i.i.i, %.noexc40.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit36.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %105, %.noexc35.i.i.i.i.i.i.i.i, %.noexc34.i.i.i.i.i.i.i.i, %.noexc33.i.i.i.i.i.i.i.i, %.noexc32.i.i.i.i.i.i.i.i, %.noexc31.i.i.i.i.i.i.i.i, %.noexc30.i.i.i.i.i.i.i.i, %.noexc29.i.i.i.i.i.i.i.i, %.noexc28.i.i.i.i.i.i.i.i, %.noexc27.i.i.i.i.i.i.i.i, %.noexc26.i.i.i.i.i.i.i.i, %.noexc25.i.i.i.i.i.i.i.i, %.noexc24.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit30.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %74, %.noexc20.invoke.i.i.i.i.i.i.i.i, %.noexc19.i.i.i.i.i.i.i.i, %.noexc18.i.i.i.i.i.i.i.i, %.noexc17.i.i.i.i.i.i.i.i, %.noexc16.i.i.i.i.i.i.i.i, %.noexc15.i.i.i.i.i.i.i.i, %.noexc14.i.i.i.i.i.i.i.i, %.noexc13.i.i.i.i.i.i.i.i, %.noexc12.i.i.i.i.i.i.i.i, %.noexc11.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %44, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %lpad.loopexit.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i.i
 
-.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i:      ; preds = %.noexc84.i.i.i.i.i.i.i.i, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_.argprom.exit.i.i.i.i.i.i.i.i.i, %.noexc6.i.i.i.i.i.i.i.i, %.noexc5.i.i.i.i.i.i.i.i, %.noexc4.i.i.i.i.i.i.i.i, %.noexc3.i.i.i.i.i.i.i.i, %23
+.loopexit.split-lp.loopexit.i.i.i.i.i.i.i.i:      ; preds = %.noexc84.i.i.i.i.i.i.i.i, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJson19CreateThreadsObjectERNS_8JsWriterEENKUlS3_RKSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS4_INS_7TfTokenEPKNS_10TraceEventEESaISH_EEEE_clES3_SM_.exit.i.i.i.i.i.i.i.i.i, %.noexc6.i.i.i.i.i.i.i.i, %.noexc5.i.i.i.i.i.i.i.i, %.noexc4.i.i.i.i.i.i.i.i, %.noexc3.i.i.i.i.i.i.i.i, %23
   %lpad.loopexit89.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i.i
@@ -10296,26 +10296,26 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.ex
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7JsValueESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   br label %.body.i.i.i.i
 
-"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter18_WriteObjectFieldsIRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEDTcmclfp0_clL_ZSt7declvalIS5_EDTcl9__declvalIT_ELi0EEEvEEEcvv_EEOSG_OT0_.argprom.exit.i.i.i.i.i": ; preds = %244, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
+"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter18_WriteObjectFieldsIRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEDTcmclfp0_clL_ZSt7declvalIS5_EDTcl9__declvalIT_ELi0EEEvEEEcvv_EEOSG_OT0_.exit.i.i.i.i.i": ; preds = %244, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %250 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter9EndObjectEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEEvDpOT_.argprom.exit.i.i.i.i" unwind label %.loopexit.split-lp.i.i.i.i
+          to label %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEEvDpOT_.exit.i.i.i.i" unwind label %.loopexit.split-lp.i.i.i.i
 
-"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEEvDpOT_.argprom.exit.i.i.i.i": ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter18_WriteObjectFieldsIRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEDTcmclfp0_clL_ZSt7declvalIS5_EDTcl9__declvalIT_ELi0EEEvEEEcvv_EEOSG_OT0_.argprom.exit.i.i.i.i.i"
+"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEEvDpOT_.exit.i.i.i.i": ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter18_WriteObjectFieldsIRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEDTcmclfp0_clL_ZSt7declvalIS5_EDTcl9__declvalIT_ELi0EEEvEEEcvv_EEOSG_OT0_.exit.i.i.i.i.i"
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_WriteCollectionEventsToJsonE, i64 16), ptr %5, align 8
   %251 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %252 = load ptr, ptr %10, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS9_10TraceEventEESaISE_EEESt10_Select1stISH_ESt4lessIS5_ESaISH_EE8_M_eraseEPSt13_Rb_tree_nodeISH_E(ptr noundef nonnull align 8 dereferenceable(48) %251, ptr noundef %252)
           to label %"_ZSt10__invoke_rIvRZN32pxrInternal_v0_24__pxrReserved__23Trace_JSONSerialization22WriteCollectionsToJSONERNS0_8JsWriterERKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS7_EEE3$_0JS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit" unwind label %253
 
-253:                                              ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEEvDpOT_.argprom.exit.i.i.i.i"
+253:                                              ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEEvDpOT_.exit.i.i.i.i"
   %254 = landingpad { ptr, i32 }
           catch ptr null
   %255 = extractvalue { ptr, i32 } %254, 0
   call void @__clang_call_terminate(ptr %255) #26
   unreachable
 
-"_ZSt10__invoke_rIvRZN32pxrInternal_v0_24__pxrReserved__23Trace_JSONSerialization22WriteCollectionsToJSONERNS0_8JsWriterERKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS7_EEE3$_0JS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEEvDpOT_.argprom.exit.i.i.i.i"
+"_ZSt10__invoke_rIvRZN32pxrInternal_v0_24__pxrReserved__23Trace_JSONSerialization22WriteCollectionsToJSONERNS0_8JsWriterERKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS7_EEE3$_0JS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %"_ZN32pxrInternal_v0_24__pxrReserved__8JsWriter11WriteObjectIJRA13_KcZNS_L23_WriteTraceEventsToJsonERS0_RKSt6vectorISt10shared_ptrINS_15TraceCollectionEESaIS9_EEE3$_0EEEvDpOT_.exit.i.i.i.i"
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15TraceCollection7VisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   ret void

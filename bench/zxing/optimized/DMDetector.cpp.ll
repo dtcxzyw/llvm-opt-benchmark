@@ -1240,18 +1240,18 @@ _ZNK5ZXing14RegressionLine6lengthEv.exit.i.i:     ; preds = %437, %430
   %.sroa.233.0.copyload.i.i = load double, ptr %.sroa.269.0..sroa_idx.i.i, align 8, !noalias !15
   %.sroa.030.0.copyload.i.i = load double, ptr %31, align 8, !noalias !15
   %.sroa.231.0.copyload.i.i = load double, ptr %.sroa.2114.0..sroa_idx.i.i, align 8, !noalias !15
-  %582 = call fastcc { double, double } @"_ZZN5ZXing10DataMatrixL4ScanERNS0_10EdgeTracerERSt5arrayINS0_16DMRegressionLineELm4EEENK3$_0clIfEEDaNS_6PointTIdEESA_SA_T_.argprom"(double %.sroa.034.0.copyload.i.i, double %.sroa.235.0.copyload.i.i, double %.sroa.032.0.copyload.i.i, double %.sroa.233.0.copyload.i.i, double %.sroa.030.0.copyload.i.i, double %.sroa.231.0.copyload.i.i, float noundef 5.000000e-01)
+  %582 = call fastcc { double, double } @"_ZZN5ZXing10DataMatrixL4ScanERNS0_10EdgeTracerERSt5arrayINS0_16DMRegressionLineELm4EEENK3$_0clIfEEDaNS_6PointTIdEESA_SA_T_"(double %.sroa.034.0.copyload.i.i, double %.sroa.235.0.copyload.i.i, double %.sroa.032.0.copyload.i.i, double %.sroa.233.0.copyload.i.i, double %.sroa.030.0.copyload.i.i, double %.sroa.231.0.copyload.i.i, float noundef 5.000000e-01)
   %583 = extractvalue { double, double } %582, 0
   %584 = extractvalue { double, double } %582, 1
   %.sroa.024.0.copyload.i.i = load double, ptr %32, align 8, !noalias !15
   %.sroa.225.0.copyload.i.i = load double, ptr %.sroa.289.0..sroa_idx.i.i, align 8, !noalias !15
-  %585 = call fastcc { double, double } @"_ZZN5ZXing10DataMatrixL4ScanERNS0_10EdgeTracerERSt5arrayINS0_16DMRegressionLineELm4EEENK3$_0clIfEEDaNS_6PointTIdEESA_SA_T_.argprom"(double %.sroa.032.0.copyload.i.i, double %.sroa.233.0.copyload.i.i, double %.sroa.024.0.copyload.i.i, double %.sroa.225.0.copyload.i.i, double %.sroa.034.0.copyload.i.i, double %.sroa.235.0.copyload.i.i, float noundef 0x3FD3333340000000)
+  %585 = call fastcc { double, double } @"_ZZN5ZXing10DataMatrixL4ScanERNS0_10EdgeTracerERSt5arrayINS0_16DMRegressionLineELm4EEENK3$_0clIfEEDaNS_6PointTIdEESA_SA_T_"(double %.sroa.032.0.copyload.i.i, double %.sroa.233.0.copyload.i.i, double %.sroa.024.0.copyload.i.i, double %.sroa.225.0.copyload.i.i, double %.sroa.034.0.copyload.i.i, double %.sroa.235.0.copyload.i.i, float noundef 0x3FD3333340000000)
   %586 = extractvalue { double, double } %585, 0
   %587 = extractvalue { double, double } %585, 1
-  %588 = call fastcc { double, double } @"_ZZN5ZXing10DataMatrixL4ScanERNS0_10EdgeTracerERSt5arrayINS0_16DMRegressionLineELm4EEENK3$_0clIfEEDaNS_6PointTIdEESA_SA_T_.argprom"(double %.sroa.024.0.copyload.i.i, double %.sroa.225.0.copyload.i.i, double %.sroa.030.0.copyload.i.i, double %.sroa.231.0.copyload.i.i, double %.sroa.032.0.copyload.i.i, double %.sroa.233.0.copyload.i.i, float noundef 5.000000e-01)
+  %588 = call fastcc { double, double } @"_ZZN5ZXing10DataMatrixL4ScanERNS0_10EdgeTracerERSt5arrayINS0_16DMRegressionLineELm4EEENK3$_0clIfEEDaNS_6PointTIdEESA_SA_T_"(double %.sroa.024.0.copyload.i.i, double %.sroa.225.0.copyload.i.i, double %.sroa.030.0.copyload.i.i, double %.sroa.231.0.copyload.i.i, double %.sroa.032.0.copyload.i.i, double %.sroa.233.0.copyload.i.i, float noundef 5.000000e-01)
   %589 = extractvalue { double, double } %588, 0
   %590 = extractvalue { double, double } %588, 1
-  %591 = call fastcc { double, double } @"_ZZN5ZXing10DataMatrixL4ScanERNS0_10EdgeTracerERSt5arrayINS0_16DMRegressionLineELm4EEENK3$_0clIfEEDaNS_6PointTIdEESA_SA_T_.argprom"(double %.sroa.030.0.copyload.i.i, double %.sroa.231.0.copyload.i.i, double %.sroa.034.0.copyload.i.i, double %.sroa.235.0.copyload.i.i, double %.sroa.024.0.copyload.i.i, double %.sroa.225.0.copyload.i.i, float noundef 5.000000e-01)
+  %591 = call fastcc { double, double } @"_ZZN5ZXing10DataMatrixL4ScanERNS0_10EdgeTracerERSt5arrayINS0_16DMRegressionLineELm4EEENK3$_0clIfEEDaNS_6PointTIdEESA_SA_T_"(double %.sroa.030.0.copyload.i.i, double %.sroa.231.0.copyload.i.i, double %.sroa.034.0.copyload.i.i, double %.sroa.235.0.copyload.i.i, double %.sroa.024.0.copyload.i.i, double %.sroa.225.0.copyload.i.i, float noundef 5.000000e-01)
   %592 = extractvalue { double, double } %591, 0
   %593 = extractvalue { double, double } %591, 1
   store double %583, ptr %38, align 8, !noalias !15
@@ -1932,9 +1932,9 @@ _ZNSt3mapIPKN5ZXing11ResultPointEiSt4lessIS3_ESaISt4pairIKS3_iEEE4findERS7_.exit
   %or.cond10.i.i = select i1 %or.cond.i81.i.i, i1 %840, i1 false
   %841 = fcmp olt float %825, %836
   %or.cond12.i.i = select i1 %or.cond10.i.i, i1 %841, i1 false
-  br i1 %or.cond6.i.i, label %842, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread.i.i
+  br i1 %or.cond6.i.i, label %842, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i
 
-_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread.i.i: ; preds = %774
+_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i: ; preds = %774
   br i1 %or.cond12.i.i, label %.thread.i29, label %862
 
 842:                                              ; preds = %774
@@ -1979,8 +1979,8 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread.i
   %..i.i = select i1 %.not.i.i31, ptr %10, ptr %9
   br label %.thread.i29
 
-.thread.i29:                                      ; preds = %.noexc99.i, %842, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread.i.i
-  %..sink.i.i = phi ptr [ %..i.i, %.noexc99.i ], [ %10, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread.i.i ], [ %9, %842 ]
+.thread.i29:                                      ; preds = %.noexc99.i, %842, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i
+  %..sink.i.i = phi ptr [ %..i.i, %.noexc99.i ], [ %10, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i ], [ %9, %842 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %..sink.i.i, i64 16, i1 false), !noalias !21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !21
@@ -1990,7 +1990,7 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !21
   br label %863
 
-862:                                              ; preds = %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread.i.i
+862:                                              ; preds = %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !21
@@ -2027,7 +2027,7 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread.i
   %.047.val58.i = load double, ptr %.047.i, align 8, !noalias !21
   %874 = getelementptr i8, ptr %.047.i, i64 8
   %.047.val59.i = load double, ptr %874, align 8, !noalias !21
-  %875 = invoke fastcc { double, double } @_ZN5ZXing10DataMatrixL15CorrectTopRightERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_i.argprom(ptr noundef nonnull align 8 dereferenceable(32) %1, double %.val56.i, double %.val57.i, ptr noundef nonnull align 8 dereferenceable(16) %.154.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.1.i.i, double %.047.val58.i, double %.047.val59.i, i32 noundef %.sroa.speculated.i)
+  %875 = invoke fastcc { double, double } @_ZN5ZXing10DataMatrixL15CorrectTopRightERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_i(ptr noundef nonnull align 8 dereferenceable(32) %1, double %.val56.i, double %.val57.i, ptr noundef nonnull align 8 dereferenceable(16) %.154.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.1.i.i, double %.047.val58.i, double %.047.val59.i, i32 noundef %.sroa.speculated.i)
           to label %876 unwind label %688, !noalias !21
 
 876:                                              ; preds = %872
@@ -2110,15 +2110,15 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread.i
 
 .noexc102.i:                                      ; preds = %886
   invoke void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKNS_20PerspectiveTransformE(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DetectorResult") align 8 %50, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.2.i, i32 noundef %.1.i, ptr noundef nonnull align 8 dereferenceable(72) %6)
-          to label %_ZN5ZXing10DataMatrixL10SampleGridERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_ii.argprom.exit.i unwind label %688
+          to label %_ZN5ZXing10DataMatrixL10SampleGridERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_ii.exit.i unwind label %688
 
-_ZN5ZXing10DataMatrixL10SampleGridERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_ii.argprom.exit.i: ; preds = %.noexc102.i
+_ZN5ZXing10DataMatrixL10SampleGridERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_ii.exit.i: ; preds = %.noexc102.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !21
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !21
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !21
   br label %901
 
-901:                                              ; preds = %_ZN5ZXing10DataMatrixL10SampleGridERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_ii.argprom.exit.i, %767, %._crit_edge.thread.i
+901:                                              ; preds = %_ZN5ZXing10DataMatrixL10SampleGridERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_ii.exit.i, %767, %._crit_edge.thread.i
   %902 = load ptr, ptr %659, align 8, !noalias !21
   invoke void @_ZNSt8_Rb_treeIPKN5ZXing11ResultPointESt4pairIKS3_iESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef %902)
           to label %._crit_edge unwind label %903
@@ -4902,7 +4902,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit141:                 ; preds = %_ZNSt6vectorIdSaIdE
 declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc { double, double } @"_ZZN5ZXing10DataMatrixL4ScanERNS0_10EdgeTracerERSt5arrayINS0_16DMRegressionLineELm4EEENK3$_0clIfEEDaNS_6PointTIdEESA_SA_T_.argprom"(double %0, double %1, double %2, double %3, double %4, double %5, float noundef %6) unnamed_addr #10 align 2 {
+define internal fastcc { double, double } @"_ZZN5ZXing10DataMatrixL4ScanERNS0_10EdgeTracerERSt5arrayINS0_16DMRegressionLineELm4EEENK3$_0clIfEEDaNS_6PointTIdEESA_SA_T_"(double %0, double %1, double %2, double %3, double %4, double %5, float noundef %6) unnamed_addr #10 align 2 {
   %8 = fsub double %2, %0
   %9 = fsub double %3, %1
   %10 = fmul double %9, %9
@@ -5960,7 +5960,7 @@ _ZNSt8_Rb_treeIPKN5ZXing11ResultPointESt4pairIKS3_iESt10_Select1stIS6_ESt4lessIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { double, double } @_ZN5ZXing10DataMatrixL15CorrectTopRightERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_i.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, double %.0.val, double %.8.val, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, double %.0.val1, double %.8.val3, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc { double, double } @_ZN5ZXing10DataMatrixL15CorrectTopRightERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, double %.0.val, double %.8.val, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, double %.0.val1, double %.8.val3, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.ZXing::ResultPoint", align 8
   %6 = alloca %"class.ZXing::ResultPoint", align 8
   %7 = alloca %"struct.ZXing::DataMatrix::ResultPointsAndTransitions", align 8
@@ -6051,16 +6051,16 @@ define internal fastcc { double, double } @_ZN5ZXing10DataMatrixL15CorrectTopRig
   %or.cond11 = select i1 %or.cond.i85, i1 %73, i1 false
   %74 = fcmp olt float %58, %69
   %or.cond13 = select i1 %or.cond11, i1 %74, i1 false
-  br i1 %or.cond7, label %76, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread
+  br i1 %or.cond7, label %76, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread
 
-_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread: ; preds = %4
-  br i1 %or.cond13, label %75, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit84.thread
+_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread: ; preds = %4
+  br i1 %or.cond13, label %75, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit84.thread
 
-75:                                               ; preds = %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread
-  br label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit84.thread
+75:                                               ; preds = %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread
+  br label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit84.thread
 
 76:                                               ; preds = %4
-  br i1 %or.cond13, label %77, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit84.thread
+  br i1 %or.cond13, label %77, label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit84.thread
 
 77:                                               ; preds = %76
   call fastcc void @_ZN5ZXing10DataMatrixL18TransitionsBetweenERKNS_9BitMatrixERKNS_11ResultPointES6_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -6086,11 +6086,11 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread: 
   %.val14 = load double, ptr %61, align 8
   %.val15 = load double, ptr %37, align 8
   %.sroa.5.0.copyload71 = select i1 %.not, double %.val14, double %.val15
-  br label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit84.thread
+  br label %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit84.thread
 
-_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit84.thread: ; preds = %76, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread, %77, %75
-  %.sroa.064.0 = phi double [ %.sroa.064.0.copyload67, %77 ], [ %59, %75 ], [ %.0.val1, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread ], [ %35, %76 ]
-  %.sroa.5.0 = phi double [ %.sroa.5.0.copyload71, %77 ], [ %60, %75 ], [ %.8.val3, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.argprom.exit.thread ], [ %36, %76 ]
+_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit84.thread: ; preds = %76, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread, %77, %75
+  %.sroa.064.0 = phi double [ %.sroa.064.0.copyload67, %77 ], [ %59, %75 ], [ %.0.val1, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread ], [ %35, %76 ]
+  %.sroa.5.0 = phi double [ %.sroa.5.0.copyload71, %77 ], [ %60, %75 ], [ %.8.val3, %_ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread ], [ %36, %76 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.064.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.5.0, 1
   ret { double, double } %.fca.1.insert
@@ -6443,8 +6443,8 @@ attributes #23 = { noreturn }
 !28 = distinct !{!28, !29, !"_ZN5ZXing9RectangleINS_6PointTIdEEEENS_13QuadrilateralIT_EEiiNS4_7value_tE: argument 0"}
 !29 = distinct !{!29, !"_ZN5ZXing9RectangleINS_6PointTIdEEEENS_13QuadrilateralIT_EEiiNS4_7value_tE"}
 !30 = !{!31, !22}
-!31 = distinct !{!31, !32, !"_ZN5ZXing10DataMatrixL10SampleGridERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_ii.argprom: argument 0"}
-!32 = distinct !{!32, !"_ZN5ZXing10DataMatrixL10SampleGridERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_ii.argprom"}
+!31 = distinct !{!31, !32, !"_ZN5ZXing10DataMatrixL10SampleGridERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_ii: argument 0"}
+!32 = distinct !{!32, !"_ZN5ZXing10DataMatrixL10SampleGridERKNS_9BitMatrixERKNS_11ResultPointES6_S6_S6_ii"}
 !33 = distinct !{!33, !8}
 !34 = distinct !{!34, !8}
 !35 = distinct !{!35, !8}

@@ -463,14 +463,14 @@ define weak_odr void @_ZNK5faiss18IndexIDMapTemplateINS_5IndexEE6searchElPKflPfP
   %22 = landingpad { ptr, i32 }
           cleanup
   %.not.i = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit, label %23
+  br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
   store ptr %.sroa.4.0, ptr %24, align 8
-  br label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit
+  br label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit
 
-_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit: ; preds = %21, %23
+_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit: ; preds = %21, %23
   resume { ptr, i32 } %22
 
 25:                                               ; preds = %18, %20, %15, %7
@@ -488,14 +488,14 @@ _ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit: ; preds = %21, %23
   store ptr %5, ptr %11, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK5faiss18IndexIDMapTemplateINS_5IndexEE6searchElPKflPfPlPKNS_16SearchParametersE.omp_outlined, ptr nonnull %8, ptr nonnull %9, ptr nonnull %11, ptr nonnull %0)
   %.not.i20 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i20, label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit21, label %32
+  br i1 %.not.i20, label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit21, label %32
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
   store ptr %.sroa.4.0, ptr %33, align 8
-  br label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit21
+  br label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit21
 
-_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit21: ; preds = %31, %32
+_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit21: ; preds = %31, %32
   ret void
 }
 
@@ -1118,28 +1118,28 @@ define weak_odr void @_ZNK5faiss18IndexIDMapTemplateINS_11IndexBinaryEE6searchEl
   store ptr %5, ptr %11, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK5faiss18IndexIDMapTemplateINS_11IndexBinaryEE6searchElPKhlPiPlPKNS_16SearchParametersE.omp_outlined, ptr nonnull %8, ptr nonnull %9, ptr nonnull %11, ptr nonnull %0)
   %.not.i = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit, label %28
+  br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit, label %28
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
   store ptr %.sroa.4.0, ptr %29, align 8
-  br label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit
+  br label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit
 
-_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit: ; preds = %27, %28
+_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit: ; preds = %27, %28
   ret void
 
 30:                                               ; preds = %21
   %31 = landingpad { ptr, i32 }
           cleanup
   %.not.i20 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i20, label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit21, label %32
+  br i1 %.not.i20, label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit21, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
   store ptr %.sroa.4.0, ptr %33, align 8
-  br label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit21
+  br label %_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit21
 
-_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.argprom.exit21: ; preds = %30, %32
+_ZN5faiss12_GLOBAL__N_115ScopedSelChangeD2Ev.exit21: ; preds = %30, %32
   resume { ptr, i32 } %31
 }
 

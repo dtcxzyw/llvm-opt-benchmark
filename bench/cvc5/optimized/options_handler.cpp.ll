@@ -1734,11 +1734,11 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 invoke.cont.i.i.i.i.i:                            ; preds = %for.body.i.i
   %5 = load ptr, ptr %__what.i.i.i.i.i, align 8, !noalias !4
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %"_ZZN4cvc58internal7options12_GLOBAL__N_110selectTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_ENK3$_0clIS9_EEDaRKT_.argprom.exit.i.i", label %if.then.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %"_ZZN4cvc58internal7options12_GLOBAL__N_110selectTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_ENK3$_0clIS9_EEDaRKT_.exit.i.i", label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %5) #29
-  br label %"_ZZN4cvc58internal7options12_GLOBAL__N_110selectTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_ENK3$_0clIS9_EEDaRKT_.argprom.exit.i.i"
+  br label %"_ZZN4cvc58internal7options12_GLOBAL__N_110selectTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_ENK3$_0clIS9_EEDaRKT_.exit.i.i"
 
 lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i
   %6 = landingpad { ptr, i32 }
@@ -1751,11 +1751,11 @@ if.then.i.i.i.i3.i.i.i.i.i:                       ; preds = %lpad.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %7) #29
   br label %lpad7.body.i
 
-"_ZZN4cvc58internal7options12_GLOBAL__N_110selectTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_ENK3$_0clIS9_EEDaRKT_.argprom.exit.i.i": ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i
+"_ZZN4cvc58internal7options12_GLOBAL__N_110selectTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_ENK3$_0clIS9_EEDaRKT_.exit.i.i": ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__what.i.i.i.i.i), !noalias !4
   br i1 %call.i1.i.i.i.i.i, label %if.then.i.i, label %for.inc.i.i
 
-if.then.i.i:                                      ; preds = %"_ZZN4cvc58internal7options12_GLOBAL__N_110selectTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_ENK3$_0clIS9_EEDaRKT_.argprom.exit.i.i"
+if.then.i.i:                                      ; preds = %"_ZZN4cvc58internal7options12_GLOBAL__N_110selectTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_ENK3$_0clIS9_EEDaRKT_.exit.i.i"
   %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !alias.scope !4
   %9 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !alias.scope !4
   %cmp.not.i.i.i.i = icmp eq ptr %8, %9
@@ -1775,7 +1775,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %tags, ptr %8, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.05.i.i)
           to label %for.inc.i.i unwind label %lpad7.i
 
-for.inc.i.i:                                      ; preds = %if.else.i.i.i.i, %.noexc.i, %"_ZZN4cvc58internal7options12_GLOBAL__N_110selectTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_ENK3$_0clIS9_EEDaRKT_.argprom.exit.i.i"
+for.inc.i.i:                                      ; preds = %if.else.i.i.i.i, %.noexc.i, %"_ZZN4cvc58internal7options12_GLOBAL__N_110selectTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_ENK3$_0clIS9_EEDaRKT_.exit.i.i"
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i.i, i64 32
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %4
   br i1 %cmp.i.not.i.i, label %invoke.cont16.i, label %for.body.i.i, !llvm.loop !9
@@ -2013,7 +2013,7 @@ invoke.cont48:                                    ; preds = %invoke.cont45
   %call46.val = load ptr, ptr %call46, align 8
   %34 = getelementptr inbounds i8, ptr %call46, i64 8
   %call46.val18 = load ptr, ptr %34, align 8
-  invoke fastcc void @_ZN4cvc58internal7options12_GLOBAL__N_111suggestTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_SD_.argprom(ptr noalias align 8 %ref.tmp43, ptr %call46.val, ptr %call46.val18, ptr noundef %agg.tmp47, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp49)
+  invoke fastcc void @_ZN4cvc58internal7options12_GLOBAL__N_111suggestTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_SD_(ptr noalias align 8 %ref.tmp43, ptr %call46.val, ptr %call46.val18, ptr noundef %agg.tmp47, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp49)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont48
@@ -2270,7 +2270,7 @@ unreachable:                                      ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal7options12_GLOBAL__N_111suggestTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_SD_.argprom(ptr noalias nonnull align 8 %agg.result, ptr %validTags.0.val, ptr %validTags.8.val, ptr noundef nonnull %inputTag, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %additionalTags) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal7options12_GLOBAL__N_111suggestTagsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EES9_SD_(ptr noalias nonnull align 8 %agg.result, ptr %validTags.0.val, ptr %validTags.8.val, ptr noundef nonnull %inputTag, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %additionalTags) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %didYouMean = alloca %"class.cvc5::internal::DidYouMean", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %didYouMean, i8 0, i64 24, i1 false)

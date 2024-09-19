@@ -31,21 +31,21 @@ define hidden void @"_ZN3nom5bytes8complete3tag28_$u7b$$u7b$closure$u7d$$u7d$17h
   %.not = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %4, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i"
-  %8 = phi i64 [ %11, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i" ], [ 0, %4 ]
+.lr.ph.i:                                         ; preds = %4, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i"
+  %8 = phi i64 [ %11, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i" ], [ 0, %4 ]
   %9 = getelementptr inbounds i8, ptr %2, i64 %8
   %10 = getelementptr inbounds i8, ptr %7, i64 %8
   %.val7.i = load i8, ptr %9, align 1, !noalias !9, !noundef !4
   %.val8.i = load i8, ptr %10, align 1, !noalias !9, !noundef !4
   %.not.i.i = icmp eq i8 %.val7.i, %.val8.i
-  br i1 %.not.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i", label %select.unfold
+  br i1 %.not.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i", label %select.unfold
 
-"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i": ; preds = %.lr.ph.i
+"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i": ; preds = %.lr.ph.i
   %11 = add nuw i64 %8, 1
   %exitcond.not.i = icmp eq i64 %11, %.0.sroa.speculated.i.i.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
-.loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i", %4
+.loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i", %4
   %.not.i19 = icmp ult i64 %3, %6
   br i1 %.not.i19, label %select.unfold, label %"_ZN59_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTake$GT$10take_split17h1e5aa5c4855c500aE.llvm.15859092204462515359.exit"
 
@@ -118,21 +118,21 @@ define hidden void @"_ZN3nom8sequence14separated_pair28_$u7b$$u7b$closure$u7d$$u
   %.not.i.i = icmp eq i64 %.0.sroa.speculated.i.i.i.i.i, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %12, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i"
-  %16 = phi i64 [ %19, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i" ], [ 0, %12 ]
+.lr.ph.i.i.i:                                     ; preds = %12, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i"
+  %16 = phi i64 [ %19, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i" ], [ 0, %12 ]
   %17 = getelementptr inbounds i8, ptr %.sroa.024.0.copyload, i64 %16
   %18 = getelementptr inbounds i8, ptr %15, i64 %16
   %.val7.i.i.i = load i8, ptr %17, align 1, !alias.scope !40, !noalias !41, !noundef !4
   %.val8.i.i.i = load i8, ptr %18, align 1, !noalias !47, !noundef !4
   %.not.i.i.i.i = icmp eq i8 %.val7.i.i.i, %.val8.i.i.i
-  br i1 %.not.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i", label %.loopexit
+  br i1 %.not.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i", label %.loopexit
 
-"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i": ; preds = %.lr.ph.i.i.i
+"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i": ; preds = %.lr.ph.i.i.i
   %19 = add nuw i64 %16, 1
   %exitcond.not.i.i.i = icmp eq i64 %19, %.0.sroa.speculated.i.i.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i", %12
+.loopexit.i.i:                                    ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i", %12
   %.not.i19.i.i = icmp ult i64 %.sroa.425.0.copyload, %14
   br i1 %.not.i19.i.i, label %.loopexit, label %22
 
@@ -229,21 +229,21 @@ define hidden void @"_ZN3nom8sequence8preceded28_$u7b$$u7b$closure$u7d$$u7d$17hc
   %.not.i.i = icmp eq i64 %.0.sroa.speculated.i.i.i.i.i, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %4, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i"
-  %8 = phi i64 [ %11, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i" ], [ 0, %4 ]
+.lr.ph.i.i.i:                                     ; preds = %4, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i"
+  %8 = phi i64 [ %11, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i" ], [ 0, %4 ]
   %9 = getelementptr inbounds i8, ptr %2, i64 %8
   %10 = getelementptr inbounds i8, ptr %7, i64 %8
   %.val7.i.i.i = load i8, ptr %9, align 1, !alias.scope !83, !noalias !84, !noundef !4
   %.val8.i.i.i = load i8, ptr %10, align 1, !noalias !90, !noundef !4
   %.not.i.i.i.i = icmp eq i8 %.val7.i.i.i, %.val8.i.i.i
-  br i1 %.not.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i", label %.loopexit
+  br i1 %.not.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i", label %.loopexit
 
-"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i": ; preds = %.lr.ph.i.i.i
+"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i": ; preds = %.lr.ph.i.i.i
   %11 = add nuw i64 %8, 1
   %exitcond.not.i.i.i = icmp eq i64 %11, %.0.sroa.speculated.i.i.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i", %4
+.loopexit.i.i:                                    ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i", %4
   %.not.i19.i.i = icmp ult i64 %3, %6
   br i1 %.not.i19.i.i, label %.loopexit, label %12
 
@@ -439,26 +439,26 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2f
   %.val.i.i = load ptr, ptr %7, align 8, !alias.scope !113, !nonnull !4, !noundef !4
   br label %8
 
-8:                                                ; preds = %.lr.ph, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit"
-  %9 = phi i64 [ %.promoted, %.lr.ph ], [ %11, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit" ]
-  %10 = phi i64 [ %.promoted14, %.lr.ph ], [ %14, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit" ]
+8:                                                ; preds = %.lr.ph, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit"
+  %9 = phi i64 [ %.promoted, %.lr.ph ], [ %11, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit" ]
+  %10 = phi i64 [ %.promoted14, %.lr.ph ], [ %14, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit" ]
   %11 = add i64 %9, 1
   %12 = getelementptr inbounds i8, ptr %.val4.i.i, i64 %9
   %13 = getelementptr inbounds i8, ptr %.val.i.i, i64 %9
   %.val7 = load i8, ptr %12, align 1, !noundef !4
   %.val8 = load i8, ptr %13, align 1, !noundef !4
   %.not.i = icmp eq i8 %.val7, %.val8
-  br i1 %.not.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit", label %.sink.split
+  br i1 %.not.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit", label %.sink.split
 
-"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit": ; preds = %8
+"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit": ; preds = %8
   %14 = add i64 %10, 1
   store i64 %14, ptr %1, align 8
   %exitcond.not = icmp eq i64 %11, %5
   br i1 %exitcond.not, label %.sink.split, label %8
 
-.sink.split:                                      ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit", %8
-  %.sink = phi i64 [ %11, %8 ], [ %5, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit" ]
-  %.sroa.0.0.ph = phi i64 [ 1, %8 ], [ 0, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit" ]
+.sink.split:                                      ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit", %8
+  %.sink = phi i64 [ %11, %8 ], [ %5, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit" ]
+  %.sroa.0.0.ph = phi i64 [ 1, %8 ], [ 0, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit" ]
   store i64 %.sink, ptr %3, align 8, !alias.scope !113
   br label %15
 
@@ -611,21 +611,21 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
   %.not.i = icmp eq i64 %.0.sroa.speculated.i.i.i.i, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %4, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i"
-  %8 = phi i64 [ %11, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i" ], [ 0, %4 ]
+.lr.ph.i.i:                                       ; preds = %4, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i"
+  %8 = phi i64 [ %11, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i" ], [ 0, %4 ]
   %9 = getelementptr inbounds i8, ptr %2, i64 %8
   %10 = getelementptr inbounds i8, ptr %7, i64 %8
   %.val7.i.i = load i8, ptr %9, align 1, !alias.scope !132, !noalias !138, !noundef !4
   %.val8.i.i = load i8, ptr %10, align 1, !noalias !144, !noundef !4
   %.not.i.i.i = icmp eq i8 %.val7.i.i, %.val8.i.i
-  br i1 %.not.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i", label %select.unfold.i
+  br i1 %.not.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i", label %select.unfold.i
 
-"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i": ; preds = %.lr.ph.i.i
+"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i": ; preds = %.lr.ph.i.i
   %11 = add nuw i64 %8, 1
   %exitcond.not.i.i = icmp eq i64 %11, %.0.sroa.speculated.i.i.i.i
   br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
-.loopexit.i:                                      ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i", %4
+.loopexit.i:                                      ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i", %4
   %.not.i19.i = icmp ult i64 %3, %6
   br i1 %.not.i19.i, label %select.unfold.i, label %"_ZN59_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..InputTake$GT$10take_split17h1e5aa5c4855c500aE.llvm.15859092204462515359.exit.i"
 
@@ -675,21 +675,21 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
   %.not.i.i.i = icmp eq i64 %.0.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %.not.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %4, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i.i"
-  %8 = phi i64 [ %11, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i.i" ], [ 0, %4 ]
+.lr.ph.i.i.i.i:                                   ; preds = %4, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i"
+  %8 = phi i64 [ %11, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i" ], [ 0, %4 ]
   %9 = getelementptr inbounds i8, ptr %2, i64 %8
   %10 = getelementptr inbounds i8, ptr %7, i64 %8
   %.val7.i.i.i.i = load i8, ptr %9, align 1, !alias.scope !170, !noalias !171, !noundef !4
   %.val8.i.i.i.i = load i8, ptr %10, align 1, !noalias !177, !noundef !4
   %.not.i.i.i.i.i = icmp eq i8 %.val7.i.i.i.i, %.val8.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i.i", label %.loopexit.i
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i", label %.loopexit.i
 
-"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
   %11 = add nuw i64 %8, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %11, %.0.sroa.speculated.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
 
-.loopexit.i.i.i:                                  ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i.i", %4
+.loopexit.i.i.i:                                  ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i", %4
   %.not.i19.i.i.i = icmp ult i64 %3, %6
   br i1 %.not.i19.i.i.i, label %.loopexit.i, label %12
 
@@ -754,21 +754,21 @@ define hidden void @"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$G
   %.not.i.i.i = icmp eq i64 %.0.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %.not.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %12, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i.i"
-  %16 = phi i64 [ %19, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i.i" ], [ 0, %12 ]
+.lr.ph.i.i.i.i:                                   ; preds = %12, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i"
+  %16 = phi i64 [ %19, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i" ], [ 0, %12 ]
   %17 = getelementptr inbounds i8, ptr %.sroa.024.0.copyload.i, i64 %16
   %18 = getelementptr inbounds i8, ptr %15, i64 %16
   %.val7.i.i.i.i = load i8, ptr %17, align 1, !alias.scope !211, !noalias !212, !noundef !4
   %.val8.i.i.i.i = load i8, ptr %18, align 1, !noalias !218, !noundef !4
   %.not.i.i.i.i.i = icmp eq i8 %.val7.i.i.i.i, %.val8.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i.i", label %.loopexit.i
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i", label %.loopexit.i
 
-"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
   %19 = add nuw i64 %16, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %19, %.0.sroa.speculated.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
 
-.loopexit.i.i.i:                                  ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i.i.i.i", %12
+.loopexit.i.i.i:                                  ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i.i.i.i", %12
   %.not.i19.i.i.i = icmp ult i64 %.sroa.425.0.copyload.i, %14
   br i1 %.not.i19.i.i.i, label %.loopexit.i, label %22
 
@@ -881,21 +881,21 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN72_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$
   %.not = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %3, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i"
-  %7 = phi i64 [ %10, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i" ], [ 0, %3 ]
+.lr.ph.i:                                         ; preds = %3, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i"
+  %7 = phi i64 [ %10, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i" ], [ 0, %3 ]
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   %.val7.i = load i8, ptr %8, align 1, !noalias !245, !noundef !4
   %.val8.i = load i8, ptr %9, align 1, !noalias !245, !noundef !4
   %.not.i.i = icmp eq i8 %.val7.i, %.val8.i
-  br i1 %.not.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2fb212d865648534E.llvm.15859092204462515359.exit
+  br i1 %.not.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2fb212d865648534E.llvm.15859092204462515359.exit
 
-"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i": ; preds = %.lr.ph.i
+"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i": ; preds = %.lr.ph.i
   %10 = add nuw i64 %7, 1
   %exitcond.not.i = icmp eq i64 %10, %.0.sroa.speculated.i.i.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
-.loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i", %3
+.loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i", %3
   %.not.i4 = icmp ult i64 %6, %2
   %..i5 = zext i1 %.not.i4 to i8
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2fb212d865648534E.llvm.15859092204462515359.exit
@@ -924,21 +924,21 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN81_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$
   %.not = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %3, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i"
-  %7 = phi i64 [ %10, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i" ], [ 0, %3 ]
+.lr.ph.i:                                         ; preds = %3, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i"
+  %7 = phi i64 [ %10, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i" ], [ 0, %3 ]
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %9 = getelementptr inbounds i8, ptr %1, i64 %7
   %.val7.i = load i8, ptr %8, align 1, !noalias !249, !noundef !4
   %.val8.i = load i8, ptr %9, align 1, !noalias !249, !noundef !4
   %.not.i.i = icmp eq i8 %.val7.i, %.val8.i
-  br i1 %.not.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2fb212d865648534E.llvm.15859092204462515359.exit
+  br i1 %.not.i.i, label %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i", label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2fb212d865648534E.llvm.15859092204462515359.exit
 
-"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i": ; preds = %.lr.ph.i
+"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i": ; preds = %.lr.ph.i
   %10 = add nuw i64 %7, 1
   %exitcond.not.i = icmp eq i64 %10, %.0.sroa.speculated.i.i.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
-.loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.argprom.exit.i", %3
+.loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit.i", %3
   %.not12 = icmp ult i64 %6, %2
   %.13 = zext i1 %.not12 to i8
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2fb212d865648534E.llvm.15859092204462515359.exit

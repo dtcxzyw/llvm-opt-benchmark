@@ -778,12 +778,12 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @get_share_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call fastcc void @make_relative_path.argprom(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef %0)
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_relative_path.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @make_relative_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = load i8, ptr %1, align 1
   %.not8 = icmp eq i8 %4, 0
   br i1 %.not8, label %dir_strcmp.exit.thread, label %.lr.ph
@@ -999,61 +999,61 @@ dir_strcmp.exit.thread:                           ; preds = %.lr.ph.i, %3, %trim
 
 ; Function Attrs: nounwind uwtable
 define void @get_etc_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call fastcc void @make_relative_path.argprom(ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef %0)
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @get_include_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call fastcc void @make_relative_path.argprom(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef %0)
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @get_pkginclude_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call fastcc void @make_relative_path.argprom(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef %0)
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @get_includeserver_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call fastcc void @make_relative_path.argprom(ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef %0)
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @get_lib_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call fastcc void @make_relative_path.argprom(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %0)
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @get_pkglib_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call fastcc void @make_relative_path.argprom(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %0)
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @get_locale_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call fastcc void @make_relative_path.argprom(ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef %0)
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @get_doc_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call fastcc void @make_relative_path.argprom(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef %0)
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @get_html_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call fastcc void @make_relative_path.argprom(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef %0)
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @get_man_path(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  tail call fastcc void @make_relative_path.argprom(ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef %0)
+  tail call fastcc void @make_relative_path(ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef %0)
   ret void
 }
 

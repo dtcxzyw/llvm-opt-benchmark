@@ -448,60 +448,60 @@ if.then12:                                        ; preds = %ctxTypeID_to_size.e
 if.then.i:                                        ; preds = %if.then12
   %cctxPtr.val86 = load ptr, ptr %4, align 8
   tail call void %cctxPtr.val(ptr noundef %cctxPtr.val86, ptr noundef %2) #12
-  br label %LZ4F_free.argprom.exit
+  br label %LZ4F_free.exit
 
 if.end.i:                                         ; preds = %if.then12
   tail call void @free(ptr noundef %2) #12
-  br label %LZ4F_free.argprom.exit
+  br label %LZ4F_free.exit
 
-LZ4F_free.argprom.exit:                           ; preds = %if.then.i, %if.end.i
+LZ4F_free.exit:                                   ; preds = %if.then.i, %if.end.i
   %5 = load i32, ptr %compressionLevel, align 8
   %cmp15 = icmp slt i32 %5, 3
   %cctxPtr.val89 = load ptr, ptr %cctxPtr, align 8
   %cmp.not.i101 = icmp eq ptr %cctxPtr.val89, null
   br i1 %cmp15, label %if.then17, label %if.else
 
-if.then17:                                        ; preds = %LZ4F_free.argprom.exit
+if.then17:                                        ; preds = %LZ4F_free.exit
   br i1 %cmp.not.i101, label %if.end.i105, label %if.then.i102
 
 if.then.i102:                                     ; preds = %if.then17
   %cctxPtr.val90 = load ptr, ptr %4, align 8
   %call.i103 = tail call ptr %cctxPtr.val89(ptr noundef %cctxPtr.val90, i64 noundef 16416) #12
-  br label %LZ4F_malloc.argprom.exit
+  br label %LZ4F_malloc.exit
 
 if.end.i105:                                      ; preds = %if.then17
   %call2.i106 = tail call noalias dereferenceable_or_null(16416) ptr @malloc(i64 noundef 16416) #13
-  br label %LZ4F_malloc.argprom.exit
+  br label %LZ4F_malloc.exit
 
-LZ4F_malloc.argprom.exit:                         ; preds = %if.then.i102, %if.end.i105
+LZ4F_malloc.exit:                                 ; preds = %if.then.i102, %if.end.i105
   %retval.0.i104 = phi ptr [ %call.i103, %if.then.i102 ], [ %call2.i106, %if.end.i105 ]
   store ptr %retval.0.i104, ptr %lz4CtxPtr, align 8
   %tobool.not = icmp eq ptr %retval.0.i104, null
   br i1 %tobool.not, label %return, label %if.then22
 
-if.then22:                                        ; preds = %LZ4F_malloc.argprom.exit
+if.then22:                                        ; preds = %LZ4F_malloc.exit
   %call24 = tail call ptr @LZ4_initStream(ptr noundef nonnull %retval.0.i104, i64 noundef 16416) #12
   br label %do.body36
 
-if.else:                                          ; preds = %LZ4F_free.argprom.exit
+if.else:                                          ; preds = %LZ4F_free.exit
   br i1 %cmp.not.i101, label %if.end.i111, label %if.then.i108
 
 if.then.i108:                                     ; preds = %if.else
   %cctxPtr.val92 = load ptr, ptr %4, align 8
   %call.i109 = tail call ptr %cctxPtr.val89(ptr noundef %cctxPtr.val92, i64 noundef 262200) #12
-  br label %LZ4F_malloc.argprom.exit113
+  br label %LZ4F_malloc.exit113
 
 if.end.i111:                                      ; preds = %if.else
   %call2.i112 = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #13
-  br label %LZ4F_malloc.argprom.exit113
+  br label %LZ4F_malloc.exit113
 
-LZ4F_malloc.argprom.exit113:                      ; preds = %if.then.i108, %if.end.i111
+LZ4F_malloc.exit113:                              ; preds = %if.then.i108, %if.end.i111
   %retval.0.i110 = phi ptr [ %call.i109, %if.then.i108 ], [ %call2.i112, %if.end.i111 ]
   store ptr %retval.0.i110, ptr %lz4CtxPtr, align 8
   %tobool30.not = icmp eq ptr %retval.0.i110, null
   br i1 %tobool30.not, label %return, label %if.then31
 
-if.then31:                                        ; preds = %LZ4F_malloc.argprom.exit113
+if.then31:                                        ; preds = %LZ4F_malloc.exit113
   %call33 = tail call ptr @LZ4_initStreamHC(ptr noundef nonnull %retval.0.i110, i64 noundef 262200) #12
   br label %do.body36
 
@@ -604,33 +604,33 @@ if.then99:                                        ; preds = %LZ4F_getBlockSize.e
 if.then.i116:                                     ; preds = %if.then99
   %cctxPtr.val88 = load ptr, ptr %20, align 8
   tail call void %cctxPtr.val87(ptr noundef %cctxPtr.val88, ptr noundef %18) #12
-  br label %LZ4F_free.argprom.exit118
+  br label %LZ4F_free.exit118
 
 if.end.i117:                                      ; preds = %if.then99
   tail call void @free(ptr noundef %18) #12
-  br label %LZ4F_free.argprom.exit118
+  br label %LZ4F_free.exit118
 
-LZ4F_free.argprom.exit118:                        ; preds = %if.then.i116, %if.end.i117
+LZ4F_free.exit118:                                ; preds = %if.then.i116, %if.end.i117
   %cctxPtr.val93 = load ptr, ptr %cctxPtr, align 8
   %cmp.not.i119 = icmp eq ptr %cctxPtr.val93, null
   br i1 %cmp.not.i119, label %if.end.i123, label %if.then.i120
 
-if.then.i120:                                     ; preds = %LZ4F_free.argprom.exit118
+if.then.i120:                                     ; preds = %LZ4F_free.exit118
   %cctxPtr.val94 = load ptr, ptr %20, align 8
   %call.i121 = tail call ptr %cctxPtr.val93(ptr noundef %cctxPtr.val94, i64 noundef %cond96) #12
-  br label %LZ4F_malloc.argprom.exit125
+  br label %LZ4F_malloc.exit125
 
-if.end.i123:                                      ; preds = %LZ4F_free.argprom.exit118
+if.end.i123:                                      ; preds = %LZ4F_free.exit118
   %call2.i124 = tail call noalias ptr @malloc(i64 noundef %cond96) #13
-  br label %LZ4F_malloc.argprom.exit125
+  br label %LZ4F_malloc.exit125
 
-LZ4F_malloc.argprom.exit125:                      ; preds = %if.then.i120, %if.end.i123
+LZ4F_malloc.exit125:                              ; preds = %if.then.i120, %if.end.i123
   %retval.0.i122 = phi ptr [ %call.i121, %if.then.i120 ], [ %call2.i124, %if.end.i123 ]
   store ptr %retval.0.i122, ptr %tmpBuff, align 8
   %cmp107 = icmp eq ptr %retval.0.i122, null
   br i1 %cmp107, label %return, label %do.end112
 
-do.end112:                                        ; preds = %LZ4F_malloc.argprom.exit125
+do.end112:                                        ; preds = %LZ4F_malloc.exit125
   store i64 %cond96, ptr %maxBufferSize, align 8
   br label %if.end114
 
@@ -825,8 +825,8 @@ if.end186:                                        ; preds = %if.then181, %if.end
   %sub.ptr.sub191 = sub i64 %sub.ptr.lhs.cast189, %sub.ptr.rhs.cast190
   br label %return
 
-return:                                           ; preds = %LZ4F_malloc.argprom.exit113, %LZ4F_malloc.argprom.exit, %LZ4F_malloc.argprom.exit125, %do.body36, %entry, %if.end186
-  %retval.0 = phi i64 [ %sub.ptr.sub191, %if.end186 ], [ -11, %entry ], [ -9, %do.body36 ], [ -9, %LZ4F_malloc.argprom.exit125 ], [ -9, %LZ4F_malloc.argprom.exit ], [ -9, %LZ4F_malloc.argprom.exit113 ]
+return:                                           ; preds = %LZ4F_malloc.exit113, %LZ4F_malloc.exit, %LZ4F_malloc.exit125, %do.body36, %entry, %if.end186
+  %retval.0 = phi i64 [ %sub.ptr.sub191, %if.end186 ], [ -11, %entry ], [ -9, %do.body36 ], [ -9, %LZ4F_malloc.exit125 ], [ -9, %LZ4F_malloc.exit ], [ -9, %LZ4F_malloc.exit113 ]
   ret i64 %retval.0
 }
 
@@ -981,19 +981,19 @@ entry:
   %0 = getelementptr inbounds i8, ptr %cmem, i64 24
   %cmem.val26 = load ptr, ptr %0, align 8
   %cmp.not.i = icmp eq ptr %cmem.val, null
-  br i1 %cmp.not.i, label %LZ4F_malloc.argprom.exit, label %LZ4F_malloc.argprom.exit.thread
+  br i1 %cmp.not.i, label %LZ4F_malloc.exit, label %LZ4F_malloc.exit.thread
 
-LZ4F_malloc.argprom.exit:                         ; preds = %entry
+LZ4F_malloc.exit:                                 ; preds = %entry
   %call2.i = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #13
   %tobool.not = icmp eq ptr %call2.i, null
   br i1 %tobool.not, label %return, label %if.end.i44
 
-LZ4F_malloc.argprom.exit.thread:                  ; preds = %entry
+LZ4F_malloc.exit.thread:                          ; preds = %entry
   %call.i = tail call ptr %cmem.val(ptr noundef %cmem.val26, i64 noundef 56) #12
   %tobool.not55 = icmp eq ptr %call.i, null
   br i1 %tobool.not55, label %return, label %if.then.i41
 
-if.then.i41:                                      ; preds = %LZ4F_malloc.argprom.exit.thread
+if.then.i41:                                      ; preds = %LZ4F_malloc.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %cmem, i64 32, i1 false)
   %cmp58 = icmp ugt i64 %dictSize, 65536
   %1 = getelementptr i8, ptr %dictBuffer, i64 %dictSize
@@ -1004,9 +1004,9 @@ if.then.i41:                                      ; preds = %LZ4F_malloc.argprom
   %dictContent = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %call.i35, ptr %dictContent, align 8
   %call.i42 = tail call ptr %cmem.val(ptr noundef %cmem.val26, i64 noundef 16416) #12
-  br label %LZ4F_malloc.argprom.exit46
+  br label %LZ4F_malloc.exit46
 
-if.end.i44:                                       ; preds = %LZ4F_malloc.argprom.exit
+if.end.i44:                                       ; preds = %LZ4F_malloc.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %cmem, i64 32, i1 false)
   %cmp = icmp ugt i64 %dictSize, 65536
   %2 = getelementptr i8, ptr %dictBuffer, i64 %dictSize
@@ -1017,9 +1017,9 @@ if.end.i44:                                       ; preds = %LZ4F_malloc.argprom
   %dictContent72 = getelementptr inbounds i8, ptr %call2.i, i64 32
   store ptr %call2.i38, ptr %dictContent72, align 8
   %call2.i45 = tail call noalias dereferenceable_or_null(16416) ptr @malloc(i64 noundef 16416) #13
-  br label %LZ4F_malloc.argprom.exit46
+  br label %LZ4F_malloc.exit46
 
-LZ4F_malloc.argprom.exit46:                       ; preds = %if.then.i41, %if.end.i44
+LZ4F_malloc.exit46:                               ; preds = %if.then.i41, %if.end.i44
   %dictContent79 = phi ptr [ %dictContent, %if.then.i41 ], [ %dictContent72, %if.end.i44 ]
   %retval.0.i566277 = phi ptr [ %call.i, %if.then.i41 ], [ %call2.i, %if.end.i44 ]
   %dictSize.addr.06475 = phi i64 [ %dictSize.addr.060, %if.then.i41 ], [ %dictSize.addr.0, %if.end.i44 ]
@@ -1030,33 +1030,33 @@ LZ4F_malloc.argprom.exit46:                       ; preds = %if.then.i41, %if.en
   %tobool7.not = icmp eq ptr %retval.0.i43, null
   br i1 %tobool7.not, label %if.end11, label %if.then8
 
-if.then8:                                         ; preds = %LZ4F_malloc.argprom.exit46
+if.then8:                                         ; preds = %LZ4F_malloc.exit46
   %call10 = tail call ptr @LZ4_initStream(ptr noundef nonnull %retval.0.i43, i64 noundef 16416) #12
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then8, %LZ4F_malloc.argprom.exit46
+if.end11:                                         ; preds = %if.then8, %LZ4F_malloc.exit46
   br i1 %cmp.not.i, label %if.end.i51, label %if.then.i48
 
 if.then.i48:                                      ; preds = %if.end11
   %call.i49 = tail call ptr %cmem.val(ptr noundef %cmem.val26, i64 noundef 262200) #12
-  br label %LZ4F_malloc.argprom.exit53
+  br label %LZ4F_malloc.exit53
 
 if.end.i51:                                       ; preds = %if.end11
   %call2.i52 = tail call noalias dereferenceable_or_null(262200) ptr @malloc(i64 noundef 262200) #13
-  br label %LZ4F_malloc.argprom.exit53
+  br label %LZ4F_malloc.exit53
 
-LZ4F_malloc.argprom.exit53:                       ; preds = %if.then.i48, %if.end.i51
+LZ4F_malloc.exit53:                               ; preds = %if.then.i48, %if.end.i51
   %retval.0.i50 = phi ptr [ %call.i49, %if.then.i48 ], [ %call2.i52, %if.end.i51 ]
   %HCCtx = getelementptr inbounds i8, ptr %retval.0.i566277, i64 48
   store ptr %retval.0.i50, ptr %HCCtx, align 8
   %tobool14.not = icmp eq ptr %retval.0.i50, null
   br i1 %tobool14.not, label %if.end18, label %if.then15
 
-if.then15:                                        ; preds = %LZ4F_malloc.argprom.exit53
+if.then15:                                        ; preds = %LZ4F_malloc.exit53
   %call17 = tail call ptr @LZ4_initStream(ptr noundef nonnull %retval.0.i50, i64 noundef 262200) #12
   br label %if.end18
 
-if.end18:                                         ; preds = %if.then15, %LZ4F_malloc.argprom.exit53
+if.end18:                                         ; preds = %if.then15, %LZ4F_malloc.exit53
   %3 = load ptr, ptr %dictContent79, align 8
   %tobool20.not = icmp eq ptr %3, null
   br i1 %tobool20.not, label %if.then26, label %lor.lhs.false
@@ -1088,8 +1088,8 @@ if.end27:                                         ; preds = %lor.lhs.false23
   %call36 = tail call i32 @LZ4_loadDictHC(ptr noundef %9, ptr noundef %10, i32 noundef %conv) #12
   br label %return
 
-return:                                           ; preds = %LZ4F_malloc.argprom.exit.thread, %LZ4F_malloc.argprom.exit, %if.end27, %if.then26
-  %retval.0 = phi ptr [ %retval.0.i566277, %if.end27 ], [ null, %if.then26 ], [ null, %LZ4F_malloc.argprom.exit ], [ null, %LZ4F_malloc.argprom.exit.thread ]
+return:                                           ; preds = %LZ4F_malloc.exit.thread, %LZ4F_malloc.exit, %if.end27, %if.then26
+  %retval.0 = phi ptr [ %retval.0.i566277, %if.end27 ], [ null, %if.then26 ], [ null, %LZ4F_malloc.exit ], [ null, %LZ4F_malloc.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -1111,55 +1111,55 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   %cdict.val15 = load ptr, ptr %2, align 8
   tail call void %cdict.val14(ptr noundef %cdict.val15, ptr noundef %0) #12
-  br label %LZ4F_free.argprom.exit
+  br label %LZ4F_free.exit
 
 if.end.i:                                         ; preds = %if.end
   tail call void @free(ptr noundef %0) #12
-  br label %LZ4F_free.argprom.exit
+  br label %LZ4F_free.exit
 
-LZ4F_free.argprom.exit:                           ; preds = %if.then.i, %if.end.i
+LZ4F_free.exit:                                   ; preds = %if.then.i, %if.end.i
   %fastCtx = getelementptr inbounds i8, ptr %cdict, i64 40
   %3 = load ptr, ptr %fastCtx, align 8
   %cdict.val12 = load ptr, ptr %1, align 8
   %cmp.not.i16 = icmp eq ptr %cdict.val12, null
   br i1 %cmp.not.i16, label %if.end.i18, label %if.then.i17
 
-if.then.i17:                                      ; preds = %LZ4F_free.argprom.exit
+if.then.i17:                                      ; preds = %LZ4F_free.exit
   %cdict.val13 = load ptr, ptr %2, align 8
   tail call void %cdict.val12(ptr noundef %cdict.val13, ptr noundef %3) #12
-  br label %LZ4F_free.argprom.exit19
+  br label %LZ4F_free.exit19
 
-if.end.i18:                                       ; preds = %LZ4F_free.argprom.exit
+if.end.i18:                                       ; preds = %LZ4F_free.exit
   tail call void @free(ptr noundef %3) #12
-  br label %LZ4F_free.argprom.exit19
+  br label %LZ4F_free.exit19
 
-LZ4F_free.argprom.exit19:                         ; preds = %if.then.i17, %if.end.i18
+LZ4F_free.exit19:                                 ; preds = %if.then.i17, %if.end.i18
   %HCCtx = getelementptr inbounds i8, ptr %cdict, i64 48
   %4 = load ptr, ptr %HCCtx, align 8
   %cdict.val10 = load ptr, ptr %1, align 8
   %cmp.not.i20 = icmp eq ptr %cdict.val10, null
   br i1 %cmp.not.i20, label %if.end.i22, label %if.then.i21
 
-if.then.i21:                                      ; preds = %LZ4F_free.argprom.exit19
+if.then.i21:                                      ; preds = %LZ4F_free.exit19
   %cdict.val11 = load ptr, ptr %2, align 8
   tail call void %cdict.val10(ptr noundef %cdict.val11, ptr noundef %4) #12
-  br label %LZ4F_free.argprom.exit23
+  br label %LZ4F_free.exit23
 
-if.end.i22:                                       ; preds = %LZ4F_free.argprom.exit19
+if.end.i22:                                       ; preds = %LZ4F_free.exit19
   tail call void @free(ptr noundef %4) #12
-  br label %LZ4F_free.argprom.exit23
+  br label %LZ4F_free.exit23
 
-LZ4F_free.argprom.exit23:                         ; preds = %if.then.i21, %if.end.i22
+LZ4F_free.exit23:                                 ; preds = %if.then.i21, %if.end.i22
   %cdict.val = load ptr, ptr %1, align 8
   %cmp.not.i24 = icmp eq ptr %cdict.val, null
   br i1 %cmp.not.i24, label %if.end.i26, label %if.then.i25
 
-if.then.i25:                                      ; preds = %LZ4F_free.argprom.exit23
+if.then.i25:                                      ; preds = %LZ4F_free.exit23
   %cdict.val9 = load ptr, ptr %2, align 8
   tail call void %cdict.val(ptr noundef %cdict.val9, ptr noundef nonnull %cdict) #12
   br label %return
 
-if.end.i26:                                       ; preds = %LZ4F_free.argprom.exit23
+if.end.i26:                                       ; preds = %LZ4F_free.exit23
   tail call void @free(ptr noundef nonnull %cdict) #12
   br label %return
 
@@ -1276,39 +1276,39 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %cctxPtr.val11 = load ptr, ptr %2, align 8
   tail call void %cctxPtr.val10(ptr noundef %cctxPtr.val11, ptr noundef %0) #12
-  br label %LZ4F_free.argprom.exit
+  br label %LZ4F_free.exit
 
 if.end.i:                                         ; preds = %if.then
   tail call void @free(ptr noundef %0) #12
-  br label %LZ4F_free.argprom.exit
+  br label %LZ4F_free.exit
 
-LZ4F_free.argprom.exit:                           ; preds = %if.then.i, %if.end.i
+LZ4F_free.exit:                                   ; preds = %if.then.i, %if.end.i
   %tmpBuff = getelementptr inbounds i8, ptr %cctxPtr, i64 120
   %3 = load ptr, ptr %tmpBuff, align 8
   %cctxPtr.val8 = load ptr, ptr %1, align 8
   %cmp.not.i12 = icmp eq ptr %cctxPtr.val8, null
   br i1 %cmp.not.i12, label %if.end.i14, label %if.then.i13
 
-if.then.i13:                                      ; preds = %LZ4F_free.argprom.exit
+if.then.i13:                                      ; preds = %LZ4F_free.exit
   %cctxPtr.val9 = load ptr, ptr %2, align 8
   tail call void %cctxPtr.val8(ptr noundef %cctxPtr.val9, ptr noundef %3) #12
-  br label %LZ4F_free.argprom.exit15
+  br label %LZ4F_free.exit15
 
-if.end.i14:                                       ; preds = %LZ4F_free.argprom.exit
+if.end.i14:                                       ; preds = %LZ4F_free.exit
   tail call void @free(ptr noundef %3) #12
-  br label %LZ4F_free.argprom.exit15
+  br label %LZ4F_free.exit15
 
-LZ4F_free.argprom.exit15:                         ; preds = %if.then.i13, %if.end.i14
+LZ4F_free.exit15:                                 ; preds = %if.then.i13, %if.end.i14
   %cctxPtr.val = load ptr, ptr %1, align 8
   %cmp.not.i16 = icmp eq ptr %cctxPtr.val, null
   br i1 %cmp.not.i16, label %if.end.i18, label %if.then.i17
 
-if.then.i17:                                      ; preds = %LZ4F_free.argprom.exit15
+if.then.i17:                                      ; preds = %LZ4F_free.exit15
   %cctxPtr.val7 = load ptr, ptr %2, align 8
   tail call void %cctxPtr.val(ptr noundef %cctxPtr.val7, ptr noundef nonnull %cctxPtr) #12
   br label %if.end
 
-if.end.i18:                                       ; preds = %LZ4F_free.argprom.exit15
+if.end.i18:                                       ; preds = %LZ4F_free.exit15
   tail call void @free(ptr noundef nonnull %cctxPtr) #12
   br label %if.end
 
@@ -2299,39 +2299,39 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %dctx.val12 = load ptr, ptr %3, align 8
   tail call void %dctx.val11(ptr noundef %dctx.val12, ptr noundef %1) #12
-  br label %LZ4F_free.argprom.exit
+  br label %LZ4F_free.exit
 
 if.end.i:                                         ; preds = %if.then
   tail call void @free(ptr noundef %1) #12
-  br label %LZ4F_free.argprom.exit
+  br label %LZ4F_free.exit
 
-LZ4F_free.argprom.exit:                           ; preds = %if.then.i, %if.end.i
+LZ4F_free.exit:                                   ; preds = %if.then.i, %if.end.i
   %tmpOutBuffer = getelementptr inbounds i8, ptr %dctx, i64 120
   %4 = load ptr, ptr %tmpOutBuffer, align 8
   %dctx.val9 = load ptr, ptr %2, align 8
   %cmp.not.i13 = icmp eq ptr %dctx.val9, null
   br i1 %cmp.not.i13, label %if.end.i15, label %if.then.i14
 
-if.then.i14:                                      ; preds = %LZ4F_free.argprom.exit
+if.then.i14:                                      ; preds = %LZ4F_free.exit
   %dctx.val10 = load ptr, ptr %3, align 8
   tail call void %dctx.val9(ptr noundef %dctx.val10, ptr noundef %4) #12
-  br label %LZ4F_free.argprom.exit16
+  br label %LZ4F_free.exit16
 
-if.end.i15:                                       ; preds = %LZ4F_free.argprom.exit
+if.end.i15:                                       ; preds = %LZ4F_free.exit
   tail call void @free(ptr noundef %4) #12
-  br label %LZ4F_free.argprom.exit16
+  br label %LZ4F_free.exit16
 
-LZ4F_free.argprom.exit16:                         ; preds = %if.then.i14, %if.end.i15
+LZ4F_free.exit16:                                 ; preds = %if.then.i14, %if.end.i15
   %dctx.val = load ptr, ptr %2, align 8
   %cmp.not.i17 = icmp eq ptr %dctx.val, null
   br i1 %cmp.not.i17, label %if.end.i19, label %if.then.i18
 
-if.then.i18:                                      ; preds = %LZ4F_free.argprom.exit16
+if.then.i18:                                      ; preds = %LZ4F_free.exit16
   %dctx.val8 = load ptr, ptr %3, align 8
   tail call void %dctx.val(ptr noundef %dctx.val8, ptr noundef nonnull %dctx) #12
   br label %if.end
 
-if.end.i19:                                       ; preds = %LZ4F_free.argprom.exit16
+if.end.i19:                                       ; preds = %LZ4F_free.exit16
   tail call void @free(ptr noundef nonnull %dctx) #12
   br label %if.end
 
@@ -2678,35 +2678,35 @@ if.then86:                                        ; preds = %if.end77
 if.then.i:                                        ; preds = %if.then86
   %dctx.val450 = load ptr, ptr %6, align 8
   tail call void %dctx.val449(ptr noundef %dctx.val450, ptr noundef %17) #12
-  br label %LZ4F_free.argprom.exit
+  br label %LZ4F_free.exit
 
 if.end.i:                                         ; preds = %if.then86
   tail call void @free(ptr noundef %17) #12
-  br label %LZ4F_free.argprom.exit
+  br label %LZ4F_free.exit
 
-LZ4F_free.argprom.exit:                           ; preds = %if.then.i, %if.end.i
+LZ4F_free.exit:                                   ; preds = %if.then.i, %if.end.i
   %18 = load i64, ptr %maxBlockSize416, align 8
   %add89 = add i64 %18, 4
   %dctx.val453 = load ptr, ptr %dctx, align 8
   %cmp.not.i457 = icmp eq ptr %dctx.val453, null
   br i1 %cmp.not.i457, label %if.end.i459, label %if.then.i458
 
-if.then.i458:                                     ; preds = %LZ4F_free.argprom.exit
+if.then.i458:                                     ; preds = %LZ4F_free.exit
   %dctx.val454 = load ptr, ptr %6, align 8
   %call.i = tail call ptr %dctx.val453(ptr noundef %dctx.val454, i64 noundef %add89) #12
-  br label %LZ4F_malloc.argprom.exit
+  br label %LZ4F_malloc.exit
 
-if.end.i459:                                      ; preds = %LZ4F_free.argprom.exit
+if.end.i459:                                      ; preds = %LZ4F_free.exit
   %call2.i = tail call noalias ptr @malloc(i64 noundef %add89) #13
-  br label %LZ4F_malloc.argprom.exit
+  br label %LZ4F_malloc.exit
 
-LZ4F_malloc.argprom.exit:                         ; preds = %if.then.i458, %if.end.i459
+LZ4F_malloc.exit:                                 ; preds = %if.then.i458, %if.end.i459
   %retval.0.i = phi ptr [ %call.i, %if.then.i458 ], [ %call2.i, %if.end.i459 ]
   store ptr %retval.0.i, ptr %tmpIn659, align 8
   %cmp95 = icmp eq ptr %retval.0.i, null
   br i1 %cmp95, label %return, label %do.end100
 
-do.end100:                                        ; preds = %LZ4F_malloc.argprom.exit
+do.end100:                                        ; preds = %LZ4F_malloc.exit
   %19 = load ptr, ptr %tmpOutBuffer54.i490, align 8
   %dctx.val = load ptr, ptr %5, align 8
   %cmp.not.i460 = icmp eq ptr %dctx.val, null
@@ -2715,33 +2715,33 @@ do.end100:                                        ; preds = %LZ4F_malloc.argprom
 if.then.i461:                                     ; preds = %do.end100
   %dctx.val448 = load ptr, ptr %6, align 8
   tail call void %dctx.val(ptr noundef %dctx.val448, ptr noundef %19) #12
-  br label %LZ4F_free.argprom.exit463
+  br label %LZ4F_free.exit463
 
 if.end.i462:                                      ; preds = %do.end100
   tail call void @free(ptr noundef %19) #12
-  br label %LZ4F_free.argprom.exit463
+  br label %LZ4F_free.exit463
 
-LZ4F_free.argprom.exit463:                        ; preds = %if.then.i461, %if.end.i462
+LZ4F_free.exit463:                                ; preds = %if.then.i461, %if.end.i462
   %dctx.val451 = load ptr, ptr %dctx, align 8
   %cmp.not.i464 = icmp eq ptr %dctx.val451, null
   br i1 %cmp.not.i464, label %if.end.i468, label %if.then.i465
 
-if.then.i465:                                     ; preds = %LZ4F_free.argprom.exit463
+if.then.i465:                                     ; preds = %LZ4F_free.exit463
   %dctx.val452 = load ptr, ptr %6, align 8
   %call.i466 = tail call ptr %dctx.val451(ptr noundef %dctx.val452, i64 noundef %add83) #12
-  br label %LZ4F_malloc.argprom.exit470
+  br label %LZ4F_malloc.exit470
 
-if.end.i468:                                      ; preds = %LZ4F_free.argprom.exit463
+if.end.i468:                                      ; preds = %LZ4F_free.exit463
   %call2.i469 = tail call noalias ptr @malloc(i64 noundef %add83) #13
-  br label %LZ4F_malloc.argprom.exit470
+  br label %LZ4F_malloc.exit470
 
-LZ4F_malloc.argprom.exit470:                      ; preds = %if.then.i465, %if.end.i468
+LZ4F_malloc.exit470:                              ; preds = %if.then.i465, %if.end.i468
   %retval.0.i467 = phi ptr [ %call.i466, %if.then.i465 ], [ %call2.i469, %if.end.i468 ]
   store ptr %retval.0.i467, ptr %tmpOutBuffer54.i490, align 8
   %cmp107 = icmp eq ptr %retval.0.i467, null
   br i1 %cmp107, label %return, label %do.end112
 
-do.end112:                                        ; preds = %LZ4F_malloc.argprom.exit470
+do.end112:                                        ; preds = %LZ4F_malloc.exit470
   store i64 %add83, ptr %maxBufferSize.i502, align 8
   br label %if.end114
 
@@ -3706,8 +3706,8 @@ if.end854:                                        ; preds = %if.then798, %if.els
   store i64 %sub.ptr.sub860, ptr %dstSizePtr, align 8
   br label %return
 
-return:                                           ; preds = %if.end521, %if.then428, %if.then397, %if.then331, %if.end170, %LZ4F_malloc.argprom.exit470, %LZ4F_malloc.argprom.exit, %if.end18, %if.then9, %if.then676, %do.body617, %if.end854, %if.then66
-  %retval.0 = phi i64 [ %call70, %if.then66 ], [ %nextSrcSizeHint.1.ph, %if.end854 ], [ -14, %do.body617 ], [ -18, %if.then676 ], [ -16, %if.end521 ], [ -16, %if.then428 ], [ -7, %if.then397 ], [ -7, %if.then331 ], [ -2, %if.end170 ], [ -9, %LZ4F_malloc.argprom.exit470 ], [ -9, %LZ4F_malloc.argprom.exit ], [ 7, %if.end18 ], [ %call, %if.then9 ]
+return:                                           ; preds = %if.end521, %if.then428, %if.then397, %if.then331, %if.end170, %LZ4F_malloc.exit470, %LZ4F_malloc.exit, %if.end18, %if.then9, %if.then676, %do.body617, %if.end854, %if.then66
+  %retval.0 = phi i64 [ %call70, %if.then66 ], [ %nextSrcSizeHint.1.ph, %if.end854 ], [ -14, %do.body617 ], [ -18, %if.then676 ], [ -16, %if.end521 ], [ -16, %if.then428 ], [ -7, %if.then397 ], [ -7, %if.then331 ], [ -2, %if.end170 ], [ -9, %LZ4F_malloc.exit470 ], [ -9, %LZ4F_malloc.exit ], [ 7, %if.end18 ], [ %call, %if.then9 ]
   ret i64 %retval.0
 }
 

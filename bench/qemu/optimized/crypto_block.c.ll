@@ -150,13 +150,13 @@ define dso_local noundef zeroext i1 @qcrypto_block_calculate_payload_offset(ptr 
 entry:
   %call = tail call ptr @qcrypto_block_create(ptr noundef %create_opts, ptr noundef %optprefix, ptr noundef nonnull @qcrypto_block_headerlen_hdr_init_func, ptr noundef nonnull @qcrypto_block_headerlen_hdr_write_func, ptr noundef %len, ptr noundef %errp)
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_QCryptoBlock.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_QCryptoBlock.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @qcrypto_block_free(ptr noundef nonnull %call)
-  br label %glib_autoptr_cleanup_QCryptoBlock.argprom.exit
+  br label %glib_autoptr_cleanup_QCryptoBlock.exit
 
-glib_autoptr_cleanup_QCryptoBlock.argprom.exit:   ; preds = %entry, %if.then.i.i
+glib_autoptr_cleanup_QCryptoBlock.exit:           ; preds = %entry, %if.then.i.i
   %cmp = icmp ne ptr %call, null
   ret i1 %cmp
 }

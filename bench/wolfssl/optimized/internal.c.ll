@@ -8253,7 +8253,7 @@ if.end15.i282:                                    ; preds = %if.then12.i, %if.en
   %dCert.i283 = getelementptr inbounds i8, ptr %args, i64 16
   %169 = load ptr, ptr %dCert.i283, align 16
   %tobool16.not.i = icmp eq ptr %169, null
-  br i1 %tobool16.not.i, label %FreeProcPeerCertArgs.argprom.exit, label %if.then17.i
+  br i1 %tobool16.not.i, label %FreeProcPeerCertArgs.exit, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end15.i282
   %dCertInit.i284 = getelementptr inbounds i8, ptr %args, i64 49
@@ -8278,9 +8278,9 @@ if.then29.i:                                      ; preds = %if.end24.i, %if.the
 
 if.end30.i:                                       ; preds = %if.then29.i, %if.end24.i
   store ptr null, ptr %dCert.i283, align 16
-  br label %FreeProcPeerCertArgs.argprom.exit
+  br label %FreeProcPeerCertArgs.exit
 
-FreeProcPeerCertArgs.argprom.exit:                ; preds = %if.end15.i282, %if.end30.i
+FreeProcPeerCertArgs.exit:                        ; preds = %if.end15.i282, %if.end30.i
   call void @FreeKeyExchange(ptr noundef nonnull %ssl)
   ret i32 %ret.24353
 }
@@ -8656,7 +8656,7 @@ if.end180:                                        ; preds = %do.end170, %if.end1
   ]
 
 do.end184:                                        ; preds = %if.end132, %if.end180
-  %call185 = tail call fastcc i32 @DoHelloRequest.argprom(ptr noundef nonnull %ssl, ptr noundef nonnull %inOutIdx, i32 noundef %size, i32 noundef %totalSz)
+  %call185 = tail call fastcc i32 @DoHelloRequest(ptr noundef nonnull %ssl, ptr noundef nonnull %inOutIdx, i32 noundef %size, i32 noundef %totalSz)
   br label %sw.epilog331
 
 do.end188:                                        ; preds = %if.end180
@@ -9259,7 +9259,7 @@ return:                                           ; preds = %if.then594, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -387, 1) i32 @DoHelloRequest.argprom(ptr noundef %ssl, ptr nocapture noundef %inOutIdx, i32 noundef %size, i32 noundef %totalSz) unnamed_addr #4 {
+define internal fastcc range(i32 -387, 1) i32 @DoHelloRequest(ptr noundef %ssl, ptr nocapture noundef %inOutIdx, i32 noundef %size, i32 noundef %totalSz) unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i32 %size, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -10714,7 +10714,7 @@ if.end195:                                        ; preds = %if.end185
 if.end216:                                        ; preds = %if.end195
   %idx.ext219 = zext i32 %0 to i64
   %add.ptr220 = getelementptr inbounds i8, ptr %input, i64 %idx.ext219
-  %call224 = tail call fastcc i32 @HashSkeData.argelim(ptr noundef nonnull %ssl, i32 noundef %hashType.0, ptr noundef %add.ptr220, i32 noundef %conv120)
+  %call224 = tail call fastcc i32 @HashSkeData(ptr noundef nonnull %ssl, i32 noundef %hashType.0, ptr noundef %add.ptr220, i32 noundef %conv120)
   %cmp225.not = icmp eq i32 %call224, 0
   br i1 %cmp225.not, label %if.end228, label %do.end540
 
@@ -11040,14 +11040,14 @@ do.end540:                                        ; preds = %switch.hole_check, 
   %verifySig.i = getelementptr inbounds i8, ptr %args, i64 8
   %112 = load ptr, ptr %verifySig.i, align 8
   %tobool.not.i153 = icmp eq ptr %112, null
-  br i1 %tobool.not.i153, label %FreeDskeArgs.argprom.exit, label %if.then3.i
+  br i1 %tobool.not.i153, label %FreeDskeArgs.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.end540
   call void @wolfSSL_Free(ptr noundef nonnull %112) #26
   store ptr null, ptr %verifySig.i, align 8
-  br label %FreeDskeArgs.argprom.exit
+  br label %FreeDskeArgs.exit
 
-FreeDskeArgs.argprom.exit:                        ; preds = %do.end540, %if.then3.i
+FreeDskeArgs.exit:                                ; preds = %do.end540, %if.then3.i
   call void @FreeKeyExchange(ptr noundef nonnull %ssl)
   ret i32 %ret.15
 }
@@ -17018,7 +17018,7 @@ return:                                           ; preds = %if.then7.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @AddRecordHeader.argelim(ptr noundef writeonly %output, i32 noundef %length, i8 noundef zeroext %type, ptr nocapture noundef readonly %ssl) unnamed_addr #8 {
+define internal fastcc void @AddRecordHeader(ptr noundef writeonly %output, i32 noundef %length, i8 noundef zeroext %type, ptr nocapture noundef readonly %ssl) unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %output, null
   br i1 %cmp, label %if.end11, label %if.end
@@ -17239,7 +17239,7 @@ if.end144:                                        ; preds = %if.end136.if.end144
   store i16 %conv148, ptr %size, align 4
   %conv150 = and i32 %sub147, 65535
   %conv151 = trunc i32 %type to i8
-  call fastcc void @AddRecordHeader.argelim(ptr noundef %output, i32 noundef %conv150, i8 noundef zeroext %conv151, ptr noundef nonnull %ssl)
+  call fastcc void @AddRecordHeader(ptr noundef %output, i32 noundef %conv150, i8 noundef zeroext %conv151, ptr noundef nonnull %ssl)
   %cmp153.not = icmp eq i32 %17, 0
   br i1 %cmp153.not, label %if.end177, label %if.then155
 
@@ -17362,7 +17362,7 @@ if.end259:                                        ; preds = %if.end249.if.end259
   %39 = trunc i32 %38 to i16
   %conv278 = select i1 %tobool266.not, i16 0, i16 %39
   %.sink = sub i16 %37, %conv278
-  %call288 = call fastcc i32 @Encrypt.argelim(ptr noundef %ssl, ptr noundef %add.ptr283, ptr noundef %add.ptr283, i16 noundef zeroext %.sink)
+  %call288 = call fastcc i32 @Encrypt(ptr noundef %ssl, ptr noundef %add.ptr283, ptr noundef %add.ptr283, i16 noundef zeroext %.sink)
   %cmp290.not = icmp eq i32 %call288, 0
   br i1 %cmp290.not, label %if.end323, label %if.then292
 
@@ -17706,7 +17706,7 @@ declare i32 @BuildTls13Message(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Encrypt.argelim(ptr nocapture noundef nonnull %ssl, ptr noundef %out, ptr noundef %input, i16 noundef zeroext %sz) unnamed_addr #4 {
+define internal fastcc i32 @Encrypt(ptr nocapture noundef nonnull %ssl, ptr noundef %out, ptr noundef %input, i16 noundef zeroext %sz) unnamed_addr #4 {
 entry:
   %state = getelementptr inbounds i8, ptr %ssl, i64 288
   %0 = load i8, ptr %state, align 16
@@ -23767,7 +23767,7 @@ sw.bb370:                                         ; preds = %if.then13, %AddHead
   %103 = load i32, ptr %extraSz374, align 4
   %add375 = add nuw nsw i32 %conv373, 2
   %add376 = add i32 %add375, %103
-  %call377 = tail call fastcc i32 @SendHandshakeMsg.argprom.argelim(ptr noundef nonnull %ssl, ptr noundef %101, i32 noundef %add376)
+  %call377 = tail call fastcc i32 @SendHandshakeMsg(ptr noundef nonnull %ssl, ptr noundef %101, i32 noundef %add376)
   br label %do.end387
 
 do.end387:                                        ; preds = %sw.bb370, %sw.epilog, %if.end262, %if.else61, %sw.bb52
@@ -23857,7 +23857,7 @@ if.end15:                                         ; preds = %if.then12, %if.end5
 declare i32 @wc_EncodeSignature(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SendHandshakeMsg.argprom.argelim(ptr noundef %ssl, ptr noundef %input, i32 noundef %inputSz) unnamed_addr #4 {
+define internal fastcc i32 @SendHandshakeMsg(ptr noundef %ssl, ptr noundef %input, i32 noundef %inputSz) unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   %cmp1 = icmp eq ptr %input, null
@@ -25040,7 +25040,7 @@ if.end371:                                        ; preds = %switch.lookup, %if.
   %68 = load ptr, ptr %args12, align 8
   %idx.ext373 = zext i32 %34 to i64
   %add.ptr374 = getelementptr inbounds i8, ptr %68, i64 %idx.ext373
-  %call377 = tail call fastcc i32 @HashSkeData.argelim(ptr noundef nonnull %ssl, i32 noundef %hashType.0, ptr noundef %add.ptr374, i32 noundef %add)
+  %call377 = tail call fastcc i32 @HashSkeData(ptr noundef nonnull %ssl, i32 noundef %hashType.0, ptr noundef %add.ptr374, i32 noundef %add)
   %cmp378.not = icmp eq i32 %call377, 0
   br i1 %cmp378.not, label %if.end381, label %do.end1023
 
@@ -25425,7 +25425,7 @@ if.end668:                                        ; preds = %EncodeSigAlg.exit44
   store i32 %add676, ptr %idx457, align 8
   %138 = load ptr, ptr %args12, align 8
   %add.ptr679 = getelementptr inbounds i8, ptr %138, i64 9
-  %call682 = tail call fastcc i32 @HashSkeData.argelim(ptr noundef nonnull %ssl, i32 noundef %hashType454.0, ptr noundef nonnull %add.ptr679, i32 noundef %add471)
+  %call682 = tail call fastcc i32 @HashSkeData(ptr noundef nonnull %ssl, i32 noundef %hashType454.0, ptr noundef nonnull %add.ptr679, i32 noundef %add471)
   %cmp683.not = icmp eq i32 %call682, 0
   br i1 %cmp683.not, label %if.end686, label %do.end1023
 
@@ -25866,7 +25866,7 @@ sw.bb1009:                                        ; preds = %if.then13, %if.end1
   %223 = load ptr, ptr %args12, align 8
   %length1011 = getelementptr inbounds i8, ptr %1, i64 48
   %224 = load i32, ptr %length1011, align 8
-  %call1012 = tail call fastcc i32 @SendHandshakeMsg.argprom.argelim(ptr noundef nonnull %ssl, ptr noundef %223, i32 noundef %224)
+  %call1012 = tail call fastcc i32 @SendHandshakeMsg(ptr noundef nonnull %ssl, ptr noundef %223, i32 noundef %224)
   %cmp1013.not = icmp eq i32 %call1012, 0
   br i1 %cmp1013.not, label %if.end1016, label %do.end1023
 
@@ -25987,7 +25987,7 @@ return:                                           ; preds = %do.end.i, %sw.bb3.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @HashSkeData.argelim(ptr nocapture noundef %ssl, i32 noundef range(i32 1, 10) %hashType, ptr nocapture noundef readonly %data, i32 noundef %sz) unnamed_addr #4 {
+define internal fastcc i32 @HashSkeData(ptr nocapture noundef %ssl, i32 noundef range(i32 1, 10) %hashType, ptr nocapture noundef readonly %data, i32 noundef %sz) unnamed_addr #4 {
 entry:
   %call = tail call i32 @wc_HashGetDigestSize(i32 noundef %hashType) #26
   %cmp = icmp sgt i32 %call, 0

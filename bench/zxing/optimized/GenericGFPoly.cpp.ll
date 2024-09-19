@@ -35,7 +35,7 @@ define noundef i32 @_ZNK5ZXing13GenericGFPoly10evaluateAtEi(ptr nocapture nounde
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -4
   %7 = load i32, ptr %6, align 4
-  br label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.argprom.exit"
+  br label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.exit"
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -43,7 +43,7 @@ define noundef i32 @_ZNK5ZXing13GenericGFPoly10evaluateAtEi(ptr nocapture nounde
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %.val7 = load ptr, ptr %10, align 8
   %.not5.i.i.i = icmp eq ptr %.val, %.val7
-  br i1 %.not5.i.i.i, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.argprom.exit", label %.lr.ph.i.i.i
+  br i1 %.not5.i.i.i, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %8, %.lr.ph.i.i.i
   %.07.i.i.i = phi i32 [ %12, %.lr.ph.i.i.i ], [ 0, %8 ]
@@ -52,7 +52,7 @@ define noundef i32 @_ZNK5ZXing13GenericGFPoly10evaluateAtEi(ptr nocapture nounde
   %12 = xor i32 %11, %.07.i.i.i
   %13 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %13, %.val7
-  br i1 %.not.i.i.i, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.argprom.exit", label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.exit", label %.lr.ph.i.i.i, !llvm.loop !4
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -60,7 +60,7 @@ define noundef i32 @_ZNK5ZXing13GenericGFPoly10evaluateAtEi(ptr nocapture nounde
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not7.i = icmp eq ptr %16, %18
-  br i1 %.not7.i, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.argprom.exit", label %.lr.ph.i
+  br i1 %.not7.i, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
   %19 = sext i32 %1 to i64
@@ -69,12 +69,12 @@ define noundef i32 @_ZNK5ZXing13GenericGFPoly10evaluateAtEi(ptr nocapture nounde
   %21 = getelementptr inbounds i8, ptr %.val.val.i, i64 32
   br label %22
 
-22:                                               ; preds = %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.argprom.argprom.exit.i", %.lr.ph.i
-  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %39, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.argprom.argprom.exit.i" ]
-  %.sroa.04.08.i = phi ptr [ %16, %.lr.ph.i ], [ %40, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.argprom.argprom.exit.i" ]
+22:                                               ; preds = %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i", %.lr.ph.i
+  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %39, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ]
+  %.sroa.04.08.i = phi ptr [ %16, %.lr.ph.i ], [ %40, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ]
   %23 = load i32, ptr %.sroa.04.08.i, align 4
   %24 = icmp eq i32 %.09.i, 0
-  br i1 %24, label %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.argprom.argprom.exit.i", label %25
+  br i1 %24, label %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i", label %25
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %21, align 8
@@ -90,17 +90,17 @@ define noundef i32 @_ZNK5ZXing13GenericGFPoly10evaluateAtEi(ptr nocapture nounde
   %36 = getelementptr i16, ptr %35, i64 %33
   %37 = load i16, ptr %36, align 2
   %38 = sext i16 %37 to i32
-  br label %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.argprom.argprom.exit.i"
+  br label %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i"
 
-"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.argprom.argprom.exit.i": ; preds = %25, %22
+"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i": ; preds = %25, %22
   %.0.i.i.i = phi i32 [ %38, %25 ], [ 0, %22 ]
   %39 = xor i32 %.0.i.i.i, %23
   %40 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 4
   %.not.i = icmp eq ptr %40, %18
-  br i1 %.not.i, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.argprom.exit", label %22, !llvm.loop !6
+  br i1 %.not.i, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.exit", label %22, !llvm.loop !6
 
-"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.argprom.exit": ; preds = %.lr.ph.i.i.i, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.argprom.argprom.exit.i", %14, %8, %3
-  %.0 = phi i32 [ %7, %3 ], [ 0, %8 ], [ 0, %14 ], [ %39, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.argprom.argprom.exit.i" ], [ %12, %.lr.ph.i.i.i ]
+"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_0EET0_RKT_S4_T1_.exit": ; preds = %.lr.ph.i.i.i, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i", %14, %8, %3
+  %.0 = phi i32 [ %7, %3 ], [ 0, %8 ], [ 0, %14 ], [ %39, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ], [ %12, %.lr.ph.i.i.i ]
   ret i32 %.0
 }
 
@@ -242,25 +242,25 @@ define void @_ZN5ZXing13GenericGFPoly9normalizeEv(ptr noundef nonnull align 8 de
   %.sroa.025.050.i.i.i.i = phi ptr [ %22, %21 ], [ %.val, %.lr.ph.preheader.i.i.i.i ]
   %11 = load i32, ptr %.sroa.025.050.i.i.i.i, align 4
   %.not36.i.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not36.i.i.i.i, label %12, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+  br i1 %.not36.i.i.i.i, label %12, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
 12:                                               ; preds = %.lr.ph.i.i.i.i
   %13 = getelementptr inbounds i8, ptr %.sroa.025.050.i.i.i.i, i64 4
   %14 = load i32, ptr %13, align 4
   %.not37.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not37.i.i.i.i, label %15, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit"
+  br i1 %.not37.i.i.i.i, label %15, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit"
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.025.050.i.i.i.i, i64 8
   %17 = load i32, ptr %16, align 4
   %.not38.i.i.i.i = icmp eq i32 %17, 0
-  br i1 %.not38.i.i.i.i, label %18, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit24"
+  br i1 %.not38.i.i.i.i, label %18, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit24"
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %.sroa.025.050.i.i.i.i, i64 12
   %20 = load i32, ptr %19, align 4
   %.not39.i.i.i.i = icmp eq i32 %20, 0
-  br i1 %.not39.i.i.i.i, label %21, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit26"
+  br i1 %.not39.i.i.i.i, label %21, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26"
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %.sroa.025.050.i.i.i.i, i64 16
@@ -277,7 +277,7 @@ define void @_ZN5ZXing13GenericGFPoly9normalizeEv(ptr noundef nonnull align 8 de
   %.pre-phi57.i.i.i.i = phi i64 [ %.pre56.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %7, %1 ]
   %.sroa.025.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %.val, %1 ]
   %25 = ashr exact i64 %.pre-phi57.i.i.i.i, 2
-  switch i64 %25, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit" [
+  switch i64 %25, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit" [
     i64 3, label %26
     i64 2, label %30
     i64 1, label %34
@@ -286,7 +286,7 @@ define void @_ZN5ZXing13GenericGFPoly9normalizeEv(ptr noundef nonnull align 8 de
 26:                                               ; preds = %._crit_edge.i.i.i.i
   %27 = load i32, ptr %.sroa.025.0.lcssa.i.i.i.i, align 4
   %.not.i.i.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i.i.i, label %28, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+  br i1 %.not.i.i.i.i, label %28, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i.i, i64 4
@@ -296,7 +296,7 @@ define void @_ZN5ZXing13GenericGFPoly9normalizeEv(ptr noundef nonnull align 8 de
   %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %29, %28 ]
   %31 = load i32, ptr %.sroa.025.1.i.i.i.i, align 4
   %.not34.i.i.i.i = icmp eq i32 %31, 0
-  br i1 %.not34.i.i.i.i, label %32, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+  br i1 %.not34.i.i.i.i, label %32, label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i.i, i64 4
@@ -307,26 +307,26 @@ define void @_ZN5ZXing13GenericGFPoly9normalizeEv(ptr noundef nonnull align 8 de
   %35 = load i32, ptr %.sroa.025.2.i.i.i.i, align 4
   %.not35.i.i.i.i = icmp eq i32 %35, 0
   %spec.select.i.i.i.i = select i1 %.not35.i.i.i.i, ptr %.val4, ptr %.sroa.025.2.i.i.i.i
-  br label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+  br label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
-"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %12
+"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit": ; preds = %12
   %36 = getelementptr inbounds i8, ptr %.sroa.025.050.i.i.i.i, i64 4
-  br label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+  br label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
-"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit24": ; preds = %15
+"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit24": ; preds = %15
   %37 = getelementptr inbounds i8, ptr %.sroa.025.050.i.i.i.i, i64 8
-  br label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+  br label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
-"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit26": ; preds = %18
+"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26": ; preds = %18
   %38 = getelementptr inbounds i8, ptr %.sroa.025.050.i.i.i.i, i64 12
-  br label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+  br label %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
 
-"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit24", %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit26", %._crit_edge.i.i.i.i, %26, %30, %34
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %26 ], [ %.sroa.025.1.i.i.i.i, %30 ], [ %.val4, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %34 ], [ %36, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %37, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit24" ], [ %38, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit.loopexit.split.loop.exit26" ], [ %.sroa.025.050.i.i.i.i, %.lr.ph.i.i.i.i ]
+"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit", %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit24", %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26", %._crit_edge.i.i.i.i, %26, %30, %34
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %26 ], [ %.sroa.025.1.i.i.i.i, %30 ], [ %.val4, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %34 ], [ %36, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit" ], [ %37, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit24" ], [ %38, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.loopexit.split.loop.exit26" ], [ %.sroa.025.050.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val
   br i1 %.not, label %69, label %39
 
-39:                                               ; preds = %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+39:                                               ; preds = %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
   %40 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val4
   br i1 %40, label %41, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
 
@@ -407,7 +407,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   tail call void @_ZN5ZXing13GenericGFPoly12Coefficients6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %68)
   br label %69
 
-69:                                               ; preds = %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEmi.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.argprom.exit"
+69:                                               ; preds = %_ZN5ZXing13GenericGFPoly12Coefficients6resizeEmi.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, %"_ZN5ZXing6FindIfINS_13GenericGFPoly12CoefficientsEZNS1_9normalizeEvE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit"
   ret void
 }
 

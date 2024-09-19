@@ -837,7 +837,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE5clearEv.exit: ; preds = %.lr
   %30 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %28, i64 %29) #17
   %31 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %28, i64 %29, i32 noundef %30) #17
   %.not.i.i.i.i.i.i = icmp eq i32 %31, -1
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit", label %32
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit", label %32
 
 32:                                               ; preds = %.lr.ph.i.i.i.i.i
   %33 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i, i64 32
@@ -846,7 +846,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE5clearEv.exit: ; preds = %.lr
   %36 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %34, i64 %35) #17
   %37 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %34, i64 %35, i32 noundef %36) #17
   %.not.i22.i.i.i.i.i = icmp eq i32 %37, -1
-  br i1 %.not.i22.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit", label %38
+  br i1 %.not.i22.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit", label %38
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i, i64 64
@@ -855,7 +855,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE5clearEv.exit: ; preds = %.lr
   %42 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %40, i64 %41) #17
   %43 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %40, i64 %41, i32 noundef %42) #17
   %.not.i23.i.i.i.i.i = icmp eq i32 %43, -1
-  br i1 %.not.i23.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit", label %44
+  br i1 %.not.i23.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit", label %44
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i, i64 96
@@ -864,7 +864,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE5clearEv.exit: ; preds = %.lr
   %48 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %46, i64 %47) #17
   %49 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %46, i64 %47, i32 noundef %48) #17
   %.not.i24.i.i.i.i.i = icmp eq i32 %49, -1
-  br i1 %.not.i24.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit", label %50
+  br i1 %.not.i24.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit", label %50
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i, i64 128
@@ -881,7 +881,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE5clearEv.exit: ; preds = %.lr
   %.pre-phi51.i.i.i.i.i = phi i64 [ %.pre50.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %25, %19 ]
   %.sroa.038.0.lcssa.i.i.i.i.i = phi ptr [ %51, %._crit_edge.loopexit.i.i.i.i.i ], [ %.val, %19 ]
   %54 = ashr exact i64 %.pre-phi51.i.i.i.i.i, 5
-  switch i64 %54, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit.thread" [
+  switch i64 %54, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit.thread" [
     i64 3, label %55
     i64 2, label %62
     i64 1, label %69
@@ -893,7 +893,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE5clearEv.exit: ; preds = %.lr
   %58 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %56, i64 %57) #17
   %59 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %56, i64 %57, i32 noundef %58) #17
   %.not.i25.i.i.i.i.i = icmp eq i32 %59, -1
-  br i1 %.not.i25.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit", label %60
+  br i1 %.not.i25.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit", label %60
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds i8, ptr %.sroa.038.0.lcssa.i.i.i.i.i, i64 32
@@ -906,7 +906,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE5clearEv.exit: ; preds = %.lr
   %65 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %63, i64 %64) #17
   %66 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %63, i64 %64, i32 noundef %65) #17
   %.not.i26.i.i.i.i.i = icmp eq i32 %66, -1
-  br i1 %.not.i26.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit", label %67
+  br i1 %.not.i26.i.i.i.i.i, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit", label %67
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds i8, ptr %.sroa.038.1.i.i.i.i.i, i64 32
@@ -920,19 +920,19 @@ _ZN4llvm15SmallVectorImplIN5clang6driver8MultilibEE5clearEv.exit: ; preds = %.lr
   %73 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %70, i64 %71, i32 noundef %72) #17
   %.not.i27.i.i.i.i.i = icmp eq i32 %73, -1
   %spec.select.i.i.i.i.i = select i1 %.not.i27.i.i.i.i.i, ptr %.sroa.038.2.i.i.i.i.i, ptr %.val19
-  br label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %32, %38, %44, %55, %62, %69
+"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %32, %38, %44, %55, %62, %69
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.038.0.lcssa.i.i.i.i.i, %55 ], [ %.sroa.038.1.i.i.i.i.i, %62 ], [ %spec.select.i.i.i.i.i, %69 ], [ %.sroa.038.048.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %33, %32 ], [ %39, %38 ], [ %45, %44 ]
   %74 = icmp eq ptr %.val19, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
-  br i1 %74, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit.thread", label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertEOS2_.exit
+  br i1 %74, label %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit.thread", label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertEOS2_.exit
 
-"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit.thread": ; preds = %._crit_edge.i.i.i.i.i, %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit"
+"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit.thread": ; preds = %._crit_edge.i.i.i.i.i, %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit"
   %75 = getelementptr inbounds i8, ptr %.sroa.025.033, i64 -72
   %76 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #17
   br i1 %76, label %83, label %77
 
-77:                                               ; preds = %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit.thread"
+77:                                               ; preds = %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit.thread"
   %78 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #17
   store ptr %78, ptr %8, align 8
   %79 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #17
@@ -948,7 +948,7 @@ _ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !noalias !30
   br label %83
 
-83:                                               ; preds = %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertEOS2_.exit.thread, %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit.thread"
+83:                                               ; preds = %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertEOS2_.exit.thread, %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit.thread"
   %84 = getelementptr inbounds i8, ptr %.sroa.025.033, i64 -8
   %85 = load i8, ptr %84, align 8
   %86 = trunc i8 %85 to i1
@@ -1076,7 +1076,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %141) #17
   br label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertEOS2_.exit
 
-_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertEOS2_.exit: ; preds = %77, %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.argprom.exit", %135
+_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertEOS2_.exit: ; preds = %77, %"_ZN4llvm6all_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet6selectERKNSD_6DriverESB_RNS_15SmallVectorImplINSD_8MultilibEEEE3$_0EEbOT_T0_.exit", %135
   %.not = icmp eq ptr %20, %17
   br i1 %.not, label %._crit_edge, label %19
 
@@ -1245,28 +1245,28 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNK4llvm9StringRef
   %39 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.042.i.i.i.i.i.i) #17
   %40 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.042.i.i.i.i.i.i) #17
   %41 = call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr %39, i64 %40, ptr noundef null, ptr noundef null) #17
-  br i1 %41, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.argprom.exit", label %42
+  br i1 %41, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.exit", label %42
 
 42:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %43 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i.i, i64 32
   %44 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %43) #17
   %45 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %43) #17
   %46 = call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr %44, i64 %45, ptr noundef null, ptr noundef null) #17
-  br i1 %46, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.argprom.exit", label %47
+  br i1 %46, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.exit", label %47
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i.i, i64 64
   %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
   %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
   %51 = call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr %49, i64 %50, ptr noundef null, ptr noundef null) #17
-  br i1 %51, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.argprom.exit", label %52
+  br i1 %51, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.exit", label %52
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i.i, i64 96
   %54 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #17
   %55 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #17
   %56 = call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr %54, i64 %55, ptr noundef null, ptr noundef null) #17
-  br i1 %56, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.argprom.exit", label %57
+  br i1 %56, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.exit", label %57
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds i8, ptr %.sroa.032.042.i.i.i.i.i.i, i64 128
@@ -1293,7 +1293,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNK4llvm9StringRef
   %63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.0.lcssa.i.i.i.i.i.i) #17
   %64 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.0.lcssa.i.i.i.i.i.i) #17
   %65 = call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr %63, i64 %64, ptr noundef null, ptr noundef null) #17
-  br i1 %65, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.argprom.exit", label %66
+  br i1 %65, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.exit", label %66
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i.i.i.i, i64 32
@@ -1304,7 +1304,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNK4llvm9StringRef
   %69 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.1.i.i.i.i.i.i) #17
   %70 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.1.i.i.i.i.i.i) #17
   %71 = call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr %69, i64 %70, ptr noundef null, ptr noundef null) #17
-  br i1 %71, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.argprom.exit", label %72
+  br i1 %71, label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.exit", label %72
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i.i.i.i, i64 32
@@ -1316,14 +1316,14 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNK4llvm9StringRef
   %76 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.032.2.i.i.i.i.i.i) #17
   %77 = call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr %75, i64 %76, ptr noundef null, ptr noundef null) #17
   %spec.select.i.i.i.i.i.i = select i1 %77, ptr %.sroa.032.2.i.i.i.i.i.i, ptr %.val18
-  br label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.argprom.exit"
+  br label %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %42, %47, %52, %62, %68, %74
+"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %42, %47, %52, %62, %68, %74
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %62 ], [ %.sroa.032.1.i.i.i.i.i.i, %68 ], [ %spec.select.i.i.i.i.i.i, %74 ], [ %53, %52 ], [ %48, %47 ], [ %43, %42 ], [ %.sroa.032.042.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not47 = icmp eq ptr %.val18, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %.not47, label %_ZN4llvm9StringSetINS_15MallocAllocatorEE6insertIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEvT_SI_.exit, label %78
 
-78:                                               ; preds = %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.argprom.exit"
+78:                                               ; preds = %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.exit"
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.033.052, i64 32
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.033.052, i64 40
@@ -1380,7 +1380,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEE
   %.not.i21 = icmp eq ptr %103, %82
   br i1 %.not.i21, label %_ZN4llvm9StringSetINS_15MallocAllocatorEE6insertIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEvT_SI_.exit, label %.lr.ph.i, !llvm.loop !48
 
-_ZN4llvm9StringSetINS_15MallocAllocatorEE6insertIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEvT_SI_.exit: ; preds = %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_.exit, %._crit_edge.i.i.i.i.i.i, %78, %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.argprom.exit"
+_ZN4llvm9StringSetINS_15MallocAllocatorEE6insertIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEvT_SI_.exit: ; preds = %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_.exit, %._crit_edge.i.i.i.i.i.i, %78, %"_ZN4llvm6any_ofIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEZNK5clang6driver11MultilibSet11expandFlagsESB_E3$_0EEbOT_T0_.exit"
   call void @_ZN4llvm5RegexD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   %104 = getelementptr inbounds i8, ptr %.sroa.033.052, i64 56
@@ -1470,7 +1470,7 @@ define dso_local void @_ZN5clang6driver11MultilibSet9parseYamlEN4llvm15MemoryBuf
   br i1 %53, label %54, label %71
 
 54:                                               ; preds = %4
-  call fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_124MultilibSetSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE.argprom(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(88) %40)
+  call fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_124MultilibSetSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(88) %40)
   %55 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #17
   br i1 %55, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i, label %56
 
@@ -1531,7 +1531,7 @@ _ZN4llvm4yaml2IO11mapRequiredINS_12VersionTupleEEEvPKcRT_.exit.i.i.i.i: ; preds 
   %83 = getelementptr inbounds i8, ptr %82, i64 120
   %84 = load ptr, ptr %83, align 8
   %85 = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull @.str.18, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %33, ptr noundef nonnull align 8 dereferenceable(8) %32) #17
-  br i1 %85, label %86, label %_ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS5_EEEEvPKcRT_.argprom.exit.i.i.i.i
+  br i1 %85, label %86, label %_ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS5_EEEEvPKcRT_.exit.i.i.i.i
 
 86:                                               ; preds = %_ZN4llvm4yaml2IO11mapRequiredINS_12VersionTupleEEEvPKcRT_.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
@@ -1559,7 +1559,7 @@ _ZN4llvm4yaml2IO11mapRequiredINS_12VersionTupleEEEvPKcRT_.exit.i.i.i.i: ; preds 
 102:                                              ; preds = %95, %86
   %103 = phi i32 [ %101, %95 ], [ %90, %86 ]
   %.not.i.i.i.i.i.i.i = icmp eq i32 %103, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.argprom.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %102
   %104 = getelementptr inbounds i8, ptr %40, i64 48
@@ -1586,7 +1586,7 @@ _ZN4llvm4yaml2IO11mapRequiredINS_12VersionTupleEEEvPKcRT_.exit.i.i.i.i: ; preds 
   %117 = sub i64 %115, %116
   %118 = sdiv exact i64 %117, 120
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %118, %indvars.iv.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i, label %119
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i, label %119
 
 119:                                              ; preds = %114
   %120 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
@@ -1599,7 +1599,7 @@ _ZN4llvm4yaml2IO11mapRequiredINS_12VersionTupleEEEvPKcRT_.exit.i.i.i.i: ; preds 
   %127 = icmp ule i64 %125, %126
   call void @llvm.assume(i1 %127)
   %.not23.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %125, %121
-  br i1 %.not23.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not23.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %119, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.08.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %132, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val5.i.i.i.i.i.i.i.i, %119 ]
@@ -1615,14 +1615,14 @@ _ZN4llvm4yaml2IO11mapRequiredINS_12VersionTupleEEEvPKcRT_.exit.i.i.i.i: ; preds 
   %131 = add i64 %.057.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %132 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %131, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !49
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !49
 
-_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
+_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %132, ptr %104, align 8
   %.val6.pre.i.i.i.i.i.i.i.i = load ptr, ptr %81, align 8
-  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i
 
-_ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %119
+_ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %119
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %118, i64 %121)
   %133 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i, %118
   %134 = mul nuw nsw i64 %133, 120
@@ -1630,9 +1630,9 @@ _ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc
   %136 = getelementptr inbounds i8, ptr %135, i64 %117
   br label %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i:               ; preds = %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i
-  %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i = phi ptr [ %141, %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i ], [ %136, %_ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i ]
-  %.057.i.i.i30.i.i.i.i.i.i.i.i.i.i = phi i64 [ %140, %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i ], [ %121, %_ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i:               ; preds = %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i
+  %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i = phi ptr [ %141, %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i ], [ %136, %_ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i ]
+  %.057.i.i.i30.i.i.i.i.i.i.i.i.i.i = phi i64 [ %140, %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i ], [ %121, %_ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i, i8 0, i64 120, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i) #17
   %137 = getelementptr inbounds nuw i8, ptr %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i, i64 32
@@ -1644,15 +1644,15 @@ _ZNKSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE12_M_check_lenEmPKc
   %140 = add i64 %.057.i.i.i30.i.i.i.i.i.i.i.i.i.i, -1
   %141 = getelementptr inbounds i8, ptr %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i31.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %140, 0
-  br i1 %.not.i.i.i31.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i, !llvm.loop !49
+  br i1 %.not.i.i.i31.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i, !llvm.loop !49
 
-_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i
+_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i, %.val5.i.i.i.i.i.i.i.i
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i, %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %165, %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %135, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i ]
-  %.092.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %164, %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i, %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %165, %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %135, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i ]
+  %.092.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %164, %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i.i.i.i.i.i.i) #17
@@ -1695,7 +1695,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i
   %158 = phi ptr [ %.pr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %155, %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i ]
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %158, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %159
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %159
 
 159:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %160 = load ptr, ptr %151, align 8, !alias.scope !53, !noalias !50
@@ -1703,37 +1703,37 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %162 = ptrtoint ptr %158 to i64
   %163 = sub i64 %161, %162
   call void @_ZdlPvm(ptr noundef nonnull %158, i64 noundef %163) #21
-  br label %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %159, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %159, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %143) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i.i.i.i.i.i.i) #17
   %164 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 120
   %165 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 120
   %.not.i.i.i35.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %164, %.val5.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i35.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i, !llvm.loop !56
+  br i1 %.not.i.i.i35.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i, !llvm.loop !56
 
-_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i
+_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i
   %.not.i37.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i, null
-  br i1 %.not.i37.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i.i.i.i.i.i.i.i.i, label %166
+  br i1 %.not.i37.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i, label %166
 
-166:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i.i.i.i.i.i.i.i.i
+166:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i
   %167 = load ptr, ptr %105, align 8
   %168 = ptrtoint ptr %167 to i64
   %169 = sub i64 %168, %116
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i.i.i.i.i.i, i64 noundef %169) #21
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %166, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i.i.i.i.i.i.i.i.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %166, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i
   store ptr %135, ptr %81, align 8
   %170 = getelementptr inbounds %"struct.(anonymous namespace)::MultilibSerialization", ptr %136, i64 %121
   store ptr %170, ptr %104, align 8
   %171 = getelementptr inbounds %"struct.(anonymous namespace)::MultilibSerialization", ptr %135, i64 %133
   store ptr %171, ptr %105, align 8
-  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i, %114
-  %.val6.i.i.i.i.i.i.i.i = phi ptr [ %135, %_ZNSt12_Vector_baseIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i, %114 ]
+_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i, %114
+  %.val6.i.i.i.i.i.i.i.i = phi ptr [ %135, %_ZNSt12_Vector_baseIN12_GLOBAL__N_121MultilibSerializationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_121MultilibSerializationEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i, %114 ]
   %172 = getelementptr inbounds %"struct.(anonymous namespace)::MultilibSerialization", ptr %.val6.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
@@ -1748,8 +1748,8 @@ _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationE
   %179 = call noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(16) %41) #17
   br i1 %179, label %180, label %197
 
-180:                                              ; preds = %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i
-  call fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_121MultilibSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE.argprom(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(120) %172)
+180:                                              ; preds = %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i
+  call fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_121MultilibSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(120) %172)
   %181 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #17
   br i1 %181, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i.i.i.i.i, label %182
 
@@ -1780,7 +1780,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i.i.i.i.i: ; preds = %194, %192, %180
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #17
   br label %197
 
-197:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i.i.i.i.i, %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i
+197:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i.i.i.i.i, %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26)
@@ -1856,7 +1856,7 @@ _ZN4llvm4yaml2IO11mapRequiredISt6vectorINSt7__cxx1112basic_stringIcSt11char_trai
   %228 = getelementptr inbounds i8, ptr %227, i64 120
   %229 = load ptr, ptr %228, align 8
   %230 = call noundef zeroext i1 %229(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull @.str.28, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(8) %16) #17
-  br i1 %230, label %231, label %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i
+  br i1 %230, label %231, label %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i
 
 231:                                              ; preds = %_ZN4llvm4yaml2IO11mapRequiredISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i
   %232 = getelementptr inbounds nuw i8, ptr %172, i64 88
@@ -1866,9 +1866,9 @@ _ZN4llvm4yaml2IO11mapRequiredISt6vectorINSt7__cxx1112basic_stringIcSt11char_trai
   %235 = getelementptr inbounds i8, ptr %234, i64 128
   %236 = load ptr, ptr %235, align 8
   call void %236(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %233) #17
-  br label %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %231, %_ZN4llvm4yaml2IO11mapRequiredISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i
+_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i: ; preds = %231, %_ZN4llvm4yaml2IO11mapRequiredISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
@@ -1876,10 +1876,10 @@ _ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2I
   %238 = getelementptr inbounds i8, ptr %237, i64 16
   %239 = load ptr, ptr %238, align 8
   %240 = call noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(16) %41) #17
-  br i1 %240, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_121MultilibSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr22validatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.argprom.exit.i.i.i.i.i.i.i, label %241
+  br i1 %240, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_121MultilibSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr22validatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.exit.i.i.i.i.i.i.i, label %241
 
-241:                                              ; preds = %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i
-  call fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_121MultilibSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE.argprom(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(120) %172)
+241:                                              ; preds = %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i
+  call fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_121MultilibSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(120) %172)
   %242 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #17
   br i1 %242, label %247, label %243
 
@@ -1895,9 +1895,9 @@ _ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2I
 
 247:                                              ; preds = %243, %241
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #17
-  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_121MultilibSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr22validatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.argprom.exit.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_121MultilibSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr22validatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.exit.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_121MultilibSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr22validatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.argprom.exit.i.i.i.i.i.i.i: ; preds = %247, %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i
+_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_121MultilibSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr22validatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.exit.i.i.i.i.i.i.i: ; preds = %247, %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_121MultilibSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i
   %248 = load ptr, ptr %41, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 112
   %250 = load ptr, ptr %249, align 8
@@ -1912,12 +1912,12 @@ _ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_121MultilibSerializationENS0_12EmptyContextE
   call void %254(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %251) #17
   br label %255
 
-255:                                              ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_121MultilibSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr22validatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.argprom.exit.i.i.i.i.i.i.i, %108
+255:                                              ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_121MultilibSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr22validatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.exit.i.i.i.i.i.i.i, %108
   %indvars.iv.next.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.argprom.exit.i.i.i.i.i.i, label %108, !llvm.loop !57
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.exit.i.i.i.i.i.i, label %108, !llvm.loop !57
 
-_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.argprom.exit.i.i.i.i.i.i: ; preds = %255, %102
+_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.exit.i.i.i.i.i.i: ; preds = %255, %102
   %256 = load ptr, ptr %41, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 48
   %258 = load ptr, ptr %257, align 8
@@ -1928,9 +1928,9 @@ _ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EEN
   %261 = getelementptr inbounds i8, ptr %260, i64 128
   %262 = load ptr, ptr %261, align 8
   call void %262(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %259) #17
-  br label %_ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS5_EEEEvPKcRT_.argprom.exit.i.i.i.i
+  br label %_ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS5_EEEEvPKcRT_.exit.i.i.i.i
 
-_ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS5_EEEEvPKcRT_.argprom.exit.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.argprom.exit.i.i.i.i.i.i, %_ZN4llvm4yaml2IO11mapRequiredINS_12VersionTupleEEEvPKcRT_.exit.i.i.i.i
+_ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS5_EEEEvPKcRT_.exit.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.exit.i.i.i.i.i.i, %_ZN4llvm4yaml2IO11mapRequiredINS_12VersionTupleEEEvPKcRT_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33)
   %263 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -1940,21 +1940,21 @@ _ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationES
   %267 = call noundef zeroext i1 %266(ptr noundef nonnull align 8 dereferenceable(16) %41) #17
   br i1 %267, label %268, label %.critedge.i.i.i.i.i.i
 
-268:                                              ; preds = %_ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS5_EEEEvPKcRT_.argprom.exit.i.i.i.i
+268:                                              ; preds = %_ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS5_EEEEvPKcRT_.exit.i.i.i.i
   %.val.i.i.i.i.i.i = load ptr, ptr %263, align 8
   %269 = getelementptr inbounds i8, ptr %40, i64 24
   %.val6.i.i.i.i.i.i = load ptr, ptr %269, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i, %.val6.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EEEEvPKcRT_.argprom.exit.i.i.i.i, label %.critedge.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EEEEvPKcRT_.exit.i.i.i.i, label %.critedge.i.i.i.i.i.i
 
-.critedge.i.i.i.i.i.i:                            ; preds = %268, %_ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS5_EEEEvPKcRT_.argprom.exit.i.i.i.i
+.critedge.i.i.i.i.i.i:                            ; preds = %268, %_ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS5_EEEEvPKcRT_.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
   %270 = load ptr, ptr %41, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 120
   %272 = load ptr, ptr %271, align 8
   %273 = call noundef zeroext i1 %272(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull @.str.19, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(8) %14) #17
-  br i1 %273, label %274, label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i
+  br i1 %273, label %274, label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i
 
 274:                                              ; preds = %.critedge.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -1982,7 +1982,7 @@ _ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationES
 290:                                              ; preds = %283, %274
   %291 = phi i32 [ %289, %283 ], [ %278, %274 ]
   %.not.i.i.i.i8.i.i.i.i = icmp eq i32 %291, 0
-  br i1 %.not.i.i.i.i8.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.argprom.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i8.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %290
   %292 = getelementptr inbounds i8, ptr %40, i64 24
@@ -2007,7 +2007,7 @@ _ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationES
   %303 = sub i64 %301, %302
   %304 = sdiv exact i64 %303, 40
   %.not.i.i.i.i.i.i.i.i.i = icmp ugt i64 %304, %indvars.iv.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i.i, label %305
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i.i, label %305
 
 305:                                              ; preds = %300
   %306 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -2020,7 +2020,7 @@ _ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationES
   %313 = icmp ule i64 %311, %312
   call void @llvm.assume(i1 %313)
   %.not23.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %311, %307
-  br i1 %.not23.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not23.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %305, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %315, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val5.i.i.i.i.i.i.i.i.i, %305 ]
@@ -2030,14 +2030,14 @@ _ZN4llvm4yaml2IO11mapRequiredISt6vectorIN12_GLOBAL__N_121MultilibSerializationES
   %314 = add i64 %.057.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %315 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %314, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !58
 
-_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %315, ptr %292, align 8
   %.val6.pre.i.i.i.i.i.i.i.i.i = load ptr, ptr %263, align 8
-  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i.i
 
-_ZNKSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %305
+_ZNKSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %305
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %304, i64 %307)
   %316 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i, %304
   %317 = mul nuw nsw i64 %316, 40
@@ -2045,23 +2045,23 @@ _ZNKSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE12_M_check_len
   %319 = getelementptr inbounds i8, ptr %318, i64 %303
   br label %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i
-  %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %321, %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i ], [ %319, %_ZNKSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %.057.i.i.i30.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %320, %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i ], [ %307, %_ZNKSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i
+  %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %321, %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i ], [ %319, %_ZNKSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i ]
+  %.057.i.i.i30.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %320, %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i ], [ %307, %_ZNKSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i.i) #17
   %320 = add i64 %.057.i.i.i30.i.i.i.i.i.i.i.i.i.i.i, -1
   %321 = getelementptr inbounds i8, ptr %.08.i.i.i29.i.i.i.i.i.i.i.i.i.i.i, i64 40
   %.not.i.i.i31.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %320, 0
-  br i1 %.not.i.i.i31.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i31.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !58
 
-_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i
+_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i28.i.i.i.i.i.i.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i.i, %.val5.i.i.i.i.i.i.i.i.i
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %326, %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i ], [ %318, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i.i ]
-  %.092.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %325, %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i
+  %.03.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %326, %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i ], [ %318, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i.i ]
+  %.092.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %325, %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.03.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.092.i.i.i.i.i.i.i.i.i.i.i.i.i.i) #17
@@ -2073,29 +2073,29 @@ _ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEm
   %325 = getelementptr inbounds i8, ptr %.092.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 40
   %326 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 40
   %.not.i.i.i35.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %325, %.val5.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i35.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !64
+  br i1 %.not.i.i.i35.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !64
 
-_ZNSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit33.i.i.i.i.i.i.i.i.i.i.i
+_ZNSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i34.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i.i.i.i.i.i.i.i
   %.not.i37.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i.i, null
-  br i1 %.not.i37.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i, label %327
+  br i1 %.not.i37.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i.i, label %327
 
-327:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i
+327:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i.i
   %328 = load ptr, ptr %293, align 8
   %329 = ptrtoint ptr %328 to i64
   %330 = sub i64 %329, %302
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i.i.i.i.i.i.i.i, i64 noundef %330) #21
-  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNSt12_Vector_baseIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt12_Vector_baseIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %327, %_ZNSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.argprom.exit.i.i.i.i.i.i.i.i.i.i.i
+_ZNSt12_Vector_baseIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %327, %_ZNSt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i.i
   store ptr %318, ptr %263, align 8
   %331 = getelementptr inbounds %"struct.(anonymous namespace)::MultilibGroupSerialization", ptr %319, i64 %307
   store ptr %331, ptr %292, align 8
   %332 = getelementptr inbounds %"struct.(anonymous namespace)::MultilibGroupSerialization", ptr %318, i64 %316
   store ptr %332, ptr %293, align 8
-  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i, %300
-  %.val6.i.i.i.i.i.i.i.i.i = phi ptr [ %318, %_ZNSt12_Vector_baseIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE13_M_deallocateEPS1_m.argprom.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.argprom.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i.i, %300 ]
+_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i, %300
+  %.val6.i.i.i.i.i.i.i.i.i = phi ptr [ %318, %_ZNSt12_Vector_baseIN12_GLOBAL__N_126MultilibGroupSerializationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_126MultilibGroupSerializationEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i.i, %300 ]
   %333 = getelementptr inbounds %"struct.(anonymous namespace)::MultilibGroupSerialization", ptr %.val6.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %334 = load ptr, ptr %41, align 8
   %335 = getelementptr inbounds i8, ptr %334, i64 104
@@ -2110,7 +2110,7 @@ _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializa
   %340 = call noundef zeroext i1 %339(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull @.str.56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(8) %10) #17
   br i1 %340, label %341, label %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i
 
-341:                                              ; preds = %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i.i
+341:                                              ; preds = %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i.i
   call void @_ZN4llvm4yaml7yamlizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRNS0_12EmptyContextE(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(32) %333, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %12)
   %342 = load ptr, ptr %10, align 8
   %343 = load ptr, ptr %41, align 8
@@ -2119,7 +2119,7 @@ _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializa
   call void %345(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %342) #17
   br label %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %341, %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.argprom.exit.i.i.i.i.i.i.i.i
+_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %341, %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
@@ -2130,7 +2130,7 @@ _ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %348 = getelementptr inbounds i8, ptr %347, i64 120
   %349 = load ptr, ptr %348, align 8
   %350 = call noundef zeroext i1 %349(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull @.str.57, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %8) #17
-  br i1 %350, label %351, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_126MultilibGroupSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.argprom.exit.i.i.i.i.i.i.i.i
+  br i1 %350, label %351, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_126MultilibGroupSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.exit.i.i.i.i.i.i.i.i
 
 351:                                              ; preds = %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i
   %352 = load ptr, ptr %41, align 8
@@ -2148,13 +2148,13 @@ _ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %363 = getelementptr inbounds i8, ptr %362, i64 168
   %364 = load ptr, ptr %363, align 8
   %365 = call noundef zeroext i1 %364(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull @.str.58, i1 noundef zeroext %361) #17
-  br i1 %365, label %366, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_117MultilibGroupTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %365, label %366, label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_117MultilibGroupTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 366:                                              ; preds = %351
   store i32 0, ptr %346, align 4
-  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_117MultilibGroupTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_117MultilibGroupTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_117MultilibGroupTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %366, %351
+_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_117MultilibGroupTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %366, %351
   %367 = load ptr, ptr %41, align 8
   %368 = getelementptr inbounds i8, ptr %367, i64 184
   %369 = load ptr, ptr %368, align 8
@@ -2164,9 +2164,9 @@ _ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_117MultilibGroupTypeEEENSt9enable_ifIXsr27ha
   %372 = getelementptr inbounds i8, ptr %371, i64 128
   %373 = load ptr, ptr %372, align 8
   call void %373(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %370) #17
-  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_126MultilibGroupSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.argprom.exit.i.i.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_126MultilibGroupSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.exit.i.i.i.i.i.i.i.i
 
-_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_126MultilibGroupSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.argprom.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_117MultilibGroupTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.argprom.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i
+_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_126MultilibGroupSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_117MultilibGroupTypeEEENSt9enable_ifIXsr27has_ScalarEnumerationTraitsIT_EE5valueEvE4typeERNS0_2IOERS5_bRNS0_12EmptyContextE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %374 = load ptr, ptr %41, align 8
@@ -2180,12 +2180,12 @@ _ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_126MultilibGroupSerializationENS0_12EmptyCon
   call void %380(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %377) #17
   br label %381
 
-381:                                              ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_126MultilibGroupSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.argprom.exit.i.i.i.i.i.i.i.i, %294
+381:                                              ; preds = %_ZN4llvm4yaml7yamlizeIN12_GLOBAL__N_126MultilibGroupSerializationENS0_12EmptyContextEEENSt9enable_ifIXsr24unvalidatedMappingTraitsIT_T0_EE5valueEvE4typeERNS0_2IOERS6_bRS7_.exit.i.i.i.i.i.i.i.i, %294
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.argprom.exit.i.i.i.i.i.i.i, label %294, !llvm.loop !65
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.exit.i.i.i.i.i.i.i, label %294, !llvm.loop !65
 
-_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.argprom.exit.i.i.i.i.i.i.i: ; preds = %381, %290
+_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.exit.i.i.i.i.i.i.i: ; preds = %381, %290
   %382 = load ptr, ptr %41, align 8
   %383 = getelementptr inbounds i8, ptr %382, i64 48
   %384 = load ptr, ptr %383, align 8
@@ -2196,14 +2196,14 @@ _ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS
   %387 = getelementptr inbounds i8, ptr %386, i64 128
   %388 = load ptr, ptr %387, align 8
   call void %388(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef %385) #17
-  br label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i
+  br label %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i
 
-_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.argprom.exit.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i
+_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i: ; preds = %_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_.exit.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
-  br label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EEEEvPKcRT_.argprom.exit.i.i.i.i
+  br label %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EEEEvPKcRT_.exit.i.i.i.i
 
-_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EEEEvPKcRT_.argprom.exit.i.i.i.i: ; preds = %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EENS0_12EmptyContextEEEvPKcRT_bRT0_.argprom.exit.i.i.i.i.i.i, %268
+_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EEEEvPKcRT_.exit.i.i.i.i: ; preds = %_ZN4llvm4yaml2IO10processKeyISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EENS0_12EmptyContextEEEvPKcRT_bRT0_.exit.i.i.i.i.i.i, %268
   %389 = getelementptr inbounds nuw i8, ptr %40, i64 64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %390 = load ptr, ptr %41, align 8
@@ -2212,18 +2212,18 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializat
   %393 = call noundef zeroext i1 %392(ptr noundef nonnull align 8 dereferenceable(16) %41) #17
   br i1 %393, label %394, label %.critedge.i.i10.i.i.i.i
 
-394:                                              ; preds = %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EEEEvPKcRT_.argprom.exit.i.i.i.i
+394:                                              ; preds = %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EEEEvPKcRT_.exit.i.i.i.i
   %395 = load ptr, ptr %389, align 8
   %396 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %397 = load ptr, ptr %396, align 8
   %.not.i.i11.i.i.i.i = icmp eq ptr %395, %397
-  br i1 %.not.i.i11.i.i.i.i, label %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.argprom.exit.i.i, label %.critedge.i.i10.i.i.i.i
+  br i1 %.not.i.i11.i.i.i.i, label %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.exit.i.i, label %.critedge.i.i10.i.i.i.i
 
-.critedge.i.i10.i.i.i.i:                          ; preds = %394, %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EEEEvPKcRT_.argprom.exit.i.i.i.i
+.critedge.i.i10.i.i.i.i:                          ; preds = %394, %_ZN4llvm4yaml2IO11mapOptionalISt6vectorIN12_GLOBAL__N_126MultilibGroupSerializationESaIS5_EEEEvPKcRT_.exit.i.i.i.i
   call void @_ZN4llvm4yaml2IO10processKeyISt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS7_EENS0_12EmptyContextEEEvPKcRT_bRT0_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull @.str.20, ptr noundef nonnull align 8 dereferenceable(24) %389, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %7)
-  br label %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.argprom.exit.i.i
+  br label %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.exit.i.i
 
-_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.argprom.exit.i.i: ; preds = %.critedge.i.i10.i.i.i.i, %394
+_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.exit.i.i: ; preds = %.critedge.i.i10.i.i.i.i, %394
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %398 = load ptr, ptr %41, align 8
   %399 = getelementptr inbounds i8, ptr %398, i64 16
@@ -2231,8 +2231,8 @@ _ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0
   %401 = call noundef zeroext i1 %400(ptr noundef nonnull align 8 dereferenceable(16) %41) #17
   br i1 %401, label %_ZN4llvm4yamlrsIN12_GLOBAL__N_124MultilibSetSerializationEEENSt9enable_ifIXsr17has_MappingTraitsIT_NS0_12EmptyContextEEE5valueERNS0_5InputEE4typeES8_RS5_.exit, label %402
 
-402:                                              ; preds = %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.argprom.exit.i.i
-  call fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_124MultilibSetSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE.argprom(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(88) %40)
+402:                                              ; preds = %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.exit.i.i
+  call fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_124MultilibSetSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(88) %40)
   %403 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
   br i1 %403, label %410, label %404
 
@@ -2252,7 +2252,7 @@ _ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
   br label %_ZN4llvm4yamlrsIN12_GLOBAL__N_124MultilibSetSerializationEEENSt9enable_ifIXsr17has_MappingTraitsIT_NS0_12EmptyContextEEE5valueERNS0_5InputEE4typeES8_RS5_.exit
 
-_ZN4llvm4yamlrsIN12_GLOBAL__N_124MultilibSetSerializationEEENSt9enable_ifIXsr17has_MappingTraitsIT_NS0_12EmptyContextEEE5valueERNS0_5InputEE4typeES8_RS5_.exit: ; preds = %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.argprom.exit.i.i, %410
+_ZN4llvm4yamlrsIN12_GLOBAL__N_124MultilibSetSerializationEEENSt9enable_ifIXsr17has_MappingTraitsIT_NS0_12EmptyContextEEE5valueERNS0_5InputEE4typeES8_RS5_.exit: ; preds = %_ZN4llvm4yaml6detail9doMappingIN12_GLOBAL__N_124MultilibSetSerializationEEEvRNS0_2IOERT_RNS0_12EmptyContextE.exit.i.i, %410
   %411 = load ptr, ptr %41, align 8
   %412 = getelementptr inbounds i8, ptr %411, i64 112
   %413 = load ptr, ptr %412, align 8
@@ -2572,7 +2572,7 @@ _ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i: ; pre
   %539 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %540 = load ptr, ptr %539, align 8
   %.not4.i.i.i.i1.i = icmp eq ptr %538, %540
-  br i1 %.not4.i.i.i.i1.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i2.i
+  br i1 %.not4.i.i.i.i1.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i2.i
 
 .lr.ph.i.i.i.i2.i:                                ; preds = %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i, %_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i3.i = phi ptr [ %555, %_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i ], [ %538, %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i ]
@@ -2616,18 +2616,18 @@ _ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i: ; pre
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3.i) #17
   %555 = getelementptr inbounds i8, ptr %.05.i.i.i.i3.i, i64 120
   %.not.i.i.i.i12.i = icmp eq ptr %555, %540
-  br i1 %.not.i.i.i.i12.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !71
+  br i1 %.not.i.i.i.i12.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !71
 
-_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i
+_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_121MultilibSerializationEEvPT_.exit.i.i.i.i.i
   %.val.pr.i.i = load ptr, ptr %81, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.argprom.exit.i.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i, %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i
-  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i ], [ %538, %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i ]
+_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i
+  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %538, %_ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit.i ]
   %.not.i.i.i13.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i13.i, label %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i, label %556
 
-556:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.argprom.exit.i.i
+556:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
   %557 = getelementptr inbounds i8, ptr %40, i64 56
   %.val1.i.i = load ptr, ptr %557, align 8
   %558 = ptrtoint ptr %.val1.i.i to i64
@@ -2636,30 +2636,30 @@ _ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.argprom
   call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %560) #21
   br label %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i
 
-_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i: ; preds = %556, %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.argprom.exit.i.i
+_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i: ; preds = %556, %_ZSt8_DestroyIPN12_GLOBAL__N_121MultilibSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
   %561 = load ptr, ptr %263, align 8
   %562 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %563 = load ptr, ptr %562, align 8
   %.not4.i.i.i.i14.i = icmp eq ptr %561, %563
-  br i1 %.not4.i.i.i.i14.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.argprom.exit.i.i, label %.lr.ph.i.i.i.i15.i
+  br i1 %.not4.i.i.i.i14.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i15.i
 
 .lr.ph.i.i.i.i15.i:                               ; preds = %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i, %.lr.ph.i.i.i.i15.i
   %.05.i.i.i.i16.i = phi ptr [ %564, %.lr.ph.i.i.i.i15.i ], [ %561, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i16.i) #17
   %564 = getelementptr inbounds i8, ptr %.05.i.i.i.i16.i, i64 40
   %.not.i.i.i.i17.i = icmp eq ptr %564, %563
-  br i1 %.not.i.i.i.i17.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i15.i, !llvm.loop !72
+  br i1 %.not.i.i.i.i17.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i15.i, !llvm.loop !72
 
-_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i15.i
+_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i15.i
   %.val.pr.i18.i = load ptr, ptr %263, align 8
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.argprom.exit.i.i
+  br label %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.argprom.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i
-  %.val.i19.i = phi ptr [ %.val.pr.i18.i, %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.argprom.exitthread-pre-split.i.i ], [ %561, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i ]
+_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i
+  %.val.i19.i = phi ptr [ %.val.pr.i18.i, %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %561, %_ZNSt6vectorIN12_GLOBAL__N_121MultilibSerializationESaIS1_EED2Ev.exit.i ]
   %.not.i.i.i20.i = icmp eq ptr %.val.i19.i, null
   br i1 %.not.i.i.i20.i, label %_ZN12_GLOBAL__N_124MultilibSetSerializationD2Ev.exit, label %565
 
-565:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.argprom.exit.i.i
+565:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i
   %566 = getelementptr inbounds i8, ptr %40, i64 32
   %.val1.i21.i = load ptr, ptr %566, align 8
   %567 = ptrtoint ptr %.val1.i21.i to i64
@@ -2668,7 +2668,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.ar
   call void @_ZdlPvm(ptr noundef nonnull %.val.i19.i, i64 noundef %569) #21
   br label %_ZN12_GLOBAL__N_124MultilibSetSerializationD2Ev.exit
 
-_ZN12_GLOBAL__N_124MultilibSetSerializationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.argprom.exit.i.i, %565
+_ZN12_GLOBAL__N_124MultilibSetSerializationD2Ev.exit: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_126MultilibGroupSerializationES1_EvT_S3_RSaIT0_E.exit.i.i, %565
   ret void
 }
 
@@ -4558,7 +4558,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare noundef zeroext i1 @_ZN4llvm4yaml5Input18setCurrentDocumentEv(ptr noundef nonnull align 8 dereferenceable(682)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_124MultilibSetSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_124MultilibSetSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -4606,7 +4606,7 @@ define internal fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_124M
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %25) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom.exit
+  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.exit
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread.i:    ; preds = %16, %2
   %26 = and i64 %14, 4294967295
@@ -4621,7 +4621,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.i:    ; preds = %16, %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %29) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
-  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom.exit
+  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.exit
 
 30:                                               ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i
   %.not.i.i = icmp slt i64 %14, 0
@@ -4638,7 +4638,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.i:    ; preds = %16, %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %36) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
-  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom.exit
+  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.exit
 
 _ZStgtIjjENSt9enable_ifIXsr14is_convertibleIDTgtclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.thread.i: ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4713,7 +4713,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #17
-  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom.exit
+  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %48, %41
   %62 = getelementptr inbounds i8, ptr %.sroa.03.021.i, i64 120
@@ -4722,9 +4722,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 ._crit_edge.i:                                    ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, %_ZStgtIjjENSt9enable_ifIXsr14is_convertibleIDTgtclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit.thread.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom.exit
+  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.exit
 
-_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom.exit: ; preds = %20, %27, %34, %.critedge.i, %._crit_edge.i
+_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.exit: ; preds = %20, %27, %34, %.critedge.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -4888,7 +4888,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull al
 declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_121MultilibSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_121MultilibSerializationEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_2IOERT_RNS0_12EmptyContextE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -4923,7 +4923,7 @@ define internal fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_121M
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %19) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom.exit
+  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.exit
 
 20:                                               ; preds = %11, %2
   %21 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17, !noalias !114
@@ -4950,7 +4950,7 @@ define internal fastcc void @_ZN4llvm4yaml6detail10doValidateIN12_GLOBAL__N_121M
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %30) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom.exit
+  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.exit
 
 31:                                               ; preds = %22, %20
   %32 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17, !noalias !114
@@ -4981,13 +4981,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringR
   %39 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.24) #17, !noalias !120
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %39) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
-  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom.exit
+  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread3.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %31
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom.exit
+  br label %_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.exit
 
-_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom.exit: ; preds = %14, %25, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread3.i
+_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.exit: ; preds = %14, %25, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread3.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -6411,19 +6411,19 @@ attributes #21 = { builtin nounwind }
 !48 = distinct !{!48, !5}
 !49 = distinct !{!49, !5}
 !50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
-!52 = distinct !{!52, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
+!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!52 = distinct !{!52, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_"}
 !53 = !{!54}
-!54 = distinct !{!54, !52, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
+!54 = distinct !{!54, !52, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_121MultilibSerializationES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !55 = distinct !{!55, !5}
 !56 = distinct !{!56, !5}
 !57 = distinct !{!57, !5}
 !58 = distinct !{!58, !5}
 !59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_126MultilibGroupSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 0"}
-!61 = distinct !{!61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_126MultilibGroupSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom"}
+!60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_126MultilibGroupSerializationES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!61 = distinct !{!61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_126MultilibGroupSerializationES1_SaIS1_EEvPT_PT0_RT1_"}
 !62 = !{!63}
-!63 = distinct !{!63, !61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_126MultilibGroupSerializationES1_SaIS1_EEvPT_PT0_RT1_.argprom: argument 1"}
+!63 = distinct !{!63, !61, !"_ZSt19__relocate_object_aIN12_GLOBAL__N_126MultilibGroupSerializationES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !64 = distinct !{!64, !5}
 !65 = distinct !{!65, !5}
 !66 = !{!67}
@@ -6448,8 +6448,8 @@ attributes #21 = { builtin nounwind }
 !85 = distinct !{!85, !5}
 !86 = distinct !{!86, !5}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom: argument 0"}
-!89 = distinct !{!89, !"_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom"}
+!88 = distinct !{!88, !89, !"_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_: argument 0"}
+!89 = distinct !{!89, !"_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_124MultilibSetSerializationEE8validateB5cxx11ERNS0_2IOERS3_"}
 !90 = !{!91, !88}
 !91 = distinct !{!91, !92, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_: argument 0"}
 !92 = distinct !{!92, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
@@ -6475,8 +6475,8 @@ attributes #21 = { builtin nounwind }
 !112 = distinct !{!112, !113, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !113 = distinct !{!113, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom: argument 0"}
-!116 = distinct !{!116, !"_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_.argprom"}
+!115 = distinct !{!115, !116, !"_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_: argument 0"}
+!116 = distinct !{!116, !"_ZN4llvm4yaml13MappingTraitsIN12_GLOBAL__N_121MultilibSerializationEE8validateB5cxx11ERNS0_2IOERS3_"}
 !117 = !{!118, !115}
 !118 = distinct !{!118, !119, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_: argument 0"}
 !119 = distinct !{!119, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_"}

@@ -554,7 +554,7 @@ default.unreachable:                              ; preds = %.thread99
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread27.i, %99, %92, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hd72621183333f680E.exit.i.i"
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread27.i, %99, %92, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hd72621183333f680E.exit.i.i"
   %lpad.loopexit.split-lp111 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -605,7 +605,7 @@ default.unreachable:                              ; preds = %.thread99
   %.val.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !69, !noalias !66
   %.val16.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !69, !noalias !66, !noundef !5
   %76 = icmp eq i64 %.val16.i, 0
-  br i1 %76, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread27.i, label %77
+  br i1 %76, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread27.i, label %77
 
 77:                                               ; preds = %.thread96.thread
   %78 = icmp ne ptr %.val.i, null
@@ -616,7 +616,7 @@ default.unreachable:                              ; preds = %.thread99
 80:                                               ; preds = %83, %77
   %81 = phi ptr [ %84, %83 ], [ %.val.i, %77 ]
   %82 = icmp eq ptr %81, %79
-  br i1 %82, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread.i, label %83
+  br i1 %82, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread.i, label %83
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds i8, ptr %81, i64 24
@@ -652,7 +652,7 @@ default.unreachable:                              ; preds = %.thread99
 
 .loopexit4.i.i:                                   ; preds = %.noexc81, %.noexc80
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !76
-  br label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread.i
+  br label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread.i
 
 92:                                               ; preds = %.lr.ph.i.split.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !76
@@ -721,11 +721,11 @@ default.unreachable:                              ; preds = %.thread99
   store i64 -9223372036854775804, ptr %8, align 8, !noalias !112
   %107 = load i64, ptr %.val.i, align 8, !range !15, !noalias !112, !noundef !5
   %108 = icmp sgt i64 %107, -9223372036854775804
-  br i1 %108, label %109, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread31.i
+  br i1 %108, label %109, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread31.i
 
-_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread31.i: ; preds = %106
+_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread31.i: ; preds = %106
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !112
-  br label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread.i
+  br label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread.i
 
 109:                                              ; preds = %106
   %110 = getelementptr inbounds i8, ptr %.val.i, i64 8
@@ -741,7 +741,7 @@ _ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.
 .noexc.i.i.i:                                     ; preds = %109
   %118 = extractvalue { i64, ptr } %117, 0
   %switch8.i.not.i.i.i = icmp eq i64 %118, 0
-  br i1 %switch8.i.not.i.i.i, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.i, label %121
+  br i1 %switch8.i.not.i.i.i, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.i, label %121
 
 119:                                              ; preds = %128, %109
   %120 = landingpad { ptr, i32 }
@@ -768,10 +768,10 @@ _ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.
 
 129:                                              ; preds = %121
   %130 = icmp eq ptr %122, %111
-  br i1 %130, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.i, label %.lr.ph.i.i36.i.i
+  br i1 %130, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.i, label %.lr.ph.i.i36.i.i
 
-.lr.ph.i.i36.i.i:                                 ; preds = %129, %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.argprom.exit.i.i.i.i"
-  %131 = phi ptr [ %132, %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.argprom.exit.i.i.i.i" ], [ %111, %129 ]
+.lr.ph.i.i36.i.i:                                 ; preds = %129, %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.exit.i.i.i.i"
+  %131 = phi ptr [ %132, %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.exit.i.i.i.i" ], [ %111, %129 ]
   %132 = getelementptr inbounds i8, ptr %131, i64 1
   %.val.i.i.i.i = load i8, ptr %131, align 1, !noalias !118, !noundef !5
   %133 = add i8 %.val.i.i.i.i, -48
@@ -780,22 +780,22 @@ _ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.
   %135 = add i8 %134, -65
   %136 = icmp ult i8 %135, 26
   %or.cond4.i.i.i.i.i = or i1 %or.cond.i.i.i.i.i, %136
-  br i1 %or.cond4.i.i.i.i.i, label %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.argprom.exit.i.i.i.i", label %137
+  br i1 %or.cond4.i.i.i.i.i, label %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.exit.i.i.i.i", label %137
 
 137:                                              ; preds = %.lr.ph.i.i36.i.i
-  switch i8 %.val.i.i.i.i, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.i [
-    i8 43, label %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.argprom.exit.i.i.i.i"
-    i8 45, label %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.argprom.exit.i.i.i.i"
-    i8 46, label %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.argprom.exit.i.i.i.i"
+  switch i8 %.val.i.i.i.i, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.i [
+    i8 43, label %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.exit.i.i.i.i"
+    i8 45, label %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.exit.i.i.i.i"
+    i8 46, label %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.exit.i.i.i.i"
   ]
 
-"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.argprom.exit.i.i.i.i": ; preds = %137, %137, %137, %.lr.ph.i.i36.i.i
+"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.exit.i.i.i.i": ; preds = %137, %137, %137, %.lr.ph.i.i36.i.i
   %138 = icmp eq ptr %132, %122
-  br i1 %138, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread29.i, label %.lr.ph.i.i36.i.i
+  br i1 %138, label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread29.i, label %.lr.ph.i.i36.i.i
 
-_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread29.i: ; preds = %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.argprom.exit.i.i.i.i"
+_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread29.i: ; preds = %"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme28_$u7b$$u7b$closure$u7d$$u7d$17h5a6ee22626491ac9E.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !112
-  br label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread27.i
+  br label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread27.i
 
 139:                                              ; preds = %119
   %140 = landingpad { ptr, i32 }
@@ -805,21 +805,21 @@ _ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.
 
 .loopexit.i.i:                                    ; preds = %.noexc85, %.noexc84
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !100
-  br label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread.i
+  br label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread.i
 
-_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.i: ; preds = %137, %129, %.noexc.i.i.i
+_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.i: ; preds = %137, %129, %.noexc.i.i.i
   %.sroa.12.0..sroa_idx23.i = getelementptr inbounds i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx23.i, i64 16, i1 false), !noalias !121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !112
-  br label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread.i
+  br label %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread.i
 
-_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread27.i: ; preds = %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread29.i, %.thread96.thread
+_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread27.i: ; preds = %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread29.i, %.thread96.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.04.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !121
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1f2d684575267283E.llvm.11869723920097764970"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val16.i)
           to label %.noexc86 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc86:                                         ; preds = %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread27.i
+.noexc86:                                         ; preds = %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread27.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !122
   %141 = getelementptr inbounds { i64, [2 x i64] }, ptr %.val.i, i64 %.val16.i
   store ptr %.val.i, ptr %7, align 8, !noalias !122
@@ -846,8 +846,8 @@ _ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.
   %.not.not.i.i.i = icmp eq ptr %147, null
   br i1 %.not.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.split.i.i
 
-_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread.i: ; preds = %80, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.i, %.loopexit.i.i, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread31.i, %.loopexit4.i.i
-  %.sroa.0.126.i = phi i64 [ -9223372036854775804, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.i ], [ -9223372036854775804, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread31.i ], [ -9223372036854775806, %.loopexit.i.i ], [ -9223372036854775807, %.loopexit4.i.i ], [ -9223372036854775808, %80 ]
+_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread.i: ; preds = %80, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.i, %.loopexit.i.i, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread31.i, %.loopexit4.i.i
+  %.sroa.0.126.i = phi i64 [ -9223372036854775804, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.i ], [ -9223372036854775804, %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread31.i ], [ -9223372036854775806, %.loopexit.i.i ], [ -9223372036854775807, %.loopexit4.i.i ], [ -9223372036854775808, %80 ]
   %148 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.126.i, ptr %148, align 8, !alias.scope !66, !noalias !69
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -887,7 +887,7 @@ _ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #21, !noalias !121
   unreachable
 
-_ZN12grep_printer9hyperlink13FormatBuilder5build17h263187fbc8f4ce59E.exit: ; preds = %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom.exit.thread.i, %.loopexit.i
+_ZN12grep_printer9hyperlink13FormatBuilder5build17h263187fbc8f4ce59E.exit: ; preds = %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread.i, %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.12.i)
   br label %156
 
@@ -2203,13 +2203,13 @@ define void @_ZN12grep_printer9hyperlink12Interpolator3new17h04e009af5bd423d3E(p
   %.val = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %3 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %4 = icmp slt i64 %3, 0
-  br i1 %4, label %5, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc06b9c3a5350ecf5E.argprom.exit"
+  br i1 %4, label %5, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc06b9c3a5350ecf5E.exit"
 
 5:                                                ; preds = %2
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc06b9c3a5350ecf5E.argprom.exit": ; preds = %2
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc06b9c3a5350ecf5E.exit": ; preds = %2
   store ptr %.val, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -2825,8 +2825,8 @@ attributes #21 = { cold noreturn nounwind }
 !71 = !{!72, !74, !67, !70}
 !72 = distinct !{!72, !73, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hd72621183333f680E: argument 0"}
 !73 = distinct !{!73, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hd72621183333f680E"}
-!74 = distinct !{!74, !75, !"_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom: argument 0"}
-!75 = distinct !{!75, !"_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.argprom"}
+!74 = distinct !{!74, !75, !"_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E: argument 0"}
+!75 = distinct !{!75, !"_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E"}
 !76 = !{!77, !79, !74, !67, !70}
 !77 = distinct !{!77, !78, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h61562a097d9efa8cE: argument 0"}
 !78 = distinct !{!78, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h61562a097d9efa8cE"}
@@ -2864,8 +2864,8 @@ attributes #21 = { cold noreturn nounwind }
 !110 = distinct !{!110, !106, !"_ZN70_$LT$grep_printer..hyperlink..Part$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf57f2649b13a5006E.llvm.2822928188824460994: argument 1"}
 !111 = distinct !{!111, !108, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfdcb3e4037d1ff4dE.llvm.2822928188824460994: argument 0"}
 !112 = !{!113, !74, !67, !70}
-!113 = distinct !{!113, !114, !"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme17h572c524785771e11E.argprom: argument 0"}
-!114 = distinct !{!114, !"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme17h572c524785771e11E.argprom"}
+!113 = distinct !{!113, !114, !"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme17h572c524785771e11E: argument 0"}
+!114 = distinct !{!114, !"_ZN12grep_printer9hyperlink13FormatBuilder15validate_scheme17h572c524785771e11E"}
 !115 = !{!116, !113, !74, !67, !70}
 !116 = distinct !{!116, !117, !"_ZN6memchr6memchr6memchr28_$u7b$$u7b$closure$u7d$$u7d$17h658d893b63b4fe52E: argument 0"}
 !117 = distinct !{!117, !"_ZN6memchr6memchr6memchr28_$u7b$$u7b$closure$u7d$$u7d$17h658d893b63b4fe52E"}

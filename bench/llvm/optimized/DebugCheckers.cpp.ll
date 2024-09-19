@@ -3125,7 +3125,7 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = tail call noundef ptr @_ZN5clang26AnalysisDeclContextManager10getContextEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(161) %6, ptr noundef %1) #22
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_120DominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %8
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_120DominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %8
 
 8:                                                ; preds = %4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang20CFGDominatorTreeImplILb0EEE, i64 16), ptr %5, align 8
@@ -3153,9 +3153,9 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang20CFGDominatorTreeImplILb0EEE, i64 16), ptr %5, align 8
   call void @_ZN4llvm17DominatorTreeBaseIN5clang8CFGBlockELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %9) #22
   call void @_ZN5clang15ManagedAnalysisD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
-  br label %_ZNK12_GLOBAL__N_120DominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_120DominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_120DominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %4, %8
+_ZNK12_GLOBAL__N_120DominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %4, %8
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
   ret void
 }
@@ -9578,7 +9578,7 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = tail call noundef ptr @_ZN5clang26AnalysisDeclContextManager10getContextEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(161) %6, ptr noundef %1) #22
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_124PostDominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %8
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_124PostDominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %8
 
 8:                                                ; preds = %4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang20CFGDominatorTreeImplILb1EEE, i64 16), ptr %5, align 8
@@ -9606,9 +9606,9 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang20CFGDominatorTreeImplILb1EEE, i64 16), ptr %5, align 8
   call void @_ZN4llvm17DominatorTreeBaseIN5clang8CFGBlockELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(164) %9) #22
   call void @_ZN5clang15ManagedAnalysisD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
-  br label %_ZNK12_GLOBAL__N_124PostDominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_124PostDominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_124PostDominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %4, %8
+_ZNK12_GLOBAL__N_124PostDominatorsTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %4, %8
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %5)
   ret void
 }
@@ -17842,7 +17842,7 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = tail call noundef ptr @_ZN5clang26AnalysisDeclContextManager10getContextEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(161) %6, ptr noundef %1) #22
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_127ControlDependencyTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %8
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_127ControlDependencyTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %8
 
 8:                                                ; preds = %4
   %9 = tail call noundef ptr @_ZN5clang19AnalysisDeclContext6getCFGEv(ptr noundef nonnull align 8 dereferenceable(248) %7) #22
@@ -17876,9 +17876,9 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %23, i8 0, i64 20, i1 false)
   call void @_ZN5clang27ControlDependencyCalculator4dumpEv(ptr noundef nonnull align 8 dereferenceable(248) %5)
   call void @_ZN5clang27ControlDependencyCalculatorD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %5) #22
-  br label %_ZNK12_GLOBAL__N_127ControlDependencyTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_127ControlDependencyTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_127ControlDependencyTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %4, %8
+_ZNK12_GLOBAL__N_127ControlDependencyTreeDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %4, %8
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %5)
   ret void
 }
@@ -20169,7 +20169,7 @@ _ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE
   %.pre5.i.i.i = phi ptr [ %.pre5.i.i.pr.i, %_ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE.exitthread-pre-split.i ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not.i = icmp eq ptr %.pre5.i.i.i, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_119LiveVariablesDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %20
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_119LiveVariablesDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %20
 
 20:                                               ; preds = %_ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE.exit.i, %_ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE.exit.thread.i
   %21 = phi ptr [ %10, %_ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE.exit.thread.i ], [ %.pre5.i.i.i, %_ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE.exit.i ]
@@ -20178,9 +20178,9 @@ _ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef nonnull align 8 dereferenceable(696) ptr %24(ptr noundef nonnull align 8 dereferenceable(256) %2) #22
   call void @_ZN5clang13LiveVariables17dumpBlockLivenessERKNS_13SourceManagerE(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(696) %25) #22
-  br label %_ZNK12_GLOBAL__N_119LiveVariablesDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_119LiveVariablesDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_119LiveVariablesDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %_ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE.exit.i, %20
+_ZNK12_GLOBAL__N_119LiveVariablesDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %_ZN5clang4ento15AnalysisManager11getAnalysisINS_13LiveVariablesEEEPT_PKNS_4DeclE.exit.i, %20
   ret void
 }
 
@@ -20270,7 +20270,7 @@ _ZN5clang4ento15AnalysisManager11getAnalysisINS_20RelaxedLiveVariablesEEEPT_PKNS
   %.pre5.i.i.i = phi ptr [ %.pre5.i.i.pr.i, %_ZN5clang4ento15AnalysisManager11getAnalysisINS_20RelaxedLiveVariablesEEEPT_PKNS_4DeclE.exitthread-pre-split.i ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not.i = icmp eq ptr %.pre5.i.i.i, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_121LiveExpressionsDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %20
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_121LiveExpressionsDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %20
 
 20:                                               ; preds = %_ZN5clang4ento15AnalysisManager11getAnalysisINS_20RelaxedLiveVariablesEEEPT_PKNS_4DeclE.exit.i, %_ZN5clang4ento15AnalysisManager11getAnalysisINS_20RelaxedLiveVariablesEEEPT_PKNS_4DeclE.exit.thread.i
   %21 = phi ptr [ %10, %_ZN5clang4ento15AnalysisManager11getAnalysisINS_20RelaxedLiveVariablesEEEPT_PKNS_4DeclE.exit.thread.i ], [ %.pre5.i.i.i, %_ZN5clang4ento15AnalysisManager11getAnalysisINS_20RelaxedLiveVariablesEEEPT_PKNS_4DeclE.exit.i ]
@@ -20279,9 +20279,9 @@ _ZN5clang4ento15AnalysisManager11getAnalysisINS_20RelaxedLiveVariablesEEEPT_PKNS
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef nonnull align 8 dereferenceable(696) ptr %24(ptr noundef nonnull align 8 dereferenceable(256) %2) #22
   call void @_ZN5clang13LiveVariables16dumpExprLivenessERKNS_13SourceManagerE(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(696) %25) #22
-  br label %_ZNK12_GLOBAL__N_121LiveExpressionsDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_121LiveExpressionsDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_121LiveExpressionsDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %_ZN5clang4ento15AnalysisManager11getAnalysisINS_20RelaxedLiveVariablesEEEPT_PKNS_4DeclE.exit.i, %20
+_ZNK12_GLOBAL__N_121LiveExpressionsDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %_ZN5clang4ento15AnalysisManager11getAnalysisINS_20RelaxedLiveVariablesEEEPT_PKNS_4DeclE.exit.i, %20
   ret void
 }
 
@@ -20324,15 +20324,15 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   %6 = tail call noundef ptr @_ZN5clang26AnalysisDeclContextManager10getContextEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(161) %5, ptr noundef %1) #22
   %7 = tail call noundef ptr @_ZN5clang19AnalysisDeclContext6getCFGEv(ptr noundef nonnull align 8 dereferenceable(248) %6) #22
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_19CFGViewer16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %8
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_19CFGViewer16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZNK5clang3CFG7viewCFGERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(841) %10) #22
-  br label %_ZNK12_GLOBAL__N_19CFGViewer16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_19CFGViewer16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_19CFGViewer16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %4, %8
+_ZNK12_GLOBAL__N_19CFGViewer16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %4, %8
   ret void
 }
 
@@ -20424,15 +20424,15 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   %46 = call noundef ptr @_ZN5clang26AnalysisDeclContextManager10getContextEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(161) %45, ptr noundef nonnull %1) #22
   %47 = call noundef ptr @_ZN5clang19AnalysisDeclContext6getCFGEv(ptr noundef nonnull align 8 dereferenceable(248) %46) #22
   %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_19CFGDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %48
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_19CFGDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %48
 
 48:                                               ; preds = %4
   %49 = load ptr, ptr %6, align 8
   %50 = call noundef zeroext i1 @_ZN4llvm3sys7Process20StandardErrHasColorsEv() #22
   call void @_ZNK5clang3CFG4dumpERKNS_11LangOptionsEb(ptr noundef nonnull align 8 dereferenceable(112) %47, ptr noundef nonnull align 8 dereferenceable(841) %49, i1 noundef zeroext %50) #22
-  br label %_ZNK12_GLOBAL__N_19CFGDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_19CFGDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_19CFGDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %4, %48
+_ZNK12_GLOBAL__N_19CFGDumper16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %4, %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 }
@@ -35605,13 +35605,13 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %108, %106
   %112 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
   %113 = load ptr, ptr %5, align 8
   %114 = icmp eq ptr %113, %10
-  br i1 %114, label %_ZNK12_GLOBAL__N_112ConfigDumper25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %115
+  br i1 %114, label %_ZNK12_GLOBAL__N_112ConfigDumper25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %115
 
 115:                                              ; preds = %._crit_edge.i
   call void @free(ptr noundef %113) #22
-  br label %_ZNK12_GLOBAL__N_112ConfigDumper25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_112ConfigDumper25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_112ConfigDumper25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %._crit_edge.i, %115
+_ZNK12_GLOBAL__N_112ConfigDumper25checkEndOfTranslationUnitEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %._crit_edge.i, %115
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
@@ -35870,7 +35870,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i: ;
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %16, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_111ReportStmts12checkPreStmtEPKN5clang4StmtERNS1_4ento14CheckerContextE.argprom.exit, label %17
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_111ReportStmts12checkPreStmtEPKN5clang4StmtERNS1_4ento14CheckerContextE.exit, label %17
 
 17:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -35908,9 +35908,9 @@ _ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i: ; preds = %17
 
 _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i, %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %_ZNK12_GLOBAL__N_111ReportStmts12checkPreStmtEPKN5clang4StmtERNS1_4ento14CheckerContextE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_111ReportStmts12checkPreStmtEPKN5clang4StmtERNS1_4ento14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_111ReportStmts12checkPreStmtEPKN5clang4StmtERNS1_4ento14CheckerContextE.argprom.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i
+_ZNK12_GLOBAL__N_111ReportStmts12checkPreStmtEPKN5clang4StmtERNS1_4ento14CheckerContextE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i
   ret void
 }
 

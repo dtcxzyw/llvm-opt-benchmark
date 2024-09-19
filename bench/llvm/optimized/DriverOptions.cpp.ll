@@ -5473,7 +5473,7 @@ define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN5clang6driv
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  tail call fastcc void @_ZN12_GLOBAL__N_114DriverOptTableC2Ev.argprom()
+  tail call fastcc void @_ZN12_GLOBAL__N_114DriverOptTableC2Ev()
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_114DriverOptTableD2Ev, ptr nonnull @_ZZN5clang6driver17getDriverOptTableEvE5Table, ptr nonnull @__dso_handle) #5
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5clang6driver17getDriverOptTableEvE5Table) #5
   br label %7
@@ -5486,7 +5486,7 @@ define dso_local noundef nonnull align 8 dereferenceable(88) ptr @_ZN5clang6driv
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114DriverOptTableC2Ev.argprom() unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114DriverOptTableC2Ev() unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm3opt8OptTableC2ENS_8ArrayRefINS1_4InfoEEEb(ptr noundef nonnull align 8 dereferenceable(88) @_ZZN5clang6driver17getDriverOptTableEvE5Table, ptr nonnull @_ZL9InfoTable, i64 3436, i1 noundef zeroext false) #5
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm3opt19PrecomputedOptTableE, i64 16), ptr @_ZZN5clang6driver17getDriverOptTableEvE5Table, align 8
   store ptr @_ZL16PrefixTable_init, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang6driver17getDriverOptTableEvE5Table, i64 88), align 8

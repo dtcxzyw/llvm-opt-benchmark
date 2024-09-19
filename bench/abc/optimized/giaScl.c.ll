@@ -336,10 +336,10 @@ define i32 @Gia_ManSeqMarkUsed_rec(ptr nocapture noundef readonly %0, ptr nocapt
   %7 = getelementptr i8, ptr %0, i64 64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %Gia_ObjIsRo.argprom.exit.thread
-  %8 = phi i64 [ %4, %.lr.ph.lr.ph ], [ %76, %Gia_ObjIsRo.argprom.exit.thread ]
-  %.tr26.ph38 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %73, %Gia_ObjIsRo.argprom.exit.thread ]
-  %accumulator.tr.ph37 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %75, %Gia_ObjIsRo.argprom.exit.thread ]
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %Gia_ObjIsRo.exit.thread
+  %8 = phi i64 [ %4, %.lr.ph.lr.ph ], [ %76, %Gia_ObjIsRo.exit.thread ]
+  %.tr26.ph38 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %73, %Gia_ObjIsRo.exit.thread ]
+  %accumulator.tr.ph37 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %75, %Gia_ObjIsRo.exit.thread ]
   br label %9
 
 9:                                                ; preds = %.lr.ph, %tailrecurse
@@ -365,9 +365,9 @@ tailrecurse:                                      ; preds = %9
 19:                                               ; preds = %9
   %20 = and i64 %10, 2684354559
   %narrow.i.not.i = icmp eq i64 %20, 2684354559
-  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.argprom.exit, label %Gia_ObjIsRo.argprom.exit.thread
+  br i1 %narrow.i.not.i, label %Gia_ObjIsRo.exit, label %Gia_ObjIsRo.exit.thread
 
-Gia_ObjIsRo.argprom.exit:                         ; preds = %19
+Gia_ObjIsRo.exit:                                 ; preds = %19
   %21 = lshr i64 %10, 32
   %22 = trunc nuw i64 %21 to i32
   %23 = and i32 %22, 536870911
@@ -377,9 +377,9 @@ Gia_ObjIsRo.argprom.exit:                         ; preds = %19
   %.val5.val.i = load i32, ptr %24, align 4
   %25 = sub nsw i32 %.val5.val.i, %.val4.i
   %.not25 = icmp slt i32 %23, %25
-  br i1 %.not25, label %Gia_ObjIsRo.argprom.exit.thread, label %26
+  br i1 %.not25, label %Gia_ObjIsRo.exit.thread, label %26
 
-26:                                               ; preds = %Gia_ObjIsRo.argprom.exit
+26:                                               ; preds = %Gia_ObjIsRo.exit
   %27 = getelementptr i8, ptr %0, i64 72
   %.val6.i = load ptr, ptr %27, align 8
   %28 = getelementptr i8, ptr %.val6.i, i64 4
@@ -459,7 +459,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %34, ptr %65, align 4
   br label %.loopexit
 
-Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %19, %Gia_ObjIsRo.argprom.exit
+Gia_ObjIsRo.exit.thread:                          ; preds = %19, %Gia_ObjIsRo.exit
   %66 = sub nsw i64 0, %13
   %67 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr2634, i64 %66
   %68 = tail call i32 @Gia_ManSeqMarkUsed_rec(ptr noundef %0, ptr noundef nonnull %67, ptr noundef %2)
@@ -475,8 +475,8 @@ Gia_ObjIsRo.argprom.exit.thread:                  ; preds = %19, %Gia_ObjIsRo.ar
   %.not33 = icmp eq i64 %77, 0
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %Gia_ObjIsRo.argprom.exit.thread, %tailrecurse, %3, %Vec_IntPush.exit
-  %accumulator.tr.ph32 = phi i32 [ %accumulator.tr.ph37, %Vec_IntPush.exit ], [ 0, %3 ], [ %accumulator.tr.ph37, %tailrecurse ], [ %75, %Gia_ObjIsRo.argprom.exit.thread ]
+.loopexit:                                        ; preds = %Gia_ObjIsRo.exit.thread, %tailrecurse, %3, %Vec_IntPush.exit
+  %accumulator.tr.ph32 = phi i32 [ %accumulator.tr.ph37, %Vec_IntPush.exit ], [ 0, %3 ], [ %accumulator.tr.ph37, %tailrecurse ], [ %75, %Gia_ObjIsRo.exit.thread ]
   ret i32 %accumulator.tr.ph32
 }
 

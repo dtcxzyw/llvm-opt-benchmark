@@ -185,7 +185,7 @@ distance_to_group.exit:                           ; preds = %60, %33, %dist.exit
 67:                                               ; preds = %66
   %68 = load ptr, ptr @stderr, align 8
   %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.8, i64 noundef %65, i64 noundef 8) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 70:                                               ; preds = %66
@@ -199,7 +199,7 @@ distance_to_group.exit:                           ; preds = %60, %33, %dist.exit
   %75 = load ptr, ptr @stderr, align 8
   %76 = shl nuw nsw i64 %65, 3
   %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.9, i64 noundef %76) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 gv_calloc.exit:                                   ; preds = %70
@@ -218,7 +218,7 @@ distance_to_group.exit._crit_edge:                ; preds = %distance_to_group.e
   %82 = load ptr, ptr @stderr, align 8
   %83 = tail call ptr @strerror(i32 noundef 12) #16
   %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.10, ptr noundef %83) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 qt_list_append.exit:                              ; preds = %distance_to_group.exit._crit_edge
@@ -396,14 +396,14 @@ qt_list_append.exit:                              ; preds = %distance_to_group.e
 .split.us:                                        ; preds = %105
   %168 = load ptr, ptr @stderr, align 8
   %169 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.8, i64 noundef %89, i64 noundef 8) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 170:                                              ; preds = %165
   %171 = load ptr, ptr @stderr, align 8
   %172 = shl nuw nsw i64 %89, 3
   %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.9, i64 noundef %172) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 .lr.ph237:                                        ; preds = %165
@@ -638,7 +638,7 @@ distance_to_group.exit156:                        ; preds = %231, %207, %dist.ex
   %288 = load ptr, ptr @stderr, align 8
   %289 = tail call ptr @strerror(i32 noundef %.0.i.ph.i162) #16
   %290 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str.10, ptr noundef %289) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 qt_list_append.exit163:                           ; preds = %.critedge, %282
@@ -880,7 +880,7 @@ distance_to_group.exit:                           ; preds = %43, %31, %dist.exit
 68:                                               ; preds = %67
   %69 = load ptr, ptr @stderr, align 8
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.8, i64 noundef %66, i64 noundef 8) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 71:                                               ; preds = %67
@@ -894,7 +894,7 @@ distance_to_group.exit:                           ; preds = %43, %31, %dist.exit
   %76 = load ptr, ptr @stderr, align 8
   %77 = shl nuw nsw i64 %66, 3
   %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.9, i64 noundef %77) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 gv_calloc.exit:                                   ; preds = %71
@@ -913,7 +913,7 @@ distance_to_group.exit._crit_edge:                ; preds = %distance_to_group.e
   %83 = load ptr, ptr @stderr, align 8
   %84 = tail call ptr @strerror(i32 noundef 12) #16
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.10, ptr noundef %84) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 qt_list_append.exit:                              ; preds = %distance_to_group.exit._crit_edge
@@ -1336,7 +1336,7 @@ qt_list_append.exit175.us.us:                     ; preds = %215, %.critedge.us.
   %273 = load ptr, ptr @stderr, align 8
   %274 = tail call ptr @strerror(i32 noundef %.0.i.ph.i174.us.us) #16
   %275 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %273, ptr noundef nonnull @.str.10, ptr noundef %274) #17
-  tail call fastcc void @graphviz_exit.argelim() #18
+  tail call fastcc void @graphviz_exit() #18
   unreachable
 
 ._crit_edge258:                                   ; preds = %.loopexit206.us, %.loopexit206, %qt_list_append.exit
@@ -1348,7 +1348,7 @@ qt_list_append.exit175.us.us:                     ; preds = %215, %.critedge.us.
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit.argelim() unnamed_addr #7 {
+define internal fastcc void @graphviz_exit() unnamed_addr #7 {
   tail call void @exit(i32 noundef 1) #22
   unreachable
 }

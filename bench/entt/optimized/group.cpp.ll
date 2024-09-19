@@ -22635,7 +22635,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
   store i64 %454, ptr %agg.tmp2.sroa.4.0.agg.tmp2.i.i.sroa_idx.i.i.i.i.i.i, align 8
   %agg.tmp7.sroa.3.0.agg.tmp2.i.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i.i.i.i.i.i, i64 16
   store i64 %456, ptr %agg.tmp7.sroa.3.0.agg.tmp2.i.sroa_idx.i.i.i.i.i.i.i, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_.argprom"(ptr nonnull %add.ptr.i.i.i7.i.i.i, ptr nonnull %add.ptr.i.i.i.i4.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i.i.i)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_"(ptr nonnull %add.ptr.i.i.i7.i.i.i, ptr nonnull %add.ptr.i.i.i.i4.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i.i.i)
   %sparse.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %455, i64 8
   %464 = load ptr, ptr %sparse.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !153
   %payload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %455, i64 72
@@ -22705,7 +22705,7 @@ while.body.i.i.i.i.i.i.i.i.i.i:                   ; preds = %while.cond.i.i.i.i.
   store i64 %454, ptr %agg.tmp2.sroa.4.0.agg.tmp8.i.i.sroa_idx.i.i.i.i.i.i, align 8
   %agg.tmp7.sroa.3.0.agg.tmp8.i.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i.i.i.i.i.i.i, i64 16
   store i64 %456, ptr %agg.tmp7.sroa.3.0.agg.tmp8.i.sroa_idx.i.i.i.i.i.i.i, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_.argprom"(ptr nonnull %add.ptr.i.i.i7.i.i.i, ptr %477, ptr noundef nonnull %agg.tmp8.i.i.i.i.i.i.i.i)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_"(ptr nonnull %add.ptr.i.i.i7.i.i.i, ptr %477, ptr noundef nonnull %agg.tmp8.i.i.i.i.i.i.i.i)
   br label %for.body.lr.ph.i.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %"_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S10_.exit.i.i.i.i.i.i.i.i.i", %"_ZNK4entt8std_sortclISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS_6entityESt6vectorIS5_SaIS5_EEEEEZNS_11basic_groupINS_7owned_tIJEEENS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiS5_SaIiEvEENS_14basic_registryIS5_S8_EEEENSG_INSH_IjS5_SaIjEvEESL_EEEEENS_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1S0_JEEEvT0_T1_DpOT2_EUlS5_S5_E_JEEEvT_S14_SY_DpOT1_.exit.thread52.i.i.i.i"
@@ -23802,7 +23802,7 @@ cleanup.cont638:                                  ; preds = %cleanup.cont600
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_602) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_602) #25
   %group.val = load ptr, ptr %group, align 8, !tbaa !511
-  invoke fastcc void @"_ZN4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IjS6_SaIjEvEESB_EEEEENS_9exclude_tIJEEEE4sortIKiJjEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS_8std_sortEJEEEvT1_T2_DpOT3_.argprom"(ptr %group.val)
+  invoke fastcc void @"_ZN4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IjS6_SaIjEvEESB_EEEEENS_9exclude_tIJEEEE4sortIKiJjEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS_8std_sortEJEEEvT1_T2_DpOT3_"(ptr %group.val)
           to label %invoke.cont642 unwind label %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont642:                                   ; preds = %cleanup.cont638
@@ -25118,7 +25118,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IjS6_SaIjEvEESB_EEEEENS_9exclude_tIJEEEE4sortIKiJjEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS_8std_sortEJEEEvT1_T2_DpOT3_.argprom"(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4entt11basic_groupINS_7owned_tIJEEENS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS6_SaIS6_EEEEENS4_INS5_IjS6_SaIjEvEESB_EEEEENS_9exclude_tIJEEEE4sortIKiJjEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS_8std_sortEJEEEvT1_T2_DpOT3_"(ptr %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2.i.i.i.i.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.973", align 8
   %agg.tmp8.i.i.i.i.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.973", align 8
@@ -25203,7 +25203,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   store i64 %0, ptr %agg.tmp2.sroa.4.0.agg.tmp2.i.i.sroa_idx.i.i.i.i.i, align 8
   %agg.tmp7.sroa.3.0.agg.tmp2.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i.i.i.i.i, i64 16
   store i64 %2, ptr %agg.tmp7.sroa.3.0.agg.tmp2.i.sroa_idx.i.i.i.i.i.i, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_.argprom"(ptr nonnull %add.ptr.i.i.i7.i.i, ptr nonnull %add.ptr.i.i.i.i4.i.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i.i)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_"(ptr nonnull %add.ptr.i.i.i7.i.i, ptr nonnull %add.ptr.i.i.i.i4.i.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i.i.i.i)
   %sparse.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %sparse.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !153
   %payload.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 72
@@ -25273,7 +25273,7 @@ while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %while.cond.i.i.i.i.
   store i64 %0, ptr %agg.tmp2.sroa.4.0.agg.tmp8.i.i.sroa_idx.i.i.i.i.i, align 8
   %agg.tmp7.sroa.3.0.agg.tmp8.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i.i.i.i.i.i, i64 16
   store i64 %2, ptr %agg.tmp7.sroa.3.0.agg.tmp8.i.sroa_idx.i.i.i.i.i.i, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_.argprom"(ptr nonnull %add.ptr.i.i.i7.i.i, ptr %23, ptr noundef nonnull %agg.tmp8.i.i.i.i.i.i.i)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_"(ptr nonnull %add.ptr.i.i.i7.i.i, ptr %23, ptr noundef nonnull %agg.tmp8.i.i.i.i.i.i.i)
   br label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %"_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S10_.exit.i.i.i.i.i.i.i.i", %"_ZNK4entt8std_sortclISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS_6entityESt6vectorIS5_SaIS5_EEEEEZNS_11basic_groupINS_7owned_tIJEEENS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiS5_SaIiEvEENS_14basic_registryIS5_S8_EEEENSG_INSH_IjS5_SaIjEvEESL_EEEEENS_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2S0_JEEEvT0_T1_DpOT2_EUlS5_S5_E_JEEEvT_S14_SY_DpOT1_.exit.thread52.i.i.i"
@@ -68995,7 +68995,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNK4entt11basic_gr
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i1066, i64 -64
   %group.val = load ptr, ptr %group, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0EEEvT_SG_T0_.argprom"(ptr nonnull %add.ptr.i.i.i.i1066, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i, ptr %group.val)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0EEEvT_SG_T0_"(ptr nonnull %add.ptr.i.i.i.i1066, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i, ptr %group.val)
   %62 = load ptr, ptr %group, align 8, !tbaa !1901, !noalias !104, !nonnull !104, !noundef !104
   %cpools.sroa.4.0.pools.i.i.sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 16
   br label %for.body.i.i.i.i.i.i.i
@@ -69063,7 +69063,7 @@ while.body.i.i.i.i.i.i.i.i:                       ; preds = %while.cond.i.i.i.i.
 
 "_ZNK4entt8std_sortclISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS_6entityESt6vectorIS5_SaIS5_EEEEEZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0JEEEvT_SE_T0_DpOT1_.exit.thread52.i.i": ; preds = %if.then.i.i.i.i.i
   %group.val122 = load ptr, ptr %group, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0EEEvT_SG_T0_.argprom"(ptr nonnull %add.ptr.i.i.i.i1066, ptr %58, ptr %group.val122)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0EEEvT_SG_T0_"(ptr nonnull %add.ptr.i.i.i.i1066, ptr %58, ptr %group.val122)
   br label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %"_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i.i", %"_ZNK4entt8std_sortclISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS_6entityESt6vectorIS5_SaIS5_EEEEEZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0JEEEvT_SE_T0_DpOT1_.exit.thread52.i.i"
@@ -73208,7 +73208,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 -64
   %62 = getelementptr inbounds i8, ptr %cpools.i.i, i64 8
   %cpools.i.i.val = load ptr, ptr %62, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEENSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_5get_tIJEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_.argprom"(ptr nonnull %add.ptr.i.i.i.i.i, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i, ptr %cpools.i.i.val)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEENSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_5get_tIJEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_"(ptr nonnull %add.ptr.i.i.i.i.i, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i, ptr %cpools.i.i.val)
   %sparse.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cpools.i.i.val, i64 8
   %63 = load ptr, ptr %sparse.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !153
   %payload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cpools.i.i.val, i64 72
@@ -73274,7 +73274,7 @@ while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %while.cond.i.i.i.i.
 "_ZNK4entt8std_sortclISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS_6entityESt6vectorIS5_SaIS5_EEEEEZNKS_11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIN4test9boxed_intES5_SaISH_EvEENS_14basic_registryIS5_S8_EEEENSE_INSF_IcS5_SaIcEvEESL_EEEEENS_5get_tIJEEENS_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0S0_JEEEvT0_T1_DpOT2_EUlS5_S5_E_JEEEvT_S15_SZ_DpOT1_.exit.thread51.i.i.i": ; preds = %if.then.i.i.i.i.i.i
   %76 = getelementptr inbounds i8, ptr %cpools.i.i, i64 8
   %cpools.i.i.val122 = load ptr, ptr %76, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEENSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_5get_tIJEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_.argprom"(ptr nonnull %add.ptr.i.i.i.i.i, ptr %58, ptr %cpools.i.i.val122)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEENSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_5get_tIJEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_"(ptr nonnull %add.ptr.i.i.i.i.i, ptr %58, ptr %cpools.i.i.val122)
   br label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %"_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEENSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_5get_tIJEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S11_.exit.i.i.i.i.i.i.i.i", %"_ZNK4entt8std_sortclISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS_6entityESt6vectorIS5_SaIS5_EEEEEZNKS_11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIN4test9boxed_intES5_SaISH_EvEENS_14basic_registryIS5_S8_EEEENSE_INSF_IcS5_SaIcEvEESL_EEEEENS_5get_tIJEEENS_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0S0_JEEEvT0_T1_DpOT2_EUlS5_S5_E_JEEEvT_S15_SZ_DpOT1_.exit.thread51.i.i.i"
@@ -77158,7 +77158,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNK4entt11basic_gr
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 -64
   %cpools.i.i.val = load ptr, ptr %cpools.i.i, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEEEEENS3_5get_tIJNSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_.argprom"(ptr nonnull %add.ptr.i.i.i.i.i, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i, ptr %cpools.i.i.val)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEEEEENS3_5get_tIJNSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_"(ptr nonnull %add.ptr.i.i.i.i.i, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i, ptr %cpools.i.i.val)
   %sparse.i.i.i.i15.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cpools.i.i.val, i64 8
   %90 = load ptr, ptr %sparse.i.i.i.i15.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !153
   %payload.i.i.i22.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cpools.i.i.val, i64 72
@@ -77223,7 +77223,7 @@ while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %while.cond.i.i.i.i.
 
 "_ZNK4entt8std_sortclISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS_6entityESt6vectorIS5_SaIS5_EEEEEZNKS_11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIN4test9boxed_intES5_SaISH_EvEENS_14basic_registryIS5_S8_EEEEEEENS_5get_tIJNSE_INSF_IcS5_SaIcEvEESL_EEEEENS_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0S0_JEEEvT0_T1_DpOT2_EUlS5_S5_E_JEEEvT_S15_SZ_DpOT1_.exit.thread51.i.i.i": ; preds = %if.then.i.i.i.i.i.i
   %cpools.i.i.val139 = load ptr, ptr %cpools.i.i, align 8
-  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEEEEENS3_5get_tIJNSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_.argprom"(ptr nonnull %add.ptr.i.i.i.i.i, ptr %86, ptr %cpools.i.i.val139)
+  call fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEEEEENS3_5get_tIJNSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_"(ptr nonnull %add.ptr.i.i.i.i.i, ptr %86, ptr %cpools.i.i.val139)
   br label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %"_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEEEEENS3_5get_tIJNSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S11_.exit.i.i.i.i.i.i.i.i", %"_ZNK4entt8std_sortclISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNS_6entityESt6vectorIS5_SaIS5_EEEEEZNKS_11basic_groupINS_7owned_tIJNS_16basic_sigh_mixinINS_13basic_storageIN4test9boxed_intES5_SaISH_EvEENS_14basic_registryIS5_S8_EEEEEEENS_5get_tIJNSE_INSF_IcS5_SaIcEvEESL_EEEEENS_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0S0_JEEEvT0_T1_DpOT2_EUlS5_S5_E_JEEEvT_S15_SZ_DpOT1_.exit.thread51.i.i.i"
@@ -147611,7 +147611,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_.argprom"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #20 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #20 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -148326,7 +148326,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_.argprom"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_11basic_groupINS3_7owned_tIJEEENS3_5get_tIJKNS3_16basic_sigh_mixinINS3_13basic_storageIiS4_SaIiEvEENS3_14basic_registryIS4_S7_EEEENSH_INSI_IjS4_SaIjEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN24NonOwningGroup_Sort_Test8TestBodyEvE3$_2NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S17_S10_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture noundef nonnull readonly %__comp) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -177563,7 +177563,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0EEEvT_SG_T0_.argprom"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr readonly %__comp.coerce.0.val) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN28OwningGroup_SortOrdered_Test8TestBodyEvE3$_0EEEvT_SG_T0_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr readonly %__comp.coerce.0.val) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -178666,7 +178666,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEENSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_5get_tIJEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_.argprom"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture readonly %__comp.coerce1.8.val) unnamed_addr #20 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEENSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_5get_tIJEEENS3_9exclude_tIJEEEE4sortIJLm0EEZN28OwningGroup_SortReverse_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture readonly %__comp.coerce1.8.val) unnamed_addr #20 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -180704,7 +180704,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEEEEENS3_5get_tIJNSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_.argprom"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture readonly %__comp.coerce1.0.val) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNKS3_11basic_groupINS3_7owned_tIJNS3_16basic_sigh_mixinINS3_13basic_storageIN4test9boxed_intES4_SaISI_EvEENS3_14basic_registryIS4_S7_EEEEEEENS3_5get_tIJNSF_INSG_IcS4_SaIcEvEESM_EEEEENS3_9exclude_tIJEEEE4sortIJLm0ELm1EEZN30OwningGroup_SortUnordered_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlS4_S4_E_EEEvT_S18_S11_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture readonly %__comp.coerce1.0.val) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64

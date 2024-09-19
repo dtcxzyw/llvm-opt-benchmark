@@ -1162,7 +1162,7 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 n
   %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.020.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
   %42 = load i32, ptr %10, align 4
   %cond.i.i = icmp eq i32 %42, 2
-  br i1 %cond.i.i, label %43, label %dnsserver_dissect_element_DNS_RPC_RECORD_record.argprom.exit
+  br i1 %cond.i.i, label %43, label %dnsserver_dissect_element_DNS_RPC_RECORD_record.exit
 
 43:                                               ; preds = %40
   %.not.i.i.i.i = icmp eq ptr %.020.i.i, null
@@ -1182,9 +1182,9 @@ dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName.exit.i.i: ; preds = %44,
   %50 = call i32 @dnsserver_dissect_struct_DNS_RPC_NAME(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0.i.i.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 poison)
   %51 = sub i32 %50, %41
   call void @proto_item_set_len(ptr noundef %.016.i.i.i.i, i32 noundef %51) #4
-  br label %dnsserver_dissect_element_DNS_RPC_RECORD_record.argprom.exit
+  br label %dnsserver_dissect_element_DNS_RPC_RECORD_record.exit
 
-dnsserver_dissect_element_DNS_RPC_RECORD_record.argprom.exit: ; preds = %40, %dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName.exit.i.i
+dnsserver_dissect_element_DNS_RPC_RECORD_record.exit: ; preds = %40, %dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName.exit.i.i
   %.0.i.i = phi i32 [ %50, %dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName.exit.i.i ], [ %41, %40 ]
   %52 = load ptr, ptr %9, align 8
   %53 = sub i32 %.0.i.i, %35
@@ -1201,7 +1201,7 @@ dnsserver_dissect_element_DNS_RPC_RECORD_record.argprom.exit: ; preds = %40, %dn
   %.not70 = icmp eq i32 %59, 0
   br i1 %.not70, label %66, label %60
 
-60:                                               ; preds = %dnsserver_dissect_element_DNS_RPC_RECORD_record.argprom.exit
+60:                                               ; preds = %dnsserver_dissect_element_DNS_RPC_RECORD_record.exit
   %61 = load i32, ptr %12, align 4
   %.not71 = icmp ne i32 %61, 0
   %62 = and i32 %.0.i.i, 3
@@ -1214,8 +1214,8 @@ dnsserver_dissect_element_DNS_RPC_RECORD_record.argprom.exit: ; preds = %40, %dn
   %65 = add i32 %64, 4
   br label %66
 
-66:                                               ; preds = %60, %63, %dnsserver_dissect_element_DNS_RPC_RECORD_record.argprom.exit
-  %.1 = phi i32 [ %.0.i.i, %60 ], [ %65, %63 ], [ %.0.i.i, %dnsserver_dissect_element_DNS_RPC_RECORD_record.argprom.exit ]
+66:                                               ; preds = %60, %63, %dnsserver_dissect_element_DNS_RPC_RECORD_record.exit
+  %.1 = phi i32 [ %.0.i.i, %60 ], [ %65, %63 ], [ %.0.i.i, %dnsserver_dissect_element_DNS_RPC_RECORD_record.exit ]
   ret i32 %.1
 }
 

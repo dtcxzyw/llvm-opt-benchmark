@@ -2036,12 +2036,12 @@ define noundef i32 @SUNSparseMatrix_ToCSR(ptr nocapture noundef readonly %0, ptr
   %44 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 8) #20
   store ptr %44, ptr %37, align 8
   store ptr %11, ptr %1, align 8
-  tail call fastcc void @format_convert.retelim(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  tail call fastcc void @format_convert(ptr noundef nonnull %0, ptr noundef nonnull %11)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @format_convert.retelim(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @format_convert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
@@ -2286,7 +2286,7 @@ define noundef i32 @SUNSparseMatrix_ToCSC(ptr nocapture noundef readonly %0, ptr
   %44 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 8) #20
   store ptr %44, ptr %37, align 8
   store ptr %11, ptr %1, align 8
-  tail call fastcc void @format_convert.retelim(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  tail call fastcc void @format_convert(ptr noundef nonnull %0, ptr noundef nonnull %11)
   ret i32 0
 }
 

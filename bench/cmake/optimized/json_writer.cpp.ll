@@ -723,64 +723,64 @@ define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcmb(ptr de
   br i1 %22, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit, label %switch.early.test.i.i.i.i.i.i.i.i
 
 switch.early.test.i.i.i.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i
-  switch i8 %.029.val.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit.i.i.i.i.i.i" [
+  switch i8 %.029.val.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i" [
     i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
     i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %switch.early.test.i.i.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i": ; preds = %switch.early.test.i.i.i.i.i.i.i.i
   %23 = icmp slt i8 %.029.val.i.i.i.i.i.i, 0
   br i1 %23, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit, label %24
 
-24:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit.i.i.i.i.i.i"
+24:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i"
   %25 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 1
   %.val.i.i.i.i.i.i = load i8, ptr %25, align 1
   %26 = icmp ult i8 %.val.i.i.i.i.i.i, 32
   br i1 %26, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120, label %switch.early.test.i.i33.i.i.i.i.i.i
 
 switch.early.test.i.i33.i.i.i.i.i.i:              ; preds = %24
-  switch i8 %.val.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit34.i.i.i.i.i.i" [
+  switch i8 %.val.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit34.i.i.i.i.i.i" [
     i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118
     i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit34.i.i.i.i.i.i": ; preds = %switch.early.test.i.i33.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit34.i.i.i.i.i.i": ; preds = %switch.early.test.i.i33.i.i.i.i.i.i
   %27 = icmp slt i8 %.val.i.i.i.i.i.i, 0
   br i1 %27, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit, label %28
 
-28:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit34.i.i.i.i.i.i"
+28:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit34.i.i.i.i.i.i"
   %29 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 2
   %.val30.i.i.i.i.i.i = load i8, ptr %29, align 1
   %30 = icmp ult i8 %.val30.i.i.i.i.i.i, 32
   br i1 %30, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124, label %switch.early.test.i.i35.i.i.i.i.i.i
 
 switch.early.test.i.i35.i.i.i.i.i.i:              ; preds = %28
-  switch i8 %.val30.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit36.i.i.i.i.i.i" [
+  switch i8 %.val30.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit36.i.i.i.i.i.i" [
     i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122
     i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit36.i.i.i.i.i.i": ; preds = %switch.early.test.i.i35.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit36.i.i.i.i.i.i": ; preds = %switch.early.test.i.i35.i.i.i.i.i.i
   %31 = icmp slt i8 %.val30.i.i.i.i.i.i, 0
   br i1 %31, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114, label %32
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit36.i.i.i.i.i.i"
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit36.i.i.i.i.i.i"
   %33 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 3
   %.val31.i.i.i.i.i.i = load i8, ptr %33, align 1
   %34 = icmp ult i8 %.val31.i.i.i.i.i.i, 32
   br i1 %34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128, label %switch.early.test.i.i37.i.i.i.i.i.i
 
 switch.early.test.i.i37.i.i.i.i.i.i:              ; preds = %32
-  switch i8 %.val31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit38.i.i.i.i.i.i" [
+  switch i8 %.val31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit38.i.i.i.i.i.i" [
     i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126
     i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit38.i.i.i.i.i.i": ; preds = %switch.early.test.i.i37.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit38.i.i.i.i.i.i": ; preds = %switch.early.test.i.i37.i.i.i.i.i.i
   %35 = icmp slt i8 %.val31.i.i.i.i.i.i, 0
   br i1 %35, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116, label %36
 
-36:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit38.i.i.i.i.i.i"
+36:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit38.i.i.i.i.i.i"
   %37 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 4
   %38 = add nsw i64 %.078.i.i.i.i.i.i, -1
   %39 = icmp sgt i64 %.078.i.i.i.i.i.i, 1
@@ -802,16 +802,16 @@ switch.early.test.i.i37.i.i.i.i.i.i:              ; preds = %32
   br i1 %42, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit, label %switch.early.test.i.i39.i.i.i.i.i.i
 
 switch.early.test.i.i39.i.i.i.i.i.i:              ; preds = %41
-  switch i8 %.029.val32.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit40.i.i.i.i.i.i" [
+  switch i8 %.029.val32.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i" [
     i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
     i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit40.i.i.i.i.i.i": ; preds = %switch.early.test.i.i39.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i": ; preds = %switch.early.test.i.i39.i.i.i.i.i.i
   %43 = icmp slt i8 %.029.val32.i.i.i.i.i.i, 0
   br i1 %43, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit, label %44
 
-44:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit40.i.i.i.i.i.i"
+44:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i"
   %45 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 1
   br label %46
 
@@ -822,16 +822,16 @@ switch.early.test.i.i39.i.i.i.i.i.i:              ; preds = %41
   br i1 %47, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit, label %switch.early.test.i.i41.i.i.i.i.i.i
 
 switch.early.test.i.i41.i.i.i.i.i.i:              ; preds = %46
-  switch i8 %.1.val.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit42.i.i.i.i.i.i" [
+  switch i8 %.1.val.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i" [
     i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
     i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit42.i.i.i.i.i.i": ; preds = %switch.early.test.i.i41.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i": ; preds = %switch.early.test.i.i41.i.i.i.i.i.i
   %48 = icmp slt i8 %.1.val.i.i.i.i.i.i, 0
   br i1 %48, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit, label %49
 
-49:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit42.i.i.i.i.i.i"
+49:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i"
   %50 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 1
   br label %51
 
@@ -842,24 +842,24 @@ switch.early.test.i.i41.i.i.i.i.i.i:              ; preds = %46
   br i1 %52, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit, label %switch.early.test.i.i43.i.i.i.i.i.i
 
 switch.early.test.i.i43.i.i.i.i.i.i:              ; preds = %51
-  switch i8 %.2.val.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit44.i.i.i.i.i.i" [
+  switch i8 %.2.val.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i" [
     i8 92, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
     i8 34, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit44.i.i.i.i.i.i": ; preds = %switch.early.test.i.i43.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i": ; preds = %switch.early.test.i.i43.i.i.i.i.i.i
   %53 = icmp slt i8 %.2.val.i.i.i.i.i.i, 0
   br i1 %53, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit34.i.i.i.i.i.i"
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit34.i.i.i.i.i.i"
   %54 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 1
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit36.i.i.i.i.i.i"
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit36.i.i.i.i.i.i"
   %55 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 2
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit38.i.i.i.i.i.i"
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit38.i.i.i.i.i.i"
   %56 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 3
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
@@ -887,12 +887,12 @@ _ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128: ; p
   %62 = getelementptr inbounds i8, ptr %.02977.i.i.i.i.i.i, i64 3
   br label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit:  ; preds = %.lr.ph.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit.i.i.i.i.i.i", %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128, %41, %switch.early.test.i.i39.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit40.i.i.i.i.i.i", %46, %switch.early.test.i.i41.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit42.i.i.i.i.i.i", %51, %switch.early.test.i.i43.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit44.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit40.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit42.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit44.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %46 ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %51 ], [ %54, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit ], [ %55, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114 ], [ %56, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116 ], [ %57, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118 ], [ %58, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120 ], [ %59, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122 ], [ %60, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124 ], [ %61, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126 ], [ %62, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128 ], [ %.02977.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit.i.i.i.i.i.i" ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit:  ; preds = %.lr.ph.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i", %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128, %41, %switch.early.test.i.i39.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i", %46, %switch.early.test.i.i41.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i", %51, %switch.early.test.i.i43.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit40.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit42.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %switch.early.test.i.i39.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %41 ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %switch.early.test.i.i41.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %46 ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %switch.early.test.i.i43.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %51 ], [ %54, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit ], [ %55, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit114 ], [ %56, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit116 ], [ %57, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit118 ], [ %58, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit120 ], [ %59, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit122 ], [ %60, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit124 ], [ %61, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit126 ], [ %62, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.loopexit.split.loop.exit128 ], [ %.02977.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit.i.i.i.i.i.i" ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i ], [ %.02977.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not69 = icmp eq ptr %17, %.028.i.i.i.i.i.i
   br i1 %.not69, label %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread, label %77
 
-_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.argprom.exit44.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
+_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit.thread: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4JsonL26doesAnyCharRequireEscapingEPKcmE3$_0EclIS4_EEbT_.exit44.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i, %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   %63 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc41 unwind label %70

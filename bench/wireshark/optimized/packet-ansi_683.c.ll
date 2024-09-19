@@ -942,7 +942,7 @@ define internal void @msg_download_req(ptr noundef %0, ptr noundef %1, ptr nound
   br label %130
 
 85:                                               ; preds = %36
-  call fastcc void @param_block_nam_mdn.argprom(ptr noundef %0, ptr noundef %19, i32 noundef %26, i32 noundef %28)
+  call fastcc void @param_block_nam_mdn(ptr noundef %0, ptr noundef %19, i32 noundef %26, i32 noundef %28)
   br label %130
 
 86:                                               ; preds = %36
@@ -989,7 +989,7 @@ define internal void @msg_download_req(ptr noundef %0, ptr noundef %1, ptr nound
   br label %130
 
 126:                                              ; preds = %36
-  call fastcc void @param_block_nam_imsi_t.argelim(ptr noundef %0, ptr noundef %19, i32 noundef %28)
+  call fastcc void @param_block_nam_imsi_t(ptr noundef %0, ptr noundef %19, i32 noundef %28)
   br label %130
 
 127:                                              ; preds = %36
@@ -1013,7 +1013,7 @@ define internal void @msg_download_req(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %._crit_edge
-  %136 = call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
+  %136 = call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
   %137 = add i32 %136, %.0.lcssa
   %.pre = sub i32 %137, %4
   br label %138
@@ -1319,7 +1319,7 @@ define internal void @msg_sspr_download_req(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
-  %33 = tail call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.0)
+  %33 = tail call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.0)
   %34 = add i32 %33, %.0
   %.pre = sub i32 %34, %4
   br label %35
@@ -1608,7 +1608,7 @@ define internal void @msg_puzl_download_req(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %._crit_edge
-  %44 = call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
+  %44 = call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
   %45 = add i32 %44, %.0.lcssa
   %.pre = sub i32 %45, %4
   br label %46
@@ -1752,7 +1752,7 @@ define internal void @msg_3gpd_download_req(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %._crit_edge
-  %44 = call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
+  %44 = call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
   %45 = add i32 %44, %.0.lcssa
   %.pre = sub i32 %45, %4
   br label %46
@@ -1961,7 +1961,7 @@ define internal void @msg_mmd_download_req(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %._crit_edge
-  %44 = call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
+  %44 = call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
   %45 = add i32 %44, %.0.lcssa
   %.pre = sub i32 %45, %4
   br label %46
@@ -2242,7 +2242,7 @@ define internal void @msg_mms_download_req(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %._crit_edge
-  %44 = call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
+  %44 = call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
   %45 = add i32 %44, %.0.lcssa
   %.pre = sub i32 %45, %4
   br label %46
@@ -2275,7 +2275,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @param_block_nam_mdn.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 256) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @param_block_nam_mdn(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 256) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [17 x i8], align 16
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %7 = zext i8 %6 to i32
@@ -2347,7 +2347,7 @@ define internal fastcc void @param_block_nam_mdn.argprom(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @param_block_nam_imsi_t.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @param_block_nam_imsi_t(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #3
   %5 = zext i8 %4 to i32
   %6 = load i32, ptr @hf_ansi_683_imsi_t_class, align 4
@@ -2375,7 +2375,7 @@ define internal fastcc void @param_block_nam_imsi_t.argelim(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 3) i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 3) i32 @fresh_handler(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #3
   %.not = icmp sgt i8 %4, -1
   br i1 %.not, label %10, label %5
@@ -2507,13 +2507,13 @@ define internal void @msg_config_rsp(ptr noundef %0, ptr noundef %1, ptr noundef
   %61 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %60, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #3
   %62 = and i16 %51, 512
   %.not.i = icmp eq i16 %62, 0
-  br i1 %.not.i, label %rev_param_block_nam_cdma_analog.argprom.exit, label %63
+  br i1 %.not.i, label %rev_param_block_nam_cdma_analog.exit, label %63
 
 63:                                               ; preds = %42
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.416, ptr noundef nonnull @.str.423) #3
-  br label %rev_param_block_nam_cdma_analog.argprom.exit
+  br label %rev_param_block_nam_cdma_analog.exit
 
-rev_param_block_nam_cdma_analog.argprom.exit:     ; preds = %42, %63
+rev_param_block_nam_cdma_analog.exit:             ; preds = %42, %63
   %64 = load i32, ptr @hf_ansi_683_meid, align 4
   %65 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %64, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #3
   %66 = load i32, ptr @hf_ansi_683_25mhz_bandwidth, align 4
@@ -2572,7 +2572,7 @@ rev_param_block_nam_cdma_analog.argprom.exit:     ; preds = %42, %63
   br label %177
 
 118:                                              ; preds = %41
-  call fastcc void @param_block_nam_mdn.argprom(ptr noundef %0, ptr noundef %24, i32 noundef %31, i32 noundef %33)
+  call fastcc void @param_block_nam_mdn(ptr noundef %0, ptr noundef %24, i32 noundef %31, i32 noundef %33)
   br label %177
 
 119:                                              ; preds = %41
@@ -2633,7 +2633,7 @@ rev_param_block_nam_cdma_analog.argprom.exit:     ; preds = %42, %63
   br label %177
 
 173:                                              ; preds = %41
-  call fastcc void @param_block_nam_imsi_t.argelim(ptr noundef %0, ptr noundef %24, i32 noundef %33)
+  call fastcc void @param_block_nam_imsi_t(ptr noundef %0, ptr noundef %24, i32 noundef %33)
   br label %177
 
 174:                                              ; preds = %41
@@ -2641,7 +2641,7 @@ rev_param_block_nam_cdma_analog.argprom.exit:     ; preds = %42, %63
   %176 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %175, ptr noundef %0, i32 noundef %33, i32 noundef %31, i32 noundef 0) #3
   br label %177
 
-177:                                              ; preds = %174, %173, %119, %118, %rev_param_block_nam_cdma_analog.argprom.exit
+177:                                              ; preds = %174, %173, %119, %118, %rev_param_block_nam_cdma_analog.exit
   %178 = add i32 %33, %31
   br label %179
 
@@ -2680,7 +2680,7 @@ rev_param_block_nam_cdma_analog.argprom.exit:     ; preds = %42, %63
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %._crit_edge149
-  %194 = call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.2.lcssa)
+  %194 = call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.2.lcssa)
   %195 = add i32 %194, %.2.lcssa
   %.pre = sub i32 %195, %4
   br label %196
@@ -3032,7 +3032,7 @@ define internal void @msg_sspr_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
-  %34 = tail call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.0)
+  %34 = tail call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.0)
   %35 = add i32 %34, %.0
   %.pre = sub i32 %35, %4
   br label %36
@@ -3246,7 +3246,7 @@ define internal void @msg_puzl_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
-  %34 = tail call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.0)
+  %34 = tail call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.0)
   %35 = add i32 %34, %.0
   %.pre = sub i32 %35, %4
   br label %36
@@ -3434,7 +3434,7 @@ define internal void @msg_3gpd_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %._crit_edge
-  %52 = call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
+  %52 = call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
   %53 = add i32 %52, %.0.lcssa
   %.pre = sub i32 %53, %4
   br label %54
@@ -3762,7 +3762,7 @@ define internal void @msg_mmd_config_rsp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %._crit_edge
-  %52 = call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
+  %52 = call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
   %53 = add i32 %52, %.0.lcssa
   %.pre = sub i32 %53, %4
   br label %54
@@ -4046,7 +4046,7 @@ define internal void @msg_mms_config_rsp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %._crit_edge
-  %51 = call fastcc i32 @fresh_handler.argelim(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
+  %51 = call fastcc i32 @fresh_handler(ptr noundef %0, ptr noundef %2, i32 noundef %.0.lcssa)
   %52 = add i32 %51, %.0.lcssa
   %.pre = sub i32 %52, %4
   br label %53

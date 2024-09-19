@@ -165,7 +165,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 
 15:                                               ; preds = %13
   store i64 0, ptr %2, align 8
-  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 16:                                               ; preds = %13
   store i64 2, ptr %2, align 8
@@ -201,7 +201,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %invariant.gep.i.i = getelementptr inbounds i8, ptr %30, i64 32
   %32 = load i16, ptr %31, align 2
   %.not.i.i = icmp eq i16 %32, 0
-  br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 12
@@ -239,7 +239,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %52 = zext i16 %51 to i64
   %53 = icmp ult i64 %indvars.iv.next.i.i, %52
-  br i1 %53, label %36, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit, !llvm.loop !4
+  br i1 %53, label %36, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit, !llvm.loop !4
 
 54:                                               ; preds = %._crit_edge.i, %16
   %55 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %19, %16 ]
@@ -252,7 +252,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 59:                                               ; preds = %54
   %60 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL21DecoderTableZicfiss16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %55)
   %.not42.i = icmp eq i32 %60, 0
-  br i1 %.not42.i, label %._crit_edge10.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not42.i, label %._crit_edge10.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge10.i:                                  ; preds = %59
   %.pre11.i = load ptr, ptr %18, align 8
@@ -269,7 +269,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 66:                                               ; preds = %61
   %67 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableRVZcmt16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %62)
   %.not43.i = icmp eq i32 %67, 0
-  br i1 %.not43.i, label %._crit_edge12.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not43.i, label %._crit_edge12.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge12.i:                                  ; preds = %66
   %.pre13.i = load ptr, ptr %18, align 8
@@ -287,7 +287,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 72:                                               ; preds = %68
   %73 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableRVZcmp16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %70)
   %.not44.i = icmp eq i32 %73, 0
-  br i1 %.not44.i, label %._crit_edge15.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not44.i, label %._crit_edge15.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge15.i:                                  ; preds = %72
   %.pre16.i = load ptr, ptr %18, align 8
@@ -322,7 +322,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %invariant.gep.i49.i = getelementptr inbounds i8, ptr %86, i64 32
   %88 = load i16, ptr %87, align 2
   %.not.i50.i = icmp eq i16 %88, 0
-  br i1 %.not.i50.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit, label %.lr.ph.i51.i
+  br i1 %.not.i50.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit, label %.lr.ph.i51.i
 
 .lr.ph.i51.i:                                     ; preds = %81
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 12
@@ -360,13 +360,13 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %indvars.iv.next.i54.i = add nuw nsw i64 %indvars.iv.i52.i, 1
   %108 = zext i16 %107 to i64
   %109 = icmp ult i64 %indvars.iv.next.i54.i, %108
-  br i1 %109, label %92, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit, !llvm.loop !4
+  br i1 %109, label %92, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit, !llvm.loop !4
 
 110:                                              ; preds = %._crit_edge17.i, %74
   %111 = phi ptr [ %.pre18.i, %._crit_edge17.i ], [ %75, %74 ]
   %112 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL14DecoderTable16E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %17, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %111)
   %.not46.i = icmp eq i32 %112, 0
-  br i1 %.not46.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit, label %113
+  br i1 %.not46.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit, label %113
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds i8, ptr %0, i64 40
@@ -380,7 +380,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %invariant.gep.i57.i = getelementptr inbounds i8, ptr %118, i64 32
   %120 = load i16, ptr %119, align 2
   %.not.i58.i = icmp eq i16 %120, 0
-  br i1 %.not.i58.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit, label %.lr.ph.i59.i
+  br i1 %.not.i58.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit, label %.lr.ph.i59.i
 
 .lr.ph.i59.i:                                     ; preds = %113
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 12
@@ -418,7 +418,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %indvars.iv.next.i62.i = add nuw nsw i64 %indvars.iv.i60.i, 1
   %140 = zext i16 %139 to i64
   %141 = icmp ult i64 %indvars.iv.next.i62.i, %140
-  br i1 %141, label %124, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit, !llvm.loop !4
+  br i1 %141, label %124, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit, !llvm.loop !4
 
 142:                                              ; preds = %7
   %143 = and i8 %11, 28
@@ -431,7 +431,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 
 146:                                              ; preds = %144
   store i64 0, ptr %2, align 8
-  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 147:                                              ; preds = %144
   store i64 4, ptr %2, align 8
@@ -455,7 +455,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 157:                                              ; preds = %153
   %158 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableRV32Zdinx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %149)
   %.not.i31 = icmp eq i32 %158, 0
-  br i1 %.not.i31, label %._crit_edge.i32, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not.i31, label %._crit_edge.i32, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge.i32:                                  ; preds = %157
   %.pre.i33 = load ptr, ptr %148, align 8
@@ -480,7 +480,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 167:                                              ; preds = %163
   %168 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableRV32Zacas32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %161)
   %.not189.i = icmp eq i32 %168, 0
-  br i1 %.not189.i, label %._crit_edge34.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not189.i, label %._crit_edge34.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge34.i:                                  ; preds = %167
   %.pre35.i = load ptr, ptr %148, align 8
@@ -498,7 +498,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 173:                                              ; preds = %169
   %174 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL21DecoderTableRVZfinx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %171)
   %.not190.i = icmp eq i32 %174, 0
-  br i1 %.not190.i, label %._crit_edge38.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not190.i, label %._crit_edge38.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge38.i:                                  ; preds = %173
   %.pre39.i = load ptr, ptr %148, align 8
@@ -515,7 +515,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 180:                                              ; preds = %175
   %181 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXVentana32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %176)
   %.not191.i = icmp eq i32 %181, 0
-  br i1 %.not191.i, label %._crit_edge40.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not191.i, label %._crit_edge40.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge40.i:                                  ; preds = %180
   %.pre41.i = load ptr, ptr %148, align 8
@@ -533,7 +533,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 186:                                              ; preds = %182
   %187 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXTHeadBa32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %184)
   %.not192.i = icmp eq i32 %187, 0
-  br i1 %.not192.i, label %._crit_edge44.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not192.i, label %._crit_edge44.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge44.i:                                  ; preds = %186
   %.pre45.i = load ptr, ptr %148, align 8
@@ -551,7 +551,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 192:                                              ; preds = %188
   %193 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXTHeadBb32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %190)
   %.not193.i = icmp eq i32 %193, 0
-  br i1 %.not193.i, label %._crit_edge48.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not193.i, label %._crit_edge48.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge48.i:                                  ; preds = %192
   %.pre49.i = load ptr, ptr %148, align 8
@@ -569,7 +569,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 198:                                              ; preds = %194
   %199 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXTHeadBs32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %196)
   %.not194.i = icmp eq i32 %199, 0
-  br i1 %.not194.i, label %._crit_edge52.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not194.i, label %._crit_edge52.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge52.i:                                  ; preds = %198
   %.pre53.i = load ptr, ptr %148, align 8
@@ -587,7 +587,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 204:                                              ; preds = %200
   %205 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXTHeadCondMov32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %202)
   %.not195.i = icmp eq i32 %205, 0
-  br i1 %.not195.i, label %._crit_edge56.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not195.i, label %._crit_edge56.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge56.i:                                  ; preds = %204
   %.pre57.i = load ptr, ptr %148, align 8
@@ -605,7 +605,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 210:                                              ; preds = %206
   %211 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableXTHeadCmo32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %208)
   %.not196.i = icmp eq i32 %211, 0
-  br i1 %.not196.i, label %._crit_edge60.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not196.i, label %._crit_edge60.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge60.i:                                  ; preds = %210
   %.pre61.i = load ptr, ptr %148, align 8
@@ -623,7 +623,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 216:                                              ; preds = %212
   %217 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXTHeadFMemIdx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %214)
   %.not197.i = icmp eq i32 %217, 0
-  br i1 %.not197.i, label %._crit_edge64.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not197.i, label %._crit_edge64.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge64.i:                                  ; preds = %216
   %.pre65.i = load ptr, ptr %148, align 8
@@ -641,7 +641,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 222:                                              ; preds = %218
   %223 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL23DecoderTableXTHeadMac32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %220)
   %.not198.i = icmp eq i32 %223, 0
-  br i1 %.not198.i, label %._crit_edge68.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not198.i, label %._crit_edge68.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge68.i:                                  ; preds = %222
   %.pre69.i = load ptr, ptr %148, align 8
@@ -659,7 +659,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 228:                                              ; preds = %224
   %229 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL26DecoderTableXTHeadMemIdx32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %226)
   %.not199.i = icmp eq i32 %229, 0
-  br i1 %.not199.i, label %._crit_edge72.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not199.i, label %._crit_edge72.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge72.i:                                  ; preds = %228
   %.pre73.i = load ptr, ptr %148, align 8
@@ -677,7 +677,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 234:                                              ; preds = %230
   %235 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXTHeadMemPair32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %232)
   %.not200.i = icmp eq i32 %235, 0
-  br i1 %.not200.i, label %._crit_edge76.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not200.i, label %._crit_edge76.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge76.i:                                  ; preds = %234
   %.pre77.i = load ptr, ptr %148, align 8
@@ -695,7 +695,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 240:                                              ; preds = %236
   %241 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL24DecoderTableXTHeadSync32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %238)
   %.not201.i = icmp eq i32 %241, 0
-  br i1 %.not201.i, label %._crit_edge80.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not201.i, label %._crit_edge80.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge80.i:                                  ; preds = %240
   %.pre81.i = load ptr, ptr %148, align 8
@@ -713,7 +713,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 246:                                              ; preds = %242
   %247 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL24DecoderTableXTHeadVdot32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %244)
   %.not202.i = icmp eq i32 %247, 0
-  br i1 %.not202.i, label %._crit_edge84.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not202.i, label %._crit_edge84.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge84.i:                                  ; preds = %246
   %.pre85.i = load ptr, ptr %148, align 8
@@ -731,7 +731,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 252:                                              ; preds = %248
   %253 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXSfvcp32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %250)
   %.not203.i = icmp eq i32 %253, 0
-  br i1 %.not203.i, label %._crit_edge88.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not203.i, label %._crit_edge88.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge88.i:                                  ; preds = %252
   %.pre89.i = load ptr, ptr %148, align 8
@@ -749,7 +749,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 258:                                              ; preds = %254
   %259 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL26DecoderTableXSfvqmaccdod32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %256)
   %.not204.i = icmp eq i32 %259, 0
-  br i1 %.not204.i, label %._crit_edge92.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not204.i, label %._crit_edge92.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge92.i:                                  ; preds = %258
   %.pre93.i = load ptr, ptr %148, align 8
@@ -767,7 +767,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 264:                                              ; preds = %260
   %265 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL26DecoderTableXSfvqmaccqoq32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %262)
   %.not205.i = icmp eq i32 %265, 0
-  br i1 %.not205.i, label %._crit_edge96.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not205.i, label %._crit_edge96.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge96.i:                                  ; preds = %264
   %.pre97.i = load ptr, ptr %148, align 8
@@ -785,7 +785,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 270:                                              ; preds = %266
   %271 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL27DecoderTableXSfvfwmaccqqq32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %268)
   %.not206.i = icmp eq i32 %271, 0
-  br i1 %.not206.i, label %._crit_edge100.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not206.i, label %._crit_edge100.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge100.i:                                 ; preds = %270
   %.pre101.i = load ptr, ptr %148, align 8
@@ -803,7 +803,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 276:                                              ; preds = %272
   %277 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL29DecoderTableXSfvfnrclipxfqf32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %274)
   %.not207.i = icmp eq i32 %277, 0
-  br i1 %.not207.i, label %._crit_edge104.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not207.i, label %._crit_edge104.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge104.i:                                 ; preds = %276
   %.pre105.i = load ptr, ptr %148, align 8
@@ -821,7 +821,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 282:                                              ; preds = %278
   %283 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL34DecoderTableXSiFivecdiscarddlone32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %280)
   %.not208.i = icmp eq i32 %283, 0
-  br i1 %.not208.i, label %._crit_edge108.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not208.i, label %._crit_edge108.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge108.i:                                 ; preds = %282
   %.pre109.i = load ptr, ptr %148, align 8
@@ -839,7 +839,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 288:                                              ; preds = %284
   %289 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL32DecoderTableXSiFivecflushdlone32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %286)
   %.not209.i = icmp eq i32 %289, 0
-  br i1 %.not209.i, label %._crit_edge112.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not209.i, label %._crit_edge112.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge112.i:                                 ; preds = %288
   %.pre113.i = load ptr, ptr %148, align 8
@@ -857,7 +857,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 294:                                              ; preds = %290
   %295 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL22DecoderTableXSfcease32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %292)
   %.not210.i = icmp eq i32 %295, 0
-  br i1 %.not210.i, label %._crit_edge116.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not210.i, label %._crit_edge116.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge116.i:                                 ; preds = %294
   %.pre117.i = load ptr, ptr %148, align 8
@@ -875,7 +875,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 300:                                              ; preds = %296
   %301 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL25DecoderTableXCVbitmanip32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %298)
   %.not211.i = icmp eq i32 %301, 0
-  br i1 %.not211.i, label %._crit_edge120.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not211.i, label %._crit_edge120.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge120.i:                                 ; preds = %300
   %.pre121.i = load ptr, ptr %148, align 8
@@ -893,7 +893,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 306:                                              ; preds = %302
   %307 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCVelw32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %304)
   %.not212.i = icmp eq i32 %307, 0
-  br i1 %.not212.i, label %._crit_edge124.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not212.i, label %._crit_edge124.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge124.i:                                 ; preds = %306
   %.pre125.i = load ptr, ptr %148, align 8
@@ -911,7 +911,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 312:                                              ; preds = %308
   %313 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCVmac32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %310)
   %.not213.i = icmp eq i32 %313, 0
-  br i1 %.not213.i, label %._crit_edge128.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not213.i, label %._crit_edge128.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge128.i:                                 ; preds = %312
   %.pre129.i = load ptr, ptr %148, align 8
@@ -929,7 +929,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 318:                                              ; preds = %314
   %319 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCVmem32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %316)
   %.not214.i = icmp eq i32 %319, 0
-  br i1 %.not214.i, label %._crit_edge132.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not214.i, label %._crit_edge132.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge132.i:                                 ; preds = %318
   %.pre133.i = load ptr, ptr %148, align 8
@@ -947,7 +947,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 324:                                              ; preds = %320
   %325 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL20DecoderTableXCValu32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %322)
   %.not215.i = icmp eq i32 %325, 0
-  br i1 %.not215.i, label %._crit_edge136.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not215.i, label %._crit_edge136.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge136.i:                                 ; preds = %324
   %.pre137.i = load ptr, ptr %148, align 8
@@ -965,7 +965,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 330:                                              ; preds = %326
   %331 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL21DecoderTableXCVsimd32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %328)
   %.not216.i = icmp eq i32 %331, 0
-  br i1 %.not216.i, label %._crit_edge140.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not216.i, label %._crit_edge140.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge140.i:                                 ; preds = %330
   %.pre141.i = load ptr, ptr %148, align 8
@@ -983,7 +983,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 336:                                              ; preds = %332
   %337 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL19DecoderTableXCVbi32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %334)
   %.not217.i = icmp eq i32 %337, 0
-  br i1 %.not217.i, label %._crit_edge144.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br i1 %.not217.i, label %._crit_edge144.i, label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 ._crit_edge144.i:                                 ; preds = %336
   %.pre145.i = load ptr, ptr %148, align 8
@@ -992,7 +992,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 338:                                              ; preds = %._crit_edge144.i, %332
   %339 = phi ptr [ %.pre145.i, %._crit_edge144.i ], [ %334, %332 ]
   %340 = tail call fastcc noundef i32 @_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE(ptr noundef nonnull @_ZN4llvmL14DecoderTable32E, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %.0.copyload.i.i.i.i.i.i.i24, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(288) %339)
-  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 341:                                              ; preds = %142
   %342 = and i8 %11, 63
@@ -1003,7 +1003,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %.inv23 = icmp ult i64 %4, 6
   %345 = select i1 %.inv23, i64 0, i64 6
   store i64 %345, ptr %2, align 8
-  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 346:                                              ; preds = %341
   %347 = and i8 %11, 127
@@ -1014,7 +1014,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %.inv = icmp ult i64 %4, 8
   %350 = select i1 %.inv, i64 0, i64 8
   store i64 %350, ptr %2, align 8
-  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 351:                                              ; preds = %346
   %352 = icmp ult i64 %4, 2
@@ -1022,7 +1022,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
 
 353:                                              ; preds = %351
   store i64 0, ptr %2, align 8
-  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 354:                                              ; preds = %351
   %355 = getelementptr inbounds i8, ptr %3, i64 1
@@ -1039,13 +1039,13 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %362 = icmp ult i64 %4, %361
   %spec.store.select = select i1 %362, i64 0, i64 %361
   store i64 %spec.store.select, ptr %2, align 8
-  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
 363:                                              ; preds = %354
   store i64 0, ptr %2, align 8
-  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit
 
-_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.argprom.exit: ; preds = %50, %106, %138, %359, %338, %336, %330, %324, %318, %312, %306, %300, %294, %288, %282, %276, %270, %264, %258, %252, %246, %240, %234, %228, %222, %216, %210, %204, %198, %192, %186, %180, %173, %167, %157, %146, %113, %110, %81, %72, %66, %59, %25, %15, %363, %353, %349, %344
+_ZNK12_GLOBAL__N_117RISCVDisassembler16getInstruction16ERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE.exit: ; preds = %50, %106, %138, %359, %338, %336, %330, %324, %318, %312, %306, %300, %294, %288, %282, %276, %270, %264, %258, %252, %246, %240, %234, %228, %222, %216, %210, %204, %198, %192, %186, %180, %173, %167, %157, %146, %113, %110, %81, %72, %66, %59, %25, %15, %363, %353, %349, %344
   %.0 = phi i32 [ 0, %344 ], [ 0, %349 ], [ 0, %353 ], [ 0, %363 ], [ 0, %15 ], [ %60, %59 ], [ %67, %66 ], [ %73, %72 ], [ 0, %110 ], [ %24, %25 ], [ %80, %81 ], [ %112, %113 ], [ 0, %146 ], [ %158, %157 ], [ %168, %167 ], [ %174, %173 ], [ %181, %180 ], [ %187, %186 ], [ %193, %192 ], [ %199, %198 ], [ %205, %204 ], [ %211, %210 ], [ %217, %216 ], [ %223, %222 ], [ %229, %228 ], [ %235, %234 ], [ %241, %240 ], [ %247, %246 ], [ %253, %252 ], [ %259, %258 ], [ %265, %264 ], [ %271, %270 ], [ %277, %276 ], [ %283, %282 ], [ %289, %288 ], [ %295, %294 ], [ %301, %300 ], [ %307, %306 ], [ %313, %312 ], [ %319, %318 ], [ %325, %324 ], [ %331, %330 ], [ %337, %336 ], [ %340, %338 ], [ 0, %359 ], [ %112, %138 ], [ %80, %106 ], [ %24, %50 ]
   ret i32 %.0
 }
@@ -3374,7 +3374,7 @@ define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassem
 9:                                                ; preds = %7
   %10 = lshr i32 %2, 2
   %11 = and i32 %10, 7
-  %12 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %11)
+  %12 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %11)
   %13 = and i32 %12, %0
   %.not5022 = icmp eq i32 %13, 0
   br i1 %.not5022, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %14
@@ -3390,12 +3390,12 @@ define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassem
   %22 = lshr i32 %2, 7
   %23 = and i32 %22, 48
   %24 = or disjoint i32 %21, %23
-  %25 = tail call fastcc noundef i32 @_ZL24decodeUImmNonZeroOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %24)
+  %25 = tail call fastcc noundef i32 @_ZL24decodeUImmNonZeroOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %24)
   %26 = and i32 %25, %13
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 27:                                               ; preds = %7
-  tail call fastcc void @_ZL26decodeRVCInstrRdRs1ImmZeroRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2, ptr noundef %5)
+  tail call fastcc void @_ZL26decodeRVCInstrRdRs1ImmZeroRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2, ptr noundef %5)
   %28 = and i32 %0, 3
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -3405,7 +3405,7 @@ define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassem
   %32 = lshr i32 %2, 7
   %33 = and i32 %32, 32
   %34 = or disjoint i32 %31, %33
-  %35 = tail call fastcc noundef i32 @_ZL24decodeSImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %34)
+  %35 = tail call fastcc noundef i32 @_ZL24decodeSImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %34)
   %36 = and i32 %35, %0
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -3420,7 +3420,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit.thre
   %.val.i = load ptr, ptr %41, align 8
   %42 = getelementptr i8, ptr %.val.i, i64 216
   %.val.val.i = load i64, ptr %42, align 8
-  %43 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %39, i64 %.val.val.i)
+  %43 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %39, i64 %.val.val.i)
   %44 = and i32 %43, %0
   %.not5020 = icmp eq i32 %44, 0
   br i1 %.not5020, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2906
@@ -3429,7 +3429,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2906:
   %.val.i2903 = load ptr, ptr %41, align 8
   %45 = getelementptr i8, ptr %.val.i2903, i64 216
   %.val.val.i2904 = load i64, ptr %45, align 8
-  %46 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %39, i64 %.val.val.i2904)
+  %46 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %39, i64 %.val.val.i2904)
   %47 = and i32 %46, %44
   %.not5021 = icmp eq i32 %47, 0
   br i1 %.not5021, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %48
@@ -3439,7 +3439,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2906:
   %50 = and i32 %49, 31
   %51 = and i32 %38, 32
   %52 = or disjoint i32 %50, %51
-  %53 = tail call fastcc noundef i32 @_ZL24decodeSImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %52)
+  %53 = tail call fastcc noundef i32 @_ZL24decodeSImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %52)
   %54 = and i32 %53, %47
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -3450,7 +3450,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2906:
   %.val2744 = load ptr, ptr %58, align 8
   %59 = getelementptr i8, ptr %.val2744, i64 216
   %.val2744.val = load i64, ptr %59, align 8
-  %60 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %57, i64 %.val2744.val)
+  %60 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %57, i64 %.val2744.val)
   %61 = and i32 %60, %0
   %.not5019 = icmp eq i32 %61, 0
   br i1 %.not5019, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %62
@@ -3459,12 +3459,12 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2906:
   %.val2745 = load ptr, ptr %58, align 8
   %63 = getelementptr i8, ptr %.val2745, i64 216
   %.val2745.val = load i64, ptr %63, align 8
-  %64 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %57, i64 %.val2745.val)
+  %64 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %57, i64 %.val2745.val)
   %65 = and i32 %64, %61
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 66:                                               ; preds = %7
-  tail call fastcc void @_ZL23decodeRVCInstrRdRs1UImmRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2)
+  tail call fastcc void @_ZL23decodeRVCInstrRdRs1UImmRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2)
   %67 = and i32 %0, 3
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -3479,7 +3479,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2910.
   %.val.i2907 = load ptr, ptr %72, align 8
   %73 = getelementptr i8, ptr %.val.i2907, i64 216
   %.val.val.i2908 = load i64, ptr %73, align 8
-  %74 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %70, i64 %.val.val.i2908)
+  %74 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %70, i64 %.val.val.i2908)
   %75 = and i32 %74, %0
   %.not5017 = icmp eq i32 %75, 0
   br i1 %.not5017, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2914
@@ -3488,7 +3488,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2914:
   %.val.i2911 = load ptr, ptr %72, align 8
   %76 = getelementptr i8, ptr %.val.i2911, i64 216
   %.val.val.i2912 = load i64, ptr %76, align 8
-  %77 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %70, i64 %.val.val.i2912)
+  %77 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %70, i64 %.val.val.i2912)
   %78 = and i32 %77, %75
   %.not5018 = icmp eq i32 %78, 0
   br i1 %.not5018, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %79
@@ -3498,14 +3498,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2914:
   %81 = and i32 %80, 31
   %82 = and i32 %69, 32
   %83 = or disjoint i32 %81, %82
-  %84 = tail call fastcc noundef i32 @_ZL24decodeUImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %83)
+  %84 = tail call fastcc noundef i32 @_ZL24decodeUImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %83)
   %85 = and i32 %84, %78
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 86:                                               ; preds = %7
   %87 = lshr i32 %2, 2
   %88 = and i32 %87, 7
-  %89 = tail call fastcc noundef i32 @_ZL25DecodeFPR64CRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %88)
+  %89 = tail call fastcc noundef i32 @_ZL25DecodeFPR64CRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %88)
   %90 = and i32 %89, %0
   %.not5015 = icmp eq i32 %90, 0
   br i1 %.not5015, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %91
@@ -3513,7 +3513,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2914:
 91:                                               ; preds = %86
   %92 = lshr i32 %2, 7
   %93 = and i32 %92, 7
-  %94 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %93)
+  %94 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %93)
   %95 = and i32 %94, %90
   %.not5016 = icmp eq i32 %95, 0
   br i1 %.not5016, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %96
@@ -3523,7 +3523,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2914:
   %98 = and i32 %97, 192
   %99 = and i32 %92, 56
   %100 = or disjoint i32 %98, %99
-  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %100)
+  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %100)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 101:                                              ; preds = %7
@@ -3537,7 +3537,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2918.
   %.val.i2915 = load ptr, ptr %105, align 8
   %106 = getelementptr i8, ptr %.val.i2915, i64 216
   %.val.val.i2916 = load i64, ptr %106, align 8
-  %107 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %103, i64 %.val.val.i2916)
+  %107 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %103, i64 %.val.val.i2916)
   %108 = and i32 %107, %0
   %.not5013 = icmp eq i32 %108, 0
   br i1 %.not5013, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2922
@@ -3546,7 +3546,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2922:
   %.val.i2919 = load ptr, ptr %105, align 8
   %109 = getelementptr i8, ptr %.val.i2919, i64 216
   %.val.val.i2920 = load i64, ptr %109, align 8
-  %110 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %103, i64 %.val.val.i2920)
+  %110 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %103, i64 %.val.val.i2920)
   %111 = and i32 %110, %108
   %.not5014 = icmp eq i32 %111, 0
   br i1 %.not5014, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %112
@@ -3556,13 +3556,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2922:
   %114 = and i32 %113, 31
   %115 = and i32 %102, 32
   %116 = or disjoint i32 %114, %115
-  tail call fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %116)
+  tail call fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %116)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 117:                                              ; preds = %7
   %118 = lshr i32 %2, 7
   %119 = and i32 %118, 31
-  %120 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %119)
+  %120 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %119)
   %121 = and i32 %120, %0
   %.not5012 = icmp eq i32 %121, 0
   br i1 %.not5012, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %122
@@ -3575,13 +3575,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2922:
   %127 = or disjoint i32 %124, %126
   %128 = and i32 %118, 32
   %129 = or disjoint i32 %127, %128
-  tail call fastcc void @_ZL17decodeUImmOperandILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %129)
+  tail call fastcc void @_ZL17decodeUImmOperandILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %129)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 130:                                              ; preds = %7
   %131 = lshr i32 %2, 2
   %132 = and i32 %131, 7
-  %133 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %132)
+  %133 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %132)
   %134 = and i32 %133, %0
   %.not5010 = icmp eq i32 %134, 0
   br i1 %.not5010, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %135
@@ -3589,7 +3589,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2922:
 135:                                              ; preds = %130
   %136 = lshr i32 %2, 7
   %137 = and i32 %136, 7
-  %138 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %137)
+  %138 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %137)
   %139 = and i32 %138, %134
   %.not5011 = icmp eq i32 %139, 0
   br i1 %.not5011, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %140
@@ -3602,11 +3602,11 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2922:
   %145 = or disjoint i32 %142, %144
   %146 = and i32 %136, 56
   %147 = or disjoint i32 %145, %146
-  tail call fastcc void @_ZL17decodeUImmOperandILj7EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %147)
+  tail call fastcc void @_ZL17decodeUImmOperandILj7EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %147)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 148:                                              ; preds = %7
-  tail call fastcc void @_ZL20decodeRVCInstrRdSImmRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2)
+  tail call fastcc void @_ZL20decodeRVCInstrRdSImmRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2)
   %149 = and i32 %0, 3
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -3621,7 +3621,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2922:
   %.val.i2923 = load ptr, ptr %155, align 8
   %156 = getelementptr i8, ptr %.val.i2923, i64 216
   %.val.val.i2924 = load i64, ptr %156, align 8
-  %157 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %152, i64 %.val.val.i2924)
+  %157 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %152, i64 %.val.val.i2924)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2926
 
 _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2926: ; preds = %150, %154
@@ -3635,7 +3635,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2926:
   %161 = and i32 %160, 31
   %162 = and i32 %151, 32
   %163 = or disjoint i32 %161, %162
-  tail call fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %163)
+  tail call fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %163)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 164:                                              ; preds = %7
@@ -3649,7 +3649,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2926:
   %.val.i2927 = load ptr, ptr %169, align 8
   %170 = getelementptr i8, ptr %.val.i2927, i64 216
   %.val.val.i2928 = load i64, ptr %170, align 8
-  %171 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %166, i64 %.val.val.i2928)
+  %171 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %166, i64 %.val.val.i2928)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2930
 
 _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2930: ; preds = %164, %168
@@ -3666,13 +3666,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2930:
   %178 = or disjoint i32 %175, %177
   %179 = and i32 %165, 32
   %180 = or disjoint i32 %178, %179
-  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %180)
+  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %180)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 181:                                              ; preds = %7
   %182 = lshr i32 %2, 2
   %183 = and i32 %182, 7
-  %184 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %183)
+  %184 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %183)
   %185 = and i32 %184, %0
   %.not5006 = icmp eq i32 %185, 0
   br i1 %.not5006, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %186
@@ -3680,7 +3680,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2930:
 186:                                              ; preds = %181
   %187 = lshr i32 %2, 7
   %188 = and i32 %187, 7
-  %189 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %188)
+  %189 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %188)
   %190 = and i32 %189, %185
   %.not5007 = icmp eq i32 %190, 0
   br i1 %.not5007, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %191
@@ -3690,7 +3690,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2930:
   %193 = and i32 %192, 192
   %194 = and i32 %187, 56
   %195 = or disjoint i32 %193, %194
-  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %195)
+  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %195)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 196:                                              ; preds = %7
@@ -3708,7 +3708,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2930:
   %208 = lshr i32 %2, 3
   %209 = and i32 %208, 512
   %210 = or disjoint i32 %207, %209
-  %211 = tail call fastcc noundef i32 @_ZL24decodeSImmNonZeroOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %210)
+  %211 = tail call fastcc noundef i32 @_ZL24decodeSImmNonZeroOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %210)
   %212 = and i32 %211, %0
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -3725,7 +3725,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2930:
   %.val.i.i = load ptr, ptr %217, align 8
   %218 = getelementptr i8, ptr %.val.i.i, i64 216
   %.val.val.i.i = load i64, ptr %218, align 8
-  %219 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %215, i64 %.val.val.i.i)
+  %219 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %215, i64 %.val.val.i.i)
   br label %_ZL28DecodeGPRNoX0X2RegisterClassRN4llvm6MCInstEmjPKNS_14MCDisassemblerE.exit
 
 _ZL28DecodeGPRNoX0X2RegisterClassRN4llvm6MCInstEmjPKNS_14MCDisassemblerE.exit: ; preds = %213, %213, %216
@@ -3739,7 +3739,7 @@ _ZL28DecodeGPRNoX0X2RegisterClassRN4llvm6MCInstEmjPKNS_14MCDisassemblerE.exit: ;
   %223 = and i32 %222, 31
   %224 = and i32 %214, 32
   %225 = or disjoint i32 %223, %224
-  tail call fastcc void @_ZL20decodeCLUIImmOperandRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %225)
+  tail call fastcc void @_ZL20decodeCLUIImmOperandRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %225)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 226:                                              ; preds = %7
@@ -3753,7 +3753,7 @@ _ZL28DecodeGPRNoX0X2RegisterClassRN4llvm6MCInstEmjPKNS_14MCDisassemblerE.exit: ;
   %.val.i2932 = load ptr, ptr %231, align 8
   %232 = getelementptr i8, ptr %.val.i2932, i64 216
   %.val.val.i2933 = load i64, ptr %232, align 8
-  %233 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %228, i64 %.val.val.i2933)
+  %233 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %228, i64 %.val.val.i2933)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2935
 
 _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2935: ; preds = %226, %230
@@ -3770,13 +3770,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2935:
   %240 = or disjoint i32 %237, %239
   %241 = and i32 %227, 32
   %242 = or disjoint i32 %240, %241
-  tail call fastcc void @_ZL17decodeUImmOperandILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %242)
+  tail call fastcc void @_ZL17decodeUImmOperandILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %242)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 243:                                              ; preds = %7
   %244 = lshr i32 %2, 2
   %245 = and i32 %244, 7
-  %246 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %245)
+  %246 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %245)
   %247 = and i32 %246, %0
   %.not5002 = icmp eq i32 %247, 0
   br i1 %.not5002, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %248
@@ -3784,7 +3784,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2935:
 248:                                              ; preds = %243
   %249 = lshr i32 %2, 7
   %250 = and i32 %249, 7
-  %251 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %250)
+  %251 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %250)
   %252 = and i32 %251, %247
   %.not5003 = icmp eq i32 %252, 0
   br i1 %.not5003, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %253
@@ -3795,13 +3795,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2935:
   %256 = lshr i32 %2, 6
   %257 = and i32 %256, 1
   %258 = or disjoint i32 %255, %257
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %258)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %258)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 259:                                              ; preds = %7
   %260 = lshr i32 %2, 2
   %261 = and i32 %260, 7
-  %262 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %261)
+  %262 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %261)
   %263 = and i32 %262, %0
   %.not5000 = icmp eq i32 %263, 0
   br i1 %.not5000, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %264
@@ -3809,7 +3809,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2935:
 264:                                              ; preds = %259
   %265 = lshr i32 %2, 7
   %266 = and i32 %265, 7
-  %267 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %266)
+  %267 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %266)
   %268 = and i32 %267, %263
   %.not5001 = icmp eq i32 %268, 0
   br i1 %.not5001, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %269
@@ -3817,32 +3817,32 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2935:
 269:                                              ; preds = %264
   %270 = lshr i32 %2, 4
   %271 = and i32 %270, 2
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %271)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %271)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 272:                                              ; preds = %7
   %273 = lshr i32 %2, 7
   %274 = and i32 %273, 7
-  %275 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %274)
+  %275 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %274)
   %276 = and i32 %275, %0
   %.not4999 = icmp eq i32 %276, 0
   br i1 %.not4999, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %277
 
 277:                                              ; preds = %272
-  %278 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %274)
+  %278 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %274)
   %279 = and i32 %278, %276
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 280:                                              ; preds = %7
   %281 = lshr i32 %2, 7
   %282 = and i32 %281, 7
-  %283 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %282)
+  %283 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %282)
   %284 = and i32 %283, %0
   %.not4997 = icmp eq i32 %284, 0
   br i1 %.not4997, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %285
 
 285:                                              ; preds = %280
-  %286 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %282)
+  %286 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %282)
   %287 = and i32 %286, %284
   %.not4998 = icmp eq i32 %287, 0
   br i1 %.not4998, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %288
@@ -3852,20 +3852,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2935:
   %290 = and i32 %289, 31
   %291 = and i32 %281, 32
   %292 = or disjoint i32 %290, %291
-  %293 = tail call fastcc noundef i32 @_ZL24decodeUImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %292)
+  %293 = tail call fastcc noundef i32 @_ZL24decodeUImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %292)
   %294 = and i32 %293, %287
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 295:                                              ; preds = %7
   %296 = lshr i32 %2, 7
   %297 = and i32 %296, 7
-  %298 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %297)
+  %298 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %297)
   %299 = and i32 %298, %0
   %.not4995 = icmp eq i32 %299, 0
   br i1 %.not4995, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %300
 
 300:                                              ; preds = %295
-  %301 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %297)
+  %301 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %297)
   %302 = and i32 %301, %299
   %.not4996 = icmp eq i32 %302, 0
   br i1 %.not4996, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %303
@@ -3875,19 +3875,19 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2935:
   %305 = and i32 %304, 31
   %306 = and i32 %296, 32
   %307 = or disjoint i32 %305, %306
-  tail call fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %307)
+  tail call fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %307)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 308:                                              ; preds = %7
   %309 = lshr i32 %2, 7
   %310 = and i32 %309, 7
-  %311 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %310)
+  %311 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %310)
   %312 = and i32 %311, %0
   %.not4993 = icmp eq i32 %312, 0
   br i1 %.not4993, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %313
 
 313:                                              ; preds = %308
-  %314 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %310)
+  %314 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %310)
   %315 = and i32 %314, %312
   %.not4994 = icmp eq i32 %315, 0
   br i1 %.not4994, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %316
@@ -3895,7 +3895,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2935:
 316:                                              ; preds = %313
   %317 = lshr i32 %2, 2
   %318 = and i32 %317, 7
-  %319 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %318)
+  %319 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %318)
   %320 = and i32 %319, %315
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -3910,7 +3910,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2935:
   %.val.i2936 = load ptr, ptr %326, align 8
   %327 = getelementptr i8, ptr %.val.i2936, i64 216
   %.val.val.i2937 = load i64, ptr %327, align 8
-  %328 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %323, i64 %.val.val.i2937)
+  %328 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %323, i64 %.val.val.i2937)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2939
 
 _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2939: ; preds = %321, %325
@@ -3919,7 +3919,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2939:
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 330:                                              ; preds = %7
-  tail call fastcc void @_ZL19decodeRVCInstrRdRs2RN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2, ptr noundef %5)
+  tail call fastcc void @_ZL19decodeRVCInstrRdRs2RN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2, ptr noundef %5)
   %331 = and i32 %0, 3
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -3934,7 +3934,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2939:
   %.val.i2940 = load ptr, ptr %337, align 8
   %338 = getelementptr i8, ptr %.val.i2940, i64 216
   %.val.val.i2941 = load i64, ptr %338, align 8
-  %339 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %334, i64 %.val.val.i2941)
+  %339 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %334, i64 %.val.val.i2941)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2943
 
 _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2943: ; preds = %332, %336
@@ -3954,7 +3954,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2943:
   %.val.i2944 = load ptr, ptr %346, align 8
   %347 = getelementptr i8, ptr %.val.i2944, i64 216
   %.val.val.i2945 = load i64, ptr %347, align 8
-  %348 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %343, i64 %.val.val.i2945)
+  %348 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %343, i64 %.val.val.i2945)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2947
 
 _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2947: ; preds = %341, %345
@@ -3963,7 +3963,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2947:
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 350:                                              ; preds = %7
-  tail call fastcc void @_ZL22decodeRVCInstrRdRs1Rs2RN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2, ptr noundef %5)
+  tail call fastcc void @_ZL22decodeRVCInstrRdRs1Rs2RN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2, ptr noundef %5)
   %351 = and i32 %0, 3
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -3978,7 +3978,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2951.
   %.val.i2948 = load ptr, ptr %356, align 8
   %357 = getelementptr i8, ptr %.val.i2948, i64 216
   %.val.val.i2949 = load i64, ptr %357, align 8
-  %358 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %354, i64 %.val.val.i2949)
+  %358 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %354, i64 %.val.val.i2949)
   %359 = and i32 %358, %0
   %.not4990 = icmp eq i32 %359, 0
   br i1 %.not4990, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2955
@@ -3987,7 +3987,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2955:
   %.val.i2952 = load ptr, ptr %356, align 8
   %360 = getelementptr i8, ptr %.val.i2952, i64 216
   %.val.val.i2953 = load i64, ptr %360, align 8
-  %361 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %354, i64 %.val.val.i2953)
+  %361 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %354, i64 %.val.val.i2953)
   %362 = and i32 %361, %359
   %.not4991 = icmp eq i32 %362, 0
   br i1 %.not4991, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %363
@@ -4002,7 +4002,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2955:
   %.val.i2956 = load ptr, ptr %356, align 8
   %368 = getelementptr i8, ptr %.val.i2956, i64 216
   %.val.val.i2957 = load i64, ptr %368, align 8
-  %369 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %365, i64 %.val.val.i2957)
+  %369 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %365, i64 %.val.val.i2957)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959
 
 _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959: ; preds = %363, %367
@@ -4031,14 +4031,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %389 = or disjoint i32 %388, %381
   %390 = or i32 %389, %383
   %391 = or i32 %390, %384
-  tail call fastcc void @_ZL24decodeSImmOperandAndLsl1ILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %391)
+  tail call fastcc void @_ZL24decodeSImmOperandAndLsl1ILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %391)
   %392 = and i32 %0, 3
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 393:                                              ; preds = %7
   %394 = lshr i32 %2, 2
   %395 = and i32 %394, 31
-  %396 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %395)
+  %396 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %395)
   %397 = and i32 %396, %0
   %.not4989 = icmp eq i32 %397, 0
   br i1 %.not4989, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %398
@@ -4049,13 +4049,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %401 = lshr i32 %2, 7
   %402 = and i32 %401, 56
   %403 = or disjoint i32 %400, %402
-  tail call fastcc void @_ZL17decodeUImmOperandILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %403)
+  tail call fastcc void @_ZL17decodeUImmOperandILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %403)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 404:                                              ; preds = %7
   %405 = lshr i32 %2, 7
   %406 = and i32 %405, 7
-  %407 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %406)
+  %407 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %406)
   %408 = and i32 %407, %0
   %.not4988 = icmp eq i32 %408, 0
   br i1 %.not4988, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %409
@@ -4074,7 +4074,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %420 = or disjoint i32 %419, %411
   %421 = or disjoint i32 %420, %416
   %422 = or disjoint i32 %421, %418
-  tail call fastcc void @_ZL24decodeSImmOperandAndLsl1ILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %422)
+  tail call fastcc void @_ZL24decodeSImmOperandAndLsl1ILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %422)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 423:                                              ; preds = %7
@@ -4084,7 +4084,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2746 = load ptr, ptr %426, align 8
   %427 = getelementptr i8, ptr %.val2746, i64 216
   %.val2746.val = load i64, ptr %427, align 8
-  %428 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %425, i64 %.val2746.val)
+  %428 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %425, i64 %.val2746.val)
   %429 = and i32 %428, %0
   %.not4987 = icmp eq i32 %429, 0
   br i1 %.not4987, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %430
@@ -4095,7 +4095,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %433 = lshr i32 %2, 7
   %434 = and i32 %433, 60
   %435 = or disjoint i32 %432, %434
-  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %435)
+  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %435)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 436:                                              ; preds = %7
@@ -4105,7 +4105,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2747 = load ptr, ptr %439, align 8
   %440 = getelementptr i8, ptr %.val2747, i64 216
   %.val2747.val = load i64, ptr %440, align 8
-  %441 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %438, i64 %.val2747.val)
+  %441 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %438, i64 %.val2747.val)
   %442 = and i32 %441, %0
   %.not4986 = icmp eq i32 %442, 0
   br i1 %.not4986, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %443
@@ -4116,7 +4116,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %446 = lshr i32 %2, 7
   %447 = and i32 %446, 56
   %448 = or disjoint i32 %445, %447
-  tail call fastcc void @_ZL17decodeUImmOperandILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %448)
+  tail call fastcc void @_ZL17decodeUImmOperandILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %448)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 449:                                              ; preds = %7
@@ -4126,7 +4126,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2748 = load ptr, ptr %452, align 8
   %453 = getelementptr i8, ptr %.val2748, i64 216
   %.val2748.val = load i64, ptr %453, align 8
-  %454 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %451, i64 %.val2748.val)
+  %454 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %451, i64 %.val2748.val)
   %455 = and i32 %454, %0
   %.not4984 = icmp eq i32 %455, 0
   br i1 %.not4984, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %456
@@ -4137,20 +4137,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2749 = load ptr, ptr %452, align 8
   %459 = getelementptr i8, ptr %.val2749, i64 216
   %.val2749.val = load i64, ptr %459, align 8
-  %460 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %458, i64 %.val2749.val)
+  %460 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %458, i64 %.val2749.val)
   %461 = and i32 %460, %455
   %.not4985 = icmp eq i32 %461, 0
   br i1 %.not4985, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %462
 
 462:                                              ; preds = %456
   %463 = lshr i32 %2, 20
-  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %463)
+  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %463)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 464:                                              ; preds = %7
   %465 = lshr i32 %2, 7
   %466 = and i32 %465, 31
-  %467 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %466)
+  %467 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %466)
   %468 = and i32 %467, %0
   %.not4982 = icmp eq i32 %468, 0
   br i1 %.not4982, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %469
@@ -4162,7 +4162,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2750 = load ptr, ptr %472, align 8
   %473 = getelementptr i8, ptr %.val2750, i64 216
   %.val2750.val = load i64, ptr %473, align 8
-  %474 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %471, i64 %.val2750.val)
+  %474 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %471, i64 %.val2750.val)
   %475 = and i32 %474, %468
   %.not4983 = icmp eq i32 %475, 0
   br i1 %.not4983, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %476
@@ -4170,14 +4170,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 476:                                              ; preds = %469
   %477 = lshr i32 %2, 25
   %478 = and i32 %477, 1
-  %479 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %478)
+  %479 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %478)
   %480 = and i32 %479, %475
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 481:                                              ; preds = %7
   %482 = lshr i32 %2, 7
   %483 = and i32 %482, 31
-  %484 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %483)
+  %484 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %483)
   %485 = and i32 %484, %0
   %.not4981 = icmp eq i32 %485, 0
   br i1 %.not4981, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %486
@@ -4189,14 +4189,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2751 = load ptr, ptr %489, align 8
   %490 = getelementptr i8, ptr %.val2751, i64 216
   %.val2751.val = load i64, ptr %490, align 8
-  %491 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %488, i64 %.val2751.val)
+  %491 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %488, i64 %.val2751.val)
   %492 = and i32 %491, %485
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 493:                                              ; preds = %7
   %494 = lshr i32 %2, 7
   %495 = and i32 %494, 31
-  %496 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %495)
+  %496 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %495)
   %497 = and i32 %496, %0
   %.not4978 = icmp eq i32 %497, 0
   br i1 %.not4978, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %498
@@ -4208,7 +4208,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2752 = load ptr, ptr %501, align 8
   %502 = getelementptr i8, ptr %.val2752, i64 216
   %.val2752.val = load i64, ptr %502, align 8
-  %503 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %500, i64 %.val2752.val)
+  %503 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %500, i64 %.val2752.val)
   %504 = and i32 %503, %497
   %.not4979 = icmp eq i32 %504, 0
   br i1 %.not4979, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %505
@@ -4216,7 +4216,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 505:                                              ; preds = %498
   %506 = lshr i32 %2, 20
   %507 = and i32 %506, 31
-  %508 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %507)
+  %508 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %507)
   %509 = and i32 %508, %504
   %.not4980 = icmp eq i32 %509, 0
   br i1 %.not4980, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %510
@@ -4224,14 +4224,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 510:                                              ; preds = %505
   %511 = lshr i32 %2, 25
   %512 = and i32 %511, 1
-  %513 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %512)
+  %513 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %512)
   %514 = and i32 %513, %509
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 515:                                              ; preds = %7
   %516 = lshr i32 %2, 7
   %517 = and i32 %516, 31
-  %518 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %517)
+  %518 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %517)
   %519 = and i32 %518, %0
   %.not4975 = icmp eq i32 %519, 0
   br i1 %.not4975, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %520
@@ -4243,7 +4243,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2753 = load ptr, ptr %523, align 8
   %524 = getelementptr i8, ptr %.val2753, i64 216
   %.val2753.val = load i64, ptr %524, align 8
-  %525 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %522, i64 %.val2753.val)
+  %525 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %522, i64 %.val2753.val)
   %526 = and i32 %525, %519
   %.not4976 = icmp eq i32 %526, 0
   br i1 %.not4976, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %527
@@ -4254,7 +4254,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2754 = load ptr, ptr %523, align 8
   %530 = getelementptr i8, ptr %.val2754, i64 216
   %.val2754.val = load i64, ptr %530, align 8
-  %531 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %529, i64 %.val2754.val)
+  %531 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %529, i64 %.val2754.val)
   %532 = and i32 %531, %526
   %.not4977 = icmp eq i32 %532, 0
   br i1 %.not4977, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %533
@@ -4262,14 +4262,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 533:                                              ; preds = %527
   %534 = lshr i32 %2, 25
   %535 = and i32 %534, 1
-  %536 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %535)
+  %536 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %535)
   %537 = and i32 %536, %532
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 538:                                              ; preds = %7
   %539 = lshr i32 %2, 7
   %540 = and i32 %539, 31
-  %541 = tail call fastcc noundef i32 @_ZL23DecodeVRM2RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %540, ptr noundef %5)
+  %541 = tail call fastcc noundef i32 @_ZL23DecodeVRM2RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %540, ptr noundef %5)
   %542 = and i32 %541, %0
   %.not4974 = icmp eq i32 %542, 0
   br i1 %.not4974, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %543
@@ -4281,14 +4281,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2755 = load ptr, ptr %546, align 8
   %547 = getelementptr i8, ptr %.val2755, i64 216
   %.val2755.val = load i64, ptr %547, align 8
-  %548 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %545, i64 %.val2755.val)
+  %548 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %545, i64 %.val2755.val)
   %549 = and i32 %548, %542
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 550:                                              ; preds = %7
   %551 = lshr i32 %2, 7
   %552 = and i32 %551, 31
-  %553 = tail call fastcc noundef i32 @_ZL23DecodeVRM4RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %552, ptr noundef %5)
+  %553 = tail call fastcc noundef i32 @_ZL23DecodeVRM4RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %552, ptr noundef %5)
   %554 = and i32 %553, %0
   %.not4973 = icmp eq i32 %554, 0
   br i1 %.not4973, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %555
@@ -4300,14 +4300,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2756 = load ptr, ptr %558, align 8
   %559 = getelementptr i8, ptr %.val2756, i64 216
   %.val2756.val = load i64, ptr %559, align 8
-  %560 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %557, i64 %.val2756.val)
+  %560 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %557, i64 %.val2756.val)
   %561 = and i32 %560, %554
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 562:                                              ; preds = %7
   %563 = lshr i32 %2, 7
   %564 = and i32 %563, 31
-  %565 = tail call fastcc noundef i32 @_ZL23DecodeVRM8RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %564, ptr noundef %5)
+  %565 = tail call fastcc noundef i32 @_ZL23DecodeVRM8RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %564, ptr noundef %5)
   %566 = and i32 %565, %0
   %.not4972 = icmp eq i32 %566, 0
   br i1 %.not4972, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %567
@@ -4319,14 +4319,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2757 = load ptr, ptr %570, align 8
   %571 = getelementptr i8, ptr %.val2757, i64 216
   %.val2757.val = load i64, ptr %571, align 8
-  %572 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %569, i64 %.val2757.val)
+  %572 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %569, i64 %.val2757.val)
   %573 = and i32 %572, %566
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 574:                                              ; preds = %7
   %575 = lshr i32 %2, 7
   %576 = and i32 %575, 31
-  %577 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %576)
+  %577 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %576)
   %578 = and i32 %577, %0
   %.not4970 = icmp eq i32 %578, 0
   br i1 %.not4970, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %579
@@ -4338,20 +4338,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2758 = load ptr, ptr %582, align 8
   %583 = getelementptr i8, ptr %.val2758, i64 216
   %.val2758.val = load i64, ptr %583, align 8
-  %584 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %581, i64 %.val2758.val)
+  %584 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %581, i64 %.val2758.val)
   %585 = and i32 %584, %578
   %.not4971 = icmp eq i32 %585, 0
   br i1 %.not4971, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %586
 
 586:                                              ; preds = %579
   %587 = lshr i32 %2, 20
-  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %587)
+  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %587)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 588:                                              ; preds = %7
   %589 = lshr i32 %2, 7
   %590 = and i32 %589, 31
-  %591 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %590)
+  %591 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %590)
   %592 = and i32 %591, %0
   %.not4968 = icmp eq i32 %592, 0
   br i1 %.not4968, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %593
@@ -4363,20 +4363,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2759 = load ptr, ptr %596, align 8
   %597 = getelementptr i8, ptr %.val2759, i64 216
   %.val2759.val = load i64, ptr %597, align 8
-  %598 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %595, i64 %.val2759.val)
+  %598 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %595, i64 %.val2759.val)
   %599 = and i32 %598, %592
   %.not4969 = icmp eq i32 %599, 0
   br i1 %.not4969, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %600
 
 600:                                              ; preds = %593
   %601 = lshr i32 %2, 20
-  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %601)
+  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %601)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 602:                                              ; preds = %7
   %603 = lshr i32 %2, 7
   %604 = and i32 %603, 31
-  %605 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %604)
+  %605 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %604)
   %606 = and i32 %605, %0
   %.not4966 = icmp eq i32 %606, 0
   br i1 %.not4966, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %607
@@ -4388,20 +4388,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2760 = load ptr, ptr %610, align 8
   %611 = getelementptr i8, ptr %.val2760, i64 216
   %.val2760.val = load i64, ptr %611, align 8
-  %612 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %609, i64 %.val2760.val)
+  %612 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %609, i64 %.val2760.val)
   %613 = and i32 %612, %606
   %.not4967 = icmp eq i32 %613, 0
   br i1 %.not4967, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %614
 
 614:                                              ; preds = %607
   %615 = lshr i32 %2, 20
-  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %615)
+  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %615)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 616:                                              ; preds = %7
   %617 = lshr i32 %2, 24
   %618 = and i32 %617, 15
-  tail call fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %618)
+  tail call fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %618)
   %619 = and i32 %0, 3
   %.not4965 = icmp eq i32 %619, 0
   br i1 %.not4965, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %620
@@ -4409,7 +4409,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 620:                                              ; preds = %616
   %621 = lshr i32 %2, 20
   %622 = and i32 %621, 15
-  tail call fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %622)
+  tail call fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %622)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 623:                                              ; preds = %7
@@ -4419,7 +4419,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2761 = load ptr, ptr %626, align 8
   %627 = getelementptr i8, ptr %.val2761, i64 216
   %.val2761.val = load i64, ptr %627, align 8
-  %628 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %625, i64 %.val2761.val)
+  %628 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %625, i64 %.val2761.val)
   %629 = and i32 %628, %0
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -4430,7 +4430,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2762 = load ptr, ptr %633, align 8
   %634 = getelementptr i8, ptr %.val2762, i64 216
   %.val2762.val = load i64, ptr %634, align 8
-  %635 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %632, i64 %.val2762.val)
+  %635 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %632, i64 %.val2762.val)
   %636 = and i32 %635, %0
   %.not4963 = icmp eq i32 %636, 0
   br i1 %.not4963, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %637
@@ -4441,7 +4441,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2763 = load ptr, ptr %633, align 8
   %640 = getelementptr i8, ptr %.val2763, i64 216
   %.val2763.val = load i64, ptr %640, align 8
-  %641 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %639, i64 %.val2763.val)
+  %641 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %639, i64 %.val2763.val)
   %642 = and i32 %641, %636
   %.not4964 = icmp eq i32 %642, 0
   br i1 %.not4964, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %643
@@ -4449,7 +4449,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 643:                                              ; preds = %637
   %644 = lshr i32 %2, 20
   %645 = and i32 %644, 63
-  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %645)
+  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %645)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 646:                                              ; preds = %7
@@ -4459,7 +4459,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2764 = load ptr, ptr %649, align 8
   %650 = getelementptr i8, ptr %.val2764, i64 216
   %.val2764.val = load i64, ptr %650, align 8
-  %651 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %648, i64 %.val2764.val)
+  %651 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %648, i64 %.val2764.val)
   %652 = and i32 %651, %0
   %.not4962 = icmp eq i32 %652, 0
   br i1 %.not4962, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %653
@@ -4470,7 +4470,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2765 = load ptr, ptr %649, align 8
   %656 = getelementptr i8, ptr %.val2765, i64 216
   %.val2765.val = load i64, ptr %656, align 8
-  %657 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %655, i64 %.val2765.val)
+  %657 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %655, i64 %.val2765.val)
   %658 = and i32 %657, %652
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -4481,7 +4481,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2766 = load ptr, ptr %662, align 8
   %663 = getelementptr i8, ptr %.val2766, i64 216
   %.val2766.val = load i64, ptr %663, align 8
-  %664 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %661, i64 %.val2766.val)
+  %664 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %661, i64 %.val2766.val)
   %665 = and i32 %664, %0
   %.not4960 = icmp eq i32 %665, 0
   br i1 %.not4960, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %666
@@ -4492,7 +4492,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2767 = load ptr, ptr %662, align 8
   %669 = getelementptr i8, ptr %.val2767, i64 216
   %.val2767.val = load i64, ptr %669, align 8
-  %670 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %668, i64 %.val2767.val)
+  %670 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %668, i64 %.val2767.val)
   %671 = and i32 %670, %665
   %.not4961 = icmp eq i32 %671, 0
   br i1 %.not4961, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %672
@@ -4500,7 +4500,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 672:                                              ; preds = %666
   %673 = lshr i32 %2, 20
   %674 = and i32 %673, 15
-  tail call fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %674)
+  tail call fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %674)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 675:                                              ; preds = %7
@@ -4510,7 +4510,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2768 = load ptr, ptr %678, align 8
   %679 = getelementptr i8, ptr %.val2768, i64 216
   %.val2768.val = load i64, ptr %679, align 8
-  %680 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %677, i64 %.val2768.val)
+  %680 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %677, i64 %.val2768.val)
   %681 = and i32 %680, %0
   %.not4959 = icmp eq i32 %681, 0
   br i1 %.not4959, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %682
@@ -4518,7 +4518,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 682:                                              ; preds = %675
   %683 = lshr i32 %2, 20
   %684 = and i32 %683, 4064
-  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %684)
+  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %684)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 685:                                              ; preds = %7
@@ -4528,14 +4528,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2769 = load ptr, ptr %688, align 8
   %689 = getelementptr i8, ptr %.val2769, i64 216
   %.val2769.val = load i64, ptr %689, align 8
-  %690 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %687, i64 %.val2769.val)
+  %690 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %687, i64 %.val2769.val)
   %691 = and i32 %690, %0
   %.not4958 = icmp eq i32 %691, 0
   br i1 %.not4958, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %692
 
 692:                                              ; preds = %685
   %693 = lshr i32 %2, 12
-  tail call fastcc void @_ZL17decodeUImmOperandILj20EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %693)
+  tail call fastcc void @_ZL17decodeUImmOperandILj20EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %693)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 694:                                              ; preds = %7
@@ -4545,7 +4545,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2770 = load ptr, ptr %697, align 8
   %698 = getelementptr i8, ptr %.val2770, i64 216
   %.val2770.val = load i64, ptr %698, align 8
-  %699 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %696, i64 %.val2770.val)
+  %699 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %696, i64 %.val2770.val)
   %700 = and i32 %699, %0
   %.not4956 = icmp eq i32 %700, 0
   br i1 %.not4956, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %701
@@ -4556,7 +4556,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2771 = load ptr, ptr %697, align 8
   %704 = getelementptr i8, ptr %.val2771, i64 216
   %.val2771.val = load i64, ptr %704, align 8
-  %705 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %703, i64 %.val2771.val)
+  %705 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %703, i64 %.val2771.val)
   %706 = and i32 %705, %700
   %.not4957 = icmp eq i32 %706, 0
   br i1 %.not4957, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %707
@@ -4564,7 +4564,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 707:                                              ; preds = %701
   %708 = lshr i32 %2, 20
   %709 = and i32 %708, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %709)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %709)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 710:                                              ; preds = %7
@@ -4574,7 +4574,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2772 = load ptr, ptr %713, align 8
   %714 = getelementptr i8, ptr %.val2772, i64 216
   %.val2772.val = load i64, ptr %714, align 8
-  %715 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %712, i64 %.val2772.val)
+  %715 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %712, i64 %.val2772.val)
   %716 = and i32 %715, %0
   %.not4954 = icmp eq i32 %716, 0
   br i1 %.not4954, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %717
@@ -4585,7 +4585,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2773 = load ptr, ptr %713, align 8
   %720 = getelementptr i8, ptr %.val2773, i64 216
   %.val2773.val = load i64, ptr %720, align 8
-  %721 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %719, i64 %.val2773.val)
+  %721 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %719, i64 %.val2773.val)
   %722 = and i32 %721, %716
   %.not4955 = icmp eq i32 %722, 0
   br i1 %.not4955, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %723
@@ -4595,13 +4595,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %725 = and i32 %724, 31
   %726 = and i32 %711, 4064
   %727 = or disjoint i32 %725, %726
-  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %727)
+  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %727)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 728:                                              ; preds = %7
   %729 = lshr i32 %2, 20
   %730 = and i32 %729, 31
-  %731 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %730)
+  %731 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %730)
   %732 = and i32 %731, %0
   %.not4952 = icmp eq i32 %732, 0
   br i1 %.not4952, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %733
@@ -4613,7 +4613,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2774 = load ptr, ptr %736, align 8
   %737 = getelementptr i8, ptr %.val2774, i64 216
   %.val2774.val = load i64, ptr %737, align 8
-  %738 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %735, i64 %.val2774.val)
+  %738 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %735, i64 %.val2774.val)
   %739 = and i32 %738, %732
   %.not4953 = icmp eq i32 %739, 0
   br i1 %.not4953, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %740
@@ -4623,13 +4623,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %742 = and i32 %741, 31
   %743 = and i32 %729, 4064
   %744 = or disjoint i32 %742, %743
-  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %744)
+  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %744)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 745:                                              ; preds = %7
   %746 = lshr i32 %2, 20
   %747 = and i32 %746, 31
-  %748 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %747)
+  %748 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %747)
   %749 = and i32 %748, %0
   %.not4950 = icmp eq i32 %749, 0
   br i1 %.not4950, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %750
@@ -4641,7 +4641,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2775 = load ptr, ptr %753, align 8
   %754 = getelementptr i8, ptr %.val2775, i64 216
   %.val2775.val = load i64, ptr %754, align 8
-  %755 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %752, i64 %.val2775.val)
+  %755 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %752, i64 %.val2775.val)
   %756 = and i32 %755, %749
   %.not4951 = icmp eq i32 %756, 0
   br i1 %.not4951, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %757
@@ -4651,13 +4651,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %759 = and i32 %758, 31
   %760 = and i32 %746, 4064
   %761 = or disjoint i32 %759, %760
-  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %761)
+  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %761)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 762:                                              ; preds = %7
   %763 = lshr i32 %2, 20
   %764 = and i32 %763, 31
-  %765 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %764)
+  %765 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %764)
   %766 = and i32 %765, %0
   %.not4948 = icmp eq i32 %766, 0
   br i1 %.not4948, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %767
@@ -4669,7 +4669,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2776 = load ptr, ptr %770, align 8
   %771 = getelementptr i8, ptr %.val2776, i64 216
   %.val2776.val = load i64, ptr %771, align 8
-  %772 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %769, i64 %.val2776.val)
+  %772 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %769, i64 %.val2776.val)
   %773 = and i32 %772, %766
   %.not4949 = icmp eq i32 %773, 0
   br i1 %.not4949, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %774
@@ -4679,7 +4679,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %776 = and i32 %775, 31
   %777 = and i32 %763, 4064
   %778 = or disjoint i32 %776, %777
-  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %778)
+  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %778)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 779:                                              ; preds = %7
@@ -4689,7 +4689,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2777 = load ptr, ptr %782, align 8
   %783 = getelementptr i8, ptr %.val2777, i64 216
   %.val2777.val = load i64, ptr %783, align 8
-  %784 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %781, i64 %.val2777.val)
+  %784 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %781, i64 %.val2777.val)
   %785 = and i32 %784, %0
   %.not4945 = icmp eq i32 %785, 0
   br i1 %.not4945, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %786
@@ -4698,7 +4698,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2778 = load ptr, ptr %782, align 8
   %787 = getelementptr i8, ptr %.val2778, i64 216
   %.val2778.val = load i64, ptr %787, align 8
-  %788 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %781, i64 %.val2778.val)
+  %788 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %781, i64 %.val2778.val)
   %789 = and i32 %788, %785
   %.not4946 = icmp eq i32 %789, 0
   br i1 %.not4946, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %790
@@ -4709,7 +4709,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2779 = load ptr, ptr %782, align 8
   %793 = getelementptr i8, ptr %.val2779, i64 216
   %.val2779.val = load i64, ptr %793, align 8
-  %794 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %792, i64 %.val2779.val)
+  %794 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %792, i64 %.val2779.val)
   %795 = and i32 %794, %789
   %.not4947 = icmp eq i32 %795, 0
   br i1 %.not4947, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %796
@@ -4720,7 +4720,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2780 = load ptr, ptr %782, align 8
   %799 = getelementptr i8, ptr %.val2780, i64 216
   %.val2780.val = load i64, ptr %799, align 8
-  %800 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %798, i64 %.val2780.val)
+  %800 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %798, i64 %.val2780.val)
   %801 = and i32 %800, %795
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -4731,7 +4731,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2781 = load ptr, ptr %805, align 8
   %806 = getelementptr i8, ptr %.val2781, i64 216
   %.val2781.val = load i64, ptr %806, align 8
-  %807 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %804, i64 %.val2781.val)
+  %807 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %804, i64 %.val2781.val)
   %808 = and i32 %807, %0
   %.not4943 = icmp eq i32 %808, 0
   br i1 %.not4943, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %809
@@ -4742,7 +4742,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2782 = load ptr, ptr %805, align 8
   %812 = getelementptr i8, ptr %.val2782, i64 216
   %.val2782.val = load i64, ptr %812, align 8
-  %813 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %811, i64 %.val2782.val)
+  %813 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %811, i64 %.val2782.val)
   %814 = and i32 %813, %808
   %.not4944 = icmp eq i32 %814, 0
   br i1 %.not4944, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %815
@@ -4753,20 +4753,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2783 = load ptr, ptr %805, align 8
   %818 = getelementptr i8, ptr %.val2783, i64 216
   %.val2783.val = load i64, ptr %818, align 8
-  %819 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %817, i64 %.val2783.val)
+  %819 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %817, i64 %.val2783.val)
   %820 = and i32 %819, %814
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 821:                                              ; preds = %7
   %822 = lshr i32 %2, 7
   %823 = and i32 %822, 31
-  %824 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %823)
+  %824 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %823)
   %825 = and i32 %824, %0
   %.not4940 = icmp eq i32 %825, 0
   br i1 %.not4940, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %826
 
 826:                                              ; preds = %821
-  %827 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %823)
+  %827 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %823)
   %828 = and i32 %827, %825
   %.not4941 = icmp eq i32 %828, 0
   br i1 %.not4941, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %829
@@ -4778,7 +4778,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2784 = load ptr, ptr %832, align 8
   %833 = getelementptr i8, ptr %.val2784, i64 216
   %.val2784.val = load i64, ptr %833, align 8
-  %834 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %831, i64 %.val2784.val)
+  %834 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %831, i64 %.val2784.val)
   %835 = and i32 %834, %828
   %.not4942 = icmp eq i32 %835, 0
   br i1 %.not4942, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %836
@@ -4786,7 +4786,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 836:                                              ; preds = %829
   %837 = lshr i32 %2, 20
   %838 = and i32 %837, 31
-  %839 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %838)
+  %839 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %838)
   %840 = and i32 %839, %835
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -4797,7 +4797,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2785 = load ptr, ptr %844, align 8
   %845 = getelementptr i8, ptr %.val2785, i64 216
   %.val2785.val = load i64, ptr %845, align 8
-  %846 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %843, i64 %.val2785.val)
+  %846 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %843, i64 %.val2785.val)
   %847 = and i32 %846, %0
   %.not4939 = icmp eq i32 %847, 0
   br i1 %.not4939, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %848
@@ -4808,7 +4808,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2786 = load ptr, ptr %844, align 8
   %851 = getelementptr i8, ptr %.val2786, i64 216
   %.val2786.val = load i64, ptr %851, align 8
-  %852 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %850, i64 %.val2786.val)
+  %852 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %850, i64 %.val2786.val)
   %853 = and i32 %852, %847
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -4819,7 +4819,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2787 = load ptr, ptr %857, align 8
   %858 = getelementptr i8, ptr %.val2787, i64 216
   %.val2787.val = load i64, ptr %858, align 8
-  %859 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %856, i64 %.val2787.val)
+  %859 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %856, i64 %.val2787.val)
   %860 = and i32 %859, %0
   %.not4936 = icmp eq i32 %860, 0
   br i1 %.not4936, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %861
@@ -4830,7 +4830,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2788 = load ptr, ptr %857, align 8
   %864 = getelementptr i8, ptr %.val2788, i64 216
   %.val2788.val = load i64, ptr %864, align 8
-  %865 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %863, i64 %.val2788.val)
+  %865 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %863, i64 %.val2788.val)
   %866 = and i32 %865, %860
   %.not4937 = icmp eq i32 %866, 0
   br i1 %.not4937, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %867
@@ -4841,20 +4841,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2789 = load ptr, ptr %857, align 8
   %870 = getelementptr i8, ptr %.val2789, i64 216
   %.val2789.val = load i64, ptr %870, align 8
-  %871 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %869, i64 %.val2789.val)
+  %871 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %869, i64 %.val2789.val)
   %872 = and i32 %871, %866
   %.not4938 = icmp eq i32 %872, 0
   br i1 %.not4938, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %873
 
 873:                                              ; preds = %867
   %874 = lshr i32 %2, 30
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %874)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %874)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 875:                                              ; preds = %7
   %876 = lshr i32 %2, 7
   %877 = and i32 %876, 31
-  %878 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %877)
+  %878 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %877)
   %879 = and i32 %878, %0
   %.not4932 = icmp eq i32 %879, 0
   br i1 %.not4932, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %880
@@ -4862,7 +4862,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 880:                                              ; preds = %875
   %881 = lshr i32 %2, 15
   %882 = and i32 %881, 31
-  %883 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %882)
+  %883 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %882)
   %884 = and i32 %883, %879
   %.not4933 = icmp eq i32 %884, 0
   br i1 %.not4933, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %885
@@ -4870,14 +4870,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 885:                                              ; preds = %880
   %886 = lshr i32 %2, 20
   %887 = and i32 %886, 31
-  %888 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %887)
+  %888 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %887)
   %889 = and i32 %888, %884
   %.not4934 = icmp eq i32 %889, 0
   br i1 %.not4934, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %890
 
 890:                                              ; preds = %885
   %891 = lshr i32 %2, 27
-  %892 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %891)
+  %892 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %891)
   %893 = and i32 %892, %889
   %.not4935 = icmp eq i32 %893, 0
   br i1 %.not4935, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %894
@@ -4885,14 +4885,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 894:                                              ; preds = %890
   %895 = lshr i32 %2, 12
   %896 = and i32 %895, 7
-  %897 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %896)
+  %897 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %896)
   %898 = and i32 %897, %893
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 899:                                              ; preds = %7
   %900 = lshr i32 %2, 7
   %901 = and i32 %900, 31
-  %902 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %901)
+  %902 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %901)
   %903 = and i32 %902, %0
   %.not4928 = icmp eq i32 %903, 0
   br i1 %.not4928, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %904
@@ -4900,7 +4900,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 904:                                              ; preds = %899
   %905 = lshr i32 %2, 15
   %906 = and i32 %905, 31
-  %907 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %906)
+  %907 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %906)
   %908 = and i32 %907, %903
   %.not4929 = icmp eq i32 %908, 0
   br i1 %.not4929, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %909
@@ -4908,14 +4908,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 909:                                              ; preds = %904
   %910 = lshr i32 %2, 20
   %911 = and i32 %910, 31
-  %912 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %911)
+  %912 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %911)
   %913 = and i32 %912, %908
   %.not4930 = icmp eq i32 %913, 0
   br i1 %.not4930, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %914
 
 914:                                              ; preds = %909
   %915 = lshr i32 %2, 27
-  %916 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %915)
+  %916 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %915)
   %917 = and i32 %916, %913
   %.not4931 = icmp eq i32 %917, 0
   br i1 %.not4931, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %918
@@ -4923,14 +4923,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 918:                                              ; preds = %914
   %919 = lshr i32 %2, 12
   %920 = and i32 %919, 7
-  %921 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %920)
+  %921 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %920)
   %922 = and i32 %921, %917
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 923:                                              ; preds = %7
   %924 = lshr i32 %2, 7
   %925 = and i32 %924, 31
-  %926 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %925)
+  %926 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %925)
   %927 = and i32 %926, %0
   %.not4924 = icmp eq i32 %927, 0
   br i1 %.not4924, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %928
@@ -4938,7 +4938,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 928:                                              ; preds = %923
   %929 = lshr i32 %2, 15
   %930 = and i32 %929, 31
-  %931 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %930)
+  %931 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %930)
   %932 = and i32 %931, %927
   %.not4925 = icmp eq i32 %932, 0
   br i1 %.not4925, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %933
@@ -4946,14 +4946,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 933:                                              ; preds = %928
   %934 = lshr i32 %2, 20
   %935 = and i32 %934, 31
-  %936 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %935)
+  %936 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %935)
   %937 = and i32 %936, %932
   %.not4926 = icmp eq i32 %937, 0
   br i1 %.not4926, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %938
 
 938:                                              ; preds = %933
   %939 = lshr i32 %2, 27
-  %940 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %939)
+  %940 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %939)
   %941 = and i32 %940, %937
   %.not4927 = icmp eq i32 %941, 0
   br i1 %.not4927, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %942
@@ -4961,14 +4961,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 942:                                              ; preds = %938
   %943 = lshr i32 %2, 12
   %944 = and i32 %943, 7
-  %945 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %944)
+  %945 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %944)
   %946 = and i32 %945, %941
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 947:                                              ; preds = %7
   %948 = lshr i32 %2, 7
   %949 = and i32 %948, 31
-  %950 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %949)
+  %950 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %949)
   %951 = and i32 %950, %0
   %.not4921 = icmp eq i32 %951, 0
   br i1 %.not4921, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %952
@@ -4976,7 +4976,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 952:                                              ; preds = %947
   %953 = lshr i32 %2, 15
   %954 = and i32 %953, 31
-  %955 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %954)
+  %955 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %954)
   %956 = and i32 %955, %951
   %.not4922 = icmp eq i32 %956, 0
   br i1 %.not4922, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %957
@@ -4984,7 +4984,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 957:                                              ; preds = %952
   %958 = lshr i32 %2, 20
   %959 = and i32 %958, 31
-  %960 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %959)
+  %960 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %959)
   %961 = and i32 %960, %956
   %.not4923 = icmp eq i32 %961, 0
   br i1 %.not4923, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %962
@@ -4992,14 +4992,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 962:                                              ; preds = %957
   %963 = lshr i32 %2, 12
   %964 = and i32 %963, 7
-  %965 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %964)
+  %965 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %964)
   %966 = and i32 %965, %961
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 967:                                              ; preds = %7
   %968 = lshr i32 %2, 7
   %969 = and i32 %968, 31
-  %970 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %969)
+  %970 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %969)
   %971 = and i32 %970, %0
   %.not4918 = icmp eq i32 %971, 0
   br i1 %.not4918, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %972
@@ -5007,7 +5007,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 972:                                              ; preds = %967
   %973 = lshr i32 %2, 15
   %974 = and i32 %973, 31
-  %975 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %974)
+  %975 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %974)
   %976 = and i32 %975, %971
   %.not4919 = icmp eq i32 %976, 0
   br i1 %.not4919, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %977
@@ -5015,7 +5015,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 977:                                              ; preds = %972
   %978 = lshr i32 %2, 20
   %979 = and i32 %978, 31
-  %980 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %979)
+  %980 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %979)
   %981 = and i32 %980, %976
   %.not4920 = icmp eq i32 %981, 0
   br i1 %.not4920, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %982
@@ -5023,14 +5023,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 982:                                              ; preds = %977
   %983 = lshr i32 %2, 12
   %984 = and i32 %983, 7
-  %985 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %984)
+  %985 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %984)
   %986 = and i32 %985, %981
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 987:                                              ; preds = %7
   %988 = lshr i32 %2, 7
   %989 = and i32 %988, 31
-  %990 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %989)
+  %990 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %989)
   %991 = and i32 %990, %0
   %.not4915 = icmp eq i32 %991, 0
   br i1 %.not4915, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %992
@@ -5038,7 +5038,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 992:                                              ; preds = %987
   %993 = lshr i32 %2, 15
   %994 = and i32 %993, 31
-  %995 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %994)
+  %995 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %994)
   %996 = and i32 %995, %991
   %.not4916 = icmp eq i32 %996, 0
   br i1 %.not4916, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %997
@@ -5046,7 +5046,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 997:                                              ; preds = %992
   %998 = lshr i32 %2, 20
   %999 = and i32 %998, 31
-  %1000 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %999)
+  %1000 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %999)
   %1001 = and i32 %1000, %996
   %.not4917 = icmp eq i32 %1001, 0
   br i1 %.not4917, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1002
@@ -5054,14 +5054,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1002:                                             ; preds = %997
   %1003 = lshr i32 %2, 12
   %1004 = and i32 %1003, 7
-  %1005 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1004)
+  %1005 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1004)
   %1006 = and i32 %1005, %1001
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1007:                                             ; preds = %7
   %1008 = lshr i32 %2, 7
   %1009 = and i32 %1008, 31
-  %1010 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1009)
+  %1010 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1009)
   %1011 = and i32 %1010, %0
   %.not4913 = icmp eq i32 %1011, 0
   br i1 %.not4913, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1012
@@ -5069,7 +5069,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1012:                                             ; preds = %1007
   %1013 = lshr i32 %2, 15
   %1014 = and i32 %1013, 31
-  %1015 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1014)
+  %1015 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1014)
   %1016 = and i32 %1015, %1011
   %.not4914 = icmp eq i32 %1016, 0
   br i1 %.not4914, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1017
@@ -5077,14 +5077,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1017:                                             ; preds = %1012
   %1018 = lshr i32 %2, 20
   %1019 = and i32 %1018, 31
-  %1020 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1019)
+  %1020 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1019)
   %1021 = and i32 %1020, %1016
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1022:                                             ; preds = %7
   %1023 = lshr i32 %2, 7
   %1024 = and i32 %1023, 31
-  %1025 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1024)
+  %1025 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1024)
   %1026 = and i32 %1025, %0
   %.not4911 = icmp eq i32 %1026, 0
   br i1 %.not4911, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1027
@@ -5092,7 +5092,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1027:                                             ; preds = %1022
   %1028 = lshr i32 %2, 15
   %1029 = and i32 %1028, 31
-  %1030 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1029)
+  %1030 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1029)
   %1031 = and i32 %1030, %1026
   %.not4912 = icmp eq i32 %1031, 0
   br i1 %.not4912, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1032
@@ -5100,14 +5100,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1032:                                             ; preds = %1027
   %1033 = lshr i32 %2, 20
   %1034 = and i32 %1033, 31
-  %1035 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1034)
+  %1035 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1034)
   %1036 = and i32 %1035, %1031
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1037:                                             ; preds = %7
   %1038 = lshr i32 %2, 7
   %1039 = and i32 %1038, 31
-  %1040 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1039)
+  %1040 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1039)
   %1041 = and i32 %1040, %0
   %.not4909 = icmp eq i32 %1041, 0
   br i1 %.not4909, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1042
@@ -5115,7 +5115,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1042:                                             ; preds = %1037
   %1043 = lshr i32 %2, 15
   %1044 = and i32 %1043, 31
-  %1045 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1044)
+  %1045 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1044)
   %1046 = and i32 %1045, %1041
   %.not4910 = icmp eq i32 %1046, 0
   br i1 %.not4910, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1047
@@ -5123,14 +5123,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1047:                                             ; preds = %1042
   %1048 = lshr i32 %2, 20
   %1049 = and i32 %1048, 31
-  %1050 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1049)
+  %1050 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1049)
   %1051 = and i32 %1050, %1046
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1052:                                             ; preds = %7
   %1053 = lshr i32 %2, 7
   %1054 = and i32 %1053, 31
-  %1055 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1054)
+  %1055 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1054)
   %1056 = and i32 %1055, %0
   %.not4907 = icmp eq i32 %1056, 0
   br i1 %.not4907, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1057
@@ -5138,7 +5138,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1057:                                             ; preds = %1052
   %1058 = lshr i32 %2, 15
   %1059 = and i32 %1058, 31
-  %1060 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1059)
+  %1060 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1059)
   %1061 = and i32 %1060, %1056
   %.not4908 = icmp eq i32 %1061, 0
   br i1 %.not4908, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1062
@@ -5146,14 +5146,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1062:                                             ; preds = %1057
   %1063 = lshr i32 %2, 12
   %1064 = and i32 %1063, 7
-  %1065 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1064)
+  %1065 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1064)
   %1066 = and i32 %1065, %1061
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1067:                                             ; preds = %7
   %1068 = lshr i32 %2, 7
   %1069 = and i32 %1068, 31
-  %1070 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1069)
+  %1070 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1069)
   %1071 = and i32 %1070, %0
   %.not4905 = icmp eq i32 %1071, 0
   br i1 %.not4905, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1072
@@ -5161,7 +5161,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1072:                                             ; preds = %1067
   %1073 = lshr i32 %2, 15
   %1074 = and i32 %1073, 31
-  %1075 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1074)
+  %1075 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1074)
   %1076 = and i32 %1075, %1071
   %.not4906 = icmp eq i32 %1076, 0
   br i1 %.not4906, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1077
@@ -5169,14 +5169,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1077:                                             ; preds = %1072
   %1078 = lshr i32 %2, 12
   %1079 = and i32 %1078, 7
-  %1080 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1079)
+  %1080 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1079)
   %1081 = and i32 %1080, %1076
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1082:                                             ; preds = %7
   %1083 = lshr i32 %2, 7
   %1084 = and i32 %1083, 31
-  %1085 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1084)
+  %1085 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1084)
   %1086 = and i32 %1085, %0
   %.not4903 = icmp eq i32 %1086, 0
   br i1 %.not4903, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1087
@@ -5184,7 +5184,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1087:                                             ; preds = %1082
   %1088 = lshr i32 %2, 15
   %1089 = and i32 %1088, 31
-  %1090 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1089)
+  %1090 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1089)
   %1091 = and i32 %1090, %1086
   %.not4904 = icmp eq i32 %1091, 0
   br i1 %.not4904, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1092
@@ -5192,14 +5192,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1092:                                             ; preds = %1087
   %1093 = lshr i32 %2, 12
   %1094 = and i32 %1093, 7
-  %1095 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1094)
+  %1095 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1094)
   %1096 = and i32 %1095, %1091
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1097:                                             ; preds = %7
   %1098 = lshr i32 %2, 7
   %1099 = and i32 %1098, 31
-  %1100 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1099)
+  %1100 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1099)
   %1101 = and i32 %1100, %0
   %.not4901 = icmp eq i32 %1101, 0
   br i1 %.not4901, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1102
@@ -5207,7 +5207,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1102:                                             ; preds = %1097
   %1103 = lshr i32 %2, 15
   %1104 = and i32 %1103, 31
-  %1105 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1104)
+  %1105 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1104)
   %1106 = and i32 %1105, %1101
   %.not4902 = icmp eq i32 %1106, 0
   br i1 %.not4902, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1107
@@ -5215,14 +5215,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1107:                                             ; preds = %1102
   %1108 = lshr i32 %2, 12
   %1109 = and i32 %1108, 7
-  %1110 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1109)
+  %1110 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1109)
   %1111 = and i32 %1110, %1106
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1112:                                             ; preds = %7
   %1113 = lshr i32 %2, 7
   %1114 = and i32 %1113, 31
-  %1115 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1114)
+  %1115 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1114)
   %1116 = and i32 %1115, %0
   %.not4899 = icmp eq i32 %1116, 0
   br i1 %.not4899, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1117
@@ -5230,7 +5230,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1117:                                             ; preds = %1112
   %1118 = lshr i32 %2, 15
   %1119 = and i32 %1118, 31
-  %1120 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1119)
+  %1120 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1119)
   %1121 = and i32 %1120, %1116
   %.not4900 = icmp eq i32 %1121, 0
   br i1 %.not4900, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1122
@@ -5238,14 +5238,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1122:                                             ; preds = %1117
   %1123 = lshr i32 %2, 12
   %1124 = and i32 %1123, 7
-  %1125 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1124)
+  %1125 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1124)
   %1126 = and i32 %1125, %1121
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1127:                                             ; preds = %7
   %1128 = lshr i32 %2, 7
   %1129 = and i32 %1128, 31
-  %1130 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1129)
+  %1130 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1129)
   %1131 = and i32 %1130, %0
   %.not4897 = icmp eq i32 %1131, 0
   br i1 %.not4897, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1132
@@ -5253,7 +5253,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1132:                                             ; preds = %1127
   %1133 = lshr i32 %2, 15
   %1134 = and i32 %1133, 31
-  %1135 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1134)
+  %1135 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1134)
   %1136 = and i32 %1135, %1131
   %.not4898 = icmp eq i32 %1136, 0
   br i1 %.not4898, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1137
@@ -5261,14 +5261,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1137:                                             ; preds = %1132
   %1138 = lshr i32 %2, 12
   %1139 = and i32 %1138, 7
-  %1140 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1139)
+  %1140 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1139)
   %1141 = and i32 %1140, %1136
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1142:                                             ; preds = %7
   %1143 = lshr i32 %2, 7
   %1144 = and i32 %1143, 31
-  %1145 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1144)
+  %1145 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1144)
   %1146 = and i32 %1145, %0
   %.not4895 = icmp eq i32 %1146, 0
   br i1 %.not4895, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1147
@@ -5276,7 +5276,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1147:                                             ; preds = %1142
   %1148 = lshr i32 %2, 15
   %1149 = and i32 %1148, 31
-  %1150 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1149)
+  %1150 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1149)
   %1151 = and i32 %1150, %1146
   %.not4896 = icmp eq i32 %1151, 0
   br i1 %.not4896, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1152
@@ -5284,14 +5284,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1152:                                             ; preds = %1147
   %1153 = lshr i32 %2, 12
   %1154 = and i32 %1153, 7
-  %1155 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1154)
+  %1155 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1154)
   %1156 = and i32 %1155, %1151
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1157:                                             ; preds = %7
   %1158 = lshr i32 %2, 7
   %1159 = and i32 %1158, 31
-  %1160 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1159)
+  %1160 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1159)
   %1161 = and i32 %1160, %0
   %.not4893 = icmp eq i32 %1161, 0
   br i1 %.not4893, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1162
@@ -5299,7 +5299,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1162:                                             ; preds = %1157
   %1163 = lshr i32 %2, 15
   %1164 = and i32 %1163, 31
-  %1165 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1164)
+  %1165 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1164)
   %1166 = and i32 %1165, %1161
   %.not4894 = icmp eq i32 %1166, 0
   br i1 %.not4894, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1167
@@ -5307,14 +5307,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1167:                                             ; preds = %1162
   %1168 = lshr i32 %2, 12
   %1169 = and i32 %1168, 7
-  %1170 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1169)
+  %1170 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1169)
   %1171 = and i32 %1170, %1166
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1172:                                             ; preds = %7
   %1173 = lshr i32 %2, 7
   %1174 = and i32 %1173, 31
-  %1175 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1174)
+  %1175 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1174)
   %1176 = and i32 %1175, %0
   %.not4891 = icmp eq i32 %1176, 0
   br i1 %.not4891, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1177
@@ -5322,7 +5322,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1177:                                             ; preds = %1172
   %1178 = lshr i32 %2, 15
   %1179 = and i32 %1178, 31
-  %1180 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1179)
+  %1180 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1179)
   %1181 = and i32 %1180, %1176
   %.not4892 = icmp eq i32 %1181, 0
   br i1 %.not4892, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1182
@@ -5330,7 +5330,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1182:                                             ; preds = %1177
   %1183 = lshr i32 %2, 12
   %1184 = and i32 %1183, 7
-  %1185 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1184)
+  %1185 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1184)
   %1186 = and i32 %1185, %1181
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -5341,7 +5341,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2790 = load ptr, ptr %1190, align 8
   %1191 = getelementptr i8, ptr %.val2790, i64 216
   %.val2790.val = load i64, ptr %1191, align 8
-  %1192 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1189, i64 %.val2790.val)
+  %1192 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1189, i64 %.val2790.val)
   %1193 = and i32 %1192, %0
   %.not4889 = icmp eq i32 %1193, 0
   br i1 %.not4889, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1194
@@ -5349,7 +5349,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1194:                                             ; preds = %1187
   %1195 = lshr i32 %2, 15
   %1196 = and i32 %1195, 31
-  %1197 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1196)
+  %1197 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1196)
   %1198 = and i32 %1197, %1193
   %.not4890 = icmp eq i32 %1198, 0
   br i1 %.not4890, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1199
@@ -5357,7 +5357,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1199:                                             ; preds = %1194
   %1200 = lshr i32 %2, 20
   %1201 = and i32 %1200, 31
-  %1202 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1201)
+  %1202 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1201)
   %1203 = and i32 %1202, %1198
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -5368,7 +5368,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2791 = load ptr, ptr %1207, align 8
   %1208 = getelementptr i8, ptr %.val2791, i64 216
   %.val2791.val = load i64, ptr %1208, align 8
-  %1209 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1206, i64 %.val2791.val)
+  %1209 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1206, i64 %.val2791.val)
   %1210 = and i32 %1209, %0
   %.not4887 = icmp eq i32 %1210, 0
   br i1 %.not4887, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1211
@@ -5376,7 +5376,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1211:                                             ; preds = %1204
   %1212 = lshr i32 %2, 15
   %1213 = and i32 %1212, 31
-  %1214 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1213)
+  %1214 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1213)
   %1215 = and i32 %1214, %1210
   %.not4888 = icmp eq i32 %1215, 0
   br i1 %.not4888, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1216
@@ -5384,7 +5384,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1216:                                             ; preds = %1211
   %1217 = lshr i32 %2, 20
   %1218 = and i32 %1217, 31
-  %1219 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1218)
+  %1219 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1218)
   %1220 = and i32 %1219, %1215
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -5395,7 +5395,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2792 = load ptr, ptr %1224, align 8
   %1225 = getelementptr i8, ptr %.val2792, i64 216
   %.val2792.val = load i64, ptr %1225, align 8
-  %1226 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1223, i64 %.val2792.val)
+  %1226 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1223, i64 %.val2792.val)
   %1227 = and i32 %1226, %0
   %.not4885 = icmp eq i32 %1227, 0
   br i1 %.not4885, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1228
@@ -5403,7 +5403,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1228:                                             ; preds = %1221
   %1229 = lshr i32 %2, 15
   %1230 = and i32 %1229, 31
-  %1231 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1230)
+  %1231 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1230)
   %1232 = and i32 %1231, %1227
   %.not4886 = icmp eq i32 %1232, 0
   br i1 %.not4886, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1233
@@ -5411,14 +5411,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1233:                                             ; preds = %1228
   %1234 = lshr i32 %2, 20
   %1235 = and i32 %1234, 31
-  %1236 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1235)
+  %1236 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1235)
   %1237 = and i32 %1236, %1232
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1238:                                             ; preds = %7
   %1239 = lshr i32 %2, 7
   %1240 = and i32 %1239, 31
-  %1241 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1240)
+  %1241 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1240)
   %1242 = and i32 %1241, %0
   %.not4883 = icmp eq i32 %1242, 0
   br i1 %.not4883, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1243
@@ -5430,7 +5430,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2793 = load ptr, ptr %1246, align 8
   %1247 = getelementptr i8, ptr %.val2793, i64 216
   %.val2793.val = load i64, ptr %1247, align 8
-  %1248 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1245, i64 %.val2793.val)
+  %1248 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1245, i64 %.val2793.val)
   %1249 = and i32 %1248, %1242
   %.not4884 = icmp eq i32 %1249, 0
   br i1 %.not4884, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1250
@@ -5441,7 +5441,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2794 = load ptr, ptr %1246, align 8
   %1253 = getelementptr i8, ptr %.val2794, i64 216
   %.val2794.val = load i64, ptr %1253, align 8
-  %1254 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1252, i64 %.val2794.val)
+  %1254 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1252, i64 %.val2794.val)
   %1255 = and i32 %1254, %1249
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -5452,7 +5452,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2795 = load ptr, ptr %1259, align 8
   %1260 = getelementptr i8, ptr %.val2795, i64 216
   %.val2795.val = load i64, ptr %1260, align 8
-  %1261 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1258, i64 %.val2795.val)
+  %1261 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1258, i64 %.val2795.val)
   %1262 = and i32 %1261, %0
   %.not4881 = icmp eq i32 %1262, 0
   br i1 %.not4881, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1263
@@ -5460,7 +5460,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1263:                                             ; preds = %1256
   %1264 = lshr i32 %2, 15
   %1265 = and i32 %1264, 31
-  %1266 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1265)
+  %1266 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1265)
   %1267 = and i32 %1266, %1262
   %.not4882 = icmp eq i32 %1267, 0
   br i1 %.not4882, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1268
@@ -5468,7 +5468,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1268:                                             ; preds = %1263
   %1269 = lshr i32 %2, 12
   %1270 = and i32 %1269, 7
-  %1271 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1270)
+  %1271 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1270)
   %1272 = and i32 %1271, %1267
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -5479,7 +5479,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2796 = load ptr, ptr %1276, align 8
   %1277 = getelementptr i8, ptr %.val2796, i64 216
   %.val2796.val = load i64, ptr %1277, align 8
-  %1278 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1275, i64 %.val2796.val)
+  %1278 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1275, i64 %.val2796.val)
   %1279 = and i32 %1278, %0
   %.not4879 = icmp eq i32 %1279, 0
   br i1 %.not4879, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1280
@@ -5487,7 +5487,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1280:                                             ; preds = %1273
   %1281 = lshr i32 %2, 15
   %1282 = and i32 %1281, 31
-  %1283 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1282)
+  %1283 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1282)
   %1284 = and i32 %1283, %1279
   %.not4880 = icmp eq i32 %1284, 0
   br i1 %.not4880, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1285
@@ -5495,7 +5495,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1285:                                             ; preds = %1280
   %1286 = lshr i32 %2, 12
   %1287 = and i32 %1286, 7
-  %1288 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1287)
+  %1288 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1287)
   %1289 = and i32 %1288, %1284
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -5506,7 +5506,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2797 = load ptr, ptr %1293, align 8
   %1294 = getelementptr i8, ptr %.val2797, i64 216
   %.val2797.val = load i64, ptr %1294, align 8
-  %1295 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1292, i64 %.val2797.val)
+  %1295 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1292, i64 %.val2797.val)
   %1296 = and i32 %1295, %0
   %.not4877 = icmp eq i32 %1296, 0
   br i1 %.not4877, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1297
@@ -5514,7 +5514,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1297:                                             ; preds = %1290
   %1298 = lshr i32 %2, 15
   %1299 = and i32 %1298, 31
-  %1300 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1299)
+  %1300 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1299)
   %1301 = and i32 %1300, %1296
   %.not4878 = icmp eq i32 %1301, 0
   br i1 %.not4878, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1302
@@ -5522,14 +5522,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1302:                                             ; preds = %1297
   %1303 = lshr i32 %2, 12
   %1304 = and i32 %1303, 7
-  %1305 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1304)
+  %1305 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1304)
   %1306 = and i32 %1305, %1301
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1307:                                             ; preds = %7
   %1308 = lshr i32 %2, 7
   %1309 = and i32 %1308, 31
-  %1310 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1309)
+  %1310 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1309)
   %1311 = and i32 %1310, %0
   %.not4875 = icmp eq i32 %1311, 0
   br i1 %.not4875, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1312
@@ -5541,7 +5541,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2798 = load ptr, ptr %1315, align 8
   %1316 = getelementptr i8, ptr %.val2798, i64 216
   %.val2798.val = load i64, ptr %1316, align 8
-  %1317 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1314, i64 %.val2798.val)
+  %1317 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1314, i64 %.val2798.val)
   %1318 = and i32 %1317, %1311
   %.not4876 = icmp eq i32 %1318, 0
   br i1 %.not4876, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1319
@@ -5549,14 +5549,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1319:                                             ; preds = %1312
   %1320 = lshr i32 %2, 12
   %1321 = and i32 %1320, 7
-  %1322 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1321)
+  %1322 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1321)
   %1323 = and i32 %1322, %1318
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1324:                                             ; preds = %7
   %1325 = lshr i32 %2, 7
   %1326 = and i32 %1325, 31
-  %1327 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1326)
+  %1327 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1326)
   %1328 = and i32 %1327, %0
   %.not4873 = icmp eq i32 %1328, 0
   br i1 %.not4873, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1329
@@ -5568,7 +5568,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2799 = load ptr, ptr %1332, align 8
   %1333 = getelementptr i8, ptr %.val2799, i64 216
   %.val2799.val = load i64, ptr %1333, align 8
-  %1334 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1331, i64 %.val2799.val)
+  %1334 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1331, i64 %.val2799.val)
   %1335 = and i32 %1334, %1328
   %.not4874 = icmp eq i32 %1335, 0
   br i1 %.not4874, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1336
@@ -5576,14 +5576,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1336:                                             ; preds = %1329
   %1337 = lshr i32 %2, 12
   %1338 = and i32 %1337, 7
-  %1339 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1338)
+  %1339 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1338)
   %1340 = and i32 %1339, %1335
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1341:                                             ; preds = %7
   %1342 = lshr i32 %2, 7
   %1343 = and i32 %1342, 31
-  %1344 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1343)
+  %1344 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1343)
   %1345 = and i32 %1344, %0
   %.not4871 = icmp eq i32 %1345, 0
   br i1 %.not4871, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1346
@@ -5595,7 +5595,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2800 = load ptr, ptr %1349, align 8
   %1350 = getelementptr i8, ptr %.val2800, i64 216
   %.val2800.val = load i64, ptr %1350, align 8
-  %1351 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1348, i64 %.val2800.val)
+  %1351 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1348, i64 %.val2800.val)
   %1352 = and i32 %1351, %1345
   %.not4872 = icmp eq i32 %1352, 0
   br i1 %.not4872, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1353
@@ -5603,7 +5603,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1353:                                             ; preds = %1346
   %1354 = lshr i32 %2, 12
   %1355 = and i32 %1354, 7
-  %1356 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1355)
+  %1356 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1355)
   %1357 = and i32 %1356, %1352
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -5614,7 +5614,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2801 = load ptr, ptr %1361, align 8
   %1362 = getelementptr i8, ptr %.val2801, i64 216
   %.val2801.val = load i64, ptr %1362, align 8
-  %1363 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1360, i64 %.val2801.val)
+  %1363 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1360, i64 %.val2801.val)
   %1364 = and i32 %1363, %0
   %.not4870 = icmp eq i32 %1364, 0
   br i1 %.not4870, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1365
@@ -5622,7 +5622,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1365:                                             ; preds = %1358
   %1366 = lshr i32 %2, 15
   %1367 = and i32 %1366, 31
-  %1368 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1367)
+  %1368 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1367)
   %1369 = and i32 %1368, %1364
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -5633,7 +5633,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2802 = load ptr, ptr %1373, align 8
   %1374 = getelementptr i8, ptr %.val2802, i64 216
   %.val2802.val = load i64, ptr %1374, align 8
-  %1375 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1372, i64 %.val2802.val)
+  %1375 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1372, i64 %.val2802.val)
   %1376 = and i32 %1375, %0
   %.not4869 = icmp eq i32 %1376, 0
   br i1 %.not4869, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1377
@@ -5641,7 +5641,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1377:                                             ; preds = %1370
   %1378 = lshr i32 %2, 15
   %1379 = and i32 %1378, 31
-  %1380 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1379)
+  %1380 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1379)
   %1381 = and i32 %1380, %1376
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -5652,7 +5652,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2803 = load ptr, ptr %1385, align 8
   %1386 = getelementptr i8, ptr %.val2803, i64 216
   %.val2803.val = load i64, ptr %1386, align 8
-  %1387 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1384, i64 %.val2803.val)
+  %1387 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1384, i64 %.val2803.val)
   %1388 = and i32 %1387, %0
   %.not4868 = icmp eq i32 %1388, 0
   br i1 %.not4868, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1389
@@ -5660,14 +5660,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1389:                                             ; preds = %1382
   %1390 = lshr i32 %2, 15
   %1391 = and i32 %1390, 31
-  %1392 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1391)
+  %1392 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1391)
   %1393 = and i32 %1392, %1388
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1394:                                             ; preds = %7
   %1395 = lshr i32 %2, 7
   %1396 = and i32 %1395, 31
-  %1397 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1396)
+  %1397 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1396)
   %1398 = and i32 %1397, %0
   %.not4867 = icmp eq i32 %1398, 0
   br i1 %.not4867, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1399
@@ -5679,14 +5679,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2804 = load ptr, ptr %1402, align 8
   %1403 = getelementptr i8, ptr %.val2804, i64 216
   %.val2804.val = load i64, ptr %1403, align 8
-  %1404 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1401, i64 %.val2804.val)
+  %1404 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1401, i64 %.val2804.val)
   %1405 = and i32 %1404, %1398
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1406:                                             ; preds = %7
   %1407 = lshr i32 %2, 7
   %1408 = and i32 %1407, 31
-  %1409 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1408)
+  %1409 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1408)
   %1410 = and i32 %1409, %0
   %.not4866 = icmp eq i32 %1410, 0
   br i1 %.not4866, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1411
@@ -5701,7 +5701,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1415:                                             ; preds = %7
   %1416 = lshr i32 %2, 7
   %1417 = and i32 %1416, 31
-  %1418 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1417)
+  %1418 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1417)
   %1419 = and i32 %1418, %0
   %.not4865 = icmp eq i32 %1419, 0
   br i1 %.not4865, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1420
@@ -5713,14 +5713,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2805 = load ptr, ptr %1423, align 8
   %1424 = getelementptr i8, ptr %.val2805, i64 216
   %.val2805.val = load i64, ptr %1424, align 8
-  %1425 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1422, i64 %.val2805.val)
+  %1425 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1422, i64 %.val2805.val)
   %1426 = and i32 %1425, %1419
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1427:                                             ; preds = %7
   %1428 = lshr i32 %2, 7
   %1429 = and i32 %1428, 31
-  %1430 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1429)
+  %1430 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1429)
   %1431 = and i32 %1430, %0
   %.not4864 = icmp eq i32 %1431, 0
   br i1 %.not4864, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1432
@@ -5735,7 +5735,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1436:                                             ; preds = %7
   %1437 = lshr i32 %2, 7
   %1438 = and i32 %1437, 31
-  %1439 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1438)
+  %1439 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1438)
   %1440 = and i32 %1439, %0
   %.not4863 = icmp eq i32 %1440, 0
   br i1 %.not4863, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1441
@@ -5747,14 +5747,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2806 = load ptr, ptr %1444, align 8
   %1445 = getelementptr i8, ptr %.val2806, i64 216
   %.val2806.val = load i64, ptr %1445, align 8
-  %1446 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1443, i64 %.val2806.val)
+  %1446 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1443, i64 %.val2806.val)
   %1447 = and i32 %1446, %1440
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1448:                                             ; preds = %7
   %1449 = lshr i32 %2, 7
   %1450 = and i32 %1449, 31
-  %1451 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1450)
+  %1451 = tail call fastcc noundef i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1450)
   %1452 = and i32 %1451, %0
   %.not4862 = icmp eq i32 %1452, 0
   br i1 %.not4862, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1453
@@ -5769,7 +5769,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1457:                                             ; preds = %7
   %1458 = lshr i32 %2, 7
   %1459 = and i32 %1458, 31
-  %1460 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1459)
+  %1460 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1459)
   %1461 = and i32 %1460, %0
   %.not4859 = icmp eq i32 %1461, 0
   br i1 %.not4859, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1462
@@ -5777,7 +5777,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1462:                                             ; preds = %1457
   %1463 = lshr i32 %2, 20
   %1464 = and i32 %1463, 31
-  %1465 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1464)
+  %1465 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1464)
   %1466 = and i32 %1465, %1461
   %.not4860 = icmp eq i32 %1466, 0
   br i1 %.not4860, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1467
@@ -5785,7 +5785,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1467:                                             ; preds = %1462
   %1468 = lshr i32 %2, 15
   %1469 = and i32 %1468, 31
-  %1470 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1469)
+  %1470 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1469)
   %1471 = and i32 %1470, %1466
   %.not4861 = icmp eq i32 %1471, 0
   br i1 %.not4861, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1472
@@ -5793,14 +5793,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1472:                                             ; preds = %1467
   %1473 = lshr i32 %2, 25
   %1474 = and i32 %1473, 1
-  %1475 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1474)
+  %1475 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1474)
   %1476 = and i32 %1475, %1471
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1477:                                             ; preds = %7
   %1478 = lshr i32 %2, 7
   %1479 = and i32 %1478, 31
-  %1480 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1479)
+  %1480 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1479)
   %1481 = and i32 %1480, %0
   %.not4857 = icmp eq i32 %1481, 0
   br i1 %.not4857, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1482
@@ -5808,7 +5808,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1482:                                             ; preds = %1477
   %1483 = lshr i32 %2, 20
   %1484 = and i32 %1483, 31
-  %1485 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1484)
+  %1485 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1484)
   %1486 = and i32 %1485, %1481
   %.not4858 = icmp eq i32 %1486, 0
   br i1 %.not4858, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1487
@@ -5816,14 +5816,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1487:                                             ; preds = %1482
   %1488 = lshr i32 %2, 15
   %1489 = and i32 %1488, 31
-  %1490 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1489)
+  %1490 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1489)
   %1491 = and i32 %1490, %1486
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1492:                                             ; preds = %7
   %1493 = lshr i32 %2, 7
   %1494 = and i32 %1493, 31
-  %1495 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1494)
+  %1495 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1494)
   %1496 = and i32 %1495, %0
   %.not4856 = icmp eq i32 %1496, 0
   br i1 %.not4856, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1497
@@ -5831,14 +5831,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1497:                                             ; preds = %1492
   %1498 = lshr i32 %2, 15
   %1499 = and i32 %1498, 31
-  %1500 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1499)
+  %1500 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1499)
   %1501 = and i32 %1500, %1496
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1502:                                             ; preds = %7
   %1503 = lshr i32 %2, 7
   %1504 = and i32 %1503, 31
-  %1505 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1504)
+  %1505 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1504)
   %1506 = and i32 %1505, %0
   %.not4855 = icmp eq i32 %1506, 0
   br i1 %.not4855, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1507
@@ -5846,14 +5846,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1507:                                             ; preds = %1502
   %1508 = lshr i32 %2, 20
   %1509 = and i32 %1508, 31
-  %1510 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1509)
+  %1510 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1509)
   %1511 = and i32 %1510, %1506
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1512:                                             ; preds = %7
   %1513 = lshr i32 %2, 7
   %1514 = and i32 %1513, 31
-  %1515 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1514)
+  %1515 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1514)
   %1516 = and i32 %1515, %0
   %.not4853 = icmp eq i32 %1516, 0
   br i1 %.not4853, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1517
@@ -5861,7 +5861,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1517:                                             ; preds = %1512
   %1518 = lshr i32 %2, 20
   %1519 = and i32 %1518, 31
-  %1520 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1519)
+  %1520 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1519)
   %1521 = and i32 %1520, %1516
   %.not4854 = icmp eq i32 %1521, 0
   br i1 %.not4854, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1522
@@ -5869,20 +5869,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1522:                                             ; preds = %1517
   %1523 = lshr i32 %2, 25
   %1524 = and i32 %1523, 1
-  %1525 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1524)
+  %1525 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1524)
   %1526 = and i32 %1525, %1521
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1527:                                             ; preds = %7
   %1528 = lshr i32 %2, 7
   %1529 = and i32 %1528, 31
-  %1530 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1529)
+  %1530 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1529)
   %1531 = and i32 %1530, %0
   %.not4849 = icmp eq i32 %1531, 0
   br i1 %.not4849, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1532
 
 1532:                                             ; preds = %1527
-  %1533 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1529)
+  %1533 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1529)
   %1534 = and i32 %1533, %1531
   %.not4850 = icmp eq i32 %1534, 0
   br i1 %.not4850, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1535
@@ -5890,7 +5890,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1535:                                             ; preds = %1532
   %1536 = lshr i32 %2, 15
   %1537 = and i32 %1536, 31
-  %1538 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1537)
+  %1538 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1537)
   %1539 = and i32 %1538, %1534
   %.not4851 = icmp eq i32 %1539, 0
   br i1 %.not4851, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1540
@@ -5898,7 +5898,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1540:                                             ; preds = %1535
   %1541 = lshr i32 %2, 20
   %1542 = and i32 %1541, 31
-  %1543 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1542)
+  %1543 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1542)
   %1544 = and i32 %1543, %1539
   %.not4852 = icmp eq i32 %1544, 0
   br i1 %.not4852, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1545
@@ -5906,7 +5906,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1545:                                             ; preds = %1540
   %1546 = lshr i32 %2, 25
   %1547 = and i32 %1546, 1
-  %1548 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1547)
+  %1548 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1547)
   %1549 = and i32 %1548, %1544
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -5917,7 +5917,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2807 = load ptr, ptr %1553, align 8
   %1554 = getelementptr i8, ptr %.val2807, i64 216
   %.val2807.val = load i64, ptr %1554, align 8
-  %1555 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1552, i64 %.val2807.val)
+  %1555 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1552, i64 %.val2807.val)
   %1556 = and i32 %1555, %0
   %.not4848 = icmp eq i32 %1556, 0
   br i1 %.not4848, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1557
@@ -5925,7 +5925,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1557:                                             ; preds = %1550
   %1558 = lshr i32 %2, 20
   %1559 = and i32 %1558, 31
-  %1560 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1559)
+  %1560 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1559)
   %1561 = and i32 %1560, %1556
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -5936,7 +5936,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2808 = load ptr, ptr %1565, align 8
   %1566 = getelementptr i8, ptr %.val2808, i64 216
   %.val2808.val = load i64, ptr %1566, align 8
-  %1567 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1564, i64 %.val2808.val)
+  %1567 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1564, i64 %.val2808.val)
   %1568 = and i32 %1567, %0
   %.not4846 = icmp eq i32 %1568, 0
   br i1 %.not4846, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1569
@@ -5944,7 +5944,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1569:                                             ; preds = %1562
   %1570 = lshr i32 %2, 20
   %1571 = and i32 %1570, 31
-  %1572 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1571)
+  %1572 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1571)
   %1573 = and i32 %1572, %1568
   %.not4847 = icmp eq i32 %1573, 0
   br i1 %.not4847, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1574
@@ -5952,14 +5952,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1574:                                             ; preds = %1569
   %1575 = lshr i32 %2, 25
   %1576 = and i32 %1575, 1
-  %1577 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1576)
+  %1577 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1576)
   %1578 = and i32 %1577, %1573
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1579:                                             ; preds = %7
   %1580 = lshr i32 %2, 7
   %1581 = and i32 %1580, 31
-  %1582 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1581)
+  %1582 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1581)
   %1583 = and i32 %1582, %0
   %.not4845 = icmp eq i32 %1583, 0
   br i1 %.not4845, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1584
@@ -5967,14 +5967,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1584:                                             ; preds = %1579
   %1585 = lshr i32 %2, 25
   %1586 = and i32 %1585, 1
-  %1587 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1586)
+  %1587 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1586)
   %1588 = and i32 %1587, %1583
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1589:                                             ; preds = %7
   %1590 = lshr i32 %2, 7
   %1591 = and i32 %1590, 31
-  %1592 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1591)
+  %1592 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1591)
   %1593 = and i32 %1592, %0
   %.not4843 = icmp eq i32 %1593, 0
   br i1 %.not4843, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1594
@@ -5982,7 +5982,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1594:                                             ; preds = %1589
   %1595 = lshr i32 %2, 20
   %1596 = and i32 %1595, 31
-  %1597 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1596)
+  %1597 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1596)
   %1598 = and i32 %1597, %1593
   %.not4844 = icmp eq i32 %1598, 0
   br i1 %.not4844, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1599
@@ -5990,17 +5990,17 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1599:                                             ; preds = %1594
   %1600 = lshr i32 %2, 15
   %1601 = and i32 %1600, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1601)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1601)
   %1602 = lshr i32 %2, 25
   %1603 = and i32 %1602, 1
-  %1604 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1603)
+  %1604 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1603)
   %1605 = and i32 %1604, %1598
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1606:                                             ; preds = %7
   %1607 = lshr i32 %2, 7
   %1608 = and i32 %1607, 31
-  %1609 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1608)
+  %1609 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1608)
   %1610 = and i32 %1609, %0
   %.not4841 = icmp eq i32 %1610, 0
   br i1 %.not4841, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1611
@@ -6008,7 +6008,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1611:                                             ; preds = %1606
   %1612 = lshr i32 %2, 20
   %1613 = and i32 %1612, 31
-  %1614 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1613)
+  %1614 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1613)
   %1615 = and i32 %1614, %1610
   %.not4842 = icmp eq i32 %1615, 0
   br i1 %.not4842, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1616
@@ -6016,17 +6016,17 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1616:                                             ; preds = %1611
   %1617 = lshr i32 %2, 15
   %1618 = and i32 %1617, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1618)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1618)
   %1619 = lshr i32 %2, 25
   %1620 = and i32 %1619, 1
-  %1621 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1620)
+  %1621 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1620)
   %1622 = and i32 %1621, %1615
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1623:                                             ; preds = %7
   %1624 = lshr i32 %2, 7
   %1625 = and i32 %1624, 31
-  %1626 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1625)
+  %1626 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1625)
   %1627 = and i32 %1626, %0
   %.not4839 = icmp eq i32 %1627, 0
   br i1 %.not4839, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1628
@@ -6034,7 +6034,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1628:                                             ; preds = %1623
   %1629 = lshr i32 %2, 20
   %1630 = and i32 %1629, 31
-  %1631 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1630)
+  %1631 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1630)
   %1632 = and i32 %1631, %1627
   %.not4840 = icmp eq i32 %1632, 0
   br i1 %.not4840, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1633
@@ -6042,13 +6042,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1633:                                             ; preds = %1628
   %1634 = lshr i32 %2, 15
   %1635 = and i32 %1634, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1635)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1635)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1636:                                             ; preds = %7
   %1637 = lshr i32 %2, 7
   %1638 = and i32 %1637, 31
-  %1639 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1638)
+  %1639 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1638)
   %1640 = and i32 %1639, %0
   %.not4837 = icmp eq i32 %1640, 0
   br i1 %.not4837, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1641
@@ -6056,7 +6056,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1641:                                             ; preds = %1636
   %1642 = lshr i32 %2, 20
   %1643 = and i32 %1642, 31
-  %1644 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1643)
+  %1644 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1643)
   %1645 = and i32 %1644, %1640
   %.not4838 = icmp eq i32 %1645, 0
   br i1 %.not4838, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1646
@@ -6067,17 +6067,17 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %1649 = lshr i32 %2, 21
   %1650 = and i32 %1649, 32
   %1651 = or disjoint i32 %1648, %1650
-  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1651)
+  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1651)
   %1652 = lshr i32 %2, 25
   %1653 = and i32 %1652, 1
-  %1654 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1653)
+  %1654 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1653)
   %1655 = and i32 %1654, %1645
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1656:                                             ; preds = %7
   %1657 = lshr i32 %2, 7
   %1658 = and i32 %1657, 31
-  %1659 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1658)
+  %1659 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1658)
   %1660 = and i32 %1659, %0
   %.not4836 = icmp eq i32 %1660, 0
   br i1 %.not4836, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1661
@@ -6085,13 +6085,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1661:                                             ; preds = %1656
   %1662 = lshr i32 %2, 15
   %1663 = and i32 %1662, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1663)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1663)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1664:                                             ; preds = %7
   %1665 = lshr i32 %2, 7
   %1666 = and i32 %1665, 31
-  %1667 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1666)
+  %1667 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1666)
   %1668 = and i32 %1667, %0
   %.not4835 = icmp eq i32 %1668, 0
   br i1 %.not4835, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1669
@@ -6099,14 +6099,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1669:                                             ; preds = %1664
   %1670 = lshr i32 %2, 20
   %1671 = and i32 %1670, 31
-  %1672 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1671)
+  %1672 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1671)
   %1673 = and i32 %1672, %1668
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1674:                                             ; preds = %7
   %1675 = lshr i32 %2, 7
   %1676 = and i32 %1675, 31
-  %1677 = tail call fastcc noundef i32 @_ZL23DecodeVRM2RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1676, ptr noundef %5)
+  %1677 = tail call fastcc noundef i32 @_ZL23DecodeVRM2RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1676, ptr noundef %5)
   %1678 = and i32 %1677, %0
   %.not4834 = icmp eq i32 %1678, 0
   br i1 %.not4834, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1679
@@ -6114,14 +6114,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1679:                                             ; preds = %1674
   %1680 = lshr i32 %2, 20
   %1681 = and i32 %1680, 31
-  %1682 = tail call fastcc noundef i32 @_ZL23DecodeVRM2RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1681, ptr noundef %5)
+  %1682 = tail call fastcc noundef i32 @_ZL23DecodeVRM2RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1681, ptr noundef %5)
   %1683 = and i32 %1682, %1678
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1684:                                             ; preds = %7
   %1685 = lshr i32 %2, 7
   %1686 = and i32 %1685, 31
-  %1687 = tail call fastcc noundef i32 @_ZL23DecodeVRM4RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1686, ptr noundef %5)
+  %1687 = tail call fastcc noundef i32 @_ZL23DecodeVRM4RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1686, ptr noundef %5)
   %1688 = and i32 %1687, %0
   %.not4833 = icmp eq i32 %1688, 0
   br i1 %.not4833, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1689
@@ -6129,14 +6129,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1689:                                             ; preds = %1684
   %1690 = lshr i32 %2, 20
   %1691 = and i32 %1690, 31
-  %1692 = tail call fastcc noundef i32 @_ZL23DecodeVRM4RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1691, ptr noundef %5)
+  %1692 = tail call fastcc noundef i32 @_ZL23DecodeVRM4RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1691, ptr noundef %5)
   %1693 = and i32 %1692, %1688
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1694:                                             ; preds = %7
   %1695 = lshr i32 %2, 7
   %1696 = and i32 %1695, 31
-  %1697 = tail call fastcc noundef i32 @_ZL23DecodeVRM8RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1696, ptr noundef %5)
+  %1697 = tail call fastcc noundef i32 @_ZL23DecodeVRM8RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1696, ptr noundef %5)
   %1698 = and i32 %1697, %0
   %.not4832 = icmp eq i32 %1698, 0
   br i1 %.not4832, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1699
@@ -6144,14 +6144,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1699:                                             ; preds = %1694
   %1700 = lshr i32 %2, 20
   %1701 = and i32 %1700, 31
-  %1702 = tail call fastcc noundef i32 @_ZL23DecodeVRM8RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1701, ptr noundef %5)
+  %1702 = tail call fastcc noundef i32 @_ZL23DecodeVRM8RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1701, ptr noundef %5)
   %1703 = and i32 %1702, %1698
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1704:                                             ; preds = %7
   %1705 = lshr i32 %2, 7
   %1706 = and i32 %1705, 31
-  %1707 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1706)
+  %1707 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1706)
   %1708 = and i32 %1707, %0
   %.not4829 = icmp eq i32 %1708, 0
   br i1 %.not4829, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1709
@@ -6159,7 +6159,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1709:                                             ; preds = %1704
   %1710 = lshr i32 %2, 20
   %1711 = and i32 %1710, 31
-  %1712 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1711)
+  %1712 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1711)
   %1713 = and i32 %1712, %1708
   %.not4830 = icmp eq i32 %1713, 0
   br i1 %.not4830, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1714
@@ -6171,7 +6171,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2809 = load ptr, ptr %1717, align 8
   %1718 = getelementptr i8, ptr %.val2809, i64 216
   %.val2809.val = load i64, ptr %1718, align 8
-  %1719 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1716, i64 %.val2809.val)
+  %1719 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1716, i64 %.val2809.val)
   %1720 = and i32 %1719, %1713
   %.not4831 = icmp eq i32 %1720, 0
   br i1 %.not4831, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1721
@@ -6179,14 +6179,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1721:                                             ; preds = %1714
   %1722 = lshr i32 %2, 25
   %1723 = and i32 %1722, 1
-  %1724 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1723)
+  %1724 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1723)
   %1725 = and i32 %1724, %1720
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1726:                                             ; preds = %7
   %1727 = lshr i32 %2, 7
   %1728 = and i32 %1727, 31
-  %1729 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1728)
+  %1729 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1728)
   %1730 = and i32 %1729, %0
   %.not4827 = icmp eq i32 %1730, 0
   br i1 %.not4827, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1731
@@ -6194,7 +6194,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1731:                                             ; preds = %1726
   %1732 = lshr i32 %2, 20
   %1733 = and i32 %1732, 31
-  %1734 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1733)
+  %1734 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1733)
   %1735 = and i32 %1734, %1730
   %.not4828 = icmp eq i32 %1735, 0
   br i1 %.not4828, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1736
@@ -6206,14 +6206,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2810 = load ptr, ptr %1739, align 8
   %1740 = getelementptr i8, ptr %.val2810, i64 216
   %.val2810.val = load i64, ptr %1740, align 8
-  %1741 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1738, i64 %.val2810.val)
+  %1741 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1738, i64 %.val2810.val)
   %1742 = and i32 %1741, %1735
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1743:                                             ; preds = %7
   %1744 = lshr i32 %2, 7
   %1745 = and i32 %1744, 31
-  %1746 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1745)
+  %1746 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1745)
   %1747 = and i32 %1746, %0
   %.not4824 = icmp eq i32 %1747, 0
   br i1 %.not4824, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1748
@@ -6221,7 +6221,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1748:                                             ; preds = %1743
   %1749 = lshr i32 %2, 20
   %1750 = and i32 %1749, 31
-  %1751 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1750)
+  %1751 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1750)
   %1752 = and i32 %1751, %1747
   %.not4825 = icmp eq i32 %1752, 0
   br i1 %.not4825, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1753
@@ -6229,7 +6229,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1753:                                             ; preds = %1748
   %1754 = lshr i32 %2, 15
   %1755 = and i32 %1754, 31
-  %1756 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1755)
+  %1756 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1755)
   %1757 = and i32 %1756, %1752
   %.not4826 = icmp eq i32 %1757, 0
   br i1 %.not4826, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1758
@@ -6237,20 +6237,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1758:                                             ; preds = %1753
   %1759 = lshr i32 %2, 25
   %1760 = and i32 %1759, 1
-  %1761 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1760)
+  %1761 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1760)
   %1762 = and i32 %1761, %1757
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1763:                                             ; preds = %7
   %1764 = lshr i32 %2, 7
   %1765 = and i32 %1764, 31
-  %1766 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1765)
+  %1766 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1765)
   %1767 = and i32 %1766, %0
   %.not4822 = icmp eq i32 %1767, 0
   br i1 %.not4822, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1768
 
 1768:                                             ; preds = %1763
-  %1769 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1765)
+  %1769 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1765)
   %1770 = and i32 %1769, %1767
   %.not4823 = icmp eq i32 %1770, 0
   br i1 %.not4823, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1771
@@ -6258,14 +6258,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1771:                                             ; preds = %1768
   %1772 = lshr i32 %2, 15
   %1773 = and i32 %1772, 31
-  %1774 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1773)
+  %1774 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1773)
   %1775 = and i32 %1774, %1770
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1776:                                             ; preds = %7
   %1777 = lshr i32 %2, 7
   %1778 = and i32 %1777, 31
-  %1779 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1778)
+  %1779 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1778)
   %1780 = and i32 %1779, %0
   %.not4820 = icmp eq i32 %1780, 0
   br i1 %.not4820, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1781
@@ -6273,7 +6273,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1781:                                             ; preds = %1776
   %1782 = lshr i32 %2, 20
   %1783 = and i32 %1782, 31
-  %1784 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1783)
+  %1784 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1783)
   %1785 = and i32 %1784, %1780
   %.not4821 = icmp eq i32 %1785, 0
   br i1 %.not4821, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1786
@@ -6281,14 +6281,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1786:                                             ; preds = %1781
   %1787 = lshr i32 %2, 15
   %1788 = and i32 %1787, 31
-  %1789 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1788)
+  %1789 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1788)
   %1790 = and i32 %1789, %1785
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1791:                                             ; preds = %7
   %1792 = lshr i32 %2, 7
   %1793 = and i32 %1792, 31
-  %1794 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1793)
+  %1794 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1793)
   %1795 = and i32 %1794, %0
   %.not4819 = icmp eq i32 %1795, 0
   br i1 %.not4819, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1796
@@ -6296,20 +6296,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1796:                                             ; preds = %1791
   %1797 = lshr i32 %2, 15
   %1798 = and i32 %1797, 31
-  %1799 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1798)
+  %1799 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1798)
   %1800 = and i32 %1799, %1795
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1801:                                             ; preds = %7
   %1802 = lshr i32 %2, 7
   %1803 = and i32 %1802, 31
-  %1804 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1803)
+  %1804 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1803)
   %1805 = and i32 %1804, %0
   %.not4815 = icmp eq i32 %1805, 0
   br i1 %.not4815, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1806
 
 1806:                                             ; preds = %1801
-  %1807 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1803)
+  %1807 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1803)
   %1808 = and i32 %1807, %1805
   %.not4816 = icmp eq i32 %1808, 0
   br i1 %.not4816, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1809
@@ -6317,7 +6317,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1809:                                             ; preds = %1806
   %1810 = lshr i32 %2, 15
   %1811 = and i32 %1810, 31
-  %1812 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1811)
+  %1812 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1811)
   %1813 = and i32 %1812, %1808
   %.not4817 = icmp eq i32 %1813, 0
   br i1 %.not4817, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1814
@@ -6325,7 +6325,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1814:                                             ; preds = %1809
   %1815 = lshr i32 %2, 20
   %1816 = and i32 %1815, 31
-  %1817 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1816)
+  %1817 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1816)
   %1818 = and i32 %1817, %1813
   %.not4818 = icmp eq i32 %1818, 0
   br i1 %.not4818, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1819
@@ -6333,20 +6333,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1819:                                             ; preds = %1814
   %1820 = lshr i32 %2, 25
   %1821 = and i32 %1820, 1
-  %1822 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1821)
+  %1822 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1821)
   %1823 = and i32 %1822, %1818
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1824:                                             ; preds = %7
   %1825 = lshr i32 %2, 7
   %1826 = and i32 %1825, 31
-  %1827 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1826)
+  %1827 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1826)
   %1828 = and i32 %1827, %0
   %.not4813 = icmp eq i32 %1828, 0
   br i1 %.not4813, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1829
 
 1829:                                             ; preds = %1824
-  %1830 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1826)
+  %1830 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1826)
   %1831 = and i32 %1830, %1828
   %.not4814 = icmp eq i32 %1831, 0
   br i1 %.not4814, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1832
@@ -6358,20 +6358,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2811 = load ptr, ptr %1835, align 8
   %1836 = getelementptr i8, ptr %.val2811, i64 216
   %.val2811.val = load i64, ptr %1836, align 8
-  %1837 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1834, i64 %.val2811.val)
+  %1837 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1834, i64 %.val2811.val)
   %1838 = and i32 %1837, %1831
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1839:                                             ; preds = %7
   %1840 = lshr i32 %2, 7
   %1841 = and i32 %1840, 31
-  %1842 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1841)
+  %1842 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1841)
   %1843 = and i32 %1842, %0
   %.not4809 = icmp eq i32 %1843, 0
   br i1 %.not4809, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1844
 
 1844:                                             ; preds = %1839
-  %1845 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1841)
+  %1845 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1841)
   %1846 = and i32 %1845, %1843
   %.not4810 = icmp eq i32 %1846, 0
   br i1 %.not4810, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1847
@@ -6383,7 +6383,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2812 = load ptr, ptr %1850, align 8
   %1851 = getelementptr i8, ptr %.val2812, i64 216
   %.val2812.val = load i64, ptr %1851, align 8
-  %1852 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1849, i64 %.val2812.val)
+  %1852 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1849, i64 %.val2812.val)
   %1853 = and i32 %1852, %1846
   %.not4811 = icmp eq i32 %1853, 0
   br i1 %.not4811, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1854
@@ -6391,7 +6391,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1854:                                             ; preds = %1847
   %1855 = lshr i32 %2, 20
   %1856 = and i32 %1855, 31
-  %1857 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1856)
+  %1857 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1856)
   %1858 = and i32 %1857, %1853
   %.not4812 = icmp eq i32 %1858, 0
   br i1 %.not4812, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1859
@@ -6399,7 +6399,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1859:                                             ; preds = %1854
   %1860 = lshr i32 %2, 25
   %1861 = and i32 %1860, 1
-  %1862 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1861)
+  %1862 = tail call fastcc noundef i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1861)
   %1863 = and i32 %1862, %1858
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -6410,7 +6410,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2813 = load ptr, ptr %1867, align 8
   %1868 = getelementptr i8, ptr %.val2813, i64 216
   %.val2813.val = load i64, ptr %1868, align 8
-  %1869 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1866, i64 %.val2813.val)
+  %1869 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1866, i64 %.val2813.val)
   %1870 = and i32 %1869, %0
   %.not4807 = icmp eq i32 %1870, 0
   br i1 %.not4807, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1871
@@ -6421,7 +6421,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2814 = load ptr, ptr %1867, align 8
   %1874 = getelementptr i8, ptr %.val2814, i64 216
   %.val2814.val = load i64, ptr %1874, align 8
-  %1875 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1873, i64 %.val2814.val)
+  %1875 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1873, i64 %.val2814.val)
   %1876 = and i32 %1875, %1870
   %.not4808 = icmp eq i32 %1876, 0
   br i1 %.not4808, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1877
@@ -6429,7 +6429,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1877:                                             ; preds = %1871
   %1878 = lshr i32 %2, 20
   %1879 = and i32 %1878, 2047
-  tail call fastcc void @_ZL17decodeUImmOperandILj11EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1879)
+  tail call fastcc void @_ZL17decodeUImmOperandILj11EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1879)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1880:                                             ; preds = %7
@@ -6439,7 +6439,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2815 = load ptr, ptr %1883, align 8
   %1884 = getelementptr i8, ptr %.val2815, i64 216
   %.val2815.val = load i64, ptr %1884, align 8
-  %1885 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1882, i64 %.val2815.val)
+  %1885 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1882, i64 %.val2815.val)
   %1886 = and i32 %1885, %0
   %.not4806 = icmp eq i32 %1886, 0
   br i1 %.not4806, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1887
@@ -6447,10 +6447,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1887:                                             ; preds = %1880
   %1888 = lshr i32 %2, 15
   %1889 = and i32 %1888, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1889)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1889)
   %1890 = lshr i32 %2, 20
   %1891 = and i32 %1890, 1023
-  tail call fastcc void @_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1891)
+  tail call fastcc void @_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1891)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1892:                                             ; preds = %7
@@ -6460,7 +6460,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2816 = load ptr, ptr %1895, align 8
   %1896 = getelementptr i8, ptr %.val2816, i64 216
   %.val2816.val = load i64, ptr %1896, align 8
-  %1897 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1894, i64 %.val2816.val)
+  %1897 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1894, i64 %.val2816.val)
   %1898 = and i32 %1897, %0
   %.not4804 = icmp eq i32 %1898, 0
   br i1 %.not4804, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1899
@@ -6471,7 +6471,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2817 = load ptr, ptr %1895, align 8
   %1902 = getelementptr i8, ptr %.val2817, i64 216
   %.val2817.val = load i64, ptr %1902, align 8
-  %1903 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1901, i64 %.val2817.val)
+  %1903 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1901, i64 %.val2817.val)
   %1904 = and i32 %1903, %1898
   %.not4805 = icmp eq i32 %1904, 0
   br i1 %.not4805, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1905
@@ -6487,7 +6487,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %1913 = or disjoint i32 %1910, %1912
   %1914 = and i32 %1900, 2048
   %1915 = or disjoint i32 %1913, %1914
-  tail call fastcc void @_ZL24decodeSImmOperandAndLsl1ILj13EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1915)
+  tail call fastcc void @_ZL24decodeSImmOperandAndLsl1ILj13EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1915)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1916:                                             ; preds = %7
@@ -6497,7 +6497,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2818 = load ptr, ptr %1919, align 8
   %1920 = getelementptr i8, ptr %.val2818, i64 216
   %.val2818.val = load i64, ptr %1920, align 8
-  %1921 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1918, i64 %.val2818.val)
+  %1921 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1918, i64 %.val2818.val)
   %1922 = and i32 %1921, %0
   %.not4803 = icmp eq i32 %1922, 0
   br i1 %.not4803, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1923
@@ -6514,7 +6514,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %1932 = lshr i32 %2, 12
   %1933 = and i32 %1932, 524288
   %1934 = or disjoint i32 %1931, %1933
-  tail call fastcc void @_ZL24decodeSImmOperandAndLsl1ILj21EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1934)
+  tail call fastcc void @_ZL24decodeSImmOperandAndLsl1ILj21EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1934)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1935:                                             ; preds = %7
@@ -6524,20 +6524,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2819 = load ptr, ptr %1938, align 8
   %1939 = getelementptr i8, ptr %.val2819, i64 216
   %.val2819.val = load i64, ptr %1939, align 8
-  %1940 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1937, i64 %.val2819.val)
+  %1940 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1937, i64 %.val2819.val)
   %1941 = and i32 %1940, %0
   %.not4802 = icmp eq i32 %1941, 0
   br i1 %.not4802, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1942
 
 1942:                                             ; preds = %1935
   %1943 = lshr i32 %2, 20
-  tail call fastcc void @_ZL17decodeUImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1943)
+  tail call fastcc void @_ZL17decodeUImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1943)
   %1944 = lshr i32 %2, 15
   %1945 = and i32 %1944, 31
   %.val2820 = load ptr, ptr %1938, align 8
   %1946 = getelementptr i8, ptr %.val2820, i64 216
   %.val2820.val = load i64, ptr %1946, align 8
-  %1947 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1945, i64 %.val2820.val)
+  %1947 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1945, i64 %.val2820.val)
   %1948 = and i32 %1947, %1941
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -6548,7 +6548,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2821 = load ptr, ptr %1952, align 8
   %1953 = getelementptr i8, ptr %.val2821, i64 216
   %.val2821.val = load i64, ptr %1953, align 8
-  %1954 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1951, i64 %.val2821.val)
+  %1954 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1951, i64 %.val2821.val)
   %1955 = and i32 %1954, %0
   %.not4801 = icmp eq i32 %1955, 0
   br i1 %.not4801, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1956
@@ -6559,21 +6559,21 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2822 = load ptr, ptr %1952, align 8
   %1959 = getelementptr i8, ptr %.val2822, i64 216
   %.val2822.val = load i64, ptr %1959, align 8
-  %1960 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1958, i64 %.val2822.val)
+  %1960 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1958, i64 %.val2822.val)
   %1961 = and i32 %1960, %1955
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1962:                                             ; preds = %7
   %1963 = lshr i32 %2, 15
   %1964 = and i32 %1963, 31
-  %1965 = tail call fastcc noundef i32 @_ZL26DecodeGPRX1X5RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1964)
+  %1965 = tail call fastcc noundef i32 @_ZL26DecodeGPRX1X5RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1964)
   %1966 = and i32 %1965, %0
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1967:                                             ; preds = %7
   %1968 = lshr i32 %2, 20
   %1969 = and i32 %1968, 31
-  %1970 = tail call fastcc noundef i32 @_ZL26DecodeGPRX1X5RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1969)
+  %1970 = tail call fastcc noundef i32 @_ZL26DecodeGPRX1X5RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1969)
   %1971 = and i32 %1970, %0
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -6584,23 +6584,23 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2823 = load ptr, ptr %1975, align 8
   %1976 = getelementptr i8, ptr %.val2823, i64 216
   %.val2823.val = load i64, ptr %1976, align 8
-  %1977 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1974, i64 %.val2823.val)
+  %1977 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1974, i64 %.val2823.val)
   %1978 = and i32 %1977, %0
   %.not4800 = icmp eq i32 %1978, 0
   br i1 %.not4800, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1979
 
 1979:                                             ; preds = %1972
   %1980 = lshr i32 %2, 20
-  tail call fastcc void @_ZL17decodeUImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1980)
+  tail call fastcc void @_ZL17decodeUImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1980)
   %1981 = lshr i32 %2, 15
   %1982 = and i32 %1981, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1982)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1982)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1983:                                             ; preds = %7
   %1984 = lshr i32 %2, 7
   %1985 = and i32 %1984, 31
-  %1986 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1985)
+  %1986 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1985)
   %1987 = and i32 %1986, %0
   %.not4798 = icmp eq i32 %1987, 0
   br i1 %.not4798, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1988
@@ -6608,7 +6608,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1988:                                             ; preds = %1983
   %1989 = lshr i32 %2, 20
   %1990 = and i32 %1989, 31
-  %1991 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1990)
+  %1991 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1990)
   %1992 = and i32 %1991, %1987
   %.not4799 = icmp eq i32 %1992, 0
   br i1 %.not4799, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %1993
@@ -6616,19 +6616,19 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 1993:                                             ; preds = %1988
   %1994 = lshr i32 %2, 15
   %1995 = and i32 %1994, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1995)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1995)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 1996:                                             ; preds = %7
   %1997 = lshr i32 %2, 7
   %1998 = and i32 %1997, 31
-  %1999 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1998)
+  %1999 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1998)
   %2000 = and i32 %1999, %0
   %.not4795 = icmp eq i32 %2000, 0
   br i1 %.not4795, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2001
 
 2001:                                             ; preds = %1996
-  %2002 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1998)
+  %2002 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %1998)
   %2003 = and i32 %2002, %2000
   %.not4796 = icmp eq i32 %2003, 0
   br i1 %.not4796, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2004
@@ -6636,7 +6636,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2004:                                             ; preds = %2001
   %2005 = lshr i32 %2, 20
   %2006 = and i32 %2005, 31
-  %2007 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2006)
+  %2007 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2006)
   %2008 = and i32 %2007, %2003
   %.not4797 = icmp eq i32 %2008, 0
   br i1 %.not4797, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2009
@@ -6644,20 +6644,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2009:                                             ; preds = %2004
   %2010 = lshr i32 %2, 15
   %2011 = and i32 %2010, 31
-  %2012 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2011)
+  %2012 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2011)
   %2013 = and i32 %2012, %2008
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2014:                                             ; preds = %7
   %2015 = lshr i32 %2, 7
   %2016 = and i32 %2015, 31
-  %2017 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2016)
+  %2017 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2016)
   %2018 = and i32 %2017, %0
   %.not4793 = icmp eq i32 %2018, 0
   br i1 %.not4793, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2019
 
 2019:                                             ; preds = %2014
-  %2020 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2016)
+  %2020 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2016)
   %2021 = and i32 %2020, %2018
   %.not4794 = icmp eq i32 %2021, 0
   br i1 %.not4794, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2022
@@ -6665,20 +6665,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2022:                                             ; preds = %2019
   %2023 = lshr i32 %2, 20
   %2024 = and i32 %2023, 31
-  %2025 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2024)
+  %2025 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2024)
   %2026 = and i32 %2025, %2021
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2027:                                             ; preds = %7
   %2028 = lshr i32 %2, 7
   %2029 = and i32 %2028, 31
-  %2030 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2029)
+  %2030 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2029)
   %2031 = and i32 %2030, %0
   %.not4790 = icmp eq i32 %2031, 0
   br i1 %.not4790, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2032
 
 2032:                                             ; preds = %2027
-  %2033 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2029)
+  %2033 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2029)
   %2034 = and i32 %2033, %2031
   %.not4791 = icmp eq i32 %2034, 0
   br i1 %.not4791, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2035
@@ -6686,7 +6686,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2035:                                             ; preds = %2032
   %2036 = lshr i32 %2, 20
   %2037 = and i32 %2036, 31
-  %2038 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2037)
+  %2038 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2037)
   %2039 = and i32 %2038, %2034
   %.not4792 = icmp eq i32 %2039, 0
   br i1 %.not4792, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2040
@@ -6694,13 +6694,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2040:                                             ; preds = %2035
   %2041 = lshr i32 %2, 15
   %2042 = and i32 %2041, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2042)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2042)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2043:                                             ; preds = %7
   %2044 = lshr i32 %2, 2
   %2045 = and i32 %2044, 7
-  %2046 = tail call fastcc noundef i32 @_ZL25DecodeFPR32CRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2045)
+  %2046 = tail call fastcc noundef i32 @_ZL25DecodeFPR32CRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2045)
   %2047 = and i32 %2046, %0
   %.not4788 = icmp eq i32 %2047, 0
   br i1 %.not4788, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2048
@@ -6708,7 +6708,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2048:                                             ; preds = %2043
   %2049 = lshr i32 %2, 7
   %2050 = and i32 %2049, 7
-  %2051 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2050)
+  %2051 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2050)
   %2052 = and i32 %2051, %2047
   %.not4789 = icmp eq i32 %2052, 0
   br i1 %.not4789, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2053
@@ -6721,13 +6721,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2058 = or disjoint i32 %2055, %2057
   %2059 = and i32 %2049, 56
   %2060 = or disjoint i32 %2058, %2059
-  tail call fastcc void @_ZL17decodeUImmOperandILj7EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2060)
+  tail call fastcc void @_ZL17decodeUImmOperandILj7EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2060)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2061:                                             ; preds = %7
   %2062 = lshr i32 %2, 7
   %2063 = and i32 %2062, 31
-  %2064 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2063)
+  %2064 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2063)
   %2065 = and i32 %2064, %0
   %.not4787 = icmp eq i32 %2065, 0
   br i1 %.not4787, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2066
@@ -6740,13 +6740,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2071 = or disjoint i32 %2068, %2070
   %2072 = and i32 %2062, 32
   %2073 = or disjoint i32 %2071, %2072
-  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2073)
+  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2073)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2074:                                             ; preds = %7
   %2075 = lshr i32 %2, 2
   %2076 = and i32 %2075, 31
-  %2077 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2076)
+  %2077 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2076)
   %2078 = and i32 %2077, %0
   %.not4786 = icmp eq i32 %2078, 0
   br i1 %.not4786, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2079
@@ -6757,13 +6757,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2082 = lshr i32 %2, 7
   %2083 = and i32 %2082, 60
   %2084 = or disjoint i32 %2081, %2083
-  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2084)
+  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2084)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2085:                                             ; preds = %7
   %2086 = lshr i32 %2, 7
   %2087 = and i32 %2086, 31
-  %2088 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2087)
+  %2088 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2087)
   %2089 = and i32 %2088, %0
   %.not4782 = icmp eq i32 %2089, 0
   br i1 %.not4782, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2090
@@ -6771,7 +6771,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2090:                                             ; preds = %2085
   %2091 = lshr i32 %2, 15
   %2092 = and i32 %2091, 31
-  %2093 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2092)
+  %2093 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2092)
   %2094 = and i32 %2093, %2089
   %.not4783 = icmp eq i32 %2094, 0
   br i1 %.not4783, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2095
@@ -6779,14 +6779,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2095:                                             ; preds = %2090
   %2096 = lshr i32 %2, 20
   %2097 = and i32 %2096, 31
-  %2098 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2097)
+  %2098 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2097)
   %2099 = and i32 %2098, %2094
   %.not4784 = icmp eq i32 %2099, 0
   br i1 %.not4784, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2100
 
 2100:                                             ; preds = %2095
   %2101 = lshr i32 %2, 27
-  %2102 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2101)
+  %2102 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2101)
   %2103 = and i32 %2102, %2099
   %.not4785 = icmp eq i32 %2103, 0
   br i1 %.not4785, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2104
@@ -6794,14 +6794,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2104:                                             ; preds = %2100
   %2105 = lshr i32 %2, 12
   %2106 = and i32 %2105, 7
-  %2107 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2106)
+  %2107 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2106)
   %2108 = and i32 %2107, %2103
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2109:                                             ; preds = %7
   %2110 = lshr i32 %2, 7
   %2111 = and i32 %2110, 31
-  %2112 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2111)
+  %2112 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2111)
   %2113 = and i32 %2112, %0
   %.not4779 = icmp eq i32 %2113, 0
   br i1 %.not4779, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2114
@@ -6809,7 +6809,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2114:                                             ; preds = %2109
   %2115 = lshr i32 %2, 15
   %2116 = and i32 %2115, 31
-  %2117 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2116)
+  %2117 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2116)
   %2118 = and i32 %2117, %2113
   %.not4780 = icmp eq i32 %2118, 0
   br i1 %.not4780, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2119
@@ -6817,7 +6817,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2119:                                             ; preds = %2114
   %2120 = lshr i32 %2, 20
   %2121 = and i32 %2120, 31
-  %2122 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2121)
+  %2122 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2121)
   %2123 = and i32 %2122, %2118
   %.not4781 = icmp eq i32 %2123, 0
   br i1 %.not4781, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2124
@@ -6825,14 +6825,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2124:                                             ; preds = %2119
   %2125 = lshr i32 %2, 12
   %2126 = and i32 %2125, 7
-  %2127 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2126)
+  %2127 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2126)
   %2128 = and i32 %2127, %2123
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2129:                                             ; preds = %7
   %2130 = lshr i32 %2, 7
   %2131 = and i32 %2130, 31
-  %2132 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2131)
+  %2132 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2131)
   %2133 = and i32 %2132, %0
   %.not4777 = icmp eq i32 %2133, 0
   br i1 %.not4777, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2134
@@ -6840,7 +6840,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2134:                                             ; preds = %2129
   %2135 = lshr i32 %2, 15
   %2136 = and i32 %2135, 31
-  %2137 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2136)
+  %2137 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2136)
   %2138 = and i32 %2137, %2133
   %.not4778 = icmp eq i32 %2138, 0
   br i1 %.not4778, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2139
@@ -6848,7 +6848,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2139:                                             ; preds = %2134
   %2140 = lshr i32 %2, 20
   %2141 = and i32 %2140, 31
-  %2142 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2141)
+  %2142 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2141)
   %2143 = and i32 %2142, %2138
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -6859,7 +6859,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2824 = load ptr, ptr %2147, align 8
   %2148 = getelementptr i8, ptr %.val2824, i64 216
   %.val2824.val = load i64, ptr %2148, align 8
-  %2149 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2146, i64 %.val2824.val)
+  %2149 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2146, i64 %.val2824.val)
   %2150 = and i32 %2149, %0
   %.not4775 = icmp eq i32 %2150, 0
   br i1 %.not4775, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2151
@@ -6867,7 +6867,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2151:                                             ; preds = %2144
   %2152 = lshr i32 %2, 15
   %2153 = and i32 %2152, 31
-  %2154 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2153)
+  %2154 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2153)
   %2155 = and i32 %2154, %2150
   %.not4776 = icmp eq i32 %2155, 0
   br i1 %.not4776, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2156
@@ -6875,14 +6875,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2156:                                             ; preds = %2151
   %2157 = lshr i32 %2, 12
   %2158 = and i32 %2157, 7
-  %2159 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2158)
+  %2159 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2158)
   %2160 = and i32 %2159, %2155
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2161:                                             ; preds = %7
   %2162 = lshr i32 %2, 7
   %2163 = and i32 %2162, 31
-  %2164 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2163)
+  %2164 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2163)
   %2165 = and i32 %2164, %0
   %.not4773 = icmp eq i32 %2165, 0
   br i1 %.not4773, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2166
@@ -6894,7 +6894,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2825 = load ptr, ptr %2169, align 8
   %2170 = getelementptr i8, ptr %.val2825, i64 216
   %.val2825.val = load i64, ptr %2170, align 8
-  %2171 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2168, i64 %.val2825.val)
+  %2171 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2168, i64 %.val2825.val)
   %2172 = and i32 %2171, %2165
   %.not4774 = icmp eq i32 %2172, 0
   br i1 %.not4774, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2173
@@ -6902,14 +6902,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2173:                                             ; preds = %2166
   %2174 = lshr i32 %2, 12
   %2175 = and i32 %2174, 7
-  %2176 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2175)
+  %2176 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2175)
   %2177 = and i32 %2176, %2172
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2178:                                             ; preds = %7
   %2179 = lshr i32 %2, 7
   %2180 = and i32 %2179, 31
-  %2181 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2180)
+  %2181 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2180)
   %2182 = and i32 %2181, %0
   %.not4771 = icmp eq i32 %2182, 0
   br i1 %.not4771, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2183
@@ -6917,7 +6917,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2183:                                             ; preds = %2178
   %2184 = lshr i32 %2, 15
   %2185 = and i32 %2184, 31
-  %2186 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2185)
+  %2186 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2185)
   %2187 = and i32 %2186, %2182
   %.not4772 = icmp eq i32 %2187, 0
   br i1 %.not4772, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2188
@@ -6925,7 +6925,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2188:                                             ; preds = %2183
   %2189 = lshr i32 %2, 12
   %2190 = and i32 %2189, 7
-  %2191 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2190)
+  %2191 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2190)
   %2192 = and i32 %2191, %2187
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -6936,7 +6936,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2826 = load ptr, ptr %2196, align 8
   %2197 = getelementptr i8, ptr %.val2826, i64 216
   %.val2826.val = load i64, ptr %2197, align 8
-  %2198 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2195, i64 %.val2826.val)
+  %2198 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2195, i64 %.val2826.val)
   %2199 = and i32 %2198, %0
   %.not4769 = icmp eq i32 %2199, 0
   br i1 %.not4769, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2200
@@ -6944,7 +6944,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2200:                                             ; preds = %2193
   %2201 = lshr i32 %2, 15
   %2202 = and i32 %2201, 31
-  %2203 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2202)
+  %2203 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2202)
   %2204 = and i32 %2203, %2199
   %.not4770 = icmp eq i32 %2204, 0
   br i1 %.not4770, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2205
@@ -6952,7 +6952,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2205:                                             ; preds = %2200
   %2206 = lshr i32 %2, 20
   %2207 = and i32 %2206, 31
-  %2208 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2207)
+  %2208 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2207)
   %2209 = and i32 %2208, %2204
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -6963,7 +6963,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2827 = load ptr, ptr %2213, align 8
   %2214 = getelementptr i8, ptr %.val2827, i64 216
   %.val2827.val = load i64, ptr %2214, align 8
-  %2215 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2212, i64 %.val2827.val)
+  %2215 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2212, i64 %.val2827.val)
   %2216 = and i32 %2215, %0
   %.not4768 = icmp eq i32 %2216, 0
   br i1 %.not4768, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2217
@@ -6971,14 +6971,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2217:                                             ; preds = %2210
   %2218 = lshr i32 %2, 15
   %2219 = and i32 %2218, 31
-  %2220 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2219)
+  %2220 = tail call fastcc noundef i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2219)
   %2221 = and i32 %2220, %2216
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2222:                                             ; preds = %7
   %2223 = lshr i32 %2, 7
   %2224 = and i32 %2223, 7
-  %2225 = tail call fastcc noundef i32 @_ZL23DecodeSR07RegisterClassRN4llvm6MCInstEjmPKv.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2224)
+  %2225 = tail call fastcc noundef i32 @_ZL23DecodeSR07RegisterClassRN4llvm6MCInstEjmPKv(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2224)
   %2226 = and i32 %2225, %0
   %.not4767 = icmp eq i32 %2226, 0
   br i1 %.not4767, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2227
@@ -6986,14 +6986,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2227:                                             ; preds = %2222
   %2228 = lshr i32 %2, 2
   %2229 = and i32 %2228, 7
-  %2230 = tail call fastcc noundef i32 @_ZL23DecodeSR07RegisterClassRN4llvm6MCInstEjmPKv.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2229)
+  %2230 = tail call fastcc noundef i32 @_ZL23DecodeSR07RegisterClassRN4llvm6MCInstEjmPKv(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2229)
   %2231 = and i32 %2230, %2226
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2232:                                             ; preds = %7
   %2233 = lshr i32 %2, 4
   %2234 = and i32 %2233, 15
-  %2235 = tail call fastcc noundef i32 @_ZL15decodeZcmpRlistRN4llvm6MCInstEjmPKv.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2234)
+  %2235 = tail call fastcc noundef i32 @_ZL15decodeZcmpRlistRN4llvm6MCInstEjmPKv(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2234)
   %2236 = and i32 %2235, %0
   %.not4766 = icmp eq i32 %2236, 0
   br i1 %.not4766, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2237
@@ -7001,20 +7001,20 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2237:                                             ; preds = %2232
   %2238 = shl i32 %2, 2
   %2239 = and i32 %2238, 48
-  tail call fastcc void @_ZL15decodeZcmpSpimmRN4llvm6MCInstEjmPKv.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2239)
+  tail call fastcc void @_ZL15decodeZcmpSpimmRN4llvm6MCInstEjmPKv(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2239)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2240:                                             ; preds = %7
   %2241 = lshr i32 %2, 2
   %2242 = and i32 %2241, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2242)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2242)
   %2243 = and i32 %0, 3
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2244:                                             ; preds = %7
   %2245 = lshr i32 %2, 2
   %2246 = and i32 %2245, 255
-  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2246)
+  tail call fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2246)
   %2247 = and i32 %0, 3
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -7025,7 +7025,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2828 = load ptr, ptr %2251, align 8
   %2252 = getelementptr i8, ptr %.val2828, i64 216
   %.val2828.val = load i64, ptr %2252, align 8
-  %2253 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2250, i64 %.val2828.val)
+  %2253 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2250, i64 %.val2828.val)
   %2254 = and i32 %2253, %0
   %.not4762 = icmp eq i32 %2254, 0
   br i1 %.not4762, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2255
@@ -7036,7 +7036,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2829 = load ptr, ptr %2251, align 8
   %2258 = getelementptr i8, ptr %.val2829, i64 216
   %.val2829.val = load i64, ptr %2258, align 8
-  %2259 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2257, i64 %.val2829.val)
+  %2259 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2257, i64 %.val2829.val)
   %2260 = and i32 %2259, %2254
   %.not4763 = icmp eq i32 %2260, 0
   br i1 %.not4763, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2261
@@ -7047,7 +7047,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2830 = load ptr, ptr %2251, align 8
   %2264 = getelementptr i8, ptr %.val2830, i64 216
   %.val2830.val = load i64, ptr %2264, align 8
-  %2265 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2263, i64 %.val2830.val)
+  %2265 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2263, i64 %.val2830.val)
   %2266 = and i32 %2265, %2260
   %.not4764 = icmp eq i32 %2266, 0
   br i1 %.not4764, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2267
@@ -7057,7 +7057,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2831 = load ptr, ptr %2251, align 8
   %2269 = getelementptr i8, ptr %.val2831, i64 216
   %.val2831.val = load i64, ptr %2269, align 8
-  %2270 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2268, i64 %.val2831.val)
+  %2270 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2268, i64 %.val2831.val)
   %2271 = and i32 %2270, %2266
   %.not4765 = icmp eq i32 %2271, 0
   br i1 %.not4765, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2272
@@ -7065,7 +7065,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2272:                                             ; preds = %2267
   %2273 = lshr i32 %2, 12
   %2274 = and i32 %2273, 7
-  %2275 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2274)
+  %2275 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2274)
   %2276 = and i32 %2275, %2271
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -7076,7 +7076,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2832 = load ptr, ptr %2280, align 8
   %2281 = getelementptr i8, ptr %.val2832, i64 216
   %.val2832.val = load i64, ptr %2281, align 8
-  %2282 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2279, i64 %.val2832.val)
+  %2282 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2279, i64 %.val2832.val)
   %2283 = and i32 %2282, %0
   %.not4759 = icmp eq i32 %2283, 0
   br i1 %.not4759, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2284
@@ -7087,7 +7087,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2833 = load ptr, ptr %2280, align 8
   %2287 = getelementptr i8, ptr %.val2833, i64 216
   %.val2833.val = load i64, ptr %2287, align 8
-  %2288 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2286, i64 %.val2833.val)
+  %2288 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2286, i64 %.val2833.val)
   %2289 = and i32 %2288, %2283
   %.not4760 = icmp eq i32 %2289, 0
   br i1 %.not4760, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2290
@@ -7098,7 +7098,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2834 = load ptr, ptr %2280, align 8
   %2293 = getelementptr i8, ptr %.val2834, i64 216
   %.val2834.val = load i64, ptr %2293, align 8
-  %2294 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2292, i64 %.val2834.val)
+  %2294 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2292, i64 %.val2834.val)
   %2295 = and i32 %2294, %2289
   %.not4761 = icmp eq i32 %2295, 0
   br i1 %.not4761, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2296
@@ -7106,7 +7106,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2296:                                             ; preds = %2290
   %2297 = lshr i32 %2, 12
   %2298 = and i32 %2297, 7
-  %2299 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2298)
+  %2299 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2298)
   %2300 = and i32 %2299, %2295
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -7117,7 +7117,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2835 = load ptr, ptr %2304, align 8
   %2305 = getelementptr i8, ptr %.val2835, i64 216
   %.val2835.val = load i64, ptr %2305, align 8
-  %2306 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2303, i64 %.val2835.val)
+  %2306 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2303, i64 %.val2835.val)
   %2307 = and i32 %2306, %0
   %.not4757 = icmp eq i32 %2307, 0
   br i1 %.not4757, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2308
@@ -7128,7 +7128,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2836 = load ptr, ptr %2304, align 8
   %2311 = getelementptr i8, ptr %.val2836, i64 216
   %.val2836.val = load i64, ptr %2311, align 8
-  %2312 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2310, i64 %.val2836.val)
+  %2312 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2310, i64 %.val2836.val)
   %2313 = and i32 %2312, %2307
   %.not4758 = icmp eq i32 %2313, 0
   br i1 %.not4758, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2314
@@ -7136,7 +7136,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2314:                                             ; preds = %2308
   %2315 = lshr i32 %2, 12
   %2316 = and i32 %2315, 7
-  %2317 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2316)
+  %2317 = tail call fastcc noundef i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2316)
   %2318 = and i32 %2317, %2313
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -7147,7 +7147,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2837 = load ptr, ptr %2322, align 8
   %2323 = getelementptr i8, ptr %.val2837, i64 216
   %.val2837.val = load i64, ptr %2323, align 8
-  %2324 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2321, i64 %.val2837.val)
+  %2324 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2321, i64 %.val2837.val)
   %2325 = and i32 %2324, %0
   %.not4754 = icmp eq i32 %2325, 0
   br i1 %.not4754, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2326
@@ -7158,7 +7158,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2838 = load ptr, ptr %2322, align 8
   %2329 = getelementptr i8, ptr %.val2838, i64 216
   %.val2838.val = load i64, ptr %2329, align 8
-  %2330 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2328, i64 %.val2838.val)
+  %2330 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2328, i64 %.val2838.val)
   %2331 = and i32 %2330, %2325
   %.not4755 = icmp eq i32 %2331, 0
   br i1 %.not4755, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2332
@@ -7169,7 +7169,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2839 = load ptr, ptr %2322, align 8
   %2335 = getelementptr i8, ptr %.val2839, i64 216
   %.val2839.val = load i64, ptr %2335, align 8
-  %2336 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2334, i64 %.val2839.val)
+  %2336 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2334, i64 %.val2839.val)
   %2337 = and i32 %2336, %2331
   %.not4756 = icmp eq i32 %2337, 0
   br i1 %.not4756, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2338
@@ -7177,7 +7177,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2338:                                             ; preds = %2332
   %2339 = lshr i32 %2, 25
   %2340 = and i32 %2339, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2340)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2340)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2341:                                             ; preds = %7
@@ -7187,7 +7187,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2840 = load ptr, ptr %2344, align 8
   %2345 = getelementptr i8, ptr %.val2840, i64 216
   %.val2840.val = load i64, ptr %2345, align 8
-  %2346 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2343, i64 %.val2840.val)
+  %2346 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2343, i64 %.val2840.val)
   %2347 = and i32 %2346, %0
   %.not4753 = icmp eq i32 %2347, 0
   br i1 %.not4753, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2348
@@ -7195,7 +7195,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2348:                                             ; preds = %2341
   %2349 = lshr i32 %2, 20
   %2350 = and i32 %2349, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2350)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2350)
   %2351 = shl i32 %2, 3
   %2352 = and i32 %2351, 1024
   %2353 = lshr i32 %2, 8
@@ -7206,7 +7206,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2358 = or disjoint i32 %2355, %2357
   %2359 = and i32 %2349, 2048
   %2360 = or disjoint i32 %2358, %2359
-  tail call fastcc void @_ZL24decodeSImmOperandAndLsl1ILj13EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2360)
+  tail call fastcc void @_ZL24decodeSImmOperandAndLsl1ILj13EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2360)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2361:                                             ; preds = %7
@@ -7216,7 +7216,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2841 = load ptr, ptr %2364, align 8
   %2365 = getelementptr i8, ptr %.val2841, i64 216
   %.val2841.val = load i64, ptr %2365, align 8
-  %2366 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2363, i64 %.val2841.val)
+  %2366 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2363, i64 %.val2841.val)
   %2367 = and i32 %2366, %0
   %.not4751 = icmp eq i32 %2367, 0
   br i1 %.not4751, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2368
@@ -7227,7 +7227,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2842 = load ptr, ptr %2364, align 8
   %2371 = getelementptr i8, ptr %.val2842, i64 216
   %.val2842.val = load i64, ptr %2371, align 8
-  %2372 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2370, i64 %.val2842.val)
+  %2372 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2370, i64 %.val2842.val)
   %2373 = and i32 %2372, %2367
   %.not4752 = icmp eq i32 %2373, 0
   br i1 %.not4752, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2374
@@ -7235,10 +7235,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2374:                                             ; preds = %2368
   %2375 = lshr i32 %2, 25
   %2376 = and i32 %2375, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2376)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2376)
   %2377 = lshr i32 %2, 20
   %2378 = and i32 %2377, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2378)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2378)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2379:                                             ; preds = %7
@@ -7248,7 +7248,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2843 = load ptr, ptr %2382, align 8
   %2383 = getelementptr i8, ptr %.val2843, i64 216
   %.val2843.val = load i64, ptr %2383, align 8
-  %2384 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2381, i64 %.val2843.val)
+  %2384 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2381, i64 %.val2843.val)
   %2385 = and i32 %2384, %0
   %.not4748 = icmp eq i32 %2385, 0
   br i1 %.not4748, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2386
@@ -7257,7 +7257,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2844 = load ptr, ptr %2382, align 8
   %2387 = getelementptr i8, ptr %.val2844, i64 216
   %.val2844.val = load i64, ptr %2387, align 8
-  %2388 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2381, i64 %.val2844.val)
+  %2388 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2381, i64 %.val2844.val)
   %2389 = and i32 %2388, %2385
   %.not4749 = icmp eq i32 %2389, 0
   br i1 %.not4749, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2390
@@ -7268,7 +7268,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2845 = load ptr, ptr %2382, align 8
   %2393 = getelementptr i8, ptr %.val2845, i64 216
   %.val2845.val = load i64, ptr %2393, align 8
-  %2394 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2392, i64 %.val2845.val)
+  %2394 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2392, i64 %.val2845.val)
   %2395 = and i32 %2394, %2389
   %.not4750 = icmp eq i32 %2395, 0
   br i1 %.not4750, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2396
@@ -7276,10 +7276,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2396:                                             ; preds = %2390
   %2397 = lshr i32 %2, 25
   %2398 = and i32 %2397, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2398)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2398)
   %2399 = lshr i32 %2, 20
   %2400 = and i32 %2399, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2400)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2400)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2401:                                             ; preds = %7
@@ -7289,7 +7289,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2846 = load ptr, ptr %2404, align 8
   %2405 = getelementptr i8, ptr %.val2846, i64 216
   %.val2846.val = load i64, ptr %2405, align 8
-  %2406 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2403, i64 %.val2846.val)
+  %2406 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2403, i64 %.val2846.val)
   %2407 = and i32 %2406, %0
   %.not4746 = icmp eq i32 %2407, 0
   br i1 %.not4746, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2408
@@ -7300,7 +7300,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2847 = load ptr, ptr %2404, align 8
   %2411 = getelementptr i8, ptr %.val2847, i64 216
   %.val2847.val = load i64, ptr %2411, align 8
-  %2412 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2410, i64 %.val2847.val)
+  %2412 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2410, i64 %.val2847.val)
   %2413 = and i32 %2412, %2407
   %.not4747 = icmp eq i32 %2413, 0
   br i1 %.not4747, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2414
@@ -7308,10 +7308,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2414:                                             ; preds = %2408
   %2415 = lshr i32 %2, 25
   %2416 = and i32 %2415, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2416)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2416)
   %2417 = lshr i32 %2, 20
   %2418 = and i32 %2417, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2418)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2418)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2419:                                             ; preds = %7
@@ -7321,7 +7321,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2848 = load ptr, ptr %2422, align 8
   %2423 = getelementptr i8, ptr %.val2848, i64 216
   %.val2848.val = load i64, ptr %2423, align 8
-  %2424 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2421, i64 %.val2848.val)
+  %2424 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2421, i64 %.val2848.val)
   %2425 = and i32 %2424, %0
   %.not4742 = icmp eq i32 %2425, 0
   br i1 %.not4742, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2426
@@ -7330,7 +7330,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2849 = load ptr, ptr %2422, align 8
   %2427 = getelementptr i8, ptr %.val2849, i64 216
   %.val2849.val = load i64, ptr %2427, align 8
-  %2428 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2421, i64 %.val2849.val)
+  %2428 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2421, i64 %.val2849.val)
   %2429 = and i32 %2428, %2425
   %.not4743 = icmp eq i32 %2429, 0
   br i1 %.not4743, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2430
@@ -7341,7 +7341,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2850 = load ptr, ptr %2422, align 8
   %2433 = getelementptr i8, ptr %.val2850, i64 216
   %.val2850.val = load i64, ptr %2433, align 8
-  %2434 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2432, i64 %.val2850.val)
+  %2434 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2432, i64 %.val2850.val)
   %2435 = and i32 %2434, %2429
   %.not4744 = icmp eq i32 %2435, 0
   br i1 %.not4744, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2436
@@ -7352,7 +7352,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2851 = load ptr, ptr %2422, align 8
   %2439 = getelementptr i8, ptr %.val2851, i64 216
   %.val2851.val = load i64, ptr %2439, align 8
-  %2440 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2438, i64 %.val2851.val)
+  %2440 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2438, i64 %.val2851.val)
   %2441 = and i32 %2440, %2435
   %.not4745 = icmp eq i32 %2441, 0
   br i1 %.not4745, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2442
@@ -7360,7 +7360,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2442:                                             ; preds = %2436
   %2443 = lshr i32 %2, 25
   %2444 = and i32 %2443, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2444)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2444)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2445:                                             ; preds = %7
@@ -7370,7 +7370,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2852 = load ptr, ptr %2448, align 8
   %2449 = getelementptr i8, ptr %.val2852, i64 216
   %.val2852.val = load i64, ptr %2449, align 8
-  %2450 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2447, i64 %.val2852.val)
+  %2450 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2447, i64 %.val2852.val)
   %2451 = and i32 %2450, %0
   %.not4739 = icmp eq i32 %2451, 0
   br i1 %.not4739, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2452
@@ -7381,7 +7381,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2853 = load ptr, ptr %2448, align 8
   %2455 = getelementptr i8, ptr %.val2853, i64 216
   %.val2853.val = load i64, ptr %2455, align 8
-  %2456 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2454, i64 %.val2853.val)
+  %2456 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2454, i64 %.val2853.val)
   %2457 = and i32 %2456, %2451
   %.not4740 = icmp eq i32 %2457, 0
   br i1 %.not4740, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2458
@@ -7390,14 +7390,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2854 = load ptr, ptr %2448, align 8
   %2459 = getelementptr i8, ptr %.val2854, i64 216
   %.val2854.val = load i64, ptr %2459, align 8
-  %2460 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2454, i64 %.val2854.val)
+  %2460 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2454, i64 %.val2854.val)
   %2461 = and i32 %2460, %2457
   %.not4741 = icmp eq i32 %2461, 0
   br i1 %.not4741, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2462
 
 2462:                                             ; preds = %2458
   %2463 = lshr i32 %2, 20
-  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2463)
+  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2463)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2464:                                             ; preds = %7
@@ -7407,7 +7407,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2855 = load ptr, ptr %2467, align 8
   %2468 = getelementptr i8, ptr %.val2855, i64 216
   %.val2855.val = load i64, ptr %2468, align 8
-  %2469 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2466, i64 %.val2855.val)
+  %2469 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2466, i64 %.val2855.val)
   %2470 = and i32 %2469, %0
   %.not4736 = icmp eq i32 %2470, 0
   br i1 %.not4736, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2471
@@ -7418,7 +7418,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2856 = load ptr, ptr %2467, align 8
   %2474 = getelementptr i8, ptr %.val2856, i64 216
   %.val2856.val = load i64, ptr %2474, align 8
-  %2475 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2473, i64 %.val2856.val)
+  %2475 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2473, i64 %.val2856.val)
   %2476 = and i32 %2475, %2470
   %.not4737 = icmp eq i32 %2476, 0
   br i1 %.not4737, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2477
@@ -7427,7 +7427,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2857 = load ptr, ptr %2467, align 8
   %2478 = getelementptr i8, ptr %.val2857, i64 216
   %.val2857.val = load i64, ptr %2478, align 8
-  %2479 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2466, i64 %.val2857.val)
+  %2479 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2466, i64 %.val2857.val)
   %2480 = and i32 %2479, %2476
   %.not4738 = icmp eq i32 %2480, 0
   br i1 %.not4738, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2481
@@ -7437,7 +7437,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2483 = and i32 %2482, 31
   %2484 = and i32 %2472, 4064
   %2485 = or disjoint i32 %2483, %2484
-  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2485)
+  tail call fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2485)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2486:                                             ; preds = %7
@@ -7447,7 +7447,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2858 = load ptr, ptr %2489, align 8
   %2490 = getelementptr i8, ptr %.val2858, i64 216
   %.val2858.val = load i64, ptr %2490, align 8
-  %2491 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2488, i64 %.val2858.val)
+  %2491 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2488, i64 %.val2858.val)
   %2492 = and i32 %2491, %0
   %.not4733 = icmp eq i32 %2492, 0
   br i1 %.not4733, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2493
@@ -7458,7 +7458,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2859 = load ptr, ptr %2489, align 8
   %2496 = getelementptr i8, ptr %.val2859, i64 216
   %.val2859.val = load i64, ptr %2496, align 8
-  %2497 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2495, i64 %.val2859.val)
+  %2497 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2495, i64 %.val2859.val)
   %2498 = and i32 %2497, %2492
   %.not4734 = icmp eq i32 %2498, 0
   br i1 %.not4734, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2499
@@ -7467,7 +7467,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2860 = load ptr, ptr %2489, align 8
   %2500 = getelementptr i8, ptr %.val2860, i64 216
   %.val2860.val = load i64, ptr %2500, align 8
-  %2501 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2495, i64 %.val2860.val)
+  %2501 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2495, i64 %.val2860.val)
   %2502 = and i32 %2501, %2498
   %.not4735 = icmp eq i32 %2502, 0
   br i1 %.not4735, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2503
@@ -7478,7 +7478,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2861 = load ptr, ptr %2489, align 8
   %2506 = getelementptr i8, ptr %.val2861, i64 216
   %.val2861.val = load i64, ptr %2506, align 8
-  %2507 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2505, i64 %.val2861.val)
+  %2507 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2505, i64 %.val2861.val)
   %2508 = and i32 %2507, %2502
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -7489,7 +7489,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2862 = load ptr, ptr %2512, align 8
   %2513 = getelementptr i8, ptr %.val2862, i64 216
   %.val2862.val = load i64, ptr %2513, align 8
-  %2514 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2511, i64 %.val2862.val)
+  %2514 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2511, i64 %.val2862.val)
   %2515 = and i32 %2514, %0
   %.not4732 = icmp eq i32 %2515, 0
   br i1 %.not4732, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2516
@@ -7500,7 +7500,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2519 = lshr i32 %2, 20
   %2520 = and i32 %2519, 31
   %2521 = or disjoint i32 %2518, %2520
-  tail call fastcc void @_ZL12decodeRegRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2521, ptr noundef %5)
+  tail call fastcc void @_ZL12decodeRegRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2521, ptr noundef %5)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2522:                                             ; preds = %7
@@ -7510,7 +7510,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2863 = load ptr, ptr %2525, align 8
   %2526 = getelementptr i8, ptr %.val2863, i64 216
   %.val2863.val = load i64, ptr %2526, align 8
-  %2527 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2524, i64 %.val2863.val)
+  %2527 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2524, i64 %.val2863.val)
   %2528 = and i32 %2527, %0
   %.not4729 = icmp eq i32 %2528, 0
   br i1 %.not4729, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2529
@@ -7521,7 +7521,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2864 = load ptr, ptr %2525, align 8
   %2532 = getelementptr i8, ptr %.val2864, i64 216
   %.val2864.val = load i64, ptr %2532, align 8
-  %2533 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2531, i64 %.val2864.val)
+  %2533 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2531, i64 %.val2864.val)
   %2534 = and i32 %2533, %2528
   %.not4730 = icmp eq i32 %2534, 0
   br i1 %.not4730, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2535
@@ -7530,7 +7530,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2865 = load ptr, ptr %2525, align 8
   %2536 = getelementptr i8, ptr %.val2865, i64 216
   %.val2865.val = load i64, ptr %2536, align 8
-  %2537 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2524, i64 %.val2865.val)
+  %2537 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2524, i64 %.val2865.val)
   %2538 = and i32 %2537, %2534
   %.not4731 = icmp eq i32 %2538, 0
   br i1 %.not4731, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2539
@@ -7541,7 +7541,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2866 = load ptr, ptr %2525, align 8
   %2542 = getelementptr i8, ptr %.val2866, i64 216
   %.val2866.val = load i64, ptr %2542, align 8
-  %2543 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2541, i64 %.val2866.val)
+  %2543 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2541, i64 %.val2866.val)
   %2544 = and i32 %2543, %2538
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -7552,7 +7552,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2867 = load ptr, ptr %2548, align 8
   %2549 = getelementptr i8, ptr %.val2867, i64 216
   %.val2867.val = load i64, ptr %2549, align 8
-  %2550 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2547, i64 %.val2867.val)
+  %2550 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2547, i64 %.val2867.val)
   %2551 = and i32 %2550, %0
   %.not4728 = icmp eq i32 %2551, 0
   br i1 %.not4728, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2552
@@ -7563,7 +7563,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2555 = lshr i32 %2, 10
   %2556 = and i32 %2555, 992
   %2557 = or disjoint i32 %2554, %2556
-  tail call fastcc void @_ZL12decodeRegRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2557, ptr noundef %5)
+  tail call fastcc void @_ZL12decodeRegRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2557, ptr noundef %5)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2558:                                             ; preds = %7
@@ -7573,7 +7573,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2868 = load ptr, ptr %2561, align 8
   %2562 = getelementptr i8, ptr %.val2868, i64 216
   %.val2868.val = load i64, ptr %2562, align 8
-  %2563 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2560, i64 %.val2868.val)
+  %2563 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2560, i64 %.val2868.val)
   %2564 = and i32 %2563, %0
   %.not4726 = icmp eq i32 %2564, 0
   br i1 %.not4726, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2565
@@ -7584,7 +7584,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2869 = load ptr, ptr %2561, align 8
   %2568 = getelementptr i8, ptr %.val2869, i64 216
   %.val2869.val = load i64, ptr %2568, align 8
-  %2569 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2567, i64 %.val2869.val)
+  %2569 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2567, i64 %.val2869.val)
   %2570 = and i32 %2569, %2564
   %.not4727 = icmp eq i32 %2570, 0
   br i1 %.not4727, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2571
@@ -7595,7 +7595,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2574 = lshr i32 %2, 25
   %2575 = and i32 %2574, 1
   %2576 = or disjoint i32 %2573, %2575
-  tail call fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2576)
+  tail call fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2576)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2577:                                             ; preds = %7
@@ -7605,7 +7605,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2870 = load ptr, ptr %2580, align 8
   %2581 = getelementptr i8, ptr %.val2870, i64 216
   %.val2870.val = load i64, ptr %2581, align 8
-  %2582 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2579, i64 %.val2870.val)
+  %2582 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2579, i64 %.val2870.val)
   %2583 = and i32 %2582, %0
   %.not4724 = icmp eq i32 %2583, 0
   br i1 %.not4724, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2584
@@ -7616,7 +7616,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2871 = load ptr, ptr %2580, align 8
   %2587 = getelementptr i8, ptr %.val2871, i64 216
   %.val2871.val = load i64, ptr %2587, align 8
-  %2588 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2586, i64 %.val2871.val)
+  %2588 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2586, i64 %.val2871.val)
   %2589 = and i32 %2588, %2583
   %.not4725 = icmp eq i32 %2589, 0
   br i1 %.not4725, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2590
@@ -7627,7 +7627,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2593 = lshr i32 %2, 25
   %2594 = and i32 %2593, 1
   %2595 = or disjoint i32 %2592, %2594
-  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2595)
+  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2595)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2596:                                             ; preds = %7
@@ -7637,7 +7637,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2872 = load ptr, ptr %2599, align 8
   %2600 = getelementptr i8, ptr %.val2872, i64 216
   %.val2872.val = load i64, ptr %2600, align 8
-  %2601 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2598, i64 %.val2872.val)
+  %2601 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2598, i64 %.val2872.val)
   %2602 = and i32 %2601, %0
   %.not4722 = icmp eq i32 %2602, 0
   br i1 %.not4722, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2603
@@ -7648,7 +7648,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2873 = load ptr, ptr %2599, align 8
   %2606 = getelementptr i8, ptr %.val2873, i64 216
   %.val2873.val = load i64, ptr %2606, align 8
-  %2607 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2605, i64 %.val2873.val)
+  %2607 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2605, i64 %.val2873.val)
   %2608 = and i32 %2607, %2602
   %.not4723 = icmp eq i32 %2608, 0
   br i1 %.not4723, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2609
@@ -7659,7 +7659,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2612 = lshr i32 %2, 25
   %2613 = and i32 %2612, 1
   %2614 = or disjoint i32 %2611, %2613
-  tail call fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2614)
+  tail call fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2614)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2615:                                             ; preds = %7
@@ -7669,7 +7669,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2874 = load ptr, ptr %2618, align 8
   %2619 = getelementptr i8, ptr %.val2874, i64 216
   %.val2874.val = load i64, ptr %2619, align 8
-  %2620 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2617, i64 %.val2874.val)
+  %2620 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2617, i64 %.val2874.val)
   %2621 = and i32 %2620, %0
   %.not4720 = icmp eq i32 %2621, 0
   br i1 %.not4720, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2622
@@ -7680,7 +7680,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2875 = load ptr, ptr %2618, align 8
   %2625 = getelementptr i8, ptr %.val2875, i64 216
   %.val2875.val = load i64, ptr %2625, align 8
-  %2626 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2624, i64 %.val2875.val)
+  %2626 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2624, i64 %.val2875.val)
   %2627 = and i32 %2626, %2621
   %.not4721 = icmp eq i32 %2627, 0
   br i1 %.not4721, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2628
@@ -7691,7 +7691,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2631 = lshr i32 %2, 25
   %2632 = and i32 %2631, 1
   %2633 = or disjoint i32 %2630, %2632
-  tail call fastcc void @_ZL17decodeUImmOperandILj3EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2633)
+  tail call fastcc void @_ZL17decodeUImmOperandILj3EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2633)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2634:                                             ; preds = %7
@@ -7701,7 +7701,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2876 = load ptr, ptr %2637, align 8
   %2638 = getelementptr i8, ptr %.val2876, i64 216
   %.val2876.val = load i64, ptr %2638, align 8
-  %2639 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2636, i64 %.val2876.val)
+  %2639 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2636, i64 %.val2876.val)
   %2640 = and i32 %2639, %0
   %.not4717 = icmp eq i32 %2640, 0
   br i1 %.not4717, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2641
@@ -7710,7 +7710,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2877 = load ptr, ptr %2637, align 8
   %2642 = getelementptr i8, ptr %.val2877, i64 216
   %.val2877.val = load i64, ptr %2642, align 8
-  %2643 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2636, i64 %.val2877.val)
+  %2643 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2636, i64 %.val2877.val)
   %2644 = and i32 %2643, %2640
   %.not4718 = icmp eq i32 %2644, 0
   br i1 %.not4718, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2645
@@ -7721,7 +7721,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2878 = load ptr, ptr %2637, align 8
   %2648 = getelementptr i8, ptr %.val2878, i64 216
   %.val2878.val = load i64, ptr %2648, align 8
-  %2649 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2647, i64 %.val2878.val)
+  %2649 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2647, i64 %.val2878.val)
   %2650 = and i32 %2649, %2644
   %.not4719 = icmp eq i32 %2650, 0
   br i1 %.not4719, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2651
@@ -7732,7 +7732,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2654 = lshr i32 %2, 25
   %2655 = and i32 %2654, 1
   %2656 = or disjoint i32 %2653, %2655
-  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2656)
+  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2656)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2657:                                             ; preds = %7
@@ -7742,7 +7742,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2879 = load ptr, ptr %2660, align 8
   %2661 = getelementptr i8, ptr %.val2879, i64 216
   %.val2879.val = load i64, ptr %2661, align 8
-  %2662 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2659, i64 %.val2879.val)
+  %2662 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2659, i64 %.val2879.val)
   %2663 = and i32 %2662, %0
   %.not4714 = icmp eq i32 %2663, 0
   br i1 %.not4714, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2664
@@ -7751,7 +7751,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2880 = load ptr, ptr %2660, align 8
   %2665 = getelementptr i8, ptr %.val2880, i64 216
   %.val2880.val = load i64, ptr %2665, align 8
-  %2666 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2659, i64 %.val2880.val)
+  %2666 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2659, i64 %.val2880.val)
   %2667 = and i32 %2666, %2663
   %.not4715 = icmp eq i32 %2667, 0
   br i1 %.not4715, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2668
@@ -7762,7 +7762,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2881 = load ptr, ptr %2660, align 8
   %2671 = getelementptr i8, ptr %.val2881, i64 216
   %.val2881.val = load i64, ptr %2671, align 8
-  %2672 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2670, i64 %.val2881.val)
+  %2672 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2670, i64 %.val2881.val)
   %2673 = and i32 %2672, %2667
   %.not4716 = icmp eq i32 %2673, 0
   br i1 %.not4716, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2674
@@ -7773,13 +7773,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %2677 = lshr i32 %2, 25
   %2678 = and i32 %2677, 1
   %2679 = or disjoint i32 %2676, %2678
-  tail call fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2679)
+  tail call fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2679)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2680:                                             ; preds = %7
   %2681 = lshr i32 %2, 7
   %2682 = and i32 %2681, 31
-  %2683 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2682)
+  %2683 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2682)
   %2684 = and i32 %2683, %0
   %.not4712 = icmp eq i32 %2684, 0
   br i1 %.not4712, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2685
@@ -7787,10 +7787,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2685:                                             ; preds = %2680
   %2686 = lshr i32 %2, 26
   %2687 = and i32 %2686, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2687)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2687)
   %2688 = lshr i32 %2, 20
   %2689 = and i32 %2688, 31
-  %2690 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2689)
+  %2690 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2689)
   %2691 = and i32 %2690, %2684
   %.not4713 = icmp eq i32 %2691, 0
   br i1 %.not4713, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2692
@@ -7798,14 +7798,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2692:                                             ; preds = %2685
   %2693 = lshr i32 %2, 15
   %2694 = and i32 %2693, 31
-  %2695 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2694)
+  %2695 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2694)
   %2696 = and i32 %2695, %2691
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2697:                                             ; preds = %7
   %2698 = lshr i32 %2, 26
   %2699 = and i32 %2698, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2699)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2699)
   %2700 = and i32 %0, 3
   %.not4710 = icmp eq i32 %2700, 0
   br i1 %.not4710, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2701
@@ -7813,10 +7813,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2701:                                             ; preds = %2697
   %2702 = lshr i32 %2, 7
   %2703 = and i32 %2702, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2703)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2703)
   %2704 = lshr i32 %2, 20
   %2705 = and i32 %2704, 31
-  %2706 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2705)
+  %2706 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2705)
   %2707 = and i32 %2706, %0
   %.not4711 = icmp eq i32 %2707, 0
   br i1 %.not4711, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2708
@@ -7824,14 +7824,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2708:                                             ; preds = %2701
   %2709 = lshr i32 %2, 15
   %2710 = and i32 %2709, 31
-  %2711 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2710)
+  %2711 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2710)
   %2712 = and i32 %2711, %2707
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2713:                                             ; preds = %7
   %2714 = lshr i32 %2, 7
   %2715 = and i32 %2714, 31
-  %2716 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2715)
+  %2716 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2715)
   %2717 = and i32 %2716, %0
   %.not4707 = icmp eq i32 %2717, 0
   br i1 %.not4707, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2718
@@ -7839,8 +7839,8 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2718:                                             ; preds = %2713
   %2719 = lshr i32 %2, 26
   %2720 = and i32 %2719, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2720)
-  %2721 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2715)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2720)
+  %2721 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2715)
   %2722 = and i32 %2721, %2717
   %.not4708 = icmp eq i32 %2722, 0
   br i1 %.not4708, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2723
@@ -7848,7 +7848,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2723:                                             ; preds = %2718
   %2724 = lshr i32 %2, 20
   %2725 = and i32 %2724, 31
-  %2726 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2725)
+  %2726 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2725)
   %2727 = and i32 %2726, %2722
   %.not4709 = icmp eq i32 %2727, 0
   br i1 %.not4709, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2728
@@ -7856,14 +7856,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2728:                                             ; preds = %2723
   %2729 = lshr i32 %2, 15
   %2730 = and i32 %2729, 31
-  %2731 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2730)
+  %2731 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2730)
   %2732 = and i32 %2731, %2727
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2733:                                             ; preds = %7
   %2734 = lshr i32 %2, 26
   %2735 = and i32 %2734, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2735)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2735)
   %2736 = and i32 %0, 3
   %.not4704 = icmp eq i32 %2736, 0
   br i1 %.not4704, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2737
@@ -7871,7 +7871,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2737:                                             ; preds = %2733
   %2738 = lshr i32 %2, 7
   %2739 = and i32 %2738, 31
-  %2740 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2739)
+  %2740 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2739)
   %2741 = and i32 %2740, %0
   %.not4705 = icmp eq i32 %2741, 0
   br i1 %.not4705, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2742
@@ -7879,7 +7879,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2742:                                             ; preds = %2737
   %2743 = lshr i32 %2, 20
   %2744 = and i32 %2743, 31
-  %2745 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2744)
+  %2745 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2744)
   %2746 = and i32 %2745, %2741
   %.not4706 = icmp eq i32 %2746, 0
   br i1 %.not4706, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2747
@@ -7887,14 +7887,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2747:                                             ; preds = %2742
   %2748 = lshr i32 %2, 15
   %2749 = and i32 %2748, 31
-  %2750 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2749)
+  %2750 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2749)
   %2751 = and i32 %2750, %2746
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2752:                                             ; preds = %7
   %2753 = lshr i32 %2, 7
   %2754 = and i32 %2753, 31
-  %2755 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2754)
+  %2755 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2754)
   %2756 = and i32 %2755, %0
   %.not4703 = icmp eq i32 %2756, 0
   br i1 %.not4703, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2757
@@ -7902,19 +7902,19 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2757:                                             ; preds = %2752
   %2758 = lshr i32 %2, 26
   %2759 = and i32 %2758, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2759)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2759)
   %2760 = lshr i32 %2, 20
   %2761 = and i32 %2760, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2761)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2761)
   %2762 = lshr i32 %2, 15
   %2763 = and i32 %2762, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2763)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2763)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2764:                                             ; preds = %7
   %2765 = lshr i32 %2, 26
   %2766 = and i32 %2765, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2766)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2766)
   %2767 = and i32 %0, 3
   %.not4702 = icmp eq i32 %2767, 0
   br i1 %.not4702, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2768
@@ -7922,19 +7922,19 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2768:                                             ; preds = %2764
   %2769 = lshr i32 %2, 20
   %2770 = and i32 %2769, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2770)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2770)
   %2771 = lshr i32 %2, 7
   %2772 = and i32 %2771, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2772)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2772)
   %2773 = lshr i32 %2, 15
   %2774 = and i32 %2773, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2774)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2774)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2775:                                             ; preds = %7
   %2776 = lshr i32 %2, 7
   %2777 = and i32 %2776, 31
-  %2778 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2777)
+  %2778 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2777)
   %2779 = and i32 %2778, %0
   %.not4700 = icmp eq i32 %2779, 0
   br i1 %.not4700, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2780
@@ -7942,10 +7942,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2780:                                             ; preds = %2775
   %2781 = lshr i32 %2, 26
   %2782 = and i32 %2781, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2782)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2782)
   %2783 = lshr i32 %2, 20
   %2784 = and i32 %2783, 31
-  %2785 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2784)
+  %2785 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2784)
   %2786 = and i32 %2785, %2779
   %.not4701 = icmp eq i32 %2786, 0
   br i1 %.not4701, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2787
@@ -7953,13 +7953,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2787:                                             ; preds = %2780
   %2788 = lshr i32 %2, 15
   %2789 = and i32 %2788, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2789)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2789)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2790:                                             ; preds = %7
   %2791 = lshr i32 %2, 26
   %2792 = and i32 %2791, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2792)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2792)
   %2793 = and i32 %0, 3
   %.not4698 = icmp eq i32 %2793, 0
   br i1 %.not4698, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2794
@@ -7967,10 +7967,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2794:                                             ; preds = %2790
   %2795 = lshr i32 %2, 7
   %2796 = and i32 %2795, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2796)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2796)
   %2797 = lshr i32 %2, 20
   %2798 = and i32 %2797, 31
-  %2799 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2798)
+  %2799 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2798)
   %2800 = and i32 %2799, %0
   %.not4699 = icmp eq i32 %2800, 0
   br i1 %.not4699, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2801
@@ -7978,13 +7978,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2801:                                             ; preds = %2794
   %2802 = lshr i32 %2, 15
   %2803 = and i32 %2802, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2803)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2803)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2804:                                             ; preds = %7
   %2805 = lshr i32 %2, 7
   %2806 = and i32 %2805, 31
-  %2807 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2806)
+  %2807 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2806)
   %2808 = and i32 %2807, %0
   %.not4695 = icmp eq i32 %2808, 0
   br i1 %.not4695, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2809
@@ -7992,8 +7992,8 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2809:                                             ; preds = %2804
   %2810 = lshr i32 %2, 26
   %2811 = and i32 %2810, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2811)
-  %2812 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2806)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2811)
+  %2812 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2806)
   %2813 = and i32 %2812, %2808
   %.not4696 = icmp eq i32 %2813, 0
   br i1 %.not4696, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2814
@@ -8001,7 +8001,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2814:                                             ; preds = %2809
   %2815 = lshr i32 %2, 20
   %2816 = and i32 %2815, 31
-  %2817 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2816)
+  %2817 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2816)
   %2818 = and i32 %2817, %2813
   %.not4697 = icmp eq i32 %2818, 0
   br i1 %.not4697, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2819
@@ -8009,13 +8009,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2819:                                             ; preds = %2814
   %2820 = lshr i32 %2, 15
   %2821 = and i32 %2820, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2821)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2821)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2822:                                             ; preds = %7
   %2823 = lshr i32 %2, 26
   %2824 = and i32 %2823, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2824)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2824)
   %2825 = and i32 %0, 3
   %.not4692 = icmp eq i32 %2825, 0
   br i1 %.not4692, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2826
@@ -8023,7 +8023,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2826:                                             ; preds = %2822
   %2827 = lshr i32 %2, 7
   %2828 = and i32 %2827, 31
-  %2829 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2828)
+  %2829 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2828)
   %2830 = and i32 %2829, %0
   %.not4693 = icmp eq i32 %2830, 0
   br i1 %.not4693, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2831
@@ -8031,7 +8031,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2831:                                             ; preds = %2826
   %2832 = lshr i32 %2, 20
   %2833 = and i32 %2832, 31
-  %2834 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2833)
+  %2834 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2833)
   %2835 = and i32 %2834, %2830
   %.not4694 = icmp eq i32 %2835, 0
   br i1 %.not4694, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2836
@@ -8039,13 +8039,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2836:                                             ; preds = %2831
   %2837 = lshr i32 %2, 15
   %2838 = and i32 %2837, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2838)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2838)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2839:                                             ; preds = %7
   %2840 = lshr i32 %2, 7
   %2841 = and i32 %2840, 31
-  %2842 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2841)
+  %2842 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2841)
   %2843 = and i32 %2842, %0
   %.not4691 = icmp eq i32 %2843, 0
   br i1 %.not4691, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2844
@@ -8053,24 +8053,24 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2844:                                             ; preds = %2839
   %2845 = lshr i32 %2, 26
   %2846 = and i32 %2845, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2846)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2846)
   %2847 = lshr i32 %2, 20
   %2848 = and i32 %2847, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2848)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2848)
   %2849 = lshr i32 %2, 15
   %2850 = and i32 %2849, 31
   %2851 = getelementptr i8, ptr %5, i64 16
   %.val2882 = load ptr, ptr %2851, align 8
   %2852 = getelementptr i8, ptr %.val2882, i64 216
   %.val2882.val = load i64, ptr %2852, align 8
-  %2853 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2850, i64 %.val2882.val)
+  %2853 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2850, i64 %.val2882.val)
   %2854 = and i32 %2853, %2843
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2855:                                             ; preds = %7
   %2856 = lshr i32 %2, 26
   %2857 = and i32 %2856, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2857)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2857)
   %2858 = and i32 %0, 3
   %.not4690 = icmp eq i32 %2858, 0
   br i1 %.not4690, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2859
@@ -8078,24 +8078,24 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2859:                                             ; preds = %2855
   %2860 = lshr i32 %2, 20
   %2861 = and i32 %2860, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2861)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2861)
   %2862 = lshr i32 %2, 7
   %2863 = and i32 %2862, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2863)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2863)
   %2864 = lshr i32 %2, 15
   %2865 = and i32 %2864, 31
   %2866 = getelementptr i8, ptr %5, i64 16
   %.val2883 = load ptr, ptr %2866, align 8
   %2867 = getelementptr i8, ptr %.val2883, i64 216
   %.val2883.val = load i64, ptr %2867, align 8
-  %2868 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2865, i64 %.val2883.val)
+  %2868 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2865, i64 %.val2883.val)
   %2869 = and i32 %2868, %0
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2870:                                             ; preds = %7
   %2871 = lshr i32 %2, 7
   %2872 = and i32 %2871, 31
-  %2873 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2872)
+  %2873 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2872)
   %2874 = and i32 %2873, %0
   %.not4688 = icmp eq i32 %2874, 0
   br i1 %.not4688, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2875
@@ -8103,10 +8103,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2875:                                             ; preds = %2870
   %2876 = lshr i32 %2, 26
   %2877 = and i32 %2876, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2877)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2877)
   %2878 = lshr i32 %2, 20
   %2879 = and i32 %2878, 31
-  %2880 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2879)
+  %2880 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2879)
   %2881 = and i32 %2880, %2874
   %.not4689 = icmp eq i32 %2881, 0
   br i1 %.not4689, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2882
@@ -8118,14 +8118,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2884 = load ptr, ptr %2885, align 8
   %2886 = getelementptr i8, ptr %.val2884, i64 216
   %.val2884.val = load i64, ptr %2886, align 8
-  %2887 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2884, i64 %.val2884.val)
+  %2887 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2884, i64 %.val2884.val)
   %2888 = and i32 %2887, %2881
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2889:                                             ; preds = %7
   %2890 = lshr i32 %2, 26
   %2891 = and i32 %2890, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2891)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2891)
   %2892 = and i32 %0, 3
   %.not4686 = icmp eq i32 %2892, 0
   br i1 %.not4686, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2893
@@ -8133,10 +8133,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2893:                                             ; preds = %2889
   %2894 = lshr i32 %2, 7
   %2895 = and i32 %2894, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2895)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2895)
   %2896 = lshr i32 %2, 20
   %2897 = and i32 %2896, 31
-  %2898 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2897)
+  %2898 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2897)
   %2899 = and i32 %2898, %0
   %.not4687 = icmp eq i32 %2899, 0
   br i1 %.not4687, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2900
@@ -8148,14 +8148,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2885 = load ptr, ptr %2903, align 8
   %2904 = getelementptr i8, ptr %.val2885, i64 216
   %.val2885.val = load i64, ptr %2904, align 8
-  %2905 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2902, i64 %.val2885.val)
+  %2905 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2902, i64 %.val2885.val)
   %2906 = and i32 %2905, %2899
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2907:                                             ; preds = %7
   %2908 = lshr i32 %2, 7
   %2909 = and i32 %2908, 31
-  %2910 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2909)
+  %2910 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2909)
   %2911 = and i32 %2910, %0
   %.not4683 = icmp eq i32 %2911, 0
   br i1 %.not4683, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2912
@@ -8163,8 +8163,8 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2912:                                             ; preds = %2907
   %2913 = lshr i32 %2, 26
   %2914 = and i32 %2913, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2914)
-  %2915 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2909)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2914)
+  %2915 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2909)
   %2916 = and i32 %2915, %2911
   %.not4684 = icmp eq i32 %2916, 0
   br i1 %.not4684, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2917
@@ -8172,7 +8172,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2917:                                             ; preds = %2912
   %2918 = lshr i32 %2, 20
   %2919 = and i32 %2918, 31
-  %2920 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2919)
+  %2920 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2919)
   %2921 = and i32 %2920, %2916
   %.not4685 = icmp eq i32 %2921, 0
   br i1 %.not4685, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2922
@@ -8184,14 +8184,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2886 = load ptr, ptr %2925, align 8
   %2926 = getelementptr i8, ptr %.val2886, i64 216
   %.val2886.val = load i64, ptr %2926, align 8
-  %2927 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2924, i64 %.val2886.val)
+  %2927 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2924, i64 %.val2886.val)
   %2928 = and i32 %2927, %2921
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2929:                                             ; preds = %7
   %2930 = lshr i32 %2, 26
   %2931 = and i32 %2930, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2931)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2931)
   %2932 = and i32 %0, 3
   %.not4680 = icmp eq i32 %2932, 0
   br i1 %.not4680, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2933
@@ -8199,7 +8199,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2933:                                             ; preds = %2929
   %2934 = lshr i32 %2, 7
   %2935 = and i32 %2934, 31
-  %2936 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2935)
+  %2936 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2935)
   %2937 = and i32 %2936, %0
   %.not4681 = icmp eq i32 %2937, 0
   br i1 %.not4681, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2938
@@ -8207,7 +8207,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2938:                                             ; preds = %2933
   %2939 = lshr i32 %2, 20
   %2940 = and i32 %2939, 31
-  %2941 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2940)
+  %2941 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2940)
   %2942 = and i32 %2941, %2937
   %.not4682 = icmp eq i32 %2942, 0
   br i1 %.not4682, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2943
@@ -8219,14 +8219,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2887 = load ptr, ptr %2946, align 8
   %2947 = getelementptr i8, ptr %.val2887, i64 216
   %.val2887.val = load i64, ptr %2947, align 8
-  %2948 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2945, i64 %.val2887.val)
+  %2948 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2945, i64 %.val2887.val)
   %2949 = and i32 %2948, %2942
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2950:                                             ; preds = %7
   %2951 = lshr i32 %2, 7
   %2952 = and i32 %2951, 31
-  %2953 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2952)
+  %2953 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2952)
   %2954 = and i32 %2953, %0
   %.not4678 = icmp eq i32 %2954, 0
   br i1 %.not4678, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2955
@@ -8234,10 +8234,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2955:                                             ; preds = %2950
   %2956 = lshr i32 %2, 26
   %2957 = and i32 %2956, 1
-  tail call fastcc void @_ZL17decodeUImmOperandILj1EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2957)
+  tail call fastcc void @_ZL17decodeUImmOperandILj1EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2957)
   %2958 = lshr i32 %2, 20
   %2959 = and i32 %2958, 31
-  %2960 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2959)
+  %2960 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2959)
   %2961 = and i32 %2960, %2954
   %.not4679 = icmp eq i32 %2961, 0
   br i1 %.not4679, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2962
@@ -8245,14 +8245,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2962:                                             ; preds = %2955
   %2963 = lshr i32 %2, 15
   %2964 = and i32 %2963, 31
-  %2965 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2964)
+  %2965 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2964)
   %2966 = and i32 %2965, %2961
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2967:                                             ; preds = %7
   %2968 = lshr i32 %2, 26
   %2969 = and i32 %2968, 1
-  tail call fastcc void @_ZL17decodeUImmOperandILj1EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2969)
+  tail call fastcc void @_ZL17decodeUImmOperandILj1EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2969)
   %2970 = and i32 %0, 3
   %.not4676 = icmp eq i32 %2970, 0
   br i1 %.not4676, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2971
@@ -8260,10 +8260,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2971:                                             ; preds = %2967
   %2972 = lshr i32 %2, 7
   %2973 = and i32 %2972, 31
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2973)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2973)
   %2974 = lshr i32 %2, 20
   %2975 = and i32 %2974, 31
-  %2976 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2975)
+  %2976 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2975)
   %2977 = and i32 %2976, %0
   %.not4677 = icmp eq i32 %2977, 0
   br i1 %.not4677, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2978
@@ -8271,14 +8271,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2978:                                             ; preds = %2971
   %2979 = lshr i32 %2, 15
   %2980 = and i32 %2979, 31
-  %2981 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2980)
+  %2981 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2980)
   %2982 = and i32 %2981, %2977
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 2983:                                             ; preds = %7
   %2984 = lshr i32 %2, 7
   %2985 = and i32 %2984, 31
-  %2986 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2985)
+  %2986 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2985)
   %2987 = and i32 %2986, %0
   %.not4673 = icmp eq i32 %2987, 0
   br i1 %.not4673, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2988
@@ -8286,8 +8286,8 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2988:                                             ; preds = %2983
   %2989 = lshr i32 %2, 26
   %2990 = and i32 %2989, 1
-  tail call fastcc void @_ZL17decodeUImmOperandILj1EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2990)
-  %2991 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2985)
+  tail call fastcc void @_ZL17decodeUImmOperandILj1EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2990)
+  %2991 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2985)
   %2992 = and i32 %2991, %2987
   %.not4674 = icmp eq i32 %2992, 0
   br i1 %.not4674, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2993
@@ -8295,7 +8295,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2993:                                             ; preds = %2988
   %2994 = lshr i32 %2, 20
   %2995 = and i32 %2994, 31
-  %2996 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2995)
+  %2996 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2995)
   %2997 = and i32 %2996, %2992
   %.not4675 = icmp eq i32 %2997, 0
   br i1 %.not4675, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %2998
@@ -8303,14 +8303,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 2998:                                             ; preds = %2993
   %2999 = lshr i32 %2, 15
   %3000 = and i32 %2999, 31
-  %3001 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3000)
+  %3001 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3000)
   %3002 = and i32 %3001, %2997
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3003:                                             ; preds = %7
   %3004 = lshr i32 %2, 26
   %3005 = and i32 %3004, 1
-  tail call fastcc void @_ZL17decodeUImmOperandILj1EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3005)
+  tail call fastcc void @_ZL17decodeUImmOperandILj1EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3005)
   %3006 = and i32 %0, 3
   %.not4670 = icmp eq i32 %3006, 0
   br i1 %.not4670, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3007
@@ -8318,7 +8318,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3007:                                             ; preds = %3003
   %3008 = lshr i32 %2, 7
   %3009 = and i32 %3008, 31
-  %3010 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3009)
+  %3010 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3009)
   %3011 = and i32 %3010, %0
   %.not4671 = icmp eq i32 %3011, 0
   br i1 %.not4671, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3012
@@ -8326,7 +8326,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3012:                                             ; preds = %3007
   %3013 = lshr i32 %2, 20
   %3014 = and i32 %3013, 31
-  %3015 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3014)
+  %3015 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3014)
   %3016 = and i32 %3015, %3011
   %.not4672 = icmp eq i32 %3016, 0
   br i1 %.not4672, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3017
@@ -8334,14 +8334,14 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3017:                                             ; preds = %3012
   %3018 = lshr i32 %2, 15
   %3019 = and i32 %3018, 31
-  %3020 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3019)
+  %3020 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3019)
   %3021 = and i32 %3020, %3016
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3022:                                             ; preds = %7
   %3023 = lshr i32 %2, 7
   %3024 = and i32 %3023, 31
-  %3025 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3024)
+  %3025 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3024)
   %3026 = and i32 %3025, %0
   %.not4668 = icmp eq i32 %3026, 0
   br i1 %.not4668, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3027
@@ -8349,7 +8349,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3027:                                             ; preds = %3022
   %3028 = lshr i32 %2, 15
   %3029 = and i32 %3028, 31
-  %3030 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3029)
+  %3030 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3029)
   %3031 = and i32 %3030, %3026
   %.not4669 = icmp eq i32 %3031, 0
   br i1 %.not4669, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3032
@@ -8357,7 +8357,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3032:                                             ; preds = %3027
   %3033 = lshr i32 %2, 20
   %3034 = and i32 %3033, 31
-  %3035 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3034)
+  %3035 = tail call fastcc noundef i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3034)
   %3036 = and i32 %3035, %3031
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -8368,7 +8368,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2888 = load ptr, ptr %3040, align 8
   %3041 = getelementptr i8, ptr %.val2888, i64 216
   %.val2888.val = load i64, ptr %3041, align 8
-  %3042 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3039, i64 %.val2888.val)
+  %3042 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3039, i64 %.val2888.val)
   %3043 = and i32 %3042, %0
   %.not4665 = icmp eq i32 %3043, 0
   br i1 %.not4665, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3044
@@ -8379,7 +8379,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2889 = load ptr, ptr %3040, align 8
   %3047 = getelementptr i8, ptr %.val2889, i64 216
   %.val2889.val = load i64, ptr %3047, align 8
-  %3048 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3046, i64 %.val2889.val)
+  %3048 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3046, i64 %.val2889.val)
   %3049 = and i32 %3048, %3043
   %.not4666 = icmp eq i32 %3049, 0
   br i1 %.not4666, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3050
@@ -8390,7 +8390,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2890 = load ptr, ptr %3040, align 8
   %3053 = getelementptr i8, ptr %.val2890, i64 216
   %.val2890.val = load i64, ptr %3053, align 8
-  %3054 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3052, i64 %.val2890.val)
+  %3054 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3052, i64 %.val2890.val)
   %3055 = and i32 %3054, %3049
   %.not4667 = icmp eq i32 %3055, 0
   br i1 %.not4667, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3056
@@ -8398,7 +8398,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3056:                                             ; preds = %3050
   %3057 = lshr i32 %2, 25
   %3058 = and i32 %3057, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3058)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3058)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3059:                                             ; preds = %7
@@ -8408,7 +8408,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2891 = load ptr, ptr %3062, align 8
   %3063 = getelementptr i8, ptr %.val2891, i64 216
   %.val2891.val = load i64, ptr %3063, align 8
-  %3064 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3061, i64 %.val2891.val)
+  %3064 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3061, i64 %.val2891.val)
   %3065 = and i32 %3064, %0
   %.not4663 = icmp eq i32 %3065, 0
   br i1 %.not4663, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3066
@@ -8419,23 +8419,23 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2892 = load ptr, ptr %3062, align 8
   %3069 = getelementptr i8, ptr %.val2892, i64 216
   %.val2892.val = load i64, ptr %3069, align 8
-  %3070 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3068, i64 %.val2892.val)
+  %3070 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3068, i64 %.val2892.val)
   %3071 = and i32 %3070, %3065
   %.not4664 = icmp eq i32 %3071, 0
   br i1 %.not4664, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3072
 
 3072:                                             ; preds = %3066
   %3073 = lshr i32 %2, 26
-  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3073)
+  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3073)
   %3074 = lshr i32 %2, 20
   %3075 = and i32 %3074, 63
-  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3075)
+  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3075)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3076:                                             ; preds = %7
   %3077 = lshr i32 %2, 7
   %3078 = and i32 %3077, 31
-  %3079 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3078)
+  %3079 = tail call fastcc noundef i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3078)
   %3080 = and i32 %3079, %0
   %.not4660 = icmp eq i32 %3080, 0
   br i1 %.not4660, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3081
@@ -8447,7 +8447,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2893 = load ptr, ptr %3084, align 8
   %3085 = getelementptr i8, ptr %.val2893, i64 216
   %.val2893.val = load i64, ptr %3085, align 8
-  %3086 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3083, i64 %.val2893.val)
+  %3086 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3083, i64 %.val2893.val)
   %3087 = and i32 %3086, %3080
   %.not4661 = icmp eq i32 %3087, 0
   br i1 %.not4661, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3088
@@ -8458,7 +8458,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2894 = load ptr, ptr %3084, align 8
   %3091 = getelementptr i8, ptr %.val2894, i64 216
   %.val2894.val = load i64, ptr %3091, align 8
-  %3092 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3090, i64 %.val2894.val)
+  %3092 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3090, i64 %.val2894.val)
   %3093 = and i32 %3092, %3087
   %.not4662 = icmp eq i32 %3093, 0
   br i1 %.not4662, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3094
@@ -8466,13 +8466,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3094:                                             ; preds = %3088
   %3095 = lshr i32 %2, 25
   %3096 = and i32 %3095, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3096)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3096)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3097:                                             ; preds = %7
   %3098 = lshr i32 %2, 7
   %3099 = and i32 %3098, 31
-  %3100 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3099)
+  %3100 = tail call fastcc noundef i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3099)
   %3101 = and i32 %3100, %0
   %.not4657 = icmp eq i32 %3101, 0
   br i1 %.not4657, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3102
@@ -8484,7 +8484,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2895 = load ptr, ptr %3105, align 8
   %3106 = getelementptr i8, ptr %.val2895, i64 216
   %.val2895.val = load i64, ptr %3106, align 8
-  %3107 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3104, i64 %.val2895.val)
+  %3107 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3104, i64 %.val2895.val)
   %3108 = and i32 %3107, %3101
   %.not4658 = icmp eq i32 %3108, 0
   br i1 %.not4658, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3109
@@ -8495,7 +8495,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2896 = load ptr, ptr %3105, align 8
   %3112 = getelementptr i8, ptr %.val2896, i64 216
   %.val2896.val = load i64, ptr %3112, align 8
-  %3113 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3111, i64 %.val2896.val)
+  %3113 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3111, i64 %.val2896.val)
   %3114 = and i32 %3113, %3108
   %.not4659 = icmp eq i32 %3114, 0
   br i1 %.not4659, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3115
@@ -8503,7 +8503,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3115:                                             ; preds = %3109
   %3116 = lshr i32 %2, 25
   %3117 = and i32 %3116, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3117)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3117)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3118:                                             ; preds = %7
@@ -8513,7 +8513,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2897 = load ptr, ptr %3121, align 8
   %3122 = getelementptr i8, ptr %.val2897, i64 216
   %.val2897.val = load i64, ptr %3122, align 8
-  %3123 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3120, i64 %.val2897.val)
+  %3123 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3120, i64 %.val2897.val)
   %3124 = and i32 %3123, %0
   %.not4654 = icmp eq i32 %3124, 0
   br i1 %.not4654, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3125
@@ -8524,7 +8524,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2898 = load ptr, ptr %3121, align 8
   %3128 = getelementptr i8, ptr %.val2898, i64 216
   %.val2898.val = load i64, ptr %3128, align 8
-  %3129 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3127, i64 %.val2898.val)
+  %3129 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3127, i64 %.val2898.val)
   %3130 = and i32 %3129, %3124
   %.not4655 = icmp eq i32 %3130, 0
   br i1 %.not4655, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3131
@@ -8533,7 +8533,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2899 = load ptr, ptr %3121, align 8
   %3132 = getelementptr i8, ptr %.val2899, i64 216
   %.val2899.val = load i64, ptr %3132, align 8
-  %3133 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3127, i64 %.val2899.val)
+  %3133 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3127, i64 %.val2899.val)
   %3134 = and i32 %3133, %3130
   %.not4656 = icmp eq i32 %3134, 0
   br i1 %.not4656, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3135
@@ -8541,10 +8541,10 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3135:                                             ; preds = %3131
   %3136 = lshr i32 %2, 20
   %3137 = and i32 %3136, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3137)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3137)
   %3138 = lshr i32 %2, 25
   %3139 = and i32 %3138, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3139)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3139)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3140:                                             ; preds = %7
@@ -8554,7 +8554,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2900 = load ptr, ptr %3143, align 8
   %3144 = getelementptr i8, ptr %.val2900, i64 216
   %.val2900.val = load i64, ptr %3144, align 8
-  %3145 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3142, i64 %.val2900.val)
+  %3145 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3142, i64 %.val2900.val)
   %3146 = and i32 %3145, %0
   %.not4651 = icmp eq i32 %3146, 0
   br i1 %.not4651, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3147
@@ -8565,7 +8565,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2901 = load ptr, ptr %3143, align 8
   %3150 = getelementptr i8, ptr %.val2901, i64 216
   %.val2901.val = load i64, ptr %3150, align 8
-  %3151 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3149, i64 %.val2901.val)
+  %3151 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3149, i64 %.val2901.val)
   %3152 = and i32 %3151, %3146
   %.not4652 = icmp eq i32 %3152, 0
   br i1 %.not4652, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3153
@@ -8574,7 +8574,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %.val2902 = load ptr, ptr %3143, align 8
   %3154 = getelementptr i8, ptr %.val2902, i64 216
   %.val2902.val = load i64, ptr %3154, align 8
-  %3155 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3142, i64 %.val2902.val)
+  %3155 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3142, i64 %.val2902.val)
   %3156 = and i32 %3155, %3152
   %.not4653 = icmp eq i32 %3156, 0
   br i1 %.not4653, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3157
@@ -8582,21 +8582,21 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3157:                                             ; preds = %3153
   %3158 = lshr i32 %2, 20
   %3159 = and i32 %3158, 31
-  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3159)
+  tail call fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3159)
   %3160 = lshr i32 %2, 25
   %3161 = and i32 %3160, 3
-  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3161)
+  tail call fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3161)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3162:                                             ; preds = %7
-  tail call fastcc void @_ZL19decodeXTHeadMemPairRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2, ptr noundef %5)
+  tail call fastcc void @_ZL19decodeXTHeadMemPairRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %2, ptr noundef %5)
   %3163 = and i32 %0, 3
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3164:                                             ; preds = %7
   %3165 = lshr i32 %2, 2
   %3166 = and i32 %3165, 7
-  %3167 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3166)
+  %3167 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3166)
   %3168 = and i32 %3167, %0
   %.not4649 = icmp eq i32 %3168, 0
   br i1 %.not4649, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3169
@@ -8604,7 +8604,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3169:                                             ; preds = %3164
   %3170 = lshr i32 %2, 7
   %3171 = and i32 %3170, 7
-  %3172 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3171)
+  %3172 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3171)
   %3173 = and i32 %3172, %3168
   %.not4650 = icmp eq i32 %3173, 0
   br i1 %.not4650, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3174
@@ -8617,13 +8617,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %3179 = lshr i32 %2, 12
   %3180 = and i32 %3179, 1
   %3181 = or disjoint i32 %3178, %3180
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3181)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3181)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3182:                                             ; preds = %7
   %3183 = lshr i32 %2, 2
   %3184 = and i32 %3183, 7
-  %3185 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3184)
+  %3185 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3184)
   %3186 = and i32 %3185, %0
   %.not4647 = icmp eq i32 %3186, 0
   br i1 %.not4647, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3187
@@ -8631,7 +8631,7 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3187:                                             ; preds = %3182
   %3188 = lshr i32 %2, 7
   %3189 = and i32 %3188, 7
-  %3190 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3189)
+  %3190 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3189)
   %3191 = and i32 %3190, %3186
   %.not4648 = icmp eq i32 %3191, 0
   br i1 %.not4648, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3192
@@ -8641,13 +8641,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %3194 = and i32 %3193, 6
   %3195 = and i32 %3188, 56
   %3196 = or disjoint i32 %3194, %3195
-  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3196)
+  tail call fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3196)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3197:                                             ; preds = %7
   %3198 = lshr i32 %2, 2
   %3199 = and i32 %3198, 7
-  %3200 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3199)
+  %3200 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3199)
   %3201 = and i32 %3200, %0
   %.not4646 = icmp eq i32 %3201, 0
   br i1 %.not4646, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3202
@@ -8655,13 +8655,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
 3202:                                             ; preds = %3197
   %3203 = lshr i32 %2, 7
   %3204 = and i32 %3203, 15
-  tail call fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3204)
+  tail call fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3204)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3205:                                             ; preds = %7
   %3206 = lshr i32 %2, 2
   %3207 = and i32 %3206, 7
-  %3208 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3207)
+  %3208 = tail call fastcc noundef i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3207)
   %3209 = and i32 %3208, %0
   %.not = icmp eq i32 %3209, 0
   br i1 %.not, label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit, label %3210
@@ -8672,13 +8672,13 @@ _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit2959:
   %3213 = lshr i32 %2, 7
   %3214 = and i32 %3213, 14
   %3215 = or disjoint i32 %3212, %3214
-  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3215)
+  tail call fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3215)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 3216:                                             ; preds = %7
   %3217 = lshr i32 %2, 7
   %3218 = and i32 %3217, 31
-  %3219 = tail call fastcc noundef i32 @_ZL26DecodeGPRX1X5RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3218)
+  %3219 = tail call fastcc noundef i32 @_ZL26DecodeGPRX1X5RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef %3218)
   %3220 = and i32 %0, 3
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
@@ -8692,7 +8692,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeGPRCRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 7
   br i1 %3, label %17, label %4
 
@@ -8729,7 +8729,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeUImmNonZeroOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeUImmNonZeroOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %17, label %4
 
@@ -8739,14 +8739,14 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeUImmNonZeroOperan
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
   %.not.i.i.i.i.i = icmp ugt i64 %7, %8
-  br i1 %.not.i.i.i.i.i, label %9, label %_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %9, label %_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %10, i64 noundef %7, i64 noundef 16) #10
-  br label %_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br label %_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
-_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit: ; preds = %4, %9
+_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit: ; preds = %4, %9
   %11 = zext i32 %1 to i64
   %12 = load ptr, ptr %5, align 8
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
@@ -8759,13 +8759,13 @@ _ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEj
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %16) #10
   br label %17
 
-17:                                               ; preds = %2, %_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
-  %.0 = phi i32 [ 3, %_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit ], [ 0, %2 ]
+17:                                               ; preds = %2, %_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
+  %.0 = phi i32 [ 3, %_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit ], [ 0, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26decodeRVCInstrRdRs1ImmZeroRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL26decodeRVCInstrRdRs1ImmZeroRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = lshr i32 %1, 7
   %5 = and i32 %4, 31
   %6 = icmp eq i32 %5, 0
@@ -8776,7 +8776,7 @@ define internal fastcc void @_ZL26decodeRVCInstrRdRs1ImmZeroRN4llvm6MCInstEjmPKN
   %.val.i = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val.i, i64 216
   %.val.val.i = load i64, ptr %9, align 8
-  %10 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %5, i64 %.val.val.i)
+  %10 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %5, i64 %.val.val.i)
   br label %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit
 
 _ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit: ; preds = %3, %7
@@ -8831,7 +8831,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit11: ; preds = %_ZN4llvm6MCInst10a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeSImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeSImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %19, label %4
 
@@ -8841,14 +8841,14 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeSImmNonZeroOperan
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
   %.not.i.i.i.i.i = icmp ugt i64 %7, %8
-  br i1 %.not.i.i.i.i.i, label %9, label %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %9, label %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %10, i64 noundef %7, i64 noundef 16) #10
-  br label %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br label %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
-_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit: ; preds = %4, %9
+_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit: ; preds = %4, %9
   %11 = zext i32 %1 to i64
   %12 = shl i64 %11, 58
   %13 = ashr exact i64 %12, 58
@@ -8863,13 +8863,13 @@ _ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %18) #10
   br label %19
 
-19:                                               ; preds = %2, %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
-  %.0 = phi i32 [ 3, %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit ], [ 0, %2 ]
+19:                                               ; preds = %2, %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
+  %.0 = phi i32 [ 3, %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit ], [ 0, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 %.16.val.216.val) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 %.16.val.216.val) unnamed_addr #0 {
   %3 = and i64 %.16.val.216.val, 70368744177664
   %4 = icmp ne i64 %3, 0
   %5 = icmp ugt i32 %1, 31
@@ -8911,7 +8911,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %7, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23decodeRVCInstrRdRs1UImmRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL23decodeRVCInstrRdRs1UImmRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -8963,14 +8963,14 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit12: ; preds = %_ZN4llvm6MCInst10a
   %26 = add i64 %25, 1
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %.not.i.i.i.i.i = icmp ugt i64 %26, %27
-  br i1 %.not.i.i.i.i.i, label %28, label %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %28, label %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
 28:                                               ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit12
   %29 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %29, i64 noundef %26, i64 noundef 16) #10
-  br label %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br label %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
-_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit: ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit12, %28
+_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit: ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit12, %28
   %30 = lshr i32 %1, 7
   %31 = and i32 %30, 32
   %32 = lshr i32 %1, 2
@@ -8990,7 +8990,7 @@ _ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeUImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeUImmNonZeroOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %17, label %4
 
@@ -9000,14 +9000,14 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeUImmNonZeroOperan
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
   %.not.i.i.i.i.i = icmp ugt i64 %7, %8
-  br i1 %.not.i.i.i.i.i, label %9, label %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %9, label %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %10, i64 noundef %7, i64 noundef 16) #10
-  br label %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br label %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
-_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit: ; preds = %4, %9
+_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit: ; preds = %4, %9
   %11 = zext i32 %1 to i64
   %12 = load ptr, ptr %5, align 8
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
@@ -9020,13 +9020,13 @@ _ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %16) #10
   br label %17
 
-17:                                               ; preds = %2, %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
-  %.0 = phi i32 [ 3, %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit ], [ 0, %2 ]
+17:                                               ; preds = %2, %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
+  %.0 = phi i32 [ 3, %_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit ], [ 0, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL25DecodeFPR64CRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL25DecodeFPR64CRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 7
   br i1 %3, label %17, label %4
 
@@ -9063,7 +9063,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9091,7 +9091,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9121,7 +9121,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL24DecodeFPR64RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 31
   br i1 %3, label %17, label %4
 
@@ -9158,7 +9158,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9186,7 +9186,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj7EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj7EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9214,7 +9214,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20decodeRVCInstrRdSImmRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL20decodeRVCInstrRdSImmRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9241,14 +9241,14 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
   %15 = add i64 %14, 1
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %.not.i.i.i.i.i = icmp ugt i64 %15, %16
-  br i1 %.not.i.i.i.i.i, label %17, label %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %17, label %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
 17:                                               ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %18, i64 noundef %15, i64 noundef 16) #10
-  br label %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br label %_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
-_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit: ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, %17
+_ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit: ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, %17
   %19 = lshr i32 %1, 7
   %20 = and i32 %19, 32
   %21 = lshr i32 %1, 2
@@ -9270,7 +9270,7 @@ _ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeSImmNonZeroOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeSImmNonZeroOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %19, label %4
 
@@ -9280,14 +9280,14 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL24decodeSImmNonZeroOperan
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
   %.not.i.i.i.i.i = icmp ugt i64 %7, %8
-  br i1 %.not.i.i.i.i.i, label %9, label %_ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %9, label %_ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %10, i64 noundef %7, i64 noundef 16) #10
-  br label %_ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br label %_ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
-_ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit: ; preds = %4, %9
+_ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit: ; preds = %4, %9
   %11 = zext i32 %1 to i64
   %12 = shl i64 %11, 54
   %13 = ashr exact i64 %12, 54
@@ -9302,13 +9302,13 @@ _ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEj
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %18) #10
   br label %19
 
-19:                                               ; preds = %2, %_ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
-  %.0 = phi i32 [ 3, %_ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit ], [ 0, %2 ]
+19:                                               ; preds = %2, %_ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
+  %.0 = phi i32 [ 3, %_ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit ], [ 0, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20decodeCLUIImmOperandRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL20decodeCLUIImmOperandRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9343,7 +9343,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9371,7 +9371,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19decodeRVCInstrRdRs2RN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL19decodeRVCInstrRdRs2RN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = lshr i32 %1, 7
   %5 = and i32 %4, 31
   %6 = lshr i32 %1, 2
@@ -9380,23 +9380,23 @@ define internal fastcc void @_ZL19decodeRVCInstrRdRs2RN4llvm6MCInstEjmPKNS_14MCD
   %.val9 = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val9, i64 216
   %.val9.val = load i64, ptr %9, align 8
-  %10 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %5, i64 %.val9.val)
+  %10 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %5, i64 %.val9.val)
   %.val8 = load ptr, ptr %8, align 8
   %11 = getelementptr i8, ptr %.val8, i64 216
   %.val8.val = load i64, ptr %11, align 8
-  %12 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %7, i64 %.val8.val)
+  %12 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %7, i64 %.val8.val)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22decodeRVCInstrRdRs1Rs2RN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL22decodeRVCInstrRdRs1Rs2RN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = lshr i32 %1, 7
   %5 = and i32 %4, 31
   %6 = getelementptr i8, ptr %2, i64 16
   %.val12 = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val12, i64 216
   %.val12.val = load i64, ptr %7, align 8
-  %8 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %5, i64 %.val12.val)
+  %8 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %5, i64 %.val12.val)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.sroa.0.0.copyload = load i8, ptr %10, align 8
@@ -9428,12 +9428,12 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %14
   %.val11 = load ptr, ptr %6, align 8
   %23 = getelementptr i8, ptr %.val11, i64 216
   %.val11.val = load i64, ptr %23, align 8
-  %24 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %17, i64 %.val11.val)
+  %24 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %17, i64 %.val11.val)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9464,7 +9464,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9495,7 +9495,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeSImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9525,7 +9525,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL21DecodeVRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 31
   br i1 %3, label %17, label %4
 
@@ -9562,7 +9562,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL14decodeVMaskRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 1
   br i1 %3, label %17, label %4
 
@@ -9599,7 +9599,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM2RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM2RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = and i32 %1, -31
   %or.cond = icmp eq i32 %4, 0
   br i1 %or.cond, label %5, label %23
@@ -9642,7 +9642,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %5, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM4RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM4RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = and i32 %1, -29
   %or.cond = icmp eq i32 %4, 0
   br i1 %or.cond, label %5, label %23
@@ -9685,7 +9685,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %5, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM8RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeVRM8RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = and i32 %1, -25
   %or.cond = icmp eq i32 %4, 0
   br i1 %or.cond, label %5, label %23
@@ -9728,7 +9728,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %5, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL24DecodeFPR16RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 31
   br i1 %3, label %17, label %4
 
@@ -9765,7 +9765,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL24DecodeFPR32RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 31
   br i1 %3, label %17, label %4
 
@@ -9802,7 +9802,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9830,7 +9830,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9858,7 +9858,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj20EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj20EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9886,7 +9886,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -9914,7 +9914,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL26DecodeGPRPairRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = and i32 %1, -31
   %or.cond = icmp eq i32 %3, 0
   br i1 %or.cond, label %4, label %17
@@ -9952,7 +9952,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL12decodeFRMArgRN4llvm6MCInstEjlPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %1, label %_ZN4llvm14RISCVFPRndModeL19isValidRoundingModeEj.exit [
     i32 0, label %3
     i32 1, label %3
@@ -10021,7 +10021,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE9push_backES1_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeSImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -10051,7 +10051,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj11EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj11EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -10079,7 +10079,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -10107,7 +10107,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj13EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj13EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -10138,7 +10138,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj21EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL24decodeSImmOperandAndLsl1ILj21EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -10169,7 +10169,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj12EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -10197,7 +10197,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL26DecodeGPRX1X5RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL26DecodeGPRX1X5RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %1, label %16 [
     i32 1, label %3
     i32 5, label %3
@@ -10236,7 +10236,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL25DecodeFPR32CRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL25DecodeFPR32CRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 7
   br i1 %3, label %17, label %4
 
@@ -10273,7 +10273,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeSR07RegisterClassRN4llvm6MCInstEjmPKv.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeSR07RegisterClassRN4llvm6MCInstEjmPKv(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 7
   br i1 %3, label %18, label %4
 
@@ -10312,7 +10312,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL15decodeZcmpRlistRN4llvm6MCInstEjmPKv.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL15decodeZcmpRlistRN4llvm6MCInstEjmPKv(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp ult i32 %1, 4
   br i1 %3, label %17, label %4
 
@@ -10348,7 +10348,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15decodeZcmpSpimmRN4llvm6MCInstEjmPKv.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef range(i32 0, -15) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL15decodeZcmpSpimmRN4llvm6MCInstEjmPKv(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef range(i32 0, -15) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -10376,7 +10376,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12decodeRegRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL12decodeRegRegRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = and i32 %1, 31
   %5 = lshr i32 %1, 5
   %6 = and i32 %5, 31
@@ -10384,16 +10384,16 @@ define internal fastcc void @_ZL12decodeRegRegRN4llvm6MCInstEjmPKNS_14MCDisassem
   %.val9 = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %.val9, i64 216
   %.val9.val = load i64, ptr %8, align 8
-  %9 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %4, i64 %.val9.val)
+  %9 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %4, i64 %.val9.val)
   %.val8 = load ptr, ptr %7, align 8
   %10 = getelementptr i8, ptr %.val8, i64 216
   %.val8.val = load i64, ptr %10, align 8
-  %11 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %6, i64 %.val8.val)
+  %11 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %6, i64 %.val8.val)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj3EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj3EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -10421,7 +10421,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17decodeUImmOperandILj1EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17decodeUImmOperandILj1EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   %5 = add i64 %4, 1
@@ -10449,7 +10449,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19decodeXTHeadMemPairRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZL19decodeXTHeadMemPairRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = lshr i32 %1, 7
   %5 = and i32 %4, 31
   %6 = lshr i32 %1, 15
@@ -10462,28 +10462,28 @@ define internal fastcc void @_ZL19decodeXTHeadMemPairRN4llvm6MCInstEjmPKNS_14MCD
   %.val30 = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %.val30, i64 216
   %.val30.val = load i64, ptr %13, align 8
-  %14 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %5, i64 %.val30.val)
+  %14 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %5, i64 %.val30.val)
   %.val29 = load ptr, ptr %12, align 8
   %15 = getelementptr i8, ptr %.val29, i64 216
   %.val29.val = load i64, ptr %15, align 8
-  %16 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %9, i64 %.val29.val)
+  %16 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %9, i64 %.val29.val)
   %.val28 = load ptr, ptr %12, align 8
   %17 = getelementptr i8, ptr %.val28, i64 216
   %.val28.val = load i64, ptr %17, align 8
-  %18 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.argprom.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %7, i64 %.val28.val)
+  %18 = tail call fastcc noundef i32 @_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %7, i64 %.val28.val)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #10
   %21 = add i64 %20, 1
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #10
   %.not.i.i.i.i.i = icmp ugt i64 %21, %22
-  br i1 %.not.i.i.i.i.i, label %23, label %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %23, label %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %24, i64 noundef %21, i64 noundef 16) #10
-  br label %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+  br label %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
 
-_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit: ; preds = %3, %23
+_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit: ; preds = %3, %23
   %25 = zext nneg i32 %11 to i64
   %26 = load ptr, ptr %19, align 8
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #10
@@ -10501,14 +10501,14 @@ _ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
     i32 13074, label %.critedge
   ]
 
-32:                                               ; preds = %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+32:                                               ; preds = %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
   %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #10
   %34 = add i64 %33, 1
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #10
   %.not.i.i.i.i = icmp ugt i64 %34, %35
   br i1 %.not.i.i.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
-.critedge:                                        ; preds = %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit, %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit, %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.argprom.exit
+.critedge:                                        ; preds = %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit, %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit, %_ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjlPKS1_.exit
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #10
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #10

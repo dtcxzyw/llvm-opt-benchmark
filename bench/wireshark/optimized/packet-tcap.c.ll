@@ -797,7 +797,7 @@ define hidden ptr @tcapsrt_call_matching(ptr noundef %0, ptr noundef %1, ptr nou
   %145 = icmp ne i32 %144, 0
   %146 = icmp ne ptr %2, null
   %or.cond.i = and i1 %146, %145
-  br i1 %or.cond.i, label %147, label %tcaphash_begin_matching.argprom.exit
+  br i1 %or.cond.i, label %147, label %tcaphash_begin_matching.exit
 
 147:                                              ; preds = %143
   %148 = load i32, ptr @ett_tcap_stat, align 4
@@ -826,13 +826,13 @@ proto_item_set_generated.exit.i:                  ; preds = %154, %151, %147
   %161 = load i32, ptr %160, align 8
   %162 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %149, i32 noundef %158, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %159, ptr noundef nonnull @.str.201, i32 noundef %161, i32 noundef %159) #11
   %.not.i89.i = icmp eq ptr %162, null
-  br i1 %.not.i89.i, label %tcaphash_begin_matching.argprom.exit, label %163
+  br i1 %.not.i89.i, label %tcaphash_begin_matching.exit, label %163
 
 163:                                              ; preds = %proto_item_set_generated.exit.i
   %164 = getelementptr inbounds i8, ptr %162, i64 32
   %165 = load ptr, ptr %164, align 8
   %.not5.i90.i = icmp eq ptr %165, null
-  br i1 %.not5.i90.i, label %tcaphash_begin_matching.argprom.exit, label %proto_item_set_generated.exit91.sink.split.i
+  br i1 %.not5.i90.i, label %tcaphash_begin_matching.exit, label %proto_item_set_generated.exit91.sink.split.i
 
 166:                                              ; preds = %42
   %167 = load i32, ptr @tcapsrt_global_SessionId, align 4
@@ -907,13 +907,13 @@ proto_item_set_generated.exit.i:                  ; preds = %154, %151, %147
   %202 = icmp ne i32 %201, 0
   %203 = icmp ne ptr %2, null
   %or.cond3.i = and i1 %203, %202
-  br i1 %or.cond3.i, label %204, label %tcaphash_begin_matching.argprom.exit
+  br i1 %or.cond3.i, label %204, label %tcaphash_begin_matching.exit
 
 204:                                              ; preds = %.loopexit.i
   %205 = getelementptr inbounds i8, ptr %.073.i, i64 8
   %206 = load i32, ptr %205, align 8
   %.not85.i = icmp eq i32 %206, 0
-  br i1 %.not85.i, label %tcaphash_begin_matching.argprom.exit, label %207
+  br i1 %.not85.i, label %tcaphash_begin_matching.exit, label %207
 
 207:                                              ; preds = %204
   %208 = load i32, ptr @ett_tcap_stat, align 4
@@ -959,19 +959,19 @@ proto_item_set_generated.exit97.i:                ; preds = %224, %221, %proto_i
   %228 = getelementptr inbounds i8, ptr %.073.i, i64 16
   %229 = load i32, ptr %228, align 8
   %.not86.i = icmp eq i32 %229, 0
-  br i1 %.not86.i, label %tcaphash_begin_matching.argprom.exit, label %230
+  br i1 %.not86.i, label %tcaphash_begin_matching.exit, label %230
 
 230:                                              ; preds = %proto_item_set_generated.exit97.i
   %231 = load i32, ptr @hf_tcapsrt_BeginSession, align 4
   %232 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %209, i32 noundef %231, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %229, ptr noundef nonnull @.str.202, i32 noundef %229) #11
   %.not.i98.i = icmp eq ptr %232, null
-  br i1 %.not.i98.i, label %tcaphash_begin_matching.argprom.exit, label %233
+  br i1 %.not.i98.i, label %tcaphash_begin_matching.exit, label %233
 
 233:                                              ; preds = %230
   %234 = getelementptr inbounds i8, ptr %232, i64 32
   %235 = load ptr, ptr %234, align 8
   %.not5.i99.i = icmp eq ptr %235, null
-  br i1 %.not5.i99.i, label %tcaphash_begin_matching.argprom.exit, label %proto_item_set_generated.exit91.sink.split.i
+  br i1 %.not5.i99.i, label %tcaphash_begin_matching.exit, label %proto_item_set_generated.exit91.sink.split.i
 
 proto_item_set_generated.exit91.sink.split.i:     ; preds = %233, %163
   %.sink56.i = phi ptr [ %165, %163 ], [ %235, %233 ]
@@ -980,9 +980,9 @@ proto_item_set_generated.exit91.sink.split.i:     ; preds = %233, %163
   %237 = load i32, ptr %236, align 4
   %238 = or i32 %237, 2
   store i32 %238, ptr %236, align 4
-  br label %tcaphash_begin_matching.argprom.exit
+  br label %tcaphash_begin_matching.exit
 
-tcaphash_begin_matching.argprom.exit:             ; preds = %143, %proto_item_set_generated.exit.i, %163, %.loopexit.i, %204, %proto_item_set_generated.exit97.i, %230, %233, %proto_item_set_generated.exit91.sink.split.i
+tcaphash_begin_matching.exit:                     ; preds = %143, %proto_item_set_generated.exit.i, %163, %.loopexit.i, %204, %proto_item_set_generated.exit97.i, %230, %233, %proto_item_set_generated.exit91.sink.split.i
   %.074.i = phi ptr [ %49, %143 ], [ %.073.i, %proto_item_set_generated.exit97.i ], [ %.073.i, %204 ], [ %.073.i, %.loopexit.i ], [ %49, %proto_item_set_generated.exit.i ], [ %49, %163 ], [ %.073.i, %230 ], [ %.073.i, %233 ], [ %.074.ph.i, %proto_item_set_generated.exit91.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -2052,7 +2052,7 @@ proto_item_set_generated.exit176.i:               ; preds = %822, %819, %proto_i
   %827 = icmp ne i32 %826, 0
   %828 = icmp ne ptr %.2.i, null
   %or.cond9.i = select i1 %827, i1 %828, i1 false
-  br i1 %or.cond9.i, label %829, label %tcaphash_ansi_matching.argprom.exit
+  br i1 %or.cond9.i, label %829, label %tcaphash_ansi_matching.exit
 
 829:                                              ; preds = %proto_item_set_generated.exit176.i
   %830 = getelementptr inbounds i8, ptr %.1130.i, i64 8
@@ -2060,7 +2060,7 @@ proto_item_set_generated.exit176.i:               ; preds = %822, %819, %proto_i
   %832 = getelementptr inbounds i8, ptr %831, i64 16
   %833 = load i32, ptr %832, align 8
   %.not146.i = icmp eq i32 %833, 0
-  br i1 %.not146.i, label %tcaphash_ansi_matching.argprom.exit, label %834
+  br i1 %.not146.i, label %tcaphash_ansi_matching.exit, label %834
 
 834:                                              ; preds = %829
   br i1 %.not147.i, label %835, label %841
@@ -2069,13 +2069,13 @@ proto_item_set_generated.exit176.i:               ; preds = %822, %819, %proto_i
   %836 = load i32, ptr @hf_tcapsrt_BeginSession, align 4
   %837 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %.2.i, i32 noundef %836, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %833, ptr noundef nonnull @.str.202, i32 noundef %833) #11
   %.not.i177.i = icmp eq ptr %837, null
-  br i1 %.not.i177.i, label %tcaphash_ansi_matching.argprom.exit, label %838
+  br i1 %.not.i177.i, label %tcaphash_ansi_matching.exit, label %838
 
 838:                                              ; preds = %835
   %839 = getelementptr inbounds i8, ptr %837, i64 32
   %840 = load ptr, ptr %839, align 8
   %.not5.i178.i = icmp eq ptr %840, null
-  br i1 %.not5.i178.i, label %tcaphash_ansi_matching.argprom.exit, label %proto_item_set_generated.exit179.sink.split.i
+  br i1 %.not5.i178.i, label %tcaphash_ansi_matching.exit, label %proto_item_set_generated.exit179.sink.split.i
 
 841:                                              ; preds = %834
   %842 = load i32, ptr @hf_tcapsrt_EndSession, align 4
@@ -2105,13 +2105,13 @@ proto_item_set_generated.exit182.i:               ; preds = %849, %846, %841
   %855 = load i32, ptr @hf_tcapsrt_SessionTime, align 4
   %856 = call ptr @proto_tree_add_time(ptr noundef nonnull %.2.i, i32 noundef %855, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #11
   %.not.i183.i = icmp eq ptr %856, null
-  br i1 %.not.i183.i, label %tcaphash_ansi_matching.argprom.exit, label %857
+  br i1 %.not.i183.i, label %tcaphash_ansi_matching.exit, label %857
 
 857:                                              ; preds = %proto_item_set_generated.exit182.i
   %858 = getelementptr inbounds i8, ptr %856, i64 32
   %859 = load ptr, ptr %858, align 8
   %.not5.i184.i = icmp eq ptr %859, null
-  br i1 %.not5.i184.i, label %tcaphash_ansi_matching.argprom.exit, label %proto_item_set_generated.exit179.sink.split.i
+  br i1 %.not5.i184.i, label %tcaphash_ansi_matching.exit, label %proto_item_set_generated.exit179.sink.split.i
 
 proto_item_set_generated.exit179.sink.split.i:    ; preds = %857, %838
   %.sink68.i = phi ptr [ %840, %838 ], [ %859, %857 ]
@@ -2119,16 +2119,16 @@ proto_item_set_generated.exit179.sink.split.i:    ; preds = %857, %838
   %861 = load i32, ptr %860, align 4
   %862 = or i32 %861, 2
   store i32 %862, ptr %860, align 4
-  br label %tcaphash_ansi_matching.argprom.exit
+  br label %tcaphash_ansi_matching.exit
 
-tcaphash_ansi_matching.argprom.exit:              ; preds = %proto_item_set_generated.exit176.i, %829, %835, %838, %proto_item_set_generated.exit182.i, %857, %proto_item_set_generated.exit179.sink.split.i
+tcaphash_ansi_matching.exit:                      ; preds = %proto_item_set_generated.exit176.i, %829, %835, %838, %proto_item_set_generated.exit182.i, %857, %proto_item_set_generated.exit179.sink.split.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %863
 
-863:                                              ; preds = %tcaphash_begin_matching.argprom.exit, %tcaphash_cont_matching.exit, %497, %499, %tcaphash_ansi_matching.argprom.exit, %19, %4, %15
-  %.025 = phi ptr [ null, %15 ], [ null, %4 ], [ null, %19 ], [ %.0131.i, %tcaphash_ansi_matching.argprom.exit ], [ %500, %499 ], [ %498, %497 ], [ %.066122.i, %tcaphash_cont_matching.exit ], [ %.074.i, %tcaphash_begin_matching.argprom.exit ]
+863:                                              ; preds = %tcaphash_begin_matching.exit, %tcaphash_cont_matching.exit, %497, %499, %tcaphash_ansi_matching.exit, %19, %4, %15
+  %.025 = phi ptr [ null, %15 ], [ null, %4 ], [ null, %19 ], [ %.0131.i, %tcaphash_ansi_matching.exit ], [ %500, %499 ], [ %498, %497 ], [ %.066122.i, %tcaphash_cont_matching.exit ], [ %.074.i, %tcaphash_begin_matching.exit ]
   ret ptr %.025
 }
 

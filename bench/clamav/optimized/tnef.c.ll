@@ -232,9 +232,9 @@ fmap_readn.exit35.i:                              ; preds = %58
   %.not20.i = icmp ugt i64 %78, %9
   %.not21.i = icmp ugt i64 %63, %9
   %or.cond.i54 = or i1 %.not21.i, %.not20.i
-  br i1 %or.cond.i54, label %80, label %tnef_message.argprom.exit.thread
+  br i1 %or.cond.i54, label %80, label %tnef_message.exit.thread
 
-tnef_message.argprom.exit.thread:                 ; preds = %77
+tnef_message.exit.thread:                         ; preds = %77
   %79 = add nuw nsw i64 %78, 2
   br label %159
 
@@ -447,9 +447,9 @@ fmap_readn.exit64:                                ; preds = %154, %143
   call void @free(ptr noundef %138) #7
   br label %.thread170
 
-159:                                              ; preds = %tnef_attachment.exit, %tnef_message.argprom.exit.thread, %62
-  %.1109 = phi ptr [ %.0108232, %62 ], [ %.4112, %tnef_attachment.exit ], [ %73, %tnef_message.argprom.exit.thread ]
-  %.1105 = phi i64 [ %63, %62 ], [ %131, %tnef_attachment.exit ], [ %79, %tnef_message.argprom.exit.thread ]
+159:                                              ; preds = %tnef_attachment.exit, %tnef_message.exit.thread, %62
+  %.1109 = phi ptr [ %.0108232, %62 ], [ %.4112, %tnef_attachment.exit ], [ %73, %tnef_message.exit.thread ]
+  %.1105 = phi i64 [ %63, %62 ], [ %131, %tnef_attachment.exit ], [ %79, %tnef_message.exit.thread ]
   %160 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %161 = getelementptr inbounds i8, ptr %160, i64 88

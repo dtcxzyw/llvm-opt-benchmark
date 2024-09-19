@@ -2422,16 +2422,16 @@ _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i92.i: ; preds = %land.lhs.true
   %arrayidx.i.i.i.i.i.i.i93.i = getelementptr inbounds i8, ptr %this.val4.i.i, i64 -4
   %95 = load i32, ptr %arrayidx.i.i.i.i.i.i.i93.i, align 4
   %cmp.not.i.i.i.i.i.i94.i = icmp ult i32 %.val5.i.i, %95
-  br i1 %cmp.not.i.i.i.i.i.i94.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.argprom.exit.i.i, label %if.end6.i.i
+  br i1 %cmp.not.i.i.i.i.i.i94.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i, label %if.end6.i.i
 
-_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.argprom.exit.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i92.i
+_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i92.i
   %idxprom.i.i.i.i.i.i95.i = zext i32 %.val5.i.i to i64
   %arrayidx.i.i.i.i.i.i96.i = getelementptr inbounds ptr, ptr %this.val4.i.i, i64 %idxprom.i.i.i.i.i.i95.i
   %.then.val.i.i.i.i.i97.i = load ptr, ptr %arrayidx.i.i.i.i.i.i96.i, align 8
   %.not.i.i = icmp eq ptr %.then.val.i.i.i.i.i97.i, null
   br i1 %.not.i.i, label %if.end6.i.i, label %if.then65.i
 
-if.end6.i.i:                                      ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.argprom.exit.i.i, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i92.i, %land.lhs.true.i.i, %call3.i.noexc.i
+if.end6.i.i:                                      ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i.i92.i, %land.lhs.true.i.i, %call3.i.noexc.i
   %96 = load ptr, ptr %m, align 8
   %call8.i99.i = invoke noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %96, ptr noundef %93)
           to label %call8.i.noexc.i unwind label %lpad.i
@@ -2449,16 +2449,16 @@ _ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i9.i.i: ; preds = %land.lhs.true9
   %arrayidx.i.i.i.i.i.i10.i.i = getelementptr inbounds i8, ptr %this.val.i90.i, i64 -4
   %97 = load i32, ptr %arrayidx.i.i.i.i.i.i10.i.i, align 4
   %cmp.not.i.i.i.i.i11.i.i = icmp ult i32 %.val.i91.i, %97
-  br i1 %cmp.not.i.i.i.i.i11.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.argprom.exit17.i.i, label %if.end78.i
+  br i1 %cmp.not.i.i.i.i.i11.i.i, label %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i, label %if.end78.i
 
-_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.argprom.exit17.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i9.i.i
+_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i: ; preds = %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i9.i.i
   %idxprom.i.i.i.i.i14.i.i = zext i32 %.val.i91.i to i64
   %arrayidx.i.i.i.i.i15.i.i = getelementptr inbounds ptr, ptr %this.val.i90.i, i64 %idxprom.i.i.i.i.i14.i.i
   %.then.val.i.i.i.i16.i.i = load ptr, ptr %arrayidx.i.i.i.i.i15.i.i, align 8
   %.not29.i.i = icmp eq ptr %.then.val.i.i.i.i16.i.i, null
   br i1 %.not29.i.i, label %if.end78.i, label %if.end71.i
 
-if.then65.i:                                      ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.argprom.exit.i.i
+if.then65.i:                                      ; preds = %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit.i.i
   %tobool66.not.i = icmp eq ptr %new_pr.addr.0.i, null
   br i1 %tobool66.not.i, label %if.end71.i, label %if.then67.i
 
@@ -2467,16 +2467,16 @@ if.then67.i:                                      ; preds = %if.then65.i
   %call70.i = invoke noundef ptr @_ZN11ast_manager11mk_symmetryEP3app(ptr noundef nonnull align 8 dereferenceable(976) %98, ptr noundef nonnull %new_pr.addr.0.i)
           to label %if.end71.i unwind label %lpad.i
 
-if.end71.i:                                       ; preds = %if.then67.i, %if.then65.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.argprom.exit17.i.i
-  %value.0124.i = phi ptr [ %92, %if.then65.i ], [ %92, %if.then67.i ], [ %93, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.argprom.exit17.i.i ]
-  %lhs.0123.i = phi ptr [ %93, %if.then65.i ], [ %93, %if.then67.i ], [ %92, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.argprom.exit17.i.i ]
-  %new_pr.addr.1.i = phi ptr [ null, %if.then65.i ], [ %call70.i, %if.then67.i ], [ %new_pr.addr.0.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.argprom.exit17.i.i ]
+if.end71.i:                                       ; preds = %if.then67.i, %if.then65.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i
+  %value.0124.i = phi ptr [ %92, %if.then65.i ], [ %92, %if.then67.i ], [ %93, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i ]
+  %lhs.0123.i = phi ptr [ %93, %if.then65.i ], [ %93, %if.then67.i ], [ %92, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i ]
+  %new_pr.addr.1.i = phi ptr [ null, %if.then65.i ], [ %call70.i, %if.then67.i ], [ %new_pr.addr.0.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i ]
   %99 = load ptr, ptr %m_subst, align 8
   %100 = load ptr, ptr %new_d.i, align 8
   invoke void @_ZN17expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(49) %99, ptr noundef nonnull %lhs.0123.i, ptr noundef %value.0124.i, ptr noundef %new_pr.addr.1.i, ptr noundef %100)
           to label %if.end78.i unwind label %lpad.i
 
-if.end78.i:                                       ; preds = %if.end71.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.argprom.exit17.i.i, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i9.i.i, %land.lhs.true9.i.i, %call8.i.noexc.i, %land.lhs.true.i.i84.i, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i, %land.rhs.i.i.i.i77.i, %if.end62.i
+if.end78.i:                                       ; preds = %if.end71.i, %_ZN12_GLOBAL__N_123propagate_values_tactic9is_sharedEP4expr.exit17.i.i, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i.i.i.i9.i.i, %land.lhs.true9.i.i, %call8.i.noexc.i, %land.lhs.true.i.i84.i, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i.i, %land.rhs.i.i.i.i77.i, %if.end62.i
   %101 = load ptr, ptr %new_d.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %101, null
   br i1 %tobool.not.i.i.i, label %invoke.cont29, label %if.then.i.i.i.i100.i

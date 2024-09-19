@@ -343,7 +343,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tget_member_type(i64 noundef %
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @H5T_copy_reopen(ptr noundef %46) #6
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %H5T__reopen_member_type.argprom.argprom.exit
+  br i1 %48, label %49, label %H5T__reopen_member_type.exit
 
 49:                                               ; preds = %42
   %50 = load i64, ptr @H5E_DATATYPE_g, align 8
@@ -354,12 +354,12 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tget_member_type(i64 noundef %
   %55 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tget_member_type, i32 noundef 197, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.5) #6
   br label %.thread60
 
-H5T__reopen_member_type.argprom.argprom.exit:     ; preds = %42
+H5T__reopen_member_type.exit:                     ; preds = %42
   %56 = tail call i64 @H5I_register(i32 noundef 3, ptr noundef nonnull %47, i1 noundef zeroext true) #6
   %57 = icmp slt i64 %56, 0
   br i1 %57, label %58, label %70
 
-58:                                               ; preds = %H5T__reopen_member_type.argprom.argprom.exit
+58:                                               ; preds = %H5T__reopen_member_type.exit
   %59 = load i64, ptr @H5E_DATATYPE_g, align 8
   %60 = load i64, ptr @H5E_CANTREGISTER_g, align 8
   %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tget_member_type, i32 noundef 201, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.6) #6
@@ -381,7 +381,7 @@ H5T__reopen_member_type.argprom.argprom.exit:     ; preds = %42
   %69 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #6
   br label %.thread51
 
-70:                                               ; preds = %H5T__reopen_member_type.argprom.argprom.exit
+70:                                               ; preds = %H5T__reopen_member_type.exit
   %71 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #6
   br label %73
 

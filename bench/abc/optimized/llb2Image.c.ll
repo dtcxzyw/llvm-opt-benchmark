@@ -1281,16 +1281,16 @@ define noundef ptr @Llb_ImgComputeCube(ptr nocapture noundef readonly %0, ptr no
   %7 = getelementptr i8, ptr %1, i64 4
   %.val24 = load i32, ptr %7, align 4
   %8 = icmp sgt i32 %.val24, 0
-  br i1 %8, label %Aig_ManObj.argprom.exit.lr.ph, label %.critedge
+  br i1 %8, label %Aig_ManObj.exit.lr.ph, label %.critedge
 
-Aig_ManObj.argprom.exit.lr.ph:                    ; preds = %3
+Aig_ManObj.exit.lr.ph:                            ; preds = %3
   %9 = getelementptr i8, ptr %1, i64 8
   %10 = getelementptr i8, ptr %0, i64 32
-  br label %Aig_ManObj.argprom.exit
+  br label %Aig_ManObj.exit
 
-Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.exit.lr.ph, %Aig_ManObj.argprom.exit
-  %indvars.iv = phi i64 [ 0, %Aig_ManObj.argprom.exit.lr.ph ], [ %indvars.iv.next, %Aig_ManObj.argprom.exit ]
-  %.026 = phi ptr [ %6, %Aig_ManObj.argprom.exit.lr.ph ], [ %19, %Aig_ManObj.argprom.exit ]
+Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.ph, %Aig_ManObj.exit
+  %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit.lr.ph ], [ %indvars.iv.next, %Aig_ManObj.exit ]
+  %.026 = phi ptr [ %6, %Aig_ManObj.exit.lr.ph ], [ %19, %Aig_ManObj.exit ]
   %.val21 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i32, ptr %.val21, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
@@ -1310,10 +1310,10 @@ Aig_ManObj.argprom.exit:                          ; preds = %Aig_ManObj.argprom.
   %.val = load i32, ptr %7, align 4
   %20 = sext i32 %.val to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %Aig_ManObj.argprom.exit, label %.critedge, !llvm.loop !25
+  br i1 %21, label %Aig_ManObj.exit, label %.critedge, !llvm.loop !25
 
-.critedge:                                        ; preds = %Aig_ManObj.argprom.exit, %3
-  %.0.lcssa = phi ptr [ %6, %3 ], [ %19, %Aig_ManObj.argprom.exit ]
+.critedge:                                        ; preds = %Aig_ManObj.exit, %3
+  %.0.lcssa = phi ptr [ %6, %3 ], [ %19, %Aig_ManObj.exit ]
   tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #12
   store i64 %5, ptr %4, align 8
   ret ptr %.0.lcssa

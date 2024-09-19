@@ -1150,7 +1150,7 @@ define dso_local void @_ZN5vcpkg7Strings12inplace_trimERNSt7__cxx1112basic_strin
   %16 = zext i8 %15 to i32
   %17 = call i32 @isspace(i32 noundef %16) #27, !noalias !44
   %.not.i.i.i.i = icmp eq i32 %17, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit", label %18
+  br i1 %.not.i.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit", label %18
 
 18:                                               ; preds = %.lr.ph.i.i.i
   %19 = getelementptr inbounds i8, ptr %11, i64 -2
@@ -1163,7 +1163,7 @@ define dso_local void @_ZN5vcpkg7Strings12inplace_trimERNSt7__cxx1112basic_strin
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %11, i64 -1
   %.cast.i.i.i = ptrtoint ptr %24 to i64
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit"
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds i8, ptr %11, i64 -3
@@ -1176,7 +1176,7 @@ define dso_local void @_ZN5vcpkg7Strings12inplace_trimERNSt7__cxx1112basic_strin
 30:                                               ; preds = %25
   %31 = getelementptr inbounds i8, ptr %11, i64 -2
   %.cast22.i.i.i = ptrtoint ptr %31 to i64
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit"
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds i8, ptr %11, i64 -4
@@ -1189,7 +1189,7 @@ define dso_local void @_ZN5vcpkg7Strings12inplace_trimERNSt7__cxx1112basic_strin
 37:                                               ; preds = %32
   %38 = getelementptr inbounds i8, ptr %11, i64 -3
   %.cast23.i.i.i = ptrtoint ptr %38 to i64
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit"
 
 39:                                               ; preds = %32
   %40 = add nsw i64 %.036.i.i.i, -1
@@ -1201,7 +1201,7 @@ define dso_local void @_ZN5vcpkg7Strings12inplace_trimERNSt7__cxx1112basic_strin
   %43 = phi i64 [ %.val, %1 ], [ %9, %39 ]
   %44 = phi ptr [ %4, %1 ], [ %scevgep.i.i, %39 ]
   %45 = sub i64 %43, %.val11
-  switch i64 %45, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit" [
+  switch i64 %45, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit" [
     i64 3, label %46
     i64 2, label %55
     i64 1, label %66
@@ -1214,7 +1214,7 @@ define dso_local void @_ZN5vcpkg7Strings12inplace_trimERNSt7__cxx1112basic_strin
   %50 = zext i8 %49 to i32
   %51 = call i32 @isspace(i32 noundef %50) #27, !noalias !44
   %.not.i13.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i13.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit", label %52
+  br i1 %.not.i13.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit", label %52
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds i8, ptr %44, i64 -1
@@ -1230,7 +1230,7 @@ define dso_local void @_ZN5vcpkg7Strings12inplace_trimERNSt7__cxx1112basic_strin
   %61 = zext i8 %60 to i32
   %62 = call i32 @isspace(i32 noundef %61) #27, !noalias !44
   %.not.i14.i.i.i = icmp eq i32 %62, 0
-  br i1 %.not.i14.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit", label %63
+  br i1 %.not.i14.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit", label %63
 
 63:                                               ; preds = %55
   %64 = getelementptr inbounds i8, ptr %56, i64 -1
@@ -1246,9 +1246,9 @@ define dso_local void @_ZN5vcpkg7Strings12inplace_trimERNSt7__cxx1112basic_strin
   %72 = call i32 @isspace(i32 noundef %71) #27, !noalias !44
   %.not.i15.i.i.i = icmp eq i32 %72, 0
   %spec.select.i.i = select i1 %.not.i15.i.i.i, i64 %67, i64 %.val11
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit"
 
-"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i, %23, %30, %37, %._crit_edge.i.i.i, %46, %55, %66
+"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit": ; preds = %.lr.ph.i.i.i, %23, %30, %37, %._crit_edge.i.i.i, %46, %55, %66
   %.sink.i.i.i = phi i64 [ %.cast23.i.i.i, %37 ], [ %.cast22.i.i.i, %30 ], [ %.cast.i.i.i, %23 ], [ %43, %46 ], [ %57, %55 ], [ %.val11, %._crit_edge.i.i.i ], [ %spec.select.i.i, %66 ], [ %12, %.lr.ph.i.i.i ]
   %73 = inttoptr i64 %.sink.i.i.i to ptr
   %74 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
@@ -1263,7 +1263,7 @@ define dso_local void @_ZN5vcpkg7Strings12inplace_trimERNSt7__cxx1112basic_strin
   %83 = icmp sgt i64 %82, 0
   br i1 %83, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i12
 
-.lr.ph.preheader.i.i.i:                           ; preds = %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit"
+.lr.ph.preheader.i.i.i:                           ; preds = %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit"
   %84 = and i64 %81, -4
   %scevgep.i.i.i = getelementptr i8, ptr %77, i64 %84
   br label %.lr.ph.i.i.i13
@@ -1311,9 +1311,9 @@ define dso_local void @_ZN5vcpkg7Strings12inplace_trimERNSt7__cxx1112basic_strin
   %.pre.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
   br label %._crit_edge.i.i.i12
 
-._crit_edge.i.i.i12:                              ; preds = %._crit_edge.loopexit.i.i.i, %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit"
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %80, %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit" ]
-  %.sroa.031.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %77, %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom.exit" ]
+._crit_edge.i.i.i12:                              ; preds = %._crit_edge.loopexit.i.i.i, %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit"
+  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %80, %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit" ]
+  %.sroa.031.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %77, %"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.exit" ]
   %107 = sub i64 %79, %.pre-phi.i.i.i
   switch i64 %107, label %"_ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN12_GLOBAL__N_13$_0EET_SC_SC_T0_.exit" [
     i64 3, label %108
@@ -1401,7 +1401,7 @@ define dso_local { ptr, i64 } @_ZN5vcpkg7Strings4trimENS_10StringViewE(ptr %0, i
   %11 = zext i8 %.val.val.i.i.i to i32
   %12 = tail call i32 @isspace(i32 noundef %11) #27, !noalias !53
   %.not.i.i.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit", label %13
+  br i1 %.not.i.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit", label %13
 
 13:                                               ; preds = %.lr.ph.i.i.i
   %14 = getelementptr i8, ptr %9, i64 -2
@@ -1409,7 +1409,7 @@ define dso_local { ptr, i64 } @_ZN5vcpkg7Strings4trimENS_10StringViewE(ptr %0, i
   %15 = zext i8 %.val2.val.i.i.i to i32
   %16 = tail call i32 @isspace(i32 noundef %15) #27, !noalias !53
   %.not.i8.i.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i8.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit42", label %17
+  br i1 %.not.i8.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit42", label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %9, i64 -3
@@ -1417,7 +1417,7 @@ define dso_local { ptr, i64 } @_ZN5vcpkg7Strings4trimENS_10StringViewE(ptr %0, i
   %19 = zext i8 %.val3.val.i.i.i to i32
   %20 = tail call i32 @isspace(i32 noundef %19) #27, !noalias !53
   %.not.i9.i.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i9.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit40", label %21
+  br i1 %.not.i9.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit40", label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr i8, ptr %9, i64 -4
@@ -1425,7 +1425,7 @@ define dso_local { ptr, i64 } @_ZN5vcpkg7Strings4trimENS_10StringViewE(ptr %0, i
   %23 = zext i8 %.val4.val.i.i.i to i32
   %24 = tail call i32 @isspace(i32 noundef %23) #27, !noalias !53
   %.not.i10.i.i.i = icmp eq i32 %24, 0
-  br i1 %.not.i10.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit", label %25
+  br i1 %.not.i10.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit", label %25
 
 25:                                               ; preds = %21
   %26 = add nsw i64 %.032.i.i.i, -1
@@ -1440,7 +1440,7 @@ define dso_local { ptr, i64 } @_ZN5vcpkg7Strings4trimENS_10StringViewE(ptr %0, i
   %.pre-phi.i.i.i = phi i64 [ %.pre50.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %4, %2 ]
   %28 = phi ptr [ %scevgep.i.i, %._crit_edge.loopexit.i.i.i ], [ %3, %2 ]
   %29 = sub i64 %.pre-phi.i.i.i, %5
-  switch i64 %29, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit" [
+  switch i64 %29, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit" [
     i64 3, label %30
     i64 2, label %34
     i64 1, label %39
@@ -1452,7 +1452,7 @@ define dso_local { ptr, i64 } @_ZN5vcpkg7Strings4trimENS_10StringViewE(ptr %0, i
   %32 = zext i8 %.val5.val.i.i.i to i32
   %33 = tail call i32 @isspace(i32 noundef %32) #27, !noalias !53
   %.not.i11.i.i.i = icmp eq i32 %33, 0
-  br i1 %.not.i11.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit", label %34
+  br i1 %.not.i11.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit", label %34
 
 34:                                               ; preds = %30, %._crit_edge.i.i.i
   %35 = phi ptr [ %28, %._crit_edge.i.i.i ], [ %31, %30 ]
@@ -1461,7 +1461,7 @@ define dso_local { ptr, i64 } @_ZN5vcpkg7Strings4trimENS_10StringViewE(ptr %0, i
   %37 = zext i8 %.val6.val.i.i.i to i32
   %38 = tail call i32 @isspace(i32 noundef %37) #27, !noalias !53
   %.not.i12.i.i.i = icmp eq i32 %38, 0
-  br i1 %.not.i12.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit", label %39
+  br i1 %.not.i12.i.i.i, label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit", label %39
 
 39:                                               ; preds = %34, %._crit_edge.i.i.i
   %40 = phi ptr [ %28, %._crit_edge.i.i.i ], [ %36, %34 ]
@@ -1471,25 +1471,25 @@ define dso_local { ptr, i64 } @_ZN5vcpkg7Strings4trimENS_10StringViewE(ptr %0, i
   %43 = tail call i32 @isspace(i32 noundef %42) #27, !noalias !53
   %.not.i13.i.i.i = icmp eq i32 %43, 0
   %spec.select.i.i = select i1 %.not.i13.i.i.i, ptr %40, ptr %0
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit"
 
-"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit": ; preds = %21
+"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit": ; preds = %21
   %44 = getelementptr i8, ptr %9, i64 -3
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit"
 
-"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit40": ; preds = %17
+"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit40": ; preds = %17
   %45 = getelementptr i8, ptr %9, i64 -2
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit"
 
-"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit42": ; preds = %13
+"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit42": ; preds = %13
   %46 = getelementptr i8, ptr %9, i64 -1
-  br label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit"
+  br label %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit"
 
-"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit", %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit40", %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit42", %._crit_edge.i.i.i, %30, %34, %39
-  %.sink.i.i.i = phi ptr [ %28, %30 ], [ %35, %34 ], [ %0, %._crit_edge.i.i.i ], [ %spec.select.i.i, %39 ], [ %44, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit" ], [ %45, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit40" ], [ %46, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit.loopexit.split.loop.exit42" ], [ %9, %.lr.ph.i.i.i ]
+"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit", %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit40", %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit42", %._crit_edge.i.i.i, %30, %34, %39
+  %.sink.i.i.i = phi ptr [ %28, %30 ], [ %35, %34 ], [ %0, %._crit_edge.i.i.i ], [ %spec.select.i.i, %39 ], [ %44, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit" ], [ %45, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit40" ], [ %46, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit.loopexit.split.loop.exit42" ], [ %9, %.lr.ph.i.i.i ]
   br i1 %7, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i3
 
-.lr.ph.preheader.i.i.i:                           ; preds = %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit"
+.lr.ph.preheader.i.i.i:                           ; preds = %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit"
   %47 = and i64 %1, -4
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %47
   br label %.lr.ph.i.i.i5
@@ -1537,9 +1537,9 @@ define dso_local { ptr, i64 } @_ZN5vcpkg7Strings4trimENS_10StringViewE(ptr %0, i
   %.pre.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
   br label %._crit_edge.i.i.i3
 
-._crit_edge.i.i.i3:                               ; preds = %._crit_edge.loopexit.i.i.i7, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit"
-  %.pre-phi.i.i.i4 = phi i64 [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i7 ], [ %5, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit" ]
-  %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i7 ], [ %0, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom.exit" ]
+._crit_edge.i.i.i3:                               ; preds = %._crit_edge.loopexit.i.i.i7, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit"
+  %.pre-phi.i.i.i4 = phi i64 [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i7 ], [ %5, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit" ]
+  %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i7 ], [ %0, %"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.exit" ]
   %66 = sub i64 %4, %.pre-phi.i.i.i4
   switch i64 %66, label %80 [
     i64 3, label %67
@@ -4224,13 +4224,13 @@ switch.early.test:                                ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) @"__const._ZN3fmt3v109format_toISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZN5vcpkg7Strings14percent_encodeENSA_10StringViewEENK3$_0clEvE18FMT_COMPILE_STRINGJhETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SJ_RKSG_DpOT1_.compiled", i64 72, i1 false)
   %13 = invoke ptr @_ZNK3fmt3v106detail6concatINS1_9code_unitIcEENS1_10spec_fieldIchLi0EEEE6formatISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJhEEET_SH_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %"_ZN3fmt3v109format_toISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZN5vcpkg7Strings14percent_encodeENSA_10StringViewEENK3$_0clEvE18FMT_COMPILE_STRINGJhETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SJ_RKSG_DpOT1_.argprom.exit" unwind label %16
+          to label %"_ZN3fmt3v109format_toISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZN5vcpkg7Strings14percent_encodeENSA_10StringViewEENK3$_0clEvE18FMT_COMPILE_STRINGJhETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SJ_RKSG_DpOT1_.exit" unwind label %16
 
-"_ZN3fmt3v109format_toISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZN5vcpkg7Strings14percent_encodeENSA_10StringViewEENK3$_0clEvE18FMT_COMPILE_STRINGJhETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SJ_RKSG_DpOT1_.argprom.exit": ; preds = %12
+"_ZN3fmt3v109format_toISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZN5vcpkg7Strings14percent_encodeENSA_10StringViewEENK3$_0clEvE18FMT_COMPILE_STRINGJhETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SJ_RKSG_DpOT1_.exit": ; preds = %12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   br label %14
 
-14:                                               ; preds = %"_ZN3fmt3v109format_toISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZN5vcpkg7Strings14percent_encodeENSA_10StringViewEENK3$_0clEvE18FMT_COMPILE_STRINGJhETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SJ_RKSG_DpOT1_.argprom.exit", %11
+14:                                               ; preds = %"_ZN3fmt3v109format_toISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZZN5vcpkg7Strings14percent_encodeENSA_10StringViewEENK3$_0clEvE18FMT_COMPILE_STRINGJhETnNSt9enable_ifIXsr6detail18is_compiled_stringIT0_EE5valueEiE4typeELi0EEET_SJ_RKSG_DpOT1_.exit", %11
   %15 = getelementptr inbounds i8, ptr %.043, i64 1
   %.not = icmp eq ptr %15, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -11147,19 +11147,19 @@ attributes #31 = { nounwind willreturn memory(none) }
 !44 = !{!45, !47, !49}
 !45 = distinct !{!45, !46, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops12_Iter_negateIN12_GLOBAL__N_13$_0EEEET_SH_SH_T0_St26random_access_iterator_tag: argument 0"}
 !46 = distinct !{!46, !"_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops12_Iter_negateIN12_GLOBAL__N_13$_0EEEET_SH_SH_T0_St26random_access_iterator_tag"}
-!47 = distinct !{!47, !48, !"_ZSt13__find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIN12_GLOBAL__N_13$_0EEEET_SH_SH_T0_.argprom: argument 0"}
-!48 = distinct !{!48, !"_ZSt13__find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIN12_GLOBAL__N_13$_0EEEET_SH_SH_T0_.argprom"}
-!49 = distinct !{!49, !50, !"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom: argument 0"}
-!50 = distinct !{!50, !"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_.argprom"}
+!47 = distinct !{!47, !48, !"_ZSt13__find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIN12_GLOBAL__N_13$_0EEEET_SH_SH_T0_: argument 0"}
+!48 = distinct !{!48, !"_ZSt13__find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIN12_GLOBAL__N_13$_0EEEET_SH_SH_T0_"}
+!49 = distinct !{!49, !50, !"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_: argument 0"}
+!50 = distinct !{!50, !"_ZSt11find_if_notISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN12_GLOBAL__N_13$_0EET_SE_SE_T0_"}
 !51 = distinct !{!51, !6}
 !52 = distinct !{!52, !6}
 !53 = !{!54, !56, !58}
 !54 = distinct !{!54, !55, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops12_Iter_negateIN12_GLOBAL__N_13$_0EEEET_SA_SA_T0_St26random_access_iterator_tag: argument 0"}
 !55 = distinct !{!55, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops12_Iter_negateIN12_GLOBAL__N_13$_0EEEET_SA_SA_T0_St26random_access_iterator_tag"}
-!56 = distinct !{!56, !57, !"_ZSt13__find_if_notISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_13$_0EEEET_SA_SA_T0_.argprom: argument 0"}
-!57 = distinct !{!57, !"_ZSt13__find_if_notISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_13$_0EEEET_SA_SA_T0_.argprom"}
-!58 = distinct !{!58, !59, !"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom: argument 0"}
-!59 = distinct !{!59, !"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_.argprom"}
+!56 = distinct !{!56, !57, !"_ZSt13__find_if_notISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_13$_0EEEET_SA_SA_T0_: argument 0"}
+!57 = distinct !{!57, !"_ZSt13__find_if_notISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_13$_0EEEET_SA_SA_T0_"}
+!58 = distinct !{!58, !59, !"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_: argument 0"}
+!59 = distinct !{!59, !"_ZSt11find_if_notISt16reverse_iteratorIPKcEN12_GLOBAL__N_13$_0EET_S6_S6_T0_"}
 !60 = distinct !{!60, !6}
 !61 = distinct !{!61, !6}
 !62 = distinct !{!62, !6}

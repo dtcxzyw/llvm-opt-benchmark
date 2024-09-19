@@ -117,7 +117,7 @@ define dso_local void @_ZN5clang6driver6DistroC2ERN4llvm3vfs10FileSystemERKNS2_6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %9 = icmp eq i32 %.val, 7
-  br i1 %9, label %10, label %_ZL9GetDistroRN4llvm3vfs10FileSystemERKNS_6TripleE.argprom.exit
+  br i1 %9, label %10, label %_ZL9GetDistroRN4llvm3vfs10FileSystemERKNS_6TripleE.exit
 
 10:                                               ; preds = %3
   call void @_ZN4llvm3vfs17getRealFileSystemEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %4) #11
@@ -184,9 +184,9 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i: ; preds = %17, %1
 38:                                               ; preds = %36, %34, %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i
   %.1.i = phi i32 [ %35, %34 ], [ %37, %36 ], [ 53, %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
-  br label %_ZL9GetDistroRN4llvm3vfs10FileSystemERKNS_6TripleE.argprom.exit
+  br label %_ZL9GetDistroRN4llvm3vfs10FileSystemERKNS_6TripleE.exit
 
-_ZL9GetDistroRN4llvm3vfs10FileSystemERKNS_6TripleE.argprom.exit: ; preds = %3, %38
+_ZL9GetDistroRN4llvm3vfs10FileSystemERKNS_6TripleE.exit: ; preds = %3, %38
   %.0.i = phi i32 [ %.1.i, %38 ], [ 53, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)

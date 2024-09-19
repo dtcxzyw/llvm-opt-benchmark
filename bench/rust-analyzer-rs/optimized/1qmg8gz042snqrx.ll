@@ -1489,7 +1489,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8, !noundef !7
   %.not.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i, label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.argprom.exit", label %15
+  br i1 %.not.i.i, label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.exit", label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %10, i64 16
@@ -1502,7 +1502,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
 20:                                               ; preds = %22, %15
   %21 = add i64 %17, %14
   store i64 %21, ptr %16, align 8
-  br label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.argprom.exit"
+  br label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.exit"
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds i8, ptr %10, i64 8
@@ -1517,7 +1517,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %28 = getelementptr inbounds i8, ptr %0, i64 32
   %29 = load i64, ptr %28, align 8, !noundef !7
   %.not.i.i10 = icmp eq i64 %29, 0
-  br i1 %.not.i.i10, label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.argprom.exit13", label %30
+  br i1 %.not.i.i10, label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.exit13", label %30
 
 30:                                               ; preds = %.body
   %31 = getelementptr inbounds i8, ptr %10, i64 16
@@ -1530,7 +1530,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
 35:                                               ; preds = %37, %30
   %36 = add i64 %32, %29
   store i64 %36, ptr %31, align 8
-  br label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.argprom.exit13"
+  br label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.exit13"
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr %43, align 8, !nonnull !7, !noundef !7
@@ -1611,7 +1611,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %71 = getelementptr inbounds i8, ptr %0, i64 32
   %72 = load i64, ptr %71, align 8, !noundef !7
   %.not.i.i14 = icmp eq i64 %72, 0
-  br i1 %.not.i.i14, label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.argprom.exit", label %73
+  br i1 %.not.i.i14, label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.exit", label %73
 
 73:                                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$$u5b$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u5d$$GT$17hbe7e1c79650ecadfE.llvm.5962488337460620365.exit"
   %74 = getelementptr inbounds i8, ptr %10, i64 16
@@ -1624,7 +1624,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
 78:                                               ; preds = %80, %73
   %79 = add i64 %75, %72
   store i64 %79, ptr %74, align 8
-  br label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.argprom.exit"
+  br label %"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.exit"
 
 80:                                               ; preds = %73
   %81 = load ptr, ptr %43, align 8, !nonnull !7, !noundef !7
@@ -1634,10 +1634,10 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %83, ptr nonnull align 8 %82, i64 %84, i1 false)
   br label %78
 
-"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.argprom.exit": ; preds = %78, %"_ZN4core3ptr94drop_in_place$LT$$u5b$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u5d$$GT$17hbe7e1c79650ecadfE.llvm.5962488337460620365.exit", %20, %12
+"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.exit": ; preds = %78, %"_ZN4core3ptr94drop_in_place$LT$$u5b$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u5d$$GT$17hbe7e1c79650ecadfE.llvm.5962488337460620365.exit", %20, %12
   ret void
 
-"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.argprom.exit13": ; preds = %35, %.body
+"_ZN4core3ptr210drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$alloc..alloc..Global$GT$$GT$17h18845e5df2fafabdE.exit13": ; preds = %35, %.body
   resume { ptr, i32 } %58
 }
 

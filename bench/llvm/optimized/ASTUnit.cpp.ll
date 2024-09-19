@@ -7785,13 +7785,13 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
 155:                                              ; preds = %144, %.thread46.i, %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit47.thread.i, %_ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit.i
   %156 = load i8, ptr %54, align 8, !noalias !77
   %157 = trunc i8 %156 to i1
-  br i1 %157, label %_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.argprom.exit, label %158
+  br i1 %157, label %_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.exit, label %158
 
 158:                                              ; preds = %155
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #27
-  br label %_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.argprom.exit
+  br label %_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.exit
 
-_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.argprom.exit: ; preds = %155, %158
+_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.exit: ; preds = %155, %158
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
@@ -7809,11 +7809,11 @@ _ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs1
   %.not65 = icmp eq ptr %159, null
   br i1 %.not65, label %160, label %161
 
-160:                                              ; preds = %_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.argprom.exit
+160:                                              ; preds = %_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.exit
   store ptr null, ptr %0, align 8
   br label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit
 
-161:                                              ; preds = %_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.argprom.exit
+161:                                              ; preds = %_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.exit
   %162 = load ptr, ptr %3, align 8
   call void @_ZN4llvm15MemoryBufferRefC1ERKNS_12MemoryBufferE(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(24) %159) #27
   %163 = call i64 @_ZN5clang21ComputePreambleBoundsERKNS_11LangOptionsERKN4llvm15MemoryBufferRefEj(ptr noundef nonnull align 8 dereferenceable(841) %162, ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef %6) #27
@@ -10098,18 +10098,18 @@ _ZN4llvm5ErrorD2Ev.exit125:                       ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit
 
 _ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit125, %469, %473
-  br i1 %.not61.not, label %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.argprom.exit.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_125TopLevelDeclTrackerActionESt14default_deleteIS1_EED2Ev.exit
+  br i1 %.not61.not, label %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.exit.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_125TopLevelDeclTrackerActionESt14default_deleteIS1_EED2Ev.exit
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.argprom.exit.i: ; preds = %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit
+_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.exit.i: ; preds = %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit
   %476 = load ptr, ptr %.sroa.0152.0196, align 8
   %477 = getelementptr inbounds i8, ptr %476, i64 64
   %478 = load ptr, ptr %477, align 8
   call void %478(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0152.0196) #27
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_125TopLevelDeclTrackerActionESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_125TopLevelDeclTrackerActionESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.argprom.exit.i, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, %_ZNSt10shared_ptrIN5clang18CompilerInvocationEED2Ev.exit86
-  %.sroa.0183.2 = phi ptr [ %.sroa.0183.0, %_ZNSt10shared_ptrIN5clang18CompilerInvocationEED2Ev.exit86 ], [ %.sroa.0183.3, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit ], [ %.sroa.0183.3, %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.argprom.exit.i ]
-  %.1 = phi ptr [ null, %_ZNSt10shared_ptrIN5clang18CompilerInvocationEED2Ev.exit86 ], [ %.2, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit ], [ %.2, %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.argprom.exit.i ]
+_ZNSt10unique_ptrIN12_GLOBAL__N_125TopLevelDeclTrackerActionESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.exit.i, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit, %_ZNSt10shared_ptrIN5clang18CompilerInvocationEED2Ev.exit86
+  %.sroa.0183.2 = phi ptr [ %.sroa.0183.0, %_ZNSt10shared_ptrIN5clang18CompilerInvocationEED2Ev.exit86 ], [ %.sroa.0183.3, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit ], [ %.sroa.0183.3, %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.exit.i ]
+  %.1 = phi ptr [ null, %_ZNSt10shared_ptrIN5clang18CompilerInvocationEED2Ev.exit86 ], [ %.2, %_ZN4llvm36CrashRecoveryContextCleanupRegistrarIN12_GLOBAL__N_125TopLevelDeclTrackerActionENS_33CrashRecoveryContextDeleteCleanupIS2_EEED2Ev.exit ], [ %.2, %_ZNKSt14default_deleteIN12_GLOBAL__N_125TopLevelDeclTrackerActionEEclEPS1_.exit.i ]
   %.not.i.i129 = icmp eq ptr %.sroa.0163.0, null
   br i1 %.not.i.i129, label %_ZNSt10unique_ptrIN5clang16CompilerInstanceESt14default_deleteIS1_EED2Ev.exit, label %479
 
@@ -13706,9 +13706,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread25.i:     ; preds = %_ZN4llvmeqENS_9Stri
   %371 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %372 = load i8, ptr %371, align 8, !noalias !159
   %373 = trunc i8 %372 to i1
-  br i1 %373, label %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.argprom.argprom.exit.i", label %374
+  br i1 %373, label %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.exit.i", label %374
 
-"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.argprom.argprom.exit.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread25.i
+"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.exit.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread25.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25)
   br label %_ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit135.thread
@@ -13738,9 +13738,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread25.i:     ; preds = %_ZN4llvmeqENS_9Stri
   %382 = getelementptr inbounds nuw i8, ptr %22, i64 88
   %383 = load i8, ptr %382, align 8, !noalias !162
   %384 = trunc i8 %383 to i1
-  br i1 %384, label %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.argprom.argprom.exit20.i", label %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_0clES2_S2_.exit"
+  br i1 %384, label %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.exit20.i", label %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_0clES2_S2_.exit"
 
-"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.argprom.argprom.exit20.i": ; preds = %374
+"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.exit20.i": ; preds = %374
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
   br label %_ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit135.thread
@@ -13943,7 +13943,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_12MemoryBufferELb1EE9push_backES3_.exit13
   call void %475(ptr noundef nonnull align 8 dereferenceable(12) %467) #27
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit141
 
-_ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit135.thread: ; preds = %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.argprom.argprom.exit.i", %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.argprom.argprom.exit20.i", %._crit_edge, %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_0clES2_S2_.exit", %_ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit135
+_ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit135.thread: ; preds = %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.exit.i", %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.exit20.i", %._crit_edge, %"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_0clES2_S2_.exit", %_ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit135
   %476 = getelementptr inbounds nuw i8, ptr %91, i64 224
   store i32 0, ptr %476, align 8
   %477 = getelementptr inbounds nuw i8, ptr %91, i64 228
@@ -14367,7 +14367,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7ASTUnit9serializeERN4llvm11raw_os
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 304
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %12 = load ptr, ptr %11, align 8
-  tail call fastcc void @_ZL13serializeUnitRN5clang9ASTWriterERN4llvm15SmallVectorImplIcEERNS_4SemaERNS2_11raw_ostreamE.retelim(ptr noundef nonnull align 8 dereferenceable(3340) %10, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(17560) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  tail call fastcc void @_ZL13serializeUnitRN5clang9ASTWriterERN4llvm15SmallVectorImplIcEERNS_4SemaERNS2_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(3340) %10, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(17560) %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit
 
 13:                                               ; preds = %2
@@ -14394,7 +14394,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7ASTUnit9serializeERN4llvm11raw_os
   call void @_ZN5clang9ASTWriterC1ERN4llvm15BitstreamWriterERNS1_15SmallVectorImplIcEERNS_19InMemoryModuleCacheENS1_8ArrayRefISt10shared_ptrINS_19ModuleFileExtensionEEEEbbb(ptr noundef nonnull align 8 dereferenceable(3340) %6, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr null, i64 0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #27
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %24 = load ptr, ptr %23, align 8
-  call fastcc void @_ZL13serializeUnitRN5clang9ASTWriterERN4llvm15SmallVectorImplIcEERNS_4SemaERNS2_11raw_ostreamE.retelim(ptr noundef nonnull align 8 dereferenceable(3340) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(17560) %24, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  call fastcc void @_ZL13serializeUnitRN5clang9ASTWriterERN4llvm15SmallVectorImplIcEERNS_4SemaERNS2_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(3340) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(17560) %24, ptr noundef nonnull align 8 dereferenceable(48) %1)
   call void @_ZN5clang9ASTWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(3340) %6) #27
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %26 = load i32, ptr %25, align 4
@@ -14465,7 +14465,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %48, %_ZN5clang19InM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13serializeUnitRN5clang9ASTWriterERN4llvm15SmallVectorImplIcEERNS_4SemaERNS2_11raw_ostreamE.retelim(ptr noundef nonnull align 8 dereferenceable(3340) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL13serializeUnitRN5clang9ASTWriterERN4llvm15SmallVectorImplIcEERNS_4SemaERNS2_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(3340) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"struct.clang::ASTFileSignature", align 1
@@ -16503,20 +16503,20 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i.i.i: ; preds =
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i.i.i, %55, %48
   %.sroa.02.0.copyload.i.i.i.i = load i32, ptr %38, align 8
-  br label %_ZL12isInMainFileRKN5clang10DiagnosticE.argprom.exit
+  br label %_ZL12isInMainFileRKN5clang10DiagnosticE.exit
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i.i.i: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.i.i.i.i, %55, %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i.i.i
   %63 = tail call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %16, i32 noundef %37) #27
-  br label %_ZL12isInMainFileRKN5clang10DiagnosticE.argprom.exit
+  br label %_ZL12isInMainFileRKN5clang10DiagnosticE.exit
 
-_ZL12isInMainFileRKN5clang10DiagnosticE.argprom.exit: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i.i.i, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i.i.i
+_ZL12isInMainFileRKN5clang10DiagnosticE.exit:     ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i.i.i, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i.i.i
   %.sroa.02.0.i.i.i.i = phi i32 [ %.sroa.02.0.copyload.i.i.i.i, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread.i.i.i.i ], [ %63, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i.i.i ]
   %64 = getelementptr inbounds nuw i8, ptr %16, i64 448
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %64, align 8
   %65 = icmp eq i32 %.sroa.02.0.i.i.i.i, %.sroa.0.0.copyload.i.i.i
   br i1 %65, label %66, label %_ZNSt8optionalIN5clang16StoredDiagnosticEED2Ev.exit
 
-66:                                               ; preds = %.thread, %_ZL12isInMainFileRKN5clang10DiagnosticE.argprom.exit, %21
+66:                                               ; preds = %.thread, %_ZL12isInMainFileRKN5clang10DiagnosticE.exit, %21
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8
   %.not = icmp eq ptr %68, null
@@ -16995,7 +16995,7 @@ _ZNSt22_Optional_payload_baseIN5clang16StoredDiagnosticEE10_M_destroyEv.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %281) #27
   br label %_ZNSt8optionalIN5clang16StoredDiagnosticEED2Ev.exit
 
-_ZNSt8optionalIN5clang16StoredDiagnosticEED2Ev.exit: ; preds = %.thread, %30, %_ZNSt22_Optional_payload_baseIN5clang16StoredDiagnosticEE10_M_destroyEv.exit.i.i.i.i, %_ZN5clang7ASTUnit20StandaloneDiagnosticD2Ev.exit, %.thread22, %69, %_ZL12isInMainFileRKN5clang10DiagnosticE.argprom.exit, %17
+_ZNSt8optionalIN5clang16StoredDiagnosticEED2Ev.exit: ; preds = %.thread, %30, %_ZNSt22_Optional_payload_baseIN5clang16StoredDiagnosticEE10_M_destroyEv.exit.i.i.i.i, %_ZN5clang7ASTUnit20StandaloneDiagnosticD2Ev.exit, %.thread22, %69, %_ZL12isInMainFileRKN5clang10DiagnosticE.exit, %17
   ret void
 }
 
@@ -19958,23 +19958,23 @@ define internal void @_ZN12_GLOBAL__N_129AugmentedCodeCompleteConsumer26ProcessC
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   switch i32 %.val, label %72 [
-    i32 37, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 19, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 35, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 34, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 33, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 31, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 30, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 1, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 0, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 28, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 27, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 26, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 25, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 24, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 23, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 22, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
-    i32 16, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit
+    i32 37, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 19, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 35, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 34, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 33, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 31, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 30, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 1, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 0, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 28, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 27, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 26, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 25, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 24, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 23, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 22, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
+    i32 16, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit
     i32 15, label %71
     i32 14, label %71
     i32 13, label %71
@@ -19985,7 +19985,7 @@ define internal void @_ZN12_GLOBAL__N_129AugmentedCodeCompleteConsumer26ProcessC
 
 72:                                               ; preds = %71, %69
   %.0.i = phi i1 [ false, %69 ], [ true, %71 ]
-  br i1 %.not2.i, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %72
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 2112
@@ -20074,9 +20074,9 @@ _ZNK5clang9NamedDecl17getUnderlyingDeclEv.exit.i: ; preds = %83, %78
 114:                                              ; preds = %109, %100, %94, %74
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, %38
-  br i1 %.not.i, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit, label %74, !llvm.loop !310
+  br i1 %.not.i, label %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit, label %74, !llvm.loop !310
 
-_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit: ; preds = %114, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %72
+_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit: ; preds = %114, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %69, %72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %115 = load ptr, ptr %9, align 8
@@ -20085,8 +20085,8 @@ _ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionRe
   %118 = call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang20CodeCompletionResultEE6insertIPS2_vEES5_S5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %117, ptr noundef %3, ptr noundef %39)
   br label %119
 
-119:                                              ; preds = %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit, %67
-  %.2 = phi i8 [ %.080, %67 ], [ 1, %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.argprom.exit ]
+119:                                              ; preds = %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit, %67
+  %.2 = phi i8 [ %.080, %67 ], [ 1, %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit ]
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.056.079, i64 20
   %121 = load i32, ptr %120, align 4
   %.not = icmp eq i32 %121, 501
@@ -28132,7 +28132,7 @@ define internal void @_ZN12_GLOBAL__N_133MacroDefinitionTrackerPPCallbacks12Macr
   %12 = load i32, ptr %5, align 4
   %13 = getelementptr inbounds i8, ptr %9, i64 %11
   %.not12.i.i = icmp eq i64 %11, 0
-  br i1 %.not12.i.i, label %_ZL21AddDefinedMacroToHashRKN5clang5TokenERj.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not12.i.i, label %_ZL21AddDefinedMacroToHashRKN5clang5TokenERj.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %.014.i.i = phi i32 [ %17, %.lr.ph.i.i ], [ %12, %3 ]
@@ -28143,9 +28143,9 @@ define internal void @_ZN12_GLOBAL__N_133MacroDefinitionTrackerPPCallbacks12Macr
   %17 = add i32 %15, %16
   %18 = getelementptr inbounds i8, ptr %.0913.i.i, i64 1
   %.not.i.i = icmp eq ptr %18, %13
-  br i1 %.not.i.i, label %_ZL21AddDefinedMacroToHashRKN5clang5TokenERj.argprom.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZL21AddDefinedMacroToHashRKN5clang5TokenERj.exit, label %.lr.ph.i.i
 
-_ZL21AddDefinedMacroToHashRKN5clang5TokenERj.argprom.exit: ; preds = %.lr.ph.i.i, %3
+_ZL21AddDefinedMacroToHashRKN5clang5TokenERj.exit: ; preds = %.lr.ph.i.i, %3
   %.0.lcssa.i.i = phi i32 [ %12, %3 ], [ %17, %.lr.ph.i.i ]
   store i32 %.0.lcssa.i.i, ptr %5, align 4
   ret void
@@ -31361,7 +31361,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostream
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN5clang7ASTUnit4SaveENS0_9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #16 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7ASTUnit4SaveEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang7ASTUnit4SaveEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -31369,18 +31369,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7ASTUnit4SaveEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7ASTUnit4SaveEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7ASTUnit4SaveEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7ASTUnit4SaveEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7ASTUnit4SaveEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5clang7ASTUnit4SaveEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5clang7ASTUnit4SaveEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5clang7ASTUnit4SaveEN4llvm9StringRefEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -32054,7 +32054,7 @@ _ZSt13move_backwardIPSt4pairIjPN5clang4DeclEES5_ET0_T_S7_S6_.exit: ; preds = %.l
 define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRN5clang13serialization10ModuleFileEEE11callback_fnIZNS1_7ASTUnit10getPCHFileEvE3$_0EEblS4_"(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(3464) %1) #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.argprom.exit" [
+  switch i32 %4, label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit" [
     i32 4, label %8
     i32 3, label %7
     i32 2, label %5
@@ -32064,15 +32064,15 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRN5clang13serializ
   %6 = inttoptr i64 %0 to ptr
   %.val = load ptr, ptr %6, align 8
   store ptr %1, ptr %.val, align 8
-  br label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.argprom.exit"
+  br label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit"
 
 7:                                                ; preds = %2
-  br label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.argprom.exit"
+  br label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit"
 
 8:                                                ; preds = %2
-  br label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.argprom.exit"
+  br label %"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit"
 
-"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.argprom.exit": ; preds = %2, %5, %7, %8
+"_ZZN5clang7ASTUnit10getPCHFileEvENK3$_0clERNS_13serialization10ModuleFileE.exit": ; preds = %2, %5, %7, %8
   %.0.i = phi i1 [ false, %8 ], [ false, %7 ], [ true, %5 ], [ true, %2 ]
   ret i1 %.0.i
 }
@@ -32194,8 +32194,8 @@ attributes #32 = { noreturn nounwind }
 !51 = distinct !{!51, !"_ZSt11make_sharedIN5clang12PreprocessorEJRSt10shared_ptrINS0_19PreprocessorOptionsEERNS0_17DiagnosticsEngineERNS0_11LangOptionsERNS0_13SourceManagerERNS0_12HeaderSearchERNS0_19TrivialModuleLoaderEDnbEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESH_E4typeEEDpOT0_"}
 !52 = !{!50}
 !53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZSt11make_uniqueIN12_GLOBAL__N_116ASTInfoCollectorEJRN5clang12PreprocessorEPNS2_10ASTContextERNS2_19HeaderSearchOptionsERNS2_19PreprocessorOptionsERNS2_11LangOptionsERSt10shared_ptrINS2_13TargetOptionsEERN4llvm18IntrusiveRefCntPtrINS2_10TargetInfoEEERjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: argument 0"}
-!55 = distinct !{!55, !"_ZSt11make_uniqueIN12_GLOBAL__N_116ASTInfoCollectorEJRN5clang12PreprocessorEPNS2_10ASTContextERNS2_19HeaderSearchOptionsERNS2_19PreprocessorOptionsERNS2_11LangOptionsERSt10shared_ptrINS2_13TargetOptionsEERN4llvm18IntrusiveRefCntPtrINS2_10TargetInfoEEERjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
+!54 = distinct !{!54, !55, !"_ZSt11make_uniqueIN12_GLOBAL__N_116ASTInfoCollectorEJRN5clang12PreprocessorEPNS2_10ASTContextERNS2_19HeaderSearchOptionsERNS2_19PreprocessorOptionsERNS2_11LangOptionsERSt10shared_ptrINS2_13TargetOptionsEERN4llvm18IntrusiveRefCntPtrINS2_10TargetInfoEEERjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!55 = distinct !{!55, !"_ZSt11make_uniqueIN12_GLOBAL__N_116ASTInfoCollectorEJRN5clang12PreprocessorEPNS2_10ASTContextERNS2_19HeaderSearchOptionsERNS2_19PreprocessorOptionsERNS2_11LangOptionsERSt10shared_ptrINS2_13TargetOptionsEERN4llvm18IntrusiveRefCntPtrINS2_10TargetInfoEEERjEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !56 = !{!57, !59}
 !57 = distinct !{!57, !58, !"_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj: argument 0"}
 !58 = distinct !{!58, !"_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj"}
@@ -32218,8 +32218,8 @@ attributes #32 = { noreturn nounwind }
 !75 = distinct !{!75, !76, !"_ZN5clang16CompilerInstance18getPreprocessorPtrEv: argument 0"}
 !76 = distinct !{!76, !"_ZN5clang16CompilerInstance18getPreprocessorPtrEv"}
 !77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.argprom: argument 0"}
-!79 = distinct !{!79, !"_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb.argprom"}
+!78 = distinct !{!78, !79, !"_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb: argument 0"}
+!79 = distinct !{!79, !"_ZL33getBufferForFileHandlingRemappingRKN5clang18CompilerInvocationEPN4llvm3vfs10FileSystemENS3_9StringRefEb"}
 !80 = !{!81, !78}
 !81 = distinct !{!81, !82, !"_ZL11valueOrNullIN4llvm12MemoryBufferEESt10unique_ptrIT_St14default_deleteIS3_EENS0_7ErrorOrIS6_EE: argument 0"}
 !82 = distinct !{!82, !"_ZL11valueOrNullIN4llvm12MemoryBufferEESt10unique_ptrIT_St14default_deleteIS3_EENS0_7ErrorOrIS6_EE"}
@@ -32300,11 +32300,11 @@ attributes #32 = { noreturn nounwind }
 !157 = distinct !{!157, !158, !"_ZN5clang17DiagnosticsEngine10takeClientEv: argument 0"}
 !158 = distinct !{!158, !"_ZN5clang17DiagnosticsEngine10takeClientEv"}
 !159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.argprom.argprom: argument 0"}
-!161 = distinct !{!161, !"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.argprom.argprom"}
+!160 = distinct !{!160, !161, !"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_: argument 0"}
+!161 = distinct !{!161, !"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_"}
 !162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.argprom.argprom: argument 0"}
-!164 = distinct !{!164, !"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_.argprom.argprom"}
+!163 = distinct !{!163, !164, !"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_: argument 0"}
+!164 = distinct !{!164, !"_ZZN5clang7ASTUnit12CodeCompleteEN4llvm9StringRefEjjNS1_8ArrayRefISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_12MemoryBufferEEEEbbbRNS_20CodeCompleteConsumerESt10shared_ptrINS_22PCHContainerOperationsEERNS_17DiagnosticsEngineERNS_11LangOptionsERNS_13SourceManagerERNS_11FileManagerERNS1_15SmallVectorImplINS_16StoredDiagnosticEEERNSS_IPKSB_EESt10unique_ptrINS_16SyntaxOnlyActionESt14default_deleteIS11_EEENK3$_1clES2_"}
 !165 = distinct !{!165, !5}
 !166 = distinct !{!166, !5}
 !167 = distinct !{!167, !5}
@@ -32539,14 +32539,14 @@ attributes #32 = { noreturn nounwind }
 !396 = !{!397}
 !397 = distinct !{!397, !395, !"_ZSt19__relocate_object_aISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !398 = !{!399}
-!399 = distinct !{!399, !400, !"_ZSt10__invoke_rIN4llvm5ErrorERZN5clang7ASTUnit4SaveENS0_9StringRefEE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom: argument 0"}
-!400 = distinct !{!400, !"_ZSt10__invoke_rIN4llvm5ErrorERZN5clang7ASTUnit4SaveENS0_9StringRefEE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.argprom"}
+!399 = distinct !{!399, !400, !"_ZSt10__invoke_rIN4llvm5ErrorERZN5clang7ASTUnit4SaveENS0_9StringRefEE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_: argument 0"}
+!400 = distinct !{!400, !"_ZSt10__invoke_rIN4llvm5ErrorERZN5clang7ASTUnit4SaveENS0_9StringRefEE3$_0JRNS0_11raw_ostreamEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_"}
 !401 = !{!402}
-!402 = distinct !{!402, !403, !"_ZSt13__invoke_implIN4llvm5ErrorERZN5clang7ASTUnit4SaveENS0_9StringRefEE3$_0JRNS0_11raw_ostreamEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
-!403 = distinct !{!403, !"_ZSt13__invoke_implIN4llvm5ErrorERZN5clang7ASTUnit4SaveENS0_9StringRefEE3$_0JRNS0_11raw_ostreamEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!402 = distinct !{!402, !403, !"_ZSt13__invoke_implIN4llvm5ErrorERZN5clang7ASTUnit4SaveENS0_9StringRefEE3$_0JRNS0_11raw_ostreamEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!403 = distinct !{!403, !"_ZSt13__invoke_implIN4llvm5ErrorERZN5clang7ASTUnit4SaveENS0_9StringRefEE3$_0JRNS0_11raw_ostreamEEET_St14__invoke_otherOT0_DpOT1_"}
 !404 = !{!405}
-!405 = distinct !{!405, !406, !"_ZZN5clang7ASTUnit4SaveEN4llvm9StringRefEENK3$_0clERNS1_11raw_ostreamE.argprom: argument 0"}
-!406 = distinct !{!406, !"_ZZN5clang7ASTUnit4SaveEN4llvm9StringRefEENK3$_0clERNS1_11raw_ostreamE.argprom"}
+!405 = distinct !{!405, !406, !"_ZZN5clang7ASTUnit4SaveEN4llvm9StringRefEENK3$_0clERNS1_11raw_ostreamE: argument 0"}
+!406 = distinct !{!406, !"_ZZN5clang7ASTUnit4SaveEN4llvm9StringRefEENK3$_0clERNS1_11raw_ostreamE"}
 !407 = !{!405, !402, !399}
 !408 = distinct !{!408, !5}
 !409 = distinct !{!409, !5}

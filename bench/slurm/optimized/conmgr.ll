@@ -4045,7 +4045,7 @@ conmgr_work_type_string.exit42:                   ; preds = %59
   unreachable
 
 85:                                               ; preds = %83, %79
-  tail call fastcc void @_update_last_time.argelim()
+  tail call fastcc void @_update_last_time()
   %86 = load i64, ptr getelementptr inbounds (i8, ptr @mgr, i64 88), align 8
   %87 = getelementptr inbounds i8, ptr %1, i64 48
   %88 = load i64, ptr %87, align 8
@@ -4053,7 +4053,7 @@ conmgr_work_type_string.exit42:                   ; preds = %59
   store i64 %89, ptr %87, align 8
   %90 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
   tail call void @list_append(ptr noundef %90, ptr noundef nonnull %1) #17
-  tail call fastcc void @_update_timer.argelim()
+  tail call fastcc void @_update_timer()
   br label %_handle_work_pending.exit
 
 91:                                               ; preds = %79
@@ -4734,12 +4734,12 @@ define internal void @_handle_timer(ptr nocapture readnone %0) #0 {
   unreachable
 
 6:                                                ; preds = %1
-  tail call fastcc void @_update_last_time.argelim()
+  tail call fastcc void @_update_last_time()
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
   %8 = tail call i32 @list_count(ptr noundef %7) #17
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
   %10 = tail call i32 @list_transfer_match(ptr noundef %9, ptr noundef %2, ptr noundef nonnull @_match_work_elapsed, ptr noundef null) #17
-  tail call fastcc void @_update_timer.argelim()
+  tail call fastcc void @_update_timer()
   %11 = tail call ptr @list_pop(ptr noundef %2) #17
   %.not1519 = icmp eq ptr %11, null
   br i1 %.not1519, label %._crit_edge, label %.lr.ph
@@ -4802,7 +4802,7 @@ define internal void @_handle_timer(ptr nocapture readnone %0) #0 {
 declare void @xfree_ptr(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_last_time.argelim() unnamed_addr #0 {
+define internal fastcc void @_update_last_time() unnamed_addr #0 {
   %1 = alloca %struct.sigevent, align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @mgr, i64 80), align 8
   %.not = icmp eq ptr %2, null
@@ -4920,7 +4920,7 @@ define internal range(i32 0, 2) i32 @_match_work_elapsed(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_timer.argelim() unnamed_addr #0 {
+define internal fastcc void @_update_timer() unnamed_addr #0 {
   %1 = alloca %struct.itimerspec, align 8
   %2 = alloca %struct.foreach_delayed_work_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
@@ -4931,7 +4931,7 @@ define internal fastcc void @_update_timer.argelim() unnamed_addr #0 {
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %0
-  tail call fastcc void @_update_last_time.argelim()
+  tail call fastcc void @_update_last_time()
   br label %6
 
 6:                                                ; preds = %5, %0
@@ -6938,7 +6938,7 @@ define internal void @_wrap_on_data(ptr noundef %0, i32 %1, i32 %2, ptr nocaptur
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 %33(ptr noundef nonnull %0, ptr noundef %35) #17
-  br label %_on_rpc_connection_data.argprom.exit
+  br label %_on_rpc_connection_data.exit
 
 37:                                               ; preds = %28
   %38 = getelementptr inbounds i8, ptr %0, i64 120
@@ -7003,18 +7003,18 @@ define internal void @_wrap_on_data(ptr noundef %0, i32 %1, i32 %2, ptr nocaptur
   %75 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %76 = and i64 %75, 1024
   %.not70.i = icmp eq i64 %76, 0
-  br i1 %.not70.i, label %_on_rpc_connection_data.argprom.exit, label %77
+  br i1 %.not70.i, label %_on_rpc_connection_data.exit, label %77
 
 77:                                               ; preds = %74
   %78 = tail call i32 @get_log_level() #17
   %79 = icmp sgt i32 %78, 3
-  br i1 %79, label %80, label %_on_rpc_connection_data.argprom.exit
+  br i1 %79, label %80, label %_on_rpc_connection_data.exit
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds i8, ptr %0, i64 32
   %82 = load ptr, ptr %81, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.136, ptr noundef nonnull @__func__._on_rpc_connection_data, ptr noundef %82) #17
-  br label %_on_rpc_connection_data.argprom.exit
+  br label %_on_rpc_connection_data.exit
 
 thread-pre-split.i:                               ; preds = %67, %64
   %.pr.i = load i32, ptr %38, align 8
@@ -7029,19 +7029,19 @@ thread-pre-split.i:                               ; preds = %67, %64
   %87 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %88 = and i64 %87, 1024
   %.not72.i = icmp eq i64 %88, 0
-  br i1 %.not72.i, label %_on_rpc_connection_data.argprom.exit, label %89
+  br i1 %.not72.i, label %_on_rpc_connection_data.exit, label %89
 
 89:                                               ; preds = %86
   %90 = tail call i32 @get_log_level() #17
   %91 = icmp sgt i32 %90, 3
-  br i1 %91, label %92, label %_on_rpc_connection_data.argprom.exit
+  br i1 %91, label %92, label %_on_rpc_connection_data.exit
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds i8, ptr %0, i64 32
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %38, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.137, ptr noundef nonnull @__func__._on_rpc_connection_data, ptr noundef %94, i32 noundef %95) #17
-  br label %_on_rpc_connection_data.argprom.exit
+  br label %_on_rpc_connection_data.exit
 
 96:                                               ; preds = %83, %37
   %97 = phi i32 [ %84, %83 ], [ %39, %37 ]
@@ -7055,19 +7055,19 @@ thread-pre-split.i:                               ; preds = %67, %64
   %102 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %103 = and i64 %102, 1024
   %.not83.i = icmp eq i64 %103, 0
-  br i1 %.not83.i, label %_on_rpc_connection_data.argprom.exit, label %104
+  br i1 %.not83.i, label %_on_rpc_connection_data.exit, label %104
 
 104:                                              ; preds = %101
   %105 = tail call i32 @get_log_level() #17
   %106 = icmp sgt i32 %105, 3
-  br i1 %106, label %107, label %_on_rpc_connection_data.argprom.exit
+  br i1 %106, label %107, label %_on_rpc_connection_data.exit
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds i8, ptr %0, i64 32
   %109 = load ptr, ptr %108, align 8
   %110 = tail call ptr @slurm_strerror(i32 noundef %100) #17
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.138, ptr noundef nonnull @__func__._on_rpc_connection_data, ptr noundef %109, i32 noundef %98, ptr noundef %110) #17
-  br label %_on_rpc_connection_data.argprom.exit
+  br label %_on_rpc_connection_data.exit
 
 111:                                              ; preds = %96
   %112 = load ptr, ptr %6, align 8
@@ -7155,18 +7155,18 @@ thread-pre-split.i:                               ; preds = %67, %64
   %160 = icmp eq i32 %.063.i, 0
   %161 = icmp ne ptr %.0.i, null
   %or.cond.i = and i1 %160, %161
-  br i1 %or.cond.i, label %174, label %_on_rpc_connection_data.argprom.exit
+  br i1 %or.cond.i, label %174, label %_on_rpc_connection_data.exit
 
 162:                                              ; preds = %111
   %163 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %164 = and i64 %163, 1024
   %.not75.i = icmp eq i64 %164, 0
-  br i1 %.not75.i, label %_on_rpc_connection_data.argprom.exit, label %165
+  br i1 %.not75.i, label %_on_rpc_connection_data.exit, label %165
 
 165:                                              ; preds = %162
   %166 = tail call i32 @get_log_level() #17
   %167 = icmp sgt i32 %166, 3
-  br i1 %167, label %168, label %_on_rpc_connection_data.argprom.exit
+  br i1 %167, label %168, label %_on_rpc_connection_data.exit
 
 168:                                              ; preds = %165
   %169 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7175,7 +7175,7 @@ thread-pre-split.i:                               ; preds = %67, %64
   %172 = getelementptr inbounds i8, ptr %171, i64 16
   %173 = load i32, ptr %172, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.142, ptr noundef nonnull @__func__._on_rpc_connection_data, ptr noundef %170, i32 noundef %173, i32 noundef %98) #17
-  br label %_on_rpc_connection_data.argprom.exit
+  br label %_on_rpc_connection_data.exit
 
 174:                                              ; preds = %159
   %175 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -7229,12 +7229,12 @@ thread-pre-split.i:                               ; preds = %67, %64
   %207 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %208 = and i64 %207, 1024
   %.not82.i = icmp eq i64 %208, 0
-  br i1 %.not82.i, label %_on_rpc_connection_data.argprom.exit, label %209
+  br i1 %.not82.i, label %_on_rpc_connection_data.exit, label %209
 
 209:                                              ; preds = %201
   %210 = tail call i32 @get_log_level() #17
   %211 = icmp sgt i32 %210, 3
-  br i1 %211, label %212, label %_on_rpc_connection_data.argprom.exit
+  br i1 %211, label %212, label %_on_rpc_connection_data.exit
 
 212:                                              ; preds = %209
   %213 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7245,20 +7245,20 @@ thread-pre-split.i:                               ; preds = %67, %64
   %218 = ptrtoint ptr %217 to i64
   %219 = tail call ptr @slurm_strerror(i32 noundef %206) #17
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.145, ptr noundef nonnull @__func__._on_rpc_connection_data, ptr noundef %214, i64 noundef %216, i64 noundef %218, ptr noundef %219) #17
-  br label %_on_rpc_connection_data.argprom.exit
+  br label %_on_rpc_connection_data.exit
 
 220:                                              ; preds = %28
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.101) #16
   unreachable
 
-_on_rpc_connection_data.argprom.exit:             ; preds = %212, %209, %201, %168, %165, %162, %159, %107, %104, %101, %92, %89, %86, %80, %77, %74, %31
+_on_rpc_connection_data.exit:                     ; preds = %212, %209, %201, %168, %165, %162, %159, %107, %104, %101, %92, %89, %86, %80, %77, %74, %31
   %.0 = phi i32 [ %36, %31 ], [ 0, %74 ], [ 0, %77 ], [ 0, %80 ], [ 1008, %86 ], [ 1008, %89 ], [ 1008, %92 ], [ %100, %101 ], [ %100, %104 ], [ %100, %107 ], [ 0, %162 ], [ 0, %165 ], [ 0, %168 ], [ %206, %212 ], [ %206, %209 ], [ %206, %201 ], [ %.063.i, %159 ]
   %221 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %222 = and i64 %221, 1024
   %.not51 = icmp eq i64 %222, 0
   br i1 %.not51, label %236, label %223
 
-223:                                              ; preds = %_on_rpc_connection_data.argprom.exit
+223:                                              ; preds = %_on_rpc_connection_data.exit
   %224 = tail call i32 @get_log_level() #17
   %225 = icmp sgt i32 %224, 3
   br i1 %225, label %226, label %236
@@ -7276,7 +7276,7 @@ _on_rpc_connection_data.argprom.exit:             ; preds = %212, %209, %201, %1
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.101, ptr noundef %228, i64 noundef %231, i64 noundef %234, ptr noundef %235) #17
   br label %236
 
-236:                                              ; preds = %_on_rpc_connection_data.argprom.exit, %223, %226
+236:                                              ; preds = %_on_rpc_connection_data.exit, %223, %226
   %.not52 = icmp eq i32 %.0, 0
   br i1 %.not52, label %270, label %237
 

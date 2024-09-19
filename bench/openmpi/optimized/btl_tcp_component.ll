@@ -797,12 +797,12 @@ opal_obj_run_destructors.exit66:                  ; preds = %.lr.ph.i63, %opal_o
 opal_obj_run_destructors.exit71:                  ; preds = %.lr.ph.i68, %opal_obj_run_destructors.exit66
   %121 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 312), align 8
   %122 = icmp eq i32 %121, 1
-  br i1 %122, label %.preheader, label %opal_list_remove_first.argprom.exit.thread
+  br i1 %122, label %.preheader, label %opal_list_remove_first.exit.thread
 
 .preheader:                                       ; preds = %opal_obj_run_destructors.exit71
   %123 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 360), align 8
   %124 = icmp eq i64 %123, 0
-  br i1 %124, label %opal_list_remove_first.argprom.exit.thread, label %.lr.ph92
+  br i1 %124, label %opal_list_remove_first.exit.thread, label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %.preheader, %153
   %125 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 360), align 8
@@ -863,9 +863,9 @@ opal_obj_run_destructors.exit79:                  ; preds = %.lr.ph.i76, %145
 153:                                              ; preds = %opal_thread_add_fetch_32.exit74, %opal_obj_run_destructors.exit79
   %154 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 360), align 8
   %155 = icmp eq i64 %154, 0
-  br i1 %155, label %opal_list_remove_first.argprom.exit.thread, label %.lr.ph92, !llvm.loop !8
+  br i1 %155, label %opal_list_remove_first.exit.thread, label %.lr.ph92, !llvm.loop !8
 
-opal_list_remove_first.argprom.exit.thread:       ; preds = %153, %.preheader, %opal_obj_run_destructors.exit71
+opal_list_remove_first.exit.thread:               ; preds = %153, %.preheader, %opal_obj_run_destructors.exit71
   %156 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 304), align 16
   %157 = getelementptr inbounds i8, ptr %156, i64 48
   %158 = load ptr, ptr %157, align 8
@@ -873,16 +873,16 @@ opal_list_remove_first.argprom.exit.thread:       ; preds = %153, %.preheader, %
   %.not6.i80 = icmp eq ptr %159, null
   br i1 %.not6.i80, label %opal_obj_run_destructors.exit84, label %.lr.ph.i81
 
-.lr.ph.i81:                                       ; preds = %opal_list_remove_first.argprom.exit.thread, %.lr.ph.i81
-  %160 = phi ptr [ %162, %.lr.ph.i81 ], [ %159, %opal_list_remove_first.argprom.exit.thread ]
-  %.07.i82 = phi ptr [ %161, %.lr.ph.i81 ], [ %158, %opal_list_remove_first.argprom.exit.thread ]
+.lr.ph.i81:                                       ; preds = %opal_list_remove_first.exit.thread, %.lr.ph.i81
+  %160 = phi ptr [ %162, %.lr.ph.i81 ], [ %159, %opal_list_remove_first.exit.thread ]
+  %.07.i82 = phi ptr [ %161, %.lr.ph.i81 ], [ %158, %opal_list_remove_first.exit.thread ]
   call void %160(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 304)) #15
   %161 = getelementptr inbounds i8, ptr %.07.i82, i64 8
   %162 = load ptr, ptr %161, align 8
   %.not.i83 = icmp eq ptr %162, null
   br i1 %.not.i83, label %opal_obj_run_destructors.exit84, label %.lr.ph.i81, !llvm.loop !6
 
-opal_obj_run_destructors.exit84:                  ; preds = %.lr.ph.i81, %opal_list_remove_first.argprom.exit.thread
+opal_obj_run_destructors.exit84:                  ; preds = %.lr.ph.i81, %opal_list_remove_first.exit.thread
   ret i32 0
 }
 
@@ -1097,7 +1097,7 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
   br label %.loopexit.i
 
 .lr.ph101.i:                                      ; preds = %.lr.ph
-  tail call fastcc void @mca_btl_tcp_create.retelim(i32 noundef %66, ptr noundef %65)
+  tail call fastcc void @mca_btl_tcp_create(i32 noundef %66, ptr noundef %65)
   %72 = getelementptr inbounds i8, ptr %.06399.i52, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not73.i = icmp eq ptr %73, null
@@ -1124,7 +1124,7 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
   %78 = getelementptr inbounds i32, ptr %calloc.i, i64 %indvars.iv117.i
   %79 = load i32, ptr %78, align 4
   %80 = call i32 @opal_ifkindextoname(i32 noundef %79, ptr noundef nonnull %10, i32 noundef 32) #15
-  call fastcc void @mca_btl_tcp_create.retelim(i32 noundef %79, ptr noundef %10)
+  call fastcc void @mca_btl_tcp_create(i32 noundef %79, ptr noundef %10)
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond121.not.i = icmp eq i64 %indvars.iv.next118.i, %wide.trip.count120.i
   br i1 %exitcond121.not.i, label %.loopexit.i, label %.critedge2.thread.us.i, !llvm.loop !11
@@ -1150,7 +1150,7 @@ mca_btl_tcp_component_create_instances.exit.thread26: ; preds = %._crit_edge96.i
   br i1 %89, label %.critedge2.i, label %84, !llvm.loop !12
 
 .critedge2.thread.i:                              ; preds = %84
-  call fastcc void @mca_btl_tcp_create.retelim(i32 noundef %82, ptr noundef %10)
+  call fastcc void @mca_btl_tcp_create(i32 noundef %82, ptr noundef %10)
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %86, %.critedge2.thread.i
@@ -1780,7 +1780,7 @@ mca_btl_tcp_component_exchange.exit._crit_edge:   ; preds = %mca_btl_tcp_compone
 define internal void @mca_btl_tcp_event_construct(ptr noundef %0) #1 {
   %2 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 536), i32 0, i32 1 acquire monotonic, align 4
   %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %opal_mutex_atomic_lock.argprom.exit, label %.preheader.i.i
+  br i1 %3, label %opal_mutex_atomic_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %1, %.preheader.i.i.backedge
   %4 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 536), align 8
@@ -1793,9 +1793,9 @@ define internal void @mca_btl_tcp_event_construct(ptr noundef %0) #1 {
 6:                                                ; preds = %.preheader.i.i
   %7 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 536), i32 0, i32 1 acquire monotonic, align 4
   %8 = extractvalue { i32, i1 } %7, 1
-  br i1 %8, label %opal_mutex_atomic_lock.argprom.exit, label %.preheader.i.i.backedge
+  br i1 %8, label %opal_mutex_atomic_lock.exit, label %.preheader.i.i.backedge
 
-opal_mutex_atomic_lock.argprom.exit:              ; preds = %6, %1
+opal_mutex_atomic_lock.exit:                      ; preds = %6, %1
   %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 584), align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   store volatile ptr %9, ptr %10, align 8
@@ -1817,7 +1817,7 @@ opal_mutex_atomic_lock.argprom.exit:              ; preds = %6, %1
 define internal void @mca_btl_tcp_event_destruct(ptr noundef %0) #1 {
   %2 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 536), i32 0, i32 1 acquire monotonic, align 4
   %3 = extractvalue { i32, i1 } %2, 1
-  br i1 %3, label %opal_mutex_atomic_lock.argprom.exit, label %.preheader.i.i
+  br i1 %3, label %opal_mutex_atomic_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %1, %.preheader.i.i.backedge
   %4 = load volatile i32, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 536), align 8
@@ -1830,9 +1830,9 @@ define internal void @mca_btl_tcp_event_destruct(ptr noundef %0) #1 {
 6:                                                ; preds = %.preheader.i.i
   %7 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 536), i32 0, i32 1 acquire monotonic, align 4
   %8 = extractvalue { i32, i1 } %7, 1
-  br i1 %8, label %opal_mutex_atomic_lock.argprom.exit, label %.preheader.i.i.backedge
+  br i1 %8, label %opal_mutex_atomic_lock.exit, label %.preheader.i.i.backedge
 
-opal_mutex_atomic_lock.argprom.exit:              ; preds = %6, %1
+opal_mutex_atomic_lock.exit:                      ; preds = %6, %1
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load volatile ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2152,7 +2152,7 @@ define internal fastcc ptr @split_and_resolve(ptr noundef %0, ptr noundef %1, i1
 declare i32 @opal_ifnametokindex(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_btl_tcp_create.retelim(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @mca_btl_tcp_create(i32 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %.sroa.4 = alloca [126 x i8], align 2
   %.091112 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_if_list, i64 32), align 8

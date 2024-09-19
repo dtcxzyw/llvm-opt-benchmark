@@ -3054,9 +3054,9 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0
   %or.cond = select i1 %207, i1 true, i1 %.not43.i.i
   br i1 %or.cond, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEEN12_GLOBAL__N_110SeenBeforeIS2_EEET_SD_SD_T0_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeIS2_EEEEET_SG_SG_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i
-  %.sroa.07.045.i.i = phi ptr [ %.sroa.07.0.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i ], [ %.sroa.07.042.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeIS2_EEEEET_SG_SG_T0_.exit.i.i ]
-  %.sroa.013.144.i.i = phi ptr [ %.sroa.013.2.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeIS2_EEEEET_SG_SG_T0_.exit.i.i ]
+.lr.ph.i.i:                                       ; preds = %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeIS2_EEEEET_SG_SG_T0_.exit.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i
+  %.sroa.07.045.i.i = phi ptr [ %.sroa.07.0.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i ], [ %.sroa.07.042.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeIS2_EEEEET_SG_SG_T0_.exit.i.i ]
+  %.sroa.013.144.i.i = phi ptr [ %.sroa.013.2.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeIS2_EEEEET_SG_SG_T0_.exit.i.i ]
   %208 = load ptr, ptr %.sroa.07.045.i.i, align 8
   %.02022.i.i.i.i.i.i.i = load ptr, ptr %25, align 8
   %.not23.i.i.i.i.i.i.i = icmp eq ptr %.02022.i.i.i.i.i.i.i, null
@@ -3092,7 +3092,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0
   %217 = phi ptr [ %.pre.i.i.i.i.i.i, %214 ], [ %210, %._crit_edge.i.i.i.i.i.i.i ]
   %.019.lcssa29.i.i.i.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i.i.i, %214 ], [ %.02024.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ]
   %218 = icmp ult ptr %217, %208
-  br i1 %218, label %select.unfold.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i
+  br i1 %218, label %select.unfold.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i
 
 select.unfold.i.i.i.i.i.i:                        ; preds = %216, %._crit_edge.thread.i.i.i.i.i.i.i
   %.sroa.4.0.i.ph.i.i.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i.i.i.i, %._crit_edge.thread.i.i.i.i.i.i.i ], [ %.019.lcssa29.i.i.i.i.i.i.i, %216 ]
@@ -3120,16 +3120,16 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %216, %._crit_edge.t
   %230 = load ptr, ptr %.sroa.07.045.i.i, align 8
   store ptr %230, ptr %.sroa.013.144.i.i, align 8
   %231 = getelementptr inbounds i8, ptr %.sroa.013.144.i.i, i64 8
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i: ; preds = %.noexc40, %216
+_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i: ; preds = %.noexc40, %216
   %.sroa.013.2.i.i = phi ptr [ %231, %.noexc40 ], [ %.sroa.013.144.i.i, %216 ]
   %.sroa.07.0.i.i = getelementptr inbounds i8, ptr %.sroa.07.045.i.i, i64 8
   %.not.i.i = icmp eq ptr %.sroa.07.0.i.i, %32
   br i1 %.not.i.i, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEEN12_GLOBAL__N_110SeenBeforeIS2_EEET_SD_SD_T0_.exit, label %.lr.ph.i.i, !llvm.loop !35
 
-_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEEN12_GLOBAL__N_110SeenBeforeIS2_EEET_SD_SD_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeIS2_EEEEET_SG_SG_T0_.exit.i.i, %.noexc39, %._crit_edge.i.i.i.i
-  %.sroa.013.0.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeIS2_EEEEET_SG_SG_T0_.exit.i.i ], [ %32, %.noexc39 ], [ %32, %._crit_edge.i.i.i.i ], [ %.sroa.013.2.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.argprom.exit.thread.i.i ]
+_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEEN12_GLOBAL__N_110SeenBeforeIS2_EEET_SD_SD_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeIS2_EEEEET_SG_SG_T0_.exit.i.i, %.noexc39, %._crit_edge.i.i.i.i
+  %.sroa.013.0.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPK4NodeSt6vectorIS4_SaIS4_EEEENS0_5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeIS2_EEEEET_SG_SG_T0_.exit.i.i ], [ %32, %.noexc39 ], [ %32, %._crit_edge.i.i.i.i ], [ %.sroa.013.2.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_110SeenBeforeI4NodeEEEclINS_17__normal_iteratorIPPKS4_St6vectorISA_SaISA_EEEEEEbT_.exit.thread.i.i ]
   %232 = load ptr, ptr %31, align 8
   %.not.i.i41 = icmp eq ptr %.sroa.013.0.i.i, %232
   br i1 %.not.i.i41, label %_ZNSt6vectorIPK4NodeSaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %._crit_edge.i.i

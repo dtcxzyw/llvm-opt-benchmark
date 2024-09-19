@@ -29587,7 +29587,7 @@ entry:
   %cmp.not.i.i.i = icmp eq i8 %1, 14
   %cmp4.not.i.i.i = icmp eq i8 %1, %__args5.val
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp4.not.i.i.i
-  br i1 %or.cond.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEENS0_9TraceTypeEE3$_0JS9_mjSF_S9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br i1 %or.cond.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEENS0_9TraceTypeEE3$_0JS9_mjSF_S9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 if.end.i.i.i:                                     ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %__functor.val, i64 16
@@ -29611,7 +29611,7 @@ invoke.cont.i.i.i:                                ; preds = %if.end.i.i.i
   %add6.i.i.i = add i64 %11, %8
   store i64 %add6.i.i.i, ptr %10, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %label.i.i.i) #24
-  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEENS0_9TraceTypeEE3$_0JS9_mjSF_S9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEENS0_9TraceTypeEE3$_0JS9_mjSF_S9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 lpad.i.i.i:                                       ; preds = %if.end.i.i.i
   %12 = landingpad { ptr, i32 }
@@ -29619,7 +29619,7 @@ lpad.i.i.i:                                       ; preds = %if.end.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %label.i.i.i) #24
   resume { ptr, i32 } %12
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEENS0_9TraceTypeEE3$_0JS9_mjSF_S9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %entry, %invoke.cont.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEENS0_9TraceTypeEE3$_0JS9_mjSF_S9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %entry, %invoke.cont.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %label.i.i.i)
   ret void
 }
@@ -30362,17 +30362,17 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %cmp9.not.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__value.i.i.i) #24
-  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_SS_RT0_.argprom.exit.i.i", label %while.body.i.i.i
+  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_SS_RT0_.exit.i.i", label %while.body.i.i.i
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_SS_RT0_.argprom.exit.i.i": ; preds = %while.body.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_SS_RT0_.exit.i.i": ; preds = %while.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__value.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp6.i.i.i)
   %second.i.i.i3.i = getelementptr inbounds i8, ptr %__value.i.i1.i, i64 32
   %second.i3.i.i4.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i2.i, i64 32
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_SS_RT0_.argprom.exit.i.i"
-  %__last.sroa.0.05.i.i = phi ptr [ %storemerge16, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_SS_RT0_.argprom.exit.i.i" ], [ %incdec.ptr.i.i5.i, %while.body.i.i ]
+while.body.i.i:                                   ; preds = %while.body.i.i, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_SS_RT0_.exit.i.i"
+  %__last.sroa.0.05.i.i = phi ptr [ %storemerge16, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNK7rocksdb23BlockCacheTraceAnalyzer13WriteSkewnessERKS8_RKSB_ImSaImEENSH_9TraceTypeEE3$_1EEEvT_SS_RT0_.exit.i.i" ], [ %incdec.ptr.i.i5.i, %while.body.i.i ]
   %incdec.ptr.i.i5.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %__value.i.i1.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp7.i.i2.i)
@@ -30770,7 +30770,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %6 = load ptr, ptr %__functor.val, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %cmp.i.not.i.i.i = icmp eq ptr %retval.sroa.0.0.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer24WriteCorrelationFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
+  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer24WriteCorrelationFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
 if.end.i.i.i:                                     ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit.i.i.i, %entry
   %7 = phi ptr [ %.pre.i.i.i, %entry ], [ %6, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit.i.i.i ]
@@ -30836,7 +30836,7 @@ if.then14.i.i.i:                                  ; preds = %_ZNSt3setINSt7__cxx
   %14 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i44.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 472
   %cmp.i45.not3.i.i.i = icmp eq ptr %14, %add.ptr.i.i44.i.i.i
-  br i1 %cmp.i45.not3.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer24WriteCorrelationFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp.i45.not3.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer24WriteCorrelationFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then14.i.i.i
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 408
@@ -30896,7 +30896,7 @@ invoke.cont26.i.i.i:                              ; preds = %invoke.cont.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %label.i.i.i) #24
   %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.04.i.i.i) #27
   %cmp.i45.not.i.i.i = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i44.i.i.i
-  br i1 %cmp.i45.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer24WriteCorrelationFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %for.body.i.i.i
+  br i1 %cmp.i45.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer24WriteCorrelationFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %for.body.i.i.i
 
 lpad.i.i.i:                                       ; preds = %invoke.cont.i.i.i
   %25 = landingpad { ptr, i32 }
@@ -30916,7 +30916,7 @@ if.end28.i.i.i:                                   ; preds = %_ZNSt3setINSt7__cxx
 
 invoke.cont31.i.i.i:                              ; preds = %if.end28.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %label29.i.i.i) #24
-  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer24WriteCorrelationFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer24WriteCorrelationFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
 lpad30.i.i.i:                                     ; preds = %if.end28.i.i.i
   %30 = landingpad { ptr, i32 }
@@ -30929,7 +30929,7 @@ eh.resume.i.i.i:                                  ; preds = %lpad30.i.i.i, %lpad
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %label29.sink.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer24WriteCorrelationFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %invoke.cont26.i.i.i, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit.i.i.i, %if.then14.i.i.i, %invoke.cont31.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer24WriteCorrelationFeaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %invoke.cont26.i.i.i, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit.i.i.i, %if.then14.i.i.i, %invoke.cont31.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %label.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %label29.i.i.i)
   ret void
@@ -31857,7 +31857,7 @@ entry:
   %num_keys.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 56
   %0 = load i64, ptr %num_keys.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %0, 0
-  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteGetSpatialLocalityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteGetSpatialLocalityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 88
@@ -32158,9 +32158,9 @@ invoke.cont100.i.i.i:                             ; preds = %while.body.i.i.i73.
   %add106.i.i.i = add i64 %49, 1
   store i64 %add106.i.i.i, ptr %48, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %label.i.i.i) #24
-  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteGetSpatialLocalityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteGetSpatialLocalityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteGetSpatialLocalityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %entry, %invoke.cont100.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteGetSpatialLocalityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %entry, %invoke.cont100.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %label.i.i.i)
   ret void
 }
@@ -32227,7 +32227,7 @@ entry:
   %0 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 232
   %cmp.i.not15.i.i.i = icmp eq ptr %0, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not15.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19WriteAccessTimelineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp.i.not15.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19WriteAccessTimelineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %__functor.val, i64 16
@@ -32450,7 +32450,7 @@ for.inc24.i.i.i:                                  ; preds = %for.end.i.i.i, %for
 
 for.end26.i.i.i:                                  ; preds = %for.inc24.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %41, 0
-  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19WriteAccessTimelineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %if.then27.i.i.i
+  br i1 %cmp.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19WriteAccessTimelineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %if.then27.i.i.i
 
 if.then27.i.i.i:                                  ; preds = %for.end26.i.i.i
   %42 = getelementptr inbounds i8, ptr %__functor.val, i64 56
@@ -32518,7 +32518,7 @@ if.else.i.i.i.i.i:                                ; preds = %_ZNSt3mapImSt6vecto
 
 invoke.cont30.i.i.i:                              ; preds = %if.else.i.i.i.i.i, %if.then.i.i57.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #24
-  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19WriteAccessTimelineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19WriteAccessTimelineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
 lpad29.i.i.i:                                     ; preds = %if.else.i.i.i.i.i
   %50 = landingpad { ptr, i32 }
@@ -32531,7 +32531,7 @@ eh.resume.i.i.i:                                  ; preds = %lpad29.i.i.i, %lpad
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sink.i.i.i) #24
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19WriteAccessTimelineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %entry, %for.end26.i.i.i, %invoke.cont30.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19WriteAccessTimelineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmbE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %entry, %for.end26.i.i.i, %invoke.cont30.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %naccesses.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %label.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
@@ -33125,7 +33125,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont14.i.i.i
   %15 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i7.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 328
   %cmp.i8.not9.i.i.i = icmp eq ptr %15, %add.ptr.i.i7.i.i.i
-  br i1 %cmp.i8.not9.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %for.body23.lr.ph.i.i.i
+  br i1 %cmp.i8.not9.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %for.body23.lr.ph.i.i.i
 
 for.body23.lr.ph.i.i.i:                           ; preds = %if.end.i.i.i
   %16 = getelementptr inbounds i8, ptr %__functor.val, i64 32
@@ -33177,9 +33177,9 @@ invoke.cont28.i.i.i:                              ; preds = %while.body.i.i.i11.
   store i64 %add34.i.i.i, ptr %24, align 8
   %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.010.i.i.i) #27
   %cmp.i8.not.i.i.i = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i7.i.i.i
-  br i1 %cmp.i8.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %for.body23.i.i.i
+  br i1 %cmp.i8.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %for.body23.i.i.i
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %invoke.cont28.i.i.i, %if.end.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %invoke.cont28.i.i.i, %if.end.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %label.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %label.i.i.i)
   ret void
@@ -33336,7 +33336,7 @@ if.then11.i.i.i:                                  ; preds = %_ZNSt3setINSt7__cxx
   %18 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i26.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 232
   %cmp.i27.not13.i.i.i = icmp eq ptr %18, %add.ptr.i.i26.i.i.i
-  br i1 %cmp.i27.not13.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseIntervalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp.i27.not13.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseIntervalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then11.i.i.i
   %19 = getelementptr inbounds i8, ptr %__functor.val, i64 32
@@ -33421,7 +33421,7 @@ _ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev.exit.i.i.i: ; preds = %invoke.cont19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %label.i.i.i) #24
   %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.014.i.i.i) #27
   %cmp.i27.not.i.i.i = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i26.i.i.i
-  br i1 %cmp.i27.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseIntervalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %for.body.i.i.i
+  br i1 %cmp.i27.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseIntervalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %for.body.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i.i.i
   %35 = landingpad { ptr, i32 }
@@ -33996,7 +33996,7 @@ terminate.lpad.i.i131.i.i.i:                      ; preds = %invoke.cont107.i.i.
 
 _ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev.exit132.i.i.i: ; preds = %invoke.cont107.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %label22.i.i.i) #24
-  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseIntervalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseIntervalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
 ehcleanup113.i.i.i:                               ; preds = %lpad59.i.i.i, %lpad47.loopexit.split-lp.loopexit.split-lp.i.i.i, %lpad47.loopexit.split-lp.loopexit.i.i.i, %lpad47.loopexit.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %94, %lpad59.i.i.i ], [ %lpad.loopexit.i.i.i, %lpad47.loopexit.i.i.i ], [ %lpad.loopexit10.i.i.i, %lpad47.loopexit.split-lp.loopexit.i.i.i ], [ %lpad.loopexit.split-lp11.i.i.i, %lpad47.loopexit.split-lp.loopexit.split-lp.i.i.i ]
@@ -34009,7 +34009,7 @@ eh.resume.i.i.i:                                  ; preds = %ehcleanup113.i.i.i,
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %label22.sink.i.i.i) #24
   resume { ptr, i32 } %.pn23.pn.i.i.i
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseIntervalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev.exit.i.i.i, %if.then11.i.i.i, %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev.exit132.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseIntervalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev.exit.i.i.i, %if.then11.i.i.i, %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev.exit132.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %label.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %label22.i.i.i)
@@ -34200,7 +34200,7 @@ invoke.cont22.i.i.i:                              ; preds = %if.end20.i.i.i
   %20 = load ptr, ptr %_M_parent.i.i.i.i6.i.i.i, align 8
   %add.ptr.i.i.i7.i.i.i = getelementptr inbounds i8, ptr %call23.i.i.i, i64 8
   %cmp.not5.i.i.i.i.i.i = icmp eq ptr %20, null
-  br i1 %cmp.not5.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseLifetimeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %while.body.i.i.i8.i.i.i
+  br i1 %cmp.not5.i.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseLifetimeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %while.body.i.i.i8.i.i.i
 
 while.body.i.i.i8.i.i.i:                          ; preds = %invoke.cont22.i.i.i, %while.body.i.i.i8.i.i.i
   %__x.addr.07.i.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i14.i.i.i, %while.body.i.i.i8.i.i.i ], [ %20, %invoke.cont22.i.i.i ]
@@ -34213,9 +34213,9 @@ while.body.i.i.i8.i.i.i:                          ; preds = %invoke.cont22.i.i.i
   %__x.addr.1.in.i.i.i13.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i12.i.i.i
   %__x.addr.1.i.i.i14.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i13.i.i.i, align 8
   %cmp.not.i.i.i15.i.i.i = icmp eq ptr %__x.addr.1.i.i.i14.i.i.i, null
-  br i1 %cmp.not.i.i.i15.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseLifetimeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %while.body.i.i.i8.i.i.i, !llvm.loop !108
+  br i1 %cmp.not.i.i.i15.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseLifetimeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %while.body.i.i.i8.i.i.i, !llvm.loop !108
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseLifetimeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %while.body.i.i.i8.i.i.i, %invoke.cont22.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer18WriteReuseLifetimeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEE3$_0JS9_mjNS0_9TraceTypeES9_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %while.body.i.i.i8.i.i.i, %invoke.cont22.i.i.i
   %__y.addr.0.lcssa.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i7.i.i.i, %invoke.cont22.i.i.i ], [ %__y.addr.1.i.i.i11.i.i.i, %while.body.i.i.i8.i.i.i ]
   %second.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i.i.i.i, i64 40
   %22 = load i64, ptr %second.i.i.i, align 8
@@ -34473,7 +34473,7 @@ if.end.i.i.i:                                     ; preds = %_ZNSt3mapImSt6vecto
   %28 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i39.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 232
   %cmp.i40.not13.i.i.i = icmp eq ptr %28, %add.ptr.i.i39.i.i.i
-  br i1 %cmp.i40.not13.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteBlockReuseTimelineEmbNS0_9TraceTypeEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjS2_SC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %for.body21.lr.ph.i.i.i
+  br i1 %cmp.i40.not13.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteBlockReuseTimelineEmbNS0_9TraceTypeEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjS2_SC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %for.body21.lr.ph.i.i.i
 
 for.body21.lr.ph.i.i.i:                           ; preds = %if.end.i.i.i
   %29 = getelementptr inbounds i8, ptr %__functor.val, i64 24
@@ -34647,9 +34647,9 @@ for.inc43.i.i.i:                                  ; preds = %_ZNSt3mapImSt6vecto
 for.inc46.i.i.i:                                  ; preds = %for.inc43.i.i.i, %for.body21.i.i.i
   %call.i84.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.014.i.i.i) #27
   %cmp.i40.not.i.i.i = icmp eq ptr %call.i84.i.i.i, %add.ptr.i.i39.i.i.i
-  br i1 %cmp.i40.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteBlockReuseTimelineEmbNS0_9TraceTypeEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjS2_SC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %for.body21.i.i.i
+  br i1 %cmp.i40.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteBlockReuseTimelineEmbNS0_9TraceTypeEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjS2_SC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %for.body21.i.i.i
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteBlockReuseTimelineEmbNS0_9TraceTypeEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjS2_SC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %for.inc46.i.i.i, %if.end.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer23WriteBlockReuseTimelineEmbNS0_9TraceTypeEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjS2_SC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %for.inc46.i.i.i, %if.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %block_id.addr.i.i.i)
   ret void
 }
@@ -35510,7 +35510,7 @@ entry:
   %0 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 184
   %cmp.i.not3.i.i.i = icmp eq ptr %0, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not3.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer30WritePercentAccessSummaryStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp.i.not3.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer30WritePercentAccessSummaryStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %__functor, i64 8
@@ -35576,9 +35576,9 @@ _ZNSt3mapIN7rocksdb17TableReaderCallerES_INSt7__cxx1112basic_stringIcSt11char_tr
   store i64 %add12.i.i.i, ptr %9, align 8
   %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.04.i.i.i) #27
   %cmp.i.not.i.i.i = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer30WritePercentAccessSummaryStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %for.body.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer30WritePercentAccessSummaryStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %for.body.i.i.i
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer30WritePercentAccessSummaryStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %_ZNSt3mapIN7rocksdb17TableReaderCallerES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS7_ESaISt4pairIKS7_mEEES8_IS1_ESaISA_IKS1_SE_EEEixERSG_.exit.i.i.i, %entry
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer30WritePercentAccessSummaryStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %_ZNSt3mapIN7rocksdb17TableReaderCallerES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS7_ESaISt4pairIKS7_mEEES8_IS1_ESaISA_IKS1_SE_EEEixERSG_.exit.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %caller.i.i.i)
   ret void
 }
@@ -35953,7 +35953,7 @@ entry:
   %0 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 184
   %cmp.i.not3.i.i.i = icmp eq ptr %0, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not3.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer38WriteDetailedPercentAccessSummaryStatsENS0_17TableReaderCallerEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp.i.not3.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer38WriteDetailedPercentAccessSummaryStatsENS0_17TableReaderCallerEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %__functor.val, i64 8
@@ -36084,9 +36084,9 @@ _ZNSt3mapIN7rocksdb9TraceTypeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 for.inc.i.i.i:                                    ; preds = %_ZNSt3mapIN7rocksdb9TraceTypeES_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS7_ESaISt4pairIKS7_mEEES8_IS1_ESaISA_IKS1_SE_EEEixERSG_.exit.i.i.i, %for.body.i.i.i
   %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.04.i.i.i) #27
   %cmp.i.not.i.i.i = icmp eq ptr %call.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer38WriteDetailedPercentAccessSummaryStatsENS0_17TableReaderCallerEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %for.body.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer38WriteDetailedPercentAccessSummaryStatsENS0_17TableReaderCallerEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %for.body.i.i.i
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer38WriteDetailedPercentAccessSummaryStatsENS0_17TableReaderCallerEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %for.inc.i.i.i, %entry
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer38WriteDetailedPercentAccessSummaryStatsENS0_17TableReaderCallerEE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESC_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %for.inc.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %level.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %type.addr.i.i.i)
   ret void
@@ -36982,7 +36982,7 @@ if.end48.i.i.i:                                   ; preds = %invoke.cont43.i.i.i
   %25 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i40.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 184
   %cmp.i41.not19.i.i.i = icmp eq ptr %25, %add.ptr.i.i40.i.i.i
-  br i1 %cmp.i41.not19.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer28WriteAccessCountSummaryStatsERKSt6vectorImSaImEEbE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESG_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %for.body55.lr.ph.i.i.i
+  br i1 %cmp.i41.not19.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer28WriteAccessCountSummaryStatsERKSt6vectorImSaImEEbE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESG_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %for.body55.lr.ph.i.i.i
 
 for.body55.lr.ph.i.i.i:                           ; preds = %if.end48.i.i.i
   %26 = getelementptr inbounds i8, ptr %__functor.val, i64 24
@@ -37025,7 +37025,7 @@ for.body55.i.i.i:                                 ; preds = %for.body55.lr.ph.i.
 for.end62.i.i.i:                                  ; preds = %for.body55.i.i.i, %for.inc60.us.i.i.i
   %naccesses.0.lcssa.i.i.i = phi i64 [ %naccesses.1.us.i.i.i, %for.inc60.us.i.i.i ], [ %add.i.i.i, %for.body55.i.i.i ]
   %cmp.i.i.i = icmp eq i64 %naccesses.0.lcssa.i.i.i, 0
-  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer28WriteAccessCountSummaryStatsERKSt6vectorImSaImEEbE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESG_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit", label %if.end64.i.i.i
+  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer28WriteAccessCountSummaryStatsERKSt6vectorImSaImEEbE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESG_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit", label %if.end64.i.i.i
 
 if.end64.i.i.i:                                   ; preds = %for.end62.i.i.i
   %32 = getelementptr inbounds i8, ptr %__functor.val, i64 32
@@ -37093,9 +37093,9 @@ invoke.cont78.i.i.i:                              ; preds = %while.body.i.i.i57.
   %42 = load i64, ptr %second82.i.i.i, align 8
   %add83.i.i.i = add i64 %42, 1
   store i64 %add83.i.i.i, ptr %second82.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer28WriteAccessCountSummaryStatsERKSt6vectorImSaImEEbE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESG_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer28WriteAccessCountSummaryStatsERKSt6vectorImSaImEEbE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESG_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer28WriteAccessCountSummaryStatsERKSt6vectorImSaImEEbE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESG_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.argprom.exit": ; preds = %if.end48.i.i.i, %for.end62.i.i.i, %invoke.cont78.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer28WriteAccessCountSummaryStatsERKSt6vectorImSaImEEbE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESG_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %if.end48.i.i.i, %for.end62.i.i.i, %invoke.cont78.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %type_str.i.i.i) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %type_str.i.i.i)
   ret void
@@ -39889,7 +39889,7 @@ entry:
   %block_size.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 32
   %0 = load i64, ptr %block_size.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %0, 0
-  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19PrintBlockSizeStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19PrintBlockSizeStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   %1 = load ptr, ptr %__functor.val, align 8
@@ -39991,9 +39991,9 @@ _ZNSt3mapIN7rocksdb9TraceTypeENS0_13HistogramStatESt4lessIS1_ESaISt4pairIKS1_S2_
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i5.i.i.i)
   %14 = load i64, ptr %block_size.i.i.i, align 8
   call void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 dereferenceable(920) %second.i26.i.i.i, i64 noundef %14)
-  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19PrintBlockSizeStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19PrintBlockSizeStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19PrintBlockSizeStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %entry, %_ZNSt3mapIN7rocksdb9TraceTypeENS0_13HistogramStatESt4lessIS1_ESaISt4pairIKS1_S2_EEEixERS6_.exit30.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer19PrintBlockSizeStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %entry, %_ZNSt3mapIN7rocksdb9TraceTypeENS0_13HistogramStatESt4lessIS1_ESaISt4pairIKS1_S2_EEEixERS6_.exit30.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %type.addr.i.i.i)
   ret void
 }
@@ -41028,7 +41028,7 @@ entry:
   %0 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 184
   %cmp.i.not60.i.i.i = icmp eq ptr %0, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.not60.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer21PrintAccessCountStatsEbjjE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %for.body.lr.ph.i.i.i
+  br i1 %cmp.i.not60.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer21PrintAccessCountStatsEbjjE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %1 = load ptr, ptr %__functor.val, align 8
@@ -41074,7 +41074,7 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %fo
   %.us-phi1.i.i = phi i64 [ %add58.i.us.i.i, %for.inc.i.us.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   store i64 %.us-phi.i.i, ptr %naccesses.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %.us-phi1.i.i, 0
-  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer21PrintAccessCountStatsEbjjE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %if.end11.i.i.i
+  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer21PrintAccessCountStatsEbjjE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %for.end.i.i.i
   %cmp12.i.i.i = icmp eq i8 %__args5.val, 9
@@ -41249,9 +41249,9 @@ _ZNSt3mapIN7rocksdb9TraceTypeENS0_13HistogramStatESt4lessIS1_ESaISt4pairIKS1_S2_
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i30.i.i.i)
   %29 = load i64, ptr %naccesses.i.i.i, align 8
   call void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 dereferenceable(920) %second.i51.i.i.i, i64 noundef %29)
-  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer21PrintAccessCountStatsEbjjE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer21PrintAccessCountStatsEbjjE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer21PrintAccessCountStatsEbjjE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %entry, %for.end.i.i.i, %_ZNSt3mapIN7rocksdb9TraceTypeENS0_13HistogramStatESt4lessIS1_ESaISt4pairIKS1_S2_EEEixERS6_.exit55.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer21PrintAccessCountStatsEbjjE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %entry, %for.end.i.i.i, %_ZNSt3mapIN7rocksdb9TraceTypeENS0_13HistogramStatESt4lessIS1_ESaISt4pairIKS1_S2_EEEixERS6_.exit55.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %type.addr.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %naccesses.i.i.i)
   ret void
@@ -41305,7 +41305,7 @@ entry:
   %num_keys.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 56
   %0 = load i64, ptr %num_keys.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %0, 0
-  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer25PrintDataBlockAccessStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit", label %if.end.i.i.i
+  br i1 %cmp.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer25PrintDataBlockAccessStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %__args11, i64 104
@@ -41398,9 +41398,9 @@ for.end39.i.i.i:                                  ; preds = %for.inc37.i.i.i, %i
   %26 = load ptr, ptr %25, align 8
   %call64.i.i.i = call noundef nonnull align 8 dereferenceable(920) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb13HistogramStatESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(32) %__args)
   call void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 dereferenceable(920) %call64.i.i.i, i64 noundef %conv20.i.i.i)
-  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer25PrintDataBlockAccessStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer25PrintDataBlockAccessStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
-"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer25PrintDataBlockAccessStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.argprom.exit": ; preds = %entry, %for.end39.i.i.i
+"_ZSt10__invoke_rIvRZNK7rocksdb23BlockCacheTraceAnalyzer25PrintDataBlockAccessStatsEvE3$_0JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmjNS0_9TraceTypeESB_mRKNS0_15BlockAccessInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %entry, %for.end39.i.i.i
   call void @llvm.lifetime.end.p0(i64 920, ptr nonnull %hist_naccess_per_key.i.i.i)
   ret void
 }

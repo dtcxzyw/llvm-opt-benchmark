@@ -1376,7 +1376,7 @@ _ZN5draco6StatusC2ENS0_4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %.0.val = load ptr, ptr %96, align 8
   %97 = trunc i64 %.val to i32
   %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph.preheader.i, label %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.argprom.exit
+  br i1 %98, label %.lr.ph.preheader.i, label %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.exit
 
 .lr.ph.preheader.i:                               ; preds = %92
   %wide.trip.count.i = and i64 %.val, 2147483647
@@ -1395,9 +1395,9 @@ _ZN5draco6StatusC2ENS0_4CodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %.1.i = add nuw nsw i64 %105, %.02.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.argprom.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.exit, label %.lr.ph.i, !llvm.loop !19
 
-_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.argprom.exit: ; preds = %.lr.ph.i, %92
+_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.exit: ; preds = %.lr.ph.i, %92
   %.0.lcssa.i = phi i64 [ 0, %92 ], [ %.1.i, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
   %106 = getelementptr inbounds i8, ptr %94, i64 192
@@ -1412,12 +1412,12 @@ _ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE
   %114 = icmp ugt i64 %.0.lcssa.i, %113
   br i1 %114, label %115, label %117
 
-115:                                              ; preds = %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.argprom.exit
+115:                                              ; preds = %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.exit
   %116 = sub nuw i64 %.0.lcssa.i, %113
   call void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr %108, i64 noundef %116, ptr noundef nonnull align 4 dereferenceable(12) %8)
   br label %122
 
-117:                                              ; preds = %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.argprom.exit
+117:                                              ; preds = %_ZN5draco12_GLOBAL__N_117CountNumTrianglesERKNS_10PlyElementERKNS_11PlyPropertyE.exit
   %118 = icmp ult i64 %.0.lcssa.i, %113
   br i1 %118, label %119, label %122
 

@@ -1172,7 +1172,7 @@ _ZN3nix8SysErrorC2IJA28_cSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112
   call void @_ZN3nix3PidD1Ev(ptr noundef nonnull align 4 dereferenceable(12) %9) #24
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %24) #24
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #24
-  br label %_ZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.argprom.exit
+  br label %_ZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.exit
 
 113:                                              ; preds = %110, %103, %101, %99, %93
   %.pn24.pn.i = phi { ptr, i32 } [ %.pn247.i, %103 ], [ %102, %101 ], [ %94, %93 ], [ %111, %110 ], [ %.pn22.i, %99 ]
@@ -1192,7 +1192,7 @@ _ZNSt8functionIFvvEED2Ev.exit35.i:                ; preds = %113, %88, %.body.i,
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %115, ptr align 1 %116, i64 %117, i1 false)
   %118 = call noundef i32 @bind(i32 noundef %0, ptr noundef nonnull %6, i32 noundef 110) #24
   %119 = icmp eq i32 %118, -1
-  br i1 %119, label %120, label %_ZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.argprom.exit
+  br i1 %119, label %120, label %_ZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.exit
 
 120:                                              ; preds = %114
   %121 = call ptr @__cxa_allocate_exception(i64 384) #24
@@ -1212,7 +1212,7 @@ _ZNSt8functionIFvvEED2Ev.exit35.i:                ; preds = %113, %88, %.body.i,
 125:                                              ; preds = %_ZN3nix8SysErrorC2IJA28_cSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEEEEEDpRKT_.exit.i, %82
   unreachable
 
-_ZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.argprom.exit: ; preds = %112, %114
+_ZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.exit: ; preds = %112, %114
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %6)
@@ -1563,7 +1563,7 @@ _ZN3nix8SysErrorC2IJA28_cSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112
   call void @_ZN3nix3PidD1Ev(ptr noundef nonnull align 4 dereferenceable(12) %9) #24
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #24
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #24
-  br label %_ZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.argprom.exit
+  br label %_ZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.exit
 
 111:                                              ; preds = %108, %101, %99, %97, %91
   %.pn24.pn.i = phi { ptr, i32 } [ %.pn247.i, %101 ], [ %100, %99 ], [ %92, %91 ], [ %109, %108 ], [ %.pn22.i, %97 ]
@@ -1583,7 +1583,7 @@ _ZNSt8functionIFvvEED2Ev.exit35.i:                ; preds = %111, %86, %.body.i,
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %113, ptr align 1 %114, i64 %115, i1 false)
   %116 = call noundef i32 @connect(i32 noundef %0, ptr noundef nonnull %6, i32 noundef 110)
   %117 = icmp eq i32 %116, -1
-  br i1 %117, label %118, label %_ZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.argprom.exit
+  br i1 %117, label %118, label %_ZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.exit
 
 118:                                              ; preds = %112
   %119 = call ptr @__cxa_allocate_exception(i64 384) #24
@@ -1603,7 +1603,7 @@ _ZNSt8functionIFvvEED2Ev.exit35.i:                ; preds = %111, %86, %.body.i,
 123:                                              ; preds = %_ZN3nix8SysErrorC2IJA28_cSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEEEEEDpRKT_.exit.i, %80
   unreachable
 
-_ZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.argprom.exit: ; preds = %110, %112
+_ZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEE.exit: ; preds = %110, %112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %6)
@@ -13160,7 +13160,7 @@ _ZSt10__invoke_rIvRZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basi
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -13169,30 +13169,30 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN3nixL21bindCo
 
 4:                                                ; preds = %3
   store ptr @_ZTIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEEEUlvE_, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit, label %10
+  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #27
-  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit: ; preds = %3, %10, %8, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRDoFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -15211,7 +15211,7 @@ _ZSt10__invoke_rIvRZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit [
+  switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -15220,30 +15220,30 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN3nixL21bindCo
 
 4:                                                ; preds = %3
   store ptr @_ZTIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcS8_SaIcEEEEUlvE_, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull readonly align 8 dereferenceable(56) %.val6, i64 56, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit, label %10
+  br i1 %9, label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit, label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #27
-  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit
+  br label %_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
-_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.argprom.exit: ; preds = %3, %10, %8, %6, %5, %4
+_ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 

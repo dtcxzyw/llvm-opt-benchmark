@@ -2941,7 +2941,7 @@ _ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit: ; preds = %1239, %
   %1652 = zext nneg i32 %1651 to i64
   %1653 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %1641, i64 %1652, i32 1
   %1654 = load i32, ptr %1653, align 8
-  %1655 = tail call fastcc noundef zeroext i1 @_ZN4Luau7CodeGen3A64L11emitBuiltinERNS1_18AssemblyBuilderA64ERNS0_10IrFunctionERNS1_13IrRegAllocA64Eiiii.argprom(ptr noundef nonnull align 8 dereferenceable(176) %1634, ptr noundef nonnull align 8 dereferenceable(325) %1629, i32 noundef %1643, i32 noundef %1645, i32 noundef %1647, i32 noundef %1654)
+  %1655 = tail call fastcc noundef zeroext i1 @_ZN4Luau7CodeGen3A64L11emitBuiltinERNS1_18AssemblyBuilderA64ERNS0_10IrFunctionERNS1_13IrRegAllocA64Eiiii(ptr noundef nonnull align 8 dereferenceable(176) %1634, ptr noundef nonnull align 8 dereferenceable(325) %1629, i32 noundef %1643, i32 noundef %1645, i32 noundef %1647, i32 noundef %1654)
   %1656 = xor i1 %1655, true
   %1657 = load i8, ptr %1648, align 8
   %1658 = and i8 %1657, 1
@@ -2957,7 +2957,7 @@ _ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit: ; preds = %1239, %
   %1664 = zext nneg i32 %1663 to i64
   %1665 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %1641, i64 %1664, i32 1
   %1666 = load i32, ptr %1665, align 8
-  %1667 = tail call fastcc noundef zeroext i1 @_ZN4Luau7CodeGen3A64L11emitBuiltinERNS1_18AssemblyBuilderA64ERNS0_10IrFunctionERNS1_13IrRegAllocA64Eiiii.argprom(ptr noundef nonnull align 8 dereferenceable(176) %1634, ptr noundef nonnull align 8 dereferenceable(325) %1629, i32 noundef %1643, i32 noundef %1645, i32 noundef %1647, i32 noundef %1666)
+  %1667 = tail call fastcc noundef zeroext i1 @_ZN4Luau7CodeGen3A64L11emitBuiltinERNS1_18AssemblyBuilderA64ERNS0_10IrFunctionERNS1_13IrRegAllocA64Eiiii(ptr noundef nonnull align 8 dereferenceable(176) %1634, ptr noundef nonnull align 8 dereferenceable(325) %1629, i32 noundef %1643, i32 noundef %1645, i32 noundef %1647, i32 noundef %1666)
   %1668 = xor i1 %1667, true
   %1669 = load i8, ptr %1648, align 8
   %1670 = and i8 %1669, 1
@@ -7335,7 +7335,7 @@ declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11RegisterA64E
 declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4Luau7CodeGen3A64L11emitBuiltinERNS1_18AssemblyBuilderA64ERNS0_10IrFunctionERNS1_13IrRegAllocA64Eiiii.argprom(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(325) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN4Luau7CodeGen3A64L11emitBuiltinERNS1_18AssemblyBuilderA64ERNS0_10IrFunctionERNS1_13IrRegAllocA64Eiiii(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(325) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   switch i32 %2, label %28 [
     i32 14, label %7
     i32 20, label %15

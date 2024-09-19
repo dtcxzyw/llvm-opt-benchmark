@@ -4271,7 +4271,7 @@ define internal fastcc void @_ZN5clang11declvisitor4BaseIN4llvm14make_const_ptrE
 
 117:                                              ; preds = %2
   %.val133 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_114ODRDeclVisitor19VisitAccessSpecDeclEPKN5clang14AccessSpecDeclE.argprom(ptr %.val133, i32 %4)
+  tail call fastcc void @_ZN12_GLOBAL__N_114ODRDeclVisitor19VisitAccessSpecDeclEPKN5clang14AccessSpecDeclE(ptr %.val133, i32 %4)
   br label %119
 
 118:                                              ; preds = %2
@@ -6491,7 +6491,7 @@ _ZN5clang7ODRHash10AddBooleanEb.exit10:           ; preds = %28, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114ODRDeclVisitor19VisitAccessSpecDeclEPKN5clang14AccessSpecDeclE.argprom(ptr nonnull %.0.val, i32 %.28.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114ODRDeclVisitor19VisitAccessSpecDeclEPKN5clang14AccessSpecDeclE(ptr nonnull %.0.val, i32 %.28.val) unnamed_addr #0 align 2 {
   %1 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.val) #14
   %2 = add i64 %1, 1
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.val) #14
@@ -7355,7 +7355,7 @@ define internal fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_114ODRTypeVisi
 23:                                               ; preds = %2
   %.val = load ptr, ptr %0, align 8
   %.val60 = load i32, ptr %3, align 16
-  tail call fastcc void @_ZN12_GLOBAL__N_114ODRTypeVisitor16VisitBuiltinTypeEPKN5clang11BuiltinTypeE.argprom(ptr %.val, i32 %.val60)
+  tail call fastcc void @_ZN12_GLOBAL__N_114ODRTypeVisitor16VisitBuiltinTypeEPKN5clang11BuiltinTypeE(ptr %.val, i32 %.val60)
   br label %86
 
 24:                                               ; preds = %2
@@ -7775,7 +7775,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %2, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114ODRTypeVisitor16VisitBuiltinTypeEPKN5clang11BuiltinTypeE.argprom(ptr nonnull %.0.val, i32 %.16.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114ODRTypeVisitor16VisitBuiltinTypeEPKN5clang11BuiltinTypeE(ptr nonnull %.0.val, i32 %.16.val) unnamed_addr #0 align 2 {
   %1 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.val) #14
   %2 = add i64 %1, 1
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %.0.val) #14
@@ -7986,14 +7986,14 @@ _ZN12_GLOBAL__N_114ODRTypeVisitor22AddNestedNameSpecifierEPKN5clang19NestedNameS
   %26 = add i64 %25, 1
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %.val) #14
   %.not.i.i.i.i.i = icmp ugt i64 %26, %27
-  br i1 %.not.i.i.i.i.i, label %28, label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %28, label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.exit
 
 28:                                               ; preds = %_ZN12_GLOBAL__N_114ODRTypeVisitor22AddNestedNameSpecifierEPKN5clang19NestedNameSpecifierE.exit
   %29 = getelementptr inbounds i8, ptr %.val, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %.val, ptr noundef nonnull %29, i64 noundef %26, i64 noundef 4) #14
-  br label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.argprom.exit
+  br label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.exit
 
-_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.argprom.exit: ; preds = %_ZN12_GLOBAL__N_114ODRTypeVisitor22AddNestedNameSpecifierEPKN5clang19NestedNameSpecifierE.exit, %28
+_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.exit: ; preds = %_ZN12_GLOBAL__N_114ODRTypeVisitor22AddNestedNameSpecifierEPKN5clang19NestedNameSpecifierE.exit, %28
   %30 = lshr i32 %.val4, 19
   %31 = and i32 %30, 255
   %32 = load ptr, ptr %.val, align 8
@@ -8091,14 +8091,14 @@ _ZN12_GLOBAL__N_114ODRTypeVisitor22AddNestedNameSpecifierEPKN5clang19NestedNameS
   %35 = add i64 %34, 1
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %.val) #14
   %.not.i.i.i.i.i = icmp ugt i64 %35, %36
-  br i1 %.not.i.i.i.i.i, label %37, label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %37, label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.exit
 
 37:                                               ; preds = %._crit_edge
   %38 = getelementptr inbounds i8, ptr %.val, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %.val, ptr noundef nonnull %38, i64 noundef %35, i64 noundef 4) #14
-  br label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.argprom.exit
+  br label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.exit
 
-_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.argprom.exit: ; preds = %._crit_edge, %37
+_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.exit: ; preds = %._crit_edge, %37
   %39 = lshr i32 %.val13, 19
   %40 = and i32 %39, 255
   %41 = load ptr, ptr %.val, align 8
@@ -8158,14 +8158,14 @@ _ZN12_GLOBAL__N_114ODRTypeVisitor22AddNestedNameSpecifierEPKN5clang19NestedNameS
   %26 = add i64 %25, 1
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %.val) #14
   %.not.i.i.i.i.i = icmp ugt i64 %26, %27
-  br i1 %.not.i.i.i.i.i, label %28, label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.argprom.exit
+  br i1 %.not.i.i.i.i.i, label %28, label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.exit
 
 28:                                               ; preds = %_ZN12_GLOBAL__N_114ODRTypeVisitor22AddNestedNameSpecifierEPKN5clang19NestedNameSpecifierE.exit
   %29 = getelementptr inbounds i8, ptr %.val, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %.val, ptr noundef nonnull %29, i64 noundef %26, i64 noundef 4) #14
-  br label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.argprom.exit
+  br label %_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.exit
 
-_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.argprom.exit: ; preds = %_ZN12_GLOBAL__N_114ODRTypeVisitor22AddNestedNameSpecifierEPKN5clang19NestedNameSpecifierE.exit, %28
+_ZN12_GLOBAL__N_114ODRTypeVisitor20VisitTypeWithKeywordEPKN5clang15TypeWithKeywordE.exit: ; preds = %_ZN12_GLOBAL__N_114ODRTypeVisitor22AddNestedNameSpecifierEPKN5clang19NestedNameSpecifierE.exit, %28
   %30 = lshr i32 %.val4, 19
   %31 = and i32 %30, 255
   %32 = load ptr, ptr %.val, align 8

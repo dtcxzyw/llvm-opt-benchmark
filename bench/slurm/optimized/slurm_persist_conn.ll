@@ -725,16 +725,16 @@ define internal noundef ptr @_service_connection(ptr nocapture noundef %0) #0 {
 
 95:                                               ; preds = %91
   call void @slurmdbd_free_msg(ptr noundef nonnull %7) #12
-  br label %_persist_free_msg_members.argprom.exit.i
+  br label %_persist_free_msg_members.exit.i
 
 96:                                               ; preds = %91
   %97 = load i16, ptr %46, align 8
   %98 = zext i16 %97 to i32
   %99 = load ptr, ptr %47, align 8
   %100 = call i32 @slurm_free_msg_data(i32 noundef %98, ptr noundef %99) #12
-  br label %_persist_free_msg_members.argprom.exit.i
+  br label %_persist_free_msg_members.exit.i
 
-_persist_free_msg_members.argprom.exit.i:         ; preds = %96, %95
+_persist_free_msg_members.exit.i:                 ; preds = %96, %95
   switch i32 %93, label %101 [
     i32 10005, label %109
     i32 10004, label %109
@@ -742,7 +742,7 @@ _persist_free_msg_members.argprom.exit.i:         ; preds = %96, %95
     i32 0, label %109
   ]
 
-101:                                              ; preds = %_persist_free_msg_members.argprom.exit.i
+101:                                              ; preds = %_persist_free_msg_members.exit.i
   %102 = load i32, ptr %40, align 4
   %103 = load ptr, ptr %48, align 8
   %104 = load i32, ptr %49, align 8
@@ -770,9 +770,9 @@ _persist_free_msg_members.argprom.exit.i:         ; preds = %96, %95
   store ptr %108, ptr %6, align 8
   br label %109
 
-109:                                              ; preds = %107, %106, %101, %_persist_free_msg_members.argprom.exit.i, %_persist_free_msg_members.argprom.exit.i, %_persist_free_msg_members.argprom.exit.i, %_persist_free_msg_members.argprom.exit.i, %87
-  %.271.i = phi i1 [ %.170103.i, %107 ], [ false, %101 ], [ false, %_persist_free_msg_members.argprom.exit.i ], [ false, %_persist_free_msg_members.argprom.exit.i ], [ false, %_persist_free_msg_members.argprom.exit.i ], [ false, %_persist_free_msg_members.argprom.exit.i ], [ false, %106 ], [ false, %87 ]
-  %.268.i = phi i1 [ true, %107 ], [ false, %101 ], [ false, %_persist_free_msg_members.argprom.exit.i ], [ false, %_persist_free_msg_members.argprom.exit.i ], [ false, %_persist_free_msg_members.argprom.exit.i ], [ false, %_persist_free_msg_members.argprom.exit.i ], [ true, %106 ], [ false, %87 ]
+109:                                              ; preds = %107, %106, %101, %_persist_free_msg_members.exit.i, %_persist_free_msg_members.exit.i, %_persist_free_msg_members.exit.i, %_persist_free_msg_members.exit.i, %87
+  %.271.i = phi i1 [ %.170103.i, %107 ], [ false, %101 ], [ false, %_persist_free_msg_members.exit.i ], [ false, %_persist_free_msg_members.exit.i ], [ false, %_persist_free_msg_members.exit.i ], [ false, %_persist_free_msg_members.exit.i ], [ false, %106 ], [ false, %87 ]
+  %.268.i = phi i1 [ true, %107 ], [ false, %101 ], [ false, %_persist_free_msg_members.exit.i ], [ false, %_persist_free_msg_members.exit.i ], [ false, %_persist_free_msg_members.exit.i ], [ false, %_persist_free_msg_members.exit.i ], [ true, %106 ], [ false, %87 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #12
   %110 = load ptr, ptr %6, align 8
   %.not85.i = icmp eq ptr %110, null

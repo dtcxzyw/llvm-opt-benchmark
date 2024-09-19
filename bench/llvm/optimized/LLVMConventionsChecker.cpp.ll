@@ -616,7 +616,7 @@ define internal void @_ZN5clang4ento5check7ASTDeclINS_13CXXRecordDeclEE10_checkD
   %7 = load i8, ptr %6, align 2
   %8 = and i8 %7, 1
   %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_122LLVMConventionsChecker12checkASTDeclEPKN5clang13CXXRecordDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit, label %9
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_122LLVMConventionsChecker12checkASTDeclEPKN5clang13CXXRecordDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %9
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5)
@@ -683,9 +683,9 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i: ; p
 
 _ZL14CheckASTMemoryPKN5clang13CXXRecordDeclERNS_4ento11BugReporterEPKNS3_11CheckerBaseE.exit.i: ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i, %11, %9
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5)
-  br label %_ZNK12_GLOBAL__N_122LLVMConventionsChecker12checkASTDeclEPKN5clang13CXXRecordDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit
+  br label %_ZNK12_GLOBAL__N_122LLVMConventionsChecker12checkASTDeclEPKN5clang13CXXRecordDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_122LLVMConventionsChecker12checkASTDeclEPKN5clang13CXXRecordDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.argprom.exit: ; preds = %4, %_ZL14CheckASTMemoryPKN5clang13CXXRecordDeclERNS_4ento11BugReporterEPKNS3_11CheckerBaseE.exit.i
+_ZNK12_GLOBAL__N_122LLVMConventionsChecker12checkASTDeclEPKN5clang13CXXRecordDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %4, %_ZL14CheckASTMemoryPKN5clang13CXXRecordDeclERNS_4ento11BugReporterEPKNS3_11CheckerBaseE.exit.i
   ret void
 }
 
@@ -1212,13 +1212,13 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread2.i.i.i:  ; preds = %_ZN4llvmneENS_9Stri
   %50 = icmp eq i64 %49, 0
   %51 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i16.i.i.i, -8
   %52 = inttoptr i64 %51 to ptr
-  br i1 %50, label %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i.i, label %53
+  br i1 %50, label %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i.i, label %53
 
 53:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i.i.i
   %54 = load ptr, ptr %52, align 8
-  br label %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i.i
+  br label %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i.i
 
-_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %53, %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i.i.i
+_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i.i: ; preds = %53, %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i.i.i
   %.0.i.i17.i.i.i = phi ptr [ %54, %53 ], [ %52, %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i.i.i ]
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i17.i.i.i, i64 8
   %56 = load i16, ptr %55, align 8
@@ -1226,7 +1226,7 @@ _ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i.i: ; preds = %53
   %58 = icmp eq i16 %57, 0
   br i1 %58, label %59, label %_ZL11IsStdVectorN5clang8QualTypeE.exit.thread.i
 
-59:                                               ; preds = %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i.i
+59:                                               ; preds = %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i.i
   %60 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, 7
@@ -1245,7 +1245,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i.i:          ; preds = %59
   %70 = icmp eq i64 %69, 6
   br i1 %70, label %_ZL11IsStdVectorN5clang8QualTypeE.exit.i, label %_ZL11IsStdVectorN5clang8QualTypeE.exit.thread.i
 
-_ZL11IsStdVectorN5clang8QualTypeE.exit.thread.i:  ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i, %59, %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.i.i.i, %41, %35, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i, %21, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9FieldDeclELb1EE9push_backES3_.exit
+_ZL11IsStdVectorN5clang8QualTypeE.exit.thread.i:  ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i, %59, %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i.i, %_ZN4llvmneENS_9StringRefES0_.exit.i.i.i, %41, %35, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i, %21, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang9FieldDeclELb1EE9push_backES3_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %73
 
@@ -1328,13 +1328,13 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread2.i.i20.i: ; preds = %_ZN4llvmneENS_9Str
   %107 = icmp eq i64 %106, 0
   %108 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i16.i.i21.i, -8
   %109 = inttoptr i64 %108 to ptr
-  br i1 %107, label %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i22.i, label %110
+  br i1 %107, label %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i22.i, label %110
 
 110:                                              ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i.i20.i
   %111 = load ptr, ptr %109, align 8
-  br label %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i22.i
+  br label %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i22.i
 
-_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i22.i: ; preds = %110, %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i.i20.i
+_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i22.i: ; preds = %110, %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i.i20.i
   %.0.i.i17.i.i23.i = phi ptr [ %111, %110 ], [ %109, %_ZN4llvmneENS_9StringRefES0_.exit.thread2.i.i20.i ]
   %112 = getelementptr inbounds nuw i8, ptr %.0.i.i17.i.i23.i, i64 8
   %113 = load i16, ptr %112, align 8
@@ -1342,7 +1342,7 @@ _ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i22.i: ; preds = %
   %115 = icmp eq i16 %114, 0
   br i1 %115, label %116, label %_ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread21
 
-116:                                              ; preds = %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i22.i
+116:                                              ; preds = %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i22.i
   %117 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %118 = load i64, ptr %117, align 8
   %119 = and i64 %118, 7
@@ -1361,7 +1361,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i26.i:        ; preds = %116
   %127 = icmp eq i64 %126, 11
   br i1 %127, label %_ZL15AllocatesMemoryN5clang8QualTypeE.exit, label %_ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread21
 
-_ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread21: ; preds = %75, %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.argprom.exit.i22.i, %78, %_ZNK5clang9NamedDecl7getNameEv.exit.i26.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i10.i, %_ZN4llvmneENS_9StringRefES0_.exit.i.i17.i, %92, %98, %116
+_ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread21: ; preds = %75, %_ZL11InNamespacePKN5clang4DeclEN4llvm9StringRefE.exit.i22.i, %78, %_ZNK5clang9NamedDecl7getNameEv.exit.i26.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i10.i, %_ZN4llvmneENS_9StringRefES0_.exit.i.i17.i, %92, %98, %116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %130
 
@@ -1373,7 +1373,7 @@ _ZL15AllocatesMemoryN5clang8QualTypeE.exit:       ; preds = %_ZNK5clang9NamedDec
   br i1 %129, label %_ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread, label %130
 
 _ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread: ; preds = %_ZL11IsStdVectorN5clang8QualTypeE.exit.i, %73, %_ZL15AllocatesMemoryN5clang8QualTypeE.exit
-  call fastcc void @_ZN12_GLOBAL__N_115ASTFieldVisitor11ReportErrorEN5clang8QualTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(120) %0)
+  call fastcc void @_ZN12_GLOBAL__N_115ASTFieldVisitor11ReportErrorEN5clang8QualTypeE(ptr noundef nonnull align 8 dereferenceable(120) %0)
   br label %130
 
 130:                                              ; preds = %_ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread21, %_ZL15AllocatesMemoryN5clang8QualTypeE.exit.thread, %_ZL15AllocatesMemoryN5clang8QualTypeE.exit
@@ -1611,7 +1611,7 @@ declare ptr @_ZNK5clang10RecordDecl11field_beginEv(ptr noundef nonnull align 8 d
 declare void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115ASTFieldVisitor11ReportErrorEN5clang8QualTypeE.argelim(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115ASTFieldVisitor11ReportErrorEN5clang8QualTypeE(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::SmallString", align 8
   %3 = alloca %"class.llvm::raw_svector_ostream", align 8
   %4 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8

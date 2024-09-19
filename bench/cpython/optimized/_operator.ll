@@ -1479,7 +1479,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i
 if.then9.i:                                       ; preds = %lor.lhs.false.i, %if.then.i
   %12 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.54) #4
-  br label %_operator__compare_digest_impl.argprom.exit
+  br label %_operator__compare_digest_impl.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %13 = and i32 %a.val17.i, 32
@@ -1586,12 +1586,12 @@ if.then19.i:                                      ; preds = %land.lhs.true16.i
   %tp_name22.i = getelementptr inbounds i8, ptr %b.val14.i, i64 24
   %24 = load ptr, ptr %tp_name22.i, align 8
   %call23.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %21, ptr noundef nonnull @.str.55, ptr noundef %22, ptr noundef %24) #4
-  br label %_operator__compare_digest_impl.argprom.exit
+  br label %_operator__compare_digest_impl.exit
 
 if.end24.i:                                       ; preds = %land.lhs.true16.i, %if.else.i
   %call25.i = call i32 @PyObject_GetBuffer(ptr noundef nonnull %0, ptr noundef nonnull %view_a.i, i32 noundef 0) #4
   %cmp26.i = icmp eq i32 %call25.i, -1
-  br i1 %cmp26.i, label %_operator__compare_digest_impl.argprom.exit, label %if.end28.i
+  br i1 %cmp26.i, label %_operator__compare_digest_impl.exit, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end24.i
   %ndim.i = getelementptr inbounds i8, ptr %view_a.i, i64 36
@@ -1603,7 +1603,7 @@ if.then30.i:                                      ; preds = %if.end28.i
   %26 = load ptr, ptr @PyExc_BufferError, align 8
   call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.56) #4
   call void @PyBuffer_Release(ptr noundef nonnull %view_a.i) #4
-  br label %_operator__compare_digest_impl.argprom.exit
+  br label %_operator__compare_digest_impl.exit
 
 if.end31.i:                                       ; preds = %if.end28.i
   %call32.i = call i32 @PyObject_GetBuffer(ptr noundef %1, ptr noundef nonnull %view_b.i, i32 noundef 0) #4
@@ -1612,7 +1612,7 @@ if.end31.i:                                       ; preds = %if.end28.i
 
 if.then34.i:                                      ; preds = %if.end31.i
   call void @PyBuffer_Release(ptr noundef nonnull %view_a.i) #4
-  br label %_operator__compare_digest_impl.argprom.exit
+  br label %_operator__compare_digest_impl.exit
 
 if.end35.i:                                       ; preds = %if.end31.i
   %ndim36.i = getelementptr inbounds i8, ptr %view_b.i, i64 36
@@ -1625,7 +1625,7 @@ if.then38.i:                                      ; preds = %if.end35.i
   call void @PyErr_SetString(ptr noundef %28, ptr noundef nonnull @.str.56) #4
   call void @PyBuffer_Release(ptr noundef nonnull %view_a.i) #4
   call void @PyBuffer_Release(ptr noundef nonnull %view_b.i) #4
-  br label %_operator__compare_digest_impl.argprom.exit
+  br label %_operator__compare_digest_impl.exit
 
 if.end39.i:                                       ; preds = %if.end35.i
   %29 = load ptr, ptr %view_a.i, align 8
@@ -1691,16 +1691,16 @@ if.end43.i:                                       ; preds = %_tscmp.exit66.i, %_
   %rc.0.in.i = icmp eq i8 %rc.0.in.in.i, 0
   %conv.i = zext i1 %rc.0.in.i to i64
   %call44.i = call ptr @PyBool_FromLong(i64 noundef %conv.i) #4
-  br label %_operator__compare_digest_impl.argprom.exit
+  br label %_operator__compare_digest_impl.exit
 
-_operator__compare_digest_impl.argprom.exit:      ; preds = %if.then9.i, %if.then19.i, %if.end24.i, %if.then30.i, %if.then34.i, %if.then38.i, %if.end43.i
+_operator__compare_digest_impl.exit:              ; preds = %if.then9.i, %if.then19.i, %if.end24.i, %if.then30.i, %if.then34.i, %if.then38.i, %if.end43.i
   %retval.0.i = phi ptr [ %call44.i, %if.end43.i ], [ null, %if.then9.i ], [ null, %if.then19.i ], [ null, %if.then30.i ], [ null, %if.then34.i ], [ null, %if.then38.i ], [ null, %if.end24.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %view_a.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %view_b.i)
   br label %exit
 
-exit:                                             ; preds = %lor.lhs.false, %_operator__compare_digest_impl.argprom.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %_operator__compare_digest_impl.argprom.exit ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %lor.lhs.false, %_operator__compare_digest_impl.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %_operator__compare_digest_impl.exit ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 

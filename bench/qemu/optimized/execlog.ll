@@ -86,7 +86,7 @@ if.else8:                                         ; preds = %for.body
   %7 = load ptr, ptr %call2, align 8
   %call10 = call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.2) #5
   %cmp11 = icmp eq i32 %call10, 0
-  br i1 %cmp11, label %if.then12, label %glib_auto_cleanup_GStrv.argprom.exit
+  br i1 %cmp11, label %if.then12, label %glib_auto_cleanup_GStrv.exit
 
 if.then12:                                        ; preds = %if.else8
   %arrayidx13 = getelementptr inbounds i8, ptr %call2, i64 8
@@ -109,7 +109,7 @@ parse_vaddr_match.exit:                           ; preds = %if.then12, %if.then
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i)
   br label %for.inc
 
-glib_auto_cleanup_GStrv.argprom.exit:             ; preds = %if.else8
+glib_auto_cleanup_GStrv.exit:                     ; preds = %if.else8
   %11 = load ptr, ptr @stderr, align 8
   %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.3, ptr noundef %2) #6
   call void @g_strfreev(ptr noundef nonnull %call2) #5
@@ -126,8 +126,8 @@ for.end:                                          ; preds = %for.inc, %if.end
   call void @qemu_plugin_register_atexit_cb(i64 noundef %id, ptr noundef nonnull @plugin_exit, ptr noundef null) #5
   br label %return
 
-return:                                           ; preds = %glib_auto_cleanup_GStrv.argprom.exit, %for.end
-  %retval.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.argprom.exit ], [ 0, %for.end ]
+return:                                           ; preds = %glib_auto_cleanup_GStrv.exit, %for.end
+  %retval.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.exit ], [ 0, %for.end ]
   ret i32 %retval.2
 }
 

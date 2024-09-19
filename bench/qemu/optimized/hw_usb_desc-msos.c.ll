@@ -84,7 +84,7 @@ usb_desc_msos_prop_name.exit.i.i:                 ; preds = %for.body.i.i.i
   %mul.i.i = shl i32 %conv.i.i, 1
   store i32 %mul.i.i, ptr %add.ptr.i.i, align 1
   %cmp1.i.i = icmp ult i32 %8, 2147483647
-  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %usb_desc_msos_prop_str.argprom.exit.i
+  br i1 %cmp1.i.i, label %for.body.lr.ph.i.i, label %usb_desc_msos_prop_str.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %usb_desc_msos_prop_name.exit.i.i
   %bPropertyData.i.i = getelementptr i8, ptr %call, i64 36
@@ -110,17 +110,17 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   store i8 %conv1.i20.i.i, ptr %arrayidx22.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %usb_desc_msos_prop_str.argprom.exit.i, label %for.body.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %usb_desc_msos_prop_str.exit.i, label %for.body.i.i, !llvm.loop !7
 
-usb_desc_msos_prop_str.argprom.exit.i:            ; preds = %for.body.i.i, %usb_desc_msos_prop_name.exit.i.i
+usb_desc_msos_prop_str.exit.i:                    ; preds = %for.body.i.i, %usb_desc_msos_prop_name.exit.i.i
   %add24.i.i = add i32 %mul.i.i, 32
   store i32 %add24.i.i, ptr %add.ptr.i11, align 1
   %add.i = add i32 %mul.i.i, 42
   br label %if.end.i
 
-if.end.i:                                         ; preds = %usb_desc_msos_prop_str.argprom.exit.i, %sw.bb2
-  %length.0.i = phi i32 [ %add.i, %usb_desc_msos_prop_str.argprom.exit.i ], [ 10, %sw.bb2 ]
-  %count.0.i = phi i8 [ 1, %usb_desc_msos_prop_str.argprom.exit.i ], [ 0, %sw.bb2 ]
+if.end.i:                                         ; preds = %usb_desc_msos_prop_str.exit.i, %sw.bb2
+  %length.0.i = phi i32 [ %add.i, %usb_desc_msos_prop_str.exit.i ], [ 10, %sw.bb2 ]
+  %count.0.i = phi i8 [ 1, %usb_desc_msos_prop_str.exit.i ], [ 0, %sw.bb2 ]
   %SelectiveSuspendEnabled.i = getelementptr inbounds i8, ptr %2, i64 16
   %13 = load i8, ptr %SelectiveSuspendEnabled.i, align 8
   %tobool4.i = trunc i8 %13 to i1
@@ -157,9 +157,9 @@ for.body.i.i23.i:                                 ; preds = %for.body.i.i23.i, %
   store i8 %conv1.i16.i.i30.i, ptr %arrayidx20.i.i33.i, align 1
   %indvars.iv.next.i.i34.i = add nuw nsw i64 %indvars.iv.i.i24.i, 1
   %exitcond.not.i.i35.i = icmp eq i64 %indvars.iv.next.i.i34.i, 24
-  br i1 %exitcond.not.i.i35.i, label %usb_desc_msos_prop_dword.argprom.exit.i, label %for.body.i.i23.i, !llvm.loop !5
+  br i1 %exitcond.not.i.i35.i, label %usb_desc_msos_prop_dword.exit.i, label %for.body.i.i23.i, !llvm.loop !5
 
-usb_desc_msos_prop_dword.argprom.exit.i:          ; preds = %for.body.i.i23.i
+usb_desc_msos_prop_dword.exit.i:                  ; preds = %for.body.i.i23.i
   %add.ptr.i37.i = getelementptr i8, ptr %add.ptr7.i, i64 58
   store i32 4, ptr %add.ptr.i37.i, align 1
   %bPropertyData.i38.i = getelementptr i8, ptr %add.ptr7.i, i64 62
@@ -175,9 +175,9 @@ usb_desc_msos_prop_dword.argprom.exit.i:          ; preds = %for.body.i.i23.i
   %inc10.i = add nuw nsw i8 %count.0.i, 1
   br label %usb_desc_msos_prop.exit
 
-usb_desc_msos_prop.exit:                          ; preds = %if.end.i, %usb_desc_msos_prop_dword.argprom.exit.i
-  %length.1.i = phi i32 [ %add9.i, %usb_desc_msos_prop_dword.argprom.exit.i ], [ %length.0.i, %if.end.i ]
-  %count.1.i = phi i8 [ %inc10.i, %usb_desc_msos_prop_dword.argprom.exit.i ], [ %count.0.i, %if.end.i ]
+usb_desc_msos_prop.exit:                          ; preds = %if.end.i, %usb_desc_msos_prop_dword.exit.i
+  %length.1.i = phi i32 [ %add9.i, %usb_desc_msos_prop_dword.exit.i ], [ %length.0.i, %if.end.i ]
+  %count.1.i = phi i8 [ %inc10.i, %usb_desc_msos_prop_dword.exit.i ], [ %count.0.i, %if.end.i ]
   store i32 %length.1.i, ptr %call, align 1
   %bcdVersion_lo.i12 = getelementptr inbounds i8, ptr %call, i64 4
   store i8 0, ptr %bcdVersion_lo.i12, align 1

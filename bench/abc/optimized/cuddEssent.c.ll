@@ -728,7 +728,7 @@ emptyClauseSet.exit:                              ; preds = %63, %67, %68
   %.val102 = load ptr, ptr %81, align 8
   %87 = getelementptr i8, ptr %81, i64 8
   %.val103 = load ptr, ptr %87, align 8
-  %88 = call fastcc ptr @computeClauses.argprom(ptr nonnull %74, ptr null, ptr %.val102, ptr %.val103, i32 noundef %30, i32 noundef %86)
+  %88 = call fastcc ptr @computeClauses(ptr nonnull %74, ptr null, ptr %.val102, ptr %.val103, i32 noundef %30, i32 noundef %86)
   store ptr %88, ptr %4, align 8
   call void @Cudd_tlcInfoFree(ptr noundef nonnull %61)
   br label %151
@@ -795,7 +795,7 @@ emptyClauseSet.exit:                              ; preds = %63, %67, %68
   %.val112 = load ptr, ptr %113, align 8
   %116 = getelementptr i8, ptr %113, i64 8
   %.val113 = load ptr, ptr %116, align 8
-  %117 = call fastcc ptr @computeClausesWithUniverse.argprom(ptr %.val112, ptr %.val113, i32 noundef %30, i16 noundef signext 1)
+  %117 = call fastcc ptr @computeClausesWithUniverse(ptr %.val112, ptr %.val113, i32 noundef %30, i16 noundef signext 1)
   store ptr %117, ptr %4, align 8
   br label %151
 
@@ -822,7 +822,7 @@ emptyClauseSet.exit:                              ; preds = %63, %67, %68
   %.val114 = load ptr, ptr %119, align 8
   %131 = getelementptr i8, ptr %119, i64 8
   %.val115 = load ptr, ptr %131, align 8
-  %132 = call fastcc ptr @computeClausesWithUniverse.argprom(ptr %.val114, ptr %.val115, i32 noundef %30, i16 noundef signext 0)
+  %132 = call fastcc ptr @computeClausesWithUniverse(ptr %.val114, ptr %.val115, i32 noundef %30, i16 noundef signext 0)
   store ptr %132, ptr %4, align 8
   br label %151
 
@@ -840,7 +840,7 @@ emptyClauseSet.exit:                              ; preds = %63, %67, %68
   %.val106 = load ptr, ptr %134, align 8
   %140 = getelementptr i8, ptr %134, i64 8
   %.val107 = load ptr, ptr %140, align 8
-  %141 = call fastcc ptr @computeClauses.argprom(ptr %.val104, ptr %.val105, ptr %.val106, ptr %.val107, i32 noundef %30, i32 noundef %138)
+  %141 = call fastcc ptr @computeClauses(ptr %.val104, ptr %.val105, ptr %.val106, ptr %.val107, i32 noundef %30, i32 noundef %138)
   store ptr %141, ptr %4, align 8
   call void @Cudd_tlcInfoFree(ptr noundef nonnull %134)
   br label %151
@@ -859,7 +859,7 @@ emptyClauseSet.exit:                              ; preds = %63, %67, %68
   %.val110 = load ptr, ptr %143, align 8
   %149 = getelementptr i8, ptr %143, i64 8
   %.val111 = load ptr, ptr %149, align 8
-  %150 = call fastcc ptr @computeClauses.argprom(ptr %.val108, ptr %.val109, ptr %.val110, ptr %.val111, i32 noundef %30, i32 noundef %147)
+  %150 = call fastcc ptr @computeClauses(ptr %.val108, ptr %.val109, ptr %.val110, ptr %.val111, i32 noundef %30, i32 noundef %147)
   store ptr %150, ptr %4, align 8
   br label %151
 
@@ -1241,7 +1241,7 @@ declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @computeClauses.argprom(ptr nocapture readonly %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.0.val1, ptr readonly %.8.val3, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @computeClauses(ptr nocapture readonly %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.0.val1, ptr readonly %.8.val3, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @Tolv, align 8
   %4 = add nsw i32 %1, -1
   %5 = ashr i32 %4, 6
@@ -2417,7 +2417,7 @@ beforep.exit466.thread36:                         ; preds = %566, %562, %beforep
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc noalias noundef ptr @computeClausesWithUniverse.argprom(ptr nocapture readonly %.0.val, ptr readonly %.8.val, i32 noundef %0, i16 noundef signext range(i16 0, 2) %1) unnamed_addr #8 {
+define internal fastcc noalias noundef ptr @computeClausesWithUniverse(ptr nocapture readonly %.0.val, ptr readonly %.8.val, i32 noundef %0, i16 noundef signext range(i16 0, 2) %1) unnamed_addr #8 {
   %3 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread.thread, label %tlcInfoAlloc.exit

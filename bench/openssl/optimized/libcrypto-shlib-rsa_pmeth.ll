@@ -278,13 +278,13 @@ if.end.i:                                         ; preds = %land.lhs.true
   %or.cond.i = select i1 %cmp1.i, i1 %cmp2.i, i1 false
   %saltlen.i = getelementptr inbounds i8, ptr %ctx.val22, i64 48
   %9 = load i32, ptr %saltlen.i, align 8
-  br i1 %or.cond.i, label %land.lhs.true3.i, label %rsa_set_pss_param.argprom.argprom.exit
+  br i1 %or.cond.i, label %land.lhs.true3.i, label %rsa_set_pss_param.exit
 
 land.lhs.true3.i:                                 ; preds = %if.end.i
   %cmp4.i = icmp eq i32 %9, -2
-  br i1 %cmp4.i, label %if.then27, label %rsa_set_pss_param.argprom.argprom.exit
+  br i1 %cmp4.i, label %if.then27, label %rsa_set_pss_param.exit
 
-rsa_set_pss_param.argprom.argprom.exit:           ; preds = %if.end.i, %land.lhs.true3.i
+rsa_set_pss_param.exit:                           ; preds = %if.end.i, %land.lhs.true3.i
   %10 = phi ptr [ null, %land.lhs.true3.i ], [ %8, %if.end.i ]
   %cmp10.i = icmp eq i32 %9, -2
   %spec.select.i = select i1 %cmp10.i, i32 0, i32 %9
@@ -292,19 +292,19 @@ rsa_set_pss_param.argprom.argprom.exit:           ; preds = %if.end.i, %land.lhs
   %pss.i = getelementptr inbounds i8, ptr %call8, i64 128
   store ptr %call.i, ptr %pss.i, align 8
   %cmp13.i.not = icmp eq ptr %call.i, null
-  br i1 %cmp13.i.not, label %if.then24, label %rsa_set_pss_param.argprom.argprom.exit.if.then27_crit_edge
+  br i1 %cmp13.i.not, label %if.then24, label %rsa_set_pss_param.exit.if.then27_crit_edge
 
-rsa_set_pss_param.argprom.argprom.exit.if.then27_crit_edge: ; preds = %rsa_set_pss_param.argprom.argprom.exit
+rsa_set_pss_param.exit.if.then27_crit_edge:       ; preds = %rsa_set_pss_param.exit
   %.pre25 = load ptr, ptr %6, align 8
   %.pre26 = load i32, ptr %.pre25, align 8
   br label %if.then27
 
-if.then24:                                        ; preds = %rsa_set_pss_param.argprom.argprom.exit
+if.then24:                                        ; preds = %rsa_set_pss_param.exit
   tail call void @RSA_free(ptr noundef nonnull %call8) #8
   br label %return
 
-if.then27:                                        ; preds = %rsa_set_pss_param.argprom.argprom.exit.if.then27_crit_edge, %land.lhs.true3.i, %land.lhs.true
-  %11 = phi i32 [ %.pre26, %rsa_set_pss_param.argprom.argprom.exit.if.then27_crit_edge ], [ 912, %land.lhs.true3.i ], [ %ctx.val.val, %land.lhs.true ]
+if.then27:                                        ; preds = %rsa_set_pss_param.exit.if.then27_crit_edge, %land.lhs.true3.i, %land.lhs.true
+  %11 = phi i32 [ %.pre26, %rsa_set_pss_param.exit.if.then27_crit_edge ], [ 912, %land.lhs.true3.i ], [ %ctx.val.val, %land.lhs.true ]
   %call28 = tail call i32 @EVP_PKEY_assign(ptr noundef %pkey, i32 noundef %11, ptr noundef nonnull %call8) #8
   br label %return
 

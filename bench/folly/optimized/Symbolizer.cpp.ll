@@ -621,7 +621,7 @@ if.then:                                          ; preds = %_ZN5folly10symboliz
 lpad:                                             ; preds = %if.else28, %if.then24, %.noexc73, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit247.i", %cond.end18.i, %.noexc70, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit203.i", %.noexc68, %.noexc67, %.noexc66, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit154.i", %cond.end12.i, %.noexc63, %.noexc62, %cond.end12.critedge.i, %.noexc60, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit91.i", %cond.true3.i, %.noexc57, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit.i", %.noexc55, %.noexc54, %.noexc, %cond.end.i, %if.end9, %if.else7, %if.then5, %if.then, %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer21SafeStackTracePrinter15printStackTraceEbE3$_0Lb1EED2Ev.argelim"(ptr nonnull %this) #17
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer21SafeStackTracePrinter15printStackTraceEbE3$_0Lb1EED2Ev"(ptr nonnull %this) #17
   resume { ptr, i32 } %3
 
 if.else.loopexit.unr-lcssa:                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1397,7 +1397,7 @@ terminate.lpad.i.i.i:                             ; preds = %.noexc.i.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer21SafeStackTracePrinter15printStackTraceEbE3$_0Lb1EED2Ev.argelim"(ptr nonnull %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer21SafeStackTracePrinter15printStackTraceEbE3$_0Lb1EED2Ev"(ptr nonnull %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %printer_.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 16
   invoke void @_ZN5folly10symbolizer18FDSymbolizePrinter5flushEv(ptr noundef nonnull align 8 dereferenceable(32) %printer_.i.i.i)

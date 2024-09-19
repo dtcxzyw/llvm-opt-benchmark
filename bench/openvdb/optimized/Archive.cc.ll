@@ -2583,7 +2583,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -2636,7 +2636,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -2686,7 +2686,7 @@ init.check.i3:                                    ; preds = %_ZNSt8ios_base5iwor
   br i1 %tobool.not.i4, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit8, label %init.i5
 
 init.i5:                                          ; preds = %init.check.i3
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i7 unwind label %lpad.i6
 
 invoke.cont.i7:                                   ; preds = %init.i5
@@ -2742,7 +2742,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -2795,7 +2795,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -2850,7 +2850,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -2903,7 +2903,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -3211,7 +3211,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -3263,7 +3263,7 @@ init.check.i8:                                    ; preds = %_ZNSt8ios_base5iwor
   br i1 %tobool.not.i9, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit13, label %init.i10
 
 init.i10:                                         ; preds = %init.check.i8
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i12 unwind label %lpad.i11
 
 invoke.cont.i12:                                  ; preds = %init.i10
@@ -3310,7 +3310,7 @@ init.check.i26:                                   ; preds = %_ZNSt8ios_base5iwor
   br i1 %tobool.not.i27, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit31, label %init.i28
 
 init.i28:                                         ; preds = %init.check.i26
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i30 unwind label %lpad.i29
 
 invoke.cont.i30:                                  ; preds = %init.i28
@@ -3451,7 +3451,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -3590,7 +3590,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -3729,7 +3729,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -3869,7 +3869,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -4010,7 +4010,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -6949,7 +6949,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -7091,7 +7091,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -7264,7 +7264,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -7321,7 +7321,7 @@ init.check.i4:                                    ; preds = %_ZNSt8ios_base5iwor
   br i1 %tobool.not.i5, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit9, label %init.i6
 
 init.i6:                                          ; preds = %init.check.i4
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i8 unwind label %lpad.i7
 
 invoke.cont.i8:                                   ; preds = %init.i6
@@ -7515,7 +7515,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -7569,7 +7569,7 @@ init.check.i5:                                    ; preds = %_ZNSt8ios_base5iwor
   br i1 %tobool.not.i6, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit10, label %init.i7
 
 init.i7:                                          ; preds = %init.check.i5
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i9 unwind label %lpad.i8
 
 invoke.cont.i9:                                   ; preds = %init.i7
@@ -7618,7 +7618,7 @@ init.check.i23:                                   ; preds = %_ZNSt8ios_base5iwor
   br i1 %tobool.not.i24, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit28, label %init.i25
 
 init.i25:                                         ; preds = %init.check.i23
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i27 unwind label %lpad.i26
 
 invoke.cont.i27:                                  ; preds = %init.i25
@@ -7982,7 +7982,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -8033,7 +8033,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -8118,7 +8118,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -8169,7 +8169,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -8258,7 +8258,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %invoke.cont, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -9884,7 +9884,7 @@ init.check.i.i.i:                                 ; preds = %_ZNSt10shared_ptrIN
   br i1 %tobool.not.i.i.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i.i, label %init.i.i.i
 
 init.i.i.i:                                       ; preds = %init.check.i.i.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %init.i.i.i
@@ -10970,7 +10970,7 @@ init.check.i.i.i:                                 ; preds = %_ZNSt10shared_ptrIN
   br i1 %tobool.not.i.i.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i.i, label %init.i.i.i
 
 init.i.i.i:                                       ; preds = %init.check.i.i.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %init.i.i.i
@@ -12081,7 +12081,7 @@ init.check.i.i.i:                                 ; preds = %_ZNSt10shared_ptrIN
   br i1 %tobool.not.i.i.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i.i, label %init.i.i.i
 
 init.i.i.i:                                       ; preds = %init.check.i.i.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %init.i.i.i
@@ -14838,7 +14838,7 @@ init.check.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEv.exit.i, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
@@ -17776,7 +17776,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %invoke.cont, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -19061,7 +19061,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8ios_base13_M_grow
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom() unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev() unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNSt8ios_base6xallocEv() #26
   store i32 %call, ptr @_ZZN7openvdb5v11_02io12_GLOBAL__N_113GetSteamStateEvE12sStreamState, align 4
@@ -76855,7 +76855,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %invoke.cont, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -76922,7 +76922,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %invoke.cont, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -76989,7 +76989,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %invoke.cont, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev.argprom()
+  invoke fastcc void @_ZN7openvdb5v11_02io12_GLOBAL__N_111StreamStateC2Ev()
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i

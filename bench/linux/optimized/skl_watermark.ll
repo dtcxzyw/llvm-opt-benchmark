@@ -3760,7 +3760,7 @@ select.unfold:                                    ; preds = %280, %276
   %448 = load i8, ptr %439, align 2, !range !9, !noundef !10
   %449 = icmp ne i8 %448, 0
   %.val = load ptr, ptr %444, align 8
-  %450 = tail call fastcc zeroext i8 @skl_compute_dbuf_slices.argprom(ptr %.val, i32 %446, i8 noundef zeroext %447, i1 noundef zeroext %449)
+  %450 = tail call fastcc zeroext i8 @skl_compute_dbuf_slices(ptr %.val, i32 %446, i8 noundef zeroext %447, i1 noundef zeroext %449)
   %451 = sext i32 %446 to i64
   %452 = getelementptr [4 x i8], ptr %440, i64 0, i64 %451
   store i8 %450, ptr %452, align 1
@@ -6801,7 +6801,7 @@ thread-pre-split.thread:                          ; preds = %121, %thread-pre-sp
   %156 = icmp ne i8 %155, 0
   %.val = load ptr, ptr %41, align 8
   %.val16 = load i32, ptr %44, align 8
-  %157 = call fastcc zeroext i8 @skl_compute_dbuf_slices.argprom(ptr %.val, i32 %.val16, i8 noundef zeroext %154, i1 noundef zeroext %156)
+  %157 = call fastcc zeroext i8 @skl_compute_dbuf_slices(ptr %.val, i32 %.val16, i8 noundef zeroext %154, i1 noundef zeroext %156)
   %158 = zext i8 %157 to i64
   %159 = and i64 %158, 3
   %160 = icmp eq i64 %159, 0
@@ -6977,7 +6977,7 @@ mbus_ddb_offset.exit:                             ; preds = %151, %188, %191
   %.val17 = load ptr, ptr %271, align 8
   %275 = getelementptr i8, ptr %268, i64 1632
   %.val18 = load i32, ptr %275, align 8
-  %276 = call fastcc zeroext i8 @skl_compute_dbuf_slices.argprom(ptr %.val17, i32 %.val18, i8 noundef zeroext %272, i1 noundef zeroext %274)
+  %276 = call fastcc zeroext i8 @skl_compute_dbuf_slices(ptr %.val17, i32 %.val18, i8 noundef zeroext %272, i1 noundef zeroext %274)
   %277 = sext i32 %.val18 to i64
   %278 = getelementptr [4 x i8], ptr %254, i64 0, i64 %277
   %279 = load i8, ptr %278, align 1
@@ -8044,7 +8044,7 @@ declare dso_local zeroext i8 @intel_calc_active_pipes(ptr noundef, i8 noundef ze
 declare dso_local i32 @intel_atomic_lock_global_state(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal fastcc zeroext i8 @skl_compute_dbuf_slices.argprom(ptr nocapture readonly %.0.val, i32 %.1648.val, i8 noundef zeroext %0, i1 noundef zeroext %1) unnamed_addr #4 align 16 {
+define internal fastcc zeroext i8 @skl_compute_dbuf_slices(ptr nocapture readonly %.0.val, i32 %.1648.val, i8 noundef zeroext %0, i1 noundef zeroext %1) unnamed_addr #4 align 16 {
   %3 = getelementptr i8, ptr %.0.val, i64 7188
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 2048

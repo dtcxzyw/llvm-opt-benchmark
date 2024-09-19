@@ -851,7 +851,7 @@ for.inc.i.i:                                      ; preds = %_ZSteqIcSt11char_tr
 _ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %for.inc.us29.i.i, %for.inc.us.i.i, %for.inc.i.i, %if.then.i.i
   %23 = load ptr, ptr @_ZL14g_event_engine, align 8
   %cmp.not.i = icmp eq ptr %23, null
-  br i1 %cmp.not.i, label %for.inc.i, label %"_ZZ22grpc_event_engine_initvENK3$_0clEv.argprom.exit"
+  br i1 %cmp.not.i, label %for.inc.i, label %"_ZZ22grpc_event_engine_initvENK3$_0clEv.exit"
 
 for.inc.i:                                        ; preds = %_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i
   %24 = load i32, ptr %state_.i.i.i, align 8
@@ -915,7 +915,7 @@ _ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCha
 for.end.i:                                        ; preds = %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i, %_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit.i
   %32 = load ptr, ptr @_ZL14g_event_engine, align 8
   %cmp8.i = icmp eq ptr %32, null
-  br i1 %cmp8.i, label %if.then9.i, label %"_ZZ22grpc_event_engine_initvENK3$_0clEv.argprom.exit"
+  br i1 %cmp8.i, label %if.then9.i, label %"_ZZ22grpc_event_engine_initvENK3$_0clEv.exit"
 
 if.then9.i:                                       ; preds = %for.end.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15.i) #19
@@ -968,7 +968,7 @@ ehcleanup24.i:                                    ; preds = %ehcleanup.i, %lpad.
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15.i) #19
   resume { ptr, i32 } %.pn.pn.i
 
-"_ZZ22grpc_event_engine_initvENK3$_0clEv.argprom.exit": ; preds = %_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %for.end.i
+"_ZZ22grpc_event_engine_initvENK3$_0clEv.exit":   ; preds = %_ZL10try_engineSt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %for.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %value.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %__begin2.i)

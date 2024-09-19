@@ -307,7 +307,7 @@ define dso_local i32 @svc_addsock(ptr noundef %0, ptr noundef readnone %1, i32 n
   %51 = trunc i64 %4 to i32
   %52 = getelementptr i8, ptr %31, i64 528
   %.val = load ptr, ptr %52, align 8
-  %53 = call fastcc i32 @svc_one_sock_name.argprom(ptr %.val, ptr noundef %3, i32 noundef %51)
+  %53 = call fastcc i32 @svc_one_sock_name(ptr %.val, ptr noundef %3, i32 noundef %51)
   br label %58
 
 54:                                               ; preds = %33, %28, %25, %22, %19, %13
@@ -590,7 +590,7 @@ declare dso_local i32 @kernel_getsockname(ptr noundef, ptr noundef) local_unname
 declare dso_local void @svc_add_new_perm_xprt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @svc_one_sock_name.argprom(ptr %.528.val, ptr nocapture noundef writeonly %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc noundef i32 @svc_one_sock_name(ptr %.528.val, ptr nocapture noundef writeonly %0, i32 noundef %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %.528.val, i64 516
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 17

@@ -1082,7 +1082,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i
   store i64 %div.i.i.i, ptr %refresh_time.i.i.i, align 8
   %install_time.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 280
   store i64 %div.i.i.i, ptr %install_time.i.i.i, align 8
-  %call2.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod.argprom(ptr noundef %call1.i.i.i, ptr noundef readonly %tlvs)
+  %call2.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef %call1.i.i.i, ptr noundef readonly %tlvs)
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %if.end5.i.i, label %if.then4.i.i
 
@@ -1104,7 +1104,7 @@ sw.bb3.i:                                         ; preds = %if.end.i
   br i1 %tobool.not.i13.i, label %return, label %if.end.i14.i
 
 if.end.i14.i:                                     ; preds = %sw.bb3.i
-  %call1.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod.argprom(ptr noundef nonnull %call.i.i12.i, ptr noundef readonly %tlvs)
+  %call1.i.i = call fastcc i32 @of_dpa_cmd_flow_add_mod(ptr noundef nonnull %call.i.i12.i, ptr noundef readonly %tlvs)
   br label %return
 
 sw.bb5.i:                                         ; preds = %if.end.i
@@ -2419,7 +2419,7 @@ if.end33:                                         ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_flow_add_mod.argprom(ptr nocapture noundef %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @of_dpa_cmd_flow_add_mod(ptr nocapture noundef %flow, ptr nocapture noundef nonnull readonly %flow_tlvs) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %flow_tlvs, i64 8
   %0 = load ptr, ptr %arrayidx, align 8

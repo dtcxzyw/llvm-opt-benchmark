@@ -113,21 +113,21 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %19, %_ZNSt10unique_
   %24 = phi i8 [ %10, %12 ], [ %.pre.i, %_ZN4llvm5ErrorD2Ev.exit.i ]
   %.0.i = phi ptr [ %13, %12 ], [ null, %_ZN4llvm5ErrorD2Ev.exit.i ]
   %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %_ZL15getDbiStreamPtrRN4llvm3pdb13NativeSessionE.argprom.exit
+  br i1 %25, label %26, label %_ZL15getDbiStreamPtrRN4llvm3pdb13NativeSessionE.exit
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %_ZL15getDbiStreamPtrRN4llvm3pdb13NativeSessionE.argprom.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
+  br i1 %.not.i.i.i, label %_ZL15getDbiStreamPtrRN4llvm3pdb13NativeSessionE.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(8) %27) #11
-  br label %_ZL15getDbiStreamPtrRN4llvm3pdb13NativeSessionE.argprom.exit
+  br label %_ZL15getDbiStreamPtrRN4llvm3pdb13NativeSessionE.exit
 
-_ZL15getDbiStreamPtrRN4llvm3pdb13NativeSessionE.argprom.exit: ; preds = %23, %26, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
+_ZL15getDbiStreamPtrRN4llvm3pdb13NativeSessionE.exit: ; preds = %23, %26, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store ptr %.0.i, ptr %31, align 8

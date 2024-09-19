@@ -6005,7 +6005,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
 define dso_local range(i32 0, 10) i32 @node_api_create_external_string_latin1(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef %finalize_callback, ptr noundef %finalize_hint, ptr noundef writeonly %result, ptr noundef writeonly %copied) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
-  br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit", label %do.end.i
+  br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit", label %do.end.i
 
 do.end.i:                                         ; preds = %entry
   %module_api_version.i.i = getelementptr inbounds i8, ptr %env, i64 184
@@ -6036,7 +6036,7 @@ if.then8.i:                                       ; preds = %_ZN10napi_env__13Ch
   store i32 0, ptr %engine_error_code3.i.i, align 8
   %engine_reserved5.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i.i, align 8
-  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit"
+  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 do.body12.i:                                      ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
   %cmp13.not.i = icmp eq ptr %result, null
@@ -6049,7 +6049,7 @@ if.then14.i:                                      ; preds = %do.body12.i
   store i32 0, ptr %engine_error_code3.i16.i, align 8
   %engine_reserved5.i17.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i17.i, align 8
-  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit"
+  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 do.body18.i:                                      ; preds = %do.body12.i
   %2 = add i64 %length, 1
@@ -6063,7 +6063,7 @@ if.then21.i:                                      ; preds = %do.body18.i
   store i32 0, ptr %engine_error_code3.i19.i, align 8
   %engine_reserved5.i20.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i20.i, align 8
-  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit"
+  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 do.end25.i:                                       ; preds = %do.body18.i
   br i1 %cmp.i.i, label %land.lhs.true.i.i.i, label %do.end25.i.i
@@ -6140,20 +6140,20 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   store i32 0, ptr %engine_error_code3.i19.i.i, align 8
   %engine_reserved5.i20.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i20.i.i, align 8
-  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit"
+  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 "_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i": ; preds = %"_ZZ38node_api_create_external_string_latin1ENK3$_0clEPN2v87IsolateE.exit.i.i"
   store ptr %call3.i.i.i, ptr %result, align 8
   %last_error.i.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
   %cmp28.not.i = icmp eq ptr %copied, null
-  br i1 %cmp28.not.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit", label %if.then29.i
+  br i1 %cmp28.not.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit", label %if.then29.i
 
 if.then29.i:                                      ; preds = %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i"
   store i8 0, ptr %copied, align 1
-  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit"
+  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
-"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit": ; preds = %entry, %if.then8.i, %if.then14.i, %if.then21.i, %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i", %if.then29.i
+"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit": ; preds = %entry, %if.then8.i, %if.then14.i, %if.then21.i, %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i", %if.then29.i
   %retval.0.i = phi i32 [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 1, %if.then8.i ], [ 1, %entry ], [ 0, %if.then29.i ], [ 0, %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i" ], [ 9, %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i" ]
   ret i32 %retval.0.i
 }
@@ -6162,7 +6162,7 @@ if.then29.i:                                      ; preds = %"_ZN6v8impl12_GLOBA
 define dso_local range(i32 0, 10) i32 @node_api_create_external_string_utf16(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef %finalize_callback, ptr noundef %finalize_hint, ptr noundef writeonly %result, ptr noundef writeonly %copied) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
-  br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit", label %do.end.i
+  br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit", label %do.end.i
 
 do.end.i:                                         ; preds = %entry
   %module_api_version.i.i = getelementptr inbounds i8, ptr %env, i64 184
@@ -6193,7 +6193,7 @@ if.then8.i:                                       ; preds = %_ZN10napi_env__13Ch
   store i32 0, ptr %engine_error_code3.i.i, align 8
   %engine_reserved5.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i.i, align 8
-  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit"
+  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 do.body12.i:                                      ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
   %cmp13.not.i = icmp eq ptr %result, null
@@ -6206,7 +6206,7 @@ if.then14.i:                                      ; preds = %do.body12.i
   store i32 0, ptr %engine_error_code3.i16.i, align 8
   %engine_reserved5.i17.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i17.i, align 8
-  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit"
+  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 do.body18.i:                                      ; preds = %do.body12.i
   %2 = add i64 %length, 1
@@ -6220,7 +6220,7 @@ if.then21.i:                                      ; preds = %do.body18.i
   store i32 0, ptr %engine_error_code3.i19.i, align 8
   %engine_reserved5.i20.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i20.i, align 8
-  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit"
+  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 do.end25.i:                                       ; preds = %do.body18.i
   br i1 %cmp.i.i, label %land.lhs.true.i.i.i, label %do.end25.i.i
@@ -6301,20 +6301,20 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   store i32 0, ptr %engine_error_code3.i19.i.i, align 8
   %engine_reserved5.i20.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i20.i.i, align 8
-  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit"
+  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 "_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i": ; preds = %"_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i"
   store ptr %call3.i.i.i, ptr %result, align 8
   %last_error.i.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
   %cmp28.not.i = icmp eq ptr %copied, null
-  br i1 %cmp28.not.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit", label %if.then29.i
+  br i1 %cmp28.not.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit", label %if.then29.i
 
 if.then29.i:                                      ; preds = %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i"
   store i8 0, ptr %copied, align 1
-  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit"
+  br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
-"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.argprom.exit": ; preds = %entry, %if.then8.i, %if.then14.i, %if.then21.i, %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i", %if.then29.i
+"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit": ; preds = %entry, %if.then8.i, %if.then14.i, %if.then21.i, %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i", %if.then29.i
   %retval.0.i = phi i32 [ 1, %if.then21.i ], [ 1, %if.then14.i ], [ 1, %if.then8.i ], [ 1, %entry ], [ 0, %if.then29.i ], [ 0, %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i" ], [ 9, %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i" ]
   ret i32 %retval.0.i
 }
@@ -15870,25 +15870,25 @@ if.end.i48.i.i:                                   ; preds = %do.end18.i.i
   %call.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %12) #24
   %13 = load ptr, ptr %isolate.i.i, align 8
   %call.i.i.i.i = call noundef zeroext i1 @_ZN2v87Isolate22IsExecutionTerminatingEv(ptr noundef nonnull align 1 dereferenceable(1) %13) #24
-  br i1 %call.i.i.i.i, label %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.argprom.exit.i.i, label %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i
+  br i1 %call.i.i.i.i, label %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i, label %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i
 
 _ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i: ; preds = %if.end.i48.i.i
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %vtable.i.i.i.i, align 8
   %call2.i.i.i.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(189) %4) #24
-  br i1 %call2.i.i.i.i, label %if.end.i4.i.i, label %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.argprom.exit.i.i
+  br i1 %call2.i.i.i.i, label %if.end.i4.i.i, label %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i
 
 if.end.i4.i.i:                                    ; preds = %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i
   %15 = load ptr, ptr %isolate.i.i, align 8
   %call7.i.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr %call.i.i.i) #24
-  br label %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.argprom.exit.i.i
+  br label %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i
 
-_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.argprom.exit.i.i: ; preds = %if.end.i4.i.i, %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i, %if.end.i48.i.i
+_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i: ; preds = %if.end.i4.i.i, %_ZN10napi_env__23terminatedOrTerminatingEv.exit.i.i.i, %if.end.i48.i.i
   %16 = load ptr, ptr %last_exception.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.i.i.i, label %_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.argprom.exit.i.i
+if.end.i.i.i:                                     ; preds = %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i
   call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %16) #24
   store ptr null, ptr %last_exception.i.i, align 8
   br label %_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit
@@ -15904,7 +15904,7 @@ if.then.i:                                        ; preds = %_ZN10napi_env__14Ca
   call void %17(ptr noundef nonnull align 8 dereferenceable(32) %cbwrapper, ptr noundef nonnull %call.i3.i.i) #24
   br label %_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit
 
-_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit: ; preds = %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.argprom.exit.i.i, %if.end.i.i.i, %_ZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_.exit.i, %if.then.i
+_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit: ; preds = %_ZZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvENKUlP10napi_env__N2v85LocalINS4_5ValueEEEE_clES3_S7_.exit.i.i, %if.end.i.i.i, %_ZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_.exit.i, %if.then.i
   ret void
 }
 

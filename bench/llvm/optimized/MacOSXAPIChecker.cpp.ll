@@ -715,19 +715,19 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_8CallExprEE10_checkStmtIN1
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i:          ; preds = %3
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %14, ptr noundef nonnull readonly dereferenceable(13) @.str.2, i64 13)
   %16 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %16, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.argprom.exit.i, label %_ZNK12_GLOBAL__N_116MacOSXAPIChecker12checkPreStmtEPKN5clang8CallExprERNS1_4ento14CheckerContextE.exit
+  br i1 %16, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.exit.i, label %_ZNK12_GLOBAL__N_116MacOSXAPIChecker12checkPreStmtEPKN5clang8CallExprERNS1_4ento14CheckerContextE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i:        ; preds = %3
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %14, ptr noundef nonnull readonly dereferenceable(14) @.str.3, i64 14)
   %17 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %17, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.argprom.exit.i, label %_ZNK12_GLOBAL__N_116MacOSXAPIChecker12checkPreStmtEPKN5clang8CallExprERNS1_4ento14CheckerContextE.exit
+  br i1 %17, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.exit.i, label %_ZNK12_GLOBAL__N_116MacOSXAPIChecker12checkPreStmtEPKN5clang8CallExprERNS1_4ento14CheckerContextE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i33.i.i.i:      ; preds = %3
   %bcmp.i.i34.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %14, ptr noundef nonnull readonly dereferenceable(15) @.str.4, i64 15)
   %18 = icmp eq i32 %bcmp.i.i34.i.i.i, 0
-  br i1 %18, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.argprom.exit.i, label %_ZNK12_GLOBAL__N_116MacOSXAPIChecker12checkPreStmtEPKN5clang8CallExprERNS1_4ento14CheckerContextE.exit
+  br i1 %18, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.exit.i, label %_ZNK12_GLOBAL__N_116MacOSXAPIChecker12checkPreStmtEPKN5clang8CallExprERNS1_4ento14CheckerContextE.exit
 
-_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.argprom.exit.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i33.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
+_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.exit.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i33.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %10)
@@ -740,7 +740,7 @@ _ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14Chec
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %_ZNK12_GLOBAL__N_116MacOSXAPIChecker17CheckDispatchOnceERN5clang4ento14CheckerContextEPKNS1_8CallExprEN4llvm9StringRefE.exit.i, label %23
 
-23:                                               ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.argprom.exit.i
+23:                                               ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.exit.i
   %24 = load i32, ptr %1, align 8
   %25 = lshr i32 %24, 24
   %26 = zext nneg i32 %25 to i64
@@ -1474,7 +1474,7 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit.thread113.i.i: ; preds = %_ZNSt10unique
   call void @free(ptr noundef %393) #18
   br label %_ZNK12_GLOBAL__N_116MacOSXAPIChecker17CheckDispatchOnceERN5clang4ento14CheckerContextEPKNS1_8CallExprEN4llvm9StringRefE.exit.i
 
-_ZNK12_GLOBAL__N_116MacOSXAPIChecker17CheckDispatchOnceERN5clang4ento14CheckerContextEPKNS1_8CallExprEN4llvm9StringRefE.exit.i: ; preds = %395, %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread113.i.i, %47, %23, %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.argprom.exit.i
+_ZNK12_GLOBAL__N_116MacOSXAPIChecker17CheckDispatchOnceERN5clang4ento14CheckerContextEPKNS1_8CallExprEN4llvm9StringRefE.exit.i: ; preds = %395, %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread113.i.i, %47, %23, %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_116MacOSXAPICheckerEKFvRN5clang4ento14CheckerContextEPKNS3_8CallExprENS_9StringRefEESC_E5CasesENS_13StringLiteralESE_SE_SC_.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %10)

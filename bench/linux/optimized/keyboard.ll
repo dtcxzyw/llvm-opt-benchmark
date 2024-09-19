@@ -4363,7 +4363,7 @@ define internal void @k_pad(ptr noundef %0, i8 noundef zeroext %1, i8 noundef ze
   br label %101
 
 41:                                               ; preds = %30
-  tail call fastcc void @applkey.argelim(ptr noundef %0, i8 noundef zeroext %14)
+  tail call fastcc void @applkey(ptr noundef %0, i8 noundef zeroext %14)
   br label %101
 
 42:                                               ; preds = %30, %25
@@ -5784,7 +5784,7 @@ declare dso_local void @show_state_filter(i32 noundef) local_unnamed_addr #1
 declare dso_local i32 @set_console(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @applkey.argelim(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @applkey(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = alloca i8, align 1
   %4 = icmp eq i8 %1, 0
   %5 = select i1 %4, i8 91, i8 79

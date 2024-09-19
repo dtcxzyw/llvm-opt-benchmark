@@ -313,7 +313,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.
 _ZN2cv3PtrINS_8superres19DenseOpticalFlowExtEEaSINS1_20FarnebackOpticalFlowEEERS3_RKNS0_IT_EE.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %35
   %85 = phi ptr [ %39, %35 ], [ %.pr.i.i.i.i.i.i.i.i.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.not.i.i.i.i2.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %85, null
-  br i1 %.not.i.i.i.i2.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrIN12_GLOBAL__N_15BTVL1EED2Ev.argprom.exit, label %86
+  br i1 %.not.i.i.i.i2.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrIN12_GLOBAL__N_15BTVL1EED2Ev.exit, label %86
 
 86:                                               ; preds = %_ZN2cv3PtrINS_8superres19DenseOpticalFlowExtEEaSINS1_20FarnebackOpticalFlowEEERS3_RKNS0_IT_EE.exit.i.i.i.i.i.i.i.i.i.i
   %87 = getelementptr inbounds i8, ptr %85, i64 8
@@ -349,7 +349,7 @@ _ZN2cv3PtrINS_8superres19DenseOpticalFlowExtEEaSINS1_20FarnebackOpticalFlowEEERS
 102:                                              ; preds = %100, %98
   %.0.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i = phi i32 [ %90, %98 ], [ %101, %100 ]
   %103 = icmp eq i32 %.0.i.i.i.i.i4.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %103, label %104, label %_ZN2cv3PtrIN12_GLOBAL__N_15BTVL1EED2Ev.argprom.exit
+  br i1 %103, label %104, label %_ZN2cv3PtrIN12_GLOBAL__N_15BTVL1EED2Ev.exit
 
 104:                                              ; preds = %102
   %105 = load ptr, ptr %85, align 8, !noalias !4
@@ -374,14 +374,14 @@ _ZN2cv3PtrINS_8superres19DenseOpticalFlowExtEEaSINS1_20FarnebackOpticalFlowEEERS
 115:                                              ; preds = %113, %110
   %.0.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i.i.i = phi i32 [ %111, %110 ], [ %114, %113 ]
   %116 = icmp eq i32 %.0.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %116, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrIN12_GLOBAL__N_15BTVL1EED2Ev.argprom.exit
+  br i1 %116, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrIN12_GLOBAL__N_15BTVL1EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i: ; preds = %115, %91
   %117 = load ptr, ptr %85, align 8, !noalias !4
   %118 = getelementptr inbounds i8, ptr %117, i64 24
   %119 = load ptr, ptr %118, align 8, !noalias !4
   call void %119(ptr noundef nonnull align 8 dereferenceable(16) %85) #30, !noalias !4
-  br label %_ZN2cv3PtrIN12_GLOBAL__N_15BTVL1EED2Ev.argprom.exit
+  br label %_ZN2cv3PtrIN12_GLOBAL__N_15BTVL1EED2Ev.exit
 
 120:                                              ; preds = %.noexc.i.i.i.i.i
   %121 = landingpad { ptr, i32 }
@@ -415,19 +415,19 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %128, %120
   call void @_ZN2cv3PtrINS_8superres19DenseOpticalFlowExtEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #30, !noalias !4
   call void @_ZN2cv8superres15SuperResolutionD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %6) #30, !noalias !4
-  br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_15BTVL1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit11.i.i.i.i.i
+  br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_15BTVL1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i
 
 129:                                              ; preds = %1
   %130 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_15BTVL1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit11.i.i.i.i.i
+  br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_15BTVL1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_15BTVL1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit11.i.i.i.i.i: ; preds = %129, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_15BTVL1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i: ; preds = %129, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
   %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %130, %129 ], [ %121, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i.i.i.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %3) #31, !noalias !4
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i
 
-_ZN2cv3PtrIN12_GLOBAL__N_15BTVL1EED2Ev.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i, %115, %102, %_ZN2cv3PtrINS_8superres19DenseOpticalFlowExtEEaSINS1_20FarnebackOpticalFlowEEERS3_RKNS0_IT_EE.exit.i.i.i.i.i.i.i.i.i.i
+_ZN2cv3PtrIN12_GLOBAL__N_15BTVL1EED2Ev.exit:      ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i7.i.i.i.i.i.i.i.i.i.i, %115, %102, %_ZN2cv3PtrINS_8superres19DenseOpticalFlowExtEEaSINS1_20FarnebackOpticalFlowEEERS3_RKNS0_IT_EE.exit.i.i.i.i.i.i.i.i.i.i
   %131 = getelementptr inbounds i8, ptr %3, i64 136
   store i32 -1, ptr %131, align 8, !noalias !4
   %132 = getelementptr inbounds i8, ptr %3, i64 144
@@ -502,7 +502,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_15BTVL1ESaIvE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_15BTVL1ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(1472) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_15BTVL1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_15BTVL1ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
 }
@@ -3705,13 +3705,13 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit80.i.i: ; preds = %_ZSt8_DestroyIPN2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
   %515 = getelementptr inbounds i8, ptr %0, i64 312
   %516 = load i32, ptr %242, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_114upscaleMotionsERKN2cv11_InputArrayERKNS0_12_OutputArrayEi.argprom(ptr nonnull %388, ptr nonnull %515, i32 noundef %516)
+  invoke fastcc void @_ZN12_GLOBAL__N_114upscaleMotionsERKN2cv11_InputArrayERKNS0_12_OutputArrayEi(ptr nonnull %388, ptr nonnull %515, i32 noundef %516)
           to label %517 unwind label %694
 
 517:                                              ; preds = %.loopexit283.i
   %518 = getelementptr inbounds i8, ptr %0, i64 336
   %519 = load i32, ptr %242, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_114upscaleMotionsERKN2cv11_InputArrayERKNS0_12_OutputArrayEi.argprom(ptr nonnull %389, ptr nonnull %518, i32 noundef %519)
+  invoke fastcc void @_ZN12_GLOBAL__N_114upscaleMotionsERKN2cv11_InputArrayERKNS0_12_OutputArrayEi(ptr nonnull %389, ptr nonnull %518, i32 noundef %519)
           to label %520 unwind label %696
 
 520:                                              ; preds = %517
@@ -5398,7 +5398,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114upscaleMotionsERKN2cv11_InputArrayERKNS0_12_OutputArrayEi.argprom(ptr nocapture readonly %.8.val, ptr %.8.val1, i32 noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114upscaleMotionsERKN2cv11_InputArrayERKNS0_12_OutputArrayEi(ptr nocapture readonly %.8.val, ptr %.8.val1, i32 noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputArray", align 8
   %3 = alloca %"class.cv::_OutputArray", align 8
   %4 = alloca %"class.cv::_InputArray", align 8

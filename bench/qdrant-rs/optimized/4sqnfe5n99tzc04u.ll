@@ -362,13 +362,13 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 define void @_ZN6memory7madvise10set_global17h9e3688bc8c069c32E(i8 noundef %0) unnamed_addr #1 {
   %2 = cmpxchg weak ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154, i64 0, i64 8 acquire monotonic, align 8
   %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %2, 1
-  br i1 %.sroa.18.0.in.i.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2682e5960f29a735E.argprom.exit", label %3
+  br i1 %.sroa.18.0.in.i.i, label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2682e5960f29a735E.exit", label %3
 
 3:                                                ; preds = %1
   %4 = tail call noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock19lock_exclusive_slow17h1c896143cc21064fE(ptr noundef nonnull align 8 @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154, i64 undef, i32 noundef 1000000000)
-  br label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2682e5960f29a735E.argprom.exit"
+  br label %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2682e5960f29a735E.exit"
 
-"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2682e5960f29a735E.argprom.exit": ; preds = %1, %3
+"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2682e5960f29a735E.exit": ; preds = %1, %3
   tail call void @_ZN16parking_lot_core11parking_lot13deadlock_impl16acquire_resource17hb92d6bd747fcfddeE(i64 noundef ptrtoint (ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154 to i64))
   tail call void @_ZN16parking_lot_core11parking_lot13deadlock_impl16acquire_resource17hb92d6bd747fcfddeE(i64 noundef add (i64 ptrtoint (ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154 to i64), i64 1))
   store i8 %0, ptr getelementptr inbounds (i8, ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154, i64 8), align 8
@@ -377,13 +377,13 @@ define void @_ZN6memory7madvise10set_global17h9e3688bc8c069c32E(i8 noundef %0) u
   tail call void @_ZN16parking_lot_core11parking_lot13deadlock_impl16release_resource17h0567894a011a1744E(i64 noundef %5)
   %6 = cmpxchg ptr @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154, i64 8, i64 0 release monotonic, align 8
   %7 = extractvalue { i64, i1 } %6, 1
-  br i1 %7, label %"_ZN4core3ptr123drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$memory..madvise..Advice$GT$$GT$17h8ed18a06164752c2E.argprom.exit", label %8
+  br i1 %7, label %"_ZN4core3ptr123drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$memory..madvise..Advice$GT$$GT$17h8ed18a06164752c2E.exit", label %8
 
-8:                                                ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2682e5960f29a735E.argprom.exit"
+8:                                                ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2682e5960f29a735E.exit"
   tail call void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h9e1048c147076c62E(ptr noundef nonnull align 8 @_ZN6memory7madvise6ADVICE17h4d997ec506db0f9bE.llvm.8990559898906453154, i1 noundef zeroext false)
-  br label %"_ZN4core3ptr123drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$memory..madvise..Advice$GT$$GT$17h8ed18a06164752c2E.argprom.exit"
+  br label %"_ZN4core3ptr123drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$memory..madvise..Advice$GT$$GT$17h8ed18a06164752c2E.exit"
 
-"_ZN4core3ptr123drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$memory..madvise..Advice$GT$$GT$17h8ed18a06164752c2E.argprom.exit": ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2682e5960f29a735E.argprom.exit", %8
+"_ZN4core3ptr123drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$memory..madvise..Advice$GT$$GT$17h8ed18a06164752c2E.exit": ; preds = %"_ZN82_$LT$parking_lot..raw_rwlock..RawRwLock$u20$as$u20$lock_api..rwlock..RawRwLock$GT$14lock_exclusive17h2682e5960f29a735E.exit", %8
   ret void
 }
 

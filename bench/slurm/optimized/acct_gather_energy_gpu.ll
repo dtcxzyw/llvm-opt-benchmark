@@ -292,7 +292,7 @@ _thread_init.exit:                                ; preds = %9
   br label %_get_node_energy.exit
 
 22:                                               ; preds = %14, %17, %20
-  tail call fastcc void @_thread_update_node_energy.retelim()
+  tail call fastcc void @_thread_update_node_energy()
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false)
   %23 = load i16, ptr @gpus_len, align 2
   %.not11.i = icmp eq i16 %23, 0
@@ -333,7 +333,7 @@ _thread_init.exit:                                ; preds = %9
   br label %_get_node_energy.exit
 
 43:                                               ; preds = %7
-  tail call fastcc void @_get_joules_task.retelim(i16 noundef zeroext 10)
+  tail call fastcc void @_get_joules_task(i16 noundef zeroext 10)
   %44 = load ptr, ptr @saved_usable_gpus, align 8
   %.not.i72 = icmp eq ptr %44, null
   br i1 %.not.i72, label %_get_node_energy.exit, label %45
@@ -669,11 +669,11 @@ _thread_init.exit87:                              ; preds = %171
   br label %186
 
 184:                                              ; preds = %176, %179, %182
-  tail call fastcc void @_thread_update_node_energy.retelim()
+  tail call fastcc void @_thread_update_node_energy()
   br label %186
 
 185:                                              ; preds = %169
-  tail call fastcc void @_get_joules_task.retelim(i16 noundef zeroext 10)
+  tail call fastcc void @_get_joules_task(i16 noundef zeroext 10)
   br label %186
 
 186:                                              ; preds = %_thread_init.exit87, %184, %185
@@ -718,7 +718,7 @@ _thread_init.exit87:                              ; preds = %171
 declare zeroext i1 @slurm_running_in_slurmd() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_thread_update_node_energy.retelim() unnamed_addr #1 {
+define internal fastcc void @_thread_update_node_energy() unnamed_addr #1 {
   %1 = load i16, ptr @gpus_len, align 2
   %.not21 = icmp eq i16 %1, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -849,7 +849,7 @@ _update_energy.exit:                              ; preds = %32, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_get_joules_task.retelim(i16 noundef zeroext %0) unnamed_addr #1 {
+define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca i16, align 2
   %4 = tail call i64 @time(ptr noundef null) #10
@@ -1026,8 +1026,8 @@ define noundef i32 @acct_gather_energy_p_set_data(i32 noundef %0, ptr noundef %1
 7:                                                ; preds = %3
   %8 = load i32, ptr %1, align 4
   %9 = trunc i32 %8 to i16
-  tail call fastcc void @_get_joules_task.retelim(i16 noundef zeroext %9)
-  tail call fastcc void @_send_profile.retelim()
+  tail call fastcc void @_get_joules_task(i16 noundef zeroext %9)
+  tail call fastcc void @_send_profile()
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @gpu_mutex) #10
   %.not16 = icmp eq i32 %10, 0
   br i1 %.not16, label %37, label %11
@@ -1091,7 +1091,7 @@ define noundef i32 @acct_gather_energy_p_set_data(i32 noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_send_profile.retelim() unnamed_addr #1 {
+define internal fastcc void @_send_profile() unnamed_addr #1 {
   %1 = load i16, ptr @gpus_len, align 2
   %2 = zext i16 %1 to i64
   %3 = alloca i64, i64 %2, align 16
@@ -1380,7 +1380,7 @@ define void @acct_gather_energy_p_conf_set(i32 noundef %0, ptr nocapture noundef
   br label %43
 
 42:                                               ; preds = %6
-  tail call fastcc void @_get_joules_task.retelim(i16 noundef zeroext 0)
+  tail call fastcc void @_get_joules_task(i16 noundef zeroext 0)
   br label %43
 
 43:                                               ; preds = %42, %35, %38, %41, %5
@@ -1839,7 +1839,7 @@ define internal noalias noundef ptr @_thread_gpu_run(ptr nocapture readnone %0) 
   unreachable
 
 83:                                               ; preds = %79
-  call fastcc void @_thread_update_node_energy.retelim()
+  call fastcc void @_thread_update_node_energy()
   %84 = load i64, ptr %3, align 8
   %85 = add nsw i64 %84, 30
   store i64 %85, ptr %3, align 8

@@ -1207,7 +1207,7 @@ define void @Fra_ImpAddToSolver(ptr nocapture noundef %0, ptr nocapture noundef 
   %16 = getelementptr i8, ptr %15, i64 32
   %.val54 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %.val54, null
-  br i1 %.not.i, label %Aig_ManObj.argprom.exit73, label %17
+  br i1 %.not.i, label %Aig_ManObj.exit73, label %17
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %14, align 4
@@ -1221,9 +1221,9 @@ define void @Fra_ImpAddToSolver(ptr nocapture noundef %0, ptr nocapture noundef 
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %.val.i, i64 %25
   %27 = load ptr, ptr %26, align 8
-  br label %Aig_ManObj.argprom.exit73
+  br label %Aig_ManObj.exit73
 
-Aig_ManObj.argprom.exit73:                        ; preds = %13, %17
+Aig_ManObj.exit73:                                ; preds = %13, %17
   %28 = phi ptr [ %23, %17 ], [ null, %13 ]
   %29 = phi ptr [ %27, %17 ], [ null, %13 ]
   %30 = load ptr, ptr %0, align 8
@@ -1232,7 +1232,7 @@ Aig_ManObj.argprom.exit73:                        ; preds = %13, %17
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph, label %.loopexit77
 
-.lr.ph:                                           ; preds = %Aig_ManObj.argprom.exit73
+.lr.ph:                                           ; preds = %Aig_ManObj.exit73
   %34 = getelementptr i8, ptr %28, i64 36
   %.val56 = load i32, ptr %34, align 4
   %35 = getelementptr i8, ptr %28, i64 40
@@ -1296,9 +1296,9 @@ Aig_ManObj.argprom.exit73:                        ; preds = %13, %17
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %42, !llvm.loop !25
 
-.loopexit77:                                      ; preds = %Aig_ManObj.argprom.exit73, %62
-  %65 = phi i32 [ %.pre92, %62 ], [ %32, %Aig_ManObj.argprom.exit73 ]
-  %.04979 = phi i32 [ %63, %62 ], [ 0, %Aig_ManObj.argprom.exit73 ]
+.loopexit77:                                      ; preds = %Aig_ManObj.exit73, %62
+  %65 = phi i32 [ %.pre92, %62 ], [ %32, %Aig_ManObj.exit73 ]
+  %.04979 = phi i32 [ %63, %62 ], [ 0, %Aig_ManObj.exit73 ]
   %66 = icmp slt i32 %.04979, %65
   br i1 %66, label %.loopexit, label %.preheader
 
@@ -1531,9 +1531,9 @@ define i32 @Fra_ImpCheckForNode(ptr noundef %0, ptr nocapture noundef readonly %
   %19 = tail call noundef i32 @llvm.smax.i32(i32 %17, i32 %18)
   %20 = load i32, ptr %8, align 4
   %21 = icmp sgt i32 %19, %20
-  br i1 %21, label %.critedge.loopexit, label %Aig_ManObj.argprom.exit66
+  br i1 %21, label %.critedge.loopexit, label %Aig_ManObj.exit66
 
-Aig_ManObj.argprom.exit66:                        ; preds = %16
+Aig_ManObj.exit66:                                ; preds = %16
   %22 = load ptr, ptr %9, align 8
   %23 = getelementptr i8, ptr %22, i64 32
   %.val55 = load ptr, ptr %23, align 8, !nonnull !29, !noundef !29
@@ -1598,7 +1598,7 @@ Aig_ManObj.argprom.exit66:                        ; preds = %16
   %73 = icmp eq ptr %70, %72
   br i1 %73, label %74, label %85
 
-74:                                               ; preds = %Aig_ManObj.argprom.exit66
+74:                                               ; preds = %Aig_ManObj.exit66
   %75 = icmp eq i32 %60, %68
   br i1 %75, label %96, label %76
 
@@ -1620,7 +1620,7 @@ Aig_ManObj.argprom.exit66:                        ; preds = %16
   store i32 0, ptr %84, align 4
   br label %96
 
-85:                                               ; preds = %Aig_ManObj.argprom.exit66
+85:                                               ; preds = %Aig_ManObj.exit66
   %86 = tail call i32 @Fra_NodesAreImp(ptr noundef nonnull %0, ptr noundef %70, ptr noundef %72, i32 noundef %60, i32 noundef %68) #19
   %.not = icmp eq i32 %86, 1
   br i1 %.not, label %96, label %87
@@ -1689,9 +1689,9 @@ define range(i32 0, 2) i32 @Fra_ImpRefineUsingCex(ptr nocapture noundef readonly
   %9 = getelementptr inbounds i32, ptr %.val17, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %Sml_NodeCheckImp.exit.thread, label %Aig_ManObj.argprom.exit23
+  br i1 %11, label %Sml_NodeCheckImp.exit.thread, label %Aig_ManObj.exit23
 
-Aig_ManObj.argprom.exit23:                        ; preds = %8
+Aig_ManObj.exit23:                                ; preds = %8
   %12 = load ptr, ptr %6, align 8
   %13 = and i32 %10, 65535
   %14 = getelementptr i8, ptr %12, i64 32
@@ -1724,7 +1724,7 @@ Aig_ManObj.argprom.exit23:                        ; preds = %8
   %39 = icmp slt i32 %38, %30
   br i1 %39, label %.lr.ph.preheader.i, label %Sml_NodeCheckImp.exit.thread
 
-.lr.ph.preheader.i:                               ; preds = %Aig_ManObj.argprom.exit23
+.lr.ph.preheader.i:                               ; preds = %Aig_ManObj.exit23
   %40 = sext i32 %38 to i64
   br label %.lr.ph.i
 
@@ -1750,9 +1750,9 @@ Sml_NodeCheckImp.exit:                            ; preds = %.lr.ph.i
   %.val.pre = load i32, ptr %3, align 4
   br label %Sml_NodeCheckImp.exit.thread
 
-Sml_NodeCheckImp.exit.thread:                     ; preds = %41, %Aig_ManObj.argprom.exit23, %Sml_NodeCheckImp.exit, %8
-  %.val = phi i32 [ %.val31, %8 ], [ %.val.pre, %Sml_NodeCheckImp.exit ], [ %.val31, %Aig_ManObj.argprom.exit23 ], [ %.val31, %41 ]
-  %.1 = phi i32 [ %.029, %8 ], [ 1, %Sml_NodeCheckImp.exit ], [ %.029, %Aig_ManObj.argprom.exit23 ], [ %.029, %41 ]
+Sml_NodeCheckImp.exit.thread:                     ; preds = %41, %Aig_ManObj.exit23, %Sml_NodeCheckImp.exit, %8
+  %.val = phi i32 [ %.val31, %8 ], [ %.val.pre, %Sml_NodeCheckImp.exit ], [ %.val31, %Aig_ManObj.exit23 ], [ %.val31, %41 ]
+  %.1 = phi i32 [ %.029, %8 ], [ 1, %Sml_NodeCheckImp.exit ], [ %.029, %Aig_ManObj.exit23 ], [ %.029, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = sext i32 %.val to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
@@ -2059,15 +2059,15 @@ define void @Fra_ImpRecordInManager(ptr nocapture noundef readonly %0, ptr nound
   %12 = getelementptr i8, ptr %1, i64 140
   %.val26 = load i32, ptr %12, align 4
   %13 = icmp sgt i32 %.val22, 0
-  br i1 %13, label %Aig_ManObj.argprom.exit30.lr.ph, label %.critedge
+  br i1 %13, label %Aig_ManObj.exit30.lr.ph, label %.critedge
 
-Aig_ManObj.argprom.exit30.lr.ph:                  ; preds = %11
+Aig_ManObj.exit30.lr.ph:                          ; preds = %11
   %14 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %Aig_ManObj.argprom.exit30
+  br label %Aig_ManObj.exit30
 
-Aig_ManObj.argprom.exit30:                        ; preds = %Aig_ManObj.argprom.exit30.lr.ph, %Aig_ManObj.argprom.exit30
-  %indvars.iv = phi i64 [ 0, %Aig_ManObj.argprom.exit30.lr.ph ], [ %indvars.iv.next, %Aig_ManObj.argprom.exit30 ]
-  %15 = phi ptr [ %6, %Aig_ManObj.argprom.exit30.lr.ph ], [ %52, %Aig_ManObj.argprom.exit30 ]
+Aig_ManObj.exit30:                                ; preds = %Aig_ManObj.exit30.lr.ph, %Aig_ManObj.exit30
+  %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit30.lr.ph ], [ %indvars.iv.next, %Aig_ManObj.exit30 ]
+  %15 = phi ptr [ %6, %Aig_ManObj.exit30.lr.ph ], [ %52, %Aig_ManObj.exit30 ]
   %16 = getelementptr i8, ptr %15, i64 8
   %.val23 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i32, ptr %.val23, i64 %indvars.iv
@@ -2114,9 +2114,9 @@ Aig_ManObj.argprom.exit30:                        ; preds = %Aig_ManObj.argprom.
   %.val = load i32, ptr %53, align 4
   %54 = sext i32 %.val to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %Aig_ManObj.argprom.exit30, label %.critedge.loopexit, !llvm.loop !36
+  br i1 %55, label %Aig_ManObj.exit30, label %.critedge.loopexit, !llvm.loop !36
 
-.critedge.loopexit:                               ; preds = %Aig_ManObj.argprom.exit30
+.critedge.loopexit:                               ; preds = %Aig_ManObj.exit30
   %.val27.pre = load i32, ptr %12, align 4
   br label %.critedge
 

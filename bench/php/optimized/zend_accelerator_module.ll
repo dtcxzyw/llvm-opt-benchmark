@@ -337,7 +337,7 @@ declare void @zend_accel_error(i32 noundef, ptr noundef, ...) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal void @accel_file_exists(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call fastcc i32 @accel_file_in_cache.argprom(ptr noundef %0)
+  %3 = tail call fastcc i32 @accel_file_in_cache(ptr noundef %0)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
@@ -357,7 +357,7 @@ define internal void @accel_file_exists(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @accel_is_file(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call fastcc i32 @accel_file_in_cache.argprom(ptr noundef %0)
+  %3 = tail call fastcc i32 @accel_file_in_cache(ptr noundef %0)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
@@ -377,7 +377,7 @@ define internal void @accel_is_file(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @accel_is_readable(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call fastcc i32 @accel_file_in_cache.argprom(ptr noundef %0)
+  %3 = tail call fastcc i32 @accel_file_in_cache(ptr noundef %0)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
@@ -2014,7 +2014,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @accel_file_in_cache.argprom(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @accel_file_in_cache(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct._zend_file_handle, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4

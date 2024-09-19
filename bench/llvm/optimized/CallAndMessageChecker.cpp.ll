@@ -2868,7 +2868,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14.i.i: ; pre
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42), !noalias !30
   %175 = load ptr, ptr %172, align 8, !noalias !30
   %.not.i.i38.i = icmp eq ptr %175, null
-  br i1 %.not.i.i38.i, label %176, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i
+  br i1 %.not.i.i38.i, label %176, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i
 
 176:                                              ; preds = %171
   %177 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17, !noalias !30
@@ -2889,16 +2889,16 @@ _ZN4llvm9StringRefC2EPKc.exit5.i.i.i:             ; preds = %179, %176
   %183 = load ptr, ptr %172, align 8, !noalias !30
   store ptr %177, ptr %172, align 8, !noalias !30
   %.not.i.i.i15.i.i = icmp eq ptr %183, null
-  br i1 %.not.i.i.i15.i.i, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i, label %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i15.i.i, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i, label %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i
   %184 = load ptr, ptr %183, align 8, !noalias !30
   %185 = getelementptr inbounds i8, ptr %184, i64 16
   %186 = load ptr, ptr %185, align 8, !noalias !30
   call void %186(ptr noundef nonnull align 8 dereferenceable(97) %183) #20, !noalias !30
-  br label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i
+  br label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i
 
-_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i, %171
+_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i, %171
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42), !noalias !30
   %187 = getelementptr inbounds i8, ptr %45, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull %187, i64 noundef 512) #20, !noalias !30
@@ -2921,7 +2921,7 @@ _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clan
   %197 = icmp sgt i32 %196, -1
   br i1 %197, label %_ZN4llvm3isaIN5clang4ento15AnyFunctionCallENS2_9CallEventEEEbRKT0_.exit.i.i, label %_ZN4llvm3isaIN5clang4ento15AnyFunctionCallENS2_9CallEventEEEbRKT0_.exit.thread.i.i
 
-_ZN4llvm3isaIN5clang4ento15AnyFunctionCallENS2_9CallEventEEEbRKT0_.exit.i.i: ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i
+_ZN4llvm3isaIN5clang4ento15AnyFunctionCallENS2_9CallEventEEEbRKT0_.exit.i.i: ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i
   %198 = load ptr, ptr %1, align 8, !noalias !30
   %199 = getelementptr inbounds i8, ptr %198, i64 32
   %200 = load ptr, ptr %199, align 8, !noalias !30
@@ -2951,7 +2951,7 @@ _ZN4llvm3isaIN5clang4ento15AnyFunctionCallENS2_9CallEventEEEbRKT0_.exit.i.i: ; p
   store ptr %216, ptr %206, align 8, !noalias !30
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i
 
-_ZN4llvm3isaIN5clang4ento15AnyFunctionCallENS2_9CallEventEEEbRKT0_.exit.thread.i.i: ; preds = %_ZN4llvm3isaIN5clang4ento15AnyFunctionCallENS2_9CallEventEEEbRKT0_.exit.i.i, %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i
+_ZN4llvm3isaIN5clang4ento15AnyFunctionCallENS2_9CallEventEEEbRKT0_.exit.thread.i.i: ; preds = %_ZN4llvm3isaIN5clang4ento15AnyFunctionCallENS2_9CallEventEEEbRKT0_.exit.i.i, %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i
   %217 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %218 = load ptr, ptr %217, align 8, !noalias !30
   %219 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -3742,9 +3742,9 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i.i: ;
   %575 = trunc i8 %574 to i1
   %.not.i.i36.i.i = icmp ne ptr %.032.i.i, null
   %or.cond.not.i.i.i.i = and i1 %.not.i.i36.i.i, %575
-  br i1 %or.cond.not.i.i.i.i, label %576, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.argprom.exit.thread.i.i.i
+  br i1 %or.cond.not.i.i.i.i, label %576, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.exit.thread.i.i.i
 
-_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.argprom.exit.thread.i.i.i: ; preds = %561
+_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.exit.thread.i.i.i: ; preds = %561
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !49
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %19), !noalias !49
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20), !noalias !49
@@ -4015,7 +4015,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i.i: ; p
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !49
   %706 = load ptr, ptr %.0.i.i, align 8, !noalias !49
   %.not.i60.i.i.i.i = icmp eq ptr %706, null
-  br i1 %.not.i60.i.i.i.i, label %707, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i.i
+  br i1 %.not.i60.i.i.i.i, label %707, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i
 
 707:                                              ; preds = %705
   %708 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17, !noalias !49
@@ -4033,7 +4033,7 @@ _ZN4llvm9StringRefC2EPKc.exit5.i.i.i.i.i:         ; preds = %709, %707
   %712 = load ptr, ptr %.0.i.i, align 8, !noalias !49
   store ptr %708, ptr %.0.i.i, align 8, !noalias !49
   %.not.i.i.i61.i.i.i.i = icmp eq ptr %712, null
-  br i1 %.not.i.i.i61.i.i.i.i, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i61.i.i.i.i, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i.i.i
   %713 = load ptr, ptr %712, align 8, !noalias !49
@@ -4041,9 +4041,9 @@ _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds
   %715 = load ptr, ptr %714, align 8, !noalias !49
   call void %715(ptr noundef nonnull align 8 dereferenceable(97) %712) #20, !noalias !49
   %.pre20.i.i.i.i = load ptr, ptr %.0.i.i, align 8, !noalias !49
-  br label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i.i
+  br label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i
 
-_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i.i.i, %705
+_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i.i.i, %705
   %716 = phi ptr [ %706, %705 ], [ %708, %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i.i.i ], [ %.pre20.i.i.i.i, %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !49
   %717 = load ptr, ptr %527, align 8, !noalias !49
@@ -4064,12 +4064,12 @@ _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clan
   %.not.i.i.i.i65.i.i.i.i = icmp ugt i64 %723, %724
   br i1 %.not.i.i.i.i65.i.i.i.i, label %725, label %_ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i.i.i.i
 
-725:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i.i
+725:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i
   %726 = getelementptr inbounds i8, ptr %720, i64 104
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %721, ptr noundef nonnull %726, i64 noundef %723, i64 noundef 8) #20, !noalias !49
   br label %_ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i.i.i.i
 
-_ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i.i.i.i: ; preds = %725, %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i.i
+_ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i.i.i.i: ; preds = %725, %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i
   %727 = load ptr, ptr %721, align 8, !noalias !49
   %728 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %721) #20, !noalias !49
   %729 = getelementptr inbounds %"class.clang::SourceRange", ptr %727, i64 %728
@@ -4120,7 +4120,7 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
   %746 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #20, !noalias !49
   %747 = load ptr, ptr %19, align 8, !noalias !49
   %748 = icmp eq ptr %747, %522
-  br i1 %748, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.argprom.exit.i.i.i, label %749
+  br i1 %748, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.exit.i.i.i, label %749
 
 749:                                              ; preds = %745
   call void @free(ptr noundef %747) #20, !noalias !49
@@ -4129,13 +4129,13 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20), !noalias !49
   br i1 %.1.i.i.i.i, label %.loopexit.i.i, label %750
 
-_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.argprom.exit.i.i.i: ; preds = %745
+_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.exit.i.i.i: ; preds = %745
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !49
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %19), !noalias !49
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20), !noalias !49
   br i1 %.1.i.i.i.i, label %.loopexit.i.i, label %750
 
-750:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.argprom.exit.i.i.i, %749, %_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.argprom.exit.thread.i.i.i
+750:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.exit.i.i.i, %749, %_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.exit.thread.i.i.i
   %751 = icmp eq i8 %.fca.1.extract.i100.i, 0
   br i1 %751, label %752, label %979
 
@@ -4192,7 +4192,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit66.i.i.i: ; p
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !49
   %768 = load ptr, ptr %.0.i.i, align 8, !noalias !49
   %.not.i67.i.i.i = icmp eq ptr %768, null
-  br i1 %.not.i67.i.i.i, label %769, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i
+  br i1 %.not.i67.i.i.i, label %769, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i
 
 769:                                              ; preds = %767
   %770 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17, !noalias !49
@@ -4211,16 +4211,16 @@ _ZN4llvm9StringRefC2EPKc.exit5.i.i.i.i:           ; preds = %771, %769
   %775 = load ptr, ptr %.0.i.i, align 8, !noalias !49
   store ptr %770, ptr %.0.i.i, align 8, !noalias !49
   %.not.i.i.i68.i.i.i = icmp eq ptr %775, null
-  br i1 %.not.i.i.i68.i.i.i, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i, label %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i
+  br i1 %.not.i.i.i68.i.i.i, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i, label %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i.i
   %776 = load ptr, ptr %775, align 8, !noalias !49
   %777 = getelementptr inbounds i8, ptr %776, i64 16
   %778 = load ptr, ptr %777, align 8, !noalias !49
   call void %778(ptr noundef nonnull align 8 dereferenceable(97) %775) #20, !noalias !49
-  br label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i
+  br label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i
 
-_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i.i, %767
+_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit5.i.i.i.i, %767
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !49
   %779 = getelementptr inbounds i8, ptr %22, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull %779, i64 noundef 200) #20, !noalias !49
@@ -4245,7 +4245,7 @@ _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clan
     i32 9, label %872
   ]
 
-789:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i
+789:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i
   %790 = call noundef i32 @_ZNK5clang4ento14ObjCMethodCall14getMessageKindEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #20, !noalias !49
   switch i32 %790, label %871 [
     i32 2, label %791
@@ -4399,7 +4399,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i76.i.i.i: ; preds = %810, %808
 871:                                              ; preds = %789
   unreachable
 
-872:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i
+872:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i
   %873 = add nsw i32 %.03168.i.i, 1
   %874 = sext i32 %873 to i64
   %875 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef %874) #20, !noalias !49
@@ -4469,7 +4469,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit40.i.i.i.i: ; preds = %891, %889
   store ptr %907, ptr %905, align 8, !noalias !49
   br label %_ZL35describeUninitializedArgumentInCallRKN5clang4ento9CallEventEiRN4llvm19raw_svector_ostreamE.exit.i.i.i
 
-908:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i.i.i
+908:                                              ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i
   %909 = add nsw i32 %.03168.i.i, 1
   %910 = sext i32 %909 to i64
   %911 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef %910) #20, !noalias !49
@@ -4696,7 +4696,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit85.i.i.i: ; p
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !49
   %1014 = load ptr, ptr %.0.i.i, align 8, !noalias !49
   %.not.i48.i.i = icmp eq ptr %1014, null
-  br i1 %.not.i48.i.i, label %1015, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i107.i
+  br i1 %.not.i48.i.i, label %1015, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i107.i
 
 1015:                                             ; preds = %1013
   %1016 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17, !noalias !49
@@ -4714,16 +4714,16 @@ _ZN4llvm9StringRefC2EPKc.exit5.i.i109.i:          ; preds = %1017, %1015
   %1020 = load ptr, ptr %.0.i.i, align 8, !noalias !49
   store ptr %1016, ptr %.0.i.i, align 8, !noalias !49
   %.not.i.i.i49.i.i = icmp eq ptr %1020, null
-  br i1 %.not.i.i.i49.i.i, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i107.i, label %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i110.i
+  br i1 %.not.i.i.i49.i.i, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i107.i, label %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i110.i
 
 _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i110.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit5.i.i109.i
   %1021 = load ptr, ptr %1020, align 8, !noalias !49
   %1022 = getelementptr inbounds i8, ptr %1021, i64 16
   %1023 = load ptr, ptr %1022, align 8, !noalias !49
   call void %1023(ptr noundef nonnull align 8 dereferenceable(97) %1020) #20, !noalias !49
-  br label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i107.i
+  br label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i107.i
 
-_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i107.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i110.i, %_ZN4llvm9StringRefC2EPKc.exit5.i.i109.i, %1013
+_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i107.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i110.i, %_ZN4llvm9StringRefC2EPKc.exit5.i.i109.i, %1013
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !49
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull %542, i64 noundef 512) #20, !noalias !49
   store i32 2, ptr %543, align 8, !noalias !49
@@ -4741,11 +4741,11 @@ _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clan
   %1029 = icmp ult i64 %1028, 59
   br i1 %1029, label %1030, label %1032
 
-1030:                                             ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i107.i
+1030:                                             ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i107.i
   %1031 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull @.str.34, i64 noundef 59) #20, !noalias !49
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit47.i.i
 
-1032:                                             ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.argprom.exit.i107.i
+1032:                                             ; preds = %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i107.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %1025, ptr noundef nonnull align 1 dereferenceable(59) @.str.34, i64 59, i1 false), !noalias !49
   %1033 = getelementptr inbounds i8, ptr %1025, i64 59
   store ptr %1033, ptr %549, align 8, !noalias !49
@@ -4943,7 +4943,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83.i.i.i: ; p
 _ZN12_GLOBAL__N_122FindUninitializedFieldD2Ev.exit.i.i.i: ; preds = %1118, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit83.i.i.i
   br i1 %997, label %.loopexit.i.i, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc15LazyCompoundValEEESt8optionalIT_Ev.exit.i.i.i
 
-.loopexit.i.i:                                    ; preds = %_ZN12_GLOBAL__N_122FindUninitializedFieldD2Ev.exit.i.i.i, %_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.argprom.exit.i.i.i, %749, %978, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit66.i.i.i, %757, %755
+.loopexit.i.i:                                    ; preds = %_ZN12_GLOBAL__N_122FindUninitializedFieldD2Ev.exit.i.i.i, %_ZNK12_GLOBAL__N_121CallAndMessageChecker18uninitRefOrPointerERN5clang4ento14CheckerContextENS2_4SValENS1_11SourceRangeEPKNS1_4ExprERSt10unique_ptrINS2_7BugTypeESt14default_deleteISB_EEPKNS1_11ParmVarDeclEPKci.exit.i.i.i, %749, %978, %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit66.i.i.i, %757, %755
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21), !noalias !49
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %22), !noalias !49
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %23), !noalias !49

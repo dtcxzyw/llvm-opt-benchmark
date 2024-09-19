@@ -479,7 +479,7 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
 
 224:                                              ; preds = %218
   %.not27.i = icmp eq i32 %.09.lcssa.i, 0
-  br i1 %.not27.i, label %write_reconstructed_file.argprom.exit.thread, label %.lr.ph.split.us.split.i
+  br i1 %.not27.i, label %write_reconstructed_file.exit.thread, label %.lr.ph.split.us.split.i
 
 .thread55.i:                                      ; preds = %219
   %.not2757.i = icmp eq i32 %.09.lcssa.i, 0
@@ -619,39 +619,39 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.thread.sink.split.i, %._crit_edge.i
   %276 = icmp sgt i32 %.059.i, -1
-  br i1 %276, label %._crit_edge.thread.thread.i, label %write_reconstructed_file.argprom.exit
+  br i1 %276, label %._crit_edge.thread.thread.i, label %write_reconstructed_file.exit
 
 ._crit_edge.thread.thread.i:                      ; preds = %._crit_edge.thread.i, %.thread55.i
   %.0596567.i = phi i32 [ %.059.i, %._crit_edge.thread.i ], [ %221, %.thread55.i ]
   %277 = call i32 @close(i32 noundef %.0596567.i) #10
   %.not97.i = icmp eq i32 %277, 0
-  br i1 %.not97.i, label %write_reconstructed_file.argprom.exit, label %278
+  br i1 %.not97.i, label %write_reconstructed_file.exit, label %278
 
 278:                                              ; preds = %._crit_edge.thread.thread.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %1) #10
   call void @exit(i32 noundef 1) #12
   unreachable
 
-write_reconstructed_file.argprom.exit:            ; preds = %._crit_edge.thread.i, %._crit_edge.thread.thread.i
+write_reconstructed_file.exit:                    ; preds = %._crit_edge.thread.i, %._crit_edge.thread.thread.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14)
   %.not.i156 = icmp eq i32 %20, 0
   br i1 %.not.i156, label %debug_reconstruction.exit, label %.lr.ph.i157
 
-write_reconstructed_file.argprom.exit.thread:     ; preds = %224
+write_reconstructed_file.exit.thread:             ; preds = %224
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14)
   %.not.i156267 = icmp eq i32 %20, 0
   br i1 %.not.i156267, label %debug_reconstruction.exit, label %.lr.ph.i157.thread
 
-.lr.ph.i157.thread:                               ; preds = %write_reconstructed_file.argprom.exit.thread
+.lr.ph.i157.thread:                               ; preds = %write_reconstructed_file.exit.thread
   %279 = getelementptr inbounds i8, ptr %14, i64 48
   %wide.trip.count40.i268 = zext i32 %20 to i64
   br label %.lr.ph.split.us.i.preheader
 
-.lr.ph.i157:                                      ; preds = %write_reconstructed_file.argprom.exit
+.lr.ph.i157:                                      ; preds = %write_reconstructed_file.exit
   %280 = getelementptr inbounds i8, ptr %14, i64 48
   %wide.trip.count40.i = zext i32 %20 to i64
   br i1 %12, label %.lr.ph.split.us.i.preheader, label %.lr.ph.split.i158
@@ -741,7 +741,7 @@ write_reconstructed_file.argprom.exit.thread:     ; preds = %224
   %exitcond.not.i162 = icmp eq i64 %indvars.iv.next.i161, %wide.trip.count40.i
   br i1 %exitcond.not.i162, label %debug_reconstruction.exit, label %.lr.ph.split.i158, !llvm.loop !12
 
-debug_reconstruction.exit:                        ; preds = %318, %304, %write_reconstructed_file.argprom.exit.thread, %write_reconstructed_file.argprom.exit
+debug_reconstruction.exit:                        ; preds = %318, %304, %write_reconstructed_file.exit.thread, %write_reconstructed_file.exit
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14)
   br label %319
 

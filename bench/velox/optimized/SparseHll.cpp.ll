@@ -75,9 +75,9 @@ if.end10.i:                                       ; preds = %if.then7.i, %if.the
   %high.1.i = phi i32 [ %high.03.i, %if.then.i ], [ %sub8.i, %if.then7.i ]
   %low.1.i = phi i32 [ %add5.i, %if.then.i ], [ %low.04.i, %if.then7.i ]
   %cmp.not.i = icmp sgt i32 %low.1.i, %high.1.i
-  br i1 %cmp.not.i, label %_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.argprom.exit, label %while.body.i, !llvm.loop !4
+  br i1 %cmp.not.i, label %_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.exit, label %while.body.i, !llvm.loop !4
 
-_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.argprom.exit: ; preds = %if.end10.i
+_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.exit: ; preds = %if.end10.i
   %5 = zext nneg i32 %low.1.i to i64
   br label %if.else
 
@@ -91,8 +91,8 @@ if.then10:                                        ; preds = %if.then
   store i32 %or.i9, ptr %add.ptr2.i, align 4
   br label %if.end25
 
-if.else:                                          ; preds = %_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.argprom.exit, %entry
-  %sub14 = phi i64 [ %5, %_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.argprom.exit ], [ 0, %entry ]
+if.else:                                          ; preds = %_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.exit, %entry
+  %sub14 = phi i64 [ %5, %_ZN8facebook5velox6common3hll12_GLOBAL__N_111searchIndexEjRKSt6vectorIjNS0_12StlAllocatorIjEEE.exit ], [ 0, %entry ]
   %add.ptr.i15 = getelementptr inbounds i32, ptr %this.val, i64 %sub14
   %sub.ptr.lhs.cast.i.i16 = ptrtoint ptr %add.ptr.i15 to i64
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 24

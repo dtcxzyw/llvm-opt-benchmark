@@ -2885,7 +2885,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase22CreateGCStatepointCallEmj
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %12, align 8
   %24 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %21, i32 noundef 148, ptr nonnull %12, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE.argprom(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 0, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 0, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %25
 
@@ -2975,7 +2975,7 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %68 = load ptr, ptr %13, align 8
   %.not.i.i.i13.i = icmp eq ptr %68, null
-  br i1 %.not.i.i.i13.i, label %_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueES2_S2_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS8_IT0_EEESB_INS8_IT1_EEENS8_IT2_EERKNS0_5TwineE.argprom.exit, label %69
+  br i1 %.not.i.i.i13.i, label %_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueES2_S2_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS8_IT0_EEESB_INS8_IT1_EEENS8_IT2_EERKNS0_5TwineE.exit, label %69
 
 69:                                               ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2984,9 +2984,9 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   %73 = ptrtoint ptr %68 to i64
   %74 = sub i64 %72, %73
   call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef %74) #21
-  br label %_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueES2_S2_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS8_IT0_EEESB_INS8_IT1_EEENS8_IT2_EERKNS0_5TwineE.argprom.exit
+  br label %_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueES2_S2_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS8_IT0_EEESB_INS8_IT1_EEENS8_IT2_EERKNS0_5TwineE.exit
 
-_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueES2_S2_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS8_IT0_EEESB_INS8_IT1_EEENS8_IT2_EERKNS0_5TwineE.argprom.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %69
+_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueES2_S2_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS8_IT0_EEESB_INS8_IT1_EEENS8_IT2_EERKNS0_5TwineE.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %69
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -3020,7 +3020,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase22CreateGCStatepointCallEmj
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %14, align 8
   %25 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %22, i32 noundef 148, ptr nonnull %14, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE.argprom(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %5, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %5, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %26
 
@@ -3110,7 +3110,7 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %69 = load ptr, ptr %15, align 8
   %.not.i.i.i13.i = icmp eq ptr %69, null
-  br i1 %.not.i.i.i13.i, label %_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.argprom.exit, label %70
+  br i1 %.not.i.i.i13.i, label %_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.exit, label %70
 
 70:                                               ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i
   %71 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -3119,9 +3119,9 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #21
-  br label %_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.argprom.exit
+  br label %_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.exit
 
-_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.argprom.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %70
+_ZL28CreateGCStatepointCallCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
@@ -3158,7 +3158,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase22CreateGCStatepointCallEmj
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %12, align 8
   %24 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %21, i32 noundef 148, ptr nonnull %12, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %25
 
@@ -3248,7 +3248,7 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %68 = load ptr, ptr %13, align 8
   %.not.i.i.i13.i = icmp eq ptr %68, null
-  br i1 %.not.i.i.i13.i, label %_ZL28CreateGCStatepointCallCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.argprom.exit, label %69
+  br i1 %.not.i.i.i13.i, label %_ZL28CreateGCStatepointCallCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.exit, label %69
 
 69:                                               ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -3257,9 +3257,9 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   %73 = ptrtoint ptr %68 to i64
   %74 = sub i64 %72, %73
   call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef %74) #21
-  br label %_ZL28CreateGCStatepointCallCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.argprom.exit
+  br label %_ZL28CreateGCStatepointCallCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.exit
 
-_ZL28CreateGCStatepointCallCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.argprom.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %69
+_ZL28CreateGCStatepointCallCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_8CallInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEjNS0_8ArrayRefIT_EESt8optionalINS9_IT0_EEESC_INS9_IT1_EEENS9_IT2_EERKNS0_5TwineE.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %69
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
@@ -3298,7 +3298,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase24CreateGCStatepointInvokeE
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %15, align 8
   %27 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %24, i32 noundef 148, ptr nonnull %15, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE.argprom(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 0, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 0, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %28
 
@@ -3393,7 +3393,7 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %71 = load ptr, ptr %16, align 8
   %.not.i.i.i15.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i15.i, label %_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueES2_S2_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockES9_jNS0_8ArrayRefIT_EESt8optionalINSA_IT0_EEESD_INSA_IT1_EEENSA_IT2_EERKNS0_5TwineE.argprom.exit, label %72
+  br i1 %.not.i.i.i15.i, label %_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueES2_S2_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockES9_jNS0_8ArrayRefIT_EESt8optionalINSA_IT0_EEESD_INSA_IT1_EEENSA_IT2_EERKNS0_5TwineE.exit, label %72
 
 72:                                               ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i
   %73 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3402,9 +3402,9 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   %76 = ptrtoint ptr %71 to i64
   %77 = sub i64 %75, %76
   call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #21
-  br label %_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueES2_S2_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockES9_jNS0_8ArrayRefIT_EESt8optionalINSA_IT0_EEESD_INSA_IT1_EEENSA_IT2_EERKNS0_5TwineE.argprom.exit
+  br label %_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueES2_S2_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockES9_jNS0_8ArrayRefIT_EESt8optionalINSA_IT0_EEESD_INSA_IT1_EEENSA_IT2_EERKNS0_5TwineE.exit
 
-_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueES2_S2_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockES9_jNS0_8ArrayRefIT_EESt8optionalINSA_IT0_EEESD_INSA_IT1_EEENSA_IT2_EERKNS0_5TwineE.argprom.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %72
+_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueES2_S2_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockES9_jNS0_8ArrayRefIT_EESt8optionalINSA_IT0_EEESD_INSA_IT1_EEENSA_IT2_EERKNS0_5TwineE.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
@@ -3439,7 +3439,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase24CreateGCStatepointInvokeE
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %17, align 8
   %28 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %25, i32 noundef 148, ptr nonnull %17, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE.argprom(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %7, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %7, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %29
 
@@ -3534,7 +3534,7 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %72 = load ptr, ptr %18, align 8
   %.not.i.i.i15.i = icmp eq ptr %72, null
-  br i1 %.not.i.i.i15.i, label %_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.argprom.exit, label %73
+  br i1 %.not.i.i.i15.i, label %_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.exit, label %73
 
 73:                                               ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i
   %74 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -3543,9 +3543,9 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   %77 = ptrtoint ptr %72 to i64
   %78 = sub i64 %76, %77
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #21
-  br label %_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.argprom.exit
+  br label %_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.exit
 
-_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.argprom.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %73
+_ZL30CreateGCStatepointInvokeCommonIPN4llvm5ValueENS0_3UseES3_S2_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %73
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
@@ -3583,7 +3583,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase24CreateGCStatepointInvokeE
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %15, align 8
   %27 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %24, i32 noundef 148, ptr nonnull %15, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE.argprom.argelim(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %28
 
@@ -3678,7 +3678,7 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %71 = load ptr, ptr %16, align 8
   %.not.i.i.i15.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i15.i, label %_ZL30CreateGCStatepointInvokeCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.argprom.exit, label %72
+  br i1 %.not.i.i.i15.i, label %_ZL30CreateGCStatepointInvokeCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.exit, label %72
 
 72:                                               ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i
   %73 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3687,9 +3687,9 @@ _ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i: ; pred
   %76 = ptrtoint ptr %71 to i64
   %77 = sub i64 %75, %76
   call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #21
-  br label %_ZL30CreateGCStatepointInvokeCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.argprom.exit
+  br label %_ZL30CreateGCStatepointInvokeCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.exit
 
-_ZL30CreateGCStatepointInvokeCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.argprom.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %72
+_ZL30CreateGCStatepointInvokeCommonIN4llvm3UseEPNS0_5ValueES3_S3_EPNS0_10InvokeInstEPNS0_13IRBuilderBaseEmjNS0_14FunctionCalleeEPNS0_10BasicBlockESA_jNS0_8ArrayRefIT_EESt8optionalINSB_IT0_EEESE_INSB_IT1_EEENSB_IT2_EERKNS0_5TwineE.exit: ; preds = %_ZNSt6vectorIN4llvm17OperandBundleDefTIPNS0_5ValueEEESaIS4_EED2Ev.exit.i, %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
@@ -7993,7 +7993,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE18uninitialized_copyIKS2_S2_EEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
 _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit17:
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8
@@ -9666,7 +9666,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE18uninitialized_copyIPKNS_3Use
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE.argprom.argelim(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
 _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit17:
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8

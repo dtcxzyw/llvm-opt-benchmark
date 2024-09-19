@@ -5732,7 +5732,7 @@ _ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_Dele
           catch ptr null
   %156 = extractvalue { ptr, i32 } %155, 0
   %157 = call ptr @__cxa_begin_catch(ptr %156) #13
-  invoke fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterclEPKc.argprom(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  invoke fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterclEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %158 unwind label %159
 
 158:                                              ; preds = %154
@@ -5827,7 +5827,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7ArAsset16GetDetachedAssetEv
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterclEPKc.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterclEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdZipFile", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFileC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %3 = load ptr, ptr %2, align 8
@@ -5967,7 +5967,7 @@ define internal void @_ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrR
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvE8_DeleterSaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterclEPKc.argprom(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  invoke fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterclEPKc(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
@@ -5983,7 +5983,7 @@ define internal void @_ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrR
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvE8_DeleterSaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvE8_DeleterSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
+_ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvE8_DeleterSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__10UsdZipFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #29

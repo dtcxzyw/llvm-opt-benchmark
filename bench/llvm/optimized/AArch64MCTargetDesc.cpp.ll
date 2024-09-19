@@ -11756,14 +11756,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC10isFpOrNEONERKNS_6MCIn
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %4, i64 %9
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.thread180.i.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i.i
-  %.0255.i.i.i.i.i.i = phi i64 [ %138, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.thread180.i.i.i.i.i.i" ], [ %7, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.029254.i.i.i.i.i.i = phi ptr [ %137, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.thread180.i.i.i.i.i.i" ], [ %4, %.lr.ph.preheader.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i.i
+  %.0255.i.i.i.i.i.i = phi i64 [ %138, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i" ], [ %7, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.029254.i.i.i.i.i.i = phi ptr [ %137, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i" ], [ %4, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.029.val.i.i.i.i.i.i = load i8, ptr %.029254.i.i.i.i.i.i, align 8
   %10 = getelementptr i8, ptr %.029254.i.i.i.i.i.i, i64 8
   %.029.val30.i.i.i.i.i.i = load i32, ptr %10, align 8
   %11 = icmp eq i8 %.029.val.i.i.i.i.i.i, 1
-  br i1 %11, label %12, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread168.i.i.i.i.i.i"
+  br i1 %11, label %12, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread168.i.i.i.i.i.i"
 
 12:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %13 = lshr i32 %.029.val30.i.i.i.i.i.i, 3
@@ -11795,7 +11795,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i.i.i.i.i.i.i: ; p
 
 26:                                               ; preds = %12
   %.not.i15.i.i.i.i.i.i.i.i = icmp ult i32 %.029.val30.i.i.i.i.i.i, 208
-  br i1 %.not.i15.i.i.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread168.i.i.i.i.i.i"
+  br i1 %.not.i15.i.i.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread168.i.i.i.i.i.i"
 
 ._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i.i.i.i.i.i.i: ; preds = %26
   %.pre.i.i.i.i.i.i.i.i = and i32 %.029.val30.i.i.i.i.i.i, 7
@@ -11815,7 +11815,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i.i.i.i.i.i.i: ; p
 
 31:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i.i.i.i.i.i.i
   %.not.i18.i.i.i.i.i.i.i.i = icmp ult i32 %.029.val30.i.i.i.i.i.i, 112
-  br i1 %.not.i18.i.i.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread168.i.i.i.i.i.i"
+  br i1 %.not.i18.i.i.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread168.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i: ; preds = %31
   %32 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_19FPR16BitsE, i64 %.pre-phi18.i.i.i.i.i.i.i.i
@@ -11827,25 +11827,25 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i: ; p
 
 36:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i
   %.not.i21.i.i.i.i.i.i.i.i = icmp ult i32 %.029.val30.i.i.i.i.i.i, 48
-  br i1 %.not.i21.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread168.i.i.i.i.i.i"
+  br i1 %.not.i21.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread168.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %36
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i": ; preds = %36
   %37 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_18FPR8BitsE, i64 %.pre-phi18.i.i.i.i.i.i.i.i
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = and i32 %.pre-phi20.i.i.i.i.i.i.i.i, %39
   %.not196.i.i.i.i.i.i = icmp eq i32 %40, 0
-  br i1 %.not196.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread168.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not196.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread168.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread168.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i", %36, %31, %26, %.lr.ph.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread168.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i", %36, %31, %26, %.lr.ph.i.i.i.i.i.i
   %41 = getelementptr inbounds i8, ptr %.029254.i.i.i.i.i.i, i64 16
   %.val.i.i.i.i.i.i = load i8, ptr %41, align 8
   %42 = getelementptr i8, ptr %.029254.i.i.i.i.i.i, i64 24
   %.val31.i.i.i.i.i.i = load i32, ptr %42, align 8
   %43 = icmp eq i8 %.val.i.i.i.i.i.i, 1
-  br i1 %43, label %44, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.thread172.i.i.i.i.i.i"
+  br i1 %43, label %44, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.thread172.i.i.i.i.i.i"
 
-44:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread168.i.i.i.i.i.i"
+44:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread168.i.i.i.i.i.i"
   %45 = lshr i32 %.val31.i.i.i.i.i.i, 3
   %.not.i.i.i41.i.i.i.i.i.i = icmp ult i32 %.val31.i.i.i.i.i.i, 176
   br i1 %.not.i.i.i41.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i55.i.i.i.i.i.i, label %58
@@ -11875,7 +11875,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i58.i.i.i.i.i.i: ;
 
 58:                                               ; preds = %44
   %.not.i15.i.i42.i.i.i.i.i.i = icmp ult i32 %.val31.i.i.i.i.i.i, 208
-  br i1 %.not.i15.i.i42.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.thread172.i.i.i.i.i.i"
+  br i1 %.not.i15.i.i42.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.thread172.i.i.i.i.i.i"
 
 ._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i43.i.i.i.i.i.i: ; preds = %58
   %.pre.i.i44.i.i.i.i.i.i = and i32 %.val31.i.i.i.i.i.i, 7
@@ -11895,7 +11895,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i47.i.i.i.i.i.i: ;
 
 63:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i47.i.i.i.i.i.i
   %.not.i18.i.i51.i.i.i.i.i.i = icmp ult i32 %.val31.i.i.i.i.i.i, 112
-  br i1 %.not.i18.i.i51.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i52.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.thread172.i.i.i.i.i.i"
+  br i1 %.not.i18.i.i51.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i52.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.thread172.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i52.i.i.i.i.i.i: ; preds = %63
   %64 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_19FPR16BitsE, i64 %.pre-phi18.i.i49.i.i.i.i.i.i
@@ -11907,25 +11907,25 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i52.i.i.i.i.i.i: ;
 
 68:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i52.i.i.i.i.i.i
   %.not.i21.i.i54.i.i.i.i.i.i = icmp ult i32 %.val31.i.i.i.i.i.i, 48
-  br i1 %.not.i21.i.i54.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.thread172.i.i.i.i.i.i"
+  br i1 %.not.i21.i.i54.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.thread172.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.i.i.i.i.i.i": ; preds = %68
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.i.i.i.i.i.i": ; preds = %68
   %69 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_18FPR8BitsE, i64 %.pre-phi18.i.i49.i.i.i.i.i.i
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = and i32 %.pre-phi20.i.i48.i.i.i.i.i.i, %71
   %.not197.i.i.i.i.i.i = icmp eq i32 %72, 0
-  br i1 %.not197.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.thread172.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
+  br i1 %.not197.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.thread172.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.thread172.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.i.i.i.i.i.i", %68, %63, %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread168.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.thread172.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.i.i.i.i.i.i", %68, %63, %58, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread168.i.i.i.i.i.i"
   %73 = getelementptr inbounds i8, ptr %.029254.i.i.i.i.i.i, i64 32
   %.val32.i.i.i.i.i.i = load i8, ptr %73, align 8
   %74 = getelementptr i8, ptr %.029254.i.i.i.i.i.i, i64 40
   %.val33.i.i.i.i.i.i = load i32, ptr %74, align 8
   %75 = icmp eq i8 %.val32.i.i.i.i.i.i, 1
-  br i1 %75, label %76, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.thread176.i.i.i.i.i.i"
+  br i1 %75, label %76, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.thread176.i.i.i.i.i.i"
 
-76:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.thread172.i.i.i.i.i.i"
+76:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.thread172.i.i.i.i.i.i"
   %77 = lshr i32 %.val33.i.i.i.i.i.i, 3
   %.not.i.i.i62.i.i.i.i.i.i = icmp ult i32 %.val33.i.i.i.i.i.i, 176
   br i1 %.not.i.i.i62.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i76.i.i.i.i.i.i, label %90
@@ -11955,7 +11955,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i79.i.i.i.i.i.i: ;
 
 90:                                               ; preds = %76
   %.not.i15.i.i63.i.i.i.i.i.i = icmp ult i32 %.val33.i.i.i.i.i.i, 208
-  br i1 %.not.i15.i.i63.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.thread176.i.i.i.i.i.i"
+  br i1 %.not.i15.i.i63.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.thread176.i.i.i.i.i.i"
 
 ._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i64.i.i.i.i.i.i: ; preds = %90
   %.pre.i.i65.i.i.i.i.i.i = and i32 %.val33.i.i.i.i.i.i, 7
@@ -11975,7 +11975,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i68.i.i.i.i.i.i: ;
 
 95:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i68.i.i.i.i.i.i
   %.not.i18.i.i72.i.i.i.i.i.i = icmp ult i32 %.val33.i.i.i.i.i.i, 112
-  br i1 %.not.i18.i.i72.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i73.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.thread176.i.i.i.i.i.i"
+  br i1 %.not.i18.i.i72.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i73.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.thread176.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i73.i.i.i.i.i.i: ; preds = %95
   %96 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_19FPR16BitsE, i64 %.pre-phi18.i.i70.i.i.i.i.i.i
@@ -11987,25 +11987,25 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i73.i.i.i.i.i.i: ;
 
 100:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i73.i.i.i.i.i.i
   %.not.i21.i.i75.i.i.i.i.i.i = icmp ult i32 %.val33.i.i.i.i.i.i, 48
-  br i1 %.not.i21.i.i75.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.thread176.i.i.i.i.i.i"
+  br i1 %.not.i21.i.i75.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.thread176.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.i.i.i.i.i.i": ; preds = %100
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.i.i.i.i.i.i": ; preds = %100
   %101 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_18FPR8BitsE, i64 %.pre-phi18.i.i70.i.i.i.i.i.i
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i32
   %104 = and i32 %.pre-phi20.i.i69.i.i.i.i.i.i, %103
   %.not198.i.i.i.i.i.i = icmp eq i32 %104, 0
-  br i1 %.not198.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.thread176.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit69"
+  br i1 %.not198.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.thread176.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit69"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.thread176.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.i.i.i.i.i.i", %100, %95, %90, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.thread172.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.thread176.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.i.i.i.i.i.i", %100, %95, %90, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.thread172.i.i.i.i.i.i"
   %105 = getelementptr inbounds i8, ptr %.029254.i.i.i.i.i.i, i64 48
   %.val34.i.i.i.i.i.i = load i8, ptr %105, align 8
   %106 = getelementptr i8, ptr %.029254.i.i.i.i.i.i, i64 56
   %.val35.i.i.i.i.i.i = load i32, ptr %106, align 8
   %107 = icmp eq i8 %.val34.i.i.i.i.i.i, 1
-  br i1 %107, label %108, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.thread180.i.i.i.i.i.i"
+  br i1 %107, label %108, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i"
 
-108:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.thread176.i.i.i.i.i.i"
+108:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.thread176.i.i.i.i.i.i"
   %109 = lshr i32 %.val35.i.i.i.i.i.i, 3
   %.not.i.i.i83.i.i.i.i.i.i = icmp ult i32 %.val35.i.i.i.i.i.i, 176
   br i1 %.not.i.i.i83.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i97.i.i.i.i.i.i, label %122
@@ -12035,7 +12035,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i100.i.i.i.i.i.i: 
 
 122:                                              ; preds = %108
   %.not.i15.i.i84.i.i.i.i.i.i = icmp ult i32 %.val35.i.i.i.i.i.i, 208
-  br i1 %.not.i15.i.i84.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i85.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.thread180.i.i.i.i.i.i"
+  br i1 %.not.i15.i.i84.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i85.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i"
 
 ._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i85.i.i.i.i.i.i: ; preds = %122
   %.pre.i.i86.i.i.i.i.i.i = and i32 %.val35.i.i.i.i.i.i, 7
@@ -12055,7 +12055,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i89.i.i.i.i.i.i: ;
 
 127:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i89.i.i.i.i.i.i
   %.not.i18.i.i93.i.i.i.i.i.i = icmp ult i32 %.val35.i.i.i.i.i.i, 112
-  br i1 %.not.i18.i.i93.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i94.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.thread180.i.i.i.i.i.i"
+  br i1 %.not.i18.i.i93.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i94.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i94.i.i.i.i.i.i: ; preds = %127
   %128 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_19FPR16BitsE, i64 %.pre-phi18.i.i91.i.i.i.i.i.i
@@ -12067,30 +12067,30 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i94.i.i.i.i.i.i: ;
 
 132:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i94.i.i.i.i.i.i
   %.not.i21.i.i96.i.i.i.i.i.i = icmp ult i32 %.val35.i.i.i.i.i.i, 48
-  br i1 %.not.i21.i.i96.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.thread180.i.i.i.i.i.i"
+  br i1 %.not.i21.i.i96.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.i.i.i.i.i.i": ; preds = %132
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.i.i.i.i.i.i": ; preds = %132
   %133 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_18FPR8BitsE, i64 %.pre-phi18.i.i91.i.i.i.i.i.i
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
   %136 = and i32 %.pre-phi20.i.i90.i.i.i.i.i.i, %135
   %.not199.i.i.i.i.i.i = icmp eq i32 %136, 0
-  br i1 %.not199.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.thread180.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit71"
+  br i1 %.not199.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit71"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.thread180.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.i.i.i.i.i.i", %132, %127, %122, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.thread176.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.i.i.i.i.i.i", %132, %127, %122, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.thread176.i.i.i.i.i.i"
   %137 = getelementptr inbounds i8, ptr %.029254.i.i.i.i.i.i, i64 64
   %138 = add nsw i64 %.0255.i.i.i.i.i.i, -1
   %139 = icmp sgt i64 %.0255.i.i.i.i.i.i, 1
   br i1 %139, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !4
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.thread180.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i"
   %140 = and i64 %5, 3
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %2
   %.pre-phi273.i.i.i.i.i.i = phi i64 [ %140, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %5, %2 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %4, %2 ]
-  switch i64 %.pre-phi273.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.thread192.i.i.i.i.i.i" [
+  switch i64 %.pre-phi273.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i" [
     i64 3, label %141
     i64 2, label %174
     i64 1, label %207
@@ -12101,7 +12101,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i94.i.i.i.i.i.i: ;
   %142 = getelementptr i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   %.029.val37.i.i.i.i.i.i = load i32, ptr %142, align 8
   %143 = icmp eq i8 %.029.val36.i.i.i.i.i.i, 1
-  br i1 %143, label %144, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.thread184.i.i.i.i.i.i"
+  br i1 %143, label %144, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.thread184.i.i.i.i.i.i"
 
 144:                                              ; preds = %141
   %145 = lshr i32 %.029.val37.i.i.i.i.i.i, 3
@@ -12133,7 +12133,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i121.i.i.i.i.i.i: 
 
 158:                                              ; preds = %144
   %.not.i15.i.i105.i.i.i.i.i.i = icmp ult i32 %.029.val37.i.i.i.i.i.i, 208
-  br i1 %.not.i15.i.i105.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i106.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.thread184.i.i.i.i.i.i"
+  br i1 %.not.i15.i.i105.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i106.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.thread184.i.i.i.i.i.i"
 
 ._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i106.i.i.i.i.i.i: ; preds = %158
   %.pre.i.i107.i.i.i.i.i.i = and i32 %.029.val37.i.i.i.i.i.i, 7
@@ -12153,7 +12153,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i110.i.i.i.i.i.i: 
 
 163:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i110.i.i.i.i.i.i
   %.not.i18.i.i114.i.i.i.i.i.i = icmp ult i32 %.029.val37.i.i.i.i.i.i, 112
-  br i1 %.not.i18.i.i114.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.thread184.i.i.i.i.i.i"
+  br i1 %.not.i18.i.i114.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.thread184.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i: ; preds = %163
   %164 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_19FPR16BitsE, i64 %.pre-phi18.i.i112.i.i.i.i.i.i
@@ -12165,27 +12165,27 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i: 
 
 168:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i
   %.not.i21.i.i117.i.i.i.i.i.i = icmp ult i32 %.029.val37.i.i.i.i.i.i, 48
-  br i1 %.not.i21.i.i117.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.thread184.i.i.i.i.i.i"
+  br i1 %.not.i21.i.i117.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.thread184.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.i.i.i.i.i.i": ; preds = %168
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.i.i.i.i.i.i": ; preds = %168
   %169 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_18FPR8BitsE, i64 %.pre-phi18.i.i112.i.i.i.i.i.i
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %170 to i32
   %172 = and i32 %.pre-phi20.i.i111.i.i.i.i.i.i, %171
   %.not.i.i.i.i.i.i = icmp eq i32 %172, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.thread184.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.thread184.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.thread184.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.i.i.i.i.i.i", %168, %163, %158, %141
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.thread184.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.i.i.i.i.i.i", %168, %163, %158, %141
   %173 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 16
   br label %174
 
-174:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.thread184.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %173, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.thread184.i.i.i.i.i.i" ]
+174:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.thread184.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %173, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.thread184.i.i.i.i.i.i" ]
   %.1.val.i.i.i.i.i.i = load i8, ptr %.1.i.i.i.i.i.i, align 8
   %175 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
   %.1.val38.i.i.i.i.i.i = load i32, ptr %175, align 8
   %176 = icmp eq i8 %.1.val.i.i.i.i.i.i, 1
-  br i1 %176, label %177, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.thread188.i.i.i.i.i.i"
+  br i1 %176, label %177, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.thread188.i.i.i.i.i.i"
 
 177:                                              ; preds = %174
   %178 = lshr i32 %.1.val38.i.i.i.i.i.i, 3
@@ -12217,7 +12217,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i142.i.i.i.i.i.i: 
 
 191:                                              ; preds = %177
   %.not.i15.i.i126.i.i.i.i.i.i = icmp ult i32 %.1.val38.i.i.i.i.i.i, 208
-  br i1 %.not.i15.i.i126.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i127.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.thread188.i.i.i.i.i.i"
+  br i1 %.not.i15.i.i126.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i127.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.thread188.i.i.i.i.i.i"
 
 ._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i127.i.i.i.i.i.i: ; preds = %191
   %.pre.i.i128.i.i.i.i.i.i = and i32 %.1.val38.i.i.i.i.i.i, 7
@@ -12237,7 +12237,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i131.i.i.i.i.i.i: 
 
 196:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i131.i.i.i.i.i.i
   %.not.i18.i.i135.i.i.i.i.i.i = icmp ult i32 %.1.val38.i.i.i.i.i.i, 112
-  br i1 %.not.i18.i.i135.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.thread188.i.i.i.i.i.i"
+  br i1 %.not.i18.i.i135.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.thread188.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i: ; preds = %196
   %197 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_19FPR16BitsE, i64 %.pre-phi18.i.i133.i.i.i.i.i.i
@@ -12249,27 +12249,27 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i: 
 
 201:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i
   %.not.i21.i.i138.i.i.i.i.i.i = icmp ult i32 %.1.val38.i.i.i.i.i.i, 48
-  br i1 %.not.i21.i.i138.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.thread188.i.i.i.i.i.i"
+  br i1 %.not.i21.i.i138.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.thread188.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.i.i.i.i.i.i": ; preds = %201
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.i.i.i.i.i.i": ; preds = %201
   %202 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_18FPR8BitsE, i64 %.pre-phi18.i.i133.i.i.i.i.i.i
   %203 = load i8, ptr %202, align 1
   %204 = zext i8 %203 to i32
   %205 = and i32 %.pre-phi20.i.i132.i.i.i.i.i.i, %204
   %.not194.i.i.i.i.i.i = icmp eq i32 %205, 0
-  br i1 %.not194.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.thread188.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not194.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.thread188.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.thread188.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.i.i.i.i.i.i", %201, %196, %191, %174
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.thread188.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.i.i.i.i.i.i", %201, %196, %191, %174
   %206 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 16
   br label %207
 
-207:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.thread188.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %206, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.thread188.i.i.i.i.i.i" ]
+207:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.thread188.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %206, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.thread188.i.i.i.i.i.i" ]
   %.2.val.i.i.i.i.i.i = load i8, ptr %.2.i.i.i.i.i.i, align 8
   %208 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
   %.2.val39.i.i.i.i.i.i = load i32, ptr %208, align 8
   %209 = icmp eq i8 %.2.val.i.i.i.i.i.i, 1
-  br i1 %209, label %210, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.thread192.i.i.i.i.i.i"
+  br i1 %209, label %210, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i"
 
 210:                                              ; preds = %207
   %211 = lshr i32 %.2.val39.i.i.i.i.i.i, 3
@@ -12301,7 +12301,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i163.i.i.i.i.i.i: 
 
 224:                                              ; preds = %210
   %.not.i15.i.i147.i.i.i.i.i.i = icmp ult i32 %.2.val39.i.i.i.i.i.i, 208
-  br i1 %.not.i15.i.i147.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i148.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.thread192.i.i.i.i.i.i"
+  br i1 %.not.i15.i.i147.i.i.i.i.i.i, label %._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i148.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i"
 
 ._ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17_crit_edge.i.i148.i.i.i.i.i.i: ; preds = %224
   %.pre.i.i149.i.i.i.i.i.i = and i32 %.2.val39.i.i.i.i.i.i, 7
@@ -12321,7 +12321,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i152.i.i.i.i.i.i: 
 
 229:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i152.i.i.i.i.i.i
   %.not.i18.i.i156.i.i.i.i.i.i = icmp ult i32 %.2.val39.i.i.i.i.i.i, 112
-  br i1 %.not.i18.i.i156.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.thread192.i.i.i.i.i.i"
+  br i1 %.not.i18.i.i156.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i: ; preds = %229
   %230 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_19FPR16BitsE, i64 %.pre-phi18.i.i154.i.i.i.i.i.i
@@ -12333,28 +12333,28 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i: 
 
 234:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i
   %.not.i21.i.i159.i.i.i.i.i.i = icmp ult i32 %.2.val39.i.i.i.i.i.i, 48
-  br i1 %.not.i21.i.i159.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.thread192.i.i.i.i.i.i"
+  br i1 %.not.i21.i.i159.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.i.i.i.i.i.i": ; preds = %234
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.i.i.i.i.i.i": ; preds = %234
   %235 = getelementptr inbounds i8, ptr @_ZN4llvm12_GLOBAL__N_18FPR8BitsE, i64 %.pre-phi18.i.i154.i.i.i.i.i.i
   %236 = load i8, ptr %235, align 1
   %237 = zext i8 %236 to i32
   %238 = and i32 %.pre-phi20.i.i153.i.i.i.i.i.i, %237
   %.not195.i.i.i.i.i.i = icmp eq i32 %238, 0
-  br i1 %.not195.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.thread192.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not195.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.thread192.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.i.i.i.i.i.i", %234, %229, %224, %207, %._crit_edge.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.i.i.i.i.i.i", %234, %229, %224, %207, %._crit_edge.i.i.i.i.i.i
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit60.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.i.i.i.i.i.i"
   %239 = getelementptr inbounds i8, ptr %.029254.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit69": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit81.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit69": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.i.i.i.i.i.i"
   %240 = getelementptr inbounds i8, ptr %.029254.i.i.i.i.i.i, i64 32
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit71": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit102.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit71": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.i.i.i.i.i.i"
   %241 = getelementptr inbounds i8, ptr %.029254.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
@@ -12406,8 +12406,8 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i: 
   %253 = getelementptr inbounds i8, ptr %.029254.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit69", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit71", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit73", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit75", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit85", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit87", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i118.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i121.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i110.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.i.i.i.i.i.i", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i139.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i142.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i131.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.i.i.i.i.i.i", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i160.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i163.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i152.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.thread192.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %6, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.thread192.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit123.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit144.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit165.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i110.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i121.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i118.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i131.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i142.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i139.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i152.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i163.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i160.i.i.i.i.i.i ], [ %239, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %240, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit69" ], [ %241, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit71" ], [ %242, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit73" ], [ %243, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit75" ], [ %244, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77" ], [ %245, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79" ], [ %246, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81" ], [ %247, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83" ], [ %248, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit85" ], [ %249, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit87" ], [ %250, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89" ], [ %251, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91" ], [ %252, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93" ], [ %253, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95" ], [ %.029254.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i" ], [ %.029254.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i ], [ %.029254.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i.i.i.i.i.i.i ], [ %.029254.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i.i.i.i.i.i.i ], [ %.029254.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit69", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit71", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit73", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit75", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit85", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit87", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i118.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i121.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i110.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.i.i.i.i.i.i", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i139.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i142.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i131.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.i.i.i.i.i.i", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i160.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i163.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i152.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %6, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i110.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i121.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i118.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i131.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i142.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i139.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i152.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i163.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i160.i.i.i.i.i.i ], [ %239, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %240, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit69" ], [ %241, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit71" ], [ %242, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit73" ], [ %243, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit75" ], [ %244, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit77" ], [ %245, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79" ], [ %246, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81" ], [ %247, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83" ], [ %248, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit85" ], [ %249, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit87" ], [ %250, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89" ], [ %251, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91" ], [ %252, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93" ], [ %253, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95" ], [ %.029254.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i" ], [ %.029254.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i ], [ %.029254.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i.i.i.i.i.i.i ], [ %.029254.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i.i.i.i.i.i.i ], [ %.029254.i.i.i.i.i.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i.i.i.i.i.i.i ]
   %254 = icmp ne ptr %6, %.028.i.i.i.i.i.i
   ret i1 %254
 }
@@ -12428,18 +12428,18 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %4, i64 %9
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i.i
-  %.075.i.i.i.i.i.i = phi i64 [ %54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i" ], [ %7, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.02974.i.i.i.i.i.i = phi ptr [ %53, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i" ], [ %4, %.lr.ph.preheader.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i.i
+  %.075.i.i.i.i.i.i = phi i64 [ %54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i" ], [ %7, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.02974.i.i.i.i.i.i = phi ptr [ %53, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i" ], [ %4, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.029.val.i.i.i.i.i.i = load i8, ptr %.02974.i.i.i.i.i.i, align 8
   %10 = getelementptr i8, ptr %.02974.i.i.i.i.i.i, i64 8
   %.029.val30.i.i.i.i.i.i = load i32, ptr %10, align 8
   %11 = icmp eq i8 %.029.val.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %.029.val30.i.i.i.i.i.i, 176
   %or.cond.i.i.i.i.i.i.i.i = select i1 %11, i1 %.not.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
   %12 = lshr i32 %.029.val30.i.i.i.i.i.i, 3
   %13 = and i32 %.029.val30.i.i.i.i.i.i, 7
   %14 = zext nneg i32 %12 to i64
@@ -12449,9 +12449,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %18 = shl nuw nsw i32 1, %13
   %19 = and i32 %18, %17
   %.not60.i.i.i.i.i.i = icmp eq i32 %19, 0
-  br i1 %.not60.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not60.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 16
   %.val.i.i.i.i.i.i = load i8, ptr %20, align 8
   %21 = getelementptr i8, ptr %.02974.i.i.i.i.i.i, i64 24
@@ -12459,9 +12459,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %22 = icmp eq i8 %.val.i.i.i.i.i.i, 1
   %.not.i.i.i40.i.i.i.i.i.i = icmp ult i32 %.val31.i.i.i.i.i.i, 176
   %or.cond.i.i41.i.i.i.i.i.i = select i1 %22, i1 %.not.i.i.i40.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i41.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i41.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread.i.i.i.i.i.i"
   %23 = lshr i32 %.val31.i.i.i.i.i.i, 3
   %24 = and i32 %.val31.i.i.i.i.i.i, 7
   %25 = zext nneg i32 %23 to i64
@@ -12471,9 +12471,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %29 = shl nuw nsw i32 1, %24
   %30 = and i32 %29, %28
   %.not61.i.i.i.i.i.i = icmp eq i32 %30, 0
-  br i1 %.not61.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
+  br i1 %.not61.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread.i.i.i.i.i.i"
   %31 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 32
   %.val32.i.i.i.i.i.i = load i8, ptr %31, align 8
   %32 = getelementptr i8, ptr %.02974.i.i.i.i.i.i, i64 40
@@ -12481,9 +12481,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %33 = icmp eq i8 %.val32.i.i.i.i.i.i, 1
   %.not.i.i.i43.i.i.i.i.i.i = icmp ult i32 %.val33.i.i.i.i.i.i, 176
   %or.cond.i.i44.i.i.i.i.i.i = select i1 %33, i1 %.not.i.i.i43.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i44.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i44.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.thread.i.i.i.i.i.i"
   %34 = lshr i32 %.val33.i.i.i.i.i.i, 3
   %35 = and i32 %.val33.i.i.i.i.i.i, 7
   %36 = zext nneg i32 %34 to i64
@@ -12493,9 +12493,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %40 = shl nuw nsw i32 1, %35
   %41 = and i32 %40, %39
   %.not62.i.i.i.i.i.i = icmp eq i32 %41, 0
-  br i1 %.not62.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13"
+  br i1 %.not62.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.thread.i.i.i.i.i.i"
   %42 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 48
   %.val34.i.i.i.i.i.i = load i8, ptr %42, align 8
   %43 = getelementptr i8, ptr %.02974.i.i.i.i.i.i, i64 56
@@ -12503,9 +12503,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %44 = icmp eq i8 %.val34.i.i.i.i.i.i, 1
   %.not.i.i.i46.i.i.i.i.i.i = icmp ult i32 %.val35.i.i.i.i.i.i, 176
   %or.cond.i.i47.i.i.i.i.i.i = select i1 %44, i1 %.not.i.i.i46.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i47.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i47.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.thread.i.i.i.i.i.i"
   %45 = lshr i32 %.val35.i.i.i.i.i.i, 3
   %46 = and i32 %.val35.i.i.i.i.i.i, 7
   %47 = zext nneg i32 %45 to i64
@@ -12515,22 +12515,22 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %51 = shl nuw nsw i32 1, %46
   %52 = and i32 %51, %50
   %.not63.i.i.i.i.i.i = icmp eq i32 %52, 0
-  br i1 %.not63.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15"
+  br i1 %.not63.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.thread.i.i.i.i.i.i"
   %53 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 64
   %54 = add nsw i64 %.075.i.i.i.i.i.i, -1
   %55 = icmp sgt i64 %.075.i.i.i.i.i.i, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !6
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i"
   %56 = and i64 %5, 3
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %2
   %.pre-phi81.i.i.i.i.i.i = phi i64 [ %56, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %5, %2 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %4, %2 ]
-  switch i64 %.pre-phi81.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i" [
+  switch i64 %.pre-phi81.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i" [
     i64 3, label %57
     i64 2, label %69
     i64 1, label %81
@@ -12543,9 +12543,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %59 = icmp eq i8 %.029.val36.i.i.i.i.i.i, 1
   %.not.i.i.i49.i.i.i.i.i.i = icmp ult i32 %.029.val37.i.i.i.i.i.i, 176
   %or.cond.i.i50.i.i.i.i.i.i = select i1 %59, i1 %.not.i.i.i49.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.i.i.i.i.i.i": ; preds = %57
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.i.i.i.i.i.i": ; preds = %57
   %60 = lshr i32 %.029.val37.i.i.i.i.i.i, 3
   %61 = and i32 %.029.val37.i.i.i.i.i.i, 7
   %62 = zext nneg i32 %60 to i64
@@ -12555,23 +12555,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %66 = shl nuw nsw i32 1, %61
   %67 = and i32 %66, %65
   %.not.i.i.i.i.i.i = icmp eq i32 %67, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.i.i.i.i.i.i", %57
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.i.i.i.i.i.i", %57
   %68 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 16
   br label %69
 
-69:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %68, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i" ]
+69:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %68, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.thread.i.i.i.i.i.i" ]
   %.1.val.i.i.i.i.i.i = load i8, ptr %.1.i.i.i.i.i.i, align 8
   %70 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
   %.1.val38.i.i.i.i.i.i = load i32, ptr %70, align 8
   %71 = icmp eq i8 %.1.val.i.i.i.i.i.i, 1
   %.not.i.i.i52.i.i.i.i.i.i = icmp ult i32 %.1.val38.i.i.i.i.i.i, 176
   %or.cond.i.i53.i.i.i.i.i.i = select i1 %71, i1 %.not.i.i.i52.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.i.i.i.i.i.i": ; preds = %69
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.i.i.i.i.i.i": ; preds = %69
   %72 = lshr i32 %.1.val38.i.i.i.i.i.i, 3
   %73 = and i32 %.1.val38.i.i.i.i.i.i, 7
   %74 = zext nneg i32 %72 to i64
@@ -12581,23 +12581,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %78 = shl nuw nsw i32 1, %73
   %79 = and i32 %78, %77
   %.not58.i.i.i.i.i.i = icmp eq i32 %79, 0
-  br i1 %.not58.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not58.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.i.i.i.i.i.i", %69
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.i.i.i.i.i.i", %69
   %80 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 16
   br label %81
 
-81:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.thread.i.i.i.i.i.i" ]
+81:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.thread.i.i.i.i.i.i" ]
   %.2.val.i.i.i.i.i.i = load i8, ptr %.2.i.i.i.i.i.i, align 8
   %82 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
   %.2.val39.i.i.i.i.i.i = load i32, ptr %82, align 8
   %83 = icmp eq i8 %.2.val.i.i.i.i.i.i, 1
   %.not.i.i.i55.i.i.i.i.i.i = icmp ult i32 %.2.val39.i.i.i.i.i.i, 176
   %or.cond.i.i56.i.i.i.i.i.i = select i1 %83, i1 %.not.i.i.i55.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.i.i.i.i.i.i": ; preds = %81
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i": ; preds = %81
   %84 = lshr i32 %.2.val39.i.i.i.i.i.i, 3
   %85 = and i32 %.2.val39.i.i.i.i.i.i, 7
   %86 = zext nneg i32 %84 to i64
@@ -12607,25 +12607,25 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isQFormERKNS_6MCInstEP
   %90 = shl nuw nsw i32 1, %85
   %91 = and i32 %90, %89
   %.not59.i.i.i.i.i.i = icmp eq i32 %91, 0
-  br i1 %.not59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.i.i.i.i.i.i", %81, %._crit_edge.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i", %81, %._crit_edge.i.i.i.i.i.i
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.i.i.i.i.i.i"
   %92 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.i.i.i.i.i.i"
   %93 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 32
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.i.i.i.i.i.i"
   %94 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %6, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.i.i.i.i.i.i" ], [ %92, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %93, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13" ], [ %94, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15" ], [ %.02974.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i" ]
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %6, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i" ], [ %92, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %93, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13" ], [ %94, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isQFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15" ], [ %.02974.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isQFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i" ]
   %95 = icmp ne ptr %6, %.028.i.i.i.i.i.i
   ret i1 %95
 }
@@ -12646,18 +12646,18 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %4, i64 %9
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i.i
-  %.075.i.i.i.i.i.i = phi i64 [ %54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i" ], [ %7, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.02974.i.i.i.i.i.i = phi ptr [ %53, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i" ], [ %4, %.lr.ph.preheader.i.i.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i.i
+  %.075.i.i.i.i.i.i = phi i64 [ %54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i" ], [ %7, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.02974.i.i.i.i.i.i = phi ptr [ %53, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i" ], [ %4, %.lr.ph.preheader.i.i.i.i.i.i ]
   %.029.val.i.i.i.i.i.i = load i8, ptr %.02974.i.i.i.i.i.i, align 8
   %10 = getelementptr i8, ptr %.02974.i.i.i.i.i.i, i64 8
   %.029.val30.i.i.i.i.i.i = load i32, ptr %10, align 8
   %11 = icmp eq i8 %.029.val.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %.029.val30.i.i.i.i.i.i, 112
   %or.cond.i.i.i.i.i.i.i.i = select i1 %11, i1 %.not.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
   %12 = lshr i32 %.029.val30.i.i.i.i.i.i, 3
   %13 = and i32 %.029.val30.i.i.i.i.i.i, 7
   %14 = zext nneg i32 %12 to i64
@@ -12667,9 +12667,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %18 = shl nuw nsw i32 1, %13
   %19 = and i32 %18, %17
   %.not60.i.i.i.i.i.i = icmp eq i32 %19, 0
-  br i1 %.not60.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not60.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 16
   %.val.i.i.i.i.i.i = load i8, ptr %20, align 8
   %21 = getelementptr i8, ptr %.02974.i.i.i.i.i.i, i64 24
@@ -12677,9 +12677,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %22 = icmp eq i8 %.val.i.i.i.i.i.i, 1
   %.not.i.i.i40.i.i.i.i.i.i = icmp ult i32 %.val31.i.i.i.i.i.i, 112
   %or.cond.i.i41.i.i.i.i.i.i = select i1 %22, i1 %.not.i.i.i40.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i41.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i41.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread.i.i.i.i.i.i"
   %23 = lshr i32 %.val31.i.i.i.i.i.i, 3
   %24 = and i32 %.val31.i.i.i.i.i.i, 7
   %25 = zext nneg i32 %23 to i64
@@ -12689,9 +12689,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %29 = shl nuw nsw i32 1, %24
   %30 = and i32 %29, %28
   %.not61.i.i.i.i.i.i = icmp eq i32 %30, 0
-  br i1 %.not61.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
+  br i1 %.not61.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread.i.i.i.i.i.i"
   %31 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 32
   %.val32.i.i.i.i.i.i = load i8, ptr %31, align 8
   %32 = getelementptr i8, ptr %.02974.i.i.i.i.i.i, i64 40
@@ -12699,9 +12699,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %33 = icmp eq i8 %.val32.i.i.i.i.i.i, 1
   %.not.i.i.i43.i.i.i.i.i.i = icmp ult i32 %.val33.i.i.i.i.i.i, 112
   %or.cond.i.i44.i.i.i.i.i.i = select i1 %33, i1 %.not.i.i.i43.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i44.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i44.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.thread.i.i.i.i.i.i"
   %34 = lshr i32 %.val33.i.i.i.i.i.i, 3
   %35 = and i32 %.val33.i.i.i.i.i.i, 7
   %36 = zext nneg i32 %34 to i64
@@ -12711,9 +12711,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %40 = shl nuw nsw i32 1, %35
   %41 = and i32 %40, %39
   %.not62.i.i.i.i.i.i = icmp eq i32 %41, 0
-  br i1 %.not62.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13"
+  br i1 %.not62.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.thread.i.i.i.i.i.i"
   %42 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 48
   %.val34.i.i.i.i.i.i = load i8, ptr %42, align 8
   %43 = getelementptr i8, ptr %.02974.i.i.i.i.i.i, i64 56
@@ -12721,9 +12721,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %44 = icmp eq i8 %.val34.i.i.i.i.i.i, 1
   %.not.i.i.i46.i.i.i.i.i.i = icmp ult i32 %.val35.i.i.i.i.i.i, 112
   %or.cond.i.i47.i.i.i.i.i.i = select i1 %44, i1 %.not.i.i.i46.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i47.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i47.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.thread.i.i.i.i.i.i"
   %45 = lshr i32 %.val35.i.i.i.i.i.i, 3
   %46 = and i32 %.val35.i.i.i.i.i.i, 7
   %47 = zext nneg i32 %45 to i64
@@ -12733,22 +12733,22 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %51 = shl nuw nsw i32 1, %46
   %52 = and i32 %51, %50
   %.not63.i.i.i.i.i.i = icmp eq i32 %52, 0
-  br i1 %.not63.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15"
+  br i1 %.not63.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.thread.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.thread.i.i.i.i.i.i"
   %53 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 64
   %54 = add nsw i64 %.075.i.i.i.i.i.i, -1
   %55 = icmp sgt i64 %.075.i.i.i.i.i.i, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !7
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.thread.i.i.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.thread.i.i.i.i.i.i"
   %56 = and i64 %5, 3
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %2
   %.pre-phi81.i.i.i.i.i.i = phi i64 [ %56, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %5, %2 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %4, %2 ]
-  switch i64 %.pre-phi81.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i" [
+  switch i64 %.pre-phi81.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i" [
     i64 3, label %57
     i64 2, label %69
     i64 1, label %81
@@ -12761,9 +12761,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %59 = icmp eq i8 %.029.val36.i.i.i.i.i.i, 1
   %.not.i.i.i49.i.i.i.i.i.i = icmp ult i32 %.029.val37.i.i.i.i.i.i, 112
   %or.cond.i.i50.i.i.i.i.i.i = select i1 %59, i1 %.not.i.i.i49.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.i.i.i.i.i.i": ; preds = %57
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.i.i.i.i.i.i": ; preds = %57
   %60 = lshr i32 %.029.val37.i.i.i.i.i.i, 3
   %61 = and i32 %.029.val37.i.i.i.i.i.i, 7
   %62 = zext nneg i32 %60 to i64
@@ -12773,23 +12773,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %66 = shl nuw nsw i32 1, %61
   %67 = and i32 %66, %65
   %.not.i.i.i.i.i.i = icmp eq i32 %67, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.i.i.i.i.i.i", %57
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.i.i.i.i.i.i", %57
   %68 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 16
   br label %69
 
-69:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %68, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.thread.i.i.i.i.i.i" ]
+69:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %68, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.thread.i.i.i.i.i.i" ]
   %.1.val.i.i.i.i.i.i = load i8, ptr %.1.i.i.i.i.i.i, align 8
   %70 = getelementptr i8, ptr %.1.i.i.i.i.i.i, i64 8
   %.1.val38.i.i.i.i.i.i = load i32, ptr %70, align 8
   %71 = icmp eq i8 %.1.val.i.i.i.i.i.i, 1
   %.not.i.i.i52.i.i.i.i.i.i = icmp ult i32 %.1.val38.i.i.i.i.i.i, 112
   %or.cond.i.i53.i.i.i.i.i.i = select i1 %71, i1 %.not.i.i.i52.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i53.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.i.i.i.i.i.i": ; preds = %69
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.i.i.i.i.i.i": ; preds = %69
   %72 = lshr i32 %.1.val38.i.i.i.i.i.i, 3
   %73 = and i32 %.1.val38.i.i.i.i.i.i, 7
   %74 = zext nneg i32 %72 to i64
@@ -12799,23 +12799,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %78 = shl nuw nsw i32 1, %73
   %79 = and i32 %78, %77
   %.not58.i.i.i.i.i.i = icmp eq i32 %79, 0
-  br i1 %.not58.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not58.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.i.i.i.i.i.i", %69
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.i.i.i.i.i.i", %69
   %80 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 16
   br label %81
 
-81:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.thread.i.i.i.i.i.i" ]
+81:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.thread.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %80, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.thread.i.i.i.i.i.i" ]
   %.2.val.i.i.i.i.i.i = load i8, ptr %.2.i.i.i.i.i.i, align 8
   %82 = getelementptr i8, ptr %.2.i.i.i.i.i.i, i64 8
   %.2.val39.i.i.i.i.i.i = load i32, ptr %82, align 8
   %83 = icmp eq i8 %.2.val.i.i.i.i.i.i, 1
   %.not.i.i.i55.i.i.i.i.i.i = icmp ult i32 %.2.val39.i.i.i.i.i.i, 112
   %or.cond.i.i56.i.i.i.i.i.i = select i1 %83, i1 %.not.i.i.i55.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i"
+  br i1 %or.cond.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.i.i.i.i.i.i": ; preds = %81
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i": ; preds = %81
   %84 = lshr i32 %.2.val39.i.i.i.i.i.i, 3
   %85 = and i32 %.2.val39.i.i.i.i.i.i, 7
   %86 = zext nneg i32 %84 to i64
@@ -12825,25 +12825,25 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
   %90 = shl nuw nsw i32 1, %85
   %91 = and i32 %90, %89
   %.not59.i.i.i.i.i.i = icmp eq i32 %91, 0
-  br i1 %.not59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
+  br i1 %.not59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.i.i.i.i.i.i", %81, %._crit_edge.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i", %81, %._crit_edge.i.i.i.i.i.i
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit42.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit42.i.i.i.i.i.i"
   %92 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit45.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit45.i.i.i.i.i.i"
   %93 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 32
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit48.i.i.i.i.i.i"
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit48.i.i.i.i.i.i"
   %94 = getelementptr inbounds i8, ptr %.02974.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %6, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit51.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit54.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit57.i.i.i.i.i.i" ], [ %92, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %93, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13" ], [ %94, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15" ], [ %.02974.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.argprom.exit.i.i.i.i.i.i" ]
+"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13", %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %6, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.thread.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit51.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit54.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit57.i.i.i.i.i.i" ], [ %92, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %93, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit13" ], [ %94, %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC7isHFormES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15" ], [ %.02974.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC7isHFormERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i" ]
   %95 = icmp ne ptr %6, %.028.i.i.i.i.i.i
   ret i1 %95
 }

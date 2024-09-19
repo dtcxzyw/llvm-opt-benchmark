@@ -4633,7 +4633,7 @@ define hidden i32 @nspi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef 
 46:                                               ; preds = %43, %41, %38, %36
   %.0.i.i = phi i32 [ %29, %36 ], [ %40, %38 ], [ %29, %41 ], [ %45, %43 ]
   %47 = load i32, ptr %10, align 4
-  switch i32 %47, label %nspi_dissect_element_SRestriction_res.argprom.exit [
+  switch i32 %47, label %nspi_dissect_element_SRestriction_res.exit [
     i32 0, label %48
     i32 4, label %51
   ]
@@ -4641,14 +4641,14 @@ define hidden i32 @nspi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef 
 48:                                               ; preds = %46
   %49 = load i32, ptr @hf_nspi_SRestriction_CTR_resAnd, align 4
   %50 = call i32 @nspi_dissect_struct_SAndRestriction(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 poison)
-  br label %nspi_dissect_element_SRestriction_res.argprom.exit
+  br label %nspi_dissect_element_SRestriction_res.exit
 
 51:                                               ; preds = %46
   %52 = load i32, ptr @hf_nspi_SRestriction_CTR_resProperty, align 4
   %53 = call i32 @nspi_dissect_struct_SPropertyRestriction(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 poison)
-  br label %nspi_dissect_element_SRestriction_res.argprom.exit
+  br label %nspi_dissect_element_SRestriction_res.exit
 
-nspi_dissect_element_SRestriction_res.argprom.exit: ; preds = %46, %48, %51
+nspi_dissect_element_SRestriction_res.exit:       ; preds = %46, %48, %51
   %.1.i.i = phi i32 [ %.0.i.i, %46 ], [ %53, %51 ], [ %50, %48 ]
   %54 = load ptr, ptr %9, align 8
   %55 = sub i32 %.1.i.i, %23
@@ -4664,7 +4664,7 @@ nspi_dissect_element_SRestriction_res.argprom.exit: ; preds = %46, %48, %51
   %.not34 = icmp eq i32 %60, 0
   br i1 %.not34, label %67, label %61
 
-61:                                               ; preds = %nspi_dissect_element_SRestriction_res.argprom.exit
+61:                                               ; preds = %nspi_dissect_element_SRestriction_res.exit
   %62 = load i32, ptr %12, align 4
   %.not35 = icmp ne i32 %62, 0
   %63 = and i32 %.1.i.i, 3
@@ -4677,8 +4677,8 @@ nspi_dissect_element_SRestriction_res.argprom.exit: ; preds = %46, %48, %51
   %66 = add i32 %65, 4
   br label %67
 
-67:                                               ; preds = %61, %64, %nspi_dissect_element_SRestriction_res.argprom.exit
-  %.1 = phi i32 [ %.1.i.i, %61 ], [ %66, %64 ], [ %.1.i.i, %nspi_dissect_element_SRestriction_res.argprom.exit ]
+67:                                               ; preds = %61, %64, %nspi_dissect_element_SRestriction_res.exit
+  %.1 = phi i32 [ %.1.i.i, %61 ], [ %66, %64 ], [ %.1.i.i, %nspi_dissect_element_SRestriction_res.exit ]
   ret i32 %.1
 }
 

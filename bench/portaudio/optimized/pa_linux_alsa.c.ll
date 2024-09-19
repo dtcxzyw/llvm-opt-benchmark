@@ -952,17 +952,17 @@ define internal fastcc i32 @BuildDeviceList(ptr nocapture noundef nonnull %0) un
   %43 = ashr exact i64 %sext.i, 32
   %44 = call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %.val, i64 noundef %43) #25
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %47, label %PaAlsa_StrDup.argprom.exit
+  br i1 %45, label %47, label %PaAlsa_StrDup.exit
 
-PaAlsa_StrDup.argprom.exit:                       ; preds = %37
+PaAlsa_StrDup.exit:                               ; preds = %37
   %46 = call ptr @strncpy(ptr noundef nonnull %44, ptr noundef readonly %40, i64 noundef %43) #25
   store i32 0, ptr @paUtilErr_, align 4
   br label %.outer
 
-.outer:                                           ; preds = %124, %PaAlsa_StrDup.argprom.exit
-  %.1141.ph = phi ptr [ %.2142, %124 ], [ %.0140.ph, %PaAlsa_StrDup.argprom.exit ]
-  %.1134.ph = phi i64 [ %.2135, %124 ], [ %.0133.ph, %PaAlsa_StrDup.argprom.exit ]
-  %.1.ph = phi i64 [ %108, %124 ], [ %.0132.ph, %PaAlsa_StrDup.argprom.exit ]
+.outer:                                           ; preds = %124, %PaAlsa_StrDup.exit
+  %.1141.ph = phi ptr [ %.2142, %124 ], [ %.0140.ph, %PaAlsa_StrDup.exit ]
+  %.1134.ph = phi i64 [ %.2135, %124 ], [ %.0133.ph, %PaAlsa_StrDup.exit ]
+  %.1.ph = phi i64 [ %108, %124 ], [ %.0132.ph, %PaAlsa_StrDup.exit ]
   br label %49
 
 47:                                               ; preds = %37
@@ -1482,7 +1482,7 @@ IgnorePlugin.exit.thread:                         ; preds = %199, %IgnorePlugin.
   br i1 %.not174, label %275, label %274
 
 274:                                              ; preds = %272
-  call fastcc void @FillInDevInfo.retelim(ptr noundef %0, ptr noundef nonnull %268, i32 noundef %.0146, ptr noundef %267, ptr noundef %3)
+  call fastcc void @FillInDevInfo(ptr noundef %0, ptr noundef nonnull %268, i32 noundef %.0146, ptr noundef %267, ptr noundef %3)
   store i32 0, ptr @paUtilErr_, align 4
   br label %275
 
@@ -1507,7 +1507,7 @@ IgnorePlugin.exit.thread:                         ; preds = %199, %IgnorePlugin.
   br i1 %.not172, label %284, label %285
 
 284:                                              ; preds = %.lr.ph278, %282
-  call fastcc void @FillInDevInfo.retelim(ptr noundef %0, ptr noundef nonnull %278, i32 noundef %.0146, ptr noundef %277, ptr noundef %3)
+  call fastcc void @FillInDevInfo(ptr noundef %0, ptr noundef nonnull %278, i32 noundef %.0146, ptr noundef %277, ptr noundef %3)
   store i32 0, ptr @paUtilErr_, align 4
   br label %285
 
@@ -1560,7 +1560,7 @@ define internal i32 @StartStream(ptr noundef %0) #2 {
   br i1 %11, label %16, label %15
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc i32 @AlsaStart.argelim(ptr noundef nonnull %0)
+  %13 = tail call fastcc i32 @AlsaStart(ptr noundef nonnull %0)
   store i32 %13, ptr @paUtilErr_, align 4
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %16, label %15
@@ -1606,7 +1606,7 @@ define internal i32 @StopStream(ptr noundef %0) #2 {
   br label %19
 
 14:                                               ; preds = %1
-  %15 = tail call fastcc i32 @AlsaStop.argelim(ptr noundef nonnull %0)
+  %15 = tail call fastcc i32 @AlsaStop(ptr noundef nonnull %0)
   store i32 %15, ptr @paUtilErr_, align 4
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %19
@@ -1656,7 +1656,7 @@ define internal i32 @AbortStream(ptr noundef %0) #2 {
   br label %19
 
 14:                                               ; preds = %1
-  %15 = tail call fastcc i32 @AlsaStop.argelim(ptr noundef nonnull %0)
+  %15 = tail call fastcc i32 @AlsaStop(ptr noundef nonnull %0)
   store i32 %15, ptr @paUtilErr_, align 4
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %19
@@ -2645,7 +2645,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @FillInDevInfo.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #2 {
+define internal fastcc void @FillInDevInfo(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store i32 -1, ptr %3, align 8
@@ -2682,7 +2682,7 @@ define internal fastcc void @FillInDevInfo.retelim(ptr nocapture noundef nonnull
   %23 = load ptr, ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i32, ptr %24, align 8
-  %26 = call fastcc i32 @GropeDevice.argelim(ptr noundef %23, i32 noundef %25, i32 noundef 0, ptr noundef %3)
+  %26 = call fastcc i32 @GropeDevice(ptr noundef %23, i32 noundef %25, i32 noundef 0, ptr noundef %3)
   %.not40 = icmp eq i32 %26, 0
   br i1 %.not40, label %27, label %85
 
@@ -2702,7 +2702,7 @@ define internal fastcc void @FillInDevInfo.retelim(ptr nocapture noundef nonnull
   %35 = load ptr, ptr %6, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = call fastcc i32 @GropeDevice.argelim(ptr noundef %35, i32 noundef %37, i32 noundef 1, ptr noundef %3)
+  %38 = call fastcc i32 @GropeDevice(ptr noundef %35, i32 noundef %37, i32 noundef 1, ptr noundef %3)
   %.not42 = icmp eq i32 %38, 0
   br i1 %.not42, label %39, label %85
 
@@ -2806,7 +2806,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @GropeDevice.argelim(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull %3) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @GropeDevice(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef nonnull %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -3533,7 +3533,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
   br i1 %.not, label %31, label %26
 
 26:                                               ; preds = %8
-  %27 = call fastcc i32 @PaAlsaStreamComponent_InitialConfigure.argprom.argelim(ptr noundef %23, ptr noundef %20, ptr noundef %18)
+  %27 = call fastcc i32 @PaAlsaStreamComponent_InitialConfigure(ptr noundef %23, ptr noundef %20, ptr noundef %18)
   store i32 %27, ptr @paUtilErr_, align 4
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %31
@@ -3551,7 +3551,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
   br i1 %.not59, label %40, label %35
 
 35:                                               ; preds = %31
-  %36 = call fastcc i32 @PaAlsaStreamComponent_InitialConfigure.argprom.argelim(ptr noundef %32, ptr noundef %22, ptr noundef %18)
+  %36 = call fastcc i32 @PaAlsaStreamComponent_InitialConfigure(ptr noundef %32, ptr noundef %22, ptr noundef %18)
   store i32 %36, ptr @paUtilErr_, align 4
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %38, label %40
@@ -3862,7 +3862,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
   %.0174.i = phi ptr [ %20, %194 ], [ %22, %191 ]
   %196 = getelementptr i8, ptr %.0176.i, i64 16
   %.0176.val.i = load double, ptr %196, align 8
-  %197 = call fastcc i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer.argprom(ptr noundef %.0178.i, double %.0176.val.i, i64 noundef %4, double noundef %41, ptr noundef %.0175.i, ptr noundef %10)
+  %197 = call fastcc i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer(ptr noundef %.0178.i, double %.0176.val.i, i64 noundef %4, double noundef %41, ptr noundef %.0175.i, ptr noundef %10)
   store i32 %197, ptr @paUtilErr_, align 4
   %198 = icmp slt i32 %197, 0
   br i1 %198, label %PaAlsaStream_DetermineFramesPerBuffer.exit, label %199
@@ -3902,7 +3902,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
 218:                                              ; preds = %44
   %219 = getelementptr i8, ptr %1, i64 16
   %.val.i = load double, ptr %219, align 8
-  %220 = call fastcc i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer.argprom(ptr noundef %23, double %.val.i, i64 noundef %4, double noundef %41, ptr noundef %20, ptr noundef %10)
+  %220 = call fastcc i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer(ptr noundef %23, double %.val.i, i64 noundef %4, double noundef %41, ptr noundef %20, ptr noundef %10)
   store i32 %220, ptr @paUtilErr_, align 4
   %221 = icmp slt i32 %220, 0
   br i1 %221, label %PaAlsaStream_DetermineFramesPerBuffer.exit, label %222
@@ -3915,7 +3915,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
 225:                                              ; preds = %40
   %226 = getelementptr i8, ptr %2, i64 16
   %.val237.i = load double, ptr %226, align 8
-  %227 = call fastcc i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer.argprom(ptr noundef %32, double %.val237.i, i64 noundef %4, double noundef %41, ptr noundef %22, ptr noundef %10)
+  %227 = call fastcc i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer(ptr noundef %32, double %.val237.i, i64 noundef %4, double noundef %41, ptr noundef %22, ptr noundef %10)
   store i32 %227, ptr @paUtilErr_, align 4
   %228 = icmp slt i32 %227, 0
   br i1 %228, label %PaAlsaStream_DetermineFramesPerBuffer.exit, label %229
@@ -4451,7 +4451,7 @@ define internal fastcc void @LogAllAvailableFormats(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PaAlsaStreamComponent_InitialConfigure.argprom.argelim(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc i32 @PaAlsaStreamComponent_InitialConfigure(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -4933,7 +4933,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_FinishConf
 declare i32 @ilogb(double noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer.argprom(ptr nocapture noundef nonnull %0, double %.16.val, i64 noundef %1, double noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_DetermineFramesPerBuffer(ptr nocapture noundef nonnull %0, double %.16.val, i64 noundef %1, double noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -5300,7 +5300,7 @@ define internal noundef ptr @CallbackThreadFunc(ptr noundef %0) #17 {
   br label %.loopexit90
 
 54:                                               ; preds = %48
-  %55 = call fastcc i32 @AlsaStart.argelim(ptr noundef nonnull %0)
+  %55 = call fastcc i32 @AlsaStart(ptr noundef nonnull %0)
   store i32 %55, ptr @paUtilErr_, align 4
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %59
@@ -5514,7 +5514,7 @@ define internal noundef ptr @CallbackThreadFunc(ptr noundef %0) #17 {
   store volatile i32 1, ptr %141, align 4
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %143 = load volatile i32, ptr %142, align 8
-  %144 = call fastcc i32 @AlsaStop.argelim(ptr noundef %0)
+  %144 = call fastcc i32 @AlsaStop(ptr noundef %0)
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %146 = load ptr, ptr %145, align 8
   %.not.i = icmp eq ptr %146, null
@@ -5544,7 +5544,7 @@ OnExit.exit:                                      ; preds = %.loopexit90, %147
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @AlsaStart.argelim(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @AlsaStart(ptr nocapture noundef readonly %0) unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -5728,7 +5728,7 @@ define internal fastcc void @OnExit(ptr noundef %0) unnamed_addr #2 {
   store volatile i32 1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %5 = load volatile i32, ptr %4, align 8
-  %6 = tail call fastcc i32 @AlsaStop.argelim(ptr noundef %0)
+  %6 = tail call fastcc i32 @AlsaStop(ptr noundef %0)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -6622,7 +6622,7 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef rea
   %80 = icmp sgt i32 %.064.i, 0
   %81 = icmp sgt i32 %22, 0
   %or.cond.i = and i1 %81, %80
-  br i1 %or.cond.i, label %.lr.ph5.i, label %PaAlsaStreamComponent_DoChannelAdaption.argprom.exit.thread
+  br i1 %or.cond.i, label %.lr.ph5.i, label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread
 
 .lr.ph5.i:                                        ; preds = %79
   %82 = mul nsw i32 %.064.i, %35
@@ -6639,7 +6639,7 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef rea
   %88 = getelementptr inbounds i8, ptr %.14.i, i64 %87
   %89 = add nuw nsw i32 %.1633.i, 1
   %exitcond6.not.i = icmp eq i32 %89, %22
-  br i1 %exitcond6.not.i, label %PaAlsaStreamComponent_DoChannelAdaption.argprom.exit.thread, label %84, !llvm.loop !106
+  br i1 %exitcond6.not.i, label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread, label %84, !llvm.loop !106
 
 90:                                               ; preds = %21
   br i1 %28, label %91, label %112
@@ -6678,7 +6678,7 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef rea
 112:                                              ; preds = %110, %90
   %.165.i = phi i32 [ %111, %110 ], [ %23, %90 ]
   %113 = icmp sgt i32 %.165.i, 0
-  br i1 %113, label %114, label %PaAlsaStreamComponent_DoChannelAdaption.argprom.exit.thread
+  br i1 %113, label %114, label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 896
@@ -6694,9 +6694,9 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef rea
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %125 = load i32, ptr %124, align 8
   %126 = tail call i32 @snd_pcm_areas_silence(ptr noundef %120, i64 noundef %122, i32 noundef %.165.i, i64 noundef %123, i32 noundef %125) #25, !callees !98
-  br label %PaAlsaStreamComponent_DoChannelAdaption.argprom.exit.thread
+  br label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread
 
-PaAlsaStreamComponent_DoChannelAdaption.argprom.exit.thread: ; preds = %84, %79, %114, %112
+PaAlsaStreamComponent_DoChannelAdaption.exit.thread: ; preds = %84, %79, %114, %112
   store i32 0, ptr @paUtilErr_, align 4
   br label %128
 
@@ -6705,7 +6705,7 @@ PaAlsaStreamComponent_DoChannelAdaption.argprom.exit.thread: ; preds = %84, %79,
   store i32 -9999, ptr @paUtilErr_, align 4
   br label %.sink.split
 
-128:                                              ; preds = %PaAlsaStreamComponent_DoChannelAdaption.argprom.exit.thread, %15
+128:                                              ; preds = %PaAlsaStreamComponent_DoChannelAdaption.exit.thread, %15
   %129 = call fastcc i32 @PaAlsaStreamComponent_EndProcessing(ptr noundef nonnull %12, i64 noundef %1, ptr noundef %4)
   store i32 %129, ptr @paUtilErr_, align 4
   %130 = icmp slt i32 %129, 0
@@ -6737,7 +6737,7 @@ declare void @pthread_exit(ptr noundef) local_unnamed_addr #19
 declare void @PaUtil_ResetCpuLoadMeasurer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -9999, 1) i32 @AlsaStop.argelim(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc range(i32 -9999, 1) i32 @AlsaStop(ptr nocapture noundef readonly %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -7306,13 +7306,13 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
   br i1 %56, label %.preheader.sink.split.i, label %57
 
 57:                                               ; preds = %.thread
-  %58 = call fastcc i32 @AlsaStop.argelim(ptr noundef nonnull %0)
+  %58 = call fastcc i32 @AlsaStop(ptr noundef nonnull %0)
   store i32 %58, ptr @paUtilErr_, align 4
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %.preheader.sink.split.i, label %60
 
 60:                                               ; preds = %57
-  %61 = call fastcc i32 @AlsaStart.argelim(ptr noundef nonnull %0)
+  %61 = call fastcc i32 @AlsaStart(ptr noundef nonnull %0)
   store i32 %61, ptr @paUtilErr_, align 4
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %.preheader.sink.split.i, label %.preheader.i

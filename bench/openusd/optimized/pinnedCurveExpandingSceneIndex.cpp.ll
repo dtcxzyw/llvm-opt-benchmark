@@ -4017,7 +4017,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %52 = and i64 %51, -8
   %53 = inttoptr i64 %52 to ptr
   %54 = icmp eq ptr %49, %53
-  br i1 %54, label %55, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit
+  br i1 %54, label %55, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit
 
 55:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   %.val = load ptr, ptr %29, align 8
@@ -4247,7 +4247,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %150 = load ptr, ptr %56, align 8
   store ptr %132, ptr %56, align 8
   %.not.i.i.i.i = icmp eq ptr %150, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit, label %151
+  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit, label %151
 
 151:                                              ; preds = %146
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
@@ -4283,7 +4283,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 167:                                              ; preds = %165, %163
   %.0.i.i.i.i.i = phi i32 [ %155, %163 ], [ %166, %165 ]
   %168 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %168, label %169, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit
+  br i1 %168, label %169, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit
 
 169:                                              ; preds = %167
   %170 = load ptr, ptr %150, align 8
@@ -4308,27 +4308,27 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 180:                                              ; preds = %178, %175
   %.0.i.i.i.i.i.i.i26 = phi i32 [ %176, %175 ], [ %179, %178 ]
   %181 = icmp eq i32 %.0.i.i.i.i.i.i.i26, 1
-  br i1 %181, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit
+  br i1 %181, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %180, %156
   %182 = load ptr, ptr %150, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 24
   %184 = load ptr, ptr %183, align 8
   call void %184(ptr noundef nonnull align 8 dereferenceable(16) %150) #21
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit
 
 185:                                              ; preds = %212, %189, %55, %34, %217
   %186 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit: ; preds = %146, %167, %180, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit: ; preds = %146, %167, %180, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   %187 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdPrimTypeTokensE seq_cst, align 8
   %188 = inttoptr i64 %187 to ptr
   %.not.i.i29 = icmp eq i64 %187, 0
   br i1 %.not.i.i29, label %189, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit34
 
-189:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit
+189:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit
   %190 = invoke noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #18
           to label %.noexc31 unwind label %185
 
@@ -4355,8 +4355,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTy
   %198 = inttoptr i64 %197 to ptr
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit34
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit34: ; preds = %196, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i30, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit
-  %199 = phi ptr [ %188, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.argprom.exit ], [ %198, %196 ], [ %190, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i30 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit34: ; preds = %196, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i30, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit
+  %199 = phi ptr [ %188, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSourceEED2Ev.exit ], [ %198, %196 ], [ %190, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32HdPrimTypeTokens_StaticTokenTypeEE3NewEv.exit.i.i.i30 ]
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 48
   %201 = load ptr, ptr %0, align 8
   %202 = ptrtoint ptr %201 to i64
@@ -5126,7 +5126,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSourceEED2Ev.exit, %530, %543, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i94
   %548 = load ptr, ptr %435, align 8
   %.not.i.i.i95 = icmp eq ptr %548, null
-  br i1 %.not.i.i.i95, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.argprom.exit, label %549
+  br i1 %.not.i.i.i95, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.exit, label %549
 
 549:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEED2Ev.exit
   %550 = getelementptr inbounds nuw i8, ptr %548, i64 8
@@ -5162,7 +5162,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSo
 565:                                              ; preds = %563, %561
   %.0.i.i.i.i97 = phi i32 [ %553, %561 ], [ %564, %563 ]
   %566 = icmp eq i32 %.0.i.i.i.i97, 1
-  br i1 %566, label %567, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.argprom.exit
+  br i1 %566, label %567, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.exit
 
 567:                                              ; preds = %565
   %568 = load ptr, ptr %548, align 8
@@ -5187,21 +5187,21 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSo
 578:                                              ; preds = %576, %573
   %.0.i.i.i.i.i.i99 = phi i32 [ %574, %573 ], [ %577, %576 ]
   %579 = icmp eq i32 %.0.i.i.i.i.i.i99, 1
-  br i1 %579, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i100, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.argprom.exit
+  br i1 %579, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i100, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i100: ; preds = %578, %554
   %580 = load ptr, ptr %548, align 8
   %581 = getelementptr inbounds i8, ptr %580, i64 24
   %582 = load ptr, ptr %581, align 8
   call void %582(ptr noundef nonnull align 8 dereferenceable(16) %548) #21
-  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.argprom.exit
+  br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.argprom.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i100, %578, %565, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEED2Ev.exit
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i100, %578, %565, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29HdRetainedContainerDataSourceEED2Ev.exit
   %583 = load ptr, ptr %369, align 8
   %.not.i.i.i107 = icmp eq ptr %583, null
   br i1 %.not.i.i.i107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit, label %584
 
-584:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.argprom.exit
+584:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.exit
   %585 = getelementptr inbounds nuw i8, ptr %583, i64 8
   %586 = load atomic i64, ptr %585 acquire, align 8
   %587 = icmp eq i64 %586, 4294967297
@@ -5269,7 +5269,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %617(ptr noundef nonnull align 8 dereferenceable(16) %583) #21
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.argprom.exit, %600, %613, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i112
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.exit, %600, %613, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i112
   %618 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %619 = load ptr, ptr %618, align 8
   %.not.i.i.i113 = icmp eq ptr %619, null
@@ -5525,7 +5525,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 737:                                              ; preds = %735, %733
   %.pn = phi { ptr, i32 } [ %736, %735 ], [ %734, %733 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #21
-  call fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.argprom(ptr null) #21
+  call fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev(ptr null) #21
   br label %.body75
 
 .body75:                                          ; preds = %731, %425, %.body.i, %737
@@ -5990,9 +5990,9 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseELN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
@@ -6028,7 +6028,7 @@ define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -6053,16 +6053,16 @@ define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
-  br label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
@@ -7270,19 +7270,19 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8HdSchemacvbEv.exit49: ; preds = %89
   %102 = getelementptr inbounds i8, ptr %101, i64 32
   %103 = load ptr, ptr %102, align 8, !noalias !30
   invoke void %103(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %.val, float noundef 0.000000e+00)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit unwind label %379
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit unwind label %379
 
 104:                                              ; preds = %99
   store ptr null, ptr %7, align 8, !alias.scope !30
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit: ; preds = %104, %100
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit: ; preds = %104, %100
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not.i.i.i = icmp eq ptr %106, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit, label %107
 
-107:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit
+107:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %109 = load atomic i64, ptr %108 acquire, align 8
   %110 = icmp eq i64 %109, 4294967297
@@ -7350,7 +7350,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %140(ptr noundef nonnull align 8 dereferenceable(16) %106) #21
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit, %123, %136, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit, %123, %136, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdBasisCurvesTopologySchema8GetBasisEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.37") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %141 unwind label %381
 
@@ -7365,19 +7365,19 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %144 = getelementptr inbounds i8, ptr %143, i64 32
   %145 = load ptr, ptr %144, align 8, !noalias !33
   invoke void %145(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %.val33, float noundef 0.000000e+00)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit53 unwind label %383
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit53 unwind label %383
 
 146:                                              ; preds = %141
   store ptr null, ptr %9, align 8, !alias.scope !33
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit53
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit53
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit53: ; preds = %146, %142
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit53: ; preds = %146, %142
   %147 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %148 = load ptr, ptr %147, align 8
   %.not.i.i.i54 = icmp eq ptr %148, null
   br i1 %.not.i.i.i54, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit60, label %149
 
-149:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit53
+149:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit53
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %151 = load atomic i64, ptr %150 acquire, align 8
   %152 = icmp eq i64 %151, 4294967297
@@ -7445,7 +7445,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %182(ptr noundef nonnull align 8 dereferenceable(16) %148) #21
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit60
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit60: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit53, %165, %178, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i59
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit60: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit53, %165, %178, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i59
   %183 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8HdTokensE seq_cst, align 8
   %184 = inttoptr i64 %183 to ptr
   %.not.i.i61 = icmp eq i64 %183, 0
@@ -7663,19 +7663,19 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
   %295 = getelementptr inbounds i8, ptr %294, i64 32
   %296 = load ptr, ptr %295, align 8, !noalias !36
   invoke void %296(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %.val34, float noundef 0.000000e+00)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit unwind label %387
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit unwind label %387
 
 297:                                              ; preds = %292
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %12)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit unwind label %387
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit unwind label %387
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit: ; preds = %293, %297
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit: ; preds = %293, %297
   %298 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %299 = load ptr, ptr %298, align 8
   %.not.i.i.i86 = icmp eq ptr %299, null
   br i1 %.not.i.i.i86, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayIiEEEEED2Ev.exit, label %300
 
-300:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit
+300:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit
   %301 = getelementptr inbounds nuw i8, ptr %299, i64 8
   %302 = load atomic i64, ptr %301 acquire, align 8
   %303 = icmp eq i64 %302, 4294967297
@@ -7743,7 +7743,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %333(ptr noundef nonnull align 8 dereferenceable(16) %299) #21
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayIiEEEEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayIiEEEEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit, %316, %329, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i91
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayIiEEEEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit, %316, %329, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i91
   %334 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__25HdBasisCurvesSchemaTokensE seq_cst, align 8
   %335 = inttoptr i64 %334 to ptr
   %.not.i.i92 = icmp eq i64 %334, 0
@@ -7836,7 +7836,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_p
   %372 = phi ptr [ %.pr.pre, %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit ], [ %360, %368 ], [ %360, %361 ]
   %373 = getelementptr inbounds i8, ptr %14, i64 8
   %.val37 = load ptr, ptr %373, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmEEES3_IS1_EDpOT_.argprom(ptr dead_on_unwind noalias writable align 8 %15, ptr nonnull %372, ptr %.val37, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %15, ptr nonnull %372, ptr %.val37, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %374 unwind label %391
 
 374:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit.thread
@@ -7848,7 +7848,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_p
   store ptr null, ptr %377, align 8
   store ptr %378, ptr %376, align 8
   store ptr null, ptr %15, align 8
-  call fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceEED2Ev.argprom(ptr null) #21
+  call fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceEED2Ev(ptr null) #21
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #21
   br label %439
 
@@ -7955,20 +7955,20 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_38HdPrimvarsSchemaTokens
   %420 = getelementptr inbounds i8, ptr %419, i64 32
   %421 = load ptr, ptr %420, align 8, !noalias !46
   invoke void %421(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %.val35, float noundef 0.000000e+00)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit109 unwind label %435
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit109 unwind label %435
 
 422:                                              ; preds = %417
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %16)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit109 unwind label %435
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit109 unwind label %435
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit109: ; preds = %418, %422
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit109: ; preds = %418, %422
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayIiEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #21
   call void @_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %423 = load ptr, ptr %18, align 8
   %.not135 = icmp eq ptr %423, null
   br i1 %.not135, label %.critedge30, label %424
 
-424:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit109
+424:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit109
   %425 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5emptyEv(ptr noundef nonnull align 8 dereferenceable(40) %16)
           to label %426 unwind label %437
 
@@ -7978,7 +7978,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtAr
   %.val39 = load ptr, ptr %18, align 8
   %429 = getelementptr inbounds i8, ptr %18, i64 8
   %.val40 = load ptr, ptr %429, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmbEEES3_IS1_EDpOT_.argprom(ptr dead_on_unwind noalias writable align 8 %19, ptr %.val39, ptr %.val40, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(8) %11, i8 %428)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmbEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %19, ptr %.val39, ptr %.val40, ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(8) %11, i8 %428)
           to label %430 unwind label %437
 
 430:                                              ; preds = %426
@@ -7990,7 +7990,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtAr
   store ptr null, ptr %433, align 8
   store ptr %434, ptr %432, align 8
   store ptr null, ptr %19, align 8
-  call fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEED2Ev.argprom(ptr null) #21
+  call fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEED2Ev(ptr null) #21
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #21
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #21
   br label %439
@@ -8008,7 +8008,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtAr
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #21
   br label %.body95
 
-.critedge30:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit109
+.critedge30:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit109
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #21
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %16) #21
   br label %.critedge32
@@ -8496,7 +8496,7 @@ _ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmEEES3_IS1_EDpOT_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -8744,9 +8744,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurve
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
@@ -8782,7 +8782,7 @@ define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -8807,23 +8807,23 @@ define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
-  br label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122_BasisCurvesDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__27HdBasisCurvesTopologySchema15GetCurveIndicesEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.34") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmbEEES3_IS1_EDpOT_.argprom(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, i8 %.0.val1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERKmbEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, i8 %.0.val1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -9076,9 +9076,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDa
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5emptyEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEED2Ev.argprom(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEED2Ev(ptr %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %1
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %1
 
 1:                                                ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
@@ -9114,7 +9114,7 @@ define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved
 17:                                               ; preds = %15, %13
   %.0.i.i.i = phi i32 [ %5, %13 ], [ %16, %15 ]
   %18 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %18, label %19, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr %.8.val, align 8
@@ -9139,16 +9139,16 @@ define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved
 30:                                               ; preds = %28, %25
   %.0.i.i.i.i.i = phi i32 [ %26, %25 ], [ %29, %28 ]
   %31 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br i1 %31, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %30, %6
   %32 = load ptr, ptr %.8.val, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #21
-  br label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
+  br label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
+_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
   ret void
 }
 
@@ -9820,7 +9820,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 135:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %126, %113, %92, %67
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !65
   %136 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSourceEED2Ev.argprom.exit unwind label %137, !noalias !65
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSourceEED2Ev.exit unwind label %137, !noalias !65
 
 137:                                              ; preds = %135
   %138 = landingpad { ptr, i32 }
@@ -9850,7 +9850,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 149:                                              ; preds = %137
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSourceEED2Ev.argprom.exit: ; preds = %135
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSourceEED2Ev.exit: ; preds = %135
   %150 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i32 1, ptr %150, align 8, !noalias !65
   %151 = getelementptr inbounds nuw i8, ptr %136, i64 12
@@ -9865,7 +9865,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDa
   %.not.i.i.i18 = icmp eq ptr %154, null
   br i1 %.not.i.i.i18, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %155
 
-155:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSourceEED2Ev.argprom.exit
+155:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSourceEED2Ev.exit
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %157 = load atomic i64, ptr %156 acquire, align 8
   %158 = icmp eq i64 %157, 4294967297
@@ -10033,7 +10033,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   store ptr null, ptr %5, align 8
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i23, %184, %171, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSourceEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit30
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i23, %184, %171, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSourceEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit30
   %233 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %234 = load ptr, ptr %233, align 8
   %.not.i.i.i31 = icmp eq ptr %234, null
@@ -10682,19 +10682,19 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_49HdBasisCurvesTopologyS
   %184 = getelementptr inbounds i8, ptr %183, i64 32
   %185 = load ptr, ptr %184, align 8, !noalias !71
   invoke void %185(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %.val, float noundef 0.000000e+00)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit unwind label %248
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit unwind label %248
 
 186:                                              ; preds = %181
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit unwind label %248
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit unwind label %248
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit: ; preds = %182, %186
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit: ; preds = %182, %186
   %187 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %188 = load ptr, ptr %187, align 8
   %.not.i.i.i43 = icmp eq ptr %188, null
   br i1 %.not.i.i.i43, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayIiEEEEED2Ev.exit, label %189
 
-189:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit
+189:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %191 = load atomic i64, ptr %190 acquire, align 8
   %192 = icmp eq i64 %191, 4294967297
@@ -10762,7 +10762,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %222(ptr noundef nonnull align 8 dereferenceable(16) %188) #21
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayIiEEEEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayIiEEEEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom.exit, %205, %218, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i48
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7VtArrayIiEEEEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.exit, %205, %218, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i48
   %223 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5emptyEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
           to label %224 unwind label %250
 
@@ -12856,7 +12856,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i: ; preds = %135, %131
 139:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %119, %106, %85, %61
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !93
   %140 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.argprom.exit unwind label %141, !noalias !93
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.exit unwind label %141, !noalias !93
 
 141:                                              ; preds = %139
   %142 = landingpad { ptr, i32 }
@@ -12886,7 +12886,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i: ; preds = %135, %131
 153:                                              ; preds = %141
   unreachable
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.argprom.exit: ; preds = %139
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.exit: ; preds = %139
   %154 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i32 1, ptr %154, align 8, !noalias !93
   %155 = getelementptr inbounds nuw i8, ptr %140, i64 12
@@ -12901,7 +12901,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDat
   %.not.i.i.i14 = icmp eq ptr %158, null
   br i1 %.not.i.i.i14, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %159
 
-159:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.argprom.exit
+159:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.exit
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %161 = load atomic i64, ptr %160 acquire, align 8
   %162 = icmp eq i64 %161, 4294967297
@@ -13065,7 +13065,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   store ptr null, ptr %5, align 8
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19, %188, %175, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.argprom.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit26
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i19, %188, %175, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEED2Ev.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit26
   %235 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %236 = load ptr, ptr %235, align 8
   %.not.i.i.i27 = icmp eq ptr %236, null
@@ -13584,19 +13584,19 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   %159 = getelementptr inbounds i8, ptr %158, i64 32
   %160 = load ptr, ptr %159, align 8, !noalias !99
   invoke void %160(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %.val, float noundef 0.000000e+00)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit unwind label %252
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit unwind label %252
 
 161:                                              ; preds = %156
   store ptr null, ptr %6, align 8, !alias.scope !99
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit: ; preds = %161, %157
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit: ; preds = %161, %157
   %162 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %163 = load ptr, ptr %162, align 8
   %.not.i.i.i27 = icmp eq ptr %163, null
   br i1 %.not.i.i.i27, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit, label %164
 
-164:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit
+164:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %166 = load atomic i64, ptr %165 acquire, align 8
   %167 = icmp eq i64 %166, 4294967297
@@ -13664,7 +13664,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %197(ptr noundef nonnull align 8 dereferenceable(16) %163) #21
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom.exit, %180, %193, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i32
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS0_7TfTokenEEEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.exit, %180, %193, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i32
   %198 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21HdPrimvarSchemaTokensE seq_cst, align 8
   %199 = inttoptr i64 %198 to ptr
   %.not.i.i33 = icmp eq i64 %198, 0
@@ -14296,191 +14296,191 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZNSt10sh
   ]
 
 469:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 470:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 471:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 472:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 473:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 474:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 475:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 476:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 477:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 478:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 479:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 480:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 481:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix4fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix4fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 482:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 483:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 484:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix4dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix4dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 485:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 486:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 487:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 488:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 489:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 490:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 491:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange1fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange1fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 492:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange1dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange1dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 493:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfIntervalEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfIntervalEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 494:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_8GfRect2iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_8GfRect2iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 495:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuathEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuathEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 496:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuatfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuatfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 497:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuatdEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuatdEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 498:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_12GfQuaternionEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_12GfQuaternionEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 499:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuathEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuathEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 500:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuatfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuatfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 501:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuatdEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuatdEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 502:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIbEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIbEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 503:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIcEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIcEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 504:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIhEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIhEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 505:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIsEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIsEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 506:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayItEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayItEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 507:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIiEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIiEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 508:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIjEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIjEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 509:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIlEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIlEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 510:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayImEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayImEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 511:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIdEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIdEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 512:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIfEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIfEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 513:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_8pxr_half4halfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_8pxr_half4halfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 514:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 515:                                              ; preds = %.noexc87
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7TfTokenEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7TfTokenEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(49) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_12_GLOBAL__N_18_VisitorEEEDaRKNS_7VtValueEOT_.exit unwind label %571
 
 .invoke:                                          ; preds = %.noexc87
@@ -15244,7 +15244,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %19, %13, %30,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -15367,7 +15367,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !116
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !116
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !116
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -15399,7 +15399,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !116
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -15414,7 +15414,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4iEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -15537,7 +15537,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !122
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !122
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !122
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -15569,7 +15569,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !122
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -15584,7 +15584,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3iEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -15707,7 +15707,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !128
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !128
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !128
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -15739,7 +15739,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !128
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -15754,7 +15754,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2iEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -15877,7 +15877,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !134
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !134
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !134
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -15909,7 +15909,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !134
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -15924,7 +15924,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4hEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -16047,7 +16047,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !140
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !140
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !140
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -16079,7 +16079,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !140
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -16094,7 +16094,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3hEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2hEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -16217,7 +16217,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !146
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !146
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !146
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -16249,7 +16249,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !146
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -16264,7 +16264,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2hEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -16387,7 +16387,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !152
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !152
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !152
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -16419,7 +16419,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !152
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -16434,7 +16434,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4fEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -16557,7 +16557,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !158
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !158
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !158
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -16589,7 +16589,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !158
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -16604,7 +16604,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3fEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -16727,7 +16727,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !164
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !164
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !164
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -16759,7 +16759,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !164
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -16774,7 +16774,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2fEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec4dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -16897,7 +16897,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !170
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !170
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !170
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -16929,7 +16929,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !170
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -16944,7 +16944,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4dEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -17067,7 +17067,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !176
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !176
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !176
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -17099,7 +17099,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !176
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -17114,7 +17114,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3dEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfVec2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -17237,7 +17237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !182
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !182
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !182
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -17269,7 +17269,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !182
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -17284,7 +17284,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2dEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix4fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix4fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -17407,7 +17407,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !188
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !188
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !188
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -17439,7 +17439,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !188
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -17454,7 +17454,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4fEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -17577,7 +17577,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !194
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !194
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !194
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -17609,7 +17609,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !194
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -17624,7 +17624,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3fEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -17747,7 +17747,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !200
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !200
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !200
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -17779,7 +17779,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !200
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -17794,7 +17794,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2fEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix4dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix4dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -17917,7 +17917,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !206
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !206
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !206
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -17949,7 +17949,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !206
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -17964,7 +17964,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4dEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -18087,7 +18087,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !212
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !212
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !212
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -18119,7 +18119,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !212
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -18134,7 +18134,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3dEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfMatrix2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -18257,7 +18257,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !218
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !218
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !218
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -18289,7 +18289,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !218
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -18304,7 +18304,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2dEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange3fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -18427,7 +18427,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !224
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !224
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !224
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -18459,7 +18459,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !224
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -18474,7 +18474,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3fEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange3dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -18597,7 +18597,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !230
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !230
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !230
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -18629,7 +18629,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !230
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -18644,7 +18644,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3dEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange2fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -18767,7 +18767,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !236
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !236
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !236
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -18799,7 +18799,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !236
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -18814,7 +18814,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2fEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange2dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -18937,7 +18937,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !242
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !242
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !242
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -18969,7 +18969,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !242
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -18984,7 +18984,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2dEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange1fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange1fEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -19107,7 +19107,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !248
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !248
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !248
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -19139,7 +19139,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !248
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -19154,7 +19154,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1fEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange1dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_9GfRange1dEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -19277,7 +19277,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !254
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !254
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !254
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -19309,7 +19309,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !254
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -19324,7 +19324,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1dEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfIntervalEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_10GfIntervalEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -19447,7 +19447,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !260
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfIntervalEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !260
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfIntervalEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !260
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -19479,7 +19479,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfIntervalEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfIntervalEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !260
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -19494,7 +19494,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfIntervalEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_8GfRect2iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_8GfRect2iEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -19617,7 +19617,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !266
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8GfRect2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !266
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8GfRect2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !266
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -19649,7 +19649,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8GfRect2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8GfRect2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !266
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -19664,7 +19664,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8GfRect2iEEESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuathEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuathEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -19787,7 +19787,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !272
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !272
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !272
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -19819,7 +19819,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !272
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -19834,7 +19834,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuathEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuatfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuatfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -19957,7 +19957,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !278
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !278
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !278
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -19989,7 +19989,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !278
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -20004,7 +20004,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatfEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuatdEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7GfQuatdEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -20127,7 +20127,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !284
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !284
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !284
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -20159,7 +20159,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !284
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -20174,7 +20174,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatdEEESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_12GfQuaternionEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_12GfQuaternionEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -20297,7 +20297,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !290
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_12GfQuaternionEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !290
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_12GfQuaternionEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !290
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -20329,7 +20329,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_12GfQuaternionEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_12GfQuaternionEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !290
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -20344,7 +20344,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_12GfQuaternion
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuathEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuathEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -20467,7 +20467,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !296
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !296
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !296
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -20499,7 +20499,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !296
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -20514,7 +20514,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuathE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuatfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuatfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -20637,7 +20637,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !302
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !302
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !302
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -20669,7 +20669,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !302
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -20684,7 +20684,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatfE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuatdEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_11GfDualQuatdEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -20807,7 +20807,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !308
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !308
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !308
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -20839,7 +20839,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !308
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -20854,7 +20854,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIbEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIbEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -20977,7 +20977,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !314
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIbEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !314
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIbEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !314
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -21009,7 +21009,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIbEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIbEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !314
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -21024,7 +21024,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIbEESt10shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIcEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIcEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -21147,7 +21147,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !320
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIcEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !320
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIcEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !320
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -21179,7 +21179,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIcEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIcEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !320
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -21194,7 +21194,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIcEESt10shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIhEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIhEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -21317,7 +21317,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !326
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIhEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !326
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIhEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !326
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -21349,7 +21349,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIhEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIhEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !326
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -21364,7 +21364,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIhEESt10shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIsEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIsEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -21487,7 +21487,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !332
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIsEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !332
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIsEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !332
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -21519,7 +21519,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIsEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIsEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !332
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -21534,7 +21534,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIsEESt10shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayItEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayItEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -21657,7 +21657,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !338
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclItEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !338
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclItEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !338
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -21689,7 +21689,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclItEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclItEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !338
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -21704,7 +21704,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclItEESt10shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIiEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIiEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -21827,7 +21827,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !344
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIiEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !344
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIiEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !344
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -21859,7 +21859,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIiEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIiEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !344
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -21874,7 +21874,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIiEESt10shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIjEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIjEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -21997,7 +21997,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !350
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIjEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !350
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIjEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !350
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -22029,7 +22029,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIjEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIjEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !350
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -22044,7 +22044,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIjEESt10shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIlEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIlEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -22167,7 +22167,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !356
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIlEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !356
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIlEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !356
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -22199,7 +22199,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIlEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIlEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !356
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -22214,7 +22214,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIlEESt10shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayImEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayImEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -22337,7 +22337,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !362
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclImEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !362
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclImEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !362
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -22369,7 +22369,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclImEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclImEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !362
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -22384,7 +22384,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclImEESt10shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIdEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIdEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -22507,7 +22507,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !368
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIdEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !368
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIdEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !368
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -22539,7 +22539,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIdEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIdEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !368
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -22554,7 +22554,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIdEESt10shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIfEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayIfEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -22677,7 +22677,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !374
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIfEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !374
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIfEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !374
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -22709,7 +22709,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIfEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIfEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !374
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -22724,7 +22724,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIfEESt10shared_ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_8pxr_half4halfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_8pxr_half4halfEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -22847,7 +22847,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !380
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8pxr_half4halfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !380
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8pxr_half4halfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !380
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -22879,7 +22879,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8pxr_half4halfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8pxr_half4halfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !380
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -22894,7 +22894,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8pxr_half4half
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -23017,7 +23017,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !386
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !386
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !386
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -23049,7 +23049,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !386
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -23064,7 +23064,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7TfTokenEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i.argelim(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtArrayINS_7TfTokenEEENS_12_GLOBAL__N_18_VisitorESt10shared_ptrINS_16HdDataSourceBaseEEEEDaRKNS_7VtValueEOT0_i(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -23187,7 +23187,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %55, %51
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 %60, ptr %62, align 8, !noalias !392
   %63 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7TfTokenEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit unwind label %64, !noalias !392
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7TfTokenEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit unwind label %64, !noalias !392
 
 64:                                               ; preds = %59
   %65 = landingpad { ptr, i32 }
@@ -23219,7 +23219,7 @@ common.resume.i.i:                                ; preds = %68, %_ZN32pxrIntern
 73:                                               ; preds = %64
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7TfTokenEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom.exit: ; preds = %59
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7TfTokenEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.exit: ; preds = %59
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 1, ptr %74, align 8, !noalias !392
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -88735,8 +88735,8 @@ attributes #22 = { noreturn nounwind }
 !5 = distinct !{!5, !6, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfCreateRefPtrINS_34HdsiPinnedCurveExpandingSceneIndexEEENS_8TfRefPtrIT_EEPS3_: argument 0"}
 !6 = distinct !{!6, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfCreateRefPtrINS_34HdsiPinnedCurveExpandingSceneIndexEEENS_8TfRefPtrIT_EEPS3_"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEEEEES3_IS1_EDpOT_.argprom: argument 0"}
-!9 = distinct !{!9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEEEEES3_IS1_EDpOT_.argprom"}
+!8 = distinct !{!8, !9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEEEEES3_IS1_EDpOT_: argument 0"}
+!9 = distinct !{!9, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PrimDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEEEEES3_IS1_EDpOT_"}
 !10 = !{!11, !8}
 !11 = distinct !{!11, !12, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_EmptyContainerDataSource3NewIJEEESt10shared_ptrIS1_EDpOT_: argument 0"}
 !12 = distinct !{!12, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_EmptyContainerDataSource3NewIJEEESt10shared_ptrIS1_EDpOT_"}
@@ -88758,14 +88758,14 @@ attributes #22 = { noreturn nounwind }
 !28 = distinct !{!28, !29, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSource3NewIJSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayIiEEEEES3_INS4_INS_7TfTokenEEEERKS3_INS_21HdContainerDataSourceEEEEES3_IS1_EDpOT_: argument 0"}
 !29 = distinct !{!29, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_SubsetIndicesDataSource3NewIJSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7VtArrayIiEEEEES3_INS4_INS_7TfTokenEEEERKS3_INS_21HdContainerDataSourceEEEEES3_IS1_EDpOT_"}
 !30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom: argument 0"}
-!32 = distinct !{!32, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom"}
+!31 = distinct !{!31, !32, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE: argument 0"}
+!32 = distinct !{!32, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE"}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom: argument 0"}
-!35 = distinct !{!35, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom"}
+!34 = distinct !{!34, !35, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE: argument 0"}
+!35 = distinct !{!35, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE"}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom: argument 0"}
-!38 = distinct !{!38, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom"}
+!37 = distinct !{!37, !38, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE: argument 0"}
+!38 = distinct !{!38, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE"}
 !39 = !{!40}
 !40 = distinct !{!40, !41, !"_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE: argument 0"}
 !41 = distinct !{!41, !"_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE"}
@@ -88774,8 +88774,8 @@ attributes #22 = { noreturn nounwind }
 !44 = distinct !{!44, !"_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E"}
 !45 = !{!43, !40}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom: argument 0"}
-!48 = distinct !{!48, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom"}
+!47 = distinct !{!47, !48, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE: argument 0"}
+!48 = distinct !{!48, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE"}
 !49 = !{!50}
 !50 = distinct !{!50, !51, !"_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
 !51 = distinct !{!51, !"_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E"}
@@ -88793,14 +88793,14 @@ attributes #22 = { noreturn nounwind }
 !63 = distinct !{!63, !"_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E"}
 !64 = !{!62, !59}
 !65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERmEEES3_IS1_EDpOT_.argprom: argument 0"}
-!67 = distinct !{!67, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERmEEES3_IS1_EDpOT_.argprom"}
+!66 = distinct !{!66, !67, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERmEEES3_IS1_EDpOT_: argument 0"}
+!67 = distinct !{!67, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_TopologyDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7VtArrayIiEERmEEES3_IS1_EDpOT_"}
 !68 = !{!69, !66}
 !69 = distinct !{!69, !70, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_EmptyContainerDataSource3NewIJEEESt10shared_ptrIS1_EDpOT_: argument 0"}
 !70 = distinct !{!70, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_EmptyContainerDataSource3NewIJEEESt10shared_ptrIS1_EDpOT_"}
 !71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom: argument 0"}
-!73 = distinct !{!73, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE.argprom"}
+!72 = distinct !{!72, !73, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE: argument 0"}
+!73 = distinct !{!73, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7VtArrayIiEEEET_NS_24HdTypedSampledDataSourceIS4_E6HandleE"}
 !74 = distinct !{!74, !75}
 !75 = !{!"llvm.loop.mustprogress"}
 !76 = distinct !{!76, !75}
@@ -88821,14 +88821,14 @@ attributes #22 = { noreturn nounwind }
 !91 = distinct !{!91, !"_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E"}
 !92 = !{!90, !87}
 !93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEERmRbEEES3_IS1_EDpOT_.argprom: argument 0"}
-!95 = distinct !{!95, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEERmRbEEES3_IS1_EDpOT_.argprom"}
+!94 = distinct !{!94, !95, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEERmRbEEES3_IS1_EDpOT_: argument 0"}
+!95 = distinct !{!95, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJRSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEERmRbEEES3_IS1_EDpOT_"}
 !96 = !{!97, !94}
 !97 = distinct !{!97, !98, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_EmptyContainerDataSource3NewIJEEESt10shared_ptrIS1_EDpOT_: argument 0"}
 !98 = distinct !{!98, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_EmptyContainerDataSource3NewIJEEESt10shared_ptrIS1_EDpOT_"}
 !99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom: argument 0"}
-!101 = distinct !{!101, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE.argprom"}
+!100 = distinct !{!100, !101, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE: argument 0"}
+!101 = distinct !{!101, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_SafeGetTypedValueINS_7TfTokenEEET_NS_24HdTypedSampledDataSourceIS3_E6HandleE"}
 !102 = !{!103}
 !103 = distinct !{!103, !104, !"_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE: argument 0"}
 !104 = distinct !{!104, !"_ZN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSource4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE"}
@@ -88841,287 +88841,287 @@ attributes #22 = { noreturn nounwind }
 !111 = distinct !{!111, !112, !"_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo19GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE: argument 0"}
 !112 = distinct !{!112, !"_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9_TypeInfo19GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE"}
 !113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!115 = distinct !{!115, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!114 = distinct !{!114, !115, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!115 = distinct !{!115, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !116 = !{!117, !114}
-!117 = distinct !{!117, !118, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!118 = distinct !{!118, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!117 = distinct !{!117, !118, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!118 = distinct !{!118, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!121 = distinct !{!121, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!120 = distinct !{!120, !121, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!121 = distinct !{!121, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !122 = !{!123, !120}
-!123 = distinct !{!123, !124, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!124 = distinct !{!124, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!123 = distinct !{!123, !124, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!124 = distinct !{!124, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!127 = distinct !{!127, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!126 = distinct !{!126, !127, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!127 = distinct !{!127, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !128 = !{!129, !126}
-!129 = distinct !{!129, !130, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!130 = distinct !{!130, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!129 = distinct !{!129, !130, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!130 = distinct !{!130, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!133 = distinct !{!133, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!132 = distinct !{!132, !133, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!133 = distinct !{!133, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !134 = !{!135, !132}
-!135 = distinct !{!135, !136, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!136 = distinct !{!136, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!135 = distinct !{!135, !136, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!136 = distinct !{!136, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !137 = !{!138}
-!138 = distinct !{!138, !139, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!139 = distinct !{!139, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!138 = distinct !{!138, !139, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!139 = distinct !{!139, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !140 = !{!141, !138}
-!141 = distinct !{!141, !142, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!142 = distinct !{!142, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!141 = distinct !{!141, !142, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!142 = distinct !{!142, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!145 = distinct !{!145, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!144 = distinct !{!144, !145, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!145 = distinct !{!145, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2hEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !146 = !{!147, !144}
-!147 = distinct !{!147, !148, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!148 = distinct !{!148, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!147 = distinct !{!147, !148, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!148 = distinct !{!148, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2hEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!151 = distinct !{!151, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!150 = distinct !{!150, !151, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!151 = distinct !{!151, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !152 = !{!153, !150}
-!153 = distinct !{!153, !154, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!154 = distinct !{!154, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!153 = distinct !{!153, !154, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!154 = distinct !{!154, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!157 = distinct !{!157, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!156 = distinct !{!156, !157, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!157 = distinct !{!157, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !158 = !{!159, !156}
-!159 = distinct !{!159, !160, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!160 = distinct !{!160, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!159 = distinct !{!159, !160, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!160 = distinct !{!160, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!163 = distinct !{!163, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!162 = distinct !{!162, !163, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!163 = distinct !{!163, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !164 = !{!165, !162}
-!165 = distinct !{!165, !166, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!166 = distinct !{!166, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!165 = distinct !{!165, !166, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!166 = distinct !{!166, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !167 = !{!168}
-!168 = distinct !{!168, !169, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!169 = distinct !{!169, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!168 = distinct !{!168, !169, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!169 = distinct !{!169, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !170 = !{!171, !168}
-!171 = distinct !{!171, !172, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!172 = distinct !{!172, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!171 = distinct !{!171, !172, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!172 = distinct !{!172, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec4dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!175 = distinct !{!175, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!174 = distinct !{!174, !175, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!175 = distinct !{!175, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !176 = !{!177, !174}
-!177 = distinct !{!177, !178, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!178 = distinct !{!178, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!177 = distinct !{!177, !178, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!178 = distinct !{!178, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!181 = distinct !{!181, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!180 = distinct !{!180, !181, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!181 = distinct !{!181, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfVec2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !182 = !{!183, !180}
-!183 = distinct !{!183, !184, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!184 = distinct !{!184, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!183 = distinct !{!183, !184, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!184 = distinct !{!184, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfVec2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !185 = !{!186}
-!186 = distinct !{!186, !187, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!187 = distinct !{!187, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!186 = distinct !{!186, !187, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!187 = distinct !{!187, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !188 = !{!189, !186}
-!189 = distinct !{!189, !190, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix4fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!190 = distinct !{!190, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix4fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!189 = distinct !{!189, !190, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix4fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!190 = distinct !{!190, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix4fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!193 = distinct !{!193, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!192 = distinct !{!192, !193, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!193 = distinct !{!193, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !194 = !{!195, !192}
-!195 = distinct !{!195, !196, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!196 = distinct !{!196, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!195 = distinct !{!195, !196, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!196 = distinct !{!196, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !197 = !{!198}
-!198 = distinct !{!198, !199, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!199 = distinct !{!199, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!198 = distinct !{!198, !199, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!199 = distinct !{!199, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !200 = !{!201, !198}
-!201 = distinct !{!201, !202, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!202 = distinct !{!202, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!201 = distinct !{!201, !202, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!202 = distinct !{!202, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!205 = distinct !{!205, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!204 = distinct !{!204, !205, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!205 = distinct !{!205, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix4dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !206 = !{!207, !204}
-!207 = distinct !{!207, !208, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix4dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!208 = distinct !{!208, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix4dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!207 = distinct !{!207, !208, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix4dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!208 = distinct !{!208, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix4dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !209 = !{!210}
-!210 = distinct !{!210, !211, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!211 = distinct !{!211, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!210 = distinct !{!210, !211, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!211 = distinct !{!211, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !212 = !{!213, !210}
-!213 = distinct !{!213, !214, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!214 = distinct !{!214, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!213 = distinct !{!213, !214, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!214 = distinct !{!214, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!217 = distinct !{!217, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!216 = distinct !{!216, !217, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!217 = distinct !{!217, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfMatrix2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !218 = !{!219, !216}
-!219 = distinct !{!219, !220, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!220 = distinct !{!220, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!219 = distinct !{!219, !220, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!220 = distinct !{!220, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfMatrix2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !221 = !{!222}
-!222 = distinct !{!222, !223, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!223 = distinct !{!223, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!222 = distinct !{!222, !223, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!223 = distinct !{!223, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !224 = !{!225, !222}
-!225 = distinct !{!225, !226, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!226 = distinct !{!226, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!225 = distinct !{!225, !226, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!226 = distinct !{!226, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange3fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !227 = !{!228}
-!228 = distinct !{!228, !229, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!229 = distinct !{!229, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!228 = distinct !{!228, !229, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!229 = distinct !{!229, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange3dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !230 = !{!231, !228}
-!231 = distinct !{!231, !232, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!232 = distinct !{!232, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!231 = distinct !{!231, !232, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!232 = distinct !{!232, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange3dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !233 = !{!234}
-!234 = distinct !{!234, !235, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!235 = distinct !{!235, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!234 = distinct !{!234, !235, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!235 = distinct !{!235, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !236 = !{!237, !234}
-!237 = distinct !{!237, !238, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!238 = distinct !{!238, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!237 = distinct !{!237, !238, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!238 = distinct !{!238, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange2fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !239 = !{!240}
-!240 = distinct !{!240, !241, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!241 = distinct !{!241, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!240 = distinct !{!240, !241, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!241 = distinct !{!241, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange2dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !242 = !{!243, !240}
-!243 = distinct !{!243, !244, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!244 = distinct !{!244, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!243 = distinct !{!243, !244, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!244 = distinct !{!244, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange2dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !245 = !{!246}
-!246 = distinct !{!246, !247, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!247 = distinct !{!247, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!246 = distinct !{!246, !247, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!247 = distinct !{!247, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1fEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !248 = !{!249, !246}
-!249 = distinct !{!249, !250, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange1fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!250 = distinct !{!250, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange1fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!249 = distinct !{!249, !250, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange1fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!250 = distinct !{!250, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange1fEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !251 = !{!252}
-!252 = distinct !{!252, !253, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!253 = distinct !{!253, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!252 = distinct !{!252, !253, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!253 = distinct !{!253, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_9GfRange1dEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !254 = !{!255, !252}
-!255 = distinct !{!255, !256, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange1dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!256 = distinct !{!256, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange1dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!255 = distinct !{!255, !256, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange1dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!256 = distinct !{!256, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_9GfRange1dEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !257 = !{!258}
-!258 = distinct !{!258, !259, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfIntervalEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!259 = distinct !{!259, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfIntervalEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!258 = distinct !{!258, !259, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfIntervalEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!259 = distinct !{!259, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_10GfIntervalEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !260 = !{!261, !258}
-!261 = distinct !{!261, !262, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfIntervalEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!262 = distinct !{!262, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfIntervalEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!261 = distinct !{!261, !262, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfIntervalEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!262 = distinct !{!262, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_10GfIntervalEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !263 = !{!264}
-!264 = distinct !{!264, !265, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8GfRect2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!265 = distinct !{!265, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8GfRect2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!264 = distinct !{!264, !265, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8GfRect2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!265 = distinct !{!265, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8GfRect2iEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !266 = !{!267, !264}
-!267 = distinct !{!267, !268, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_8GfRect2iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!268 = distinct !{!268, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_8GfRect2iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!267 = distinct !{!267, !268, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_8GfRect2iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!268 = distinct !{!268, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_8GfRect2iEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !269 = !{!270}
-!270 = distinct !{!270, !271, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!271 = distinct !{!271, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!270 = distinct !{!270, !271, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!271 = distinct !{!271, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !272 = !{!273, !270}
-!273 = distinct !{!273, !274, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuathEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!274 = distinct !{!274, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuathEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!273 = distinct !{!273, !274, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuathEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!274 = distinct !{!274, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuathEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !275 = !{!276}
-!276 = distinct !{!276, !277, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!277 = distinct !{!277, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!276 = distinct !{!276, !277, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!277 = distinct !{!277, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !278 = !{!279, !276}
-!279 = distinct !{!279, !280, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuatfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!280 = distinct !{!280, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuatfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!279 = distinct !{!279, !280, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuatfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!280 = distinct !{!280, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuatfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !281 = !{!282}
-!282 = distinct !{!282, !283, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!283 = distinct !{!283, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!282 = distinct !{!282, !283, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!283 = distinct !{!283, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7GfQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !284 = !{!285, !282}
-!285 = distinct !{!285, !286, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuatdEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!286 = distinct !{!286, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuatdEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!285 = distinct !{!285, !286, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuatdEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!286 = distinct !{!286, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7GfQuatdEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !287 = !{!288}
-!288 = distinct !{!288, !289, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_12GfQuaternionEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!289 = distinct !{!289, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_12GfQuaternionEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!288 = distinct !{!288, !289, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_12GfQuaternionEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!289 = distinct !{!289, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_12GfQuaternionEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !290 = !{!291, !288}
-!291 = distinct !{!291, !292, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_12GfQuaternionEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!292 = distinct !{!292, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_12GfQuaternionEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!291 = distinct !{!291, !292, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_12GfQuaternionEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!292 = distinct !{!292, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_12GfQuaternionEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !293 = !{!294}
-!294 = distinct !{!294, !295, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!295 = distinct !{!295, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!294 = distinct !{!294, !295, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!295 = distinct !{!295, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuathEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !296 = !{!297, !294}
-!297 = distinct !{!297, !298, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuathEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!298 = distinct !{!298, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuathEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!297 = distinct !{!297, !298, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuathEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!298 = distinct !{!298, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuathEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !299 = !{!300}
-!300 = distinct !{!300, !301, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!301 = distinct !{!301, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!300 = distinct !{!300, !301, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!301 = distinct !{!301, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !302 = !{!303, !300}
-!303 = distinct !{!303, !304, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuatfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!304 = distinct !{!304, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuatfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!303 = distinct !{!303, !304, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuatfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!304 = distinct !{!304, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuatfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !305 = !{!306}
-!306 = distinct !{!306, !307, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!307 = distinct !{!307, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!306 = distinct !{!306, !307, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!307 = distinct !{!307, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_11GfDualQuatdEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !308 = !{!309, !306}
-!309 = distinct !{!309, !310, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuatdEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom: argument 0"}
-!310 = distinct !{!310, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuatdEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb.argprom"}
+!309 = distinct !{!309, !310, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuatdEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb: argument 0"}
+!310 = distinct !{!310, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_11GfDualQuatdEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESF_mb"}
 !311 = !{!312}
-!312 = distinct !{!312, !313, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIbEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!313 = distinct !{!313, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIbEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!312 = distinct !{!312, !313, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIbEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!313 = distinct !{!313, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIbEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !314 = !{!315, !312}
-!315 = distinct !{!315, !316, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIbE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!316 = distinct !{!316, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIbE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom"}
+!315 = distinct !{!315, !316, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIbE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb: argument 0"}
+!316 = distinct !{!316, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIbE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb"}
 !317 = !{!318}
-!318 = distinct !{!318, !319, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIcEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!319 = distinct !{!319, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIcEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!318 = distinct !{!318, !319, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIcEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!319 = distinct !{!319, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIcEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !320 = !{!321, !318}
-!321 = distinct !{!321, !322, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIcE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!322 = distinct !{!322, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIcE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom"}
+!321 = distinct !{!321, !322, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIcE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb: argument 0"}
+!322 = distinct !{!322, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIcE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb"}
 !323 = !{!324}
-!324 = distinct !{!324, !325, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIhEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!325 = distinct !{!325, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIhEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!324 = distinct !{!324, !325, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIhEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!325 = distinct !{!325, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIhEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !326 = !{!327, !324}
-!327 = distinct !{!327, !328, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIhE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!328 = distinct !{!328, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIhE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom"}
+!327 = distinct !{!327, !328, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIhE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb: argument 0"}
+!328 = distinct !{!328, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIhE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb"}
 !329 = !{!330}
-!330 = distinct !{!330, !331, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIsEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!331 = distinct !{!331, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIsEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!330 = distinct !{!330, !331, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIsEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!331 = distinct !{!331, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIsEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !332 = !{!333, !330}
-!333 = distinct !{!333, !334, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIsE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!334 = distinct !{!334, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIsE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom"}
+!333 = distinct !{!333, !334, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIsE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb: argument 0"}
+!334 = distinct !{!334, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIsE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb"}
 !335 = !{!336}
-!336 = distinct !{!336, !337, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclItEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!337 = distinct !{!337, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclItEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!336 = distinct !{!336, !337, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclItEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!337 = distinct !{!337, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclItEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !338 = !{!339, !336}
-!339 = distinct !{!339, !340, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceItE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!340 = distinct !{!340, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceItE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom"}
+!339 = distinct !{!339, !340, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceItE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb: argument 0"}
+!340 = distinct !{!340, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceItE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb"}
 !341 = !{!342}
-!342 = distinct !{!342, !343, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIiEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!343 = distinct !{!343, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIiEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!342 = distinct !{!342, !343, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIiEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!343 = distinct !{!343, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIiEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !344 = !{!345, !342}
-!345 = distinct !{!345, !346, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIiE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!346 = distinct !{!346, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIiE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom"}
+!345 = distinct !{!345, !346, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIiE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb: argument 0"}
+!346 = distinct !{!346, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIiE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb"}
 !347 = !{!348}
-!348 = distinct !{!348, !349, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIjEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!349 = distinct !{!349, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIjEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!348 = distinct !{!348, !349, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIjEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!349 = distinct !{!349, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIjEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !350 = !{!351, !348}
-!351 = distinct !{!351, !352, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIjE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!352 = distinct !{!352, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIjE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom"}
+!351 = distinct !{!351, !352, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIjE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb: argument 0"}
+!352 = distinct !{!352, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIjE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb"}
 !353 = !{!354}
-!354 = distinct !{!354, !355, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIlEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!355 = distinct !{!355, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIlEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!354 = distinct !{!354, !355, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIlEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!355 = distinct !{!355, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIlEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !356 = !{!357, !354}
-!357 = distinct !{!357, !358, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIlE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!358 = distinct !{!358, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIlE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom"}
+!357 = distinct !{!357, !358, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIlE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb: argument 0"}
+!358 = distinct !{!358, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIlE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb"}
 !359 = !{!360}
-!360 = distinct !{!360, !361, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclImEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!361 = distinct !{!361, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclImEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!360 = distinct !{!360, !361, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclImEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!361 = distinct !{!361, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclImEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !362 = !{!363, !360}
-!363 = distinct !{!363, !364, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceImE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!364 = distinct !{!364, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceImE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom"}
+!363 = distinct !{!363, !364, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceImE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb: argument 0"}
+!364 = distinct !{!364, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceImE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb"}
 !365 = !{!366}
-!366 = distinct !{!366, !367, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIdEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!367 = distinct !{!367, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIdEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!366 = distinct !{!366, !367, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIdEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!367 = distinct !{!367, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIdEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !368 = !{!369, !366}
-!369 = distinct !{!369, !370, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIdE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!370 = distinct !{!370, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIdE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom"}
+!369 = distinct !{!369, !370, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIdE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb: argument 0"}
+!370 = distinct !{!370, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIdE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb"}
 !371 = !{!372}
-!372 = distinct !{!372, !373, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIfEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!373 = distinct !{!373, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIfEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!372 = distinct !{!372, !373, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIfEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!373 = distinct !{!373, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclIfEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !374 = !{!375, !372}
-!375 = distinct !{!375, !376, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIfE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!376 = distinct !{!376, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIfE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb.argprom"}
+!375 = distinct !{!375, !376, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIfE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb: argument 0"}
+!376 = distinct !{!376, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceIfE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESE_mb"}
 !377 = !{!378}
-!378 = distinct !{!378, !379, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8pxr_half4halfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!379 = distinct !{!379, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8pxr_half4halfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!378 = distinct !{!378, !379, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8pxr_half4halfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!379 = distinct !{!379, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_8pxr_half4halfEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !380 = !{!381, !378}
-!381 = distinct !{!381, !382, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_8pxr_half4halfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESG_mb.argprom: argument 0"}
-!382 = distinct !{!382, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_8pxr_half4halfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESG_mb.argprom"}
+!381 = distinct !{!381, !382, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_8pxr_half4halfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESG_mb: argument 0"}
+!382 = distinct !{!382, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_8pxr_half4halfEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESG_mb"}
 !383 = !{!384}
-!384 = distinct !{!384, !385, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!385 = distinct !{!385, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!384 = distinct !{!384, !385, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!385 = distinct !{!385, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !386 = !{!387, !384}
-!387 = distinct !{!387, !388, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESK_mb.argprom: argument 0"}
-!388 = distinct !{!388, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESK_mb.argprom"}
+!387 = distinct !{!387, !388, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESK_mb: argument 0"}
+!388 = distinct !{!388, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKNS_7TfTokenERKNS_7VtArrayIiEESK_mb"}
 !389 = !{!390}
-!390 = distinct !{!390, !391, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7TfTokenEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom: argument 0"}
-!391 = distinct !{!391, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7TfTokenEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE.argprom"}
+!390 = distinct !{!390, !391, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7TfTokenEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE: argument 0"}
+!391 = distinct !{!391, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_VisitorclINS_7TfTokenEEESt10shared_ptrINS_16HdDataSourceBaseEERKNS_7VtArrayIT_EE"}
 !392 = !{!393, !390}
-!393 = distinct !{!393, !394, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7TfTokenEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKS2_RKNS_7VtArrayIiEESE_mb.argprom: argument 0"}
-!394 = distinct !{!394, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7TfTokenEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKS2_RKNS_7VtArrayIiEESE_mb.argprom"}
+!393 = distinct !{!393, !394, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7TfTokenEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKS2_RKNS_7VtArrayIiEESE_mb: argument 0"}
+!394 = distinct !{!394, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_ExpandedDataSourceINS_7TfTokenEE3NewERKSt10shared_ptrINS_19HdSampledDataSourceEERKS2_RKNS_7VtArrayIiEESE_mb"}
 !395 = !{!396}
 !396 = distinct !{!396, !397, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_ComputeExpandedVaryingValueINS_7GfVec4iEEENS_7VtArrayIT_EERKS5_RKNS3_IiEESA_mRKNS_7TfTokenE: argument 0"}
 !397 = distinct !{!397, !"_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_ComputeExpandedVaryingValueINS_7GfVec4iEEENS_7VtArrayIT_EERKS5_RKNS3_IiEESA_mRKNS_7TfTokenE"}

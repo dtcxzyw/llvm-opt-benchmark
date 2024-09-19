@@ -6456,22 +6456,22 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %setter, i64 16
   %cmp3.i.not = icmp eq ptr %0, %1
-  br i1 %cmp3.i.not, label %invoke.cont, label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.argprom.exit.i
+  br i1 %cmp3.i.not, label %invoke.cont, label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.exit.i
 
-_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.argprom.exit.i: ; preds = %if.end.i
+_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
   %mul.i.i.i.i = mul nuw nsw i64 %sub.ptr.div.i, 144
   %call5.i.i.i.i13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #33
-          to label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i unwind label %lpad
+          to label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.exit.i unwind label %lpad
 
-_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i: ; preds = %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.argprom.exit.i
+_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.exit.i
   %3 = getelementptr inbounds i8, ptr %setter, i64 8
   store ptr %call5.i.i.i.i13, ptr %3, align 8, !tbaa !165
   %add.ptr21.i = getelementptr inbounds nuw %"class.QuantLib::(anonymous namespace)::PricerSetter", ptr %call5.i.i.i.i13, i64 %sub.ptr.div.i
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i, %if.end.i
-  %_M_finish.i17.promoted = phi ptr [ %call5.i.i.i.i13, %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i ], [ null, %if.end.i ]
-  %.promoted = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.argprom.exit.i ], [ null, %if.end.i ]
+invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.exit.i, %if.end.i
+  %_M_finish.i17.promoted = phi ptr [ %call5.i.i.i.i13, %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %if.end.i ]
+  %.promoted = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %if.end.i ]
   %cmp.i15.not62 = icmp eq ptr %1, %0
   br i1 %cmp.i15.not62, label %for.cond.cleanup, label %for.body.lr.ph
 
@@ -6495,7 +6495,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.for.cond.c
   %cmp.i26.not69 = icmp eq ptr %5, %6
   br i1 %cmp.i26.not69, label %for.cond.cleanup19, label %do.body.preheader
 
-lpad:                                             ; preds = %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.argprom.exit.i, %if.then.i
+lpad:                                             ; preds = %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.exit.i, %if.then.i
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -6513,14 +6513,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
 
 if.then.i18:                                      ; preds = %for.body
   %cmp.not.i.i.i.i.i = icmp eq ptr %call5.val9, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.argprom.exit.i, label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i18
   %use_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.val9, i64 8
   %10 = atomicrmw add ptr %use_count_.i.i.i.i.i.i, i32 1 monotonic, align 4
-  br label %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.argprom.exit.i
+  br label %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.exit.i
 
-_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.argprom.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i18
+_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.exit.i: ; preds = %if.then.i.i.i.i.i, %if.then.i18
   %11 = getelementptr inbounds i8, ptr %incdec.ptr.i.i66, i64 8
   %12 = getelementptr inbounds i8, ptr %incdec.ptr.i.i66, i64 16
   %13 = getelementptr inbounds i8, ptr %incdec.ptr.i.i66, i64 24
@@ -6563,7 +6563,7 @@ if.else.i:                                        ; preds = %for.body
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cond.i20.i.i5963 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775728
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
   store ptr %incdec.ptr.i.i66, ptr %_M_finish.i17, align 8, !tbaa !3
@@ -6575,7 +6575,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 .noexc23:                                         ; preds = %if.then.i.i.i
   unreachable
 
-_ZNKSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i: ; preds = %if.else.i
+_ZNKSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 144
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i66, %cond.i20.i.i5963
   %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
@@ -6584,25 +6584,25 @@ _ZNKSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE12_M_check_lenEmPKc
   %26 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 64051194700380387)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 64051194700380387, i64 %26
   %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.argprom.exit.i.i, label %cond.true.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
 
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
+cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 144
   %call5.i.i.i.i.i24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #33
-          to label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.argprom.exit.i.i unwind label %lpad6.loopexit
+          to label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.exit.i.i unwind label %lpad6.loopexit
 
-_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.argprom.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i
-  %cond.i20.i.i = phi ptr [ null, %_ZNKSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE12_M_check_lenEmPKc.argprom.exit.i.i ], [ %call5.i.i.i.i.i24, %cond.true.i.i.i ]
+_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %cond.i20.i.i = phi ptr [ null, %_ZNKSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i24, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::(anonymous namespace)::PricerSetter", ptr %cond.i20.i.i, i64 %sub.ptr.div.i.i.i.i
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %call5.val9, null
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i, label %if.then.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.argprom.exit.i.i
+if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.exit.i.i
   %use_count_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.val9, i64 8
   %27 = atomicrmw add ptr %use_count_.i.i.i.i.i.i.i, i32 1 monotonic, align 4
   br label %invoke.cont.i.i
 
-invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.argprom.exit.i.i
+invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.exit.i.i
   %28 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %29 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %30 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
@@ -6638,7 +6638,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i.i.i.i.i
   store ptr %call5.val, ptr %pricer_.i.i.i.i.i, align 8, !tbaa !153
   %pn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 136
   store ptr %call5.val9, ptr %pn.i.i.i.i.i.i, align 8, !tbaa !37
-  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit34.i.i, label %for.body.i.i.i.i.i
+  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %for.body.i.i.i.i.i
   %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i20.i.i, %invoke.cont.i.i ]
@@ -6691,25 +6691,25 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.02.i.i.i.i.i, i64 144
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.03.i.i.i.i.i, i64 144
   %cmp.not.i.i.i.i6.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %incdec.ptr.i.i66
-  br i1 %cmp.not.i.i.i.i6.i, label %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit34.i.i, label %for.body.i.i.i.i.i, !llvm.loop !174
+  br i1 %cmp.not.i.i.i.i6.i, label %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i.i, label %for.body.i.i.i.i.i, !llvm.loop !174
 
-_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit34.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
+_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i20.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %tobool.not.i.i.i = icmp eq ptr %cond.i20.i.i5963, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i, label %if.then.i35.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i35.i.i
 
-if.then.i35.i.i:                                  ; preds = %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit34.i.i
+if.then.i35.i.i:                                  ; preds = %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %cond.i20.i.i5963, i64 noundef %sub.ptr.sub.i.i.i.i) #34
-  br label %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i
+  br label %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i: ; preds = %if.then.i35.i.i, %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.argprom.exit34.i.i
+_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i35.i.i, %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i.i
   %add.ptr26.i.i = getelementptr inbounds nuw %"class.QuantLib::(anonymous namespace)::PricerSetter", ptr %cond.i20.i.i, i64 %cond.i.i.i
   br label %invoke.cont7
 
-invoke.cont7:                                     ; preds = %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i, %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.argprom.exit.i
-  %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i ], [ %incdec.ptr.i.i66, %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.argprom.exit.i ]
-  %cond.i20.i.i58 = phi ptr [ %cond.i20.i.i, %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i ], [ %cond.i20.i.i5963, %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.argprom.exit.i ]
-  %61 = phi ptr [ %add.ptr26.i.i, %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.argprom.exit.i ], [ %8, %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.argprom.exit.i ]
+invoke.cont7:                                     ; preds = %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.exit.i
+  %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %incdec.ptr.i.i66, %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.exit.i ]
+  %cond.i20.i.i58 = phi ptr [ %cond.i20.i.i, %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %cond.i20.i.i5963, %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.exit.i ]
+  %61 = phi ptr [ %add.ptr26.i.i, %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %8, %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.exit.i ]
   %incdec.ptr.i.i67 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 144
   %incdec.ptr.i25 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.064, i64 16
   %cmp.i15.not = icmp eq ptr %incdec.ptr.i25, %0
@@ -15742,7 +15742,7 @@ invoke.contthread-pre-split:                      ; preds = %for.body.i.i.i
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EED2Ev.argprom.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %3 = getelementptr inbounds i8, ptr %this, i64 16
@@ -15751,9 +15751,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
   %sub.ptr.rhs.cast.i = ptrtoint ptr %this.val to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   tail call void @_ZdlPvm(ptr noundef nonnull %this.val, i64 noundef %sub.ptr.sub.i) #34
-  br label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EED2Ev.argprom.exit
+  br label %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 
@@ -16362,10 +16362,10 @@ attributes #34 = { builtin nounwind }
 !166 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
 !167 = !{!166, !4, i64 16}
 !168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZSt19__relocate_object_aIN8QuantLib12_GLOBAL__N_112PricerSetterES2_SaIS2_EEvPT_PT0_RT1_.argprom: %__dest"}
-!170 = distinct !{!170, !"_ZSt19__relocate_object_aIN8QuantLib12_GLOBAL__N_112PricerSetterES2_SaIS2_EEvPT_PT0_RT1_.argprom"}
+!169 = distinct !{!169, !170, !"_ZSt19__relocate_object_aIN8QuantLib12_GLOBAL__N_112PricerSetterES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!170 = distinct !{!170, !"_ZSt19__relocate_object_aIN8QuantLib12_GLOBAL__N_112PricerSetterES2_SaIS2_EEvPT_PT0_RT1_"}
 !171 = !{!172}
-!172 = distinct !{!172, !170, !"_ZSt19__relocate_object_aIN8QuantLib12_GLOBAL__N_112PricerSetterES2_SaIS2_EEvPT_PT0_RT1_.argprom: %__orig"}
+!172 = distinct !{!172, !170, !"_ZSt19__relocate_object_aIN8QuantLib12_GLOBAL__N_112PricerSetterES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
 !173 = !{!169, !172}
 !174 = distinct !{!174, !54}
 !175 = !{!166, !4, i64 0}

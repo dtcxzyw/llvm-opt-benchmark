@@ -208,7 +208,7 @@ fmap_need_off_once_len.exit:                      ; preds = %fmap_need_off_once_
   %79 = load ptr, ptr %47, align 8
   %.not.i185 = icmp eq ptr %79, null
   %or.cond204 = select i1 %or.cond202, i1 %.not.i185, i1 false
-  br i1 %or.cond204, label %80, label %compare_state.argprom.exit.thread.i
+  br i1 %or.cond204, label %80, label %compare_state.exit.thread.i
 
 80:                                               ; preds = %68
   %81 = load i64, ptr %53, align 8
@@ -216,14 +216,14 @@ fmap_need_off_once_len.exit:                      ; preds = %fmap_need_off_once_
   store i64 %82, ptr %53, align 8
   br label %pop_state.exit
 
-compare_state.argprom.exit.thread.i:              ; preds = %68
+compare_state.exit.thread.i:                      ; preds = %68
   %83 = load i64, ptr %8, align 8
   %84 = load i64, ptr %9, align 8
   %.not21.i = icmp ult i64 %83, %84
   %.pre.i = load ptr, ptr %3, align 8
   br i1 %.not21.i, label %90, label %85
 
-85:                                               ; preds = %compare_state.argprom.exit.thread.i
+85:                                               ; preds = %compare_state.exit.thread.i
   %86 = add i64 %84, 128
   store i64 %86, ptr %9, align 8
   %87 = mul i64 %86, 104
@@ -235,8 +235,8 @@ compare_state.argprom.exit.thread.i:              ; preds = %68
   store ptr %88, ptr %3, align 8
   br label %90
 
-90:                                               ; preds = %89, %compare_state.argprom.exit.thread.i
-  %91 = phi ptr [ %88, %89 ], [ %.pre.i, %compare_state.argprom.exit.thread.i ]
+90:                                               ; preds = %89, %compare_state.exit.thread.i
+  %91 = phi ptr [ %88, %89 ], [ %.pre.i, %compare_state.exit.thread.i ]
   %92 = add i64 %83, 1
   store i64 %92, ptr %8, align 8
   %93 = getelementptr inbounds %struct.rtf_state, ptr %91, i64 %83

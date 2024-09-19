@@ -21,23 +21,23 @@ define zeroext i8 @linear2alaw(i32 noundef %0) local_unnamed_addr #0 {
   %5 = load i16, ptr %.081.i, align 2
   %6 = sext i16 %5 to i32
   %.not.i = icmp sgt i32 %.017, %6
-  br i1 %.not.i, label %7, label %search.argprom.exit
+  br i1 %.not.i, label %7, label %search.exit
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %.081.i, i64 2
   %9 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond.not.i, label %search.argprom.exit.thread, label %4, !llvm.loop !4
+  br i1 %exitcond.not.i, label %search.exit.thread, label %4, !llvm.loop !4
 
-search.argprom.exit:                              ; preds = %4
+search.exit:                                      ; preds = %4
   %10 = icmp ugt i32 %.02.i, 7
-  br i1 %10, label %search.argprom.exit.thread, label %12
+  br i1 %10, label %search.exit.thread, label %12
 
-search.argprom.exit.thread:                       ; preds = %7, %search.argprom.exit
+search.exit.thread:                               ; preds = %7, %search.exit
   %11 = xor i8 %.016, 127
   br label %22
 
-12:                                               ; preds = %search.argprom.exit
+12:                                               ; preds = %search.exit
   %.tr = trunc nuw i32 %.02.i to i8
   %13 = shl nuw nsw i8 %.tr, 4
   %14 = icmp ult i32 %.02.i, 2
@@ -52,8 +52,8 @@ search.argprom.exit.thread:                       ; preds = %7, %search.argprom.
   %21 = xor i8 %.0, %.016
   br label %22
 
-22:                                               ; preds = %12, %search.argprom.exit.thread
-  %.015 = phi i8 [ %11, %search.argprom.exit.thread ], [ %21, %12 ]
+22:                                               ; preds = %12, %search.exit.thread
+  %.015 = phi i8 [ %11, %search.exit.thread ], [ %21, %12 ]
   ret i8 %.015
 }
 
@@ -106,24 +106,24 @@ define zeroext i8 @linear2ulaw(i32 noundef %0) local_unnamed_addr #0 {
   %4 = load i16, ptr %.081.i, align 2
   %5 = sext i16 %4 to i32
   %.not.i = icmp sgt i32 %.012, %5
-  br i1 %.not.i, label %6, label %search.argprom.exit
+  br i1 %.not.i, label %6, label %search.exit
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %.081.i, i64 2
   %8 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %8, 8
-  br i1 %exitcond.not.i, label %search.argprom.exit.thread, label %3, !llvm.loop !4
+  br i1 %exitcond.not.i, label %search.exit.thread, label %3, !llvm.loop !4
 
-search.argprom.exit:                              ; preds = %3
+search.exit:                                      ; preds = %3
   %9 = icmp ugt i32 %.02.i, 7
-  br i1 %9, label %search.argprom.exit.thread, label %12
+  br i1 %9, label %search.exit.thread, label %12
 
-search.argprom.exit.thread:                       ; preds = %6, %search.argprom.exit
+search.exit.thread:                               ; preds = %6, %search.exit
   %10 = trunc nuw i32 %.013 to i8
   %11 = and i8 %10, -128
   br label %20
 
-12:                                               ; preds = %search.argprom.exit
+12:                                               ; preds = %search.exit
   %13 = shl nuw nsw i32 %.02.i, 4
   %14 = add nuw nsw i32 %.02.i, 3
   %15 = ashr i32 %.012, %14
@@ -133,8 +133,8 @@ search.argprom.exit.thread:                       ; preds = %6, %search.argprom.
   %19 = trunc nuw i32 %18 to i8
   br label %20
 
-20:                                               ; preds = %12, %search.argprom.exit.thread
-  %.0 = phi i8 [ %11, %search.argprom.exit.thread ], [ %19, %12 ]
+20:                                               ; preds = %12, %search.exit.thread
+  %.0 = phi i8 [ %11, %search.exit.thread ], [ %19, %12 ]
   ret i8 %.0
 }
 

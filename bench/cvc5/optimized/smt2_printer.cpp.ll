@@ -6433,12 +6433,12 @@ lpad126:                                          ; preds = %sw.bb123
 
 sw.bb129:                                         ; preds = %if.then6
   %call.i335 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %2)
-  tail call fastcc void @_ZN4cvc58internal7printer4smt2L16toStreamRationalERSoRKNS0_8RationalEbNS2_7VariantE.argelim(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %call.i335, i1 noundef zeroext true)
+  tail call fastcc void @_ZN4cvc58internal7printer4smt2L16toStreamRationalERSoRKNS0_8RationalEbNS2_7VariantE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %call.i335, i1 noundef zeroext true)
   br label %return
 
 sw.bb131:                                         ; preds = %if.then6
   %call.i336 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %2)
-  tail call fastcc void @_ZN4cvc58internal7printer4smt2L16toStreamRationalERSoRKNS0_8RationalEbNS2_7VariantE.argelim(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %call.i336, i1 noundef zeroext false)
+  tail call fastcc void @_ZN4cvc58internal7printer4smt2L16toStreamRationalERSoRKNS0_8RationalEbNS2_7VariantE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %call.i336, i1 noundef zeroext false)
   br label %return
 
 sw.bb135:                                         ; preds = %if.then6
@@ -9599,7 +9599,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11Fatal
 declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal7printer4smt2L16toStreamRationalERSoRKNS0_8RationalEbNS2_7VariantE.argelim(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %r, i1 noundef zeroext %isReal) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal7printer4smt2L16toStreamRationalERSoRKNS0_8RationalEbNS2_7VariantE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %r, i1 noundef zeroext %isReal) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i51 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i42 = alloca %"class.std::__cxx11::basic_string", align 8

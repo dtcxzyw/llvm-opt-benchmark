@@ -2938,15 +2938,15 @@ lpad2:                                            ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this, i64 24
   %files_.val2 = load i64, ptr %1, align 8
   %tobool.not.i.i = icmp eq i64 %files_.val2, 0
-  br i1 %tobool.not.i.i, label %_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.argprom.exit, label %invoke.cont13.i.i
+  br i1 %tobool.not.i.i, label %_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.exit, label %invoke.cont13.i.i
 
 invoke.cont13.i.i:                                ; preds = %lpad2
   %files_.val = load ptr, ptr %files_, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %files_.val, i64 -8
   tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i) #28
-  br label %_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.argprom.exit
+  br label %_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.exit
 
-_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.argprom.exit: ; preds = %lpad2, %invoke.cont13.i.i
+_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.exit: ; preds = %lpad2, %invoke.cont13.i.i
   resume { ptr, i32 } %0
 }
 
@@ -2962,7 +2962,7 @@ declare void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef
 define internal void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_123GeneratedMessageFactoryEEEPT_S6_ENUlPKvE_8__invokeES8_(ptr noundef %pp) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %isnull.i = icmp eq ptr %pp, null
-  br i1 %isnull.i, label %_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_123GeneratedMessageFactoryEEEPT_S6_ENKUlPKvE_clES8_.argprom.exit, label %delete.notnull.i
+  br i1 %isnull.i, label %_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_123GeneratedMessageFactoryEEEPT_S6_ENKUlPKvE_clES8_.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %capacity_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pp, i64 128
@@ -2996,9 +2996,9 @@ invoke.cont13.i.i.i.i:                            ; preds = %_ZN4absl12lts_20230
 
 _ZN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactoryD2Ev.exit.i: ; preds = %invoke.cont13.i.i.i.i, %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorEPKNS3_7MessageENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEED2Ev.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %pp) #28
-  br label %_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_123GeneratedMessageFactoryEEEPT_S6_ENKUlPKvE_clES8_.argprom.exit
+  br label %_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_123GeneratedMessageFactoryEEEPT_S6_ENKUlPKvE_clES8_.exit
 
-_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_123GeneratedMessageFactoryEEEPT_S6_ENKUlPKvE_clES8_.argprom.exit: ; preds = %entry, %_ZN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactoryD2Ev.exit.i
+_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_123GeneratedMessageFactoryEEEPT_S6_ENKUlPKvE_clES8_.exit: ; preds = %entry, %_ZN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactoryD2Ev.exit.i
   ret void
 }
 
@@ -3025,16 +3025,16 @@ _ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorEPKNS3_7Mes
   %2 = getelementptr inbounds i8, ptr %this, i64 24
   %files_.val1 = load i64, ptr %2, align 8
   %tobool.not.i.i = icmp eq i64 %files_.val1, 0
-  br i1 %tobool.not.i.i, label %_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.argprom.exit, label %invoke.cont13.i.i
+  br i1 %tobool.not.i.i, label %_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.exit, label %invoke.cont13.i.i
 
 invoke.cont13.i.i:                                ; preds = %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorEPKNS3_7MessageENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEED2Ev.exit
   %files_ = getelementptr inbounds i8, ptr %this, i64 8
   %files_.val = load ptr, ptr %files_, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %files_.val, i64 -8
   tail call void @_ZdlPv(ptr noundef nonnull %add.ptr.i.i.i) #28
-  br label %_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.argprom.exit
+  br label %_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.exit
 
-_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.argprom.exit: ; preds = %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorEPKNS3_7MessageENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEED2Ev.exit, %invoke.cont13.i.i
+_ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf8internal15DescriptorTableENS3_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENS9_18DescriptorByNameEqESaIS7_EED2Ev.exit: ; preds = %_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf10DescriptorEPKNS3_7MessageENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEED2Ev.exit, %invoke.cont13.i.i
   ret void
 }
 

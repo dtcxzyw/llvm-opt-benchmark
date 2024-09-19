@@ -510,44 +510,44 @@ define internal i32 @dissect_ocfs2_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   ]
 
 46:                                               ; preds = %44
-  call fastcc void @dissect_master_msg.argelim(ptr noundef %18, ptr noundef %0, i32 noundef -1)
+  call fastcc void @dissect_master_msg(ptr noundef %18, ptr noundef %0, i32 noundef -1)
   br label %92
 
 47:                                               ; preds = %44
   %48 = load i32, ptr @hf_dlm_am_flags, align 4
-  call fastcc void @dissect_master_msg.argelim(ptr noundef %18, ptr noundef %0, i32 noundef %48)
+  call fastcc void @dissect_master_msg(ptr noundef %18, ptr noundef %0, i32 noundef %48)
   br label %92
 
 49:                                               ; preds = %44
-  %50 = call fastcc i32 @dissect_create_lock_msg.argelim(ptr noundef %18, ptr noundef %0, ptr noundef null)
+  %50 = call fastcc i32 @dissect_create_lock_msg(ptr noundef %18, ptr noundef %0, ptr noundef null)
   br label %92
 
 51:                                               ; preds = %44
-  call fastcc void @dissect_convert_lock_msg.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_convert_lock_msg(ptr noundef %18, ptr noundef %0)
   br label %92
 
 52:                                               ; preds = %44
-  call fastcc void @dissect_proxy_ast_msg.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_proxy_ast_msg(ptr noundef %18, ptr noundef %0)
   br label %92
 
 53:                                               ; preds = %44
-  call fastcc void @dissect_unlock_msg.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_unlock_msg(ptr noundef %18, ptr noundef %0)
   br label %92
 
 54:                                               ; preds = %44
-  call fastcc void @dissect_deref_lockres_msg.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_deref_lockres_msg(ptr noundef %18, ptr noundef %0)
   br label %92
 
 55:                                               ; preds = %44
-  call fastcc void @dissect_migrate_request_msg.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_migrate_request_msg(ptr noundef %18, ptr noundef %0)
   br label %92
 
 56:                                               ; preds = %44
-  call fastcc void @dissect_dlm_migrate_lockres.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_dlm_migrate_lockres(ptr noundef %18, ptr noundef %0)
   br label %92
 
 57:                                               ; preds = %44
-  call fastcc void @dissect_dlm_query_join_request.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_dlm_query_join_request(ptr noundef %18, ptr noundef %0)
   br label %92
 
 58:                                               ; preds = %44, %44
@@ -567,7 +567,7 @@ define internal i32 @dissect_ocfs2_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   br label %92
 
 70:                                               ; preds = %44
-  call fastcc void @dissect_master_requery_msg.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_master_requery_msg(ptr noundef %18, ptr noundef %0)
   br label %92
 
 71:                                               ; preds = %44, %44
@@ -582,19 +582,19 @@ define internal i32 @dissect_ocfs2_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   br label %92
 
 80:                                               ; preds = %44
-  call fastcc void @dissect_reco_data_done_msg.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_reco_data_done_msg(ptr noundef %18, ptr noundef %0)
   br label %92
 
 81:                                               ; preds = %44
-  call fastcc void @dissect_finalize_reco_msg.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_finalize_reco_msg(ptr noundef %18, ptr noundef %0)
   br label %92
 
 82:                                               ; preds = %44
-  call fastcc void @dissect_dlm_query_region.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_dlm_query_region(ptr noundef %18, ptr noundef %0)
   br label %92
 
 83:                                               ; preds = %44
-  call fastcc void @dissect_dlm_query_nodeinfo.argelim(ptr noundef %18, ptr noundef %0)
+  call fastcc void @dissect_dlm_query_nodeinfo(ptr noundef %18, ptr noundef %0)
   br label %92
 
 84:                                               ; preds = %44
@@ -637,7 +637,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_master_msg.argelim(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_master_msg(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_dlm_node_idx, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef 24, i32 noundef 1, i32 noundef 0) #4
@@ -667,7 +667,7 @@ dlm_name_handler.exit:                            ; preds = %3, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_create_lock_msg.argelim(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_create_lock_msg(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_dlm_cookie, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef 24, i32 noundef 8, i32 noundef 0) #4
@@ -712,9 +712,9 @@ dlm_name_handler.exit:                            ; preds = %dlm_lkm_flags_handl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_convert_lock_msg.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_convert_lock_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = call fastcc i32 @dissect_create_lock_msg.argelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @dissect_create_lock_msg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   %5 = load i32, ptr %3, align 4
   %6 = and i32 %5, 536870912
   %.not = icmp eq i32 %6, 0
@@ -736,7 +736,7 @@ define internal fastcc void @dissect_convert_lock_msg.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_proxy_ast_msg.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_proxy_ast_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_dlm_cookie, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 24, i32 noundef 8, i32 noundef 0) #4
@@ -787,7 +787,7 @@ dlm_name_handler.exit:                            ; preds = %2, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_unlock_msg.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_unlock_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_dlm_cookie, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 24, i32 noundef 8, i32 noundef 0) #4
@@ -836,7 +836,7 @@ dlm_name_handler.exit:                            ; preds = %2, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_deref_lockres_msg.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_deref_lockres_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_dlm_pad32, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 24, i32 noundef 4, i32 noundef 0) #4
@@ -864,7 +864,7 @@ dlm_name_handler.exit:                            ; preds = %2, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_migrate_request_msg.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_migrate_request_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_dlm_master, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 24, i32 noundef 1, i32 noundef 0) #4
@@ -894,7 +894,7 @@ dlm_name_handler.exit:                            ; preds = %2, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dlm_migrate_lockres.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_dlm_migrate_lockres(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_dlm_master, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 24, i32 noundef 1, i32 noundef 0) #4
@@ -971,7 +971,7 @@ define internal fastcc void @dissect_dlm_migrate_lockres.argelim(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dlm_query_join_request.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_dlm_query_join_request(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @wmem_packet_scope() #4
   %4 = tail call noalias ptr @wmem_alloc0(ptr noundef %3, i64 noundef 257) #4
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef 24) #4
@@ -1036,7 +1036,7 @@ define internal fastcc void @dissect_dlm_query_join_request.argelim(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_master_requery_msg.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_master_requery_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_dlm_pad16, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 24, i32 noundef 2, i32 noundef 0) #4
@@ -1064,7 +1064,7 @@ dlm_name_handler.exit:                            ; preds = %2, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_reco_data_done_msg.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_reco_data_done_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_dlm_node_idx, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 24, i32 noundef 1, i32 noundef 0) #4
   %5 = load i32, ptr @hf_dlm_dead_node, align 4
@@ -1079,7 +1079,7 @@ define internal fastcc void @dissect_reco_data_done_msg.argelim(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_finalize_reco_msg.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_finalize_reco_msg(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_dlm_node_idx, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 24, i32 noundef 1, i32 noundef 0) #4
   %5 = load i32, ptr @hf_dlm_dead_node, align 4
@@ -1094,7 +1094,7 @@ define internal fastcc void @dissect_finalize_reco_msg.argelim(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dlm_query_region.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_dlm_query_region(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_dlm_qr_node, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 24, i32 noundef 1, i32 noundef 0) #4
@@ -1128,7 +1128,7 @@ define internal fastcc void @dissect_dlm_query_region.argelim(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dlm_query_nodeinfo.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_dlm_query_nodeinfo(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_dlm_qn_nodenum, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 24, i32 noundef 1, i32 noundef 0) #4

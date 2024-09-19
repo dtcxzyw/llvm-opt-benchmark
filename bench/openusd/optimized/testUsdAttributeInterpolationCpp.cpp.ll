@@ -2114,7 +2114,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread.i: ; preds = %
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread19.i unwind label %288
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread19.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.i, %.noexc15.i, %212
-  invoke fastcc void @_ZL18AddTestCasesToPrimRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %81)
+  invoke fastcc void @_ZL18AddTestCasesToPrimRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %81)
           to label %223 unwind label %288
 
 223:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread19.i
@@ -2524,7 +2524,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread.i41: ; preds =
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread114.i unwind label %633
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread114.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread.i41, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.i52, %.noexc36.i, %352
-  invoke fastcc void @_ZL18AddTestCasesToPrimRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %65)
+  invoke fastcc void @_ZL18AddTestCasesToPrimRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %65)
           to label %363 unwind label %633
 
 363:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread114.i
@@ -4212,7 +4212,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i104
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i104: ; preds = %951, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i103, %_ZN32pxrInternal_v0_24__pxrReserved__13UsdEditTargetD2Ev.exit.i101
-  invoke fastcc void @_ZL18AddTestCasesToPrimRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %18)
+  invoke fastcc void @_ZL18AddTestCasesToPrimRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %955 unwind label %.loopexit218
 
 955:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i104
@@ -5531,7 +5531,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL18AddTestCasesToPrimRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE.retelim(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define internal fastcc void @_ZL18AddTestCasesToPrimRKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
   tail call void @_ZN8TestCaseIbE11AddTestCaseERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %0)
   tail call void @_ZN8TestCaseIN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEEE11AddTestCaseERKNS0_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %0)
   tail call void @_ZN8TestCaseIhE11AddTestCaseERKN32pxrInternal_v0_24__pxrReserved__7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %0)

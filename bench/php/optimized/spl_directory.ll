@@ -366,12 +366,12 @@ declare ptr @_php_glob_stream_get_path(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DirectoryIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @spl_filesystem_object_construct.argprom(ptr noundef %0, i64 noundef 0)
+  tail call fastcc void @spl_filesystem_object_construct(ptr noundef %0, i64 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_filesystem_object_construct.argprom(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4098) %1) unnamed_addr #0 {
+define internal fastcc void @spl_filesystem_object_construct(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4098) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.zend_error_handling, align 8
@@ -2297,7 +2297,7 @@ define hidden void @zim_FilesystemIterator_current(ptr nocapture noundef readonl
   br label %43
 
 38:                                               ; preds = %32
-  tail call fastcc void @spl_filesystem_object_create_type.retelim(i32 noundef 0, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef %1)
+  tail call fastcc void @spl_filesystem_object_create_type(i32 noundef 0, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef %1)
   br label %43
 
 39:                                               ; preds = %.critedge
@@ -2314,7 +2314,7 @@ define hidden void @zim_FilesystemIterator_current(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_filesystem_object_create_type.retelim(i32 noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @spl_filesystem_object_create_type(i32 noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
@@ -3835,7 +3835,7 @@ define hidden void @zim_SplFileInfo_openFile(ptr nocapture noundef readonly %0, 
   %5 = getelementptr inbounds i8, ptr %4, i64 -384
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
-  tail call fastcc void @spl_filesystem_object_create_type.retelim(i32 noundef %7, ptr noundef nonnull %5, i32 noundef 2, ptr noundef null, ptr noundef %1)
+  tail call fastcc void @spl_filesystem_object_create_type(i32 noundef %7, ptr noundef nonnull %5, i32 noundef 2, ptr noundef null, ptr noundef %1)
   ret void
 }
 
@@ -3921,7 +3921,7 @@ define hidden void @zim_SplFileInfo_getFileInfo(ptr nocapture noundef readonly %
   %16 = getelementptr inbounds i8, ptr %5, i64 -384
   %17 = load i32, ptr %8, align 4
   %18 = load ptr, ptr %3, align 8
-  call fastcc void @spl_filesystem_object_create_type.retelim(i32 noundef %17, ptr noundef nonnull %16, i32 noundef 0, ptr noundef %18, ptr noundef %1)
+  call fastcc void @spl_filesystem_object_create_type(i32 noundef %17, ptr noundef nonnull %16, i32 noundef 0, ptr noundef %18, ptr noundef %1)
   br label %19
 
 19:                                               ; preds = %15, %12
@@ -4915,7 +4915,7 @@ define hidden void @zim_SplFileInfo__bad_state_ex(ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_FilesystemIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @spl_filesystem_object_construct.argprom(ptr noundef %0, i64 noundef 4097)
+  tail call fastcc void @spl_filesystem_object_construct(ptr noundef %0, i64 noundef 4097)
   ret void
 }
 
@@ -5565,13 +5565,13 @@ declare ptr @zend_strpprintf(i64 noundef, ptr noundef, ...) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveDirectoryIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @spl_filesystem_object_construct.argprom(ptr noundef %0, i64 noundef 1)
+  tail call fastcc void @spl_filesystem_object_construct(ptr noundef %0, i64 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_GlobIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  tail call fastcc void @spl_filesystem_object_construct.argprom(ptr noundef %0, i64 noundef 3)
+  tail call fastcc void @spl_filesystem_object_construct(ptr noundef %0, i64 noundef 3)
   ret void
 }
 
@@ -10647,7 +10647,7 @@ define internal ptr @spl_filesystem_tree_it_current_data(ptr noundef %0) #0 {
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %29
-  tail call fastcc void @spl_filesystem_object_create_type.retelim(i32 noundef 0, ptr noundef nonnull %.val, i32 noundef 0, ptr noundef null, ptr noundef nonnull %25)
+  tail call fastcc void @spl_filesystem_object_create_type(i32 noundef 0, ptr noundef nonnull %.val, i32 noundef 0, ptr noundef null, ptr noundef nonnull %25)
   br label %35
 
 33:                                               ; preds = %1

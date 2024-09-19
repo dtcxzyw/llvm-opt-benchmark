@@ -3975,9 +3975,9 @@ for.end42:                                        ; preds = %for.body31, %_ZNSt8
   call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmENK14DiagnosticStat14printBreakdownEm(ptr noundef nonnull align 8 dereferenceable(64) %stats21, i64 noundef 1)
   %call4.i32 = call ptr @setlocale(i32 noundef 1, ptr noundef %call.i28) #27
   %diagnostic.val.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i18, align 8
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E.argprom(ptr noundef %diagnostic.val.i)
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val.i)
   %diagnostic.val.i33 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E.argprom(ptr noundef %diagnostic.val.i33)
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val.i33)
   ret void
 }
 
@@ -3986,7 +3986,7 @@ define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeD
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 128
   %diagnostic.val = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E.argprom(ptr noundef %diagnostic.val)
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val)
   ret void
 }
 
@@ -4328,7 +4328,7 @@ define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeD
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 128
   %diagnostic.val.i = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E.argprom(ptr noundef %diagnostic.val.i)
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val.i)
   tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
@@ -4409,7 +4409,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERKNS0_12RootSymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %sym) unnamed_addr #0 align 2 {
 entry:
-  tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE.argelim(ptr noundef nonnull align 8 dereferenceable(168) %this)
+  tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %this)
   ret void
 }
 
@@ -4588,7 +4588,7 @@ _ZNK6hermes2vm13HermesValue324toHVERNS0_11PointerBaseE.exit: ; preds = %if.then.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERKNS0_10GCSymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %sym) unnamed_addr #0 align 2 {
 entry:
-  tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE.argelim(ptr noundef nonnull align 8 dereferenceable(168) %this)
+  tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %this)
   ret void
 }
 
@@ -4597,7 +4597,7 @@ define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26Heap
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 120
   %diagnostic.val.i = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E.argprom(ptr noundef %diagnostic.val.i)
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val.i)
   ret void
 }
 
@@ -4607,7 +4607,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %1 = getelementptr inbounds i8, ptr %this, i64 120
   %diagnostic.val.i.i = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E.argprom(ptr noundef %diagnostic.val.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %diagnostic.val.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void
 }
@@ -4657,7 +4657,7 @@ entry:
 define internal void @_ZThn8_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERKNS0_10GCSymbolIDE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %sym) unnamed_addr #19 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE.argelim(ptr noundef nonnull align 8 dereferenceable(168) %0)
+  tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %0)
   ret void
 }
 
@@ -4923,7 +4923,7 @@ if.then.i9.i:                                     ; preds = %_ZNSt8_Rb_treeINSt7
   %retval.sroa.0.0.ph.i = phi ptr [ %retval.sroa.0.0.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_.exit.i ], [ %__j.sroa.0.0.i84.i.i, %if.end12.i82.i.i ], [ %__j.sroa.0.0.i40.i.i, %if.end12.i38.i.i ], [ %__j.sroa.0.0.i.i.i, %if.end12.i.i.i ], [ %__y.addr.0.lcssa.i.i.i17, %if.else44.i.i ]
   %13 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 96
   %breakdown.i.i.val.i.i.i.i = load ptr, ptr %13, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E.argprom(ptr noundef %breakdown.i.i.val.i.i.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %breakdown.i.i.val.i.i.i.i)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i6) #27
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #30
   br label %if.end
@@ -4943,7 +4943,7 @@ declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E.argprom(ptr noundef %__x) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %__x) unnamed_addr #0 align 2 {
 entry:
   %cmp.not1 = icmp eq ptr %__x, null
   br i1 %cmp.not1, label %while.end, label %while.body
@@ -4952,13 +4952,13 @@ while.body:                                       ; preds = %entry, %while.body
   %__x.addr.02 = phi ptr [ %__x.addr.0.val, %while.body ], [ %__x, %entry ]
   %0 = getelementptr i8, ptr %__x.addr.02, i64 24
   %__x.addr.0.val4 = load ptr, ptr %0, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E.argprom(ptr noundef %__x.addr.0.val4)
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %__x.addr.0.val4)
   %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val = load ptr, ptr %1, align 8
   %_M_storage.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 32
   %2 = getelementptr i8, ptr %__x.addr.02, i64 96
   %this.val.i.i = load ptr, ptr %2, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E.argprom(ptr noundef %this.val.i.i)
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %this.val.i.i)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i) #27
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #30
   %cmp.not = icmp eq ptr %__x.addr.0.val, null
@@ -5196,7 +5196,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE.argelim(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
@@ -7291,7 +7291,7 @@ define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnost
 entry:
   %acceptor = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %acceptor, align 8
-  tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE.argelim(ptr noundef nonnull align 8 dereferenceable(168) %1)
+  tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %1)
   ret void
 }
 
@@ -7384,7 +7384,7 @@ define internal void @_ZN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnost
 entry:
   %acceptor = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %acceptor, align 8
-  tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE.argelim(ptr noundef nonnull align 8 dereferenceable(168) %1)
+  tail call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %1)
   ret void
 }
 
@@ -7574,7 +7574,7 @@ for.body18.i.i.i.i.i.i.i.i:                       ; preds = %for.body18.i.i.i.i.
 
 for.body30.i.i.i.i.i.i.i.i:                       ; preds = %for.cond27.preheader.i.i.i.i.i.i.i.i, %for.body30.i.i.i.i.i.i.i.i
   %i.342.i.i.i.i.i.i.i.i = phi i64 [ %inc37.i.i.i.i.i.i.i.i, %for.body30.i.i.i.i.i.i.i.i ], [ %i.2.lcssa.i.i.i.i.i.i.i.i, %for.cond27.preheader.i.i.i.i.i.i.i.i ]
-  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE.argelim(ptr noundef nonnull align 8 dereferenceable(168) %0)
+  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %inc37.i.i.i.i.i.i.i.i = add nuw nsw i64 %i.342.i.i.i.i.i.i.i.i, 1
   %10 = load i8, ptr %endGCSymbolID.i.i.i.i.i.i.i.i, align 1
   %conv28.i.i.i.i.i.i.i.i = zext i8 %10 to i64
@@ -7585,7 +7585,7 @@ _ZN6hermes2vm11SlotVisitorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagno
   %hasValue_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i, i64 16
   %11 = load i8, ptr %hasValue_.i.i.i.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i.i.i = trunc i8 %11 to i1
-  br i1 %tobool.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i
+  br i1 %tobool.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6hermes2vm11SlotVisitorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit.i.i.i.i.i.i.i
   %array.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i, i64 12
@@ -7601,7 +7601,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6hermes2vm11Slot
   %stride5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i, i64 15
   %15 = load i8, ptr %stride5.i.i.i.i.i.i.i.i, align 1
   %16 = load i8, ptr %array.i.i.i.i.i.i.i, align 4
-  switch i8 %16, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i [
+  switch i8 %16, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i [
     i8 0, label %sw.bb.i.i.i.i.i.i.i.i
     i8 1, label %sw.bb7.i.i.i.i.i.i.i.i
     i8 2, label %sw.bb9.i.i.i.i.i.i.i.i
@@ -7610,19 +7610,19 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZN6hermes2vm11Slot
 
 sw.bb.i.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i.i
   %cmp1.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %cmp1.not.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i
+  br i1 %cmp1.not.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %sw.bb.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
   %i.03.i.i.i.i.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ 0, %sw.bb.i.i.i.i.i.i.i.i ]
   call void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor6acceptERNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nonnull readnone align 4 poison)
   %inc.i.i.i.i.i.i.i.i.i = add nuw i32 %i.03.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i.i.i.i.i, %14
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !110
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !110
 
 sw.bb7.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
   %conv8.i.i.i.i.i.i.i.i = zext i8 %15 to i64
   %cmp1.not.i18.i.i.i.i.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %cmp1.not.i18.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %cmp1.not.i18.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i.i.i.i.i:                 ; preds = %sw.bb7.i.i.i.i.i.i.i.i
   %breakdown.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 112
@@ -7649,12 +7649,12 @@ for.body.i19.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i19.i.i.i.
   %add.ptr.i22.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %start.addr.02.i21.i.i.i.i.i.i.i.i, i64 %conv8.i.i.i.i.i.i.i.i
   %inc.i23.i.i.i.i.i.i.i.i = add nuw i32 %i.03.i20.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i24.i.i.i.i.i.i.i.i = icmp eq i32 %inc.i23.i.i.i.i.i.i.i.i, %14
-  br i1 %exitcond.not.i24.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i, label %for.body.i19.i.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %exitcond.not.i24.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i, label %for.body.i19.i.i.i.i.i.i.i.i, !llvm.loop !111
 
 sw.bb9.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i
   %conv10.i.i.i.i.i.i.i.i = zext i8 %15 to i64
   %cmp1.not.i25.i.i.i.i.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %cmp1.not.i25.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i, label %for.body.i26.i.i.i.i.i.i.i.i
+  br i1 %cmp1.not.i25.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i, label %for.body.i26.i.i.i.i.i.i.i.i
 
 for.body.i26.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb9.i.i.i.i.i.i.i.i, %for.body.i26.i.i.i.i.i.i.i.i
   %i.03.i27.i.i.i.i.i.i.i.i = phi i32 [ %inc.i30.i.i.i.i.i.i.i.i, %for.body.i26.i.i.i.i.i.i.i.i ], [ 0, %sw.bb9.i.i.i.i.i.i.i.i ]
@@ -7663,20 +7663,20 @@ for.body.i26.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb9.i.i.i.i.i.i.
   %add.ptr.i29.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %start.addr.02.i28.i.i.i.i.i.i.i.i, i64 %conv10.i.i.i.i.i.i.i.i
   %inc.i30.i.i.i.i.i.i.i.i = add nuw i32 %i.03.i27.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i31.i.i.i.i.i.i.i.i = icmp eq i32 %inc.i30.i.i.i.i.i.i.i.i, %14
-  br i1 %exitcond.not.i31.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i, label %for.body.i26.i.i.i.i.i.i.i.i, !llvm.loop !112
+  br i1 %exitcond.not.i31.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i, label %for.body.i26.i.i.i.i.i.i.i.i, !llvm.loop !112
 
 sw.bb11.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   %cmp1.not.i32.i.i.i.i.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %cmp1.not.i32.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i, label %for.body.i33.i.i.i.i.i.i.i.i
+  br i1 %cmp1.not.i32.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i, label %for.body.i33.i.i.i.i.i.i.i.i
 
 for.body.i33.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb11.i.i.i.i.i.i.i.i, %for.body.i33.i.i.i.i.i.i.i.i
   %i.03.i34.i.i.i.i.i.i.i.i = phi i32 [ %inc.i37.i.i.i.i.i.i.i.i, %for.body.i33.i.i.i.i.i.i.i.i ], [ 0, %sw.bb11.i.i.i.i.i.i.i.i ]
-  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE.argelim(ptr noundef nonnull align 8 dereferenceable(168) %0)
+  call fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor9acceptSymENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(168) %0)
   %inc.i37.i.i.i.i.i.i.i.i = add nuw i32 %i.03.i34.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i38.i.i.i.i.i.i.i.i = icmp eq i32 %inc.i37.i.i.i.i.i.i.i.i, %14
-  br i1 %exitcond.not.i38.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i, label %for.body.i33.i.i.i.i.i.i.i.i, !llvm.loop !113
+  br i1 %exitcond.not.i38.i.i.i.i.i.i.i.i, label %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i, label %for.body.i33.i.i.i.i.i.i.i.i, !llvm.loop !113
 
-_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i: ; preds = %for.body.i33.i.i.i.i.i.i.i.i, %for.body.i26.i.i.i.i.i.i.i.i, %for.body.i19.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i, %sw.bb11.i.i.i.i.i.i.i.i, %sw.bb9.i.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZN6hermes2vm11SlotVisitorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit.i.i.i.i.i.i.i
+_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i: ; preds = %for.body.i33.i.i.i.i.i.i.i.i, %for.body.i26.i.i.i.i.i.i.i.i, %for.body.i19.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i, %sw.bb11.i.i.i.i.i.i.i.i, %sw.bb9.i.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZN6hermes2vm11SlotVisitorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorE11visitFieldsEPcRKNS0_8Metadata11SlotOffsetsE.exit.i.i.i.i.i.i.i
   %17 = load ptr, ptr %__functor, align 8
   %diagnostic.i.i.i = getelementptr inbounds i8, ptr %17, i64 80
   %18 = load i64, ptr %diagnostic.i.i.i, align 8
@@ -7693,7 +7693,7 @@ _ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnostic
   %21 = load ptr, ptr %__functor, align 8
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
-if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i
+if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i
   %numVariableSizedObject.i.i.i = getelementptr inbounds i8, ptr %21, i64 88
   %22 = load i64, ptr %numVariableSizedObject.i.i.i, align 8
   %inc3.i.i.i = add i64 %22, 1
@@ -7710,7 +7710,7 @@ if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm6GCBas
   %call6.i.i.i = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE14DiagnosticStatSt4lessIS5_ESaISt4pairIKS5_S9_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %breakdown.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
   br label %if.end.i.i.i
 
-if.else.i.i.i:                                    ; preds = %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.argprom.exit.i.i.i
+if.else.i.i.i:                                    ; preds = %_ZN6hermes2vm6GCBase8markCellIZNS1_20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEEvPNS0_6GCCellERT_.exit.i.i.i
   %breakdown9.i.i.i = getelementptr inbounds i8, ptr %21, i64 112
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11.i.i.i) #27
   %call.i18.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i.i.i) #27
@@ -7736,13 +7736,13 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   %bf.load.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %__args.val, align 4
   %25 = add i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i.i.i, -184549376
   %26 = icmp ult i32 %25, -134217728
-  br i1 %26, label %"_ZSt10__invoke_rIvRZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %land.lhs.true.i.i.i
+  br i1 %26, label %"_ZSt10__invoke_rIvRZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
   %bf.lshr.i.i.i22.i.i.i = lshr i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i.i.i, 24
   %27 = add nsw i32 %bf.lshr.i.i.i22.i.i.i, -5
   %spec.select.i.i.i.i = icmp ult i32 %27, 2
-  br i1 %spec.select.i.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit", label %if.then17.i.i.i
+  br i1 %spec.select.i.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %if.then17.i.i.i
 
 if.then17.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %28 = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i.i.i.i, 16777216
@@ -7808,7 +7808,7 @@ cleanup.done42.i.i.i:                             ; preds = %cleanup.action41.cr
   %add50.i.i.i = add i64 %cond.i.i.i, %37
   store i64 %add50.i.i.i, ptr %size49.i.i.i, align 8
   %cmp.i.i.i = icmp ult i32 %and.i.i.i.i, 8
-  br i1 %cmp.i.i.i, label %if.then51.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br i1 %cmp.i.i.i, label %if.then51.i.i.i, label %"_ZSt10__invoke_rIvRZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 if.then51.i.i.i:                                  ; preds = %cleanup.done42.i.i.i
   %breakdown52.i.i.i = getelementptr inbounds i8, ptr %call33.i.i.i, i64 16
@@ -7828,9 +7828,9 @@ if.then51.i.i.i:                                  ; preds = %cleanup.done42.i.i.
   %39 = load i64, ptr %size59.i.i.i, align 8
   %add60.i.i.i = add i64 %39, %cond.i.i.i
   store i64 %add60.i.i.i, ptr %size59.i.i.i, align 8
-  br label %"_ZSt10__invoke_rIvRZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit"
+  br label %"_ZSt10__invoke_rIvRZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIvRZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.argprom.exit": ; preds = %if.end.i.i.i, %land.lhs.true.i.i.i, %cleanup.done42.i.i.i, %if.then51.i.i.i
+"_ZSt10__invoke_rIvRZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE3$_0JPNS1_6GCCellEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %if.end.i.i.i, %land.lhs.true.i.i.i, %cleanup.done42.i.i.i, %if.then51.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp5.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp10.i.i.i)

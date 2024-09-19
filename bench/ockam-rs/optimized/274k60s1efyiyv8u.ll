@@ -2080,7 +2080,7 @@ common.resume:                                    ; preds = %36, %18
   %35 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %35, align 8, !noalias !716
   invoke void @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h306d88a0f476f141E.llvm.1290069140160153612"(ptr noundef nonnull %7, ptr noundef nonnull %33, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
-          to label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd46ae10325626729E.argprom.exit" unwind label %36, !noalias !725
+          to label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd46ae10325626729E.exit" unwind label %36, !noalias !725
 
 36:                                               ; preds = %32
   %37 = landingpad { ptr, i32 }
@@ -2094,7 +2094,7 @@ common.resume:                                    ; preds = %36, %18
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #30, !noalias !725
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd46ae10325626729E.argprom.exit": ; preds = %32
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd46ae10325626729E.exit": ; preds = %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !716
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !713
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.612, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
@@ -2175,9 +2175,9 @@ define hidden void @"_ZN4hkdf24HkdfExtract$LT$H$C$I$GT$8finalize17h245bd8dd9ca0e
   %20 = xor i8 %19, 106
   store i8 %20, ptr %.sroa.07.0.ptr.i, align 1, !noalias !750
   %21 = icmp eq i64 %.sroa.07.0.add.i, 64
-  br i1 %21, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h397e85ed521eaa41E.argprom.exit", label %18
+  br i1 %21, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h397e85ed521eaa41E.exit", label %18
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h397e85ed521eaa41E.argprom.exit": ; preds = %18
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h397e85ed521eaa41E.exit": ; preds = %18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !737
   store <8 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534, i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %3, align 8, !alias.scope !759, !noalias !750
   %.sroa.42.0..sroa_idx.i4.i = getelementptr inbounds i8, ptr %3, i64 32
@@ -4263,22 +4263,22 @@ define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17h5339c734e5
 
 6:                                                ; preds = %2
   %7 = inttoptr i64 %1 to ptr
-  br label %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.argprom.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit
 
 8:                                                ; preds = %2
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %10 = tail call noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef %1) #28
-  br label %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.argprom.exit
+  br label %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.argprom.exit: ; preds = %6, %8
+_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit: ; preds = %6, %8
   %.sroa.0.0.i = phi ptr [ %7, %6 ], [ %10, %8 ]
   %11 = icmp eq ptr %.sroa.0.0.i, null
   br i1 %11, label %13, label %12
 
-12:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.argprom.exit
+12:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit
   ret ptr %.sroa.0.0.i
 
-13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.argprom.exit
+13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef %1, i64 noundef %0) #27
   unreachable
 }
@@ -7750,8 +7750,8 @@ attributes #30 = { noinline noreturn nounwind }
 !49 = !{!50, !51, !52, !25, !28, !30}
 !50 = distinct !{!50, !46, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !51 = distinct !{!51, !48, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!52 = distinct !{!52, !53, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom: argument 0"}
-!53 = distinct !{!53, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom"}
+!52 = distinct !{!52, !53, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE: argument 0"}
+!53 = distinct !{!53, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE"}
 !54 = !{!55, !57}
 !55 = distinct !{!55, !56, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 0"}
 !56 = distinct !{!56, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E"}
@@ -7760,8 +7760,8 @@ attributes #30 = { noinline noreturn nounwind }
 !59 = !{!60, !61, !62, !28, !30}
 !60 = distinct !{!60, !56, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !61 = distinct !{!61, !58, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!62 = distinct !{!62, !63, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom: argument 0"}
-!63 = distinct !{!63, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom"}
+!62 = distinct !{!62, !63, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE: argument 0"}
+!63 = distinct !{!63, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE"}
 !64 = !{!30}
 !65 = !{!66, !68, !25, !28}
 !66 = distinct !{!66, !67, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E: argument 0"}
@@ -7851,8 +7851,8 @@ attributes #30 = { noinline noreturn nounwind }
 !150 = !{!151}
 !151 = distinct !{!151, !148, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E: argument 2"}
 !152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom: argument 0"}
-!154 = distinct !{!154, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom"}
+!153 = distinct !{!153, !154, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE: argument 0"}
+!154 = distinct !{!154, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE"}
 !155 = !{i64 8}
 !156 = !{!157, !159}
 !157 = distinct !{!157, !158, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 0"}
@@ -7863,8 +7863,8 @@ attributes #30 = { noinline noreturn nounwind }
 !162 = distinct !{!162, !158, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !163 = distinct !{!163, !160, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
 !164 = !{!165}
-!165 = distinct !{!165, !166, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom: argument 0"}
-!166 = distinct !{!166, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom"}
+!165 = distinct !{!165, !166, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE: argument 0"}
+!166 = distinct !{!166, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE"}
 !167 = !{!168, !170}
 !168 = distinct !{!168, !169, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 0"}
 !169 = distinct !{!169, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E"}
@@ -7892,8 +7892,8 @@ attributes #30 = { noinline noreturn nounwind }
 !191 = !{!192}
 !192 = distinct !{!192, !189, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E: argument 2"}
 !193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom: argument 0"}
-!195 = distinct !{!195, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom"}
+!194 = distinct !{!194, !195, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE: argument 0"}
+!195 = distinct !{!195, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE"}
 !196 = !{!197, !199}
 !197 = distinct !{!197, !198, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 0"}
 !198 = distinct !{!198, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E"}
@@ -7903,8 +7903,8 @@ attributes #30 = { noinline noreturn nounwind }
 !202 = distinct !{!202, !198, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !203 = distinct !{!203, !200, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
 !204 = !{!205}
-!205 = distinct !{!205, !206, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom: argument 0"}
-!206 = distinct !{!206, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom"}
+!205 = distinct !{!205, !206, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE: argument 0"}
+!206 = distinct !{!206, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE"}
 !207 = !{!208, !210}
 !208 = distinct !{!208, !209, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 0"}
 !209 = distinct !{!209, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E"}
@@ -8063,8 +8063,8 @@ attributes #30 = { noinline noreturn nounwind }
 !362 = !{!363, !364, !365, !346, !356, !343}
 !363 = distinct !{!363, !359, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !364 = distinct !{!364, !361, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!365 = distinct !{!365, !366, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom: argument 0"}
-!366 = distinct !{!366, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom"}
+!365 = distinct !{!365, !366, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE: argument 0"}
+!366 = distinct !{!366, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE"}
 !367 = !{!356}
 !368 = !{!369, !371, !352, !346, !353, !343}
 !369 = distinct !{!369, !370, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E: argument 0"}
@@ -8149,8 +8149,8 @@ attributes #30 = { noinline noreturn nounwind }
 !448 = !{!449, !450, !451, !423, !426, !430, !420}
 !449 = distinct !{!449, !445, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !450 = distinct !{!450, !447, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!451 = distinct !{!451, !452, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom: argument 0"}
-!452 = distinct !{!452, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom"}
+!451 = distinct !{!451, !452, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE: argument 0"}
+!452 = distinct !{!452, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE"}
 !453 = !{!454, !456, !423, !426, !428, !420}
 !454 = distinct !{!454, !455, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E: argument 0"}
 !455 = distinct !{!455, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E"}
@@ -8252,8 +8252,8 @@ attributes #30 = { noinline noreturn nounwind }
 !551 = !{!552, !553, !554, !529, !532, !539}
 !552 = distinct !{!552, !548, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !553 = distinct !{!553, !550, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!554 = distinct !{!554, !555, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom: argument 0"}
-!555 = distinct !{!555, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom"}
+!554 = distinct !{!554, !555, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE: argument 0"}
+!555 = distinct !{!555, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE"}
 !556 = !{!532, !539}
 !557 = !{!558, !560}
 !558 = distinct !{!558, !559, !"_ZN126_$LT$digest..core_api..wrapper..CoreWrapper$LT$hmac..optim..HmacCore$LT$H$GT$$GT$$u20$as$u20$hkdf..sealed..Sealed$LT$H$GT$$GT$8finalize17hb637baaf4e8a061aE: argument 0"}
@@ -8296,8 +8296,8 @@ attributes #30 = { noinline noreturn nounwind }
 !595 = !{!596, !597, !598, !573, !576, !583}
 !596 = distinct !{!596, !592, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !597 = distinct !{!597, !594, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!598 = distinct !{!598, !599, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom: argument 0"}
-!599 = distinct !{!599, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom"}
+!598 = distinct !{!598, !599, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE: argument 0"}
+!599 = distinct !{!599, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE"}
 !600 = !{!576, !583}
 !601 = !{!602, !604}
 !602 = distinct !{!602, !603, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 0"}
@@ -8307,8 +8307,8 @@ attributes #30 = { noinline noreturn nounwind }
 !606 = !{!607, !608, !609, !576, !583}
 !607 = distinct !{!607, !603, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !608 = distinct !{!608, !605, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!609 = distinct !{!609, !610, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom: argument 0"}
-!610 = distinct !{!610, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom"}
+!609 = distinct !{!609, !610, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE: argument 0"}
+!610 = distinct !{!610, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE"}
 !611 = !{!583}
 !612 = !{!613, !615, !573, !576}
 !613 = distinct !{!613, !614, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E: argument 0"}
@@ -8343,8 +8343,8 @@ attributes #30 = { noinline noreturn nounwind }
 !642 = !{!643, !644, !645, !619, !622, !624}
 !643 = distinct !{!643, !639, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !644 = distinct !{!644, !641, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!645 = distinct !{!645, !646, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom: argument 0"}
-!646 = distinct !{!646, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom"}
+!645 = distinct !{!645, !646, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE: argument 0"}
+!646 = distinct !{!646, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE"}
 !647 = !{!648, !650}
 !648 = distinct !{!648, !649, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 0"}
 !649 = distinct !{!649, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E"}
@@ -8353,8 +8353,8 @@ attributes #30 = { noinline noreturn nounwind }
 !652 = !{!653, !654, !655, !622, !624}
 !653 = distinct !{!653, !649, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !654 = distinct !{!654, !651, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!655 = distinct !{!655, !656, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom: argument 0"}
-!656 = distinct !{!656, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE.argprom"}
+!655 = distinct !{!655, !656, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE: argument 0"}
+!656 = distinct !{!656, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h63a6f1368c5aa59cE"}
 !657 = !{!624}
 !658 = !{!659, !661, !619, !622}
 !659 = distinct !{!659, !660, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E: argument 0"}
@@ -9175,8 +9175,8 @@ attributes #30 = { noinline noreturn nounwind }
 !1474 = !{!1459, !1460}
 !1475 = !{!1460}
 !1476 = !{!1477}
-!1477 = distinct !{!1477, !1478, !"_ZN114_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h733ea78df0b215a9E.argprom: argument 0"}
-!1478 = distinct !{!1478, !"_ZN114_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h733ea78df0b215a9E.argprom"}
+!1477 = distinct !{!1477, !1478, !"_ZN114_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h733ea78df0b215a9E: argument 0"}
+!1478 = distinct !{!1478, !"_ZN114_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h733ea78df0b215a9E"}
 !1479 = !{!1480}
 !1480 = distinct !{!1480, !1481, !"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17h90bb9f25a705c59eE: argument 1"}
 !1481 = distinct !{!1481, !"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17h90bb9f25a705c59eE"}
@@ -9278,8 +9278,8 @@ attributes #30 = { noinline noreturn nounwind }
 !1577 = !{!1578, !1579, !1580, !1555, !1558, !1563, !1552, !1549}
 !1578 = distinct !{!1578, !1574, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !1579 = distinct !{!1579, !1576, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!1580 = distinct !{!1580, !1581, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom: argument 0"}
-!1581 = distinct !{!1581, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom"}
+!1580 = distinct !{!1580, !1581, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE: argument 0"}
+!1581 = distinct !{!1581, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE"}
 !1582 = !{!1583, !1585, !1555, !1558, !1560, !1552, !1561, !1549}
 !1583 = distinct !{!1583, !1584, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E: argument 0"}
 !1584 = distinct !{!1584, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E"}
@@ -9361,8 +9361,8 @@ attributes #30 = { noinline noreturn nounwind }
 !1660 = !{!1661, !1662, !1663, !1665, !1667, !1668}
 !1661 = distinct !{!1661, !1655, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !1662 = distinct !{!1662, !1657, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!1663 = distinct !{!1663, !1664, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom: argument 0"}
-!1664 = distinct !{!1664, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom"}
+!1663 = distinct !{!1663, !1664, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE: argument 0"}
+!1664 = distinct !{!1664, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE"}
 !1665 = distinct !{!1665, !1666, !"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17h98ee1355d62851b8E.llvm.4054924361102640483: argument 1"}
 !1666 = distinct !{!1666, !"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17h98ee1355d62851b8E.llvm.4054924361102640483"}
 !1667 = distinct !{!1667, !1666, !"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$13digest_blocks17h98ee1355d62851b8E.llvm.4054924361102640483: argument 2"}
@@ -9428,8 +9428,8 @@ attributes #30 = { noinline noreturn nounwind }
 !1727 = !{!1728, !1729, !1730, !1706, !1709, !1713, !1703}
 !1728 = distinct !{!1728, !1724, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !1729 = distinct !{!1729, !1726, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!1730 = distinct !{!1730, !1731, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom: argument 0"}
-!1731 = distinct !{!1731, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom"}
+!1730 = distinct !{!1730, !1731, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE: argument 0"}
+!1731 = distinct !{!1731, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE"}
 !1732 = !{!1733, !1735, !1706, !1709, !1711, !1703}
 !1733 = distinct !{!1733, !1734, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E: argument 0"}
 !1734 = distinct !{!1734, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E"}
@@ -9486,8 +9486,8 @@ attributes #30 = { noinline noreturn nounwind }
 !1785 = !{!1786, !1787, !1788, !1762, !1765, !1767}
 !1786 = distinct !{!1786, !1782, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !1787 = distinct !{!1787, !1784, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!1788 = distinct !{!1788, !1789, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom: argument 0"}
-!1789 = distinct !{!1789, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom"}
+!1788 = distinct !{!1788, !1789, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE: argument 0"}
+!1789 = distinct !{!1789, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE"}
 !1790 = !{!1791, !1793}
 !1791 = distinct !{!1791, !1792, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 0"}
 !1792 = distinct !{!1792, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E"}
@@ -9496,8 +9496,8 @@ attributes #30 = { noinline noreturn nounwind }
 !1795 = !{!1796, !1797, !1798, !1765, !1767}
 !1796 = distinct !{!1796, !1792, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !1797 = distinct !{!1797, !1794, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!1798 = distinct !{!1798, !1799, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom: argument 0"}
-!1799 = distinct !{!1799, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom"}
+!1798 = distinct !{!1798, !1799, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE: argument 0"}
+!1799 = distinct !{!1799, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE"}
 !1800 = !{!1767}
 !1801 = !{!1802, !1804, !1762, !1765}
 !1802 = distinct !{!1802, !1803, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E: argument 0"}
@@ -9577,20 +9577,20 @@ attributes #30 = { noinline noreturn nounwind }
 !1876 = distinct !{!1876, !1877, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1d11cbcb7a94d6baE: argument 0"}
 !1877 = distinct !{!1877, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1d11cbcb7a94d6baE"}
 !1878 = !{!1879}
-!1879 = distinct !{!1879, !1880, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures21verify_signature_sync17h82d7f56ae17be36cE.argprom: argument 1"}
-!1880 = distinct !{!1880, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures21verify_signature_sync17h82d7f56ae17be36cE.argprom"}
+!1879 = distinct !{!1879, !1880, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures21verify_signature_sync17h82d7f56ae17be36cE: argument 1"}
+!1880 = distinct !{!1880, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures21verify_signature_sync17h82d7f56ae17be36cE"}
 !1881 = !{!1882}
-!1882 = distinct !{!1882, !1880, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures21verify_signature_sync17h82d7f56ae17be36cE.argprom: argument 3"}
+!1882 = distinct !{!1882, !1880, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures21verify_signature_sync17h82d7f56ae17be36cE: argument 3"}
 !1883 = !{!1884, !1885, !1882}
-!1884 = distinct !{!1884, !1880, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures21verify_signature_sync17h82d7f56ae17be36cE.argprom: argument 0"}
-!1885 = distinct !{!1885, !1880, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures21verify_signature_sync17h82d7f56ae17be36cE.argprom: argument 2"}
+!1884 = distinct !{!1884, !1880, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures21verify_signature_sync17h82d7f56ae17be36cE: argument 0"}
+!1885 = distinct !{!1885, !1880, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures21verify_signature_sync17h82d7f56ae17be36cE: argument 2"}
 !1886 = !{!1884, !1879, !1885}
 !1887 = !{!1884, !1879, !1885, !1882}
 !1888 = !{!1889, !1891, !1884, !1879, !1885, !1882}
-!1889 = distinct !{!1889, !1890, !"_ZN13ed25519_dalek9verifying12VerifyingKey10from_bytes17h135939b9cd93cb7cE.argprom: argument 0"}
-!1890 = distinct !{!1890, !"_ZN13ed25519_dalek9verifying12VerifyingKey10from_bytes17h135939b9cd93cb7cE.argprom"}
-!1891 = distinct !{!1891, !1892, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures18import_ed25519_key17h4cb26e14e7ea90cfE.argprom: argument 0"}
-!1892 = distinct !{!1892, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures18import_ed25519_key17h4cb26e14e7ea90cfE.argprom"}
+!1889 = distinct !{!1889, !1890, !"_ZN13ed25519_dalek9verifying12VerifyingKey10from_bytes17h135939b9cd93cb7cE: argument 0"}
+!1890 = distinct !{!1890, !"_ZN13ed25519_dalek9verifying12VerifyingKey10from_bytes17h135939b9cd93cb7cE"}
+!1891 = distinct !{!1891, !1892, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures18import_ed25519_key17h4cb26e14e7ea90cfE: argument 0"}
+!1892 = distinct !{!1892, !"_ZN11ockam_vault8software30vault_for_verifying_signatures35SoftwareVaultForVerifyingSignatures18import_ed25519_key17h4cb26e14e7ea90cfE"}
 !1893 = !{!1894, !1896, !1891, !1884, !1879, !1885, !1882}
 !1894 = distinct !{!1894, !1895, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h60b9a58aaa717614E: argument 0"}
 !1895 = distinct !{!1895, !"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h60b9a58aaa717614E"}
@@ -9748,8 +9748,8 @@ attributes #30 = { noinline noreturn nounwind }
 !2047 = !{!2048, !2049, !2050, !2031, !2041, !2028, !2005, !2007, !1884, !1879, !1885, !1882}
 !2048 = distinct !{!2048, !2044, !"_ZN78_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h94a432308826b859E: argument 1"}
 !2049 = distinct !{!2049, !2046, !"_ZN124_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$digest..core_api..UpdateCore$GT$13update_blocks17h4d7edac5fe1ddde2E: argument 1"}
-!2050 = distinct !{!2050, !2051, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom: argument 0"}
-!2051 = distinct !{!2051, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE.argprom"}
+!2050 = distinct !{!2050, !2051, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE: argument 0"}
+!2051 = distinct !{!2051, !"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hbf678436118d2fedE"}
 !2052 = !{!2053, !2055, !2037, !2031, !2038, !2028}
 !2053 = distinct !{!2053, !2054, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E: argument 0"}
 !2054 = distinct !{!2054, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E"}

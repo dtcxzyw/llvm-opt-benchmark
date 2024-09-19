@@ -502,24 +502,24 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   %47 = call { i64, i64 } @_ZN9hashbrown3raw7bitmask7BitMask14lowest_set_bit17h23137d048bd4f8dbE(i16 %46)
   %48 = extractvalue { i64, i64 } %47, 0
   %49 = icmp eq i64 %48, 1
-  br i1 %49, label %50, label %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.argprom.exit
+  br i1 %49, label %50, label %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.exit
 
 50:                                               ; preds = %44
   %51 = extractvalue { i64, i64 } %47, 1
   %52 = add i64 %51, %.sroa.0.017
   %53 = load i64, ptr %22, align 8, !noundef !3
   %54 = and i64 %53, %52
-  br label %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.argprom.exit
+  br label %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.exit
 
-_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.argprom.exit: ; preds = %44, %50
+_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.exit: ; preds = %44, %50
   %.sroa.3.0.i = phi i64 [ %54, %50 ], [ undef, %44 ]
   %.sroa.0.0.i = phi i64 [ 1, %50 ], [ 0, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %55
 
-55:                                               ; preds = %37, %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.argprom.exit
-  %.sroa.4.1 = phi i64 [ %.sroa.3.0.i, %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.argprom.exit ], [ %.sroa.4.0, %37 ]
-  %.sroa.01.1 = phi i64 [ %.sroa.0.0.i, %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.argprom.exit ], [ 1, %37 ]
+55:                                               ; preds = %37, %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.exit
+  %.sroa.4.1 = phi i64 [ %.sroa.3.0.i, %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.exit ], [ %.sroa.4.0, %37 ]
+  %.sroa.01.1 = phi i64 [ %.sroa.0.0.i, %_ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.exit ], [ 1, %37 ]
   call void @_ZN4core9core_arch3x864sse213_mm_set1_epi817h8709a94e7f1592e0E(ptr nonnull sret(<2 x i64>) align 16 %12, i8 -1)
   %56 = load <2 x i64>, ptr %12, align 16
   store <2 x i64> %28, ptr %10, align 16
@@ -546,7 +546,7 @@ _ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.
   %65 = getelementptr inbounds i8, ptr %.val12, i64 %.sroa.4.1
   %66 = load i8, ptr %65, align 1, !noundef !3
   %67 = icmp sgt i8 %66, -1
-  br i1 %67, label %68, label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.argprom.exit
+  br i1 %67, label %68, label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.exit
 
 68:                                               ; preds = %63
   call void @_ZN4core9core_arch3x864sse214_mm_load_si12817he07de4d617a9c115E(ptr nonnull sret(<2 x i64>) align 16 %6, ptr nonnull %.val12)
@@ -559,17 +559,17 @@ _ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h057cfa12394db4e1E.
   %74 = extractvalue { i64, i64 } %72, 1
   %75 = icmp eq i64 %73, 1
   call void @llvm.assume(i1 %75)
-  br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.argprom.exit
+  br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.exit
 
-_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.argprom.exit: ; preds = %63, %68
+_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.exit: ; preds = %63, %68
   %.0.i = phi i64 [ %74, %68 ], [ %.sroa.4.1, %63 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %38, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.argprom.exit
-  %.sroa.3.0 = phi i64 [ %.0.i, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.argprom.exit ], [ %41, %38 ]
-  %.sroa.0.0 = phi i64 [ 1, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.argprom.exit ], [ 0, %38 ]
+.loopexit:                                        ; preds = %38, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.exit
+  %.sroa.3.0 = phi i64 [ %.0.i, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.exit ], [ %41, %38 ]
+  %.sroa.0.0 = phi i64 [ 1, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hd2e1c741d3f00600E.exit ], [ 0, %38 ]
   %76 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %77 = insertvalue { i64, i64 } %76, i64 %.sroa.3.0, 1
   ret { i64, i64 } %77

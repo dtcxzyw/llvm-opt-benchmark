@@ -1228,16 +1228,16 @@ _ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIP10In
   %sext = shl i64 %47, 30
   %54 = ashr exact i64 %sext, 32
   %55 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef 174, i64 noundef %54, i64 noundef 4)
-          to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit unwind label %.loopexit70
+          to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit unwind label %.loopexit70
 
-_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit:  ; preds = %.lr.ph74
+_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %.lr.ph74
   store ptr %55, ptr %53, align 8
   %56 = load i32, ptr %50, align 8
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit ]
+.lr.ph:                                           ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
   %58 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4
   %60 = load ptr, ptr %53, align 8
@@ -1255,8 +1255,8 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit:  ; preds = %.lr.ph74
   call void @_ZdlPv(ptr noundef nonnull %30) #22
   br label %94
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit
-  %.lcssa = phi i32 [ %56, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.argprom.exit ], [ %62, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit
+  %.lcssa = phi i32 [ %56, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ], [ %62, %.lr.ph ]
   %67 = getelementptr inbounds i8, ptr %50, i64 16
   store i32 %.lcssa, ptr %67, align 8
   %68 = load ptr, ptr %0, align 8
@@ -4502,7 +4502,7 @@ define internal fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9
   %26 = getelementptr inbounds i8, ptr %21, i64 8
   %27 = load i32, ptr %26, align 4
   %.not.i.i = icmp slt i32 %0, %27
-  br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit, label %28
+  br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %28
 
 28:                                               ; preds = %25, %18
   %.127.i.i = phi i32 [ %19, %18 ], [ %.026.i.i, %25 ]
@@ -4512,7 +4512,7 @@ define internal fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9
   %31 = ashr i32 %30, 1
   br label %18, !llvm.loop !54
 
-_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit: ; preds = %25
+_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %25
   %32 = sub nsw i32 %0, %23
   %33 = load i32, ptr %21, align 4
   %34 = sdiv i32 %32, %33
@@ -4589,8 +4589,8 @@ _ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit:  ; preds = %73
 86:                                               ; preds = %4, %4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %4, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit, %86
-  %.sink = phi i32 [ 0, %86 ], [ %85, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit ], [ %53, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ], [ %0, %4 ]
+.sink.split:                                      ; preds = %4, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit, %86
+  %.sink = phi i32 [ 0, %86 ], [ %85, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit ], [ %53, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %0, %4 ]
   store i32 %.sink, ptr %3, align 4
   br label %87
 
@@ -4975,7 +4975,7 @@ define internal fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mt
   %29 = getelementptr inbounds i8, ptr %24, i64 8
   %30 = load i32, ptr %29, align 4
   %.not.i.i = icmp slt i32 %1, %30
-  br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit, label %31
+  br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %31
 
 31:                                               ; preds = %28, %21
   %.127.i.i = phi i32 [ %.pre.i.i11, %21 ], [ %.026.i.i, %28 ]
@@ -4986,7 +4986,7 @@ define internal fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mt
   store i32 %34, ptr %2, align 4
   br label %21, !llvm.loop !54
 
-_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit: ; preds = %28
+_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %28
   %35 = sub nsw i32 %1, %26
   %36 = load i32, ptr %24, align 4
   %37 = sdiv i32 %35, %36
@@ -5017,12 +5017,12 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit: ; pre
   %61 = trunc i64 %60 to i32
   br label %62
 
-62:                                               ; preds = %72, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit
-  %63 = phi i32 [ %26, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ], [ %.pre31, %72 ]
-  %64 = phi ptr [ %23, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ], [ %.pre, %72 ]
-  %65 = phi i32 [ %.pre.i.i11, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ], [ %75, %72 ]
-  %.026.i.i12 = phi i32 [ %61, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ], [ %.127.i.i15, %72 ]
-  %.0.i.i13 = phi i32 [ -1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit ], [ %.1.i.i16, %72 ]
+62:                                               ; preds = %72, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
+  %63 = phi i32 [ %26, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.pre31, %72 ]
+  %64 = phi ptr [ %23, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.pre, %72 ]
+  %65 = phi i32 [ %.pre.i.i11, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %75, %72 ]
+  %.026.i.i12 = phi i32 [ %61, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.127.i.i15, %72 ]
+  %.0.i.i13 = phi i32 [ -1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.1.i.i16, %72 ]
   %66 = icmp slt i32 %6, %63
   br i1 %66, label %72, label %67
 
@@ -5032,7 +5032,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit: ; pre
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 4
   %.not.i.i14 = icmp slt i32 %6, %71
-  br i1 %.not.i.i14, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit17, label %72
+  br i1 %.not.i.i14, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17, label %72
 
 72:                                               ; preds = %67, %62
   %.127.i.i15 = phi i32 [ %65, %62 ], [ %.026.i.i12, %67 ]
@@ -5047,7 +5047,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit: ; pre
   %.pre31 = load i32, ptr %.phi.trans.insert30, align 4
   br label %62, !llvm.loop !54
 
-_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit17: ; preds = %67
+_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17: ; preds = %67
   %76 = add nsw i32 %50, %47
   %77 = add nsw i32 %76, %55
   %78 = sub nsw i32 %6, %63
@@ -5076,8 +5076,8 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit17: ; p
   %100 = icmp ne i32 %99, %77
   br label %101
 
-101:                                              ; preds = %3, %5, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit17
-  %.0 = phi i1 [ %100, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit17 ], [ true, %5 ], [ true, %3 ]
+101:                                              ; preds = %3, %5, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17
+  %.0 = phi i1 [ %100, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17 ], [ true, %5 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -5355,8 +5355,8 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_Z33gmx_ana_indexmap_ini
   %.not79.us = icmp eq i32 %.promoted, %46
   br i1 %.not79.us, label %.preheader.split.us, label %.split89.us, !llvm.loop !64
 
-.preheader.split.us91:                            ; preds = %.preheader.split.us91.preheader, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit.i.us
-  %indvars.iv156 = phi i64 [ %35, %.preheader.split.us91.preheader ], [ %indvars.iv.next157, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit.i.us ]
+.preheader.split.us91:                            ; preds = %.preheader.split.us91.preheader, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit.i.us
+  %indvars.iv156 = phi i64 [ %35, %.preheader.split.us91.preheader ], [ %indvars.iv.next157, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit.i.us ]
   %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
   %47 = icmp slt i64 %indvars.iv.next157, %42
   br i1 %47, label %48, label %.loopexit
@@ -5389,9 +5389,9 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_Z33gmx_ana_indexmap_ini
   %67 = getelementptr inbounds i8, ptr %62, i64 8
   %68 = load i32, ptr %67, align 4
   %.not.i.i.i.us = icmp slt i32 %50, %68
-  br i1 %.not.i.i.i.us, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit.i.us, label %90
+  br i1 %.not.i.i.i.us, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit.i.us, label %90
 
-_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit.i.us: ; preds = %66
+_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit.i.us: ; preds = %66
   %69 = sub nsw i32 %50, %64
   %70 = load i32, ptr %62, align 4
   %71 = sdiv i32 %69, %70
@@ -5490,7 +5490,7 @@ _ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit.i.us: ; preds = %113
   %.not79.us125 = icmp eq i32 %.sink.i87.us118, 0
   br i1 %.not79.us125, label %.preheader.split.us117, label %.split89.us, !llvm.loop !64
 
-.split89.us:                                      ; preds = %.sink.split.i.us121, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit.i.us, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.argprom.exit.i.us, %.sink.split.i.us
+.split89.us:                                      ; preds = %.sink.split.i.us121, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit.i.us, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit.i.us, %.sink.split.i.us
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.33, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %127 unwind label %134

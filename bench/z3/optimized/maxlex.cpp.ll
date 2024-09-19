@@ -4869,7 +4869,7 @@ terminate.lpad.i1.i58.i.i.i:                      ; preds = %if.then2.i.i.i.i57.
   unreachable
 
 _ZN3opt4softD2Ev.exit59.i.i.i:                    ; preds = %if.then2.i.i.i.i57.i.i.i, %if.then.i.i.i.i52.i.i.i, %_ZN8rationalD2Ev.exit.i50.i.i.i
-  br i1 %cmp6.not.i.i.i, label %"_ZSt11__make_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_RT0_.argprom.exit.i.i", label %while.body.i.i.i
+  br i1 %cmp6.not.i.i.i, label %"_ZSt11__make_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_RT0_.exit.i.i", label %while.body.i.i.i
 
 common.resume:                                    ; preds = %lpad.i, %lpad.i.i.i
   %agg.tmp.i.sink = phi ptr [ %agg.tmp.i, %lpad.i ], [ %agg.tmp.i.i.i, %lpad.i.i.i ]
@@ -4884,7 +4884,7 @@ lpad.i.i.i:                                       ; preds = %while.body.i.i.i
           cleanup
   br label %common.resume
 
-"_ZSt11__make_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_RT0_.argprom.exit.i.i": ; preds = %_ZN3opt4softD2Ev.exit59.i.i.i
+"_ZSt11__make_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_RT0_.exit.i.i": ; preds = %_ZN3opt4softD2Ev.exit59.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__value.i.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp.i.i.i)
   %m_manager.i.i.i = getelementptr inbounds i8, ptr %__value.i, i64 8
@@ -4905,8 +4905,8 @@ lpad.i.i.i:                                       ; preds = %while.body.i.i.i
   %value.i36.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_RT0_.argprom.exit.i.i", %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.argprom.exit"
-  %__last.addr.04.i.i = phi ptr [ %incdec.ptr.i3.i, %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.argprom.exit" ], [ %__last.addr.0140, %"_ZSt11__make_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_RT0_.argprom.exit.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_RT0_.exit.i.i", %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.exit"
+  %__last.addr.04.i.i = phi ptr [ %incdec.ptr.i3.i, %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.exit" ], [ %__last.addr.0140, %"_ZSt11__make_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_RT0_.exit.i.i" ]
   %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %__last.addr.04.i.i, i64 -56
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %__value.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
@@ -5017,7 +5017,7 @@ terminate.lpad.i.i41.i:                           ; preds = %.noexc.i.i42.i, %_Z
 _ZN8rationalD2Ev.exit.i44.i:                      ; preds = %.noexc.i.i42.i
   %44 = load ptr, ptr %__value.i, align 8
   %tobool.not.i.i.i45.i = icmp eq ptr %44, null
-  br i1 %tobool.not.i.i.i45.i, label %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.argprom.exit", label %if.then.i.i.i.i46.i
+  br i1 %tobool.not.i.i.i45.i, label %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.exit", label %if.then.i.i.i.i46.i
 
 if.then.i.i.i.i46.i:                              ; preds = %_ZN8rationalD2Ev.exit.i44.i
   %45 = load ptr, ptr %m_manager.i.i.i, align 8
@@ -5026,11 +5026,11 @@ if.then.i.i.i.i46.i:                              ; preds = %_ZN8rationalD2Ev.ex
   %dec.i.i.i.i.i49.i = add i32 %46, -1
   store i32 %dec.i.i.i.i.i49.i, ptr %m_ref_count.i.i.i.i.i48.i, align 4
   %cmp.i.i.i.i50.i = icmp eq i32 %dec.i.i.i.i.i49.i, 0
-  br i1 %cmp.i.i.i.i50.i, label %if.then2.i.i.i.i51.i, label %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.argprom.exit"
+  br i1 %cmp.i.i.i.i50.i, label %if.then2.i.i.i.i51.i, label %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.exit"
 
 if.then2.i.i.i.i51.i:                             ; preds = %if.then.i.i.i.i46.i
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %45, ptr noundef nonnull %44)
-          to label %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.argprom.exit" unwind label %terminate.lpad.i1.i52.i
+          to label %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.exit" unwind label %terminate.lpad.i1.i52.i
 
 terminate.lpad.i1.i52.i:                          ; preds = %if.then2.i.i.i.i51.i
   %47 = landingpad { ptr, i32 }
@@ -5044,7 +5044,7 @@ lpad.i:                                           ; preds = %while.body.i.i
           cleanup
   br label %common.resume
 
-"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.argprom.exit": ; preds = %_ZN8rationalD2Ev.exit.i44.i, %if.then.i.i.i.i46.i, %if.then2.i.i.i.i51.i
+"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.exit": ; preds = %_ZN8rationalD2Ev.exit.i44.i, %if.then.i.i.i.i46.i, %if.then2.i.i.i.i51.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__value.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp.i)
   %cmp.i4.i = icmp sgt i64 %sub.ptr.sub.i16, 56
@@ -5080,14 +5080,14 @@ if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i
   %bf.load.i.i.i.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i.i.i.i, 1
   %cmp.i.i.i11.i.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit.i.i"
+  br i1 %cmp.i.i.i11.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i"
 
 land.lhs.true.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   %m_kind.i5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 20
   %bf.load.i6.i.i.i.i.i.i.i.i = load i8, ptr %m_kind.i5.i.i.i.i.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i.i.i.i.i = and i8 %bf.load.i6.i.i.i.i.i.i.i.i, 1
   %cmp.i8.i.i.i.i.i.i.i.i = icmp eq i8 %bf.clear.i7.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i8.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit.i.i"
+  br i1 %cmp.i8.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i"
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i.i.i.i.i
   %55 = load i32, ptr %weight.i.i.i.i12, align 8
@@ -5099,12 +5099,12 @@ if.else.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i
   %call5.i.i.i.i.i.i = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %50, ptr noundef nonnull align 8 dereferenceable(32) %weight.i.i.i.i12, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i.i.i)
   br i1 %call5.i.i.i.i.i.i, label %if.then.i.i, label %if.else7.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %call4.i.i.i.i.i.i.i.i = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %50, ptr noundef nonnull align 8 dereferenceable(16) %weight.i.i.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i.i.i)
   %cmp5.i.i.i.i.i.i.i.i = icmp slt i32 %call4.i.i.i.i.i.i.i.i, 0
   br i1 %cmp5.i.i.i.i.i.i.i.i, label %if.then.i.i, label %if.else7.i.i
 
-if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit.i.i", %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
+if.then.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i", %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %weight2.i.i20.i.i = getelementptr inbounds i8, ptr %__last.addr.0140, i64 -40
   %57 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %m_den.i.i.i.i.i21.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
@@ -5133,14 +5133,14 @@ if.then.i.i.i.i37.i.i:                            ; preds = %land.lhs.true.i.i.i
   %bf.load.i.i.i.i.i.i.i39.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i38.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i40.i.i = and i8 %bf.load.i.i.i.i.i.i.i39.i.i, 1
   %cmp.i.i.i11.i.i.i.i41.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i40.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i.i41.i.i, label %land.lhs.true.i.i.i.i.i.i45.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit52.i.i"
+  br i1 %cmp.i.i.i11.i.i.i.i41.i.i, label %land.lhs.true.i.i.i.i.i.i45.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit52.i.i"
 
 land.lhs.true.i.i.i.i.i.i45.i.i:                  ; preds = %if.then.i.i.i.i37.i.i
   %m_kind.i5.i.i.i.i.i.i46.i.i = getelementptr inbounds i8, ptr %__last.addr.0140, i64 -36
   %bf.load.i6.i.i.i.i.i.i47.i.i = load i8, ptr %m_kind.i5.i.i.i.i.i.i46.i.i, align 4
   %bf.clear.i7.i.i.i.i.i.i48.i.i = and i8 %bf.load.i6.i.i.i.i.i.i47.i.i, 1
   %cmp.i8.i.i.i.i.i.i49.i.i = icmp eq i8 %bf.clear.i7.i.i.i.i.i.i48.i.i, 0
-  br i1 %cmp.i8.i.i.i.i.i.i49.i.i, label %if.then.i.i.i.i.i.i50.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit52.i.i"
+  br i1 %cmp.i8.i.i.i.i.i.i49.i.i, label %if.then.i.i.i.i.i.i50.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit52.i.i"
 
 if.then.i.i.i.i.i.i50.i.i:                        ; preds = %land.lhs.true.i.i.i.i.i.i45.i.i
   %62 = load i32, ptr %weight2.i.i.i.i, align 8
@@ -5152,12 +5152,12 @@ if.else.i.i.i.i27.i.i:                            ; preds = %land.lhs.true.i.i.i
   %call5.i.i.i.i28.i.i = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %57, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i20.i.i)
   br i1 %call5.i.i.i.i28.i.i, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %if.else.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit52.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i45.i.i, %if.then.i.i.i.i37.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit52.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i45.i.i, %if.then.i.i.i.i37.i.i
   %call4.i.i.i.i.i.i43.i.i = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %57, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i20.i.i)
   %cmp5.i.i.i.i.i.i44.i.i = icmp slt i32 %call4.i.i.i.i.i.i43.i.i, 0
   br i1 %cmp5.i.i.i.i.i.i44.i.i, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit52.i.i", %if.else.i.i.i.i27.i.i, %if.then.i.i.i.i.i.i50.i.i
+if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit52.i.i", %if.else.i.i.i.i27.i.i, %if.then.i.i.i.i.i.i50.i.i
   %64 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %bf.load.i.i.i.i.i.i.i.i57.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i.i58.i.i = and i8 %bf.load.i.i.i.i.i.i.i.i57.i.i, 1
@@ -5182,14 +5182,14 @@ if.then.i.i.i.i71.i.i:                            ; preds = %land.lhs.true.i.i.i
   %bf.load.i.i.i.i.i.i.i73.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i74.i.i = and i8 %bf.load.i.i.i.i.i.i.i73.i.i, 1
   %cmp.i.i.i11.i.i.i.i75.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i74.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i.i75.i.i, label %land.lhs.true.i.i.i.i.i.i79.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit86.i.i"
+  br i1 %cmp.i.i.i11.i.i.i.i75.i.i, label %land.lhs.true.i.i.i.i.i.i79.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit86.i.i"
 
 land.lhs.true.i.i.i.i.i.i79.i.i:                  ; preds = %if.then.i.i.i.i71.i.i
   %m_kind.i5.i.i.i.i.i.i80.i.i = getelementptr inbounds i8, ptr %__last.addr.0140, i64 -36
   %bf.load.i6.i.i.i.i.i.i81.i.i = load i8, ptr %m_kind.i5.i.i.i.i.i.i80.i.i, align 4
   %bf.clear.i7.i.i.i.i.i.i82.i.i = and i8 %bf.load.i6.i.i.i.i.i.i81.i.i, 1
   %cmp.i8.i.i.i.i.i.i83.i.i = icmp eq i8 %bf.clear.i7.i.i.i.i.i.i82.i.i, 0
-  br i1 %cmp.i8.i.i.i.i.i.i83.i.i, label %if.then.i.i.i.i.i.i84.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit86.i.i"
+  br i1 %cmp.i8.i.i.i.i.i.i83.i.i, label %if.then.i.i.i.i.i.i84.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit86.i.i"
 
 if.then.i.i.i.i.i.i84.i.i:                        ; preds = %land.lhs.true.i.i.i.i.i.i79.i.i
   %69 = load i32, ptr %weight.i.i.i.i12, align 8
@@ -5201,15 +5201,15 @@ if.else.i.i.i.i61.i.i:                            ; preds = %land.lhs.true.i.i.i
   %call5.i.i.i.i62.i.i = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %64, ptr noundef nonnull align 8 dereferenceable(32) %weight.i.i.i.i12, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i20.i.i)
   br i1 %call5.i.i.i.i62.i.i, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %if.else5.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit86.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i79.i.i, %if.then.i.i.i.i71.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit86.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i79.i.i, %if.then.i.i.i.i71.i.i
   %call4.i.i.i.i.i.i77.i.i = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %64, ptr noundef nonnull align 8 dereferenceable(16) %weight.i.i.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i20.i.i)
   %cmp5.i.i.i.i.i.i78.i.i = icmp slt i32 %call4.i.i.i.i.i.i77.i.i, 0
   br i1 %cmp5.i.i.i.i.i.i78.i.i, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %if.else5.i.i
 
-if.else5.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit86.i.i", %if.else.i.i.i.i61.i.i, %if.then.i.i.i.i.i.i84.i.i
+if.else5.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit86.i.i", %if.else.i.i.i.i61.i.i, %if.then.i.i.i.i.i.i84.i.i
   br label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i"
 
-if.else7.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit.i.i", %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
+if.else7.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i.i", %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %weight2.i.i88.i.i = getelementptr inbounds i8, ptr %__last.addr.0140, i64 -40
   %71 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %bf.load.i.i.i.i.i.i.i.i91.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i.i.i.i, align 4
@@ -5235,14 +5235,14 @@ if.then.i.i.i.i105.i.i:                           ; preds = %land.lhs.true.i.i.i
   %bf.load.i.i.i.i.i.i.i107.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i108.i.i = and i8 %bf.load.i.i.i.i.i.i.i107.i.i, 1
   %cmp.i.i.i11.i.i.i.i109.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i108.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i.i109.i.i, label %land.lhs.true.i.i.i.i.i.i113.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit120.i.i"
+  br i1 %cmp.i.i.i11.i.i.i.i109.i.i, label %land.lhs.true.i.i.i.i.i.i113.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit120.i.i"
 
 land.lhs.true.i.i.i.i.i.i113.i.i:                 ; preds = %if.then.i.i.i.i105.i.i
   %m_kind.i5.i.i.i.i.i.i114.i.i = getelementptr inbounds i8, ptr %__last.addr.0140, i64 -36
   %bf.load.i6.i.i.i.i.i.i115.i.i = load i8, ptr %m_kind.i5.i.i.i.i.i.i114.i.i, align 4
   %bf.clear.i7.i.i.i.i.i.i116.i.i = and i8 %bf.load.i6.i.i.i.i.i.i115.i.i, 1
   %cmp.i8.i.i.i.i.i.i117.i.i = icmp eq i8 %bf.clear.i7.i.i.i.i.i.i116.i.i, 0
-  br i1 %cmp.i8.i.i.i.i.i.i117.i.i, label %if.then.i.i.i.i.i.i118.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit120.i.i"
+  br i1 %cmp.i8.i.i.i.i.i.i117.i.i, label %if.then.i.i.i.i.i.i118.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit120.i.i"
 
 if.then.i.i.i.i.i.i118.i.i:                       ; preds = %land.lhs.true.i.i.i.i.i.i113.i.i
   %76 = load i32, ptr %weight.i.i.i.i12, align 8
@@ -5254,12 +5254,12 @@ if.else.i.i.i.i95.i.i:                            ; preds = %land.lhs.true.i.i.i
   %call5.i.i.i.i96.i.i = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %71, ptr noundef nonnull align 8 dereferenceable(32) %weight.i.i.i.i12, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i88.i.i)
   br i1 %call5.i.i.i.i96.i.i, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %if.else10.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit120.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i113.i.i, %if.then.i.i.i.i105.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit120.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i113.i.i, %if.then.i.i.i.i105.i.i
   %call4.i.i.i.i.i.i111.i.i = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %71, ptr noundef nonnull align 8 dereferenceable(16) %weight.i.i.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i88.i.i)
   %cmp5.i.i.i.i.i.i112.i.i = icmp slt i32 %call4.i.i.i.i.i.i111.i.i, 0
   br i1 %cmp5.i.i.i.i.i.i112.i.i, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %if.else10.i.i
 
-if.else10.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit120.i.i", %if.else.i.i.i.i95.i.i, %if.then.i.i.i.i.i.i118.i.i
+if.else10.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit120.i.i", %if.else.i.i.i.i95.i.i, %if.then.i.i.i.i.i.i118.i.i
   %78 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %m_den.i.i.i.i.i123.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %m_kind.i.i.i.i.i.i.i.i124.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 36
@@ -5287,14 +5287,14 @@ if.then.i.i.i.i139.i.i:                           ; preds = %land.lhs.true.i.i.i
   %bf.load.i.i.i.i.i.i.i141.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i140.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i142.i.i = and i8 %bf.load.i.i.i.i.i.i.i141.i.i, 1
   %cmp.i.i.i11.i.i.i.i143.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i142.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i.i143.i.i, label %land.lhs.true.i.i.i.i.i.i147.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit154.i.i"
+  br i1 %cmp.i.i.i11.i.i.i.i143.i.i, label %land.lhs.true.i.i.i.i.i.i147.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit154.i.i"
 
 land.lhs.true.i.i.i.i.i.i147.i.i:                 ; preds = %if.then.i.i.i.i139.i.i
   %m_kind.i5.i.i.i.i.i.i148.i.i = getelementptr inbounds i8, ptr %__last.addr.0140, i64 -36
   %bf.load.i6.i.i.i.i.i.i149.i.i = load i8, ptr %m_kind.i5.i.i.i.i.i.i148.i.i, align 4
   %bf.clear.i7.i.i.i.i.i.i150.i.i = and i8 %bf.load.i6.i.i.i.i.i.i149.i.i, 1
   %cmp.i8.i.i.i.i.i.i151.i.i = icmp eq i8 %bf.clear.i7.i.i.i.i.i.i150.i.i, 0
-  br i1 %cmp.i8.i.i.i.i.i.i151.i.i, label %if.then.i.i.i.i.i.i152.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit154.i.i"
+  br i1 %cmp.i8.i.i.i.i.i.i151.i.i, label %if.then.i.i.i.i.i.i152.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit154.i.i"
 
 if.then.i.i.i.i.i.i152.i.i:                       ; preds = %land.lhs.true.i.i.i.i.i.i147.i.i
   %83 = load i32, ptr %weight2.i.i.i.i, align 8
@@ -5306,16 +5306,16 @@ if.else.i.i.i.i129.i.i:                           ; preds = %land.lhs.true.i.i.i
   %call5.i.i.i.i130.i.i = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %78, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i88.i.i)
   br i1 %call5.i.i.i.i130.i.i, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %if.else13.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit154.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i147.i.i, %if.then.i.i.i.i139.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit154.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i147.i.i, %if.then.i.i.i.i139.i.i
   %call4.i.i.i.i.i.i145.i.i = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %78, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i88.i.i)
   %cmp5.i.i.i.i.i.i146.i.i = icmp slt i32 %call4.i.i.i.i.i.i145.i.i, 0
   br i1 %cmp5.i.i.i.i.i.i146.i.i, label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", label %if.else13.i.i
 
-if.else13.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit154.i.i", %if.else.i.i.i.i129.i.i, %if.then.i.i.i.i.i.i152.i.i
+if.else13.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit154.i.i", %if.else.i.i.i.i129.i.i, %if.then.i.i.i.i.i.i152.i.i
   br label %"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i": ; preds = %if.else13.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit154.i.i", %if.else.i.i.i.i129.i.i, %if.then.i.i.i.i.i.i152.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit120.i.i", %if.else.i.i.i.i95.i.i, %if.then.i.i.i.i.i.i118.i.i, %if.else5.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit86.i.i", %if.else.i.i.i.i61.i.i, %if.then.i.i.i.i.i.i84.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit52.i.i", %if.else.i.i.i.i27.i.i, %if.then.i.i.i.i.i.i50.i.i
-  %__a.sink.i.i = phi ptr [ %add.ptr.i, %if.else13.i.i ], [ %add.ptr1.i, %if.else5.i.i ], [ %add.ptr.i, %if.then.i.i.i.i.i.i50.i.i ], [ %add.ptr.i, %if.else.i.i.i.i27.i.i ], [ %add.ptr.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit52.i.i" ], [ %add.ptr2.i, %if.then.i.i.i.i.i.i84.i.i ], [ %add.ptr2.i, %if.else.i.i.i.i61.i.i ], [ %add.ptr2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit86.i.i" ], [ %add.ptr1.i, %if.then.i.i.i.i.i.i118.i.i ], [ %add.ptr1.i, %if.else.i.i.i.i95.i.i ], [ %add.ptr1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit120.i.i" ], [ %add.ptr2.i, %if.then.i.i.i.i.i.i152.i.i ], [ %add.ptr2.i, %if.else.i.i.i.i129.i.i ], [ %add.ptr2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit154.i.i" ]
+"_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_SC_T0_.exit.i": ; preds = %if.else13.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit154.i.i", %if.else.i.i.i.i129.i.i, %if.then.i.i.i.i.i.i152.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit120.i.i", %if.else.i.i.i.i95.i.i, %if.then.i.i.i.i.i.i118.i.i, %if.else5.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit86.i.i", %if.else.i.i.i.i61.i.i, %if.then.i.i.i.i.i.i84.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit52.i.i", %if.else.i.i.i.i27.i.i, %if.then.i.i.i.i.i.i50.i.i
+  %__a.sink.i.i = phi ptr [ %add.ptr.i, %if.else13.i.i ], [ %add.ptr1.i, %if.else5.i.i ], [ %add.ptr.i, %if.then.i.i.i.i.i.i50.i.i ], [ %add.ptr.i, %if.else.i.i.i.i27.i.i ], [ %add.ptr.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit52.i.i" ], [ %add.ptr2.i, %if.then.i.i.i.i.i.i84.i.i ], [ %add.ptr2.i, %if.else.i.i.i.i61.i.i ], [ %add.ptr2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit86.i.i" ], [ %add.ptr1.i, %if.then.i.i.i.i.i.i118.i.i ], [ %add.ptr1.i, %if.else.i.i.i.i95.i.i ], [ %add.ptr1.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit120.i.i" ], [ %add.ptr2.i, %if.then.i.i.i.i.i.i152.i.i ], [ %add.ptr2.i, %if.else.i.i.i.i129.i.i ], [ %add.ptr2.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit154.i.i" ]
   call void @_ZSt4swapIN3opt4softEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(52) %__first, ptr noundef nonnull align 8 dereferenceable(52) %__a.sink.i.i) #14
   br label %while.body.i.i13
 
@@ -5352,13 +5352,13 @@ if.then.i.i.i.i.i28.i:                            ; preds = %land.lhs.true.i.i.i
   %bf.load.i.i.i.i.i.i.i.i30.i = load i8, ptr %m_kind.i.i.i.i.i.i.i.i29.i, align 4
   %bf.clear.i.i.i.i.i.i.i.i31.i = and i8 %bf.load.i.i.i.i.i.i.i.i30.i, 1
   %cmp.i.i.i11.i.i.i.i.i32.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i.i31.i, 0
-  br i1 %cmp.i.i.i11.i.i.i.i.i32.i, label %land.lhs.true.i.i.i.i.i.i.i36.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit.i33.i"
+  br i1 %cmp.i.i.i11.i.i.i.i.i32.i, label %land.lhs.true.i.i.i.i.i.i.i36.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i33.i"
 
 land.lhs.true.i.i.i.i.i.i.i36.i:                  ; preds = %if.then.i.i.i.i.i28.i
   %bf.load.i6.i.i.i.i.i.i.i37.i = load i8, ptr %m_kind.i5.i.i.i.i.i.i.i12.i, align 4
   %bf.clear.i7.i.i.i.i.i.i.i38.i = and i8 %bf.load.i6.i.i.i.i.i.i.i37.i, 1
   %cmp.i8.i.i.i.i.i.i.i39.i = icmp eq i8 %bf.clear.i7.i.i.i.i.i.i.i38.i, 0
-  br i1 %cmp.i8.i.i.i.i.i.i.i39.i, label %if.then.i.i.i.i.i.i.i40.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit.i33.i"
+  br i1 %cmp.i8.i.i.i.i.i.i.i39.i, label %if.then.i.i.i.i.i.i.i40.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i33.i"
 
 if.then.i.i.i.i.i.i.i40.i:                        ; preds = %land.lhs.true.i.i.i.i.i.i.i36.i
   %90 = load i32, ptr %weight.i.i.i13.i, align 8
@@ -5366,7 +5366,7 @@ if.then.i.i.i.i.i.i.i40.i:                        ; preds = %land.lhs.true.i.i.i
   %cmp.i.i.i.i.i.i.i41.i = icmp slt i32 %90, %91
   br i1 %cmp.i.i.i.i.i.i.i41.i, label %while.body2.i.i, label %while.cond4.preheader.i.i
 
-while.cond4.preheader.i.i:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit.i33.i", %if.else.i.i.i.i.i20.i, %if.then.i.i.i.i.i.i.i40.i
+while.cond4.preheader.i.i:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i33.i", %if.else.i.i.i.i.i20.i, %if.then.i.i.i.i.i.i.i40.i
   %m_den.i.i.i.i.i.i14.i.le = getelementptr inbounds i8, ptr %__first.addr.1.i.i, i64 32
   %m_kind.i.i.i.i.i.i.i.i.i15.i.le = getelementptr inbounds i8, ptr %__first.addr.1.i.i, i64 36
   br label %while.cond4.i.i
@@ -5375,12 +5375,12 @@ if.else.i.i.i.i.i20.i:                            ; preds = %land.lhs.true.i.i.i
   %call5.i.i.i.i.i21.i = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %85, ptr noundef nonnull align 8 dereferenceable(32) %weight.i.i.i13.i, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i.i9.i)
   br i1 %call5.i.i.i.i.i21.i, label %while.body2.i.i, label %while.cond4.preheader.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit.i33.i": ; preds = %land.lhs.true.i.i.i.i.i.i.i36.i, %if.then.i.i.i.i.i28.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i33.i": ; preds = %land.lhs.true.i.i.i.i.i.i.i36.i, %if.then.i.i.i.i.i28.i
   %call4.i.i.i.i.i.i.i34.i = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %85, ptr noundef nonnull align 8 dereferenceable(16) %weight.i.i.i13.i, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i.i9.i)
   %cmp5.i.i.i.i.i.i.i35.i = icmp slt i32 %call4.i.i.i.i.i.i.i34.i, 0
   br i1 %cmp5.i.i.i.i.i.i.i35.i, label %while.body2.i.i, label %while.cond4.preheader.i.i
 
-while.body2.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit.i33.i", %if.else.i.i.i.i.i20.i, %if.then.i.i.i.i.i.i.i40.i
+while.body2.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit.i33.i", %if.else.i.i.i.i.i20.i, %if.then.i.i.i.i.i.i.i40.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i, i64 56
   br label %while.cond1.i.i, !llvm.loop !26
 
@@ -5412,14 +5412,14 @@ if.then.i.i.i.i29.i.i:                            ; preds = %land.lhs.true.i.i.i
   %bf.load.i.i.i.i.i.i.i31.i.i = load i8, ptr %m_kind.i5.i.i.i.i.i.i.i12.i, align 4
   %bf.clear.i.i.i.i.i.i.i32.i.i = and i8 %bf.load.i.i.i.i.i.i.i31.i.i, 1
   %cmp.i.i.i11.i.i.i.i33.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i32.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i.i33.i.i, label %land.lhs.true.i.i.i.i.i.i37.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit44.i.i"
+  br i1 %cmp.i.i.i11.i.i.i.i33.i.i, label %land.lhs.true.i.i.i.i.i.i37.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit44.i.i"
 
 land.lhs.true.i.i.i.i.i.i37.i.i:                  ; preds = %if.then.i.i.i.i29.i.i
   %m_kind.i5.i.i.i.i.i.i38.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i, i64 -36
   %bf.load.i6.i.i.i.i.i.i39.i.i = load i8, ptr %m_kind.i5.i.i.i.i.i.i38.i.i, align 4
   %bf.clear.i7.i.i.i.i.i.i40.i.i = and i8 %bf.load.i6.i.i.i.i.i.i39.i.i, 1
   %cmp.i8.i.i.i.i.i.i41.i.i = icmp eq i8 %bf.clear.i7.i.i.i.i.i.i40.i.i, 0
-  br i1 %cmp.i8.i.i.i.i.i.i41.i.i, label %if.then.i.i.i.i.i.i42.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit44.i.i"
+  br i1 %cmp.i8.i.i.i.i.i.i41.i.i, label %if.then.i.i.i.i.i.i42.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit44.i.i"
 
 if.then.i.i.i.i.i.i42.i.i:                        ; preds = %land.lhs.true.i.i.i.i.i.i37.i.i
   %97 = load i32, ptr %weight2.i.i.i9.i, align 8
@@ -5431,15 +5431,15 @@ if.else.i.i.i.i19.i.i:                            ; preds = %land.lhs.true.i.i.i
   %call5.i.i.i.i20.i.i = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %92, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i.i9.i, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i12.i.i)
   br i1 %call5.i.i.i.i20.i.i, label %while.cond4.i.i.backedge, label %while.end8.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit44.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i37.i.i, %if.then.i.i.i.i29.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit44.i.i": ; preds = %land.lhs.true.i.i.i.i.i.i37.i.i, %if.then.i.i.i.i29.i.i
   %call4.i.i.i.i.i.i35.i.i = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %92, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i.i9.i, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i12.i.i)
   %cmp5.i.i.i.i.i.i36.i.i = icmp slt i32 %call4.i.i.i.i.i.i35.i.i, 0
   br i1 %cmp5.i.i.i.i.i.i36.i.i, label %while.cond4.i.i.backedge, label %while.end8.i.i
 
-while.cond4.i.i.backedge:                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit44.i.i", %if.else.i.i.i.i19.i.i, %if.then.i.i.i.i.i.i42.i.i
+while.cond4.i.i.backedge:                         ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit44.i.i", %if.else.i.i.i.i19.i.i, %if.then.i.i.i.i.i.i42.i.i
   br label %while.cond4.i.i, !llvm.loop !27
 
-while.end8.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit44.i.i", %if.else.i.i.i.i19.i.i, %if.then.i.i.i.i.i.i42.i.i
+while.end8.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit44.i.i", %if.else.i.i.i.i19.i.i, %if.then.i.i.i.i.i.i42.i.i
   %cmp.i.i = icmp ult ptr %__first.addr.1.i.i, %__last.addr.1.i.i
   br i1 %cmp.i.i, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_T0_.exit"
 
@@ -5710,7 +5710,7 @@ _ZSt4swapIN3opt4softEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_E
   %cmp = icmp sgt i64 %sub.ptr.sub, 896
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !29
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_T0_.exit", %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.argprom.exit", %entry
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEET_SC_SC_T0_.exit", %"_ZSt10__pop_heapIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_SC_SC_RT0_.exit", %entry
   ret void
 }
 
@@ -5723,8 +5723,8 @@ entry:
   %cmp33 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp33, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
-  %__holeIndex.addr.034 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit" ], [ %__holeIndex, %entry ]
+while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
+  %__holeIndex.addr.034 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.034, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"struct.opt::soft", ptr %__first, i64 %mul
@@ -5772,18 +5772,18 @@ if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i
   %5 = load i32, ptr %weight.i.i, align 8
   %6 = load i32, ptr %weight2.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp slt i32 %5, %6
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
 
 if.else.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i, %if.then.i.i.i.i
   %call4.i.i.i.i.i.i = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %weight.i.i, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i)
   %cmp5.i.i.i.i.i.i = icmp slt i32 %call4.i.i.i.i.i.i, 0
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
 
 if.else.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i, %while.body
   %call5.i.i.i.i = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %weight.i.i, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i)
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit": ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i, %if.else.i.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit": ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i, %if.else.i.i.i.i
   %retval.0.i.i.i.i = phi i1 [ %call5.i.i.i.i, %if.else.i.i.i.i ], [ %cmp.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %spec.select = select i1 %retval.0.i.i.i.i, i64 %sub1, i64 %mul
   %add.ptr3 = getelementptr inbounds %"struct.opt::soft", ptr %__first, i64 %spec.select
@@ -5792,8 +5792,8 @@ if.else.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !30
 
-while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit", %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit" ]
+while.end:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit", %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit" ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end18
@@ -5887,13 +5887,13 @@ if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i
   %bf.load.i.i.i.i.i.i.i.i25 = load i8, ptr %m_kind.i.i.i.i.i.i.i.i24, align 4
   %bf.clear.i.i.i.i.i.i.i.i26 = and i8 %bf.load.i.i.i.i.i.i.i.i25, 1
   %cmp.i.i.i11.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i.i26, 0
-  br i1 %cmp.i.i.i11.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.argprom.exit.i"
+  br i1 %cmp.i.i.i11.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i"
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i
   %bf.load.i6.i.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i.i.i.i = and i8 %bf.load.i6.i.i.i.i.i.i.i, 1
   %cmp.i8.i.i.i.i.i.i.i = icmp eq i8 %bf.clear.i7.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i8.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.argprom.exit.i"
+  br i1 %cmp.i8.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i"
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i.i
   %21 = load i32, ptr %weight.i.i.i, align 8
@@ -5908,11 +5908,11 @@ if.else.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i
 call5.i.i.i.i.i.noexc:                            ; preds = %if.else.i.i.i.i.i
   br i1 %call5.i.i.i.i.i28, label %while.body.i, label %invoke.cont
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.argprom.exit.i": ; preds = %land.lhs.true.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i": ; preds = %land.lhs.true.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %call4.i.i.i.i.i.i.i29 = invoke noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %16, ptr noundef nonnull align 8 dereferenceable(16) %weight.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %weight.i)
           to label %call4.i.i.i.i.i.i.i.noexc unwind label %lpad
 
-call4.i.i.i.i.i.i.i.noexc:                        ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.argprom.exit.i"
+call4.i.i.i.i.i.i.i.noexc:                        ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i"
   %cmp5.i.i.i.i.i.i.i = icmp slt i32 %call4.i.i.i.i.i.i.i29, 0
   br i1 %cmp5.i.i.i.i.i.i.i, label %while.body.i, label %invoke.cont
 
@@ -5969,7 +5969,7 @@ terminate.lpad.i1.i:                              ; preds = %if.then2.i.i.i.i
 _ZN3opt4softD2Ev.exit:                            ; preds = %_ZN8rationalD2Ev.exit.i, %if.then.i.i.i.i32, %if.then2.i.i.i.i
   ret void
 
-lpad:                                             ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.argprom.exit.i", %if.else.i.i.i.i.i
+lpad:                                             ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i", %if.else.i.i.i.i.i
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3opt4softD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %agg.tmp) #14
@@ -6033,13 +6033,13 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %bf.load.i.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i.i, 1
   %cmp.i.i.i11.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i11.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
+  br i1 %cmp.i.i.i11.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i
   %bf.load.i6.i.i.i.i.i.i = load i8, ptr %m_kind.i5.i.i.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i.i.i = and i8 %bf.load.i6.i.i.i.i.i.i, 1
   %cmp.i8.i.i.i.i.i.i = icmp eq i8 %bf.clear.i7.i.i.i.i.i.i, 0
-  br i1 %cmp.i8.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
+  br i1 %cmp.i8.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
   %5 = load i32, ptr %weight.i.i, align 8
@@ -6051,12 +6051,12 @@ if.else.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   %call5.i.i.i.i = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %weight.i.i, ptr noundef nonnull align 8 dereferenceable(32) %weight2.i.i)
   br i1 %call5.i.i.i.i, label %if.then2, label %if.else
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit": ; preds = %if.then.i.i.i.i, %land.lhs.true.i.i.i.i.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit": ; preds = %if.then.i.i.i.i, %land.lhs.true.i.i.i.i.i.i
   %call4.i.i.i.i.i.i = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %weight.i.i, ptr noundef nonnull align 8 dereferenceable(16) %weight2.i.i)
   %cmp5.i.i.i.i.i.i = icmp slt i32 %call4.i.i.i.i.i.i, 0
   br i1 %cmp5.i.i.i.i.i.i, label %if.then2, label %if.else
 
-if.then2:                                         ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
+if.then2:                                         ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
   %m_manager2.i.i = getelementptr inbounds i8, ptr %__first.pn25, i64 64
   %7 = load ptr, ptr %m_manager2.i.i, align 8
   store ptr %7, ptr %m_manager.i.i, align 8
@@ -6235,7 +6235,7 @@ terminate.lpad.i1.i:                              ; preds = %if.then2.i.i.i.i
   call void @__clang_call_terminate(ptr %42) #15
   unreachable
 
-if.else:                                          ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.argprom.exit"
+if.else:                                          ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
   call fastcc void @"_ZSt25__unguarded_linear_insertIPN3opt4softEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_"(ptr noundef nonnull %__i.026)
   br label %for.inc
 

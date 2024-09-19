@@ -250,7 +250,7 @@ if.then.i:                                        ; preds = %io_tofilep.exit.i
   unreachable
 
 io_tofile.exit:                                   ; preds = %io_tofilep.exit.i
-  %call1 = tail call fastcc i32 @io_file_read.argprom(ptr noundef nonnull %L, ptr nonnull %5, i32 noundef 1)
+  %call1 = tail call fastcc i32 @io_file_read(ptr noundef nonnull %L, ptr nonnull %5, i32 noundef 1)
   ret i32 %call1
 }
 
@@ -297,7 +297,7 @@ io_tofile.exit:                                   ; preds = %io_tofilep.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
   %cmp3.i = icmp ult ptr %add.ptr.i, %1
-  br i1 %cmp3.i, label %for.body.i, label %io_file_write.argprom.exit
+  br i1 %cmp3.i, label %for.body.i, label %io_file_write.exit
 
 for.body.i:                                       ; preds = %io_tofile.exit, %land.end.i
   %tv.05.i = phi ptr [ %incdec.ptr.i, %land.end.i ], [ %add.ptr.i, %io_tofile.exit ]
@@ -336,9 +336,9 @@ land.end.i:                                       ; preds = %land.rhs.i, %if.end
   %incdec.ptr.i = getelementptr inbounds i8, ptr %tv.05.i, i64 8
   %10 = load ptr, ptr %top.i.i, align 8
   %cmp.i2 = icmp ult ptr %incdec.ptr.i, %10
-  br i1 %cmp.i2, label %for.body.i, label %io_file_write.argprom.exit, !llvm.loop !4
+  br i1 %cmp.i2, label %for.body.i, label %io_file_write.exit, !llvm.loop !4
 
-io_file_write.argprom.exit:                       ; preds = %land.end.i, %io_tofile.exit
+io_file_write.exit:                               ; preds = %land.end.i, %io_tofile.exit
   %status.0.lcssa.i = phi i32 [ 1, %io_tofile.exit ], [ %land.ext.i, %land.end.i ]
   %call9.i = call i32 @luaL_fileresult(ptr noundef nonnull %L, i32 noundef %status.0.lcssa.i, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
@@ -722,7 +722,7 @@ declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @luaL_fileresult(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @io_file_read.argprom(ptr noundef %L, ptr %iof.0.val, i32 noundef range(i32 0, 2) %start) unnamed_addr #0 {
+define internal fastcc i32 @io_file_read(ptr noundef %L, ptr %iof.0.val, i32 noundef range(i32 0, 2) %start) unnamed_addr #0 {
 entry:
   %d.i = alloca double, align 8
   %top = getelementptr inbounds i8, ptr %L, i64 40
@@ -1162,7 +1162,7 @@ lj_state_checkstack.exit:                         ; preds = %if.then.i, %if.then
 
 if.end13:                                         ; preds = %lj_state_checkstack.exit, %if.end
   %add.ptr3.val = load ptr, ptr %add.ptr3, align 8
-  %call = tail call fastcc i32 @io_file_read.argprom(ptr noundef nonnull %L, ptr %add.ptr3.val, i32 noundef 0)
+  %call = tail call fastcc i32 @io_file_read(ptr noundef nonnull %L, ptr %add.ptr3.val, i32 noundef 0)
   %10 = load ptr, ptr %add.ptr3, align 8
   %call15 = tail call i32 @ferror(ptr noundef %10) #10
   %tobool16.not = icmp eq i32 %call15, 0
@@ -1394,7 +1394,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 io_stdfile.exit:                                  ; preds = %entry
-  %call1 = tail call fastcc i32 @io_file_read.argprom(ptr noundef nonnull %L, ptr nonnull %4, i32 noundef 0)
+  %call1 = tail call fastcc i32 @io_file_read(ptr noundef nonnull %L, ptr nonnull %4, i32 noundef 0)
   ret i32 %call1
 }
 
@@ -1424,7 +1424,7 @@ io_stdfile.exit:                                  ; preds = %entry
   %top.i = getelementptr inbounds i8, ptr %L, i64 40
   %6 = load ptr, ptr %top.i, align 8
   %cmp3.i = icmp ult ptr %5, %6
-  br i1 %cmp3.i, label %for.body.i, label %io_file_write.argprom.exit
+  br i1 %cmp3.i, label %for.body.i, label %io_file_write.exit
 
 for.body.i:                                       ; preds = %io_stdfile.exit, %land.end.i
   %tv.05.i = phi ptr [ %incdec.ptr.i, %land.end.i ], [ %5, %io_stdfile.exit ]
@@ -1463,9 +1463,9 @@ land.end.i:                                       ; preds = %land.rhs.i, %if.end
   %incdec.ptr.i = getelementptr inbounds i8, ptr %tv.05.i, i64 8
   %11 = load ptr, ptr %top.i, align 8
   %cmp.i3 = icmp ult ptr %incdec.ptr.i, %11
-  br i1 %cmp.i3, label %for.body.i, label %io_file_write.argprom.exit, !llvm.loop !4
+  br i1 %cmp.i3, label %for.body.i, label %io_file_write.exit, !llvm.loop !4
 
-io_file_write.argprom.exit:                       ; preds = %land.end.i, %io_stdfile.exit
+io_file_write.exit:                               ; preds = %land.end.i, %io_stdfile.exit
   %status.0.lcssa.i = phi i32 [ 1, %io_stdfile.exit ], [ %land.ext.i, %land.end.i ]
   %call9.i = call i32 @luaL_fileresult(ptr noundef nonnull %L, i32 noundef %status.0.lcssa.i, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)

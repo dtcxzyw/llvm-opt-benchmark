@@ -21014,9 +21014,9 @@ _ZN10glTFCommonL9ReadValueINS_8NullableIA16_fEEEEbRN9rapidjson12GenericValueINS4
 
 if.else:                                          ; preds = %if.end19
   %translation = getelementptr inbounds i8, ptr %this, i64 188
-  tail call fastcc void @_ZN10glTFCommonL10ReadMemberINS_8NullableIA3_fEEEEbRN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcRT_.retelim(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.39, ptr noundef nonnull align 4 dereferenceable(13) %translation)
+  tail call fastcc void @_ZN10glTFCommonL10ReadMemberINS_8NullableIA3_fEEEEbRN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.39, ptr noundef nonnull align 4 dereferenceable(13) %translation)
   %scale = getelementptr inbounds i8, ptr %this, i64 224
-  tail call fastcc void @_ZN10glTFCommonL10ReadMemberINS_8NullableIA3_fEEEEbRN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcRT_.retelim(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.38, ptr noundef nonnull align 4 dereferenceable(13) %scale)
+  tail call fastcc void @_ZN10glTFCommonL10ReadMemberINS_8NullableIA3_fEEEEbRN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.38, ptr noundef nonnull align 4 dereferenceable(13) %scale)
   %rotation = getelementptr inbounds i8, ptr %this, i64 204
   %flags.i.i = getelementptr inbounds i8, ptr %obj, i64 14
   %36 = load i16, ptr %flags.i.i, align 2
@@ -22230,7 +22230,7 @@ cond.end:                                         ; preds = %_ZN9rapidjson12Gene
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN10glTFCommonL10ReadMemberINS_8NullableIA3_fEEEEbRN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcRT_.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef %id, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(13) %out) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10glTFCommonL10ReadMemberINS_8NullableIA3_fEEEEbRN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcRT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef %id, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(13) %out) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
 entry:
   %n.i = alloca %"class.rapidjson::GenericValue", align 8
   %flags.i = getelementptr inbounds i8, ptr %obj, i64 14
@@ -23591,7 +23591,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %flags.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 14
   %9 = load i16, ptr %flags.i.i.i, align 2
   %cmp.i.i.i = icmp eq i16 %9, 3
-  br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.argprom.exit
+  br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.exit
 
 if.end.i.i:                                       ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %n.i.i.i)
@@ -23660,34 +23660,34 @@ for.inc.i.i.i.i:                                  ; preds = %_ZNK9rapidjson12Gen
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i.i: ; preds = %for.inc.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %n.i.i.i)
-  br label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.argprom.exit
+  br label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i.i, %if.end.i.i.i.i.i, %if.end.i.i
   %member.0.lcssa.i.i.i.i = phi ptr [ %15, %if.end.i.i ], [ %member.010.i.i.i.i, %if.end.i.i.i.i.i ], [ %member.010.i.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %n.i.i.i)
   %cmp.not.i.i = icmp eq ptr %member.0.lcssa.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.not.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.argprom.exit, label %if.then3.i.i
+  br i1 %cmp.not.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i.i
   %flags.i.i.i.i = getelementptr inbounds i8, ptr %member.0.lcssa.i.i.i.i, i64 30
   %25 = load i16, ptr %flags.i.i.i.i, align 2
   %26 = and i16 %25, 32
   %cmp.i.i.not.i.i = icmp eq i16 %26, 0
-  br i1 %cmp.i.i.not.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.argprom.exit, label %27
+  br i1 %cmp.i.i.not.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.exit, label %27
 
 27:                                               ; preds = %if.then3.i.i
   %value.i.i = getelementptr inbounds i8, ptr %member.0.lcssa.i.i.i.i, i64 16
   %28 = load i32, ptr %value.i.i, align 8
-  br label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.argprom.exit
+  br label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.exit
 
-_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.argprom.exit: ; preds = %for.body, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i.i, %if.then3.i.i, %27
+_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.exit: ; preds = %for.body, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i.i, %if.then3.i.i, %27
   %29 = phi i32 [ %28, %27 ], [ 4, %for.body ], [ 4, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i.i ], [ 4, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i.i ], [ 4, %if.then3.i.i ]
   store i32 %29, ptr %add.ptr.i52, align 8
   %call10 = call noundef ptr @_ZN10glTFCommon10FindObjectERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull @.str.93)
   %tobool.not = icmp eq ptr %call10, null
   br i1 %tobool.not, label %if.end36, label %if.then11
 
-if.then11:                                        ; preds = %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.argprom.exit
+if.then11:                                        ; preds = %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.exit
   %members.i.i = getelementptr inbounds i8, ptr %call10, i64 8
   %30 = load i32, ptr %call10, align 8
   %cmp15.not166 = icmp eq i32 %30, 0
@@ -23840,7 +23840,7 @@ for.inc:                                          ; preds = %if.else25.i, %if.en
   %cmp15.not = icmp eq ptr %incdec.ptr, %add.ptr.i57
   br i1 %cmp15.not, label %if.end36, label %for.body16, !llvm.loop !213
 
-if.end36:                                         ; preds = %for.inc, %if.then11, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.argprom.exit
+if.end36:                                         ; preds = %for.inc, %if.then11, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF13PrimitiveModeEEET_RN9rapidjson12GenericValueINS4_4UTF8IcEENS4_19MemoryPoolAllocatorINS4_12CrtAllocatorEEEEEPKcS3_.exit
   %call37 = call noundef ptr @_ZN10glTFCommon10FindStringERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, ptr noundef nonnull @.str.94)
   %tobool38.not = icmp eq ptr %call37, null
   br i1 %tobool38.not, label %if.end45, label %if.then39
@@ -24033,7 +24033,7 @@ lpad97:                                           ; preds = %if.then95
   br label %eh.resume
 
 if.end100:                                        ; preds = %if.end93
-  %call101 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIN4glTF13ComponentTypeEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom(ptr noundef nonnull align 8 dereferenceable(16) %call75, ptr noundef nonnull align 4 dereferenceable(4) %component_type)
+  %call101 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIN4glTF13ComponentTypeEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call75, ptr noundef nonnull align 4 dereferenceable(4) %component_type)
   br i1 %call101, label %if.end107, label %if.then102
 
 if.then102:                                       ; preds = %if.end100
@@ -25255,7 +25255,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIN4glTF13ComponentTypeEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIN4glTF13ComponentTypeEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
 entry:
   %n.i = alloca %"class.rapidjson::GenericValue", align 8
   %flags.i = getelementptr inbounds i8, ptr %obj, i64 14
@@ -26807,20 +26807,20 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call3 = tail call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.102)
+  %call3 = tail call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.102)
   %byteOffset = getelementptr inbounds i8, ptr %this, i64 88
   store i32 %call3, ptr %byteOffset, align 8
-  %call4 = tail call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.122)
+  %call4 = tail call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.122)
   %byteStride = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %call4, ptr %byteStride, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i7)
-  %call.i8 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIN4glTF13ComponentTypeEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom(ptr noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef nonnull align 4 dereferenceable(4) %out.i7)
+  %call.i8 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIN4glTF13ComponentTypeEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef nonnull align 4 dereferenceable(4) %out.i7)
   %3 = load i32, ptr %out.i7, align 4
   %cond.i9 = select i1 %call.i8, i32 %3, i32 5120
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %out.i7)
   %componentType = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %cond.i9, ptr %componentType, align 8
-  %call6 = tail call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.105)
+  %call6 = tail call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.105)
   %count = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %call6, ptr %count, align 4
   %call7 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIPKcEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEES2_RT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.104, ptr noundef nonnull align 8 dereferenceable(8) %typestr)
@@ -27151,11 +27151,11 @@ if.then.i20:                                      ; preds = %invoke.cont37
   br label %_ZN4glTF10BufferView4ReadERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEERNS_5AssetE.exit
 
 _ZN4glTF10BufferView4ReadERN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEERNS_5AssetE.exit: ; preds = %invoke.cont37, %if.then.i20
-  %call3.i = call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull @.str.102)
+  %call3.i = call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull @.str.102)
   %conv.i = zext i32 %call3.i to i64
   %byteOffset.i = getelementptr inbounds i8, ptr %call35, i64 88
   store i64 %conv.i, ptr %byteOffset.i, align 8
-  %call4.i = call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull @.str.123)
+  %call4.i = call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull @.str.123)
   %conv5.i = zext i32 %call4.i to i64
   %byteLength.i = getelementptr inbounds i8, ptr %call35, i64 96
   store i64 %conv5.i, ptr %byteLength.i, align 8
@@ -27177,7 +27177,7 @@ eh.resume:                                        ; preds = %lpad31, %lpad24, %l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef %id) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIjEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef %id) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
 entry:
   %n.i.i = alloca %"class.rapidjson::GenericValue", align 8
   %flags.i.i = getelementptr inbounds i8, ptr %obj, i64 14
@@ -28536,8 +28536,8 @@ if.then40:                                        ; preds = %if.end36
   tail call fastcc void @_ZN4glTF12_GLOBAL__N_120ReadMaterialPropertyERNS_5AssetERN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRNS_11TexPropertyE(ptr noundef nonnull align 8 dereferenceable(1912) %r, ptr noundef nonnull align 8 dereferenceable(16) %call38, ptr noundef nonnull @.str.135, ptr noundef nonnull align 8 dereferenceable(32) %diffuse42)
   %specular43 = getelementptr inbounds i8, ptr %this, i64 136
   tail call fastcc void @_ZN4glTF12_GLOBAL__N_120ReadMaterialPropertyERNS_5AssetERN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRNS_11TexPropertyE(ptr noundef nonnull align 8 dereferenceable(1912) %r, ptr noundef nonnull align 8 dereferenceable(16) %call38, ptr noundef nonnull @.str.136, ptr noundef nonnull align 8 dereferenceable(32) %specular43)
-  tail call fastcc void @_ZN10glTFCommonL10ReadMemberIbEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %call38, ptr noundef nonnull @.str.144, ptr noundef nonnull align 1 dereferenceable(1) %doubleSided.i)
-  tail call fastcc void @_ZN10glTFCommonL10ReadMemberIbEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %call38, ptr noundef nonnull @.str.145, ptr noundef nonnull align 1 dereferenceable(1) %transparent.i)
+  tail call fastcc void @_ZN10glTFCommonL10ReadMemberIbEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call38, ptr noundef nonnull @.str.144, ptr noundef nonnull align 1 dereferenceable(1) %doubleSided.i)
+  tail call fastcc void @_ZN10glTFCommonL10ReadMemberIbEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call38, ptr noundef nonnull @.str.145, ptr noundef nonnull align 1 dereferenceable(1) %transparent.i)
   %call47 = tail call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call38, ptr noundef nonnull @.str.137, ptr noundef nonnull align 4 dereferenceable(4) %transparency.i)
   %call49 = tail call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call38, ptr noundef nonnull @.str.138, ptr noundef nonnull align 4 dereferenceable(4) %shininess.i)
   br label %if.end53
@@ -28934,7 +28934,7 @@ return:                                           ; preds = %_ZNK9rapidjson12Gen
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN10glTFCommonL10ReadMemberIbEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef %id, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %out) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10glTFCommonL10ReadMemberIbEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef %id, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %out) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
 entry:
   %n.i = alloca %"class.rapidjson::GenericValue", align 8
   %flags.i = getelementptr inbounds i8, ptr %obj, i64 14
@@ -30203,10 +30203,10 @@ if.then3:                                         ; preds = %if.then
   br i1 %tobool5.not, label %if.end28, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
-  %call7 = tail call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIiEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %call4, ptr noundef nonnull @.str.147)
+  %call7 = tail call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIiEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %call4, ptr noundef nonnull @.str.147)
   %width = getelementptr inbounds i8, ptr %this, i64 152
   store i32 %call7, ptr %width, align 8
-  %call8 = tail call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIiEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %call4, ptr noundef nonnull @.str.148)
+  %call8 = tail call fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIiEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_(ptr noundef nonnull align 8 dereferenceable(16) %call4, ptr noundef nonnull @.str.148)
   %height = getelementptr inbounds i8, ptr %this, i64 156
   store i32 %call8, ptr %height, align 4
   %mimeType = getelementptr inbounds i8, ptr %this, i64 120
@@ -30491,7 +30491,7 @@ _ZN4glTF5ImageD2Ev.exit:                          ; preds = %entry, %_ZNKSt14def
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIiEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef %id) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10glTFCommonL15MemberOrDefaultIiEET_RN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef %id) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
 entry:
   %n.i.i = alloca %"class.rapidjson::GenericValue", align 8
   %flags.i.i = getelementptr inbounds i8, ptr %obj, i64 14
@@ -30618,7 +30618,7 @@ entry:
   %flags.i.i = getelementptr inbounds i8, ptr %obj, i64 14
   %1 = load i16, ptr %flags.i.i, align 2
   %cmp.i.i = icmp eq i16 %1, 3
-  br i1 %cmp.i.i, label %if.end.i, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit
+  br i1 %cmp.i.i, label %if.end.i, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %n.i.i)
@@ -30697,34 +30697,34 @@ for.inc.i.i.i:                                    ; preds = %_ZNK9rapidjson12Gen
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i: ; preds = %for.inc.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %n.i.i)
-  br label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit
+  br label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %if.end.i.i.i.i, %if.end.i
   %member.0.lcssa.i.i.i = phi ptr [ %7, %if.end.i ], [ %member.010.i.i.i, %if.end.i.i.i.i ], [ %member.010.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %n.i.i)
   %cmp.not.i = icmp eq ptr %member.0.lcssa.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit, label %if.then3.i
+  br i1 %cmp.not.i, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i
   %flags.i.i.i = getelementptr inbounds i8, ptr %member.0.lcssa.i.i.i, i64 30
   %20 = load i16, ptr %flags.i.i.i, align 2
   %21 = and i16 %20, 32
   %cmp.i.i.not.i = icmp eq i16 %21, 0
-  br i1 %cmp.i.i.not.i, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit, label %cond.true.i.i
+  br i1 %cmp.i.i.not.i, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then3.i
   %value.i = getelementptr inbounds i8, ptr %member.0.lcssa.i.i.i, i64 16
   %22 = load i32, ptr %value.i, align 8
   store i32 %22, ptr %magFilter.i, align 8
   %.pr.pre = load i16, ptr %flags.i.i, align 2
-  br label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit
+  br label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit
 
-_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i, %if.then3.i, %cond.true.i.i
+_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i, %if.then3.i, %cond.true.i.i
   %.pr = phi i16 [ %10, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i ], [ %10, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i ], [ %10, %if.then3.i ], [ %.pr.pre, %cond.true.i.i ]
   %cmp.i.i6 = icmp eq i16 %.pr, 3
-  br i1 %cmp.i.i6, label %if.end.i8, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit
+  br i1 %cmp.i.i6, label %if.end.i8, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit
 
-if.end.i8:                                        ; preds = %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit
+if.end.i8:                                        ; preds = %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %n.i.i4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %n.i.i4, i8 0, i64 16, i1 false)
   %flags.i.i.i.i9 = getelementptr inbounds i8, ptr %n.i.i4, i64 14
@@ -30798,30 +30798,30 @@ for.inc.i.i.i37:                                  ; preds = %_ZNK9rapidjson12Gen
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i40: ; preds = %for.inc.i.i.i37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %n.i.i4)
-  br label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit
+  br label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i49: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i46, %if.end.i.i.i.i41, %if.end.i8
   %member.0.lcssa.i.i.i50 = phi ptr [ %28, %if.end.i8 ], [ %member.010.i.i.i29, %if.end.i.i.i.i41 ], [ %member.010.i.i.i29, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i46 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %n.i.i4)
   %cmp.not.i51 = icmp eq ptr %member.0.lcssa.i.i.i50, %add.ptr.i.i.i.i16
-  br i1 %cmp.not.i51, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit, label %if.then3.i52
+  br i1 %cmp.not.i51, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit, label %if.then3.i52
 
 if.then3.i52:                                     ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i49
   %flags.i.i.i53 = getelementptr inbounds i8, ptr %member.0.lcssa.i.i.i50, i64 30
   %39 = load i16, ptr %flags.i.i.i53, align 2
   %40 = and i16 %39, 32
   %cmp.i.i.not.i54 = icmp eq i16 %40, 0
-  br i1 %cmp.i.i.not.i54, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit, label %cond.true.i.i55
+  br i1 %cmp.i.i.not.i54, label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit, label %cond.true.i.i55
 
 cond.true.i.i55:                                  ; preds = %if.then3.i52
   %value.i56 = getelementptr inbounds i8, ptr %member.0.lcssa.i.i.i50, i64 16
   %41 = load i32, ptr %value.i56, align 8
   store i32 %41, ptr %minFilter.i, align 4
-  br label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit
+  br label %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit
 
-_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit: ; preds = %entry, %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argprom.exit, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i40, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i49, %if.then3.i52, %cond.true.i.i55
-  call fastcc void @_ZN10glTFCommonL10ReadMemberIN4glTF11SamplerWrapEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.152, ptr noundef nonnull align 4 dereferenceable(4) %wrapS.i)
-  call fastcc void @_ZN10glTFCommonL10ReadMemberIN4glTF11SamplerWrapEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argelim(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.153, ptr noundef nonnull align 4 dereferenceable(4) %wrapT.i)
+_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMinFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit: ; preds = %entry, %_ZN10glTFCommonL10ReadMemberIN4glTF16SamplerMagFilterEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.exit, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i40, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i49, %if.then3.i52, %cond.true.i.i55
+  call fastcc void @_ZN10glTFCommonL10ReadMemberIN4glTF11SamplerWrapEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.152, ptr noundef nonnull align 4 dereferenceable(4) %wrapS.i)
+  call fastcc void @_ZN10glTFCommonL10ReadMemberIN4glTF11SamplerWrapEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.153, ptr noundef nonnull align 4 dereferenceable(4) %wrapT.i)
   ret void
 }
 
@@ -30938,7 +30938,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN10glTFCommonL10ReadMemberIN4glTF11SamplerWrapEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef %id, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10glTFCommonL10ReadMemberIN4glTF11SamplerWrapEEEbRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %obj, ptr noundef %id, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
 entry:
   %n.i = alloca %"class.rapidjson::GenericValue", align 8
   %flags.i = getelementptr inbounds i8, ptr %obj, i64 14
@@ -39610,7 +39610,7 @@ entry:
   %flags.i.i.i = getelementptr inbounds i8, ptr %obj, i64 14
   %1 = load i16, ptr %flags.i.i.i, align 2
   %cmp.i.i.i = icmp eq i16 %1, 3
-  br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit.thread
+  br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit.thread
 
 if.end.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %n.i.i.i)
@@ -39687,27 +39687,27 @@ for.inc.i.i.i.i:                                  ; preds = %_ZNK9rapidjson12Gen
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i.i: ; preds = %for.inc.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %n.i.i.i)
-  br label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit.thread
+  br label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit.thread
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i.i, %if.end.i.i.i.i.i, %if.end.i.i
   %member.0.lcssa.i.i.i.i = phi ptr [ %7, %if.end.i.i ], [ %member.010.i.i.i.i, %if.end.i.i.i.i.i ], [ %member.010.i.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %n.i.i.i)
   %cmp.not.i.i = icmp eq ptr %member.0.lcssa.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.not.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit.thread, label %if.then3.i.i
+  br i1 %cmp.not.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit.thread, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i.i
   %flags.i.i.i.i = getelementptr inbounds i8, ptr %member.0.lcssa.i.i.i.i, i64 30
   %18 = load i16, ptr %flags.i.i.i.i, align 2
   %19 = and i16 %18, 32
   %cmp.i.i.not.i.i = icmp eq i16 %19, 0
-  br i1 %cmp.i.i.not.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit.thread, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit
+  br i1 %cmp.i.i.not.i.i, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit.thread, label %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit
 
-_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit.thread: ; preds = %entry, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i.i, %if.then3.i.i
+_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit.thread: ; preds = %entry, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i.i, %if.then3.i.i
   %type31 = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %type31, align 8
   br label %21
 
-_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit: ; preds = %if.then3.i.i
+_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit: ; preds = %if.then3.i.i
   %value.i.i = getelementptr inbounds i8, ptr %member.0.lcssa.i.i.i.i, i64 16
   %20 = load i32, ptr %value.i.i, align 8
   %.fr = freeze i32 %20
@@ -39717,9 +39717,9 @@ _ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericVa
   %spec.select = select i1 %cmp, ptr @.str.171, ptr @.str.172
   br label %21
 
-21:                                               ; preds = %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit.thread
-  %type34 = phi ptr [ %type31, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit.thread ], [ %type, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit ]
-  %22 = phi ptr [ @.str.172, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit.thread ], [ %spec.select, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.argprom.exit ]
+21:                                               ; preds = %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit.thread
+  %type34 = phi ptr [ %type31, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit.thread ], [ %type, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit ]
+  %22 = phi ptr [ @.str.172, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit.thread ], [ %spec.select, %_ZN10glTFCommonL15MemberOrDefaultIN4glTF6Camera4TypeEEET_RN9rapidjson12GenericValueINS5_4UTF8IcEENS5_19MemoryPoolAllocatorINS5_12CrtAllocatorEEEEEPKcS4_.exit ]
   %call3 = call noundef ptr @_ZN10glTFCommon10FindObjectERN9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull %22)
   %tobool.not = icmp eq ptr %call3, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -39992,7 +39992,7 @@ if.then27:                                        ; preds = %if.then25
   %flags.i.i = getelementptr inbounds i8, ptr %call26, i64 14
   %6 = load i16, ptr %flags.i.i, align 2
   %cmp.i.i = icmp eq i16 %6, 3
-  br i1 %cmp.i.i, label %if.end.i, label %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.argprom.exit
+  br i1 %cmp.i.i, label %if.end.i, label %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.exit
 
 if.end.i:                                         ; preds = %if.then27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %n.i.i)
@@ -40069,13 +40069,13 @@ for.inc.i.i.i:                                    ; preds = %_ZNK9rapidjson12Gen
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i: ; preds = %for.inc.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %n.i.i)
-  br label %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.argprom.exit
+  br label %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i: ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i, %if.end.i.i.i.i, %if.end.i
   %member.0.lcssa.i.i.i = phi ptr [ %12, %if.end.i ], [ %member.010.i.i.i, %if.end.i.i.i.i ], [ %member.010.i.i.i, %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE11StringEqualIS5_EEbRKNS0_IS2_T_EE.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %n.i.i)
   %cmp.not.i = icmp eq ptr %member.0.lcssa.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i, label %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.argprom.exit, label %if.then3.i
+  br i1 %cmp.not.i, label %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i
   %value.i = getelementptr inbounds i8, ptr %member.0.lcssa.i.i.i, i64 16
@@ -40085,7 +40085,7 @@ if.then3.i:                                       ; preds = %_ZN9rapidjson12Gene
   %24 = load i32, ptr %value.i, align 8
   %cmp.not.i.i = icmp eq i32 %24, 4
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.not.i.i, i1 false
-  br i1 %or.cond.i.i, label %for.cond.preheader.i.i, label %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.argprom.exit
+  br i1 %or.cond.i.i, label %for.cond.preheader.i.i, label %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.exit
 
 for.cond.preheader.i.i:                           ; preds = %if.then3.i
   %elements.i.i.i.i = getelementptr inbounds i8, ptr %member.0.lcssa.i.i.i, i64 24
@@ -40158,9 +40158,9 @@ _ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAlloca
 for.inc.i.i:                                      ; preds = %_ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE9GetDoubleEv.exit.i.i, %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.argprom.exit, label %for.body.i.i, !llvm.loop !181
+  br i1 %exitcond.not.i.i, label %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.exit, label %for.body.i.i, !llvm.loop !181
 
-_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.argprom.exit: ; preds = %for.inc.i.i, %if.then27, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i, %if.then3.i
+_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.exit: ; preds = %for.inc.i.i, %if.then27, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.thread.i, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE10FindMemberEPKc.exit.i, %if.then3.i
   %call29 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call26, ptr noundef nonnull @.str.184, ptr noundef nonnull align 4 dereferenceable(4) %constantAttenuation.i)
   %call30 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call26, ptr noundef nonnull @.str.185, ptr noundef nonnull align 4 dereferenceable(4) %linearAttenuation.i)
   %call31 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call26, ptr noundef nonnull @.str.186, ptr noundef nonnull align 4 dereferenceable(4) %quadraticAttenuation.i)
@@ -40169,7 +40169,7 @@ _ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_
   %call34 = call fastcc noundef zeroext i1 @_ZN10glTFCommonL10ReadMemberIfEEbRN9rapidjson12GenericValueINS1_4UTF8IcEENS1_19MemoryPoolAllocatorINS1_12CrtAllocatorEEEEEPKcRT_(ptr noundef nonnull align 8 dereferenceable(16) %call26, ptr noundef nonnull @.str.189, ptr noundef nonnull align 4 dereferenceable(4) %falloffExponent.i)
   br label %if.end37
 
-if.end37:                                         ; preds = %if.end22, %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.argprom.exit, %if.then25, %entry
+if.end37:                                         ; preds = %if.end22, %_ZN10glTFCommonL10ReadMemberIA4_fEEbRN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEEPKcRT_.exit, %if.then25, %entry
   ret void
 }
 
@@ -53748,7 +53748,7 @@ if.end53:                                         ; preds = %invoke.cont51, %if.
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %n, i64 104
   %119 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i279 = icmp eq ptr %118, %119
-  br i1 %cmp.i.i.i279, label %_ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4MeshEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_.argprom.exit, label %if.end.i
+  br i1 %cmp.i.i.i279, label %_ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4MeshEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end53
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %119 to i64
@@ -53984,9 +53984,9 @@ invoke.cont13.i:                                  ; preds = %if.then.i.i.i21.i, 
   %inc.i.i.i296 = add i32 %162, 1
   store i32 %inc.i.i.i296, ptr %obj, align 8
   %.pre = load ptr, ptr %mAl54, align 8
-  br label %_ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4MeshEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_.argprom.exit
+  br label %_ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4MeshEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_.exit
 
-_ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4MeshEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_.argprom.exit: ; preds = %if.end53, %invoke.cont13.i
+_ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4MeshEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_.exit: ; preds = %if.end53, %invoke.cont13.i
   %163 = phi ptr [ %117, %if.end53 ], [ %.pre, %invoke.cont13.i ]
   %skeletons = getelementptr inbounds i8, ptr %n, i64 272
   tail call fastcc void @_ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4NodeEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_(ptr noundef nonnull align 8 dereferenceable(16) %obj, ptr noundef nonnull @.str.228, ptr noundef nonnull align 8 dereferenceable(24) %skeletons, ptr noundef nonnull align 8 dereferenceable(40) %163)
@@ -53995,7 +53995,7 @@ _ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4MeshEEEvRN9rapidjson12GenericValueINS3
   %cmp.not.i = icmp eq ptr %164, null
   br i1 %cmp.not.i, label %if.end68, label %_ZNK10glTFCommon3RefIN4glTF4SkinEEcvbEv.exit
 
-_ZNK10glTFCommon3RefIN4glTF4SkinEEcvbEv.exit:     ; preds = %_ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4MeshEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_.argprom.exit
+_ZNK10glTFCommon3RefIN4glTF4SkinEEcvbEv.exit:     ; preds = %_ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4MeshEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_.exit
   %index.i = getelementptr inbounds i8, ptr %n, i64 304
   %165 = load i32, ptr %index.i, align 8
   %conv.i303 = zext i32 %165 to i64
@@ -54080,7 +54080,7 @@ invoke.cont66:                                    ; preds = %if.then.i.i.i333, %
   store i32 %inc.i.i332, ptr %obj, align 8
   br label %if.end68
 
-if.end68:                                         ; preds = %_ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4MeshEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_.argprom.exit, %invoke.cont66, %_ZNK10glTFCommon3RefIN4glTF4SkinEEcvbEv.exit
+if.end68:                                         ; preds = %_ZN4glTF12_GLOBAL__N_113AddRefsVectorINS_4MeshEEEvRN9rapidjson12GenericValueINS3_4UTF8IcEENS3_19MemoryPoolAllocatorINS3_12CrtAllocatorEEEEEPKcRSt6vectorIN10glTFCommon3RefIT_EESaISI_EERS9_.exit, %invoke.cont66, %_ZNK10glTFCommon3RefIN4glTF4SkinEEcvbEv.exit
   %jointName = getelementptr inbounds i8, ptr %n, i64 312
   %call69 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %jointName) #27
   br i1 %call69, label %if.end78, label %if.then70

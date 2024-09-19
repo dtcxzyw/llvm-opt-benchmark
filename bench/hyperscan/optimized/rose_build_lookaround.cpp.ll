@@ -1716,7 +1716,7 @@ invoke.cont3:                                     ; preds = %_ZNSt6vectorISt3map
   %v.coerce0.val = load ptr, ptr %204, align 8, !noalias !79
   %205 = getelementptr i8, ptr %v.coerce0, i64 32
   %v.coerce0.val69 = load i64, ptr %205, align 8, !noalias !82
-  invoke fastcc void @_ZN3ue2L12trimLiteralsERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERSt3mapIiNS_9CharReachESt4lessIiESaISt4pairIKiSC_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr %v.coerce0.val, i64 %v.coerce0.val69, ptr noundef nonnull align 8 dereferenceable(48) %look)
+  invoke fastcc void @_ZN3ue2L12trimLiteralsERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERSt3mapIiNS_9CharReachESt4lessIiESaISt4pairIKiSC_EEE(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr %v.coerce0.val, i64 %v.coerce0.val69, ptr noundef nonnull align 8 dereferenceable(48) %look)
           to label %invoke.cont5 unwind label %lpad.loopexit.split-lp255
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -2522,7 +2522,7 @@ if.then.i.i.i184:                                 ; preds = %invoke.cont41.i
   %sub.ptr.lhs.cast.i.i.i.i160.i = ptrtoint ptr %incdec.ptr.i.i.i.i185 to i64
   %sub.ptr.sub.i.i.i.i161.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i160.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i162.i = ashr exact i64 %sub.ptr.sub.i.i.i.i161.i, 2
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_T2_.argelim(ptr nonnull %pq.sroa.0.1.i, i64 noundef %sub.ptr.div.i.i.i.i162.i, i32 noundef %280, ptr nonnull %look)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_T2_(ptr nonnull %pq.sroa.0.1.i, i64 noundef %sub.ptr.div.i.i.i.i162.i, i32 noundef %280, ptr nonnull %look)
           to label %do.end46.i unwind label %lpad40.loopexit.split-lp.i
 
 do.end46.i:                                       ; preds = %if.then.i.i.i184, %invoke.cont41.i
@@ -2807,7 +2807,7 @@ if.then.i.i236.i:                                 ; preds = %invoke.cont73.i
   %sub.ptr.lhs.cast.i.i.i.i240.i = ptrtoint ptr %incdec.ptr.i.i.i239.i to i64
   %sub.ptr.sub.i.i.i.i241.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i240.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i242.i = ashr exact i64 %sub.ptr.sub.i.i.i.i241.i, 2
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_T2_.argelim(ptr nonnull %pq.sroa.0.1.i, i64 noundef %sub.ptr.div.i.i.i.i242.i, i32 noundef %308, ptr nonnull %look)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_T2_(ptr nonnull %pq.sroa.0.1.i, i64 noundef %sub.ptr.div.i.i.i.i242.i, i32 noundef %308, ptr nonnull %look)
           to label %invoke.cont76.i unwind label %lpad72.loopexit.split-lp.i
 
 invoke.cont76.i:                                  ; preds = %if.then.i.i236.i, %invoke.cont73.i
@@ -3288,7 +3288,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L12trimLiteralsERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERSt3mapIiNS_9CharReachESt4lessIiESaISt4pairIKiSC_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr readonly %v.coerce0.24.val, i64 %v.coerce0.32.val, ptr noundef nonnull align 8 dereferenceable(48) %look) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L12trimLiteralsERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERSt3mapIiNS_9CharReachESt4lessIiESaISt4pairIKiSC_EEE(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr readonly %v.coerce0.24.val, i64 %v.coerce0.32.val, ptr noundef nonnull align 8 dereferenceable(48) %look) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp4.sroa.0.i.i.i.i.i.i = alloca [4 x i64], align 8
   %agg.tmp4.sroa.0.i.i.i.i.i = alloca [4 x i64], align 8
@@ -5333,7 +5333,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %__begin1.sroa.0.036.i = phi ptr [ %incdec.ptr.i.i71, %for.cond.i ], [ %145, %for.body.i.preheader ]
   %v.coerce0.val = load ptr, ptr %147, align 8, !noalias !79
   %v.coerce0.val50 = load i64, ptr %148, align 8, !noalias !82
-  invoke fastcc void @_ZN3ue2L12trimLiteralsERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERSt3mapIiNS_9CharReachESt4lessIiESaISt4pairIKiSC_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %v.coerce0.val, i64 %v.coerce0.val50, ptr noundef nonnull align 8 dereferenceable(48) %__begin1.sroa.0.036.i)
+  invoke fastcc void @_ZN3ue2L12trimLiteralsERKNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERSt3mapIiNS_9CharReachESt4lessIiESaISt4pairIKiSC_EEE(ptr noundef nonnull align 8 dereferenceable(780) %build, ptr %v.coerce0.val, i64 %v.coerce0.val50, ptr noundef nonnull align 8 dereferenceable(48) %__begin1.sroa.0.036.i)
           to label %.noexc unwind label %lpad.loopexit
 
 .noexc:                                           ; preds = %for.body.i
@@ -6382,7 +6382,7 @@ if.then.i.i:                                      ; preds = %while.body
   %sub.ptr.lhs.cast.i.i.i.i133 = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub.i.i.i.i134 = sub i64 %sub.ptr.lhs.cast.i.i.i.i133, %sub.ptr.rhs.cast.i.i.i130
   %sub.ptr.div.i.i.i.i135 = ashr exact i64 %sub.ptr.sub.i.i.i.i134, 2
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_T2_.argelim(ptr nonnull %pq.sroa.0.3, i64 noundef %sub.ptr.div.i.i.i.i135, i32 noundef %37, ptr nonnull %more)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_T2_(ptr nonnull %pq.sroa.0.3, i64 noundef %sub.ptr.div.i.i.i.i135, i32 noundef %37, ptr nonnull %more)
           to label %invoke.cont57 unwind label %ehcleanup82.thread
 
 invoke.cont57:                                    ; preds = %if.then.i.i, %while.body
@@ -10866,7 +10866,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_T2_.argelim(ptr nocapture %__first.coerce, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nonnull readonly %__comp.coerce) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_T2_(ptr nocapture %__first.coerce, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nonnull readonly %__comp.coerce) unnamed_addr #0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -10878,8 +10878,8 @@ while.body.preheader:                             ; preds = %entry
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__comp.coerce, i64 8
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit
-  %__holeIndex.addr.065 = phi i64 [ %spec.select, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit ], [ 0, %while.body.preheader ]
+while.body:                                       ; preds = %while.body.preheader, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit
+  %__holeIndex.addr.065 = phi i64 [ %spec.select, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit ], [ 0, %while.body.preheader ]
   %add = shl i64 %__holeIndex.addr.065, 1
   %mul = add i64 %add, 2
   %add.ptr.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %mul
@@ -10959,15 +10959,15 @@ _ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i: ; pr
 
 if.then.i:                                        ; preds = %_ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i
   %cmp8.i = icmp ult i64 %9, %12
-  br label %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit
+  br label %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit
 
 if.end.i:                                         ; preds = %_ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i
   %13 = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
   %14 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
   %cmp9.i = icmp ult i32 %13, %14
-  br label %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit
+  br label %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit
 
-_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit: ; preds = %if.then.i, %if.end.i
+_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit:   ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i1 [ %cmp8.i, %if.then.i ], [ %cmp9.i, %if.end.i ]
   %spec.select = select i1 %retval.0.i, i64 %sub5, i64 %mul
   %add.ptr.i55 = getelementptr inbounds i32, ptr %__first.coerce, i64 %spec.select
@@ -10977,8 +10977,8 @@ _ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit: ; preds = %if.then.i, %i
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !354
 
-while.end:                                        ; preds = %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ 0, %entry ], [ %spec.select, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit ]
+while.end:                                        ; preds = %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit, %entry
+  %__holeIndex.addr.0.lcssa = phi i64 [ 0, %entry ], [ %spec.select, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit ]
   %and = and i64 %__len, 1
   %cmp18 = icmp eq i64 %and, 0
   br i1 %cmp18, label %land.lhs.true, label %if.end35
@@ -11083,25 +11083,25 @@ _ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i36: ; 
   %28 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %27), !range !103
   %29 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %28)
   %cmp.not.i38 = icmp eq i64 %26, %29
-  br i1 %cmp.not.i38, label %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit46, label %if.then.i39
+  br i1 %cmp.not.i38, label %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit46, label %if.then.i39
 
 if.then.i39:                                      ; preds = %_ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i36
   %cmp8.i40 = icmp ult i64 %26, %29
   br i1 %cmp8.i40, label %while.body.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_RT2_.exit
 
-_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit46: ; preds = %_ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i36
+_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit46: ; preds = %_ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i36
   %30 = tail call i32 @llvm.abs.i32(i32 %18, i1 true)
   %cmp9.i43 = icmp ult i32 %30, %17
   br i1 %cmp9.i43, label %while.body.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_RT2_.exit
 
-while.body.i:                                     ; preds = %if.then.i39, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit46
+while.body.i:                                     ; preds = %if.then.i39, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit46
   %add.ptr.i24.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.033.i
   store i32 %18, ptr %add.ptr.i24.i, align 4
   %cmp.i.not = icmp ult i64 %__parent.034.in.i, 2
   br i1 %cmp.i.not, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_RT2_.exit, label %land.rhs.i, !llvm.loop !104
 
-_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_RT2_.exit: ; preds = %if.then.i39, %while.body.i, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit46, %if.end35
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.033.i, %if.then.i39 ], [ 0, %while.body.i ], [ %__holeIndex.addr.033.i, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.argprom.exit46 ]
+_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_112LookPriorityEEEEvT_T0_SE_T1_RT2_.exit: ; preds = %if.then.i39, %while.body.i, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit46, %if.end35
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.033.i, %if.then.i39 ], [ 0, %while.body.i ], [ %__holeIndex.addr.033.i, %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit46 ]
   %add.ptr.i25.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   store i32 %__value, ptr %add.ptr.i25.i, align 4
   ret void

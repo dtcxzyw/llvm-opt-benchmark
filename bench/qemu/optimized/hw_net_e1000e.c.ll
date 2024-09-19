@@ -1036,7 +1036,7 @@ trace_e1000e_io_read_addr.exit:                   ; preds = %sw.bb, %land.lhs.tr
 sw.bb3:                                           ; preds = %entry
   %8 = getelementptr i8, ptr %opaque, i64 11920
   %opaque.val = load i32, ptr %8, align 16
-  %call = call fastcc zeroext i1 @e1000e_io_get_reg_index.argprom(i32 %opaque.val, ptr noundef %idx)
+  %call = call fastcc zeroext i1 @e1000e_io_get_reg_index(i32 %opaque.val, ptr noundef %idx)
   br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %sw.bb3
@@ -1178,7 +1178,7 @@ trace_e1000e_io_write_addr.exit:                  ; preds = %sw.bb, %land.lhs.tr
 sw.bb1:                                           ; preds = %entry
   %6 = getelementptr i8, ptr %opaque, i64 11920
   %opaque.val = load i32, ptr %6, align 16
-  %call = call fastcc zeroext i1 @e1000e_io_get_reg_index.argprom(i32 %opaque.val, ptr noundef %idx)
+  %call = call fastcc zeroext i1 @e1000e_io_get_reg_index(i32 %opaque.val, ptr noundef %idx)
   br i1 %call, label %if.then, label %return
 
 if.then:                                          ; preds = %sw.bb1
@@ -1264,7 +1264,7 @@ return:                                           ; preds = %sw.bb1, %trace_e100
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @e1000e_io_get_reg_index.argprom(i32 %s.11920.val, ptr nocapture noundef nonnull writeonly %idx) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @e1000e_io_get_reg_index(i32 %s.11920.val, ptr nocapture noundef nonnull writeonly %idx) unnamed_addr #0 {
 entry:
   %_now.i.i21 = alloca %struct.timeval, align 8
   %_now.i.i7 = alloca %struct.timeval, align 8

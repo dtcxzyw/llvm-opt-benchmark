@@ -60,9 +60,9 @@ define void @_ZN5Nbnxm26setICellCoordinatesSimd4xMEiRKN3gmx11BasicVectorIfEEiPKf
 27:                                               ; preds = %15
   %indvars.iv.next5.i = add nuw nsw i64 %indvars.iv4.i, 1
   %exitcond8.not.i = icmp eq i64 %indvars.iv.next5.i, 4
-  br i1 %exitcond8.not.i, label %_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType1EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.argprom.exit, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond8.not.i, label %_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType1EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.exit, label %.preheader.i, !llvm.loop !7
 
-_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType1EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.argprom.exit: ; preds = %27
+_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType1EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.exit: ; preds = %27
   ret void
 }
 
@@ -107,9 +107,9 @@ define void @_ZN5Nbnxm27setICellCoordinatesSimd2xMMEiRKN3gmx11BasicVectorIfEEiPK
   br i1 %exitcond.not.i, label %24, label %12, !llvm.loop !8
 
 24:                                               ; preds = %12
-  br i1 %10, label %.preheader.i, label %_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType2EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.argprom.exit, !llvm.loop !9
+  br i1 %10, label %.preheader.i, label %_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType2EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.exit, !llvm.loop !9
 
-_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType2EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.argprom.exit: ; preds = %24
+_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType2EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.exit: ; preds = %24
   ret void
 }
 

@@ -1726,9 +1726,9 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 31:                                               ; preds = %24
   %32 = trunc nuw i32 %0 to i8
   store i8 %32, ptr %1, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E.exit"
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E.argprom.exit": ; preds = %31, %36, %44, %57
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E.exit": ; preds = %31, %36, %44, %57
   %33 = phi i64 [ 4, %57 ], [ 3, %44 ], [ 2, %36 ], [ 1, %31 ]
   %34 = insertvalue { ptr, i64 } poison, ptr %1, 0
   %35 = insertvalue { ptr, i64 } %34, i64 %33, 1
@@ -1745,7 +1745,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
   %42 = getelementptr inbounds i8, ptr %1, i64 1
   %43 = or disjoint i8 %41, -128
   store i8 %43, ptr %42, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E.exit"
 
 44:                                               ; preds = %27
   %45 = lshr i32 %0, 12
@@ -1763,7 +1763,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
   %55 = getelementptr inbounds i8, ptr %1, i64 2
   %56 = or disjoint i8 %54, -128
   store i8 %56, ptr %55, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E.exit"
 
 57:                                               ; preds = %29
   %58 = lshr i32 %0, 18
@@ -1788,7 +1788,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
   %74 = getelementptr inbounds i8, ptr %1, i64 3
   %75 = or disjoint i8 %73, -128
   store i8 %75, ptr %74, align 1
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E.argprom.exit"
+  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4d3929009b4e866E.exit"
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -3970,11 +3970,11 @@ define hidden void @"_ZN96_$LT$actix_http..encoding..decoder..Decoder$LT$S$GT$$u
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8), !noalias !601
   %59 = load i64, ptr %27, align 8, !range !237, !alias.scope !604, !noalias !601, !noundef !11
   %.not.i.i = icmp eq i64 %59, 6
-  br i1 %.not.i.i, label %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.argprom.exit.thread", label %60
+  br i1 %.not.i.i, label %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.exit.thread", label %60
 
 60:                                               ; preds = %58
   call void @"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17heaf1603fd199a4a6E.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9), !noalias !601
-  br label %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.argprom.exit.thread"
+  br label %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.exit.thread"
 
 61:                                               ; preds = %.thread10.i
   %62 = landingpad { ptr, i32 }
@@ -3985,11 +3985,11 @@ define hidden void @"_ZN96_$LT$actix_http..encoding..decoder..Decoder$LT$S$GT$$u
 63:                                               ; preds = %.thread10.i
   %64 = load i64, ptr %27, align 8, !range !237, !noundef !11
   %.not.i = icmp eq i64 %64, 6
-  br i1 %.not.i, label %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.argprom.exit", label %65
+  br i1 %.not.i, label %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.exit", label %65
 
 65:                                               ; preds = %63
   store i8 0, ptr %8, align 1, !noalias !601
-  br label %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.argprom.exit"
+  br label %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.exit"
 
 66:                                               ; preds = %69, %61
   %67 = landingpad { ptr, i32 }
@@ -4011,11 +4011,11 @@ common.resume:                                    ; preds = %133, %199, %105, %1
   invoke void @"_ZN4core3ptr245drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17heaf1603fd199a4a6E.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9)
           to label %common.resume unwind label %66, !noalias !601
 
-"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.argprom.exit.thread": ; preds = %58, %60
+"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.exit.thread": ; preds = %58, %60
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !601
   br label %.loopexit
 
-"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.argprom.exit": ; preds = %63, %65
+"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.exit": ; preds = %63, %65
   %.sroa.0170.sroa.0.0.copyload = load ptr, ptr %9, align 8
   %.sroa.0170.sroa.5.0.copyload = load ptr, ptr %.sroa.0170.sroa.5.0..sroa_idx, align 8
   %.sroa.0170.sroa.6.sroa.0.0.copyload = load i64, ptr %.sroa.0170.sroa.6.0..sroa_idx, align 8
@@ -4034,7 +4034,7 @@ common.resume:                                    ; preds = %133, %199, %105, %1
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %125, label %115
 
-73:                                               ; preds = %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.argprom.exit"
+73:                                               ; preds = %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.exit"
   switch i64 %64, label %89 [
     i64 5, label %74
     i64 4, label %94
@@ -4087,7 +4087,7 @@ common.resume:                                    ; preds = %133, %199, %105, %1
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32, !noalias !619
   unreachable
 
-.loopexit:                                        ; preds = %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.argprom.exit", %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.argprom.exit.thread"
+.loopexit:                                        ; preds = %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.exit", %"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.exit.thread"
   store i8 13, ptr %0, align 8
   br label %112
 
@@ -4141,18 +4141,18 @@ common.resume:                                    ; preds = %133, %199, %105, %1
   %98 = load ptr, ptr %26, align 8, !noundef !11
   store ptr null, ptr %26, align 8
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.argprom.exit", label %100
+  br i1 %99, label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.exit", label %100
 
 100:                                              ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$actix_http..encoding..decoder..ContentDecoder$GT$$GT$17h213feb47f9a3e284E.exit"
   %101 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State21drop_join_handle_fast17h0066b1cf4170cd04E(ptr noundef nonnull align 8 %98)
           to label %.noexc151 unwind label %109
 
 .noexc151:                                        ; preds = %100
-  br i1 %101, label %102, label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.argprom.exit"
+  br i1 %101, label %102, label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.exit"
 
 102:                                              ; preds = %.noexc151
   invoke void @_ZN5tokio7runtime4task3raw7RawTask21drop_join_handle_slow17he65afcee3cce6ad0E(ptr noundef nonnull %98)
-          to label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.argprom.exit" unwind label %109
+          to label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.exit" unwind label %109
 
 103:                                              ; preds = %109, %96
   %.pn = phi { ptr, i32 } [ %110, %109 ], [ %97, %96 ]
@@ -4171,11 +4171,11 @@ common.resume:                                    ; preds = %133, %199, %105, %1
           cleanup
   br label %103
 
-"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.argprom.exit": ; preds = %.noexc151, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$actix_http..encoding..decoder..ContentDecoder$GT$$GT$17h213feb47f9a3e284E.exit", %102
+"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.exit": ; preds = %.noexc151, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$actix_http..encoding..decoder..ContentDecoder$GT$$GT$17h213feb47f9a3e284E.exit", %102
   %.not124 = icmp eq ptr %.sroa.0170.sroa.0.0.copyload, null
   br i1 %.not124, label %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hed795f86e18863ffE.llvm.926505738866763462.exit154", label %111
 
-111:                                              ; preds = %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.argprom.exit"
+111:                                              ; preds = %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.exit"
   %.sroa.437.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.437, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.437.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
   store i8 11, ptr %0, align 8
@@ -4184,7 +4184,7 @@ common.resume:                                    ; preds = %133, %199, %105, %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   br label %112
 
-"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hed795f86e18863ffE.llvm.926505738866763462.exit154": ; preds = %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.argprom.exit"
+"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hed795f86e18863ffE.llvm.926505738866763462.exit154": ; preds = %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.exit"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   br label %70
 
@@ -4421,18 +4421,18 @@ _ZN5tokio7runtime6handle6Handle14spawn_blocking17hd05846ef4b90bab2E.exit.i: ; pr
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   %.val149 = load ptr, ptr %26, align 8, !noundef !11
   %168 = icmp eq ptr %.val149, null
-  br i1 %168, label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.argprom.exit161", label %169
+  br i1 %168, label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.exit161", label %169
 
 169:                                              ; preds = %167
   %170 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State21drop_join_handle_fast17h0066b1cf4170cd04E(ptr noundef nonnull align 8 %.val149)
           to label %.noexc159 unwind label %172
 
 .noexc159:                                        ; preds = %169
-  br i1 %170, label %171, label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.argprom.exit161"
+  br i1 %170, label %171, label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.exit161"
 
 171:                                              ; preds = %.noexc159
   invoke void @_ZN5tokio7runtime4task3raw7RawTask21drop_join_handle_slow17he65afcee3cce6ad0E(ptr noundef nonnull %.val149)
-          to label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.argprom.exit161" unwind label %172
+          to label %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.exit161" unwind label %172
 
 172:                                              ; preds = %171, %169
   %173 = landingpad { ptr, i32 }
@@ -4440,11 +4440,11 @@ _ZN5tokio7runtime6handle6Handle14spawn_blocking17hd05846ef4b90bab2E.exit.i: ; pr
   store ptr %158, ptr %26, align 8
   br label %common.resume
 
-"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.argprom.exit161": ; preds = %.noexc159, %167, %171
+"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.exit161": ; preds = %.noexc159, %167, %171
   store ptr %158, ptr %26, align 8
   br label %174
 
-174:                                              ; preds = %196, %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.argprom.exit161"
+174:                                              ; preds = %196, %"_ZN4core3ptr250drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..join..JoinHandle$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$GT$$GT$$GT$17h477347cc182f73e4E.exit161"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
   br label %38
@@ -4884,7 +4884,7 @@ _ZN9actix_web5guard4host12get_host_uri17heb7ed4fbc8f5453fE.exit.thread23: ; pred
   %32 = getelementptr inbounds i8, ptr %6, i64 32
   %33 = load i64, ptr %32, align 8, !noundef !11
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit16", label %35
+  br i1 %34, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit16", label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %6, i64 24
@@ -4901,23 +4901,23 @@ _ZN9actix_web5guard4host12get_host_uri17heb7ed4fbc8f5453fE.exit.thread23: ; pred
 41:                                               ; preds = %35
   %42 = extractvalue { ptr, i64 } %38, 0
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit16", label %43
+  br i1 %.not, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit16", label %43
 
 43:                                               ; preds = %41
   %44 = extractvalue { ptr, i64 } %38, 1
   %45 = getelementptr inbounds i8, ptr %0, i64 16
   %.val8 = load i64, ptr %45, align 8, !noundef !11
   %.not.i.i = icmp eq i64 %.val8, %44
-  br i1 %.not.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit16"
+  br i1 %.not.i.i, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit", label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit16"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit": ; preds = %43
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit": ; preds = %43
   %46 = getelementptr inbounds i8, ptr %0, i64 8
   %.val7 = load ptr, ptr %46, align 8, !nonnull !11, !noundef !11
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly %.val7, ptr nonnull readonly %42, i64 %44), !alias.scope !728
   %47 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %47, label %48, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit16"
+  br i1 %47, label %48, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit16"
 
-48:                                               ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
+48:                                               ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
   %49 = getelementptr inbounds i8, ptr %0, i64 24
   %50 = load i64, ptr %49, align 8, !range !122, !noundef !11
   %.not2 = icmp eq i64 %50, -9223372036854775808
@@ -4961,22 +4961,22 @@ _ZN9actix_web5guard4host12get_host_uri17heb7ed4fbc8f5453fE.exit.thread23: ; pred
   %67 = getelementptr inbounds i8, ptr %0, i64 40
   %.val4 = load i64, ptr %67, align 8, !noundef !11
   %.not.i.i13 = icmp eq i64 %.val4, %.sroa.4.0.i
-  br i1 %.not.i.i13, label %68, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit16"
+  br i1 %.not.i.i13, label %68, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit16"
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %69, align 8, !nonnull !11, !noundef !11
   %bcmp.i.i15 = tail call i32 @bcmp(ptr nonnull readonly %.val, ptr nonnull readonly %.sroa.0.0.i11, i64 %.sroa.4.0.i), !alias.scope !736
   %70 = icmp eq i32 %bcmp.i.i15, 0
-  br label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit16"
+  br label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit16"
 
-"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit16": ; preds = %43, %31, %65, %68, %41, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit"
-  %.2 = phi i1 [ false, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit" ], [ false, %41 ], [ %70, %68 ], [ false, %65 ], [ false, %31 ], [ false, %43 ]
+"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit16": ; preds = %43, %31, %65, %68, %41, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit"
+  %.2 = phi i1 [ false, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit" ], [ false, %41 ], [ %70, %68 ], [ false, %65 ], [ false, %31 ], [ false, %43 ]
   call void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17hca68dd1fb874dda3E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %6)
   br label %_ZN9actix_web5guard4host12get_host_uri17heb7ed4fbc8f5453fE.exit.thread
 
-_ZN9actix_web5guard4host12get_host_uri17heb7ed4fbc8f5453fE.exit.thread: ; preds = %_ZN9actix_web5guard4host12get_host_uri17heb7ed4fbc8f5453fE.exit.thread23, %"_ZN4core6option15Option$LT$T$GT$7or_else17h0bdab8a861b33d6eE.exit.i", %20, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit16", %54
-  %.1 = phi i1 [ true, %54 ], [ %.2, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.argprom.exit16" ], [ false, %20 ], [ false, %"_ZN4core6option15Option$LT$T$GT$7or_else17h0bdab8a861b33d6eE.exit.i" ], [ false, %_ZN9actix_web5guard4host12get_host_uri17heb7ed4fbc8f5453fE.exit.thread23 ]
+_ZN9actix_web5guard4host12get_host_uri17heb7ed4fbc8f5453fE.exit.thread: ; preds = %_ZN9actix_web5guard4host12get_host_uri17heb7ed4fbc8f5453fE.exit.thread23, %"_ZN4core6option15Option$LT$T$GT$7or_else17h0bdab8a861b33d6eE.exit.i", %20, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit16", %54
+  %.1 = phi i1 [ true, %54 ], [ %.2, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit16" ], [ false, %20 ], [ false, %"_ZN4core6option15Option$LT$T$GT$7or_else17h0bdab8a861b33d6eE.exit.i" ], [ false, %_ZN9actix_web5guard4host12get_host_uri17heb7ed4fbc8f5453fE.exit.thread23 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6)
   ret i1 %.1
 
@@ -5021,19 +5021,19 @@ define noundef zeroext i1 @"_ZN73_$LT$actix_web..guard..MethodGuard$u20$as$u20$a
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !11
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$14extensions_mut17h2ff0175b1ec47a9bE.argprom.exit", label %22
+  br i1 %21, label %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$14extensions_mut17h2ff0175b1ec47a9bE.exit", label %22
 
 22:                                               ; preds = %2
   tail call void @_ZN4core4cell22panic_already_borrowed17h0863662ba5c47ea0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ec54695499b83b4235ee4a788eb51bba.112) #30
   unreachable
 
-"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$14extensions_mut17h2ff0175b1ec47a9bE.argprom.exit": ; preds = %2
+"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$14extensions_mut17h2ff0175b1ec47a9bE.exit": ; preds = %2
   store i64 -1, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %18, i64 24
   invoke void @_ZN10actix_http10extensions10Extensions6remove17h5715f4b62e34fd18E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 8 dereferenceable(32) %23)
           to label %30 unwind label %24
 
-24:                                               ; preds = %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$14extensions_mut17h2ff0175b1ec47a9bE.argprom.exit"
+24:                                               ; preds = %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$14extensions_mut17h2ff0175b1ec47a9bE.exit"
   %25 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
@@ -5049,7 +5049,7 @@ define noundef zeroext i1 @"_ZN73_$LT$actix_web..guard..MethodGuard$u20$as$u20$a
           cleanup
   br label %26
 
-30:                                               ; preds = %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$14extensions_mut17h2ff0175b1ec47a9bE.argprom.exit"
+30:                                               ; preds = %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$14extensions_mut17h2ff0175b1ec47a9bE.exit"
   %31 = load i64, ptr %19, align 8, !noalias !740, !noundef !11
   %32 = add i64 %31, 1
   store i64 %32, ptr %19, align 8, !noalias !740
@@ -8056,13 +8056,13 @@ define void @"_ZN83_$LT$actix_web..info..ConnectionInfo$u20$as$u20$actix_web..ex
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !11
   %20 = icmp ult i64 %19, 9223372036854775807
-  br i1 %20, label %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.argprom.exit.i", label %21
+  br i1 %20, label %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.exit.i", label %21
 
 21:                                               ; preds = %3
   tail call void @_ZN4core4cell30panic_already_mutably_borrowed17h5e26f9d15722c1e9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ec54695499b83b4235ee4a788eb51bba.111) #30
   unreachable
 
-"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.argprom.exit.i": ; preds = %3
+"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.exit.i": ; preds = %3
   %22 = add nuw nsw i64 %19, 1
   store i64 %22, ptr %18, align 8
   %23 = getelementptr inbounds i8, ptr %17, i64 24
@@ -8074,11 +8074,11 @@ define void @"_ZN83_$LT$actix_web..info..ConnectionInfo$u20$as$u20$actix_web..ex
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h171dc6950b6a209eE.exit.thread.i", label %27
 
-"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h171dc6950b6a209eE.exit.thread.i": ; preds = %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.argprom.exit.i"
+"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h171dc6950b6a209eE.exit.thread.i": ; preds = %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.exit.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %32
 
-27:                                               ; preds = %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.argprom.exit.i"
+27:                                               ; preds = %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.exit.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !1390
   store i64 0, ptr %11, align 8, !noalias !1390
   invoke void @"_ZN73_$LT$actix_http..extensions..NoOpHasher$u20$as$u20$core..hash..Hasher$GT$9write_u6417h97c2561bd83d4dceE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11, i64 noundef -5237042038249084141)
@@ -8171,13 +8171,13 @@ define void @"_ZN83_$LT$actix_web..info..ConnectionInfo$u20$as$u20$actix_web..ex
   %61 = getelementptr inbounds i8, ptr %60, i64 16
   %62 = load i64, ptr %61, align 8, !noundef !11
   %63 = icmp ult i64 %62, 9223372036854775807
-  br i1 %63, label %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.argprom.exit10.i", label %64
+  br i1 %63, label %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.exit10.i", label %64
 
 64:                                               ; preds = %59
   call void @_ZN4core4cell30panic_already_mutably_borrowed17h5e26f9d15722c1e9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ec54695499b83b4235ee4a788eb51bba.111) #30
   unreachable
 
-"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.argprom.exit10.i": ; preds = %59
+"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.exit10.i": ; preds = %59
   %65 = add nuw nsw i64 %62, 1
   store i64 %65, ptr %61, align 8
   %66 = getelementptr inbounds i8, ptr %60, i64 24
@@ -8191,7 +8191,7 @@ define void @"_ZN83_$LT$actix_web..info..ConnectionInfo$u20$as$u20$actix_web..ex
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %83, label %70
 
-70:                                               ; preds = %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.argprom.exit10.i"
+70:                                               ; preds = %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.exit10.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !1430
   store i64 0, ptr %9, align 8, !noalias !1430
   invoke void @"_ZN73_$LT$actix_http..extensions..NoOpHasher$u20$as$u20$core..hash..Hasher$GT$9write_u6417h97c2561bd83d4dceE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9, i64 noundef -5237042038249084141)
@@ -8222,9 +8222,9 @@ define void @"_ZN83_$LT$actix_web..info..ConnectionInfo$u20$as$u20$actix_web..ex
 
 .noexc5.i.i:                                      ; preds = %74
   %82 = icmp eq i128 %81, -63195773579602064920277776721338422509
-  br i1 %82, label %_ZN9actix_web7request11HttpRequest15connection_info17he034cc07d8d51454E.argprom.exit, label %83
+  br i1 %82, label %_ZN9actix_web7request11HttpRequest15connection_info17he034cc07d8d51454E.exit, label %83
 
-83:                                               ; preds = %.noexc5.i.i, %.noexc4.i.i, %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.argprom.exit10.i"
+83:                                               ; preds = %.noexc5.i.i, %.noexc4.i.i, %"_ZN89_$LT$actix_web..request..HttpRequest$u20$as$u20$actix_http..http_message..HttpMessage$GT$10extensions17h5e6be7bdec15e035E.exit10.i"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1423
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ec54695499b83b4235ee4a788eb51bba.110) #30
           to label %.noexc6.i.i unwind label %86
@@ -8262,14 +8262,14 @@ common.resume:                                    ; preds = %common.resume.sink.
   invoke void @"_ZN4core3ptr52drop_in_place$LT$actix_web..info..ConnectionInfo$GT$17h3f597af708c71b8eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %15) #31
           to label %common.resume unwind label %88
 
-_ZN9actix_web7request11HttpRequest15connection_info17he034cc07d8d51454E.argprom.exit: ; preds = %.noexc5.i.i
+_ZN9actix_web7request11HttpRequest15connection_info17he034cc07d8d51454E.exit: ; preds = %.noexc5.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !1423
   call void @llvm.experimental.noalias.scope.decl(metadata !1436)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !1439
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %76)
           to label %.noexc unwind label %116
 
-.noexc:                                           ; preds = %_ZN9actix_web7request11HttpRequest15connection_info17he034cc07d8d51454E.argprom.exit
+.noexc:                                           ; preds = %_ZN9actix_web7request11HttpRequest15connection_info17he034cc07d8d51454E.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1439
   %92 = getelementptr inbounds i8, ptr %76, i64 24
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %92)
@@ -8346,7 +8346,7 @@ _ZN9actix_web7request11HttpRequest15connection_info17he034cc07d8d51454E.argprom.
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #32, !noalias !1441
   unreachable
 
-116:                                              ; preds = %_ZN9actix_web7request11HttpRequest15connection_info17he034cc07d8d51454E.argprom.exit
+116:                                              ; preds = %_ZN9actix_web7request11HttpRequest15connection_info17he034cc07d8d51454E.exit
   %117 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.sink.split
@@ -10126,8 +10126,8 @@ attributes #33 = { nounwind }
 !599 = distinct !{!599, !600, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd69ca6984ea4b8f5E.llvm.926505738866763462: argument 0"}
 !600 = distinct !{!600, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd69ca6984ea4b8f5E.llvm.926505738866763462"}
 !601 = !{!602}
-!602 = distinct !{!602, !603, !"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.argprom: argument 0"}
-!603 = distinct !{!603, !"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE.argprom"}
+!602 = distinct !{!602, !603, !"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE: argument 0"}
+!603 = distinct !{!603, !"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hecd044845da7f00bE"}
 !604 = !{!605}
 !605 = distinct !{!605, !606, !"_ZN4core3ptr275drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17hc8da6689cd492b7dE.llvm.926505738866763462: argument 0"}
 !606 = distinct !{!606, !"_ZN4core3ptr275drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$$LP$core..option..Option$LT$bytes..bytes..Bytes$GT$$C$actix_http..encoding..decoder..ContentDecoder$RP$$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17hc8da6689cd492b7dE.llvm.926505738866763462"}
@@ -10181,8 +10181,8 @@ attributes #33 = { nounwind }
 !654 = !{!652, !646, !653, !643, !640, !644}
 !655 = !{!646, !640}
 !656 = !{!657}
-!657 = distinct !{!657, !658, !"_ZN5tokio7runtime8blocking4pool14spawn_blocking17hd9610e63db391baeE.argprom: argument 0"}
-!658 = distinct !{!658, !"_ZN5tokio7runtime8blocking4pool14spawn_blocking17hd9610e63db391baeE.argprom"}
+!657 = distinct !{!657, !658, !"_ZN5tokio7runtime8blocking4pool14spawn_blocking17hd9610e63db391baeE: argument 0"}
+!658 = distinct !{!658, !"_ZN5tokio7runtime8blocking4pool14spawn_blocking17hd9610e63db391baeE"}
 !659 = !{!660, !662, !664, !666, !657}
 !660 = distinct !{!660, !661, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd2d4940cd357249cE.llvm.11632439649900387884: argument 0"}
 !661 = distinct !{!661, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd2d4940cd357249cE.llvm.11632439649900387884"}
@@ -11001,8 +11001,8 @@ attributes #33 = { nounwind }
 !1474 = !{!1471}
 !1475 = !{!1473}
 !1476 = !{!1477}
-!1477 = distinct !{!1477, !1478, !"_ZN10actix_http2h17payload7Payload11unread_data17ha74bb46b6aa2b18dE.argprom: argument 0"}
-!1478 = distinct !{!1478, !"_ZN10actix_http2h17payload7Payload11unread_data17ha74bb46b6aa2b18dE.argprom"}
+!1477 = distinct !{!1477, !1478, !"_ZN10actix_http2h17payload7Payload11unread_data17ha74bb46b6aa2b18dE: argument 0"}
+!1478 = distinct !{!1478, !"_ZN10actix_http2h17payload7Payload11unread_data17ha74bb46b6aa2b18dE"}
 !1479 = !{!1480, !1482, !1484, !1477}
 !1480 = distinct !{!1480, !1481, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.11632439649900387884: argument 0"}
 !1481 = distinct !{!1481, !"_ZN66_$LT$core..cell..BorrowRefMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17h751d40c4aff73056E.llvm.11632439649900387884"}

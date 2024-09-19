@@ -1953,7 +1953,7 @@ for.end:                                          ; preds = %for.body, %if.then2
   unreachable
 
 if.else275:                                       ; preds = %if.then265
-  tail call fastcc void @list_cmds.retelim(ptr noundef nonnull %scevgep244)
+  tail call fastcc void @list_cmds(ptr noundef nonnull %scevgep244)
   %call277 = tail call i32 @common_exit(ptr noundef nonnull @.str.1, i32 noundef 317, i32 noundef 0) #15
   tail call void @exit(i32 noundef %call277) #17
   unreachable
@@ -2678,7 +2678,7 @@ for.end:                                          ; preds = %for.inc, %for.body.
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @list_cmds.retelim(ptr noundef %spec) unnamed_addr #0 {
+define internal fastcc void @list_cmds(ptr noundef %spec) unnamed_addr #0 {
 entry:
   %list = alloca %struct.string_list, align 8
   %nongit = alloca i32, align 4

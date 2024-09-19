@@ -3757,7 +3757,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueIZN7V3EmitC8emitcImpEvE3$_0EEDaO
 
 .noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %3
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit" unwind label %16, !noalias !26
+          to label %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit" unwind label %16, !noalias !26
 
 16:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -3780,7 +3780,7 @@ common.resume:                                    ; preds = %101, %.body.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %7) #34, !noalias !20
   br label %common.resume
 
-"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
+"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %7, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %15, align 8, !noalias !26
   store ptr %15, ptr %20, align 8, !alias.scope !23, !noalias !20
@@ -3793,7 +3793,7 @@ common.resume:                                    ; preds = %101, %.body.i.i.i.i
   invoke void @_ZNSt13packaged_taskIFvvEE10get_futureEv(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %23 unwind label %35
 
-23:                                               ; preds = %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit"
+23:                                               ; preds = %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit"
   %24 = getelementptr inbounds i8, ptr %1, i64 224
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %24
@@ -3824,7 +3824,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFvvEEEEEvRKSt
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(40) %30)
           to label %_ZNSt6futureIvED2Ev.exit unwind label %37
 
-35:                                               ; preds = %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit"
+35:                                               ; preds = %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit"
   %36 = landingpad { ptr, i32 }
           cleanup
   br label %101
@@ -4122,7 +4122,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueIZN7V3EmitC8emitcImpEvE3$_1EEDaO
 
 .noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %3
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15)
-          to label %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit" unwind label %16, !noalias !41
+          to label %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit" unwind label %16, !noalias !41
 
 16:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -4145,7 +4145,7 @@ common.resume:                                    ; preds = %101, %.body.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %7) #34, !noalias !35
   br label %common.resume
 
-"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
+"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
   %20 = getelementptr inbounds i8, ptr %7, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %15, align 8, !noalias !41
   store ptr %15, ptr %20, align 8, !alias.scope !38, !noalias !35
@@ -4158,7 +4158,7 @@ common.resume:                                    ; preds = %101, %.body.i.i.i.i
   invoke void @_ZNSt13packaged_taskIFvvEE10get_futureEv(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %23 unwind label %35
 
-23:                                               ; preds = %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit"
+23:                                               ; preds = %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit"
   %24 = getelementptr inbounds i8, ptr %1, i64 224
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %24
@@ -4189,7 +4189,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkINS_16_Task_state_baseIFvvEEEEEvRKSt
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(40) %30)
           to label %_ZNSt6futureIvED2Ev.exit unwind label %37
 
-35:                                               ; preds = %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom.exit"
+35:                                               ; preds = %"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.exit"
   %36 = landingpad { ptr, i32 }
           cleanup
   br label %101
@@ -4400,7 +4400,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueIZN7V3EmitC8emitcImpEvE3$_2EEDaO
   %4 = alloca %"class.std::packaged_task", align 8
   %5 = alloca %"class.std::future", align 8
   %6 = alloca %class.VAnyPackagedTask, align 8
-  call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %2)
+  call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %2)
   invoke void @_ZNSt13packaged_taskIFvvEE10get_futureEv(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %7 unwind label %19
 
@@ -4632,7 +4632,7 @@ define internal void @"_ZN12V3ThreadPool7enqueueIZN7V3EmitC8emitcImpEvE3$_3EEDaO
   %4 = alloca %"class.std::packaged_task", align 8
   %5 = alloca %"class.std::future", align 8
   %6 = alloca %class.VAnyPackagedTask, align 8
-  call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %2)
+  call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %2)
   invoke void @_ZNSt13packaged_taskIFvvEE10get_futureEv(ptr dead_on_unwind nonnull writable sret(%"class.std::future") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %7 unwind label %19
 
@@ -7185,7 +7185,7 @@ _ZNSt10shared_ptrINSt13__future_base16_Task_state_baseIFvvEEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33, !noalias !80
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !80
@@ -7208,7 +7208,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
 
 .noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %2
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEEED2Ev.argprom.exit" unwind label %12, !noalias !86
+          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEEED2Ev.exit" unwind label %12, !noalias !86
 
 12:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -7227,7 +7227,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   tail call void @_ZdlPv(ptr noundef nonnull %3) #34, !noalias !80
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i.i
 
-"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEEED2Ev.argprom.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
+"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEEED2Ev.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !86
   store ptr %11, ptr %16, align 8, !alias.scope !83, !noalias !80
@@ -7279,13 +7279,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0S0_FvvEEEEEvRS0_PT_.argprom.exit", label %13
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0S0_FvvEEEEEvRS0_PT_.exit", label %13
 
 13:                                               ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %14 = load ptr, ptr %12, align 8
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0S0_FvvEEEEEvRS0_PT_.argprom.exit" unwind label %16
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0S0_FvvEEEEEvRS0_PT_.exit" unwind label %16
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
@@ -7294,14 +7294,14 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   tail call void @__clang_call_terminate(ptr %18) #35
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0S0_FvvEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0S0_FvvEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
   store ptr null, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES5_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES5_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %0) #34
   ret void
 }
@@ -7632,7 +7632,7 @@ _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEv
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE8_M_resetEv"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.129") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret void
 }
 
@@ -7797,13 +7797,13 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV213_M_set_
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %15, align 8
   %16 = invoke noundef i32 @pthread_once(ptr noundef nonnull %10, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %19
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %19
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit, label %17
 
-17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+17:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %16) #32
           to label %18 unwind label %19
 
@@ -7817,7 +7817,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   store ptr null, ptr %15, align 8
   resume { ptr, i32 } %20
 
-_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+_ZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS0_12_Result_baseENS4_8_DeleterEEvEEPbEJPS1_S9_SA_EEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -7968,7 +7968,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = getelementptr inbounds i8, ptr %4, i64 472
   %12 = load ptr, ptr %11, align 8, !noalias !97
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %12)
-          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i" unwind label %13, !noalias !97
+          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i" unwind label %13, !noalias !97
 
 13:                                               ; preds = %.noexc.i.i.i
   %14 = landingpad { ptr, i32 }
@@ -7977,7 +7977,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   call void @__clang_call_terminate(ptr %15) #35
   unreachable
 
-"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %.noexc.i.i.i
+"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i": ; preds = %.noexc.i.i.i
   %16 = getelementptr inbounds i8, ptr %4, i64 424
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #31, !noalias !97
   %17 = getelementptr inbounds i8, ptr %4, i64 392
@@ -8053,7 +8053,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %32, %_ZNSt15__e
 39:                                               ; preds = %25
   unreachable
 
-"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE6_M_runEvEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
+"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE6_M_runEvEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
   %40 = load ptr, ptr %1, align 8, !noalias !97
   %41 = load i64, ptr %40, align 8, !noalias !97
   %42 = inttoptr i64 %41 to ptr
@@ -53638,13 +53638,13 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV221_M_set_
   %18 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
   store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENUlvE_8__invokeEv, ptr %18, align 8
   %19 = invoke noundef i32 @pthread_once(ptr noundef nonnull %13, ptr noundef nonnull @__once_proxy)
-          to label %_ZL14__gthread_oncePiPFvvE.argprom.exit.i unwind label %22
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %22
 
-_ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %24, label %20
 
-20:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+20:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef %19) #32
           to label %21 unwind label %22
 
@@ -53658,7 +53658,7 @@ _ZL14__gthread_oncePiPFvvE.argprom.exit.i:        ; preds = %3
   store ptr null, ptr %18, align 8
   br label %.body
 
-24:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.argprom.exit.i
+24:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %17, align 8
   store ptr null, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -53806,7 +53806,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = getelementptr inbounds i8, ptr %4, i64 472
   %12 = load ptr, ptr %11, align 8, !noalias !460
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %12)
-          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i" unwind label %13, !noalias !460
+          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i" unwind label %13, !noalias !460
 
 13:                                               ; preds = %.noexc.i.i.i
   %14 = landingpad { ptr, i32 }
@@ -53815,7 +53815,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   call void @__clang_call_terminate(ptr %15) #35
   unreachable
 
-"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %.noexc.i.i.i
+"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i": ; preds = %.noexc.i.i.i
   %16 = getelementptr inbounds i8, ptr %4, i64 424
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #31, !noalias !460
   %17 = getelementptr inbounds i8, ptr %4, i64 392
@@ -53891,7 +53891,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %32, %_ZNSt15__e
 39:                                               ; preds = %25
   unreachable
 
-"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
+"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
   %40 = load ptr, ptr %1, align 8, !noalias !460
   %41 = load i64, ptr %40, align 8, !noalias !460
   %42 = inttoptr i64 %41 to ptr
@@ -54416,7 +54416,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt15future_categoryv()
 declare void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33, !noalias !469
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !469
@@ -54439,7 +54439,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
 
 .noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %2
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEEED2Ev.argprom.exit" unwind label %12, !noalias !475
+          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEEED2Ev.exit" unwind label %12, !noalias !475
 
 12:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -54458,7 +54458,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   tail call void @_ZdlPv(ptr noundef nonnull %3) #34, !noalias !469
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i.i
 
-"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEEED2Ev.argprom.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
+"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEEED2Ev.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !475
   store ptr %11, ptr %16, align 8, !alias.scope !472, !noalias !469
@@ -54510,13 +54510,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1S0_FvvEEEEEvRS0_PT_.argprom.exit", label %13
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1S0_FvvEEEEEvRS0_PT_.exit", label %13
 
 13:                                               ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %14 = load ptr, ptr %12, align 8
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1S0_FvvEEEEEvRS0_PT_.argprom.exit" unwind label %16
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1S0_FvvEEEEEvRS0_PT_.exit" unwind label %16
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
@@ -54525,14 +54525,14 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   tail call void @__clang_call_terminate(ptr %18) #35
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1S0_FvvEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1S0_FvvEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
   store ptr null, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES5_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES5_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %0) #34
   ret void
 }
@@ -54853,7 +54853,7 @@ _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEv
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE8_M_resetEv"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.129") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret void
 }
 
@@ -54880,7 +54880,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = getelementptr inbounds i8, ptr %4, i64 472
   %12 = load ptr, ptr %11, align 8, !noalias !482
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %12)
-          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i" unwind label %13, !noalias !482
+          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i" unwind label %13, !noalias !482
 
 13:                                               ; preds = %.noexc.i.i.i
   %14 = landingpad { ptr, i32 }
@@ -54889,7 +54889,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   call void @__clang_call_terminate(ptr %15) #35
   unreachable
 
-"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %.noexc.i.i.i
+"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i": ; preds = %.noexc.i.i.i
   %16 = getelementptr inbounds i8, ptr %4, i64 424
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #31, !noalias !482
   %17 = getelementptr inbounds i8, ptr %4, i64 392
@@ -54965,7 +54965,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %32, %_ZNSt15__e
 39:                                               ; preds = %25
   unreachable
 
-"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE6_M_runEvEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
+"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE6_M_runEvEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
   %40 = load ptr, ptr %1, align 8, !noalias !482
   %41 = load i64, ptr %40, align 8, !noalias !482
   %42 = inttoptr i64 %41 to ptr
@@ -55022,7 +55022,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = getelementptr inbounds i8, ptr %4, i64 472
   %12 = load ptr, ptr %11, align 8, !noalias !491
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %12)
-          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i" unwind label %13, !noalias !491
+          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i" unwind label %13, !noalias !491
 
 13:                                               ; preds = %.noexc.i.i.i
   %14 = landingpad { ptr, i32 }
@@ -55031,7 +55031,7 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   call void @__clang_call_terminate(ptr %15) #35
   unreachable
 
-"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %.noexc.i.i.i
+"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i": ; preds = %.noexc.i.i.i
   %16 = getelementptr inbounds i8, ptr %4, i64 424
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #31, !noalias !491
   %17 = getelementptr inbounds i8, ptr %4, i64 392
@@ -55107,7 +55107,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %32, %_ZNSt15__e
 39:                                               ; preds = %25
   unreachable
 
-"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
+"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
   %40 = load ptr, ptr %1, align 8, !noalias !491
   %41 = load i64, ptr %40, align 8, !noalias !491
   %42 = inttoptr i64 %41 to ptr
@@ -55142,7 +55142,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33, !noalias !494
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !494
@@ -55165,7 +55165,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
 
 .noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %2
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEEED2Ev.argprom.exit" unwind label %12, !noalias !500
+          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEEED2Ev.exit" unwind label %12, !noalias !500
 
 12:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -55184,7 +55184,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   tail call void @_ZdlPv(ptr noundef nonnull %3) #34, !noalias !494
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i.i
 
-"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEEED2Ev.argprom.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
+"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEEED2Ev.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !500
   store ptr %11, ptr %16, align 8, !alias.scope !497, !noalias !494
@@ -55237,13 +55237,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2S0_FvvEEEEEvRS0_PT_.argprom.exit", label %13
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2S0_FvvEEEEEvRS0_PT_.exit", label %13
 
 13:                                               ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %14 = load ptr, ptr %12, align 8
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2S0_FvvEEEEEvRS0_PT_.argprom.exit" unwind label %16
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2S0_FvvEEEEEvRS0_PT_.exit" unwind label %16
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
@@ -55252,14 +55252,14 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   tail call void @__clang_call_terminate(ptr %18) #35
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2S0_FvvEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2S0_FvvEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
   store ptr null, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEES5_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEES5_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %0) #34
   ret void
 }
@@ -55580,7 +55580,7 @@ _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEv
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE8_M_resetEv"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.129") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_2SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
@@ -55601,9 +55601,9 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = load ptr, ptr %10, align 8, !noalias !507
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %4), !noalias !507
   invoke void @_ZN10EmitCTraceC2EP13AstNodeModulebRSt5dequeIP8AstCFileSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(536) %4, ptr noundef %11, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(80) %.val.val.i.i.i)
-          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i" unwind label %12, !noalias !507
+          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i" unwind label %12, !noalias !507
 
-"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %2
+"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i": ; preds = %2
   call void @_ZN10EmitCTraceD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %4) #31, !noalias !507
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %4), !noalias !507
   br label %"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE6_M_runEvEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
@@ -55675,7 +55675,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %26, %_ZNSt15__e
 33:                                               ; preds = %19
   unreachable
 
-"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE6_M_runEvEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
+"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE6_M_runEvEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
   %34 = load ptr, ptr %1, align 8, !noalias !507
   %35 = load i64, ptr %34, align 8, !noalias !507
   %36 = inttoptr i64 %35 to ptr
@@ -63050,9 +63050,9 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = load ptr, ptr %10, align 8, !noalias !637
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %4), !noalias !637
   invoke void @_ZN10EmitCTraceC2EP13AstNodeModulebRSt5dequeIP8AstCFileSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(536) %4, ptr noundef %11, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(80) %.val.val.i.i.i)
-          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i" unwind label %12, !noalias !637
+          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i" unwind label %12, !noalias !637
 
-"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %2
+"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i": ; preds = %2
   call void @_ZN10EmitCTraceD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %4) #31, !noalias !637
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %4), !noalias !637
   br label %"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
@@ -63124,7 +63124,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %26, %_ZNSt15__e
 33:                                               ; preds = %19
   unreachable
 
-"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
+"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
   %34 = load ptr, ptr %1, align 8, !noalias !637
   %35 = load i64, ptr %34, align 8, !noalias !637
   %36 = inttoptr i64 %35 to ptr
@@ -63159,7 +63159,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #33, !noalias !640
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !640
@@ -63182,7 +63182,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
 
 .noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %2
   invoke void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
-          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEEED2Ev.argprom.exit" unwind label %12, !noalias !646
+          to label %"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEEED2Ev.exit" unwind label %12, !noalias !646
 
 12:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %13 = landingpad { ptr, i32 }
@@ -63201,7 +63201,7 @@ define internal fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImp
   tail call void @_ZdlPv(ptr noundef nonnull %3) #34, !noalias !640
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i.i.i.i.i
 
-"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEEED2Ev.argprom.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
+"_ZNSt10shared_ptrINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEEED2Ev.exit": ; preds = %.noexc.i.i.i.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base7_ResultIvEE, i64 16), ptr %11, align 8, !noalias !646
   store ptr %11, ptr %16, align 8, !alias.scope !643, !noalias !640
@@ -63254,13 +63254,13 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3S0_FvvEEEEEvRS0_PT_.argprom.exit", label %13
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3S0_FvvEEEEEvRS0_PT_.exit", label %13
 
 13:                                               ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i
   %14 = load ptr, ptr %12, align 8
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3S0_FvvEEEEEvRS0_PT_.argprom.exit" unwind label %16
+          to label %"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3S0_FvvEEEEEvRS0_PT_.exit" unwind label %16
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
@@ -63269,14 +63269,14 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
   tail call void @__clang_call_terminate(ptr %18) #35
   unreachable
 
-"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3S0_FvvEEEEEvRS0_PT_.argprom.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
+"_ZNSt16allocator_traitsISaIiEE7destroyINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3S0_FvvEEEEEvRS0_PT_.exit": ; preds = %_ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2Ev.exit.i.i.i.i, %13
   store ptr null, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEES4_LN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv"(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEES5_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit":
+"_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEES5_LN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit":
   tail call void @_ZdlPv(ptr noundef nonnull %0) #34
   ret void
 }
@@ -63597,7 +63597,7 @@ _ZNSt8functionIFSt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEEv
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE8_M_resetEv"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.129") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
-  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  tail call fastcc void @"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_3SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
@@ -63618,9 +63618,9 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = load ptr, ptr %10, align 8, !noalias !653
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %4), !noalias !653
   invoke void @_ZN10EmitCTraceC2EP13AstNodeModulebRSt5dequeIP8AstCFileSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(536) %4, ptr noundef %11, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(80) %.val.val.i.i.i)
-          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i" unwind label %12, !noalias !653
+          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i" unwind label %12, !noalias !653
 
-"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %2
+"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i": ; preds = %2
   call void @_ZN10EmitCTraceD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %4) #31, !noalias !653
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %4), !noalias !653
   br label %"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE6_M_runEvEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
@@ -63692,7 +63692,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %26, %_ZNSt15__e
 33:                                               ; preds = %19
   unreachable
 
-"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE6_M_runEvEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE6_M_runEvENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
+"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE6_M_runEvEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE6_M_runEvENKUlvE_clEv.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
   %34 = load ptr, ptr %1, align 8, !noalias !653
   %35 = load i64, ptr %34, align 8, !noalias !653
   %36 = inttoptr i64 %35 to ptr
@@ -63743,9 +63743,9 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrINSt13__future_ba
   %11 = load ptr, ptr %10, align 8, !noalias !662
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %4), !noalias !662
   invoke void @_ZN10EmitCTraceC2EP13AstNodeModulebRSt5dequeIP8AstCFileSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(536) %4, ptr noundef %11, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(80) %.val.val.i.i.i)
-          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i" unwind label %12, !noalias !662
+          to label %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i" unwind label %12, !noalias !662
 
-"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i": ; preds = %2
+"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i": ; preds = %2
   call void @_ZN10EmitCTraceD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %4) #31, !noalias !662
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %4), !noalias !662
   br label %"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit"
@@ -63817,7 +63817,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i: ; preds = %26, %_ZNSt15__e
 33:                                               ; preds = %19
   unreachable
 
-"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.argprom.argprom.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
+"_ZSt10__invoke_rISt10unique_ptrINSt13__future_base12_Result_baseENS2_8_DeleterEERNS1_12_Task_setterIS0_INS1_7_ResultIvEES3_EZNS1_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS1_13_State_baseV2EEEUlvE_vEEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESM_E4typeEOSN_DpOSO_.exit": ; preds = %"_ZZNSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEENKUlvE_clEv.exit.i.i.i", %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i
   %34 = load ptr, ptr %1, align 8, !noalias !662
   %35 = load i64, ptr %34, align 8, !noalias !662
   %36 = inttoptr i64 %35 to ptr
@@ -64773,11 +64773,11 @@ attributes #37 = { nounwind willreturn memory(none) }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom: argument 0"}
-!19 = distinct !{!19, !"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"}
+!18 = distinct !{!18, !19, !"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_: argument 0"}
+!19 = distinct !{!19, !"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_0SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"}
 !20 = !{!21, !18}
-!21 = distinct !{!21, !22, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom: argument 0"}
-!22 = distinct !{!22, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom"}
+!21 = distinct !{!21, !22, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_: argument 0"}
+!22 = distinct !{!22, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_"}
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: argument 0"}
 !25 = distinct !{!25, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -64788,11 +64788,11 @@ attributes #37 = { nounwind willreturn memory(none) }
 !30 = distinct !{!30, !31, !"_ZSt11make_uniqueIN16VAnyPackagedTask9PTWrapperIFvvEEEJSt13packaged_taskIS2_EEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !31 = distinct !{!31, !"_ZSt11make_uniqueIN16VAnyPackagedTask9PTWrapperIFvvEEEJSt13packaged_taskIS2_EEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom: argument 0"}
-!34 = distinct !{!34, !"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_.argprom"}
+!33 = distinct !{!33, !34, !"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_: argument 0"}
+!34 = distinct !{!34, !"_ZStL19__create_task_stateIFvvEZN7V3EmitC8emitcImpEvE3$_1SaIiEESt10shared_ptrINSt13__future_base16_Task_state_baseIT_EEEOT0_RKT1_"}
 !35 = !{!36, !33}
-!36 = distinct !{!36, !37, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom: argument 0"}
-!37 = distinct !{!37, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom"}
+!36 = distinct !{!36, !37, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_: argument 0"}
+!37 = distinct !{!37, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_"}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: argument 0"}
 !40 = distinct !{!40, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -64836,8 +64836,8 @@ attributes #37 = { nounwind willreturn memory(none) }
 !78 = distinct !{!78, !79, !"_ZNSt5dequeI16VAnyPackagedTaskSaIS0_EE3endEv: argument 0"}
 !79 = distinct !{!79, !"_ZNSt5dequeI16VAnyPackagedTaskSaIS0_EE3endEv"}
 !80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom: argument 0"}
-!82 = distinct !{!82, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom"}
+!81 = distinct !{!81, !82, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_: argument 0"}
+!82 = distinct !{!82, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_0SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_"}
 !83 = !{!84}
 !84 = distinct !{!84, !85, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: argument 0"}
 !85 = distinct !{!85, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -65225,8 +65225,8 @@ attributes #37 = { nounwind willreturn memory(none) }
 !467 = distinct !{!467, !468, !"_ZNKSt10error_code7messageB5cxx11Ev: argument 0"}
 !468 = distinct !{!468, !"_ZNKSt10error_code7messageB5cxx11Ev"}
 !469 = !{!470}
-!470 = distinct !{!470, !471, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom: argument 0"}
-!471 = distinct !{!471, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom"}
+!470 = distinct !{!470, !471, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_: argument 0"}
+!471 = distinct !{!471, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_"}
 !472 = !{!473}
 !473 = distinct !{!473, !474, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: argument 0"}
 !474 = distinct !{!474, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -65250,8 +65250,8 @@ attributes #37 = { nounwind willreturn memory(none) }
 !492 = distinct !{!492, !493, !"_ZNKSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEEUlvE_vEclEv: argument 0"}
 !493 = distinct !{!493, !"_ZNKSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_1SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEEUlvE_vEclEv"}
 !494 = !{!495}
-!495 = distinct !{!495, !496, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom: argument 0"}
-!496 = distinct !{!496, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom"}
+!495 = distinct !{!495, !496, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_: argument 0"}
+!496 = distinct !{!496, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_"}
 !497 = !{!498}
 !498 = distinct !{!498, !499, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: argument 0"}
 !499 = distinct !{!499, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}
@@ -65396,8 +65396,8 @@ attributes #37 = { nounwind willreturn memory(none) }
 !638 = distinct !{!638, !639, !"_ZNKSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEEUlvE_vEclEv: argument 0"}
 !639 = distinct !{!639, !"_ZNKSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateIZN7V3EmitC8emitcImpEvE3$_2SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEEUlvE_vEclEv"}
 !640 = !{!641}
-!641 = distinct !{!641, !642, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom: argument 0"}
-!642 = distinct !{!642, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_.argprom"}
+!641 = distinct !{!641, !642, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_: argument 0"}
+!642 = distinct !{!642, !"_ZSt15allocate_sharedINSt13__future_base11_Task_stateIZN7V3EmitC8emitcImpEvE3$_3SaIiEFvvEEES4_JS3_RKS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEERKT0_DpOT1_"}
 !643 = !{!644}
 !644 = distinct !{!644, !645, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E: argument 0"}
 !645 = distinct !{!645, !"_ZNSt13__future_base18_S_allocate_resultIviEESt10unique_ptrINS_7_ResultIT_EENS_12_Result_base8_DeleterEERKSaIT0_E"}

@@ -814,7 +814,7 @@ $_ZTIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE = comdat any
 @.str.178 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.179 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.180 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
-@"switch.table._ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE.argprom" = private unnamed_addr constant [10 x i64] [i64 1851981824, i64 1851981824, i64 1851981824, i64 1851981824, i64 1851981824, i64 1868759040, i64 1885536256, i64 1851981824, i64 1868759040, i64 1885536256], align 8
+@"switch.table._ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE" = private unnamed_addr constant [10 x i64] [i64 1851981824, i64 1851981824, i64 1851981824, i64 1851981824, i64 1851981824, i64 1868759040, i64 1885536256, i64 1851981824, i64 1868759040, i64 1885536256], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8WasmEdge9Validator11FormChecker5resetEb(ptr nocapture noundef nonnull align 8 dereferenceable(360) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -3372,7 +3372,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
 
 575:                                              ; preds = %573, %571
   %576 = phi ptr [ %572, %571 ], [ %574, %573 ]
-  invoke fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_0clERSt6vectorINS_7ValTypeESaIS8_EERKNS_9BlockTypeE.argprom"(ptr dead_on_unwind noalias writable align 8 %24, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 4 dereferenceable(8) %576)
+  invoke fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_0clERSt6vectorINS_7ValTypeESaIS8_EERKNS_9BlockTypeE"(ptr dead_on_unwind noalias writable align 8 %24, ptr nonnull %1, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 4 dereferenceable(8) %576)
           to label %577 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 577:                                              ; preds = %575
@@ -3538,7 +3538,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
   %652 = load i32, ptr %651, align 4
   %.val959.val = load ptr, ptr %619, align 8
   %.val959.val974 = load ptr, ptr %620, align 8
-  invoke fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %28, ptr %.val959.val, ptr %.val959.val974, i32 noundef %652)
+  invoke fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %28, ptr %.val959.val, ptr %.val959.val974, i32 noundef %652)
           to label %653 unwind label %.loopexit
 
 653:                                              ; preds = %650
@@ -3760,7 +3760,7 @@ thread-pre-split:                                 ; preds = %_ZNSt6vectorIN8Wasm
   %.val975.val = load ptr, ptr %1, align 8
   %780 = getelementptr inbounds i8, ptr %1, i64 8
   %.val975.val984 = load ptr, ptr %780, align 8
-  invoke fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %32, ptr %.val975.val, ptr %.val975.val984, ptr %.sroa.03433.0.copyload, i64 %.sroa.4.0.copyload, ptr %.sroa.0.0.copyload, i64 %.sroa.5.0.copyload)
+  invoke fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias nonnull writable align 4 %32, ptr %.val975.val, ptr %.val975.val984, ptr %.sroa.03433.0.copyload, i64 %.sroa.4.0.copyload, ptr %.sroa.0.0.copyload, i64 %.sroa.5.0.copyload)
           to label %781 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 781:                                              ; preds = %779
@@ -3997,7 +3997,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
   %.val927.val = load ptr, ptr %1, align 8
   %934 = getelementptr inbounds i8, ptr %1, i64 8
   %.val927.val956 = load ptr, ptr %934, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %39, ptr %.val927.val, ptr %.val927.val956, i32 noundef %933, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %39, ptr %.val927.val, ptr %.val927.val956, i32 noundef %933, i8 noundef zeroext 96)
   %935 = load i8, ptr %39, align 8
   %936 = trunc i8 %935 to i1
   %937 = getelementptr inbounds i8, ptr %39, i64 8
@@ -4169,7 +4169,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
   %.val960.val = load ptr, ptr %1012, align 8
   %1013 = getelementptr inbounds i8, ptr %1, i64 320
   %.val960.val973 = load ptr, ptr %1013, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %44, ptr %.val960.val, ptr %.val960.val973, i32 noundef %1011)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %44, ptr %.val960.val, ptr %.val960.val973, i32 noundef %1011)
   %1014 = load i8, ptr %44, align 4
   %1015 = trunc i8 %1014 to i1
   %1016 = getelementptr inbounds i8, ptr %44, i64 4
@@ -4265,7 +4265,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
   %.val961.val = load ptr, ptr %1072, align 8
   %1073 = getelementptr inbounds i8, ptr %1, i64 320
   %.val961.val972 = load ptr, ptr %1073, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %45, ptr %.val961.val, ptr %.val961.val972, i32 noundef %1071)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %45, ptr %.val961.val, ptr %.val961.val972, i32 noundef %1071)
   %1074 = load i8, ptr %45, align 4
   %1075 = trunc i8 %1074 to i1
   br i1 %1075, label %1080, label %1076
@@ -4402,7 +4402,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
   %.val962.val = load ptr, ptr %1158, align 8
   %1159 = getelementptr inbounds i8, ptr %1, i64 320
   %.val962.val971 = load ptr, ptr %1159, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %48, ptr %.val962.val, ptr %.val962.val971, i32 noundef %1157)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %48, ptr %.val962.val, ptr %.val962.val971, i32 noundef %1157)
   %1160 = load i8, ptr %48, align 4
   %1161 = trunc i8 %1160 to i1
   %1162 = getelementptr inbounds i8, ptr %48, i64 4
@@ -4454,7 +4454,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
   %1190 = load i32, ptr %1189, align 4
   %.val963.val = load ptr, ptr %1158, align 8
   %.val963.val970 = load ptr, ptr %1159, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %49, ptr %.val963.val, ptr %.val963.val970, i32 noundef %1190)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %49, ptr %.val963.val, ptr %.val963.val970, i32 noundef %1190)
   %1191 = load i8, ptr %49, align 4
   %1192 = trunc i8 %1191 to i1
   %1193 = load i32, ptr %1177, align 4
@@ -4484,7 +4484,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1244: ; preds = %.loopexit, %.l
   %.val976.val = load ptr, ptr %1, align 8
   %1208 = getelementptr inbounds i8, ptr %1, i64 8
   %.val976.val983 = load ptr, ptr %1208, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr %.val976.val, ptr %.val976.val983, ptr %1171, i64 %.sroa.3.0.i1284, ptr %1201, i64 %.sroa.3.0.i1290)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr %.val976.val, ptr %.val976.val983, ptr %1171, i64 %.sroa.3.0.i1284, ptr %1201, i64 %.sroa.3.0.i1290)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 1209:                                             ; preds = %1194
@@ -4706,7 +4706,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val964.val = load ptr, ptr %1321, align 8
   %1322 = getelementptr inbounds i8, ptr %1, i64 320
   %.val964.val969 = load ptr, ptr %1322, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %53, ptr %.val964.val, ptr %.val964.val969, i32 noundef %1320)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %53, ptr %.val964.val, ptr %.val964.val969, i32 noundef %1320)
   %1323 = load i8, ptr %53, align 4
   %1324 = trunc i8 %1323 to i1
   %1325 = getelementptr inbounds i8, ptr %53, i64 4
@@ -4856,7 +4856,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val965.val = load ptr, ptr %1403, align 8
   %1404 = getelementptr inbounds i8, ptr %1, i64 320
   %.val965.val968 = load ptr, ptr %1404, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %56, ptr %.val965.val, ptr %.val965.val968, i32 noundef %1402)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %56, ptr %.val965.val, ptr %.val965.val968, i32 noundef %1402)
   %1405 = load i8, ptr %56, align 4
   %1406 = trunc i8 %1405 to i1
   %1407 = getelementptr inbounds i8, ptr %56, i64 4
@@ -5186,7 +5186,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val928.val = load ptr, ptr %1, align 8
   %1591 = getelementptr inbounds i8, ptr %1, i64 8
   %.val928.val955 = load ptr, ptr %1591, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %66, ptr %.val928.val, ptr %.val928.val955, i32 noundef %1569, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %66, ptr %.val928.val, ptr %.val928.val955, i32 noundef %1569, i8 noundef zeroext 96)
   %1592 = load i8, ptr %66, align 8
   %1593 = trunc i8 %1592 to i1
   br i1 %1593, label %1594, label %1623
@@ -5304,7 +5304,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %1675 = ashr exact i64 %1674, 3
   %1676 = getelementptr inbounds i8, ptr %1, i64 8
   %.val977.val982 = load ptr, ptr %1676, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %70, ptr %1653, ptr %.val977.val982, ptr %1661, i64 %1667, ptr %1669, i64 %1675)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias nonnull writable align 4 %70, ptr %1653, ptr %.val977.val982, ptr %1661, i64 %1667, ptr %1669, i64 %1675)
   %1677 = load i8, ptr %70, align 4
   %1678 = trunc i8 %1677 to i1
   br i1 %1678, label %1683, label %1679
@@ -5402,7 +5402,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val929.val = load ptr, ptr %1, align 8
   %1724 = getelementptr inbounds i8, ptr %1, i64 8
   %.val929.val954 = load ptr, ptr %1724, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %74, ptr %.val929.val, ptr %.val929.val954, i32 noundef %1702, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %74, ptr %.val929.val, ptr %.val929.val954, i32 noundef %1702, i8 noundef zeroext 96)
   %1725 = load i8, ptr %74, align 8
   %1726 = trunc i8 %1725 to i1
   %1727 = getelementptr inbounds i8, ptr %74, i64 8
@@ -5433,7 +5433,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %1749 = ashr exact i64 %1748, 3
   %.val978.val = load ptr, ptr %1, align 8
   %.val978.val981 = load ptr, ptr %1724, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %75, ptr %.val978.val, ptr %.val978.val981, ptr %1735, i64 %1741, ptr %1743, i64 %1749)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias nonnull writable align 4 %75, ptr %.val978.val, ptr %.val978.val981, ptr %1735, i64 %1741, ptr %1743, i64 %1749)
   %1750 = load i8, ptr %75, align 4
   %1751 = trunc i8 %1750 to i1
   br i1 %1751, label %1756, label %1752
@@ -5510,7 +5510,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val930.val = load ptr, ptr %1, align 8
   %1786 = getelementptr inbounds i8, ptr %1, i64 8
   %.val930.val953 = load ptr, ptr %1786, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %77, ptr %.val930.val, ptr %.val930.val953, i32 noundef %1785, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %77, ptr %.val930.val, ptr %.val930.val953, i32 noundef %1785, i8 noundef zeroext 96)
   %1787 = load i8, ptr %77, align 8
   %1788 = trunc i8 %1787 to i1
   %1789 = getelementptr inbounds i8, ptr %77, i64 8
@@ -5597,7 +5597,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %.val931.val = load ptr, ptr %1, align 8
   %1839 = getelementptr inbounds i8, ptr %1, i64 8
   %.val931.val952 = load ptr, ptr %1839, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %80, ptr %.val931.val, ptr %.val931.val952, i32 noundef %1838, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %80, ptr %.val931.val, ptr %.val931.val952, i32 noundef %1838, i8 noundef zeroext 96)
   %1840 = load i8, ptr %80, align 8
   %1841 = trunc i8 %1840 to i1
   %1842 = getelementptr inbounds i8, ptr %80, i64 8
@@ -5628,7 +5628,7 @@ _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1295: ; preds = %1
   %1864 = ashr exact i64 %1863, 3
   %.val979.val = load ptr, ptr %1, align 8
   %.val979.val980 = load ptr, ptr %1839, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias nonnull writable align 4 %81, ptr %.val979.val, ptr %.val979.val980, ptr %1850, i64 %1856, ptr %1858, i64 %1864)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias nonnull writable align 4 %81, ptr %.val979.val, ptr %.val979.val980, ptr %1850, i64 %1856, ptr %1858, i64 %1864)
   %1865 = load i8, ptr %81, align 4
   %1866 = trunc i8 %1865 to i1
   br i1 %1866, label %1871, label %1867
@@ -6024,7 +6024,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %.val932.val = load ptr, ptr %1, align 8
   %2065 = getelementptr inbounds i8, ptr %1, i64 8
   %.val932.val951 = load ptr, ptr %2065, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %100, ptr %.val932.val, ptr %.val932.val951, i32 noundef %2064, i8 noundef zeroext 95)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %100, ptr %.val932.val, ptr %.val932.val951, i32 noundef %2064, i8 noundef zeroext 95)
   %2066 = load i8, ptr %100, align 8
   %2067 = trunc i8 %2066 to i1
   br i1 %2067, label %2068, label %2134
@@ -6182,7 +6182,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val933.val = load ptr, ptr %1, align 8
   %2140 = getelementptr inbounds i8, ptr %1, i64 8
   %.val933.val950 = load ptr, ptr %2140, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %105, ptr %.val933.val, ptr %.val933.val950, i32 noundef %2139, i8 noundef zeroext 95)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %105, ptr %.val933.val, ptr %.val933.val950, i32 noundef %2139, i8 noundef zeroext 95)
   %2141 = load i8, ptr %105, align 8
   %2142 = trunc i8 %2141 to i1
   br i1 %2142, label %2143, label %2191
@@ -6296,7 +6296,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val934.val = load ptr, ptr %1, align 8
   %2197 = getelementptr inbounds i8, ptr %1, i64 8
   %.val934.val949 = load ptr, ptr %2197, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %112, ptr %.val934.val, ptr %.val934.val949, i32 noundef %2196, i8 noundef zeroext 95)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %112, ptr %.val934.val, ptr %.val934.val949, i32 noundef %2196, i8 noundef zeroext 95)
   %2198 = load i8, ptr %112, align 8
   %2199 = trunc i8 %2198 to i1
   br i1 %2199, label %2200, label %2237
@@ -6381,7 +6381,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val935.val = load ptr, ptr %1, align 8
   %2243 = getelementptr inbounds i8, ptr %1, i64 8
   %.val935.val948 = load ptr, ptr %2243, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %117, ptr %.val935.val, ptr %.val935.val948, i32 noundef %2242, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %117, ptr %.val935.val, ptr %.val935.val948, i32 noundef %2242, i8 noundef zeroext 94)
   %2244 = load i8, ptr %117, align 8
   %2245 = trunc i8 %2244 to i1
   %2246 = getelementptr inbounds i8, ptr %117, i64 8
@@ -6535,7 +6535,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val936.val = load ptr, ptr %1, align 8
   %2322 = getelementptr inbounds i8, ptr %1, i64 8
   %.val936.val947 = load ptr, ptr %2322, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %127, ptr %.val936.val, ptr %.val936.val947, i32 noundef %2321, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %127, ptr %.val936.val, ptr %.val936.val947, i32 noundef %2321, i8 noundef zeroext 94)
   %2323 = load i8, ptr %127, align 8
   %2324 = trunc i8 %2323 to i1
   %2325 = getelementptr inbounds i8, ptr %127, i64 8
@@ -6690,7 +6690,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val937.val = load ptr, ptr %1, align 8
   %2400 = getelementptr inbounds i8, ptr %1, i64 8
   %.val937.val946 = load ptr, ptr %2400, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %135, ptr %.val937.val, ptr %.val937.val946, i32 noundef %2399, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %135, ptr %.val937.val, ptr %.val937.val946, i32 noundef %2399, i8 noundef zeroext 94)
   %2401 = load i8, ptr %135, align 8
   %2402 = trunc i8 %2401 to i1
   %2403 = getelementptr inbounds i8, ptr %135, i64 8
@@ -6884,7 +6884,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val938.val = load ptr, ptr %1, align 8
   %2499 = getelementptr inbounds i8, ptr %1, i64 8
   %.val938.val945 = load ptr, ptr %2499, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %145, ptr %.val938.val, ptr %.val938.val945, i32 noundef %2498, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %145, ptr %.val938.val, ptr %.val938.val945, i32 noundef %2498, i8 noundef zeroext 94)
   %2500 = load i8, ptr %145, align 8
   %2501 = trunc i8 %2500 to i1
   %2502 = getelementptr inbounds i8, ptr %145, i64 8
@@ -6962,7 +6962,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val939.val = load ptr, ptr %1, align 8
   %2532 = getelementptr inbounds i8, ptr %1, i64 8
   %.val939.val944 = load ptr, ptr %2532, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %150, ptr %.val939.val, ptr %.val939.val944, i32 noundef %2531, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %150, ptr %.val939.val, ptr %.val939.val944, i32 noundef %2531, i8 noundef zeroext 94)
   %2533 = load i8, ptr %150, align 8
   %2534 = trunc i8 %2533 to i1
   %2535 = getelementptr inbounds i8, ptr %150, i64 8
@@ -7101,7 +7101,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val940.val = load ptr, ptr %1, align 8
   %2605 = getelementptr inbounds i8, ptr %1, i64 8
   %.val940.val943 = load ptr, ptr %2605, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %158, ptr %.val940.val, ptr %.val940.val943, i32 noundef %2604, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %158, ptr %.val940.val, ptr %.val940.val943, i32 noundef %2604, i8 noundef zeroext 94)
   %2606 = load i8, ptr %158, align 8
   %2607 = trunc i8 %2606 to i1
   %2608 = getelementptr inbounds i8, ptr %158, i64 8
@@ -7129,7 +7129,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %2619 = load i32, ptr %2618, align 4
   %.val941.val = load ptr, ptr %1, align 8
   %.val941.val942 = load ptr, ptr %2605, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %160, ptr %.val941.val, ptr %.val941.val942, i32 noundef %2619, i8 noundef zeroext 94)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %160, ptr %.val941.val, ptr %.val941.val942, i32 noundef %2619, i8 noundef zeroext 94)
   %2620 = load i8, ptr %160, align 8
   %2621 = trunc i8 %2620 to i1
   %2622 = getelementptr inbounds i8, ptr %160, i64 8
@@ -7307,7 +7307,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %2706 = ptrtoint ptr %2702 to i64
   %2707 = sub i64 %2705, %2706
   %2708 = ashr exact i64 %2707, 3
-  %2709 = call fastcc i64 @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE.argprom"(ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(8) %2683)
+  %2709 = call fastcc i64 @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE"(ptr nonnull %1, ptr noundef nonnull align 4 dereferenceable(8) %2683)
   store i64 %2709, ptr %168, align 8
   %2710 = call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %2702, i64 %2708, ptr noundef nonnull align 4 dereferenceable(8) %168, ptr %2702, i64 %2708, ptr noundef nonnull align 4 dereferenceable(8) %2) #25
   br i1 %2710, label %2721, label %2711
@@ -7448,7 +7448,7 @@ _ZN6spdlog5errorIA38_cEEvRKT_.exit:               ; preds = %.noexc1382
   %.val966.val = load ptr, ptr %2772, align 8
   %2773 = getelementptr inbounds i8, ptr %1, i64 320
   %.val966.val967 = load ptr, ptr %2773, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %177, ptr %.val966.val, ptr %.val966.val967, i32 noundef %2771)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias writable align 4 %177, ptr %.val966.val, ptr %.val966.val967, i32 noundef %2771)
   %2774 = load i8, ptr %177, align 4
   %2775 = trunc i8 %2774 to i1
   %2776 = getelementptr inbounds i8, ptr %177, i64 4
@@ -8611,7 +8611,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %3314, align 2
   %3315 = getelementptr inbounds i8, ptr %241, i64 3
   store i8 64, ptr %3315, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %240, i64 1, ptr nonnull %241, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %240, i64 1, ptr nonnull %241, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3316:                                             ; preds = %3
@@ -8631,7 +8631,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %3323, align 2
   %3324 = getelementptr inbounds i8, ptr %243, i64 3
   store i8 64, ptr %3324, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %242, i64 1, ptr nonnull %243, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %242, i64 1, ptr nonnull %243, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3325:                                             ; preds = %3
@@ -8651,7 +8651,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 125, ptr %3332, align 2
   %3333 = getelementptr inbounds i8, ptr %245, i64 3
   store i8 64, ptr %3333, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %244, i64 1, ptr nonnull %245, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %244, i64 1, ptr nonnull %245, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3334:                                             ; preds = %3
@@ -8671,7 +8671,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 124, ptr %3341, align 2
   %3342 = getelementptr inbounds i8, ptr %247, i64 3
   store i8 64, ptr %3342, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %246, i64 1, ptr nonnull %247, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %246, i64 1, ptr nonnull %247, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3343:                                             ; preds = %3, %3
@@ -8691,7 +8691,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %3350, align 2
   %3351 = getelementptr inbounds i8, ptr %249, i64 3
   store i8 64, ptr %3351, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %248, i64 1, ptr nonnull %249, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %248, i64 1, ptr nonnull %249, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3352:                                             ; preds = %3, %3
@@ -8711,7 +8711,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %3359, align 2
   %3360 = getelementptr inbounds i8, ptr %251, i64 3
   store i8 64, ptr %3360, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %250, i64 1, ptr nonnull %251, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %250, i64 1, ptr nonnull %251, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3361:                                             ; preds = %3, %3
@@ -8731,7 +8731,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %3368, align 2
   %3369 = getelementptr inbounds i8, ptr %253, i64 3
   store i8 64, ptr %3369, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %252, i64 1, ptr nonnull %253, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %252, i64 1, ptr nonnull %253, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3370:                                             ; preds = %3, %3
@@ -8751,7 +8751,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %3377, align 2
   %3378 = getelementptr inbounds i8, ptr %255, i64 3
   store i8 64, ptr %3378, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %254, i64 1, ptr nonnull %255, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %254, i64 1, ptr nonnull %255, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3379:                                             ; preds = %3, %3
@@ -8771,7 +8771,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %3386, align 2
   %3387 = getelementptr inbounds i8, ptr %257, i64 3
   store i8 64, ptr %3387, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %256, i64 1, ptr nonnull %257, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %256, i64 1, ptr nonnull %257, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3388:                                             ; preds = %3
@@ -8791,7 +8791,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %3395, align 2
   %3396 = getelementptr inbounds i8, ptr %258, i64 11
   store i8 64, ptr %3396, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %258, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %258, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3397:                                             ; preds = %3
@@ -8811,7 +8811,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %3404, align 2
   %3405 = getelementptr inbounds i8, ptr %259, i64 11
   store i8 64, ptr %3405, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %259, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %259, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3406:                                             ; preds = %3
@@ -8831,7 +8831,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 125, ptr %3413, align 2
   %3414 = getelementptr inbounds i8, ptr %260, i64 11
   store i8 64, ptr %3414, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %260, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %260, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3415:                                             ; preds = %3
@@ -8851,7 +8851,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 124, ptr %3422, align 2
   %3423 = getelementptr inbounds i8, ptr %261, i64 11
   store i8 64, ptr %3423, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %261, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %261, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3424:                                             ; preds = %3
@@ -8871,7 +8871,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %3431, align 2
   %3432 = getelementptr inbounds i8, ptr %262, i64 11
   store i8 64, ptr %3432, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %262, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %262, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3433:                                             ; preds = %3
@@ -8891,7 +8891,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %3440, align 2
   %3441 = getelementptr inbounds i8, ptr %263, i64 11
   store i8 64, ptr %3441, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %263, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %263, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3442:                                             ; preds = %3
@@ -8911,7 +8911,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %3449, align 2
   %3450 = getelementptr inbounds i8, ptr %264, i64 11
   store i8 64, ptr %3450, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %264, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %264, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3451:                                             ; preds = %3
@@ -8931,7 +8931,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %3458, align 2
   %3459 = getelementptr inbounds i8, ptr %265, i64 11
   store i8 64, ptr %3459, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %265, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %265, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3460:                                             ; preds = %3
@@ -8951,7 +8951,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %3467, align 2
   %3468 = getelementptr inbounds i8, ptr %266, i64 11
   store i8 64, ptr %3468, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %266, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %266, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3469:                                             ; preds = %3
@@ -8964,7 +8964,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %3473 = getelementptr inbounds i8, ptr %267, i64 3
   store i8 64, ptr %3473, align 1
   %.val1231.val = load i32, ptr %2, align 16
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i32 %.val1231.val, ptr null, i64 0, ptr nonnull %267, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i32 %.val1231.val, ptr null, i64 0, ptr nonnull %267, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3474:                                             ; preds = %3
@@ -8985,7 +8985,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %3482 = getelementptr inbounds i8, ptr %269, i64 3
   store i8 64, ptr %3482, align 1
   %.val1233.val = load i32, ptr %2, align 16
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i32 %.val1233.val, ptr nonnull %268, i64 1, ptr nonnull %269, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i32 %.val1233.val, ptr nonnull %268, i64 1, ptr nonnull %269, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3483:                                             ; preds = %3
@@ -9100,7 +9100,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %3539 = getelementptr inbounds i8, ptr %277, i64 19
   store i8 64, ptr %3539, align 1
   %.val1235.val = load i32, ptr %2, align 16
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i32 %.val1235.val, ptr nonnull %277, i64 3, ptr null, i64 0)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i32 %.val1235.val, ptr nonnull %277, i64 3, ptr null, i64 0)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3540:                                             ; preds = %3
@@ -10040,7 +10040,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %3961, align 2
   %3962 = getelementptr inbounds i8, ptr %357, i64 3
   store i8 64, ptr %3962, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 128, ptr nonnull %356, i64 1, ptr nonnull %357, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 128, ptr nonnull %356, i64 1, ptr nonnull %357, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3963:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3
@@ -10060,7 +10060,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %3970, align 2
   %3971 = getelementptr inbounds i8, ptr %359, i64 3
   store i8 64, ptr %3971, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %358, i64 1, ptr nonnull %359, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %358, i64 1, ptr nonnull %359, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3972:                                             ; preds = %3
@@ -10080,7 +10080,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %3979, align 2
   %3980 = getelementptr inbounds i8, ptr %361, i64 3
   store i8 64, ptr %3980, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %360, i64 1, ptr nonnull %361, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %360, i64 1, ptr nonnull %361, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3981:                                             ; preds = %3
@@ -10100,7 +10100,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %3988, align 2
   %3989 = getelementptr inbounds i8, ptr %363, i64 3
   store i8 64, ptr %3989, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %362, i64 1, ptr nonnull %363, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %362, i64 1, ptr nonnull %363, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3990:                                             ; preds = %3, %3
@@ -10120,7 +10120,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %3997, align 2
   %3998 = getelementptr inbounds i8, ptr %365, i64 3
   store i8 64, ptr %3998, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %364, i64 1, ptr nonnull %365, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %364, i64 1, ptr nonnull %365, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 3999:                                             ; preds = %3
@@ -10140,7 +10140,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %4006, align 2
   %4007 = getelementptr inbounds i8, ptr %366, i64 11
   store i8 64, ptr %4007, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 128, ptr nonnull %366, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 128, ptr nonnull %366, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4008:                                             ; preds = %3
@@ -10168,7 +10168,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %4019, align 2
   %4020 = getelementptr inbounds i8, ptr %368, i64 3
   store i8 64, ptr %4020, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %367, i64 2, ptr nonnull %368, i64 1, i1 noundef zeroext true)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %367, i64 2, ptr nonnull %368, i64 1, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4021:                                             ; preds = %3
@@ -10196,7 +10196,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %4032, align 2
   %4033 = getelementptr inbounds i8, ptr %370, i64 3
   store i8 64, ptr %4033, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %369, i64 2, ptr nonnull %370, i64 1, i1 noundef zeroext true)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %369, i64 2, ptr nonnull %370, i64 1, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4034:                                             ; preds = %3
@@ -10224,7 +10224,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %4045, align 2
   %4046 = getelementptr inbounds i8, ptr %372, i64 3
   store i8 64, ptr %4046, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %371, i64 2, ptr nonnull %372, i64 1, i1 noundef zeroext true)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %371, i64 2, ptr nonnull %372, i64 1, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4047:                                             ; preds = %3
@@ -10252,7 +10252,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %4058, align 2
   %4059 = getelementptr inbounds i8, ptr %374, i64 3
   store i8 64, ptr %4059, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %373, i64 2, ptr nonnull %374, i64 1, i1 noundef zeroext true)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %373, i64 2, ptr nonnull %374, i64 1, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4060:                                             ; preds = %3
@@ -10272,7 +10272,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %4067, align 2
   %4068 = getelementptr inbounds i8, ptr %375, i64 11
   store i8 64, ptr %4068, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %375, i64 2, ptr null, i64 0, i1 noundef zeroext true)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %375, i64 2, ptr null, i64 0, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4069:                                             ; preds = %3
@@ -10292,7 +10292,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %4076, align 2
   %4077 = getelementptr inbounds i8, ptr %376, i64 11
   store i8 64, ptr %4077, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %376, i64 2, ptr null, i64 0, i1 noundef zeroext true)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %376, i64 2, ptr null, i64 0, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4078:                                             ; preds = %3
@@ -10312,7 +10312,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %4085, align 2
   %4086 = getelementptr inbounds i8, ptr %377, i64 11
   store i8 64, ptr %4086, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %377, i64 2, ptr null, i64 0, i1 noundef zeroext true)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %377, i64 2, ptr null, i64 0, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4087:                                             ; preds = %3
@@ -10332,7 +10332,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 123, ptr %4094, align 2
   %4095 = getelementptr inbounds i8, ptr %378, i64 11
   store i8 64, ptr %4095, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %378, i64 2, ptr null, i64 0, i1 noundef zeroext true)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %378, i64 2, ptr null, i64 0, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4096:                                             ; preds = %3
@@ -10408,7 +10408,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4127, align 1
   %4128 = getelementptr inbounds i8, ptr %2, i64 12
   %.val987.val = load i8, ptr %4128, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val987.val, i32 noundef 16, ptr nonnull %383, i64 1, ptr nonnull %384, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val987.val, i32 noundef 16, ptr nonnull %383, i64 1, ptr nonnull %384, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4129:                                             ; preds = %3
@@ -10438,7 +10438,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4141, align 1
   %4142 = getelementptr inbounds i8, ptr %2, i64 12
   %.val991.val = load i8, ptr %4142, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val991.val, i32 noundef 16, ptr nonnull %385, i64 2, ptr nonnull %386, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val991.val, i32 noundef 16, ptr nonnull %385, i64 2, ptr nonnull %386, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4143:                                             ; preds = %3, %3
@@ -10460,7 +10460,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4151, align 1
   %4152 = getelementptr inbounds i8, ptr %2, i64 12
   %.val995.val = load i8, ptr %4152, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val995.val, i32 noundef 8, ptr nonnull %387, i64 1, ptr nonnull %388, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val995.val, i32 noundef 8, ptr nonnull %387, i64 1, ptr nonnull %388, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4153:                                             ; preds = %3
@@ -10490,7 +10490,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4165, align 1
   %4166 = getelementptr inbounds i8, ptr %2, i64 12
   %.val999.val = load i8, ptr %4166, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val999.val, i32 noundef 8, ptr nonnull %389, i64 2, ptr nonnull %390, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val999.val, i32 noundef 8, ptr nonnull %389, i64 2, ptr nonnull %390, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4167:                                             ; preds = %3
@@ -10512,7 +10512,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4175, align 1
   %4176 = getelementptr inbounds i8, ptr %2, i64 12
   %.val1003.val = load i8, ptr %4176, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1003.val, i32 noundef 4, ptr nonnull %391, i64 1, ptr nonnull %392, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1003.val, i32 noundef 4, ptr nonnull %391, i64 1, ptr nonnull %392, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4177:                                             ; preds = %3
@@ -10542,7 +10542,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4189, align 1
   %4190 = getelementptr inbounds i8, ptr %2, i64 12
   %.val1007.val = load i8, ptr %4190, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1007.val, i32 noundef 4, ptr nonnull %393, i64 2, ptr nonnull %394, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1007.val, i32 noundef 4, ptr nonnull %393, i64 2, ptr nonnull %394, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4191:                                             ; preds = %3
@@ -10564,7 +10564,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4199, align 1
   %4200 = getelementptr inbounds i8, ptr %2, i64 12
   %.val1011.val = load i8, ptr %4200, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1011.val, i32 noundef 2, ptr nonnull %395, i64 1, ptr nonnull %396, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1011.val, i32 noundef 2, ptr nonnull %395, i64 1, ptr nonnull %396, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4201:                                             ; preds = %3
@@ -10594,7 +10594,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4213, align 1
   %4214 = getelementptr inbounds i8, ptr %2, i64 12
   %.val1015.val = load i8, ptr %4214, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1015.val, i32 noundef 2, ptr nonnull %397, i64 2, ptr nonnull %398, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1015.val, i32 noundef 2, ptr nonnull %397, i64 2, ptr nonnull %398, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4215:                                             ; preds = %3
@@ -10616,7 +10616,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4223, align 1
   %4224 = getelementptr inbounds i8, ptr %2, i64 12
   %.val1019.val = load i8, ptr %4224, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1019.val, i32 noundef 4, ptr nonnull %399, i64 1, ptr nonnull %400, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1019.val, i32 noundef 4, ptr nonnull %399, i64 1, ptr nonnull %400, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4225:                                             ; preds = %3
@@ -10646,7 +10646,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4237, align 1
   %4238 = getelementptr inbounds i8, ptr %2, i64 12
   %.val1023.val = load i8, ptr %4238, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1023.val, i32 noundef 4, ptr nonnull %401, i64 2, ptr nonnull %402, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1023.val, i32 noundef 4, ptr nonnull %401, i64 2, ptr nonnull %402, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4239:                                             ; preds = %3
@@ -10668,7 +10668,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4247, align 1
   %4248 = getelementptr inbounds i8, ptr %2, i64 12
   %.val1027.val = load i8, ptr %4248, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1027.val, i32 noundef 2, ptr nonnull %403, i64 1, ptr nonnull %404, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1027.val, i32 noundef 2, ptr nonnull %403, i64 1, ptr nonnull %404, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4249:                                             ; preds = %3
@@ -10698,7 +10698,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 64, ptr %4261, align 1
   %4262 = getelementptr inbounds i8, ptr %2, i64 12
   %.val1031.val = load i8, ptr %4262, align 4
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1031.val, i32 noundef 2, ptr nonnull %405, i64 2, ptr nonnull %406, i64 1)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1031.val, i32 noundef 2, ptr nonnull %405, i64 2, ptr nonnull %406, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4263:                                             ; preds = %3, %3, %3
@@ -11180,7 +11180,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4474, align 2
   %4475 = getelementptr inbounds i8, ptr %436, i64 3
   store i8 64, ptr %4475, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %435, i64 2, ptr nonnull %436, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %435, i64 2, ptr nonnull %436, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4476:                                             ; preds = %3
@@ -11216,7 +11216,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4491, align 2
   %4492 = getelementptr inbounds i8, ptr %438, i64 3
   store i8 64, ptr %4492, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %437, i64 3, ptr nonnull %438, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %437, i64 3, ptr nonnull %438, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4493:                                             ; preds = %3
@@ -11252,7 +11252,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4508, align 2
   %4509 = getelementptr inbounds i8, ptr %440, i64 3
   store i8 64, ptr %4509, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %439, i64 3, ptr nonnull %440, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %439, i64 3, ptr nonnull %440, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4510:                                             ; preds = %3
@@ -11272,7 +11272,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4517, align 2
   %4518 = getelementptr inbounds i8, ptr %442, i64 3
   store i8 64, ptr %4518, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %441, i64 1, ptr nonnull %442, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %441, i64 1, ptr nonnull %442, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4519:                                             ; preds = %3
@@ -11292,7 +11292,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4526, align 2
   %4527 = getelementptr inbounds i8, ptr %444, i64 3
   store i8 64, ptr %4527, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %443, i64 1, ptr nonnull %444, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %443, i64 1, ptr nonnull %444, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4528:                                             ; preds = %3
@@ -11312,7 +11312,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4535, align 2
   %4536 = getelementptr inbounds i8, ptr %446, i64 3
   store i8 64, ptr %4536, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %445, i64 1, ptr nonnull %446, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %445, i64 1, ptr nonnull %446, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4537:                                             ; preds = %3
@@ -11332,7 +11332,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4544, align 2
   %4545 = getelementptr inbounds i8, ptr %448, i64 3
   store i8 64, ptr %4545, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %447, i64 1, ptr nonnull %448, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %447, i64 1, ptr nonnull %448, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4546:                                             ; preds = %3
@@ -11352,7 +11352,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4553, align 2
   %4554 = getelementptr inbounds i8, ptr %450, i64 3
   store i8 64, ptr %4554, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %449, i64 1, ptr nonnull %450, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %449, i64 1, ptr nonnull %450, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4555:                                             ; preds = %3
@@ -11372,7 +11372,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4562, align 2
   %4563 = getelementptr inbounds i8, ptr %452, i64 3
   store i8 64, ptr %4563, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %451, i64 1, ptr nonnull %452, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %451, i64 1, ptr nonnull %452, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4564:                                             ; preds = %3
@@ -11392,7 +11392,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4571, align 2
   %4572 = getelementptr inbounds i8, ptr %454, i64 3
   store i8 64, ptr %4572, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %453, i64 1, ptr nonnull %454, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %453, i64 1, ptr nonnull %454, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4573:                                             ; preds = %3
@@ -11412,7 +11412,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4580, align 2
   %4581 = getelementptr inbounds i8, ptr %455, i64 11
   store i8 64, ptr %4581, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %455, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %455, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4582:                                             ; preds = %3
@@ -11432,7 +11432,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4589, align 2
   %4590 = getelementptr inbounds i8, ptr %456, i64 11
   store i8 64, ptr %4590, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %456, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %456, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4591:                                             ; preds = %3
@@ -11452,7 +11452,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4598, align 2
   %4599 = getelementptr inbounds i8, ptr %457, i64 11
   store i8 64, ptr %4599, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %457, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %457, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4600:                                             ; preds = %3
@@ -11472,7 +11472,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4607, align 2
   %4608 = getelementptr inbounds i8, ptr %458, i64 11
   store i8 64, ptr %4608, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %458, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %458, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4609:                                             ; preds = %3
@@ -11492,7 +11492,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4616, align 2
   %4617 = getelementptr inbounds i8, ptr %459, i64 11
   store i8 64, ptr %4617, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %459, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %459, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4618:                                             ; preds = %3
@@ -11512,7 +11512,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4625, align 2
   %4626 = getelementptr inbounds i8, ptr %460, i64 11
   store i8 64, ptr %4626, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %460, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %460, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4627:                                             ; preds = %3
@@ -11532,7 +11532,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4634, align 2
   %4635 = getelementptr inbounds i8, ptr %461, i64 11
   store i8 64, ptr %4635, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %461, i64 2, ptr null, i64 0, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %461, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4636:                                             ; preds = %3
@@ -11560,7 +11560,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4647, align 2
   %4648 = getelementptr inbounds i8, ptr %463, i64 3
   store i8 64, ptr %4648, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %462, i64 2, ptr nonnull %463, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %462, i64 2, ptr nonnull %463, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4649:                                             ; preds = %3
@@ -11588,7 +11588,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4660, align 2
   %4661 = getelementptr inbounds i8, ptr %465, i64 3
   store i8 64, ptr %4661, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %464, i64 2, ptr nonnull %465, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %464, i64 2, ptr nonnull %465, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4662:                                             ; preds = %3
@@ -11616,7 +11616,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4673, align 2
   %4674 = getelementptr inbounds i8, ptr %467, i64 3
   store i8 64, ptr %4674, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %466, i64 2, ptr nonnull %467, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %466, i64 2, ptr nonnull %467, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4675:                                             ; preds = %3
@@ -11644,7 +11644,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4686, align 2
   %4687 = getelementptr inbounds i8, ptr %469, i64 3
   store i8 64, ptr %4687, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %468, i64 2, ptr nonnull %469, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %468, i64 2, ptr nonnull %469, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4688:                                             ; preds = %3
@@ -11672,7 +11672,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4699, align 2
   %4700 = getelementptr inbounds i8, ptr %471, i64 3
   store i8 64, ptr %4700, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %470, i64 2, ptr nonnull %471, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %470, i64 2, ptr nonnull %471, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4701:                                             ; preds = %3
@@ -11700,7 +11700,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4712, align 2
   %4713 = getelementptr inbounds i8, ptr %473, i64 3
   store i8 64, ptr %4713, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %472, i64 2, ptr nonnull %473, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %472, i64 2, ptr nonnull %473, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4714:                                             ; preds = %3
@@ -11728,7 +11728,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4725, align 2
   %4726 = getelementptr inbounds i8, ptr %475, i64 3
   store i8 64, ptr %4726, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %474, i64 2, ptr nonnull %475, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %474, i64 2, ptr nonnull %475, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4727:                                             ; preds = %3
@@ -11756,7 +11756,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4738, align 2
   %4739 = getelementptr inbounds i8, ptr %477, i64 3
   store i8 64, ptr %4739, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %476, i64 2, ptr nonnull %477, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %476, i64 2, ptr nonnull %477, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4740:                                             ; preds = %3
@@ -11784,7 +11784,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4751, align 2
   %4752 = getelementptr inbounds i8, ptr %479, i64 3
   store i8 64, ptr %4752, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %478, i64 2, ptr nonnull %479, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %478, i64 2, ptr nonnull %479, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4753:                                             ; preds = %3
@@ -11812,7 +11812,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4764, align 2
   %4765 = getelementptr inbounds i8, ptr %481, i64 3
   store i8 64, ptr %4765, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %480, i64 2, ptr nonnull %481, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %480, i64 2, ptr nonnull %481, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4766:                                             ; preds = %3
@@ -11840,7 +11840,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4777, align 2
   %4778 = getelementptr inbounds i8, ptr %483, i64 3
   store i8 64, ptr %4778, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %482, i64 2, ptr nonnull %483, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %482, i64 2, ptr nonnull %483, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4779:                                             ; preds = %3
@@ -11868,7 +11868,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4790, align 2
   %4791 = getelementptr inbounds i8, ptr %485, i64 3
   store i8 64, ptr %4791, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %484, i64 2, ptr nonnull %485, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %484, i64 2, ptr nonnull %485, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4792:                                             ; preds = %3
@@ -11896,7 +11896,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4803, align 2
   %4804 = getelementptr inbounds i8, ptr %487, i64 3
   store i8 64, ptr %4804, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %486, i64 2, ptr nonnull %487, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %486, i64 2, ptr nonnull %487, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4805:                                             ; preds = %3
@@ -11924,7 +11924,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4816, align 2
   %4817 = getelementptr inbounds i8, ptr %489, i64 3
   store i8 64, ptr %4817, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %488, i64 2, ptr nonnull %489, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %488, i64 2, ptr nonnull %489, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4818:                                             ; preds = %3
@@ -11952,7 +11952,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4829, align 2
   %4830 = getelementptr inbounds i8, ptr %491, i64 3
   store i8 64, ptr %4830, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %490, i64 2, ptr nonnull %491, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %490, i64 2, ptr nonnull %491, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4831:                                             ; preds = %3
@@ -11980,7 +11980,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4842, align 2
   %4843 = getelementptr inbounds i8, ptr %493, i64 3
   store i8 64, ptr %4843, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %492, i64 2, ptr nonnull %493, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %492, i64 2, ptr nonnull %493, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4844:                                             ; preds = %3
@@ -12008,7 +12008,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4855, align 2
   %4856 = getelementptr inbounds i8, ptr %495, i64 3
   store i8 64, ptr %4856, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %494, i64 2, ptr nonnull %495, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %494, i64 2, ptr nonnull %495, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4857:                                             ; preds = %3
@@ -12036,7 +12036,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4868, align 2
   %4869 = getelementptr inbounds i8, ptr %497, i64 3
   store i8 64, ptr %4869, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %496, i64 2, ptr nonnull %497, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %496, i64 2, ptr nonnull %497, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4870:                                             ; preds = %3
@@ -12064,7 +12064,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4881, align 2
   %4882 = getelementptr inbounds i8, ptr %499, i64 3
   store i8 64, ptr %4882, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %498, i64 2, ptr nonnull %499, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %498, i64 2, ptr nonnull %499, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4883:                                             ; preds = %3
@@ -12092,7 +12092,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4894, align 2
   %4895 = getelementptr inbounds i8, ptr %501, i64 3
   store i8 64, ptr %4895, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %500, i64 2, ptr nonnull %501, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %500, i64 2, ptr nonnull %501, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4896:                                             ; preds = %3
@@ -12120,7 +12120,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4907, align 2
   %4908 = getelementptr inbounds i8, ptr %503, i64 3
   store i8 64, ptr %4908, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %502, i64 2, ptr nonnull %503, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %502, i64 2, ptr nonnull %503, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4909:                                             ; preds = %3
@@ -12148,7 +12148,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4920, align 2
   %4921 = getelementptr inbounds i8, ptr %505, i64 3
   store i8 64, ptr %4921, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %504, i64 2, ptr nonnull %505, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %504, i64 2, ptr nonnull %505, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4922:                                             ; preds = %3
@@ -12176,7 +12176,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4933, align 2
   %4934 = getelementptr inbounds i8, ptr %507, i64 3
   store i8 64, ptr %4934, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %506, i64 2, ptr nonnull %507, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %506, i64 2, ptr nonnull %507, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4935:                                             ; preds = %3
@@ -12204,7 +12204,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4946, align 2
   %4947 = getelementptr inbounds i8, ptr %509, i64 3
   store i8 64, ptr %4947, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %508, i64 2, ptr nonnull %509, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %508, i64 2, ptr nonnull %509, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4948:                                             ; preds = %3
@@ -12232,7 +12232,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %4959, align 2
   %4960 = getelementptr inbounds i8, ptr %511, i64 3
   store i8 64, ptr %4960, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %510, i64 2, ptr nonnull %511, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %510, i64 2, ptr nonnull %511, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4961:                                             ; preds = %3
@@ -12260,7 +12260,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4972, align 2
   %4973 = getelementptr inbounds i8, ptr %513, i64 3
   store i8 64, ptr %4973, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %512, i64 2, ptr nonnull %513, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %512, i64 2, ptr nonnull %513, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4974:                                             ; preds = %3
@@ -12288,7 +12288,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4985, align 2
   %4986 = getelementptr inbounds i8, ptr %515, i64 3
   store i8 64, ptr %4986, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %514, i64 2, ptr nonnull %515, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %514, i64 2, ptr nonnull %515, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 4987:                                             ; preds = %3
@@ -12316,7 +12316,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %4998, align 2
   %4999 = getelementptr inbounds i8, ptr %517, i64 3
   store i8 64, ptr %4999, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %516, i64 2, ptr nonnull %517, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %516, i64 2, ptr nonnull %517, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5000:                                             ; preds = %3
@@ -12344,7 +12344,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %5011, align 2
   %5012 = getelementptr inbounds i8, ptr %519, i64 3
   store i8 64, ptr %5012, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %518, i64 2, ptr nonnull %519, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %518, i64 2, ptr nonnull %519, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5013:                                             ; preds = %3
@@ -12372,7 +12372,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5024, align 2
   %5025 = getelementptr inbounds i8, ptr %521, i64 3
   store i8 64, ptr %5025, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %520, i64 2, ptr nonnull %521, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %520, i64 2, ptr nonnull %521, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5026:                                             ; preds = %3
@@ -12400,7 +12400,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %5037, align 2
   %5038 = getelementptr inbounds i8, ptr %523, i64 3
   store i8 64, ptr %5038, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %522, i64 2, ptr nonnull %523, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %522, i64 2, ptr nonnull %523, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5039:                                             ; preds = %3
@@ -12428,7 +12428,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %5050, align 2
   %5051 = getelementptr inbounds i8, ptr %525, i64 3
   store i8 64, ptr %5051, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %524, i64 2, ptr nonnull %525, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %524, i64 2, ptr nonnull %525, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5052:                                             ; preds = %3
@@ -12456,7 +12456,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5063, align 2
   %5064 = getelementptr inbounds i8, ptr %527, i64 3
   store i8 64, ptr %5064, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %526, i64 2, ptr nonnull %527, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %526, i64 2, ptr nonnull %527, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5065:                                             ; preds = %3
@@ -12484,7 +12484,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5076, align 2
   %5077 = getelementptr inbounds i8, ptr %529, i64 3
   store i8 64, ptr %5077, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %528, i64 2, ptr nonnull %529, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %528, i64 2, ptr nonnull %529, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5078:                                             ; preds = %3
@@ -12512,7 +12512,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5089, align 2
   %5090 = getelementptr inbounds i8, ptr %531, i64 3
   store i8 64, ptr %5090, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %530, i64 2, ptr nonnull %531, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %530, i64 2, ptr nonnull %531, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5091:                                             ; preds = %3
@@ -12540,7 +12540,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %5102, align 2
   %5103 = getelementptr inbounds i8, ptr %533, i64 3
   store i8 64, ptr %5103, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %532, i64 2, ptr nonnull %533, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %532, i64 2, ptr nonnull %533, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5104:                                             ; preds = %3
@@ -12568,7 +12568,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5115, align 2
   %5116 = getelementptr inbounds i8, ptr %535, i64 3
   store i8 64, ptr %5116, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %534, i64 2, ptr nonnull %535, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %534, i64 2, ptr nonnull %535, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5117:                                             ; preds = %3
@@ -12596,7 +12596,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %5128, align 2
   %5129 = getelementptr inbounds i8, ptr %537, i64 3
   store i8 64, ptr %5129, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %536, i64 2, ptr nonnull %537, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %536, i64 2, ptr nonnull %537, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5130:                                             ; preds = %3
@@ -12624,7 +12624,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %5141, align 2
   %5142 = getelementptr inbounds i8, ptr %539, i64 3
   store i8 64, ptr %5142, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %538, i64 2, ptr nonnull %539, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %538, i64 2, ptr nonnull %539, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5143:                                             ; preds = %3
@@ -12652,7 +12652,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5154, align 2
   %5155 = getelementptr inbounds i8, ptr %541, i64 3
   store i8 64, ptr %5155, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %540, i64 2, ptr nonnull %541, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %540, i64 2, ptr nonnull %541, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5156:                                             ; preds = %3
@@ -12680,7 +12680,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5167, align 2
   %5168 = getelementptr inbounds i8, ptr %543, i64 3
   store i8 64, ptr %5168, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %542, i64 2, ptr nonnull %543, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %542, i64 2, ptr nonnull %543, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5169:                                             ; preds = %3
@@ -12708,7 +12708,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5180, align 2
   %5181 = getelementptr inbounds i8, ptr %545, i64 3
   store i8 64, ptr %5181, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %544, i64 2, ptr nonnull %545, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %544, i64 2, ptr nonnull %545, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5182:                                             ; preds = %3
@@ -12744,7 +12744,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %5197, align 2
   %5198 = getelementptr inbounds i8, ptr %547, i64 3
   store i8 64, ptr %5198, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %546, i64 3, ptr nonnull %547, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %546, i64 3, ptr nonnull %547, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5199:                                             ; preds = %3
@@ -12780,7 +12780,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5214, align 2
   %5215 = getelementptr inbounds i8, ptr %549, i64 3
   store i8 64, ptr %5215, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %548, i64 3, ptr nonnull %549, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %548, i64 3, ptr nonnull %549, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5216:                                             ; preds = %3
@@ -12816,7 +12816,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %5231, align 2
   %5232 = getelementptr inbounds i8, ptr %551, i64 3
   store i8 64, ptr %5232, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %550, i64 3, ptr nonnull %551, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %550, i64 3, ptr nonnull %551, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5233:                                             ; preds = %3
@@ -12852,7 +12852,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 127, ptr %5248, align 2
   %5249 = getelementptr inbounds i8, ptr %553, i64 3
   store i8 64, ptr %5249, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %552, i64 3, ptr nonnull %553, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %552, i64 3, ptr nonnull %553, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5250:                                             ; preds = %3
@@ -12888,7 +12888,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5265, align 2
   %5266 = getelementptr inbounds i8, ptr %555, i64 3
   store i8 64, ptr %5266, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %554, i64 3, ptr nonnull %555, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %554, i64 3, ptr nonnull %555, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5267:                                             ; preds = %3
@@ -12924,7 +12924,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5282, align 2
   %5283 = getelementptr inbounds i8, ptr %557, i64 3
   store i8 64, ptr %5283, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %556, i64 3, ptr nonnull %557, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %556, i64 3, ptr nonnull %557, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5284:                                             ; preds = %3
@@ -12960,7 +12960,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i8 126, ptr %5299, align 2
   %5300 = getelementptr inbounds i8, ptr %559, i64 3
   store i8 64, ptr %5300, align 1
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %558, i64 3, ptr nonnull %559, i64 1, i1 noundef zeroext false)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %558, i64 3, ptr nonnull %559, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1255
 
 5301:                                             ; preds = %3
@@ -13090,7 +13090,7 @@ _ZN8WasmEdge9Validator11FormChecker7popTypeEv.exit: ; preds = %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_0clERSt6vectorINS_7ValTypeESaIS8_EERKNS_9BlockTypeE.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture readonly %.0.val, ptr nocapture readonly %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_0clERSt6vectorINS_7ValTypeESaIS8_EERKNS_9BlockTypeE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture readonly %.0.val, ptr nocapture readonly %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected", align 4
   %5 = alloca %"class.WasmEdge::ValType", align 8
   %6 = alloca %"class.cxx20::expected.158", align 8
@@ -13148,7 +13148,7 @@ define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrER
   %.val.val = load ptr, ptr %.8.val, align 8
   %30 = getelementptr i8, ptr %.8.val, i64 8
   %.val.val10 = load ptr, ptr %30, align 8
-  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val.val, ptr %.val.val10, i32 noundef %29, i8 noundef zeroext 96)
+  call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val.val, ptr %.val.val10, i32 noundef %29, i8 noundef zeroext 96)
   %31 = load i8, ptr %6, align 8
   %32 = trunc i8 %31 to i1
   %33 = getelementptr inbounds i8, ptr %6, i64 8
@@ -13462,7 +13462,7 @@ define internal fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRange
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj.argprom.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr %.0.val.312.val, ptr %.0.val.320.val, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_1clEj"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr %.0.val.312.val, ptr %.0.val.320.val, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.WasmEdge::ErrInfo::InfoForbidIndex", align 4
@@ -14097,7 +14097,7 @@ _ZN5cxx206detail25expected_move_assign_baseIN8WasmEdge9Validator11FormChecker9Ct
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val.0.val, ptr %.0.val.8.val, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_3clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr %.0.val.0.val, ptr %.0.val.8.val, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"struct.spdlog::source_loc", align 8
   %8 = alloca i32, align 4
@@ -14399,7 +14399,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit25: ; preds = %95, %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE.argprom.argprom"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val.0.val, ptr %.0.val.8.val, i32 noundef %1, i8 noundef zeroext range(i8 94, 97) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_4clEjNS_8TypeCodeE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val.0.val, ptr %.0.val.8.val, i32 noundef %1, i8 noundef zeroext range(i8 94, 97) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8
@@ -15297,7 +15297,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit: ; preds = %17, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
-define internal fastcc range(i64 1851981824, 1885536257) i64 @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE.argprom"(ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) unnamed_addr #8 align 2 {
+define internal fastcc range(i64 1851981824, 1885536257) i64 @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE"(ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2
   %3 = load i8, ptr %2, align 2
   %.off.i = add i8 %3, -99
@@ -15323,7 +15323,7 @@ define internal fastcc range(i64 1851981824, 1885536257) i64 @"_ZZN8WasmEdge9Val
 switch.lookup:                                    ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %switch.tableidx = add nsw i8 %5, -106
   %6 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE.argprom", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE", i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %17
 
@@ -15401,7 +15401,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker11StackPopAnyEv(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 8, 129) %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 8, 129) %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, i1 noundef zeroext %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cxx20::expected.119", align 4
   %8 = alloca %"struct.spdlog::source_loc", align 8
   %9 = alloca %"struct.spdlog::source_loc", align 8
@@ -15576,7 +15576,7 @@ _ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev.exit:      ; preds = %_ZNSt6vectorIN8Wasm
   %.val6 = load ptr, ptr %87, align 8
   %88 = getelementptr i8, ptr %.val6, i64 12
   %.val6.val = load i8, ptr %88, align 4
-  tail call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias writable align 4 %0, ptr %.val, i8 %.val6.val, i32 noundef %.zext, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val)
+  tail call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr %.val, i8 %.val6.val, i32 noundef %.zext, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val)
   br label %_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_.exit
 
 89:                                               ; preds = %83
@@ -15618,7 +15618,7 @@ _ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm1844
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture %.0.val, i32 %.8.val.0.val, ptr readonly %1, i64 %2, ptr %3, i64 %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture %.0.val, i32 %.8.val.0.val, ptr readonly %1, i64 %2, ptr %3, i64 %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cxx20::expected.119", align 4
   %7 = alloca %"struct.spdlog::source_loc", align 8
   %8 = alloca %"struct.spdlog::source_loc", align 8
@@ -15693,7 +15693,7 @@ _ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm1844
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_.argprom.argprom"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture %.0.val, i8 %.8.val.12.val, i32 noundef range(i32 1, 17) %1, ptr readonly %2, i64 %3, ptr %.0.val1, i64 %.8.val3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture %.0.val, i8 %.8.val.12.val, i32 noundef range(i32 1, 17) %1, ptr readonly %2, i64 %3, ptr %.0.val1, i64 %.8.val3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected.119", align 4
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"struct.spdlog::source_loc", align 8
